@@ -7,8 +7,8 @@
   "license": "CC-BY-NC-SA-3.0",
   "copyright": "Made by Purka (Discord - purplepigeon580)",
   "states": [
-    {"name": "DamageOverlay_4", "directions": 1},
-    {"name": "DamageOverlay_8", "directions": 1},
-    {"name": "DamageOverlay_12", "directions": 1}
+    {"name": "DamageOverlay_5", "directions": 1},
+    {"name": "DamageOverlay_10", "directions": 1},
+    {"name": "DamageOverlay_20", "directions": 1}
   ]
 }

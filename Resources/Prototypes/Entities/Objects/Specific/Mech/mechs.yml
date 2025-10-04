@@ -42,7 +42,7 @@
       enum.MechUiKey.Key:
         type: MechBoundUserInterface
   - type: MeleeWeapon
-    canWideSwing: false
+    canHeavyAttack: true # WD EDIT: canWideSwing -> canHeavyAttack
     hidden: true
     attackRate: 1.3333
     damage:
@@ -203,6 +203,8 @@
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepClown
+      params:
+        variation: 0.17
   - type: Mech
     baseState: honker
     openState: honker-open
@@ -305,13 +307,16 @@
     baseState: vim
     openState: vim-open
     brokenState: vim-broken
-    maxEquipmentAmount: 0
+    maxEquipmentAmount: 5
     # keep mouse safe
     mechToPilotDamageMultiplier: 0.1
     airtight: true
     pilotWhitelist:
       tags:
       - VimPilot
+    equipmentWhitelist:
+      tags:
+      - CombatMech
   - type: MeleeWeapon
     hidden: true
     attackRate: 1.25
@@ -322,6 +327,9 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.25
     baseSprintSpeed: 3.6
+  - type: Access
+    tags:
+    - Maintenance
   # TOOD: buzz / chime actions
   # TODO: builtin flashlight
 

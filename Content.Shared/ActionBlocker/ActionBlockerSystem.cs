@@ -1,14 +1,10 @@
-using Content.Shared.Bed.Sleep;
 using Content.Shared.Body.Events;
-using Content.Shared.DragDrop;
 using Content.Shared.Emoting;
 using Content.Shared.Hands;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Item;
-using Content.Shared.Mobs;
-using Content.Shared.Mobs.Components;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Events;
 using Content.Shared.Speech;
@@ -20,7 +16,6 @@ using Robust.Shared.Containers;
 // Shitmed Change
 using Content.Shared._Shitmed.Antags.Abductor;
 using Content.Shared.Silicons.StationAi;
-using Content.Shared.Body.Events;
 
 namespace Content.Shared.ActionBlocker
 {
@@ -40,13 +35,15 @@ namespace Content.Shared.ActionBlocker
 
             _complexInteractionQuery = GetEntityQuery<ComplexInteractionComponent>();
 
-            SubscribeLocalEvent<InputMoverComponent, ComponentStartup>(OnMoverStartup);
+            // SubscribeLocalEvent<InputMoverComponent, ComponentStartup>(OnMoverStartup); WD EDIT
         }
 
-        private void OnMoverStartup(EntityUid uid, InputMoverComponent component, ComponentStartup args)
+        // WD EDIT START
+        /*private void OnMoverStartup(EntityUid uid, InputMoverComponent component, ComponentStartup args)
         {
             UpdateCanMove(uid, component);
-        }
+        }*/
+        // WD EDIT END
 
         public bool CanMove(EntityUid uid, InputMoverComponent? component = null)
         {

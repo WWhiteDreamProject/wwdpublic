@@ -62,7 +62,7 @@
           - WallLayer
   - type: WallMount
   - type: Damageable
-    damageContainer: Inorganic
+    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
   - type: Destructible
     thresholds:
@@ -110,6 +110,7 @@
   - type: ActivatableUI
     key: enum.SurveillanceCameraMonitorUiKey.Key
   - type: ActivatableUIRequiresPower
+  - type: ActivatableUIRequiresVision
   - type: UserInterface
     interfaces:
         enum.SurveillanceCameraMonitorUiKey.Key:
@@ -181,6 +182,7 @@
   - type: ActivatableUI
     key: enum.SurveillanceCameraMonitorUiKey.Key
   - type: ActivatableUIRequiresPower
+  - type: ActivatableUIRequiresVision
   - type: UserInterface
     interfaces:
         enum.SurveillanceCameraMonitorUiKey.Key:

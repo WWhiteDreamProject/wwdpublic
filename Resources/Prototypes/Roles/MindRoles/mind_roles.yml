@@ -196,6 +196,17 @@
   - type: MindRole
     antagPrototype: Rev
 
+# Survivors (Wizard)
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleSurvivor
+  name: Survivor Role
+  components:
+  - type: MindRole
+    antagPrototype: Survivor
+    roleType: FreeAgent
+  - type: SurvivorRole
+
 # Thief
 - type: entity
   parent: BaseMindRoleAntag
@@ -239,6 +250,19 @@
     - type: MindRole
       roleType: TeamAntagonist
 
+# Wizards
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleWizard
+  name: Wizard Role
+  #  description: these are all commented out
+  components:
+  - type: MindRole
+    antagPrototype: Wizard
+    exclusiveAntag: true
+    roleType: SoloAntagonist
+  - type: WizardRole
+
 # Zombie Squad
 - type: entity
   parent: BaseMindRoleAntag
@@ -275,3 +299,23 @@
     exclusiveAntag: true
     roleType: SoloAntagonist
   - type: ChangelingRole
+
+# shadowling
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleShadowling
+  name: Shadowling Role
+  components:
+  - type: MindRole
+    antagPrototype: Shadowling
+    exclusiveAntag: true
+    roleType: TeamAntagonist
+  - type: ShadowlingRole
+
+- type: entity
+  parent: MindRoleShadowling
+  id: MindRoleThrall
+  name: Thrall Role
+  components:
+  - type: MindRole
+    antagPrototype: Thrall

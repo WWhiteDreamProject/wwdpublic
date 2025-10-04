@@ -14,5 +14,14 @@
       - material: Cloth
         amount: 3
         doAfter: 5
+  # WD EDIT START
+  - node: mothroachhide
+    edges:
+    - to: plush
+      steps:
+      - material: Cloth
+        amount: 3
+        doAfter: 5
+  # WD EDIT END
   - node: plush
     entity: PlushieMoth

@@ -7,3 +7,5 @@ generic-reagent-effect-tearing-up = Ваши глаза начинают сле�
 generic-reagent-effect-nauseous = Вы чувствуете тошноту.
 generic-reagent-effect-parched = У вас першит в горле.
 generic-reagent-effect-thirsty = Вы чувствуете жажду.
+generic-reagent-effect-sick = You feel sick after consuming that...
+generic-reagent-effect-slicing-insides = You feel an incredibly sharp pain in your gut!

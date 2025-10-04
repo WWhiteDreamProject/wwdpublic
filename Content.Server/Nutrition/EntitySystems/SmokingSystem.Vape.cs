@@ -24,10 +24,10 @@ namespace Content.Server.Nutrition.EntitySystems
     {
         [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
         [Dependency] private readonly DamageableSystem _damageableSystem = default!;
+        [Dependency] private readonly EmagSystem _emag = default!;
         [Dependency] private readonly FoodSystem _foodSystem = default!;
         [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
-        [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
 
         private void InitializeVapes()
         {
@@ -64,7 +64,7 @@ namespace Content.Server.Nutrition.EntitySystems
                 forced = false;
             }
 
-            if (entity.Comp.ExplodeOnUse || HasComp<EmaggedComponent>(entity.Owner))
+            if (entity.Comp.ExplodeOnUse || _emag.CheckFlag(entity, EmagType.Interaction))
             {
                 _explosionSystem.QueueExplosion(entity.Owner, "Default", entity.Comp.ExplosionIntensity, 0.5f, 3, canCreateVacuum: false);
                 EntityManager.DeleteEntity(entity);
@@ -127,7 +127,7 @@ namespace Content.Server.Nutrition.EntitySystems
             || args.Args.Target == null)
                 return;
 
-            var environment = _atmosphereSystem.GetContainingMixture(args.Args.Target.Value, true, true);
+            var environment = _atmos.GetContainingMixture(args.Args.Target.Value, true, true);
             if (environment == null)
             {
                 return;
@@ -139,7 +139,7 @@ namespace Content.Server.Nutrition.EntitySystems
             var merger = new GasMixture(1) { Temperature = args.Solution.Temperature };
             merger.SetMoles(entity.Comp.GasType, args.Solution.Volume.Value / entity.Comp.ReductionFactor);
 
-            _atmosphereSystem.Merge(environment, merger);
+            _atmos.Merge(environment, merger);
 
             args.Solution.RemoveAllSolution();
 
@@ -163,8 +163,15 @@ namespace Content.Server.Nutrition.EntitySystems
                     args.Args.Target.Value);
             }
         }
+
         private void OnEmagged(Entity<VapeComponent> entity, ref GotEmaggedEvent args)
         {
+            if (!_emag.CompareFlag(args.Type, EmagType.Interaction))
+                return;
+
+            if (_emag.CheckFlag(entity, EmagType.Interaction))
+                return;
+
             args.Handled = true;
         }
     }

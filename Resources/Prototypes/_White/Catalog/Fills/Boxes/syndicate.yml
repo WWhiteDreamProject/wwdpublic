@@ -1,0 +1,334 @@
+﻿- type: entity
+  name: suspicious cardboard box
+  suffix: Empty
+  parent: BoxCardboard
+  id: BoxSyndicateKit
+  description: A box full of ... WHAT?!
+  components:
+  - type: Item
+    size: Ginormous
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,5,5
+  - type: Sprite
+    layers:
+    - state: box_of_doom
+    - state: writing_of_doom
+
+- type: entity
+  name: random syndicate kit
+  suffix: Spawner
+  id: RandomSyndicateKitSpawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Objects/Storage/boxes.rsi
+      state: box_of_doom
+  - type: RandomSpawner
+    prototypes:
+    - BoxSyndicateKitRecon
+    - BoxSyndicateKitStealth
+    - BoxSyndicateKitSpy
+    - BoxSyndicateKitMafia
+    - BoxSyndicateKitMurder
+    - BoxSyndicateKitHacker
+    - BoxSyndicateKitGangstaGreen
+    - BoxSyndicateKitGangstaRed
+    - BoxSyndicateKitSlaver
+    - BoxSyndicateKitBond
+    - BoxSyndicateKitAssassin
+    - BoxSyndicateKitGun
+    - BoxSyndicateKitRaider
+    - BoxSyndicateKitExplosives
+    - BoxSyndicateKitImplants
+
+- type: entity
+  parent: BoxSyndicateKit
+  id: BoxSyndicateKitRecon
+  suffix: Syndicate kit, Recon
+  components:
+  - type: StorageFill
+    contents:
+    - id: EncryptionKeySyndie
+    - id: FlashlightEmp
+    - id: EnergyCrossbowMini
+    - id: ClothingEyesThermalVisionGogglesSyndie
+    - id: SyndieMiniBomb
+    - id: ExGrenade
+      amount: 2
+    - id: ExperimentalSyndicateTeleporter
+    - id: ScramImplanter
+    - id: FreedomImplanter
+    - id: ChameleonProjector
+    - id: EnergyDaggerBox
+
+- type: entity
+  parent: BoxSyndicateKit
+  id: BoxSyndicateKitStealth
+  suffix: Syndicate kit, Stealth
+  components:
+  - type: StorageFill
+    contents:
+    - id: EncryptionKeySyndie
+    - id: BowHardlight
+    - id: ClothingEyesNightVisionGogglesSyndie
+    - id: ScramImplanter
+    - id: SoapSyndie
+    - id: ClothingOuterHardsuitCybersunStealth
+
+- type: entity
+  parent: BoxSyndicateKit
+  id: BoxSyndicateKitSpy
+  suffix: Syndicate kit, Spy
+  components:
+  - type: StorageFill
+    contents:
+    - id: EncryptionKeyStationMaster
+    - id: EncryptionKeySyndie
+    - id: AgentIDCard
+    - id: BetrayalDagger
+    - id: StorageImplanter
+    - id: SpyCrewMonitor
+    - id: ClothingShoesChameleonNoSlips
+    - id: ClothingUniformJumpsuitChameleon
+    - id: ClothingOuterChameleon
+    - id: ClothingMaskGasVoiceChameleon
+    - id: WeaponRevolverPythonAP
+    - id: SpeedLoaderMagnumAP
+    - id: CigPackSyndicate
+    - id: MindShieldImplanter
+
+- type: entity
+  parent: BoxSyndicateKit
+  id: BoxSyndicateKitMafia
+  suffix: Syndicate kit, Mafia
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponSubMachineGunTypewriter
+    - id: MagazinePistolSubMachineGun
+      amount: 2
+    - id: WeaponPistolViperWood
+    - id: MagazinePistol
+      amount: 2
+    - id: DrinkWhiskeyBottleFull
+    - id: SpaceCash20000
+    - id: ReinforcementRadioSyndicate
+    - id: MindSlaveImplanter
+    - id: ClothingHeadHatFedoraBlack
+    - id: ClothingHeadHatFlatSyndie
+    - id: BladedFlatcapBrown
+
+- type: entity
+  parent: BoxSyndicateKit
+  id: BoxSyndicateKitMurder
+  suffix: Syndicate kit, Murder
+  components:
+  - type: StorageFill
+    contents:
+    - id: EnergySword
+    - id: EncryptionKeySyndie
+    - id: ClothingShoesChameleonNoSlips
+    - id: SyndieMiniBomb
+    - id: NeuroStabilizationImplanter
+    - id: Stimpack
+      amount: 3
+    - id: AccessBreaker
+    - id: ClothingEyesThermalVisionGogglesSyndie
+    - id: ClothingOuterVestWeb
+
+- type: entity
+  parent: BoxSyndicateKit
+  id: BoxSyndicateKitHacker
+  suffix: Syndicate kit, Hacker
+  components:
+  - type: StorageFill
+    contents:
+    - id: EncryptionKeyBinarySyndicate
+    - id: EncryptionKeySyndie
+    - id: EncryptionKeyStationMaster
+    - id: RadioJammer
+    - id: BorgModuleMartyr
+    - id: BorgModuleSyndicateWeapon
+    - id: ClothingMaskGasVoiceChameleon
+    - id: Emag
+    - id: CyberPen
+    - id: ThievingGloves
+    - id: ClothingOuterCoatJensenFilled
+    - id: ClothingEyesGlassesSunglasses
+    - id: ClothingMaskNeckGaiter
+    - id: AntimovCircuitBoard
+
+- type: entity
+  parent: BoxSyndicateKit
+  id: BoxSyndicateKitGangstaGreen
+  suffix: Syndicate kit, Gangsta, Green
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponPistolViper
+    - id: MagazinePistol
+      amount: 6
+    - id: ClothingHeadBandGreen
+      amount: 3
+    - id: ReinforcementRadioSyndicate
+      amount: 2
+    - id: SprayPaintGreen
+      amount: 2
+    - id: CrayonGreen
+      amount: 2
+    - id: SyringeStimulants
+      amount: 3
+    - id: Joint
+
+- type: entity
+  parent: BoxSyndicateKit
+  id: BoxSyndicateKitGangstaRed
+  suffix: Syndicate kit, Gangsta, Red
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponPistolViper
+    - id: MagazinePistol
+      amount: 6
+    - id: ClothingHeadBandRed
+      amount: 3
+    - id: ReinforcementRadioSyndicate
+      amount: 2
+    - id: SprayPaintRed
+      amount: 2
+    - id: CrayonRed
+      amount: 2
+    - id: SyringeStimulants
+      amount: 3
+    - id: Joint
+
+- type: entity
+  parent: BoxSyndicateKit
+  id: BoxSyndicateKitSlaver
+  suffix: Syndicate kit, Slaver
+  components:
+  - type: StorageFill
+    contents:
+    - id: EncryptionKeySyndie
+    - id: MindSlaveImplanter
+      amount: 3
+    - id: WeaponShotgunSawn
+    - id: BoxLethalshot
+    - id: Machete
+    - id: Handcuffs
+      amount: 3
+    - id: NocturineChemistryBottle
+    - id: NocturineChemistryBottle
+    - id: HypopenBox
+    - id: ClothingMaskMuzzle
+    - id: ClothingEyesBlindfold
+
+- type: entity
+  parent: BoxSyndicateKit
+  id: BoxSyndicateKitBond
+  suffix: Syndicate kit, Bond
+  components:
+  - type: StorageFill
+    contents:
+    - id: EncryptionKeySyndie
+    - id: WeaponPistolCobra
+    - id: MagazinePistolCaselessRifle
+      amount: 3
+    - id: AgentIDCard
+    - id: ClothingShoesChameleonNoSlips
+    - id: FreedomImplanter
+    - id: PenExplodingBox
+    - id: CombatMedipen
+    - id: C4
+    - id: CQCManual
+
+- type: entity
+  parent: BoxSyndicateKit
+  id: BoxSyndicateKitAssassin
+  suffix: Syndicate kit, Assassin
+  components:
+  - type: StorageFill
+    contents:
+    - id: EncryptionKeySyndie
+    - id: SmokeImplanter
+    - id: RadioJammer
+    - id: ThrowingStar
+      amount: 6
+    - id: ThrowingKnife
+      amount: 4
+    - id: SleepingCarpScroll
+    - id: DeathAcidifierImplanter
+
+- type: entity
+  parent: BoxSyndicateKit
+  id: BoxSyndicateKitGun
+  suffix: Syndicate kit, Gun
+  components:
+  - type: StorageFill
+    contents:
+    - id: EncryptionKeySyndie
+    - id: WeaponShotgunBulldog
+    - id: MagazineShotgun
+      amount: 3
+    - id: ClothingOuterVestWeb
+    - id: ClothingMaskClown
+    - id: C4
+    - id: SyndicateJawsOfLife
+
+- type: entity
+  parent: BoxSyndicateKit
+  id: BoxSyndicateKitRaider
+  suffix: Syndicate kit, Raider
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingEyesHudSyndicate
+    - id: ClothingHeadHelmetRaid
+    - id: ClothingMaskGasSyndicate
+    - id: ClothingHeadsetAltSyndicate
+    - id: ClothingOuterArmorRaid
+    - id: ClothingHandsGlovesCombat
+    - id: ClothingShoesBootsCombatFilled
+    - id: WeaponPistolViper
+    - id: MagazinePistol
+
+- type: entity
+  parent: BoxSyndicateKit
+  id: BoxSyndicateKitExplosives
+  suffix: Syndicate kit, Explosives
+  components:
+  - type: StorageFill
+    contents:
+    - id: EncryptionKeySyndie
+    - id: RemoteSignallerAdvanced
+    - id: Multitool
+    - id: ClothingBeltMilitaryWebbingGrenadeFilled
+    - id: C4
+      amount: 8
+    - id: ClusterGrenade
+      amount: 1
+    - id: ClothingEyesGlassesSunglasses
+    - id: MicroBombImplanter
+
+- type: entity
+  parent: BoxSyndicateKit
+  id: BoxSyndicateKitImplants
+  suffix: Syndicate kit, Implants
+  components:
+  - type: StorageFill
+    contents:
+    - id: EncryptionKeySyndie
+    - id: DnaScramblerImplanter
+    - id: HardlightSpearImplanter
+    - id: FreedomImplanter
+    - id: StorageImplanter
+    - id: DeathRattleImplanter
+    - id: DeathAcidifierImplanter
+    - id: NeuroStabilizationImplanter
+    - id: EmpImplanter
+    - id: SmokeImplanter
+    - id: ScramImplanter

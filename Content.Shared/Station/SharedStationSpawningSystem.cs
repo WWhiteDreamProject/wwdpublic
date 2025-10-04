@@ -95,12 +95,12 @@ public abstract class SharedStationSpawningSystem : EntitySystem
         {
             foreach (var slot in slotDefinitions)
             {
-                var equipmentStr = startingGear.GetGear(slot.Name, null);
+                var equipmentStr = startingGear.GetGear(slot.Name);
                 if (string.IsNullOrEmpty(equipmentStr))
                     continue;
 
                 var equipmentEntity = EntityManager.SpawnEntity(equipmentStr, xform.Coordinates);
-                InventorySystem.TryEquip(entity, equipmentEntity, slot.Name, true, force:true);
+                InventorySystem.TryEquip(entity, equipmentEntity, slot.Name, true, force: true);
             }
         }
 
@@ -123,7 +123,6 @@ public abstract class SharedStationSpawningSystem : EntitySystem
         if (startingGear.Storage.Count > 0)
         {
             var coords = _xformSystem.GetMapCoordinates(entity);
-            var ents = new ValueList<EntityUid>();
             _inventoryQuery.TryComp(entity, out var inventoryComp);
 
             foreach (var (slot, entProtos) in startingGear.Storage)
@@ -131,15 +130,17 @@ public abstract class SharedStationSpawningSystem : EntitySystem
                 if (entProtos.Count == 0)
                     continue;
 
-                foreach (var ent in entProtos)
-                {
-                    ents.Add(Spawn(ent, coords));
-                }
+                var ents = new ValueList<EntityUid>(); // WWDP
 
                 if (inventoryComp != null &&
                     InventorySystem.TryGetSlotEntity(entity, slot, out var slotEnt, inventoryComponent: inventoryComp) &&
                     _storageQuery.TryComp(slotEnt, out var storage))
                 {
+                    foreach (var ent in entProtos)
+                    {
+                        ents.Add(Spawn(ent, coords));
+                    }
+
                     foreach (var ent in ents)
                     {
                         _storage.Insert(slotEnt.Value, ent, out _, storageComp: storage, playSound: false);
@@ -208,9 +209,6 @@ public abstract class SharedStationSpawningSystem : EntitySystem
                 newStartingGear = new StartingGearPrototype()
                 {
                     Equipment = startingGear.Equipment.ToDictionary(static entry => entry.Key, static entry => entry.Value),
-                    InnerClothingSkirt = startingGear.InnerClothingSkirt,
-                    Satchel = startingGear.Satchel,
-                    Duffelbag = startingGear.Duffelbag,
                     Inhand = new List<EntProtoId>(startingGear.Inhand),
                     Storage = startingGear.Storage.ToDictionary(
                         static entry => entry.Key,
@@ -219,32 +217,22 @@ public abstract class SharedStationSpawningSystem : EntitySystem
                 };
             }
 
-            // Apply the sub-gear's equipment to this starting gear
-            if (subGearProto.InnerClothingSkirt != null)
-                newStartingGear.InnerClothingSkirt = subGearProto.InnerClothingSkirt;
-
-            if (subGearProto.Satchel != null)
-                newStartingGear.Satchel = subGearProto.Satchel;
-
-            if (subGearProto.Duffelbag != null)
-                newStartingGear.Duffelbag = subGearProto.Duffelbag;
-
             foreach (var (slot, entProtoId) in subGearProto.Equipment)
             {
                 // Don't remove items in pockets, instead put them in the backpack or hands
-                if (slot == "pocket1" && newStartingGear.Equipment.TryGetValue("pocket1", out var pocket1) ||
-                    slot == "pocket2" && newStartingGear.Equipment.TryGetValue("pocket2", out var pocket2))
-                {
-                    var pocketProtoId = slot == "pocket1" ? pocket1 : pocket2;
 
-                    if (string.IsNullOrEmpty(newStartingGear.GetGear("back", null)))
-                        newStartingGear.Inhand.Add(pocketProtoId);
+                if (slot is "pocket1" or "pocket2" && newStartingGear.Equipment.TryGetValue(slot, out var pocket))
+                {
+                    if (string.IsNullOrEmpty(newStartingGear.GetGear("back")))
+                        newStartingGear.Inhand.Add(pocket);
                     else
                     {
                         if (!newStartingGear.Storage.ContainsKey("back"))
                             newStartingGear.Storage["back"] = new();
-                        newStartingGear.Storage["back"].Add(pocketProtoId);
+                        newStartingGear.Storage["back"].Add(pocket);
                     }
+
+                    continue;
                 }
 
                 newStartingGear.Equipment[slot] = entProtoId;
@@ -253,7 +241,10 @@ public abstract class SharedStationSpawningSystem : EntitySystem
             newStartingGear.Inhand.AddRange(subGearProto.Inhand);
 
             foreach (var (slot, entProtoIds) in subGearProto.Storage)
-                newStartingGear.Storage[slot].AddRange(entProtoIds);
+            {
+                if (!newStartingGear.Storage.TryAdd(slot, entProtoIds))
+                    newStartingGear.Storage[slot].AddRange(entProtoIds);
+            }
         }
 
         return newStartingGear;

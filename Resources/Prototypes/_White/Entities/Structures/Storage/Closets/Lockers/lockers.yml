@@ -1,0 +1,23 @@
+﻿- type: entity
+  id: LockerSecurityMedicine
+  parent: LockerBaseSecure
+  name: security medical locker
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: brigmedic
+    stateDoorOpen: armory_open
+    stateDoorClosed: brigmedic_door
+  - type: AccessReader
+    access: [["Security"], ["Medical"]]
+
+- type: entity
+  abstract: true
+  id: AlertLevelLock
+  components:
+  - type: StationAlertLevelLock
+    lockedAlertLevels:
+    - green
+    - blue
+    - yellow
+    - violet

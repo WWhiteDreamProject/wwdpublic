@@ -1,24 +1,64 @@
 <Document>
-  # Networking
-  Some devices on the station need to communicate with each other, and they do this by utilizing device networking.
-  With networking, machines and devices can send arbitrary data between each other.
-  There are multiple networks that get used, such as the wireless and wired network.
-  Each network device has a frequency it receives on. PDAs for example, use the frequency: [color=green]220.2[/color]
+  # Сеть
+  На станции устройствам необходимо обмениваться данными для выполнения своих функций.
+  [textlink="Датчики воздуха" link="AirAlarms"] должны общаться со своими соответствующими устройствами, [textlink="двери" link="Airlocks"] должны быть связаны для формирования надлежащих шлюзов, и многое другое.
 
-  Note: The following operations will require use of the Network Configurator to be performed:
+  Это делается через две системы: систему связи (Link System) и систему списка (List System).
 
-  ## Device Lists
-  Some devices need to know which other devices to communicate with specifically.
-  <Box>
-    <GuideEntityEmbed Entity="AirAlarm"/>
-  </Box>
-  Air alarms, for example, require you to tell it which vents, scrubbers, sensors, and firelocks to interact with.
+  Вы можете использовать либо Мультитул, либо Конфигуратор Сети для взаимодействия с этими системами.
+  Вы можете переключаться между различными системами, используя [color=yellow][bold][keybind="AltActivateItemInHand"][/bold][/color] или наведя курсор на устройство и используя [color=yellow][bold][keybind="AltActivateItemInWorld"][/bold][/color].
 
-  ## Linking
-  If a device, basic or advanced, needs finer controls of how and which devices it connects to, it will generally use device linking.
+  <Box HorizontalAlignment="Stretch">
     <Box>
-      <GuideEntityEmbed Entity="SignalSwitch"/>
-      <GuideEntityEmbed Entity="Airlock"/>
+      <GuideEntityEmbed Entity="Multitool"/>
     </Box>
-  With linking, you can connect the outputs of a device, like [color=gray]On[/color] or [color=gray]Off[/color], with the inputs of a device, like the airlocks [color=gray]Open[/color] or [color=gray]Close[/color] inputs.
+    <Box>
+      <GuideEntityEmbed Entity="NetworkConfigurator"/>
+    </Box>
+  </Box>
+
+  Некоторым устройствам потребуется доступ для подключения к ним других устройств.
+  Например, вам нужен доступ Атмосферы для подключения устройств к [textlink="датчику воздуха" link="AirAlarms"].
+  Для дверей вам потребуется уровень доступа двери, к которой вы подключаетесь.
+
+  ## Система Связи (Link System)
+  Система связи используется для явного соединения двух устройств, например, соединения двери с другой дверью.
+
+  <Box>
+    <GuideEntityEmbed Entity="AirlockExternal"/>
+    <GuideEntityEmbed Entity="AirlockEngineering"/>
+    <GuideEntityEmbed Entity="BlastDoor"/>
+    <GuideEntityEmbed Entity="SignalButton"/>
+  </Box>
+
+  В системе связи устройства имеют [bold]порты[/bold], способные либо отправлять, либо принимать сигналы.
+
+  Наведение курсора на порт покажет всплывающую подсказку, которая расскажет, что делает порт.
+  Например, выходные порты будут указывать условия, при которых они будут вызывать сигнал, а входные порты — что сделает устройство при получении сигнала.
+
+  ## Система Списка (List System)
+  Система списка используется для связи нескольких устройств с одним основным устройством, например, для связи нескольких атмосферных устройств с датчиком воздуха.
+
+  <Box>
+    <GuideEntityEmbed Entity="AirAlarm" Caption=""/>
+    <GuideEntityEmbed Entity="GasVentPump" Caption=""/>
+    <GuideEntityEmbed Entity="GasVentScrubber" Caption=""/>
+    <GuideEntityEmbed Entity="AirSensor" Caption=""/>
+    <GuideEntityEmbed Entity="Firelock" Caption=""/>
+  </Box>
+
+  Каждое устройство имеет свой уникальный адрес, который используется для его идентификации в системе списка. Когда вы связываете устройство с основным устройством, вы добавляете адрес устройства в список устройств, с которыми основное устройство будет обмениваться данными.
+
+  Вы можете сохранить адрес устройства в своем инструменте, взаимодействуя с устройством, используя [color=yellow][bold][keybind="Use"][/bold][/color].
+
+  После того, как у вас будет список устройств, сохраненных в вашем инструменте, вы можете связать их с основным устройством, взаимодействуя с основным устройством, используя [color=yellow][bold][keybind="Use"][/bold][/color], что вызовет пользовательский интерфейс.
+
+  Пользовательский интерфейс имеет несколько опций:
+  - Установить: перезаписывает текущий список связанных устройств устройствами, сохраненными в инструменте.
+  - Добавить: добавляет устройства, сохраненные в инструменте, в текущий список связанных устройств.
+  - Очистить: удаляет все связанные устройства из датчика воздуха.
+  - Копировать: копирует список текущих связанных устройств в инструмент.
+  - Показать: рисует линию между основным устройством и всеми связанными устройствами. Это полезно для визуализации области, которую охватывает датчик воздуха.
+
+  Если вам нужно очистить ваш инструмент, вы можете нажать [color=yellow][bold][keybind="Use"][/bold][/color] на инструменте или использовать [color=yellow][bold][keybind="ActivateItemInHand"][/bold][/color], чтобы вызвать список сохраненных устройств, а затем нажать кнопку "Очистить".
 </Document>

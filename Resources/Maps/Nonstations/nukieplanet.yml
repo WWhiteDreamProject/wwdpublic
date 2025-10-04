@@ -15,7 +15,7 @@ tilemap:
   86: FloorShuttleRed
   89: FloorSnow
   91: FloorSteel
-  106: FloorTechMaint
+  106: FloorTechMaintSteel
   110: FloorWhite
   120: FloorWood
   123: Lattice
@@ -1630,8 +1630,6 @@ entities:
     - type: GasTileOverlay
     - type: SpreaderGrid
     - type: GridPathfinding
-    - type: BecomesStation
-      id: SyndicateOutpost
   - uid: 1295
     components:
     - type: MetaData
@@ -10504,15 +10502,13 @@ entities:
       parent: 104
     - type: Fixtures
       fixtures: {}
-- proto: FloraRockSolid01
+- proto: FloraRockSolid
   entities:
   - uid: 1707
     components:
     - type: Transform
       pos: 5.5565968,16.377468
       parent: 104
-- proto: FloraRockSolid02
-  entities:
   - uid: 1708
     components:
     - type: Transform
@@ -10523,14 +10519,12 @@ entities:
     - type: Transform
       pos: -1.3676796,16.13784
       parent: 104
-- proto: FloraRockSolid03
-  entities:
   - uid: 1706
     components:
     - type: Transform
       pos: 13.550529,12.489372
       parent: 104
-- proto: FloraTreeConifer01
+- proto: FloraTreeConifer
   entities:
   - uid: 261
     components:
@@ -10562,8 +10556,6 @@ entities:
     - type: Transform
       pos: 11.605486,16.944057
       parent: 104
-- proto: FloraTreeConifer02
-  entities:
   - uid: 219
     components:
     - type: Transform
@@ -10609,8 +10601,6 @@ entities:
     - type: Transform
       pos: 14.582346,17.286049
       parent: 104
-- proto: FloraTreeConifer03
-  entities:
   - uid: 271
     components:
     - type: Transform
@@ -10631,15 +10621,13 @@ entities:
     - type: Transform
       pos: 8.497473,19.862019
       parent: 104
-- proto: FloraTreeSnow01
+- proto: FloraTreeSnow
   entities:
   - uid: 262
     components:
     - type: Transform
       pos: 9.630766,6.7434845
       parent: 104
-- proto: FloraTreeSnow02
-  entities:
   - uid: 270
     components:
     - type: Transform
@@ -10650,8 +10638,6 @@ entities:
     - type: Transform
       pos: 4.558771,16.696045
       parent: 104
-- proto: FloraTreeSnow03
-  entities:
   - uid: 274
     components:
     - type: Transform
@@ -10662,8 +10648,6 @@ entities:
     - type: Transform
       pos: 9.924105,15.382175
       parent: 104
-- proto: FloraTreeSnow04
-  entities:
   - uid: 265
     components:
     - type: Transform
@@ -10679,8 +10663,6 @@ entities:
     - type: Transform
       pos: -3.1344147,13.722986
       parent: 104
-- proto: FloraTreeSnow05
-  entities:
   - uid: 269
     components:
     - type: Transform
@@ -10994,13 +10976,6 @@ entities:
     components:
     - type: Transform
       pos: 18.918644,6.663283
-      parent: 104
-- proto: SyndicateMicrowave
-  entities:
-  - uid: 10
-    components:
-    - type: Transform
-      pos: 13.5,-6.5
       parent: 104
 - proto: KitchenReagentGrinder
   entities:
@@ -13223,6 +13198,13 @@ entities:
       - SurveillanceCameraEntertainment
       nameSet: True
       id: Weeh
+- proto: SyndicateMicrowave
+  entities:
+  - uid: 10
+    components:
+    - type: Transform
+      pos: 13.5,-6.5
+      parent: 104
 - proto: SyndicatePersonalAI
   entities:
   - uid: 160
@@ -13719,7 +13701,7 @@ entities:
     - type: Transform
       pos: 14.485744,-16.427467
       parent: 104
-- proto: VendingMachineBooze
+- proto: VendingMachineBoozeSyndicate
   entities:
   - uid: 1380
     components:

@@ -40,7 +40,7 @@
   name: chat-emote-name-cathisses
   category: Vocal
   chatMessages: [ "chat-emote-msg-cathisses" ]
-  
+
 - type: emote
   id: MonkeyScreeches
   name: chat-emote-name-monkeyscreeches

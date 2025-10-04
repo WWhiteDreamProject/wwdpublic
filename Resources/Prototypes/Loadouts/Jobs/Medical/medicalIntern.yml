@@ -2,33 +2,36 @@
 # Backpacks
 
 # Belt
-- type: loadout
-  id: LoadoutMedicalInternBeltMedical
-  category: JobsMedicalMedicalIntern
-  cost: 0
-  exclusive: true
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutMedicalInternBelt
-    - !type:CharacterJobRequirement
-      jobs:
-        - MedicalIntern
-  items:
-    - ClothingBeltMedical
 
-- type: loadout
-  id: LoadoutMedicalInternBeltMedicalFilled
-  category: JobsMedicalMedicalIntern
-  cost: 0
-  exclusive: true
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutMedicalInternBelt
-    - !type:CharacterJobRequirement
-      jobs:
-        - MedicalIntern
-  items:
-    - ClothingBeltMedicalFilled
+# WWDP edit start - moved to lockers
+# - type: loadout
+#   id: LoadoutMedicalInternBeltMedical
+#   category: JobsMedicalMedicalIntern
+#   cost: 0
+#   exclusive: true
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutMedicalInternBelt
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - MedicalIntern
+#   items:
+#     - ClothingBeltMedical
+#
+# - type: loadout
+#   id: LoadoutMedicalInternBeltMedicalFilled
+#   category: JobsMedicalMedicalIntern
+#   cost: 0
+#   exclusive: true
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutMedicalInternBelt
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - MedicalIntern
+#   items:
+#     - ClothingBeltMedicalFilled
+# WWDP edit end
 
 # Ears
 

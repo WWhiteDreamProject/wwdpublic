@@ -1,10 +1,19 @@
 - type: gameMapPool
   id: DefaultMapPool
   maps:
-  - Meta # Maintained by Estacao Pirata
   # WD EDIT START - white dream maps
-  - DryDock
+  - Kettle
   - Moose
-  - WhiteBox
-  - Molecule
+  - WonderBox
+  - WhiteMeta
+  # TempChange 0 start
+  - Gax
+  - Asterisk
+  - Bagel
+  - Pebble
+  - Saltern
+  - Anchor
+  - Core
+  - Shoukou
+  # TempChange 0 end
   # WD EDIT END

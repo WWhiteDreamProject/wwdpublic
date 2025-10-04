@@ -1,5 +1,7 @@
 using System.Linq;
 using System.Text.RegularExpressions;
+using Content.Shared._White.Bark;
+using Content.Shared._White.Bark.Systems;
 using Content.Shared._White.TTS;
 using Content.Shared.CCVar;
 using Content.Shared.Clothing.Loadouts.Prototypes;
@@ -19,7 +21,9 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared.Preferences;
 
-/// Character profile. Looks immutable, but uses non-immutable semantics internally for serialization/code sanity purposes
+/// <summary>
+/// Character profile. Looks immutable, but uses non-immutable semantics internally for serialization/code sanity purposes.
+/// </summary>
 [DataDefinition]
 [Serializable, NetSerializable]
 public sealed partial class HumanoidCharacterProfile : ICharacterProfile
@@ -29,10 +33,11 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
 
     public const int MaxNameLength = 64;
     public const int MaxDescLength = 1024;
+    public const int MaxCustomContentLength = 524288; // WD EDIT
 
     /// Job preferences for initial spawn
     [DataField]
-    private Dictionary<string, JobPriority> _jobPriorities = new()
+    private Dictionary<ProtoId<JobPrototype>, JobPriority> _jobPriorities = new()
     {
         {
             SharedGameTicker.FallbackOverflowJob, JobPriority.High
@@ -41,11 +46,11 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
 
     /// Antags we have opted in to
     [DataField]
-    private HashSet<string> _antagPreferences = new();
+    private HashSet<ProtoId<AntagPrototype>> _antagPreferences = new();
 
     /// Enabled traits
     [DataField]
-    private HashSet<string> _traitPreferences = new();
+    private HashSet<ProtoId<TraitPrototype>> _traitPreferences = new();
 
     /// <see cref="_loadoutPreferences"/>
     public HashSet<LoadoutPreference> LoadoutPreferences => _loadoutPreferences;
@@ -62,7 +67,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
 
     /// Associated <see cref="SpeciesPrototype"/> for this profile
     [DataField]
-    public string Species { get; set; } = SharedHumanoidAppearanceSystem.DefaultSpecies;
+    public ProtoId<SpeciesPrototype> Species { get; set; } = SharedHumanoidAppearanceSystem.DefaultSpecies;
 
     // EE -- Contractors Change Start
     [DataField]
@@ -96,6 +101,12 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
 
     [DataField]
     public string Voice { get; set; } = SharedHumanoidAppearanceSystem.DefaultVoice;
+
+    [DataField]
+    public string BarkVoice { get; set; } = SharedHumanoidAppearanceSystem.DefaultBarkVoice;
+
+    [DataField]
+    public BarkPercentageApplyData BarkSettings { get; set; } = BarkPercentageApplyData.Default;
     // WD EDIT END
 
     [DataField]
@@ -113,6 +124,9 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
     // WD EDIT START
     [DataField]
     public string? ClownName { get; set; }
+
+    [DataField]
+    public string? MimeName { get; set; }
     // WD EDIT END
 
     /// <see cref="Appearance"/>
@@ -122,23 +136,18 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
     [DataField]
     public HumanoidCharacterAppearance Appearance { get; set; } = new();
 
-    [DataField]
-    public ClothingPreference Clothing { get; set; }
-    [DataField]
-    public BackpackPreference Backpack { get; set; }
-
     /// When spawning into a round what's the preferred spot to spawn
     [DataField]
     public SpawnPriorityPreference SpawnPriority { get; private set; } = SpawnPriorityPreference.None;
 
     /// <see cref="_jobPriorities"/>
-    public IReadOnlyDictionary<string, JobPriority> JobPriorities => _jobPriorities;
+    public IReadOnlyDictionary<ProtoId<JobPrototype>, JobPriority> JobPriorities => _jobPriorities;
 
     /// <see cref="_antagPreferences"/>
-    public IReadOnlySet<string> AntagPreferences => _antagPreferences;
+    public IReadOnlySet<ProtoId<AntagPrototype>> AntagPreferences => _antagPreferences;
 
     /// <see cref="_traitPreferences"/>
-    public IReadOnlySet<string> TraitPreferences => _traitPreferences;
+    public IReadOnlySet<ProtoId<TraitPrototype>> TraitPreferences => _traitPreferences;
 
     /// If we're unable to get one of our preferred jobs do we spawn as a fallback job or do we stay in lobby
     [DataField]
@@ -160,20 +169,21 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
         int age,
         Sex sex,
         string voice, // WD EDIT
+        string barkVoice, // WD EDIT
+        BarkPercentageApplyData barkSettings, // WD EDIT
         string bodyType, // WD EDIT
         Gender gender,
         string? displayPronouns,
         string? stationAiName,
         string? cyborgName,
         string? clownName, // WD EDIT
+        string? mimeName, // WD EDIT
         HumanoidCharacterAppearance appearance,
         SpawnPriorityPreference spawnPriority,
-        Dictionary<string, JobPriority> jobPriorities,
-        ClothingPreference clothing,
-        BackpackPreference backpack,
+        Dictionary<ProtoId<JobPrototype>, JobPriority> jobPriorities,
         PreferenceUnavailableMode preferenceUnavailable,
-        HashSet<string> antagPreferences,
-        HashSet<string> traitPreferences,
+        HashSet<ProtoId<AntagPrototype>> antagPreferences,
+        HashSet<ProtoId<TraitPrototype>> traitPreferences,
         HashSet<LoadoutPreference> loadoutPreferences)
     {
         Name = name;
@@ -190,21 +200,36 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
         Age = age;
         Sex = sex;
         Voice = voice; // WD EDIT
+        BarkVoice = barkVoice; // WD EDIT
         BodyType = bodyType; // WD EDIT
+        BarkSettings = barkSettings.Clone(); // WD EDIT
         Gender = gender;
         DisplayPronouns = displayPronouns;
         StationAiName = stationAiName;
         CyborgName = cyborgName;
         ClownName = clownName; // WD EDIT
+        MimeName = mimeName; // WD EDIT
         Appearance = appearance;
         SpawnPriority = spawnPriority;
         _jobPriorities = jobPriorities;
-        Clothing = clothing;
-        Backpack = backpack;
         PreferenceUnavailable = preferenceUnavailable;
         _antagPreferences = antagPreferences;
         _traitPreferences = traitPreferences;
         _loadoutPreferences = loadoutPreferences;
+
+        var hasHighPrority = false;
+        foreach (var (key, value) in _jobPriorities)
+        {
+            if (value == JobPriority.Never)
+                _jobPriorities.Remove(key);
+            else if (value != JobPriority.High)
+                continue;
+
+            if (hasHighPrority)
+                _jobPriorities[key] = JobPriority.Medium;
+
+            hasHighPrority = true;
+        }
     }
 
     /// <summary>Copy constructor</summary>
@@ -224,20 +249,21 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
             other.Age,
             other.Sex,
             other.Voice, // WD EDIT
+            other.BarkVoice, // WD EDIT
+            other.BarkSettings.Clone(), // WD EDIT
             other.BodyType, // WD EDIT
             other.Gender,
             other.DisplayPronouns,
             other.StationAiName,
             other.CyborgName,
             other.ClownName, // WD EDIT
+            other.MimeName, // WD EDIT
             other.Appearance.Clone(),
             other.SpawnPriority,
-            new Dictionary<string, JobPriority>(other.JobPriorities),
-            other.Clothing,
-            other.Backpack,
+            new Dictionary<ProtoId<JobPrototype>, JobPriority>(other.JobPriorities),
             other.PreferenceUnavailable,
-            new HashSet<string>(other.AntagPreferences),
-            new HashSet<string>(other.TraitPreferences),
+            new HashSet<ProtoId<AntagPrototype>>(other.AntagPreferences),
+            new HashSet<ProtoId<TraitPrototype>>(other.TraitPreferences),
             new HashSet<LoadoutPreference>(other.LoadoutPreferences))
     {
     }
@@ -282,12 +308,17 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
     {
         var prototypeManager = IoCManager.Resolve<IPrototypeManager>();
         var random = IoCManager.Resolve<IRobustRandom>();
-
-        var species = random.Pick(prototypeManager
+        // WWDP edit start
+        var specieslist = prototypeManager
             .EnumeratePrototypes<SpeciesPrototype>()
-            .Where(x => ignoredSpecies == null ? x.RoundStart : x.RoundStart && !ignoredSpecies.Contains(x.ID))
-            .ToArray()
-        ).ID;
+            .Where(x => !ignoredSpecies?.Contains(x.ID) ?? true) // WWDP
+            .ToArray();
+
+        if (specieslist.Length == 0) // Fallback
+            specieslist = [prototypeManager.Index<SpeciesPrototype>(SharedHumanoidAppearanceSystem.DefaultSpecies)];
+
+        var species = random.Pick(specieslist).ID;
+        // WWDP edit end
 
         return RandomWithSpecies(species);
     }
@@ -324,12 +355,11 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
             .EnumeratePrototypes<TTSVoicePrototype>()
             .Where(o => CanHaveVoice(o, sex)).ToArray()
         ).ID;
-        // WD EDIT END
-
+         // WD EDIT END
 
         var name = GetName(species, gender);
 
-        return new HumanoidCharacterProfile()
+        var profile = new HumanoidCharacterProfile() // WD EDIT
         {
             Name = name,
             Sex = sex,
@@ -343,12 +373,30 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
             Employer = SharedHumanoidAppearanceSystem.DefaultEmployer,
             Lifepath = SharedHumanoidAppearanceSystem.DefaultLifepath,
         };
+
+        // WD EDIT START
+        var barkSystem = IoCManager.Resolve<IEntityManager>().System<SharedBarkSystem>();
+        var barkVoiceList = barkSystem.GetVoiceList(profile);
+
+        var barkVoice = SharedHumanoidAppearanceSystem.DefaultBarkVoice;
+        if (barkVoiceList.Any())
+        {
+            barkVoice = random.Pick(barkVoiceList).ID;
+        }
+
+        profile.BarkVoice = barkVoice;
+
+        return profile;
+        // WD EDIT END
     }
 
     public HumanoidCharacterProfile WithName(string name) => new(this) { Name = name };
     public HumanoidCharacterProfile WithFlavorText(string flavorText) => new(this) { FlavorText = flavorText };
     public HumanoidCharacterProfile WithVoice(string voice) => new(this) { Voice = voice }; // WD EDIT
     public HumanoidCharacterProfile WithBodyType(string bodyType) => new(this) { BodyType = bodyType }; // WD EDIT
+    public HumanoidCharacterProfile WithBarkVoice(string barkVoice, BarkPercentageApplyData setting) =>
+        new(this) { BarkVoice = barkVoice, BarkSettings = setting.Clone() }; // WD EDIT
+
     public HumanoidCharacterProfile WithAge(int age) => new(this) { Age = age };
     // EE - Contractors Change Start
     public HumanoidCharacterProfile WithNationality(string nationality) => new(this) { Nationality = nationality };
@@ -361,6 +409,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
     public HumanoidCharacterProfile WithStationAiName(string? stationAiName) => new(this) { StationAiName = stationAiName };
     public HumanoidCharacterProfile WithCyborgName(string? cyborgName) => new(this) { CyborgName = cyborgName };
     public HumanoidCharacterProfile WithClownName(string? clownName) => new(this) { ClownName = clownName }; // WD EDIT
+    public HumanoidCharacterProfile WithMimeName(string? mimeName) => new(this) { MimeName = mimeName }; // WD EDIT
     public HumanoidCharacterProfile WithSpecies(string species) => new(this) { Species = species };
     public HumanoidCharacterProfile WithCustomSpeciesName(string customspeciename) => new(this) { Customspeciename = customspeciename };
     public HumanoidCharacterProfile WithHeight(float height) => new(this) { Height = height };
@@ -368,20 +417,50 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
 
     public HumanoidCharacterProfile WithCharacterAppearance(HumanoidCharacterAppearance appearance) =>
         new(this) { Appearance = appearance };
-    public HumanoidCharacterProfile WithClothingPreference(ClothingPreference clothing) =>
-        new(this) { Clothing = clothing };
-    public HumanoidCharacterProfile WithBackpackPreference(BackpackPreference backpack) =>
-        new(this) { Backpack = backpack };
+
     public HumanoidCharacterProfile WithSpawnPriorityPreference(SpawnPriorityPreference spawnPriority) =>
         new(this) { SpawnPriority = spawnPriority };
-    public HumanoidCharacterProfile WithJobPriorities(IEnumerable<KeyValuePair<string, JobPriority>> jobPriorities) =>
-        new(this) { _jobPriorities = new Dictionary<string, JobPriority>(jobPriorities) };
 
-    public HumanoidCharacterProfile WithJobPriority(string jobId, JobPriority priority)
+    public HumanoidCharacterProfile WithJobPriorities(IEnumerable<KeyValuePair<ProtoId<JobPrototype>, JobPriority>> jobPriorities)
     {
-        var dictionary = new Dictionary<string, JobPriority>(_jobPriorities);
+        var dictionary = new Dictionary<ProtoId<JobPrototype>, JobPriority>(jobPriorities);
+        var hasHighPrority = false;
+
+        foreach (var (key, value) in dictionary)
+        {
+            if (value == JobPriority.Never)
+                dictionary.Remove(key);
+            else if (value != JobPriority.High)
+                continue;
+
+            if (hasHighPrority)
+                dictionary[key] = JobPriority.Medium;
+
+            hasHighPrority = true;
+        }
+
+        return new(this)
+        {
+            _jobPriorities = dictionary
+        };
+    }
+
+    public HumanoidCharacterProfile WithJobPriority(ProtoId<JobPrototype> jobId, JobPriority priority)
+    {
+        var dictionary = new Dictionary<ProtoId<JobPrototype>, JobPriority>(_jobPriorities);
         if (priority == JobPriority.Never)
             dictionary.Remove(jobId);
+        else if (priority == JobPriority.High)
+        {
+            // There can only ever be one high priority job.
+            foreach (var (job, value) in dictionary)
+            {
+                if (value == JobPriority.High)
+                    dictionary[job] = JobPriority.Medium;
+            }
+
+            dictionary[jobId] = priority;
+        }
         else
             dictionary[jobId] = priority;
 
@@ -390,12 +469,12 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
 
     public HumanoidCharacterProfile WithPreferenceUnavailable(PreferenceUnavailableMode mode) =>
         new(this) { PreferenceUnavailable = mode };
-    public HumanoidCharacterProfile WithAntagPreferences(IEnumerable<string> antagPreferences) =>
-        new(this) { _antagPreferences = new HashSet<string>(antagPreferences) };
+    public HumanoidCharacterProfile WithAntagPreferences(IEnumerable<ProtoId<AntagPrototype>> antagPreferences) =>
+        new(this) { _antagPreferences = new HashSet<ProtoId<AntagPrototype>>(antagPreferences) };
 
-    public HumanoidCharacterProfile WithAntagPreference(string antagId, bool pref)
+    public HumanoidCharacterProfile WithAntagPreference(ProtoId<AntagPrototype> antagId, bool pref)
     {
-        var list = new HashSet<string>(_antagPreferences);
+        var list = new HashSet<ProtoId<AntagPrototype>>(_antagPreferences);
         if (pref)
             list.Add(antagId);
         else
@@ -404,9 +483,9 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
         return new(this) { _antagPreferences = list };
     }
 
-    public HumanoidCharacterProfile WithTraitPreference(string traitId, bool pref)
+    public HumanoidCharacterProfile WithTraitPreference(ProtoId<TraitPrototype> traitId, bool pref)
     {
-        var list = new HashSet<string>(_traitPreferences);
+        var list = new HashSet<ProtoId<TraitPrototype>>(_traitPreferences);
 
         if (pref)
             list.Add(traitId);
@@ -421,14 +500,25 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
         bool pref,
         string? customName = null,
         string? customDescription = null,
+        string? customContent = null, // WD EDIT
         string? customColor = null,
         bool? customHeirloom = null)
     {
+        // WD EDIT START
+        if (customContent is { Length: > MaxCustomContentLength, })
+        {
+            var truncated = customContent.AsSpan(0, MaxCustomContentLength);
+            while (truncated.Length > 0 && char.IsLowSurrogate(truncated[^1]))
+                truncated = truncated[..^1];
+            customContent = truncated.ToString();
+        }
+        // WD EDIT END
+
         var list = new HashSet<LoadoutPreference>(_loadoutPreferences);
 
         list.RemoveWhere(l => l.LoadoutName == loadoutId);
         if (pref)
-            list.Add(new(loadoutId, customName, customDescription, customColor, customHeirloom) { Selected = pref });
+            list.Add(new(loadoutId, customName, customDescription, customContent, customColor, customHeirloom) { Selected = pref }); // WD EDIT
 
         return new HumanoidCharacterProfile(this) { _loadoutPreferences = list };
     }
@@ -448,6 +538,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
             && Age == other.Age
             && Sex == other.Sex
             && Voice == other.Voice // WD EDIT
+            && BarkVoice == other.BarkVoice // WD EDIT
             && BodyType == other.BodyType // WD EDIT
             && Gender == other.Gender
             && Species == other.Species
@@ -471,10 +562,10 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
         var configManager = collection.Resolve<IConfigurationManager>();
         var prototypeManager = collection.Resolve<IPrototypeManager>();
 
-        if (!prototypeManager.TryIndex<SpeciesPrototype>(Species, out var speciesPrototype) || speciesPrototype.RoundStart == false)
+        if (!prototypeManager.TryIndex(Species, out var speciesPrototype) || speciesPrototype.RoundStart == false)
         {
             Species = SharedHumanoidAppearanceSystem.DefaultSpecies;
-            speciesPrototype = prototypeManager.Index<SpeciesPrototype>(Species);
+            speciesPrototype = prototypeManager.Index(Species);
         }
 
         var sex = Sex switch
@@ -571,7 +662,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
             _ => SpawnPriorityPreference.None // Invalid enum values.
         };
 
-        var priorities = new Dictionary<string, JobPriority>(JobPriorities
+        var priorities = new Dictionary<ProtoId<JobPrototype>, JobPriority>(JobPriorities
             .Where(p => prototypeManager.TryIndex<JobPrototype>(p.Key, out var job) && job.SetPreference && p.Value switch
             {
                 JobPriority.Never => false, // Drop never since that's assumed default.
@@ -581,13 +672,24 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
                 _ => false
             }));
 
+        var hasHighPrio = false;
+        foreach (var (key, value) in priorities)
+        {
+            if (value != JobPriority.High)
+                continue;
+
+            if (hasHighPrio)
+                priorities[key] = JobPriority.Medium;
+            hasHighPrio = true;
+        }
+
         var antags = AntagPreferences
-            .Where(id => prototypeManager.TryIndex<AntagPrototype>(id, out var antag) && antag.SetPreference)
+            .Where(id => prototypeManager.TryIndex(id, out var antag) && antag.SetPreference)
             .Distinct()
             .ToList();
 
         var traits = TraitPreferences
-            .Where(prototypeManager.HasIndex<TraitPrototype>)
+            .Where(prototypeManager.HasIndex)
             .Distinct()
             .ToList();
 
@@ -628,6 +730,30 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
         prototypeManager.TryIndex<TTSVoicePrototype>(Voice, out var voice);
         if (voice is null || !CanHaveVoice(voice, Sex))
             Voice = SharedHumanoidAppearanceSystem.DefaultSexVoice[sex];
+
+        if(!CanHaveBark(prototypeManager, collection))
+            BarkVoice = SharedHumanoidAppearanceSystem.DefaultBarkVoice;
+
+        for (var i = 0; i < loadouts.Count; i++)
+        {
+          var loadout = loadouts[i];
+          if (loadout.CustomContent is not { Length: > MaxCustomContentLength, })
+              continue;
+          var truncated = loadout.CustomContent.AsSpan(0, MaxCustomContentLength);
+          while (truncated.Length > 0 && char.IsLowSurrogate(truncated[^1]))
+              truncated = truncated[..^1];
+
+          var truncatedLoadout = new LoadoutPreference(
+                  loadout.LoadoutName,
+                  loadout.CustomName,
+                  loadout.CustomDescription,
+                  truncated.ToString(),
+                  loadout.CustomColorTint,
+                  loadout.CustomHeirloom)
+              { Selected = loadout.Selected, };
+
+          loadouts[i] = truncatedLoadout;
+        }
         // WD EDIT END
     }
 
@@ -635,6 +761,46 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
     public static bool CanHaveVoice(TTSVoicePrototype voice, Sex sex)
     {
         return voice.RoundStart && sex == Sex.Unsexed || voice.Sex == sex || voice.Sex == Sex.Unsexed;
+    }
+
+    public bool CanHaveBark(
+        IPrototypeManager prototypeManager,IDependencyCollection collection,
+        ProtoId<BarkListPrototype>? id = null
+    )
+    {
+        var voice = BarkVoice;
+        if(
+            !prototypeManager.TryIndex<BarkListPrototype>(id ?? "default", out var barkList) ||
+            !barkList.VoiceList.TryGetValue(voice, out var voiceRequirements) ||
+            !prototypeManager.TryIndex<BarkVoicePrototype>(voice, out var voicePrototype))
+        {
+            return false;
+        }
+
+        var isValid = true;
+        var reason = "";
+
+        foreach (var requirement in voiceRequirements)
+        {
+            var passes = requirement.IsValid(
+                default!,
+                this,
+                new Dictionary<string, TimeSpan>(),
+                false,
+                voicePrototype,
+                collection.Resolve<IEntityManager>(),
+                prototypeManager,
+                collection.Resolve<IConfigurationManager>(),
+                out reason);
+
+            if (passes == !requirement.Inverted)
+                continue;
+
+            isValid = false;
+            break;
+        }
+
+        return isValid;
     }
     // WD EDIT END
 
@@ -676,6 +842,8 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
         hashCode.Add((int) Gender);
         hashCode.Add(Voice); // WD EDIT
         hashCode.Add(BodyType); // WD EDIT
+        hashCode.Add(BarkVoice); // WD EDIT
+        hashCode.Add(BarkSettings); // WD EDIT
         hashCode.Add(Appearance);
         hashCode.Add((int) SpawnPriority);
         hashCode.Add((int) PreferenceUnavailable);

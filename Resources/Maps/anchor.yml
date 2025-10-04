@@ -7,7 +7,7 @@ tilemap:
   85: FloorAsteroidTile
   22: FloorAstroGrass
   7: FloorBar
-  92: FloorBlue
+  92: FloorSteelBlue
   46: FloorBlueCircuit
   4: FloorBrokenWood
   65: FloorCarpetOffice
@@ -58,14 +58,14 @@ tilemap:
   94: FloorMS13WoodFancyDamaged
   45: FloorMS13WoodWide
   69: FloorMS13WoodWideDamaged
-  16: FloorMetalDiamond
+  16: FloorMetalDiamondSteel
   74: FloorMetalFreezer
   49: FloorMetalGreyDark
   47: FloorMetalGreyDarkSolid
   68: FloorMining
   20: FloorMiningDark
   15: FloorMiningLight
-  61: FloorMono
+  61: FloorTrueMonoTileSteel
   44: FloorMowedAstroGrass
   78: FloorOldConcrete
   5: FloorPlastic
@@ -85,8 +85,8 @@ tilemap:
   100: FloorSteelMono
   96: FloorSteelOffset
   87: FloorSteelWorn
-  104: FloorTechMaint
-  6: FloorTechMaint2
+  104: FloorTechMaintSteel
+  6: FloorMaintWhite
   17: FloorTechMaint3
   26: FloorWebTile
   108: FloorWhite
@@ -88561,7 +88561,7 @@ entities:
     - type: Transform
       pos: -3.6148336,-56.18814
       parent: 2
-- proto: DungeonMasterCircuitBoard
+- proto: GameMasterCircuitBoard
   entities:
   - uid: 13840
     components:
@@ -93852,7 +93852,7 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
-- proto: FloraTree01
+- proto: FloraTree
   entities:
   - uid: 14561
     components:
@@ -93860,44 +93860,34 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -41.71425,-40.28953
       parent: 2
-- proto: FloraTree02
-  entities:
   - uid: 14562
     components:
     - type: Transform
       pos: -1.3123586,-71.36199
       parent: 2
-- proto: FloraTree04
-  entities:
   - uid: 14563
     components:
     - type: Transform
       pos: 43.6858,-6.5251713
       parent: 2
-- proto: FloraTree05
-  entities:
   - uid: 14564
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -39.86131,-39.693787
       parent: 2
-- proto: FloraTree06
-  entities:
   - uid: 14565
     components:
     - type: Transform
       pos: 3.5470164,-73.56512
       parent: 2
-- proto: FloraTreeLarge01
+- proto: FloraTreeLarge
   entities:
   - uid: 14566
     components:
     - type: Transform
       pos: 2.477793,-69.46558
       parent: 2
-- proto: FloraTreeLarge04
-  entities:
   - uid: 14567
     components:
     - type: Transform

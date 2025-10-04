@@ -3,10 +3,11 @@
   name: job-name-roboticist
   description: job-description-roboticist
   playTimeTracker: JobRoboticist
+  setPreference: false # WWDP disabled role, not mapped
   requirements:
-  - !type:CharacterDepartmentTimeRequirement
-    department: Epistemics
-    min: 14400 # 4 hours - same as scientist
+  # - !type:CharacterDepartmentTimeRequirement # WWDP
+  #   department: Epistemics
+  #   min: 14400 # 4 hours - same as scientist
   - !type:CharacterEmployerRequirement
       employers:
       - ZavodskoiInterstellar
@@ -25,19 +26,16 @@
   - RoboticistPlasmamanGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitRoboticist
-    back: ClothingBackpackRoboticsFilled
+    back: ClothingBackpackRobotics
     shoes: ClothingShoesColorBlack
     outerClothing: ClothingOuterCoatRobo
     id: RoboticsPDA
     ears: ClothingHeadsetRobotics
     pocket1: BookPsionicsGuidebook
-  innerClothingSkirt: ClothingUniformJumpskirtRoboticist
-  satchel: ClothingBackpackSatchelRoboticsFilled
-  duffelbag: ClothingBackpackDuffelRoboticsFilled
 
 - type: startingGear
   id: RoboticistPlasmamanGear
-  parent: BasePlasmamanGear
+  parent: BasePlasmamanMaskGear
   equipment:
     jumpsuit: ClothingUniformEnvirosuitRoboticist
     head: ClothingHeadEnvirohelmRoboticist

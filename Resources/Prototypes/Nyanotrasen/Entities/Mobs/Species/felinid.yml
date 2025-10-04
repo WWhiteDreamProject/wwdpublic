@@ -27,8 +27,8 @@
     damageModifierSet: Felinid
   - type: SlowOnDamage
     speedModifierThresholds:
-      60: 0.75  # 0.7 is base speed. # WWDP who buffed these lol
-      80: 0.55  # 0.5 is base speed. # WWDP reverted both back to same as humans
+      60: 0.75  # 0.7 is base speed. - WD EDIT: 0.85 -> 0.75
+      80: 0.55  # 0.5 is base speed. - WD EDIT: 0.75 -> 0.55
   - type: MeleeWeapon
     soundHit:
       collection: Punch
@@ -72,29 +72,34 @@
     understands:
     - TauCetiBasic
     - Nekomimetic
-  #WWDP EDIT START
-  - type: Tag
-    tags:
-    - CanPilot
-    - FootstepSound
-    - DoorBumpOpener
-    - FelinidEmotes
-  #WWDP EDIT END
   - type: Thieving
     ignoreStripHidden: true
     stealth: Subtle
     stripTimeReduction: 0
     stripTimeMultiplier: 0.667
-  # - type: StepTriggerImmune # WWDP no free noslips/ignoring traps
+  # WD EDIT START
+  # - type: ProtectedFromStepTriggers
   #   whitelist:
   #     types:
   #       - Shard
   #       - Landmine
   #       - Mousetrap
   #       - SlipEntity
-  # WD EDIT START
+  # WD EDIT END
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - FelinidEmotes
   - type: Inventory
     femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female
+      # WD EDIT START
       jumpsuit-body-slim:
         sizeMaps:
           32:
@@ -125,7 +130,7 @@
           32:
             sprite: _White/Mobs/Species/Human/displacement.rsi
             state: suit
-  # WD EDIT END
+        # WD EDIT END
 
 - type: entity
   save: false
@@ -137,9 +142,14 @@
   components:
   - type: HumanoidAppearance
     species: Felinid
-  # WD EDIT START
   - type: Inventory
     femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female
+      # WD EDIT START
       jumpsuit-body-slim:
         sizeMaps:
           32:
@@ -170,4 +180,4 @@
           32:
             sprite: _White/Mobs/Species/Human/displacement.rsi
             state: suit
-  # WD EDIT END
+      # WD EDIT END

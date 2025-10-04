@@ -28,9 +28,9 @@ tilemap:
   61: FloorKitchen
   62: FloorLaundry
   63: FloorLino
-  65: FloorMetalDiamond
+  65: FloorMetalDiamondSteel
   66: FloorMime
-  70: FloorMono
+  70: FloorTrueMonoTileSteel
   72: FloorOldConcreteMono
   77: FloorRGlass
   78: FloorReinforced
@@ -41,8 +41,8 @@ tilemap:
   94: FloorSteelCheckerDark
   99: FloorSteelDirty
   105: FloorSteelPavement
-  107: FloorTechMaint
-  108: FloorTechMaint2
+  107: FloorTechMaintSteel
+  108: FloorMaintWhite
   109: FloorTechMaint3
   111: FloorWhite
   115: FloorWhiteMini
@@ -32497,14 +32497,14 @@ entities:
     - type: Transform
       pos: -44.469,-28.408783
       parent: 2
-- proto: FloraTree01
+- proto: FloraTree
   entities:
   - uid: 5217
     components:
     - type: Transform
       pos: -30.035734,-10.704402
       parent: 2
-- proto: FloraTreeSnow02
+- proto: FloraTreeSnow
   entities:
   - uid: 5218
     components:

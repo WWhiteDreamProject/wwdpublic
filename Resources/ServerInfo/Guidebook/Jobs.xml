@@ -1,41 +1,45 @@
 ﻿<Document>
-# Jobs
+  # Профессии
 
-SS14 has a large number of jobs, divided into seven major departments:
+  В SS14 доступно множество профессий, разделённых на семь основных отделов:
 
-## Service
-This department includes the janitor, passengers, clown, mime, musician, chef, bartender, the head of personnel, and other jobs who exist to serve the station.
+  ## Сервис
+  [color=#9fed58]Сервис[/color] — это разнообразный отдел, включающий главу персонала и другие должности, которые существуют для обслуживания станции.
 
-It primarily functions as folks who entertain, clean, and serve the rest of the crew, with the exception of passengers who have no particular job beyond getting lost in maintenance.
+  Они развлекают, убирают, готовят и поят. Пассажиры же — просто безработные, способные бесцельно бродить по станции и устраивать... сюрпризы.
 
-## Logistics
-Logistics consists of the cargo technicians, salvage specialists, and the logistics officer. As a department, it responsible resource distribution and trade, capable of buying and selling things on the galactic market.
+  ## Снабжение
+  Отдел [color=#b18644]Снабжения[/color] объединяет грузчиков, утилизаторов и логистического офицера. Они отвечают за снабжение и торговлю, покупая и продавая всё, что может пригодиться или принести деньги на галактическом рынке.
 
-For the most part, this means they scrounge around the station and assorted wrecks to find materials to sell and redistribute, and purchase materials other departments request.
+  Иначе говоря, они копаются в хламе станции и развалинах, чтобы найти полезные ресурсы, продать хлам и закупить нужное другим отделам.
 
-## Security
-Security consists of the security cadets, lawyers, detective, security officers, warden, and the head of security. As a department it is responsible for dealing with troublemakers and non-humanoid threats like giant rats and carp.
+  ## Служба Безопасости
+  В состав отдела [color=#cb0000]Службы Безопасности[/color] входят кадеты, юристы, детектив, офицеры, варден и глава охраны. Их задача — разбираться с нарушителями и внезапными угрозами вроде гигантских крыс или космических карпов.
 
-As a result of this, and the need to walk a fine line, security sometimes is overwhelmed by angry crew (don't kill the clown), and it is important for its members to try and stay on their best behavior.
+  Но работа опасная: баланс между порядком и произволом тонок, а недовольные граждане порой готовы линчевать за арест клоуна. Поэтому сотрудникам важно сохранять хладнокровие и следить за собой.
 
-## Medical
-Medical consists of the medical interns, chemists, medical doctors, and the chief medical officer. As a department it is responsible for taking care of the crew, treat and/or clone the wounded and dead, treat disease, and prevent everyone from dying a horrible, bloody death in a closet somewhere.
+  ## Медицина
+  [color=#5b97bc]Медицинский[/color] отдел включает интернов, химиков, врачей и главврача. Они лечат, клонируют мёртвых, борются с болезнями и не дают экипажу загибаться в техах от кровотечения.
 
-Medical is one of the more well-equipped departments, with the ability to locate injured crew using the crew monitor, a nigh infinite supply of chems should chemistry be on-par, and the ability to rapidly diagnose and vaccinate contagious diseases.
+  Отдел оснащён на отлично: мониторы отслеживают раненых, лаборатория способна варить почти всё, а хорошая команда спасает станцию от эпидемий за пару минут.
 
-## Epistemics
-Epistemics consists of research assistants, scientists, and the mystagogue. As a department it is responsible for researching technologies and artifacts, upgrading machines, and printing new and useful devices.
+  ## Эпистемика
+  В отделе [color=#c96dbf]Эпистемики[/color] трудятся ассистенты, учёные и мистагог. Их задача — изучать технологии и артефакты, улучшать оборудование и создавать полезные штуки.
 
-Scientists should seek out new artifacts to study, as well as solicit departments to help upgrade their machines.
+  Учёные должны исследовать обломки, собирать загадочные объекты, развивать технологии и помогать другим отделам прокачать машины.
 
-## Engineering
-Engineering consists of technical assistants, station engineers, atmospheric technicians, and the chief engineer. As a department it is responsible for keeping the station powered, its structure intact and its air supply working.
+  ## Инженерия
+  В [color=#f39f27]Инженерном[/color] отделе служат технические ассистенты, инженеры, атмосферние техники и старший инженер. Их долг — поддерживать станцию в рабочем состоянии: свет, воздух, стены, генераторы — всё это на их совести.
 
-Engineering is readily equipped to go safely into space, and as such they should always attempt to repair uninhabitable parts of the station.
+  Инженеры экипированы для работы в космосе, и обязаны чинить повреждённые секции, восстанавливать давление и следить за генерацией энергии.
 
-## Command
-Command consists of the captain, the head of personnel, the head of security, the chief engineer, the chief medical officer, the mystagogue, and the logistics officer. As a department it is responsible for keeping the station and its departments running efficiently.
+  ## Командование
+  [color=#1b67a5]Командывание[/color] содержит глав всех отделов станции. Они руководят станцией и обеспечивают работу всех отделов.
 
-Command members should always be relatively competent in their respective departments and attempt to delegate responsibility and direct work.
+  Каждый командный сотрудник должен быть компетентным, уметь распределять задачи, координировать персонал и, в идеале, не сойти с ума к концу смены.
 
+  # Смена Должности
+  [color=#9fed58]Глава Персонала[/color] отвечает за изменение доступов ID-карт и выдачу ключей шифрования. Направляйтесь в его офис и сообщите, какую должность вы хотели бы занять.
+
+  Часто он попросит вас получить бумагу с [color=#a4885c]печатью[/color] от главы отдела. Не беспокойтесь, просто найдите главу данного отдела и передайте ему бумагу.
 </Document>

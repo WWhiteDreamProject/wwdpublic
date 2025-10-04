@@ -1,22 +1,42 @@
 <Document>
-# Medical
-This is the department where people go to when they're hurt, it's up to the folks working here to fix them.
 
-Right now, medbay is divided into two different sets of care:
+  # Медицина
 
-## Medical Treatment
-<Box>
-<GuideEntityEmbed Entity="Brutepack"/>
-<GuideEntityEmbed Entity="Bloodpack"/>
-<GuideEntityEmbed Entity="Ointment"/>
-<GuideEntityEmbed Entity="Gauze"/>
-<GuideEntityEmbed Entity="HandheldHealthAnalyzer"/>
-</Box>
-## Chemical Production
-<Box>
-<GuideEntityEmbed Entity="ChemDispenser"/>
-<GuideEntityEmbed Entity="LargeBeaker"/>
-<GuideEntityEmbed Entity="PillCanister"/>
-<GuideEntityEmbed Entity="ChemMaster"/>
-</Box>
+  Это тот самый отдел, куда приползает половина станции, когда у них всё болит, течёт или отваливается. Именно здесь решается, будет ли пациент снова бегать по коридорам — или останется холодной тушкой в морге. Всё в руках медицинского персонала.
+
+  В настоящий момент медблок разделён на два ключевых направления помощи:
+
+  ## Персонал
+  [color=#5b97bc]Медицинский Отдел[/color] состоит из Интернов, Врачей, Парамедиков и Химиков. Заведует отделом Главный Врач.
+
+  <Box>
+    <GuideEntityEmbed Entity="ToyFigurineMedicalDoctor" Caption="Врач"/>
+    <GuideEntityEmbed Entity="ToyFigurineParamedic" Caption="Парамедик"/>
+    <GuideEntityEmbed Entity="ToyFigurineChemist" Caption="Химик"/>
+    <GuideEntityEmbed Entity="ToyFigurineChiefMedicalOfficer" Caption="ГВ"/>
+  </Box>
+
+  ## Медицинское лечение
+
+  <Box>
+    <GuideEntityEmbed Entity="Brutepack"/>
+    <GuideEntityEmbed Entity="Bloodpack"/>
+    <GuideEntityEmbed Entity="Ointment"/>
+    <GuideEntityEmbed Entity="Gauze"/>
+    <GuideEntityEmbed Entity="HandheldHealthAnalyzer"/>
+  </Box>
+
+  Первая помощь — это бинты, мази, пластыри и, конечно же, быстрый анализ состояния пациента. Чем быстрее диагностируешь проблему, тем выше шанс, что не придётся звать священника.
+
+  ## Производство медикаментов
+
+  <Box>
+    <GuideEntityEmbed Entity="ChemDispenser"/>
+    <GuideEntityEmbed Entity="LargeBeaker"/>
+    <GuideEntityEmbed Entity="PillCanister"/>
+    <GuideEntityEmbed Entity="ChemMaster"/>
+  </Box>
+
+  Химический отсек — сердце фармацевтики. Именно здесь создаются таблетки, растворы и прочие зелья жизни. Оттуда берётся всё, что спасает от кислоты, огня, пуль и дураков. Главное — не перепутать мензурку со своей кружкой.
+
 </Document>

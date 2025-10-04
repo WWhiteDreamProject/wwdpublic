@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "tgstation; original toilet sprite by brainfood1183 (github); discocat, heart by redfoxiv",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+	{ "name": "blazeit", "directions": 4 },
+	{ "name": "fire", "directions": 4 },
+	{ "name": "ian", "directions": 4 },
+	{ "name": "kitty", "directions": 4 },
+	{ "name": "king", "directions": 4 },
+	{ "name": "rainbow", "directions": 4 },
+	{ "name": "skeleton", "directions": 4 },
+	{ "name": "mouse", "directions": 4 },
+	{ "name": "rooster", "directions": 4 },
+	{ "name": "frog", "directions": 4 },
+	{ "name": "disappointment" },
+	{ "name": "heart" },
+	{ "name": "discocat", "delays": [[0.2, 0.2, 0.2, 0.2]] },
+	{ "name": "parrot", "directions": 4, "delays" :
+	[
+		[0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1],
+		[0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1],
+		[0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1],
+		[0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1]
+	]}
+  ]
+}

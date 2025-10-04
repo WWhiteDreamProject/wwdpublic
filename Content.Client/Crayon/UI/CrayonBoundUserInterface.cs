@@ -24,17 +24,15 @@ namespace Content.Client.Crayon.UI
         protected override void Open()
         {
             base.Open();
-            _menu = this.CreateWindow<CrayonWindow>();
+            _menu = this.CreateWindowCenteredLeft<CrayonWindow>();
             _menu.OnColorSelected += SelectColor;
             _menu.OnSelected += Select;
             PopulateCrayons();
-            _menu.OpenCenteredLeft();
-            //_menu.Search.GrabKeyboardFocus();
         }
 
         private void PopulateCrayons()
         {
-			// WWDP EDIT START
+            // WWDP EDIT START
             var crayonDecals = _protoManager.EnumeratePrototypes<DecalPrototype>();
             if(_ownerComp?.AllDecals != true)
                 crayonDecals = crayonDecals.Where(x => x.Tags.Contains("crayon"));

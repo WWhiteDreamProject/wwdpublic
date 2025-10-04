@@ -105,5 +105,5 @@
       types:
         Piercing: 25
   - type: Construction
-    graph: ImprovisedArrow
+    graph: MetalRod # WWDP
     node: ImprovisedArrow

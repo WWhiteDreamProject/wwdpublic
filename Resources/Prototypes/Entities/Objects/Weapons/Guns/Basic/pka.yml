@@ -1,7 +1,7 @@
 - type: entity
   name: proto-kinetic accelerator
   id: WeaponProtoKineticAccelerator
-  parent: WeaponProtoKineticAcceleratorBase
+  parent: [WeaponProtoKineticAcceleratorBase, BaseCargoContraband]
   description: Fires low-damage kinetic bolts at a short range.
   components:
   - type: Sprite
@@ -21,12 +21,12 @@
     - state: animation-icon
       visible: false
       map: [ "empty-icon" ]
-  - type: ExtendDescription
-    descriptionList:
-    - description: "gun-legality-salvage"
-      fontSize: 12
-      color: "#ff4f00"
-      requireDetailRange: false
+  # - type: ExtendDescription # WWDP we dont need it
+  #   descriptionList:
+  #   - description: "gun-legality-salvage"
+  #     fontSize: 12
+  #     color: "#ff4f00"
+  #     requireDetailRange: false
   - type: MeleeWeapon # WD EDIT
     attackRate: 0.7
     damage:

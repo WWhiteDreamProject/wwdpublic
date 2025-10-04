@@ -28,6 +28,14 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("INTEGER")
                         .HasColumnName("admin_rank_id");
 
+                    b.Property<bool>("Deadminned")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("deadminned");
+
+                    b.Property<bool>("Suspended")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("suspended");
+
                     b.Property<string>("Title")
                         .HasColumnType("TEXT")
                         .HasColumnName("title");
@@ -591,6 +599,35 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.ToTable("connection_log", (string)null);
                 });
 
+            modelBuilder.Entity("Content.Server.Database.IPIntelCache", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("ipintel_cache_id");
+
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("address");
+
+                    b.Property<float>("Score")
+                        .HasColumnType("REAL")
+                        .HasColumnName("score");
+
+                    b.Property<DateTime>("Time")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("time");
+
+                    b.HasKey("Id")
+                        .HasName("PK_ipintel_cache");
+
+                    b.HasIndex("Address")
+                        .IsUnique();
+
+                    b.ToTable("ipintel_cache", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.Job", b =>
                 {
                     b.Property<int>("Id")
@@ -636,6 +673,10 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Property<string>("CustomColorTint")
                         .HasColumnType("TEXT")
                         .HasColumnName("custom_color_tint");
+
+                    b.Property<string>("CustomContent")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("custom_content");
 
                     b.Property<string>("CustomDescription")
                         .HasColumnType("TEXT")
@@ -755,6 +796,11 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("TEXT")
                         .HasColumnName("admin_ooc_color");
 
+                    b.Property<string>("GhostId")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("ghost_id");
+
                     b.Property<int>("SelectedCharacterSlot")
                         .HasColumnType("INTEGER")
                         .HasColumnName("selected_character_slot");
@@ -783,10 +829,26 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("INTEGER")
                         .HasColumnName("age");
 
-                    b.Property<string>("Backpack")
+                    b.Property<byte>("BarkPause")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("bark_pause");
+
+                    b.Property<byte>("BarkPitch")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("bark_pitch");
+
+                    b.Property<byte>("BarkPitchVariance")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("bark_pitch_variance");
+
+                    b.Property<string>("BarkVoice")
                         .IsRequired()
                         .HasColumnType("TEXT")
-                        .HasColumnName("backpack");
+                        .HasColumnName("bark_voice");
+
+                    b.Property<byte>("BarkVolume")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("bark_volume");
 
                     b.Property<string>("BodyType")
                         .IsRequired()
@@ -797,11 +859,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .IsRequired()
                         .HasColumnType("TEXT")
                         .HasColumnName("char_name");
-
-                    b.Property<string>("Clothing")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("clothing");
 
                     b.Property<string>("ClownName")
                         .HasColumnType("TEXT")
@@ -872,6 +929,10 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Property<byte[]>("Markings")
                         .HasColumnType("jsonb")
                         .HasColumnName("markings");
+
+                    b.Property<string>("MimeName")
+                        .HasColumnType("TEXT")
+                        .HasColumnName("mime_name");
 
                     b.Property<string>("Nationality")
                         .IsRequired()

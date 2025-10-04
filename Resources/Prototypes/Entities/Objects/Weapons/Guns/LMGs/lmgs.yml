@@ -24,15 +24,14 @@
     minAngle: -20
     maxAngle: -20
   - type: Gun
-    bonusAngleIncreaseMove: 50    # wwdp
     bonusAngleIncreaseTurn: 0.5   # wwdp
-    bonusAngleDecay: 30           # wwdp
     maxBonusAngle: 30             # wwdp
     minAngle: 24
     maxAngle: 45
     angleIncrease: 1 # WWDP
     angleDecay: 16
     fireRate: 8
+    defaultDirection: 1, 0 # wwdp
     selectedMode: FullAuto
     availableModes:
       - FullAuto
@@ -70,7 +69,7 @@
     price: 500
   - type: UseDelay
     delay: 1
-  - type: Execution
+  # - type: Execution # WWDP
   - type: MeleeWeapon
     attackRate: 1.4
     damage:
@@ -102,7 +101,7 @@
 - type: entity
   name: L6 SAW
   id: WeaponLightMachineGunL6
-  parent: BaseWeaponLightMachineGun
+  parent: [BaseWeaponLightMachineGun, BaseSyndicateContraband]
   description: A rather traditionally made LMG with a pleasantly lacquered wooden pistol grip. Uses .30 rifle ammo.
   components:
   - type: Sprite

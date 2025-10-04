@@ -174,13 +174,15 @@ binds:
 - function: SaveItemLocation
   type: State
   key: MouseMiddle
+- function: Drop
+  type: State
+  key: Q
+# WD EDIT START
 - function: PreciseDrop
   type: State
   key: Q
   mod1: Shift
-- function: PreciseDrop
-  type: State
-  key: Q
+# WD EDIT END
 - function: ActivateItemInHand
   type: State
   key: Z
@@ -190,7 +192,7 @@ binds:
   mod1: Alt
 - function: OpenCharacterMenu
   type: State
-  key: C
+  key: J # WD EDIT: C -> J
 - function: OpenEmotesMenu
   type: State
   key: Y
@@ -275,6 +277,11 @@ binds:
   type: State
   mod1: Shift
   key: R
+# WD EDIT START
+- function: ToggleCombatMode
+  type: State
+  key: C
+# WD EDIT END
 - function: ShowDebugConsole
   type: State
   key: Tilde
@@ -286,6 +293,16 @@ binds:
   type: State
   key: MouseMiddle
   canFocus: true
+- function: RotateObjectClockwise
+  type: State
+  key: R
+- function: RotateObjectCounterclockwise
+  type: State
+  key: R
+  mod1: Shift
+- function: FlipObject
+  type: State
+  key: F
 - function: TextCursorLeft
   type: State
   key: Left
@@ -472,6 +489,9 @@ binds:
 - function: OpenDecalSpawnWindow
   type: State
   key: F8
+- function: ToggleRoundEndSummaryWindow
+  type: Toggle
+  key: F9
 - function: OpenSandboxWindow
   type: State
   key: B
@@ -554,9 +574,11 @@ binds:
 - function: Hotbar9
   type: State
   key: Num9
+# WD EDIT START
 - function: LookUp
   type: State
   key: Space
+# WD EDIT END
 - function: MappingUnselect
   type: State
   key: MouseRight

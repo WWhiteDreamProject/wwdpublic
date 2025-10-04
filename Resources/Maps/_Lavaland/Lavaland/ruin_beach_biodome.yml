@@ -11,8 +11,8 @@ tilemap:
   71: FloorMining
   73: FloorMiningLight
   105: FloorSteelDirty
-  113: FloorTechMaint
-  114: FloorTechMaint2
+  113: FloorTechMaintSteel
+  114: FloorMaintWhite
   127: FloorWood
   129: FloorWoodTile
   131: Plating
@@ -2543,15 +2543,13 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 4.5,1.5
       parent: 2
-- proto: FloraRockSolid01
+- proto: FloraRockSolid
   entities:
   - uid: 366
     components:
     - type: Transform
       pos: 3.5,11.5
       parent: 2
-- proto: FloraRockSolid02
-  entities:
   - uid: 367
     components:
     - type: Transform

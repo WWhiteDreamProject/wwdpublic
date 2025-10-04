@@ -1,11 +1,23 @@
 <Document>
-  # Construction
+  # Строительство
 
-  By pressing [color=#a4885c][keybind="OpenCraftingMenu"][/color], one can open the construction menu, which allows you to craft and build a variety of objects.
+  <Box>
+    <GuideEntityEmbed Entity="Bed" Caption=""/>
+    <GuideEntityEmbed Entity="TableReinforced" Caption=""/>
+    <GuideEntityEmbed Entity="WeaponImprovisedPneumaticCannon" Caption=""/>
+    <GuideEntityEmbed Entity="Chair" Caption=""/>
+  </Box>
 
-  When placing objects that "snap" to the grid, you can hold [color=#a4885c]Shift[/color] to place an entire line at a time, and [color=#a4885c]Ctrl[/color] to place an entire grid at a time.
 
-  When crafting objects with a lot of ingredients, keep in mind you don't have to hold everything at once; you can simply place the ingredients on the floor, in your backpack or on a table near you, and they'll be used up during crafting like normal.
+  Меню строительства — это способ строить и создавать предметы в игре.
+  Доступ к нему можно получить, нажав [color=yellow][bold][keybind="OpenCraftingMenu"][/bold][/color].
 
-  When placing a "building ghost" somewhere in the world, press [color=#a4885c][keybind="EditorRotateObject"][/color] to rotate the ghost clockwise. If you are building a mirrorable component (think: Gas Mixers/Filters), you can press [color=#a4885c][keybind="EditorFlipObject"][/color] to flip the ghost.
+  При размещении объектов, которые "привязываются" к сетке, вы можете удерживать [color=yellow][bold][keybind="EditorLinePlace"][/bold][/color], чтобы размещать целую линию за раз, и [color=yellow][bold][keybind="EditorGridPlace"][/bold][/color], чтобы размещать целую сетку за раз.
+
+  При создании объектов с большим количеством ингредиентов помните, что вам не нужно держать все сразу; вы можете просто положить ингредиенты на пол, в рюкзак или на стол рядом с собой, и они будут использованы при создании, как обычно.
+
+  При размещении "призрака здания" где-либо в мире, нажмите [color=yellow][bold][keybind="EditorRotateObject"][/bold][/color], чтобы повернуть призрак по часовой стрелке.
+  Если вы строите зеркалируемый компонент (например: смесители/фильтры газов), вы можете нажать [color=yellow][bold][keybind="EditorFlipObject"][/bold][/color], чтобы отразить призрак.
+
+  Вы также можете использовать [color=yellow][bold][keybind="RotateObjectClockwise"][/bold][/color] и [color=yellow][bold][keybind="RotateObjectCounterclockwise"][/bold][/color] для поворота объекта по часовой стрелке или против часовой стрелки, если он уже построен, пока он не закреплен (не отвернут).
 </Document>

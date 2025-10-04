@@ -39,7 +39,9 @@
         mask:
         - MachineMask
         layer:
-        - MachineLayer
+        - MidImpassable # WWDP can move through when climbing/prone
+        - BulletImpassable # WWDP
+  - type: RequireProjectileTarget # WWDP
   - type: DeepFryer
     blacklist:
       components:
@@ -105,6 +107,7 @@
       - Cornoil
       - OilGhee
       - OilOlive
+      - Oil #WWDP edit
     #unsafeOilVolumeEffects: #Can't pass UninitializedSaveTest. Modifies itself on spawn. Very weird.
     #- !type:AreaReactionEffect
     #  duration: 10

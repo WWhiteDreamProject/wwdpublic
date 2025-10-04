@@ -40,7 +40,7 @@
       powerLoad: 1500
     - type: ExtensionCableReceiver
     - type: Damageable
-      damageContainer: Inorganic
+      damageContainer: StructuralInorganic
       damageModifierSet: Electronic
     - type: Destructible
       thresholds:
@@ -55,6 +55,9 @@
               collection: MetalBreak
     - type: StaticPrice
       price: 300
+    - type: GuideHelp
+      guides:
+      - ShuttleCraft
   placement:
     mode: SnapgridCenter
 
@@ -197,7 +200,7 @@
     powerDrawMultiplier: 0.75
     scaling: Exponential
   - type: Damageable
-    damageContainer: Inorganic
+    damageContainer: StructuralInorganic
     damageModifierSet: Electronic
   - type: StaticPrice
     price: 2000

@@ -6,14 +6,14 @@ using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
-using Content.Shared.Physics;
 using Content.Shared.Popups;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared._White.Penetrated;
 using Content.Shared._White.Projectile;
 using Content.Shared.Item.ItemToggle;
-using Content.Shared.Throwing;
+using Content.Shared.Physics;
 using Content.Shared.UserInterface;
+using Content.Shared.Throwing;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Physics;
@@ -25,13 +25,13 @@ using Robust.Shared.Timing;
 using Content.Shared.Standing;
 using Robust.Shared.Network;
 
+
 namespace Content.Shared.Projectiles;
 
 public abstract partial class SharedProjectileSystem : EntitySystem
 {
     public const string ProjectileFixture = "projectile";
 
-    [Dependency] private readonly INetManager _netManager = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
@@ -40,7 +40,10 @@ public abstract partial class SharedProjectileSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly StandingStateSystem _standing = default!;
-    [Dependency] private readonly PenetratedSystem _penetrated = default!; // WD EDIT
+    // WD EDIT START
+    [Dependency] private readonly PenetratedSystem _penetrated = default!;
+    [Dependency] private readonly INetManager _netManager = default!;
+    // WD EDIT END
 
     public override void Initialize()
     {
@@ -60,33 +63,37 @@ public abstract partial class SharedProjectileSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<EmbeddableProjectileComponent>();
+        var query = EntityQueryEnumerator<ActiveEmbeddableProjectileComponent>();
         var curTime = _timing.CurTime;
 
-        while (query.MoveNext(out var uid, out var comp))
+        while (query.MoveNext(out var uid, out var _))
         {
+            if (!TryComp(uid, out EmbeddableProjectileComponent? comp))
+            {
+                RemCompDeferred<ActiveEmbeddableProjectileComponent>(uid);
+                continue;
+            }
+
             if (comp.AutoRemoveTime == null || comp.AutoRemoveTime > curTime)
                 continue;
 
-            if (comp.Target is { } targetUid)
+            if (comp.EmbeddedIntoUid is { } targetUid)
                 _popup.PopupClient(Loc.GetString("throwing-embed-falloff", ("item", uid)), targetUid, targetUid);
 
-            RemoveEmbed(uid, comp);
+            UnEmbed(uid, comp);
         }
     }
 
     private void OnEmbedActivate(EntityUid uid, EmbeddableProjectileComponent component, ActivateInWorldEvent args)
     {
         // Nuh uh
-        if (component.RemovalTime == null)
-            return;
-
-        if (args.Handled || !args.Complex || !TryComp<PhysicsComponent>(uid, out var physics) || physics.BodyType != BodyType.Static)
+        if (component.RemovalTime == null || args.Handled || !args.Complex
+            || !TryComp(uid, out PhysicsComponent? physics) || physics.BodyType != BodyType.Static)
             return;
 
         args.Handled = true;
 
-        if (component.Target is {} targetUid)
+        if (component.EmbeddedIntoUid is { } targetUid)
             _popup.PopupClient(Loc.GetString("throwing-embed-remove-alert-owner", ("item", uid), ("other", args.User)),
                 args.User, targetUid);
 
@@ -104,14 +111,92 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         if (args.Cancelled)
             return;
 
-        RemoveEmbed(uid, component, args.User);
+        UnEmbed(uid, component, args.User);
     }
 
-    public void RemoveEmbed(EntityUid uid, EmbeddableProjectileComponent component, EntityUid? remover = null)
+    private void OnEmbedThrowDoHit(EntityUid uid, EmbeddableProjectileComponent component, ThrowDoHitEvent args)
+    {
+        if (!component.EmbedOnThrow
+            || HasComp<ThrownItemImmuneComponent>(args.Target))
+            // || _standing.IsDown(args.Target)) // WD EDIT
+            return;
+
+        TryEmbed(uid, args.Target, null, component, args.TargetPart);
+    }
+
+    private void OnEmbedProjectileHit(EntityUid uid, EmbeddableProjectileComponent component, ref ProjectileHitEvent args)
+    {
+        if (!(args.Target is { }) // || _standing.IsDown(args.Target) // WD EDIT
+            || !TryComp(uid, out ProjectileComponent? projectile)
+            || projectile.Weapon is null
+            || !TryEmbed(uid, args.Target, args.Shooter, component))
+            return;
+
+        // Raise a specific event for projectiles.
+        var ev = new ProjectileEmbedEvent(projectile.Shooter, projectile.Weapon!.Value, args.Target);
+        RaiseLocalEvent(uid, ref ev);
+    }
+
+    public bool TryEmbed(EntityUid uid, EntityUid target, EntityUid? user, EmbeddableProjectileComponent component, TargetBodyPart? targetPart = null, bool raiseEvent = true) // WD EDIT: raiseEvent
+    {
+        // WD EDIT START
+        if (!TryComp<PhysicsComponent>(uid, out var physics)
+            || TerminatingOrDeleted(target)
+            || physics.LinearVelocity.Length() < component.MinimumSpeed
+            || _netManager.IsClient)
+            return false;
+
+        var attemptEmbedEvent = new AttemptEmbedEvent(user, target);
+        RaiseLocalEvent(uid, ref attemptEmbedEvent);
+
+        var xform = Transform(uid);
+
+        if (!TryComp<PenetratedProjectileComponent>(uid, out var penetratedProjectile)
+            || !penetratedProjectile.PenetratedUid.HasValue
+            || (penetratedProjectile.PenetratedUid != target
+                && !HasComp<PenetratedComponent>(target)))
+        {
+            EnsureComp<ActiveEmbeddableProjectileComponent>(uid);
+            _physics.SetLinearVelocity(uid, Vector2.Zero, body: physics);
+            _physics.SetBodyType(uid, BodyType.Static, body: physics);
+            _transform.SetParent(uid, xform, target);
+        }
+        // WD EDIT END
+
+        if (component.Offset != Vector2.Zero)
+        {
+            var rotation = xform.LocalRotation;
+            if (TryComp<ThrowingAngleComponent>(uid, out var throwingAngleComp))
+                rotation += throwingAngleComp.Angle;
+            _transform.SetLocalPosition(uid, xform.LocalPosition + rotation.RotateVec(component.Offset),
+                xform);
+        }
+
+        // WD EDIT START
+        if (!raiseEvent)
+            return true;
+        // WD EDIT END
+
+        _audio.PlayPredicted(component.Sound, uid, null);
+
+        component.TargetBodyPart = targetPart;
+        component.EmbeddedIntoUid = target;
+        var ev = new EmbedEvent(user, target, targetPart);
+        RaiseLocalEvent(uid, ref ev);
+
+        if (component.AutoRemoveDuration != 0)
+            component.AutoRemoveTime = _timing.CurTime + TimeSpan.FromSeconds(component.AutoRemoveDuration);
+
+        Dirty(uid, component);
+        return true;
+    }
+
+    public void UnEmbed(EntityUid uid, EmbeddableProjectileComponent component, EntityUid? remover = null)
     {
         component.AutoRemoveTime = null;
-        component.Target = null;
+        component.EmbeddedIntoUid = null;
         component.TargetBodyPart = null;
+        RemCompDeferred<ActiveEmbeddableProjectileComponent>(uid);
 
         var ev = new RemoveEmbedEvent(remover);
         RaiseLocalEvent(uid, ref ev);
@@ -135,7 +220,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         {
             projectile.Shooter = null;
             projectile.Weapon = null;
-            projectile.DamagedEntity = false;
+            projectile.ProjectileSpent = false;
         }
 
         FreePenetrated(uid); // WD EDIT
@@ -150,78 +235,6 @@ public abstract partial class SharedProjectileSystem : EntitySystem
             _hands.TryPickupAnyHand(removerUid, uid);
 
         Dirty(uid, component);
-    }
-
-    private void OnEmbedThrowDoHit(EntityUid uid, EmbeddableProjectileComponent component, ThrowDoHitEvent args)
-    {
-        if (!component.EmbedOnThrow
-            || HasComp<ThrownItemImmuneComponent>(args.Target)
-            || _standing.IsDown(args.Target))
-            return;
-
-        TryEmbed(uid, args.Target, null, component, args.TargetPart);
-    }
-
-    private void OnEmbedProjectileHit(EntityUid uid, EmbeddableProjectileComponent component, ref ProjectileHitEvent args)
-    {
-        if (!(args.Target is { }) || _standing.IsDown(args.Target)
-            || !TryComp(uid, out ProjectileComponent? projectile)
-            || !TryEmbed(uid, args.Target, args.Shooter, component))
-            return;
-
-        // Raise a specific event for projectiles.
-        var ev = new ProjectileEmbedEvent(projectile.Shooter, projectile.Weapon!.Value, args.Target);
-        RaiseLocalEvent(uid, ref ev);
-    }
-
-    public bool TryEmbed(EntityUid uid, EntityUid target, EntityUid? user, EmbeddableProjectileComponent component, TargetBodyPart? targetPart = null, bool raiseEvent = true)
-    {
-        // WD EDIT START
-        if (!TryComp<PhysicsComponent>(uid, out var physics)
-            || physics.LinearVelocity.Length() < component.MinimumSpeed
-            || _netManager.IsClient)
-            return false;
-
-        var attemptEmbedEvent = new AttemptEmbedEvent(user, target);
-        RaiseLocalEvent(uid, ref attemptEmbedEvent);
-
-        var xform = Transform(uid);
-
-        if (!TryComp<PenetratedProjectileComponent>(uid, out var penetratedProjectile)
-            || !penetratedProjectile.PenetratedUid.HasValue
-            || (penetratedProjectile.PenetratedUid != target
-                && !HasComp<PenetratedComponent>(target)))
-        {
-            _physics.SetLinearVelocity(uid, Vector2.Zero, body: physics);
-            _physics.SetBodyType(uid, BodyType.Static, body: physics);
-            _transform.SetParent(uid, xform, target);
-        }
-        // WD EDIT END
-
-        if (component.Offset != Vector2.Zero)
-        {
-            _transform.SetLocalPosition(uid, xform.LocalPosition + xform.LocalRotation.RotateVec(component.Offset),
-                xform);
-        }
-
-        // WD EDIT START
-        if (!raiseEvent)
-            return true;
-        // WD EDIT END
-
-        _audio.PlayPredicted(component.Sound, uid, null);
-
-        component.TargetBodyPart = targetPart;
-        var ev = new EmbedEvent(user, target, targetPart);
-        RaiseLocalEvent(uid, ref ev);
-
-        if (component.AutoRemoveDuration != 0)
-            component.AutoRemoveTime = _timing.CurTime + TimeSpan.FromSeconds(component.AutoRemoveDuration);
-
-        component.Target = target;
-
-        Dirty(uid, component);
-        return true;
     }
 
     private void PreventCollision(EntityUid uid, ProjectileComponent component, ref PreventCollideEvent args)
@@ -241,20 +254,20 @@ public abstract partial class SharedProjectileSystem : EntitySystem
 
     private void OnExamined(EntityUid uid, EmbeddableProjectileComponent component, ExaminedEvent args)
     {
-        if (!(component.Target is { } target))
+        if (!(component.EmbeddedIntoUid is { } target))
             return;
 
         var targetIdentity = Identity.Entity(target, EntityManager);
 
         var loc = component.TargetBodyPart == null
             ? Loc.GetString("throwing-examine-embedded",
-                ("embedded", uid),
-                ("target", targetIdentity))
+            ("embedded", uid),
+            ("target", targetIdentity))
             : Loc.GetString("throwing-examine-embedded-part",
-                ("embedded", uid),
-                ("target", targetIdentity),
-                ("targetName", Name(targetIdentity)), // WWDP
-                ("targetPart", Loc.GetString($"body-part-{component.TargetBodyPart.ToString()}")));
+            ("embedded", uid),
+            ("target", targetIdentity),
+            ("targetName", Name(targetIdentity)), // WWDP
+            ("targetPart", Loc.GetString($"body-part-{component.TargetBodyPart.ToString()}")));
 
         args.PushMarkup(loc);
     }

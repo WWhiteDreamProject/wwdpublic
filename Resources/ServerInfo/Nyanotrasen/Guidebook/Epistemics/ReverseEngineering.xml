@@ -1,33 +1,40 @@
 <Document>
-# Reverse Engineering
+# Обратная инженерия
 
 <GuideEntityEmbed Entity="ReverseEngineeringMachine"/>
 
-The reverse engineering machine allows salvage to bootstrap their way into unlocking powerful lathe recipes that are otherwise unacquirable.
+Машина обратной инженерии — незаменимый инструмент отдела утилизации, позволяющий **вытаскивать высокотехнологичные рецепты из мусора**, словно золото из канализации.
+С её помощью можно разблокировать схемы для продвинутых станков и устройств, которые обычным способом получить невозможно.
 
-The machine's power is very limited without upgrades to its matter bin and manipulator.
-The matter bin increases its analysis power and the manipulator decreases the chance of destruction with safety turned off.
+Без апгрейдов, правда, аппарат весьма беспомощен.
+Улучшение [italic]ёмкости для материи[/italic] увеличивает мощность анализа.
+Апгрейд [italic]манипулятора[/italic] снижает шанс уничтожить ценный объект, если вы решите отключить защиту (а вы, конечно же, отключите её... ради науки).
 
-## Operation
+## Как это работает
 
-The machine will only accept items it can reverse engineer. Currently this is most circuit boards and machine parts, but it accepts quite a variety of objects.
+Машина принимает только те предметы, которые вообще можно проанализировать. В основном это платы и детали машин, но список достаточно широк.
 
-It does not accept firearms and never will.
+[color=red]Огнестрел не принимается. Никогда. Ни при каких условиях.[/color]
+Можете даже не пытаться засунуть туда лазган — аппарат не дурак.
 
-To use the machine, insert an item and use the buttons on the left.
+Для работы:
 
-- [color=#a4885c]Analyze:[/color]
-This starts a new reverse engineering attempt.
+1. Вставьте предмет в машину.
+2. Используйте кнопки на панели слева:
 
-- [color=#a4885c]Safety:[/color]
-With safety off, you have more analysis power, but there is a chance to destroy the item.
+- [color=#a4885c]Анализ:[/color]
+Запускает новую попытку анализа. Молитесь, чтобы предмет выжил.
 
-- [color=#a4885c]AutoProbe:[/color]
-This will automatically start a new attempt when the last one ends.
+- [color=#a4885c]Защита:[/color]
+Выключите её — получите больше мощности. Но будьте готовы к тому, что объект может развалиться на атомы. Надеемся, вы не вставили туда уникальную вещь.
 
-- [color=#a4885c]Stop:[/color]
-Stops the current attempt.
+- [color=#a4885c]Авто-Зонд:[/color]
+Автоматически запускает следующий анализ сразу после завершения предыдущего. Подходит для ленивых или занятых жадных инженеров.
 
-- [color=#a4885c]Item:[/color]
-Ejects the item.
+- [color=#a4885c]Стоп:[/color]
+Прерывает текущий процесс. Полезно, если вы внезапно вспомнили, что это была не запасная плата, а нужная.
+
+- [color=#a4885c]Извлечь:[/color]
+Выдаёт предмет обратно. Если он ещё цел.
+
 </Document>

@@ -305,97 +305,101 @@
         - Musician
 
 # Survival Kit
-- type: loadout
-  id: LoadoutItemsEmergencyOxygenTank
-  category: Items
-  cost: 0
-  items:
-    - EmergencyOxygenTankFilled
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutAirTank
-    - !type:CharacterSpeciesRequirement
-      inverted: true
-      species:
-        - Plasmaman
 
-- type: loadout
-  id: LoadoutItemsExtendedEmergencyOxygenTank
-  category: Items
-  cost: 1
-  items:
-    - ExtendedEmergencyOxygenTankFilled
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutAirTank
-    - !type:CharacterSpeciesRequirement
-      inverted: true
-      species:
-        - Plasmaman
-
-- type: loadout
-  id: LoadoutItemsDoubleEmergencyOxygenTank
-  category: Items
-  cost: 2
-  items:
-    - DoubleEmergencyOxygenTankFilled
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutAirTank
-    - !type:CharacterSpeciesRequirement
-      inverted: true
-      species:
-        - Plasmaman
-
-- type: loadout
-  id: LoadoutItemClothingMaskBreath
-  category: Items
-  cost: 0
-  items:
-    - ClothingMaskBreath
-
-- type: loadout
-  id: LoadoutItemsEmergencyCrowbar
-  category: Items
-  cost: 3
-  canBeHeirloom: true
-  items:
-    - CrowbarRed
-
-- type: loadout
-  id: LoadoutItemFireExtinguisher
-  category: Items
-  cost: 3
-  items:
-    - FireExtinguisher
-
-- type: loadout
-  id: LoadoutItemFlashlightLantern
-  category: Items
-  cost: 2
-  items:
-    - FlashlightLantern
-
-- type: loadout
-  id: LoadoutItemFlare
-  category: Items
-  cost: 1
-  items:
-    - Flare
-
-- type: loadout
-  id: LoadoutEmergencyMedipen
-  category: Items
-  cost: 1
-  items:
-    - EmergencyMedipen
-
-- type: loadout
-  id: LoadoutSpaceMedipen
-  category: Items
-  cost: 1
-  items:
-    - SpaceMedipen
+# WWDP edit start - just take the full survival kit at this point
+# - type: loadout
+#   id: LoadoutItemsEmergencyOxygenTank
+#   category: Items
+#   cost: 0
+#   items:
+#     - EmergencyOxygenTankFilled
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutAirTank
+#     - !type:CharacterSpeciesRequirement
+#       inverted: true
+#       species:
+#         - Plasmaman
+#
+# - type: loadout
+#   id: LoadoutItemsExtendedEmergencyOxygenTank
+#   category: Items
+#   cost: 1
+#   items:
+#     - ExtendedEmergencyOxygenTankFilled
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutAirTank
+#     - !type:CharacterSpeciesRequirement
+#       inverted: true
+#       species:
+#         - Plasmaman
+#
+# - type: loadout
+#   id: LoadoutItemsDoubleEmergencyOxygenTank
+#   category: Items
+#   cost: 2
+#   items:
+#     - DoubleEmergencyOxygenTankFilled
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutAirTank
+#     - !type:CharacterSpeciesRequirement
+#       inverted: true
+#       species:
+#         - Plasmaman
+#
+# - type: loadout
+#   id: LoadoutItemClothingMaskBreath
+#   category: Items
+#   cost: 0
+#   items:
+#     - ClothingMaskBreath
+#
+# - type: loadout
+#   id: LoadoutItemsEmergencyCrowbar
+#   category: Items
+#   cost: 3
+#   canBeHeirloom: true
+#   items:
+#     - CrowbarRed
+#
+# - type: loadout
+#   id: LoadoutItemFireExtinguisher
+#   category: Items
+#   cost: 3
+#   items:
+#     - FireExtinguisher
+#
+# - type: loadout
+#   id: LoadoutItemFlashlightLantern
+#   category: Items
+#   cost: 2
+#   items:
+#     - FlashlightLantern
+#
+# - type: loadout
+#   id: LoadoutItemFlare
+#   category: Items
+#   cost: 1
+#   items:
+#     - Flare
+#
+# - type: loadout
+#   id: LoadoutEmergencyMedipen
+#   category: Items
+#   cost: 1
+#   items:
+#     - EmergencyMedipen
+#
+# - type: loadout
+#   id: LoadoutSpaceMedipen
+#   category: Items
+#   cost: 1
+#   items:
+#     - SpaceMedipen
+#
+# WWDP edit end
 
 # Paperwork
 - type: loadout
@@ -425,6 +429,7 @@
   id: LoadoutBookRandom
   category: Items
   cost: 1
+  customContent: true # WD EDIT
   items:
     - BookRandom
   requirements:
@@ -496,6 +501,7 @@
        inverted: true
        jobs:
          - Clown
+         - Prisoner # WWDP
     - !type:CharacterItemGroupRequirement
       group: LoadoutBoxKits
 
@@ -526,6 +532,7 @@
        inverted: true
        jobs:
          - Brigmedic
+         - Prisoner # WWDP
     - !type:CharacterItemGroupRequirement
       group: LoadoutBoxKits
 
@@ -569,131 +576,136 @@
       group: LoadoutBoxKits
 
 # Medkits
-- type: loadout
-  id: LoadoutMedkitFilled
-  category: Items
-  cost: 2
-  items:
-    - MedkitFilled
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutMedkits
 
-- type: loadout
-  id: LoadoutMedkitBruteFilled
-  category: Items
-  cost: 2
-  items:
-    - MedkitBruteFilled
-  requirements:
-    - !type:CharacterJobRequirement
-      jobs:
-        - MedicalDoctor
-        - Paramedic
-        - ChiefMedicalOfficer
-        - MedicalIntern
-        - Brigmedic
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutMedkits
+# WWDP edit start - disabled
+# - type: loadout
+#   id: LoadoutMedkitFilled
+#   category: Items
+#   cost: 2
+#   items:
+#     - MedkitFilled
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutMedkits
+#
+# - type: loadout
+#   id: LoadoutMedkitBruteFilled
+#   category: Items
+#   cost: 2
+#   items:
+#     - MedkitBruteFilled
+#   requirements:
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - MedicalDoctor
+#         - Paramedic
+#         - ChiefMedicalOfficer
+#         - MedicalIntern
+#         - Brigmedic
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutMedkits
+#
+# - type: loadout
+#   id: LoadoutMedkitBurnFilled
+#   category: Items
+#   cost: 2
+#   items:
+#     - MedkitBurnFilled
+#   requirements:
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - MedicalDoctor
+#         - Paramedic
+#         - ChiefMedicalOfficer
+#         - MedicalIntern
+#         - Brigmedic
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutMedkits
+#
+# - type: loadout
+#   id: LoadoutMedkitToxinFilled
+#   category: Items
+#   cost: 2
+#   items:
+#     - MedkitToxinFilled
+#   requirements:
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - MedicalDoctor
+#         - Paramedic
+#         - ChiefMedicalOfficer
+#         - MedicalIntern
+#         - Brigmedic
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutMedkits
+#
+# - type: loadout
+#   id: LoadoutMedkitOxygenFilled
+#   category: Items
+#   cost: 2
+#   items:
+#     - MedkitOxygenFilled
+#   requirements:
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - MedicalDoctor
+#         - Paramedic
+#         - ChiefMedicalOfficer
+#         - MedicalIntern
+#         - Brigmedic
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutMedkits
+#
+# - type: loadout
+#   id: LoadoutMedkitRadiationFilled
+#   category: Items
+#   cost: 2
+#   items:
+#     - MedkitRadiationFilled
+#   requirements:
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - MedicalDoctor
+#         - Paramedic
+#         - ChiefMedicalOfficer
+#         - MedicalIntern
+#         - Brigmedic
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutMedkits
+#
+# - type: loadout
+#   id: LoadoutMedkitAdvancedFilled
+#   category: Items
+#   cost: 3
+#   items:
+#     - MedkitAdvancedFilled
+#   requirements:
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - MedicalDoctor
+#         - Paramedic
+#         - ChiefMedicalOfficer
+#         - MedicalIntern
+#         - Brigmedic
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutMedkits
+#
+# - type: loadout
+#   id: LoadoutMedkitCombatFilled
+#   category: Items
+#   cost: 3
+#   items:
+#     - MedkitCombatFilled
+#   requirements:
+#     - !type:CharacterJobRequirement
+#        jobs:
+#          - ChiefMedicalOfficer
+#          - Brigmedic
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutMedkits
+#
+# WWDP edit end
 
-- type: loadout
-  id: LoadoutMedkitBurnFilled
-  category: Items
-  cost: 2
-  items:
-    - MedkitBurnFilled
-  requirements:
-    - !type:CharacterJobRequirement
-      jobs:
-        - MedicalDoctor
-        - Paramedic
-        - ChiefMedicalOfficer
-        - MedicalIntern
-        - Brigmedic
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutMedkits
-
-- type: loadout
-  id: LoadoutMedkitToxinFilled
-  category: Items
-  cost: 2
-  items:
-    - MedkitToxinFilled
-  requirements:
-    - !type:CharacterJobRequirement
-      jobs:
-        - MedicalDoctor
-        - Paramedic
-        - ChiefMedicalOfficer
-        - MedicalIntern
-        - Brigmedic
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutMedkits
-
-- type: loadout
-  id: LoadoutMedkitOxygenFilled
-  category: Items
-  cost: 2
-  items:
-    - MedkitOxygenFilled
-  requirements:
-    - !type:CharacterJobRequirement
-      jobs:
-        - MedicalDoctor
-        - Paramedic
-        - ChiefMedicalOfficer
-        - MedicalIntern
-        - Brigmedic
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutMedkits
-
-- type: loadout
-  id: LoadoutMedkitRadiationFilled
-  category: Items
-  cost: 2
-  items:
-    - MedkitRadiationFilled
-  requirements:
-    - !type:CharacterJobRequirement
-      jobs:
-        - MedicalDoctor
-        - Paramedic
-        - ChiefMedicalOfficer
-        - MedicalIntern
-        - Brigmedic
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutMedkits
-
-- type: loadout
-  id: LoadoutMedkitAdvancedFilled
-  category: Items
-  cost: 3
-  items:
-    - MedkitAdvancedFilled
-  requirements:
-    - !type:CharacterJobRequirement
-      jobs:
-        - MedicalDoctor
-        - Paramedic
-        - ChiefMedicalOfficer
-        - MedicalIntern
-        - Brigmedic
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutMedkits
-
-- type: loadout
-  id: LoadoutMedkitCombatFilled
-  category: Items
-  cost: 3
-  items:
-    - MedkitCombatFilled
-  requirements:
-    - !type:CharacterJobRequirement
-       jobs:
-         - ChiefMedicalOfficer
-         - Brigmedic
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutMedkits
 
 #Misc Items
 # - type: loadout # WWDP disabled (xd)
@@ -709,19 +721,21 @@
 #   items:
 #   - WeaponCivilianDisabler
 
-- type: loadout
-  id: LoadoutItemFlash
-  category: Items
-  cost: 1
-  items:
-    - Flash
-  requirements:
-    - !type:CharacterDepartmentRequirement
-       departments:
-         - Security
-    - !type:CharacterJobRequirement
-       jobs:
-         - Brigmedic
+# WWDP, removed duplicate
+# - type: loadout
+#   id: LoadoutItemFlash
+#   category: Items
+#   cost: 1
+#   items:
+#     - Flash
+#   requirements:
+#     - !type:CharacterDepartmentRequirement
+#        departments:
+#          - Security
+#     - !type:CharacterJobRequirement
+#        jobs:
+#          - Brigmedic
+#          - Prisoner # WWDP
 
  # 5 zillion ghostroles, more people will take them if theyre less common.
  # - type: loadout

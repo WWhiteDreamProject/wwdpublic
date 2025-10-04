@@ -22,3 +22,5 @@
       - type: BloodCultSpellsHolder
       mindRoles:
       - MindRoleBloodCultist
+  - type: DynamicRuleCost
+    cost: 24

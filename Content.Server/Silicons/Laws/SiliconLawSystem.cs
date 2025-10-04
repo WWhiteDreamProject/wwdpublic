@@ -1,25 +1,30 @@
 using System.Linq;
 using Content.Server.Administration;
 using Content.Server.Chat.Managers;
-using Content.Shared.GameTicking;
 using Content.Server.Radio.Components;
 using Content.Server.Roles;
 using Content.Server.Station.Systems;
+using Content.Shared._White.Silicons.AI.Components;
+using Content.Shared._White.Silicons.Borgs.Components;
 using Content.Shared.Administration;
 using Content.Shared.Chat;
-using Content.Shared.Emag.Components;
 using Content.Shared.Emag.Systems;
+using Content.Shared.GameTicking;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
+using Content.Shared.Random.Helpers;
 using Content.Shared.Roles;
 using Content.Shared.Silicons.Laws;
 using Content.Shared.Silicons.Laws.Components;
-using Content.Shared.Stunnable;
+using Content.Shared.Silicons.StationAi;
+using Content.Shared.Tag;
 using Content.Shared.Wires;
 using Robust.Server.GameObjects;
+using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 using Robust.Shared.Toolshed;
 
 namespace Content.Server.Silicons.Laws;
@@ -32,8 +37,11 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly SharedRoleSystem _roles = default!;
     [Dependency] private readonly StationSystem _station = default!;
-    [Dependency] private readonly SharedStunSystem _stunSystem = default!;
     [Dependency] private readonly UserInterfaceSystem _userInterface = default!;
+    [Dependency] private readonly EmagSystem _emag = default!;
+    [Dependency] private readonly TagSystem _tagSystem = default!; // WD edit - AiRemoteControl
+    [Dependency] private readonly IRobustRandom _random = default!; // WWDP - random roundstart lawset
+
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -48,13 +56,15 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
 
         SubscribeLocalEvent<SiliconLawProviderComponent, GetSiliconLawsEvent>(OnDirectedGetLaws);
         SubscribeLocalEvent<SiliconLawProviderComponent, IonStormLawsEvent>(OnIonStormLaws);
-        SubscribeLocalEvent<SiliconLawProviderComponent, GotEmaggedEvent>(OnEmagLawsAdded);
-        SubscribeLocalEvent<EmagSiliconLawComponent, MindAddedMessage>(OnEmagMindAdded);
-        SubscribeLocalEvent<EmagSiliconLawComponent, MindRemovedMessage>(OnEmagMindRemoved);
+        SubscribeLocalEvent<SiliconLawProviderComponent, MindAddedMessage>(OnLawProviderMindAdded);
+        SubscribeLocalEvent<SiliconLawProviderComponent, SiliconEmaggedEvent>(OnEmagLawsAdded);
+        SubscribeLocalEvent<SiliconLawUpdaterComponent, GotEmaggedEvent>(OnAiSubvert); // WD edit - AI subvert
     }
 
     private void OnMapInit(EntityUid uid, SiliconLawBoundComponent component, MapInitEvent args)
     {
+        TryRandomizeLaws(uid); // WWDP
+
         GetLaws(uid, component);
     }
 
@@ -63,10 +73,38 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
         if (!TryComp<ActorComponent>(uid, out var actor))
             return;
 
+        // WD edit - AiRemoteControl-Start
+        if (HasComp<AiRemoteControllerComponent>(uid) || _tagSystem.HasTag(uid, "StationAi")) // skip a law's notification for remotable and AI
+            return;
+        // WD edit - AiRemoteControl-End
+
         var msg = Loc.GetString("laws-notify");
         var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", msg));
-        _chatManager.ChatMessageToOne(ChatChannel.Server, msg, wrappedMessage, default, false,
-            actor.PlayerSession.Channel, colorOverride: Color.FromHex("#2ed2fd"));
+        _chatManager.ChatMessageToOne(ChatChannel.Server, msg, wrappedMessage, default, false, actor.PlayerSession.Channel, colorOverride: Color.FromHex("#5ed7aa"));
+
+        if (!TryComp<SiliconLawProviderComponent>(uid, out var lawcomp))
+            return;
+
+        if (!lawcomp.Subverted)
+            return;
+
+        var modifedLawMsg = Loc.GetString("laws-notify-subverted");
+        var modifiedLawWrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", modifedLawMsg));
+        _chatManager.ChatMessageToOne(ChatChannel.Server, modifedLawMsg, modifiedLawWrappedMessage, default, false, actor.PlayerSession.Channel, colorOverride: Color.Red);
+    }
+
+    private void OnLawProviderMindAdded(Entity<SiliconLawProviderComponent> ent, ref MindAddedMessage args)
+    {
+        if (!ent.Comp.Subverted)
+            return;
+        EnsureSubvertedSiliconRole(args.Mind);
+    }
+
+    private void OnLawProviderMindRemoved(Entity<SiliconLawProviderComponent> ent, ref MindRemovedMessage args)
+    {
+        if (!ent.Comp.Subverted)
+            return;
+        RemoveSubvertedSiliconRole(args.Mind);
     }
 
     private void OnToggleLawsScreen(EntityUid uid, SiliconLawBoundComponent component, ToggleLawsScreenEvent args)
@@ -108,28 +146,38 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
     private void OnIonStormLaws(EntityUid uid, SiliconLawProviderComponent component, ref IonStormLawsEvent args)
     {
         // Emagged borgs are immune to ion storm
-        if (!HasComp<EmaggedComponent>(uid))
+        if (!_emag.CheckFlag(uid, EmagType.Interaction))
         {
             component.Lawset = args.Lawset;
 
             // gotta tell player to check their laws
             NotifyLawsChanged(uid);
 
+            // Show the silicon has been subverted.
+            component.Subverted = true;
+
             // new laws may allow antagonist behaviour so make it clear for admins
-            if (TryComp<EmagSiliconLawComponent>(uid, out var emag))
-                EnsureEmaggedRole(uid, emag);
+            if(_mind.TryGetMind(uid, out var mindId, out _))
+                EnsureSubvertedSiliconRole(mindId);
 
         }
     }
 
-    private void OnEmagLawsAdded(EntityUid uid, SiliconLawProviderComponent component, ref GotEmaggedEvent args)
+    private void OnEmagLawsAdded(EntityUid uid, SiliconLawProviderComponent component, ref SiliconEmaggedEvent args)
     {
-
         if (component.Lawset == null)
             component.Lawset = GetLawset(component.Laws);
 
+        // WD edit - AiRemoteControl-Start
+        if (HasComp<AiRemoteControllerComponent>(uid)) // You can't emag controllable entities
+            return;
+        // WD edit - AiRemoteControl-End
+
+        // Show the silicon has been subverted.
+        component.Subverted = true;
+
         // Add the first emag law before the others
-        var name = CompOrNull<EmagSiliconLawComponent>(uid)?.OwnerName ?? Name(args.UserUid); // DeltaV: Reuse emagger name if possible
+        var name = CompOrNull<EmagSiliconLawComponent>(uid)?.OwnerName ?? Name(args.user); // DeltaV: Reuse emagger name if possible
         component.Lawset?.Laws.Insert(0, new SiliconLaw
         {
             LawString = Loc.GetString("law-emag-custom", ("name", name), ("title", Loc.GetString(component.Lawset.ObeysTo))), // DeltaV: pass name from variable
@@ -142,43 +190,49 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
             LawString = Loc.GetString("law-emag-secrecy", ("faction", Loc.GetString(component.Lawset.ObeysTo))),
             Order = component.Lawset.Laws.Max(law => law.Order) + 1
         });
+
+        if (TryComp<EmagSiliconLawComponent>(uid, out var emagSiliconLaw)) // WD edit - make emagged AI laws unremovable
+            component.UnRemovable = emagSiliconLaw.UnRemovable;
     }
 
-    protected override void OnGotEmagged(EntityUid uid, EmagSiliconLawComponent component, ref GotEmaggedEvent args)
+    // WD edit start - AI subvert
+    private void OnAiSubvert(Entity<SiliconLawUpdaterComponent> ent, ref GotEmaggedEvent args)
     {
-        if (component.RequireOpenPanel && TryComp<WiresPanelComponent>(uid, out var panel) && !panel.Open)
-            return;
+        var query = EntityManager.CompRegistryQueryEnumerator(ent.Comp.Components);
 
-        base.OnGotEmagged(uid, component, ref args);
-        NotifyLawsChanged(uid);
-        EnsureEmaggedRole(uid, component);
+        while (query.MoveNext(out var update))
+        {
+            if (!TryComp<EmagSiliconLawComponent>(update, out var emagSiliconLaw))
+                continue;
 
-        _stunSystem.TryParalyze(uid, component.StunTime, true);
-
+            OnGotEmagged(update, emagSiliconLaw, ref args);
+        }
     }
+    // WD edit end
 
-    private void OnEmagMindAdded(EntityUid uid, EmagSiliconLawComponent component, MindAddedMessage args)
+    private void EnsureSubvertedSiliconRole(EntityUid mindId)
     {
-        if (HasComp<EmaggedComponent>(uid))
-            EnsureEmaggedRole(uid, component);
-    }
-
-    private void OnEmagMindRemoved(EntityUid uid, EmagSiliconLawComponent component, MindRemovedMessage args)
-    {
-        if (component.AntagonistRole == null)
-            return;
-
-        _roles.MindTryRemoveRole<SubvertedSiliconRoleComponent>(args.Mind);
-    }
-
-    private void EnsureEmaggedRole(EntityUid uid, EmagSiliconLawComponent component)
-    {
-        if (component.AntagonistRole == null || !_mind.TryGetMind(uid, out var mindId, out _))
-            return;
-
         if (!_roles.MindHasRole<SubvertedSiliconRoleComponent>(mindId))
-            _roles.MindAddRole(mindId, "MindRoleSubvertedSilicon", silent: true);
+            _roles.MindAddRole(mindId, "MindRoleSubvertedSilicon");
     }
+
+    private void RemoveSubvertedSiliconRole(EntityUid mindId)
+    {
+        if (_roles.MindHasRole<SubvertedSiliconRoleComponent>(mindId))
+            _roles.MindTryRemoveRole<SubvertedSiliconRoleComponent>(mindId);
+    }
+
+    // WWDP edit start
+    public void TryRandomizeLaws(EntityUid uid)
+    {
+        if (!TryComp<SiliconLawProviderComponent>(uid, out var lawsProviderComp)
+            || !TryComp<RandomizeStartingLawsetComponent>(uid, out var randomLawsComp)
+            || randomLawsComp.Lawsets.Count == 0)
+            return;
+
+        lawsProviderComp.Laws = _random.Pick(randomLawsComp.Lawsets);
+    }
+    // WWDP edit end
 
     public SiliconLawset GetLaws(EntityUid uid, SiliconLawBoundComponent? component = null)
     {
@@ -235,7 +289,7 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
         return ev.Laws;
     }
 
-    public void NotifyLawsChanged(EntityUid uid)
+    public void NotifyLawsChanged(EntityUid uid, SoundSpecifier? cue = null)
     {
         if (!TryComp<ActorComponent>(uid, out var actor))
             return;
@@ -243,6 +297,9 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
         var msg = Loc.GetString("laws-update-notify");
         var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", msg));
         _chatManager.ChatMessageToOne(ChatChannel.Server, msg, wrappedMessage, default, false, actor.PlayerSession.Channel, colorOverride: Color.Red);
+
+        if (cue != null && _mind.TryGetMind(uid, out var mindId, out _))
+            _roles.MindPlaySound(mindId, cue);
     }
 
     /// <summary>
@@ -267,7 +324,7 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
     /// <summary>
     /// Set the laws of a silicon entity while notifying the player.
     /// </summary>
-    public bool SetLaws(List<SiliconLaw> newLaws, EntityUid target, bool unRemovable = false)
+    public bool SetLaws(List<SiliconLaw> newLaws, EntityUid target, SoundSpecifier? cue = null, bool unRemovable = false)
     {
         if (!TryComp<SiliconLawProviderComponent>(target, out var component)
             || component.UnRemovable)
@@ -278,7 +335,7 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
 
         component.UnRemovable = unRemovable;
         component.Lawset.Laws = newLaws;
-        NotifyLawsChanged(target);
+        NotifyLawsChanged(target, cue);
         return true;
     }
 
@@ -293,13 +350,29 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
 
         while (query.MoveNext(out var update))
         {
-            if (!SetLaws(lawset, update, provider.UnRemovable))
-                continue;
+            SetLaws(lawset, update, provider.LawUploadSound, provider.UnRemovable);
 
-            if (provider.LawUploadSound != null && _mind.TryGetMind(update, out var mindId, out _))
-                _roles.MindPlaySound(mindId, provider.LawUploadSound);
+            // WD edit - AiRemoteControl-Start
+            if (TryComp<StationAiHeldComponent>(update, out var stationAiHeldComp) && stationAiHeldComp.CurrentConnectedEntity != null && HasComp<SiliconLawProviderComponent>(stationAiHeldComp.CurrentConnectedEntity))
+            {
+                SetLaws(lawset, stationAiHeldComp.CurrentConnectedEntity.Value);
+            }
+            // WD edit - AiRemoteControl-End
         }
     }
+
+    // WD edit - AiRemoteControl-Start
+    public void SetLawsSilent(List<SiliconLaw> newLaws, EntityUid target, SoundSpecifier? cue = null)
+    {
+        if (!TryComp<SiliconLawProviderComponent>(target, out var component))
+            return;
+
+        if (component.Lawset == null)
+            component.Lawset = new SiliconLawset();
+
+        component.Lawset.Laws = newLaws;
+    }
+    // WD edit - AiRemoteControl-End
 }
 
 [ToolshedCommand, AdminCommand(AdminFlags.Admin)]

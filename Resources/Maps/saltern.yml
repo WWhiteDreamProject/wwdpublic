@@ -4,7 +4,7 @@ meta:
 tilemap:
   0: Space
   7: FloorAsteroidSand
-  4: FloorBlue
+  4: FloorSteelBlue
   17: FloorBlueCircuit
   19: FloorBrokenWood
   6: FloorCaveDrought
@@ -29,11 +29,11 @@ tilemap:
   60: FloorKitchen
   61: FloorLaundry
   62: FloorLino
-  64: FloorMetalDiamond
+  64: FloorMetalDiamondSteel
   65: FloorMime
   10: FloorMining
   9: FloorMiningDark
-  69: FloorMono
+  69: FloorTrueMonoTileSteel
   2: FloorPlastic
   76: FloorRGlass
   77: FloorReinforced
@@ -44,8 +44,8 @@ tilemap:
   96: FloorSteelDirty
   99: FloorSteelMini
   100: FloorSteelMono
-  104: FloorTechMaint
-  105: FloorTechMaint2
+  104: FloorTechMaintSteel
+  105: FloorMaintWhite
   108: FloorWhite
   113: FloorWhiteMono
   5: FloorWhitePlastic
@@ -35556,7 +35556,7 @@ entities:
     - type: Transform
       pos: -2.534109,34.37275
       parent: 2
-- proto: DungeonMasterCircuitBoard
+- proto: GameMasterCircuitBoard
   entities:
   - uid: 5700
     components:

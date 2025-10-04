@@ -7,10 +7,14 @@
     ClothingUniformJumpsuitAtmos: 3
     ClothingUniformJumpskirtAtmos: 3
     ClothingUniformJumpsuitAtmosCasual: 3
-    ClothingShoesColorWhite: 3
+    ClothingShoesBootsWorkAtmos: 3 # WWDP edit (spaceman)
     ClothingHeadsetEngineering: 2
     ClothingHeadHelmetFire: 2
     ClothingOuterSuitFire: 2
     ClothingOuterWinterAtmos: 2
     ClothingNeckScarfStripedLightBlue: 3
     ClothingShoesBootsWinterAtmos: 2 #Delta V: Add departmental winter boots
+    #WWDP edit start
+    ClothingOuterSuitAtmosFire: 1
+    ClothingHeadHelmetAtmosFire: 1
+    #WWDP edit end

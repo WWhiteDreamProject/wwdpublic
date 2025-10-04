@@ -1,5 +1,7 @@
-zombie-title = Зомби
 zombie-description = На станции появился вирус, способный оживлять мертвецов! Совместно с другими членами экипажа сдержите заражение и постарайтесь выжить.
+zombieteors-title = Zombieteors
+zombieteors-description = The undead have been unleashed on the station amid a cataclysmic meteor shower! Work with your fellow crew and do your best to survive!
+
 zombie-not-enough-ready-players = Недостаточно игроков готовы к игре! { $readyPlayersCount } игроков из необходимых { $minimumPlayers } готовы. Нельзя начать Зомби.
 zombie-no-one-ready = Нет готовых игроков! Нельзя начать Зомби.
 zombie-patientzero-role-greeting = Вы — нулевой пациент. Скрывайте свою инфекцию, добывайте припасы, и будьте готовы обратиться после смерти.

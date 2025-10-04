@@ -66,7 +66,7 @@
   initializeFunctions:
     - !type:AddPsionicActions
       actions:
-        - ActionMindSwap
+        - ActionPsionicMindSwap
     - !type:AddPsionicPowerComponents
       components:
         - type: MindSwapPower
@@ -173,7 +173,7 @@
       dampeningModifier: 0.5
     - !type:PsionicAddAvailablePowers
       powerPrototype: AssayPower
-      weight: 0.1
+      weight: 1 #wwdp 0.1 --> 1
   removalFunctions:
     - !type:RemovePsionicActions
     - !type:RemovePsionicPowerComponents
@@ -328,6 +328,9 @@
   powerCategories:
     - Mentalic
   initializeFunctions:
+    - !type:AddPsionicActions ##wwdp edit
+      actions:
+        - ActionTelepathy
     - !type:AddPsionicPowerComponents
       components:
         - type: Telepathy
@@ -338,11 +341,12 @@
       assayFeedback: telepathy-power-metapsionic-feedback
     - !type:PsionicAddAvailablePowers
       powerPrototype: XenoglossyPower
-      weight: 2
+      weight: 1 #wwdp 2 --> 1
     - !type:PsionicAddAvailablePowers
       powerPrototype: PsychognomyPower
-      weight: 0.1
+      weight: 1 #wwdp 0.1 --> 1
   removalFunctions:
+    - !type:RemovePsionicActions #WD EDIT
     - !type:RemovePsionicPowerComponents
       components:
         - type: Telepathy

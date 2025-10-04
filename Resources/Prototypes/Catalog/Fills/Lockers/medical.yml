@@ -164,11 +164,15 @@
       - id: BoxBottle
       - id: BoxVial
       - id: ChemBag
-      - id: ClothingHandsGlovesLatex
-      - id: ClothingHeadsetMedical
-      - id: ClothingMaskSterile
-      - id: HandLabeler
-        prob: 0.5
+      - id: Dropper # WWDP
+      - id: ClothingEyesGlassesChemist # WWDP
+      - id: ClothingEyesGlassesChemical # WWDP
+      - id: ClothingHandsGlovesChemist # WWDP
+      - id: ClothingOuterApronChemist # WWDP
+      - id: ClothingOuterCoatLabChemOpened # WWDP
+      # - id: ClothingHeadsetMedical # WWDP
+      - id: ClothingMaskBreathMedical # WWDP
+      - id: HandLabeler # WWDP 100% chance
 
 - type: entity
   id: LockerParamedicFilled #Delta V - Paramedic locker without suit
@@ -186,8 +190,12 @@
       - id: ClothingHeadsetMedical
       - id: ClothingMaskSterile
       - id: ClothingShoesBootsWinterParamedic #Delta V: Add departmental winter boots
-      - id: MedkitFilled
-        prob: 0.3
+      - id: ClothingBeltMedicalEMT # WWDP moved from starting kit
+      - id: HandheldGPSBasic # WWDP moved from starting kit
+      - id: HandheldCrewMonitor # WWDP moved from starting kit
+      - id: MedkitAdvancedFilled # WWDP
+      - id: FieldSurgeryKit # WWDP
+      - id: DefibrillatorCompact # WWDP
       - id: LunchboxMedicalFilledRandom # Delta-V Lunchboxes!
         prob: 0.3
       - id: EmergencyNitrousOxideTankFilled
@@ -211,8 +219,11 @@
       - id: ClothingMaskSterile
       - id: ClothingShoesBootsWinterParamedic #Delta V: Add departmental winter boots
       - id: HandheldGPSBasic
-      - id: MedkitFilled
-        prob: 0.3
+      - id: ClothingBeltMedicalEMT # WWDP moved from starting kit
+      - id: HandheldCrewMonitor # WWDP moved from starting kit
+      - id: MedkitAdvancedFilled # WWDP
+      - id: FieldSurgeryKit # WWDP
+      - id: Portafib # WWDP
       - id: LunchboxMedicalFilledRandom # Delta-V Lunchboxes!
         prob: 0.3
       - id: EmergencyNitrousOxideTankFilled

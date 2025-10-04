@@ -1,5 +1,6 @@
 using System.Numerics;
 using Content.Client.Parallax.Managers;
+using Content.Shared._White.CCVar;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
 using Robust.Shared.Prototypes;
@@ -7,7 +8,6 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.ViewVariables;
 using Robust.Shared.Configuration;
-using Content.Shared._White;
 
 namespace Content.Client.Parallax;
 

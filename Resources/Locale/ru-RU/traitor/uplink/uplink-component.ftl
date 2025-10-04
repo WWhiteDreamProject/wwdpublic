@@ -5,6 +5,8 @@ uplink-user-interface-search-label = Поиск
 
 # Withdraw UI
 
+# Withdraw UI
+
 uplink-user-interface-withdraw-button = Достать ТК
 uplink-user-interface-withdraw-title = Достать ТК
 uplink-user-interface-withdraw-withdraw-button = Достать

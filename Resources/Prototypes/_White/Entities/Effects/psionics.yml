@@ -1,0 +1,19 @@
+- type: entity
+  id: PsionicPolymorphEffect
+  name: psiops
+  components:
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: Static
+    canCollide: false
+  - type: AnimationPlayer
+  - type: Sprite
+    drawdepth: Effects
+    sprite: _White/Effects/psionic_polymorph.rsi
+    state: effect
+    noRot: true
+  - type: TimedDespawn
+    lifetime: 0.8
+  - type: Tag
+    tags:
+      - HideContextMenu

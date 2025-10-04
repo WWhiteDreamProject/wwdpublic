@@ -34,6 +34,8 @@
         type: NavMapBeaconBoundUserInterface
   - type: Item
     size: Small
+  - type: Visibility
+    layer: 1
   - type: SubFloorHide
   - type: Anchorable
   - type: Construction
@@ -46,7 +48,7 @@
   - type: Transform
     anchored: true
   - type: Damageable
-    damageContainer: Inorganic
+    damageContainer: StructuralInorganic # WWDP
     damageModifierSet: Metallic
   - type: Destructible
     thresholds:
@@ -137,6 +139,14 @@
   components:
   - type: NavMapBeacon
     defaultText: station-beacon-vault
+
+- type: entity
+  parent: DefaultStationBeaconCommand
+  id: DefaultStationBeaconGateway
+  suffix: Gateway
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-gateway
 
 - type: entity
   parent: DefaultStationBeaconCommand
@@ -503,6 +513,9 @@
   components:
   - type: NavMapBeacon
     defaultText: station-beacon-kitchen
+  - type: Anchorable
+    flags:
+    - None # No CQC outside Kitchen
 
 - type: entity
   parent: DefaultStationBeaconService
@@ -535,7 +548,7 @@
   components:
   - type: NavMapBeacon
     defaultText: station-beacon-ai
-    color: "#2ed2fd"
+    color: "#5ed7aa"
 
 - type: entity
   parent: DefaultStationBeaconAI
@@ -640,3 +653,11 @@
   components:
   - type: NavMapBeacon
     defaultText: station-beacon-escape-pod
+
+- type: entity
+  parent: DefaultStationBeacon
+  id: DefaultStationBeaconVox
+  suffix: Vox
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-vox

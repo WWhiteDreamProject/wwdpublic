@@ -1,0 +1,22 @@
+# Base
+- type: Tag
+  id: RoomsWonderboxMaintBase1
+# Engine
+- type: Tag
+  id: RoomsWonderboxEngineBase1
+# Solar
+- type: Tag
+  id: RoomsWonderboxSolar1
+
+- type: Tag
+  id: RoomsWonderboxSolar2
+
+# Rooms
+- type: Tag
+  id: RoomsWonderboxMaintRoom1
+
+- type: Tag
+  id: RoomsWonderboxMaintRoom2
+
+- type: Tag
+  id: RoomsWonderboxMaintRoom3

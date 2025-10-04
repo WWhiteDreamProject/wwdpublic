@@ -1,3 +1,20 @@
+using Content.Server.Administration.Logs;
+using Content.Server.Administration.Managers;
+using Content.Shared._White.Bark;
+using Content.Shared._White.CustomGhostSystem;
+using Content.Shared.Administration.Logs;
+using Content.Shared.Clothing.Loadouts.Systems;
+using Content.Shared.Database;
+using Content.Shared.Humanoid;
+using Content.Shared.Humanoid.Markings;
+using Content.Shared.Preferences;
+using Content.Shared.Roles;
+using Content.Shared.Traits;
+using Microsoft.EntityFrameworkCore;
+using Robust.Shared.Enums;
+using Robust.Shared.Network;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 using System.Collections.Immutable;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
@@ -6,20 +23,6 @@ using System.Runtime.CompilerServices;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
-using Content.Server.Administration.Logs;
-using Content.Server.Administration.Managers;
-using Content.Shared.Administration.Logs;
-using Content.Shared.Clothing.Loadouts.Systems;
-using Content.Shared.Database;
-using Content.Shared.Humanoid;
-using Content.Shared.Humanoid.Markings;
-using Content.Shared.Preferences;
-using Microsoft.EntityFrameworkCore;
-using Robust.Shared.Enums;
-using Robust.Shared.Network;
-using Robust.Shared.Utility;
-using Content.Shared.Roles;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server.Database
 {
@@ -61,7 +64,7 @@ namespace Content.Server.Database
                 profiles[profile.Slot] = ConvertProfiles(profile);
             }
 
-            return new PlayerPreferences(profiles, prefs.SelectedCharacterSlot, Color.FromHex(prefs.AdminOOCColor));
+            return new PlayerPreferences(profiles, prefs.SelectedCharacterSlot, Color.FromHex(prefs.AdminOOCColor), prefs.GhostId); // WWDP EDIT
         }
 
         public async Task SaveSelectedCharacterIndexAsync(NetUserId userId, int index)
@@ -137,7 +140,8 @@ namespace Content.Server.Database
             {
                 UserId = userId.UserId,
                 SelectedCharacterSlot = 0,
-                AdminOOCColor = Color.Red.ToHex()
+                AdminOOCColor = Color.Red.ToHex(),
+                GhostId = "default" // WWDP EDIT
             };
 
             prefs.Profiles.Add(profile);
@@ -146,7 +150,7 @@ namespace Content.Server.Database
 
             await db.DbContext.SaveChangesAsync();
 
-            return new PlayerPreferences(new[] { new KeyValuePair<int, ICharacterProfile>(0, defaultProfile) }, 0, Color.FromHex(prefs.AdminOOCColor));
+            return new PlayerPreferences(new[] { new KeyValuePair<int, ICharacterProfile>(0, defaultProfile) }, 0, Color.FromHex(prefs.AdminOOCColor), "default");
         }
 
         public async Task DeleteSlotAndSetSelectedIndex(NetUserId userId, int deleteSlot, int newSlot)
@@ -172,6 +176,20 @@ namespace Content.Server.Database
 
         }
 
+        // WWDP EDIT START
+        public async Task SaveGhostTypeAsync(NetUserId userId, ProtoId<CustomGhostPrototype> proto)
+        {
+            await using var db = await GetDb();
+            var prefs = await db.DbContext
+                .Preference
+                .Include(p => p.Profiles)
+                .SingleAsync(p => p.UserId == userId.UserId);
+            prefs.GhostId = proto.Id;
+
+            await db.DbContext.SaveChangesAsync();
+        }
+        // WWDP EDIT END
+
         private static async Task SetSelectedCharacterSlotAsync(NetUserId userId, int newSlot, ServerDbContext db)
         {
             var prefs = await db.Preference.SingleAsync(p => p.UserId == userId.UserId);
@@ -180,22 +198,14 @@ namespace Content.Server.Database
 
         private static HumanoidCharacterProfile ConvertProfiles(Profile profile)
         {
-            var jobs = profile.Jobs.ToDictionary(j => j.JobName, j => (JobPriority) j.Priority);
-            var antags = profile.Antags.Select(a => a.AntagName);
-            var traits = profile.Traits.Select(t => t.TraitName);
+            var jobs = profile.Jobs.ToDictionary(j => new ProtoId<JobPrototype>(j.JobName), j => (JobPriority) j.Priority);
+            var antags = profile.Antags.Select(a => new ProtoId<AntagPrototype>(a.AntagName));
+            var traits = profile.Traits.Select(t => new ProtoId<TraitPrototype>(t.TraitName));
             var loadouts = profile.Loadouts.Select(Shared.Clothing.Loadouts.Systems.Loadout (l) => l);
 
             var sex = Sex.Male;
             if (Enum.TryParse<Sex>(profile.Sex, true, out var sexVal))
                 sex = sexVal;
-
-            var clothing = ClothingPreference.Jumpsuit;
-            if (Enum.TryParse<ClothingPreference>(profile.Clothing, true, out var clothingVal))
-                clothing = clothingVal;
-
-            var backpack = BackpackPreference.Backpack;
-            if (Enum.TryParse<BackpackPreference>(profile.Backpack, true, out var backpackVal))
-                backpack = backpackVal;
 
             var spawnPriority = (SpawnPriorityPreference) profile.SpawnPriority;
 
@@ -207,6 +217,10 @@ namespace Content.Server.Database
             var voice = profile.Voice;
             if (voice == string.Empty)
                 voice = SharedHumanoidAppearanceSystem.DefaultSexVoice[sex];
+
+            var bodyType = profile.BodyType;
+            if (bodyType == string.Empty)
+                bodyType = profile.Species + "Normal";
             // WD EDIT END
 
             // ReSharper disable once ConditionalAccessQualifierIsNonNullableAccordingToAPIContract
@@ -238,12 +252,23 @@ namespace Content.Server.Database
                 profile.Age,
                 sex,
                 voice, // WD EDIT
-                profile.BodyType, // WD EDIT
+                profile.BarkVoice, // WD EDIT
+                                   // WD EDIT START
+                new BarkPercentageApplyData()
+                {
+                    Pause = profile.BarkPause,
+                    Pitch = profile.BarkPitch,
+                    PitchVariance = profile.BarkPitchVariance,
+                    Volume = profile.BarkVolume,
+                },
+                // WD EDIT END
+                bodyType, // WD EDIT
                 gender,
                 profile.DisplayPronouns,
                 profile.StationAiName,
                 profile.CyborgName,
                 profile.ClownName, // WD EDIT
+                profile.MimeName, // WD EDIT
                 new HumanoidCharacterAppearance(
                     profile.HairName,
                     Color.FromHex(profile.HairColor),
@@ -255,15 +280,17 @@ namespace Content.Server.Database
                 ),
                 spawnPriority,
                 jobs,
-                clothing,
-                backpack,
                 (PreferenceUnavailableMode) profile.PreferenceUnavailable,
                 antags.ToHashSet(),
                 traits.ToHashSet(),
                 loadouts.Select(l => new LoadoutPreference(l.LoadoutName)
                 {
-                    CustomName = l.CustomName, CustomDescription = l.CustomDescription,
-                    CustomColorTint = l.CustomColorTint, CustomHeirloom = l.CustomHeirloom, Selected = true,
+                    CustomName = l.CustomName,
+                    CustomDescription = l.CustomDescription,
+                    CustomContent = l.CustomContent, // WD EDIT
+                    CustomColorTint = l.CustomColorTint,
+                    CustomHeirloom = l.CustomHeirloom,
+                    Selected = true,
                 }).ToHashSet()
             );
         }
@@ -289,12 +316,14 @@ namespace Content.Server.Database
             profile.Age = humanoid.Age;
             profile.Sex = humanoid.Sex.ToString();
             profile.Voice = humanoid.Voice; // WD EDIT
+            profile.BarkVoice = humanoid.BarkVoice; // WD EDIT
             profile.BodyType = humanoid.BodyType; // WD EDIT
             profile.Gender = humanoid.Gender.ToString();
             profile.DisplayPronouns = humanoid.DisplayPronouns;
             profile.StationAiName = humanoid.StationAiName;
             profile.CyborgName = humanoid.CyborgName;
             profile.ClownName = humanoid.ClownName; // WD EDIT
+            profile.MimeName = humanoid.MimeName; // WD EDIT
             profile.Height = humanoid.Height;
             profile.Width = humanoid.Width;
             profile.HairName = appearance.HairStyleId;
@@ -303,8 +332,6 @@ namespace Content.Server.Database
             profile.FacialHairColor = appearance.FacialHairColor.ToHex();
             profile.EyeColor = appearance.EyeColor.ToHex();
             profile.SkinColor = appearance.SkinColor.ToHex();
-            profile.Clothing = humanoid.Clothing.ToString();
-            profile.Backpack = humanoid.Backpack.ToString();
             profile.SpawnPriority = (int) humanoid.SpawnPriority;
             profile.Markings = markings;
             profile.Slot = slot;
@@ -326,12 +353,19 @@ namespace Content.Server.Database
             profile.Traits.Clear();
             profile.Traits.AddRange(
                 humanoid.TraitPreferences
-                        .Select(t => new Trait { TraitName = t })
+                    .Select(t => new Trait { TraitName = t })
             );
 
             profile.Loadouts.Clear();
             profile.Loadouts.AddRange(humanoid.LoadoutPreferences
-                .Select(l => new Loadout(l.LoadoutName, l.CustomName, l.CustomDescription, l.CustomColorTint, l.CustomHeirloom)));
+                .Select(l => new Loadout(l.LoadoutName, l.CustomName, l.CustomDescription, l.CustomContent, l.CustomColorTint, l.CustomHeirloom))); // WD EDIT
+
+            // WWDP EDIT START
+            profile.BarkPause = humanoid.BarkSettings.Pause;
+            profile.BarkPitch = humanoid.BarkSettings.Pitch;
+            profile.BarkPitchVariance = humanoid.BarkSettings.PitchVariance;
+            profile.BarkVolume = humanoid.BarkSettings.Volume;
+            // WWDP EDIT END
 
             return profile;
         }
@@ -509,16 +543,23 @@ namespace Content.Server.Database
         public async Task EditServerRoleBan(int id, string reason, NoteSeverity severity, DateTimeOffset? expiration, Guid editedBy, DateTimeOffset editedAt)
         {
             await using var db = await GetDb();
+            var roleBanDetails = await db.DbContext.RoleBan
+                .Where(b => b.Id == id)
+                .Select(b => new { b.BanTime, b.PlayerUserId })
+                .SingleOrDefaultAsync();
 
-            var ban = await db.DbContext.RoleBan.SingleOrDefaultAsync(b => b.Id == id);
-            if (ban is null)
+            if (roleBanDetails == default)
                 return;
-            ban.Severity = severity;
-            ban.Reason = reason;
-            ban.ExpirationTime = expiration?.UtcDateTime;
-            ban.LastEditedById = editedBy;
-            ban.LastEditedAt = editedAt.UtcDateTime;
-            await db.DbContext.SaveChangesAsync();
+
+            await db.DbContext.RoleBan
+                .Where(b => b.BanTime == roleBanDetails.BanTime && b.PlayerUserId == roleBanDetails.PlayerUserId)
+                .ExecuteUpdateAsync(setters => setters
+                    .SetProperty(b => b.Severity, severity)
+                    .SetProperty(b => b.Reason, reason)
+                    .SetProperty(b => b.ExpirationTime, expiration.HasValue ? expiration.Value.UtcDateTime : (DateTime?) null)
+                    .SetProperty(b => b.LastEditedById, editedBy)
+                    .SetProperty(b => b.LastEditedAt, editedAt.UtcDateTime)
+                );
         }
         #endregion
 
@@ -735,6 +776,20 @@ namespace Content.Server.Database
             existing.Flags = admin.Flags;
             existing.Title = admin.Title;
             existing.AdminRankId = admin.AdminRankId;
+            existing.Deadminned = admin.Deadminned;
+            existing.Suspended = admin.Suspended;
+
+            await db.DbContext.SaveChangesAsync(cancel);
+        }
+
+        public async Task UpdateAdminDeadminnedAsync(NetUserId userId, bool deadminned, CancellationToken cancel)
+        {
+            await using var db = await GetDb(cancel);
+
+            var adminRecord = db.DbContext.Admin.Where(a => a.UserId == userId);
+            await adminRecord.ExecuteUpdateAsync(
+                set => set.SetProperty(p => p.Deadminned, deadminned),
+                cancellationToken: cancel);
 
             await db.DbContext.SaveChangesAsync(cancel);
         }
@@ -1304,7 +1359,7 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
                 ban.LastEditedAt,
                 ban.ExpirationTime,
                 ban.Hidden,
-                new [] { ban.RoleId.Replace(BanManager.JobPrefix, null) },
+                new[] { ban.RoleId.Replace(BanManager.JobPrefix, null) },
                 MakePlayerRecord(unbanningAdmin),
                 ban.Unban?.UnbanTime);
         }
@@ -1468,10 +1523,10 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
         protected async Task<List<AdminWatchlistRecord>> GetActiveWatchlistsImpl(DbGuard db, Guid player)
         {
             var entities = await (from watchlist in db.DbContext.AdminWatchlists
-                          where watchlist.PlayerUserId == player &&
-                                !watchlist.Deleted &&
-                                (watchlist.ExpirationTime == null || DateTime.UtcNow < watchlist.ExpirationTime)
-                          select watchlist)
+                                  where watchlist.PlayerUserId == player &&
+                                        !watchlist.Deleted &&
+                                        (watchlist.ExpirationTime == null || DateTime.UtcNow < watchlist.ExpirationTime)
+                                  select watchlist)
                 .Include(note => note.Round)
                 .ThenInclude(r => r!.Server)
                 .Include(note => note.CreatedBy)
@@ -1496,9 +1551,9 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
         protected async Task<List<AdminMessageRecord>> GetMessagesImpl(DbGuard db, Guid player)
         {
             var entities = await (from message in db.DbContext.AdminMessages
-                        where message.PlayerUserId == player && !message.Deleted &&
-                              (message.ExpirationTime == null || DateTime.UtcNow < message.ExpirationTime)
-                        select message).Include(note => note.Round)
+                                  where message.PlayerUserId == player && !message.Deleted &&
+                                        (message.ExpirationTime == null || DateTime.UtcNow < message.ExpirationTime)
+                                  select message).Include(note => note.Round)
                     .ThenInclude(r => r!.Server)
                     .Include(note => note.CreatedBy)
                     .Include(note => note.LastEditedBy)
@@ -1577,9 +1632,9 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
 
             // Client side query, as EF can't do groups yet
             var bansEnumerable = bansQuery
-                    .GroupBy(ban => new { ban.BanTime, CreatedBy = (Player?) ban.CreatedBy, ban.Reason, Unbanned = ban.Unban == null })
-                    .Select(banGroup => banGroup)
-                    .ToArray();
+                .GroupBy(ban => new { ban.BanTime, CreatedBy = (Player?) ban.CreatedBy, ban.Reason, Unbanned = ban.Unban == null })
+                .Select(banGroup => banGroup)
+                .ToArray();
 
             List<ServerRoleBanNoteRecord> bans = new();
             var player = await db.DbContext.Player.SingleOrDefaultAsync(p => p.UserId == user);
@@ -1613,38 +1668,6 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
         }
 
         #endregion
-
-        // SQLite returns DateTime as Kind=Unspecified, Npgsql actually knows for sure it's Kind=Utc.
-        // Normalize DateTimes here so they're always Utc. Thanks.
-        protected abstract DateTime NormalizeDatabaseTime(DateTime time);
-
-        [return: NotNullIfNotNull(nameof(time))]
-        protected DateTime? NormalizeDatabaseTime(DateTime? time)
-        {
-            return time != null ? NormalizeDatabaseTime(time.Value) : time;
-        }
-
-        public async Task<bool> HasPendingModelChanges()
-        {
-            await using var db = await GetDb();
-            return db.DbContext.Database.HasPendingModelChanges();
-        }
-
-        protected abstract Task<DbGuard> GetDb(
-            CancellationToken cancel = default,
-            [CallerMemberName] string? name = null);
-
-        protected void LogDbOp(string? name)
-        {
-            _opsLog.Verbose($"Running DB operation: {name ?? "unknown"}");
-        }
-
-        protected abstract class DbGuard : IAsyncDisposable
-        {
-            public abstract ServerDbContext DbContext { get; }
-
-            public abstract ValueTask DisposeAsync();
-        }
 
         #region Job Whitelists
 
@@ -1705,9 +1728,113 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
 
         #endregion
 
-        protected void NotificationReceived(DatabaseNotification notification) =>
-            OnNotificationReceived?.Invoke(notification);
+        # region IPIntel
 
-        public virtual void Shutdown() { }
+        public async Task<bool> UpsertIPIntelCache(DateTime time, IPAddress ip, float score)
+        {
+            while (true)
+            {
+                try
+                {
+                    await using var db = await GetDb();
+
+                    var existing = await db.DbContext.IPIntelCache
+                        .Where(w => ip.Equals(w.Address))
+                        .SingleOrDefaultAsync();
+
+                    if (existing == null)
+                    {
+                        var newCache = new IPIntelCache
+                        {
+                            Time = time,
+                            Address = ip,
+                            Score = score,
+                        };
+                        db.DbContext.IPIntelCache.Add(newCache);
+                    }
+                    else
+                    {
+                        existing.Time = time;
+                        existing.Score = score;
+                    }
+
+                    await Task.Delay(5000);
+
+                    await db.DbContext.SaveChangesAsync();
+                    return true;
+                }
+                catch (DbUpdateException)
+                {
+                    _opsLog.Warning("IPIntel UPSERT failed with a db exception... retrying.");
+                }
+            }
+        }
+
+        public async Task<IPIntelCache?> GetIPIntelCache(IPAddress ip)
+        {
+            await using var db = await GetDb();
+
+            return await db.DbContext.IPIntelCache
+                .SingleOrDefaultAsync(w => ip.Equals(w.Address));
+        }
+
+        public async Task<bool> CleanIPIntelCache(TimeSpan range)
+        {
+            await using var db = await GetDb();
+
+            // Calculating this here cause otherwise sqlite whines.
+            var cutoffTime = DateTime.UtcNow.Subtract(range);
+
+            await db.DbContext.IPIntelCache
+                .Where(w => w.Time <= cutoffTime)
+                .ExecuteDeleteAsync();
+
+            await db.DbContext.SaveChangesAsync();
+            return true;
+        }
+
+        #endregion
+
+        // SQLite returns DateTime as Kind=Unspecified, Npgsql actually knows for sure it's Kind=Utc.
+        // Normalize DateTimes here so they're always Utc. Thanks.
+        protected abstract DateTime NormalizeDatabaseTime(DateTime time);
+
+        [return: NotNullIfNotNull(nameof(time))]
+        protected DateTime? NormalizeDatabaseTime(DateTime? time)
+        {
+            return time != null ? NormalizeDatabaseTime(time.Value) : time;
+        }
+
+        public async Task<bool> HasPendingModelChanges()
+        {
+            await using var db = await GetDb();
+            return db.DbContext.Database.HasPendingModelChanges();
+        }
+
+        protected abstract Task<DbGuard> GetDb(
+            CancellationToken cancel = default,
+            [CallerMemberName] string? name = null);
+
+        protected void LogDbOp(string? name)
+        {
+            _opsLog.Verbose($"Running DB operation: {name ?? "unknown"}");
+        }
+
+        protected abstract class DbGuard : IAsyncDisposable
+        {
+            public abstract ServerDbContext DbContext { get; }
+
+            public abstract ValueTask DisposeAsync();
+        }
+
+        protected void NotificationReceived(DatabaseNotification notification)
+        {
+            OnNotificationReceived?.Invoke(notification);
+        }
+
+        public virtual void Shutdown()
+        {
+
+        }
     }
 }

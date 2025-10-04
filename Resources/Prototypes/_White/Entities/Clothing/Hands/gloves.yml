@@ -41,3 +41,37 @@
     sprite: _White/Clothing/Hands/orange_vinyl_gloves.rsi
   - type: Clothing
     sprite: _White/Clothing/Hands/orange_vinyl_gloves.rsi
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ClothingHandsGlovesAtmospherics
+  name: atmospherics gloves
+  description: These gloves will protect the wearer from electric shocks.
+  components:
+  - type: Sprite
+    sprite: _White/Clothing/Hands/atmospheric_insuls.rsi
+    state: icon
+  - type: Clothing
+    sprite: _White/Clothing/Hands/atmospheric_insuls.rsi
+  - type: Fiber
+    fiberMaterial: fibers-insulative
+    fiberColor: fibers-blue
+  - type: Insulated
+  - type: FingerprintMask
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ClothingHandsGlovesCE
+  name: CE gloves
+  description: These gloves will protect the wearer from electric shocks.
+  components:
+  - type: Sprite
+    sprite: _White/Clothing/Hands/ce_insuls.rsi
+    state: icon
+  - type: Clothing
+    sprite: _White/Clothing/Hands/ce_insuls.rsi
+  - type: Fiber
+    fiberMaterial: fibers-insulative
+    fiberColor: fibers-yellow
+  - type: Insulated
+  - type: FingerprintMask

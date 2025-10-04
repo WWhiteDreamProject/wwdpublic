@@ -1,28 +1,45 @@
 using System.Linq;
 using System.Numerics;
+using System.Collections.Frozen;
+using Content.Server.Administration.Logs;
+using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
 using Content.Server.Ghost.Components;
 using Content.Server.Mind;
+using Content.Server.Preferences.Managers;
 using Content.Server.Roles.Jobs;
 using Content.Server.Warps;
+using Content.Shared._White.CustomGhostSystem;
 using Content.Shared.Actions;
+using Content.Shared.CCVar;
+using Content.Shared.Damage;
+using Content.Shared.Damage.Prototypes;
+using Content.Shared.Database;
 using Content.Shared.Examine;
 using Content.Shared.Eye;
+using Content.Shared.FixedPoint;
 using Content.Shared.Follower;
 using Content.Shared.Ghost;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
+using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Systems;
+using Content.Shared.Popups;
 using Content.Shared.Storage.Components;
+using Content.Shared.Tag;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
+using Robust.Shared.Configuration;
 using Robust.Shared.Map;
+using Robust.Shared.Network;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
 namespace Content.Server.Ghost
@@ -30,23 +47,34 @@ namespace Content.Server.Ghost
     public sealed class GhostSystem : SharedGhostSystem
     {
         [Dependency] private readonly SharedActionsSystem _actions = default!;
+        [Dependency] private readonly IAdminLogManager _adminLog = default!;
         [Dependency] private readonly SharedEyeSystem _eye = default!;
         [Dependency] private readonly FollowerSystem _followerSystem = default!;
         [Dependency] private readonly IGameTiming _gameTiming = default!;
         [Dependency] private readonly JobSystem _jobs = default!;
         [Dependency] private readonly EntityLookupSystem _lookup = default!;
         [Dependency] private readonly MindSystem _minds = default!;
-        [Dependency] private readonly SharedMindSystem _mindSystem = default!;
         [Dependency] private readonly MobStateSystem _mobState = default!;
         [Dependency] private readonly SharedPhysicsSystem _physics = default!;
         [Dependency] private readonly IPlayerManager _playerManager = default!;
-        [Dependency] private readonly GameTicker _ticker = default!;
         [Dependency] private readonly TransformSystem _transformSystem = default!;
         [Dependency] private readonly VisibilitySystem _visibilitySystem = default!;
         [Dependency] private readonly MetaDataSystem _metaData = default!;
+        [Dependency] private readonly MobThresholdSystem _mobThresholdSystem = default!;
+        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+        [Dependency] private readonly IConfigurationManager _configurationManager = default!;
+        [Dependency] private readonly IChatManager _chatManager = default!;
+        [Dependency] private readonly SharedMindSystem _mind = default!;
+        [Dependency] private readonly GameTicker _gameTicker = default!;
+        [Dependency] private readonly DamageableSystem _damageable = default!;
+        [Dependency] private readonly IServerPreferencesManager _prefs = default!; // WWDP EDIT
+        [Dependency] private readonly SharedPopupSystem _popup = default!;
+        [Dependency] private readonly IRobustRandom _random = default!;
+        [Dependency] private readonly TagSystem _tag = default!;
 
         private EntityQuery<GhostComponent> _ghostQuery;
         private EntityQuery<PhysicsComponent> _physicsQuery;
+
 
         public override void Initialize()
         {
@@ -55,6 +83,7 @@ namespace Content.Server.Ghost
             _ghostQuery = GetEntityQuery<GhostComponent>();
             _physicsQuery = GetEntityQuery<PhysicsComponent>();
 
+            SubscribeLocalEvent<GhostComponent, ComponentStartup>(OnGhostStartup);
             SubscribeLocalEvent<GhostComponent, MapInitEvent>(OnMapInit);
             SubscribeLocalEvent<GhostComponent, ComponentShutdown>(OnGhostShutdown);
 
@@ -107,7 +136,9 @@ namespace Content.Server.Ghost
             if (args.Handled)
                 return;
 
-            var entities = _lookup.GetEntitiesInRange(args.Performer, component.BooRadius);
+            var entities = _lookup.GetEntitiesInRange(args.Performer, component.BooRadius).ToList();
+            // Shuffle the possible targets so we don't favor any particular entities
+            _random.Shuffle(entities);
 
             var booCounter = 0;
             foreach (var ent in entities)
@@ -120,6 +151,9 @@ namespace Content.Server.Ghost
                 if (booCounter >= component.BooMaxTargets)
                     break;
             }
+
+            if (booCounter == 0)
+                _popup.PopupEntity(Loc.GetString("ghost-component-boo-action-failed"), uid, uid);
 
             args.Handled = true;
         }
@@ -143,7 +177,25 @@ namespace Content.Server.Ghost
             if (component.MustBeDead && (_mobState.IsAlive(uid) || _mobState.IsCritical(uid)))
                 return;
 
-            _ticker.OnGhostAttempt(mindId, component.CanReturn, mind: mind);
+            OnGhostAttempt(mindId, component.CanReturn, mind: mind);
+        }
+
+        private void OnGhostStartup(EntityUid uid, GhostComponent component, ComponentStartup args)
+        {
+            // Allow this entity to be seen by other ghosts.
+            var visibility = EnsureComp<VisibilityComponent>(uid);
+
+            if (_gameTicker.RunLevel != GameRunLevel.PostRound)
+            {
+                _visibilitySystem.AddLayer((uid, visibility), (int) VisibilityFlags.Ghost, false);
+                _visibilitySystem.RemoveLayer((uid, visibility), (int) VisibilityFlags.Normal, false);
+                _visibilitySystem.RefreshVisibility(uid, visibilityComponent: visibility);
+            }
+
+            SetCanSeeGhosts(uid, true);
+
+            var time = _gameTiming.CurTime;
+            component.TimeOfDeath = time;
         }
 
         private void OnGhostShutdown(EntityUid uid, GhostComponent component, ComponentShutdown args)
@@ -178,21 +230,6 @@ namespace Content.Server.Ghost
 
         private void OnMapInit(EntityUid uid, GhostComponent component, MapInitEvent args)
         {
-            // Allow this entity to be seen by other ghosts.
-            var visibility = EnsureComp<VisibilityComponent>(uid);
-
-            if (_ticker.RunLevel != GameRunLevel.PostRound)
-            {
-                _visibilitySystem.AddLayer((uid, visibility), (int) VisibilityFlags.Ghost, false);
-                _visibilitySystem.RemoveLayer((uid, visibility), (int) VisibilityFlags.Normal, false);
-                _visibilitySystem.RefreshVisibility(uid, visibilityComponent: visibility);
-            }
-
-            SetCanSeeGhosts(uid, true);
-
-            var time = _gameTiming.CurTime;
-            component.TimeOfDeath = time;
-
             _actions.AddAction(uid, ref component.BooActionEntity, component.BooAction);
             _actions.AddAction(uid, ref component.ToggleGhostHearingActionEntity, component.ToggleGhostHearingAction);
             _actions.AddAction(uid, ref component.ToggleLightingActionEntity, component.ToggleLightingAction);
@@ -202,7 +239,7 @@ namespace Content.Server.Ghost
 
         private void OnGhostExamine(EntityUid uid, GhostComponent component, ExaminedEvent args)
         {
-            var timeSinceDeath = _gameTiming.CurTime.Subtract(component.TimeOfDeath); // WD EDIT
+            var timeSinceDeath = _gameTiming.CurTime.Subtract(component.TimeOfDeath);
             var deathTimeInfo = timeSinceDeath.Minutes > 0
                 ? Loc.GetString("comp-ghost-examine-time-minutes", ("minutes", timeSinceDeath.Minutes))
                 : Loc.GetString("comp-ghost-examine-time-seconds", ("seconds", timeSinceDeath.Seconds));
@@ -248,7 +285,7 @@ namespace Content.Server.Ghost
                 return;
             }
 
-            _mindSystem.UnVisit(actor.PlayerSession);
+            _mind.UnVisit(actor.PlayerSession);
         }
 
         #region Warp
@@ -295,7 +332,7 @@ namespace Content.Server.Ghost
                 return;
             }
 
-            if (_followerSystem.GetMostFollowed() is not {} target)
+            if (_followerSystem.GetMostGhostFollowed() is not {} target)
                 return;
 
             WarpTo(uid, target);
@@ -303,6 +340,8 @@ namespace Content.Server.Ghost
 
         private void WarpTo(EntityUid uid, EntityUid target)
         {
+            _adminLog.Add(LogType.GhostWarp, $"{ToPrettyString(uid)} ghost warped to {ToPrettyString(target)}");
+
             if ((TryComp(target, out WarpPointComponent? warp) && warp.Follow) || HasComp<MobStateComponent>(target))
             {
                 _followerSystem.StartFollowingEntity(uid, target);
@@ -367,8 +406,11 @@ namespace Content.Server.Ghost
         public void MakeVisible(bool visible)
         {
             var entityQuery = EntityQueryEnumerator<GhostComponent, VisibilityComponent>();
-            while (entityQuery.MoveNext(out var uid, out _, out var vis))
+            while (entityQuery.MoveNext(out var uid, out var _, out var vis))
             {
+                if (!_tag.HasTag(uid, "AllowGhostShownByEvent"))
+                    continue;
+
                 if (visible)
                 {
                     _visibilitySystem.AddLayer((uid, vis), (int) VisibilityFlags.Normal, false);
@@ -426,7 +468,7 @@ namespace Content.Server.Ghost
                 spawnPosition = null;
 
             // If it's bad, look for a valid point to spawn
-            spawnPosition ??= _ticker.GetObserverSpawnPoint();
+            spawnPosition ??= _gameTicker.GetObserverSpawnPoint();
 
             // Make sure the new point is valid too
             if (!IsValidSpawnPosition(spawnPosition))
@@ -437,16 +479,23 @@ namespace Content.Server.Ghost
                 return null;
             }
 
-            var ghost = SpawnAtPosition(GameTicker.ObserverPrototypeName, spawnPosition.Value);
+            // WWDP EDIT START
+            CustomGhostPrototype? customGhost = null;
+            if (mind.Comp.UserId is NetUserId userId)
+                customGhost = _prototypeManager.Index(_prefs.GetPreferences(userId).CustomGhost);
+
+            var ghost = SpawnAtPosition(customGhost?.GhostEntityPrototype ?? GameTicker.ObserverPrototypeName, spawnPosition.Value);
+            // WWDP EDIT END
+
             var ghostComponent = Comp<GhostComponent>(ghost);
 
             // Try setting the ghost entity name to either the character name or the player name.
             // If all else fails, it'll default to the default entity prototype name, "observer".
             // However, that should rarely happen.
-            if (!string.IsNullOrWhiteSpace(mind.Comp.CharacterName))
-                _metaData.SetEntityName(ghost, mind.Comp.CharacterName);
-            else if (!string.IsNullOrWhiteSpace(mind.Comp.Session?.Name))
-                _metaData.SetEntityName(ghost, mind.Comp.Session.Name);
+            // WWDP EDIT START
+            if (FirstNonNullNonEmpty(mind.Comp.CharacterName, mind.Comp.Session?.Name) is string ghostName)
+                _metaData.SetEntityName(ghost, ghostName);
+            // WWDP EDIT END
 
             if (mind.Comp.TimeOfDeath.HasValue)
             {
@@ -461,6 +510,113 @@ namespace Content.Server.Ghost
                 _minds.TransferTo(mind.Owner, ghost, mind: mind.Comp);
             Log.Debug($"Spawned ghost \"{ToPrettyString(ghost)}\" for {mind.Comp.CharacterName}.");
             return ghost;
+
+            // WWDP EDIT START
+            static string? FirstNonNullNonEmpty(params string?[] strings)
+            {
+                foreach (var str in strings)
+                    if (!string.IsNullOrWhiteSpace(str))
+                        return str;
+                return null;
+            }
+            // WWDP EDIT END
         }
+
+        public bool OnGhostAttempt(EntityUid mindId, bool canReturnGlobal, bool viaCommand = false, MindComponent? mind = null)
+        {
+            if (!Resolve(mindId, ref mind))
+                return false;
+
+            var playerEntity = mind.CurrentEntity;
+
+            if (playerEntity != null && viaCommand)
+                _adminLog.Add(LogType.Mind, $"{EntityManager.ToPrettyString(playerEntity.Value):player} is attempting to ghost via command");
+
+            var handleEv = new GhostAttemptHandleEvent(mind, canReturnGlobal);
+            RaiseLocalEvent(handleEv);
+
+            // Something else has handled the ghost attempt for us! We return its result.
+            if (handleEv.Handled)
+                return handleEv.Result;
+
+            if (mind.PreventGhosting)
+            {
+                if (mind.Session != null) // Logging is suppressed to prevent spam from ghost attempts caused by movement attempts
+                {
+                    _chatManager.DispatchServerMessage(mind.Session, Loc.GetString("comp-mind-ghosting-prevented"),
+                        true);
+                }
+
+                return false;
+            }
+
+            if (TryComp<GhostComponent>(playerEntity, out var comp) && !comp.CanGhostInteract)
+                return false;
+
+            if (mind.VisitingEntity != default)
+            {
+                _mind.UnVisit(mindId, mind: mind);
+            }
+
+            var position = Exists(playerEntity)
+                ? Transform(playerEntity.Value).Coordinates
+                : _gameTicker.GetObserverSpawnPoint();
+
+            if (position == default)
+                return false;
+
+            // Ok, so, this is the master place for the logic for if ghosting is "too cheaty" to allow returning.
+            // There's no reason at this time to move it to any other place, especially given that the 'side effects required' situations would also have to be moved.
+            // + If CharacterDeadPhysically applies, we're physically dead. Therefore, ghosting OK, and we can return (this is critical for gibbing)
+            //   Note that we could theoretically be ICly dead and still physically alive and vice versa.
+            //   (For example, a zombie could be dead ICly, but may retain memories and is definitely physically active)
+            // + If we're in a mob that is critical, and we're supposed to be able to return if possible,
+            //   we're succumbing - the mob is killed. Therefore, character is dead. Ghosting OK.
+            //   (If the mob survives, that's a bug. Ghosting is kept regardless.)
+            var canReturn = canReturnGlobal && _mind.IsCharacterDeadPhysically(mind);
+
+            if (_configurationManager.GetCVar(CCVars.GhostKillCrit) &&
+                canReturnGlobal &&
+                TryComp(playerEntity, out MobStateComponent? mobState))
+            {
+                if (_mobState.IsCritical(playerEntity.Value, mobState))
+                {
+                    canReturn = true;
+
+                    //todo: what if they dont breathe lol
+                    //cry deeply
+
+                    FixedPoint2 dealtDamage = 200;
+
+                    if (TryComp<DamageableComponent>(playerEntity, out var damageable)
+                        && TryComp<MobThresholdsComponent>(playerEntity, out var thresholds))
+                    {
+                        var playerDeadThreshold = _mobThresholdSystem.GetThresholdForState(playerEntity.Value, MobState.Dead, thresholds);
+                        dealtDamage = playerDeadThreshold - damageable.TotalDamage;
+                    }
+
+                    DamageSpecifier damage = new(_prototypeManager.Index<DamageTypePrototype>("Asphyxiation"), dealtDamage);
+
+                    _damageable.TryChangeDamage(playerEntity, damage, true);
+                }
+            }
+
+            if (playerEntity != null)
+                _adminLog.Add(LogType.Mind, $"{EntityManager.ToPrettyString(playerEntity.Value):player} ghosted{(!canReturn ? " (non-returnable)" : "")}");
+
+            var ghost = SpawnGhost((mindId, mind), position, canReturn);
+
+            if (ghost == null)
+                return false;
+
+            return true;
+        }
+    }
+
+    public sealed class GhostAttemptHandleEvent(MindComponent mind, bool canReturnGlobal) : HandledEntityEventArgs
+    {
+        public MindComponent Mind { get; } = mind;
+        public bool CanReturnGlobal { get; } = canReturnGlobal;
+        public bool Result { get; set; }
     }
 }

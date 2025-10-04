@@ -1,13 +1,19 @@
 <Document>
-  # Antagonists
+  # Антагонисты
+  Антагонисты являются движущей силой каждой смены.
+  Они - катализаторы хаоса, конфликтов и тайн на Space Station 14, а также служат вызовом для Nanotrasen и его [color=#cb0000]Службы Безопасности[/color].
+  От них можно ожидать нарушений Космического Закона, и им часто поручаются такие задачи, как кража, обман и убийство.
 
-  Antagonists are the driving force of every shift, usually creating conflict and defying the crew. Their goals can vary a lot, but they usually require some thievery, sabotage, or murder.
+  Эти злоумышленники чаще всего наняты или поддерживаются [color=#ff0000]Синдикатом[/color], конкурирующей с Nanotrasen организацией, которая больше всего хочет видеть её в огне.
 
-  ## Various Antagonists
+  ## Различные Антагонисты
+  Роли антагонистов предоставляют свои особые способности, инструменты и риски для станции.
 
-  Antagonists can take many forms, like:
-  - Nuclear operatives, with the goal of infiltrating and destroying the station.
-  - Traitors infiltrating the crew who can assassinate targets and steal high value items.
-  - Space Ninjas, masters of espionage and sabotage, who are equipped with special gear.
-  - Several non-humanoid creatures, who usually just try to bring down as many crewmembers as they can.
+  Антагонисты могут принимать множество форм, таких как:
+  - [textlink="Ядерные оперативники" link="Nuclear Operatives"], с целью проникновения и уничтожения станции.
+  - [textlink="Предатели" link="Traitors"] среди экипажа, которые должны убивать, красть и обманывать.
+  - [textlink="Космические ниндзя" link="SpaceNinja"], мастера шпионажа и саботажа со специальным снаряжением.
+  - [textlink="Революционеры" link="Revolutionaries"], которые намерены захватить контроль над станцией изнутри.
+  - [textlink="Зомби" link="Zombies"], которые жаждут плоти каждого члена экипажа и существа на борту.
+  - [textlink="Различные нечеловеческие существа" link="MinorAntagonists"], которые обычно просто пытаются убить всё, что движется.
 </Document>

@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Shared.Light.Components;
 using Content.Shared.Weather;
 using Robust.Client.Audio;
 using Robust.Client.GameObjects;
@@ -44,11 +45,11 @@ public sealed class WeatherSystem : SharedWeatherSystem
             return;
         }
 
-        if (!Timing.IsFirstTimePredicted || weatherProto.Sound == null
-            || weather.Stream is not null) // Don't ever generate more than one weather sound.
+        if (!Timing.IsFirstTimePredicted || weatherProto.Sound == null)
             return;
 
         weather.Stream ??= _audio.PlayGlobal(weatherProto.Sound, Filter.Local(), true)?.Entity;
+
         if (!TryComp(weather.Stream, out AudioComponent? comp))
             return;
 
@@ -57,8 +58,9 @@ public sealed class WeatherSystem : SharedWeatherSystem
         // Work out tiles nearby to determine volume.
         if (TryComp<MapGridComponent>(entXform.GridUid, out var grid))
         {
+            TryComp(entXform.GridUid, out RoofComponent? roofComp);
             var gridId = entXform.GridUid.Value;
-            // Floodfill to the nearest tile and use that for audio.
+            // FloodFill to the nearest tile and use that for audio.
             var seed = _mapSystem.GetTileRef(gridId, grid, entXform.Coordinates);
             var frontier = new Queue<TileRef>();
             frontier.Enqueue(seed);
@@ -71,7 +73,7 @@ public sealed class WeatherSystem : SharedWeatherSystem
                 if (!visited.Add(node.GridIndices))
                     continue;
 
-                if (!CanWeatherAffect(grid, node))
+                if (!CanWeatherAffect(entXform.GridUid.Value, grid, node, roofComp))
                 {
                     // Add neighbors
                     // TODO: Ideally we pick some deterministically random direction and use that

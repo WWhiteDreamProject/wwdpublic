@@ -9,13 +9,14 @@ namespace Content.Shared.Humanoid.Prototypes;
 [Prototype("randomHumanoidSettings")]
 public sealed partial class RandomHumanoidSettingsPrototype : IPrototype, IInheritingPrototype
 {
-    [IdDataField] public string ID { get; } = default!;
+    [IdDataField] public string ID { get; private set; } = default!;
 
     [ParentDataField(typeof(PrototypeIdArraySerializer<RandomHumanoidSettingsPrototype>))]
-    public string[]? Parents { get; }
+    public string[]? Parents { get; private set; }
 
     [AbstractDataField]
-    public bool Abstract { get; }
+    [NeverPushInheritance]
+    public bool Abstract { get; private set; }
 
     /// <summary>
     ///     Whether the humanoid's name should take from the randomized profile or not.
@@ -30,8 +31,15 @@ public sealed partial class RandomHumanoidSettingsPrototype : IPrototype, IInher
     public HashSet<string> SpeciesBlacklist { get; private set; } = new();
 
     /// <summary>
+    ///    WWDP - Species that the randomizer will choose from. Overrides speciesBlacklist.
+    /// </summary>
+    [DataField("speciesWhitelist")]
+    public HashSet<string> SpeciesWhitelist { get; private set; } = new();
+
+    /// <summary>
     ///     Extra components to add to this entity.
     /// </summary>
-    [DataField("components")]
+    [DataField]
+    [AlwaysPushInheritance]
     public ComponentRegistry? Components { get; private set; }
 }

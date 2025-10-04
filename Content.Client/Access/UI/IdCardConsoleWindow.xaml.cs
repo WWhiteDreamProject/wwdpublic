@@ -16,6 +16,8 @@ namespace Content.Client.Access.UI
     {
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly ILogManager _logManager = default!;
+        [Dependency] private readonly ILocalizationManager _localization = default!;
+        
         private readonly ISawmill _logMill = default!;
 
         private readonly IdCardConsoleBoundUserInterface _owner;
@@ -26,6 +28,9 @@ namespace Content.Client.Access.UI
         private string? _lastFullName;
         private string? _lastJobTitle;
         private string? _lastJobProto;
+
+        // The job that will be picked if the ID doesn't have a job on the station.
+        private static ProtoId<JobPrototype> _defaultJob = "Passenger";
 
         public IdCardConsoleWindow(IdCardConsoleBoundUserInterface owner, IPrototypeManager prototypeManager,
             List<ProtoId<AccessLevelPrototype>> accessLevels)
@@ -61,11 +66,10 @@ namespace Content.Client.Access.UI
                 }
 
                 _jobPrototypeIds.Add(job.ID);
-                JobPresetOptionButton.AddItem(Loc.GetString(job.Name), _jobPrototypeIds.Count - 1);
+                JobPresetOptionButton.AddItem(_localization.GetString(job.Name), _jobPrototypeIds.Count - 1);
             }
 
             JobPresetOptionButton.OnItemSelected += SelectJobPreset;
-
             _accessButtons.Populate(accessLevels, prototypeManager);
             AccessLevelControlContainer.AddChild(_accessButtons);
 
@@ -93,7 +97,7 @@ namespace Content.Client.Access.UI
                 return;
             }
 
-            JobTitleLineEdit.Text = Loc.GetString(job.Name);
+            JobTitleLineEdit.Text = _localization.GetString(job.Name);
             args.Button.SelectId(args.Id);
 
             ClearAllAccess();
@@ -129,14 +133,14 @@ namespace Content.Client.Access.UI
         public void UpdateState(IdCardConsoleBoundUserInterfaceState state)
         {
             PrivilegedIdButton.Text = state.IsPrivilegedIdPresent
-                ? Loc.GetString("id-card-console-window-eject-button")
-                : Loc.GetString("id-card-console-window-insert-button");
+                ? _localization.GetString("id-card-console-window-eject-button")
+                : _localization.GetString("id-card-console-window-insert-button");
 
             PrivilegedIdLabel.Text = state.PrivilegedIdName;
 
             TargetIdButton.Text = state.IsTargetIdPresent
-                ? Loc.GetString("id-card-console-window-eject-button")
-                : Loc.GetString("id-card-console-window-insert-button");
+                ? _localization.GetString("id-card-console-window-eject-button")
+                : _localization.GetString("id-card-console-window-insert-button");
 
             TargetIdLabel.Text = state.TargetIdName;
 
@@ -172,10 +176,14 @@ namespace Content.Client.Access.UI
                                        new List<ProtoId<AccessLevelPrototype>>());
 
             var jobIndex = _jobPrototypeIds.IndexOf(state.TargetIdJobPrototype);
-            if (jobIndex >= 0)
+            // If the job index is < 0 that means they don't have a job registered in the station records.
+            // For example, a new ID from a box would have no job index.
+            if (jobIndex < 0)
             {
-                JobPresetOptionButton.SelectId(jobIndex);
+                jobIndex = _jobPrototypeIds.IndexOf(_defaultJob);
             }
+
+            JobPresetOptionButton.SelectId(jobIndex);
 
             _lastFullName = state.TargetIdFullName;
             _lastJobTitle = state.TargetIdJobTitle;

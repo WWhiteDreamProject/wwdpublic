@@ -1,0 +1,44 @@
+story-gen-book-character-story1 = clown
+story-gen-book-character-story2 = mime
+story-gen-book-character-story3 = reporter
+story-gen-book-character-story4 = butcher
+story-gen-book-character-story5 = bartender
+story-gen-book-character-story6 = janitor
+story-gen-book-character-story7 = engineer
+story-gen-book-character-story8 = scientist
+story-gen-book-character-story9 = guard
+story-gen-book-character-story10 = doctor
+story-gen-book-character-story11 = chemist
+story-gen-book-character-story12 = prisoner
+story-gen-book-character-story13 = researcher
+story-gen-book-character-story14 = trader
+story-gen-book-character-story15 = captain
+story-gen-book-character-story16 = lizard
+story-gen-book-character-story17 = moth
+story-gen-book-character-story18 = diona
+story-gen-book-character-story19 = cat-girl
+story-gen-book-character-story20 = cat
+story-gen-book-character-story21 = corgi
+story-gen-book-character-story22 = dog
+story-gen-book-character-story23 = opossum
+story-gen-book-character-story24 = sloth
+story-gen-book-character-story25 = syndicate agent
+story-gen-book-character-story26 = revenant
+story-gen-book-character-story27 = rat king
+story-gen-book-character-story28 = ninja
+story-gen-book-character-story29 = space dragon
+story-gen-book-character-story30 = revolutionary
+story-gen-book-character-story31 = nuclear operative
+story-gen-book-character-story32 = Nar'Sie cultist
+story-gen-book-character-story33 = Ratvar cultist
+story-gen-book-character-story34 = greytider
+story-gen-book-character-story35 = arachnid
+story-gen-book-character-story36 = vox
+story-gen-book-character-story37 = dwarf
+story-gen-book-character-story38 = thief
+story-gen-book-character-story39 = wizard
+story-gen-book-character-story40 = slime
+
+story-template-generic-story = This is a {$genre} about a {$character_trait1} {$character1} and a {$character_trait2} {$character2}. Due to {$event}, they {$action_trait} {$action} {$character_story} {$location}.
+
+    The main narrative element is {$element}; it is {$element_trait}.

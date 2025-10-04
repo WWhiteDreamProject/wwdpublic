@@ -10,8 +10,8 @@ tilemap:
   84: FloorSteel
   89: FloorSteelDirty
   91: FloorSteelMini
-  96: FloorTechMaint
-  97: FloorTechMaint2
+  96: FloorTechMaintSteel
+  97: FloorMaintWhite
   104: FloorWhiteMini
   110: FloorWood
   112: Lattice
@@ -3296,7 +3296,7 @@ entities:
       pos: -3.5,10.5
       parent: 1
       type: Transform
-- proto: FloraTreeLarge06
+- proto: FloraTreeLarge
   entities:
   - uid: 473
     components:

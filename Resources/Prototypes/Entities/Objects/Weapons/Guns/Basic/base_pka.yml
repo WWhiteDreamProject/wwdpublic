@@ -14,7 +14,8 @@
   - type: WeaponAttachment
     lightActionPrototype: ActionTogglePKALight
   - type: PressureDamageChange
-  - type: Multishot
+  - type: DualWield # WWDP dual wielding
+  #- type: Multishot # WWDP
   - type: UpgradeableGun
     whitelist:
       tags:

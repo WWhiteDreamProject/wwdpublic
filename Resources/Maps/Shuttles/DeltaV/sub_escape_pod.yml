@@ -3,7 +3,7 @@ meta:
   postmapinit: false
 tilemap:
   0: Space
-  65: FloorMetalDiamond
+  65: FloorMetalDiamondSteel
   77: FloorRGlass
   121: Lattice
   122: Plating
@@ -45,8 +45,6 @@ entities:
       bodyType: Dynamic
     - type: Fixtures
       fixtures: {}
-    - type: BecomesStation
-      id: Empty
     - type: OccluderTree
     - type: Shuttle
     - type: Gravity

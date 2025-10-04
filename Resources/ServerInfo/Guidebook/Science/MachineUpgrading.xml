@@ -1,38 +1,39 @@
 <Document>
-# Machine Upgrading
+  # Улучшение Машин
 
-Machines help the station run smoothly, and as a scientist, you can help them run even better!
+  Машины обеспечивают бесперебойную работу станции — а ты, учёный, можешь сделать их ещё лучше!
 
-## Parts
-<Box>Stock Parts:</Box>
-<Box>
-<GuideEntityEmbed Entity="CapacitorStockPart"/>
-<GuideEntityEmbed Entity="MatterBinStockPart"/>
-<GuideEntityEmbed Entity="MicroManipulatorStockPart"/>
-</Box>
-You can examine each machine part to see both the type and the rating, which range from 1 to 4.
+  ## Компоненты
+  <Box>Стандартные компоненты:</Box>
+  <Box>
+    <GuideEntityEmbed Entity="CapacitorStockPart"/>
+    <GuideEntityEmbed Entity="MatterBinStockPart"/>
+    <GuideEntityEmbed Entity="MicroManipulatorStockPart"/>
+  </Box>
 
-Parts of higher levels can be researched as well as found through artifacts or salvage.
-<Box>
-<GuideEntityEmbed Entity="AdvancedMatterBinStockPart"/>
-<GuideEntityEmbed Entity="SuperMatterBinStockPart"/>
-<GuideEntityEmbed Entity="BluespaceMatterBinStockPart"/>
-</Box>
+  У каждого компонента есть тип и уровень — от 1 до 4. Их можно увидеть, если [color=#a4885c]осмотреть[/color] саму деталь.
 
-## Upgrading
-To know if a machine can be upgraded, you can examine it and check for the [color=#a4885c]lightning bolt[/color] icon in the lower right corner. Clicking on it will allow you to see what kinds of upgrades the machine has.
+  Улучшенные версии можно разблокировать через исследования, найти в артефактах или раскопках:
+  <Box>
+    <GuideEntityEmbed Entity="AdvancedMatterBinStockPart"/>
+    <GuideEntityEmbed Entity="SuperMatterBinStockPart"/>
+    <GuideEntityEmbed Entity="BluespaceMatterBinStockPart"/>
+  </Box>
 
-To check what parts a machine needs, you can examine its board. Try it here:
-<Box Orientation="Vertical">
-<GuideEntityEmbed Entity="ProtolatheMachineCircuitboard"/>
-<GuideEntityEmbed Entity="CloningPodMachineCircuitboard"/>
-<GuideEntityEmbed Entity="TraversalDistorterMachineCircuitboard"/>
-<GuideEntityEmbed Entity="ThermomachineFreezerMachineCircuitBoard"/>
-</Box>
-You can use any rating part for any part requirement. Using higher rated parts will increase how effective the machine is.
+  ## Улучшение
+  Чтобы узнать, можно ли улучшить конкретную машину, осмотри её и обрати внимание на [color=#a4885c]значок молнии[/color] в правом нижнем углу. Кликнув по нему, ты увидишь, какие улучшения уже стоят.
 
-If you want to upgrade an existing machine, simply deconstruct it with a screwdriver and crowbar, and replace the existing parts with parts of a higher level.
+  Чтобы узнать, какие компоненты машине нужны, посмотри на её схемную плату. Примеры:
+  <Box Orientation="Vertical">
+    <GuideEntityEmbed Entity="ProtolatheMachineCircuitboard"/>
+    <GuideEntityEmbed Entity="CloningPodMachineCircuitboard"/>
+    <GuideEntityEmbed Entity="ThermomachineFreezerMachineCircuitBoard"/>
+  </Box>
 
-You can also quickly upgrade machines by using an RPED, loading it with machine parts, and then clicking on a machine. It will quickly be upgraded with whatever parts were inserted.
-<GuideEntityEmbed Entity="RPED"/>
+  В машину можно вставлять детали любого уровня. Но чем выше уровень — тем мощнее будет эффект.
+
+  Чтобы обновить уже собранную машину, просто разберите её отвёрткой и ломом, замените старые части на более продвинутые, и соберите заново.
+
+  Можно упростить процесс с помощью RPED — устройства, которое содержит комплект деталей. Просто зарядите его и кликните им по машине — апгрейд произойдёт автоматически.
+  <GuideEntityEmbed Entity="RPED"/>
 </Document>

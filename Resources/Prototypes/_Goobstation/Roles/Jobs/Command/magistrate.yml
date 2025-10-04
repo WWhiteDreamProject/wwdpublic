@@ -21,6 +21,8 @@
       employers:
       - IdrisIncorporated
       - NanoTrasen
+    - !type:CharacterOverallTimeRequirement # WWDP
+      min: 7200
   weight: 20
   startingGear: MagistrateGear
   icon: "JobIconMagistrate"
@@ -65,7 +67,7 @@
 
 - type: startingGear
   id: MagistratePlasmamanGear
-  parent: BasePlasmamanGear
+  parent: BasePlasmamanMaskGear
   equipment:
     jumpsuit: ClothingUniformEnvirosuitMagistrate
     head: ClothingHeadEnvirohelmMagistrate

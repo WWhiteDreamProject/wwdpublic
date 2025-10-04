@@ -1,5 +1,6 @@
 using System.Numerics;
 using Content.Shared.Alert;
+using Content.Shared.DoAfter;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
@@ -80,10 +81,24 @@ public sealed partial class StrapComponent : Component
     public ProtoId<AlertPrototype> BuckledAlertType = "Buckled";
 
     /// <summary>
+    /// How long it takes to buckle someone else into a chair
+    /// </summary>
+    [DataField]
+    public float BuckleDoafterTime = 2f;
+
+    /// <summary>
     /// Whether InteractHand will buckle the user to the strap.
     /// </summary>
     [DataField]
     public bool BuckleOnInteractHand = true;
+
+    // WD EDIT START
+    /// <summary>
+    /// Delay, that must occur, before user can unbuckle
+    /// </summary>
+    [DataField]
+    public TimeSpan SelfUnBuckleDelay = TimeSpan.Zero;
+    // WD EDIT END
 }
 
 public enum StrapPosition

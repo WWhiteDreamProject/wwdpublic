@@ -173,7 +173,6 @@
     #  bloodlossHealDamage:
     #    types:
     #      Burn: 0
-    - type: Flashable
     - type: Flammable
       fireSpread: true
       canResistFire: true
@@ -230,7 +229,7 @@
           type: InstrumentBoundUserInterface
           requireInputValidation: false
         enum.RadialSelectorUiKey.Key:
-          type: RadialSelectorMenuBUI
+          type: TrackedRadialSelectorMenuBUI # WD EDIT: RadialSelectorMenuBUI -> TrackedRadialSelectorMenuBUI
         enum.ListViewSelectorUiKey.Key:
           type: ListViewSelectorBUI
         enum.SurgeryUIKey.Key:
@@ -323,6 +322,7 @@
         # - ForcedSleep
         - TemporaryBlindness
         - Pacified
+        - Flashed
         # - PsionicsDisabled
         # - PsionicallyInsulated
     - type: Blindable
@@ -337,13 +337,3 @@
     - type: ExaminableCharacter # WWDP
     - type: TTS # WD EDIT
 
-- type: damageModifierSet
-  id: IPC
-  coefficients:
-    Poison: 0
-    Cold: 0.2
-    Heat: 1
-    Shock: 3 # Ion merged with shock, they lost their heat damage weakness, they should be extremely weak to this rare damage type considering its shocking electronics
-    Blunt: 1
-    Slash: 1
-    Piercing: 1

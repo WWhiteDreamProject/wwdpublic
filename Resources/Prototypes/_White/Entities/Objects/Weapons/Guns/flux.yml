@@ -1,0 +1,90 @@
+- type: entity
+  id: BaseWeaponFlux
+  parent: BaseWeaponFluxCoreSlot
+  abstract: True
+  components:
+  - type: GunFlux
+    malfunctionWeightedList:
+      flash: 1
+      firefailure: 3
+      eject: 1
+      explosion: 0.25
+  - type: FluxCore
+    capacity: 5
+    decayRate: 0.5
+    safeFlux: 0
+    baseMalfunctionChance: 0.10
+    maxMalfunctionChance: 0.50
+    baseMalfunctionChanceFlux: 0
+    maxMalfunctionChanceFlux: 5
+    baseDamageMultiplier: 1
+    maxDamageMultiplier: 1.5
+    baseDamageMultiplierFlux: 0
+    maxDamageMultiplierFlux: 5 
+    decayTimeToStart: 3
+
+
+- type: entity
+  id: BaseWeaponFluxSmall
+  parent: BaseWeaponFluxCoreSlotSmall
+  abstract: True
+  components:
+  - type: GunFlux
+    heatCost: 0.5
+    malfunctionWeightedList:
+      flash: 1
+      firefailure: 3
+      eject: 1
+      explosion: 0.25
+  - type: FluxCore
+    capacity: 3.5
+    decayRate: 0.5
+    safeFlux: 0
+    baseMalfunctionChance: 0.10
+    maxMalfunctionChance: 0.35
+    baseMalfunctionChanceFlux: 0
+    maxMalfunctionChanceFlux: 3.5
+    baseDamageMultiplier: 1
+    maxDamageMultiplier: 1.5
+    baseDamageMultiplierFlux: 0
+    maxDamageMultiplierFlux: 3.5 
+
+- type: entity
+  id: BaseWeaponFluxCoreSlot
+  abstract: True
+  components:
+  - type: ContainerContainer
+    containers:
+      gun-flux-core-slot: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      gun-flux-core-slot:
+        name: Flux core
+        swap: false
+        priority: 20
+        startingItem: BasicFluxCore
+        spawnStartingItemIfCrafted: false
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        whitelist:
+          tags:
+            - FluxCore
+
+- type: entity
+  id: BaseWeaponFluxCoreSlotSmall
+  parent: BaseWeaponFluxCoreSlot
+  abstract: True
+  components:
+  - type: ItemSlots
+    slots:
+      gun-flux-core-slot:
+        name: Flux core
+        swap: false
+        priority: 20
+        startingItem: SmallBasicFluxCore
+        spawnStartingItemIfCrafted: false
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        whitelist:
+          tags:
+            - FluxCoreSmall

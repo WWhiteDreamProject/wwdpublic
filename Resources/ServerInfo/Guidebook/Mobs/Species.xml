@@ -1,27 +1,28 @@
 <Document>
-  # Species
+  # Расы
 
-  Nanotrasen employs a variety of sapient species.
+  В корпорации Nanotrasen трудятся представители множества разумных рас, каждая из которых обладает своими уникальными способностями, культурой и биологией.
 
   <Box>
-  <GuideEntityEmbed Entity="MobArachnid" Caption="Arachnid"/>
-  <GuideEntityEmbed Entity="MobDiona" Caption="Diona"/>
-  <GuideEntityEmbed Entity="MobHuman" Caption="Human"/>
+  <GuideEntityEmbed Entity="MobArachnid" Caption="Арахнид"/>
+  <GuideEntityEmbed Entity="MobDiona" Caption="Диона"/>
+  <GuideEntityEmbed Entity="MobHuman" Caption="Человек"/>
   </Box>
   <Box>
-  <GuideEntityEmbed Entity="MobMoth" Caption="Moth Person"/>
-  <GuideEntityEmbed Entity="MobOni" Caption="Oni"/>
-  <GuideEntityEmbed Entity="MobReptilian" Caption="Reptilian"/>
-  <GuideEntityEmbed Entity="MobSlimePerson" Caption="Slime Person"/>
-  <GuideEntityEmbed Entity="MobShadowkinDummy" Caption="Shadowkin"/>
-  <GuideEntityEmbed Entity="MobThaven" Caption="Thaven"/>
+  <GuideEntityEmbed Entity="MobMoth" Caption="Мотыльковидный"/>
+  <GuideEntityEmbed Entity="MobOni" Caption="Они"/>
+  <GuideEntityEmbed Entity="MobReptilian" Caption="Рептилоид"/>
+  <GuideEntityEmbed Entity="MobSlimePerson" Caption="Слизнечеловек"/>
+  <GuideEntityEmbed Entity="MobShadowkinDummy" Caption="Тенькины"/>
+  <GuideEntityEmbed Entity="MobThaven" Caption="Тавен"/>
   </Box>
   <Box>
-  <GuideEntityEmbed Entity="MobXelthia" Caption="Xelthia"/>
+  <GuideEntityEmbed Entity="MobXelthia" Caption="Кселтия"/>
   </Box>
 
-  # Parkstation specific species
+  # Уникальные расы Parkstation
+
   <Box>
-  <GuideEntityEmbed Entity="MobIPCDummy" Caption="I.P.C."/>
+  <GuideEntityEmbed Entity="MobIPCDummy" Caption="I.P.C. (Интеллектуальное Пластинчатое Сознание)"/>
   </Box>
 </Document>

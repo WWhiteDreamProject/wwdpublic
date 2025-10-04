@@ -47,9 +47,9 @@
   # WD EDIT START
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 4
+    Telecrystal: 3
   cost:
-    Telecrystal: 16
+    Telecrystal: 12
   # WD EDIT END
   categories:
   - UplinkDeception
@@ -64,7 +64,7 @@
   discountDownTo:
     Telecrystal: 4
   cost:
-    Telecrystal: 18
+    Telecrystal: 16
   # WD EDIT END
   categories:
   - UplinkWeaponry
@@ -174,7 +174,7 @@
   discountDownTo:
     Telecrystal: 2
   cost:
-    Telecrystal: 10
+    Telecrystal: 6
   # WD EDIT END
   categories:
   - UplinkWeaponry
@@ -273,7 +273,7 @@
   id: UplinkLightRifleSubsonicMag
   name: uplink-rifle-subsonic-mag-name
   description: uplink-rifle-subsonic-mag-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/light_rifle_mag.rsi, state: rubber }
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/light_rifle_mag.rsi, state: practice }
   productEntity: MagazineLightRifleSubsonic
   # WD EDIT START
   cost:

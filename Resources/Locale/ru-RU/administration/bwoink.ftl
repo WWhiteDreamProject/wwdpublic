@@ -1,4 +1,4 @@
-bwoink-user-title = Сообщение от администратора
+bwoink-user-title = Сообщение от администратора.
 
 bwoink-system-starmute-message-no-other-users = *Система: Никто не получил вашего сообщения. Попробуйте обратиться к администраторам игры в Discord.
 

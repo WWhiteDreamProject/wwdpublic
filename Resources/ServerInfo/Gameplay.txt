@@ -1,22 +1,23 @@
-If you’re new to roleplaying or are unfamiliar with IC and OOC please read on. If not, skip to the next section.
+Ролевой процесс, IC и ООС
 
-SS14 is at its core a roleplaying game - You play a role on the station through your character which you can customise from the lobby prior to joining the game. You can select the roles or jobs your character plays via the customisation menu too. When you’re in a round playing your character, you are IC or In Character. When you’re in character you forget any knowledge of previous rounds or essentially of the outside world and you play as if you’re a member of the station's crew.
+Если ты новичок в ролевых играх или не знаешь, что такое IC и OOC — читай внимательно. Если уже знаешь, можешь смело перелистывать к следующему разделу.
 
-Therefore, OOC or Out of Character is any conversations you have outside of the game world e.g. in the OOC chat, on discord or with your friends. You shouldn’t discuss the current round or anything that’s IC (in character) in out of character OOC chats. Likewise anything you see or read in OOC cannot be used by your character in game such as if someone on discord names a traitor or tells you they’re dying in a certain location and for you to go help them. This is known as metagaming and will get you banned if discovered.
+SS14 по своей сути — ролевая игра. Ты играешь определённую роль на станции через персонажа, которого создаёшь заранее в лобби. В меню настроек можно выбрать, кем ты хочешь быть: поваром, медиком, инженером и так далее. Когда ты заходишь в раунд, ты входишь в IC (In Character, «в образе»). В этом состоянии ты забываешь всё, что было в предыдущих раундах или во внешнем мире, и играешь так, как будто ты действительно живёшь на станции.
 
-If you suspect a player in game is metagaming (e.g. you’re a traitor and they just walk up to you and kill you without you doing anything to antagonise them) then report them via ahelp or discord.
+В противоположность этому, OOC (Out of Character, «вне образа») — это всё, что ты обсуждаешь вне игрового мира: в чате OOC, на Discord-сервере или с друзьями. Ты не должен делиться информацией о текущем раунде в OOC. Так же ты не можешь использовать информацию, полученную из OOC, в игре. Например, если кто-то в Discord скажет, что он умирает в техах, и попросит помощи — ты не можешь просто взять и побежать его спасать. Это называется метагейминг, и за него банят.
 
-To summarise, when you’re in game, don’t discuss the round anywhere else until the round is over and don’t share information about the round in OOC such as if you’re dying, where you are or if you find a traitor.
+Если тебе кажется, что кто-то метагеймит (например, ты играешь предателем, и внезапно к тебе прибегает ассистент и просто убивает тебя, хотя ты даже не подал вида, что опасен) — пиши репорт через ahelp или в Discord.
 
+Запомни главное: не обсуждай текущий раунд вне игры, пока он не закончился. Не раскрывай, кто предатель, кто умирает и где, и не уноси эту информацию в Discord или OOC чат.
 
-Traitors, antagonists, RDM and “self antag”
+Предатели, антагонисты, RDM и «самоантаг»
 
-If in your character customisation settings you selected the chance to become an antagonist (antag) or other traitor role, it is not guaranteed that you will be one. When a traitor gamemode round starts there is a random roll of all the players who selected the chance to become a traitor and only some get selected. They will be notified they are a traitor in chat and will have a set of objectives they can view by pressing C.
+Если ты в настройках персонажа включил возможность стать антагонистом (предателем), это не значит, что ты им точно станешь. Когда начинается режим с предателями, среди всех желающих случайным образом выбираются антагонисты. Им приходит сообщение в чат, и они получают цели, которые можно посмотреть по клавише C.
 
-Being an antagonist is not an excuse to go on a murder spree. Your job is to complete your objectives which on occasion will include escaping alive or dying a glorious death. How you complete your objectives is up to you so murder is valid but try to have fun (ideally not at everyones expense but that’s up to you).
+Быть антагонистом — это не лицензия на бездумное мясо. Твоя задача — выполнить цели. Иногда это побег, иногда — героическая смерть. Как ты их будешь выполнять — решаешь ты. Убийство допустимо, но не обязательно. Лучше постараться сделать это интересно и с огоньком — чтобы всем было весело, а не только тебе.
 
-If you suspect an antagonist such as a traitor or cultist etc report them to security as fast as possible and if necessary do what you can to protect yourself. Remember traitors are people too, so ideally they should be arrested and prosecuted under space law and not just murdered (but do what you need to do to survive).
+Если ты заметил антагониста (предателя, культиста и т. д.), сообщи об этом в охрану и, если нужно, защищай себя. Но помни: предатели — тоже люди. Идеальный сценарий — арест и суд по космическому закону, а не моментальная казнь (хотя если выбора нет — бейся за свою жизнь как можешь).
 
-RDM or random deathmatch is the act of killing someone for no reason or attempting to. If you are being attacked it is likely the other person could be an antag but if you’re unsure, ask the admins for help (ahelp) to check this when convenient.
+RDM (Random Deathmatch) — это убийство без причины. Если кто-то нападает на тебя просто так — возможно, он антагонист. Но если сомневаешься, напиши ahelp.
 
-Self antag or self antagonising is when you are NOT an antagonist which is determined at round start on traitor modes, and you go out of your way to break the law, damage the station or commit murder. Breaking the law is not inherently self antagging, but murdering, attacking, attempting to break into high security areas etc are examples of self antagging and will get you banned. Unless you are an official antagonist then you are a normal member of the crew who’s only objective is to complete their shift in their designated role.
+Self-antag (самоантаг) — это когда ты НЕ антагонист, но сам устраиваешь хаос: взрываешь станции, лезешь в капитанскую, убиваешь игроков и портишь игру другим. Нарушать закон — не всегда плохо, но если ты идёшь убивать, грифонить и ломать — будь готов к бану. Если ты не антагонист — веди себя как обычный сотрудник станции и просто выполняй свою работу.

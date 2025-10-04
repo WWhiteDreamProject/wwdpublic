@@ -29,7 +29,8 @@
     ClothingOuterArmorCult: 1
     ClothingHeadHelmetCult: 1
     ClothingOuterRobesCult: 3
-    ClothingHeadHatHoodCulthood: 3
+    # ClothingHeadHatHoodCulthood: 3 # WWDP part of the robe now
     ClothingShoesCult: 4
     BedsheetCult: 4
     ClothingNeckScarfStripedBlack: 3
+    BibleNecronomicon: 1 #WWDP edit

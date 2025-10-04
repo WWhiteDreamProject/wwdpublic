@@ -1,20 +1,21 @@
 <Document>
-# A.P.E.
+  # М.А.К.А.К.
 
-The Anomalous Particle Emitter is a machine used to interface with anomalies. It is the primary way of manipulating the stats of an anomaly.
+  М.А.К.А.К. (Машина Активного Контроля и Координации Аномальных Частиц) — это устройство для взаимодействия с аномалиями. Она является основным инструментом для манипуляций с параметрами аномальных объектов.
 
-<Box>
-<GuideEntityEmbed Entity="MachineAPE"/>
-</Box>
+  <Box>
+    <GuideEntityEmbed Entity="MachineAPE"/>
+  </Box>
 
-The A.P.E. can shoot three different kinds of anomalous particles: Delta, Epsilon, and Zeta. Each particle types has certain effects:
+  М.А.К.А.К. способен стрелять тремя видами аномальных частиц: Дельта, Эпсилон и Дзета. Каждый тип частиц оказывает определённое влияние:
 
-- [color=#a4885c]Danger:[/color] Increases the severity of an anomaly.
-- [color=#a4885c]Unstable:[/color] Increases the instability of an anomaly.
-- [color=#a4885c]Containment:[/color] Increases the stability at the cost of health.
+  • [color=#a4885c]Опасные:[/color] увеличивают уровень угрозы (опасность) аномалии.
+  • [color=#a4885c]Нестабильные:[/color] повышают нестабильность аномалии.
+  • [color=#a4885c]Сдерживающие:[/color] стабилизируют аномалию, но снижают её здоровье.
 
-Which particle type corresponds to each effect is unique and can be learned by scanning the anomaly.
+  Какой именно тип частиц отвечает за каждый эффект — уникален для каждой аномалии и определяется через сканирование.
 
-The A.P.E. can also be locked by anyone with epistemics access, which prevents it from being deconstructed, turned on or off, or having the particle type switched.
+  Устройство можно заблокировать при помощи допуска к Эпистемике. Это предотвратит разборку, включение/выключение или смену типа частиц, пока блокировка не будет снята.
 
+  [italic]М.А.К.А.К. — верный друг каждого аномалиста. Главное — не пугайтесь, если он начнёт шуметь и мигать, как одержимый. Это нормально. Наверное.[/italic]
 </Document>

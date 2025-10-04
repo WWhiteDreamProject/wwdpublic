@@ -27,3 +27,15 @@
 
 - type: Tag
   id: AiCoreBoard
+
+- type: Tag
+  id: RCDLight
+
+- type: Tag
+  id: XenomorphItem
+
+- type: Tag
+  id: FluxCore
+
+- type: Tag
+  id: FluxCoreSmall

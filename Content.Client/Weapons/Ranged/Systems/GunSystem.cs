@@ -52,9 +52,9 @@ public sealed partial class GunSystem : SharedGunSystem
 	// WWDP EDIT START
 	public enum GunSpreadOverlayEnum
     {
-        Off,
-        Partial,
-        Full
+        Off, // not really meant to be used, but it's there if it's needed
+        Normal,
+        Debug
     }
 
     private GunSpreadOverlayEnum _spreadOverlay;
@@ -82,10 +82,10 @@ public sealed partial class GunSystem : SharedGunSystem
         {
             case GunSpreadOverlayEnum.Off:
                 return;
-            case GunSpreadOverlayEnum.Partial:
+            case GunSpreadOverlayEnum.Normal:
                 AddPartialSpreadOverlay(overlayManager);
                 return;
-            case GunSpreadOverlayEnum.Full:
+            case GunSpreadOverlayEnum.Debug:
                 AddFullSpreadOverlay(overlayManager);
                 return;
         }
@@ -134,17 +134,8 @@ public sealed partial class GunSystem : SharedGunSystem
 
         InitializeMagazineVisuals();
         InitializeSpentAmmo();
-
-        _combatMode.LocalPlayerCombatModeUpdated += OnCombatModeUpdated; // WWDP EDIT
+        SpreadOverlay = GunSpreadOverlayEnum.Normal;
     }
-
-	// WWDP EDIT START
-    private void OnCombatModeUpdated(bool enabled)
-    {
-        if(SpreadOverlay != GunSpreadOverlayEnum.Full)
-            SpreadOverlay = enabled ? GunSpreadOverlayEnum.Partial : GunSpreadOverlayEnum.Off;
-    }
-	// WWDP EDIT END
 
     private void OnUpdateClientAmmo(EntityUid uid, AmmoCounterComponent ammoComp, ref UpdateClientAmmoEvent args)
     {
@@ -166,15 +157,8 @@ public sealed partial class GunSystem : SharedGunSystem
             if (a.Sprite is not SpriteSpecifier.Rsi rsi)
                 continue;
 
-            var coords = GetCoordinates(a.coordinates);
-
-            if (Deleted(coords.EntityId))
-                continue;
-
-            var ent = Spawn(HitscanProto, coords);
+            var ent = Spawn(HitscanProto, a.coordinates, rotation: a.angle); // WWDP EDIT
             var sprite = Comp<SpriteComponent>(ent);
-            var xform = Transform(ent);
-            xform.LocalRotation = a.angle;
             sprite[EffectLayers.Unshaded].AutoAnimated = false;
             sprite.LayerSetSprite(EffectLayers.Unshaded, rsi);
             sprite.LayerSetState(EffectLayers.Unshaded, rsi.RsiState);
@@ -272,6 +256,7 @@ public sealed partial class GunSystem : SharedGunSystem
         // This also means any ammo specific stuff can be grabbed as necessary.
         var direction = TransformSystem.ToMapCoordinates(fromCoordinates).Position - TransformSystem.ToMapCoordinates(toCoordinates).Position;
         var worldAngle = direction.ToAngle().Opposite();
+        gun.LastFire = Timing.CurTime; // WWDP EDIT
 
         foreach (var (ent, shootable) in ammo)
         {

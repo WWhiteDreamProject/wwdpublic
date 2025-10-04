@@ -8,7 +8,7 @@ tilemap:
   10: FloorAstroGrass
   5: FloorAstroIce
   14: FloorBar
-  17: FloorBlue
+  17: FloorSteelBlue
   18: FloorBlueCircuit
   23: FloorCarpetClown
   24: FloorCarpetOffice
@@ -41,7 +41,7 @@ tilemap:
   8: FloorMS13MetalIndustrial
   9: FloorMS13MetalSolid
   11: FloorMS13MetalTile
-  67: FloorMetalDiamond
+  67: FloorMetalDiamondSteel
   1: FloorMetalGreen
   68: FloorMime
   70: FloorMiningDark
@@ -58,12 +58,12 @@ tilemap:
   100: FloorSteelDiagonalMini
   101: FloorSteelDirty
   102: FloorSteelHerringbone
-  103: FloorSteelLime
+  103: FloorSteelGreen
   105: FloorSteelMono
   107: FloorSteelPavement
   108: FloorSteelPavementVertical
-  109: FloorTechMaint
-  110: FloorTechMaint2
+  109: FloorTechMaintSteel
+  110: FloorMaintWhite
   111: FloorTechMaint3
   113: FloorWhite
   114: FloorWhiteDiagonal
@@ -67310,7 +67310,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -32.614864,18.638636
       parent: 2
-- proto: DungeonMasterCircuitBoard
+- proto: GameMasterCircuitBoard
   entities:
   - uid: 10362
     components:
@@ -71361,7 +71361,7 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
-- proto: FloraRockSolid01
+- proto: FloraRockSolid
   entities:
   - uid: 10923
     components:
@@ -71373,8 +71373,6 @@ entities:
     - type: Transform
       pos: 5.6380444,-69.885994
       parent: 2
-- proto: FloraRockSolid02
-  entities:
   - uid: 10925
     components:
     - type: Transform
@@ -71390,8 +71388,6 @@ entities:
     - type: Transform
       pos: 5.5026274,-66.86306
       parent: 2
-- proto: FloraRockSolid03
-  entities:
   - uid: 10928
     components:
     - type: Transform
@@ -71408,7 +71404,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 66.5,-43.5
       parent: 2
-- proto: FloraTree03
+- proto: FloraTree
   entities:
   - uid: 10931
     components:
@@ -71421,8 +71417,6 @@ entities:
     - type: Transform
       pos: 22.372498,-45.194687
       parent: 2
-- proto: FloraTree06
-  entities:
   - uid: 10933
     components:
     - type: Transform
@@ -115365,6 +115359,11 @@ entities:
     - type: Transform
       pos: -14.343915,-2.3708444
       parent: 2
+  - uid: 17066
+    components:
+    - type: Transform
+      pos: -14.583499,-2.381268
+      parent: 2
 - proto: MagazineRiflePractice
   entities:
   - uid: 16730
@@ -115395,13 +115394,6 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: MagazineRifleRubber
-  entities:
-  - uid: 17066
-    components:
-    - type: Transform
-      pos: -14.583499,-2.381268
-      parent: 2
 - proto: MagicDiceBag
   entities:
   - uid: 17067

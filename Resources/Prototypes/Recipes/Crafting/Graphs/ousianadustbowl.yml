@@ -6,15 +6,35 @@
     edges:
     - to: ousianadustbowl
       steps:
-      - material: Bluespace
-        amount: 1
-      - material: Normality
-        amount: 1
       - tag: FoodBowlBig
         icon:
           sprite: Objects/Consumable/Food/bowl.rsi
           state: bowl
         name: bowl
         doAfter: 2
+  # WD EDIT STARTR
+      - material: Bluespace
+        amount: 1
+      - material: Normality
+        amount: 1
+  - node: bowl
+    edges:
+    - to: ousianadustbowl
+      steps:
+      - material: Bluespace
+        amount: 1
+        doAfter: 2
+      - material: Normality
+        amount: 1
+        doAfter: 2
+    - to: ousianadustbowl
+      steps:
+      - material: Normality
+        amount: 1
+        doAfter: 2
+      - material: Bluespace
+        amount: 1
+        doAfter: 2
+  # WD EDIT END
   - node: ousianadustbowl
     entity: FoodOusianaDustBowl

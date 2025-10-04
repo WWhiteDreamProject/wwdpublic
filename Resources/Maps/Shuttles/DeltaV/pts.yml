@@ -8,7 +8,7 @@ tilemap:
   33: FloorDarkPlastic
   1: FloorReinforced
   77: FloorSteelMono
-  82: FloorTechMaint2
+  82: FloorMaintWhite
   96: Lattice
   97: Plating
 entities:
@@ -160,8 +160,6 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
-    - type: BecomesStation
-      id: PTS
     - type: SpreaderGrid
     - type: GravityShake
       shakeTimes: 10

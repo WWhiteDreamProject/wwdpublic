@@ -1,25 +1,75 @@
 <Document>
-  # Antimatter Engine (AME)
+  # Антиматериальный Двигатель (AME)
+  Антиматериальный двигатель — это краткосрочный вспомогательный генератор для станции, обеспечивающий значительное количество энергии в течение ограниченного времени.
 
-  The AME is one of the simplest engines available. You put together the multi-tile structure, stick some fuel into it, and you're all set. This doesn't mean it is perfectly safe though; you may need to deal with the AME overheating.
+  Он в основном используется для помощи инженерам в запуске более крупных двигателей, таких как [textlink="Двигатель Сингулярности" link="SingularityEngine"] или [textlink="Двигатель Тесла" link="TeslaEngine"], дополняя [textlink="батареи" link="PowerStorage"] станции частичной энергией для продления их работы.
 
-  ## Construction
-  <Box>Required parts:</Box>
+  ## Строительство
+  <Box>Требуемые детали:</Box>
   <Box>
-  <GuideEntityEmbed Entity="AmeController"/>
-  <GuideEntityEmbed Entity="AmePartFlatpack"/>
-  <GuideEntityEmbed Entity="AmeJar"/>
+    <GuideEntityEmbed Entity="AmeController"/>
+    <GuideEntityEmbed Entity="AmePartFlatpack"/>
+    <GuideEntityEmbed Entity="AmeJar"/>
   </Box>
 
-  To assemble an AME, start by wrenching down the controller on the near end of a HV wire. On most stations, there's catwalks to assist with this. From there, start putting down a 3x3 or larger square of AME parts in preparation for construction, making sure to maximize the number of "center" pieces that are surrounded on all 8 sides.
+  Контроллер AME — это часть AME, которая выводит энергию в сеть станции через [textlink="ВВ-соединение" link="VoltageNetworks"].
+  По этой причине вы захотите начать строительство AME с контроллера поверх [color=orange]ВВ-провода[/color].
 
-  Once this is done, you can use a multitool to convert each AME part into shielding, which should form a finished AME configuration. From there, insert a fuel jar, set the fuel rate to [color=#a4885c]twice the core count or less[/color], and turn on injection. Any more than this ratio will eventually result in the engine [color=#ff0000]overheating and[/color], shortly afterwards, [color=#ff0000]exploding[/color].
+  Большинство станций имеют открытые [color=orange]ВВ-провода[/color] или специально отведенные места для установки контроллера AME, чтобы он подключался к сети.
 
-  ## Fuel Economy
-  The closer you are to the perfect ratio of [color=#a4885c]1:2[/color] AME cores to fuel injection rate, the more efficient you'll be. You're cutting fuel efficiency to [color=#a4885c]50% and less[/color] if you're using more cores, but a lower fuel injection rate.
-  For an example, [color=#76db91]3 cores and 6 fuel injected[/color] will generate [color=#76db91]240kW[/color], while  [color=#f0684d]8 cores and 8 fuel injected[/color] will generate [color=#f0684d]160kW[/color]; you'd be generating 80kW less while spending 2 more fuel per injection.
+  Экранирование AME — это физическая структура, которая образует антиматериальный двигатель. Она создается путем преобразования плоских упаковок AME в экранирование с помощью мультитула.
 
-  ## Upgrading the AME
+  Для постройки AME начните выкладывать квадрат 3x3 или больше из плоских упаковок AME в подготовку к строительству, убедившись, чтобы максимизировать количество "центральных" частей, окруженных со всех восьми сторон.
+  Чем больше центральных частей, тем больше ядер будет у вашего AME, и тем больше энергии он сможет безопасно выдавать.
 
-  You can generally only upgrade the AME by installing more cores, which can be done by ordering more AME flatpacks from [color=#a4885c]Logistics[/color].
+  <Box>
+    <GuideEntityEmbed Entity="AmePartFlatpack" Caption=""/>
+    <GuideEntityEmbed Entity="AmePartFlatpack" Caption=""/>
+    <GuideEntityEmbed Entity="AmePartFlatpack" Caption=""/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="AmePartFlatpack" Caption=""/>
+    <GuideEntityEmbed Entity="AmePartFlatpack" Caption=""/>
+    <GuideEntityEmbed Entity="AmePartFlatpack" Caption=""/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="AmePartFlatpack" Caption=""/>
+    <GuideEntityEmbed Entity="AmePartFlatpack" Caption=""/>
+    <GuideEntityEmbed Entity="AmePartFlatpack" Caption=""/>
+  </Box>
+
+  После того, как это будет сделано, вы можете использовать мультитул для преобразования каждой плоской упаковки AME в экранирование, что сформирует готовую конфигурацию AME.
+
+  <GuideEntityEmbed Entity="AmeController" Caption=""/>
+  <Box>
+    <GuideEntityEmbed Entity="AmeShielding" Caption="" Margin="0"/>
+    <GuideEntityEmbed Entity="AmeShielding" Caption="" Margin="0"/>
+    <GuideEntityEmbed Entity="AmeShielding" Caption="" Margin="0"/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="AmeShielding" Caption="" Margin="0"/>
+    <GuideEntityEmbed Entity="AmeShielding" Caption="" Margin="0"/>
+    <GuideEntityEmbed Entity="AmeShielding" Caption="" Margin="0"/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="AmeShielding" Caption="" Margin="0"/>
+    <GuideEntityEmbed Entity="AmeShielding" Caption="" Margin="0"/>
+    <GuideEntityEmbed Entity="AmeShielding" Caption="" Margin="0"/>
+  </Box>
+  <Box>
+    [color=#999999][italic]Пример одноядерной установки[/italic][/color]
+  </Box>
+
+  ## Эксплуатация
+  Чтобы запустить AME, вставьте топливный сосуд в контроллер AME и установите безопасную скорость впрыска.
+
+  Безопасная скорость впрыска — это точка, в которой AME может безопасно работать без перегрева, при этом максимизируя выходную мощность.
+
+  Эта скорость всегда вдвое превышает количество ядер.
+
+  Например, у AME с одним ядром безопасная скорость впрыска будет 2. С двумя ядрами, безопасная скорость впрыска составит 4, и так далее.
+
+  Любое превышение этого соотношения в конечном итоге приведет к [color=#ff0000]перегреву[/color] двигателя и, вскоре после этого, к его [color=#ff0000]взрыву[/color].
+
+  Контроллер AME будет [textlink="отчитываться" link="InspectingPower"] как об объеме мощности, которую он подает в сеть, так и о теоретически максимальной мощности, которую он мог бы обеспечить по запросу.
 </Document>

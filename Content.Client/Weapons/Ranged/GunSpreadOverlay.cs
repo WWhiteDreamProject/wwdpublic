@@ -3,6 +3,7 @@ using Content.Client.Resources;
 using Content.Client.Stylesheets;
 using Content.Client.Viewport;
 using Content.Client.Weapons.Ranged.Systems;
+using Content.Shared.CombatMode;
 using Content.Shared.Contests;
 using Content.Shared.Weapons.Ranged.Components;
 using Robust.Client.GameObjects;
@@ -58,6 +59,17 @@ public class GunSpreadOverlay : Overlay
         var worldHandle = args.WorldHandle;
 
         var player = _player.LocalEntity;
+        if(player is null)
+        {
+            Reset();
+            return;
+        }
+
+        if(!_entManager.TryGetComponent<CombatModeComponent>(player, out var combatMode) || !combatMode.IsInCombatMode)
+        {
+            Reset();
+            return;
+        }
 
         if (player == null ||
             !_entManager.TryGetComponent<TransformComponent>(player, out var xform))
@@ -104,7 +116,10 @@ public class GunSpreadOverlay : Overlay
         var direction = (mousePos.Position - mapPos.Position);
 
         Vector2 from = mapPos.Position;
-        Vector2 to = mousePos.Position + direction;
+
+        if (_guns.IsRestrictedFire(gunUid, player.Value))
+            direction = new Angle(_transform.GetWorldRotation(gunUid) - direction.ToWorldAngle()).RotateVec(direction);
+            
 
         DrawSpread(worldHandle, gun, from, direction, timeSinceLastFire, maxBonusSpread, bonusSpread, maxSpread, minSpread, currentAngle);
     }
@@ -193,21 +208,18 @@ public sealed class PartialGunSpreadOverlay : GunSpreadOverlay
 
         Angle negRot = -_eye.CurrentEye.Rotation;
 
-        handle.SetTransform(from, 0);
-
         Angle ang1 = dir1.ToAngle();
         Angle ang2 = dir2.ToAngle();
-        handle.DrawTextureCentered(_textureL, dir1 * 0.76f, ang1, color);
-        handle.DrawTextureCentered(_textureL, dir2 * 0.76f, ang2, color);
-        handle.DrawTextureCentered(_textureS, dir1 * 0.88f, ang1, color);
-        handle.DrawTextureCentered(_textureS, dir2 * 0.88f, ang2, color);
-        handle.DrawTextureCentered(_textureL, dir1 * 1f,    ang1, color);
-        handle.DrawTextureCentered(_textureL, dir2 * 1f,    ang2, color);
-        handle.DrawTextureCentered(_textureS, dir1 * 1.12f, ang1, color);
-        handle.DrawTextureCentered(_textureS, dir2 * 1.12f, ang2, color);
-        handle.DrawTextureCentered(_textureL, dir1 * 1.24f, ang1, color);
-        handle.DrawTextureCentered(_textureL, dir2 * 1.24f, ang2, color);
-
+        handle.DrawTextureCentered(_textureL, from + dir1 * 0.76f, ang1, color);
+        handle.DrawTextureCentered(_textureL, from + dir2 * 0.76f, ang2, color);
+        handle.DrawTextureCentered(_textureS, from + dir1 * 0.88f, ang1, color);
+        handle.DrawTextureCentered(_textureS, from + dir2 * 0.88f, ang2, color);
+        handle.DrawTextureCentered(_textureL, from + dir1 * 1f,    ang1, color);
+        handle.DrawTextureCentered(_textureL, from + dir2 * 1f,    ang2, color);
+        handle.DrawTextureCentered(_textureS, from + dir1 * 1.12f, ang1, color);
+        handle.DrawTextureCentered(_textureS, from + dir2 * 1.12f, ang2, color);
+        handle.DrawTextureCentered(_textureL, from + dir1 * 1.24f, ang1, color);
+        handle.DrawTextureCentered(_textureL, from + dir2 * 1.24f, ang2, color);
     }
 }
 

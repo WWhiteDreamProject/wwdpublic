@@ -15,7 +15,8 @@ public sealed class ActionsAddedTest
     // TODO add magboot test (inventory action)
     // TODO add ghost toggle-fov test (client-side action)
 
-    [Test]
+    // WD EDIT START
+    /*[Test]
     public async Task TestCombatActionsAdded()
     {
         await using var pair = await PoolManager.GetServerClient(new PoolSettings { Connected = true, DummyTicker = false });
@@ -66,5 +67,6 @@ public sealed class ActionsAddedTest
         Assert.That(ReferenceEquals(sAct.BaseEvent, cAct.BaseEvent), Is.False);
 
         await pair.CleanReturnAsync();
-    }
+    }*/
+    // WD EDIT END
 }

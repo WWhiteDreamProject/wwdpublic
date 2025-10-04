@@ -11,135 +11,173 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 
-namespace Content.Client.Physics.Controllers
+namespace Content.Client.Physics.Controllers;
+
+public sealed class MoverController : SharedMoverController
 {
-    public sealed class MoverController : SharedMoverController
+    [Dependency] private readonly IConfigurationManager _config = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly IPlayerManager _playerManager = default!;
+
+    // WD EDIT START
+    public event Action<bool>? LocalPlayerInputMoverUpdated;
+    public event Action<InputMoverComponent>? LocalPlayerInputMoverAdded;
+    public event Action? LocalPlayerInputMoverRemoved;
+    // WD EDIT END
+
+    public override void Initialize()
     {
-        [Dependency] private readonly IConfigurationManager _config = default!;
-        [Dependency] private readonly IGameTiming _timing = default!;
-        [Dependency] private readonly IPlayerManager _playerManager = default!;
+        base.Initialize();
+        SubscribeLocalEvent<RelayInputMoverComponent, LocalPlayerAttachedEvent>(OnRelayPlayerAttached);
+        SubscribeLocalEvent<RelayInputMoverComponent, LocalPlayerDetachedEvent>(OnRelayPlayerDetached);
+        SubscribeLocalEvent<InputMoverComponent, LocalPlayerAttachedEvent>(OnPlayerAttached);
+        SubscribeLocalEvent<InputMoverComponent, LocalPlayerDetachedEvent>(OnPlayerDetached);
+        // WD EDIT START
+        SubscribeLocalEvent<InputMoverComponent, ComponentShutdown>(OnShutdown);
+        // WD EDIT END
 
-        public override void Initialize()
-        {
-            base.Initialize();
-            SubscribeLocalEvent<RelayInputMoverComponent, LocalPlayerAttachedEvent>(OnRelayPlayerAttached);
-            SubscribeLocalEvent<RelayInputMoverComponent, LocalPlayerDetachedEvent>(OnRelayPlayerDetached);
-            SubscribeLocalEvent<InputMoverComponent, LocalPlayerAttachedEvent>(OnPlayerAttached);
-            SubscribeLocalEvent<InputMoverComponent, LocalPlayerDetachedEvent>(OnPlayerDetached);
+        SubscribeLocalEvent<InputMoverComponent, UpdateIsPredictedEvent>(OnUpdatePredicted);
+        SubscribeLocalEvent<MovementRelayTargetComponent, UpdateIsPredictedEvent>(OnUpdateRelayTargetPredicted);
+        SubscribeLocalEvent<PullableComponent, UpdateIsPredictedEvent>(OnUpdatePullablePredicted);
 
-            SubscribeLocalEvent<InputMoverComponent, UpdateIsPredictedEvent>(OnUpdatePredicted);
-            SubscribeLocalEvent<MovementRelayTargetComponent, UpdateIsPredictedEvent>(OnUpdateRelayTargetPredicted);
-            SubscribeLocalEvent<PullableComponent, UpdateIsPredictedEvent>(OnUpdatePullablePredicted);
-
-            Subs.CVar(_config, CCVars.DefaultWalk, _ => RaiseNetworkEvent(new UpdateInputCVarsMessage()));
-        }
-
-        private void OnUpdatePredicted(Entity<InputMoverComponent> entity, ref UpdateIsPredictedEvent args)
-        {
-            // Enable prediction if an entity is controlled by the player
-            if (entity.Owner == _playerManager.LocalEntity)
-                args.IsPredicted = true;
-        }
-
-        private void OnUpdateRelayTargetPredicted(Entity<MovementRelayTargetComponent> entity, ref UpdateIsPredictedEvent args)
-        {
-            if (entity.Comp.Source == _playerManager.LocalEntity)
-                args.IsPredicted = true;
-        }
-
-        private void OnUpdatePullablePredicted(Entity<PullableComponent> entity, ref UpdateIsPredictedEvent args)
-        {
-            // Enable prediction if an entity is being pulled by the player.
-            // Disable prediction if an entity is being pulled by some non-player entity.
-
-            if (entity.Comp.Puller == _playerManager.LocalEntity)
-                args.IsPredicted = true;
-            else if (entity.Comp.Puller != null)
-                args.BlockPrediction = true;
-
-            // TODO recursive pulling checks?
-            // What if the entity is being pulled by a vehicle controlled by the player?
-        }
-
-        private void OnRelayPlayerAttached(Entity<RelayInputMoverComponent> entity, ref LocalPlayerAttachedEvent args)
-        {
-            Physics.UpdateIsPredicted(entity.Owner);
-            Physics.UpdateIsPredicted(entity.Comp.RelayEntity);
-            if (MoverQuery.TryGetComponent(entity.Comp.RelayEntity, out var inputMover))
-                SetMoveInput((entity.Comp.RelayEntity, inputMover), MoveButtons.None);
-        }
-
-        private void OnRelayPlayerDetached(Entity<RelayInputMoverComponent> entity, ref LocalPlayerDetachedEvent args)
-        {
-            Physics.UpdateIsPredicted(entity.Owner);
-            Physics.UpdateIsPredicted(entity.Comp.RelayEntity);
-            if (MoverQuery.TryGetComponent(entity.Comp.RelayEntity, out var inputMover))
-                SetMoveInput((entity.Comp.RelayEntity, inputMover), MoveButtons.None);
-        }
-
-        private void OnPlayerAttached(Entity<InputMoverComponent> entity, ref LocalPlayerAttachedEvent args)
-        {
-            SetMoveInput(entity, MoveButtons.None);
-        }
-
-        private void OnPlayerDetached(Entity<InputMoverComponent> entity, ref LocalPlayerDetachedEvent args)
-        {
-            SetMoveInput(entity, MoveButtons.None);
-        }
-
-        public override void UpdateBeforeSolve(bool prediction, float frameTime)
-        {
-            base.UpdateBeforeSolve(prediction, frameTime);
-
-            if (_playerManager.LocalEntity is not {Valid: true} player)
-                return;
-
-            if (RelayQuery.TryGetComponent(player, out var relayMover))
-                HandleClientsideMovement(relayMover.RelayEntity, frameTime);
-
-            HandleClientsideMovement(player, frameTime);
-        }
-
-        private void HandleClientsideMovement(EntityUid player, float frameTime)
-        {
-            if (!MoverQuery.TryGetComponent(player, out var mover) ||
-                !XformQuery.TryGetComponent(player, out var xform))
-            {
-                return;
-            }
-
-            var physicsUid = player;
-            PhysicsComponent? body;
-            var xformMover = xform;
-
-            if (mover.ToParent && RelayQuery.HasComponent(xform.ParentUid))
-            {
-                if (!PhysicsQuery.TryGetComponent(xform.ParentUid, out body) ||
-                    !XformQuery.TryGetComponent(xform.ParentUid, out xformMover))
-                {
-                    return;
-                }
-
-                physicsUid = xform.ParentUid;
-            }
-            else if (!PhysicsQuery.TryGetComponent(player, out body))
-            {
-                return;
-            }
-
-            // Server-side should just be handled on its own so we'll just do this shizznit
-            HandleMobMovement(
-                player,
-                mover,
-                physicsUid,
-                body,
-                xformMover,
-                frameTime);
-        }
-
-        protected override bool CanSound()
-        {
-            return _timing is { IsFirstTimePredicted: true, InSimulation: true };
-        }
+        Subs.CVar(_config, CCVars.DefaultWalk, _ => RaiseNetworkEvent(new UpdateInputCVarsMessage()));
     }
+
+    private void OnUpdatePredicted(Entity<InputMoverComponent> entity, ref UpdateIsPredictedEvent args)
+    {
+        // Enable prediction if an entity is controlled by the player
+        if (entity.Owner == _playerManager.LocalEntity)
+            args.IsPredicted = true;
+    }
+
+    private void OnUpdateRelayTargetPredicted(Entity<MovementRelayTargetComponent> entity, ref UpdateIsPredictedEvent args)
+    {
+        if (entity.Comp.Source == _playerManager.LocalEntity)
+            args.IsPredicted = true;
+    }
+
+    private void OnUpdatePullablePredicted(Entity<PullableComponent> entity, ref UpdateIsPredictedEvent args)
+    {
+        // Enable prediction if an entity is being pulled by the player.
+        // Disable prediction if an entity is being pulled by some non-player entity.
+
+        if (entity.Comp.Puller == _playerManager.LocalEntity)
+            args.IsPredicted = true;
+        else if (entity.Comp.Puller != null)
+            args.BlockPrediction = true;
+
+        // TODO recursive pulling checks?
+        // What if the entity is being pulled by a vehicle controlled by the player?
+    }
+
+    private void OnRelayPlayerAttached(Entity<RelayInputMoverComponent> entity, ref LocalPlayerAttachedEvent args)
+    {
+        Physics.UpdateIsPredicted(entity.Owner);
+        Physics.UpdateIsPredicted(entity.Comp.RelayEntity);
+        if (MoverQuery.TryGetComponent(entity.Comp.RelayEntity, out var inputMover))
+            SetMoveInput((entity.Comp.RelayEntity, inputMover), MoveButtons.None);
+    }
+
+    private void OnRelayPlayerDetached(Entity<RelayInputMoverComponent> entity, ref LocalPlayerDetachedEvent args)
+    {
+        Physics.UpdateIsPredicted(entity.Owner);
+        Physics.UpdateIsPredicted(entity.Comp.RelayEntity);
+        if (MoverQuery.TryGetComponent(entity.Comp.RelayEntity, out var inputMover))
+            SetMoveInput((entity.Comp.RelayEntity, inputMover), MoveButtons.None);
+    }
+
+    private void OnPlayerAttached(Entity<InputMoverComponent> entity, ref LocalPlayerAttachedEvent args)
+    {
+        SetMoveInput(entity, MoveButtons.None);
+        LocalPlayerInputMoverAdded?.Invoke(entity.Comp); // WD EDIT
+    }
+
+    private void OnPlayerDetached(Entity<InputMoverComponent> entity, ref LocalPlayerDetachedEvent args)
+    {
+        SetMoveInput(entity, MoveButtons.None);
+        LocalPlayerInputMoverRemoved?.Invoke(); // WD EDIT
+    }
+
+    // WD EDIT START
+    protected override void OnStartup(Entity<InputMoverComponent> entity, ref ComponentStartup args)
+    {
+        base.OnStartup(entity, ref args);
+        if (_playerManager.LocalEntity == entity)
+            LocalPlayerInputMoverAdded?.Invoke(entity.Comp);
+    }
+
+    private void OnShutdown(Entity<InputMoverComponent> entity, ref ComponentShutdown args)
+    {
+        if (_playerManager.LocalEntity == entity)
+            LocalPlayerInputMoverRemoved?.Invoke();
+    }
+    // WD EDIT END
+
+    public override void UpdateBeforeSolve(bool prediction, float frameTime)
+    {
+        base.UpdateBeforeSolve(prediction, frameTime);
+
+        if (_playerManager.LocalEntity is not {Valid: true} player)
+            return;
+
+        if (RelayQuery.TryGetComponent(player, out var relayMover))
+            HandleClientsideMovement(relayMover.RelayEntity, frameTime);
+
+        HandleClientsideMovement(player, frameTime);
+    }
+
+    private void HandleClientsideMovement(EntityUid player, float frameTime)
+    {
+        if (!MoverQuery.TryGetComponent(player, out var mover) ||
+            !XformQuery.TryGetComponent(player, out var xform))
+        {
+            return;
+        }
+
+        var physicsUid = player;
+        PhysicsComponent? body;
+        var xformMover = xform;
+
+        if (mover.ToParent && RelayQuery.HasComponent(xform.ParentUid))
+        {
+            if (!PhysicsQuery.TryGetComponent(xform.ParentUid, out body) ||
+                !XformQuery.TryGetComponent(xform.ParentUid, out xformMover))
+            {
+                return;
+            }
+
+            physicsUid = xform.ParentUid;
+        }
+        else if (!PhysicsQuery.TryGetComponent(player, out body))
+        {
+            return;
+        }
+
+        // Server-side should just be handled on its own so we'll just do this shizznit
+        HandleMobMovement(
+            player,
+            mover,
+            physicsUid,
+            body,
+            xformMover,
+            frameTime);
+    }
+
+    protected override bool CanSound()
+    {
+        return _timing is { IsFirstTimePredicted: true, InSimulation: true };
+    }
+
+    // WD EDIT START
+    protected override void SprintingMovementUpdate(Entity<InputMoverComponent> entity)
+    {
+        if (!Timing.IsFirstTimePredicted)
+            return;
+
+        base.SprintingMovementUpdate(entity);
+
+        if (_playerManager.LocalEntity == entity)
+            LocalPlayerInputMoverUpdated?.Invoke(entity.Comp.Sprinting);
+    }
+    // WD EDIT END
 }

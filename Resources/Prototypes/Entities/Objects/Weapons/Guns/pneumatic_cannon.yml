@@ -1,6 +1,6 @@
 - type: entity
   name: improvised pneumatic cannon
-  parent: BaseStorageItem
+  parent: [BaseStorageItem, BaseMinorContraband]
   id: WeaponImprovisedPneumaticCannon
   description: Improvised using nothing but a pipe, some zipties, and a pneumatic cannon. Doesn't accept tanks without enough gas.
   components:
@@ -116,7 +116,7 @@
     containers:
       storagebase: !type:Container
         ents: []
-  - type: Execution
+  # - type: Execution - WD EDIT
 
 - type: entity
   name: syringe gun

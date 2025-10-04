@@ -165,7 +165,7 @@ namespace Content.Server.Kitchen.EntitySystems
                 QueueDel(gib);
             }
 
-            _audio.PlayEntity(component.SpikeSound, Filter.Pvs(uid), uid, true);
+            _audio.PlayPvs(component.SpikeSound, uid);
         }
 
         private bool TryGetPiece(EntityUid uid, EntityUid user, EntityUid used,
@@ -268,7 +268,8 @@ namespace Content.Server.Kitchen.EntitySystems
             {
                 BreakOnDamage = true,
                 BreakOnMove = true,
-                NeedHand = true
+                NeedHand = true,
+                BreakOnDropItem = false,
             };
 
             _doAfter.TryStartDoAfter(doAfterArgs);

@@ -15,8 +15,6 @@
 #         - type: StationEmergencyShuttle
 #           emergencyShuttlePath: /Maps/Shuttles/DeltaV/NTES_Seal.yml
 #         - type: StationJobs
-#           overflowJobs:
-#             - Passenger
 #           availableJobs:
 #           #civilian
 #             Passenger: [ -1, -1 ]
@@ -37,7 +35,7 @@
 #             Paramedic: [ 1, 2 ]
 #             Psychologist: [ 1, 1 ]
 #           #security
-#             Brigmedic: [ 1, 1 ]
+#             # Brigmedic: [ 1, 1 ] # WWDP
 #             Detective: [ 1, 1 ]
 #             HeadOfSecurity: [ 1, 1 ]
 #             Prisoner: [ 2, 3 ]

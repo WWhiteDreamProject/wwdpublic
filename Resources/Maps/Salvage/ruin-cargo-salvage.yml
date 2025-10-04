@@ -16,7 +16,7 @@ tilemap:
   89: FloorSteel
   96: FloorSteelDirty
   100: FloorSteelMono
-  104: FloorTechMaint
+  104: FloorTechMaintSteel
   121: Plating
 entities:
 - proto: ""
@@ -1812,15 +1812,13 @@ entities:
     - type: Transform
       pos: 7.5,-8.5
       parent: 16
-- proto: FloraRockSolid01
+- proto: FloraRockSolid
   entities:
   - uid: 54
     components:
     - type: Transform
       pos: 5.505496,-8.531757
       parent: 16
-- proto: FloraRockSolid03
-  entities:
   - uid: 490
     components:
     - type: Transform

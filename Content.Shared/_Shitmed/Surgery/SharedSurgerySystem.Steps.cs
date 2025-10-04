@@ -167,7 +167,7 @@ public abstract partial class SharedSurgerySystem
         }
 
 
-        if (!HasComp<ForcedSleepingComponent>(args.Body) || !HasComp<NoScreamComponent>(args.Body))
+        if (!HasComp<ForcedSleepingComponent>(args.Body) && !HasComp<NoScreamComponent>(args.Body))
             RaiseLocalEvent(args.Body, new MoodEffectEvent("SurgeryPain"));
         // Morphine - reenable this :)
         if (!_inventory.TryGetSlotEntity(args.User, "gloves", out var _)
@@ -698,8 +698,8 @@ public abstract partial class SharedSurgerySystem
     private void OnSurgeryTargetStepChosen(Entity<SurgeryTargetComponent> ent, ref SurgeryStepChosenBuiMsg args)
     {
         var user = args.Actor;
-        if (GetEntity(args.Entity) is {} body &&
-            GetEntity(args.Part) is {} targetPart)
+        if (GetEntity(args.Entity) is { } body &&
+            GetEntity(args.Part) is { } targetPart)
         {
             TryDoSurgeryStep(body, targetPart, user, args.Surgery, args.Step);
         }
@@ -754,9 +754,11 @@ public abstract partial class SharedSurgerySystem
         var ev = new SurgeryDoAfterEvent(surgeryId, stepId);
         var duration = GetSurgeryDuration(step, user, body, speed);
 
-        if (TryComp(user, out SurgerySpeedModifierComponent? surgerySpeedMod)
+        /* WWDP fix - SurgerySpeedModifier is already counted in GetSurgeryDuration
+         if (TryComp(user, out SurgerySpeedModifierComponent? surgerySpeedMod)
             && surgerySpeedMod is not null)
             duration = duration / surgerySpeedMod.SpeedModifier;
+            */
 
         var doAfter = new DoAfterArgs(EntityManager, user, TimeSpan.FromSeconds(duration), ev, body, part)
         {

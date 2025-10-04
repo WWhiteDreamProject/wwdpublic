@@ -1,6 +1,9 @@
 language-Universal-name = Универсальный
 language-Universal-description = Что ты такое?
 
+language-Psychomantic-name = Psychomantic
+language-Psychomantic-description = Pure meaning, free from the tyranny of primative words and gestures.
+
 language-Bubblish-name = Пузырчатый
 language-Bubblish-description = Язык слаймов. Поскольку он представляет собой смесь булькающих звуков и хлопков, людям очень трудно говорить на нем без использования механических приспособлений.
 
@@ -22,6 +25,12 @@ language-SolCommon-name = Общесолнечный
 language-SolCommon-description =
     Происходящий от мандаринского китайского, Общий язык развился как официальный язык Солнечного Альянса, при этом чиновники работали над объединением его с общим языком.
     На нем говорят государственные чиновники, его преподают в школах, и на нем говорят те, кто испытывает чувство национальной гордости за Альянс или каким-либо образом попал под влияние его культуры.
+
+language-NovuNederic-name = Нову-Недерик
+language-NovuNederic-description =
+    Когда-то это был язык мореплавателей и торговцев, теперь это голос космонавтов, терраформеров и первопроходцев, а также великих любителей сельского хозяйства.
+    Этот прямой и прагматичный торговый язык, на котором говорят в Новых Нидерландах, несет в себе резкие согласные и обрезанные гласные своих старосветских корней.
+    Созданный на основе многовекового мореплавания, освоения земель и торговли, она процветает среди тех, кто формирует целые миры — точно так же, как их предки формировали землю из моря.
 
 language-TauCetiBasic-name = Базовый Тау-Цети
 language-TauCetiBasic-description =
@@ -79,6 +88,13 @@ language-Chittin-description =
 
 # Animal Languages
 
+language-Xeeplian-name = Xeeplian
+language-Xeeplian-description =
+    Our language is highly advanced, efficient and to the point.
+    We have taken a liking to mimic some of the inferior lifeforms' babbling in the further pursuit of Our goals.
+
+# Animal Languages
+
 language-Cat-name = Кошачий
 language-Cat-description = Мяу
 
@@ -131,3 +147,5 @@ language-Eldritch-description =
 
 language-Penguin-name = Пингвиний
 language-Penguin-description = Бвап!
+language-DroneTalk-name = Drone
+language-DroneTalk-description = Incomprehensible to most non-drones!

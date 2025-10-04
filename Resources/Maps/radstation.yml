@@ -5,7 +5,7 @@ tilemap:
   0: Space
   3: FloorAstroGrass
   13: FloorBasalt
-  23: FloorBlue
+  23: FloorSteelBlue
   15: FloorBlueCircuit
   17: FloorBrokenWood
   19: FloorConcrete
@@ -39,8 +39,8 @@ tilemap:
   92: FloorSteelMono
   16: FloorSteelOffset
   12: FloorSteelWorn
-  96: FloorTechMaint
-  97: FloorTechMaint2
+  96: FloorTechMaintSteel
+  97: FloorMaintWhite
   100: FloorWhite
   109: FloorWhitePlastic
   110: FloorWood
@@ -69808,7 +69808,7 @@ entities:
     - type: Transform
       pos: 38.544987,-33.769985
       parent: 2
-- proto: DungeonMasterCircuitBoard
+- proto: GameMasterCircuitBoard
   entities:
   - uid: 10511
     components:
@@ -75675,30 +75675,26 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
-- proto: FloraTree01
+- proto: FloraTree
   entities:
   - uid: 11335
     components:
     - type: Transform
       pos: -3.5,-5.5
       parent: 2
-- proto: FloraTree03
-  entities:
   - uid: 11336
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 6.5,5.5
       parent: 2
-- proto: FloraTreeLarge01
+- proto: FloraTreeLarge
   entities:
   - uid: 11337
     components:
     - type: Transform
       pos: 7.5,-3.5
       parent: 2
-- proto: FloraTreeLarge04
-  entities:
   - uid: 11338
     components:
     - type: Transform
@@ -109683,8 +109679,6 @@ entities:
     - type: Transform
       pos: -13.507916,40.626015
       parent: 2
-- proto: MagazineRifleRubber
-  entities:
   - uid: 15950
     components:
     - type: Transform

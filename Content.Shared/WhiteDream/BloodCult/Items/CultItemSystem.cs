@@ -10,7 +10,6 @@ using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.WhiteDream.BloodCult.BloodCultist;
-using Robust.Shared.Network;
 
 namespace Content.Shared.WhiteDream.BloodCult.Items;
 
@@ -19,7 +18,6 @@ public sealed class CultItemSystem : EntitySystem
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly INetManager _net = default!;
 
     public override void Initialize()
     {
@@ -44,7 +42,7 @@ public sealed class CultItemSystem : EntitySystem
     {
         if (CanUse(args.User, item) ||
             // Allow non-cultists to remove embedded cultist weapons and getting knocked down afterwards on pickup
-            (TryComp<EmbeddableProjectileComponent>(item.Owner, out var embeddable) && embeddable.Target != null))
+            (TryComp<EmbeddableProjectileComponent>(item.Owner, out var embeddable) && embeddable.EmbeddedIntoUid != null))
             return;
 
         args.Handled = true;

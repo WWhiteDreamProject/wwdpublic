@@ -39,7 +39,7 @@ tilemap:
   47: FloorMime
   29: FloorMiningDark
   41: FloorMiningLight
-  66: FloorMono
+  66: FloorTrueMonoTileSteel
   46: FloorMowedAstroGrass
   18: FloorOldConcrete
   17: FloorOldConcreteMono
@@ -48,7 +48,7 @@ tilemap:
   62: FloorPlastic
   9: FloorRGlass
   19: FloorReinforced
-  38: FloorReinforcedGlassFrame
+  38: FloorReinforcedGlassFrameDark
   27: FloorShuttleBlack
   25: FloorShuttleBlue
   45: FloorShuttleGrey
@@ -64,8 +64,8 @@ tilemap:
   43: FloorSteelMini
   33: FloorSteelMono
   32: FloorSteelOffset
-  63: FloorTechMaint
-  35: FloorTechMaint2
+  63: FloorTechMaintSteel
+  35: FloorMaintWhite
   64: FloorTechMaint3
   51: FloorWhite
   52: FloorWhiteMono
@@ -58068,7 +58068,7 @@ entities:
     - type: Transform
       pos: -84.2241,16.502531
       parent: 2
-- proto: DungeonMasterCircuitBoard
+- proto: GameMasterCircuitBoard
   entities:
   - uid: 8129
     components:

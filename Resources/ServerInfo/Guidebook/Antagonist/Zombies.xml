@@ -1,35 +1,51 @@
 <Document>
-  # Zombies
+  # Зомби
 
+  <Box>
+    [color=#999999][italic]"Они идут за тобой, Барбара!"[/italic][/color]
+  </Box>
   <Box>
     <GuideEntityEmbed Entity="SignBiohazard" Caption=""/>
   </Box>
 
-  - Zombies are antagonist that infect all beings that they bite.
-
-  ## Infection
-
-  - Three ways of getting infected are by starting out as the intial infected, being bitten by a zombified being, or being injected by [color=#a4885c]Romerol[/color].
+  Зомби — это антагонисты-конверторы, которые заражают всех, кого укусят, [color=#7e916e]Ромеролом[/color] — смертельным, заразным вирусом, который может легко распространиться, если его не сдержать.
 
   <Box>
     <GuideReagentEmbed Reagent="Romerol"></GuideReagentEmbed>
   </Box>
 
-  ## Objectives
+  ## Изначально зараженный
+  Ты — пациент ноль. В твоих венах течет [color=#7e916e]Ромерол[/color], и у тебя есть огромное желание поделиться им с каждым существом из плоти, которое ты увидишь.
 
-  - The objective for zombies is to infect the entire station's crew.
+  После того, как ты узнаешь о своем заражении, [italic]ставки больше не принимаются[/italic]. У тебя есть ограниченное время, прежде чем ты превратишься, и ты хочешь [bold]максимизировать свои шансы на захват станции.[/bold]
+  Используй это время, чтобы подготовить оружие, снаряжение и ловушки. [italic]Космический Закон теперь для тебя ничего не значит.[/italic]
 
-  ## Cure
+  ## Передача
+  Зомби умеют только шаркать, кусаться и бросаться на баррикады. Их укус [bold]не всегда может передать [color=#7e916e]Ромерол[/color][/bold] через плотные слои одежды, но он определенно причинит боль.
 
-  - If you are already zombified, the only cure is death.
-  - If you are not zombified yet, using [color=#a4885c]Ambuzol[/color] will stop the infection from ensuing your timely demise but you may still get reinfected if not too careful. [color=#a4885c]Ambuzol Plus[/color] will prevent the infection continuously only while alive.
+  Нежить также может пожевать критически раненое или мертвое тело, чтобы [bold]мгновенно превратить[/bold] его в зомби.
+
+  ## Атрибуты Зомби
+  Зомби можно опознать по темно-зеленой коже, красным глазам, медленному передвижению, гниющему запаху и отсутствию двигательных функций. При превращении они бросают гарнитуру и перчатки, а наручники не действуют на их яростный укус.
+
+  Зомби известны своей [bold]устойчивостью к порезам, ушибам, ядам и холоду.[/bold] Они могут выживать в вакууме и не нуждаются в еде, воде, воздухе или сне. Однако нежить [italic]получает повышенный урон от ожогов и шока.[/italic]
+
+  ## Выживание
+  Когда инфекция распространится и [color=#cb0000]Служба Безопасности[/color] падет, [bold]выжившим[/bold] предстоит попытаться добраться до Центрального Командования.
+
+  [bold]Строительство баррикад[/bold] вокруг отделов или [bold]запирание дверей[/bold] может выиграть достаточно времени, чтобы создать оружие, спасти жизни или разработать план.
+
+  Помните, когда все пойдет наперекосяк, [italic]вам придется делать то, что вы должны делать[/italic], если это не в ущерб собратьям-выжившим. Собирайте то, что вам нужно, у тех, кто не выжил.
+
+  ## Лекарство
+  [bold]Тех, кто уже является нежитью, можно излечить только [color=red]смертью[/color].[/bold]
+
+  Если вы заражены, но еще не зомбированы, использование [color=#86caf7]Амбузола[/color] вылечит вас, но не предотвратит повторное заражение. [color=#1274b5]Амбузол Плюс[/color] вылечит и предотвратит повторное заражение только пока вы живы.
 
   <Box>
     <GuideReagentEmbed Reagent="Ambuzol"></GuideReagentEmbed>
   </Box>
-
   <Box>
     <GuideReagentEmbed Reagent="AmbuzolPlus"></GuideReagentEmbed>
   </Box>
-
 </Document>

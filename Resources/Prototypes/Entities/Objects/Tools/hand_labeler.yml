@@ -28,3 +28,7 @@
     - type: Tag
       tags:
       - HandLabeler # DeltaV - fish labeler
+  # WWDP quick crafts
+    - type: Construction
+      graph: fishlabeler
+      node: labeler

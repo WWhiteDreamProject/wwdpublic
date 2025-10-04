@@ -1,31 +1,50 @@
-﻿<Document>
-  # Security
-  Ensuring the safety of both station and crew is number one for Security. Be it Syndicate Agents, Nuclear Operatives, Infestations or just unruly staff. Security are on hand to maintain order and control crowds.
+<Document>
+  # Служба Безопасности
 
-  ## Gear
-  First we have non-lethals a step above simply telling someone to cooperate with instructions. Both the stunbaton and disabler are capable of limiting the movement of an assailant, whereas handcuffs can be applied to deny a criminal free movement and access to their hands.
+  Обеспечение порядка на станции и защита экипажа — главная задача [color=#cb0000]Службы Безопасности[/color]. От агентов Синдиката до ядерных оперативников, от нашествий тварей до пьяных учёных — именно [color=#cb0000]Служба Безопасности[/color] стоит между станцией и хаосом.
+
+  ## Персонал
+  [color=#cb0000]Служба Безопасности[/color] состоит из Кадетов Службы Безопасности, Офицеров Службы Безопасности и Детектива. Отделом заведуют: Смотритель и Глава Службы Безопасности.
+
+  <Box>
+    <GuideEntityEmbed Entity="ToyFigurineSecurity" Caption="Офицер СБ"/>
+    <GuideEntityEmbed Entity="ToyFigurineDetective" Caption="Детектив"/>
+    <GuideEntityEmbed Entity="ToyFigurineWarden" Caption="Смотритель"/>
+    <GuideEntityEmbed Entity="ToyFigurineHeadOfSecurity" Caption="ГСБ"/>
+  </Box>
+
+  ## Снаряжение
+
+  Первым делом — нелетал. Когда уговоры не работают, в ход идёт парализующая дубинка и дизейблер, способные остановить нарушителя. А как только тот лежит — надеваем [color=yellow]наручники[/color] и изолируем руки.
   <Box>
     <GuideEntityEmbed Entity="Stunbaton"/>
     <GuideEntityEmbed Entity="Handcuffs"/>
     <GuideEntityEmbed Entity="WeaponDisabler"/>
   </Box>
 
-  ## Flashes
-  Flashes are an effective tool for dispersing crowds and apprehending particularly evasive targets, with a large area of effect blinding all those without protection.
-  It is worth noting that flashes can be both used in a large area 	([color=yellow]Z[/color] hotkey) and if you attack somebody with it while [color=red]harm mode[/color] is active. Important to note that localized flashes last [color=yellow]2.5[/color] times as long as large area ones.
-  Security and [color=#a4885c]some[/color] other members of staff have eye protection from flashbangs and flashes.
+  ## Вспышки
+
+  Флешки — отличный способ разогнать толпу или выцепить юркого подрывника. Вспышка ослепляет всех, у кого нет защиты для глаз, и может использоваться как:
+  - [color=yellow]Массовая вспышка[/color] (горячая клавиша [color=yellow]Z[/color])
+  - [color=red]Одиночная атака[/color] во включённом режиме урона.
+
+  Имей в виду: одиночное ослепление действует в 2.5 раза дольше. Офицеры и некоторые члены экипажа имеют защиту глаз по умолчанию.
+
   <Box>
     <GuideEntityEmbed Entity="Flash"/>
     <GuideEntityEmbed Entity="ClothingEyesGlassesSecurity"/>
     <GuideEntityEmbed Entity="GrenadeFlashBang"/>
+  </Box>
 
-  </Box>
-  ## Lethals
-  Should the situation dictate, Security have access to laser rifles, shotguns, handguns and automatic rifles able to put down substancial fire against any who would stand against the station.
+  ## Летал
+
+  Если дело пахнет керосином — в ход идут пушки. Лазерные винтовки, дробовики, пистолеты и штурмовые винтовки СБ позволяют устраивать настоящую охоту на тех, кто встал на путь войны со станцией.
+
   <Box>
-  <GuideEntityEmbed Entity="WeaponLaserCarbine"/>
-  <GuideEntityEmbed Entity="WeaponShotgunKammerer"/>
-  <GuideEntityEmbed Entity="WeaponPistolMk58"/>
-  <GuideEntityEmbed Entity="WeaponRifleLecter"/>
+    <GuideEntityEmbed Entity="WeaponLaserCarbine"/>
+    <GuideEntityEmbed Entity="WeaponShotgunKammerer"/>
+    <GuideEntityEmbed Entity="WeaponPistolMk58"/>
+    <GuideEntityEmbed Entity="WeaponRifleLecter"/>
   </Box>
+
 </Document>

@@ -1,5 +1,6 @@
 using Content.Client._White.Guns;
-using Content.Client._White.UI;
+using Content.Client._White.UserInterface.Controls;
+using Content.Client.Cooldown;
 using Content.Client.IoC;
 using Content.Client.Items;
 using Content.Client.Resources;
@@ -13,7 +14,6 @@ using Robust.Client.Graphics;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using System.Numerics;
-
 namespace Content.Client.Weapons.Ranged.Systems;
 
 public sealed partial class GunSystem
@@ -361,25 +361,20 @@ public sealed partial class GunSystem
     // here be shitcode
     public sealed class EnergyGunBatteryStatusControl : Control
     {
-        private readonly EntityUid _gun;
+        private readonly FluxBarControl _fluxBar;
         private readonly BarControl _ammoBar;
         private readonly Label _ammoLabel;
-        private readonly Label _heatLabel;
-        private readonly Label _lampLabel;
         private readonly BatteryAmmoProviderComponent _ammoProvider;
-        private readonly GunOverheatComponent? _regulator;
-        private readonly GunOverheatSystem _regSys;
+        private readonly GunFluxComponent? _overheatComp;
+        private readonly GunOverheatSystem _overheatSystem;
 
         private int _ammoCount;
-        private bool _heatLimitEnabled = true;
-        private float _heatLimit;
-        private float _heat; // caching temperature and ammo counts so that the labels don't end up having their measures invalidated every frame
-                                 // not sure if this makes any difference performance-wise, but it just seems like a good idea
+
         public EnergyGunBatteryStatusControl(EntityUid uid, BatteryAmmoProviderComponent comp)
         {
             var entMan = IoCManager.Resolve<IEntityManager>();
-            _regSys = entMan.System<GunOverheatSystem>();
-            _gun = uid;
+            _overheatSystem = entMan.System<GunOverheatSystem>();
+            entMan.TryGetComponent(uid, out _overheatComp);
             _ammoProvider = comp;
             _ammoCount = comp.Shots;
             MinHeight = 15;
@@ -387,85 +382,36 @@ public sealed partial class GunSystem
             VerticalAlignment = VAlignment.Center;
             AddChild(new BoxContainer // outer box
             {
-                Orientation = BoxContainer.LayoutOrientation.Vertical,
+                Orientation = BoxContainer.LayoutOrientation.Horizontal,
                 Children =
                 {
-                    new BoxContainer // inner upper box, lamp indicator and temp gauge
+                    new BoxContainer
                     {
-                        Orientation = BoxContainer.LayoutOrientation.Horizontal,
+                        Orientation = BoxContainer.LayoutOrientation.Vertical,
+                        MaxWidth = 72,
+                        SetHeight = 15,
+                        VerticalAlignment = VAlignment.Top,
+                        SeparationOverride = 1,
                         Children =
                         {
-                            (_lampLabel = new()
+                            (_fluxBar = new()
                             {
-                                StyleClasses = { StyleNano.StyleClassItemStatus },
-                                HorizontalAlignment = HAlignment.Left,
-                                VerticalAlignment = VAlignment.Bottom,
-                                Text = " \u25cf"
                             }),
-                            (_heatLabel = new()
-                            {
-                                StyleClasses = { StyleNano.StyleClassItemStatus },
-                                HorizontalAlignment = HAlignment.Right,
-                                HorizontalExpand = true,
-                                VerticalAlignment = VAlignment.Bottom,
-                                Text = $"{_heat-273.15:0.00} °C "
-                            }),
-                        }
-                    },
-                    new BoxContainer // inner lower box, the ammo display and counter
-                    {
-                        Orientation = BoxContainer.LayoutOrientation.Horizontal,
-                        Children =
-                        {
                             (_ammoBar = new()
                             {
-                                Rows = 4,
-                                MaxWidth = 75
-                            }),
-                            (_ammoLabel = new()
-                            {
-                                StyleClasses = { StyleNano.StyleClassItemStatus },
-                                HorizontalExpand = true,
-                                HorizontalAlignment = HAlignment.Right,
-                                VerticalAlignment = VAlignment.Top,
-                                Text = $"x{_ammoCount:00}"
-                            }),
+                            })
                         }
-                    }
+                    },
+                    (_ammoLabel = new()
+                    {
+                        StyleClasses = { StyleNano.StyleClassItemStatus },
+                        HorizontalExpand = true,
+                        HorizontalAlignment = HAlignment.Right,
+                        VerticalAlignment = VAlignment.Top,
+                        Text = $"x{_ammoCount:00}"
+                    }),
                 }
             });
-
-            // if temp regulator component is missing on the gun, hide the temperature gauge and lamp display
-            // since they won't matter anyways
-            if (!entMan.TryGetComponent(_gun, out _regulator))
-            {
-                _heatLabel.Visible = false;
-                _lampLabel.Visible = false;
-                return;
-            }
-            _lampLabel.Visible = _regulator.RequiresLamp;
-        }
-
-        // still using kelvin because having temperature go from 0 to +inf is much nicer than from -273.15 to +inf
-        private void UpdateTemp(float K)
-        {
-            var celcius = K - 273.15f;
-            // we assume _regulator is not null since we'll check for it before calling this method
-            var maxTemp = _regulator!.MaxDisplayTemperatureCelcius;
-            var currentTemp = celcius > maxTemp ? $"{maxTemp:0}+°C" : $"{celcius:0} °C";
-            _heatLabel.Text = _regulator.SafetyEnabled 
-                ? $"{currentTemp}/{_regulator.TemperatureLimit - 273.15f:0} °C " 
-                : currentTemp;
-
-            float hue = 0; // full red
-            const float hueoffset = 0.07f; // raises the 0K color from dark blue to a brighter tone
-
-            if (K < _regulator.TemperatureLimit)
-                hue = 0.66f - (K / _regulator.TemperatureLimit * 0.55f * (1f - hueoffset) + hueoffset);
-
-            var tempColor = Color.FromHsv(new(hue, 1, 1, 1));
-            _heatLabel.FontColorOverride = tempColor;
-            _lampLabel.FontColorOverride = tempColor;
         }
 
         protected override void PreRenderChildren(ref ControlRenderArguments args)
@@ -474,26 +420,21 @@ public sealed partial class GunSystem
             if (_ammoProvider.Capacity > 0)
                 _ammoBar.Fill = (float) _ammoProvider.Shots / _ammoProvider.Capacity;
 
-            if (_ammoCount != _ammoProvider.Shots)
+            if (_overheatComp is null || !_overheatSystem.GetFluxCore(_overheatComp, out var core))
             {
-                _ammoCount = _ammoProvider.Shots;
-                _ammoLabel.Text = $"x{_ammoCount:00}";
+                _fluxBar.Visible = false;
+            }
+            else
+            {
+                _fluxBar.Visible = true;
+                var currentFlux = _overheatSystem.GetCurrentFlux(core);
+                _fluxBar.Fill = currentFlux / core.Capacity;
+                _fluxBar.Mark = MathHelper.Clamp(_overheatComp.HeatCost / core.Capacity, -1, 1);
+                _fluxBar.SafeLimit = core.SafeFlux > 0 ? core.SafeFlux / core.Capacity : null;
+                _fluxBar.SafeLimitColor = _overheatComp.SafetyEnabled ? Color.LightGreen : Color.Yellow;
             }
 
-            // skip all the temperature stuff if the related component is not present;
-            if (_regulator is null)
-                return;
-
-            if (_regSys.GetLamp((_gun,_regulator), out var lamp))
-                _lampLabel.Text = !lamp.Value.Comp.Intact ? " ◌" : " ●";
-
-            if (_heat != _regulator.CurrentTemperature || _heatLimit != _regulator.TemperatureLimit || _heatLimitEnabled != _regulator.SafetyEnabled)
-            {
-                _heatLimit = _regulator.TemperatureLimit;
-                _heat = _regulator.CurrentTemperature;
-                _heatLimitEnabled = _regulator.SafetyEnabled;
-                UpdateTemp(_heat);
-            }
+            _ammoLabel.Text = $"x{_ammoProvider.Shots:00}";
         }
     }
     // WWDP EDIT END

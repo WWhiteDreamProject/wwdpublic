@@ -1,5 +1,4 @@
 using System.Linq;
-using Content.Server._White.Hearing;
 using Content.Server.Chat.Systems;
 using Content.Server.Interaction;
 using Content.Server.Language;
@@ -38,7 +37,6 @@ public sealed class RadioDeviceSystem : EntitySystem
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly INetManager _netMan = default!;
     [Dependency] private readonly LanguageSystem _language = default!;
-    [Dependency] private readonly HearingSystem _hearing = default!;
 
     // Used to prevent a shitter from using a bunch of radios to spam chat.
     private HashSet<(string, EntityUid)> _recentlySent = new();
@@ -231,21 +229,18 @@ public sealed class RadioDeviceSystem : EntitySystem
 
     private void OnReceiveRadio(EntityUid uid, RadioSpeakerComponent component, ref RadioReceiveEvent args)
     {
-        var parent = Transform(uid).ParentUid;
-        if (TryComp(parent, out ActorComponent? actor))
-        {
-            // WWDP Deafening
-            if (_hearing.IsBlockedByDeafness(actor.PlayerSession, ChatChannel.Radio, args.Language))
-                return;
-            // WWDP end
+        if (uid == args.RadioSource)
+            return;
 
-            var canUnderstand = _language.CanUnderstand(parent, args.Language.ID);
-            var msg = new MsgChatMessage
-            {
-                Message = canUnderstand ? args.OriginalChatMsg : args.LanguageObfuscatedChatMsg
-            };
-            _netMan.ServerSendMessage(msg, actor.PlayerSession.Channel);
-        }
+        var nameEv = new TransformSpeakerNameEvent(args.MessageSource, Name(args.MessageSource));
+        RaiseLocalEvent(args.MessageSource, nameEv);
+
+        var name = Loc.GetString("speech-name-relay",
+            ("speaker", Name(uid)),
+            ("originalName", nameEv.VoiceName));
+
+        // log to chat so people can identity the speaker/source, but avoid clogging ghost chat if there are many radios
+        _chat.TrySendInGameICMessage(uid, args.OriginalChatMsg.Message, InGameICChatType.Whisper, ChatTransmitRange.GhostRangeLimit, nameOverride: name, checkRadioPrefix: false, languageOverride: args.Language);
     }
 
     private void OnIntercomEncryptionChannelsChanged(Entity<IntercomComponent> ent, ref EncryptionChannelsChangedEvent args)

@@ -1,18 +1,14 @@
 using System.Numerics;
-using Content.Shared.Nyanotrasen.Abilities.Oni;
+using Content.Shared._White.Weapons.Ranged.DualWield;
 using Content.Shared.Weapons.Ranged.Events;
-using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Map;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
-using Content.Shared._Goobstation.Weapons.Multishot;
-using Content.Shared._White.Weapons.Ranged.DualWield;
 
 namespace Content.Shared.Weapons.Ranged.Components;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState, AutoGenerateComponentPause]
-[Access(typeof(SharedGunSystem), typeof(SharedMultishotSystem), typeof(SharedOniSystem), typeof(DualWieldSystem))] // WWDP EDIT
 public sealed partial class GunComponent : Component
 {
     #region Sound
@@ -68,6 +64,10 @@ public sealed partial class GunComponent : Component
     [AutoNetworkedField]
     public TimeSpan CurrentAngleLastUpdate = TimeSpan.Zero;
 
+    [DataField]
+    [AutoNetworkedField]
+    public TimeSpan LastFire = TimeSpan.Zero;
+
     /// <summary>
     /// What the current spread is for shooting. This gets changed every time the gun fires.
     /// </summary>
@@ -75,7 +75,7 @@ public sealed partial class GunComponent : Component
     [AutoNetworkedField]
     public Angle CurrentAngle;
 
-	// WWDP EDIT START
+    // WWDP EDIT START
     [AutoNetworkedField]
     [ViewVariables(VVAccess.ReadWrite)]
     public Angle BonusAngle;
@@ -110,7 +110,7 @@ public sealed partial class GunComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public Angle BonusAngleIncreaseTurn = Angle.FromDegrees(0.25);
-	// WWDP EDIT END
+    // WWDP EDIT END
 
     /// <summary>
     /// The base value for how much the spread increases every time the gun fires.
@@ -242,7 +242,7 @@ public sealed partial class GunComponent : Component
     /// <seealso cref="GunRefreshModifiersEvent"/>
     /// </summary>
     [AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
-    public float FireRateModified;
+    public float FireRateModified = 1;
 
     /// <summary>
     /// Starts fire cooldown when equipped if true.
@@ -359,6 +359,16 @@ public sealed partial class GunComponent : Component
     // WD EDIT START
     [DataField]
     public Angle? ThrowAngle;
+
+    /// <summary>
+    /// Designates this weapon a naval cannon. All projectiles shot from this weapon will be added to PVS ignore list (see Server.PvsOverrideSystem)
+    /// to ensure their visibility on clients.
+    /// </summary>
+    [DataField]
+    public bool ShipWeapon = false;
+
+    [DataField]
+    public bool ForceShootForward = false;
     // WD EDIT END
 
 }

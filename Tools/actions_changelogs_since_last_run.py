@@ -18,6 +18,7 @@ GITHUB_RUN        = os.environ["GITHUB_RUN_ID"]
 GITHUB_TOKEN      = os.environ["GITHUB_TOKEN"]
 CHANGELOG_DIR     = os.environ["CHANGELOG_DIR"]
 CHANGELOG_WEBHOOK = os.environ["CHANGELOG_WEBHOOK"]
+ROLES_TO_PING     = os.environ["ROLES_TO_PING"]
 
 # https://discord.com/developers/docs/resources/webhook
 DISCORD_SPLIT_LIMIT = 2000
@@ -108,9 +109,9 @@ def diff_changelog(old: dict[str, Any], cur: dict[str, Any]) -> Iterable[Changel
 def get_discord_body(content: str):
     return {
         "content": content,
-        # Do not allow any mentions.
+        # Allow roles from github variables.
         "allowed_mentions": {
-            "parse": []
+            "roles": ROLES_TO_PING.replace(" ","").split(',')
         },
         # SUPPRESS_EMBEDS
         "flags": 1 << 2
@@ -128,7 +129,7 @@ def send_to_discord(entries: Iterable[ChangelogEntry]) -> None:
     if not CHANGELOG_WEBHOOK:
         print(f"No discord webhook URL found, skipping discord send")
         return
-
+    
     message_content = io.StringIO()
     # We need to manually split messages to avoid discord's character limit
     # With that being said this isn't entirely robust
@@ -169,6 +170,8 @@ def send_to_discord(entries: Iterable[ChangelogEntry]) -> None:
     message_text = message_content.getvalue()
     if len(message_text) > 0:
         print("Sending final changelog to discord")
+        roles_msg = ', '.join(map(lambda id: f'<@&{id}>', ROLES_TO_PING.replace(" ","").split(',')))
+        send_discord(roles_msg)
         send_discord(message_text)
 
 

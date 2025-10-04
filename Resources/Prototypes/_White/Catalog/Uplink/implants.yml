@@ -1,0 +1,70 @@
+- type: listing
+  id: UplinkImplanterSyndi
+  name: uplink-implanter-name
+  description: uplink-implanter-desc
+  productEntity: ImplanterSyndi
+  cost:
+    Telecrystal: 1
+  categories:
+  - UplinkImplants
+
+- type: listing
+  id: UplinkNeuroStabilizationImplanter
+  name: uplink-neuro-stabilization-implanter-name
+  description: uplink-neuro-stabilization-implanter-desc
+  icon: { sprite: /Textures/Interface/Alerts/stamina.rsi, state: stamina5 }
+  productEntity: NeuroStabilizationImplanter
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 1
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkImplants
+
+- type: listing
+  id: UplinkSmokeImplanter
+  name: uplink-smoke-implanter-name
+  description: uplink-smoke-implanter-desc
+  icon: { sprite: /Textures/Objects/Weapons/Grenades/smoke.rsi, state: icon }
+  productEntity: SmokeImplanter
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 1
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkImplants
+
+- type: listing
+  id: UplinkMindSlaveImplanter
+  name: uplink-mind-slave-implanter-name
+  description: uplink-mind-slave-implanter-desc
+  icon: { sprite: /Textures/_White/Overlays/mindslave.rsi, state: master }
+  productEntity: MindSlaveImplanter
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 2
+  cost:
+    Telecrystal: 6
+  categories:
+  - UplinkImplants
+
+- type: listing
+  id: UplinkHardlightSpearImplanter
+  name: uplink-hardlight-spear-implanter-name
+  description: uplink-hardlight-spear-implanter-desc
+  icon: { sprite: /Textures/_White/Objects/Weapons/Melee/Spear/hardlight_spear.rsi, state: spear }
+  productEntity: HardlightSpearImplanter
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 3
+  cost:
+    Telecrystal: 12
+  categories:
+  - UplinkImplants
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink

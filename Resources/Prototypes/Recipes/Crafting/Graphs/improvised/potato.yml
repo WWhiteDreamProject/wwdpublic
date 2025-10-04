@@ -1,3 +1,4 @@
+# WWDP edit start - combined PowerCellPotato & PotatoAi graphs
 - type: constructionGraph
   id: PowerCellPotato
   start: start
@@ -18,14 +19,28 @@
             - material: Cable
               amount: 1
               doAfter: 1
+    - node: potato
+      edges:
+      - to: potatobattery
+        steps:
+        - material: MetalRod
+          amount: 2
+          doAfter: 1
+        - material: Cable
+          amount: 1
+          doAfter: 1
     - node: potatobattery
       entity: PowerCellPotato
-
-- type: constructionGraph
-  id: PotatoAI
-  start: start
-  graph:
-    - node: start
+      edges:
+      - to: potatoai
+        steps:
+        - tag: SmallAIChip
+          name: a super-compact AI chip
+          icon:
+            sprite: Objects/Misc/potatoai_chip.rsi
+            state: icon
+          doAfter: 1
+    - node: potatoaistart
       edges:
         - to: potatoai
           steps:
@@ -42,6 +57,7 @@
                 state: icon
     - node: potatoai
       entity: PotatoAI
+# WWDP edit end
 
 - type: constructionGraph
   id: PotatoAIChip

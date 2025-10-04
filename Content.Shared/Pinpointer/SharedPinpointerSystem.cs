@@ -10,6 +10,7 @@ namespace Content.Shared.Pinpointer;
 public abstract class SharedPinpointerSystem : EntitySystem
 {
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly EmagSystem _emag = default!;
 
     public override void Initialize()
     {
@@ -66,7 +67,7 @@ public abstract class SharedPinpointerSystem : EntitySystem
 
     private void OnExamined(EntityUid uid, PinpointerComponent component, ExaminedEvent args)
     {
-        if (!args.IsInDetailsRange || component.TargetName == null)
+        if (!component.CanExamine || !args.IsInDetailsRange || component.TargetName == null) // WD EDIT
             return;
 
         args.PushMarkup(Loc.GetString("examine-pinpointer-linked", ("target", component.TargetName)));
@@ -137,6 +138,20 @@ public abstract class SharedPinpointerSystem : EntitySystem
 
     private void OnEmagged(EntityUid uid, PinpointerComponent component, ref GotEmaggedEvent args)
     {
+        // WD EDIT START
+        if (!component.CanEmag)
+            return;
+        // WD EDIT END
+
+        if (!_emag.CompareFlag(args.Type, EmagType.Interaction))
+            return;
+
+        if (_emag.CheckFlag(uid, EmagType.Interaction))
+            return;
+
+        if (component.CanRetarget)
+            return;
+
         args.Handled = true;
         component.CanRetarget = true;
     }

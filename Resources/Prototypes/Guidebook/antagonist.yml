@@ -4,13 +4,19 @@
   text: "/ServerInfo/Guidebook/Antagonist/Antagonists.xml"
   children:
   - Traitors
-  - NuclearOperatives
-  - Zombies
+  - Thieves
   - Revolutionaries
-  - MinorAntagonists
+  - NuclearOperatives
   - SpaceNinja
+  - Wizard
+  - Zombies
+  - MinorAntagonists
+  - Changelings # Goobstation - changelings
+  - Blob # Goobstation - Blob
   - Abductors # Shitmed - Abductors
+  - Devil # Goob content
   - BloodCult
+  - Shadowlings
 
 - type: guideEntry
   id: Traitors
@@ -41,6 +47,16 @@
   id: SpaceNinja
   name: guide-entry-space-ninja
   text: "/ServerInfo/Guidebook/Antagonist/SpaceNinja.xml"
+
+- type: guideEntry
+  id: Thieves
+  name: guide-entry-thieves
+  text: "/ServerInfo/Guidebook/Antagonist/Thieves.xml"
+
+- type: guideEntry
+  id: Wizard
+  name: guide-entry-wizard
+  text: "/ServerInfo/Guidebook/Antagonist/Wizard.xml"
 
 - type: guideEntry
   id: BloodCult

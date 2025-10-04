@@ -31,6 +31,7 @@
       applyToSelf: false
     - type: MeleeBlock
       delay: 12.1
+    - type: Execution
 
 - type: entity
   name: assball bat
@@ -51,7 +52,7 @@
   - type: UserInterface
     interfaces:
       enum.RadialSelectorUiKey.Key:
-        type: RadialSelectorMenuBUI
+        type: TrackedRadialSelectorMenuBUI
   - type: ActivatableUI
     key: enum.RadialSelectorUiKey.Key
     inHandsOnly: true
@@ -127,6 +128,7 @@
       sprite: _White/Objects/Weapons/Melee/Hosbat/tactical_sledgehammer.rsi
       state: icon
     - type: MeleeWeapon
+      animationRotation: 135
       soundHit:
         path: /Audio/Nyanotrasen/Weapons/club.ogg
       damage:

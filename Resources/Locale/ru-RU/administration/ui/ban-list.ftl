@@ -1,4 +1,4 @@
-# UI
+﻿# UI
 ban-list-bans = Баны
 ban-list-role-bans = Роль баны
 

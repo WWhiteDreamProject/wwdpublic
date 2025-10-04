@@ -4,19 +4,22 @@
     xmlns:prefUi="clr-namespace:Content.Client.Lobby.UI"
     xmlns:ui="clr-namespace:Content.Client.UserInterface.Controls"
     xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+    xmlns:controls="clr-namespace:Content.Client._White.UserInterface.Controls"
     HorizontalExpand="True">
     <!-- Left side -->
     <BoxContainer Orientation="Vertical" Margin="10 10 10 10" HorizontalExpand="True">
         <!-- Top -->
         <PanelContainer StyleClasses="PanelBackground"> <!-- WD EDIT -->
-            <BoxContainer Orientation="Horizontal">
-                <prefUi:HighlightedContainer>
-                    <BoxContainer Orientation="Horizontal" SeparationOverride="5">
-                        <Button Name="ImportButton" Text="{Loc 'humanoid-profile-editor-import-button'}" StyleClasses="OpenRight" />
-                        <Button Name="ExportButton" Text="{Loc 'humanoid-profile-editor-export-button'}" StyleClasses="OpenLeft" />
-                        <Control MinWidth="5" />
+            <BoxContainer Orientation="Horizontal" MinSize="60 0" HorizontalExpand="True" HorizontalAlignment="Right">
+                <prefUi:HighlightedContainer Name="ProfileHighlight">
+                    <BoxContainer Orientation="Horizontal">
                         <Button Name="SaveButton" Text="{Loc 'humanoid-profile-editor-save-button'}" StyleClasses="OpenRight" />
                         <Button Name="ResetButton" Disabled="True" Text="{Loc 'humanoid-profile-editor-reset-button'}" StyleClasses="OpenBoth" />
+                        <Control MinWidth="5" />
+                        <Button Name="ImportButton" Text="{Loc 'humanoid-profile-editor-import-button'}" StyleClasses="OpenRight" />
+                        <Button Name="ExportButton" Text="{Loc 'humanoid-profile-editor-export-button'}" StyleClasses="OpenLeft" />
+                        <Button Name="ExportImageButton" Text="{Loc 'humanoid-profile-editor-export-image-button'}"/>
+                        <Button Name="OpenImagesButton" Text="{Loc 'humanoid-profile-editor-open-image-button'}"/>
                         <Button Name="RandomizeEverything" Text="{Loc 'humanoid-profile-editor-randomize-everything-button'}" StyleClasses="OpenLeft" />
                     </BoxContainer>
                 </prefUi:HighlightedContainer>
@@ -79,6 +82,28 @@
                                     <OptionButton Name="VoiceButton" HorizontalAlignment="Right" />
                                     <Button Name="VoicePlayButton" Text="▶" MaxWidth="80" />
                                 </BoxContainer>
+                                <!--BARK-->
+                                <BoxContainer HorizontalExpand="True" Orientation="Horizontal">
+                                    <Label Text="{Loc 'humanoid-profile-editor-bark-voice-label'}" />
+                                    <Control HorizontalExpand="True"/>
+                                    <OptionButton Name="VoiceBarkButton" HorizontalAlignment="Right" />
+                                    <Button Name="VoiceBarkPlayButton" Text="▶" MaxWidth="80" />
+                                </BoxContainer>
+
+                                <BoxContainer HorizontalExpand="True" Orientation="Horizontal">
+                                    <BoxContainer HorizontalExpand="True" Orientation="Vertical">
+                                        <controls:Knob Name="BarkPitchSlider" MinValue="0" MaxValue="255" HorizontalExpand="True" Margin="5 0 5 0" />
+                                        <Label Text="{Loc 'humanoid-profile-editor-bark-pitch-label'}" HorizontalAlignment="Center"/>
+                                    </BoxContainer>
+                                    <BoxContainer HorizontalExpand="True" Orientation="Vertical">
+                                        <controls:Knob Name="BarkPitchVarianceSlider" MinValue="0" MaxValue="255" HorizontalExpand="True" Margin="5 0 5 0" />
+                                        <Label Text="{Loc 'humanoid-profile-editor-bark-pitch-variance-label'}" HorizontalAlignment="Center"/>
+                                    </BoxContainer>
+                                    <BoxContainer HorizontalExpand="True" Orientation="Vertical">
+                                        <controls:Knob Name="BarkPauseSlider" MinValue="0" MaxValue="255" HorizontalExpand="True" Margin="5 0 5 0" />
+                                        <Label Text="{Loc 'humanoid-profile-editor-bark-pause-label'}" HorizontalAlignment="Center"/>
+                                    </BoxContainer>
+                                </BoxContainer>
                                 <!--WD EDIT END-->
                                 <!-- Customizable, cosmetic pronouns -->
                                 <BoxContainer Name="CosmeticPronousContainer" HorizontalExpand="True">
@@ -112,6 +137,12 @@
                                     <Label Text="{Loc 'humanoid-profile-editor-clown-name-label'}" />
                                     <Control HorizontalExpand="True"/>
                                     <LineEdit Name="ClownNameEdit" MinSize="270 0" HorizontalAlignment="Right" />
+                                </BoxContainer>
+                                <!-- Mime name -->
+                                <BoxContainer Name="MimeNameContainer" HorizontalExpand="True">
+                                    <Label Text="{Loc 'humanoid-profile-editor-mime-name-label'}" />
+                                    <Control HorizontalExpand="True"/>
+                                    <LineEdit Name="MimeNameEdit" MinSize="270 0" HorizontalAlignment="Right" />
                                 </BoxContainer>
                                 <!-- WD EDIT END -->
                                 <!-- Show clothing -->

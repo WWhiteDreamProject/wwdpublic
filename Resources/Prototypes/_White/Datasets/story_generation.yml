@@ -1,0 +1,5 @@
+- type: localizedDataset
+  id: BookCharacterStory
+  values:
+    prefix: story-gen-book-character-story
+    count: 40

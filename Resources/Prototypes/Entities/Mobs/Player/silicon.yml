@@ -38,9 +38,9 @@
   - type: ActionGrant
     actions:
     - ActionJumpToCore
-    - ActionShowJobIcons
     - ActionSurvCameraLights
     - ActionAIViewLaws
+    - ActionOpenRemoteDevicesMenu # WD edit - AiRemoteControl
     - ActionAIToggleBolts # WD edit
     - ActionAICameraList # WD edit
   - type: UserInterface
@@ -53,8 +53,11 @@
         type: GeneralStationRecordConsoleBoundUserInterface
       enum.SiliconLawsUiKey.Key:
         type: SiliconLawBoundUserInterface
+        requireInputValidation: false # WD EDIT
       enum.CommunicationsConsoleUiKey.Key:
         type: CommunicationsConsoleBoundUserInterface
+      enum.RemoteDeviceUiKey.Key: # WD edit - AiRemoteControl
+        type: RemoteDevicesBoundUserInterface
       enum.ListViewSelectorUiKey.Key: # WD edit
         type: ListViewSelectorBUI
   - type: IntrinsicUI
@@ -134,6 +137,8 @@
     - Elyran
     - RobotTalk
     - Sign
+  - type: EmagSiliconLaw
+    unRemovable: true
   # WD EDIT END
 
 - type: entity
@@ -610,16 +615,16 @@
       Silicon: 20 # WD edit end
 
 - type: entity
-  id: DungeonMasterCircuitBoard
+  id: GameMasterCircuitBoard
   parent: BaseElectronics
-  name: law board (Dungeon Master)
-  description: An electronics board containing the Dungeon Master lawset.
+  name: law board (Game Master)
+  description: An electronics board containing the Game Master lawset.
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi
     state: std_mod
   - type: SiliconLawProvider
-    laws: DungeonMasterLawset
+    laws: GameMasterLawset
   - type: PhysicalComposition # WD edit start
     materialComposition:
       Glass: 31
@@ -645,7 +650,7 @@
 
 - type: entity
   id: AntimovCircuitBoard
-  parent: BaseElectronics
+  parent: [BaseElectronics, BaseSyndicateContraband]
   name: law board (Antimov)
   description: An electronics board containing the Antimov lawset.
   components:
@@ -707,6 +712,17 @@
           Empty: { state: empty }
           Occupied: { state: full }
   - type: Intellicard
+
+- type: entity
+  id: PlayerStationAiPreview
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Mobs/Silicon/station_ai.rsi
+    layers:
+    - state: base
+    - state: ai
+      shader: unshaded
 
 - type: entity
   id: PlayerStationAiEmpty
@@ -787,10 +803,10 @@
   - type: StationAiWhitelist
   - type: UserInterface
     interfaces:
-        enum.HolopadUiKey.AiRequestWindow:
-          type: HolopadBoundUserInterface
-        enum.HolopadUiKey.AiActionWindow:
-          type: HolopadBoundUserInterface
+      enum.HolopadUiKey.AiRequestWindow:
+        type: HolopadBoundUserInterface
+      enum.HolopadUiKey.AiActionWindow:
+        type: HolopadBoundUserInterface
   # WD edit start
   - type: AccessReader
     access: [ [ "Command" ], [ "Research" ] ]
@@ -896,7 +912,7 @@
   - type: ContainerFill
     containers:
       borg_brain:
-        - PositronicBrain
+      - PositronicBrain
   - type: ItemSlots
     slots:
       cell_slot:
@@ -912,13 +928,109 @@
   - type: ContainerFill
     containers:
       borg_brain:
-        - PositronicBrain
+      - PositronicBrain
       borg_module:
-        - BorgModuleOperative
-        - BorgModuleL6C
-        - BorgModuleEsword
+      - BorgModuleOperative
+      - BorgModuleL6C
+      - BorgModuleEsword
   - type: ItemSlots
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellHyper
+
+- type: entity
+  id: PlayerBorgSyndicateAssaultGhostRole
+  parent: PlayerBorgSyndicateAssaultBattery
+  suffix: Ghost role
+  components:
+  - type: GhostRole
+    name: ghost-role-information-syndicate-cyborg-assault-name
+    description: ghost-role-information-syndicate-cyborg-description
+    rules: ghost-role-information-silicon-rules
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+
+- type: entity
+  id: PlayerBorgSyndicateSaboteurBattery
+  parent: BorgChassisSyndicateSaboteur
+  suffix: Battery, Module, Operative
+  components:
+  - type: NukeOperative
+  - type: ContainerFill
+    containers:
+      borg_brain:
+      - PositronicBrain
+      borg_module:
+      - BorgModuleTool
+      - BorgModuleOperative
+      - BorgModuleSyndicateWeapon
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellHyper
+
+- type: entity
+  id: PlayerBorgSyndicateSaboteurGhostRole
+  parent: PlayerBorgSyndicateSaboteurBattery
+  suffix: Ghost role
+  components:
+  - type: GhostRole
+    name: ghost-role-information-syndicate-cyborg-saboteur-name
+    description: ghost-role-information-syndicate-cyborg-description
+    rules: ghost-role-information-silicon-rules
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+
+- type: entity
+  name: syndicate invasion borg spawner
+  id: PlayerBorgSyndicateInvasionGhostRoleSpawner
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Structures/Decoration/banner.rsi
+      state: banner_syndicate
+  - type: RandomSpawner
+    prototypes:
+    - PlayerBorgSyndicateAssaultGhostRole
+    - PlayerBorgSyndicateAssaultGhostRole # Saboteurs are kinda like cyborg medics, we want less.
+    - PlayerBorgSyndicateSaboteurGhostRole
+
+- type: entity
+  id: PlayerBorgDerelict
+  parent: BorgChassisDerelict
+  suffix: Battery, Module
+  components:
+  - type: ContainerFill
+    containers:
+      borg_brain:
+      - PositronicBrain
+      borg_module:
+      - BorgModuleTool
+      - BorgModuleFireExtinguisher
+      - BorgModuleGPS
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellHigh
+  - type: RandomMetadata
+    nameSegments: [names_borg]
+
+- type: entity
+  id: PlayerBorgDerelictGhostRole
+  parent: PlayerBorgDerelict
+  suffix: Ghost role
+  components:
+  - type: GhostRole
+    name: ghost-role-information-derelict-cyborg-name
+    description: ghost-role-information-derelict-cyborg-description
+    rules: ghost-role-information-silicon-rules
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable

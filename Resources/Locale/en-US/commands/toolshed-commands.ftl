@@ -58,6 +58,8 @@ command-description-rejuvenate =
     Rejuvenates the given entities, restoring them to full health, clearing status effects, etc.
 command-description-tag-list =
     Lists tags on the given entities.
+command-description-tag-with =
+    Returns only the entities with the given tag from the piped list of entities.
 command-description-tag-add =
     Adds a tag to the given entities.
 command-description-tag-rm =
@@ -82,3 +84,19 @@ command-description-addaccesslog =
     Adds an access log to this entity. Do note that this bypasses the log's default limit and pause check.
 command-description-stationevent-simulate =
     Simulates N number of rounds in which events will occur and prints the occurrences of every event after.
+command-description-dynamicrule-list =
+    Lists all currently active dynamic rules, usually this is just one.
+command-description-dynamicrule-get =
+    Gets the currently active dynamic rule.
+command-description-dynamicrule-budget =
+    Gets the current budget of the piped dynamic rule(s).
+command-description-dynamicrule-adjust =
+    Adjusts the budget of the piped dynamic rule(s) by the specified amount.
+command-description-dynamicrule-set =
+    Sets the budget of the piped dynamic rule(s) to the specified amount.
+command-description-dynamicrule-dryrun =
+    Returns a list of rules that could be activated if the rule ran at this moment with all current context. This is not a complete list of every single rule that could be run, just a sample of the current valid ones.
+command-description-dynamicrule-executenow =
+    Executes the piped dynamic rule as if it had reached its regular update time.
+command-description-dynamicrule-rules =
+    Gets a list of all the rules spawned by the piped dynamic rule.

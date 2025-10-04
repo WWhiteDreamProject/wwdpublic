@@ -4,137 +4,424 @@
   abstract: true
 
 - type: decal
-  id: WindowFramekBox
+  id: WindowFrameDark
   parent: WindowFrame
-  tags: ["station", "markings"]
-  sprite:
-    sprite: _White/Decals/window_frame.rsi
-    state: frame_box
+  abstract: true
 
 - type: decal
-  id: WindowFrameCornerNe
+  id: WindowFrameSteel
   parent: WindowFrame
-  tags: ["station", "markings"]
-  sprite:
-    sprite: _White/Decals/window_frame.rsi
-    state: frame_corner_ne
+  abstract: true
 
 - type: decal
-  id: WindowFrameCornerSe
+  id: WindowFrameWhite
   parent: WindowFrame
-  tags: ["station", "markings"]
-  sprite:
-    sprite: _White/Decals/window_frame.rsi
-    state: frame_corner_se
+  abstract: true
 
 - type: decal
-  id: WindowFrameCornerNw
-  parent: WindowFrame
+  id: WindowFrameDarkBox
+  parent: WindowFrameDark
   tags: ["station", "markings"]
   sprite:
     sprite: _White/Decals/window_frame.rsi
-    state: frame_corner_nw
+    state: dark_box
 
 - type: decal
-  id: WindowFrameCornerSw
-  parent: WindowFrame
+  id: WindowFrameDarkCornerNe
+  parent: WindowFrameDark
   tags: ["station", "markings"]
   sprite:
     sprite: _White/Decals/window_frame.rsi
-    state: frame_corner_sw
+    state: dark_corner_ne
 
 - type: decal
-  id: WindowFrameInnerNe
-  parent: WindowFrame
+  id: WindowFrameDarkCornerSe
+  parent: WindowFrameDark
   tags: ["station", "markings"]
   sprite:
     sprite: _White/Decals/window_frame.rsi
-    state: frame_inner_ne
+    state: dark_corner_se
 
 - type: decal
-  id: WindowFrameInnerSe
-  parent: WindowFrame
+  id: WindowFrameDarkCornerNw
+  parent: WindowFrameDark
   tags: ["station", "markings"]
   sprite:
     sprite: _White/Decals/window_frame.rsi
-    state: frame_inner_se
+    state: dark_corner_nw
 
 - type: decal
-  id: WindowFrameInnerNw
-  parent: WindowFrame
+  id: WindowFrameDarkCornerSw
+  parent: WindowFrameDark
   tags: ["station", "markings"]
   sprite:
     sprite: _White/Decals/window_frame.rsi
-    state: frame_inner_nw
+    state: dark_corner_sw
 
 - type: decal
-  id: WindowFrameInnerSw
-  parent: WindowFrame
+  id: WindowFrameDarkInnerNe
+  parent: WindowFrameDark
   tags: ["station", "markings"]
   sprite:
     sprite: _White/Decals/window_frame.rsi
-    state: frame_inner_sw
+    state: dark_inner_ne
 
 - type: decal
-  id: WindowFrameEndN
-  parent: WindowFrame
+  id: WindowFrameDarkInnerSe
+  parent: WindowFrameDark
   tags: ["station", "markings"]
   sprite:
     sprite: _White/Decals/window_frame.rsi
-    state: frame_end_n
+    state: dark_inner_se
 
 - type: decal
-  id: WindowFrameEndE
-  parent: WindowFrame
+  id: WindowFrameDarkInnerNw
+  parent: WindowFrameDark
   tags: ["station", "markings"]
   sprite:
     sprite: _White/Decals/window_frame.rsi
-    state: frame_end_e
+    state: dark_inner_nw
 
 - type: decal
-  id: WindowFrameEndS
-  parent: WindowFrame
+  id: WindowFrameDarkInnerSw
+  parent: WindowFrameDark
   tags: ["station", "markings"]
   sprite:
     sprite: _White/Decals/window_frame.rsi
-    state: frame_end_s
+    state: dark_inner_sw
 
 - type: decal
-  id: WindowFrameEndW
-  parent: WindowFrame
+  id: WindowFrameDarkEndN
+  parent: WindowFrameDark
   tags: ["station", "markings"]
   sprite:
     sprite: _White/Decals/window_frame.rsi
-    state: frame_end_w
+    state: dark_end_n
 
 - type: decal
-  id: WindowFrameLineN
-  parent: WindowFrame
+  id: WindowFrameDarkEndE
+  parent: WindowFrameDark
   tags: ["station", "markings"]
   sprite:
     sprite: _White/Decals/window_frame.rsi
-    state: frame_line_n
+    state: dark_end_e
 
 - type: decal
-  id: WindowFrameLineE
-  parent: WindowFrame
+  id: WindowFrameDarkEndS
+  parent: WindowFrameDark
   tags: ["station", "markings"]
   sprite:
     sprite: _White/Decals/window_frame.rsi
-    state: frame_line_e
+    state: dark_end_s
 
 - type: decal
-  id: WindowFrameLineS
-  parent: WindowFrame
+  id: WindowFrameDarkEndW
+  parent: WindowFrameDark
   tags: ["station", "markings"]
   sprite:
     sprite: _White/Decals/window_frame.rsi
-    state: frame_line_s
+    state: dark_end_w
 
 - type: decal
-  id: WindowFrameLineW
-  parent: WindowFrame
+  id: WindowFrameDarkLineN
+  parent: WindowFrameDark
   tags: ["station", "markings"]
   sprite:
     sprite: _White/Decals/window_frame.rsi
-    state: frame_line_w
+    state: dark_line_n
+
+- type: decal
+  id: WindowFrameDarkLineE
+  parent: WindowFrameDark
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/window_frame.rsi
+    state: dark_line_e
+
+- type: decal
+  id: WindowFrameDarkLineS
+  parent: WindowFrameDark
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/window_frame.rsi
+    state: dark_line_s
+
+- type: decal
+  id: WindowFrameDarkLineW
+  parent: WindowFrameDark
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/window_frame.rsi
+    state: dark_line_w
+
+- type: decal
+  id: WindowFrameSteelBox
+  parent: WindowFrameSteel
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/window_frame.rsi
+    state: steel_box
+
+- type: decal
+  id: WindowFrameSteelCornerNe
+  parent: WindowFrameSteel
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/window_frame.rsi
+    state: steel_corner_ne
+
+- type: decal
+  id: WindowFrameSteelCornerSe
+  parent: WindowFrameSteel
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/window_frame.rsi
+    state: steel_corner_se
+
+- type: decal
+  id: WindowFrameSteelCornerNw
+  parent: WindowFrameSteel
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/window_frame.rsi
+    state: steel_corner_nw
+
+- type: decal
+  id: WindowFrameSteelCornerSw
+  parent: WindowFrameSteel
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/window_frame.rsi
+    state: steel_corner_sw
+
+- type: decal
+  id: WindowFrameSteelInnerNe
+  parent: WindowFrameSteel
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/window_frame.rsi
+    state: steel_inner_ne
+
+- type: decal
+  id: WindowFrameSteelInnerSe
+  parent: WindowFrameSteel
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/window_frame.rsi
+    state: steel_inner_se
+
+- type: decal
+  id: WindowFrameSteelInnerNw
+  parent: WindowFrameSteel
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/window_frame.rsi
+    state: steel_inner_nw
+
+- type: decal
+  id: WindowFrameSteelInnerSw
+  parent: WindowFrameSteel
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/window_frame.rsi
+    state: steel_inner_sw
+
+- type: decal
+  id: WindowFrameSteelEndN
+  parent: WindowFrameSteel
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/window_frame.rsi
+    state: steel_end_n
+
+- type: decal
+  id: WindowFrameSteelEndE
+  parent: WindowFrameSteel
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/window_frame.rsi
+    state: steel_end_e
+
+- type: decal
+  id: WindowFrameSteelEndS
+  parent: WindowFrameSteel
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/window_frame.rsi
+    state: steel_end_s
+
+- type: decal
+  id: WindowFrameSteelEndW
+  parent: WindowFrameSteel
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/window_frame.rsi
+    state: steel_end_w
+
+- type: decal
+  id: WindowFrameSteelLineN
+  parent: WindowFrameSteel
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/window_frame.rsi
+    state: steel_line_n
+
+- type: decal
+  id: WindowFrameSteelLineE
+  parent: WindowFrameSteel
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/window_frame.rsi
+    state: steel_line_e
+
+- type: decal
+  id: WindowFrameSteelLineS
+  parent: WindowFrameSteel
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/window_frame.rsi
+    state: steel_line_s
+
+- type: decal
+  id: WindowFrameSteelLineW
+  parent: WindowFrameSteel
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/window_frame.rsi
+    state: steel_line_w
+
+- type: decal
+  id: WindowFrameWhiteBox
+  parent: WindowFrameWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/window_frame.rsi
+    state: white_box
+
+- type: decal
+  id: WindowFrameWhiteCornerNe
+  parent: WindowFrameWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/window_frame.rsi
+    state: white_corner_ne
+
+- type: decal
+  id: WindowFrameWhiteCornerSe
+  parent: WindowFrameWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/window_frame.rsi
+    state: white_corner_se
+
+- type: decal
+  id: WindowFrameWhiteCornerNw
+  parent: WindowFrameWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/window_frame.rsi
+    state: white_corner_nw
+
+- type: decal
+  id: WindowFrameWhiteCornerSw
+  parent: WindowFrameWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/window_frame.rsi
+    state: white_corner_sw
+
+- type: decal
+  id: WindowFrameWhiteInnerNe
+  parent: WindowFrameWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/window_frame.rsi
+    state: white_inner_ne
+
+- type: decal
+  id: WindowFrameWhiteInnerSe
+  parent: WindowFrameWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/window_frame.rsi
+    state: white_inner_se
+
+- type: decal
+  id: WindowFrameWhiteInnerNw
+  parent: WindowFrameWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/window_frame.rsi
+    state: white_inner_nw
+
+- type: decal
+  id: WindowFrameWhiteInnerSw
+  parent: WindowFrameWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/window_frame.rsi
+    state: white_inner_sw
+
+- type: decal
+  id: WindowFrameWhiteEndN
+  parent: WindowFrameWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/window_frame.rsi
+    state: white_end_n
+
+- type: decal
+  id: WindowFrameWhiteEndE
+  parent: WindowFrameWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/window_frame.rsi
+    state: white_end_e
+
+- type: decal
+  id: WindowFrameWhiteEndS
+  parent: WindowFrameWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/window_frame.rsi
+    state: white_end_s
+
+- type: decal
+  id: WindowFrameWhiteEndW
+  parent: WindowFrameWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/window_frame.rsi
+    state: white_end_w
+
+- type: decal
+  id: WindowFrameWhiteLineN
+  parent: WindowFrameWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/window_frame.rsi
+    state: white_line_n
+
+- type: decal
+  id: WindowFrameWhiteLineE
+  parent: WindowFrameWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/window_frame.rsi
+    state: white_line_e
+
+- type: decal
+  id: WindowFrameWhiteLineS
+  parent: WindowFrameWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/window_frame.rsi
+    state: white_line_s
+
+- type: decal
+  id: WindowFrameWhiteLineW
+  parent: WindowFrameWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/window_frame.rsi
+    state: white_line_w

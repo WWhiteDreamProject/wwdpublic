@@ -11,3 +11,5 @@ sensor-monitoring-value-display = {$unit ->
 }
 
 # ({ TOSTRING(SUB($value, 273.15), "N3") } °C)
+
+# ({ TOSTRING(SUB($value, 273.15), "N3") } °C)

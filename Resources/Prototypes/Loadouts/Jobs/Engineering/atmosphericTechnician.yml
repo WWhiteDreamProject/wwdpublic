@@ -43,219 +43,225 @@
     - ClothingBackpackDuffelAtmospherics
 
 # Belt
-- type: loadout
-  id: LoadoutAtmosphericTechnicianBeltUtility
-  category: JobsEngineeringAtmosphericTechnician
-  cost: 0
-  exclusive: true
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutAtmosphericTechnicianBelt
-    - !type:CharacterJobRequirement
-      jobs:
-        - AtmosphericTechnician
-  items:
-    - ClothingBeltUtility
 
-- type: loadout
-  id: LoadoutAtmosphericTechnicianBeltUtilityAtmos
-  category: JobsEngineeringAtmosphericTechnician
-  cost: 0
-  exclusive: true
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutAtmosphericTechnicianBelt
-    - !type:CharacterJobRequirement
-      jobs:
-        - AtmosphericTechnician
-  items:
-    - ClothingBeltUtilityAtmos
+# WWDP edit start - no starter loot
+# - type: loadout
+#   id: LoadoutAtmosphericTechnicianBeltUtility
+#   category: JobsEngineeringAtmosphericTechnician
+#   cost: 0
+#   exclusive: true
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutAtmosphericTechnicianBelt
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - AtmosphericTechnician
+#   items:
+#     - ClothingBeltUtility
+#
+# - type: loadout
+#   id: LoadoutAtmosphericTechnicianBeltUtilityAtmos
+#   category: JobsEngineeringAtmosphericTechnician
+#   cost: 0
+#   exclusive: true
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutAtmosphericTechnicianBelt
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - AtmosphericTechnician
+#   items:
+#     - ClothingBeltUtilityAtmos
+# WWDP EDIT END
 
 # Ears
 
 # Equipment
-- type: loadout
-  id: LoadoutAtmosphericTechnicianEquipmentBoxInflatable
-  category: JobsEngineeringAtmosphericTechnician
-  cost: 0
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutAtmosphericTechnicianEquipment
-    - !type:CharacterJobRequirement
-      jobs:
-        - AtmosphericTechnician
-  items:
-    - BoxInflatable
 
-- type: loadout
-  id: LoadoutAtmosphericTechnicianEquipmentMedkitOxygen
-  category: JobsEngineeringAtmosphericTechnician
-  cost: 0
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutAtmosphericTechnicianEquipment
-    - !type:CharacterJobRequirement
-      jobs:
-        - AtmosphericTechnician
-  items:
-    - MedkitOxygenFilled
-
-- type: loadout
-  id: LoadoutAtmosphericTechnicianEquipmentRCD
-  category: JobsEngineeringAtmosphericTechnician
-  cost: 2
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutAtmosphericTechnicianEquipment
-    - !type:CharacterJobRequirement
-      jobs:
-        - AtmosphericTechnician
-  items:
-    - RCD
-    - RCDAmmo
-
-- type: loadout
-  id: LoadoutAtmosphericTechnicianEquipmentPowerDrill
-  category: JobsEngineeringAtmosphericTechnician
-  cost: 1
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutAtmosphericTechnicianEquipment
-    - !type:CharacterJobRequirement
-      jobs:
-        - AtmosphericTechnician
-  items:
-    - PowerDrill
-
-- type: loadout
-  id: LoadoutAtmosphericTechnicianEquipmentSheetSteel
-  category: JobsEngineeringAtmosphericTechnician
-  cost: 2
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutAtmosphericTechnicianEquipment
-    - !type:CharacterJobRequirement
-      jobs:
-        - AtmosphericTechnician
-  items:
-    - SheetSteel
-
-- type: loadout
-  id: LoadoutAtmosphericTechnicianEquipmentSheetSteel10
-  category: JobsEngineeringAtmosphericTechnician
-  cost: 1
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutAtmosphericTechnicianEquipment
-    - !type:CharacterJobRequirement
-      jobs:
-        - AtmosphericTechnician
-  items:
-    - SheetSteel10
-
-- type: loadout
-  id: LoadoutAtmosphericTechnicianEquipmentSheetPlasteel
-  category: JobsEngineeringAtmosphericTechnician
-  cost: 2
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutAtmosphericTechnicianEquipment
-    - !type:CharacterJobRequirement
-      jobs:
-        - AtmosphericTechnician
-  items:
-    - SheetPlasteel
-
-- type: loadout
-  id: LoadoutAtmosphericTechnicianEquipmentSheetPlasteel10
-  category: JobsEngineeringAtmosphericTechnician
-  cost: 1
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutAtmosphericTechnicianEquipment
-    - !type:CharacterJobRequirement
-      jobs:
-        - AtmosphericTechnician
-  items:
-    - SheetPlasteel10
-
-- type: loadout
-  id: LoadoutAtmosphericTechnicianEquipmentSheetGlass
-  category: JobsEngineeringAtmosphericTechnician
-  cost: 2
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutAtmosphericTechnicianEquipment
-    - !type:CharacterJobRequirement
-      jobs:
-        - AtmosphericTechnician
-  items:
-    - SheetGlass
-
-- type: loadout
-  id: LoadoutAtmosphericTechnicianEquipmentSheetGlass10
-  category: JobsEngineeringAtmosphericTechnician
-  cost: 1
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutAtmosphericTechnicianEquipment
-    - !type:CharacterJobRequirement
-      jobs:
-        - AtmosphericTechnician
-  items:
-    - SheetGlass10
-
-- type: loadout
-  id: LoadoutAtmosphericTechnicianEquipmentMaterialWoodPlank
-  category: JobsEngineeringAtmosphericTechnician
-  cost: 2
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutAtmosphericTechnicianEquipment
-    - !type:CharacterJobRequirement
-      jobs:
-        - AtmosphericTechnician
-  items:
-    - MaterialWoodPlank
-
-- type: loadout
-  id: LoadoutAtmosphericTechnicianEquipmentMaterialWoodPlank10
-  category: JobsEngineeringAtmosphericTechnician
-  cost: 1
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutAtmosphericTechnicianEquipment
-    - !type:CharacterJobRequirement
-      jobs:
-        - AtmosphericTechnician
-  items:
-    - MaterialWoodPlank10
-
-- type: loadout
-  id: LoadoutAtmosphericTechnicianEquipmentSheetPlastic
-  category: JobsEngineeringAtmosphericTechnician
-  cost: 2
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutAtmosphericTechnicianEquipment
-    - !type:CharacterJobRequirement
-      jobs:
-        - AtmosphericTechnician
-  items:
-    - SheetPlastic
-
-- type: loadout
-  id: LoadoutAtmosphericTechnicianEquipmentSheetPlastic10
-  category: JobsEngineeringAtmosphericTechnician
-  cost: 1
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutAtmosphericTechnicianEquipment
-    - !type:CharacterJobRequirement
-      jobs:
-        - AtmosphericTechnician
-  items:
-    - SheetPlastic10
+# WWDP edit start - no starter loot
+# - type: loadout
+#   id: LoadoutAtmosphericTechnicianEquipmentBoxInflatable
+#   category: JobsEngineeringAtmosphericTechnician
+#   cost: 0
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutAtmosphericTechnicianEquipment
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - AtmosphericTechnician
+#   items:
+#     - BoxInflatable
+#
+# - type: loadout
+#   id: LoadoutAtmosphericTechnicianEquipmentMedkitOxygen
+#   category: JobsEngineeringAtmosphericTechnician
+#   cost: 0
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutAtmosphericTechnicianEquipment
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - AtmosphericTechnician
+#   items:
+#     - MedkitOxygenFilled
+#
+# - type: loadout
+#   id: LoadoutAtmosphericTechnicianEquipmentRCD
+#   category: JobsEngineeringAtmosphericTechnician
+#   cost: 2
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutAtmosphericTechnicianEquipment
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - AtmosphericTechnician
+#   items:
+#     - RCD
+#     - RCDAmmo
+#
+# - type: loadout
+#   id: LoadoutAtmosphericTechnicianEquipmentPowerDrill
+#   category: JobsEngineeringAtmosphericTechnician
+#   cost: 1
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutAtmosphericTechnicianEquipment
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - AtmosphericTechnician
+#   items:
+#     - PowerDrill
+#
+# - type: loadout
+#   id: LoadoutAtmosphericTechnicianEquipmentSheetSteel
+#   category: JobsEngineeringAtmosphericTechnician
+#   cost: 2
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutAtmosphericTechnicianEquipment
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - AtmosphericTechnician
+#   items:
+#     - SheetSteel
+#
+# - type: loadout
+#   id: LoadoutAtmosphericTechnicianEquipmentSheetSteel10
+#   category: JobsEngineeringAtmosphericTechnician
+#   cost: 1
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutAtmosphericTechnicianEquipment
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - AtmosphericTechnician
+#   items:
+#     - SheetSteel10
+#
+# - type: loadout
+#   id: LoadoutAtmosphericTechnicianEquipmentSheetPlasteel
+#   category: JobsEngineeringAtmosphericTechnician
+#   cost: 2
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutAtmosphericTechnicianEquipment
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - AtmosphericTechnician
+#   items:
+#     - SheetPlasteel
+#
+# - type: loadout
+#   id: LoadoutAtmosphericTechnicianEquipmentSheetPlasteel10
+#   category: JobsEngineeringAtmosphericTechnician
+#   cost: 1
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutAtmosphericTechnicianEquipment
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - AtmosphericTechnician
+#   items:
+#     - SheetPlasteel10
+#
+# - type: loadout
+#   id: LoadoutAtmosphericTechnicianEquipmentSheetGlass
+#   category: JobsEngineeringAtmosphericTechnician
+#   cost: 2
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutAtmosphericTechnicianEquipment
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - AtmosphericTechnician
+#   items:
+#     - SheetGlass
+#
+# - type: loadout
+#   id: LoadoutAtmosphericTechnicianEquipmentSheetGlass10
+#   category: JobsEngineeringAtmosphericTechnician
+#   cost: 1
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutAtmosphericTechnicianEquipment
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - AtmosphericTechnician
+#   items:
+#     - SheetGlass10
+#
+# - type: loadout
+#   id: LoadoutAtmosphericTechnicianEquipmentMaterialWoodPlank
+#   category: JobsEngineeringAtmosphericTechnician
+#   cost: 2
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutAtmosphericTechnicianEquipment
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - AtmosphericTechnician
+#   items:
+#     - MaterialWoodPlank
+#
+# - type: loadout
+#   id: LoadoutAtmosphericTechnicianEquipmentMaterialWoodPlank10
+#   category: JobsEngineeringAtmosphericTechnician
+#   cost: 1
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutAtmosphericTechnicianEquipment
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - AtmosphericTechnician
+#   items:
+#     - MaterialWoodPlank10
+#
+# - type: loadout
+#   id: LoadoutAtmosphericTechnicianEquipmentSheetPlastic
+#   category: JobsEngineeringAtmosphericTechnician
+#   cost: 2
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutAtmosphericTechnicianEquipment
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - AtmosphericTechnician
+#   items:
+#     - SheetPlastic
+#
+# - type: loadout
+#   id: LoadoutAtmosphericTechnicianEquipmentSheetPlastic10
+#   category: JobsEngineeringAtmosphericTechnician
+#   cost: 1
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutAtmosphericTechnicianEquipment
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - AtmosphericTechnician
+#   items:
+#     - SheetPlastic10
+# WWDP edit end
 
 # Eyes
 
@@ -337,20 +343,6 @@
         - AtmosphericTechnician
   items:
     - ClothingShoesColorWhite
-
-- type: loadout
-  id: LoadoutAtmosphericTechnicianShoesWork
-  category: JobsEngineeringAtmosphericTechnician
-  cost: 0
-  exclusive: true
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutAtmosphericTechnicianShoes
-    - !type:CharacterJobRequirement
-      jobs:
-        - AtmosphericTechnician
-  items:
-    - ClothingShoesBootsWork
 
 # Uniforms
 - type: loadout

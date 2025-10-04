@@ -37,6 +37,21 @@
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/tobacco.rsi
     state: dried
+  # WWDP quick crafting
+  - type: UserInterface
+    interfaces:
+      enum.RadialSelectorUiKey.Key:
+        type: AttachedRadialSelectorMenuBUI
+  - type: ActivatableUI
+    key: enum.RadialSelectorUiKey.Key
+    inHandsOnly: true
+    requireActiveHand: false
+  - type: ShortConstruction
+    entries:
+    - prototype: smokeableGroundCannabis
+      closeUiOnSelect: false
+    - prototype: smokeableGroundCannabisRainbow
+      closeUiOnSelect: false
 
 - type: entity
   name: ground cannabis
@@ -65,7 +80,20 @@
       - Smokable
   - type: Item
     size: Tiny
-    
+  # WWDP short crafting
+  - type: UserInterface
+    interfaces:
+      enum.RadialSelectorUiKey.Key:
+        type: AttachedRadialSelectorMenuBUI
+  - type: ActivatableUI
+    key: enum.RadialSelectorUiKey.Key
+    inHandsOnly: true
+    requireActiveHand: false
+  - type: ShortConstruction
+    entries:
+    - prototype: smokeableBlunt
+      closeUiOnSelect: false
+
 - type: entity
   name: rainbow cannabis leaves
   parent: LeavesCannabis
@@ -162,6 +190,39 @@
     node: groundRainbow
 
 - type: entity
+  name: tea leaves
+  parent: ProduceBase
+  id: LeavesTea
+  description: "Can be dried out to make tea."
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Hydroponics/tea_plant.rsi
+  - type: Produce
+    seedId: teaPlant
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Vitamin
+          Quantity: 2
+
+- type: entity
+  name: dried tea leaves
+  parent: ProduceBase
+  id: LeavesTeaDried
+  description: "Dried tea leaves, ready to be ground."
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: TeaPowder
+          Quantity: 5
+  - type: Sprite
+    sprite: Objects/Specific/Hydroponics/tea_plant.rsi
+    state: dried
+
+- type: entity
   name: tobacco leaves
   parent: ProduceBase
   id: LeavesTobacco
@@ -190,6 +251,26 @@
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/tobacco.rsi
     state: dried
+  # WWDP short crafting
+  - type: UserInterface
+    interfaces:
+      enum.RadialSelectorUiKey.Key:
+        type: AttachedRadialSelectorMenuBUI
+  - type: ActivatableUI
+    key: enum.RadialSelectorUiKey.Key
+    inHandsOnly: true
+    requireActiveHand: false
+  - type: ShortConstruction
+    entries:
+    - prototype: smokeableGroundTobacco
+      closeUiOnSelect: false
+    - prototype: smokeableBlunt
+      closeUiOnSelect: false
+    - prototype: smokeableBluntRainbow
+      closeUiOnSelect: false
+  - type: Construction
+    graph: smokeableBlunt
+    node: tobacco
 
 - type: entity
   name: ground tobacco

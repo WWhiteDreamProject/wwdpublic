@@ -1,53 +1,34 @@
 <Document>
-  # Power
+  # Электропитание
+  Электропитание — это жизненная сила станции.
+  Без него станция быстро погрузится в хаос.
+  Инженеры несут ответственность за поддержание электросети станции, обеспечивая подачу, распределение и удовлетворение всех отделов.
 
-  SS14 has a fairly in-depth power system through which all devices on the station receive electricity. It's divided into three main powernets; High Voltage, Medium Voltage, and Low Voltage.
   <Box>
-  <GuideEntityEmbed Entity="CableHVStack"/>
-  <GuideEntityEmbed Entity="CableMVStack"/>
-  <GuideEntityEmbed Entity="CableApcStack"/>
+    <GuideEntityEmbed Entity="SingularityGenerator" Caption=""/>
+    <GuideEntityEmbed Entity="TeslaGenerator" Caption=""/>
+    <GuideEntityEmbed Entity="AmeController" Caption=""/>
+    <GuideEntityEmbed Entity="SMESBasic" Caption=""/>
+    <GuideEntityEmbed Entity="SubstationBasic" Caption=""/>
+    <GuideEntityEmbed Entity="APCBasic" Caption=""/>
   </Box>
 
-  ## Cabling
-  The three major cable types (HV, MV, and LV) can be used to form independent powernets. Examine them for a description of their uses.
-  <Box>
-  <GuideEntityEmbed Entity="CableHV"/>
-  <GuideEntityEmbed Entity="CableMV"/>
-  <GuideEntityEmbed Entity="CableApcExtension"/>
-  </Box>
+  В симуляции системы электропитания Space Station 14, а также в предполагаемом геймплее инженеров, существует множество различных аспектов.
 
-  ## Power storage
-  Each power storage device presented functions as the transformer for its respective power level (HV, MV, and LV), and also provides a fairly sizable backup battery to help flatten out spikes and dips in power usage.
-  <Box>
-  <GuideEntityEmbed Entity="SMESBasic"/>
-  <GuideEntityEmbed Entity="SubstationBasic"/>
-  <GuideEntityEmbed Entity="APCBasic"/>
-  </Box>
+  Некоторая важная информация, которую следует учитывать:
+  - [textlink="Генераторы" link="Generators"] станции имеют уровни и следуют иерархии. Чем ниже уровень, тем менее они устойчивы, но тем проще их настроить. Чем выше уровень, тем они более устойчивы, но тем сложнее их настроить.
+  - Space Station 14 использует [textlink="сети напряжения" link="VoltageNetworks"], которые распределяют электроэнергию по станции и понижают напряжение с помощью машин, чтобы они могли использоваться другими машинами.
+  - [textlink="Генераторы" link="Generators"] имеют [textlink="рампинг" link="Ramping"], что означает, что им требуется время, чтобы соответствовать спросу сети своим предложением.
 
-  ## Ramping
-  Contrary to what one might expect from a video game electrical simulation, power is not instantly provided upon request. Generators and batteries take time to ramp up to match the draw imposed on them, which leads to brownouts when there are large changes in current draw all at once; for example, when batteries run out.
+  ## Начало работы
+  В начале смены станция работает исключительно от [textlink="батарей" link="PowerStorage"] власти.
+  Это продлится максимум 5-10 минут, в зависимости от потребления энергии станцией.
 
-  ## Installing power storage
-  Substations are the most self-explanatory. Simply install the machine on top of an MV and HV cable; it will draw power from the HV cable to provide to MV.
+  Чтобы продлить это время, вы можете запустить [textlink="Антиматериальный двигатель" link="AME"] станции или [textlink="AME." link="AME"]
+  Это значительно продлит время работы батарей станции, давая вам больше времени для настройки [textlink="генераторов" link="Generators"] более высокого уровня.
+  Вы можете продлить это еще больше, установив [textlink="солнечные панели" link="SolarPanels"], которые генерируют энергию бесплатно.
 
-  Installing APCs is similarly simple, except APCs are exclusively wallmounted machinery and cannot be installed on the floor. Make sure it has both MV and LV connections.
+  После установки [textlink="AME" link="AME"] и [textlink="Солнечных панелей" link="SolarPanels"], вы должны генерировать приличное количество энергии.
 
-  Installing a SMES requires you construct a cable terminal to use as the input. The SMES will draw power from the terminal and send power out from underneath. The terminal will ensure that the HV input and HV output do not connect. Avoid connecting a SMES to itself; this will result in a short circuit, which can result in power flickering or outages depending on severity.
-
-  ## APC breaking
-  Currently the only power storage device that has a limit to its power to the network is the APC. As soon as all connected devices and machinery demand more than [color=#a4885c]24kW[/color] of power, its breaker will pop and everything will turn off. In the case that you are not an engineer, call an engineer (or cyborg) to re-enable it, after reducing the load back down to [color=#a4885c]below[/color] 24kW.
-  <Box>
-  <GuideEntityEmbed Entity="APCBasic"/>
-  </Box>
-
-  ## Checking the power grid
-  1. Use the [color=#a4885c]t-ray scanner[/color] in order to locate cables that are hidden under tiles. (skip this step if cables aren't hidden)
-  2. Pry open the tile that is blocking your access to the cable with a [color=#a4885c]crowbar[/color]. (skip this step if cables aren't hidden)
-  3. Equip your trusty [color=#a4885c]Multitool[/color] and click on any cable to see the power-grid stats.
-  <Box>
-  <GuideEntityEmbed Entity="Multitool"/>
-  <GuideEntityEmbed Entity="Crowbar"/>
-  <GuideEntityEmbed Entity="trayScanner"/>
-  </Box>
-
+  Теперь, когда вы выиграли время, вы можете сосредоточиться на установке [textlink="генераторов" link="Generators"] более высокого уровня, таких как [textlink="Двигатель Сингулярности" link="SingularityEngine"], который может обеспечивать энергией до конца смены.
 </Document>

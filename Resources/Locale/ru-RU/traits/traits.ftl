@@ -46,6 +46,15 @@ trait-description-PirateAccent = Аргх! Вы говорите как пирр
 trait-name-Accentless = Без акцента
 trait-description-Accentless = У вас отсутствует акцент, обычно присущий вашей расе.
 
+trait-name-FrontalLisp = Шепелявость
+trait-description-FrontalLisp = Вы шепелявите... даже это слово выговорить тяжело
+
+trait-name-Stutter = Заикание
+trait-description-Stutter = В-вы з-заик-каитесь при р-разгов-в-воре...
+
+trait-name-Southern = Южный говор
+trait-description-Southern = У вас другая манера говорить.
+
 trait-name-GermanAccent = Немецкий акцент
 trait-description-GermanAccent = Вам достаточно сказать "Привет!" чтобы оскорбить всю станцию и не только оскорбить.
 
@@ -60,15 +69,6 @@ trait-description-ItalianAccent = Lasciatemi cantare
 
 trait-name-SpanishAccent = Испанский акцент
 trait-description-SpanishAccent = Вы чуствуете острую необходимость показать красный платок и без того разгневанному быку.
-
-trait-name-FrontalLisp = Шепелявость
-trait-description-FrontalLisp = Вы шепелявите... даже это слово выговорить тяжело
-
-trait-name-Stutter = Заикание
-trait-description-Stutter = В-вы з-заик-каитесь при р-разгов-в-воре...
-
-trait-name-Southern = Южный говор
-trait-description-Southern = У вас другая манера говорить.
 
 trait-name-Snoring = Храп
 trait-description-Snoring = Вы храпите во время сна.
@@ -193,6 +193,12 @@ trait-description-SolCommon =
     Уходя своими корнями в мандаринский китайский, общий язык стал официальным языком Альянса Сол, а чиновники старались связать его общим языком.
     На нем говорят государственные чиновники, его преподают в школах, на нем говорят те, кто либо испытывает чувство национальной гордости за Альянс, либо иным образом привержен этой культуре.
 
+trait-name-NovuNederic = Novu-Nederic
+trait-description-NovuNederic =
+    Once the language of seafarers and merchants, now the voice of spacers, terraformers, and pioneers.
+    Spoken in the New-Netherlands, this direct and pragmatic trade language carries the sharp consonants and clipped vowels of its old-world roots.
+    Built on centuries of seafaring, land reclamation, and commerce, it thrives among those who shape entire worlds — just as their ancestors shaped the land from the sea.
+
 trait-name-Tradeband = Трейдбанд
 trait-description-Tradeband =
     Происходящий от латинского и романского языков старой Земли, трейдбанд остается основным языком высшего класса человечества.
@@ -259,27 +265,13 @@ trait-description-WeaponsGeneralist =
     Вы мастерски владеете оружием ближнего боя, что позволяет вам быть универсальным в ближнем бою.
     Ваш урон в ближнем бою увеличивается на 25%.
 
+trait-name-Mystic = Mystic
+trait-description-Mystic =
+    You are trained in Mysticism instead of melee combat, reducing your melee capabilities but drastically increasing your psionic potential.
+    Your melee damage bonus for all Brute damage types (Blunt, Slash, Piercing) becomes 10%, but your Potentia gain is drastically increased.
+
 trait-name-Singer = Певец
 trait-description-Singer = Вы от природы способны исполнять голосом простые мелодии.
-
-trait-name-LatentPsychic = Латентный Псионик
-trait-description-LatentPsychic =
-    Ваши разум и душа открыты для ноосферы, что позволяет использовать телепатию.
-    Таким образом, вы можете потенциально получить экстрасенсорные способности.
-    Не исключено, что за вами могут охотиться потусторонние силы, поэтому лучше держать свои способности в секрете.
-
-trait-name-PsionicInsulation = Искажение Волны χ
-trait-description-PsionicInsulation =
-    Вы - автоматон из плоти, оживленный нейротрансмиттерами. Внутри вашего черепа лежит
-    1,5-килограммовый мешок мяса, претендующий на разумность. Согласно современной эпистемиологической теории, вы даже не разумны.
-    Хорошая новость заключается в том, что вы невосприимчивы к большинству положительных и отрицательных эффектов психических способностей.
-    У этого недуга могут быть и другие последствия.
-
-trait-name-NaturalTelepath = Естественный Телепат
-trait-description-NaturalTelepath =
-    Будучи естественным телепатом, вы способны к свободному телепатическому общению, независимо от того,
-    обладаете ли вы какими-либо заметными экстрасенсорными способностями или нет. Это дает все те же преимущества и
-    недостатки, что и Латентный Псионик, за исключением того, что вы гарантированно начинаете с полной телепатией.
 
 trait-name-TrapAvoider = Избегающий Ловушек
 trait-description-TrapAvoider =
@@ -344,6 +336,10 @@ trait-description-Spinarette =
 trait-name-AddictionNicotine = Никотиновая Зависимость
 trait-description-AddictionNicotine = У вас никотиновая зависимость, и вам необходимо часто курить, чтобы держать свое настроение в норме.
 
+trait-name-AnimalFriend = Друг животных
+trait-description-AnimalFriend =
+    Ты хорошо ладишь с животными. Ты не будешь ими атакован, пока не ударишь первым.
+
 trait-name-Liar = Патологический Лжец
 trait-description-Liar = Вы с трудом заставляете себя говорить правду. Но даже в таком случае вы всё равно врете. Иногда.
 
@@ -360,7 +356,8 @@ trait-name-HighPotential = Высокий Пси-Потенциал
 trait-description-HighPotential = Ваша связь с ноосферой выше средней, что облегчает получение новых псионических способностей.
 
 trait-name-LowAmplification = Дефицит kα
-trait-description-LowAmplifiction = Ваши псионические способности заметно слабее, чем у других псиоников.
+trait-description-LowAmplification =
+    Your psionic abilities are noticeably weaker than ones used by other psions.
 
 trait-name-HighAmplification = Избыток kα
 trait-description-HighAmplification = Ваши псионические способности заметно сильнее, чем у других псиоников.
@@ -405,6 +402,11 @@ trait-description-CyberEyes =
     Их основная функция заключается в том, чтобы компенсировать недостатки естественных глаз владельца,
     но дополнительно эти имплантаты обеспечивают защиту от ярких вспышек света.
 
+# trait-name-FlareShielding = Cyber-Eyes: Eye Damage Resistance
+# trait-description-FlareShielding =
+#    Your cybereyes have been fitted with a photochromic lense that automatically darkens in response to intense stimuli.
+#    This provides immunity from most bright flashes of light, such as those from welding arcs.
+
 trait-name-CyberEyesSecurity = Киберглаза Службы Безопасности
 trait-description-CyberEyesSecurity =
     Ваши киберглаза были модернизированы и оснащены встроенным охранным визором. Обратите внимание, что этот имплант
@@ -435,6 +437,11 @@ trait-description-MetapsionicPower =
     Вы можете интуитивно ощущать активацию псионических способностей, а также посылать "сканирующий" импульс,
     чтобы определить, находятся ли псионики поблизости. Эта способность обладает широкой областью действия и не может точно
     сканировать отдельные объекты. И все же это лучше, чем быть слепым.
+
+trait-name-HealingWordPower = Healing Word
+trait-description-HealingWordPower =
+    Your Mentalic abilities includes the power to heal the wounded.
+    This power, commonly known as "Healing Word", allows the user to heal themselves or others with their mind.
 
 trait-name-XenoglossyPower = Ксеноглоссия
 trait-description-XenoglossyPower =
@@ -473,11 +480,6 @@ trait-description-ThermographicVision =
     Ваши киберглаза были улучшены с помощью тепловизора. При включении он делает снимок окружающего пространства, выделяя все
     биологические формы жизни. Он также способен обнаруживать людей сквозь стены станции.
 
-trait-name-FlareShielding = Модуль киберглаз: Защита от повреждений глаз
-trait-description-FlareShielding =
-    Ваши киберлазы оснащены фотохромными линзами, которые автоматически затемняются в ответ на интенсивные раздражители.
-    Это обеспечивает защиту от большинства ярких вспышек света, например, от сварочных дуг.
-
 trait-name-ShadowkinBlackeye = Черный глаз
 trait-description-ShadowkinBlackeye =
     Вы теряете свои особые способности тенерожденного и уважение среди сверстников, взамен получая несколько очков. По сути, вы являетесь тенерожденным только по названию, а не на практике.
@@ -496,15 +498,11 @@ trait-description-BionicLeg =
     Одна или несколько ваших конечностей были заменены дорогостоящим, современным бионическим протезом. Это может быть либо протез, изготовленный из очень реалистичной синтетической плоти,
     либо более очевидная металлическая конечность. Эта конечность помогает своему пользователю двигаться, невзирая на боль от полученных повреждений.
 
-trait-name-AnimalFriend = Друг животных
-trait-description-AnimalFriend =
-    Ты хорошо ладишь с животными. Ты не будешь ими атакован, пока не ударишь первым.
-
-trait-name-FlareShieldingModule = Глазной Модуль КПБ: Защита от вспышек
-trait-description-FlareShieldingModule =
-    Ваши киберлазы оснащены фотохромными линзами, которые автоматически затемняются в ответ на интенсивные раздражители.
-    Это обеспечивает защиту от большинства ярких вспышек света, например, от сварочных дуг,
-    эксклюзивно для КПБ, поскольку для этого требуется только модуль, минуя процесс установки в глаз.
+# trait-name-FlareShieldingModule = IPC Eye Module: Flare Shielding
+# trait-description-FlareShieldingModule =
+#    Your cybereyes have been fitted with a photochromic lense that automatically darkens in response to intense stimuli.
+#    This provides immunity from most bright flashes of light, such as those from welding arcs, exclusive to IPCs because it only needs the module
+#    skipping the eye insertion process.
 
 trait-name-SecurityEyesModule = Глазной Модуль КПБ: Визор службы безопасности
 trait-description-SecurityEyesModule =
@@ -530,3 +528,114 @@ trait-name-ThermographicVisionModule = Глазной Модуль КПБ: Те�
 trait-description-ThermographicVisionModule =
     Ваше зрение улучшено тепловизором. При включении он делает снимок окружающей среды пользователя, выделяя при этом все биологические формы жизни.
     Он может обнаруживать людей даже сквозь стены станции.
+
+trait-name-Vampirism = Вампиризм
+trait-description-Vampirism =
+    Ваш организм приспособился усваивать кровь, преобразуя её в питательные вещества.
+    Обычная пища вам недоступна, но кровь утоляет голод, жажду и восстанавливает здоровье.
+
+trait-name-MothFlight = Полёт
+trait-description-MothFlight =
+    Ваши крылья достаточно сильны, чтобы летать даже при стандартной гравитации.
+    Полёт быстрее бега, но требует больших затрат выносливости.
+
+trait-name-Featherweight = Худощавый
+trait-description-Featherweight =
+    Ваше тело на 50% легче нормы для вашего вида. Переносить и тащить предметы станет сложнее.
+
+trait-name-Bodybuilder = Качок
+trait-description-Bodybuilder =
+    Ваша мускулатура развита до предела. Поднимать и тащить предметы станет легче.
+
+trait-name-RestrictedGear = Контрабанда
+trait-description-RestrictedGear =
+    У вас есть доступ к нестандартному для вашей должности снаряжению. [color=red]Это не делает его легальным![/color] — скрывайте или обосновывайте его наличие у себя.
+
+trait-name-SurgeryTraining = Хирургическая Подготовка
+trait-description-SurgeryTraining =
+    В прошлом вы освоили основы хирургии, что позволяет вам выполнять операции с нормальной скоростью.
+
+trait-name-ExperiencedSurgeon = Опытный Хирург
+trait-description-ExperiencedSurgeon =
+    Хирургия - ваша стезя. Никто не сравнится с вами в скорости проведения операций.
+
+trait-name-BionicPryArm = Протез-лом
+trait-description-BionicPryArm =
+    Ваши руки усилены сталью и гидравликой и могут взламывать обесточенные двери (как лом).
+
+trait-name-Moffic = Моффский
+trait-description-Moffic =
+    Язык молей почти невозможно различить. Доступен только расам с совместимыми речевыми аппаратами (КПБ, гарпии, хитиниды).
+
+trait-name-Chittin = Хитиновый
+trait-description-Chittin =
+    Язык щелчков и жужжания. Без антенн или синтезатора речи звучит как шум.
+
+trait-name-IPCInefficientCogitator = Устаревший Процессор
+trait-description-IPCInefficientCogitator =
+    Ваш устаревший процессор потребляет на 33% больше энергии.
+
+trait-name-IPCBrittleBoneDisease = Дефектный Корпус
+trait-description-IPCBrittleBoneDisease =
+    Хрупкие компоненты вашего корпуса снижают порог уничтожения на 60 очков здоровья.
+
+trait-name-Manic = Manic
+trait-description-Manic = Your perception of the world is subject to varying intensities. Anything that affects your mood will have its effects multiplied by between 0.7 and 1.3.
+
+trait-name-Mercurial = Mercurial
+trait-description-Mercurial = Your mood fluctuates regularly, causing you to have a random modifier to your mood that is always somewhere between -10 and +10.
+
+trait-name-DeadEmotions = Dead Emotions
+trait-description-DeadEmotions = You feel nothing, and are completely unaffected by all positive or negative mood modifiers.
+
+trait-name-IPCFaultyWaterproofing = Негерметичный Корпус
+trait-description-IPCFaultyWaterproofing =
+    В следствие поломки или технической недоработки вашего корпуса вода наносит вам [color=orange]шоковый[/color] урон.
+faultyWaterproofing-damage-popup = Вода вызывает внутри вас короткое замыкание!
+
+trait-name-IPCFragileCircuits = Хрупкие Микросхемы
+trait-description-IPCFragileCircuits =
+    Ваша система не переносит электрических перегрузок. Любой [color=orange]шоковый[/color] урон моментально отключает вас.
+fragileCircuits-kill-popup = {$name} отключился из-за короткого замыкания!
+trait-name-SuperiorRadiationShielding = Superior Radiation Shielding
+trait-description-SuperiorRadiationShielding =
+    Your chassis has been outfitted with superior radiation shielding, protecting your circuitry from all but the most extreme radiation sources.
+    Your innate flat damage reduction to [color=yellow]Radiation[/color] is increased from [color=green]1[/color] to [color=blue]5[/color].
+
+trait-name-G2Chassis = G2 Chassis
+trait-description-G2Chassis =
+    Your chassis has been manufactured to military specifications.
+    You have an innate [color=blue]7%[/color] chance for incoming projectiles to deflect off of your armored hull.
+
+trait-name-HardenedCircuits = Hardened Circuits
+trait-description-HardenedCircuits =
+    Your internal components have been reinforced with shock absorbing metal-foam.
+    You gain a [color=blue]20%[/color] resistance to explosive damage.
+    Your [color=red]weakness[/color] to [color=yellow]Shock[/color] has been inverted to a [color=green]resistance[/color]
+
+trait-name-CyberneticLeftLeg = Cybernetic Left Leg
+trait-description-CyberneticLeftLeg =
+    Your left leg has been replaced with a baseline cybernetic leg.
+    This does not cost any trait slot selections.
+
+trait-name-CyberneticRightLeg = Cybernetic Right Leg
+trait-description-CyberneticRightLeg =
+    Your right leg has been replaced with a baseline cybernetic leg.
+    This does not cost any trait slot selections.
+trait-name-Dwarf = Dwarf
+trait-description-Dwarf =
+    You are not just short and stout... You are a dwarf.
+    You get alcohol healing, you are resistant to poison, you also do not vomit when drunk.
+
+trait-name-Kobold = Kobold
+trait-description-Kobold =
+    You are not just short and stout... You are a kobold.
+    You get alcohol healing, you are resistant to poison, you also do not vomit when drunk.
+
+trait-name-ForkedTongue = Forked Tongue
+trait-description-ForkedTongue =
+    You have a more developed forked tongue that allows you to track and distinguish objects by their scent.
+
+trait-name-StuntedSnout = Stunted Snout
+trait-description-StuntedSnout =
+    Your sense of smell is stunted for one reason or another. You lack the ability to pick up scents.

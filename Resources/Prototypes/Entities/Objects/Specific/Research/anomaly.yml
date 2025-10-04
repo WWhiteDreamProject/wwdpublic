@@ -53,6 +53,7 @@
   - type: ProximityDetector
     range: 20
     criteria:
+      requireAll: true
       components:
       - Anomaly
   - type: Beeper
@@ -98,6 +99,7 @@
     maxBeepInterval: 0.5
   - type: ProximityDetector
     range: 40
+
 - type: entity
   id: AnomalyLocatorWide
   parent: [ AnomalyLocatorWideUnpowered, PowerCellSlotSmallItem ]
@@ -153,3 +155,10 @@
   - type: ContainerContainer
     containers:
       core_slot: !type:ContainerSlot
+  - type: DamageOnAttackedProtection
+    damageProtection:
+      flatReductions:
+        Heat: 100
+        Cold: 100
+        Radiation: 100
+    slots: NONE

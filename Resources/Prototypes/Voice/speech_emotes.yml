@@ -1,4 +1,4 @@
-# vocal emotes
+﻿# vocal emotes
 - type: emote
   id: Scream
   name: chat-emote-name-scream
@@ -167,6 +167,22 @@
   - "chat-emote-trigger-clap-1" # WD EDIT
 
 - type: emote
+  id: ClapSingle
+  name: chat-emote-name-clap-single
+  category: Hands
+  icon: Interface/Emotes/clap.png #TODO: Needs a sprite that distinguishes it better from clap
+  whitelist:
+    components:
+    - Hands
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: [ "chat-emote-msg-clap-single" ]
+  chatTriggers:
+  - clap
+  - claps their hands together
+
+- type: emote
   id: Snap
   name: chat-emote-name-snap
   category: Hands
@@ -190,6 +206,31 @@
   # WD EDIT END
 
 - type: emote
+  id: Thump
+  name: chat-emote-name-thump
+  category: Hands
+  available: false
+  icon: Interface/Emotes/tailslap.png
+  whitelist:
+    components:
+    - Hands
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-thump"]
+  chatTriggers:
+  - thump
+  - thumps
+  - thumping
+  - thumped
+  - thump tail
+  - thumps tail
+  - thumps their tail
+  - thumps her tail
+  - thumps his tail
+  - thumps its tail
+
+- type: emote
   id: Salute
   name: chat-emote-name-salute
   category: Hands
@@ -207,6 +248,18 @@
   - "chat-emote-trigger-salute-2"
   - "chat-emote-trigger-salute-3"
   # WD EDIT END
+
+- type: emote
+  id: Gasp
+  name: chat-emote-name-gasp
+  whitelist:
+    components:
+    - Respirator
+  chatMessages: ["chat-emote-msg-gasp"]
+  chatTriggers:
+  - gasp
+  - gasps
+  - gasped
 
 - type: emote
   id: DefaultDeathgasp
@@ -269,16 +322,28 @@
   # WD EDIT END
 
 - type: emote
+  id: Hew
+  name: chat-emote-name-hew
+  category: Vocal
+  icon: Interface/Emotes/hew.png
+  chatMessages: ["chat-emote-msg-hew"]
+
+- type: emote
   id: Chirp
   name: chat-emote-name-chirp
   category: Vocal
+  available: false
   icon: Interface/Emotes/chirp.png
   whitelist:
     requireAll: false
     components:
     - Nymph
+    - Vocal
     tags:
     - HarpyEmotes
+  blacklist:
+    components:
+    - BorgChassis
   chatMessages: ["chat-emote-msg-chirp"]
   chatTriggers:
   - "chat-emote-trigger-chirp-1" # WD EDIT

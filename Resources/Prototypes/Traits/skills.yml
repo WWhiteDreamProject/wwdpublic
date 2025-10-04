@@ -217,7 +217,7 @@
   functions:
     - !type:TraitAddComponent
       components:
-        - type: StepTriggerImmune
+        - type: ProtectedFromStepTriggers
           whitelist:
             types:
               - Shard
@@ -262,7 +262,7 @@
     - !type:TraitAddComponent
       components:
         - type: SurgerySpeedModifier
-          speedModifier: 1.6
+          speedModifier: 3 # WWDP
   requirements:
     - !type:CharacterJobRequirement
       inverted: true
@@ -283,7 +283,7 @@
     - !type:TraitReplaceComponent
       components:
       - type: SurgerySpeedModifier
-        speedModifier: 2.3
+        speedModifier: 5 # WWDP
   requirements:
     - !type:CharacterJobRequirement
       jobs:

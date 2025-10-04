@@ -63,6 +63,7 @@
         - Muted
         - Pacified
         - StaminaModifier
+        - Flashed
     - type: Blindable
     - type: ThermalRegulator
       metabolismHeat: 800
@@ -71,7 +72,7 @@
       sweatHeatRegulation: 2000
       shiveringHeatRegulation: 2000
       normalBodyTemperature: 310.15
-      thermalRegulationTemperatureThreshold: 25
+      thermalRegulationTemperatureThreshold: 0.4 # WWDP
     - type: Perishable
     - type: FireVisuals
       alternateState: Standing
@@ -219,10 +220,7 @@
     - type: MovementSpeedModifier
       baseWalkSpeed: 2.7
       baseSprintSpeed: 4.5
-    - type: Flashable
-      eyeDamageChance: 0.3
-      eyeDamage: 1
-      durationMultiplier: 1.5
+    - type: EyeDamageOnFlashing
     - type: Speech
       allowedEmotes: ['Mars', 'Wurble']
     - type: Shadowkin

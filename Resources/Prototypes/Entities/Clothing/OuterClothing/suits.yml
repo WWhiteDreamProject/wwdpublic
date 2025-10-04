@@ -28,7 +28,7 @@
     - WhitelistChameleon
     - FullBodyOuter
     - HidesHarpyWings
-  - type: ClothingRequiredStepTriggerImmune
+  - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
 
 - type: entity
@@ -61,14 +61,15 @@
   description: A suit that helps protect against hazardous temperatures.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Suits/fire.rsi
+    sprite: _White/Clothing/OuterClothing/Suits/fire.rsi # WWDP edit (spaceman)
   - type: Clothing
-    sprite: Clothing/OuterClothing/Suits/fire.rsi
+    sprite: _White/Clothing/OuterClothing/Suits/fire.rsi # WWDP edit (spaceman)
     clothingType: suit # WD EDIT
   - type: PressureProtection
     highPressureMultiplier: 0.04
   - type: TemperatureProtection
-    coefficient: 0.005
+    heatingCoefficient: 0.005
+    coolingCoefficient: 0.05
   - type: FireProtection
     reduction: 0.65 # doesnt have a full seal so not as good
   - type: Armor
@@ -82,12 +83,12 @@
     sprintModifier: 0.7
   - type: HeldSpeedModifier
   - type: GroupExamine
-  - type: ClothingRequiredStepTriggerImmune
+  - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
   - type: Tag
     tags:
-      - WhitelistChameleon
-      - HidesHarpyWings
+    - WhitelistChameleon
+    - HidesHarpyWings
 
 - type: entity
   parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing]
@@ -95,36 +96,37 @@
   name: atmos fire suit
   description: An expensive firesuit that protects against even the most deadly of station fires. Designed to protect even if the wearer is set aflame.
   components:
-    - type: Sprite
-      sprite: Clothing/OuterClothing/Suits/atmos_firesuit.rsi
-    - type: Clothing
-      sprite: Clothing/OuterClothing/Suits/atmos_firesuit.rsi
-      clothingType: suit # WD EDIT
-    - type: PressureProtection
-      highPressureMultiplier: 0.02
-      lowPressureMultiplier: 1000
-    - type: TemperatureProtection
-      coefficient: 0.001
-    - type: FireProtection
-      reduction: 0.8 # atmos firesuit offers best protection, hardsuits are a little vulnerable
-    - type: Armor
-      modifiers:
-        coefficients:
-          Slash: 0.9
-          Heat: 0.8
-          Cold: 0.8
-    - type: ClothingSpeedModifier
-      walkModifier: 0.8
-      sprintModifier: 0.8
-    - type: HeldSpeedModifier
-    - type: GroupExamine
-    - type: ClothingRequiredStepTriggerImmune
-      slots: WITHOUT_POCKET
-    - type: Tag
-      tags:
-        - FullBodyOuter
-        - WhitelistChameleon
-        - HidesHarpyWings
+  - type: Sprite
+    sprite: _White/Clothing/OuterClothing/Suits/atmos_firesuit.rsi # WWDP edit (spaceman)
+  - type: Clothing
+    sprite: _White/Clothing/OuterClothing/Suits/atmos_firesuit.rsi # WWDP edit (spaceman)
+    clothingType: suit # WD EDIT
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    heatingCoefficient: 0.001
+    coolingCoefficient: 0.05
+  - type: FireProtection
+    reduction: 0.85 # WWDP
+  - type: Armor
+    modifiers:
+      coefficients:
+        Slash: 0.9
+        Heat: 0.8
+        Cold: 0.8
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.8
+  - type: HeldSpeedModifier
+  - type: GroupExamine
+  - type: ProtectedFromStepTriggers
+    slots: WITHOUT_POCKET
+  - type: Tag
+    tags:
+    - FullBodyOuter
+    - WhitelistChameleon
+    - HidesHarpyWings
 
 - type: entity
   parent: [ClothingOuterBaseLarge, GeigerCounterClothing, AllowSuitStorageClothing]
@@ -149,16 +151,16 @@
   - type: ContainerContainer
     containers:
       toggleable-clothing: !type:Container {}
-  - type: ClothingRequiredStepTriggerImmune
+  - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
   - type: Tag
     tags:
-      - FullBodyOuter
-      - WhitelistChameleon
-      - HidesHarpyWings
+    - FullBodyOuter
+    - WhitelistChameleon
+    - HidesHarpyWings
 
 - type: entity
-  parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing, BaseToggleClothing]
+  parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing, BaseToggleClothing, BaseMajorContraband]
   id: ClothingOuterSuitSpaceNinja
   name: space ninja suit
   description: This black technologically advanced, cybernetically-enhanced suit provides many abilities like invisibility or teleportation.
@@ -173,7 +175,8 @@
     highPressureMultiplier: 0.6
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
-    coefficient: 0.01
+    heatingCoefficient: 0.1 # WD EDIT: 0.01 -> 0.1
+    coolingCoefficient: 0.1 # WD EDIT: 0.01 -> 0.1
   - type: Armor
     modifiers:
       coefficients:
@@ -184,6 +187,7 @@
   # phase cloak
   - type: ToggleClothing
     action: ActionTogglePhaseCloak
+    disableOnUnequip: true
   - type: ComponentToggler
     parent: true
     components:
@@ -216,10 +220,13 @@
         name: power-cell-slot-component-slot-name-default
         startingItem: PowerCellSmall
         disableEject: true
+        whitelist:
+          tags:
+          - PowerCell
   - type: Unremoveable
 
 - type: entity
-  parent: ClothingOuterBase
+  parent: ClothingOuterBaseButcherable # WWDP
   id: ClothingOuterSuitChicken
   name: chicken suit
   description: Bok bok bok!
@@ -229,14 +236,14 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Suits/chicken.rsi
     clothingType: suit # WD EDIT
-  - type: ClothingRequiredStepTriggerImmune
+  - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
   - type: Tag
     tags:
-      - FullBodyOuter
+    - FullBodyOuter
 
 - type: entity
-  parent: ClothingOuterBase
+  parent: ClothingOuterBaseButcherable # WWDP
   id: ClothingOuterSuitShrineMaiden
   name: shrine maiden outfit
   description: Makes you want to go deal with some troublesome youkai.
@@ -248,7 +255,7 @@
     clothingType: suit # WD EDIT
 
 - type: entity
-  parent: ClothingOuterBase
+  parent: ClothingOuterBaseButcherable # WWDP
   id: ClothingOuterSuitMonkey
   name: monkey suit
   description: A suit that looks like a primate.
@@ -261,11 +268,11 @@
   - type: ContainerContainer
     containers:
       toggleable-clothing: !type:Container {}
-  - type: ClothingRequiredStepTriggerImmune
+  - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
   - type: Tag
     tags:
-      - FullBodyOuter
+    - FullBodyOuter
 
 - type: entity
   parent: ClothingOuterBase
@@ -288,7 +295,7 @@
   - type: Construction
     graph: ClothingOuterSuitIan
     node: suit
-  - type: ClothingRequiredStepTriggerImmune
+  - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
 
 - type: entity
@@ -319,12 +326,13 @@
     highPressureMultiplier: 0.6
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
-    coefficient: 0.01
+    heatingCoefficient: 0.1 # WD EDIT: 0.01 -> 0.1
+    coolingCoefficient: 0.1 # WD EDIT: 0.01 -> 0.1
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitCarp
 
 - type: entity # From Upstream
-  parent: ClothingOuterBase
+  parent: ClothingOuterStorageBase # WWDP
   id: ClothingOuterSuitWitchRobes
   name: witch robes
   description: Magic is all about the spell power, ZE!

@@ -1,0 +1,427 @@
+﻿- type: decal
+  id: MonotileFrame
+  parent: A_StationDecal
+  abstract: true
+
+- type: decal
+  id: MonotileFrameDark
+  parent: MonotileFrame
+  abstract: true
+
+- type: decal
+  id: MonotileFrameSteel
+  parent: MonotileFrame
+  abstract: true
+
+- type: decal
+  id: MonotileFrameWhite
+  parent: MonotileFrame
+  abstract: true
+
+- type: decal
+  id: MonotileFrameDarkBox
+  parent: MonotileFrameDark
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/monotile_frame.rsi
+    state: dark_box
+
+- type: decal
+  id: MonotileFrameDarkCornerNe
+  parent: MonotileFrameDark
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/monotile_frame.rsi
+    state: dark_corner_ne
+
+- type: decal
+  id: MonotileFrameDarkCornerSe
+  parent: MonotileFrameDark
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/monotile_frame.rsi
+    state: dark_corner_se
+
+- type: decal
+  id: MonotileFrameDarkCornerNw
+  parent: MonotileFrameDark
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/monotile_frame.rsi
+    state: dark_corner_nw
+
+- type: decal
+  id: MonotileFrameDarkCornerSw
+  parent: MonotileFrameDark
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/monotile_frame.rsi
+    state: dark_corner_sw
+
+- type: decal
+  id: MonotileFrameDarkInnerNe
+  parent: MonotileFrameDark
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/monotile_frame.rsi
+    state: dark_inner_ne
+
+- type: decal
+  id: MonotileFrameDarkInnerSe
+  parent: MonotileFrameDark
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/monotile_frame.rsi
+    state: dark_inner_se
+
+- type: decal
+  id: MonotileFrameDarkInnerNw
+  parent: MonotileFrameDark
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/monotile_frame.rsi
+    state: dark_inner_nw
+
+- type: decal
+  id: MonotileFrameDarkInnerSw
+  parent: MonotileFrameDark
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/monotile_frame.rsi
+    state: dark_inner_sw
+
+- type: decal
+  id: MonotileFrameDarkEndN
+  parent: MonotileFrameDark
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/monotile_frame.rsi
+    state: dark_end_n
+
+- type: decal
+  id: MonotileFrameDarkEndE
+  parent: MonotileFrameDark
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/monotile_frame.rsi
+    state: dark_end_e
+
+- type: decal
+  id: MonotileFrameDarkEndS
+  parent: MonotileFrameDark
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/monotile_frame.rsi
+    state: dark_end_s
+
+- type: decal
+  id: MonotileFrameDarkEndW
+  parent: MonotileFrameDark
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/monotile_frame.rsi
+    state: dark_end_w
+
+- type: decal
+  id: MonotileFrameDarkLineN
+  parent: MonotileFrameDark
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/monotile_frame.rsi
+    state: dark_line_n
+
+- type: decal
+  id: MonotileFrameDarkLineE
+  parent: MonotileFrameDark
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/monotile_frame.rsi
+    state: dark_line_e
+
+- type: decal
+  id: MonotileFrameDarkLineS
+  parent: MonotileFrameDark
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/monotile_frame.rsi
+    state: dark_line_s
+
+- type: decal
+  id: MonotileFrameDarkLineW
+  parent: MonotileFrameDark
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/monotile_frame.rsi
+    state: dark_line_w
+
+- type: decal
+  id: MonotileFrameSteelBox
+  parent: MonotileFrameSteel
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/monotile_frame.rsi
+    state: steel_box
+
+- type: decal
+  id: MonotileFrameSteelCornerNe
+  parent: MonotileFrameSteel
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/monotile_frame.rsi
+    state: steel_corner_ne
+
+- type: decal
+  id: MonotileFrameSteelCornerSe
+  parent: MonotileFrameSteel
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/monotile_frame.rsi
+    state: steel_corner_se
+
+- type: decal
+  id: MonotileFrameSteelCornerNw
+  parent: MonotileFrameSteel
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/monotile_frame.rsi
+    state: steel_corner_nw
+
+- type: decal
+  id: MonotileFrameSteelCornerSw
+  parent: MonotileFrameSteel
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/monotile_frame.rsi
+    state: steel_corner_sw
+
+- type: decal
+  id: MonotileFrameSteelInnerNe
+  parent: MonotileFrameSteel
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/monotile_frame.rsi
+    state: steel_inner_ne
+
+- type: decal
+  id: MonotileFrameSteelInnerSe
+  parent: MonotileFrameSteel
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/monotile_frame.rsi
+    state: steel_inner_se
+
+- type: decal
+  id: MonotileFrameSteelInnerNw
+  parent: MonotileFrameSteel
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/monotile_frame.rsi
+    state: steel_inner_nw
+
+- type: decal
+  id: MonotileFrameSteelInnerSw
+  parent: MonotileFrameSteel
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/monotile_frame.rsi
+    state: steel_inner_sw
+
+- type: decal
+  id: MonotileFrameSteelEndN
+  parent: MonotileFrameSteel
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/monotile_frame.rsi
+    state: steel_end_n
+
+- type: decal
+  id: MonotileFrameSteelEndE
+  parent: MonotileFrameSteel
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/monotile_frame.rsi
+    state: steel_end_e
+
+- type: decal
+  id: MonotileFrameSteelEndS
+  parent: MonotileFrameSteel
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/monotile_frame.rsi
+    state: steel_end_s
+
+- type: decal
+  id: MonotileFrameSteelEndW
+  parent: MonotileFrameSteel
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/monotile_frame.rsi
+    state: steel_end_w
+
+- type: decal
+  id: MonotileFrameSteelLineN
+  parent: MonotileFrameSteel
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/monotile_frame.rsi
+    state: steel_line_n
+
+- type: decal
+  id: MonotileFrameSteelLineE
+  parent: MonotileFrameSteel
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/monotile_frame.rsi
+    state: steel_line_e
+
+- type: decal
+  id: MonotileFrameSteelLineS
+  parent: MonotileFrameSteel
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/monotile_frame.rsi
+    state: steel_line_s
+
+- type: decal
+  id: MonotileFrameSteelLineW
+  parent: MonotileFrameSteel
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/monotile_frame.rsi
+    state: steel_line_w
+
+- type: decal
+  id: MonotileFrameWhiteBox
+  parent: MonotileFrameWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/monotile_frame.rsi
+    state: white_box
+
+- type: decal
+  id: MonotileFrameWhiteCornerNe
+  parent: MonotileFrameWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/monotile_frame.rsi
+    state: white_corner_ne
+
+- type: decal
+  id: MonotileFrameWhiteCornerSe
+  parent: MonotileFrameWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/monotile_frame.rsi
+    state: white_corner_se
+
+- type: decal
+  id: MonotileFrameWhiteCornerNw
+  parent: MonotileFrameWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/monotile_frame.rsi
+    state: white_corner_nw
+
+- type: decal
+  id: MonotileFrameWhiteCornerSw
+  parent: MonotileFrameWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/monotile_frame.rsi
+    state: white_corner_sw
+
+- type: decal
+  id: MonotileFrameWhiteInnerNe
+  parent: MonotileFrameWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/monotile_frame.rsi
+    state: white_inner_ne
+
+- type: decal
+  id: MonotileFrameWhiteInnerSe
+  parent: MonotileFrameWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/monotile_frame.rsi
+    state: white_inner_se
+
+- type: decal
+  id: MonotileFrameWhiteInnerNw
+  parent: MonotileFrameWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/monotile_frame.rsi
+    state: white_inner_nw
+
+- type: decal
+  id: MonotileFrameWhiteInnerSw
+  parent: MonotileFrameWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/monotile_frame.rsi
+    state: white_inner_sw
+
+- type: decal
+  id: MonotileFrameWhiteEndN
+  parent: MonotileFrameWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/monotile_frame.rsi
+    state: white_end_n
+
+- type: decal
+  id: MonotileFrameWhiteEndE
+  parent: MonotileFrameWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/monotile_frame.rsi
+    state: white_end_e
+
+- type: decal
+  id: MonotileFrameWhiteEndS
+  parent: MonotileFrameWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/monotile_frame.rsi
+    state: white_end_s
+
+- type: decal
+  id: MonotileFrameWhiteEndW
+  parent: MonotileFrameWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/monotile_frame.rsi
+    state: white_end_w
+
+- type: decal
+  id: MonotileFrameWhiteLineN
+  parent: MonotileFrameWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/monotile_frame.rsi
+    state: white_line_n
+
+- type: decal
+  id: MonotileFrameWhiteLineE
+  parent: MonotileFrameWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/monotile_frame.rsi
+    state: white_line_e
+
+- type: decal
+  id: MonotileFrameWhiteLineS
+  parent: MonotileFrameWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/monotile_frame.rsi
+    state: white_line_s
+
+- type: decal
+  id: MonotileFrameWhiteLineW
+  parent: MonotileFrameWhite
+  tags: ["station", "markings"]
+  sprite:
+    sprite: _White/Decals/monotile_frame.rsi
+    state: white_line_w

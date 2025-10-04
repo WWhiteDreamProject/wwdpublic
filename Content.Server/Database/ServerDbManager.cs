@@ -1,14 +1,10 @@
-using System.Collections.Immutable;
-using System.IO;
-using System.Net;
-using System.Text.Json;
-using System.Threading;
-using System.Threading.Tasks;
 using Content.Server.Administration.Logs;
+using Content.Shared._White.CustomGhostSystem;
 using Content.Shared.Administration.Logs;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Content.Shared.Preferences;
+using Content.Shared.Roles;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -17,10 +13,15 @@ using Prometheus;
 using Robust.Shared.Configuration;
 using Robust.Shared.ContentPack;
 using Robust.Shared.Network;
+using Robust.Shared.Prototypes;
+using System.Collections.Immutable;
+using System.IO;
+using System.Net;
+using System.Text.Json;
+using System.Threading;
+using System.Threading.Tasks;
 using LogLevel = Robust.Shared.Log.LogLevel;
 using MSLogLevel = Microsoft.Extensions.Logging.LogLevel;
-using Content.Shared.Roles;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server.Database
 {
@@ -41,6 +42,8 @@ namespace Content.Server.Database
         Task SaveCharacterSlotAsync(NetUserId userId, ICharacterProfile? profile, int slot);
 
         Task SaveAdminOOCColorAsync(NetUserId userId, Color color);
+
+        Task SaveGhostTypeAsync(NetUserId userId, ProtoId<CustomGhostPrototype> ghostProto); // WWDP EDIT
 
         // Single method for two operations for transaction.
         Task DeleteSlotAndSetSelectedIndex(NetUserId userId, int deleteSlot, int newSlot);
@@ -93,7 +96,7 @@ namespace Content.Server.Database
             NetUserId? userId,
             ImmutableArray<byte>? hwId,
             ImmutableArray<ImmutableArray<byte>>? modernHWIds,
-            bool includeUnbanned=true);
+            bool includeUnbanned = true);
 
         Task AddServerBanAsync(ServerBanDef serverBan);
         Task AddServerUnbanAsync(ServerUnbanDef serverBan);
@@ -217,6 +220,16 @@ namespace Content.Server.Database
         Task AddAdminAsync(Admin admin, CancellationToken cancel = default);
         Task UpdateAdminAsync(Admin admin, CancellationToken cancel = default);
 
+        /// <summary>
+        /// Update whether an admin has voluntarily deadminned.
+        /// </summary>
+        /// <remarks>
+        /// This does nothing if the player is not an admin.
+        /// </remarks>
+        /// <param name="userId">The user ID of the admin.</param>
+        /// <param name="deadminned">Whether the admin is deadminned or not.</param>
+        Task UpdateAdminDeadminnedAsync(NetUserId userId, bool deadminned, CancellationToken cancel = default);
+
         Task RemoveAdminRankAsync(int rankId, CancellationToken cancel = default);
         Task AddAdminRankAsync(AdminRank rank, CancellationToken cancel = default);
         Task UpdateAdminRankAsync(AdminRank rank, CancellationToken cancel = default);
@@ -319,6 +332,14 @@ namespace Content.Server.Database
         Task<bool> IsJobWhitelisted(Guid player, ProtoId<JobPrototype> job);
 
         Task<bool> RemoveJobWhitelist(Guid player, ProtoId<JobPrototype> job);
+
+        #endregion
+
+        #region IPintel
+
+        Task<bool> UpsertIPIntelCache(DateTime time, IPAddress ip, float score);
+        Task<IPIntelCache?> GetIPIntelCache(IPAddress ip);
+        Task<bool> CleanIPIntelCache(TimeSpan range);
 
         #endregion
 
@@ -460,6 +481,14 @@ namespace Content.Server.Database
             return RunDbCommand(() => _db.SaveAdminOOCColorAsync(userId, color));
         }
 
+        // WWDP EDIT START
+        public Task SaveGhostTypeAsync(NetUserId userId, ProtoId<CustomGhostPrototype> ghostProto)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.SaveGhostTypeAsync(userId, ghostProto));
+        }
+        // WWDP EDIT END
+
         public Task<PlayerPreferences?> GetPlayerPreferencesAsync(NetUserId userId, CancellationToken cancel)
         {
             DbReadOpsMetric.Inc();
@@ -499,7 +528,7 @@ namespace Content.Server.Database
             NetUserId? userId,
             ImmutableArray<byte>? hwId,
             ImmutableArray<ImmutableArray<byte>>? modernHWIds,
-            bool includeUnbanned=true)
+            bool includeUnbanned = true)
         {
             DbReadOpsMetric.Inc();
             return RunDbCommand(() => _db.GetServerBansAsync(address, userId, hwId, modernHWIds, includeUnbanned));
@@ -664,6 +693,12 @@ namespace Content.Server.Database
         {
             DbWriteOpsMetric.Inc();
             return RunDbCommand(() => _db.UpdateAdminAsync(admin, cancel));
+        }
+
+        public Task UpdateAdminDeadminnedAsync(NetUserId userId, bool deadminned, CancellationToken cancel = default)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.UpdateAdminDeadminnedAsync(userId, deadminned, cancel));
         }
 
         public Task RemoveAdminRankAsync(int rankId, CancellationToken cancel = default)
@@ -989,6 +1024,23 @@ namespace Content.Server.Database
         {
             DbWriteOpsMetric.Inc();
             return RunDbCommand(() => _db.RemoveJobWhitelist(player, job));
+        }
+
+        public Task<bool> UpsertIPIntelCache(DateTime time, IPAddress ip, float score)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.UpsertIPIntelCache(time, ip, score));
+        }
+
+        public Task<IPIntelCache?> GetIPIntelCache(IPAddress ip)
+        {
+            return RunDbCommand(() => _db.GetIPIntelCache(ip));
+        }
+
+        public Task<bool> CleanIPIntelCache(TimeSpan range)
+        {
+            DbWriteOpsMetric.Inc();
+            return RunDbCommand(() => _db.CleanIPIntelCache(range));
         }
 
         public void SubscribeToNotifications(Action<DatabaseNotification> handler)

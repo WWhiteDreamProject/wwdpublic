@@ -26,9 +26,9 @@ tilemap:
   47: FloorLowDesert
   43: FloorMS13WoodFancy
   42: FloorMS13WoodFancyDamaged
-  12: FloorMetalDiamond
+  12: FloorMetalDiamondSteel
   25: FloorMime
-  20: FloorMono
+  20: FloorTrueMonoTileSteel
   39: FloorMowedAstroGrass
   19: FloorPlanetDirt
   17: FloorRGlass
@@ -46,7 +46,7 @@ tilemap:
   13: FloorSteelOffset
   31: FloorSteelPavement
   32: FloorSteelPavementVertical
-  11: FloorTechMaint2
+  11: FloorMaintWhite
   9: FloorWhite
   40: FloorWhiteMini
   5: FloorWhiteMono
@@ -34269,7 +34269,7 @@ entities:
     - type: Transform
       pos: -6.718548,1.6718938
       parent: 2
-- proto: DungeonMasterCircuitBoard
+- proto: GameMasterCircuitBoard
   entities:
   - uid: 10813
     components:
@@ -36652,7 +36652,7 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
-- proto: FloraRockSolid01
+- proto: FloraRockSolid
   entities:
   - uid: 5327
     components:

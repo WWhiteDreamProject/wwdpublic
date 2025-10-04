@@ -8,6 +8,8 @@ using Content.Shared.Paint;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
 using Content.Shared.Station;
+using Content.Shared.Storage;
+using Content.Shared.Storage.EntitySystems;
 using JetBrains.Annotations;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
@@ -28,6 +30,7 @@ public sealed class SharedLoadoutSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedTransformSystem _sharedTransformSystem = default!;
     [Dependency] private readonly ILogManager _log = default!;
+    [Dependency] private readonly SharedStorageSystem _storage = default!; // wWDP
 
     private ISawmill _sawmill = default!;
 
@@ -140,6 +143,21 @@ public sealed class SharedLoadoutSystem : EntitySystem
                             if (!_inventory.TryGetSlotEntity(uid, curSlot.Name, out var slotItem))
                                 continue;
 
+                            // WWDP edit start - save stored items
+                            if (TryComp<StorageComponent>(slotItem, out var storage))
+                            {
+                                foreach (var storeditem in storage.Container.ContainedEntities.ToArray())
+
+                                    // try to insert into the new container; drop and save as failed if not possible
+                                    if (TryComp<StorageComponent>(item, out var newStorage)
+                                        && !_storage.Insert(item, storeditem, out _, storageComp: newStorage, playSound: false))
+                                    {
+                                        _sharedTransformSystem.DropNextTo(storeditem, uid);
+                                        failedLoadouts.Add(storeditem);
+                                    }
+                            }
+                            // WWDP edit end
+
                             EntityManager.DeleteEntity(slotItem.Value);
                             deleted = true;
                         }
@@ -179,6 +197,7 @@ public abstract partial class Loadout
     [DataField] public string LoadoutName { get; set; }
     [DataField] public string? CustomName { get; set; }
     [DataField] public string? CustomDescription { get; set; }
+    [DataField] public string? CustomContent { get; set; } // WD EDIT
     [DataField] public string? CustomColorTint { get; set; }
     [DataField] public bool? CustomHeirloom { get; set; }
 
@@ -186,6 +205,7 @@ public abstract partial class Loadout
         string loadoutName,
         string? customName = null,
         string? customDescription = null,
+        string? customContent = null, // WD EDIT
         string? customColorTint = null,
         bool? customHeirloom = null
     )
@@ -193,6 +213,7 @@ public abstract partial class Loadout
         LoadoutName = loadoutName;
         CustomName = customName;
         CustomDescription = customDescription;
+        CustomContent = customContent; // WD EDIT
         CustomColorTint = customColorTint;
         CustomHeirloom = customHeirloom;
     }
@@ -207,9 +228,10 @@ public sealed partial class LoadoutPreference : Loadout
         string loadoutName,
         string? customName = null,
         string? customDescription = null,
+        string? customContent = null, // WD EDIT
         string? customColorTint = null,
         bool? customHeirloom = null
-    ) : base(loadoutName, customName, customDescription, customColorTint, customHeirloom) { }
+    ) : base(loadoutName, customName, customDescription, customContent, customColorTint, customHeirloom) { } // WD EDIT
 }
 
 /// <summary>

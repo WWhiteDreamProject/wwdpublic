@@ -1,50 +1,57 @@
 <Document>
-# Chemist
-Now you've done it, you picked the one job where -math- is mandatory. Grab your beaker, pull up a chair, and get cracking, it's time to cook up some chems.
 
-While chemists primarily make medications, there's a very wide variety of chemicals that can be made, all of which are showcased in the Chemicals section of the Guidebook.
+  # Химик
 
-## Equipment:
+  Ну всё, попался. Ты выбрал ту самую работу, где без математики — никуда. Хватай колбу, устраивайся поудобнее — и начинай варево. Пора творить химию.
 
-<Box>
-<GuideEntityEmbed Entity="ChemDispenser"/>
-<GuideEntityEmbed Entity="ChemBag"/>
-<GuideEntityEmbed Entity="KitchenReagentGrinder"/>
-<GuideEntityEmbed Entity="ChemMaster"/>
-</Box>
-<Box>
-<GuideEntityEmbed Entity="LargeBeaker"/>
-<GuideEntityEmbed Entity="ChemistryEmptyBottle01"/>
-<GuideEntityEmbed Entity="HandLabeler"/>
-<GuideEntityEmbed Entity="Syringe"/>
-<GuideEntityEmbed Entity="PillCanister"/>
-</Box>
+  Хотя основная задача химика — производство медикаментов, возможности на этом не заканчиваются. От целебных препаратов до чистого безумия — всё доступно через химический синтез. Загляни в раздел "Химикаты" в Руководстве, если хочешь понять, на что ты теперь способен.
 
-## The Basics:
-Chemistry is fairly straightforward once you know what to expect. Here's a simple, step-by-step process on how to begin.
+  [textlink="Нажмите сюда, чтобы увидеть полный список химикатов." link="Chemicals"]
 
-- Grab a beaker, Pill Canister, and if desired, some Bottles.
-- Place the beaker in the Chemical Dispenser, and Pill Canister (or bottle) in the Chem Master.
-- Open the Chemical Dispenser UI, and make your mix. Recipies are in other sections of the guidebook.
-- Alt-click the dispenser to remove your beaker, and place it in the Chem Master.
-- Open the Chem Master UI. On the Input tab, move your mix into the buffer.
-- Move to the Output tab, customise your pill, and press the Create button.
-- Alt-click the Chem Master to get the pill bottle out. You may have to remove the beaker first.
-- Click on a table, crate, or another surface to empty the pill bottle if desired. Alternatively, store or empty it into another storage container.
+  ## Инструменты ремесла:
 
-That's it, you've made your first set of pills! Consider checking with Medical Doctors and other crew to see what else may be requested, refilling the medical kits in medbay storage, or just experimenting!
+  <Box>
+    <GuideEntityEmbed Entity="ChemDispenser"/>
+    <GuideEntityEmbed Entity="ChemBag"/>
+    <GuideEntityEmbed Entity="KitchenReagentGrinder"/>
+    <GuideEntityEmbed Entity="ChemMaster"/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="LargeBeaker"/>
+    <GuideEntityEmbed Entity="ChemistryEmptyBottle01"/>
+    <GuideEntityEmbed Entity="HandLabeler"/>
+    <GuideEntityEmbed Entity="Syringe"/>
+    <GuideEntityEmbed Entity="PillCanister"/>
+  </Box>
 
-You can also use the hand labeler to organize individual bottles or bags without using the Chem Master labeling system.
+  ## Основы профессии:
 
-## Extra Content:
+  Химия не так сложна, как кажется, если знаешь, с чего начать. Вот краткое руководство для тех, кто только снял перчатки с упаковки:
 
-Speaking of experimentation, there are a few more toy you can use when it comes to chemistry. This job requires a lot of trial and error, but it was worth mentioning that these things exist! It's up to you to figure out what to make with them.
+  - Возьми колбу, контейнер для таблеток и, при желании, пару бутылочек.
+  - Помести колбу в химдиспенсер, а контейнер — в ChemMaster.
+  - Открой интерфейс химдиспенсера и собери нужную смесь. Рецепты — в другом разделе Руководства.
+  - Alt-кликни по химдиспенсеру, чтобы достать колбу, и помести её в ChemMaster.
+  - В интерфейсе ChemMaster перейди на вкладку Input и перенеси содержимое в буфер.
+  - Перейди на вкладку Output, настрой внешний вид таблетки и нажми Create.
+  - Alt-кликни по ChemMaster, чтобы забрать готовый контейнер. Иногда сначала нужно достать колбу.
+  - Кликни по столу или ящику, чтобы высыпать таблетки, либо убери их в сумку.
 
-<Box>
-<GuideEntityEmbed Entity="ModularGrenade"/>
-<GuideEntityEmbed Entity="CableApcStack"/>
-<GuideEntityEmbed Entity="ChemicalPayload"/>
-<GuideEntityEmbed Entity="TimerTrigger"/>
-</Box>
+  Поздравляем! Твои первые таблетки готовы. Теперь — навестить докторов, заправить аптечки в медотсеке или... пойти по пути экспериментатора. Кто знает, к каким вершинам или катастрофам это приведёт?
+
+  Не забудь про ручной маркиратор — с ним можно подписывать бутылки и пакеты, не заходя в интерфейс ChemMaster. Удобно, быстро и эстетично.
+
+  ## Дополнительные игрушки:
+
+  Кстати о развлечениях. Есть ещё кое-что, чем можно заняться, если захочется поэкспериментировать. Эта работа — сплошные догадки, ошибки и успехи. Вот несколько вещей, с которыми можно повеселиться... если у тебя хватит наглости (и терпения) понять, как.
+
+  <Box>
+    <GuideEntityEmbed Entity="ModularGrenade"/>
+    <GuideEntityEmbed Entity="CableApcStack"/>
+    <GuideEntityEmbed Entity="ChemicalPayload"/>
+    <GuideEntityEmbed Entity="TimerTrigger"/>
+  </Box>
+
+  Что ты с ними сделаешь — зависит только от тебя. Но помни: каждый химик на станции — либо благословение, либо проклятие. И очень редко — что-то посередине.
 
 </Document>

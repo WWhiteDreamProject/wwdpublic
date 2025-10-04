@@ -61,11 +61,14 @@ using Content.Server.Radio.Components;
 // using Content.Shared.Heretic;
 using Content.Shared._Goobstation.Actions;
 using Content.Shared._Goobstation.Weapons.AmmoSelector;
+using Content.Shared.Chat;
 using Content.Shared.Projectiles;
 // using Content.Shared._White.Overlays;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Overlays.Switchable;
 using Content.Shared.Damage.Prototypes;
+using Content.Shared.Forensics.Components;
+
 
 namespace Content.Server.Changeling;
 
@@ -113,6 +116,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     [Dependency] private readonly RejuvenateSystem _rejuv = default!;
     [Dependency] private readonly SelectableAmmoSystem _selectableAmmo = default!;
     [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
+    [Dependency] private readonly SharedSuicideSystem _suicide = default!; // WD EDIT
 
     public EntProtoId ArmbladePrototype = "ArmBladeChangeling";
     public EntProtoId FakeArmbladePrototype = "FakeArmBladeChangeling";

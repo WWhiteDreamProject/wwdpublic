@@ -1,5 +1,6 @@
 ﻿using Content.Server.Chat.Managers;
 using Content.Server.Popups;
+using Content.Shared._Shitmed.Medical.Surgery;
 using Content.Shared.Alert;
 using Content.Shared.Chat;
 using Content.Shared.Damage;
@@ -11,27 +12,27 @@ using Content.Shared.Movement.Systems;
 using Content.Shared.Mood;
 using Content.Shared.Overlays;
 using Content.Shared.Popups;
-using Content.Shared.Traits.Assorted.Components;
-using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using Timer = Robust.Shared.Timing.Timer;
 using Robust.Server.Player;
-using Robust.Shared.Player;
 using Robust.Shared.Configuration;
 using Content.Shared.CCVar;
+using Robust.Shared.Utility;
 
 namespace Content.Server.Mood;
 
 public sealed class MoodSystem : EntitySystem
 {
-    [Dependency] private readonly AlertsSystem _alerts = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
-    [Dependency] private readonly SharedJetpackSystem _jetpack = default!;
-    [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly IChatManager _сhatManager = default!;
     [Dependency] private readonly IConfigurationManager _config = default!;
+    [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
+    [Dependency] private readonly AlertsSystem _alerts = default!;
+    [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
+    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly SharedJetpackSystem _jetpack = default!;
 
     public override void Initialize()
     {
@@ -44,10 +45,50 @@ public sealed class MoodSystem : EntitySystem
         SubscribeLocalEvent<MoodComponent, DamageChangedEvent>(OnDamageChange);
         SubscribeLocalEvent<MoodComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMoveSpeed);
         SubscribeLocalEvent<MoodComponent, MoodRemoveEffectEvent>(OnRemoveEffect);
+        SubscribeLocalEvent<MoodComponent, ShowMoodAlertEvent>(OnShowMoodAlert);
     }
 
-    private void OnShutdown(EntityUid uid, MoodComponent component, ComponentShutdown args) =>
+    private void OnShowMoodAlert(EntityUid uid, MoodComponent component, ShowMoodAlertEvent args)
+    {
+        if (!_playerManager.TryGetSessionByEntity(uid, out var session))
+            return;
+
+        var msg = $"{Loc.GetString("mood-show-effects-start")}\n";
+
+        foreach (var (_, protoId) in component.CategorisedEffects)
+        {
+            if (!_prototypeManager.TryIndex<MoodEffectPrototype>(protoId, out var proto)
+                || proto.Hidden)
+                continue;
+
+            var color = proto.MoodChange > 0 ? "#008000" : "#BA0000";
+            msg += $"[font size=10][color={color}]{proto.Description}[/color][/font]\n";
+        }
+
+        foreach (var (protoId, _) in component.UncategorisedEffects)
+        {
+            if (!_prototypeManager.TryIndex<MoodEffectPrototype>(protoId, out var proto)
+                || proto.Hidden)
+                continue;
+
+            var color = proto.MoodChange > 0 ? "#008000" : "#BA0000";
+            msg += $"[font size=10][color={color}]{proto.Description}[/color][/font]\n";
+        }
+
+        _сhatManager.ChatMessageToOne(
+            ChatChannel.Emotes,
+            msg,
+            msg,
+            EntityUid.Invalid,
+            false,
+            session.Channel);
+    }
+
+    private void OnShutdown(EntityUid uid, MoodComponent component, ComponentShutdown args)
+    {
         _alerts.ClearAlertCategory(uid, component.MoodCategory);
+        RemComp<SaturationScaleOverlayComponent>(uid);
+    }
 
     private void OnRemoveEffect(EntityUid uid, MoodComponent component, MoodRemoveEffectEvent args)
     {
@@ -57,12 +98,14 @@ public sealed class MoodSystem : EntitySystem
         if (component.UncategorisedEffects.TryGetValue(args.EffectId, out _))
             RemoveTimedOutEffect(uid, args.EffectId);
         else
+        {
             foreach (var (category, id) in component.CategorisedEffects)
                 if (id == args.EffectId)
                 {
                     RemoveTimedOutEffect(uid, args.EffectId, category);
                     return;
                 }
+        }
     }
 
     private void OnRefreshMoveSpeed(EntityUid uid, MoodComponent component, RefreshMovementSpeedModifiersEvent args)
@@ -91,7 +134,6 @@ public sealed class MoodSystem : EntitySystem
     private void OnMoodEffect(EntityUid uid, MoodComponent component, MoodEffectEvent args)
     {
         if (!_config.GetCVar(CCVars.MoodEnabled)
-            || !_config.GetCVar(CCVars.MoodEnabled)
             || !_prototypeManager.TryIndex<MoodEffectPrototype>(args.EffectId, out var prototype) )
             return;
 
@@ -162,9 +204,8 @@ public sealed class MoodSystem : EntitySystem
 
         if (category == null)
         {
-            if (!comp.UncategorisedEffects.ContainsKey(prototypeId))
+            if (!comp.UncategorisedEffects.Remove(prototypeId))
                 return;
-            comp.UncategorisedEffects.Remove(prototypeId);
         }
         else
         {
@@ -218,7 +259,7 @@ public sealed class MoodSystem : EntitySystem
     // <summary>
     //      Recalculate the mood level of an entity by summing up all moodlets.
     // </summary>
-    private void RefreshMood(EntityUid uid, MoodComponent component)
+    public void RefreshMood(EntityUid uid, MoodComponent component) // WWDP made public
     {
         var amount = 0f;
 
@@ -267,12 +308,14 @@ public sealed class MoodSystem : EntitySystem
         uid = ev.Receiver;
         amount = ev.MoodChangedAmount;
 
-        var newMoodLevel = amount + neutral;
+        var newMoodLevel = amount + neutral + ev.MoodOffset;
         if (!force)
+        {
             newMoodLevel = Math.Clamp(
                 amount + neutral,
                 component.MoodThresholds[MoodThreshold.Dead],
                 component.MoodThresholds[MoodThreshold.Perfect]);
+        }
 
         component.CurrentMoodLevel = newMoodLevel;
 
@@ -282,6 +325,7 @@ public sealed class MoodSystem : EntitySystem
             mood.NeutralMoodThreshold = component.MoodThresholds.GetValueOrDefault(MoodThreshold.Neutral);
         }
 
+        RefreshShaders(uid, component.CurrentMoodLevel);
         UpdateCurrentThreshold(uid, component);
     }
 
@@ -312,7 +356,6 @@ public sealed class MoodSystem : EntitySystem
         {
             _movementSpeedModifier.RefreshMovementSpeedModifiers(uid);
             SetCritThreshold(uid, component, modifier);
-            RefreshShaders(uid, modifier);
         }
 
         // Modify interface
@@ -324,12 +367,11 @@ public sealed class MoodSystem : EntitySystem
         component.LastThreshold = component.CurrentMoodThreshold;
     }
 
-    private void RefreshShaders(EntityUid uid, int modifier)
+    private void RefreshShaders(EntityUid uid, float mood)
     {
-        if (modifier == -1)
-            EnsureComp<SaturationScaleOverlayComponent>(uid);
-        else
-            RemComp<SaturationScaleOverlayComponent>(uid);
+        EnsureComp<SaturationScaleOverlayComponent>(uid, out var comp);
+        comp.SaturationScale = mood / 50;
+        Dirty(uid, comp);
     }
 
     private void SetCritThreshold(EntityUid uid, MoodComponent component, int modifier)
@@ -374,9 +416,13 @@ public sealed class MoodSystem : EntitySystem
             _ => 0,
         };
 
-    private void OnDamageChange(EntityUid uid, MoodComponent component, DamageChangedEvent args)
+    // WWDP edit start
+    public void UpdateDamageState(EntityUid uid, MoodComponent component)
     {
-        if (!_mobThreshold.TryGetPercentageForState(uid, MobState.Critical, args.Damageable.TotalDamage, out var damage))
+        if (!TryComp<DamageableComponent>(uid, out var damageable))
+            return;
+
+        if (!_mobThreshold.TryGetPercentageForState(uid, MobState.Critical, damageable.TotalDamage, out var damage))
             return;
 
         var protoId = "HealthNoDamage";
@@ -389,62 +435,14 @@ public sealed class MoodSystem : EntitySystem
                 value = threshold.Value;
             }
 
+        if (HasComp<NoScreamComponent>(uid)) // WWDP painkillers
+            protoId = "HealthNoDamage";
+
         var ev = new MoodEffectEvent(protoId);
         RaiseLocalEvent(uid, ev);
     }
-}
 
-[UsedImplicitly, DataDefinition]
-public sealed partial class ShowMoodEffects : IAlertClick
-{
-    public void AlertClicked(EntityUid uid)
-    {
-        var entityManager = IoCManager.Resolve<IEntityManager>();
-        var prototypeManager = IoCManager.Resolve<IPrototypeManager>();
-        var chatManager = IoCManager.Resolve<IChatManager>();
-        var playerManager = IoCManager.Resolve<IPlayerManager>();
-
-        if (!entityManager.TryGetComponent<MoodComponent>(uid, out var comp)
-            || comp.CurrentMoodThreshold == MoodThreshold.Dead
-            || !playerManager.TryGetSessionByEntity(uid, out var session))
-            return;
-
-        var msgStart = Loc.GetString("mood-show-effects-start");
-        chatManager.ChatMessageToOne(ChatChannel.Emotes, msgStart, msgStart, EntityUid.Invalid, false,
-            session.Channel);
-
-        foreach (var (_, protoId) in comp.CategorisedEffects)
-        {
-            if (!prototypeManager.TryIndex<MoodEffectPrototype>(protoId, out var proto)
-                || proto.Hidden)
-                continue;
-
-            SendDescToChat(proto, session);
-        }
-
-        foreach (var (protoId, _) in comp.UncategorisedEffects)
-        {
-            if (!prototypeManager.TryIndex<MoodEffectPrototype>(protoId, out var proto)
-                || proto.Hidden)
-                continue;
-
-            SendDescToChat(proto, session);
-        }
-    }
-
-    private void SendDescToChat(MoodEffectPrototype proto, ICommonSession session)
-    {
-        var chatManager = IoCManager.Resolve<IChatManager>();
-
-        var color = (proto.MoodChange > 0) ? "#008000" : "#BA0000";
-        var msg = $"[font size=10][color={color}]{proto.Description}[/color][/font]";
-
-        chatManager.ChatMessageToOne(
-            ChatChannel.Emotes,
-            msg,
-            msg,
-            EntityUid.Invalid,
-            false,
-            session.Channel);
-    }
+    private void OnDamageChange(EntityUid uid, MoodComponent component, DamageChangedEvent args) =>
+        UpdateDamageState(uid, component);
+    // WWDP edit end
 }

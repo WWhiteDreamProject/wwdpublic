@@ -6,6 +6,21 @@
 # Ears
 
 # Equipment
+- type: loadout
+  id: LoadoutItemTapeRecorderDetective
+  category: JobsSecurityDetective
+  cost: 1
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: LoadoutDetectiveEquipment
+    - !type:CharacterJobRequirement
+      jobs:
+        - Detective
+  items:
+    - TapeRecorder
+    - CassetteTape
+    - CassetteTape
 
 # Eyes
 
@@ -20,33 +35,36 @@
 # Mask
 
 # Outer
-- type: loadout
-  id: LoadoutClothingOuterCoatDetective
-  category: JobsSecurityDetective
-  cost: 0
-  exclusive: true
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutDetectiveOuter
-    - !type:CharacterJobRequirement
-      jobs:
-        - Detective
-  items:
-    - ClothingOuterCoatDetective
 
-- type: loadout
-  id: LoadoutOuterVestDetective
-  category: JobsSecurityDetective
-  cost: 0
-  exclusive: true
-  requirements:
-    - !type:CharacterItemGroupRequirement
-      group: LoadoutDetectiveOuter
-    - !type:CharacterJobRequirement
-      jobs:
-        - Detective
-  items:
-    - ClothingOuterVestDetective
+# WWDP edit start - moved to closet
+# - type: loadout
+#   id: LoadoutClothingOuterCoatDetective
+#   category: JobsSecurityDetective
+#   cost: 0
+#   exclusive: true
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutDetectiveOuter
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - Detective
+#   items:
+#     - ClothingOuterCoatDetective
+#
+# - type: loadout
+#   id: LoadoutOuterVestDetective
+#   category: JobsSecurityDetective
+#   cost: 0
+#   exclusive: true
+#   requirements:
+#     - !type:CharacterItemGroupRequirement
+#       group: LoadoutDetectiveOuter
+#     - !type:CharacterJobRequirement
+#       jobs:
+#         - Detective
+#   items:
+#     - ClothingOuterVestDetective
+# WWDP edit end
 
 - type: loadout
   id: LoadoutClothingOuterJacketZavDetective

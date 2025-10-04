@@ -9,13 +9,14 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/bomber.rsi
   - type: TemperatureProtection
-    coefficient: 0.1
+    heatingCoefficient: 0.7 # WD EDIT: 0.1 -> 0.7
+    coolingCoefficient: 0.7 # WD EDIT: 0.1 -> 0.7
 
 - type: entity
-  parent: [ClothingOuterStorageBase, AllowSuitStorageClothing]
+  parent: [ClothingOuterStorageBase, AllowSuitStorageClothing, ClothingOuterArmorBase]
   id: ClothingOuterCoatDetective
   name: detective trenchcoat
-  description: A rugged canvas trenchcoat, designed and created by TX Fabrication Corp. Wearing it makes you feel for the plight of the Tibetans.
+  description: An 18th-century multi-purpose trenchcoat. Someone who wears this means serious business.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Coats/detective.rsi
@@ -32,6 +33,19 @@
         Slash: 0.70
         Piercing: 0.70
         Heat: 0.80
+  - type: ExplosionResistance
+    damageCoefficient: 1 #its a coat. it doesnt do shit
+
+- type: entity
+  parent: [ClothingOuterCoatDetectiveLoadout]
+  id: ClothingOuterCoatDetectiveLoadoutGrey
+  name: noir trenchcoat
+  description: Ah, your trusty coat. There's a few tears here and there, giving it a more timely look. Or at least, that's what you told yourself when you found out gettin' it repaired would set you back 200 spesos.
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Coats/detective_grey.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Coats/detective_grey.rsi
 
 - type: entity
   parent: ClothingOuterCoatDetective
@@ -96,7 +110,7 @@
     damageCoefficient: 0.9
 
 - type: entity
-  parent: [ClothingOuterArmorHoS, ClothingOuterStorageBase]
+  parent: [ClothingOuterArmorHoS, ClothingOuterStorageBase, BaseSecurityCommandContraband]
   id: ClothingOuterCoatHoSTrench
   name: head of security's armored trenchcoat
   description: A greatcoat enhanced with a special alloy for some extra protection and style for those with a commanding presence.
@@ -115,17 +129,6 @@
         Caustic: 0.75 #not the full 90% from ss13 because of the head
   - type: ExplosionResistance
     damageCoefficient: 0.90
-
-- type: entity
-  parent: ClothingOuterStorageBase
-  id: ClothingOuterCoatInspector
-  name: slim trench coat
-  description: A slim minimalist trench coat best worn unbuttoned.
-  components:
-  - type: Sprite
-    sprite: Clothing/OuterClothing/Coats/insp_coat.rsi
-  - type: Clothing
-    sprite: Clothing/OuterClothing/Coats/insp_coat.rsi
 
 - type: entity
   parent: ClothingOuterStorageToggleableBase
@@ -151,7 +154,8 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/trenchcoat.rsi
   - type: TemperatureProtection
-    coefficient: 0.1
+    heatingCoefficient: 0.7 # WD EDIT: 0.1 -> 0.7
+    coolingCoefficient: 0.7 # WD EDIT: 0.1 -> 0.7
   - type: Armor
     modifiers:
       coefficients:
@@ -250,7 +254,7 @@
   parent: ClothingOuterStorageFoldableBase
   id: ClothingOuterCoatLabCmo
   name: chief medical officer's lab coat
-  description: Custom made blue lab coat for the Chief Medical Officer, offers improved protection against chemical spills and minor cuts
+  description: Custom made blue lab coat for the Chief Medical Officer, offers improved protection against chemical spills and minor cuts.
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Coats/labcoat_cmo.rsi
@@ -341,7 +345,7 @@
     sprite: Clothing/OuterClothing/Coats/pirate.rsi
 
 - type: entity
-  parent: [ClothingOuterArmorWarden, ClothingOuterStorageBase]
+  parent: [ClothingOuterArmorWarden, ClothingOuterStorageBase, BaseRestrictedContraband]
   id: ClothingOuterCoatWarden
   name: warden's armored jacket
   description: A sturdy, utilitarian jacket designed to protect a warden from any brig-bound threats.
@@ -383,7 +387,7 @@
     sprite: Clothing/OuterClothing/Coats/clownpriest.rsi
 
 - type: entity
-  parent: ClothingOuterStorageBase
+  parent: [ClothingOuterStorageBase, BaseMajorContraband]
   id: ClothingOuterDogi
   name: samurai dogi
   description: Dogi is a type of traditional Japanese clothing. The dogi is made of heavy, durable fabric, it is practical in combat and stylish in appearance. It is decorated with intricate patterns and embroidery on the back.
@@ -411,7 +415,7 @@
     sprite: Clothing/OuterClothing/Coats/windbreaker_paramedic.rsi
 
 - type: entity
-  parent: ClothingOuterStorageBase
+  parent: [ClothingOuterStorageBase, BaseSyndicateContraband]
   id: ClothingOuterCoatSyndieCap
   name: syndicate's coat
   description: The syndicate's coat is made of durable fabric, with gilded patterns.
@@ -422,7 +426,7 @@
     sprite: Clothing/OuterClothing/Coats/syndicate/coatsyndiecap.rsi
 
 - type: entity
-  parent: ClothingOuterCoatHoSTrench
+  parent: [BaseSyndicateContraband, ClothingOuterCoatHoSTrench] # BaseSyndicateContraband as first parent so contraband system takes that as priority, yeah I know
   id: ClothingOuterCoatSyndieCapArmored
   name: syndicate's armored coat
   description: The syndicate's armored coat is made of durable fabric, with gilded patterns.
@@ -504,7 +508,7 @@
     sprite: Clothing/OuterClothing/Coats/expensive_coat.rsi
 
 - type: entity
-  parent: ClothingOuterBase
+  parent: ClothingOuterStorageBase # WWDP
   id: ClothingOuterCoatModern
   name: modern coat
   description: A coat that has a nice finished feel.
@@ -515,7 +519,7 @@
     sprite: Clothing/OuterClothing/Coats/modern_coat.rsi
 
 - type: entity
-  parent: ClothingOuterBase
+  parent: ClothingOuterStorageBase # WWDP
   id: ClothingOuterTailcoat
   name: tailcoat
   description: A fancy Victorian-style tailcoat.
@@ -526,7 +530,7 @@
     sprite: Clothing/OuterClothing/Coats/tailcoat.rsi
 
 - type: entity
-  parent: ClothingOuterBase
+  parent: ClothingOuterStorageBase # WWDP
   id: ClothingOuterCoatVictorian
   name: black victorian coat
   description: A fancy Victorian-style coat.
@@ -537,7 +541,7 @@
     sprite: Clothing/OuterClothing/Coats/victorian_coat.rsi
 
 - type: entity
-  parent: ClothingOuterBase
+  parent: ClothingOuterStorageBase # WWDP
   id: ClothingOuterCoatVictorianRed
   name: red victorian coat
   description: A fancy Victorian-style coat in a red hue.

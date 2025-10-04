@@ -26,10 +26,10 @@ namespace Content.Server.EntityEffects.Effects
             flammableSystem.Extinguish(args.TargetEntity, flammable);
             if (args is EntityEffectReagentArgs reagentArgs)
             {
-                flammableSystem.AdjustFireStacks(reagentArgs.TargetEntity, FireStacksAdjustment * (float) reagentArgs.Quantity, flammable, false); // WD EDIT
+                flammableSystem.AdjustFireStacks(reagentArgs.TargetEntity, FireStacksAdjustment * (float) reagentArgs.Quantity, flammable); // WD EDIT
             } else
             {
-                flammableSystem.AdjustFireStacks(args.TargetEntity, FireStacksAdjustment, flammable, false); // WD EDIT
+                flammableSystem.AdjustFireStacks(args.TargetEntity, FireStacksAdjustment, flammable); // WD EDIT
             }
         }
     }

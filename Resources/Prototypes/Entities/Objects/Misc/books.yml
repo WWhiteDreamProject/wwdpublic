@@ -18,14 +18,19 @@
       map: [ "icon" ]
     - state: overlay_null
       map: [ "overlay" ]
-  - type: Paper
-    contentSize: 12000
+  # WD EDIT START: Paper -> Book
+  - type: Book
+    maxCharactersPerPage: 3000
+    maxPages: 100
+    # WD EDIT END
   - type: ActivatableUI
-    key: enum.PaperUiKey.Key
+    key: enum.BookUiKey.Key # WD EDIT: PaperUiKey -> BookUiKey
   - type: UserInterface
     interfaces:
-      enum.PaperUiKey.Key:
-        type: PaperBoundUserInterface
+      # WD EDIT START
+      enum.BookUiKey.Key:
+        type: BookBoundUserInterface
+      # WD EDIT END
   - type: Tag
     tags:
       - Book
@@ -114,6 +119,7 @@
     openOnActivation: true
     guides:
     - Bartender
+    - Drinks
 
 - type: entity
   id: BookHowToCookForFortySpaceman
@@ -136,6 +142,7 @@
     openOnActivation: true
     guides:
     - Chef
+    - FoodRecipes
 
 - type: entity
   id: BookLeafLoversSecret
@@ -161,6 +168,7 @@
     openOnActivation: true
     guides:
     - Botany
+    - Chemicals
 
 - type: entity
   id: BookEngineersHandbook
@@ -237,6 +245,7 @@
     openOnActivation: true
     guides:
     - Security
+    - Antagonists
 
 - type: entity
   id: BookHowToKeepStationClean
@@ -358,6 +367,35 @@
     openOnActivation: true
     guides:
     - Chemicals
+    - Chemist
+
+- type: entity
+  id: BookSpaceLaw
+  parent: BaseItem
+  name: space law
+  description: A set of Nanotrasen guidelines for keeping law and order on their space stations.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/books.rsi
+    layers:
+    - state: paper
+    - state: cover_strong
+      color: "#87011c"
+    - state: icon_law
+      color: "#f7d61a"
+  - type: Tag
+    tags:
+    - Book
+  - type: GuideHelp
+    openOnActivation: true
+    guides:
+    - SpaceLaw
+  - type: MeleeWeapon # so you can beat stupid cadets
+    soundHit:
+      collection: Punch
+    damage:
+      types:
+        Blunt: 1
 
 - type: entity
   parent: BookBase
@@ -367,8 +405,8 @@
   components:
   - type: RandomMetadata
     nameSegments:
-    - book_hint_appearance
-    - book_type
+    - BookHintAppearances
+    - BookTypes
   - type: RandomSprite
     available:
       - cover:
@@ -428,34 +466,8 @@
   id: BookRandomStory
   suffix: random visual, random story
   components:
-  - type: PaperRandomStory
-    storySegments:
-    - "This is a "
-    - book_genre
-    - " about a "
-    - book_character_trait
-    - " "
-    - book_character
-    - " and "
-    - book_character_trait
-    - " "
-    - book_character
-    - ". Due to "
-    - book_event
-    - ", they "
-    - book_action_trait
-    - " "
-    - book_action
-    - " "
-    - book_character
-    - " "
-    - book_location
-    - ". \n\n"
-    - book_story_element
-    - " is "
-    - book_story_element_trait
-    - "."
-    storySeparator: ""
+  - type: BookRandomStory
+    template: GenericStory
 
 - type: entity
   parent: BookBase
@@ -474,8 +486,12 @@
     - state: icon_atmos
     - state: icon_corner
       color: gold
-  - type: Paper
+  # WD EDIT START: Paper -> Book
+  - type: Book
     content: book-text-atmos-distro
+    maxCharactersPerPage: 1500
+    maxPages: 100
+    # WD EDIT END
 
 - type: entity
   parent: BookBase
@@ -494,8 +510,12 @@
     - state: icon_atmos
     - state: icon_corner
       color: gold
-  - type: Paper
+  # WD EDIT START: Paper -> Book
+  - type: Book
     content: book-text-atmos-waste
+    maxCharactersPerPage: 1500
+    maxPages: 100
+    # WD EDIT END
 
 - type: entity
   parent: BookBase
@@ -514,8 +534,12 @@
     - state: icon_atmos
     - state: icon_corner
       color: gold
-  - type: Paper
+  # WD EDIT START: Paper -> Book
+  - type: Book
     content: book-text-atmos-alarms
+    maxCharactersPerPage: 1500
+    maxPages: 100
+    # WD EDIT END
 
 - type: entity
   parent: BookBase
@@ -534,8 +558,12 @@
     - state: icon_atmos
     - state: icon_corner
       color: gold
-  - type: Paper
+  # WD EDIT START: Paper -> Book
+  - type: Book
     content: book-text-atmos-vents
+    maxCharactersPerPage: 1500
+    maxPages: 100
+    # WD EDIT END
 
 - type: entity
   id: BookPsionicsGuidebook

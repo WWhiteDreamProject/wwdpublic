@@ -50,6 +50,9 @@
     requirePower: true
     highVoltageNode: output
   - type: RequireProjectileTarget
+  - type: GuideHelp
+    guides:
+    - SolarPanels
 
 - type: entity
   id: SolarPanelPlasma
@@ -66,7 +69,7 @@
     sprite: Structures/Power/Generation/solar_panel.rsi
     state: solar_panel_plasma
   - type: Damageable
-    damageContainer: Inorganic
+    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
   - type: Destructible
     thresholds:
@@ -100,7 +103,7 @@
     sprite: Structures/Power/Generation/solar_panel.rsi
     state: solar_panel_uranium
   - type: Damageable
-    damageContainer: Inorganic
+    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
   - type: Destructible
     thresholds:
@@ -130,7 +133,7 @@
     supplyRampRate: 4000
   - type: SolarPanel
   - type: Damageable
-    damageContainer: Inorganic
+    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
   - type: Destructible
     thresholds:
@@ -159,7 +162,7 @@
   - type: Sprite
     state: solar_panel_glass_broken
   - type: Damageable
-    damageContainer: Inorganic
+    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
   - type: Destructible
     thresholds:
@@ -191,7 +194,7 @@
   - type: Sprite
     state: solar_panel_plasma_broken
   - type: Damageable
-    damageContainer: Inorganic
+    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
   - type: Destructible
     thresholds:
@@ -223,7 +226,7 @@
   - type: Sprite
     state: solar_panel_uranium_broken
   - type: Damageable
-    damageContainer: Inorganic
+    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
   - type: Destructible
     thresholds:
@@ -274,7 +277,7 @@
     anchored: true
     noRot: true
   - type: Damageable
-    damageContainer: Inorganic
+    damageContainer: StructuralInorganic
     damageModifierSet: Metallic
   - type: Destructible
     thresholds:
@@ -291,6 +294,9 @@
     node: solarassembly
     defaultTarget: solarpanel
   - type: RequireProjectileTarget
+  - type: GuideHelp
+    guides:
+    - SolarPanels
 
 - type: entity
   id: SolarTracker
@@ -320,8 +326,8 @@
     anchored: true
     noRot: true
   - type: Damageable
-    damageContainer: Inorganic
-    damageModifierSet: Metallic
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallic
   - type: Destructible
     thresholds:
     - trigger:
@@ -336,3 +342,6 @@
     graph: SolarPanel
     node: solartracker
   - type: RequireProjectileTarget
+  - type: GuideHelp
+    guides:
+    - SolarPanels

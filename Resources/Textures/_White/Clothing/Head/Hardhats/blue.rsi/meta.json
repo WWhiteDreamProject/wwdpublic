@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-4.0",
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Equipped, icons made by @sentryprimies and licenced under CC-BY-NC-SA 4.0, inhands were made by Ausops for /tg/station",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+	{
+      "name": "light-icon"
+    },
+    {
+      "name": "off-equipped-HELMET",
+      "directions": 4
+    },
+    {
+      "name": "off-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "off-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "on-equipped-HELMET",
+      "directions": 4
+    },
+    {
+      "name": "on-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "on-inhand-right",
+      "directions": 4
+    }
+  ]
+}

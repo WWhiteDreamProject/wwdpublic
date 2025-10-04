@@ -1,55 +1,38 @@
 #Wizard outfit startingGear definitions.
 - type: startingGear
   id: WizardBlueGear
+  subGear:
+  - BoxSurvival
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorDarkBlue
-    back: ClothingBackpackFilled
     head: ClothingHeadHatWizard
+    back: ClothingBackpack # Wizard backpack?
     outerClothing: ClothingOuterWizard
     shoes: ClothingShoesWizard
-    id: PassengerPDA
-    ears: ClothingHeadsetService
-  innerClothingSkirt: ClothingUniformJumpskirtColorDarkBlue
-  satchel: ClothingBackpackSatchelFilled
-  duffelbag: ClothingBackpackDuffelFilled
+    id: PassengerPDA # Maybe a wizard PDA of some sort?
+    ears: ClothingHeadsetAltCommand
+    belt: ClothingBeltWand
+    # pocket1: TODO: Include wizard teleport scroll
+    pocket2: WizardsGrimoire
 
 - type: startingGear
   id: WizardRedGear
+  parent: WizardBlueGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorRed
-    back: ClothingBackpackFilled
     head: ClothingHeadHatRedwizard
     outerClothing: ClothingOuterWizardRed
-    shoes: ClothingShoesWizard
-    id: PassengerPDA
-    ears: ClothingHeadsetService
-  innerClothingSkirt: ClothingUniformJumpskirtColorRed
-  satchel: ClothingBackpackSatchelFilled
-  duffelbag: ClothingBackpackDuffelFilled
 
 - type: startingGear
   id: WizardVioletGear
+  parent: WizardBlueGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorPurple
-    back: ClothingBackpackFilled
     head: ClothingHeadHatVioletwizard
     outerClothing: ClothingOuterWizardViolet
-    shoes: ClothingShoesWizard
-    id: PassengerPDA
-    ears: ClothingHeadsetService
-  innerClothingSkirt: ClothingUniformJumpskirtColorPurple
-  satchel: ClothingBackpackSatchelFilled
-  duffelbag: ClothingBackpackDuffelFilled
 
 - type: startingGear
   id: WizardHardsuitGear
+  parent: WizardVioletGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitColorPurple
-    back: ClothingBackpackFilled
     outerClothing: ClothingOuterHardsuitWizard
-    shoes: ClothingShoesWizard
-    id: PassengerPDA
-    ears: ClothingHeadsetService
-  innerClothingSkirt: ClothingUniformJumpskirtColorPurple
-  satchel: ClothingBackpackSatchelFilled
-  duffelbag: ClothingBackpackDuffelFilled

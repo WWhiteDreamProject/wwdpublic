@@ -166,7 +166,7 @@ namespace Content.Client.Construction.UI
 
                 if (!string.IsNullOrEmpty(search))
                 {
-                    if (!recipe.Name.ToLowerInvariant().Contains(search.Trim().ToLowerInvariant()))
+                    if (!GetLocalizedName(recipe).ToLowerInvariant().Contains(search.Trim().ToLowerInvariant())) // WWDP
                         continue;
                 }
 
@@ -179,7 +179,7 @@ namespace Content.Client.Construction.UI
                 recipes.Add(recipe);
             }
 
-            recipes.Sort((a, b) => string.Compare(a.Name, b.Name, StringComparison.InvariantCulture));
+            recipes.Sort((a, b) => string.Compare(GetLocalizedName(a), GetLocalizedName(b), StringComparison.InvariantCulture)); // WWDP
 
             foreach (var recipe in recipes)
             {
@@ -218,11 +218,30 @@ namespace Content.Client.Construction.UI
             _constructionView.Categories = array;
         }
 
+        // WWDP edit start - TODO: Delete when porting the normal localization of the crafting menu // lol so never
+        private static string GetLocalizedName(ConstructionPrototype prototype)
+        {
+            return Loc.TryGetString($"ent-{prototype.ID}", out var name) ? name : prototype.Name;
+        }
+
+        private static (string displayName, string displayDesc) GetLocalizedStrings(ConstructionPrototype prototype)
+        {
+            string displayName = Loc.TryGetString($"ent-{prototype.ID}", out var name) ? name : prototype.Name;
+            string displayDesc = Loc.TryGetString($"ent-{prototype.ID}.desc", out var desc) ? desc : prototype.Description;
+            return (displayName, displayDesc);
+        }
+        // WWDP edit end
+
         private void PopulateInfo(ConstructionPrototype prototype)
         {
             var spriteSys = _systemManager.GetEntitySystem<SpriteSystem>();
             _constructionView.ClearRecipeInfo();
-            _constructionView.SetRecipeInfo(prototype.Name, prototype.Description, spriteSys.Frame0(prototype.Icon), prototype.Type != ConstructionType.Item);
+
+            // WWDP edit start
+            var (displayName, displayDesc) = GetLocalizedStrings(prototype);
+            // WWDP edit end
+
+            _constructionView.SetRecipeInfo(displayName, displayDesc, spriteSys.Frame0(prototype.Icon), prototype.Type != ConstructionType.Item); // WWDP edit
 
             var stepList = _constructionView.RecipeStepList;
             GenerateStepList(prototype, stepList);
@@ -256,13 +275,17 @@ namespace Content.Client.Construction.UI
 
         private static ItemList.Item GetItem(ConstructionPrototype recipe, ItemList itemList)
         {
+            // WWDP edit start
+            var (displayName, displayDesc) = GetLocalizedStrings(recipe);
+            // WWDP edit end
+
             return new(itemList)
             {
                 Metadata = recipe,
-                Text = recipe.Name,
+                Text = displayName, // WWDP edit
                 Icon = recipe.Icon.Frame0(),
                 TooltipEnabled = true,
-                TooltipText = recipe.Description
+                TooltipText = displayDesc // WWDP edit
             };
         }
 

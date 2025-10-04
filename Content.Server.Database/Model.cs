@@ -49,6 +49,7 @@ namespace Content.Server.Database
         public DbSet<AdminMessage> AdminMessages { get; set; } = null!;
         public DbSet<RoleWhitelist> RoleWhitelists { get; set; } = null!;
         public DbSet<BanTemplate> BanTemplate { get; set; } = null!;
+        public DbSet<IPIntelCache> IPIntelCache { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -381,6 +382,7 @@ namespace Content.Server.Database
         public Guid UserId { get; set; }
         public int SelectedCharacterSlot { get; set; }
         public string AdminOOCColor { get; set; } = null!;
+        public string GhostId { get; set; } = null!; // WWDP EDIT
         public List<Profile> Profiles { get; } = new();
     }
 
@@ -398,11 +400,19 @@ namespace Content.Server.Database
         public string Sex { get; set; } = null!;
         public string BodyType { get; set; } = null!; // WD EDIT
         public string Voice { get; set; } = null!; // WD EDIT
+        public string BarkVoice { get; set; } = null!; // WD EDIT
+
+        public byte BarkPause { get; set; } = byte.MaxValue / 2; // WD EDIT
+        public byte BarkVolume { get; set; } = byte.MaxValue / 2; // WD EDIT
+        public byte BarkPitch { get; set; } = byte.MaxValue / 2; // WD EDIT
+        public byte BarkPitchVariance { get; set; } = byte.MaxValue / 2; // WD EDIT
+
         public string Gender { get; set; } = null!;
         public string? DisplayPronouns { get; set; }
         public string? StationAiName { get; set; }
         public string? CyborgName { get; set; }
         public string? ClownName { get; set; } // WD EDIT
+        public string? MimeName { get; set; } // WD EDIT
         public string Species { get; set; } = null!;
         public float Height { get; set; } = 1f;
         public float Width { get; set; } = 1f;
@@ -413,8 +423,6 @@ namespace Content.Server.Database
         public string FacialHairColor { get; set; } = null!;
         public string EyeColor { get; set; } = null!;
         public string SkinColor { get; set; } = null!;
-        public string Clothing { get; set; } = null!;
-        public string Backpack { get; set; } = null!;
         public int SpawnPriority { get; set; } = 0;
         public List<Job> Jobs { get; } = new();
         public List<Antag> Antags { get; } = new();
@@ -475,9 +483,10 @@ namespace Content.Server.Database
             string loadoutName,
             string? customName = null,
             string? customDescription = null,
+            string? customContent = null, // WD EDIT
             string? customColorTint = null,
             bool? customHeirloom = null
-        ) : base(loadoutName, customName, customDescription, customColorTint, customHeirloom) { }
+        ) : base(loadoutName, customName, customDescription, customContent, customColorTint, customHeirloom) { } // WD EDIT
     }
 
     public enum DbPreferenceUnavailableMode
@@ -554,6 +563,16 @@ namespace Content.Server.Database
     {
         [Key] public Guid UserId { get; set; }
         public string? Title { get; set; }
+
+        /// <summary>
+        /// If true, the admin is voluntarily deadminned. They can re-admin at any time.
+        /// </summary>
+        public bool Deadminned { get; set; }
+
+        /// <summary>
+        /// If true, the admin is suspended by an admin with <c>PERMISSIONS</c>. They will not have in-game permissions.
+        /// </summary>
+        public bool Suspended { get; set; }
 
         public int? AdminRankId { get; set; }
         public AdminRank? AdminRank { get; set; }
@@ -908,12 +927,14 @@ namespace Content.Server.Database
         Full = 2,
         Panic = 3,
         /*
-         * TODO: Remove baby jail code once a more mature gateway process is established. This code is only being issued as a stopgap to help with potential tiding in the immediate future.
-         *
          * If baby jail is removed, please reserve this value for as long as can reasonably be done to prevent causing ambiguity in connection denial reasons.
          * Reservation by commenting out the value is likely sufficient for this purpose, but may impact projects which depend on SS14 like SS14.Admin.
+         *
+         * Edit: It has
          */
         BabyJail = 4,
+        /// Results from rejected connections with external API checking tools
+        IPChecks = 5,
     }
 
     public class ServerBanHit
@@ -1229,5 +1250,29 @@ namespace Content.Server.Database
 
             return new ImmutableTypedHwid(hwid.Hwid.ToImmutableArray(), hwid.Type);
         }
+    }
+
+
+    /// <summary>
+    ///  Cache for the IPIntel system
+    /// </summary>
+    public class IPIntelCache
+    {
+        public int Id { get; set; }
+
+        /// <summary>
+        /// The IP address (duh). This is made unique manually for psql cause of ef core bug.
+        /// </summary>
+        public IPAddress Address { get; set; } = null!;
+
+        /// <summary>
+        /// Date this record was added. Used to check if our cache is out of date.
+        /// </summary>
+        public DateTime Time { get; set; }
+
+        /// <summary>
+        /// The score IPIntel returned
+        /// </summary>
+        public float Score { get; set; }
     }
 }

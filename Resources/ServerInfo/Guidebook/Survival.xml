@@ -1,34 +1,40 @@
 <Document>
-# Survival
+  # Выживание
 
-It is generally wise to avoid situations that will cause you harm, because medical can only heal you so much when there's nuclear operatives on your doorstep.
+  Самый надёжный способ остаться в живых — не попадать в передряги. Особенно когда за дверью маячат ядерные оперативники, а медотсек уже весь в крови.
 
-## Identifying your situation
-Your PDA contains both a vessel name and list of crew currently active in your vessel, a reminder for your name if needed, and your assigned job for the shift, allowing you to quickly assess the situation.
+  ## Понять, где ты и кто ты
+  Твой КПК — твой лучший друг. Там написано, на каком ты судне, кто сейчас жив и работает рядом с тобой, какая у тебя должность и, на всякий случай, твоё имя. Взглянув туда, ты сможешь быстро сориентироваться, что к чему.
 
-## Emergency Treatment
-In the event of a serious emergency, there're a few things you can do to help ensure your long-term survival, including:
+  ## Экстренная помощь
 
-- If entering critical condition, use the emergency medipen from your emergency box, it'll make sure you don't end up unable to do anything. Emergency medipens can also be used to revive people currently in crit on the floor, and to prolong the amount of time you have to deal with poisons/etc.
+  Если ситуация резко выходит из-под контроля — например, ты умираешь, как герой, с арматурой в шее — есть пара фишек, которые помогут не откинуться окончательно:
+  - Если ты на грани критического состояния — используй экстренный медипен из аварийной коробки. Он не даст тебе упасть лицом в грязь раньше времени. Медипен также можно воткнуть в валяющегося на полу товарища, чтобы дать ему шанс оклематься или подольше не умереть от яда.
 <Box>
-<GuideEntityEmbed Entity="EmergencyMedipen"/>
-<GuideEntityEmbed Entity="SpaceMedipen"/>
+  <GuideEntityEmbed Entity="EmergencyMedipen"/>
+  <GuideEntityEmbed Entity="SpaceMedipen"/>
 </Box>
-- Your emergency box contains a breath mask and oxygen tank, which can help you survive longer in a spacing situation. If you're one of the slimepeople, be aware that nitrogen replaces oxygen for you and you don't start with one of those in your emergency canister.
+
+  - В аварийной коробке лежат дыхательная маска и баллон с кислородом. Эти штуки спасут тебе жизнь при разгерметизации. Если ты слизень — запомни, тебе нужен баллон с азотом, а не с кислородом. А в коробке у тебя такого нет, так что ищи сам.
+
 <Box>
-<GuideEntityEmbed Entity="ClothingMaskBreath"/>
-<GuideEntityEmbed Entity="EmergencyOxygenTankFilled"/>
+  <GuideEntityEmbed Entity="ClothingMaskBreath"/>
+  <GuideEntityEmbed Entity="EmergencyOxygenTankFilled"/>
 </Box>
-- If actively bleeding out, or simply wishing to prepare, it's possible to slice up cloth items with a knife or other sharp object and use the resulting cloth to create gauze to stem bleeding with.
+
+  - Если ты истекаешь кровью или просто хочешь подготовиться к веселью, можно разрезать тряпку ножом и сделать из неё бинты, чтобы остановить кровотечение. Простенько и со вкусом.
+
 <Box>
-<GuideEntityEmbed Entity="Gauze"/>
-<GuideEntityEmbed Entity="MaterialCloth"/>
+  <GuideEntityEmbed Entity="Gauze"/>
+  <GuideEntityEmbed Entity="MaterialCloth"/>
 </Box>
-- In lieu of an actual health analyzer, simply examining yourself and using the detailed examine is a good way to figure out what wounds you have.
-- If going blind, carrots are another way to treat the issue (as they contain Oculine, the chemistry drug used to treat blindness) should they be available.
-- Well-made meals (cooked food not from a vending machine) is generally much better for your overall health and can help heal smaller wounds more quickly.
-- Simple bed rest cures the majority of diseases and also allows wounds to close up on their own. Medical beds are best for this, providing a sterile surface and support for all damaged body parts, but any bed works. Even sitting down helps, if only a little.
-- Actually sleeping on a bed boosts your healing rate even farther.
-- Meals that contain beans, red meat, or otherwise are just full of protein - will tremendously help your body's condition after severe bloodloss. It's still advised to visit a doctor and get treated though.
+
+  ## Другие Разные Советы
+  - Если нет медсканера — осматривай себя через функцию подробного осмотра. Это поможет понять, где и насколько тебя разворотило.
+  - Теряешь зрение? Пожуй морковку. В ней есть окулин — тот самый препарат, что лечит слепоту. Только не перепутай с огурцом — он не поможет.
+  - Горячая, приготовленная еда (а не из автомата) отлично восстанавливает здоровье и помогает заживлению мелких ран.
+  - Простой отдых в кровати — уже неплохое лечение. Лучше всего — в медкровати, она стерильная и поддерживает всё, что у тебя может болеть. Но и обычная подойдёт. Даже сидение помогает, хоть и не так сильно.
+  - Если ты лег и уснул — восстановление пойдёт ещё быстрее. Это прям лечащий сон.
+  - Бобы, красное мясо и вообще еда, богатая белком, сильно помогают восстановиться после сильной кровопотери. Но лучше всё же сходить к врачу, если не хочешь умереть в столовке.
 
 </Document>

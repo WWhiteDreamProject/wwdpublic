@@ -1,4 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
+using Content.Shared.Alert;
+using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
@@ -70,6 +72,8 @@ public sealed partial class BuckleComponent : Component
     /// </summary>
     [ViewVariables] public int? OriginalDrawDepth;
 }
+
+public sealed partial class UnbuckleAlertEvent : BaseAlertEvent;
 
 /// <summary>
 /// Event raised directed at a strap entity before some entity gets buckled to it.
@@ -146,6 +150,11 @@ public readonly record struct UnstrappedEvent(Entity<StrapComponent> Strap, Enti
 /// </summary>
 [ByRefEvent]
 public readonly record struct UnbuckledEvent(Entity<StrapComponent> Strap, Entity<BuckleComponent> Buckle);
+
+// WD EDIT START
+[Serializable, NetSerializable]
+public sealed partial class UnbuckleDoAfterEvent : SimpleDoAfterEvent;
+// WD EDIT END
 
 [Serializable, NetSerializable]
 public enum BuckleVisuals

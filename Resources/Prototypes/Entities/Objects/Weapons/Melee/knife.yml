@@ -11,7 +11,7 @@
     doAfterDuration: 4.0
   - type: Utensil
     types:
-      - Knife
+    - Knife
   - type: MeleeWeapon
     animationRotation: -135 # WWDP
     wideAnimationRotation: -135
@@ -36,7 +36,7 @@
     size: Small
   - type: Tool
     qualities:
-      - Slicing
+    - Slicing
     useSound:
       path: /Audio/Items/Culinary/chop.ogg
   # Shitmed Change
@@ -68,6 +68,7 @@
   - type: GuideHelp
     guides:
     - Chef
+    - FoodRecipes
 
 - type: entity
   name: butcher's cleaver
@@ -99,6 +100,7 @@
   - type: GuideHelp
     guides:
     - Chef
+    - FoodRecipes
   # Shitmed Change
   - type: Scalpel
     speed: 0.3
@@ -107,7 +109,7 @@
 
 - type: entity
   name: combat knife
-  parent: BaseKnife
+  parent: [BaseKnife, BaseRestrictedContraband]
   id: CombatKnife
   description: A deadly knife intended for melee confrontations.
   components:
@@ -126,21 +128,25 @@
         Slash: 12
   - type: EmbeddableProjectile
     sound: /Audio/Weapons/star_hit.ogg
+    offset: -0.15,0.0
   - type: LandAtCursor
   - type: DamageOtherOnHit
     damage:
       types:
         Slash: 9
-  - type: ThrowingAngle
-    angle: 225
   - type: Item
     sprite: Objects/Weapons/Melee/combat_knife.rsi
+    storedSprite:
+      state: storage
+      sprite: Objects/Weapons/Melee/combat_knife.rsi
   - type: DisarmMalus
-    malus: 0.5 # WWDP
+    malus: 0.5 # WD EDIT: 0.225 -> 0.5
+  - type: ThrowingAngle
+    angle: 225
 
 - type: entity
   name: survival knife
-  parent: CombatKnife
+  parent: [CombatKnife, BaseSecurityCargoContraband]
   id: SurvivalKnife
   description: Weapon of first and last resort for combatting space carp.
   components:
@@ -157,11 +163,14 @@
     angle: 225
   - type: Item
     sprite: Objects/Weapons/Melee/survival_knife.rsi
+    storedSprite:
+      state: storage
+      sprite: Objects/Weapons/Melee/survival_knife.rsi
   - type: AttachmentBayonet # Lavaland Change
 
 - type: entity
   name: kukri knife
-  parent: CombatKnife
+  parent: [CombatKnife, BaseSecurityCargoContraband]
   id: KukriKnife
   description: Professionals have standards. Be polite. Be efficient. Have a plan to kill everyone you meet.
   components:
@@ -179,6 +188,7 @@
     angle: 225
   - type: Item
     sprite: Objects/Weapons/Melee/kukri_knife.rsi
+    storedSprite: null
 
 - type: entity
   parent: ClothingHeadHatGreyFlatcap
@@ -221,7 +231,7 @@
 
 - type: entity
   name: shiv
-  parent: BaseKnife
+  parent: [BaseKnife, BaseMinorContraband]
   id: Shiv
   description: A crude weapon fashioned from a piece of cloth and a glass shard.
   components:
@@ -247,7 +257,7 @@
   - type: Item
     sprite: Objects/Weapons/Melee/shiv.rsi
   - type: DisarmMalus
-    malus: 0.5 # WWDP
+    malus: 0.5 # WD EDIT: 0.225 -> 0.5
 
 - type: entity
   name: reinforced shiv
@@ -306,9 +316,9 @@
 
 - type: entity
   name: throwing knife
-  parent: BaseKnife
+  parent: [BaseKnife, BaseSyndicateContraband]
   id: ThrowingKnife
-  description: This bloodred knife is very aerodynamic and easy to throw, but good luck trying to fight someone hand-to-hand.
+  description: This blood-red knife is very aerodynamic and easy to throw, but good luck trying to fight someone hand-to-hand.
   components:
   - type: Tag
     tags:
@@ -325,6 +335,7 @@
         Slash: 5
   - type: EmbeddableProjectile
     sound: /Audio/Weapons/star_hit.ogg
+    offset: -0.15,0.0
   - type: LandAtCursor
   - type: DamageOtherOnHit
     ignoreResistances: true
@@ -334,3 +345,5 @@
         Piercing: 15
   - type: Item
     sprite: Objects/Weapons/Melee/throwing_knife.rsi
+  - type: ThrowingAngle
+    angle: 225

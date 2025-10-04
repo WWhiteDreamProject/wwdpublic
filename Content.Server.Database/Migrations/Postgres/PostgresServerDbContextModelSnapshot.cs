@@ -36,6 +36,14 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnType("integer")
                         .HasColumnName("admin_rank_id");
 
+                    b.Property<bool>("Deadminned")
+                        .HasColumnType("boolean")
+                        .HasColumnName("deadminned");
+
+                    b.Property<bool>("Suspended")
+                        .HasColumnType("boolean")
+                        .HasColumnName("suspended");
+
                     b.Property<string>("Title")
                         .HasColumnType("text")
                         .HasColumnName("title");
@@ -627,6 +635,34 @@ namespace Content.Server.Database.Migrations.Postgres
                         });
                 });
 
+            modelBuilder.Entity("Content.Server.Database.IPIntelCache", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("ipintel_cache_id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<IPAddress>("Address")
+                        .IsRequired()
+                        .HasColumnType("inet")
+                        .HasColumnName("address");
+
+                    b.Property<float>("Score")
+                        .HasColumnType("real")
+                        .HasColumnName("score");
+
+                    b.Property<DateTime>("Time")
+                        .HasColumnType("timestamp with time zone")
+                        .HasColumnName("time");
+
+                    b.HasKey("Id")
+                        .HasName("PK_ipintel_cache");
+
+                    b.ToTable("ipintel_cache", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.Job", b =>
                 {
                     b.Property<int>("Id")
@@ -676,6 +712,10 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.Property<string>("CustomColorTint")
                         .HasColumnType("text")
                         .HasColumnName("custom_color_tint");
+
+                    b.Property<string>("CustomContent")
+                        .HasColumnType("text")
+                        .HasColumnName("custom_content");
 
                     b.Property<string>("CustomDescription")
                         .HasColumnType("text")
@@ -804,6 +844,11 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnType("text")
                         .HasColumnName("admin_ooc_color");
 
+                    b.Property<string>("GhostId")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("ghost_id");
+
                     b.Property<int>("SelectedCharacterSlot")
                         .HasColumnType("integer")
                         .HasColumnName("selected_character_slot");
@@ -834,10 +879,26 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnType("integer")
                         .HasColumnName("age");
 
-                    b.Property<string>("Backpack")
+                    b.Property<byte>("BarkPause")
+                        .HasColumnType("smallint")
+                        .HasColumnName("bark_pause");
+
+                    b.Property<byte>("BarkPitch")
+                        .HasColumnType("smallint")
+                        .HasColumnName("bark_pitch");
+
+                    b.Property<byte>("BarkPitchVariance")
+                        .HasColumnType("smallint")
+                        .HasColumnName("bark_pitch_variance");
+
+                    b.Property<string>("BarkVoice")
                         .IsRequired()
                         .HasColumnType("text")
-                        .HasColumnName("backpack");
+                        .HasColumnName("bark_voice");
+
+                    b.Property<byte>("BarkVolume")
+                        .HasColumnType("smallint")
+                        .HasColumnName("bark_volume");
 
                     b.Property<string>("BodyType")
                         .IsRequired()
@@ -848,11 +909,6 @@ namespace Content.Server.Database.Migrations.Postgres
                         .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("char_name");
-
-                    b.Property<string>("Clothing")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("clothing");
 
                     b.Property<string>("ClownName")
                         .HasColumnType("text")
@@ -923,6 +979,10 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.Property<JsonDocument>("Markings")
                         .HasColumnType("jsonb")
                         .HasColumnName("markings");
+
+                    b.Property<string>("MimeName")
+                        .HasColumnType("text")
+                        .HasColumnName("mime_name");
 
                     b.Property<string>("Nationality")
                         .IsRequired()

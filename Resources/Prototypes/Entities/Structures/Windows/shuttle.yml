@@ -8,6 +8,9 @@
     sprite: Structures/Windows/shuttle_window.rsi
   - type: Icon
     sprite: Structures/Windows/shuttle_window.rsi
+  - type: Repairable
+    fuelCost: 15
+    doAfterDelay: 3
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: RGlass
@@ -38,20 +41,23 @@
         acts: [ "Destruction" ]
   - type: IconSmooth
     base: swindow
+  - type: Construction
+    graph: Window
+    node: shuttleWindow
   - type: Appearance
   - type: Tag
     tags:
-    - ForceFixRotations # WWDP fix missing tags
-    - Window # WWDP fix missing tags
+    - ForceFixRotations
+    - Window
     - WeldbotFixableStructure
   - type: DamageVisuals
-    thresholds: [4, 8, 12]
-    damageDivisor: 28
+    thresholds: [5, 10, 20]
+    damageDivisor: 20
     trackAllDamage: true
     damageOverlay:
       sprite: Structures/Windows/cracks.rsi
   - type: StaticPrice
-    price: 75
+    price: 150
 
 - type: entity
   parent: ShuttleWindow
@@ -66,6 +72,9 @@
     drawdepth: OverMobs # WWDP edit
     sprite: Structures/Windows/shuttle_window_diagonal.rsi
     state: state0
+  - type: Tag
+    tags:
+    - Diagonal
   - type: IconSmooth
     mode: Diagonal
     key: walls

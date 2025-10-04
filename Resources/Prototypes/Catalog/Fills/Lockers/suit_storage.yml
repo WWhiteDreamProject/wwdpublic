@@ -139,13 +139,15 @@
   - type: StorageFill
     contents:
     - id: OxygenTankFilled
-      amount: 1 #DeltaV - Double the tanks # WWDP - no
-    - id: ClothingOuterHardsuitSecurity #WWDP edit
-      amount: 1 #DeltaV - Double the suits # WWDP - no
+      amount: 2 #DeltaV - Double the tanks
+    - id: ClothingOuterHardsuitSecurity # WWDP edit: ClothingOuterHardsuitCombatOfficer -> ClothingOuterHardsuitSecurity
+      amount: 2 #DeltaV - Double the suits
     - id: ClothingMaskBreath
-      amount: 1 #Delta-V Double the masks # WWDP - no
-    - id: ClothingShoesBootsMagSec
-      amount: 2
+      amount: 2 #Delta-V Double the masks
+    # WD EDIT START
+    # - id: ClothingShoesBootsMagSec
+    #   amount: 2
+    # WD EDIT END
   - type: AccessReader
     access: [["Security"]]
 
@@ -155,13 +157,10 @@
   parent: SuitStorageBase
   suffix: Chief Engineer
   components:
-  - type: StorageFill
-    contents:
-    - id: OxygenTankFilled
-    - id: JetpackVoidFilled
-    - id: ClothingShoesBootsMagAdv
-    - id: ClothingOuterHardsuitEngineeringWhite
-    - id: ClothingMaskBreath
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillChiefEngineerHardsuit
   - type: AccessReader
     access: [["ChiefEngineer"]]
 
@@ -171,11 +170,10 @@
   parent: SuitStorageBase
   suffix: Chief Medical Officer
   components:
-  - type: StorageFill
-    contents:
-    - id: OxygenTankFilled
-    - id: ClothingOuterHardsuitMedical
-    - id: ClothingMaskBreathMedical
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillChiefMedicalOfficerHardsuit
   - type: AccessReader
     access: [ [ "ChiefMedicalOfficer" ] ]
 
@@ -183,13 +181,12 @@
 - type: entity
   id: SuitStorageRD
   parent: SuitStorageBase
-  suffix: Mystagogue # DeltaV - Epistemics Department replacing Science
+  suffix: Mystagogue
   components:
-  - type: StorageFill
-    contents:
-    - id: OxygenTankFilled
-    - id: ClothingOuterHardsuitRd
-    - id: ClothingMaskBreath
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillResearchDirectorHardsuit
   - type: AccessReader
     access: [ [ "ResearchDirector" ] ]
 
@@ -199,13 +196,10 @@
   parent: SuitStorageBase
   suffix: Head of Security
   components:
-  - type: StorageFill
-    contents:
-    - id: OxygenTankFilled
-    - id: JetpackSecurityFilled
-    - id: ClothingOuterHardsuitSecurityRed #WWDP edit
-    - id: ClothingMaskGasSwat
-    - id: ClothingShoesBootsMagSec
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillHeadOfSecurityHardsuit
   - type: AccessReader
     access: [["HeadOfSecurity"]]
 
@@ -218,9 +212,9 @@
   - type: StorageFill
     contents:
     - id: OxygenTankFilled
-    - id: ClothingOuterHardsuitWarden #WWDP edit
+    - id: ClothingOuterHardsuitWarden # WD EDIT: ClothingOuterHardsuitCombatWarden -> ClothingOuterHardsuitWarden
     - id: ClothingMaskBreath
-    - id: ClothingShoesBootsMagSec
+    # - id: ClothingShoesBootsMagSec - WD EDIT
   - type: AccessReader
     access: [["Armory"]]
 
@@ -230,12 +224,10 @@
   parent: SuitStorageBase
   suffix: Captain
   components:
-  - type: StorageFill
-    contents:
-    - id: OxygenTankFilled
-    - id: ClothingOuterHardsuitCap
-    - id: ClothingMaskGasCaptain
-    - id: ClothingMaskGasCaptainCombat
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillCaptainHardsuit
   - type: AccessReader
     access: [["Captain"]]
 
@@ -245,12 +237,10 @@
   parent: SuitStorageBase
   suffix: Salvage
   components:
-  - type: StorageFill
-    contents:
-    - id: OxygenTankFilled
-    - id: ClothingShoesBootsMag
-    - id: ClothingOuterHardsuitSpatio
-    - id: ClothingMaskGasExplorer
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: FillSalvageSpecialistHardsuitSpatio
   - type: AccessReader
     access: [["Salvage"]]
 
@@ -323,6 +313,7 @@
     - id: OxygenTankFilled
     - id: ClothingOuterHardsuitWizard
     - id: ClothingMaskBreath
+    - id: JetpackVoidFilled
 
 # Cybersun Armoring Corporation
 - type: entity

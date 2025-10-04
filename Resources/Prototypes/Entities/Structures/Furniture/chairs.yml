@@ -6,6 +6,7 @@
   placement:
     mode: PlaceFree
   components:
+  - type: Animateable
   - type: Clickable
   - type: InteractionOutline
   - type: Physics
@@ -31,13 +32,13 @@
     buckleOffset: "0,-0.05"
   - type: Pullable
   - type: Damageable
-    damageContainer: Inorganic
-    damageModifierSet: Metallic
+    damageContainer: StructuralInorganic # WD EDIT: Inorganic -> StructuralInorganic
+    damageModifierSet: StructuralMetallic # WD EDIT: Inorganic -> StructuralMetallic
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 25
+        damage: 100
       behaviors:
         - !type:DoActsBehavior
           acts: [ "Destruction" ]
@@ -50,8 +51,9 @@
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
+          volume: -3 # WD EDIT
   - type: StaticPrice
-    price: 25
+    price: 50
   - type: RequireProjectileTarget
 
 #Starts unanchored, cannot be rotated while anchored
@@ -88,7 +90,6 @@
   - type: Rotatable
     rotateWhileAnchored: true
 
-# Goobstation - rolly chairs that actually roll!
 - type: entity
   name: chair
   id: RollingOfficeChairBase
@@ -123,8 +124,8 @@
         !type:DamageTrigger
         damage: 100
       behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
         damage: 50
@@ -217,13 +218,17 @@
 - type: entity
   name: white office chair
   id: ChairOfficeLight
-  parent: RollingOfficeChairBase # Goobstation - make the rolly chairs roll!
+  parent: OfficeChairBase
   components:
   - type: Sprite
     state: office-white
   - type: Construction
     graph: Seat
     node: chairOffice
+  - type: SpawnItemsAtLocationOnUse
+    spawnItemsVerbText: disable-wheel-locks
+    items:
+    - id: ChairOfficeLightRolling
 
 - type: entity
   name: dark office chair
@@ -235,6 +240,46 @@
   - type: Construction
     graph: Seat
     node: chairOfficeDark
+  - type: SpawnItemsAtLocationOnUse
+    spawnItemsVerbText: disable-wheel-locks
+    items:
+    - id: ChairOfficeDarkRolling
+
+# EE start
+
+- type: entity
+  name: white office chair
+  suffix: No mapping
+  id: ChairOfficeLightRolling
+  parent: RollingOfficeChairBase
+  components:
+  - type: Sprite
+    state: office-white
+  - type: Construction
+    graph: Seat
+    node: chairOffice
+  - type: SpawnItemsAtLocationOnUse
+    spawnItemsVerbText: activate-wheel-locks
+    items:
+    - id: ChairOfficeLight
+
+- type: entity
+  name: dark office chair
+  suffix: No mapping
+  id: ChairOfficeDarkRolling
+  parent: ChairOfficeLightRolling
+  components:
+  - type: Sprite
+    state: office-dark
+  - type: Construction
+    graph: Seat
+    node: chairOfficeDark
+  - type: SpawnItemsAtLocationOnUse
+    spawnItemsVerbText: activate-wheel-locks
+    items:
+    - id: ChairOfficeDark
+
+# EE end
 
 - type: entity
   name: comfy chair
@@ -266,9 +311,7 @@
   parent: UnanchoredChairBase
   components:
   - type: Sprite
-    sprite: Structures/Furniture/chairs.rsi
     state: wooden
-    noRot: true
   - type: Construction
     graph: Seat
     node: chairWood
@@ -303,7 +346,6 @@
   description: Looks uncomfortable.
   components:
   - type: Sprite
-    sprite: Structures/Furniture/chairs.rsi #WWDP edit
     state: ritual
   - type: Construction
     graph: RitualSeat
@@ -328,7 +370,6 @@
   description: It's staring back.
   components:
   - type: Sprite
-    sprite: Structures/Furniture/chairs.rsi #WWDP edit
     state: cursed
   - type: Strap
     buckleSound:
@@ -390,7 +431,7 @@
     node: chair
 
 - type: entity
-  parent: [SeatBase, BaseFoldable]
+  parent: [SeatBase, BaseDeployFoldable]
   id: ChairFolding
   name: folding chair
   description: If you carry six of these you become the coolest kid at church.
@@ -416,6 +457,7 @@
   - type: Construction
     graph: Seat
     node: chairFolding
+  - type: DamageExaminable
 
 - type: entity
   parent: ChairFolding
@@ -467,4 +509,4 @@
             min: 2
             max: 4
   - type: StaticPrice
-    price: 20
+    price: 50

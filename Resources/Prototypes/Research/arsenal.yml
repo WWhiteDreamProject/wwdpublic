@@ -20,13 +20,15 @@
   - WeaponEnergyGun
   - WeaponEnergyGunMini
   - WeaponLaserSvalinn
-  - BasicRegulatorLamp # WWDP EDIT
+  - BasicFluxCore # WWDP EDIT
+  - SmallBasicFluxCore # WWDP EDIT
   - WeaponEnergyGunPistol
   - WeaponDisablerSMG
   - Truncheon
   - WeaponDisabler
   # - WeaponCivilianDisabler # WWDP disabled (xd)
   - WeaponMechCombatDisabler # Goobstation
+  - WeaponMechCombatFlashbangLauncher # Goobstation
   #- WeaponPistolMk58 #todo: Add a bunch of basic ballistic guns to the list and make lathe recipes for them.
   - MechEquipmentKineticAccelerator # Goobstation
   - WeaponPistolMk58
@@ -44,7 +46,6 @@
   - WeaponRifleNovaliteC1
   - WeaponRifleGestio
   # WWDP new ammo
-  - ShellShotgunBreach
   - MagazineShotgunBreach
   - BoxBreach
 
@@ -73,7 +74,6 @@
   - MagazineBoxLightRifleIncendiary
   - MagazineBoxRifleIncendiary
   - MagazineBoxCaselessRifleIncendiary
-  - CartridgeSpecialIncendiary
   - MagazineBoxSpecialIncendiary
   - MagazineUniversalMagnumIncendiary
 
@@ -101,9 +101,42 @@
   - MagazineBoxRifleUranium
   - MagazineBoxCaselessRifleUranium
   - BoxShotgunUranium
-  - CartridgeSpecialUranium
   - MagazineBoxSpecialUranium
   - MagazineUniversalMagnumUranium
+
+- type: technology
+  id: ExplosiveTechnology
+  name: research-technology-explosive-technology
+  icon:
+    sprite: Objects/Devices/payload.rsi
+    state: payload-explosive-armed
+  discipline: Arsenal
+  tier: 1
+  cost: 10000
+  recipeUnlocks:
+  - SignallerAdvanced
+  - SignalTrigger
+  - VoiceTrigger
+  - TimerTrigger
+  - FlashPayload
+  - ExplosivePayload
+  - ChemicalPayload
+  #WWDP new ammo
+  - MagazineShotgunFrag
+  - BoxFrag
+  # TODO: Add "Explosive Ammunition" to this tech to make it waaaay more interesting.
+
+- type: technology
+  id: SpecialMeans
+  name: research-technology-special-means
+  icon:
+    sprite: Clothing/Back/Backpacks/electropack.rsi
+    state: icon
+  discipline: Arsenal
+  tier: 1
+  cost: 5000
+  recipeUnlocks:
+  - ClothingBackpackElectropack
 
 # Tier 2
 
@@ -120,29 +153,6 @@
   - ClothingOuterHardsuitCombatStandard
   - ClothingOuterHardsuitCombatMedical
   - ClothingOuterHardsuitCombatRiot
-
-- type: technology
-  id: ExplosiveTechnology
-  name: research-technology-explosive-technology
-  icon:
-    sprite: Objects/Devices/payload.rsi
-    state: payload-explosive-armed
-  discipline: Arsenal
-  tier: 2
-  cost: 10000
-  recipeUnlocks:
-  - SignallerAdvanced
-  - SignalTrigger
-  - VoiceTrigger
-  - TimerTrigger
-  - FlashPayload
-  - ExplosivePayload
-  - ChemicalPayload
-  #WWDP new ammo
-  - MagazineShotgunFrag
-  - ShellShotgunFrag
-  - BoxFrag
-  # TODO: Add "Explosive Ammunition" to this tech to make it waaaay more interesting.
 
 - type: technology
   id: ShrapnelMunitions
@@ -196,7 +206,8 @@
   # - WeaponPistolCobra # WWDP no syndicate guns
   - Terminus
   - WeaponPistolUniversal
-  - AdvancedRegulatorLamp #WWDP edit
+  - AdvancedFluxCore #WWDP edit
+  - SmallAdvancedFluxCore #WWDP edit
   technologyPrerequisites:
   - BasicWeapons
 
@@ -256,14 +267,13 @@
   - WeaponMechCombatImmolationGun # Goobstation
   # WWDP new ammo
   - MagazineShotgunLaser
-  - ShellShotgunLaser
   - BoxLaser
   # WWDP no syndicate gear
   # - EnergySword # TODO: Add a bunch of stupidly exotic energy weapons to act as a reaaaaaally nice incentive for research to consider this.
   # - EnergySwordDouble
-#  - EnergyCutlass
+  #  - EnergyCutlass
   # WWDP moved caseless ammo here
-  - MagazineCaselessRiflePractice # EE
-  - MagazineCaselessRifle # EE
+  # - MagazineCaselessRiflePractice # EE - WD EDIT
+  # - MagazineCaselessRifle # EE - WD EDIT
   - WeaponSubMachineGunBRDIR25
   softCapContribution: 1.5

@@ -82,10 +82,10 @@ namespace Content.Shared.Containers.ItemSlots
         public EntityWhitelist? Blacklist;
 
         [DataField]
-        public SoundSpecifier InsertSound = new SoundPathSpecifier("/Audio/Weapons/Guns/MagIn/revolver_magin.ogg");
+        public SoundSpecifier? InsertSound = new SoundPathSpecifier("/Audio/Weapons/Guns/MagIn/revolver_magin.ogg");
 
         [DataField]
-        public SoundSpecifier EjectSound = new SoundPathSpecifier("/Audio/Weapons/Guns/MagOut/revolver_magout.ogg");
+        public SoundSpecifier? EjectSound = new SoundPathSpecifier("/Audio/Weapons/Guns/MagOut/revolver_magout.ogg");
 
         /// <summary>
         ///     The name of this item slot. This will be shown to the user in the verb menu.
@@ -110,6 +110,12 @@ namespace Content.Shared.Containers.ItemSlots
         [Access(typeof(ItemSlotsSystem), Other = AccessPermissions.ReadWriteExecute)] // FIXME Friends
         [NonSerialized]
         public string? StartingItem;
+
+
+        // WWDP EDIT START
+        [DataField]
+        public bool SpawnStartingItemIfCrafted = true;
+        // WWDP EDIT END
 
         /// <summary>
         ///     Whether or not an item can currently be ejected or inserted from this slot.

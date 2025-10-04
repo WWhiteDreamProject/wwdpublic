@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-4.0",
+  "copyright": "equipped-FEET made by sentryprimis. Icon was heavily inspired by Azlan work",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "equipped-FEET",
+      "directions": 4
+    }
+  ]
+}

@@ -58,6 +58,13 @@ public sealed class GrabThrownSystem : EntitySystem
         kineticEnergyDamage.DamageDict.Add("Blunt", 1);
         var modNumber = Math.Floor(kineticEnergy / 100);
         kineticEnergyDamage *= Math.Floor(modNumber / 3);
+        
+        if (kineticEnergyDamage.GetTotal() > 50)
+        {
+            var ratio = 50 / kineticEnergyDamage.GetTotal();
+            kineticEnergyDamage *= ratio;
+        }
+        
         _damageable.TryChangeDamage(args.OtherEntity, kineticEnergyDamage);
         _stamina.TakeStaminaDamage(ent, (float) Math.Floor(modNumber / 2));
 

@@ -73,6 +73,7 @@ namespace Content.Server.Atmos.EntitySystems
             SubscribeLocalEvent<FlammableComponent, IsHotEvent>(OnIsHot);
             SubscribeLocalEvent<FlammableComponent, TileFireEvent>(OnTileFire);
             SubscribeLocalEvent<FlammableComponent, RejuvenateEvent>(OnRejuvenate);
+            SubscribeLocalEvent<FlammableComponent, ResistFireAlertEvent>(OnResistFireAlert);
 
             SubscribeLocalEvent<IgniteOnCollideComponent, StartCollideEvent>(IgniteOnCollide);
             SubscribeLocalEvent<IgniteOnCollideComponent, LandEvent>(OnIgniteLand);
@@ -202,8 +203,8 @@ namespace Content.Server.Atmos.EntitySystems
             if (!TryComp(otherUid, out FlammableComponent? otherFlammable) || !otherFlammable.FireSpread)
                 return;
 
-            if (!flammable.OnFire && !otherFlammable.OnFire)
-                return; // Neither are on fire
+            if ((!flammable.OnFire || !flammable.FireSpread) && (!otherFlammable.OnFire || !otherFlammable.FireSpread)) // WWDP EDIT
+                return; // Neither are on fire or capable of spreading fire
 
             // Both are on fire -> equalize fire stacks.
             // Weight each thing's firestacks by its mass
@@ -219,16 +220,23 @@ namespace Content.Server.Atmos.EntitySystems
             // - the thing on fire loses a small number of firestacks
             // - the other thing gains a large number of firestacks
             // so a person on fire engulfs a mouse, but an engulfed mouse barely does anything to a person
-            var total = mass1 + mass2;
-            var avg = (flammable.FireStacks + otherFlammable.FireStacks) / total;
 
-            // swap the entity losing stacks depending on whichever has the most firestack kilos
-            var (src, dest) = flammable.FireStacks * mass1 > otherFlammable.FireStacks * mass2
-                ? (-1f, 1f)
-                : (1f, -1f);
-            // bring each entity to the same firestack mass, firestacks being scaled by the other's mass
-            AdjustFireStacks(uid, src * avg * mass2, flammable, ignite: true);
-            AdjustFireStacks(otherUid, dest * avg * mass1, otherFlammable, ignite: true);
+            // WWDP EDIT START - firestack transfer logic that makes sense
+            // How much firestacks the other entity will receive from transfering a single firestack from our entity
+            var transferCost = mass1 / mass2;
+            // how much firestacks will our entity lose (and, if multiplied by transferCost, how much the other will gain)
+            // works in both ways (when we're losing firestacks to other and gaining from other)
+
+            // firestacks - x = firestacksOther + x * p; where p = mass1/mass2
+            var diff = (flammable.FireStacks - otherFlammable.FireStacks) / (1 + transferCost);
+
+            // bring each entity to the same firestack value
+            AdjustFireStacks(uid, -diff, flammable);
+            AdjustFireStacks(otherUid, diff * transferCost, otherFlammable);
+
+            Ignite(uid, otherUid, flammable, otherUid);
+            Ignite(otherUid, uid, otherFlammable, uid);
+            // WWDP EDIT END
         }
 
         private void OnIsHot(EntityUid uid, FlammableComponent flammable, IsHotEvent args)
@@ -251,6 +259,15 @@ namespace Content.Server.Atmos.EntitySystems
             Extinguish(uid, component);
         }
 
+        private void OnResistFireAlert(Entity<FlammableComponent> ent, ref ResistFireAlertEvent args)
+        {
+            if (args.Handled)
+                return;
+
+            Resist(ent, ent);
+            args.Handled = true;
+        }
+
         public void UpdateAppearance(EntityUid uid, FlammableComponent? flammable = null, AppearanceComponent? appearance = null)
         {
             if (!Resolve(uid, ref flammable, ref appearance))
@@ -266,15 +283,15 @@ namespace Content.Server.Atmos.EntitySystems
             _appearance.SetData(uid, ToggleableLightVisuals.Enabled, flammable.OnFire, appearance);
         }
 
-        public void AdjustFireStacks(EntityUid uid, float relativeFireStacks, FlammableComponent? flammable = null, bool ignite = true)
+        public void AdjustFireStacks(EntityUid uid, float relativeFireStacks, FlammableComponent? flammable = null)
         {
             if (!Resolve(uid, ref flammable))
                 return;
 
-            SetFireStacks(uid, flammable.FireStacks + relativeFireStacks, flammable, ignite);
+            SetFireStacks(uid, flammable.FireStacks + relativeFireStacks, flammable);
         }
 
-        public void SetFireStacks(EntityUid uid, float stacks, FlammableComponent? flammable = null, bool ignite = true)
+        public void SetFireStacks(EntityUid uid, float stacks, FlammableComponent? flammable = null)
         {
             if (!Resolve(uid, ref flammable))
                 return;
@@ -285,17 +302,17 @@ namespace Content.Server.Atmos.EntitySystems
                 Extinguish(uid, flammable);
             else
             {
-                flammable.OnFire = flammable.OnFire ? flammable.OnFire : ignite; // WD EDIT
                 UpdateAppearance(uid, flammable);
             }
         }
 
         public void Extinguish(EntityUid uid, FlammableComponent? flammable = null)
         {
-            if (!Resolve(uid, ref flammable))
+            if (!Resolve(uid, ref flammable) || !flammable.CanExtinguish)
                 return;
 
-            if (!flammable.OnFire || !flammable.CanExtinguish)
+            RemCompDeferred<OnFireComponent>(uid);
+            if (!flammable.OnFire)
                 return;
 
             _adminLogger.Add(LogType.Flammable, $"{ToPrettyString(uid):entity} stopped being on fire damage");
@@ -314,6 +331,7 @@ namespace Content.Server.Atmos.EntitySystems
             if (!Resolve(uid, ref flammable, false)) // Lavaland Change: SHUT THE FUCK UP FLAMMABLE
                 return;
 
+            EnsureComp<OnFireComponent>(uid);
             if (flammable.AlwaysCombustible)
             {
                 flammable.FireStacks = Math.Max(flammable.FirestacksOnIgnite, flammable.FireStacks);
@@ -407,9 +425,15 @@ namespace Content.Server.Atmos.EntitySystems
             _timer -= UpdateTime;
 
             // TODO: This needs cleanup to take off the crust from TemperatureComponent and shit.
-            var query = EntityQueryEnumerator<FlammableComponent, TransformComponent>();
-            while (query.MoveNext(out var uid, out var flammable, out _))
+            var query = EntityQueryEnumerator<OnFireComponent>();
+            while (query.MoveNext(out var uid, out _))
             {
+                if (!TryComp(uid, out FlammableComponent? flammable))
+                {
+                    RemCompDeferred<OnFireComponent>(uid);
+                    continue;
+                }
+
                 // Slowly dry ourselves off if wet.
                 if (flammable.FireStacks < 0)
                 {
@@ -420,6 +444,7 @@ namespace Content.Server.Atmos.EntitySystems
                 {
                     _alertsSystem.ClearAlert(uid, flammable.FireAlert);
                     RaiseLocalEvent(uid, new MoodRemoveEffectEvent("OnFire"));
+                    RemCompDeferred<OnFireComponent>(uid);
                     continue;
                 }
 
@@ -441,7 +466,7 @@ namespace Content.Server.Atmos.EntitySystems
                     _ignitionSourceSystem.SetIgnited((uid, source));
 
                     if (TryComp(uid, out TemperatureComponent? temp))
-                        _temperatureSystem.ChangeHeat(uid, 12500 * flammable.FireStacks, false, temp);
+                        _temperatureSystem.ChangeHeat(uid, 3000 * flammable.FireStacks, false, temp); // WWDP less heat
 
                     var multiplier = 1f;
                     if (!flammable.IgnoreFireProtection)

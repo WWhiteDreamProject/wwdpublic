@@ -16,23 +16,67 @@ admin-smite-lung-removal-self = Вы не можете вдохнуть!
 
 ## Smite descriptions
 
+## Smite names
+
+admin-smite-explode-name = Explode
+admin-smite-chess-dimension-name = Chess Dimension
+admin-smite-set-alight-name = Set Alight
+admin-smite-monkeyify-name = Monkeyify
+admin-smite-garbage-can-name = Garbage Can
+admin-smite-electrocute-name = Electrocute
+admin-smite-remove-blood-name = Remove blood
+admin-smite-remove-hands-name = Remove hands
+admin-smite-remove-hand-name = Remove hand
+admin-smite-pinball-name = Pinball
+admin-smite-yeet-name = Yeet
+admin-smite-become-bread-name = Become Bread
+admin-smite-cluwne-name = Cluwne
+admin-smite-anger-pointing-arrows-name = Anger Pointing Arrows
+admin-smite-dust-name = Dust
+admin-smite-buffering-name = Buffering
+admin-smite-become-instrument-name = Become Instrument
+admin-smite-remove-gravity-name = Remove Gravity
+admin-smite-reptilian-species-swap-name = Become Reptilian
+admin-smite-locker-stuff-name = Locker Stuff
+admin-smite-headstand-name = Headstand
+admin-smite-become-mouse-name = Become Mouse
+admin-smite-maid-name = Cat Maid
+admin-smite-zoom-in-name = Zoom In
+admin-smite-flip-eye-name = Flip Eye
+admin-smite-run-walk-swap-name = Run Walk Swap
+admin-smite-super-speed-name = Run Up
+admin-smite-stomach-removal-name = Stomach Removal
+admin-smite-speak-backwards-name = Speak Backwards
+admin-smite-lung-removal-name = Lungs Removal
+admin-smite-disarm-prone-name = Disarm Prone
+admin-smite-super-bonk-name = Super Bonk
+admin-smite-super-bonk-lite-name = Super Bonk Lite
+admin-smite-terminate-name = Terminate
+admin-smite-super-slip-name = Super Slip
+admin-smite-creampie-name = Cream
+admin-smite-vomit-organs-name = Vomit Organs
+admin-smite-ghostkick-name = Ghost Kick
+admin-smite-nyanify-name = Cat Ears
+admin-smite-kill-sign-name = Kill Sign
+
+## Smite descriptions
+
 admin-smite-explode-description = Взрывает цель.
 admin-smite-chess-dimension-description = Изгоняет цель в шахматное измерение.
 admin-smite-set-alight-description = Заставляет цель гореть.
 admin-smite-monkeyify-description = Превращает цель в обезьяну.
-admin-smite-lung-cancer-description = Рак лёгких IIIA стадии, для настоящих любителей популярного шоу "Во все тяжкие".
 admin-smite-electrocute-description = Поражает цель электрическим током, делая бесполезным все, что было на них надето.
 admin-smite-creampie-description = Кремовый пирог, всего одной кнопкой.
 admin-smite-remove-blood-description = Обескровливает цель, кроваво.
 admin-smite-vomit-organs-description = Вызывает у цели рвоту, в том числе и органами.
 admin-smite-remove-hands-description = Лишает цель рук.
+admin-smite-remove-hand-description = Удаляет одну из рук цели.
 admin-smite-pinball-description = Превращает цель в суперпрыгучий мяч, метая её об стены пока она не клипнется сквозь станцию в бездну.
 admin-smite-yeet-description = Изгоняет цель в глубины космоса, включив no-clip и швыряя её.
 admin-smite-become-bread-description = Превращает цель в хлеб. И всё.
 admin-smite-ghostkick-description = Тихо кикает пользователя, разрывая его соединение.
 admin-smite-nyanify-description = Насильно добавляет кошачьи ушки, от которых никуда не деться.
 admin-smite-kill-sign-description = Накладывает на игрока метку смерти для его товарищей.
-admin-smite-clown-description = Клоунофицирует цель. Костюм нельзя снять.
 admin-smite-cluwne-description = Клунифицирует цель. Костюм нельзя снять и экипаж станции может спокойно их убить.
 admin-smite-anger-pointing-arrows-description = Разъяряет указательные стрелки, заставляя их атаковать цель взрывами.
 admin-smite-dust-description = Превращает цель в небольшую кучку пепла.
@@ -42,21 +86,24 @@ admin-smite-remove-gravity-description = Наделяет цель антигр�
 admin-smite-reptilian-species-swap-description = Меняет расу на Ящера. Пригодится для тех, кто ведёт себя как космический расист.
 admin-smite-locker-stuff-description = Помещает цель в (заваренный) шкафчик.
 admin-smite-headstand-description = Переворачивает спрайт по вертикали.
-admin-smite-plasma-internals-description = Заменяет содержимое лёгких плазмой.
 admin-smite-become-mouse-description = Цель станет мышью. Рататуй.
 admin-smite-maid-description = Насильно превращает цель в кошко-служанку уборщицу. Это настоящая пытка для некоторых игроков, используйте её с умом.
 admin-smite-zoom-in-description = Увеличивает зум так, что цель перестает видеть окружение.
 admin-smite-flip-eye-description = Переворачивает их обзор, фактически меняя управление и делая игру раздражающей.
 admin-smite-run-walk-swap-description = Меняет местами бег и ходьбу, заставляя цель держать Shift, чтобы двигаться быстро.
-admin-smite-stomach-removal-description = Удаляет желудок цели, лишая её возможности питаться.
 admin-smite-super-speed-description = Делает цель очень быстрой, заставляя её превращаться в фарш при столкновении со стеной.
+admin-smite-stomach-removal-description = Удаляет желудок цели, лишая её возможности питаться.
 admin-smite-speak-backwards-description = Заставляет цель говорить задом наперед, так что она не сможет позвать на помощь.
 admin-smite-lung-removal-description = Удаляет лёгкие цели, топя её.
-admin-smite-remove-hand-description = Удаляет одну из рук цели.
 admin-smite-disarm-prone-description = Шанс обезоружить цель становится 100%, а наручники надеваются на неё мгновенно.
 admin-smite-garbage-can-description = Превращает цель в мусорку, чтобы подчеркнуть, на что она похоже.
 admin-smite-super-bonk-description = Бьет их о каждый стол на станции и за её пределами.
 admin-smite-super-bonk-lite-description = Бьет их о каждый стол на станции и за её пределами. Останавливается, когда цель умирает.
+
+## Tricks descriptions
+
+admin-smite-terminate-description = Creates a Terminator ghost role with the sole objective of killing them.
+admin-smite-super-slip-description = Slips them really, really hard.
 
 ## Tricks descriptions
 

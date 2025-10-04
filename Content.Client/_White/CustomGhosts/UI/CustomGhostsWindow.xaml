@@ -1,0 +1,14 @@
+<DefaultWindow xmlns="https://spacestation14.io"
+            Title="{Loc 'custom-ghosts-window-title'}"
+            MinSize="300 450"
+            SetSize="300 450">
+    <BoxContainer Orientation="Vertical">
+        <BoxContainer Orientation="Horizontal">
+            <CheckBox Name="ShowAllCheckBox" VerticalAlignment="Center" Text="{Loc 'custom-ghosts-window-show-all-checkbox'}" ToolTip="{Loc 'custom-ghosts-window-show-all-checkbox-tooltip'}" />
+        </BoxContainer>
+        <ScrollContainer VerticalExpand="True">
+            <BoxContainer Name="ScrollBox" Orientation="Vertical">
+            </BoxContainer>
+        </ScrollContainer>
+    </BoxContainer>
+</DefaultWindow>

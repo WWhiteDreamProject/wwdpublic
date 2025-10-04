@@ -8,15 +8,24 @@ damage-melee-heavy = размах
 damage-throw = бросок
 damage-examine = Наносит следующие повреждения:
 damage-examine-type = Наносит следующие повреждения ({ $type }):
-damage-stamina-cost = [color=cyan]{CAPITALIZE($type)}[/color] тратит [color=orange]{$cost}[/color] [color=yellow]выносливости[/color].
 damage-value =
     - [color=red]{ $amount }[/color] единиц [color=yellow]{ $type ->
-       *[other] неизвестного
+        [Asphyxiation] удушающего
+        [Bloodloss] обескровливающего
         [Blunt] тупого
-        [Slash] рубящего
+        [Cellular] клеточного
+        [Slash] режущего
         [Piercing] проникающего
         [Heat] теплового
+        [Cold] холодного
+        [Shock] электрического
+        [Poison] ядовитого
         [Radiation] радиационного
         [Caustic] кислотного
         [Structural] структурного
+        [Holy] святого
+        *[other] неизвестного
     }[/color] урона.
+damage-stamina-cost = [color=cyan]{CAPITALIZE($type)}[/color] тратит [color=orange]{$cost}[/color] [color=yellow]выносливости[/color].
+damage-examine-embeddable-harmful = С метким броском [color=cyan]впивается[/color] в цель и продолжает ранить её с течением времени.
+damage-examine-embeddable = При попадании [color=cyan]впивается[/color], но не причиняет вреда.

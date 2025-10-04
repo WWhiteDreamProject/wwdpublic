@@ -25,10 +25,14 @@
   - type: StaticPrice
     price: 0
   - type: StackPrice
-    price: 1
+    price: 2.25
   - type: PhysicalComposition
     materialComposition:
       Steel: 15
+  - type: GuideHelp
+    guides:
+    - VoltageNetworks
+    - Power
 
 - type: entity
   id: CableHVStack
@@ -71,6 +75,7 @@
     delay: 1.8
     damageContainers:
     - Silicon
+    - SiliconUnshielded
     damage:
       types: # these are all split across multiple types. IPCs can still take cold damage, they just heavily resist it.
         Heat: -8
@@ -156,6 +161,7 @@
     delay: 1.2
     damageContainers:
     - Silicon
+    - SiliconUnshielded
     damage:
       types: # these are all split across multiple types. IPCs can still take cold damage, they just heavily resist it.
         Heat: -4
@@ -240,6 +246,7 @@
     delay: 0.6
     damageContainers:
     - Silicon
+    - SiliconUnshielded
     damage:
       types: # these are all split across multiple types. IPCs can still take cold damage, they just heavily resist it.
         Heat: -2
@@ -256,6 +263,19 @@
         - ItemMask
         restitution: 0.3
         friction: 0.2
+  # WWDP short crafting
+  - type: UserInterface
+    interfaces:
+      enum.RadialSelectorUiKey.Key:
+        type: AttachedRadialSelectorMenuBUI
+  - type: ActivatableUI
+    key: enum.RadialSelectorUiKey.Key
+    inHandsOnly: true
+    requireActiveHand: false
+  - type: ShortConstruction
+    entries:
+    - prototype: makeshifthandcuffs
+    - prototype: CableTerminal
 
 - type: entity
   parent: CableApcStack

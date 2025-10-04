@@ -1,0 +1,26 @@
+﻿{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Made by kekoven1",
+    "size": {
+        "x": 48,
+        "y": 48
+    },
+    "states": [
+        {
+            "name": "effect",
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        }
+    ]
+}

@@ -55,12 +55,12 @@ tilemap:
   21: FloorMS13WoodWide
   23: FloorMS13WoodWideDamaged
   2: FloorMetalBlueSolid
-  67: FloorMetalDiamond
+  67: FloorMetalDiamondSteel
   12: FloorMetalGreyDarkSolid
   68: FloorMime
   70: FloorMiningDark
   54: FloorMiningLight
-  72: FloorMono
+  72: FloorTrueMonoTileSteel
   51: FloorOldConcreteSmooth
   77: FloorPlanetGrass
   78: FloorPlastic
@@ -81,8 +81,8 @@ tilemap:
   106: FloorSteelOffset
   107: FloorSteelPavement
   19: FloorSteelWorn
-  109: FloorTechMaint
-  110: FloorTechMaint2
+  109: FloorTechMaintSteel
+  110: FloorMaintWhite
   111: FloorTechMaint3
   113: FloorWhite
   114: FloorWhiteDiagonal
@@ -35644,22 +35644,18 @@ entities:
     - type: Transform
       pos: 26.5,-11.5
       parent: 2
-- proto: FloraRockSolid01
+- proto: FloraRockSolid
   entities:
   - uid: 4453
     components:
     - type: Transform
       pos: -15.499581,42.479954
       parent: 2
-- proto: FloraRockSolid02
-  entities:
   - uid: 4454
     components:
     - type: Transform
       pos: -12.461387,40.570232
       parent: 2
-- proto: FloraRockSolid03
-  entities:
   - uid: 4455
     components:
     - type: MetaData
@@ -35674,7 +35670,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 26.041445,41.487988
       parent: 2
-- proto: FloraTree05
+- proto: FloraTree
   entities:
   - uid: 4457
     components:
