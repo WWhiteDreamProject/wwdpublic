@@ -345,6 +345,24 @@ namespace Content.Client.Options.UI.Tabs
             AddButton(EngineKeyFunctions.EscapeMenu);
             AddButton(ContentKeyFunctions.EscapeContext);
 
+            // WD EDIT START
+            AddHeader("ui-options-header-target-doll");
+            AddButton(ContentKeyFunctions.TargetDollHead);
+            AddButton(ContentKeyFunctions.TargetDollChest);
+            AddButton(ContentKeyFunctions.TargetDollGroin);
+            AddButton(ContentKeyFunctions.TargetDollRightArm);
+            AddButton(ContentKeyFunctions.TargetDollRightHand);
+            AddButton(ContentKeyFunctions.TargetDollLeftArm);
+            AddButton(ContentKeyFunctions.TargetDollLeftHand);
+            AddButton(ContentKeyFunctions.TargetDollRightLeg);
+            AddButton(ContentKeyFunctions.TargetDollRightFoot);
+            AddButton(ContentKeyFunctions.TargetDollLeftLeg);
+            AddButton(ContentKeyFunctions.TargetDollLeftFoot);
+            AddButton(ContentKeyFunctions.TargetDollTail);
+            AddButton(ContentKeyFunctions.TargetDollEyes);
+            AddButton(ContentKeyFunctions.TargetDollMouth);
+            // WD EDIT END
+
             AddHeader("ui-options-header-misc");
             AddButton(ContentKeyFunctions.TakeScreenshot);
             AddButton(ContentKeyFunctions.TakeScreenshotNoUI);

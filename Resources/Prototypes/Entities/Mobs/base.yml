@@ -137,6 +137,7 @@
     damage:
       groups:
         Brute: 5
+  - type: TargetDoll # WD EDIT
 
 # Used for mobs that are affected by atmospherics, pressure, and heat
 - type: entity

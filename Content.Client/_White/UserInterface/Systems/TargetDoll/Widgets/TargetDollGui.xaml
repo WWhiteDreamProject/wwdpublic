@@ -1,0 +1,13 @@
+<widgets:TargetDollGui
+    xmlns="https://spacestation14.io"
+    xmlns:widgets="clr-namespace:Content.Client._White.UserInterface.Systems.TargetDoll.Widgets"
+    xmlns:controls="clr-namespace:Content.Client._White.UserInterface.Systems.TargetDoll.Controls">
+    <!--TODO: Use TextureRect when TexturePath set() starts using Theme -->
+    <TextureButton
+        Name="TargetDollTexture"
+        TexturePath="target_doll.png"
+        SetSize="64 64"
+        Scale = "2 2">
+        <controls:TargetDollControl Name="Control" SetSize="64 64"/>
+    </TextureButton>
+</widgets:TargetDollGui>

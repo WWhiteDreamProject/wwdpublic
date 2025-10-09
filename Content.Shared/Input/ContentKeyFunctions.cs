@@ -68,16 +68,6 @@ namespace Content.Shared.Input
         public static readonly BoundKeyFunction ToggleCrawlingUnder = "ToggleCrawlingUnder";
         public static readonly BoundKeyFunction ToggleCombatMode = "ToggleCombatMode"; // WD EDIT
         public static readonly BoundKeyFunction LookUp = "LookUp"; // WD EDIT
-        public static readonly BoundKeyFunction TargetHead = "TargetHead";
-        public static readonly BoundKeyFunction TargetTorso = "TargetTorso";
-        public static readonly BoundKeyFunction TargetLeftArm = "TargetLeftArm";
-        public static readonly BoundKeyFunction TargetLeftHand = "TargetLeftHand";
-        public static readonly BoundKeyFunction TargetRightArm = "TargetRightArm";
-        public static readonly BoundKeyFunction TargetRightHand = "TargetRightHand";
-        public static readonly BoundKeyFunction TargetLeftLeg = "TargetLeftLeg";
-        public static readonly BoundKeyFunction TargetLeftFoot = "TargetLeftFoot";
-        public static readonly BoundKeyFunction TargetRightLeg = "TargetRightLeg";
-        public static readonly BoundKeyFunction TargetRightFoot = "TargetRightFoot";
         public static readonly BoundKeyFunction ArcadeUp = "ArcadeUp";
         public static readonly BoundKeyFunction ArcadeDown = "ArcadeDown";
         public static readonly BoundKeyFunction ArcadeLeft = "ArcadeLeft";
@@ -94,6 +84,23 @@ namespace Content.Shared.Input
         public static readonly BoundKeyFunction ShuttleRotateLeft = "ShuttleRotateLeft";
         public static readonly BoundKeyFunction ShuttleRotateRight = "ShuttleRotateRight";
         public static readonly BoundKeyFunction ShuttleBrake = "ShuttleBrake";
+
+        // WD EDIT START
+        public static readonly BoundKeyFunction TargetDollHead = "TargetDollHead";
+        public static readonly BoundKeyFunction TargetDollChest = "TargetDollChest";
+        public static readonly BoundKeyFunction TargetDollGroin = "TargetDollGroin";
+        public static readonly BoundKeyFunction TargetDollRightArm = "TargetDollRightArm";
+        public static readonly BoundKeyFunction TargetDollRightHand = "TargetDollRightHand";
+        public static readonly BoundKeyFunction TargetDollLeftArm = "TargetDollLeftArm";
+        public static readonly BoundKeyFunction TargetDollLeftHand = "TargetDollLeftHand";
+        public static readonly BoundKeyFunction TargetDollRightLeg = "TargetDollRightLeg";
+        public static readonly BoundKeyFunction TargetDollRightFoot = "TargetDollRightFoot";
+        public static readonly BoundKeyFunction TargetDollLeftLeg = "TargetDollLeftLeg";
+        public static readonly BoundKeyFunction TargetDollLeftFoot = "TargetDollLeftFoot";
+        public static readonly BoundKeyFunction TargetDollTail = "TargetDollTail";
+        public static readonly BoundKeyFunction TargetDollEyes = "TargetDollEyes";
+        public static readonly BoundKeyFunction TargetDollMouth = "TargetDollMouth";
+        // WD EDIT END
 
         public static readonly BoundKeyFunction Hotbar0 = "Hotbar0";
         public static readonly BoundKeyFunction Hotbar1 = "Hotbar1";

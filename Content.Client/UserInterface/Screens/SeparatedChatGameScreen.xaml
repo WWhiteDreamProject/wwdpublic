@@ -12,6 +12,7 @@
     xmlns:inventory="clr-namespace:Content.Client.UserInterface.Systems.Inventory.Widgets"
     xmlns:combatMode="clr-namespace:Content.Client._White.UserInterface.Systems.CombatMode.Widgets"
     xmlns:movement="clr-namespace:Content.Client._White.UserInterface.Systems.Movement.Widgets"
+    xmlns:targetDoll="clr-namespace:Content.Client._White.UserInterface.Systems.TargetDoll.Widgets"
     Name="SeparatedChatHud"
     VerticalExpand="False"
     VerticalAlignment="Bottom"
@@ -23,9 +24,10 @@
             <inventory:InventoryGui Name="Inventory" Access="Protected"/>
             <hotbar:HotbarGui Name="Hotbar" Access="Protected"/>
             <!-- WD EDIT START -->
-            <BoxContainer Name="BottomRight" Align="End" SeparationOverride="2" Access="Protected">
+            <BoxContainer Name="BottomRight" Align="End" SeparationOverride="3" Access="Protected">
                 <combatMode:CombatModeGui Name="CombatMode" Access="Protected"/>
                 <movement:MovementGui Name="Movement" Access="Protected"/>
+                <targetDoll:TargetDollGui Name="TargetDoll" Access="Protected" />
             </BoxContainer>
             <!-- WD EDIT END -->
             <BoxContainer Name="TopLeftContainer" Orientation="Vertical">
