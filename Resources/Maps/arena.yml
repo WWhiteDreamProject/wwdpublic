@@ -115409,7 +115409,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 32.663303,14.563739
       parent: 2
-- proto: MailTeleporter
+- proto: CargoMailTeleporter
   entities:
   - uid: 17069
     components:

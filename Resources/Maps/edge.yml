@@ -78344,7 +78344,7 @@ entities:
     - type: Transform
       pos: -40.250866,-4.7284784
       parent: 2
-- proto: MailTeleporter
+- proto: CargoMailTeleporter
   entities:
   - uid: 11833
     components:
