@@ -4444,3 +4444,10 @@ Entries:
   id: 465
   time: '2025-10-10T05:32:56.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/854
+- author: Spatison
+  changes:
+    - type: Fix
+      message: Точное расположение предметов снова работает
+  id: 466
+  time: '2025-10-10T05:33:21.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/855
