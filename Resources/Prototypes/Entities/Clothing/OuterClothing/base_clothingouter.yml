@@ -148,17 +148,17 @@
     heatingCoefficient: 0.01
     coolingCoefficient: 0.01
   - type: IgniteFromGasImmunity
-    parts:
-    - Torso
-    - Groin
-    - LeftArm
-    - LeftHand
-    - RightArm
-    - RightHand
-    - LeftLeg
-    - LeftFoot
-    - RightLeg
-    - RightFoot
+    # parts:
+    # - Torso
+    # - Groin
+    # - LeftArm
+    # - LeftHand
+    # - RightArm
+    # - RightHand
+    # - LeftLeg
+    # - LeftFoot
+    # - RightLeg
+    # - RightFoot
   - type: ClothingSpeedModifier
     walkModifier: 0.4
     sprintModifier: 0.6
@@ -342,17 +342,17 @@
     heatingCoefficient: 0.2 # WD EDIT: 0.01 -> 0.2
     coolingCoefficient: 0.2 # WD EDIT: 0.01 -> 0.2
   - type: IgniteFromGasImmunity
-    parts:
-    - Torso
-    - Groin
-    - LeftArm
-    - LeftHand
-    - RightArm
-    - RightHand
-    - LeftLeg
-    - LeftFoot
-    - RightLeg
-    - RightFoot
+  #   parts:
+  #   - Torso
+  #   - Groin
+  #   - LeftArm
+  #   - LeftHand
+  #   - RightArm
+  #   - RightHand
+  #   - LeftLeg
+  #   - LeftFoot
+  #   - RightLeg
+  #   - RightFoot
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8

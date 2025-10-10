@@ -7,7 +7,6 @@ using Content.Shared._White.TTS;
 using Content.Shared.Examine;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid.Prototypes;
-using Content.Shared._Shitmed.Humanoid.Events; // Shitmed Change
 using Content.Shared.IdentityManagement;
 using Content.Shared.Preferences;
 using Content.Shared.HeightAdjust;
@@ -24,7 +23,7 @@ using Robust.Shared.Utility;
 using YamlDotNet.RepresentationModel;
 using Content.Shared._EE.GenderChange;
 using Content.Shared._White.Bark.Systems;
- 
+
  namespace Content.Shared.Humanoid;
 
 /// <summary>
@@ -504,7 +503,6 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
 
         humanoid.LastProfileLoaded = profile; //But traits can also modify the profile so we need to set it again.
         Dirty(uid, humanoid);
-        RaiseLocalEvent(uid, new ProfileLoadFinishedEvent());
     }
 
     public void SetMarkings(EntityUid uid, HumanoidCharacterProfile profile, HumanoidAppearanceComponent humanoid)

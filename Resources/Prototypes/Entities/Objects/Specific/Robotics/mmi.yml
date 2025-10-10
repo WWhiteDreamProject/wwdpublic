@@ -54,9 +54,8 @@
     speaks: [TauCetiBasic, RobotTalk]
     understands: [TauCetiBasic, RobotTalk]
   - type: Brain # IPCMMI
-    active: false
+    # active: false
   - type: Organ
-    slotId: posibrain
 
 - type: entity
   parent: MMI
@@ -103,7 +102,7 @@
   - type: BlockMovement
   - type: Examiner
   - type: Brain # hopefully this doesn't break everything
-    active: false
+    # active: false
   - type: BorgBrain
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
@@ -141,7 +140,6 @@
     - Cyborgs
     - Robotics
   - type: Organ # Estacao Pirata - IPCs
-    slotId: posibrain
   - type: LanguageSpeaker
   - type: LanguageKnowledge
     speaks: [RobotTalk]

@@ -25,7 +25,7 @@
     showInHands: false
   - type: ComplexInteraction
   - type: Body
-    prototype: SiliconHand
+    prototype: Bot
     requiredLegs: 0
   - type: HTN
     rootTask:

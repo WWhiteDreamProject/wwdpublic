@@ -5,32 +5,12 @@
   abstract: true
   components:
   - type: Damageable
-    damageContainer: Inorganic # Shitmed Change
+    damageContainer: Inorganic
   - type: BodyPart
-  - type: Gibbable
   - type: ContainerContainer
     containers:
       bodypart: !type:Container
         ents: []
-  - type: SurgeryTool
-    startSound:
-      path: /Audio/_Shitmed/Medical/Surgery/organ1.ogg
-    endSound:
-      path: /Audio/_Shitmed/Medical/Surgery/organ2.ogg
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTypeTrigger
-        damageType: Blunt
-        damage: 110
-      behaviors:
-      - !type:GibPartBehavior { }
-    - trigger:
-        !type:DamageTypeTrigger
-        damageType: Slash
-        damage: 150
-      behaviors:
-      - !type:GibPartBehavior { }
   # WD EDIT START
   # - type: StaticPrice
   #   price: 100
@@ -50,44 +30,6 @@
     state: "torso_m"
   - type: BodyPart
     partType: Torso
-    children: # I hate this so much I want to kill it AAAAAAAAAAAAAAAAAAAAAAAA
-      head:
-        id: "head"
-        type: Head
-      left arm:
-        id: "left arm"
-        type: Arm
-      right arm:
-        id: "right arm"
-        type: Arm
-      left leg:
-        id: "left leg"
-        type: Leg
-      right leg:
-        id: "right leg"
-        type: Leg
-    organs:
-      posbrain:
-        id: "posbrain"
-      pump:
-        id: "pump"
-  - type: ContainerContainer
-    containers:
-      torso_slot: !type:ContainerSlot {}
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTypeTrigger
-        damageType: Blunt
-        damage: 400
-      behaviors:
-      - !type:GibPartBehavior { }
-    - trigger:
-        !type:DamageTypeTrigger
-        damageType: Slash
-        damage: 400
-      behaviors:
-      - !type:GibPartBehavior { }
 
 - type: entity
   id: HeadIPC
@@ -103,9 +45,6 @@
     state: "head_m"
   - type: BodyPart
     partType: Head
-    organs:
-      eyes:
-        id: "eyes"
     vital: true
   - type: Input
     context: "ghost"
@@ -133,10 +72,6 @@
   - type: BodyPart
     partType: Arm
     symmetry: Left
-    children:
-      left hand:
-        id: "left hand"
-        type: Hand
 
 - type: entity
   id: RightArmIPC
@@ -153,10 +88,6 @@
   - type: BodyPart
     partType: Arm
     symmetry: Right
-    children:
-      right hand:
-        id: "right hand"
-        type: Hand
 
 - type: entity
   id: LeftHandIPC
@@ -205,10 +136,6 @@
   - type: BodyPart
     partType: Leg
     symmetry: Left
-    children:
-      left foot:
-        id: "left foot"
-        type: Foot
   - type: MovementBodyPart
 
 - type: entity
@@ -226,10 +153,6 @@
   - type: BodyPart
     partType: Leg
     symmetry: Right
-    children:
-      right foot:
-        id: "right foot"
-        type: Foot
   - type: MovementBodyPart
 
 - type: entity

@@ -4,28 +4,21 @@ using Content.Server.Body.Components;
 using Content.Server.Chat.Systems;
 using Content.Server.EntityEffects.EffectConditions;
 using Content.Server.EntityEffects.Effects;
-using Content.Shared._Goobstation.MartialArts.Components; // Goobstation - Martial Arts
-using Content.Server.Popups;
+using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Alert;
 using Content.Shared.Atmos;
 using Content.Shared.Body.Components;
-using Content.Shared._Shitmed.Body.Components; // Shitmed Change
-using Content.Shared._Shitmed.Body.Organ;
 using Content.Shared.Body.Prototypes;
 using Content.Shared.Chat;
 using Content.Shared.Chemistry.Components;
-using Content.Shared.Chemistry.EntitySystems;
-using Content.Shared.Chemistry.Reagent; // Shitmed Change
+using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Damage;
 using Content.Shared.Database;
 using Content.Shared.EntityEffects;
 using Content.Shared.Mobs.Systems;
-using Content.Shared.Mood;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
-using Content.Shared.Movement.Pulling.Components; // Goobstation
-using Content.Shared.Movement.Pulling.Systems; // Goobstation
 
 namespace Content.Server.Body.Systems;
 
@@ -39,7 +32,6 @@ public sealed class RespiratorSystem : EntitySystem
     [Dependency] private readonly BodySystem _bodySystem = default!;
     [Dependency] private readonly DamageableSystem _damageableSys = default!;
     [Dependency] private readonly LungSystem _lungSystem = default!;
-    [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
@@ -58,19 +50,6 @@ public sealed class RespiratorSystem : EntitySystem
         SubscribeLocalEvent<RespiratorComponent, ApplyMetabolicMultiplierEvent>(OnApplyMetabolicMultiplier);
     }
 
-    // Goobstation start
-    // Can breathe check for grab
-    public bool CanBreathe(EntityUid uid, RespiratorComponent respirator)
-    {
-        if(respirator.Saturation < respirator.SuffocationThreshold)
-            return false;
-        if (TryComp<PullableComponent>(uid, out var pullable)
-            && pullable.GrabStage == GrabStage.Suffocate)
-            return false;
-
-        return !HasComp<KravMagaBlockedBreathingComponent>(uid);
-    }
-    // Goobstation end
     private void OnMapInit(Entity<RespiratorComponent> ent, ref MapInitEvent args)
     {
         ent.Comp.NextUpdate = _gameTiming.CurTime + ent.Comp.UpdateInterval;
@@ -93,15 +72,12 @@ public sealed class RespiratorSystem : EntitySystem
 
             respirator.NextUpdate += respirator.UpdateInterval;
 
-            if (_mobState.IsDead(uid) || HasComp<BreathingImmunityComponent>(uid)) // Shitmed: BreathingImmunity
-                continue;
-
-            if (HasComp<RespiratorImmuneComponent>(uid))
+            if (_mobState.IsDead(uid))
                 continue;
 
             UpdateSaturation(uid, -(float) respirator.UpdateInterval.TotalSeconds, respirator);
 
-            if (!_mobState.IsIncapacitated(uid) && !HasComp<DebrainedComponent>(uid)) // Shitmed: cannot breathe in crit or when no brain.
+            if (!_mobState.IsIncapacitated(uid)) // cannot breathe in crit.
             {
                 switch (respirator.Status)
                 {
@@ -116,7 +92,7 @@ public sealed class RespiratorSystem : EntitySystem
                 }
             }
 
-            if (!CanBreathe(uid, respirator)) // Goobstation edit
+            if (respirator.Saturation < respirator.SuffocationThreshold)
             {
                 if (_gameTiming.CurTime >= respirator.LastGaspEmoteTime + respirator.GaspEmoteCooldown)
                 {
@@ -317,10 +293,9 @@ public sealed class RespiratorSystem : EntitySystem
             {
                 _alertsSystem.ShowAlert(ent, entity.Comp1.Alert);
             }
-            RaiseLocalEvent(ent, new MoodEffectEvent("Suffocating"));
         }
 
-        _damageableSys.TryChangeDamage(ent, HasComp<DebrainedComponent>(ent) ? ent.Comp.Damage * 4.5f : ent.Comp.Damage, interruptsDoAfters: false);
+        _damageableSys.TryChangeDamage(ent, ent.Comp.Damage, interruptsDoAfters: false);
     }
 
     private void StopSuffocation(Entity<RespiratorComponent> ent)

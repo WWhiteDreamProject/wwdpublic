@@ -125,6 +125,7 @@
   - type: ShowJobIcons
   - type: ShowMindShieldIcons
   - type: ShowCriminalRecordIcons
+  - type: TargetDoll
   # WD EDIT END
 
 - type: entity

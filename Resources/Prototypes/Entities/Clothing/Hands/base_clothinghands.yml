@@ -70,9 +70,9 @@
       coefficients:
         Caustic: 0.95
   - type: IgniteFromGasImmunity
-    parts:
-    - LeftHand
-    - RightHand
+    # parts:
+    # - LeftHand
+    # - RightHand
 
 - type: entity
   abstract: true

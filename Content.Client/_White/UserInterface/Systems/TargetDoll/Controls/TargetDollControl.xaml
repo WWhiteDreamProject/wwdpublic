@@ -1,0 +1,118 @@
+<controls:TargetDollControl
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client._White.UserInterface.Systems.TargetDoll.Controls">
+    <PanelContainer Name="BodyParts" Access="Public" SetSize="64 64">
+        <controls:BodyPartButton
+            Name="HeadButton"
+            BodyPart="Head"
+            Access="Public"
+            TexturePathFocused="TargetDoll/head.png"
+            TexturePathHovered="TargetDoll/head_hover.png"
+            MinSize="18 14"
+            Margin="22 6 24 44"/>
+        <controls:BodyPartButton
+            Name="ChestButton"
+            BodyPart="Chest"
+            Access="Public"
+            TexturePathFocused="TargetDoll/chest.png"
+            TexturePathHovered="TargetDoll/chest_hover.png"
+            MinSize="18 20"
+            Margin="22 20 24 24"/>
+        <controls:BodyPartButton
+            Name="GroinButton"
+            BodyPart="Groin"
+            Access="Public"
+            TexturePathFocused="TargetDoll/groin.png"
+            TexturePathHovered="TargetDoll/groin_hover.png"
+            MinSize="18 8"
+            Margin="22 38 24 18"/>
+        <controls:BodyPartButton
+            Name="RightArmButton"
+            BodyPart="RightArm"
+            Access="Public"
+            TexturePathFocused="TargetDoll/right_arm.png"
+            TexturePathHovered="TargetDoll/right_arm_hover.png"
+            MinSize="8 16"
+            Margin="14 22 42 26"/>
+        <controls:BodyPartButton
+            Name="RightHandButton"
+            BodyPart="RightHand"
+            Access="Public"
+            TexturePathFocused="TargetDoll/right_hand.png"
+            TexturePathHovered="TargetDoll/right_hand_hover.png"
+            MinSize="8 8"
+            Margin="14 36 42 20"/>
+        <controls:BodyPartButton
+            Name="LeftArmButton"
+            BodyPart="LeftArm"
+            Access="Public"
+            TexturePathFocused="TargetDoll/left_arm.png"
+            TexturePathHovered="TargetDoll/left_arm_hover.png"
+            MinSize="8 16"
+            Margin="40 22 16 26"/>
+        <controls:BodyPartButton
+            Name="LeftHandButton"
+            BodyPart="LeftHand"
+            Access="Public"
+            TexturePathFocused="TargetDoll/left_hand.png"
+            TexturePathHovered="TargetDoll/left_hand_hover.png"
+            MinSize="8 8"
+            Margin="40 36 16 20"/>
+        <controls:BodyPartButton
+            Name="RightLegButton"
+            BodyPart="RightLeg"
+            Access="Public"
+            TexturePathFocused="TargetDoll/right_leg.png"
+            TexturePathHovered="TargetDoll/right_leg_hover.png"
+            MinSize="8 18"
+            Margin="22 42 34 4"/>
+        <controls:BodyPartButton
+            Name="RightFootButton"
+            BodyPart="RightFoot"
+            Access="Public"
+            TexturePathFocused="TargetDoll/right_foot.png"
+            TexturePathHovered="TargetDoll/right_foot_hover.png"
+            MinSize="12 6"
+            Margin="18 58 34 0"/>
+        <controls:BodyPartButton
+            Name="LeftLegButton"
+            BodyPart="LeftLeg"
+            Access="Public"
+            TexturePathFocused="TargetDoll/left_leg.png"
+            TexturePathHovered="TargetDoll/left_leg_hover.png"
+            MinSize="8 18"
+            Margin="32 42 24 4"/>
+        <controls:BodyPartButton
+            Name="LeftFootButton"
+            BodyPart="LeftFoot"
+            Access="Public"
+            TexturePathFocused="TargetDoll/left_foot.png"
+            TexturePathHovered="TargetDoll/left_foot_hover.png"
+            MinSize="12 6"
+            Margin="32 58 20 0"/>
+        <controls:BodyPartButton
+            Name="TailButton"
+            BodyPart="Tail"
+            Access="Public"
+            TexturePathFocused="TargetDoll/tail.png"
+            TexturePathHovered="TargetDoll/tail_hover.png"
+            MinSize="14 16"
+            Margin="40 44 10 4"/>
+        <controls:BodyPartButton
+            Name="EyesButton"
+            BodyPart="Eyes"
+            Access="Public"
+            TexturePathFocused="TargetDoll/eyes.png"
+            TexturePathHovered="TargetDoll/eyes_hover.png"
+            MinSize="10 6"
+            Margin="26 10 28 48"/>
+        <controls:BodyPartButton
+            Name="MouthButton"
+            BodyPart="Mouth"
+            Access="Public"
+            TexturePathFocused="TargetDoll/mouth.png"
+            TexturePathHovered="TargetDoll/mouth_hover.png"
+            MinSize="6 4"
+            Margin="28 16 30 44"/>
+    </PanelContainer>
+</controls:TargetDollControl>

@@ -1,4 +1,3 @@
-using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Damage;
 using Robust.Shared.Audio;
 
@@ -33,11 +32,12 @@ internal sealed partial class WeaponRandomComponent : Component
     [DataField]
     public bool ApplyBonusOnThrow;
 
-    /// <summary>
+    // TODO
+    /*/// <summary>
     /// Forces all successful throws to target this specific body part.
     /// </summary>
     [DataField]
-    public TargetBodyPart? ForcedThrowTargetPart;
+    public TargetBodyPart? ForcedThrowTargetPart;*/
 
     /// <summary>
     /// Temporary flag indicating that a critical throw is in progress

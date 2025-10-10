@@ -8,14 +8,6 @@
   - type: Item # TODO add inhand sprites for all utensils
     sprite: Objects/Misc/utensils.rsi
   - type: SpaceGarbage
-  # Shitmed Change
-  - type: Tweezers # Any utensil can poorly remove organs
-    speed: 0.2
-  - type: SurgeryTool
-    startSound:
-      path: /Audio/_Shitmed/Medical/Surgery/retractor1.ogg
-    endSound:
-      path: /Audio/_Shitmed/Medical/Surgery/hemostat1.ogg
 
 - type: entity
   parent: UtensilBase
@@ -60,9 +52,6 @@
     damage:
       types:
         Piercing: 5
-  # Shitmed Change
-  - type: Tweezers # Forks are better than spoons
-    speed: 0.35
   - type: DamageOtherOnHit
     staminaCost: 2.5
   - type: EmbeddableProjectile
@@ -83,9 +72,6 @@
   - type: Utensil
     types:
     - Fork
-  # Shitmed Change
-  - type: Tweezers # Forks are better than spoons
-    speed: 0.35
 
 - type: entity
   parent: UtensilBase

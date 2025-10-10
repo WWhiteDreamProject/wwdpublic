@@ -29,8 +29,8 @@ public sealed class ShadowlingAnnihilateSystem : EntitySystem
         var target = args.Target;
         if (HasComp<ShadowlingComponent>(target))
             return;
-        
-        _body.GibBody(target, contents: GibContentsOption.Gib);
+
+        _body.GibBody(target);
 
         _actions.StartUseDelay(args.Action);
     }

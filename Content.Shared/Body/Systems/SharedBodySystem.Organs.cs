@@ -5,37 +5,10 @@ using Content.Shared.Body.Organ;
 using Content.Shared.Body.Part;
 using Robust.Shared.Containers;
 
-// Shitmed Change
-
-using Content.Shared.Damage;
-using Content.Shared._Shitmed.BodyEffects;
-using Content.Shared._Shitmed.Body.Organ;
-using Robust.Shared.Serialization.Manager;
-using Robust.Shared.Network;
-
 namespace Content.Shared.Body.Systems;
 
 public partial class SharedBodySystem
 {
-    // Shitmed Change Start
-    [Dependency] private readonly IComponentFactory _componentFactory = default!;
-    [Dependency] private readonly ISerializationManager _serializationManager = default!;
-    [Dependency] private readonly INetManager _netManager = default!;
-
-    private void InitializeOrgans()
-    {
-        SubscribeLocalEvent<OrganComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<OrganComponent, OrganEnableChangedEvent>(OnOrganEnableChanged);
-    }
-
-    private void OnMapInit(Entity<OrganComponent> ent, ref MapInitEvent args)
-    {
-        if (ent.Comp.OnAdd is not null || ent.Comp.OnRemove is not null)
-            EnsureComp<OrganEffectComponent>(ent);
-    }
-
-    // Shitmed Change End
-
     private void AddOrgan(
         Entity<OrganComponent> organEnt,
         EntityUid bodyUid,
@@ -47,26 +20,11 @@ public partial class SharedBodySystem
 
         if (organEnt.Comp.Body is not null)
         {
-            // Shitmed Change Start
             var addedInBodyEv = new OrganAddedToBodyEvent(bodyUid, parentPartUid);
             RaiseLocalEvent(organEnt, ref addedInBodyEv);
-            var organEnabledEv = new OrganEnableChangedEvent(true);
-            RaiseLocalEvent(organEnt, ref organEnabledEv);
-            AddFunctions(bodyUid, organEnt.Comp);
         }
-        // Shitmed Change End
 
         Dirty(organEnt, organEnt.Comp);
-    }
-
-    private void AddFunctions(EntityUid body, OrganComponent organ)
-    {
-        // TraitFunctions don't currently exist on the client.
-        if (!_netManager.IsServer)
-            return;
-
-        foreach (var function in organ.OnImplantFunctions)
-            function.OnPlayerSpawn(body, _componentFactory, EntityManager, _serializationManager);
     }
 
     private void RemoveOrgan(Entity<OrganComponent> organEnt, EntityUid parentPartUid)
@@ -76,33 +34,12 @@ public partial class SharedBodySystem
 
         if (organEnt.Comp.Body is { Valid: true } bodyUid)
         {
-            // Shitmed Change Start
-            organEnt.Comp.OriginalBody = organEnt.Comp.Body;
-            var organDisabledEv = new OrganEnableChangedEvent(false);
-            RaiseLocalEvent(organEnt, ref organDisabledEv);
-            // Shitmed Change End
             var removedInBodyEv = new OrganRemovedFromBodyEvent(bodyUid, parentPartUid);
             RaiseLocalEvent(organEnt, ref removedInBodyEv);
-            RemoveFunctions(bodyUid, organEnt.Comp);
         }
-
-        if (parentPartUid is { Valid: true }
-            && TryComp(parentPartUid, out DamageableComponent? damageable)
-            && damageable.TotalDamage > 200)
-            TrySetOrganUsed(organEnt, true, organEnt.Comp);
 
         organEnt.Comp.Body = null;
         Dirty(organEnt, organEnt.Comp);
-    }
-
-    private void RemoveFunctions(EntityUid body, OrganComponent organ)
-    {
-        // TraitFunctions don't currently exist on the client.
-        if (!_netManager.IsServer)
-            return;
-
-        foreach (var function in organ.OnRemoveFunctions)
-            function.OnPlayerSpawn(body, _componentFactory, EntityManager, _serializationManager);
     }
 
     /// <summary>
@@ -137,15 +74,8 @@ public partial class SharedBodySystem
 
         Containers.EnsureContainer<ContainerSlot>(parent.Value, GetOrganContainerId(slotId));
         slot = new OrganSlot(slotId);
-
-        // Shitmed Change Start
-        if (!part.Organs.ContainsKey(slotId)
-            && !part.Organs.TryAdd(slotId, slot.Value))
-            return false;
         Dirty(parent.Value, part); // WD EDIT
-
-        return true;
-        // Shitmed Change End
+        return part.Organs.TryAdd(slotId, slot.Value);
     }
 
     /// <summary>
@@ -195,7 +125,7 @@ public partial class SharedBodySystem
     /// </summary>
     public bool RemoveOrgan(EntityUid organId, OrganComponent? organ = null)
     {
-        if (!Containers.TryGetContainingContainer((organId, null, null), out var container))
+        if (!Containers.TryGetContainingContainer(organId, out var container))
             return false;
 
         var parent = container.Owner;
@@ -280,63 +210,4 @@ public partial class SharedBodySystem
         comps = null;
         return false;
     }
-
-    // Shitmed Change Start
-
-    public bool TrySetOrganUsed(EntityUid organId, bool used, OrganComponent? organ = null)
-    {
-        if (!Resolve(organId, ref organ)
-            || organ.Used == used)
-            return false;
-
-        organ.Used = used;
-        Dirty(organId, organ);
-        return true;
-    }
-
-    private void OnOrganEnableChanged(Entity<OrganComponent> organEnt, ref OrganEnableChangedEvent args)
-    {
-        if (!organEnt.Comp.CanEnable && args.Enabled)
-            return;
-
-        organEnt.Comp.Enabled = args.Enabled;
-
-        if (args.Enabled)
-            EnableOrgan(organEnt);
-        else
-            DisableOrgan(organEnt);
-
-        if (organEnt.Comp.Body is { Valid: true } bodyEnt)
-            RaiseLocalEvent(organEnt, new OrganComponentsModifyEvent(bodyEnt, args.Enabled));
-
-        Dirty(organEnt, organEnt.Comp);
-    }
-
-    private void EnableOrgan(Entity<OrganComponent> organEnt)
-    {
-        if (!TryComp(organEnt.Comp.Body, out BodyComponent? body))
-            return;
-
-        // I hate having to hardcode these checks so much.
-        if (HasComp<EyesComponent>(organEnt))
-        {
-            var ev = new OrganEnabledEvent(organEnt);
-            RaiseLocalEvent(organEnt, ref ev);
-        }
-    }
-
-    private void DisableOrgan(Entity<OrganComponent> organEnt)
-    {
-        if (!TryComp(organEnt.Comp.Body, out BodyComponent? body))
-            return;
-
-        // I hate having to hardcode these checks so much.
-        if (HasComp<EyesComponent>(organEnt))
-        {
-            var ev = new OrganDisabledEvent(organEnt);
-            RaiseLocalEvent(organEnt, ref ev);
-        }
-    }
-
-    // Shitmed Change End
 }

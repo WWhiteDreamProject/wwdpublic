@@ -4,10 +4,8 @@
   name: "thaven body part"
   abstract: true
   components:
-  - type: Sprite # Shitmed Change
+  - type: Sprite
     sprite: _Impstation/Mobs/Species/Thaven/parts.rsi
-  - type: BodyPart # Shitmed Change
-    species: Thaven
 
 - type: entity
   id: TorsoThaven
@@ -20,7 +18,7 @@
 - type: entity
   id: HeadThaven
   name: "thaven head"
-  parent: [BaseHead, PartThaven] # WWDP
+  parent: [PartThaven, BaseHead]
   components:
   - type: Sprite
     state: "head"

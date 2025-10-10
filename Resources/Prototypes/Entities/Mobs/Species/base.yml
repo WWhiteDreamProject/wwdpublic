@@ -175,7 +175,6 @@
         Blunt: 5
     heavyRateModifier: 1
     heavyDamageBaseModifier: 1
-    heavyPartDamageMultiplier: 1
     heavyStaminaCost: 0
     maxTargets: 1
   - type: SleepEmitSound
@@ -213,8 +212,6 @@
         type: TrackedRadialSelectorMenuBUI # WD EDIT: RadialSelectorMenuBUI -> TrackedRadialSelectorMenuBUI
       enum.ListViewSelectorUiKey.Key:
         type: ListViewSelectorBUI
-      enum.SurgeryUIKey.Key:
-        type: SurgeryBui
   - type: Puller
   - type: Speech
     speechSounds: Alto
@@ -245,8 +242,6 @@
     - FootstepSound
     - DoorBumpOpener
     - AnomalyHost
-  - type: Targeting
-  - type: SurgeryTarget
   - type: MovedByPressure
     cutoffTime: 1.0
   - type: TTS # WD EDIT

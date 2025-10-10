@@ -7,7 +7,6 @@ using Content.Shared.Input;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Body.Components;
-using Content.Shared._Shitmed.Body.Organ;
 using Content.Shared.Standing;
 using Content.Shared.Popups;
 using Content.Shared.Stunnable;
@@ -160,7 +159,6 @@ public abstract class SharedLayingDownSystem : EntitySystem
             || TerminatingOrDeleted(uid)
             || !TryComp<BodyComponent>(uid, out var body)
             || body.LegEntities.Count < body.RequiredLegs
-            || HasComp<DebrainedComponent>(uid)
             || HasComp<LegsParalyzedComponent>(uid) // WWDP
             || TryComp<MovementSpeedModifierComponent>(uid, out var movement) && movement.CurrentWalkSpeed == 0)
             return false;

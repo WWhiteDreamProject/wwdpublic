@@ -182,14 +182,10 @@ public sealed class FoodSystem : EntitySystem
             return (false, true);
         }
 
-        // Shitmed Change
-        EntityUid? userName = null;
-
         var forceFeed = user != target;
         if (forceFeed)
         {
-            // Shitmed Change
-            userName = Identity.Entity(user, EntityManager);
+            var userName = Identity.Entity(user, EntityManager);
             _popup.PopupEntity(
                 Loc.GetString("food-system-force-feed", ("user", userName)),
                 user,
@@ -226,25 +222,6 @@ public sealed class FoodSystem : EntitySystem
             // or if the item started out in the user's own hands
             NeedHand = forceFeed || _hands.IsHolding(user, food),
         };
-
-        // Shitmed Change - track success of doafter to prevent popup on doafter cancel
-        var doAfterSuccess = _doAfter.TryStartDoAfter(doAfterArgs);
-
-        // Shitmed Change
-        if (foodComp.PopupOnEat && doAfterSuccess)
-        {
-            userName ??= Identity.Entity(user, EntityManager);
-            var foodName = Identity.Entity(food, EntityManager);
-            _popup.PopupPredicted(
-                !forceFeed
-                    ? Loc.GetString("food-system-eat-broadcasted", ("user", userName), ("food", foodName))
-                    : Loc.GetString("food-system-force-feed-broadcasted", ("user", userName), ("target", Identity.Entity(target, EntityManager)), ("food", foodName)),
-                user, target, PopupType.SmallCaution);
-
-            if (!forceFeed)
-                _popup.PopupEntity(Loc.GetString("food-system-eat-broadcasted-self", ("user", userName), ("food", foodName)),
-                    user, target, PopupType.SmallCaution);
-        }
 
         return (true, true);
     }
@@ -321,23 +298,12 @@ public sealed class FoodSystem : EntitySystem
 
             _popup.PopupEntity(Loc.GetString("food-system-force-feed-success-user", ("target", targetName)), args.User, args.User);
 
-            // Shitmed change
-            if (entity.Comp.PopupOnEat)
-                _popup.PopupEntity(Loc.GetString("food-system-force-feed-broadcasted-success", ("user", userName), ("target", targetName), ("food", Identity.Entity(entity.Owner, EntityManager))),
-                    args.User, Filter.Pvs(args.User, entityManager: EntityManager).RemovePlayersByAttachedEntity([args.User, args.Target.Value]),
-                    true, PopupType.MediumCaution);
-
             // log successful force feed
             _adminLogger.Add(LogType.ForceFeed, LogImpact.Medium, $"{ToPrettyString(entity.Owner):user} forced {ToPrettyString(args.User):target} to eat {ToPrettyString(entity.Owner):food}");
         }
         else
         {
             _popup.PopupEntity(Loc.GetString(entity.Comp.EatMessage, ("food", entity.Owner), ("flavors", flavors)), args.User, args.User);
-
-            // Shitmed change
-            if (entity.Comp.PopupOnEat)
-                _popup.PopupPredicted(Loc.GetString("food-system-eat-broadcasted-success", ("user", Identity.Entity(args.User, EntityManager)), ("food", Identity.Entity(entity.Owner, EntityManager))),
-                    args.User, args.User, PopupType.MediumCaution);
 
             foreach (var mood in entity.Comp.MoodletsOnEat)
                 RaiseLocalEvent(args.User, new MoodEffectEvent(mood));

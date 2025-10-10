@@ -87,12 +87,11 @@
   - type: Sprite
     state: acid_gland
   - type: Organ
-    slotId: acid_gland
-    onAdd:
-    - type: XenomorphAcid
-      damagePerSecond:
-        types:
-          Caustic: 20
+    # onAdd:
+    # - type: XenomorphAcid
+    #   damagePerSecond:
+    #    types:
+    #       Caustic: 20
 
 - type: entity
   parent: BaseXenomorphOrgan
@@ -103,20 +102,19 @@
   - type: Sprite
     state: neurotoxin_gland
   - type: Organ
-    slotId: neurotoxin_gland
-    onAdd:
-    - type: RechargeBasicEntityAmmo
-      rechargeCooldown: 0.75
-    - type: PlasmaAmmoProvider
-      fireCost: 55
-      proto: BulletNeurotoxin
-    - type: Gun
-      fireRate: 0.75
-      useKey: false
-      selectedMode: FullAuto
-      availableModes:
-      - FullAuto
-      soundGunshot: /Audio/Weapons/Xeno/alien_spitacid.ogg
+    # onAdd:
+    # - type: RechargeBasicEntityAmmo
+    #   rechargeCooldown: 0.75
+    # - type: PlasmaAmmoProvider
+    #   fireCost: 55
+    #   proto: BulletNeurotoxin
+    #  type: Gun
+    #   fireRate: 0.75
+    #  useKey: false
+    #   selectedMode: FullAuto
+    #  availableModes:
+    #   - FullAuto
+    #  soundGunshot: /Audio/Weapons/Xeno/alien_spitacid.ogg
 
 - type: entity
   parent: BaseXenomorphOrgan
@@ -127,8 +125,6 @@
   - type: Sprite
     sprite: _White/Mobs/Species/Xenomorph/organs.rsi
     state: egg_sack
-  - type: Organ
-    slotId: egg_sack
     # TODO: Organ should give egg spawn actions
 
 - type: entity
@@ -139,8 +135,6 @@
   components:
   - type: Sprite
     state: resin_spinner
-  - type: Organ
-    slotId: resin_spinner
     # TODO: Organ should give construction actions
 
 - type: entity
@@ -152,7 +146,6 @@
   - type: Sprite
     state: hive_node
   - type: Organ
-    slotId: hive_node
     # TODO: Organ should give XenoHivemind language and Xeno faction
 
 - type: entity
@@ -164,9 +157,8 @@
   - type: Sprite
     state: plasma_vessel
   - type: Organ
-    slotId: plasma_vessel
-    onAdd:
-    - type: PlasmaVessel
+    # onAdd:
+    # - type: PlasmaVessel
     # TODO: Organ should give plant weeds and transfer plasma action
 
 - type: entity
@@ -177,24 +169,24 @@
   - type: Sprite
     state: plasma_vessel_large
   - type: Organ
-    onAdd:
-    - type: PlasmaVessel
-      maxPlasma: 500
-      plasma: 200
-      plasmaPerSecondOffWeed: 0.75
-      plasmaPerSecondOnWeed: 7.5
+    # onAdd:
+    # - type: PlasmaVessel
+    #   maxPlasma: 500
+    #   plasma: 200
+    #   plasmaPerSecondOffWeed: 0.75
+    #   plasmaPerSecondOnWeed: 7.5
 
 - type: entity
   parent: OrganXenomorphPlasmaVesselLarge
   id: OrganXenomorphPlasmaVesselLargeQueen
   components:
   - type: Organ
-    onAdd:
-    - type: PlasmaVessel
-      maxPlasma: 500
-      plasma: 200
-      plasmaPerSecondOffWeed: 1
-      plasmaPerSecondOnWeed: 10
+    # onAdd:
+    # - type: PlasmaVessel
+    #   maxPlasma: 500
+    #   plasma: 200
+    #   plasmaPerSecondOffWeed: 1
+    #   plasmaPerSecondOnWeed: 10
 
 - type: entity
   parent: OrganXenomorphPlasmaVessel
@@ -204,12 +196,12 @@
   - type: Sprite
     state: plasma_vessel_small
   - type: Organ
-    onAdd:
-    - type: PlasmaVessel
-      maxPlasma: 150
-      plasma: 100
-      plasmaPerSecondOffWeed: 0.25
-      plasmaPerSecondOnWeed: 2.5
+    # onAdd:
+    # - type: PlasmaVessel
+    #   maxPlasma: 150
+    #   plasma: 100
+    #   plasmaPerSecondOffWeed: 0.25
+    #  plasmaPerSecondOnWeed: 2.5
 
 - type: entity
   parent: OrganXenomorphPlasmaVessel
@@ -219,6 +211,6 @@
   - type: Sprite
     state: plasma_vessel_tiny
   - type: Organ
-    onAdd:
-    - type: PlasmaVessel
-      maxPlasma: 100
+    # onAdd:
+    # - type: PlasmaVessel
+    #   maxPlasma: 100
