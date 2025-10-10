@@ -29,7 +29,7 @@ public abstract class SharedBloodRitesSystem : EntitySystem
     private void OnExamining(Entity<BloodRitesComponent> rites, ref ExaminedEvent args)
     {
         if (TryGetStoredBloodAmount(args.Examiner, out var amount))
-            args.PushMarkup(Loc.GetString("blood-rites-stored-blood", ("amount", amount.Value.Float())));
+            args.PushMarkup(Loc.GetString("blood-rites-stored-blood", ("amount", amount.Value.Int())));
     }
 
     private void AttemptUiOpen(Entity<BloodRitesComponent> rites, ref ActivatableUIOpenAttemptEvent args)
@@ -54,12 +54,14 @@ public abstract class SharedBloodRitesSystem : EntitySystem
             return;
 
         bloodCultist.StoredBloodAmount -= cost;
+        Dirty(args.Actor, bloodCultist);
+
         _userInterface.CloseUi(rites.Owner, BloodRitesUiKey.Key);
 
         if (!_netManager.IsServer)
             return;
 
-        QueueDel(rites);
+        Del(rites);
         _hands.TryPickup(args.Actor, Spawn(args.SelectedProto, _transform.GetMapCoordinates(args.Actor)));
     }
 

@@ -10,6 +10,7 @@ using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.DoAfter;
+using Content.Shared.FixedPoint;
 using Content.Shared.Fluids.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs;
@@ -80,15 +81,12 @@ public sealed class BloodRitesSystem : SharedBloodRitesSystem
         }
 
         if (HasComp<PuddleComponent>(target))
-        {
-            ConsumePuddles(target, (args.User, bloodCultist), rites);
-            args.Handled = true;
-        }
-        else if (TryComp(args.Target, out SolutionContainerManagerComponent? solutionContainer))
-        {
-            ConsumeBloodFromSolution((target, solutionContainer), (args.User, bloodCultist));
-            args.Handled = true;
-        }
+            args.Handled = ConsumePuddles(target, (args.User, bloodCultist), rites);
+        else if (TryComp(target, out SolutionContainerManagerComponent? solutionContainer))
+            args.Handled = ConsumeBloodFromSolution((target, solutionContainer), (args.User, bloodCultist));
+
+        if (args.Handled)
+            _audio.PlayPvs(rites.Comp.BloodRitesAudio, rites);
     }
 
     private void OnDoAfter(Entity<BloodRitesComponent> rites, ref BloodRitesExtractDoAfterEvent args)
@@ -101,8 +99,11 @@ public sealed class BloodRitesSystem : SharedBloodRitesSystem
             || !TryComp<BloodCultistComponent>(args.User, out var bloodCultist))
             return;
 
-        var extracted = solution.Comp.Solution.RemoveReagent(_bloodProto, rites.Comp.BloodExtractionAmount);
+        var extracted = solution.Comp.Solution.RemoveReagent(_bloodProto, rites.Comp.BloodExtractionAmount, ignoreReagentData: true);
+
         bloodCultist.StoredBloodAmount += extracted;
+        Dirty(args.User, bloodCultist);
+
         _audio.PlayPvs(rites.Comp.BloodRitesAudio, rites);
         args.Handled = true;
     }
@@ -154,6 +155,7 @@ public sealed class BloodRitesSystem : SharedBloodRitesSystem
         }
 
         user.Comp.StoredBloodAmount -= bloodCost;
+        Dirty(user);
         return true;
     }
 
@@ -185,10 +187,11 @@ public sealed class BloodRitesSystem : SharedBloodRitesSystem
         _bloodstream.TryModifyBloodLevel(target, bloodCost / rites.Comp.BloodRegenerationRatio);
 
         user.Comp.StoredBloodAmount -= bloodCost;
+        Dirty(user);
         return true;
     }
 
-    private void ConsumePuddles(EntityUid origin, Entity<BloodCultistComponent> user, Entity<BloodRitesComponent> rites)
+    private bool ConsumePuddles(EntityUid origin, Entity<BloodCultistComponent> user, Entity<BloodRitesComponent> rites)
     {
         var coords = Transform(origin).Coordinates;
 
@@ -197,27 +200,36 @@ public sealed class BloodRitesSystem : SharedBloodRitesSystem
             rites.Comp.PuddleConsumeRadius,
             LookupFlags.Uncontained);
 
+        var result = false;
         foreach (var puddle in lookup)
         {
             if (!TryComp(puddle, out SolutionContainerManagerComponent? solutionContainer))
                 continue;
 
-            ConsumeBloodFromSolution((puddle, solutionContainer), user);
+            result = ConsumeBloodFromSolution((puddle, solutionContainer), user);
         }
 
-        _audio.PlayPvs(rites.Comp.BloodRitesAudio, rites);
+        return result;
     }
 
-    private void ConsumeBloodFromSolution(
+    private bool ConsumeBloodFromSolution(
         Entity<SolutionContainerManagerComponent?> ent,
         Entity<BloodCultistComponent> user
     )
     {
         foreach (var (_, solution) in _solutionContainer.EnumerateSolutions(ent))
         {
-            user.Comp.StoredBloodAmount += solution.Comp.Solution.RemoveReagent(_bloodProto, 1000);
+            var reagentVolume = solution.Comp.Solution.RemoveReagent(_bloodProto, 1000, ignoreReagentData: true);
+            if (reagentVolume == FixedPoint2.Zero)
+                continue;
+
+            user.Comp.StoredBloodAmount += reagentVolume;
+            Dirty(user);
+
             _solutionContainer.UpdateChemicals(solution);
-            break;
+            return true;
         }
+
+        return false;
     }
 }
