@@ -22,6 +22,7 @@ using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.IoC;
 using Robust.Shared.Utility;
 using YamlDotNet.RepresentationModel;
+using Robust.Shared.Map.Events;
 
 namespace Content.IntegrationTests.Tests
 {
@@ -43,6 +44,33 @@ namespace Content.IntegrationTests.Tests
             "/Maps/CentralCommand/main.yml",
             /// "/Maps/CentralCommand/harmony.yml", // Harmony CC version, WWDP edit, no more CentCom rotation
             AdminTestArenaSystem.ArenaMapPath,
+        };
+
+        private static readonly string[] DoNotMapWhitelist =
+        {
+            "/Maps/CentralCommand/main.yml",
+            "/Maps/CentralCommand/harmony.yml",
+            "/Maps/anchor.yml",
+            "/Maps/arena.yml",
+            "/Maps/bagel.yml",
+            "/Maps/gax.yml",
+            "/Maps/hammurabi.yml",
+            "/Maps/hive.yml",
+            "/Maps/lambda.yml",
+            "/Maps/radstation.yml",
+            "/Maps/submarine.yml",
+            "/Maps/tortuga.yml",
+            "/Maps/Shuttles/pirateradio.yml",
+            "/Maps/Shuttles/ShuttleEvent/cruiser.yml",
+            "/Maps/Shuttles/ShuttleEvent/honki.yml",
+            "/Maps/Shuttles/ShuttleEvent/instigator.yml",
+            "/Maps/Shuttles/ShuttleEvent/syndie_evacpod.yml",
+            "/Maps/_Lavaland/Lavaland/ruin_toyshop.yml",
+            "/Maps/_White/WhiteBox.yml", // WD EDIT
+            "/Maps/_White/DryDock.yml", // WD EDIT
+            "/Maps/_White/Molecule.yml", // WD EDIT
+            "/Maps/_White/Moose.yml", // WD EDIT
+            "/Maps/_White/WonderBox.yml", // WD EDIT
         };
 
         private static readonly string[] GameMaps =
@@ -175,7 +203,9 @@ namespace Content.IntegrationTests.Tests
             var server = pair.Server;
 
             var resourceManager = server.ResolveDependency<IResourceManager>();
+            var protoManager = server.ResolveDependency<IPrototypeManager>();
             var loader = server.System<MapLoaderSystem>();
+
             var mapFolder = new ResPath("/Maps");
             var maps = resourceManager
                 .ContentFindFiles(mapFolder)
@@ -207,6 +237,10 @@ namespace Content.IntegrationTests.Tests
                 var meta = root["meta"];
                 var version = meta["format"].AsInt();
 
+                // TODO MAP TESTS
+                // Move this to some separate test?
+                CheckDoNotMap(map, root, protoManager);
+
                 if (version >= 7)
                 {
                     v7Maps.Add(map);
@@ -214,13 +248,17 @@ namespace Content.IntegrationTests.Tests
                 }
 
                 var postMapInit = meta["postmapinit"].AsBool();
+
                 Assert.That(postMapInit, Is.False, $"Map {map.Filename} was saved postmapinit");
             }
 
             var deps = server.ResolveDependency<IEntitySystemManager>().DependencyCollection;
+            var ev = new BeforeEntityReadEvent();
+            server.EntMan.EventBus.RaiseEvent(EventSource.Local, ev);
+
             foreach (var map in v7Maps)
             {
-                Assert.That(IsPreInit(map, loader, deps));
+                Assert.That(IsPreInit(map, loader, deps, ev.RenamedPrototypes, ev.DeletedPrototypes));
             }
 
             // Check that the test actually does manage to catch post-init maps and isn't just blindly passing everything.
@@ -233,17 +271,49 @@ namespace Content.IntegrationTests.Tests
             // First check that a pre-init version passes
             var path = new ResPath($"{nameof(NoSavedPostMapInitTest)}.yml");
             Assert.That(loader.TrySaveMap(id, path));
-            Assert.That(IsPreInit(path, loader, deps));
+            Assert.That(IsPreInit(path, loader, deps, ev.RenamedPrototypes, ev.DeletedPrototypes));
 
             // and the post-init version fails.
             await server.WaitPost(() => mapSys.InitializeMap(id));
             Assert.That(loader.TrySaveMap(id, path));
-            Assert.That(IsPreInit(path, loader, deps), Is.False);
+            Assert.That(IsPreInit(path, loader, deps, ev.RenamedPrototypes, ev.DeletedPrototypes), Is.False);
 
             await pair.CleanReturnAsync();
         }
 
-        private bool IsPreInit(ResPath map, MapLoaderSystem loader, IDependencyCollection deps)
+        /// <summary>
+        /// Check that maps do not have any entities that belong to the DoNotMap entity category
+        /// </summary>
+        private void CheckDoNotMap(ResPath map, YamlNode node, IPrototypeManager protoManager)
+        {
+            if (DoNotMapWhitelist.Contains(map.ToString()))
+                return;
+
+            var yamlEntities = node["entities"];
+            if (!protoManager.TryIndex<EntityCategoryPrototype>("DoNotMap", out var dnmCategory))
+                return;
+
+            Assert.Multiple(() =>
+            {
+                foreach (var yamlEntity in (YamlSequenceNode)yamlEntities)
+                {
+                    var protoId = yamlEntity["proto"].AsString();
+
+                    // This doesn't properly handle prototype migrations, but thats not a significant issue.
+                    if (!protoManager.TryIndex(protoId, out var proto, false))
+                        continue;
+
+                    Assert.That(!proto.Categories.Contains(dnmCategory),
+                        $"\nMap {map} contains entities in the DO NOT MAP category ({proto.Name})");
+                }
+            });
+        }
+
+        private bool IsPreInit(ResPath map,
+            MapLoaderSystem loader,
+            IDependencyCollection deps,
+            Dictionary<string, string> renamedPrototypes,
+            HashSet<string> deletedPrototypes)
         {
             if (!loader.TryReadFile(map, out var data))
             {
@@ -251,7 +321,12 @@ namespace Content.IntegrationTests.Tests
                 return false;
             }
 
-            var reader = new EntityDeserializer(deps, data, DeserializationOptions.Default);
+            var reader = new EntityDeserializer(deps,
+                data,
+                DeserializationOptions.Default,
+                renamedPrototypes,
+                deletedPrototypes);
+
             if (!reader.TryProcessData())
             {
                 Assert.Fail($"Failed to process {map}");

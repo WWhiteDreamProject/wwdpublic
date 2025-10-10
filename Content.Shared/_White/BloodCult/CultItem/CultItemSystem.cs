@@ -71,11 +71,11 @@ public sealed class CultItemSystem : EntitySystem
 
     private void OnMeleeAttempt(Entity<CultItemComponent> ent, ref AttemptMeleeEvent args)
     {
-        if (_entityWhitelist.IsWhitelistPass(ent.Comp.Whitelist, args.PlayerUid))
+        if (_entityWhitelist.IsWhitelistPass(ent.Comp.Whitelist, args.User))
             return;
 
         args.Cancelled = true;
-        KnockdownAndDropItem(ent, args.PlayerUid, Loc.GetString("cult-item-component-attack-fail"));
+        KnockdownAndDropItem(ent, args.User, Loc.GetString("cult-item-component-attack-fail"));
     }
 
     private void OnBeforeBlocking(Entity<CultItemComponent> ent, ref BeforeBlockingEvent args)
