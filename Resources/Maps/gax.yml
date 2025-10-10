@@ -98812,7 +98812,7 @@ entities:
     - type: Transform
       pos: -5.4809227,3.4919095
       parent: 2
-- proto: MailTeleporter
+- proto: CargoMailTeleporter
   entities:
   - uid: 14025
     components:
