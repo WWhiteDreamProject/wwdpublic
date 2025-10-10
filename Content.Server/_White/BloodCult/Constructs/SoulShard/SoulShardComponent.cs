@@ -12,10 +12,10 @@ public sealed partial class SoulShardComponent : Component
     public Color BlessedLightColor = Color.LightCyan;
 
     [DataField]
-    public EntProtoId ShadeProto = "ShadeCult";
+    public EntProtoId ShadeProto = "MobBloodCultShade";
 
     [DataField]
-    public EntProtoId PurifiedShadeProto = "ShadeHoly";
+    public EntProtoId PurifiedShadeProto = "MobHolyShade";
 
     public EntityUid? ShadeUid;
 }

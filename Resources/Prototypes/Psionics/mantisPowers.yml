@@ -71,8 +71,6 @@
     slots:
     - back
   - type: DisarmMalus
-  - type: CultItem
-    allowUseToEveryone: true
   - type: PointLight
     color: "#793a80"
     radius: 1.5

@@ -7,7 +7,7 @@ namespace Content.Server._White.BloodCult.Runes.BloodBoil;
 public sealed partial class CultRuneBloodBoilComponent : Component
 {
     [DataField]
-    public EntProtoId ProjectilePrototype = "BloodBoilProjectile";
+    public EntProtoId ProjectilePrototype = "ProjectileBloodBoil";
 
     [DataField]
     public float ProjectileSpeed = 50;
