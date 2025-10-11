@@ -4451,3 +4451,10 @@ Entries:
   id: 466
   time: '2025-10-10T05:33:21.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/855
+- author: Lachklen
+  changes:
+    - type: Add
+      message: Быстрая складка в карманы и на спину сьюта
+  id: 467
+  time: '2025-10-11T21:52:48.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/861
