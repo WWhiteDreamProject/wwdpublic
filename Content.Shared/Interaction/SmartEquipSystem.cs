@@ -121,6 +121,15 @@ public sealed class SmartEquipSystem : EntitySystem
         //    - without hand item: try to put the item into your hand
 
         _inventory.TryGetSlotEntity(uid, equipmentSlot, out var slotEntity);
+        // WD EDIT START
+        // For pockets and suit storage, when the hand is empty, take out the item itself, not the contents
+        var isDirectExtractSlot = equipmentSlot is "pocket1" or "pocket2" or "suitstorage";
+        if (isDirectExtractSlot && handItem == null && slotEntity != null)
+        {
+            SmartEquipItem(slotEntity.Value, uid, equipmentSlot, inventory, hands);
+            return;
+        }
+        // WD EDIT END
         var emptyEquipmentSlotString = Loc.GetString("smart-equip-empty-equipment-slot", ("slotName", equipmentSlot));
 
         // case 1 (no slot item):
