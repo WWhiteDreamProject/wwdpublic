@@ -44,12 +44,12 @@
     fireModes:
     - proto: BulletDisabler
       fireCost: 32 # wwdp edit
-      heatCost: 20 # WWDP
+      heatCost: 0.5 # WWDP
       name: disable
       state: disabler
     - proto: BulletLaser # WWDP
       fireCost: 50 # wwdp edit
-      heatCost: 70 # WWDP
+      heatCost: 1 # WWDP
       name: lethal
       state: lethal
   - type: MagazineVisuals
@@ -64,8 +64,8 @@
           Disabler: { state: mode-disabler }
           Lethal: { state: mode-lethal }
           Special: { state: mode-stun } # Unused
-  - type: GunFlux
-    heatCost: 20
+  - type: GunFlux # wwdp
+    heatCost: 1
 
 - type: entity
   name: x-01 multiphase energy gun
