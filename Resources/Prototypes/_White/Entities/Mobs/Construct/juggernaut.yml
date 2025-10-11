@@ -1,0 +1,41 @@
+- type: entity
+  id: BaseMobConstructJuggernaut
+  parent: BaseMobConstruct
+  abstract: true
+  name: juggernaut
+  description: A massive, armored construct built to spearhead attacks and soak up enemy fire.
+  components:
+  - type: Sprite
+    sprite: _White/Mobs/Construct/juggernaut.rsi
+  - type: MeleeWeapon
+    hidden: true
+    angle: 30
+    animation: WeaponArcSmash
+    attackRate: 1
+    damage:
+      types:
+        Structural: 90
+        Blunt: 25
+    soundHit:
+      path: /Audio/Nyanotrasen/Weapons/club.ogg
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Dead
+  - type: ActionGrant
+    actions:
+    - ActionBloodCultForceWall
+    - ActionBloodCultGauntletEcho
+
+- type: entity
+  id: MobConstructJuggernaut
+  parent: BaseMobConstructJuggernaut
+  components:
+  - type: BloodCultist
+
+- type: entity
+  id: MobConstructJuggernautHoly
+  parent:
+  - BaseMobConstructHoly
+  - BaseMobConstructJuggernaut
+  name: purified juggernaut

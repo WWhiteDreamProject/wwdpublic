@@ -1,0 +1,27 @@
+- type: entity
+  parent: BaseItem
+  id: ShadowShackles
+  name: shadow shackles
+  description: Shackles that bind the wrists with sinister magic.
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Misc/handcuffs.rsi
+    state: cuff
+  - type: Item
+    size: Small
+    storedRotation: 90
+  - type: Handcuff
+    breakoutTime: 5
+    breakOnRemove: true
+    cuffedRSI: Objects/Misc/cablecuffs.rsi
+    bodyIconState: body-overlay
+    color: black
+  - type: MeleeWeapon
+    canBeBlocked: false
+    wideAnimationRotation: 90
+    resetOnHandSelected: false
+    damage:
+      types:
+        Blunt: 0
+  - type: UseDelay
+    delay: 6

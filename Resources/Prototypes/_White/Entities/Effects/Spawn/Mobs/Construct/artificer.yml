@@ -1,0 +1,23 @@
+- type: entity
+  id: SpawnMobConstructArtificerEffect
+  parent: BaseSpawnMobEffect
+  name: artificer
+  suffix: Spawn
+  components:
+  - type: Sprite
+    sprite: _White/Mobs/Construct/artificer.rsi
+    state: make_cult
+  - type: TimedDespawn
+    lifetime: 1
+  - type: SpawnOnDespawn
+    prototype: MobConstructArtificer
+
+- type: entity
+  id: SpawnMobConstructArtificerHolyEffect
+  parent: SpawnMobConstructArtificerEffect
+  name: purified artificer
+  components:
+  - type: Sprite
+    state: make_holy
+  - type: SpawnOnDespawn
+    prototype: MobConstructArtificerHoly

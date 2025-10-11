@@ -1,0 +1,19 @@
+- type: entity
+  id: BloodCultDoorSpawnEffect
+  name: blood cult door effect
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: TimedDespawn
+    lifetime: 0.5
+  - type: Transform
+    noRot: true
+    anchored: true
+  - type: Sprite
+    layers:
+    - sprite: _White/Effects/door_spawn.rsi
+      state: door_glow
+      shader: unshaded
+    netsync: false
+  - type: PointLight
+    color: "#FF0000"

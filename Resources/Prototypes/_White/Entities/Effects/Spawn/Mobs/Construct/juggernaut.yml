@@ -1,0 +1,23 @@
+- type: entity
+  id: SpawnMobConstructJuggernautEffect
+  parent: BaseSpawnMobEffect
+  name: juggernaut
+  suffix: Spawn
+  components:
+  - type: Sprite
+    sprite: _White/Mobs/Construct/juggernaut.rsi
+    state: make_cult
+  - type: TimedDespawn
+    lifetime: 1
+  - type: SpawnOnDespawn
+    prototype: MobConstructJuggernaut
+
+- type: entity
+  id: SpawnMobConstructJuggernautHolyEffect
+  parent: SpawnMobConstructJuggernautEffect
+  name: purified juggernaut
+  components:
+  - type: Sprite
+    state: make_holy
+  - type: SpawnOnDespawn
+    prototype: MobConstructJuggernautHoly

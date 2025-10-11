@@ -1,6 +1,6 @@
 using Content.Server.Actions;
 using Content.Shared._EE.Shadowling;
-using Content.Shared.WhiteDream.BloodCult.Constructs.PhaseShift;
+using Content.Shared._White.BloodCult.PhaseShift;
 
 
 namespace Content.Server._EE.Shadowling;

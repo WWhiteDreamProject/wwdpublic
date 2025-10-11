@@ -1,0 +1,107 @@
+- type: construction
+  id: BloodCultPylon
+  name: cult pylon
+  description: A floating crystal that slowly heals those faithful to Nar'Sie.
+  category: construction-category-structures
+  hide: true
+  graph: BloodCultPylon
+  startNode: start
+  targetNode: pylon
+  icon:
+    sprite: _White/Structures/Furniture/BloodCult/pylon.rsi
+    state: icon_off
+  objectType: Structure
+  placementMode: AlignPylonConstruction
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: BloodCultFactoryAltar
+  name: altar
+  description: A bloodstained altar dedicated to Nar'Sie.
+  category: construction-category-structures
+  hide: true
+  graph: BloodCultFactoryAltar
+  startNode: start
+  targetNode: altar
+  icon:
+    sprite: _White/Structures/Furniture/BloodCult/altar.rsi
+    state: icon_off
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: BloodCultFactoryForge
+  name: daemon forge
+  description: A forge used in crafting the unholy weapons used by the armies of Nar'Sie.
+  category: construction-category-structures
+  hide: true
+  graph: BloodCultFactoryForge
+  startNode: start
+  targetNode: forge
+  icon:
+    sprite: _White/Structures/Furniture/BloodCult/forge.rsi
+    state: icon_off
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: BloodCultFactoryArchives
+  name: archives
+  description: A desk covered in arcane manuscripts and tomes in unknown languages. Looking at the text makes your skin crawl.
+  category: construction-category-structures
+  hide: true
+  graph: BloodCultFactoryArchives
+  startNode: start
+  targetNode: archives
+  icon:
+    sprite: _White/Structures/Furniture/BloodCult/archives.rsi
+    state: icon_off
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: BloodCultDoor
+  name: runed door
+  description: It opens, it closes, and maybe crushes you. This one has a strange glowing rune on it.
+  category: construction-category-structures
+  hide: true
+  graph: BloodCultDoor
+  startNode: start
+  targetNode: door
+  icon:
+    sprite: _White/Structures/Doors/MaterialDoors/blood_cult_door.rsi
+    state: closed
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked
+
+- type: construction
+  id: BloodCultGirder
+  name: runed girder
+  description: Framework made of a strange and shockingly cold metal. It doesn't seem to have any bolts
+  category: construction-category-structures
+  hide: true
+  graph: BloodCultGirder
+  startNode: start
+  targetNode: girder
+  icon:
+    sprite: _White/Structures/Walls/blood_cult_girder.rsi
+    state: icon
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked

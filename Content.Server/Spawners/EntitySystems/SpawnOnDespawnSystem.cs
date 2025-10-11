@@ -1,3 +1,4 @@
+using Content.Server.Mind;
 using Content.Server.Spawners.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Spawners;
@@ -6,6 +7,8 @@ namespace Content.Server.Spawners.EntitySystems;
 
 public sealed class SpawnOnDespawnSystem : EntitySystem
 {
+    [Dependency] private readonly MindSystem _mind = default!; // WD EDIT
+
     public override void Initialize()
     {
         base.Initialize();
@@ -20,7 +23,14 @@ public sealed class SpawnOnDespawnSystem : EntitySystem
 
         // Lavaland Change start
         if (comp.Prototype != null)
-            Spawn(comp.Prototype, xform.Coordinates);
+        {
+            // WD EDIT START
+            var spawned = Spawn(comp.Prototype, xform.Coordinates);
+
+            if (_mind.TryGetMind(uid, out var mindId, out _))
+                _mind.TransferTo(mindId, spawned);
+            // WD EDIT END
+        }
         // Lavaland Change end
 
         // Lavaland Change start

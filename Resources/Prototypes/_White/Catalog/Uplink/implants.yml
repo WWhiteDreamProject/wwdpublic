@@ -40,7 +40,7 @@
   id: UplinkMindSlaveImplanter
   name: uplink-mind-slave-implanter-name
   description: uplink-mind-slave-implanter-desc
-  icon: { sprite: /Textures/_White/Overlays/mindslave.rsi, state: master }
+  icon: { sprite: /Textures/_White/Interface/Misc/faction_icons_8x8.rsi, state: master }
   productEntity: MindSlaveImplanter
   discountCategory: rareDiscounts
   discountDownTo:

@@ -52,8 +52,10 @@
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
-  - type: StaticPrice
-    price: 30
+  # WD EDIT START
+  # - type: StaticPrice
+  #   price: 30
+  # WD EDIT END
   - type: Rotatable # WD edit - new secret door recipe
     rotateWhileAnchored: true
 

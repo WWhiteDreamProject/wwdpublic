@@ -18,10 +18,10 @@ public sealed partial class ExperimentalTeleporterComponent : Component
     public List<int> RandomRotations = new() {90, -90};
 
     [DataField]
-    public string? TeleportInEffect = "ExperimentalTeleporterInEffect";
+    public string? TeleportInEffect = "ExperimentalTeleportInEffect";
 
     [DataField]
-    public string? TeleportOutEffect = "ExperimentalTeleporterOutEffect";
+    public string? TeleportOutEffect = "ExperimentalTeleportOutEffect";
 
     [DataField]
     public SoundSpecifier TeleportSound = new SoundPathSpecifier("/Audio/_White/Object/Devices/experimentalsyndicateteleport.ogg");

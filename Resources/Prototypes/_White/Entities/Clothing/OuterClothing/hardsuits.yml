@@ -1,0 +1,33 @@
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ClothingOuterBloodCultArmor
+  name: nar'sien hardened armor
+  description: heavily-armored exosuit worn by warriors of the Nar'Sien cult. It can withstand hard vacuum.
+  components:
+  - type: Sprite
+    sprite: _White/Clothing/OuterClothing/Hardsuits/blood_cult_armor.rsi
+  - type: Clothing
+    sprite: _White/Clothing/OuterClothing/Hardsuits/blood_cult_armor.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000
+  - type: ClothingSpeedModifier
+    walkModifier: 1.0
+    sprintModifier: 1.0
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.7
+        Caustic: 0.2
+        Radiation: 0.2
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: TemperatureProtection
+    heatingCoefficient: 0.1
+    coolingCoefficient: 0.1
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetBloodCultArmor
+  - type: CultItem

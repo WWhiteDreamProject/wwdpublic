@@ -34,7 +34,7 @@ public sealed class ActionsSystem : EntitySystem
 
     private void OnSpawnTileEntityAction(SpawnTileEntityActionEvent args)
     {
-        if (args.Handled || !CreationTileEntity(args.Performer, args.Performer.ToCoordinates(), args.TileId, args.Entity, args.Audio, args.BlockedCollisionLayer, args.BlockedCollisionMask))
+        if (args.Handled || !CreationTileEntity(args.Performer, args.Performer.ToCoordinates(), args.TileId, args.Entities, args.Audio, args.BlockedCollisionLayer, args.BlockedCollisionMask))
             return;
 
         args.Handled = true;
@@ -52,8 +52,8 @@ public sealed class ActionsSystem : EntitySystem
 
             var ev = new PlaceTileEntityDoAfterEvent
             {
-                Target = GetNetCoordinates(args.Target),
-                Entity = args.Entity,
+                Coordinates = GetNetCoordinates(args.Target),
+                Entities = args.Entities,
                 TileId = args.TileId,
                 Audio = args.Audio,
                 BlockedCollisionLayer = args.BlockedCollisionLayer,
@@ -73,7 +73,7 @@ public sealed class ActionsSystem : EntitySystem
             return;
         }
 
-        if (!CreationTileEntity(args.Performer, args.Target, args.TileId, args.Entity, args.Audio, args.BlockedCollisionLayer, args.BlockedCollisionMask))
+        if (!CreationTileEntity(args.Performer, args.Target, args.TileId, args.Entities, args.Audio, args.BlockedCollisionLayer, args.BlockedCollisionMask))
             return;
 
         args.Handled = true;
@@ -81,7 +81,7 @@ public sealed class ActionsSystem : EntitySystem
 
     private void OnPlaceTileEntityDoAfter(PlaceTileEntityDoAfterEvent args)
     {
-        if (args.Handled || !CreationTileEntity(args.User, GetCoordinates(args.Target), args.TileId, args.Entity, args.Audio, args.BlockedCollisionLayer, args.BlockedCollisionMask))
+        if (args.Handled || !CreationTileEntity(args.User, GetCoordinates(args.Coordinates), args.TileId, args.Entities, args.Audio, args.BlockedCollisionLayer, args.BlockedCollisionMask))
             return;
 
         args.Handled = true;
@@ -89,7 +89,7 @@ public sealed class ActionsSystem : EntitySystem
 
     #region Helpers
 
-    private bool CreationTileEntity(EntityUid user, EntityCoordinates coordinates, string? tileId, EntProtoId? entProtoId, SoundSpecifier? audio, int collisionLayer = 0, int collisionMask = 0)
+    private bool CreationTileEntity(EntityUid user, EntityCoordinates coordinates, string? tileId, List<EntProtoId>? entProtoIds, SoundSpecifier? audio, int collisionLayer = 0, int collisionMask = 0)
     {
         if (_container.IsEntityOrParentInContainer(user))
             return false;
@@ -107,10 +107,11 @@ public sealed class ActionsSystem : EntitySystem
 
         _audio.PlayPvs(audio, coordinates);
 
-        if (entProtoId == null || CheckTileBlocked(coordinates, collisionLayer, collisionMask))
+        if (entProtoIds == null || CheckTileBlocked(coordinates, collisionLayer, collisionMask))
             return false;
 
-        Spawn(entProtoId, coordinates);
+        foreach (var entProtoId in entProtoIds)
+            Spawn(entProtoId, coordinates);
 
         return true;
     }

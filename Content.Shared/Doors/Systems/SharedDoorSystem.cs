@@ -15,6 +15,7 @@ using Content.Shared.Prying.Systems;
 using Content.Shared.Stunnable;
 using Content.Shared.Tag;
 using Content.Shared.Tools.Systems;
+using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
@@ -45,6 +46,7 @@ public abstract partial class SharedDoorSystem : EntitySystem
     [Dependency] protected readonly SharedPopupSystem Popup = default!;
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly SharedPowerReceiverSystem _powerReceiver = default!;
+    [Dependency] private readonly EntityWhitelistSystem _entityWhitelist = default!; // WD EDIT
 
     [ValidatePrototypeId<TagPrototype>]
     public const string DoorBumpTag = "DoorBumpOpener";
@@ -329,6 +331,11 @@ public abstract partial class SharedDoorSystem : EntitySystem
         if (door.State == DoorState.Welded)
             return false;
 
+        // WD EDIT START
+        if (user.HasValue && _entityWhitelist.IsWhitelistFail(door.Whitelist, user.Value))
+            return false;
+        // WD EDIT END
+
         var ev = new BeforeDoorOpenedEvent() { User = user };
         RaiseLocalEvent(uid, ev);
         if (ev.Cancelled)
@@ -435,6 +442,11 @@ public abstract partial class SharedDoorSystem : EntitySystem
         // a welded door or else there will be weird state bugs
         if (door.State is DoorState.Welded or DoorState.Closed)
             return false;
+
+        // WD EDIT START
+        if (user.HasValue && _entityWhitelist.IsWhitelistFail(door.Whitelist, user.Value))
+            return false;
+        // WD EDIT END
 
         var ev = new BeforeDoorClosedEvent(door.PerformCollisionCheck, partial) { User = user };
         RaiseLocalEvent(uid, ev);

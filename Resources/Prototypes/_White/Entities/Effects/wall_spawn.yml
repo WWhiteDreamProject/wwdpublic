@@ -1,0 +1,19 @@
+- type: entity
+  id: BloodCultWallSpawnEffect
+  name: blood cult wall effect
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: TimedDespawn
+    lifetime: 0.5
+  - type: Transform
+    noRot: true
+    anchored: true
+  - type: Sprite
+    layers:
+    - sprite: _White/Effects/wall_spawn.rsi
+      state: wall_glow
+      shader: unshaded
+    netsync: false
+  - type: PointLight
+    color: "#FF0000"

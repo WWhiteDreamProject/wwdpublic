@@ -1,0 +1,42 @@
+- type: entity
+  parent: BaseMobConstruct
+  id: BaseMobConstructArtificer
+  abstract: true
+  name: artificer
+  description: A bulbous construct dedicated to building and maintaining the Cult of Nar'Sie's armies.
+  components:
+  - type: Sprite
+    sprite: _White/Mobs/Construct/artificer.rsi
+  - type: MeleeWeapon
+    hidden: true
+    angle: 30
+    animation: WeaponArcPunch
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 5
+        Structural: 60
+  - type: ActionGrant
+    actions:
+    - ActionBloodCultSummonFloor
+    - ActionBloodCultSummonWall
+    - ActionBloodCultSummonDoor
+    - ActionBloodCultSummonSoulStone
+
+- type: entity
+  id: MobConstructArtificer
+  parent: BaseMobConstructArtificer
+  components:
+  - type: BloodCultist
+
+- type: entity
+  id: MobConstructArtificerHoly
+  parent:
+  - BaseMobConstructHoly
+  - BaseMobConstructArtificer
+  name: purified artificer
+  description: A bulbous construct dedicated to building and maintaining the holy armies.
+  components:
+  - type: ActionGrant
+    actions:
+    - ActionBloodCultSummonHolySoulStone

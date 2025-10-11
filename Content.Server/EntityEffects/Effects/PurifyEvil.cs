@@ -1,7 +1,7 @@
 ﻿using System.Threading;
+using Content.Shared._White.BloodCult.BloodCultist;
 using Content.Shared.EntityEffects;
 using Content.Shared.Jittering;
-using Content.Shared.WhiteDream.BloodCult.BloodCultist;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 
