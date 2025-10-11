@@ -4458,3 +4458,10 @@ Entries:
   id: 467
   time: '2025-10-11T21:52:48.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/861
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: Кровавый культ стал работать лучше
+  id: 468
+  time: '2025-10-11T21:53:06.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/859
