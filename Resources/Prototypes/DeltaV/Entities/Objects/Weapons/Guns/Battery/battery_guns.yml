@@ -65,7 +65,7 @@
           Lethal: { state: mode-lethal }
           Special: { state: mode-stun } # Unused
   - type: GunFlux # wwdp
-    heatCost: 1
+    heatCost: 0.5
 
 - type: entity
   name: x-01 multiphase energy gun
