@@ -34,7 +34,7 @@
         - state: book_EvacPod_StandartRules
     - type: Book
       maxCharactersPerPage: 1500
-      maxPages: 10
+      maxPages: 3
       content: book-text-EvacPod-StandartRules
     - type: Tag
       tags:
