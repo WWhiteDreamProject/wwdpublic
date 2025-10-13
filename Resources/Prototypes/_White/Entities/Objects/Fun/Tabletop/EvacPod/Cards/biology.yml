@@ -30,7 +30,6 @@
     state: deck_ep_biology_full
   - type: CardStack
     initialContent:
-    - CardEvacPodProfessionAgent
     - CardEvacPodBiologyM18
     - CardEvacPodBiologyM23
     - CardEvacPodBiologyM24Bi

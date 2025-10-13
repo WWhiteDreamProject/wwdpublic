@@ -114,7 +114,7 @@
         amount: 1
       - id: CardBoxEvacPodFact
         amount: 1
-      - id: BookEvacPodStandardRules
+      - id: BookEvacPodStandartRules
         amount: 1
       - id: EvacPodCarpet
         amount: 18
