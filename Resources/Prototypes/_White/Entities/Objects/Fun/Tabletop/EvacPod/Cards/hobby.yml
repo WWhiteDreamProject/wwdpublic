@@ -6,7 +6,7 @@
   - type: Item
     size: Small
   - type: Sprite
-    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: _White/Objects/Misc/cards.rsi
     layers:
     - state: EvacPod_hobby_box
     - state: EvacPod_hobby_box_open
@@ -26,7 +26,7 @@
   name: deck of EvacPod cards (Hobby)
   components:
   - type: Sprite
-    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: _White/Objects/Misc/cards.rsi
     state: deck_ep_hobby_full
   - type: CardStack
     initialContent:
@@ -72,7 +72,7 @@
   - type: Card
     name: card-ep_hobby_ahelp
   - type: Sprite
-    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: _White/Objects/Misc/cards.rsi
     state: ep_hobby_ahelp
 
 - type: entity
@@ -83,7 +83,7 @@
   - type: Card
     name: card-ep_hobby_meleeWeapon
   - type: Sprite
-    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: _White/Objects/Misc/cards.rsi
     state: ep_hobby_meleeWeapon
 
 - type: entity
@@ -94,7 +94,7 @@
   - type: Card
     name: card-ep_hobby_blackMagic
   - type: Sprite
-    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: _White/Objects/Misc/cards.rsi
     state: ep_hobby_blackMagic
 
 - type: entity
@@ -105,7 +105,7 @@
   - type: Card
     name: card-ep_hobby_flood
   - type: Sprite
-    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: _White/Objects/Misc/cards.rsi
     state: ep_hobby_flood
 
 - type: entity
@@ -116,7 +116,7 @@
   - type: Card
     name: card-ep_hobby_mashrooms
   - type: Sprite
-    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: _White/Objects/Misc/cards.rsi
     state: ep_hobby_mashrooms
 
 - type: entity
@@ -127,7 +127,7 @@
   - type: Card
     name: card-ep_hobby_martialArts
   - type: Sprite
-    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: _White/Objects/Misc/cards.rsi
     state: ep_hobby_martialArts
 
 - type: entity
@@ -138,7 +138,7 @@
   - type: Card
     name: card-ep_hobby_cottagers
   - type: Sprite
-    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: _White/Objects/Misc/cards.rsi
     state: ep_hobby_cottagers
 
 - type: entity
@@ -149,7 +149,7 @@
   - type: Card
     name: card-ep_hobby_voyeurisme
   - type: Sprite
-    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: _White/Objects/Misc/cards.rsi
     state: ep_hobby_voyeurisme
 
 - type: entity
@@ -160,7 +160,7 @@
   - type: Card
     name: card-ep_hobby_alchemist
   - type: Sprite
-    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: _White/Objects/Misc/cards.rsi
     state: ep_hobby_alchemist
 
 - type: entity
@@ -171,7 +171,7 @@
   - type: Card
     name: card-ep_hobby_hydroponic
   - type: Sprite
-    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: _White/Objects/Misc/cards.rsi
     state: ep_hobby_hydroponic
 
 - type: entity
@@ -182,7 +182,7 @@
   - type: Card
     name: card-ep_hobby_healthyLifestyle
   - type: Sprite
-    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: _White/Objects/Misc/cards.rsi
     state: ep_hobby_healthyLifestyle
 
 - type: entity
@@ -193,7 +193,7 @@
   - type: Card
     name: card-ep_hobby_films
   - type: Sprite
-    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: _White/Objects/Misc/cards.rsi
     state: ep_hobby_films
 
 - type: entity
@@ -204,7 +204,7 @@
   - type: Card
     name: card-ep_hobby_computerGames
   - type: Sprite
-    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: _White/Objects/Misc/cards.rsi
     state: ep_hobby_computerGames
 
 - type: entity
@@ -215,7 +215,7 @@
   - type: Card
     name: card-ep_hobby_netWorking
   - type: Sprite
-    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: _White/Objects/Misc/cards.rsi
     state: ep_hobby_netWorking
 
 - type: entity
@@ -226,7 +226,7 @@
   - type: Card
     name: card-ep_hobby_radio
   - type: Sprite
-    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: _White/Objects/Misc/cards.rsi
     state: ep_hobby_radio
 
 - type: entity
@@ -237,7 +237,7 @@
   - type: Card
     name: card-ep_hobby_tabletop
   - type: Sprite
-    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: _White/Objects/Misc/cards.rsi
     state: ep_hobby_tabletop
 
 - type: entity
@@ -248,7 +248,7 @@
   - type: Card
     name: card-ep_hobby_meditation
   - type: Sprite
-    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: _White/Objects/Misc/cards.rsi
     state: ep_hobby_meditation
 
 - type: entity
@@ -259,7 +259,7 @@
   - type: Card
     name: card-ep_hobby_localHistory
   - type: Sprite
-    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: _White/Objects/Misc/cards.rsi
     state: ep_hobby_localHistory
 
 - type: entity
@@ -270,7 +270,7 @@
   - type: Card
     name: card-ep_hobby_massage
   - type: Sprite
-    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: _White/Objects/Misc/cards.rsi
     state: ep_hobby_massage
 
 - type: entity
@@ -281,7 +281,7 @@
   - type: Card
     name: card-ep_hobby_parkour
   - type: Sprite
-    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: _White/Objects/Misc/cards.rsi
     state: ep_hobby_parkour
 
 - type: entity
@@ -292,7 +292,7 @@
   - type: Card
     name: card-ep_hobby_altMedicine
   - type: Sprite
-    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: _White/Objects/Misc/cards.rsi
     state: ep_hobby_altMedicine
 
 - type: entity
@@ -303,7 +303,7 @@
   - type: Card
     name: card-ep_hobby_huntingAndFishing
   - type: Sprite
-    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: _White/Objects/Misc/cards.rsi
     state: ep_hobby_huntingAndFishing
 
 - type: entity
@@ -314,7 +314,7 @@
   - type: Card
     name: card-ep_hobby_swingerParty
   - type: Sprite
-    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: _White/Objects/Misc/cards.rsi
     state: ep_hobby_swingerParty
 
 - type: entity
@@ -325,7 +325,7 @@
   - type: Card
     name: card-ep_hobby_pyrotechnics
   - type: Sprite
-    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: _White/Objects/Misc/cards.rsi
     state: ep_hobby_pyrotechnics
 
 - type: entity
@@ -336,7 +336,7 @@
   - type: Card
     name: card-ep_hobby_HTHtalks
   - type: Sprite
-    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: _White/Objects/Misc/cards.rsi
     state: ep_hobby_HTHtalks
 
 - type: entity
@@ -347,7 +347,7 @@
   - type: Card
     name: card-ep_hobby_contemporaryArt
   - type: Sprite
-    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: _White/Objects/Misc/cards.rsi
     state: ep_hobby_contemporaryArt
 
 - type: entity
@@ -358,7 +358,7 @@
   - type: Card
     name: card-ep_hobby_brewing
   - type: Sprite
-    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: _White/Objects/Misc/cards.rsi
     state: ep_hobby_brewing
 
 - type: entity
@@ -369,7 +369,7 @@
   - type: Card
     name: card-ep_hobby_robotech
   - type: Sprite
-    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: _White/Objects/Misc/cards.rsi
     state: ep_hobby_robotech
 
 - type: entity
@@ -380,7 +380,7 @@
   - type: Card
     name: card-ep_hobby_sportsDancing
   - type: Sprite
-    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: _White/Objects/Misc/cards.rsi
     state: ep_hobby_sportsDancing
 
 - type: entity
@@ -391,5 +391,5 @@
   - type: Card
     name: card-ep_hobby_striptease
   - type: Sprite
-    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: _White/Objects/Misc/cards.rsi
     state: ep_hobby_striptease

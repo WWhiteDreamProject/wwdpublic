@@ -6,7 +6,7 @@
   - type: Item
     size: Small
   - type: Sprite
-    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: _White/Objects/Misc/cards.rsi
     layers:
     - state: EvacPod_danger_box
     - state: EvacPod_danger_box_open
@@ -26,7 +26,7 @@
   name: deck of EvacPod cards (Danger)
   components:
   - type: Sprite
-    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: _White/Objects/Misc/cards.rsi
     state: deck_ep_danger_full
   - type: CardStack
     initialContent:
@@ -52,7 +52,7 @@
   - type: Card
     name: card-ep_danger_flood
   - type: Sprite
-    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: _White/Objects/Misc/cards.rsi
     state: ep_danger
 
 - type: entity
@@ -63,7 +63,7 @@
   - type: Card
     name: card-ep_danger_AI
   - type: Sprite
-    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: _White/Objects/Misc/cards.rsi
     state: ep_danger
 
 - type: entity
@@ -74,7 +74,7 @@
   - type: Card
     name: card-ep_danger_chill
   - type: Sprite
-    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: _White/Objects/Misc/cards.rsi
     state: ep_danger
 
 - type: entity
@@ -85,7 +85,7 @@
   - type: Card
     name: card-ep_danger_asteroid
   - type: Sprite
-    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: _White/Objects/Misc/cards.rsi
     state: ep_danger
 
 - type: entity
@@ -96,7 +96,7 @@
   - type: Card
     name: card-ep_danger_mouse
   - type: Sprite
-    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: _White/Objects/Misc/cards.rsi
     state: ep_danger
 
 - type: entity
@@ -107,7 +107,7 @@
   - type: Card
     name: card-ep_danger_kitchen
   - type: Sprite
-    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: _White/Objects/Misc/cards.rsi
     state: ep_danger
 
 - type: entity
@@ -118,7 +118,7 @@
   - type: Card
     name: card-ep_danger_carps
   - type: Sprite
-    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: _White/Objects/Misc/cards.rsi
     state: ep_danger
 
 - type: entity
@@ -129,7 +129,7 @@
   - type: Card
     name: card-ep_danger_psi
   - type: Sprite
-    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: _White/Objects/Misc/cards.rsi
     state: ep_danger
 
 - type: entity
@@ -140,7 +140,7 @@
   - type: Card
     name: card-ep_danger_ghosts
   - type: Sprite
-    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: _White/Objects/Misc/cards.rsi
     state: ep_danger
 
 - type: entity
@@ -151,5 +151,5 @@
   - type: Card
     name: card-ep_danger_virus
   - type: Sprite
-    sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    sprite: _White/Objects/Misc/cards.rsi
     state: ep_danger

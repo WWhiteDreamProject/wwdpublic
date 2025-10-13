@@ -4,11 +4,11 @@
   description: Foldable carpet for playing EvacPod.
   components:
   - type: Sprite
-    sprite: _CorvaxGoob/Objects/Fun/Tabletop/EvacPod/carpet.rsi
+    sprite: _White/Objects/Fun/Tabletop/EvacPod/carpet.rsi
     state: icon-off
     drawdepth: FloorTiles
   - type: Item
-    sprite: _CorvaxGoob/Objects/Fun/Tabletop/EvacPod/carpet.rsi
+    sprite: _White/Objects/Fun/Tabletop/EvacPod/carpet.rsi
     storedRotation: -90
     size: Tiny
   - type: Appearance
@@ -75,7 +75,7 @@
   description: A box with a playset for playing EvacPod.
   components:
   - type: Sprite
-    sprite: _CorvaxGoob/Objects/Fun/Tabletop/EvacPod/playsetBox.rsi
+    sprite: _White/Objects/Fun/Tabletop/EvacPod/playsetBox.rsi
     layers:
     - state: playset_box
     - state: playset_box_open

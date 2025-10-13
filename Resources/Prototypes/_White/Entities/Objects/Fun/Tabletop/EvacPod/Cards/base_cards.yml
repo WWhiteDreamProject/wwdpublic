@@ -6,7 +6,7 @@
   components:
   - type: Card
     backSprite:
-    - sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    - sprite: _White/Objects/Misc/cards.rsi
       state: singlecard_down_ep_profession
   - type: Tag
     tags:
@@ -20,7 +20,7 @@
   components:
   - type: Card
     backSprite:
-    - sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    - sprite: _White/Objects/Misc/cards.rsi
       state: singlecard_down_ep_biology
   - type: Tag
     tags:
@@ -34,7 +34,7 @@
   components:
   - type: Card
     backSprite:
-    - sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    - sprite: _White/Objects/Misc/cards.rsi
       state: singlecard_down_ep_health
   - type: Tag
     tags:
@@ -48,7 +48,7 @@
   components:
   - type: Card
     backSprite:
-    - sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    - sprite: _White/Objects/Misc/cards.rsi
       state: singlecard_down_ep_hobby
   - type: Tag
     tags:
@@ -62,7 +62,7 @@
   components:
   - type: Card
     backSprite:
-    - sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    - sprite: _White/Objects/Misc/cards.rsi
       state: singlecard_down_ep_baggage
   - type: Tag
     tags:
@@ -76,7 +76,7 @@
   components:
   - type: Card
     backSprite:
-    - sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    - sprite: _White/Objects/Misc/cards.rsi
       state: singlecard_down_ep_fact
   - type: Tag
     tags:
@@ -90,7 +90,7 @@
   components:
   - type: Card
     backSprite:
-    - sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    - sprite: _White/Objects/Misc/cards.rsi
       state: singlecard_down_ep_special
   - type: Tag
     tags:
@@ -104,7 +104,7 @@
   components:
   - type: Card
     backSprite:
-    - sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    - sprite: _White/Objects/Misc/cards.rsi
       state: singlecard_down_ep_catastrophe
   - type: Tag
     tags:
@@ -118,7 +118,7 @@
   components:
   - type: Card
     backSprite:
-    - sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    - sprite: _White/Objects/Misc/cards.rsi
       state: singlecard_down_ep_danger
   - type: Tag
     tags:
@@ -132,7 +132,7 @@
   components:
   - type: Card
     backSprite:
-    - sprite: EstacaoPirata/Objects/Misc/cards.rsi
+    - sprite: _White/Objects/Misc/cards.rsi
       state: singlecard_down_ep_shuttle
   - type: Tag
     tags:
