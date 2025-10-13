@@ -43,6 +43,6 @@ book-text-EvacPod-StandartRules = [head=1]EvacPod[/head][head=2]
     - 6 or more players — starting from round 2.
 
     Revealing the profession counts as the first round![head=3]
-    
+
     Stage 4. Exploration.[/head]
     In the 4th round, begin to reveal Shuttle cards every even round.
