@@ -1,7 +1,9 @@
 ent-BookBotany = Ботаника — всё, что нужно знать новичку!
     .desc = С виду обычная книга; судя по дате изготовления внутри, она довольно новая. Рассказывает о ботанике и её основных аспектах. Всё, что нужно знать новичку-ботанику.
 
-book-text-EvacPod-StandartRules = [head=1]EvacPod[/head][head=2]
+book-text-EvacPod-StandardRules =
+
+    -[head=1]EvacPod[/head][head=2]-
 
     Правила игры[/head][italic][bold]
 

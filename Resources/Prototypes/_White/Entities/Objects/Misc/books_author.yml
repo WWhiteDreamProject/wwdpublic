@@ -24,18 +24,18 @@
 
 - type: entity
   parent: BookBase
-  id: BookEvacPodStandartRules
-  name: EvacPod — Standart rules
+  id: BookEvacPodStandardRules
+  name: EvacPod — Standard rules
   description: Standard rules of the game EvacPod.
   components:
     - type: Sprite
       sprite: _White/Objects/Misc/books.rsi
       layers:
-        - state: book_EvacPod_StandartRules
+        - state: book_EvacPod_StandardRules
     - type: Book
       maxCharactersPerPage: 1500
       maxPages: 3
-      content: book-text-EvacPod-StandartRules
+      content: book-text-EvacPod-StandardRules
     - type: Tag
       tags:
       - EvacPod

@@ -1,5 +1,5 @@
 ent-BaseCardEvacPodProfession = Профессия
-    .desc = Игральная карта от настольной игры EvacProd.
+    .desc = Игральная карта от настольной игры EvacPod.
 ent-BaseCardEvacPodBiology = Биология
     .desc = { ent-BaseCardEvacPodProfession.desc }
 ent-BaseCardEvacPodHealth = Здоровье

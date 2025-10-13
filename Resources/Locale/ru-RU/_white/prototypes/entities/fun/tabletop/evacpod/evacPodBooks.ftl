@@ -1,2 +1,2 @@
-ent-BookEvacPodStandartRules = EvacPod — Стандартные правила
+ent-BookEvacPodStandardRules = EvacPod — Стандартные правила
     .desc = Книга со стандартными правилами для игры в EvacPod.

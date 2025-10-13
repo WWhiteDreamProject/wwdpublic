@@ -1,5 +1,5 @@
 ent-BaseCardEvacPodProfession = Profession
-    .desc = Playing card from the board game EvacProd.
+    .desc = Playing card from the board game EvacPod.
 ent-BaseCardEvacPodBiology = Biology
     .desc = { ent-BaseCardEvacPodProfession.desc }
 ent-BaseCardEvacPodHealth = Health

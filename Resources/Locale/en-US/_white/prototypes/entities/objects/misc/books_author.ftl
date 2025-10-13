@@ -1,4 +1,6 @@
-book-text-EvacPod-StandartRules = [head=1]EvacPod[/head][head=2]
+book-text-EvacPod-StandardRules =
+
+    -[head=1]EvacPod[/head][head=2]-
 
     Game rules[/head][italic][bold]
 
