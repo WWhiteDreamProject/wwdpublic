@@ -106,7 +106,7 @@
     sprite: Structures/Walls/grille.rsi
     state: grille
   - type: IconSmooth
-    key: walls
+    key: grills
     base: grille
   - type: Construction
     graph: Grille
@@ -122,7 +122,7 @@
     sprite: Structures/Walls/clockwork_grille.rsi
     state: ratvargrille
   - type: IconSmooth # WWDP edit
-    key: walls
+    key: grills
     base: grille
   - type: Construction
     graph: ClockGrille

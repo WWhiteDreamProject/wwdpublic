@@ -7,7 +7,6 @@ using Robust.Shared.Map.Components;
 
 namespace Content.Server.Atmos.Piping.EntitySystems;
 
-
 public sealed class AtmosPipeAppearanceSystem : EntitySystem
 {
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
@@ -24,12 +23,8 @@ public sealed class AtmosPipeAppearanceSystem : EntitySystem
         UpdateAppearance(args.NodeOwner);
     }
 
-    private void UpdateAppearance(
-        EntityUid uid,
-        AppearanceComponent? appearance = null,
-        NodeContainerComponent? container = null,
-        TransformComponent? xform = null
-    )
+    private void UpdateAppearance(EntityUid uid, AppearanceComponent? appearance = null, NodeContainerComponent? container = null,
+        TransformComponent? xform = null)
     {
         if (!Resolve(uid, ref appearance, ref container, ref xform, false))
             return;
@@ -37,10 +32,9 @@ public sealed class AtmosPipeAppearanceSystem : EntitySystem
         if (!TryComp<MapGridComponent>(xform.GridUid, out var grid))
             return;
 
+        // get connected entities
         var anyPipeNodes = false;
         HashSet<EntityUid> connected = new();
-        Dictionary<PipeDirection, EntityUid> connectedEntities = new(); // Новое
-
         foreach (var node in container.Nodes.Values)
         {
             if (node is not PipeNode)
@@ -58,14 +52,14 @@ public sealed class AtmosPipeAppearanceSystem : EntitySystem
         if (!anyPipeNodes)
             return;
 
+        // find the cardinal directions of any connected entities
         var netConnectedDirections = PipeDirection.None;
         var tile = grid.TileIndicesFor(xform.Coordinates);
-
         foreach (var neighbour in connected)
         {
             var otherTile = grid.TileIndicesFor(Transform(neighbour).Coordinates);
 
-            var direction = (otherTile - tile) switch
+            netConnectedDirections |= (otherTile - tile) switch
             {
                 (0, 1) => PipeDirection.North,
                 (0, -1) => PipeDirection.South,
@@ -73,15 +67,8 @@ public sealed class AtmosPipeAppearanceSystem : EntitySystem
                 (-1, 0) => PipeDirection.West,
                 _ => PipeDirection.None
             };
-
-            if (direction != PipeDirection.None)
-            {
-                netConnectedDirections |= direction;
-                connectedEntities[direction] = neighbour; // Новое
-            }
         }
 
         _appearance.SetData(uid, PipeVisuals.VisualState, netConnectedDirections, appearance);
-        _appearance.SetData(uid, PipeVisuals.ConnectedEntities, connectedEntities, appearance); // Новое
     }
 }

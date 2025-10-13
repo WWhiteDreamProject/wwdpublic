@@ -98,7 +98,7 @@
   name: tinted window
   components:
   - type: Sprite
-    drawdepth: WallTops
+    drawdepth: OverMobs # WWDP edit
     sprite: Structures/Windows/tinted_window.rsi
   - type: Icon
     sprite: Structures/Windows/tinted_window.rsi

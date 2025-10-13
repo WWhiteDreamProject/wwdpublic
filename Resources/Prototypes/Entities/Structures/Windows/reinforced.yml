@@ -57,25 +57,6 @@
       sprite: Structures/Windows/cracks.rsi
 
 - type: entity
-  parent: ReinforcedWindow
-  id: TintedWindow
-  name: tinted window
-  components:
-  - type: Sprite
-    drawdepth: OverMobs # WWDP edit
-    sprite: Structures/Windows/tinted_window.rsi
-  - type: Icon
-    sprite: Structures/Windows/tinted_window.rsi
-  - type: IconSmooth
-    base: twindow
-  - type: Construction
-    graph: Window
-    node: tintedWindow
-  - type: Occluder
-  - type: StaticPrice
-    price: 44
-
-- type: entity
   id: WindowReinforcedDirectional
   parent: WindowDirectional
   name: directional reinforced window

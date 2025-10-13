@@ -182,14 +182,14 @@
         - state: injector-unshaded
           shader: unshaded
           map: [ "enum.LightLayers.Unshaded" ]
-          color: "#990000"
+          color: "#ef2f22"
     - type: GenericVisualizer
       visuals:
        # toggle color of the unshaded light:
        enum.OutletInjectorVisuals.Enabled:
          enum.LightLayers.Unshaded:
-           True: { color: "#5eff5e" }
-           False: { color: "#990000" }
+           True: { color: "#22ef64" }
+           False: { color: "#ef2f22" }
     - type: Appearance
     - type: PipeColorVisuals
     - type: GasOutletInjector
