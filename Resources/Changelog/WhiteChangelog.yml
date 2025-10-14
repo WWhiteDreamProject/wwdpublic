@@ -4465,3 +4465,14 @@ Entries:
   id: 468
   time: '2025-10-11T21:53:06.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/859
+- author: PuroSlavKing
+  changes:
+    - type: Fix
+      message: >-
+        Исправлено перемещение червоточин. Больше они не стремятся к нулевым
+        координатам.
+    - type: Tweak
+      message: Изменен радиус перемещения червоточин, 40 > 12.
+  id: 469
+  time: '2025-10-14T06:09:55.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/864
