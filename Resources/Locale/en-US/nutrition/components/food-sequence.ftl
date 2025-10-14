@@ -1,6 +1,6 @@
 food-sequence-no-space = You can't put any more!
 
-food-sequence-Standard-gen = {$prefix}{$content}{$suffix}
+food-sequence-standart-gen = {$prefix}{$content}{$suffix}
 
 food-sequence-burger-suffix = burger
 # GENERAL
