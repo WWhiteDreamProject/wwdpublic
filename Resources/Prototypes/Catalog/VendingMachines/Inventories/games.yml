@@ -16,9 +16,5 @@
     PaperCNCSheet: 6
     MysteryFigureBox: 2
     BooksBag: 3
-    CardBoxBlack: 3 # GoobStation
-    BoxPlaysetEvacPod: 1 # Corvax-Goob-EvacPod
-  contrabandInventory:
-    Basketball: 1
-    FoodSnackBoritos: 3
-    DrinkSpaceMountainWindCan: 3
+    CardBoxBlack: 3
+    BoxPlaysetEvacPod: 1 # WD EDIT
