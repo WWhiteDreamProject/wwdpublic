@@ -10017,43 +10017,30 @@ ent-strippinghiddenent = Скрытая сущность
 ent-VirtualItem = ВИРТУАЛЬНЫЙ ПРЕДМЕТ (НЕ ДОЛЖЕН БЫТЬ ВИДИМ)
 
 ent-CardBoxBase = коробка для колоды
-    .desc = Коробка для колоды игральных карт.
 
 ent-CardStackBase = стопка карт
-    .desc = Стопка игральных карт.
 
 ent-CardHandBase = рука карт
-    .desc = Несколько игральных карт, лежащих вместе.
 
 ent-CardDeckBase = колода карт
-    .desc = Колода игральных карт. От неё веет азартом.
 
 ent-CardBoxBlack = чёрная коробка для карт
-    .desc = { ent-CardBoxBase.desc }
 
 ent-CardDeckBlack = чёрная колода карт
-    .desc = { ent-CardDeckBase.desc }
 
 ent-CardBase = карта
-    .desc = Простая игральная карта.
 
 ent-CardBaseNanotrasen = карта
-    .desc = Игральная карта с синей рубашкой.
 
 ent-CardBoxNanotrasen = коробка с картами НаноТрейзен
-    .desc = Коробка для синих игральных карт. На ней красуется патриотичная буква N.
 
 ent-CardDeckNanotrasen = колода НаноТрейзен
-    .desc = Колода игральных карт с синей рубашкой. Что-то на богатом.
 
 ent-CardBaseSyndicate = карта
-    .desc = Игральная карта с алой рубашкой.
 
 ent-CardBoxSyndicate = коробка с картами Синдиката
-    .desc = Коробка для игральных карт алого цвета. На ней красуется устрашающая буква S.
 
 ent-CardDeckSyndicate = колода Синдиката
-    .desc = Колода алых игральных карт. Владелец таких карт точно не простой человек...
 
 
 ent-ActionSummonGhosts = Призвать призраков
