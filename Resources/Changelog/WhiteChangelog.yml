@@ -4476,3 +4476,10 @@ Entries:
   id: 469
   time: '2025-10-14T06:09:55.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/864
+- author: Ko4ergaPunk
+  changes:
+    - type: Add
+      message: Добавлена настольная игра EvacPod (аналог Бункера)
+  id: 470
+  time: '2025-10-23T05:03:50.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/863

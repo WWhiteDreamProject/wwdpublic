@@ -21,3 +21,21 @@
       maxCharactersPerPage: 1500
       maxPages: 100
       content: book-text-botany
+
+- type: entity
+  parent: BookBase
+  id: BookEvacPodStandartRules
+  name: EvacPod — Standard rules
+  description: Standard rules of the game EvacPod.
+  components:
+    - type: Sprite
+      sprite: _White/Objects/Misc/books.rsi
+      layers:
+        - state: book_EvacPod_StandartRules
+    - type: Book
+      maxCharactersPerPage: 1500
+      maxPages: 3
+      content: book-text-EvacPod-StandardRules
+    - type: Tag
+      tags:
+      - EvacPod
