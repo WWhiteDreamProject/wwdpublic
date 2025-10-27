@@ -1,0 +1,7 @@
+- type: emoteSounds
+  id: Pennywise
+  params:
+    volume: 5
+  sounds:
+    Laugh:
+      path: /Audio/_Friday31/penis/pennywise-laugh.ogg

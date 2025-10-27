@@ -1,0 +1,7 @@
+- type: ghostRole
+  id: Pennywise
+  name: Pennywise the Dancing Clown
+  description: Ты - Пеннивайз, танцующий клоун из глубин канализации. Твоя цель - наводить ужас на станцию.
+  rules: Будь зловещим и жутким клоуном.
+  entityPrototype: MobPennywise
+  iconPrototype: BikeHorn

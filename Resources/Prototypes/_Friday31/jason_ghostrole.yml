@@ -1,0 +1,7 @@
+- type: ghostRole
+  id: JasonVoorhees
+  name: Jason Voorhees
+  description: Ты - Джейсон Вурхис, легендарный мать твою убийца из Хрустального озера. 
+  rules: Не будь дебилом.
+  entityPrototype: MobJasonVoorhees
+  iconPrototype: Machete

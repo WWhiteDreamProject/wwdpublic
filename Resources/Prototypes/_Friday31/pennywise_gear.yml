@@ -1,0 +1,78 @@
+- type: entity
+  parent: ClothingMaskBase
+  id: ClothingMaskPennywise
+  name: маска Пеннивайза
+  description: Жуткая клоунская маска.
+  components:
+  - type: Sprite
+    sprite: _Friday31/Clothing/Mask/penis_clown.rsi
+  - type: Clothing
+    sprite: _Friday31/Clothing/Mask/penis_clown.rsi
+  - type: IdentityBlocker
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: HideLayerClothing
+    slots:
+    - Snout
+
+- type: entity
+  parent: ClothingMaskPennywise
+  id: ClothingMaskPennywiseUnremoveable
+  suffix: Unremoveable
+  noSpawn: true
+  components:
+  - type: Unremoveable
+
+- type: entity
+  parent: ClothingUniformJumpsuitClown
+  id: ClothingUniformJumpsuitPennywise
+  name: костюм клоуна
+  description: Клоунский костюм.
+  suffix: Unremoveable
+  noSpawn: true
+  components:
+  - type: Unremoveable
+
+- type: entity
+  parent: ClothingBackpackClown
+  id: ClothingBackpackPennywise
+  name: рюкзак клоуна
+  description: Рюкзак для хранения хонков.
+  suffix: Unremoveable
+  noSpawn: true
+  components:
+  - type: Unremoveable
+
+- type: entity
+  parent: ClothingShoesClown
+  id: ClothingShoesPennywise
+  name: ботинки клоуна
+  description: Большие забавные ботинки.
+  suffix: Unremoveable
+  noSpawn: true
+  components:
+  - type: Unremoveable
+
+- type: entity
+  parent: ClothingHeadsetService
+  id: ClothingHeadsetPennywise
+  name: гарнитура сервиса
+  description: Гарнитура для связи.
+  suffix: Unremoveable
+  noSpawn: true
+  components:
+  - type: Unremoveable
+
+- type: startingGear
+  id: PennywiseGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitPennywise
+    back: ClothingBackpackPennywise
+    shoes: ClothingShoesPennywise
+    mask: ClothingMaskPennywiseUnremoveable
+    ears: ClothingHeadsetPennywise
+  storage:
+    back:
+    - BalloonNT
+    - BalloonCorgi

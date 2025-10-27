@@ -1,0 +1,14 @@
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobPennywise
+  name: Pennywise spawner
+  suffix: Friday31 Event
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Objects/Fun/bikehorn.rsi
+      state: icon
+  - type: ConditionalSpawner
+    prototypes:
+    - MobPennywise
