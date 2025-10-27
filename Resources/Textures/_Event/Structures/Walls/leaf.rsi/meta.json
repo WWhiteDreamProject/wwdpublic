@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-4.0",
+  "copyright": "Created by omsoyk (Discord), edited by gersoon458 for halloween event",
+  "size": {
+    "x": 32,
+    "y": 64
+  },
+  "states": [
+    {
+      "name": "full"
+    },
+    {
+      "name": "leaf_0",
+	  "directions": 4
+    },
+    {
+      "name": "leaf_1",
+	  "directions": 4
+    },
+    {
+      "name": "leaf_2",
+	  "directions": 4
+    },
+    {
+      "name": "leaf_3",
+	  "directions": 4
+    },
+    {
+      "name": "leaf_4",
+	  "directions": 4
+    },
+    {
+      "name": "leaf_5",
+	  "directions": 4
+    },
+    {
+      "name": "leaf_6",
+	  "directions": 4
+    },
+    {
+      "name": "leaf_7",
+	  "directions": 4
+    }
+  ]
+}

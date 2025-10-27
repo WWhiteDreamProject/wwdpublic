@@ -1,0 +1,338 @@
+- type: entity
+  parent: BaseWall
+  id: LeafWallHW
+  name: leaf wall
+  description: Leafs.
+  components:
+  - type: SpriteFade
+  - type: Tag
+    tags:
+    - Wall
+  - type: IconSmooth
+    key: leaf
+    base: leaf_
+  - type: Sprite
+    drawdepth: Mobs
+    sprite: _Event/Structures/Walls/leaf.rsi
+  - type: Icon
+    sprite: _Event/Structures/Walls/leaf.rsi
+
+- type: entity
+  parent: LeafWallHW
+  id: WeakLeafWallHW
+  name: weak leaf wall
+  components:
+  - type: IconSmooth
+    key: leaf
+    base: weak_
+  - type: Sprite
+    sprite: _Event/Structures/Walls/weak.rsi
+  - type: Icon
+    sprite: _Event/Structures/Walls/weak.rsi
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 0
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  parent: LeafWallHW
+  id: TimedLeafWallHWBase
+  name: timed leaf wall
+  suffix: 1h
+  components:
+  - type: IconSmooth
+    key: leaf
+    base: timed_
+  - type: Sprite
+    sprite: _Event/Structures/Walls/timed.rsi
+  - type: Icon
+    sprite: _Event/Structures/Walls/timed.rsi
+  - type: TimedDespawn
+    lifetime: 3600
+
+- type: entity
+  parent: TimedLeafWallHWBase
+  id: TimedLeafWallHW1m
+  suffix: 1m
+  components:
+  - type: TimedDespawn
+    lifetime: 60
+
+- type: entity
+  parent: TimedLeafWallHWBase
+  id: TimedLeafWallHW5m
+  suffix: 5m
+  components:
+  - type: TimedDespawn
+    lifetime: 300
+
+- type: entity
+  parent: TimedLeafWallHWBase
+  id: TimedLeafWallHW10m
+  suffix: 10m
+  components:
+  - type: TimedDespawn
+    lifetime: 600
+
+- type: entity
+  parent: TimedLeafWallHWBase
+  id: TimedLeafWallHW15m
+  suffix: 15m
+  components:
+  - type: TimedDespawn
+    lifetime: 900
+
+- type: entity
+  parent: TimedLeafWallHWBase
+  id: TimedLeafWallHW20m
+  suffix: 20m
+  components:
+  - type: TimedDespawn
+    lifetime: 1200
+
+- type: entity
+  parent: TimedLeafWallHWBase
+  id: TimedLeafWallHW25m
+  suffix: 25m
+  components:
+  - type: TimedDespawn
+    lifetime: 1500
+
+- type: entity
+  parent: TimedLeafWallHWBase
+  id: TimedLeafWallHW30m
+  suffix: 30m
+  components:
+  - type: TimedDespawn
+    lifetime: 1800
+
+- type: entity
+  parent: TimedLeafWallHWBase
+  id: TimedLeafWallHW35m
+  suffix: 35m
+  components:
+  - type: TimedDespawn
+    lifetime: 2100
+
+- type: entity
+  parent: TimedLeafWallHWBase
+  id: TimedLeafWallHW40m
+  suffix: 40m
+  components:
+  - type: TimedDespawn
+    lifetime: 2400
+
+- type: entity
+  parent: TimedLeafWallHWBase
+  id: TimedLeafWallHW45m
+  suffix: 45m
+  components:
+  - type: TimedDespawn
+    lifetime: 2700
+
+- type: entity
+  parent: LeafWallHW
+  id: SpawnerLeafWallHW
+  name: spawner leaf wall
+  suffix: Spawner
+  components:
+  - type: IconSmooth
+    key: leaf
+    base: spawner_
+  - type: Sprite
+    sprite: _Event/Structures/Walls/spawner.rsi
+  - type: Icon
+    sprite: _Event/Structures/Walls/spawner.rsi
+  - type: RandomSpawner
+    prototypes:
+    - LeafWallHW
+    chance: 0.995
+    rarePrototypes:
+    - SpawnerLeafWallHWRare
+    rareChance: 0.05
+    offset: 0.0
+
+- type: entity
+  parent: LeafWallHW
+  id: SpawnerLeafWallHWRare
+  name: spawner leaf wall
+  suffix: Rare
+  components:
+  - type: IconSmooth
+    key: leaf
+    base: spawner_
+  - type: Sprite
+    sprite: _Event/Structures/Walls/spawner.rsi
+  - type: Icon
+    sprite: _Event/Structures/Walls/spawner.rsi
+  - type: RandomSpawner
+    prototypes:
+    - WeakLeafWallHW
+    chance: 1.0
+    rarePrototypes:
+    - TimedLeafWallHW20m
+    - TimedLeafWallHW25m
+    - TimedLeafWallHW30m
+    - TimedLeafWallHW35m
+    - TimedLeafWallHW40m
+    - TimedLeafWallHW45m
+    rareChance: 0.8
+    offset: 0.0
+
+- type: entity
+  id: FloraTreeLargeHW
+  name: tree
+  components:
+  - type: Clickable
+  - type: Tag
+    tags:
+    - HideContextMenu
+  - type: SpriteFade
+  - type: Sprite
+    noRot: true
+    drawdepth: Overdoors
+    sprite: _Event/Structures/Flora/tree_big.rsi
+    layers:
+    - state: treelarge01
+      map: [ "random" ]
+  - type: RandomSprite
+    available:
+    - random:
+        treelarge01: ""
+        treelarge02: ""
+
+- type: entity
+  id: FloraGrassHW
+  name: grass
+  components:
+  - type: Clickable
+  - type: Tag
+    tags:
+    - HideContextMenu
+  - type: Sprite
+    noRot: true
+    sprite: Decals/Flora/flora_grass.rsi
+    layers:
+    - state: grassd1
+      map: ["random"]
+  - type: RandomSprite
+    available:
+    - random:
+        grassd1: ""
+        grassd2: ""
+        grassd3: ""
+        grasse1: ""
+        grasse2: ""
+        grasse3: ""
+
+- type: entity
+  id: FloraGrassBushiHW
+  name:  tall grass
+  components:
+  - type: Clickable
+  - type: Tag
+    tags:
+    - HideContextMenu
+  - type: Sprite
+    noRot: true
+    sprite: Decals/Flora/flora_bushes.rsi
+    layers:
+    - state: bushi1
+      map: ["random"]
+  - type: RandomSprite
+    available:
+    - random:
+        bushi1: ""
+        bushi2: ""
+        bushi3: ""
+        bushi4: ""
+
+- type: entity
+  id: FloraBushHW
+  name: bush
+  components:
+  - type: Clickable
+  - type: Tag
+    tags:
+    - HideContextMenu
+  - type: SpriteFade
+  - type: Sprite
+    drawdepth: Overdoors
+    noRot: true
+    sprite: Decals/Flora/flora_bushes.rsi
+    layers:
+    - state: bushi1
+      map: ["random"]
+  - type: RandomSprite
+    available:
+    - random:
+        busha1: ""
+        busha2: ""
+        busha3: ""
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnerBushBase
+  name: spawner bush
+  suffix: Bush
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Hydroponics/tobacco.rsi
+    state: dried
+    color: "#000000"
+  - type: PlacementReplacement
+    key: SpawnerTreeBase
+  - type: RandomSpawner
+    prototypes:
+    - SpawnerGrassBase
+    chance: 1.0
+    rarePrototypes:
+    - FloraBushHW
+    rareChance: 0.0015
+    offset: 0.75
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnerGrassBase
+  name: spawner grass
+  suffix: grass
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Hydroponics/tobacco.rsi
+    state: dried
+    color: "#000000"
+  - type: PlacementReplacement
+    key: SpawnerTreeBase
+  - type: RandomSpawner
+    prototypes:
+    - FloraGrassHW
+    chance: 1.0
+    rarePrototypes:
+    - FloraGrassBushiHW
+    rareChance: 0.05
+    offset: 0.75
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnerTreeBase
+  name: spawner tree
+  suffix: Tree
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Hydroponics/tobacco.rsi
+    state: produce
+    color: "#000000"
+  - type: PlacementReplacement
+    key: SpawnerTreeBase
+  - type: RandomSpawner
+    prototypes:
+    - SpawnerBushBase
+    chance: 0.5
+    rarePrototypes:
+    - FloraTreeLargeHW
+    rareChance: 0.025
+    offset: 0.75

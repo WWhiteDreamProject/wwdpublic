@@ -1,0 +1,17 @@
+{
+    "version": 1,
+    "license": "CC-BY-NC-SA-4.0",
+    "copyright": "Gersoon (gersoon458) for WWhiteDreamProject, 27.10.25",
+    "size": {
+        "x": 256,
+        "y": 320
+    },
+    "states": [
+        {
+            "name": "treelarge01"
+        },
+        {
+            "name": "treelarge02"
+        }
+    ]
+}

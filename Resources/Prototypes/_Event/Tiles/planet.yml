@@ -1,0 +1,26 @@
+- type: tile
+  id: FloorGrassHW
+  editorHidden: false
+  name: tiles-grass-hw
+  sprite: /Textures/_Event/Tiles/Planet/Grass/grass.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  edgeSpritePriority: 4
+  edgeSprites:
+    SouthEast: /Textures/_Event/Tiles/Planet/Grass/single_edge_SE.png
+    NorthEast: /Textures/_Event/Tiles/Planet/Grass/single_edge_NE.png
+    NorthWest: /Textures/_Event/Tiles/Planet/Grass/single_edge_NW.png
+    SouthWest: /Textures/_Event/Tiles/Planet/Grass/single_edge_SW.png
+    South: /Textures/_Event/Tiles/Planet/Grass/double_edge_S.png
+    East: /Textures/_Event/Tiles/Planet/Grass/double_edge_E.png
+    North: /Textures/_Event/Tiles/Planet/Grass/double_edge_N.png
+    West: /Textures/_Event/Tiles/Planet/Grass/double_edge_W.png
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepGrass
+  heatCapacity: 10000
+  weather: true
