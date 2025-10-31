@@ -1,0 +1,107 @@
+- type: tile
+  id: FloorGrassHW
+  editorHidden: false
+  name: tiles-grass-hw
+  sprite: /Textures/_Event/Tiles/Planet/Grass/grass.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  edgeSpritePriority: 7
+  edgeSprites:
+    SouthEast: /Textures/_Event/Tiles/Planet/Grass/single_edge_SE.png
+    NorthEast: /Textures/_Event/Tiles/Planet/Grass/single_edge_NE.png
+    NorthWest: /Textures/_Event/Tiles/Planet/Grass/single_edge_NW.png
+    SouthWest: /Textures/_Event/Tiles/Planet/Grass/single_edge_SW.png
+    South: /Textures/_Event/Tiles/Planet/Grass/double_edge_S.png
+    East: /Textures/_Event/Tiles/Planet/Grass/double_edge_E.png
+    North: /Textures/_Event/Tiles/Planet/Grass/double_edge_N.png
+    West: /Textures/_Event/Tiles/Planet/Grass/double_edge_W.png
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepGrass
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: FloorGrassLightHW
+  editorHidden: false
+  name: tiles-grass-light-hw
+  sprite: /Textures/_Event/Tiles/Planet/GrassLight/grass.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  edgeSpritePriority: 8
+  edgeSprites:
+    SouthEast: /Textures/_Event/Tiles/Planet/GrassLight/single_edge_SE.png
+    NorthEast: /Textures/_Event/Tiles/Planet/GrassLight/single_edge_NE.png
+    NorthWest: /Textures/_Event/Tiles/Planet/GrassLight/single_edge_NW.png
+    SouthWest: /Textures/_Event/Tiles/Planet/GrassLight/single_edge_SW.png
+    South: /Textures/_Event/Tiles/Planet/GrassLight/double_edge_S.png
+    East: /Textures/_Event/Tiles/Planet/GrassLight/double_edge_E.png
+    North: /Textures/_Event/Tiles/Planet/GrassLight/double_edge_N.png
+    West: /Textures/_Event/Tiles/Planet/GrassLight/double_edge_W.png
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepGrass
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: FloorGrassDarkHW
+  editorHidden: false
+  name: tiles-grass-dark-hw
+  sprite: /Textures/_Event/Tiles/Planet/GrassDark/grass.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  edgeSpritePriority: 6
+  edgeSprites:
+    SouthEast: /Textures/_Event/Tiles/Planet/GrassDark/single_edge_SE.png
+    NorthEast: /Textures/_Event/Tiles/Planet/GrassDark/single_edge_NE.png
+    NorthWest: /Textures/_Event/Tiles/Planet/GrassDark/single_edge_NW.png
+    SouthWest: /Textures/_Event/Tiles/Planet/GrassDark/single_edge_SW.png
+    South: /Textures/_Event/Tiles/Planet/GrassDark/double_edge_S.png
+    East: /Textures/_Event/Tiles/Planet/GrassDark/double_edge_E.png
+    North: /Textures/_Event/Tiles/Planet/GrassDark/double_edge_N.png
+    West: /Textures/_Event/Tiles/Planet/GrassDark/double_edge_W.png
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepGrass
+  heatCapacity: 10000
+  weather: true
+
+- type: tile
+  id: FloorGrassDarkWoodHW
+  editorHidden: false
+  name: tiles-grass-darkwood-hw
+  sprite: /Textures/_Event/Tiles/Planet/GrassDarkwood/grass.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  edgeSpritePriority: 5
+  edgeSprites:
+    SouthEast: /Textures/_Event/Tiles/Planet/GrassDarkwood/single_edge_SE.png
+    NorthEast: /Textures/_Event/Tiles/Planet/GrassDarkwood/single_edge_NE.png
+    NorthWest: /Textures/_Event/Tiles/Planet/GrassDarkwood/single_edge_NW.png
+    SouthWest: /Textures/_Event/Tiles/Planet/GrassDarkwood/single_edge_SW.png
+    South: /Textures/_Event/Tiles/Planet/GrassDarkwood/double_edge_S.png
+    East: /Textures/_Event/Tiles/Planet/GrassDarkwood/double_edge_E.png
+    North: /Textures/_Event/Tiles/Planet/GrassDarkwood/double_edge_N.png
+    West: /Textures/_Event/Tiles/Planet/GrassDarkwood/double_edge_W.png
+  isSubfloor: false
+  footstepSounds:
+    collection: FootstepGrass
+  heatCapacity: 10000
+  weather: true

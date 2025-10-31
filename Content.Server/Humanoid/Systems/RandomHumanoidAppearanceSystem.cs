@@ -28,6 +28,10 @@ public sealed class RandomHumanoidAppearanceSystem : EntitySystem
         //If we have a specified hair style, change it to this
         if(component.Hair != null)
             profile = profile.WithCharacterAppearance(profile.Appearance.WithHairStyleName(component.Hair));
+        
+        //If we have a specified facial hair style, change it to this
+        if(component.FacialHair != null)
+            profile = profile.WithCharacterAppearance(profile.Appearance.WithFacialHairStyleName(component.FacialHair));
 
         _humanoid.LoadProfile(uid, profile, humanoid);
 

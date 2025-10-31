@@ -1,0 +1,85 @@
+- type: entity
+  parent: ClothingMaskBase
+  id: ClothingMaskPennywise
+  name: маска Пеннивайза
+  description: Жуткая клоунская маска.
+  components:
+  - type: Sprite
+    sprite: _Friday31/Clothing/Mask/pennywise-mask.rsi
+  - type: Clothing
+    sprite: _Friday31/Clothing/Mask/pennywise-mask.rsi
+    clothingVisuals:
+      mask:
+      - state: equipped-MASK
+        offset: "0, 0.05"
+  - type: IdentityBlocker
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: HideLayerClothing
+    slots:
+    - Snout
+
+- type: entity
+  parent: ClothingMaskPennywise
+  id: ClothingMaskPennywiseUnremoveable
+  suffix: Unremoveable
+  noSpawn: true
+  components:
+  - type: Unremoveable
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitPennywise
+  name: костюм Пеннивайза
+  description: Персик соси хуй
+  suffix: Unremoveable
+  noSpawn: true
+  components:
+  - type: Sprite
+    sprite: _Friday31/Clothing/Uniforms/pennywise-jumpsuit.rsi
+  - type: Clothing
+    sprite: _Friday31/Clothing/Uniforms/pennywise-jumpsuit.rsi
+  - type: Unremoveable
+
+- type: entity
+  parent: ClothingBackpackClown
+  id: ClothingBackpackPennywise
+  name: рюкзак клоуна
+  description: Рюкзак для хранения хонков.
+  suffix: Unremoveable
+  noSpawn: true
+  components:
+  - type: Unremoveable
+
+- type: entity
+  parent: ClothingShoesBase
+  id: ClothingShoesPennywise
+  name: ботинки Пеннивайза
+  description: Персик соси хуй
+  suffix: Unremoveable
+  noSpawn: true
+  components:
+  - type: Sprite
+    sprite: _Friday31/Clothing/Shoes/pennywise-boots.rsi
+  - type: Clothing
+    sprite: _Friday31/Clothing/Shoes/pennywise-boots.rsi
+  - type: Unremoveable
+
+- type: entity
+  parent: ClothingHeadsetService
+  id: ClothingHeadsetPennywise
+  name: гарнитура сервиса
+  description: Гарнитура для связи.
+  suffix: Unremoveable
+  noSpawn: true
+  components:
+  - type: Unremoveable
+
+- type: startingGear
+  id: PennywiseGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitPennywise
+    shoes: ClothingShoesPennywise
+    mask: ClothingMaskPennywiseUnremoveable
+    ears: ClothingHeadsetPennywise

@@ -1,0 +1,25 @@
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCrossFriday31Gold
+  name: золотой крестик
+  description: Осталось найти серебряный.
+  components:
+  - type: Sprite
+    sprite: _Friday31/Clothing/Neck/gold-cross.rsi
+  - type: Clothing
+    sprite: _Friday31/Clothing/Neck/gold-cross.rsi
+  - type: AdminNotifyOnPickup
+    message: подобрал золотой крестик
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCrossFriday31Silver
+  name: серебряный крестик
+  description: Осталось найти золотой.
+  components:
+  - type: Sprite
+    sprite: _Friday31/Clothing/Neck/silver-cross.rsi
+  - type: Clothing
+    sprite: _Friday31/Clothing/Neck/silver-cross.rsi
+  - type: AdminNotifyOnPickup
+    message: подобрал серебряный крестик

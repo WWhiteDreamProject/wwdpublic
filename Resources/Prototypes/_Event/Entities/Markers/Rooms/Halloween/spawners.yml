@@ -1,0 +1,156 @@
+# Hpuse
+- type: entity
+  id: RoomSpawnerHouse1
+  name: Room marker HE HOUSE
+  parent: BaseRoomMarker
+  suffix: Halloween, House1, S
+  components:
+  - type: RoomFill
+    clearExisting: True
+    minSize: 9,14
+    maxSize: 9,14
+    roomWhitelist:
+      tags:
+      - RoomsHouse1
+    rotation: false
+  - type: Sprite
+    granularLayersRendering: true
+    alpha: 0.25
+    layers:
+    - sprite: Objects/Specific/Hydroponics/tobacco.rsi
+      state: produce
+      offset: 2, 2
+      scale: 4, 4
+      renderingStrategy: NoRotation
+    - sprite: Objects/Specific/Hydroponics/tobacco.rsi
+      state: produce
+
+- type: entity
+  id: RoomSpawnerHouse2
+  name: Room marker HE HOUSE
+  parent: BaseRoomMarker
+  suffix: Halloween, House2, N
+  components:
+  - type: RoomFill
+    clearExistingAll: True
+    minSize: 9,14
+    maxSize: 9,14
+    roomWhitelist:
+      tags:
+      - RoomsHouse2
+    rotation: false
+  - type: Sprite
+    granularLayersRendering: true
+    alpha: 0.25
+    layers:
+    - sprite: Objects/Specific/Hydroponics/tobacco.rsi
+      state: produce
+      offset: 2, 2
+      scale: 4, 4
+      renderingStrategy: NoRotation
+    - sprite: Objects/Specific/Hydroponics/tobacco.rsi
+      state: produce
+
+- type: entity
+  id: RoomSpawnerHouse3
+  name: Room marker HE HOUSE
+  parent: BaseRoomMarker
+  suffix: Halloween, House3, E
+  components:
+  - type: RoomFill
+    clearExistingAll: True
+    minSize: 14,9
+    maxSize: 14,9
+    roomWhitelist:
+      tags:
+      - RoomsHouse1
+    rotation: false
+  - type: Sprite
+    granularLayersRendering: true
+    alpha: 0.25
+    layers:
+    - sprite: Objects/Specific/Hydroponics/tobacco.rsi
+      state: produce
+      offset: 2, 2
+      scale: 4, 4
+      renderingStrategy: NoRotation
+    - sprite: Objects/Specific/Hydroponics/tobacco.rsi
+      state: produce
+
+- type: entity
+  id: RoomSpawnerHouse4
+  name: Room marker HE HOUSE
+  parent: BaseRoomMarker
+  suffix: Halloween, House4, W
+  components:
+  - type: RoomFill
+    clearExistingAll: True
+    minSize: 14,9
+    maxSize: 14,9
+    roomWhitelist:
+      tags:
+      - RoomsHouse2
+    rotation: false
+  - type: Sprite
+    granularLayersRendering: true
+    alpha: 0.25
+    layers:
+    - sprite: Objects/Specific/Hydroponics/tobacco.rsi
+      state: produce
+      offset: 2, 2
+      scale: 4, 4
+      renderingStrategy: NoRotation
+    - sprite: Objects/Specific/Hydroponics/tobacco.rsi
+      state: produce
+
+- type: entity
+  id: RoomSpawnerHouseCafe1
+  name: Room marker HE HOUSE
+  parent: BaseRoomMarker
+  suffix: Halloween, House1, E, Cafe
+  components:
+  - type: RoomFill
+    clearExistingAll: True
+    minSize: 27,18
+    maxSize: 27,18
+    roomWhitelist:
+      tags:
+      - RoomsHouse1
+    rotation: false
+  - type: Sprite
+    granularLayersRendering: true
+    alpha: 0.25
+    layers:
+    - sprite: Objects/Specific/Hydroponics/tobacco.rsi
+      state: produce
+      offset: 2, 2
+      scale: 4, 4
+      renderingStrategy: NoRotation
+    - sprite: Objects/Specific/Hydroponics/tobacco.rsi
+      state: produce
+
+- type: entity
+  id: RoomSpawnerHouseLead1
+  name: Room marker HE HOUSE
+  parent: BaseRoomMarker
+  suffix: Halloween, House1, E, Lead
+  components:
+  - type: RoomFill
+    clearExistingAll: True
+    minSize: 18,11
+    maxSize: 18,11
+    roomWhitelist:
+      tags:
+      - RoomsHouse1
+    rotation: false
+  - type: Sprite
+    granularLayersRendering: true
+    alpha: 0.25
+    layers:
+    - sprite: Objects/Specific/Hydroponics/tobacco.rsi
+      state: produce
+      offset: 2, 2
+      scale: 4, 4
+      renderingStrategy: NoRotation
+    - sprite: Objects/Specific/Hydroponics/tobacco.rsi
+      state: produce

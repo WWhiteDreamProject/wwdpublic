@@ -1,0 +1,90 @@
+- type: entity
+  parent: ClothingMaskBase
+  id: ClothingMaskHorror
+  name: Жуткая хоккейная маска
+  description: Ужасающая маска, вселяющая страх в сердца тех, кто ее видит.
+  components:
+  - type: Sprite
+    sprite: _Friday31/Clothing/Mask/horror-mask.rsi
+    state: icon
+  - type: Clothing
+    sprite: _Friday31/Clothing/Mask/horror-mask.rsi
+    clothingVisuals:
+      mask:
+      - state: mask-on
+  - type: IdentityBlocker
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: FlavorProfile
+    flavors:
+    - plastic
+
+- type: entity
+  parent: ClothingMaskHorror
+  id: JasonHorrorMask
+  suffix: Unremoveable
+  components:
+  - type: Unremoveable
+
+- type: entity
+  parent: Machete
+  id: JasonMachete
+  suffix: Unremoveable
+  components:
+  - type: Unremoveable
+
+- type: entity
+  parent: ClothingUniformJumpsuitExplorerDeltaV
+  id: JasonJumpsuit
+  suffix: Unremoveable
+  components:
+  - type: Unremoveable
+
+- type: entity
+  parent: ClothingOuterCoatJacketBiker
+  id: JasonJacket
+  suffix: Unremoveable
+  components:
+  - type: Unremoveable
+
+- type: entity
+  parent: ClothingShoesLeather
+  id: JasonShoes
+  suffix: Unremoveable
+  components:
+  - type: Unremoveable
+
+- type: entity
+  parent: ClothingHandsGlovesColorBlack
+  id: JasonGloves
+  suffix: Unremoveable
+  components:
+  - type: Unremoveable
+
+- type: entity
+  parent: ClothingBackpackDuffel
+  id: JasonBackpack
+  suffix: Unremoveable
+  components:
+  - type: Unremoveable
+
+- type: startingGear
+  id: JasonVoorheesGear
+  equipment:
+    mask: JasonHorrorMask
+    jumpsuit: JasonJumpsuit
+    outerClothing: JasonJacket
+    shoes: JasonShoes
+    gloves: JasonGloves
+    back: JasonBackpack
+  inhand:
+  - JasonMachete
+  storage:
+    back:
+    - BodyBagFolded
+    - BodyBagFolded
+    - BodyBagFolded
+    - BodyBagFolded
+    - BodyBagFolded
+    - CrayonRed

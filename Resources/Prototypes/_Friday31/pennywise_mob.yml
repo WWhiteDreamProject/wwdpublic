@@ -1,0 +1,27 @@
+- type: entity
+  parent: MobHuman
+  id: MobPennywise
+  name: Pennywise
+  description: Мы все здесь плаваем... и ты тоже будешь плавать.
+  components:
+  - type: HumanoidAppearance
+    species: Human
+    sex: Male
+    randomizeName: false
+    hair: HairBald
+    facialHair: FacialHairShaved
+  - type: Loadout
+    prototypes: [PennywiseGear]
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: Godmode
+  - type: Hunger
+    baseDecayRate: 0
+  - type: Thirst
+    baseDecayRate: 0
+  - type: PennywiseAbility
+  - type: PennywisePhase
+  - type: Vocal
+    sounds:
+      Male: Pennywise

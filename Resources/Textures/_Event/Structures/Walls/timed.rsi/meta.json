@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-4.0",
+  "copyright": "Created by omsoyk (Discord), edited by gersoon458 for halloween event",
+  "size": {
+    "x": 32,
+    "y": 64
+  },
+  "states": [
+    {
+      "name": "full"
+    },
+    {
+      "name": "timed_0",
+	  "directions": 4
+    },
+    {
+      "name": "timed_1",
+	  "directions": 4
+    },
+    {
+      "name": "timed_2",
+	  "directions": 4
+    },
+    {
+      "name": "timed_3",
+	  "directions": 4
+    },
+    {
+      "name": "timed_4",
+	  "directions": 4
+    },
+    {
+      "name": "timed_5",
+	  "directions": 4
+    },
+    {
+      "name": "timed_6",
+	  "directions": 4
+    },
+    {
+      "name": "timed_7",
+	  "directions": 4
+    }
+  ]
+}
