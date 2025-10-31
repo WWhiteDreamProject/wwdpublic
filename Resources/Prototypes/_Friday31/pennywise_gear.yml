@@ -5,9 +5,13 @@
   description: Жуткая клоунская маска.
   components:
   - type: Sprite
-    sprite: _Friday31/Clothing/Mask/penis_clown.rsi
+    sprite: _Friday31/Clothing/Mask/pennywise-mask.rsi
   - type: Clothing
-    sprite: _Friday31/Clothing/Mask/penis_clown.rsi
+    sprite: _Friday31/Clothing/Mask/pennywise-mask.rsi
+    clothingVisuals:
+      mask:
+      - state: equipped-MASK
+        offset: "0, 0.05"
   - type: IdentityBlocker
   - type: Tag
     tags:
@@ -25,13 +29,17 @@
   - type: Unremoveable
 
 - type: entity
-  parent: ClothingUniformJumpsuitClown
+  parent: ClothingUniformBase
   id: ClothingUniformJumpsuitPennywise
-  name: костюм клоуна
-  description: Клоунский костюм.
+  name: костюм Пеннивайза
+  description: Персик соси хуй
   suffix: Unremoveable
   noSpawn: true
   components:
+  - type: Sprite
+    sprite: _Friday31/Clothing/Uniforms/pennywise-jumpsuit.rsi
+  - type: Clothing
+    sprite: _Friday31/Clothing/Uniforms/pennywise-jumpsuit.rsi
   - type: Unremoveable
 
 - type: entity
@@ -45,13 +53,17 @@
   - type: Unremoveable
 
 - type: entity
-  parent: ClothingShoesClown
+  parent: ClothingShoesBase
   id: ClothingShoesPennywise
-  name: ботинки клоуна
-  description: Большие забавные ботинки.
+  name: ботинки Пеннивайза
+  description: Персик соси хуй
   suffix: Unremoveable
   noSpawn: true
   components:
+  - type: Sprite
+    sprite: _Friday31/Clothing/Shoes/pennywise-boots.rsi
+  - type: Clothing
+    sprite: _Friday31/Clothing/Shoes/pennywise-boots.rsi
   - type: Unremoveable
 
 - type: entity
@@ -68,11 +80,6 @@
   id: PennywiseGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitPennywise
-    back: ClothingBackpackPennywise
     shoes: ClothingShoesPennywise
     mask: ClothingMaskPennywiseUnremoveable
     ears: ClothingHeadsetPennywise
-  storage:
-    back:
-    - BalloonNT
-    - BalloonCorgi
