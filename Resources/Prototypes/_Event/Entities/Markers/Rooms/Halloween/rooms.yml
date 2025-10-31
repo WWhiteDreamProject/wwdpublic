@@ -2,7 +2,7 @@
 - type: dungeonRoom
   id: RoomsRoomsHouse1
   size: 9,14
-  atlas: /ROFFFLLLLLSSSSS/LakeGen/v7.yml
+  atlas: Maps/_Event/LakeGen.yml
   offset: 1,1
   ignoreTile: FloorShuttleOrange
   tags: [ RoomsHouse1 ]
@@ -10,7 +10,7 @@
 - type: dungeonRoom
   id: RoomsRoomsHouse2
   size: 9,14
-  atlas: /ROFFFLLLLLSSSSS/LakeGen/v7.yml
+  atlas: Maps/_Event/LakeGen.yml
   offset: 1,16
   ignoreTile: FloorShuttleOrange
   tags: [ RoomsHouse2 ]
@@ -18,7 +18,7 @@
 - type: dungeonRoom
   id: RoomsRoomsHouse3
   size: 14,9
-  atlas: /ROFFFLLLLLSSSSS/LakeGen/v7.yml
+  atlas: Maps/_Event/LakeGen.yml
   offset: 1,31
   ignoreTile: FloorShuttleOrange
   tags: [ RoomsHouse1 ]
@@ -26,7 +26,7 @@
 - type: dungeonRoom
   id: RoomsRoomsHouse4
   size: 14,9
-  atlas: /ROFFFLLLLLSSSSS/LakeGen/v7.yml
+  atlas: Maps/_Event/LakeGen.yml
   offset: 1,41
   ignoreTile: FloorShuttleOrange
   tags: [ RoomsHouse2 ]
@@ -34,7 +34,7 @@
 - type: dungeonRoom
   id: RoomsRoomsHouseCafe1
   size: 27,18
-  atlas: /ROFFFLLLLLSSSSS/LakeGen/v7.yml
+  atlas: Maps/_Event/LakeGen.yml
   offset: 1,51
   ignoreTile: FloorShuttleOrange
   tags: [ RoomsHouse1 ]
@@ -42,7 +42,7 @@
 - type: dungeonRoom
   id: RoomsRoomsHouseLead1
   size: 18,11
-  atlas: /ROFFFLLLLLSSSSS/LakeGen/v7.yml
+  atlas: Maps/_Event/LakeGen.yml
   offset: 1,70
   ignoreTile: FloorShuttleOrange
   tags: [ RoomsHouse1 ]
