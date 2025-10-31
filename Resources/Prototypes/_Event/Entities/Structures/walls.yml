@@ -187,6 +187,17 @@
   id: FloraTreeLargeHW
   name: tree
   components:
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.5
+        density: 2000
+        layer:
+        - WallLayer
+  - type: Physics
+    bodyType: Static
   - type: Clickable
   - type: Tag
     tags:
@@ -194,6 +205,7 @@
   - type: SpriteFade
   - type: Sprite
     noRot: true
+    offset: 0,3.55
     drawdepth: Overdoors
     sprite: _Event/Structures/Flora/tree_big.rsi
     layers:
@@ -255,6 +267,19 @@
   id: FloraBushHW
   name: bush
   components:
+  - type: SpeedModifierContacts
+    walkSpeedModifier: 0.55
+    sprintSpeedModifier: 0.55
+  - type: Fixtures
+    fixtures:
+      fix1:
+        hard: false
+        density: 7
+        shape: !type:PhysShapeCircle
+          radius: 1.5
+        layer:
+        - MidImpassable
+  - type: Physics
   - type: Clickable
   - type: Tag
     tags:
@@ -264,6 +289,7 @@
     drawdepth: Overdoors
     noRot: true
     sprite: Decals/Flora/flora_bushes.rsi
+    scale: 3,3
     layers:
     - state: bushi1
       map: ["random"]
@@ -334,5 +360,5 @@
     chance: 0.5
     rarePrototypes:
     - FloraTreeLargeHW
-    rareChance: 0.025
+    rareChance: 0.015
     offset: 0.75
