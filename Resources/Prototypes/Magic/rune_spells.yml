@@ -7,7 +7,7 @@
     useDelay: 10
     itemIconStyle: BigAction
     icon:
-      sprite: Objects/Magic/magicactions.rsi
+      sprite: _Goobstation/Wizard/actions.rsi # Goob edit
       state: spell_default
     event: !type:InstantSpawnSpellEvent
       prototype: FlashRune
@@ -21,7 +21,7 @@
     useDelay: 20
     itemIconStyle: BigAction
     icon:
-      sprite: Objects/Magic/magicactions.rsi
+      sprite: _Goobstation/Wizard/actions.rsi # Goob edit
       state: spell_default
     event: !type:InstantSpawnSpellEvent
       prototype: ExplosionRune
@@ -35,7 +35,7 @@
     useDelay: 15
     itemIconStyle: BigAction
     icon:
-      sprite: Objects/Magic/magicactions.rsi
+      sprite: _Goobstation/Wizard/actions.rsi # Goob edit
       state: spell_default
     event: !type:InstantSpawnSpellEvent
       prototype: IgniteRune
@@ -49,7 +49,7 @@
     useDelay: 10
     itemIconStyle: BigAction
     icon:
-      sprite: Objects/Magic/magicactions.rsi
+      sprite: _Goobstation/Wizard/actions.rsi # Goob edit
       state: spell_default
     event: !type:InstantSpawnSpellEvent
       prototype: StunRune
