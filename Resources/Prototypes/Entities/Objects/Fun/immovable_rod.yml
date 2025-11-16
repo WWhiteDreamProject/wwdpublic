@@ -69,25 +69,41 @@
   suffix: Wizard
   components:
   - type: ImmovableRod
-    minSpeed: 35
+    minSpeed: 6 # Goob edit
+    maxSpeed: 6 # Goob edit
+    hitSoundProbability: 1 # Goob edit
+    ignoreResistances: true # Goobstation
+    knockdownTime: 4 # Goobstation
     destroyTiles: false
     randomizeVelocity: false
     shouldGib: false
     damage:
       types:
-        Blunt: 200
+        Blunt: 70 # Goob edit
   - type: MovementIgnoreGravity
     gravityState: true
-  - type: InputMover
+  # - type: InputMover # Goob edit
   - type: MovementSpeedModifier
-    weightlessAcceleration: 5
-    weightlessModifier: 2
-    weightlessFriction: 0
-    friction: 0
-    frictionNoInput: 0
+    baseWeightlessAcceleration: 5
+    baseWeightlessModifier: 2
+    baseWeightlessFriction: 0
+    baseFriction: 0
+    offGridFriction: 0
   - type: CanMoveInAir
   - type: MovementAlwaysTouching
   - type: NoSlip
+#  - type: Trail # Goobstation
+    frequency: 0.1
+    lifetime: 1
+    lerpTime: 0.1
+    alphaLerpAmount: 0.4
+    sprite:
+      sprite: /Textures/Objects/Fun/immovable_rod.rsi
+      state: icon
+  - type: StatusIcon # Goobstation
+    bounds: -0.5,-0.5,0.5,0.5
+  - type: IsDeadIC # Goobstation
+    dead: false
 
 - type: entity
   parent: ImmovableRodKeepTiles
