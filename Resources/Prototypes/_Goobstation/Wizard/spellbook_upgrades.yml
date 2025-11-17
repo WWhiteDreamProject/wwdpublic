@@ -625,7 +625,7 @@
   - !type:BuyBeforeCondition
     whitelist:
     - SpellbookMindSwap
-    blacklist:
+#    blacklist:
 #    - SpellbookFullRandom
 #    - SpellbookSemiRandom
   - !type:ListingLimitedStockCondition
