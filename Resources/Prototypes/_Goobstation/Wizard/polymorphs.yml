@@ -12,11 +12,11 @@
     transferDamage: false
     inventory: None
     duration: 2
-    allowMovement: false
+#    allowMovement: false
     forced: true
     revertOnCrit: false
     revertOnDeath: false
-    attachToGridOrMap: true
+#    attachToGridOrMap: true
 
 - type: polymorph
   id: WizardRodIII
@@ -26,11 +26,11 @@
     transferDamage: false
     inventory: None
     duration: 2
-    allowMovement: false
+#    allowMovement: false
     forced: true
     revertOnCrit: false
     revertOnDeath: false
-    attachToGridOrMap: true
+#    attachToGridOrMap: true
 
 - type: polymorph
   id: WizardRodIV
@@ -40,11 +40,11 @@
     transferDamage: false
     inventory: None
     duration: 2
-    allowMovement: false
+#    allowMovement: false
     forced: true
     revertOnCrit: false
     revertOnDeath: false
-    attachToGridOrMap: true
+#    attachToGridOrMap: true
 
 - type: polymorph
   id: WizardRodV
@@ -54,11 +54,11 @@
     transferDamage: false
     inventory: None
     duration: 2
-    allowMovement: false
+#    allowMovement: false
     forced: true
     revertOnCrit: false
     revertOnDeath: false
-    attachToGridOrMap: true
+#    attachToGridOrMap: true
 
 - type: polymorph
   id: WizardGorilla
@@ -69,7 +69,7 @@
     inventory: None
     revertOnCrit: true
     revertOnDeath: true
-    skipRevertConfirmation: true
+#    skipRevertConfirmation: true
 
 #- type: polymorph
 #  id: WizardWabbajack

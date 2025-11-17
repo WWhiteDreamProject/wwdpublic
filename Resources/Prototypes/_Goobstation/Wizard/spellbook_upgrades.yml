@@ -41,28 +41,28 @@
   conditions:
   - !type:BuyBeforeCondition
     whitelist:
-    - SpellbookCluwneCurse
+    - SpellbookCluwne
   - !type:ListingLimitedStockCondition
     stock: 2
 
-- type: listing
-  id: SpellbookBananaTouchUpgrade
-  productUpgradeId: SpellbookBananaTouchUpgrade
-  name: spellbook-upgrade-banana-touch-name
-  description: spellbook-upgrade-banana-touch-desc
-  icon:
-    sprite: _Goobstation/Wizard/actions.rsi # Goob edit
-    state: clown
-  cost:
-    WizCoin: 1
-  categories:
-  - SpellbookOffensive
-  conditions:
-  - !type:BuyBeforeCondition
-    whitelist:
-    - SpellbookBananaTouch
-  - !type:ListingLimitedStockCondition
-    stock: 4
+#- type: listing
+#  id: SpellbookBananaTouchUpgrade
+#  productUpgradeId: SpellbookBananaTouchUpgrade
+#  name: spellbook-upgrade-banana-touch-name
+#  description: spellbook-upgrade-banana-touch-desc
+#  icon:
+#    sprite: _Goobstation/Wizard/actions.rsi # Goob edit
+#    state: clown
+#  cost:
+#    WizCoin: 1
+#  categories:
+#  - SpellbookOffensive
+#  conditions:
+#  - !type:BuyBeforeCondition
+#    whitelist:
+#    - SpellbookBananaTouch
+#  - !type:ListingLimitedStockCondition
+#    stock: 4
 
 #- type: listing
 #  id: SpellbookBlindUpgrade
@@ -310,10 +310,10 @@
     - SpellbookRodForm
   - !type:ListingLimitedStockCondition
     stock: 4
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-        - GrimoireGhost
+#  - !type:StoreWhitelistCondition
+#    blacklist:
+#      tags:
+#        - GrimoireGhost
 
 #- type: listing
 #  id: SpellbookSpellCardsUpgrade
@@ -422,9 +422,9 @@
   - !type:BuyBeforeCondition
     whitelist:
     - SpellbookSmoke
-    blacklist:
-    - SpellbookFullRandom
-    - SpellbookSemiRandom
+#    blacklist:
+#    - SpellbookFullRandom
+#    - SpellbookSemiRandom
   - !type:ListingLimitedStockCondition
     stock: 2
 
@@ -444,9 +444,9 @@
   - !type:BuyBeforeCondition
     whitelist:
     - SpellbookRepulse
-    blacklist:
-    - SpellbookFullRandom
-    - SpellbookSemiRandom
+#    blacklist:
+#    - SpellbookFullRandom
+#    - SpellbookSemiRandom
   - !type:ListingLimitedStockCondition
     stock: 4
 
@@ -510,9 +510,9 @@
   - !type:BuyBeforeCondition
     whitelist:
     - SpellbookForceWall
-    blacklist:
-    - SpellbookFullRandom
-    - SpellbookSemiRandom
+#    blacklist:
+#    - SpellbookFullRandom
+#    - SpellbookSemiRandom
   - !type:ListingLimitedStockCondition
     stock: 4
 
@@ -558,10 +558,10 @@
   conditions:
   - !type:BuyBeforeCondition
     whitelist:
-    - SpellbookSwap
-    blacklist:
-    - SpellbookFullRandom
-    - SpellbookSemiRandom
+    - SpellbookVoidApplause
+#    blacklist:
+#    - SpellbookFullRandom
+#    - SpellbookSemiRandom
   - !type:ListingLimitedStockCondition
     stock: 2
 
@@ -581,9 +581,9 @@
   - !type:BuyBeforeCondition
     whitelist:
     - SpellbookBlink
-    blacklist:
-    - SpellbookFullRandom
-    - SpellbookSemiRandom
+#    blacklist:
+#    - SpellbookFullRandom
+#    - SpellbookSemiRandom
   - !type:ListingLimitedStockCondition
     stock: 2
 
@@ -603,9 +603,9 @@
   - !type:BuyBeforeCondition
     whitelist:
     - SpellbookCharge
-    blacklist:
-    - SpellbookFullRandom
-    - SpellbookSemiRandom
+#    blacklist:
+#    - SpellbookFullRandom
+#    - SpellbookSemiRandom
   - !type:ListingLimitedStockCondition
     stock: 4
 
@@ -626,29 +626,29 @@
     whitelist:
     - SpellbookMindSwap
     blacklist:
-    - SpellbookFullRandom
-    - SpellbookSemiRandom
+#    - SpellbookFullRandom
+#    - SpellbookSemiRandom
   - !type:ListingLimitedStockCondition
     stock: 2
 
-- type: listing
-  id: SpellbookKnockUpgrade
-  productUpgradeId: SpellbookKnockUpgrade
-  name: spellbook-upgrade-knock-name
-  description: spellbook-upgrade-knock-desc
-  icon:
-    sprite: _Goobstation/Wizard/actions.rsi # Goob edit
-    state: knock
-  cost:
-    WizCoin: 1
-  categories:
-  - SpellbookUtility
-  conditions:
-  - !type:BuyBeforeCondition
-    whitelist:
-    - SpellbookKnock
-    blacklist:
-    - SpellbookFullRandom
-    - SpellbookSemiRandom
-  - !type:ListingLimitedStockCondition
-    stock: 2
+#- type: listing
+#  id: SpellbookKnockUpgrade
+#  productUpgradeId: SpellbookKnockUpgrade
+#  name: spellbook-upgrade-knock-name
+#  description: spellbook-upgrade-knock-desc
+#  icon:
+#    sprite: _Goobstation/Wizard/actions.rsi # Goob edit
+#    state: knock
+#  cost:
+#    WizCoin: 1
+#  categories:
+#  - SpellbookUtility
+#  conditions:
+#  - !type:BuyBeforeCondition
+#    whitelist:
+#    - SpellbookKnock
+#    blacklist:
+#    - SpellbookFullRandom
+#    - SpellbookSemiRandom
+#  - !type:ListingLimitedStockCondition
+#    stock: 2

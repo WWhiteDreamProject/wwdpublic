@@ -84,26 +84,26 @@
     gravityState: true
   # - type: InputMover # Goob edit
   - type: MovementSpeedModifier
-    baseWeightlessAcceleration: 5
-    baseWeightlessModifier: 2
-    baseWeightlessFriction: 0
-    baseFriction: 0
+#    baseWeightlessAcceleration: 5
+#    baseWeightlessModifier: 2
+#    baseWeightlessFriction: 0
+#    baseFriction: 0
     offGridFriction: 0
   - type: CanMoveInAir
   - type: MovementAlwaysTouching
   - type: NoSlip
 #  - type: Trail # Goobstation
-    frequency: 0.1
-    lifetime: 1
-    lerpTime: 0.1
-    alphaLerpAmount: 0.4
-    sprite:
-      sprite: /Textures/Objects/Fun/immovable_rod.rsi
-      state: icon
+#    frequency: 0.1
+#    lifetime: 1
+#    lerpTime: 0.1
+#    alphaLerpAmount: 0.4
+#    sprite:
+#      sprite: /Textures/Objects/Fun/immovable_rod.rsi
+#      state: icon
   - type: StatusIcon # Goobstation
     bounds: -0.5,-0.5,0.5,0.5
   - type: IsDeadIC # Goobstation
-    dead: false
+#    dead: false
 
 - type: entity
   parent: ImmovableRodKeepTiles
