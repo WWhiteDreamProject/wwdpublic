@@ -11,8 +11,8 @@
     mask: /Textures/_Goobstation/Wizard/Effects/LightMasks/ray.png
   - type: RotatingLight
     speed: 60
-    maxSpeed: 180
-    randomizeDirection: true
+#    maxSpeed: 180
+#    randomizeDirection: true
   - type: Tag
     tags:
     - HideContextMenu

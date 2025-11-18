@@ -40,3 +40,16 @@
       - state: equipped-BELT
       - state: cover-equipped-BELT
         color: "#007FFF"
+
+- type: entity
+  name: scroll of teleportation
+  description: This scroll can teleport you anywhere on the station. But has bigger cooldown.
+  parent: WizardTeleportScroll
+  id: WizardTeleportScrollApprentice
+  suffix: Apprentice
+  components:
+  - type: UseDelay  # WD edit
+    delay: 1
+    delays:
+      TeleportDelay: !type:UseDelayInfo
+        length: 900
