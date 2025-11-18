@@ -274,6 +274,7 @@ public sealed partial class PolymorphSystem : EntitySystem
             _humanoid.CloneAppearance(uid, child);
         }
 
+
         if (_mindSystem.TryGetMind(uid, out var mindId, out var mind))
             _mindSystem.TransferTo(mindId, child, mind: mind);
 
@@ -285,6 +286,7 @@ public sealed partial class PolymorphSystem : EntitySystem
         // Raise an event to inform anything that wants to know about the entity swap
         var ev = new PolymorphedEvent(uid, child, false);
         RaiseLocalEvent(uid, ref ev);
+        RaiseLocalEvent(child, ref ev);
 
         return child;
     }

@@ -29,7 +29,6 @@
       endValue: 16
       enabled: true
 
-
 - type: entity
   parent: EffectRay
   id: EffectRayCharge
@@ -44,3 +43,60 @@
       startValue: 0
       endValue: 16
       enabled: true
+
+- type: entity
+  id: EtherealJauntStartEffect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Trail
+    endAngle: 320
+    particleAmount: 9
+    maxParticleAmount: 9
+    velocity: -0.4
+    lerpTime: 0.02
+    frequency: 10
+    lifetime: 3
+    alphaLerpAmount: 0.05
+    velocityLerpAmount: 0.07
+    velocityLerpTarget: 0.3
+    alphaLerpTarget: 0
+    color: "#0000FFFF"
+    renderedEntityRotationStrategy: Trail
+    shader: EtherealJaunt
+    shaderData:
+      reference: !type:GetShaderLocalPositionData
+    spawnRemainingTrail: false
+  - type: Transform
+  - type: Tag
+    tags:
+    - HideContextMenu
+  - type: TimedDespawn
+    lifetime: 3
+
+- type: entity
+  id: EtherealJauntEndEffect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Trail
+    endAngle: 320
+    particleAmount: 9
+    maxParticleAmount: 9
+    lerpTime: 0.01
+    frequency: 10
+    lifetime: 2.2
+    alphaLerpAmount: 0.01
+    alphaLerpTarget: 1
+    positionLerpAmount: 0.08
+    radius: 12
+    color: "#0000FF00"
+    renderedEntityRotationStrategy: Trail
+    shader: EtherealJaunt
+    shaderData:
+      reference: !type:GetShaderLocalPositionData
+    spawnRemainingTrail: false
+  - type: Transform
+  - type: Tag
+    tags:
+    - HideContextMenu
+  - type: TimedDespawn
+    lifetime: 3

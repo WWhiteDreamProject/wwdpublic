@@ -18,6 +18,7 @@
   - type: Visibility
     layer: 2
   - type: Spectral
+  - type: IsDeadIC # Goobstation
 
 # Should be slow, for balance
 - type: entity

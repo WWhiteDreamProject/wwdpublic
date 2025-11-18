@@ -34,7 +34,7 @@
   components:
   - type: InstantAction
     useDelay: 60
-    event: !type:PolymorphActionEvent
+    event: !type:PolymorphSpellEvent # Goob edit
       protoId: WizardRod
     itemIconStyle: NoItem
     icon:
@@ -58,13 +58,13 @@
   - type: Sprite # Goobstation - for apprentices
     sprite: _Goobstation/Wizard/actions.rsi
     state: jaunt
-  - type: Action
+  - type: InstantAction
     useDelay: 30
     icon:
       sprite: _Goobstation/Wizard/actions.rsi # Goob edit
       state: jaunt
-  - type: InstantAction
-    event: !type:PolymorphActionEvent
+#  - type: InstantAction
+    event: !type:PolymorphSpellEvent # Goob edit
       protoId: Jaunt
     # TODO: Effect ECS (from cardboard box)
   - type: ActionUpgrade
@@ -80,7 +80,7 @@
   components:
   - type: InstantAction
     useDelay: 25
-    event: !type:PolymorphActionEvent
+    event: !type:PolymorphSpellEvent # Goob edit
       protoId: Jaunt
     itemIconStyle: NoItem
     icon:
@@ -95,7 +95,7 @@
   components:
   - type: InstantAction
     useDelay: 20
-    event: !type:PolymorphActionEvent
+    event: !type:PolymorphSpellEvent # Goob edit
       protoId: Jaunt
     itemIconStyle: NoItem
     icon:

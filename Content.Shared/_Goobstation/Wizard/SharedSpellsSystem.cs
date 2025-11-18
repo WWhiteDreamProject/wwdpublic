@@ -13,6 +13,7 @@ using Content.Shared.Popups;
 using Content.Shared.Tag;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Systems;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
@@ -28,6 +29,7 @@ public abstract class SharedSpellsSystem : EntitySystem
     [Dependency] protected readonly SharedActionsSystem Actions = default!;
     [Dependency] protected readonly SharedHandsSystem Hands = default!;
     [Dependency] protected readonly TagSystem Tag = default!;
+    [Dependency] protected readonly SharedAudioSystem Audio = default!;
     [Dependency] protected readonly SharedTransformSystem TransformSystem = default!;
     [Dependency] private   readonly SharedChargesSystem _charges = default!;
     [Dependency] private   readonly SharedMagicSystem _magic = default!;
@@ -35,6 +37,7 @@ public abstract class SharedSpellsSystem : EntitySystem
     [Dependency] private   readonly SharedPopupSystem _popup = default!;
     public override void Initialize()
     {
+        SubscribeLocalEvent<PolymorphSpellEvent>(OnPolymorph);
         SubscribeLocalEvent<ChargeMagicEvent>(OnCharge);
     }
 
@@ -100,6 +103,14 @@ public abstract class SharedSpellsSystem : EntitySystem
         }
     }
 
+    private void OnPolymorph(PolymorphSpellEvent ev)
+    {
+        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
+            return;
+
+        ev.Handled = Polymorph(ev);
+    }
+
     #region Helpers
 
     public abstract void CreateChargeEffect(EntityUid uid, ChargeSpellRaysEffectEvent ev);
@@ -130,6 +141,8 @@ public abstract class SharedSpellsSystem : EntitySystem
         return hasSpells;
     }
 
+
+
     #endregion
 
     #region ServerMethods
@@ -138,6 +151,12 @@ public abstract class SharedSpellsSystem : EntitySystem
     {
         return true;
     }
+
+    protected virtual bool Polymorph(PolymorphSpellEvent ev)
+    {
+        return true;
+    }
+    public virtual void SpeakSpell(EntityUid speakerUid, EntityUid casterUid, string speech, MagicSchool school) { }
 
     #endregion
     #region Helpers
