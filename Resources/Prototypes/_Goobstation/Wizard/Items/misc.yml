@@ -1,0 +1,42 @@
+﻿- type: entity
+  parent: BaseCrowbar
+  id: CrowbarWizard
+  description: A compact multipurpose tool to pry open doors and destroy stations.
+  components:
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 12
+  - type: StaticPrice
+    price: 200
+  - type: Prying
+    speedModifier: 1.5
+    pryPowered: true
+  - type: Sprite
+    sprite: Objects/Tools/crowbar.rsi
+    layers:
+    - state: icon
+    - state: cover-icon
+      color: "#007FFF"
+  - type: Item
+    size: Small
+    sprite: Objects/Tools/crowbar.rsi
+    storedSprite:
+      state: blue-storage
+      sprite: Objects/Tools/crowbar.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      - state: cover-inhand-left
+        color: "#007FFF"
+      right:
+      - state: inhand-right
+      - state: cover-inhand-right
+        color: "#007FFF"
+  - type: Clothing
+    sprite: Objects/Tools/crowbar.rsi
+    clothingVisuals:
+      belt:
+      - state: equipped-BELT
+      - state: cover-equipped-BELT
+        color: "#007FFF"

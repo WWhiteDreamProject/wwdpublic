@@ -488,7 +488,7 @@
     - HeadSide
 
 - type: entity
-  parent: ClothingHeadHatWizardBase
+  parent: ClothingHeadBase # Goob edit
   id: ClothingHeadHatRedwizard
   name: red wizard hat
   description: Strange-looking red hat-wear that most certainly belongs to a real magic user.
@@ -609,7 +609,7 @@
 
 
 - type: entity
-  parent: ClothingHeadHatWizardBase
+  parent: ClothingHeadBase # Goob edit
   id: ClothingHeadHatVioletwizard
   name: violet wizard hat
   description: "Strange-looking violet hat-wear that most certainly belongs to a real magic user."
@@ -676,7 +676,7 @@
   - type: WizardClothes
 
 - type: entity
-  parent: ClothingHeadHatWizardBase
+  parent: ClothingHeadBase # Goob edit
   id: ClothingHeadHatWizard
   name: wizard hat
   description: Strange-looking blue hat-wear that most certainly belongs to a powerful magic user.
@@ -690,12 +690,12 @@
     - ClothMade
     - HamsterWearable
     - WhitelistChameleon
-  - type: PressureProtection # DeltaV - Make real wizard clothes space proof
-    highPressureMultiplier: 0.6
-    lowPressureMultiplier: 1000
-  - type: TemperatureProtection
-    heatingCoefficient: 0.2
-    coolingCoefficient: 0.2
+#  - type: PressureProtection # DeltaV - Make real wizard clothes space proof
+#    highPressureMultiplier: 0.6
+#    lowPressureMultiplier: 1000
+#  - type: TemperatureProtection
+#    heatingCoefficient: 0.2
+#    coolingCoefficient: 0.2
 
 - type: entity
   parent: ClothingHeadBase

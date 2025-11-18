@@ -12,7 +12,7 @@
     icon:
       sprite: _Goobstation/Wizard/actions.rsi # Goob edit
       state: charge # Goob edit
-    event: !type:ChargeSpellEvent # For some reason ChargeMagicEvent doesn't work.
+    event: !type:ChargeMagicEvent
   - type: Sprite # Goobstation - for apprentices
     sprite: _Goobstation/Wizard/actions.rsi
     state: charge

@@ -899,9 +899,9 @@
 
 #Wizard Hardsuit
 - type: entity
-  parent: [ ClothingOuterHardsuitBase, BaseMagicalContraband ]
+  parent: [ClothingOuterHardsuitBase, ClothingOuterWizardBaseArmor, BaseMagicalContraband] # Goob edit
   id: ClothingOuterHardsuitWizard
-  name: wizard hardsuit
+  name: wizard hardsuit # Goob edit
   description: A bizarre gem-encrusted suit that radiates magical energies.
   components:
   - type: Sprite
@@ -911,25 +911,39 @@
   - type: PressureProtection
     highPressureMultiplier: 0.05
     lowPressureMultiplier: 1000
-  - type: ExplosionResistance
-    damageCoefficient: 0.5
-  - type: Armor
+  - type: Armor # Goob edit
+#    traumaDeductions: # prevents traumas at all (kinda)
+#      Dismemberment: 1
+#      OrganDamage: 1
+#      BoneDamage: 1
+#      VeinsDamage: 1
+#      NerveDamage: 1
     modifiers:
       coefficients:
-        Blunt: 0.6
-        Slash: 0.6
-        Piercing: 0.4
-        Heat: 0.25
-        Radiation: 0.25
-        Caustic: 0.75
+        Blunt: 0.35
+        Slash: 0.35
+        Piercing: 0.35
+        Heat: 0.35
+        Radiation: 0.05
+        Caustic: 0.1
   - type: ClothingSpeedModifier
-    walkModifier: 0.8
-    sprintModifier: 0.8
+    walkModifier: 0.9 # Goob edit
+    sprintModifier: 0.9 # Goob edit
   - type: HeldSpeedModifier
-  - type: ToggleableClothing
-    clothingPrototype: ClothingHeadHelmetHardsuitWizard
-  - type: StaminaDamageResistance
-    coefficient: 0.5 # 50%
+  - type: WizardClothes # Goobstation
+  - type: ToggleableClothing # Goobstation - Modsuits change
+    clothingPrototypes:
+      head: ClothingHeadHelmetHardsuitWizard
+#  - type: ModifyDelayedKnockdown # Goobstation
+#    cancel: true
+#  - type: StaminaResistance # Goobstation
+#    damageCoefficient: 0.2
+  - type: Tag # Goobstation
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+#    - SyringeArmor
+#    - CorgiWearable
 
 #Ling Space Suit
 - type: entity

@@ -41,7 +41,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<ChargeMagicEvent>(OnCharge);
     }
 
-    private void OnCharge(ChargeMagicEvent ev) // TODO: Make this work, instead of ChargeSpellEvent
+    private void OnCharge(ChargeMagicEvent ev)
     {
         if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;

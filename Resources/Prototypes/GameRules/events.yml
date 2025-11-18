@@ -277,7 +277,7 @@
       max: 1
       playerRatio: 1
       pickPlayer: false
-      startingGear: WizardBlueGear
+      startingGear: WizardGear # Goob edit
       briefing:
         text: wizard-role-greeting
         color: Turquoise

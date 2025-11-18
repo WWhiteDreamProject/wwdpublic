@@ -485,9 +485,7 @@ public abstract class SharedMagicSystem : EntitySystem
         }
 
         ev.Handled = true;
-        // Speak(ev); WD edit - commented in favor of SpeechOnActionComponent
-        var raysEv = new ChargeSpellRaysEffectEvent(GetNetEntity(ev.Performer)); // WD edit - I don't know, how to make ChargeMagicEvent work, I just want fancy rays
-        _spells.CreateChargeEffect(ev.Performer, raysEv); // WD edit
+        Speak(ev);
 
         if (wand == null)
             return;
