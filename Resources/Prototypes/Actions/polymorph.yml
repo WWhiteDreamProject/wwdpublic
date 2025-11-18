@@ -63,6 +63,7 @@
     icon:
       sprite: _Goobstation/Wizard/actions.rsi # Goob edit
       state: jaunt
+    itemIconStyle: NoItem
 #  - type: InstantAction
     event: !type:PolymorphSpellEvent # Goob edit
       protoId: Jaunt
