@@ -299,6 +299,7 @@
       - type: NpcFactionMember
         factions:
         - Wizard
+      - type: Wizard # WD edit
       - type: RandomMetadata
         nameSegments:
         - names_wizard_first

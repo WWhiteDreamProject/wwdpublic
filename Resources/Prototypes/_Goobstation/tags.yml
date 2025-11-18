@@ -146,6 +146,9 @@
   id: SpecialMech
 
 - type: Tag
+  id: ShowWizardIcons
+
+- type: Tag
   id: WeaponPistolDualetta
 
 - type: Tag

@@ -1,20 +1,32 @@
 ﻿- type: entity
+#  parent: BaseAction
   id: ActionChargeSpell
   name: Charge
-  description: Adds a charge back to your wand
+  description: This spell can be used to recharge a variety of things in your hands, from magical artifacts to electrical components. A creative wizard can even use it to grant magical power to a fellow magic user. # Goob edit
   components:
   - type: InstantAction
-    useDelay: 30
+    useDelay: 60
     itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier # Goobstation
+      path: /Audio/_Goobstation/Wizard/charge.ogg
     icon:
       sprite: _Goobstation/Wizard/actions.rsi # Goob edit
-      state: charge
-    event: !type:ChargeSpellEvent
-      charge: 1
-      speech: DI'RI CEL!
+      state: charge # Goob edit
+    event: !type:ChargeSpellEvent # For some reason ChargeMagicEvent doesn't work.
+  - type: Sprite # Goobstation - for apprentices
+    sprite: _Goobstation/Wizard/actions.rsi
+    state: charge
+  - type: Magic # Goobstation
+    requiresSpeech: true
+    school: Transmutation
   - type: ActionUpgrade
     effectedLevels:
       2: ActionChargeII
       3: ActionChargeIII
       4: ActionChargeIV
       5: ActionChargeV
+#  - type: InstantAction
+#    event: !type:ChargeMagicEvent # Goob edit
+
+  - type: SpeakOnAction
+    sentence: action-speech-spell-charge

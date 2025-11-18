@@ -92,14 +92,14 @@
   - type: CanMoveInAir
   - type: MovementAlwaysTouching
   - type: NoSlip
-#  - type: Trail # Goobstation
-#    frequency: 0.1
-#    lifetime: 1
-#    lerpTime: 0.1
-#    alphaLerpAmount: 0.4
-#    sprite:
-#      sprite: /Textures/Objects/Fun/immovable_rod.rsi
-#      state: icon
+  - type: Trail # Goobstation
+    frequency: 0.1
+    lifetime: 1
+    lerpTime: 0.1
+    alphaLerpAmount: 0.4
+    sprite:
+      sprite: /Textures/Objects/Fun/immovable_rod.rsi
+      state: icon
   - type: StatusIcon # Goobstation
     bounds: -0.5,-0.5,0.5,0.5
   - type: IsDeadIC # Goobstation

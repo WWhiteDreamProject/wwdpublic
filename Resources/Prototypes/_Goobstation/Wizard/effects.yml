@@ -1,0 +1,46 @@
+﻿- type: entity
+  id: EffectRay
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PointLight
+    enabled: true
+    autoRot: true
+    castShadows: false
+    radius: 5
+    energy: 8
+    mask: /Textures/_Goobstation/Wizard/Effects/LightMasks/ray.png
+  - type: RotatingLight
+    speed: 60
+    maxSpeed: 180
+    randomizeDirection: true
+  - type: Tag
+    tags:
+    - HideContextMenu
+  - type: TimedDespawn
+    lifetime: 1
+  - type: AnimationPlayer
+  - type: LightBehaviour
+    behaviours:
+    - !type:PulseBehaviour
+      id: pulse
+      property: Energy
+      maxDuration: 2
+      startValue: 0
+      endValue: 16
+      enabled: true
+
+
+- type: entity
+  parent: EffectRay
+  id: EffectRayCharge
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: LightBehaviour
+    behaviours:
+    - !type:PulseBehaviour
+      id: pulse
+      property: Energy
+      maxDuration: 1
+      startValue: 0
+      endValue: 16
+      enabled: true
