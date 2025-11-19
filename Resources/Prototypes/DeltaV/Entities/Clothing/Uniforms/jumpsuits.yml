@@ -5,9 +5,9 @@
   description: A swanky uniform with tasteful gold and red trim. Keep your latte away from this.
   components:
   - type: Sprite
-    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/hopmesskit.rsi
+    sprite: _White/Clothing/Uniforms/Jumpsuit/hop_parade.rsi
   - type: Clothing
-    sprite: DeltaV/Clothing/Uniforms/Jumpsuit/hopmesskit.rsi
+    sprite: _White/Clothing/Uniforms/Jumpsuit/hop_parade.rsi
 
 - type: entity
   parent: ClothingUniformBase
