@@ -103,6 +103,7 @@
   - type: VaporVisuals
     animationTime: 0.8
     animationState: extinguish
+  - type: SupermatterImmune #  WD EDIT: fix extinguisher spray burns down upon contact with supermatter
 
 - type: entity
   name: pocket fire extinguisher

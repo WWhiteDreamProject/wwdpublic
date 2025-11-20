@@ -214,9 +214,6 @@
   - type: IconSmooth
     key: walls
     base: cult
-  - type: Construction
-    graph: CultGirder
-    node: wall
 
 - type: entity
   parent: BaseWall

@@ -52,7 +52,8 @@
     useDelay: 2
     icon: { sprite: _White/Interface/Actions/xenomorph.rsi, state: plant_seed }
     event: !type:SpawnTileEntityActionEvent
-      entity: ResinWeedNode
+      entities:
+      - ResinWeedNode
       blockedCollisionMask:
       - SlipLayer
       blockedCollisionLayer:
@@ -72,7 +73,8 @@
     useDelay: 2
     icon: { sprite: _White/Interface/Actions/xenomorph.rsi, state: egg }
     event: !type:SpawnTileEntityActionEvent
-      entity: XenomorphEgg
+      entities:
+      - XenomorphEgg
       blockedCollisionMask:
       - TableMask
       blockedCollisionLayer:
@@ -93,7 +95,8 @@
     itemIconStyle: BigAction
     icon: { sprite: _White/Structures/Walls/resin.rsi, state: full }
     event: !type:PlaceTileEntityEvent
-      entity: WallResin
+      entities:
+      - WallResin
       length: 0.5
       blockedCollisionMask:
       - FullTileMask
@@ -113,7 +116,8 @@
     itemIconStyle: BigAction
     icon: { sprite : _White/Structures/Windows/resin_membrane.rsi, state: full }
     event: !type:PlaceTileEntityEvent
-      entity: ResinMembrane
+      entities:
+      - ResinMembrane
       length: 0.5
       blockedCollisionMask:
       - FullTileMask
@@ -133,7 +137,8 @@
     itemIconStyle: BigAction
     icon: { sprite : _White/Structures/Windows/resin_membrane.rsi, state: full }
     event: !type:PlaceTileEntityEvent
-      entity: ResinNest
+      entities:
+      - ResinNest
       length: 0.5
       blockedCollisionMask:
       - TableMask

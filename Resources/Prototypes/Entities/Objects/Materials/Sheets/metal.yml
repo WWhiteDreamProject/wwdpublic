@@ -469,8 +469,10 @@
         - prototype: AltarConvertYellow
         - prototype: AltarHeaven
         - prototype: AltarFangs
+  # WD EDIT START
   - type: TwistedConstructionTarget
     replacementProto: RunedMetal1
+  # WD EDIT END
 
 - type: entity
   parent: SheetPlasteel

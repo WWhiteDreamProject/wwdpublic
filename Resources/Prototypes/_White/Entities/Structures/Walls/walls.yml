@@ -1,0 +1,88 @@
+- type: entity
+  parent: BaseWall
+  id: BloodCultWall
+  name: cult wall
+  description: Keeps the cult in and the crew out.
+  components:
+  - type: Sprite
+    sprite: Structures/Walls/cult.rsi
+  - type: Icon
+    sprite: Structures/Walls/cult.rsi
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          BloodCultGirder:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: IconSmooth
+    key: walls
+    base: cult
+  - type: Construction
+    graph: BloodCultGirder
+    node: wall
+
+- type: entity
+  name: cult barrier
+  description: Can be destroyed with ritual dagger.
+  id: BloodCultBarrier
+  parent: BaseStructure
+  components:
+  - type: Sprite
+    layers:
+    - sprite: _White/Structures/Walls/blood_cult_barrier.rsi
+      state: barrier
+      shader: unshaded
+  - type: InteractionOutline
+  - type: Appearance
+  - type: PointLight
+    enabled: false
+    radius: 3
+    color: red
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: BloodCultBarrier
+  - type: Airtight
+    noAirWhenFullyAirBlocked: false
+  - type: Transform
+    noRot: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.45
+        density: 75
+        mask:
+        - MachineMask
+        layer:
+        - WallLayer
+
+- type: entity
+  id: WallForceBloodCult
+  parent: WallForce
+  name: glowing wall
+  description: An unholy shield that blocks all attacks.
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Walls/blood_cult_force_wall.rsi
+    state: icon
+  - type: Icon
+    sprite: _White/Structures/Walls/blood_cult_force_wall.rsi
+    state: icon
+  - type: Dispellable

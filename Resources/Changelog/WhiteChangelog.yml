@@ -4451,3 +4451,44 @@ Entries:
   id: 466
   time: '2025-10-10T05:33:21.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/855
+- author: Lachklen
+  changes:
+    - type: Add
+      message: Быстрая складка в карманы и на спину сьюта
+  id: 467
+  time: '2025-10-11T21:52:48.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/861
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: Кровавый культ стал работать лучше
+  id: 468
+  time: '2025-10-11T21:53:06.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/859
+- author: PuroSlavKing
+  changes:
+    - type: Fix
+      message: >-
+        Исправлено перемещение червоточин. Больше они не стремятся к нулевым
+        координатам.
+    - type: Tweak
+      message: Изменен радиус перемещения червоточин, 40 > 12.
+  id: 469
+  time: '2025-10-14T06:09:55.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/864
+- author: Ko4ergaPunk
+  changes:
+    - type: Add
+      message: Добавлена настольная игра EvacPod (аналог Бункера)
+  id: 470
+  time: '2025-10-23T05:03:50.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/863
+- author: Agronomist-NN
+  changes:
+    - type: Fix
+      message: >-
+        Исправлено сгорание спрея от огнетушителя при попытке потушить
+        суперматерию.
+  id: 471
+  time: '2025-11-16T15:16:34.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/871

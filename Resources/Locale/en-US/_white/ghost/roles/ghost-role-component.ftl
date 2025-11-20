@@ -1,6 +1,14 @@
 ghost-role-information-gondola-name = Gondola
 ghost-role-information-gondola-description = You're a gondola.
 
+ghost-role-information-soul-shard-name = Soul Shard
+ghost-role-information-soul-shard-description = Become the servant of The Blood Cult.
+ghost-role-information-soul-shard-rules = Take the form of one of the constructs and help your Masters bring their Old Goddess back to the world!
+
+ghost-role-information-soul-shard-holy-name = Blessed Soul Shard
+ghost-role-information-soul-shard-holy-description = Become the servant of crew and help them defeat the cult.
+ghost-role-information-soul-shard-holy-rules = Take the form of one of the converted constructs and help the crew stop Geometer of Blood from bringing their Old Goddess back to the world!
+
 ghost-role-information-xenomorph-drone-name = xenomorph drone
 ghost-role-information-xenomorph-drone-description = You're a xenomorph drone. Make your hive grow.
 

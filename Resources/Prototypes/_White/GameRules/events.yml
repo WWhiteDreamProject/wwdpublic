@@ -4,7 +4,7 @@
   components:
   - type: StationEvent
     startAnnouncement: true
-    weight: 8
+    weight: 7
     duration: 10
     minimumPlayers: 15
     earliestStart: 35

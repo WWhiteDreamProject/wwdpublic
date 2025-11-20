@@ -1,0 +1,23 @@
+﻿{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "From TG station 13",
+    "size": {
+        "x": 10,
+        "y": 10
+    },
+    "states": [
+        {
+            "name": "blood_cult_member"
+        },
+        {
+            "name": "blood_cult_leader",
+            "delays": [
+              [
+                1,
+                1
+              ]
+            ]
+        }
+    ]
+}

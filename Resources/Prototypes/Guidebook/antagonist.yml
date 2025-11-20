@@ -14,8 +14,11 @@
   - Changelings # Goobstation - changelings
   - Blob # Goobstation - Blob
   - Devil # Goob content
-  - BloodCult
   - Shadowlings
+  # WD EDIT START
+  - BloodCult
+  - Headcrabs
+  # WD EDIT END
 
 - type: guideEntry
   id: Traitors
@@ -56,8 +59,3 @@
   id: Wizard
   name: guide-entry-wizard
   text: "/ServerInfo/Guidebook/Antagonist/Wizard.xml"
-
-- type: guideEntry
-  id: BloodCult
-  name: guide-entry-blood-cult
-  text: "/ServerInfo/Guidebook/Antagonist/BloodCult.xml"

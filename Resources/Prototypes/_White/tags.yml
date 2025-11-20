@@ -39,3 +39,6 @@
 
 - type: Tag
   id: FluxCoreSmall
+
+- type: Tag
+  id: EvacPod

@@ -1,12 +1,6 @@
-using System.Linq;
-using System.Numerics;
 using Content.Server.Anomaly.Components;
-using Robust.Server.Audio;
-using Content.Shared.Teleportation.Components;
-using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Random;
-using Robust.Shared.GameObjects;
 using Robust.Shared.Timing;
 
 namespace Content.Server.Anomaly.Effects
@@ -40,7 +34,8 @@ namespace Content.Server.Anomaly.Effects
                 return;
 
             var range = component.MaxShuffleRadius;
-            var newPosition = _random.NextVector2(range);
+            var offset = _random.NextVector2(range);
+            var newPosition = xform.WorldPosition + offset;
 
             _xform.SetWorldPosition(uid, newPosition);
             _audio.PlayPvs(component.TeleportSound, uid);

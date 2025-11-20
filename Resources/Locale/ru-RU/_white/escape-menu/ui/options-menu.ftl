@@ -4,6 +4,9 @@ ui-options-header-target-doll = Кукла нацеливания
 
 ui-options-function-look-up = Присмотреться/Прицелиться
 ui-options-function-toggle-look-up = Удерживать клавишу для прицеливания
+ui-options-function-smart-equip-suit-storage = Умная экипировка в хранилище скафандра
+ui-options-function-smart-equip-pocket1 = Умная экипировка в карман 1
+ui-options-function-smart-equip-pocket2 = Умная экипировка в карман 2
 
 ui-options-function-target-doll-head = Выбрать голову
 ui-options-function-target-doll-chest = Выбрать грудь

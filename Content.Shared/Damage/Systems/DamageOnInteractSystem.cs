@@ -4,6 +4,7 @@ using Content.Shared.Database;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Content.Shared.Popups;
+using Content.Shared.Whitelist;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Timing;
@@ -17,6 +18,7 @@ public sealed class DamageOnInteractSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
+    [Dependency] private readonly EntityWhitelistSystem _entityWhitelist = default!; // WD EDIT
 
     public override void Initialize()
     {
@@ -35,7 +37,7 @@ public sealed class DamageOnInteractSystem : EntitySystem
     /// <param name="args">Contains the user that interacted with the entity</param>
     private void OnHandInteract(Entity<DamageOnInteractComponent> entity, ref InteractHandEvent args)
     {
-        if (!entity.Comp.IsDamageActive)
+        if (!entity.Comp.IsDamageActive || _entityWhitelist.IsBlacklistPass(entity.Comp.Blacklist, args.User)) // WD EDIT
             return;
 
         var totalDamage = entity.Comp.Damage;

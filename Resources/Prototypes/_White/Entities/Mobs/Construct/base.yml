@@ -1,0 +1,78 @@
+- type: entity
+  id: BaseMobConstruct
+  parent:
+  - BaseMob
+  - MobCombat
+  abstract: true
+  components:
+  - type: Sprite
+    layers:
+    - state: construct
+    - state: glow_cult
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 3
+  - type: DamageOnHighSpeedImpact
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      path: /Audio/Effects/hit_kick.ogg
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeCircle
+          radius: 0.35
+        density: 300
+        mask:
+        - FlyingMobMask
+        layer:
+        - FlyingMobLayer
+  - type: Damageable
+    damageContainer: ManifestedSpirit
+    damageModifierSet: CorporealSpirit
+  - type: Construct
+  - type: Pullable
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      60: Dead
+  - type: MobState
+    allowedStates:
+    - Alive
+    - Dead
+  - type: MovementIgnoreGravity
+  - type: Speech
+  - type: TypingIndicator
+    proto: guardian
+  - type: Puller
+    needsHands: false
+  - type: Visibility
+  - type: IsDeadIC
+  - type: ShowHealthBars
+    damageContainers:
+    - Biological
+    - Inorganic
+  - type: ShowHealthIcons
+    damageContainers:
+    - Biological
+  - type: LanguageKnowledge
+    speaks:
+    - TauCetiBasic
+    - Eldritch
+    understands:
+    - TauCetiBasic
+    - Eldritch
+  - type: Tag
+    tags:
+    - CannotSuicide
+    - DoorBumpOpener
+
+- type: entity
+  id: BaseMobConstructHoly
+  abstract: true
+  components:
+  - type: Sprite
+    layers:
+    - state: construct
+    - state: glow_holy

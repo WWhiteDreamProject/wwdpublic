@@ -3,9 +3,9 @@ using Content.Server.Stunnable;
 using Content.Shared._EE.Nightmare.Components;
 using Content.Shared._EE.Shadowling;
 using Content.Shared._EE.Shadowling.Components;
+using Content.Shared._White.BloodCult.PhaseShift;
 using Content.Shared.Actions;
 using Content.Shared.Weapons.Reflect;
-using Content.Shared.WhiteDream.BloodCult.Constructs.PhaseShift;
 
 
 namespace Content.Server._EE.Nightmare.Systems;

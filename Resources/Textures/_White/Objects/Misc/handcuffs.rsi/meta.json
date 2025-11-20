@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from tgstation: https://github.com/tgstation/tgstation/blob/master/icons/mob/nonhuman-player/alien.dmi",
+  "copyright": "Taken from TG Station 13",
   "size": {
     "x": 32,
     "y": 32
@@ -10,6 +10,9 @@
     {
       "name": "body-overlay-xenomorph",
       "directions": 4
+    }, 
+    {
+      "name": "cuff"
     }
   ]
 }

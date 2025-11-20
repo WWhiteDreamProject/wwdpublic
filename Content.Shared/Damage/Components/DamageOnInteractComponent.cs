@@ -1,3 +1,4 @@
+using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
@@ -44,4 +45,12 @@ public sealed partial class DamageOnInteractComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool IsDamageActive = true;
+
+    // WD EDIT START
+    /// <summary>
+    /// Entities that do not take damage when interacted
+    /// </summary>
+    [DataField]
+    public EntityWhitelist? Blacklist;
+    // WD EDIT END
 }
