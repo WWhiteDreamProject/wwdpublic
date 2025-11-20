@@ -28,7 +28,6 @@
     damageContainer: Biological
   - type: Body
     prototype: Shadow
-    requiredLegs: 2
   - type: Tag
     tags:
     - CanPilot

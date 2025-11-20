@@ -30,7 +30,7 @@ public sealed partial class BodySystem
         RemoveMarkingSprites(bodyAppearance.Owner, bodyPartAppearanceComponent.MarkingsLayers);
     }
 
-    protected override void OnOrganRemoved(Entity<BodyAppearanceComponent> bodyAppearance, ref OrganRemovedEvent args)
+    protected override void OnOrganRemoved(Entity<BodyAppearanceComponent> bodyAppearance, ref OrganRemovedFromBodyEvent args)
     {
         base.OnOrganRemoved(bodyAppearance, ref args);
 
@@ -69,9 +69,8 @@ public sealed partial class BodySystem
 
         _sprite.LayerSetColor(sprite, layerId, markingLayerInfo.Color);
 
-        var shaders = markingLayerInfo.Shaders;
-        if (shaders is not null && shaders.TryGetValue(markingLayerInfo.State, out var shader))
-            sprite.Comp.LayerSetShader(layerId, shader);
+        if (!string.IsNullOrEmpty(markingLayerInfo.Shader))
+            sprite.Comp.LayerSetShader(layerId, markingLayerInfo.Shader);
     }
 
     private void AddMarkingSprites(Entity<SpriteComponent?> sprite, List<MarkingLayerInfo> markingsLayers)
@@ -119,9 +118,8 @@ public sealed partial class BodySystem
 
         _sprite.LayerSetColor(sprite, layerId, markingLayer.Color);
 
-        var shaders = markingLayer.Shaders;
-        if (shaders is not null && shaders.TryGetValue(markingLayer.State, out var shader))
-            sprite.Comp.LayerSetShader(layerId, shader);
+        if (!string.IsNullOrEmpty(markingLayer.Shader))
+            sprite.Comp.LayerSetShader(layerId, markingLayer.Shader);
     }
 
     private void UpdateMarkingSprites(Entity<SpriteComponent?> sprite, List<MarkingLayerInfo> markingsLayers)
@@ -161,8 +159,8 @@ public sealed partial class BodySystem
                 continue;
             }
 
-            /*RemoveMarkingSprites(sprite, bodyPartAppearance.MarkingsLayers);
-            AddMarkingSprites(sprite, bodyPartAppearance.MarkingsLayers);*/
+            RemoveMarkingSprites(sprite, info.MarkingsLayers);
+            AddMarkingSprites(sprite, info.MarkingsLayers);
 
             _sprite.LayerSetVisible(sprite, layer, info.Visible);
 
@@ -235,7 +233,6 @@ public sealed partial class BodySystem
             var markingSprite = new MarkingLayerInfo(markingPrototype.Sprites[i]);
 
             markingSprite.Color = marking.MarkingColors[i];
-            markingSprite.Shaders = markingPrototype.Shaders;
 
             if (markingSprite.Organ != OrganType.None && GetOrgans<OrganAppearanceComponent>((body, body.Comp1), markingSprite.Organ).FirstOrNull() is { } organ)
             {
@@ -339,7 +336,6 @@ public sealed partial class BodySystem
                 continue;
 
             markingSprite.Color = marking.MarkingColors[i];
-            markingSprite.Shaders = markingPrototype.Shaders;
 
             UpdateMarkingSprite(sprite, markingSprite);
         }

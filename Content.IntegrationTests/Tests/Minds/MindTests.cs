@@ -34,7 +34,6 @@ public sealed partial class MindTests
     damageContainer: Biological
   - type: Body
     prototype: Human
-    requiredLegs: 2
   - type: MobState
   - type: MobThresholds
     thresholds:

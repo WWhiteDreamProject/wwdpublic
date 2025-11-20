@@ -13,4 +13,4 @@
     unequipSound: /Audio/Effects/rustle2.ogg
   - type: HideLayerClothing
     slots:
-    - Hair
+    - enum.HumanoidVisualLayers.Hair

@@ -42,7 +42,7 @@
         - to: chairRitual
           completed:
             - !type:SpawnPrototype
-              prototype: HeadHuman
+              prototype: BodyPartHeadHuman # WD EDIT: HeadHuman -> BodyPartHeadHuman
               amount: 1
           steps:
             - tool: Prying

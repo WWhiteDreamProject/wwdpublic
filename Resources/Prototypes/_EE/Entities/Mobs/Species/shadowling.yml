@@ -30,7 +30,6 @@
     damageContainer: Biological
   - type: Body
     prototype: Shadowling
-    requiredLegs: 2
   - type: Tag
     tags:
     - CanPilot

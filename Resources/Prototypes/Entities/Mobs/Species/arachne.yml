@@ -88,7 +88,6 @@
         - MobLayer
   - type: Body
     prototype: Arachne
-    requiredLegs: 8
   - type: Speech
     speechSounds: Alto
   - type: Inventory
@@ -108,10 +107,13 @@
   - type: Cocooner
   - type: DamageVisuals
     targetLayers:
-      - "enum.HumanoidVisualLayers.Chest"
-      - "enum.HumanoidVisualLayers.Head"
-      - "enum.HumanoidVisualLayers.LArm"
-      - "enum.HumanoidVisualLayers.RArm"
+      # WD EDIT START: HumanoidVisualLayers -> BodyAppearanceLayer
+      - "enum.BodyAppearanceLayer.Chest"
+      - "enum.BodyAppearanceLayer.Groin"
+      - "enum.BodyAppearanceLayer.Head"
+      - "enum.BodyAppearanceLayer.LeftArm"
+      - "enum.BodyAppearanceLayer.RightArm"
+      # WD EDIT END
   - type: MovedByPressure
   - type: Barotrauma
     damage:

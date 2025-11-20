@@ -46,7 +46,7 @@
   group: Savory
   solids:
     FoodBreadBun: 1
-    OrganHumanAppendix: 1
+    OrganAppendixHuman: 1 # WD EDIT: OrganHumanAppendix -> OrganAppendixHuman
 
 - type: microwaveMealRecipe
   id: RecipeBaconBurger
@@ -905,7 +905,7 @@
     Water: 10
   solids:
     FoodBowlBig: 1
-    OrganHumanEyes: 1
+    OrganEyesHuman: 1 # WD EDIT: OrganHumanEyes -> OrganEyesHuman
     FoodCarrot: 1
     FoodPotato: 1
 
@@ -1678,7 +1678,7 @@
   solids:
     FoodCakePlain: 1
     FoodSnackRaisins: 1
-    OrganAnimalHeart: 1
+    OrganHeartAnimal: 1 # WD EDIT: OrganAnimalHeart -> OrganHeartAnimal
 
 - type: microwaveMealRecipe
   id: RecipeBreadDog
@@ -1690,7 +1690,7 @@
     Cognizine: 5
   solids:
     FoodBreadSausage: 1
-    OrganAnimalHeart: 1
+    OrganHeartAnimal: 1 # WD EDIT: OrganAnimalHeart -> OrganHeartAnimal
     FoodSpaceshroomCooked: 1
 
 - type: microwaveMealRecipe
@@ -1725,8 +1725,8 @@
   result: FoodHarpyWings
   time: 15
   solids:
-    LeftLegHarpy: 1
-    RightLegHarpy: 1
+    BodyPartLeftLegHarpy: 1 # WD EDIT: LeftLegHarpy -> BodyPartLeftLegHarpy
+    BodyPartRightLegHarpy: 1 # WD EDIT: RightLegHarpy -> BodyPartRightLegHarpy
 
 #Donks i guess
 - type: microwaveMealRecipe

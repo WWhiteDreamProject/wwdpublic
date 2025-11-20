@@ -516,7 +516,6 @@
 
 - type: marking
   id: DionaVineOverlay
-  layer: enum.BodyAppearanceLayer.Chest # WD EDIT
   markingCategory: Overlay
   speciesRestriction: [Diona]
   coloring:

@@ -90,7 +90,6 @@
 
 - type: marking
   id: LizardHeadFlat
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Reptilian]
   sprites:

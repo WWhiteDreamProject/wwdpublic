@@ -16,12 +16,13 @@
   - type: DamageVisuals
     thresholds: [ 10, 30, 50, 70]
     targetLayers:
-    - "enum.HumanoidVisualLayers.Chest"
-    - "enum.HumanoidVisualLayers.Head"
-    - "enum.HumanoidVisualLayers.LArm"
-    - "enum.HumanoidVisualLayers.LLeg"
-    - "enum.HumanoidVisualLayers.RArm"
-    - "enum.HumanoidVisualLayers.RLeg"
+    - "enum.BodyAppearanceLayer.Chest"
+    - "enum.BodyAppearanceLayer.Groin"
+    - "enum.BodyAppearanceLayer.Head"
+    - "enum.BodyAppearanceLayer.LeftArm"
+    - "enum.BodyAppearanceLayer.LeftLeg"
+    - "enum.BodyAppearanceLayer.RightArm"
+    - "enum.BodyAppearanceLayer.RightLeg"
     damageOverlayGroups:
       Brute:
         sprite: _White/Mobs/Effects/Resomi/brute_damage.rsi
@@ -59,7 +60,6 @@
     damageModifierSet: Resomi
   - type: Body
     prototype: Resomi
-    requiredLegs: 2
   - type: Bloodstream
     bloodReagent: ResomiBlood
   - type: MeleeWeapon

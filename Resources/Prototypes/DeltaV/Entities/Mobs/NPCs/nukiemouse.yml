@@ -146,7 +146,6 @@
         Structural: 1.5
   - type: Body
     prototype: Rat
-    requiredLegs: 1 # TODO: More than 1 leg
   - type: Bloodstream
     bloodMaxVolume: 60
   - type: CanEscapeInventory

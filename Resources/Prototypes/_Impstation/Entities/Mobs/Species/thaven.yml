@@ -24,7 +24,6 @@
     scale: 1, 1.05
   - type: Body
     prototype: Thaven
-    requiredLegs: 2
   - type: NoContractionsAccent
   - type: Damageable
     damageContainer: Biological

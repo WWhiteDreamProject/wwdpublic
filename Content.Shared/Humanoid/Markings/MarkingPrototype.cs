@@ -38,9 +38,6 @@ namespace Content.Shared.Humanoid.Markings
         public MarkingColors Coloring { get; private set; } = new();
 
         [DataField]
-        public Dictionary<string, string>? Shaders { get; private set; }
-
-        [DataField]
         public string PreviewDirection { get; private set; } = "South";
 
         [DataField("sprites", required: true)]
@@ -64,7 +61,7 @@ namespace Content.Shared.Humanoid.Markings
             MarkingId = other.MarkingId;
             Organ = other.Organ;
             ReplacementBodyPart = other.ReplacementBodyPart;
-            Shaders = other.Shaders;
+            Shader = other.Shader;
             Sprite = other.Sprite;
             State = other.State;
             Visible = other.Visible;
@@ -89,7 +86,7 @@ namespace Content.Shared.Humanoid.Markings
         public EntProtoId? ReplacementBodyPart;
 
         [DataField]
-        public Dictionary<string, string>? Shaders;
+        public string? Shader;
 
         [DataField]
         public ResPath Sprite;

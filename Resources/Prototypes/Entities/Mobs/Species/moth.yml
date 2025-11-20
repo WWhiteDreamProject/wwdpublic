@@ -19,7 +19,6 @@
     state: full
   - type: Body
     prototype: Moth
-    requiredLegs: 2
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Moth

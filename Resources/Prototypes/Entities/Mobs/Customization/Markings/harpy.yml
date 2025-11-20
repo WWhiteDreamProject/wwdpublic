@@ -471,8 +471,6 @@
   id: HarpyWingBionic
   markingCategory: RightArm
   speciesRestriction: [Harpy]
-  shaders:
-    bionic_wings_tone_2: unshaded
   sprites:
     - sprite: Mobs/Customization/Harpy/harpy_wings.rsi
       state: bionic_wings_tone_1
@@ -484,6 +482,7 @@
       state: bionic_wings_tone_2
       # WD EDIT START
       layer: enum.BodyAppearanceLayer.RightArm
+      shader: unshaded
       bodyPart: RightArm
       # WD EDIT END
 

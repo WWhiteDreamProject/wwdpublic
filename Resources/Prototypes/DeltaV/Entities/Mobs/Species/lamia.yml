@@ -105,10 +105,13 @@
   - type: DamageVisuals
     thresholds: [ 60, 120, 200 ] #these values aren't final, adjust accordingly with thresholds above'
     targetLayers:
-      - "enum.HumanoidVisualLayers.Chest"
-      - "enum.HumanoidVisualLayers.Head"
-      - "enum.HumanoidVisualLayers.LArm"
-      - "enum.HumanoidVisualLayers.RArm"
+    # WD EDIT START: HumanoidVisualLayers -> BodyAppearanceLayer
+    - "enum.BodyAppearanceLayer.Chest"
+    - "enum.BodyAppearanceLayer.Groin"
+    - "enum.BodyAppearanceLayer.Head"
+    - "enum.BodyAppearanceLayer.LeftArm"
+    - "enum.BodyAppearanceLayer.LeftLeg"
+    # WD EDIT END
     damageOverlayGroups:
       Brute:
         sprite: Nyanotrasen/Mobs/Effects/Lamia/brute_damage.rsi

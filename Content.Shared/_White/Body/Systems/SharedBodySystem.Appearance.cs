@@ -14,8 +14,8 @@ public abstract partial class SharedBodySystem
         SubscribeLocalEvent<BodyAppearanceComponent, BodyPartAddedEvent>(OnBodyPartAdded);
         SubscribeLocalEvent<BodyAppearanceComponent, BodyPartRemovedEvent>(OnBodyPartRemoved);
 
-        SubscribeLocalEvent<BodyAppearanceComponent, OrganAddedEvent>(OnOrganAdded);
-        SubscribeLocalEvent<BodyAppearanceComponent, OrganRemovedEvent>(OnOrganRemoved);
+        SubscribeLocalEvent<BodyAppearanceComponent, OrganAddedToBodyEvent>(OnOrganAdded);
+        SubscribeLocalEvent<BodyAppearanceComponent, OrganRemovedFromBodyEvent>(OnOrganRemoved);
     }
 
     #region Event Handling
@@ -38,7 +38,7 @@ public abstract partial class SharedBodySystem
         Dirty(bodyAppearance);
     }
 
-    private void OnOrganAdded(Entity<BodyAppearanceComponent> bodyAppearance, ref OrganAddedEvent args)
+    private void OnOrganAdded(Entity<BodyAppearanceComponent> bodyAppearance, ref OrganAddedToBodyEvent args)
     {
         if (!TryComp<OrganAppearanceComponent>(args.Organ, out var organAppearance))
             return;
@@ -47,7 +47,7 @@ public abstract partial class SharedBodySystem
         Dirty(bodyAppearance);
     }
 
-    protected virtual void OnOrganRemoved(Entity<BodyAppearanceComponent> bodyAppearance, ref OrganRemovedEvent args)
+    protected virtual void OnOrganRemoved(Entity<BodyAppearanceComponent> bodyAppearance, ref OrganRemovedFromBodyEvent args)
     {
         if (!TryComp<OrganAppearanceComponent>(args.Organ, out var organAppearance))
             return;
@@ -195,7 +195,6 @@ public abstract partial class SharedBodySystem
             var markingSprite = new MarkingLayerInfo(markingPrototype.Sprites[i]);
 
             markingSprite.Color = marking.MarkingColors[i];
-            markingSprite.Shaders = markingPrototype.Shaders;
 
             if (markingSprite.Organ != OrganType.None && GetOrgans<OrganAppearanceComponent>((body, body.Comp1), markingSprite.Organ).FirstOrNull() is { } organ)
             {
@@ -285,7 +284,6 @@ public abstract partial class SharedBodySystem
                 continue;
 
             markingSprite.Color = marking.MarkingColors[i];
-            markingSprite.Shaders = markingPrototype.Shaders;
         }
     }
 

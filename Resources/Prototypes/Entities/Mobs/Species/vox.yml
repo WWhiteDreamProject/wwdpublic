@@ -10,7 +10,6 @@
     state: vox_m
   - type: Body
     prototype: Vox
-    requiredLegs: 2
   - type:  HumanoidAppearance
     species: Vox
     #- type: VoxAccent # Not yet coded

@@ -65,7 +65,6 @@
   - type: Carriable
   - type: Body
     prototype: Plasmaman
-    requiredLegs: 2
     gibSound: /Audio/Effects/bone_rattle.ogg
   - type: SpawnGasOnGib
     gasMixture:

@@ -137,7 +137,6 @@
 
 - type: marking
   id: FootDollJointsTattooRight
-  bodyPart: RFoot
   markingCategory: RightFoot
   speciesRestriction: [Human, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Felinid, Arachne, Shadowkin, Moth, Vulpkanin]
   coloring:

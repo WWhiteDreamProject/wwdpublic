@@ -22,7 +22,6 @@
     state: full
   - type: Body
     prototype: Reptilian
-    requiredLegs: 2
   - type: Butcherable
     butcheringType: Spike
     spawned:

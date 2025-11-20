@@ -25,7 +25,6 @@
         - MobLayer
   - type: Body
     prototype: Tajaran
-    requiredLegs: 2
   - type: Damageable
     damageModifierSet: Tajaran
   - type: SlowOnDamage

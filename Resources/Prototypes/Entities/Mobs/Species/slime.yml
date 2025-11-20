@@ -12,7 +12,6 @@
     state: full
   - type: Body
     prototype: Slime
-    requiredLegs: 2
   # they like eat it idk lol
   - type: Storage
     clickInsert: false

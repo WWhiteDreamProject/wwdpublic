@@ -69,12 +69,15 @@
   - type: DamageVisuals
     thresholds: [ 10, 20, 30, 50, 70, 100 ]
     targetLayers:
-    - "enum.HumanoidVisualLayers.Chest"
-    - "enum.HumanoidVisualLayers.Head"
-    - "enum.HumanoidVisualLayers.LArm"
-    - "enum.HumanoidVisualLayers.LLeg"
-    - "enum.HumanoidVisualLayers.RArm"
-    - "enum.HumanoidVisualLayers.RLeg"
+    # WD EDIT START: HumanoidVisualLayers -> BodyAppearanceLayer
+    - "enum.BodyAppearanceLayer.Chest"
+    - "enum.BodyAppearanceLayer.Groin"
+    - "enum.BodyAppearanceLayer.Head"
+    - "enum.BodyAppearanceLayer.LeftArm"
+    - "enum.BodyAppearanceLayer.LeftLeg"
+    - "enum.BodyAppearanceLayer.RightArm"
+    - "enum.BodyAppearanceLayer.RightLeg"
+    # WD EDIT END
     damageOverlayGroups:
       Brute:
         sprite: Mobs/Effects/brute_damage.rsi
@@ -157,7 +160,6 @@
     - PsionicallyInsulated
   - type: Body
     prototype: Human
-    requiredLegs: 2
   - type: Identity
   - type: IdExaminable
   - type: Hands

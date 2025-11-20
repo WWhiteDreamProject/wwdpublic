@@ -2,13 +2,12 @@
   speciesRestriction: [ IPC ]
   id: ScreenStatic
   markingCategory: Face
-  shaders:
-    ipc_screen_static: unshaded
   sprites:
     - sprite: Mobs/Customization/ipc_screens.rsi
       state: ipc_screen_static
       # WD EDIT START
       layer: enum.HumanoidVisualLayers.Face
+      shader: unshaded
       bodyPart: Head
       # WD EDIT END
 
@@ -17,13 +16,12 @@
   speciesRestriction: [ IPC ]
   id: ScreenBlue
   markingCategory: Face
-  shaders:
-    ipc_screen_blue: unshaded
   sprites:
     - sprite: Mobs/Customization/ipc_screens.rsi
       state: ipc_screen_blue
       # WD EDIT START
       layer: enum.HumanoidVisualLayers.Face
+      shader: unshaded
       bodyPart: Head
       # WD EDIT END
 
@@ -32,13 +30,12 @@
   speciesRestriction: [ IPC ]
   id: ScreenBreakout
   markingCategory: Face
-  shaders:
-    ipc_screen_breakout: unshaded
   sprites:
     - sprite: Mobs/Customization/ipc_screens.rsi
       state: ipc_screen_breakout
       # WD EDIT START
       layer: enum.HumanoidVisualLayers.Face
+      shader: unshaded
       bodyPart: Head
       # WD EDIT END
 
@@ -47,13 +44,12 @@
   speciesRestriction: [ IPC ]
   id: ScreenEight
   markingCategory: Face
-  shaders:
-    ipc_screen_eight: unshaded
   sprites:
     - sprite: Mobs/Customization/ipc_screens.rsi
       state: ipc_screen_eight
       # WD EDIT START
       layer: enum.HumanoidVisualLayers.Face
+      shader: unshaded
       bodyPart: Head
       # WD EDIT END
 
@@ -62,13 +58,12 @@
   speciesRestriction: [ IPC ]
   id: ScreenGoggles
   markingCategory: Face
-  shaders:
-    ipc_screen_goggles: unshaded
   sprites:
     - sprite: Mobs/Customization/ipc_screens.rsi
       state: ipc_screen_goggles
       # WD EDIT START
       layer: enum.HumanoidVisualLayers.Face
+      shader: unshaded
       bodyPart: Head
       # WD EDIT END
 
@@ -77,13 +72,12 @@
   speciesRestriction: [ IPC ]
   id: ScreenExclaim
   markingCategory: Face
-  shaders:
-    ipc_screen_exclaim: unshaded
   sprites:
     - sprite: Mobs/Customization/ipc_screens.rsi
       state: ipc_screen_exclaim
       # WD EDIT START
       layer: enum.HumanoidVisualLayers.Face
+      shader: unshaded
       bodyPart: Head
       # WD EDIT END
 
@@ -92,13 +86,12 @@
   speciesRestriction: [ IPC ]
   id: ScreenHeart
   markingCategory: Face
-  shaders:
-    ipc_screen_heart: unshaded
   sprites:
     - sprite: Mobs/Customization/ipc_screens.rsi
       state: ipc_screen_heart
       # WD EDIT START
       layer: enum.HumanoidVisualLayers.Face
+      shader: unshaded
       bodyPart: Head
       # WD EDIT END
 
@@ -107,13 +100,12 @@
   speciesRestriction: [ IPC ]
   id: ScreenMonoeye
   markingCategory: Face
-  shaders:
-    ipc_screen_monoeye: unshaded
   sprites:
     - sprite: Mobs/Customization/ipc_screens.rsi
       state: ipc_screen_monoeye
       # WD EDIT START
       layer: enum.HumanoidVisualLayers.Face
+      shader: unshaded
       bodyPart: Head
       # WD EDIT END
 
@@ -122,13 +114,12 @@
   speciesRestriction: [ IPC ]
   id: ScreenNature
   markingCategory: Face
-  shaders:
-    ipc_screen_nature: unshaded
   sprites:
     - sprite: Mobs/Customization/ipc_screens.rsi
       state: ipc_screen_nature
       # WD EDIT START
       layer: enum.HumanoidVisualLayers.Face
+      shader: unshaded
       bodyPart: Head
       # WD EDIT END
 
@@ -137,13 +128,12 @@
   speciesRestriction: [ IPC ]
   id: ScreenOrange
   markingCategory: Face
-  shaders:
-    ipc_screen_orange: unshaded
   sprites:
     - sprite: Mobs/Customization/ipc_screens.rsi
       state: ipc_screen_orange
       # WD EDIT START
       layer: enum.HumanoidVisualLayers.Face
+      shader: unshaded
       bodyPart: Head
       # WD EDIT END
 
@@ -152,13 +142,12 @@
   speciesRestriction: [ IPC ]
   id: ScreenPink
   markingCategory: Face
-  shaders:
-    ipc_screen_pink: unshaded
   sprites:
     - sprite: Mobs/Customization/ipc_screens.rsi
       state: ipc_screen_pink
       # WD EDIT START
       layer: enum.HumanoidVisualLayers.Face
+      shader: unshaded
       bodyPart: Head
       # WD EDIT END
 
@@ -167,13 +156,12 @@
   speciesRestriction: [ IPC ]
   id: ScreenQuestion
   markingCategory: Face
-  shaders:
-    ipc_screen_question: unshaded
   sprites:
     - sprite: Mobs/Customization/ipc_screens.rsi
       state: ipc_screen_question
       # WD EDIT START
       layer: enum.HumanoidVisualLayers.Face
+      shader: unshaded
       bodyPart: Head
       # WD EDIT END
 
@@ -182,13 +170,12 @@
   speciesRestriction: [ IPC ]
   id: ScreenShower
   markingCategory: Face
-  shaders:
-    ipc_screen_shower: unshaded
   sprites:
     - sprite: Mobs/Customization/ipc_screens.rsi
       state: ipc_screen_shower
       # WD EDIT START
       layer: enum.HumanoidVisualLayers.Face
+      shader: unshaded
       bodyPart: Head
       # WD EDIT END
 
@@ -197,13 +184,12 @@
   speciesRestriction: [ IPC ]
   id: ScreenYellow
   markingCategory: Face
-  shaders:
-    ipc_screen_yellow: unshaded
   sprites:
     - sprite: Mobs/Customization/ipc_screens.rsi
       state: ipc_screen_yellow
       # WD EDIT START
       layer: enum.HumanoidVisualLayers.Face
+      shader: unshaded
       bodyPart: Head
       # WD EDIT END
 
@@ -212,13 +198,12 @@
   speciesRestriction: [ IPC ]
   id: ScreenScroll
   markingCategory: Face
-  shaders:
-    ipc_screen_scroll: unshaded
   sprites:
     - sprite: Mobs/Customization/ipc_screens.rsi
       state: ipc_screen_scroll
       # WD EDIT START
       layer: enum.HumanoidVisualLayers.Face
+      shader: unshaded
       bodyPart: Head
       # WD EDIT END
 
@@ -227,13 +212,12 @@
   speciesRestriction: [ IPC ]
   id: ScreenConsole
   markingCategory: Face
-  shaders:
-    ipc_screen_console: unshaded
   sprites:
     - sprite: Mobs/Customization/ipc_screens.rsi
       state: ipc_screen_console
       # WD EDIT START
       layer: enum.HumanoidVisualLayers.Face
+      shader: unshaded
       bodyPart: Head
       # WD EDIT END
 
@@ -242,13 +226,12 @@
   speciesRestriction: [ IPC ]
   id: ScreenRgb
   markingCategory: Face
-  shaders:
-    ipc_screen_rgb: unshaded
   sprites:
     - sprite: Mobs/Customization/ipc_screens.rsi
       state: ipc_screen_rgb
       # WD EDIT START
       layer: enum.HumanoidVisualLayers.Face
+      shader: unshaded
       bodyPart: Head
       # WD EDIT END
 
@@ -257,13 +240,12 @@
   speciesRestriction: [ IPC ]
   id: ScreenGlider
   markingCategory: Face
-  shaders:
-    ipc_screen_glider: unshaded
   sprites:
     - sprite: Mobs/Customization/ipc_screens.rsi
       state: ipc_screen_glider
       # WD EDIT START
       layer: enum.HumanoidVisualLayers.Face
+      shader: unshaded
       bodyPart: Head
       # WD EDIT END
 
@@ -272,13 +254,12 @@
   speciesRestriction: [ IPC ]
   id: ScreenRainbowhoriz
   markingCategory: Face
-  shaders:
-    ipc_screen_rainbowhoriz: unshaded
   sprites:
     - sprite: Mobs/Customization/ipc_screens.rsi
       state: ipc_screen_rainbowhoriz
       # WD EDIT START
       layer: enum.HumanoidVisualLayers.Face
+      shader: unshaded
       bodyPart: Head
       # WD EDIT END
 
@@ -287,13 +268,12 @@
   speciesRestriction: [ IPC ]
   id: ScreenBsod
   markingCategory: Face
-  shaders:
-    ipc_screen_bsod: unshaded
   sprites:
     - sprite: Mobs/Customization/ipc_screens.rsi
       state: ipc_screen_bsod
       # WD EDIT START
       layer: enum.HumanoidVisualLayers.Face
+      shader: unshaded
       bodyPart: Head
       # WD EDIT END
 
@@ -302,13 +282,12 @@
   speciesRestriction: [ IPC ]
   id: ScreenRedtext
   markingCategory: Face
-  shaders:
-    ipc_screen_redtext: unshaded
   sprites:
     - sprite: Mobs/Customization/ipc_screens.rsi
       state: ipc_screen_redtext
       # WD EDIT START
       layer: enum.HumanoidVisualLayers.Face
+      shader: unshaded
       bodyPart: Head
       # WD EDIT END
 
@@ -317,13 +296,12 @@
   speciesRestriction: [ IPC ]
   id: ScreenSinewave
   markingCategory: Face
-  shaders:
-    ipc_screen_sinewave: unshaded
   sprites:
     - sprite: Mobs/Customization/ipc_screens.rsi
       state: ipc_screen_sinewave
       # WD EDIT START
       layer: enum.HumanoidVisualLayers.Face
+      shader: unshaded
       bodyPart: Head
       # WD EDIT END
 
@@ -332,13 +310,12 @@
   speciesRestriction: [ IPC ]
   id: ScreenSquarewave
   markingCategory: Face
-  shaders:
-    ipc_screen_squarewave: unshaded
   sprites:
     - sprite: Mobs/Customization/ipc_screens.rsi
       state: ipc_screen_squarewave
       # WD EDIT START
       layer: enum.HumanoidVisualLayers.Face
+      shader: unshaded
       bodyPart: Head
       # WD EDIT END
 
@@ -347,13 +324,12 @@
   speciesRestriction: [ IPC ]
   id: ScreenEcgwave
   markingCategory: Face
-  shaders:
-    ipc_screen_ecgwave: unshaded
   sprites:
     - sprite: Mobs/Customization/ipc_screens.rsi
       state: ipc_screen_ecgwave
       # WD EDIT START
       layer: enum.HumanoidVisualLayers.Face
+      shader: unshaded
       bodyPart: Head
       # WD EDIT END
 
@@ -362,13 +338,12 @@
   speciesRestriction: [ IPC ]
   id: ScreenEyes
   markingCategory: Face
-  shaders:
-    ipc_screen_eyes: unshaded
   sprites:
     - sprite: Mobs/Customization/ipc_screens.rsi
       state: ipc_screen_eyes
       # WD EDIT START
       layer: enum.HumanoidVisualLayers.Face
+      shader: unshaded
       bodyPart: Head
       # WD EDIT END
 
@@ -377,13 +352,12 @@
   speciesRestriction: [ IPC ]
   id: ScreenEyestall
   markingCategory: Face
-  shaders:
-    ipc_screen_eyestall: unshaded
   sprites:
     - sprite: Mobs/Customization/ipc_screens.rsi
       state: ipc_screen_eyestall
       # WD EDIT START
       layer: enum.HumanoidVisualLayers.Face
+      shader: unshaded
       bodyPart: Head
       # WD EDIT END
 
@@ -392,13 +366,12 @@
   speciesRestriction: [ IPC ]
   id: ScreenEyesangry
   markingCategory: Face
-  shaders:
-    ipc_screen_eyesangry: unshaded
   sprites:
     - sprite: Mobs/Customization/ipc_screens.rsi
       state: ipc_screen_eyesangry
       # WD EDIT START
       layer: enum.HumanoidVisualLayers.Face
+      shader: unshaded
       bodyPart: Head
       # WD EDIT END
 
@@ -407,13 +380,12 @@
   speciesRestriction: [ IPC ]
   id: ScreenLoading
   markingCategory: Face
-  shaders:
-    ipc_screen_loading: unshaded
   sprites:
     - sprite: Mobs/Customization/ipc_screens.rsi
       state: ipc_screen_loading
       # WD EDIT START
       layer: enum.HumanoidVisualLayers.Face
+      shader: unshaded
       bodyPart: Head
       # WD EDIT END
 
@@ -422,13 +394,12 @@
   speciesRestriction: [ IPC ]
   id: ScreenWindowsxp
   markingCategory: Face
-  shaders:
-    ipc_screen_windowsxp: unshaded
   sprites:
     - sprite: Mobs/Customization/ipc_screens.rsi
       state: ipc_screen_windowsxp
       # WD EDIT START
       layer: enum.HumanoidVisualLayers.Face
+      shader: unshaded
       bodyPart: Head
       # WD EDIT END
 
@@ -437,13 +408,12 @@
   speciesRestriction: [ IPC ]
   id: ScreenTetris
   markingCategory: Face
-  shaders:
-    ipc_screen_tetris: unshaded
   sprites:
     - sprite: Mobs/Customization/ipc_screens.rsi
       state: ipc_screen_tetris
       # WD EDIT START
       layer: enum.HumanoidVisualLayers.Face
+      shader: unshaded
       bodyPart: Head
       # WD EDIT END
 
@@ -452,13 +422,12 @@
   speciesRestriction: [ IPC ]
   id: ScreenTv
   markingCategory: Face
-  shaders:
-    ipc_screen_tv: unshaded
   sprites:
     - sprite: Mobs/Customization/ipc_screens.rsi
       state: ipc_screen_tv
       # WD EDIT START
       layer: enum.HumanoidVisualLayers.Face
+      shader: unshaded
       bodyPart: Head
       # WD EDIT END
 
@@ -467,13 +436,12 @@
   speciesRestriction: [ IPC ]
   id: ScreenTextdrop
   markingCategory: Face
-  shaders:
-    ipc_screen_textdrop: unshaded
   sprites:
     - sprite: Mobs/Customization/ipc_screens.rsi
       state: ipc_screen_textdrop
       # WD EDIT START
       layer: enum.HumanoidVisualLayers.Face
+      shader: unshaded
       bodyPart: Head
       # WD EDIT END
 
@@ -482,13 +450,12 @@
   speciesRestriction: [ IPC ]
   id: ScreenStars
   markingCategory: Face
-  shaders:
-    ipc_screen_stars: unshaded
   sprites:
     - sprite: Mobs/Customization/ipc_screens.rsi
       state: ipc_screen_stars
       # WD EDIT START
       layer: enum.HumanoidVisualLayers.Face
+      shader: unshaded
       bodyPart: Head
       # WD EDIT END
 
@@ -497,13 +464,12 @@
   speciesRestriction: [ IPC ]
   id: ScreenRainbowdiag
   markingCategory: Face
-  shaders:
-    ipc_screen_rainbowdiag: unshaded
   sprites:
     - sprite: Mobs/Customization/ipc_screens.rsi
       state: ipc_screen_rainbowdiag
       # WD EDIT START
       layer: enum.HumanoidVisualLayers.Face
+      shader: unshaded
       bodyPart: Head
       # WD EDIT END
 
@@ -512,13 +478,12 @@
   speciesRestriction: [ IPC ]
   id: ScreenBlank
   markingCategory: Face
-  shaders:
-    ipc_screen_blank: unshaded
   sprites:
     - sprite: Mobs/Customization/ipc_screens.rsi
       state: ipc_screen_blank
       # WD EDIT START
       layer: enum.HumanoidVisualLayers.Face
+      shader: unshaded
       bodyPart: Head
       # WD EDIT END
 
@@ -527,13 +492,12 @@
   speciesRestriction: [ IPC ]
   id: ScreenSmile
   markingCategory: Face
-  shaders:
-    ipc_screen_smile: unshaded
   sprites:
     - sprite: Mobs/Customization/ipc_screens.rsi
       state: ipc_screen_smile
       # WD EDIT START
       layer: enum.HumanoidVisualLayers.Face
+      shader: unshaded
       bodyPart: Head
       # WD EDIT END
 
@@ -541,13 +505,12 @@
   speciesRestriction: [ IPC ]
   id: ScreenFrown
   markingCategory: Face
-  shaders:
-    ipc_screen_frown: unshaded
   sprites:
     - sprite: Mobs/Customization/ipc_screens.rsi
       state: ipc_screen_frown
       # WD EDIT START
       layer: enum.HumanoidVisualLayers.Face
+      shader: unshaded
       bodyPart: Head
       # WD EDIT END
 
@@ -556,13 +519,12 @@
   speciesRestriction: [ IPC ]
   id: ScreenRing
   markingCategory: Face
-  shaders:
-    ipc_screen_ring: unshaded
   sprites:
     - sprite: Mobs/Customization/ipc_screens.rsi
       state: ipc_screen_ring
       # WD EDIT START
       layer: enum.HumanoidVisualLayers.Face
+      shader: unshaded
       bodyPart: Head
       # WD EDIT END
 
@@ -571,13 +533,12 @@
   speciesRestriction: [ IPC ]
   id: ScreenL
   markingCategory: Face
-  shaders:
-    ipc_screen_l: unshaded
   sprites:
     - sprite: Mobs/Customization/ipc_screens.rsi
       state: ipc_screen_l
       # WD EDIT START
       layer: enum.HumanoidVisualLayers.Face
+      shader: unshaded
       bodyPart: Head
       # WD EDIT END
 

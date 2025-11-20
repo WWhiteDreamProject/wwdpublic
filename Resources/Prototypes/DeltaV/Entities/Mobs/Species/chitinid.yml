@@ -24,7 +24,6 @@
 
   - type: Body
     prototype: Chitinid
-    requiredLegs: 2
 
   - type: Damageable
     damageContainer: Biological

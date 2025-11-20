@@ -4,7 +4,6 @@
 
 #- type: marking
 #  id: FullID
-#  bodyPart: Part
 #  markingCategory: Category
 #  speciesRestriction: [Species, Species]
 #  youre on your own for figuring out the coloring system, my friend
@@ -1008,7 +1007,6 @@
 
 - type: marking
   id: VoxCheeks
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [ Vox ]
   forcedColoring: false
@@ -1249,7 +1247,6 @@
 
 - type: marking
   id: ChitinidBeetleHorn2
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Chitinid]
   forcedColoring: true
@@ -1292,7 +1289,6 @@
 
 - type: marking
   id: ThavenHeadScales
-  bodyPart: Head
   markingCategory: HeadTop
   speciesRestriction: [ Thaven ]
   forcedColoring: false
@@ -1467,7 +1463,6 @@
 
 - type: marking
   id: ThavenTigerRArm
-  bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [ Thaven ]
   forcedColoring: false

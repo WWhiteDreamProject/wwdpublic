@@ -24,7 +24,7 @@ public sealed class BodyPrototypeSerializer : ITypeReader<BodyPrototype, Mapping
         var nodes = new List<ValidationNode>();
         var prototypes = dependencies.Resolve<IPrototypeManager>();
 
-        if (node.TryGet("bodyParts", out MappingDataNode? bodyPartsNode))
+        if (node.TryGet("bodyParts", out MappingDataNode? bodyPartsNode) && !bodyPartsNode.IsEmpty)
         {
             if (!node.TryGet("root", out ValueDataNode? root))
             {
@@ -60,7 +60,7 @@ public sealed class BodyPrototypeSerializer : ITypeReader<BodyPrototype, Mapping
                             continue;
                         }
 
-                        if (!bodyPartNode.TryGet(connectionNode.Value, out MappingDataNode? _))
+                        if (!bodyPartsNode.TryGet(connectionNode.Value, out MappingDataNode? _))
                             nodes.Add(new ErrorNode(connectionValue, $"No slot found with id {connectionNode.Value}"));
                     }
                 }
@@ -79,7 +79,7 @@ public sealed class BodyPrototypeSerializer : ITypeReader<BodyPrototype, Mapping
                             nodes.Add(ValidateOrgan(boneOrgansNode, prototypes));
 
                         if (bone.TryGet("startingBone", out ValueDataNode? startingBone)
-                            && prototypes.HasIndex(startingBone.Value))
+                            && !prototypes.HasIndex(startingBone.Value))
                             nodes.Add(new ErrorNode(boneValue, $"No bone entity prototype found with id {startingBone.Value}"));
                     }
                 }
@@ -88,7 +88,7 @@ public sealed class BodyPrototypeSerializer : ITypeReader<BodyPrototype, Mapping
                     nodes.Add(ValidateOrgan(bodyPartOrgansNode, prototypes));
 
                 if (bodyPartNode.TryGet("startingBodyPart", out ValueDataNode? startingBodyPart)
-                    && prototypes.HasIndex(startingBodyPart.Value))
+                    && !prototypes.HasIndex(startingBodyPart.Value))
                     nodes.Add(new ErrorNode(bodyPartValue, $"No bone entity prototype found with id {startingBodyPart.Value}"));
             }
         }
@@ -114,7 +114,7 @@ public sealed class BodyPrototypeSerializer : ITypeReader<BodyPrototype, Mapping
             if (organNode.TryGet<ValueDataNode>("type", out var organTypeNode) && !Enum.TryParse(organTypeNode.Value, out OrganType _))
                 nodes.Add(new ErrorNode(organValue, $"Can't parse {organTypeNode.Value} to {typeof(OrganType)}"));
 
-            if (organNode.TryGet("startingOrgan", out ValueDataNode? startingOrgan) && prototypes.HasIndex(startingOrgan.Value))
+            if (organNode.TryGet("startingOrgan", out ValueDataNode? startingOrgan) && !prototypes.HasIndex(startingOrgan.Value))
                 nodes.Add(new ErrorNode(organValue, $"No organ entity prototype found with id {startingOrgan.Value}"));
         }
 
