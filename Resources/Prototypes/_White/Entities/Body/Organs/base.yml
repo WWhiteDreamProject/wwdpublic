@@ -1,0 +1,199 @@
+- type: entity
+  id: BaseOrgan
+  parent: BaseItem
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/organs.rsi
+  - type: Organ
+
+- type: entity
+  id: BaseOrganBrain
+  parent: BaseOrgan
+  abstract: true
+  name: brain
+  description: The source of incredible, unending intelligence. Honk.
+  components:
+  - type: Sprite
+    state: brain
+  - type: Organ
+    organType: Brain
+  - type: Input
+    context: "ghost"
+  - type: Brain
+  - type: InputMover
+  - type: Examiner
+  - type: BlockMovement
+
+- type: entity
+  id: BaseOrganHeart
+  parent: BaseOrgan
+  abstract: true
+  name: heart
+  description: I feel bad for the heartless bastard who lost this.
+  components:
+  - type: Sprite
+    state: heart-on
+  - type: Organ
+    organType: Heart
+
+- type: entity
+  id: BaseOrganEyes
+  parent: BaseOrgan
+  abstract: true
+  name: eyes
+  description: I see you!
+  components:
+  - type: Sprite
+    layers:
+    - state: eyeball-l
+    - state: eyeball-r
+  - type: OrganAppearance
+    layer: enum.BodyAppearanceLayer.Eyes
+    sprite: Mobs/Customization/eyes.rsi
+    state: eyes
+  - type: Organ
+    organType: Eyes
+
+- type: entity
+  id: BaseOrganTongue
+  parent: BaseOrgan
+  abstract: true
+  name: tongue
+  description: A fleshy muscle mostly used for lying.
+  components:
+  - type: Sprite
+    state: tongue
+  - type: Organ
+    organType: Tongue
+
+- type: entity
+  id: BaseOrganAppendix
+  parent: BaseOrgan
+  abstract: true
+  name: appendix
+  description: It has the ability to make this life painful.
+  components:
+  - type: Sprite
+    layers:
+    - state: appendix
+    - state: appendix-inflamed
+      visible: false
+  - type: Organ
+    organType: Appendix
+
+- type: entity
+  id: BaseOrganEars
+  parent: BaseOrgan
+  abstract: true
+  name: ears
+  description: There are three parts to the ear. Inner, middle and outer. Only one of these parts should normally be visible.
+  components:
+  - type: Sprite
+    state: ears
+  - type: Organ
+    organType: Ears
+
+- type: entity
+  id: BaseOrganLungs
+  parent: BaseOrgan
+  abstract: true
+  name: lungs
+  description: Filters oxygen from an atmosphere, which is then sent into the bloodstream to be used as an electron carrier.
+  components:
+  - type: Sprite
+    layers:
+    - state: lung-l
+    - state: lung-r
+  - type: Organ
+    organType: Lungs
+  - type: Lung
+  - type: Metabolizer
+    removeEmpty: true
+    solutionOnBody: false
+    solution: "lung"
+    metabolizerTypes: [ Human ]
+    groups:
+    - id: Gas
+      rateModifier: 100.0
+  - type: SolutionContainerManager
+    solutions:
+      lung:
+        maxVol: 100.0
+        canReact: false
+
+- type: entity
+  id: BaseOrganStomach
+  parent: BaseOrgan
+  abstract: true
+  name: stomach
+  description: Gross. This is hard to stomach.
+  components:
+  - type: Sprite
+    state: stomach
+  - type: Organ
+    organType: Stomach
+  - type: Stomach
+  - type: SolutionContainerManager
+    solutions:
+      stomach:
+        maxVol: 50
+  - type: Metabolizer
+    maxReagents: 3
+    metabolizerTypes: [Human]
+    groups:
+    - id: Food
+    - id: Drink
+
+- type: entity
+  id: BaseOrganLiver
+  parent: BaseOrgan
+  abstract: true
+  name: liver
+  description: "Pairing suggestion: chianti and fava beans."
+  components:
+  - type: Sprite
+    state: liver
+  - type: Organ
+    organType: Liver
+  - type: Metabolizer
+    maxReagents: 10
+    metabolizerTypes: [Human]
+    groups:
+    - id: Medicine
+    - id: Narcotic
+    - id: Poison
+      rateModifier: 0.5
+    - id: Alcohol
+      rateModifier: 0.1
+
+- type: entity
+  id: BaseOrganKidneys
+  parent: BaseOrgan
+  abstract: true
+  name: kidneys
+  description: Filters toxins from the bloodstream.
+  components:
+  - type: Sprite
+    layers:
+    - state: kidney-l
+    - state: kidney-r
+  - type: Organ
+    organType: Kidneys
+  - type: Metabolizer
+    maxReagents: 5
+    metabolizerTypes: [Human]
+    removeEmpty: true
+    groups:
+    - id: Poison
+      rateModifier: 0.5
+
+- type: entity
+  id: BaseOrganGland
+  parent: BaseOrgan
+  abstract: true
+  name: gland
+  description: There are three parts to the ear. Inner, middle and outer. Only one of these parts should normally be visible.
+  components:
+  - type: Organ
+    organType: Gland

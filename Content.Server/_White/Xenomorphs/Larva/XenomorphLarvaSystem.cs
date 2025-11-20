@@ -1,4 +1,4 @@
-using Content.Server.Body.Systems;
+using Content.Server._White.Gibbing;
 using Content.Server.DoAfter;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Jittering;
@@ -16,9 +16,9 @@ namespace Content.Server._White.Xenomorphs.Larva;
 
 public sealed class XenomorphLarvaSystem : EntitySystem
 {
-    [Dependency] private readonly BodySystem _body = default!;
     [Dependency] private readonly ContainerSystem _container = default!;
     [Dependency] private readonly DoAfterSystem _doAfter = default!;
+    [Dependency] private readonly GibbingSystem _gibbing = default!;
     [Dependency] private readonly JitteringSystem _jitter = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
 
@@ -74,6 +74,6 @@ public sealed class XenomorphLarvaSystem : EntitySystem
             return;
 
         _container.Remove(uid, container);
-        _body.GibBody(victim);
+        _gibbing.GibBody(victim);
     }
 }

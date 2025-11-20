@@ -1,7 +1,7 @@
 using Content.Server.Body.Components;
+using Content.Shared._White.Body.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Administration.Logs;
-using Content.Shared.Body.Organ;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.Reagent;
@@ -232,10 +232,10 @@ namespace Content.Server.Body.Systems
     // This will cause rates to slowly drift over time due to floating point errors.
     // Instead, the system that raised this should trigger an update and subscribe to get-modifier events.
     [ByRefEvent]
-    public readonly record struct ApplyMetabolicMultiplierEvent(
+    public sealed class ApplyMetabolicMultiplierEvent( // WD EDIT
         EntityUid Uid,
         float Multiplier,
-        bool Apply)
+        bool Apply) : EntityEventArgs // WD EDIT
     {
         /// <summary>
         /// The entity whose metabolism is being modified.

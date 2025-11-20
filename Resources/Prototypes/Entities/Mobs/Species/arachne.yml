@@ -8,51 +8,32 @@
   - type: Sprite
     # Arachne are one of the species that needs a manual visual layers setup.
     layers:
-    - map: [ "enum.HumanoidVisualLayers.LLeg" ]
-      sprite: Mobs/Species/arachne.rsi
-      state: spider_body
-    - map: [ "enum.HumanoidVisualLayers.Chest" ]
-      color: "#e8b59b"
-      sprite: Mobs/Species/Human/parts.rsi
-      state: torso_m
-    - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+    # WD EDIT START: HumanoidVisualLayers -> BodyAppearanceLayer
+    - map: [ "enum.BodyAppearanceLayer.LeftLeg" ]
+    - map: [ "enum.BodyAppearanceLayer.Chest" ]
+    - map: [ "enum.BodyAppearanceLayer.Groin" ]
+    - map: [ "enum.BodyAppearanceLayer.RightLeg" ]
+    # WD EDIT END
       sprite: Mobs/Species/arachne.rsi
       state: spider_body_front
-    - map: [ "enum.HumanoidVisualLayers.Head" ]
-      color: "#e8b59b"
-      sprite: Mobs/Species/Human/parts.rsi
-      state: head_m
+    - map: [ "enum.BodyAppearanceLayer.Head" ] # WD EDIT START: HumanoidVisualLayers -> BodyAppearanceLayer
     - map: [ "enum.HumanoidVisualLayers.Snout" ]
     - map: [ "enum.HumanoidVisualLayers.Eyes" ]
-      color: "#008800"
-      sprite: Mobs/Species/eyes.rsi
-      state: eyes
     - map: [ "enum.HumanoidVisualLayers.Face" ]
-    - map: [ "enum.HumanoidVisualLayers.RArm" ]
-      color: "#e8b59b"
-      sprite: Mobs/Species/Human/parts.rsi
-      state: r_arm
-    - map: [ "enum.HumanoidVisualLayers.LArm" ]
-      color: "#e8b59b"
-      sprite: Mobs/Species/Human/parts.rsi
-      state: l_arm
-#     - shader: StencilClear
-#      sprite: Mobs/Species/Human/parts.rsi
-#      state: l_leg
+    # WD EDIT START: HumanoidVisualLayers -> BodyAppearanceLayer
+    - map: [ "enum.BodyAppearanceLayer.RightArm" ]
+    - map: [ "enum.BodyAppearanceLayer.LeftArm" ]
+    # WD EDIT END
     - shader: StencilMask
       map: [ "enum.HumanoidVisualLayers.StencilMask" ]
       sprite: Mobs/Customization/anytaur_masking_helpers.rsi
       state: unisex_full
       visible: false
     - map: [ "jumpsuit" ]
-    - map: [ "enum.HumanoidVisualLayers.LHand" ]
-      color: "#e8b59b"
-      sprite: Mobs/Species/Human/parts.rsi
-      state: l_hand
-    - map: [ "enum.HumanoidVisualLayers.RHand" ]
-      color: "#e8b59b"
-      sprite: Mobs/Species/Human/parts.rsi
-      state: r_hand
+    # WD EDIT START: HumanoidVisualLayers -> BodyAppearanceLayer
+    - map: [ "enum.BodyAppearanceLayer.LeftHand" ]
+    - map: [ "enum.BodyAppearanceLayer.RightHand" ]
+    # WD EDIT END
     - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
       color: "#ffffff"
       sprite: Objects/Misc/handcuffs.rsi
@@ -78,10 +59,10 @@
     - map: [ "head" ]
     - map: [ "pocket1" ]
     - map: [ "pocket2" ]
-    - map: [ "enum.HumanoidVisualLayers.Tail" ]
-      sprite: Mobs/Customization/masking_helpers.rsi
-      state: none
-      visible: false
+    # WD EDIT START: HumanoidVisualLayers -> BodyAppearanceLayer
+    - map: [ "enum.BodyAppearanceLayer.Tail" ]
+    - map: [ "enum.BodyAppearanceLayer.Wings" ]
+    # WD EDIT END
     - map: [ "clownedon" ] # Dynamically generated
       sprite: "Effects/creampie.rsi"
       state: "creampie_human"
@@ -162,34 +143,21 @@
   components:
   - type: Sprite
     layers:
-    - map: [ "enum.HumanoidVisualLayers.LLeg" ]
-      sprite: Mobs/Species/arachne.rsi
-      state: spider_body
-    - map: [ "enum.HumanoidVisualLayers.Chest" ]
-      color: "#e8b59b"
-      sprite: Mobs/Species/Human/parts.rsi
-      state: torso_m
-    - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+    # WD EDIT START: HumanoidVisualLayers -> BodyAppearanceLayer
+    - map: [ "enum.BodyAppearanceLayer.LeftLeg" ]
+    - map: [ "enum.BodyAppearanceLayer.Chest" ]
+    - map: [ "enum.BodyAppearanceLayer.Groin" ]
+    - map: [ "enum.BodyAppearanceLayer.RightLeg" ]
+    # WD EDIT END
       sprite: Mobs/Species/arachne.rsi
       state: spider_body_front
-    - map: [ "enum.HumanoidVisualLayers.Head" ]
-      color: "#e8b59b"
-      sprite: Mobs/Species/Human/parts.rsi
-      state: head_m
     - map: [ "enum.HumanoidVisualLayers.Snout" ]
     - map: [ "enum.HumanoidVisualLayers.Eyes" ]
-      color: "#008800"
-      sprite: Mobs/Species/eyes.rsi
-      state: eyes
     - map: [ "enum.HumanoidVisualLayers.Face" ]
-    - map: [ "enum.HumanoidVisualLayers.RArm" ]
-      color: "#e8b59b"
-      sprite: Mobs/Species/Human/parts.rsi
-      state: r_arm
-    - map: [ "enum.HumanoidVisualLayers.LArm" ]
-      color: "#e8b59b"
-      sprite: Mobs/Species/Human/parts.rsi
-      state: l_arm
+    # WD EDIT START: HumanoidVisualLayers -> BodyAppearanceLayer
+    - map: [ "enum.BodyAppearanceLayer.RightArm" ]
+    - map: [ "enum.BodyAppearanceLayer.LeftArm" ]
+    # WD EDIT END
 #     - shader: StencilClear
 #      sprite: Mobs/Species/Human/parts.rsi
 #      state: l_leg
@@ -199,14 +167,10 @@
       state: unisex_full
       visible: false
     - map: [ "jumpsuit" ]
-    - map: [ "enum.HumanoidVisualLayers.LHand" ]
-      color: "#e8b59b"
-      sprite: Mobs/Species/Human/parts.rsi
-      state: l_hand
-    - map: [ "enum.HumanoidVisualLayers.RHand" ]
-      color: "#e8b59b"
-      sprite: Mobs/Species/Human/parts.rsi
-      state: r_hand
+    # WD EDIT START: HumanoidVisualLayers -> BodyAppearanceLayer
+    - map: [ "enum.BodyAppearanceLayer.LeftHand" ]
+    - map: [ "enum.BodyAppearanceLayer.RightHand" ]
+    # WD EDIT END
     - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
       color: "#ffffff"
       sprite: Objects/Misc/handcuffs.rsi
@@ -232,7 +196,10 @@
     - map: [ "head" ]
     - map: [ "pocket1" ]
     - map: [ "pocket2" ]
-    - map: [ "enum.HumanoidVisualLayers.Tail" ]
+    # WD EDIT START: HumanoidVisualLayers -> BodyAppearanceLayer
+    - map: [ "enum.BodyAppearanceLayer.Tail" ]
+    - map: [ "enum.BodyAppearanceLayer.Wings" ]
+    # WD EDIT END
       sprite: Mobs/Customization/masking_helpers.rsi
       state: none
       visible: false
@@ -240,3 +207,7 @@
     templateId: anytaur
   - type: HumanoidAppearance
     species: Arachne
+  # WD EDIT START
+  - type: Body
+    prototype: Arachne
+  # WD EDIT END

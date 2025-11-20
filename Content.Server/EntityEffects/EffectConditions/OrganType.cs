@@ -9,7 +9,7 @@ namespace Content.Server.EntityEffects.EffectConditions;
 /// <summary>
 ///     Requires that the metabolizing organ is or is not tagged with a certain MetabolizerType
 /// </summary>
-public sealed partial class OrganType : EntityEffectCondition
+public sealed partial class MetabolizerType : EntityEffectCondition // WD EDIT: OrganType -> MetabolizerType
 {
     [DataField(required: true, customTypeSerializer: typeof(PrototypeIdSerializer<MetabolizerTypePrototype>))]
     public string Type = default!;

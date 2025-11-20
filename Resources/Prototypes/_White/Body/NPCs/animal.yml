@@ -1,0 +1,18 @@
+- type: body
+  id: Animal
+  organs:
+    heart:
+      type: Heart
+      startingOrgan: OrganHeartAnimal
+    lungs:
+      type: Lungs
+      startingOrgan: OrganLungsAnimal
+    stomach:
+      type: Stomach
+      startingOrgan: OrganStomachAnimal
+    liver:
+      type: Liver
+      startingOrgan: OrganLiverAnimal
+    kidneys:
+      type: Kidneys
+      startingOrgan: OrganKidneysAnimal

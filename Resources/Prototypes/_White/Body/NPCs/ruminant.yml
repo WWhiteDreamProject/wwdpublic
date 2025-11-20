@@ -1,0 +1,21 @@
+- type: body
+  id: Ruminant
+  organs:
+    heart:
+      type: Heart
+      startingOrgan: OrganHeartAnimal
+    lungs:
+      type: Lungs
+      startingOrgan: OrganLungsAnimal
+    stomach:
+      type: Stomach
+      startingOrgan: OrganStomachRuminant
+    stomach2:
+      type: Stomach
+      startingOrgan: OrganStomachRuminant
+    liver:
+      type: Liver
+      startingOrgan: OrganLiverAnimal
+    kidneys:
+      type: Kidneys
+      startingOrgan: OrganKidneysAnimal

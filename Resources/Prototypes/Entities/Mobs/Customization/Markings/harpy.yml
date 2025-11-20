@@ -3,7 +3,6 @@
 # Ears Markings
 - type: marking
   id: HarpyWingDefaultHuescale
-  bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [Harpy]
   coloring:
@@ -17,10 +16,13 @@
   sprites:
     - sprite: Mobs/Customization/Harpy/harpy_wings.rsi
       state: huescale_harpy
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.RightArm
+      bodyPart: RightArm
+      # WD EDIT END
 
 - type: marking
   id: HarpyWingDefaultWhitescale
-  bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [Harpy]
   coloring:
@@ -34,10 +36,13 @@
   sprites:
     - sprite: Mobs/Customization/Harpy/harpy_wings.rsi
       state: whitescale_harpy
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.RightArm
+      bodyPart: RightArm
+      # WD EDIT END
 
 - type: marking
   id: HarpyWingClassic
-  bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [Harpy]
   coloring:
@@ -51,10 +56,13 @@
   sprites:
     - sprite: Mobs/Customization/Harpy/harpy_wings.rsi
       state: classic_harpy
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.RightArm
+      bodyPart: RightArm
+      # WD EDIT END
 
 - type: marking
   id: HarpyWingFoldedHuescale
-  bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [Harpy]
   coloring:
@@ -68,10 +76,13 @@
   sprites:
     - sprite: Mobs/Customization/Harpy/harpy_wings.rsi
       state: huescale_harpy_folded
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.RightArm
+      bodyPart: RightArm
+      # WD EDIT END
 
 - type: marking
   id: HarpyWingFoldedWhitescale
-  bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [Harpy]
   coloring:
@@ -85,10 +96,13 @@
   sprites:
     - sprite: Mobs/Customization/Harpy/harpy_wings.rsi
       state: whitescale_harpy_folded
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.RightArm
+      bodyPart: RightArm
+      # WD EDIT END
 
 - type: marking
   id: HarpyWingOwlHuescale
-  bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [Harpy]
   coloring:
@@ -102,10 +116,13 @@
   sprites:
     - sprite: Mobs/Customization/Harpy/harpy_wings.rsi
       state: huescale_harpy_wing_owl
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.RightArm
+      bodyPart: RightArm
+      # WD EDIT END
 
 - type: marking
   id: HarpyWingOwlWhitescale
-  bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [Harpy]
   coloring:
@@ -119,10 +136,13 @@
   sprites:
     - sprite: Mobs/Customization/Harpy/harpy_wings.rsi
       state: whitescale_harpy_wing_owl
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.RightArm
+      bodyPart: RightArm
+      # WD EDIT END
 
 - type: marking
   id: HarpyEarsDefault
-  bodyPart: Head
   markingCategory: HeadTop
   speciesRestriction: [Harpy]
   coloring:
@@ -136,10 +156,13 @@
   sprites:
     - sprite: Mobs/Customization/Harpy/harpy_ears.rsi
       state: harpy_ears_default
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: HarpyEarsLarge
-  bodyPart: Head
   markingCategory: HeadTop
   speciesRestriction: [Harpy]
   coloring:
@@ -153,27 +176,13 @@
   sprites:
     - sprite: Mobs/Customization/Harpy/harpy_ears.rsi
       state: harpy_ears_large
-
-- type: marking
-  id: HarpyTailPhoenix
-  bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Harpy]
-  coloring:
-    default:
-      type:
-        !type:CategoryColoring
-          category: Hair
-      fallbackTypes:
-        - !type:SimpleColoring
-          color: "#964b00"
-  sprites:
-    - sprite: Mobs/Customization/Harpy/harpy_tails.rsi
-      state: phoenix_tail
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: HarpyTailRooster
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Harpy]
   coloring:
@@ -186,10 +195,14 @@
   sprites:
     - sprite: Mobs/Customization/Harpy/harpy_tails.rsi
       state: rooster_tail
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      replacementBodyPart: BodyPartTailHarpy
+      # WD EDIT END
 
 - type: marking
   id: HarpyTailForkedWhitescale
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Harpy]
   coloring:
@@ -202,10 +215,14 @@
   sprites:
     - sprite: Mobs/Customization/Harpy/harpy_tails.rsi
       state: whitescale_forked_tailfin
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      replacementBodyPart: BodyPartTailHarpy
+      # WD EDIT END
 
 - type: marking
   id: HarpyTailForkedHuescale
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Harpy]
   coloring:
@@ -218,10 +235,14 @@
   sprites:
     - sprite: Mobs/Customization/Harpy/harpy_tails.rsi
       state: huescale_forked_tailfin
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      replacementBodyPart: BodyPartTailHarpy
+      # WD EDIT END
 
 - type: marking
   id: HarpyTailFinch
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Harpy]
   coloring:
@@ -234,10 +255,14 @@
   sprites:
     - sprite: Mobs/Customization/Harpy/harpy_tails36x36.rsi
       state: finch_tail
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      replacementBodyPart: BodyPartTailHarpy
+      # WD EDIT END
 
 - type: marking
   id: HarpyTailPeacock
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Harpy]
   coloring:
@@ -250,12 +275,20 @@
   sprites:
     - sprite: Mobs/Customization/Harpy/harpy_tails48x48.rsi
       state: peacock_tail_feathers
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      replacementBodyPart: BodyPartTailHarpy
+      # WD EDIT END
     - sprite: Mobs/Customization/Harpy/harpy_tails48x48.rsi
       state: peacock_tail_eyes
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      # WD EDIT END
 
 - type: marking
   id: HarpyTailHaven
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Harpy]
   coloring:
@@ -268,12 +301,20 @@
   sprites:
     - sprite: Mobs/Customization/Harpy/harpy_tails.rsi
       state: haven_tone_1
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      replacementBodyPart: BodyPartTailHarpy
+      # WD EDIT END
     - sprite: Mobs/Customization/Harpy/harpy_tails.rsi
       state: haven_tone_2
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      # WD EDIT END
 
 - type: marking
   id: HarpyTailForkedLong
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Harpy]
   coloring:
@@ -286,10 +327,14 @@
   sprites:
     - sprite: Mobs/Customization/Harpy/harpy_tails.rsi
       state: forked_long
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      replacementBodyPart: BodyPartTailHarpy
+      # WD EDIT END
 
 - type: marking
   id: HarpyTailSwallow
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Harpy]
   coloring:
@@ -302,78 +347,128 @@
   sprites:
     - sprite: Mobs/Customization/Harpy/harpy_tails.rsi
       state: swallow_tail
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      replacementBodyPart: BodyPartTailHarpy
+      # WD EDIT END
 
 - type: marking
   id: HarpyWing2ToneClassic
-  bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [Harpy]
   sprites:
     - sprite: Mobs/Customization/Harpy/harpy_wings.rsi
       state: harpy_2tone_1
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.RightArm
+      bodyPart: RightArm
+      # WD EDIT END
     - sprite: Mobs/Customization/Harpy/harpy_wings.rsi
       state: harpy_2tone_2
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.RightArm
+      bodyPart: RightArm
+      # WD EDIT END
 
 - type: marking
   id: HarpyWing3ToneClassic
-  bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [Harpy]
   sprites:
     - sprite: Mobs/Customization/Harpy/harpy_wings.rsi
       state: harpy_3tone_1
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.RightArm
+      bodyPart: RightArm
+      # WD EDIT END
     - sprite: Mobs/Customization/Harpy/harpy_wings.rsi
       state: harpy_3tone_2
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.RightArm
+      bodyPart: RightArm
+      # WD EDIT END
     - sprite: Mobs/Customization/Harpy/harpy_wings.rsi
       state: harpy_3tone_3
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.RightArm
+      bodyPart: RightArm
+      # WD EDIT END
 
 - type: marking
   id: HarpyWingSpeckledClassic
-  bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [Harpy]
   sprites:
     - sprite: Mobs/Customization/Harpy/harpy_wings.rsi
       state: harpy_speckled_1
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.RightArm
+      bodyPart: RightArm
+      # WD EDIT END
     - sprite: Mobs/Customization/Harpy/harpy_wings.rsi
       state: harpy_speckled_2
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.RightArm
+      bodyPart: RightArm
+      # WD EDIT END
 
 - type: marking
   id: HarpyWingUndertoneClassic
-  bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [Harpy]
   sprites:
     - sprite: Mobs/Customization/Harpy/harpy_wings.rsi
       state: harpy_undertone_1
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.RightArm
+      bodyPart: RightArm
+      # WD EDIT END
     - sprite: Mobs/Customization/Harpy/harpy_wings.rsi
       state: harpy_undertone_2
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.RightArm
+      bodyPart: RightArm
+      # WD EDIT END
 
 - type: marking
   id: HarpyWingTipsClassic
-  bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [Harpy]
   sprites:
     - sprite: Mobs/Customization/Harpy/harpy_wings.rsi
       state: harpy_wingtip_1
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.RightArm
+      bodyPart: RightArm
+      # WD EDIT END
     - sprite: Mobs/Customization/Harpy/harpy_wings.rsi
       state: harpy_wingtip_2
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.RightArm
+      bodyPart: RightArm
+      # WD EDIT END
 
 - type: marking
   id: HarpyWingBat
-  bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [Harpy]
   sprites:
     - sprite: Mobs/Customization/Harpy/harpy_wings.rsi
       state: bat_wings_tone_1
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.RightArm
+      bodyPart: RightArm
+      # WD EDIT END
     - sprite: Mobs/Customization/Harpy/harpy_wings.rsi
       state: bat_wings_tone_2
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.RightArm
+      bodyPart: RightArm
+      # WD EDIT END
 
 - type: marking
   id: HarpyWingBionic
-  bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [Harpy]
   shaders:
@@ -381,12 +476,19 @@
   sprites:
     - sprite: Mobs/Customization/Harpy/harpy_wings.rsi
       state: bionic_wings_tone_1
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.RightArm
+      bodyPart: RightArm
+      # WD EDIT END
     - sprite: Mobs/Customization/Harpy/harpy_wings.rsi
       state: bionic_wings_tone_2
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.RightArm
+      bodyPart: RightArm
+      # WD EDIT END
 
 - type: marking
   id: HarpyChestDefault
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Harpy]
   coloring:
@@ -400,12 +502,19 @@
   sprites:
     - sprite: Mobs/Customization/Harpy/harpy_chest.rsi
       state: upper
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Chest
+      bodyPart: Chest
+      # WD EDIT END
     - sprite: Mobs/Customization/Harpy/harpy_chest.rsi
       state: lower
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Groin
+      bodyPart: Groin
+      # WD EDIT END
 
 - type: marking
   id: HarpyLegsDefault
-  bodyPart: LLeg
   markingCategory: RightLeg
   speciesRestriction: [Harpy]
   coloring:
@@ -419,10 +528,13 @@
   sprites:
     - sprite: Mobs/Customization/Harpy/harpy_legs.rsi
       state: thighs
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.LeftLeg
+      bodyPart: LeftLeg
+      # WD EDIT END
 
 - type: marking
   id: HarpyFeetDefault
-  bodyPart: RFoot
   markingCategory: RightLeg
   speciesRestriction: [Harpy]
   coloring:
@@ -433,5 +545,13 @@
   sprites:
     - sprite: Mobs/Customization/Harpy/harpy_legs.rsi
       state: feet
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.LeftLeg
+      bodyPart: RightFoot
+      # WD EDIT END
     - sprite: Mobs/Customization/Harpy/harpy_legs.rsi
       state: talons
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.LeftLeg
+      bodyPart: RightFoot
+      # WD EDIT END

@@ -1,3 +1,4 @@
+using Content.Shared._White.Humanoid.Prototypes;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
@@ -40,14 +41,6 @@ public sealed partial class SpeciesPrototype : IPrototype
     // Species implementors can just override SpriteComponent if they want a custom
     // sprite layout, and leave this null. Keep in mind that this will disable
     // sprite accessories.
-
-    // WD EDIT START
-    /// <summary>
-    ///     Default body type for this species.
-    /// </summary>
-    [DataField(required: true)]
-    public List<string> BodyTypes { get; } = default!;
-    // WD EDIT END
 
     /// <summary>
     ///     Default skin tone for this species. This applies for non-human skin tones.
@@ -192,6 +185,14 @@ public sealed partial class SpeciesPrototype : IPrototype
     /// </summary>
     [DataField]
     public int BonusTraitPoints;
+
+    // WD EDIT START
+    /// <summary>
+    ///     Default body type for this species.
+    /// </summary>
+    [DataField]
+    public List<ProtoId<BodyTypePrototype>> BodyTypes { get; } = new() { "Normal", };
+    // WD EDIT END
 }
 
 public enum SpeciesNaming : byte

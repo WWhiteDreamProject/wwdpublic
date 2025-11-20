@@ -3,13 +3,9 @@
 #   name: species-name-synth-human
 #   roundStart: false
 #   prototype: MobSynthHuman
-#   # WD EDIT START
-#   bodyTypes:
-#   - HumanNormal
-#   # WD EDIT END
-#  defaultSkinTone: "#FFFFFFFF"
+#   defaultSkinTone: "#FFFFFFFF"
 #   markingLimits: MobHumanMarkingLimits
-#  dollPrototype: BioSynthTorso
+#   dollPrototype: BioSynthTorso
 #   skinColoration: Hues
 #   sexes:
 #   - Unsexed

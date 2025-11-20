@@ -1,6 +1,5 @@
 - type: marking
   id: BullishHorns
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Human, IPC, Oni]
   coloring:
@@ -13,10 +12,13 @@
   sprites:
   - sprite: Mobs/Customization/kemonomimi-ears.rsi
     state: bullishhorns
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: BunnyEars
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Human, IPC]
   coloring:
@@ -34,12 +36,19 @@
   sprites:
   - sprite: Mobs/Customization/kemonomimi-ears.rsi
     state: bunnyearstone1
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
   - sprite: Mobs/Customization/kemonomimi-ears.rsi
     state: bunnyearstone2
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: BunnyEarsAlt
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Human, IPC]
   coloring:
@@ -52,10 +61,13 @@
   sprites:
   - sprite: Mobs/Customization/kemonomimi-ears.rsi
     state: bunnyearsalt
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: FoxEars
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Human, IPC]
   coloring:
@@ -68,10 +80,13 @@
   sprites:
   - sprite: Mobs/Customization/kemonomimi-ears.rsi
     state: foxears
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: GoatHorns
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Human, IPC]
   coloring:
@@ -89,5 +104,13 @@
   sprites:
   - sprite: Mobs/Customization/kemonomimi-ears.rsi
     state: goathornstone1
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
   - sprite: Mobs/Customization/kemonomimi-ears.rsi
     state: goathornstone2
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END

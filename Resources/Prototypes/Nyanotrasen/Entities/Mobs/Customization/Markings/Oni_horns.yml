@@ -1,69 +1,90 @@
 - type: marking
   id: OniHornSingleCurved
-  bodyPart: HeadTop
   markingCategory: HeadTop
   forcedColoring: false
   speciesRestriction: [Oni]
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/oni_horns.rsi
     state: single_curved
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: OniHornSingleLeftCurved
-  bodyPart: HeadTop
   markingCategory: HeadTop
   forcedColoring: false
   speciesRestriction: [Oni]
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/oni_horns.rsi
     state: single_left_curved
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: OniHornSingleRightCurved
-  bodyPart: HeadTop
   markingCategory: HeadTop
   forcedColoring: false
   speciesRestriction: [Oni]
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/oni_horns.rsi
     state: single_right_curved
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: OniHornDoubleCurvedOutwards
-  bodyPart: HeadTop
   markingCategory: HeadTop
   forcedColoring: false
   speciesRestriction: [Oni]
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/oni_horns.rsi
     state: double_curved_outwards
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: OniHornDoubleCurved
-  bodyPart: HeadTop
   markingCategory: HeadTop
   forcedColoring: false
   speciesRestriction: [Oni]
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/oni_horns.rsi
     state: double_curved
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: OniHornDoubleLeftBrokeCurved
-  bodyPart: HeadTop
   markingCategory: HeadTop
   forcedColoring: false
   speciesRestriction: [Oni]
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/oni_horns.rsi
     state: double_left_broke_curved
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: OniHornDoubleRightBrokeCurved
-  bodyPart: HeadTop
   markingCategory: HeadTop
   forcedColoring: false
   speciesRestriction: [Oni]
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/oni_horns.rsi
     state: double_right_broke_curved
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END

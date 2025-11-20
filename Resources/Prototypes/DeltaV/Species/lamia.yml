@@ -4,10 +4,6 @@
   roundStart: false
   prototype: MobLamia
   dollPrototype: MobLamiaDummy
-  # WD EDIT START
-  bodyTypes:
-  - LamiaNormal
-  # WD EDIT END
   defaultSkinTone: "#c0967f"
   markingLimits: MobLamiaMarkingLimits
   skinColoration: HumanToned
@@ -40,6 +36,11 @@
     Chest:
       points: 1
       required: false
+    # WD EDIT START
+    Groin:
+      points: 1
+      required: false
+    # WD EDIT END
     RightArm:
       points: 2
       required: false
@@ -52,24 +53,3 @@
     LeftHand:
       points: 3
       required: false
-
-# WD EDIT START
-- type: bodyType
-  id: LamiaNormal
-  name: body-normal
-# WD EDIT END
-  sprites:
-    Head: MobHumanHead
-    Face: MobHumanoidAnyMarking
-    HeadTop: MobHumanoidAnyMarking
-    HeadSide: MobHumanoidAnyMarking
-    Hair: MobHumanoidAnyMarking
-    FacialHair: MobHumanoidAnyMarking
-    Snout: MobHumanoidAnyMarking
-    Chest: MobHumanTorso
-    Eyes: MobHumanoidEyes
-    LArm: MobHumanLArm
-    RArm: MobHumanRArm
-    LHand: MobHumanLHand
-    RHand: MobHumanRHand
-    Tail: MobHumanoidAnyMarking

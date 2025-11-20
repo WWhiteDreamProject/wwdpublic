@@ -2,8 +2,9 @@ using System.Linq;
 using Content.Server.Atmos.Components;
 using Content.Server.Bed.Components;
 using Content.Server.Cloning.Components;
-using Content.Shared.Body.Part;
-using Content.Shared.Body.Systems;
+using Content.Shared._White.Body;
+using Content.Shared._White.Body.Components;
+using Content.Shared._White.Body.Systems;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Mobs;
@@ -25,49 +26,36 @@ public sealed class IgniteFromGasSystem : EntitySystem
     public override void Initialize()
     {
         SubscribeLocalEvent<FlammableComponent, BodyPartAddedEvent>(OnBodyPartAdded);
-        /*SubscribeLocalEvent<FlammableComponent, BodyPartAttachedEvent>(OnBodyPartAttached);*/
 
         SubscribeLocalEvent<IgniteFromGasComponent, BodyPartRemovedEvent>(OnBodyPartRemoved);
-        /*SubscribeLocalEvent<IgniteFromGasComponent, BodyPartDroppedEvent>(OnBodyPartDropped);*/
 
         SubscribeLocalEvent<IgniteFromGasImmunityComponent, GotEquippedEvent>(OnIgniteFromGasImmunityEquipped);
         SubscribeLocalEvent<IgniteFromGasImmunityComponent, GotUnequippedEvent>(OnIgniteFromGasImmunityUnequipped);
     }
 
-    private void OnBodyPartAdded(Entity<FlammableComponent> ent, ref BodyPartAddedEvent args) =>
-        HandleAddBodyPart(ent.Owner, args.Part);
-    /*private void OnBodyPartAttached(Entity<FlammableComponent> ent, ref BodyPartAttachedEvent args) =>
-        HandleAddBodyPart(ent.Owner, args.Part);*/
-
-    private void HandleAddBodyPart(EntityUid uid, Entity<BodyPartComponent> part)
+    // WD EDIT START
+    private void OnBodyPartAdded(Entity<FlammableComponent> ent, ref BodyPartAddedEvent args)
     {
-        /*if (!TryComp<IgniteFromGasPartComponent>(part, out var ignitePart) ||
-            _body.GetTargetBodyPart(part.Comp.PartType, part.Comp.Symmetry) is not { } targetBodyPart)
+        if (!TryComp<IgniteFromGasPartComponent>(args.Part, out var ignitePart))
             return;
 
-        if (!TryComp<IgniteFromGasComponent>(uid, out var ignite))
+        if (!TryComp<IgniteFromGasComponent>(ent, out var ignite))
         {
-            ignite = EnsureComp<IgniteFromGasComponent>(uid);
+            ignite = EnsureComp<IgniteFromGasComponent>(ent);
             ignite.Gas = ignitePart.Gas;
         }
 
-        ignite.IgnitableBodyParts[targetBodyPart] = ignitePart.FireStacks;
+        ignite.IgnitableBodyParts[args.Part.Comp.Type] = ignitePart.FireStacks;
 
-        UpdateIgniteImmunity((uid, ignite));*/
+        UpdateIgniteImmunity((ent, ignite));
     }
 
-    private void OnBodyPartRemoved(Entity<IgniteFromGasComponent> ent, ref BodyPartRemovedEvent args) =>
-        HandleRemoveBodyPart(ent, args.Part);
-    /*private void OnBodyPartDropped(Entity<IgniteFromGasComponent> ent, ref BodyPartDroppedEvent args) =>
-        HandleRemoveBodyPart(ent, args.Part);*/
-
-    private void HandleRemoveBodyPart(Entity<IgniteFromGasComponent> ent, Entity<BodyPartComponent> part)
+    private void OnBodyPartRemoved(Entity<IgniteFromGasComponent> ent, ref BodyPartRemovedEvent args)
     {
-        /*if (!HasComp<IgniteFromGasPartComponent>(part) ||
-            _body.GetTargetBodyPart(part.Comp.PartType, part.Comp.Symmetry) is not { } targetBodyPart)
+        if (!HasComp<IgniteFromGasPartComponent>(args.Part))
             return;
 
-        ent.Comp.IgnitableBodyParts.Remove(targetBodyPart);
+        ent.Comp.IgnitableBodyParts.Remove(args.Part.Comp.Type);
 
         if (ent.Comp.IgnitableBodyParts.Count == 0)
         {
@@ -75,8 +63,9 @@ public sealed class IgniteFromGasSystem : EntitySystem
             return;
         }
 
-        UpdateIgniteImmunity((ent, ent.Comp));*/
+        UpdateIgniteImmunity((ent, ent.Comp));
     }
+    // WD EDIT END
 
     private void OnIgniteFromGasImmunityEquipped(Entity<IgniteFromGasImmunityComponent> ent, ref GotEquippedEvent args) =>
         UpdateIgniteImmunity(args.Equipee);
@@ -85,10 +74,10 @@ public sealed class IgniteFromGasSystem : EntitySystem
 
     public void UpdateIgniteImmunity(Entity<IgniteFromGasComponent?, InventoryComponent?> ent)
     {
-        /*if (!Resolve(ent, ref ent.Comp1, ref ent.Comp2, false))
+        if (!Resolve(ent, ref ent.Comp1, ref ent.Comp2, false))
             return;
 
-        var exposedBodyParts = new Dictionary<TargetBodyPart, float>(ent.Comp1.IgnitableBodyParts);
+        var exposedBodyParts = new Dictionary<BodyPartType, float>(ent.Comp1.IgnitableBodyParts); // WD EDIT
 
         var containerSlotEnumerator = _inventory.GetSlotEnumerator((ent, ent.Comp2));
         while (containerSlotEnumerator.NextItem(out var item, out _))
@@ -106,7 +95,7 @@ public sealed class IgniteFromGasSystem : EntitySystem
             return;
         }
 
-        ent.Comp1.FireStacksPerUpdate = ent.Comp1.BaseFireStacksPerUpdate + exposedBodyParts.Values.Sum();*/
+        ent.Comp1.FireStacksPerUpdate = ent.Comp1.BaseFireStacksPerUpdate + exposedBodyParts.Values.Sum();
     }
 
     public override void Update(float frameTime)

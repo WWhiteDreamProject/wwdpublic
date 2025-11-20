@@ -1,3 +1,5 @@
+using Content.Server._White.Body.Systems;
+using Content.Server._White.Gibbing;
 using Content.Server.Body.Systems;
 using Content.Server.Popups;
 using Content.Server.Power.Components;
@@ -5,7 +7,7 @@ using Content.Server.Power.EntitySystems;
 using Content.Server.Stack;
 using Content.Server.Storage.Components;
 using Content.Server.Xenoarchaeology.XenoArtifacts;
-using Content.Shared.Body.Components;
+using Content.Shared._White.Body.Components;
 using Content.Shared.Damage;
 using Content.Shared.Power;
 using Content.Shared.Verbs;
@@ -28,6 +30,7 @@ public sealed class ArtifactCrusherSystem : SharedArtifactCrusherSystem
     [Dependency] private readonly StackSystem _stack = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private readonly GibbingSystem _gibbing = default!; // WD EDIT
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -106,10 +109,9 @@ public sealed class ArtifactCrusherSystem : SharedArtifactCrusherSystem
                 _artifact.ForceActivateArtifact(contained);
             }
 
-            if (!TryComp<BodyComponent>(contained, out var body))
+            if (!_gibbing.TryGibBody(contained, out var gibs, true)) // WD EDIT
                 Del(contained);
 
-            var gibs = _body.GibBody(contained, body: body, gibOrgans: true);
             foreach (var gib in gibs)
             {
                 ContainerSystem.Insert((gib, null, null, null), crusher.OutputContainer);

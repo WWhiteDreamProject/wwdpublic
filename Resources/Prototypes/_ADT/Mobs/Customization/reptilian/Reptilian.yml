@@ -1,344 +1,516 @@
 - type: marking
   id: ReptilianDrawingKhar
-  bodyPart: Chest
   markingCategory: Overlay
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: _ADT/Mobs/Customization/Reptilian/custom.rsi
     state: drawing_khar
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+    # WD EDIT END
 
 - type: marking
   id: ReptilianDrawingSkeletBody
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: _ADT/Mobs/Customization/Reptilian/custom.rsi
     state: drawing_skelet_body
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+    # WD EDIT END
 
 - type: marking
   id: ReptilianDrawingSkeleton
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: _ADT/Mobs/Customization/Reptilian/custom.rsi
     state: drawing_skeleton
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+    # WD EDIT END
 
 - type: marking
   id: ReptilianDrawingSun
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: _ADT/Mobs/Customization/Reptilian/custom.rsi
     state: drawing_sun
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+    # WD EDIT END
 
 - type: marking
   id: ReptilianDrawingWarpaint
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: _ADT/Mobs/Customization/Reptilian/custom.rsi
     state: drawing_warpaint
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+    # WD EDIT END
 
 - type: marking
   id: ReptilianLineEyes
-  bodyPart: Eyes
   markingCategory: Head
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: _ADT/Mobs/Customization/Reptilian/custom.rsi
     state: lineeyes
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Eyes
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: SnoutEasternDNW
-  bodyPart: Snout
   markingCategory: Snout
   speciesRestriction: [Reptilian]
   sprites:
     - sprite: _ADT/Mobs/Customization/Reptilian/reptilian_snouts.rsi
       state: easterndnw_primary
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Snout
+      bodyPart: Head
+      # WD EDIT END
     - sprite: _ADT/Mobs/Customization/Reptilian/reptilian_snouts.rsi
       state: easterndnw_secondary
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Snout
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: SnoutEasternDW
-  bodyPart: Snout
   markingCategory: Snout
   speciesRestriction: [Reptilian]
   sprites:
     - sprite: _ADT/Mobs/Customization/Reptilian/reptilian_snouts.rsi
       state: easterndw_primary
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Snout
+      bodyPart: Head
+      # WD EDIT END
     - sprite: _ADT/Mobs/Customization/Reptilian/reptilian_snouts.rsi
       state: easterndnw_secondary
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Snout
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: EarsSylveon
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Reptilian]
   sprites:
     - sprite: _ADT/Mobs/Customization/Reptilian/reptilian_ears.rsi
       state: sylveon_primary
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
     - sprite: _ADT/Mobs/Customization/Reptilian/reptilian_ears.rsi
       state: sylveon_secondary
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
     - sprite: _ADT/Mobs/Customization/Reptilian/reptilian_ears.rsi
       state: sylveon_tertiary
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: EarsResomi
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Reptilian]
   sprites:
     - sprite: _ADT/Mobs/Customization/Reptilian/reptilian_ears.rsi
       state: avali_inner
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
     - sprite: _ADT/Mobs/Customization/Reptilian/reptilian_ears.rsi
       state: avali_outer
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: EarsChemlight
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Reptilian]
   sprites:
     - sprite: _ADT/Mobs/Customization/Reptilian/reptilian_ears.rsi
       state: chemlight_outer
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
     - sprite: _ADT/Mobs/Customization/Reptilian/reptilian_ears.rsi
       state: chemlight_inner
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: EarsDragonLong
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Reptilian]
   sprites:
     - sprite: _ADT/Mobs/Customization/Reptilian/reptilian_ears.rsi
       state: dragonlong
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: EarsEasternD
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Reptilian]
   sprites:
     - sprite: _ADT/Mobs/Customization/Reptilian/reptilian_ears.rsi
       state: easternd_ears
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
     - sprite: _ADT/Mobs/Customization/Reptilian/reptilian_ears.rsi
       state: easternd_horns
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: EarsMagus
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Reptilian]
   sprites:
     - sprite: _ADT/Mobs/Customization/Reptilian/reptilian_ears.rsi
       state: magus_ears
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
     - sprite: _ADT/Mobs/Customization/Reptilian/reptilian_ears.rsi
       state: magus_neck
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: ReptilianHornsBaran
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: _ADT/Mobs/Customization/Reptilian/custom.rsi
     state: horns_baran
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: ReptilianHornsBullhorns
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: _ADT/Mobs/Customization/Reptilian/custom.rsi
     state: horns_bullhorns
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: ReptilianHornsCrown
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: _ADT/Mobs/Customization/Reptilian/custom.rsi
     state: horns_crown
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: ReptilianHornsFive
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: _ADT/Mobs/Customization/Reptilian/custom.rsi
     state: horns_five
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: ReptilianHornsHighback
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: _ADT/Mobs/Customization/Reptilian/custom.rsi
     state: horns_highback
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: ReptilianHornsJacksonchameleon
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: _ADT/Mobs/Customization/Reptilian/custom.rsi
     state: horns_jacksonchameleon
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: ReptilianHornsLong
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: _ADT/Mobs/Customization/Reptilian/custom.rsi
     state: horns_long
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: ReptilianHornsStagbeetle
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: _ADT/Mobs/Customization/Reptilian/custom.rsi
     state: horns_stagbeetle
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: ReptilianHornsSuperlong
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: _ADT/Mobs/Customization/Reptilian/custom.rsi
     state: horns_superlong
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: ReptilianHornsTwoago
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: _ADT/Mobs/Customization/Reptilian/custom.rsi
     state: horns_twoago
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: TailAxolotl
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Reptilian]
   sprites:
     - sprite: _ADT/Mobs/Customization/Reptilian/reptilian_tails.rsi
       state: axolotl
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      replacementBodyPart: BodyPartTailReptilian
+      # WD EDIT END
 
 - type: marking
   id: TailDatashark
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Reptilian]
   sprites:
     - sprite: _ADT/Mobs/Customization/Reptilian/reptilian_tails.rsi
       state: datashark_ears_inner
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      replacementBodyPart: BodyPartTailReptilian
+      # WD EDIT END
     - sprite: _ADT/Mobs/Customization/Reptilian/reptilian_tails.rsi
       state: datashark_ears
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      # WD EDIT END
     - sprite: _ADT/Mobs/Customization/Reptilian/reptilian_tails.rsi
       state: datashark_fin
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      # WD EDIT END
     - sprite: _ADT/Mobs/Customization/Reptilian/reptilian_tails.rsi
       state: datashark_tail
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      # WD EDIT END
     - sprite: _ADT/Mobs/Customization/Reptilian/reptilian_tails.rsi
       state: datashark_taildata
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      # WD EDIT END
 
 - type: marking
   id: TailEasternDragon
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Reptilian]
   sprites:
     - sprite: _ADT/Mobs/Customization/Reptilian/reptilian_tails.rsi
       state: easternd_primary
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      replacementBodyPart: BodyPartTailReptilian
+      # WD EDIT END
     - sprite: _ADT/Mobs/Customization/Reptilian/reptilian_tails.rsi
       state: easternd_secondary
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      # WD EDIT END
 
 - type: marking
   id: TailFish
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Reptilian]
   sprites:
     - sprite: _ADT/Mobs/Customization/Reptilian/reptilian_tails.rsi
       state: fish_primary
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      replacementBodyPart: BodyPartTailReptilian
+      # WD EDIT END
     - sprite: _ADT/Mobs/Customization/Reptilian/reptilian_tails.rsi
       state: fish_secondary
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      # WD EDIT END
 
 - type: marking
   id: TailMaw
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Reptilian]
   sprites:
     - sprite: _ADT/Mobs/Customization/Reptilian/reptilian_tails.rsi
       state: maw
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      replacementBodyPart: BodyPartTailReptilian
+      # WD EDIT END
 
 - type: marking
   id: TailShark
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Reptilian]
   sprites:
     - sprite: _ADT/Mobs/Customization/Reptilian/reptilian_tails.rsi
       state: shark_fin
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      replacementBodyPart: BodyPartTailReptilian
+      # WD EDIT END
     - sprite: _ADT/Mobs/Customization/Reptilian/reptilian_tails.rsi
       state: shark_tail
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      # WD EDIT END
 
 - type: marking
   id: TailSnake
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Reptilian]
   sprites:
     - sprite: _ADT/Mobs/Customization/Reptilian/reptilian_tails.rsi
       state: snake
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      replacementBodyPart: BodyPartTailReptilian
+      # WD EDIT END
 
 - type: marking
   id: ReptilianTattoSkeletArmL
-  bodyPart: LArm
   markingCategory: LeftArm
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: _ADT/Mobs/Customization/Reptilian/custom.rsi
     state: tatto_skelet_arm_l
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftArm
+    bodyPart: LeftArm
+    # WD EDIT END
 
 - type: marking
   id: ReptilianTattoSkeletArmR
-  bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: _ADT/Mobs/Customization/Reptilian/custom.rsi
     state: tatto_skelet_arm_r
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightArm
+    bodyPart: RightArm
+    # WD EDIT END
 
 - type: marking
   id: ReptilianTattoSkeletLegL
-  bodyPart: LLeg
   markingCategory: LeftLeg
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: _ADT/Mobs/Customization/Reptilian/custom.rsi
     state: tatto_skelet_leg_l
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftLeg
+    bodyPart: LeftLeg
+    # WD EDIT END
 
 - type: marking
   id: ReptilianTattoSkeletLegR
-  bodyPart: RLeg
   markingCategory: RightLeg
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: _ADT/Mobs/Customization/Reptilian/custom.rsi
     state: tatto_skelet_leg_r
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightLeg
+    bodyPart: RightLeg
+    # WD EDIT END

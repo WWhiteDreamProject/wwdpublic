@@ -1,0 +1,106 @@
+- type: body
+  id: Arachne
+  root: chest
+  bodyParts:
+    head:
+      type: Head
+      startingBodyPart: BodyPartHeadHuman
+      connections:
+      - chest
+      organs:
+        brain:
+          type: Brain
+          startingOrgan: OrganBrainHuman
+        ears:
+          type: Ears
+          startingOrgan: OrganEarsHuman
+        eyes:
+          type: Eyes
+          startingOrgan: OrganEyesArachne
+        tongue:
+          type: Tongue
+          startingOrgan: OrganTongueHuman
+    chest:
+      type: Chest
+      startingBodyPart: BodyPartChestHuman
+      connections:
+      - wings
+      - right_arm
+      - left_arm
+      - groin
+      organs:
+        heart:
+          type: Heart
+          startingOrgan: OrganHeartHuman
+        lungs:
+          type: Lungs
+          startingOrgan: OrganLungsHuman
+    groin:
+      type: Groin
+      startingBodyPart: BodyPartGroinHuman
+      connections:
+      - thorax
+      organs:
+        stomach:
+          type: Stomach
+          startingOrgan: OrganStomachArachne
+        liver:
+          type: Liver
+          startingOrgan: OrganLiverHuman
+        kidneys:
+          type: Kidneys
+          startingOrgan: OrganKidneysHuman
+    left_arm:
+      type: LeftArm
+      startingBodyPart: BodyPartLeftArmHuman
+      connections:
+      - left_hand
+    right_arm:
+      type: RightArm
+      startingBodyPart: BodyPartRightArmHuman
+      connections:
+      - right_hand
+    left_hand:
+      type: LeftHand
+      startingBodyPart: BodyPartLeftHandHuman
+    right_hand:
+      type: RightHand
+      startingBodyPart: BodyPartRightHandHuman
+    thorax:
+      type: Groin
+      startingBodyPart: BodyPartGroinArachne
+      connections:
+      - left_leg_fore
+      - left_leg_second
+      - left_leg_third
+      - left_leg_hind
+      - right_leg_fore
+      - right_leg_second
+      - right_leg_third
+      - right_leg_hind
+    left_leg_fore:
+      type: LeftLeg
+      startingBodyPart: BodyPartLeftLegArachne
+    left_leg_second:
+      type: LeftLeg
+      startingBodyPart: BodyPartLeftLegArachne
+    left_leg_third:
+      type: LeftLeg
+      startingBodyPart: BodyPartLeftLegArachne
+    left_leg_hind:
+      type: LeftLeg
+      startingBodyPart: BodyPartLeftLegArachne
+    right_leg_fore:
+      type: RightLeg
+      startingBodyPart: BodyPartRightLegArachne
+    right_leg_second:
+      type: RightLeg
+      startingBodyPart: BodyPartRightLegArachne
+    right_leg_third:
+      type: RightLeg
+      startingBodyPart: BodyPartRightLegArachne
+    right_leg_hind:
+      type: RightLeg
+      startingBodyPart: BodyPartRightLegArachne
+    wings:
+      type: Wings

@@ -2,9 +2,10 @@ using System.Numerics;
 using Content.Server.Inventory;
 using Content.Server.Stack;
 using Content.Server.Stunnable;
+using Content.Shared._White.Body;
+using Content.Shared._White.Body.Components;
 using Content.Shared.ActionBlocker;
 using Content.Shared._White.Hands;
-using Content.Shared.Body.Part;
 using Content.Shared.CombatMode;
 using Content.Shared.Explosion;
 using Content.Shared.Hands;
@@ -131,28 +132,31 @@ namespace Content.Server.Hands.Systems
 
         private void HandleBodyPartAdded(EntityUid uid, HandsComponent component, ref BodyPartAddedEvent args)
         {
-            if (args.Part.Comp.PartType != BodyPartType.Hand)
+            if ((BodyPartType.Hand & args.Part.Comp.Type) == 0)
                 return;
 
             // If this annoys you, which it should.
             // Ping Smugleaf.
-            var location = args.Part.Comp.Symmetry switch
+            // WD EDIT START
+            var location = args.Part.Comp.Type switch
             {
-                BodyPartSymmetry.None => HandLocation.Middle,
-                BodyPartSymmetry.Left => HandLocation.Left,
-                BodyPartSymmetry.Right => HandLocation.Right,
-                _ => throw new ArgumentOutOfRangeException(nameof(args.Part.Comp.Symmetry))
+                BodyPartType.Hand => HandLocation.Middle,
+                BodyPartType.MiddleHand => HandLocation.Middle,
+                BodyPartType.LeftHand => HandLocation.Left,
+                BodyPartType.RightHand => HandLocation.Right,
+                _ => throw new ArgumentOutOfRangeException(nameof(args.Part.Comp.Type))
             };
+            // WD EDIT END
 
-            AddHand(uid, args.Slot, location);
+            AddHand(uid, args.SlotId, location); // WD EDIT
         }
 
         private void HandleBodyPartRemoved(EntityUid uid, HandsComponent component, ref BodyPartRemovedEvent args)
         {
-            if (args.Part.Comp.PartType != BodyPartType.Hand)
+            if ((BodyPartType.Hand & args.Part.Comp.Type) == 0) // WD EDIT
                 return;
 
-            RemoveHand(uid, args.Slot);
+            RemoveHand(uid, args.SlotId); // WD EDIT
         }
 
         #region pulling

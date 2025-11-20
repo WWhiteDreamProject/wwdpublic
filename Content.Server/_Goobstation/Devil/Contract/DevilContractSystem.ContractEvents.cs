@@ -9,8 +9,8 @@
 using System.Linq;
 using Content.Shared._Goobstation.Devil;
 using Content.Server.Body.Components;
-using Content.Shared.Body.Components;
-using Content.Shared.Body.Part;
+using Content.Shared._White.Body.Components;
+using Content.Shared.Random.Helpers;
 using Robust.Shared.Random;
 
 namespace Content.Server._Goobstation.Devil.Contract;
@@ -57,9 +57,9 @@ public sealed partial class DevilContractSystem
         // QueueDel(pick.Id);
 
         var baseXform = Transform(args.Target);
-        foreach (var part in _bodySystem.GetBodyChildrenOfType(args.Target, BodyPartType.Hand, body))
+        foreach (var part in _bodySystem.GetBodyParts((args.Target, body), BodyPartType.Hand)) // WD EDIT
         {
-            _transform.AttachToGridOrMap(part.Id);
+            _transform.AttachToGridOrMap(part.Owner); // WD EDIT
             break;
         }
     }
@@ -86,28 +86,31 @@ public sealed partial class DevilContractSystem
         // _sawmill.Debug($"Removed part {ToPrettyString(pick.Id)} from {ToPrettyString(args.Target)}");
         // QueueDel(pick.Id);
         var baseXform = Transform(args.Target);
-        foreach (var part in _bodySystem.GetBodyChildrenOfType(args.Target, BodyPartType.Leg, body))
+        foreach (var part in _bodySystem.GetBodyParts((args.Target, body), BodyPartType.Leg)) // WD EDIT
         {
-            _transform.AttachToGridOrMap(part.Id);
+            _transform.AttachToGridOrMap(part.Owner);
             break;
         }
     }
 
     private void OnLoseOrgan(DevilContractLoseOrganEvent args)
     {
+        // WD EDIT START
+        if (!TryComp<BodyComponent>(args.Target, out var body))
+            return;
+
         // don't remove the brain, as funny as that is.
-        var eligibleOrgans = _bodySystem.GetBodyOrgans(args.Target)
-            .Where(o => !HasComp<BrainComponent>(o.Id))
+        var eligibleOrgans = _bodySystem.GetOrgans((args.Target, body))
+            .Where(o => !HasComp<BrainComponent>(o.Owner))
             .ToList();
+        // WD EDIT END
 
         if (eligibleOrgans.Count <= 0)
             return;
 
         var pick = _random.Pick(eligibleOrgans);
 
-        _bodySystem.RemoveOrgan(pick.Id, pick.Component);
-        _sawmill.Debug($"Removed part {ToPrettyString(pick.Id)} from {ToPrettyString(args.Target)}");
-        QueueDel(pick.Id);
+        QueueDel(pick.Owner); // WD EDIT
     }
 
     // LETS GO GAMBLING!!!!!

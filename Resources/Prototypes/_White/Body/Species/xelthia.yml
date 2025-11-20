@@ -1,0 +1,91 @@
+﻿- type: body
+  id: Xelthia
+  root: chest
+  bodyParts:
+    head:
+      type: Head
+      startingBodyPart: BodyPartHeadXelthia
+      connections:
+      - chest
+      organs:
+        brain:
+          type: Brain
+          startingOrgan: OrganBrainHuman
+        ears:
+          type: Ears
+          startingOrgan: OrganEarsHuman
+        eyes:
+          type: Eyes
+          startingOrgan: OrganEyesHuman
+        tongue:
+          type: Tongue
+          startingOrgan: OrganTongueHuman
+    chest:
+      type: Chest
+      startingBodyPart: BodyPartChestXelthia
+      connections:
+      - wings
+      - right_arm
+      - left_arm
+      - groin
+      organs:
+        heart:
+          type: Heart
+          startingOrgan: OrganHeartAnimal
+        lungs:
+          type: Lungs
+          startingOrgan: OrganLungsHuman
+    groin:
+      type: Groin
+      startingBodyPart: BodyPartGroinXelthia
+      connections:
+      - tail
+      - right_leg
+      - left_leg
+      organs:
+        stomach:
+          type: Stomach
+          startingOrgan: OrganStomachXelthia
+        liver:
+          type: Liver
+          startingOrgan: OrganLiverAnimal
+        kidneys:
+          type: Kidneys
+          startingOrgan: OrganKidneysHuman
+    left_arm:
+      type: LeftArm
+      startingBodyPart: BodyPartLeftArmXelthia
+      connections:
+      - left_hand
+    right_arm:
+      type: RightArm
+      startingBodyPart: BodyPartRightArmXelthia
+      connections:
+      - right_hand
+    left_hand:
+      type: LeftHand
+      startingBodyPart: BodyPartLeftHandXelthia
+    right_hand:
+      type: RightHand
+      startingBodyPart: BodyPartRightHandXelthia
+    left_leg:
+      type: LeftLeg
+      startingBodyPart: BodyPartLeftLegXelthia
+      connections:
+      - left_foot
+    right_leg:
+      type: RightLeg
+      startingBodyPart: BodyPartRightLegXelthia
+      connections:
+      - right_foot
+    left_foot:
+      type: LeftFoot
+      startingBodyPart: BodyPartLeftFootXelthia
+    right_foot:
+      type: RightFoot
+      startingBodyPart: BodyPartRightFootXelthia
+    tail:
+      type: Tail
+      startingBodyPart: BodyPartTailXelthia
+    wings:
+      type: Wings

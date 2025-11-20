@@ -2,6 +2,7 @@ using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Components;
 using Content.Server.Popups;
+using Content.Shared._White.Body.Components;
 using Content.Shared.Alert;
 using Content.Shared.Atmos;
 using Content.Shared.DoAfter;
@@ -14,6 +15,7 @@ using Robust.Shared.Containers;
 using Robust.Shared.Utility;
 
 namespace Content.Server.Body.Systems;
+
 
 public sealed class InternalsSystem : EntitySystem
 {

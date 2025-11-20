@@ -8,7 +8,9 @@
   - type: HumanoidAppearance
     species: Chitinid
     hideLayersOnEquip:
-    - HeadTop
+    # WD EDIT START
+    - enum.HumanoidVisualLayers.HeadTop
+    # WD EDIT END
 
   - type: Hunger
     baseDecayRate: 0.0467 #needs to eat more to survive
@@ -101,19 +103,26 @@
     noRot: true
     drawdepth: Mobs
     layers:
-      - map: [ "enum.HumanoidVisualLayers.Chest" ]
-      - map: [ "enum.HumanoidVisualLayers.Head" ]
+      # WD EDIT START: HumanoidVisualLayers -> BodyAppearanceLayer
+      - map: [ "enum.BodyAppearanceLayer.Chest" ]
+      - map: [ "enum.BodyAppearanceLayer.Groin" ]
+      - map: [ "enum.BodyAppearanceLayer.Head" ]
+      # WD EDIT END
       - map: [ "enum.HumanoidVisualLayers.Snout" ]
-      - map: [ "enum.HumanoidVisualLayers.Eyes" ]
-      - map: [ "enum.HumanoidVisualLayers.RArm" ]
-      - map: [ "enum.HumanoidVisualLayers.LArm" ]
-      - map: [ "enum.HumanoidVisualLayers.RLeg" ]
-      - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+      # WD EDIT: HumanoidVisualLayers -> BodyAppearanceLayer
+      - map: [ "enum.BodyAppearanceLayer.Eyes" ]
+      - map: [ "enum.BodyAppearanceLayer.RightArm" ]
+      - map: [ "enum.BodyAppearanceLayer.LeftArm" ]
+      - map: [ "enum.BodyAppearanceLayer.RightLeg" ]
+      - map: [ "enum.BodyAppearanceLayer.LeftLeg" ]
+      # WD EDIT END
       - map: [ "jumpsuit" ]
-      - map: [ "enum.HumanoidVisualLayers.LHand" ]
-      - map: [ "enum.HumanoidVisualLayers.RHand" ]
-      - map: [ "enum.HumanoidVisualLayers.LFoot" ]
-      - map: [ "enum.HumanoidVisualLayers.RFoot" ]
+      # WD EDIT START: HumanoidVisualLayers -> BodyAppearanceLayer
+      - map: ["enum.BodyAppearanceLayer.LeftFoot"]
+      - map: ["enum.BodyAppearanceLayer.RightFoot"]
+      - map: ["enum.BodyAppearanceLayer.LeftHand"]
+      - map: ["enum.BodyAppearanceLayer.RightHand"]
+      # WD EDIT END
       - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
         color: "#ffffff"
         sprite: Objects/Misc/handcuffs.rsi
@@ -128,7 +137,10 @@
       - map: [ "id" ]
       - map: [ "back" ]
       - map: [ "neck" ]
-      - map: [ "enum.HumanoidVisualLayers.Tail" ] #in the utopian future we should probably have a wings enum inserted here so everyhting doesn't break
+      # WD EDIT: HumanoidVisualLayers -> BodyAppearanceLayer
+      - map: [ "enum.BodyAppearanceLayer.Tail" ]
+      - map: [ "enum.BodyAppearanceLayer.Wings" ]
+      # WD EDIT END
       - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
       - map: [ "enum.HumanoidVisualLayers.Hair" ]
       - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
@@ -175,3 +187,7 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
+  # WD EDIT START
+  - type: Body
+    prototype: Chitinid
+  # WD EDIT END

@@ -77,6 +77,10 @@
   components:
   - type: HumanoidAppearance
     species: Shadow
+  # WD EDIT START
+  - type: Body
+    prototype: Shadow
+  # WD EDIT END
 
 - type: entity
   parent: MobShadowBase

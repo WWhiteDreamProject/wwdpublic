@@ -1,121 +1,157 @@
 # Tails
 - type: marking
   id: XelthiaTailNormal
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Xelthia]
   sprites:
   - sprite: _EE/Mobs/Customization/xelthia_parts.rsi
     state: tail_normal
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    replacementBodyPart: BodyPartTailXelthia
+    # WD EDIT END
 
 # Ears
 - type: marking
   id: XelthiaEarsNormal
-  bodyPart: Snout
   markingCategory: Snout
   speciesRestriction: [Xelthia]
   sprites:
   - sprite: _EE/Mobs/Customization/xelthia_parts.rsi
     state: ears_normal
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Snout
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: XelthiaEarsSmall
-  bodyPart: Snout
   markingCategory: Snout
   speciesRestriction: [Xelthia]
   sprites:
   - sprite: _EE/Mobs/Customization/xelthia_parts.rsi
     state: ears_small
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Snout
+    bodyPart: Head
+    # WD EDIT END
 
 # Tendril Hair
 - type: marking
   id: XelthiaHairStandard
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Xelthia]
   sprites:
   - sprite: _EE/Mobs/Customization/xelthia_parts.rsi
     state: hair_standard
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Hair
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: XelthiaHairShort
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Xelthia]
   sprites:
   - sprite: _EE/Mobs/Customization/xelthia_parts.rsi
     state: hair_short
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Hair
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: XelthiaHairLongish
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Xelthia]
   sprites:
   - sprite: _EE/Mobs/Customization/xelthia_parts.rsi
     state: hair_longish
-    
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Hair
+    bodyPart: Head
+    # WD EDIT END
+
 - type: marking
   id: XelthiaHairOvereye
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Xelthia]
   sprites:
   - sprite: _EE/Mobs/Customization/xelthia_parts.rsi
     state: hair_overeye
-    
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Hair
+    bodyPart: Head
+    # WD EDIT END
+
 - type: marking
   id: XelthiaHairFancy
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Xelthia]
   sprites:
   - sprite: _EE/Mobs/Customization/xelthia_parts.rsi
     state: hair_fancy
-    
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Hair
+    bodyPart: Head
+    # WD EDIT END
+
 - type: marking
   id: XelthiaHairTripoint
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Xelthia]
   sprites:
   - sprite: _EE/Mobs/Customization/xelthia_parts.rsi
     state: hair_tripoint
-    
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Hair
+    bodyPart: Head
+    # WD EDIT END
+
 - type: marking
   id: XelthiaHairDownNBack
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Xelthia]
   sprites:
   - sprite: _EE/Mobs/Customization/xelthia_parts.rsi
     state: hair_downandback
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Hair
+    bodyPart: Head
+    # WD EDIT END
 
 # Chest Patterns
 
 - type: marking
   id: XelthiaStripeyChest
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Xelthia]
   sprites:
   - sprite: _EE/Mobs/Customization/xelthia_parts.rsi
     state: stripey
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+    # WD EDIT END
 
 - type: marking
   id: XelthiaUnderbelly
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Xelthia]
   sprites:
   - sprite: _EE/Mobs/Customization/xelthia_parts.rsi
     state: underbelly
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+    # WD EDIT END
 
 # Spikes
 
 - type: marking
   id: XelthiaBackspikes
-  bodyPart: Chest, RArm, LArm, Head
   markingCategory: Overlay
   speciesRestriction: [Xelthia]
   coloring:
@@ -126,3 +162,7 @@
   sprites:
   - sprite: _EE/Mobs/Customization/xelthia_parts.rsi
     state: backspikes
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+    # WD EDIT END

@@ -1,0 +1,121 @@
+- type: entity
+  id: BaseBodyPartChitinid
+  parent: BaseBodyPart
+  abstract: true
+  name: chitinid body part
+  components:
+  - type: Sprite
+    sprite: DeltaV/Mobs/Species/Chitinid/parts.rsi
+  - type: BodyPartAppearance
+    sprite: DeltaV/Mobs/Species/Chitinid/parts.rsi
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 3
+      - ReagentId: Blood
+        Quantity: 10
+
+# Head
+- type: entity
+  id: BodyPartHeadChitinid
+  parent: [BaseBodyPartHead, BaseBodyPartChitinid]
+  name: chitinid head
+  components:
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 5
+      - ReagentId: Blood
+        Quantity: 10
+
+# Chest
+- type: entity
+  id: BodyPartChestChitinid
+  parent: [BaseBodyPartChest, BaseBodyPartChitinid]
+  name: chitinid chest
+  components:
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 10
+      - ReagentId: Blood
+        Quantity: 20
+
+# Groin
+- type: entity
+  id: BodyPartGroinChitinid
+  parent: [BaseBodyPartGroin, BaseBodyPartChitinid]
+  name: chitinid groin
+  components:
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 10
+      - ReagentId: Blood
+        Quantity: 20
+
+# Arms
+
+- type: entity
+  id: BodyPartLeftArmChitinid
+  parent: [BaseBodyPartLeftArm, BaseBodyPartChitinid]
+  name: chitinid left arm
+
+- type: entity
+  id: BodyPartRightArmChitinid
+  parent: [BaseBodyPartRightArm, BaseBodyPartChitinid]
+  name: chitinid right arm
+
+# Hand
+
+- type: entity
+  id: BodyPartLeftHandChitinid
+  parent: [BaseBodyPartLeftHand, BaseBodyPartChitinid]
+  name: chitinid left hand
+
+- type: entity
+  id: BodyPartRightHandChitinid
+  parent: [BaseBodyPartRightHand, BaseBodyPartChitinid]
+  name: chitinid right hand
+
+# Leg
+
+- type: entity
+  id: BodyPartLeftLegChitinid
+  parent: [BaseBodyPartLeftLeg, BaseBodyPartChitinid]
+  name: chitinid left leg
+
+- type: entity
+  id: BodyPartRightLegChitinid
+  parent: [BaseBodyPartRightLeg, BaseBodyPartChitinid]
+  name: chitinid right leg
+
+# Foot
+
+- type: entity
+  id: BodyPartLeftFootChitinid
+  parent: [BaseBodyPartLeftFoot, BaseBodyPartChitinid]
+  name: chitinid left foot
+
+- type: entity
+  id: BodyPartRightFootChitinid
+  parent: [BaseBodyPartRightFoot, BaseBodyPartChitinid]
+  name: chitinid right foot
+
+# Wings
+
+- type: entity
+  id: BodyPartWingsChitinid
+  parent: [BaseBodyPartWings, BaseBodyPartChitinid]
+  name: chitinid wings
+  components:
+  - type: Sprite
+    sprite: DeltaV/Mobs/Customization/Chitinid/chitinid_wings.rsi
+    state: default
+  - type: BodyPartAppearance
+    sprite: DeltaV/Mobs/Customization/Chitinid/chitinid_wings.rsi
+    state: default

@@ -1,3 +1,4 @@
+using Content.Shared._White.Body.Components;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Player;
 using Robust.Shared.Serialization;
@@ -14,20 +15,20 @@ public abstract class SharedTargetDollSystem : EntitySystem
         SubscribeAllEvent<SelectBodyPartRequestEvent>(OnSelectBodyPartRequest);
 
         CommandBinds.Builder
-            .Bind(TargetDollHead, InputCmdHandler.FromDelegate(session => HandleBodyPartSelect(session, BodyPart.Head), handle: false, outsidePrediction: false))
-            .Bind(TargetDollChest, InputCmdHandler.FromDelegate(session => HandleBodyPartSelect(session, BodyPart.Chest), handle: false, outsidePrediction: false))
-            .Bind(TargetDollGroin, InputCmdHandler.FromDelegate(session => HandleBodyPartSelect(session, BodyPart.Groin), handle: false, outsidePrediction: false))
-            .Bind(TargetDollRightArm, InputCmdHandler.FromDelegate(session => HandleBodyPartSelect(session, BodyPart.RightArm, BodyPart.RightHand), handle: false, outsidePrediction: false))
-            .Bind(TargetDollRightHand, InputCmdHandler.FromDelegate(session => HandleBodyPartSelect(session, BodyPart.RightHand), handle: false, outsidePrediction: false))
-            .Bind(TargetDollLeftArm, InputCmdHandler.FromDelegate(session => HandleBodyPartSelect(session, BodyPart.LeftArm, BodyPart.LeftHand), handle: false, outsidePrediction: false))
-            .Bind(TargetDollLeftHand, InputCmdHandler.FromDelegate(session => HandleBodyPartSelect(session, BodyPart.LeftHand), handle: false, outsidePrediction: false))
-            .Bind(TargetDollRightLeg, InputCmdHandler.FromDelegate(session => HandleBodyPartSelect(session, BodyPart.RightLeg, BodyPart.RightFoot), handle: false, outsidePrediction: false))
-            .Bind(TargetDollRightFoot, InputCmdHandler.FromDelegate(session => HandleBodyPartSelect(session, BodyPart.RightFoot), handle: false, outsidePrediction: false))
-            .Bind(TargetDollLeftLeg, InputCmdHandler.FromDelegate(session => HandleBodyPartSelect(session, BodyPart.LeftLeg, BodyPart.LeftFoot), handle: false, outsidePrediction: false))
-            .Bind(TargetDollLeftFoot, InputCmdHandler.FromDelegate(session => HandleBodyPartSelect(session, BodyPart.LeftFoot), handle: false, outsidePrediction: false))
-            .Bind(TargetDollTail, InputCmdHandler.FromDelegate(session => HandleBodyPartSelect(session, BodyPart.Tail), handle: false, outsidePrediction: false))
-            .Bind(TargetDollEyes, InputCmdHandler.FromDelegate(session => HandleBodyPartSelect(session, BodyPart.Eyes), handle: false, outsidePrediction: false))
-            .Bind(TargetDollMouth, InputCmdHandler.FromDelegate(session => HandleBodyPartSelect(session, BodyPart.Mouth), handle: false, outsidePrediction: false))
+            .Bind(TargetDollHead, InputCmdHandler.FromDelegate(session => HandleBodyPartSelect(session, BodyPartType.Head), handle: false, outsidePrediction: false))
+            .Bind(TargetDollChest, InputCmdHandler.FromDelegate(session => HandleBodyPartSelect(session, BodyPartType.Chest), handle: false, outsidePrediction: false))
+            .Bind(TargetDollGroin, InputCmdHandler.FromDelegate(session => HandleBodyPartSelect(session, BodyPartType.Groin), handle: false, outsidePrediction: false))
+            .Bind(TargetDollRightArm, InputCmdHandler.FromDelegate(session => HandleBodyPartSelect(session, BodyPartType.RightArm, BodyPartType.RightHand), handle: false, outsidePrediction: false))
+            .Bind(TargetDollRightHand, InputCmdHandler.FromDelegate(session => HandleBodyPartSelect(session, BodyPartType.RightHand), handle: false, outsidePrediction: false))
+            .Bind(TargetDollLeftArm, InputCmdHandler.FromDelegate(session => HandleBodyPartSelect(session, BodyPartType.LeftArm, BodyPartType.LeftHand), handle: false, outsidePrediction: false))
+            .Bind(TargetDollLeftHand, InputCmdHandler.FromDelegate(session => HandleBodyPartSelect(session, BodyPartType.LeftHand), handle: false, outsidePrediction: false))
+            .Bind(TargetDollRightLeg, InputCmdHandler.FromDelegate(session => HandleBodyPartSelect(session, BodyPartType.RightLeg, BodyPartType.RightFoot), handle: false, outsidePrediction: false))
+            .Bind(TargetDollRightFoot, InputCmdHandler.FromDelegate(session => HandleBodyPartSelect(session, BodyPartType.RightFoot), handle: false, outsidePrediction: false))
+            .Bind(TargetDollLeftLeg, InputCmdHandler.FromDelegate(session => HandleBodyPartSelect(session, BodyPartType.LeftLeg, BodyPartType.LeftFoot), handle: false, outsidePrediction: false))
+            .Bind(TargetDollLeftFoot, InputCmdHandler.FromDelegate(session => HandleBodyPartSelect(session, BodyPartType.LeftFoot), handle: false, outsidePrediction: false))
+            .Bind(TargetDollTail, InputCmdHandler.FromDelegate(session => HandleBodyPartSelect(session, BodyPartType.Tail), handle: false, outsidePrediction: false))
+            .Bind(TargetDollEyes, InputCmdHandler.FromDelegate(session => HandleBodyPartSelect(session, BodyPartType.Eyes), handle: false, outsidePrediction: false))
+            .Bind(TargetDollMouth, InputCmdHandler.FromDelegate(session => HandleBodyPartSelect(session, BodyPartType.Mouth), handle: false, outsidePrediction: false))
             .Register<SharedTargetDollSystem>();
     }
 
@@ -40,16 +41,16 @@ public abstract class SharedTargetDollSystem : EntitySystem
             return;
         }
 
-        SelectBodyPart((uid, targetDoll), msg.BodyPart);
+        SelectBodyPart((uid, targetDoll), msg.BodyPartType);
     }
 
-    private void HandleBodyPartSelect(ICommonSession? session, BodyPart bodyPart, BodyPart? alreadySelectedBodyPart = null)
+    private void HandleBodyPartSelect(ICommonSession? session, BodyPartType bodyPartType, BodyPartType? alreadySelectedBodyPart = null)
     {
         if (session is not { AttachedEntity: { } uid, }
             || !TryComp<TargetDollComponent>(uid, out var targetDoll))
             return;
 
-        if (targetDoll.SelectedBodyPart == bodyPart)
+        if (targetDoll.SelectedBodyPartType == bodyPartType)
         {
             if (alreadySelectedBodyPart != null)
                 SelectBodyPart((uid, targetDoll), alreadySelectedBodyPart.Value);
@@ -57,21 +58,21 @@ public abstract class SharedTargetDollSystem : EntitySystem
             return;
         }
 
-        SelectBodyPart((uid, targetDoll), bodyPart);
+        SelectBodyPart((uid, targetDoll), bodyPartType);
     }
 
-    public virtual void SelectBodyPart(Entity<TargetDollComponent> ent, BodyPart bodyPart)
+    public virtual void SelectBodyPart(Entity<TargetDollComponent> ent, BodyPartType bodyPartType)
     {
-        if (ent.Comp.SelectedBodyPart == bodyPart)
+        if (ent.Comp.SelectedBodyPartType == bodyPartType)
             return;
 
-        ent.Comp.SelectedBodyPart = bodyPart;
+        ent.Comp.SelectedBodyPartType = bodyPartType;
         Dirty(ent);
     }
 }
 
 [Serializable, NetSerializable]
-public sealed class SelectBodyPartRequestEvent(BodyPart bodyPart) : EntityEventArgs
+public sealed class SelectBodyPartRequestEvent(BodyPartType bodyPartType) : EntityEventArgs
 {
-    public BodyPart BodyPart { get; } = bodyPart;
+    public BodyPartType BodyPartType { get; } = bodyPartType;
 }

@@ -1,0 +1,20 @@
+- type: entity
+  id: OrganStomachBloodsucker
+  parent: OrganStomachAnimal
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [ Bloodsucker ]
+
+- type: entity
+  id: OrganLiverBloodsucker
+  parent: OrganStomachAnimal
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [ Bloodsucker ]
+
+- type: entity
+  id: OrganKidneysBloodsucker
+  parent: OrganStomachAnimal
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [ Bloodsucker ]

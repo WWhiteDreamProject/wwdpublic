@@ -1,0 +1,88 @@
+- type: body
+  id: Harpy
+  root: chest
+  bodyParts:
+    head:
+      type: Head
+      startingBodyPart: BodyPartHeadHarpy
+      connections:
+      - chest
+      organs:
+        brain:
+          type: Brain
+          startingOrgan: OrganBrainHuman
+        ears:
+          type: Ears
+          startingOrgan: OrganEarsHuman
+        eyes:
+          type: Eyes
+          startingOrgan: OrganEyesHuman
+        tongue:
+          type: Tongue
+          startingOrgan: OrganTongueHuman
+    chest:
+      type: Chest
+      startingBodyPart: BodyPartChestHarpy
+      connections:
+      - right_arm
+      - left_arm
+      - groin
+      organs:
+        heart:
+          type: Heart
+          startingOrgan: OrganHeartHuman
+        lungs:
+          type: Lungs
+          startingOrgan: OrganLungsHarpy
+    groin:
+      type: Groin
+      startingBodyPart: BodyPartGroinHarpy
+      connections:
+      - tail
+      - right_leg
+      - left_leg
+      organs:
+        stomach:
+          type: Stomach
+          startingOrgan: OrganStomachAnimal
+        liver:
+          type: Liver
+          startingOrgan: OrganLiverAnimal
+        kidneys:
+          type: Kidneys
+          startingOrgan: OrganKidneysAnimal
+    left_arm:
+      type: LeftArm
+      startingBodyPart: BodyPartLeftArmHarpy
+      connections:
+      - left_hand
+    right_arm:
+      type: RightArm
+      startingBodyPart: BodyPartRightArmHarpy
+      connections:
+      - right_hand
+    left_hand:
+      type: LeftHand
+      startingBodyPart: BodyPartLeftHandHarpy
+    right_hand:
+      type: RightHand
+      startingBodyPart: BodyPartRightHandHarpy
+    left_leg:
+      type: LeftLeg
+      startingBodyPart: BodyPartLeftLegHarpy
+      connections:
+      - left_foot
+    right_leg:
+      type: RightLeg
+      startingBodyPart: BodyPartRightLegHarpy
+      connections:
+      - right_foot
+    left_foot:
+      type: LeftFoot
+      startingBodyPart: BodyPartLeftFootHarpy
+    right_foot:
+      type: RightFoot
+      startingBodyPart: BodyPartRightFootHarpy
+    tail:
+      type: Tail
+      startingBodyPart: BodyPartTailHarpy

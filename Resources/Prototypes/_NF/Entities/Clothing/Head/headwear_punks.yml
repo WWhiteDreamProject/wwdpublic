@@ -16,7 +16,9 @@
         Caustic: 0.9
   - type: HideLayerClothing
     slots:
-    - Hair
+    # WD EDIT START
+    - enum.HumanoidVisualLayers.Hair
+    # WD EDIT END
 
 - type: entity
   parent: ClothingHeadHatHoodAcidRaincoat

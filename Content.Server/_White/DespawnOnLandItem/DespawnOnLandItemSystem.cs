@@ -1,4 +1,4 @@
-using Content.Shared.Body.Components;
+using Content.Shared._White.Body.Components;
 using Content.Shared.Interaction.Events;
 using Robust.Shared.Containers;
 using Robust.Shared.Spawners;

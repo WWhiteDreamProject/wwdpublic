@@ -1,8 +1,7 @@
 using System.Numerics;
 using Content.Shared._Goobstation.Religion;
+using Content.Shared._White.Gibbing;
 using Content.Shared.Actions;
-using Content.Shared.Body.Components;
-using Content.Shared.Body.Systems;
 using Content.Shared.Chat;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Doors.Components;
@@ -54,7 +53,6 @@ public abstract class SharedMagicSystem : EntitySystem
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedDoorSystem _door = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
@@ -66,6 +64,7 @@ public abstract class SharedMagicSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private readonly SharedGibbingSystem _gibbing = default!; // WD EDIT
 
     public override void Initialize()
     {
@@ -407,10 +406,7 @@ public abstract class SharedMagicSystem : EntitySystem
 
         _physics.ApplyLinearImpulse(ev.Target, impulseVector);
 
-        if (!TryComp<BodyComponent>(ev.Target, out var body))
-            return;
-
-        _body.GibBody(ev.Target, true, body);
+        _gibbing.GibBody(ev.Target, true); // WD EDIT
     }
 
     // End Touch Spells

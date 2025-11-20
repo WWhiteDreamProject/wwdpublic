@@ -176,13 +176,13 @@
           reagent: Ethanol
           min: 12
         # dwarves immune to vomiting from alcohol
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Dwarf
           shouldHave: false
       # Drunken Resilience
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: LiquorLifeline
         - !type:ReagentThreshold
           reagent: Ethanol
@@ -197,7 +197,7 @@
             Cold: -0.13
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: LiquorLifeline
         - !type:ReagentThreshold
           reagent: Ethanol
@@ -212,7 +212,7 @@
             Cold: -0.26
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: LiquorLifeline
         - !type:ReagentThreshold
           reagent: Ethanol
@@ -227,7 +227,7 @@
             Cold: -0.53
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: LiquorLifeline
         - !type:ReagentThreshold
           reagent: Ethanol
@@ -242,7 +242,7 @@
             Cold: -1.06
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: LiquorLifeline
         - !type:ReagentThreshold
           reagent: Ethanol

@@ -18,8 +18,10 @@
     - WhitelistChameleon
   - type: HideLayerClothing
     slots:
-    - HeadTop
-    - HeadSide
+    # WD EDIT START
+    - enum.HumanoidVisualLayers.HeadTop
+    - enum.HumanoidVisualLayers.HeadSide
+    # WD EDIT END
 
 #Basic Helmet (Security Helmet)
 - type: entity
@@ -132,10 +134,12 @@
         Piercing: 0.95
   - type: HideLayerClothing
     slots:
-    - Hair
-    - Snout
-    - HeadTop
-    - HeadSide
+    # WD EDIT START
+    - enum.HumanoidVisualLayers.Hair
+    - enum.HumanoidVisualLayers.Snout
+    - enum.HumanoidVisualLayers.HeadTop
+    - enum.HumanoidVisualLayers.HeadSide
+    # WD EDIT END
   - type: TinfoilHat # WWDP
     destroyOnFry: false
 
@@ -194,10 +198,12 @@
   - type: IdentityBlocker
   - type: HideLayerClothing
     slots:
-    - Hair
-    - Snout
-    - HeadTop
-    - HeadSide
+    # WD EDIT START
+    - enum.HumanoidVisualLayers.Hair
+    - enum.HumanoidVisualLayers.Snout
+    - enum.HumanoidVisualLayers.HeadTop
+    - enum.HumanoidVisualLayers.HeadSide
+    # WD EDIT END
   - type: Unremoveable
   - type: TinfoilHat # WWDP
     destroyOnFry: false
@@ -273,10 +279,12 @@
     - FireHelmet
   - type: HideLayerClothing
     slots:
-    - Hair
-    - Snout
-    - HeadTop
-    - HeadSide
+    # WD EDIT START
+    - enum.HumanoidVisualLayers.Hair
+    - enum.HumanoidVisualLayers.Snout
+    - enum.HumanoidVisualLayers.HeadTop
+    - enum.HumanoidVisualLayers.HeadSide
+    # WD EDIT END
   - type: TinfoilHat # WWDP
     destroyOnFry: false
 
@@ -308,10 +316,12 @@
     - FireHelmet
   - type: HideLayerClothing
     slots:
-    - Hair
-    - Snout
-    - HeadTop
-    - HeadSide
+    # WD EDIT START
+    - enum.HumanoidVisualLayers.Hair
+    - enum.HumanoidVisualLayers.Snout
+    - enum.HumanoidVisualLayers.HeadTop
+    - enum.HumanoidVisualLayers.HeadSide
+    # WD EDIT END
   - type: BreathMask
   - type: TinfoilHat # WWDP
     destroyOnFry: false

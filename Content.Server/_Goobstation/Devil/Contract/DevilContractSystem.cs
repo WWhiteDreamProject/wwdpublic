@@ -15,7 +15,7 @@ using Content.Shared._Goobstation.Devil;
 using Content.Shared._Goobstation.Devil.Condemned;
 using Content.Shared._Goobstation.Devil.Contract;
 using Content.Server._Imp.Drone;
-using Content.Server.Body.Systems;
+using Content.Server._White.Body.Systems;
 using Content.Server.Hands.Systems;
 using Content.Server.Implants;
 using Content.Server.Paper;

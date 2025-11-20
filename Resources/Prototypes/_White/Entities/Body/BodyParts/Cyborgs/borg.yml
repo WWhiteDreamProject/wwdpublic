@@ -1,0 +1,114 @@
+- type: entity
+  id: BaseBodyPartBorg
+  parent: BaseBodyPart
+  abstract: true
+  name: borg body part
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Robotics/cyborg_parts.rsi
+  - type: BodyPartAppearance
+    sprite: Objects/Specific/Robotics/cyborg_parts.rsi
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 25
+  - type: GuideHelp
+    guides:
+    - Cyborgs
+    - Robotics
+  - type: Tag
+    tags:
+    - Trash
+
+# Head
+- type: entity
+  id: BodyPartHeadBorg
+  parent: [BaseBodyPartHead, BaseBodyPartBorg]
+  name: borg head
+  components:
+  - type: Sprite
+    state: borg_head
+  - type: BodyPartAppearance
+    state: borg_head
+  - type: Tag
+    tags:
+    - Trash
+    - BorgHead
+
+# Torso
+- type: entity
+  id: BodyPartTorsoBorg
+  parent: [BaseBodyPartTorso, BaseBodyPartBorg]
+  name: borg torso
+  components:
+  - type: Sprite
+    state: borg_chest
+  - type: BodyPartAppearance
+    state: borg_chest
+  - type: Tag
+    tags:
+    - Trash
+    - BorgTorso
+
+# Arms
+
+- type: entity
+  id: BodyPartLeftArmBorg
+  parent: [BaseBodyPartLeftArm, BaseBodyPartBorg]
+  name: borg left arm
+  components:
+  - type: Sprite
+    state: borg_l_arm
+  - type: BodyPartAppearance
+    state: borg_l_arm
+  - type: Tag
+    tags:
+    - Trash
+    - BorgArm
+    - BorgLArm
+
+- type: entity
+  id: BodyPartRightArmBorg
+  parent: [BaseBodyPartRightArm, BaseBodyPartBorg]
+  name: borg right arm
+  components:
+  - type: Sprite
+    state: borg_r_arm
+  - type: BodyPartAppearance
+    state: borg_r_arm
+  - type: Tag
+    tags:
+    - Trash
+    - BorgArm
+    - BorgRArm
+
+# Leg
+
+- type: entity
+  id: BodyPartLeftLegBorg
+  parent: [BaseBodyPartLeftLeg, BaseBodyPartBorg]
+  name: borg left leg
+  components:
+  - type: Sprite
+    state: borg_l_leg
+  - type: BodyPartAppearance
+    state: borg_l_leg
+  - type: Tag
+    tags:
+    - Trash
+    - BorgLeg
+    - BorgLLeg
+
+- type: entity
+  id: BodyPartRightLegBorg
+  parent: [BaseBodyPartRightLeg, BaseBodyPartBorg]
+  name: borg right leg
+  components:
+  - type: Sprite
+    state: borg_r_leg
+  - type: BodyPartAppearance
+    state: borg_r_leg
+  - type: Tag
+    tags:
+    - Trash
+    - BorgLeg
+    - BorgRLeg

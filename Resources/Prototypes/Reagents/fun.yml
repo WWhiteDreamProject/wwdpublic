@@ -39,7 +39,7 @@
       effects:
       - !type:SatiateHunger
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Moth
 
 - type: reagent
@@ -342,7 +342,7 @@
       - !type:Polymorph
         prototype: ArtifactLizard # Does the same thing as the original YML I made for this reagent.
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Animal
           shouldHave: false
         - !type:ReagentThreshold
@@ -374,7 +374,7 @@
       - !type:Polymorph
         prototype: ArtifactLizard
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Animal
           shouldHave: false
         - !type:ReagentThreshold

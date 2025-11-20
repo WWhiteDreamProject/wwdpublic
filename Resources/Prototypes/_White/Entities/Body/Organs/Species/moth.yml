@@ -1,0 +1,20 @@
+- type: entity
+  id: OrganStomachMoth
+  parent: OrganStomachHuman
+  components:
+  - type: Stomach
+    specialDigestible:
+      tags:
+      - ClothMade
+      - Fruit
+      - Paper
+  - type: Metabolizer
+    metabolizerTypes: [ Moth ]
+
+- type: entity
+  id: OrganEyesMoth
+  parent: OrganEyesHuman
+  components:
+  - type: OrganAppearance
+    sprite: Mobs/Species/Moth/parts.rsi
+

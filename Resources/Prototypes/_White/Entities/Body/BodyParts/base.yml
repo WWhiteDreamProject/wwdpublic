@@ -1,0 +1,331 @@
+- type: entity
+  id: BaseBodyPart
+  parent: BaseItem
+  abstract: true
+  name: body part
+  components:
+  - type: BodyPart
+
+# Head
+- type: entity
+  id: BaseBodyPartHead
+  parent: BaseBodyPart
+  abstract: true
+  name: head
+  components:
+  - type: Sprite
+    state: head
+  - type: BodyPartAppearance
+    layer: enum.BodyAppearanceLayer.Head
+    state: head
+  - type: BodyPart
+    bodyPartType: Head
+  - type: Input
+    context: "ghost"
+  - type: Tag
+    tags:
+    - Head
+
+# Torso
+- type: entity
+  id: BaseBodyPartTorso
+  parent: BaseBodyPart
+  abstract: true
+  name: torso
+  components:
+  - type: Sprite
+    state: torso
+  - type: BodyPartAppearance
+    layer: enum.BodyAppearanceLayer.Chest
+    state: torso
+  - type: BodyPart
+    bodyPartType: Torso
+
+# Chest
+- type: entity
+  id: BaseBodyPartChest
+  parent: BaseBodyPart
+  abstract: true
+  name: chest
+  components:
+  - type: Sprite
+    state: chest
+  - type: BodyPartAppearance
+    layer: enum.BodyAppearanceLayer.Chest
+    state: chest
+  - type: BodyPart
+    bodyPartType: Chest
+
+# Groin
+- type: entity
+  id: BaseBodyPartGroin
+  parent: BaseBodyPart
+  abstract: true
+  name: groin
+  components:
+  - type: Sprite
+    state: groin
+  - type: BodyPartAppearance
+    layer: enum.BodyAppearanceLayer.Groin
+    state: groin
+  - type: BodyPart
+    bodyPartType: Groin
+
+# Arms
+
+- type: entity
+  id: BaseBodyPartArm
+  parent: BaseBodyPart
+  abstract: true
+  name: arm
+  components:
+  - type: Sprite
+    state: arm
+  - type: BodyPartAppearance
+    layer: enum.BodyAppearanceLayer.LeftArm
+    state: arm
+  - type: BodyPart
+    bodyPartType: Arm
+
+- type: entity
+  id: BaseBodyPartLeftArm
+  parent: BaseBodyPartArm
+  abstract: true
+  name: left arm
+  components:
+  - type: Sprite
+    state: l_arm
+  - type: BodyPartAppearance
+    layer: enum.BodyAppearanceLayer.LeftArm
+    state: l_arm
+  - type: BodyPart
+    bodyPartType: LeftArm
+
+- type: entity
+  id: BaseBodyPartMiddleArm
+  parent: BaseBodyPartArm
+  abstract: true
+  name: middle arm
+  components:
+  - type: Sprite
+    state: m_arm
+  - type: BodyPartAppearance
+    layer: enum.BodyAppearanceLayer.LeftArm
+    state: m_arm
+  - type: BodyPart
+    bodyPartType: MiddleArm
+
+- type: entity
+  id: BaseBodyPartRightArm
+  parent: BaseBodyPartArm
+  abstract: true
+  name: right arm
+  components:
+  - type: Sprite
+    state: r_arm
+  - type: BodyPartAppearance
+    layer: enum.BodyAppearanceLayer.RightArm
+    state: r_arm
+  - type: BodyPart
+    bodyPartType: RightArm
+
+# Hand
+
+- type: entity
+  id: BaseBodyPartHand
+  parent: BaseBodyPart
+  abstract: true
+  name: hand
+  components:
+  - type: Sprite
+    state: hand
+  - type: BodyPartAppearance
+    layer: enum.BodyAppearanceLayer.LeftHand
+    state: hand
+  - type: BodyPart
+    bodyPartType: Hand
+
+- type: entity
+  id: BaseBodyPartLeftHand
+  parent: BaseBodyPartHand
+  abstract: true
+  name: left hand
+  components:
+  - type: Sprite
+    state: l_hand
+  - type: BodyPartAppearance
+    layer: enum.BodyAppearanceLayer.LeftHand
+    state: l_hand
+  - type: BodyPart
+    bodyPartType: LeftHand
+
+- type: entity
+  id: BaseBodyPartMiddleHand
+  parent: BaseBodyPartHand
+  abstract: true
+  name: middle hand
+  components:
+  - type: Sprite
+    state: m_hand
+  - type: BodyPartAppearance
+    layer: enum.BodyAppearanceLayer.LeftHand
+    state: m_hand
+  - type: BodyPart
+    bodyPartType: MiddleHand
+
+- type: entity
+  id: BaseBodyPartRightHand
+  parent: BaseBodyPartHand
+  abstract: true
+  name: right hand
+  components:
+  - type: Sprite
+    state: r_hand
+  - type: BodyPartAppearance
+    layer: enum.BodyAppearanceLayer.RightHand
+    state: r_hand
+  - type: BodyPart
+    bodyPartType: RightHand
+
+# Leg
+
+- type: entity
+  id: BaseBodyPartLeg
+  parent: BaseBodyPart
+  abstract: true
+  name: leg
+  components:
+  - type: Sprite
+    state: leg
+  - type: BodyPartAppearance
+    layer: enum.BodyAppearanceLayer.LeftLeg
+    state: leg
+  - type: BodyPart
+    bodyPartType: Leg
+  - type: MovementBodyPart
+
+- type: entity
+  id: BaseBodyPartLeftLeg
+  parent: BaseBodyPartLeg
+  abstract: true
+  name: left leg
+  components:
+  - type: Sprite
+    state: l_leg
+  - type: BodyPartAppearance
+    layer: enum.BodyAppearanceLayer.LeftLeg
+    state: l_leg
+  - type: BodyPart
+    bodyPartType: LeftLeg
+
+- type: entity
+  id: BaseBodyPartMiddleLeg
+  parent: BaseBodyPartLeg
+  abstract: true
+  name: middle leg
+  components:
+  - type: Sprite
+    state: m_leg
+  - type: BodyPartAppearance
+    layer: enum.BodyAppearanceLayer.LeftLeg
+    state: m_leg
+  - type: BodyPart
+    bodyPartType: MiddleLeg
+
+- type: entity
+  id: BaseBodyPartRightLeg
+  parent: BaseBodyPartLeg
+  abstract: true
+  name: right leg
+  components:
+  - type: Sprite
+    state: r_leg
+  - type: BodyPartAppearance
+    layer: enum.BodyAppearanceLayer.RightLeg
+    state: r_leg
+  - type: BodyPart
+    bodyPartType: RightLeg
+
+# Foot
+
+- type: entity
+  id: BaseBodyPartFoot
+  parent: BaseBodyPart
+  abstract: true
+  name: foot
+  components:
+  - type: Sprite
+    state: foot
+  - type: BodyPartAppearance
+    layer: enum.BodyAppearanceLayer.LeftFoot
+    state: foot
+  - type: BodyPart
+    bodyPartType: Foot
+
+- type: entity
+  id: BaseBodyPartLeftFoot
+  parent: BaseBodyPartFoot
+  abstract: true
+  name: left foot
+  components:
+  - type: Sprite
+    state: l_foot
+  - type: BodyPartAppearance
+    layer: enum.BodyAppearanceLayer.LeftFoot
+    state: l_foot
+  - type: BodyPart
+    bodyPartType: LeftFoot
+
+- type: entity
+  id: BaseBodyPartMiddleFoot
+  parent: BaseBodyPartFoot
+  abstract: true
+  name: middle foot
+  components:
+  - type: Sprite
+    state: m_foot
+  - type: BodyPartAppearance
+    layer: enum.BodyAppearanceLayer.LeftFoot
+    state: m_foot
+  - type: BodyPart
+    bodyPartType: MiddleFoot
+
+- type: entity
+  id: BaseBodyPartRightFoot
+  parent: BaseBodyPartFoot
+  abstract: true
+  name: right foot
+  components:
+  - type: Sprite
+    state: r_foot
+  - type: BodyPartAppearance
+    layer: enum.BodyAppearanceLayer.RightFoot
+    state: r_foot
+  - type: BodyPart
+    bodyPartType: RightFoot
+
+# Tail
+
+- type: entity
+  id: BaseBodyPartTail
+  parent: BaseBodyPart
+  abstract: true
+  name: tail
+  components:
+  - type: BodyPart
+    bodyPartType: Tail
+  - type: BodyPartAppearance
+    layer: enum.BodyAppearanceLayer.Tail
+
+# Wings
+
+- type: entity
+  id: BaseBodyPartWings
+  parent: BaseBodyPart
+  abstract: true
+  name: wings
+  components:
+  - type: BodyPart
+    bodyPartType: Wings
+  - type: BodyPartAppearance
+    layer: enum.BodyAppearanceLayer.Wings

@@ -1,6 +1,7 @@
 ﻿using System.Linq;
+using Content.Server._White.Body.Systems;
+using Content.Server._White.Gibbing;
 using Content.Server.Bible.Components;
-using Content.Server.Body.Systems;
 using Content.Server.Cuffs;
 using Content.Server.Mind;
 using Content.Server.Stunnable;
@@ -27,6 +28,7 @@ public sealed class CultRuneOfferingSystem : EntitySystem
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
     [Dependency] private readonly StunSystem _stun = default!;
+    [Dependency] private readonly GibbingSystem _gibbing = default!;
 
     public override void Initialize()
     {
@@ -101,7 +103,7 @@ public sealed class CultRuneOfferingSystem : EntitySystem
             _mind.UnVisit(mindId);
         }
 
-        _body.GibBody(target);
+        _gibbing.GibBody(target);
     }
 
     private void Convert(Entity<CultRuneOfferingComponent> rune, EntityUid target, EntityUid user)

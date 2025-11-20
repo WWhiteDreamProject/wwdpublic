@@ -407,7 +407,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Animal # Applying damage to the mobs with lower metabolism capabilities
         damage:
           types:
@@ -415,7 +415,7 @@
       - !type:ChemVomit
         probability: 0.02 # WD EDIT: 0.04 -> 0.02 - Scaled for time, not metabolismrate.
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Animal
 
 - type: reagent
@@ -485,7 +485,7 @@
       effects:
       - !type:PopupMessage
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Animal
           shouldHave: false
         type: Local
@@ -495,12 +495,12 @@
       - !type:ChemVomit
         probability: 0.1
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Animal
           shouldHave: false
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Animal
           shouldHave: false
         damage:
@@ -508,14 +508,14 @@
             Poison: 1
       - !type:AdjustReagent
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Animal
           shouldHave: true
         reagent: Protein
         amount: 0.5
       - !type:AdjustReagent
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Shadowkin
         reagent: Protein
         amount: 0.5
@@ -536,7 +536,7 @@
         conditions:
         - !type:ReagentThreshold
           min: 1
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Animal
         damage:
           types:
@@ -581,7 +581,7 @@
         conditions:
         - !type:ReagentThreshold
           min: 1
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Animal
         damage:
           types:
@@ -694,7 +694,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Arachnid
           shouldHave: false
         damage:
@@ -705,7 +705,7 @@
         - !type:ReagentThreshold
           reagent: Mechanotoxin
           min: 2
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Arachnid
           shouldHave: false
         walkSpeedModifier: 0.8
@@ -715,7 +715,7 @@
         - !type:ReagentThreshold
           reagent: Mechanotoxin
           min: 4
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Arachnid
           shouldHave: false
         walkSpeedModifier: 0.4

@@ -8,43 +8,67 @@
     "copyright": "Taken from TGStation at commit https://github.com/tgstation/tgstation/tree/e9cc620e9f908e18949031c6e1b5811e3fc5af4e/icons/mob/species/lizard",
     "states": [
         {
-            "name": "spines_aquatic",
+            "name": "spines_aquatic_chest",
             "directions": 4
         },
         {
-            "name": "spines_aquatic_alt",
+            "name": "spines_aquatic_groin",
             "directions": 4
         },
         {
-            "name": "spines_long",
+            "name": "spines_aquatic_head",
             "directions": 4
         },
         {
-            "name": "spines_long_alt",
+            "name": "spines_aquatic_tail",
             "directions": 4
         },
         {
-            "name": "spines_longmembrane",
+            "name": "spines_long_chest",
             "directions": 4
         },
         {
-            "name": "spines_longmembrane_alt",
+            "name": "spines_long_groin",
             "directions": 4
         },
         {
-            "name": "spines_short",
+            "name": "spines_long_tail",
             "directions": 4
         },
         {
-            "name": "spines_short_alt",
+            "name": "spines_longmembrane_chest",
             "directions": 4
         },
         {
-            "name": "spines_shortmembrane",
+            "name": "spines_longmembrane_groin",
             "directions": 4
         },
         {
-            "name": "spines_shortmembrane_alt",
+            "name": "spines_longmembrane_tail",
+            "directions": 4
+        },
+        {
+            "name": "spines_short_chest",
+            "directions": 4
+        },
+        {
+            "name": "spines_short_groin",
+            "directions": 4
+        },
+        {
+            "name": "spines_short_tail",
+            "directions": 4
+        },
+        {
+            "name": "spines_shortmembrane_chest",
+            "directions": 4
+        },
+        {
+            "name": "spines_shortmembrane_groin",
+            "directions": 4
+        },
+        {
+            "name": "spines_shortmembrane_tail",
             "directions": 4
         },
         {

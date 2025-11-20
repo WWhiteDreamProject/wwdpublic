@@ -1,0 +1,93 @@
+﻿- type: body
+  id: Gingerbread
+  root: chest
+  bodyParts:
+    head:
+      type: Head
+      startingBodyPart: BodyPartHeadGingerbread
+      connections:
+      - chest
+      organs:
+        brain:
+          type: Brain
+          startingOrgan: OrganBrainHuman
+        ears:
+          type: Ears
+          startingOrgan: OrganEarsHuman
+        eyes:
+          type: Eyes
+          startingOrgan: OrganEyesGingerbread
+        tongue:
+          type: Tongue
+          startingOrgan: OrganTongueHuman
+    chest:
+      type: Chest
+      startingBodyPart: BodyPartChestGingerbread
+      connections:
+      - wings
+      - right_arm
+      - left_arm
+      - groin
+      organs:
+        heart:
+          type: Heart
+          startingOrgan: OrganHeartHuman
+        lungs:
+          type: Lungs
+          startingOrgan: OrganLungsHuman
+    groin:
+      type: Groin
+      startingBodyPart: BodyPartGroinGingerbread
+      connections:
+      - tail
+      - right_leg
+      - left_leg
+      organs:
+        stomach:
+          type: Stomach
+          startingOrgan: OrganStomachHuman
+        liver:
+          type: Liver
+          startingOrgan: OrganLiverHuman
+        kidneys:
+          type: Kidneys
+          startingOrgan: OrganKidneysHuman
+        appendix:
+          type: Appendix
+          startingOrgan: OrganAppendixHuman
+    left_arm:
+      type: LeftArm
+      startingBodyPart: BodyPartLeftArmGingerbread
+      connections:
+      - left_hand
+    right_arm:
+      type: RightArm
+      startingBodyPart: BodyPartRightArmGingerbread
+      connections:
+      - right_hand
+    left_hand:
+      type: LeftHand
+      startingBodyPart: BodyPartLeftHandGingerbread
+    right_hand:
+      type: RightHand
+      startingBodyPart: BodyPartRightHandGingerbread
+    left_leg:
+      type: LeftLeg
+      startingBodyPart: BodyPartLeftLegGingerbread
+      connections:
+      - left_foot
+    right_leg:
+      type: RightLeg
+      startingBodyPart: BodyPartRightLegGingerbread
+      connections:
+      - right_foot
+    left_foot:
+      type: LeftFoot
+      startingBodyPart: BodyPartLeftFootGingerbread
+    right_foot:
+      type: RightFoot
+      startingBodyPart: BodyPartRightFootGingerbread
+    tail:
+      type: Tail
+    wings:
+      type: Wings

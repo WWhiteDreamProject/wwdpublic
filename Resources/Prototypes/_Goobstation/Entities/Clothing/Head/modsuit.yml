@@ -35,10 +35,12 @@
   - type: IngestionBlocker
   - type: HideLayerClothing
     slots:
-    - Hair
-    - Snout
-    - HeadTop
-    - HeadSide
+    # WD EDIT START
+    - enum.HumanoidVisualLayers.Hair
+    - enum.HumanoidVisualLayers.Snout
+    - enum.HumanoidVisualLayers.HeadTop
+    - enum.HumanoidVisualLayers.HeadSide
+    # WD EDIT END
 
 - type: entity
   parent: BaseClothingModsuitHelmet
@@ -57,7 +59,9 @@
       map: [ "sealed" ]
   - type: HideLayerClothing # This helmet don't have sprite on unsealed state
     slots:
-    - Snout
+    # WD EDIT START
+    - enum.HumanoidVisualLayers.Snout
+    # WD EDIT END
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-helmet
     sealDownPopup: sealable-clothing-seal-down-helmet
@@ -86,10 +90,12 @@
     - type: IngestionBlocker
     - type: HideLayerClothing
       slots:
-      - Hair
-      - Snout
-      - HeadTop
-      - HeadSide
+      # WD EDIT START
+      - enum.HumanoidVisualLayers.Hair
+      - enum.HumanoidVisualLayers.Snout
+      - enum.HumanoidVisualLayers.HeadTop
+      - enum.HumanoidVisualLayers.HeadSide
+      # WD EDIT END
   # This will all be replaced by modules later
   - type: ToggleableLightVisuals
   - type: PointLight
@@ -131,6 +137,6 @@
     - PlasmamanSafe
     - Envirohelm
   - type: IgniteFromGasImmunity
-    # parts:
-    # - Head
+    parts:
+    - Head
 

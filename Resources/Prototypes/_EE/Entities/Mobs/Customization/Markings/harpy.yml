@@ -1,19 +1,29 @@
 - type: marking
   id: HarpyTricolorParrotZetawing
-  bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [Harpy]
   sprites:
     - sprite: _EE/Mobs/Customization/Harpy/harpy_wings.rsi
       state: tricolor_parrot_zetawing_layer1
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.RightArm
+      bodyPart: RightArm
+      # WD EDIT END
     - sprite: _EE/Mobs/Customization/Harpy/harpy_wings.rsi
       state: tricolor_parrot_zetawing_layer2
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.RightArm
+      bodyPart: RightArm
+      # WD EDIT END
     - sprite: _EE/Mobs/Customization/Harpy/harpy_wings.rsi
       state: tricolor_parrot_zetawing_layer3
-      
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.RightArm
+      bodyPart: RightArm
+      # WD EDIT END
+
 - type: marking
   id: HarpyMonocolorParrotZetawing
-  bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [Harpy]
   coloring:
@@ -27,10 +37,13 @@
   sprites:
     - sprite: _EE/Mobs/Customization/Harpy/harpy_wings.rsi
       state: monocolor_parrot_zetawing
-      
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.RightArm
+      bodyPart: RightArm
+      # WD EDIT END
+
 - type: marking
   id: HarpyMacawZetawing
-  bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [Harpy]
   coloring:
@@ -42,10 +55,13 @@
   sprites:
     - sprite: _EE/Mobs/Customization/Harpy/harpy_wings.rsi
       state: macaw_zetawing
-      
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.RightArm
+      bodyPart: RightArm
+      # WD EDIT END
+
 - type: marking
   id: HarpyColorlessZetawing
-  bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [Harpy]
   coloring:
@@ -59,10 +75,13 @@
   sprites:
     - sprite: _EE/Mobs/Customization/Harpy/harpy_wings.rsi
       state: colorless_zetawing
-      
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.RightArm
+      bodyPart: RightArm
+      # WD EDIT END
+
 - type: marking
   id: HarpyLimeZetawing
-  bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [Harpy]
   coloring:
@@ -74,21 +93,31 @@
   sprites:
     - sprite: _EE/Mobs/Customization/Harpy/harpy_wings.rsi
       state: lime_zetawing
-      
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.RightArm
+      bodyPart: RightArm
+      # WD EDIT END
+
 - type: marking
   id: HarpyColorableDragobatZetawing
-  bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [Harpy]
   sprites:
     - sprite: _EE/Mobs/Customization/Harpy/harpy_wings.rsi
       state: dragobat_c_zetawing_layer1
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.RightArm
+      bodyPart: RightArm
+      # WD EDIT END
     - sprite: _EE/Mobs/Customization/Harpy/harpy_wings.rsi
       state: dragobat_c_zetawing_layer2
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.RightArm
+      bodyPart: RightArm
+      # WD EDIT END
 
 - type: marking
   id: HarpyDragobatZetawing
-  bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [Harpy]
   coloring:
@@ -100,21 +129,31 @@
   sprites:
     - sprite: _EE/Mobs/Customization/Harpy/harpy_wings.rsi
       state: dragobat_zetawing
-      
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.RightArm
+      bodyPart: RightArm
+      # WD EDIT END
+
 - type: marking
   id: HarpyColorableAsymagicalZetawing
-  bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [Harpy]
   sprites:
     - sprite: _EE/Mobs/Customization/Harpy/harpy_wings.rsi
       state: asymagical_c_zetawing_layer1
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.RightArm
+      bodyPart: RightArm
+      # WD EDIT END
     - sprite: _EE/Mobs/Customization/Harpy/harpy_wings.rsi
       state: asymagical_c_zetawing_layer2
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.RightArm
+      bodyPart: RightArm
+      # WD EDIT END
 
 - type: marking
   id: HarpyAsymagicalZetawing
-  bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [Harpy]
   coloring:
@@ -126,10 +165,13 @@
   sprites:
     - sprite: _EE/Mobs/Customization/Harpy/harpy_wings.rsi
       state: asymagical_zetawing
-      
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.RightArm
+      bodyPart: RightArm
+      # WD EDIT END
+
 - type: marking
   id: HarpySmallZetawing
-  bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [Harpy]
   coloring:
@@ -143,10 +185,13 @@
   sprites:
     - sprite: _EE/Mobs/Customization/Harpy/harpy_wings.rsi
       state: small_zetawing
-      
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.RightArm
+      bodyPart: RightArm
+      # WD EDIT END
+
 - type: marking
   id: HarpyQuintetZetawing
-  bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [Harpy]
   coloring:
@@ -160,10 +205,13 @@
   sprites:
     - sprite: _EE/Mobs/Customization/Harpy/harpy_wings.rsi
       state: quintet_zetawing
-      
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.RightArm
+      bodyPart: RightArm
+      # WD EDIT END
+
 - type: marking
   id: HarpyDownwardZetawing
-  bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [Harpy]
   coloring:
@@ -177,3 +225,7 @@
   sprites:
     - sprite: _EE/Mobs/Customization/Harpy/harpy_wings.rsi
       state: downward_zetawing
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.RightArm
+      bodyPart: RightArm
+      # WD EDIT END

@@ -8,3 +8,12 @@ BioSynthLeftArm: null
 HeadKobold: null
 LeftLegMonkey: null
 OrganAnimalBrain: null
+
+LightHeadBorg: BodyPartHeadBorg
+TorsoBorg: BodyPartTorsoBorg
+LeftArmBorg: BodyPartLeftArmBorg
+RightArmBorg: BodyPartRightArmBorg
+LeftLegBorg: BodyPartLeftLegBorg
+RightLegBorg: BodyPartRightLegBorg
+
+OrganHumanBrain: OrganBrainHuman

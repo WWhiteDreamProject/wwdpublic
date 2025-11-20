@@ -63,7 +63,7 @@
   - type: Bloodstream
     bloodReagent: DemonsBlood
   - type: Body
-    prototype: VampiricAnimalLarge
+    prototype: Vampiric # WD EDIT: VampiricAnimalLarge -> Vampiric
   - type: Psionic
     removable: false
   - type: InnatePsionicPowers

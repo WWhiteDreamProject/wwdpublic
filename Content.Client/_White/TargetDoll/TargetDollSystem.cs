@@ -1,4 +1,6 @@
+using Content.Shared._White.Body.Components;
 using Content.Shared._White.TargetDoll;
+using Robust.Client.Player;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 
@@ -7,11 +9,12 @@ namespace Content.Client._White.TargetDoll;
 public sealed class TargetDollSystem : SharedTargetDollSystem
 {
     [Dependency] private readonly IGameTiming _gameTiming = default!;
+    [Dependency] private readonly IPlayerManager _playerManager = default!;
 
     /// <summary>
     /// Raised whenever selected body part changes.
     /// </summary>
-    public event Action<BodyPart>? LocalPlayerTargetDollUpdated;
+    public event Action<BodyPartType>? LocalPlayerTargetDollUpdated;
 
     public event Action<TargetDollComponent>? LocalPlayerTargetDollAdded;
     public event Action? LocalPlayerTargetDollRemoved;
@@ -32,7 +35,7 @@ public sealed class TargetDollSystem : SharedTargetDollSystem
         if (!_gameTiming.IsFirstTimePredicted)
             return;
 
-        LocalPlayerTargetDollUpdated?.Invoke(component.SelectedBodyPart);
+        LocalPlayerTargetDollUpdated?.Invoke(component.SelectedBodyPartType);
     }
 
     private void OnPlayerAttached(EntityUid uid, TargetDollComponent component, LocalPlayerAttachedEvent args)
@@ -47,21 +50,23 @@ public sealed class TargetDollSystem : SharedTargetDollSystem
 
     private void OnStartup(EntityUid uid, TargetDollComponent component, ComponentStartup args)
     {
-        LocalPlayerTargetDollAdded?.Invoke(component);
+        if (_playerManager.LocalEntity == uid)
+            LocalPlayerTargetDollAdded?.Invoke(component);
     }
 
     private void OnShutdown(EntityUid uid, TargetDollComponent component, ComponentShutdown args)
     {
-        LocalPlayerTargetDollRemoved?.Invoke();
+        if (_playerManager.LocalEntity == uid)
+            LocalPlayerTargetDollRemoved?.Invoke();
     }
 
-    public override void SelectBodyPart(Entity<TargetDollComponent> ent, BodyPart bodyPart)
+    public override void SelectBodyPart(Entity<TargetDollComponent> ent, BodyPartType bodyPartType)
     {
-        base.SelectBodyPart(ent, bodyPart);
+        base.SelectBodyPart(ent, bodyPartType);
 
         if (!_gameTiming.IsFirstTimePredicted)
             return;
 
-        LocalPlayerTargetDollUpdated?.Invoke(ent.Comp.SelectedBodyPart);
+        LocalPlayerTargetDollUpdated?.Invoke(ent.Comp.SelectedBodyPartType);
     }
 }

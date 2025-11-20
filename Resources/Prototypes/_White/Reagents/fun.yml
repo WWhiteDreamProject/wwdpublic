@@ -33,7 +33,7 @@
       - !type:Polymorph
         prototype: Gondola
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType
           type: Animal
           shouldHave: false
         - !type:ReagentThreshold

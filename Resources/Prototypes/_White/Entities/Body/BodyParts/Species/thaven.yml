@@ -1,0 +1,107 @@
+- type: entity
+  id: BaseBodyPartThaven
+  parent: BaseBodyPart
+  abstract: true
+  name: thaven body part
+  components:
+  - type: Sprite
+    sprite: _Impstation/Mobs/Species/Thaven/parts.rsi
+  - type: BodyPartAppearance
+    sprite: _Impstation/Mobs/Species/Thaven/parts.rsi
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 3
+      - ReagentId: Blood
+        Quantity: 10
+
+# Head
+- type: entity
+  id: BodyPartHeadThaven
+  parent: [BaseBodyPartHead, BaseBodyPartThaven]
+  name: thaven head
+  components:
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 5
+      - ReagentId: Blood
+        Quantity: 10
+
+# Chest
+- type: entity
+  id: BodyPartChestThaven
+  parent: [BaseBodyPartChest, BaseBodyPartThaven]
+  name: thaven chest
+  components:
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 10
+      - ReagentId: Blood
+        Quantity: 20
+
+# Groin
+- type: entity
+  id: BodyPartGroinThaven
+  parent: [BaseBodyPartGroin, BaseBodyPartThaven]
+  name: thaven groin
+  components:
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 10
+      - ReagentId: Blood
+        Quantity: 20
+
+# Arms
+
+- type: entity
+  id: BodyPartLeftArmThaven
+  parent: [BaseBodyPartLeftArm, BaseBodyPartThaven]
+  name: thaven left arm
+
+- type: entity
+  id: BodyPartRightArmThaven
+  parent: [BaseBodyPartRightArm, BaseBodyPartThaven]
+  name: thaven right arm
+
+# Hand
+
+- type: entity
+  id: BodyPartLeftHandThaven
+  parent: [BaseBodyPartLeftHand, BaseBodyPartThaven]
+  name: thaven left hand
+
+- type: entity
+  id: BodyPartRightHandThaven
+  parent: [BaseBodyPartRightHand, BaseBodyPartThaven]
+  name: thaven right hand
+
+# Leg
+
+- type: entity
+  id: BodyPartLeftLegThaven
+  parent: [BaseBodyPartLeftLeg, BaseBodyPartThaven]
+  name: thaven left leg
+
+- type: entity
+  id: BodyPartRightLegThaven
+  parent: [BaseBodyPartRightLeg, BaseBodyPartThaven]
+  name: thaven right leg
+
+# Foot
+
+- type: entity
+  id: BodyPartLeftFootThaven
+  parent: [BaseBodyPartLeftFoot, BaseBodyPartThaven]
+  name: thaven left foot
+
+- type: entity
+  id: BodyPartRightFootThaven
+  parent: [BaseBodyPartRightFoot, BaseBodyPartThaven]
+  name: thaven right foot

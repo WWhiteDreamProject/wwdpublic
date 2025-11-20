@@ -1,3 +1,4 @@
+using Content.Server._White.Body.Systems;
 using Content.Shared.Verbs;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
@@ -13,6 +14,7 @@ using Content.Server.Body.Systems;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Server.Popups;
 using Content.Server.DoAfter;
+using Content.Shared._White.Body.Components;
 using Content.Shared.HealthExaminable;
 using Content.Shared.Nutrition.Components;
 using Robust.Shared.Prototypes;
@@ -157,7 +159,7 @@ namespace Content.Server.Vampiric
                 return false;
 
             // Does bloodsucker have a stomach?
-            var stomachList = _bodySystem.GetBodyOrganEntityComps<StomachComponent>(bloodsucker);
+            var stomachList = _bodySystem.GetOrgans<StomachComponent>(bloodsucker, OrganType.Stomach); // WD EDIT
             if (stomachList.Count == 0)
                 return false;
 
@@ -185,7 +187,7 @@ namespace Content.Server.Vampiric
                 return false;
 
             var temp = _solutionSystem.SplitSolution(bloodstream.BloodSolution.Value, bloodsuckerComp.UnitsToSucc);
-            _stomachSystem.TryTransferSolution(stomachList[0].Owner, temp, stomachList[0].Comp1);
+            _stomachSystem.TryTransferSolution(stomachList[0].Owner, temp, stomachList[0].Comp2); // WD EDIT
 
             // Add a little pierce
             DamageSpecifier damage = new();

@@ -1,3 +1,5 @@
+using Content.Shared._White.Body.Components;
+
 namespace Content.Server.Atmos.Components;
 
 /// <summary>
@@ -6,10 +8,9 @@ namespace Content.Server.Atmos.Components;
 [RegisterComponent]
 public sealed partial class IgniteFromGasImmunityComponent : Component
 {
-    // TODO
-    /*// <summary>
+    // <summary>
     //   Which body parts are given ignition immunity.
     // </summary>
     [DataField(required: true)]
-    public HashSet<TargetBodyPart> Parts;*/
+    public HashSet<BodyPartType> Parts; // WD EDIT
 }

@@ -1,8 +1,8 @@
 using System.Linq;
 using System.Numerics;
-using Content.Server.Body.Systems;
+using Content.Server._White.Gibbing;
+using Content.Server.Charges.Systems;
 using Content.Server.Standing;
-using Content.Shared.Charges.Systems;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Maps;
@@ -18,16 +18,17 @@ namespace Content.Server._White.Teleporter;
 
 public sealed class ExperimentalTeleporterSystem : EntitySystem
 {
-    [Dependency] private readonly TransformSystem _transform = default!;
-    [Dependency] private readonly BodySystem _bodySystem = default!;
-    [Dependency] private readonly MapSystem _mapSystem = default!;
     [Dependency] private readonly IEntityManager _entManager = default!;
-    [Dependency] private readonly AudioSystem _audio = default!;
-    [Dependency] private readonly ContainerSystem _containerSystem = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+
+    [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private readonly ChargesSystem _charges = default!;
+    [Dependency] private readonly ContainerSystem _containerSystem = default!;
+    [Dependency] private readonly GibbingSystem _gibbing = default!;
     [Dependency] private readonly LayingDownSystem _layingDown = default!;
-    [Dependency] private readonly SharedChargesSystem _charges = default!;
+    [Dependency] private readonly MapSystem _mapSystem = default!;
     [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private readonly TransformSystem _transform = default!;
 
     public override void Initialize()
     {
@@ -38,9 +39,9 @@ public sealed class ExperimentalTeleporterSystem : EntitySystem
     private void OnUse(EntityUid uid, ExperimentalTeleporterComponent component, UseInHandEvent args)
     {
         if (_charges.IsEmpty(uid)
-            || !TryComp<TransformComponent>(args.User, out var xform)
-            || (_containerSystem.IsEntityInContainer(args.User)
-                && !_containerSystem.TryRemoveFromContainer(args.User)))
+            || !TryComp(args.User, out TransformComponent? xform)
+            || _containerSystem.IsEntityInContainer(args.User)
+                && !_containerSystem.TryRemoveFromContainer(args.User))
             return;
 
         var oldCoords = xform.Coordinates;
@@ -57,7 +58,7 @@ public sealed class ExperimentalTeleporterSystem : EntitySystem
             || EmergencyTeleportation(args.User, uid, component, xform, oldCoords, newOffset))
             return;
 
-        _bodySystem.GibBody(args.User, true, splatModifier: 3F);
+        _gibbing.GibBody(args.User, true, splatModifier: 3F);
     }
 
     private bool EmergencyTeleportation(EntityUid uid, EntityUid teleporterUid, ExperimentalTeleporterComponent component, TransformComponent xform, EntityCoordinates oldCoords, Vector2 offset)

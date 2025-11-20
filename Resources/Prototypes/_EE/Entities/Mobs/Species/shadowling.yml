@@ -78,6 +78,10 @@
   components:
   - type: HumanoidAppearance
     species: Shadowling
+  # WD EDIT START
+  - type: Body
+    prototype: Shadowling
+  # WD EDIT END
 
 # for yaml linter
 - type: entity

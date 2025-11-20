@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from https://github.com/ParadiseSS13/Paradise edited by Floofers",
+  "copyright": "Taken from https://github.com/ParadiseSS13/Paradise edited by Floofers. The division of the torso into chest and groin was done by Sparison.",
   "size": {"x": 32, "y": 32},
   "states": [
     {
@@ -17,15 +17,27 @@
       "directions": 4
     },
     {
-      "name": "belly_fox",
+      "name": "belly_fox_chest",
       "directions": 4
     },
     {
-      "name": "belly_full",
+      "name": "belly_fox_groin",
       "directions": 4
     },
     {
-      "name": "belly_crest",
+      "name": "belly_full_chest",
+      "directions": 4
+    },
+    {
+      "name": "belly_full_groin",
+      "directions": 4
+    },
+    {
+      "name": "belly_crest_chest",
+      "directions": 4
+    },
+    {
+      "name": "belly_crest_groin",
       "directions": 4
     },
     {

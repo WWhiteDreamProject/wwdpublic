@@ -33,6 +33,8 @@ public abstract partial class SharedHandsSystem
         InitializeDrop();
         InitializePickup();
         InitializeRelay();
+
+        SubscribeLocalEvent<HandsComponent, ComponentInit>(OnInit); // WD EDIT
     }
 
     public override void Shutdown()
@@ -40,6 +42,14 @@ public abstract partial class SharedHandsSystem
         base.Shutdown();
         CommandBinds.Unregister<SharedHandsSystem>();
     }
+
+    // WD EDIT START
+    private void OnInit(EntityUid uid, HandsComponent component, ComponentInit args)
+    {
+        foreach (var hand in component.Hands.Values)
+            SetupHand((uid, component), hand);
+    }
+    // WD EDIT END
 
     public virtual void AddHand(EntityUid uid, string handName, HandLocation handLocation, HandsComponent? handsComp = null)
     {
@@ -49,18 +59,13 @@ public abstract partial class SharedHandsSystem
         if (handsComp.Hands.ContainsKey(handName))
             return;
 
-        var container = ContainerSystem.EnsureContainer<ContainerSlot>(uid, handName);
-        container.OccludesLight = false;
-
-        var newHand = new Hand(handName, handLocation, container);
+        // WD EDIT START
+        var newHand = new Hand(handName, handLocation);
         handsComp.Hands.Add(handName, newHand);
-        handsComp.SortedHands.Add(handName);
 
-        if (handsComp.ActiveHand == null)
-            SetActiveHand(uid, newHand, handsComp);
-
+        SetupHand((uid, handsComp), newHand);
         RaiseLocalEvent(uid, new HandCountChangedEvent(uid));
-        Dirty(uid, handsComp);
+        // WD EDIT END
     }
 
     public virtual void RemoveHand(EntityUid uid, string handName, HandsComponent? handsComp = null)
@@ -325,4 +330,20 @@ public abstract partial class SharedHandsSystem
 
         return freeable;
     }
+
+    // WD EDIT START
+    private void SetupHand(Entity<HandsComponent> entHand, Hand hand)
+    {
+        var container = ContainerSystem.EnsureContainer<ContainerSlot>(entHand, hand.Name);
+        container.OccludesLight = false;
+
+        entHand.Comp.SortedHands.Add(hand.Name);
+        hand.Container = container;
+
+        if (entHand.Comp.ActiveHand == null)
+            SetActiveHand(entHand, hand, entHand.Comp);
+
+        Dirty(entHand);
+    }
+    // WD EDIT END
 }

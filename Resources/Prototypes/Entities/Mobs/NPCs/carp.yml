@@ -253,7 +253,6 @@
           BaseUnshaded: dead_mouth
     - type: Body
       prototype: Bloodsucker
-      requiredLegs: 1
     - type: Butcherable
       spawned:
         - id: FoodMeatFish

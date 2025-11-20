@@ -32,7 +32,7 @@
           - tag: Head
             icon:
               sprite: Mobs/Species/Human/parts.rsi
-              state: "head_m"
+              state: "head" # WD EDIT: head_m -> head
             name: human head
             doAfter: 1
 

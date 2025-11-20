@@ -1,71 +1,95 @@
 - type: marking
   id: SlimeGradientLeftArm
-  bodyPart: LArm
   markingCategory: LeftArm
   speciesRestriction: [SlimePerson, Shadowkin]
   sprites:
   - sprite: Mobs/Customization/slime_parts.rsi
     state: gradient_l_arm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftArm
+    bodyPart: LeftArm
+    # WD EDIT END
 
 - type: marking
   id: SlimeGradientRightArm
-  bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [SlimePerson, Shadowkin]
   sprites:
   - sprite: Mobs/Customization/slime_parts.rsi
     state: gradient_r_arm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightArm
+    bodyPart: RightArm
+    # WD EDIT END
 
 - type: marking
   id: SlimeGradientLeftLeg
-  bodyPart: LLeg
   markingCategory: LeftLeg
   speciesRestriction: [SlimePerson, Shadowkin]
   sprites:
   - sprite: Mobs/Customization/slime_parts.rsi
     state: gradient_l_leg
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftLeg
+    bodyPart: LeftLeg
+    # WD EDIT END
 
 - type: marking
   id: SlimeGradientRightLeg
-  bodyPart: RLeg
   markingCategory: RightLeg
   speciesRestriction: [SlimePerson, Shadowkin]
   sprites:
   - sprite: Mobs/Customization/slime_parts.rsi
     state: gradient_r_leg
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightLeg
+    bodyPart: RightLeg
+    # WD EDIT END
 
 - type: marking
   id: SlimeGradientLeftFoot
-  bodyPart: LFoot
   markingCategory: LeftFoot
   speciesRestriction: [SlimePerson, Shadowkin]
   sprites:
   - sprite: Mobs/Customization/slime_parts.rsi
     state: gradient_l_foot
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftFoot
+    bodyPart: LeftFoot
+    # WD EDIT END
 
 - type: marking
   id: SlimeGradientRightFoot
-  bodyPart: RFoot
   markingCategory: RightFoot
   speciesRestriction: [SlimePerson, Shadowkin]
   sprites:
   - sprite: Mobs/Customization/slime_parts.rsi
     state: gradient_r_foot
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightFoot
+    bodyPart: RightFoot
+    # WD EDIT END
 
 - type: marking
   id: SlimeGradientLeftHand
-  bodyPart: LHand
   markingCategory: LeftHand
   speciesRestriction: [SlimePerson, Shadowkin]
   sprites:
   - sprite: Mobs/Customization/slime_parts.rsi
     state: gradient_l_hand
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftHand
+    bodyPart: LeftHand
+    # WD EDIT END
 
 - type: marking
   id: SlimeGradientRightHand
-  bodyPart: RHand
   markingCategory: RightHand
   speciesRestriction: [SlimePerson, Shadowkin]
   sprites:
   - sprite: Mobs/Customization/slime_parts.rsi
     state: gradient_r_hand
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightHand
+    bodyPart: RightHand
+    # WD EDIT END

@@ -1,5 +1,3 @@
-using Content.Shared.Body.Part;
-using Content.Shared.Body.Systems;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
@@ -93,9 +91,9 @@ public abstract class ClothingSystem : EntitySystem
         }
     }
 
-    private void ToggleVisualLayers(EntityUid equipee, HashSet<HumanoidVisualLayers> layers, HashSet<HumanoidVisualLayers> appearanceLayers, bool force = false)
+    private void ToggleVisualLayers(EntityUid equipee, HashSet<Enum> layers, HashSet<Enum> appearanceLayers, bool force = false) // WD EDIT
     {
-        foreach (HumanoidVisualLayers layer in layers)
+        foreach (Enum layer in layers) // WD EDIT
         {
             if (!force && !appearanceLayers.Contains(layer))
                 continue;

@@ -1,0 +1,30 @@
+- type: body
+  id: XenomorphSentinel
+  organs:
+    brain:
+      type: Brain
+      startingOrgan: OrganBrainXenomorph
+    eyes:
+      type: Eyes
+      startingOrgan: OrganEyesXenomorph
+    tongue:
+      type: Tongue
+      startingOrgan: OrganTongueXenomorph
+    lungs:
+      type: Lungs
+      startingOrgan: OrganLungsXenomorph
+    stomach:
+      type: Stomach
+      startingOrgan: OrganStomachXenomorph
+    liver:
+      type: Liver
+      startingOrgan: OrganLiverXenomorph
+    acid_gland:
+      type: Gland
+      startingOrgan: OrganGlandAcidXenomorph
+    neurotoxin_gland:
+      type: Gland
+      startingOrgan: OrganGlandNeurotoxinXenomorph
+    hive_node:
+      type: Specific
+      startingOrgan: OrganHiveNodeXenomorph

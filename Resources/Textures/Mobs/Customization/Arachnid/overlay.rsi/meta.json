@@ -1,14 +1,42 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Made by Nairodian (github) for SS14",
+  "copyright": "Made by Nairodian (github) for SS14. The division was done by Sparison",
   "size": {
     "x": 32,
     "y": 32
   },
   "states": [
     {
-      "name": "fuzzy",
+      "name": "fuzzy_chest",
+      "directions": 4
+    },
+    {
+      "name": "fuzzy_head",
+      "directions": 4
+    },
+    {
+      "name": "fuzzy_l_arm",
+      "directions": 4
+    },
+    {
+      "name": "fuzzy_l_hand",
+      "directions": 4
+    },
+    {
+      "name": "fuzzy_l_leg",
+      "directions": 4
+    },
+    {
+      "name": "fuzzy_r_arm",
+      "directions": 4
+    },
+    {
+      "name": "fuzzy_r_hand",
+      "directions": 4
+    },
+    {
+      "name": "fuzzy_r_leg",
       "directions": 4
     }
   ]

@@ -1,5 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Server._White.Body.Systems;
+using Content.Server._White.Gibbing;
 using Content.Server.Actions;
 using Content.Server.Antag;
 using Content.Server.Antag.Components;
@@ -7,6 +9,7 @@ using Content.Server.Body.Systems;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules;
 using Content.Server.Hands.Systems;
+using Content.Server.Humanoid;
 using Content.Server.Language;
 using Content.Server.Mind;
 using Content.Server.NPC.Systems;
@@ -48,9 +51,9 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
     [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly AntagSelectionSystem _antagSelection = default!;
     [Dependency] private readonly BloodSpearSystem _bloodSpear = default!;
-    [Dependency] private readonly BodySystem _body = default!;
     [Dependency] private readonly ContainerSystem _container = default!;
     [Dependency] private readonly HandsSystem _hands = default!;
+    [Dependency] private readonly HumanoidAppearanceSystem _humanoidAppearance = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly LanguageSystem _language = default!;
     [Dependency] private readonly NavMapSystem _navMap = default!;
@@ -60,6 +63,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
     [Dependency] private readonly RoleSystem _role = default!;
     [Dependency] private readonly RoundEndSystem _roundEnd = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private readonly GibbingSystem _gibbing = default!;
 
     public override void Initialize()
     {
@@ -131,7 +135,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 
                 var harvester = Spawn(cult.HarvesterPrototype, Transform(ent.Owner).Coordinates);
                 _mind.TransferTo(mindContainer.Mind.Value, harvester);
-                _body.GibBody(ent);
+                _gibbing.GibBody(ent.Owner);
             }
 
             return;
@@ -376,7 +380,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
         _faction.AddFaction(cultist, rule.Comp.BloodCultFaction);
 
         _mind.TryAddObjective(mindId, mind, "KillTargetCultObjective");
-        
+
         if (rule.Comp.Stage == CultStage.Start || !TryComp<BloodCultistComponent>(cultist, out var cultistComp))
             return;
 
@@ -384,7 +388,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
         {
             cultistComp.OriginalEyeColor = appearanceComponent.EyeColor;
             appearanceComponent.EyeColor = rule.Comp.EyeColor;
-            Dirty(cultist, appearanceComponent);
+            _humanoidAppearance.SetEyeColor(cultist, rule.Comp.EyeColor, humanoid: appearanceComponent);
         }
 
         if (rule.Comp.Stage == CultStage.Pentagram)
@@ -430,12 +434,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 
     private void RemoveCultistAppearance(Entity<BloodCultistComponent> cultist)
     {
-        if (TryComp<HumanoidAppearanceComponent>(cultist, out var appearanceComponent))
-        {
-            appearanceComponent.EyeColor = cultist.Comp.OriginalEyeColor;
-            Dirty(cultist, appearanceComponent);
-        }
-
+        _humanoidAppearance.SetEyeColor(cultist, cultist.Comp.OriginalEyeColor);
         RemComp<PentagramComponent>(cultist);
     }
 
@@ -473,8 +472,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
                     if (!TryComp<HumanoidAppearanceComponent>(cultist, out var appearanceComponent))
                         continue;
                     cultist.Comp.OriginalEyeColor = appearanceComponent.EyeColor;
-                    appearanceComponent.EyeColor = cultRule.EyeColor;
-                    Dirty(cultist, appearanceComponent);
+                    _humanoidAppearance.SetEyeColor(cultist, cultRule.EyeColor, humanoid:appearanceComponent);
                 }
 
                 break;

@@ -18,10 +18,12 @@
     sprite: Clothing/Head/Hardsuits/basic.rsi
   - type: HideLayerClothing
     slots:
-    - Hair
-    - Snout
-    - HeadTop
-    - HeadSide
+    # WD EDIT START
+    - enum.HumanoidVisualLayers.Hair
+    - enum.HumanoidVisualLayers.Snout
+    - enum.HumanoidVisualLayers.HeadTop
+    - enum.HumanoidVisualLayers.HeadSide
+    # WD EDIT END
 
 #Atmospherics Hardsuit
 - type: entity
@@ -471,8 +473,10 @@
     lowPressureMultiplier: 1000
   - type: HideLayerClothing
     slots:
-    - Snout
-    - Hair
+    # WD EDIT START
+    - enum.HumanoidVisualLayers.Hair
+    - enum.HumanoidVisualLayers.Snout
+    # WD EDIT END
   - type: Armor
     modifiers:
       coefficients:
@@ -535,8 +539,10 @@
     lowPressureMultiplier: 1000
   - type: HideLayerClothing
     slots:
-    - Snout
-    - Hair
+    # WD EDIT START
+    - enum.HumanoidVisualLayers.Hair
+    - enum.HumanoidVisualLayers.Snout
+    # WD EDIT END
   - type: Armor
     modifiers:
       coefficients:
@@ -571,8 +577,10 @@
     lowPressureMultiplier: 1000
   - type: HideLayerClothing
     slots:
-    - Snout
-    - Hair
+    # WD EDIT START
+    - enum.HumanoidVisualLayers.Hair
+    - enum.HumanoidVisualLayers.Snout
+    # WD EDIT END
   - type: TemperatureProtection
     heatingCoefficient: 0.1 # WD EDIT: 0.005 -> 0.1
     coolingCoefficient: 0.1 # WD EDIT: 0.005 -> 0.1
@@ -636,8 +644,10 @@
     lowPressureMultiplier: 1000
   - type: HideLayerClothing
     slots:
-    - Snout
-    - Hair
+    # WD EDIT START
+    - enum.HumanoidVisualLayers.Hair
+    - enum.HumanoidVisualLayers.Snout
+    # WD EDIT END
   - type: Armor
     modifiers:
       coefficients:
@@ -665,8 +675,10 @@
     lowPressureMultiplier: 1000
   - type: HideLayerClothing
     slots:
-    - Snout
-    - Hair
+    # WD EDIT START
+    - enum.HumanoidVisualLayers.Hair
+    - enum.HumanoidVisualLayers.Snout
+    # WD EDIT END
   - type: Armor
     modifiers:
       coefficients:

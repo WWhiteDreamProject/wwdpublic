@@ -66,7 +66,7 @@
     slots:
       brain_slot:
         name: "Brain"
-        startingItem: OrganHumanBrain
+        startingItem: OrganBrainHuman # WD EDIT: OrganHumanBrain -> OrganBrainHuman
         whitelist:
           tags: # IPCMMI - changed component requirement to a tag bc you'd be able to infinitely stack regular + reverse MMIs otherwise
           - Brain

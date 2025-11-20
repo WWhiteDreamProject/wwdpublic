@@ -230,3 +230,7 @@
           32:
             sprite: _White/Mobs/Species/Resomi/displacement.rsi
             state: belt
+  # WD EDIT START
+  - type: Body
+    prototype: Resomi
+  # WD EDIT END

@@ -1094,7 +1094,7 @@
     factions:
     - Passive
   - type: Body
-    prototype: AnimalRuminant
+    prototype: Ruminant # WD EDIT: AnimalRuminant -> Ruminant
   - type: HTN
     rootTask:
       task: RuminantCompound
@@ -1176,8 +1176,6 @@
   - type: HTN
     rootTask:
       task: RuminantCompound
-  - type: Body
-    prototype: AnimalHemocyanin
   - type: RandomBark
     barkType: crab
 
@@ -1276,7 +1274,7 @@
     factions:
     - Passive
   - type: Body
-    prototype: AnimalRuminant
+    prototype: Ruminant # WD EDIT: AnimalRuminant -> Ruminant
   - type: NPCRetaliation
     attackMemoryLength: 5
   - type: FactionException
@@ -1528,11 +1526,24 @@
   - type: Sprite
     drawdepth: Mobs
     layers:
-    - map: ["enum.DamageStateVisualLayers.Base"]
-      state: monkey
-      sprite: Mobs/Animals/monkey.rsi
-    - map: [ "jumpsuit" ]
-    - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
+    # WD EDIT START: BodyAppearanceLayer
+    - map: [ "enum.BodyAppearanceLayer.Chest" ]
+    - map: [ "enum.BodyAppearanceLayer.Groin" ]
+    - map: [ "enum.BodyAppearanceLayer.Head" ]
+    - map: [ "enum.BodyAppearanceLayer.Eyes" ]
+    - map: [ "enum.BodyAppearanceLayer.RightArm" ]
+    - map: [ "enum.BodyAppearanceLayer.LeftArm" ]
+    - map: [ "enum.BodyAppearanceLayer.RightLeg" ]
+    - map: [ "enum.BodyAppearanceLayer.LeftLeg" ]
+    # WD EDIT END
+    - map: ["jumpsuit"]
+    # WD EDIT START: BodyAppearanceLayer
+    - map: ["enum.BodyAppearanceLayer.LeftFoot"]
+    - map: ["enum.BodyAppearanceLayer.RightFoot"]
+    - map: ["enum.BodyAppearanceLayer.LeftHand"]
+    - map: ["enum.BodyAppearanceLayer.RightHand"]
+    # WD EDIT END
+    - map: ["enum.HumanoidVisualLayers.Handcuffs"]
       color: "#ffffff"
       sprite: Objects/Misc/handcuffs.rsi
       state: body-overlay-2
@@ -1542,6 +1553,7 @@
     - map: [ "id" ]
     - map: [ "mask" ]
     - map: [ "head" ]
+    - map: [ "enum.BodyAppearanceLayer.Tail" ] # WD EDIT: BodyAppearanceLayer
     - map: [ "innerBelt" ] # Einstein Engines
     - map: [ "innerNeck" ] # Einstein Engines
     - map: [ "clownedon" ]
@@ -1611,7 +1623,11 @@
       methods: [ Touch ]
       effects:
       - !type:WashCreamPieReaction
-
+  # WD EDIT START
+  - type: Body
+    prototype: Monkey
+  - type: BodyAppearance
+  # WD EDIT END
 
 
 - type: entity
@@ -1785,6 +1801,10 @@
   - type: RandomBark
     barkMultiplier: 0.65
     barkType: kobold
+  # WD EDIT START
+  - type: Body
+    prototype: Kobold
+  # WD EDIT END
 
 - type: entity
   name: kobold
@@ -2633,8 +2653,6 @@
     - id: FoodMeatSpider
       amount: 2
   - type: CombatMode
-  - type: Body
-    prototype: AnimalHemocyanin
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -3942,6 +3960,7 @@
     understands:
     - TauCetiBasic
     - RootSpeak
+  - type: IsDeadIC # WD EDIT
 
 - type: entity
   parent: MobDionaNymph

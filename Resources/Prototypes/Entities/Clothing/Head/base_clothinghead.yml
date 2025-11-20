@@ -115,8 +115,8 @@
     heatingCoefficient: 0.2
     coolingCoefficient: 0.2
   - type: IgniteFromGasImmunity
-    # parts:
-    # - Head
+    parts:
+    - Head
   - type: IngestionBlocker
   - type: Clothing
     #Copies ClothingHeadHardsuitBase behavior
@@ -132,10 +132,12 @@
   - type: IdentityBlocker
   - type: HideLayerClothing
     slots:
-    - Hair
-    - Snout
-    - HeadTop
-    - HeadSide
+    # WD EDIT START
+    - enum.HumanoidVisualLayers.Hair
+    - enum.HumanoidVisualLayers.Snout
+    - enum.HumanoidVisualLayers.HeadTop
+    - enum.HumanoidVisualLayers.HeadSide
+    # WD EDIT END
 
 - type: entity
   abstract: true
@@ -152,8 +154,8 @@
     heatingCoefficient: 0.2
     coolingCoefficient: 0.2
   - type: IgniteFromGasImmunity
-    # parts:
-    # - Head
+    parts:
+    - Head
   - type: Clothing
     #Copies ClothingHeadHardsuitBase behavior
     equipSound: /Audio/Mecha/mechmove03.ogg
@@ -166,10 +168,12 @@
   - type: IdentityBlocker
   - type: HideLayerClothing
     slots:
-    - Hair
-    - Snout
-    - HeadTop
-    - HeadSide
+    # WD EDIT START
+    - enum.HumanoidVisualLayers.Hair
+    - enum.HumanoidVisualLayers.Snout
+    - enum.HumanoidVisualLayers.HeadTop
+    - enum.HumanoidVisualLayers.HeadSide
+    # WD EDIT END
 
 - type: entity
   abstract: true
@@ -196,8 +200,8 @@
     heatingCoefficient: 0.2 # WD EDIT: 0.1 -> 0.2
     coolingCoefficient: 0.2 # WD EDIT: 0.1 -> 0.2
   - type: IgniteFromGasImmunity
-    # parts:
-    # - Head
+    parts:
+    - Head
   - type: Armor
     modifiers:
       coefficients:
@@ -215,10 +219,12 @@
   - type: IdentityBlocker
   - type: HideLayerClothing
     slots:
-    - Hair
-    - Snout
-    - HeadTop
-    - HeadSide
+    # WD EDIT START
+    - enum.HumanoidVisualLayers.Hair
+    - enum.HumanoidVisualLayers.Snout
+    - enum.HumanoidVisualLayers.HeadTop
+    - enum.HumanoidVisualLayers.HeadSide
+    # WD EDIT END
   # WD EDIT START
   #- type: Reflect
   #  spread: 270
@@ -256,8 +262,8 @@
       - state: equipped-HELMET
       - state: on-equipped-HELMET
   - type: IgniteFromGasImmunity
-    # parts:
-    # - Head
+    parts:
+    - Head
   - type: Armor
     modifiers:
       coefficients:
@@ -278,8 +284,10 @@
     - PlasmamanSafe
   - type: HideLayerClothing
     slots:
-    - Hair
-    - Snout
+    # WD EDIT START
+    - enum.HumanoidVisualLayers.Hair
+    - enum.HumanoidVisualLayers.Snout
+    # WD EDIT END
     clothingSlots:
     - mask
   - type: ToggleableLightVisuals
@@ -470,6 +478,8 @@
   - type: GroupExamine
   - type: HideLayerClothing
     slots:
-    - Hair
-    - HeadTop
-    - HeadSide
+    # WD EDIT START
+    - enum.HumanoidVisualLayers.Hair
+    - enum.HumanoidVisualLayers.HeadTop
+    - enum.HumanoidVisualLayers.HeadSide
+    # WD EDIT END

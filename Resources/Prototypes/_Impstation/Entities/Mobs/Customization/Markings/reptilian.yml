@@ -1,6 +1,5 @@
 - type: marking
   id: Fangs
-  bodyPart: Snout
   markingCategory: Overlay
   speciesRestriction: [Reptilian]
   coloring:
@@ -11,49 +10,68 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/reptilian_parts.rsi
     state: fangs
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Snout
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: LizardBeard
-  bodyPart: Snout
   markingCategory: Overlay
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: _Impstation/Mobs/Customization/reptilian_parts.rsi
     state: beard
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Snout
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: LizardSnoutTall
-  bodyPart: Snout
   forcedColoring: true
   markingCategory: Snout
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: _Impstation/Mobs/Customization/reptilian_parts.rsi
     state: snout_tall
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Snout
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: LizardHornsKoboldEarspiercings
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: _Impstation/Mobs/Customization/reptilian_parts.rsi
     state: horns_kobold_ears
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
   - sprite: _Impstation/Mobs/Customization/reptilian_parts.rsi
     state: horns_kobold_ears_piercings
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: LizardHornsNubby
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: _Impstation/Mobs/Customization/reptilian_parts.rsi
     state: horns_nubby
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: LizardSnoutpiercings
-  bodyPart: Snout
   markingCategory: Overlay
   forcedColoring: true
   speciesRestriction: [Reptilian]
@@ -65,6 +83,10 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/reptilian_parts.rsi
     state: piercings1
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Snout
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: LizardHeadFlat
@@ -74,3 +96,7 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/reptilian_parts.rsi
     state: head_flat
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END

@@ -1,0 +1,6 @@
+- type: entity
+  id: OrganStomachVampiric
+  parent: OrganStomachAnimal
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [Vampiric]

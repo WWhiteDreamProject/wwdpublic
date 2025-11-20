@@ -1,0 +1,18 @@
+- type: body
+  id: Bloodsucker
+  organs:
+    heart:
+      type: Heart
+      startingOrgan: OrganHeartAnimal
+    lungs:
+      type: Lungs
+      startingOrgan: OrganLungsAnimal
+    stomach:
+      type: Stomach
+      startingOrgan: OrganStomachBloodsucker
+    liver:
+      type: Liver
+      startingOrgan: OrganLiverBloodsucker
+    kidneys:
+      type: Kidneys
+      startingOrgan: OrganKidneysBloodsucker

@@ -171,17 +171,17 @@
   id: UnsensoredClothingUniformEnvirosuitBase
   components:
   - type: IgniteFromGasImmunity
-    # parts:
-    # - Torso
-    # - Groin
-    # - LeftArm
-    # - LeftHand
-    # - RightArm
-    # - RightHand
-    # - LeftLeg
-    # - LeftFoot
-    # - RightLeg
-    # - RightFoot
+    parts:
+    - Chest # WD EDIT: Torso -> Chest
+    - Groin
+    - LeftArm
+    - LeftHand
+    - RightArm
+    - RightHand
+    - LeftLeg
+    - LeftFoot
+    - RightLeg
+    - RightFoot
   - type: Clothing
     equipDelay: 0.4
     unequipDelay: 0.6 # Slightly higher delay to protect against accidental unequips

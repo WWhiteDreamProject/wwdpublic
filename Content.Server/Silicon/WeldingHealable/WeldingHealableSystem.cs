@@ -1,4 +1,5 @@
 using Content.Server.Silicon.WeldingHealing;
+using Content.Shared._White.Body.Systems;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Silicon.WeldingHealing;
 using Content.Shared.Chemistry.Components.SolutionManager;
@@ -7,7 +8,6 @@ using Content.Shared.Damage;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Tools;
-using Content.Shared.Body.Systems;
 using Content.Shared.Tools.Components;
 using SharedToolSystem = Content.Shared.Tools.Systems.SharedToolSystem;
 

@@ -1,0 +1,121 @@
+- type: entity
+  id: BaseBodyPartXelthia
+  parent: BaseBodyPart
+  abstract: true
+  name: xelthia body part
+  components:
+  - type: Sprite
+    sprite: _EE/Mobs/Species/Xelthia/parts.rsi
+  - type: BodyPartAppearance
+    sprite: _EE/Mobs/Species/Xelthia/parts.rsi
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 3
+      - ReagentId: Blood
+        Quantity: 10
+
+# Head
+- type: entity
+  id: BodyPartHeadXelthia
+  parent: [BaseBodyPartHead, BaseBodyPartXelthia]
+  name: xelthia head
+  components:
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 5
+      - ReagentId: Blood
+        Quantity: 10
+
+# Chest
+- type: entity
+  id: BodyPartChestXelthia
+  parent: [BaseBodyPartChest, BaseBodyPartXelthia]
+  name: xelthia chest
+  components:
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 10
+      - ReagentId: Blood
+        Quantity: 20
+
+# Groin
+- type: entity
+  id: BodyPartGroinXelthia
+  parent: [BaseBodyPartGroin, BaseBodyPartXelthia]
+  name: xelthia groin
+  components:
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 10
+      - ReagentId: Blood
+        Quantity: 20
+
+# Arms
+
+- type: entity
+  id: BodyPartLeftArmXelthia
+  parent: [BaseBodyPartLeftArm, BaseBodyPartXelthia]
+  name: xelthia left arm
+
+- type: entity
+  id: BodyPartRightArmXelthia
+  parent: [BaseBodyPartRightArm, BaseBodyPartXelthia]
+  name: xelthia right arm
+
+# Hand
+
+- type: entity
+  id: BodyPartLeftHandXelthia
+  parent: [BaseBodyPartLeftHand, BaseBodyPartXelthia]
+  name: xelthia left hand
+
+- type: entity
+  id: BodyPartRightHandXelthia
+  parent: [BaseBodyPartRightHand, BaseBodyPartXelthia]
+  name: xelthia right hand
+
+# Leg
+
+- type: entity
+  id: BodyPartLeftLegXelthia
+  parent: [BaseBodyPartLeftLeg, BaseBodyPartXelthia]
+  name: xelthia left leg
+
+- type: entity
+  id: BodyPartRightLegXelthia
+  parent: [BaseBodyPartRightLeg, BaseBodyPartXelthia]
+  name: xelthia right leg
+
+# Foot
+
+- type: entity
+  id: BodyPartLeftFootXelthia
+  parent: [BaseBodyPartLeftFoot, BaseBodyPartXelthia]
+  name: xelthia left foot
+
+- type: entity
+  id: BodyPartRightFootXelthia
+  parent: [BaseBodyPartRightFoot, BaseBodyPartXelthia]
+  name: xelthia right foot
+
+# Tail
+
+- type: entity
+  id: BodyPartTailXelthia
+  parent: [BaseBodyPartTail, BaseBodyPartXelthia]
+  name: xelthia tail
+  components:
+  - type: Sprite
+    sprite: _EE/Mobs/Customization/xelthia_parts.rsi
+    state: tail_normal
+  - type: BodyPartAppearance
+    sprite: _EE/Mobs/Customization/xelthia_parts.rsi
+    state: tail_normal

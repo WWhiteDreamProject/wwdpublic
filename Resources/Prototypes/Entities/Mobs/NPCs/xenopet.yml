@@ -157,8 +157,7 @@
       proper: true
       gender: male
   - type: Body
-    prototype: Friendshaped
-    requiredLegs: 1 # TODO: More than 1 leg
+    prototype: FriendShaped # WD EDIT: Friendshaped -> FriendShaped
   - type: InteractionPopup
     successChance: 0.5
     interactSuccessString: petting-success-reptile

@@ -8,9 +8,10 @@
   - type: HumanoidAppearance
     species: Reptilian
     hideLayersOnEquip:
-    - Snout
-    # - HeadTop - WD EDIT
-    - HeadSide
+    # WD EDIT START
+    - enum.HumanoidVisualLayers.Snout
+    - enum.HumanoidVisualLayers.HeadSide
+    # WD EDIT END
   - type: Hunger
   - type: Puller
     needsHands: false
@@ -151,12 +152,13 @@
   - type: HumanoidAppearance
     species: Reptilian
     hideLayersOnEquip:
-    - Snout
-    # - HeadTop - WD EDIT
-    - HeadSide
+    # WD EDIT START
+    - enum.HumanoidVisualLayers.Snout
+    - enum.HumanoidVisualLayers.HeadSide
+    # WD EDIT END
   - type: Inventory
     speciesId: reptilian
-    # WD EDIT START
+  # WD EDIT START
     femaleDisplacements:
       jumpsuit:
         sizeMaps:
@@ -209,6 +211,8 @@
           32:
             sprite: _White/Mobs/Species/Reptilian/displacement.rsi
             state: shoes-digi
-    # WD EDIT END
+  - type: Body
+    prototype: Reptilian
+  # WD EDIT END
 
 #Weh

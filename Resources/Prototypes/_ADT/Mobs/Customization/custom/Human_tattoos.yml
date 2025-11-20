@@ -1,215 +1,287 @@
 - type: marking
   id: HumanTattooArmImheartmomL
-  bodyPart: LArm
   markingCategory: LeftArm
   speciesRestriction: [Human, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Felinid, Arachne, Shadowkin, Moth, Vulpkanin]
   sprites:
   - sprite: _ADT/Mobs/Customization/Human/custom.rsi
     state: tattoo_arm_imheartmom_l
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftArm
+    bodyPart: LeftArm
+    # WD EDIT END
 
 - type: marking
   id: HumanTattooArmImheartmomR
-  bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [Human, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Felinid, Arachne, Shadowkin, Moth, Vulpkanin]
   sprites:
   - sprite: _ADT/Mobs/Customization/Human/custom.rsi
     state: tattoo_arm_imheartmom_r
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightArm
+    bodyPart: RightArm
+    # WD EDIT END
 
 - type: marking
   id: HumanTattooChurchdomes
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Human, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Felinid, Arachne, Shadowkin, Moth, Vulpkanin]
   sprites:
   - sprite: _ADT/Mobs/Customization/Human/custom.rsi
     state: tattoo_churchdomes
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+    # WD EDIT END
 
 - type: marking
   id: HumanTattooElysiumPatriotism
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Human, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Felinid, Arachne, Shadowkin, Moth, Vulpkanin]
   sprites:
   - sprite: _ADT/Mobs/Customization/Human/custom.rsi
     state: tattoo_elysium_patriotism
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+    # WD EDIT END
 
 - type: marking
   id: HumanTattooFullskelet
-  bodyPart: LLeg
   markingCategory: Overlay
   speciesRestriction: [Human, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Felinid, Arachne, Shadowkin, Moth, Vulpkanin]
   sprites:
   - sprite: _ADT/Mobs/Customization/Human/custom.rsi
     state: tattoo_fullskelet
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftLeg
+    bodyPart: LeftLeg
+    # WD EDIT END
 
 - type: marking
   id: HumanTattooKarabel
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Human, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Felinid, Arachne, Shadowkin, Moth, Vulpkanin]
   sprites:
   - sprite: _ADT/Mobs/Customization/Human/custom.rsi
     state: tattoo_karabel
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+    # WD EDIT END
 
 - type: marking
   id: HumanTattooKrenelMercenary
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Human, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Felinid, Arachne, Shadowkin, Moth, Vulpkanin]
   sprites:
   - sprite: _ADT/Mobs/Customization/Human/custom.rsi
     state: tattoo_KrenelMercenary
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+    # WD EDIT END
 
 - type: marking
   id: HumanTattooLineArmL
-  bodyPart: LArm
   markingCategory: LeftArm
   speciesRestriction: [Human, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Felinid, Arachne, Shadowkin, Moth, Vulpkanin]
   sprites:
   - sprite: _ADT/Mobs/Customization/Human/custom.rsi
     state: tattoo_line_arm_l
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftArm
+    bodyPart: LeftArm
+    # WD EDIT END
 
 - type: marking
   id: HumanTattooLineArmR
-  bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [Human, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Felinid, Arachne, Shadowkin, Moth, Vulpkanin]
   sprites:
   - sprite: _ADT/Mobs/Customization/Human/custom.rsi
     state: tattoo_line_arm_r
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightArm
+    bodyPart: RightArm
+    # WD EDIT END
 
 - type: marking
   id: HumanTattooRose
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Human, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Felinid, Arachne, Shadowkin, Moth, Vulpkanin]
   sprites:
   - sprite: _ADT/Mobs/Customization/Human/custom.rsi
     state: tattoo_Rose
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+    # WD EDIT END
 
 - type: marking
   id: HumanTattooSerpentTemptation
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Human, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Felinid, Arachne, Shadowkin, Moth, Vulpkanin]
   sprites:
   - sprite: _ADT/Mobs/Customization/Human/custom.rsi
     state: tattoo_serpenttemptation
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+    # WD EDIT END
 
 - type: marking
   id: HumanTattooSkull
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Human, Oni, SlimePerson, Arachnid, Tajaran, Felinid, Arachne]
   sprites:
   - sprite: _ADT/Mobs/Customization/Human/custom.rsi
     state: tattoo_skull
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: HumanTattooSkeletarmL
-  bodyPart: LArm
   markingCategory: LeftArm
   speciesRestriction: [Human, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Felinid, Arachne, Shadowkin, Moth, Vulpkanin]
   sprites:
   - sprite: _ADT/Mobs/Customization/Human/custom.rsi
     state: tattoo_skelet_arm_l
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftArm
+    bodyPart: LeftArm
+    # WD EDIT END
 
 - type: marking
   id: HumanTattooSkeletarmR
-  bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [Human, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Felinid, Arachne, Shadowkin, Moth, Vulpkanin]
   sprites:
   - sprite: _ADT/Mobs/Customization/Human/custom.rsi
     state: tattoo_skelet_arm_r
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightArm
+    bodyPart: RightArm
+    # WD EDIT END
 
 - type: marking
   id: HumanTattooSkeletbody
-  bodyPart: LLeg
   markingCategory: Overlay
   speciesRestriction: [Human, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Felinid, Arachne, Shadowkin, Moth, Vulpkanin]
   sprites:
   - sprite: _ADT/Mobs/Customization/Human/custom.rsi
     state: tattoo_skelet_body
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftLeg
+    bodyPart: LeftLeg
+    # WD EDIT END
 
 - type: marking
   id: HumanTattooSkeletfootL
-  bodyPart: LFoot
   markingCategory: LeftFoot
   speciesRestriction: [Human, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Felinid, Arachne, Shadowkin, Moth, Vulpkanin]
   sprites:
   - sprite: _ADT/Mobs/Customization/Human/custom.rsi
     state: tattoo_skelet_foot_l
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftFoot
+    bodyPart: LeftFoot
+    # WD EDIT END
 
 - type: marking
   id: HumanTattooSkeletfootR
-  bodyPart: RFoot
   markingCategory: RightFoot
   speciesRestriction: [Human, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Felinid, Arachne, Shadowkin, Moth, Vulpkanin]
   sprites:
   - sprite: _ADT/Mobs/Customization/Human/custom.rsi
     state: tattoo_skelet_foot_r
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightFoot
+    bodyPart: RightFoot
+    # WD EDIT END
 
 - type: marking
   id: HumanTattooSkeletlegL
-  bodyPart: LLeg
   markingCategory: LeftLeg
   speciesRestriction: [Human, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Felinid, Arachne, Shadowkin, Moth, Vulpkanin]
   sprites:
   - sprite: _ADT/Mobs/Customization/Human/custom.rsi
     state: tattoo_skelet_leg_l
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftLeg
+    bodyPart: LeftLeg
+    # WD EDIT END
 
 - type: marking
   id: HumanTattooSkeletlegR
-  bodyPart: RLeg
   markingCategory: RightLeg
   speciesRestriction: [Human, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Felinid, Arachne, Shadowkin, Moth, Vulpkanin]
   sprites:
   - sprite: _ADT/Mobs/Customization/Human/custom.rsi
     state: tattoo_skelet_leg_r
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightLeg
+    bodyPart: RightLeg
+    # WD EDIT END
 
 - type: marking
   id: HumanTattooSkullFace
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Human, Oni, SlimePerson, Arachnid, Tajaran, Felinid, Arachne]
   sprites:
   - sprite: _ADT/Mobs/Customization/Human/custom.rsi
     state: tattoo_skull_face
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: HumanTattooSymbolElysium
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Human, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Felinid, Arachne, Shadowkin, Moth, Vulpkanin]
   sprites:
   - sprite: _ADT/Mobs/Customization/Human/custom.rsi
     state: tattoo_symbol_elysium
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+    # WD EDIT END
 
 - type: marking
   id: HumanTattooNarsi
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Human, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Felinid, Arachne, Shadowkin, Moth, Vulpkanin]
   sprites:
   - sprite: _ADT/Mobs/Customization/Human/custom.rsi
     state: tattoo_narsi
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+    # WD EDIT END
 
 - type: marking
   id: HumanTattooArmlazaL
-  bodyPart: LArm
   markingCategory: LeftArm
   speciesRestriction: [Human, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Felinid, Arachne, Shadowkin, Moth, Vulpkanin]
   sprites:
   - sprite: _ADT/Mobs/Customization/Human/custom.rsi
     state: tattooarm-laza_l
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftArm
+    bodyPart: LeftArm
+    # WD EDIT END
 
 - type: marking
   id: HumanTattooArmlazaR
-  bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [Human, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Felinid, Arachne, Shadowkin, Moth, Vulpkanin]
   sprites:
   - sprite: _ADT/Mobs/Customization/Human/custom.rsi
     state: tattooarm-laza_r
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightArm
+    bodyPart: RightArm
+    # WD EDIT END

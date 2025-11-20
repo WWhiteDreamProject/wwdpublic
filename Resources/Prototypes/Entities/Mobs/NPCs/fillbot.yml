@@ -22,11 +22,14 @@
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
   - type: Hands
+    # WD EDIT START
+    hands:
+      hand:
+        name: hand
+        location: Middle
+    # WD EDIT END
     showInHands: false
   - type: ComplexInteraction
-  - type: Body
-    prototype: Bot
-    requiredLegs: 0
   - type: HTN
     rootTask:
       task: FillbotCompound

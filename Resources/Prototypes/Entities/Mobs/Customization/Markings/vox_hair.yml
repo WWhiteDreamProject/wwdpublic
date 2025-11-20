@@ -1,197 +1,263 @@
 - type: marking
   id: VoxHairAfro
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Vox]
   sprites:
     - sprite: Mobs/Customization/vox_hair.rsi
       state: afro_s
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VoxHairBraids
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Vox]
   sprites:
     - sprite: Mobs/Customization/vox_hair.rsi
       state: braid_s
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VoxHairCrestedQuills
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Vox]
   sprites:
     - sprite: Mobs/Customization/vox_hair.rsi
       state: crestedquills_s
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VoxHairEmperorQuills
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Vox]
   sprites:
     - sprite: Mobs/Customization/vox_hair.rsi
       state: emperorquills_s
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VoxHairFlowing
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Vox]
   sprites:
     - sprite: Mobs/Customization/vox_hair.rsi
       state: flowing_s
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VoxHairHawk
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Vox]
   sprites:
     - sprite: Mobs/Customization/vox_hair.rsi
       state: hawk_s
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VoxHairHorns
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Vox]
   sprites:
     - sprite: Mobs/Customization/vox_hair.rsi
       state: horns_s
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VoxHairKeelQuills
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Vox]
   sprites:
     - sprite: Mobs/Customization/vox_hair.rsi
       state: keelquills_s
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VoxHairKeetQuills
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Vox]
   sprites:
     - sprite: Mobs/Customization/vox_hair.rsi
       state: keetquills_s
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VoxHairKingly
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Vox]
   sprites:
     - sprite: Mobs/Customization/vox_hair.rsi
       state: kingly_s
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VoxHairLongBraid
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Vox]
   sprites:
     - sprite: Mobs/Customization/vox_hair.rsi
       state: afro_s
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VoxHairMange
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Vox]
   sprites:
     - sprite: Mobs/Customization/vox_hair.rsi
       state: mange_s
-      
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
+
 - type: marking
   id: VoxHairMohawk
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Vox]
   sprites:
     - sprite: Mobs/Customization/vox_hair.rsi
       state: mohawk_s
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VoxHairNights
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Vox]
   sprites:
     - sprite: Mobs/Customization/vox_hair.rsi
       state: nights_s
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VoxHairPony
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Vox]
   sprites:
     - sprite: Mobs/Customization/vox_hair.rsi
       state: ponytail_s
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VoxHairRazorClipped
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Vox]
   sprites:
     - sprite: Mobs/Customization/vox_hair.rsi
       state: razor_clipped_s
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VoxHairRazor
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Vox]
   sprites:
     - sprite: Mobs/Customization/vox_hair.rsi
       state: razor_s
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VoxHairSortBraid
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Vox]
   sprites:
     - sprite: Mobs/Customization/vox_hair.rsi
       state: short_braid_s
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VoxHairShortQuills
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Vox]
   sprites:
     - sprite: Mobs/Customization/vox_hair.rsi
       state: shortquills_s
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VoxHairSurf
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Vox]
   sprites:
     - sprite: Mobs/Customization/vox_hair.rsi
       state: surf_s
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VoxHairTielQuills
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Vox]
   sprites:
     - sprite: Mobs/Customization/vox_hair.rsi
       state: tielquills_s
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VoxHairYasu
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Vox]
   sprites:
     - sprite: Mobs/Customization/vox_hair.rsi
       state: yasu_s
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END

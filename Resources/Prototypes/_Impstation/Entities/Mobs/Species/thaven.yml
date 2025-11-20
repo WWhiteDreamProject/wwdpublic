@@ -67,8 +67,10 @@
   - type: HumanoidAppearance
     species: Thaven
     hideLayersOnEquip:
-    - Hair
-    - Snout
+    # WD EDIT START
+    - enum.HumanoidVisualLayers.Hair
+    - enum.HumanoidVisualLayers.Snout
+    # WD EDIT END
   - type: UserInterface
     interfaces:
       enum.ThavenMoodsUiKey.Key: # impstation edit
@@ -238,3 +240,7 @@
               layerKey: dummy
               parameterTexture: displacementMap
               parameterUV: displacementUV
+  # WD EDIT START
+  - type: Body
+    prototype: Thaven
+  # WD EDIT END

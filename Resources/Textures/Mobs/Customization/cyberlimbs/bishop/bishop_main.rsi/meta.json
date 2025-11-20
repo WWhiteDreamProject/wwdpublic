@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "copyright": "Sprites originally from Paradise Station (https://github.com/ParadiseSS13/Paradise). Monochromatic version made by: DayOS (https://github.com/Day-OS)",
+  "copyright": "Sprites originally from Paradise Station (https://github.com/ParadiseSS13/Paradise). Monochromatic version made by: DayOS (https://github.com/Day-OS). The division of the torso into chest and groin was done by Sparison",
   "license": "CC-BY-SA-3.0",
   "size": {
     "x": 32,
@@ -40,11 +40,19 @@
       "directions": 4
     },
     {
-      "name": "torso-primary",
+      "name": "chest-primary",
       "directions": 4
     },
     {
-      "name": "torso-secondary",
+      "name": "chest-secondary",
+      "directions": 4
+    },
+    {
+      "name": "groin-primary",
+      "directions": 4
+    },
+    {
+      "name": "groin-secondary",
       "directions": 4
     },
     {

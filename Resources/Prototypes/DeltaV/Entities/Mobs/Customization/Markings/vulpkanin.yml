@@ -3,560 +3,879 @@
 # Ears Markings
 - type: marking
   id: VulpEar
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Vulpkanin, Human]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/ear_markings.rsi
       state: vulp
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/ear_markings.rsi
       state: vulp-inner
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VulpEarFade
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Vulpkanin, Human]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/ear_markings.rsi
       state: vulp
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/ear_markings.rsi
       state: vulp-fade
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VulpEarSharp
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Vulpkanin, Human]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/ear_markings.rsi
       state: vulp
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/ear_markings.rsi
       state: vulp-sharp
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VulpEarJackal
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Vulpkanin, Human]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/ear_markings.rsi
       state: jackal
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/ear_markings.rsi
       state: jackal-inner
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VulpEarTerrier
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Vulpkanin, Human]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/ear_markings.rsi
       state: terrier
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/ear_markings.rsi
       state: terrier-inner
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VulpEarWolf
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Vulpkanin, Human]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/ear_markings.rsi
       state: wolf
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/ear_markings.rsi
       state: wolf-inner
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VulpEarFennec
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Vulpkanin, Human]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/ear_markings.rsi
       state: fennec
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/ear_markings.rsi
       state: fennec-inner
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VulpEarFox
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Vulpkanin, Human]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/ear_markings.rsi
       state: fox
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/ear_markings.rsi
       state: fox-inner
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VulpEarOtie
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Vulpkanin, Human]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/ear_markings.rsi
       state: otie
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/ear_markings.rsi
       state: otie-inner
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VulpEarTajaran
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Vulpkanin, Human]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/ear_markings.rsi
       state: msai
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/ear_markings.rsi
       state: msai-inner
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VulpEarShock
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Vulpkanin, Human]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/ear_markings.rsi
       state: shock
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VulpEarCoyote
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Vulpkanin, Human]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/ear_markings.rsi
       state: coyote
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VulpEarDalmatian
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Vulpkanin, Human]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/ear_markings.rsi
       state: dalmatian
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 
 # Head Markings (Snout)
 - type: marking
   id: VulpSnoutAlt
-  bodyPart: Snout
   markingCategory: Snout
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/head_markings.rsi
       state: muzzle_alt
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Snout
+      bodyPart: Head
+      # WD EDIT END
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/head_markings.rsi
       state: nose
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Snout
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VulpSnout
-  bodyPart: Snout
   markingCategory: Snout
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/head_markings.rsi
       state: muzzle
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Snout
+      bodyPart: Head
+      # WD EDIT END
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/head_markings.rsi
       state: nose
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Snout
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VulpSnoutSharp
-  bodyPart: Snout
   markingCategory: Snout
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/head_markings.rsi
       state: muzzle_sharp
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Snout
+      bodyPart: Head
+      # WD EDIT END
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/head_markings.rsi
       state: nose
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Snout
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VulpSnoutFade
-  bodyPart: Snout
   markingCategory: Snout
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/head_markings.rsi
       state: muzzle_fade
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Snout
+      bodyPart: Head
+      # WD EDIT END
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/head_markings.rsi
       state: nose
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Snout
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VulpSnoutNose
-  bodyPart: Snout
   markingCategory: Snout
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/head_markings.rsi
       state: nose
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Snout
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VulpSnoutMask
-  bodyPart: Snout
   markingCategory: Snout
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/head_markings.rsi
       state: mask
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Snout
+      bodyPart: Head
+      # WD EDIT END
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/head_markings.rsi
       state: nose
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Snout
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VulpSnoutVulpine
-  bodyPart: Snout
   markingCategory: Snout
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/head_markings.rsi
       state: vulpine
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Snout
+      bodyPart: Head
+      # WD EDIT END
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/head_markings.rsi
       state: vulpine-lines
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Snout
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VulpSnoutSwift
-  bodyPart: Snout
   markingCategory: Snout
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/head_markings.rsi
       state: vulpine-lines
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Snout
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VulpSnoutBlaze
-  bodyPart: Snout
   markingCategory: Snout
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/head_markings.rsi
       state: blaze
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Snout
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VulpSnoutPatch
-  bodyPart: Snout
   markingCategory: Snout
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/head_markings.rsi
       state: patch
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Snout
+      bodyPart: Head
+      # WD EDIT END
 
 # Head Markings (Head)
 - type: marking
   id: VulpHeadTiger
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/head_markings.rsi
       state: tiger_head
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Snout
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VulpHeadTigerFace
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/head_markings.rsi
       state: tiger_face
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Snout
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VulpHeadSlash
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/head_markings.rsi
       state: slash
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Snout
+      bodyPart: Head
+      # WD EDIT END
 
 # Tail Markings
 - type: marking
   id: VulpTail
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Vulpkanin, Human]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: vulp
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      replacementBodyPart: BodyPartTailVulpkanin
+      # WD EDIT END
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: vulp-fade
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      # WD EDIT END
 
 - type: marking
   id: VulpTailAnimated
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: []
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: vulp_wag
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      replacementBodyPart: BodyPartTailVulpkanin
+      # WD EDIT END
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: vulp_wag-tip #fade
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      # WD EDIT END
 
 - type: marking
   id: VulpTailTip
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Vulpkanin, Human]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: vulp
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      replacementBodyPart: BodyPartTailVulpkanin
+      # WD EDIT END
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: vulp-tip
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      # WD EDIT END
 
 - type: marking
   id: VulpTailTipAnimated
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: []
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: vulp_wag
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      replacementBodyPart: BodyPartTailVulpkanin
+      # WD EDIT END
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: vulp_wag-tip
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      # WD EDIT END
 
 - type: marking
   id: VulpTailAlt
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Vulpkanin, Human]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: vulp_alt
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      replacementBodyPart: BodyPartTailVulpkanin
+      # WD EDIT END
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: vulp_alt-fade
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      # WD EDIT END
 
 - type: marking
   id: VulpTailAltTip
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Vulpkanin, Human]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: vulp_alt
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      replacementBodyPart: BodyPartTailVulpkanin
+      # WD EDIT END
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: vulp_alt-tip
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      # WD EDIT END
 
 - type: marking
   id: VulpTailLong
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Vulpkanin, Human]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: long
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      replacementBodyPart: BodyPartTailVulpkanin
+      # WD EDIT END
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: long-tip
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      # WD EDIT END
 
 - type: marking
   id: VulpTailFox
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Vulpkanin, Human]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: fox
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      replacementBodyPart: BodyPartTailVulpkanin
+      # WD EDIT END
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: fox-fade
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      # WD EDIT END
 
 - type: marking
   id: VulpTailFoxAnimated
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: []
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: fox_wag
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      replacementBodyPart: BodyPartTailVulpkanin
+      # WD EDIT END
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: fox_wag-fade
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      # WD EDIT END
 
 - type: marking
   id: VulpTailFoxTip
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Vulpkanin, Human]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: fox
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      replacementBodyPart: BodyPartTailVulpkanin
+      # WD EDIT END
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: fox-tip
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      # WD EDIT END
 
 - type: marking
   id: VulpTailFoxTipAnimated
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: []
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: fox_wag
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      replacementBodyPart: BodyPartTailVulpkanin
+      # WD EDIT END
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: fox_wag-tip
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      # WD EDIT END
 
 - type: marking
   id: VulpTailBushy
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Vulpkanin, Human]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: bushfluff
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      replacementBodyPart: BodyPartTailVulpkanin
+      # WD EDIT END
 
 - type: marking
   id: VulpTailBushyAnimated
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: []
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: bushfluff_wag
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      replacementBodyPart: BodyPartTailVulpkanin
+      # WD EDIT END
 
 - type: marking
   id: VulpTailCoyote
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Vulpkanin, Human]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: coyote
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      replacementBodyPart: BodyPartTailVulpkanin
+      # WD EDIT END
 
 - type: marking
   id: VulpTailCoyoteAnimated
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: []
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: coyote_wag
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      replacementBodyPart: BodyPartTailVulpkanin
+      # WD EDIT END
 
 - type: marking
   id: VulpTailCorgi
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Vulpkanin, Human]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: corgi
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      replacementBodyPart: BodyPartTailVulpkanin
+      # WD EDIT END
 
 - type: marking
   id: VulpTailCorgiAnimated
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: []
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: corgi_wag
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      replacementBodyPart: BodyPartTailVulpkanin
+      # WD EDIT END
 
 - type: marking
   id: VulpTailHusky
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Vulpkanin, Human]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: husky-inner
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      replacementBodyPart: BodyPartTailVulpkanin
+      # WD EDIT END
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: husky-outer
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      # WD EDIT END
 
 - type: marking
   id: VulpTailHuskyAlt
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Vulpkanin, Human]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: husky
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      replacementBodyPart: BodyPartTailVulpkanin
+      # WD EDIT END
 
 - type: marking
   id: VulpTailFox2
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Vulpkanin, Human]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: fox2
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      replacementBodyPart: BodyPartTailVulpkanin
+      # WD EDIT END
 
 - type: marking
   id: VulpTailFox3
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Vulpkanin, Human]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: fox3
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      replacementBodyPart: BodyPartTailVulpkanin
+      # WD EDIT END
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: fox3-tip
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      # WD EDIT END
 
 - type: marking
   id: VulpTailFennec
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Vulpkanin, Human]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: fennec
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      replacementBodyPart: BodyPartTailVulpkanin
+      # WD EDIT END
 
 - type: marking
   id: VulpTailOtie
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Vulpkanin, Human]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: otie
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      replacementBodyPart: BodyPartTailVulpkanin
+      # WD EDIT END
 
 - type: marking
   id: VulpTailFluffy
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Vulpkanin, Human]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: fluffy
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      replacementBodyPart: BodyPartTailVulpkanin
+      # WD EDIT END
 
 - type: marking
   id: VulpTailDalmatian
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Vulpkanin, Human]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: dalmatian
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      replacementBodyPart: BodyPartTailVulpkanin
+      # WD EDIT END
 
 - type: marking
   id: VulpTailDalmatianAnimated
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: []
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/tail_markings.rsi
       state: dalmatian_wag
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      replacementBodyPart: BodyPartTailVulpkanin
+      # WD EDIT END
 
 # Body Markings (Chest)
 - type: marking
   id: VulpBellyCrest
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/body_markings.rsi
-      state: belly_crest
+    # WD EDIT START
+      state: belly_crest_chest
+      layer: enum.BodyAppearanceLayer.Chest
+      bodyPart: Chest
+    - sprite: DeltaV/Mobs/Customization/Vulpkanin/body_markings.rsi
+      state: belly_crest_groin
+      layer: enum.BodyAppearanceLayer.Groin
+      bodyPart: Groin
+    # WD EDIT END
 
 - type: marking
   id: VulpBellyFull
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/body_markings.rsi
-      state: belly_full
+    # WD EDIT START
+      state: belly_full_chest
+      layer: enum.BodyAppearanceLayer.Chest
+      bodyPart: Chest
+    - sprite: DeltaV/Mobs/Customization/Vulpkanin/body_markings.rsi
+      state: belly_full_groin
+      layer: enum.BodyAppearanceLayer.Groin
+      bodyPart: Groin
+    # WD EDIT END
 
 - type: marking
   id: VulpBellyFox
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/body_markings.rsi
-      state: belly_fox
+    # WD EDIT START
+      state: belly_fox_chest
+      layer: enum.BodyAppearanceLayer.Chest
+      bodyPart: Chest
+    - sprite: DeltaV/Mobs/Customization/Vulpkanin/body_markings.rsi
+      state: belly_fox_groin
+      layer: enum.BodyAppearanceLayer.Groin
+      bodyPart: Groin
+    # WD EDIT END
 
 # # Body Markings (Overlay)
 # Eventually layering will allow to have markings on the body not layering above jumpsuits
@@ -591,299 +910,398 @@
 - type: marking
   id: VulpPointsFeet
   markingCategory: RightFoot
-  bodyPart: RFoot
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/body_markings.rsi
       state: points_feet
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.RightFoot
+      bodyPart: RightFoot
+      # WD EDIT END
 
 - type: marking
   id: VulpPointsCrestLegs
   markingCategory: LeftLeg
-  bodyPart: LLeg
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/body_markings.rsi
       state: points_crest-legs
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.LeftLeg
+      bodyPart: LeftLeg
+      # WD EDIT END
 
 - type: marking
   id: VulpPointsFadeLegs
   markingCategory: LeftLeg
-  bodyPart: LLeg
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/body_markings.rsi
       state: points_fade-legs
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.LeftLeg
+      bodyPart: LeftLeg
+      # WD EDIT END
 
 - type: marking
   id: VulpPointsSharpLegs
   markingCategory: LeftLeg
-  bodyPart: LLeg
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/body_markings.rsi
       state: points_sharp-legs
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.LeftLeg
+      bodyPart: LeftLeg
+      # WD EDIT END
 
 # Arm Markings
 - type: marking
   id: VulpPointsHands
   markingCategory: RightHand
-  bodyPart: RHand
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/body_markings.rsi
       state: points_hands
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.RightHand
+      bodyPart: RightHand
+      # WD EDIT END
 
 - type: marking
   id: VulpPointsCrestArms
   markingCategory: LeftArm
-  bodyPart: LArm
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/body_markings.rsi
       state: points_crest-arms
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.LeftArm
+      bodyPart: LeftArm
+      # WD EDIT END
 
 - type: marking
   id: VulpPointsFadeArms
   markingCategory: LeftArm
-  bodyPart: LArm
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/body_markings.rsi
       state: points_fade-arms
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.LeftArm
+      bodyPart: LeftArm
+      # WD EDIT END
 
 - type: marking
   id: VulpPointsSharpArms
   markingCategory: LeftArm
-  bodyPart: LArm
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/body_markings.rsi
       state: points_sharp-arms
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.LeftArm
+      bodyPart: LeftArm
+      # WD EDIT END
 
 # Hairs
 - type: marking
   id: VulpHairAdhara
-  bodyPart: Hair
   speciesRestriction: [Vulpkanin]
   markingCategory: Hair
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/hair.rsi
       state: adhara
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VulpHairAnita
-  bodyPart: Hair
   speciesRestriction: [Vulpkanin]
   markingCategory: Hair
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/hair.rsi
       state: anita
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VulpHairApollo
-  bodyPart: Hair
   speciesRestriction: [Vulpkanin]
   markingCategory: Hair
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/hair.rsi
       state: apollo
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VulpHairBelle
-  bodyPart: Hair
   speciesRestriction: [Vulpkanin]
   markingCategory: Hair
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/hair.rsi
       state: belle
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VulpHairBraided
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/hair.rsi
       state: braided
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VulpHairBun
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/hair.rsi
       state: bun
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VulpHairCleanCut
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/hair.rsi
       state: clean_cut
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VulpHairCurl
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/hair.rsi
       state: curl
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VulpHairHawk
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/hair.rsi
       state: hawk
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VulpHairJagged
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/hair.rsi
       state: jagged
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VulpHairJeremy
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/hair.rsi
       state: jeremy
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VulpHairKajam
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/hair.rsi
       state: kajam
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VulpHairKeid
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/hair.rsi
       state: keid
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VulpHairKleeia
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/hair.rsi
       state: kleeia
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VulpHairMizar
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/hair.rsi
       state: mizar
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VulpHairPunkBraided
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/hair.rsi
       state: punkbraided
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VulpHairRaine
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/hair.rsi
       state: raine
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VulpHairRough
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/hair.rsi
       state: rough
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VulpHairShort
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/hair.rsi
       state: short
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VulpHairShort2
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/hair.rsi
       state: short2
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VulpHairSpike
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/hair.rsi
       state: spike
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 # Facial Hairs
 - type: marking
   id: VulpFacialHairRuff
-  bodyPart: FacialHair
   markingCategory: FacialHair
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/facial_hair.rsi
       state: ruff
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.FacialHair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VulpFacialHairElder
-  bodyPart: FacialHair
   markingCategory: FacialHair
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/facial_hair.rsi
       state: elder
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.FacialHair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VulpFacialHairElderChin
-  bodyPart: FacialHair
   markingCategory: FacialHair
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/facial_hair.rsi
       state: elder_chin
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.FacialHair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: VulpFacialHairKita
-  bodyPart: FacialHair
   markingCategory: FacialHair
   speciesRestriction: [Vulpkanin]
   sprites:
     - sprite: DeltaV/Mobs/Customization/Vulpkanin/facial_hair.rsi
       state: kita
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.FacialHair
+      bodyPart: Head
+      # WD EDIT END

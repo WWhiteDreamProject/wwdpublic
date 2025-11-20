@@ -21,8 +21,10 @@
   - type: HumanoidAppearance
     species: Xelthia
     hideLayersOnEquip:
-    - Hair
-    - Snout
+    # WD EDIT START
+    - enum.HumanoidVisualLayers.Hair
+    - enum.HumanoidVisualLayers.Snout
+    # WD EDIT END
   - type: LanguageKnowledge
     speaks:
     - TauCetiBasic
@@ -288,3 +290,7 @@
               layerKey: dummy
               parameterTexture: displacementMap
               parameterUV: displacementUV
+  # WD EDIT START
+  - type: Body
+    prototype: Xelthia
+  # WD EDIT END

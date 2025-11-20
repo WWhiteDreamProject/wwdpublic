@@ -100,7 +100,7 @@
   group: Savory
   solids:
     FoodBreadBun: 1
-    OrganHumanBrain: 1
+    OrganBrainHuman: 1 # WD EDIT: OrganHumanBrain -> OrganBrainHuman
 
 - type: microwaveMealRecipe
   id: RecipeCatBurger
@@ -1653,7 +1653,7 @@
   group: Cake
   solids:
     FoodCakePlain: 1
-    OrganHumanBrain: 1
+    OrganBrainHuman: 1 # WD EDIT: OrganHumanBrain -> OrganBrainHuman
 
 - type: microwaveMealRecipe
   id: RecipeSlimeCake
@@ -1727,7 +1727,7 @@
   solids:
     LeftLegHarpy: 1
     RightLegHarpy: 1
- 
+
 #Donks i guess
 - type: microwaveMealRecipe
   id: RecipeWarmDonkpocket

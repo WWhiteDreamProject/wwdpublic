@@ -1,4 +1,4 @@
-using Content.Shared._White.TargetDoll;
+using Content.Shared._White.Body.Components;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface.Controls;
 
@@ -7,7 +7,7 @@ namespace Content.Client._White.UserInterface.Systems.TargetDoll.Controls;
 public sealed class BodyPartButton : TextureButton
 {
     [ViewVariables]
-    public BodyPart BodyPart { get; set; } = BodyPart.None;
+    public BodyPartType BodyPartType { get; set; } = BodyPartType.None;
 
     private string? _texturePathFocused;
     public string TexturePathFocused

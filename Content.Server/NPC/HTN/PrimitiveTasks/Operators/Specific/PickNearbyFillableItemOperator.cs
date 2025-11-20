@@ -2,7 +2,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.Disposal.Unit.Components;
 using Content.Server.NPC.Pathfinding;
-using Content.Shared.Body.Part;
+using Content.Shared._White.Body.Components;
 using Content.Shared.DeviceLinking;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;

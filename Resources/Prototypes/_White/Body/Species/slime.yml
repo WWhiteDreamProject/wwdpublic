@@ -1,0 +1,68 @@
+﻿- type: body
+  id: Slime
+  root: chest
+  bodyParts:
+    head:
+      type: Head
+      startingBodyPart: BodyPartHeadSlime
+      connections:
+      - chest
+    chest:
+      type: Chest
+      startingBodyPart: BodyPartChestSlime
+      connections:
+      - wings
+      - right_arm
+      - left_arm
+      - groin
+      organs:
+        lungs:
+          type: Lungs
+          startingOrgan: OrganLungsSlime
+    groin:
+      type: Groin
+      startingBodyPart: BodyPartGroinSlime
+      connections:
+      - tail
+      - right_leg
+      - left_leg
+      organs:
+        core:
+          type: Core
+          startingOrgan: OrganCoreSlime
+    left_arm:
+      type: LeftArm
+      startingBodyPart: BodyPartLeftArmSlime
+      connections:
+      - left_hand
+    right_arm:
+      type: RightArm
+      startingBodyPart: BodyPartRightArmSlime
+      connections:
+      - right_hand
+    left_hand:
+      type: LeftHand
+      startingBodyPart: BodyPartLeftHandSlime
+    right_hand:
+      type: RightHand
+      startingBodyPart: BodyPartRightHandSlime
+    left_leg:
+      type: LeftLeg
+      startingBodyPart: BodyPartLeftLegSlime
+      connections:
+      - left_foot
+    right_leg:
+      type: RightLeg
+      startingBodyPart: BodyPartRightLegSlime
+      connections:
+      - right_foot
+    left_foot:
+      type: LeftFoot
+      startingBodyPart: BodyPartLeftFootSlime
+    right_foot:
+      type: RightFoot
+      startingBodyPart: BodyPartRightFootSlime
+    tail:
+      type: Tail
+    wings:
+      type: Wings

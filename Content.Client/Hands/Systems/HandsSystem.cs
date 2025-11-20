@@ -7,7 +7,6 @@ using Content.Client.Strip;
 using Content.Client.Verbs.UI;
 using Content.Shared._White.Hands;
 using Content.Shared._White.Hands.Components;
-using Content.Shared.Body.Part;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;

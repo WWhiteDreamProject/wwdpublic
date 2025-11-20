@@ -1,159 +1,257 @@
 # HEAD
 - type: marking
   id: LizardHeadGuilmon
-  bodyPart: Eyes
   markingCategory: Head
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: _White/Mobs/Customization/snouts.rsi
     state: guilmon
+    layer: enum.HumanoidVisualLayers.Snout
+    bodyPart: Head
 
 - type: marking
   id: LizardHeadCobraHood
-  bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: _White/Mobs/Customization/reptilian_parts.rsi
     state: cobra_hood_with_ears
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
   - sprite: _White/Mobs/Customization/reptilian_parts.rsi
     state: cobra_hood_with_ears_overlay
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
 
 # SHOUT
 - type: marking
   id: LizardShoutEasternDragon
-  bodyPart: Snout
   markingCategory: Snout
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: _White/Mobs/Customization/snouts.rsi
     state: eastern_dragon
+    layer: enum.HumanoidVisualLayers.Snout
+    bodyPart: Head
   - sprite: _White/Mobs/Customization/snouts.rsi
     state: eastern_dragon_overlay
+    layer: enum.HumanoidVisualLayers.Snout
+    bodyPart: Head
 
 - type: marking
   id: LizardShoutEasternDragonUsiki
-  bodyPart: Snout
   markingCategory: Snout
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: _White/Mobs/Customization/snouts.rsi
     state: eastern_dragon
+    layer: enum.HumanoidVisualLayers.Snout
+    bodyPart: Head
   - sprite: _White/Mobs/Customization/snouts.rsi
     state: eastern_dragon_overlay
+    layer: enum.HumanoidVisualLayers.Snout
+    bodyPart: Head
   - sprite: _White/Mobs/Customization/snouts.rsi
     state: eastern_dragon_usiki
+    layer: enum.HumanoidVisualLayers.Snout
+    bodyPart: Head
 
 # TAIL
 - type: marking
   id: SnakeLargeTail
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Reptilian]
   sprites:
-    - sprite: _White/Mobs/Customization/reptilian_64x32.rsi
-      state: snake_large
-    - sprite: _White/Mobs/Customization/reptilian_64x32.rsi
-      state: snake_large_overlay
+  - sprite: _White/Mobs/Customization/reptilian_64x32.rsi
+    state: snake_large
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    replacementBodyPart: BodyPartTailReptilian
+  - sprite: _White/Mobs/Customization/reptilian_64x32.rsi
+    state: snake_large_overlay
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
 
 - type: marking
   id: SnakeLargeTailAnimated
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: []
   sprites:
-    - sprite: _White/Mobs/Customization/reptilian_64x32.rsi
-      state: snake_large_wagging
-    - sprite: _White/Mobs/Customization/reptilian_64x32.rsi
-      state: snake_large_wagging_overlay
+  - sprite: _White/Mobs/Customization/reptilian_64x32.rsi
+    state: snake_large_wagging
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    replacementBodyPart: BodyPartTailReptilian
+  - sprite: _White/Mobs/Customization/reptilian_64x32.rsi
+    state: snake_large_wagging_overlay
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
 
 # SPINE
 - type: marking
   id: LizardChestSpinesAquatic
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: _White/Mobs/Customization/reptilian.rsi
-    state: spines_aquatic
+    state: spines_aquatic_chest
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+  - sprite: _White/Mobs/Customization/reptilian.rsi
+    state: spines_aquatic_groin
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
+  - sprite: _White/Mobs/Customization/reptilian.rsi
+    state: spines_aquatic_head
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+  - sprite: _White/Mobs/Customization/reptilian.rsi
+    state: spines_aquatic_tail
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
 
 - type: marking
   id: LizardChestSpinesAquaticWithoutTail
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: _White/Mobs/Customization/reptilian.rsi
-    state: spines_aquatic_alt
+    state: spines_aquatic_chest
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+  - sprite: _White/Mobs/Customization/reptilian.rsi
+    state: spines_aquatic_groin
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
+  - sprite: _White/Mobs/Customization/reptilian.rsi
+    state: spines_aquatic_head
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
 
 - type: marking
   id: LizardChestSpinesLong
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: _White/Mobs/Customization/reptilian.rsi
-    state: spines_long
+    state: spines_long_chest
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+  - sprite: _White/Mobs/Customization/reptilian.rsi
+    state: spines_long_groin
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
+  - sprite: _White/Mobs/Customization/reptilian.rsi
+    state: spines_long_tail
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
 
 - type: marking
   id: LizardChestSpinesLongWithoutTail
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: _White/Mobs/Customization/reptilian.rsi
-    state: spines_long_alt
+    state: spines_long_chest
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+  - sprite: _White/Mobs/Customization/reptilian.rsi
+    state: spines_long_groin
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
 
 - type: marking
   id: LizardChestSpinesLongMembrane
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: _White/Mobs/Customization/reptilian.rsi
-    state: spines_longmembrane
+    state: spines_longmembrane_chest
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+  - sprite: _White/Mobs/Customization/reptilian.rsi
+    state: spines_longmembrane_groin
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
+  - sprite: _White/Mobs/Customization/reptilian.rsi
+    state: spines_longmembrane_tail
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
 
 - type: marking
   id: LizardChestSpinesLongMembraneWithoutTail
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: _White/Mobs/Customization/reptilian.rsi
-    state: spines_longmembrane_alt
+    state: spines_longmembrane_chest
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+  - sprite: _White/Mobs/Customization/reptilian.rsi
+    state: spines_longmembrane_groin
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
 
 - type: marking
   id: LizardChestSpinesShort
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: _White/Mobs/Customization/reptilian.rsi
-    state: spines_short
+    state: spines_short_chest
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+  - sprite: _White/Mobs/Customization/reptilian.rsi
+    state: spines_short_groin
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
+  - sprite: _White/Mobs/Customization/reptilian.rsi
+    state: spines_short_tail
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
 
 - type: marking
   id: LizardChestSpinesShortWithoutTail
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: _White/Mobs/Customization/reptilian.rsi
-    state: spines_short_alt
+    state: spines_short_chest
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+  - sprite: _White/Mobs/Customization/reptilian.rsi
+    state: spines_short_groin
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
 
 - type: marking
   id: LizardChestSpinesShortMembrane
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: _White/Mobs/Customization/reptilian.rsi
-    state: spines_shortmembrane
+    state: spines_shortmembrane_chest
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+  - sprite: _White/Mobs/Customization/reptilian.rsi
+    state: spines_shortmembrane_groin
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
+  - sprite: _White/Mobs/Customization/reptilian.rsi
+    state: spines_shortmembrane_tail
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
 
 - type: marking
   id: LizardChestSpinesShortMembraneWithoutTail
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: _White/Mobs/Customization/reptilian.rsi
-    state: spines_shortmembrane_alt
+    state: spines_shortmembrane_chest
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+  - sprite: _White/Mobs/Customization/reptilian.rsi
+    state: spines_shortmembrane_groin
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin

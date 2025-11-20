@@ -1,58 +1,106 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Made by PixelTheKermit (github) for SS14. Arrows, core, fiddleback, skull and target made by Nairodian (github) for SS14.",
+  "copyright": "Made by PixelTheKermit (github) for SS14. Arrows, core, fiddleback, skull and target made by Nairodian (github) for SS14. The division of the torso into chest and groin was done by Sparison",
   "size": {
     "x": 32,
     "y": 32
   },
   "states": [
     {
-      "name": "stripes",
+      "name": "stripes_chest",
       "directions": 4
     },
     {
-      "name": "slashes",
+      "name": "stripes_groin",
       "directions": 4
     },
     {
-      "name": "x",
+      "name": "slashes_chest",
       "directions": 4
     },
     {
-      "name": "cross",
+      "name": "slashes_groin",
       "directions": 4
     },
     {
-      "name": "heart",
+      "name": "x_chest",
       "directions": 4
     },
     {
-      "name": "hourglass",
+      "name": "x_groin",
       "directions": 4
     },
     {
-      "name": "nail-and-hammer",
+      "name": "cross_chest",
       "directions": 4
     },
     {
-      "name": "star",
+      "name": "cross_groin",
       "directions": 4
     },
     {
-      "name": "arrows",
+      "name": "heart_chest",
       "directions": 4
     },
     {
-      "name": "core",
+      "name": "heart_groin",
       "directions": 4
     },
     {
-      "name": "fiddleback",
+      "name": "hourglass_chest",
       "directions": 4
     },
     {
-      "name": "skull",
+      "name": "hourglass_groin",
+      "directions": 4
+    },
+    {
+      "name": "nail-and-hammer_chest",
+      "directions": 4
+    },
+    {
+      "name": "nail-and-hammer_groin",
+      "directions": 4
+    },
+    {
+      "name": "star_chest",
+      "directions": 4
+    },
+    {
+      "name": "star_groin",
+      "directions": 4
+    },
+    {
+      "name": "arrows_chest",
+      "directions": 4
+    },
+    {
+      "name": "arrows_groin",
+      "directions": 4
+    },
+    {
+      "name": "core_chest",
+      "directions": 4
+    },
+    {
+      "name": "core_groin",
+      "directions": 4
+    },
+    {
+      "name": "fiddleback_chest",
+      "directions": 4
+    },
+    {
+      "name": "fiddleback_groin",
+      "directions": 4
+    },
+    {
+      "name": "skull_chest",
+      "directions": 4
+    },
+    {
+      "name": "skull_groin",
       "directions": 4
     },
     {

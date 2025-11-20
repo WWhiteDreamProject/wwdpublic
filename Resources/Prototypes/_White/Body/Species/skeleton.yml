@@ -1,0 +1,60 @@
+﻿- type: body
+  id: Skeleton
+  root: chest
+  bodyParts:
+    head:
+      type: Head
+      startingBodyPart: BodyPartHeadSkeleton
+      connections:
+      - chest
+    chest:
+      type: Chest
+      startingBodyPart: BodyPartChestSkeleton
+      connections:
+      - wings
+      - right_arm
+      - left_arm
+      - groin
+    groin:
+      type: Groin
+      startingBodyPart: BodyPartGroinSkeleton
+      connections:
+      - tail
+      - right_leg
+      - left_leg
+    left_arm:
+      type: LeftArm
+      startingBodyPart: BodyPartLeftArmSkeleton
+      connections:
+      - left_hand
+    right_arm:
+      type: RightArm
+      startingBodyPart: BodyPartRightArmSkeleton
+      connections:
+      - right_hand
+    left_hand:
+      type: LeftHand
+      startingBodyPart: BodyPartLeftHandSkeleton
+    right_hand:
+      type: RightHand
+      startingBodyPart: BodyPartRightHandSkeleton
+    left_leg:
+      type: LeftLeg
+      startingBodyPart: BodyPartLeftLegSkeleton
+      connections:
+      - left_foot
+    right_leg:
+      type: RightLeg
+      startingBodyPart: BodyPartRightLegSkeleton
+      connections:
+      - right_foot
+    left_foot:
+      type: LeftFoot
+      startingBodyPart: BodyPartLeftFootSkeleton
+    right_foot:
+      type: RightFoot
+      startingBodyPart: BodyPartRightFootSkeleton
+    tail:
+      type: Tail
+    wings:
+      type: Wings

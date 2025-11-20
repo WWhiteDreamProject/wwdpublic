@@ -1,6 +1,7 @@
 using Content.Client.Gameplay;
 using Content.Client._White.TargetDoll;
 using Content.Client._White.UserInterface.Systems.TargetDoll.Widgets;
+using Content.Shared._White.Body.Components;
 using Content.Shared._White.TargetDoll;
 using Robust.Client.UserInterface.Controllers;
 
@@ -33,7 +34,7 @@ public sealed class TargetDollUIController : UIController, IOnStateEntered<Gamep
         TargetDollGui.Visible = _targetingComponent != null;
     }
 
-    private void OnTargetDollUpdated(BodyPart bodyPart) => TargetDollGui?.OnTargetDollUpdated(bodyPart);
+    private void OnTargetDollUpdated(BodyPartType bodyPartType) => TargetDollGui?.OnTargetDollUpdated(bodyPartType);
 
     private void OnTargetDollAdded(TargetDollComponent component)
     {
@@ -41,7 +42,7 @@ public sealed class TargetDollUIController : UIController, IOnStateEntered<Gamep
             TargetDollGui.Visible = true;
 
         _targetingComponent = component;
-        OnTargetDollUpdated(component.SelectedBodyPart);
+        OnTargetDollUpdated(component.SelectedBodyPartType);
     }
 
     private void OnTargetDollRemoved()
@@ -52,6 +53,6 @@ public sealed class TargetDollUIController : UIController, IOnStateEntered<Gamep
         _targetingComponent = null;
     }
 
-    public void SelectBodyPart(BodyPart bodyPart) =>
-        EntityManager.RaisePredictiveEvent(new SelectBodyPartRequestEvent(bodyPart));
+    public void SelectBodyPart(BodyPartType bodyPartType) =>
+        EntityManager.RaisePredictiveEvent(new SelectBodyPartRequestEvent(bodyPartType));
 }

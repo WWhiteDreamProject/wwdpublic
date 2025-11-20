@@ -1,6 +1,8 @@
+using Content.Server._White.Body.Systems;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Shared._EE.Xelthia;
+using Content.Shared._White.Body.Components;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
@@ -16,8 +18,6 @@ using Content.Shared.Actions;
 using Robust.Shared.Prototypes;
 using Content.Shared.Examine;
 using Content.Shared.Actions.Events;
-using Content.Shared.Body.Components;
-using Content.Shared.Body.Part;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Placement;
@@ -43,7 +43,7 @@ public sealed class XelthiaSystem : EntitySystem
     [Dependency] private readonly BloodstreamSystem _bloodstreamSystem = default!;
 
     //public const string XelthiaRegenerateActionId = "XelthiaRegenerateAction";
-    public override void Initialize()
+     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<XelthiaComponent, ComponentStartup>(OnInit);
@@ -69,31 +69,28 @@ public sealed class XelthiaSystem : EntitySystem
         if (!_entityManager.TryGetComponent(uid, out BodyComponent? body)
             || !_entityManager.TryGetComponent(uid, out TransformComponent? xform))
             return;
-        var root = bodySystem.GetRootPartOrNull(uid, body);
-        if (root is null)
+        if (bodySystem.TryGetRootBodyPart((uid, body), out var root) || !root.HasValue) // WD EDIT
             return;
-        var parts = bodySystem.GetBodyChildrenOfType(uid, BodyPartType.Arm, body); // Deletes Arms and hands
+        var parts = bodySystem.GetBodyParts((uid, body), BodyPartType.Arm); // Deletes Arms and hands // WD EDIT
         foreach (var part in parts)
         {
-            foreach (var child in bodySystem.GetBodyPartChildren(part.Id, part.Component))
-                _entityManager.QueueDeleteEntity(child.Id);
-            transformSystem.AttachToGridOrMap(part.Id);
-            _entityManager.QueueDeleteEntity(part.Id);
+            transformSystem.AttachToGridOrMap(part); // WD EDIT
+            _entityManager.QueueDeleteEntity(part); // WD EDIT
             _entityManager.SpawnAtPosition("FoodMeatXelthiaTentacle", xform.Coordinates); // Should drop arms equal to the number attached
         }
         // Right Side
         var newLimb = _entityManager.SpawnAtPosition("RightArmXelthia", xform.Coordinates); // Copy-Pasted Code for arm spawning
         if (_entityManager.TryGetComponent(newLimb, out BodyPartComponent? limbComp))
-            bodySystem.AttachPart(root.Value.Entity, "right arm", newLimb, root.Value.BodyPart, limbComp);
+            bodySystem.TryAttachBodyPart(root.Value, (newLimb, limbComp), "right_arm"); // WD EDIT
         var newerLimb = _entityManager.SpawnAtPosition("RightHandXelthia", xform.Coordinates); // Spawns the hand
         Enum.TryParse<BodyPartType>("Hand", out var partType);
-        bodySystem.TryCreatePartSlotAndAttach(newLimb, "right hand", newerLimb, partType);
+        bodySystem.TryCreateBodyPartSlotAndAttachBodyPart(newLimb, newerLimb, "right_hand", partType); // WD EDIT
         // Left Side
         newLimb = _entityManager.SpawnAtPosition("LeftArmXelthia", xform.Coordinates); // Copy-Pasted Code for arm spawning
         if (_entityManager.TryGetComponent(newLimb, out BodyPartComponent? limbComp2))
-            bodySystem.AttachPart(root.Value.Entity, "left arm", newLimb, root.Value.BodyPart, limbComp2);
+            bodySystem.TryAttachBodyPart(root.Value, (newLimb, limbComp2), "left_arm"); // WD EDIT
         newerLimb = _entityManager.SpawnAtPosition("LeftHandXelthia", xform.Coordinates); // Spawns the hand
-        bodySystem.TryCreatePartSlotAndAttach(newLimb, "left hand", newerLimb, partType);
+        bodySystem.TryCreateBodyPartSlotAndAttachBodyPart(newLimb, newerLimb, "left_hand", partType); // WD EDIT
         _entityManager.EntitySysManager.GetEntitySystem<SharedAudioSystem>()
             .PlayPvs("/Audio/_EE/Voice/Xelthia/regrow.ogg", uid, null);
 
