@@ -14,7 +14,7 @@
     sound: !type:SoundPathSpecifier
       path: /Audio/Magic/staff_animation.ogg
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi # Goob edit
+      sprite: _White/Wizard/actions.rsi # Goob edit
       state: mindswap
     event: !type:MindSwapSpellEvent
       speech: action-speech-spell-mind-swap

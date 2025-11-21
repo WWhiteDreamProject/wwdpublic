@@ -324,7 +324,7 @@
   name: spellbook-upgrade-fireball-name
   description: spellbook-upgrade-fireball-description
   icon:
-    sprite: _Goobstation/Wizard/actions.rsi # Goob edit
+    sprite: _White/Wizard/actions.rsi # Goob edit
     state: fireball
   cost:
     WizCoin: 2
@@ -344,7 +344,7 @@
   name: spellbook-upgrade-jaunt-name
   description: spellbook-upgrade-jaunt-description
   icon:
-    sprite: _Goobstation/Wizard/actions.rsi # Goob edit
+    sprite: _White/Wizard/actions.rsi # Goob edit
     state: jaunt
   cost:
     WizCoin: 2

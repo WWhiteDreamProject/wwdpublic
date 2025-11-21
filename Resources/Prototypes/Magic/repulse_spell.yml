@@ -15,7 +15,7 @@
     raiseOnAction: true
     itemIconStyle: BigAction
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi # Goob edit
+      sprite: _White/Wizard/actions.rsi # Goob edit
       state: repulse
     event: !type:RepulseAttractActionEvent
   - type: ActionUpgrade

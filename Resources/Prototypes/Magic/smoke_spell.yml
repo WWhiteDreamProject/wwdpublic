@@ -7,7 +7,7 @@
     useDelay: 10
     itemIconStyle: BigAction
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi # Goob edit
+      sprite: _White/Wizard/actions.rsi # Goob edit
       state: smoke
     event: !type:InstantSpawnSpellEvent
       prototype: WizardSmoke
