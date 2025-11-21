@@ -87,6 +87,12 @@
     bodyType: Dynamic
     bodyStatus: InAir
   - type: CanMoveInAir
+  - type: Tag
+    tags:
+    - GhostOnlyWarp
   - type: WarpPoint
     follow: true
     location: Nar'Sie
+    blacklist:
+      tags:
+      - GhostOnlyWarp
