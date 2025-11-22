@@ -40,12 +40,14 @@
     icon:
       sprite: _Goobstation/Wizard/actions.rsi # Goob edit
       state: immrod
+  # WD EDIT START
   - type: ActionUpgrade
     effectedLevels:
       2: ActionPolymorphWizardRodII
       3: ActionPolymorphWizardRodIII
       4: ActionPolymorphWizardRodIV
       5: ActionPolymorphWizardRodV
+  # WD EDIT END
 
 - type: entity
   id: ActionPolymorphJaunt
