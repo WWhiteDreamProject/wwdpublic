@@ -8,7 +8,7 @@
   components:
   - type: Sprite
     layers:
-    - state: purple
+    - state: bz
   - type: GasCanister
     gasMixture:
       volume: 1000
@@ -58,7 +58,7 @@
   components:
   - type: Sprite
     layers:
-    - state: darkblue
+    - state: pluoxium
   - type: GasCanister
     gasMixture:
       volume: 1000
@@ -109,7 +109,7 @@
   components:
   - type: Sprite
     layers:
-    - state: h2
+    - state: hydrogen
   - type: GasCanister
     gasMixture:
       volume: 1000
@@ -161,7 +161,7 @@
   components:
   - type: Sprite
     layers:
-    - state: brown
+    - state: nitrium
   - type: GasCanister
     gasMixture:
       volume: 1000
@@ -274,7 +274,7 @@
   components:
   - type: Sprite
     layers:
-    - state: nob
+    - state: hyper_noblium
   - type: GasCanister
     gasMixture:
       volume: 1000
@@ -574,7 +574,7 @@
   components:
   - type: Sprite
     layers:
-    - state: antinob
+    - state: anti_noblium
   - type: GasCanister
     gasMixture:
       volume: 1000
@@ -636,7 +636,7 @@
   suffix: broken
   components:
   - type: Sprite
-    state: purple-1
+    state: broken_bz
 
 - type: entity
   parent: GasCanisterBrokenBase
@@ -646,7 +646,7 @@
   suffix: broken
   components:
   - type: Sprite
-    state: darkblue-1
+    state: broken_pluoxium
 
 - type: entity
   parent: GasCanisterBrokenBase
@@ -656,7 +656,7 @@
   suffix: broken
   components:
   - type: Sprite
-    state: h2-1
+    state: broken_hydrogen
 
 - type: entity
   parent: GasCanisterBrokenBase
@@ -666,7 +666,7 @@
   suffix: broken
   components:
   - type: Sprite
-    state: brown-1
+    state: broken_nitrium
 
 - type: entity
   parent: GasCanisterBrokenBase
@@ -676,7 +676,7 @@
   suffix: broken
   components:
   - type: Sprite
-    state: healium-1
+    state: broken_healium
 
 - type: entity
   parent: GasCanisterBrokenBase
@@ -686,7 +686,7 @@
   suffix: broken
   components:
   - type: Sprite
-    state: nob-1
+    state: broken_hyper_noblium
 
 - type: entity
   parent: GasCanisterBrokenBase
@@ -696,7 +696,7 @@
   suffix: broken
   components:
   - type: Sprite
-    state: proto_nitrate-1
+    state: broken_proto_nitrate
 
 - type: entity
   parent: GasCanisterBrokenBase
@@ -706,7 +706,7 @@
   suffix: broken
   components:
   - type: Sprite
-    state: zauker-1
+    state: broken_zauker
 
 - type: entity
   parent: GasCanisterBrokenBase
@@ -716,7 +716,7 @@
   suffix: broken
   components:
   - type: Sprite
-    state: halon-1
+    state: broken_halon
 
 - type: entity
   parent: GasCanisterBrokenBase
@@ -726,7 +726,7 @@
   suffix: broken
   components:
   - type: Sprite
-    state: helium-1
+    state: broken_helium
 
 - type: entity
   parent: GasCanisterBrokenBase
@@ -736,4 +736,28 @@
   suffix: broken
   components:
   - type: Sprite
-    state: antinob-1
+    state: broken_anti_noblium
+
+- type: entity
+  parent: GasCanisterBrokenBase
+  id: LiquidOxygenCanisterBroken
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    state: broken_liquid_oxygen
+
+- type: entity
+  parent: GasCanisterBrokenBase
+  id: LiquidNitrogenCanisterBroken
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    state: broken_liquid_nitrogen
+
+- type: entity
+  parent: GasCanisterBrokenBase
+  id: LiquidCarbonDioxideCanisterBroken
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    state: broken_liquid_carbon_dioxide

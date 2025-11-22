@@ -10,11 +10,16 @@
     sprite: Structures/Piping/Atmospherics/gas_pipe_sensor.rsi
     drawdepth: BelowFloor
     layers:
+    - state: wallValve # WWDP edit start
+      sprite: Structures/Piping/Atmospherics/pump.rsi
+      # map: [ "enum.SubfloorLayers.SecondLayer" ] # WWDP edit end
     - sprite: Structures/Piping/Atmospherics/pipe.rsi
       map: [ "enum.PipeVisualLayers.Pipe" ]
       state: pipeStraight
     - map: ["base"]
       state: base
+    - state: connectorSignalValve # WWDP edit start
+      sprite: Structures/Piping/Atmospherics/pump.rsi # WWDP edit end
     - map: [ "enum.PowerDeviceVisualLayers.Powered" ]
       state: lights
       shader: unshaded

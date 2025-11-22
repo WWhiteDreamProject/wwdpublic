@@ -1,12 +1,13 @@
 - type: vendingMachineInventory
   id: TankDispenserEVAInventory
   startingInventory:
-    OxygenTankFilled: 10
-    NitrogenTankFilled: 10
-    PlasmaTankFilled: 10
+    OxygenTankFilled: 6 # WWDP edit start
+    NitrogenTankFilled: 6
+    AirTankFilled: 3
+    # PlasmaTankFilled: 10 WWDP edit end
 
 - type: vendingMachineInventory
   id: TankDispenserEngineeringInventory
   startingInventory:
-    PlasmaTankFilled: 10
-    OxygenTankFilled: 10
+    PlasmaTankFilled: 6 # WWDP edit
+    YellowOxygenTankFilled: 6 # WWDP edit

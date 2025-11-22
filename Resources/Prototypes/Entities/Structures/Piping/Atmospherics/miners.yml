@@ -25,8 +25,13 @@
             - !type:DoActsBehavior
               acts: ["Destruction"]
     - type: Sprite
-      sprite: Structures/Piping/Atmospherics/miners.rsi
-      state: miner
+      sprite: _White/Structures/Piping/Atmospherics/miners.rsi # WWDP edit start. TODO enums for layers
+      noRot: True
+      layers:
+      - state: base_medium
+      - state: head_medium
+      - state: on_medium
+        shader: unshaded # WWDP edit end
     - type: AtmosDevice
     - type: GasMiner
       maxExternalPressure: 300
@@ -45,6 +50,16 @@
   components:
     - type: GasMiner
       spawnGas: Oxygen
+    - type: Sprite # WWDP edit start
+      sprite: _White/Structures/Piping/Atmospherics/miners.rsi
+      noRot: True
+      layers:
+      - state: base_small
+      - state: head_small
+        color: "#97c4b9"
+      - state: on_small
+        shader: unshaded
+        color: "#97c4b9" # WWDP edit end
 
 - type: entity
   name: O2 gas miner
@@ -54,6 +69,16 @@
   components:
     - type: GasMiner
       maxExternalPressure: 1000
+    - type: Sprite # WWDP edit start
+      sprite: _White/Structures/Piping/Atmospherics/miners.rsi
+      noRot: True
+      layers:
+      - state: base_medium
+      - state: head_medium
+        color: "#97c4b9"
+      - state: on_medium
+        shader: unshaded
+        color: "#97c4b9" # WWDP edit end
 
 - type: entity
   name: O2 gas miner
@@ -63,6 +88,16 @@
   components:
     - type: GasMiner
       maxExternalPressure: 4500
+    - type: Sprite # WWDP edit start
+      sprite: _White/Structures/Piping/Atmospherics/big_miners.rsi
+      noRot: True
+      layers:
+      - state: base_big
+      - state: head_big
+        color: "#97c4b9"
+      - state: on_big
+        shader: unshaded
+        color: "#97c4b9" # WWDP edit end
 
 - type: entity
   name: N2 gas miner
@@ -74,6 +109,16 @@
   components:
     - type: GasMiner
       spawnGas: Nitrogen
+    - type: Sprite # WWDP edit start
+      sprite: _White/Structures/Piping/Atmospherics/miners.rsi
+      noRot: True
+      layers:
+      - state: base_small
+      - state: head_small
+        color: "#e54e59"
+      - state: on_small
+        shader: unshaded
+        color: "#e54e59" # WWDP edit end
 
 - type: entity
   name: N2 gas miner
@@ -83,6 +128,16 @@
   components:
     - type: GasMiner
       maxExternalPressure: 1000
+    - type: Sprite # WWDP edit start
+      sprite: _White/Structures/Piping/Atmospherics/miners.rsi
+      noRot: True
+      layers:
+      - state: base_medium
+      - state: head_medium
+        color: "#e54e59"
+      - state: on_medium
+        shader: unshaded
+        color: "#e54e59" # WWDP edit end
 
 - type: entity
   name: N2 gas miner
@@ -92,6 +147,16 @@
   components:
     - type: GasMiner
       maxExternalPressure: 4500
+    - type: Sprite # WWDP edit start
+      sprite: _White/Structures/Piping/Atmospherics/big_miners.rsi
+      noRot: True
+      layers:
+      - state: base_big
+      - state: head_big
+        color: "#e54e59"
+      - state: on_big
+        shader: unshaded
+        color: "#e54e59" # WWDP edit end
 
 - type: entity
   name: CO2 gas miner
@@ -102,6 +167,16 @@
   components:
     - type: GasMiner
       spawnGas: CarbonDioxide
+    - type: Sprite # WWDP edit start
+      sprite: _White/Structures/Piping/Atmospherics/miners.rsi
+      noRot: True
+      layers:
+      - state: base_small
+      - state: head_small
+        color: "#686478"
+      - state: on_small
+        shader: unshaded
+        color: "#686478" # WWDP edit end
 
 - type: entity
   name: plasma gas miner
@@ -112,6 +187,16 @@
   components:
     - type: GasMiner
       spawnGas: Plasma
+    - type: Sprite # WWDP edit start
+      sprite: _White/Structures/Piping/Atmospherics/miners.rsi
+      noRot: True
+      layers:
+      - state: base_small
+      - state: head_small
+        color: "#e16f8c"
+      - state: on_small
+        shader: unshaded
+        color: "#e16f8c" # WWDP edit end
 
 - type: entity
   name: tritium gas miner
@@ -122,6 +207,16 @@
   components:
     - type: GasMiner
       spawnGas: Tritium
+    - type: Sprite # WWDP edit start
+      sprite: _White/Structures/Piping/Atmospherics/miners.rsi
+      noRot: True
+      layers:
+      - state: base_small
+      - state: head_small
+        color: "#8cce63"
+      - state: on_small
+        shader: unshaded
+        color: "#8cce63" # WWDP edit end
 
 - type: entity
   name: frezon gas miner
@@ -130,6 +225,16 @@
   components:
     - type: GasMiner
       spawnGas: Frezon
+    - type: Sprite # WWDP edit start
+      sprite: _White/Structures/Piping/Atmospherics/miners.rsi
+      noRot: True
+      layers:
+      - state: base_small
+      - state: head_small
+        color: "#90acce"
+      - state: on_small
+        shader: unshaded
+        color: "#90acce" # WWDP edit end
 
 - type: entity
   name: water vapor gas miner
@@ -140,6 +245,16 @@
   components:
     - type: GasMiner
       spawnGas: WaterVapor
+    - type: Sprite # WWDP edit start
+      sprite: _White/Structures/Piping/Atmospherics/miners.rsi
+      noRot: True
+      layers:
+      - state: base_small
+      - state: head_small
+        color: "#abb2bc"
+      - state: on_small
+        shader: unshaded
+        color: "#abb2bc" # WWDP edit end
 
 - type: entity
   name: ammonia gas miner
@@ -150,6 +265,16 @@
   components:
     - type: GasMiner
       spawnGas: Ammonia
+    - type: Sprite # WWDP edit start
+      sprite: _White/Structures/Piping/Atmospherics/miners.rsi
+      noRot: True
+      layers:
+      - state: base_small
+      - state: head_small
+        color: "#a99d7c"
+      - state: on_small
+        shader: unshaded
+        color: "#a99d7c" # WWDP edit end
 
 - type: entity
   name: nitrous oxide gas miner
@@ -160,3 +285,13 @@
   components:
     - type: GasMiner
       spawnGas: NitrousOxide
+    - type: Sprite # WWDP edit start
+      sprite: _White/Structures/Piping/Atmospherics/miners.rsi
+      noRot: True
+      layers:
+      - state: base_small
+      - state: head_small
+        color: "#d27a7a"
+      - state: on_small
+        shader: unshaded
+        color: "#d27a7a" # WWDP edit end
