@@ -51,7 +51,7 @@
   - type: Appearance
   - type: DamageVisuals
     thresholds: [5, 10, 20]
-    damageDivisor: 4
+    damageDivisor: 3
     trackAllDamage: true
     damageOverlay:
       sprite: Structures/Windows/cracks.rsi
@@ -78,7 +78,7 @@
   - type: Appearance
   - type: DamageVisuals
     thresholds: [5, 10, 20]
-    damageDivisor: 10
+    damageDivisor: 1.5
     trackAllDamage: true
     damageOverlay:
       sprite: Structures/Windows/cracks_directional.rsi
@@ -92,16 +92,16 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 150 #excess damage (nuke?). avoid computational cost of spawning entities.
+        damage: 75
       behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
       - !type:PlaySoundBehavior
         sound:
           collection: WindowShatter
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 50
+        damage: 37
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -114,7 +114,7 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: StaticPrice
-    price: 22
+    price: 22.5
 
 - type: entity
   parent: ReinforcedWindow
@@ -129,6 +129,9 @@
     drawdepth: WallTops
     sprite: Structures/Windows/reinforced_window_diagonal.rsi
     state: state0
+  - type: Tag
+    tags:
+    - Diagonal
   - type: IconSmooth
     mode: Diagonal
     key: walls
@@ -141,10 +144,10 @@
       fix1:
         shape:
           !type:PolygonShape
-            vertices:
-            - "-0.5,-0.5"
-            - "0.5,0.5"
-            - "0.5,-0.5"
+          vertices:
+          - "-0.5,-0.5"
+          - "0.5,0.5"
+          - "0.5,-0.5"
         mask:
         - FullTileMask
         layer:

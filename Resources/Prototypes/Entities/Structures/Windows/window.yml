@@ -141,7 +141,7 @@
       Brute:
         collection: GlassSmack
   - type: Sprite
-    drawdepth: OverMobs
+    drawdepth: Mobs
     sprite: Structures/Windows/directional.rsi
     state: window
   - type: Icon
@@ -258,7 +258,7 @@
     - Diagonal
   - type: IconSmooth
     mode: Diagonal
-    key: window
+    key: walls
     base: state
   - type: Icon
     sprite: Structures/Windows/window_diagonal.rsi

@@ -21,7 +21,7 @@
   - type: Tag
     tags:
     - Wall
-  - type: SpriteFade
+  - type: IsRoof
   - type: Sprite
     drawdepth: Walls
   - type: Icon
@@ -46,7 +46,7 @@
         density: 1000
   - type: Occluder
   - type: Airtight
-  - type: StaticPrice #was DynamicPrice
+  - type: StaticPrice
     price: 75
   - type: RadiationBlocker
     resistance: 2
@@ -57,9 +57,6 @@
   id: WallBrick
   name: brick wall
   components:
-  - type: Tag
-    tags:
-      - Wall
   - type: Sprite
     sprite: Structures/Walls/brick.rsi
   - type: Icon
@@ -93,7 +90,7 @@
   components:
   - type: Tag
     tags:
-      - Wall
+    - Wall
   - type: Sprite
     sprite: Structures/Walls/clock.rsi
   - type: Icon
@@ -125,7 +122,7 @@
   components:
   - type: Tag
     tags:
-      - Wall
+    - Wall
   - type: Sprite
     sprite: Structures/Walls/clown.rsi
   - type: Icon
@@ -162,8 +159,8 @@
   components:
   - type: Tag
     tags:
-      - Wall
-      - Structure
+    - Wall
+    - Structure
   - type: Sprite
     sprite: Structures/Walls/meat.rsi
   - type: Icon
@@ -196,7 +193,7 @@
   components:
   - type: Tag
     tags:
-      - Wall
+    - Wall
   - type: Sprite
     sprite: Structures/Walls/cult.rsi
   - type: Icon
@@ -217,9 +214,6 @@
   - type: IconSmooth
     key: walls
     base: cult
-  - type: Construction
-    graph: CultGirder
-    node: wall
 
 - type: entity
   parent: BaseWall
@@ -229,8 +223,8 @@
   components:
   - type: Tag
     tags:
-      - Wall
-      - Debug
+    - Wall
+    - Debug
   - type: Sprite
     sprite: Structures/Walls/debug.rsi
   - type: Icon
@@ -259,7 +253,7 @@
   components:
   - type: Tag
     tags:
-      - Wall
+    - Wall
   - type: Sprite
     sprite: Structures/Walls/diamond.rsi
   - type: Icon
@@ -292,7 +286,7 @@
   components:
   - type: Tag
     tags:
-      - Wall
+    - Wall
   - type: Sprite
     sprite: Structures/Walls/gold.rsi
   - type: Icon
@@ -337,7 +331,7 @@
   components:
   - type: Tag
     tags:
-      - Wall
+    - Wall
   - type: Sprite
     sprite: Structures/Walls/ice.rsi
   - type: Icon
@@ -366,7 +360,7 @@
   components:
   - type: Tag
     tags:
-      - Wall
+    - Wall
   - type: Sprite
     sprite: Structures/Walls/plasma.rsi
   - type: Icon
@@ -413,7 +407,7 @@
   components:
   - type: Tag
     tags:
-      - Wall
+    - Wall
   - type: Sprite
     sprite: Structures/Walls/plastic.rsi
   - type: Icon
@@ -457,16 +451,16 @@
   name: plastitanium wall
   suffix: indestructible
   components:
-    - type: Tag
-      tags:
-        - Wall
-    - type: Sprite
-      sprite: Structures/Walls/plastitanium.rsi
-    - type: Icon
-      sprite: Structures/Walls/plastitanium.rsi
-    - type: IconSmooth
-      key: walls
-      base: plastitanium
+  - type: Tag
+    tags:
+    - Wall
+  - type: Sprite
+    sprite: Structures/Walls/plastitanium.rsi
+  - type: Icon
+    sprite: Structures/Walls/plastitanium.rsi
+  - type: IconSmooth
+    key: walls
+    base: plastitanium
 
 - type: entity
   parent: WallPlastitaniumIndestructible
@@ -474,22 +468,22 @@
   name: plastitanium wall
   suffix: ""
   components:
-    - type: Tag
-      tags:
-        - Wall
-    - type: Destructible
-      thresholds:
-        - trigger:
-            !type:DamageTrigger
-            damage: 1000
-          behaviors:
-            - !type:SpawnEntitiesBehavior
-              spawn:
-                Girder:
-                  min: 1
-                  max: 1
-            - !type:DoActsBehavior
-              acts: [ "Destruction" ]
+  - type: Tag
+    tags:
+    - Wall
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1000
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          Girder:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
 
 - type: entity
   parent: WallShuttleDiagonal
@@ -501,7 +495,6 @@
     snap:
     - Wall
   components:
-  - type: SpriteFade
   - type: Sprite
     drawdepth: Walls
     sprite: Structures/Walls/plastitanium_diagonal.rsi
@@ -519,11 +512,11 @@
         !type:DamageTrigger
         damage: 2000
       behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
-        - !type:PlaySoundBehavior
-          sound:
-            collection: MetalSlam
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
     - trigger:
         !type:DamageTrigger
         damage: 1000
@@ -552,7 +545,7 @@
   - type: Tag
     tags:
     - Wall
-  - type: SpriteFade
+    - Diagonal
   - type: Sprite
     drawdepth: Walls
     sprite: Structures/Walls/plastitanium_diagonal.rsi
@@ -576,10 +569,10 @@
       fix1:
         shape:
           !type:PolygonShape
-            vertices:
-            - "-0.5,-0.5"
-            - "0.5,0.5"
-            - "0.5,-0.5"
+          vertices:
+          - "-0.5,-0.5"
+          - "0.5,0.5"
+          - "0.5,-0.5"
         mask:
         - FullTileMask
         layer:
@@ -600,16 +593,13 @@
     node: reinforcedWall
   - type: Damageable
     damageContainer: StructuralInorganic
-    damageModifierSet: StructuralMetallicStrong
+    damageModifierSet: StructuralMetallic # WWDP
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
         damage: 600
       behaviors:
-      - !type:PlaySoundBehavior #Nyano
-        sound:
-          collection: MetalBreak
       - !type:DoActsBehavior
         acts: ["Destruction"]
       - !type:PlaySoundBehavior
@@ -643,14 +633,13 @@
           5: { state: reinf_construct-5, visible: true}
   - type: ReinforcedWallReplacementMarker
   - type: StaticPrice
-    price: 150
+    price: 250
   - type: RadiationBlocker
     resistance: 5
 
 - type: entity
   parent: WallReinforced
   id: WallReinforcedRust
-  name: reinforced wall
   suffix: rusted
   components:
   - type: Sprite
@@ -664,6 +653,29 @@
   - type: IconSmooth
     key: walls
     base: reinf_over
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+    - trigger:
+        !type:DamageTrigger
+        damage: 350
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+      - !type:ChangeConstructionNodeBehavior
+        node: girder
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+
 
 - type: entity
   parent: WallShuttleDiagonal
@@ -675,7 +687,9 @@
     snap:
     - Wall
   components:
-  - type: SpriteFade
+  - type: Tag
+    tags:
+    - Diagonal
   - type: Sprite
     drawdepth: Walls
     sprite: Structures/Walls/reinforced_diagonal.rsi
@@ -696,14 +710,14 @@
   components:
   - type: Tag
     tags:
-      - Wall
+    - Wall
   - type: Sprite
     sprite: Structures/Walls/riveted.rsi
   - type: Icon
     sprite: Structures/Walls/riveted.rsi
   - type: Damageable
     damageContainer: StructuralInorganic
-    damageModifierSet: StructuralMetallicStrong
+    damageModifierSet: StructuralMetallic # WWDP
   - type: Destructible
     thresholds:
     - trigger:
@@ -720,7 +734,7 @@
   - type: IconSmooth
     key: walls
     base: riveted
-  - type: StaticPrice #DynamicPrice
+  - type: StaticPrice
     price: 150
 
 - type: entity
@@ -730,7 +744,7 @@
   components:
   - type: Tag
     tags:
-      - Wall
+    - Wall
   - type: Sprite
     sprite: Structures/Walls/sandstone.rsi
   - type: Icon
@@ -763,7 +777,7 @@
   components:
   - type: Tag
     tags:
-      - Wall
+    - Wall
   - type: Sprite
     sprite: Structures/Walls/silver.rsi
   - type: Icon
@@ -801,10 +815,11 @@
     key: walls
     base: silver
 
+#shuttle walls
 - type: entity
   id: WallShuttleDiagonal
   name: shuttle wall
-  suffix: diagonal
+  suffix: Diagonal
   description: Keeps the air in and the greytide out.
   placement:
     mode: SnapgridCenter
@@ -817,7 +832,7 @@
   - type: Tag
     tags:
     - Wall
-  - type: SpriteFade
+    - Diagonal
   - type: Sprite
     drawdepth: Walls
     sprite: Structures/Walls/shuttle_diagonal.rsi
@@ -830,7 +845,7 @@
     sprite: Structures/Walls/shuttle_diagonal.rsi
     state: state0
   - type: Damageable
-    damageContainer: Inorganic
+    damageContainer: StructuralInorganic
     damageModifierSet: StructuralMetallic
   - type: Physics
     bodyType: Static
@@ -845,10 +860,10 @@
       fix1:
         shape:
           !type:PolygonShape
-            vertices:
-            - "-0.5,-0.5"
-            - "0.5,0.5"
-            - "0.5,-0.5"
+          vertices:
+          - "-0.5,-0.5"
+          - "0.5,0.5"
+          - "0.5,-0.5"
         mask:
         - FullTileMask
         layer:
@@ -859,26 +874,20 @@
         !type:DamageTrigger
         damage: 600
       behaviors:
-        - !type:DoActsBehavior
-          acts: [ "Destruction" ]
-        - !type:PlaySoundBehavior
-          sound:
-            collection: MetalSlam
-    - trigger:
-        !type:DamageTrigger
-        damage: 300
-      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
       - !type:PlaySoundBehavior
         sound:
           collection: MetalSlam
-      - !type:DoActsBehavior
-        acts: ["Destruction"]
-    - trigger: #this trigger is a Nyano addition
+    - trigger:
         !type:DamageTrigger
         damage: 300
       behaviors:
       - !type:ChangeConstructionNodeBehavior
         node: girder
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
       - !type:DoActsBehavior
         acts: ["Destruction"]
   - type: Construction
@@ -886,43 +895,62 @@
     node: diagonalshuttleWall
 
 - type: entity
-  parent: WallReinforced #Nyano, basically Reinforced Wall (shuttle variant)
+  parent: BaseWall
   id: WallShuttle
   name: shuttle wall
   components:
-  - type: Tag
-    tags:
-      - Wall
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallicStrong
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+    - trigger:
+        !type:DamageTrigger
+        damage: 400
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+      - !type:ChangeConstructionNodeBehavior
+        node: girder
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: StaticPrice
+    price: 250
+  - type: RadiationBlocker
+    resistance: 5
   - type: Sprite
     sprite: Structures/Walls/shuttle.rsi
   - type: Icon
     sprite: Structures/Walls/shuttle.rsi
     state: full
-#  - type: Destructible
-#    thresholds:
-#    - trigger:
-#        !type:DamageTrigger
-#        damage: 1000
-#      behaviors:
-#        - !type:DoActsBehavior
-#          acts: [ "Destruction" ]
-#    - trigger:
-#        !type:DamageTrigger
-#        damage: 500
-#      behaviors:
-#      - !type:PlaySoundBehavior
-#        sound:
-#          path: /Audio/Effects/metalbreak.ogg
-#      - !type:DoActsBehavior
-#        acts: ["Destruction"]
-#    destroySound:
-#      path: /Audio/Effects/metalbreak.ogg
   - type: Construction
     graph: Girder
     node: shuttleWall
   - type: IconSmooth
     key: walls
     base: state
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ShuttleWallVisuals.DeconstructionStage:
+        ShuttleWallVisualLayers.Deconstruction:
+          -1: { visible: false }
+          0: { state: shuttle_construct-0, visible: true}
+          1: { state: shuttle_construct-1, visible: true}
+          2: { state: shuttle_construct-2, visible: true}
+          3: { state: shuttle_construct-3, visible: true}
+          4: { state: shuttle_construct-4, visible: true}
+          5: { state: shuttle_construct-5, visible: true}
 
 - type: entity
   parent: BaseWall
@@ -931,7 +959,7 @@
   components:
   - type: Tag
     tags:
-      - Wall
+    - Wall
   - type: Sprite
     sprite: Structures/Walls/solid.rsi
   - type: WallReplacementMarker
@@ -980,7 +1008,6 @@
     snap:
     - Wall
   components:
-  - type: SpriteFade
   - type: Sprite
     drawdepth: Walls
     sprite: Structures/Walls/solid_diagonal.rsi
@@ -996,7 +1023,6 @@
 - type: entity
   parent: WallSolid
   id: WallSolidRust
-  name: solid wall
   suffix: rusted
   components:
   - type: Sprite
@@ -1010,6 +1036,28 @@
   - type: IconSmooth
     key: walls
     base: solid
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+      - !type:ChangeConstructionNodeBehavior
+        node: girder
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
 
 - type: entity
   parent: BaseWall
@@ -1055,13 +1103,14 @@
   parent: BaseWall
   id: WallWood
   name: wood wall
+  description: The traditional greytide defense.
   components:
   - type: Sprite
     sprite: Structures/Walls/wood.rsi
   - type: Icon
     sprite: Structures/Walls/wood.rsi
   - type: Construction
-    graph: Girder
+    graph: Barricade
     node: woodWall
   - type: Destructible
     thresholds:
@@ -1082,7 +1131,7 @@
         sound:
           collection: WoodDestroyHeavy
       - !type:ChangeConstructionNodeBehavior
-        node: girder
+        node: Barricade
       - !type:DoActsBehavior
         acts: ["Destruction"]
   - type: IconSmooth
@@ -1105,7 +1154,7 @@
     damageModifierSet: Web
   - type: Tag
     tags:
-      - Wall
+    - Wall
   - type: Sprite
     sprite: Structures/Walls/web.rsi
   - type: Icon
@@ -1143,7 +1192,7 @@
   components:
   - type: Tag
     tags:
-      - Wall
+    - Wall
   - type: Sprite
     sprite: Structures/Walls/necropolis.rsi
   - type: Icon
@@ -1163,11 +1212,11 @@
 - type: entity
   parent: BaseWall
   id: WallMining
-  name: wall
+  name: mining wall
   components:
   - type: Tag
     tags:
-      - Wall
+    - Wall
   - type: Sprite
     sprite: Structures/Walls/mining.rsi
   - type: Icon
@@ -1183,18 +1232,22 @@
   - type: IconSmooth
     key: walls
     base: mining
+  - type: RandomIconSmooth
+    randomStates:
+    - mining
+    - miningB
+  - type: Appearance
 
 - type: entity
   parent: WallShuttleDiagonal
   id: WallMiningDiagonal
-  name: wall
+  name: mining wall
   suffix: diagonal
   placement:
     mode: SnapgridCenter
     snap:
     - Wall
   components:
-  - type: SpriteFade
   - type: Sprite
     drawdepth: Walls
     sprite: Structures/Walls/mining_diagonal.rsi
@@ -1259,13 +1312,13 @@
 
 - type: entity
   id: WallInvisible
-  name: Invisible Wall
+  name: invisible wall
   components:
   - type: TimedDespawn
     lifetime: 15
   - type: Tag
     tags:
-      - Wall
+    - Wall
   - type: Physics
     bodyType: Static
   - type: Fixtures
@@ -1273,7 +1326,7 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-            bounds: "-0.5,-0.5,0.5,0.5"
+          bounds: "-0.5,-0.5,0.5,0.5"
         mask:
         - FullTileMask
         layer:
@@ -1284,32 +1337,32 @@
   id: WallForce
   name: force wall
   components:
-    - type: TimedDespawn
-      lifetime: 12
-    - type: Tag
-      tags:
-        - Wall
-    - type: Physics
-      bodyType: Static
-    - type: Fixtures
-      fixtures:
-        fix1:
-          shape:
-            !type:PhysShapeAabb
-            bounds: "-0.5,-0.5,0.5,0.5"
-          mask:
-            - FullTileMask
-          layer:
-            - WallLayer
-    - type: Airtight
-    - type: Sprite
-      sprite: Structures/Magic/forcewall.rsi
-      state: forcewall
-    - type: Icon
-      sprite: Structures/Magic/forcewall.rsi
-      state: forcewall
-#    - type: Dispellable
-    - type: Clickable #Nyano
+  - type: TimedDespawn
+    lifetime: 12
+  - type: Tag
+    tags:
+    - Wall
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+  - type: Airtight
+  - type: Sprite
+    sprite: Structures/Magic/forcewall.rsi
+    state: forcewall
+  - type: Icon
+    sprite: Structures/Magic/forcewall.rsi
+    state: forcewall
+  #    - type: Dispellable
+  - type: Clickable #Nyano
 
 - type: entity
   parent: BaseWall
@@ -1319,7 +1372,7 @@
   components:
   - type: Tag
     tags:
-      - Wall
+    - Wall
   - type: Sprite
     sprite: Structures/Walls/cobblebrick.rsi
   - type: Icon
