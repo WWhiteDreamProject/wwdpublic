@@ -31,7 +31,7 @@ public sealed class SandboxTest
                 typeof(Client.Entry.EntryPoint).Assembly,
 
                 typeof(StyleSheetify.Client.EntryPoint).Assembly,
-                typeof(StyleSheetify.Shared.StylePrototypeIgnorance).Assembly,
+                typeof(StyleSheetify.Shared.Dynamic.DynamicValue).Assembly,
             },
             Options = new GameControllerOptions { LoadConfigAndUserData = false }
         };
