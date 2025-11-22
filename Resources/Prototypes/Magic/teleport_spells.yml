@@ -41,7 +41,9 @@
       state: swap
     event: !type:VoidApplauseSpellEvent
       effect: EffectVoidBlink
+  # WD EDIT START
   - type: ActionUpgrade
     effectedLevels:
       2: ActionSwapII
       3: ActionSwapIII
+  # WD EDIT END
