@@ -13,7 +13,9 @@
       state: knock
     event: !type:KnockSpellEvent
       speech: action-speech-spell-knock
+  # WD EDIT START
   - type: ActionUpgrade
     effectedLevels:
       2: ActionKnockII
       3: ActionKnockIII
+  # WD EDIT END
