@@ -1,0 +1,26 @@
+- type: entity
+  id: MobDionaNymphBrain
+  parent: MobDionaNymph
+  suffix: Brain
+  description: Contains the brain of a formerly fully-formed Diona. Killing this would kill the Diona forever. You monster.
+  components:
+  - type: Body
+    prototype: DionaNymphBrain
+
+- type: entity
+  id: MobDionaNymphStomach
+  parent: MobDionaNymphAccent
+  suffix: Stomach
+  description: Contains the stomach of a formerly fully-formed Diona. It doesn't taste any better for it.
+  components:
+  - type: Body
+    prototype: DionaNymphStomach
+
+- type: entity
+  id: MobDionaNymphLungs
+  parent: MobDionaNymphAccent
+  suffix: Lungs
+  description: Contains the lungs of a formerly fully-formed Diona. Breathtaking.
+  components:
+  - type: Body
+    prototype: DionaNymphLungs

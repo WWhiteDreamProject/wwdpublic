@@ -1,3 +1,5 @@
+using Content.Server._White.Body.Systems;
+using Content.Server._White.Gibbing;
 using Content.Server.Administration.Logs;
 using Content.Server.Body.Systems;
 using Content.Server.Kitchen.Components;
@@ -33,11 +35,11 @@ namespace Content.Server.Kitchen.EntitySystems
         [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly TransformSystem _transform = default!;
-        [Dependency] private readonly BodySystem _bodySystem = default!;
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
         [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly MetaDataSystem _metaData = default!;
         [Dependency] private readonly SharedSuicideSystem _suicide = default!;
+        [Dependency] private readonly GibbingSystem _gibbing = default!; // WD EDIT
 
         public override void Initialize()
         {
@@ -160,10 +162,7 @@ namespace Content.Server.Kitchen.EntitySystems
             _transform.SetCoordinates(victimUid, Transform(uid).Coordinates);
             // THE WHAT?
             // TODO: Need to be able to leave them on the spike to do DoT, see ss13.
-            var gibs = _bodySystem.GibBody(victimUid);
-            foreach (var gib in gibs) {
-                QueueDel(gib);
-            }
+            _gibbing.GibBody(victimUid, true); // WD EDIT
 
             _audio.PlayPvs(component.SpikeSound, uid);
         }

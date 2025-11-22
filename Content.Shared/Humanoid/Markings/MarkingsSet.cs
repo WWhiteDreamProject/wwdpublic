@@ -189,7 +189,7 @@ public sealed partial class MarkingSet
                 foreach (var marking in list)
                 {
                     if (markingManager.TryGetMarking(marking, out var prototype) &&
-                        markingManager.MustMatchSkin(species, prototype.BodyPart, out var alpha, prototypeManager))
+                        markingManager.MustMatchSkin(species, prototype.MarkingCategory, out var alpha, prototypeManager)) // WD EDIT
                     {
                         marking.SetColor(skinColor.Value.WithAlpha(alpha));
                     }

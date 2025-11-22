@@ -1765,8 +1765,6 @@
           id: ClothingMaskBreathMedical # WWDP edit
         - !type:MappingTemplatePrototype
           id: SinkWide # WWDP edit
-        - !type:MappingTemplatePrototype
-          id: MedicalBiofabricator # WWDP edit
     - !type:MappingTemplatePrototype
       id: Virology
       children:

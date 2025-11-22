@@ -1,126 +1,227 @@
 - type: marking
   id: CyberLimbsMarkingXionHead
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [IPC]
   sprites:
   - sprite: Mobs/Customization/cyberlimbs/xion/xion_monitor.rsi
     state: head-1
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    replacementBodyPart: BodyPartHeadIPC
+    # WD EDIT END
   - sprite: Mobs/Customization/cyberlimbs/xion/xion_monitor.rsi
     state: head-2
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: CyberLimbsMarkingXionHeadAlt
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [IPC]
   sprites:
   - sprite: Mobs/Customization/cyberlimbs/xion/xion_alt1.rsi
     state: head-1
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    replacementBodyPart: BodyPartHeadIPC
+    # WD EDIT END
   - sprite: Mobs/Customization/cyberlimbs/xion/xion_alt1.rsi
     state: head-2
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
+# WD EDIT START
 - type: marking
   id: CyberLimbsMarkingXionChest
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [IPC]
   sprites:
   - sprite: Mobs/Customization/cyberlimbs/xion/xion_main.rsi
-    state: torso-1
+    state: chest-1
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+    replacementBodyPart: BodyPartChestIPC
   - sprite: Mobs/Customization/cyberlimbs/xion/xion_main.rsi
-    state: torso-2
+    state: chest-2
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+
+- type: marking
+  id: CyberLimbsMarkingXionGroin
+  markingCategory: Groin
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: Mobs/Customization/cyberlimbs/xion/xion_main.rsi
+    state: groin-1
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
+    replacementBodyPart: BodyPartGroinIPC
+  - sprite: Mobs/Customization/cyberlimbs/xion/xion_main.rsi
+    state: groin-2
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
+# WD EDIT END
 
 - type: marking
   id: CyberLimbsMarkingXionLArm
-  bodyPart: LArm
   markingCategory: LeftArm
   speciesRestriction: [IPC]
   sprites:
   - sprite: Mobs/Customization/cyberlimbs/xion/xion_main.rsi
     state: l_arm-1
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftArm
+    bodyPart: LeftArm
+    replacementBodyPart: BodyPartLeftArmIPC
+    # WD EDIT END
   - sprite: Mobs/Customization/cyberlimbs/xion/xion_main.rsi
     state: l_arm-2
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftArm
+    bodyPart: LeftArm
+    # WD EDIT END
 
 - type: marking
   id: CyberLimbsMarkingXionLHand
-  bodyPart: LHand
   markingCategory: LeftHand
   speciesRestriction: [IPC]
   sprites:
   - sprite: Mobs/Customization/cyberlimbs/xion/xion_main.rsi
     state: l_hand-1
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftHand
+    bodyPart: LeftHand
+    replacementBodyPart: BodyPartLeftHandIPC
+    # WD EDIT END
   - sprite: Mobs/Customization/cyberlimbs/xion/xion_main.rsi
     state: l_hand-2
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftHand
+    bodyPart: LeftHand
+    # WD EDIT END
 
 - type: marking
   id: CyberLimbsMarkingXionLLeg
-  bodyPart: LLeg
   markingCategory: LeftLeg
   speciesRestriction: [IPC]
   sprites:
   - sprite: Mobs/Customization/cyberlimbs/xion/xion_main.rsi
     state: l_leg-1
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftLeg
+    bodyPart: LeftLeg
+    replacementBodyPart: BodyPartLeftLegIPC
+    # WD EDIT END
   - sprite: Mobs/Customization/cyberlimbs/xion/xion_main.rsi
     state: l_leg-2
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftLeg
+    bodyPart: LeftLeg
+    # WD EDIT END
 
 
 - type: marking
   id: CyberLimbsMarkingXionLFoot
-  bodyPart: LFoot
   markingCategory: LeftFoot
   speciesRestriction: [IPC]
   sprites:
   - sprite: Mobs/Customization/cyberlimbs/xion/xion_main.rsi
     state: l_foot-1
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftFoot
+    bodyPart: LeftFoot
+    replacementBodyPart: BodyPartLeftFootIPC
+    # WD EDIT END
   - sprite: Mobs/Customization/cyberlimbs/xion/xion_main.rsi
     state: l_foot-2
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftFoot
+    bodyPart: LeftFoot
+    # WD EDIT END
 
 
 
 - type: marking
   id: CyberLimbsMarkingXionRArm
-  bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [IPC]
   sprites:
   - sprite: Mobs/Customization/cyberlimbs/xion/xion_main.rsi
     state: r_arm-1
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightArm
+    bodyPart: RightArm
+    replacementBodyPart: BodyPartRightArmIPC
+    # WD EDIT END
   - sprite: Mobs/Customization/cyberlimbs/xion/xion_main.rsi
     state: r_arm-2
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightArm
+    bodyPart: RightArm
+    # WD EDIT END
 
 
 
 - type: marking
   id: CyberLimbsMarkingXionRHand
-  bodyPart: RHand
   markingCategory: RightHand
   speciesRestriction: [IPC]
   sprites:
   - sprite: Mobs/Customization/cyberlimbs/xion/xion_main.rsi
     state: r_hand-1
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightHand
+    bodyPart: RightHand
+    replacementBodyPart: BodyPartRightHandIPC
+    # WD EDIT END
   - sprite: Mobs/Customization/cyberlimbs/xion/xion_main.rsi
     state: r_hand-2
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightHand
+    bodyPart: RightHand
+    # WD EDIT END
 
 - type: marking
   id: CyberLimbsMarkingXionRLeg
-  bodyPart: RLeg
   markingCategory: RightLeg
   speciesRestriction: [IPC]
   sprites:
   - sprite: Mobs/Customization/cyberlimbs/xion/xion_main.rsi
     state: r_leg-1
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightLeg
+    bodyPart: RightLeg
+    replacementBodyPart: BodyPartRightLegIPC
+    # WD EDIT END
   - sprite: Mobs/Customization/cyberlimbs/xion/xion_main.rsi
     state: r_leg-2
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightLeg
+    bodyPart: RightLeg
+    # WD EDIT END
 
 
 - type: marking
   id: CyberLimbsMarkingXionRFoot
-  bodyPart: RFoot
   markingCategory: RightFoot
   speciesRestriction: [IPC]
   sprites:
   - sprite: Mobs/Customization/cyberlimbs/xion/xion_main.rsi
     state: r_foot-1
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightFoot
+    bodyPart: RightFoot
+    replacementBodyPart: BodyPartRightFootIPC
+    # WD EDIT END
   - sprite: Mobs/Customization/cyberlimbs/xion/xion_main.rsi
     state: r_foot-2
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightFoot
+    bodyPart: RightFoot
+    # WD EDIT END

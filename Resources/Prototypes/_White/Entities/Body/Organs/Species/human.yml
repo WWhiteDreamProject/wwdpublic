@@ -1,0 +1,111 @@
+- type: entity
+  id: BaseOrganHuman
+  parent: BaseOrgan
+  abstract: true
+  components:
+  - type: Food
+  - type: Extractable
+    grindableSolutionName: organ
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+  - type: FlavorProfile
+    flavors:
+    - people
+  - type: Tag
+    tags:
+    - Meat
+
+- type: entity
+  id: OrganBrainHuman
+  parent: [BaseOrganHuman, BaseOrganBrain]
+  components:
+  - type: BadFood
+  - type: FoodSequenceElement
+    entries:
+      Burger: Brain
+      Taco: Brain
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: GreyMatter
+          Quantity: 5
+
+- type: entity
+  id: OrganHeartHuman
+  parent: [BaseOrganHuman, BaseOrganHeart]
+
+- type: entity
+  id: OrganEyesHuman
+  parent: [BaseOrganHuman, BaseOrganEyes]
+
+- type: entity
+  id: OrganTongueHuman
+  parent: [BaseOrganHuman, BaseOrganTongue]
+
+- type: entity
+  id: OrganAppendixHuman
+  parent: [BaseOrganHuman, BaseOrganAppendix]
+
+- type: entity
+  id: OrganEarsHuman
+  parent: [BaseOrganHuman, BaseOrganEars]
+
+- type: entity
+  id: OrganLungsHuman
+  parent: [BaseOrganHuman, BaseOrganLungs]
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+      lung:
+        maxVol: 100.0
+        canReact: false
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+
+- type: entity
+  id: OrganStomachHuman
+  parent: [BaseOrganHuman, BaseOrganStomach]
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+      stomach:
+        maxVol: 50
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+
+- type: entity
+  id: OrganLiverHuman
+  parent: [BaseOrganHuman, BaseOrganLiver]
+
+- type: entity
+  id: OrganKidneysHuman
+  parent: [BaseOrganHuman, BaseOrganKidneys]

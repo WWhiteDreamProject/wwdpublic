@@ -1,0 +1,71 @@
+﻿- type: body
+  id: Diona
+  root: chest
+  bodyParts:
+    head:
+      type: Head
+      startingBodyPart: BodyPartHeadDiona
+      connections:
+      - chest
+      organs:
+        brain:
+          type: Brain
+          startingOrgan: OrganBrainDionaNymph
+        ears:
+          type: Ears
+          startingOrgan: OrganEarsDiona
+        eyes:
+          type: Eyes
+          startingOrgan: OrganEyesDiona
+    chest:
+      type: Chest
+      startingBodyPart: BodyPartChestDiona
+      connections:
+      - right_arm
+      - left_arm
+      - groin
+      organs:
+        stomach:
+          type: Stomach
+          startingOrgan: OrganStomachDionaNymph
+        lungs:
+          type: Lungs
+          startingOrgan: OrganLungsDionaNymph
+    groin:
+      type: Groin
+      startingBodyPart: BodyPartGroinDiona
+      connections:
+      - right_leg
+      - left_leg
+    left_arm:
+      type: LeftArm
+      startingBodyPart: BodyPartLeftArmDiona
+      connections:
+      - left_hand
+    right_arm:
+      type: RightArm
+      startingBodyPart: BodyPartRightArmDiona
+      connections:
+      - right_hand
+    left_hand:
+      type: LeftHand
+      startingBodyPart: BodyPartLeftHandDiona
+    right_hand:
+      type: RightHand
+      startingBodyPart: BodyPartRightHandDiona
+    left_leg:
+      type: LeftLeg
+      startingBodyPart: BodyPartLeftLegDiona
+      connections:
+      - left_foot
+    right_leg:
+      type: RightLeg
+      startingBodyPart: BodyPartRightLegDiona
+      connections:
+      - right_foot
+    left_foot:
+      type: LeftFoot
+      startingBodyPart: BodyPartLeftFootDiona
+    right_foot:
+      type: RightFoot
+      startingBodyPart: BodyPartRightFootDiona

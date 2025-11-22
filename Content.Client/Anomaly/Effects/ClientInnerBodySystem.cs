@@ -1,6 +1,6 @@
+using Content.Shared._White.Body.Components;
 using Content.Shared.Anomaly.Components;
 using Content.Shared.Anomaly.Effects;
-using Content.Shared.Body.Components;
 using Robust.Client.GameObjects;
 
 namespace Content.Client.Anomaly.Effects;
@@ -25,8 +25,7 @@ public sealed class ClientInnerBodyAnomalySystem : SharedInnerBodyAnomalySystem
             index = sprite.LayerMapReserveBlank(ent.Comp.LayerMap);
 
         if (TryComp<BodyComponent>(ent, out var body) &&
-            body.Prototype is not null &&
-            ent.Comp.SpeciesSprites.TryGetValue(body.Prototype.Value, out var speciesSprite))
+            ent.Comp.SpeciesSprites.TryGetValue(body.Prototype, out var speciesSprite)) // WD EDIT
         {
             sprite.LayerSetSprite(index, speciesSprite);
         }

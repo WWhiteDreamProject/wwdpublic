@@ -1,458 +1,678 @@
 # Antennas
 - type: marking
   id: ChitinidAntennasDefault
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Chitinid/chitinid_antennas.rsi
     state: default
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: ChitinidAntennasCurly
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Chitinid/chitinid_antennas.rsi
     state: curly
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: ChitinidAntennasGray
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Chitinid/chitinid_antennas.rsi
     state: gray
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: ChitinidAntennasSlick
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Chitinid/chitinid_antennas.rsi
     state: slick
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: ChitinidAntennasLong
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Chitinid/chitinid_antennas.rsi
     state: long
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: ChitinidAntennasBee
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Chitinid/chitinid_antennas.rsi
     state: bee
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: ChitinidAntennasShort
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Chitinid/chitinid_antennas.rsi
     state: short
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: ChitinidAntennasFirefly
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Chitinid/chitinid_antennas.rsi
     state: firefly_primary
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
   - sprite: DeltaV/Mobs/Customization/Chitinid/chitinid_antennas.rsi
     state: firefly_secondary
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: ChitinidAntennasRadar
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Chitinid/chitinid_antennas.rsi
     state: radar
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: ChitinidAntennasSpeed
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Chitinid/chitinid_antennas.rsi
     state: speed
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 
 # Wings
 - type: marking
   id: ChitinidWingsDefault
-  bodyPart: Tail
-  markingCategory: Tail
+  markingCategory: Wings # WD EDIT: Tail -> Wings
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Chitinid/chitinid_wings.rsi
     state: default
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    replacementBodyPart: BodyPartWingsChitinid
+    # WD EDIT END
 
 - type: marking
   id: ChitinidWingsSmooth
-  bodyPart: Tail
-  markingCategory: Tail
+  markingCategory: Wings # WD EDIT: Tail -> Wings
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Chitinid/chitinid_wings.rsi
     state: smooth
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    replacementBodyPart: BodyPartWingsChitinid
+    # WD EDIT END
 
 - type: marking
   id: ChitinidWingsHoneypot
-  bodyPart: Tail
-  markingCategory: Tail
+  markingCategory: Wings # WD EDIT: Tail -> Wings
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Chitinid/chitinid_wings.rsi
     state: honeypot_primary
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    replacementBodyPart: BodyPartWingsChitinid
+    # WD EDIT END
   - sprite: DeltaV/Mobs/Customization/Chitinid/chitinid_wings.rsi
     state: honeypot_secondary
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    # WD EDIT END
 
 - type: marking
   id: ChitinidWingsStubby
-  bodyPart: Tail
-  markingCategory: Tail
+  markingCategory: Wings # WD EDIT: Tail -> Wings
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Chitinid/chitinid_wings.rsi
     state: stubby
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    replacementBodyPart: BodyPartWingsChitinid
+    # WD EDIT END
 
 - type: marking
   id: ChitinidWingsBee
-  bodyPart: Tail
-  markingCategory: Tail
+  markingCategory: Wings # WD EDIT: Tail -> Wings
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Chitinid/chitinid_wings.rsi
     state: bee_primary
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    replacementBodyPart: BodyPartWingsChitinid
+    # WD EDIT END
   - sprite: DeltaV/Mobs/Customization/Chitinid/chitinid_wings.rsi
     state: bee_secondary
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    # WD EDIT END
 
 - type: marking
   id: ChitinidWingsFirefly
-  bodyPart: Tail
-  markingCategory: Tail
+  markingCategory: Wings # WD EDIT: Tail -> Wings
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Chitinid/chitinid_wings.rsi
     state: firefly_primary
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    replacementBodyPart: BodyPartWingsChitinid
+    # WD EDIT END
   - sprite: DeltaV/Mobs/Customization/Chitinid/chitinid_wings.rsi
     state: firefly_secondary
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    # WD EDIT END
 
 # Body markings:
 # Charred
 - type: marking
   id: ChitinidChestCharred
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Chitinid/chitinid_parts.rsi
     state: charred_chest
+# WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+
+- type: marking
+  id: ChitinidGroinCharred
+  markingCategory: Groin
+  speciesRestriction: [Chitinid]
+  sprites:
+  - sprite: DeltaV/Mobs/Customization/Chitinid/chitinid_parts.rsi
+    state: charred_groin
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
+# WD EDIT END
 
 - type: marking
   id: ChitinidHeadCharred
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Chitinid/chitinid_parts.rsi
     state: charred_head
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: ChitinidLLegCharred
-  bodyPart: LLeg
   markingCategory: LeftLeg
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Chitinid/chitinid_parts.rsi
     state: charred_l_leg
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftLeg
+    bodyPart: LeftLeg
+    # WD EDIT END
 
 - type: marking
   id: ChitinidRLegCharred
-  bodyPart: RLeg
   markingCategory: RightLeg
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Chitinid/chitinid_parts.rsi
     state: charred_r_leg
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightLeg
+    bodyPart: RightLeg
+    # WD EDIT END
 
 - type: marking
   id: ChitinidLArmCharred
-  bodyPart: LArm
   markingCategory: LeftArm
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Chitinid/chitinid_parts.rsi
     state: charred_l_arm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftArm
+    bodyPart: LeftArm
+    # WD EDIT END
 
 - type: marking
   id: ChitinidRArmCharred
-  bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Chitinid/chitinid_parts.rsi
     state: charred_r_arm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightArm
+    bodyPart: RightArm
+    # WD EDIT END
 
 # Plated
 - type: marking
   id: ChitinidChestPlated
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Chitinid/chitinid_parts.rsi
     state: plated_chest
+# WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+
+- type: marking
+  id: ChitinidGroinPlated
+  markingCategory: Groin
+  speciesRestriction: [Chitinid]
+  sprites:
+  - sprite: DeltaV/Mobs/Customization/Chitinid/chitinid_parts.rsi
+    state: plated_groin
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
+# WD EDIT END
 
 - type: marking
   id: ChitinidLArmPlated
-  bodyPart: LArm
   markingCategory: LeftArm
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Chitinid/chitinid_parts.rsi
     state: plated_l_arm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftArm
+    bodyPart: LeftArm
+    # WD EDIT END
 
 - type: marking
   id: ChitinidRArmPlated
-  bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Chitinid/chitinid_parts.rsi
     state: plated_r_arm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightArm
+    bodyPart: RightArm
+    # WD EDIT END
 
 # Stripes
 - type: marking
   id: ChitinidChestStripes
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Chitinid/chitinid_parts.rsi
     state: stripes_chest
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+    # WD EDIT END
 
 - type: marking
   id: ChitinidHeadStripes
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Chitinid/chitinid_parts.rsi
     state: stripes_head
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: ChitinidLLegStripes
-  bodyPart: LLeg
   markingCategory: LeftLeg
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Chitinid/chitinid_parts.rsi
     state: stripes_l_leg
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftLeg
+    bodyPart: LeftLeg
+    # WD EDIT END
 
 - type: marking
   id: ChitinidRLegStripes
-  bodyPart: RLeg
   markingCategory: RightLeg
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Chitinid/chitinid_parts.rsi
     state: stripes_r_leg
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightLeg
+    bodyPart: RightLeg
+    # WD EDIT END
 
 - type: marking
   id: ChitinidLArmStripes
-  bodyPart: LArm
   markingCategory: LeftArm
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Chitinid/chitinid_parts.rsi
     state: stripes_l_arm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftArm
+    bodyPart: LeftArm
+    # WD EDIT END
 
 - type: marking
   id: ChitinidRArmStripes
-  bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Chitinid/chitinid_parts.rsi
     state: stripes_r_arm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightArm
+    bodyPart: RightArm
+    # WD EDIT END
 
 # Radiant
 - type: marking
   id: ChitinidChestRadiant
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Chitinid/chitinid_parts.rsi
     state: radiant_chest
+# WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+
+
+- type: marking
+  id: ChitinidGroinRadiant
+  markingCategory: Groin
+  speciesRestriction: [Chitinid]
+  sprites:
+  - sprite: DeltaV/Mobs/Customization/Chitinid/chitinid_parts.rsi
+    state: radiant_groin
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
+# WD EDIT END
 
 - type: marking
   id: ChitinidHeadRadiant
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Chitinid/chitinid_parts.rsi
     state: radiant_head
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: ChitinidLLegRadiant
-  bodyPart: LLeg
   markingCategory: LeftLeg
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Chitinid/chitinid_parts.rsi
     state: radiant_l_leg
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftLeg
+    bodyPart: LeftLeg
+    # WD EDIT END
 
 - type: marking
   id: ChitinidRLegRadiant
-  bodyPart: RLeg
   markingCategory: RightLeg
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Chitinid/chitinid_parts.rsi
     state: radiant_r_leg
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightLeg
+    bodyPart: RightLeg
+    # WD EDIT END
 
 - type: marking
   id: ChitinidLArmRadiant
-  bodyPart: LArm
   markingCategory: LeftArm
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Chitinid/chitinid_parts.rsi
     state: radiant_l_arm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftArm
+    bodyPart: LeftArm
+    # WD EDIT END
 
 - type: marking
   id: ChitinidRArmRadiant
-  bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Chitinid/chitinid_parts.rsi
     state: radiant_r_arm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightArm
+    bodyPart: RightArm
+    # WD EDIT END
 
 # Toxic
 - type: marking
   id: ChitinidChestToxic
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Chitinid/chitinid_parts.rsi
     state: toxic_chest
+# WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+
+- type: marking
+  id: ChitinidGroinToxic
+  markingCategory: Groin
+  speciesRestriction: [Chitinid]
+  sprites:
+  - sprite: DeltaV/Mobs/Customization/Chitinid/chitinid_parts.rsi
+    state: toxic_groin
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
+# WD EDIT END
 
 - type: marking
   id: ChitinidHeadToxic
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Chitinid/chitinid_parts.rsi
     state: toxic_head
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: ChitinidLLegToxic
-  bodyPart: LLeg
   markingCategory: LeftLeg
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Chitinid/chitinid_parts.rsi
     state: toxic_l_leg
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftLeg
+    bodyPart: LeftLeg
+    # WD EDIT END
 
 - type: marking
   id: ChitinidRLegToxic
-  bodyPart: RLeg
   markingCategory: RightLeg
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Chitinid/chitinid_parts.rsi
     state: toxic_r_leg
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightLeg
+    bodyPart: RightLeg
+    # WD EDIT END
 
 - type: marking
   id: ChitinidLArmToxic
-  bodyPart: LArm
   markingCategory: LeftArm
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Chitinid/chitinid_parts.rsi
     state: toxic_l_arm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftArm
+    bodyPart: LeftArm
+    # WD EDIT END
 
 - type: marking
   id: ChitinidRArmToxic
-  bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Chitinid/chitinid_parts.rsi
     state: toxic_r_arm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightArm
+    bodyPart: RightArm
+    # WD EDIT END
 
 # Spotted
 - type: marking
   id: ChitinidChestSpotted
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Chitinid/chitinid_parts.rsi
     state: spotted_chest
+# WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+
+- type: marking
+  id: ChitinidGroinSpotted
+  markingCategory: Groin
+  speciesRestriction: [Chitinid]
+  sprites:
+  - sprite: DeltaV/Mobs/Customization/Chitinid/chitinid_parts.rsi
+    state: spotted_groin
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
+# WD EDIT END
 
 - type: marking
   id: ChitinidHeadSpotted
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Chitinid/chitinid_parts.rsi
     state: spotted_head
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: ChitinidLLegSpotted
-  bodyPart: LLeg
   markingCategory: LeftLeg
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Chitinid/chitinid_parts.rsi
     state: spotted_l_leg
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftLeg
+    bodyPart: LeftLeg
+    # WD EDIT END
 
 - type: marking
   id: ChitinidRLegSpotted
-  bodyPart: RLeg
   markingCategory: RightLeg
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Chitinid/chitinid_parts.rsi
     state: spotted_r_leg
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightLeg
+    bodyPart: RightLeg
+    # WD EDIT END
 
 - type: marking
   id: ChitinidLArmSpotted
-  bodyPart: LArm
   markingCategory: LeftArm
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Chitinid/chitinid_parts.rsi
     state: spotted_l_arm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftArm
+    bodyPart: LeftArm
+    # WD EDIT END
 
 - type: marking
   id: ChitinidRArmSpotted
-  bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [Chitinid]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Chitinid/chitinid_parts.rsi
     state: spotted_r_arm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightArm
+    bodyPart: RightArm
+    # WD EDIT END

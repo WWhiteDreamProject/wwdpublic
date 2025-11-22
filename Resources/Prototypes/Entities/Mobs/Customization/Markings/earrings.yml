@@ -1,6 +1,5 @@
 - type: marking
   id: EarringsStudLeft
-  bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [Moth, Vox, Rodentia, Shadowkin, Plasmaman, Chitinid, Tajaran]
   invertSpeciesRestriction: true
@@ -12,10 +11,13 @@
   sprites:
   - sprite: Mobs/Customization/earrings.rsi
     state: stud_l
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: EarringsStudRight
-  bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [Moth, Vox, Rodentia, Shadowkin, Plasmaman, Chitinid, Tajaran]
   invertSpeciesRestriction: true
@@ -27,10 +29,13 @@
   sprites:
   - sprite: Mobs/Customization/earrings.rsi
     state: stud_r
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: EarringsHeavyLeft
-  bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [Moth, Vox, Rodentia, Shadowkin, Plasmaman, Chitinid, Tajaran]
   invertSpeciesRestriction: true
@@ -42,10 +47,13 @@
   sprites:
   - sprite: Mobs/Customization/earrings.rsi
     state: heavy_l
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: EarringsHeavyRight
-  bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [Moth, Vox, Rodentia, Shadowkin, Plasmaman, Chitinid, Tajaran]
   invertSpeciesRestriction: true
@@ -57,10 +65,13 @@
   sprites:
   - sprite: Mobs/Customization/earrings.rsi
     state: heavy_r
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: EarringsDropBasicLeft
-  bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [Moth, Vox, Rodentia, Shadowkin, Plasmaman, Chitinid, Tajaran]
   invertSpeciesRestriction: true
@@ -72,10 +83,13 @@
   sprites:
   - sprite: Mobs/Customization/earrings.rsi
     state: drop_l
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: EarringsDropBasicRight
-  bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [Moth, Vox, Rodentia, Shadowkin, Plasmaman, Chitinid, Tajaran]
   invertSpeciesRestriction: true
@@ -87,10 +101,13 @@
   sprites:
   - sprite: Mobs/Customization/earrings.rsi
     state: drop_r
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: EarringsDropColoredLeft
-  bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [Moth, Vox, Rodentia, Shadowkin, Plasmaman, Chitinid, Tajaran]
   invertSpeciesRestriction: true
@@ -102,12 +119,19 @@
   sprites:
   - sprite: Mobs/Customization/earrings.rsi
     state: drop_colored_tone_1_l
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
   - sprite: Mobs/Customization/earrings.rsi
     state: drop_colored_tone_2_l
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: EarringsDropColoredRight
-  bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [Moth, Vox, Rodentia, Shadowkin, Plasmaman, Chitinid, Tajaran]
   invertSpeciesRestriction: true
@@ -119,12 +143,19 @@
   sprites:
   - sprite: Mobs/Customization/earrings.rsi
     state: drop_colored_tone_1_r
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
   - sprite: Mobs/Customization/earrings.rsi
     state: drop_colored_tone_2_r
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: EarringsDropLongLeft
-  bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [Moth, Vox, Rodentia, Shadowkin, Plasmaman, Chitinid, Tajaran]
   invertSpeciesRestriction: true
@@ -136,12 +167,19 @@
   sprites:
   - sprite: Mobs/Customization/earrings.rsi
     state: drop_long_tone_1_l
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
   - sprite: Mobs/Customization/earrings.rsi
     state: drop_long_tone_2_l
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: EarringsDropLongRight
-  bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [Moth, Vox, Rodentia, Shadowkin, Plasmaman, Chitinid, Tajaran]
   invertSpeciesRestriction: true
@@ -153,12 +191,19 @@
   sprites:
   - sprite: Mobs/Customization/earrings.rsi
     state: drop_long_tone_1_r
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
   - sprite: Mobs/Customization/earrings.rsi
     state: drop_long_tone_2_r
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: EarringsCrescentLeft
-  bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [Moth, Vox, Rodentia, Shadowkin, Plasmaman, Chitinid, Tajaran]
   invertSpeciesRestriction: true
@@ -170,10 +215,13 @@
   sprites:
   - sprite: Mobs/Customization/earrings.rsi
     state: crescent_l
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: EarringsCrescentRight
-  bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [Moth, Vox, Rodentia, Shadowkin, Plasmaman, Chitinid, Tajaran]
   invertSpeciesRestriction: true
@@ -185,10 +233,13 @@
   sprites:
   - sprite: Mobs/Customization/earrings.rsi
     state: crescent_r
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: EarringsBangleLeft
-  bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [Moth, Vox, Rodentia, Shadowkin, Plasmaman, Chitinid, Tajaran]
   invertSpeciesRestriction: true
@@ -200,10 +251,13 @@
   sprites:
   - sprite: Mobs/Customization/earrings.rsi
     state: bangle_l
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: EarringsBangleRight
-  bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [Moth, Vox, Rodentia, Shadowkin, Plasmaman, Chitinid, Tajaran]
   invertSpeciesRestriction: true
@@ -215,10 +269,13 @@
   sprites:
   - sprite: Mobs/Customization/earrings.rsi
     state: bangle_r
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: EarringsHoopBasicLeft
-  bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [Moth, Vox, Rodentia, Shadowkin, Plasmaman, Chitinid, Tajaran]
   invertSpeciesRestriction: true
@@ -230,10 +287,13 @@
   sprites:
   - sprite: Mobs/Customization/earrings.rsi
     state: hoop_l
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: EarringsHoopBasicRight
-  bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [Moth, Vox, Rodentia, Shadowkin, Plasmaman, Chitinid, Tajaran]
   invertSpeciesRestriction: true
@@ -245,10 +305,13 @@
   sprites:
   - sprite: Mobs/Customization/earrings.rsi
     state: hoop_r
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: EarringsHoopMiniLeft
-  bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [Moth, Vox, Rodentia, Shadowkin, Plasmaman, Chitinid, Tajaran]
   invertSpeciesRestriction: true
@@ -260,10 +323,13 @@
   sprites:
   - sprite: Mobs/Customization/earrings.rsi
     state: hoop_mini_l
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: EarringsHoopMiniRight
-  bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [Moth, Vox, Rodentia, Shadowkin, Plasmaman, Chitinid, Tajaran]
   invertSpeciesRestriction: true
@@ -275,10 +341,13 @@
   sprites:
   - sprite: Mobs/Customization/earrings.rsi
     state: hoop_mini_r
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: EarringsCrossBasicLeft
-  bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [Moth, Vox, Rodentia, Shadowkin, Plasmaman, Chitinid, Tajaran]
   invertSpeciesRestriction: true
@@ -290,10 +359,13 @@
   sprites:
   - sprite: Mobs/Customization/earrings.rsi
     state: cross_l
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: EarringsCrossBasicRight
-  bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [Moth, Vox, Rodentia, Shadowkin, Plasmaman, Chitinid, Tajaran]
   invertSpeciesRestriction: true
@@ -305,10 +377,13 @@
   sprites:
   - sprite: Mobs/Customization/earrings.rsi
     state: cross_r
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: EarringsCrossSaintPeterLeft
-  bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [Moth, Vox, Rodentia, Shadowkin, Plasmaman, Chitinid, Tajaran]
   invertSpeciesRestriction: true
@@ -320,10 +395,13 @@
   sprites:
   - sprite: Mobs/Customization/earrings.rsi
     state: cross_saint_peter_l
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: EarringsCrossSaintPeterRight
-  bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [Moth, Vox, Rodentia, Shadowkin, Plasmaman, Chitinid, Tajaran]
   invertSpeciesRestriction: true
@@ -335,10 +413,13 @@
   sprites:
   - sprite: Mobs/Customization/earrings.rsi
     state: cross_saint_peter_r
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: EarringsGemstoneBasicLeft
-  bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [Moth, Vox, Rodentia, Shadowkin, Plasmaman, Chitinid, Tajaran]
   invertSpeciesRestriction: true
@@ -350,12 +431,19 @@
   sprites:
   - sprite: Mobs/Customization/earrings.rsi
     state: gemstone_tone_1_l
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
   - sprite: Mobs/Customization/earrings.rsi
     state: gemstone_tone_2_l
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: EarringsGemstoneBasicRight
-  bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [Moth, Vox, Rodentia, Shadowkin, Plasmaman, Chitinid, Tajaran]
   invertSpeciesRestriction: true
@@ -367,12 +455,19 @@
   sprites:
   - sprite: Mobs/Customization/earrings.rsi
     state: gemstone_tone_1_r
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
   - sprite: Mobs/Customization/earrings.rsi
     state: gemstone_tone_2_r
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: EarringsGemstoneLongLeft
-  bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [Moth, Vox, Rodentia, Shadowkin, Plasmaman, Chitinid, Tajaran]
   invertSpeciesRestriction: true
@@ -384,12 +479,19 @@
   sprites:
   - sprite: Mobs/Customization/earrings.rsi
     state: gemstone_long_tone_1_l
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
   - sprite: Mobs/Customization/earrings.rsi
     state: gemstone_long_tone_2_l
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: EarringsGemstoneLongRight
-  bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [Moth, Vox, Rodentia, Shadowkin, Plasmaman, Chitinid, Tajaran]
   invertSpeciesRestriction: true
@@ -401,12 +503,19 @@
   sprites:
   - sprite: Mobs/Customization/earrings.rsi
     state: gemstone_long_tone_1_r
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
   - sprite: Mobs/Customization/earrings.rsi
     state: gemstone_long_tone_2_r
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: EarringsGemstoneDoubleLeft
-  bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [Moth, Vox, Rodentia, Shadowkin, Plasmaman, Chitinid, Tajaran]
   invertSpeciesRestriction: true
@@ -418,14 +527,25 @@
   sprites:
   - sprite: Mobs/Customization/earrings.rsi
     state: gemstone_double_tone_1_l
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
   - sprite: Mobs/Customization/earrings.rsi
     state: gemstone_double_tone_2_l
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
   - sprite: Mobs/Customization/earrings.rsi
     state: gemstone_double_tone_3_l
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: EarringsGemstoneDoubleRight
-  bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [Moth, Vox, Rodentia, Shadowkin, Plasmaman, Chitinid, Tajaran]
   invertSpeciesRestriction: true
@@ -437,14 +557,25 @@
   sprites:
   - sprite: Mobs/Customization/earrings.rsi
     state: gemstone_double_tone_1_r
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
   - sprite: Mobs/Customization/earrings.rsi
     state: gemstone_double_tone_2_r
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
   - sprite: Mobs/Customization/earrings.rsi
     state: gemstone_double_tone_3_r
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: EarringsDangleBasicLeft
-  bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [Moth, Vox, Rodentia, Shadowkin, Plasmaman, Chitinid, Tajaran]
   invertSpeciesRestriction: true
@@ -456,12 +587,19 @@
   sprites:
   - sprite: Mobs/Customization/earrings.rsi
     state: dangle_tone_1_l
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
   - sprite: Mobs/Customization/earrings.rsi
     state: dangle_tone_2_l
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: EarringsDangleBasicRight
-  bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [Moth, Vox, Rodentia, Shadowkin, Plasmaman, Chitinid, Tajaran]
   invertSpeciesRestriction: true
@@ -473,12 +611,19 @@
   sprites:
   - sprite: Mobs/Customization/earrings.rsi
     state: dangle_tone_1_r
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
   - sprite: Mobs/Customization/earrings.rsi
     state: dangle_tone_2_r
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: EarringsDangleLongLeft
-  bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [Moth, Vox, Rodentia, Shadowkin, Plasmaman, Chitinid, Tajaran]
   invertSpeciesRestriction: true
@@ -490,12 +635,19 @@
   sprites:
   - sprite: Mobs/Customization/earrings.rsi
     state: dangle_long_tone_1_l
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
   - sprite: Mobs/Customization/earrings.rsi
     state: dangle_long_tone_2_l
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: EarringsDangleLongRight
-  bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [Moth, Vox, Rodentia, Shadowkin, Plasmaman, Chitinid, Tajaran]
   invertSpeciesRestriction: true
@@ -507,12 +659,19 @@
   sprites:
   - sprite: Mobs/Customization/earrings.rsi
     state: dangle_long_tone_1_r
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
   - sprite: Mobs/Customization/earrings.rsi
     state: dangle_long_tone_2_r
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: EarringsEightLeft
-  bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [Moth, Vox, Rodentia, Shadowkin, Plasmaman, Chitinid, Tajaran]
   invertSpeciesRestriction: true
@@ -524,10 +683,13 @@
   sprites:
   - sprite: Mobs/Customization/earrings.rsi
     state: eight_l
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: EarringsEightRight
-  bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [Moth, Vox, Rodentia, Shadowkin, Plasmaman, Chitinid, Tajaran]
   invertSpeciesRestriction: true
@@ -539,10 +701,13 @@
   sprites:
   - sprite: Mobs/Customization/earrings.rsi
     state: eight_r
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: EarringsCrystalBasicLeft
-  bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [Moth, Vox, Rodentia, Shadowkin, Plasmaman, Chitinid, Tajaran]
   invertSpeciesRestriction: true
@@ -554,12 +719,19 @@
   sprites:
   - sprite: Mobs/Customization/earrings.rsi
     state: crystal_tone_1_l
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
   - sprite: Mobs/Customization/earrings.rsi
     state: crystal_tone_2_l
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: EarringsCrystalBasicRight
-  bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [Moth, Vox, Rodentia, Shadowkin, Plasmaman, Chitinid, Tajaran]
   invertSpeciesRestriction: true
@@ -571,12 +743,19 @@
   sprites:
   - sprite: Mobs/Customization/earrings.rsi
     state: crystal_tone_1_r
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
   - sprite: Mobs/Customization/earrings.rsi
     state: crystal_tone_2_r
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: EarringsCrystalLongLeft
-  bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [Moth, Vox, Rodentia, Shadowkin, Plasmaman, Chitinid, Tajaran]
   invertSpeciesRestriction: true
@@ -588,12 +767,19 @@
   sprites:
   - sprite: Mobs/Customization/earrings.rsi
     state: crystal_long_tone_1_l
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
   - sprite: Mobs/Customization/earrings.rsi
     state: crystal_long_tone_2_l
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: EarringsCrystalLongRight
-  bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [Moth, Vox, Rodentia, Shadowkin, Plasmaman, Chitinid, Tajaran]
   invertSpeciesRestriction: true
@@ -605,5 +791,13 @@
   sprites:
   - sprite: Mobs/Customization/earrings.rsi
     state: crystal_long_tone_1_r
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
   - sprite: Mobs/Customization/earrings.rsi
     state: crystal_long_tone_2_r
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END

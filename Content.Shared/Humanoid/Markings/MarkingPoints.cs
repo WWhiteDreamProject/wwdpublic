@@ -16,6 +16,14 @@ public sealed partial class MarkingPoints
     [DataField("defaultMarkings", customTypeSerializer:typeof(PrototypeIdListSerializer<MarkingPrototype>))]
     public List<string> DefaultMarkings = new();
 
+    // WD EDIT START: The marking code is cancer. But I'm too lazy to edit it, and it will cause a lot of problems with upstreams in the future. But sooner or later, this thing will need to be rewritten.
+    [DataField]
+    public bool MatchSkin;
+
+    [DataField]
+    public float LayerAlpha = 1.0f;
+    // WD EDIT END
+
     public static Dictionary<MarkingCategories, MarkingPoints> CloneMarkingPointDictionary(Dictionary<MarkingCategories, MarkingPoints> self)
     {
         var clone = new Dictionary<MarkingCategories, MarkingPoints>();
@@ -26,7 +34,11 @@ public sealed partial class MarkingPoints
             {
                 Points = points.Points,
                 Required = points.Required,
-                DefaultMarkings = points.DefaultMarkings
+                DefaultMarkings = points.DefaultMarkings,
+                // WD EDIT START
+                MatchSkin = points.MatchSkin,
+                LayerAlpha = points.LayerAlpha
+                // WD EDIT END
             };
         }
 

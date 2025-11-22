@@ -1,8 +1,9 @@
+using Content.Server._White.Gibbing;
 using Content.Server.Bible.Components;
+using Content.Shared._White.Body.Components;
+using Content.Shared._White.Body.Systems;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.Administration.Logs;
-using Content.Shared.Body.Components;
-using Content.Shared.Body.Systems;
 using Content.Shared.Database;
 using Content.Shared.Chapel;
 using Content.Shared.DoAfter;
@@ -27,6 +28,7 @@ public sealed class SacrificialAltarSystem : SharedSacrificialAltarSystem
     [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly GibbingSystem _gibbing = default!; // WD EDIT
 
     public override void Initialize()
     {
@@ -58,10 +60,10 @@ public sealed class SacrificialAltarSystem : SharedSacrificialAltarSystem
         // TODO GOLEMS: create a soul crystal and transfer mind into it
 
         // finally gib the targets old body
-        if (TryComp<BodyComponent>(target, out var body))
-            _body.GibBody(target, gibOrgans: false, body, launchGibs: true);
-        else
+        // WD EDIT START
+        if (!_gibbing.TryGibBody(target, out _, gibOrgans: false))
             QueueDel(target);
+        // WD EDIT END
     }
 
     protected override void AttemptSacrifice(Entity<SacrificialAltarComponent> ent, EntityUid user, EntityUid target)

@@ -1,70 +1,100 @@
 - type: marking
   id: HumanFacialHairChin2
-  bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
   - sprite: _ADT/Mobs/Customization/Human/custom.rsi
     state: beard-beardchin
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.FacialHair
+    bodyPart: Head
+    # WD EDIT END
 - type: marking
   id: HumanFacialHairSuperLong
-  bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
   - sprite: _ADT/Mobs/Customization/Human/custom.rsi
     state: beard-beardlong
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.FacialHair
+    bodyPart: Head
+    # WD EDIT END
 - type: marking
   id: HumanFacialHairShort
-  bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
   - sprite: _ADT/Mobs/Customization/Human/custom.rsi
     state: beard-beardshort
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.FacialHair
+    bodyPart: Head
+    # WD EDIT END
 - type: marking
   id: HumanFacialHairThick
-  bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
   - sprite: _ADT/Mobs/Customization/Human/custom.rsi
     state: beard-beardthick
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.FacialHair
+    bodyPart: Head
+    # WD EDIT END
 - type: marking
   id: HumanFacialHairViking
-  bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
   - sprite: _ADT/Mobs/Customization/Human/custom.rsi
     state: beard-beardviking
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.FacialHair
+    bodyPart: Head
+    # WD EDIT END
 - type: marking
   id: HumanFacialHairBristle
-  bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
   - sprite: _ADT/Mobs/Customization/Human/custom.rsi
     state: beard-bristle
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.FacialHair
+    bodyPart: Head
+    # WD EDIT END
 - type: marking
   id: HumanFacialHairMoustacheWithStubble
-  bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
   - sprite: _ADT/Mobs/Customization/Human/custom.rsi
     state: beard-mustachewithstubble
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.FacialHair
+    bodyPart: Head
+    # WD EDIT END
 - type: marking
   id: HumanFacialHairThickBristle
-  bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
   - sprite: _ADT/Mobs/Customization/Human/custom.rsi
     state: beard-thickbristle
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.FacialHair
+    bodyPart: Head
+    # WD EDIT END
 - type: marking
   id: HumanFacialHairHandlebar
-  bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
     - sprite: _Corvax/Mobs/Customization/human_facial_hair.rsi
       state: handlebar
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.FacialHair
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: HumanFacialHairHandlebar2
-  bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
     - sprite: _Corvax/Mobs/Customization/human_facial_hair.rsi
       state: handlebar2
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.FacialHair
+      bodyPart: Head
+      # WD EDIT END

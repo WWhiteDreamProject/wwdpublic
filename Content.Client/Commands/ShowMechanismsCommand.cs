@@ -1,4 +1,4 @@
-using Content.Shared.Body.Organ;
+using Content.Shared._White.Body.Components;
 using Robust.Client.GameObjects;
 using Robust.Shared.Console;
 

@@ -1,6 +1,5 @@
 - type: marking
   id: CatEars
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Human]
   coloring:
@@ -18,12 +17,19 @@
   sprites:
   - sprite: Mobs/Customization/cat_parts.rsi
     state: ears_cat_outer
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
   - sprite: Mobs/Customization/cat_parts.rsi
     state: ears_cat_inner
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: CatTail
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Human]
   coloring:
@@ -38,3 +44,8 @@
   sprites:
   - sprite: Mobs/Customization/cat_parts.rsi
     state: tail_cat
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    replacementBodyPart: BodyPartTailFelinid
+    # WD EDIT END

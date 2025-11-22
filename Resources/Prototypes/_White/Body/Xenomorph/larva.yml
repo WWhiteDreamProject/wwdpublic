@@ -1,0 +1,24 @@
+- type: body
+  id: XenomorphLarva
+  organs:
+    brain:
+      type: Brain
+      startingOrgan: OrganBrainXenomorph
+    eyes:
+      type: Eyes
+      startingOrgan: OrganEyesXenomorph
+    tongue:
+      type: Tongue
+      startingOrgan: OrganTongueXenomorph
+    lungs:
+      type: Lungs
+      startingOrgan: OrganLungsTinyXenomorph
+    stomach:
+      type: Stomach
+      startingOrgan: OrganStomachXenomorph
+    liver:
+      type: Liver
+      startingOrgan: OrganLiverXenomorph
+    hive_node:
+      type: Specific
+      startingOrgan: OrganHiveNodeXenomorph

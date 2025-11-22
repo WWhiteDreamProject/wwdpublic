@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared._White.Body.Components;
 using Content.Shared.ActionBlocker;
 using Content.Shared.CCVar;
 using Content.Shared.DoAfter;
@@ -6,8 +7,6 @@ using Content.Shared.Gravity;
 using Content.Shared.Input;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Systems;
-using Content.Shared.Body.Components;
-using Content.Shared._Shitmed.Body.Organ;
 using Content.Shared.Standing;
 using Content.Shared.Popups;
 using Content.Shared.Stunnable;
@@ -158,9 +157,6 @@ public abstract class SharedLayingDownSystem : EntitySystem
             || standingState.CurrentState is not StandingState.Lying
             || !_mobState.IsAlive(uid)
             || TerminatingOrDeleted(uid)
-            || !TryComp<BodyComponent>(uid, out var body)
-            || body.LegEntities.Count < body.RequiredLegs
-            || HasComp<DebrainedComponent>(uid)
             || HasComp<LegsParalyzedComponent>(uid) // WWDP
             || TryComp<MovementSpeedModifierComponent>(uid, out var movement) && movement.CurrentWalkSpeed == 0)
             return false;

@@ -2,7 +2,6 @@ using Content.Shared._EE.Shadowling;
 using Content.Shared.Damage;
 using Content.Shared.EntityEffects;
 using Content.Shared.FixedPoint;
-using Content.Shared._Shitmed.Targeting;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 
@@ -48,9 +47,6 @@ public sealed partial class HealShadowling : EntityEffect
                 args.TargetEntity,
                 Damage * scale,
                 IgnoreResistances,
-                interruptsDoAfters: false,
-                targetPart: TargetBodyPart.All,
-                partMultiplier: 0.5f,
-                canSever: false);
+                interruptsDoAfters: false);
     }
 }

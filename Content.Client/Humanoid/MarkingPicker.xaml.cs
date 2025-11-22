@@ -22,9 +22,9 @@ public sealed partial class MarkingPicker : Control
     [Dependency] private readonly MarkingManager _markingManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
-    public Action<MarkingSet>? OnMarkingAdded;
-    public Action<MarkingSet>? OnMarkingRemoved;
-    public Action<MarkingSet>? OnMarkingColorChange;
+    public Action<MarkingSet, Marking>? OnMarkingAdded; // WD EDIT
+    public Action<MarkingSet, Marking>? OnMarkingRemoved; // WD EDIT
+    public Action<MarkingSet, Marking>? OnMarkingColorChange; // WD EDIT
     public Action<MarkingSet>? OnMarkingRankChange;
 
     private List<Color> _currentMarkingColors = new();
@@ -158,15 +158,7 @@ public sealed partial class MarkingPicker : Control
         List<string> result = new();
         foreach (var markingState in marking.Sprites)
         {
-            switch (markingState)
-            {
-                case SpriteSpecifier.Rsi rsi:
-                    result.Add(Loc.GetString($"marking-{marking.ID}-{rsi.RsiState}"));
-                    break;
-                case SpriteSpecifier.Texture texture:
-                    result.Add(Loc.GetString($"marking-{marking.ID}-{texture.TexturePath.Filename}"));
-                    break;
-            }
+            result.Add(Loc.GetString($"marking-{marking.ID}-{markingState.State}")); // WD EDIT
         }
 
         return result;
@@ -206,7 +198,7 @@ public sealed partial class MarkingPicker : Control
                 {
                     new TextureRect
                     {
-                        Texture = marking.Sprites[0].DirFrame0().TextureFor(
+                        Texture = new SpriteSpecifier.Rsi(marking.Sprites[0].Sprite, marking.Sprites[0].State).DirFrame0().TextureFor( // WD EDIT
                             Enum.TryParse<Direction>(marking.PreviewDirection, out var dir) ? dir : Direction.South),
                     },
                 },
@@ -367,7 +359,7 @@ public sealed partial class MarkingPicker : Control
         marking.SetColor(colorIndex, _currentMarkingColors[colorIndex]);
         _currentMarkings.Replace(_selectedMarkingCategory, markingIndex, marking);
 
-        OnMarkingColorChange?.Invoke(_currentMarkings);
+        OnMarkingColorChange?.Invoke(_currentMarkings, marking); // WD EDIT
     }
 
     private void MarkingAdd(MarkingPrototype marking)
@@ -384,7 +376,7 @@ public sealed partial class MarkingPicker : Control
         if (FacialHairMarking != null)
             markingSet.AddBack(MarkingCategories.FacialHair, FacialHairMarking);
 
-        if (!_markingManager.MustMatchSkin(_currentSpecies, marking.BodyPart, out var _, _prototypeManager))
+        if (!_markingManager.MustMatchSkin(_currentSpecies, marking.MarkingCategory, out var _, _prototypeManager)) // WD EDIT
         {
             // Do default coloring
             var colors = MarkingColoring.GetMarkingLayerColors(
@@ -406,7 +398,7 @@ public sealed partial class MarkingPicker : Control
         _currentMarkings.AddBack(_selectedMarkingCategory, markingObject);
 
         UpdatePoints();
-        OnMarkingAdded?.Invoke(_currentMarkings);
+        OnMarkingAdded?.Invoke(_currentMarkings, markingObject); // WD EDIT
     }
 
     private void MarkingRemove(MarkingPrototype marking)
@@ -415,6 +407,6 @@ public sealed partial class MarkingPicker : Control
 
         UpdatePoints();
         CMarkingColors.Visible = _selectedMarking?.Name != marking.ID;
-        OnMarkingRemoved?.Invoke(_currentMarkings);
+        OnMarkingRemoved?.Invoke(_currentMarkings, marking.AsMarking()); // WD EDIT
     }
 }

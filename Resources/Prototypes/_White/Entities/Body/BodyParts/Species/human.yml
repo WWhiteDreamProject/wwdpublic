@@ -1,0 +1,107 @@
+- type: entity
+  id: BaseBodyPartHuman
+  parent: BaseBodyPart
+  abstract: true
+  name: human body part
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+  - type: BodyPartAppearance
+    sprite: Mobs/Species/Human/parts.rsi
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 3
+      - ReagentId: Blood
+        Quantity: 10
+
+# Head
+- type: entity
+  id: BodyPartHeadHuman
+  parent: [BaseBodyPartHead, BaseBodyPartHuman]
+  name: human head
+  components:
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 5
+      - ReagentId: Blood
+        Quantity: 10
+
+# Chest
+- type: entity
+  id: BodyPartChestHuman
+  parent: [BaseBodyPartChest, BaseBodyPartHuman]
+  name: human chest
+  components:
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 10
+      - ReagentId: Blood
+        Quantity: 20
+
+# Groin
+- type: entity
+  id: BodyPartGroinHuman
+  parent: [BaseBodyPartGroin, BaseBodyPartHuman]
+  name: human groin
+  components:
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 10
+      - ReagentId: Blood
+        Quantity: 20
+
+# Arms
+
+- type: entity
+  id: BodyPartLeftArmHuman
+  parent: [BaseBodyPartLeftArm, BaseBodyPartHuman]
+  name: human left arm
+
+- type: entity
+  id: BodyPartRightArmHuman
+  parent: [BaseBodyPartRightArm, BaseBodyPartHuman]
+  name: human right arm
+
+# Hand
+
+- type: entity
+  id: BodyPartLeftHandHuman
+  parent: [BaseBodyPartLeftHand, BaseBodyPartHuman]
+  name: human left hand
+
+- type: entity
+  id: BodyPartRightHandHuman
+  parent: [BaseBodyPartRightHand, BaseBodyPartHuman]
+  name: human right hand
+
+# Leg
+
+- type: entity
+  id: BodyPartLeftLegHuman
+  parent: [BaseBodyPartLeftLeg, BaseBodyPartHuman]
+  name: human left leg
+
+- type: entity
+  id: BodyPartRightLegHuman
+  parent: [BaseBodyPartRightLeg, BaseBodyPartHuman]
+  name: human right leg
+
+# Foot
+
+- type: entity
+  id: BodyPartLeftFootHuman
+  parent: [BaseBodyPartLeftFoot, BaseBodyPartHuman]
+  name: human left foot
+
+- type: entity
+  id: BodyPartRightFootHuman
+  parent: [BaseBodyPartRightFoot, BaseBodyPartHuman]
+  name: human right foot

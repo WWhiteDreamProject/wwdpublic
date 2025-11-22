@@ -1,0 +1,9 @@
+﻿- type: body
+  id: SimpleSlime
+  organs:
+    heart:
+      type: Heart
+      startingOrgan: OrganHeartAnimal
+    lungs:
+      type: Lungs
+      startingOrgan: OrganLungsSlime

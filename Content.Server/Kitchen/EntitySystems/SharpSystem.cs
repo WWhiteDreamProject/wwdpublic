@@ -1,7 +1,8 @@
-﻿using Content.Server.Body.Systems;
+﻿using Content.Server._White.Body.Systems;
+using Content.Server._White.Gibbing;
 using Content.Server.Kitchen.Components;
 using Content.Server.Nutrition.EntitySystems;
-using Content.Shared.Body.Components;
+using Content.Shared._White.Body.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Interaction;
@@ -32,6 +33,7 @@ public sealed class SharpSystem : EntitySystem
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly GibbingSystem _gibbing = default!; // WD EDIT
 
     public override void Initialize()
     {
@@ -122,7 +124,7 @@ public sealed class SharpSystem : EntitySystem
             popupEnt, args.Args.User, popupType);
 
         if (hasBody)
-            _bodySystem.GibBody(args.Args.Target.Value, body: body);
+            _gibbing.GibBody((args.Args.Target.Value, body, null)); // WD EDIT
 
         _destructibleSystem.DestroyEntity(args.Args.Target.Value);
 

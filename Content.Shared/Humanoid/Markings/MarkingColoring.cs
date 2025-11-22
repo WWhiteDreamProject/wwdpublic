@@ -54,12 +54,7 @@ public static class MarkingColoring
             for (var i = 0; i < prototype.Sprites.Count; i++)
             {
                 // Getting layer name
-                string? name = prototype.Sprites[i] switch
-                {
-                    SpriteSpecifier.Rsi rsi => rsi.RsiState,
-                    SpriteSpecifier.Texture texture => texture.TexturePath.Filename,
-                    _ => null
-                };
+                string? name = prototype.Sprites[i].State; // WD EDIT
                 if (name == null)
                 {
                     colors.Add(defaultColor);

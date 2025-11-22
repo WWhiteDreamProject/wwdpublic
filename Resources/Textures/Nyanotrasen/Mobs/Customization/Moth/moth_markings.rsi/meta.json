@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from https://github.com/tgstation/tgstation/commit/be0e6efdf6b18e953d3dcb1eff584b66a9d3b9e3",
+  "copyright": "Taken from https://github.com/tgstation/tgstation/commit/be0e6efdf6b18e953d3dcb1eff584b66a9d3b9e3. The division of the torso into chest and groin was done by Sparison.",
   "size": {
     "x": 32,
     "y": 32
@@ -13,6 +13,10 @@
     },
     {
       "name": "deathshead-chest",
+      "directions": 4
+    },
+    {
+      "name": "deathshead-groin",
       "directions": 4
     },
     {
@@ -40,6 +44,10 @@
       "directions": 4
     },
     {
+      "name": "firewatch-groin",
+      "directions": 4
+    },
+    {
       "name": "firewatch-rightarm",
       "directions": 4
     },
@@ -61,6 +69,10 @@
     },
     {
       "name": "gothic-chest",
+      "directions": 4
+    },
+    {
+      "name": "gothic-groin",
       "directions": 4
     },
     {
@@ -88,6 +100,10 @@
       "directions": 4
     },
     {
+      "name": "jungle-groin",
+      "directions": 4
+    },
+    {
       "name": "jungle-rightarm",
       "directions": 4
     },
@@ -109,6 +125,10 @@
     },
     {
       "name": "lovers-chest",
+      "directions": 4
+    },
+    {
+      "name": "lovers-groin",
       "directions": 4
     },
     {
@@ -136,6 +156,10 @@
       "directions": 4
     },
     {
+      "name": "moonfly-groin",
+      "directions": 4
+    },
+    {
       "name": "moonfly-rightarm",
       "directions": 4
     },
@@ -157,6 +181,10 @@
     },
     {
       "name": "oakworm-chest",
+      "directions": 4
+    },
+    {
+      "name": "oakworm-groin",
       "directions": 4
     },
     {
@@ -184,6 +212,10 @@
       "directions": 4
     },
     {
+      "name": "poison-groin",
+      "directions": 4
+    },
+    {
       "name": "poison-rightarm",
       "directions": 4
     },
@@ -205,6 +237,10 @@
     },
     {
       "name": "ragged-chest",
+      "directions": 4
+    },
+    {
+      "name": "ragged-groin",
       "directions": 4
     },
     {
@@ -232,6 +268,10 @@
       "directions": 4
     },
     {
+      "name": "reddish-groin",
+      "directions": 4
+    },
+    {
       "name": "reddish-rightarm",
       "directions": 4
     },
@@ -253,6 +293,10 @@
     },
     {
       "name": "royal-chest",
+      "directions": 4
+    },
+    {
+      "name": "royal-groin",
       "directions": 4
     },
     {
@@ -280,6 +324,10 @@
       "directions": 4
     },
     {
+      "name": "whitefly-groin",
+      "directions": 4
+    },
+    {
       "name": "whitefly-rightarm",
       "directions": 4
     },
@@ -301,6 +349,10 @@
     },
     {
       "name": "witchking-chest",
+      "directions": 4
+    },
+    {
+      "name": "witchking-groin",
       "directions": 4
     },
     {
