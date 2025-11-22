@@ -255,7 +255,7 @@
   description: spellbook-hammer-singularity-description
   productEntity: SingularityHammer
   cost:
-    WizCoin: 1 # Goob edit
+    WizCoin: 1 # WD EDIT: 2 -> 1
   categories:
   - SpellbookEquipment
   conditions:
