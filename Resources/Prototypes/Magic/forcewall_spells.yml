@@ -9,9 +9,17 @@
     sound: !type:SoundPathSpecifier
       path: /Audio/Magic/forcewall.ogg
     icon:
-      sprite: Objects/Magic/magicactions.rsi
-      state: shield
+      sprite: _Goobstation/Wizard/actions.rsi # Goob edit
+      state: shield_greater
     event: !type:InstantSpawnSpellEvent
       prototype: WallForce
       posData: !type:TargetInFront
       speech: action-speech-spell-forcewall
+  # WD EDIT START
+  - type: ActionUpgrade
+    effectedLevels:
+      2: ActionForceWallII
+      3: ActionForceWallIII
+      4: ActionForceWallIV
+      5: ActionForceWallV
+  # WD EDIT END

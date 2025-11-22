@@ -14,7 +14,13 @@
     sound: !type:SoundPathSpecifier
       path: /Audio/Magic/staff_animation.ogg
     icon:
-      sprite: Mobs/Species/Human/organs.rsi
-      state: brain
+      sprite: _Goobstation/Wizard/actions.rsi # Goob edit
+      state: mindswap
     event: !type:MindSwapSpellEvent
       speech: action-speech-spell-mind-swap
+  # WD EDIT START
+  - type: ActionUpgrade
+    effectedLevels:
+      2: ActionMindSwapII
+      3: ActionMindSwapIII
+  # WD EDIT END

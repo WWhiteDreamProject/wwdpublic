@@ -38,8 +38,16 @@
       protoId: WizardRod
     itemIconStyle: NoItem
     icon:
-      sprite: Objects/Fun/immovable_rod.rsi
-      state: icon
+      sprite: _Goobstation/Wizard/actions.rsi # Goob edit
+      state: immrod
+  # WD EDIT START
+  - type: ActionUpgrade
+    effectedLevels:
+      2: ActionPolymorphWizardRodII
+      3: ActionPolymorphWizardRodIII
+      4: ActionPolymorphWizardRodIV
+      5: ActionPolymorphWizardRodV
+  # WD EDIT END
 
 - type: entity
   id: ActionPolymorphJaunt
@@ -53,7 +61,7 @@
       protoId: Jaunt
     itemIconStyle: NoItem
     icon:
-      sprite: Objects/Magic/magicactions.rsi
+      sprite: _Goobstation/Wizard/actions.rsi # Goob edit
       state: jaunt
     # TODO: Effect ECS (from cardboard box)
   - type: ActionUpgrade
@@ -73,7 +81,7 @@
       protoId: Jaunt
     itemIconStyle: NoItem
     icon:
-      sprite: Objects/Magic/magicactions.rsi
+      sprite: _Goobstation/Wizard/actions.rsi # Goob edit
       state: jaunt
 
 - type: entity
@@ -88,5 +96,5 @@
       protoId: Jaunt
     itemIconStyle: NoItem
     icon:
-      sprite: Objects/Magic/magicactions.rsi
+      sprite: _Goobstation/Wizard/actions.rsi # Goob edit
       state: jaunt

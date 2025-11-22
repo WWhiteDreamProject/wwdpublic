@@ -14680,6 +14680,9 @@ entities:
       blacklist:
         tags:
         - GhostOnlyWarp
+    - type: Tag
+      tags:
+      - GhostOnlyWarp
 - proto: WaterTankHighCapacity
   entities:
   - uid: 1535
