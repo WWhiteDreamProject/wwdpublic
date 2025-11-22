@@ -34,12 +34,18 @@
   components:
   - type: InstantAction
     useDelay: 60
-    event: !type:PolymorphActionEvent
+    event: !type:PolymorphSpellEvent # Goob edit
       protoId: WizardRod
     itemIconStyle: NoItem
     icon:
-      sprite: Objects/Fun/immovable_rod.rsi
-      state: icon
+      sprite: _White/Wizard/actions.rsi # Goob edit
+      state: immrod
+  - type: ActionUpgrade
+    effectedLevels:
+      2: ActionPolymorphWizardRodII
+      3: ActionPolymorphWizardRodIII
+      4: ActionPolymorphWizardRodIV
+      5: ActionPolymorphWizardRodV
 
 - type: entity
   id: ActionPolymorphJaunt
@@ -47,14 +53,20 @@
   description: Melt into the Ethereal Plane for a quick getaway!
   components:
   - type: Magic
+    requiresClothes: true # Goobstation
+    school: Translocation # Goobstation
+  - type: Sprite # Goobstation - for apprentices
+    sprite: _White/Wizard/actions.rsi
+    state: jaunt
   - type: InstantAction
     useDelay: 30
-    event: !type:PolymorphActionEvent
-      protoId: Jaunt
-    itemIconStyle: NoItem
     icon:
-      sprite: Objects/Magic/magicactions.rsi
+      sprite: _White/Wizard/actions.rsi # Goob edit
       state: jaunt
+    itemIconStyle: NoItem
+#  - type: InstantAction
+    event: !type:PolymorphSpellEvent # Goob edit
+      protoId: Jaunt
     # TODO: Effect ECS (from cardboard box)
   - type: ActionUpgrade
     effectedLevels:
@@ -69,11 +81,11 @@
   components:
   - type: InstantAction
     useDelay: 25
-    event: !type:PolymorphActionEvent
+    event: !type:PolymorphSpellEvent # Goob edit
       protoId: Jaunt
     itemIconStyle: NoItem
     icon:
-      sprite: Objects/Magic/magicactions.rsi
+      sprite: _White/Wizard/actions.rsi # Goob edit
       state: jaunt
 
 - type: entity
@@ -84,9 +96,9 @@
   components:
   - type: InstantAction
     useDelay: 20
-    event: !type:PolymorphActionEvent
+    event: !type:PolymorphSpellEvent # Goob edit
       protoId: Jaunt
     itemIconStyle: NoItem
     icon:
-      sprite: Objects/Magic/magicactions.rsi
+      sprite: _White/Wizard/actions.rsi # Goob edit
       state: jaunt
