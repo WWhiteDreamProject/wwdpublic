@@ -58,10 +58,12 @@
       - type: Cluwne
   - type: Magic
     requiresClothes: true
+  # WD EDIT START
   - type: ActionUpgrade
     effectedLevels:
       2: ActionCluwneII
       3: ActionCluwneIII
+  # WD EDIT END
 
 - type: entity
   id: ActionSlippery
