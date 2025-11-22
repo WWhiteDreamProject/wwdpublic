@@ -76,7 +76,7 @@
   productAction: ActionForceWall
   productUpgradeId: SpellbookForceWallUpgrade # WWDP - port goob magic upgrades
   cost:
-    WizCoin: 1 # Goob edit
+    WizCoin: 1 # WD EDIT: 3 -> 1
   categories:
   - SpellbookDefensive
   conditions:
