@@ -69,11 +69,11 @@
   suffix: Wizard
   components:
   - type: ImmovableRod
-    minSpeed: 6 # Goob edit
-    maxSpeed: 6 # Goob edit
-    hitSoundProbability: 1 # Goob edit
-#    ignoreResistances: true # Goobstation
-#    knockdownTime: 4 # Goobstation
+    # WD EDIT START
+    minSpeed: 6
+    maxSpeed: 6
+    hitSoundProbability: 1
+    # WD EDIT END
     destroyTiles: false
     randomizeVelocity: false
     shouldGib: false
