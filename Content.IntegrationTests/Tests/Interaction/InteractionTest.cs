@@ -136,10 +136,17 @@ public abstract partial class InteractionTest
 - type: entity
   id: InteractionTestMob
   components:
-  - type: Body
-    prototype: Aghost
   - type: DoAfter
   - type: Hands
+    # WD EDIT START
+    hands:
+      right_hand:
+        name: right_hand
+        location: Right
+      left_hand:
+        name: left_hand
+        location: Left
+    # WD EDIT END
   - type: ComplexInteraction
   - type: MindContainer
   - type: Stripping

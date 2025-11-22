@@ -17,3 +17,4 @@ LeftLegBorg: BodyPartLeftLegBorg
 RightLegBorg: BodyPartRightLegBorg
 
 OrganHumanBrain: OrganBrainHuman
+OrganHumanHeart: OrganHeartHuman

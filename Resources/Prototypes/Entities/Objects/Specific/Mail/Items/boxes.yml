@@ -65,12 +65,8 @@
     contents:
     - id: BodyPartHeadHuman # WD EDIT
       amount: 1
-    # WD EDIT START: Torso -> Chest and Groin
-    - id: BodyPartChestHuman
+    - id: BodyPartGroinHuman # WD EDIT
       amount: 1
-    - id: BodyPartGroinHuman
-      amount: 1
-    # WD EDIT END
     - id: BodyPartLeftArmHuman # WD EDIT
       amount: 1
     - id: BodyPartRightArmHuman # WD EDIT
@@ -136,12 +132,8 @@
     contents:
     - id: BodyPartHeadReptilian # WD EDIT
       amount: 1
-    # WD EDIT START: Torso -> Chest and Groin
-    - id: BodyPartChestReptilian
+    - id: BodyPartGroinReptilian # WD EDIT
       amount: 1
-    - id: BodyPartGroinReptilian
-      amount: 1
-    # WD EDIT END
     - id: BodyPartLeftArmReptilian # WD EDIT
       amount: 1
     - id: BodyPartRightArmReptilian # WD EDIT
@@ -170,12 +162,8 @@
     contents:
     - id: BodyPartHeadSlime # WD EDIT
       amount: 1
-    # WD EDIT START: Torso -> Chest and Groin
-    - id: BodyPartChestSlime
+    - id: BodyPartGroinSlime # WD EDIT
       amount: 1
-    - id: BodyPartGroinSlime
-      amount: 1
-    # WD EDIT END
     - id: BodyPartLeftArmSlime # WD EDIT
       amount: 1
     - id: BodyPartRightArmSlime # WD EDIT
@@ -204,12 +192,8 @@
     contents:
     - id: BodyPartHeadVulpkanin # WD EDIT
       amount: 1
-    # WD EDIT START: Torso -> Chest and Groin
-    - id: BodyPartChestVulpkanin
+    - id: BodyPartGroinVulpkanin # WD EDIT
       amount: 1
-    - id: BodyPartGroinVulpkanin
-      amount: 1
-    # WD EDIT END
     - id: BodyPartLeftArmVulpkanin # WD EDIT
       amount: 1
     - id: BodyPartRightArmVulpkanin # WD EDIT
