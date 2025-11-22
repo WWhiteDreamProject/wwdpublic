@@ -15,9 +15,11 @@
       prototype: WallForce
       posData: !type:TargetInFront
       speech: action-speech-spell-forcewall
+  # WD EDIT START
   - type: ActionUpgrade
     effectedLevels:
       2: ActionForceWallII
       3: ActionForceWallIII
       4: ActionForceWallIV
       5: ActionForceWallV
+  # WD EDIT END
