@@ -22,7 +22,7 @@
 
 - type: entity
   parent: [GasUnaryBase, AirSensorBase]
-  id: GasVentPump #sss
+  id: GasVentPump
   name: air vent
   description: Has a valve and a pump attached to it.
   placement:
