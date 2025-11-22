@@ -229,7 +229,7 @@
   description: spellbook-wand-locker-description
   productEntity: WeaponWandLocker
   cost:
-    WizCoin: 2 # Goob edit
+    WizCoin: 2 # WD EDIT: 3 -> 2
   categories:
   - SpellbookEquipment
   conditions:
