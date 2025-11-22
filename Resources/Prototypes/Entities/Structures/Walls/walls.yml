@@ -23,7 +23,7 @@
     - Wall
   - type: SpriteFade
   - type: Sprite
-    drawdepth: OverMobs # WWDP edit
+    drawdepth: Walls
   - type: Icon
     state: full
   - type: PlacementReplacement
@@ -503,7 +503,7 @@
   components:
   - type: SpriteFade
   - type: Sprite
-    drawdepth: OverMobs # WWDP edit
+    drawdepth: Walls
     sprite: Structures/Walls/plastitanium_diagonal.rsi
     state: state0
   - type: IconSmooth
@@ -554,7 +554,7 @@
     - Wall
   - type: SpriteFade
   - type: Sprite
-    drawdepth: OverMobs # WWDP edit
+    drawdepth: Walls
     sprite: Structures/Walls/plastitanium_diagonal.rsi
     state: state0
   - type: IconSmooth
@@ -677,7 +677,7 @@
   components:
   - type: SpriteFade
   - type: Sprite
-    drawdepth: OverMobs # WWDP edit
+    drawdepth: Walls
     sprite: Structures/Walls/reinforced_diagonal.rsi
     state: state0
   - type: IconSmooth
@@ -819,7 +819,7 @@
     - Wall
   - type: SpriteFade
   - type: Sprite
-    drawdepth: OverMobs # WWDP edit
+    drawdepth: Walls
     sprite: Structures/Walls/shuttle_diagonal.rsi
     state: state0
   - type: IconSmooth
@@ -982,7 +982,7 @@
   components:
   - type: SpriteFade
   - type: Sprite
-    drawdepth: OverMobs # WWDP edit
+    drawdepth: Walls
     sprite: Structures/Walls/solid_diagonal.rsi
     state: state0
   - type: IconSmooth
@@ -1196,7 +1196,7 @@
   components:
   - type: SpriteFade
   - type: Sprite
-    drawdepth: OverMobs # WWDP edit
+    drawdepth: Walls
     sprite: Structures/Walls/mining_diagonal.rsi
     state: state0
   - type: IconSmooth

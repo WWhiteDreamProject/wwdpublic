@@ -22,7 +22,7 @@
 
 - type: entity
   parent: [GasUnaryBase, AirSensorBase]
-  id: GasVentPump
+  id: GasVentPump #sss
   name: air vent
   description: Has a valve and a pump attached to it.
   placement:
@@ -222,6 +222,7 @@
     - type: Rotatable
     - type: GasThermoMachine
     - type: AtmosPipeColor
+      color: '#b3bcbf' # WWDP edit
     - type: AtmosDevice
     - type: UserInterface
       interfaces:
@@ -254,6 +255,7 @@
     - type: GuideHelp
       guides:
       - Thermomachines
+    - type: PipeAppearance # WWDP edit
 
 - type: entity
   parent: BaseGasThermoMachine
@@ -263,33 +265,32 @@
   placement:
     mode: SnapgridCenter
   components:
-    - type: StationAiWhitelist
-    - type: Sprite
-      granularLayersRendering: true
-      layers:
-        - state: freezerOff
-          map: [ "enum.PowerDeviceVisualLayers.Powered" ]
-        - state: freezerPanelOpen
-          map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
-        - state: pipe
-          map: [ "enum.PipeVisualLayers.Pipe" ]
-          renderingStrategy: Default
-    - type: GenericVisualizer
-      visuals:
-        enum.PowerDeviceVisuals.Powered:
-          enum.PowerDeviceVisualLayers.Powered:
-            True: { state: freezerOn }
-            False: { state: freezerOff }
-    - type: GasThermoMachine
-      coefficientOfPerformance: -3.9
-    - type: ApcPowerReceiver
-      powerDisabled: true #starts off
-    - type: Machine
-      board: ThermomachineFreezerMachineCircuitBoard
-    - type: DeviceNetwork
-      prefix: device-address-prefix-freezer
-    - type: StealTarget
-      stealGroup: FreezerHeater
+  - type: StationAiWhitelist
+  - type: Sprite
+    noRot: True
+    layers:
+    - state: pipe # WWDP edit start
+      map: [ "enum.PipeVisualLayers.Pipe" ] # WWDP edit end
+    - state: freezerOff
+      map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+    - state: freezerPanelOpen
+      map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: { state: freezerOn }
+          False: { state: freezerOff }
+  - type: GasThermoMachine
+    coefficientOfPerformance: -3.9
+  - type: ApcPowerReceiver
+    powerDisabled: true #starts off
+  - type: Machine
+    board: ThermomachineFreezerMachineCircuitBoard
+  - type: DeviceNetwork
+    prefix: device-address-prefix-freezer
+  - type: StealTarget
+    stealGroup: FreezerHeater
 
 - type: entity
   parent: GasThermoMachineFreezer
@@ -310,15 +311,14 @@
   components:
     - type: StationAiWhitelist
     - type: Sprite
-      granularLayersRendering : true
+      noRot: True
       layers:
+        - state: pipe # WWDP edit start
+          map: [ "enum.PipeVisualLayers.Pipe" ] # WWDP edit end
         - state: heaterOff
           map: [ "enum.PowerDeviceVisualLayers.Powered" ]
         - state: heaterPanelOpen
           map: ["enum.WiresVisualLayers.MaintenancePanel"]
-        - state: pipe
-          map: [ "enum.PipeVisualLayers.Pipe" ]
-          renderingStrategy: Default
     - type: GenericVisualizer
       visuals:
         enum.PowerDeviceVisuals.Powered:

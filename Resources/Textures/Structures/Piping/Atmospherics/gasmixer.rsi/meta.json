@@ -12,7 +12,15 @@
       "directions": 4
     },
     {
+      "name": "connector",
+      "directions": 4
+    },
+    {
       "name": "gasMixerF",
+      "directions": 4
+    },
+    {
+      "name": "connectorF",
       "directions": 4
     },
     {

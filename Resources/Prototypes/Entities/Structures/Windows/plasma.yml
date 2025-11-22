@@ -4,7 +4,7 @@
   parent: WindowRCDResistant
   components:
   - type: Sprite
-    drawdepth: OverMobs # WWDP edit
+    drawdepth: WallTops
     sprite: Structures/Windows/plasma_window.rsi
   - type: Icon
     sprite: Structures/Windows/plasma_window.rsi
@@ -121,7 +121,7 @@
     - Window
   components:
   - type: Sprite
-    drawdepth: OverMobs # WWDP edit
+    drawdepth: WallTops
     sprite: Structures/Windows/plasma_diagonal.rsi
     state: state0
   - type: Tag

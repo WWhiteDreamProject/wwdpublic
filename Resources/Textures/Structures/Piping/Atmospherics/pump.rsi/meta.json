@@ -8,6 +8,14 @@
   },
    "states":[
       {
+         "name":"wallValve",
+         "directions":4
+      },
+      {
+         "name":"wallPump",
+         "directions":4
+      },
+      {
          "name":"pumpDigitalValve",
          "directions":4
       },
@@ -16,11 +24,15 @@
          "directions":4
       },
       {
+         "name":"connectorManualValve",
+         "directions":4
+      },
+      {
          "name":"pumpManualValveOn",
          "directions":4
       },
       {
-         "name":"pumpSignalValve",
+         "name":"connectorSignalValve",
          "directions":4
       },
       {
@@ -28,7 +40,15 @@
          "directions":4
       },
       {
+         "name":"pumpSignalValve",
+         "directions":4
+      },
+      {
          "name":"pumpPassiveGate",
+         "directions":4
+      },
+      {
+         "name":"connectorPassiveGate",
          "directions":4
       },
       {
@@ -37,6 +57,10 @@
       },
       {
          "name":"pumpPressure",
+         "directions":4
+      },
+      {
+         "name":"connectorPump",
          "directions":4
       },
       {

@@ -4,7 +4,7 @@
   parent: WindowRCDResistant
   components:
   - type: Sprite
-    drawdepth: OverMobs # WWDP edit
+    drawdepth: WallTops
     sprite: Structures/Windows/shuttle_window.rsi
   - type: Icon
     sprite: Structures/Windows/shuttle_window.rsi
@@ -69,7 +69,7 @@
     - Window
   components:
   - type: Sprite
-    drawdepth: OverMobs # WWDP edit
+    drawdepth: WallTops
     sprite: Structures/Windows/shuttle_window_diagonal.rsi
     state: state0
   - type: Tag

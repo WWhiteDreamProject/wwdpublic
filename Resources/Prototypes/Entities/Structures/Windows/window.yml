@@ -20,7 +20,7 @@
       - Window
       - WeldbotFixableStructure
   - type: Sprite
-    drawdepth: OverMobs # WWDP edit
+    drawdepth: WallTops
     sprite: Structures/Windows/window.rsi
   - type: Icon
     sprite: Structures/Windows/window.rsi
@@ -98,7 +98,7 @@
   name: tinted window
   components:
   - type: Sprite
-    drawdepth: OverMobs # WWDP edit
+    drawdepth: WallTops
     sprite: Structures/Windows/tinted_window.rsi
   - type: Icon
     sprite: Structures/Windows/tinted_window.rsi
@@ -250,7 +250,7 @@
     - Window
   components:
   - type: Sprite
-    drawdepth: OverMobs # WWDP edit
+    drawdepth: WallTops
     sprite: Structures/Windows/window_diagonal.rsi
     state: state0
   - type: Tag

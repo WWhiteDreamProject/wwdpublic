@@ -12,7 +12,23 @@
          "directions":4
       },
       {
+         "name":"wallHeS",
+         "directions":4
+      },
+      {
+         "name":"connectorHeS",
+         "directions":4
+      },
+      {
          "name":"heBend",
+         "directions":4
+      },
+      {
+         "name":"wallHeB",
+         "directions":4
+      },
+      {
+         "name":"connectorHeB",
          "directions":4
       }
    ]
