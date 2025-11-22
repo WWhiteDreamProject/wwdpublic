@@ -12,9 +12,11 @@
     event: !type:ChargeSpellEvent
       charge: 1
       speech: DI'RI CEL!
+  # WD EDIT START
   - type: ActionUpgrade
     effectedLevels:
       2: ActionChargeII
       3: ActionChargeIII
       4: ActionChargeIV
       5: ActionChargeV
+  # WD EDIT END
