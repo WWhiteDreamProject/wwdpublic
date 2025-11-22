@@ -12,7 +12,9 @@
     event: !type:InstantSpawnSpellEvent
       prototype: WizardSmoke
       posData: !type:TargetInFront
+  # WD EDIT START
   - type: ActionUpgrade
     effectedLevels:
       2: ActionSmokeII
       3: ActionSmokeIII
+  # WD EDIT END
