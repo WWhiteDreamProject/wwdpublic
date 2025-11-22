@@ -20,10 +20,12 @@
       speech: action-speech-spell-smite
   - type: Magic
     requiresClothes: true
+  # WD EDIT START
   - type: ActionUpgrade
     effectedLevels:
       2: ActionSmiteII
       3: ActionSmiteIII
+  # WD EDIT END
 
 # For the Snail
 - type: entity
