@@ -84,11 +84,11 @@
     gravityState: true
   # - type: InputMover # Goob edit
   - type: MovementSpeedModifier
-#    baseWeightlessAcceleration: 5
-#    baseWeightlessModifier: 2
-#    baseWeightlessFriction: 0
-#    baseFriction: 0
-    offGridFriction: 0
+    weightlessAcceleration: 5
+    weightlessModifier: 2
+    weightlessFriction: 0
+    friction: 0
+    offGridFriction: 0 # WD EDIT
   - type: CanMoveInAir
   - type: MovementAlwaysTouching
   - type: NoSlip
