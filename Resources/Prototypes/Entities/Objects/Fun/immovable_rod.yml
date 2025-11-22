@@ -79,7 +79,7 @@
     shouldGib: false
     damage:
       types:
-        Blunt: 70 # Goob edit
+        Blunt: 70 # WD EDIT: 200 -> 70
   - type: MovementIgnoreGravity
     gravityState: true
   - type: MovementSpeedModifier
