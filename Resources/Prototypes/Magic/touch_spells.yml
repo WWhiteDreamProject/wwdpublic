@@ -14,7 +14,7 @@
     sound: !type:SoundPathSpecifier
       path: /Audio/Magic/disintegrate.ogg
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi # Goob edit
+      sprite: _White/Wizard/actions.rsi # Goob edit
       state: gib
     event: !type:SmiteSpellEvent
       speech: action-speech-spell-smite
@@ -50,7 +50,7 @@
     sound: !type:SoundPathSpecifier
       path: /Audio/Items/brokenbikehorn.ogg
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi # Goob edit
+      sprite: _White/Wizard/actions.rsi # Goob edit
       state: cluwne
     event: !type:ChangeComponentsSpellEvent
       speech: action-speech-spell-cluwne

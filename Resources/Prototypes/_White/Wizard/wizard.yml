@@ -1,0 +1,29 @@
+﻿- type: factionIcon
+  id: WizardFaction
+  isShaded: false
+  priority: 11
+  showTo:
+    components:
+    - ShowAntagIcons
+    - Wizard
+    - Apprentice
+    tags:
+    - ShowWizardIcons
+  icon:
+    sprite: /Textures/_White/Wizard/StatusIcons/10x10.rsi
+    state: wizard
+
+- type: factionIcon
+  id: ApprenticeFaction
+  isShaded: false
+  priority: 11
+  showTo:
+    components:
+    - ShowAntagIcons
+    - Wizard
+    - Apprentice
+    tags:
+    - ShowWizardIcons
+  icon:
+    sprite: /Textures/_White/Wizard/StatusIcons/10x10.rsi
+    state: apprentice

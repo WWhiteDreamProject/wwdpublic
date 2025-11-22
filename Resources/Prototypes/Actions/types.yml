@@ -84,7 +84,7 @@
     itemIconStyle: BigAction
     priority: -20
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi # Goob edit
+      sprite: _White/Wizard/actions.rsi # Goob edit
       state: gib
     event: !type:ActivateImplantEvent
 
