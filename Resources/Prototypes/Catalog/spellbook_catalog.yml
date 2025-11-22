@@ -20,7 +20,7 @@
   productAction: ActionPolymorphWizardRod
   productUpgradeId: SpellbookRodFormUpgrade # WWDP - port goob magic upgrades
   cost:
-    WizCoin: 2 # Goob edit
+    WizCoin: 2 # WD EDIT: 3 -> 2
   categories:
   - SpellbookOffensive
   conditions:
