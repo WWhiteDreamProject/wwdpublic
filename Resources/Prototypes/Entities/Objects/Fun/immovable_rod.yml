@@ -92,8 +92,6 @@
   - type: MovementAlwaysTouching
   - type: NoSlip
   # WD EDIT START
-  - type: StatusIcon
-    bounds: -0.5,-0.5,0.5,0.5
   - type: Trail # WD ed
     frequency: 0.1
     lifetime: 1
