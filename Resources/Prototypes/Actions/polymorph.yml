@@ -34,18 +34,20 @@
   components:
   - type: InstantAction
     useDelay: 60
-    event: !type:PolymorphSpellEvent # Goob edit
+    event: !type:PolymorphSpellEvent # WD edit
       protoId: WizardRod
     itemIconStyle: NoItem
     icon:
-      sprite: _White/Wizard/actions.rsi # Goob edit
+      sprite: _White/Wizard/actions.rsi # WD edit
       state: immrod
+  # WD EDIT START
   - type: ActionUpgrade
     effectedLevels:
       2: ActionPolymorphWizardRodII
       3: ActionPolymorphWizardRodIII
       4: ActionPolymorphWizardRodIV
       5: ActionPolymorphWizardRodV
+  # WD EDIT END
 
 - type: entity
   id: ActionPolymorphJaunt
@@ -53,19 +55,19 @@
   description: Melt into the Ethereal Plane for a quick getaway!
   components:
   - type: Magic
-    requiresClothes: true # Goobstation
-    school: Translocation # Goobstation
-  - type: Sprite # Goobstation - for apprentices
+    requiresClothes: true # WD
+    school: Translocation # WD
+  - type: Sprite # WD - for apprentices
     sprite: _White/Wizard/actions.rsi
     state: jaunt
   - type: InstantAction
     useDelay: 30
     icon:
-      sprite: _White/Wizard/actions.rsi # Goob edit
+      sprite: _White/Wizard/actions.rsi # WD edit
       state: jaunt
     itemIconStyle: NoItem
 #  - type: InstantAction
-    event: !type:PolymorphSpellEvent # Goob edit
+    event: !type:PolymorphSpellEvent # WD edit
       protoId: Jaunt
     # TODO: Effect ECS (from cardboard box)
   - type: ActionUpgrade
@@ -81,11 +83,11 @@
   components:
   - type: InstantAction
     useDelay: 25
-    event: !type:PolymorphSpellEvent # Goob edit
+    event: !type:PolymorphSpellEvent # WD edit
       protoId: Jaunt
     itemIconStyle: NoItem
     icon:
-      sprite: _White/Wizard/actions.rsi # Goob edit
+      sprite: _White/Wizard/actions.rsi # WD edit
       state: jaunt
 
 - type: entity
@@ -96,9 +98,9 @@
   components:
   - type: InstantAction
     useDelay: 20
-    event: !type:PolymorphSpellEvent # Goob edit
+    event: !type:PolymorphSpellEvent # WD edit
       protoId: Jaunt
     itemIconStyle: NoItem
     icon:
-      sprite: _White/Wizard/actions.rsi # Goob edit
+      sprite: _White/Wizard/actions.rsi # WD edit
       state: jaunt

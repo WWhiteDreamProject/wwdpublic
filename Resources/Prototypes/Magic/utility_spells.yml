@@ -7,16 +7,16 @@
   - type: InstantAction
     useDelay: 60
     itemIconStyle: BigAction
-    sound: !type:SoundPathSpecifier # Goobstation
+    sound: !type:SoundPathSpecifier # WD
       path: /Audio/_White/Wizard/charge.ogg #WD edit
     icon:
-      sprite: _White/Wizard/actions.rsi # Goob edit
-      state: charge # Goob edit
+      sprite: _White/Wizard/actions.rsi # WD edit
+      state: charge # WD edit
     event: !type:ChargeMagicEvent
-  - type: Sprite # Goobstation - for apprentices
+  - type: Sprite # WD - for apprentices
     sprite: _White/Wizard/actions.rsi
     state: charge
-  - type: Magic # Goobstation
+  - type: Magic # WD
     requiresSpeech: true
     school: Transmutation
   - type: ActionUpgrade
@@ -26,7 +26,7 @@
       4: ActionChargeIV
       5: ActionChargeV
 #  - type: InstantAction
-#    event: !type:ChargeMagicEvent # Goob edit
+#    event: !type:ChargeMagicEvent # WD edit
 
   - type: SpeakOnAction
     sentence: action-speech-spell-charge

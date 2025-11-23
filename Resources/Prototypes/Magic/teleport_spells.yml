@@ -13,7 +13,7 @@
     checkCanAccess: false
     repeat: false
     icon:
-      sprite: _White/Wizard/actions.rsi # Goob edit
+      sprite: _White/Wizard/actions.rsi # WD edit
       state: blink
     event: !type:TeleportSpellEvent
 
@@ -37,11 +37,13 @@
     checkCanAccess: false
     repeat: false
     icon:
-      sprite: _White/Wizard/actions.rsi # Goob edit
+      sprite: _White/Wizard/actions.rsi # WD edit
       state: swap
     event: !type:VoidApplauseSpellEvent
       effect: EffectVoidBlink
+  # WD EDIT START
   - type: ActionUpgrade
     effectedLevels:
       2: ActionSwapII
       3: ActionSwapIII
+  # WD EDIT END

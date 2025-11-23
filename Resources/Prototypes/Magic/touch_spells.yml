@@ -14,16 +14,18 @@
     sound: !type:SoundPathSpecifier
       path: /Audio/Magic/disintegrate.ogg
     icon:
-      sprite: _White/Wizard/actions.rsi # Goob edit
+      sprite: _White/Wizard/actions.rsi # WD edit
       state: gib
     event: !type:SmiteSpellEvent
       speech: action-speech-spell-smite
   - type: Magic
     requiresClothes: true
+  # WD EDIT START
   - type: ActionUpgrade
     effectedLevels:
       2: ActionSmiteII
       3: ActionSmiteIII
+  # WD EDIT END
 
 # For the Snail
 - type: entity
@@ -50,7 +52,7 @@
     sound: !type:SoundPathSpecifier
       path: /Audio/Items/brokenbikehorn.ogg
     icon:
-      sprite: _White/Wizard/actions.rsi # Goob edit
+      sprite: _White/Wizard/actions.rsi # WD edit
       state: cluwne
     event: !type:ChangeComponentsSpellEvent
       speech: action-speech-spell-cluwne
@@ -58,10 +60,12 @@
       - type: Cluwne
   - type: Magic
     requiresClothes: true
+  # WD EDIT START
   - type: ActionUpgrade
     effectedLevels:
       2: ActionCluwneII
       3: ActionCluwneIII
+  # WD EDIT END
 
 - type: entity
   id: ActionSlippery

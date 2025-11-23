@@ -31,5 +31,5 @@
   components:
   - type: Objective
     icon:
-      sprite: _White/Wizard/actions.rsi # Goob edit
+      sprite: _White/Wizard/actions.rsi # WD edit
       state: fireball

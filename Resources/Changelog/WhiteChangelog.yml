@@ -4514,3 +4514,15 @@ Entries:
   id: 472
   time: '2025-11-21T19:21:25.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/875
+- author: Kai518
+  changes:
+    - type: Add
+      message: >-
+        Теперь маги могут улучшать купленные заклинания за трату дополнительных
+        очков. Да-да, теперь можно на все очки замаксить форму стержня и
+        ПОЛЕТЕТЬ.
+    - type: Tweak
+      message: Иконки большинства заклинаний изменены.
+  id: 473
+  time: '2025-11-23T09:19:34.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/876

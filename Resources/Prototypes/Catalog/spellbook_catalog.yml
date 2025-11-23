@@ -20,7 +20,7 @@
   productAction: ActionPolymorphWizardRod
   productUpgradeId: SpellbookRodFormUpgrade # WWDP - port goob magic upgrades
   cost:
-    WizCoin: 2 # Goob edit
+    WizCoin: 2 # WD EDIT: 3 -> 2
   categories:
   - SpellbookOffensive
   conditions:
@@ -76,7 +76,7 @@
   productAction: ActionForceWall
   productUpgradeId: SpellbookForceWallUpgrade # WWDP - port goob magic upgrades
   cost:
-    WizCoin: 1 # Goob edit
+    WizCoin: 1 # WD EDIT: 3 -> 1
   categories:
   - SpellbookDefensive
   conditions:
@@ -203,7 +203,7 @@
   description: spellbook-wand-polymorph-door-description
   productEntity: WeaponWandPolymorphDoor
   cost:
-    WizCoin: 1 # Goob edit
+    WizCoin: 1 # WD EDIT: 3 -> 1
   categories:
   - SpellbookEquipment
   conditions:
@@ -229,7 +229,7 @@
   description: spellbook-wand-locker-description
   productEntity: WeaponWandLocker
   cost:
-    WizCoin: 2 # Goob edit
+    WizCoin: 2 # WD EDIT: 3 -> 2
   categories:
   - SpellbookEquipment
   conditions:
@@ -255,7 +255,7 @@
   description: spellbook-hammer-singularity-description
   productEntity: SingularityHammer
   cost:
-    WizCoin: 1 # Goob edit
+    WizCoin: 1 # WD EDIT: 2 -> 1
   categories:
   - SpellbookEquipment
   conditions:
@@ -324,7 +324,7 @@
   name: spellbook-upgrade-fireball-name
   description: spellbook-upgrade-fireball-description
   icon:
-    sprite: _White/Wizard/actions.rsi # Goob edit
+    sprite: _White/Wizard/actions.rsi # WD edit
     state: fireball
   cost:
     WizCoin: 2
@@ -344,7 +344,7 @@
   name: spellbook-upgrade-jaunt-name
   description: spellbook-upgrade-jaunt-description
   icon:
-    sprite: _White/Wizard/actions.rsi # Goob edit
+    sprite: _White/Wizard/actions.rsi # WD edit
     state: jaunt
   cost:
     WizCoin: 2
