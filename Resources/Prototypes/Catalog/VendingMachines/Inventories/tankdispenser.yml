@@ -10,4 +10,4 @@
   id: TankDispenserEngineeringInventory
   startingInventory:
     PlasmaTankFilled: 6 # WWDP edit
-    YellowOxygenTankFilled: 6 # WWDP edit
+    OxygenTankFilled: 6 #YellowOxygenTankFilled: 6 # WWDP edit
