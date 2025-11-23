@@ -6,6 +6,7 @@
            xmlns:xe="clr-namespace:Content.Client.UserInterface.XamlExtensions"
            xmlns:ui="clr-namespace:Content.Client.UserInterface.Controls"
            xmlns:widgets="clr-namespace:Content.Client.UserInterface.Systems.MenuBar.Widgets"
+           xmlns:controls="clr-namespace:Content.Client._White.UserInterface.Controls"
            Name = "MenuButtons"
            VerticalExpand="False"
            Orientation="Horizontal"
@@ -13,7 +14,11 @@
            VerticalAlignment="Top"
            SeparationOverride="5"
 >
-    <ui:MenuButton
+    <controls:FlexBox
+    HorizontalAlignment="Stretch"
+    HorizontalExpand="True"
+    JustifyContent="Center">
+        <ui:MenuButton
         Name="EscapeButton"
         Access="Internal"
         Icon="{xe:Tex '/Textures/_White/NovaUI/Icons/menu.png'}"
@@ -24,103 +29,104 @@
         AppendStyleClass="{x:Static style:StyleBase.ButtonOpenRight}"
         IconScale="2,2"
         /> <!-- WD EDIT -->
-    <ui:MenuButton
-        Name="GuidebookButton"
-        Access="Internal"
-        Icon="{xe:Tex '/Textures/_White/NovaUI/Icons/chest.png'}"
-        ToolTip="{Loc 'game-hud-open-guide-menu-button-tooltip'}"
-        BoundKey = "{x:Static is:ContentKeyFunctions.OpenGuidebook}"
-        MinSize="42 64"
-        HorizontalExpand="True"
-        AppendStyleClass="{x:Static style:StyleBase.ButtonSquare}"
-        IconScale="2,2"
-        />
-    <ui:MenuButton
-        Name="CharacterButton"
-        Access="Internal"
-        Icon="{xe:Tex '/Textures/_White/NovaUI/Icons/person.png'}"
-        ToolTip="{Loc 'game-hud-open-character-menu-button-tooltip'}"
-        BoundKey = "{x:Static is:ContentKeyFunctions.OpenCharacterMenu}"
-        MinSize="42 64"
-        HorizontalExpand="True"
-        AppendStyleClass="{x:Static style:StyleBase.ButtonSquare}"
-        IconScale="2,2"
-        />
-    <ui:MenuButton
-        Name="EmotesButton"
-        Access="Internal"
-        Icon="{xe:Tex '/Textures/_White/NovaUI/Icons/emotion.png'}"
-        ToolTip="{Loc 'game-hud-open-emotions-menu-button-tooltip'}"
-        BoundKey = "{x:Static is:ContentKeyFunctions.OpenEmotesMenu}"
-        MinSize="42 64"
-        HorizontalExpand="True"
-        AppendStyleClass="{x:Static style:StyleBase.ButtonSquare}"
-        IconScale="2,2"
-    /> <!-- WD EDIT -->
-    <ui:MenuButton
-        Name="CraftingButton"
-        Access="Internal"
-        Icon="{xe:Tex '/Textures/_White/NovaUI/Icons/craft.png'}"
-        BoundKey = "{x:Static is:ContentKeyFunctions.OpenCraftingMenu}"
-        ToolTip="{Loc 'game-hud-open-crafting-menu-button-tooltip'}"
-        MinSize="42 64"
-        HorizontalExpand="True"
-        AppendStyleClass="{x:Static style:StyleBase.ButtonSquare}"
-        IconScale="2,2"
-        />
-    <ui:MenuButton
-        Name="ActionButton"
-        Access="Internal"
-        Icon="{xe:Tex '/Textures/_White/NovaUI/Icons/fist.png'}"
-        BoundKey = "{x:Static is:ContentKeyFunctions.OpenActionsMenu}"
-        ToolTip="{Loc 'game-hud-open-actions-menu-button-tooltip'}"
-        MinSize="42 64"
-        HorizontalExpand="True"
-        AppendStyleClass="{x:Static style:StyleBase.ButtonSquare}"
-        IconScale="2,2"
-        />
-    <ui:MenuButton
-        Name="LanguageButton"
-        Access="Internal"
-        Icon="{xe:Tex '/Textures/_White/NovaUI/Icons/language.png'}"
-        BoundKey = "{x:Static is:ContentKeyFunctions.OpenLanguageMenu}"
-        ToolTip="Open the Language Menu"
-        MinSize="42 64"
-        HorizontalExpand="True"
-        AppendStyleClass="{x:Static style:StyleBase.ButtonSquare}"
-        IconScale="2,2"
-        />
-    <ui:MenuButton
-        Name="AdminButton"
-        Access="Internal"
-        Icon="{xe:Tex '/Textures/_White/NovaUI/Icons/panel.png'}"
-        BoundKey = "{x:Static is:ContentKeyFunctions.OpenAdminMenu}"
-        ToolTip="{Loc 'game-hud-open-admin-menu-button-tooltip'}"
-        MinSize="42 64"
-        HorizontalExpand="True"
-        AppendStyleClass="{x:Static style:StyleBase.ButtonSquare}"
-        IconScale="2,2"
-        />
-    <ui:MenuButton
-        Name="SandboxButton"
-        Access="Internal"
-        Icon="{xe:Tex '/Textures/_White/NovaUI/Icons/sandbox.png'}"
-        BoundKey = "{x:Static is:ContentKeyFunctions.OpenSandboxWindow}"
-        ToolTip="{Loc 'game-hud-open-sandbox-menu-button-tooltip'}"
-        MinSize="42 64"
-        HorizontalExpand="True"
-        AppendStyleClass="{x:Static style:StyleBase.ButtonSquare}"
-        IconScale="2,2"
-        />
-    <ui:MenuButton
-        Name="AHelpButton"
-        Access="Internal"
-        Icon="{xe:Tex '/Textures/_White/NovaUI/Icons/warning.png'}"
-        BoundKey = "{x:Static is:ContentKeyFunctions.OpenAHelp}"
-        ToolTip="{Loc 'ui-options-function-open-a-help'}"
-        MinSize="42 64"
-        HorizontalExpand="True"
-        AppendStyleClass="{x:Static style:StyleBase.ButtonOpenLeft}"
-        IconScale="2,2"
-        />
+        <ui:MenuButton
+            Name="GuidebookButton"
+            Access="Internal"
+            Icon="{xe:Tex '/Textures/_White/NovaUI/Icons/chest.png'}"
+            ToolTip="{Loc 'game-hud-open-guide-menu-button-tooltip'}"
+            BoundKey = "{x:Static is:ContentKeyFunctions.OpenGuidebook}"
+            MinSize="42 64"
+            HorizontalExpand="True"
+            AppendStyleClass="{x:Static style:StyleBase.ButtonSquare}"
+            IconScale="2,2"
+            />
+        <ui:MenuButton
+            Name="CharacterButton"
+            Access="Internal"
+            Icon="{xe:Tex '/Textures/_White/NovaUI/Icons/person.png'}"
+            ToolTip="{Loc 'game-hud-open-character-menu-button-tooltip'}"
+            BoundKey = "{x:Static is:ContentKeyFunctions.OpenCharacterMenu}"
+            MinSize="42 64"
+            HorizontalExpand="True"
+            AppendStyleClass="{x:Static style:StyleBase.ButtonSquare}"
+            IconScale="2,2"
+            />
+        <ui:MenuButton
+            Name="EmotesButton"
+            Access="Internal"
+            Icon="{xe:Tex '/Textures/_White/NovaUI/Icons/emotion.png'}"
+            ToolTip="{Loc 'game-hud-open-emotions-menu-button-tooltip'}"
+            BoundKey = "{x:Static is:ContentKeyFunctions.OpenEmotesMenu}"
+            MinSize="42 64"
+            HorizontalExpand="True"
+            AppendStyleClass="{x:Static style:StyleBase.ButtonSquare}"
+            IconScale="2,2"
+        /> <!-- WD EDIT -->
+        <ui:MenuButton
+            Name="CraftingButton"
+            Access="Internal"
+            Icon="{xe:Tex '/Textures/_White/NovaUI/Icons/craft.png'}"
+            BoundKey = "{x:Static is:ContentKeyFunctions.OpenCraftingMenu}"
+            ToolTip="{Loc 'game-hud-open-crafting-menu-button-tooltip'}"
+            MinSize="42 64"
+            HorizontalExpand="True"
+            AppendStyleClass="{x:Static style:StyleBase.ButtonSquare}"
+            IconScale="2,2"
+            />
+        <ui:MenuButton
+            Name="ActionButton"
+            Access="Internal"
+            Icon="{xe:Tex '/Textures/_White/NovaUI/Icons/fist.png'}"
+            BoundKey = "{x:Static is:ContentKeyFunctions.OpenActionsMenu}"
+            ToolTip="{Loc 'game-hud-open-actions-menu-button-tooltip'}"
+            MinSize="42 64"
+            HorizontalExpand="True"
+            AppendStyleClass="{x:Static style:StyleBase.ButtonSquare}"
+            IconScale="2,2"
+            />
+        <ui:MenuButton
+            Name="LanguageButton"
+            Access="Internal"
+            Icon="{xe:Tex '/Textures/_White/NovaUI/Icons/language.png'}"
+            BoundKey = "{x:Static is:ContentKeyFunctions.OpenLanguageMenu}"
+            ToolTip="Open the Language Menu"
+            MinSize="42 64"
+            HorizontalExpand="True"
+            AppendStyleClass="{x:Static style:StyleBase.ButtonSquare}"
+            IconScale="2,2"
+            />
+        <ui:MenuButton
+            Name="AdminButton"
+            Access="Internal"
+            Icon="{xe:Tex '/Textures/_White/NovaUI/Icons/panel.png'}"
+            BoundKey = "{x:Static is:ContentKeyFunctions.OpenAdminMenu}"
+            ToolTip="{Loc 'game-hud-open-admin-menu-button-tooltip'}"
+            MinSize="42 64"
+            HorizontalExpand="True"
+            AppendStyleClass="{x:Static style:StyleBase.ButtonSquare}"
+            IconScale="2,2"
+            />
+        <ui:MenuButton
+            Name="SandboxButton"
+            Access="Internal"
+            Icon="{xe:Tex '/Textures/_White/NovaUI/Icons/sandbox.png'}"
+            BoundKey = "{x:Static is:ContentKeyFunctions.OpenSandboxWindow}"
+            ToolTip="{Loc 'game-hud-open-sandbox-menu-button-tooltip'}"
+            MinSize="42 64"
+            HorizontalExpand="True"
+            AppendStyleClass="{x:Static style:StyleBase.ButtonSquare}"
+            IconScale="2,2"
+            />
+        <ui:MenuButton
+            Name="AHelpButton"
+            Access="Internal"
+            Icon="{xe:Tex '/Textures/_White/NovaUI/Icons/warning.png'}"
+            BoundKey = "{x:Static is:ContentKeyFunctions.OpenAHelp}"
+            ToolTip="{Loc 'ui-options-function-open-a-help'}"
+            MinSize="42 64"
+            HorizontalExpand="True"
+            AppendStyleClass="{x:Static style:StyleBase.ButtonOpenLeft}"
+            IconScale="2,2"
+            />
+    </controls:FlexBox>
 </widgets:GameTopMenuBar>
