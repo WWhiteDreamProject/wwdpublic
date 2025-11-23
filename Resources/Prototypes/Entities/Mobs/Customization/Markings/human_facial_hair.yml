@@ -1,245 +1,350 @@
 - type: marking
   id: HumanFacialHairAbe
-  bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
     - sprite: Mobs/Customization/human_facial_hair.rsi
       state: abe
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.FacialHair
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: HumanFacialHairBrokenman
-  bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
     - sprite: Mobs/Customization/human_facial_hair.rsi
       state: brokenman
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.FacialHair
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: HumanFacialHairChin
-  bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
     - sprite: Mobs/Customization/human_facial_hair.rsi
       state: chin
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.FacialHair
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: HumanFacialHairDwarf
-  bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
     - sprite: Mobs/Customization/human_facial_hair.rsi
       state: dwarf
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.FacialHair
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: HumanFacialHairFullbeard
-  bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
     - sprite: Mobs/Customization/human_facial_hair.rsi
       state: fullbeard
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.FacialHair
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: HumanFacialHairCroppedfullbeard
-  bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
     - sprite: Mobs/Customization/human_facial_hair.rsi
       state: croppedfullbeard
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.FacialHair
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: HumanFacialHairGt
-  bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
     - sprite: Mobs/Customization/human_facial_hair.rsi
       state: gt
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.FacialHair
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: HumanFacialHairHip
-  bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
     - sprite: Mobs/Customization/human_facial_hair.rsi
       state: hip
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.FacialHair
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: HumanFacialHairJensen
-  bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
     - sprite: Mobs/Customization/human_facial_hair.rsi
       state: jensen
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.FacialHair
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: HumanFacialHairNeckbeard
-  bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
     - sprite: Mobs/Customization/human_facial_hair.rsi
       state: neckbeard
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.FacialHair
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: HumanFacialHairWise
-  bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
     - sprite: Mobs/Customization/human_facial_hair.rsi
       state: wise
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.FacialHair
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: HumanFacialHairMuttonmus
-  bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
     - sprite: Mobs/Customization/human_facial_hair.rsi
       state: muttonmus
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.FacialHair
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: HumanFacialHairMartialartist
-  bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
     - sprite: Mobs/Customization/human_facial_hair.rsi
       state: martialartist
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.FacialHair
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: HumanFacialHairChinlessbeard
-  bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
     - sprite: Mobs/Customization/human_facial_hair.rsi
       state: chinlessbeard
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.FacialHair
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: HumanFacialHairMoonshiner
-  bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
     - sprite: Mobs/Customization/human_facial_hair.rsi
       state: moonshiner
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.FacialHair
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: HumanFacialHairLongbeard
-  bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
     - sprite: Mobs/Customization/human_facial_hair.rsi
       state: longbeard
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.FacialHair
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: HumanFacialHairVolaju
-  bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
     - sprite: Mobs/Customization/human_facial_hair.rsi
       state: volaju
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.FacialHair
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: HumanFacialHair3oclock
-  bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
     - sprite: Mobs/Customization/human_facial_hair.rsi
       state: 3oclock
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.FacialHair
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: HumanFacialHairFiveoclock
-  bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
     - sprite: Mobs/Customization/human_facial_hair.rsi
       state: fiveoclock
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.FacialHair
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: HumanFacialHair5oclockmoustache
-  bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
     - sprite: Mobs/Customization/human_facial_hair.rsi
       state: 5oclockmoustache
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.FacialHair
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: HumanFacialHair7oclock
-  bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
     - sprite: Mobs/Customization/human_facial_hair.rsi
       state: 7oclock
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.FacialHair
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: HumanFacialHair7oclockmoustache
-  bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
     - sprite: Mobs/Customization/human_facial_hair.rsi
       state: 7oclockmoustache
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.FacialHair
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: HumanFacialHairMoustache
-  bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
     - sprite: Mobs/Customization/human_facial_hair.rsi
       state: moustache
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.FacialHair
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: HumanFacialHairPencilstache
-  bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
     - sprite: Mobs/Customization/human_facial_hair.rsi
       state: pencilstache
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.FacialHair
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: HumanFacialHairSmallstache
-  bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
     - sprite: Mobs/Customization/human_facial_hair.rsi
       state: smallstache
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.FacialHair
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: HumanFacialHairWalrus
-  bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
     - sprite: Mobs/Customization/human_facial_hair.rsi
       state: walrus
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.FacialHair
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: HumanFacialHairFumanchu
-  bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
     - sprite: Mobs/Customization/human_facial_hair.rsi
       state: fumanchu
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.FacialHair
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: HumanFacialHairHogan
-  bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
     - sprite: Mobs/Customization/human_facial_hair.rsi
       state: hogan
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.FacialHair
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: HumanFacialHairSelleck
-  bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
     - sprite: Mobs/Customization/human_facial_hair.rsi
       state: selleck
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.FacialHair
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: HumanFacialHairChaplin
-  bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
     - sprite: Mobs/Customization/human_facial_hair.rsi
       state: chaplin
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.FacialHair
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: HumanFacialHairVandyke
-  bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
     - sprite: Mobs/Customization/human_facial_hair.rsi
       state: vandyke
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.FacialHair
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: HumanFacialHairWatson
-  bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
     - sprite: Mobs/Customization/human_facial_hair.rsi
       state: watson
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.FacialHair
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: HumanFacialHairElvis
-  bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
     - sprite: Mobs/Customization/human_facial_hair.rsi
       state: elvis
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.FacialHair
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: HumanFacialHairMutton
-  bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
     - sprite: Mobs/Customization/human_facial_hair.rsi
       state: mutton
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.FacialHair
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: HumanFacialHairSideburn
-  bodyPart: FacialHair
   markingCategory: FacialHair
   sprites:
     - sprite: Mobs/Customization/human_facial_hair.rsi
       state: sideburn
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.FacialHair
+      bodyPart: Head
+      # WD EDIT END

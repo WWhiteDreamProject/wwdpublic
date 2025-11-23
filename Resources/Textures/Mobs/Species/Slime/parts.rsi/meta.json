@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "https://github.com/tgstation/tgstation/blob/8024397cc81c5f47f74cf4279e35728487d0a1a7/icons/mob/human_parts_greyscale.dmi and modified by Zumorica",
+  "copyright": "https://github.com/tgstation/tgstation/blob/8024397cc81c5f47f74cf4279e35728487d0a1a7/icons/mob/human_parts_greyscale.dmi and modified by Zumorica. Changed by WWDP",
   "size": {
     "x": 32,
     "y": 32
@@ -11,11 +11,11 @@
       "name": "full"
     },
     {
-      "name": "head_f",
+      "name": "head",
       "directions": 4
     },
     {
-      "name": "head_m",
+      "name": "head_female",
       "directions": 4
     },
     {
@@ -51,11 +51,19 @@
       "directions": 4
     },
     {
-      "name": "torso_f",
+      "name": "chest",
       "directions": 4
     },
     {
-      "name": "torso_m",
+      "name": "chest_female",
+      "directions": 4
+    },
+    {
+      "name": "groin",
+      "directions": 4
+    },
+    {
+      "name": "groin_female",
       "directions": 4
     }
   ]

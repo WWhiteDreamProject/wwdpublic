@@ -19,11 +19,8 @@ public sealed partial class HumanoidAppearanceComponent : Component
     [DataField, AutoNetworkedField]
     public MarkingSet MarkingSet = new();
 
-    [DataField]
-    public Dictionary<HumanoidVisualLayers, HumanoidSpeciesSpriteLayer> BaseLayers = new();
-
     [DataField, AutoNetworkedField]
-    public HashSet<HumanoidVisualLayers> PermanentlyHidden = new();
+    public HashSet<Enum> PermanentlyHidden = new(); // WD EDIT
 
     // Couldn't these be somewhere else?
 
@@ -44,15 +41,6 @@ public sealed partial class HumanoidAppearanceComponent : Component
 
     [DataField, AutoNetworkedField]
     public string CustomSpecieName = "";
-
-    /// <summary>
-    ///     Any custom base layers this humanoid might have. See:
-    ///     limb transplants (potentially), robotic arms, etc.
-    ///     Stored on the server, this is merged in the client into
-    ///     all layer settings.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public Dictionary<HumanoidVisualLayers, CustomBaseLayerInfo> CustomBaseLayers = new();
 
     /// <summary>
     ///     Current species. Dictates things like base body sprites,
@@ -78,7 +66,7 @@ public sealed partial class HumanoidAppearanceComponent : Component
     ///     on this humanoid layer, and any markings that sit above it.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public HashSet<HumanoidVisualLayers> HiddenLayers = new();
+    public HashSet<Enum> HiddenLayers = new(); // WD EDIT
 
     [DataField, AutoNetworkedField]
     public Sex Sex = Sex.Male;
@@ -102,7 +90,7 @@ public sealed partial class HumanoidAppearanceComponent : Component
     ///     Which layers of this humanoid that should be hidden on equipping a corresponding item..
     /// </summary>
     [DataField]
-    public HashSet<HumanoidVisualLayers> HideLayersOnEquip = [HumanoidVisualLayers.Hair];
+    public HashSet<Enum> HideLayersOnEquip = [HumanoidVisualLayers.Hair]; // WD EDIT
 
     /// <summary>
     /// DeltaV - let paradox anomaly be cloned
@@ -132,28 +120,4 @@ public sealed partial class HumanoidAppearanceComponent : Component
     [DataField, AutoNetworkedField]
     public ProtoId<TTSVoicePrototype> Voice { get; set; } = SharedHumanoidAppearanceSystem.DefaultVoice;
     // WD EDIT END
-}
-
-[DataDefinition]
-[Serializable, NetSerializable]
-public readonly partial struct CustomBaseLayerInfo
-{
-    public CustomBaseLayerInfo(string? id, Color? color = null)
-    {
-        DebugTools.Assert(id == null || IoCManager.Resolve<IPrototypeManager>().HasIndex<HumanoidSpeciesSpriteLayer>(id));
-        Id = id;
-        Color = color;
-    }
-
-    /// <summary>
-    ///     ID of this custom base layer. Must be a <see cref="HumanoidSpeciesSpriteLayer"/>.
-    /// </summary>
-    [DataField]
-    public ProtoId<HumanoidSpeciesSpriteLayer>? Id { get; init; }
-
-    /// <summary>
-    ///     Color of this custom base layer. Null implies skin colour if the corresponding <see cref="HumanoidSpeciesSpriteLayer"/> is set to match skin.
-    /// </summary>
-    [DataField]
-    public Color? Color { get; init; }
 }

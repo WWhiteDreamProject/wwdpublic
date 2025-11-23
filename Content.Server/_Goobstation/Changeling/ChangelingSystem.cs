@@ -56,6 +56,8 @@ using Content.Server.Stunnable;
 using Content.Shared.Jittering;
 using Content.Server.Explosion.EntitySystems;
 using System.Linq;
+using Content.Server._White.Body.Systems;
+using Content.Server._White.Gibbing;
 using Content.Server.Flash.Components;
 using Content.Server.Radio.Components;
 // using Content.Shared.Heretic;
@@ -117,6 +119,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     [Dependency] private readonly SelectableAmmoSystem _selectableAmmo = default!;
     [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
     [Dependency] private readonly SharedSuicideSystem _suicide = default!; // WD EDIT
+    [Dependency] private readonly GibbingSystem _gibbing = default!; // WD EDIT
 
     public EntProtoId ArmbladePrototype = "ArmBladeChangeling";
     public EntProtoId FakeArmbladePrototype = "FakeArmBladeChangeling";
@@ -689,13 +692,6 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         radio.Channels = new() { "Hivemind" };
         transmitter.Channels = new() { "Hivemind" };
         //WD edit end
-
-        // Shitmed: Prevent changelings from getting their body parts severed
-        foreach (var (id, part) in _bodySystem.GetBodyChildren(uid))
-        {
-            part.CanSever = false;
-            Dirty(id, part);
-        }
     }
 
     private void OnMobStateChange(EntityUid uid, ChangelingComponent comp, ref MobStateChangedEvent args)

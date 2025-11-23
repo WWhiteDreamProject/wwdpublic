@@ -2,7 +2,7 @@ using Content.Server.Atmos.EntitySystems;
 using Content.Server.Disposal.Tube;
 using Content.Server.Disposal.Tube.Components;
 using Content.Server.Disposal.Unit.Components;
-using Content.Shared.Body.Components;
+using Content.Shared._White.Body.Components;
 using Content.Shared.Damage;
 using Content.Shared.Item;
 using Content.Shared.Throwing;
@@ -268,7 +268,7 @@ namespace Content.Server.Disposal.Unit.EntitySystems
 
                 // Find next tube
                 var nextTube = _disposalTubeSystem.NextTubeFor(currentTube, holder.CurrentDirection);
-                if (!EntityManager.EntityExists(nextTube)) 
+                if (!EntityManager.EntityExists(nextTube))
                 {
                     ExitDisposals(uid, holder);
                     break;

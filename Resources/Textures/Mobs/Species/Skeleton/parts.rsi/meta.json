@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Created by EmoGarbage",
+    "copyright": "Created by EmoGarbage. Changed by WWDP",
     "size": {
         "x": 32,
         "y": 32
@@ -11,11 +11,7 @@
             "name": "full"
         },
         {
-            "name": "head_f",
-            "directions": 4
-        },
-        {
-            "name": "head_m",
+            "name": "head",
             "directions": 4
         },
         {
@@ -54,13 +50,13 @@
             "name": "skull_icon",
             "directions": 1
         },
-        {
-            "name": "torso_f",
-            "directions": 4
-        },
-        {
-            "name": "torso_m",
-            "directions": 4
-        }
+    	{
+  	    "name": "chest",
+  	    "directions": 4
+    	},
+    	{
+   	   "name": "groin",
+   	   "directions": 4
+    	}
     ]
 }

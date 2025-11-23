@@ -57,13 +57,9 @@ namespace Content.Client.Input
             human.AddFunction(EngineKeyFunctions.Walk);
             human.AddFunction(ContentKeyFunctions.SwapHands);
             human.AddFunction(ContentKeyFunctions.Drop);
-            human.AddFunction(ContentKeyFunctions.PreciseDrop);			// WWDP
-            human.AddFunction(ContentKeyFunctions.MouseWheelUp);		// WWDP
-            human.AddFunction(ContentKeyFunctions.MouseWheelDown);		// WWDP
             human.AddFunction(ContentKeyFunctions.UseItemInHand);
             human.AddFunction(ContentKeyFunctions.AltUseItemInHand);
             human.AddFunction(ContentKeyFunctions.OpenCharacterMenu);
-            human.AddFunction(ContentKeyFunctions.OpenEmotesMenu); // WD EDIT
             human.AddFunction(ContentKeyFunctions.OpenLanguageMenu);
             human.AddFunction(ContentKeyFunctions.ActivateItemInWorld);
             human.AddFunction(ContentKeyFunctions.ThrowItemInHand);
@@ -83,7 +79,6 @@ namespace Content.Client.Input
             human.AddFunction(ContentKeyFunctions.OfferItem);
             human.AddFunction(ContentKeyFunctions.ToggleStanding);
             human.AddFunction(ContentKeyFunctions.ToggleCrawlingUnder);
-            human.AddFunction(ContentKeyFunctions.ToggleCombatMode); // WD EDIT
             human.AddFunction(ContentKeyFunctions.MouseMiddle);
             human.AddFunction(ContentKeyFunctions.RotateObjectClockwise);
             human.AddFunction(ContentKeyFunctions.RotateObjectCounterclockwise);
@@ -95,19 +90,28 @@ namespace Content.Client.Input
             human.AddFunction(ContentKeyFunctions.Arcade1);
             human.AddFunction(ContentKeyFunctions.Arcade2);
             human.AddFunction(ContentKeyFunctions.Arcade3);
-            human.AddFunction(ContentKeyFunctions.LookUp); // WD EDIT
-            // Shitmed Change Start - TODO: Add groin targeting.
-            human.AddFunction(ContentKeyFunctions.TargetHead);
-            human.AddFunction(ContentKeyFunctions.TargetTorso);
-            human.AddFunction(ContentKeyFunctions.TargetLeftArm);
-            human.AddFunction(ContentKeyFunctions.TargetLeftHand);
-            human.AddFunction(ContentKeyFunctions.TargetRightArm);
-            human.AddFunction(ContentKeyFunctions.TargetRightHand);
-            human.AddFunction(ContentKeyFunctions.TargetLeftLeg);
-            human.AddFunction(ContentKeyFunctions.TargetLeftFoot);
-            human.AddFunction(ContentKeyFunctions.TargetRightLeg);
-            human.AddFunction(ContentKeyFunctions.TargetRightFoot);
-            // Shitmed Change End
+            // WD EDIT START
+            human.AddFunction(ContentKeyFunctions.PreciseDrop);
+            human.AddFunction(ContentKeyFunctions.MouseWheelUp);
+            human.AddFunction(ContentKeyFunctions.MouseWheelDown);
+            human.AddFunction(ContentKeyFunctions.OpenEmotesMenu);
+            human.AddFunction(ContentKeyFunctions.ToggleCombatMode);
+            human.AddFunction(ContentKeyFunctions.LookUp);
+            human.AddFunction(ContentKeyFunctions.TargetDollHead);
+            human.AddFunction(ContentKeyFunctions.TargetDollChest);
+            human.AddFunction(ContentKeyFunctions.TargetDollGroin);
+            human.AddFunction(ContentKeyFunctions.TargetDollRightArm);
+            human.AddFunction(ContentKeyFunctions.TargetDollRightHand);
+            human.AddFunction(ContentKeyFunctions.TargetDollLeftArm);
+            human.AddFunction(ContentKeyFunctions.TargetDollLeftHand);
+            human.AddFunction(ContentKeyFunctions.TargetDollRightLeg);
+            human.AddFunction(ContentKeyFunctions.TargetDollRightFoot);
+            human.AddFunction(ContentKeyFunctions.TargetDollLeftLeg);
+            human.AddFunction(ContentKeyFunctions.TargetDollLeftFoot);
+            human.AddFunction(ContentKeyFunctions.TargetDollTail);
+            human.AddFunction(ContentKeyFunctions.TargetDollEyes);
+            human.AddFunction(ContentKeyFunctions.TargetDollMouth);
+            // WD EDIT END
 
             // actions should be common (for ghosts, mobs, etc)
             common.AddFunction(ContentKeyFunctions.OpenActionsMenu);
@@ -123,9 +127,6 @@ namespace Content.Client.Input
             aghost.AddFunction(EngineKeyFunctions.Walk);
             aghost.AddFunction(ContentKeyFunctions.SwapHands);
             aghost.AddFunction(ContentKeyFunctions.Drop);
-            aghost.AddFunction(ContentKeyFunctions.PreciseDrop);	// WWDP
-            aghost.AddFunction(ContentKeyFunctions.MouseWheelUp);	// WWDP
-            aghost.AddFunction(ContentKeyFunctions.MouseWheelDown);	// WWDP
             aghost.AddFunction(ContentKeyFunctions.UseItemInHand);
             aghost.AddFunction(ContentKeyFunctions.AltUseItemInHand);
             aghost.AddFunction(ContentKeyFunctions.ActivateItemInWorld);
@@ -134,6 +135,26 @@ namespace Content.Client.Input
             aghost.AddFunction(ContentKeyFunctions.TryPullObject);
             aghost.AddFunction(ContentKeyFunctions.MovePulledObject);
             aghost.AddFunction(ContentKeyFunctions.ReleasePulledObject);
+            // WD EDIT START
+            aghost.AddFunction(ContentKeyFunctions.PreciseDrop);
+            aghost.AddFunction(ContentKeyFunctions.MouseWheelUp);
+            aghost.AddFunction(ContentKeyFunctions.MouseWheelDown);
+            aghost.AddFunction(ContentKeyFunctions.ToggleCombatMode);
+            aghost.AddFunction(ContentKeyFunctions.TargetDollHead);
+            aghost.AddFunction(ContentKeyFunctions.TargetDollChest);
+            aghost.AddFunction(ContentKeyFunctions.TargetDollGroin);
+            aghost.AddFunction(ContentKeyFunctions.TargetDollRightArm);
+            aghost.AddFunction(ContentKeyFunctions.TargetDollRightHand);
+            aghost.AddFunction(ContentKeyFunctions.TargetDollLeftArm);
+            aghost.AddFunction(ContentKeyFunctions.TargetDollLeftHand);
+            aghost.AddFunction(ContentKeyFunctions.TargetDollRightLeg);
+            aghost.AddFunction(ContentKeyFunctions.TargetDollRightFoot);
+            aghost.AddFunction(ContentKeyFunctions.TargetDollLeftLeg);
+            aghost.AddFunction(ContentKeyFunctions.TargetDollLeftFoot);
+            aghost.AddFunction(ContentKeyFunctions.TargetDollTail);
+            aghost.AddFunction(ContentKeyFunctions.TargetDollEyes);
+            aghost.AddFunction(ContentKeyFunctions.TargetDollMouth);
+            // WD EDIT END
 
             var ghost = contexts.New("ghost", "human");
             ghost.AddFunction(EngineKeyFunctions.MoveUp);

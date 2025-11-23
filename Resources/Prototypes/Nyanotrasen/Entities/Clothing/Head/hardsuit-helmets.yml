@@ -32,9 +32,11 @@
         shader: unshaded
   - type: HideLayerClothing
     slots:
-    - Snout
-    - Hair
-    
+    # WD EDIT START
+    - enum.HumanoidVisualLayers.Hair
+    - enum.HumanoidVisualLayers.Snout
+    # WD EDIT END
+
 
 - type: entity
   parent: ClothingHeadHelmetHardsuitCybersun
@@ -54,9 +56,11 @@
         shader: unshaded
   - type: HideLayerClothing
     slots:
-    - Snout
-    - Hair
-    - Head
+    # WD EDIT START
+    - enum.HumanoidVisualLayers.Hair
+    - enum.HumanoidVisualLayers.Snout
+    - enum.BodyAppearanceLayer.Head
+    # WD EDIT END
 
 - type: entity
   parent: ClothingHeadHelmetHardsuitERTLeader
@@ -76,4 +80,4 @@
       - state: on-equipped-HELMET
       - state: on-equipped-HELMET-unshaded
         shader: unshaded
-  
+

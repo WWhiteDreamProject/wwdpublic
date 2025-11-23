@@ -1,161 +1,179 @@
 - type: marking
   id: HairResomiBackstrafe
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Resomi]
   sprites:
-    - sprite: _White/Mobs/Customization/resomi_hair.rsi
-      state: ResomiBackstrafe
+  - sprite: _White/Mobs/Customization/resomi_hair.rsi
+    state: ResomiBackstrafe
+    layer: enum.HumanoidVisualLayers.Hair
+    bodyPart: Head
 
 - type: marking
   id: HairResomiBurstShort
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Resomi]
   sprites:
-    - sprite: _White/Mobs/Customization/resomi_hair.rsi
-      state: ResomiBurstShort
+  - sprite: _White/Mobs/Customization/resomi_hair.rsi
+    state: ResomiBurstShort
+    layer: enum.HumanoidVisualLayers.Hair
+    bodyPart: Head
 
 - type: marking
   id: HairResomiDefault
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Resomi]
   sprites:
-    - sprite: _White/Mobs/Customization/resomi_hair.rsi
-      state: ResomiDefault
+  - sprite: _White/Mobs/Customization/resomi_hair.rsi
+    state: ResomiDefault
+    layer: enum.HumanoidVisualLayers.Hair
+    bodyPart: Head
 
 - type: marking
   id: HairResomiDroopy
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Resomi]
   sprites:
-    - sprite: _White/Mobs/Customization/resomi_hair.rsi
-      state: ResomiDroopy
+  - sprite: _White/Mobs/Customization/resomi_hair.rsi
+    state: ResomiDroopy
+    layer: enum.HumanoidVisualLayers.Hair
+    bodyPart: Head
 
 - type: marking
   id: HairResomiEars
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Resomi]
   sprites:
-    - sprite: _White/Mobs/Customization/resomi_hair.rsi
-      state: ResomiEars
+  - sprite: _White/Mobs/Customization/resomi_hair.rsi
+    state: ResomiEars
+    layer: enum.HumanoidVisualLayers.Hair
+    bodyPart: Head
 
 - type: marking
   id: HairResomiFluffymohawk
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Resomi]
   sprites:
-    - sprite: _White/Mobs/Customization/resomi_hair.rsi
-      state: ResomiFluffymohawk
+  - sprite: _White/Mobs/Customization/resomi_hair.rsi
+    state: ResomiFluffymohawk
+    layer: enum.HumanoidVisualLayers.Hair
+    bodyPart: Head
 
 - type: marking
   id: HairResomiHedge
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Resomi]
   sprites:
-    - sprite: _White/Mobs/Customization/resomi_hair.rsi
-      state: ResomiHedge
+  - sprite: _White/Mobs/Customization/resomi_hair.rsi
+    state: ResomiHedge
+    layer: enum.HumanoidVisualLayers.Hair
+    bodyPart: Head
 
 - type: marking
   id: HairResomiLongway
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Resomi]
   sprites:
-    - sprite: _White/Mobs/Customization/resomi_hair.rsi
-      state: ResomiLongway
+  - sprite: _White/Mobs/Customization/resomi_hair.rsi
+    state: ResomiLongway
+    layer: enum.HumanoidVisualLayers.Hair
+    bodyPart: Head
 
 - type: marking
   id: HairResomiMane
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Resomi]
   sprites:
-    - sprite: _White/Mobs/Customization/resomi_hair.rsi
-      state: ResomiMane
+  - sprite: _White/Mobs/Customization/resomi_hair.rsi
+    state: ResomiMane
+    layer: enum.HumanoidVisualLayers.Hair
+    bodyPart: Head
 
 - type: marking
   id: HairResomiManeBeardless
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Resomi]
   sprites:
-    - sprite: _White/Mobs/Customization/resomi_hair.rsi
-      state: ResomiManeBeardless
+  - sprite: _White/Mobs/Customization/resomi_hair.rsi
+    state: ResomiManeBeardless
+    layer: enum.HumanoidVisualLayers.Hair
+    bodyPart: Head
 
 - type: marking
   id: HairResomiMohawk
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Resomi]
   sprites:
-    - sprite: _White/Mobs/Customization/resomi_hair.rsi
-      state: ResomiMohawk
+  - sprite: _White/Mobs/Customization/resomi_hair.rsi
+    state: ResomiMohawk
+    layer: enum.HumanoidVisualLayers.Hair
+    bodyPart: Head
 
 - type: marking
   id: HairResomiMushroom
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Resomi]
   sprites:
-    - sprite: _White/Mobs/Customization/resomi_hair.rsi
-      state: ResomiMushroom
+  - sprite: _White/Mobs/Customization/resomi_hair.rsi
+    state: ResomiMushroom
+    layer: enum.HumanoidVisualLayers.Hair
+    bodyPart: Head
 
 - type: marking
   id: HairResomiNotree
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Resomi]
   sprites:
-    - sprite: _White/Mobs/Customization/resomi_hair.rsi
-      state: ResomiNotree
+  - sprite: _White/Mobs/Customization/resomi_hair.rsi
+    state: ResomiNotree
+    layer: enum.HumanoidVisualLayers.Hair
+    bodyPart: Head
 
 - type: marking
   id: HairResomiSpiky
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Resomi]
   sprites:
-    - sprite: _White/Mobs/Customization/resomi_hair.rsi
-      state: ResomiSpiky
+  - sprite: _White/Mobs/Customization/resomi_hair.rsi
+    state: ResomiSpiky
+    layer: enum.HumanoidVisualLayers.Hair
+    bodyPart: Head
 
 - type: marking
   id: HairResomiPointy
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Resomi]
   sprites:
-    - sprite: _White/Mobs/Customization/resomi_hair.rsi
-      state: ResomiPointy
+  - sprite: _White/Mobs/Customization/resomi_hair.rsi
+    state: ResomiPointy
+    layer: enum.HumanoidVisualLayers.Hair
+    bodyPart: Head
 
 - type: marking
   id: HairResomiTwies
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Resomi]
   sprites:
-    - sprite: _White/Mobs/Customization/resomi_hair.rsi
-      state: ResomiTwies
+  - sprite: _White/Mobs/Customization/resomi_hair.rsi
+    state: ResomiTwies
+    layer: enum.HumanoidVisualLayers.Hair
+    bodyPart: Head
 
 - type: marking
   id: HairResomiUpright
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Resomi]
   sprites:
-    - sprite: _White/Mobs/Customization/resomi_hair.rsi
-      state: ResomiUpright
+  - sprite: _White/Mobs/Customization/resomi_hair.rsi
+    state: ResomiUpright
+    layer: enum.HumanoidVisualLayers.Hair
+    bodyPart: Head
 
 - type: marking
   id: HairResomiLong
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Resomi]
   sprites:
-    - sprite: _White/Mobs/Customization/resomi_hair.rsi
-      state: ResomiLong
+  - sprite: _White/Mobs/Customization/resomi_hair.rsi
+    state: ResomiLong
+    layer: enum.HumanoidVisualLayers.Hair
+    bodyPart: Head

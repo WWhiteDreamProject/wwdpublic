@@ -1,7 +1,6 @@
 - type: marking
   id: MothWingsClassicSelene
-  bodyPart: Tail
-  markingCategory: Tail
+  markingCategory: Wings # WD EDIT: Tail -> Wings
   forcedColoring: true
   speciesRestriction: [Moth]
   coloring:
@@ -12,16 +11,33 @@
   sprites:
   - sprite: DeltaV/Mobs/Customization/Moth/moth_wings.rsi
     state: selene
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    replacementBodyPart: BodyPartWingsMoth
+    # WD EDIT END
 
 - type: marking
   id: MothWingsSelene
-  bodyPart: Tail
-  markingCategory: Tail
+  markingCategory: Wings # WD EDIT: Tail -> Wings
   speciesRestriction: [Moth]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Moth/moth_wings.rsi
     state: selene_primary
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    replacementBodyPart: BodyPartWingsMoth
+    # WD EDIT END
   - sprite: DeltaV/Mobs/Customization/Moth/moth_wings.rsi
     state: selene_secondary
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    # WD EDIT END
   - sprite: DeltaV/Mobs/Customization/Moth/moth_wings.rsi
     state: selene_tertiary
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    # WD EDIT END

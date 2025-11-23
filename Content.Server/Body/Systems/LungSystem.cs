@@ -19,7 +19,7 @@ public sealed class LungSystem : EntitySystem
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
     [Dependency] private readonly InventorySystem _inventory = default!; // Goobstation
 
-    public static string LungSolutionName = "Lung";
+    public static string LungSolutionName = "lung";
 
     public override void Initialize()
     {

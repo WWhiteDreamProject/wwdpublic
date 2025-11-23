@@ -1,11 +1,19 @@
 - type: marking
   id: WingsRoboticMerciful
-  bodyPart: Wings
   markingCategory: Wings
   speciesRestriction: [IPC]
   sprites:
     - sprite: _Goobstation/Mobs/Customization/IPCwings.rsi
       state: merciful_base
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Wings
+      bodyPart: Wings
+      replacementBodyPart: BodyPartWingsIPC
+      # WD EDIT END
     - sprite: _Goobstation/Mobs/Customization/IPCwings.rsi
       state: merciful_light
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Wings
+      bodyPart: Wings
+      # WD EDIT END
 

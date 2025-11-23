@@ -1,0 +1,93 @@
+﻿- type: body
+  id: Dwarf
+  root: chest
+  bodyParts:
+    head:
+      type: Head
+      startingBodyPart: BodyPartHeadHuman
+      connections:
+      - chest
+      organs:
+        brain:
+          type: Brain
+          startingOrgan: OrganBrainHuman
+        ears:
+          type: Ears
+          startingOrgan: OrganEarsHuman
+        eyes:
+          type: Eyes
+          startingOrgan: OrganEyesHuman
+        tongue:
+          type: Tongue
+          startingOrgan: OrganTongueHuman
+    chest:
+      type: Chest
+      startingBodyPart: BodyPartChestHuman
+      connections:
+      - wings
+      - right_arm
+      - left_arm
+      - groin
+      organs:
+        heart:
+          type: Heart
+          startingOrgan: OrganHeartHuman
+        lungs:
+          type: Lungs
+          startingOrgan: OrganLungsHuman
+    groin:
+      type: Groin
+      startingBodyPart: BodyPartGroinHuman
+      connections:
+      - tail
+      - right_leg
+      - left_leg
+      organs:
+        stomach:
+          type: Stomach
+          startingOrgan: OrganStomachDwarf
+        liver:
+          type: Liver
+          startingOrgan: OrganLiverDwarf
+        kidneys:
+          type: Kidneys
+          startingOrgan: OrganKidneysHuman
+        appendix:
+          type: Appendix
+          startingOrgan: OrganAppendixHuman
+    left_arm:
+      type: LeftArm
+      startingBodyPart: BodyPartLeftArmHuman
+      connections:
+      - left_hand
+    right_arm:
+      type: RightArm
+      startingBodyPart: BodyPartRightArmHuman
+      connections:
+      - right_hand
+    left_hand:
+      type: LeftHand
+      startingBodyPart: BodyPartLeftHandHuman
+    right_hand:
+      type: RightHand
+      startingBodyPart: BodyPartRightHandHuman
+    left_leg:
+      type: LeftLeg
+      startingBodyPart: BodyPartLeftLegHuman
+      connections:
+      - left_foot
+    right_leg:
+      type: RightLeg
+      startingBodyPart: BodyPartRightLegHuman
+      connections:
+      - right_foot
+    left_foot:
+      type: LeftFoot
+      startingBodyPart: BodyPartLeftFootHuman
+    right_foot:
+      type: RightFoot
+      startingBodyPart: BodyPartRightFootHuman
+    tail:
+      type: Tail
+    wings:
+      type: Wings

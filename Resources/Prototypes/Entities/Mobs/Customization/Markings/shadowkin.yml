@@ -2,17 +2,19 @@
 
 - type: marking
   id: EarsShadowkin
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Shadowkin]
   forcedColoring: true
   sprites:
     - sprite: Mobs/Customization/Shadowkin/ears.rsi
       state: shadowkin
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: EarsShadowkinStriped
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Shadowkin]
   coloring:
@@ -27,57 +29,71 @@
   sprites:
     - sprite: Mobs/Customization/Shadowkin/ears.rsi
       state: shadowkin
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
     - sprite: Mobs/Customization/Shadowkin/ears.rsi
       state: shadowkin_stripes
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 
 # Tails
 
 - type: marking
-  id: TailShadowkin
-  bodyPart: Tail
-  markingCategory: Tail
-  speciesRestriction: [Shadowkin]
-  forcedColoring: true
-  sprites:
-    - sprite: Mobs/Customization/Shadowkin/tails64x32.rsi
-      state: shadowkin
-
-- type: marking
   id: TailShadowkinBig
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Shadowkin]
   forcedColoring: true
   sprites:
     - sprite: Mobs/Customization/Shadowkin/tails64x32.rsi
       state: shadowkin_big
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      replacementBodyPart: BodyPartTailShadowkin
+      # WD EDIT END
 
 - type: marking
   id: TailShadowkinBigFluff
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Shadowkin]
   forcedColoring: true
   sprites:
     - sprite: Mobs/Customization/Shadowkin/tails64x32.rsi
       state: shadowkin_big_fluff
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      replacementBodyPart: BodyPartTailShadowkin
+      # WD EDIT END
 
 - type: marking
   id: TailShadowkinShorter
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Shadowkin]
   forcedColoring: true
   sprites:
     - sprite: Mobs/Customization/Shadowkin/tails32x32.rsi
       state: shadowkin_shorter
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      replacementBodyPart: BodyPartTailShadowkin
+      # WD EDIT END
 
 - type: marking
   id: TailShadowkinMedium
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Shadowkin]
   forcedColoring: true
   sprites:
     - sprite: Mobs/Customization/Shadowkin/tails32x32.rsi
       state: shadowkin_medium
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      replacementBodyPart: BodyPartTailShadowkin
+      # WD EDIT END

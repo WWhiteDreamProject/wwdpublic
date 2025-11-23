@@ -1,0 +1,90 @@
+- type: entity
+  id: BaseBodyPartShadowkin
+  parent: BaseBodyPart
+  abstract: true
+  name: shadowkin body part
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Shadowkin/parts.rsi
+  - type: BodyPartAppearance
+    sprite: Mobs/Species/Shadowkin/parts.rsi
+
+# Head
+- type: entity
+  id: BodyPartHeadShadowkin
+  parent: [BaseBodyPartHead, BaseBodyPartShadowkin]
+  name: shadowkin head
+
+# Chest
+- type: entity
+  id: BodyPartChestShadowkin
+  parent: [BaseBodyPartChest, BaseBodyPartShadowkin]
+  name: shadowkin chest
+
+# Groin
+- type: entity
+  id: BodyPartGroinShadowkin
+  parent: [BaseBodyPartGroin, BaseBodyPartShadowkin]
+  name: shadowkin groin
+
+# Arms
+
+- type: entity
+  id: BodyPartLeftArmShadowkin
+  parent: [BaseBodyPartLeftArm, BaseBodyPartShadowkin]
+  name: shadowkin left arm
+
+- type: entity
+  id: BodyPartRightArmShadowkin
+  parent: [BaseBodyPartRightArm, BaseBodyPartShadowkin]
+  name: shadowkin right arm
+
+# Hand
+
+- type: entity
+  id: BodyPartLeftHandShadowkin
+  parent: [BaseBodyPartLeftHand, BaseBodyPartShadowkin]
+  name: shadowkin left hand
+
+- type: entity
+  id: BodyPartRightHandShadowkin
+  parent: [BaseBodyPartRightHand, BaseBodyPartShadowkin]
+  name: shadowkin right hand
+
+# Leg
+
+- type: entity
+  id: BodyPartLeftLegShadowkin
+  parent: [BaseBodyPartLeftLeg, BaseBodyPartShadowkin]
+  name: shadowkin left leg
+
+- type: entity
+  id: BodyPartRightLegShadowkin
+  parent: [BaseBodyPartRightLeg, BaseBodyPartShadowkin]
+  name: shadowkin right leg
+
+# Foot
+
+- type: entity
+  id: BodyPartLeftFootShadowkin
+  parent: [BaseBodyPartLeftFoot, BaseBodyPartShadowkin]
+  name: shadowkin left foot
+
+- type: entity
+  id: BodyPartRightFootShadowkin
+  parent: [BaseBodyPartRightFoot, BaseBodyPartShadowkin]
+  name: shadowkin right foot
+
+# Tail
+
+- type: entity
+  id: BodyPartTailShadowkin
+  parent: [BaseBodyPartTail, BaseBodyPartShadowkin]
+  name: shadowkin tail
+  components:
+  - type: Sprite
+    sprite: Mobs/Customization/Shadowkin/tails64x32.rsi
+    state: shadowkin
+  - type: BodyPartAppearance
+    sprite: Mobs/Customization/Shadowkin/tails64x32.rsi
+    state: shadowkin

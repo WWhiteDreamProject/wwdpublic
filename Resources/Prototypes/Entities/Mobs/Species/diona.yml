@@ -17,7 +17,6 @@
     state: full
   - type: Body
     prototype: Diona
-    requiredLegs: 2
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Diona
@@ -152,3 +151,7 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
+  # WD EDIT START
+  - type: Body
+    prototype: Diona
+  # WD EDIT END

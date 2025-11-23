@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using Content.Server._White.GameTicking.Rules;
+using Content.Server._White.Gibbing;
 using Content.Server.Bible.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Cuffs;
@@ -19,9 +20,9 @@ public sealed class CultRuneOfferingSystem : EntitySystem
 {
     [Dependency] private readonly BloodCultRuleSystem _bloodCultRule = default!;
     [Dependency] private readonly BloodCultRuneSystem _bloodCultRune = default!;
-    [Dependency] private readonly BodySystem _body = default!;
     [Dependency] private readonly CuffableSystem _cuffable = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly GibbingSystem _gibbing = default!;
     [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
@@ -103,7 +104,7 @@ public sealed class CultRuneOfferingSystem : EntitySystem
             _mind.UnVisit(mindId);
         }
 
-        _body.GibBody(target);
+        _gibbing.GibBody(target);
     }
 
     private void Convert(Entity<CultRuneOfferingComponent> rune, EntityUid target, EntityUid user)

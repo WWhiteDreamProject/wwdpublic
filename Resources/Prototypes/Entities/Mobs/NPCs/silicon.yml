@@ -102,8 +102,6 @@
     context: "human"
   - type: InputMover
   - type: MobMover
-  - type: Body
-    prototype: Bot
   - type: GuideHelp
     guides:
     - Robotics
