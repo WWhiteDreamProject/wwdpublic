@@ -12,9 +12,11 @@
   - type: SubFloorHide
     blockInteractions: false
     blockAmbience: false
-    visibleLayers: # WWDP edit start
+    # WD EDIT START
+    visibleLayers:
     - enum.SubfloorLayers.FirstLayer
-    - enum.SubfloorLayers.SecondLayer # WWDP edit end
+    - enum.SubfloorLayers.SecondLayer
+    # WD EDIT END
   - type: NodeContainer
     nodes:
       inlet:
