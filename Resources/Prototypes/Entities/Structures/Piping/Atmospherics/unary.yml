@@ -311,7 +311,7 @@
   components:
     - type: StationAiWhitelist
     - type: Sprite
-      noRot: True
+      noRot: True # WD EDIT
       layers:
         - state: pipe # WWDP edit start
           map: [ "enum.PipeVisualLayers.Pipe" ] # WWDP edit end
