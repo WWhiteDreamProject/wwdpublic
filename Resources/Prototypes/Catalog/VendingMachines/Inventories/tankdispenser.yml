@@ -8,5 +8,5 @@
 - type: vendingMachineInventory
   id: TankDispenserEngineeringInventory
   startingInventory:
-    PlasmaTankFilled: 6 # WWDP edit
-    OxygenTankFilled: 6 #YellowOxygenTankFilled: 6 # WWDP edit
+    PlasmaTankFilled: 6  # WD EDIT: 10 -> 6
+    OxygenTankFilled: 6  # WD EDIT: 10 -> 6
