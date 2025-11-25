@@ -422,6 +422,7 @@
       temperature: 72
   - type: AccessReader
     access: [["Atmospherics"]]
+  # WD EDIT START
   - type: Destructible
     thresholds:
     - trigger:
@@ -445,6 +446,7 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
       - !type:DumpCanisterBehavior
+  # WD EDIT END
 
 - type: entity
   parent: GasCanister
