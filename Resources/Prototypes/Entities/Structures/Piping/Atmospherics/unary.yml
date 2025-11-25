@@ -188,8 +188,8 @@
        # toggle color of the unshaded light:
        enum.OutletInjectorVisuals.Enabled:
          enum.LightLayers.Unshaded:
-           True: { color: "#22ef64" }
-           False: { color: "#ef2f22" }
+           True: { color: "#22ef64" } # WD EDIT: #5eff5e -> #22ef64
+           False: { color: "#ef2f22" } # WD EDIT: #990000 -> #ef2f22
     - type: Appearance
     - type: PipeColorVisuals
     - type: GasOutletInjector
