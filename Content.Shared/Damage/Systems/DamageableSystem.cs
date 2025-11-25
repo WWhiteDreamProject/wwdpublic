@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared._White.Body.Components;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.FixedPoint;
 using Content.Shared.Inventory;
@@ -124,24 +125,32 @@ namespace Content.Shared.Damage
         ///     null if the user had no applicable components that can take damage.
         /// </returns>
         public DamageSpecifier? TryChangeDamage(EntityUid? uid, DamageSpecifier damage, bool ignoreResistances = false,
-            bool interruptsDoAfters = true, DamageableComponent? damageable = null, EntityUid? origin = null)
+            bool interruptsDoAfters = true, DamageableComponent? damageable = null, EntityUid? origin = null, BodyPartType bodyPartType = BodyPartType.All)
         {
-            if (!uid.HasValue || !_damageableQuery.Resolve(uid.Value, ref damageable, false))
-            {
-                // TODO BODY SYSTEM pass damage onto body system
+            // WD EDIT START
+            if (!uid.HasValue)
                 return null;
-            }
 
             if (damage.Empty)
-            {
                 return damage;
-            }
+            // WD EDIT END
 
             var before = new BeforeDamageChangedEvent(damage, origin);
             RaiseLocalEvent(uid.Value, ref before);
 
             if (before.Cancelled)
                 return null;
+
+            // WD EDIT START
+            var beforeCommit = new BeforeDamageCommitEvent(damage, ignoreResistances, bodyPartType);
+            RaiseLocalEvent(uid.Value, ref beforeCommit);
+
+            if (beforeCommit.Handled)
+                return beforeCommit.Damage;
+
+            if (!_damageableQuery.Resolve(uid.Value, ref damageable, false))
+                return null;
+            // WD EDIT END
 
             // Apply resistances
             if (!ignoreResistances)
@@ -324,12 +333,14 @@ namespace Content.Shared.Damage
         public readonly DamageSpecifier OriginalDamage;
         public DamageSpecifier Damage;
         public EntityUid? Origin;
+        public BodyPartType BodyPartType; // WD EDIT
 
-        public DamageModifyEvent(DamageSpecifier damage, EntityUid? origin = null)
+        public DamageModifyEvent(DamageSpecifier damage, EntityUid? origin = null, BodyPartType bodyPartType = BodyPartType.None) // WD EDIT
         {
             OriginalDamage = damage;
             Damage = damage;
             Origin = origin;
+            BodyPartType = bodyPartType; // WD EDIT
         }
     }
 
@@ -388,4 +399,18 @@ namespace Content.Shared.Damage
             InterruptsDoAfters = interruptsDoAfters && DamageIncreased;
         }
     }
+
+    // WD EDIT START
+    /// <summary>
+    /// Raised before damage is applied to a Damageable.
+    /// </summary>
+    [ByRefEvent]
+    public sealed class BeforeDamageCommitEvent(DamageSpecifier damage, bool ignoreResistances, BodyPartType bodyPartType) : HandledEntityEventArgs
+    {
+        public DamageSpecifier Damage = damage;
+
+        public readonly bool IgnoreResistances = ignoreResistances;
+        public readonly BodyPartType BodyPartType = bodyPartType;
+    }
+    // WD EDIT END
 }

@@ -1,3 +1,4 @@
+using Content.Shared._White.Body.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.FixedPoint;
@@ -47,4 +48,12 @@ public sealed partial class EmbedPassiveDamageComponent : Component
 
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan NextDamage = TimeSpan.Zero;
+
+    // WD EDIT START
+    /// <summary>
+    /// The body part that will be damaged
+    /// </summary>
+    [ViewVariables]
+    public BodyPartType BodyPartType = BodyPartType.All;
+    // WD EDIT END
 }

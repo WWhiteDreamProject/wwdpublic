@@ -23,6 +23,9 @@ public sealed partial class BodySystem : SharedBodySystem
 
         SubscribeLocalEvent<BodyComponent, MoveInputEvent>(OnRelayMoveInput);
         InitializeRelay();
+        InitializeBody();
+        InitializeBodyPart();
+        InitializeBone();
     }
 
     private void OnRelayMoveInput(Entity<BodyComponent> ent, ref MoveInputEvent args)

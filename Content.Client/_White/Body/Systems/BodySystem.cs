@@ -10,6 +10,7 @@ public sealed partial class BodySystem : SharedBodySystem
     [Dependency] private readonly MarkingManager _marking = default!;
     [Dependency] private readonly IResourceCache _resourceCache = default!;
 
+    [Dependency] private readonly ContainerSystem _container = default!;
     [Dependency] private readonly SpriteSystem _sprite = default!;
 
     public override void Initialize()
@@ -17,5 +18,8 @@ public sealed partial class BodySystem : SharedBodySystem
         base.Initialize();
 
         InitializeAppearance();
+        InitializeBody();
+        InitializeBodyPart();
+        InitializeBone();
     }
 }

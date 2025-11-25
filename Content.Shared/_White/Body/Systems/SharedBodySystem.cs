@@ -39,6 +39,7 @@ public abstract partial class SharedBodySystem : EntitySystem
         InitializeBodyPart();
         InitializeBone();
         InitializeOrgan();
+        InitializeRelay();
     }
 
     /// <summary>

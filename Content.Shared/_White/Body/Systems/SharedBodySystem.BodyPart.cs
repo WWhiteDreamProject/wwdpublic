@@ -10,6 +10,7 @@ public abstract partial class SharedBodySystem
     private void InitializeBodyPart()
     {
         SubscribeLocalEvent<BodyPartComponent, MapInitEvent>(OnBodyPartMapInit);
+
         SubscribeLocalEvent<BodyPartComponent, EntGotInsertedIntoContainerMessage>(OnBodyPartGotInserted);
         SubscribeLocalEvent<BodyPartComponent, EntGotRemovedFromContainerMessage>(OnBodyPartGotRemoved);
     }
@@ -27,18 +28,18 @@ public abstract partial class SharedBodySystem
 
     private void OnBodyPartGotInserted(Entity<BodyPartComponent> bodyPart, ref EntGotInsertedIntoContainerMessage args)
     {
-        bodyPart.Comp.ParentPart = args.Container.Owner;
+        bodyPart.Comp.Parent = args.Container.Owner;
 
-        if (TryComp<BodyComponent>(bodyPart.Comp.ParentPart, out var bodyComponent))
-            bodyPart.Comp.Body = bodyPart.Comp.ParentPart;
-        else if (TryComp<BodyPartComponent>(bodyPart.Comp.ParentPart, out var parentBodyPartComponent))
+        if (TryComp<BodyComponent>(bodyPart.Comp.Parent, out var bodyComponent))
+            bodyPart.Comp.Body = bodyPart.Comp.Parent;
+        else if (TryComp<BodyPartComponent>(bodyPart.Comp.Parent, out var parentBodyPartComponent))
             bodyPart.Comp.Body = parentBodyPartComponent.Body;
 
         if (!bodyPart.Comp.Body.HasValue || !Resolve(bodyPart.Comp.Body.Value, ref bodyComponent))
             return;
 
-        SetBonesBody((bodyPart.Comp.Body.Value, bodyComponent), bodyPart.Comp.ParentPart.Value, GetBones(bodyPart.AsNullable()));
-        SetOrgansBody((bodyPart.Comp.Body.Value, bodyComponent), bodyPart.Comp.ParentPart.Value, GetOrgans(bodyPart.AsNullable()));
+        SetBonesBody((bodyPart.Comp.Body.Value, bodyComponent), bodyPart.Comp.Parent.Value, GetBones(bodyPart.AsNullable()));
+        SetOrgansBody((bodyPart.Comp.Body.Value, bodyComponent), bodyPart.Comp.Parent.Value, GetOrgans(bodyPart.AsNullable()));
 
         var ev = new BodyPartAddedEvent(
             bodyPart,
@@ -52,7 +53,7 @@ public abstract partial class SharedBodySystem
         var body = bodyPart.Comp.Body;
 
         bodyPart.Comp.Body = null;
-        bodyPart.Comp.ParentPart = null;
+        bodyPart.Comp.Parent = null;
 
         if (!TryComp<BodyComponent>(body, out var bodyComponent))
             return;
@@ -109,7 +110,7 @@ public abstract partial class SharedBodySystem
     /// <summary>
     /// Gets the body parts of this body.
     /// </summary>
-    public List<Entity<BodyPartComponent>> GetBodyParts(Entity<BodyComponent?> body, BodyPartType type = BodyPartType.None)
+    public List<Entity<BodyPartComponent>> GetBodyParts(Entity<BodyComponent?> body, BodyPartType type = BodyPartType.All)
     {
         if (!Resolve(body, ref body.Comp))
             return new List<Entity<BodyPartComponent>>();
@@ -118,7 +119,7 @@ public abstract partial class SharedBodySystem
         foreach (var bodyPartSlot in body.Comp.BodyParts.Values)
         {
             if (!TryComp<BodyPartComponent>(bodyPartSlot.BodyPartUid, out var bodyPartComponent)
-                || !bodyPartComponent.Type.HasFlag(type))
+                || !type.HasFlag(bodyPartSlot.Type))
                 continue;
 
             bodyParts.Add((bodyPartSlot.BodyPartUid.Value, bodyPartComponent));
@@ -130,7 +131,7 @@ public abstract partial class SharedBodySystem
     /// <summary>
     /// Gets the body parts of this body part.
     /// </summary>
-    public List<Entity<BodyPartComponent>> GetBodyParts(Entity<BodyPartComponent?> bodyPart, BodyPartType type = BodyPartType.None)
+    public List<Entity<BodyPartComponent>> GetBodyParts(Entity<BodyPartComponent?> bodyPart, BodyPartType type = BodyPartType.All)
     {
         if (!Resolve(bodyPart, ref bodyPart.Comp))
             return new List<Entity<BodyPartComponent>>();
@@ -139,7 +140,7 @@ public abstract partial class SharedBodySystem
         foreach (var bodyPartSlot in bodyPart.Comp.BodyParts.Values)
         {
             if (!TryComp<BodyPartComponent>(bodyPartSlot.BodyPartUid, out var bodyPartComponent)
-                || !bodyPartComponent.Type.HasFlag(type))
+                || !type.HasFlag(bodyPartSlot.Type))
                 continue;
 
             bodyParts.AddRange(GetBodyParts((bodyPartSlot.BodyPartUid.Value, bodyPartComponent), type));
@@ -151,7 +152,7 @@ public abstract partial class SharedBodySystem
     /// <summary>
     /// Gets the body parts of this entity.
     /// </summary>
-    public List<Entity<BodyPartComponent>> GetBodyParts(EntityUid parent, BodyPartType type = BodyPartType.None)
+    public List<Entity<BodyPartComponent>> GetBodyParts(EntityUid parent, BodyPartType type = BodyPartType.All)
     {
         if (TryComp<BodyComponent>(parent, out var bodyComponent))
             return GetBodyParts((parent, bodyComponent), type);
@@ -169,7 +170,7 @@ public abstract partial class SharedBodySystem
     /// <summary>
     /// Gets the body parts of this body with the given component.
     /// </summary>
-    public List<Entity<BodyPartComponent, T>> GetBodyParts<T>(Entity<BodyComponent?> body, BodyPartType type = BodyPartType.None) where T : IComponent
+    public List<Entity<BodyPartComponent, T>> GetBodyParts<T>(Entity<BodyComponent?> body, BodyPartType type = BodyPartType.All) where T : IComponent
     {
         var bodyParts = new List<Entity<BodyPartComponent, T>>();
         foreach (var bodyPart in GetBodyParts(body, type))
@@ -186,7 +187,7 @@ public abstract partial class SharedBodySystem
     /// <summary>
     /// Gets the body parts of this body part with the given component.
     /// </summary>
-    public List<Entity<BodyPartComponent, T>> GetBodyParts<T>(Entity<BodyPartComponent?> bodyPart, BodyPartType type = BodyPartType.None) where T : IComponent
+    public List<Entity<BodyPartComponent, T>> GetBodyParts<T>(Entity<BodyPartComponent?> bodyPart, BodyPartType type = BodyPartType.All) where T : IComponent
     {
         var bodyParts = new List<Entity<BodyPartComponent, T>>();
         foreach (var childBodyPart in GetBodyParts(bodyPart, type))
@@ -203,7 +204,7 @@ public abstract partial class SharedBodySystem
     /// <summary>
     /// Gets the body parts of this body part with the given component.
     /// </summary>
-    public List<Entity<BodyPartComponent, T>> GetBodyParts<T>(EntityUid parent, BodyPartType type = BodyPartType.None) where T : IComponent
+    public List<Entity<BodyPartComponent, T>> GetBodyParts<T>(EntityUid parent, BodyPartType type = BodyPartType.All) where T : IComponent
     {
         var bodyParts = new List<Entity<BodyPartComponent, T>>();
         foreach (var bodyPart in GetBodyParts(parent, type))
@@ -224,7 +225,7 @@ public abstract partial class SharedBodySystem
     /// <summary>
     /// Gets the body part slots of this body.
     /// </summary>
-    public List<BodyPartSlot> GetBodyPartSlots(Entity<BodyComponent?> body, BodyPartType type = BodyPartType.None, string? slotId = null)
+    public List<BodyPartSlot> GetBodyPartSlots(Entity<BodyComponent?> body, BodyPartType type = BodyPartType.All, string? slotId = null)
     {
         if (!Resolve(body, ref body.Comp))
             return new List<BodyPartSlot>();
@@ -232,7 +233,7 @@ public abstract partial class SharedBodySystem
         var bodyPartSlots = new List<BodyPartSlot>();
         foreach (var bodyPartSlot in body.Comp.BodyParts.Values)
         {
-            if (!bodyPartSlot.Type.HasFlag(type) || !string.IsNullOrEmpty(slotId) && bodyPartSlot.Id != slotId)
+            if (!type.HasFlag(bodyPartSlot.Type) || !string.IsNullOrEmpty(slotId) && bodyPartSlot.Id != slotId)
                 continue;
 
             bodyPartSlots.Add(bodyPartSlot);
@@ -244,7 +245,7 @@ public abstract partial class SharedBodySystem
     /// <summary>
     /// Gets the body part slots of this body part.
     /// </summary>
-    public List<BodyPartSlot> GetBodyPartSlots(Entity<BodyPartComponent?> bodyPart, BodyPartType type = BodyPartType.None, string? slotId = null)
+    public List<BodyPartSlot> GetBodyPartSlots(Entity<BodyPartComponent?> bodyPart, BodyPartType type = BodyPartType.All, string? slotId = null)
     {
         if (!Resolve(bodyPart, ref bodyPart.Comp))
             return new List<BodyPartSlot>();
@@ -252,7 +253,7 @@ public abstract partial class SharedBodySystem
         var bodyPartSlots = new List<BodyPartSlot>();
         foreach (var bodyPartSlot in bodyPart.Comp.BodyParts.Values)
         {
-            if (!bodyPartSlot.Type.HasFlag(type) || !string.IsNullOrEmpty(slotId) && bodyPartSlot.Id != slotId)
+            if (!type.HasFlag(bodyPartSlot.Type) || !string.IsNullOrEmpty(slotId) && bodyPartSlot.Id != slotId)
                 continue;
 
             bodyPartSlots.AddRange(GetBodyPartSlots(bodyPart, type, slotId));
@@ -264,7 +265,7 @@ public abstract partial class SharedBodySystem
     /// <summary>
     /// Gets the body part slots of this entity.
     /// </summary>
-    public List<BodyPartSlot> GetBodyPartSlots(EntityUid parent, BodyPartType type = BodyPartType.None, string? slotId = null)
+    public List<BodyPartSlot> GetBodyPartSlots(EntityUid parent, BodyPartType type = BodyPartType.All, string? slotId = null)
     {
         if (TryComp<BodyComponent>(parent, out var bodyComponent))
             return GetBodyPartSlots((parent, bodyComponent), type, slotId);
@@ -282,7 +283,7 @@ public abstract partial class SharedBodySystem
     /// <summary>
     /// Returns the body parts of this body.
     /// </summary>
-    public bool TryGetBodyParts(Entity<BodyComponent?> body, out List<Entity<BodyPartComponent>> bodyParts, BodyPartType type = BodyPartType.None)
+    public bool TryGetBodyParts(Entity<BodyComponent?> body, out List<Entity<BodyPartComponent>> bodyParts, BodyPartType type = BodyPartType.All)
     {
         bodyParts = GetBodyParts(body, type);
         return bodyParts.Count != 0;
@@ -291,7 +292,7 @@ public abstract partial class SharedBodySystem
     /// <summary>
     /// Returns the body parts of this body part.
     /// </summary>
-    public bool TryGetBodyParts(Entity<BodyPartComponent?> bodyPart, out List<Entity<BodyPartComponent>> bodyParts, BodyPartType type = BodyPartType.None)
+    public bool TryGetBodyParts(Entity<BodyPartComponent?> bodyPart, out List<Entity<BodyPartComponent>> bodyParts, BodyPartType type = BodyPartType.All)
     {
         bodyParts = GetBodyParts(bodyPart, type);
         return bodyParts.Count != 0;
@@ -300,7 +301,7 @@ public abstract partial class SharedBodySystem
     /// <summary>
     /// Returns the body parts of this entity.
     /// </summary>
-    public bool TryGetBodyParts(EntityUid parent, out List<Entity<BodyPartComponent>> bodyParts, BodyPartType type = BodyPartType.None)
+    public bool TryGetBodyParts(EntityUid parent, out List<Entity<BodyPartComponent>> bodyParts, BodyPartType type = BodyPartType.All)
     {
         bodyParts = GetBodyParts(parent, type);
         return bodyParts.Count != 0;
@@ -313,7 +314,7 @@ public abstract partial class SharedBodySystem
     /// <summary>
     /// Returns the body parts of this body with the given component.
     /// </summary>
-    public bool TryGetBodyParts<T>(Entity<BodyComponent?> body, out List<Entity<BodyPartComponent, T>> bodyParts, BodyPartType type = BodyPartType.None) where T : IComponent
+    public bool TryGetBodyParts<T>(Entity<BodyComponent?> body, out List<Entity<BodyPartComponent, T>> bodyParts, BodyPartType type = BodyPartType.All) where T : IComponent
     {
         bodyParts = GetBodyParts<T>(body, type);
         return bodyParts.Count != 0;
@@ -322,7 +323,7 @@ public abstract partial class SharedBodySystem
     /// <summary>
     /// Returns the body parts of this body part with the given component.
     /// </summary>
-    public bool TryGetBodyParts<T>(Entity<BodyPartComponent?> bodyPart, out List<Entity<BodyPartComponent, T>> bodyParts, BodyPartType type = BodyPartType.None) where T : IComponent
+    public bool TryGetBodyParts<T>(Entity<BodyPartComponent?> bodyPart, out List<Entity<BodyPartComponent, T>> bodyParts, BodyPartType type = BodyPartType.All) where T : IComponent
     {
         bodyParts = GetBodyParts<T>(bodyPart, type);
         return bodyParts.Count != 0;
@@ -331,7 +332,7 @@ public abstract partial class SharedBodySystem
     /// <summary>
     /// Returns the body parts of this entity with the given component.
     /// </summary>
-    public bool TryGetBodyParts<T>(EntityUid parent, out List<Entity<BodyPartComponent, T>> bodyParts, BodyPartType type = BodyPartType.None) where T : IComponent
+    public bool TryGetBodyParts<T>(EntityUid parent, out List<Entity<BodyPartComponent, T>> bodyParts, BodyPartType type = BodyPartType.All) where T : IComponent
     {
         bodyParts = GetBodyParts<T>(parent, type);
         return bodyParts.Count != 0;

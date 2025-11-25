@@ -121,7 +121,7 @@ public sealed class MobThresholdSystem : EntitySystem
         MobThresholdsComponent? thresholdComponent = null)
     {
         threshold = null;
-        if (!Resolve(target, ref thresholdComponent))
+        if (!Resolve(target, ref thresholdComponent, false)) // WD EDIT: TODO
             return false;
 
         foreach (var pair in thresholdComponent.Thresholds)

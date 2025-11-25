@@ -3,6 +3,7 @@ using Content.Shared._White.Body.Components;
 using Content.Shared._White.Body.Prototypes;
 using Content.Shared.Humanoid;
 using Robust.Shared.Containers;
+using Robust.Shared.Timing;
 
 namespace Content.Shared._White.Body.Systems;
 
@@ -48,6 +49,12 @@ public abstract partial class SharedBodySystem
 
             body.Comp.BodyParts.Add(id.BodyPartId, bodyPartSlot);
 
+            if (TryComp<BodyPartComponent>(id.BodyPartParent, out var parentBodyPartComponent))
+            {
+                parentBodyPartComponent.BodyParts.Add(id.BodyPartId, bodyPartSlot);
+                Dirty(id.BodyPartParent, parentBodyPartComponent);
+            }
+
             if (string.IsNullOrEmpty(bodyPartSlot.StartingBodyPart))
                 continue;
 
@@ -75,6 +82,8 @@ public abstract partial class SharedBodySystem
             bodyPartComponent.Organs = bodyPartSlot.Organs;
             SetupOrgans(bodyPart, bodyPartComponent.Organs);
 
+            Dirty(bodyPart, bodyPartComponent);
+
             foreach (var childBodyPart in bodyPartSlot.Connections)
             {
                 if (processedBodyPart.Contains(childBodyPart))
@@ -84,6 +93,8 @@ public abstract partial class SharedBodySystem
                 processedBodyPart.Add(childBodyPart);
             }
         }
+
+        Timer.Spawn(200, () => Dirty(body));
     }
 
     #endregion

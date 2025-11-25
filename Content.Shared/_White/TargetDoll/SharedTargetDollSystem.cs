@@ -1,6 +1,8 @@
 using Content.Shared._White.Body.Components;
+using Content.Shared._White.Body.Systems;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Player;
+using Robust.Shared.Random;
 using Robust.Shared.Serialization;
 using static Content.Shared.Input.ContentKeyFunctions;
 
@@ -8,6 +10,10 @@ namespace Content.Shared._White.TargetDoll;
 
 public abstract class SharedTargetDollSystem : EntitySystem
 {
+    [Dependency] private readonly IRobustRandom _random = default!;
+
+    [Dependency] private readonly SharedBodySystem _body = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -68,6 +74,22 @@ public abstract class SharedTargetDollSystem : EntitySystem
 
         ent.Comp.SelectedBodyPartType = bodyPartType;
         Dirty(ent);
+    }
+
+    public BodyPartType GetSelectedBodyPart(Entity<TargetDollComponent?> ent)
+    {
+        if (!Resolve(ent, ref ent.Comp, false))
+            return BodyPartType.None;
+
+        return ent.Comp.SelectedBodyPartType;
+    }
+
+    public BodyPartType GetRandomValidBodyPart(Entity<BodyComponent?> body)
+    {
+        if (!Resolve(body, ref body.Comp, false) || !_body.TryGetBodyParts(body, out var bodyParts))
+            return BodyPartType.None;
+
+        return _random.PickAndTake(bodyParts).Comp.Type;
     }
 }
 

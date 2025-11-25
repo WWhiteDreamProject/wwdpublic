@@ -2,6 +2,7 @@ using Content.Shared._White.Body.Prototypes;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared._White.Body.Components;
 
@@ -31,4 +32,23 @@ public sealed partial class BodyComponent : Component
 
     [DataField]
     public SoundSpecifier GibSound = new SoundCollectionSpecifier("gib");
+}
+
+[Serializable, NetSerializable]
+public sealed class BodyComponentState : ComponentState
+{
+    public BodyComponentState(BodyComponent component, EntityManager entityManager)
+    {
+        BodyParts = new();
+        foreach (var (stateKey, stateSlot) in component.BodyParts)
+            BodyParts.Add(stateKey, (stateSlot, entityManager.GetNetEntity(stateSlot.ContainerSlot?.Owner)));
+
+        Organs = new();
+        foreach (var (stateKey, stateSlot) in component.Organs)
+            Organs.Add(stateKey, (stateSlot, entityManager.GetNetEntity(stateSlot.ContainerSlot?.Owner)));
+    }
+
+    public readonly Dictionary<string, (BodyPartSlot BodyPartSlot, NetEntity? BodyPartOwner)> BodyParts;
+
+    public readonly Dictionary<string, (OrganSlot OrganSlot, NetEntity? OrganOwner)> Organs;
 }

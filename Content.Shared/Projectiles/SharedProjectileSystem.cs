@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Numerics;
+using Content.Shared._White.Body.Components;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
@@ -120,7 +121,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
             // || _standing.IsDown(args.Target)) // WD EDIT
             return;
 
-        TryEmbed(uid, args.Target, null, component);
+        TryEmbed(uid, args.Target, null, component, bodyPartType: args.BodyPartType); // WD EDIT
     }
 
     private void OnEmbedProjectileHit(EntityUid uid, EmbeddableProjectileComponent component, ref ProjectileHitEvent args)
@@ -128,7 +129,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         if (!(args.Target is { }) // || _standing.IsDown(args.Target) // WD EDIT
             || !TryComp(uid, out ProjectileComponent? projectile)
             || projectile.Weapon is null
-            || !TryEmbed(uid, args.Target, args.Shooter, component))
+            || !TryEmbed(uid, args.Target, args.Shooter, component, bodyPartType: args.BodyPartType))
             return;
 
         // Raise a specific event for projectiles.
@@ -136,7 +137,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         RaiseLocalEvent(uid, ref ev);
     }
 
-    public bool TryEmbed(EntityUid uid, EntityUid target, EntityUid? user, EmbeddableProjectileComponent component, bool raiseEvent = true) // WD EDIT: raiseEvent
+    public bool TryEmbed(EntityUid uid, EntityUid target, EntityUid? user, EmbeddableProjectileComponent component, bool raiseEvent = true, BodyPartType bodyPartType = BodyPartType.None) // WD EDIT
     {
         // WD EDIT START
         if (!TryComp<PhysicsComponent>(uid, out var physics)
@@ -179,7 +180,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         _audio.PlayPredicted(component.Sound, uid, null);
 
         component.EmbeddedIntoUid = target;
-        var ev = new EmbedEvent(user, target);
+        var ev = new EmbedEvent(user, target, bodyPartType); // WD EDIT
         RaiseLocalEvent(uid, ref ev);
 
         if (component.AutoRemoveDuration != 0)
@@ -249,6 +250,17 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         Dirty(id, component);
     }
 
+    // WD EDIT START
+    public void SetBodyPartType(Entity<ProjectileComponent> projectile, BodyPartType bodyPartType)
+    {
+        if (projectile.Comp.BodyPartType == bodyPartType)
+            return;
+
+        projectile.Comp.BodyPartType = bodyPartType;
+        Dirty(projectile);
+    }
+    // WD EDIT END
+
     private void OnExamined(EntityUid uid, EmbeddableProjectileComponent component, ExaminedEvent args)
     {
         if (!(component.EmbeddedIntoUid is { } target))
@@ -308,7 +320,7 @@ public record struct ProjectileReflectAttemptEvent(EntityUid ProjUid, Projectile
 /// Raised when a projectile hits an entity
 /// </summary>
 [ByRefEvent]
-public record struct ProjectileHitEvent(DamageSpecifier Damage, EntityUid Target, EntityUid? Shooter = null);
+public record struct ProjectileHitEvent(DamageSpecifier Damage, EntityUid Target, EntityUid? Shooter = null, BodyPartType BodyPartType = BodyPartType.None); // WD EDIT
 
 /// <summary>
 /// Raised after a projectile has dealt it's damage.

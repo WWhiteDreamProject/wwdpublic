@@ -28,5 +28,10 @@ namespace Content.Shared.Damage.Prototypes
         /// </summary>
         [DataField("armorFlatPrice")]
         public double ArmorPriceFlat { get; set; }
+
+        // WD EDIT START
+        [DataField]
+        public EntProtoId? Wound { get; set; }
+        // WD EDIT END
     }
 }

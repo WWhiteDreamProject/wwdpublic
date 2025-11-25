@@ -308,6 +308,19 @@ namespace Content.Shared.Damage
             }
         }
 
+        // WD EDIT START
+        /// <summary>
+        ///     This adds the damage values of some other <see cref="DamageSpecifier"/> to the current one without
+        ///     adding any new damage types. This operation ensures that damage values are non-negative.
+        /// </summary>
+        public void ApplyDamage(DamageSpecifier other)
+        {
+            foreach (var (type, value) in other.DamageDict)
+                if (DamageDict.TryGetValue(type, out var existing))
+                    DamageDict[type] = FixedPoint2.Max(FixedPoint2.Zero, existing + value);
+        }
+        // WD EDIT END
+
         #region Operators
         public static DamageSpecifier operator *(DamageSpecifier damageSpec, FixedPoint2 factor)
         {

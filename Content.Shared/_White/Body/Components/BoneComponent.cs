@@ -25,7 +25,7 @@ public sealed partial class BoneComponent : Component
     /// Parent body part for this bone.
     /// </summary>
     [DataField]
-    public EntityUid? ParentPart;
+    public EntityUid? Parent;
 }
 
 /// <summary>
@@ -90,9 +90,7 @@ public sealed partial class BoneSlot
 
     public BoneSlot(BoneSlot other)
     {
-        Type = other.Type;
-        Organs = other.Organs.ToDictionary(x => x.Key, x => new OrganSlot(x.Value));
-        StartingBone = other.StartingBone;
+        CopyFrom(other);
     }
 
     public BoneSlot(BoneType type, Dictionary<string, OrganSlot> organs, EntProtoId? startingBone)
@@ -117,4 +115,35 @@ public sealed partial class BoneSlot
     public string? Id => ContainerSlot?.ID;
     public bool HasBone => ContainerSlot?.ContainedEntity != null;
     public EntityUid? BoneUid => ContainerSlot?.ContainedEntity;
+
+    public void CopyFrom(BoneSlot other)
+    {
+        Type = other.Type;
+        Organs = other.Organs.ToDictionary(x => x.Key, x => new OrganSlot(x.Value));
+        StartingBone = other.StartingBone;
+    }
+}
+
+[Serializable, NetSerializable]
+public sealed class BoneComponentState : ComponentState
+{
+    public BoneComponentState(BoneComponent component, EntityManager entityManager)
+    {
+        Type = component.Type;
+
+        Organs = new();
+        foreach (var (stateKey, stateSlot) in component.Organs)
+            Organs.Add(stateKey, stateSlot);
+
+        Body = entityManager.GetNetEntity(component.Body);
+        Parent = entityManager.GetNetEntity(component.Parent);
+    }
+
+    public readonly BoneType Type;
+
+    public readonly Dictionary<string, OrganSlot> Organs;
+
+    public readonly NetEntity? Body;
+
+    public readonly NetEntity? Parent;
 }

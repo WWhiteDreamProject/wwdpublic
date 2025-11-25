@@ -59,7 +59,7 @@ public sealed class SaveLoadReparentTest
                 {
                     Assert.That(component.Body, Is.EqualTo(human));
                     Assert.That(component.Body, Is.Not.Null);
-                    var parent = component.ParentPart; // WD EDIT
+                    var parent = component.Parent; // WD EDIT
                     Assert.That(parent, Is.Not.EqualTo(default(EntityUid)));
                     Assert.That(parent, Is.Null);
                 });
@@ -133,7 +133,7 @@ public sealed class SaveLoadReparentTest
 
                 foreach (var (id, component) in parts)
                 {
-                    var parent = component.ParentPart; // WD EDIT
+                    var parent = component.Parent; // WD EDIT
 
                     Assert.Multiple(() =>
                     {

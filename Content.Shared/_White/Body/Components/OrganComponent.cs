@@ -5,22 +5,22 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared._White.Body.Components;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class OrganComponent : Component
 {
     /// <summary>
     /// Relevant body this organ is attached to.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public EntityUid? Body;
 
     /// <summary>
     /// Parent body part for this organ.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public EntityUid? ParentPart;
 
-    [DataField("organType")] // It can't support the "type" tag.
+    [DataField("organType"), AutoNetworkedField] // It can't support the "type" tag.
     public OrganType Type = OrganType.None;
 }
 
@@ -107,8 +107,7 @@ public sealed partial class OrganSlot
 
     public OrganSlot(OrganSlot other)
     {
-        Type = other.Type;
-        StartingOrgan = other.StartingOrgan;
+        CopyFrom(other);
     }
 
     public OrganSlot(OrganType type, EntProtoId? startingOrgan)
@@ -129,4 +128,10 @@ public sealed partial class OrganSlot
     public string? Id => ContainerSlot?.ID;
     public bool HasOrgan => ContainerSlot?.ContainedEntity != null;
     public EntityUid? OrganUid => ContainerSlot?.ContainedEntity;
+
+    public void CopyFrom(OrganSlot other)
+    {
+        Type = other.Type;
+        StartingOrgan = other.StartingOrgan;
+    }
 }

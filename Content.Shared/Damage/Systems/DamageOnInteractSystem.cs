@@ -55,13 +55,13 @@ public sealed class DamageOnInteractSystem : EntitySystem
 
             // if protectiveComp isn't null after all that, it means the user has protection,
             // so let's calculate how much they resist
-            if (protectiveEntity.Comp != null)
+            if (protectiveEntity.Comp != null && protectiveEntity.Comp.BodyPartType.HasFlag(entity.Comp.BodyPartType)) // WD EDIT
             {
                 totalDamage = DamageSpecifier.ApplyModifierSet(totalDamage, protectiveEntity.Comp.DamageProtection);
             }
         }
 
-        totalDamage = _damageableSystem.TryChangeDamage(args.User, totalDamage,  origin: args.Target);
+        totalDamage = _damageableSystem.TryChangeDamage(args.User, totalDamage,  origin: args.Target, bodyPartType: entity.Comp.BodyPartType); // WD EDIT
 
         if (totalDamage != null && totalDamage.AnyPositive())
         {

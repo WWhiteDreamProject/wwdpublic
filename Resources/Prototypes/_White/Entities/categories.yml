@@ -1,0 +1,4 @@
+- type: entityCategory
+  id: Wounds
+  name: entity-category-name-wounds
+  hideSpawnMenu: true

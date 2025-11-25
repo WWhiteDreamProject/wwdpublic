@@ -1,9 +1,12 @@
+using Content.Server._White.Medical.Wound.Systems;
+using Content.Server._White.TargetDoll;
 using Content.Server.Administration.Logs;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Medical.Components;
 using Content.Server.Popups;
 using Content.Server.Stack;
+using Content.Shared._White.Medical.Wounds.Components.Woundable;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Audio;
 using Content.Shared.Damage;
@@ -21,6 +24,7 @@ using Content.Shared.Popups;
 using Content.Shared.Stacks;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Random;
+using Robust.Shared.Utility;
 
 namespace Content.Server.Medical;
 
@@ -37,6 +41,10 @@ public sealed class HealingSystem : EntitySystem
     [Dependency] private readonly MobThresholdSystem _mobThresholdSystem = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
+    // WD EDIT START
+    [Dependency] private readonly TargetDollSystem _targetDoll = default!;
+    [Dependency] private readonly WoundSystem _wound = default!;
+    // WD EDIT END
 
     public override void Initialize()
     {
@@ -192,6 +200,22 @@ public sealed class HealingSystem : EntitySystem
         if (TryComp<StackComponent>(uid, out var stack) && stack.Count < 1)
             return false;
 
+        // WD EDIT START
+        var bodyPartType = _targetDoll.GetSelectedBodyPart(user);
+        if (TryComp<WoundableComponent>(target, out var woundableBodyComponent)
+            && !_wound.HasWounds((target, woundableBodyComponent), component.Damage, bodyPartType))
+        {
+            if (_wound.GetWoundableBodyParts((target, woundableBodyComponent), component.Damage).FirstOrNull() is not { } bodyPart)
+            {
+                _popupSystem.PopupEntity(Loc.GetString("medical-item-cant-use", ("item", uid)), uid, user);
+                return false;
+            }
+
+            _popupSystem.PopupEntity(Loc.GetString("medical-item-cant-use-switch-body-part", ("item", uid), ("body-part", bodyPartType), ("new-body-part", bodyPart.Comp1.Type)), uid, user);
+            bodyPartType = bodyPart.Comp1.Type;
+        }
+        // WD EDIT END
+
         if (!HasDamage((target, targetDamage), component))
         {
             _popupSystem.PopupEntity(Loc.GetString("medical-item-cant-use", ("item", uid)), uid, user);
@@ -214,7 +238,7 @@ public sealed class HealingSystem : EntitySystem
             : component.Delay * GetScaledHealingPenalty(user, component);
 
         var doAfterEventArgs =
-            new DoAfterArgs(EntityManager, user, delay, new HealingDoAfterEvent(), target, target: target, used: uid)
+            new DoAfterArgs(EntityManager, user, delay, new HealingDoAfterEvent(bodyPartType), target, target: target, used: uid) // WD EDIT
             {
                 // Didn't break on damage as they may be trying to prevent it and
                 // not being able to heal your own ticking damage would be frustrating.

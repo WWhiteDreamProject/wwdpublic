@@ -4,8 +4,6 @@ namespace Content.Shared._White.Body;
 
 #region BodyPart
 
-
-
 /// <summary>
 /// Raised when a body part is attached to body.
 /// </summary>

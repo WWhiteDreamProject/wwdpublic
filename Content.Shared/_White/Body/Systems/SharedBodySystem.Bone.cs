@@ -9,6 +9,7 @@ public abstract partial class SharedBodySystem
     private void InitializeBone()
     {
         SubscribeLocalEvent<BoneComponent, MapInitEvent>(OnBoneMapInit);
+
         SubscribeLocalEvent<BoneComponent, EntGotInsertedIntoContainerMessage>(OnBoneGotInserted);
         SubscribeLocalEvent<BoneComponent, EntGotRemovedFromContainerMessage>(OnBoneGotRemoved);
     }
@@ -22,15 +23,15 @@ public abstract partial class SharedBodySystem
 
     private void OnBoneGotInserted(Entity<BoneComponent> bone, ref EntGotInsertedIntoContainerMessage args)
     {
-        bone.Comp.ParentPart = args.Container.Owner;
-        if (!TryComp<BodyPartComponent>(bone.Comp.ParentPart, out var bodyPartComponent)
+        bone.Comp.Parent = args.Container.Owner;
+        if (!TryComp<BodyPartComponent>(bone.Comp.Parent, out var bodyPartComponent)
             || bodyPartComponent.Body is null
             || !TryComp<BodyComponent>(bodyPartComponent.Body, out var bodyComponent))
             return;
 
         bone.Comp.Body = bodyPartComponent.Body;
 
-        SetOrgansBody((bone.Comp.Body.Value, bodyComponent), bone.Comp.ParentPart.Value, GetOrgans(bone.AsNullable()));
+        SetOrgansBody((bone.Comp.Body.Value, bodyComponent), bone.Comp.Parent.Value, GetOrgans(bone.AsNullable()));
 
         RaiseLocalEvent(bone.Comp.Body.Value, new BoneAddedEvent());
     }
@@ -40,7 +41,7 @@ public abstract partial class SharedBodySystem
         var parent = args.Container.Owner;
 
         bone.Comp.Body = null;
-        bone.Comp.ParentPart = null;
+        bone.Comp.Parent = null;
 
         if (!TryComp<BodyPartComponent>(parent, out var bodyPartComponent) || bodyPartComponent.Body is null)
             return;

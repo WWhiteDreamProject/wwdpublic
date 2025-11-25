@@ -148,7 +148,7 @@ namespace Content.Server.Hands.Systems
             };
             // WD EDIT END
 
-            AddHand(uid, args.SlotId, location); // WD EDIT
+            AddHand(uid, args.SlotId + "_hans", location); // WD EDIT: TODO: fix me
         }
 
         private void HandleBodyPartRemoved(EntityUid uid, HandsComponent component, ref BodyPartRemovedEvent args)

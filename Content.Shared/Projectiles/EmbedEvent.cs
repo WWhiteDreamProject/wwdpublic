@@ -1,10 +1,12 @@
+using Content.Shared._White.Body.Components;
+
 namespace Content.Shared.Projectiles;
 
 /// <summary>
 /// Raised directed on an entity when it embeds in another entity.
 /// </summary>
 [ByRefEvent]
-public readonly record struct EmbedEvent(EntityUid? Shooter, EntityUid Embedded);
+public readonly record struct EmbedEvent(EntityUid? Shooter, EntityUid Embedded, BodyPartType BodyPartType); // WD EDIT
 
 /// <summary>
 /// Raised on an entity when it stops embedding in another entity.

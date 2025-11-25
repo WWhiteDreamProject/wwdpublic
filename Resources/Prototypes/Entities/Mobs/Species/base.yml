@@ -2,7 +2,7 @@
   save: false
   parent:
   - BaseMob
-  - MobDamageable
+  - BaseMobWoundable # WD EDIT: MobDamageable -> BaseMobWoundable
   - MobPolymorphable
   - MobCombat
   - StripableInventoryBase

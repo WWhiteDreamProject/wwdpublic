@@ -232,10 +232,10 @@ namespace Content.Server.Body.Systems
     // This will cause rates to slowly drift over time due to floating point errors.
     // Instead, the system that raised this should trigger an update and subscribe to get-modifier events.
     [ByRefEvent]
-    public sealed class ApplyMetabolicMultiplierEvent( // WD EDIT
+    public readonly record struct ApplyMetabolicMultiplierEvent(
         EntityUid Uid,
         float Multiplier,
-        bool Apply) : EntityEventArgs // WD EDIT
+        bool Apply)
     {
         /// <summary>
         /// The entity whose metabolism is being modified.

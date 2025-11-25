@@ -43,7 +43,7 @@ public sealed partial class BodyPartComponent : Component
     /// Parent body part for this part.
     /// </summary>
     [ViewVariables]
-    public EntityUid? ParentPart;
+    public EntityUid? Parent;
 }
 
 /// <summary>
@@ -215,6 +215,26 @@ public enum BodyPartType
     Face = Head | Eyes | Mouth,
 
     /// <summary>
+    /// All arms.
+    /// </summary>
+    Arms = Arm | Left | Middle | Right,
+
+    /// <summary>
+    /// All hands.
+    /// </summary>
+    Hands = Hand | Left | Middle | Right,
+
+    /// <summary>
+    /// All legs.
+    /// </summary>
+    Legs = Leg | Left | Middle | Right,
+
+    /// <summary>
+    /// All foots.
+    /// </summary>
+    Foots = Foot | Left | Middle | Right,
+
+    /// <summary>
     /// The entire left limb, including the arm and hand.
     /// </summary>
     FullLeftArm  = LeftArm | LeftHand,
@@ -235,9 +255,19 @@ public enum BodyPartType
     FullRightLeg  = RightLeg | RightFoot,
 
     /// <summary>
+    /// All upper limbs, including arms and hands.
+    /// </summary>
+    FullArms  = Arms | Hands,
+
+    /// <summary>
+    /// All lower limbs, including the legs and foots.
+    /// </summary>
+    FullLegs  = Legs | Foots,
+
+    /// <summary>
     /// All Limbs.
     /// </summary>
-    AllLimbs = Arm | Hand | Leg | Foot | Tail,
+    AllLimbs = FullArms | FullLegs | Tail,
 
     /// <summary>
     /// All Parts.
@@ -252,11 +282,7 @@ public sealed partial class BodyPartSlot
 
     public BodyPartSlot(BodyPartSlot other)
     {
-        Type = other.Type;
-        Connections = other.Connections;
-        Bones = other.Bones.ToDictionary(x => x.Key, x => new BoneSlot(x.Value));
-        Organs = other.Organs.ToDictionary(x => x.Key, x => new OrganSlot(x.Value));
-        StartingBodyPart = other.StartingBodyPart;
+        CopyFrom(other);
     }
 
     public BodyPartSlot(
@@ -295,4 +321,49 @@ public sealed partial class BodyPartSlot
     public string? Id => ContainerSlot?.ID;
     public bool HasBodyPart => ContainerSlot?.ContainedEntity != null;
     public EntityUid? BodyPartUid => ContainerSlot?.ContainedEntity;
+
+    public void CopyFrom(BodyPartSlot other)
+    {
+        Type = other.Type;
+        Connections = other.Connections;
+        Bones = other.Bones.ToDictionary(x => x.Key, x => new BoneSlot(x.Value));
+        Organs = other.Organs.ToDictionary(x => x.Key, x => new OrganSlot(x.Value));
+        StartingBodyPart = other.StartingBodyPart;
+    }
+}
+
+[Serializable, NetSerializable]
+public sealed class BodyPartComponentState : ComponentState
+{
+    public BodyPartComponentState(BodyPartComponent component, EntityManager entityManager)
+    {
+        Type = component.Type;
+
+        BodyParts = new();
+        foreach (var (stateKey, stateSlot) in component.BodyParts)
+            BodyParts.Add(stateKey, stateSlot);
+
+        Bones = new();
+        foreach (var (stateKey, stateSlot) in component.Bones)
+            Bones.Add(stateKey, stateSlot);
+
+        Organs = new();
+        foreach (var (stateKey, stateSlot) in component.Organs)
+            Organs.Add(stateKey, stateSlot);
+
+        Body = entityManager.GetNetEntity(component.Body);
+        Parent = entityManager.GetNetEntity(component.Parent);
+    }
+
+    public readonly BodyPartType Type;
+
+    public readonly Dictionary<string, BodyPartSlot> BodyParts;
+
+    public readonly Dictionary<string, BoneSlot> Bones;
+
+    public readonly Dictionary<string, OrganSlot> Organs;
+
+    public readonly NetEntity? Body;
+
+    public readonly NetEntity? Parent;
 }

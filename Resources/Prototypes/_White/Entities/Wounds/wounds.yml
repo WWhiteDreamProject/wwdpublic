@@ -1,0 +1,83 @@
+- type: entity
+  id: WoundBase
+  abstract: true
+  components:
+  - type: Wound
+    maximumDamage: 100
+
+- type: entity
+  id: WoundBlunt
+  parent: WoundBase
+  name: bruise
+  components:
+  - type: Wound
+    damageType: Blunt
+  - type: PainfulWound
+    painCoefficients: 0.8
+    freshPainCoefficients: 0.6
+
+- type: entity
+  id: WoundSlash
+  parent: WoundBase
+  name: cut
+  components:
+  - type: Wound
+    damageType: Slash
+  - type: PainfulWound
+    painCoefficients: 0.8
+    freshPainCoefficients: 0.6
+
+- type: entity
+  id: WoundPiercing
+  parent: WoundBase
+  name: puncture
+  components:
+  - type: Wound
+    damageType: Piercing
+  - type: PainfulWound
+    painCoefficients: 0.8
+    freshPainCoefficients: 0.6
+
+- type: entity
+  id: WoundHeat
+  parent: WoundBase
+  name: burn
+  components:
+  - type: Wound
+    damageType: Heat
+  - type: PainfulWound
+    painCoefficients: 0.6
+    freshPainCoefficients: 0.8
+
+- type: entity
+  id: WoundCold
+  parent: WoundBase
+  name: frostbite
+  components:
+  - type: Wound
+    damageType: Cold
+  - type: PainfulWound
+    painCoefficients: 0.6
+    freshPainCoefficients: 0.8
+
+- type: entity
+  id: WoundCaustic
+  parent: WoundBase
+  name: caustic burn
+  components:
+  - type: Wound
+    damageType: Caustic
+  - type: PainfulWound
+    painCoefficients: 0.6
+    freshPainCoefficients: 0.8
+
+- type: entity
+  id: WoundShock
+  parent: WoundBase
+  name: shock burn
+  components:
+  - type: Wound
+    damageType: Shock
+  - type: PainfulWound
+    painCoefficients: 0.6
+    freshPainCoefficients: 0.8

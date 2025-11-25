@@ -1,3 +1,4 @@
+using Content.Shared._White.Body.Components;
 using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Events;
@@ -61,6 +62,7 @@ public sealed class EmbedPassiveDamageSystem : EntitySystem
         component.EmbeddedDamageable = damageable;
         component.EmbeddedMobState = mobState;
         component.NextDamage = _timing.CurTime + TimeSpan.FromSeconds(1f);
+        component.BodyPartType = args.BodyPartType; // WD EDIT
 
         _activeEmbeds.Add(component);
         Dirty(uid, component);
@@ -72,6 +74,7 @@ public sealed class EmbedPassiveDamageSystem : EntitySystem
         component.EmbeddedDamageable = null;
         component.EmbeddedMobState = null;
         component.NextDamage = TimeSpan.Zero;
+        component.BodyPartType = BodyPartType.None; // WD EDIT
 
         _activeEmbeds.Remove(component);
         Dirty(uid, component);
@@ -127,7 +130,7 @@ public sealed class EmbedPassiveDamageSystem : EntitySystem
                 continue;
 
             ent.NextDamage = curTime + TimeSpan.FromSeconds(1f);
-            _damageable.TryChangeDamage(ent.Embedded, ent.Damage, false, false, ent.EmbeddedDamageable);
+            _damageable.TryChangeDamage(ent.Embedded, ent.Damage, false, false, ent.EmbeddedDamageable, bodyPartType: ent.BodyPartType); // WD EDIT
         }
     }
 }

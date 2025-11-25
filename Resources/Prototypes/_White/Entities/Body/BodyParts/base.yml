@@ -5,6 +5,9 @@
   name: body part
   components:
   - type: BodyPart
+  - type: Damageable
+  - type: WoundableBodyPart
+  - type: PainfulBodyPart
 
 # Head
 - type: entity
