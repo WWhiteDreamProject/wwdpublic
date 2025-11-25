@@ -94,7 +94,7 @@
       map: [ "enum.PipeVisualLayers.Pipe" ]
     - state: gasFilterF
       map: [ "enum.SubfloorLayers.FirstLayer", "enabled" ]
-    - state: connectorF
+    - state: connectorF # WD EDIT
   - type: Flippable
     mirrorEntity: GasFilter
   - type: Appearance
