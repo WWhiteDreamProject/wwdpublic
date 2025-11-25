@@ -41,7 +41,7 @@
       },
       {
          "name":"pipeBroken",
-         "directions":1
+         "directions":4
       },
       {
          "name":"pipeTJunction",
