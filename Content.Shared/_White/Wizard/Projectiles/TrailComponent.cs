@@ -55,7 +55,7 @@ public sealed partial class TrailComponent : Component
     /// or particle rotation.
     /// </summary>
     [DataField]
-    public RenderedEntityRotationStrategy RenderedEntityRotationStrategy;
+    public LerpPropertyData.RenderedEntityRotationStrategy RenderedEntityRotationStrategy;
 
     /// <summary>
     /// Whether the trail should slowly fade out even when the entity was deleted.
@@ -236,4 +236,6 @@ public abstract partial class GetShaderParam : IGetShaderData
 }
 // Add more data if needed
 public sealed partial class GetShaderLocalPositionData : IGetShaderData;
+
 public sealed partial class GetShaderFloatParam : GetShaderParam;
+};

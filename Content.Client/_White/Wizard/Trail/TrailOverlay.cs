@@ -62,13 +62,13 @@ public sealed class TrailOverlay : Overlay
                 var rot = rotation;
                 switch (trail.RenderedEntityRotationStrategy)
                 {
-                    case RenderedEntityRotationStrategy.Trail:
+                    case LerpPropertyData.RenderedEntityRotationStrategy.Trail:
                     {
                         var dirRot = rotation + eyeRot;
                         direction = dirRot.GetCardinalDir();
                         break;
                     }
-                    case RenderedEntityRotationStrategy.RenderedEntity:
+                    case LerpPropertyData.RenderedEntityRotationStrategy.RenderedEntity:
                         rot = _transform.GetWorldRotation(trail.RenderedEntity.Value);
                         break;
                 }
@@ -83,7 +83,7 @@ public sealed class TrailOverlay : Overlay
                     var worldPosition = data.Position;
                     if (!bounds.Contains(worldPosition))
                         continue;
-                    if (trail.RenderedEntityRotationStrategy == RenderedEntityRotationStrategy.Particle)
+                    if (trail.RenderedEntityRotationStrategy == LerpPropertyData.RenderedEntityRotationStrategy.Particle)
                     {
                         rot = data.Angle;
                         direction = (rot + eyeRot).GetCardinalDir();
