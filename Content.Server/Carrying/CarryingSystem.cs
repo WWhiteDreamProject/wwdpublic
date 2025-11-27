@@ -269,7 +269,7 @@ namespace Content.Server.Carrying
             _transform.SetParent(carried, carrier);
             _virtualItemSystem.TrySpawnVirtualItemInHand(carried, carrier);
             _virtualItemSystem.TrySpawnVirtualItemInHand(carried, carrier);
-            var carryingComp = EnsureComp<Shared.Carrying.CarryingComponent>(carrier);
+            var carryingComp = EnsureComp<CarryingComponent>(carrier);
             ApplyCarrySlowdown(carrier, carried);
             var carriedComp = EnsureComp<BeingCarriedComponent>(carried);
             EnsureComp<KnockedDownComponent>(carried);
