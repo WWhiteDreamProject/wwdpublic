@@ -60,9 +60,6 @@ public sealed partial class TrailComponent : Component
     [DataField, AutoNetworkedField]
     public EntityUid? RenderedEntity;
 
-    [DataField]
-    public bool NoRenderIfRenderedEntityDeleted = true;
-
     /// <summary>
     /// Whether to use <see cref="RenderedEntity"/> rotation (if it is not null), trail entity rotation,
     /// or particle rotation.
@@ -174,9 +171,6 @@ public sealed partial class TrailComponent : Component
     [DataField]
     public string? Shader;
 
-    [DataField]
-    public Dictionary<string, IGetShaderData> ShaderData = new();
-
     [DataField, AutoNetworkedField]
     public Color Color = Color.White;
 
@@ -212,19 +206,12 @@ public sealed class TrailData(
     TimeSpan spawnTime)
 {
     public Vector2 Position = position;
-
     public float Velocity = velocity;
-
     public MapId MapId = mapId;
-
     public Vector2 Direction = direction;
-
     public Angle Angle = angle;
-
     public Color Color = color;
-
     public float Scale = scale;
-
     public TimeSpan SpawnTime = spawnTime;
 }
 
@@ -234,15 +221,14 @@ public sealed partial class LerpPropertyData
     [DataField(required: true)]
     public string? Property;      // WD edit - make Property nullable
 
-    [DataField(required: true)]
-    public float LerpAmount;
+    [DataField]
+    public float LerpAmount = 0.015f;
 
-    [DataField(required: true)]
+    [DataField]
     public float Value;
 
-    [DataField(required: true)]
-    public float LerpTarget;
-}
+    [DataField]
+    public float LerpTarget = 1f;
 
 public enum RenderedEntityRotationStrategy : byte
 {
@@ -253,15 +239,11 @@ public enum RenderedEntityRotationStrategy : byte
 
 [ImplicitDataDefinitionForInheritors]
 public partial interface IGetShaderData;
-
 public abstract partial class GetShaderParam : IGetShaderData
 {
     [DataField(required: true)]
     public string Param = string.Empty;
 }
-
 // Add more data if needed
-
 public sealed partial class GetShaderLocalPositionData : IGetShaderData;
-
 public sealed partial class GetShaderFloatParam : GetShaderParam;

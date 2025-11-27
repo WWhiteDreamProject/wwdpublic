@@ -18,11 +18,10 @@ public sealed class EntityTrailSystem : EntitySystem
 
     private void OnInit(Entity<EntityTrailComponent> ent, ref ComponentInit args)
     {
-        var (uid, comp) = ent;
-        if (!TryComp(uid, out TrailComponent? trail))
+        if (!TryComp(ent, out TrailComponent? trailComponent))
             return;
 
-        trail.RenderedEntity = uid;
-        Dirty(uid, trail);
+        trailComponent.RenderedEntity = ent;
+        Dirty(ent, trailComponent);
     }
 }

@@ -1,12 +1,3 @@
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aviu00 <93730715+Aviu00@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 GoobBot <uristmchands@proton.me>
-// SPDX-FileCopyrightText: 2025 Misandry <mary@thughunt.ing>
-// SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
-// SPDX-FileCopyrightText: 2025 pheenty <fedorlukin2006@gmail.com>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Linq;
 using System.Numerics;
 using Content.Shared._White.Wizard.Projectiles;
@@ -20,7 +11,6 @@ using Robust.Shared.Spawners;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
-
 namespace Content.Client._White.Wizard.Trail;
 
 public sealed class TrailSystem : EntitySystem
@@ -29,10 +19,10 @@ public sealed class TrailSystem : EntitySystem
     [Dependency] private readonly IEyeManager _eye = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
+
     [Dependency] private readonly TransformSystem _transform = default!;
 
     private EntityQuery<TransformComponent> _xformQuery;
-    // private EntityQuery<FrozenComponent> _frozenQuery;
     private EntityQuery<PhysicsComponent> _physicsQuery;
 
     public override void Initialize()
@@ -40,16 +30,20 @@ public sealed class TrailSystem : EntitySystem
         base.Initialize();
         _overlay.AddOverlay(new TrailOverlay(EntityManager, _protoMan, _timing));
 
-        SubscribeLocalEvent<TrailComponent, ComponentRemove>(OnRemove);
         SubscribeLocalEvent<TrailComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<TrailComponent, ComponentRemove>(OnRemove);
 
         _xformQuery = GetEntityQuery<TransformComponent>();
-        // _frozenQuery = GetEntityQuery<FrozenComponent>();
         _physicsQuery = GetEntityQuery<PhysicsComponent>();
 
         UpdatesOutsidePrediction = true;
     }
 
+    public override void Shutdown()
+    {
+        base.Shutdown();
+        _overlay.RemoveOverlay<TrailOverlay>();
+    }
     private void OnStartup(Entity<TrailComponent> ent, ref ComponentStartup args)
     {
         ent.Comp.Accumulator = ent.Comp.Frequency;
@@ -60,53 +54,21 @@ public sealed class TrailSystem : EntitySystem
     {
         var (_, comp) = ent;
 
-        if (!comp.SpawnRemainingTrail || comp.TrailData.Count == 0 || comp.Frequency <= 0f || comp.Lifetime <= 0f)
-            return;
-
-        if (comp.LastCoords.MapId != _eye.CurrentEye.Position.MapId)
-            return;
-
-        if (comp.RenderedEntity != null && TerminatingOrDeleted(comp.RenderedEntity.Value))
+        if (!comp.SpawnRemainingTrail
+            || comp.TrailData.Count == 0
+            || comp.Frequency <= 0f
+            || comp.Lifetime <= 0f
+            || comp.LastCoords.MapId != _eye.CurrentEye.Position.MapId
+            || comp.RenderedEntity != null && TerminatingOrDeleted(comp.RenderedEntity.Value))
             return;
 
         var remainingTrail = Spawn(null, comp.LastCoords);
         EnsureComp<TimedDespawnComponent>(remainingTrail).Lifetime = comp.Lifetime;
-        var trail = EnsureComp<TrailComponent>(remainingTrail);
+
+        var trail = CopyComp(ent, remainingTrail, comp);
         trail.SpawnRemainingTrail = false;
         trail.Frequency = 0f;
-        trail.Lifetime = comp.Lifetime;
-        trail.AlphaLerpAmount = comp.AlphaLerpAmount;
-        trail.ScaleLerpAmount = comp.ScaleLerpAmount;
-        trail.VelocityLerpAmount = comp.VelocityLerpAmount;
-        trail.PositionLerpAmount = comp.PositionLerpAmount;
-        trail.AlphaLerpTarget = comp.AlphaLerpTarget;
-        trail.ScaleLerpTarget = comp.ScaleLerpTarget;
-        trail.Sprite = comp.Sprite;
-        trail.Color = comp.Color;
-        trail.Scale = comp.Scale;
         trail.TrailData = comp.TrailData;
-        trail.Shader = comp.Shader;
-        trail.ParticleAmount = comp.ParticleAmount;
-        trail.StartAngle = comp.StartAngle;
-        trail.EndAngle = comp.EndAngle;
-        trail.LerpTime = comp.LerpTime;
-        trail.LerpAccumulator = comp.LerpAccumulator;
-        trail.RenderedEntity = comp.RenderedEntity;
-        trail.Velocity = comp.Velocity;
-        trail.Radius = comp.Radius;
-        trail.MaxParticleAmount = comp.MaxParticleAmount;
-        trail.ParticleCount = comp.ParticleCount;
-        trail.SpawnPosition = comp.SpawnPosition;
-        trail.SpawnEntityPosition = comp.SpawnEntityPosition;
-        trail.RenderedEntityRotationStrategy = comp.RenderedEntityRotationStrategy;
-        trail.AdditionalLerpData = comp.AdditionalLerpData;
-        trail.TrailData.Sort((x, y) => x.SpawnTime.CompareTo(y.SpawnTime));
-    }
-
-    public override void Shutdown()
-    {
-        base.Shutdown();
-        _overlay.RemoveOverlay<TrailOverlay>();
     }
 
     public override void Update(float frameTime)
@@ -125,38 +87,15 @@ public sealed class TrailSystem : EntitySystem
             var (position, rotation) = _transform.GetWorldPositionRotation(xform, _xformQuery);
             trail.LastCoords = new MapCoordinates(position, xform.MapID);
 
-            // if (_frozenQuery.HasComp(uid))
-            //     continue;
-
             Lerp(trail, position, frameTime);
 
             trail.Accumulator += frameTime;
 
             // Assuming that lifetime and frequency don't change
             if (trail.Accumulator > trail.Lifetime && trail.Lifetime < trail.Frequency && trail.TrailData.Count > 0)
-                trail.TrailData.Clear();
-
-            if (trail.Frequency <= 0f || trail.ParticleAmount < 1 ||
-                trail.MaxParticleAmount > 0 && trail.ParticleCount >= trail.MaxParticleAmount)
             {
-                if (trail.Accumulator <= trail.Lifetime)
-                    continue;
-
-                trail.Accumulator = 0f;
-
-                for (var i = 0; i < Math.Max(1, trail.ParticleAmount); i++)
-                {
-                    if (trail.TrailData.Count == 0)
-                    {
-                        if (IsClientSide(uid) && trail.Frequency <= 0f)
-                            QueueDel(uid);
-                        break;
-                    }
-
-                    trail.TrailData.RemoveAt(0);
-                }
-
-                continue;
+                trail.ParticleCount = 0;
+                trail.TrailData.Clear();
             }
 
             if (trail.Accumulator <= trail.Frequency)
@@ -164,7 +103,7 @@ public sealed class TrailSystem : EntitySystem
 
             trail.Accumulator = 0f;
 
-            if (trail.SpawnEntityPosition != null && !Exists(trail.SpawnEntityPosition.Value))
+            if (trail.SpawnEntityPosition != null && !Exists(trail.SpawnEntityPosition))
                 continue;
 
             Angle angle;
@@ -173,49 +112,23 @@ public sealed class TrailSystem : EntitySystem
             else
                 angle = xform.LocalRotation;
 
-            var start = trail.StartAngle + angle;
-            var end = trail.EndAngle + angle;
+            var startAngle = trail.StartAngle + angle;
+            var endAngle = trail.EndAngle + angle;
 
-            // It would break if we try to do this with line based trails
-            if (trail.ParticleAmount == 1 || trail is { ParticleAmount: > 1, RenderedEntity: null, Sprite: null })
+            SpawnParticle(trail, position, rotation, new Angle((endAngle.Theta + startAngle.Theta) * 0.5).ToVec(), xform.MapID);
+            for (var i = 0; i < trail.ParticleAmount - 1; i++)
             {
-                var direction = new Angle((end.Theta + start.Theta) * 0.5).ToVec();
-                SpawnParticle(trail, position, rotation, direction, xform.MapID);
-                continue;
-            }
-
-            if (trail.ParticleAmount < 1) // Impossible
-                continue;
-
-            var angles = LinearSpread(start, end, trail.ParticleAmount);
-            for (var i = 0; i < trail.ParticleAmount; i++)
-            {
-                SpawnParticle(trail, position, rotation, angles[i].ToVec(), xform.MapID);
                 if (trail.MaxParticleAmount > 0 && trail.ParticleCount >= trail.MaxParticleAmount)
                     break;
+                var direction = new Angle(startAngle + (endAngle - startAngle) * i / (trail.ParticleAmount - 1)).ToVec();
+                SpawnParticle(trail, position, rotation, direction, xform.MapID);
             }
         }
-    }
-
-    private Angle[] LinearSpread(Angle start, Angle end, int intervals)
-    {
-        DebugTools.Assert(intervals > 1);
-        var angles = new Angle[intervals];
-
-        for (var i = 0; i <= intervals - 1; i++)
-        {
-            angles[i] = new Angle(start + (end - start) * i / (intervals - 1));
-        }
-
-        return angles;
     }
 
     private void SpawnParticle(TrailComponent trail, Vector2 position, Angle rotation, Vector2 direction, MapId mapId)
     {
-        DebugTools.Assert(trail is { ParticleAmount: > 0, Frequency: > 0f });
-        trail.ParticleCount++;
-
-        if (trail.SpawnEntityPosition != null && Exists(trail.SpawnEntityPosition.Value))
+        if (Exists(trail.SpawnEntityPosition))
         {
             position = _transform.GetWorldPosition(trail.SpawnEntityPosition.Value, _xformQuery);
             if (trail.SpawnPosition != null)
@@ -225,17 +138,19 @@ public sealed class TrailSystem : EntitySystem
             position = trail.SpawnPosition.Value;
 
         var targetPos = position + direction * trail.Radius;
-        if (trail.TrailData.Count <
-            MathF.Max(trail.ParticleAmount, trail.ParticleAmount * trail.Lifetime / trail.Frequency))
+        if (trail.TrailData.Count < MathF.Max(trail.ParticleAmount, trail.ParticleAmount * trail.Lifetime / trail.Frequency))
         {
-            trail.TrailData.Add(new TrailData(targetPos,
-                trail.Velocity,
-                mapId,
-                direction,
-                rotation,
-                trail.Color,
-                trail.Scale,
-                _timing.CurTime));
+            trail.ParticleCount++;
+            trail.TrailData.Add(
+                new TrailData(
+                    targetPos,
+                    trail.Velocity,
+                    mapId,
+                    direction,
+                    rotation,
+                    trail.Color,
+                    trail.Scale,
+                    _timing.CurTime));
         }
         else if (trail.TrailData.Count > 0)
         {
@@ -255,13 +170,6 @@ public sealed class TrailSystem : EntitySystem
 
             if (trail.Sprite == null)
             {
-                if (trail is
-                    {
-                        AlphaLerpAmount: <= 0f, ScaleLerpAmount: <= 0f, VelocityLerpAmount: <= 0f, Velocity: 0f,
-                        PositionLerpAmount: <= 0f,
-                    })
-                    return;
-
                 trail.TrailData.RemoveAt(0);
                 trail.TrailData.Add(data);
             }
@@ -272,13 +180,6 @@ public sealed class TrailSystem : EntitySystem
 
     private void Lerp(TrailComponent trail, Vector2 position, float frameTime)
     {
-        if (trail is
-            {
-                AlphaLerpAmount: <= 0f, ScaleLerpAmount: <= 0f, Velocity: 0f, VelocityLerpAmount: <= 0f,
-                PositionLerpAmount: <= 0f,
-            })
-            return;
-
         trail.LerpAccumulator += frameTime;
 
         if (trail.LerpAccumulator <= trail.LerpTime)

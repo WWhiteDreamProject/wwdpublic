@@ -56,11 +56,11 @@ namespace Content.Server.Carrying
         {
             base.Initialize();
             SubscribeLocalEvent<CarriableComponent, GetVerbsEvent<AlternativeVerb>>(AddCarryVerb);
-            SubscribeLocalEvent<Shared.Carrying.CarryingComponent, GetVerbsEvent<InnateVerb>>(AddInsertCarriedVerb);
-            SubscribeLocalEvent<Shared.Carrying.CarryingComponent, VirtualItemDeletedEvent>(OnVirtualItemDeleted);
-            SubscribeLocalEvent<Shared.Carrying.CarryingComponent, BeforeThrowEvent>(OnThrow);
-            SubscribeLocalEvent<Shared.Carrying.CarryingComponent, EntParentChangedMessage>(OnParentChanged);
-            SubscribeLocalEvent<Shared.Carrying.CarryingComponent, MobStateChangedEvent>(OnMobStateChanged);
+            SubscribeLocalEvent<CarryingComponent, GetVerbsEvent<InnateVerb>>(AddInsertCarriedVerb);
+            SubscribeLocalEvent<CarryingComponent, VirtualItemDeletedEvent>(OnVirtualItemDeleted);
+            SubscribeLocalEvent<CarryingComponent, BeforeThrowEvent>(OnThrow);
+            SubscribeLocalEvent<CarryingComponent, EntParentChangedMessage>(OnParentChanged);
+            SubscribeLocalEvent<CarryingComponent, MobStateChangedEvent>(OnMobStateChanged);
             SubscribeLocalEvent<BeingCarriedComponent, InteractionAttemptEvent>(OnInteractionAttempt);
             SubscribeLocalEvent<BeingCarriedComponent, MoveInputEvent>(OnMoveInput);
             SubscribeLocalEvent<BeingCarriedComponent, UpdateCanMoveEvent>(OnMoveAttempt);
@@ -76,7 +76,7 @@ namespace Content.Server.Carrying
         {
             if (!args.CanInteract || !args.CanAccess || !_mobStateSystem.IsAlive(args.User)
                 || !CanCarry(args.User, uid, component)
-                || HasComp<Shared.Carrying.CarryingComponent>(args.User)
+                || HasComp<CarryingComponent>(args.User)
                 || HasComp<BeingCarriedComponent>(args.User) || HasComp<BeingCarriedComponent>(args.Target)
                 || args.User == args.Target)
                 return;
@@ -93,7 +93,7 @@ namespace Content.Server.Carrying
             args.Verbs.Add(verb);
         }
 
-        private void AddInsertCarriedVerb(EntityUid uid, Shared.Carrying.CarryingComponent component, GetVerbsEvent<InnateVerb> args)
+        private void AddInsertCarriedVerb(EntityUid uid, CarryingComponent component, GetVerbsEvent<InnateVerb> args)
         {
             // If the person is carrying someone, and the carried person is a pseudo-item, and the target entity is a storage,
             // then add an action to insert the carried entity into the target
@@ -120,7 +120,7 @@ namespace Content.Server.Carrying
         /// <summary>
         /// Since the carried entity is stored as 2 virtual items, when deleted we want to drop them.
         /// </summary>
-        private void OnVirtualItemDeleted(EntityUid uid, Shared.Carrying.CarryingComponent component, VirtualItemDeletedEvent args)
+        private void OnVirtualItemDeleted(EntityUid uid, CarryingComponent component, VirtualItemDeletedEvent args)
         {
             if (!HasComp<CarriableComponent>(args.BlockingEntity))
                 return;
@@ -132,7 +132,7 @@ namespace Content.Server.Carrying
         /// Basically using virtual item passthrough to throw the carried person. A new age!
         /// Maybe other things besides throwing should use virt items like this...
         /// </summary>
-        private void OnThrow(EntityUid uid, Shared.Carrying.CarryingComponent component, ref BeforeThrowEvent args)
+        private void OnThrow(EntityUid uid, CarryingComponent component, ref BeforeThrowEvent args)
         {
             if (!TryComp<VirtualItemComponent>(args.ItemUid, out var virtItem)
                 || !HasComp<CarriableComponent>(virtItem.BlockingEntity))
@@ -144,7 +144,7 @@ namespace Content.Server.Carrying
                             * _contests.StaminaContest(uid, virtItem.BlockingEntity);
         }
 
-        private void OnParentChanged(EntityUid uid, Shared.Carrying.CarryingComponent component, ref EntParentChangedMessage args)
+        private void OnParentChanged(EntityUid uid, CarryingComponent component, ref EntParentChangedMessage args)
         {
             var xform = Transform(uid);
             if (xform.MapUid != args.OldMapId || xform.ParentUid == xform.GridUid)
@@ -153,7 +153,7 @@ namespace Content.Server.Carrying
             DropCarried(uid, component.Carried);
         }
 
-        private void OnMobStateChanged(EntityUid uid, Shared.Carrying.CarryingComponent component, MobStateChangedEvent args)
+        private void OnMobStateChanged(EntityUid uid, CarryingComponent component, MobStateChangedEvent args)
         {
             DropCarried(uid, component.Carried);
         }
@@ -269,7 +269,7 @@ namespace Content.Server.Carrying
             _transform.SetParent(carried, carrier);
             _virtualItemSystem.TrySpawnVirtualItemInHand(carried, carrier);
             _virtualItemSystem.TrySpawnVirtualItemInHand(carried, carrier);
-            var carryingComp = EnsureComp<Shared.Carrying.CarryingComponent>(carrier);
+            var carryingComp = EnsureComp<CarryingComponent>(carrier);
             ApplyCarrySlowdown(carrier, carried);
             var carriedComp = EnsureComp<BeingCarriedComponent>(carried);
             EnsureComp<KnockedDownComponent>(carried);
@@ -298,7 +298,7 @@ namespace Content.Server.Carrying
 
         public void DropCarried(EntityUid carrier, EntityUid carried)
         {
-            RemComp<Shared.Carrying.CarryingComponent>(carrier); // get rid of this first so we don't recursively fire that event
+            RemComp<CarryingComponent>(carrier); // get rid of this first so we don't recursively fire that event
             RemComp<CarryingSlowdownComponent>(carrier);
             RemComp<BeingCarriedComponent>(carried);
             RemComp<KnockedDownComponent>(carried);
