@@ -8,6 +8,4 @@ namespace Content.Shared._White.Wizard.Projectiles;
 /// TrailComponent's ParticleAmount should be set to zero for it to work correctly.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
-public sealed partial class EntityTrailComponent : Component
-{
-}
+public sealed partial class EntityTrailComponent : Component;
