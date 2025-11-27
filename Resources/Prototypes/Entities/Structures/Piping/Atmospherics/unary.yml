@@ -267,15 +267,15 @@
   components:
   - type: StationAiWhitelist
   - type: Sprite
-  granularLayersRendering: true
-  layers:
-  - state: freezerOff
-    map: [ "enum.PowerDeviceVisualLayers.Powered" ]
-  - state: freezerPanelOpen
-    map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
-  - state: pipe
-    map: [ "enum.PipeVisualLayers.Pipe" ]
-    renderingStrategy: Default
+    granularLayersRendering: true
+    layers:
+    - state: freezerOff
+      map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+    - state: freezerPanelOpen
+      map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+    - state: pipe
+      map: [ "enum.PipeVisualLayers.Pipe" ]
+      renderingStrategy: Default
   - type: GenericVisualizer
     visuals:
       enum.PowerDeviceVisuals.Powered:
@@ -312,15 +312,15 @@
   components:
   - type: StationAiWhitelist
   - type: Sprite
-  granularLayersRendering: true
-  layers:
-  - state: heaterOff
-    map: [ "enum.PowerDeviceVisualLayers.Powered" ]
-  - state: heaterPanelOpen
-    map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
-  - state: pipe
-    map: [ "enum.PipeVisualLayers.Pipe" ]
-    renderingStrategy: Default
+    granularLayersRendering: true
+    layers:
+    - state: heaterOff
+      map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+    - state: heaterPanelOpen
+      map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+    - state: pipe
+      map: [ "enum.PipeVisualLayers.Pipe" ]
+      renderingStrategy: Default
   - type: GenericVisualizer
     visuals:
       enum.PowerDeviceVisuals.Powered:
