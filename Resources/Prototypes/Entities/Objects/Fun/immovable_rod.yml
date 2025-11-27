@@ -92,8 +92,17 @@
   - type: MovementAlwaysTouching
   - type: NoSlip
   # WD EDIT START
+  - type: Trail # WD ed
+    frequency: 0.1
+    lifetime: 1
+    lerpTime: 0.1
+    alphaLerpAmount: 0.4
+    sprite:
+      sprite: /Textures/Objects/Fun/immovable_rod.rsi
+      state: icon
   - type: StatusIcon
     bounds: -0.5,-0.5,0.5,0.5
+  - type: IsDeadIC
   # WD EDIT END
 
 - type: entity

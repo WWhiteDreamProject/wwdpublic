@@ -170,7 +170,7 @@
     useDelay: 300
     itemIconStyle: BigAction
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi # Goob edit
+      sprite: _White/Wizard/actions.rsi # Goob edit
       state: missile
     event: !type:RandomGlobalSpawnSpellEvent
       makeSurvivorAntagonist: true
