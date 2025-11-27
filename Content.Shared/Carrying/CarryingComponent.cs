@@ -1,4 +1,4 @@
-namespace Content.Shared.Carrying
+namespace Content.Shared.Carrying // WD EDIT: Moved to Shared
 {
     /// <summary>
     /// Added to an entity when they are carrying somebody.
