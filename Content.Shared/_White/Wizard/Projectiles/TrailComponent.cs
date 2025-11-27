@@ -4,7 +4,6 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Map;
 using Robust.Shared.Utility;
 
-
 namespace Content.Shared._White.Wizard.Projectiles;
 
 // Make more fields auto networked if you need to.
