@@ -37,11 +37,10 @@ public sealed partial class MagicComponent : Component
     // TODO: FreeHand - should check if toggleable action
     //  Check which hand is free to toggle action in
 
-    // Goobstation
+    // WD EDIT START
     [DataField]
     public MagicSchool School = MagicSchool.Unset;
-
-    // Goobstation
+    // WD EDIT END
 }
 
 public enum MagicSchool : byte // Goobstation
