@@ -144,7 +144,7 @@ namespace Content.Server.Carrying
                             * _contests.StaminaContest(uid, virtItem.BlockingEntity);
         }
 
-        private void OnParentChanged(EntityUid uid, Shared.Carrying.CarryingComponent component, ref EntParentChangedMessage args)
+        private void OnParentChanged(EntityUid uid, CarryingComponent component, ref EntParentChangedMessage args)
         {
             var xform = Transform(uid);
             if (xform.MapUid != args.OldMapId || xform.ParentUid == xform.GridUid)
