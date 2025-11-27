@@ -267,7 +267,7 @@
   components:
   - type: StationAiWhitelist
   - type: Sprite
-    granularLayersRendering: true
+    noRot: True # WWDP edit
     layers:
     - state: freezerOff
       map: [ "enum.PowerDeviceVisualLayers.Powered" ]
@@ -312,7 +312,7 @@
   components:
   - type: StationAiWhitelist
   - type: Sprite
-    granularLayersRendering: true
+    noRot: True # WWDP edit
     layers:
     - state: heaterOff
       map: [ "enum.PowerDeviceVisualLayers.Powered" ]
@@ -387,7 +387,6 @@
   components:
   - type: Sprite
     sprite: Structures/Piping/Atmospherics/condenser.rsi
-    snapCardinals: true
     granularLayersRendering: true
     layers:
     - state: off
