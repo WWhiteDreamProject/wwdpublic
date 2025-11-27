@@ -153,7 +153,7 @@ namespace Content.Server.Carrying
             DropCarried(uid, component.Carried);
         }
 
-        private void OnMobStateChanged(EntityUid uid, Shared.Carrying.CarryingComponent component, MobStateChangedEvent args)
+        private void OnMobStateChanged(EntityUid uid, CarryingComponent component, MobStateChangedEvent args)
         {
             DropCarried(uid, component.Carried);
         }
