@@ -387,6 +387,7 @@
   components:
   - type: Sprite
     sprite: Structures/Piping/Atmospherics/condenser.rsi
+    snapCardinals: true
     granularLayersRendering: true
     layers:
     - state: off
