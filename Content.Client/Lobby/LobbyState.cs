@@ -56,13 +56,6 @@ namespace Content.Client.Lobby
             _voteManager.SetPopupContainer(Lobby.VoteContainer);
             LayoutContainer.SetAnchorPreset(Lobby, LayoutContainer.LayoutPreset.Wide);
 
-            var lobbyNameCvar = _cfg.GetCVar(CCVars.ServerLobbyName);
-            var serverName = _baseClient.GameInfo?.ServerName ?? string.Empty;
-
-            Lobby.ServerName.Text = string.IsNullOrEmpty(lobbyNameCvar)
-                ? Loc.GetString("ui-lobby-title", ("serverName", serverName))
-                : lobbyNameCvar;
-
             var width = _cfg.GetCVar(CCVars.ServerLobbyRightPanelWidth);
             Lobby.RightSide.SetWidth = width;
 

@@ -228,9 +228,12 @@ public class FlexBox : Container
             if (line.Items.Count > 1)
                 totalMainSize += columnGap * (line.Items.Count - 1);
 
+        if (totalMainSize >= mainAxisSize)
+            return new Vector2(totalCrossSize, totalCrossSize);
+
         return isRowDirection
-               ? new Vector2(Math.Clamp(totalMainSize, totalCrossSize, availableSize.X), totalCrossSize)
-               : new Vector2(totalCrossSize, Math.Clamp(totalMainSize, totalCrossSize, availableSize.Y));
+               ? new Vector2(totalMainSize, totalCrossSize)
+               : new Vector2(totalCrossSize, totalMainSize);
     }
 
     protected override Vector2 ArrangeOverride(Vector2 finalSize)

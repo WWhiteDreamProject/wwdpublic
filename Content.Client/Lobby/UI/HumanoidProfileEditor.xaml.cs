@@ -946,8 +946,6 @@ namespace Content.Client.Lobby.UI
             PreviewDummy = _controller.LoadProfileEntity(Profile, null, ShowClothes.Pressed, ShowLoadouts.Pressed);
             SpriteViewS.SetEntity(PreviewDummy);
             SpriteViewN.SetEntity(PreviewDummy);
-            SpriteViewE.SetEntity(PreviewDummy);
-            SpriteViewW.SetEntity(PreviewDummy);
 
             // Check and set the dirty flag to enable the save/reset buttons as appropriate.
             SetDirty();
@@ -1895,8 +1893,6 @@ namespace Content.Client.Lobby.UI
 
             SpriteViewS.InvalidateMeasure();
             SpriteViewN.InvalidateMeasure();
-            SpriteViewE.InvalidateMeasure();
-            SpriteViewW.InvalidateMeasure();
         }
 
         private void UpdateHairPickers()

@@ -34,6 +34,43 @@
                     <ScrollContainer HorizontalExpand="True" HScrollEnabled="True" VerticalExpand="True" VScrollEnabled="True">
                         <BoxContainer HorizontalExpand="True" Orientation="Vertical">
                             <ui:AlternatingBGContainer Orientation="Vertical" HorizontalExpand="True">
+                                <BoxContainer HorizontalAlignment="Center">
+                                    <BoxContainer Orientation="Vertical" VerticalAlignment="Center">
+                                        <Button>
+                                            <Label Text="1"/>
+                                        </Button>
+                                        <Button>
+                                            <Label Text="2"/>
+                                        </Button>
+                                        <Button>
+                                            <Label Text="3"/>
+                                        </Button>
+                                    </BoxContainer>
+                                    <BoxContainer Orientation="Vertical" VerticalAlignment="Center">
+                                        <BoxContainer HorizontalAlignment="Center">
+                                            <Button>
+                                                <Label Text="1"/>
+                                            </Button>
+                                            <Button>
+                                                <Label Text="2"/>
+                                            </Button>
+
+                                        </BoxContainer>
+                                        <SpriteView Name="SpriteViewS" OverrideDirection="South" Scale="4 4" />
+                                        <SpriteView Name="SpriteViewN" OverrideDirection="North" Scale="4 4" />
+                                    </BoxContainer>
+                                    <BoxContainer Orientation="Vertical" VerticalAlignment="Center">
+                                       <Button>
+                                            <Label Text="1"/>
+                                        </Button>
+                                        <Button>
+                                            <Label Text="2"/>
+                                        </Button>
+                                        <Button>
+                                            <Label Text="3"/>
+                                        </Button>
+                                    </BoxContainer>
+                                </BoxContainer>
                                 <!-- Species -->
                                 <BoxContainer HorizontalExpand="True">
                                     <Label Text="{Loc 'humanoid-profile-editor-species-label'}" />
@@ -312,17 +349,4 @@
         </PanelContainer>
     </BoxContainer>
     <!-- Right side -->
-    <!-- Sprite View -->
-    <PanelContainer VerticalExpand="True" VerticalAlignment="Center" StyleClasses="PanelBackground"> <!-- WD EDIT -->
-        <PanelContainer.PanelOverride>
-            <graphics:StyleBoxFlat BackgroundColor="#2f2f2f" />
-        </PanelContainer.PanelOverride>
-
-        <BoxContainer Orientation="Vertical" VerticalExpand="True" VerticalAlignment="Center">
-            <SpriteView Name="SpriteViewS" OverrideDirection="South" Scale="4 4" />
-            <SpriteView Name="SpriteViewN" OverrideDirection="North" Scale="4 4" />
-            <SpriteView Name="SpriteViewE" OverrideDirection="East" Scale="4 4" />
-            <SpriteView Name="SpriteViewW" OverrideDirection="West" Scale="4 4" />
-        </BoxContainer>
-    </PanelContainer>
 </BoxContainer>
