@@ -224,9 +224,12 @@ namespace Content.Shared.SubFloor
         /// </summary>
         ScannerRevealed,
     }
-
+    // WWDP edit start
     public enum SubfloorLayers : byte
     {
-        FirstLayer
+        FirstLayer,
+        SecondLayer,
+        ThirdLayer
     }
+    // WWDP edit end
 }

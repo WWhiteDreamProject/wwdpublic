@@ -161,10 +161,10 @@
   - type: StaticPrice
     price: 75
   - type: Transform
-    noRot: false
+    #noRot: false   WD Edit
   - type: Sprite
     drawdepth: WallMountedItems
-    noRot: false
+    #noRot: false   WD EDIT
     sprite: Structures/Storage/wall_locker.rsi
     layers:
     - state: generic

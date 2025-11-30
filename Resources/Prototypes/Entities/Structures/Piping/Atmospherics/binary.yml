@@ -12,6 +12,11 @@
   - type: SubFloorHide
     blockInteractions: false
     blockAmbience: false
+    # WD EDIT START
+    visibleLayers:
+    - enum.SubfloorLayers.FirstLayer
+    - enum.SubfloorLayers.SecondLayer
+    # WD EDIT END
   - type: NodeContainer
     nodes:
       inlet:
@@ -42,11 +47,14 @@
   - type: Sprite
     sprite: Structures/Piping/Atmospherics/pump.rsi
     layers:
+    - state: wallPump # WWDP edit start
+      map: [ "enum.SubfloorLayers.SecondLayer" ] # WWDP edit end
     - sprite: Structures/Piping/Atmospherics/pipe.rsi
       state: pipeStraight
       map: [ "enum.PipeVisualLayers.Pipe" ]
     - state: pumpPressure
       map: [ "enum.SubfloorLayers.FirstLayer", "enabled" ]
+    - state: connectorPump # WWDP edit
   - type: Appearance
   - type: GenericVisualizer
     visuals:
@@ -99,11 +107,14 @@
     - type: Sprite
       sprite: Structures/Piping/Atmospherics/pump.rsi
       layers:
+        - state: wallPump # WWDP edit start
+          map: [ "enum.SubfloorLayers.SecondLayer" ] # WWDP edit end
         - sprite: Structures/Piping/Atmospherics/pipe.rsi
           state: pipeStraight
           map: [ "enum.PipeVisualLayers.Pipe" ]
         - state: pumpVolume
           map: [ "enum.SubfloorLayers.FirstLayer", "enabled" ]
+        - state: connectorPump # WWDP edit
     - type: Appearance
     - type: GenericVisualizer
       visuals:
@@ -154,11 +165,14 @@
     - type: Sprite
       sprite: Structures/Piping/Atmospherics/pump.rsi
       layers:
+        - state: wallPump # WWDP edit start
+          map: [ "enum.SubfloorLayers.SecondLayer"] # WWDP edit end
         - sprite: Structures/Piping/Atmospherics/pipe.rsi
           state: pipeStraight
           map: [ "enum.PipeVisualLayers.Pipe" ]
         - state: pumpPassiveGate
           map: [ "enum.SubfloorLayers.FirstLayer" ]
+        - state: connectorPassiveGate # WWDP edit
     - type: Appearance
     - type: PipeColorVisuals
     - type: GasPassiveGate
@@ -189,11 +203,14 @@
     - type: Sprite
       sprite: Structures/Piping/Atmospherics/pump.rsi
       layers:
+        - state: wallValve # WWDP edit start
+          map: [ "enum.SubfloorLayers.SecondLayer"] # WWDP edit end
         - sprite: Structures/Piping/Atmospherics/pipe.rsi
           state: pipeStraight
           map: [ "enum.PipeVisualLayers.Pipe" ]
         - state: pumpManualValve
           map: [ "enum.SubfloorLayers.FirstLayer", "enabled" ]
+        - state: connectorManualValve # WWDP edit
     - type: Appearance
     - type: GenericVisualizer
       visuals:
@@ -242,11 +259,14 @@
   - type: Sprite
     sprite: Structures/Piping/Atmospherics/pump.rsi
     layers:
+    - state: wallValve # WWDP edit start
+      map: [ "enum.SubfloorLayers.SecondLayer" ] # WWDP edit end
     - sprite: Structures/Piping/Atmospherics/pipe.rsi
       state: pipeStraight
       map: [ "enum.PipeVisualLayers.Pipe" ]
     - state: pumpSignalValve
       map: [ "enum.SubfloorLayers.FirstLayer", "enabled" ]
+    - state: connectorSignalValve # WWDP edit
   - type: Appearance
   - type: GenericVisualizer
     visuals:
@@ -467,14 +487,14 @@
   - type: Sprite
     sprite: Structures/Piping/Atmospherics/heatexchanger.rsi
     layers:
+    - state: wallHeS # WWDP edit start
+      map: [ "enum.SubfloorLayers.SecondLayer" ] # WWDP edit end
     - sprite: Structures/Piping/Atmospherics/pipe.rsi
       state: pipeStraight
       map: [ "enum.PipeVisualLayers.Pipe" ]
     - state: heStraight
       map: [ "enum.SubfloorLayers.FirstLayer" ]
-  - type: SubFloorHide
-    visibleLayers:
-    - enum.SubfloorLayers.FirstLayer
+    - state: connectorHeS # WWDP edit
   - type: Appearance
   - type: PipeColorVisuals
   - type: AtmosDevice
@@ -505,11 +525,14 @@
   components:
     - type: Sprite
       layers:
+      - state: wallHeB # WWDP edit start
+        map: [ "enum.SubfloorLayers.SecondLayer" ] # WWDP edit end
       - sprite: Structures/Piping/Atmospherics/pipe.rsi
         state: pipeBend
         map: [ "enum.PipeVisualLayers.Pipe" ]
       - state: heBend
         map: [ "enum.SubfloorLayers.FirstLayer" ]
+      - state: connectorHeB # WWDP edit
     - type: NodeContainer
       nodes:
         inlet:
