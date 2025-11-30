@@ -36,39 +36,17 @@
                             <ui:AlternatingBGContainer Orientation="Vertical" HorizontalExpand="True">
                                 <BoxContainer HorizontalAlignment="Center">
                                     <BoxContainer Orientation="Vertical" VerticalAlignment="Center">
-                                        <Button>
-                                            <Label Text="1"/>
-                                        </Button>
-                                        <Button>
-                                            <Label Text="2"/>
-                                        </Button>
-                                        <Button>
-                                            <Label Text="3"/>
-                                        </Button>
-                                    </BoxContainer>
-                                    <BoxContainer Orientation="Vertical" VerticalAlignment="Center">
-                                        <BoxContainer HorizontalAlignment="Center">
-                                            <Button>
-                                                <Label Text="1"/>
-                                            </Button>
-                                            <Button>
-                                                <Label Text="2"/>
-                                            </Button>
+                                        <Button Visible="False" Name="CharacterEditBackButton" Text="..."/>
+                                        <BoxContainer Orientation="Vertical" Name="CharacterEditButtonContainer" VerticalAlignment="Center">
 
                                         </BoxContainer>
-                                        <SpriteView Name="SpriteViewS" OverrideDirection="South" Scale="4 4" />
-                                        <SpriteView Name="SpriteViewN" OverrideDirection="North" Scale="4 4" />
                                     </BoxContainer>
                                     <BoxContainer Orientation="Vertical" VerticalAlignment="Center">
-                                       <Button>
-                                            <Label Text="1"/>
-                                        </Button>
-                                        <Button>
-                                            <Label Text="2"/>
-                                        </Button>
-                                        <Button>
-                                            <Label Text="3"/>
-                                        </Button>
+                                        <SpriteView Name="SpriteViewS" OverrideDirection="South" Scale="4 4" />
+                                        <BoxContainer HorizontalExpand="True" Align="Center">
+                                            <Button StyleClasses="OpenRight" Text="A"/>
+                                            <Button StyleClasses="OpenLeft" Text="B"/>
+                                        </BoxContainer>
                                     </BoxContainer>
                                 </BoxContainer>
                                 <!-- Species -->

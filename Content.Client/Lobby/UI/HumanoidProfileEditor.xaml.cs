@@ -640,6 +640,7 @@ namespace Content.Client.Lobby.UI
             UpdateSpeciesGuidebookIcon();
 
             ReloadPreview();
+            InitializeCharacterMenu(); // WWDP EDIT
             IsDirty = false;
         }
 
@@ -945,7 +946,6 @@ namespace Content.Client.Lobby.UI
 
             PreviewDummy = _controller.LoadProfileEntity(Profile, null, ShowClothes.Pressed, ShowLoadouts.Pressed);
             SpriteViewS.SetEntity(PreviewDummy);
-            SpriteViewN.SetEntity(PreviewDummy);
 
             // Check and set the dirty flag to enable the save/reset buttons as appropriate.
             SetDirty();
@@ -1892,7 +1892,6 @@ namespace Content.Client.Lobby.UI
                 WeightLabel.Text = Loc.GetString("humanoid-profile-editor-weight-label", ("weight", (int) 71));
 
             SpriteViewS.InvalidateMeasure();
-            SpriteViewN.InvalidateMeasure();
         }
 
         private void UpdateHairPickers()
