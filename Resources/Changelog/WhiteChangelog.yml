@@ -4526,3 +4526,10 @@ Entries:
   id: 473
   time: '2025-11-23T09:19:34.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/876
+- author: temm1ie
+  changes:
+    - type: Tweak
+      message: Заменены спрайты в ботанике.
+  id: 474
+  time: '2025-12-01T06:25:52.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/879
