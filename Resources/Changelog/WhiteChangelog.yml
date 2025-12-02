@@ -4533,3 +4533,20 @@ Entries:
   id: 474
   time: '2025-12-01T06:25:52.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/879
+- author: Gersoon
+  changes:
+    - type: Tweak
+      message: Новые спрайты труб, майнеров газа итд итп
+    - type: Tweak
+      message: >-
+        Теперь у инженерной одежды реально есть светоотражайка, а не просто
+        неоновая лента
+    - type: Tweak
+      message: Новые спрайты канистр (Purka)
+    - type: Tweak
+      message: Новые спрайты проводов (Gavrik)
+    - type: Tweak
+      message: Новые спрайты тулбоксов (SentryPrimis)
+  id: 475
+  time: '2025-12-02T13:55:09.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/878
