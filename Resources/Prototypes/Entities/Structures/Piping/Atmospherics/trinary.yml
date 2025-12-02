@@ -190,7 +190,7 @@
       map: [ "enum.PipeVisualLayers.Pipe" ]
     - state: gasMixerF
       map: [ "enum.SubfloorLayers.FirstLayer", "enabled" ]
-    - state: connectorF
+    - state: connectorF # WD EDIT
   - type: Appearance
   - type: GenericVisualizer
     visuals:
