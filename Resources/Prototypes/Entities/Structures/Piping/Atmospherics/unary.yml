@@ -216,7 +216,6 @@
   components:
     - type: Sprite
       sprite: Structures/Piping/Atmospherics/thermomachine.rsi
-      snapCardinals: true
     - type: Appearance
     - type: PipeColorVisuals
     - type: Rotatable
