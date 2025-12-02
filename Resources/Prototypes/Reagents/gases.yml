@@ -12,27 +12,27 @@
       effects:
       - !type:Oxygenate
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Human
       - !type:Oxygenate
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Animal
       - !type:Oxygenate
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Rat
       - !type:Oxygenate
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Plant
       # Convert Oxygen into CO2.
       - !type:ModifyLungGas
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Vox
           shouldHave: false
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Plasmaman
           shouldHave: false
         ratios:
@@ -40,7 +40,7 @@
           Oxygen: -1.0
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Vox
         scaleByQuantity: true
         ignoreResistances: true
@@ -53,13 +53,13 @@
         conditions:
           - !type:ReagentThreshold
             min: 0.5
-          - !type:OrganType
+          - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
             type: Vox
         clear: true
         time: 5
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Plasmaman
         scaleByQuantity: true
         ignoreResistances: true
@@ -72,7 +72,7 @@
         conditions:
           - !type:ReagentThreshold
             min: 0.5
-          - !type:OrganType
+          - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
             type: Plasmaman
         clear: true
         time: 5
@@ -95,7 +95,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Plasmaman
           shouldHave: false
         damage:
@@ -103,7 +103,7 @@
             Poison: 3
       - !type:AdjustReagent
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Plasmaman
           shouldHave: false
         reagent: Inaprovaline
@@ -112,7 +112,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Plasmaman
           shouldHave: false
         scaleByQuantity: true
@@ -125,7 +125,7 @@
       - !type:AdjustAlert
         alertType: Toxins
         conditions:
-          - !type:OrganType
+          - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
             type: Plasmaman
             shouldHave: false
           - !type:ReagentThreshold
@@ -135,11 +135,11 @@
       - !type:Oxygenate
         factor: 4
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Plasmaman
       - !type:ModifyLungGas
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Plasmaman
         ratios:
           Nitrogen: 1.0 # Interesting exhale for plasmamen
@@ -148,7 +148,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Plasmaman
         damage:
           groups:
@@ -161,7 +161,7 @@
             Poison: -0.66
       - !type:ChemAddMoodlet
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Plasmaman
         - !type:ReagentThreshold
           reagent: Plasma
@@ -226,14 +226,14 @@
       effects:
       - !type:Oxygenate
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Plant
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Plant
           shouldHave: false
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Vox
           shouldHave: false
         # Don't want people to get toxin damage from the gas they just
@@ -248,7 +248,7 @@
               0.8
       - !type:Oxygenate # carbon dioxide displaces oxygen from the bloodstream, causing asphyxiation
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Plant
           shouldHave: false
         factor: -4
@@ -276,23 +276,23 @@
       effects:
       - !type:Oxygenate
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Vox
       - !type:Oxygenate
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Slime
       # Converts Nitrogen into CO2
       - !type:ModifyLungGas
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Vox
         ratios:
           Ammonia: 1.0
           Nitrogen: -1.0
       - !type:ModifyLungGas
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Slime
         ratios:
           NitrousOxide: 1.0
@@ -316,7 +316,7 @@
           reagent: NitrousOxide
           min: 0.2
           max: 0.5
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Slime
           shouldHave: false
         emote: Laugh
@@ -327,7 +327,7 @@
         - !type:ReagentThreshold
           reagent: NitrousOxide
           min: 0.5
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Slime
           shouldHave: false
         type: Local
@@ -339,7 +339,7 @@
         - !type:ReagentThreshold
           reagent: NitrousOxide
           min: 1
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Slime
           shouldHave: false
         walkSpeedModifier: 0.65
@@ -349,7 +349,7 @@
         - !type:ReagentThreshold
           reagent: NitrousOxide
           min: 1
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Slime
           shouldHave: false
         key: ForcedSleep
@@ -361,7 +361,7 @@
         - !type:ReagentThreshold
           reagent: NitrousOxide
           min: 3.5
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Slime
           shouldHave: false
         ignoreResistances: true

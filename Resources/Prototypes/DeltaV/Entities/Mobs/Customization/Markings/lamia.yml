@@ -4,13 +4,24 @@
 
 - type: marking
   id: LamiaBottom
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Lamia]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Lamia/lamia_tails.rsi
     state: bottom3tone1
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    # WD EDIT END
   - sprite: DeltaV/Mobs/Customization/Lamia/lamia_tails.rsi
     state: bottom3tone2
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    # WD EDIT END
   - sprite: DeltaV/Mobs/Customization/Lamia/lamia_tails.rsi
     state: bottom3tone3
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    # WD EDIT END

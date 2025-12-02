@@ -9,21 +9,6 @@
 ## Dynamic
 
 - type: latheRecipePack
-  id: Cybernetics
-  recipes:
-  - JawsOfLifeLeftArm
-  - JawsOfLifeRightArm
-  - SpeedLeftLeg
-  - SpeedRightLeg
-  - BasicCyberneticEyes
-
-- type: latheRecipePack
-  id: SecurityCybernetics
-  recipes:
-  - SecurityCyberneticEyes
-  - MedicalCyberneticEyes
-
-- type: latheRecipePack
   id: Modsuit
   recipes:
   - ModsuitChestplate

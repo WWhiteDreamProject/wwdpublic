@@ -19,8 +19,10 @@
   - type: HumanoidAppearance
     species: Human
     hideLayersOnEquip:
-    - Hair
-    - Snout
+    # WD EDIT START
+    - enum.HumanoidVisualLayers.Hair
+    - enum.HumanoidVisualLayers.Snout
+    # WD EDIT END
   - type: LanguageKnowledge
     speaks:
     - TauCetiBasic

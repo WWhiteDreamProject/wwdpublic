@@ -14,8 +14,6 @@
   - Human
   # speciesBlacklist:
   #   - Shadowkin
-  #   - Monkey # Shitmed Change
-  #   - Kobold # Shitmed Change
   components:
     - type: Loadout
       prototypes: [SyndicateListenerGear]
@@ -45,8 +43,6 @@
     - Human
   # speciesBlacklist: # WWDP
   #   - Shadowkin
-  #   - Monkey # Shitmed Change
-  #   - Kobold # Shitmed Change
   components:
     - type: GhostRole
       name: Mobster
@@ -83,8 +79,6 @@
   - Human
   # speciesBlacklist: # WWDP
   #   - Shadowkin
-  #   - Monkey # Shitmed Change
-  #   - Kobold # Shitmed Change
   components:
     - type: GhostRole
       name: Mobster

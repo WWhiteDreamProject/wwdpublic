@@ -1,0 +1,135 @@
+- type: entity
+  id: BaseBodyPartArachnid
+  parent: BaseBodyPart
+  abstract: true
+  name: arachnid body part
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Arachnid/parts.rsi
+  - type: BodyPartAppearance
+    sprite: Mobs/Species/Arachnid/parts.rsi
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 3
+      - ReagentId: CopperBlood
+        Quantity: 10
+
+# Head
+- type: entity
+  id: BodyPartHeadArachnid
+  parent: [BaseBodyPartHead, BaseBodyPartArachnid]
+  name: arachnid head
+  components:
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 5
+      - ReagentId: CopperBlood
+        Quantity: 10
+
+# Chest
+- type: entity
+  id: BodyPartChestArachnid
+  parent: [BaseBodyPartChest, BaseBodyPartArachnid]
+  name: arachnid chest
+  components:
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 10
+      - ReagentId: CopperBlood
+        Quantity: 20
+
+# Groin
+- type: entity
+  id: BodyPartGroinArachnid
+  parent: [BaseBodyPartGroin, BaseBodyPartArachnid]
+  name: arachnid groin
+  components:
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 10
+      - ReagentId: Blood
+        Quantity: 20
+
+# Arms
+
+- type: entity
+  id: BodyPartLeftArmArachnid
+  parent: [BaseBodyPartLeftArm, BaseBodyPartArachnid]
+  name: arachnid left arm
+
+- type: entity
+  id: BodyPartRightArmArachnid
+  parent: [BaseBodyPartRightArm, BaseBodyPartArachnid]
+  name: arachnid right arm
+
+# Hand
+
+- type: entity
+  id: BodyPartLeftHandArachnid
+  parent: [BaseBodyPartLeftHand, BaseBodyPartArachnid]
+  name: arachnid left hand
+
+- type: entity
+  id: BodyPartRightHandArachnid
+  parent: [BaseBodyPartRightHand, BaseBodyPartArachnid]
+  name: arachnid right hand
+
+# Leg
+
+- type: entity
+  id: BodyPartLeftLegArachnid
+  parent: [BaseBodyPartLeftLeg, BaseBodyPartArachnid]
+  name: arachnid left leg
+
+- type: entity
+  id: BodyPartRightLegArachnid
+  parent: [BaseBodyPartRightLeg, BaseBodyPartArachnid]
+  name: arachnid right leg
+
+# Foot
+
+- type: entity
+  id: BodyPartLeftFootArachnid
+  parent: [BaseBodyPartLeftFoot, BaseBodyPartArachnid]
+  name: arachnid left foot
+
+- type: entity
+  id: BodyPartRightFootArachnid
+  parent: [BaseBodyPartRightFoot, BaseBodyPartArachnid]
+  name: arachnid right foot
+
+# Tail
+
+- type: entity
+  id: BodyPartTailArachnid
+  parent: [BaseBodyPartTail, BaseBodyPartArachnid]
+  name: arachnid tail
+  components:
+  - type: Sprite
+    sprite: Mobs/Customization/Arachnid/appendages.rsi
+    state: long_groin
+  - type: BodyPartAppearance
+    sprite: Mobs/Customization/Arachnid/appendages.rsi
+    state: long_groin
+
+# Wings
+
+- type: entity
+  id: BodyPartWingsArachnid
+  parent: [BaseBodyPartWings, BaseBodyPartArachnid]
+  name: arachnid wings
+  components:
+  - type: Sprite
+    sprite: Mobs/Customization/Arachnid/appendages.rsi
+    state: long_chest
+  - type: BodyPartAppearance
+    sprite: Mobs/Customization/Arachnid/appendages.rsi
+    state: long_chest

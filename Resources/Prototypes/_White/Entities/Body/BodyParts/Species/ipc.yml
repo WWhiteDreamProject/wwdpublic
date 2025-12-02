@@ -1,0 +1,90 @@
+- type: entity
+  id: BaseBodyPartIPC
+  parent: BaseBodyPart
+  abstract: true
+  name: ipc body part
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/IPC/parts.rsi
+  - type: BodyPartAppearance
+    sprite: Mobs/Species/IPC/parts.rsi
+
+# Head
+- type: entity
+  id: BodyPartHeadIPC
+  parent: [BaseBodyPartHead, BaseBodyPartIPC]
+  name: ipc head
+
+# Chest
+- type: entity
+  id: BodyPartChestIPC
+  parent: [BaseBodyPartChest, BaseBodyPartIPC]
+  name: ipc chest
+
+# Groin
+- type: entity
+  id: BodyPartGroinIPC
+  parent: [BaseBodyPartGroin, BaseBodyPartIPC]
+  name: ipc groin
+
+# Arms
+
+- type: entity
+  id: BodyPartLeftArmIPC
+  parent: [BaseBodyPartLeftArm, BaseBodyPartIPC]
+  name: ipc left arm
+
+- type: entity
+  id: BodyPartRightArmIPC
+  parent: [BaseBodyPartRightArm, BaseBodyPartIPC]
+  name: ipc right arm
+
+# Hand
+
+- type: entity
+  id: BodyPartLeftHandIPC
+  parent: [BaseBodyPartLeftHand, BaseBodyPartIPC]
+  name: ipc left hand
+
+- type: entity
+  id: BodyPartRightHandIPC
+  parent: [BaseBodyPartRightHand, BaseBodyPartIPC]
+  name: ipc right hand
+
+# Leg
+
+- type: entity
+  id: BodyPartLeftLegIPC
+  parent: [BaseBodyPartLeftLeg, BaseBodyPartIPC]
+  name: ipc left leg
+
+- type: entity
+  id: BodyPartRightLegIPC
+  parent: [BaseBodyPartRightLeg, BaseBodyPartIPC]
+  name: ipc right leg
+
+# Foot
+
+- type: entity
+  id: BodyPartLeftFootIPC
+  parent: [BaseBodyPartLeftFoot, BaseBodyPartIPC]
+  name: ipc left foot
+
+- type: entity
+  id: BodyPartRightFootIPC
+  parent: [BaseBodyPartRightFoot, BaseBodyPartIPC]
+  name: ipc right foot
+
+# Wings
+
+- type: entity
+  id: BodyPartWingsIPC
+  parent: [BaseBodyPartWings, BaseBodyPartIPC]
+  name: ipc wings
+  components:
+  - type: Sprite
+    sprite: _SimpleStation/Mobs/Customization/wings64x34.rsi
+    state: robotic
+  - type: BodyPartAppearance
+    sprite: _SimpleStation/Mobs/Customization/wings64x34.rsi
+    state: robotic

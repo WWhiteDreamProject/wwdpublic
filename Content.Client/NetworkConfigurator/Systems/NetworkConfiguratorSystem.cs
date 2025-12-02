@@ -114,8 +114,7 @@ public sealed class NetworkConfiguratorSystem : SharedNetworkConfiguratorSystem
             _configurator = configurator;
             _keyBindingName = keyBindingName;
             _label = new RichTextLabel { StyleClasses = { StyleNano.StyleClassItemStatus } };
-            if (_configurator.ShowLabel) // Shitmed - Starlight Abductors: Allow hiding the label on multitools that dont need List mode.
-                AddChild(_label);
+            AddChild(_label);
         }
 
         protected override void FrameUpdate(FrameEventArgs args)
@@ -126,9 +125,6 @@ public sealed class NetworkConfiguratorSystem : SharedNetworkConfiguratorSystem
                 return;
 
             _linkModeActive = _configurator.LinkModeActive;
-
-            if (!_configurator.ShowLabel) // Shitmed - Starlight Abductors: Allow hiding the label on multitools that dont need List mode.
-                return;
 
             var modeLocString = _linkModeActive??false
                 ? "network-configurator-examine-mode-link"

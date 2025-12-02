@@ -1,0 +1,92 @@
+﻿- type: body
+  id: Arachnid
+  root: chest
+  bodyParts:
+    head:
+      type: Head
+      startingBodyPart: BodyPartHeadArachnid
+      connections:
+      - chest
+      organs:
+        brain:
+          type: Brain
+          startingOrgan: OrganBrainHuman
+        ears:
+          type: Ears
+          startingOrgan: OrganEarsHuman
+        eyes:
+          type: Eyes
+          startingOrgan: OrganEyesArachnid
+        tongue:
+          type: Tongue
+          startingOrgan: OrganTongueArachnid
+    chest:
+      type: Chest
+      startingBodyPart: BodyPartChestArachnid
+      connections:
+      - wings
+      - right_arm
+      - left_arm
+      - groin
+      organs:
+        heart:
+          type: Heart
+          startingOrgan: OrganHeartArachnid
+        lungs:
+          type: Lungs
+          startingOrgan: OrganLungsArachnid
+    groin:
+      type: Groin
+      startingBodyPart: BodyPartGroinArachnid
+      connections:
+      - tail
+      - right_leg
+      - left_leg
+      organs:
+        stomach:
+          type: Stomach
+          startingOrgan: OrganStomachArachnid
+        liver:
+          type: Liver
+          startingOrgan: OrganLiverArachnid
+        kidneys:
+          type: Kidneys
+          startingOrgan: OrganKidneysArachnid
+    left_arm:
+      type: LeftArm
+      startingBodyPart: BodyPartLeftArmArachnid
+      connections:
+      - left_hand
+    right_arm:
+      type: RightArm
+      startingBodyPart: BodyPartRightArmArachnid
+      connections:
+      - right_hand
+    left_hand:
+      type: LeftHand
+      startingBodyPart: BodyPartLeftHandArachnid
+    right_hand:
+      type: RightHand
+      startingBodyPart: BodyPartRightHandArachnid
+    left_leg:
+      type: LeftLeg
+      startingBodyPart: BodyPartLeftLegArachnid
+      connections:
+      - left_foot
+    right_leg:
+      type: RightLeg
+      startingBodyPart: BodyPartRightLegArachnid
+      connections:
+      - right_foot
+    left_foot:
+      type: LeftFoot
+      startingBodyPart: BodyPartLeftFootArachnid
+    right_foot:
+      type: RightFoot
+      startingBodyPart: BodyPartRightFootArachnid
+    tail:
+      type: Tail
+      startingBodyPart: BodyPartTailArachnid
+    wings:
+      type: Wings
+      startingBodyPart: BodyPartWingsArachnid

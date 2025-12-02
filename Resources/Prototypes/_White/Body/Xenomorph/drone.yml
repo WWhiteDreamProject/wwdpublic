@@ -1,0 +1,30 @@
+- type: body
+  id: XenomorphDrone
+  organs:
+    brain:
+      type: Brain
+      startingOrgan: OrganBrainXenomorph
+    eyes:
+      type: Eyes
+      startingOrgan: OrganEyesXenomorph
+    tongue:
+      type: Tongue
+      startingOrgan: OrganTongueXenomorph
+    lungs:
+      type: Lungs
+      startingOrgan: OrganLungsLargeXenomorph
+    stomach:
+      type: Stomach
+      startingOrgan: OrganStomachXenomorph
+    liver:
+      type: Liver
+      startingOrgan: OrganLiverXenomorph
+    acid_gland:
+      type: Gland
+      startingOrgan: OrganGlandAcidXenomorph
+    hive_node:
+      type: Specific
+      startingOrgan: OrganHiveNodeXenomorph
+    resin_spinner:
+      type: Specific
+      startingOrgan: OrganResinSpinnerXenomorph

@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Drawn and coded by Carousel for Impstation",
+    "copyright": "Drawn and coded by Carousel for Impstation. The division of the torso into chest and groin was done by Sparison.",
     "size": {
       "x": 32,
       "y": 32
@@ -34,7 +34,7 @@
         ]
       },
       {
-        "name": "bubble",
+        "name": "bubble_chest",
         "directions": 4,
         "delays": [
           [
@@ -64,7 +64,37 @@
         ]
       },
       {
-        "name": "fishbowl1",
+        "name": "bubble_groin",
+        "directions": 4,
+        "delays": [
+          [
+            0.4,
+            0.4,
+            0.4,
+            0.4
+          ],
+          [
+            0.4,
+            0.4,
+            0.4,
+            0.4
+          ],
+          [
+            0.4,
+            0.4,
+            0.4,
+            0.4
+          ],
+          [
+            0.4,
+            0.4,
+            0.4,
+            0.4
+          ]
+        ]
+      },
+      {
+        "name": "fishbowl1_chest",
         "directions": 4,
         "delays": [
           [
@@ -98,7 +128,7 @@
         ]
       },
       {
-        "name": "fishbowl2",
+        "name": "fishbowl1_groin",
         "directions": 4,
         "delays": [
           [
@@ -132,7 +162,113 @@
         ]
       },
       {
-        "name": "dionalivingnymph",
+        "name": "fishbowl2_chest",
+        "directions": 4,
+        "delays": [
+          [
+            0.4,
+            0.3,
+            0.2,
+            0.3,
+            0.4
+          ],
+          [
+            0.4,
+            0.3,
+            0.2,
+            0.3,
+            0.4
+          ],
+          [
+            0.4,
+            0.3,
+            0.2,
+            0.3,
+            0.4
+          ],
+          [
+            0.4,
+            0.3,
+            0.2,
+            0.3,
+            0.4
+          ]
+        ]
+      },
+      {
+        "name": "fishbowl2_groin",
+        "directions": 4,
+        "delays": [
+          [
+            0.4,
+            0.3,
+            0.2,
+            0.3,
+            0.4
+          ],
+          [
+            0.4,
+            0.3,
+            0.2,
+            0.3,
+            0.4
+          ],
+          [
+            0.4,
+            0.3,
+            0.2,
+            0.3,
+            0.4
+          ],
+          [
+            0.4,
+            0.3,
+            0.2,
+            0.3,
+            0.4
+          ]
+        ]
+      },
+      {
+        "name": "dionalivingnymph_chest",
+        "directions": 4,
+        "delays": [
+          [
+            0.6,
+            0.2,
+            0.2,
+            0.2,
+            0.4,
+            0.3
+          ],
+          [
+            0.6,
+            0.2,
+            0.2,
+            0.2,
+            0.4,
+            0.3
+          ],
+          [
+            0.6,
+            0.2,
+            0.2,
+            0.2,
+            0.4,
+            0.3
+          ],
+          [
+            0.6,
+            0.2,
+            0.2,
+            0.2,
+            0.4,
+            0.3
+          ]
+        ]
+      },
+      {
+        "name": "dionalivingnymph_groin",
         "directions": 4,
         "delays": [
           [
@@ -216,7 +352,45 @@
         ]
       },
       {
-        "name": "dionafirefly",
+        "name": "dionafirefly_chest",
+        "directions": 4,
+        "delays": [
+          [
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3
+          ],
+          [
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3
+          ],
+          [
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3
+          ],
+          [
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3
+          ]
+        ]
+      },
+      {
+        "name": "dionafirefly_groin",
         "directions": 4,
         "delays": [
           [

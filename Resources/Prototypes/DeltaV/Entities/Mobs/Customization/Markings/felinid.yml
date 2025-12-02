@@ -1,41 +1,69 @@
 - type: marking
   id: FelinidFluffyTailRings
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Felinid, Human, Tajaran] # Einstein Engines - Tajaran
   sprites:
   - sprite: DeltaV/Mobs/Customization/Felinid/felinid_tails.rsi
     state: Felinid_fluffy_tail_full
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    replacementBodyPart: BodyPartTailFelinid
+    # WD EDIT END
   - sprite: DeltaV/Mobs/Customization/Felinid/felinid_tails.rsi
     state: felinid_fluffy_tail_rings
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    # WD EDIT END
 
 - type: marking
   id: FelinidFluffyTail
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Felinid, Human, Tajaran] # Einstein Engines - Tajaran
   sprites:
   - sprite: DeltaV/Mobs/Customization/Felinid/felinid_tails.rsi
     state: Felinid_fluffy_tail_full
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    replacementBodyPart: BodyPartTailFelinid
+    # WD EDIT END
 
 - type: marking
   id: FelinidAlternativeTail
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Felinid, Human, Tajaran] # Einstein Engines - Tajaran
   sprites:
     - sprite: DeltaV/Mobs/Customization/Felinid/alternative_tail.rsi
       state: m_waggingtail_cat_FRONT
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      replacementBodyPart: BodyPartTailFelinid
+      # WD EDIT END
 
 - type: marking
   id: FelinidTiger
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Felinid, Human, Tajaran] # Einstein Engines - Tajaran
   sprites:
     - sprite: DeltaV/Mobs/Customization/Felinid/tiger_tail.rsi
       state: m_tail_tiger_primary
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      replacementBodyPart: BodyPartTailFelinid
+      # WD EDIT END
     - sprite: DeltaV/Mobs/Customization/Felinid/tiger_tail.rsi
       state: m_tail_tiger_secondary
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      # WD EDIT END
     - sprite: DeltaV/Mobs/Customization/Felinid/tiger_tail.rsi
       state: m_tail_tiger_tertiary
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      # WD EDIT END

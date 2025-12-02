@@ -1,0 +1,13 @@
+# Tail
+
+- type: entity
+  id: BodyPartTailFelinid
+  parent: [BaseBodyPartTail, BaseBodyPartHuman]
+  name: felinid tail
+  components:
+  - type: Sprite
+    sprite: Mobs/Customization/cat_parts.rsi
+    state: tail_cat
+  - type: BodyPartAppearance
+    sprite: Mobs/Customization/cat_parts.rsi
+    state: tail_cat

@@ -12,7 +12,6 @@
     state: full
   - type: Body
     prototype: Gingerbread
-    requiredLegs: 2
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Gingerbread
@@ -65,3 +64,7 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
+  # WD EDIT START
+  - type: Body
+    prototype: Gingerbread
+  # WD EDIT END

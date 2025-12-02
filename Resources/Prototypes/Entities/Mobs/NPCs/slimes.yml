@@ -91,8 +91,7 @@
         messages: [ "slime-hurt-by-water-popup" ]
         probability: 0.25
   - type: Body
-    prototype: Slimes
-    requiredLegs: 1
+    prototype: SimpleSlime # WD EDIT: Slimes -> SimpleSlime
   - type: MeleeWeapon
     altDisarm: false
     soundHit:
@@ -113,11 +112,6 @@
     speechSounds: Slime
   - type: TypingIndicator
     proto: slime
-  - type: SurgeryTarget
-  - type: UserInterface
-    interfaces:
-      enum.SurgeryUIKey.Key:
-        type: SurgeryBui
   - type: Fauna # Lavaland Change
 
 - type: entity

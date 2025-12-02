@@ -1,6 +1,6 @@
 - type: entity
   id: LavalandCursedHeart
-  parent: BaseHumanOrgan
+  parent: BaseOrganHuman # WD EDIT: BaseHumanOrgan -> BaseOrganHuman
   name: heart
   description: "I feel bad for the heartless bastard who lost this."
   components:

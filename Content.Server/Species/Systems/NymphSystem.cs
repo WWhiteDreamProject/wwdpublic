@@ -3,6 +3,7 @@ using Content.Shared.Species.Components;
 using Content.Shared.Body.Events;
 using Content.Shared.Zombies;
 using Content.Server.Zombies;
+using Content.Shared._White.Body;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
@@ -19,15 +20,15 @@ public sealed partial class NymphSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<NymphComponent, OrganRemovedFromBodyEvent>(OnRemovedFromPart);
+        SubscribeLocalEvent<NymphComponent, OrganRemovedEvent>(OnRemovedFromPart); // WD EDIT
     }
 
-    private void OnRemovedFromPart(EntityUid uid, NymphComponent comp, ref OrganRemovedFromBodyEvent args)
+    private void OnRemovedFromPart(EntityUid uid, NymphComponent comp, ref OrganRemovedEvent args) // WD EDIT
     {
         if (!_timing.IsFirstTimePredicted)
             return;
 
-        if (TerminatingOrDeleted(uid) || TerminatingOrDeleted(args.OldBody))
+        if (!args.Body.HasValue || TerminatingOrDeleted(uid) || TerminatingOrDeleted(args.Body)) // WD EDIT
             return;
 
         if (!_protoManager.TryIndex<EntityPrototype>(comp.EntityPrototype, out var entityProto))
@@ -37,11 +38,11 @@ public sealed partial class NymphSystem : EntitySystem
         var coords = Transform(uid).Coordinates;
         var nymph = EntityManager.SpawnAtPosition(entityProto.ID, coords);
 
-        if (HasComp<ZombieComponent>(args.OldBody)) // Zombify the new nymph if old one is a zombie
+        if (HasComp<ZombieComponent>(args.Body)) // Zombify the new nymph if old one is a zombie // WD EDIT
             _zombie.ZombifyEntity(nymph);
 
         // Move the mind if there is one and it's supposed to be transferred
-        if (comp.TransferMind == true && _mindSystem.TryGetMind(args.OldBody, out var mindId, out var mind))
+        if (comp.TransferMind == true && _mindSystem.TryGetMind(args.Body.Value, out var mindId, out var mind)) // WD EDIT
             _mindSystem.TransferTo(mindId, nymph, mind: mind);
 
         // Delete the old organ

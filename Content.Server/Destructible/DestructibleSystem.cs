@@ -1,7 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using Content.Server.Administration.Logs;
 using Content.Server.Atmos.EntitySystems;
-using Content.Server.Body.Systems;
 using Content.Server.Construction;
 using Content.Server.Destructible.Thresholds;
 using Content.Server.Destructible.Thresholds.Behaviors;
@@ -20,6 +19,8 @@ using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Linq;
+using Content.Server._White.Body.Systems;
+using Content.Server._White.Gibbing;
 using Content.Server.Construction.Completions;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Projectiles;
@@ -48,6 +49,7 @@ namespace Content.Server.Destructible
         [Dependency] public readonly IAdminLogManager AdminLogger = default!;
         [Dependency] private readonly ThrowingSystem _throwing = default!;
         [Dependency] private readonly SharedProjectileSystem _projectile = default!;
+        [Dependency] public readonly GibbingSystem GibbingSystem = default!; // WD EDIT
 
         public override void Initialize()
         {

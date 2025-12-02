@@ -1,0 +1,39 @@
+- type: entity
+  id: BaseOrganIPC
+  parent: BaseOrgan
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/IPC/organs.rsi
+  - type: Extractable
+    grindableSolutionName: organ
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: Oil
+          Quantity: 10
+
+- type: entity
+  id: OrganHeartIPC
+  parent: [BaseOrganIPC, BaseOrganHeart]
+  name: micro pump
+  description: A micro pump, used to circulate coolant.
+
+- type: entity
+  id: OrganEyesIPC
+  parent: [BaseOrganIPC, BaseOrganEyes]
+  name: robotic eyes
+  description: 01001001 00100000 01110011 01100101 01100101 00100000 01111001 01101111 01110101 00100001
+
+- type: entity
+  id: OrganTongueIPC
+  parent: [BaseOrganIPC, BaseOrganTongue]
+  name: vocal modulator
+  description: A vocal modulator, used to produce speech.
+
+- type: entity
+  id: OrganEarsIPC
+  parent: [BaseOrganIPC, BaseOrganEars]
+  name: sonic receptors
+  description: used to perceive atmospheric vibrations. Simply put, the ears.

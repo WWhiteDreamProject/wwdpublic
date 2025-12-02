@@ -1,9 +1,11 @@
+using Content.Server._White.Body.Systems;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Forensics;
 using Content.Server.Popups;
 using Content.Server.Stunnable;
+using Content.Shared._White.Body.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
@@ -38,7 +40,7 @@ namespace Content.Server.Medical
         public void Vomit(EntityUid uid, float thirstAdded = -40f, float hungerAdded = -40f)
         {
             // Main requirement: You have a stomach
-            var stomachList = _body.GetBodyOrganEntityComps<StomachComponent>(uid);
+            var stomachList = _body.GetOrgans<StomachComponent>(uid, OrganType.Stomach); // WD EDIT
             if (stomachList.Count == 0)
                 return;
 
@@ -61,11 +63,11 @@ namespace Content.Server.Medical
             // Empty the stomach out into it
             foreach (var stomach in stomachList)
             {
-                if (_solutionContainer.ResolveSolution(stomach.Owner, StomachSystem.DefaultSolutionName, ref stomach.Comp1.Solution, out var sol))
+                if (_solutionContainer.ResolveSolution(stomach.Owner, StomachSystem.DefaultSolutionName, ref stomach.Comp2.Solution, out var sol)) // WD EDIT
                 {
                     solution.AddSolution(sol, _proto);
                     sol.RemoveAllSolution();
-                    _solutionContainer.UpdateChemicals(stomach.Comp1.Solution.Value);
+                    _solutionContainer.UpdateChemicals(stomach.Comp2.Solution.Value); // WD EDIT
                 }
             }
             // Adds a tiny amount of the chem stream from earlier along with vomit

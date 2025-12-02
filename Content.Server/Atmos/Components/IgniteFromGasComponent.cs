@@ -1,4 +1,4 @@
-using Content.Shared._Shitmed.Targeting;
+using Content.Shared._White.Body.Components;
 using Content.Shared.Atmos;
 
 namespace Content.Server.Atmos.Components;
@@ -38,7 +38,7 @@ public sealed partial class IgniteFromGasComponent : Component
     ///   The body parts that are vulnerable to ignition when exposed, and their fire stack values.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    public Dictionary<TargetBodyPart, float> IgnitableBodyParts = new();
+    public Dictionary<BodyPartType, float> IgnitableBodyParts = new(); // WD EDIT
 
     /// <summary>
     ///   How many moles of the gas is needed to trigger ignition.

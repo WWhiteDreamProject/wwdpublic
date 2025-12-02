@@ -1,0 +1,107 @@
+- type: entity
+  id: BaseBodyPartMonkey
+  parent: BaseBodyPart
+  abstract: true
+  name: monkey body part
+  components:
+  - type: Sprite
+    sprite: Mobs/Animals/monkey.rsi
+  - type: BodyPartAppearance
+    sprite: Mobs/Animals/monkey.rsi
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 3
+      - ReagentId: Blood
+        Quantity: 10
+
+# Head
+- type: entity
+  id: BodyPartHeadMonkey
+  parent: [BaseBodyPartHead, BaseBodyPartMonkey]
+  name: monkey head
+  components:
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 5
+      - ReagentId: Blood
+        Quantity: 10
+
+# Chest
+- type: entity
+  id: BodyPartChestMonkey
+  parent: [BaseBodyPartChest, BaseBodyPartMonkey]
+  name: monkey chest
+  components:
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 10
+      - ReagentId: Blood
+        Quantity: 20
+
+# Groin
+- type: entity
+  id: BodyPartGroinMonkey
+  parent: [BaseBodyPartGroin, BaseBodyPartMonkey]
+  name: monkey groin
+  components:
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 10
+      - ReagentId: Blood
+        Quantity: 20
+
+# Arms
+
+- type: entity
+  id: BodyPartLeftArmMonkey
+  parent: [BaseBodyPartLeftArm, BaseBodyPartMonkey]
+  name: monkey left arm
+
+- type: entity
+  id: BodyPartRightArmMonkey
+  parent: [BaseBodyPartRightArm, BaseBodyPartMonkey]
+  name: monkey right arm
+
+# Hand
+
+- type: entity
+  id: BodyPartLeftHandMonkey
+  parent: [BaseBodyPartLeftHand, BaseBodyPartMonkey]
+  name: monkey left hand
+
+- type: entity
+  id: BodyPartRightHandMonkey
+  parent: [BaseBodyPartRightHand, BaseBodyPartMonkey]
+  name: monkey right hand
+
+# Leg
+
+- type: entity
+  id: BodyPartLeftLegMonkey
+  parent: [BaseBodyPartLeftLeg, BaseBodyPartMonkey]
+  name: monkey left leg
+
+- type: entity
+  id: BodyPartRightLegMonkey
+  parent: [BaseBodyPartRightLeg, BaseBodyPartMonkey]
+  name: monkey right leg
+
+# Foot
+
+- type: entity
+  id: BodyPartLeftFootMonkey
+  parent: [BaseBodyPartLeftFoot, BaseBodyPartMonkey]
+  name: monkey left foot
+
+- type: entity
+  id: BodyPartRightFootMonkey
+  parent: [BaseBodyPartRightFoot, BaseBodyPartMonkey]
+  name: monkey right foot

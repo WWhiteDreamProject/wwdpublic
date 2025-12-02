@@ -1,0 +1,110 @@
+- type: entity
+  id: BaseOrganArachnid
+  parent: BaseOrgan
+  abstract: true
+  name: arachnid organ
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Arachnid/organs.rsi
+  - type: Food
+  - type: Extractable
+    grindableSolutionName: organ
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+  - type: FlavorProfile
+    flavors:
+    - people
+  - type: Tag
+    tags:
+    - Meat
+
+- type: entity
+  id: OrganHeartArachnid
+  parent: [BaseOrganArachnid, BaseOrganHeart]
+  name: arachnid heart
+  description: A disgustingly persistent little biological pump made for spiders.
+
+- type: entity
+  id: OrganEyesArachnid
+  parent: [BaseOrganArachnid, BaseOrganEyes]
+  name: arachnid eyes
+  description: Two was already too many.
+  components:
+  - type: OrganAppearance
+    sprite: Mobs/Species/Arachnid/parts.rsi
+
+- type: entity
+  id: OrganTongueArachnid
+  parent: [BaseOrganArachnid, BaseOrganTongue]
+  name: arachnid tongue
+
+- type: entity
+  id: OrganLungsArachnid
+  parent: [BaseOrganArachnid, BaseOrganLungs]
+  name: arachnid lungs
+  description: Filters oxygen from an atmosphere... just more greedily.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+      lung:
+        maxVol: 100.0
+        canReact: false
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+
+- type: entity
+  id: OrganStomachArachnid
+  parent: [BaseOrganArachnid, BaseOrganStomach]
+  name: arachnid stomach
+  components:
+  - type: Stomach
+    updateInterval: 1.5
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+      stomach:
+        maxVol: 50
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+  - type: Metabolizer
+    updateInterval: 1.5
+
+- type: entity
+  id: OrganLiverArachnid
+  parent: OrganLiverHuman
+  name: arachnid liver
+  components:
+  - type: Metabolizer
+    updateInterval: 1.5
+    metabolizerTypes: [Arachnid]
+
+- type: entity
+  id: OrganKidneysArachnid
+  parent: OrganKidneysHuman
+  name: arachnid kidneys
+  components:
+  - type: Metabolizer
+    updateInterval: 1.5
+    metabolizerTypes: [Animal]

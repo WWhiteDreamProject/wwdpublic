@@ -1,6 +1,5 @@
 - type: marking
   id: SlimeNose
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [SlimePerson]
   forcedColoring: true
@@ -8,30 +7,39 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/slime_parts.rsi
     state: nose
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: SlimeMouth
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [SlimePerson]
   followSkinColor: true
   sprites:
   - sprite: _Impstation/Mobs/Customization/slime_parts.rsi
     state: mouth
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: SlimeBrain
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [SlimePerson]
   followSkinColor: true
   sprites:
   - sprite: _Impstation/Mobs/Customization/slime_parts.rsi
     state: brain
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: SlimeEyeglow
-  bodyPart: Eyes
   markingCategory: Head
   speciesRestriction: [SlimePerson]
   coloring:
@@ -43,30 +51,39 @@
   - sprite: _Impstation/Mobs/Customization/slime_parts.rsi
     state: eyeglow
     shader: unshaded
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Eyes
+    organ: Eyes
+    # WD EDIT END
 
 - type: marking
   id: SlimeLungs
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [SlimePerson]
   followSkinColor: true
   sprites:
   - sprite: _Impstation/Mobs/Customization/slime_parts.rsi
     state: lungs
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+    # WD EDIT END
 
 - type: marking
   id: SlimeCore
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [SlimePerson]
   followSkinColor: true
   sprites:
   - sprite: _Impstation/Mobs/Customization/slime_parts.rsi
     state: core
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+    # WD EDIT END
 
 - type: marking
   id: SlimeBonehead
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [SlimePerson]
   followSkinColor: false
@@ -78,10 +95,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/slime_parts.rsi
     state: bonehead
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: SlimeBonechest
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [SlimePerson]
   followSkinColor: false
@@ -93,10 +113,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/slime_parts.rsi
     state: bonechest
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+    # WD EDIT END
 
 - type: marking
   id: SlimeBonearmleft
-  bodyPart: LArm
   markingCategory: LeftArm
   speciesRestriction: [SlimePerson]
   followSkinColor: false
@@ -108,10 +131,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/slime_parts.rsi
     state: bonearmleft
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftArm
+    bodyPart: LeftArm
+    # WD EDIT END
 
 - type: marking
   id: SlimeBonearmright
-  bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [SlimePerson]
   followSkinColor: false
@@ -123,10 +149,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/slime_parts.rsi
     state: bonearmright
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightArm
+    bodyPart: RightArm
+    # WD EDIT END
 
 - type: marking
   id: SlimeBonefootleft
-  bodyPart: LFoot
   markingCategory: LeftFoot
   speciesRestriction: [SlimePerson]
   followSkinColor: false
@@ -138,10 +167,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/slime_parts.rsi
     state: bonefootleft
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftFoot
+    bodyPart: LeftFoot
+    # WD EDIT END
 
 - type: marking
   id: SlimeBonefootright
-  bodyPart: RFoot
   markingCategory: RightFoot
   speciesRestriction: [SlimePerson]
   followSkinColor: false
@@ -153,10 +185,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/slime_parts.rsi
     state: bonefootright
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightFoot
+    bodyPart: RightFoot
+    # WD EDIT END
 
 - type: marking
   id: SlimeBonehandleft
-  bodyPart: LHand
   markingCategory: LeftHand
   speciesRestriction: [SlimePerson]
   followSkinColor: false
@@ -168,10 +203,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/slime_parts.rsi
     state: bonehandleft
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftHand
+    bodyPart: LeftHand
+    # WD EDIT END
 
 - type: marking
   id: SlimeBonehandright
-  bodyPart: RHand
   markingCategory: RightHand
   speciesRestriction: [SlimePerson]
   followSkinColor: false
@@ -183,10 +221,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/slime_parts.rsi
     state: bonehandright
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightHand
+    bodyPart: RightHand
+    # WD EDIT END
 
 - type: marking
   id: SlimeBonelegleft
-  bodyPart: LLeg
   markingCategory: LeftLeg
   speciesRestriction: [SlimePerson]
   followSkinColor: false
@@ -198,10 +239,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/slime_parts.rsi
     state: bonelegleft
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftLeg
+    bodyPart: LeftLeg
+    # WD EDIT END
 
 - type: marking
   id: SlimeBonelegright
-  bodyPart: RLeg
   markingCategory: RightLeg
   speciesRestriction: [SlimePerson]
   followSkinColor: false
@@ -213,4 +257,8 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/slime_parts.rsi
     state: bonelegright
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightLeg
+    bodyPart: RightLeg
+    # WD EDIT END
 

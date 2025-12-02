@@ -1,0 +1,107 @@
+- type: entity
+  id: BaseBodyPartKobold
+  parent: BaseBodyPart
+  abstract: true
+  name: kobold body part
+  components:
+  - type: Sprite
+    sprite: Mobs/Animals/kobold.rsi
+  - type: BodyPartAppearance
+    sprite: Mobs/Animals/kobold.rsi
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 3
+      - ReagentId: Blood
+        Quantity: 10
+
+# Head
+- type: entity
+  id: BodyPartHeadKobold
+  parent: [BaseBodyPartHead, BaseBodyPartKobold]
+  name: kobold head
+  components:
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 5
+      - ReagentId: Blood
+        Quantity: 10
+
+# Chest
+- type: entity
+  id: BodyPartChestKobold
+  parent: [BaseBodyPartChest, BaseBodyPartKobold]
+  name: kobold chest
+  components:
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 10
+      - ReagentId: Blood
+        Quantity: 20
+
+# Groin
+- type: entity
+  id: BodyPartGroinKobold
+  parent: [BaseBodyPartGroin, BaseBodyPartKobold]
+  name: kobold groin
+  components:
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 10
+      - ReagentId: Blood
+        Quantity: 20
+
+# Arms
+
+- type: entity
+  id: BodyPartLeftArmKobold
+  parent: [BaseBodyPartLeftArm, BaseBodyPartKobold]
+  name: kobold left arm
+
+- type: entity
+  id: BodyPartRightArmKobold
+  parent: [BaseBodyPartRightArm, BaseBodyPartKobold]
+  name: kobold right arm
+
+# Hand
+
+- type: entity
+  id: BodyPartLeftHandKobold
+  parent: [BaseBodyPartLeftHand, BaseBodyPartKobold]
+  name: kobold left hand
+
+- type: entity
+  id: BodyPartRightHandKobold
+  parent: [BaseBodyPartRightHand, BaseBodyPartKobold]
+  name: kobold right hand
+
+# Leg
+
+- type: entity
+  id: BodyPartLeftLegKobold
+  parent: [BaseBodyPartLeftLeg, BaseBodyPartKobold]
+  name: kobold left leg
+
+- type: entity
+  id: BodyPartRightLegKobold
+  parent: [BaseBodyPartRightLeg, BaseBodyPartKobold]
+  name: kobold right leg
+
+# Foot
+
+- type: entity
+  id: BodyPartLeftFootKobold
+  parent: [BaseBodyPartLeftFoot, BaseBodyPartKobold]
+  name: kobold left foot
+
+- type: entity
+  id: BodyPartRightFootKobold
+  parent: [BaseBodyPartRightFoot, BaseBodyPartKobold]
+  name: kobold right foot

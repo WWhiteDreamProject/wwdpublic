@@ -1,10 +1,7 @@
 - type: marking
   id: EmissiveEyeRight
-  bodyPart: Eyes
   markingCategory: Head
   speciesRestriction: [Human, SlimePerson, Reptilian, Dwarf, Felinid, Oni, Harpy, Lamia, Plasmaman, Tajaran]
-  shaders:
-    tattoo_eye_r: unshaded
   coloring:
     default:
       type:
@@ -13,14 +10,16 @@
   sprites:
   - sprite: Mobs/Customization/tattoos.rsi
     state: tattoo_eye_r
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Eyes
+    shader: unshaded
+    organ: Eyes
+    # WD EDIT END
 
 - type: marking
   id: EmissiveEyeLeft
-  bodyPart: Eyes
   markingCategory: Head
   speciesRestriction: [Human, SlimePerson, Reptilian, Dwarf, Felinid, Oni, Harpy, Lamia, Plasmama, Tajaran]
-  shaders:
-    tattoo_eye_l: unshaded
   coloring:
     default:
       type:
@@ -29,3 +28,8 @@
   sprites:
   - sprite: Mobs/Customization/tattoos.rsi
     state: tattoo_eye_l
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Eyes
+    shader: unshaded
+    organ: Eyes
+    # WD EDIT END

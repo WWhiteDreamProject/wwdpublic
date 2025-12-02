@@ -1,6 +1,6 @@
+using Content.Shared._White.Body;
 using Content.Shared._White.Xenomorphs.Infection;
 using Content.Shared._White.Xenomorphs.Larva;
-using Content.Shared.Body.Events;
 using Content.Shared.EntityEffects;
 using Content.Shared.Mobs.Systems;
 using Robust.Server.Containers;
@@ -22,8 +22,8 @@ public sealed class XenomorphInfectionSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<XenomorphInfectionComponent, ComponentShutdown>(OnShutdown);
-        SubscribeLocalEvent<XenomorphInfectionComponent, OrganAddedToBodyEvent>(OnOrganAddedToBody);
-        SubscribeLocalEvent<XenomorphInfectionComponent, OrganRemovedFromBodyEvent>(OnOrganRemovedFromBody);
+        SubscribeLocalEvent<XenomorphInfectionComponent, OrganAddedEvent>(OnOrganAdded);
+        SubscribeLocalEvent<XenomorphInfectionComponent, OrganRemovedEvent>(OnOrganRemoved);
     }
 
     private void OnShutdown(EntityUid uid, XenomorphInfectionComponent component, ComponentShutdown args)
@@ -32,19 +32,25 @@ public sealed class XenomorphInfectionSystem : EntitySystem
             RemComp<XenomorphInfectedComponent>(component.Infected.Value);
     }
 
-    private void OnOrganAddedToBody(EntityUid uid, XenomorphInfectionComponent component, OrganAddedToBodyEvent args)
+    private void OnOrganAdded(EntityUid uid, XenomorphInfectionComponent component, OrganAddedEvent args)
     {
-        var xenomorphInfected = EnsureComp<XenomorphInfectedComponent>(args.Body);
+        if (args.Body is not {} body)
+            return;
+
+        var xenomorphInfected = EnsureComp<XenomorphInfectedComponent>(body);
         xenomorphInfected.Infection = uid;
         xenomorphInfected.InfectedIcons = component.InfectedIcons;
-        Dirty(args.Body, xenomorphInfected);
+        Dirty(body, xenomorphInfected);
 
         component.Infected = args.Body;
     }
 
-    private void OnOrganRemovedFromBody(EntityUid uid, XenomorphInfectionComponent component, OrganRemovedFromBodyEvent args)
+    private void OnOrganRemoved(EntityUid uid, XenomorphInfectionComponent component, OrganRemovedEvent args)
     {
-        RemComp<XenomorphInfectedComponent>(args.OldBody);
+        if (args.Body is not {} body)
+            return;
+
+        RemComp<XenomorphInfectedComponent>(body);
         component.Infected = null;
     }
 

@@ -3,10 +3,6 @@
   name: species-name-plasmaman
   roundStart: true
   prototype: MobPlasmaman
-  # WD EDIT START
-  bodyTypes:
-  - PlasmamanNormal
-  # WD EDIT END
   defaultSkinTone: "#a349a4"
   markingLimits: MobPlasmamanMarkingLimits
   dollPrototype: MobPlasmamanDummy
@@ -19,26 +15,6 @@
   naming: FirstRoman
   sexes:
   - Unsexed
-
-# WD EDIT START
-- type: bodyType
-  id: PlasmamanNormal
-  name: body-normal
-# WD EDIT END
-  sprites:
-    Head: MobPlasmamanHead
-    Face: MobHumanoidAnyMarking
-    Chest: MobPlasmamanTorso
-    Eyes: MobPlasmamanEyes
-    LArm: MobPlasmamanLArm
-    RArm: MobPlasmamanRArm
-    LHand: MobPlasmamanLHand
-    RHand: MobPlasmamanRHand
-    LLeg: MobPlasmamanLLeg
-    RLeg: MobPlasmamanRLeg
-    LFoot: MobPlasmamanLFoot
-    RFoot: MobPlasmamanRFoot
-    Wings: MobHumanoidAnyMarking
 
 - type: markingPoints
   id: MobPlasmamanMarkingLimits
@@ -62,6 +38,11 @@
     Chest:
       points: 1
       required: false
+    # WD EDIT START
+    Groin:
+      points: 6
+      required: false
+    # WD EDIT END
     RightLeg:
       points: 2
       required: false
@@ -86,93 +67,3 @@
     LeftHand:
       points: 2
       required: false
-
-- type: humanoidBaseSprite
-  id: MobPlasmamanHead
-  baseSprite:
-    sprite: Mobs/Species/Plasmaman/parts.rsi
-    state: head_m
-
-- type: humanoidBaseSprite
-  id: MobPlasmamanHeadMale
-  baseSprite:
-    sprite: Mobs/Species/Plasmaman/parts.rsi
-    state: head_m
-
-- type: humanoidBaseSprite
-  id: MobPlasmamanHeadFemale
-  baseSprite:
-    sprite: Mobs/Species/Plasmaman/parts.rsi
-    state: head_f
-
-- type: humanoidBaseSprite
-  id: MobPlasmamanEyes
-  baseSprite:
-    sprite: Mobs/Customization/plasmaman.rsi
-    state: eyes
-
-- type: humanoidBaseSprite
-  id: MobPlasmamanTorso
-  baseSprite:
-    sprite: Mobs/Species/Plasmaman/parts.rsi
-    state: torso_m
-
-- type: humanoidBaseSprite
-  id: MobPlasmamanTorsoMale
-  baseSprite:
-    sprite: Mobs/Species/Plasmaman/parts.rsi
-    state: torso_m
-
-- type: humanoidBaseSprite
-  id: MobPlasmamanTorsoFemale
-  baseSprite:
-    sprite: Mobs/Species/Plasmaman/parts.rsi
-    state: torso_f
-
-- type: humanoidBaseSprite
-  id: MobPlasmamanLLeg
-  baseSprite:
-    sprite: Mobs/Species/Plasmaman/parts.rsi
-    state: l_leg
-
-- type: humanoidBaseSprite
-  id: MobPlasmamanLArm
-  baseSprite:
-    sprite: Mobs/Species/Plasmaman/parts.rsi
-    state: l_arm
-
-- type: humanoidBaseSprite
-  id: MobPlasmamanLHand
-  baseSprite:
-    sprite: Mobs/Species/Plasmaman/parts.rsi
-    state: l_hand
-
-- type: humanoidBaseSprite
-  id: MobPlasmamanLFoot
-  baseSprite:
-    sprite: Mobs/Species/Plasmaman/parts.rsi
-    state: l_foot
-
-- type: humanoidBaseSprite
-  id: MobPlasmamanRLeg
-  baseSprite:
-    sprite: Mobs/Species/Plasmaman/parts.rsi
-    state: r_leg
-
-- type: humanoidBaseSprite
-  id: MobPlasmamanRArm
-  baseSprite:
-    sprite: Mobs/Species/Plasmaman/parts.rsi
-    state: r_arm
-
-- type: humanoidBaseSprite
-  id: MobPlasmamanRHand
-  baseSprite:
-    sprite: Mobs/Species/Plasmaman/parts.rsi
-    state: r_hand
-
-- type: humanoidBaseSprite
-  id: MobPlasmamanRFoot
-  baseSprite:
-    sprite: Mobs/Species/Plasmaman/parts.rsi
-    state: r_foot
