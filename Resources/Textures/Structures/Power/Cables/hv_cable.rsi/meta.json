@@ -4,8 +4,8 @@
         "x": 32,
         "y": 32
     },
-	"license": "CC-BY-SA-4.0",
-	"copyright": "Made by PJB3005",
+	"license": "CC-BY-NC-SA-4.0",
+	"copyright": "Gavrik (@gavrik.tar.gz) for WWhiteDreamProject, 05.10.2025",
     "states": [
         {
             "name": "hvcable_0"

@@ -376,7 +376,7 @@
   description: Reports on the status of the gas within the attached pipe network.
   icon:
     sprite: Structures/Piping/Atmospherics/gas_pipe_sensor.rsi
-    state: icon
+    state: base # WD EDIT: icon -> base
   placementMode: SnapgridCenter
   objectType: Structure
   canRotate: true

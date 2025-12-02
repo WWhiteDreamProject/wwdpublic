@@ -1,0 +1,29 @@
+{
+    "version":1,
+    "size":{
+        "x":32,
+        "y":64
+    },
+    "license":"CC-BY-NC-SA-4.0",
+    "copyright":"Gersoon(gersoon458) for WhiteDreamProject, 18.11.2025",
+    "states":[
+        {
+            "name": "idle_big"
+        },
+        {
+            "name": "idle_head_big"
+        },
+        {
+            "name": "base_big",
+            "delays": [ [ 0.4, 0.15, 0.3, 0.2, 0.2, 0.2] ]
+        },
+        {
+            "name": "head_big",
+            "delays": [ [ 0.4, 0.15, 0.3, 0.2, 0.2, 0.2] ]
+        },
+        {
+            "name": "on_big",
+            "delays": [ [ 0.25, 0.25, 0.25, 0.25] ]
+        }
+    ]
+}
