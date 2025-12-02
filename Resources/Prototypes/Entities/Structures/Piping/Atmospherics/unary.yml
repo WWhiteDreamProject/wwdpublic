@@ -182,7 +182,7 @@
         - state: injector-unshaded
           shader: unshaded
           map: [ "enum.LightLayers.Unshaded" ]
-          color: "#ef2f22"
+          color: "#ef2f22" # WD EDIT: #990000 -> #ef2f22
     - type: GenericVisualizer
       visuals:
        # toggle color of the unshaded light:
