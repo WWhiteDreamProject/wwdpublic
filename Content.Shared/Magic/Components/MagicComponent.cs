@@ -36,4 +36,29 @@ public sealed partial class MagicComponent : Component
 
     // TODO: FreeHand - should check if toggleable action
     //  Check which hand is free to toggle action in
+
+    // WD EDIT START
+    [DataField]
+    public MagicSchool School = MagicSchool.Unset;
+    // WD EDIT END
 }
+
+// WD EDIT START
+public enum MagicSchool : byte
+{
+    Unset,
+    Holy,
+    Psychic,
+    Mime,
+    Restoration,
+    Evocation,
+    Explosion,
+    Transmutation,
+    Translocation,
+    Conjuration,
+    Necromancy,
+    Forbidden,
+    Sanguine,
+    Chuuni, // Specifically for chuuni invocations spell
+}
+// WD EDIT END
