@@ -31,7 +31,7 @@
     malus: 0
   - type: MeleeThrowOnHit
     speed: 5
-    lifetime: 0.5
+    distance: 0.5
   - type: KnockdownOnHit # WD EDIT
     delay: 0
     knockdownTime: 0

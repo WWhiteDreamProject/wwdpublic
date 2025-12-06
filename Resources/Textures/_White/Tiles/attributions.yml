@@ -2,3 +2,8 @@
   license: "CC-BY-NC-SA-4.0"
   copyright: "Gersoon (@gersoon458) and Purka (@purplepigeon580) for WWhiteDreamProject, 16.08.2025"
   source: "https://github.com/WWhiteDreamProject/wwdpublic"
+
+- files: [ "blood_cult.png" ]
+  license: "CC-BY-SA-3.0"
+  copyright: "TG station"
+  source: "https://github.com/tgstation/tgstation/"

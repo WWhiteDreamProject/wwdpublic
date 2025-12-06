@@ -1,0 +1,77 @@
+- type: entity
+  id: ExperimentalTeleportInEffect
+  name: experimental teleport in effect
+  components:
+  - type: TimedDespawn
+    lifetime: 0.6
+  - type: EvaporationSparkle
+  - type: Transform
+    noRot: true
+    anchored: true
+  - type: Sprite
+    layers:
+    - sprite: _White/Effects/teleport.rsi
+      state: experimental_in
+      shader: unshaded
+    netsync: false
+    drawdepth: Effects
+  - type: PointLight
+    color: "#008DFE"
+
+- type: entity
+  id: ExperimentalTeleportOutEffect
+  name: experimental teleport out effect
+  components:
+  - type: TimedDespawn
+    lifetime: 0.6
+  - type: EvaporationSparkle
+  - type: Transform
+    noRot: true
+    anchored: true
+  - type: Sprite
+    layers:
+    - sprite: _White/Effects/teleport.rsi
+      state: experimental_out
+      shader: unshaded
+    netsync: false
+    drawdepth: Effects
+  - type: PointLight
+    color: "#008DFE"
+
+- type: entity
+  id: BloodCultTeleportInEffect
+  name: blood cult teleport in effect
+  components:
+  - type: TimedDespawn
+    lifetime: 0.8
+  - type: Transform
+    noRot: true
+    anchored: true
+  - type: Sprite
+    layers:
+    - sprite: _White/Effects/teleport.rsi
+      state: blood_cult_in
+      shader: unshaded
+    netsync: false
+    drawdepth: Effects
+  - type: PointLight
+    color: "#FF0000"
+
+- type: entity
+  id: BloodCultTeleportOutEffect
+  name: blood cult teleport out effect
+  components:
+  - type: TimedDespawn
+    lifetime: 0.8
+  - type: Transform
+    noRot: true
+    anchored: true
+  - type: Sprite
+    layers:
+    - sprite: _White/Effects/teleport.rsi
+      state: blood_cult_out
+      shader: unshaded
+    netsync: false
+    drawdepth: Effects
+  - type: PointLight
+    color: "#FF0000"

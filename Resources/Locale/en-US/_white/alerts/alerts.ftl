@@ -9,3 +9,6 @@ alerts-plasma-desc = The amount of [color=#ff2da4]plasma[/color] you have to use
 
 alerts-queen-finder-name = Queen sense
 alerts-queen-finder-desc = Allows you to sense the general direction of your Queen.
+
+alerts-blood-cult-empowered-name = Empowered
+alerts-blood-cult-empowered-desc = Blood magic and rune scribing requires much less time to cast and you lose less blood from it.

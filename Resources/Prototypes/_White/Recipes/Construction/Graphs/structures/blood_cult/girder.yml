@@ -1,0 +1,29 @@
+- type: constructionGraph
+  id: BloodCultGirder
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: girder
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+      steps:
+      - material: RunedMetal
+        amount: 1
+        doAfter: 3
+  - node: girder
+    entity: BloodCultGirder
+    edges:
+    - to: wall
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+      conditions:
+      - !type:EntityAnchored { }
+      steps:
+      - material: RunedMetal
+        amount: 1
+        doAfter: 2
+  - node: wall
+    entity: BloodCultWall

@@ -1,0 +1,22 @@
+- type: entity
+  id: BaseSpawnEffect
+  abstract: true
+  components:
+  - type: Sprite
+    netsync: false
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      portalFixture:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.48,0.25,0.48"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        hard: false
+  - type: TimedDespawn
+  - type: SpawnOnDespawn

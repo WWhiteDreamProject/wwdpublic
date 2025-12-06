@@ -272,7 +272,7 @@
     maxCharge: 500
     startingCharge: 500
   # WD EDIT START
-  - type: GunFlux #eee
+  - type: GunFlux
     canChangeSafety: false
   - type: Construction
     graph: MakeshiftLaserGraph
@@ -368,7 +368,7 @@
   - type: ProjectileBatteryAmmoProvider # Projectile > Hitscan
     proto: BulletLaser
     fireCost: 12.5
-  - type: GunFlux #eee
+  - type: GunFlux
     heatCost: 1
   # WD EDIT END
 
@@ -488,8 +488,8 @@
     maxCharge: 40000
     startingCharge: 40000
   # WD EDIT START
-  - type: GunFlux #eee
-    heatCost: 100
+  - type: GunFlux
+    heatCost: 1
   - type: Item # Guns resize
     size: Huge
     shape:
@@ -620,8 +620,8 @@
     zeroVisible: true
   - type: Appearance
   # WD EDIT START
-  - type: GunFlux #eee
-    heatCost: 100
+  - type: GunFlux
+    heatCost: 1.2
   - type: Item # Guns resize
     size: Huge
     shape:
@@ -957,8 +957,8 @@
     flavorKind: station-event-random-sentience-flavor-inanimate
     weight: 0.0002 # 5,000 times less likely than 1 regular animal
     # not putting a BlockMovement component here cause that's funny.
-  - type: GunFlux #eee # wwdp
-    heatCost: 35
+  - type: GunFlux # wwdp
+    heatCost: 1
 
 - type: entity
   name: advanced laser pistol

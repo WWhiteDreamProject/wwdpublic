@@ -26,10 +26,10 @@
 - type: entity
   parent: [BaseWizardObjective, BaseFreeObjective]
   id: WizardDemonstrateObjective
-  name: Demonstration
+  name: Show off
   description: Give the station a good demonstration of your powers!
   components:
   - type: Objective
     icon:
-      sprite: Objects/Magic/magicactions.rsi
+      sprite: _Goobstation/Wizard/actions.rsi # Goob edit
       state: fireball

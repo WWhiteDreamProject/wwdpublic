@@ -3,7 +3,7 @@ meta:
   postmapinit: false
 tilemap:
   0: Space
-  13: CultFloor
+  13: BloodCultFloor
   5: FloorArcadeRed
   7: FloorAsteroidSand
   8: FloorAsteroidSandDug
@@ -52907,7 +52907,7 @@ entities:
     - type: Transform
       pos: 6.3816338,5.569807
       parent: 2
-- proto: MailTeleporter
+- proto: CargoMailTeleporter
   entities:
   - uid: 6317
     components:

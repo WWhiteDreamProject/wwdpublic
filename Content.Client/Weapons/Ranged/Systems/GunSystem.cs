@@ -41,6 +41,7 @@ public sealed partial class GunSystem : SharedGunSystem
     [Dependency] private readonly InputSystem _inputSystem = default!;
     [Dependency] private readonly SharedCameraRecoilSystem _recoil = default!;
     [Dependency] private readonly SharedMapSystem _maps = default!;
+    [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly ContestsSystem _contest = default!; 		// WWDP
     [Dependency] private readonly SpriteSystem _sprite = default!;			// WWDP
     [Dependency] private readonly CombatModeSystem _combatMode = default!;	// WWDP
@@ -152,6 +153,13 @@ public sealed partial class GunSystem : SharedGunSystem
     private void OnHitscan(HitscanEvent ev)
     {
         // ALL I WANT IS AN ANIMATED EFFECT
+
+        // TODO EFFECTS
+        // This is very jank
+        // because the effect consists of three unrelatd entities, the hitscan beam can be split appart.
+        // E.g., if a grid rotates while part of the beam is parented to the grid, and part of it is parented to the map.
+        // Ideally, there should only be one entity, with one sprite that has multiple layers
+        // Or at the very least, have the other entities parented to the same entity to make sure they stick together.
         foreach (var a in ev.Sprites)
         {
             if (a.Sprite is not SpriteSpecifier.Rsi rsi)

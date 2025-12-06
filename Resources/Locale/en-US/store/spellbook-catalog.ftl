@@ -9,7 +9,13 @@ spellbook-voidapplause-name = Void Applause
 spellbook-voidapplause-desc = Swap places with the target, doesn't it make you want to do the boogie?
 
 spellbook-force-wall-name = Force Wall
-spellbook-force-wall-desc = Make three walls of pure force that you can pass through, but other's can't.
+spellbook-force-wall-desc = Make three walls of pure force that you can pass through, but others can't.
+
+spellbook-repulse-name = Repulse
+spellbook-repulse-desc = Tell people to GITTAH`WEIGH and push 'em away from you.
+
+spellbook-smoke-name = Smoke
+spellbook-smoke-desc = Summons a cloud of smoke, it's pretty obvious.
 
 spellbook-polymoprh-spider-name = Spider Polymoprh
 spellbook-polymorph-spider-desc = Transforms you into a spider, man!
@@ -54,6 +60,13 @@ spellbook-wand-locker-description = Shoot cursed lockers at your enemies and loc
 
 spellbook-staff-animation-name = Staff of Animation
 spellbook-staff-animation-description = Bring inanimate objects to life!
+
+spellbook-hammer-mjollnir-name = Mjollnir
+spellbook-hammer-mjollnir-description = Wield the power of THUNDER in your hands. Send foes flying with a mighty swing or by throwing it right at em!
+
+
+spellbook-hammer-singularity-name = Singularity Hammer
+spellbook-hammer-singularity-description = Ever wonder what it'd be like to be the singularity? Swing this hammer to draw in your surroundings, even works if you miss!
 
 # Events
 

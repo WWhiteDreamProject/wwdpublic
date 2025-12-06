@@ -78,7 +78,6 @@ guide-entry-revolutionaries = Революционеры
 guide-entry-minor-antagonists = Малые антагонисты
 guide-entry-space-ninja = Космические Ниндзя
 
-guide-entry-blood-cult = Blood Cult
 guide-entry-shadowlings = Shadowlings
 
 guide-entry-rules = Server Rules

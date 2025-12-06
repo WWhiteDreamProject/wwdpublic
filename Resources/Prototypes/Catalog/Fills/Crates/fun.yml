@@ -213,6 +213,7 @@
         amount: 6
       - id: PaperCNCSheet
         amount: 6
+      - id: BoxPlaysetEvacPod # WD EDIT
 
 - type: entity
   id: CrateFunSadTromboneImplants

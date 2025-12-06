@@ -14,7 +14,7 @@ orphans: []
 nullspace: []
 tilemap:
   0: Space
-  1: CultFloor
+  1: BloodCultFloor
   3: FloorArcadeBlue
   5: FloorArcadeRed
   13: FloorAstroGrass
@@ -107414,7 +107414,7 @@ entities:
       angularDamping: 0
       linearDamping: 0
     - type: RenderOrder
-- proto: MailTeleporter
+- proto: CargoMailTeleporter
   entities:
   - uid: 19532
     components:

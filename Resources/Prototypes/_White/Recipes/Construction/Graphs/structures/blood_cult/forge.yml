@@ -1,0 +1,16 @@
+- type: constructionGraph
+  id: BloodCultFactoryForge
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: forge
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+      steps:
+      - material: RunedMetal
+        amount: 3
+        doAfter: 3
+  - node: forge
+    entity: BloodCultFactoryForge

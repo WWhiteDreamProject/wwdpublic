@@ -169,6 +169,9 @@
   description: Handles AI interactions across holocards + AI cores
   components:
   - type: ItemSlots
+  - type: Tag
+    tags:
+    - GhostOnlyWarp
   - type: StationAiHolder
     slot:
       name: station-ai-mind-slot
@@ -735,6 +738,9 @@
   components:
   - type: IonStormTarget
   - type: WarpPoint
+    blacklist:
+      tags:
+      - GhostOnlyWarp
   - type: ContainerComp
     proto: AiHeld
     container: station_ai_mind_slot
@@ -845,12 +851,17 @@
   id: StationAiHolo
   name: AI eye
   description: The AI's viewer.
-  categories: [ HideSpawnMenu ]
-  suffix: DO NOT MAP
+  categories: [ HideSpawnMenu, DoNotMap ]
   components:
   - type: NoFTL
+  - type: Tag
+    tags:
+    - GhostOnlyWarp
   - type: WarpPoint
     follow: true
+    blacklist:
+      tags:
+      - GhostOnlyWarp
   - type: Eye
     pvsScale: 1.5
   - type: Visibility
@@ -885,13 +896,18 @@
   id: StationAiHoloLocal
   name: AI hologram
   description: A holographic representation of an AI.
-  categories: [ HideSpawnMenu ]
-  suffix: DO NOT MAP
+  categories: [ HideSpawnMenu, DoNotMap ]
   components:
   - type: Transform
     anchored: true
+  - type: Tag
+    tags:
+    - GhostOnlyWarp
   - type: WarpPoint
     follow: true
+    blacklist:
+      tags:
+      - GhostOnlyWarp
   - type: Eye
   - type: ContentEye
   - type: Examiner

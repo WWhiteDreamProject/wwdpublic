@@ -34,6 +34,9 @@ public sealed class SmartEquipSystem : EntitySystem
         CommandBinds.Builder
             .Bind(ContentKeyFunctions.SmartEquipBackpack, InputCmdHandler.FromDelegate(HandleSmartEquipBackpack, handle: false, outsidePrediction: false))
             .Bind(ContentKeyFunctions.SmartEquipBelt, InputCmdHandler.FromDelegate(HandleSmartEquipBelt, handle: false, outsidePrediction: false))
+            .Bind(ContentKeyFunctions.SmartEquipPocket1, InputCmdHandler.FromDelegate(HandleSmartEquipPocket1, handle: false, outsidePrediction: false))
+            .Bind(ContentKeyFunctions.SmartEquipPocket2, InputCmdHandler.FromDelegate(HandleSmartEquipPocket2, handle: false, outsidePrediction: false))
+            .Bind(ContentKeyFunctions.SmartEquipSuitStorage, InputCmdHandler.FromDelegate(HandleSmartEquipSuitStorage, handle: false, outsidePrediction: false))
             .Register<SmartEquipSystem>();
     }
 
@@ -52,6 +55,21 @@ public sealed class SmartEquipSystem : EntitySystem
     private void HandleSmartEquipBelt(ICommonSession? session)
     {
         HandleSmartEquip(session, "belt");
+    }
+
+    private void HandleSmartEquipPocket1(ICommonSession? session)
+    {
+        HandleSmartEquip(session, "pocket1");
+    }
+
+    private void HandleSmartEquipPocket2(ICommonSession? session)
+    {
+        HandleSmartEquip(session, "pocket2");
+    }
+
+    private void HandleSmartEquipSuitStorage(ICommonSession? session)
+    {
+        HandleSmartEquip(session, "suitstorage");
     }
 
     private void HandleSmartEquip(ICommonSession? session, string equipmentSlot)
@@ -103,6 +121,15 @@ public sealed class SmartEquipSystem : EntitySystem
         //    - without hand item: try to put the item into your hand
 
         _inventory.TryGetSlotEntity(uid, equipmentSlot, out var slotEntity);
+        // WD EDIT START
+        // For pockets and suit storage, when the hand is empty, take out the item itself, not the contents
+        var isDirectExtractSlot = equipmentSlot is "pocket1" or "pocket2" or "suitstorage";
+        if (isDirectExtractSlot && handItem == null && slotEntity != null)
+        {
+            SmartEquipItem(slotEntity.Value, uid, equipmentSlot, inventory, hands);
+            return;
+        }
+        // WD EDIT END
         var emptyEquipmentSlotString = Loc.GetString("smart-equip-empty-equipment-slot", ("slotName", equipmentSlot));
 
         // case 1 (no slot item):

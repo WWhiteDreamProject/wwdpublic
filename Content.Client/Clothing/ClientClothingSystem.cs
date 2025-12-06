@@ -388,7 +388,8 @@ public sealed class ClientClothingSystem : ClothingSystem
                     || bodyTypeName is not null && layerData.State.EndsWith(bodyTypeName))) // WD EDIT
                     continue;
 
-                _displacement.TryAddDisplacement(displacementData, sprite, index, key, revealedLayers);
+                if (_displacement.TryAddDisplacement(displacementData, sprite, index, key, revealedLayers))
+                    index++;
             }
         }
 

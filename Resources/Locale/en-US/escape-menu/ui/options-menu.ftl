@@ -171,6 +171,9 @@ ui-options-modern-progress-bar = Modern progress bar
 
 ui-options-function-smart-equip-backpack = Smart-equip to backpack
 ui-options-function-smart-equip-belt = Smart-equip to belt
+ui-options-function-smart-equip-suit-storage = Smart-equip to suit storage
+ui-options-function-smart-equip-pocket1 = Smart-equip to pocket 1
+ui-options-function-smart-equip-pocket2 = Smart-equip to pocket 2
 ui-options-function-open-backpack = Open backpack
 ui-options-function-open-belt = Open belt
 ui-options-function-throw-item-in-hand = Throw item
@@ -310,9 +313,12 @@ cmd-options-help = Usage: options [tab]
 ui-options-enable-color-name = Add colors to character names
 ui-options-colorblind-friendly = Colorblind friendly mode
 ui-options-reduced-motion = Reduce motion of visual effects
-ui-options-chat-window-opacity = Chat window opacity
 ui-options-chat-window-opacity-percent = { TOSTRING($opacity, "P0") }
 ui-options-screen-shake-intensity = Screen shake intensity
+ui-options-chat-window-opacity = Chat window opacity
+ui-options-speech-bubble-text-opacity = Speech bubble text opacity
+ui-options-speech-bubble-speaker-opacity = Speech bubble speaker opacity
+ui-options-speech-bubble-background-opacity = Speech bubble background opacity
 ui-options-screen-shake-percent = { TOSTRING($intensity, "P0") }
 
 ## Combat Options

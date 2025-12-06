@@ -1,8 +1,8 @@
 using Content.Server._Goobstation.Devil.GameTicking.Rules;
+using Content.Server._White.GameTicking.Rules.Components;
 using Content.Server.Administration.Commands;
 using Content.Server.Antag;
 using Content.Server.GameTicking.Rules.Components;
-using Content.Server.WhiteDream.BloodCult.Gamerule;
 using Content.Server.Zombies;
 using Content.Shared.Administration;
 using Content.Shared.Database;
@@ -42,8 +42,10 @@ public sealed partial class AdminVerbSystem
     [ValidatePrototypeId<EntityPrototype>]
     private const string DefaultShadowlingRule = "Shadowling";
 
+    // WD EDIT START
     [ValidatePrototypeId<EntityPrototype>]
     private const string DefaultBloodCultRule = "BloodCult";
+    // WD EDIT END
 
     [ValidatePrototypeId<StartingGearPrototype>]
     private const string PirateGearId = "PirateGear";
@@ -196,6 +198,7 @@ public sealed partial class AdminVerbSystem
         };
         args.Verbs.Add(devilAntag);
 
+        // WD EDIT START
         Verb cultist = new()
         {
             Text = Loc.GetString("admin-verb-text-make-blood-cultist"),
@@ -209,6 +212,7 @@ public sealed partial class AdminVerbSystem
             Message = Loc.GetString("admin-verb-make-blood-cultist"),
         };
         args.Verbs.Add(cultist);
+        // WD EDIT END
 
         Verb shadowling = new()
         {
