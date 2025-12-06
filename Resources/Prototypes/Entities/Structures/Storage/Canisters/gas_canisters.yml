@@ -10,11 +10,14 @@
     - type: Transform
       noRot: true
     - type: Sprite
-      sprite: _White/Structures/Storage/canister.rsi # WWDP edit
+      offset: 0,0.3125 # WWDP edit start
+      drawDepth: OverMobs
+      sprite: _White/Structures/Storage/canister.rsi # WWDP edit end
       noRot: true
       layers:
         - state: air # WWDP edit
     - type: Appearance
+    - type: SpriteFade
     - type: GenericVisualizer
       visuals:
         enum.AnchorVisuals.Anchored:
@@ -71,8 +74,9 @@
       fixtures:
         fix1:
           shape:
-            !type:PhysShapeAabb
-            bounds: "-0.25,-0.25,0.25,0.25"
+            !type:PhysShapeCircle # WWDP edit start
+            radius: 0.3
+            position: -0.015625,0.09375 # WWDP edit end
           density: 380
           mask:
           - SmallMobMask

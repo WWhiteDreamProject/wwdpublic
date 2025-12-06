@@ -171,7 +171,7 @@
   components:
   - type: Mail
     contents:
-    - id: ClearPDA
+    # - id: ClearPDA WWDP edit
     - id: ClothingHeadsetGrey
     - id: Paper
 

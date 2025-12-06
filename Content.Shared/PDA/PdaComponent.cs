@@ -6,7 +6,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototy
 
 namespace Content.Shared.PDA
 {
-    [RegisterComponent, NetworkedComponent]
+    [RegisterComponent, NetworkedComponent, AutoGenerateComponentState] // WWDP edit +AutoGenerateComponentState
     public sealed partial class PdaComponent : Component
     {
         public const string PdaIdSlotId = "PDA-id";
@@ -25,6 +25,13 @@ namespace Content.Shared.PDA
 
         [DataField]
         public ItemSlot PassportSlot = new();
+        // WWDP edit start
+        [DataField, AutoNetworkedField]
+        public bool Enabled { get; set; } = false;
+
+        [DataField, AutoNetworkedField]
+        public bool Screen { get; set; } = false;
+        // WWDP edit end
 
         // Really this should just be using ItemSlot.StartingItem. However, seeing as we have so many different starting
         // PDA's and no nice way to inherit the other fields from the ItemSlot data definition, this makes the yaml much
