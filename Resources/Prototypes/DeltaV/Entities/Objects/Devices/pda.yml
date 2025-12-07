@@ -189,11 +189,6 @@
       whitelist:
         tags:
         - Write
-  - type: Appearance
-    appearanceDataInit:
-      enum.PdaVisuals.PdaType:
-        !type:String
-        pda-syndi-agent
 
 - type: entity
   parent: BasePDA
