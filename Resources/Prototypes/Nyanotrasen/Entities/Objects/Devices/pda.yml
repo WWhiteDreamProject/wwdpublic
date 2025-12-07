@@ -6,10 +6,7 @@
   components:
   - type: Pda
     id: PrisonerIDCard
-  - type: Icon
-    state: pda # WWDP edit start
-    sprite: _White/Objects/Devices/Pda/prisoner.rsi
-  - type: Sprite
+  - type: Sprite # WWDP edit
     sprite: _White/Objects/Devices/Pda/prisoner.rsi # WWDP edit end
 
 - type: entity
@@ -31,8 +28,6 @@
   - type: PdaBorderColor
     borderColor: "#A32D26"
     accentVColor: "#DFDFDF"
-  - type: Icon
-    state: pda-security
   - type: CartridgeLoader # Adds Crime Assist and SecWatch
     preinstalled:
       - CrewManifestCartridge
@@ -50,15 +45,11 @@
   components:
   - type: Pda
     id: MailCarrierIDCard
-  - type: Appearance
   - type: PdaBorderColor
     borderColor: "#e39751"
     accentVColor: "#050c4d"
-  - type: Icon
-    sprite: _White/Objects/Devices/Pda/mailcarrier.rsi # WWDP edit start
-    state: pda
-  - type: Sprite
-    sprite: _White/Objects/Devices/Pda/mailcarrier.rsi # WWDP edit end
+  - type: Sprite # WWDP edit
+    sprite: _White/Objects/Devices/Pda/mailcarrier.rsi # WWDP edit
   - type: CartridgeLoader # Adds a courier performance tracker
     preinstalled:
     - CrewManifestCartridge
@@ -108,12 +99,8 @@
   components:
   - type: Pda
     id: ForensicMantisIDCard
-  - type: Appearance
-  - type: Icon
-    state: pda # WWDP edit start
-    sprite: _White/Objects/Devices/Pda/mantis.rsi
-  - type: Sprite
-    sprite: _White/Objects/Devices/Pda/mantis.rsi # WWDP edit end
+  - type: Sprite # WWDP edit
+    sprite: _White/Objects/Devices/Pda/mantis.rsi # WWDP edit
   - type: CartridgeLoader
     preinstalled:
      - CrewManifestCartridge

@@ -6,9 +6,6 @@
   components:
   - type: Pda
     id: HoboIDCard
-  - type: Icon
-    state: pda
-    sprite: _White/Objects/Devices/Pda/pda.rsi
   - type: Sprite
     sprite: _White/Objects/Devices/Pda/pda.rsi
 
@@ -20,9 +17,5 @@
   components:
   - type: Pda
     id: MaidIDCard
-  - type: Appearance
-  - type: Icon
-    sprite: _White/Objects/Devices/Pda/maid.rsi
-    state: pda
   - type: Sprite
     sprite: _White/Objects/Devices/Pda/maid.rsi
