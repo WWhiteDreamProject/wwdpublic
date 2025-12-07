@@ -199,15 +199,11 @@
   components:
   - type: Pda
     id: TechnicalAssistantIDCard
-  - type: Appearance
   - type: PdaBorderColor
     borderColor: "#717059"
     accentVColor: "#949137"
-  - type: Icon
-    state: pda # WWDP edit start
-    sprite: _White/Objects/Devices/Pda/interntech.rsi
-  - type: Sprite
-    sprite: _White/Objects/Devices/Pda/interntech.rsi # WWDP edit end
+  - type: Sprite # WWDP edit
+    sprite: _White/Objects/Devices/Pda/interntech.rsi # WWDP edit
 
 - type: entity
   parent: BaseMedicalPDA
@@ -223,15 +219,11 @@
       whitelist:
         tags:
         - Write
-  - type: Appearance
   - type: PdaBorderColor
     borderColor: "#717059"
     accentVColor: "#447987"
-  - type: Icon
-    state: pda # WWDP edit start
-    sprite: _White/Objects/Devices/Pda/internmed.rsi
-  - type: Sprite
-    sprite: _White/Objects/Devices/Pda/internmed.rsi # WWDP edit end
+  - type: Sprite # WWDP edit
+    sprite: _White/Objects/Devices/Pda/internmed.rsi # WWDP edit
   - type: GuideHelp
     guides:
     - Medical Doctor
@@ -244,15 +236,11 @@
   components:
   - type: Pda
     id: SecurityCadetIDCard
-  - type: Appearance
   - type: PdaBorderColor
     borderColor: "#717059"
     accentVColor: "#A32D26"
-  - type: Icon
-    state: pda # WWDP edit start
-    sprite: _White/Objects/Devices/Pda/interncadet.rsi
-  - type: Sprite
-    sprite: _White/Objects/Devices/Pda/interncadet.rsi # WWDP edit end
+  - type: Sprite # WWDP edit
+    sprite: _White/Objects/Devices/Pda/interncadet.rsi # WWDP edit
 
 - type: entity
   parent: BasePDA
@@ -262,15 +250,11 @@
   components:
   - type: Pda
     id: ResearchAssistantIDCard
-  - type: Appearance
   - type: PdaBorderColor
     borderColor: "#717059"
     accentVColor: "#8900c9"
-  - type: Icon
-    state: pda # WWDP edit start
-    sprite: _White/Objects/Devices/Pda/internsci.rsi
-  - type: Sprite
-    sprite: _White/Objects/Devices/Pda/internsci.rsi # WWDP edit end
+  - type: Sprite # WWDP edit
+    sprite: _White/Objects/Devices/Pda/internsci.rsi # WWDP edit
 
 - type: entity
   parent: BasePDA
@@ -280,15 +264,11 @@
   components:
   - type: Pda
     id: ServiceWorkerIDCard
-  - type: Appearance
   - type: PdaBorderColor
     borderColor: "#717059"
     accentVColor: "#00cc35"
-  - type: Icon
-    state: pda # WWDP edit start
-    sprite: _White/Objects/Devices/Pda/internservice.rsi
-  - type: Sprite
-    sprite: _White/Objects/Devices/Pda/internservice.rsi # WWDP edit end
+  - type: Sprite # WWDP edit
+    sprite: _White/Objects/Devices/Pda/internservice.rsi # WWDP edit
 
 - type: entity
   parent: BasePDA
@@ -298,14 +278,10 @@
   components:
   - type: Pda
     id: ChefIDCard
-  - type: Appearance
   - type: PdaBorderColor
     borderColor: "#d7d7d0"
-  - type: Icon
-    state: pda-cook # WWDP edit start
-    sprite: _White/Objects/Devices/Pda/cook.rsi
-  - type: Sprite
-    sprite: _White/Objects/Devices/Pda/cook.rsi # WWDP edit end
+  - type: Sprite # WWDP edit
+    sprite: _White/Objects/Devices/Pda/cook.rsi # WWDP edit
   - type: ReplacementAccent # for random sentience event
     accent: italian
 
@@ -317,15 +293,11 @@
   components:
   - type: Pda
     id: BotanistIDCard
-  - type: Appearance
   - type: PdaBorderColor
     borderColor: "#44843c"
     accentVColor: "#00cc35"
-  - type: Icon
-    state: pda # WWDP edit start
-    sprite: _White/Objects/Devices/Pda/hydro.rsi
-  - type: Sprite
-    sprite: _White/Objects/Devices/Pda/hydro.rsi # WWDP edit end
+  - type: Sprite # WWDP edit
+    sprite: _White/Objects/Devices/Pda/hydro.rsi # WWDP edit
 
 - type: entity
   parent: BasePDA
@@ -344,14 +316,10 @@
       whitelist:
         tags:
         - Write
-  - type: Appearance
   - type: PdaBorderColor
     borderColor: "#C18199"
-  - type: Icon
-    state: pda # WWDP edit start
-    sprite: _White/Objects/Devices/Pda/clown.rsi
-  - type: Sprite
-    sprite: _White/Objects/Devices/Pda/clown.rsi # WWDP edit end
+  - type: Sprite # WWDP edit
+    sprite: _White/Objects/Devices/Pda/clown.rsi # WWDP edit
   - type: Slippery
     paralyzeTime: 4
     launchForwardsMultiplier: 1.5
@@ -428,15 +396,11 @@
       whitelist:
         components:
         - Cartridge
-  - type: Appearance
   - type: PdaBorderColor
     borderColor: "#d7d7d0"
     accentHColor: "#333333"
-  - type: Icon
-    state: mime # WWDP edit start
-    sprite: _White/Objects/Devices/Pda/mime.rsi
-  - type: Sprite
-    sprite: _White/Objects/Devices/Pda/mime.rsi # WWDP edit end
+  - type: Sprite # WWDP edit
+    sprite: _White/Objects/Devices/Pda/mime.rsi # WWDP edit
   - type: Muted # for random sentience event
 
 - type: entity
@@ -447,15 +411,11 @@
   components:
   - type: Pda
     id: ChaplainIDCard
-  - type: Appearance
   - type: PdaBorderColor
     borderColor: "#333333"
     accentVColor: "#8900c9" # DeltaV - Give Chaplain PDA Epistemics colors
-  - type: Icon
-    state: pda # WWDP edit start
-    sprite: _White/Objects/Devices/Pda/chaplain.rsi
-  - type: Sprite
-    sprite: _White/Objects/Devices/Pda/chaplain.rsi # WWDP edit end
+  - type: Sprite # WWDP edit
+    sprite: _White/Objects/Devices/Pda/chaplain.rsi # WWDP edit
   - type: CartridgeLoader # Nyanotrasen - Glimmer Monitor
     preinstalled:
     - CrewManifestCartridge
@@ -484,15 +444,11 @@
   components:
   - type: Pda
     id: QuartermasterIDCard
-  - type: Appearance
   - type: PdaBorderColor
     borderColor: "#e39751"
     accentVColor: "#a23e3e"
-  - type: Icon
-    state: pda # WWDP edit start
-    sprite: _White/Objects/Devices/Pda/qm.rsi
-  - type: Sprite
-    sprite: _White/Objects/Devices/Pda/qm.rsi # WWDP edit end
+  - type: Sprite # WWDP edit
+    sprite: _White/Objects/Devices/Pda/qm.rsi # WWDP edit
   - type: CartridgeLoader # Adds the MailMetrics courier tracker
     preinstalled:
     - CrewManifestCartridge
@@ -510,15 +466,11 @@
   components:
   - type: Pda
     id: QuartermasterIDCard
-  - type: Appearance
   - type: PdaBorderColor
     borderColor: "#e39751"
     accentVColor: "#a23e3e"
-  - type: Icon
-    sprite: _White/Objects/Devices/Pda/LOH/qm.rsi # WWDP edit start
-    state: pda
-  - type: Sprite
-    sprite: _White/Objects/Devices/Pda/LOH/qm.rsi # WWDP edit end
+  - type: Sprite # WWDP edit
+    sprite: _White/Objects/Devices/Pda/LOH/qm.rsi # WWDP edit
   - type: CartridgeLoader # Adds the MailMetrics courier tracker
     preinstalled:
     - CrewManifestCartridge
@@ -536,14 +488,10 @@
   components:
   - type: Pda
     id: CargoIDCard
-  - type: Appearance
   - type: PdaBorderColor
     borderColor: "#e39751"
-  - type: Icon
-    state: pda # WWDP edit start
-    sprite: _White/Objects/Devices/Pda/cargo.rsi
-  - type: Sprite
-    sprite: _White/Objects/Devices/Pda/cargo.rsi # WWDP edit end
+  - type: Sprite # WWDP edit
+    sprite: _White/Objects/Devices/Pda/cargo.rsi # WWDP edit
   - type: CartridgeLoader # DeltaV
     preinstalled:
     - CrewManifestCartridge
@@ -560,15 +508,11 @@
   components:
   - type: Pda
     id: SalvageIDCard
-  - type: Appearance
   - type: PdaBorderColor
     borderColor: "#af9366"
     accentVColor: "#8900c9"
-  - type: Icon
-    state: pda # WWDP edit start
-    sprite: _White/Objects/Devices/Pda/miner.rsi
-  - type: Sprite
-    sprite: _White/Objects/Devices/Pda/miner.rsi # WWDP edit end
+  - type: Sprite # WWDP edit
+    sprite: _White/Objects/Devices/Pda/miner.rsi # WWDP edit
   - type: CartridgeLoader
     uiKey: enum.PdaUiKey.Key
     preinstalled:
@@ -586,14 +530,10 @@
   components:
   - type: Pda
     id: BartenderIDCard
-  - type: Appearance
   - type: PdaBorderColor
     borderColor: "#333333"
-  - type: Icon
-    state: pda # WWDP edit start
-    sprite: _White/Objects/Devices/Pda/bartender.rsi
-  - type: Sprite
-    sprite: _White/Objects/Devices/Pda/bartender.rsi # WWDP edit end
+  - type: Sprite # WWDP edit
+    sprite: _White/Objects/Devices/Pda/bartender.rsi # WWDP edit
 
 - type: entity
   parent: BasePDA
@@ -609,14 +549,10 @@
       whitelist:
         tags:
         - Write
-  - type: Appearance
   - type: PdaBorderColor
     borderColor: "#858585"
-  - type: Icon
-    state: pda # WWDP edit start
-    sprite: _White/Objects/Devices/Pda/library.rsi
-  - type: Sprite
-    sprite: _White/Objects/Devices/Pda/library.rsi # WWDP edit end
+  - type: Sprite # WWDP edit
+    sprite: _White/Objects/Devices/Pda/library.rsi # WWDP edit
   - type: CartridgeLoader
     preinstalled:
     - CrewManifestCartridge
@@ -651,14 +587,10 @@
       whitelist:
         tags:
         - Write
-  - type: Appearance
   - type: PdaBorderColor
     borderColor: "#6f6192"
-  - type: Icon
-    state: pda # WWDP edit start
-    sprite: _White/Objects/Devices/Pda/lawyer.rsi
-  - type: Sprite
-    sprite: _White/Objects/Devices/Pda/lawyer.rsi # WWDP edit end
+  - type: Sprite # WWDP edit
+    sprite: _White/Objects/Devices/Pda/lawyer.rsi # WWDP edit
   - type: CartridgeLoader # DeltaV - Crime Assist + SecWatch
     preinstalled:
     - CrewManifestCartridge
@@ -687,14 +619,10 @@
   components:
   - type: Pda
     id: JanitorIDCard
-  - type: Appearance
   - type: PdaBorderColor
     borderColor: "#5D2D56"
-  - type: Icon
-    state: pda # WWDP edit start
-    sprite: _White/Objects/Devices/Pda/janitor.rsi
-  - type: Sprite
-    sprite: _White/Objects/Devices/Pda/janitor.rsi # WWDP edit end
+  - type: Sprite # WWDP edit
+    sprite: _White/Objects/Devices/Pda/janitor.rsi # WWDP edit
 
 - type: entity
   parent: BasePDA
@@ -710,14 +638,10 @@
       whitelist:
         tags:
         - Write
-  - type: Appearance
   - type: PdaBorderColor
     borderColor: "#7C5D00"
-  - type: Icon
-    sprite: _White/Objects/Devices/Pda/captain.rsi # WWDP edit start
-    state: pda
-  - type: Sprite
-    sprite: _White/Objects/Devices/Pda/captain.rsi # WWDP edit end
+  - type: Sprite # WWDP edit
+    sprite: _White/Objects/Devices/Pda/captain.rsi # WWDP edit
   - type: DamageOtherOnHit
     damage:
       types:
@@ -740,13 +664,9 @@
       whitelist:
         tags:
         - Write
-  - type: Appearance
   - type: PdaBorderColor
     borderColor: "#7C5D00"
-  - type: Icon
-    sprite: _White/Objects/Devices/Pda/LOH/captain.rsi # WWDP edit start
-    state: pda
-  - type: Sprite
+  - type: Sprite # WWDP edit start
     sprite: _White/Objects/Devices/Pda/LOH/captain.rsi
     layers:
     - map: [ "enum.PdaVisualLayers.Base" ]
@@ -781,15 +701,11 @@
       whitelist:
         tags:
         - Write
-  - type: Appearance
   - type: PdaBorderColor
     borderColor: "#789876"
     accentHColor: "#447987"
-  - type: Icon
-    state: pda # WWDP edit start
-    sprite: _White/Objects/Devices/Pda/hop.rsi
-  - type: Sprite
-    sprite: _White/Objects/Devices/Pda/hop.rsi # WWDP edit end
+  - type: Sprite # WWDP edit
+    sprite: _White/Objects/Devices/Pda/hop.rsi # WWDP edit
 
 - type: entity
   parent: BasePDA
@@ -805,15 +721,11 @@
       whitelist:
         tags:
         - Write
-  - type: Appearance
   - type: PdaBorderColor
     borderColor: "#789876"
     accentHColor: "#447987"
-  - type: Icon
-    sprite: _White/Objects/Devices/Pda/LOH/hop.rsi # WWDP edit start
-    state: pda
-  - type: Sprite
-    sprite: _White/Objects/Devices/Pda/LOH/hop.rsi # WWDP edit end
+  - type: Sprite # WWDP edit
+    sprite: _White/Objects/Devices/Pda/LOH/hop.rsi # WWDP edit
 
 - type: entity
   parent: BasePDA
@@ -823,15 +735,11 @@
   components:
   - type: Pda
     id: CEIDCard
-  - type: Appearance
   - type: PdaBorderColor
     borderColor: "#949137"
     accentHColor: "#447987"
-  - type: Icon
-    state: pda # WWDP edit start
-    sprite: _White/Objects/Devices/Pda/ce.rsi
-  - type: Sprite
-    sprite: _White/Objects/Devices/Pda/ce.rsi # WWDP edit end
+  - type: Sprite # WWDP edit
+    sprite: _White/Objects/Devices/Pda/ce.rsi # WWDP edit
 
 - type: entity
   parent: BasePDA
@@ -841,15 +749,11 @@
   components:
   - type: Pda
     id: CEIDCard
-  - type: Appearance
   - type: PdaBorderColor
     borderColor: "#949137"
     accentHColor: "#447987"
-  - type: Icon
-    sprite: _White/Objects/Devices/Pda/LOH/ce.rsi # WWDP edit start
-    state: pda
-  - type: Sprite
-    sprite: _White/Objects/Devices/Pda/LOH/ce.rsi # WWDP edit end
+  - type: Sprite # WWDP edit
+    sprite: _White/Objects/Devices/Pda/LOH/ce.rsi # WWDP edit
 
 - type: entity
   parent: BasePDA
@@ -859,15 +763,11 @@
   components:
   - type: Pda
     id: EngineeringIDCard
-  - type: Appearance
   - type: PdaBorderColor
     borderColor: "#949137"
     accentVColor: "#A32D26"
-  - type: Icon
-    state: pda # WWDP edit start
-    sprite: _White/Objects/Devices/Pda/engineer.rsi
-  - type: Sprite
-    sprite: _White/Objects/Devices/Pda/engineer.rsi # WWDP edit end
+  - type: Sprite # WWDP edit
+    sprite: _White/Objects/Devices/Pda/engineer.rsi # WWDP edit
 
 - type: entity
   parent: BaseMedicalPDA
@@ -883,16 +783,12 @@
       whitelist:
         tags:
         - Write
-  - type: Appearance
   - type: PdaBorderColor
     borderColor: "#d7d7d0"
     accentHColor: "#447987"
     accentVColor: "#447987"
-  - type: Icon
-    state: pda # WWDP edit start
-    sprite: _White/Objects/Devices/Pda/cmo.rsi
-  - type: Sprite
-    sprite: _White/Objects/Devices/Pda/cmo.rsi # WWDP edit end
+  - type: Sprite # WWDP edit
+    sprite: _White/Objects/Devices/Pda/cmo.rsi # WWDP edit
 
 - type: entity
   parent: BaseMedicalPDA
@@ -908,16 +804,12 @@
       whitelist:
         tags:
         - Write
-  - type: Appearance
   - type: PdaBorderColor
     borderColor: "#d7d7d0"
     accentHColor: "#447987"
     accentVColor: "#447987"
-  - type: Icon
-    sprite: _White/Objects/Devices/Pda/LOH/cmo.rsi # WWDP edit start
-    state: pda
-  - type: Sprite
-    sprite: _White/Objects/Devices/Pda/LOH/cmo.rsi # WWDP edit end
+  - type: Sprite # WWDP edit
+    sprite: _White/Objects/Devices/Pda/LOH/cmo.rsi # WWDP edit
 
 - type: entity
   parent: BaseMedicalPDA
@@ -933,14 +825,11 @@
       whitelist:
         tags:
         - Write
-  - type: Appearance
   - type: PdaBorderColor
     borderColor: "#d7d7d0"
     accentVColor: "#447987"
-  - type: Icon
-    state: pda # WWDP edit start
-  - type: Sprite
-    sprite: _White/Objects/Devices/Pda/medical.rsi # WWDP edit end
+  - type: Sprite # WWDP edit
+    sprite: _White/Objects/Devices/Pda/medical.rsi # WWDP edit
   - type: GuideHelp
     guides:
     - Medical Doctor
@@ -970,15 +859,11 @@
       whitelist:
         tags:
         - Write
-  - type: Appearance
   - type: PdaBorderColor
     borderColor: "#d7d7d0"
     accentVColor: "#2a4b5b"
-  - type: Icon
-    state: pda # WWDP edit start
-    sprite: _White/Objects/Devices/Pda/paramedic.rsi
-  - type: Sprite
-    sprite: _White/Objects/Devices/Pda/paramedic.rsi # WWDP edit end
+  - type: Sprite # WWDP edit
+    sprite: _White/Objects/Devices/Pda/paramedic.rsi # WWDP edit
 
 - type: entity
   parent: BaseMedicalPDA
@@ -994,15 +879,11 @@
       whitelist:
         tags:
         - Write
-  - type: Appearance
   - type: PdaBorderColor
     borderColor: "#d7d7d0"
     accentVColor: "#B34200"
-  - type: Icon
-    state: pda # WWDP edit start
-    sprite: _White/Objects/Devices/Pda/chemistry.rsi
-  - type: Sprite
-    sprite: _White/Objects/Devices/Pda/chemistry.rsi # WWDP edit end
+  - type: Sprite # WWDP edit
+    sprite: _White/Objects/Devices/Pda/chemistry.rsi # WWDP edit
 
 - type: entity
   parent: SciencePDA
@@ -1012,16 +893,12 @@
   components:
   - type: Pda
     id: RDIDCard
-  - type: Appearance
   - type: PdaBorderColor
     borderColor: "#d7d7d0"
     accentHColor: "#447987"
     accentVColor: "#8900c9"
-  - type: Icon
-    state: pda # WWDP edit start
-    sprite: _White/Objects/Devices/Pda/rd.rsi
-  - type: Sprite
-    sprite: _White/Objects/Devices/Pda/rd.rsi # WWDP edit end
+  - type: Sprite # WWDP edit
+    sprite: _White/Objects/Devices/Pda/rd.rsi # WWDP edit
   - type: CartridgeLoader # Nyanotrasen - Glimmer Monitor
     preinstalled:
     - CrewManifestCartridge
@@ -1039,16 +916,12 @@
   components:
   - type: Pda
     id: RDIDCard
-  - type: Appearance
   - type: PdaBorderColor
     borderColor: "#d7d7d0"
     accentHColor: "#447987"
     accentVColor: "#8900c9"
-  - type: Icon
-    sprite: _White/Objects/Devices/Pda/LOH/rd.rsi # WWDP edit start
-    state: pda
-  - type: Sprite
-    sprite: _White/Objects/Devices/Pda/LOH/rd.rsi # WWDP edit end
+  - type: Sprite # WWDP edit
+    sprite: _White/Objects/Devices/Pda/LOH/rd.rsi # WWDP edit
   - type: CartridgeLoader # Nyanotrasen - Glimmer Monitor
     preinstalled:
     - CrewManifestCartridge
@@ -1066,15 +939,11 @@
   components:
   - type: Pda
     id: ResearchIDCard
-  - type: Appearance
   - type: PdaBorderColor
     borderColor: "#d7d7d0"
     accentVColor: "#8900c9"
-  - type: Icon
-    state: pda # WWDP edit start
-    sprite: _White/Objects/Devices/Pda/science.rsi
-  - type: Sprite
-    sprite: _White/Objects/Devices/Pda/science.rsi # WWDP edit end
+  - type: Sprite # WWDP edit
+    sprite: _White/Objects/Devices/Pda/science.rsi # WWDP edit
   - type: CartridgeLoader # Nyanotrasen - Glimmer Monitor
     preinstalled:
     - CrewManifestCartridge
@@ -1091,15 +960,11 @@
   components:
   - type: Pda
     id: RoboticsIDCard
-  - type: Appearance
   - type: PdaBorderColor
     borderColor: "#d7d7d0"
     accentVColor: "#952004"
-  - type: Icon
-    state: pda-robotics # WWDP edit start
-    sprite: _White/Objects/Devices/Pda/robotics.rsi
-  - type: Sprite
-    sprite: _White/Objects/Devices/Pda/robotics.rsi # WWDP edit end
+  - type: Sprite # WWDP edit
+    sprite: _White/Objects/Devices/Pda/robotics.rsi # WWDP edit
 
 - type: entity
   parent: BaseSecurityPDA
@@ -1109,15 +974,11 @@
   components:
   - type: Pda
     id: HoSIDCard
-  - type: Appearance
   - type: PdaBorderColor
     borderColor: "#A32D26"
     accentHColor: "#447987"
-  - type: Icon
-    state: pda # WWDP edit start
-    sprite: _White/Objects/Devices/Pda/hos.rsi
-  - type: Sprite
-    sprite: _White/Objects/Devices/Pda/hos.rsi # WWDP edit end
+  - type: Sprite # WWDP edit
+    sprite: _White/Objects/Devices/Pda/hos.rsi # WWDP edit
   - type: CartridgeLoader
     preinstalled:
     - CrewManifestCartridge
@@ -1136,15 +997,11 @@
   components:
   - type: Pda
     id: HoSIDCard
-  - type: Appearance
   - type: PdaBorderColor
     borderColor: "#A32D26"
     accentHColor: "#447987"
-  - type: Icon
-    sprite: _White/Objects/Devices/Pda/LOH/hos.rsi # WWDP edit start
-    state: pda
-  - type: Sprite
-    sprite: _White/Objects/Devices/Pda/LOH/hos.rsi # WWDP edit end
+  - type: Sprite # WWDP edit
+    sprite: _White/Objects/Devices/Pda/LOH/hos.rsi # WWDP edit
 
 - type: entity
   parent: BaseSecurityPDA
@@ -1154,15 +1011,11 @@
   components:
   - type: Pda
     id: WardenIDCard
-  - type: Appearance
   - type: PdaBorderColor
     borderColor: "#A32D26"
     accentVColor: "#949137"
-  - type: Icon
-    state: pda # WWDP edit start
-    sprite: _White/Objects/Devices/Pda/warden.rsi
-  - type: Sprite
-    sprite: _White/Objects/Devices/Pda/warden.rsi # WWDP edit end
+  - type: Sprite # WWDP edit
+    sprite: _White/Objects/Devices/Pda/warden.rsi # WWDP edit
 
 - type: entity
   parent: BaseSecurityPDA
@@ -1172,14 +1025,10 @@
   components:
   - type: Pda
     id: SecurityIDCard
-  - type: Appearance
   - type: PdaBorderColor
     borderColor: "#A32D26"
-  - type: Icon
-    state: pda # WWDP edit start
-    sprite: _White/Objects/Devices/Pda/security.rsi
-  - type: Sprite
-    sprite: _White/Objects/Devices/Pda/security.rsi # WWDP edit end
+  - type: Sprite # WWDP edit
+    sprite: _White/Objects/Devices/Pda/security.rsi # WWDP edit
 
 - type: entity
   parent: BaseSecurityPDA
@@ -1194,14 +1043,10 @@
       whitelist:
         tags:
         - Write
-  - type: Appearance
   - type: PdaBorderColor
     borderColor: "#00842e"
-  - type: Icon
-    state: pda # WWDP edit start
-    sprite: _White/Objects/Devices/Pda/centcom.rsi
-  - type: Sprite
-    sprite: _White/Objects/Devices/Pda/centcom.rsi # WWDP edit end
+  - type: Sprite # WWDP edit
+    sprite: _White/Objects/Devices/Pda/centcom.rsi # WWDP edit
   - type: CartridgeLoader
     uiKey: enum.PdaUiKey.Key
     diskSpace: 10 # DeltaV
@@ -1266,14 +1111,10 @@
   components:
   - type: Pda
     id: MusicianIDCard
-  - type: Appearance
   - type: PdaBorderColor
     borderColor: "#333333"
-  - type: Icon
-    state: pda # WWDP edit start
-    sprite: _White/Objects/Devices/Pda/musician.rsi
-  - type: Sprite
-    sprite: _White/Objects/Devices/Pda/musician.rsi # WWDP edit end
+  - type: Sprite # WWDP edit
+    sprite: _White/Objects/Devices/Pda/musician.rsi # WWDP edit
   - type: Instrument
     allowPercussion: false
     handheld: true
@@ -1299,15 +1140,11 @@
   components:
   - type: Pda
     id: AtmosIDCard
-  - type: Appearance
   - type: PdaBorderColor
     borderColor: "#949137"
     accentVColor: "#447987"
-  - type: Icon
-    state: pda # WWDP edit start
-    sprite: _White/Objects/Devices/Pda/atmos.rsi
-  - type: Sprite
-    sprite: _White/Objects/Devices/Pda/atmos.rsi # WWDP edit end
+  - type: Sprite # WWDP edit
+    sprite: _White/Objects/Devices/Pda/atmos.rsi # WWDP edit
 
 - type: entity
   parent: BasePDA
@@ -1333,14 +1170,10 @@
   components:
   - type: Pda
     id: SyndicateIDCard
-  - type: Appearance
   - type: PdaBorderColor
     borderColor: "#891417"
-  - type: Icon
-    state: pda # WWDP edit start
-    sprite: _White/Objects/Devices/Pda/syndi.rsi
-  - type: Sprite
-    sprite: _White/Objects/Devices/Pda/syndi.rsi # WWDP edit end
+  - type: Sprite # WWDP edit
+    sprite: _White/Objects/Devices/Pda/syndi.rsi # WWDP edit
   - type: CartridgeLoader
     uiKey: enum.PdaUiKey.Key
     preinstalled:
@@ -1358,16 +1191,12 @@
   components:
   - type: Pda
     id: ERTLeaderIDCard
-  - type: Appearance
   - type: PdaBorderColor
     borderColor: "#A32D26"
     accentHColor: "#447987"
     accentVColor: "#447987"
-  - type: Icon
-    state: pda # WWDP edit start
-    sprite: _White/Objects/Devices/Pda/ert.rsi
-  - type: Sprite
-    sprite: _White/Objects/Devices/Pda/ert.rsi # WWDP edit end
+  - type: Sprite # WWDP edit
+    sprite: _White/Objects/Devices/Pda/ert.rsi # WWDP edit
   - type: CartridgeLoader
     uiKey: enum.PdaUiKey.Key
     diskSpace: 9 # DeltaV
@@ -1458,15 +1287,11 @@
       whitelist:
         tags:
         - Write
-  - type: Appearance
   - type: PdaBorderColor
     borderColor: "#d7d7d0"
     accentVColor: "#447987"
-  - type: Icon
-    state: pda # WWDP edit start
-    sprite: _White/Objects/Devices/Pda/medical.rsi
-  - type: Sprite
-    sprite: _White/Objects/Devices/Pda/medical.rsi # WWDP edit end
+  - type: Sprite # WWDP edit
+    sprite: _White/Objects/Devices/Pda/medical.rsi # WWDP edit
 
 - type: entity
   parent: BasePDA
@@ -1482,14 +1307,10 @@
       whitelist:
         tags:
         - Write
-  - type: Appearance
   - type: PdaBorderColor
     borderColor: "#3f3f74"
-  - type: Icon
-    state: pda-reporter # WWDP edit start
-    sprite: _White/Objects/Devices/Pda/reporter.rsi
-  - type: Sprite
-    sprite: _White/Objects/Devices/Pda/reporter.rsi # WWDP edit end
+  - type: Sprite # WWDP edit
+    sprite: _White/Objects/Devices/Pda/reporter.rsi # WWDP edit
   - type: CartridgeLoader # DeltaV
     preinstalled:
     - CrewManifestCartridge
@@ -1530,14 +1351,10 @@
   components:
   - type: Pda
     id: DetectiveIDCard
-  - type: Appearance
   - type: PdaBorderColor
     borderColor: "#774705"
-  - type: Icon
-    state: pda # WWDP edit start
-    sprite: _White/Objects/Devices/Pda/detective.rsi
-  - type: Sprite
-    sprite: _White/Objects/Devices/Pda/detective.rsi # WWDP edit end
+  - type: Sprite # WWDP edit
+    sprite: _White/Objects/Devices/Pda/detective.rsi # WWDP edit
   - type: CartridgeLoader
     preinstalled:
     - CrewManifestCartridge
@@ -1585,14 +1402,6 @@
   components:
   - type: Pda
     id: CluwneIDCard
-  - type: Appearance
-  - type: PdaBorderColor
-    borderColor: "#1c8f4d"
-  - type: Icon
-    state: pda-cluwne # WWDP edit start
-    sprite: _White/Objects/Devices/Pda/cluwne.rsi
-  - type: Sprite
-    sprite: _White/Objects/Devices/Pda/cluwne.rsi # WWDP edit end
     penSlot:
       startingItem: CrayonGreen
       ejectSound: /Audio/Items/bikehorn.ogg
@@ -1600,6 +1409,10 @@
       whitelist:
         tags:
         - Write
+  - type: PdaBorderColor
+    borderColor: "#1c8f4d"
+  - type: Sprite # WWDP edit
+    sprite: _White/Objects/Devices/Pda/cluwne.rsi # WWDP edit
   - type: Unremoveable
 
 - type: entity
@@ -1681,14 +1494,10 @@
       whitelist:
         tags:
         - Write
-  - type: Appearance
   - type: PdaBorderColor
     borderColor: "#891417"
-  - type: Icon
-    state: pda # WWDP edit start
-    sprite: _White/Objects/Devices/Pda/syndi-agent.rsi
-  - type: Sprite
-    sprite: _White/Objects/Devices/Pda/syndi-agent.rsi # WWDP edit end
+  - type: Sprite # WWDP edit
+    sprite: _White/Objects/Devices/Pda/syndi-agent.rsi # WWDP edit
   - type: CartridgeLoader
     uiKey: enum.PdaUiKey.Key
     preinstalled:
@@ -1743,13 +1552,9 @@
       whitelist:
         tags:
         - Write
-  - type: Appearance
   - type: PdaBorderColor
     borderColor: "#7F3300"
-  - type: Icon
-    state: pda # WWDP edit start
-    sprite: _White/Objects/Devices/Pda/wizard.rsi
-  - type: Sprite
+  - type: Sprite # WWDP edit start
     sprite: _White/Objects/Devices/Pda/wizard.rsi
     layers:
     - map: [ "enum.PdaVisualLayers.Base" ]
