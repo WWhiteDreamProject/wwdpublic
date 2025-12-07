@@ -17,7 +17,7 @@
       layers:
         - state: air # WWDP edit
     - type: Appearance
-    - type: SpriteFade
+    - type: SpriteFade # WD EDIT
     - type: GenericVisualizer
       visuals:
         enum.AnchorVisuals.Anchored:
