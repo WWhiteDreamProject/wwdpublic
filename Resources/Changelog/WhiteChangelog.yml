@@ -4550,3 +4550,14 @@ Entries:
   id: 475
   time: '2025-12-02T13:55:09.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/878
+- author: Spriters Team
+  changes:
+    - type: Add
+      message: Добавлено изменение спрайта ПДА при открытии ЮИ (Gersoon)
+    - type: Tweak
+      message: Изменены спрайты ПДА (NotAFemboy)
+    - type: Fix
+      message: Фикс отображения баллона в канситре (Gersoon)
+  id: 476
+  time: '2025-12-07T15:24:37.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/881
