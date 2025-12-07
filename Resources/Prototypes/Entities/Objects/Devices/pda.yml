@@ -755,17 +755,17 @@
       map: [ "enum.PdaVisualLayers.Flashlight" ]
       shader: "unshaded"
       visible: false
-      sprite: _White/Objects/Devices/Pda/pda.rsi # WWDP edit
+      sprite: _White/Objects/Devices/Pda/pda.rsi
     - state: "id_overlay"
       map: [ "enum.PdaVisualLayers.IdLight" ]
       shader: "unshaded"
       visible: false
-      sprite: _White/Objects/Devices/Pda/pda.rsi # WWDP edit start
+      sprite: _White/Objects/Devices/Pda/pda.rsi
     - state: "screen_on"
       map: [ "enum.PdaVisualLayers.Screen" ]
       shader: "unshaded"
       visible: false
-      sprite: _White/Objects/Devices/Pda/LOH/captain.rsi
+      sprite: _White/Objects/Devices/Pda/LOH/captain.rsi # WWDP end
 
 - type: entity
   parent: BasePDA
@@ -1728,3 +1728,44 @@
         type: HealthAnalyzerBoundUserInterface
       enum.ChameleonUiKey.Key:
         type: ChameleonBoundUserInterface
+
+- type: entity
+  parent: BasePDA
+  id: WizardPDA
+  name: wizard PDA
+  description: You hear faint whispers coming from it.
+  components:
+  - type: Pda
+    id: WizardIDCard
+    penSlot:
+      startingItem: PenWiz
+      priority: -1
+      whitelist:
+        tags:
+        - Write
+  - type: Appearance
+  - type: PdaBorderColor
+    borderColor: "#7F3300"
+  - type: Icon
+    state: pda # WWDP edit start
+    sprite: _White/Objects/Devices/Pda/wizard.rsi
+  - type: Sprite
+    sprite: _White/Objects/Devices/Pda/wizard.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+      state: "pda"
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+      sprite: _White/Objects/Devices/Pda/pda.rsi
+    - state: "id_overlay"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      shader: "unshaded"
+      visible: false
+      sprite: _White/Objects/Devices/Pda/pda.rsi
+    - state: "screen_on"
+      map: [ "enum.PdaVisualLayers.Screen" ]
+      shader: "unshaded"
+      visible: false
+      sprite: _White/Objects/Devices/Pda/wizard.rsi # WWDP edit end
