@@ -349,9 +349,9 @@
   name: head of personnel's winter coat
   components:
   - type: Sprite
-    sprite: _White/Clothing/OuterClothing/Coats/hop_jacket.rsi # WWDP edit (spaceman)
+    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
     layers:
-    - state: icon #wd edit
+    - state: HOP-icon
   - type: Item
     inhandVisuals:
       left:
@@ -362,7 +362,7 @@
     sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
     clothingVisuals:
       outerClothing:
-      - state: equipped-OUTERCLOTHING #wd edit
+      - state: HOP-equipped-OUTERCLOTHING
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterHOP
 

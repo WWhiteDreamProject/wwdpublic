@@ -192,9 +192,9 @@
   description: Rather bland and inoffensive. Perfect for vanishing off the face of the universe.
   components:
   - type: Sprite
-    sprite: _White/Clothing/Uniforms/Jumpskirt/hop_uniform.rsi
+    sprite: Clothing/Uniforms/Jumpskirt/hop.rsi
   - type: Clothing
-    sprite: _White/Clothing/Uniforms/Jumpskirt/hop_uniform.rsi
+    sprite: Clothing/Uniforms/Jumpskirt/hop.rsi
 
 - type: entity
   parent: [ClothingUniformSkirtBase, BaseCommandContraband]
