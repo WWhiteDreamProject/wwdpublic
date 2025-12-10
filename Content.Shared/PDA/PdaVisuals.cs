@@ -8,7 +8,8 @@ namespace Content.Shared.PDA
         IdCardInserted,
         PdaType,
         Enabled, // WWDP edit
-        Screen // WWDP edit
+        Screen, // WWDP edit
+        AnimationState // WWDP EDIT: Add animation state
     }
 
     [Serializable, NetSerializable]

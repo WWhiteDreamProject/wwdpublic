@@ -19,3 +19,43 @@
     id: MaidIDCard
   - type: Sprite
     sprite: _White/Objects/Devices/Pda/maid.rsi
+
+# WWDP: Animated PDA prototype
+- type: entity
+  parent: BasePDA
+  id: AnimatedPDA
+  name: animated PDA
+  description: Personal Data Assistant with fancy animations.
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Devices/Pda/pda.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+      state: "pda"
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id_overlay"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "screen_on"
+      map: [ "enum.PdaVisualLayers.Screen" ]
+      shader: "unshaded"
+      visible: false
+  - type: Icon
+    sprite: _White/Objects/Devices/Pda/pda.rsi
+    state: pda
+  - type: PdaAnimated
+    openingDuration: 1.7
+    closingDuration: 0.75
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.PdaVisuals.AnimationState:
+        enum.PdaVisualLayers.Screen:
+          Opening: { state: "screen_turning-on", shader: unshaded, autoAnimated: true }
+          Open: { state: "screen_on", shader: unshaded }
+          Closing: { state: "screen_shutdown", shader: unshaded, autoAnimated: true }
+          Closed: { visible: false }
