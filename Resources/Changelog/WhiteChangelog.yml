@@ -4561,3 +4561,10 @@ Entries:
   id: 476
   time: '2025-12-07T15:24:37.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/881
+- author: SentryPrimies
+  changes:
+    - type: Add
+      message: Добавлены новые спрайты Шкафам
+  id: 477
+  time: '2025-12-10T18:58:39.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/883
