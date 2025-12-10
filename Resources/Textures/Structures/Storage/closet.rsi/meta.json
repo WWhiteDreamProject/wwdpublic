@@ -4,8 +4,8 @@
         "x": 32,
         "y": 32
     },
-    "copyright": "Taken from tgstation, brigmedic locker is a resprited CMO locker by PuroSlavKing (Github), n2 sprites based on fire and emergency sprites, CJ and Clerk lockers edited by Timemaster99 (Discord). Cabinet, cap and generic edited by Gersoon",
-    "license": "CC-BY-SA-3.0",
+    "copyright": "Everything after commit #a03a357af1aca6763fa3a54a5bb472d95ac9435a was made by @sentryprimies and licensed under cc-by-nc-sa-4.0. everything prior to that point was Taken from tgstation and licensed under cc-by-sa-3.0. brigmedic locker is a resprited CMO locker by PuroSlavKing (Github), CJ and Clerk lockers edited by Timemaster99 (Discord).",
+    "license": "CC-BY-NC-SA-4.0",
     "states": [
         {
             "name": "abductor"
