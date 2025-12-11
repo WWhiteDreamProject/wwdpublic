@@ -20,7 +20,8 @@
       map: [ "enum.PdaVisualLayers.IdLight" ]
       shader: "unshaded"
       visible: false
-      sprite: _White/Objects/Devices/Pda/pda.rsi # WWDP edit start
+     # WWDP EDIT START
+      sprite: _White/Objects/Devices/Pda/pda.rsi
     - state: "screen_on"
       map: [ "enum.PdaVisualLayers.Screen" ]
       shader: "unshaded"
@@ -28,17 +29,26 @@
       sprite: _White/Objects/Devices/Pda/pda.rsi
   - type: GenericVisualizer
     visuals:
-      enum.PdaVisuals.Enabled:
+      enum.PdaVisuals.AnimationState:
         enum.PdaVisualLayers.Base:
-          True: { state: "pda_on" }
-          False: { state: "pda" }
-      enum.PdaVisuals.Screen:
+          Closed: { state: "pda" }
+          Opening: { state: "pda_turning-on", autoAnimated: true }
+          Open: { state: "pda_on" }
+          Closing: { state: "pda_shutdown", autoAnimated: true }
         enum.PdaVisualLayers.Screen:
-          True: { state: "screen_on", shader: unshaded }
-          False: { visible: false} # WWDP edit end
+          Opening: { state: "screen_turning-on", shader: unshaded, autoAnimated: true }
+          Open: { state: "screen_on", shader: unshaded }
+          Closing: { state: "screen_shutdown", shader: unshaded, autoAnimated: true }
+          Closed: { visible: false }
+     # WWDP EDIT END
   - type: Icon
     sprite: _White/Objects/Devices/Pda/pda.rsi # WWDP edit
     state: pda
+ # WWDP EDIT START
+  - type: PdaAnimated
+    openingDuration: 1.7
+    closingDuration: 0.75
+ # WWDP EDIT END
   - type: Pda
     passportSlot:
       priority: -3
