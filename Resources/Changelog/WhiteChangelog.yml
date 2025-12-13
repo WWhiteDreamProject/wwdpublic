@@ -4568,3 +4568,10 @@ Entries:
   id: 477
   time: '2025-12-10T18:58:39.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/883
+- author: Spatison
+  changes:
+    - type: Fix
+      message: Исправлено поведение карточек игры EvacPod при их совмещении.
+  id: 478
+  time: '2025-12-21T21:36:59.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/895
