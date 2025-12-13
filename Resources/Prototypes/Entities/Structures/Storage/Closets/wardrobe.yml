@@ -16,7 +16,6 @@
   name: blue wardrobe
   description: "A wardrobe packed with stylish blue clothing."
   components:
-  - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: generic
     stateDoorOpen: generic_open
@@ -29,7 +28,6 @@
   name: pink wardrobe
   description: "A wardrobe packed with fabulous pink clothing."
   components:
-  - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: generic
     stateDoorOpen: generic_open
@@ -42,7 +40,6 @@
   name: black wardrobe
   description: "A wardrobe packed with stylish black clothing."
   components:
-  - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: generic
     stateDoorOpen: generic_open
@@ -55,7 +52,6 @@
   name: green wardrobe
   description: "A wardrobe packed with stylish green clothing."
   components:
-  - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: generic
     stateDoorOpen: generic_open
@@ -67,7 +63,6 @@
   parent: WardrobeBase
   name: orange wardrobe # WWDP edit
   components:
-  - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: generic
     stateDoorOpen: generic_open
@@ -81,7 +76,6 @@
   name: yellow wardrobe
   description: "A wardrobe packed with stylish yellow clothing."
   components:
-  - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: generic
     stateDoorOpen: generic_open
@@ -94,7 +88,6 @@
   name: white wardrobe
   description: "A wardrobe packed with stylish white clothing."
   components:
-  - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: generic
     stateDoorOpen: generic_open
@@ -107,11 +100,25 @@
   name: grey wardrobe
   description: "A wardrobe packed with a tide of grey clothing."
   components:
-  - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: generic
     stateDoorOpen: generic_open
     stateDoorClosed: grey_door
+
+# Purple wardrobe. WWDP edit
+- type: entity
+  id: WardrobePurple
+  parent: WardrobeBase
+  name: purple wardrobe
+  description: "A wardrobe packed with a tide of purple clothing."
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Storage/closet.rsi
+    noRot: true
+  - type: EntityStorageVisuals
+    stateBaseClosed: generic
+    stateDoorOpen: generic_open
+    stateDoorClosed: purple_wardrobe_door # WWDP edit end
 
 # Mixed wardrobe
 - type: entity
@@ -120,7 +127,6 @@
   name: mixed wardrobe
   description: "A wardrobe packed with a mix of colorful clothing."
   components:
-  - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: generic
     stateDoorOpen: generic_open
