@@ -1,0 +1,13 @@
+- type: entity
+  id: OrganStomachArachne
+  parent: OrganStomachHuman
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [Vampiric]
+
+- type: entity
+  id: OrganEyesArachne
+  parent: OrganEyesHuman
+  components:
+  - type: OrganAppearance
+    sprite: Mobs/Species/eyes.rsi

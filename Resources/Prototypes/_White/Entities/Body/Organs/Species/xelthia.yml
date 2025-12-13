@@ -1,0 +1,13 @@
+- type: entity
+  id: OrganStomachXelthia
+  parent: OrganStomachHuman
+  components:
+  - type: Stomach
+    specialDigestible:
+      tags:
+      - Meat
+      - Pill
+      - Crayon
+      - Paper
+  - type: Metabolizer
+    metabolizerTypes: [ Xelthia ]

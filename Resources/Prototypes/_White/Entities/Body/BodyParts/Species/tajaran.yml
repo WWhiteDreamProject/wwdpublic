@@ -1,0 +1,121 @@
+- type: entity
+  id: BaseBodyPartTajaran
+  parent: BaseBodyPart
+  abstract: true
+  name: tajaran body part
+  components:
+  - type: Sprite
+    sprite: _EE/Mobs/Species/Tajaran/parts.rsi
+  - type: BodyPartAppearance
+    sprite: _EE/Mobs/Species/Tajaran/parts.rsi
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 3
+      - ReagentId: Blood
+        Quantity: 10
+
+# Head
+- type: entity
+  id: BodyPartHeadTajaran
+  parent: [BaseBodyPartHead, BaseBodyPartTajaran]
+  name: tajaran head
+  components:
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 5
+      - ReagentId: Blood
+        Quantity: 10
+
+# Chest
+- type: entity
+  id: BodyPartChestTajaran
+  parent: [BaseBodyPartChest, BaseBodyPartTajaran]
+  name: tajaran chest
+  components:
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 10
+      - ReagentId: Blood
+        Quantity: 20
+
+# Groin
+- type: entity
+  id: BodyPartGroinTajaran
+  parent: [BaseBodyPartGroin, BaseBodyPartTajaran]
+  name: tajaran groin
+  components:
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 10
+      - ReagentId: Blood
+        Quantity: 20
+
+# Arms
+
+- type: entity
+  id: BodyPartLeftArmTajaran
+  parent: [BaseBodyPartLeftArm, BaseBodyPartTajaran]
+  name: tajaran left arm
+
+- type: entity
+  id: BodyPartRightArmTajaran
+  parent: [BaseBodyPartRightArm, BaseBodyPartTajaran]
+  name: tajaran right arm
+
+# Hand
+
+- type: entity
+  id: BodyPartLeftHandTajaran
+  parent: [BaseBodyPartLeftHand, BaseBodyPartTajaran]
+  name: tajaran left hand
+
+- type: entity
+  id: BodyPartRightHandTajaran
+  parent: [BaseBodyPartRightHand, BaseBodyPartTajaran]
+  name: tajaran right hand
+
+# Leg
+
+- type: entity
+  id: BodyPartLeftLegTajaran
+  parent: [BaseBodyPartLeftLeg, BaseBodyPartTajaran]
+  name: tajaran left leg
+
+- type: entity
+  id: BodyPartRightLegTajaran
+  parent: [BaseBodyPartRightLeg, BaseBodyPartTajaran]
+  name: tajaran right leg
+
+# Foot
+
+- type: entity
+  id: BodyPartLeftFootTajaran
+  parent: [BaseBodyPartLeftFoot, BaseBodyPartTajaran]
+  name: tajaran left foot
+
+- type: entity
+  id: BodyPartRightFootTajaran
+  parent: [BaseBodyPartRightFoot, BaseBodyPartTajaran]
+  name: tajaran right foot
+
+# Tail
+
+- type: entity
+  id: BodyPartTailTajaran
+  parent: [BaseBodyPartTail, BaseBodyPartTajaran]
+  name: tajaran tail
+  components:
+  - type: Sprite
+    sprite: _EE/Mobs/Customization/Tajaran/tails.rsi
+    state: tail
+  - type: BodyPartAppearance
+    sprite: _EE/Mobs/Customization/Tajaran/tails.rsi
+    state: tail

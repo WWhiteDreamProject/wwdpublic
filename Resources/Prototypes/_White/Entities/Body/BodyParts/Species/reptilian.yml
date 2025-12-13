@@ -1,0 +1,121 @@
+- type: entity
+  id: BaseBodyPartReptilian
+  parent: BaseBodyPart
+  abstract: true
+  name: reptilian body part
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Reptilian/parts.rsi
+  - type: BodyPartAppearance
+    sprite: Mobs/Species/Reptilian/parts.rsi
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 3
+      - ReagentId: Blood
+        Quantity: 10
+
+# Head
+- type: entity
+  id: BodyPartHeadReptilian
+  parent: [BaseBodyPartHead, BaseBodyPartReptilian]
+  name: reptilian head
+  components:
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 5
+      - ReagentId: Blood
+        Quantity: 10
+
+# Chest
+- type: entity
+  id: BodyPartChestReptilian
+  parent: [BaseBodyPartChest, BaseBodyPartReptilian]
+  name: reptilian chest
+  components:
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 10
+      - ReagentId: Blood
+        Quantity: 20
+
+# Groin
+- type: entity
+  id: BodyPartGroinReptilian
+  parent: [BaseBodyPartGroin, BaseBodyPartReptilian]
+  name: reptilian groin
+  components:
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 10
+      - ReagentId: Blood
+        Quantity: 20
+
+# Arms
+
+- type: entity
+  id: BodyPartLeftArmReptilian
+  parent: [BaseBodyPartLeftArm, BaseBodyPartReptilian]
+  name: reptilian left arm
+
+- type: entity
+  id: BodyPartRightArmReptilian
+  parent: [BaseBodyPartRightArm, BaseBodyPartReptilian]
+  name: reptilian right arm
+
+# Hand
+
+- type: entity
+  id: BodyPartLeftHandReptilian
+  parent: [BaseBodyPartLeftHand, BaseBodyPartReptilian]
+  name: reptilian left hand
+
+- type: entity
+  id: BodyPartRightHandReptilian
+  parent: [BaseBodyPartRightHand, BaseBodyPartReptilian]
+  name: reptilian right hand
+
+# Leg
+
+- type: entity
+  id: BodyPartLeftLegReptilian
+  parent: [BaseBodyPartLeftLeg, BaseBodyPartReptilian]
+  name: reptilian left leg
+
+- type: entity
+  id: BodyPartRightLegReptilian
+  parent: [BaseBodyPartRightLeg, BaseBodyPartReptilian]
+  name: reptilian right leg
+
+# Foot
+
+- type: entity
+  id: BodyPartLeftFootReptilian
+  parent: [BaseBodyPartLeftFoot, BaseBodyPartReptilian]
+  name: reptilian left foot
+
+- type: entity
+  id: BodyPartRightFootReptilian
+  parent: [BaseBodyPartRightFoot, BaseBodyPartReptilian]
+  name: reptilian right foot
+
+# Tail
+
+- type: entity
+  id: BodyPartTailReptilian
+  parent: [BaseBodyPartTail, BaseBodyPartReptilian]
+  name: reptilian tail
+  components:
+  - type: Sprite
+    sprite: Mobs/Customization/reptilian_parts.rsi
+    state: tail_smooth
+  - type: BodyPartAppearance
+    sprite: Mobs/Customization/reptilian_parts.rsi
+    state: tail_smooth

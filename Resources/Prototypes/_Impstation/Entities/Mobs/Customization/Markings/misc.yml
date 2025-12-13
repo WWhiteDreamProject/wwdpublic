@@ -4,7 +4,6 @@
 
 #- type: marking
 #  id: FullID
-#  bodyPart: Part
 #  markingCategory: Category
 #  speciesRestriction: [Species, Species]
 #  youre on your own for figuring out the coloring system, my friend
@@ -15,7 +14,6 @@
 
 - type: marking
   id: fizz
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [ SlimePerson ]
   forcedColoring: false
@@ -23,34 +21,59 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
     state: fizz
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: bubble
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ SlimePerson ]
   forcedColoring: false
   followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
-    state: bubble
+  # WD EDIT START
+    state: bubble_chest
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
+    state: bubble_groin
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
+  # WD EDIT END
 
 - type: marking
   id: fishbowl
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ SlimePerson ]
   forcedColoring: false
   followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
-    state: fishbowl1
+  # WD EDIT START
+    state: fishbowl1_chest
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
   - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
-    state: fishbowl2
+    state: fishbowl1_groin
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
+  # WD EDIT END
+  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
+  # WD EDIT START
+    state: fishbowl2_chest
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
+    state: fishbowl2_groin
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
+  # WD EDIT END
 
 - type: marking
   id: FadingStars
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [ SlimePerson ]
   forcedColoring: false
@@ -58,35 +81,60 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
     state: fadingstars1
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
   - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
     state: fadingstars2
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
   - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
     state: fadingstars3
     shader: unshaded
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: DionaLivingNymph
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ Diona ]
   sprites:
   - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
-    state: dionalivingnymph
+  # WD EDIT START
+    state: dionalivingnymph_chest
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
+    state: dionalivingnymph_groin
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
+  # WD EDIT END
 
 - type: marking
   id: DionaMossChest
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ Diona ]
   forcedColoring: false
   followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
-    state: dionamosschest
+  # WD EDIT START
+    state: dionamoss_chest
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+  - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
+    state: dionamoss_groin
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
+  # WD EDIT END
 
 - type: marking
   id: DionaMoonBloom
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [ Diona ]
   forcedColoring: false
@@ -95,10 +143,13 @@
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: dionamoonbloom
     shader: unshaded
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: DionaBigFirefly
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [ Diona ]
   forcedColoring: false
@@ -107,22 +158,33 @@
   - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
     state: dionabigfirefly
     shader: unshaded
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: DionaFirefly
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ Diona ]
   forcedColoring: false
   followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
-    state: dionafirefly
+    state: dionafirefly_chest # WD EDIT
     shader: unshaded
+  # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+  - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
+    state: dionafirefly_groin
+    shader: unshaded
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
+  # WD EDIT END
 
 - type: marking
   id: DionaPollenDust
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [ Diona ]
   forcedColoring: false
@@ -130,10 +192,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
     state: dionapollendust
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: SpiderMirror
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ Arachnid ]
   forcedColoring: false
@@ -142,10 +207,13 @@
   - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
     state: spidermirror
     shader: unshaded
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+    # WD EDIT END
 
 - type: marking
   id: SpiderGlowEyes
-  bodyPart: Eyes
   markingCategory: Head
   speciesRestriction: [ Arachnid ]
   forcedColoring: false
@@ -154,10 +222,13 @@
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: spidergloweyes
     shader: unshaded
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Eyes
+    organ: Eyes
+    # WD EDIT END
 
 - type: marking
   id: SpiderEyesMulti
-  bodyPart: Eyes
   markingCategory: Head
   speciesRestriction: [ Arachnid ]
   forcedColoring: false
@@ -165,16 +236,31 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: spidereyesmulti1
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Eyes
+    organ: Eyes
+    # WD EDIT END
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: spidereyesmulti2
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Eyes
+    organ: Eyes
+    # WD EDIT END
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: spidereyesmulti3
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Eyes
+    organ: Eyes
+    # WD EDIT END
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: spidereyesmulti4
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Eyes
+    organ: Eyes
+    # WD EDIT END
 
 - type: marking
   id: MothTrueButterfly
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [ Moth ]
   forcedColoring: false
@@ -182,14 +268,26 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: mothtruebutterfly1
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    replacementBodyPart: BodyPartWingsMoth
+    # WD EDIT END
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: mothtruebutterfly2
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    # WD EDIT END
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: mothtruebutterfly3
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    # WD EDIT END
 
 - type: marking
   id: MothRhinoBeetle
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [ Moth, Chitinid]
   forcedColoring: false
@@ -197,14 +295,26 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: rhinobeetle1
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    replacementBodyPart: BodyPartWingsMoth
+    # WD EDIT END
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: rhinobeetle2
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    # WD EDIT END
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: rhinobeetle3
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    # WD EDIT END
 
 - type: marking
   id: MothGlasswing
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [ Moth ]
   forcedColoring: false
@@ -212,14 +322,26 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: glasswing1
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    replacementBodyPart: BodyPartWingsMoth
+    # WD EDIT END
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: glasswing2
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    # WD EDIT END
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: glasswing3
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    # WD EDIT END
 
 - type: marking
   id: MothBee
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [ Moth ]
   forcedColoring: false
@@ -227,14 +349,26 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: bee1
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    replacementBodyPart: BodyPartWingsMoth
+    # WD EDIT END
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: bee2
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    # WD EDIT END
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: bee3
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    # WD EDIT END
 
 - type: marking
   id: MothGlowAntenna
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [ Moth, Chitinid]
   forcedColoring: false
@@ -243,10 +377,13 @@
   - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
     state: mothglowantenna
     shader: unshaded
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothFireflyOverlay
-  bodyPart: Tail
   markingCategory: Overlay
   speciesRestriction: [ Moth ]
   forcedColoring: false
@@ -255,10 +392,13 @@
   - sprite: _Impstation/Mobs/Customization/animatedmarkings.rsi
     state: mothfirefly1
     shader: unshaded
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    # WD EDIT END
 
 - type: marking
   id: MothFirefly
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [ Moth ]
   forcedColoring: false
@@ -266,10 +406,14 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: mothfirefly2
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    replacementBodyPart: BodyPartWingsMoth
+    # WD EDIT END
 
 - type: marking
   id: MothBeetleTail
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [ Moth, Chitinid]
   forcedColoring: false
@@ -277,14 +421,26 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: beetle1
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    replacementBodyPart: BodyPartWingsMoth
+    # WD EDIT END
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: beetle2
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    # WD EDIT END
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: beetle3
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    # WD EDIT END
 
 - type: marking
   id: MothBeetleHorn1
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [ Moth]
   forcedColoring: true
@@ -292,10 +448,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: mothbeetlehorn1
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothBeetleHorn2
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [ Moth]
   forcedColoring: true
@@ -303,10 +462,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: mothbeetlehorn2
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothBiggerEyes
-  bodyPart: Eyes
   markingCategory: Head
   speciesRestriction: [ Moth, Chitinid]
   coloring:
@@ -316,10 +478,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: mothbiggereyes
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Eyes
+    organ: Eyes
+    # WD EDIT END
 
 - type: marking
   id: MothSnoth
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [ Moth ]
   forcedColoring: false
@@ -327,12 +492,20 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: snoth1
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    replacementBodyPart: BodyPartWingsMoth
+    # WD EDIT END
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: snoth2
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    # WD EDIT END
 
 - type: marking
   id: VoxCocktail
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [ Vox ]
   forcedColoring: false
@@ -340,16 +513,32 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: voxcocktail1
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    replacementBodyPart: BodyPartTailVox
+    # WD EDIT END
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: voxcocktail2
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    # WD EDIT END
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: voxcocktail3
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    # WD EDIT END
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: voxcocktail4
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    # WD EDIT END
 
 - type: marking
   id: VoxTailBalled
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [ Vox ]
   forcedColoring: true
@@ -357,10 +546,14 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: voxtailballed
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    replacementBodyPart: BodyPartTailVox
+    # WD EDIT END
 
 - type: marking
   id: VoxTailSplit
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [ Vox ]
   forcedColoring: true
@@ -368,10 +561,14 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: voxtailsplit
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    replacementBodyPart: BodyPartTailVox
+    # WD EDIT END
 
 - type: marking
   id: VoxTailStripes
-  bodyPart: Chest
   markingCategory: Overlay
   speciesRestriction: [ Vox ]
   forcedColoring: false
@@ -379,10 +576,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: voxtailstripes
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+    # WD EDIT END
 
 - type: marking
   id: VoxLArmProsthetic
-  bodyPart: LHand
   markingCategory: LeftHand
   speciesRestriction: [ Vox ]
   forcedColoring: false
@@ -395,10 +595,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: voxarmprostheticl
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftHand
+    bodyPart: LeftHand
+    # WD EDIT END
 
 - type: marking
   id: VoxRArmProsthetic
-  bodyPart: RHand
   markingCategory: RightHand
   speciesRestriction: [ Vox ]
   forcedColoring: false
@@ -411,10 +614,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: voxarmprostheticr
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightHand
+    bodyPart: RightHand
+    # WD EDIT END
 
 - type: marking
   id: VoxBeakColor
-  bodyPart: Snout
   markingCategory: Snout
   speciesRestriction: [ Vox ]
   forcedColoring: false
@@ -422,10 +628,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: voxbeakcolor
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Snout
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: VoxBeakSplit
-  bodyPart: Snout
   markingCategory: Snout
   speciesRestriction: [ Vox ]
   forcedColoring: false
@@ -433,12 +642,19 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: voxbeaksplit1
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Snout
+    bodyPart: Head
+    # WD EDIT END
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: voxbeaksplit2
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Snout
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: VoxBeakTipped
-  bodyPart: Snout
   markingCategory: Snout
   speciesRestriction: [ Vox ]
   forcedColoring: false
@@ -446,10 +662,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: voxbeaktipped
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Snout
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: VoxChestPlumage
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ Vox ]
   forcedColoring: false
@@ -457,10 +676,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: voxchestplumage
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Chest
+    bodyPart: Chest
+    # WD EDIT END
 
 - type: marking
   id: VoxFootSpines
-  bodyPart: Tail
   markingCategory: Overlay
   speciesRestriction: [ Vox ]
   forcedColoring: false
@@ -468,10 +690,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: voxfootspines
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    # WD EDIT END
 
 - type: marking
   id: VoxFootGradientLFoot
-  bodyPart: LFoot
   markingCategory: LeftFoot
   speciesRestriction: [ Vox ]
   forcedColoring: false
@@ -479,10 +704,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: voxfootgradientl1
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftFoot
+    bodyPart: LeftFoot
+    # WD EDIT END
 
 - type: marking
   id: VoxFootGradientRFoot
-  bodyPart: RFoot
   markingCategory: RightFoot
   speciesRestriction: [ Vox ]
   forcedColoring: false
@@ -490,10 +718,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: voxfootgradientr1
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightFoot
+    bodyPart: RightFoot
+    # WD EDIT END
 
 - type: marking
   id: VoxLegGradientLLeg
-  bodyPart: LLeg
   markingCategory: LeftLeg
   speciesRestriction: [ Vox ]
   forcedColoring: false
@@ -501,10 +732,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: voxfootgradientl2
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftLeg
+    bodyPart: LeftLeg
+    # WD EDIT END
 
 - type: marking
   id: VoxLegGradientRLeg
-  bodyPart: RLeg
   markingCategory: RightLeg
   speciesRestriction: [ Vox ]
   forcedColoring: false
@@ -512,10 +746,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: voxfootgradientr2
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightLeg
+    bodyPart: RightLeg
+    # WD EDIT END
 
 - type: marking
   id: VoxHandGradientRHand
-  bodyPart: RHand
   markingCategory: RightHand
   speciesRestriction: [ Vox ]
   forcedColoring: false
@@ -523,14 +760,25 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: voxhandgradientr1
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightHand
+    bodyPart: RightHand
+    # WD EDIT END
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: voxhandgradientr2
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightHand
+    bodyPart: RightHand
+    # WD EDIT END
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: voxhandgradientr3
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightHand
+    bodyPart: RightHand
+    # WD EDIT END
 
 - type: marking
   id: VoxHandGradientLHand
-  bodyPart: LHand
   markingCategory: LeftHand
   speciesRestriction: [ Vox ]
   forcedColoring: false
@@ -538,14 +786,25 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: voxhandgradientl1
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftHand
+    bodyPart: LeftHand
+    # WD EDIT END
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: voxhandgradientl2
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftHand
+    bodyPart: LeftHand
+    # WD EDIT END
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: voxhandgradientl3
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftHand
+    bodyPart: LeftHand
+    # WD EDIT END
 
 - type: marking
   id: VoxHeadGradient
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [ Vox ]
   forcedColoring: false
@@ -553,14 +812,25 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: voxheadgradient1
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: voxheadgradient2
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: voxheadgradient3
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: VoxTailBell
-  bodyPart: Tail
   markingCategory: Overlay
   speciesRestriction: [ Vox ]
   forcedColoring: false
@@ -568,12 +838,19 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: voxtailbell1
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    # WD EDIT END
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: voxtailbell2
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    # WD EDIT END
 
 - type: marking
   id: VoxTailBack
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [ Vox ]
   forcedColoring: true
@@ -581,10 +858,14 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: voxtailcolorable
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    replacementBodyPart: BodyPartTailVox
+    # WD EDIT END
 
 - type: marking
   id: VoxTailLantern
-  bodyPart: Tail
   markingCategory: Overlay
   speciesRestriction: [ Vox ]
   forcedColoring: false
@@ -593,10 +874,13 @@
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: voxtaillantern
     shader: unshaded
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    # WD EDIT END
 
 - type: marking
   id: VoxTailSingleStripe
-  bodyPart: Chest
   markingCategory: Overlay
   speciesRestriction: [ Vox ]
   forcedColoring: false
@@ -604,10 +888,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: voxtailsinglestripe
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+    # WD EDIT END
 
 - type: marking
   id: VoxTailSmallPlume
-  bodyPart: Tail
   markingCategory: Overlay
   speciesRestriction: [ Vox ]
   forcedColoring: false
@@ -615,10 +902,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: voxtailsmallplume
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    # WD EDIT END
 
 - type: marking
   id: VoxTailSpines
-  bodyPart: Tail
   markingCategory: Overlay
   speciesRestriction: [ Vox ]
   forcedColoring: false
@@ -626,10 +916,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: voxtailspines
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    # WD EDIT END
 
 - type: marking
   id: VoxArmsStripesLHand
-  bodyPart: LArm
   markingCategory: LeftArm
   speciesRestriction: [ Vox ]
   forcedColoring: false
@@ -637,10 +930,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: voxarmsstripesl
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftArm
+    bodyPart: LeftArm
+    # WD EDIT END
 
 - type: marking
   id: VoxArmsStripesRHand
-  bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [ Vox ]
   forcedColoring: false
@@ -648,10 +944,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: voxarmsstripesr
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightArm
+    bodyPart: RightArm
+    # WD EDIT END
 
 - type: marking
   id: VoxLegsStripesLLeg
-  bodyPart: LLeg
   markingCategory: LeftLeg
   speciesRestriction: [ Vox ]
   forcedColoring: false
@@ -659,10 +958,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: voxlegsstripesl
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftLeg
+    bodyPart: LeftLeg
+    # WD EDIT END
 
 - type: marking
   id: VoxLegsStripesRLeg
-  bodyPart: RLeg
   markingCategory: RightLeg
   speciesRestriction: [ Vox ]
   forcedColoring: false
@@ -670,10 +972,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: voxlegsstripesr
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightLeg
+    bodyPart: RightLeg
+    # WD EDIT END
 
 - type: marking
   id: VoxChains
-  bodyPart: Tail
   markingCategory: Overlay
   speciesRestriction: [ Vox ]
   forcedColoring: false
@@ -681,10 +986,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: voxchains
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    # WD EDIT END
 
 - type: marking
   id: VoxSunAndMoon
-  bodyPart: Tail
   markingCategory: Overlay
   speciesRestriction: [ Vox ]
   forcedColoring: false
@@ -692,10 +1000,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: voxsunandmoon
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    # WD EDIT END
 
 - type: marking
   id: VoxCheeks
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [ Vox ]
   forcedColoring: false
@@ -703,10 +1014,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: voxcheeks
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: VoxBelly
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ Vox ]
   forcedColoring: false
@@ -714,10 +1028,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: voxbelly
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+    # WD EDIT END
 
 - type: marking
   id: VitiligoHeadL
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [ Human,  Oni ]
   forcedColoring: true
@@ -729,10 +1046,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: vitiligoheadl
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: VitiligoHeadR
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [ Human, Oni ]
   forcedColoring: true
@@ -744,10 +1064,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: vitiligoheadr
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: VitiligoHeadJaw
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [ Human, Oni ]
   forcedColoring: true
@@ -759,10 +1082,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: vitiligoheadjaw
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: VitiligoChestF
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ Human, Oni ]
   forcedColoring: true
@@ -774,10 +1100,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: vitiligochestf
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+    # WD EDIT END
 
 - type: marking
   id: VitiligoChestSpots
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ Human, Oni ]
   forcedColoring: true
@@ -789,10 +1118,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: vitiligochestspots
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+    # WD EDIT END
 
 - type: marking
   id: VitiligoArmR
-  bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [ Human, Oni ]
   forcedColoring: true
@@ -804,10 +1136,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: vitiligoarmr
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightArm
+    bodyPart: RightArm
+    # WD EDIT END
 
 - type: marking
   id: VitiligoArmL
-  bodyPart: LArm
   markingCategory: LeftArm
   speciesRestriction: [ Human, Oni ]
   forcedColoring: true
@@ -819,10 +1154,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: vitiligoarml
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftArm
+    bodyPart: LeftArm
+    # WD EDIT END
 
 - type: marking
   id: VitiligoHandR
-  bodyPart: RHand
   markingCategory: RightHand
   speciesRestriction: [ Human, Oni ]
   forcedColoring: true
@@ -834,10 +1172,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: vitiligohandr
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightHand
+    bodyPart: RightHand
+    # WD EDIT END
 
 - type: marking
   id: VitiligoHandL
-  bodyPart: LHand
   markingCategory: LeftHand
   speciesRestriction: [ Human, Oni ]
   forcedColoring: true
@@ -849,10 +1190,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: vitiligohandl
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftHand
+    bodyPart: LeftHand
+    # WD EDIT END
 
 - type: marking
   id: VitiligoLegR
-  bodyPart: RLeg
   markingCategory: RightLeg
   speciesRestriction: [ Human, Oni ]
   forcedColoring: true
@@ -864,10 +1208,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: vitiligolegr
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightLeg
+    bodyPart: RightLeg
+    # WD EDIT END
 
 - type: marking
   id: VitiligoLegL
-  bodyPart: LLeg
   markingCategory: LeftLeg
   speciesRestriction: [ Human, Oni ]
   forcedColoring: true
@@ -879,10 +1226,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: vitiligolegl
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftLeg
+    bodyPart: LeftLeg
+    # WD EDIT END
 
 - type: marking
   id: ChitinidBeetleHorn1
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Chitinid]
   forcedColoring: true
@@ -890,10 +1240,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: chitinidbeetlehorn1
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: ChitinidBeetleHorn2
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Chitinid]
   forcedColoring: true
@@ -901,10 +1254,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: chitinidbeetlehorn2
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: Gills
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ Thaven ]
   forcedColoring: false
@@ -912,10 +1268,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: thavenchestgills
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+    # WD EDIT END
 
 - type: marking
   id: ThavenChestScales
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ Thaven ]
   forcedColoring: false
@@ -923,10 +1282,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: thavenchestscales
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+    # WD EDIT END
 
 - type: marking
   id: ThavenHeadScales
-  bodyPart: Head
   markingCategory: HeadTop
   speciesRestriction: [ Thaven ]
   forcedColoring: false
@@ -934,10 +1296,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: thavenheadscales
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: ThavenLArmScales
-  bodyPart: LArm
   markingCategory: LeftArm
   speciesRestriction: [ Thaven ]
   forcedColoring: false
@@ -945,10 +1310,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: thavenleftarmscales
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftArm
+    bodyPart: LeftArm
+    # WD EDIT END
 
 - type: marking
   id: ThavenRArmScales
-  bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [ Thaven ]
   forcedColoring: false
@@ -956,10 +1324,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: thavenrightarmscales
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightArm
+    bodyPart: RightArm
+    # WD EDIT END
 
 - type: marking
   id: ThavenLLegScales
-  bodyPart: LLeg
   markingCategory: LeftLeg
   speciesRestriction: [ Thaven ]
   forcedColoring: false
@@ -967,10 +1338,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: thavenleftlegscales
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftLeg
+    bodyPart: LeftLeg
+    # WD EDIT END
 
 - type: marking
   id: ThavenRLegScales
-  bodyPart: RLeg
   markingCategory: RightLeg
   speciesRestriction: [ Thaven ]
   forcedColoring: false
@@ -978,10 +1352,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: thavenrightlegscales
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightLeg
+    bodyPart: RightLeg
+    # WD EDIT END
 
 - type: marking
   id: ThavenFishEars
-  bodyPart: HeadSide
   markingCategory: Headside
   speciesRestriction: [ Thaven ]
   forcedColoring: true
@@ -989,10 +1366,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: thavenfishears
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: ThavenTattooVines
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ Thaven ]
   forcedColoring: false
@@ -1000,10 +1380,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: thaventattoovines
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+    # WD EDIT END
 
 - type: marking
   id: ThavenSpines
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ Thaven ]
   forcedColoring: false
@@ -1011,10 +1394,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: thavenspines
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+    # WD EDIT END
 
 - type: marking
   id: ThavenBiteMark
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ Thaven ]
   forcedColoring: false
@@ -1022,10 +1408,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: thavenbitemark
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+    # WD EDIT END
 
 - type: marking
   id: ThavenTattooWave
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ Thaven ]
   forcedColoring: false
@@ -1033,10 +1422,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: thaventattoowave
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+    # WD EDIT END
 
 - type: marking
   id: SharkminnowEyeliner
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [ Thaven ]
   forcedColoring: false
@@ -1044,10 +1436,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: thaventattoosharkminnoweyeliner
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: ThavenTiger
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ Thaven ]
   forcedColoring: false
@@ -1055,12 +1450,19 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: thaventiger1
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+    # WD EDIT END
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: thaventiger2
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+    # WD EDIT END
 
 - type: marking
   id: ThavenTigerRArm
-  bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [ Thaven ]
   forcedColoring: false
@@ -1068,10 +1470,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: thaventigerarmsr
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightArm
+    bodyPart: RightArm
+    # WD EDIT END
 
 - type: marking
   id: ThavenTigerLArm
-  bodyPart: LArm
   markingCategory: LeftArm
   speciesRestriction: [ Thaven ]
   forcedColoring: false
@@ -1079,10 +1484,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: thaventigerarmsl
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftArm
+    bodyPart: LeftArm
+    # WD EDIT END
 
 - type: marking
   id: ThavenHeadStripes
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [ Thaven ]
   forcedColoring: false
@@ -1090,10 +1498,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: thavenheadstripes
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: ThavenBodyStripes
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [ Thaven ]
   forcedColoring: false
@@ -1101,10 +1512,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: thavenbodystripes
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+    # WD EDIT END
 
 - type: marking
   id: ThavenEarsBigFins
-  bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [ Thaven ]
   forcedColoring: false
@@ -1112,12 +1526,19 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: thavenearsbigfins
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: thavenearsbigfins2
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: ThavenHeadCap
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [ Thaven ]
   forcedColoring: false
@@ -1125,6 +1546,14 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: thavenheadcap1
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
   - sprite: _Impstation/Mobs/Customization/markingsbundle1.rsi
     state: thavenheadcap2
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 

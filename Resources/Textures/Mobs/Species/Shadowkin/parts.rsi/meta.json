@@ -5,7 +5,7 @@
         "y": 32
     },
     "license": "CC-BY-SA-3.0",
-    "copyright": "https://github.com/SPLURT-Station/S.P.L.U.R.T-Station-13/commit/5bc3ea02ce03a551c85017f1ddd411315a19a5ca#diff-519788fa2ca74299d1686a44d3ab2098b49ed5ab65d293ec742bead7d49f0b8d",
+    "copyright": "https://github.com/SPLURT-Station/S.P.L.U.R.T-Station-13/commit/5bc3ea02ce03a551c85017f1ddd411315a19a5ca#diff-519788fa2ca74299d1686a44d3ab2098b49ed5ab65d293ec742bead7d49f0b8d. Changed by WWDP",
     "states": [
         {
             "name": "full",
@@ -16,21 +16,17 @@
             "directions": 4
         },
         {
-            "name": "head_m",
+            "name": "head",
             "directions": 4
         },
-        {
-            "name": "head_f",
-            "directions": 4
-        },
-        {
-            "name": "torso_m",
-            "directions": 4
-        },
-        {
-            "name": "torso_f",
-            "directions": 4
-        },
+    	{
+  	    "name": "chest",
+  	    "directions": 4
+    	},
+    	{
+  	    "name": "groin",
+  	    "directions": 4
+    	},
         {
             "name": "r_arm",
             "directions": 4

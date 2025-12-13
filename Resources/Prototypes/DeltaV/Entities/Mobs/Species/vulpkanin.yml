@@ -16,7 +16,6 @@
     state: full
   - type: Body
     prototype: Vulpkanin
-    requiredLegs: 2
   - type: Speech
     speechSounds: Vulpkanin
     speechVerb: Vulpkanin
@@ -25,15 +24,20 @@
     noRot: true
     drawdepth: Mobs
     layers:
-      - map: [ "enum.HumanoidVisualLayers.Chest" ]
-      - map: [ "enum.HumanoidVisualLayers.Head" ]
+      # WD EDIT START: HumanoidVisualLayers -> BodyAppearanceLayer
+      - map: [ "enum.BodyAppearanceLayer.Chest" ]
+      - map: [ "enum.BodyAppearanceLayer.Groin" ]
+      - map: [ "enum.BodyAppearanceLayer.Head" ]
+      # WD EDIT END
       - map: [ "enum.HumanoidVisualLayers.Snout" ]
-      - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+      - map: [ "enum.BodyAppearanceLayer.Eyes" ] # WD EDIT: HumanoidVisualLayers -> BodyAppearanceLayer
       - map: [ "enum.HumanoidVisualLayers.Face" ]
-      - map: [ "enum.HumanoidVisualLayers.RArm" ]
-      - map: [ "enum.HumanoidVisualLayers.LArm" ]
-      - map: [ "enum.HumanoidVisualLayers.RLeg" ]
-      - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+      # WD EDIT: HumanoidVisualLayers -> BodyAppearanceLayer
+      - map: [ "enum.BodyAppearanceLayer.RightArm" ]
+      - map: [ "enum.BodyAppearanceLayer.LeftArm" ]
+      - map: [ "enum.BodyAppearanceLayer.RightLeg" ]
+      - map: [ "enum.BodyAppearanceLayer.LeftLeg" ]
+      # WD EDIT END
 #     - shader: StencilClear
 #      sprite: Mobs/Species/Human/parts.rsi
 #      state: l_leg
@@ -42,10 +46,12 @@
       - map: [ "underpants" ]
       - map: [ "undershirt" ]
       - map: [ "jumpsuit" ]
-      - map: [ "enum.HumanoidVisualLayers.LHand" ]
-      - map: [ "enum.HumanoidVisualLayers.RHand" ]
-      - map: [ "enum.HumanoidVisualLayers.LFoot" ]
-      - map: [ "enum.HumanoidVisualLayers.RFoot" ]
+      # WD EDIT START: HumanoidVisualLayers -> BodyAppearanceLayer
+      - map: ["enum.BodyAppearanceLayer.LeftFoot"]
+      - map: ["enum.BodyAppearanceLayer.RightFoot"]
+      - map: ["enum.BodyAppearanceLayer.LeftHand"]
+      - map: ["enum.BodyAppearanceLayer.RightHand"]
+      # WD EDIT END
       - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
         color: "#ffffff"
         sprite: Objects/Misc/handcuffs.rsi
@@ -66,7 +72,10 @@
       - map: [ "enum.HumanoidVisualLayers.Hair" ]
       - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
       - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
-      - map: [ "enum.HumanoidVisualLayers.Tail" ]
+      # WD EDIT START: HumanoidVisualLayers -> BodyAppearanceLayer
+      - map: [ "enum.BodyAppearanceLayer.Tail" ]
+      - map: [ "enum.BodyAppearanceLayer.Wings" ]
+      # WD EDIT END
       - map: [ "mask" ]
       - map: [ "head" ]
       - map: [ "pocket1" ]
@@ -138,9 +147,11 @@
   - type: HumanoidAppearance
     species: Vulpkanin
     hideLayersOnEquip:
-    - Snout
-    - HeadTop
-    - HeadSide
+    # WD EDIT START
+    - enum.HumanoidVisualLayers.Snout
+    - enum.HumanoidVisualLayers.HeadTop
+    - enum.HumanoidVisualLayers.HeadSide
+    # WD EDIT END
   - type: Inventory
     speciesId: vulpkanin
     femaleDisplacements:
@@ -149,3 +160,7 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
+  # WD EDIT START
+  - type: Body
+    prototype: Vulpkanin
+  # WD EDIT END

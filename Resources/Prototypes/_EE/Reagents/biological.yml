@@ -46,7 +46,7 @@
         emote: Scream
         probability: 0.3
 #      conditions: # TODO: Figure out how to make this work properly, it doesnt seem like it wants to do anything when uncommented lol
-#      - !type:OrganType
+#      - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
 #        type: Xelthia
 #        shouldHave: false
 
@@ -65,7 +65,7 @@
         factor: -4
       - !type:SatiateHunger
         factor: -4
-      - !type:HealthChange 
+      - !type:HealthChange
         conditions:
         - !type:TotalDamage
           max: 50
@@ -74,4 +74,3 @@
             Brute: -1.5
           types:
             Heat: -0.4
-            

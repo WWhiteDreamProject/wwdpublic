@@ -22,7 +22,9 @@
     - WeldingMask
   - type: HideLayerClothing
     slots:
-    - Snout
+    # WD EDIT START
+    - enum.HumanoidVisualLayers.Snout
+    # WD EDIT END
   - type: DamageOtherOnHit
     damage:
       types:

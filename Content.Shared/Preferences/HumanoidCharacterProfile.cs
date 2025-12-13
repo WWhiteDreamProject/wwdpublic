@@ -2,6 +2,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using Content.Shared._White.Bark;
 using Content.Shared._White.Bark.Systems;
+using Content.Shared._White.Humanoid.Prototypes;
 using Content.Shared._White.TTS;
 using Content.Shared.CCVar;
 using Content.Shared.Clothing.Loadouts.Prototypes;
@@ -97,7 +98,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
 
     // WD EDIT START
     [DataField]
-    public string BodyType { get; set; } = SharedHumanoidAppearanceSystem.DefaultBodyType;
+    public ProtoId<BodyTypePrototype> BodyType { get; set; } = SharedHumanoidAppearanceSystem.DefaultBodyType;
 
     [DataField]
     public string Voice { get; set; } = SharedHumanoidAppearanceSystem.DefaultVoice;

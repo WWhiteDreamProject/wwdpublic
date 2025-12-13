@@ -164,3 +164,7 @@
     species: IPC
   - type: Inventory
     templateId: ipc
+  # WD EDIT START
+  - type: Body
+    prototype: IPC
+  # WD EDIT END

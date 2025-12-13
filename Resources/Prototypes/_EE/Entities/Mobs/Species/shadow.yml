@@ -28,7 +28,6 @@
     damageContainer: Biological
   - type: Body
     prototype: Shadow
-    requiredLegs: 2
   - type: Tag
     tags:
     - CanPilot
@@ -58,8 +57,6 @@
         Heat: -0.14
       groups:
         Brute: -0.14
-  - type: Targeting
-  - type: SurgeryTarget
   - type: Bloodstream
     bloodReagent: FluorosulfuricAcid
   - type: LanguageSpeaker
@@ -79,6 +76,10 @@
   components:
   - type: HumanoidAppearance
     species: Shadow
+  # WD EDIT START
+  - type: Body
+    prototype: Shadow
+  # WD EDIT END
 
 - type: entity
   parent: MobShadowBase

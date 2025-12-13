@@ -11,19 +11,27 @@
       "name": "full"
     },
     {
-      "name": "head_m",
+      "name": "head",
       "directions": 4
     },
     {
-      "name": "head_f",
+      "name": "head_female",
       "directions": 4
     },
     {
-      "name": "torso_m",
+      "name": "chest",
       "directions": 4
     },
     {
-      "name": "torso_f",
+      "name": "chest_female",
+      "directions": 4
+    },
+    {
+      "name": "groin",
+      "directions": 4
+    },
+    {
+      "name": "groin_female",
       "directions": 4
     },
     {

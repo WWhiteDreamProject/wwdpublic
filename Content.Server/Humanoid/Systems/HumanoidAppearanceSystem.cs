@@ -16,7 +16,6 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
         base.Initialize();
 
         SubscribeLocalEvent<HumanoidAppearanceComponent, HumanoidMarkingModifierMarkingSetMessage>(OnMarkingsSet);
-        SubscribeLocalEvent<HumanoidAppearanceComponent, HumanoidMarkingModifierBaseLayersSetMessage>(OnBaseLayersSet);
         SubscribeLocalEvent<HumanoidAppearanceComponent, GetVerbsEvent<Verb>>(OnVerbsRequest);
     }
 
@@ -46,7 +45,6 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
         targetHumanoid.Height = sourceHumanoid.Height;
         targetHumanoid.Width = sourceHumanoid.Width;
         SetSex(target, sourceHumanoid.Sex, false, targetHumanoid);
-        targetHumanoid.CustomBaseLayers = new(sourceHumanoid.CustomBaseLayers);
         targetHumanoid.MarkingSet = new(sourceHumanoid.MarkingSet);
 
         targetHumanoid.Gender = sourceHumanoid.Gender;
@@ -57,27 +55,6 @@ public sealed partial class HumanoidAppearanceSystem : SharedHumanoidAppearanceS
 
         targetHumanoid.LastProfileLoaded = sourceHumanoid.LastProfileLoaded;
         Dirty(target, targetHumanoid);
-    }
-
-    /// <summary>
-    ///     Removes a marking from a humanoid by ID.
-    /// </summary>
-    /// <param name="uid">Humanoid mob's UID</param>
-    /// <param name="marking">The marking to try and remove.</param>
-    /// <param name="sync">Whether to immediately sync this to the humanoid</param>
-    /// <param name="humanoid">Humanoid component of the entity</param>
-    public void RemoveMarking(EntityUid uid, string marking, bool sync = true, HumanoidAppearanceComponent? humanoid = null)
-    {
-        if (!Resolve(uid, ref humanoid)
-            || !_markingManager.Markings.TryGetValue(marking, out var prototype))
-        {
-            return;
-        }
-
-        humanoid.MarkingSet.Remove(prototype.MarkingCategory, marking);
-
-        if (sync)
-            Dirty(uid, humanoid);
     }
 
     /// <summary>

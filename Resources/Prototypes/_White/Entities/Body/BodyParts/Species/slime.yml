@@ -1,0 +1,76 @@
+- type: entity
+  id: BaseBodyPartSlime
+  parent: BaseBodyPart
+  abstract: true
+  name: slime body part
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Slime/parts.rsi
+  - type: BodyPartAppearance
+    sprite: Mobs/Species/Slime/parts.rsi
+
+# Head
+- type: entity
+  id: BodyPartHeadSlime
+  parent: [BaseBodyPartHead, BaseBodyPartSlime]
+  name: slime head
+
+# Chest
+- type: entity
+  id: BodyPartChestSlime
+  parent: [BaseBodyPartChest, BaseBodyPartSlime]
+  name: slime chest
+
+# Groin
+- type: entity
+  id: BodyPartGroinSlime
+  parent: [BaseBodyPartGroin, BaseBodyPartSlime]
+  name: slime groin
+
+# Arms
+
+- type: entity
+  id: BodyPartLeftArmSlime
+  parent: [BaseBodyPartLeftArm, BaseBodyPartSlime]
+  name: slime left arm
+
+- type: entity
+  id: BodyPartRightArmSlime
+  parent: [BaseBodyPartRightArm, BaseBodyPartSlime]
+  name: slime right arm
+
+# Hand
+
+- type: entity
+  id: BodyPartLeftHandSlime
+  parent: [BaseBodyPartLeftHand, BaseBodyPartSlime]
+  name: slime left hand
+
+- type: entity
+  id: BodyPartRightHandSlime
+  parent: [BaseBodyPartRightHand, BaseBodyPartSlime]
+  name: slime right hand
+
+# Leg
+
+- type: entity
+  id: BodyPartLeftLegSlime
+  parent: [BaseBodyPartLeftLeg, BaseBodyPartSlime]
+  name: slime left leg
+
+- type: entity
+  id: BodyPartRightLegSlime
+  parent: [BaseBodyPartRightLeg, BaseBodyPartSlime]
+  name: slime right leg
+
+# Foot
+
+- type: entity
+  id: BodyPartLeftFootSlime
+  parent: [BaseBodyPartLeftFoot, BaseBodyPartSlime]
+  name: slime left foot
+
+- type: entity
+  id: BodyPartRightFootSlime
+  parent: [BaseBodyPartRightFoot, BaseBodyPartSlime]
+  name: slime right foot

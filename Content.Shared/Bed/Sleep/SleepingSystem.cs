@@ -213,8 +213,7 @@ public sealed partial class SleepingSystem : EntitySystem
         if (!args.DamageIncreased || args.DamageDelta == null)
             return;
 
-        if (args.DamageDelta.GetTotal() >= ent.Comp.WakeThreshold
-            && !HasComp<ForcedSleepingComponent>(ent))
+        if (args.DamageDelta.GetTotal() >= ent.Comp.WakeThreshold)
             TryWaking((ent, ent.Comp));
     }
 

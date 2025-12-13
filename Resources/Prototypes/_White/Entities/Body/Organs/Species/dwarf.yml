@@ -1,0 +1,23 @@
+- type: entity
+  id: OrganLiverDwarf
+  parent: OrganLiverHuman
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [Dwarf, LiquorLifeline]
+
+- type: entity
+  id: OrganStomachDwarf
+  parent: OrganStomachHuman
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      stomach:
+        maxVol: 75
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+  - type: Metabolizer
+    maxReagents: 5
+    metabolizerTypes: [Dwarf]

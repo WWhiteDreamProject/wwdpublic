@@ -14,6 +14,5 @@ namespace Content.Shared.Eye
         Ethereal = 1 << 3,
         TelegnosticProjection = 5,
         AGhost = 1 << 5, // WD EDIT
-        Abductor = 1 << 10, // I HATE BITWISE OPERATIONS!! GRAAAAH
     }
 }

@@ -1,14 +1,18 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "flowers_body, flowers_head, leaf_cover, thorns_body, thorns_head from https://github.com/Citadel-Station-13/Citadel-Station-13-RP/commit/38051f45d3b26bd31f6e292239f43adb36ff01fe, modified by EmoGarbage and other from https://github.com/TauCetiStation/TauCetiClassic/blob/a8c097fd0e749dcd6f66f05cf5325e51f6b081dd/icons/mob/human_face.dmi",
+  "copyright": "flowers_body, flowers_head, leaf_cover, thorns_body, thorns_head from https://github.com/Citadel-Station-13/Citadel-Station-13-RP/commit/38051f45d3b26bd31f6e292239f43adb36ff01fe, modified by EmoGarbage and other from https://github.com/TauCetiStation/TauCetiClassic/blob/a8c097fd0e749dcd6f66f05cf5325e51f6b081dd/icons/mob/human_face.dmi. The division of the torso into chest and groin was done by Sparison.",
   "size": {
     "x": 32,
     "y": 32
   },
   "states": [
     {
-      "name": "flowers_body",
+      "name": "flowers_chest",
+      "directions": 4
+    },
+    {
+      "name": "flowers_groin",
       "directions": 4
     },
     {
@@ -16,11 +20,19 @@
       "directions": 4
     },
     {
-      "name": "leaf_cover",
+      "name": "leaf_cover_chest",
       "directions": 4
     },
     {
-      "name": "thorns_body",
+      "name": "leaf_cover_groin",
+      "directions": 4
+    },
+    {
+      "name": "thorns_chest",
+      "directions": 4
+    },
+    {
+      "name": "thorns_groin",
       "directions": 4
     },
     {
@@ -76,7 +88,47 @@
       "directions": 4
     },
     {
-      "name": "overlay",
+      "name": "overlay_chest",
+      "directions": 4
+    },
+    {
+      "name": "overlay_groin",
+      "directions": 4
+    },
+    {
+      "name": "overlay_head",
+      "directions": 4
+    },
+    {
+      "name": "overlay_l_arm",
+      "directions": 4
+    },
+    {
+      "name": "overlay_l_foot",
+      "directions": 4
+    },
+    {
+      "name": "overlay_l_hand",
+      "directions": 4
+    },
+    {
+      "name": "overlay_l_leg",
+      "directions": 4
+    },
+    {
+      "name": "overlay_r_arm",
+      "directions": 4
+    },
+    {
+      "name": "overlay_r_foot",
+      "directions": 4
+    },
+    {
+      "name": "overlay_r_hand",
+      "directions": 4
+    },
+    {
+      "name": "overlay_r_leg",
       "directions": 4
     },
     {

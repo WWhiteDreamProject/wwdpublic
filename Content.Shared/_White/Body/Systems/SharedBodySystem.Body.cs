@@ -1,0 +1,90 @@
+using System.Linq;
+using Content.Shared._White.Body.Components;
+using Content.Shared._White.Body.Prototypes;
+using Content.Shared.Humanoid;
+using Robust.Shared.Containers;
+
+namespace Content.Shared._White.Body.Systems;
+
+public abstract partial class SharedBodySystem
+{
+    private void InitializeBody() => SubscribeLocalEvent<BodyComponent, MapInitEvent>(OnBodyMapInit);
+
+    #region Event Handling
+
+    private void OnBodyMapInit(Entity<BodyComponent> body, ref MapInitEvent args)
+    {
+        var bodyPrototype = Prototype.Index(body.Comp.Prototype);
+
+        if (bodyPrototype.BodyParts.Count != 0)
+            SetupBody(body,  bodyPrototype);
+
+        if (bodyPrototype.Organs.Count == 0)
+            return;
+
+        body.Comp.Organs = bodyPrototype.Organs.ToDictionary(x => x.Key, x => new OrganSlot(x.Value));
+        SetupOrgans(body, body.Comp.Organs);
+    }
+
+    #endregion
+
+    #region Private API
+
+    private void SetupBody(Entity<BodyComponent> body, BodyPrototype bodyPrototype)
+    {
+        var humanoidComponent = CompOrNull<HumanoidAppearanceComponent>(body);
+        var coordinates = Comp<TransformComponent>(body).Coordinates;
+
+        var processedBodyPart = new List<string> { bodyPrototype.Root, };
+        var queue = new Queue<(string BodyPartId, EntityUid BodyPartParent)>();
+        queue.Enqueue((bodyPrototype.Root, body));
+
+        while (queue.TryDequeue(out var id))
+        {
+            var bodyPartSlot = new BodyPartSlot(bodyPrototype.BodyParts[id.BodyPartId])
+            {
+                ContainerSlot = _container.EnsureContainer<ContainerSlot>(id.BodyPartParent, GetBodyPartSlotContainerId(id.BodyPartId))
+            };
+
+            body.Comp.BodyParts.Add(id.BodyPartId, bodyPartSlot);
+
+            if (string.IsNullOrEmpty(bodyPartSlot.StartingBodyPart))
+                continue;
+
+            var bodyPart = Spawn(bodyPartSlot.StartingBodyPart, coordinates);
+            if (!TryComp<BodyPartComponent>(bodyPart, out var bodyPartComponent))
+            {
+                _sawmill.Error($"Body part {ToPrettyString(bodyPart)} does not have {typeof(BodyPartComponent)}");
+                QueueDel(bodyPart);
+                continue;
+            }
+
+            if (humanoidComponent != null)
+                SetupBodyPartAppearance((body.Owner, humanoidComponent), (bodyPart, bodyPartComponent, null));
+
+            if (!_container.Insert(bodyPart, bodyPartSlot.ContainerSlot))
+            {
+                _sawmill.Error($"Couldn't insert {ToPrettyString(bodyPart)} to {ToPrettyString(id.BodyPartParent)}");
+                QueueDel(bodyPart);
+                continue;
+            }
+
+            bodyPartComponent.Bones = bodyPartSlot.Bones;
+            SetupBones(bodyPart, bodyPartComponent.Bones);
+
+            bodyPartComponent.Organs = bodyPartSlot.Organs;
+            SetupOrgans(bodyPart, bodyPartComponent.Organs);
+
+            foreach (var childBodyPart in bodyPartSlot.Connections)
+            {
+                if (processedBodyPart.Contains(childBodyPart))
+                    continue;
+
+                queue.Enqueue((childBodyPart, bodyPart));
+                processedBodyPart.Add(childBodyPart);
+            }
+        }
+    }
+
+    #endregion
+}

@@ -177,11 +177,10 @@
     actions:
     - ActionFabricateLollipop
     - ActionFabricateGumball
-  - type: SurgeryIgnoreClothing
-  - type: SurgerySpeedModifier
-    speedModifier: 1.5
-  - type: SurgeryTarget
-  - type: Sanitized
+  # - type: SurgeryIgnoreClothing
+  # - type: SurgerySpeedModifier
+  #   speedModifier: 1.5
+  # - type: Sanitized
 
   # Visual
   inventoryTemplateId: borgDutch
