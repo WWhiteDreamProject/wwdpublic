@@ -1,0 +1,89 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-4.0",
+  "copyright": "generic states made by @sentryprimies, Gersoon (@gersoon458) for WWhiteDreamProject, 13.12.2025",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+    "states": [
+        {
+            "name": "generic"
+        },
+        {
+            "name": "generic_door"
+        },
+        {
+            "name": "generic_open"
+        },
+        {
+            "name": "generic_icon"
+        },
+        {
+            "name": "locked"
+        },
+        {
+            "name": "unlocked"
+        },
+        {
+            "name": "welded"
+        },
+        {
+            "name": "evidence"
+        },
+        {
+            "name": "atmos_wardrobe_door"
+        },
+        {
+            "name": "cargo_wardrobe_door"
+        },
+        {
+            "name": "chap_wardrobe_door"
+        },
+        {
+            "name": "chef_wardrobe_door"
+        },
+        {
+            "name": "chem_wardrobe_door"
+        },
+        {
+            "name": "eng_wardrobe_door"
+        },
+        {
+            "name": "gen_wardrobe_door"
+        },
+        {
+            "name": "hydro_wardrobe_door"
+        },
+        {
+            "name": "legal_wardrobe_door"
+        },
+        {
+            "name": "med_wardrobe_door"
+        },
+        {
+            "name": "pris_wardrobe_door"
+        },
+        {
+            "name": "purple_wardrobe_door"
+        },
+        {
+            "name": "robo_wardrobe_door"
+        },
+        {
+            "name": "salv_wardrobe_door"
+        },
+        {
+            "name": "sec_wardrobe_door"
+        },
+        {
+            "name": "sci_wardrobe_door"
+        },
+        {
+            "name": "viro_wardrobe_door"
+        },
+        {
+            "name": "evidence_door"
+        }
+    ]
+}
