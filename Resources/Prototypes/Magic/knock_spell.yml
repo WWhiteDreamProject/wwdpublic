@@ -9,7 +9,7 @@
     sound: !type:SoundPathSpecifier
       path: /Audio/Magic/knock.ogg
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi # Goob edit
+      sprite: _White/Wizard/actions.rsi # WD edit
       state: knock
     event: !type:KnockSpellEvent
       speech: action-speech-spell-knock

@@ -51,6 +51,9 @@
         },
         {
             "name": "yellow-storage"
+        },
+        {
+            "name": "blue-storage"
         }
     ]
 }
