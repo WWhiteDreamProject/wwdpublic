@@ -22,6 +22,14 @@ ent-WardrobePrison = тюремный гардероб
     .desc = { ent-WardrobeBase.desc }
     .suffix = { "" }
 
+ent-WardrobeOrange = оранжевый гардероб
+    .desc = { ent-WardrobeBase.desc }
+    .suffix = { "" }
+
+ent-WardrobePurple = фиолетовый гардероб
+    .desc = { ent-WardrobeBase.desc }
+    .suffix = { "" }
+
 ent-WardrobeYellow = жёлтый гардероб
     .desc = { ent-WardrobeBase.desc }
     .suffix = { "" }

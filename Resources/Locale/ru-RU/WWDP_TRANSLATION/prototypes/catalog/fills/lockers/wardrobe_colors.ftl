@@ -29,3 +29,11 @@ ent-WardrobeBlackFilled = { ent-WardrobeBlack }
 ent-WardrobeGreenFilled = { ent-WardrobeGreen }
     .suffix = Заполненный
     .desc = { ent-WardrobeGreen.desc }
+
+ent-WardrobeOrangeFilled = { ent-WardrobeOrange }
+    .suffix = Заполненный
+    .desc = { ent-WardrobeOrange.desc }
+
+ent-WardrobePurpleFilled = { ent-WardrobePurple }
+    .suffix = Заполненный
+    .desc = { ent-WardrobePurple.desc }

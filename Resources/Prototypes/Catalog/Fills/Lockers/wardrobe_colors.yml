@@ -54,7 +54,7 @@
     contents:
       - id: ClothingUniformJumpsuitColorYellow
       - id: ClothingUniformJumpskirtColorYellow
-      - id: ClothingShoesColorOrange
+      - id: ClothingShoesColorYellow # WWDP edit
         amount: 2
       - id: ClothingHeadBandGold
 
@@ -81,7 +81,7 @@
     contents:
       - id: ClothingUniformJumpsuitColorBlue
       - id: ClothingUniformJumpskirtColorBlue
-      - id: ClothingShoesColorBrown
+      - id: ClothingShoesColorBlue # WWDP edit
         amount: 2
 
 - type: entity
@@ -120,6 +120,32 @@
     contents:
       - id: ClothingUniformJumpsuitColorGreen
       - id: ClothingUniformJumpskirtColorGreen
-      - id: ClothingShoesColorBlack
+      - id: ClothingShoesColorGreen # WWDP edit
         amount: 2
       - id: ClothingHeadBandGreen
+
+- type: entity # WWDP edit start
+  id: WardrobeOrangeFilled
+  suffix: Filled
+  parent: WardrobeOrange
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingUniformJumpsuitColorOrange
+    - id: ClothingUniformJumpskirtColorOrange
+    - id: ClothingShoesColorOrange
+      amount: 2
+    - id: ClothingHeadHatOrangesoft
+
+- type: entity
+  id: WardrobePurpleFilled
+  suffix: Filled
+  parent: WardrobePurple
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingUniformJumpsuitColorPurple
+    - id: ClothingUniformJumpskirtColorPurple
+    - id: ClothingShoesColorPurple
+      amount: 2
+    - id: ClothingHeadHatPurplesoft # WWDP edit end

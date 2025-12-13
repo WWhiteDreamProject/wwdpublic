@@ -205,7 +205,7 @@
      contents:
        - id: ClothingUniformJumpsuitAtmos
        - id: ClothingBackpackEngineering
-       - id: ClothingShoesColorWhite
+       - id: ClothingShoesBootsWorkAtmos # WWDP edit
        - id: ClothingUniformJumpskirtAtmos
 
  - type: entity

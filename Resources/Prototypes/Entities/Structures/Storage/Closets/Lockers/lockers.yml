@@ -432,6 +432,13 @@
   name: evidence locker
   description: To store bags of bullet casings and detainee belongings.
   components:
+  - type: Sprite # WWDP edit start
+    sprite: _White/Structures/Storage/closet.rsi
+    noRot: true
+  - type: EntityStorageVisuals
+    stateBaseClosed: evidence
+    stateDoorOpen: generic_open
+    stateDoorClosed: evidence_door # WWDP edit end
   - type: AccessReader
     access: [["Security"]]
 

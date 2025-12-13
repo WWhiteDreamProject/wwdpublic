@@ -4,6 +4,8 @@
   parent: ClosetSteelBase
   abstract: true
   description: It's a storage unit for standard-issue Nanotrasen attire.
+  components:
+  - type: Appearance
 
 # Colored
 
@@ -14,7 +16,6 @@
   name: blue wardrobe
   description: "A wardrobe packed with stylish blue clothing."
   components:
-  - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: generic
     stateDoorOpen: generic_open
@@ -27,7 +28,6 @@
   name: pink wardrobe
   description: "A wardrobe packed with fabulous pink clothing."
   components:
-  - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: generic
     stateDoorOpen: generic_open
@@ -40,7 +40,6 @@
   name: black wardrobe
   description: "A wardrobe packed with stylish black clothing."
   components:
-  - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: generic
     stateDoorOpen: generic_open
@@ -53,23 +52,22 @@
   name: green wardrobe
   description: "A wardrobe packed with stylish green clothing."
   components:
-  - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: generic
     stateDoorOpen: generic_open
     stateDoorClosed: green_door
 
-# Prison wardrobe
+# Orange wardrobe. WWDP edit start
 - type: entity
-  id: WardrobePrison
+  id: WardrobeOrange # WWDP edit
   parent: WardrobeBase
-  name: prison wardrobe
+  name: orange wardrobe # WWDP edit
   components:
-  - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: generic
     stateDoorOpen: generic_open
     stateDoorClosed: orange_door
+# WWDP edit end
 
 # Yellow wardrobe
 - type: entity
@@ -78,7 +76,6 @@
   name: yellow wardrobe
   description: "A wardrobe packed with stylish yellow clothing."
   components:
-  - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: generic
     stateDoorOpen: generic_open
@@ -91,7 +88,6 @@
   name: white wardrobe
   description: "A wardrobe packed with stylish white clothing."
   components:
-  - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: generic
     stateDoorOpen: generic_open
@@ -104,11 +100,25 @@
   name: grey wardrobe
   description: "A wardrobe packed with a tide of grey clothing."
   components:
-  - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: generic
     stateDoorOpen: generic_open
     stateDoorClosed: grey_door
+
+# Purple wardrobe. WWDP edit
+- type: entity
+  id: WardrobePurple
+  parent: WardrobeBase
+  name: purple wardrobe
+  description: "A wardrobe packed with a tide of purple clothing."
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Storage/closet.rsi
+    noRot: true
+  - type: EntityStorageVisuals
+    stateBaseClosed: generic
+    stateDoorOpen: generic_open
+    stateDoorClosed: purple_wardrobe_door # WWDP edit end
 
 # Mixed wardrobe
 - type: entity
@@ -117,7 +127,6 @@
   name: mixed wardrobe
   description: "A wardrobe packed with a mix of colorful clothing."
   components:
-  - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: generic
     stateDoorOpen: generic_open
@@ -130,100 +139,231 @@
   parent: WardrobeBase
   name: security wardrobe
   components:
-  - type: Appearance
+  - type: Sprite # WWDP edit start
+    sprite: _White/Structures/Storage/closet.rsi
+    noRot: true
   - type: EntityStorageVisuals
     stateBaseClosed: generic
     stateDoorOpen: generic_open
-    stateDoorClosed: red_door
+    stateDoorClosed: sec_wardrobe_door # WWDP edit end
 
 - type: entity
   id: WardrobeAtmospherics
   parent: WardrobeBase
   name: atmospherics wardrobe
   components:
-  - type: Appearance
+  - type: Sprite # WWDP edit start
+    sprite: _White/Structures/Storage/closet.rsi
+    noRot: true
   - type: EntityStorageVisuals
     stateBaseClosed: generic
     stateDoorOpen: generic_open
-    stateDoorClosed: atmos_wardrobe_door
+    stateDoorClosed: atmos_wardrobe_door # WWDP edit end
 
 - type: entity
   id: ClosetJanitor
-  parent: WardrobeMixed
+  parent: WardrobeBase # WWDP edit
   name: custodial closet
   description: It's a storage unit for janitorial clothes and gear.
+  components:
+  - type: Sprite # WWDP edit start
+    sprite: _White/Structures/Storage/closet.rsi
+    noRot: true
+  - type: EntityStorageVisuals
+    stateBaseClosed: generic
+    stateDoorOpen: generic_open
+    stateDoorClosed: purple_wardrobe_door # WWDP edit end
 
 - type: entity
   id: WardrobeFormal
   parent: WardrobeBlack
   name: formal closet
-  description: It's a storage unit for formal clothing.
+  description: It's a storage unit for formal clothing. # WWDP TODO sprite and loot
 
 - type: entity
   id: ClosetChef
-  parent: WardrobeBlack
+  parent: WardrobeBase # WWDP edit
   name: chef's closet
   description: It's a storage unit for foodservice garments and mouse traps.
+  components:
+  - type: Sprite # WWDP edit start
+    sprite: _White/Structures/Storage/closet.rsi
+    noRot: true
+  - type: EntityStorageVisuals
+    stateBaseClosed: generic
+    stateDoorOpen: generic_open
+    stateDoorClosed: purple_wardrobe_door # WWDP edit end
 
 - type: entity
   id: WardrobeChapel
-  parent: WardrobeBlack
+  parent: WardrobeBase # WWDP edit
   name: chaplain's wardrobe
   description: It's a storage unit for Nanotrasen-approved religious attire.
+  components:
+  - type: Sprite # WWDP edit start
+    sprite: _White/Structures/Storage/closet.rsi
+    noRot: true
+  - type: EntityStorageVisuals
+    stateBaseClosed: generic
+    stateDoorOpen: generic_open
+    stateDoorClosed: chap_wardrobe_door # WWDP edit end
+
 
 - type: entity
   id: ClosetLegal
-  parent: WardrobeBlue
+  parent: WardrobeBase # WWDP edit
   name: legal closet
   description: It's a storage unit for courtroom apparel and items.
+  components:
+  - type: Sprite # WWDP edit start
+    sprite: _White/Structures/Storage/closet.rsi
+    noRot: true
+  - type: EntityStorageVisuals
+    stateBaseClosed: generic
+    stateDoorOpen: generic_open
+    stateDoorClosed: legal_wardrobe_door # WWDP edit end
 
 - type: entity
   id: WardrobeCargo
-  parent: WardrobePrison
+  parent: WardrobeBase # WWDP edit
   name: logistics wardrobe # DeltaV - Logistics Department replacing Cargo
+  components:
+  - type: Sprite # WWDP edit start
+    sprite: _White/Structures/Storage/closet.rsi
+    noRot: true
+  - type: EntityStorageVisuals
+    stateBaseClosed: generic
+    stateDoorOpen: generic_open
+    stateDoorClosed: cargo_wardrobe_door # WWDP edit end
 
 - type: entity
   id: WardrobeSalvage
-  parent: WardrobeMixed
+  parent: WardrobeBase # WWDP edit
   name: salvage wardrobe
   description: Notably not salvaged.
+  components:
+  - type: Sprite # WWDP edit start
+    sprite: _White/Structures/Storage/closet.rsi
+    noRot: true
+  - type: EntityStorageVisuals
+    stateBaseClosed: generic
+    stateDoorOpen: generic_open
+    stateDoorClosed: salv_wardrobe_door # WWDP edit end
 
 - type: entity
   id: WardrobeEngineering
-  parent: WardrobeYellow
+  parent: WardrobeBase # WWDP edit
   name: engineering wardrobe
+  components:
+  - type: Sprite # WWDP edit start
+    sprite: _White/Structures/Storage/closet.rsi
+    noRot: true
+  - type: EntityStorageVisuals
+    stateBaseClosed: generic
+    stateDoorOpen: generic_open
+    stateDoorClosed: eng_wardrobe_door # WWDP edit end
 
 - type: entity
   id: WardrobeMedicalDoctor
-  parent: WardrobeWhite
+  parent: WardrobeBase # WWDP edit
   name: medical doctor's wardrobe
+  components:
+  - type: Sprite # WWDP edit start
+    sprite: _White/Structures/Storage/closet.rsi
+    noRot: true
+  - type: EntityStorageVisuals
+    stateBaseClosed: generic
+    stateDoorOpen: generic_open
+    stateDoorClosed: med_wardrobe_door # WWDP edit end
 
 - type: entity
   id: WardrobeRobotics
-  parent: WardrobeBlack
+  parent: WardrobeBase # WWDP edit
   name: robotics wardrobe
+  components:
+  - type: Sprite # WWDP edit start
+    sprite: _White/Structures/Storage/closet.rsi
+    noRot: true
+  - type: EntityStorageVisuals
+    stateBaseClosed: generic
+    stateDoorOpen: generic_open
+    stateDoorClosed: robo_wardrobe_door # WWDP edit end
 
 - type: entity
   id: WardrobeChemistry
-  parent: WardrobeWhite
+  parent: WardrobeBase # WWDP edit
   name: chemistry wardrobe
+  components:
+  - type: Sprite # WWDP edit start
+    sprite: _White/Structures/Storage/closet.rsi
+    noRot: true
+  - type: EntityStorageVisuals
+    stateBaseClosed: generic
+    stateDoorOpen: generic_open
+    stateDoorClosed: chem_wardrobe_door # WWDP edit end
 
 - type: entity
   id: WardrobeGenetics
-  parent: WardrobeWhite
+  parent: WardrobeBase # WWDP edit
   name: genetics wardrobe
+  components:
+  - type: Sprite # WWDP edit start
+    sprite: _White/Structures/Storage/closet.rsi
+    noRot: true
+  - type: EntityStorageVisuals
+    stateBaseClosed: generic
+    stateDoorOpen: generic_open
+    stateDoorClosed: gen_wardrobe_door # WWDP edit end
+
 
 - type: entity
   id: WardrobeVirology
-  parent: WardrobeWhite
+  parent: WardrobeBase # WWDP edit
   name: virology wardrobe
+  components:
+  - type: Sprite # WWDP edit start
+    sprite: _White/Structures/Storage/closet.rsi
+    noRot: true
+  - type: EntityStorageVisuals
+    stateBaseClosed: generic
+    stateDoorOpen: generic_open
+    stateDoorClosed: viro_wardrobe_door # WWDP edit end
 
 - type: entity
   id: WardrobeScience
-  parent: WardrobeWhite
+  parent: WardrobeBase # WWDP edit
   name: epistemics wardrobe # DeltaV - Epistemics Department replacing Science
+  components:
+  - type: Sprite # WWDP edit start
+    sprite: _White/Structures/Storage/closet.rsi
+    noRot: true
+  - type: EntityStorageVisuals
+    stateBaseClosed: generic
+    stateDoorOpen: generic_open
+    stateDoorClosed: sci_wardrobe_door # WWDP edit end
 
 - type: entity
   id: WardrobeBotanist
-  parent: WardrobeGreen
+  parent: WardrobeBase # WWDP edit
   name: botanist wardrobe
+  components:
+  - type: Sprite # WWDP edit start
+    sprite: _White/Structures/Storage/closet.rsi
+    noRot: true
+  - type: EntityStorageVisuals
+    stateBaseClosed: generic
+    stateDoorOpen: generic_open
+    stateDoorClosed: hydro_wardrobe_door # WWDP edit end
+
+- type: entity # WWDP edit start
+  id: WardrobePrison
+  parent: WardrobeBase
+  name: prison wardrobe
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Storage/closet.rsi
+    noRot: true
+  - type: EntityStorageVisuals
+    stateBaseClosed: generic
+    stateDoorOpen: generic_open
+    stateDoorClosed: pris_wardrobe_door # WWDP edit end
