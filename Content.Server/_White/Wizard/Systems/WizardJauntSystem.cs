@@ -61,7 +61,7 @@ public sealed class WizardJauntSystem : EntitySystem
                 continue;
 
             trail.RenderedEntity = polymorphed.Parent;
-            Dirty(ent, trail);
+            Dirty(endEffect, trail);
         }
     }
 
