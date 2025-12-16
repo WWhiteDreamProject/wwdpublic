@@ -33,8 +33,6 @@ public sealed class WizardJauntSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var trailQuery = GetEntityQuery<TrailComponent>();
-
         var query = EntityQueryEnumerator<WizardJauntComponent, PolymorphedEntityComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out var jaunt, out var polymorphed, out var xform))
         {
