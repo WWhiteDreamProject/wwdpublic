@@ -80,10 +80,11 @@ public abstract class SharedMagicSystem : EntitySystem
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
     [Dependency] private readonly SharedChargesSystem _charges = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!; // Goobstation
-    [Dependency] private readonly NpcFactionSystem _faction = default!; // Goobstation
-    [Dependency] private readonly SharedSpellsSystem _spells = default!; // Goobstation
-
+    // WD EDIT START
+    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly NpcFactionSystem _faction = default!;
+    [Dependency] private readonly SharedSpellsSystem _spells = default!;
+    // WD EDIT END
 
     private static readonly ProtoId<TagPrototype> InvalidForGlobalSpawnSpellTag = "InvalidForGlobalSpawnSpell";
 
