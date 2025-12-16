@@ -55,7 +55,7 @@ public sealed class WizardJauntSystem : EntitySystem
             _audio.PlayEntity(jaunt.JauntEndSound, Filter.Pvs(ent), ent, true);
             jaunt.JauntEndEffectEntity = ent;
 
-            if (!trailQuery.TryComp(ent, out var trail))
+            if (!TryComp(endEffect, out TrailComponent? trail))
                 continue;
 
             trail.RenderedEntity = polymorphed.Parent;
