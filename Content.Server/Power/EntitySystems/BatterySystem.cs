@@ -240,27 +240,14 @@ namespace Content.Server.Power.EntitySystems
             return battery.CurrentCharge >= battery.MaxCharge;
         }
 
-        // Goobstation
-        public int GetChargeDifference(EntityUid uid, BatteryComponent? battery = null) // Debug
+        // WD EDIT START
+        public void AddCharge(EntityUid uid, float value, BatteryComponent? battery = null)
         {
             if (!Resolve(uid, ref battery))
-                return 0;
+                return;
 
-            return Convert.ToInt32(battery.MaxCharge - battery.CurrentCharge);
+            SetCharge(uid, battery.CurrentCharge + value, battery);
         }
-        public float AddCharge(EntityUid uid, float value, BatteryComponent? battery = null)
-        {
-            if (value <= 0 || !Resolve(uid, ref battery))
-                return 0;
-
-            var newValue = Math.Clamp(battery.CurrentCharge + value, 0, battery.MaxCharge);
-            battery.CurrentCharge = newValue;
-            var ev = new ChargeChangedEvent(battery.CurrentCharge, battery.MaxCharge);
-            RaiseLocalEvent(uid, ref ev);
-            return newValue;
-        }
-
-        // WD EDIT START
         public bool TryGetBatteryComponent(EntityUid uid, [NotNullWhen(true)] out BatteryComponent? battery,[NotNullWhen(true)] out EntityUid? batteryUid)
         {
             if (TryComp(uid, out battery))
