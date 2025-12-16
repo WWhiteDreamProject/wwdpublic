@@ -49,11 +49,13 @@ public sealed class WizardJauntSystem : EntitySystem
             if (jaunt.DurationBetweenEffects > 0f)
                 continue;
 
-            var ent = Spawn(jaunt.JauntEndEffect,
+            var endEffect = Spawn(jaunt.JauntEndEffect,
                 _transform.GetMapCoordinates(uid, xform),
                 rotation: _transform.GetWorldRotation(xform));
-            _audio.PlayEntity(jaunt.JauntEndSound, Filter.Pvs(ent), ent, true);
-            jaunt.JauntEndEffectEntity = ent;
+
+            _audio.PlayEntity(jaunt.JauntEndSound, Filter.Pvs(endEffect), endEffect, true);
+
+            jaunt.JauntEndEffectEntity = endEffect;
 
             if (!TryComp(endEffect, out TrailComponent? trail))
                 continue;
