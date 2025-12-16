@@ -137,7 +137,7 @@ public abstract class SharedMagicSystem : EntitySystem
         // TODO: Pre-cast do after, either here or in SharedActionsSystem
     }
 
-    public bool PassesSpellPrerequisites(EntityUid spell, EntityUid performer)
+    public bool PassesSpellPrerequisites(EntityUid spell, EntityUid performer) // WD EDIT: private -> public
     {
         var ev = new BeforeCastSpellEvent(performer);
         RaiseLocalEvent(spell, ref ev);
