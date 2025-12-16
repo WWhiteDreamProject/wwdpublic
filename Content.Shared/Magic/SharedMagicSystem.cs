@@ -606,12 +606,6 @@ public abstract class SharedMagicSystem : EntitySystem
 
         TransferFactions();
 
-        if (_net.IsServer)
-        {
-            // _audio.PlayEntity(ev.Sound, ev.Target, ev.Target);
-            // _audio.PlayEntity(ev.Sound, ev.Performer, ev.Performer);
-        }
-        // Goobstation end
 
         _stun.TryParalyze(ev.Target, ev.TargetStunDuration, true);
         _stun.TryParalyze(ev.Performer, ev.PerformerStunDuration, true);
