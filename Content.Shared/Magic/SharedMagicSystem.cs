@@ -547,7 +547,6 @@ public abstract class SharedMagicSystem : EntitySystem
             return;
         }
 
-        // Goobstation start
         if (_mobState.IsIncapacitated(ev.Target) || HasComp<ZombieComponent>(ev.Target))
         {
             _popup.PopupClient(Loc.GetString("spell-fail-mindswap-dead"), ev.Performer, ev.Performer);
