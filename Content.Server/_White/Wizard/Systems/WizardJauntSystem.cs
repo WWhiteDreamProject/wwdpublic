@@ -19,8 +19,8 @@ namespace Content.Server._White.Wizard.Systems;
 
 public sealed class WizardJauntSystem : EntitySystem
 {
-    [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private readonly TransformSystem _transform = default!;
 
     public override void Initialize()
     {
