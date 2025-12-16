@@ -540,7 +540,8 @@ public abstract class SharedMagicSystem : EntitySystem
         if (ev.Handled || !PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
 
-        if (IsTouchSpellDenied(ev.Target)) // Goobstation
+        // WD EDIT START
+        if (IsTouchSpellDenied(ev.Target))
         {
             ev.Handled = true;
             return;
