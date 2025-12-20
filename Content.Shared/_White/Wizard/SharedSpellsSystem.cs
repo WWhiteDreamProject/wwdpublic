@@ -26,15 +26,18 @@ public abstract class SharedSpellsSystem : EntitySystem
 {
     [Dependency] protected readonly IPrototypeManager ProtoMan = default!;
     [Dependency] protected readonly IGameTiming Timing = default!;
-    [Dependency] protected readonly SharedActionsSystem Actions = default!;
-    [Dependency] protected readonly SharedHandsSystem Hands = default!;
+
     [Dependency] protected readonly TagSystem Tag = default!;
+    [Dependency] protected readonly SharedActionsSystem Actions = default!;
     [Dependency] protected readonly SharedAudioSystem Audio = default!;
+    [Dependency] protected readonly SharedHandsSystem Hands = default!;
     [Dependency] protected readonly SharedTransformSystem TransformSystem = default!;
-    [Dependency] private   readonly SharedChargesSystem _charges = default!;
-    [Dependency] private   readonly SharedMagicSystem _magic = default!;
-    [Dependency] private   readonly SharedGunSystem _gunSystem = default!;
-    [Dependency] private   readonly SharedPopupSystem _popup = default!;
+
+    [Dependency] private readonly SharedChargesSystem _charges = default!;
+    [Dependency] private readonly SharedGunSystem _gunSystem = default!;
+    [Dependency] private readonly SharedMagicSystem _magic = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
+
     public override void Initialize()
     {
         SubscribeLocalEvent<PolymorphSpellEvent>(OnPolymorph);
