@@ -65,7 +65,6 @@ public sealed class CardSpriteSystem : EntitySystem
         {
             var (cardIndex, layer) = obj;
             sprite.LayerSetVisible(j, true);
-            sprite.LayerSetTexture(j, layer.Texture);
             sprite.LayerSetState(j, layer.RsiState.Name);
             layerFunc.Invoke((uid, sprite), cardIndex, j);
             j++;
