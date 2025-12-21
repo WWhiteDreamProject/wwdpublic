@@ -1,0 +1,28 @@
+﻿- type: entity
+  id: ActionRepulse
+  name: Repulse
+  description: Pushes entities away from the user.
+  components:
+  - type: RepulseAttract
+    speed: 10
+    range: 5
+    whitelist:
+      components:
+      - MobMover
+      - Item
+  - type: InstantAction
+    useDelay: 40
+    raiseOnAction: true
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi # Goob edit
+      state: repulse
+    event: !type:RepulseAttractActionEvent
+  # WD EDIT START
+  - type: ActionUpgrade
+    effectedLevels:
+      2: ActionRepulseII
+      3: ActionRepulseIII
+      4: ActionRepulseIV
+      5: ActionRepulseV
+  # WD EDIT END

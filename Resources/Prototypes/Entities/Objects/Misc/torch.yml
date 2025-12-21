@@ -1,8 +1,7 @@
 - type: entity
-  name: torch
+  id: BaseTorch # WD EDIT: Torch -> BaseTorch
   parent: BaseItem
-  id: Torch
-  description: A torch fashioned from some wood.
+  abstract: true # WD EDIT
   components:
     - type: ExpendableLight
       spentName: expendable-light-burnt-torch-name
@@ -22,7 +21,7 @@
           state: torch_unlit
         - map: [ enum.ExpendableLightVisualLayers.Glow ]
           state: lit_overlay
-          color: "#FFFFFF"
+          color: "#E33119"
           visible: false
           shader: unshaded
         - map: [ enum.ExpendableLightVisualLayers.Overlay ]
@@ -33,9 +32,11 @@
     - type: Item
       sprite: Objects/Misc/torch.rsi
       heldPrefix: unlit
-    - type: Construction
-      graph: LightTorch
-      node: torch
+    # WD EDIT START
+    # - type: Construction
+    #   graph: LightTorch
+    #   node: torch
+    # WD EDIT END
     - type: Appearance
     - type: PointLight
       enabled: false
@@ -79,3 +80,15 @@
     - type: Tag
       tags:
       - Torch
+
+# WD EDIT START
+- type: entity
+  id: Torch
+  parent: BaseTorch
+  name: torch
+  description: A torch fashioned from some wood.
+  components:
+  - type: Construction
+    graph: LightTorch
+    node: torch
+# WD EDIT END

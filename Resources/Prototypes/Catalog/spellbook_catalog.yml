@@ -18,8 +18,9 @@
   name: spellbook-polymorph-rod-name
   description: spellbook-polymorph-rod-desc
   productAction: ActionPolymorphWizardRod
+  productUpgradeId: SpellbookRodFormUpgrade # WWDP - port goob magic upgrades
   cost:
-    WizCoin: 3
+    WizCoin: 2 # WD EDIT: 3 -> 2
   categories:
   - SpellbookOffensive
   conditions:
@@ -31,6 +32,7 @@
   name: spellbook-smite-name
   description: spellbook-smite-desc
   productAction: ActionSmite
+  productUpgradeId: SpellbookSmiteUpgrade # WWDP - port goob magic upgrades
   cost:
     WizCoin: 3
   categories:
@@ -44,6 +46,7 @@
   name: spellbook-cluwne-name
   description: spellbook-cluwne-desc
   productAction: ActionCluwne
+  productUpgradeId: SpellbookCluwneCurseUpgrade # WWDP - port goob magic upgrades
   cost:
     WizCoin: 3
   categories:
@@ -71,15 +74,47 @@
   name: spellbook-force-wall-name
   description: spellbook-force-wall-desc
   productAction: ActionForceWall
+  productUpgradeId: SpellbookForceWallUpgrade # WWDP - port goob magic upgrades
   cost:
-    WizCoin: 3
+    WizCoin: 1 # WD EDIT: 3 -> 1
   categories:
   - SpellbookDefensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookRepulse
+  name: spellbook-repulse-name
+  description: spellbook-repulse-desc
+  productAction: ActionRepulse
+  productUpgradeId: SpellbookRepulseUpgrade # WWDP - port goob magic upgrades
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookDefensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookSmoke
+  name: spellbook-smoke-name
+  description: spellbook-smoke-desc
+  productAction: ActionSmoke
+  productUpgradeId: SpellbookSmokeUpgrade # WWDP - port goob magic upgrades
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookDefensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
 
 # Utility
 - type: listing
   id: SpellbookPolymorphSpider
-  name: spellbook-polymoprh-spider-name
+  name: spellbook-polymorph-spider-name
   description: spellbook-polymorph-spider-desc
   productAction: ActionPolymorphWizardSpider
   cost:
@@ -95,6 +130,7 @@
   name: spellbook-blink-name
   description: spellbook-blink-desc
   productAction: ActionBlink
+  productUpgradeId: SpellbookBlinkUpgrade # WWDP - port goob magic upgrades
   cost:
     WizCoin: 1
   categories:
@@ -109,6 +145,7 @@
   name: spellbook-voidapplause-name
   description: spellbook-voidapplause-desc
   productAction: ActionVoidApplause
+  productUpgradeId: SpellbookSwapUpgrade # WWDP - port goob magic upgrades
   cost:
     WizCoin: 1
   categories:
@@ -122,6 +159,7 @@
   name: spellbook-charge-name
   description: spellbook-charge-desc
   productAction: ActionChargeSpell
+  productUpgradeId: SpellbookChargeUpgrade # WWDP - port goob magic upgrades
   cost:
     WizCoin: 1
   categories:
@@ -149,6 +187,7 @@
   name: spellbook-mind-swap-name
   description: spellbook-mind-swap-description
   productAction: ActionMindSwap
+  productUpgradeId: SpellbookMindSwapUpgrade # WWDP - port goob magic upgrades
   cost:
     WizCoin: 2
   categories:
@@ -164,7 +203,7 @@
   description: spellbook-wand-polymorph-door-description
   productEntity: WeaponWandPolymorphDoor
   cost:
-    WizCoin: 3
+    WizCoin: 1 # WD EDIT: 3 -> 1
   categories:
   - SpellbookEquipment
   conditions:
@@ -190,7 +229,33 @@
   description: spellbook-wand-locker-description
   productEntity: WeaponWandLocker
   cost:
-    WizCoin: 3
+    WizCoin: 2 # WD EDIT: 3 -> 2
+  categories:
+  - SpellbookEquipment
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookHammerMjollnir
+  name: spellbook-hammer-mjollnir-name
+  description: spellbook-hammer-mjollnir-description
+  productEntity: Mjollnir
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookEquipment
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookHammerSingularity
+  name: spellbook-hammer-singularity-name
+  description: spellbook-hammer-singularity-description
+  productEntity: SingularityHammer
+  cost:
+    WizCoin: 1 # WD EDIT: 2 -> 1
   categories:
   - SpellbookEquipment
   conditions:
@@ -259,7 +324,7 @@
   name: spellbook-upgrade-fireball-name
   description: spellbook-upgrade-fireball-description
   icon:
-    sprite: Objects/Magic/magicactions.rsi
+    sprite: _Goobstation/Wizard/actions.rsi # Goob edit
     state: fireball
   cost:
     WizCoin: 2
@@ -279,7 +344,7 @@
   name: spellbook-upgrade-jaunt-name
   description: spellbook-upgrade-jaunt-description
   icon:
-    sprite: Objects/Magic/magicactions.rsi
+    sprite: _Goobstation/Wizard/actions.rsi # Goob edit
     state: jaunt
   cost:
     WizCoin: 2

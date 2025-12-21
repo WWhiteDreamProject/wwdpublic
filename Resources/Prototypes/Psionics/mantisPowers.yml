@@ -18,14 +18,14 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: WhiteDream/BloodCult/Entities/Items/Weapons/cult_blade.rsi
+    sprite: _White/Objects/Weapons/Melee/Sword/blood_cult_sword.rsi
     state: icon
   - type: InstantAction
     useDelay: 20
     checkCanInteract: false
     itemIconStyle: BigAction
     icon:
-      sprite: WhiteDream/BloodCult/Entities/Items/Weapons/cult_blade.rsi
+      sprite: _White/Objects/Weapons/Melee/Sword/blood_cult_sword.rsi
       state: icon
     event: !type:SummonEquipmentEvent
       speech: "thrusts their open hand to the side. A black blade forms from nothingness into their waiting hand. Whispering demonic voices echo around the sword..."
@@ -43,7 +43,7 @@
   components:
   - type: Sharp
   - type: Sprite
-    sprite: WhiteDream/BloodCult/Entities/Items/Weapons/cult_blade.rsi
+    sprite: _White/Objects/Weapons/Melee/Sword/blood_cult_sword.rsi
     state: icon
   - type: MeleeWeapon
     wideAnimationRotation: -135
@@ -71,8 +71,6 @@
     slots:
     - back
   - type: DisarmMalus
-  - type: CultItem
-    allowUseToEveryone: true
   - type: PointLight
     color: "#793a80"
     radius: 1.5

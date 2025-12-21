@@ -1,0 +1,16 @@
+- type: constructionGraph
+  id: BloodCultPylon
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: pylon
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+      steps:
+      - material: RunedMetal
+        amount: 4
+        doAfter: 3
+  - node: pylon
+    entity: BloodCultPylon

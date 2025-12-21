@@ -1,5 +1,4 @@
 ﻿using Content.Client.Construction;
-// using Content.Client.WhiteDream.BloodCult.UI;
 using Content.Shared.Construction.Prototypes;
 using Content.Shared.RadialSelector;
 using Content.Shared.ShortConstruction;

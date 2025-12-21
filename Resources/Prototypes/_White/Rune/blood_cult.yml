@@ -1,0 +1,47 @@
+- type: bloodCultRune
+  id: BloodCultRuneOffering
+  prototype: BloodCultRuneOffering
+
+- type: bloodCultRune
+  id: BloodCultRuneEmpower
+  prototype: BloodCultRuneEmpower
+
+- type: bloodCultRune
+  id: BloodCultRuneTeleport
+  prototype: BloodCultRuneTeleport
+
+- type: bloodCultRune
+  id: BloodCultRuneRevive
+  prototype: BloodCultRuneRevive
+
+- type: bloodCultRune
+  id: BloodCultRuneBarrier
+  prototype: BloodCultRuneBarrier
+
+- type: bloodCultRune
+  id: BloodCultRuneSummoning
+  prototype: BloodCultRuneSummoning
+
+- type: bloodCultRune
+  id: BloodCultRuneBloodBoil
+  prototype: BloodCultRuneBloodBoil
+
+- type: bloodCultRune
+  id: BloodCultRuneApocalypse
+  prototype: BloodCultRuneApocalypse
+  requireTargetDead: true
+  requiredTotalCultists: 10
+  drawTime: 40
+  drawDamage:
+    types:
+      Slash: 20
+
+- type: bloodCultRune
+  id: BloodCultRuneDimensionalRending
+  prototype: BloodCultRuneDimensionalRending
+  requireTargetDead: true
+  requiredTotalCultists: 10
+  drawTime: 40
+  drawDamage:
+    types:
+      Slash: 50

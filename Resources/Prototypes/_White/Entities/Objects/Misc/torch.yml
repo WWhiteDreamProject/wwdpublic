@@ -1,0 +1,30 @@
+- type: entity
+  id: VoidTorch
+  parent: BaseTorch
+  name: void torch
+  description: Used by veteran cultists to instantly transport items to their needful brethren
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/torch.rsi
+    layers:
+    - map: [ enum.ExpendableLightVisualLayers.Base ]
+      state: torch_unlit
+    - map: [ enum.ExpendableLightVisualLayers.Glow ]
+      state: lit_overlay
+      color: "#FFFFFF"
+      visible: false
+      shader: unshaded
+    - map: [ enum.ExpendableLightVisualLayers.Overlay ]
+      state: torch_nocloth
+  - type: CultItem
+  - type: VoidTorch
+  - type: UserInterface
+    interfaces:
+      enum.ListViewSelectorUiKey.Key:
+        type: ListViewSelectorBUI
+  - type: GenericVisualizer
+    visuals:
+      enum.GenericCultVisuals.State:
+        enum.ExpendableLightVisualLayers.Glow:
+          True: { visible: true }
+          False: { visible: false }

@@ -1,0 +1,23 @@
+- type: entity
+  parent: ClothingOuterBaseToggleable
+  id: ClothingOuterRobesBloodCult
+  name: flagellant's robe
+  description: Blood-soaked robes infused with dark magic; allows the user to move at inhuman speeds, but at the cost of increased damage.
+  components:
+  - type: Sprite
+    sprite: _White/Clothing/OuterClothing/Misc/blood_cult_robe.rsi
+  - type: Clothing
+    sprite: _White/Clothing/OuterClothing/Misc/blood_cult_robe.rsi
+  - type: ClothingSpeedModifier
+    walkModifier: 1.25
+    sprintModifier: 1.25
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 1.4
+        Slash: 1.4
+        Piercing: 1.4
+        Heat: 1.4
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHatHoodBloodCultHood
+  - type: CultItem

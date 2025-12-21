@@ -1,0 +1,7 @@
+﻿- type: material
+  id: RunedMetal
+  stackEntity: RunedMetal1
+  name: materials-runed-metal
+  icon: { sprite: /Textures/_White/Objects/Materials/Sheets/runic_metal.rsi, state: runic}
+  color: "#9d2b39"
+  price: 0.5 # 1-1-1 mix of plasma, steel and blood magic.

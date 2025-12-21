@@ -1,0 +1,16 @@
+- type: constructionGraph
+  id: BloodCultFactoryAltar
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: altar
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+      steps:
+      - material: RunedMetal
+        amount: 3
+        doAfter: 3
+  - node: altar
+    entity: BloodCultFactoryAltar

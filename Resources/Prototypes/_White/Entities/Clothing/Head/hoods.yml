@@ -1,0 +1,16 @@
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatHoodBloodCultHood
+  name: flagellant's hood
+  description: A blood-soaked hood infused with dark magic.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _White/Clothing/Head/Hoods/blood_cult_hood.rsi
+  - type: Clothing
+    sprite: _White/Clothing/Head/Hoods/blood_cult_hood.rsi
+    equipSound: /Audio/Effects/rustle1.ogg
+    unequipSound: /Audio/Effects/rustle2.ogg
+  - type: HideLayerClothing
+    slots:
+    - Hair

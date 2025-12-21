@@ -14,6 +14,7 @@
   - type: Sprite
     sprite: Structures/Doors/Airlocks/Standard/basic.rsi
     snapCardinals: true
+    noRot: true # WWDP edit
     layers:
     - state: closed
       map: ["enum.DoorVisualLayers.Base"]
@@ -179,9 +180,11 @@
   - type: InteractionVerbs
     allowedVerbs:
     - KnockOn
+  # WD EDIT START
   - type: TwistedConstructionTarget
-    replacementProto: CultDoor
+    replacementProto: BloodCultDoor
     doAfterDelay: 10
+  # WD EDIT END
   placement:
     mode: SnapgridCenter
 

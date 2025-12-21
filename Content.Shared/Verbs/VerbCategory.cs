@@ -106,8 +106,10 @@ namespace Content.Shared.Verbs
 
         public static readonly VerbCategory Interaction = new("verb-categories-interaction");
 
+        // WD EDIT START
         public static readonly VerbCategory BloodSpells = new("verb-categories-blood-cult",
-            new SpriteSpecifier.Rsi(new ResPath("/Textures/WhiteDream/BloodCult/actions.rsi"), "blood_spells"));
+            new SpriteSpecifier.Rsi(new ResPath("/Textures/_White/Interface/Actions/blood_cult.rsi"), "blood_spells"));
+        // WD EDIT END
         public static readonly VerbCategory PowerLevel = new("verb-categories-power-level");
 
         // Shitmed - Starlight Abductors

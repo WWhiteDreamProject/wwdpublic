@@ -1,0 +1,47 @@
+{
+   "version":1,
+   "size":{
+      "x":32,
+      "y":32
+   },
+   "license":"CC-BY-NC-SA-4.0",
+   "copyright":"Gersoon(gersoon458) for WWhiteDreamProject, 18.11.2025",
+   "states":[
+      {
+         "name": "idle_small"
+      },
+      {
+         "name": "idle_head_small"
+      },
+      {
+         "name": "base_small",
+         "delays": [ [ 0.4, 0.15, 0.3, 0.2, 0.2, 0.2 ] ]
+      },
+      {
+         "name": "head_small",
+         "delays": [ [ 0.4, 0.15, 0.3, 0.2, 0.2, 0.2] ]
+      },
+      {
+         "name": "on_small",
+         "delays": [ [ 0.25, 0.25, 0.25, 0.25] ]
+      },
+      {
+         "name": "idle_medium"
+      },
+      {
+         "name": "idle_head_medium"
+      },
+      {
+         "name": "base_medium",
+          "delays": [ [ 0.55, 0.15, 0.3, 0.2, 0.2, 0.2 ] ]
+      },
+      {
+         "name": "head_medium",
+         "delays": [ [ 0.55, 0.15, 0.3, 0.2, 0.2, 0.2] ]
+      },
+      {
+         "name": "on_medium",
+         "delays": [ [ 0.25, 0.25, 0.25, 0.25] ]
+      }
+   ]
+}

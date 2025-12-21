@@ -1,0 +1,23 @@
+- type: entity
+  id: SpawnMobConstructWraithEffect
+  parent: BaseSpawnMobEffect
+  name: wraith
+  suffix: Spawn
+  components:
+  - type: Sprite
+    sprite: _White/Mobs/Construct/wraith.rsi
+    state: make_cult
+  - type: TimedDespawn
+    lifetime: 1
+  - type: SpawnOnDespawn
+    prototype: MobConstructWraith
+
+- type: entity
+  id: SpawnMobConstructWraithHolyEffect
+  parent: SpawnMobConstructWraithEffect
+  name: purified wraith
+  components:
+  - type: Sprite
+    state: make_holy
+  - type: SpawnOnDespawn
+    prototype: MobConstructWraithHoly

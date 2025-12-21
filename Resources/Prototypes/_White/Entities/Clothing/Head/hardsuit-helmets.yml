@@ -1,0 +1,17 @@
+- type: entity
+  parent: ClothingHeadHardsuitBase
+  id: ClothingHeadHelmetBloodCultArmor
+  categories: [ HideSpawnMenu ]
+  name: nar'sien hardened helmet
+  description: A heavily-armored helmet worn by warriors of the Nar'Sien cult. It can withstand hard vacuum.
+  components:
+  - type: BreathMask
+  - type: Sprite
+    sprite: _White/Clothing/Head/Hardsuits/blood_cult_helmet.rsi
+  - type: Clothing
+    sprite: _White/Clothing/Head/Hardsuits/blood_cult_helmet.rsi
+    equipSound: /Audio/Effects/rustle1.ogg
+    unequipSound: /Audio/Effects/rustle2.ogg
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000

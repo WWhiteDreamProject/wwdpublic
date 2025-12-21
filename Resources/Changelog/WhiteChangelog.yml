@@ -4451,3 +4451,113 @@ Entries:
   id: 466
   time: '2025-10-10T05:33:21.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/855
+- author: Lachklen
+  changes:
+    - type: Add
+      message: Быстрая складка в карманы и на спину сьюта
+  id: 467
+  time: '2025-10-11T21:52:48.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/861
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: Кровавый культ стал работать лучше
+  id: 468
+  time: '2025-10-11T21:53:06.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/859
+- author: PuroSlavKing
+  changes:
+    - type: Fix
+      message: >-
+        Исправлено перемещение червоточин. Больше они не стремятся к нулевым
+        координатам.
+    - type: Tweak
+      message: Изменен радиус перемещения червоточин, 40 > 12.
+  id: 469
+  time: '2025-10-14T06:09:55.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/864
+- author: Ko4ergaPunk
+  changes:
+    - type: Add
+      message: Добавлена настольная игра EvacPod (аналог Бункера)
+  id: 470
+  time: '2025-10-23T05:03:50.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/863
+- author: Agronomist-NN
+  changes:
+    - type: Fix
+      message: >-
+        Исправлено сгорание спрея от огнетушителя при попытке потушить
+        суперматерию.
+  id: 471
+  time: '2025-11-16T15:16:34.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/871
+- author: Kai518
+  changes:
+    - type: Add
+      message: Маги научились использовать заклинания отталкивания и призыва дыма.
+    - type: Add
+      message: >-
+        Магу добавлены молот сингулярности, который притягивает врагов в точку
+        удара, и Мьёлнир, который сильно отталкивает врагов при попадании с
+        броска.
+    - type: Add
+      message: Маги получили свитки телепортации.
+    - type: Fix
+      message: >-
+        Призыв призраков теперь должен работать корректно... Наверное... Не
+        точно...
+    - type: Fix
+      message: >-
+        Теперь заклинание перезарядки должно перезаряжать большее количество
+        вещей. (Все еще не посох анимации)
+  id: 472
+  time: '2025-11-21T19:21:25.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/875
+- author: Kai518
+  changes:
+    - type: Add
+      message: >-
+        Теперь маги могут улучшать купленные заклинания за трату дополнительных
+        очков. Да-да, теперь можно на все очки замаксить форму стержня и
+        ПОЛЕТЕТЬ.
+    - type: Tweak
+      message: Иконки большинства заклинаний изменены.
+  id: 473
+  time: '2025-11-23T09:19:34.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/876
+- author: temm1ie
+  changes:
+    - type: Tweak
+      message: Заменены спрайты в ботанике.
+  id: 474
+  time: '2025-12-01T06:25:52.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/879
+- author: Gersoon
+  changes:
+    - type: Tweak
+      message: Новые спрайты труб, майнеров газа итд итп
+    - type: Tweak
+      message: >-
+        Теперь у инженерной одежды реально есть светоотражайка, а не просто
+        неоновая лента
+    - type: Tweak
+      message: Новые спрайты канистр (Purka)
+    - type: Tweak
+      message: Новые спрайты проводов (Gavrik)
+    - type: Tweak
+      message: Новые спрайты тулбоксов (SentryPrimis)
+  id: 475
+  time: '2025-12-02T13:55:09.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/878
+- author: Spriters Team
+  changes:
+    - type: Add
+      message: Добавлено изменение спрайта ПДА при открытии ЮИ (Gersoon)
+    - type: Tweak
+      message: Изменены спрайты ПДА (NotAFemboy)
+    - type: Fix
+      message: Фикс отображения баллона в канситре (Gersoon)
+  id: 476
+  time: '2025-12-07T15:24:37.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/881

@@ -56,3 +56,43 @@
         - Opaque
         restitution: 0.3
         friction: 0.2
+
+- type: entity
+  parent: Spear
+  id: BloodSpear
+  name: blood spear
+  description: A sickening spear composed entirely of crystallized blood.
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Melee/Spear/blood_cult_spear.rsi
+  - type: Item
+    storedRotation: 44
+    size: Huge
+    shape:
+    - 0,0,5,0
+  - type: MeleeWeapon
+    damage:
+      types:
+        Piercing: 26
+    angle: 0
+    animation: WeaponArcThrust
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+    range: 2
+    attackRate: 1.42
+  - type: ThrowingItemModifier
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Piercing: 40
+    staminaCost: 18
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Piercing: 10
+  - type: DisarmMalus
+    malus: 0.4
+    wieldedBonus: 0.4
+  - type: CultItem
+    knockdownDuration: 3
+  - type: BloodSpear

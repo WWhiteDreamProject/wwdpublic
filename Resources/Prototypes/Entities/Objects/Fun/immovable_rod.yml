@@ -32,6 +32,9 @@
   - type: WarpPoint
     follow: true
     location: immovable rod
+    blacklist:
+      tags:
+      - GhostOnlyWarp
 
 - type: entity
   id: ImmovableRodDespawn
@@ -66,25 +69,32 @@
   suffix: Wizard
   components:
   - type: ImmovableRod
-    minSpeed: 35
+    # WD EDIT START
+    minSpeed: 6
+    maxSpeed: 6
+    hitSoundProbability: 1
+    # WD EDIT END
     destroyTiles: false
     randomizeVelocity: false
     shouldGib: false
     damage:
       types:
-        Blunt: 200
+        Blunt: 70 # WD EDIT: 200 -> 70
   - type: MovementIgnoreGravity
     gravityState: true
-  - type: InputMover
   - type: MovementSpeedModifier
     weightlessAcceleration: 5
     weightlessModifier: 2
     weightlessFriction: 0
     friction: 0
-    frictionNoInput: 0
+    offGridFriction: 0 # WD EDIT
   - type: CanMoveInAir
   - type: MovementAlwaysTouching
   - type: NoSlip
+  # WD EDIT START
+  - type: StatusIcon
+    bounds: -0.5,-0.5,0.5,0.5
+  # WD EDIT END
 
 - type: entity
   parent: ImmovableRodKeepTiles

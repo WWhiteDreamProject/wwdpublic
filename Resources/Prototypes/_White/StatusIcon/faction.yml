@@ -7,7 +7,7 @@
     - ShowAntagIcons
     - MindSlave
   icon:
-    sprite: /Textures/_White/Overlays/mindslave.rsi
+    sprite: /Textures/_White/Interface/Misc/faction_icons_8x8.rsi
     state: master
 
 - type: factionIcon
@@ -19,5 +19,29 @@
     - ShowAntagIcons
     - MindSlave
   icon:
-    sprite: /Textures/_White/Overlays/mindslave.rsi
+    sprite: /Textures/_White/Interface/Misc/faction_icons_8x8.rsi
     state: slave
+
+- type: factionIcon
+  id: BloodCultMember
+  priority: 11
+  locationPreference: left
+  showTo:
+    components:
+    - ShowAntagIcons
+    - BloodCultist
+  icon:
+    sprite: /Textures/_White/Interface/Misc/faction_icons_10x10.rsi
+    state: blood_cult_member
+
+- type: factionIcon
+  id: BloodCultLeader
+  priority: 11
+  locationPreference: left
+  showTo:
+    components:
+    - ShowAntagIcons
+    - BloodCultist
+  icon:
+    sprite: /Textures/_White/Interface/Misc/faction_icons_10x10.rsi
+    state: blood_cult_leader

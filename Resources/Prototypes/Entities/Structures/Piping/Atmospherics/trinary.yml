@@ -43,6 +43,7 @@
           map: [ "enum.PipeVisualLayers.Pipe" ]
         - state: gasFilter
           map: [ "enum.SubfloorLayers.FirstLayer", "enabled" ]
+        - state: connector # WWDP edit
     - type: Appearance
     - type: GenericVisualizer
       visuals:
@@ -93,6 +94,7 @@
       map: [ "enum.PipeVisualLayers.Pipe" ]
     - state: gasFilterF
       map: [ "enum.SubfloorLayers.FirstLayer", "enabled" ]
+    - state: connectorF # WD EDIT
   - type: Flippable
     mirrorEntity: GasFilter
   - type: Appearance
@@ -137,6 +139,7 @@
           map: [ "enum.PipeVisualLayers.Pipe" ]
         - state: gasMixer
           map: [ "enum.SubfloorLayers.FirstLayer", "enabled" ]
+        - state: connector # WD EDIT
     - type: Appearance
     - type: GenericVisualizer
       visuals:
@@ -187,6 +190,7 @@
       map: [ "enum.PipeVisualLayers.Pipe" ]
     - state: gasMixerF
       map: [ "enum.SubfloorLayers.FirstLayer", "enabled" ]
+    - state: connectorF # WD EDIT
   - type: Appearance
   - type: GenericVisualizer
     visuals:
@@ -251,6 +255,7 @@
           map: [ "enum.PipeVisualLayers.Pipe" ]
         - state: off
           map: [ "enum.SubfloorLayers.FirstLayer", "enabled" ]
+        - state: connector # WWDP edit
     - type: Appearance
     - type: GenericVisualizer
       visuals:

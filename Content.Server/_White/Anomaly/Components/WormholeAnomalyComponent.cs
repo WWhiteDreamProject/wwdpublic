@@ -15,7 +15,7 @@ public sealed partial class WormholeAnomalyComponent : Component
     /// The maximum shuffle distance.
     /// </summary>
     [DataField("maxShuffleRadius")]
-    public float MaxShuffleRadius = 40f;
+    public float MaxShuffleRadius = 12f;
 
     /// <summary>
     /// The sound after shuffled around.

@@ -1,0 +1,15 @@
+﻿- type: npcFaction
+  id: GeometerOfBlood
+  hostile:
+  - NanoTrasen
+  - Syndicate
+  - SimpleHostile
+  - Xeno
+  - PetsNT
+  - Zombie
+  - Blob
+  - Changeling
+  - Shadowling
+  - AllHostile
+  - Wizard
+  - Dragon

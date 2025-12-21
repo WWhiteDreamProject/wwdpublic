@@ -61,6 +61,7 @@
   # - type: PipeRestrictOverlap - Allow pipe stacking
   - type: AtmosUnsafeUnanchor
   - type: AtmosPipeColor
+    color: '#b3bcbf' # WWDP edit
   - type: AtmosMonitoringConsoleDevice
   - type: Tag
     tags:

@@ -15,10 +15,10 @@ namespace Content.Shared._White.Actions.Events;
 public sealed partial class SpawnTileEntityActionEvent : InstantActionEvent
 {
     /// <summary>
-    /// The prototype of the entity to be created
+    /// The prototype of the entities to be created
     /// </summary>
     [DataField]
-    public EntProtoId? Entity;
+    public  List<EntProtoId>? Entities;
 
     /// <summary>
     /// The identifier of the tile to be placed
@@ -45,10 +45,10 @@ public sealed partial class SpawnTileEntityActionEvent : InstantActionEvent
 public sealed partial class PlaceTileEntityEvent : WorldTargetActionEvent
 {
     /// <summary>
-    /// The prototype of the entity to be created
+    /// The prototype of the entities to be created
     /// </summary>
     [DataField]
-    public EntProtoId? Entity;
+    public List<EntProtoId>? Entities;
 
     /// <summary>
     /// The identifier of the tile to be placed
@@ -68,6 +68,7 @@ public sealed partial class PlaceTileEntityEvent : WorldTargetActionEvent
     [DataField(customTypeSerializer: typeof(FlagSerializer<CollisionLayer>))]
     public int BlockedCollisionLayer;
 
+    // TODO: Remove it when we get DoAfter delay
     /// <summary>
     /// The duration of the action in seconds
     /// </summary>
@@ -78,9 +79,9 @@ public sealed partial class PlaceTileEntityEvent : WorldTargetActionEvent
 [Serializable, NetSerializable]
 public sealed partial class PlaceTileEntityDoAfterEvent : DoAfterEvent
 {
-    public NetCoordinates Target;
+    public NetCoordinates Coordinates;
 
-    public EntProtoId? Entity;
+    public List<EntProtoId>? Entities;
 
     public string? TileId;
 

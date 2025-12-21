@@ -1,0 +1,40 @@
+- type: entity
+  parent: BaseMobConstruct
+  id: BaseMobConstructWraith
+  abstract: true
+  name: wraith
+  description: A wicked, clawed shell constructed to assassinate enemies and sow chaos behind enemy lines.
+  components:
+  - type: Sprite
+    sprite: _White/Mobs/Construct/wraith.rsi
+  - type: MeleeWeapon
+    hidden: true
+    angle: 30
+    animation: WeaponArcSmash
+    attackRate: 1
+    damage:
+      types:
+        Structural: 40
+        Blunt: 20
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 4
+    baseSprintSpeed: 4
+  - type: StatusEffects
+    allowed:
+    - PhaseShifted
+  - type: ActionGrant
+    actions:
+    - ActionBloodCultPhaseShift
+
+- type: entity
+  id: MobConstructWraith
+  parent: BaseMobConstructWraith
+  components:
+  - type: BloodCultist
+
+- type: entity
+  id: MobConstructWraithHoly
+  parent:
+  - BaseMobConstructHoly
+  - BaseMobConstructWraith
+  name: purified wraith

@@ -10,11 +10,14 @@
     - type: Transform
       noRot: true
     - type: Sprite
-      sprite: Structures/Storage/canister.rsi
+      offset: 0,0.3125 # WWDP edit start
+      drawDepth: OverMobs
+      sprite: _White/Structures/Storage/canister.rsi # WWDP edit end
       noRot: true
       layers:
-        - state: grey
+        - state: air # WWDP edit
     - type: Appearance
+    - type: SpriteFade # WD EDIT
     - type: GenericVisualizer
       visuals:
         enum.AnchorVisuals.Anchored:
@@ -71,8 +74,9 @@
       fixtures:
         fix1:
           shape:
-            !type:PhysShapeAabb
-            bounds: "-0.25,-0.25,0.25,0.25"
+            !type:PhysShapeCircle # WWDP edit start
+            radius: 0.3
+            position: -0.015625,0.09375 # WWDP edit end
           density: 380
           mask:
           - SmallMobMask
@@ -117,7 +121,7 @@
   components:
     - type: Sprite
       layers:
-        - state: yellow
+        - state: experimental # WWDP edit
     - type: GasCanister
       gasMixture:
         volume: 1000
@@ -166,7 +170,7 @@
   components:
   - type: Sprite
     layers:
-      - state: grey
+      - state: air # WWDP edit
   - type: GasCanister
     gasMixture:
       volume: 1000
@@ -206,7 +210,7 @@
   components:
   - type: Sprite
     layers:
-      - state: blue
+      - state: oxygen # WWDP edit
   - type: GasCanister
     gasMixture:
       volume: 1000
@@ -243,6 +247,9 @@
   name: liquid oxygen canister
   description: A canister that can contain any type of gas. This one is supposed to contain liquid oxygen. It can be attached to connector ports using a wrench.
   components:
+  - type: Sprite # WWDP edit start
+    layers:
+    - state: liquid_oxygen # WWDP edit end
   - type: GasCanister
     gasMixture:
       volume: 1000
@@ -251,6 +258,31 @@
       temperature: 72
   - type: AccessReader
     access: [["Atmospherics"]]
+  # WD EDIT START
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          LiquidOxygenCanisterBroken:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:DumpCanisterBehavior
+  # WD EDIT END
 
 - type: entity
   parent: GasCanister
@@ -260,7 +292,7 @@
   components:
     - type: Sprite
       layers:
-        - state: red
+        - state: nitrogen # WWDP edit
     - type: GasCanister
       gasMixture:
         volume: 1000
@@ -298,6 +330,9 @@
   name: liquid nitrogen canister
   description: A canister that can contain any type of gas. This one is supposed to contain liquid nitrogen. It can be attached to connector ports using a wrench.
   components:
+  - type: Sprite # WWDP edit start
+    layers:
+    - state: liquid_nitrogen  # WWDP edit end
   - type: GasCanister
     gasMixture:
       volume: 1000
@@ -307,6 +342,31 @@
       temperature: 72
   - type: AccessReader
     access: [["Atmospherics"]]
+  # WD EDIT START
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          LiquidNitrogenCanisterBroken:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:DumpCanisterBehavior
+  # WD EDIT END
 
 - type: entity
   parent: GasCanister
@@ -316,7 +376,7 @@
   components:
     - type: Sprite
       layers:
-        - state: black
+        - state: carbon_dioxide # WWDP edit
     - type: GasCanister
       gasMixture:
         volume: 1000
@@ -357,6 +417,9 @@
   name: liquid carbon dioxide canister
   description: A canister that can contain any type of gas. This one is supposed to contain liquid carbon dioxide. It can be attached to connector ports using a wrench.
   components:
+  - type: Sprite # WWDP edit start
+    layers:
+    - state: liquid_carbon_dioxide # WWDP edit end
   - type: GasCanister
     gasMixture:
       volume: 1000
@@ -367,6 +430,31 @@
       temperature: 72
   - type: AccessReader
     access: [["Atmospherics"]]
+  # WD EDIT START
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          LiquidCarbonDioxideCanisterBroken:
+            min: 1
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:DumpCanisterBehavior
+  # WD EDIT END
 
 - type: entity
   parent: GasCanister
@@ -376,7 +464,7 @@
   components:
     - type: Sprite
       layers:
-        - state: orange
+        - state: plasma # WWDP edit
     - type: GasCanister
       gasMixture:
         volume: 1000
@@ -420,7 +508,7 @@
   components:
     - type: Sprite
       layers:
-        - state: green
+        - state: tritium # WWDP edit
     - type: GasCanister
       gasMixture:
         volume: 1000
@@ -465,7 +553,7 @@
   components:
     - type: Sprite
       layers:
-        - state: water_vapor
+        - state: water_vapor # WWDP edit
     - type: GasCanister
       gasMixture:
         volume: 1000
@@ -509,7 +597,7 @@
   components:
     - type: Sprite
       layers:
-        - state: greenys
+        - state: ammonia # WWDP edit
     - type: GasCanister
       gasMixture:
         volume: 1000
@@ -556,7 +644,7 @@
   components:
     - type: Sprite
       layers:
-        - state: redws
+        - state: nitric_oxide # WWDP edit
     - type: GasCanister
       gasMixture:
         volume: 1000
@@ -678,8 +766,8 @@
       damageModifierSet: Metallic
     - type: InteractionOutline
     - type: Sprite
-      sprite: Structures/Storage/canister.rsi
-      state: grey-1
+      sprite: _White/Structures/Storage/canister.rsi # WWDP edit
+      state: broken_air # WWDP edit
     - type: Physics
       bodyType: Dynamic
     - type: Fixtures
@@ -705,7 +793,7 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Sprite
-      state: yellow-1
+      state: broken_experimental # WWDP edit
 
 - type: entity
   parent: GasCanisterBrokenBase
@@ -713,7 +801,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    state: grey-1
+    state: broken_air
 
 - type: entity
   parent: GasCanisterBrokenBase
@@ -721,7 +809,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    state: blue-1
+    state: broken_oxygen # WWDP edit
 
 - type: entity
   parent: GasCanisterBrokenBase
@@ -729,7 +817,7 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Sprite
-      state: red-1
+      state: broken_nitrogen # WWDP edit
 
 - type: entity
   parent: GasCanisterBrokenBase
@@ -737,7 +825,7 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Sprite
-      state: black-1
+      state: broken_carbon_dioxide # WWDP edit
 
 - type: entity
   parent: GasCanisterBrokenBase
@@ -745,7 +833,7 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Sprite
-      state: orange-1
+      state: broken_plasma # WWDP edit
 
 - type: entity
   parent: GasCanisterBrokenBase
@@ -753,7 +841,7 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Sprite
-      state: green-1
+      state: broken_tritium # WWDP edit
 
 - type: entity
   parent: GasCanisterBrokenBase
@@ -762,7 +850,7 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Sprite
-      state: water_vapor-1
+      state: broken_water_vapor # WWDP edit
 
 - type: entity
   parent: GasCanisterBrokenBase
@@ -770,7 +858,7 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Sprite
-      state: greenys-1
+      state: ammonia # WWDP edit
 
 - type: entity
   parent: GasCanisterBrokenBase
@@ -778,7 +866,7 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: Sprite
-      state: redws-1
+      state: broken_nitric_oxide # WWDP edit
 
 - type: entity
   parent: GasCanisterBrokenBase
@@ -786,5 +874,4 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    state: frezon-1
-
+    state: broken_frezon # WWDP edit

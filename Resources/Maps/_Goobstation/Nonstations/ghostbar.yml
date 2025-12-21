@@ -14677,6 +14677,12 @@ entities:
       parent: 4
     - type: WarpPoint
       location: Ghost Bar
+      blacklist:
+        tags:
+        - GhostOnlyWarp
+    - type: Tag
+      tags:
+      - GhostOnlyWarp
 - proto: WaterTankHighCapacity
   entities:
   - uid: 1535

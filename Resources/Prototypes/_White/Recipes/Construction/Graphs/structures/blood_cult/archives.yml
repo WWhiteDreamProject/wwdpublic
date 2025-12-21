@@ -1,0 +1,16 @@
+- type: constructionGraph
+  id: BloodCultFactoryArchives
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: archives
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+      steps:
+      - material: RunedMetal
+        amount: 3
+        doAfter: 3
+  - node: archives
+    entity: BloodCultFactoryArchives
