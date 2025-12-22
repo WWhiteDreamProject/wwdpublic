@@ -316,7 +316,7 @@
   id: Psychomantic
   speech:
     color: "#C29EFF" # a nice psychic purple, a bit lighter than Ya'ssa
-    fontId: Megrim # Experimental and alien, but still hopefully clean enough to read
+    fontId: Cygre # WD EDIT: Megrim -> Cygre
     speechVerbOverrides:
     - chat-speech-verb-Psychomantic-1
     - chat-speech-verb-Psychomantic-2
