@@ -1,6 +1,5 @@
 - type: marking
   id: HumanNoseSchnozz
-  bodyPart: Snout
   markingCategory: Snout
   followSkinColor: true
   forcedColoring: true
@@ -8,10 +7,13 @@
   sprites:
   - sprite: Mobs/Customization/human_noses.rsi
     state: schnozz
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Snout
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: HumanNoseNubby
-  bodyPart: Snout
   markingCategory: Snout
   followSkinColor: true
   forcedColoring: true
@@ -19,10 +21,13 @@
   sprites:
   - sprite: Mobs/Customization/human_noses.rsi
     state: nubby
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Snout
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: HumanNoseDroop
-  bodyPart: Snout
   markingCategory: Snout
   followSkinColor: true
   forcedColoring: true
@@ -30,10 +35,13 @@
   sprites:
   - sprite: Mobs/Customization/human_noses.rsi
     state: droop
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Snout
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: HumanNoseBlob
-  bodyPart: Snout
   markingCategory: Snout
   followSkinColor: true
   forcedColoring: true
@@ -41,10 +49,13 @@
   sprites:
   - sprite: Mobs/Customization/human_noses.rsi
     state: blob
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Snout
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: HumanNoseUppie
-  bodyPart: Snout
   markingCategory: Snout
   followSkinColor: true
   forcedColoring: true
@@ -52,3 +63,7 @@
   sprites:
   - sprite: Mobs/Customization/human_noses.rsi
     state: uppie
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Snout
+    bodyPart: Head
+    # WD EDIT END

@@ -189,7 +189,7 @@ public sealed class ClientClothingSystem : ClothingSystem
         // body type specific
         if (TryComp(target, out HumanoidAppearanceComponent? humanoid))
         {
-            var bodyTypeName = _prototype.Index<BodyTypePrototype>(humanoid.BodyType).Name;
+            var bodyTypeName = _prototype.Index(humanoid.BodyType).Name;
             if (rsi.TryGetState($"{state}-{bodyTypeName}", out _))
                 state = $"{state}-{bodyTypeName}";
         }

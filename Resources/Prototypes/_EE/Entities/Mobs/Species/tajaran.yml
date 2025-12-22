@@ -25,7 +25,6 @@
         - MobLayer
   - type: Body
     prototype: Tajaran
-    requiredLegs: 2
   - type: Damageable
     damageModifierSet: Tajaran
   - type: SlowOnDamage
@@ -135,3 +134,7 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
+  # WD EDIT START
+  - type: Body
+    prototype: Tajaran
+  # WD EDIT END

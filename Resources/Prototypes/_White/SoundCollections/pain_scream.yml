@@ -1,0 +1,18 @@
+- type: soundCollection
+  id: MalePainScream
+  files:
+  - /Audio/_White/Voice/Human/male_pain_scream_1.ogg
+  - /Audio/_White/Voice/Human/male_pain_scream_2.ogg
+  - /Audio/_White/Voice/Human/male_pain_scream_3.ogg
+  - /Audio/_White/Voice/Human/male_pain_scream_4.ogg
+  - /Audio/_White/Voice/Human/male_pain_scream_5.ogg
+  - /Audio/_White/Voice/Human/male_pain_scream_6.ogg
+  - /Audio/_White/Voice/Human/male_pain_scream_7.ogg
+
+- type: soundCollection
+  id: FemalePainScream
+  files:
+  - /Audio/_White/Voice/Human/female_pain_scream_1.ogg
+  - /Audio/_White/Voice/Human/female_pain_scream_2.ogg
+  - /Audio/_White/Voice/Human/female_pain_scream_3.ogg
+  - /Audio/_White/Voice/Human/female_pain_scream_4.ogg

@@ -238,8 +238,6 @@
       map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
       color: "#8adaff"
       shader: unshaded
-  - type: Body
-    prototype: Primate
   - type: Tag
     tags:
     - CannotSuicide
@@ -248,6 +246,12 @@
   - type: Inventory
     templateId: holoclown
   - type: Hands
+    # WD EDIT START
+    hands:
+      right_hand:
+        name: right_hand
+        location: Right
+    # WD EDIT END
   - type: ComplexInteraction
   - type: Clumsy
     gunShootFailDamage:

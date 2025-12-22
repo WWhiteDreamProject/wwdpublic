@@ -12,7 +12,7 @@
       - !type:SatiateThirst
         factor: 2.0
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Human
           shouldHave: false
     Food:

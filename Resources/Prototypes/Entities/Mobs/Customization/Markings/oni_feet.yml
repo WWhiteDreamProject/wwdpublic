@@ -1,6 +1,5 @@
 - type: marking
   id: OniTwoToedFeet
-  bodyPart: RFoot # Can't be LFoot to avoid visual glitches
   markingCategory: RightFoot
   speciesRestriction: [Oni]
   coloring:
@@ -10,4 +9,12 @@
           color: "#454545"
   sprites:
   - sprite: Mobs/Customization/oni_feet.rsi
-    state: two_toes
+  # WD EDIT START
+    state: two_toes_r_foot
+    layer: enum.BodyAppearanceLayer.RightFoot
+    bodyPart: RightFoot
+  - sprite: Mobs/Customization/oni_feet.rsi
+    state: two_toes_l_foot
+    layer: enum.BodyAppearanceLayer.LeftFoot
+    bodyPart: LeftFoot
+  # WD EDIT END

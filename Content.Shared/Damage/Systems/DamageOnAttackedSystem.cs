@@ -67,13 +67,13 @@ public sealed class DamageOnAttackedSystem : EntitySystem
             }
 
             // if comp is NOT NULL that means they have damage protection!
-            if (protectiveEntity.Comp != null)
+            if (protectiveEntity.Comp != null && protectiveEntity.Comp.BodyPartType.HasFlag(entity.Comp.BodyPartType)) // WD EDIT
             {
                 totalDamage = DamageSpecifier.ApplyModifierSet(totalDamage, protectiveEntity.Comp.DamageProtection);
             }
         }
 
-        totalDamage = _damageableSystem.TryChangeDamage(args.User, totalDamage, entity.Comp.IgnoreResistances, origin: entity);
+        totalDamage = _damageableSystem.TryChangeDamage(args.User, totalDamage, entity.Comp.IgnoreResistances, origin: entity, bodyPartType: entity.Comp.BodyPartType); // WD EDIT
 
         if (totalDamage != null && totalDamage.AnyPositive())
         {

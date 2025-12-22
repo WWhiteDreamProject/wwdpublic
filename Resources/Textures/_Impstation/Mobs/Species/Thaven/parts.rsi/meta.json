@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Art by Widgetbeck",
+    "copyright": "Art by Widgetbeck. Changed by WWDP",
     "size": {
         "x": 32,
         "y": 32
@@ -47,11 +47,19 @@
             "directions": 4
         },
         {
-            "name": "torso_m",
+            "name": "chest",
             "directions": 4
         },
         {
-            "name": "torso_f",
+            "name": "chest_female",
+            "directions": 4
+        },
+        {
+            "name": "groin",
+            "directions": 4
+        },
+        {
+            "name": "groin_female",
             "directions": 4
         },
         {

@@ -1,6 +1,7 @@
 using System.IO;
 using System.Linq;
 using System.Numerics;
+using Content.Client._White.Body.Systems;
 using Content.Client.Administration.UI;
 using Content.Client.Humanoid;
 using Content.Client.Message;
@@ -63,6 +64,7 @@ namespace Content.Client.Lobby.UI
         private readonly LobbyUIController _controller;
         private readonly CharacterRequirementsSystem _characterRequirementsSystem;
         private readonly RoleSystem _roleSystem;
+        private readonly BodySystem _bodySystem; // WD EDIT
 
         private FlavorText.FlavorText? _flavorText;
         private TextEdit? _flavorTextEdit;
@@ -175,6 +177,7 @@ namespace Content.Client.Lobby.UI
             _random = random;
 
             _roleSystem = _entManager.System<RoleSystem>();
+            _bodySystem = _entManager.System<BodySystem>(); // WD EDIT
             _characterRequirementsSystem = _entManager.System<CharacterRequirementsSystem>();
             _controller = UserInterfaceManager.GetUIController<LobbyUIController>();
 
@@ -622,9 +625,9 @@ namespace Content.Client.Lobby.UI
             MarkingsTab.Orphan();
             CTabContainer.AddTab(MarkingsTab, Loc.GetString("humanoid-profile-editor-markings-tab"));
 
-            Markings.OnMarkingAdded += OnMarkingChange;
-            Markings.OnMarkingRemoved += OnMarkingChange;
-            Markings.OnMarkingColorChange += OnMarkingChange;
+            Markings.OnMarkingAdded += OnMarkingAdded; // WD EDIT
+            Markings.OnMarkingRemoved += OnMarkingRemoved; // WD EDIT
+            Markings.OnMarkingColorChange += OnMarkingUpdate; // WD EDIT
             Markings.OnMarkingRankChange += OnMarkingChange;
 
             #endregion Markings
@@ -1235,6 +1238,38 @@ namespace Content.Client.Lobby.UI
             ReloadProfilePreview();
         }
 
+        // WD EDIT START
+        private void OnMarkingAdded(MarkingSet markings, Marking marking)
+        {
+            if (Profile is null)
+                return;
+
+            Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithMarkings(markings.GetForwardEnumerator().ToList()));
+            _bodySystem.AddMarking(PreviewDummy, marking);
+            SetDirty();
+        }
+
+        private void OnMarkingRemoved(MarkingSet markings, Marking marking)
+        {
+            if (Profile is null)
+                return;
+
+            Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithMarkings(markings.GetForwardEnumerator().ToList()));
+            _bodySystem.RemoveMarking(PreviewDummy, marking);
+            SetDirty();
+        }
+
+        private void OnMarkingUpdate(MarkingSet markings, Marking marking)
+        {
+            if (Profile is null)
+                return;
+
+            Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithMarkings(markings.GetForwardEnumerator().ToList()));
+            _bodySystem.UpdateMarking(PreviewDummy, marking);
+            SetDirty();
+        }
+        // WD EDIT END
+
         private void OnSkinColorOnValueChanged()
         {
             if (Profile is null)
@@ -1448,7 +1483,7 @@ namespace Content.Client.Lobby.UI
             UpdateWeight();
             UpdateSpeciesGuidebookIcon();
             UpdateBodyTypes(); // WD EDIT
-            ReloadProfilePreview();
+            ReloadPreview(); // WD EDIT: ReloadProfilePreview -> ReloadPreview. This should use a new doll
             ReloadClothes(); // Species may have job-specific gear, reload the clothes
         }
 
@@ -1558,9 +1593,9 @@ namespace Content.Client.Lobby.UI
                 return;
 
             CBodyTypesButton.Clear();
-            var species = _prototypeManager.Index<SpeciesPrototype>(Profile.Species);
+            var species = _prototypeManager.Index(Profile.Species);
             var sex = Profile.Sex;
-            _bodyTypes = species.BodyTypes.Select(protoId => _prototypeManager.Index<BodyTypePrototype>(protoId))
+            _bodyTypes = species.BodyTypes.Select(protoId => _prototypeManager.Index(protoId))
                 .Where(proto => !proto.SexRestrictions.Contains(sex.ToString()))
                 .ToList();
 
@@ -1568,7 +1603,7 @@ namespace Content.Client.Lobby.UI
                 CBodyTypesButton.AddItem(Loc.GetString(_bodyTypes[i].Name), i);
 
             // If current body type is not valid.
-            if (!_bodyTypes.Select(proto => proto.ID).Contains(Profile.BodyType))
+            if (!_bodyTypes.Select(proto => (ProtoId<BodyTypePrototype>) proto.ID).Contains(Profile.BodyType))
             {
                 // Then replace it with a first valid body type.
                 SetBodyType(_bodyTypes.First().ID);
@@ -1938,7 +1973,7 @@ namespace Content.Client.Lobby.UI
             {
                 if (_markingManager.CanBeApplied(Profile.Species, Profile.Sex, hairProto, _prototypeManager))
                 {
-                    hairColor = _markingManager.MustMatchSkin(Profile.Species, HumanoidVisualLayers.Hair, out _, _prototypeManager)
+                    hairColor = _markingManager.MustMatchSkin(Profile.Species, MarkingCategories.Hair, out _, _prototypeManager) // WD EDIT
                         ? Profile.Appearance.SkinColor
                         : Profile.Appearance.HairColor;
                 }
@@ -1962,7 +1997,7 @@ namespace Content.Client.Lobby.UI
             {
                 if (_markingManager.CanBeApplied(Profile.Species, Profile.Sex, facialHairProto, _prototypeManager))
                 {
-                    facialHairColor = _markingManager.MustMatchSkin(Profile.Species, HumanoidVisualLayers.Hair, out _, _prototypeManager)
+                    facialHairColor = _markingManager.MustMatchSkin(Profile.Species, MarkingCategories.Hair, out _, _prototypeManager) // WD EDIT
                         ? Profile.Appearance.SkinColor
                         : Profile.Appearance.FacialHairColor;
                 }

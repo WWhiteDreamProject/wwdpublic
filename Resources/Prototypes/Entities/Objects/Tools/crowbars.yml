@@ -55,11 +55,6 @@
     size: Normal
     shape:
     - 0,0,0,1
-  # Shitmed Change
-  - type: Tweezers
-    speed: 0.55
-  - type: SurgeryTool
-    startSound: /Audio/Items/crowbar.ogg
   - type: Fixtures
     fixtures:
       fix1:

@@ -47,8 +47,7 @@ public abstract partial class SharedBlockChargeSystem : EntitySystem
     {
         if (!TryComp<BlockChargeComponent>(component.BlockingWeapon, out var blockComp)
             || !HasComp<FaunaComponent>(args.Origin)
-            || !blockComp.HasCharge
-            || !args.CanEvade)
+            || !blockComp.HasCharge)
             return;
 
         _popup.PopupPredicted(Loc.GetString("block-attack-notice", ("user", uid), ("blocked", args.Origin)), uid, null);

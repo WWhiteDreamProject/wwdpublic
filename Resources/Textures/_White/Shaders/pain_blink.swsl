@@ -1,0 +1,54 @@
+light_mode unshaded;
+
+uniform sampler2D SCREEN_TEXTURE;
+uniform highp float strength;
+uniform sampler2D overlay_texture;
+
+// Function to convert RGB to HSV.
+highp vec3 rgb2hsv(highp vec3 c)
+{
+    highp vec4 K = vec4(0.0, -1.0 / 3.0, 2.0 / 3.0, -1.0);
+    highp vec4 p = mix(vec4(c.bg, K.wz), vec4(c.gb, K.xy), step(c.b, c.g));
+    highp vec4 q = mix(vec4(p.xyw, c.r), vec4(c.r, p.yzx), step(p.x, c.r));
+
+    highp float d = q.x - min(q.w, q.y);
+    /* float e = 1.0e-10; */
+    highp float e = 0.0000000001;
+    return vec3(abs(q.z + (q.w - q.y) / (6.0 * d + e)), d / (q.x + e), q.x);
+}
+
+// Function to convert HSV to RGB.
+highp vec3 hsv2rgb(highp vec3 c)
+{
+    highp vec4 K = vec4(1.0, 2.0 / 3.0, 1.0 / 3.0, 3.0);
+    highp vec3 p = abs(fract(c.xxx + K.xyz) * 6.0 - K.www);
+    return c.z * mix(K.xxx, clamp(p - K.xxx, 0.0, 1.0), c.y);
+}
+
+void fragment() {
+	highp vec2 uv = FRAGCOORD.xy * SCREEN_PIXEL_SIZE;
+    highp vec4 sceneColor = zTextureSpec(SCREEN_TEXTURE, uv);
+
+    highp vec3 color = vec3(0.75, 0.02, 0.02);
+    highp vec4 textureColor = zTextureSpec(overlay_texture, uv);
+    color = mix(color, textureColor.rgb, textureColor.a * strength);
+
+    highp vec3 hsvColor = rgb2hsv(color);
+    highp vec3 hsvSceneColor = rgb2hsv(sceneColor.rgb);
+
+    if (hsvColor.y > 0.05 && hsvColor.z != 0.0)
+    {
+        hsvSceneColor.x = hsvColor.x;
+    }
+
+    hsvSceneColor.y = (hsvSceneColor.y < hsvColor.y) ?
+        mix(hsvColor.y, hsvColor.y, 0.75) : mix(hsvSceneColor.y, hsvColor.y, strength * 0.1);
+
+    hsvSceneColor.z = (mix(hsvSceneColor.z, hsvColor.z, 0.85) <= hsvSceneColor.z) ?
+        mix(hsvSceneColor.z, hsvColor.z, 0.85) : mix(hsvSceneColor.z, hsvColor.z, strength * 0.1);
+
+    sceneColor.rgb = mix(sceneColor.rgb, hsv2rgb(hsvSceneColor), strength);
+
+    // Output to screen
+    COLOR = sceneColor;
+}

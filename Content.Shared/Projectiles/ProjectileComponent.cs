@@ -1,3 +1,4 @@
+using Content.Shared._White.Body.Components;
 using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Audio;
@@ -120,4 +121,9 @@ public sealed partial class ProjectileComponent : Component
     [NonSerialized]
     public List<EntityUid> IgnoredEntities = new();
     // Goobstation end
+
+    // WD EDIT START
+    [ViewVariables(VVAccess.ReadWrite)]
+    public BodyPartType BodyPartType = BodyPartType.All;
+    // WD EDIT END
 }

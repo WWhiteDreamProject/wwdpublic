@@ -516,9 +516,9 @@
       - id: ClothingOuterDogi
         prob: 0.00001
         orGroup: dressersecondloot
-      - id: HeadHuman
+      - id: BodyPartHeadHuman # WD EDIT
         prob: 0.00001
         orGroup: dressersecondloot
-      - id: OrganHumanKidneys
+      - id: OrganKidneysHuman # WD EDIT
         prob: 0.00001
         orGroup: dressersecondloot

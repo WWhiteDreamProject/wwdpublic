@@ -1,7 +1,7 @@
 using System.Linq;
+using Content.Shared._White.Body.Components;
+using Content.Shared._White.Body.Systems;
 using Content.Shared.Alert;
-using Content.Shared.Body.Part;
-using Content.Shared.Body.Systems;
 using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
@@ -262,7 +262,7 @@ public abstract class SharedEnsnareableSystem : EntitySystem
         // Need to insert before free legs check.
         Container.Insert(ensnare, ensnareable.Container);
 
-        var legs = _body.GetBodyChildrenOfType(target, BodyPartType.Leg).Count();
+        var legs = _body.GetBodyParts(target, BodyPartType.Leg).Count(); // WD EDIT
         var ensnaredLegs = (2 * ensnareable.Container.ContainedEntities.Count);
         var freeLegs = legs - ensnaredLegs;
 

@@ -27,13 +27,3 @@
   - type: Item
     sprite: _EE/Objects/Tools/Hydroponics/clippers-eoc.rsi
     storedRotation: -90
-  # Shitmed Change
-  - type: Retractor
-    speed: 0.38
-  - type: Hemostat
-    speed: 0.63
-  - type: SurgeryTool
-    startSound:
-      path: /Audio/_Shitmed/Medical/Surgery/retractor1.ogg
-    endSound:
-      path: /Audio/_Shitmed/Medical/Surgery/retractor2.ogg

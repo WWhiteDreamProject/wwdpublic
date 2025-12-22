@@ -1,3 +1,11 @@
+# vocal emotes
+- type: emote
+  id: PainScream
+  name: chat-emote-name-pain-scream
+  category: Vocal
+  icon: Interface/Emotes/scream.png
+  chatMessages: ["chat-emote-msg-pain-scream"]
+
 - type: emote
   id: Nod
   name: chat-emote-name-nod

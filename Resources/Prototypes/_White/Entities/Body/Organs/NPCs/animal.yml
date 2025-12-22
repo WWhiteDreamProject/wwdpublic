@@ -1,0 +1,84 @@
+- type: entity
+  id: BaseOrganAnimal
+  parent: BaseOrgan
+  abstract: true
+  components:
+  - type: Food
+  - type: Extractable
+    grindableSolutionName: organ
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+  - type: FlavorProfile
+    flavors:
+    - chicken
+  - type: Tag
+    tags:
+    - Meat
+
+- type: entity
+  id: OrganHeartAnimal
+  parent: [BaseOrganAnimal, BaseOrganHeart]
+
+- type: entity
+  id: OrganLungsAnimal
+  parent: [BaseOrganAnimal, BaseOrganLungs]
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [ Animal ]
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+      lung:
+        maxVol: 100.0
+        canReact: false
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+
+- type: entity
+  id: OrganStomachAnimal
+  parent: [BaseOrganAnimal, BaseOrganStomach]
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+      stomach:
+        maxVol: 40
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+  - type: Metabolizer
+    metabolizerTypes: [ Animal ]
+
+- type: entity
+  id: OrganLiverAnimal
+  parent: [BaseOrganAnimal, BaseOrganLiver]
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [ Animal ]
+
+- type: entity
+  id: OrganKidneysAnimal
+  parent: [BaseOrganAnimal, BaseOrganKidneys]
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [ Animal ]

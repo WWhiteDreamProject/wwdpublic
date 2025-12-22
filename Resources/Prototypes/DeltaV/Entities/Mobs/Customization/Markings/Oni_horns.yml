@@ -1,19 +1,25 @@
 - type: marking
   id: OniHornShaved
-  bodyPart: HeadTop
   markingCategory: HeadTop
   forcedColoring: false
   speciesRestriction: [Oni]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Oni/oni_horns.rsi
     state: shaved
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: OniHornBull
-  bodyPart: HeadTop
   markingCategory: HeadTop
   forcedColoring: false
   speciesRestriction: [Oni]
   sprites:
   - sprite: DeltaV/Mobs/Customization/Oni/oni_horns.rsi
     state: bull
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END

@@ -483,9 +483,11 @@
     - ClothMade
   - type: HideLayerClothing
     slots:
-    - Hair
-    - HeadTop
-    - HeadSide
+    # WD EDIT START
+    - enum.HumanoidVisualLayers.Hair
+    - enum.HumanoidVisualLayers.HeadTop
+    - enum.HumanoidVisualLayers.HeadSide
+    # WD EDIT END
 
 - type: entity
   parent: ClothingHeadHatWizardBase
@@ -655,7 +657,9 @@
     - ClothMade
   - type: HideLayerClothing
     slots:
-    - Hair
+    # WD EDIT START
+    - enum.HumanoidVisualLayers.Hair
+    # WD EDIT END
 
 - type: entity
   parent: ClothingHeadBase
@@ -1323,7 +1327,9 @@
     coolingCoefficient: 0.5
   - type: HideLayerClothing
     slots:
-    - Hair
+    # WD EDIT START
+    - enum.HumanoidVisualLayers.Hair
+    # WD EDIT END
 
 - type: entity
   parent: ClothingHeadBase

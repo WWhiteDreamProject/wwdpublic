@@ -1,3 +1,5 @@
+using Content.Server._White.Body.Systems;
+using Content.Server._White.Gibbing;
 using Content.Server.Administration.Logs;
 using Content.Server.Body.Systems;
 using Content.Server.Explosion.Components;
@@ -78,6 +80,7 @@ namespace Content.Server.Explosion.EntitySystems
         [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
         [Dependency] private readonly InventorySystem _inventory = default!;
         [Dependency] private readonly ElectrocutionSystem _electrocution = default!;
+        [Dependency] private readonly GibbingSystem _gibbing = default!; // WD EDIT
 
         public override void Initialize()
         {
@@ -205,7 +208,7 @@ namespace Content.Server.Explosion.EntitySystems
                     Del(item);
                 }
             }
-            _body.GibBody(xform.ParentUid, true);
+            _gibbing.GibBody(xform.ParentUid, true); // WD EDIT
             args.Handled = true;
         }
 

@@ -47,7 +47,6 @@ public sealed class CultRuneReviveSystem : EntitySystem
             ent.Comp.ReviveRange,
             entity =>
                 !HasComp<DamageableComponent>(entity) ||
-                !HasComp<MobThresholdsComponent>(entity) ||
                 !HasComp<MobStateComponent>(entity) ||
                 _mobState.IsAlive(entity)
         );

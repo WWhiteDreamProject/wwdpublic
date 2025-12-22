@@ -5,3 +5,32 @@
     state: buckler-icon
   name: alerts-blocked-name
   description: alerts-blocked-desc
+
+- type: alert
+  id: BodyStatus
+  icons:
+  - sprite: /Textures/_White/Interface/Alerts/body_status.rsi
+    state: chest_zero
+  alertViewEntity: AlertBodyStatusSpriteView
+  name: alerts-body-status-name
+  description: alerts-body-status-desc
+
+- type: entity
+  id: AlertBodyStatusSpriteView
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: /Textures/_White/Interface/Alerts/body_status.rsi
+    layers:
+    - map: [ "enum.AlertVisualLayers.Base" ]
+    - map: [ "enum.BodyStatusVisualLayers.Head" ]
+    - map: [ "enum.BodyStatusVisualLayers.Chest" ]
+    - map: [ "enum.BodyStatusVisualLayers.Groin" ]
+    - map: [ "enum.BodyStatusVisualLayers.LeftArm" ]
+    - map: [ "enum.BodyStatusVisualLayers.LeftHand" ]
+    - map: [ "enum.BodyStatusVisualLayers.RightArm" ]
+    - map: [ "enum.BodyStatusVisualLayers.RightHand" ]
+    - map: [ "enum.BodyStatusVisualLayers.LeftLeg" ]
+    - map: [ "enum.BodyStatusVisualLayers.LeftFoot" ]
+    - map: [ "enum.BodyStatusVisualLayers.RightLeg" ]
+    - map: [ "enum.BodyStatusVisualLayers.RightFoot" ]

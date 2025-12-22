@@ -22,7 +22,7 @@ public sealed partial class HandsComponent : Component
     [ViewVariables]
     public EntityUid? ActiveHandEntity => ActiveHand?.HeldEntity;
 
-    [ViewVariables]
+    [DataField] // WD EDIT
     public Dictionary<string, Hand> Hands = new();
 
     public int Count => Hands.Count;
@@ -89,14 +89,16 @@ public sealed partial class HandsComponent : Component
     public bool CanBeStripped = true;
 }
 
-[Serializable, NetSerializable]
-public sealed class Hand //TODO: This should definitely be a struct - Jezi
+[DataDefinition, Serializable, NetSerializable] // WD EDIT
+public sealed partial class Hand // WD EDIT
 {
-    [ViewVariables]
-    public string Name { get; }
+    // WD EDIT START
+    [DataField]
+    public string Name { get; set; }
 
-    [ViewVariables]
-    public HandLocation Location { get; }
+    [DataField]
+    public HandLocation Location { get; set; }
+    // WD EDIT END
 
     /// <summary>
     ///     The container used to hold the contents of this hand. Nullable because the client must get the containers via <see cref="ContainerManagerComponent"/>,
@@ -139,6 +141,7 @@ public sealed class HandsComponentState : ComponentState
 /// </summary>
 /// <seealso cref="HandUILocation"/>
 /// <seealso cref="HandLocationExt"/>
+[Serializable, NetSerializable] // WD EDIT
 public enum HandLocation : byte
 {
     Left,

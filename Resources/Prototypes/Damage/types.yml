@@ -21,36 +21,42 @@
   name: damage-type-blunt
   armorCoefficientPrice: 2
   armorFlatPrice: 10
+  wound: WoundBlunt # WD EDIT
 
 - type: damageType
   id: Cellular
   name: damage-type-cellular
   armorCoefficientPrice: 5
   armorFlatPrice: 30
+  wound: WoundCellular # WD EDIT
 
 - type: damageType
   id: Caustic
   name: damage-type-caustic
   armorCoefficientPrice: 5
   armorFlatPrice: 30
+  wound: WoundCaustic # WD EDIT
 
 - type: damageType
   id: Cold
   name: damage-type-cold
   armorCoefficientPrice: 2.5
   armorFlatPrice: 20
+  wound: WoundCold # WD EDIT
 
 - type: damageType
   id: Heat
   name: damage-type-heat
   armorCoefficientPrice: 2.5
   armorFlatPrice: 20
+  wound: WoundHeat # WD EDIT
 
 - type: damageType
   id: Piercing
   name: damage-type-piercing
   armorCoefficientPrice: 2
   armorFlatPrice: 10
+  wound: WoundPiercing # WD EDIT
 
 # Poison damage. Generally caused by various reagents being metabolised.
 - type: damageType
@@ -70,12 +76,14 @@
   name: damage-type-shock
   armorCoefficientPrice: 2.5
   armorFlatPrice: 20
+  wound: WoundShock # WD EDIT
 
 - type: damageType
   id: Slash
   name: damage-type-slash
   armorCoefficientPrice: 2
   armorFlatPrice: 10
+  wound: WoundSlash # WD EDIT
 
 # Damage represent structures internal integrity.
 # Exclusive for structures such as walls, airlocks and others.

@@ -254,42 +254,42 @@
 #       addFactions:
 #         - AnimalFriend
 
-- type: trait
-  id: SurgeryTraining
-  category: Mental
-  points: -3
-  functions:
-    - !type:TraitAddComponent
-      components:
-        - type: SurgerySpeedModifier
-          speedModifier: 3 # WWDP
-  requirements:
-    - !type:CharacterJobRequirement
-      inverted: true
-      jobs:
-        - MedicalDoctor
-        - Chemist
-        - MedicalIntern
-        - Paramedic
-        - ChiefMedicalOfficer
-        - Brigmedic
-        - SeniorPhysician
+# - type: trait
+#   id: SurgeryTraining
+#   category: Mental
+#   points: -3
+#   functions:
+#     - !type:TraitAddComponent
+#       components:
+#         - type: SurgerySpeedModifier
+#           speedModifier: 3 # WWDP
+#   requirements:
+#     - !type:CharacterJobRequirement
+#       inverted: true
+#       jobs:
+#         - MedicalDoctor
+#         - Chemist
+#         - MedicalIntern
+#         - Paramedic
+#         - ChiefMedicalOfficer
+#         - Brigmedic
+#         - SeniorPhysician
 
-- type: trait
-  id: ExperiencedSurgeon
-  category: Mental
-  points: -3
-  functions:
-    - !type:TraitReplaceComponent
-      components:
-      - type: SurgerySpeedModifier
-        speedModifier: 5 # WWDP
-  requirements:
-    - !type:CharacterJobRequirement
-      jobs:
-      - MedicalDoctor
-      - Chemist
-      - Paramedic
-      - Brigmedic
-      - SeniorPhysician
+# - type: trait
+#   id: ExperiencedSurgeon
+#   category: Mental
+#   points: -3
+#   functions:
+#     - !type:TraitReplaceComponent
+#       components:
+#       - type: SurgerySpeedModifier
+#         speedModifier: 5 # WWDP
+#   requirements:
+#     - !type:CharacterJobRequirement
+#       jobs:
+#       - MedicalDoctor
+#       - Chemist
+#       - Paramedic
+#       - Brigmedic
+#       - SeniorPhysician
 

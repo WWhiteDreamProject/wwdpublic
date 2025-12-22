@@ -1,7 +1,7 @@
 ﻿using System.Numerics;
+using Content.Server._White.Body.Systems;
 using Content.Server.Body.Systems;
-using Content.Shared.Body.Components;
-using Content.Shared.Body.Part;
+using Content.Shared._White.Body.Components;
 using Content.Shared.Rotation;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
@@ -57,11 +57,11 @@ namespace Content.IntegrationTests.Tests.Body
                 Assert.That(!appearanceSystem.TryGetData(human, RotationVisuals.RotationState, out RotationState _, appearance));
 
                 var bodySystem = entityManager.System<BodySystem>();
-                var legs = bodySystem.GetBodyChildrenOfType(human, BodyPartType.Leg, body);
+                var legs = bodySystem.GetBodyParts((human, body), BodyPartType.Leg); // WD EDIT
 
                 foreach (var leg in legs)
                 {
-                    xformSystem.DetachEntity(leg.Id, entityManager.GetComponent<TransformComponent>(leg.Id));
+                    xformSystem.DetachEntity(leg, entityManager.GetComponent<TransformComponent>(leg)); // WD EDIT
                 }
             });
 

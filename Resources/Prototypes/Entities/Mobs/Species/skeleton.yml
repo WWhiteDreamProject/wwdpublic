@@ -15,7 +15,6 @@
     state: full
   - type: Body
     prototype: Skeleton
-    requiredLegs: 2
     gibSound: /Audio/Effects/bone_rattle.ogg
   - type: Damageable
     damageContainer: Biological
@@ -40,8 +39,7 @@
         !type:DamageTrigger
         damage: 150
       behaviors:
-      - !type:GibBehavior
-        gibContents: Skip
+      - !type:GibBehavior { }
   - type: SlowOnDamage #modified speeds because they're so weak
     speedModifierThresholds:
       60: 0.9
@@ -137,3 +135,7 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
+  # WD EDIT START
+  - type: Body
+    prototype: Skeleton
+  # WD EDIT END

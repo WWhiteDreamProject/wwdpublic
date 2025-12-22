@@ -1,8 +1,8 @@
 using Content.Server.Body.Components;
 using Content.Server.Limbus.Traits.Components;
 using Content.Server.Vampiric;
-using Content.Shared.Body.Components;
-using Content.Shared.Body.Systems;
+using Content.Shared._White.Body.Components;
+using Content.Shared._White.Body.Systems;
 
 namespace Content.Server.Limbus.Traits;
 
@@ -19,16 +19,15 @@ public sealed class VampirismSystem : EntitySystem
     {
         EnsureBloodSucker(ent);
 
-        if (!TryComp<BodyComponent>(ent, out var body)
-		    || !_body.TryGetBodyOrganEntityComps<MetabolizerComponent>((ent, body), out var comps))
+        if (!_body.TryGetOrgans<MetabolizerComponent>(ent.Owner, out var organs, OrganType.Stomach)) // WD EDIT
             return;
 
-        foreach (var entity in comps)
+        foreach (var organ in organs) // WD EDIT
         {
-            if (!TryComp<StomachComponent>(entity.Owner, out var stomach))
+            if (!TryComp<StomachComponent>(organ.Owner, out var stomach)) // WD EDIT
                 continue;
 
-            entity.Comp1.MetabolizerTypes = ent.Comp.MetabolizerPrototypes;
+            organ.Comp2.MetabolizerTypes = ent.Comp.MetabolizerPrototypes; // WD EDIT
 
             if (ent.Comp.SpecialDigestible is {} whitelist)
                 stomach.SpecialDigestible = whitelist;

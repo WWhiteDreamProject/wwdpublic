@@ -1,1496 +1,2057 @@
 - type: marking
   id: ThavenHairBalding
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: e
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairBedhead
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: bedhead
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairBedheadv2
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: bedhead2
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairBedheadv3
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: bedhead3
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairLongBedhead
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: long_bedhead
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairLongBedhead2
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: long_bedhead2
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairFloorlengthBedhead
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: floorlength_bedhead
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairBeehive
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: beehive
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairBeehive2
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: beehive2
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairBob
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: bob
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairBob2
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: bob2
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairBobcut
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: bobcut
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairBob4
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: bob4
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairBob5
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: bob5
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairBobcurl
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: bobcurl
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairBowlcut
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: bowlcut
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairBowlcut2
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: bowlcut2
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairBraid
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: braid
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairBraided
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: braided
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairBraidfront
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: braidfront
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairBraid2
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: braid2
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairHbraid
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: hbraid
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairShortbraid
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: shortbraid
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairBraidtail
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: braidtail
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairBun
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: bun
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairBunhead2
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: bunhead2
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairBun3
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: bun3
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairLargebun
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: largebun
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairManbun
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: manbun
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairTightbun
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: tightbun
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairBusiness
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: business
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairBusiness2
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: business2
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairBusiness3
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: business3
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairBusiness4
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: business4
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairBuzzcut
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: buzzcut
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairCia
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: cia
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairClassicCia
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: classiccia
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairClassicFloorlengthBedhead
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: classicfloorlength_bedhead
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairClassicModern
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: classicmodern
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairClassicMulder
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: classicmulder
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairClassicWisp
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: classicwisp
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairCombover
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: combover
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairCornrows
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: cornrows
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairCornrows2
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: cornrows2
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairCornrowbun
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: cornrowbun
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairCornrowbraid
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: cornrowbraid
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairCornrowtail
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: cornrowtail
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairCrewcut
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: crewcut
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairCrewcut2
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: crewcut2
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairCurls
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: curls
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairC
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: c
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairDandypompadour
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: dandypompadour
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairDevilock
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: devilock
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairDoublebun
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: doublebun
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairDoublebunLong
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
   - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
     state: doublebun_long
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 - type: marking
   id: ThavenHairDreads
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: dreads
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairDrillruru
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: drillruru
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairDrillhairextended
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: drillhairextended
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairEmofringe
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: emofringe
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairNofade
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: nofade
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairHighfade
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: highfade
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairMedfade
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: medfade
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairLowfade
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: lowfade
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairBaldfade
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: baldface
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairFeather
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: feather
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairFather
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: father
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairSargeant
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: sargeant
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairFlair
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: flair
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairBigflattop
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: bigflattop
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairFlow
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: f
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairGelled
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: gelled
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairGentle
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: gentle
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairHalfbang
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: halfbang
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairHalfbang2
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: halfbang2
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairHalfshaved
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: halfshaved
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairHedgehog
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: hedgehog
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairHimecut
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: himecut
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairHimecut2
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: himecut2
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairShorthime
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: shorthime
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairHimeup
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: himeup
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairHitop
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: hitop
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairJade
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: jade
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairJensen
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: jensen
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairJoestar
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: joestar
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairKeanu
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: keanu
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairKusanagi
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: kusanagi
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairLong
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: long
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairLong2
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: long2
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairLong3
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: long3
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairLongWithBundles
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: longbundled
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairLongovereye
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: longovereye
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairLbangs
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: lbangs
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairLongeremo
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: longeremo
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairLongfringe
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: longfringe
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairLongsidepart
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: longsidepart
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairMegaeyebrows
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: megaeyebrows
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairMessy
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: messy
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairModern
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: modern
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairMohawk
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: d
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairNitori
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: nitori
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairReversemohawk
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: reversemohawk
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairMulder
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: mulder
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairOdango
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: odango
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairOmbre
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: ombre
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairOneshoulder
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: oneshoulder
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairShortovereye
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: shortovereye
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairOxton
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: oxton
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairParted
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: parted
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairPart
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: part
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairKagami
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: kagami
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairPigtails
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: pigtails
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairPigtails2
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: pigtails2
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairPixie
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: pixie
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairPompadour
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: pompadour
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairBigpompadour
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: bigpompadour
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairPonytail
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: ponytail
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairPonytail2
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: ponytail2
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairPonytail3
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: ponytail3
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairPonytail4
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: ponytail4
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairPonytail5
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: ponytail5
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairPonytail6
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: ponytail6
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairPonytail7
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: ponytail7
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairHighponytail
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: highponytail
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairStail
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: stail
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairLongstraightponytail
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: longstraightponytail
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairCountry
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: country
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairFringetail
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: fringetail
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairSidetail
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: sidetail
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairSidetail2
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: sidetail2
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairSidetail3
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: sidetail3
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairSidetail4
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: sidetail4
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairSpikyponytail
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: spikyponytail
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairPoofy
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: poofy
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairQuiff
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: quiff
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairRonin
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: ronin
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairShaved
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: shaved
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairShavedpart
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: shavedpart
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairShortbangs
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: shortbangs
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairA
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: a
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairShorthair2
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: shorthair2
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairShorthair3
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: shorthair3
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairShorthair9
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: shorthair9
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHair80s
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: 80s
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairRosa
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: rosa
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairB
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: b
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairSidecut
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: sidecut
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairSkinhead
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: skinhead
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairProtagonist
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: protagonist
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairSpiky
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: spiky
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairSpookyLong
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: spookylong
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairSwept
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: swept
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairSwept2
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: swept2
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairShoulderLengthOverEye
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: shoulderlengthovereye
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairThinning
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: thinning
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairThinningfront
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: thinningfront
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairThinningrear
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: thinningrear
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairTopknot
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: topknot
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairTressshoulder
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: tressshoulder
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairTrimmed
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: trimmed
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairTrimflat
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: trimflat
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairTwintail
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: twintail
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairTwoStrands
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: twostrands
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairUndercut
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: undercut
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairUndercutleft
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: undercutleft
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairUndercutright
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: undercutright
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairUnkept
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: unkept
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairVlong
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: vlong
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairLongest
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: longest
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairLongest2
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: longest2
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairVeryshortovereyealternate
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: veryshortovereyealternate
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairVlongfringe
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: vlongfringe
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairVolaju
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: volaju
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairWisp
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: wisp
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairUneven
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: uneven
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairTailed
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: tailed
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairClassicLong2
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: classiclong2
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairClassicLong3
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: classiclong3
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairBald
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: bald
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairShavedMohawk
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: shavedmohawk
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairMediumSidepart
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: mediumsidepart
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairEmo2
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: emo2
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairDrillHair
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: drillhair
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairClassicAfro
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: classicafro
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairClassicciaBusiness
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: classicciabusiness
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairClassicCornrows
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: classiccornrows
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairCoffeeHouse
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: coffeehouse
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 - type: marking
   id: ThavenHairFrenchbraid
-  bodyPart: Hair
   markingCategory: Hair
   speciesRestriction: [Thaven]
   sprites:
     - sprite: _Impstation/Mobs/Customization/thaven/thaven_hair.rsi
       state: frenchbraid
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END

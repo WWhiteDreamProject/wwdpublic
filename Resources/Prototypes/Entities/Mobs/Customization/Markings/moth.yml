@@ -1,1122 +1,1670 @@
 # Antennas
 - type: marking
   id: MothAntennasDefault
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_antennas.rsi
     state: default
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothAntennasCharred
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_antennas.rsi
     state: charred
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothAntennasDbushy
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_antennas.rsi
     state: dbushy
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothAntennasDcurvy
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_antennas.rsi
     state: dcurvy
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothAntennasDfan
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_antennas.rsi
     state: dfan
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothAntennasDpointy
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_antennas.rsi
     state: dpointy
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothAntennasFeathery
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_antennas.rsi
     state: feathery
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothAntennasFirewatch
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_antennas.rsi
     state: firewatch
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothAntennasGray
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_antennas.rsi
     state: gray
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothAntennasJungle
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_antennas.rsi
     state: jungle
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothAntennasMoffra
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_antennas.rsi
     state: moffra
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothAntennasOakworm
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_antennas.rsi
     state: oakworm
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothAntennasPlasmafire
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_antennas.rsi
     state: plasmafire
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothAntennasMaple
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_antennas.rsi
     state: maple
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothAntennasRoyal
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_antennas.rsi
     state: royal
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothAntennasStriped
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_antennas.rsi
     state: striped
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothAntennasWhitefly
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_antennas.rsi
     state: whitefly
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothAntennasWitchwing
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_antennas.rsi
     state: witchwing
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothAntennasUnderwing
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_antennas.rsi
     state: underwing_primary
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
   - sprite: Mobs/Customization/Moth/moth_antennas.rsi
     state: underwing_secondary
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 # Wings
 - type: marking
   id: MothWingsDefault
-  bodyPart: Tail
-  markingCategory: Tail
+  markingCategory: Wings # WD EDIT: Tail -> Wings
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
     state: default
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    replacementBodyPart: BodyPartWingsMoth
+    # WD EDIT END
 
 - type: marking
   id: MothWingsCharred
-  bodyPart: Tail
-  markingCategory: Tail
+  markingCategory: Wings # WD EDIT: Tail -> Wings
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
     state: charred
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    replacementBodyPart: BodyPartWingsMoth
+    # WD EDIT END
 
 - type: marking
   id: MothWingsDbushy
-  bodyPart: Tail
-  markingCategory: Tail
+  markingCategory: Wings # WD EDIT: Tail -> Wings
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
     state: dbushy_primary
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    replacementBodyPart: BodyPartWingsMoth
+    # WD EDIT END
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
     state: dbushy_secondary
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    # WD EDIT END
 
 - type: marking
   id: MothWingsDeathhead
-  bodyPart: Tail
-  markingCategory: Tail
+  markingCategory: Wings # WD EDIT: Tail -> Wings
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
     state: deathhead_primary
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    replacementBodyPart: BodyPartWingsMoth
+    # WD EDIT END
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
     state: deathhead_secondary
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    # WD EDIT END
 
 - type: marking
   id: MothWingsFan
-  bodyPart: Tail
-  markingCategory: Tail
+  markingCategory: Wings # WD EDIT: Tail -> Wings
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
     state: fan
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    replacementBodyPart: BodyPartWingsMoth
+    # WD EDIT END
 
 - type: marking
   id: MothWingsDfan
-  bodyPart: Tail
-  markingCategory: Tail
+  markingCategory: Wings # WD EDIT: Tail -> Wings
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
     state: dfan
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    replacementBodyPart: BodyPartWingsMoth
+    # WD EDIT END
 
 - type: marking
   id: MothWingsFeathery
-  bodyPart: Tail
-  markingCategory: Tail
+  markingCategory: Wings # WD EDIT: Tail -> Wings
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
     state: feathery
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    replacementBodyPart: BodyPartWingsMoth
+    # WD EDIT END
 
 - type: marking
   id: MothWingsFirewatch
-  bodyPart: Tail
-  markingCategory: Tail
+  markingCategory: Wings # WD EDIT: Tail -> Wings
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
     state: firewatch_primary
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    replacementBodyPart: BodyPartWingsMoth
+    # WD EDIT END
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
     state: firewatch_secondary
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    # WD EDIT END
 
 - type: marking
   id: MothWingsGothic
-  bodyPart: Tail
-  markingCategory: Tail
+  markingCategory: Wings # WD EDIT: Tail -> Wings
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
     state: gothic
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    replacementBodyPart: BodyPartWingsMoth
+    # WD EDIT END
 
 - type: marking
   id: MothWingsJungle
-  bodyPart: Tail
-  markingCategory: Tail
+  markingCategory: Wings # WD EDIT: Tail -> Wings
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
     state: jungle
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    replacementBodyPart: BodyPartWingsMoth
+    # WD EDIT END
 
 - type: marking
   id: MothWingsLadybug
-  bodyPart: Tail
-  markingCategory: Tail
+  markingCategory: Wings # WD EDIT: Tail -> Wings
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
     state: ladybug
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    replacementBodyPart: BodyPartWingsMoth
+    # WD EDIT END
 
 - type: marking
   id: MothWingsMaple
-  bodyPart: Tail
-  markingCategory: Tail
+  markingCategory: Wings # WD EDIT: Tail -> Wings
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
     state: maple
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    replacementBodyPart: BodyPartWingsMoth
+    # WD EDIT END
 
 - type: marking
   id: MothWingsMoffra
-  bodyPart: Tail
-  markingCategory: Tail
+  markingCategory: Wings # WD EDIT: Tail -> Wings
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
     state: moffra_primary
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    replacementBodyPart: BodyPartWingsMoth
+    # WD EDIT END
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
     state: moffra_secondary
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    # WD EDIT END
 
 - type: marking
   id: MothWingsOakworm
-  bodyPart: Tail
-  markingCategory: Tail
+  markingCategory: Wings # WD EDIT: Tail -> Wings
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
     state: oakworm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    replacementBodyPart: BodyPartWingsMoth
+    # WD EDIT END
 
 - type: marking
   id: MothWingsPlasmafire
-  bodyPart: Tail
-  markingCategory: Tail
+  markingCategory: Wings # WD EDIT: Tail -> Wings
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
     state: plasmafire_primary
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    replacementBodyPart: BodyPartWingsMoth
+    # WD EDIT END
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
     state: plasmafire_secondary
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    # WD EDIT END
 
 - type: marking
   id: MothWingsPointy
-  bodyPart: Tail
-  markingCategory: Tail
+  markingCategory: Wings # WD EDIT: Tail -> Wings
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
     state: pointy
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    replacementBodyPart: BodyPartWingsMoth
+    # WD EDIT END
 
 - type: marking
   id: MothWingsRoyal
-  bodyPart: Tail
-  markingCategory: Tail
+  markingCategory: Wings # WD EDIT: Tail -> Wings
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
     state: royal_primary
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    replacementBodyPart: BodyPartWingsMoth
+    # WD EDIT END
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
     state: royal_secondary
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    # WD EDIT END
 
 - type: marking
   id: MothWingsStellar
-  bodyPart: Tail
-  markingCategory: Tail
+  markingCategory: Wings # WD EDIT: Tail -> Wings
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
     state: stellar
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    replacementBodyPart: BodyPartWingsMoth
+    # WD EDIT END
 
 - type: marking
   id: MothWingsStriped
-  bodyPart: Tail
-  markingCategory: Tail
+  markingCategory: Wings # WD EDIT: Tail -> Wings
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
     state: striped
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    replacementBodyPart: BodyPartWingsMoth
+    # WD EDIT END
 
 - type: marking
   id: MothWingsSwirly
-  bodyPart: Tail
-  markingCategory: Tail
+  markingCategory: Wings # WD EDIT: Tail -> Wings
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
     state: swirly
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    replacementBodyPart: BodyPartWingsMoth
+    # WD EDIT END
 
 - type: marking
   id: MothWingsWhitefly
-  bodyPart: Tail
-  markingCategory: Tail
+  markingCategory: Wings # WD EDIT: Tail -> Wings
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
     state: whitefly
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    replacementBodyPart: BodyPartWingsMoth
+    # WD EDIT END
 
 - type: marking
   id: MothWingsWitchwing
-  bodyPart: Tail
-  markingCategory: Tail
+  markingCategory: Wings # WD EDIT: Tail -> Wings
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
     state: witchwing
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    replacementBodyPart: BodyPartWingsMoth
+    # WD EDIT END
 
 - type: marking
   id: MothWingsUnderwing
-  bodyPart: Tail
-  markingCategory: Tail
+  markingCategory: Wings # WD EDIT: Tail -> Wings
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
     state: underwing_primary
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    replacementBodyPart: BodyPartWingsMoth
+    # WD EDIT END
   - sprite: Mobs/Customization/Moth/moth_wings.rsi
     state: underwing_secondary
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    # WD EDIT END
 
 # Body markings:
 # Charred
 - type: marking
   id: MothChestCharred
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: charred_chest
+# WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+
+- type: marking
+  id: MothGroinCharred
+  markingCategory: Groin
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Mobs/Customization/Moth/moth_parts.rsi
+    state: charred_groin
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
+# WD EDIT END
 
 - type: marking
   id: MothHeadCharred
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: charred_head
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothLLegCharred
-  bodyPart: LLeg
   markingCategory: LeftLeg
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: charred_l_leg
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftLeg
+    bodyPart: LeftLeg
+    # WD EDIT END
 
 - type: marking
   id: MothRLegCharred
-  bodyPart: RLeg
   markingCategory: RightLeg
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: charred_r_leg
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightLeg
+    bodyPart: RightLeg
+    # WD EDIT END
 
 - type: marking
   id: MothLArmCharred
-  bodyPart: LArm
   markingCategory: LeftArm
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: charred_l_arm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftArm
+    bodyPart: LeftArm
+    # WD EDIT END
 
 - type: marking
   id: MothRArmCharred
-  bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: charred_r_arm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightArm
+    bodyPart: RightArm
+    # WD EDIT END
 
 # Death's-Head
 - type: marking
   id: MothChestDeathhead
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: deathhead_chest
+# WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+
+- type: marking
+  id: MothGroinDeathhead
+  markingCategory: Groin
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Mobs/Customization/Moth/moth_parts.rsi
+    state: deathhead_groin
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
+# WD EDIT END
 
 - type: marking
   id: MothHeadDeathhead
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: deathhead_head
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothLLegDeathhead
-  bodyPart: LLeg
   markingCategory: LeftLeg
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: deathhead_l_leg
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftLeg
+    bodyPart: LeftLeg
+    # WD EDIT END
 
 - type: marking
   id: MothRLegDeathhead
-  bodyPart: RLeg
   markingCategory: RightLeg
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: deathhead_r_leg
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightLeg
+    bodyPart: RightLeg
+    # WD EDIT END
 
 - type: marking
   id: MothLArmDeathhead
-  bodyPart: LArm
   markingCategory: LeftArm
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: deathhead_l_arm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftArm
+    bodyPart: LeftArm
+    # WD EDIT END
 
 - type: marking
   id: MothRArmDeathhead
-  bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: deathhead_r_arm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightArm
+    bodyPart: RightArm
+    # WD EDIT END
 
 # Fan
 - type: marking
   id: MothChestFan
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: fan_chest
+# WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+
+- type: marking
+  id: MothGroinFan
+  markingCategory: Groin
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Mobs/Customization/Moth/moth_parts.rsi
+    state: fan_groin
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
+# WD EDIT END
 
 - type: marking
   id: MothHeadFan
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: fan_head
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothLLegFan
-  bodyPart: LLeg
   markingCategory: LeftLeg
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: fan_l_leg
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftLeg
+    bodyPart: LeftLeg
+    # WD EDIT END
 
 - type: marking
   id: MothRLegFan
-  bodyPart: RLeg
   markingCategory: RightLeg
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: fan_r_leg
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightLeg
+    bodyPart: RightLeg
+    # WD EDIT END
 
 - type: marking
   id: MothLArmFan
-  bodyPart: LArm
   markingCategory: LeftArm
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: fan_l_arm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftArm
+    bodyPart: LeftArm
+    # WD EDIT END
 
 - type: marking
   id: MothRArmFan
-  bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: fan_r_arm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightArm
+    bodyPart: RightArm
+    # WD EDIT END
 
 # Firewatch
 - type: marking
   id: MothChestFirewatch
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: firewatch_chest
+# WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+
+- type: marking
+  id: MothGroinFirewatch
+  markingCategory: Groin
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Mobs/Customization/Moth/moth_parts.rsi
+    state: firewatch_groin
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
+# WD EDIT END
 
 - type: marking
   id: MothHeadFirewatch
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: firewatch_head
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothLLegFirewatch
-  bodyPart: LLeg
   markingCategory: LeftLeg
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: firewatch_l_leg
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftLeg
+    bodyPart: LeftLeg
+    # WD EDIT END
 
 - type: marking
   id: MothRLegFirewatch
-  bodyPart: RLeg
   markingCategory: RightLeg
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: firewatch_r_leg
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightLeg
+    bodyPart: RightLeg
+    # WD EDIT END
 
 - type: marking
   id: MothLArmFirewatch
-  bodyPart: LArm
   markingCategory: LeftArm
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: firewatch_l_arm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftArm
+    bodyPart: LeftArm
+    # WD EDIT END
 
 - type: marking
   id: MothRArmFirewatch
-  bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: firewatch_r_arm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightArm
+    bodyPart: RightArm
+    # WD EDIT END
 
 # Gothic
 - type: marking
   id: MothChestGothic
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: gothic_chest
+# WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+
+- type: marking
+  id: MothGroinGothic
+  markingCategory: Groin
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Mobs/Customization/Moth/moth_parts.rsi
+    state: gothic_groin
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
+# WD EDIT END
 
 - type: marking
   id: MothHeadGothic
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: gothic_head
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothLLegGothic
-  bodyPart: LLeg
   markingCategory: LeftLeg
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: gothic_l_leg
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftLeg
+    bodyPart: LeftLeg
+    # WD EDIT END
 
 - type: marking
   id: MothRLegGothic
-  bodyPart: RLeg
   markingCategory: RightLeg
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: gothic_r_leg
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightLeg
+    bodyPart: RightLeg
+    # WD EDIT END
 
 - type: marking
   id: MothLArmGothic
-  bodyPart: LArm
   markingCategory: LeftArm
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: gothic_l_arm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftArm
+    bodyPart: LeftArm
+    # WD EDIT END
 
 - type: marking
   id: MothRArmGothic
-  bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: gothic_r_arm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightArm
+    bodyPart: RightArm
+    # WD EDIT END
 
 # Jungle
 - type: marking
   id: MothChestJungle
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: jungle_chest
+# WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+
+- type: marking
+  id: MothGroinJungle
+  markingCategory: Groin
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Mobs/Customization/Moth/moth_parts.rsi
+    state: jungle_groin
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
+# WD EDIT END
 
 - type: marking
   id: MothHeadJungle
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: jungle_head
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothLLegJungle
-  bodyPart: LLeg
   markingCategory: LeftLeg
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: jungle_l_leg
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftLeg
+    bodyPart: LeftLeg
+    # WD EDIT END
 
 - type: marking
   id: MothRLegJungle
-  bodyPart: RLeg
   markingCategory: RightLeg
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: jungle_r_leg
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightLeg
+    bodyPart: RightLeg
+    # WD EDIT END
 
 - type: marking
   id: MothLArmJungle
-  bodyPart: LArm
   markingCategory: LeftArm
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: jungle_l_arm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftArm
+    bodyPart: LeftArm
+    # WD EDIT END
 
 - type: marking
   id: MothRArmJungle
-  bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: jungle_r_arm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightArm
+    bodyPart: RightArm
+    # WD EDIT END
 
 # Moonfly
 - type: marking
   id: MothChestMoonfly
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: moonfly_chest
+# WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+
+- type: marking
+  id: MothGroinMoonfly
+  markingCategory: Groin
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Mobs/Customization/Moth/moth_parts.rsi
+    state: moonfly_groin
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
+# WD EDIT END
 
 - type: marking
   id: MothHeadMoonfly
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: moonfly_head
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothLLegMoonfly
-  bodyPart: LLeg
   markingCategory: LeftLeg
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: moonfly_l_leg
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftLeg
+    bodyPart: LeftLeg
+    # WD EDIT END
 
 - type: marking
   id: MothRLegMoonfly
-  bodyPart: RLeg
   markingCategory: RightLeg
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: moonfly_r_leg
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightLeg
+    bodyPart: RightLeg
+    # WD EDIT END
 
 - type: marking
   id: MothLArmMoonfly
-  bodyPart: LArm
   markingCategory: LeftArm
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: moonfly_l_arm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftArm
+    bodyPart: LeftArm
+    # WD EDIT END
 
 - type: marking
   id: MothRArmMoonfly
-  bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: moonfly_r_arm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightArm
+    bodyPart: RightArm
+    # WD EDIT END
 
 # Oak Worm
 - type: marking
   id: MothChestOakworm
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: oakworm_chest
+# WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+
+- type: marking
+  id: MothGroinOakworm
+  markingCategory: Groin
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Mobs/Customization/Moth/moth_parts.rsi
+    state: oakworm_groin
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
+# WD EDIT END
 
 - type: marking
   id: MothHeadOakworm
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: oakworm_head
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothLLegOakworm
-  bodyPart: LLeg
   markingCategory: LeftLeg
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: oakworm_l_leg
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftLeg
+    bodyPart: LeftLeg
+    # WD EDIT END
 
 - type: marking
   id: MothRLegOakworm
-  bodyPart: RLeg
   markingCategory: RightLeg
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: oakworm_r_leg
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightLeg
+    bodyPart: RightLeg
+    # WD EDIT END
 
 - type: marking
   id: MothLArmOakworm
-  bodyPart: LArm
   markingCategory: LeftArm
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: oakworm_l_arm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftArm
+    bodyPart: LeftArm
+    # WD EDIT END
 
 - type: marking
   id: MothRArmOakworm
-  bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: oakworm_r_arm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightArm
+    bodyPart: RightArm
+    # WD EDIT END
 
 # Pointy
 - type: marking
   id: MothChestPointy
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: pointy_chest
+# WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+
+- type: marking
+  id: MothGroinPointy
+  markingCategory: Groin
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Mobs/Customization/Moth/moth_parts.rsi
+    state: pointy_groin
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
+# WD EDIT END
 
 - type: marking
   id: MothHeadPointy
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: pointy_head
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothLLegPointy
-  bodyPart: LLeg
   markingCategory: LeftLeg
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: pointy_l_leg
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftLeg
+    bodyPart: LeftLeg
+    # WD EDIT END
 
 - type: marking
   id: MothRLegPointy
-  bodyPart: RLeg
   markingCategory: RightLeg
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: pointy_r_leg
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightLeg
+    bodyPart: RightLeg
+    # WD EDIT END
 
 - type: marking
   id: MothLArmPointy
-  bodyPart: LArm
   markingCategory: LeftArm
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: pointy_l_arm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftArm
+    bodyPart: LeftArm
+    # WD EDIT END
 
 - type: marking
   id: MothRArmPointy
-  bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: pointy_r_arm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightArm
+    bodyPart: RightArm
+    # WD EDIT END
 
 # Ragged
 - type: marking
   id: MothChestRagged
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: ragged_chest
+# WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+
+- type: marking
+  id: MothGroinRagged
+  markingCategory: Groin
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Mobs/Customization/Moth/moth_parts.rsi
+    state: ragged_groin
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
+# WD EDIT END
 
 - type: marking
   id: MothHeadRagged
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: ragged_head
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothLLegRagged
-  bodyPart: LLeg
   markingCategory: LeftLeg
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: ragged_l_leg
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftLeg
+    bodyPart: LeftLeg
+    # WD EDIT END
 
 - type: marking
   id: MothRLegRagged
-  bodyPart: RLeg
   markingCategory: RightLeg
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: ragged_r_leg
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightLeg
+    bodyPart: RightLeg
+    # WD EDIT END
 
 - type: marking
   id: MothLArmRagged
-  bodyPart: LArm
   markingCategory: LeftArm
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: ragged_l_arm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftArm
+    bodyPart: LeftArm
+    # WD EDIT END
 
 - type: marking
   id: MothRArmRagged
-  bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: ragged_r_arm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightArm
+    bodyPart: RightArm
+    # WD EDIT END
 
 # Royal
 - type: marking
   id: MothChestRoyal
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: royal_chest
+# WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+
+- type: marking
+  id: MothGroinRoyal
+  markingCategory: Groin
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Mobs/Customization/Moth/moth_parts.rsi
+    state: royal_groin
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
+# WD EDIT END
 
 - type: marking
   id: MothHeadRoyal
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: royal_head
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothLLegRoyal
-  bodyPart: LLeg
   markingCategory: LeftLeg
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: royal_l_leg
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftLeg
+    bodyPart: LeftLeg
+    # WD EDIT END
 
 - type: marking
   id: MothRLegRoyal
-  bodyPart: RLeg
   markingCategory: RightLeg
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: royal_r_leg
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightLeg
+    bodyPart: RightLeg
+    # WD EDIT END
 
 - type: marking
   id: MothLArmRoyal
-  bodyPart: LArm
   markingCategory: LeftArm
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: royal_l_arm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftArm
+    bodyPart: LeftArm
+    # WD EDIT END
 
 - type: marking
   id: MothRArmRoyal
-  bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: royal_r_arm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightArm
+    bodyPart: RightArm
+    # WD EDIT END
 
 # White Fly
 - type: marking
   id: MothChestWhitefly
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: whitefly_chest
+# WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+
+- type: marking
+  id: MothGroinWhitefly
+  markingCategory: Groin
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Mobs/Customization/Moth/moth_parts.rsi
+    state: whitefly_groin
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
+# WD EDIT END
 
 - type: marking
   id: MothHeadWhitefly
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: whitefly_head
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothLLegWhitefly
-  bodyPart: LLeg
   markingCategory: LeftLeg
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: whitefly_l_leg
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftLeg
+    bodyPart: LeftLeg
+    # WD EDIT END
 
 - type: marking
   id: MothRLegWhitefly
-  bodyPart: RLeg
   markingCategory: RightLeg
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: whitefly_r_leg
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightLeg
+    bodyPart: RightLeg
+    # WD EDIT END
 
 - type: marking
   id: MothLArmWhitefly
-  bodyPart: LArm
   markingCategory: LeftArm
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: whitefly_l_arm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftArm
+    bodyPart: LeftArm
+    # WD EDIT END
 
 - type: marking
   id: MothRArmWhitefly
-  bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: whitefly_r_arm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightArm
+    bodyPart: RightArm
+    # WD EDIT END
 
 # Witch Wing
 - type: marking
   id: MothChestWitchwing
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: witchwing_chest
+# WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+
+- type: marking
+  id: MothGroinWitchwing
+  markingCategory: Groin
+  speciesRestriction: [Moth]
+  sprites:
+  - sprite: Mobs/Customization/Moth/moth_parts.rsi
+    state: witchwing_groin
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
+# WD EDIT END
 
 - type: marking
   id: MothHeadWitchwing
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: witchwing_head
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothLLegWitchwing
-  bodyPart: LLeg
   markingCategory: LeftLeg
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: witchwing_l_leg
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftLeg
+    bodyPart: LeftLeg
+    # WD EDIT END
 
 - type: marking
   id: MothRLegWitchwing
-  bodyPart: RLeg
   markingCategory: RightLeg
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: witchwing_r_leg
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightLeg
+    bodyPart: RightLeg
+    # WD EDIT END
 
 - type: marking
   id: MothLArmWitchwing
-  bodyPart: LArm
   markingCategory: LeftArm
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: witchwing_l_arm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftArm
+    bodyPart: LeftArm
+    # WD EDIT END
 
 - type: marking
   id: MothRArmWitchwing
-  bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [Moth]
   sprites:
   - sprite: Mobs/Customization/Moth/moth_parts.rsi
     state: witchwing_r_arm
-    
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightArm
+    bodyPart: RightArm
+    # WD EDIT END
+
 # Marking for Chitinid Merger reasons
 
 - type: marking
   id: MothRegularSnout
-  bodyPart: Snout
   markingCategory: Snout
   speciesRestriction: [Moth]
   sprites:
   - sprite: _EE/Mobs/Customization/Moth/ChitinidMarkings/bodyparts.rsi
     state: mothhead
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Snout
+    bodyPart: Head
+    # WD EDIT END

@@ -1,82 +1,90 @@
 - type: marking
   id: ResomiTail
-  bodyPart: Chest
   markingCategory: Tail
   speciesRestriction: [Resomi]
   forcedColoring: true
   sprites:
   - sprite: _White/Mobs/Customization/resomi_parts.rsi
     state: tail
-
-- type: marking
-  id: ResomiTailFeathers
-  bodyPart: Chest
-  markingCategory: Tail
-  speciesRestriction: [Resomi]
-  sprites:
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    replacementBodyPart: BodyPartTailResomi
   - sprite: _White/Mobs/Customization/resomi_parts.rsi
     state: tail_feathers
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
 
 - type: marking
   id: ResomiLArmFeathers
-  bodyPart: LHand
   markingCategory: LeftArm
   speciesRestriction: [Resomi]
   sprites:
   - sprite: _White/Mobs/Customization/resomi_parts.rsi
     state: l_hand_feathers
+    layer: enum.BodyAppearanceLayer.LeftHand
+    bodyPart: LeftHand
 
 - type: marking
   id: ResomiLLegFeathers
-  bodyPart: LFoot
   markingCategory: LeftLeg
   speciesRestriction: [Resomi]
   sprites:
   - sprite: _White/Mobs/Customization/resomi_parts.rsi
     state: l_foot_feathers
+    layer: enum.BodyAppearanceLayer.LeftFoot
+    bodyPart: LeftFoot
 
 - type: marking
   id: ResomiRArmFeathers
-  bodyPart: RHand
   markingCategory: RightArm
   speciesRestriction: [Resomi]
   sprites:
   - sprite: _White/Mobs/Customization/resomi_parts.rsi
     state: r_hand_feathers
+    layer: enum.BodyAppearanceLayer.RightHand
+    bodyPart: RightHand
 
 - type: marking
   id: ResomiRLegFeathers
-  bodyPart: RFoot
   markingCategory: RightLeg
   speciesRestriction: [Resomi]
   sprites:
   - sprite: _White/Mobs/Customization/resomi_parts.rsi
     state: r_foot_feathers
+    layer: enum.BodyAppearanceLayer.RightFoot
+    bodyPart: RightFoot
 
 - type: marking
   id: ResomiFluff
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Resomi]
   sprites:
   - sprite: _White/Mobs/Customization/resomi_parts.rsi
-    state: fluff
+    state: fluff_chest
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+  - sprite: _White/Mobs/Customization/resomi_parts.rsi
+    state: fluff_groin
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
 
 - type: marking
   id: ResomiFluffHead
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Resomi]
   sprites:
   - sprite: _White/Mobs/Customization/resomi_parts.rsi
     state: fluff_head
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
 
 - type: marking
   id: ResomiFluffHeadUp
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Resomi]
   sprites:
   - sprite: _White/Mobs/Customization/resomi_parts.rsi
     state: fluff_head_up
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
 
