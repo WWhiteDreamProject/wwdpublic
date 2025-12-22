@@ -16,43 +16,84 @@ public abstract partial class SharedBodySystem
 
     #region Event Handling
 
-    private void OnBoneMapInit(Entity<BoneComponent> bone, ref MapInitEvent args)
-    {
-        SetupOrgans(bone, bone.Comp.Organs);
-    }
+    private void OnBoneMapInit(Entity<BoneComponent> bone, ref MapInitEvent args) => SetupOrgans(bone, bone.Comp.Organs);
 
     private void OnBoneGotInserted(Entity<BoneComponent> bone, ref EntGotInsertedIntoContainerMessage args)
     {
-        bone.Comp.Parent = args.Container.Owner;
-        if (!TryComp<BodyPartComponent>(bone.Comp.Parent, out var bodyPartComponent)
-            || bodyPartComponent.Body is null
-            || !TryComp<BodyComponent>(bodyPartComponent.Body, out var bodyComponent))
+        var containerSlotId = args.Container.ID;
+        if (containerSlotId.IndexOf(BoneSlotContainerIdPrefix, StringComparison.Ordinal) == -1)
             return;
 
-        bone.Comp.Body = bodyPartComponent.Body;
+        var parent = args.Container.Owner;
 
-        SetOrgansBody((bone.Comp.Body.Value, bodyComponent), bone.Comp.Parent.Value, GetOrgans(bone.AsNullable()));
+        if (!TryComp<BodyPartComponent>(parent, out var bodyPartComponent))
+            return;
 
-        RaiseLocalEvent(bone.Comp.Body.Value, new BoneAddedEvent());
+        bone.Comp.Parent = parent;
+
+        if (!TryComp<BodyComponent>(bodyPartComponent.Body, out var bodyComponent))
+        {
+            Dirty(bone);
+
+            RaiseLocalEvent(bone, new BoneAddedEvent(bone, null, parent, containerSlotId));
+
+            return;
+        }
+
+        Entity<BodyComponent> body = (bodyPartComponent.Body.Value, bodyComponent);
+
+        SetOrgansBody(body, bone, GetOrgans(bone.AsNullable()));
+
+        bone.Comp.Body = body;
+        Dirty(bone);
+
+        var ev = new BoneAddedEvent(
+            bone,
+            body,
+            parent,
+            args.Container.ID);
+
+        RaiseLocalEvent(bone, ev);
+        RaiseLocalEvent(body, ev);
     }
 
     private void OnBoneGotRemoved(Entity<BoneComponent> bone, ref EntGotRemovedFromContainerMessage args)
     {
-        var parent = args.Container.Owner;
-
-        bone.Comp.Body = null;
-        bone.Comp.Parent = null;
-
-        if (!TryComp<BodyPartComponent>(parent, out var bodyPartComponent) || bodyPartComponent.Body is null)
+        var containerSlotId = args.Container.ID;
+        if (containerSlotId.IndexOf(BoneSlotContainerIdPrefix, StringComparison.Ordinal) == -1)
             return;
 
-        foreach (var organs in GetOrgans(bone.AsNullable()))
+        var parent = args.Container.Owner;
+
+        if (!TryComp<BodyPartComponent>(parent, out var bodyPartComponent))
+            return;
+
+        bone.Comp.Parent = null;
+
+        if (!TryComp<BodyComponent>(bodyPartComponent.Body, out var bodyComponent))
         {
-            organs.Comp.Body = null;
-            RaiseLocalEvent(bodyPartComponent.Body.Value, new OrganRemovedEvent());
+            Dirty(bone);
+
+            RaiseLocalEvent(bone, new BoneAddedEvent(bone, null, parent, containerSlotId));
+
+            return;
         }
 
-        RaiseLocalEvent(bodyPartComponent.Body.Value, new BoneRemovedEvent());
+        Entity<BodyComponent> body = (bodyPartComponent.Body.Value, bodyComponent);
+
+        SetOrgansBody(null, bone, GetOrgans(bone.AsNullable()));
+
+        bone.Comp.Body = null;
+        Dirty(bone);
+
+        var ev = new BoneRemovedEvent(
+            bone,
+            body,
+            parent,
+            args.Container.ID);
+
+        RaiseLocalEvent(bone, ev);
+        RaiseLocalEvent(body, ev);
     }
 
     #endregion
@@ -88,15 +129,30 @@ public abstract partial class SharedBodySystem
         }
     }
 
-    private void SetBonesBody(Entity<BodyComponent> body, EntityUid parent, List<Entity<BoneComponent>> bones)
+    private void SetBonesBody(Entity<BodyComponent>? body, EntityUid parent, List<Entity<BoneComponent>> bones)
     {
         foreach (var bone in bones)
         {
+            if (!_container.TryGetContainingContainer((bone, null, null), out var container) || container.Owner != parent)
+                continue;
+
+            if (body.HasValue)
+            {
+                var ev = new BoneAddedEvent(bone, body, parent, container.ID);
+                RaiseLocalEvent(bone, ev);
+                RaiseLocalEvent(body.Value, ev);
+            }
+            else if (TryComp<BodyComponent>(bone.Comp.Body, out var bodyComponent))
+            {
+                var ev = new BoneRemovedEvent(bone, (bone.Comp.Body.Value, bodyComponent), parent, container.ID);
+                RaiseLocalEvent(bone, ev);
+                RaiseLocalEvent(bone.Comp.Body.Value, ev);
+            }
+
             bone.Comp.Body = body;
+            Dirty(bone);
 
-            SetOrgansBody(body, parent, GetOrgans(bone.AsNullable()));
-
-            RaiseLocalEvent(body, new BoneAddedEvent());
+            SetOrgansBody(body, bone, GetOrgans(bone.AsNullable()));
         }
     }
 
@@ -158,6 +214,61 @@ public abstract partial class SharedBodySystem
             return GetBones((parent, bodyPartComponent), type);
 
         return new List<Entity<BoneComponent>>();
+    }
+
+    #endregion
+
+    #region GetBones<T>
+
+    /// <summary>
+    /// Gets the bones of this body with the given component.
+    /// </summary>
+    public List<Entity<BoneComponent, T>> GetBones<T>(Entity<BodyComponent?> body, BoneType type = BoneType.None) where T : IComponent
+    {
+        var bones = new List<Entity<BoneComponent, T>>();
+        foreach (var bone in GetBones(body, type))
+        {
+            if (!TryComp<T>(bone, out var component))
+                continue;
+
+            bones.Add((bone.Owner, bone.Comp, component));
+        }
+
+        return bones;
+    }
+
+    /// <summary>
+    /// Gets the bones of this body part with the given component.
+    /// </summary>
+    public List<Entity<BoneComponent, T>> GetBones<T>(Entity<BodyPartComponent?> bodyPart, BoneType type = BoneType.None) where T : IComponent
+    {
+        var bones = new List<Entity<BoneComponent, T>>();
+        foreach (var bone in GetBones(bodyPart, type))
+        {
+            if (!TryComp<T>(bone, out var component))
+                continue;
+
+            bones.Add((bone.Owner, bone.Comp, component));
+        }
+
+        return bones;
+    }
+
+    /// <summary>
+    /// Gets the bones of this entity with the given component.
+    /// </summary>
+    public List<Entity<BoneComponent, T>> GetBones<T>(EntityUid parent, BoneType type = BoneType.None) where T : IComponent
+    {
+        var bones = new List<Entity<BoneComponent, T>>();
+        foreach (var bone in GetBones(parent, type))
+        {
+            if (!TryComp<T>(bone, out var component))
+                continue;
+
+            bones.Add((bone.Owner, bone.Comp, component));
+        }
+
+        return bones;
     }
 
     #endregion

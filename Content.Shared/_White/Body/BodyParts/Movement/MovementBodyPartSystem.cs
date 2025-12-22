@@ -1,8 +1,9 @@
+using Content.Shared._White.Body.Systems;
 using Content.Shared.Buckle;
 using Content.Shared.Movement.Components;
 using Content.Shared.Standing;
 
-namespace Content.Shared._White.Body.BodyParts.MovementBodyPart;
+namespace Content.Shared._White.Body.BodyParts.Movement;
 
 public sealed class MovementBodyPartSystem : EntitySystem
 {

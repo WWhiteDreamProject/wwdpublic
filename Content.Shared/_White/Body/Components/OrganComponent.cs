@@ -18,7 +18,7 @@ public sealed partial class OrganComponent : Component
     /// Parent body part for this organ.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public EntityUid? ParentPart;
+    public EntityUid? Parent;
 
     [DataField("organType"), AutoNetworkedField] // It can't support the "type" tag.
     public OrganType Type = OrganType.None;

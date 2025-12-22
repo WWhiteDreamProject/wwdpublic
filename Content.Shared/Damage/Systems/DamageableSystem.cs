@@ -101,6 +101,7 @@ namespace Content.Shared.Damage
             bool interruptsDoAfters = true, EntityUid? origin = null)
         {
             component.Damage.GetDamagePerGroup(_prototypeManager, component.DamagePerGroup);
+            component.Damage.MakePositiveDamage(); // WD EDIT
             component.TotalDamage = component.Damage.GetTotal();
             Dirty(uid, component);
 

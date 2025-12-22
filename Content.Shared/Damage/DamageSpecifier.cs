@@ -319,6 +319,15 @@ namespace Content.Shared.Damage
                 if (DamageDict.TryGetValue(type, out var existing))
                     DamageDict[type] = FixedPoint2.Max(FixedPoint2.Zero, existing + value);
         }
+
+        public void MakePositiveDamage()
+        {
+            foreach (var (type, value) in DamageDict)
+            {
+                if (value < 0)
+                    DamageDict[type] = FixedPoint2.Zero;
+            }
+        }
         // WD EDIT END
 
         #region Operators

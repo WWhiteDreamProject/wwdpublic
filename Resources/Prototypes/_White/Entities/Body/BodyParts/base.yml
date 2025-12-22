@@ -9,10 +9,29 @@
   - type: WoundableBodyPart
   - type: PainfulBodyPart
 
+- type: entity
+  id: BaseAmputatableBodyPart
+  abstract: true
+  components:
+  - type: AmputatableBodyPart
+    supportedDamageType:
+    - Slash
+    chanceThresholds:
+      0: 0
+      40: 0.2
+      60: 0.6
+      90: 0.9
+      100: 1
+    boneMultiplierThresholds:
+      Whole: 0.3
+      Damaged: 0.6
+      Cracked: 1
+      Broken: 1.2
+
 # Head
 - type: entity
   id: BaseBodyPartHead
-  parent: BaseBodyPart
+  parent: [BaseBodyPart, BaseAmputatableBodyPart]
   abstract: true
   name: head
   components:
@@ -78,7 +97,7 @@
 
 - type: entity
   id: BaseBodyPartArm
-  parent: BaseBodyPart
+  parent: [BaseBodyPart, BaseAmputatableBodyPart]
   abstract: true
   name: arm
   components:
@@ -136,7 +155,7 @@
 
 - type: entity
   id: BaseBodyPartHand
-  parent: BaseBodyPart
+  parent: [BaseBodyPart, BaseAmputatableBodyPart]
   abstract: true
   name: hand
   components:
@@ -194,7 +213,7 @@
 
 - type: entity
   id: BaseBodyPartLeg
-  parent: BaseBodyPart
+  parent: [BaseBodyPart, BaseAmputatableBodyPart]
   abstract: true
   name: leg
   components:
@@ -253,7 +272,7 @@
 
 - type: entity
   id: BaseBodyPartFoot
-  parent: BaseBodyPart
+  parent: [BaseBodyPart, BaseAmputatableBodyPart]
   abstract: true
   name: foot
   components:
@@ -311,7 +330,7 @@
 
 - type: entity
   id: BaseBodyPartTail
-  parent: BaseBodyPart
+  parent: [BaseBodyPart, BaseAmputatableBodyPart]
   abstract: true
   name: tail
   components:
@@ -324,7 +343,7 @@
 
 - type: entity
   id: BaseBodyPartWings
-  parent: BaseBodyPart
+  parent: [BaseBodyPart, BaseAmputatableBodyPart]
   abstract: true
   name: wings
   components:

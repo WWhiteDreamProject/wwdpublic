@@ -14,8 +14,8 @@ public abstract partial class SharedBodySystem
         SubscribeLocalEvent<BodyAppearanceComponent, BodyPartAddedEvent>(OnBodyPartAdded);
         SubscribeLocalEvent<BodyAppearanceComponent, BodyPartRemovedEvent>(OnBodyPartRemoved);
 
-        SubscribeLocalEvent<BodyAppearanceComponent, OrganAddedToBodyEvent>(OnOrganAdded);
-        SubscribeLocalEvent<BodyAppearanceComponent, OrganRemovedFromBodyEvent>(OnOrganRemoved);
+        SubscribeLocalEvent<BodyAppearanceComponent, OrganAddedEvent>(OnOrganAdded);
+        SubscribeLocalEvent<BodyAppearanceComponent, OrganRemovedEvent>(OnOrganRemoved);
     }
 
     #region Event Handling
@@ -38,7 +38,7 @@ public abstract partial class SharedBodySystem
         Dirty(bodyAppearance);
     }
 
-    private void OnOrganAdded(Entity<BodyAppearanceComponent> bodyAppearance, ref OrganAddedToBodyEvent args)
+    private void OnOrganAdded(Entity<BodyAppearanceComponent> bodyAppearance, ref OrganAddedEvent args)
     {
         if (!TryComp<OrganAppearanceComponent>(args.Organ, out var organAppearance))
             return;
@@ -47,7 +47,7 @@ public abstract partial class SharedBodySystem
         Dirty(bodyAppearance);
     }
 
-    protected virtual void OnOrganRemoved(Entity<BodyAppearanceComponent> bodyAppearance, ref OrganRemovedFromBodyEvent args)
+    protected virtual void OnOrganRemoved(Entity<BodyAppearanceComponent> bodyAppearance, ref OrganRemovedEvent args)
     {
         if (!TryComp<OrganAppearanceComponent>(args.Organ, out var organAppearance))
             return;

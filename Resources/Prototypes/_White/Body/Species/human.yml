@@ -7,19 +7,23 @@
       startingBodyPart: BodyPartHeadHuman
       connections:
       - chest
-      organs:
-        brain:
-          type: Brain
-          startingOrgan: OrganBrainHuman
-        ears:
-          type: Ears
-          startingOrgan: OrganEarsHuman
-        eyes:
-          type: Eyes
-          startingOrgan: OrganEyesHuman
-        tongue:
-          type: Tongue
-          startingOrgan: OrganTongueHuman
+      bones:
+        skull:
+          type: Сranium
+          startingBone: BoneSkullHuman
+          organs:
+            brain:
+              type: Brain
+              startingOrgan: OrganBrainHuman
+            ears:
+              type: Ears
+              startingOrgan: OrganEarsHuman
+            eyes:
+              type: Eyes
+              startingOrgan: OrganEyesHuman
+            tongue:
+              type: Tongue
+              startingOrgan: OrganTongueHuman
     chest:
       type: Chest
       startingBodyPart: BodyPartChestHuman
@@ -28,13 +32,17 @@
       - right_arm
       - left_arm
       - groin
-      organs:
-        heart:
-          type: Heart
-          startingOrgan: OrganHeartHuman
-        lungs:
-          type: Lungs
-          startingOrgan: OrganLungsHuman
+      bones:
+        rib_cage:
+          type: Thorax
+          startingBone: BoneRibCageHuman
+          organs:
+            heart:
+              type: Heart
+              startingOrgan: OrganHeartHuman
+            lungs:
+              type: Lungs
+              startingOrgan: OrganLungsHuman
     groin:
       type: Groin
       startingBodyPart: BodyPartGroinHuman
@@ -42,51 +50,87 @@
       - tail
       - right_leg
       - left_leg
-      organs:
-        stomach:
-          type: Stomach
-          startingOrgan: OrganStomachHuman
-        liver:
-          type: Liver
-          startingOrgan: OrganLiverHuman
-        kidneys:
-          type: Kidneys
-          startingOrgan: OrganKidneysHuman
-        appendix:
-          type: Appendix
-          startingOrgan: OrganAppendixHuman
+      bones:
+        pelvis:
+          type: Coxae
+          startingBone: BonePelvisHuman
+          organs:
+            stomach:
+              type: Stomach
+              startingOrgan: OrganStomachHuman
+            liver:
+              type: Liver
+              startingOrgan: OrganLiverHuman
+            kidneys:
+              type: Kidneys
+              startingOrgan: OrganKidneysHuman
+            appendix:
+              type: Appendix
+              startingOrgan: OrganAppendixHuman
     left_arm:
       type: LeftArm
       startingBodyPart: BodyPartLeftArmHuman
       connections:
       - left_hand
+      bones:
+        left_arm:
+          type: LeftAntebrachium
+          startingBone: BoneLeftArmHuman
     right_arm:
       type: RightArm
       startingBodyPart: BodyPartRightArmHuman
       connections:
       - right_hand
+      bones:
+        right_arm:
+          type: RightAntebrachium
+          startingBone: BoneRightArmHuman
     left_hand:
       type: LeftHand
       startingBodyPart: BodyPartLeftHandHuman
+      bones:
+        left_hand:
+          type: LeftManus
+          startingBone: BoneLeftHandHuman
     right_hand:
       type: RightHand
       startingBodyPart: BodyPartRightHandHuman
+      bones:
+        right_hand:
+          type: RightManus
+          startingBone: BoneRightHandHuman
     left_leg:
       type: LeftLeg
       startingBodyPart: BodyPartLeftLegHuman
       connections:
       - left_foot
+      bones:
+        left_leg:
+          type: LeftCrus
+          startingBone: BoneLeftLegHuman
     right_leg:
       type: RightLeg
       startingBodyPart: BodyPartRightLegHuman
       connections:
       - right_foot
+      bones:
+        right_leg:
+          type: RightCrus
+          startingBone: BoneRightLegHuman
     left_foot:
       type: LeftFoot
       startingBodyPart: BodyPartLeftFootHuman
+      bones:
+        left_foot:
+          type: LeftPedis
+          startingBone: BoneLeftFootHuman
     right_foot:
       type: RightFoot
       startingBodyPart: BodyPartRightFootHuman
+      bones:
+        right_foot:
+          type: RightPedis
+          startingBone: BoneRightFootHuman
     tail:
       type: Tail
     wings:

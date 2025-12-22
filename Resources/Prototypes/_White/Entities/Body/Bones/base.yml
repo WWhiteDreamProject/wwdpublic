@@ -1,0 +1,319 @@
+- type: entity
+  id: BaseBone
+  parent: BaseItem
+  abstract: true
+  name: bone
+  components:
+  - type: Bone
+  - type: WoundableBone
+    supportedDamageType:
+    - Blunt
+    - Slash
+    - Piercing
+
+# Skull / Сranium
+- type: entity
+  id: BaseBoneSkull
+  parent: BaseBone
+  abstract: true
+  name: skull
+  components:
+  - type: Sprite
+    state: skull
+  - type: Bone
+    boneType: Сranium
+  - type: WoundableBone
+    health: 125
+    maximumHealth: 125
+    boneStatusThresholds:
+      125: Whole
+      100: Damaged
+      60: Cracked
+      35: Broken
+    strengthThresholds:
+      Whole: 10
+      Damaged: 7
+      Cracked: 5
+      Broken: 0
+
+# Rib Cage / Thorax
+- type: entity
+  id: BaseBoneRibCage
+  parent: BaseBone
+  abstract: true
+  name: rib cage
+  components:
+  - type: Sprite
+    state: rib_cage
+  - type: Bone
+    boneType: Thorax
+  - type: WoundableBone
+    health: 72
+    maximumHealth: 72
+    boneStatusThresholds:
+      72: Whole
+      55: Damaged
+      30: Cracked
+      14: Broken
+    strengthThresholds:
+      Whole: 15
+      Damaged: 7
+      Cracked: 5
+      Broken: 0
+
+# Pelvis / Coxae
+- type: entity
+  id: BaseBonePelvis
+  parent: BaseBone
+  abstract: true
+  name: pelvis
+  components:
+  - type: Sprite
+    state: pelvis
+  - type: Bone
+    boneType: Coxae
+  - type: WoundableBone
+    health: 60
+    maximumHealth: 60
+    boneStatusThresholds:
+      60: Whole
+      45: Damaged
+      25: Cracked
+      15: Broken
+    strengthThresholds:
+      Whole: 15
+      Damaged: 10
+      Cracked: 5
+      Broken: 0
+
+# Arm Bone / Antebrachium
+- type: entity
+  id: BaseBoneArm
+  parent: BaseBone
+  abstract: true
+  name: arm bone
+  components:
+  - type: Sprite
+    state: arm
+  - type: Bone
+    boneType: Antebrachium
+  - type: WoundableBone
+    health: 45
+    maximumHealth: 45
+    boneStatusThresholds:
+      45: Whole
+      35: Damaged
+      25: Cracked
+      10: Broken
+    strengthThresholds:
+      Whole: 10
+      Damaged: 7
+      Cracked: 5
+      Broken: 0
+
+- type: entity
+  id: BaseBoneLeftArm
+  parent: BaseBoneArm
+  abstract: true
+  name: left arm bone
+  components:
+  - type: Sprite
+    state: left_arm
+  - type: Bone
+    boneType: LeftAntebrachium
+
+- type: entity
+  id: BaseBoneMiddleArm
+  parent: BaseBoneArm
+  abstract: true
+  name: middle arm bone
+  components:
+  - type: Sprite
+    state: middle_arm
+  - type: Bone
+    boneType: MiddleAntebrachium
+
+- type: entity
+  id: BaseBoneRightArm
+  parent: BaseBoneArm
+  abstract: true
+  name: right arm bone
+  components:
+  - type: Sprite
+    state: right_arm
+  - type: Bone
+    boneType: RightAntebrachium
+
+# Hand Bone / Manus
+- type: entity
+  id: BaseBoneHand
+  parent: BaseBone
+  abstract: true
+  name: hand bone
+  components:
+  - type: Sprite
+    state: hand
+  - type: Bone
+    boneType: Manus
+  - type: WoundableBone
+    health: 30
+    maximumHealth: 30
+    boneStatusThresholds:
+      30: Whole
+      23: Damaged
+      15: Cracked
+      7: Broken
+    strengthThresholds:
+      Whole: 5
+      Damaged: 3
+      Cracked: 1
+      Broken: 0
+
+- type: entity
+  id: BaseBoneLeftHand
+  parent: BaseBoneHand
+  abstract: true
+  name: left hand bone
+  components:
+  - type: Sprite
+    state: left_hand
+  - type: Bone
+    boneType: LeftManus
+
+- type: entity
+  id: BaseBoneMiddleHand
+  parent: BaseBoneHand
+  abstract: true
+  name: middle hand bone
+  components:
+  - type: Sprite
+    state: middle_hand
+  - type: Bone
+    boneType: MiddleManus
+
+- type: entity
+  id: BaseBoneRightHand
+  parent: BaseBoneHand
+  abstract: true
+  name: right hand bone
+  components:
+  - type: Sprite
+    state: right_hand
+  - type: Bone
+    boneType: RightManus
+
+# Leg Bone / Crus
+- type: entity
+  id: BaseBoneLeg
+  parent: BaseBone
+  abstract: true
+  name: leg bone
+  components:
+  - type: Sprite
+    state: leg
+  - type: Bone
+    boneType: Crus
+  - type: WoundableBone
+    health: 45
+    maximumHealth: 45
+    boneStatusThresholds:
+      45: Whole
+      35: Damaged
+      25: Cracked
+      10: Broken
+    strengthThresholds:
+      Whole: 10
+      Damaged: 7
+      Cracked: 5
+      Broken: 0
+
+- type: entity
+  id: BaseBoneLeftLeg
+  parent: BaseBoneLeg
+  abstract: true
+  name: left leg bone
+  components:
+  - type: Sprite
+    state: left_leg
+  - type: Bone
+    boneType: LeftCrus
+
+- type: entity
+  id: BaseBoneMiddleLeg
+  parent: BaseBoneLeg
+  abstract: true
+  name: middle leg bone
+  components:
+  - type: Sprite
+    state: middle_leg
+  - type: Bone
+    boneType: MiddleCrus
+
+- type: entity
+  id: BaseBoneRightLeg
+  parent: BaseBoneLeg
+  abstract: true
+  name: right leg bone
+  components:
+  - type: Sprite
+    state: right_leg
+  - type: Bone
+    boneType: RightCrus
+
+# Foot Bone / Pedis
+- type: entity
+  id: BaseBoneFoot
+  parent: BaseBone
+  abstract: true
+  name: foot bone
+  components:
+  - type: Sprite
+    state: foot
+  - type: Bone
+    boneType: Pedis
+  - type: WoundableBone
+    health: 30
+    maximumHealth: 30
+    boneStatusThresholds:
+      30: Whole
+      23: Damaged
+      15: Cracked
+      7: Broken
+    strengthThresholds:
+      Whole: 5
+      Damaged: 3
+      Cracked: 1
+      Broken: 0
+
+- type: entity
+  id: BaseBoneLeftFoot
+  parent: BaseBoneFoot
+  abstract: true
+  name: left foot bone
+  components:
+  - type: Sprite
+    state: left_foot
+  - type: Bone
+    boneType: LeftPedis
+
+- type: entity
+  id: BaseBoneMiddleFoot
+  parent: BaseBoneFoot
+  abstract: true
+  name: middle foot bone
+  components:
+  - type: Sprite
+    state: middle_foot
+  - type: Bone
+    boneType: MiddlePedis
+
+- type: entity
+  id: BaseBoneRightFoot
+  parent: BaseBoneFoot
+  abstract: true
+  name: right foot bone
+  components:
+  - type: Sprite
+    state: right_foot
+  - type: Bone
+    boneType: RightPedis

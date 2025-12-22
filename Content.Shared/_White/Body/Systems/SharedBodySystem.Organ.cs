@@ -16,41 +16,114 @@ public abstract partial class SharedBodySystem
 
     private void OnOrganGotInserted(Entity<OrganComponent> organ, ref EntGotInsertedIntoContainerMessage args)
     {
-        organ.Comp.ParentPart = args.Container.Owner;
+        var containerSlotId = args.Container.ID;
+        if (containerSlotId.IndexOf(OrganSlotContainerIdPrefix, StringComparison.Ordinal) == -1)
+            return;
 
-        Entity<BodyComponent>? body = null;
-        if (TryComp<BodyPartComponent>(organ.Comp.ParentPart, out var bodyPartComponent))
-            organ.Comp.Body = bodyPartComponent.Body;
-        else if (TryComp<BoneComponent>(organ.Comp.ParentPart, out var boneComponent))
-            organ.Comp.Body = boneComponent.Body;
-        else if (TryComp<BodyComponent>(organ.Comp.ParentPart, out var parentBodyComponent))
+        var parent = args.Container.Owner;
+        Entity<BodyComponent> body;
+
+        if (TryComp<BodyComponent>(parent, out var bodyComponent))
+            body = (parent, bodyComponent);
+        else if (TryComp<BodyPartComponent>(parent, out var bodyPartComponent))
         {
-            organ.Comp.Body = organ.Comp.ParentPart;
-            body = (organ.Comp.Body.Value, parentBodyComponent);
+            if (!bodyPartComponent.Body.HasValue || !Resolve(bodyPartComponent.Body.Value, ref bodyComponent))
+            {
+                organ.Comp.Parent = parent;
+                Dirty(organ);
+
+                RaiseLocalEvent(organ, new OrganAddedEvent(organ, null, parent, args.Container.ID));
+
+                return;
+            }
+
+            body = (bodyPartComponent.Body.Value, bodyComponent);
         }
+        else if (TryComp<BoneComponent>(parent, out var boneComponent))
+        {
+            if (!boneComponent.Body.HasValue || !Resolve(boneComponent.Body.Value, ref bodyComponent))
+            {
+                organ.Comp.Parent = parent;
+                Dirty(organ);
 
-        if (!body.HasValue && TryComp<BodyComponent>(organ.Comp.Body, out var bodyComponent))
-            body = (organ.Comp.Body.Value, bodyComponent);
+                RaiseLocalEvent(organ, new OrganAddedEvent(organ, null, parent, containerSlotId));
 
-        RaiseLocalEvent(organ, new OrganAddedEvent(body, organ.Comp.ParentPart.Value));
+                return;
+            }
 
-        if (body.HasValue)
-            RaiseLocalEvent(body.Value, new OrganAddedToBodyEvent(organ));
+            body = (boneComponent.Body.Value, bodyComponent);
+        }
+        else
+            return;
+
+        organ.Comp.Body = body;
+        organ.Comp.Parent = parent;
+        Dirty(organ);
+
+        var ev = new OrganAddedEvent(
+            organ,
+            body,
+            parent,
+            args.Container.ID);
+
+        RaiseLocalEvent(organ, ev);
+        RaiseLocalEvent(body, ev);
     }
 
     private void OnOrganGotRemoved(Entity<OrganComponent> organ, ref EntGotRemovedFromContainerMessage args)
     {
-        Entity<BodyComponent>? body = null;
-        if (TryComp<BodyComponent>(organ.Comp.Body, out var bodyComponent))
-            body = (organ.Comp.Body.Value, bodyComponent);
+        var containerSlotId = args.Container.ID;
+        if (containerSlotId.IndexOf(OrganSlotContainerIdPrefix, StringComparison.Ordinal) == -1)
+            return;
 
-        RaiseLocalEvent(organ, new OrganRemovedEvent(body, args.Container.Owner));
+        var parent = args.Container.Owner;
+        Entity<BodyComponent> body;
 
-        if (organ.Comp.Body.HasValue)
-            RaiseLocalEvent(organ.Comp.Body.Value, new OrganRemovedFromBodyEvent(organ));
+        if (TryComp<BodyComponent>(parent, out var bodyComponent))
+            body = (parent, bodyComponent);
+        else if (TryComp<BodyPartComponent>(parent, out var bodyPartComponent))
+        {
+            if (!bodyPartComponent.Body.HasValue || !Resolve(bodyPartComponent.Body.Value, ref bodyComponent))
+            {
+                organ.Comp.Parent = null;
+                Dirty(organ);
+
+                RaiseLocalEvent(organ, new OrganAddedEvent(organ, null, parent, containerSlotId));
+
+                return;
+            }
+
+            body = (bodyPartComponent.Body.Value, bodyComponent);
+        }
+        else if (TryComp<BoneComponent>(parent, out var boneComponent))
+        {
+            if (!boneComponent.Body.HasValue || !Resolve(boneComponent.Body.Value, ref bodyComponent))
+            {
+                organ.Comp.Parent = null;
+                Dirty(organ);
+
+                RaiseLocalEvent(organ, new OrganAddedEvent(organ, null, parent, args.Container.ID));
+
+                return;
+            }
+
+            body = (boneComponent.Body.Value, bodyComponent);
+        }
+        else
+            return;
 
         organ.Comp.Body = null;
-        organ.Comp.ParentPart = null;
+        organ.Comp.Parent = null;
+        Dirty(organ);
+
+        var ev = new OrganRemovedEvent(
+            organ,
+            body,
+            parent,
+            args.Container.ID);
+
+        RaiseLocalEvent(organ, ev);
+        RaiseLocalEvent(body, ev);
     }
 
     #endregion
@@ -76,12 +149,28 @@ public abstract partial class SharedBodySystem
         }
     }
 
-    private void SetOrgansBody(Entity<BodyComponent> body, EntityUid parent, IEnumerable<Entity<OrganComponent>> organs)
+    private void SetOrgansBody(Entity<BodyComponent>? body, EntityUid parent, IEnumerable<Entity<OrganComponent>> organs)
     {
         foreach (var organ in organs)
         {
+            if (!_container.TryGetContainingContainer((organ, null, null), out var container) || container.Owner != parent)
+                continue;
+
+            if (body.HasValue)
+            {
+                var ev = new OrganAddedEvent(organ, body, parent, container.ID);
+                RaiseLocalEvent(organ, ev);
+                RaiseLocalEvent(body.Value, ev);
+            }
+            else if (TryComp<BodyComponent>(organ.Comp.Body, out var bodyComponent))
+            {
+                var ev = new OrganRemovedEvent(organ, (organ.Comp.Body.Value, bodyComponent), parent, container.ID);
+                RaiseLocalEvent(organ, ev);
+                RaiseLocalEvent(organ.Comp.Body.Value, ev);
+            }
+
             organ.Comp.Body = body;
-            RaiseLocalEvent(body, new OrganAddedEvent(body, parent));
+            Dirty(organ);
         }
     }
 

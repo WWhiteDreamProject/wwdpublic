@@ -28,41 +28,113 @@ public abstract partial class SharedBodySystem
 
     private void OnBodyPartGotInserted(Entity<BodyPartComponent> bodyPart, ref EntGotInsertedIntoContainerMessage args)
     {
-        bodyPart.Comp.Parent = args.Container.Owner;
-
-        if (TryComp<BodyComponent>(bodyPart.Comp.Parent, out var bodyComponent))
-            bodyPart.Comp.Body = bodyPart.Comp.Parent;
-        else if (TryComp<BodyPartComponent>(bodyPart.Comp.Parent, out var parentBodyPartComponent))
-            bodyPart.Comp.Body = parentBodyPartComponent.Body;
-
-        if (!bodyPart.Comp.Body.HasValue || !Resolve(bodyPart.Comp.Body.Value, ref bodyComponent))
+        var containerSlotId = args.Container.ID;
+        if (containerSlotId.IndexOf(BodyPartSlotContainerIdPrefix, StringComparison.Ordinal) == -1)
             return;
 
-        SetBonesBody((bodyPart.Comp.Body.Value, bodyComponent), bodyPart.Comp.Parent.Value, GetBones(bodyPart.AsNullable()));
-        SetOrgansBody((bodyPart.Comp.Body.Value, bodyComponent), bodyPart.Comp.Parent.Value, GetOrgans(bodyPart.AsNullable()));
+        var parent = args.Container.Owner;
+        Entity<BodyComponent> body;
+
+        if (TryComp<BodyComponent>(parent, out var bodyComponent))
+            body = (parent, bodyComponent);
+        else if (TryComp<BodyPartComponent>(parent, out var parentBodyPartComponent))
+        {
+            if (!parentBodyPartComponent.Body.HasValue || !Resolve(parentBodyPartComponent.Body.Value, ref bodyComponent))
+            {
+                bodyPart.Comp.Parent = parent;
+                Dirty(bodyPart);
+
+                RaiseLocalEvent(bodyPart, new BodyPartAddedEvent(bodyPart, null, parent, containerSlotId));
+
+                return;
+            }
+
+            body = (parentBodyPartComponent.Body.Value, bodyComponent);
+        }
+        else
+            return;
+
+        SetBodyPartsBody(body, bodyPart, GetBodyParts(bodyPart.AsNullable()));
+        SetBonesBody(body, bodyPart, GetBones(bodyPart.AsNullable()));
+        SetOrgansBody(body, bodyPart, GetOrgans(bodyPart.AsNullable()));
+
+        foreach (var bodyPartSlot in GetBodyPartSlots(bodyPart.AsNullable()))
+        {
+            if (string.IsNullOrEmpty(bodyPartSlot.Id))
+                continue;
+
+            var slotId = GetBodyPartSlotId(bodyPartSlot.Id);
+
+            if (!body.Comp.BodyParts.TryAdd(slotId, bodyPartSlot))
+                body.Comp.BodyParts[slotId] = bodyPartSlot;
+        }
+
+        bodyPart.Comp.Body = body;
+        bodyPart.Comp.Parent = parent;
+        Dirty(bodyPart);
 
         var ev = new BodyPartAddedEvent(
             bodyPart,
-            (bodyPart.Comp.Body.Value, bodyComponent),
+            body,
+            parent,
             args.Container.ID);
-        RaiseLocalEvent(bodyPart.Comp.Body.Value, ev);
+
+        RaiseLocalEvent(bodyPart, ev);
+        RaiseLocalEvent(body, ev);
     }
 
     private void OnBodyPartGotRemoved(Entity<BodyPartComponent> bodyPart, ref EntGotRemovedFromContainerMessage args)
     {
-        var body = bodyPart.Comp.Body;
+        var containerSlotId = args.Container.ID;
+        if (containerSlotId.IndexOf(BodyPartSlotContainerIdPrefix, StringComparison.Ordinal) == -1)
+            return;
+
+        var parent = args.Container.Owner;
+        Entity<BodyComponent> body;
+
+        if (TryComp<BodyComponent>(parent, out var bodyComponent))
+            body = (parent, bodyComponent);
+        else if (TryComp<BodyPartComponent>(parent, out var parentBodyPartComponent))
+        {
+            if (!parentBodyPartComponent.Body.HasValue || !Resolve(parentBodyPartComponent.Body.Value, ref bodyComponent))
+            {
+                bodyPart.Comp.Parent = null;
+                Dirty(bodyPart);
+
+                RaiseLocalEvent(bodyPart, new BodyPartRemovedEvent(bodyPart, null, parent, containerSlotId));
+
+                return;
+            }
+
+            body = (parentBodyPartComponent.Body.Value, bodyComponent);
+        }
+        else
+            return;
+
+        SetBodyPartsBody(null, bodyPart, GetBodyParts(bodyPart.AsNullable()));
+        SetBonesBody(null, bodyPart, GetBones(bodyPart.AsNullable()));
+        SetOrgansBody(null, bodyPart, GetOrgans(bodyPart.AsNullable()));
+
+        foreach (var bodyPartSlot in GetBodyPartSlots(bodyPart.AsNullable()))
+        {
+            if (string.IsNullOrEmpty(bodyPartSlot.Id))
+                continue;
+
+            body.Comp.BodyParts.Remove(GetBodyPartSlotId(bodyPartSlot.Id));
+        }
 
         bodyPart.Comp.Body = null;
         bodyPart.Comp.Parent = null;
-
-        if (!TryComp<BodyComponent>(body, out var bodyComponent))
-            return;
+        Dirty(bodyPart);
 
         var ev = new BodyPartRemovedEvent(
             bodyPart,
-            (body.Value, bodyComponent),
+            body,
+            parent,
             args.Container.ID);
-        RaiseLocalEvent(body.Value, ev);
+
+        RaiseLocalEvent(bodyPart, ev);
+        RaiseLocalEvent(body, ev);
     }
 
     #endregion
@@ -98,6 +170,35 @@ public abstract partial class SharedBodySystem
 
             bodyPartComponent.Organs = bodyPartSlot.Organs;
             SetupOrgans(bodyPart, bodyPartComponent.Organs);
+        }
+    }
+
+    private void SetBodyPartsBody(Entity<BodyComponent>? body, EntityUid parent, List<Entity<BodyPartComponent>> bodyParts)
+    {
+        foreach (var bodyPart in bodyParts)
+        {
+            if (!_container.TryGetContainingContainer((bodyPart, null, null), out var container) || container.Owner != parent)
+                continue;
+
+            if (body.HasValue)
+            {
+                var ev = new BodyPartAddedEvent(bodyPart, body, parent, container.ID);
+                RaiseLocalEvent(bodyPart, ev);
+                RaiseLocalEvent(body.Value, ev);
+            }
+            else if (TryComp<BodyComponent>(bodyPart.Comp.Body, out var bodyComponent))
+            {
+                var ev = new BodyPartRemovedEvent(bodyPart, (bodyPart.Comp.Body.Value, bodyComponent), parent, container.ID);
+                RaiseLocalEvent(bodyPart, ev);
+                RaiseLocalEvent(bodyPart.Comp.Body.Value, ev);
+            }
+
+            bodyPart.Comp.Body = body;
+            Dirty(bodyPart);
+
+            SetBodyPartsBody(body, bodyPart, GetBodyParts(bodyPart.AsNullable()));
+            SetBonesBody(body, bodyPart, GetBones(bodyPart.AsNullable()));
+            SetOrgansBody(body, bodyPart, GetOrgans(bodyPart.AsNullable()));
         }
     }
 
@@ -143,6 +244,7 @@ public abstract partial class SharedBodySystem
                 || !type.HasFlag(bodyPartSlot.Type))
                 continue;
 
+            bodyParts.Add((bodyPartSlot.BodyPartUid.Value, bodyPartComponent));
             bodyParts.AddRange(GetBodyParts((bodyPartSlot.BodyPartUid.Value, bodyPartComponent), type));
         }
 
@@ -256,7 +358,10 @@ public abstract partial class SharedBodySystem
             if (!type.HasFlag(bodyPartSlot.Type) || !string.IsNullOrEmpty(slotId) && bodyPartSlot.Id != slotId)
                 continue;
 
-            bodyPartSlots.AddRange(GetBodyPartSlots(bodyPart, type, slotId));
+            if (bodyPartSlot.BodyPartUid.HasValue)
+                bodyPartSlots.AddRange(GetBodyPartSlots(bodyPartSlot.BodyPartUid.Value, type, slotId));
+
+            bodyPartSlots.Add(bodyPartSlot);
         }
 
         return bodyPartSlots;
@@ -445,6 +550,21 @@ public abstract partial class SharedBodySystem
             return false;
 
         return _container.Insert(bodyPart.Owner, bodyPartSlot.ContainerSlot);
+    }
+
+    #endregion
+
+    #region TryDetachBodyPart
+
+    /// <summary>
+    /// Trying to detach a body part.
+    /// </summary>
+    public bool TryDetachBodyPart(EntityUid bodyPart)
+    {
+        if (!_container.TryGetContainingContainer((bodyPart, null, null), out var container))
+            return false;
+
+        return _container.Remove(bodyPart, container);
     }
 
     #endregion

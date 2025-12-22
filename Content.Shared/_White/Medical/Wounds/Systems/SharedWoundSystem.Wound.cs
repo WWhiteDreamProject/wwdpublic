@@ -19,7 +19,7 @@ public abstract partial class SharedWoundSystem
             return FixedPoint2.Zero;
 
         var oldDamage = wound.Comp.DamageAmount;
-        wound.Comp.DamageAmount = oldDamage.Float() + damageAmount.Float();
+        wound.Comp.DamageAmount = FixedPoint2.Max(oldDamage + damageAmount, FixedPoint2.Zero);
         wound.Comp.WoundSeverity = wound.Comp.Thresholds.HighestMatch(wound.Comp.DamageAmount) ?? WoundSeverity.Healthy;
 
         if (wound.Comp.DamageAmount > oldDamage)
@@ -35,10 +35,10 @@ public abstract partial class SharedWoundSystem
     }
 
     private bool TryCreateWound(
-        Entity<BodyPartComponent, DamageableComponent?, WoundableBodyPartComponent> bodyPart,
+        Entity<BodyPartComponent, WoundableBodyPartComponent> bodyPart,
         EntProtoId woundToSpawn,
         [NotNullWhen(true)] out Entity<WoundComponent>? wound,
-        Entity<DamageableComponent?, WoundableComponent>? woundable = null
+        Entity<WoundableComponent?>? woundable = null
     )
     {
         wound = null;
@@ -56,17 +56,16 @@ public abstract partial class SharedWoundSystem
         woundComponent.Parent = bodyPart;
         woundComponent.WoundedAt = _gameTiming.CurTime;
 
-        if (woundable == null && TryComp<WoundableComponent>(bodyPart.Comp3.Parent, out var woundableComponent))
-            woundable = (bodyPart.Comp3.Parent.Value,null,  woundableComponent);
+        if (woundable == null && TryComp<WoundableComponent>(bodyPart.Comp2.Parent, out var woundableComponent))
+            woundable = (bodyPart.Comp2.Parent.Value,  woundableComponent);
 
-        if (woundable != null)
-            woundable.Value.Comp2.Wounds[bodyPart.Comp1.Type] = bodyPart.Comp3.Wounds;
+        if (woundable is {} woundableEntity && Resolve(woundableEntity, ref woundableEntity.Comp))
+            woundableEntity.Comp.Wounds[bodyPart.Comp1.Type] = bodyPart.Comp2.Wounds;
 
         woundComponent.Body = woundable;
 
         return true;
     }
-
     #endregion
 
     #region Public API

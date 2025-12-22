@@ -1,5 +1,5 @@
-using Content.Shared._White.Body;
 using Content.Shared._White.Body.Components;
+using Content.Shared._White.Body.Systems;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
 using Robust.Client.GameObjects;
@@ -30,7 +30,7 @@ public sealed partial class BodySystem
         RemoveMarkingSprites(bodyAppearance.Owner, bodyPartAppearanceComponent.MarkingsLayers);
     }
 
-    protected override void OnOrganRemoved(Entity<BodyAppearanceComponent> bodyAppearance, ref OrganRemovedFromBodyEvent args)
+    protected override void OnOrganRemoved(Entity<BodyAppearanceComponent> bodyAppearance, ref OrganRemovedEvent args)
     {
         base.OnOrganRemoved(bodyAppearance, ref args);
 

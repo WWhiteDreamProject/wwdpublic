@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-4.0",
+  "copyright": "Gersoon (@gersoon458) for WWhiteDreamProject, 18.12.2025",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+    "states": [
+        {
+            "name": "skull"
+        },
+        {
+            "name": "rib_cage"
+        },
+        {
+            "name": "pelvis"
+        },
+        {
+            "name": "left_arm"
+        },
+        {
+            "name": "right_arm"
+        },
+        {
+            "name": "left_leg"
+        },
+        {
+            "name": "right_leg"
+        },
+        {
+            "name": "left_hand"
+        },
+        {
+            "name": "right_hand"
+        },
+        {
+            "name": "left_foot"
+        },
+        {
+            "name": "right_foot"
+        }
+    ]
+}

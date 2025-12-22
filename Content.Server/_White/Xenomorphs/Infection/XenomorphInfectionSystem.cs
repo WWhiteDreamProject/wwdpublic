@@ -1,4 +1,4 @@
-using Content.Shared._White.Body;
+using Content.Shared._White.Body.Systems;
 using Content.Shared._White.Xenomorphs.Infection;
 using Content.Shared._White.Xenomorphs.Larva;
 using Content.Shared.EntityEffects;

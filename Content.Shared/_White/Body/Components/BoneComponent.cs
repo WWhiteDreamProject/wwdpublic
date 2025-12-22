@@ -28,14 +28,36 @@ public sealed partial class BoneComponent : Component
     public EntityUid? Parent;
 }
 
+
 /// <summary>
-/// Defines various types of bones in the skeletal system.
-/// Uses the [Flags] attribute to allow for combining multiple bone types.
+/// Defines various types of bones that can be manipulated.
 /// </summary>
 [Flags]
 public enum BoneType
 {
     None = 0,
+
+    // --- Sides ---
+
+
+    /// <summary>
+    /// Left side.
+    /// </summary>
+    Left = 1 << 0,
+
+    /// <summary>
+    /// Middle part.
+    /// </summary>
+    Middle = 1 << 1,
+
+    /// <summary>
+    /// Right part.
+    /// </summary>
+    Right = 1 << 2,
+
+
+    // --- Main bones ---
+
 
     /// <summary>
     /// The cranium, the part of the skull that encloses the brain.
@@ -53,34 +75,95 @@ public enum BoneType
     Coxae = 1 << 2,
 
     /// <summary>
-    /// The humerus, the long bone in the upper arm.
+    /// The antebrachium, the bones of the forearm (radius and ulna), but within the framework of one bone - one body part also includes Humerus.
     /// </summary>
-    Humerus = 1 << 3,
-
-    /// <summary>
-    /// The antebrachii, the bones of the forearm (radius and ulna).
-    /// </summary>
-    Antebrachii = 1 << 4,
+    Antebrachium = 1 << 3,
 
     /// <summary>
     /// The manus, the bones of the hand (carpals, metacarpals, phalanges).
     /// </summary>
-    Manus = 1 << 5,
+    Manus = 1 << 4,
 
     /// <summary>
-    /// The femur, the long bone of the thigh.
+    /// The crus, the bones of the lower leg (tibia and fibula), but within the framework of one bone - one body part also includes Femur.
     /// </summary>
-    Femur = 1 << 6,
-
-    /// <summary>
-    /// The crus, the bones of the lower leg (tibia and fibula).
-    /// </summary>
-    Crus = 1 << 7,
+    Crus = 1 << 5,
 
     /// <summary>
     /// The pedis, the bones of the foot (tarsals, metatarsals, phalanges).
     /// </summary>
-    Pedis = 1 << 8,
+    Pedis = 1 << 6,
+
+
+    // --- Combined bones ---
+
+    // -- Antebrachium --
+
+    /// <summary>
+    /// Left Antebrachium.
+    /// </summary>
+    LeftAntebrachium = Left | Antebrachium,
+
+    /// <summary>
+    /// Middle Antebrachium.
+    /// </summary>
+    MiddleAntebrachium = Middle | Antebrachium,
+
+    /// <summary>
+    /// Right Antebrachium.
+    /// </summary>
+    RightAntebrachium = Right | Antebrachium,
+
+    // -- Manus --
+
+    /// <summary>
+    /// Left Manus.
+    /// </summary>
+    LeftManus = Left | Manus,
+
+    /// <summary>
+    /// Middle Manus.
+    /// </summary>
+    MiddleManus = Middle | Manus,
+
+    /// <summary>
+    /// Right Manus.
+    /// </summary>
+    RightManus = Right | Manus,
+
+    // -- Crus --
+
+    /// <summary>
+    /// Left Crus.
+    /// </summary>
+    LeftCrus = Left | Crus,
+
+    /// <summary>
+    /// Middle Crus.
+    /// </summary>
+    MiddleCrus = Middle | Crus,
+
+    /// <summary>
+    /// Right Crus.
+    /// </summary>
+    RightCrus = Right | Crus,
+
+    // -- Pedis --
+
+    /// <summary>
+    /// Left Pedis.
+    /// </summary>
+    LeftPedis = Left | Pedis,
+
+    /// <summary>
+    /// Middle Pedis.
+    /// </summary>
+    MiddlePedis = Middle | Pedis,
+
+    /// <summary>
+    /// Right Pedis.
+    /// </summary>
+    RightPedis = Right | Pedis,
 }
 
 [DataDefinition, Serializable, NetSerializable]

@@ -1,5 +1,6 @@
 using Content.Shared._White.Body.Systems;
 using Content.Shared._White.Medical.Wounds.Components.Wound;
+using Content.Shared._White.Medical.Wounds.Components.Woundable;
 using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Containers;
@@ -25,6 +26,7 @@ public abstract partial class SharedWoundSystem : EntitySystem
         base.Initialize();
 
         InitializeBodyPart();
+        InitializeBone();
         InitializeWoundable();
     }
 }
@@ -38,3 +40,23 @@ public record struct WoundDamageChangedEvent(WoundComponent WoundComponent, Fixe
 /// Raised on woudable entity after changing the damage of its wound.
 /// </summary>
 public record struct WoundableDamageChangedEvent(DamageSpecifier DamageDelta);
+
+/// <summary>
+/// Raised on bone entity after changing his health.
+/// </summary>
+public record struct BoneHealthChangedEvent(FixedPoint2 DamageDelta);
+
+/// <summary>
+/// Raised on bone entity after changing his state.
+/// </summary>
+public record struct BoneStatusChangedEvent(BoneStatus BoneState);
+
+/// <summary>
+/// Raised on body part entity after bone changing its state.
+/// </summary>
+public record struct BoneStatusChangedOnBodyPartEvent(BoneStatus BoneState);
+
+/// <summary>
+/// Raised on body entity after bone changing its state.
+/// </summary>
+public record struct BoneStatusChangedOnBodyEvent(BoneStatus BoneState);

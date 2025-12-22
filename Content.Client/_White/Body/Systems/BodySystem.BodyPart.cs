@@ -29,7 +29,7 @@ public sealed partial class BodySystem
 
         foreach (var (key, slot) in bodyPart.Comp.Bones)
         {
-            if (state.BodyParts.ContainsKey(key) || slot.ContainerSlot == null)
+            if (state.Bones.ContainsKey(key) || slot.ContainerSlot == null)
                 continue;
 
             _container.ShutdownContainer(slot.ContainerSlot);

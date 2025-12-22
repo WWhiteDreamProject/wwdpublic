@@ -1,9 +1,10 @@
 using System.Numerics;
+using Content.Server._White.Body.Systems;
 using Content.Server.Inventory;
 using Content.Server.Stack;
 using Content.Server.Stunnable;
-using Content.Shared._White.Body;
 using Content.Shared._White.Body.Components;
+using Content.Shared._White.Body.Systems;
 using Content.Shared.ActionBlocker;
 using Content.Shared._White.Hands;
 using Content.Shared.CombatMode;
@@ -38,6 +39,7 @@ namespace Content.Server.Hands.Systems
         [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
         [Dependency] private readonly PullingSystem _pullingSystem = default!;
         [Dependency] private readonly ThrowingSystem _throwingSystem = default!;
+        [Dependency] private readonly BodySystem _body = default!; // WD EDIT
 
         public override void Initialize()
         {
@@ -132,7 +134,7 @@ namespace Content.Server.Hands.Systems
 
         private void HandleBodyPartAdded(EntityUid uid, HandsComponent component, ref BodyPartAddedEvent args)
         {
-            if ((BodyPartType.Hand & args.Part.Comp.Type) == 0)
+            if (!args.Part.Comp.Type.HasFlag(BodyPartType.Hand)) // WD EDIT
                 return;
 
             // If this annoys you, which it should.
@@ -148,15 +150,15 @@ namespace Content.Server.Hands.Systems
             };
             // WD EDIT END
 
-            AddHand(uid, args.SlotId + "_hans", location); // WD EDIT: TODO: fix me
+            AddHand(uid, _body.GetBodyPartSlotId(args.SlotId), location); // WD EDIT
         }
 
         private void HandleBodyPartRemoved(EntityUid uid, HandsComponent component, ref BodyPartRemovedEvent args)
         {
-            if ((BodyPartType.Hand & args.Part.Comp.Type) == 0) // WD EDIT
+            if (!args.Part.Comp.Type.HasFlag(BodyPartType.Hand)) // WD EDIT
                 return;
 
-            RemoveHand(uid, args.SlotId); // WD EDIT
+            RemoveHand(uid, _body.GetBodyPartSlotId(args.SlotId)); // WD EDIT
         }
 
         #region pulling

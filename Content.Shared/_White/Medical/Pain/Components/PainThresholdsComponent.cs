@@ -32,20 +32,19 @@ public sealed partial class PainThresholdsComponent : Component
     public ProtoId<AlertPrototype> BodyStatusAlert = "BodyStatus";
 
     /// <summary>
-    /// The mob state to apply depending on the amount of pain. Highest threshold is selected.
+    /// The mob state to apply depending on the amount of pain. The highest threshold is selected.
     /// </summary>
     [DataField(required: true)]
     public SortedDictionary<FixedPoint2, MobState> MobStateThresholds;
 
-
     /// <summary>
     /// Effects applied to the entity at the appropriate level of pain.
     /// </summary>
-    [DataField(serverOnly: true)]
+    [DataField(serverOnly: true)] // TODO: Remove serverOnly when we move EntityEffect to shared
     public Dictionary<PainLevel, List<EntityEffect>> PainEffects = new();
 
     /// <summary>
-    /// The pain level to apply depending on the amount of pain. Highest threshold is selected.
+    /// The pain level to apply depending on the amount of pain. the highest threshold is selected.
     /// </summary>
     [DataField(required: true)]
     public SortedDictionary<FixedPoint2, PainLevel> PainLevelThresholds;

@@ -16,7 +16,8 @@ public abstract partial class SharedPainSystem
         foreach (var wound in _wound.GetWounds<PainfulWoundComponent>(painfulBodyPart))
             painfulBodyPart.Comp.Pain += GetWoundPain(wound.AsNullable());
 
-        painfulBodyPart.Comp.PainLevel = painfulBodyPart.Comp.Thresholds.HighestMatch(painfulBodyPart.Comp.Pain) ?? PainLevel.None;
+        painfulBodyPart.Comp.Pain = FixedPoint2.Max(painfulBodyPart.Comp.Pain, FixedPoint2.Zero);
+        painfulBodyPart.Comp.PainLevel = painfulBodyPart.Comp.Thresholds.HighestMatch(painfulBodyPart.Comp.Pain) ?? PainLevel.Zero;
         Dirty(painfulBodyPart);
 
         SetPainStatus(args.Painful.Owner, painfulBodyPart.Owner, painfulBodyPart.Comp.PainLevel);
