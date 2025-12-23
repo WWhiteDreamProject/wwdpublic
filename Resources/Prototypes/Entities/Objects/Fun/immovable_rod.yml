@@ -167,7 +167,7 @@
     noRot: false
 
 - type: entity
-  parent: ImmovableRodDespawn # White Dream
+  parent: ImmovableRodDespawn # White Dream: ImmovableRodKeepTilesStill -> ImmovableRodDespawn 
   id: ImmovableRodThrongler
   name: immovable throngler
   description: If you catch it, you can keep it.
