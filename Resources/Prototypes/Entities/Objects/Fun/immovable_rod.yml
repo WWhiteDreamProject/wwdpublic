@@ -108,7 +108,7 @@
         Blunt: 120
 
 - type: entity
-  parent: ImmovableRodDespawn # White Dream
+  parent: ImmovableRodDespawn # White Dream: ImmovableRodKeepTilesStill -> ImmovableRodDespawn 
   id: ImmovableRodMop
   name: immovable mop
   description: Hurled like a javelin, with the power of a thousand furious janitors.
