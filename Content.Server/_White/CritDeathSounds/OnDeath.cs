@@ -21,7 +21,6 @@ public sealed class
 
     private void HandleDeathEvent(EntityUid uid, CritDeathSoundsComponent component, MobStateChangedEvent args)
     {
-        //^.^
         switch (args.NewMobState)
         {
             case MobState.Invalid:
