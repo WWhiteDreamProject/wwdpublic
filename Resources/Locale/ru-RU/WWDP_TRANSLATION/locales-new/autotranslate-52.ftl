@@ -4,40 +4,40 @@ ent-EffectEmpPulse = ""
 ent-EffectEmpDisabled = ""
    .desc = ""
 
-ent-SpawnMobFlesh = Спавнер плоти
+ent-SpawnMobFlesh = спавнер плоти
    .desc = ""
 
-ent-SpawnMobGiantSpider = Спавнер гигантского паука
+ent-SpawnMobGiantSpider = спавнер гигантского паука
    .desc = ""
 
-ent-SpawnMobXenos = Спавнер ксено
+ent-SpawnMobXenos = спавнер ксено
    .desc = ""
 
-ent-SpawnMobXenoPraetorian = Спавнер ксено преторианца
+ent-SpawnMobXenoPraetorian = спавнер ксено преторианца
    .desc = ""
 
-ent-SpawnMobXenoDrone = Спавнер ксено дрона
+ent-SpawnMobXenoDrone = спавнер ксено дрона
    .desc = ""
 
-ent-SpawnMobXenoQueen = Спавнер ксено королевы
+ent-SpawnMobXenoQueen = спавнер ксено королевы
    .desc = ""
 
-ent-SpawnMobXenoRavager = Спавнер ксено разрушителя
+ent-SpawnMobXenoRavager = спавнер ксено разрушителя
    .desc = ""
 
-ent-SpawnMobXenoRunner = Спавнер ксено бегуна
+ent-SpawnMobXenoRunner = спавнер ксено бегуна
    .desc = ""
 
-ent-SpawnMobXenoRouny = Спавнер ксено руни
+ent-SpawnMobXenoRouny = спавнер ксено руни
    .desc = ""
 
-ent-SpawnMobXenoSpitter = Спавнер ксено плевальщика
+ent-SpawnMobXenoSpitter = спавнер ксено плевальщика
    .desc = ""
 
-ent-SpawnMobXenoTurret = Спавнер ксено турели
+ent-SpawnMobXenoTurret = спавнер ксено турели
    .desc = ""
 
-ent-SpawnMobXenoTower = Спавнер ксено башни
+ent-SpawnMobXenoTower = спавнер ксено башни
    .desc = ""
 
 ent-MobRandomServiceCorpse = неизвестный лакей
