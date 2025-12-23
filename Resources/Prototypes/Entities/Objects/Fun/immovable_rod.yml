@@ -155,7 +155,7 @@
     noRot: false
 
 - type: entity
-  parent: ImmovableRodDespawn # White Dream
+  parent: ImmovableRodDespawn # White Dream: ImmovableRodKeepTilesStill -> ImmovableRodDespawn 
   id: ImmovableRodHammer
   name: immovable hammer
   description: Bwoink.
