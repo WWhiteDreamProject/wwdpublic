@@ -179,7 +179,7 @@
     noRot: false
 
 - type: entity
-  parent: ImmovableRodDespawn # White Dream
+  parent: ImmovableRodDespawn # White Dream: ImmovableRodKeepTilesStill -> ImmovableRodDespawn 
   id: ImmovableRodGibstick
   name: immovable gibstick
   description: What did you expect?
