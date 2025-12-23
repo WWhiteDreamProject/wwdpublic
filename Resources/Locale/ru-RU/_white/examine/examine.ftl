@@ -27,7 +27,7 @@ id-card-examine-full = - {CAPITALIZE(POSS-ADJ($wearer))} ID: [bold]{$nameAndJob}
 examine-can-see-selfaware = Осмотрев себя, вы можете увидеть:
 examine-can-see-nothing-selfaware = На вас вообще ничего нет!
 
-id-examine-selfaware = - [bold]{$item}[/bold] на вашем поясе.
+id-examine-selfaware = - [bold]{$item}[/bold] на вашем ремне.
 head-examine-selfaware = - [bold]{$item}[/bold] на вашей голове.
 eyes-examine-selfaware = - [bold]{$item}[/bold] на ваших глазах.
 mask-examine-selfaware = - [bold]{$item}[/bold] на вашем лице.

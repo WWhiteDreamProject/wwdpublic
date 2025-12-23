@@ -1,8 +1,8 @@
 ui-lobby-title = Lobby: {$serverName}
-ui-lobby-ahelp-button = AHelp
+ui-lobby-ahelp-button = Admin Help
 ui-lobby-changelog-button = Changelog
 ui-lobby-options-button = Options
-ui-lobby-leave-button = Leave
+ui-lobby-leave-button = Exit
 ui-lobby-observe-button = Observe
 ui-lobby-ready-up-button = Ready Up
 ui-lobby-online-players-block = Online Players
