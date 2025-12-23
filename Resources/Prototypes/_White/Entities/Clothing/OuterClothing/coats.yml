@@ -37,7 +37,7 @@
         Piercing: 0.6
         Heat: 0.8
   - type: TemperatureProtection
-    heatingCoefficient: 1.1
+    heatingCoefficient: 0.5 # White Dream
     coolingCoefficient: 0.5 # WD EDIT: 0.1 -> 0.5
 
 - type: entity
