@@ -18,7 +18,7 @@
       map: [ "mask_decor" ]
       shader: unshaded
       #scale: 2, 2 # White Dream
-      offset: 0,-0.2 # White Dream
+      offset: 0,-0.2 # White Dream: 0,-0.6 -> 0,-0.2
   - type: Clothing
     sprite: _NF/Clothing/Mask/punkhalfmask.rsi
     clothingVisuals:
