@@ -17,7 +17,7 @@
   - type: Mask
   - type: IngestionBlocker
   - type: IdentityBlocker
-    coverage: FULL # White Dream
+    coverage: FULL # White Dream: MOUTH -> FULL
   - type: Sprite
     layers:
     - state: icon_mask
