@@ -2,4 +2,4 @@ silicon-charger-overheatwarning = Вам кажется, будто вы поп�
 silicon-charger-chargerate-string = Скорость зарядки
 silicon-charger-efficiency-string = Эффективность
 
-silicon-charger-list-full = {CAPITALIZE(THE($charger))} больше не в состоянии принять новых подопечных!
+silicon-charger-list-full = {CAPITALIZE($charger)} больше не в состоянии принять новых подопечных!
