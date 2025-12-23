@@ -120,7 +120,7 @@
     noRot: false
 
 - type: entity
-  parent: ImmovableRodDespawn # White Dream
+  parent: ImmovableRodDespawn # White Dream: ImmovableRodKeepTilesStill -> ImmovableRodDespawn 
   id: ImmovableRodShark
   name: immovable shark
   description: SHARK TORNADO!
