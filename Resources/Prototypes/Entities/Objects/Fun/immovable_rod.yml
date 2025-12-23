@@ -132,7 +132,7 @@
     noRot: false
 
 - type: entity
-  parent: ImmovableRodDespawn # White Dream
+  parent: ImmovableRodDespawn # White Dream: ImmovableRodKeepTilesStill -> ImmovableRodDespawn 
   id: ImmovableRodClown
   name: immovable clown
   description: Ejected from the neighbouring station one solar system over. HONK!
