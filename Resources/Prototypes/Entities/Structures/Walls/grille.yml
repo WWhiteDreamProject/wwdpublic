@@ -201,7 +201,7 @@
         mask:
         - FullTileMask
         layer:
-        - GlassLayer # WWDP fix
+        - FullTileLayer # White Dream
   - type: Construction
     graph: GrilleDiagonal
     node: grilleDiagonal
@@ -239,7 +239,7 @@
         mask:
         - FullTileMask
         layer:
-        - GlassLayer # WWDP fix
+        - FullTileLayer # White Dream
   - type: Construction
     graph: GrilleDiagonal
     node: clockworkGrilleDiagonal
