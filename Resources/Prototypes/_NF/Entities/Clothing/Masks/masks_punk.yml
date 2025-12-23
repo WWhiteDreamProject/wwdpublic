@@ -36,3 +36,4 @@
         decor_base_halfmask_01: CyberpunkNeon
   - type: IdentityBlocker # White Dream
     coverage: MOUTH
+  - type: IngestionBlocker # White Dream
