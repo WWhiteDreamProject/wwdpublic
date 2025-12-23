@@ -62,7 +62,7 @@
           !type:PhysShapeAabb
           bounds: "-0.5,-0.5,0.5,0.5"
         layer:
-        - GlassLayer
+        - FullTileLayer # White Dream
   - type: Destructible
     thresholds:
     - trigger:
@@ -87,6 +87,7 @@
           True: { visible: True }
           False: { visible: False }
   - type: AnimationPlayer
+  - type: RequireProjectileTarget # White Dream
 
 - type: entity
   id: ClockworkGrille
