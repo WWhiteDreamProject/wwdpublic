@@ -13,7 +13,7 @@
     - state: base_halfmask_01
       map: [ "mask_main" ]
       #scale: 2, 2 # White Dream
-      offset: 0,-0.2 # White Dream
+      offset: 0,-0.2 # White Dream: 0,-0.6 -> 0,-0.2
     - state: decor_base_halfmask_01
       map: [ "mask_decor" ]
       shader: unshaded
