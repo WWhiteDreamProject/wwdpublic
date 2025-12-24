@@ -4575,3 +4575,10 @@ Entries:
   id: 478
   time: '2025-12-21T21:36:59.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/895
+- author: vanx
+  changes:
+    - type: Tweak
+      message: Неподвижный жезл снова ломает тайлы под собой.
+  id: 479
+  time: '2025-12-24T16:19:48.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/922
