@@ -4582,3 +4582,12 @@ Entries:
   id: 479
   time: '2025-12-24T16:19:48.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/922
+- author: vanx
+  changes:
+    - type: Add
+      message: Защиту одежды от температуры теперь можно осмотреть.
+    - type: Add
+      message: Больше верхней одежды теперь защищает от температуры.
+  id: 480
+  time: '2025-12-24T16:22:19.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/925
