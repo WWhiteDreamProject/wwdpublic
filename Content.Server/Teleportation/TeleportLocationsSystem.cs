@@ -66,7 +66,7 @@ public sealed partial class TeleportLocationsSystem : SharedTeleportLocationsSys
             if (_whitelist.IsBlacklistPass(warpPointComp.Blacklist, warpEnt) || string.IsNullOrWhiteSpace(warpPointComp.Location))
                 continue;
 
-            if (ent.Comp.StationOnly && !HasComp<StationMemberComponent>(Transform(warpEnt).ParentUid)) // White Dream
+            if (ent.Comp.StationOnly && !HasComp<StationMemberComponent>(Transform(warpEnt).GridUid)) // White Dream
                 continue;
 
             ent.Comp.AvailableWarps.Add(new TeleportPoint(warpPointComp.Location, GetNetEntity(warpEnt)));
