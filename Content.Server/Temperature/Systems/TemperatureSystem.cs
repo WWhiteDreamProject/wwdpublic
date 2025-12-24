@@ -27,7 +27,7 @@ public sealed class TemperatureSystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly TemperatureSystem _temperature = default!;
-    [Dependency] private readonly ExamineSystemShared _examine = default!;
+    [Dependency] private readonly ExamineSystemShared _examine = default!; // WD EDIT
 
     /// <summary>
     ///     All the components that will have their damage updated at the end of the tick.

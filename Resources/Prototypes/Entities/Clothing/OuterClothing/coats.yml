@@ -74,7 +74,7 @@
     coolingCoefficient: 0.7
 
 - type: entity
-  parent: [ClothingOuterCoatCaptain, ClothingOuterStorageBase] # White Dream
+  parent: [ClothingOuterCoatCaptain, ClothingOuterStorageBase] # White Dream: ClothingOuterArmorCaptainCarapace -> ClothingOuterCoatCaptain
   id: ClothingOuterCoatCapTrench
   name: captain's armored trenchcoat
   description: A greatcoat enhanced with a special alloy for some extra protection and style for those with a commanding presence, outfitted with emblems and decor befitting its wearer. Issued only to the station's finest.
