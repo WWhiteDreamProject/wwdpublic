@@ -62,7 +62,8 @@
           !type:PhysShapeAabb
           bounds: "-0.5,-0.5,0.5,0.5"
         layer:
-        - FullTileLayer # White Dream
+        - GlassLayer # White Dream
+        - Opaque # White Dream
   - type: Destructible
     thresholds:
     - trigger:
@@ -201,7 +202,8 @@
         mask:
         - FullTileMask
         layer:
-        - FullTileLayer # White Dream
+        - GlassLayer # White Dream
+        - Opaque # White Dream
   - type: Construction
     graph: GrilleDiagonal
     node: grilleDiagonal
@@ -239,7 +241,8 @@
         mask:
         - FullTileMask
         layer:
-        - FullTileLayer # White Dream
+        - GlassLayer # White Dream
+        - Opaque # White Dream
   - type: Construction
     graph: GrilleDiagonal
     node: clockworkGrilleDiagonal
