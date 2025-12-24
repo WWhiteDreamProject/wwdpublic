@@ -206,7 +206,7 @@
     minimumPlayers: 25
   - type: ImmovableRodRule
     rodPrototypes:
-    - id: ImmovableRodKeepTilesStill
+    - id: ImmovableRodDespawn # White Dream: ImmovableRodKeepTilesStill -> ImmovableRodDespawn 
       prob: 0.95
       orGroup: rodProto
     - id: ImmovableRodMop
