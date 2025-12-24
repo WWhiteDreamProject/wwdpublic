@@ -251,7 +251,7 @@
     cutoffTime: 1.0
   - type: TTS # WD EDIT
   - type: ExaminableCharacter # WWDP
-  - type: CritDeathSounds # White Dream
+  - type: MobThresholdSounds # White Dream
 
 - type: entity
   save: false
