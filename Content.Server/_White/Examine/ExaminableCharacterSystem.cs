@@ -98,6 +98,8 @@ namespace Content.Server._White.Examine
 
                 var canseenothing = Loc.GetString(canseenothingloc, ("ent", uid));
                 logLines.Add($"[color=DarkGray][font size=10]{canseenothing}[/font][/color]");
+
+                args.PushMarkup($"[font size=10]{canseenothing}[/font]", 14);
             }
 
             var combinedLog = string.Join("\n", logLines);
