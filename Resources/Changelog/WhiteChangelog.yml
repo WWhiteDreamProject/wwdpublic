@@ -4591,3 +4591,14 @@ Entries:
   id: 480
   time: '2025-12-24T16:22:19.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/925
+- author: vanx
+  changes:
+    - type: Remove
+      message: >-
+        Из таблицы лута шкафов и со станций были убраны: игрушки, разноцветные
+        значки и плащи.
+    - type: Remove
+      message: Из лодаутов были убраны мягкие игрушки и значки.
+  id: 481
+  time: '2025-12-24T16:47:50.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/920
