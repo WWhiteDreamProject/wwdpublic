@@ -96,6 +96,12 @@ public sealed class ClonePowerSystem : EntitySystem
             return;
         }
 
+        if (_mind.TryGetMind(clone, out _, out _))
+        {
+            _popup.PopupEntity(Loc.GetString("clone-mind-clone"), uid, uid);
+            return;
+        }
+
         if (!_mind.TryGetMind(uid, out var mindId, out var mind))
             return;
         
@@ -116,7 +122,13 @@ public sealed class ClonePowerSystem : EntitySystem
             _popup.PopupEntity(Loc.GetString("clone-crit-original"), uid, uid);
             return;
         }
-        
+
+        if (_mind.TryGetMind(original, out _, out _))
+        {
+            _popup.PopupEntity(Loc.GetString("clone-mind-original"), uid, uid);
+            return;
+        }
+
         if (!_mind.TryGetMind(uid, out var mindId, out var mind))
             return;
         
@@ -173,6 +185,12 @@ public sealed class ClonePowerSystem : EntitySystem
 
         if (TryComp<ClonePowerComponent>(component.OriginalUid, out var origComp))
             origComp.CloneUid = null;
+
+        if (_mind.TryGetMind(uid, out var mindId, out var mind))
+        {
+            if (component.OriginalUid != null)
+                _mind.TransferTo(mindId, component.OriginalUid.Value, mind: mind);
+        }
 
         StripCloneEquipment(uid);
 
