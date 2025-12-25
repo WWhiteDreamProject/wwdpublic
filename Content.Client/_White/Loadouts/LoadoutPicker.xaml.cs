@@ -43,6 +43,7 @@ public sealed partial class LoadoutPicker : Control
     private int _loadoutPoints = 0;
 
     public CharacterRequirementsArgs CharacterRequirementsArgs = default!;
+    private ProtoId<LoadoutCategoryPrototype>? _selectedLoadoutCategory;
 
     public int LoadoutPoint
     {
@@ -87,6 +88,9 @@ public sealed partial class LoadoutPicker : Control
             loadout.CustomDescription = preference.CustomDescription;
             loadout.CustomContent = preference.CustomContent;
         }
+
+        if (_selectedLoadoutCategory != null)
+            LoadCategoryButtons(_selectedLoadoutCategory.Value);
     }
 
     public bool TryAddLoadout(ProtoId<LoadoutPrototype> loadoutPrototype, [NotNullWhen(true)] out Loadout? loadout)
@@ -166,15 +170,21 @@ public sealed partial class LoadoutPicker : Control
             SortAndPasteEntries();
         }
 
+        _selectedLoadoutCategory = loadoutCategoryPrototype;
+
         return true;
     }
 
-    private void Dirty()
+    public void EnsureLoadouts()
     {
         foreach (var entry in _loadoutEntries)
         {
             entry.EnsureIsWearable(CharacterRequirementsArgs, LoadoutPoint);
         }
+    }
+
+    private void Dirty()
+    {
         OnLoadoutsChanged?.Invoke(_selectedLoadouts.Select(x => x.Value).ToList());
     }
 

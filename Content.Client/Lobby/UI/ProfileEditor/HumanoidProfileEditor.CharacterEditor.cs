@@ -120,6 +120,7 @@ public sealed partial class HumanoidProfileEditor
         Profile = Profile.WithLoadoutPreference(loadouts);
         ReloadProfilePreview();
         ReloadClothes();
+        UpdateLoadouts();
     }
 
     private ICharacterMenuEntry BuildMenuGroup(ProtoId<CharacterMenuRootPrototype> protoId)

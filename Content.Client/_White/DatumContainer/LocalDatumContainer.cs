@@ -4,6 +4,7 @@ using Robust.Shared.ContentPack;
 using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Serialization.Markdown;
 using Robust.Shared.Utility;
+using YamlDotNet.RepresentationModel;
 
 
 namespace Content.Client._White.DatumContainer;
@@ -19,12 +20,10 @@ public sealed class LocalDatumContainer<T> where T : notnull
 
     private Dictionary<string, T> _data = new();
 
-    private IWritableDirProvider UserData => _resourceManager.UserData;
-
     public LocalDatumContainer(string datumName)
     {
         IoCManager.InjectDependencies(this);
-        _datumPath = _rootPath / new ResPath(datumName + ".yaml");
+        _datumPath = _rootPath / new ResPath($"{datumName}.yaml");
         LoadDataFromUserData();
     }
 
@@ -46,20 +45,24 @@ public sealed class LocalDatumContainer<T> where T : notnull
     private void Dirty()
     {
         var rootNode = _serializationManager.WriteValue(_data, notNullableOverride:true);
-        using var stream = UserData.Open(_datumPath, FileMode.Create);
+        using var stream = _resourceManager.UserData.Open(_datumPath, FileMode.Create);
         using var textWriter = new StreamWriter(stream);
         rootNode.Write(textWriter);
     }
 
     private void LoadDataFromUserData()
     {
-        if(!UserData.Exists(_rootPath))
-            UserData.CreateDir(_rootPath);
+        if(!_resourceManager.UserData.IsDir(_rootPath))
+            _resourceManager.UserData.CreateDir(_rootPath);
 
-        if (!UserData.Exists(_datumPath))
+        if (!_resourceManager.UserData.Exists(_datumPath))
             return;
 
-        var stream = _resourceManager.ContentFileReadYaml(_datumPath);
-        _data = _serializationManager.Read<Dictionary<string, T>>(stream.Documents[0].RootNode.ToDataNode(), notNullableOverride:true);
+        using var stream = _resourceManager.UserData.Open(_datumPath, FileMode.Open);
+        using var textReadStream = new StreamReader(stream);
+        var yamlStream = new YamlStream();
+        yamlStream.Load(textReadStream);
+        
+        _data = _serializationManager.Read<Dictionary<string, T>>(yamlStream.Documents[0].RootNode.ToDataNode(), notNullableOverride:true);
     }
 }
