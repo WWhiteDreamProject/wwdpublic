@@ -666,6 +666,7 @@
   potency: 20
   idealLight: 9
   idealHeat: 298
+  growthStages: 3
   chemicals:
     Nutriment:
       Min: 1
