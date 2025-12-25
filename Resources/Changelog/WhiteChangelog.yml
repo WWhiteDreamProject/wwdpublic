@@ -4630,3 +4630,12 @@ Entries:
   id: 485
   time: '2025-12-25T03:43:31.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/910
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: 'Изначальное количество очков характеристик: 0 -> 5'
+    - type: Tweak
+      message: Космический ветер теперь не должен быть по дефолту
+  id: 486
+  time: '2025-12-25T03:44:03.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/911
