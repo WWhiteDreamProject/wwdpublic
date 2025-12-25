@@ -4568,3 +4568,81 @@ Entries:
   id: 477
   time: '2025-12-10T18:58:39.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/883
+- author: Spatison
+  changes:
+    - type: Fix
+      message: Исправлено поведение карточек игры EvacPod при их совмещении.
+  id: 478
+  time: '2025-12-21T21:36:59.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/895
+- author: vanx
+  changes:
+    - type: Tweak
+      message: Неподвижный жезл снова ломает тайлы под собой.
+  id: 479
+  time: '2025-12-24T16:19:48.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/922
+- author: vanx
+  changes:
+    - type: Add
+      message: Защиту одежды от температуры теперь можно осмотреть.
+    - type: Add
+      message: Больше верхней одежды теперь защищает от температуры.
+  id: 480
+  time: '2025-12-24T16:22:19.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/925
+- author: vanx
+  changes:
+    - type: Remove
+      message: >-
+        Из таблицы лута шкафов и со станций были убраны: игрушки, разноцветные
+        значки и плащи.
+    - type: Remove
+      message: Из лодаутов были убраны мягкие игрушки и значки.
+  id: 481
+  time: '2025-12-24T16:47:50.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/920
+- author: vanx
+  changes:
+    - type: Fix
+      message: Огненный топор из аплинка снова поджигает при ударе.
+  id: 482
+  time: '2025-12-24T16:48:21.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/926
+- author: Spatison
+  changes:
+    - type: Fix
+      message: Исправлен спрайт элитного скафандра синдиката
+  id: 483
+  time: '2025-12-25T03:41:08.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/908
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: Изменено отображение универсального языка в чате
+  id: 484
+  time: '2025-12-25T03:42:11.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/909
+- author: Spatison
+  changes:
+    - type: Fix
+      message: Роль призрака парадоксального клона теперь можно вязть
+  id: 485
+  time: '2025-12-25T03:43:31.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/910
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: 'Изначальное количество очков характеристик: 0 -> 5'
+    - type: Tweak
+      message: Космический ветер теперь не должен быть по дефолту
+  id: 486
+  time: '2025-12-25T03:44:03.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/911
+- author: Spatison
+  changes:
+    - type: Fix
+      message: Абдукторы научились лежать и передавать предметы
+  id: 487
+  time: '2025-12-25T03:45:36.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/912
