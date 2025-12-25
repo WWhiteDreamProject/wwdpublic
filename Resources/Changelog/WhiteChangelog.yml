@@ -4623,3 +4623,10 @@ Entries:
   id: 484
   time: '2025-12-25T03:42:11.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/909
+- author: Spatison
+  changes:
+    - type: Fix
+      message: Роль призрака парадоксального клона теперь можно вязть
+  id: 485
+  time: '2025-12-25T03:43:31.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/910
