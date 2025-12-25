@@ -4609,3 +4609,10 @@ Entries:
   id: 482
   time: '2025-12-24T16:48:21.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/926
+- author: Spatison
+  changes:
+    - type: Fix
+      message: Исправлен спрайт элитного скафандра синдиката
+  id: 483
+  time: '2025-12-25T03:41:08.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/908
