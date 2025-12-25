@@ -186,9 +186,13 @@ public sealed class ClonePowerSystem : EntitySystem
         if (TryComp<ClonePowerComponent>(component.OriginalUid, out var origComp))
             origComp.CloneUid = null;
 
-        if (_mind.TryGetMind(uid, out var mindId, out var mind) & !_mind.TryGetMind(component.OriginalUid.Value, out _, out _))
+
+        if (component.OriginalUid != null)
         {
-            _mind.TransferTo(mindId, component.OriginalUid.Value, mind: mind);
+            if (_mind.TryGetMind(uid, out var mindId, out var mind) & !_mind.TryGetMind(component.OriginalUid.Value, out _, out _))
+            {
+                _mind.TransferTo(mindId, component.OriginalUid.Value, mind: mind);
+            }
         }
 
         StripCloneEquipment(uid);
