@@ -4639,3 +4639,10 @@ Entries:
   id: 486
   time: '2025-12-25T03:44:03.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/911
+- author: Spatison
+  changes:
+    - type: Fix
+      message: Абдукторы научились лежать и передавать предметы
+  id: 487
+  time: '2025-12-25T03:45:36.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/912
