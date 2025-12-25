@@ -473,8 +473,15 @@ namespace Content.Server.Database
     }
 
     [Serializable]
-    public partial class Loadout : Shared.Clothing.Loadouts.Systems.Loadout
+    public class Loadout
     {
+        public string LoadoutName { get; set; } = null!;
+        public string? CustomName { get; set; }
+        public string? CustomDescription { get; set; }
+        public string? CustomContent { get; set; } // WD EDIT
+        public string? CustomColorTint { get; set; }
+        public bool? CustomHeirloom { get; set; }
+
         public int Id { get; set; }
         public Profile Profile { get; set; } = null!;
         public int ProfileId { get; set; }
@@ -486,7 +493,15 @@ namespace Content.Server.Database
             string? customContent = null, // WD EDIT
             string? customColorTint = null,
             bool? customHeirloom = null
-        ) : base(loadoutName, customName, customDescription, customContent, customColorTint, customHeirloom) { } // WD EDIT
+        )
+        {
+            LoadoutName = loadoutName;
+            CustomName = customName;
+            CustomDescription = customDescription;
+            CustomContent = customContent;
+            CustomColorTint = customColorTint;
+            CustomHeirloom = customHeirloom;
+        }
     }
 
     public enum DbPreferenceUnavailableMode

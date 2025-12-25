@@ -5,6 +5,7 @@
     xmlns:ui="clr-namespace:Content.Client.UserInterface.Controls"
     xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
     xmlns:controls="clr-namespace:Content.Client._White.UserInterface.Controls"
+    xmlns:loadouts="clr-namespace:Content.Client._White.Loadouts"
     HorizontalExpand="True">
     <!-- Left side -->
     <BoxContainer Orientation="Vertical" Margin="10 10 10 10" HorizontalExpand="True">
@@ -34,21 +35,27 @@
                     <ScrollContainer HorizontalExpand="True" HScrollEnabled="True" VerticalExpand="True" VScrollEnabled="True">
                         <BoxContainer HorizontalExpand="True" Orientation="Vertical">
                             <ui:AlternatingBGContainer Orientation="Vertical" HorizontalExpand="True">
-                                <BoxContainer HorizontalAlignment="Center">
+                                <!-- WD EDIT START -->
+                                <BoxContainer HorizontalAlignment="Stretch" HorizontalExpand="True">
+                                    <Button Visible="False" Name="CharacterEditBackButton" Text="..."/>
+                                    <ScrollContainer Access="Public" Name="CharacterEditContainerScroll" HorizontalAlignment="Stretch" HorizontalExpand="True" MaxHeight="800">
+                                        <BoxContainer Orientation="Vertical" Name="CharacterEditButtonContainer" VerticalAlignment="Center"/>
+                                    </ScrollContainer>
+                                    <humanoid:MarkingPicker Name="Markings" HorizontalExpand="True" HorizontalAlignment="Stretch" Access="Public" Visible="False"/>
+                                    <loadouts:LoadoutPicker Name="Loadouts" HorizontalExpand="True" HorizontalAlignment="Stretch" Access="Public" Visible="False"/>
                                     <BoxContainer Orientation="Vertical" VerticalAlignment="Center">
-                                        <Button Visible="False" Name="CharacterEditBackButton" Text="..."/>
-                                        <BoxContainer Orientation="Vertical" Name="CharacterEditButtonContainer" VerticalAlignment="Center">
-
-                                        </BoxContainer>
-                                    </BoxContainer>
-                                    <BoxContainer Orientation="Vertical" VerticalAlignment="Center">
-                                        <SpriteView Name="SpriteViewS" OverrideDirection="South" Scale="4 4" />
+                                        <SpriteView Name="CharacterSpriteView" OverrideDirection="South" Scale="8 8" />
                                         <BoxContainer HorizontalExpand="True" Align="Center">
-                                            <Button StyleClasses="OpenRight" Text="A"/>
-                                            <Button StyleClasses="OpenLeft" Text="B"/>
+                                            <Button Name="PreviewRotateLeftButton" StyleClasses="OpenRight" >
+                                                <TextureRect TexturePath="/Textures/Interface/Default/left_arrow.svg.192dpi.png" Stretch="KeepAspectCentered"/>
+                                            </Button>
+                                            <Button Name="PreviewRotateRightButton" StyleClasses="OpenLeft">
+                                                <TextureRect TexturePath="/Textures/Interface/Default/right_arrow.svg.192dpi.png" Stretch="KeepAspectCentered"/>
+                                            </Button>
                                         </BoxContainer>
                                     </BoxContainer>
                                 </BoxContainer>
+                                <!-- WD EDIT END -->
                                 <!-- Species -->
                                 <BoxContainer HorizontalExpand="True">
                                     <Label Text="{Loc 'humanoid-profile-editor-species-label'}" />
@@ -291,37 +298,6 @@
                     </BoxContainer>
 
                     <ui:NeoTabContainer Name="TraitsTabs" VerticalExpand="True" SeparatorMargin="0" />
-                </BoxContainer>
-                <BoxContainer Name="LoadoutsTab" HorizontalExpand="True" Orientation="Vertical">
-                    <!-- Loadouts -->
-                    <Label Name="LoadoutPointsLabel" HorizontalAlignment="Stretch" Align="Center" />
-                    <ProgressBar Name="LoadoutPointsBar" MaxValue="1" Value="1" MaxHeight="8" Margin="0 5" />
-
-                    <BoxContainer HorizontalExpand="True" Margin="0 0 0 5">
-                        <Button
-                            Name="LoadoutsShowUnusableButton"
-                            Text="{Loc 'humanoid-profile-editor-loadouts-show-unusable-button'}"
-                            ToolTip="{Loc 'humanoid-profile-editor-loadouts-show-unusable-button-tooltip'}"
-                            ToggleMode="True"
-                            HorizontalAlignment="Stretch"
-                            HorizontalExpand="True"
-                            StyleClasses="OpenRight" />
-                        <Button
-                            Name="LoadoutsRemoveUnusableButton"
-                            Text="You shouldn't see this"
-                            ToolTip="{Loc 'humanoid-profile-editor-loadouts-remove-unusable-button-tooltip'}"
-                            HorizontalAlignment="Stretch"
-                            HorizontalExpand="True"
-                            StyleClasses="OpenLeft" />
-                    </BoxContainer>
-
-                    <ui:NeoTabContainer Name="LoadoutsTabs" VerticalExpand="True" SeparatorMargin="0" />
-                </BoxContainer>
-                <BoxContainer Name="MarkingsTab" HorizontalExpand="True" Orientation="Vertical">
-                    <ScrollContainer HorizontalExpand="True" HScrollEnabled="True" VerticalExpand="True" VScrollEnabled="True">
-                        <!-- Markings -->
-                        <humanoid:MarkingPicker Name="Markings" IgnoreCategories="Hair,FacialHair" />
-                    </ScrollContainer>
                 </BoxContainer>
             </ui:NeoTabContainer>
         </PanelContainer>
