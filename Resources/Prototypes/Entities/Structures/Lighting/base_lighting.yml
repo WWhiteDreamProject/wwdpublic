@@ -446,8 +446,8 @@
   components:
   - type: PointLight
     enabled: false
-    radius: 5
-    energy: 0.6
+    radius: 3 # White Dream
+    energy: 2 # White Dream
     offset: "0, 0.4"
     color: "#7CFC00"
     mask: /Textures/Effects/LightMasks/double_cone.png
@@ -455,10 +455,10 @@
   - type: ExtensionCableReceiver
   - type: Battery
     maxCharge: 30000
-    startingCharge: 0
+    startingCharge: 30000 # White Dream; 0 -> 30000
   - type: EmergencyLight
   - type: RotatingLight
-    speed: 40
+    speed: 120 # White Dream
   - type: Sprite
     sprite: Structures/Wallmounts/Lighting/emergency_light.rsi
     layers:

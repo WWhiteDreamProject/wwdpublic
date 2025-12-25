@@ -1,5 +1,7 @@
 using Content.Server.Light.EntitySystems;
 using Content.Shared.Light.Components;
+using Robust.Shared.Audio;
+
 
 namespace Content.Server.Light.Components;
 
@@ -37,6 +39,26 @@ public sealed partial class EmergencyLightComponent : SharedEmergencyLightCompon
         { EmergencyLightState.Charging, "emergency-light-component-light-state-charging" },
         { EmergencyLightState.On, "emergency-light-component-light-state-on" }
     };
+
+    /// <summary>
+    /// White Dream
+    /// Alarm sound that the emergency lights will play
+    /// Overwritten by AlertLevelPrototype on station alert level change
+    /// </summary>
+    [DataField]
+    public bool AlarmSoundActive;
+
+    [DataField]
+    public SoundSpecifier? AlarmSound;
+
+    [DataField]
+    public float AlarmVolume;
+
+    [DataField]
+    public float AlarmInterval;
+
+    [DataField]
+    public TimeSpan? AlarmNextSound;
 }
 
 public enum EmergencyLightState : byte

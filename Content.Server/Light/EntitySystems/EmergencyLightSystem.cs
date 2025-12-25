@@ -9,7 +9,11 @@ using Content.Shared.Light;
 using Content.Shared.Light.Components;
 using Content.Shared.Power;
 using Content.Shared.Station.Components;
+using Robust.Server.Audio;
 using Robust.Server.GameObjects;
+using Robust.Shared.Audio;
+using Robust.Shared.Player;
+using Robust.Shared.Timing;
 using Color = Robust.Shared.Maths.Color;
 
 namespace Content.Server.Light.EntitySystems;
@@ -21,6 +25,8 @@ public sealed class EmergencyLightSystem : SharedEmergencyLightSystem
     [Dependency] private readonly PointLightSystem _pointLight = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private readonly AudioSystem _audioSystem = default!; // White Dream
+    [Dependency] private readonly IGameTiming _timing = default!; // White Dream
 
     public override void Initialize()
     {
@@ -108,6 +114,7 @@ public sealed class EmergencyLightSystem : SharedEmergencyLightSystem
 
             _pointLight.SetColor(uid, details.EmergencyLightColor, pointLight);
             _appearance.SetData(uid, EmergencyLightVisuals.Color, details.EmergencyLightColor, appearance);
+            UpdateAlarmSound((uid, light), details); // White Dream
 
             if (details.ForceEnableEmergencyLights && !light.ForciblyEnabled)
             {
@@ -131,39 +138,59 @@ public sealed class EmergencyLightSystem : SharedEmergencyLightSystem
         RaiseLocalEvent(uid, new EmergencyLightEvent(state));
     }
 
+    // White Dream edit start
     public override void Update(float frameTime)
     {
         var query = EntityQueryEnumerator<ActiveEmergencyLightComponent, EmergencyLightComponent, BatteryComponent>();
         while (query.MoveNext(out var uid, out _, out var emergencyLight, out var battery))
         {
-            Update((uid, emergencyLight), battery, frameTime);
-        }
-    }
-
-    private void Update(Entity<EmergencyLightComponent> entity, BatteryComponent battery, float frameTime)
-    {
-        if (entity.Comp.State == EmergencyLightState.On)
-        {
-            if (!_battery.TryUseCharge(entity.Owner, entity.Comp.Wattage * frameTime, battery))
+            if (emergencyLight.State == EmergencyLightState.On)
             {
-                SetState(entity.Owner, entity.Comp, EmergencyLightState.Empty);
-                TurnOff(entity);
-            }
-        }
-        else
-        {
-            _battery.SetCharge(entity.Owner, battery.CurrentCharge + entity.Comp.ChargingWattage * frameTime * entity.Comp.ChargingEfficiency, battery);
-            if (_battery.IsFull(entity, battery))
-            {
-                if (TryComp<ApcPowerReceiverComponent>(entity.Owner, out var receiver))
+                if (!_battery.TryUseCharge(uid, emergencyLight.Wattage * frameTime, battery))
                 {
-                    receiver.Load = 1;
+                    SetState(uid, emergencyLight, EmergencyLightState.Empty);
+                    TurnOff((uid, emergencyLight));
                 }
+            }
+            else
+            {
+                _battery.SetCharge(
+                    uid,
+                    battery.CurrentCharge + emergencyLight.ChargingWattage * frameTime * emergencyLight.ChargingEfficiency,
+                    battery);
+                if (_battery.IsFull(uid, battery))
+                {
+                    if (TryComp<ApcPowerReceiverComponent>(uid, out var receiver))
+                    {
+                        receiver.Load = 1;
+                    }
 
-                SetState(entity.Owner, entity.Comp, EmergencyLightState.Full);
+                    SetState(uid, emergencyLight, EmergencyLightState.Full);
+                }
+            }
+        }
+
+        var soundQuery = EntityQueryEnumerator<EmergencyLightComponent>();
+
+        while (soundQuery.MoveNext(out var uid, out var emergencyLight))
+        {
+            if (emergencyLight.State == EmergencyLightState.Empty || !emergencyLight.AlarmSoundActive)
+                continue;
+
+            if (emergencyLight.AlarmNextSound < _timing.CurTime)
+            {
+                var audioParams = AudioParams.Default
+                    .WithVolume(emergencyLight.AlarmVolume)
+                    .WithMaxDistance(10f)
+                    .WithRolloffFactor(2f);
+
+                _audioSystem.PlayEntity(emergencyLight.AlarmSound, Filter.Pvs(uid, 0.5f), uid, true, audioParams);
+
+                emergencyLight.AlarmNextSound = _timing.CurTime.Add(TimeSpan.FromSeconds(emergencyLight.AlarmInterval));
             }
         }
     }
+    // White Dream edit end
 
     /// <summary>
     ///     Updates the light's power drain, battery drain, sprite and actual light state.
@@ -197,6 +224,7 @@ public sealed class EmergencyLightSystem : SharedEmergencyLightSystem
         {
             TurnOn(entity, details.Color);
             SetState(entity.Owner, entity.Comp, EmergencyLightState.On);
+            UpdateAlarmSound(entity, details); // White Dream
         }
     }
 
@@ -237,4 +265,25 @@ public sealed class EmergencyLightSystem : SharedEmergencyLightSystem
         _appearance.SetData(entity.Owner, EmergencyLightVisuals.On, true);
         _ambient.SetAmbience(entity.Owner, true);
     }
+
+    // White Dream edit start - Audio Alert by Alert Level
+    private void UpdateAlarmSound(Entity<EmergencyLightComponent> entity, AlertLevelDetail alertLevel)
+    {
+        if (alertLevel.AlarmSound == null || !alertLevel.EnableAlarmSound)
+        {
+            entity.Comp.AlarmSoundActive = false;
+            return;
+        }
+
+        entity.Comp.AlarmSoundActive = true;
+        entity.Comp.AlarmSound = alertLevel.AlarmSound;
+        entity.Comp.AlarmVolume = alertLevel.AlarmVolume;
+        entity.Comp.AlarmInterval = alertLevel.AlarmInterval;
+
+        if (entity.Comp.AlarmInterval < 1f) // Safeguard against spam and client crash
+            entity.Comp.AlarmInterval = 1f;
+
+        entity.Comp.AlarmNextSound = _timing.CurTime.Add(TimeSpan.FromSeconds(entity.Comp.AlarmInterval));
+    }
+    // White Dream edit end
 }
