@@ -4616,3 +4616,10 @@ Entries:
   id: 483
   time: '2025-12-25T03:41:08.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/908
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: Изменено отображение универсального языка в чате
+  id: 484
+  time: '2025-12-25T03:42:11.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/909
