@@ -1,7 +1,7 @@
 using Content.Shared._White.PDA.Animation;
+using Content.Shared.Interaction;
 using Content.Shared.PDA;
 using Content.Shared.UserInterface;
-using Content.Shared.Interaction;
 using Robust.Server.GameObjects;
 using Robust.Shared.Timing;
 
@@ -12,6 +12,7 @@ namespace Content.Server._White.PDA.Animation;
 /// </summary>
 public sealed class PdaAnimatedSystem : SharedPdaAnimatedSystem
 {
+    [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
 
     public override void Initialize()
@@ -61,8 +62,12 @@ public sealed class PdaAnimatedSystem : SharedPdaAnimatedSystem
                     Dirty(uid, animComp);
                     UpdateAppearance(uid, animComp);
 
-                    if (animComp.AnimatingUser != null && _uiSystem.HasUi(uid, PdaUiKey.Key))
+                    if (animComp.AnimatingUser != null &&
+                        _uiSystem.HasUi(uid, PdaUiKey.Key) &&
+                        _interactionSystem.InRangeUnobstructed(animComp.AnimatingUser.Value, uid))
+                    {
                         _uiSystem.TryOpenUi(uid, PdaUiKey.Key, animComp.AnimatingUser.Value);
+                    }
                 }
             });
         }
