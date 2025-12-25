@@ -18,13 +18,13 @@ public sealed partial class PdaAnimatedComponent : Component
     /// Duration of opening animation in seconds
     /// </summary>
     [DataField]
-    public float OpeningDuration = 1.02f; // 34 frames * 0.03s
+    public float OpeningDuration = 1.65f; // ( 34 - 1 frames ) * 0.05s
 
     /// <summary>
     /// Duration of closing animation in seconds
     /// </summary>
     [DataField]
-    public float ClosingDuration = 0.45f; // 15 frames * 0.03s
+    public float ClosingDuration = 0.7f; // ( 15 - 1 frames ) * 0.05s
 
     /// <summary>
     /// The user who is currently opening/closing the PDA

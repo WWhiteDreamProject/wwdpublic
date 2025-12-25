@@ -48,14 +48,6 @@
     sprite: _White/Objects/Devices/Pda/pda.rsi
     state: pda
   - type: PdaAnimated
-    openingDuration: 1.7
-    closingDuration: 0.75
+    openingDuration: 1.65
+    closingDuration: 0.7
   - type: Appearance
-  - type: GenericVisualizer
-    visuals:
-      enum.PdaVisuals.AnimationState:
-        enum.PdaVisualLayers.Screen:
-          Opening: { state: "screen_turning-on", shader: unshaded, autoAnimated: true }
-          Open: { state: "screen_on", shader: unshaded }
-          Closing: { state: "screen_shutdown", shader: unshaded, autoAnimated: true }
-          Closed: { visible: false }

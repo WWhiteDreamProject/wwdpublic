@@ -113,6 +113,7 @@ public sealed class PdaAnimatedSystem : SharedPdaAnimatedSystem
         {
             comp.AnimationState = PdaAnimationState.Closing;
             comp.AnimatingUser = args.Actor;
+            comp.ClosingAnimationStarted = true;
             Dirty(uid, comp);
             UpdateAppearance(uid, comp);
 

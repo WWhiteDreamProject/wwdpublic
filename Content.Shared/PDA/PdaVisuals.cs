@@ -9,7 +9,7 @@ namespace Content.Shared.PDA
         PdaType,
         Enabled, // WWDP edit
         Screen, // WWDP edit
-        AnimationState // WWDP EDIT: Add animation state
+        AnimationState // WWDP EDIT
     }
 
     [Serializable, NetSerializable]
