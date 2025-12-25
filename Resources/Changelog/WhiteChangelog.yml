@@ -4646,3 +4646,10 @@ Entries:
   id: 487
   time: '2025-12-25T03:45:36.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/912
+- author: Spatison
+  changes:
+    - type: Fix
+      message: Переводчики и модсьюты  теперь не тратят заряд батареи за секунду
+  id: 488
+  time: '2025-12-25T13:15:54.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/924
