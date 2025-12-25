@@ -8,6 +8,7 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Popups;
+using Content.Shared.PowerCell;
 using Content.Shared.Verbs;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
@@ -30,6 +31,7 @@ public abstract class SharedSealableClothingSystem : EntitySystem
     [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly ToggleableClothingSystem _toggleableSystem = default!;
+    [Dependency] private readonly SharedPowerCellSystem _powerCell = default!; // WD EDIT
 
     public override void Initialize()
     {
@@ -58,7 +60,10 @@ public abstract class SharedSealableClothingSystem : EntitySystem
 
     /// Toggles components on control when suit complete sealing process
     private void OnControlSealingComplete(Entity<SealableClothingControlComponent> control, ref ClothingControlSealCompleteEvent args)
-        => _componentTogglerSystem.ToggleComponent(control, args.IsSealed);
+    {
+        _componentTogglerSystem.ToggleComponent(control, args.IsSealed);
+        _powerCell.QueueUpdate(control.Owner); // WD EDIT
+    }
 
     /// Add/Remove wearer on clothing equip/unequip
     private void OnControlEquip(Entity<SealableClothingControlComponent> control, ref ClothingGotEquippedEvent args)
