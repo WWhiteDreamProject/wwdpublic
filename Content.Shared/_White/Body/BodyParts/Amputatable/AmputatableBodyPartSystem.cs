@@ -1,18 +1,16 @@
 using Content.Shared._White.Body.Systems;
 using Content.Shared._White.Medical.Wounds.Systems;
+using Content.Shared._White.Random;
 using Content.Shared._White.Threshold;
 using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
 using Content.Shared.Throwing;
-using Robust.Shared.Network;
-using Robust.Shared.Random;
 
 namespace Content.Shared._White.Body.BodyParts.Amputatable;
 
 public sealed class AmputatableBodyPartSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private readonly PredictedRandomManager _random = default!;
 
     [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
@@ -65,14 +63,15 @@ public sealed class AmputatableBodyPartSystem : EntitySystem
 
         amputatableBodyPart.Comp.CurrentChanceThreshold = amputatableBodyPart.Comp.ChanceThresholds.HighestMatch(totalDamage) ?? 0f;
 
-        if (!_random.Prob(amputatableBodyPart.Comp.CurrentChance) || _net.IsClient)
+        var random = _random.GetRandom(amputatableBodyPart);
+        if (!_random.Prob(random, amputatableBodyPart.Comp.CurrentChance))
             return;
 
         _body.TryDetachBodyPart(amputatableBodyPart);
         _throwing.TryThrow(
             amputatableBodyPart,
-            _random.NextAngle().ToWorldVec() * _random.NextFloat(0.8f, 2f),
-            _random.NextFloat(0.5f, 1f),
+            _random.NextAngle(random).ToWorldVec() * _random.NextFloat(random, 0.8f, 2f),
+            _random.NextFloat(random, 0.5f, 1f),
             pushbackRatio: 0.3f);
     }
 }
