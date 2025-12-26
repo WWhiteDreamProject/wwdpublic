@@ -1,7 +1,7 @@
-ent-RandomVendingDrinks = Спавнер случайного вендомата напитков
+ent-RandomVendingDrinks = спавнер случайного вендомата напитков
    .desc = ""
 
-ent-RandomVendingSnacks = Спавнер случайного ведомата закусок
+ent-RandomVendingSnacks = спавнер случайного ведомата закусок
    .desc = ""
 
 ent-MobBoxingKangaroo = кенгуру-боксёр
