@@ -257,7 +257,7 @@
   - type: MobState
     allowMovementWhileCrit: true
     allowMovementWhileSoftCrit: true
-  - type: MobThresholdSounds # White Dream
+  - type: MobThresholdSounds
   # WD EDIT END
 
 - type: entity
