@@ -115,7 +115,7 @@ public abstract class SharedGibbingSystem : EntitySystem
 
     #region PrivateAPI
 
-    private bool TryGibEntity(
+    public bool TryGibEntity(
         EntityUid outerEntity,
         Entity<GibbableComponent?> gibbable,
         GibType gibType,

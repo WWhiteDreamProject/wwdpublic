@@ -67,13 +67,14 @@ public abstract partial class SharedWoundSystem
         bone.Comp2.CurrentBoneStatusThreshold = boneStatus;
         DirtyField(bone, bone.Comp2, nameof(WoundableBoneComponent.CurrentBoneStatusThreshold));
 
-        RaiseLocalEvent(bone, new BoneStatusChangedEvent(boneStatus));
+        var ev = new BoneStatusChangedEvent((bone, bone.Comp2), boneStatus);
+        RaiseLocalEvent(bone, ev);
 
         if (bone.Comp1.Body.HasValue)
-            RaiseLocalEvent(bone.Comp1.Body.Value, new BoneStatusChangedOnBodyEvent(boneStatus));
+            RaiseLocalEvent(bone.Comp1.Body.Value, ev);
 
         if (bone.Comp1.Parent.HasValue)
-            RaiseLocalEvent(bone.Comp1.Parent.Value, new BoneStatusChangedOnBodyPartEvent(boneStatus));
+            RaiseLocalEvent(bone.Comp1.Parent.Value, ev);
     }
 
     #endregion

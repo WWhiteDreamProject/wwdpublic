@@ -49,14 +49,4 @@ public record struct BoneHealthChangedEvent(FixedPoint2 DamageDelta);
 /// <summary>
 /// Raised on bone entity after changing his state.
 /// </summary>
-public record struct BoneStatusChangedEvent(BoneStatus BoneState);
-
-/// <summary>
-/// Raised on body part entity after bone changing its state.
-/// </summary>
-public record struct BoneStatusChangedOnBodyPartEvent(BoneStatus BoneState);
-
-/// <summary>
-/// Raised on body entity after bone changing its state.
-/// </summary>
-public record struct BoneStatusChangedOnBodyEvent(BoneStatus BoneState);
+public record struct BoneStatusChangedEvent(Entity<WoundableBoneComponent> Bone, BoneStatus BoneState);

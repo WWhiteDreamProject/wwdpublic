@@ -1,35 +1,33 @@
-using Content.Shared._White.Body.Systems;
+using Content.Shared._White.Gibbing;
 using Content.Shared._White.Medical.Wounds.Systems;
 using Content.Shared._White.Random;
 using Content.Shared._White.Threshold;
 using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
-using Content.Shared.Throwing;
 
-namespace Content.Shared._White.Body.BodyParts.Amputatable;
+namespace Content.Shared._White.Body.BodyParts.Gibbable;
 
-public sealed class AmputatableBodyPartSystem : EntitySystem
+public sealed class GibbableBodyPartSystem : EntitySystem
 {
     [Dependency] private readonly PredictedRandomManager _random = default!;
 
-    [Dependency] private readonly SharedBodySystem _body = default!;
-    [Dependency] private readonly ThrowingSystem _throwing = default!;
+    [Dependency] private readonly SharedGibbingSystem _gibbing = default!;
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<AmputatableBodyPartComponent, BoneStatusChangedEvent>(OnBoneStatusChange);
-        SubscribeLocalEvent<AmputatableBodyPartComponent, DamageChangedEvent>(OnDamageChanged, after: new [] {typeof(SharedWoundSystem), });
+        SubscribeLocalEvent<GibbableBodyPartComponent, BoneStatusChangedEvent>(OnBoneStatusChange);
+        SubscribeLocalEvent<GibbableBodyPartComponent, DamageChangedEvent>(OnDamageChanged, after: new [] {typeof(SharedWoundSystem), });
     }
 
-    private void OnBoneStatusChange(Entity<AmputatableBodyPartComponent> amputatableBodyPart, ref BoneStatusChangedEvent args)
+    private void OnBoneStatusChange(Entity<GibbableBodyPartComponent> gibbableBodyPart, ref BoneStatusChangedEvent args)
     {
-        if (!amputatableBodyPart.Comp.BoneMultiplierThresholds.TryGetValue(args.BoneState, out var boneMultiplier))
+        if (!gibbableBodyPart.Comp.BoneMultiplierThresholds.TryGetValue(args.BoneState, out var boneMultiplier))
             return;
 
-        amputatableBodyPart.Comp.CurrentBoneMultiplierThreshold = boneMultiplier;
+        gibbableBodyPart.Comp.CurrentBoneMultiplierThreshold = boneMultiplier;
     }
 
-    private void OnDamageChanged(Entity<AmputatableBodyPartComponent> amputatableBodyPart, ref DamageChangedEvent args)
+    private void OnDamageChanged(Entity<GibbableBodyPartComponent> amputatableBodyPart, ref DamageChangedEvent args)
     {
         if (args.DamageDelta != null)
         {
@@ -64,11 +62,6 @@ public sealed class AmputatableBodyPartSystem : EntitySystem
         if (!_random.Prob(random, amputatableBodyPart.Comp.CurrentChance))
             return;
 
-        _body.TryDetachBodyPart(amputatableBodyPart);
-        _throwing.TryThrow(
-            amputatableBodyPart,
-            _random.NextAngle(random).ToWorldVec() * _random.NextFloat(random, 0.8f, 2f),
-            _random.NextFloat(random, 0.5f, 1f),
-            pushbackRatio: 0.3f);
+        _gibbing.G(amputatableBodyPart);
     }
 }
