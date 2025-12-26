@@ -11,10 +11,10 @@
     contents:
     - id: SaibasanCoordinatesDisk
       amount: 4
-  - type: Sprite
-    layers:
-    - state: box_of_doom
-    - state: saibasan
+  #- type: Sprite
+  #  layers:
+  #  - state: box_of_doom
+  #  - state: saibasan
 
 - type: entity
   name: coordinate disks box
@@ -27,10 +27,10 @@
     contents:
     - id: InterPharmCoordinatesDisk
       amount: 4
-  - type: Sprite
-    layers:
-    - state: box_interpharm
-    - state: interpharm
+  #- type: Sprite
+  #  layers:
+  #  - state: box_interpharm
+  #  - state: interpharm
 
 - type: entity
   name: coordinate disks box
@@ -43,7 +43,7 @@
     contents:
     - id: NanoTrasenStationCoordinatesDisk
       amount: 4
-  - type: Sprite
-    layers:
-    - state: box_nt
-    - state: nanotrasen
+  #- type: Sprite
+  #  layers:
+  #  - state: box_nt
+  #  - state: nanotrasen

@@ -282,6 +282,6 @@
   - type: Sprite
     layers:
     - state: default
-    - state: idpilotNT
+    #- state: idpilotNT
   - type: PresetIdCard
     job: PilotNT
