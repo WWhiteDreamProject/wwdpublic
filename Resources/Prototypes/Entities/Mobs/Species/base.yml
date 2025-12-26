@@ -257,6 +257,7 @@
   - type: MobState
     allowMovementWhileCrit: true
     allowMovementWhileSoftCrit: true
+  - type: MobThresholdSounds
   # WD EDIT END
 
 - type: entity
