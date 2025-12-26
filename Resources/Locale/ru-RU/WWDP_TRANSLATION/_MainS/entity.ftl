@@ -8577,6 +8577,12 @@ ent-IncompleteBaseBallBat = недособранная бита
 ent-Cane = трость
     .desc = Изящная деревянная трость. Идеальна для вечерних прогулок и неожиданных ударов.
 
+ent-CaneSheath = { ent-Cane }
+    .desc = { ent-Cane.desc }
+
+ent-CaneSheathFilled = { ent-Cane }
+    .desc = { ent-Cane.desc }
+
 
 ent-CaneBlade = трость-клинок
     .desc = Острый клинок, замаскированный под рукоять трости. Джентльменское убийство.
