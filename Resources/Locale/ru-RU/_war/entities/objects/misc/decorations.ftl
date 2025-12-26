@@ -39,13 +39,6 @@ ent-Ants1 = муравейник
 ent-Ants2 = муравейник
 ent-Ants3 = муравейник
 
-# Локализация для barrels.yml
-ent-BaseBarrel = чёрная бочка
-    .desc = Сделай бочку!
-ent-BarrelPlanks = бочка с досками
-ent-BarrelFire = костровая бочка
-    .desc = Идеально согревает для идеально безработных!
-
 # Локализация для candelabra.yml
 ent-BaseCandelabra = канделябр
     .desc = Только не пытайся на нём раскачаться!

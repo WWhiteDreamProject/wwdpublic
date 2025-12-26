@@ -1,0 +1,14 @@
+ent-ClothingHeadHelmetHardsuitSyndicateCommandor = syndicate commandor helmet
+    .desc = Dont forget add description....fuck.
+ent-ClothingHeadHelmetHardsuitSyndicateDirector = syndicate director helmet
+    .desc = Dont forget add description....fuck..
+ent-ClothingHeadHelmetHardsuitSyndicateOld = old blood-red hardsuit helmet
+    .desc = Dont forget add description....fuck.
+ent-ClothingHeadHelmetHardsuitSyndicateParamed = paramed syndicate hardsuit helmet
+    .desc = Dont forget add description....fuck.
+ent-ClothingHeadHelmetHardsuitSyndicateSalvage = salvage hardsuit helmet
+    .desc = Protects from something.
+ent-ClothingHeadHelmetHardsuitSyndicateEngineering = syndicate engineering hardsuit helmet
+    .desc = An engineering hardsuit helmet designed for working in low-pressure, high radioactive environments.
+ent-ClothingHeadHelmetHardsuitSyndicateManager = syndicate manager helmet
+    .desc = Dont forget add description....

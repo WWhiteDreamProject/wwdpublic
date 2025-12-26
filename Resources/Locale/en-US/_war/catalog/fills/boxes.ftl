@@ -1,0 +1,9 @@
+ent-BoxCoordinateDisksSaibasan = coordinate disks box
+    .desc = This box is filled with disks.
+    .suffix = Saibasan
+ent-BoxCoordinateDisksInterPharm = coordinate disks box
+    .desc = This box is filled with disks.
+    .suffix = InterPharm
+ent-BoxCoordinateDisksNanoTrasenStation = coordinate disks box
+    .desc = This box is filled with disks.
+    .suffix = NT

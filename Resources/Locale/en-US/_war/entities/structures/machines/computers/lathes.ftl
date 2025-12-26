@@ -1,0 +1,15 @@
+ent-Locator = space scanning station
+    .desc = Scans space around and gives information about found objects.
+    .suffix = NanoTrasen
+ent-SecurityTechFabNanotrasen = security techfab
+    .desc = Prints military things.
+    .suffix = NanoTrasen
+ent-WeaponTechFabNanotrasen = weapon techfab
+    .desc = Prints weapons.
+    .suffix = NanoTrasen
+ent-SecurityTechFabSyndicate = security techfab
+    .desc = Prints military things.
+    .suffix = Syndicate
+ent-WeaponTechFabSyndicate = weapon techfab
+    .desc = Prints weapons.
+    .suffix = Syndicate

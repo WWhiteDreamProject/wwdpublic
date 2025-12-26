@@ -1,0 +1,17 @@
+ent-WeaponRifleLecter2 = Lecter
+    .desc = A high end military grade assault rifle. Uses .20 rifle ammo.
+ent-WeaponRifleFN2000 = FN2000
+    .desc = A high end military grade assault rifle. Uses .20 rifle ammo.
+ent-WeaponRifleFN2000Rubber = WeaponRifleFN2000
+    .suffix = Non-lethal
+    .desc = { ent-WeaponRifleFN2000.desc }
+ent-WeaponRifleADAR15 = ADAR15
+    .desc = A high end military grade assault rifle. Uses .20 rifle ammo.
+ent-WeaponRifleADAR15Rubber = WeaponRifleADAR15
+    .suffix = Non-lethal
+    .desc = { ent-WeaponRifleADAR15.desc }
+ent-WeaponRifleKeltech = Keltech
+    .desc = A high end military grade assault rifle. Uses .20 rifle ammo.
+ent-WeaponRifleKeltechRubber = WeaponRifleKeltech
+    .suffix = Non-lethal
+    .desc = { ent-WeaponRifleKeltech.desc }

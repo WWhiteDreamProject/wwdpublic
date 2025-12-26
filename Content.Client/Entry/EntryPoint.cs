@@ -135,6 +135,10 @@ namespace Content.Client.Entry
             _componentFactory.RegisterIgnore("CRTVisionComponent");
             // WD EDIT END
 
+            //TW-EDIT
+            _prototypeManager.RegisterIgnore("warFaction");
+            //TW-EDIT
+
             _componentFactory.GenerateNetIds();
             _adminManager.Initialize();
             _screenshotHook.Initialize();

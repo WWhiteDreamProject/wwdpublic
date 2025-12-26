@@ -1,0 +1,14 @@
+ent-LocatorCircuitboard = locator board
+    .desc = A machine printed circuit board for an locator.
+ent-SecurityTechFabNanotrasenCircuitboard = security techfab machine board
+    .desc = A machine printed circuit board for a weapon techfab.
+    .suffix = NanoTrasen
+ent-WeaponTechFabNanotrasenCircuitboard = weapon techfab machine board
+    .desc = A machine printed circuit board for a weapon techfab.
+    .suffix = NanoTrasen
+ent-SecurityTechFabSyndicateCircuitboard = security techfab machine board
+    .desc = A machine printed circuit board for a security techfab.
+    .suffix = Syndicate
+ent-WeaponTechFabSyndicateCircuitboard = weapon techfab machine board
+    .desc = A machine printed circuit board for a weapon techfab.
+    .suffix = Syndicate

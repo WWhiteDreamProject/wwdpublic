@@ -1,0 +1,12 @@
+ent-ClothingShoesBootsWorkSyndicate = syndicate workboots
+    .desc = Engineering lace-up work boots for the especially blue-collar.
+ent-ClothingShoesBootsWorkSyndicateRed = syndicate red workboots
+    .desc = Engineering lace-up work boots for the especially blue-collar.
+ent-ClothingShoesBootsCombatSyndicatePilot = pilot boots
+    .desc = Robust pilot boots for pilots scenarios or pilots situations. All pilot, all the time.
+ent-ClothingShoesShoesSyndicate = syndicate leather shoes
+    .desc = Syndicate shoes.
+ent-ClothingShoesShoesBlackRedSyndicate = syndicate black-red shoes
+    .desc = Syndicate black-red shoes.
+ent-ClothingShoesShoesWhiteRedSyndicate = syndicate white-red shoes
+    .desc = Syndicate white-red shoes.

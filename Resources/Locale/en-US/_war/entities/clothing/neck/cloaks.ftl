@@ -1,0 +1,10 @@
+ent-ClothingNeckCloakSyndicateCommandor = commandor's cloak
+    .desc = Commandor`s cloak.
+ent-ClothingNeckCloakSyndicateDirectorInterpharm = interpharm director`s cloak
+    .desc = Director`s cloak.
+ent-ClothingNeckCloakSyndicateDirectorSaibasan = saibasan director`s cloak
+    .desc = Director`s cloak.
+ent-ClothingNeckCloakManager = manager's cloak
+    .desc = Manager`s cloak.
+ent-ClothingNeckRadCloak = Antirad cloak
+    .desc = Antirad cloak.. Or is it?
