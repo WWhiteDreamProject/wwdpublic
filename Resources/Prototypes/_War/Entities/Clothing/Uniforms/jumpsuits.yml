@@ -1,0 +1,354 @@
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSyndicateDirectorInterpharm
+  name: director jumpsuit
+  description: Uniform.
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/Uniforms/Jumpsuit/syndie_inter_dir.rsi
+  - type: Clothing
+    sprite: _War/Clothing/Uniforms/Jumpsuit/syndie_inter_dir.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSyndicateAssistant
+  name: assistant jumpsuit
+  description: Uniform.
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/Uniforms/Jumpsuit/syndie_assistant.rsi
+  - type: Clothing
+    sprite: _War/Clothing/Uniforms/Jumpsuit/syndie_assistant.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSyndicateLoader
+  name: loader`s jumpsuit
+  description: Uniform.
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/Uniforms/Jumpsuit/syndie_loader.rsi
+  - type: Clothing
+    sprite: _War/Clothing/Uniforms/Jumpsuit/syndie_loader.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSyndicateManager
+  name: manager`s jumpsuit
+  description: Uniform.
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/Uniforms/Jumpsuit/syndie_sm.rsi
+  - type: Clothing
+    sprite: _War/Clothing/Uniforms/Jumpsuit/syndie_sm.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHoodSyndicateManager
+    requiredSlot:
+    - INNERCLOTHING
+    slot: head
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot {}
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSyndicateManagerArmor
+  name: armored manager`s jumpsuit
+  description: Uniform.
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/Uniforms/Jumpsuit/syndie_sm_armor.rsi
+  - type: Clothing
+    sprite: _War/Clothing/Uniforms/Jumpsuit/syndie_sm_armor.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHoodSyndicateManagerArmor
+    requiredSlot:
+    - INNERCLOTHING
+    slot: head
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot {}
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.85
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+  - type: ClothingSpeedModifier
+    walkModifier: 0.95
+    sprintModifier: 0.85
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSyndicateCommandor
+  name: commander`s jumpsuit
+  description: Uniform.
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/Uniforms/Jumpsuit/syndie_commander.rsi
+  - type: Clothing
+    sprite: _War/Clothing/Uniforms/Jumpsuit/syndie_commander.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSyndicateEngineer
+  name: engineer`s jumpsuit
+  description: Uniform.
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/Uniforms/Jumpsuit/syndie_engi.rsi
+  - type: Clothing
+    sprite: _War/Clothing/Uniforms/Jumpsuit/syndie_engi.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHoodSyndicateEngineer
+    requiredSlot:
+    - INNERCLOTHING
+    slot: head
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot {}
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSyndicateEngineerArmor
+  name: armored engineer`s jumpsuit
+  description: Uniform.
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/Uniforms/Jumpsuit/syndie_engi_armor.rsi
+  - type: Clothing
+    sprite: _War/Clothing/Uniforms/Jumpsuit/syndie_engi_armor.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHoodSyndicateEngineerArmored
+    requiredSlot:
+    - INNERCLOTHING
+    slot: head
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot {}
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Heat: 0.85
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+  - type: ClothingSpeedModifier
+    walkModifier: 0.95
+    sprintModifier: 0.85
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSyndicateHydroponics
+  name: botanist`s jumpsuit
+  description: Uniform.
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/Uniforms/Jumpsuit/syndie_hydro.rsi
+  - type: Clothing
+    sprite: _War/Clothing/Uniforms/Jumpsuit/syndie_hydro.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSyndicateLaborant
+  name: laboratory assistant`s jumpsuit
+  description: Uniform.
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/Uniforms/Jumpsuit/syndie_laborant.rsi
+  - type: Clothing
+    sprite: _War/Clothing/Uniforms/Jumpsuit/syndie_laborant.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSyndicateMedical
+  name: science doctor`s jumpsuit
+  description: Uniform.
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/Uniforms/Jumpsuit/syndie_medical.rsi
+  - type: Clothing
+    sprite: _War/Clothing/Uniforms/Jumpsuit/syndie_medical.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSyndicateParamedic
+  name: paramedic`s jumpsuit
+  description: Uniform.
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/Uniforms/Jumpsuit/syndie_paramed.rsi
+  - type: Clothing
+    sprite: _War/Clothing/Uniforms/Jumpsuit/syndie_paramed.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSyndicatePilot
+  name: syndicate pilot`s jumpsuit
+  description: Uniform.
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/Uniforms/Jumpsuit/syndie_pilot.rsi
+  - type: Clothing
+    sprite: _War/Clothing/Uniforms/Jumpsuit/syndie_pilot.rsi
+  - type: Item
+    size: Huge
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Heat: 0.75
+  - type: ExplosionResistance
+    damageCoefficient: 0.85
+  - type: TemperatureProtection
+    heatingCoefficient: 0.07
+    coolingCoefficient: 0.07
+  - type: ClothingSpeedModifier
+    walkModifier: 0.85
+    sprintModifier: 0.8
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitPilot
+  name: nanotrasen pilot`s jumpsuit
+  description: Uniform.
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/Uniforms/Jumpsuit/pilot.rsi
+  - type: Clothing
+    sprite: _War/Clothing/Uniforms/Jumpsuit/pilot.rsi
+  - type: Item
+    size: Huge
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Heat: 0.75
+  - type: ExplosionResistance
+    damageCoefficient: 0.85
+  - type: TemperatureProtection
+    heatingCoefficient: 0.07
+    coolingCoefficient: 0.07
+  - type: ClothingSpeedModifier
+    walkModifier: 0.85
+    sprintModifier: 0.8
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitPilotJacket
+  name: nanotrasen pilot`s jacket
+  description: Uniform.
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/Uniforms/Jumpsuit/pilot_jacket.rsi
+  - type: Clothing
+    sprite: _War/Clothing/Uniforms/Jumpsuit/pilot_jacket.rsi
+  - type: Item
+    size: Huge
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Heat: 0.75
+  - type: ExplosionResistance
+    damageCoefficient: 0.85
+  - type: TemperatureProtection
+    heatingCoefficient: 0.07
+    coolingCoefficient: 0.07
+  - type: ClothingSpeedModifier
+    walkModifier: 0.85
+    sprintModifier: 0.8
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSyndicateDirectorSaibasan
+  name: director`s jumpsuit
+  description: Uniform.
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/Uniforms/Jumpsuit/syndie_saibasan_dir.rsi
+  - type: Clothing
+    sprite: _War/Clothing/Uniforms/Jumpsuit/syndie_saibasan_dir.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSyndicateDisposal
+  name: disposal`s jumpsuit
+  description: Uniform.
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/Uniforms/Jumpsuit/syndie_disposal.rsi
+  - type: Clothing
+    sprite: _War/Clothing/Uniforms/Jumpsuit/syndie_disposal.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHoodSyndicateDisposal
+    requiredSlot:
+    - INNERCLOTHING
+    slot: head
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot {}
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSyndicateSalvageArmor
+  name: armored salvage`s jumpsuit
+  description: Uniform.
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/Uniforms/Jumpsuit/syndie_salvage_armor.rsi
+  - type: Clothing
+    sprite: _War/Clothing/Uniforms/Jumpsuit/syndie_salvage_armor.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.9
+        Caustic: 0.95
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHoodSyndicateDisposal
+    requiredSlot:
+    - INNERCLOTHING
+    slot: head
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:ContainerSlot {}
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.85
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSyndicateSpy
+  name: spy`s jumpsuit
+  description: Uniform.
+  suffix: Chameleon
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/Uniforms/Jumpsuit/syndie_spy.rsi
+  - type: Clothing
+    sprite: _War/Clothing/Uniforms/Jumpsuit/syndie_spy.rsi
+  - type: ChameleonClothing
+    slot: [ innerclothing ]
+    default: ClothingUniformJumpsuitSyndicateSpy
+  - type: UserInterface
+    interfaces:
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSyndicateService
+  name: service assistant`s jumpsuit
+  description: Uniform.
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/Uniforms/Jumpsuit/syndie_service.rsi
+  - type: Clothing
+    sprite: _War/Clothing/Uniforms/Jumpsuit/syndie_service.rsi # TW end

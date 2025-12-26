@@ -1,0 +1,21 @@
+- type: entity
+  parent: ClothingEyesHudMedical
+  id: ClothingEyesHudSyndicateMedical
+  name: syndicate medical hud
+  description: A heads-up display that scans the humanoids in view and provides accurate data about their health status.
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/Eyes/Hud/syndmed.rsi
+  - type: Clothing
+    sprite: _War/Clothing/Eyes/Hud/syndmed.rsi
+
+- type: entity
+  parent: ClothingEyesHudMedical
+  id: ClothingEyesEyepatchHudMedicalSyndicate
+  name: syndicate medical hud eyepatch
+  description: A heads-up display that scans the humanoids in view and provides accurate data about their health status.
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/Eyes/Hud/syndmedpatch.rsi
+  - type: Clothing
+    sprite: _War/Clothing/Eyes/Hud/syndmedpatch.rsi

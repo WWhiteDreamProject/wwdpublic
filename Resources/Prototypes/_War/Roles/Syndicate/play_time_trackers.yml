@@ -1,0 +1,59 @@
+# Jobs Saibasan
+
+- type: playTimeTracker
+  id: JobDisposal
+
+- type: playTimeTracker
+  id: JobLoader
+
+- type: playTimeTracker
+  id: JobSupplyManager
+
+- type: playTimeTracker
+  id: JobSyndicateDirectorOfSaibasan
+
+- type: playTimeTracker
+  id: JobAtmosphericEngineer
+
+- type: playTimeTracker
+  id: JobTechnician
+
+- type: playTimeTracker
+  id: JobSyndicateParamedic
+
+- type: playTimeTracker
+  id: JobSyndicateSecurityCommander
+
+- type: playTimeTracker
+  id: JobSyndicateSecurityFighter
+
+- type: playTimeTracker
+  id: JobSyndicateSecurityPilot
+
+- type: playTimeTracker
+  id: JobSyndicateSecurityRecruit
+
+- type: playTimeTracker
+  id: JobSyndicateSecuritySpy
+
+# Jobs Interpharm
+
+- type: playTimeTracker
+  id: JobSyndicateDirectorOfInterpharm
+
+- type: playTimeTracker
+  id: JobSyndicateBartender
+
+- type: playTimeTracker
+  id: JobSyndicateBotanist
+
+- type: playTimeTracker
+  id: JobSyndicateChef
+
+- type: playTimeTracker
+  id: JobSyndicateScientist
+
+# Job NT
+
+- type: playTimeTracker
+  id: JobSecurityPilot

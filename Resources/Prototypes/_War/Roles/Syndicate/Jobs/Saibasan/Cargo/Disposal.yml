@@ -1,0 +1,19 @@
+- type: job
+  id: Disposal
+  name: job-name-disposal
+  description: job-description-disposal
+  playTimeTracker: JobDisposal
+#  requirements:
+#    - !type:RoleTimeRequirement
+#      role: JobLoader
+#      time: 3600 # 1 hrs
+#    - !type:OverallPlaytimeRequirement
+#      time: 3600 #1 hrs
+  icon: "JobIconDisposal"
+  supervisors: job-supervisors-sm
+  access:
+  - SuppliesSyndicate
+  - MinersSyndicate
+  - MaintenanceSyndicate
+  - GatewaysSyndicate
+  - GeneralSyndicate

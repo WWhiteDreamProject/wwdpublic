@@ -1,0 +1,16 @@
+- type: entity
+  parent: ClothingHeadHatWelding
+  id: ClothingHeadHatWeldingSyndicate
+  name: welding mask
+  description: A head-mounted face cover designed to protect the wearer completely from space-arc eye.
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/Head/Welding/syndie_welding.rsi
+  - type: Clothing
+    sprite: _War/Clothing/Head/Welding/syndie_welding.rsi
+  - type: Tag
+    tags:
+#    - DroneUsable
+    - HamsterWearable
+    - WhitelistChameleon
+    - WeldingMask

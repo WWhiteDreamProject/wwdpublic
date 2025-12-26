@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-4.0",
+  "copyright": "NotAFemboy",
+  "size": {
+    "x": 48,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "bolt-open"
+    },
+    {
+      "name": "icon"
+    },
+    {
+      "name": "mag-0"
+    },
+    {
+      "name": "base"
+    }
+  ]
+}

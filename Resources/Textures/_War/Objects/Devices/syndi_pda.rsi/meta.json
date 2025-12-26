@@ -1,0 +1,102 @@
+{
+  "version": 1,
+  "license": "See LICENSE file for details",
+  "copyright": "Made by Gargarien. Exclusive for TotalWar/thunder (now wwdp). All rights reserved. Do not modify, publish, use, relicense or edit.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "id_overlay"
+    },
+    {
+      "name": "equipped-BELT",
+      "directions": 4
+    },
+    {
+      "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "insert_overlay"
+    },
+    {
+      "name": "light_overlay"
+    },
+    {
+      "name": "pda"
+    },
+    {
+      "name": "pda-loader"
+    },
+    {
+      "name": "pda-ce"
+    },
+    {
+      "name": "pda-director-saiba"
+    },
+    {
+      "name": "pda-director-inter"
+    },
+    {
+      "name": "pda-clear"
+    },
+    {
+      "name": "pda-clown"
+    },
+    {
+      "name": "pda-engineer"
+    },
+    {
+      "name": "pda-commander"
+    },
+    {
+      "name": "pda-medical"
+    },
+    {
+      "name": "pda-paramedic"
+    },
+    {
+      "name": "pda-pilot"
+    },
+    {
+      "name": "pda-miner"
+    },
+    {
+      "name": "pda-r",
+      "delays": [
+        [
+          0.8,
+          0.8
+        ]
+      ]
+    },
+    {
+      "name": "pda-science"
+    },
+    {
+      "name": "pda-service"
+    },
+    {
+      "name": "pda-security"
+    },
+    {
+      "name": "pda-intern-cadet"
+    },
+    {
+      "name": "pda-intern-sci"
+    },
+    {
+      "name": "pda-intern-tech"
+    },
+    {
+      "name": "equipped-IDCARD",
+      "directions": 4
+    }
+  ]
+}

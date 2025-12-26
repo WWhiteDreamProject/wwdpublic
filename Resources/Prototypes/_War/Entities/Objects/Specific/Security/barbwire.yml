@@ -1,0 +1,37 @@
+- type: entity
+  id: barbwire
+  parent: BaseItem
+  name: barbwire
+  description: You'd better be careful with her
+  components:
+  - type: Sprite
+    sprite: _War/Objects/Specific/Security/barbwire.rsi
+    state: icon
+  - type: Stack
+    stackType: barbwire
+    baseLayer: icon
+    layerStates:
+    - icon
+    count: 1
+  - type: Construction
+    graph: barbwireGraph
+    node: barbwire
+  - type: Tag
+    tags:
+    - BarbWire
+
+- type: entity
+  parent: barbwire
+  id: barbwire10
+  suffix: 10
+  components:
+  - type: Stack
+    count: 10
+
+- type: entity
+  parent: barbwire
+  id: barbwire30
+  suffix: 30
+  components:
+  - type: Stack
+    count: 30

@@ -1,0 +1,17 @@
+- type: entity
+  id: RandomBarricadeSpawner
+  name: Спавнер случайной баррикады
+  parent: MarkerBase
+  suffix: Goida
+  components:
+  - type: Sprite
+    layers:
+    - sprite: Structures/Walls/wood.rsi
+      state: full
+  - type: RandomSpawner
+    prototypes:
+    - WallWood
+    rarePrototypes:
+    - Barricade
+    rareChance: 0.2
+    chance: 1

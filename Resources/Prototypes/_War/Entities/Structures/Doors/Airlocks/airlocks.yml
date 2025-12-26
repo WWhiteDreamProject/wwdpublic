@@ -1,0 +1,409 @@
+- type: entity
+  parent: AirlockSyndicateBase
+  id: AirlockSyndicateEngineeringBase
+  suffix: Engineering
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Doors/Airlocks/Standard/s_engineering.rsi
+  - type: PaintableAirlock
+    department: Engineering
+  - type: Wires
+    layoutId: AirlockEngineering
+
+- type: entity
+  parent: AirlockSyndicateBase
+  id: AirlockSyndicateEngineeringInterBase
+  suffix: Engineering
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Doors/Airlocks/Standard/i_engineering.rsi
+  - type: PaintableAirlock
+    department: Engineering
+  - type: Wires
+    layoutId: AirlockEngineering
+
+- type: entity
+  parent: AirlockSyndicateBase
+  id: AirlockSyndicateMedicalBase
+  suffix: Medical
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Doors/Airlocks/Standard/s_medical.rsi
+  - type: PaintableAirlock
+    department: Medical
+  - type: Wires
+    layoutId: AirlockMedical
+
+- type: entity
+  parent: AirlockSyndicateBase
+  id: AirlockSyndicateMedicalInterBase
+  suffix: Medical
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Doors/Airlocks/Standard/i_medical.rsi
+  - type: PaintableAirlock
+    department: Medical
+  - type: Wires
+    layoutId: AirlockMedical
+
+- type: entity
+  parent: AirlockSyndicateBase
+  id: AirlockSyndicateScienceBase
+  suffix: Science
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Doors/Airlocks/Standard/s_science.rsi
+  - type: PaintableAirlock
+    department: Science
+  - type: Wires
+    layoutId: AirlockScience
+
+- type: entity
+  parent: AirlockSyndicateBase
+  id: AirlockSyndicateScienceInterBase
+  suffix: Science
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Doors/Airlocks/Standard/i_science.rsi
+  - type: PaintableAirlock
+    department: Science
+  - type: Wires
+    layoutId: AirlockScience
+
+- type: entity
+  parent: AirlockSyndicateBase
+  id: AirlockSyndicateCommandBase
+  suffix: Command
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Doors/Airlocks/Standard/s_command.rsi
+  - type: WiresPanelSecurity
+    securityLevel: medSecurity
+  - type: PaintableAirlock
+    department: Command
+  - type: Wires
+    layoutId: AirlockCommand
+
+- type: entity
+  parent: AirlockSyndicateBase
+  id: AirlockSyndicateCommandInterBase
+  suffix: Command
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Doors/Airlocks/Standard/i_command.rsi
+  - type: WiresPanelSecurity
+    securityLevel: medSecurity
+  - type: PaintableAirlock
+    department: Command
+  - type: Wires
+    layoutId: AirlockCommand
+
+- type: entity
+  parent: AirlockSyndicateBase
+  id: AirlockSyndicateSecurityBase
+  suffix: Security
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Doors/Airlocks/Standard/s_security.rsi
+  - type: PaintableAirlock
+    department: Security
+  - type: Wires
+    layoutId: AirlockSecurity
+
+- type: entity
+  parent: AirlockSyndicateBase
+  id: AirlockSyndicateSecurityInterBase
+  suffix: Security
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Doors/Airlocks/Standard/i_security.rsi
+  - type: PaintableAirlock
+    department: Security
+  - type: Wires
+    layoutId: AirlockSecurity
+
+- type: entity
+  parent: AirlockSyndicateBase
+  id: AirlockSyndicatePrisonBase
+  suffix: Prison
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Doors/Airlocks/Standard/s_prison.rsi
+  - type: Wires
+    layoutId: AirlockSecurity
+
+- type: entity
+  parent: AirlockSyndicateBase
+  id: AirlockSyndicatePrisonInterBase
+  suffix: Prison
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Doors/Airlocks/Standard/i_prison.rsi
+  - type: Wires
+    layoutId: AirlockSecurity
+
+- type: entity
+  parent: AirlockSyndicateBase
+  id: AirlockSyndicateBasicBase
+  suffix: Basic
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Doors/Airlocks/Standard/s_basic.rsi
+
+- type: entity
+  parent: AirlockSyndicateBase
+  id: AirlockSyndicateBasicInterBase
+  suffix: Basic
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Doors/Airlocks/Standard/i_basic.rsi
+
+- type: entity
+  parent: AirlockSyndicateBase
+  id: AirlockSyndicateMaintenanceBase
+  name: maintenance access
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Doors/Airlocks/Standard/s_maint.rsi
+
+- type: entity
+  parent: AirlockSyndicateBase
+  id: AirlockSyndicateMaintenanceInterBase
+  name: maintenance access
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Doors/Airlocks/Standard/i_maint.rsi
+
+- type: entity # FIX THIS SHIT
+  parent: AirlockSyndicateBase
+  id: AirlockSyndicateMaint
+  name: maintenance access
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Doors/Airlocks/Standard/s_maint.rsi
+
+# Glass
+- type: entity
+  parent: AirlockSyndicateGlassBase
+  id: AirlockSyndicateEngineeringGlassBase
+  suffix: Engineering
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Doors/Airlocks/Glass/s_engineering.rsi
+  - type: PaintableAirlock
+    department: Engineering
+  - type: Wires
+    layoutId: AirlockEngineering
+
+- type: entity
+  parent: AirlockSyndicateGlassBase
+  id: AirlockSyndicateEngineeringInterGlassBase
+  suffix: Engineering
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Doors/Airlocks/Glass/i_engineering.rsi
+  - type: PaintableAirlock
+    department: Engineering
+  - type: Wires
+    layoutId: AirlockEngineering
+
+- type: entity
+  parent: AirlockSyndicateGlassBase
+  id: AirlockSyndicateMaintenanceGlassBase
+  suffix: Maintenance
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Doors/Airlocks/Glass/s_maint.rsi
+
+- type: entity
+  parent: AirlockSyndicateGlassBase
+  id: AirlockSyndicateMedicalGlassBase
+  suffix: Medical
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Doors/Airlocks/Glass/s_medical.rsi
+  - type: PaintableAirlock
+    department: Medical
+  - type: Wires
+    layoutId: AirlockMedical
+
+- type: entity
+  parent: AirlockSyndicateGlassBase
+  id: AirlockSyndicateMedicalInterGlassBase
+  suffix: Medical
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Doors/Airlocks/Glass/i_medical.rsi
+  - type: PaintableAirlock
+    department: Medical
+  - type: Wires
+    layoutId: AirlockMedical
+
+- type: entity
+  parent: AirlockSyndicateGlassBase
+  id: AirlockSyndicateCommandGlassBase
+  suffix: Command
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Doors/Airlocks/Glass/s_command.rsi
+  - type: WiresPanelSecurity
+    securityLevel: medSecurity
+  - type: PaintableAirlock
+    department: Command
+  - type: Wires
+    layoutId: AirlockCommand
+
+- type: entity
+  parent: AirlockSyndicateGlassBase
+  id: AirlockSyndicateCommandInterGlassBase
+  suffix: Command
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Doors/Airlocks/Glass/i_command.rsi
+  - type: WiresPanelSecurity
+    securityLevel: medSecurity
+  - type: PaintableAirlock
+    department: Command
+  - type: Wires
+    layoutId: AirlockCommand
+
+- type: entity
+  parent: AirlockSyndicateGlassBase
+  id: AirlockSyndicateScienceGlassBase
+  suffix: Science
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Doors/Airlocks/Glass/s_science.rsi
+  - type: PaintableAirlock
+    department: Science
+  - type: Wires
+    layoutId: AirlockScience
+
+- type: entity
+  parent: AirlockSyndicateGlassBase
+  id: AirlockSyndicateScienceInterGlassBase
+  suffix: Science
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Doors/Airlocks/Glass/i_science.rsi
+  - type: PaintableAirlock
+    department: Science
+  - type: Wires
+    layoutId: AirlockScience
+
+- type: entity
+  parent: AirlockSyndicateGlassBase
+  id: AirlockSyndicateSecurityGlassBase
+  suffix: Security
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Doors/Airlocks/Glass/s_security.rsi
+  - type: PaintableAirlock
+    department: Security
+  - type: Wires
+    layoutId: AirlockSecurity
+
+- type: entity
+  parent: AirlockSyndicateGlassBase
+  id: AirlockSyndicateSecurityInterGlassBase
+  suffix: Security
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Doors/Airlocks/Glass/i_security.rsi
+  - type: PaintableAirlock
+    department: Security
+  - type: Wires
+    layoutId: AirlockSecurity
+
+- type: entity
+  parent: AirlockSyndicateGlassBase
+  id: AirlockSyndicatePrisonGlassBase
+  suffix: Prison
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Doors/Airlocks/Glass/s_prison.rsi
+  - type: Wires
+    layoutId: AirlockSecurity
+
+- type: entity
+  parent: AirlockSyndicateGlassBase
+  id: AirlockSyndicatePrisonInterGlassBase
+  suffix: Prison
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Doors/Airlocks/Glass/i_prison.rsi
+  - type: Wires
+    layoutId: AirlockSecurity
+
+- type: entity
+  parent: AirlockSyndicateGlassBase
+  id: AirlockSyndicateBasicGlassBase
+  suffix: Basic
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Doors/Airlocks/Glass/s_basic.rsi
+
+- type: entity
+  parent: AirlockSyndicateGlassBase
+  id: AirlockSyndicateBlackGlassBase
+  suffix: Basic
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Doors/Airlocks/Glass/s_glass_black.rsi
+
+- type: entity
+  parent: AirlockSyndicateGlassBase
+  id: AirlockSyndicateRedGlassBase
+  suffix: Basic
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Doors/Airlocks/Glass/s_glass_red.rsi
+
+- type: entity
+  parent: AirlockSyndicateGlassBase
+  id: AirlockSyndicateBasicInterGlassBase
+  suffix: Basic
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Doors/Airlocks/Glass/i_basic.rsi
+
+- type: entity # FIX THIS SHIT
+  parent: AirlockSyndicateGlassBase
+  id: AirlockSyndicateMaintGlass
+  suffix: Maintenance
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Doors/Airlocks/Glass/s_maint.rsi

@@ -1,0 +1,142 @@
+#Command
+- type: entity
+  parent: AirlockAssemblySyndicateBase
+  id: AirlockAssemblySyndicateCommand
+  suffix: Command
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Doors/Airlocks/Standard/s_command.rsi
+    state: "assembly"
+
+- type: entity
+  parent: AirlockAssemblySyndicateBase
+  id: AirlockAssemblySyndicateCommandGlass
+  suffix: Command, Glass
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Doors/Airlocks/Glass/s_command.rsi
+    state: "assembly"
+
+#Engineering
+- type: entity
+  parent: AirlockAssemblySyndicateBase
+  id: AirlockAssemblySyndicateEngineering
+  suffix: Engineering
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Doors/Airlocks/Standard/s_engineering.rsi
+    state: "assembly"
+
+- type: entity
+  parent: AirlockAssemblySyndicateBase
+  id: AirlockAssemblySyndicateEngineeringGlass
+  suffix: Engineering, Glass
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Doors/Airlocks/Glass/s_engineering.rsi
+    state: "assembly"
+
+#External
+- type: entity
+  parent: AirlockAssemblySyndicateBase
+  id: AirlockAssemblySyndicateExternal
+  suffix: External
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Doors/Airlocks/Standard/s_external.rsi
+    state: "assembly"
+
+- type: entity
+  parent: AirlockAssemblySyndicateBase
+  id: AirlockAssemblySyndicateExternalGlass
+  suffix: External, Glass
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Doors/Airlocks/Glass/s_external.rsi
+    state: "assembly"
+
+#Maintenance
+- type: entity
+  parent: AirlockAssemblySyndicateBase
+  id: AirlockAssemblySyndicateMaintenance
+  suffix: Maintenance
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Doors/Airlocks/Standard/s_maint.rsi
+    state: "assembly"
+
+- type: entity
+  parent: AirlockAssemblySyndicateBase
+  id: AirlockAssemblySyndicateMaintenanceGlass
+  suffix: Maintenance, Glass
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Doors/Airlocks/Glass/s_maint.rsi
+    state: "assembly"
+
+#Medical
+- type: entity
+  parent: AirlockAssemblySyndicateBase
+  id: AirlockAssemblySyndicateMedical
+  suffix: Medical
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Doors/Airlocks/Standard/s_medical.rsi
+    state: "assembly"
+
+- type: entity
+  parent: AirlockAssemblySyndicateBase
+  id: AirlockAssemblySyndicateMedicalGlass
+  suffix: Medical, Glass
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Doors/Airlocks/Glass/s_medical.rsi
+    state: "assembly"
+
+#Science
+- type: entity
+  parent: AirlockAssemblySyndicateBase
+  id: AirlockAssemblySyndicateScience
+  suffix: Science
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Doors/Airlocks/Standard/s_science.rsi
+    state: "assembly"
+
+- type: entity
+  parent: AirlockAssemblySyndicateBase
+  id: AirlockAssemblySyndicateScienceGlass
+  suffix: Science, Glass
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Doors/Airlocks/Glass/s_science.rsi
+    state: "assembly"
+
+#Security
+- type: entity
+  parent: AirlockAssemblySyndicateBase
+  id: AirlockAssemblySyndicateSecurity
+  suffix: Security
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Doors/Airlocks/Standard/s_security.rsi
+    state: "assembly"
+
+- type: entity
+  parent: AirlockAssemblySyndicateBase
+  id: AirlockAssemblySyndicateSecurityGlass
+  suffix: Security, Glass
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Doors/Airlocks/Glass/s_security.rsi
+    state: "assembly"
+
+#High Security
+- type: entity
+  parent: AirlockAssemblySyndicateBase
+  id: AirlockAssemblySyndicateHighSec
+  suffix: HighSec
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Doors/Airlocks/highsec/s_highsec.rsi
+    state: "assembly"

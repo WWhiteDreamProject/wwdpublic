@@ -1,0 +1,86 @@
+# Parent
+
+- type: entity
+  abstract: true
+  name: geyser
+  description: A hot spring that periodically emits hot gas under high pressure.
+  id: GeyserBase
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Clickable
+  - type: Physics
+    canCollide: false
+  - type: Fixtures
+  - type: Transform
+    anchored: true
+  - type: AtmosDevice
+  - type: GasMiner
+    spawnAmount: 500
+  - type: AmbientSound
+    volume: 3
+    range: 12
+    sound:
+      path: /Audio/_War/Structures/Piping/Atmospherics/geyser.ogg
+
+# Water Vapor
+
+- type: entity
+  name: geyser
+  parent: GeyserBase
+  id: GeyserWaterVaporSmall
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Piping/Atmospherics/miners_watervapor.rsi
+    state: miner
+  - type: GasMiner
+    maxExternalPressure: 1000
+    spawnGas: WaterVapor
+    spawnTemperature: 473
+
+- type: entity
+  name: geyser
+  parent: GeyserWaterVaporSmall
+  id: GeyserWaterVaporMedium
+  components:
+  - type: GasMiner
+    maxExternalPressure: 2500
+
+- type: entity
+  name: geyser
+  parent: GeyserWaterVaporSmall
+  id: GeyserWaterVaporLarge
+  components:
+  - type: GasMiner
+    maxExternalPressure: 4000
+
+# Plasma
+
+- type: entity
+  name: plasma geyser
+  parent: GeyserBase
+  id: GeyserPlasmaSmall
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Piping/Atmospherics/miners_plasma.rsi
+    state: miner
+  - type: GasMiner
+    maxExternalPressure: 1000
+    spawnGas: Plasma
+    spawnTemperature: 373
+
+- type: entity
+  name: plasma geyser
+  parent: GeyserPlasmaSmall
+  id: GeyserPlasmaMedium
+  components:
+  - type: GasMiner
+    maxExternalPressure: 2500
+
+- type: entity
+  name: plasma geyser
+  parent: GeyserPlasmaSmall
+  id: GeyserPlasmaLarge
+  components:
+  - type: GasMiner
+    maxExternalPressure: 4000

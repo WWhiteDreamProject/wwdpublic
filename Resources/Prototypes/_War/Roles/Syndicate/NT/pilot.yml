@@ -1,0 +1,22 @@
+﻿- type: job
+  id: PilotNT
+  name: job-name-pilot
+  description: job-description-pilot
+  playTimeTracker: JobSecurityPilot
+#  requirements:
+#  - !type:RoleTimeRequirement
+#    role: JobSecurityOfficer
+#    time: 14400 #4 hrs
+  icon: "JobIconPilot"
+  supervisors: job-supervisors-hos
+  canBeAntag: false
+  access:
+  - Security
+  - Brig
+  - Cargo
+  - Maintenance
+  - External
+  - PilotNT
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]

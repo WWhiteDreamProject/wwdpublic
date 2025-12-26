@@ -1,0 +1,90 @@
+# Pilot
+
+- type: entity
+  parent: ClothingMaskGas
+  id: ClothingMaskGasPilot
+  name: pilot gas mask
+  description: Professionals have standards.
+  components:
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: _War/Clothing/Mask/gaspilot.rsi
+  - type: Clothing
+    sprite: _War/Clothing/Mask/gaspilot.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.95
+
+- type: entity
+  parent: ClothingMaskGas
+  id: ClothingMaskGasPilotSyndicate
+  name: syndicate pilot gas mask
+  description: Professionals dont have standards.
+  components:
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: _War/Clothing/Mask/gassyndiepilot.rsi
+  - type: Clothing
+    sprite: _War/Clothing/Mask/gassyndiepilot.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.95
+
+# Balaclava
+
+- type: entity
+  parent: ClothingMaskBase
+  id: ClothingMaskBalaclavaSyndicateBlackBase
+  name: black balaclava
+  description: I never really was on your side.
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/Mask/balaclava_black.rsi
+  - type: Clothing
+    sprite: _War/Clothing/Mask/balaclava_black.rsi
+
+- type: entity
+  parent: ClothingMaskBase
+  id: ClothingMaskBalaclavaSyndicateBrownBase
+  name: black balaclava
+  description: I never really was on your side.
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/Mask/balaclava_brown.rsi
+  - type: Clothing
+    sprite: _War/Clothing/Mask/balaclava_brown.rsi
+
+# Gas
+
+- type: entity
+  parent: ClothingMaskPullableBase
+  id: ClothingMaskGasSyndicateTW
+  name: syndicate gas mask
+  suffix: TOTAL WAR
+  description: A face-covering mask that can be connected to an air supply.
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/Mask/gas.rsi
+  - type: Clothing
+    sprite: _War/Clothing/Mask/gas.rsi
+  - type: BreathMask
+  - type: IngestionBlocker
+  - type: IdentityBlocker
+  - type: Tag
+    tags:
+    - HamsterWearable
+    - WhitelistChameleon
+  - type: HideLayerClothing
+    slots:
+    - Snout
+    hideOnToggle: true

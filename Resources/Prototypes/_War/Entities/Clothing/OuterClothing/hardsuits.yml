@@ -1,0 +1,246 @@
+# Commandor
+
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ClothingOuterHardsuitSyndicateCommandor
+  name: syndicate commandor hardsuit
+  description: Dont forget add description....fuck.
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/OuterClothing/Hardsuits/syndiecommandor.rsi
+  - type: Clothing
+    sprite: _War/Clothing/OuterClothing/Hardsuits/syndiecommandor.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.05
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.4
+        Heat: 0.5
+        Radiation: 0.25
+        Caustic: 0.4
+  - type: ClothingSpeedModifier
+    walkModifier: 1.0
+    sprintModifier: 1.0
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitSyndicateCommandor
+
+# Director
+
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ClothingOuterHardsuitSyndicateDirector
+  name: syndicate director hardsuit
+  description: Dont forget add description....fuck.
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/OuterClothing/Hardsuits/syndiedirector.rsi
+  - type: Clothing
+    sprite: _War/Clothing/OuterClothing/Hardsuits/syndiedirector.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    heatingCoefficient: 0.001
+    coolingCoefficient: 0.001
+  - type: ExplosionResistance
+    damageCoefficient: 0.2
+  - type: Armor
+    modifiers:
+      coefficients: # НЕ ЗАБЫТЬ ПОМЕНЯТЬ КОЭФИЦЕНТЫ ЗАЩИТЫ
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.5
+        Radiation: 0.01
+        Caustic: 0.5
+  - type: Item
+    size: Huge
+  - type: ClothingSpeedModifier
+    walkModifier: 1.0
+    sprintModifier: 1.0
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitSyndicateDirector
+
+# Old
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ClothingOuterHardsuitSyndicateOld
+  name: old blood-red hardsuit
+  description: Dont forget add description....fuck.
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/OuterClothing/Hardsuits/syndieold.rsi
+  - type: Clothing
+    sprite: _War/Clothing/OuterClothing/Hardsuits/syndieold.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.05
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.55
+        Heat: 0.6
+        Radiation: 0.5
+        Caustic: 0.5
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitSyndicateOld
+  - type: Tag
+    tags:
+    - MonkeyWearable
+    - Hardsuit
+    - WhitelistChameleon
+
+# Paramed
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ClothingOuterHardsuitSyndicateParamed
+  name: paramed syndicate hardsuit
+  description: Dont forget add description....fuck.
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/OuterClothing/Hardsuits/syndieparamed.rsi
+  - type: Clothing
+    sprite: _War/Clothing/OuterClothing/Hardsuits/syndieparamed.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.05
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.65
+        Heat: 0.65
+        Radiation: 0.4
+        Caustic: 0.4
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 1
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitSyndicateParamed
+  - type: Tag
+    tags:
+    - MonkeyWearable
+    - Hardsuit
+    - WhitelistChameleon
+
+# Salvage
+
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ClothingOuterHardsuitSyndicateMiner
+  name: syndicate mining hardsuit
+  description: We're rich!
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/OuterClothing/Hardsuits/syndiesalvage.rsi
+  - type: Clothing
+    sprite: _War/Clothing/OuterClothing/Hardsuits/syndiesalvage.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.5
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.3
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.7
+        Piercing: 0.7
+        Radiation: 0.3
+        Heat: 0.8
+        Caustic: 0.7
+  - type: ClothingSpeedModifier
+    walkModifier: 0.85
+    sprintModifier: 0.85
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitSyndicateSalvage
+
+# Engineer
+
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ClothingOuterHardsuitSyndicateEngineer
+  name: syndicate engineering hardsuit
+  description: Steel and wires!
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/OuterClothing/Hardsuits/syndieengineering.rsi
+  - type: Clothing
+    sprite: _War/Clothing/OuterClothing/Hardsuits/syndieengineering.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.04
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    heatingCoefficient: 0.01
+    coolingCoefficient: 0.01
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.85
+        Piercing: 0.85
+        Shock: 0.8
+        Caustic: 0.5
+        Radiation: 0.2
+  - type: ClothingSpeedModifier
+    walkModifier: 0.85
+    sprintModifier: 0.85
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitSyndicateEngineering
+
+# Manager
+
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ClothingOuterHardsuitSyndicateSupplyManager
+  name: manager hardsuit
+  description: A special hardsuit for manager.
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/OuterClothing/Hardsuits/syndiemanager.rsi
+  - type: Clothing
+    sprite: _War/Clothing/OuterClothing/Hardsuits/syndiemanager.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.2
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.7
+        Heat: 0.5
+        Radiation: 0.8
+        Caustic: 0.7
+  - type: ClothingSpeedModifier
+    walkModifier: 0.85
+    sprintModifier: 0.85
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitSyndicateManager

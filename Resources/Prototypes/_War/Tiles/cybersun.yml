@@ -1,0 +1,35 @@
+﻿- type: tile
+  id: CybersunFloorSteel
+  name: cybersun steel tile
+  sprite: /Textures/Tiles/dark_syndie.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepFloor
+  itemDrop: FloorTileItemSteel
+  heatCapacity: 10000
+
+- type: tile
+  id: CybersunFloorSteelCheckerLight
+  name: cybersun steel floor checker light
+  sprite: /Textures/Tiles/cafeteria.png
+  variants: 4
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepFloor
+  itemDrop: FloorTileItemSteelCheckerLight
+  heatCapacity: 10000

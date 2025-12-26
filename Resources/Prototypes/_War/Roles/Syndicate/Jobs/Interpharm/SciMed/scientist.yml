@@ -1,0 +1,17 @@
+- type: job
+  id: SyndicateScientist
+  name: job-name-syndscientist
+  description: job-description-syndscientist
+  playTimeTracker: JobSyndicateScientist
+  icon: "JobIconSyndicateScientist"
+  supervisors: job-supervisors-directorofinterpharm
+  access:
+  - TechnicalSyndicate
+  - SuppliesSyndicate
+  - MaintenanceSyndicate
+  - GatewaysSyndicate
+  - ResearchSyndicate
+  - MedbaySyndicate
+  - ChemistrySyndicate
+  - GeneralSyndicate
+

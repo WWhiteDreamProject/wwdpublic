@@ -1,0 +1,9 @@
+- type: entity
+  name: nanotrasen target
+  id: Targetnanotrasen
+  parent: BaseTarget
+  description: Target for shooting. This one agent NanoTrasen.
+  components:
+  - type: Sprite
+    sprite: _War/Objects/Specific/Security/target.rsi
+    state: target_n

@@ -1,0 +1,63 @@
+﻿- type: entity
+  id: StationEngine
+  parent: BaseStructure
+  name: station engine
+  description: station engine
+  placement:
+    mode: AlignTileAny
+  components:
+  - type: AmbientSound
+    enabled: true
+    volume: 200
+    range: 9
+    sound:
+      path: /Audio/Ambience/shipambience.ogg
+  - type: Sprite
+    sprite: _War/Structures/Machines/station_engine.rsi
+    layers:
+    - state: engine_off
+      visible: false
+    - state: engine_on
+      visible: true
+      shader: unshaded
+    - state: engine_broken
+      visible: false
+      shader: unshaded
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-1.5,-1.5,1.5,1.5"
+        density: 50
+        mask:
+        - LargeMobMask
+        layer:
+        - WallLayer
+  - type: Repairable
+    fuelCost: 25
+    doAfterDelay: 8
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 250
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Breakage"]
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallic
+#  - type: StationEngine
+  - type: Appearance
+  - type: PointLight
+    radius: 5
+    energy: 0.5
+    castShadows: false
+    color: "#a8ffd9"
+  - type: StaticPrice
+    price: 13000

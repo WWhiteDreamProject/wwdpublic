@@ -1,0 +1,21 @@
+﻿- type: entity
+  parent: ClothingOuterBioGeneral
+  id: ClothingOuterBioSyndicateBlack
+  name: black bio suit
+  description: A suit that protects against biological contamination.
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/OuterClothing/Bio/syndie_black.rsi
+  - type: Clothing
+    sprite: _War/Clothing/OuterClothing/Bio/syndie_black.rsi
+
+- type: entity
+  parent: ClothingOuterBioGeneral
+  id: ClothingOuterBioSyndicateRed
+  name: red bio suit
+  description: A suit that protects against biological contamination.
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/OuterClothing/Bio/syndie_red.rsi
+  - type: Clothing
+    sprite: _War/Clothing/OuterClothing/Bio/syndie_red.rsi

@@ -1,0 +1,95 @@
+﻿# Locator
+
+- type: entity
+  id: LocatorCircuitboard
+  parent: BaseMachineCircuitboard
+  name: locator board
+  description: A machine printed circuit board for an locator.
+  components:
+  - type: Sprite
+    state: generic
+  - type: MachineBoard
+    prototype: Locator
+    stackRequirements:
+      Capacitor: 5
+      Cable: 15
+
+# NT
+
+- type: entity
+  id: SecurityTechFabNanotrasenCircuitboard
+  parent: BaseMachineCircuitboard
+  name: security techfab machine board
+  suffix: NanoTrasen
+  description: A machine printed circuit board for a weapon techfab.
+  components:
+  - type: Sprite
+    state: security
+  - type: MachineBoard
+    prototype: SecurityTechFabNanotrasen
+    stackRequirements:
+      MatterBin: 2
+      Manipulator: 2
+    tagRequirements:
+        GlassBeaker:
+          amount: 1
+          defaultPrototype: Beaker
+
+- type: entity
+  id: WeaponTechFabNanotrasenCircuitboard
+  parent: BaseMachineCircuitboard
+  name: weapon techfab machine board
+  suffix: NanoTrasen
+  description: A machine printed circuit board for a weapon techfab.
+  components:
+  - type: Sprite
+    state: security
+  - type: MachineBoard
+    prototype: WeaponTechFabNanotrasen
+    stackRequirements:
+      MatterBin: 2
+      Manipulator: 2
+    tagRequirements:
+      GlassBeaker:
+        amount: 1
+        defaultPrototype: Beaker
+
+# Syndicate
+
+- type: entity
+  id: SecurityTechFabSyndicateCircuitboard
+  parent: BaseMachineCircuitboard
+  name: security techfab machine board
+  suffix: Syndicate
+  description: A machine printed circuit board for a security techfab.
+  components:
+  - type: Sprite
+    state: security
+  - type: MachineBoard
+    prototype: SecurityTechFabSyndicate
+    stackRequirements:
+      MatterBin: 2
+      Manipulator: 2
+    tagRequirements:
+        GlassBeaker:
+          amount: 1
+          defaultPrototype: Beaker
+
+- type: entity
+  id: WeaponTechFabSyndicateCircuitboard
+  parent: BaseMachineCircuitboard
+  name: weapon techfab machine board
+  suffix: Syndicate
+  description: A machine printed circuit board for a weapon techfab.
+  components:
+  - type: Sprite
+    state: security
+  - type: MachineBoard
+    prototype: WeaponTechFabSyndicate
+    stackRequirements:
+      MatterBin: 2
+      Manipulator: 2
+    tagRequirements:
+        GlassBeaker:
+          amount: 1
+          defaultPrototype: Beaker

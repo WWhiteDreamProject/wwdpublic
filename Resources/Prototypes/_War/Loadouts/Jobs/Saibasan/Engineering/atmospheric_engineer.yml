@@ -1,0 +1,16 @@
+- type: loadout
+  id: SaibasanEngineerJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSyndicateEngineer
+- type: startingGear
+  id: SaibasanEngineerJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSyndicateEngineer
+- type: loadout
+  id: AtmosphericEngineerPDA
+  equipment:
+    id: PDASyndicateAtmosphericEngineer
+- type: startingGear
+  id: AtmosphericEngineerPDA
+  equipment:
+    id: PDASyndicateAtmosphericEngineer

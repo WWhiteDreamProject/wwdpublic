@@ -1,0 +1,46 @@
+{
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "license": "CSee LICENSE file for details",
+    "copyright": "Made by Gargarien. Exclusive for TotalWar/thunder (now wwdp). All rights reserved. Do not modify, publish, use, relicense or edit.",
+    "states": [
+        {
+            "name": "full"
+        },
+        {
+            "name": "state0",
+            "directions": 4
+        },
+        {
+            "name": "state1",
+            "directions": 4
+        },
+        {
+            "name": "state2",
+            "directions": 4
+        },
+        {
+            "name": "state3",
+            "directions": 4
+        },
+        {
+            "name": "state4",
+            "directions": 4
+        },
+        {
+            "name": "state5",
+            "directions": 4
+        },
+        {
+            "name": "state6",
+            "directions": 4
+        },
+        {
+            "name": "state7",
+            "directions": 4
+        }
+    ]
+}

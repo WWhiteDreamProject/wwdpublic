@@ -1,0 +1,28 @@
+# Science and medicine
+
+- type: entity
+  parent: DoubleGlassAirlockScienceBase
+  id: DoubleGlassAirlockScienceInterPharm
+  suffix: Double, Syndicate, Research, InterPharm, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateResearch ]
+
+- type: entity
+  parent: DoubleGlassAirlockMedicalBase
+  id: DoubleGlassAirlockMedicalInterPharm
+  suffix: Double, Syndicate, Medbay, InterPharm, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateMedbay ]
+
+- type: entity
+  parent: DoubleGlassAirlockBase
+  id: DoubleGlassAirlockInterPharm
+  suffix: Double, Syndicate, Maintenance, Glass, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateMaintenance ]

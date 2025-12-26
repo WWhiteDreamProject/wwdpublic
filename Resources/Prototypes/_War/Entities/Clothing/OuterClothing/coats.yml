@@ -1,0 +1,133 @@
+# Black coat
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: ClothingOuterCoatLabBlackSyndicate
+  name: black syndicate lab coat
+  description: Black lab coat for syndicate
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/OuterClothing/Coats/labcoat_black.rsi
+  - type: Clothing
+    sprite: _War/Clothing/OuterClothing/Coats/labcoat_black.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.75
+
+- type: entity
+  parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatLabBlackSyndicate]
+  id: ClothingOuterCoatLabBlackSyndicateOpened
+  name: black syndicate lab coat
+
+# Director coat
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterCoatSyndicateDirectorInterpharm
+  name: director`s lab coat
+  description: Director's lab coat to show off authority
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/OuterClothing/Coats/labcoat_director.rsi
+  - type: Clothing
+    sprite: _War/Clothing/OuterClothing/Coats/labcoat_director.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.75
+
+# Medical coat
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: ClothingOuterCoatLabSyndicateMedical
+  name: medical syndicate lab coat
+  description: Stylish lab coat for a medical guru
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/OuterClothing/Coats/labcoat_syndiemed.rsi
+  - type: Clothing
+    sprite: _War/Clothing/OuterClothing/Coats/labcoat_syndiemed.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.75
+
+- type: entity
+  parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatLabSyndicateMedical]
+  id: ClothingOuterCoatLabSyndicateMedicalOpened
+  name: medical syndicate lab coat
+
+# Science coat
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: ClothingOuterCoatLabSyndicateScience
+  name: science syndicate lab coat
+  description: This lab coat proof you "qualified" specialist
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/OuterClothing/Coats/labcoat_syndiescience.rsi
+  - type: Clothing
+    sprite: _War/Clothing/OuterClothing/Coats/labcoat_syndiescience.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.75
+
+- type: entity
+  parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatLabSyndicateScience]
+  id: ClothingOuterCoatLabSyndicateScienceOpened
+  name: science syndicate lab coat
+
+# Warden coat
+
+- type: entity
+  abstract: true
+  parent: AllowSuitStorageClothing
+  id: ClothingOuterArmorWardenNT
+  components:
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.7
+        Heat: 0.7
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+
+- type: entity
+  parent: [ClothingOuterArmorWardenNT, ClothingOuterStorageBase]
+  id: ClothingOuterCoatWardenNT
+  name: warden's armored jacket
+  suffix: TOTAL WAR
+  description: A sturdy, utilitarian jacket designed to protect a warden from any brig-bound threats, but new.
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/OuterClothing/Coats/warden_new.rsi
+  - type: Clothing
+    sprite: _War/Clothing/OuterClothing/Coats/warden_new.rsi
+
+# Tech coat
+
+- type: entity
+  parent: ClothingOuterStorageFoldableBase
+  id: ClothingOuterCoatLabTech
+  name: tech syndicate lab coat
+  description: Say my name
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/OuterClothing/Coats/labcoat_tech.rsi
+  - type: Clothing
+    sprite: _War/Clothing/OuterClothing/Coats/labcoat_tech.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.75
+
+- type: entity
+  parent: [ClothingOuterStorageFoldableBaseOpened, ClothingOuterCoatLabTech]
+  id: ClothingOuterCoatLabTechSyndicate
+  name: tech syndicate lab coat

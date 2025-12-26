@@ -1,0 +1,31 @@
+- type: entity
+  id: AlwaysPoweredSmallLight
+  suffix: Always Powered Goida
+  parent: SmallLight
+
+- type: entity
+  id: Torchstand
+  suffix: Goida
+  name: Факел на подставке
+  description: Может внезапно решить, что ваши занавески - это его личный враг.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: _War/Structures/torch.rsi
+    state: torchA1
+  - type: PointLight
+    energy: 2
+    radius: 4
+    color: "#FFC90C"
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]

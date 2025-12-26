@@ -1,0 +1,51 @@
+﻿- type: biomeTemplate
+  id: WarCaves
+  layers:
+  - !type:BiomeEntityLayer
+    threshold: 0.85
+    noise:
+      seed: 2
+      noiseType: OpenSimplex2
+      fractalType: PingPong
+    allowedTiles:
+    - FloorAsteroidSand
+    entities:
+    - CrystalGreen
+    - CrystalPink
+    - CrystalOrange
+    - CrystalBlue
+    - CrystalCyan
+  - !type:BiomeEntityLayer
+    threshold: 0.95
+    noise:
+      seed: 1
+      noiseType: OpenSimplex2
+      frequency: 1
+    allowedTiles:
+    - FloorAsteroidSand
+    entities:
+    - FloraStalagmite1
+    - FloraStalagmite2
+    - FloraStalagmite3
+    - FloraStalagmite4
+    - FloraStalagmite5
+    - FloraStalagmite6
+  - !type:BiomeEntityLayer
+    threshold: -0.5
+    invert: true
+    noise:
+      seed: 0
+      noiseType: Perlin
+      fractalType: Ridged
+      octaves: 1
+      frequency: 0.1
+      gain: 0.5
+    allowedTiles:
+    - FloorAsteroidSand
+    entities:
+    - WallRock
+  - !type:BiomeDummyLayer
+    id: Loot
+  - !type:BiomeTileLayer
+    threshold: -1.0
+    tile: FloorAsteroidSand

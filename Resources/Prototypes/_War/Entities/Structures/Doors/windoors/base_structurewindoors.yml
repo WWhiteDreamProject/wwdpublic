@@ -1,0 +1,31 @@
+- type: entity
+  id: BaseRedWindoor
+  parent: BaseWindoor
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Doors/Windoors/red_windoor.rsi
+
+- type: entity
+  id: BaseGreenWindoor
+  parent: BaseWindoor
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Doors/Windoors/green_windoor.rsi
+
+- type: entity
+  id: BaseSecureRedWindoor
+  parent: BaseSecureWindoor
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Doors/Windoors/red_windoor.rsi
+
+- type: entity
+  id: BaseSecureGreenWindoor
+  parent: BaseSecureWindoor
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Doors/Windoors/green_windoor.rsi

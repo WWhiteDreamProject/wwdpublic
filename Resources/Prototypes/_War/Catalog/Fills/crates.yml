@@ -1,0 +1,55 @@
+﻿- type: entity
+  parent: CrateSyndicateMedsci
+  id: CrateSyndicateMedsciFilled
+  name: syndicate medical crate
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+    - id: MedkitFilled
+      amount: 4
+    - id: Gauze
+      amount: 4
+    - id: Bloodpack
+      amount: 4
+    - id: BoxLatexGloves
+    - id: BoxSterileMask
+    - id: BoxMouthSwab
+    - id: BoxBodyBag
+      amount: 2
+    - id: BoxSyringe
+    - id: BoxBeaker
+    - id: BoxPillCanister
+    - id: Dropper
+      amount: 2
+    - id: BoxBottle
+      amount: 2
+    - id: BoxVial
+
+- type: entity
+  parent: CrateSyndicateCartMedsci
+  id: CrateSyndicateCartMedsciFilled
+  name: syndicate medical cart
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+    - id: MedkitFilled
+      amount: 4
+    - id: Gauze
+      amount: 4
+    - id: Bloodpack
+      amount: 4
+    - id: BoxLatexGloves
+    - id: BoxSterileMask
+    - id: BoxMouthSwab
+    - id: BoxBodyBag
+      amount: 2
+    - id: BoxSyringe
+    - id: BoxBeaker
+    - id: BoxPillCanister
+    - id: Dropper
+      amount: 2
+    - id: BoxBottle
+      amount: 2
+    - id: BoxVial

@@ -1,0 +1,276 @@
+# CARDS
+
+- type: entity
+  parent: BaseCardSpades
+  id: Cardspades_2
+  name: карта пики 2
+  description: Игральная карта.
+  components:
+    - type: Sprite
+      state: spades_2
+    - type: SpawnItemsOnUse
+      items:
+        - id: CardUnknown4
+
+- type: entity
+  parent: BaseCardSpades
+  id: Cardspades_3
+  name: карта пики 3
+  description: Игральная карта.
+  components:
+    - type: Sprite
+      state: spades_3
+    - type: SpawnItemsOnUse
+      items:
+        - id: CardUnknown8
+
+- type: entity
+  parent: BaseCardSpades
+  id: Cardspades_4
+  name: карта пики 4
+  description: Игральная карта.
+  components:
+    - type: Sprite
+      state: spades_4
+    - type: SpawnItemsOnUse
+      items:
+        - id: CardUnknown12
+
+- type: entity
+  parent: BaseCardSpades
+  id: Cardspades_5
+  name: карта пики 5
+  description: Игральная карта.
+  components:
+    - type: Sprite
+      state: spades_5
+    - type: SpawnItemsOnUse
+      items:
+        - id: CardUnknown16
+
+- type: entity
+  parent: BaseCardSpades
+  id: Cardspades_6
+  name: карта пики 6
+  description: Игральная карта.
+  components:
+    - type: Sprite
+      state: spades_6
+    - type: SpawnItemsOnUse
+      items:
+        - id: CardUnknown20
+
+- type: entity
+  parent: BaseCardSpades
+  id: Cardspades_7
+  name: карта пики 7
+  description: Игральная карта.
+  components:
+    - type: Sprite
+      state: spades_7
+    - type: SpawnItemsOnUse
+      items:
+        - id: CardUnknown24
+
+- type: entity
+  parent: BaseCardSpades
+  id: Cardspades_8
+  name: карта пики 8
+  description: Игральная карта.
+  components:
+    - type: Sprite
+      state: spades_8
+    - type: SpawnItemsOnUse
+      items:
+        - id: CardUnknown28
+
+- type: entity
+  parent: BaseCardSpades
+  id: Cardspades_9
+  name: карта пики 9
+  description: Игральная карта.
+  components:
+    - type: Sprite
+      state: spades_9
+    - type: SpawnItemsOnUse
+      items:
+        - id: CardUnknown32
+
+- type: entity
+  parent: BaseCardSpades
+  id: Cardspades_10
+  name: карта пики 10
+  description: Игральная карта.
+  components:
+    - type: Sprite
+      state: spades_10
+    - type: SpawnItemsOnUse
+      items:
+        - id: CardUnknown36
+
+- type: entity
+  parent: BaseCardSpades
+  id: Cardspades_j
+  name: карта пики Валет
+  description: Игральная карта.
+  components:
+    - type: Sprite
+      state: spades_j
+    - type: SpawnItemsOnUse
+      items:
+        - id: CardUnknown40
+
+- type: entity
+  parent: BaseCardSpades
+  id: Cardspades_q
+  name: карта пики Королева
+  description: Игральная карта.
+  components:
+    - type: Sprite
+      state: spades_q
+    - type: SpawnItemsOnUse
+      items:
+        - id: CardUnknown44
+
+- type: entity
+  parent: BaseCardSpades
+  id: Cardspades_k
+  name: карта пики Король
+  description: Игральная карта.
+  components:
+    - type: Sprite
+      state: spades_k
+    - type: SpawnItemsOnUse
+      items:
+        - id: CardUnknown48
+
+- type: entity
+  parent: BaseCardSpades
+  id: Cardspades_a
+  name: карта пики туз
+  description: Игральная карта.
+  components:
+    - type: Sprite
+      state: spades_a
+    - type: SpawnItemsOnUse
+      items:
+        - id: CardUnknown52
+
+# UNKNOWN CARDS
+
+- type: entity
+  parent: BaseCardUnknown
+  id: CardUnknown4
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnItemsOnUse
+    items:
+      - id: Cardspades_2
+
+- type: entity
+  parent: BaseCardUnknown
+  id: CardUnknown8
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnItemsOnUse
+    items:
+      - id: Cardspades_3
+
+- type: entity
+  parent: BaseCardUnknown
+  id: CardUnknown12
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnItemsOnUse
+    items:
+      - id: Cardspades_4
+
+- type: entity
+  parent: BaseCardUnknown
+  id: CardUnknown16
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnItemsOnUse
+    items:
+      - id: Cardspades_5
+
+- type: entity
+  parent: BaseCardUnknown
+  id: CardUnknown20
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnItemsOnUse
+    items:
+      - id: Cardspades_6
+
+- type: entity
+  parent: BaseCardUnknown
+  id: CardUnknown24
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnItemsOnUse
+    items:
+      - id: Cardspades_7
+
+- type: entity
+  parent: BaseCardUnknown
+  id: CardUnknown28
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnItemsOnUse
+    items:
+      - id: Cardspades_8
+
+- type: entity
+  parent: BaseCardUnknown
+  id: CardUnknown32
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnItemsOnUse
+    items:
+      - id: Cardspades_9
+
+- type: entity
+  parent: BaseCardUnknown
+  id: CardUnknown36
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnItemsOnUse
+    items:
+      - id: Cardspades_10
+
+- type: entity
+  parent: BaseCardUnknown
+  id: CardUnknown40
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnItemsOnUse
+    items:
+      - id: Cardspades_j
+
+- type: entity
+  parent: BaseCardUnknown
+  id: CardUnknown44
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnItemsOnUse
+    items:
+      - id: Cardspades_q
+
+- type: entity
+  parent: BaseCardUnknown
+  id: CardUnknown48
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnItemsOnUse
+    items:
+      - id: Cardspades_k
+
+- type: entity
+  parent: BaseCardUnknown
+  id: CardUnknown52
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnItemsOnUse
+    items:
+      - id: Cardspades_a

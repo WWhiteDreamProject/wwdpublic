@@ -1,0 +1,50 @@
+- type: entity
+  id: barbwireGround
+  parent: BaseStructure
+  name: barbwire
+  description: Likely to find another way
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Specific/barbwire.rsi
+    state: barbwireGround
+  - type: Icon
+    sprite: _War/Structures/Specific/barbwire.rsi
+    state: barbwireGround
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 60
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: DamageContacts
+    damage:
+      types:
+        Slash: 2
+        Piercing: 2
+  - type: SpeedModifierContacts
+    walkSpeedModifier: 0.1
+    sprintSpeedModifier: 0.1
+  - type: MeleeSound
+    soundGroups:
+      Brute:
+        path:
+          "/Audio/Weapons/slash.ogg"
+  - type: Fixtures
+    fixtures:
+      fix1:
+        hard: false
+        density: 7
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        layer:
+        - MidImpassable
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallic
+  - type: InteractionOutline
+  - type: Construction
+    graph: barbwireGraph
+    node: entity

@@ -1,0 +1,24 @@
+# Bio
+- type: entity
+  id: ClosetL3Syndicate
+  parent: ClosetL3
+  suffix: Syndicate
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: s_bio
+    stateDoorOpen: s_bio_open
+    stateDoorClosed: s_bio_door
+
+# Bomb
+
+- type: entity
+  id: ClosetBombSyndicate
+  parent: ClosetBomb
+  suffix: Syndicate
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: s_bomb
+    stateDoorOpen: s_bomb_open
+    stateDoorClosed: s_bomb_door

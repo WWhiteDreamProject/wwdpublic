@@ -1,0 +1,44 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "NotAFemboy for TotalWar",
+    "size": {
+        "x": 48,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "icon"
+        },
+        {
+            "name": "base"
+        },
+        {
+            "name": "bolt-open"
+        },
+        {
+            "name": "mag-0"
+        },
+        {
+            "name": "silencer"
+        },
+        {
+            "name": "light"
+        },
+        {
+            "name": "laser"
+        },
+        {
+            "name": "flamehider"
+        },
+        {
+            "name": "accelerator"
+        },
+        {
+            "name": "barrel_module"
+        },
+        {
+            "name": "handguard_module"
+        }
+    ]
+}

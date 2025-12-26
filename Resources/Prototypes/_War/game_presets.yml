@@ -1,0 +1,12 @@
+- type: gamePreset
+  id: TotalWar
+  alias:
+  - totalwar
+  - war
+  - tw
+  name: total-war-title
+  showInVote: true
+  description: total-war-description
+#  supportedMaps: NanotrasenMapPool
+  rules:
+  - TotalWar

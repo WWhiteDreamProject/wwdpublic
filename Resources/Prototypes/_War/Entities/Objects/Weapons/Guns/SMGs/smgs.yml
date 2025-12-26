@@ -1,0 +1,71 @@
+- type: entity
+  name: C96
+  parent: [BaseWeaponSubMachineGun, BaseSyndicateContraband]
+  id: WeaponSubMachineGunC96
+  description: For the particularly stupid, it's a Mauser. Feeds from .35 SMG magazines.
+  components:
+  - type: Sprite
+    sprite: _War/Objects/Weapons/Guns/SMGs/c96_icons.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _War/Objects/Weapons/Guns/SMGs/c96_inhands.rsi
+  - type: Wieldable
+    unwieldOnUse: false
+  - type: GunWieldBonus
+    minAngle: -16
+    maxAngle: -12
+  - type: Gun
+    minAngle: 23
+    maxAngle: 34
+    fireRate: 3
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/c-20r.ogg
+  - type: ChamberMagazineAmmoProvider
+    autoEject: true
+  - type: MagazineVisuals
+    magState: mag
+    steps: 6
+    zeroVisible: true
+  - type: Appearance
+
+- type: entity
+  name: AR-9
+  parent: [BaseWeaponSubMachineGun, BaseMajorContraband]
+  id: WeaponSubMachineGunAR9
+  description: Prodigal Son Ar15, m5 and usp. Feeds from .35 SMG magazines.
+  components:
+  - type: Sprite
+    sprite: _War/Objects/Weapons/Guns/SMGs/ar-9_icons.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _War/Objects/Weapons/Guns/SMGs/ar-9_inhands.rsi
+  - type: Wieldable
+    unwieldOnUse: false
+  - type: GunWieldBonus
+    minAngle: -13
+    maxAngle: -9
+  - type: Gun
+    minAngle: 26
+    maxAngle: 39
+    fireRate: 5
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/atreides.ogg
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance

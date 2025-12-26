@@ -1,0 +1,188 @@
+- type: entity
+  id: HeatingLineBase
+  description: heating line base
+  parent: BaseStructure
+  name: heating line base
+  abstract: true
+  components:
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _War/Structures/Piping/Atmospherics/heating_line.rsi
+    drawdepth: WallTops
+#   noRot: false   idk maybe this is a bAd idea so...
+  - type: Physics
+    bodyType: Static
+  - type: Transform
+    anchored: true
+  - type: Damageable
+    damageModifierSet: Wood
+    damageContainer: StructuralInorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 20
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialCloth1:
+            min: 1
+            max: 2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: AtmosExposed
+  - type: Climbable
+    delay: 1.5
+
+- type: entity
+  parent: HeatingLineBase
+  id: HeatingLineStraight
+  name: heating line
+  description: Pipe insulation made of dense fabric.
+  suffix: Straight
+  components:
+  - type: Icon
+    sprite: _War/Structures/Piping/Atmospherics/heating_line.rsi
+    state: straight
+  - type: Sprite
+    layers:
+    - state: straight
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.50,-0.1,0.50,0.1"
+        density: 1000
+        mask:
+        - TableMask
+        layer:
+        - TableLayer
+
+- type: entity
+  parent: HeatingLineBase
+  id: HeatingLineCorner
+  name: heating line
+  description: Pipe insulation made of dense fabric.
+  suffix: Corner
+  components:
+  - type: Icon
+    sprite: _War/Structures/Piping/Atmospherics/heating_line.rsi
+    state: corner
+  - type: Sprite
+    layers:
+    - state: corner
+  - type: Fixtures
+    fixtures:
+      # needs two shapes to properly handle a triangle corner without weirdness
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.1,0.1,0.5"
+        density: 1000
+        mask:
+        - TableMask
+        layer:
+        - TableLayer
+      fix2:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.1,-0.1,0.1"
+        density: 1000
+        mask:
+        - TableMask
+        layer:
+        - TableLayer
+
+- type: entity
+  parent: HeatingLineBase
+  id: HeatingLineEnd
+  name: heating line
+  description: Pipe insulation made of dense fabric.
+  suffix: End
+  components:
+  - type: Icon
+    sprite: _War/Structures/Piping/Atmospherics/heating_line.rsi
+    state: end
+  - type: Sprite
+    layers:
+    - state: end
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.10,0.4,0.1,0.5"
+        density: 1000
+        mask:
+        - TableMask
+        layer:
+        - TableLayer
+
+- type: entity
+  parent: HeatingLineBase
+  id: HeatingLineFourway
+  name: heating line
+  description: Pipe insulation made of dense fabric.
+  suffix: Fourway
+  components:
+  - type: Icon
+    sprite: _War/Structures/Piping/Atmospherics/heating_line.rsi
+    state: fourway
+  - type: Sprite
+    layers:
+    - state: fourway
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.10,-0.5,0.10,0.5"
+        density: 1000
+        mask:
+        - TableMask
+        layer:
+        - TableLayer
+      fix2:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.50,-0.1,0.50,0.1"
+        density: 1000
+        mask:
+        - TableMask
+        layer:
+        - TableLayer
+
+- type: entity
+  parent: HeatingLineBase
+  id: HeatingLineTJunction
+  name: heating line
+  description: Pipe insulation made of dense fabric.
+  suffix: TJunction
+  components:
+  - type: Icon
+    sprite: _War/Structures/Piping/Atmospherics/heating_line.rsi
+    state: t-junction
+  - type: Sprite
+    layers:
+    - state: t-junction
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.50,-0.1,0.50,0.1"
+        density: 1000
+        mask:
+        - TableMask # FullTileMask
+        layer:
+        - TableLayer
+      fix2:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.10,-0.50,0.10,0.0"
+        density: 1000
+        mask:
+        - TableMask
+        layer:
+        - TableLayer

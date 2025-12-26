@@ -1,0 +1,8 @@
+- type: loadout
+  id: SyndicateBartenderPDA
+  equipment:
+    id: PDASyndicateBartender
+- type: startingGear
+  id: SyndicateBartenderPDA
+  equipment:
+    id: PDASyndicateBartender

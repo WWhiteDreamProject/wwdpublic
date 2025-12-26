@@ -1,0 +1,306 @@
+# Director
+
+- type: entity
+  id: LockerSyndicateDirectorSaibasanFilled
+  parent: LockerSyndicateDirector
+  suffix: Filled, Saibasan
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingHeadCapSyndicateDirectorSaibasan
+    - id: ClothingNeckCloakSyndicateDirectorSaibasan
+    - id: ClothingUniformJumpsuitSyndicateDirectorSaibasan
+    - id: ClothingHandsGlovesCombat
+    - id: ClothingEyesGlasses
+    - id: ClothingOuterCoatSyndieCap
+    - id: ClothingOuterCoatSyndieCapArmored
+    - id: ClothingMaskGasSyndicate
+#    - id: ClothingUnderwearBottomBoxersWhite # WD
+#    - id: ClothingUnderwearBottomPantiesWhite # WD
+#    - id: ClothingUnderwearTopBraWhite # WD
+    - id: BoxCoordinateDisksSaibasan
+    - id: BoxCoordinateDisksNanoTrasenStation
+
+- type: entity
+  id: LockerSyndicateDirectorInterPharmFilled
+  parent: LockerSyndicateDirector
+  suffix: Filled, InterPharm
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingHeadCapSyndicateDirectorInterpharm
+    - id: ClothingNeckCloakSyndicateDirectorInterpharm
+    - id: ClothingUniformJumpsuitSyndicateDirectorInterpharm
+    - id: ClothingHandsGlovesLatex
+    - id: ClothingEyesGlasses
+    - id: ClothingOuterCoatSyndicateDirectorInterpharm
+    - id: ClothingMaskGasSyndicate
+#    - id: ClothingUnderwearBottomBoxersWhite # WD
+#    - id: ClothingUnderwearBottomPantiesWhite # WD
+#    - id: ClothingUnderwearTopBraWhite # WD
+    - id: InterPharmCoordinatesDisk
+
+# Commander
+
+- type: entity
+  id: LockerSyndicateCommandorFilled
+  parent: LockerSyndicateCommandor
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingHeadBeretSyndicateCommandor
+    - id: ClothingNeckCloakSyndicateCommandor
+    - id: ClothingUniformJumpsuitSyndicateCommandor
+    - id: ClothingHandsGlovesCombat
+    - id: ClothingEyesGlassesSyndicateSecurity
+    - id: ClothingOuterArmorSyndicateCommandor
+    - id: ClothingMaskGasSyndicate
+#    - id: ClothingUnderwearBottomBoxersWhite # WD
+#    - id: ClothingUnderwearBottomPantiesWhite # WD
+#    - id: ClothingUnderwearTopBraWhite # WD
+    - id: WeaponTaser
+#    - id: ClothingBeltAssaultFilled
+    - id: ClothingBeltSyndicateWebbing
+    - id: WeaponSubMachineGunC20r
+    - id: MagazinePistolSubMachineGunSP
+    - id: SecurityTechFabSyndicateCircuitboard
+    - id: WeaponTechFabSyndicateCircuitboard
+    - id: AmmoTechFabCircuitboard
+
+# Manager
+
+- type: entity
+  id: LockerSyndicateManagerFilled
+  parent: LockerSyndicateManager
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingNeckCloakManager
+    - id: ClothingUniformJumpsuitSyndicateManager
+    - id: ClothingUniformJumpsuitSyndicateManagerArmor
+    - id: ClothingHandsGlovesSyndicateInsulated
+    - id: ClothingEyesGlassesSyndicateWelding
+    - id: ClothingMaskGasSyndicate
+#    - id: ClothingUnderwearBottomBoxersWhite # WD
+#    - id: ClothingUnderwearBottomPantiesWhite # WD
+#    - id: ClothingUnderwearTopBraWhite # WD
+    - id: ClothingBeltSyndicateToolbeltFilled
+    - id: RubberStampDenied
+    - id: RubberStampApproved
+    - id: BoxFolderClipboard
+
+# Engineer
+
+- type: entity
+  id: LockerSyndicateEngineerFilled
+  suffix: Filled
+  parent: LockerSyndicateEngineer
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingUniformJumpsuitSyndicateEngineer
+    - id: ClothingUniformJumpsuitSyndicateEngineerArmor
+    - id: ClothingHandsGlovesSyndicateInsulated
+    - id: ClothingEyesGlassesSyndicateWelding
+    - id: ClothingMaskGasSyndicateTW
+#    - id: ClothingUnderwearBottomBoxersWhite # WD
+#    - id: ClothingUnderwearBottomPantiesWhite # WD
+#    - id: ClothingUnderwearTopBraWhite # WD
+    - id: ClothingBeltSyndicateToolbeltFilled
+    - id: HolofanProjector
+    - id: trayScanner
+    - id: GasAnalyzer
+    - id: MedkitOxygenFilled
+  - type: AccessReader
+    access: [["AtmosSyndicate"]]
+
+# Loader
+
+- type: entity
+  id: LockerSyndicateLoaderFilled
+  suffix: Filled
+  parent: LockerSyndicateEngineer
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingHeadHatSyndie
+    - id: ClothingUniformJumpsuitSyndicateDisposal
+    - id: ClothingHandsGlovesFingerlessSyndicate
+    - id: ClothingMaskGasSyndicateTW
+#    - id: ClothingUnderwearBottomBoxersWhite # WD
+#    - id: ClothingUnderwearBottomPantiesWhite # WD
+#    - id: ClothingUnderwearTopBraWhite # WD
+  - type: AccessReader
+    access: [["SuppliesSyndicate"]]
+
+# Miner
+
+- type: entity
+  id: LockerSyndicateMinerFilled
+  parent: LockerSyndicateMiner
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingUniformJumpsuitSyndicateDisposal
+    - id: ClothingUniformJumpsuitSyndicateSalvageArmor
+    - id: ClothingHandsGlovesFingerlessSyndicate
+    - id: ClothingEyesGlassesSyndicateWelding
+    - id: ClothingMaskGasSyndicateTW
+#    - id: ClothingUnderwearBottomBoxersWhite # WD
+#    - id: ClothingUnderwearBottomPantiesWhite # WD
+#    - id: ClothingUnderwearTopBraWhite # WD
+    - id: WeaponProtoKineticAccelerator
+    - id: ClothingBeltSyndicateToolbeltFilled
+    - id: SurvivalKnife
+    - id: HandheldGPSBasic
+    - id: SeismicCharge
+      amount: 2
+    - id: OreBag
+      prob: 0.5
+    - id: Flare
+      prob: 0.3
+    - id: Flare
+      prob: 0.3
+    - id: Flare
+      prob: 0.3
+  - type: AccessReader
+    access: [["MinersSyndicate"]]
+
+# Pilots
+
+- type: entity
+  id: LockerNTPilotFilled
+  parent: LockerSecurity
+  name: pilot`s locker
+  suffix: Filled, NT
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingHeadPilotHeadset
+    - id: ClothingHeadPilotHeadsetNT
+    - id: ClothingHeadHelmetPilot
+    - id: ClothingUniformJumpsuitPilotJacket
+    - id: ClothingUniformJumpsuitPilot
+    - id: ClothingHandsGlovesCombat
+    - id: ClothingEyesGlassesSecurity
+    - id: ClothingMaskGasPilot
+#    - id: ClothingUnderwearBottomBoxersWhite # WD
+#    - id: ClothingUnderwearBottomPantiesWhite # WD
+#    - id: ClothingUnderwearTopBraWhite # WD
+    - id: FlashlightSeclite
+    - id: WeaponDisabler
+  - type: AccessReader
+    access: [["PilotNT"]]
+
+- type: entity
+  id: LockerSyndicatePilotFilled
+  parent: LockerSyndicateSecurity
+  name: pilot`s locker
+  suffix: Filled, Syndicate
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingHeadPilotHeadset
+    - id: ClothingHeadPilotHeadsetSyndicate
+    - id: ClothingHeadHelmetSyndicatePilot
+    - id: ClothingUniformJumpsuitSyndicatePilot
+    - id: ClothingHandsGlovesSyndicatePilot
+    - id: ClothingShoesBootsCombatSyndicatePilot
+    - id: ClothingEyesGlassesSyndicateSecurity
+    - id: ClothingMaskGasPilotSyndicate
+    - id: ClothingOuterVestSyndicatePilot
+#    - id: ClothingUnderwearBottomBoxersWhite # WD
+#    - id: ClothingUnderwearBottomPantiesWhite # WD
+#    - id: ClothingUnderwearTopBraWhite # WD
+  - type: AccessReader
+    access: [["ShuttleSyndicate"]]
+
+# Med
+
+- type: entity
+  id: LockerSyndicateMedicalFilled
+  parent: LockerSyndicateMedical
+  suffix: Filled, Medical doctor
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingHeadBeretSyndicateMedical
+    - id: ClothingUniformJumpsuitSyndicateMedical
+    - id: ClothingHandsGlovesSyndicateNitrile
+    - id: ClothingEyesHudSyndicateMedical
+    - id: ClothingEyesEyepatchHudMedicalSyndicate
+    - id: ClothingOuterCoatLabSyndicateMedical
+    - id: ClothingMaskBreathMedical
+#    - id: ClothingUnderwearBottomBoxersWhite # WD
+#    - id: ClothingUnderwearBottomPantiesWhite # WD
+#    - id: ClothingUnderwearTopBraWhite # WD
+    - id: ClothingBeltMedicalFilled
+    - id: BoxSyringe
+    - id: EpinephrineChemistryBottle
+      amount: 1
+    - id: Brutepack
+      amount: 2
+    - id: Ointment
+      amount: 2
+    - id: Bloodpack
+      amount: 2
+    - id: Gauze
+    - id: MedkitFilled
+
+- type: entity
+  id: LockerSyndicateParamedFilled
+  parent: LockerSyndicateMedical
+  suffix: Filled, Paramed
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingUniformJumpsuitSyndicateParamedic
+    - id: ClothingHandsGlovesSyndicateNitrile
+    - id: ClothingEyesHudSyndicateMedical
+    - id: ClothingEyesEyepatchHudMedicalSyndicate
+    - id: ClothingMaskBreathMedical
+#    - id: ClothingUnderwearBottomBoxersWhite # WD
+#    - id: ClothingUnderwearBottomPantiesWhite # WD
+#    - id: ClothingUnderwearTopBraWhite # WD
+    - id: ClothingBeltMedicalEMTFilled
+    - id: HandheldGPSBasic
+    - id: MedkitFilled
+
+# Science
+
+- type: entity
+  id: LockerSyndicateScienceFilled
+  parent: LockerSyndicateScience
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingHandsGlovesSyndicateInsulated
+    - id: ClothingMaskSterile
+    - id: ClothingOuterCoatLabSyndicateScience
+    - id: AnomalyScanner
+    - id: NodeScanner
+    - id: NetworkConfigurator
+      prob: 0.5
+
+# Military
+
+- type: entity
+  id: LockerSyndicateSecurityFilled
+  parent: LockerSyndicateSecurity
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+#    - id: ClothingBeltAssaultFilled
+    - id: Flash
+    - id: ClothingEyesGlassesSyndicateSecurity
+    - id: ClothingHandsGlovesColorBlack
+#    - id: ClothingUnderwearBottomBoxersWhite # WD
+#    - id: ClothingUnderwearBottomPantiesWhite # WD
+#    - id: ClothingUnderwearTopBraWhite # WD
+#    - id: MagazineBoxPistolRubber
+#      amount: 2

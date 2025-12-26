@@ -1,0 +1,22 @@
+- type: job
+  id: Commander
+  name: job-name-commander
+  description: job-description-commander
+  playTimeTracker: JobSyndicateSecurityCommander
+#  requirements:
+#  - !type:RoleTimeRequirement
+#    role: JobSyndicateSecurityPilot
+#    time: 3600 #1 hrs
+#  - !type:RoleTimeRequirement
+#    role: JobSyndicateSecurityFighter
+#    time: 7200 #2 hrs
+  icon: "JobIconSyndicateCommander"
+  supervisors: job-supervisors-directorofsaibasan
+  canBeAntag: false
+  access:
+  - BridgeSyndicate
+  - ArmorySyndicate
+  - BarracksSyndicate
+  - MaintenanceSyndicate
+  - GatewaysSyndicate
+  - GeneralSyndicate

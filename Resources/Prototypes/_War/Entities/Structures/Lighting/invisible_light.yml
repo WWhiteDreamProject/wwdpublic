@@ -1,0 +1,17 @@
+- type: entity
+  id: InvisibleLight
+  name: invisible light
+  suffix: Goida
+  components:
+  - type: Transform
+    anchored: true
+  - type: Clickable
+  - type: InteractionOutline
+  - type: PointLight
+    color: "#FFE4CE"
+    energy: 0.8
+    radius: 10
+    softness: 1
+    offset: "0, -0.5"
+  - type: Physics
+    bodyType: Static

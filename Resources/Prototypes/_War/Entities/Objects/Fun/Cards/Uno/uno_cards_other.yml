@@ -1,0 +1,164 @@
+- type: entity
+  parent: BaseStorageItem
+  id: UnoCardBag
+  name: упаковка карт UNO
+  description: Упаковка с игральными картами UNO.
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/UnoCards/uno_special.rsi
+    state: box
+    scale: 0.5, 0.5
+  - type: Item
+    size: Huge
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,17,11
+    quickInsert: true
+    areaInsert: true
+#    whitelist:
+#      tags:
+#      - UnoCard
+  - type: Tag
+    tags:
+    - TrashBag
+  - type: Appearance
+  - type: Dumpable
+#  - type: GiftIgnore
+  - type: StorageFill
+    contents:
+     - id: UnoCardUnknownGreen3
+     - id: UnoCardUnknownBlue5
+     - id: UnoCardUnknownYellowPlus
+     - id: UnoCardUnknownBlue1
+     - id: UnoCardUnknownYellow5
+     - id: UnoCardUnknownRed5
+     - id: UnoCardUnknownYellow2
+     - id: UnoCardUnknownSpecial
+     - id: UnoCardUnknownYellow4
+     - id: UnoCardUnknownRedPlus
+     - id: UnoCardUnknownRed6
+     - id: UnoCardUnknownGreen1
+     - id: UnoCardUnknownGreenPlus
+     - id: UnoCardUnknownGreen5
+     - id: UnoCardUnknownRedStop
+     - id: UnoCardUnknownBlue6
+     - id: UnoCardUnknownRed1
+     - id: UnoCardUnknownRedReverse
+     - id: UnoCardUnknownGreen4
+     - id: UnoCardUnknownBlue5
+     - id: UnoCardUnknownBlue7
+     - id: UnoCardUnknownBlue0
+     - id: UnoCardUnknownYellow1
+     - id: UnoCardUnknownSpecial
+     - id: UnoCardUnknownYellow7
+     - id: UnoCardUnknownYellow3
+     - id: UnoCardUnknownGreen8
+     - id: UnoCardUnknownYellow9
+     - id: UnoCardUnknownBlue7
+     - id: UnoCardUnknownRed7
+     - id: UnoCardUnknownYellow7
+     - id: UnoCardUnknownSpecial
+     - id: UnoCardUnknownGreen3
+     - id: UnoCardUnknownGreenStop
+     - id: UnoCardUnknownYellow6
+     - id: UnoCardUnknownBlueStop
+     - id: UnoCardUnknownBlue9
+     - id: UnoCardUnknownBlueReverse
+     - id: UnoCardUnknownYellow0
+     - id: UnoCardUnknownRed8
+     - id: UnoCardUnknownBlue8
+     - id: UnoCardUnknownYellow6
+     - id: UnoCardUnknownRed9
+     - id: UnoCardUnknownRed6
+     - id: UnoCardUnknownBlue4
+     - id: UnoCardUnknownYellow3
+     - id: UnoCardUnknownGreenPlus
+     - id: UnoCardUnknownBlueReverse
+     - id: UnoCardUnknownGreenReverse
+     - id: UnoCardUnknownBlue9
+     - id: UnoCardUnknownBlue3
+     - id: UnoCardUnknownGreen7
+     - id: UnoCardUnknownGreen9
+     - id: UnoCardUnknownRedReverse
+     - id: UnoCardUnknownGreen6
+     - id: UnoCardUnknownGreen1
+     - id: UnoCardUnknownGreen5
+     - id: UnoCardUnknownGreenStop
+     - id: UnoCardUnknownRed8
+     - id: UnoCardUnknownRedStop
+     - id: UnoCardUnknownRed4
+     - id: UnoCardUnknownGreen8
+     - id: UnoCardUnknownRed3
+     - id: UnoCardUnknownRed2
+     - id: UnoCardUnknownYellow2
+     - id: UnoCardUnknownBlue2
+     - id: UnoCardUnknownYellowReverse
+     - id: UnoCardUnknownYellow1
+     - id: UnoCardUnknownGreen2
+     - id: UnoCardUnknownGreen9
+     - id: UnoCardUnknownBlue8
+     - id: UnoCardUnknownSpecialFour
+     - id: UnoCardUnknownRed2
+     - id: UnoCardUnknownRed4
+     - id: UnoCardUnknownGreen2
+     - id: UnoCardUnknownSpecialFour
+     - id: UnoCardUnknownYellow9
+     - id: UnoCardUnknownSpecial
+     - id: UnoCardUnknownBlue6
+     - id: UnoCardUnknownYellowStop
+     - id: UnoCardUnknownSpecialFour
+     - id: UnoCardUnknownRed0
+     - id: UnoCardUnknownRed7
+     - id: UnoCardUnknownYellow8
+     - id: UnoCardUnknownBlue3
+     - id: UnoCardUnknownBlue1
+     - id: UnoCardUnknownRedPlus
+     - id: UnoCardUnknownBlueStop
+     - id: UnoCardUnknownRed1
+     - id: UnoCardUnknownGreen0
+     - id: UnoCardUnknownGreenReverse
+     - id: UnoCardUnknownBlue4
+     - id: UnoCardUnknownBluePlus
+     - id: UnoCardUnknownYellowReverse
+     - id: UnoCardUnknownBluePlus
+     - id: UnoCardUnknownYellow5
+     - id: UnoCardUnknownGreen6
+     - id: UnoCardUnknownRed9
+     - id: UnoCardUnknownRed5
+     - id: UnoCardUnknownGreen4
+     - id: UnoCardUnknownGreen7
+     - id: UnoCardUnknownSpecialFour
+     - id: UnoCardUnknownYellowPlus
+     - id: UnoCardUnknownRed3
+     - id: UnoCardUnknownYellow8
+     - id: UnoCardUnknownYellowStop
+     - id: UnoCardUnknownBlue2
+     - id: UnoCardUnknownYellow4
+
+- type: entity
+  parent: BaseStorageItem
+  id: UnoPlayerCardBag
+  name: колода карт игрока UNO
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/UnoCards/uno_special.rsi
+    state: deck
+    scale: 0.5, 0.5
+  - type: Item
+    size: Normal
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,9,5
+    quickInsert: true
+    areaInsert: false
+    whitelist:
+      tags:
+      - UnoCard
+  - type: Tag
+    tags:
+    - TrashBag
+  - type: Appearance
+  - type: Dumpable
+#  - type: GiftIgnore

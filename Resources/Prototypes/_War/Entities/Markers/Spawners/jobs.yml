@@ -1,0 +1,206 @@
+# Base
+- type: entity
+  id: SpawnPointJobBaseSyndicate
+  parent: MarkerBase
+  abstract: true
+  suffix: Job Spawn
+  components:
+  - type: SpawnPoint
+    spawn_type: Job
+  - type: Sprite
+    sprite: _War/Markers/jobs.rsi
+
+# Saibasan
+- type: entity
+  id: SpawnPointSyndicateDisposal
+  parent: SpawnPointJobBaseSyndicate
+  name: disposal
+  components:
+  - type: SpawnPoint
+    job_id: Disposal
+  - type: Sprite
+    layers:
+    - state: green
+    - state: syndicatedisposal
+
+- type: entity
+  id: SpawnPointSyndicateLoader
+  parent: SpawnPointJobBaseSyndicate
+  name: loader
+  components:
+  - type: SpawnPoint
+    job_id: Loader
+  - type: Sprite
+    layers:
+    - state: green
+    - state: syndicateloader
+
+- type: entity
+  id: SpawnPointSyndicateSupplyManager
+  parent: SpawnPointJobBaseSyndicate
+  name: supplymanager
+  components:
+  - type: SpawnPoint
+    job_id: SupplyManager
+  - type: Sprite
+    layers:
+    - state: green
+    - state: syndicatesupplymanager
+
+- type: entity
+  id: SpawnPointSyndicateDirectorOfSaibasan
+  parent: SpawnPointJobBaseSyndicate
+  name: directorofsaibasan
+  components:
+  - type: SpawnPoint
+    job_id: DirectorOfSaibasan
+  - type: Sprite
+    layers:
+    - state: green
+    - state: syndicatedirectorofsaibasan
+
+- type: entity
+  id: SpawnPointSyndicateAtmosphericEngineer
+  parent: SpawnPointJobBaseSyndicate
+  name: atmosphericengineer
+  components:
+  - type: SpawnPoint
+    job_id: AtmosphericEngineer
+  - type: Sprite
+    layers:
+    - state: green
+    - state: syndicateatmosphericengineer
+
+- type: entity
+  id: SpawnPointSyndicateParamedic
+  parent: SpawnPointJobBaseSyndicate
+  name: syndicateparamedic
+  components:
+  - type: SpawnPoint
+    job_id: SyndicateParamedic
+  - type: Sprite
+    layers:
+    - state: green
+    - state: syndicateparamedic
+
+- type: entity
+  id: SpawnPointSyndicateFighter
+  parent: SpawnPointJobBaseSyndicate
+  name: fighter
+  components:
+  - type: SpawnPoint
+    job_id: Fighter
+  - type: Sprite
+    layers:
+    - state: green
+    - state: syndicatefighter
+
+- type: entity
+  id: SpawnPointSyndicatePilot
+  parent: SpawnPointJobBaseSyndicate
+  name: syndicatepilot
+  components:
+  - type: SpawnPoint
+    job_id: SyndicatePilot
+  - type: Sprite
+    layers:
+    - state: green
+    - state: syndicatepilot
+
+- type: entity
+  id: SpawnPointSyndicateCommander
+  parent: SpawnPointJobBaseSyndicate
+  name: commander
+  components:
+  - type: SpawnPoint
+    job_id: Commander
+  - type: Sprite
+    layers:
+    - state: green
+    - state: syndicatecommander
+
+- type: entity
+  id: SpawnPointSyndicateRecruit
+  parent: SpawnPointJobBaseSyndicate
+  name: recruit
+  components:
+  - type: SpawnPoint
+    job_id: Recruit
+  - type: Sprite
+    layers:
+    - state: green
+    - state: syndicaterecruit
+
+- type: entity
+  id: SpawnPointSyndicateSpy
+  parent: SpawnPointJobBaseSyndicate
+  name: syndicatespy
+  components:
+  - type: SpawnPoint
+    job_id: SyndicateSpy
+  - type: Sprite
+    layers:
+    - state: green
+    - state: syndicatespy
+
+# Interpharm
+
+- type: entity
+  id: SpawnPointSyndicateScientist
+  parent: SpawnPointJobBaseSyndicate
+  name: syndicatescientist
+  components:
+  - type: SpawnPoint
+    job_id: SyndicateScientist
+  - type: Sprite
+    layers:
+    - state: green
+    - state: syndicatescimed
+
+- type: entity
+  id: SpawnPointDirectorOfInterpharm
+  parent: SpawnPointJobBaseSyndicate
+  name: directorofinterpharm
+  components:
+  - type: SpawnPoint
+    job_id: DirectorOfInterpharm
+  - type: Sprite
+    layers:
+    - state: green
+    - state: syndicatedirectorofinterpharm
+
+- type: entity
+  id: SpawnPointSyndicateBartender
+  parent: SpawnPointJobBaseSyndicate
+  name: syndicateBartender
+  components:
+  - type: SpawnPoint
+    job_id: SyndicateBartender
+  - type: Sprite
+    layers:
+    - state: green
+    - state: syndicatebartender
+
+- type: entity
+  id: SpawnPointSyndicateBotanist
+  parent: SpawnPointJobBaseSyndicate
+  name: syndicatebotanist
+  components:
+  - type: SpawnPoint
+    job_id: SyndicateBotanist
+  - type: Sprite
+    layers:
+    - state: green
+    - state: syndicatebotanist
+
+- type: entity
+  id: SpawnPointSyndicateChef
+  parent: SpawnPointJobBaseSyndicate
+  name: syndicatechef
+  components:
+  - type: SpawnPoint
+    job_id: SyndicateChef
+  - type: Sprite
+    layers:
+    - state: green
+    - state: syndicatechef

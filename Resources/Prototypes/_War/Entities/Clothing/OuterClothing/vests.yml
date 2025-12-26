@@ -1,0 +1,43 @@
+﻿- type: entity
+  parent: ClothingOuterBase
+  id: ClothingOuterVestSyndicatePilot
+  name: pilot`s vest
+  description: A pilot`s vest.
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/OuterClothing/Vests/syndie_pilot.rsi
+  - type: Clothing
+    sprite: _War/Clothing/OuterClothing/Vests/syndie_pilot.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.85
+        Heat: 0.90
+  - type: ExplosionResistance
+    damageCoefficient: 0.95
+  - type: Storage
+    maxItemSize: Normal
+    defaultStorageOrientation: Vertical
+    grid:
+    - 0,0,7,1
+  - type: Item
+    size: Large
+    shape:
+    - 0, 0, 4, 1
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: StorageFill
+    contents:
+    - id: WeaponPistolCobra
+    - id: SpaceMedipen
+      amount: 2
+    - id: Flare
+      amount: 3

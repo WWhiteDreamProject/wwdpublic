@@ -1,0 +1,38 @@
+- type: entity
+  parent: AirlockRCDResistantSyndicate
+  id: AirlockSyndicateExternalBase
+  suffix: External
+  abstract: true
+  description: It opens, it closes, it might crush you, and there might be only space behind it. Has to be manually activated.
+  components:
+  - type: Door
+    bumpOpen: false
+    crushDamage:
+      types:
+        Blunt: 15
+    openSound:
+      path: /Audio/Machines/airlock_ext_open.ogg
+    closeSound:
+      path: /Audio/Machines/airlock_ext_close.ogg
+    denySound:
+      path: /Audio/Machines/airlock_deny.ogg
+  - type: Sprite
+    sprite: _War/Structures/Doors/Airlocks/Standard/s_external.rsi
+  - type: PaintableAirlock
+    group: External
+    department: null
+
+- type: entity
+  parent: AirlockSyndicateExternalBase
+  id: AirlockSyndicateExternalGlassBase
+  suffix: Glass, External
+  abstract: true
+  components:
+  - type: Door
+    occludes: false
+  - type: Occluder
+    enabled: false
+  - type: Sprite
+    sprite: _War/Structures/Doors/Airlocks/Glass/s_external.rsi
+  - type: PaintableAirlock
+    group: ExternalGlass

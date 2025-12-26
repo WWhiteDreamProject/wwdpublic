@@ -1,0 +1,239 @@
+﻿# Bio and rad
+
+- type: entity
+  parent: ClothingHeadHatHoodBioGeneral
+  id: ClothingHeadHoodSyndicateBioBlack
+  name: black bio hood
+  description: A hood that protects the head and face from biological contaminants.
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/Head/Hoods/Bio/syndie_black.rsi
+  - type: Clothing
+    sprite: _War/Clothing/Head/Hoods/Bio/syndie_black.rsi
+
+- type: entity
+  parent: ClothingHeadHatHoodBioGeneral
+  id: ClothingHeadHoodSyndicateBioRed
+  name: red bio hood
+  description: A hood that protects the head and face from biological contaminants.
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/Head/Hoods/Bio/syndie_red.rsi
+  - type: Clothing
+    sprite: _War/Clothing/Head/Hoods/Bio/syndie_red.rsi
+
+- type: entity
+  parent: ClothingHeadHatHoodRad
+  id: ClothingHeadHoodSyndicateRad
+  name: syndicate radiation hood
+  description: A hood of the hazmat suit, designed for protection from high radioactivity.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/Head/Hoods/syndie_rad.rsi
+  - type: Clothing
+    sprite: _War/Clothing/Head/Hoods/syndie_rad.rsi
+    equipSound: /Audio/Effects/rustle1.ogg
+    unequipSound: /Audio/Effects/rustle2.ogg
+    quickEquip: false
+    slots: [ HEAD ]
+  - type: GroupExamine
+  - type: HideLayerClothing
+
+# Base hood with light
+
+- type: entity
+  abstract: true
+  id: ClothingHeadHatHoodSyndicateBase
+  name: base winter coat hood
+  description: A hood. Comes with a built-in flashlight.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+    - state: light-icon
+      visible: false
+      map: [ "light" ]
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Clothing
+    equipSound: /Audio/Effects/rustle1.ogg
+    unequipSound: /Audio/Effects/rustle2.ogg
+    quickEquip: false
+    equippedPrefix: off
+    slots: [ HEAD ]
+  - type: GroupExamine
+  - type: HideLayerClothing
+    slots:
+    - Hair
+  - type: ToggleableLightVisuals
+  - type: PointLight
+    enabled: false
+    radius: 5
+    energy: 3
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+    netsync: false
+  - type: Appearance
+  - type: HandheldLight
+    addPrefix: true
+    blinkingBehaviourId: blinking
+    radiatingBehaviourId: radiating
+  - type: LightBehaviour
+    behaviours:
+    - !type:FadeBehaviour
+      id: radiating
+      interpolate: Linear
+      maxDuration: 2.0
+      startValue: 3.0
+      endValue: 2.0
+      isLooped: true
+      reverseWhenFinished: true
+    - !type:PulseBehaviour
+      id: blinking
+      interpolate: Nearest
+      maxDuration: 1.0
+      minValue: 0.1
+      maxValue: 2.0
+      isLooped: true
+  - type: PowerCellSlot
+    cellSlotId: cell_slot
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellMedium
+  - type: ContainerContainer
+    containers:
+      cell_slot: !type:ContainerSlot
+  - type: Item
+    heldPrefix: off
+
+# Eng
+
+- type: entity
+  parent: ClothingHeadHatHoodSyndicateBase
+  id: ClothingHeadHoodSyndicateEngineer
+  name: engineer hood
+  description: A hood. Comes with a built-in flashlight.
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/Head/Hoods/syndie_engi.rsi
+  - type: Clothing
+    sprite: _War/Clothing/Head/Hoods/syndie_engi.rsi
+
+- type: entity
+  parent: ClothingHeadHatHoodSyndicateBase
+  id: ClothingHeadHoodSyndicateEngineerArmored
+  name: engineer armored hood
+  description: A hood, used in dangerous working conditions to protect the head. Comes with a built-in flashlight.
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/Head/Hoods/syndie_engi_armor.rsi
+  - type: Clothing
+    sprite: _War/Clothing/Head/Hoods/syndie_engi_armor.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.9
+
+# Manager
+
+- type: entity
+  parent: ClothingHeadHatHoodSyndicateBase
+  id: ClothingHeadHoodSyndicateManager
+  name: manager hood
+  description: A hood. Comes with a built-in flashlight.
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/Head/Hoods/syndie_sm.rsi
+  - type: Clothing
+    sprite: _War/Clothing/Head/Hoods/syndie_sm.rsi
+
+- type: entity
+  parent: ClothingHeadHatHoodSyndicateBase
+  id: ClothingHeadHoodSyndicateManagerArmor
+  name: manager armored hood
+  description: A hood, used in dangerous working conditions to protect the head. Comes with a built-in flashlight.
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/Head/Hoods/syndie_sm_armor.rsi
+  - type: Clothing
+    sprite: _War/Clothing/Head/Hoods/syndie_sm_armor.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.9
+
+# Cargo
+
+- type: entity
+  parent: ClothingHeadHatHoodWinterBase
+  id: ClothingHeadHoodSyndicateDisposal
+  name: disposal hood
+  description: A hood.
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/Head/Hoods/syndie_disposal.rsi
+  - type: Clothing
+    sprite: _War/Clothing/Head/Hoods/syndie_disposal.rsi
+  - type: TemperatureProtection
+    heatingCoefficient: 0.005
+    coolingCoefficient: 0.005
+
+# Polar
+
+- type: entity
+  parent: ClothingHeadHatHoodWinterBase
+  id: ClothingHeadHoodSyndicatePolar
+  name: Polar hood
+  description: A hood.
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/Head/Hoods/s_polar_hood.rsi
+  - type: Clothing
+    sprite: _War/Clothing/Head/Hoods/s_polar_hood.rsi
+  - type: TemperatureProtection
+    coolingCoefficient: 0.8
+
+- type: entity
+  parent: ClothingHeadHatHoodWinterBase
+  id: ClothingHeadHoodSyndicatePolarDirector
+  name: Directors polar hood
+  description: A hood.
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/Head/Hoods/s_polar_dir_hood.rsi
+  - type: Clothing
+    sprite: _War/Clothing/Head/Hoods/s_polar_dir_hood.rsi
+  - type: TemperatureProtection
+    coolingCoefficient: 0.8
+  - type: FlashImmunity
+  - type: EyeProtection
+  - type: IdentityBlocker
+
+# Miner
+
+# Относится к ClothingOuterSuitRadSalvage из suits.yml, а оно не работает..
+
+#- type: entity
+#  parent: ClothingHeadHatHoodWinterBase
+#  id: ClothingHeadHoodMinerRadSalvage
+#  name: Antirad hood
+#  description: Antirad hood. Maybe.
+#  components:
+#  - type: Sprite
+#    sprite: _War\Clothing\Head\Hoods\rad_salvage_hood.rsi
+#  - type: Clothing
+#    sprite: _War\Clothing\Head\Hoods\rad_salvage_hood.rsi
+#  - type: Armor
+#    modifiers:
+#      coefficients:
+#        Radiation: 0.85

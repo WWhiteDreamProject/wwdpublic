@@ -1,0 +1,565 @@
+- type: entity
+  id: RedWindoor
+  parent: BaseRedWindoor
+  name: windoor
+  description: It's a window and a sliding door. Wow!
+
+- type: entity
+  id: GreenWindoor
+  parent: BaseGreenWindoor
+  name: windoor
+  description: It's a window and a sliding door. Wow!
+
+- type: entity
+  id: RedWindoorSecure
+  parent: BaseSecureWindoor
+  name: secure windoor
+  description: It's a sturdy window and a sliding door. Wow!
+
+- type: entity
+  id: GreenWindoorSecure
+  parent: BaseSecureWindoor
+  name: secure windoor
+  description: It's a sturdy window and a sliding door. Wow!
+
+# Сверху база, снизу не база.
+
+- type: entity
+  parent: RedWindoor
+  id: RedWindoorDirectorLocked
+  suffix: Syndicate, Director, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateAuthority ]
+
+- type: entity
+  parent: GreenWindoor
+  id: GreenWindoorDirectorLocked
+  suffix: Syndicate, Director, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateAuthority ]
+
+- type: entity
+  parent: RedWindoorSecure
+  id: RedWindoorDirectorSecureLocked
+  suffix: Syndicate, Director, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateAuthority ]
+
+- type: entity
+  parent: GreenWindoorSecure
+  id: GreenWindoorSecureDirectorLocked
+  suffix: Syndicate, Director, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateAuthority ]
+
+- type: entity
+  parent: RedWindoor
+  id: RedWindoorCommandLocked
+  suffix: Syndicate, Bridge, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateBridge ]
+
+- type: entity
+  parent: GreenWindoor
+  id: GreenWindoorCommandLocked
+  suffix: Syndicate, Bridge, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateBridge ]
+
+- type: entity
+  parent: RedWindoorSecure
+  id: RedWindoorCommandSecureLocked
+  suffix: Syndicate, Bridge, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateBridge ]
+
+- type: entity
+  parent: GreenWindoorSecure
+  id: GreenWindoorCommandSecureLocked
+  suffix: Syndicate, Bridge, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateBridge ]
+
+- type: entity
+  parent: RedWindoor
+  id: RedWindoorFoodLocked
+  suffix: Syndicate, Food, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateFood ]
+
+- type: entity
+  parent: GreenWindoor
+  id: GreenWindoorFoodLocked
+  suffix: Syndicate, Food, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateFood ]
+
+- type: entity
+  parent: RedWindoorSecure
+  id: RedWindoorFoodSecureLocked
+  suffix: Syndicate, Food, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateFood ]
+
+- type: entity
+  parent: GreenWindoorSecure
+  id: GreenWindoorFoodSecureLocked
+  suffix: Syndicate, Food, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateFood ]
+
+- type: entity
+  parent: RedWindoor
+  id: RedWindoorBarLocked
+  suffix: Syndicate, Bar, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateBar ]
+
+- type: entity
+  parent: GreenWindoor
+  id: GreenWindoorBarLocked
+  suffix: Syndicate, Bar, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateBar ]
+
+- type: entity
+  parent: RedWindoorSecure
+  id: RedWindoorBarSecureLocked
+  suffix: Syndicate, Bar, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateBar ]
+
+- type: entity
+  parent: GreenWindoorSecure
+  id: GreenWindoorBarSecureLocked
+  suffix: Syndicate, Bar, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateBar ]
+
+- type: entity
+  parent: RedWindoor
+  id: RedWindoorEngineringLocked
+  suffix: Syndicate, Technical, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateTechnical ]
+
+- type: entity
+  parent: GreenWindoor
+  id: GreenWindoorEngineringLocked
+  suffix: Syndicate, Technical, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateTechnical ]
+
+- type: entity
+  parent: RedWindoorSecure
+  id: RedWindoorEngineringSecureLocked
+  suffix: Syndicate, Technical, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateTechnical ]
+
+- type: entity
+  parent: GreenWindoorSecure
+  id: GreenWindoorEngineringSecureLocked
+  suffix: Syndicate, Technical, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateTechnical ]
+
+- type: entity
+  parent: RedWindoor
+  id: RedWindoorAtmosLocked
+  suffix: Syndicate, Atmos, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateAtmos ]
+
+- type: entity
+  parent: GreenWindoor
+  id: GreenWindoorAtmosLocked
+  suffix: Syndicate, Atmos, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateAtmos ]
+
+- type: entity
+  parent: RedWindoorSecure
+  id: RedWindoorAtmosSecureLocked
+  suffix: Syndicate, Atmos, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateAtmos ]
+
+- type: entity
+  parent: GreenWindoorSecure
+  id: GreenWindoorAtmosSecureLocked
+  suffix: Syndicate, Atmos, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateAtmos ]
+
+- type: entity
+  parent: RedWindoor
+  id: RedWindoorCargoLocked
+  suffix: Syndicate, Supplies, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateSupplies ]
+
+- type: entity
+  parent: GreenWindoor
+  id: GreenWindoorCargoLocked
+  suffix: Syndicate, Supplies, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateSupplies ]
+
+- type: entity
+  parent: RedWindoorSecure
+  id: RedWindoorCargoSecureLocked
+  suffix: Syndicate, Supplies, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateSupplies ]
+
+- type: entity
+  parent: GreenWindoorSecure
+  id: GreenWindoorCargoSecureLocked
+  suffix: Syndicate, Supplies, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateSupplies ]
+
+- type: entity
+  parent: RedWindoor
+  id: RedWindoorMinersLocked
+  suffix: Syndicate, Miners, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateMiners ]
+
+- type: entity
+  parent: GreenWindoor
+  id: GreenWindoorMinersLocked
+  suffix: Syndicate, Miners, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateMiners ]
+
+- type: entity
+  parent: RedWindoorSecure
+  id: RedWindoorMinersSecureLocked
+  suffix: Syndicate, Miners, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateMiners ]
+
+- type: entity
+  parent: GreenWindoorSecure
+  id: GreenWindoorMinersSecureLocked
+  suffix: Syndicate, Miners, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateMiners ]
+
+- type: entity
+  parent: RedWindoor
+  id: RedWindoorPilotLocked
+  suffix: Syndicate, Pilot, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicatePilot ]
+
+- type: entity
+  parent: GreenWindoor
+  id: GreenWindoorPilotLocked
+  suffix: Syndicate, Pilot, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicatePilot ]
+
+- type: entity
+  parent: RedWindoorSecure
+  id: RedWindoorPilotSecureLocked
+  suffix: Syndicate, Pilot, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicatePilot ]
+
+- type: entity
+  parent: GreenWindoorSecure
+  id: GreenWindoorPilotSecureLocked
+  suffix: Syndicate, Pilot, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicatePilot ]
+
+- type: entity
+  parent: RedWindoor
+  id: RedWindoorScienceLocked
+  suffix: Syndicate, Research, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateResearch ]
+
+- type: entity
+  parent: GreenWindoor
+  id: GreenWindoorScienceLocked
+  suffix: Syndicate, Research, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateResearch ]
+
+- type: entity
+  parent: RedWindoorSecure
+  id: RedWindoorScienceSecureLocked
+  suffix: Syndicate, Research, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateResearch ]
+
+- type: entity
+  parent: GreenWindoorSecure
+  id: GreenWindoorScienceSecureLocked
+  suffix: Syndicate, Research, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateResearch ]
+
+- type: entity
+  parent: RedWindoor
+  id: RedWindoorMedicalLocked
+  suffix: Syndicate, Medbay, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateMedbay ]
+
+- type: entity
+  parent: GreenWindoor
+  id: GreenWindoorMedicalLocked
+  suffix: Syndicate, Medbay, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateMedbay ]
+
+- type: entity
+  parent: RedWindoorSecure
+  id: RedWindoorMedicalSecureLocked
+  suffix: Syndicate, Medbay, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateMedbay ]
+
+- type: entity
+  parent: GreenWindoorSecure
+  id: GreenWindoorMedicalSecureLocked
+  suffix: Syndicate, Medbay, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateMedbay ]
+
+- type: entity
+  parent: RedWindoor
+  id: RedWindoorChemistryLocked
+  suffix: Syndicate, Chemistry, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateChemistry ]
+
+- type: entity
+  parent: GreenWindoor
+  id: GreenWindoorChemistryLocked
+  suffix: Syndicate, Chemistry, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateChemistry ]
+
+- type: entity
+  parent: RedWindoorSecure
+  id: RedWindoorChemistrySecureLocked
+  suffix: Syndicate, Chemistry, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateChemistry ]
+
+- type: entity
+  parent: GreenWindoorSecure
+  id: GreenWindoorChemistrySecureLocked
+  suffix: Syndicate, Chemistry, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateChemistry ]
+
+- type: entity
+  parent: RedWindoor
+  id: RedWindoorArmoryLocked
+  suffix: Syndicate, Armory, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateArmory ]
+
+- type: entity
+  parent: GreenWindoor
+  id: GreenWindoorArmoryLocked
+  suffix: Syndicate, Armory, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateArmory ]
+
+- type: entity
+  parent: RedWindoorSecure
+  id: RedWindoorArmorySecureLocked
+  suffix: Syndicate, Armory, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateArmory ]
+
+- type: entity
+  parent: GreenWindoorSecure
+  id: GreenWindoorArmorySecureLocked
+  suffix: Syndicate, Armory, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateArmory ]
+
+- type: entity
+  parent: RedWindoor
+  id: RedWindoorSecurityLocked
+  suffix: Syndicate, Barracks, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateBarracks ]
+
+- type: entity
+  parent: GreenWindoor
+  id: GreenWindoorSecurityLocked
+  suffix: Syndicate, Barracks, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateBarracks ]
+
+- type: entity
+  parent: RedWindoorSecure
+  id: RedWindoorSecuritySecureLocked
+  suffix: Syndicate, Barracks, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateBarracks ]
+
+- type: entity
+  parent: GreenWindoorSecure
+  id: GreenWindoorSecuritySecureLocked
+  suffix: Syndicate, Barracks, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateBarracks ]
+
+- type: entity
+  parent: RedWindoor
+  id: RedWindoorPrisonLocked
+  suffix: Syndicate, Prison, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateBarracks, DoorElectronicsSyndicateBridge ]
+
+- type: entity
+  parent: GreenWindoor
+  id: GreenWindoorPrisonLocked
+  suffix: Syndicate, Prison, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateBarracks, DoorElectronicsSyndicateBridge ]
+
+- type: entity
+  parent: RedWindoorSecure
+  id: RedWindoorPrisonSecureLocked
+  suffix: Syndicate, Prison, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateBarracks, DoorElectronicsSyndicateBridge ]
+
+- type: entity
+  parent: GreenWindoorSecure
+  id: GreenWindoorPrisonSecureLocked
+  suffix: Syndicate, Prison, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateBarracks, DoorElectronicsSyndicateBridge ]

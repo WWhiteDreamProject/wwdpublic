@@ -1,0 +1,14 @@
+- type: job
+  id: SyndicateParamedic
+  name: job-name-syndiparamedic
+  description: job-description-syndiparamedic
+  playTimeTracker: JobSyndicateParamedic
+  icon: "JobIconSyndicateParamedic"
+  supervisors: job-supervisors-commander
+  access:
+  - BarracksSyndicate
+  - MaintenanceSyndicate
+  - GatewaysSyndicate
+  - MedbaySyndicate
+  - ChemistrySyndicate
+  - GeneralSyndicate

@@ -1,0 +1,616 @@
+# Command
+
+- type: entity
+  parent: AirlockSyndicateCommandBase
+  id: AirlockSyndicateDirector
+  suffix: Syndicate, Director, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateAuthority ]
+
+- type: entity
+  parent: AirlockSyndicateCommandBase
+  id: AirlockSyndicateCommand
+  suffix: Syndicate, Bridge, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateBridge ]
+
+- type: entity
+  parent: AirlockSyndicateCommandInterBase
+  id: AirlockSyndicateCommandInterPharm
+  suffix: Syndicate, Bridge, InterPharm, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateBridge ]
+
+- type: entity
+  parent: AirlockSyndicateEngineeringBase
+  id: AirlockSyndicateManager
+  suffix: Syndicate, SupplyManager, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateBridge ]
+
+- type: entity
+  parent: AirlockSyndicateSecurityBase
+  id: AirlockSyndicateCommander
+  suffix: Syndicate, Commander, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateBridge ]
+
+# Service
+
+- type: entity
+  parent: AirlockSyndicateBase
+  id: AirlockSyndicateFood
+  suffix: Syndicate, Food, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateFood ]
+
+- type: entity
+  parent: AirlockSyndicateBase
+  id: AirlockSyndicateBar
+  suffix: Syndicate, Bar, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateBar ]
+
+# Technical
+
+- type: entity
+  parent: AirlockSyndicateEngineeringBase
+  id: AirlockSyndicateEngineering
+  suffix: Syndicate, Technical, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateTechnical ]
+
+- type: entity
+  parent: AirlockSyndicateEngineeringInterBase
+  id: AirlockSyndicateEngineeringInterPharm
+  suffix: Syndicate, Technical, InterPharm, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateTechnical ]
+
+- type: entity
+  parent: AirlockSyndicateEngineeringBase
+  id: AirlockSyndicateAtmos
+  suffix: Syndicate, Atmos, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateAtmos ]
+
+- type: entity
+  parent: AirlockSyndicateEngineeringBase
+  id: AirlockSyndicateCargo
+  suffix: Syndicate, Supplies, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateSupplies ]
+
+- type: entity
+  parent: AirlockSyndicateEngineeringBase
+  id: AirlockSyndicateMiners
+  suffix: Syndicate, Miners, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateMiners ]
+
+# Shuttle
+
+- type: entity
+  parent: AirlockSyndicateSecurityBase
+  id: AirlockSyndicatePilot
+  suffix: Syndicate, Pilot, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicatePilot ]
+
+- type: entity
+  parent: AirlockSyndicateExternalBase
+  id: AirlockSyndicateShuttle
+  suffix: Syndicate, Shuttle, Locked
+  components:
+  - type: Sprite
+    sprite: Structures/Doors/Airlocks/Standard/shuttle_syndicate.rsi
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateShuttle ]
+
+- type: entity
+  parent: AirlockShuttleSyndicate
+  id: AirlockSyndicateDocking
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateGateways ]
+
+# Science and medicine
+
+- type: entity
+  parent: AirlockSyndicateScienceBase
+  id: AirlockSyndicateScience
+  suffix: Syndicate, Research, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateResearch ]
+
+- type: entity
+  parent: AirlockSyndicateScienceInterBase
+  id: AirlockSyndicateScienceInterPharm
+  suffix: Syndicate, Research, InterPharm, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateResearch ]
+
+- type: entity
+  parent: AirlockSyndicateMedicalBase
+  id: AirlockSyndicateMedical
+  suffix: Syndicate, Medbay, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateMedbay ]
+
+- type: entity
+  parent: AirlockSyndicateMedicalInterBase
+  id: AirlockSyndicateMedicalInter
+  suffix: Syndicate, Medbay, InterPharm, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateMedbay ]
+
+- type: entity
+  parent: AirlockSyndicateMedicalBase
+  id: AirlockSyndicateChemistry
+  suffix: Syndicate, Chemistry, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateChemistry ]
+
+# Security
+
+- type: entity
+  parent: AirlockSyndicateSecurityBase
+  id: AirlockSyndicateArmory
+  suffix: Syndicate, Armory, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateArmory ]
+  - type: Wires
+    layoutId: AirlockArmory
+
+- type: entity
+  parent: AirlockSyndicateSecurityBase
+  id: AirlockSyndicateSecurity
+  suffix: Syndicate, Barracks, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateBarracks, DoorElectronicsSyndicateGeneral ]
+
+- type: entity
+  parent: AirlockSyndicateSecurityInterBase
+  id: AirlockSyndicateSecurityInterPharm
+  suffix: Syndicate, Barracks, InterPharm, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateBarracks, DoorElectronicsSyndicateGeneral ]
+
+- type: entity
+  parent: AirlockSyndicatePrisonBase
+  id: AirlockSyndicatePrison
+  suffix: Syndicate, Prison, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateBarracks, DoorElectronicsSyndicateBridge ]
+
+- type: entity
+  parent: AirlockSyndicatePrisonInterBase
+  id: AirlockSyndicatePrisonInterPharm
+  suffix: Syndicate, Prison, InterPharm, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateBarracks, DoorElectronicsSyndicateBridge ]
+
+# Misc
+
+- type: entity
+  parent: AirlockSyndicateExternalBase
+  id: AirlockSyndicateExternalInterPharm
+  suffix: Syndicate, InterPharm, Gateways, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateGateways ]
+
+- type: entity
+  parent: AirlockSyndicateExternalBase
+  id: AirlockSyndicateExternalSaibasan
+  suffix: Syndicate, Saibasan, Gateways, Locked
+  components:
+  - type: Sprite
+    sprite: Structures/Doors/Airlocks/Standard/shuttle_syndicate.rsi
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateGateways ]
+
+- type: entity
+  parent: AirlockSyndicateMaintenanceBase
+  id: AirlockSyndicateMaintenance
+  suffix: Syndicate, Maintenance, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateMaintenance ]
+
+- type: entity
+  parent: AirlockSyndicateMaintenanceInterBase
+  id: AirlockSyndicateMaintenanceInterPharm
+  suffix: Syndicate, Maintenance, InterPharm, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateMaintenance ]
+
+- type: entity
+  parent: AirlockSyndicateBase
+  id: AirlockSyndicateGeneral
+  suffix: Syndicate, General, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateGeneral ]
+
+- type: entity
+  parent: AirlockSecurityLocked
+  id: AirlockNTPilot
+  suffix: Pilot
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsPilotNT ]
+
+- type: entity
+  parent: AirlockSyndicateBasicBase
+  id: AirlockSyndicateBasic
+  suffix: Syndicate, Basic, Locked
+
+- type: entity
+  parent: AirlockSyndicateBasicInterBase
+  id: AirlockSyndicateBasicInterPharm
+  suffix: Syndicate, Basic, InterPharm, Locked
+
+# Command glass
+
+- type: entity
+  parent: AirlockSyndicateCommandGlassBase
+  id: AirlockSyndicateDirectorGlass
+  suffix: Syndicate, Director, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateAuthority ]
+
+- type: entity
+  parent: AirlockSyndicateCommandGlassBase
+  id: AirlockSyndicateCommandGlass
+  suffix: Syndicate, Bridge, Glass, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateBridge ]
+
+- type: entity
+  parent: AirlockSyndicateCommandInterGlassBase
+  id: AirlockSyndicateCommandInterPharmGlass
+  suffix: Syndicate, Bridge, InterPharm, Glass, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateBridge ]
+
+- type: entity
+  parent: AirlockSyndicateEngineeringGlassBase
+  id: AirlockSyndicateManagerGlass
+  suffix: Syndicate, Manager, Glass, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateBridge ]
+
+- type: entity
+  parent: AirlockSyndicateSecurityGlassBase
+  id: AirlockSyndicateCommanderGlass
+  suffix: Syndicate, Commander, Glass, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateBridge ]
+
+# Service glass
+
+- type: entity
+  parent: AirlockSyndicateGlassBase
+  id: AirlockSyndicateFoodGlass
+  suffix: Syndicate, Food, Glass, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateFood ]
+
+- type: entity
+  parent: AirlockSyndicateGlassBase
+  id: AirlockSyndicateBarGlass
+  suffix: Syndicate, Bar, Glass, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateBar ]
+
+# Technical glass
+
+- type: entity
+  parent: AirlockSyndicateEngineeringGlassBase
+  id: AirlockSyndicateEngineeringGlass
+  suffix: Syndicate, Technical, Glass, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateTechnical ]
+
+- type: entity
+  parent: AirlockSyndicateEngineeringInterGlassBase
+  id: AirlockSyndicateEngineeringInterPharmGlass
+  suffix: Syndicate, Technical, Glass, InterPharm, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateTechnical ]
+
+- type: entity
+  parent: AirlockSyndicateEngineeringGlassBase
+  id: AirlockSyndicateAtmosGlass
+  suffix: Syndicate, Atmos, Glass, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateAtmos ]
+
+- type: entity
+  parent: AirlockSyndicateEngineeringGlassBase
+  id: AirlockSyndicateCargoGlass
+  suffix: Syndicate, Supplies, Glass, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateSupplies ]
+
+- type: entity
+  parent: AirlockSyndicateEngineeringGlassBase
+  id: AirlockSyndicateMinersGlass
+  suffix: Syndicate, Miners, Glass, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateMiners ]
+
+# Shuttle glass
+
+- type: entity
+  parent: AirlockSyndicateSecurityGlassBase
+  id: AirlockSyndicatePilotGlass
+  suffix: Syndicate, Pilot, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicatePilot ]
+
+- type: entity
+  parent: AirlockSyndicateExternalGlassBase
+  id: AirlockSyndicateShuttleGlass
+  suffix: Syndicate, Shuttle, Locked
+  components:
+  - type: Sprite
+    sprite: Structures/Doors/Airlocks/Glass/shuttle_syndicate.rsi
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateShuttle ]
+
+- type: entity
+  parent: AirlockGlassShuttleSyndicate
+  id: AirlockSyndicateDockingGlass
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateGateways ]
+
+# Science and medicine glass
+
+- type: entity
+  parent: AirlockSyndicateScienceGlassBase
+  id: AirlockSyndicateScienceGlass
+  suffix: Syndicate, Research, Glass, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateResearch ]
+
+- type: entity
+  parent: AirlockSyndicateScienceInterGlassBase
+  id: AirlockSyndicateScienceInterPharmGlass
+  suffix: Syndicate, Research, InterPharm, Glass, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateResearch ]
+
+- type: entity
+  parent: AirlockSyndicateMedicalGlassBase
+  id: AirlockSyndicateMedicalGlass
+  suffix: Syndicate, Medbay, Glass, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateMedbay ]
+
+- type: entity
+  parent: AirlockSyndicateMedicalInterGlassBase
+  id: AirlockSyndicateMedicalInterPharmGlass
+  suffix: Syndicate, Medbay, InterPharm, Glass, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateMedbay ]
+
+- type: entity
+  parent: AirlockSyndicateMedicalGlassBase
+  id: AirlockSyndicateChemistryGlass
+  suffix: Syndicate, Chemistry, Glass, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateChemistry ]
+
+# Security glass
+
+- type: entity
+  parent: AirlockSyndicateSecurityGlassBase
+  id: AirlockSyndicateArmoryGlass
+  suffix: Syndicate, Armory, Glass, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateArmory ]
+  - type: Wires
+    layoutId: AirlockArmory
+
+- type: entity
+  parent: AirlockSyndicateSecurityGlassBase
+  id: AirlockSyndicateSecurityGlass
+  suffix: Syndicate, Barracks, Glass, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateBarracks, DoorElectronicsSyndicateGeneral ]
+
+- type: entity
+  parent: AirlockSyndicateSecurityInterGlassBase
+  id: AirlockSyndicateSecurityInterPharmGlass
+  suffix: Syndicate, Barracks, InterPharm, Glass, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateBarracks, DoorElectronicsSyndicateGeneral ]
+
+- type: entity
+  parent: AirlockSyndicatePrisonGlassBase
+  id: AirlockSyndicatePrisonGlass
+  suffix: Syndicate, Prison, Glass, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateBarracks, DoorElectronicsSyndicateBridge ]
+
+- type: entity
+  parent: AirlockSyndicatePrisonInterGlassBase
+  id: AirlockSyndicatePrisonInterPharmGlass
+  suffix: Syndicate, Prison, InterPharm, Glass, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateBarracks, DoorElectronicsSyndicateBridge ]
+
+# Misc glass
+
+- type: entity
+  parent: AirlockSyndicateExternalGlassBase
+  id: AirlockSyndicateExternalInterPharmGlass
+  suffix: Syndicate, InterPharm, Gateways, Glass, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateGateways ]
+
+- type: entity
+  parent: AirlockSyndicateExternalGlassBase
+  id: AirlockSyndicateExternalSaibasanGlass
+  suffix: Syndicate, Saibasan, Gateways, Glass, Locked
+  components:
+  - type: Sprite
+    sprite: Structures/Doors/Airlocks/Glass/shuttle_syndicate.rsi
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateGateways ]
+
+- type: entity
+  parent: AirlockSyndicateMaintenanceGlassBase
+  id: AirlockSyndicateMaintenanceGlass
+  suffix: Syndicate, Maintenance, Glass, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateMaintenance ]
+
+- type: entity
+  parent: AirlockSyndicateGlassBase
+  id: AirlockSyndicateGeneralGlass
+  suffix: Syndicate, General, Glass, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsSyndicateGeneral ]
+
+- type: entity
+  parent: AirlockSecurityGlassLocked
+  id: AirlockNTPilotGlass
+  suffix: Pilot
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsPilotNT ]
+
+- type: entity
+  parent: AirlockSyndicateBasicGlassBase
+  id: AirlockSyndicateBasicGlass
+  suffix: Syndicate, Basic, Glass, Locked
+
+- type: entity
+  parent: AirlockSyndicateBlackGlassBase
+  id: AirlockSyndicateBlackGlass
+  suffix: Syndicate, Black, Glass, Locked
+
+- type: entity
+  parent: AirlockSyndicateRedGlassBase
+  id: AirlockSyndicateRedGlass
+  suffix: Syndicate, Red, Glass, Locked
+
+- type: entity
+  parent: AirlockSyndicateBasicInterGlassBase
+  id: AirlockSyndicateBasicInterPharmGlass
+  suffix: Syndicate, Basic, Glass, InterPharm, Locked

@@ -1,0 +1,276 @@
+# CARDS
+
+- type: entity
+  parent: BaseCardHearts
+  id: Cardhearts_2
+  name: карта черви 2
+  description: Игральная карта.
+  components:
+    - type: Sprite
+      state: hearts_2
+    - type: SpawnItemsOnUse
+      items:
+        - id: CardUnknown2
+
+- type: entity
+  parent: BaseCardHearts
+  id: Cardhearts_3
+  name: карта черви 3
+  description: Игральная карта.
+  components:
+    - type: Sprite
+      state: hearts_3
+    - type: SpawnItemsOnUse
+      items:
+        - id: CardUnknown6
+
+- type: entity
+  parent: BaseCardHearts
+  id: Cardhearts_4
+  name: карта черви 4
+  description: Игральная карта.
+  components:
+    - type: Sprite
+      state: hearts_4
+    - type: SpawnItemsOnUse
+      items:
+        - id: CardUnknown10
+
+- type: entity
+  parent: BaseCardHearts
+  id: Cardhearts_5
+  name: карта черви 5
+  description: Игральная карта.
+  components:
+    - type: Sprite
+      state: hearts_5
+    - type: SpawnItemsOnUse
+      items:
+        - id: CardUnknown14
+
+- type: entity
+  parent: BaseCardHearts
+  id: Cardhearts_6
+  name: карта черви 6
+  description: Игральная карта.
+  components:
+    - type: Sprite
+      state: hearts_6
+    - type: SpawnItemsOnUse
+      items:
+        - id: CardUnknown18
+
+- type: entity
+  parent: BaseCardHearts
+  id: Cardhearts_7
+  name: карта черви 7
+  description: Игральная карта.
+  components:
+    - type: Sprite
+      state: hearts_7
+    - type: SpawnItemsOnUse
+      items:
+        - id: CardUnknown22
+
+- type: entity
+  parent: BaseCardHearts
+  id: Cardhearts_8
+  name: карта черви 8
+  description: Игральная карта.
+  components:
+    - type: Sprite
+      state: hearts_8
+    - type: SpawnItemsOnUse
+      items:
+        - id: CardUnknown26
+
+- type: entity
+  parent: BaseCardHearts
+  id: Cardhearts_9
+  name: карта черви 9
+  description: Игральная карта.
+  components:
+    - type: Sprite
+      state: hearts_9
+    - type: SpawnItemsOnUse
+      items:
+        - id: CardUnknown30
+
+- type: entity
+  parent: BaseCardHearts
+  id: Cardhearts_10
+  name: карта черви 10
+  description: Игральная карта.
+  components:
+    - type: Sprite
+      state: hearts_10
+    - type: SpawnItemsOnUse
+      items:
+        - id: CardUnknown34
+
+- type: entity
+  parent: BaseCardHearts
+  id: Cardhearts_j
+  name: карта черви Валет
+  description: Игральная карта.
+  components:
+    - type: Sprite
+      state: hearts_j
+    - type: SpawnItemsOnUse
+      items:
+        - id: CardUnknown38
+
+- type: entity
+  parent: BaseCardHearts
+  id: Cardhearts_q
+  name: карта черви Королева
+  description: Игральная карта.
+  components:
+    - type: Sprite
+      state: hearts_q
+    - type: SpawnItemsOnUse
+      items:
+        - id: CardUnknown42
+
+- type: entity
+  parent: BaseCardHearts
+  id: Cardhearts_k
+  name: карта черви Король
+  description: Игральная карта.
+  components:
+    - type: Sprite
+      state: hearts_k
+    - type: SpawnItemsOnUse
+      items:
+        - id: CardUnknown46
+
+- type: entity
+  parent: BaseCardHearts
+  id: Cardhearts_a
+  name: карта черви Туз
+  description: Игральная карта.
+  components:
+    - type: Sprite
+      state: hearts_a
+    - type: SpawnItemsOnUse
+      items:
+        - id: CardUnknown50
+
+# UNKNOWN CARDS
+
+- type: entity
+  parent: BaseCardUnknown
+  id: CardUnknown2
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnItemsOnUse
+    items:
+      - id: Cardhearts_2
+
+- type: entity
+  parent: BaseCardUnknown
+  id: CardUnknown6
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnItemsOnUse
+    items:
+      - id: Cardhearts_3
+
+- type: entity
+  parent: BaseCardUnknown
+  id: CardUnknown10
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnItemsOnUse
+    items:
+      - id: Cardhearts_4
+
+- type: entity
+  parent: BaseCardUnknown
+  id: CardUnknown14
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnItemsOnUse
+    items:
+      - id: Cardhearts_5
+
+- type: entity
+  parent: BaseCardUnknown
+  id: CardUnknown18
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnItemsOnUse
+    items:
+      - id: Cardhearts_6
+
+- type: entity
+  parent: BaseCardUnknown
+  id: CardUnknown22
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnItemsOnUse
+    items:
+      - id: Cardhearts_7
+
+- type: entity
+  parent: BaseCardUnknown
+  id: CardUnknown26
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnItemsOnUse
+    items:
+      - id: Cardhearts_8
+
+- type: entity
+  parent: BaseCardUnknown
+  id: CardUnknown30
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnItemsOnUse
+    items:
+      - id: Cardhearts_9
+
+- type: entity
+  parent: BaseCardUnknown
+  id: CardUnknown34
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnItemsOnUse
+    items:
+      - id: Cardhearts_10
+
+- type: entity
+  parent: BaseCardUnknown
+  id: CardUnknown38
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnItemsOnUse
+    items:
+      - id: Cardhearts_j
+
+- type: entity
+  parent: BaseCardUnknown
+  id: CardUnknown42
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnItemsOnUse
+    items:
+      - id: Cardhearts_q
+
+- type: entity
+  parent: BaseCardUnknown
+  id: CardUnknown46
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnItemsOnUse
+    items:
+      - id: Cardhearts_k
+
+- type: entity
+  parent: BaseCardUnknown
+  id: CardUnknown50
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnItemsOnUse
+    items:
+      - id: Cardhearts_a

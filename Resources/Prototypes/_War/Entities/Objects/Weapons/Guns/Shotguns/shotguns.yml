@@ -1,0 +1,120 @@
+#бульдог
+- type: entity
+  name: AA12
+  parent: BaseItem
+  id: WeaponShotgunAA12
+  description: Automatic magazine-type shotgun. Uses 12/70 ammo. Be careful, the gun barrel is hot after the automatic shooting.
+  components:
+  - type: Sprite
+    sprite: _War/Objects/Weapons/Guns/Shotguns/AA12_icons.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Item
+    sprite: _War/Objects/Weapons/Guns/Shotguns/AA12_inhands.rsi
+    size: Large
+  - type: Clothing
+    sprite: _War/Objects/Weapons/Guns/Shotguns/AA12_inhands.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: AmmoCounter
+  - type: Gun
+    fireRate: 1.5
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/empty.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineShotgun
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineShotgun
+        insertSound: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/smg_magout.ogg
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: MagazineAmmoProvider
+  - type: MagazineVisuals
+    magState: mag
+    steps: 4
+    zeroVisible: true
+  - type: Appearance
+  - type: StaticPrice
+    price: 500
+
+- type: entity
+  name: SPAS-12
+  parent: BaseWeaponShotgun
+  id: WeaponShotgunSpas
+  description: The scary child of the pasta Genius. Uses 12/70 ammo.
+  components:
+  - type: Sprite
+    sprite: _War/Objects/Weapons/Guns/Shotguns/spas_icons.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+  - type: Item
+    sprite: _War/Objects/Weapons/Guns/Shotguns/spas_inhands.rsi
+    size: Large
+  - type: Clothing
+    sprite: _War/Objects/Weapons/Guns/Shotguns/spas_inhands.rsi
+  - type: Gun
+    fireRate: 2.5
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/empty.ogg
+  - type: BallisticAmmoProvider
+    capacity: 8
+  - type: GunRequiresWield
+  - type: Wieldable
+    unwieldOnUse: false
+
+- type: entity
+  name: XM1014
+  parent: BaseWeaponShotgun
+  id: WeaponShotgunXM
+  description: Crocodile. Uses 12/70 ammo.
+  components:
+  - type: Sprite
+    sprite: _War/Objects/Weapons/Guns/Shotguns/xm1014_icons.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+  - type: Item
+    sprite: _War/Objects/Weapons/Guns/Shotguns/xm1014_inhands.rsi
+    size: Large
+  - type: Clothing
+    sprite: _War/Objects/Weapons/Guns/Shotguns/xm1014_inhands.rsi
+  - type: Gun
+    fireRate: 1.5
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/empty.ogg
+  - type: BallisticAmmoProvider
+    capacity: 12
+  - type: GunRequiresWield
+  - type: Wieldable
+    unwieldOnUse: false

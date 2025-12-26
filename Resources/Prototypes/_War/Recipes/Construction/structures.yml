@@ -1,0 +1,12 @@
+- type: construction
+  id: BarbwireConstruction
+  name: barbwire
+  graph: barbwireGraph
+  startNode: start
+  targetNode: barbwire
+  category: construction-category-structures
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked

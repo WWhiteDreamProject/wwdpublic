@@ -1,0 +1,190 @@
+# Crates
+
+- type: entity
+  parent: CrateBaseSecure
+  id: CrateSyndicateLocked
+  name: secure syndicate crate
+  components:
+  - type: Icon
+    sprite: _War/Structures/Storage/Crates/syndicate_general_locked.rsi
+  - type: Sprite
+    sprite: _War/Structures/Storage/Crates/syndicate_general_locked.rsi
+  - type: AccessReader
+    access: [["GeneralSyndicate"]]
+
+- type: entity
+  parent: CrateBaseSecure
+  id: CrateSyndicateCommand
+  name: syndicate command crate
+  components:
+  - type: Icon
+    sprite: _War/Structures/Storage/Crates/syndicate_command.rsi
+  - type: Sprite
+    sprite: _War/Structures/Storage/Crates/syndicate_command.rsi
+  - type: AccessReader
+    access: [["BridgeSyndicate"]]
+
+- type: entity
+  parent: CrateBaseSecure
+  id: CrateSyndicateMedsci
+  name: syndicate medical crate
+  components:
+  - type: Icon
+    sprite: _War/Structures/Storage/Crates/syndicate_medsci.rsi
+  - type: Sprite
+    sprite: _War/Structures/Storage/Crates/syndicate_medsci.rsi
+  - type: AccessReader
+    access: [["MedbaySyndicate"], ["ResearchSyndicate"]]
+
+- type: entity
+  parent: CrateBaseSecure
+  id: CrateSyndicateMilitary
+  name: syndicate military crate
+  components:
+  - type: Icon
+    sprite: _War/Structures/Storage/Crates/syndicate_military.rsi
+  - type: Sprite
+    sprite: _War/Structures/Storage/Crates/syndicate_military.rsi
+  - type: AccessReader
+    access: [["TechnicalSyndicate"]]
+
+- type: entity
+  parent: CrateBaseSecure
+  id: CrateSyndicateSupplies
+  name: syndicate supplies crate
+  components:
+  - type: Icon
+    sprite: _War/Structures/Storage/Crates/syndicate_supplies.rsi
+  - type: Sprite
+    sprite: _War/Structures/Storage/Crates/syndicate_supplies.rsi
+  - type: AccessReader
+    access: [["TechnicalSyndicate"]]
+
+# Carts
+
+- type: entity
+  parent: [StructureWheeled, CrateBaseWeldable]
+  id: CrateSyndicateCartUnlocked
+  name: syndicate cart
+  components:
+  - type: Icon
+    sprite: _War/Structures/Storage/Crates/syndicate_cart_general_unlocked.rsi
+  - type: Sprite
+    sprite: _War/Structures/Storage/Crates/syndicate_cart_general_unlocked.rsi
+    layers:
+    - state: base
+    - state: closed
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: welded
+      visible: false
+      map: ["enum.WeldableLayers.BaseWelded"]
+
+- type: entity
+  parent: [StructureWheeled, CrateBaseSecure]
+  id: CrateSyndicateCartLocked
+  name: secure syndicate cart
+  components:
+  - type: Icon
+    sprite: _War/Structures/Storage/Crates/syndicate_cart_general_locked.rsi
+  - type: Sprite
+    sprite: _War/Structures/Storage/Crates/syndicate_cart_general_locked.rsi
+    layers:
+    - state: base
+    - state: closed
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: welded
+      visible: false
+      map: ["enum.WeldableLayers.BaseWelded"]
+    - state: locked
+      map: ["enum.LockVisualLayers.Lock"]
+      shader: unshaded
+  - type: AccessReader
+    access: [["GeneralSyndicate"]]
+
+- type: entity
+  parent: [StructureWheeled, CrateBaseSecure]
+  id: CrateSyndicateCartCommand
+  name: syndicate command cart
+  components:
+  - type: Icon
+    sprite: _War/Structures/Storage/Crates/syndicate_cart_command.rsi
+  - type: Sprite
+    sprite: _War/Structures/Storage/Crates/syndicate_cart_command.rsi
+    layers:
+    - state: base
+    - state: closed
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: welded
+      visible: false
+      map: ["enum.WeldableLayers.BaseWelded"]
+    - state: locked
+      map: ["enum.LockVisualLayers.Lock"]
+      shader: unshaded
+  - type: AccessReader
+    access: [["BridgeSyndicate"]]
+
+- type: entity
+  parent: [StructureWheeled, CrateBaseSecure]
+  id: CrateSyndicateCartMedsci
+  name: syndicate medical cart
+  components:
+  - type: Icon
+    sprite: _War/Structures/Storage/Crates/syndicate_cart_medsci.rsi
+  - type: Sprite
+    sprite: _War/Structures/Storage/Crates/syndicate_cart_medsci.rsi
+    layers:
+    - state: base
+    - state: closed
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: welded
+      visible: false
+      map: ["enum.WeldableLayers.BaseWelded"]
+    - state: locked
+      map: ["enum.LockVisualLayers.Lock"]
+      shader: unshaded
+  - type: AccessReader
+    access: [["MedbaySyndicate"], ["ResearchSyndicate"]]
+
+- type: entity
+  parent: [StructureWheeled, CrateBaseSecure]
+  id: CrateSyndicateCartMilitary
+  name: syndicate military cart
+  components:
+  - type: Icon
+    sprite: _War/Structures/Storage/Crates/syndicate_cart_military.rsi
+  - type: Sprite
+    sprite: _War/Structures/Storage/Crates/syndicate_cart_military.rsi
+    layers:
+    - state: base
+    - state: closed
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: welded
+      visible: false
+      map: ["enum.WeldableLayers.BaseWelded"]
+    - state: locked
+      map: ["enum.LockVisualLayers.Lock"]
+      shader: unshaded
+  - type: AccessReader
+    access: [["BarracksSyndicate"]]
+
+- type: entity
+  parent: [StructureWheeled, CrateBaseSecure]
+  id: CrateSyndicateCartSupplies
+  name: syndicate supplies cart
+  components:
+  - type: Icon
+    sprite: _War/Structures/Storage/Crates/syndicate_cart_supplies.rsi
+  - type: Sprite
+    sprite: _War/Structures/Storage/Crates/syndicate_cart_supplies.rsi
+    layers:
+    - state: base
+    - state: closed
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: welded
+      visible: false
+      map: ["enum.WeldableLayers.BaseWelded"]
+    - state: locked
+      map: ["enum.LockVisualLayers.Lock"]
+      shader: unshaded
+  - type: AccessReader
+    access: [["TechnicalSyndicate"]]

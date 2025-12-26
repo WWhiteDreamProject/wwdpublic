@@ -1,0 +1,79 @@
+# Workboots
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ClothingShoesBootsWorkSyndicate
+  name: syndicate workboots
+  description: Engineering lace-up work boots for the especially blue-collar.
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/Shoes/Boots/s_workboots.rsi
+  - type: Clothing
+    sprite: _War/Clothing/Shoes/Boots/s_workboots.rsi
+  - type: Matchbox
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ClothingShoesBootsWorkSyndicateRed
+  name: syndicate red workboots
+  description: Engineering lace-up work boots for the especially blue-collar.
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/Shoes/Boots/s_workboots_red.rsi
+  - type: Clothing
+    sprite: _War/Clothing/Shoes/Boots/s_workboots_red.rsi
+  - type: Matchbox
+
+# Pilot
+
+- type: entity
+  parent: ClothingShoesMilitaryBase
+  id: ClothingShoesBootsCombatSyndicatePilot
+  name: pilot boots
+  description: Robust pilot boots for pilots scenarios or pilots situations. All pilot, all the time.
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/Shoes/Boots/s_pilotboots.rsi
+  - type: Clothing
+    sprite: _War/Clothing/Shoes/Boots/s_pilotboots.rsi
+  - type: Matchbox
+
+# Leather
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ClothingShoesShoesSyndicate
+  name: syndicate leather shoes
+  description: Syndicate shoes.
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/Shoes/Boots/leather_red.rsi
+  - type: Clothing
+    sprite: _War/Clothing/Shoes/Boots/leather_red.rsi
+  - type: Matchbox
+
+# Colored
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ClothingShoesShoesBlackRedSyndicate
+  name: syndicate black-red shoes
+  description: Syndicate black-red shoes.
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/Shoes/Color/black_red.rsi
+  - type: Clothing
+    sprite: _War/Clothing/Shoes/Color/black_red.rsi
+  - type: Matchbox
+
+- type: entity
+  parent: ClothingShoesBaseButcherable
+  id: ClothingShoesShoesWhiteRedSyndicate
+  name: syndicate white-red shoes
+  description: Syndicate white-red shoes.
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/Shoes/Color/white_red.rsi
+  - type: Clothing
+    sprite: _War/Clothing/Shoes/Color/white_red.rsi
+  - type: Matchbox

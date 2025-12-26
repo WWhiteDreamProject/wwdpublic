@@ -1,0 +1,1534 @@
+# Locator
+
+- type: entity
+  id: Locator
+  parent: BaseLatheLube
+  name: space scanning station
+  suffix: NanoTrasen
+  description: Scans space around and gives information about found objects.
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Machines/NT_locator.rsi
+    layers:
+    - state: icon
+      map: [ "enum.LatheVisualLayers.IsRunning" ]
+    - state: unlit
+      shader: unshaded
+      map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+    - state: panel
+      map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+  - type: Machine
+    board: LocatorCircuitboard
+  - type: Lathe
+    idleState: icon
+    runningState: icon
+#  - type: BluespaceStorage
+
+# NanoTrasen
+
+- type: entity
+  id: SecurityTechFabNanotrasen
+  parent: BaseLatheLube
+  name: security techfab
+  suffix: NanoTrasen
+  description: Prints military things.
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Machines/techfab.rsi
+    layers:
+    - state: icon
+      map: [ "enum.LatheVisualLayers.IsRunning" ]
+    - state: nt_sec
+    - state: unlit
+      shader: unshaded
+      map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+    - state: inserting
+      map: [ "enum.MaterialStorageVisualLayers.Inserting" ]
+    - state: panel
+      map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+  - type: Machine
+    board: SecurityTechFabNanotrasenCircuitboard
+  - type: MaterialStorage
+    materialWhiteList:
+    - Steel
+    - Plasteel
+    - Glass
+    - Gold
+    - Plasma
+    - Uranium
+    - Gold
+    - Silver
+    - Plastic
+  - type: Lathe
+    idleState: icon
+    runningState: icon
+#      recipes:
+#      - ClothingEyesHudSecurity
+#      - Flash
+#      - Handcuffs
+#      - Zipties
+#      - Stunbaton
+#      - ForensicPad
+#      - RiotShield
+#      - TargetHuman
+#      - TargetSyndicate
+#      - TargetClown
+#      - ClothingOuterArmorBasic
+#      - ClothingHeadHelmetBasic
+#      - SheetPlasteel
+#      - SheetPlasteel1
+#      - ClothingOuterHardsuitSecurity
+#      - ClothingOuterArmorBulletproof
+
+- type: entity
+  id: WeaponTechFabNanotrasen
+  parent: BaseLatheLube
+  name: weapon techfab
+  suffix: NanoTrasen
+  description: Prints weapons.
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Machines/techfab.rsi
+    layers:
+    - state: icon
+      map: [ "enum.LatheVisualLayers.IsRunning" ]
+    - state: nt_gun
+    - state: unlit
+      shader: unshaded
+      map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+    - state: inserting
+      map: [ "enum.MaterialStorageVisualLayers.Inserting" ]
+    - state: panel
+      map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+  - type: Machine
+    board: WeaponTechFabNanotrasenCircuitboard
+  - type: MaterialStorage
+    materialWhiteList:
+    - Steel
+    - Wood
+    - Plasteel
+    - Glass
+    - Gold
+    - Plasma
+    - Uranium
+    - Gold
+    - Silver
+    - Plastic
+  - type: Lathe
+    idleState: icon
+    runningState: icon
+   # staticRecipes:
+    # - WeaponEnergyShotgun
+    # - WeaponPistolN1984
+    # - WeaponRevolverMateba
+  #  - WeaponShotgunAA12
+  #  - WeaponSubMachineGunWt550
+  #  - WeaponRifleLecter
+  #  - WeaponPistolMk58
+  #  - WeaponPulsePistol
+    #  - WeaponRevolverDeckard
+  #  - WeaponShotgunDoubleBarreled
+  #  - WeaponRevolverInspector
+  #  - WeaponLaserCannon
+  #  - WeaponLaserCarbine
+  #  - WeaponShotgunKammerer
+  #  - WeaponShotgunEnforcer
+#  - type: BluespaceStorage
+
+# Syndicate
+
+- type: entity
+  id: SecurityTechFabSyndicate
+  parent: BaseLatheLube
+  name: security techfab
+  suffix: Syndicate
+  description: Prints military things.
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Machines/techfab.rsi
+    layers:
+    - state: icon
+      map: ["enum.LatheVisualLayers.IsRunning"]
+    - state: sy_sec
+    - state: unlit
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    - state: inserting
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Machine
+    board: SecurityTechFabSyndicateCircuitboard
+  - type: MaterialStorage
+    whitelist:
+      tags:
+      - Sheet
+      - RawMaterial
+      - Ingot
+  - type: Lathe
+    idleState: icon
+    runningState: icon
+    #recipes:
+    #- ClothingOuterArmorBasic
+    #- ClothingHeadHelmetSyndicateSecurityV1
+    #- ClothingOuterHardsuitJuggernaut
+    #- ClothingOuterHardsuitSyndieElite
+    #- ClothingOuterHardsuitSyndicateOld
+    #- ClothingOuterHardsuitSyndie
+    #- ClothingOuterArmorSyndicateV1
+    #- ClothingOuterArmorSyndicateV1.2
+    #- ClothingOuterArmorSyndicateV2
+    #- ClothingHeadHelmetSyndicateSecurityV2
+    #- ClothingEyesHudSecurity
+    #- SheetPlasteel1
+    #- SheetPlasteel
+    #- Flash
+    #- Handcuffs
+    #- Zipties
+    #- Stunbaton
+    #- ForensicPad
+    #- RiotShield
+    #- TargetHuman
+    #- TargetClown
+    #- ExplosivePayload
+    #- FlashPayload
+    #- HoloprojectorSecurity
+    #- MagazineGrenadeEmpty
+    #- GrenadeEMP
+    #- GrenadeFlash
+    #- Signaller
+    #- SignalTrigger
+    #- TelescopicShield
+    #- TimerTrigger
+    #- Truncheon
+    #- VoiceTrigger
+    #- PowerCageSmall
+    #- PowerCageMedium
+    #- PowerCageHigh
+    #- PortableRecharger
+
+- type: entity
+  id: WeaponTechFabSyndicate
+  parent: BaseLatheLube
+  name: weapon techfab
+  suffix: Syndicate
+  description: Prints weapons.
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Machines/techfab.rsi # Потом спрайт сдеsлают
+    layers:
+    - state: icon
+      map: ["enum.LatheVisualLayers.IsRunning"]
+    - state: sy_gun
+    - state: unlit
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    - state: inserting
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Machine
+    board: WeaponTechFabSyndicateCircuitboard # Потом также сделают платы
+  - type: MaterialStorage
+    whitelist:
+      tags:
+      - Sheet
+      - RawMaterial
+      - Ingot
+  - type: Lathe
+    idleState: icon
+    runningState: icon
+
+    #staticRecipes: #Рецепты хранятся в папке Recipes/Lathes
+    #- WeaponSubMachineGunC20r
+    #- WeaponRifleFN2000
+    #- WeaponPistolViper
+    #   - WeaponRifleM90GrenadeLauncher
+    #   - WeaponPistolCobra
+    #- WeaponRevolverPython
+    #- WeaponShotgunBulldog
+    #- WeaponShotgunEnforcer
+    #   - WeaponSniperMosin
+    #   - WeaponPistolCHIMPUpgraded
+    #- WeaponShotgunDoubleBarreled
+    #- WeaponLightMachineGunL6
+#  - type: BluespaceStorage
+
+#- type: entity
+#  id: AmmoTechFabSyndicate
+#  parent: BaseLatheLube
+#  name: ammo techfab
+#  description: Prints the bare minimum of bullets that any budget military or armory could need. Nothing fancy.
+#  components:
+#  - type: Sprite
+#    sprite: Structures/Machines/techfab.rsi
+#    layers:
+#    - state: icon
+#      map: ["enum.LatheVisualLayers.IsRunning"]
+#    - state: ammo
+#    - state: unlit
+#      shader: unshaded
+#      map: ["enum.PowerDeviceVisualLayers.Powered"]
+#   - state: inserting
+#      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+#    - state: panel
+#      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+#  - type: Machine
+#    board: AmmoTechFabCircuitboard
+#  - type: Lathe
+#    idleState: icon
+#    runningState: icon
+#    staticRecipes:
+#    - CartridgePistol
+#    - CartridgeMagnum
+#    - ShellShotgun
+#    - ShellShotgunSlug
+#    - ShellShotgunFlare
+#    - ShellTranquilizer
+#    - CartridgeLightRifleSP
+#    - CartridgeRifleSP
+#    - MagazineBoxPistolSP
+#    - MagazineBoxMagnumSP
+#    - MagazineBoxRifleSP
+#    - MagazineBoxLightRifleSP
+#  - type: EmagLatheRecipes
+#    emagStaticRecipes:
+#    - CartridgeMagnumAP
+#    - CartridgeAntiMateriel
+#    - CartridgeCaselessRifle
+#    - MagazineBoxMagnumAP
+#    - MagazineBoxAntiMaterielBig
+#    - MagazineBoxCaselessRifle
+#  - type: BluespaceStorage
+
+#- type: entity
+#  id: AmmoTechFabNanotrasen
+#  parent: BaseLatheLube
+#  name: ammo techfab
+#  description: Prints the bare minimum of bullets that any budget military or armory could need. Nothing fancy.
+#  components:
+#  - type: Sprite
+#    sprite: Structures/Machines/techfab.rsi
+#    layers:
+#    - state: icon
+#      map: ["enum.LatheVisualLayers.IsRunning"]
+#    - state: ammo
+#    - state: unlit
+#      shader: unshaded
+#      map: ["enum.PowerDeviceVisualLayers.Powered"]
+#   - state: inserting
+#      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+#    - state: panel
+#      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+#  - type: Machine
+#    board: AmmoTechFabCircuitboard
+#  - type: Lathe
+#    idleState: icon
+#    runningState: icon
+#    staticRecipes:
+#    - CartridgePistol
+#    - CartridgeMagnum
+#    - ShellShotgun
+#    - ShellShotgunSlug
+#    - ShellShotgunFlare
+#    - ShellTranquilizer
+#    - CartridgeLightRifleSP
+#    - CartridgeRifleSP
+#    - MagazineBoxPistolSP
+#    - MagazineBoxMagnumSP
+#    - MagazineBoxRifleSP
+#    - MagazineBoxLightRifleSP
+#  - type: EmagLatheRecipes
+#    emagStaticRecipes:
+#    - CartridgeMagnumAP
+#    - CartridgeAntiMateriel
+#    - CartridgeCaselessRifle
+#    - MagazineBoxMagnumAP
+#    - MagazineBoxAntiMaterielBig
+#    - MagazineBoxCaselessRifle
+#  - type: BluespaceStorage
+
+#- type: entity
+#  id: MedicalTechFabSyndicate
+#  parent: BaseLatheLube
+#  name: medical techfab
+#  description: Prints equipment for use by the medbay.
+#  components:
+#  - type: Sprite
+#    sprite: Structures/Machines/techfab.rsi
+#    layers:
+#    - state: icon
+#      map: [ "enum.LatheVisualLayers.IsRunning" ]
+#    - state: med
+#    - state: unlit
+#      shader: unshaded
+#      map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+#    - state: inserting
+#      map: [ "enum.MaterialStorageVisualLayers.Inserting" ]
+#    - state: panel
+#      map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+#  - type: Lathe
+#    idleState: icon
+#    runningState: icon
+#    staticRecipes:
+#    - Gauze
+#    - HandLabeler
+#    - Defibrillator
+#    - HandheldHealthAnalyzer
+#    - ClothingHandsGlovesLatex
+#    - ClothingHandsGlovesNitrile
+#    - ClothingMaskSterile
+#    - DiseaseSwab
+#    - Beaker
+#    - LargeBeaker
+#    - Dropper
+#    - Jug
+#    - Syringe
+#    - Implanter
+#    - PillCanister
+#    - BodyBag
+#    - ChemistryEmptyBottle01
+#    - RollerBedSpawnFolded
+#    - CheapRollerBedSpawnFolded
+#    - EmergencyRollerBedSpawnFolded
+#    - ChemicalCartridgeRecipe # WD
+#    - Scalpel
+#    - Retractor
+#    - Cautery
+#    - Drill
+#    - Saw
+#    - Hemostat
+#    - ClothingEyesGlassesChemical
+#    - Medkit
+#    - MedkitBurn
+#    - MedkitToxin
+#    - MedkitO2
+#    - MedkitBrute
+#    - MedkitAdvanced
+#    - MedkitRadiation
+#    - MedkitCombat
+#    dynamicRecipes:
+#    - HandheldCrewMonitor
+#    - ChemicalPayload
+#    - CryostasisBeaker
+#    - BluespaceBeaker
+#    - SyringeBluespace
+#    - SyringeCryostasis
+#    - ClothingEyesHudMedical
+#  - type: BluespaceStorage
+#  - type: Machine
+#    board: MedicalTechFabCircuitboard
+#  - type: StealTarget
+#    stealGroup: MedicalTechFabCircuitboard
+
+#- type: entity
+#  id: MedicalTechFabNanotrasen
+#  parent: BaseLatheLube
+#  name: medical techfab
+#  description: Prints equipment for use by the medbay.
+#  components:
+#  - type: Sprite
+#    sprite: Structures/Machines/techfab.rsi
+#    layers:
+#    - state: icon
+#      map: [ "enum.LatheVisualLayers.IsRunning" ]
+#    - state: med
+#    - state: unlit
+#      shader: unshaded
+#      map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+#    - state: inserting
+#      map: [ "enum.MaterialStorageVisualLayers.Inserting" ]
+#    - state: panel
+#      map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+#  - type: Lathe
+#    idleState: icon
+#    runningState: icon
+#    staticRecipes:
+#    - Gauze
+#    - HandLabeler
+#    - Defibrillator
+#    - HandheldHealthAnalyzer
+#    - ClothingHandsGlovesLatex
+#    - ClothingHandsGlovesNitrile
+#    - ClothingMaskSterile
+#    - DiseaseSwab
+#    - Beaker
+#    - LargeBeaker
+#    - Dropper
+#    - Jug
+#    - Syringe
+#    - Implanter
+#    - PillCanister
+#    - BodyBag
+#    - ChemistryEmptyBottle01
+#    - RollerBedSpawnFolded
+#    - CheapRollerBedSpawnFolded
+#    - EmergencyRollerBedSpawnFolded
+#    - ChemicalCartridgeRecipe # WD
+#    - Scalpel
+#    - Retractor
+#    - Cautery
+#    - Drill
+#    - Saw
+#    - Hemostat
+#    - ClothingEyesGlassesChemical
+#    - Medkit
+#    - MedkitBurn
+#    - MedkitToxin
+#    - MedkitO2
+#    - MedkitBrute
+#    - MedkitAdvanced
+#    - MedkitRadiation
+#    - MedkitCombat
+#    dynamicRecipes:
+#    - HandheldCrewMonitor
+#    - ChemicalPayload
+#    - CryostasisBeaker
+#    - BluespaceBeaker
+#    - SyringeBluespace
+#    - SyringeCryostasis
+#    - ClothingEyesHudMedical
+#  - type: BluespaceStorage
+#  - type: Machine
+#    board: MedicalTechFabCircuitboard
+#  - type: StealTarget
+#    stealGroup: MedicalTechFabCircuitboard
+
+#- type: entity
+#  parent: BaseLathe
+#  id: UniformPrinterSyndicate
+#  name: uniform printer
+#  description: Prints new or replacement uniforms.
+#  components:
+#  - type: Transform
+#    noRot: false
+#  - type: Sprite
+#    sprite: Structures/Machines/uniform_printer.rsi
+#    snapCardinals: false
+#    layers:
+#    - state: icon
+#      map: ["enum.LatheVisualLayers.IsRunning"]
+#  - type: Machine
+#    board: UniformPrinterMachineCircuitboard
+#  - type: Lathe
+#    producingSound: /Audio/Machines/uniformprinter.ogg
+#    idleState: icon
+#    runningState: building
+#    staticRecipes:
+#    - ClothingUniformJumpsuitColorGrey
+#    - ClothingUniformJumpskirtColorGrey
+#    - ClothingUniformJumpsuitBartender
+#    - ClothingUniformJumpskirtBartender
+#    - ClothingHeadHatCapcap
+#    - ClothingHeadHatCaptain
+#    - ClothingUniformJumpsuitCaptain
+#    - ClothingUniformJumpskirtCaptain
+#    - ClothingUniformJumpsuitCapFormal
+#    - ClothingUniformJumpskirtCapFormalDress
+#    - ClothingUniformJumpsuitCargo
+#    - ClothingUniformJumpskirtCargo
+#    - ClothingUniformJumpsuitSalvageSpecialist
+#    - ClothingHeadHatBeretEngineering
+#    - ClothingUniformJumpsuitChiefEngineer
+#    - ClothingUniformJumpskirtChiefEngineer
+#    - ClothingUniformJumpsuitChiefEngineerTurtle
+#    - ClothingUniformJumpskirtChiefEngineerTurtle
+#    - ClothingUniformJumpsuitChaplain
+#    - ClothingUniformJumpskirtChaplain
+#    - ClothingUniformJumpsuitChef
+#    - ClothingUniformJumpskirtChef
+#    - ClothingUniformJumpsuitChemistry
+#    - ClothingUniformJumpskirtChemistry
+#    - ClothingUniformJumpsuitClown
+#    - ClothingHeadHatBeretCmo
+#    - ClothingUniformJumpsuitCMO
+#    - ClothingUniformJumpskirtCMO
+#    - ClothingUniformJumpsuitCMOTurtle
+#    - ClothingUniformJumpskirtCMOTurtle
+#    - ClothingUniformJumpsuitDetective
+#    - ClothingUniformJumpskirtDetective
+#    - ClothingUniformJumpsuitEngineering
+#    - ClothingUniformJumpskirtEngineering
+#    - ClothingUniformJumpsuitSeniorEngineer
+#    - ClothingUniformJumpskirtSeniorEngineer
+#    - ClothingHeadHatHopcap
+#    - ClothingUniformJumpsuitHoP
+#    - ClothingUniformJumpskirtHoP
+#    - ClothingHeadHatBeretHoS
+#    - ClothingHeadHatHoshat
+#    - ClothingUniformJumpsuitHoS
+#    - ClothingUniformJumpskirtHoS
+#    - ClothingUniformJumpsuitHosFormal
+#    - ClothingUniformJumpskirtHosFormal
+#    - ClothingUniformJumpsuitHoSAlt
+#    - ClothingUniformJumpskirtHoSAlt
+#    - ClothingUniformJumpsuitHoSBlue
+#    - ClothingUniformJumpsuitHoSGrey
+#    - ClothingUniformJumpsuitHoSParadeMale
+#    - ClothingUniformJumpskirtHoSParadeMale
+#    - ClothingUniformJumpsuitHydroponics
+#    - ClothingUniformJumpskirtHydroponics
+#    - ClothingUniformJumpsuitJanitor
+#    - ClothingUniformJumpskirtJanitor
+#    - ClothingUniformJumpsuitLawyerBlack
+#    - ClothingUniformJumpsuitLibrarian
+#    - ClothingUniformJumpskirtColorLightBrown
+#    - ClothingHeadHatBeretSeniorPhysician
+#    - ClothingUniformJumpsuitMedicalDoctor
+#    - ClothingUniformJumpskirtMedicalDoctor
+#    - ClothingUniformJumpsuitSeniorPhysician
+#    - ClothingUniformJumpskirtSeniorPhysician
+#    - ClothingUniformJumpsuitMime
+#    - ClothingUniformJumpskirtMime
+#    - ClothingUniformJumpsuitMusician
+#    - ClothingUniformJumpsuitParamedic
+#    - ClothingUniformJumpskirtParamedic
+#    - ClothingUniformJumpsuitSeniorOfficer
+#    - ClothingUniformJumpskirtSeniorOfficer
+#    - ClothingUniformJumpsuitPrisoner
+#    - ClothingUniformJumpskirtPrisoner
+#    - ClothingHeadHatQMsoft
+#    - ClothingHeadHatBeretQM
+#    - ClothingUniformJumpsuitQM
+#    - ClothingUniformJumpskirtQM
+#    - ClothingUniformJumpsuitQMTurtleneck
+#    - ClothingUniformJumpskirtQMTurtleneck
+#    - ClothingUniformJumpsuitQMFormal
+#    - ClothingHeadHatBeretRND
+#    - ClothingUniformJumpsuitResearchDirector
+#    - ClothingUniformJumpskirtResearchDirector
+#    - ClothingUniformJumpsuitScientist
+#    - ClothingUniformJumpskirtScientist
+#    - ClothingUniformJumpsuitSeniorResearcher
+#    - ClothingUniformJumpskirtSeniorResearcher
+#    - ClothingHeadHatBeretSecurity
+#    - ClothingUniformJumpsuitSec
+#    - ClothingUniformJumpskirtSec
+#    - ClothingHeadHatBeretBrigmedic
+#    - ClothingUniformJumpsuitBrigmedic
+#    - ClothingUniformJumpskirtBrigmedic
+#    - ClothingHeadHatBeretWarden
+#    - ClothingHeadHatWarden
+#    - ClothingUniformJumpsuitWarden
+#    - ClothingUniformJumpskirtWarden
+#    - ClothingHeadHatParamedicsoft
+#    # Winter outfits
+#    - ClothingOuterWinterCap
+#    - ClothingOuterWinterCE
+#    - ClothingOuterWinterCMO
+#    - ClothingOuterWinterHoP
+#    - ClothingOuterWinterHoSUnarmored
+#    - ClothingOuterWinterWardenUnarmored
+#    - ClothingOuterWinterQM
+#    - ClothingOuterWinterRD
+#    - ClothingNeckMantleCap
+#    - ClothingNeckMantleCE
+#    - ClothingNeckMantleCMO
+#    - ClothingNeckMantleHOP
+#    - ClothingNeckMantleHOS
+#    - ClothingNeckMantleRD
+#    - ClothingNeckMantleQM
+#    - ClothingOuterWinterMusician
+#    - ClothingOuterWinterClown
+#    - ClothingOuterWinterMime
+#    - ClothingOuterWinterCoat
+#    - ClothingOuterWinterJani
+#    - ClothingOuterWinterBar
+#    - ClothingOuterWinterChef
+#    - ClothingOuterWinterHydro
+#    - ClothingOuterWinterAtmos
+#    - ClothingOuterWinterEngi
+#    - ClothingOuterWinterCargo
+#    - ClothingOuterWinterMiner
+#    - ClothingOuterWinterMed
+#    - ClothingOuterWinterPara
+#    - ClothingOuterWinterChem
+#    - ClothingOuterWinterGen
+#    - ClothingOuterWinterViro
+#    - ClothingOuterWinterSci
+#    - ClothingOuterWinterRobo
+#    - ClothingOuterWinterSec
+#    # Ties
+#    - ClothingNeckTieRed
+#    - ClothingNeckTieDet
+#    - ClothingNeckTieSci
+#    # Scarfs - All scarfs avaible in winterdrobe
+#    - ClothingNeckScarfStripedGreen
+#    - ClothingNeckScarfStripedBlue
+#    - ClothingNeckScarfStripedRed
+#    - ClothingNeckScarfStripedBrown
+#    - ClothingNeckScarfStripedLightBlue
+#    - ClothingNeckScarfStripedOrange
+#    - ClothingNeckScarfStripedBlack
+#    - ClothingNeckScarfStripedPurple
+#    # Carpets
+#    - Carpet
+#    - CarpetBlack
+#    - CarpetPink
+#    - CarpetBlue
+#    - CarpetSBlue
+#    - CarpetGreen
+#    - CarpetOrange
+#    - CarpetPurple
+#    - CarpetCyan
+#    - CarpetWhite
+#  - type: EmagLatheRecipes
+#    emagStaticRecipes:
+#    - ClothingHeadHatCentcomcap
+#    - ClothingHeadHatCentcom
+#    - ClothingUniformJumpsuitCentcomAgent
+#    - ClothingUniformJumpsuitCentcomFormal
+#    - ClothingUniformJumpskirtCentcomFormalDress
+#    - ClothingUniformJumpsuitCentcomOfficer
+#    - ClothingUniformJumpsuitCentcomOfficial
+#    - ClothingHeadHatSyndieMAA
+#    - ClothingHeadHatSyndie
+#    - ClothingUniformJumpsuitOperative
+#    - ClothingUniformJumpskirtOperative
+#    - ClothingUniformJumpsuitSyndieFormal
+#    - ClothingUniformJumpskirtSyndieFormalDress
+#    - ClothingHeadPyjamaSyndicateBlack
+#    - ClothingUniformJumpsuitPyjamaSyndicateBlack
+#    - ClothingHeadPyjamaSyndicatePink
+#    - ClothingUniformJumpsuitPyjamaSyndicatePink
+#    - ClothingHeadPyjamaSyndicateRed
+#    - ClothingUniformJumpsuitPyjamaSyndicateRed
+#    - ClothingOuterWinterCentcom
+#    - ClothingOuterWinterSyndie
+#    - ClothingOuterWinterSyndieCap
+#  - type: BluespaceStorage
+#  - type: MaterialStorage
+#    whitelist:
+#      tags:
+#      - Sheet
+#      - RawMaterial
+#      - Ingot
+#
+#- type: entity
+#  parent: BaseLathe
+#  id: UniformPrinterNanotrasen
+#  name: uniform printer
+#  description: Prints new or replacement uniforms.
+#  components:
+#  - type: Transform
+#    noRot: false
+#  - type: Sprite
+#    sprite: Structures/Machines/uniform_printer.rsi
+#    snapCardinals: false
+#    layers:
+#    - state: icon
+#      map: ["enum.LatheVisualLayers.IsRunning"]
+#  - type: Machine
+#    board: UniformPrinterMachineCircuitboard
+#  - type: Lathe
+#    producingSound: /Audio/Machines/uniformprinter.ogg
+#    idleState: icon
+#    runningState: building
+#    staticRecipes:
+#    - ClothingUniformJumpsuitColorGrey
+#    - ClothingUniformJumpskirtColorGrey
+#    - ClothingUniformJumpsuitBartender
+#    - ClothingUniformJumpskirtBartender
+#    - ClothingHeadHatCapcap
+#    - ClothingHeadHatCaptain
+#    - ClothingUniformJumpsuitCaptain
+#    - ClothingUniformJumpskirtCaptain
+#    - ClothingUniformJumpsuitCapFormal
+#    - ClothingUniformJumpskirtCapFormalDress
+#    - ClothingUniformJumpsuitCargo
+#    - ClothingUniformJumpskirtCargo
+#    - ClothingUniformJumpsuitSalvageSpecialist
+#    - ClothingHeadHatBeretEngineering
+#    - ClothingUniformJumpsuitChiefEngineer
+#    - ClothingUniformJumpskirtChiefEngineer
+#    - ClothingUniformJumpsuitChiefEngineerTurtle
+#    - ClothingUniformJumpskirtChiefEngineerTurtle
+#    - ClothingUniformJumpsuitChaplain
+#    - ClothingUniformJumpskirtChaplain
+#    - ClothingUniformJumpsuitChef
+#    - ClothingUniformJumpskirtChef
+#    - ClothingUniformJumpsuitChemistry
+#    - ClothingUniformJumpskirtChemistry
+#    - ClothingUniformJumpsuitClown
+#    - ClothingHeadHatBeretCmo
+#    - ClothingUniformJumpsuitCMO
+#    - ClothingUniformJumpskirtCMO
+#    - ClothingUniformJumpsuitCMOTurtle
+#    - ClothingUniformJumpskirtCMOTurtle
+#    - ClothingUniformJumpsuitDetective
+#    - ClothingUniformJumpskirtDetective
+#    - ClothingUniformJumpsuitEngineering
+#    - ClothingUniformJumpskirtEngineering
+#    - ClothingUniformJumpsuitSeniorEngineer
+#    - ClothingUniformJumpskirtSeniorEngineer
+#    - ClothingHeadHatHopcap
+#    - ClothingUniformJumpsuitHoP
+#    - ClothingUniformJumpskirtHoP
+#    - ClothingHeadHatBeretHoS
+#    - ClothingHeadHatHoshat
+#    - ClothingUniformJumpsuitHoS
+#    - ClothingUniformJumpskirtHoS
+#    - ClothingUniformJumpsuitHosFormal
+#    - ClothingUniformJumpskirtHosFormal
+#    - ClothingUniformJumpsuitHoSAlt
+#    - ClothingUniformJumpskirtHoSAlt
+#    - ClothingUniformJumpsuitHoSBlue
+#    - ClothingUniformJumpsuitHoSGrey
+#    - ClothingUniformJumpsuitHoSParadeMale
+#    - ClothingUniformJumpskirtHoSParadeMale
+#    - ClothingUniformJumpsuitHydroponics
+#    - ClothingUniformJumpskirtHydroponics
+#    - ClothingUniformJumpsuitJanitor
+#    - ClothingUniformJumpskirtJanitor
+#    - ClothingUniformJumpsuitLawyerBlack
+#    - ClothingUniformJumpsuitLibrarian
+#    - ClothingUniformJumpskirtColorLightBrown
+#    - ClothingHeadHatBeretSeniorPhysician
+#    - ClothingUniformJumpsuitMedicalDoctor
+#    - ClothingUniformJumpskirtMedicalDoctor
+#    - ClothingUniformJumpsuitSeniorPhysician
+#    - ClothingUniformJumpskirtSeniorPhysician
+#    - ClothingUniformJumpsuitMime
+#    - ClothingUniformJumpskirtMime
+#    - ClothingUniformJumpsuitMusician
+#    - ClothingUniformJumpsuitParamedic
+#    - ClothingUniformJumpskirtParamedic
+#    - ClothingUniformJumpsuitSeniorOfficer
+#    - ClothingUniformJumpskirtSeniorOfficer
+#    - ClothingUniformJumpsuitPrisoner
+#    - ClothingUniformJumpskirtPrisoner
+#    - ClothingHeadHatQMsoft
+#    - ClothingHeadHatBeretQM
+#    - ClothingUniformJumpsuitQM
+#    - ClothingUniformJumpskirtQM
+#    - ClothingUniformJumpsuitQMTurtleneck
+#    - ClothingUniformJumpskirtQMTurtleneck
+#    - ClothingUniformJumpsuitQMFormal
+#    - ClothingHeadHatBeretRND
+#    - ClothingUniformJumpsuitResearchDirector
+#    - ClothingUniformJumpskirtResearchDirector
+#    - ClothingUniformJumpsuitScientist
+#    - ClothingUniformJumpskirtScientist
+#    - ClothingUniformJumpsuitSeniorResearcher
+#    - ClothingUniformJumpskirtSeniorResearcher
+#    - ClothingHeadHatBeretSecurity
+#    - ClothingUniformJumpsuitSec
+#    - ClothingUniformJumpskirtSec
+#    - ClothingHeadHatBeretBrigmedic
+#    - ClothingUniformJumpsuitBrigmedic
+#    - ClothingUniformJumpskirtBrigmedic
+#    - ClothingHeadHatBeretWarden
+#    - ClothingHeadHatWarden
+#    - ClothingUniformJumpsuitWarden
+#    - ClothingUniformJumpskirtWarden
+#    - ClothingHeadHatParamedicsoft
+#    # Winter outfits
+#    - ClothingOuterWinterCap
+#    - ClothingOuterWinterCE
+#    - ClothingOuterWinterCMO
+#    - ClothingOuterWinterHoP
+#    - ClothingOuterWinterHoSUnarmored
+#    - ClothingOuterWinterWardenUnarmored
+#    - ClothingOuterWinterQM
+#    - ClothingOuterWinterRD
+#    - ClothingNeckMantleCap
+#    - ClothingNeckMantleCE
+#    - ClothingNeckMantleCMO
+#    - ClothingNeckMantleHOP
+#    - ClothingNeckMantleHOS
+#    - ClothingNeckMantleRD
+#    - ClothingNeckMantleQM
+#    - ClothingOuterWinterMusician
+#    - ClothingOuterWinterClown
+#    - ClothingOuterWinterMime
+#    - ClothingOuterWinterCoat
+#    - ClothingOuterWinterJani
+#    - ClothingOuterWinterBar
+#    - ClothingOuterWinterChef
+#    - ClothingOuterWinterHydro
+#    - ClothingOuterWinterAtmos
+#    - ClothingOuterWinterEngi
+#    - ClothingOuterWinterCargo
+#    - ClothingOuterWinterMiner
+#    - ClothingOuterWinterMed
+#    - ClothingOuterWinterPara
+#    - ClothingOuterWinterChem
+#    - ClothingOuterWinterGen
+#    - ClothingOuterWinterViro
+#    - ClothingOuterWinterSci
+#    - ClothingOuterWinterRobo
+#    - ClothingOuterWinterSec
+#    # Ties
+#    - ClothingNeckTieRed
+#    - ClothingNeckTieDet
+#    - ClothingNeckTieSci
+#    # Scarfs - All scarfs avaible in winterdrobe
+#    - ClothingNeckScarfStripedGreen
+#    - ClothingNeckScarfStripedBlue
+#    - ClothingNeckScarfStripedRed
+#    - ClothingNeckScarfStripedBrown
+#    - ClothingNeckScarfStripedLightBlue
+#    - ClothingNeckScarfStripedOrange
+#    - ClothingNeckScarfStripedBlack
+#    - ClothingNeckScarfStripedPurple
+#    # Carpets
+#    - Carpet
+#    - CarpetBlack
+#    - CarpetPink
+#    - CarpetBlue
+#    - CarpetSBlue
+#    - CarpetGreen
+#    - CarpetOrange
+#    - CarpetPurple
+#    - CarpetCyan
+#    - CarpetWhite
+#  - type: EmagLatheRecipes
+#    emagStaticRecipes:
+#    - ClothingHeadHatCentcomcap
+#    - ClothingHeadHatCentcom
+#    - ClothingUniformJumpsuitCentcomAgent
+#    - ClothingUniformJumpsuitCentcomFormal
+#    - ClothingUniformJumpskirtCentcomFormalDress
+#    - ClothingUniformJumpsuitCentcomOfficer
+#    - ClothingUniformJumpsuitCentcomOfficial
+#    - ClothingHeadHatSyndieMAA
+#    - ClothingHeadHatSyndie
+#    - ClothingUniformJumpsuitOperative
+#    - ClothingUniformJumpskirtOperative
+#    - ClothingUniformJumpsuitSyndieFormal
+#    - ClothingUniformJumpskirtSyndieFormalDress
+#    - ClothingHeadPyjamaSyndicateBlack
+#    - ClothingUniformJumpsuitPyjamaSyndicateBlack
+#    - ClothingHeadPyjamaSyndicatePink
+#    - ClothingUniformJumpsuitPyjamaSyndicatePink
+#    - ClothingHeadPyjamaSyndicateRed
+#    - ClothingUniformJumpsuitPyjamaSyndicateRed
+#    - ClothingOuterWinterCentcom
+#    - ClothingOuterWinterSyndie
+#    - ClothingOuterWinterSyndieCap
+#  - type: BluespaceStorage
+#  - type: MaterialStorage
+#    whitelist:
+#      tags:
+#      - Sheet
+#      - RawMaterial
+#      - Ingot
+#
+#- type: entity
+#  parent: BaseLathe
+#  id: SheetifierSyndicate
+#  name: sheet-meister 2000
+#  description: A very sheety machine.
+#  components:
+#  - type: Sprite
+#    sprite: Structures/Machines/sheetifier.rsi
+#    layers:
+#    - state: base_machine
+#      map: ["enum.LatheVisualLayers.IsRunning"]
+#    - state: buttons_on
+#      shader: unshaded
+#      map: ["enum.PowerDeviceVisualLayers.Powered"]
+#  - type: Machine
+#    board: SheetifierMachineCircuitboard
+#  - type: MaterialStorage
+#    dropOnDeconstruct: false #should drop ores instead of ingots/sheets
+#    ignoreColor: true
+#    canEjectStoredMaterials: false
+#    whitelist:
+#      tags:
+#      - Raw
+#      - Wooden
+#  - type: Lathe
+#    idleState: base_machine
+#    runningState: base_machine_processing
+#    staticRecipes:
+#    - MaterialSheetMeat
+#    - SheetPaper
+#
+#- type: entity
+#  parent: BaseLathe
+#  id: SheetifierNanotrasen
+#  name: sheet-meister 2000
+#  description: A very sheety machine.
+#  components:
+#  - type: Sprite
+#    sprite: Structures/Machines/sheetifier.rsi
+#    layers:
+#    - state: base_machine
+#      map: ["enum.LatheVisualLayers.IsRunning"]
+#    - state: buttons_on
+#      shader: unshaded
+#      map: ["enum.PowerDeviceVisualLayers.Powered"]
+#  - type: Machine
+#    board: SheetifierMachineCircuitboard
+#  - type: MaterialStorage
+#    dropOnDeconstruct: false #should drop ores instead of ingots/sheets
+#    ignoreColor: true
+#    canEjectStoredMaterials: false
+#    whitelist:
+#      tags:
+#      - Raw
+#      - Wooden
+#  - type: Lathe
+#    idleState: base_machine
+#    runningState: base_machine_processing
+#    staticRecipes:
+#    - MaterialSheetMeat
+#    - SheetPaper
+#
+#- type: entity
+#  id: BiofabricatorSyndicate
+#  parent: BaseLathe
+#  name: biofabricator
+#  description: Produces animal cubes using biomass.
+#  components:
+#  - type: Sprite
+#    sprite: Structures/Machines/biofabricator.rsi
+#    snapCardinals: true
+#    layers:
+#    - state: icon
+#      map: ["enum.LatheVisualLayers.IsRunning"]
+#    - state: unlit
+#      shader: unshaded
+#      map: ["enum.PowerDeviceVisualLayers.Powered"]
+#    - state: inserting
+#      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+#    - state: panel
+#      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+#  - type: Machine
+#    board: BiofabricatorMachineCircuitboard
+#  - type: MaterialStorage
+#    whitelist:
+#      tags:
+#      - Sheet
+#      - RawMaterial
+#  - type: Lathe
+#    idleState: icon
+#    runningState: building
+#    staticRecipes:
+#    - MonkeyCube
+#    - KoboldCube
+#    - CowCube
+#    - GoatCube
+#    - MothroachCube
+#    - MouseCube
+#    - CockroachCube
+#  - type: EmagLatheRecipes
+#    emagStaticRecipes:
+#    - AbominationCube
+#    - SpaceCarpCube
+#    - SpaceTickCube
+
+#- type: entity
+#  id: BiofabricatorNanotrasen
+#  parent: BaseLathe
+#  name: biofabricator
+#  description: Produces animal cubes using biomass.
+#  components:
+#  - type: Sprite
+#    sprite: Structures/Machines/biofabricator.rsi
+#    snapCardinals: true
+#    layers:
+#    - state: icon
+#      map: ["enum.LatheVisualLayers.IsRunning"]
+#    - state: unlit
+#      shader: unshaded
+#      map: ["enum.PowerDeviceVisualLayers.Powered"]
+#    - state: inserting
+#      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+#    - state: panel
+#      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+#  - type: Machine
+#    board: BiofabricatorMachineCircuitboard
+#  - type: MaterialStorage
+#    whitelist:
+#      tags:
+#      - Sheet
+#      - RawMaterial
+#  - type: Lathe
+#    idleState: icon
+#    runningState: building
+#    staticRecipes:
+#    - MonkeyCube
+#    - KoboldCube
+#    - CowCube
+#    - GoatCube
+#    - MothroachCube
+#    - MouseCube
+#    - CockroachCube
+#  - type: EmagLatheRecipes
+#    emagStaticRecipes:
+#    - AbominationCube
+#    - SpaceCarpCube
+#    - SpaceTickCube
+#
+#- type: entity
+#  id: ExosuitFabricatorSyndicate
+#  parent: BaseLatheLube
+#  name: exosuit fabricator
+#  description: Creates parts for robotics and other mechanical needs
+#  components:
+#  - type: Sprite
+#    sprite: Structures/Machines/exosuit_fabricator.rsi
+#    layers:
+#    - state: fab-idle
+#      map: ["enum.LatheVisualLayers.IsRunning"]
+#    - state: fab-load
+#      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+#    - state: fab-o
+#      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+#  - type: Machine
+#    board: ExosuitFabricatorMachineCircuitboard
+#  - type: Lathe
+#    idleState: fab-idle
+#    runningState: fab-active
+#    staticRecipes: # WD edit - removed BorgModuleFireExtinguisher
+#    - MMI
+#    - PositronicBrain
+#    - SciFlash
+#    - BorgModuleCable
+#    - BorgModuleRadiationDetection
+#    - BorgModuleTool
+#    - BorgModuleAppraisal
+#    - BorgModuleAtmospherics # WD
+#    - BorgModuleConstruction
+#    - BorgModuleService
+#    - BorgModuleTreatment
+#    - BorgModuleCleaning
+#    - CyborgEndoskeleton
+#    - LeftArmBorg
+#    - RightArmBorg
+#    - LeftLegBorg
+#    - RightLegBorg
+#    - LightHeadBorg
+#    - TorsoBorg
+#    - LeftArmBorgEngineer
+#    - RightArmBorgEngineer
+#    - LeftLegBorgEngineer
+#    - RightLegBorgEngineer
+#    - HeadBorgEngineer
+#    - TorsoBorgEngineer
+#    - LeftLegBorgJanitor
+#    - RightLegBorgJanitor
+#    - HeadBorgJanitor
+#    - TorsoBorgJanitor
+#    - LeftArmBorgMedical
+#    - RightArmBorgMedical
+#    - LeftLegBorgMedical
+#    - RightLegBorgMedical
+#    - HeadBorgMedical
+#    - TorsoBorgMedical
+#    - LeftArmBorgMining
+#    - RightArmBorgMining
+#    - LeftLegBorgMining
+#    - RightLegBorgMining
+#    - HeadBorgMining
+#    - TorsoBorgMining
+#    - LeftArmBorgService
+#    - RightArmBorgService
+#    - LeftLegBorgService
+#    - RightLegBorgService
+#    - HeadBorgService
+#    - TorsoBorgService
+#    dynamicRecipes: # WD edit - removed BorgModuleDiagnosis
+#    - ProximitySensor
+#    - BorgModuleLightReplacer
+#    - BorgModuleAdvancedCleaning
+#    - BorgModuleMining
+#    - BorgModuleGrapplingGun
+#    - BorgModuleAdvancedTool
+#    - BorgModuleGPS
+#    - BorgModuleArtifact
+#    - BorgModuleAnomaly
+#    - BorgModuleGardening
+#    - BorgModuleHarvesting
+#    - BorgModuleMusique
+#    - BorgModuleClowning
+#    - BorgModuleDefibrillator
+#    - BorgModuleAdvancedTreatment
+#    - RipleyHarness
+#    - RipleyLArm
+#    - RipleyRArm
+#    - RipleyLLeg
+#    - RipleyRLeg
+#    - MechEquipmentGrabber
+#    - HonkerHarness
+#    - HonkerLArm
+#    - HonkerRArm
+#    - HonkerLLeg
+#    - HonkerRLeg
+#    - MechEquipmentHorn
+#    - MechEquipmentGrabberSmall
+#    - HamtrHarness
+#    - HamtrLArm
+#    - HamtrRArm
+#    - HamtrLLeg
+#    - HamtrRLeg
+#    - VimHarness
+#  - type: BluespaceStorage
+#  - type: MaterialStorage
+#    whitelist:
+#      tags:
+#      - Sheet
+#      - RawMaterial
+#      - Ingot
+#  - type: GuideHelp
+#    guides:
+#    - Robotics
+#
+#- type: entity
+#  id: ExosuitFabricatorNanotrasen
+#  parent: BaseLatheLube
+#  name: exosuit fabricator
+#  description: Creates parts for robotics and other mechanical needs
+#  components:
+#  - type: Sprite
+#    sprite: Structures/Machines/exosuit_fabricator.rsi
+#    layers:
+#    - state: fab-idle
+#      map: ["enum.LatheVisualLayers.IsRunning"]
+#    - state: fab-load
+#      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+#    - state: fab-o
+#      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+#  - type: Machine
+#    board: ExosuitFabricatorMachineCircuitboard
+#  - type: Lathe
+#    idleState: fab-idle
+#    runningState: fab-active
+#    staticRecipes: # WD edit - removed BorgModuleFireExtinguisher
+#    - MMI
+#    - PositronicBrain
+#    - SciFlash
+#    - BorgModuleCable
+#    - BorgModuleRadiationDetection
+#    - BorgModuleTool
+#    - BorgModuleAppraisal
+#    - BorgModuleAtmospherics # WD
+#    - BorgModuleConstruction
+#    - BorgModuleService
+#    - BorgModuleTreatment
+#    - BorgModuleCleaning
+#    - CyborgEndoskeleton
+#    - LeftArmBorg
+#    - RightArmBorg
+#    - LeftLegBorg
+#    - RightLegBorg
+#    - LightHeadBorg
+#    - TorsoBorg
+#    - LeftArmBorgEngineer
+#    - RightArmBorgEngineer
+#    - LeftLegBorgEngineer
+#    - RightLegBorgEngineer
+#    - HeadBorgEngineer
+#    - TorsoBorgEngineer
+#    - LeftLegBorgJanitor
+#    - RightLegBorgJanitor
+#    - HeadBorgJanitor
+#    - TorsoBorgJanitor
+#    - LeftArmBorgMedical
+#    - RightArmBorgMedical
+#    - LeftLegBorgMedical
+#    - RightLegBorgMedical
+#    - HeadBorgMedical
+#    - TorsoBorgMedical
+#    - LeftArmBorgMining
+#    - RightArmBorgMining
+#    - LeftLegBorgMining
+#    - RightLegBorgMining
+#    - HeadBorgMining
+#    - TorsoBorgMining
+#    - LeftArmBorgService
+#    - RightArmBorgService
+#    - LeftLegBorgService
+#    - RightLegBorgService
+#    - HeadBorgService
+#    - TorsoBorgService
+#    dynamicRecipes: # WD edit - removed BorgModuleDiagnosis
+#    - ProximitySensor
+#    - BorgModuleLightReplacer
+#    - BorgModuleAdvancedCleaning
+#    - BorgModuleMining
+#    - BorgModuleGrapplingGun
+#    - BorgModuleAdvancedTool
+#    - BorgModuleGPS
+#    - BorgModuleArtifact
+#    - BorgModuleAnomaly
+#    - BorgModuleGardening
+#    - BorgModuleHarvesting
+#    - BorgModuleMusique
+#    - BorgModuleClowning
+#    - BorgModuleDefibrillator
+#    - BorgModuleAdvancedTreatment
+#    - RipleyHarness
+#    - RipleyLArm
+#    - RipleyRArm
+#    - RipleyLLeg
+#    - RipleyRLeg
+#    - MechEquipmentGrabber
+#    - HonkerHarness
+#    - HonkerLArm
+#    - HonkerRArm
+#    - HonkerLLeg
+#    - HonkerRLeg
+#    - MechEquipmentHorn
+#    - MechEquipmentGrabberSmall
+#    - HamtrHarness
+#    - HamtrLArm
+#    - HamtrRArm
+#    - HamtrLLeg
+#    - HamtrRLeg
+#    - VimHarness
+#  - type: BluespaceStorage
+#  - type: MaterialStorage
+#    whitelist:
+#      tags:
+#      - Sheet
+#      - RawMaterial
+#      - Ingot
+#  - type: GuideHelp
+#    guides:
+#    - Robotics
+
+#- type: entity
+#  id: CircuitImprinterSyndicate
+#  parent: BaseLatheLube
+#  name: circuit imprinter
+#  description: Prints circuit boards for machines.
+#  components:
+#  - type: Sprite
+#    sprite: Structures/Machines/circuit_imprinter.rsi
+#    snapCardinals: true
+#    layers:
+#    - state: icon
+#      map: ["enum.LatheVisualLayers.IsRunning"]
+#    - state: unlit
+#      shader: unshaded
+#      map: ["enum.PowerDeviceVisualLayers.Powered"]
+#    - state: panel
+#      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+#  - type: Machine
+#    board: CircuitImprinterMachineCircuitboard
+#  - type: Lathe
+#    producingSound: /Audio/Machines/circuitprinter.ogg
+#    idleState: icon
+#    runningState: building
+#    staticRecipes:
+#    - ProtolatheMachineCircuitboard
+#    - AutolatheMachineCircuitboard
+#    - CircuitImprinterMachineCircuitboard
+#    - OreProcessorMachineCircuitboard
+#    - MaterialReclaimerMachineCircuitboard
+#    - ElectrolysisUnitMachineCircuitboard
+#    - CentrifugeMachineCircuitboard
+#    - ChemDispenserMachineCircuitboard
+#    - ChemMasterMachineCircuitboard
+#    - CondenserMachineCircuitBoard
+#    - HotplateMachineCircuitboard
+#    - UniformPrinterMachineCircuitboard
+#    - FloorGreenCircuit
+#    - FloorBlueCircuit
+#    - MicrowaveMachineCircuitboard
+#    - ReagentGrinderMachineCircuitboard
+#    - ElectricGrillMachineCircuitboard
+#    - BoozeDispenserMachineCircuitboard
+#    - SodaDispenserMachineCircuitboard
+#    - SpaceHeaterMachineCircuitBoard
+#    dynamicRecipes:
+#    - ThermomachineFreezerMachineCircuitBoard
+#    - HellfireFreezerMachineCircuitBoard
+#    - PortableScrubberMachineCircuitBoard
+#    - CloningPodMachineCircuitboard
+#    - MedicalScannerMachineCircuitboard
+#    - CryoPodMachineCircuitboard
+#    - VaccinatorMachineCircuitboard
+#    - DiagnoserMachineCircuitboard
+#    - BiomassReclaimerMachineCircuitboard
+#    - BiofabricatorMachineCircuitboard
+#    - SurveillanceCameraRouterCircuitboard
+#    - SurveillanceCameraMonitorCircuitboard
+#    - SurveillanceWirelessCameraMonitorCircuitboard
+#    - SurveillanceCameraWirelessRouterCircuitboard
+#    - ComputerTelevisionCircuitboard
+#    - SurveillanceWirelessCameraMovableCircuitboard
+#    - SurveillanceWirelessCameraAnchoredCircuitboard
+#    - HydroponicsTrayMachineCircuitboard
+#    - SolarControlComputerCircuitboard
+#    - SolarTrackerElectronics
+#    - TurboItemRechargerCircuitboard
+#    - PowerComputerCircuitboard
+#    - AutolatheHyperConvectionMachineCircuitboard
+#    - ProtolatheHyperConvectionMachineCircuitboard
+#    - CircuitImprinterHyperConvectionMachineCircuitboard
+#    - FatExtractorMachineCircuitboard
+#    - FlatpackerMachineCircuitboard
+#    - SheetifierMachineCircuitboard
+#    - ShuttleConsoleCircuitboard
+#    - RadarConsoleCircuitboard
+#    - TechDiskComputerCircuitboard
+#    - DawInstrumentMachineCircuitboard
+#    - CloningConsoleComputerCircuitboard
+#    - StasisBedMachineCircuitboard
+#    - OreProcessorIndustrialMachineCircuitboard
+#    - CargoTelepadMachineCircuitboard
+#    - RipleyCentralElectronics
+#    - RipleyPeripheralsElectronics
+#    - HonkerCentralElectronics
+#    - HonkerPeripheralsElectronics
+#    - HonkerTargetingElectronics
+#    - HamtrCentralElectronics
+#    - HamtrPeripheralsElectronics
+#    - PortableGeneratorPacmanMachineCircuitboard
+#    - PortableGeneratorSuperPacmanMachineCircuitboard
+#    - PortableGeneratorJrPacmanMachineCircuitboard
+#    - WallmountGeneratorElectronics
+#    - WallmountGeneratorAPUElectronics
+#    - WallmountSubstationElectronics
+#    - PowerCageRechargerCircuitboard
+#    - EmitterCircuitboard
+#    - ThrusterMachineCircuitboard
+#    - GyroscopeMachineCircuitboard
+#    - MiniGravityGeneratorCircuitboard
+#    - ShuttleGunKineticCircuitboard
+#    - GasRecyclerMachineCircuitboard
+#    - SeedExtractorMachineCircuitboard
+#    - AnalysisComputerCircuitboard
+#    - ExosuitFabricatorMachineCircuitboard
+#    - AnomalyVesselCircuitboard
+#    - AnomalyVesselExperimentalCircuitboard
+#    - AnomalySynchronizerCircuitboard
+#    - APECircuitboard
+#    - ArtifactAnalyzerMachineCircuitboard
+#    - ArtifactCrusherMachineCircuitboard
+#    - TelecomServerCircuitboard
+#    - MassMediaCircuitboard
+#    - ReagentGrinderIndustrialMachineCircuitboard
+#    - JukeboxCircuitBoard
+#  - type: MaterialStorage
+#    whitelist:
+#      tags:
+#      - Sheet
+#      - RawMaterial
+#      - Ingot
+
+#- type: entity
+#  id: CircuitImprinterNanotrasen
+#  parent: BaseLatheLube
+#  name: circuit imprinter
+#  description: Prints circuit boards for machines.
+#  components:
+#  - type: Sprite
+#    sprite: Structures/Machines/circuit_imprinter.rsi
+#    snapCardinals: true
+#    layers:
+#    - state: icon
+#      map: ["enum.LatheVisualLayers.IsRunning"]
+#    - state: unlit
+#      shader: unshaded
+#      map: ["enum.PowerDeviceVisualLayers.Powered"]
+#    - state: panel
+#      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+#  - type: Machine
+#    board: CircuitImprinterMachineCircuitboard
+#  - type: Lathe
+#    producingSound: /Audio/Machines/circuitprinter.ogg
+#    idleState: icon
+#    runningState: building
+#    staticRecipes:
+#    - ProtolatheMachineCircuitboard
+#    - AutolatheMachineCircuitboard
+#    - CircuitImprinterMachineCircuitboard
+#    - OreProcessorMachineCircuitboard
+#    - MaterialReclaimerMachineCircuitboard
+#    - ElectrolysisUnitMachineCircuitboard
+#    - CentrifugeMachineCircuitboard
+#    - ChemDispenserMachineCircuitboard
+#    - ChemMasterMachineCircuitboard
+#    - CondenserMachineCircuitBoard
+#    - HotplateMachineCircuitboard
+#    - UniformPrinterMachineCircuitboard
+#    - FloorGreenCircuit
+#    - FloorBlueCircuit
+#    - MicrowaveMachineCircuitboard
+#    - ReagentGrinderMachineCircuitboard
+#    - ElectricGrillMachineCircuitboard
+#    - BoozeDispenserMachineCircuitboard
+#    - SodaDispenserMachineCircuitboard
+#    - SpaceHeaterMachineCircuitBoard
+#    dynamicRecipes:
+#    - ThermomachineFreezerMachineCircuitBoard
+#    - HellfireFreezerMachineCircuitBoard
+#    - PortableScrubberMachineCircuitBoard
+#    - CloningPodMachineCircuitboard
+#    - MedicalScannerMachineCircuitboard
+#    - CryoPodMachineCircuitboard
+#    - VaccinatorMachineCircuitboard
+#    - DiagnoserMachineCircuitboard
+#    - BiomassReclaimerMachineCircuitboard
+#    - BiofabricatorMachineCircuitboard
+#    - SurveillanceCameraRouterCircuitboard
+#    - SurveillanceCameraMonitorCircuitboard
+#    - SurveillanceWirelessCameraMonitorCircuitboard
+#    - SurveillanceCameraWirelessRouterCircuitboard
+#    - ComputerTelevisionCircuitboard
+#    - SurveillanceWirelessCameraMovableCircuitboard
+#    - SurveillanceWirelessCameraAnchoredCircuitboard
+#    - HydroponicsTrayMachineCircuitboard
+#    - SolarControlComputerCircuitboard
+#    - SolarTrackerElectronics
+#    - TurboItemRechargerCircuitboard
+#    - PowerComputerCircuitboard
+#    - AutolatheHyperConvectionMachineCircuitboard
+#    - ProtolatheHyperConvectionMachineCircuitboard
+#    - CircuitImprinterHyperConvectionMachineCircuitboard
+#    - FatExtractorMachineCircuitboard
+#    - FlatpackerMachineCircuitboard
+#    - SheetifierMachineCircuitboard
+#    - ShuttleConsoleCircuitboard
+#    - RadarConsoleCircuitboard
+#    - TechDiskComputerCircuitboard
+#    - DawInstrumentMachineCircuitboard
+#    - CloningConsoleComputerCircuitboard
+#    - StasisBedMachineCircuitboard
+#    - OreProcessorIndustrialMachineCircuitboard
+#    - CargoTelepadMachineCircuitboard
+#    - RipleyCentralElectronics
+#    - RipleyPeripheralsElectronics
+#    - HonkerCentralElectronics
+#    - HonkerPeripheralsElectronics
+#    - HonkerTargetingElectronics
+#    - HamtrCentralElectronics
+#    - HamtrPeripheralsElectronics
+#    - PortableGeneratorPacmanMachineCircuitboard
+#    - PortableGeneratorSuperPacmanMachineCircuitboard
+#    - PortableGeneratorJrPacmanMachineCircuitboard
+#    - WallmountGeneratorElectronics
+#    - WallmountGeneratorAPUElectronics
+#    - WallmountSubstationElectronics
+#    - PowerCageRechargerCircuitboard
+#    - EmitterCircuitboard
+#    - ThrusterMachineCircuitboard
+#    - GyroscopeMachineCircuitboard
+#    - MiniGravityGeneratorCircuitboard
+#    - ShuttleGunKineticCircuitboard
+#    - GasRecyclerMachineCircuitboard
+#    - SeedExtractorMachineCircuitboard
+#    - AnalysisComputerCircuitboard
+#    - ExosuitFabricatorMachineCircuitboard
+#    - AnomalyVesselCircuitboard
+#    - AnomalyVesselExperimentalCircuitboard
+#    - AnomalySynchronizerCircuitboard
+#    - APECircuitboard
+#    - ArtifactAnalyzerMachineCircuitboard
+#    - ArtifactCrusherMachineCircuitboard
+#    - TelecomServerCircuitboard
+#    - MassMediaCircuitboard
+#    - ReagentGrinderIndustrialMachineCircuitboard
+#    - JukeboxCircuitBoard
+#  - type: MaterialStorage
+#    whitelist:
+#      tags:
+#      - Sheet
+#      - RawMaterial
+#      - Ingot
+

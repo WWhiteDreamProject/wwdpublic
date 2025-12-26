@@ -1,0 +1,43 @@
+- type: entity
+  id: AirlockSyndicateBase
+  parent: Airlock
+  name: airlock
+  description: It opens, it closes, and maybe crushes you.
+#  abstract: true
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Doors/Airlocks/Standard/s_basic.rsi
+    snapCardinals: true
+    layers:
+    - state: closed
+      map: ["enum.DoorVisualLayers.Base"]
+    - state: closed_unlit
+      shader: unshaded
+      map: ["enum.DoorVisualLayers.BaseUnlit"]
+    - state: welded
+      map: ["enum.WeldableLayers.BaseWelded"]
+    - state: bolted_unlit
+      shader: unshaded
+      map: ["enum.DoorVisualLayers.BaseBolted"]
+    - state: emergency_unlit
+      map: ["enum.DoorVisualLayers.BaseEmergencyAccess"]
+      shader: unshaded
+    - state: panel_open
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+
+- type: entity
+  id: AirlockRCDResistantSyndicate
+  parent: AirlockSyndicateBase
+  abstract: true
+  components:
+  - type: RCDDeconstructable
+    deconstructable: false
+
+- type: entity
+  parent: AirlockGlass
+  id: AirlockSyndicateGlassBase
+  name: glass airlock
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Doors/Airlocks/Glass/s_basic.rsi

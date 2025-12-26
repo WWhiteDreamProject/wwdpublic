@@ -1,0 +1,9 @@
+- type: damageGroup
+  id: Exhaustion
+  name: damage-group-exhaustion
+  damageTypes:
+  - Exhaustion
+
+- type: damageType
+  id: Exhaustion
+  name: damage-type-exhaustion

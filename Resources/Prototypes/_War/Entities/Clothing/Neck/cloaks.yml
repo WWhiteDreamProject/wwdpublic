@@ -1,0 +1,56 @@
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakSyndicateCommandor
+  name: commandor's cloak
+  description: Commandor`s cloak.
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/Neck/Cloaks/commador.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakSyndicateDirectorInterpharm
+  name: interpharm director`s cloak
+  description: Director`s cloak.
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/Neck/Cloaks/director_inter.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakSyndicateDirectorSaibasan
+  name: saibasan director`s cloak
+  description: Director`s cloak.
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/Neck/Cloaks/director_saiba.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakManager
+  name: manager's cloak
+  description: Manager`s cloak.
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/Neck/Cloaks/sm.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckRadCloak
+  name: Antirad cloak
+  description: Antirad cloak.. Or is it?
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/Neck/Cloaks/rad_cloak.rsi
+  - type: Clothing
+    sprite: _War/Clothing/Neck/Cloaks/rad_cloak.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.85
+        Piercing: 0.95
+        Radiation: 0.50
+  - type: ClothingSpeedModifier
+    walkModifier: 0.65
+    sprintModifier: 0.65

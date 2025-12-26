@@ -1,0 +1,24 @@
+- type: loadout
+  id: LoaderJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSyndicateLoader
+- type: startingGear
+  id: LoaderJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSyndicateLoader
+- type: loadout
+  id: WeldingSyndicate
+  equipment:
+    head: ClothingHeadHatWeldingSyndicate
+- type: startingGear
+  id: WeldingSyndicate
+  equipment:
+    head: ClothingHeadHatWeldingSyndicate
+- type: loadout
+  id: LoaderPDA
+  equipment:
+    id: PDASyndicateLoader
+- type: startingGear
+  id: LoaderPDA
+  equipment:
+    id: PDASyndicateLoader

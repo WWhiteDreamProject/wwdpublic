@@ -1,0 +1,257 @@
+# Commandor
+
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitSyndicateCommandor
+  name: syndicate commandor helmet
+  description: Dont forget add description....fuck.
+  components:
+  - type: BreathMask
+  - type: Sprite
+    sprite: _War/Clothing/Head/Hardsuits/syndiecommandor.rsi
+  - type: Clothing
+    sprite: _War/Clothing/Head/Hardsuits/syndiecommandor.rsi
+    clothingVisuals:
+      head:
+      - state: off-equipped-HELMET
+  - type: PointLight
+    color: green
+    radius: 7
+    energy: 3
+  - type: ToggleableLightVisuals
+    spriteLayer: light
+    clothingVisuals:
+      head:
+      - state: on-equipped-HELMET_unshaded
+        shader: unshaded
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+  - type: EyeProtection # WD edit
+  - type: FlashImmunity # WD
+#  - type: FlashSoundSuppression
+
+# Director
+
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitSyndicateDirector
+  name: syndicate director helmet
+  description: Dont forget add description....fuck..
+  components:
+  - type: BreathMask
+  - type: Sprite
+    sprite: _War/Clothing/Head/Hardsuits/syndiedirector.rsi
+  - type: Clothing
+    sprite: _War/Clothing/Head/Hardsuits/syndiedirector.rsi
+    clothingVisuals:
+      head:
+      - state: off-equipped-HELMET
+  - type: PointLight
+    color: green
+    radius: 7
+    energy: 3
+  - type: ToggleableLightVisuals
+    spriteLayer: light
+    clothingVisuals:
+      head:
+      - state: on-equipped-HELMET_unshaded
+        shader: unshaded
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    heatingCoefficient: 0.005
+    coolingCoefficient: 0.005
+  - type: FireProtection
+    reduction: 0.2
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+  - type: EyeProtection # WD edit
+  - type: FlashImmunity # WD
+#  - type: FlashSoundSuppression
+
+# Old
+
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitSyndicateOld
+  name: old blood-red hardsuit helmet
+  description: Dont forget add description....fuck.
+  components:
+  - type: BreathMask
+  - type: Sprite
+    sprite: _War/Clothing/Head/Hardsuits/syndieold.rsi
+  - type: ToggleableLightVisuals
+    spriteLayer: light
+    clothingVisuals:
+      head:
+      - state: on-equipped-HELMET_unshaded
+        shader: unshaded
+  - type: Clothing
+    sprite: _War/Clothing/Head/Hardsuits/syndieold.rsi
+    clothingVisuals:
+      head:
+      - state: off-equipped-HELMET
+  - type: PointLight
+    color: green
+    radius: 7
+    energy: 3
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+  - type: EyeProtection # WD edit
+  - type: FlashImmunity # WD
+#  - type: FlashSoundSuppression
+
+# Paramed
+
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitSyndicateParamed
+  name: paramed syndicate hardsuit helmet
+  description: Dont forget add description....fuck.
+  components:
+  - type: BreathMask
+  - type: Sprite
+    sprite: _War/Clothing/Head/Hardsuits/syndieparamed.rsi
+  - type: ToggleableLightVisuals
+    spriteLayer: light
+    clothingVisuals:
+      head:
+      - state: on-equipped-HELMET_unshaded
+        shader: unshaded
+  - type: Clothing
+    sprite: _War/Clothing/Head/Hardsuits/syndieparamed.rsi
+    clothingVisuals:
+      head:
+      - state: off-equipped-HELMET
+  - type: PointLight
+    color: red
+    radius: 7
+    energy: 3
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9
+  - type: EyeProtection # WD edit
+  - type: FlashImmunity # WD
+#  - type: FlashSoundSuppression
+
+# Salvage
+
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitSyndicateSalvage
+  name: salvage hardsuit helmet
+  description: Protects from something.
+  components:
+  - type: BreathMask
+  - type: Sprite
+    sprite: _War/Clothing/Head/Hardsuits/syndiesalvage.rsi
+  - type: ToggleableLightVisuals
+    spriteLayer: light
+    clothingVisuals:
+      head:
+      - state: on-equipped-HELMET_unshaded
+        shader: unshaded
+  - type: Clothing
+    sprite: _War/Clothing/Head/Hardsuits/syndiesalvage.rsi
+    clothingVisuals:
+      head:
+      - state: off-equipped-HELMET
+  - type: PressureProtection
+    highPressureMultiplier: 0.525
+    lowPressureMultiplier: 1000
+  - type: PointLight
+    radius: 7
+    energy: 3
+
+# Engineer
+
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitSyndicateEngineering
+  name: syndicate engineering hardsuit helmet
+  description: An engineering hardsuit helmet designed for working in low-pressure, high radioactive environments.
+  components:
+  - type: BreathMask
+  - type: Sprite
+    sprite: _War/Clothing/Head/Hardsuits/syndieengineering.rsi
+  - type: ToggleableLightVisuals
+    spriteLayer: light
+    clothingVisuals:
+      head:
+      - state: on-equipped-HELMET_unshaded
+        shader: unshaded
+  - type: Clothing
+    sprite: _War/Clothing/Head/Hardsuits/syndieengineering.rsi
+    clothingVisuals:
+      head:
+      - state: off-equipped-HELMET
+  - type: PointLight
+    color: "#ea457b"
+    radius: 7
+    energy: 3
+  - type: PressureProtection
+    highPressureMultiplier: 0.1
+    lowPressureMultiplier: 1000
+  - type: EyeProtection # WD edit
+  - type: FlashImmunity # WD
+
+# Manager
+
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitSyndicateManager
+  name: syndicate manager helmet
+  description: Dont forget add description....
+  components:
+  - type: BreathMask
+  - type: Sprite
+    sprite: _War/Clothing/Head/Hardsuits/syndiemanager.rsi
+  - type: ToggleableLightVisuals
+    spriteLayer: light
+    clothingVisuals:
+      head:
+      - state: on-equipped-HELMET_unshaded
+        shader: unshaded
+  - type: Clothing
+    sprite: _War/Clothing/Head/Hardsuits/syndiemanager.rsi
+    clothingVisuals:
+      head:
+      - state: off-equipped-HELMET
+  - type: PointLight
+    color: green
+    radius: 7
+    energy: 3
+  - type: PressureProtection
+    highPressureMultiplier: 0.1
+    lowPressureMultiplier: 1000
+  - type: EyeProtection # WD edit
+  - type: FlashImmunity # WD

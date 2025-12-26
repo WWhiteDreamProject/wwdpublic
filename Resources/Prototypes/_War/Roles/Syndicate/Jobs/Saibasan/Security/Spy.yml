@@ -1,0 +1,27 @@
+- type: job
+  id: SyndicateSpy
+  name: job-name-syndspy
+  description: job-description-syndspy
+  playTimeTracker: JobSyndicateSecuritySpy
+#  requirements:
+#  - !type:RoleTimeRequirement
+#    role: JobSyndicateSecurityRecruit
+#    time: 3600 #1 hrs
+  icon: "JobIconSyndicateSpy"
+  supervisors: job-supervisors-commander
+  canBeAntag: false
+  access:
+  - GatewaysSyndicate
+  - GeneralSyndicate
+  - MaintenanceSyndicate
+
+- type: startingGear
+  id: SyndSpyGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSyndicateSpy
+    back: ClothingBackpackChameleon # Добавить спрайт + прототип для хамелеона
+    shoes: ClothingShoesChameleon
+    mask: ClothingMasksBalaclavaSyndicateBrown
+    gloves: ClothingHandsCombatChameleon
+    id: SyndiPDA # НЕ ЗАБЫТЬ ИЗМЕНИТЬ
+    ears: ClothingHeadsetChameleon # НЕ ЗАБЫТЬ ДОБАВИТЬ КЛЮЧ ШИФРОВАНИЯ

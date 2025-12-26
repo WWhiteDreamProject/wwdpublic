@@ -1,0 +1,22 @@
+# Syndicate
+- type: entity
+  parent: ClothingBeltUtility
+  id: ClothingBeltSyndicateToolbelt
+  name: syndicate toolbelt
+  description: Unique and versatile belt, can hold gear.
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/Belt/syndie_utility.rsi
+  - type: Clothing
+    sprite: _War/Clothing/Belt/syndie_utility.rsi
+
+- type: entity
+  parent: ClothingBeltStorageBase
+  id: ClothingBeltSyndicateWebbing
+  name: syndicate webbing
+  description: Unique and versatile chest rig, can hold gear.
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/Belt/syndie_webbing.rsi
+  - type: Clothing
+    sprite: _War/Clothing/Belt/syndie_webbing.rsi

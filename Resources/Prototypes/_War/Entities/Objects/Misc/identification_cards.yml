@@ -1,0 +1,287 @@
+- type: entity
+  parent: Clothing
+  id: IDCardStandardSyndicate
+  name: identification card
+  description: A card necessary to access various areas aboard the syndicate station.
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _War/Objects/Misc/syndi_id_cards.rsi
+  - type: Clothing
+    slots:
+    - idcard
+    sprite: _War/Objects/Misc/syndi_id_cards.rsi
+  - type: Item
+    size: Small
+    heldPrefix: default
+    storedRotation: -90
+  - type: Access
+  - type: IdCard
+  - type: StationRecordKeyStorage
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - WhitelistChameleon
+  - type: Appearance
+#  - type: GenericVisualizer
+#    visuals:
+#      enum.IdVisuals.State:
+#        base:
+#          DirectorOfSaibasan: { state: iddirectorS }
+#          Commander: { state: idcommanderS }
+#          SyndicatePilot: { state: idspilotS }
+#          SyndicateParamedic: { state: idparamedicS }
+#          Fighter: { state: idsecurityofficerS }
+#          Recruit: { state: idintern-cadetS }
+#          Spy: { state: idspyS }
+#          SupplyManager: { state: idchiefengineerS }
+#          AtmosphericEngineer: { state: idstationengineerS }
+#          Technician: { state: idintern-techS }
+#          Disposal: { state: idshaftminerS }
+#          Loader: { state: idcargotechnicianS }
+
+#IDs with layers
+
+#Saibasan
+
+- type: entity
+  parent: IDCardStandardSyndicate
+  id: DirectorIDCard
+  name: director ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: redS
+    - state: iddirectorS
+  - type: Item
+    heldPrefix: gold
+  - type: PresetIdCard
+    job: DirectorOfSaibasan
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - WhitelistChameleon
+
+- type: entity
+  parent: IDCardStandardSyndicate
+  id: CommanderIDCard
+  name: commander ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: blackS
+    - state: idcommanderS
+  - type: Item
+    heldPrefix: silver
+  - type: PresetIdCard
+    job: Commander
+
+- type: entity
+  parent: IDCardStandardSyndicate
+  id: SyndicatePilotIDCard
+  name: syndicate pilot ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: s_default
+    - state: idspilotS
+  - type: PresetIdCard
+    job: SyndicatePilot
+
+- type: entity
+  parent: IDCardStandardSyndicate
+  id: SyndicateParamedicIDCard
+  name: syndicate paramedic ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: s_default
+    - state: idparamedicS
+  - type: PresetIdCard
+    job: SyndicateParamedic
+
+- type: entity
+  parent: IDCardStandardSyndicate
+  id: SyndicateFighterIDCard
+  name: syndicate fighter ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: s_default
+    - state: idsecurityofficerS
+  - type: PresetIdCard
+    job: Fighter
+
+- type: entity
+  parent: IDCardStandardSyndicate
+  id: RecruitIDCard
+  name: recruit ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: s_default
+    - state: idintern-cadetS
+  - type: PresetIdCard
+    job: Recruit
+
+- type: entity
+  parent: IDCardStandardSyndicate
+  id: SyndicateSpyIDCard
+  name: syndicate spy ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: s_default
+    - state: idspyS
+  - type: PresetIdCard
+    job: SyndicateSpy
+
+- type: entity
+  parent: IDCardStandardSyndicate
+  id: SupplyManagerIDCard
+  name: supply manager ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: blackS
+    - state: idchiefengineerS
+  - type: Item
+    heldPrefix: silver
+  - type: PresetIdCard
+    job: SupplyManager
+
+- type: entity
+  parent: IDCardStandardSyndicate
+  id: AtmosphericEngineerIDCard
+  name: atmospheric engineer ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: s_default
+    - state: idstationengineerS
+  - type: PresetIdCard
+    job: AtmosphericEngineer
+
+#- type: entity
+#  parent: IDCardStandardSyndicate
+#  id: TechnicianIDCard
+#  name: technician ID card
+#  components:
+#  - type: Sprite
+#    layers:
+#    - state: s_default
+#    - state: idintern-techS
+#  - type: PresetIdCard
+#    job: Technician
+
+- type: entity
+  parent: IDCardStandardSyndicate
+  id: DisposalIDCard
+  name: disposal ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: s_default
+    - state: idshaftminerS
+  - type: PresetIdCard
+    job: Disposal
+
+- type: entity
+  parent: IDCardStandardSyndicate
+  id: LoaderIDCard
+  name: loader ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: s_default
+    - state: idcargotechnicianS
+  - type: PresetIdCard
+    job: Loader
+
+#Interpharm
+
+- type: entity
+  parent: IDCardStandardSyndicate
+  id: SyndicateBotanistIDCard
+  name: syndicate botanist ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: s_default
+    - state: idbotanistS
+  - type: PresetIdCard
+    job: SyndicateBotanist
+
+- type: entity
+  parent: IDCardStandardSyndicate
+  id: SyndicateChefIDCard
+  name: syndicate chef ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: s_default
+    - state: idcookS
+  - type: PresetIdCard
+    job: SyndicateChef
+
+- type: entity
+  parent: IDCardStandardSyndicate
+  id: SyndicateBartenderIDCard
+  name: syndicate bartender ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: s_default
+    - state: idbartenderS
+  - type: PresetIdCard
+    job: SyndicateBartender
+
+#- type: entity
+#  parent: IDCardStandardSyndicate
+#  id: SyndicateClownIDCard
+#  name: syndicate clown ID card
+#  components:
+#  - type: Sprite
+#    layers:
+#    - state: s_default
+#    - state: idclownS
+#  - type: PresetIdCard
+#    job: SyndicateClown
+
+- type: entity
+  parent: IDCardStandardSyndicate
+  id: SyndicateScientistIDCard
+  name: syndicate scientist ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: s_default
+    - state: idscientistS
+  - type: PresetIdCard
+    job: SyndicateScientist
+
+- type: entity
+  parent: IDCardStandardSyndicate
+  id: SyndicateAcademicEngIDCard
+  name: syndicate academic engineer ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: s_default
+    - state: idacademicengineerS
+  - type: PresetIdCard
+    job: SyndicateScientist
+
+# NT
+
+- type: entity
+  parent: IDCardStandard
+  id: PilotIDCard
+  name: pilot ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: idpilotNT
+  - type: PresetIdCard
+    job: PilotNT

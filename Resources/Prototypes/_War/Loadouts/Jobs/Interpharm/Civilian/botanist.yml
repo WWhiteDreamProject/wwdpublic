@@ -1,0 +1,40 @@
+- type: loadout
+  id: SyndicateBandRed
+  equipment:
+    mask: ClothingHeadBandRed
+- type: startingGear
+  id: SyndicateBandRed
+  equipment:
+    mask: ClothingHeadBandRed
+- type: loadout
+  id: SyndicateHeadBandRed
+  equipment:
+    head: ClothingHeadBandRed
+- type: startingGear
+  id: SyndicateHeadBandRed
+  equipment:
+    head: ClothingHeadBandRed
+- type: loadout
+  id: SyndicateHydroponicsJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSyndicateHydroponics
+- type: startingGear
+  id: SyndicateHydroponicsJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSyndicateHydroponics
+- type: loadout
+  id: SyndicateBotanistOuterClothing
+  equipment:
+    outerClothing: ClothingOuterApronSyndicateBotanist
+- type: startingGear
+  id: SyndicateBotanistOuterClothing
+  equipment:
+    outerClothing: ClothingOuterApronSyndicateBotanist
+- type: loadout
+  id: SyndicateBotanistPDA
+  equipment:
+    id: PDASyndicateBotanist
+- type: startingGear
+  id: SyndicateBotanistPDA
+  equipment:
+    id: PDASyndicateBotanist

@@ -1,0 +1,204 @@
+# Saibasan
+- type: roleLoadout
+  id: JobLoader
+  groups:
+  - WeldingSyndicate
+  - SyndicateHeadsetTW
+  - LoaderJumpsuit
+  - SyndicateCommonBackpack
+  - BeltSyndicateEng
+  - InsulatedRed # WD
+  - BootsWorkSyndicateShoesRed
+  - LoaderPDA
+  - Trinkets
+#  - SyndicateBeltEquipment
+
+- type: roleLoadout
+  id: JobDisposal
+  groups:
+  - SyndicateGlassesMeson # WD
+  - SyndicateHeadsetTW
+  - DisposalJumpsuit
+  - SyndicateCommonBackpack
+  - DisposalGloves # WD
+  - CombatBoots
+  - DisposalPDA
+  - Trinkets
+
+- type: roleLoadout
+  id: JobAtmosphericEngineer
+  groups:
+  - SyndicateGlassesMeson # WD
+  - SyndicateHeadsetTW
+  - SaibasanEngineerJumpsuit
+  - SyndicateCommonBackpack
+  - BeltSyndicateEng
+  - InsulatedRed # WD
+  - BootsWorkSyndicateShoes
+  - AtmosphericEngineerPDA
+  - Trinkets
+#  - SyndicateBeltEquipment
+
+- type: roleLoadout
+  id: JobSupplyManager
+  groups:
+  - SyndicateGlassesMeson # WD
+  - SyndicateHeadsetTW
+  - SyndicateManagerCloak
+  - SMJumpsuit
+  - SyndicateCommonBackpack
+  - BeltSyndicateEng
+  - InsulatedRed # WD
+  - BootsWorkSyndicateShoesRed
+  - SMPDA
+#  - PistolViperPocket2
+  - Trinkets
+#  - SyndicateBeltEquipment
+
+- type: roleLoadout
+  id: JobFighter
+  groups:
+  - SyndicateSecurity1Helmet
+  - GlassesSecuritySyndicate # WD
+  - SyndicateHeadsetTW
+  - OperativeJumpsuit
+  - SyndicateCommonBackpack
+  - ArmorBasicSyndicate
+#  - CommonSecurityBelt
+#  - CommonGloves # WD
+  - CombatBoots
+  - SyndicateFighterPDA
+#  - PistolViperPocket2
+  - Trinkets
+
+- type: roleLoadout
+  id: JobSyndicateParamedic
+  groups:
+  - SyndicateGlassesMedicalHud # WD
+  - SyndicateHeadsetTW
+  - SyndicateParamedicJumpsuit
+  - SyndicateCommonBackpack
+  # - ParamedicBelt
+  - GlovesNitrileSyndicate # WD
+  - WhiteRedSyndicateShoes
+  - SyndicateParamedicPDA
+  - Trinkets
+
+- type: roleLoadout
+  id: JobSyndicatePilot
+  groups:
+  - HelmetSyndicatePilot
+  - SyndicateHeadsetTW
+  - OperativeJumpsuit
+  - SyndicateCommonBackpack
+  - ArmorBasicSyndicate
+  - ClothingBeltSyndieHolster
+  - GlovesSyndicatePilot # WD
+  - BootsCombatSyndicatePilot
+  - SyndicatePilotPDA
+#  - PistolViperPocket2
+  - Trinkets
+
+- type: roleLoadout
+  id: JobCommander
+  groups:
+  - SyndicateCommanderBeret
+  - GlassesSecuritySyndicate # WD
+  - SyndicateCommanderCloak
+  - SyndicateHeadsetTW
+  - SaibasanCommanderJumpsuit
+  - SyndicateCommonBackpack
+  - ArmorBasicSyndicate
+  #- ClothingBeltAssaultFilled
+  - GlovesCombatTW # WD
+  - CombatBoots
+  - SyndicateCommanderPDA
+#  - PistolViperPocket2
+  - Trinkets
+
+- type: roleLoadout
+  id: JobDirectorOfSaibasan
+  groups:
+  - SaibasanDirectorCap
+  - GlassesSecuritySyndicate # WD
+  - SyndicateHeadsetTW
+  - SaibasanDirectorJumpsuit
+  - SyndicateCommonBackpack
+  - CoatSyndieCap
+  - SyndicateDirectorSaibasanCloak
+  - ClothingBeltSyndieHolster
+  - GlovesCombatTW # WD
+  - CombatBoots
+  - SyndicateDirectorOfSaibasanPDA
+#  - PistolViperPocket2
+  - Trinkets
+
+# Interpharm
+
+- type: roleLoadout
+  id: JobSyndicateChef
+  groups:
+  - SyndicateChefHead
+  - SyndicateHeadsetTW # WD
+  - SyndicateServiceJumpsuit
+  - SyndicateCommonBackpack
+  - SyndicateChefOuterClothing
+  - BlackRedSyndicateShoes # WD
+  - SyndicateChefPDA # WD
+  - Trinkets
+
+- type: roleLoadout
+  id: JobSyndicateBotanist
+  groups:
+  #- ClothingHeadBandRed
+  - SyndicateHeadsetTW
+  #- CommonGlasses
+  - SyndicateHydroponicsJumpsuit
+  - SyndicateCommonBackpack
+  - SyndicateBotanistOuterClothing
+  #- BotanistGloves
+  - BlackRedSyndicateShoes
+  - SyndicateBotanistPDA
+  - Trinkets
+
+- type: roleLoadout
+  id: JobSyndicateScientist
+  groups:
+  - SyndicateGlassesMedicalHud
+  - SyndicateMedicalBeret
+  - SyndicateHeadsetTW
+  #- CommonMedicalMask
+  - SyndicateMedicalJumpsuit
+  - SyndicateCommonBackpack
+  - SyndicateMedicalCoat
+  - WhiteRedSyndicateShoes
+  - GlovesNitrileSyndicate
+  - SyndicateMedicalPDA
+  - SyndicatePocket1SyndiHypo
+  - Trinkets
+
+- type: roleLoadout
+  id: JobDirectorOfInterpharm
+  groups:
+  - SyndicateCapDirectorInterpharm
+  - GlassesSecuritySyndicate # WD
+  - SyndicateCoatDirectorInterpharm
+  - SyndicateHeadsetTW
+  - SyndicateJumpsuitDirectorInterpharm
+  - SyndicateCommonBackpack
+  - ClothingBeltSyndieHolster
+  - WhiteRedSyndicateShoes
+  - SyndicatePDADirectorOfInterpharm
+#  - PistolViperPocket2
+  - Trinkets
+
+- type: roleLoadout
+  id: JobSyndicateBartender
+  groups:
+  - SyndicateHeadsetTW # WD
+  # - CommonGlasses # WD
+  - SyndicateServiceJumpsuit
+  - CommonBackpack
+  - BlackRedSyndicateShoes
+  - SyndicateBartenderPDA
+  - Trinkets

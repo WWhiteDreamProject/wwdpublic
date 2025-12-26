@@ -1,0 +1,51 @@
+- type: job
+  id: DirectorOfSaibasan
+  name: job-name-directorofsaibasan
+  description: job-description-directorofsaibasan
+  playTimeTracker: JobSyndicateDirectorOfSaibasan
+#  requirements:
+#  - !type:RoleTimeRequirement
+#    role: JobSupplyManager
+#    time: 3600 #1 hrs
+#  - !type:RoleTimeRequirement
+#    role: JobSyndicateSecurityCommander
+#    time: 7200 #2 hrs
+#  - !type:RoleTimeRequirement
+#    role: JobSyndicateParamedic
+#    time: 3600 #1 hrs
+  icon: "JobIconDirectorOfSaibasan"
+  supervisors: job-supervisors-nobody
+  canBeAntag: false
+  access:
+  - AuthoritySyndicate
+  - BridgeSyndicate
+  - ArmorySyndicate
+  - BarracksSyndicate
+  - TechnicalSyndicate
+  - AtmosSyndicate
+  - ShuttleSyndicate
+  - SuppliesSyndicate
+  - MinersSyndicate
+  - MaintenanceSyndicate
+  - GatewaysSyndicate
+  - ResearchSyndicate
+  - MedbaySyndicate
+  - ChemistrySyndicate
+  - FoodSyndicate
+  - BarSyndicate
+  - GeneralSyndicate
+
+- type: startingGear
+  id: DirectorOfSaibasanGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSyndicateDirectorSaibasan
+    back: ClothingBackpackSyndicate # НЕ ЗАБЫТЬ ДОБАВИТЬ
+    shoes: ClothingShoesBootsCombatFilled
+    head: ClothingHeadHatCapcap # НЕ ЗАБЫТЬ ДОБАВИТЬ
+    eyes: ClothingEyesGlassesSecurity
+    outerClothing: ClothingOuterCoatSyndieCapArmored
+    id: SyndiPDA # НЕ ЗАБЫТЬ ДОБАВИТЬ
+    ears: ClothingHeadsetAltSyndicate # НЕ ЗАБЫТЬ ДОБАВИТЬ
+    belt: ClothingBeltSyndieHolster
+    pocket1: WeaponPistolCobra
+    pocket2: CyberPen

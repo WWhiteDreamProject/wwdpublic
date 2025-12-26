@@ -1,0 +1,276 @@
+# GREEN CARDS
+
+- type: entity
+  parent: BaseUnoCardGreen
+  id: UnoCardGreen0
+  name: зелёная карта UNO 0
+  description: Игральная карта UNO.
+  components:
+  - type: Sprite
+    state: unogreen0
+  - type: SpawnItemsOnUse
+    items:
+    - id: UnoCardUnknownGreen0
+
+- type: entity
+  parent: BaseUnoCardGreen
+  id: UnoCardGreen1
+  name: зелёная карта UNO 1
+  description: Игральная карта UNO.
+  components:
+  - type: Sprite
+    state: unogreen1
+  - type: SpawnItemsOnUse
+    items:
+    - id: UnoCardUnknownGreen1
+
+- type: entity
+  parent: BaseUnoCardGreen
+  id: UnoCardGreen2
+  name: зелёная карта UNO 2
+  description: Игральная карта UNO.
+  components:
+  - type: Sprite
+    state: unogreen2
+  - type: SpawnItemsOnUse
+    items:
+    - id: UnoCardUnknownGreen2
+
+- type: entity
+  parent: BaseUnoCardGreen
+  id: UnoCardGreen3
+  name: зелёная карта UNO 3
+  description: Игральная карта UNO.
+  components:
+  - type: Sprite
+    state: unogreen3
+  - type: SpawnItemsOnUse
+    items:
+    - id: UnoCardUnknownGreen3
+
+- type: entity
+  parent: BaseUnoCardGreen
+  id: UnoCardGreen4
+  name: зелёная карта UNO 4
+  description: Игральная карта UNO.
+  components:
+  - type: Sprite
+    state: unogreen4
+  - type: SpawnItemsOnUse
+    items:
+    - id: UnoCardUnknownGreen4
+
+- type: entity
+  parent: BaseUnoCardGreen
+  id: UnoCardGreen5
+  name: зелёная карта UNO 5
+  description: Игральная карта UNO.
+  components:
+  - type: Sprite
+    state: unogreen5
+  - type: SpawnItemsOnUse
+    items:
+    - id: UnoCardUnknownGreen5
+
+- type: entity
+  parent: BaseUnoCardGreen
+  id: UnoCardGreen6
+  name: зелёная карта UNO 6
+  description: Игральная карта UNO.
+  components:
+  - type: Sprite
+    state: unogreen6
+  - type: SpawnItemsOnUse
+    items:
+    - id: UnoCardUnknownGreen6
+
+- type: entity
+  parent: BaseUnoCardGreen
+  id: UnoCardGreen7
+  name: зелёная карта UNO 7
+  description: Игральная карта UNO.
+  components:
+  - type: Sprite
+    state: unogreen7
+  - type: SpawnItemsOnUse
+    items:
+    - id: UnoCardUnknownGreen7
+
+- type: entity
+  parent: BaseUnoCardGreen
+  id: UnoCardGreen8
+  name: зелёная карта UNO 8
+  description: Игральная карта UNO.
+  components:
+  - type: Sprite
+    state: unogreen8
+  - type: SpawnItemsOnUse
+    items:
+    - id: UnoCardUnknownGreen8
+
+- type: entity
+  parent: BaseUnoCardGreen
+  id: UnoCardGreen9
+  name: зелёная карта UNO 9
+  description: Игральная карта UNO.
+  components:
+  - type: Sprite
+    state: unogreen9
+  - type: SpawnItemsOnUse
+    items:
+    - id: UnoCardUnknownGreen9
+
+- type: entity
+  parent: BaseUnoCardGreen
+  id: UnoCardGreenPlus
+  name: зелёная карта UNO плюс 2
+  description: Игральная карта UNO.
+  components:
+  - type: Sprite
+    state: unogreenplus
+  - type: SpawnItemsOnUse
+    items:
+    - id: UnoCardUnknownGreenPlus
+
+- type: entity
+  parent: BaseUnoCardGreen
+  id: UnoCardGreenReverse
+  name: зелёная карта UNO реверс
+  description: Игральная карта UNO.
+  components:
+  - type: Sprite
+    state: unogreenreverse
+  - type: SpawnItemsOnUse
+    items:
+    - id: UnoCardUnknownGreenReverse
+
+- type: entity
+  parent: BaseUnoCardGreen
+  id: UnoCardGreenStop
+  name: зелёная карта UNO стоп
+  description: Игральная карта UNO.
+  components:
+  - type: Sprite
+    state: unogreenstop
+  - type: SpawnItemsOnUse
+    items:
+    - id: UnoCardUnknownGreenStop
+
+# UNKNOWN GREEN CARDS
+
+- type: entity
+  parent: BaseUnoUnknownCard
+  id: UnoCardUnknownGreen0
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: UnoCardGreen0
+
+- type: entity
+  parent: BaseUnoUnknownCard
+  id: UnoCardUnknownGreen1
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: UnoCardGreen1
+
+- type: entity
+  parent: BaseUnoUnknownCard
+  id: UnoCardUnknownGreen2
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: UnoCardGreen2
+
+- type: entity
+  parent: BaseUnoUnknownCard
+  id: UnoCardUnknownGreen3
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: UnoCardGreen3
+
+- type: entity
+  parent: BaseUnoUnknownCard
+  id: UnoCardUnknownGreen4
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: UnoCardGreen4
+
+- type: entity
+  parent: BaseUnoUnknownCard
+  id: UnoCardUnknownGreen5
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: UnoCardGreen5
+
+- type: entity
+  parent: BaseUnoUnknownCard
+  id: UnoCardUnknownGreen6
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: UnoCardGreen6
+
+- type: entity
+  parent: BaseUnoUnknownCard
+  id: UnoCardUnknownGreen7
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: UnoCardGreen7
+
+- type: entity
+  parent: BaseUnoUnknownCard
+  id: UnoCardUnknownGreen8
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: UnoCardGreen8
+
+- type: entity
+  parent: BaseUnoUnknownCard
+  id: UnoCardUnknownGreen9
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: UnoCardGreen9
+
+- type: entity
+  parent: BaseUnoUnknownCard
+  id: UnoCardUnknownGreenPlus
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: UnoCardGreenPlus
+
+- type: entity
+  parent: BaseUnoUnknownCard
+  id: UnoCardUnknownGreenReverse
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: UnoCardGreenReverse
+
+- type: entity
+  parent: BaseUnoUnknownCard
+  id: UnoCardUnknownGreenStop
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnItemsOnUse
+    items:
+    - id: UnoCardGreenStop

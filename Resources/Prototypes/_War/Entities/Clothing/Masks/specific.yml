@@ -1,0 +1,41 @@
+- type: entity
+  parent: ClothingMaskBase
+  id: ClothingMasksBalaclavaSyndicateBrown
+  name: brown balaclava
+  description: I never really was on your side.
+  suffix: Chameleon
+  components:
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+  - type: Sprite
+    sprite: _War/Clothing/Mask/balaclava_brown.rsi
+  - type: Clothing
+    sprite: _War/Clothing/Mask/balaclava_brown.rsi
+  - type: ChameleonClothing
+    slot: [mask]
+    default: ClothingMasksBalaclavaSyndicateBrown
+  - type: UserInterface
+    interfaces:
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
+
+- type: entity
+  parent: ClothingMaskBase
+  id: ClothingMaskBalaclavaSyndicateBlack
+  name: black balaclava
+  description: I never really was on your side.
+  suffix: Chameleon
+  components:
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+  - type: Sprite
+    sprite: _War/Clothing/Mask/balaclava_black.rsi
+  - type: Clothing
+    sprite: _War/Clothing/Mask/balaclava_black.rsi
+  - type: ChameleonClothing
+    slot: [mask]
+    default: ClothingMaskBalaclavaSyndicateBlack
+  - type: UserInterface
+    interfaces:
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface

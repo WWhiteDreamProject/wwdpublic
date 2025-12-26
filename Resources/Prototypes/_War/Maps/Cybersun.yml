@@ -1,0 +1,24 @@
+﻿- type: gameMap
+  id: TWSaibasan
+  mapName: 'Cybersun'
+  mapPath: /Maps/TotalWar/cybersun.yml
+  minPlayers: 0
+  stations:
+    TWSaibasan:
+      stationProto: StandardTWSyndicateStation
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: 'Cybersun'
+      - type: StationJobs
+        availableJobs:
+            DirectorOfSaibasan: [ 1, 1 ]
+            Commander: [ 1, 1 ]
+            SyndicatePilot: [ 2, 2 ]
+            Fighter: [ 6, 6 ]
+            Recruit: [ 3, 3 ]
+            SyndicateSpy: [ 1, 1 ]
+            SyndicateParamedic: [ 2, 2 ]
+            SupplyManager: [ 1, 1 ]
+            AtmosphericEngineer: [ 3, 3 ]
+            Disposal: [ 3, 3 ]
+            Loader: [ 2, 2 ]

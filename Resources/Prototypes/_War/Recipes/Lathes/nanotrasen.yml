@@ -1,0 +1,275 @@
+# Base prototypes
+
+- type: latheRecipe
+  abstract: true
+  parent: BaseToolRecipe
+  id: BaseNanotrasenRecipe
+  materials:
+    Steel: 200
+
+# Packs
+
+#- type: latheRecipePack
+#  id: WeaponNanotrasenCraftStatic
+#  recipes:
+#  -
+
+- type: latheRecipePack
+  id: SecNanotrasenCraftStatic
+  recipes:
+  - ClothingEyesHudSecurity
+  - SheetPlasteel1
+  - SheetPlasteel
+  - Flash
+  - Handcuffs
+  - Zipties
+  - Stunbaton
+  - ForensicPad
+  - RiotShield
+  - TargetHuman
+  - TargetClown
+
+- type: latheRecipePack
+  id: WeaponNanotrasenCraftDynamic
+  recipes:
+  - WeaponRevolverInspector
+  - WeaponShotgunKammerer
+  - WeaponSubMachineGunAR9
+  - WeaponSubMachineGunWt550
+  - WeaponRifleADAR15
+  - WeaponPistolMk58
+  - WeaponRifleLecter
+  - WeaponShotgunAA12
+  - WeaponShotgunXM
+  - WeaponAdvancedLaser
+  - WeaponLaserCannon
+  - WeaponLaserCarbine
+  - WeaponXrayCannon
+  - WeaponTemperatureGun
+
+- type: latheRecipePack
+  id: SecNanotrasenCraftDynamic
+  recipes:
+  - ClothingHeadHelmetBasic
+  - ClothingOuterArmorBasic
+  - ClothingOuterHardsuitSecurity
+  - ClothingOuterArmorBulletproof
+  - Truncheon
+
+# Pistols
+
+- type: latheRecipe # TW
+  parent: BaseNanotrasenRecipe
+  id: WeaponRevolverInspector
+  result: WeaponRevolverInspector
+  completetime: 5
+  materials:
+    Steel: 500
+    Plasteel: 200
+
+- type: latheRecipe # TW
+  parent: BaseNanotrasenRecipe
+  id: WeaponPistolMk58
+  result: WeaponPistolMk58
+  completetime: 5
+  materials:
+    Steel: 400
+    Plasteel: 150
+
+- type: latheRecipe # TW
+  parent: BaseNanotrasenRecipe
+  id: WeaponPulsePistol
+  result: WeaponPulsePistol
+  completetime: 7
+  materials:
+    Steel: 450
+    Plasteel: 600
+    Glass: 300
+
+- type: latheRecipe # TW
+  parent: BaseNanotrasenRecipe
+  id: SheetPlasteel1
+  result: SheetPlasteel1
+  completetime: 0.1
+  materials:
+    Steel: 200
+    Plasma: 200
+
+- type: latheRecipe # TW
+  parent: BaseNanotrasenRecipe
+  id: SheetPlasteel
+  result: SheetPlasteel
+  completetime: 1
+  materials:
+    Steel: 2500
+    Plasma: 2500
+
+# Shotguns
+
+# - type: latheRecipe # TW
+#  parent: BaseNanotrasenRecipe
+#  id: WeaponEnergyShotgun
+#  result: WeaponEnergyShotgun
+#  completetime: 10
+#  materials:
+#    Steel: 1200
+#    Plasteel: 800
+#    Glass: 700
+
+- type: latheRecipe # TW
+  parent: BaseNanotrasenRecipe
+  id: WeaponShotgunDoubleBarreled
+  result: WeaponShotgunDoubleBarreled
+  completetime: 5
+  materials:
+    Steel: 350
+    Wood: 500
+
+- type: latheRecipe # TW
+  parent: BaseNanotrasenRecipe
+  id: WeaponShotgunKammerer
+  result: WeaponShotgunKammerer
+  completetime: 8
+  materials:
+    Steel: 2000
+    Wood: 1000
+
+- type: latheRecipe # TW
+  parent: BaseNanotrasenRecipe
+  id: WeaponShotgunXM
+  result: WeaponShotgunXM
+  completetime: 10
+  materials:
+    Steel: 2500
+    Plasteel: 2000
+
+- type: latheRecipe # TW
+  parent: BaseNanotrasenRecipe
+  id: WeaponShotgunAA12
+  result: WeaponShotgunAA12
+  completetime: 7
+  materials:
+    Steel: 3000
+    Plasteel: 2000
+
+# SMGs
+
+- type: latheRecipe # TW
+  parent: BaseNanotrasenRecipe
+  id: WeaponSubMachineGunWt550
+  result: WeaponSubMachineGunWt550
+  completetime: 7
+  materials:
+    Steel: 1500
+    Plasteel: 500
+
+- type: latheRecipe # TW
+  parent: BaseNanotrasenRecipe
+  id: WeaponSubMachineGunAR9
+  result: WeaponSubMachineGunAR9
+  completetime: 7
+  materials:
+    Steel: 1250
+    Plasteel: 500
+
+# Rifles
+
+- type: latheRecipe # TW
+  parent: BaseNanotrasenRecipe
+  id: WeaponRifleADAR15
+  result: WeaponRifleADAR15
+  completetime: 6
+  materials:
+    Steel: 2000
+    Plasteel: 1500
+
+- type: latheRecipe # TW
+  parent: BaseNanotrasenRecipe
+  id: WeaponRifleLecter
+  result: WeaponRifleLecter
+  completetime: 6
+  materials:
+    Steel: 2500
+    Plasteel: 1500
+
+#- type: latheRecipe # TW
+#  parent: BaseNanotrasenRecipe
+#  id: WeaponLaserCannon
+#  result: WeaponLaserCannon
+#  completetime: 10
+#  materials:
+#    Steel: 800
+#    Plasteel: 500
+#    Glass: 1500
+
+#- type: latheRecipe # TW
+#  parent: BaseNanotrasenRecipe
+#  id: WeaponLaserCarbine
+#  result: WeaponLaserCarbine
+#  completetime: 9
+#  materials:
+#    Steel: 300
+#    Plasteel: 150
+#    Glass: 900
+
+# Armor
+
+- type: latheRecipe # TW
+  parent: BaseNanotrasenRecipe
+  id: ClothingHeadHelmetBasic
+  result: ClothingHeadHelmetBasic
+  completetime: 5
+  materials:
+    Steel: 500
+    Glass: 500
+
+
+- type: latheRecipe # TW
+  parent: BaseNanotrasenRecipe
+  id: ClothingOuterArmorBasic
+  result: ClothingOuterArmorBasic
+  completetime: 5
+  materials:
+    Steel: 500
+    Plasteel: 500
+    Cloth: 500
+
+- type: latheRecipe # TW
+  parent: BaseNanotrasenRecipe
+  id: ClothingOuterArmorBulletproof
+  result: ClothingOuterArmorBulletproof
+  completetime: 5
+  materials:
+    Steel: 1500
+    Plasteel: 500
+    Cloth: 500
+
+# Rigs
+
+- type: latheRecipe # TW
+  parent: BaseNanotrasenRecipe
+  id: ClothingOuterHardsuitSecurity
+  result: ClothingOuterHardsuitSecurity
+  completetime: 5
+  materials:
+    Steel: 1500
+    Glass: 500
+    Plasteel: 1000
+
+# Other
+
+- type: latheRecipe # TW
+  parent: BaseNanotrasenRecipe
+  id: LocatorCircuitboard
+  result: LocatorCircuitboard
+  # category: Circuitry # Вернуть не забыть
+  completetime: 5
+  materials:
+    Steel: 100
+    Glass: 500
+
+- type: latheRecipe # TW
+  parent: BaseNanotrasenRecipe
+  id: SaibasanCoordinatesDisk
+  result: SaibasanCoordinatesDisk
+  completetime: 5

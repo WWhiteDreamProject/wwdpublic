@@ -1,0 +1,15 @@
+﻿# Belts and webbing
+
+- type: entity
+  id: ClothingBeltSyndicateToolbeltFilled
+  parent: ClothingBeltSyndicateToolbelt
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+    - id: Crowbar
+    - id: Wrench
+    - id: Screwdriver
+    - id: Wirecutter
+    - id: Welder
+    - id: Multitool

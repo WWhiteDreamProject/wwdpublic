@@ -1,0 +1,44 @@
+- type: loadout
+  id: SyndicateCommanderBeret
+  equipment:
+    head: ClothingHeadBeretSyndicateCommandor
+- type: startingGear
+  id: SyndicateCommanderBeret
+  equipment:
+    head: ClothingHeadBeretSyndicateCommandor
+- type: loadout
+  id: SyndicateCommanderCloak
+  equipment:
+    neck: ClothingNeckCloakSyndicateCommandor
+- type: startingGear
+  id: SyndicateCommanderCloak
+  equipment:
+    neck: ClothingNeckCloakSyndicateCommandor
+- type: loadout
+  id: SaibasanCommanderJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSyndicateCommandor
+- type: startingGear
+  id: SaibasanCommanderJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSyndicateCommandor
+#- type: loadout
+#  id: BeltAssaultFilled
+#  equipment:
+#    belt: ClothingBeltAssaultFilled
+#- type: startingGear
+#  id: BeltAssaultFilled
+#  equipment:
+#    belt: ClothingBeltAssaultFilled
+- type: startingGear
+  id: BeltAssaultFilled
+  equipment:
+    belt: ClothingBeltSyndicateWebbing
+- type: loadout
+  id: SyndicateCommanderPDA
+  equipment:
+    id: PDASyndicateCommander
+- type: startingGear
+  id: SyndicateCommanderPDA
+  equipment:
+    id: PDASyndicateCommander

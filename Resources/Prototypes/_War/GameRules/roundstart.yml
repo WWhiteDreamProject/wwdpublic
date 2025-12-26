@@ -1,0 +1,10 @@
+﻿- type: entity
+  id: TotalWar
+  parent: BaseGameRule
+  components:
+  - type: GameRule
+  - type: TotalWarRule
+    factions:
+    - Interpharm
+    - Saibasan
+    #- Nanotrasen

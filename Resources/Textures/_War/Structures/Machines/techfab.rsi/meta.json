@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "nt_sec, nt_gun, sy_sec, sy_gun made by Reno. Icon, inserting, unlit made by EmoGarbage ammo state made by AjexRose and modified by Emo garbage",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "nt_sec"
+    },
+    {
+      "name": "sy_sec"
+    },
+    {
+      "name": "nt_gun"
+    },
+    {
+      "name": "sy_gun"
+    },
+    {
+      "name": "ammo"
+    },
+    {
+      "name": "panel"
+    },
+    {
+      "name": "unlit"
+    },
+    {
+      "name": "inserting",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    }
+  ]
+}

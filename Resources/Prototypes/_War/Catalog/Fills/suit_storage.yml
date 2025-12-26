@@ -1,0 +1,97 @@
+#Syndicate Commandor
+- type: entity
+  id: SuitStorageSyndicateCommandor
+  parent: SuitStorageBase
+  suffix: Syndicate Commandor
+  components:
+  - type: StorageFill
+    contents:
+    - id: OxygenTankFilled
+    - id: NitrogenTankFilled
+    - id: ClothingOuterHardsuitSyndicateCommandor
+    - id: ClothingMaskGasSyndicateTW
+    - id: ClothingShoesBootsMagSyndie
+
+#Syndicate Director
+- type: entity
+  id: SuitStorageSyndicateDirector
+  parent: SuitStorageBase
+  suffix: Syndicate Director
+  components:
+  - type: StorageFill
+    contents:
+    - id: OxygenTankFilled
+    - id: NitrogenTankFilled
+    - id: ClothingOuterHardsuitSyndicateDirector
+    - id: ClothingMaskGasSyndicateTW
+    - id: ClothingShoesBootsMagSyndie
+
+#Syndicate Old
+- type: entity
+  id: SuitStorageSyndicateOld
+  parent: SuitStorageBase
+  suffix: Syndicate Old
+  components:
+  - type: StorageFill
+    contents:
+    - id: OxygenTankFilled
+    - id: NitrogenTankFilled
+    - id: ClothingOuterHardsuitSyndicateOld
+    - id: ClothingMaskGasSyndicateTW
+    - id: ClothingShoesBootsMagSyndie
+
+#Syndicate Paramed
+- type: entity
+  id: SuitStorageSyndicateParamed
+  parent: SuitStorageBase
+  suffix: Syndicate Paramed
+  components:
+  - type: StorageFill
+    contents:
+    - id: OxygenTankFilled
+    - id: NitrogenTankFilled
+    - id: ClothingOuterHardsuitSyndicateParamed
+    - id: ClothingMaskGasSyndicateTW
+    - id: ClothingShoesBootsMagSyndie
+
+#Syndicate Salvage
+- type: entity
+  id: ClothingOuterHardsuitSyndicateSalvage
+  parent: SuitStorageBase
+  suffix: Syndicate Salvage
+  components:
+  - type: StorageFill
+    contents:
+    - id: OxygenTankFilled
+    - id: NitrogenTankFilled
+    - id: ClothingOuterHardsuitSyndicateMiner
+    - id: ClothingMaskGasSyndicateTW
+    - id: ClothingShoesBootsMagSyndie
+
+#Syndicate Engineering
+- type: entity
+  id: ClothingOuterHardsuitSyndicateEngineering
+  parent: SuitStorageBase
+  suffix: Syndicate Engineering
+  components:
+  - type: StorageFill
+    contents:
+    - id: OxygenTankFilled
+    - id: NitrogenTankFilled
+    - id: ClothingOuterHardsuitSyndicateEngineer
+    - id: ClothingMaskGasSyndicateTW
+    - id: ClothingShoesBootsMagSyndie
+
+#Syndicate Manager
+- type: entity
+  id: ClothingOuterHardsuitSyndicateManager
+  parent: SuitStorageBase
+  suffix: Syndicate Manager
+  components:
+  - type: StorageFill
+    contents:
+    - id: OxygenTankFilled
+    - id: NitrogenTankFilled
+    - id: ClothingOuterHardsuitSyndicateSupplyManager
+    - id: ClothingMaskGasSyndicateTW
+    - id: ClothingShoesBootsMagSyndie

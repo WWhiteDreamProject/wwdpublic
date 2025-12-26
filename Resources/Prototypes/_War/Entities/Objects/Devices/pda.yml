@@ -1,0 +1,450 @@
+- type: entity
+  abstract: true
+  parent: BaseItem
+  id: BasePDASyndicate
+  name: PDA
+  description: Personal Data Assistant.
+  components:
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda
+  - type: Sprite
+    sprite: _War/Objects/Devices/syndi_pda.rsi
+    layers:
+    - map: [ "enum.PdaVisualLayers.Base" ]
+      state: "pda"
+    - state: "light_overlay"
+      map: [ "enum.PdaVisualLayers.Flashlight" ]
+      shader: "unshaded"
+      visible: false
+    - state: "id_overlay"
+      map: [ "enum.PdaVisualLayers.IdLight" ]
+      shader: "unshaded"
+      visible: false
+  - type: Icon
+    sprite: _War/Objects/Devices/syndi_pda.rsi
+    state: pda
+  - type: Pda
+    paiSlot:
+      priority: -2
+      whitelist:
+        components:
+        - PAI
+    penSlot:
+      startingItem: CyberPen
+      priority: -1
+      whitelist:
+        tags:
+        - Write
+    idSlot:
+      name: access-id-card-component-default
+      ejectSound: /Audio/Machines/id_swipe.ogg
+      insertSound: /Audio/Machines/id_insert.ogg
+      whitelist:
+        components:
+        - IdCard
+  - type: PdaVisuals
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      PDA-id: !type:ContainerSlot {}
+      PDA-pen: !type:ContainerSlot {}
+      PDA-pai: !type:ContainerSlot {}
+      Cartridge-Slot: !type:ContainerSlot {}
+      program-container: !type:Container
+  - type: ItemSlots
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - idcard
+    - Belt
+  - type: UnpoweredFlashlight
+  - type: PointLight
+    enabled: false
+    radius: 1.5
+    softness: 5
+    autoRot: true
+  - type: Ringer
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: PDA
+    prefix: device-address-prefix-console
+  - type: WirelessNetworkConnection
+    range: 500
+  - type: CartridgeLoader
+    uiKey: enum.PdaUiKey.Key
+    preinstalled:
+    - CrewManifestCartridge
+    - NotekeeperCartridge
+    - NewsReaderCartridge
+    cartridgeSlot:
+      priority: -1
+      name: device-pda-slot-component-slot-name-cartridge
+      ejectSound: /Audio/Machines/id_swipe.ogg
+      insertSound: /Audio/Machines/id_insert.ogg
+      whitelist:
+        components:
+        - Cartridge
+  - type: ActivatableUI
+    key: enum.PdaUiKey.Key
+    singleUser: true
+  - type: UserInterface
+    interfaces:
+      enum.PdaUiKey.Key:
+        type: PdaBoundUserInterface
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+      enum.RingerUiKey.Key:
+        type: RingerBoundUserInterface
+      enum.InstrumentUiKey.Key:
+        type: InstrumentBoundUserInterface
+      enum.HealthAnalyzerUiKey.Key:
+        type: HealthAnalyzerBoundUserInterface
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - WhitelistChameleon
+    - WhitelistChameleonPDA
+  - type: Input
+    context: "human"
+  - type: SentienceTarget # sentient PDA = pAI lite
+    flavorKind: station-event-random-sentience-flavor-mechanical
+    weight: 0.001 # 1,000 PDAs = as likely to be picked as 1 regular animal
+  - type: BlockMovement
+    blockInteraction: false # lets the PDA toggle its own flashlight
+  - type: TypingIndicator
+    proto: robot
+  - type: Speech
+    speechVerb: Robotic
+
+- type: entity
+  parent: BasePDASyndicate
+  id: BaseMedicalPDASyndicate
+  abstract: true
+  components:
+  - type: HealthAnalyzer
+    scanDelay: 0.5
+    scanningEndSound:
+      path: "/Audio/Items/Medical/healthscanner.ogg"
+
+# Clear PDA
+- type: entity
+  parent: BasePDASyndicate
+  id: PDASyndicateClear
+  name: Clear PDA
+  description: Just. Clear. PDA.
+  components:
+  - type: Pda
+    id: PassengerIDCard
+  - type: PdaBorderColor
+    borderColor: "#288e4d"
+  - type: Icon
+    state: pda-clear
+
+# Saibasan
+- type: entity
+  parent: BasePDASyndicate
+  id: PDASyndicateLoader
+  name: loader PDA
+  description: PDA for the guys that order the syndicate pizzas.
+  components:
+  - type: Pda
+    id: LoaderIDCard
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-loader
+  - type: PdaBorderColor
+    borderColor: "#31302d"
+  - type: Icon
+    state: pda-loader
+
+- type: entity
+  parent: BasePDASyndicate
+  id: PDASyndicateDisposal
+  name: disposal PDA
+  description: Smells like ash.
+  components:
+  - type: Pda
+    id: DisposalIDCard
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-miner
+  - type: PdaBorderColor
+    borderColor: "#31302d"
+    accentVColor: "#3b4a20"
+    accentHColor: "#3b4a20"
+  - type: Icon
+    state: pda-miner
+
+- type: entity
+  parent: BasePDASyndicate
+  id: PDASyndicateSupplyManager
+  name: supply manager PDA
+  description: PDA for the guy that orders the guns.
+  components:
+  - type: Pda
+    id: SupplyManagerIDCard
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-ce
+  - type: PdaBorderColor
+    borderColor: "#cc0000"
+    accentVColor: "#31302d"
+    accentHColor: "#31302d"
+  - type: Icon
+    state: pda-ce
+
+- type: entity
+  parent: BasePDASyndicate
+  id: PDASyndicateAtmosphericEngineer
+  name: Atmospheric Engineer PDA
+  description: Rugged and well-worn.
+  components:
+  - type: Pda
+    id: AtmosphericEngineerIDCard
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-engineer
+  - type: PdaBorderColor
+    borderColor: "#31302d"
+    accentVColor: "#998100"
+    accentHColor: "#998100"
+  - type: Icon
+    state: pda-engineer
+
+- type: entity
+  parent: BasePDASyndicate
+  id: PDASyndicateFighter
+  name: fighter PDA
+  description: Red to hide the stains of NT`s blood.
+  components:
+  - type: Pda
+    id: SyndicateFighterIDCard
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-security
+  - type: PdaBorderColor
+    borderColor: "#31302d"
+    accentVColor: "#cc0000"
+  - type: Icon
+    state: pda-security
+
+- type: entity
+  parent: BasePDASyndicate
+  id: PDASyndicateRecruit
+  name: recruit PDA
+  description: Red to hide the stains of NT`s blood.
+  components:
+  - type: Pda
+    id: RecruitIDCard
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-intern-cadet
+  - type: PdaBorderColor
+    borderColor: "#31302d"
+  - type: Icon
+    state: pda-intern-cadet
+
+- type: entity
+  parent: BaseMedicalPDASyndicate
+  id: PDASyndicateParamedic
+  name: paramedic PDA
+  description: Shiny and sterile. Has a built-in rapid health analyzer.
+  components:
+  - type: Pda
+    id: SyndicateParamedicIDCard
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-paramedic
+  - type: PdaBorderColor
+    borderColor: "#31302d"
+    accentVColor: "#cc0000"
+  - type: Icon
+    state: pda-paramedic
+
+- type: entity
+  parent: BasePDASyndicate
+  id: SyndicatePilotPDA
+  name: pilot PDA
+  description: Smells like the shuttle.
+  components:
+  - type: Pda
+    id: SyndicatePilotIDCard
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-pilot
+  - type: PdaBorderColor
+    borderColor: "#31302d"
+    accentVColor: "#cc0000"
+  - type: Icon
+    state: pda-pilot
+
+- type: entity
+  parent: BasePDASyndicate
+  id: PDASyndicateCommander
+  name: commander PDA
+  description: Whosoever bears this PDA is the professional killer.
+  components:
+  - type: Pda
+    id: CommanderIDCard
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-commander
+  - type: PdaBorderColor
+    borderColor: "#cc0000"
+    accentVColor: "#31302d"
+  - type: Icon
+    state: pda-commander
+
+- type: entity
+  parent: BasePDASyndicate
+  id: PDASyndicateDirectorOfSaibasan
+  name: director of saibasan PDA
+  description: The most important one. Obey.
+  components:
+  - type: Pda
+    id: DirectorIDCard
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-director-saiba
+  - type: PdaBorderColor
+    borderColor: "#cc0000"
+    accentVColor: "#ffd600"
+  - type: Icon
+    state: pda-director-saiba
+
+# Interpharm
+- type: entity
+  parent: BasePDASyndicate
+  id: PDASyndicateDirectorOfInterpharm
+  name: director of interpharm PDA
+  description: The important one. Obey.
+  components:
+  - type: Pda
+    id: DirectorIDCard
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-director-inter
+  - type: PdaBorderColor
+    borderColor: "#cc0000"
+    accentVColor: "#c1c9b3"
+  - type: Icon
+    state: pda-director-inter
+
+- type: entity
+  parent: BasePDASyndicate
+  id: PDASyndicateChef
+  name: chef PDA
+  description: Service PDA.
+  components:
+  - type: Pda
+    id: SyndicateChefIDCard
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-service
+  - type: PdaBorderColor
+    borderColor: "#31302d"
+  - type: Icon
+    state: pda-service
+
+- type: entity
+  parent: BasePDASyndicate
+  id: PDASyndicateBartender
+  name: bartender PDA
+  description: Service PDA.
+  components:
+  - type: Pda
+    id: SyndicateBartenderIDCard
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-service
+  - type: PdaBorderColor
+    borderColor: "#31302d"
+  - type: Icon
+    state: pda-service
+
+- type: entity
+  parent: BasePDASyndicate
+  id: PDASyndicateBotanist
+  name: botanist PDA
+  description: Service PDA.
+  components:
+  - type: Pda
+    id: SyndicateBotanistIDCard
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-service
+  - type: PdaBorderColor
+    borderColor: "#31302d"
+  - type: Icon
+    state: pda-service
+
+- type: entity
+  parent: BaseMedicalPDASyndicate
+  id: PDASyndicateScientist
+  name: scientist PDA
+  description: It's covered with an unknown gooey substance.
+  components:
+  - type: Pda
+    id: SyndicateScientistIDCard
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-science
+  - type: PdaBorderColor
+    borderColor: "#8523b2"
+    accentVColor: "#c1c9b3"
+  - type: Icon
+    state: pda-science
+
+# NT
+
+- type: entity
+  parent: SecurityPDA
+  id: NTPilotPDA
+  name: pilot PDA
+  description: Smells like the shuttle.
+  components:
+  - type: Pda
+    id: PilotIDCard
+  - type: Appearance
+    appearanceDataInit:
+     enum.PdaVisuals.PdaType:
+       !type:String
+       pda-security
+  - type: PdaBorderColor
+    borderColor: "#A32D26"
+  - type: Icon
+    state: pda-security

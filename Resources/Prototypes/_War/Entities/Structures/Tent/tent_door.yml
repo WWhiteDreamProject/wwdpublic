@@ -1,0 +1,49 @@
+- type: entity
+  id: TentDoor
+  name: tent door
+  parent: BaseMaterialDoor
+  description: An inflated membrane. Now with a door. Do not puncture.
+  components:
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _War/Structures/Doors/SoftDoors/tentdoor.rsi
+    layers:
+    -  state: closed
+       map: ["enum.DoorVisualLayers.Base"]
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        density: 15
+        layer:
+        - WallLayer
+  - type: Door
+    clickOpen: true
+    openSound:
+      path: /Audio/Misc/zip.ogg
+    closeSound:
+      path: /Audio/Misc/zip.ogg
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Inflatable
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 60
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: DisassembleOnAltVerb
+    prototypeToSpawn: InflatableDoorStack1
+    disassembleTime: 3
+  - type: IconSmooth
+    key: walls
+    mode: NoSprite
+  - type: Airtight
+    noAirWhenFullyAirBlocked: false

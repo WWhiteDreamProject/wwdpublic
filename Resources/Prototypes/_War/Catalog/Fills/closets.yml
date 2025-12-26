@@ -1,0 +1,174 @@
+﻿# Bio
+
+- type: entity
+  id: ClosetL3SyndicateFilledBlack
+  suffix: Syndicate, Filled, Black
+  parent: ClosetL3Syndicate
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingOuterBioSyndicateBlack
+      amount: 2
+    - id: ClothingHeadHoodSyndicateBioBlack
+      amount: 2
+
+- type: entity
+  id: ClosetL3SyndicateFilledRed
+  suffix: Syndicate, Filled, Red
+  parent: ClosetL3Syndicate
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingOuterBioSyndicateRed
+      amount: 2
+    - id: ClothingHeadHoodSyndicateBioRed
+      amount: 2
+
+# Rad
+
+- type: entity
+  id: ClosetRadiationSuitSyndicateFilled
+  parent: ClosetRadiationSuit
+  suffix: Syndicate, Filled
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingOuterSuitRadSyndicate
+      amount: 2
+    - id: DrinkVodkaBottleFull
+    - id: DrinkShotGlass
+      amount: 2
+
+# Bomb
+
+- type: entity
+  id: ClosetBombSyndicateFilled
+  parent: ClosetBombSyndicate
+  suffix: Syndicate, Filled
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingHeadHelmetSyndicateBombsuit
+    - id: ClothingOuterSuitBombSyndicate
+    - id: Wirecutter
+      prob: 0.9
+    - id: Screwdriver
+      prob: 0.9
+    - id: Multitool
+      prob: 0.5
+
+# Fire
+
+- type: entity
+  id: ClosetFireSyndicateFilled
+  parent: ClosetFire
+  suffix: Syndicate, Filled
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingOuterSuitFireSyndicate
+    - id: ClothingHeadHelmetSyndicateFire
+    - id: ClothingMaskGasSyndicateTW
+    - id: OxygenTankFilled
+    - id: NitrogenTankFilled
+    - id: FireExtinguisher
+      prob: 0.15
+
+# Service
+
+- type: entity
+  id: LockerSyndicateKitchenFilled
+  name: syndicate closet
+  parent: LockerSyndicate
+  suffix: Filled, Chef
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingUniformJumpsuitSyndicateService
+    - id: ClothingOuterApronSyndicateChef
+    - id: ClothingHeadSyndicateChef
+    - id: CrowbarRed
+    - id: VariantCubeBox
+    - id: BoxMousetrap
+      amount: 2
+    - id: SprayBottleWater
+    - id: ReagentContainerFlour
+      amount: 2
+    - id: ReagentContainerSugar
+    - id: FoodCondimentPacketSalt
+      amount: 3
+    - id: FoodCondimentPacketPepper
+      amount: 3
+    - id: FoodCondimentBottleEnzyme
+    - id: DrinkMilkCarton
+      amount: 2
+    - id: DrinkSoyMilkCarton
+
+- type: entity
+  id: LockerSyndicateHydroponicsFilled
+  name: syndicate closet
+  parent: LockerSyndicate
+  suffix: Filled, Botanist
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingUniformJumpsuitSyndicateHydroponics
+    - id: ClothingHandsGlovesLeather
+    - id: ClothingOuterApronBotanist
+    - id: ClothingMaskBandRed
+    - id: RobustHarvestChemistryBottle
+      prob: 0.3
+    - id: ClothingBeltPlant
+    - id: PlantBag ##Some maps don't have nutrivend
+    - id: BoxMouthSwab
+    - id: Dropper
+    - id: HandLabeler
+    - id: ClothingUniformOveralls
+    - id: ClothingHeadHatTrucker
+      prob: 0.1
+#    - id: Eftpos
+    - id: HydroponicsToolSpade
+    - id: HydroponicsToolMiniHoe
+    - id: RobustHarvestChemistryBottle
+
+- type: entity
+  id: LockerSyndicateBartenderFilled
+  name: syndicate closet
+  parent: LockerSyndicate
+  suffix: Filled, Bartender
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingUniformJumpsuitSyndicateService
+    - id: ClothingOuterCoatLabTech
+    - id: ClothingOuterArmorSyndicate
+    - id: WeaponShotgunDoubleBarreledRubber
+    - id: DrinkShaker
+    - id: ClothingEyesHudBeer
+    - id: HandLabeler
+      amount: 1
+    - id: DrinkBottleBeer
+      prob: 0.5
+    - id: DrinkBottleBeer
+      prob: 0.5
+    - id: DrinkBottleBeer
+      prob: 0.5
+    - id: BoxBeanbag
+      amount: 2
+    - id: RagItem
+      amount: 2
+    - id: BoxSyringe
+    - id: BoxBeaker
+    - id: BoxBeaker
+      prob: 0.3
+    - id: BoxPillCanister
+    - id: BoxBottle
+    - id: BoxVial
+    - id: ChemBag
+      amount: 3
+    - id: ClothingHandsGlovesLatex
+      amount: 3
+    - id: ClothingMaskSterile
+      amount: 3
+    - id: HandLabeler
+      amount: 3

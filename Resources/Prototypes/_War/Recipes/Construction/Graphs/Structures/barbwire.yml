@@ -1,0 +1,17 @@
+- type: constructionGraph
+  id: barbwireGraph
+  start: start
+  graph:
+  - node: start
+    actions:
+    - !type:DestroyEntity {}
+    edges:
+    - to: barbwire
+      completed:
+      - !type:SnapToGrid { }
+      steps:
+      - material: barbwire
+        amount: 1
+        doAfter: 10
+  - node: barbwire
+    entity: barbwireGround

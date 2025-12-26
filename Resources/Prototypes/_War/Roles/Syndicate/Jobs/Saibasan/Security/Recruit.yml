@@ -1,0 +1,29 @@
+- type: job
+  id: Recruit
+  name: job-name-recruit
+  description: job-description-recruit
+  playTimeTracker: JobSyndicateSecurityRecruit
+#  requirements:
+#    - !type:OverallPlaytimeRequirement
+#      time: 18000 #5 hrs
+  icon: "JobIconSyndicateRecruit"
+  supervisors: job-supervisors-commander
+  canBeAntag: false
+  access:
+  - BarracksSyndicate
+  - GeneralSyndicate
+  - MaintenanceSyndicate
+
+- type: startingGear
+  id: RecruitGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitOperative
+    back: ClothingBackpackSyndicate # НЕ ЗАБЫТЬ ДОБАВИТЬ
+    shoes: ClothingShoesBootsCombatFilled
+    eyes: ClothingEyesGlassesSecurity
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterArmorBasic # НЕ ЗАБЫТЬ ПОМЕНЯТЬ
+    id: SyndiPDA # НЕ ЗАБЫТЬ ДОБАВИТЬ
+    ears: ClothingHeadsetAltSyndicate # НЕ ЗАБЫТЬ ДОБАВИТЬ
+    pocket1: WeaponPistolCobra
+    pocket2: CyberPen

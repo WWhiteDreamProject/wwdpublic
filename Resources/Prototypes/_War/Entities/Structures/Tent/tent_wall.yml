@@ -1,0 +1,45 @@
+- type: entity
+  parent: BaseWall
+  id: TentWall
+  name: tent barricade
+  description: An inflated membrane. Do not puncture.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Icon
+    sprite: _War/Structures/Walls/tent.rsi
+  - type: Sprite
+    sprite: _War/Structures/Walls/tent.rsi
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        density: 15
+        layer:
+        - WallLayer
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Inflatable
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 60
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Airtight
+  - type: Transform
+    anchored: true
+  - type: IconSmooth
+    key: walls
+    base: tent
+  - type: Tag
+    tags:
+      - Wall

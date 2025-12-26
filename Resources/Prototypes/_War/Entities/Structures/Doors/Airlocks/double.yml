@@ -1,0 +1,45 @@
+- type: entity
+  id: DoubleGlassAirlockBase
+  parent: AirlockGlass
+  name: double glass airlock
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Doors/Airlocks/Glass/i_basic_double.rsi
+    snapCardinals: false
+    noRot: false
+    offset: 0.5,0
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,-0.49,1.49,0.49" # don't want this colliding with walls or they won't close
+        density: 100
+        mask:
+        - FullTileMask
+        layer:     #removed opaque from the layer, allowing lasers to pass through glass airlocks
+        - GlassAirlockLayer
+  - type: Transform
+    noRot: false
+  - type: Door
+    closeTimeOne: 0.7
+    closeTimeTwo: 0.7
+    openTimeOne: 0.7
+    openTimeTwo: 0.7
+    openingAnimationTime: 1.4
+    closingAnimationTime: 1.4
+
+- type: entity
+  id: DoubleGlassAirlockScienceBase
+  parent: [ DoubleGlassAirlockBase, AirlockSyndicateScienceInterGlassBase ]
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Doors/Airlocks/Glass/i_science_double.rsi
+
+- type: entity
+  id: DoubleGlassAirlockMedicalBase
+  parent: [ DoubleGlassAirlockBase, AirlockSyndicateMedicalInterBase ]
+  suffix: Cargo
+  components:
+  - type: Sprite
+    sprite: _War/Structures/Doors/Airlocks/Glass/i_medical_double.rsi

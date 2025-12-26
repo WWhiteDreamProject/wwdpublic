@@ -1,0 +1,36 @@
+- type: job
+  id: SupplyManager
+  name: job-name-sm
+  description: job-description-sm
+  playTimeTracker: JobSupplyManager
+#  requirements:
+#    - !type:RoleTimeRequirement
+#      role: JobAtmosphericEngineer
+#      time: 3600 # 1 hr
+#    - !type:RoleTimeRequirement
+#      role: JobLoader
+#      time: 3600 # 1 hr
+#    - !type:RoleTimeRequirement
+#      role: JobDisposal
+#      time: 3600 # 1 hrs
+#    - !type:OverallPlaytimeRequirement
+#      time: 3600 # 1 hr
+  weight: 10
+  icon: "JobIconSupplyManager"
+  supervisors: job-supervisors-directorofsaibasan
+  canBeAntag: true
+  access:
+    - BridgeSyndicate
+    - TechnicalSyndicate
+    - AtmosSyndicate
+    - ShuttleSyndicate
+    - SuppliesSyndicate
+    - MinersSyndicate
+    - MaintenanceSyndicate
+    - GatewaysSyndicate
+    - GeneralSyndicate
+
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: CommandStaff

@@ -1,0 +1,147 @@
+- type: loadout
+  id: BlackRedSyndicateShoes
+  equipment:
+    shoes: ClothingShoesShoesBlackRedSyndicate
+- type: startingGear
+  id: BlackRedSyndicateShoes
+  equipment:
+    shoes: ClothingShoesShoesBlackRedSyndicate
+- type: loadout
+  id: WhiteRedSyndicateShoes
+  equipment:
+    shoes: ClothingShoesShoesWhiteRedSyndicate
+- type: startingGear
+  id: WhiteRedSyndicateShoes
+  equipment:
+    shoes: ClothingShoesShoesWhiteRedSyndicate
+- type: loadout
+  id: BootsWorkSyndicateShoes
+  equipment:
+    shoes: ClothingShoesBootsWorkSyndicate
+- type: startingGear
+  id: BootsWorkSyndicateShoes
+  equipment:
+    shoes: ClothingShoesBootsWorkSyndicate
+- type: loadout
+  id: BootsWorkSyndicateShoesRed
+  equipment:
+    shoes: ClothingShoesBootsWorkSyndicateRed
+- type: startingGear
+  id: BootsWorkSyndicateShoesRed
+  equipment:
+    shoes: ClothingShoesBootsWorkSyndicateRed
+- type: loadout
+  id: GlovesInsulatedRed
+  equipment:
+    gloves: ClothingHandsGlovesSyndicateInsulated
+- type: startingGear
+  id: GlovesInsulatedRed
+  equipment:
+    gloves: ClothingHandsGlovesSyndicateInsulated
+- type: loadout
+  id: GlovesNitrileSyndicate
+  equipment:
+    gloves: ClothingHandsGlovesSyndicateNitrile
+- type: startingGear
+  id: GlovesNitrileSyndicate
+  equipment:
+    gloves: ClothingHandsGlovesSyndicateNitrile
+- type: loadout
+  id: GlovesCombatTW
+  equipment:
+    gloves: ClothingHandsGlovesCombat
+- type: startingGear
+  id: GlovesCombatTW
+  equipment:
+    gloves: ClothingHandsGlovesCombat
+- type: loadout
+  id: SyndicateHeadsetTW
+  equipment:
+    ears: ClothingHeadsetAltSyndicate
+- type: startingGear
+  id: SyndicateHeadsetTW
+  equipment:
+    ears: ClothingHeadsetAltSyndicate
+- type: loadout
+  id: SyndicateCommonBackpack
+  equipment:
+    back: ClothingBackpackSyndicateFilled
+- type: startingGear
+  id: SyndicateCommonBackpack
+  equipment:
+    back: ClothingBackpackSyndicateFilled
+- type: loadout
+  id: SyndicateCommonDuffel
+  equipment:
+    back: ClothingBackpackDuffelSyndicateFilled
+- type: startingGear
+  id: SyndicateCommonDuffel
+  equipment:
+    back: ClothingBackpackDuffelSyndicateFilled
+- type: loadout
+  id: BeltSyndicateEng
+  equipment:
+    belt: ClothingBeltSyndicateToolbelt
+- type: startingGear
+  id: BeltSyndicateEng
+  equipment:
+    belt: ClothingBeltSyndicateToolbelt
+- type: loadout
+  id: ClothingBeltSyndieHolster
+  equipment:
+    belt: ClothingBeltSyndieHolster
+- type: startingGear
+  id: ClothingBeltSyndieHolster
+  equipment:
+    belt: ClothingBeltSyndieHolster
+- type: loadout
+  id: GlassesMesonSyndicate
+  equipment:
+    eyes: ClothingEyesGlassesSyndicateWelding
+- type: startingGear
+  id: GlassesMesonSyndicate
+  equipment:
+    eyes: ClothingEyesGlassesSyndicateWelding
+- type: loadout
+  id: HudMedicalSyndicate
+  equipment:
+    eyes: ClothingEyesHudSyndicateMedical
+- type: startingGear
+  id: HudMedicalSyndicate
+  equipment:
+    eyes: ClothingEyesHudSyndicateMedical
+- type: loadout
+  id: GlassesSecuritySyndicate
+  equipment:
+    eyes: ClothingEyesGlassesSyndicateSecurity
+- type: startingGear
+  id: GlassesSecuritySyndicate
+  equipment:
+    eyes: ClothingEyesGlassesSyndicateSecurity
+- type: loadout
+  id: PistolViperPocket2
+  equipment:
+    pocket2: WeaponPistolViper
+- type: startingGear
+  id: PistolViperPocket2
+  equipment:
+    pocket2: WeaponPistolViper
+- type: startingGear
+  id: SyndicateBeltEquipment1
+  storage:
+    belt:
+    - Crowbar
+    - Wrench
+    - Wirecutter
+    - Screwdriver
+    - Welder
+    - Multitool
+- type: startingGear
+  id: SyndicateBeltEquipment2
+  storage:
+    belt:
+    - Stunbaton
+    - GrenadeFlashBang
+    - TearGasGrenade
+    - Handcuffs
+    - Handcuffs

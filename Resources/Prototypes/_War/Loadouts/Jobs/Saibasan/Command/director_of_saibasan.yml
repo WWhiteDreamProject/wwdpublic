@@ -1,0 +1,40 @@
+- type: loadout
+  id: SaibasanDirectorCap
+  equipment:
+    head: ClothingHeadCapSyndicateDirectorSaibasan
+- type: startingGear
+  id: SaibasanDirectorCap
+  equipment:
+    head: ClothingHeadCapSyndicateDirectorSaibasan
+- type: loadout
+  id: SyndicateDirectorSaibasanCloak
+  equipment:
+    neck: ClothingNeckCloakSyndicateDirectorSaibasan
+- type: startingGear
+  id: SyndicateDirectorSaibasanCloak
+  equipment:
+    neck: ClothingNeckCloakSyndicateDirectorSaibasan
+- type: loadout
+  id: SaibasanDirectorJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSyndicateDirectorSaibasan
+- type: startingGear
+  id: SaibasanDirectorJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSyndicateDirectorSaibasan
+- type: loadout
+  id: CoatSyndieCap
+  equipment:
+    outerClothing: ClothingOuterCoatSyndieCap
+- type: startingGear
+  id: CoatSyndieCap
+  equipment:
+    outerClothing: ClothingOuterCoatSyndieCap
+- type: loadout
+  id: SyndicateDirectorOfSaibasanPDA
+  equipment:
+    id: PDASyndicateDirectorOfSaibasan
+- type: startingGear
+  id: SyndicateDirectorOfSaibasanPDA
+  equipment:
+    id: PDASyndicateDirectorOfSaibasan

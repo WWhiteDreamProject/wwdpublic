@@ -1,0 +1,32 @@
+- type: loadout
+  id: SyndicateChefHead
+  equipment:
+    head: ClothingHeadSyndicateChef
+- type: startingGear
+  id: SyndicateChefHead
+  equipment:
+    head: ClothingHeadSyndicateChef
+- type: loadout
+  id: SyndicateServiceJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSyndicateService
+- type: startingGear
+  id: SyndicateServiceJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSyndicateService
+- type: loadout
+  id: SyndicateChefOuterClothing
+  equipment:
+    outerClothing: ClothingOuterApronSyndicateChef
+- type: startingGear
+  id: SyndicateChefOuterClothing
+  equipment:
+    outerClothing: ClothingOuterApronSyndicateChef
+- type: loadout
+  id: SyndicateChefPDA
+  equipment:
+    id: PDASyndicateChef
+- type: startingGear
+  id: SyndicateChefPDA
+  equipment:
+    id: PDASyndicateChef

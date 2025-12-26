@@ -1,0 +1,17 @@
+- type: job
+  id: Fighter
+  name: job-name-fighter
+  description: job-description-fighter
+  playTimeTracker: JobSyndicateSecurityFighter
+#  requirements:
+#    - !type:RoleTimeRequirement
+#      role: JobSyndicateSecurityRecruit
+#      time: 3600 #1 hrs
+  icon: "JobIconSyndicateFighter"
+  supervisors: job-supervisors-commander
+  canBeAntag: false
+  access:
+    - BarracksSyndicate
+    - MaintenanceSyndicate
+    - GatewaysSyndicate
+    - GeneralSyndicate

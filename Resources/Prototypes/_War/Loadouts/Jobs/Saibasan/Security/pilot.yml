@@ -1,0 +1,32 @@
+- type: loadout
+  id: GlovesSyndicatePilot
+  equipment:
+    gloves: ClothingHandsGlovesSyndicatePilot
+- type: startingGear
+  id: GlovesSyndicatePilot
+  equipment:
+    gloves: ClothingHandsGlovesSyndicatePilot
+- type: loadout
+  id: HelmetSyndicatePilot
+  equipment:
+    head: ClothingHeadHelmetSyndicatePilot
+- type: startingGear
+  id: HelmetSyndicatePilot
+  equipment:
+    head: ClothingHeadHelmetSyndicatePilot
+- type: loadout
+  id: SyndicatePilotPDA
+  equipment:
+    id: SyndicatePilotPDA
+- type: startingGear
+  id: SyndicatePilotPDA
+  equipment:
+    id: SyndicatePilotPDA
+- type: loadout
+  id: BootsCombatSyndicatePilot
+  equipment:
+    shoes: ClothingShoesBootsCombatSyndicatePilot
+- type: startingGear
+  id: BootsCombatSyndicatePilot
+  equipment:
+    shoes: ClothingShoesBootsCombatSyndicatePilot

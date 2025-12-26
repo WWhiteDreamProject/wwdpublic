@@ -1,0 +1,49 @@
+﻿# Coordinate disks
+
+- type: entity
+  name: coordinate disks box
+  suffix: Saibasan
+  parent: BoxCardboard
+  id: BoxCoordinateDisksSaibasan
+  description: This box is filled with disks.
+  components:
+  - type: StorageFill
+    contents:
+    - id: SaibasanCoordinatesDisk
+      amount: 4
+  - type: Sprite
+    layers:
+    - state: box_of_doom
+    - state: saibasan
+
+- type: entity
+  name: coordinate disks box
+  suffix: InterPharm
+  parent: BoxCardboard
+  id: BoxCoordinateDisksInterPharm
+  description: This box is filled with disks.
+  components:
+  - type: StorageFill
+    contents:
+    - id: InterPharmCoordinatesDisk
+      amount: 4
+  - type: Sprite
+    layers:
+    - state: box_interpharm
+    - state: interpharm
+
+- type: entity
+  name: coordinate disks box
+  suffix: NT
+  parent: BoxCardboard
+  id: BoxCoordinateDisksNanoTrasenStation
+  description: This box is filled with disks.
+  components:
+  - type: StorageFill
+    contents:
+    - id: NanoTrasenStationCoordinatesDisk
+      amount: 4
+  - type: Sprite
+    layers:
+    - state: box_nt
+    - state: nanotrasen

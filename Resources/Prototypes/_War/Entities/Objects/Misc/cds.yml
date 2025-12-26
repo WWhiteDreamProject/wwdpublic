@@ -1,0 +1,61 @@
+﻿- type: entity
+  name: coordinates disk
+  suffix: Saibasan
+  parent: BaseItem
+  id: SaibasanCoordinatesDisk
+  description: A disk containing the coordinates to a some station in current system. Necessary for any FTL-traversing vessel to reach their destination. Fits inside shuttle consoles.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/cd.rsi
+    state: icon
+  - type: StaticPrice
+    price: 100
+#  - type: DiskTag
+  - type: Tag
+    tags:
+    - SaibasanStation
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 1
+
+- type: entity
+  name: coordinates disk
+  suffix: InterPharm
+  parent: BaseItem
+  id: InterPharmCoordinatesDisk
+  description: A disk containing the coordinates to a some planetary base in current system. Necessary for any FTL-traversing vessel to reach their destination. Fits inside shuttle consoles.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/cd.rsi
+    state: icon
+  - type: StaticPrice
+    price: 100
+#  - type: DiskTag
+  - type: Tag
+    tags:
+    - InterpharmStation
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 1
+
+- type: entity
+  name: nanotrasen station coordinates disk
+  parent: BaseItem
+  id: NanoTrasenStationCoordinatesDisk
+  description: A disk containing the coordinates to a station in current system. Necessary for any FTL-traversing vessel to reach their destination. Fits inside shuttle consoles.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/cd.rsi
+    state: icon
+  - type: StaticPrice
+    price: 100
+#  - type: DiskTag
+  - type: Tag
+    tags:
+    - NanotrasenStation
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Slash: 1

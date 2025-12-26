@@ -1,0 +1,21 @@
+﻿- type: warFaction
+  id: Interpharm
+  name: Interpharm
+  maps:
+  - TWInterpharmMapPool
+  npcFactions:
+  - Syndicate
+
+- type: warFaction
+  id: Saibasan
+  name: Saibasan
+  maps:
+  - TWSaibasanMapPool
+  npcFactions:
+  - Syndicate
+
+- type: warFaction
+  id: Nanotrasen
+  name: Nanotrasen
+  maps:
+  - TWNanotrasenMapPool

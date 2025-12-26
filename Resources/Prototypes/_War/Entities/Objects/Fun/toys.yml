@@ -1,0 +1,23 @@
+- type: entity
+  parent: BasePlushie
+  id: PlushieRecruiterPencil
+  name: Огрызок карандаша первого рекрутера
+  description: Полусъеденный карандаш, которым подписали первый контракт сотрудника NanoTrasen. Почему-то он никогда не стачивается.
+  components:
+  - type: Sprite
+    sprite: _War/Objects/Accessories/recruiter_pencil.rsi
+    state: icon
+  - type: MeleeWeapon
+    wideAnimationRotation: -90
+    attackRate: 5
+    soundHit:
+      path: /Audio/_War/Items/Toys/PencilWrite.ogg
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/_War/Items/Toys/PencilWrite.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/_War/Items/Toys/PencilWrite.ogg
+  - type: Item
+    size: Tiny
+    sprite: _War/Objects/Accessories/recruiter_pencil-in-hand.rsi

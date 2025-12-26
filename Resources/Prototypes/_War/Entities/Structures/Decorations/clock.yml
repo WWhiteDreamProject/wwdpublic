@@ -1,0 +1,37 @@
+- type: entity
+  id: Clock
+  parent: BaseStructure
+  suffix: THUNDER
+  name: wall clock
+  description: Would you look at the time!
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Anchorable
+  - type: Sprite
+    noRot: true
+    sprite: /Textures/_War/Structures/Decoration/clock.rsi
+    state: clock
+    drawdepth: WallMountedItems
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 50
+        behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+  - type: AmbientSound
+    volume: -6
+    range: 2
+    sound:
+      path: /Audio/_War/Ambience/clock_tick.ogg

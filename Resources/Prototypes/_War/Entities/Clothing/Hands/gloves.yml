@@ -1,0 +1,46 @@
+- type: entity
+  parent: ClothingHandsGlovesCombat
+  id: ClothingHandsGlovesSyndicateInsulated
+  name: syndicate insulated gloves
+  description: Syndicate red insulated gloves.
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/Hands/Gloves/insulated_red.rsi
+  - type: Clothing
+    sprite: _War/Clothing/Hands/Gloves/insulated_red.rsi
+
+- type: entity
+  parent: ClothingHandsGlovesNitrile
+  id: ClothingHandsGlovesSyndicateNitrile
+  name: syndicate nitrile gloves
+  description: High-quality nitrile gloves. Expensive medical PPE.
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/Hands/Gloves/s_nitrile.rsi
+  - type: Clothing
+    sprite: _War/Clothing/Hands/Gloves/s_nitrile.rsi
+
+- type: entity
+  parent: ClothingHandsGlovesCombat
+  id: ClothingHandsGlovesSyndicatePilot
+  name: pilot gloves
+  description: Syndicate pilot gloves.
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/Hands/Gloves/s_pilot.rsi
+  - type: Clothing
+    sprite: _War/Clothing/Hands/Gloves/s_pilot.rsi
+
+- type: entity
+  parent: ClothingHandsGlovesFingerless
+  id: ClothingHandsGlovesFingerlessSyndicate
+  name: green fingerless gloves
+  description: Plain green gloves without fingertips for the hard working.
+  components:
+  - type: Sprite
+    sprite: _War/Clothing/Hands/Gloves/s_fingerless.rsi
+  - type: Clothing
+    sprite: _War/Clothing/Hands/Gloves/s_fingerless.rsi
+  - type: Fiber
+    fiberMaterial: fibers-synthetic
+    fiberColor: fibers-green

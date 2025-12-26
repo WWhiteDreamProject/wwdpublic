@@ -1,0 +1,169 @@
+﻿# Shuttle console
+
+- type: entity
+  parent: BaseComputerShuttle
+  id: ComputerShuttleSyndicateReconnaissance
+  name: syndicate reconnaissance shuttle console
+  description: Used to pilot a syndicate reconnaissance shuttle.
+  components:
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: syndishuttle
+    - map: ["computerLayerKeys"]
+      state: syndie_key
+  - type: Tag
+    tags:
+    - SaibasanStation
+    - NanotrasenStation
+  - type: RadarConsole
+    maxRange: 384
+  - type: WorldLoader
+    radius: 1536
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#c94242"
+  - type: Computer
+    board: SyndicateReconnaissanceShuttleConsoleCircuitboard
+
+- type: entity
+  parent: BaseComputerShuttle
+  id: ComputerShuttleSyndicateCargo
+  name: syndicate cargo shuttle console
+  description: Used to pilot a syndicate cargo shuttle.
+  components:
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: syndishuttle
+    - map: ["computerLayerKeys"]
+      state: syndie_key
+  - type: Tag
+    tags:
+    - SaibasanStation
+    - InterpharmStation
+  - type: RadarConsole
+    maxRange: 384
+  - type: WorldLoader
+    radius: 1536
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#c94242"
+  - type: Computer
+    board: SyndicateCargoShuttleConsoleCircuitboard
+
+- type: entity
+  parent: BaseComputerShuttle
+  id: ComputerShuttleNanoTrasen
+  name: nanotrasen shuttle console
+  description: Used to pilot a NanoTrasen shuttle.
+  components:
+  - type: Sprite
+    layers:
+    - map: [ "computerLayerBody" ]
+      state: computer
+    - map: [ "computerLayerKeyboard" ]
+      state: generic_keyboard
+    - map: [ "computerLayerScreen" ]
+      state: shuttle
+    - map: [ "computerLayerKeys" ]
+      state: generic_keys
+  - type: Tag
+    tags:
+    - NanotrasenStation
+  - type: RadarConsole
+    maxRange: 384
+  - type: WorldLoader
+    radius: 1536
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#c94242"
+  - type: Computer
+    board: NanoTrasenShuttleConsoleCircuitboard
+
+# R&D
+
+- type: entity
+  parent: BaseComputer
+  id: ComputerResearchAndDevelopmentSyndicate
+  name: R&D computer
+  suffix: Syndicate
+  description: A computer used to interface with R&D tools.
+  components:
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: rdcomp
+    - map: ["computerLayerKeys"]
+      state: rd_key
+  - type: ResearchClient
+  - type: ResearchConsole
+  - type: TechnologyDatabase
+  - type: ActivatableUI
+    key: enum.ResearchConsoleUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.ResearchConsoleUiKey.Key:
+        type: ResearchConsoleBoundUserInterface
+      enum.ResearchClientUiKey.Key:
+        type: ResearchClientBoundUserInterface
+  - type: ApcPowerReceiver
+    powerLoad: 1000
+  - type: Computer
+    board: ResearchComputerCircuitboard
+  - type: AccessReader
+    access: [["ResearchSyndicate"]]
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#b53ca1"
+  - type: GuideHelp
+    guides:
+    - Science
+
+# Консоль объявлений
+- type: entity
+  parent: ComputerComms
+  id: SyndicateComputerCommsStation
+  name: syndicate communications computer
+  description: A computer capable of remotely hacking into the station's communications systems. Using this to make an announcement will alert the station to your presence.
+  components:
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: comm_syndie
+    - map: ["computerLayerKeys"]
+      state: syndie_key
+  - type: AccessReader
+    access: [[ "AuthoritySyndicate" ]]
+  - type: CommunicationsConsole
+    title: comms-console-announcement-title-nukie
+    color: "#ff0000"
+    canShuttle: false
+    global: false #announce to everyone they're about to fuck shit up
+    sound: /Audio/Announcements/war.ogg
+  - type: Computer
+    board: SyndicateCommsComputerCircuitboard
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#f71713"

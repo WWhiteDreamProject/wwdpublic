@@ -1,0 +1,81 @@
+#- type: entity
+#  parent: BaseItem
+#  id: SurveillanceBodyCamera
+#  name: Security Body Camera
+#  description: MP3 player sized pocket camera for security officers.
+#  components:
+#    - type: SurveillanceBodyCamera
+#    - type: Sprite
+#      sprite: Objects/Specific/Security/body-camera.rsi
+#      layers:
+#        - state: unpowered
+#        - state: active-animated
+#          map: ["active"]
+#          visible: false
+#    - type: Clothing
+#      sprite: Objects/Specific/Security/body-camera.rsi
+#      quickEquip: false
+#      equippedPrefix: off
+#      slots:
+#        - neck
+#    - type: ToggleableLightVisuals
+#      spriteLayer: active
+#      inhandVisuals:
+#        left:
+#          - state: inhand-left-active
+#            shader: unshaded
+#        right:
+#          - state: inhand-left-active
+#            shader: unshaded
+#    - type: Item
+#      heldPrefix: off
+#      sprite: Objects/Specific/Security/body-camera.rsi
+#      size: Small
+#    - type: Appearance
+#    - type: GenericVisualizer
+#      visuals:
+#        enum.ToggleVisuals.Toggled:
+#          enum.ToggleVisuals.Layer:
+#            True: { state: active-animated }
+#            False: { state: unpowered } # END
+#    - type: Eye
+#    - type: WirelessNetworkConnection
+#      range: 300
+#    - type: ActiveListener
+#      range: 10
+#    - type: SurveillanceCameraMicrophone
+#      blacklist:
+#        components:
+#          - SurveillanceCamera
+#          - SurveillanceCameraMonitor
+#          - RadioSpeaker
+#    - type: DeviceNetwork
+#      deviceNetId: Wireless
+#      receiveFrequencyId: SurveillanceCameraSecurity
+#      transmitFrequencyId: SurveillanceCamera
+#    - type: SurveillanceCamera
+#      networkSet: True
+#      setupAvailableNetworks:
+#        - SurveillanceCameraSecurity
+#    - type: PowerCellSlot
+#      cellSlotId: cell_slot
+#    - type: ContainerContainer
+#      containers:
+#        cell_slot: !type:ContainerSlot
+#    - type: ItemSlots
+#      slots:
+#        cell_slot:
+#          name: power-cell-slot-component-slot-name-default
+#          startingItem: PowerCellMedium
+#    - type: UserInterface
+#      interfaces:
+#        enum.SurveillanceCameraSetupUiKey.Camera:
+#          type: SurveillanceCameraSetupBoundUi
+#    - type: Tag
+#      tags:
+#        - SurveillanceBodyCamera
+#    - type: ActivatableUI
+#      key: enum.SurveillanceCameraSetupUiKey.Camera
+#      singleUser: true
+#      closeOnHandDeselect: false
+#      verbText: surveillance-camera-setup

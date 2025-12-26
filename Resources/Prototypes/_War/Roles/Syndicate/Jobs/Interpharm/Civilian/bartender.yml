@@ -1,0 +1,12 @@
+- type: job
+  id: SyndicateBartender
+  name: job-name-syndbartender
+  description: job-description-syndbartender
+  playTimeTracker: JobSyndicateBartender
+  icon: "JobIconSyndicateBartender"
+  supervisors: job-supervisors-directorofinterpharm
+  access:
+  - ChemistrySyndicate
+  - BarSyndicate
+  - GeneralSyndicate
+  - MaintenanceSyndicate

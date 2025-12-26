@@ -1,0 +1,132 @@
+# Director
+
+- type: entity
+  id: LockerSyndicateDirector
+  parent: LockerBaseSecure
+  name: director's locker
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: s_director
+    stateDoorOpen: s_director_open
+    stateDoorClosed: s_director_door
+  - type: AccessReader
+    access: [["AuthoritySyndicate"]]
+
+# Commandor
+
+- type: entity
+  id: LockerSyndicateCommandor
+  parent: LockerBaseSecure
+  name: commandor's locker
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: s_comandor
+    stateDoorOpen: s_comandor_open
+    stateDoorClosed: s_comandor_door
+  - type: AccessReader
+    access: [["BridgeSyndicate"]]
+
+# Manager
+
+- type: entity
+  id: LockerSyndicateManager
+  parent: LockerBaseSecure
+  name: manager`s locker
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: s_manager
+    stateDoorOpen: s_manager_open
+    stateDoorClosed: s_manager_door
+  - type: AccessReader
+    access: [["BridgeSyndicate"]]
+
+# Engineer
+
+- type: entity
+  id: LockerSyndicateEngineer
+  parent: LockerBaseSecure
+  name: syndicate engineer`s locker
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: s_eng_secure
+    stateDoorOpen: s_eng_secure_open
+    stateDoorClosed: s_eng_secure_door
+
+# Miners
+
+- type: entity
+  id: LockerSyndicateMiner
+  parent: LockerBaseSecure
+  name: syndicate miner`s locker
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: s_mining
+    stateDoorOpen: s_mining_open
+    stateDoorClosed: s_mining_door
+  - type: AccessReader
+    access: [["MinersSyndicate"]]
+
+# Med
+
+- type: entity
+  id: LockerSyndicateMedical
+  parent: LockerBaseSecure
+  name: syndicate medical locker
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: s_med_secure
+    stateDoorOpen: s_med_secure_open
+    stateDoorClosed: s_med_secure_door
+  - type: AccessReader
+    access: [["MedbaySyndicate"]]
+
+# Scienece
+
+- type: entity
+  id: LockerSyndicateScience
+  parent: LockerBaseSecure
+  name: syndicate science locker
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: s_science
+    stateDoorOpen: s_science_open
+    stateDoorClosed: s_science_door
+  - type: AccessReader
+    access: [["ResearchSyndicate"]]
+
+# Weapons
+
+- type: entity
+  id: LockerSyndicateArmory
+  parent: LockerBaseSecure
+  name: syndicate armory locker
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: s_armory
+    stateDoorOpen: s_armory_open
+    stateDoorClosed: s_armory_door
+  - type: AccessReader
+    access: [["ArmorySyndicate"]]
+
+# Military
+
+- type: entity
+  id: LockerSyndicateSecurity
+  parent: LockerBaseSecure
+  name: syndicate military locker
+  components:
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateBaseClosed: s_sec
+    stateDoorOpen: s_sec_open
+    stateDoorClosed: s_sec_door
+  - type: AccessReader
+    access: [["BarracksSyndicate"]]

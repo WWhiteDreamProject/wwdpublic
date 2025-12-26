@@ -1,0 +1,14 @@
+- type: gameMap
+  id: TWNanotrasen
+  mapName: GoidaMap
+  mapPath: /Maps/TotalWar/nanotrasen.yml
+  minPlayers: 0
+  stations:
+    TWNanotrasen:
+      stationProto: StandardTWNanotrasenStation
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: "Nanotrasen"
+      - type: StationJobs
+        availableJobs:
+          Passenger: [ -1, -1 ]
