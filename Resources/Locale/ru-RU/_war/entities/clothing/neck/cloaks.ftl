@@ -1,0 +1,10 @@
+ent-ClothingNeckCloakSyndicateCommandor = командирский плащ
+    .desc = Плащ командира
+ent-ClothingNeckCloakSyndicateDirectorInterpharm = плащ директора Interpharm
+    .desc = Плащ директора.
+ent-ClothingNeckCloakSyndicateDirectorSaibasan = плащ директора Saibasan
+    .desc = Плащ директора.
+ent-ClothingNeckCloakManager = плащ менеджера
+    .desc = Плащ менеджера
+ent-ClothingNeckRadCloak = антирадиационный плащ
+    .desc = Плащ антирада... Или нет?

@@ -1,0 +1,14 @@
+ent-LocatorCircuitboard = плата локатора
+    .desc = Машинная печатная плата для локатора.
+ent-SecurityTechFabNanotrasenCircuitboard = плата техфаба охраны
+    .desc = Печатная плата для оружейной техники.
+    .suffix = NanoTrasen
+ent-WeaponTechFabNanotrasenCircuitboard = плата оружейного техфаба
+    .desc = Печатная плата для оружейной техники.
+    .suffix = NanoTrasen
+ent-SecurityTechFabSyndicateCircuitboard = плата техфаба охраны синдиката
+    .desc = A machine printed circuit board for a security techfab.
+    .suffix = Syndicate
+ent-WeaponTechFabSyndicateCircuitboard = плата оружейного техфаба синдиката
+    .desc = Печатная плата для оружейной техники.
+    .suffix = Syndicate

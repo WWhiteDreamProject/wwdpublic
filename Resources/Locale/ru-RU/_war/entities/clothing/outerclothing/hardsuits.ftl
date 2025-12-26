@@ -1,0 +1,14 @@
+ent-ClothingOuterHardsuitSyndicateCommandor = скафандр командира синдиката
+    .desc = Dont forget add description....fuck.
+ent-ClothingOuterHardsuitSyndicateDirector = скафандр директора синдиката
+    .desc = Dont forget add description....fuck.
+ent-ClothingOuterHardsuitSyndicateOld = старый кроваво-красный скафандр
+    .desc = Dont forget add description....fuck.
+ent-ClothingOuterHardsuitSyndicateParamed = скафандр парамедика синдиката
+    .desc = Dont forget add description....fuck.
+ent-ClothingOuterHardsuitSyndicateMiner = скафандр утилизатора синдиката
+    .desc = We're rich!
+ent-ClothingOuterHardsuitSyndicateEngineer = скафандр инженера синдиката
+    .desc = Steel and wires!
+ent-ClothingOuterHardsuitSyndicateSupplyManager = скафандр менеджера синдиката
+    .desc = Специальный защитный костюм для менеджера.

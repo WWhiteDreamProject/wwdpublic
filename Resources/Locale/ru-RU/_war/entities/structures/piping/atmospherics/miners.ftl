@@ -1,0 +1,14 @@
+ent-GeyserBase = гейзер
+    .desc = Горячий источник, периодически выбрасывающий горячий газ под высоким давлением.
+ent-GeyserWaterVaporSmall = гейзер
+    .desc = { ent-GeyserBase.desc }
+ent-GeyserWaterVaporMedium = гейзер
+    .desc = { ent-GeyserWaterVaporSmall.desc }
+ent-GeyserWaterVaporLarge = гейзер
+    .desc = { ent-GeyserWaterVaporSmall.desc }
+ent-GeyserPlasmaSmall = гейзер плазмы
+    .desc = { ent-GeyserBase.desc }
+ent-GeyserPlasmaMedium = гейзер плазмы
+    .desc = { ent-GeyserPlasmaSmall.desc }
+ent-GeyserPlasmaLarge = гейзер плазмы
+    .desc = { ent-GeyserPlasmaSmall.desc }

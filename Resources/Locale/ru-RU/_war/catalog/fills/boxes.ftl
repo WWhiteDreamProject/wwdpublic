@@ -1,0 +1,9 @@
+ent-BoxCoordinateDisksSaibasan = коробка с координатными дисками
+    .desc = Эта коробка заполнена дисками.
+    .suffix = Saibasan
+ent-BoxCoordinateDisksInterPharm = коробка с координатными дисками
+    .desc = Эта коробка заполнена дисками.
+    .suffix = InterPharm
+ent-BoxCoordinateDisksNanoTrasenStation = коробка с координатными дисками
+    .desc = Эта коробка заполнена дисками.
+    .suffix = NT

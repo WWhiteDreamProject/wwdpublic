@@ -1,0 +1,17 @@
+ent-WeaponRifleLecter2 = Лектор
+    .desc = Высококлассная штурмовая винтовка военного образца. Использует патроны 20-го калибра.
+ent-WeaponRifleFN2000 = FN2000
+    .desc = Высококлассная штурмовая винтовка военного образца. Использует патроны 20-го калибра.
+ent-WeaponRifleFN2000Rubber = FN2000
+    .suffix = Non-lethal
+    .desc = { ent-WeaponRifleFN2000.desc }
+ent-WeaponRifleADAR15 = ADAR15
+    .desc = Высококлассная штурмовая винтовка военного образца. Использует патроны 20-го калибра.
+ent-WeaponRifleADAR15Rubber = ADAR15
+    .suffix = Non-lethal
+    .desc = { ent-WeaponRifleADAR15.desc }
+ent-WeaponRifleKeltech = Keltech
+    .desc = Высококлассная штурмовая винтовка военного образца. Использует патроны 20-го калибра.
+ent-WeaponRifleKeltechRubber = Keltech
+    .suffix = Non-lethal
+    .desc = { ent-WeaponRifleKeltech.desc }
