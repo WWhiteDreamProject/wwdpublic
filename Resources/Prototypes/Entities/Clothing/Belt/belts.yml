@@ -746,7 +746,7 @@
   #   distanceSprinting: 3
 
 - type: entity
-  parent: [ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseSyndicateContraband, ClothingBaseWebbing] # WD EDIT: ClothingBaseWebbing
+  parent: [ContentsExplosionResistanceBase, BaseSyndicateContraband, ClothingBaseWebbing, ClothingBeltStorageBase] # WD EDIT: ClothingBaseWebbing
   id: ClothingBeltMilitaryWebbing
   name: chest rig
   description: A set of tactical webbing worn by boarding parties.
