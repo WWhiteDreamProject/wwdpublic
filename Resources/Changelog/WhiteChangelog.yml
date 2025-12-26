@@ -4653,3 +4653,10 @@ Entries:
   id: 488
   time: '2025-12-25T13:15:54.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/924
+- author: vanx
+  changes:
+    - type: Add
+      message: Звуковые эффекты сердцебиения в крите и при смерти
+  id: 489
+  time: '2025-12-26T09:49:26.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/915
