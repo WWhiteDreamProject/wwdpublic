@@ -145,7 +145,7 @@
 # Science and medicine
 
 - type: entity
-  parent: AirlockSyndicateScienceBase
+  parent: AirlockSyndicate
   id: AirlockSyndicateScience
   suffix: Syndicate, Research, Locked
   components:
@@ -154,7 +154,7 @@
       board: [ DoorElectronicsSyndicateResearch ]
 
 - type: entity
-  parent: AirlockSyndicateScienceInterBase
+  parent: AirlockSyndicate
   id: AirlockSyndicateScienceInterPharm
   suffix: Syndicate, Research, InterPharm, Locked
   components:
@@ -453,7 +453,7 @@
 # Science and medicine glass
 
 - type: entity
-  parent: AirlockSyndicateScienceGlassBase
+  parent: AirlockSyndicateGlass
   id: AirlockSyndicateScienceGlass
   suffix: Syndicate, Research, Glass, Locked
   components:

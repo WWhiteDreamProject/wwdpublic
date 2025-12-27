@@ -17,15 +17,6 @@
         Heat: 0.90
   - type: ExplosionResistance
     damageCoefficient: 0.95
-  - type: EmitSoundOnPickup
-    sound:
-      path: /Audio/White/Items/handling/cloth_pickup.ogg
-  - type: EmitSoundOnDrop
-    sound:
-      path: /Audio/White/Items/handling/cloth_drop.ogg
-  - type: EmitSoundOnLand
-    sound:
-      path: /Audio/White/Items/handling/cloth_drop.ogg
 
 - type: entity
   parent: ClothingOuterArmorSyndicate
@@ -67,15 +58,6 @@
         Heat: 0.80
   - type: ExplosionResistance
     damageCoefficient: 0.90
-  - type: EmitSoundOnPickup
-    sound:
-      path: /Audio/White/Items/handling/cloth_pickup.ogg
-  - type: EmitSoundOnDrop
-    sound:
-      path: /Audio/White/Items/handling/cloth_drop.ogg
-  - type: EmitSoundOnLand
-    sound:
-      path: /Audio/White/Items/handling/cloth_drop.ogg
 
 - type: entity
   parent: [ClothingOuterBase, AllowSuitStorageClothing]
@@ -96,15 +78,6 @@
         Heat: 0.60
   - type: ExplosionResistance
     damageCoefficient: 0.80
-  - type: EmitSoundOnPickup
-    sound:
-      path: /Audio/White/Items/handling/cloth_pickup.ogg
-  - type: EmitSoundOnDrop
-    sound:
-      path: /Audio/White/Items/handling/cloth_drop.ogg
-  - type: EmitSoundOnLand
-    sound:
-      path: /Audio/White/Items/handling/cloth_drop.ogg
 
 - type: entity
   parent: [ClothingOuterBase, AllowSuitStorageClothing]
@@ -125,15 +98,6 @@
           Heat: 0.50
   - type: ExplosionResistance
     damageCoefficient: 0.75
-  - type: EmitSoundOnPickup
-    sound:
-      path: /Audio/White/Items/handling/cloth_pickup.ogg
-  - type: EmitSoundOnDrop
-    sound:
-      path: /Audio/White/Items/handling/cloth_drop.ogg
-  - type: EmitSoundOnLand
-    sound:
-      path: /Audio/White/Items/handling/cloth_drop.ogg
 
 - type: entity
   parent: [ClothingOuterBase, AllowSuitStorageClothing]
@@ -154,12 +118,3 @@
         Heat: 0.50
   - type: ExplosionResistance
     damageCoefficient: 0.75
-  - type: EmitSoundOnPickup
-    sound:
-      path: /Audio/White/Items/handling/cloth_pickup.ogg
-  - type: EmitSoundOnDrop
-    sound:
-      path: /Audio/White/Items/handling/cloth_drop.ogg
-  - type: EmitSoundOnLand
-    sound:
-      path: /Audio/White/Items/handling/cloth_drop.ogg

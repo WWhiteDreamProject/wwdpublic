@@ -8,13 +8,13 @@
 #    sprite: Decals/dirty.rsi
 #    state: dirt
 
-- type: decal
-  id: DirtLightHex
-  tags: ["station", "dirty"]
-  defaultCleanable: true
-  sprite:
-    sprite: Decals/dirty.rsi
-    state: hex_dirtlight
+#- type: decal
+#  id: DirtLightHex
+#  tags: ["station", "dirty"]
+#  defaultCleanable: true
+#  sprite:
+#    sprite: Decals/dirty.rsi
+#    state: hex_dirtlight
 
 #- type: decal
 #  id: DirtMedium
@@ -24,13 +24,13 @@
 #    sprite: Decals/dirty.rsi
 #    state: dirtmedium
 
-- type: decal
-  id: DirtHeavyHex
-  tags: ["station", "dirty"]
-  defaultCleanable: true
-  sprite:
-    sprite: Decals/dirty.rsi
-    state: hex_dirtheavy
+#- type: decal
+#  id: DirtHeavyHex
+#  tags: ["station", "dirty"]
+#  defaultCleanable: true
+#  sprite:
+#    sprite: Decals/dirty.rsi
+#    state: hex_dirtheavy
 
 #- type: decal
 #  id: DirtHeavyMonotile

@@ -312,7 +312,7 @@
   - type: Sprite
     sprite: _War/Structures/Doors/Airlocks/Glass/i_science.rsi
   - type: PaintableAirlock
-    department: Science
+    department: Epistemics
   - type: Wires
     layoutId: AirlockScience
 

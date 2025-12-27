@@ -40,8 +40,8 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: DisassembleOnAltVerb
-    prototypeToSpawn: InflatableDoorStack1
-    disassembleTime: 3
+    prototype: InflatableDoorStack1
+    doAfter: 3
   - type: IconSmooth
     key: walls
     mode: NoSprite

@@ -428,23 +428,3 @@
     accentVColor: "#c1c9b3"
   - type: Icon
     state: pda-science
-
-# NT
-
-- type: entity
-  parent: SecurityPDA
-  id: NTPilotPDA
-  name: pilot PDA
-  description: Smells like the shuttle.
-  components:
-  - type: Pda
-    id: PilotIDCard
-  - type: Appearance
-    appearanceDataInit:
-     enum.PdaVisuals.PdaType:
-       !type:String
-       pda-security
-  - type: PdaBorderColor
-    borderColor: "#A32D26"
-  - type: Icon
-    state: pda-security
