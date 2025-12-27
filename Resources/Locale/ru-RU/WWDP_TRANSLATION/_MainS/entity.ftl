@@ -11782,7 +11782,7 @@ ent-ClothingHeadHelmetHeavyBallistic = тяжёлый баллистически
     .desc = Продукт Zavodskoi Interstellar для защиты от огнестрела. Тот самый случай, когда лучше быть медленным, чем мёртвым.
 
 
-ent-ClothingHeadHelmetHeavyRiot = тяжёлый шлем подавления
+ent-ClothingHeadHelmetHeavyRiot = шлем для подавления беспорядков
     .desc = Шлем для беспорядков от Zavodskoi Interstellar. Лучшее, что есть против дубинок, кулаков и летящих табуреток.
 
 
@@ -11790,7 +11790,7 @@ ent-ClothingHeadHelmetHeavyStandard = тяжёлый охранный шлем
     .desc = Универсальный тяжёлый шлем от Zavodskoi Interstellar. Балансирует между весом и максимальной защитой.
 
 
-ent-ClothingHeadHelmetHeavyHoS = шлем командира безопасности
+ent-ClothingHeadHelmetHeavyHoS = шлем главы службы безопасности
     .desc = Усиленный шлем с отметками командного состава. Выпущен Zavodskoi Interstellar специально для NT.
 
 
@@ -11814,7 +11814,7 @@ ent-ClothingOuterArmorRiotHeavy = тяжёлая броня подавления
     .desc = Бронекостюм для подавления беспорядков. Защищает от летящей мебели, людей и их слов.
 
 
-ent-ClothingOuterArmorStandardHeavy = тяжёлая охранная броня
+ent-ClothingOuterArmorStandardHeavy = тяжёлая броня охраны
     .desc = Универсальная защита от всех напастей. Особенно хороша, когда не знаешь, чем тебе прилетит.
 
 
@@ -17032,7 +17032,7 @@ ent-WeaponPoweredCrossbowUnfinished = недоделанный арбалет
     .desc = Вот-вот станет опасной штукой.
 
 
-ent-WeaponSecurityRiotLauncher = гранатомёт подавления
+ent-WeaponSecurityRiotLauncher = специальный гранатомёт
     .desc = Компактный однозарядный гранатомёт.
 
 
@@ -17065,19 +17065,19 @@ ent-BoxBasicFluxCoreBig = большая коробка термоядер
 
 
 ent-BoxMeteor = диспенсер метеорных патронов
-    .desc = Ящик с патронами «метеор» для дробовиков подавления.
+    .desc = Ящик с патронами «метеор» для дробовиков.
 
 
 ent-BoxFrag = диспенсер осколочных патронов
-    .desc = Ящик с патронами «FRAG» для дробовиков подавления.
+    .desc = Ящик с патронами «FRAG» для дробовиков.
 
 
 ent-BoxLaser = диспенсер лазерных патронов
-    .desc = Ящик с патронами «лазер» для дробовиков подавления.
+    .desc = Ящик с патронами «лазер» для дробовиков.
 
 
 ent-BoxBreach = диспенсер бронебойных патронов
-    .desc = Ящик с патронами «бронебойный» для дробовиков подавления.
+    .desc = Ящик с патронами «бронебойный» для дробовиков.
 
 
 ent-ShellShotgunMeteor = патрон (.50 метеор)
@@ -17218,16 +17218,15 @@ ent-EventExGrenadeDispenser = раздатчик веселья
 
 ent-BaseEventItemDispenserFinite = ограниченный раздатчик веселья
 
-ent-GrenadeTrap = мина-сюрприз
-    .desc = Взрывной привет.
+ent-GrenadeTrap = растяжка с гранатой
+    .desc = Взрывной сюрприз. Смотри под ноги!
+
+ent-GrenadeTrapGrenade = { ent-GrenadeTrap }
+    .desc = { ent-GrenadeTrap.desc }
 
 
-ent-GrenadeTrapGrenade = мина-сюрприз
-    .desc = Взрывной привет.
-
-
-ent-GrenadeTrapPoles = мина-сюрприз
-    .desc = Взрывной привет.
+ent-GrenadeTrapPoles = { ent-GrenadeTrap }
+    .desc = { ent-GrenadeTrap.desc }
 
 
 ent-AnomalyWormhole = червоточина
