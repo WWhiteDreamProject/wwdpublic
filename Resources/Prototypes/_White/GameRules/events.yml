@@ -73,17 +73,3 @@
       - MindRoleXenomorph
   - type: DynamicRuleCost # WD edit
     cost: 24
-
-- type: entity
-  parent: BaseGameRule
-  id: HeadcrabInvasion
-  components:
-    - type: StationEvent
-      startAnnouncement: true
-      weight: 8
-      duration: 1
-      minimumPlayers: 15
-      earliestStart: 15
-      reoccurrenceDelay: 25
-    - type: RandomSpawnRule
-      prototype: SpawnHeadcrabNest

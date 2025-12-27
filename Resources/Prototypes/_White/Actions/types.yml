@@ -25,21 +25,3 @@
       sprite: Objects/Weapons/Grenades/smoke.rsi
       state: icon
     event: !type:ActivateImplantEvent
-
-- type: entity
-  id: ActionJumpHeadcrab
-  name: Jump
-  description: Do super jump.
-  components:
-  - type: WorldTargetAction
-    priority: 0
-    useDelay: 3
-    checkCanAccess: false
-    range: 10
-    icon:
-      sprite: _White/Interface/Actions/headcrab.rsi
-      state: jump-off
-    iconOn:
-      sprite: _White/Interface/Actions/headcrab.rsi
-      state: jump-on
-    event: !type:JumpActionEvent
