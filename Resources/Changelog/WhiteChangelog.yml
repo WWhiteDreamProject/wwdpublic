@@ -4678,3 +4678,15 @@ Entries:
   id: 491
   time: '2025-12-26T09:51:11.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/937
+- author: Spatison
+  changes:
+    - type: Fix
+      message: Голосовая маска теперь корректно меняет отображаемое имя по рации
+    - type: Fix
+      message: >-
+        Голосовая маска теперь корректно меняет способ говорение (Ну типа если
+        поставить голос гарпии, то будет отображаться что ты чирикаешь, а у
+        слайма хлюпаешь)
+  id: 492
+  time: '2025-12-27T02:45:34.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/916
