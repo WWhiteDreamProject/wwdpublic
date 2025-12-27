@@ -11,19 +11,20 @@ using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Utility;
 
-
 namespace Content.Server.StationEvents.Events;
 
 public sealed class RandomSpawnRule : StationEventSystem<RandomSpawnRuleComponent>
 {
-    [Dependency] private readonly IRobustRandom _random = default!; // WWDP
+    // WD EDIT START
+    [Dependency] private readonly IRobustRandom _random = default!;
+
+    [Dependency] private readonly AnnouncerSystem _announcer = default!;
     [Dependency] private readonly NavMapSystem _navMap = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly AnnouncerSystem _announcer = default!;
+    // WD EDIT END
 
     protected override void Started(EntityUid uid, RandomSpawnRuleComponent comp, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
-
         base.Started(uid, comp, gameRule, args);
 
         // WWDP-EDIT-START

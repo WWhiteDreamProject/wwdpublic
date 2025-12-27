@@ -19,7 +19,6 @@
   id: StraySupplyPod
   components:
     - type: StationEvent
-      startAnnouncement: false # White Dream
       weight: 8
       duration: 1
       minimumPlayers: 5
@@ -27,15 +26,14 @@
       reoccurrenceDelay: 15
     - type: RandomSpawnRule
       prototype: SpawnStraySupplyPod
-      announce: true # White Dream
-      locId: station-event-stray-supply-pod-announcement # White Dream
+      announce: true
+      locId: station-event-stray-supply-pod-announcement
 
 - type: entity
   parent: BaseGameRule
   id: StraySupplyPodSyndicate
   components:
     - type: StationEvent
-      startAnnouncement: false # White Dream
       weight: 6
       duration: 1
       minimumPlayers: 10
@@ -43,8 +41,8 @@
       reoccurrenceDelay: 40
     - type: RandomSpawnRule
       prototype: SpawnStraySupplyPodSyndicate
-      announce: true # White Dream
-      locId: station-event-stray-supply-pod-announcement # White Dream
+      announce: true
+      locId: station-event-stray-supply-pod-announcement
 
 - type: entity
   parent: BaseGameRule
