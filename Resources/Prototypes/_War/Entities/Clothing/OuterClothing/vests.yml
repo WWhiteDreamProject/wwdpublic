@@ -26,10 +26,6 @@
     size: Large
     shape:
     - 0, 0, 4, 1
-  - type: ContainerContainer
-    containers:
-      storagebase: !type:Container
-        ents: []
   - type: UserInterface
     interfaces:
       enum.StorageUiKey.Key:

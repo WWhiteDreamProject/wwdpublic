@@ -51,7 +51,7 @@
     damageDivisor: 28
     trackAllDamage: true
     damageOverlay:
-      sprite: Structures/Windows/cracks.rsi
+      sprite: _War/Structures/Windows/cracks.rsi
   - type: StaticPrice
     price: 100
 #  - type: WindowMark
@@ -97,7 +97,7 @@
         - East
     - type: DamageVisuals
       damageOverlay:
-        sprite: Structures/Windows/cracks_diagonal.rsi
+        sprite: _War/Structures/Windows/cracks_diagonal.rsi
 
 - type: entity
   id: RedShuttleWindow
@@ -151,7 +151,7 @@
     damageDivisor: 28
     trackAllDamage: true
     damageOverlay:
-      sprite: Structures/Windows/cracks.rsi
+      sprite: _War/Structures/Windows/cracks.rsi
   - type: StaticPrice
     price: 100
 #  - type: WindowMark
@@ -197,7 +197,7 @@
     - East
   - type: DamageVisuals
     damageOverlay:
-      sprite: Structures/Windows/cracks_diagonal.rsi
+      sprite: _War/Structures/Windows/cracks_diagonal.rsi
 
 # cargo shuttle
 
@@ -253,7 +253,7 @@
     damageDivisor: 28
     trackAllDamage: true
     damageOverlay:
-      sprite: Structures/Windows/cracks.rsi
+      sprite: _War/Structures/Windows/cracks.rsi
   - type: StaticPrice
     price: 100
 
@@ -312,6 +312,6 @@
     damageDivisor: 28
     trackAllDamage: true
     damageOverlay:
-      sprite: Structures/Windows/cracks.rsi
+      sprite: _War/Structures/Windows/cracks.rsi
   - type: StaticPrice
     price: 100

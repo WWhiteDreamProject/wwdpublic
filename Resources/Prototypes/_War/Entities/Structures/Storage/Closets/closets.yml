@@ -5,6 +5,9 @@
   suffix: Syndicate
   components:
   - type: Appearance
+  - type: Sprite
+    noRot: true
+    sprite: _War/Structures/Storage/closet.rsi
   - type: EntityStorageVisuals
     stateBaseClosed: s_bio
     stateDoorOpen: s_bio_open
@@ -18,6 +21,9 @@
   suffix: Syndicate
   components:
   - type: Appearance
+  - type: Sprite
+    noRot: true
+    sprite: _War/Structures/Storage/closet.rsi
   - type: EntityStorageVisuals
     stateBaseClosed: s_bomb
     stateDoorOpen: s_bomb_open

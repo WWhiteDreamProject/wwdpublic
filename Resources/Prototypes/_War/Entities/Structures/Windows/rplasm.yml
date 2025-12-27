@@ -54,7 +54,7 @@
     damageDivisor: 6
     trackAllDamage: true
     damageOverlay:
-      sprite: Structures/Windows/cracks.rsi
+      sprite: _War/Structures/Windows/cracks.rsi
   - type: StaticPrice
     price: 132
 #  - type: WindowMark
@@ -101,7 +101,7 @@
     - East
   - type: DamageVisuals
     damageOverlay:
-      sprite: Structures/Windows/cracks_diagonal.rsi
+      sprite: _War/Structures/Windows/cracks_diagonal.rsi
   - type: Construction
     graph: WindowDiagonal
     node: reinforcedPlasmaWindowDiagonal

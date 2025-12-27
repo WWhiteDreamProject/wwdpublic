@@ -55,7 +55,7 @@
     damageDivisor: 4
     trackAllDamage: true
     damageOverlay:
-      sprite: Structures/Windows/cracks.rsi
+      sprite: _War/Structures/Windows/cracks.rsi
 #  - type: WindowMark
 #    replacementProto: WallReinforced
 
@@ -116,7 +116,7 @@
     damageDivisor: 4
     trackAllDamage: true
     damageOverlay:
-      sprite: Structures/Windows/cracks.rsi
+      sprite: _War/Structures/Windows/cracks.rsi
 #  - type: WindowMark
 #    replacementProto: WallReinforced
 
@@ -161,7 +161,7 @@
     - East
   - type: DamageVisuals
     damageOverlay:
-      sprite: Structures/Windows/cracks_diagonal.rsi
+      sprite: _War/Structures/Windows/cracks_diagonal.rsi
   - type: Construction
     graph: WindowDiagonal
     node: reinforcedWindowDiagonal
@@ -319,7 +319,7 @@
     damageDivisor: 10
     trackAllDamage: true
     damageOverlay:
-      sprite: Structures/Windows/cracks_directional.rsi
+      sprite: _War/Structures/Windows/cracks_directional.rsi
   - type: Damageable
     damageModifierSet: RGlass
   - type: RCDDeconstructable
@@ -380,7 +380,7 @@
     damageDivisor: 10
     trackAllDamage: true
     damageOverlay:
-      sprite: Structures/Windows/cracks_directional.rsi
+      sprite: _War/Structures/Windows/cracks_directional.rsi
   - type: Damageable
     damageModifierSet: RGlass
   - type: RCDDeconstructable

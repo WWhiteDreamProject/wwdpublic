@@ -316,9 +316,6 @@
     requiredSlot:
     - INNERCLOTHING
     slot: head
-  - type: ContainerContainer
-    containers:
-      toggleable-clothing: !type:ContainerSlot {}
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.85

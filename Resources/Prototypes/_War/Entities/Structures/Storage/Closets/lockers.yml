@@ -6,6 +6,9 @@
   name: director's locker
   components:
   - type: Appearance
+  - type: Sprite
+    noRot: true
+    sprite: _War/Structures/Storage/closet.rsi
   - type: EntityStorageVisuals
     stateBaseClosed: s_director
     stateDoorOpen: s_director_open
@@ -21,6 +24,9 @@
   name: commandor's locker
   components:
   - type: Appearance
+  - type: Sprite
+    noRot: true
+    sprite: _War/Structures/Storage/closet.rsi
   - type: EntityStorageVisuals
     stateBaseClosed: s_comandor
     stateDoorOpen: s_comandor_open
@@ -36,6 +42,9 @@
   name: manager`s locker
   components:
   - type: Appearance
+  - type: Sprite
+    noRot: true
+    sprite: _War/Structures/Storage/closet.rsi
   - type: EntityStorageVisuals
     stateBaseClosed: s_manager
     stateDoorOpen: s_manager_open
@@ -51,6 +60,9 @@
   name: syndicate engineer`s locker
   components:
   - type: Appearance
+  - type: Sprite
+    noRot: true
+    sprite: _War/Structures/Storage/closet.rsi
   - type: EntityStorageVisuals
     stateBaseClosed: s_eng_secure
     stateDoorOpen: s_eng_secure_open
@@ -64,6 +76,9 @@
   name: syndicate miner`s locker
   components:
   - type: Appearance
+  - type: Sprite
+    noRot: true
+    sprite: _War/Structures/Storage/closet.rsi
   - type: EntityStorageVisuals
     stateBaseClosed: s_mining
     stateDoorOpen: s_mining_open
@@ -79,6 +94,9 @@
   name: syndicate medical locker
   components:
   - type: Appearance
+  - type: Sprite
+    noRot: true
+    sprite: _War/Structures/Storage/closet.rsi
   - type: EntityStorageVisuals
     stateBaseClosed: s_med_secure
     stateDoorOpen: s_med_secure_open
@@ -94,6 +112,9 @@
   name: syndicate science locker
   components:
   - type: Appearance
+  - type: Sprite
+    noRot: true
+    sprite: _War/Structures/Storage/closet.rsi
   - type: EntityStorageVisuals
     stateBaseClosed: s_science
     stateDoorOpen: s_science_open
@@ -108,6 +129,9 @@
   parent: LockerBaseSecure
   name: syndicate armory locker
   components:
+  - type: Sprite
+    noRot: true
+    sprite: _War/Structures/Storage/closet.rsi
   - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: s_armory
@@ -123,6 +147,9 @@
   parent: LockerBaseSecure
   name: syndicate military locker
   components:
+  - type: Sprite
+    noRot: true
+    sprite: _War/Structures/Storage/closet.rsi
   - type: Appearance
   - type: EntityStorageVisuals
     stateBaseClosed: s_sec

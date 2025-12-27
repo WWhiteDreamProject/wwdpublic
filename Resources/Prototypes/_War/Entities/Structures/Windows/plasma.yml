@@ -48,7 +48,7 @@
     damageDivisor: 3.333
     trackAllDamage: true
     damageOverlay:
-      sprite: Structures/Windows/cracks.rsi
+      sprite: _War/Structures/Windows/cracks.rsi
   - type: StaticPrice
     price: 60
   - type: RadiationBlocker
@@ -97,7 +97,7 @@
     - East
   - type: DamageVisuals
     damageOverlay:
-      sprite: Structures/Windows/cracks_diagonal.rsi
+      sprite: _War/Structures/Windows/cracks_diagonal.rsi
   - type: Construction
     graph: WindowDiagonal
     node: plasmaWindowDiagonal
