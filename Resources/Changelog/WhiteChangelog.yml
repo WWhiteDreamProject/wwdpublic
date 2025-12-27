@@ -4739,3 +4739,10 @@ Entries:
   id: 498
   time: '2025-12-27T11:35:56.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/955
+- author: vanx
+  changes:
+    - type: Add
+      message: Локализация законов сбойных ИИ
+  id: 499
+  time: '2025-12-27T22:39:55.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/965
