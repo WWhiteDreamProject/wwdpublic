@@ -4700,3 +4700,10 @@ Entries:
   id: 493
   time: '2025-12-27T02:47:52.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/927
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: 'Скорострельность дрозда: 12 -> 6'
+  id: 494
+  time: '2025-12-27T03:10:20.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/952
