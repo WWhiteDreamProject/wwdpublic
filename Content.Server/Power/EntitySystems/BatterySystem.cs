@@ -241,6 +241,13 @@ namespace Content.Server.Power.EntitySystems
         }
 
         // WD EDIT START
+        public void AddCharge(EntityUid uid, float value, BatteryComponent? battery = null)
+        {
+            if (!Resolve(uid, ref battery))
+                return;
+
+            SetCharge(uid, battery.CurrentCharge + value, battery);
+        }
         public bool TryGetBatteryComponent(EntityUid uid, [NotNullWhen(true)] out BatteryComponent? battery,[NotNullWhen(true)] out EntityUid? batteryUid)
         {
             if (TryComp(uid, out battery))

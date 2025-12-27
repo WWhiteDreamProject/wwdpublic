@@ -675,29 +675,43 @@
 
 #Wizard Hardsuit
 - type: entity
-  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  parent: [ClothingHeadHardsuitBase, ClothingHeadHatWizardBaseArmor] # Goob edit
   id: ClothingHeadHelmetHardsuitWizard
-  name: wizard hardsuit helmet
+  name: wizard hardsuit helmet # Goob edit
   description: A bizarre gem-encrusted helmet that radiates magical energies.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/wizard.rsi
   - type: Clothing
     sprite: Clothing/Head/Hardsuits/wizard.rsi
-  - type: PointLight
-    color: "#ffadfb"
+    clothingVisuals:
+      head:
+      - state: off-equipped-HELMET
+  - type: PointLight # Goob edit
+    color: "#4d7ae3"
+    energy: 10
+    radius: 5
   - type: PressureProtection
     highPressureMultiplier: 0.27
     lowPressureMultiplier: 1000
-  - type: Armor
+  - type: Armor # Goob edit
+#    traumaDeductions: # prevents traumas at all (kinda)
+#      Dismemberment: 1
+#      OrganDamage: 1
+#      BoneDamage: 1
+#      VeinsDamage: 1
+#      NerveDamage: 1
     modifiers:
       coefficients:
-        Blunt: 0.9
-        Slash: 0.9
-        Piercing: 0.9
-        Heat: 0.9
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.4
+        Heat: 0.4
+        Radiation: 0.05
+        Caustic: 0.1
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
+  - type: WizardClothes # WD EDIT
 
 #Organic Space Suit
 - type: entity
