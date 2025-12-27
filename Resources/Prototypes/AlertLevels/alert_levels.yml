@@ -27,6 +27,7 @@
       sound: /Audio/Announcements/Alerts/code_white.ogg
       emergencyLightColor: "#F6CCF6"
       color: White
+      forceEnableEmergencyLights: true # White Dream
       shuttleTime: 600
     yellow:
       announcement: alert-level-yellow-announcement
@@ -35,6 +36,11 @@
       emergencyLightColor: Goldenrod
       forceEnableEmergencyLights: true
       shuttleTime: 600
+      enableAlarmSound: true
+      alarmSound: # White Dream
+        path: /Audio/Machines/warning_buzzer.ogg
+      alarmVolume: -5 # White Dream
+      alarmInterval: 30 # White Dream
     red:
       announcement: alert-level-red-announcement
       sound: /Audio/Announcements/Alerts/code_red.ogg
@@ -42,6 +48,11 @@
       emergencyLightColor: Red
       forceEnableEmergencyLights: true
       shuttleTime: 600
+      enableAlarmSound: true
+      alarmSound: # White Dream
+        path: /Audio/_White/Announcements/2_tone_alarm.ogg
+      alarmVolume: -10 # White Dream
+      alarmInterval: 30 # White Dream
     gamma:
       announcement: alert-level-gamma-announcement
       selectable: false
