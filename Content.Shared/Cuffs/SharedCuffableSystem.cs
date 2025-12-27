@@ -763,8 +763,15 @@ namespace Content.Shared.Cuffs
         // White Dream Examine
         private void OnExamined(Entity<CuffableComponent> ent, ref ExaminedEvent args)
         {
-            if (!ent.Comp.CanStillInteract)
-                args.PushMarkup(Loc.GetString("examine-handcuffed", ("ent", ent.Owner)));
+            if (ent.Comp.CanStillInteract)
+                return;
+
+            var locId = "examine-handcuffed";
+
+            if (args.Examiner == args.Examined)
+                locId += "-selfaware";
+
+            args.PushMarkup(Loc.GetString(locId, ("ent", ent.Owner)));
         }
 
         #region ActionBlocker
