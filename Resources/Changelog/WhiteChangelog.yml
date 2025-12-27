@@ -4714,3 +4714,14 @@ Entries:
   id: 495
   time: '2025-12-27T03:11:28.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/954
+- author: vanx
+  changes:
+    - type: Tweak
+      message: Обновлены правила сервера. Гриф после конца раунда теперь ЗАПРЕЩЁН.
+    - type: Add
+      message: >-
+        Добавлен актуальный внутриигровой космозакон. Найти его можно в гайдбуке
+        или в книгах СБ.
+  id: 496
+  time: '2025-12-27T07:18:31.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/946
