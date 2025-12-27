@@ -1,8 +1,10 @@
 using Content.Shared._White.Inventory.Components;
+using Content.Shared._White.Jump;
 using Content.Shared.Hands;
 using Content.Shared.Inventory;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition.Components;
+using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Whitelist;
 using Robust.Shared.Physics.Events;
@@ -25,6 +27,7 @@ public sealed partial class WhiteInventorySystem
         SubscribeLocalEvent<EquipOnCollideComponent, StartCollideEvent>(OnCollideEvent);
         SubscribeLocalEvent<EquipOnMeleeHitComponent, MeleeHitEvent>(OnMeleeHit);
         SubscribeLocalEvent<EquipOnPickUpComponent, GotEquippedHandEvent>(OnPickedUp);
+        SubscribeLocalEvent<EquipOnThrownHitComponent, ThrowDoHitEvent>(OnThrowDoHit, before: new[] {typeof(JumpSystem)});
     }
 
     private void OnCollideEvent(EntityUid uid, EquipOnCollideComponent component, StartCollideEvent args)
@@ -43,6 +46,15 @@ public sealed partial class WhiteInventorySystem
     private void OnPickedUp(EntityUid uid, EquipOnPickUpComponent component, GotEquippedHandEvent args)
     {
         TryEquip(uid, args.User, component);
+    }
+
+    private void OnThrowDoHit(EntityUid uid, EquipOnThrownHitComponent component, ThrowDoHitEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        TryEquip(uid, args.Target, component);
+        args.Handled = true;
     }
 
     public bool TryEquip(EntityUid uid, EntityUid target, BaseEquipOnComponent component)
