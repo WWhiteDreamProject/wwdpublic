@@ -4,6 +4,7 @@
   id: BasePDASyndicate
   name: PDA
   description: Personal Data Assistant.
+  suffix: "TW"
   components:
   - type: Appearance
     appearanceDataInit:
@@ -124,6 +125,7 @@
   parent: BasePDASyndicate
   id: BaseMedicalPDASyndicate
   abstract: true
+  suffix: "TW"
   components:
   - type: HealthAnalyzer
     scanDelay: 0.5
@@ -136,6 +138,7 @@
   id: PDASyndicateClear
   name: Clear PDA
   description: Just. Clear. PDA.
+  suffix: "TW"
   components:
   - type: Pda
     id: PassengerIDCard
@@ -150,6 +153,7 @@
   id: PDASyndicateLoader
   name: loader PDA
   description: PDA for the guys that order the syndicate pizzas.
+  suffix: "TW"
   components:
   - type: Pda
     id: LoaderIDCard
@@ -168,6 +172,7 @@
   id: PDASyndicateDisposal
   name: disposal PDA
   description: Smells like ash.
+  suffix: "TW"
   components:
   - type: Pda
     id: DisposalIDCard
@@ -188,6 +193,7 @@
   id: PDASyndicateSupplyManager
   name: supply manager PDA
   description: PDA for the guy that orders the guns.
+  suffix: "TW"
   components:
   - type: Pda
     id: SupplyManagerIDCard
@@ -208,6 +214,7 @@
   id: PDASyndicateAtmosphericEngineer
   name: Atmospheric Engineer PDA
   description: Rugged and well-worn.
+  suffix: "TW"
   components:
   - type: Pda
     id: AtmosphericEngineerIDCard
@@ -228,6 +235,7 @@
   id: PDASyndicateFighter
   name: fighter PDA
   description: Red to hide the stains of NT`s blood.
+  suffix: "TW"
   components:
   - type: Pda
     id: SyndicateFighterIDCard
@@ -247,6 +255,7 @@
   id: PDASyndicateRecruit
   name: recruit PDA
   description: Red to hide the stains of NT`s blood.
+  suffix: "TW"
   components:
   - type: Pda
     id: RecruitIDCard
@@ -265,6 +274,7 @@
   id: PDASyndicateParamedic
   name: paramedic PDA
   description: Shiny and sterile. Has a built-in rapid health analyzer.
+  suffix: "TW"
   components:
   - type: Pda
     id: SyndicateParamedicIDCard
@@ -284,6 +294,7 @@
   id: SyndicatePilotPDA
   name: pilot PDA
   description: Smells like the shuttle.
+  suffix: "TW"
   components:
   - type: Pda
     id: SyndicatePilotIDCard
@@ -303,6 +314,7 @@
   id: PDASyndicateCommander
   name: commander PDA
   description: Whosoever bears this PDA is the professional killer.
+  suffix: "TW"
   components:
   - type: Pda
     id: CommanderIDCard
@@ -322,6 +334,7 @@
   id: PDASyndicateDirectorOfSaibasan
   name: director of saibasan PDA
   description: The most important one. Obey.
+  suffix: "TW"
   components:
   - type: Pda
     id: DirectorIDCard
@@ -342,6 +355,7 @@
   id: PDASyndicateDirectorOfInterpharm
   name: director of interpharm PDA
   description: The important one. Obey.
+  suffix: "TW"
   components:
   - type: Pda
     id: DirectorIDCard
@@ -361,6 +375,7 @@
   id: PDASyndicateChef
   name: chef PDA
   description: Service PDA.
+  suffix: "TW"
   components:
   - type: Pda
     id: SyndicateChefIDCard
@@ -379,6 +394,7 @@
   id: PDASyndicateBartender
   name: bartender PDA
   description: Service PDA.
+  suffix: "TW"
   components:
   - type: Pda
     id: SyndicateBartenderIDCard
@@ -397,6 +413,7 @@
   id: PDASyndicateBotanist
   name: botanist PDA
   description: Service PDA.
+  suffix: "TW"
   components:
   - type: Pda
     id: SyndicateBotanistIDCard
@@ -415,6 +432,7 @@
   id: PDASyndicateScientist
   name: scientist PDA
   description: It's covered with an unknown gooey substance.
+  suffix: "TW"
   components:
   - type: Pda
     id: SyndicateScientistIDCard

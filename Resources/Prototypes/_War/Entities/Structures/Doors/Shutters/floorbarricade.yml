@@ -3,7 +3,7 @@
   parent: BaseShutter
   name: adaptive shielding unit
   description: A floor-integrated security solution for rapid lockdown and containment. Deployable in seconds, providing robust protection against unforeseen threats.
-  suffix: Closed
+  suffix: "Closed, TW"
   components:
   - type: AccessReader
   - type: Sprite
@@ -72,7 +72,7 @@
 - type: entity
   id: FloorBarricadeOpen
   parent: FloorBarricade
-  suffix: Open
+  suffix: "Open, TW"
   components:
   - type: Sprite
     sprite: _War/Structures/Doors/Shutters/floorbarricade.rsi

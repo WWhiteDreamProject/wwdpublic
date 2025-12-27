@@ -5,7 +5,7 @@
 
 - type: entity
   id: Torchstand
-  suffix: Goida
+  suffix: "Goida, TW"
   name: Факел на подставке
   description: Может внезапно решить, что ваши занавески - это его личный враг.
   placement:

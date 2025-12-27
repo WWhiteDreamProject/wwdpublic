@@ -5,6 +5,7 @@
   id: ClothingHeadHoodSyndicateBioBlack
   name: black bio hood
   description: A hood that protects the head and face from biological contaminants.
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Clothing/Head/Hoods/Bio/syndie_black.rsi
@@ -16,6 +17,7 @@
   id: ClothingHeadHoodSyndicateBioRed
   name: red bio hood
   description: A hood that protects the head and face from biological contaminants.
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Clothing/Head/Hoods/Bio/syndie_red.rsi
@@ -28,6 +30,7 @@
   name: syndicate radiation hood
   description: A hood of the hazmat suit, designed for protection from high radioactivity.
   categories: [ HideSpawnMenu ]
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Clothing/Head/Hoods/syndie_rad.rsi
@@ -48,6 +51,7 @@
   name: base winter coat hood
   description: A hood. Comes with a built-in flashlight.
   categories: [ HideSpawnMenu ]
+  suffix: "TW"
   components:
   - type: Sprite
     layers:
@@ -114,6 +118,7 @@
   id: ClothingHeadHoodSyndicateEngineer
   name: engineer hood
   description: A hood. Comes with a built-in flashlight.
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Clothing/Head/Hoods/syndie_engi.rsi
@@ -125,6 +130,7 @@
   id: ClothingHeadHoodSyndicateEngineerArmored
   name: engineer armored hood
   description: A hood, used in dangerous working conditions to protect the head. Comes with a built-in flashlight.
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Clothing/Head/Hoods/syndie_engi_armor.rsi
@@ -145,6 +151,7 @@
   id: ClothingHeadHoodSyndicateManager
   name: manager hood
   description: A hood. Comes with a built-in flashlight.
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Clothing/Head/Hoods/syndie_sm.rsi
@@ -156,6 +163,7 @@
   id: ClothingHeadHoodSyndicateManagerArmor
   name: manager armored hood
   description: A hood, used in dangerous working conditions to protect the head. Comes with a built-in flashlight.
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Clothing/Head/Hoods/syndie_sm_armor.rsi
@@ -176,6 +184,7 @@
   id: ClothingHeadHoodSyndicateDisposal
   name: disposal hood
   description: A hood.
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Clothing/Head/Hoods/syndie_disposal.rsi
@@ -192,6 +201,7 @@
   id: ClothingHeadHoodSyndicatePolar
   name: Polar hood
   description: A hood.
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Clothing/Head/Hoods/s_polar_hood.rsi
@@ -205,6 +215,7 @@
   id: ClothingHeadHoodSyndicatePolarDirector
   name: Directors polar hood
   description: A hood.
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Clothing/Head/Hoods/s_polar_dir_hood.rsi

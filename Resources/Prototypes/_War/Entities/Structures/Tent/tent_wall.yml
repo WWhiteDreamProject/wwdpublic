@@ -5,6 +5,7 @@
   description: An inflated membrane. Do not puncture.
   placement:
     mode: SnapgridCenter
+  suffix: "TW"
   components:
   - type: Clickable
   - type: InteractionOutline

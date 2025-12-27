@@ -4,6 +4,7 @@
   name: identification card
   description: A card necessary to access various areas aboard the syndicate station.
   abstract: true
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Objects/Misc/syndi_id_cards.rsi
@@ -48,6 +49,7 @@
   parent: IDCardStandardSyndicate
   id: DirectorIDCard
   name: director ID card
+  suffix: "TW"
   components:
   - type: Sprite
     layers:
@@ -66,6 +68,7 @@
   parent: IDCardStandardSyndicate
   id: CommanderIDCard
   name: commander ID card
+  suffix: "TW"
   components:
   - type: Sprite
     layers:
@@ -80,6 +83,7 @@
   parent: IDCardStandardSyndicate
   id: SyndicatePilotIDCard
   name: syndicate pilot ID card
+  suffix: "TW"
   components:
   - type: Sprite
     layers:
@@ -92,6 +96,7 @@
   parent: IDCardStandardSyndicate
   id: SyndicateParamedicIDCard
   name: syndicate paramedic ID card
+  suffix: "TW"
   components:
   - type: Sprite
     layers:
@@ -104,6 +109,7 @@
   parent: IDCardStandardSyndicate
   id: SyndicateFighterIDCard
   name: syndicate fighter ID card
+  suffix: "TW"
   components:
   - type: Sprite
     layers:
@@ -116,6 +122,7 @@
   parent: IDCardStandardSyndicate
   id: RecruitIDCard
   name: recruit ID card
+  suffix: "TW"
   components:
   - type: Sprite
     layers:
@@ -128,6 +135,7 @@
   parent: IDCardStandardSyndicate
   id: SyndicateSpyIDCard
   name: syndicate spy ID card
+  suffix: "TW"
   components:
   - type: Sprite
     layers:
@@ -140,6 +148,7 @@
   parent: IDCardStandardSyndicate
   id: SupplyManagerIDCard
   name: supply manager ID card
+  suffix: "TW"
   components:
   - type: Sprite
     layers:
@@ -154,6 +163,7 @@
   parent: IDCardStandardSyndicate
   id: AtmosphericEngineerIDCard
   name: atmospheric engineer ID card
+  suffix: "TW"
   components:
   - type: Sprite
     layers:
@@ -178,6 +188,7 @@
   parent: IDCardStandardSyndicate
   id: DisposalIDCard
   name: disposal ID card
+  suffix: "TW"
   components:
   - type: Sprite
     layers:
@@ -190,6 +201,7 @@
   parent: IDCardStandardSyndicate
   id: LoaderIDCard
   name: loader ID card
+  suffix: "TW"
   components:
   - type: Sprite
     layers:
@@ -204,6 +216,7 @@
   parent: IDCardStandardSyndicate
   id: SyndicateBotanistIDCard
   name: syndicate botanist ID card
+  suffix: "TW"
   components:
   - type: Sprite
     layers:
@@ -216,6 +229,7 @@
   parent: IDCardStandardSyndicate
   id: SyndicateChefIDCard
   name: syndicate chef ID card
+  suffix: "TW"
   components:
   - type: Sprite
     layers:
@@ -228,6 +242,7 @@
   parent: IDCardStandardSyndicate
   id: SyndicateBartenderIDCard
   name: syndicate bartender ID card
+  suffix: "TW"
   components:
   - type: Sprite
     layers:
@@ -252,6 +267,7 @@
   parent: IDCardStandardSyndicate
   id: SyndicateScientistIDCard
   name: syndicate scientist ID card
+  suffix: "TW"
   components:
   - type: Sprite
     layers:
@@ -264,6 +280,7 @@
   parent: IDCardStandardSyndicate
   id: SyndicateAcademicEngIDCard
   name: syndicate academic engineer ID card
+  suffix: "TW"
   components:
   - type: Sprite
     layers:
@@ -278,6 +295,7 @@
   parent: IDCardStandard
   id: PilotIDCard
   name: pilot ID card
+  suffix: "TW"
   components:
   - type: Sprite
     layers:

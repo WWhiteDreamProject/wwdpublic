@@ -2,7 +2,7 @@
 - type: entity
   parent: AirlockAssemblySyndicateBase
   id: AirlockAssemblySyndicateCommand
-  suffix: Command
+  suffix: "Command, TW"
   components:
   - type: Sprite
     sprite: _War/Structures/Doors/Airlocks/Standard/s_command.rsi
@@ -11,7 +11,7 @@
 - type: entity
   parent: AirlockAssemblySyndicateBase
   id: AirlockAssemblySyndicateCommandGlass
-  suffix: Command, Glass
+  suffix: "Command, Glass, TW"
   components:
   - type: Sprite
     sprite: _War/Structures/Doors/Airlocks/Glass/s_command.rsi
@@ -21,7 +21,7 @@
 - type: entity
   parent: AirlockAssemblySyndicateBase
   id: AirlockAssemblySyndicateEngineering
-  suffix: Engineering
+  suffix: "Engineering, TW"
   components:
   - type: Sprite
     sprite: _War/Structures/Doors/Airlocks/Standard/s_engineering.rsi
@@ -30,7 +30,7 @@
 - type: entity
   parent: AirlockAssemblySyndicateBase
   id: AirlockAssemblySyndicateEngineeringGlass
-  suffix: Engineering, Glass
+  suffix: "Engineering, Glass, TW"
   components:
   - type: Sprite
     sprite: _War/Structures/Doors/Airlocks/Glass/s_engineering.rsi
@@ -40,7 +40,7 @@
 - type: entity
   parent: AirlockAssemblySyndicateBase
   id: AirlockAssemblySyndicateExternal
-  suffix: External
+  suffix: "External, TW"
   components:
   - type: Sprite
     sprite: _War/Structures/Doors/Airlocks/Standard/s_external.rsi
@@ -49,7 +49,7 @@
 - type: entity
   parent: AirlockAssemblySyndicateBase
   id: AirlockAssemblySyndicateExternalGlass
-  suffix: External, Glass
+  suffix: "External, Glass, TW"
   components:
   - type: Sprite
     sprite: _War/Structures/Doors/Airlocks/Glass/s_external.rsi
@@ -59,7 +59,7 @@
 - type: entity
   parent: AirlockAssemblySyndicateBase
   id: AirlockAssemblySyndicateMaintenance
-  suffix: Maintenance
+  suffix: "Maintenance, TW"
   components:
   - type: Sprite
     sprite: _War/Structures/Doors/Airlocks/Standard/s_maint.rsi
@@ -68,7 +68,7 @@
 - type: entity
   parent: AirlockAssemblySyndicateBase
   id: AirlockAssemblySyndicateMaintenanceGlass
-  suffix: Maintenance, Glass
+  suffix: "Maintenance, Glass, TW"
   components:
   - type: Sprite
     sprite: _War/Structures/Doors/Airlocks/Glass/s_maint.rsi
@@ -78,7 +78,7 @@
 - type: entity
   parent: AirlockAssemblySyndicateBase
   id: AirlockAssemblySyndicateMedical
-  suffix: Medical
+  suffix: "Medical, TW"
   components:
   - type: Sprite
     sprite: _War/Structures/Doors/Airlocks/Standard/s_medical.rsi
@@ -87,7 +87,7 @@
 - type: entity
   parent: AirlockAssemblySyndicateBase
   id: AirlockAssemblySyndicateMedicalGlass
-  suffix: Medical, Glass
+  suffix: "Medical, Glass, TW"
   components:
   - type: Sprite
     sprite: _War/Structures/Doors/Airlocks/Glass/s_medical.rsi
@@ -97,7 +97,7 @@
 - type: entity
   parent: AirlockAssemblySyndicateBase
   id: AirlockAssemblySyndicateScience
-  suffix: Science
+  suffix: "Science, TW"
   components:
   - type: Sprite
     sprite: _War/Structures/Doors/Airlocks/Standard/s_science.rsi
@@ -106,7 +106,7 @@
 - type: entity
   parent: AirlockAssemblySyndicateBase
   id: AirlockAssemblySyndicateScienceGlass
-  suffix: Science, Glass
+  suffix: "Science, Glass, TW"
   components:
   - type: Sprite
     sprite: _War/Structures/Doors/Airlocks/Glass/s_science.rsi
@@ -116,7 +116,7 @@
 - type: entity
   parent: AirlockAssemblySyndicateBase
   id: AirlockAssemblySyndicateSecurity
-  suffix: Security
+  suffix: "Security, TW"
   components:
   - type: Sprite
     sprite: _War/Structures/Doors/Airlocks/Standard/s_security.rsi
@@ -125,7 +125,7 @@
 - type: entity
   parent: AirlockAssemblySyndicateBase
   id: AirlockAssemblySyndicateSecurityGlass
-  suffix: Security, Glass
+  suffix: "Security, Glass, TW"
   components:
   - type: Sprite
     sprite: _War/Structures/Doors/Airlocks/Glass/s_security.rsi
@@ -135,7 +135,7 @@
 - type: entity
   parent: AirlockAssemblySyndicateBase
   id: AirlockAssemblySyndicateHighSec
-  suffix: HighSec
+  suffix: "HighSec, TW"
   components:
   - type: Sprite
     sprite: _War/Structures/Doors/Airlocks/highsec/s_highsec.rsi

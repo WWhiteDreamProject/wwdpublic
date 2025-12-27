@@ -32,5 +32,6 @@
 
   special:
   - !type:AddComponentSpecial
+    suffix: "TW"
     components:
       - type: CommandStaff

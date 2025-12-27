@@ -1,7 +1,7 @@
 - type: entity
   id: BaseAnts
   parent: BaseStructureDynamic
-  suffix: THUNDER
+  suffix: "THUNDER, TW"
   name: ant hill
   description: Best not to provoke them.
   components:
@@ -19,7 +19,7 @@
 - type: entity
   id: Ants1
   parent: BaseAnts
-  suffix: THUNDER
+  suffix: "THUNDER, TW"
   components:
   - type: Sprite
     noRot: true
@@ -29,7 +29,7 @@
 - type: entity
   id: Ants2
   parent: BaseAnts
-  suffix: THUNDER
+  suffix: "THUNDER, TW"
   components:
   - type: Sprite
     noRot: true
@@ -39,7 +39,7 @@
 - type: entity
   id: Ants3
   parent: BaseAnts
-  suffix: THUNDER
+  suffix: "THUNDER, TW"
   components:
   - type: Sprite
     noRot: true

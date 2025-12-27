@@ -1,7 +1,7 @@
 - type: entity
   id: VaseBase
   parent: DrinkGlassBase
-  suffix: THUNDER
+  suffix: "THUNDER, TW"
   name: vase
   description: It's a vase. It holds flowers.
   abstract: true
@@ -21,7 +21,7 @@
 - type: entity
   id: VasePlant0
   parent: VaseBase
-  suffix: THUNDER
+  suffix: "THUNDER, TW"
   name: empty vase
   description: It's a vase. It holds flowers. This one is empty.
   components:
@@ -31,7 +31,7 @@
 - type: entity
   id: VasePlant1
   parent: VaseBase
-  suffix: THUNDER
+  suffix: "THUNDER, TW"
   components:
   - type: Sprite
     state: vase-1
@@ -39,7 +39,7 @@
 - type: entity
   id: VasePlant2
   parent: VaseBase
-  suffix: THUNDER
+  suffix: "THUNDER, TW"
   components:
   - type: Sprite
     state: vase-2
@@ -47,7 +47,7 @@
 - type: entity
   id: VasePlant3
   parent: VaseBase
-  suffix: THUNDER
+  suffix: "THUNDER, TW"
   components:
   - type: Sprite
     state: vase-3
@@ -55,7 +55,7 @@
 - type: entity
   id: VasePlant4
   parent: VaseBase
-  suffix: THUNDER
+  suffix: "THUNDER, TW"
   components:
   - type: Sprite
     state: vase-4
@@ -63,7 +63,7 @@
 - type: entity
   id: VasePlant5
   parent: VaseBase
-  suffix: THUNDER
+  suffix: "THUNDER, TW"
   components:
   - type: Sprite
     state: vase-5
@@ -71,7 +71,7 @@
 - type: entity
   id: VasePlant6
   parent: VaseBase
-  suffix: THUNDER
+  suffix: "THUNDER, TW"
   components:
   - type: Sprite
     state: vase-6
@@ -79,7 +79,7 @@
 - type: entity
   id: VasePlant7
   parent: VaseBase
-  suffix: THUNDER
+  suffix: "THUNDER, TW"
   components:
   - type: Sprite
     state: vase-7
@@ -87,7 +87,7 @@
 - type: entity
   id: VasePlant8
   parent: VaseBase
-  suffix: THUNDER
+  suffix: "THUNDER, TW"
   components:
   - type: Sprite
     state: vase-8

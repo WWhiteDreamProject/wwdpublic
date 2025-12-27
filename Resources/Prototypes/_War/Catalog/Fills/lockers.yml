@@ -3,7 +3,7 @@
 - type: entity
   id: LockerSyndicateDirectorSaibasanFilled
   parent: LockerSyndicateDirector
-  suffix: Filled, Saibasan
+  suffix: "Filled, Saibasan, TW"
   components:
   - type: StorageFill
     contents:
@@ -24,7 +24,7 @@
 - type: entity
   id: LockerSyndicateDirectorInterPharmFilled
   parent: LockerSyndicateDirector
-  suffix: Filled, InterPharm
+  suffix: "Filled, InterPharm, TW"
   components:
   - type: StorageFill
     contents:
@@ -45,7 +45,7 @@
 - type: entity
   id: LockerSyndicateCommandorFilled
   parent: LockerSyndicateCommandor
-  suffix: Filled
+  suffix: "Filled, TW"
   components:
   - type: StorageFill
     contents:
@@ -72,7 +72,7 @@
 - type: entity
   id: LockerSyndicateManagerFilled
   parent: LockerSyndicateManager
-  suffix: Filled
+  suffix: "Filled, TW"
   components:
   - type: StorageFill
     contents:
@@ -94,7 +94,7 @@
 
 - type: entity
   id: LockerSyndicateEngineerFilled
-  suffix: Filled
+  suffix: "Filled, TW"
   parent: LockerSyndicateEngineer
   components:
   - type: StorageFill
@@ -119,7 +119,7 @@
 
 - type: entity
   id: LockerSyndicateLoaderFilled
-  suffix: Filled
+  suffix: "Filled, TW"
   parent: LockerSyndicateEngineer
   components:
   - type: StorageFill
@@ -139,7 +139,7 @@
 - type: entity
   id: LockerSyndicateMinerFilled
   parent: LockerSyndicateMiner
-  suffix: Filled
+  suffix: "Filled, TW"
   components:
   - type: StorageFill
     contents:
@@ -174,7 +174,7 @@
   id: LockerNTPilotFilled
   parent: LockerSecurity
   name: pilot`s locker
-  suffix: Filled, NT
+  suffix: "Filled, NT, TW"
   components:
   - type: StorageFill
     contents:
@@ -198,7 +198,7 @@
   id: LockerSyndicatePilotFilled
   parent: LockerSyndicateSecurity
   name: pilot`s locker
-  suffix: Filled, Syndicate
+  suffix: "Filled, Syndicate, TW"
   components:
   - type: StorageFill
     contents:
@@ -222,7 +222,7 @@
 - type: entity
   id: LockerSyndicateMedicalFilled
   parent: LockerSyndicateMedical
-  suffix: Filled, Medical doctor
+  suffix: "Filled, Medical doctor, TW"
   components:
   - type: StorageFill
     contents:
@@ -252,7 +252,7 @@
 - type: entity
   id: LockerSyndicateParamedFilled
   parent: LockerSyndicateMedical
-  suffix: Filled, Paramed
+  suffix: "Filled, Paramed, TW"
   components:
   - type: StorageFill
     contents:
@@ -273,7 +273,7 @@
 - type: entity
   id: LockerSyndicateScienceFilled
   parent: LockerSyndicateScience
-  suffix: Filled
+  suffix: "Filled, TW"
   components:
   - type: StorageFill
     contents:
@@ -290,7 +290,7 @@
 - type: entity
   id: LockerSyndicateSecurityFilled
   parent: LockerSyndicateSecurity
-  suffix: Filled
+  suffix: "Filled, TW"
   components:
   - type: StorageFill
     contents:

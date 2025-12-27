@@ -1,7 +1,7 @@
 - type: entity
   id: quill
   parent: BaseItem
-  suffix: THUNDER
+  suffix: "THUNDER, TW"
   name: quill
   description: Looks fancy, but you have no clue how to use this thing!
   components:

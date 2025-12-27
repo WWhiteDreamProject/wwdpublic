@@ -3,6 +3,7 @@
   id: CybersunPlasmaWindow
   name: Cybersun plasma window
   parent: WindowRCDResistant
+  suffix: "TW"
   components:
   - type: Sprite
     drawdepth: WallTops
@@ -60,7 +61,7 @@
 - type: entity
   parent: CybersunPlasmaWindow
   id: CybersunPlasmaWindowDiagonal
-  suffix: diagonal
+  suffix: "diagonal, TW"
   placement:
     mode: SnapgridCenter
     snap:

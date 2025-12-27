@@ -2,6 +2,7 @@
   id: BlackShuttleWindow
   name: Black shuttle window
   parent: WindowRCDResistant
+  suffix: "TW"
   components:
   - type: Sprite
     drawdepth: WallTops
@@ -60,7 +61,7 @@
 - type: entity
   parent: BlackShuttleWindow
   id: BlackShuttleWindowDiagonal
-  suffix: diagonal
+  suffix: "diagonal, TW"
   placement:
     mode: SnapgridCenter
     snap:
@@ -103,6 +104,7 @@
   id: RedShuttleWindow
   name: red shuttle window
   parent: WindowRCDResistant
+  suffix: "TW"
   components:
   - type: Sprite
     drawdepth: WallTops
@@ -160,7 +162,7 @@
 - type: entity
   parent: RedShuttleWindow
   id: RedShuttleWindowDiagonal
-  suffix: diagonal
+  suffix: "diagonal, TW"
   placement:
     mode: SnapgridCenter
     snap:
@@ -205,6 +207,7 @@
   id: CargoShuttleWindow
   name: cargo shuttle window
   parent: WindowRCDResistant
+  suffix: "TW"
   components:
   - type: Sprite
     drawdepth: WallTops
@@ -264,6 +267,7 @@
   id: SalvageShuttleWindow
   name: salvage shuttle window
   parent: WindowRCDResistant
+  suffix: "TW"
   components:
   - type: Sprite
     drawdepth: WallTops

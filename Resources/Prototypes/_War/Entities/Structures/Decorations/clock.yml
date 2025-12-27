@@ -1,7 +1,7 @@
 - type: entity
   id: Clock
   parent: BaseStructure
-  suffix: THUNDER
+  suffix: "THUNDER, TW"
   name: wall clock
   description: Would you look at the time!
   placement:

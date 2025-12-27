@@ -3,6 +3,7 @@
   id: ClothingHandsGlovesSyndicateInsulated
   name: syndicate insulated gloves
   description: Syndicate red insulated gloves.
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Clothing/Hands/Gloves/insulated_red.rsi
@@ -14,6 +15,7 @@
   id: ClothingHandsGlovesSyndicateNitrile
   name: syndicate nitrile gloves
   description: High-quality nitrile gloves. Expensive medical PPE.
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Clothing/Hands/Gloves/s_nitrile.rsi
@@ -25,6 +27,7 @@
   id: ClothingHandsGlovesSyndicatePilot
   name: pilot gloves
   description: Syndicate pilot gloves.
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Clothing/Hands/Gloves/s_pilot.rsi
@@ -36,6 +39,7 @@
   id: ClothingHandsGlovesFingerlessSyndicate
   name: green fingerless gloves
   description: Plain green gloves without fingertips for the hard working.
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Clothing/Hands/Gloves/s_fingerless.rsi

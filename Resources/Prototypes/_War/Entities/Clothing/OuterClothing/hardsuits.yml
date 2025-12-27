@@ -5,6 +5,7 @@
   id: ClothingOuterHardsuitSyndicateCommandor
   name: syndicate commandor hardsuit
   description: Dont forget add description....fuck.
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Clothing/OuterClothing/Hardsuits/syndiecommandor.rsi
@@ -38,6 +39,7 @@
   id: ClothingOuterHardsuitSyndicateDirector
   name: syndicate director hardsuit
   description: Dont forget add description....fuck.
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Clothing/OuterClothing/Hardsuits/syndiedirector.rsi
@@ -75,6 +77,7 @@
   id: ClothingOuterHardsuitSyndicateOld
   name: old blood-red hardsuit
   description: Dont forget add description....fuck.
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Clothing/OuterClothing/Hardsuits/syndieold.rsi
@@ -112,6 +115,7 @@
   id: ClothingOuterHardsuitSyndicateParamed
   name: paramed syndicate hardsuit
   description: Dont forget add description....fuck.
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Clothing/OuterClothing/Hardsuits/syndieparamed.rsi
@@ -150,6 +154,7 @@
   id: ClothingOuterHardsuitSyndicateMiner
   name: syndicate mining hardsuit
   description: We're rich!
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Clothing/OuterClothing/Hardsuits/syndiesalvage.rsi
@@ -183,6 +188,7 @@
   id: ClothingOuterHardsuitSyndicateEngineer
   name: syndicate engineering hardsuit
   description: Steel and wires!
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Clothing/OuterClothing/Hardsuits/syndieengineering.rsi
@@ -219,6 +225,7 @@
   id: ClothingOuterHardsuitSyndicateSupplyManager
   name: manager hardsuit
   description: A special hardsuit for manager.
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Clothing/OuterClothing/Hardsuits/syndiemanager.rsi

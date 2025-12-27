@@ -1,7 +1,7 @@
 - type: entity
   id: ConstructionBarricade
   parent: BaseStructure
-  suffix: THUNDER
+  suffix: "THUNDER, TW"
   name: construction barricade
   description: Wear your helmet!
   components:

@@ -3,6 +3,7 @@
   id: ClothingNeckCloakSyndicateCommandor
   name: commandor's cloak
   description: Commandor`s cloak.
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Clothing/Neck/Cloaks/commador.rsi
@@ -12,6 +13,7 @@
   id: ClothingNeckCloakSyndicateDirectorInterpharm
   name: interpharm director`s cloak
   description: Director`s cloak.
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Clothing/Neck/Cloaks/director_inter.rsi
@@ -21,6 +23,7 @@
   id: ClothingNeckCloakSyndicateDirectorSaibasan
   name: saibasan director`s cloak
   description: Director`s cloak.
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Clothing/Neck/Cloaks/director_saiba.rsi
@@ -30,6 +33,7 @@
   id: ClothingNeckCloakManager
   name: manager's cloak
   description: Manager`s cloak.
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Clothing/Neck/Cloaks/sm.rsi
@@ -39,6 +43,7 @@
   id: ClothingNeckRadCloak
   name: Antirad cloak
   description: Antirad cloak.. Or is it?
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Clothing/Neck/Cloaks/rad_cloak.rsi

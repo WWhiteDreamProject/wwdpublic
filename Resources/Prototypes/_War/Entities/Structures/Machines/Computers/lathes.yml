@@ -4,7 +4,7 @@
   id: Locator
   parent: BaseLatheLube
   name: space scanning station
-  suffix: NanoTrasen
+  suffix: "NanoTrasen, TW"
   description: Scans space around and gives information about found objects.
   components:
   - type: Sprite
@@ -30,7 +30,7 @@
   id: SecurityTechFabNanotrasen
   parent: BaseLatheLube
   name: security techfab
-  suffix: NanoTrasen
+  suffix: "NanoTrasen, TW"
   description: Prints military things.
   components:
   - type: Sprite
@@ -84,7 +84,7 @@
   id: WeaponTechFabNanotrasen
   parent: BaseLatheLube
   name: weapon techfab
-  suffix: NanoTrasen
+  suffix: "NanoTrasen, TW"
   description: Prints weapons.
   components:
   - type: Sprite
@@ -141,7 +141,7 @@
   id: SecurityTechFabSyndicate
   parent: BaseLatheLube
   name: security techfab
-  suffix: Syndicate
+  suffix: "Syndicate, TW"
   description: Prints military things.
   components:
   - type: Sprite
@@ -211,7 +211,7 @@
   id: WeaponTechFabSyndicate
   parent: BaseLatheLube
   name: weapon techfab
-  suffix: Syndicate
+  suffix: "Syndicate, TW"
   description: Prints weapons.
   components:
   - type: Sprite

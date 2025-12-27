@@ -1,7 +1,7 @@
 - type: entity
   id: DeadRatvar
   parent: BaseStructure
-  suffix: THUNDER
+  suffix: "THUNDER, TW"
   name: dead construct
   description: The corpse of an ancient construct made of brass and cogs. It still hums with tremendous power.
   components:

@@ -5,6 +5,7 @@
   description: Keeps the bad out and keeps the good in.
   placement:
     mode: SnapgridCenter
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Structures/Doors/Airlocks/highsec/s_highsec.rsi

@@ -3,6 +3,7 @@
   id: ClothingOuterArmorSyndicate
   name: syndicate vest
   description: A cheap syndicate vest, that provides little amount of protection.
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Clothing/OuterClothing/Armor/syndie_armor_0.rsi
@@ -23,6 +24,7 @@
   id: ClothingOuterArmorSyndicateV0.5
   name: syndicate armored vest
   description: A standard vest, that provides some protection against most types of damage.
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Vests/webvest.rsi
@@ -44,6 +46,7 @@
   id: ClothingOuterArmorSyndicateV1
   name: syndicate armor vest MARK-I
   description: A standard armored vest, that provides base protection against most types of damage.
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Clothing/OuterClothing/Armor/syndie_armor_1_1.rsi
@@ -64,6 +67,7 @@
   id: ClothingOuterArmorSyndicateV1.2
   name: syndicate armor vest MARK-IM
   description: Modernized MARK-I armored vest that provides decent protection against most types of damage.
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Clothing/OuterClothing/Armor/syndie_armor_1_2.rsi
@@ -84,6 +88,7 @@
   id: ClothingOuterArmorSyndicateV2
   name: syndicate armor vest MARK-II
   description: Newest iteration of syndicate armored vest, that provides very strong protection against most types of damage.
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Clothing/OuterClothing/Armor/syndie_armor_2.rsi
@@ -104,6 +109,7 @@
   id: ClothingOuterArmorSyndicateCommandor
   name: syndicate commandor armor vest
   description: Special version of syndicate armored vest for commandor, that provides very strong protection against most types of damage.
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Clothing/OuterClothing/Armor/syndie_armor_commander.rsi

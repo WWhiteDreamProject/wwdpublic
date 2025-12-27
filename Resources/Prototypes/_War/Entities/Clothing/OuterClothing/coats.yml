@@ -5,6 +5,7 @@
   id: ClothingOuterCoatLabBlackSyndicate
   name: black syndicate lab coat
   description: Black lab coat for syndicate
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Clothing/OuterClothing/Coats/labcoat_black.rsi
@@ -27,6 +28,7 @@
   id: ClothingOuterCoatSyndicateDirectorInterpharm
   name: director`s lab coat
   description: Director's lab coat to show off authority
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Clothing/OuterClothing/Coats/labcoat_director.rsi
@@ -44,6 +46,7 @@
   id: ClothingOuterCoatLabSyndicateMedical
   name: medical syndicate lab coat
   description: Stylish lab coat for a medical guru
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Clothing/OuterClothing/Coats/labcoat_syndiemed.rsi
@@ -66,6 +69,7 @@
   id: ClothingOuterCoatLabSyndicateScience
   name: science syndicate lab coat
   description: This lab coat proof you "qualified" specialist
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Clothing/OuterClothing/Coats/labcoat_syndiescience.rsi
@@ -87,6 +91,7 @@
   abstract: true
   parent: AllowSuitStorageClothing
   id: ClothingOuterArmorWardenNT
+  suffix: "TW"
   components:
   - type: Armor
     modifiers:
@@ -102,7 +107,7 @@
   parent: [ClothingOuterArmorWardenNT, ClothingOuterStorageBase]
   id: ClothingOuterCoatWardenNT
   name: warden's armored jacket
-  suffix: TOTAL WAR
+  suffix: "TOTAL WAR, TW"
   description: A sturdy, utilitarian jacket designed to protect a warden from any brig-bound threats, but new.
   components:
   - type: Sprite
@@ -117,6 +122,7 @@
   id: ClothingOuterCoatLabTech
   name: tech syndicate lab coat
   description: Say my name
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Clothing/OuterClothing/Coats/labcoat_tech.rsi

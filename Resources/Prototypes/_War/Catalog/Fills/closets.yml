@@ -2,7 +2,7 @@
 
 - type: entity
   id: ClosetL3SyndicateFilledBlack
-  suffix: Syndicate, Filled, Black
+  suffix: "Syndicate, Filled, Black, TW"
   parent: ClosetL3Syndicate
   components:
   - type: StorageFill
@@ -14,7 +14,7 @@
 
 - type: entity
   id: ClosetL3SyndicateFilledRed
-  suffix: Syndicate, Filled, Red
+  suffix: "Syndicate, Filled, Red, TW"
   parent: ClosetL3Syndicate
   components:
   - type: StorageFill
@@ -29,7 +29,7 @@
 - type: entity
   id: ClosetRadiationSuitSyndicateFilled
   parent: ClosetRadiationSuit
-  suffix: Syndicate, Filled
+  suffix: "Syndicate, Filled, TW"
   components:
   - type: StorageFill
     contents:
@@ -44,7 +44,7 @@
 - type: entity
   id: ClosetBombSyndicateFilled
   parent: ClosetBombSyndicate
-  suffix: Syndicate, Filled
+  suffix: "Syndicate, Filled, TW"
   components:
   - type: StorageFill
     contents:
@@ -62,7 +62,7 @@
 - type: entity
   id: ClosetFireSyndicateFilled
   parent: ClosetFire
-  suffix: Syndicate, Filled
+  suffix: "Syndicate, Filled, TW"
   components:
   - type: StorageFill
     contents:
@@ -80,7 +80,7 @@
   id: LockerSyndicateKitchenFilled
   name: syndicate closet
   parent: LockerSyndicate
-  suffix: Filled, Chef
+  suffix: "Filled, Chef, TW"
   components:
   - type: StorageFill
     contents:
@@ -108,7 +108,7 @@
   id: LockerSyndicateHydroponicsFilled
   name: syndicate closet
   parent: LockerSyndicate
-  suffix: Filled, Botanist
+  suffix: "Filled, Botanist, TW"
   components:
   - type: StorageFill
     contents:
@@ -135,7 +135,7 @@
   id: LockerSyndicateBartenderFilled
   name: syndicate closet
   parent: LockerSyndicate
-  suffix: Filled, Bartender
+  suffix: "Filled, Bartender, TW"
   components:
   - type: StorageFill
     contents:

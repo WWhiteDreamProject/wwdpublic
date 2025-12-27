@@ -1,7 +1,7 @@
 - type: entity
   parent: AirlockSyndicateBase
   id: AirlockSyndicateEngineeringBase
-  suffix: Engineering
+  suffix: "Engineering, TW"
   abstract: true
   components:
   - type: Sprite
@@ -14,7 +14,7 @@
 - type: entity
   parent: AirlockSyndicateBase
   id: AirlockSyndicateEngineeringInterBase
-  suffix: Engineering
+  suffix: "Engineering, TW"
   abstract: true
   components:
   - type: Sprite
@@ -27,7 +27,7 @@
 - type: entity
   parent: AirlockSyndicateBase
   id: AirlockSyndicateMedicalBase
-  suffix: Medical
+  suffix: "Medical, TW"
   abstract: true
   components:
   - type: Sprite
@@ -40,7 +40,7 @@
 - type: entity
   parent: AirlockSyndicateBase
   id: AirlockSyndicateMedicalInterBase
-  suffix: Medical
+  suffix: "Medical, TW"
   abstract: true
   components:
   - type: Sprite
@@ -53,7 +53,7 @@
 - type: entity
   parent: AirlockSyndicateBase
   id: AirlockSyndicateScienceBase
-  suffix: Science
+  suffix: "Science, TW"
   abstract: true
   components:
   - type: Sprite
@@ -66,7 +66,7 @@
 - type: entity
   parent: AirlockSyndicateBase
   id: AirlockSyndicateScienceInterBase
-  suffix: Science
+  suffix: "Science, TW"
   abstract: true
   components:
   - type: Sprite
@@ -79,7 +79,7 @@
 - type: entity
   parent: AirlockSyndicateBase
   id: AirlockSyndicateCommandBase
-  suffix: Command
+  suffix: "Command, TW"
   abstract: true
   components:
   - type: Sprite
@@ -94,7 +94,7 @@
 - type: entity
   parent: AirlockSyndicateBase
   id: AirlockSyndicateCommandInterBase
-  suffix: Command
+  suffix: "Command, TW"
   abstract: true
   components:
   - type: Sprite
@@ -109,7 +109,7 @@
 - type: entity
   parent: AirlockSyndicateBase
   id: AirlockSyndicateSecurityBase
-  suffix: Security
+  suffix: "Security, TW"
   abstract: true
   components:
   - type: Sprite
@@ -122,7 +122,7 @@
 - type: entity
   parent: AirlockSyndicateBase
   id: AirlockSyndicateSecurityInterBase
-  suffix: Security
+  suffix: "Security, TW"
   abstract: true
   components:
   - type: Sprite
@@ -135,7 +135,7 @@
 - type: entity
   parent: AirlockSyndicateBase
   id: AirlockSyndicatePrisonBase
-  suffix: Prison
+  suffix: "Prison, TW"
   abstract: true
   components:
   - type: Sprite
@@ -146,7 +146,7 @@
 - type: entity
   parent: AirlockSyndicateBase
   id: AirlockSyndicatePrisonInterBase
-  suffix: Prison
+  suffix: "Prison, TW"
   abstract: true
   components:
   - type: Sprite
@@ -157,7 +157,7 @@
 - type: entity
   parent: AirlockSyndicateBase
   id: AirlockSyndicateBasicBase
-  suffix: Basic
+  suffix: "Basic, TW"
   abstract: true
   components:
   - type: Sprite
@@ -166,7 +166,7 @@
 - type: entity
   parent: AirlockSyndicateBase
   id: AirlockSyndicateBasicInterBase
-  suffix: Basic
+  suffix: "Basic, TW"
   abstract: true
   components:
   - type: Sprite
@@ -177,6 +177,7 @@
   id: AirlockSyndicateMaintenanceBase
   name: maintenance access
   abstract: true
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Structures/Doors/Airlocks/Standard/s_maint.rsi
@@ -186,6 +187,7 @@
   id: AirlockSyndicateMaintenanceInterBase
   name: maintenance access
   abstract: true
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Structures/Doors/Airlocks/Standard/i_maint.rsi
@@ -194,6 +196,7 @@
   parent: AirlockSyndicateBase
   id: AirlockSyndicateMaint
   name: maintenance access
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Structures/Doors/Airlocks/Standard/s_maint.rsi
@@ -202,7 +205,7 @@
 - type: entity
   parent: AirlockSyndicateGlassBase
   id: AirlockSyndicateEngineeringGlassBase
-  suffix: Engineering
+  suffix: "Engineering, TW"
   abstract: true
   components:
   - type: Sprite
@@ -215,7 +218,7 @@
 - type: entity
   parent: AirlockSyndicateGlassBase
   id: AirlockSyndicateEngineeringInterGlassBase
-  suffix: Engineering
+  suffix: "Engineering, TW"
   abstract: true
   components:
   - type: Sprite
@@ -228,7 +231,7 @@
 - type: entity
   parent: AirlockSyndicateGlassBase
   id: AirlockSyndicateMaintenanceGlassBase
-  suffix: Maintenance
+  suffix: "Maintenance, TW"
   abstract: true
   components:
   - type: Sprite
@@ -237,7 +240,7 @@
 - type: entity
   parent: AirlockSyndicateGlassBase
   id: AirlockSyndicateMedicalGlassBase
-  suffix: Medical
+  suffix: "Medical, TW"
   abstract: true
   components:
   - type: Sprite
@@ -250,7 +253,7 @@
 - type: entity
   parent: AirlockSyndicateGlassBase
   id: AirlockSyndicateMedicalInterGlassBase
-  suffix: Medical
+  suffix: "Medical, TW"
   abstract: true
   components:
   - type: Sprite
@@ -263,7 +266,7 @@
 - type: entity
   parent: AirlockSyndicateGlassBase
   id: AirlockSyndicateCommandGlassBase
-  suffix: Command
+  suffix: "Command, TW"
   abstract: true
   components:
   - type: Sprite
@@ -278,7 +281,7 @@
 - type: entity
   parent: AirlockSyndicateGlassBase
   id: AirlockSyndicateCommandInterGlassBase
-  suffix: Command
+  suffix: "Command, TW"
   abstract: true
   components:
   - type: Sprite
@@ -293,7 +296,7 @@
 - type: entity
   parent: AirlockSyndicateGlassBase
   id: AirlockSyndicateScienceGlassBase
-  suffix: Science
+  suffix: "Science, TW"
   abstract: true
   components:
   - type: Sprite
@@ -306,7 +309,7 @@
 - type: entity
   parent: AirlockSyndicateGlassBase
   id: AirlockSyndicateScienceInterGlassBase
-  suffix: Science
+  suffix: "Science, TW"
   abstract: true
   components:
   - type: Sprite
@@ -319,7 +322,7 @@
 - type: entity
   parent: AirlockSyndicateGlassBase
   id: AirlockSyndicateSecurityGlassBase
-  suffix: Security
+  suffix: "Security, TW"
   abstract: true
   components:
   - type: Sprite
@@ -332,7 +335,7 @@
 - type: entity
   parent: AirlockSyndicateGlassBase
   id: AirlockSyndicateSecurityInterGlassBase
-  suffix: Security
+  suffix: "Security, TW"
   abstract: true
   components:
   - type: Sprite
@@ -345,7 +348,7 @@
 - type: entity
   parent: AirlockSyndicateGlassBase
   id: AirlockSyndicatePrisonGlassBase
-  suffix: Prison
+  suffix: "Prison, TW"
   abstract: true
   components:
   - type: Sprite
@@ -356,7 +359,7 @@
 - type: entity
   parent: AirlockSyndicateGlassBase
   id: AirlockSyndicatePrisonInterGlassBase
-  suffix: Prison
+  suffix: "Prison, TW"
   abstract: true
   components:
   - type: Sprite
@@ -367,7 +370,7 @@
 - type: entity
   parent: AirlockSyndicateGlassBase
   id: AirlockSyndicateBasicGlassBase
-  suffix: Basic
+  suffix: "Basic, TW"
   abstract: true
   components:
   - type: Sprite
@@ -376,7 +379,7 @@
 - type: entity
   parent: AirlockSyndicateGlassBase
   id: AirlockSyndicateBlackGlassBase
-  suffix: Basic
+  suffix: "Basic, TW"
   abstract: true
   components:
   - type: Sprite
@@ -385,7 +388,7 @@
 - type: entity
   parent: AirlockSyndicateGlassBase
   id: AirlockSyndicateRedGlassBase
-  suffix: Basic
+  suffix: "Basic, TW"
   abstract: true
   components:
   - type: Sprite
@@ -394,7 +397,7 @@
 - type: entity
   parent: AirlockSyndicateGlassBase
   id: AirlockSyndicateBasicInterGlassBase
-  suffix: Basic
+  suffix: "Basic, TW"
   abstract: true
   components:
   - type: Sprite
@@ -403,7 +406,7 @@
 - type: entity # FIX THIS SHIT
   parent: AirlockSyndicateGlassBase
   id: AirlockSyndicateMaintGlass
-  suffix: Maintenance
+  suffix: "Maintenance, TW"
   components:
   - type: Sprite
     sprite: _War/Structures/Doors/Airlocks/Glass/s_maint.rsi

@@ -3,6 +3,7 @@
   id: ClothingOuterVestSyndicatePilot
   name: pilot`s vest
   description: A pilot`s vest.
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Clothing/OuterClothing/Vests/syndie_pilot.rsi

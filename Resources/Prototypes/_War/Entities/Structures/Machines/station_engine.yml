@@ -5,6 +5,7 @@
   description: station engine
   placement:
     mode: AlignTileAny
+  suffix: "TW"
   components:
   - type: AmbientSound
     enabled: true

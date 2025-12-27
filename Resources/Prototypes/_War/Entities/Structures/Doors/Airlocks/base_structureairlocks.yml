@@ -4,6 +4,7 @@
   name: airlock
   description: It opens, it closes, and maybe crushes you.
 #  abstract: true
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Structures/Doors/Airlocks/Standard/s_basic.rsi
@@ -29,6 +30,7 @@
   id: AirlockRCDResistantSyndicate
   parent: AirlockSyndicateBase
   abstract: true
+  suffix: "TW"
   components:
   - type: RCDDeconstructable
     deconstructable: false
@@ -38,6 +40,7 @@
   id: AirlockSyndicateGlassBase
   name: glass airlock
   abstract: true
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Structures/Doors/Airlocks/Glass/s_basic.rsi

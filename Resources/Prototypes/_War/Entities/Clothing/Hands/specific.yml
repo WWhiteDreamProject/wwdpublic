@@ -3,7 +3,7 @@
   id: ClothingHandsCombatChameleon # protecting from electricity & heat
   name: combat gloves
   description: These tactical gloves are fireproof and shock resistant.
-  suffix: Chameleon
+  suffix: "Chameleon, TW"
   components:
   - type: Tag
     tags: [] # ignore "WhitelistChameleon" tag

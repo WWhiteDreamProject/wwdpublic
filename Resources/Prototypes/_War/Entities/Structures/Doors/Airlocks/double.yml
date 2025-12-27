@@ -2,6 +2,7 @@
   id: DoubleGlassAirlockBase
   parent: AirlockGlass
   name: double glass airlock
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Structures/Doors/Airlocks/Glass/i_basic_double.rsi
@@ -32,6 +33,7 @@
 - type: entity
   id: DoubleGlassAirlockScienceBase
   parent: [ DoubleGlassAirlockBase, AirlockSyndicateScienceInterGlassBase ]
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Structures/Doors/Airlocks/Glass/i_science_double.rsi
@@ -39,7 +41,7 @@
 - type: entity
   id: DoubleGlassAirlockMedicalBase
   parent: [ DoubleGlassAirlockBase, AirlockSyndicateMedicalInterBase ]
-  suffix: Cargo
+  suffix: "Cargo, TW"
   components:
   - type: Sprite
     sprite: _War/Structures/Doors/Airlocks/Glass/i_medical_double.rsi

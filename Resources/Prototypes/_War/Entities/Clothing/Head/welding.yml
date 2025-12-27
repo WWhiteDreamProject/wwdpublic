@@ -3,6 +3,7 @@
   id: ClothingHeadHatWeldingSyndicate
   name: welding mask
   description: A head-mounted face cover designed to protect the wearer completely from space-arc eye.
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Clothing/Head/Welding/syndie_welding.rsi

@@ -3,6 +3,7 @@
   id: CybersunReinforcedWindow
   name: cybersun reinforced window
   parent: Window
+  suffix: "TW"
   components:
   - type: Sprite
     drawdepth: WallTops
@@ -64,6 +65,7 @@
   id: InterpharmReinforcedWindow
   name: interpharm reinforced window
   parent: Window
+  suffix: "TW"
   components:
   - type: Sprite
     drawdepth: WallTops
@@ -124,7 +126,7 @@
 - type: entity
   parent: CybersunReinforcedWindow
   id: CybersunReinforcedWindowDiagonal
-  suffix: diagonal
+  suffix: "diagonal, TW"
   placement:
     mode: SnapgridCenter
     snap:
@@ -174,6 +176,7 @@
     mode: SnapgridCenter
     snap:
      - Window
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: Structures/Windows/directional.rsi
@@ -303,6 +306,7 @@
     mode: SnapgridCenter
     snap:
     - Window
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Structures/Windows/syndie_directional.rsi
@@ -364,6 +368,7 @@
     mode: SnapgridCenter
     snap:
     - Window
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Structures/Windows/syndie_directional.rsi

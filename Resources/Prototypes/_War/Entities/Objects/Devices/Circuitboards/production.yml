@@ -5,6 +5,7 @@
   parent: BaseMachineCircuitboard
   name: locator board
   description: A machine printed circuit board for an locator.
+  suffix: "TW"
   components:
   - type: Sprite
     state: generic
@@ -20,7 +21,7 @@
   id: SecurityTechFabNanotrasenCircuitboard
   parent: BaseMachineCircuitboard
   name: security techfab machine board
-  suffix: NanoTrasen
+  suffix: "NanoTrasen, TW"
   description: A machine printed circuit board for a weapon techfab.
   components:
   - type: Sprite
@@ -39,7 +40,7 @@
   id: WeaponTechFabNanotrasenCircuitboard
   parent: BaseMachineCircuitboard
   name: weapon techfab machine board
-  suffix: NanoTrasen
+  suffix: "NanoTrasen, TW"
   description: A machine printed circuit board for a weapon techfab.
   components:
   - type: Sprite
@@ -60,7 +61,7 @@
   id: SecurityTechFabSyndicateCircuitboard
   parent: BaseMachineCircuitboard
   name: security techfab machine board
-  suffix: Syndicate
+  suffix: "Syndicate, TW"
   description: A machine printed circuit board for a security techfab.
   components:
   - type: Sprite
@@ -79,7 +80,7 @@
   id: WeaponTechFabSyndicateCircuitboard
   parent: BaseMachineCircuitboard
   name: weapon techfab machine board
-  suffix: Syndicate
+  suffix: "Syndicate, TW"
   description: A machine printed circuit board for a weapon techfab.
   components:
   - type: Sprite

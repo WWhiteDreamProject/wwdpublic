@@ -4,6 +4,7 @@
   id: LockerSyndicateDirector
   parent: LockerBaseSecure
   name: director's locker
+  suffix: "TW"
   components:
   - type: Appearance
   - type: Sprite
@@ -22,6 +23,7 @@
   id: LockerSyndicateCommandor
   parent: LockerBaseSecure
   name: commandor's locker
+  suffix: "TW"
   components:
   - type: Appearance
   - type: Sprite
@@ -40,6 +42,7 @@
   id: LockerSyndicateManager
   parent: LockerBaseSecure
   name: manager`s locker
+  suffix: "TW"
   components:
   - type: Appearance
   - type: Sprite
@@ -58,6 +61,7 @@
   id: LockerSyndicateEngineer
   parent: LockerBaseSecure
   name: syndicate engineer`s locker
+  suffix: "TW"
   components:
   - type: Appearance
   - type: Sprite
@@ -74,6 +78,7 @@
   id: LockerSyndicateMiner
   parent: LockerBaseSecure
   name: syndicate miner`s locker
+  suffix: "TW"
   components:
   - type: Appearance
   - type: Sprite
@@ -92,6 +97,7 @@
   id: LockerSyndicateMedical
   parent: LockerBaseSecure
   name: syndicate medical locker
+  suffix: "TW"
   components:
   - type: Appearance
   - type: Sprite
@@ -110,6 +116,7 @@
   id: LockerSyndicateScience
   parent: LockerBaseSecure
   name: syndicate science locker
+  suffix: "TW"
   components:
   - type: Appearance
   - type: Sprite
@@ -128,6 +135,7 @@
   id: LockerSyndicateArmory
   parent: LockerBaseSecure
   name: syndicate armory locker
+  suffix: "TW"
   components:
   - type: Sprite
     noRot: true
@@ -146,6 +154,7 @@
   id: LockerSyndicateSecurity
   parent: LockerBaseSecure
   name: syndicate military locker
+  suffix: "TW"
   components:
   - type: Sprite
     noRot: true

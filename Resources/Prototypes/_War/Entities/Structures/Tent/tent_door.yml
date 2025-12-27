@@ -3,6 +3,7 @@
   name: tent door
   parent: BaseMaterialDoor
   description: An inflated membrane. Now with a door. Do not puncture.
+  suffix: "TW"
   components:
   - type: Clickable
   - type: InteractionOutline

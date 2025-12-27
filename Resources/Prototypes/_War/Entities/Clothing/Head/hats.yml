@@ -5,6 +5,7 @@
   id: ClothingHeadBeretSyndicateCommandor
   name: commandor`s beret
   description: Beret.
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Clothing/Head/Hats/beret_commandor.rsi
@@ -16,6 +17,7 @@
   id: ClothingHeadBeretSyndicateMedical
   name: medical beret
   description: Beret.
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Clothing/Head/Hats/beret_syndiemed.rsi
@@ -27,6 +29,7 @@
   id: ClothingHeadBeretNTWarden
   name: warden`s beret
   description: Beret.
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Clothing/Head/Hats/beret_wardenNT.rsi
@@ -40,6 +43,7 @@
   id: ClothingHeadCapSyndicateDirectorSaibasan
   name: saibasan director`s cap
   description: Cap.
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Clothing/Head/Hats/directorcap_saiba.rsi
@@ -51,6 +55,7 @@
   id: ClothingHeadCapSyndicateDirectorInterpharm
   name: interpharm director`s cap
   description: Cap.
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Clothing/Head/Hats/directorcap_inter.rsi
@@ -64,6 +69,7 @@
   id: ClothingHeadPilotHeadset
   name: pilot`s headset
   description: Pilot headset.
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Clothing/Head/Hats/pilotheadset_basic.rsi
@@ -75,6 +81,7 @@
   id: ClothingHeadPilotHeadsetNT
   name: nanotrasen pilot`s headset
   description: Pilot headset.
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Clothing/Head/Hats/pilotheadset_NT.rsi
@@ -86,6 +93,7 @@
   id: ClothingHeadPilotHeadsetUSSP
   name: ussp pilot`s headset
   description: Pilot headset.
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Clothing/Head/Hats/pilotheadset_SSSP.rsi
@@ -97,6 +105,7 @@
   id: ClothingHeadPilotHeadsetSyndicate
   name: syndicate pilot`s headset
   description: Pilot headset.
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Clothing/Head/Hats/pilotheadset_synd.rsi
@@ -110,6 +119,7 @@
   id: ClothingHeadSyndicateChef
   name: chef`s hat
   description: Chef`s hat.
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Clothing/Head/Hats/syndie_chefhat.rsi
@@ -121,6 +131,7 @@
   id: ClothingHeadSyndicateTophat
   name: tophat
   description: Не забыть добавить описание.. блять # забывать не надо
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Clothing/Head/Hats/syndie_tophat.rsi

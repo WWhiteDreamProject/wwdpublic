@@ -3,7 +3,7 @@
 - type: entity
   id: ClothingBeltSyndicateToolbeltFilled
   parent: ClothingBeltSyndicateToolbelt
-  suffix: Filled
+  suffix: "Filled, TW"
   components:
   - type: StorageFill
     contents:

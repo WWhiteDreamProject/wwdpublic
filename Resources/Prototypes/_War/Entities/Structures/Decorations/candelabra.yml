@@ -1,7 +1,7 @@
 - type: entity
   id: BaseCandelabra
   parent: BaseStructure
-  suffix: THUNDER
+  suffix: "THUNDER, TW"
   name: candelabra
   description: Just don't try swinging from it!
   placement:
@@ -33,7 +33,7 @@
 - type: entity
   id: CandelabraLit
   parent: BaseCandelabra
-  suffix: THUNDER
+  suffix: "THUNDER, TW"
   name: candelabra
   description: Just don't try swinging from it!
   components:

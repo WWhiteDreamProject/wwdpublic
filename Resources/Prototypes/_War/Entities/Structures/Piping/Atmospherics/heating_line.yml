@@ -4,6 +4,7 @@
   parent: BaseStructure
   name: heating line base
   abstract: true
+  suffix: "TW"
   components:
   - type: InteractionOutline
   - type: Sprite
@@ -39,7 +40,7 @@
   id: HeatingLineStraight
   name: heating line
   description: Pipe insulation made of dense fabric.
-  suffix: Straight
+  suffix: "Straight, TW"
   components:
   - type: Icon
     sprite: _War/Structures/Piping/Atmospherics/heating_line.rsi
@@ -64,7 +65,7 @@
   id: HeatingLineCorner
   name: heating line
   description: Pipe insulation made of dense fabric.
-  suffix: Corner
+  suffix: "Corner, TW"
   components:
   - type: Icon
     sprite: _War/Structures/Piping/Atmospherics/heating_line.rsi
@@ -99,7 +100,7 @@
   id: HeatingLineEnd
   name: heating line
   description: Pipe insulation made of dense fabric.
-  suffix: End
+  suffix: "End, TW"
   components:
   - type: Icon
     sprite: _War/Structures/Piping/Atmospherics/heating_line.rsi
@@ -124,7 +125,7 @@
   id: HeatingLineFourway
   name: heating line
   description: Pipe insulation made of dense fabric.
-  suffix: Fourway
+  suffix: "Fourway, TW"
   components:
   - type: Icon
     sprite: _War/Structures/Piping/Atmospherics/heating_line.rsi
@@ -158,7 +159,7 @@
   id: HeatingLineTJunction
   name: heating line
   description: Pipe insulation made of dense fabric.
-  suffix: TJunction
+  suffix: "TJunction, TW"
   components:
   - type: Icon
     sprite: _War/Structures/Piping/Atmospherics/heating_line.rsi

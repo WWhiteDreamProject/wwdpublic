@@ -4,6 +4,7 @@
   id: ClothingHeadHardsuitWithLightBase
   name: base hardsuit helmet with light
   categories: [ HideSpawnMenu ]
+  suffix: "TW"
   components:
   - type: Sprite
     layers:

@@ -3,7 +3,7 @@
   id: SpawnPointJobBaseSyndicate
   parent: MarkerBase
   abstract: true
-  suffix: Job Spawn
+  suffix: "Job Spawn, TW"
   components:
   - type: SpawnPoint
     spawn_type: Job
@@ -15,6 +15,7 @@
   id: SpawnPointSyndicateDisposal
   parent: SpawnPointJobBaseSyndicate
   name: disposal
+  suffix: "TW"
   components:
   - type: SpawnPoint
     job_id: Disposal
@@ -27,6 +28,7 @@
   id: SpawnPointSyndicateLoader
   parent: SpawnPointJobBaseSyndicate
   name: loader
+  suffix: "TW"
   components:
   - type: SpawnPoint
     job_id: Loader
@@ -39,6 +41,7 @@
   id: SpawnPointSyndicateSupplyManager
   parent: SpawnPointJobBaseSyndicate
   name: supplymanager
+  suffix: "TW"
   components:
   - type: SpawnPoint
     job_id: SupplyManager
@@ -51,6 +54,7 @@
   id: SpawnPointSyndicateDirectorOfSaibasan
   parent: SpawnPointJobBaseSyndicate
   name: directorofsaibasan
+  suffix: "TW"
   components:
   - type: SpawnPoint
     job_id: DirectorOfSaibasan
@@ -63,6 +67,7 @@
   id: SpawnPointSyndicateAtmosphericEngineer
   parent: SpawnPointJobBaseSyndicate
   name: atmosphericengineer
+  suffix: "TW"
   components:
   - type: SpawnPoint
     job_id: AtmosphericEngineer
@@ -75,6 +80,7 @@
   id: SpawnPointSyndicateParamedic
   parent: SpawnPointJobBaseSyndicate
   name: syndicateparamedic
+  suffix: "TW"
   components:
   - type: SpawnPoint
     job_id: SyndicateParamedic
@@ -87,6 +93,7 @@
   id: SpawnPointSyndicateFighter
   parent: SpawnPointJobBaseSyndicate
   name: fighter
+  suffix: "TW"
   components:
   - type: SpawnPoint
     job_id: Fighter
@@ -99,6 +106,7 @@
   id: SpawnPointSyndicatePilot
   parent: SpawnPointJobBaseSyndicate
   name: syndicatepilot
+  suffix: "TW"
   components:
   - type: SpawnPoint
     job_id: SyndicatePilot
@@ -111,6 +119,7 @@
   id: SpawnPointSyndicateCommander
   parent: SpawnPointJobBaseSyndicate
   name: commander
+  suffix: "TW"
   components:
   - type: SpawnPoint
     job_id: Commander
@@ -123,6 +132,7 @@
   id: SpawnPointSyndicateRecruit
   parent: SpawnPointJobBaseSyndicate
   name: recruit
+  suffix: "TW"
   components:
   - type: SpawnPoint
     job_id: Recruit
@@ -135,6 +145,7 @@
   id: SpawnPointSyndicateSpy
   parent: SpawnPointJobBaseSyndicate
   name: syndicatespy
+  suffix: "TW"
   components:
   - type: SpawnPoint
     job_id: SyndicateSpy
@@ -149,6 +160,7 @@
   id: SpawnPointSyndicateScientist
   parent: SpawnPointJobBaseSyndicate
   name: syndicatescientist
+  suffix: "TW"
   components:
   - type: SpawnPoint
     job_id: SyndicateScientist
@@ -161,6 +173,7 @@
   id: SpawnPointDirectorOfInterpharm
   parent: SpawnPointJobBaseSyndicate
   name: directorofinterpharm
+  suffix: "TW"
   components:
   - type: SpawnPoint
     job_id: DirectorOfInterpharm
@@ -173,6 +186,7 @@
   id: SpawnPointSyndicateBartender
   parent: SpawnPointJobBaseSyndicate
   name: syndicateBartender
+  suffix: "TW"
   components:
   - type: SpawnPoint
     job_id: SyndicateBartender
@@ -185,6 +199,7 @@
   id: SpawnPointSyndicateBotanist
   parent: SpawnPointJobBaseSyndicate
   name: syndicatebotanist
+  suffix: "TW"
   components:
   - type: SpawnPoint
     job_id: SyndicateBotanist
@@ -197,6 +212,7 @@
   id: SpawnPointSyndicateChef
   parent: SpawnPointJobBaseSyndicate
   name: syndicatechef
+  suffix: "TW"
   components:
   - type: SpawnPoint
     job_id: SyndicateChef

@@ -3,6 +3,7 @@
   id: SyndicateReconnaissanceShuttleConsoleCircuitboard
   name: syndicate reconnaissance shuttle console board
   description: A computer printed circuit board for a syndicate shuttle console.
+  suffix: "TW"
   components:
   - type: ComputerBoard
     prototype: ComputerShuttleSyndicateReconnaissance
@@ -12,6 +13,7 @@
   id: SyndicateCargoShuttleConsoleCircuitboard
   name: syndicate cargo shuttle console board
   description: A computer printed circuit board for a syndicate shuttle console.
+  suffix: "TW"
   components:
   - type: ComputerBoard
     prototype: ComputerShuttleSyndicateCargo
@@ -21,6 +23,7 @@
   id: NanoTrasenShuttleConsoleCircuitboard
   name: shuttle console board
   description: A computer printed circuit board for a shuttle console.
+  suffix: "TW"
   components:
   - type: ComputerBoard
     prototype: ComputerShuttleNanoTrasen

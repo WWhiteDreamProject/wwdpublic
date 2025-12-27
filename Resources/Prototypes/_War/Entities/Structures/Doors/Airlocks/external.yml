@@ -1,7 +1,7 @@
 - type: entity
   parent: AirlockRCDResistantSyndicate
   id: AirlockSyndicateExternalBase
-  suffix: External
+  suffix: "External, TW"
   abstract: true
   description: It opens, it closes, it might crush you, and there might be only space behind it. Has to be manually activated.
   components:
@@ -25,7 +25,7 @@
 - type: entity
   parent: AirlockSyndicateExternalBase
   id: AirlockSyndicateExternalGlassBase
-  suffix: Glass, External
+  suffix: "Glass, External, TW"
   abstract: true
   components:
   - type: Door

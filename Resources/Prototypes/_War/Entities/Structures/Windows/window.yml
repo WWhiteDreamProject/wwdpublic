@@ -8,6 +8,7 @@
     mode: SnapgridCenter
     snap:
     - Window
+  suffix: "TW"
   components:
   - type: MeleeSound
     soundGroups:
@@ -105,6 +106,7 @@
     mode: SnapgridCenter
     snap:
     - Window
+  suffix: "TW"
   components:
   - type: MeleeSound
     soundGroups:
@@ -202,6 +204,7 @@
     mode: SnapgridCenter
     snap:
     - Window
+  suffix: "TW"
   components:
   - type: MeleeSound
     soundGroups:
@@ -293,7 +296,7 @@
 - type: entity
   parent: CybersunWindow
   id: CybersunWindowDiagonal
-  suffix: diagonal
+  suffix: "diagonal, TW"
   placement:
     mode: SnapgridCenter
     snap:
@@ -355,6 +358,7 @@
     mode: SnapgridCenter
     snap:
     - Window
+  suffix: "TW"
   components:
   - type: WallMount
     arc: 360 # interact despite grilles
@@ -448,6 +452,7 @@
     mode: SnapgridCenter
     snap:
     - Window
+  suffix: "TW"
   components:
   - type: WallMount
     arc: 360 # interact despite grilles
@@ -545,6 +550,7 @@
     mode: SnapgridCenter
     snap:
     - Window
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: Structures/Windows/directional.rsi
@@ -563,6 +569,7 @@
     mode: SnapgridCenter
     snap:
     - Window
+  suffix: "TW"
   components:
   - type: WallMount
     arc: 360 # interact despite grilles
@@ -657,6 +664,7 @@
     mode: SnapgridCenter
     snap:
     - Window
+  suffix: "TW"
   components:
   - type: WallMount
     arc: 360 # interact despite grilles

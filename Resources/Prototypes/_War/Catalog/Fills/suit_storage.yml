@@ -2,7 +2,7 @@
 - type: entity
   id: SuitStorageSyndicateCommandor
   parent: SuitStorageBase
-  suffix: Syndicate Commandor
+  suffix: "Syndicate Commandor, TW"
   components:
   - type: StorageFill
     contents:
@@ -16,7 +16,7 @@
 - type: entity
   id: SuitStorageSyndicateDirector
   parent: SuitStorageBase
-  suffix: Syndicate Director
+  suffix: "Syndicate Director, TW"
   components:
   - type: StorageFill
     contents:
@@ -30,7 +30,7 @@
 - type: entity
   id: SuitStorageSyndicateOld
   parent: SuitStorageBase
-  suffix: Syndicate Old
+  suffix: "Syndicate Old, TW"
   components:
   - type: StorageFill
     contents:
@@ -44,7 +44,7 @@
 - type: entity
   id: SuitStorageSyndicateParamed
   parent: SuitStorageBase
-  suffix: Syndicate Paramed
+  suffix: "Syndicate Paramed, TW"
   components:
   - type: StorageFill
     contents:
@@ -58,7 +58,7 @@
 - type: entity
   id: ClothingOuterHardsuitSyndicateSalvage
   parent: SuitStorageBase
-  suffix: Syndicate Salvage
+  suffix: "Syndicate Salvage, TW"
   components:
   - type: StorageFill
     contents:
@@ -72,7 +72,7 @@
 - type: entity
   id: ClothingOuterHardsuitSyndicateEngineering
   parent: SuitStorageBase
-  suffix: Syndicate Engineering
+  suffix: "Syndicate Engineering, TW"
   components:
   - type: StorageFill
     contents:
@@ -86,7 +86,7 @@
 - type: entity
   id: ClothingOuterHardsuitSyndicateManager
   parent: SuitStorageBase
-  suffix: Syndicate Manager
+  suffix: "Syndicate Manager, TW"
   components:
   - type: StorageFill
     contents:

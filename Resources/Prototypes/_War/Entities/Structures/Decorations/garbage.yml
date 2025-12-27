@@ -1,7 +1,7 @@
 - type: entity
   id: Garbage
   parent: BaseItem
-  suffix: THUNDER
+  suffix: "THUNDER, TW"
   name: garbage
   description: It's crawling with maggots!
   components:

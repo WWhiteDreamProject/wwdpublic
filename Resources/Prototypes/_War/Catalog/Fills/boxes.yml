@@ -2,7 +2,7 @@
 
 - type: entity
   name: coordinate disks box
-  suffix: Saibasan
+  suffix: "Saibasan, TW"
   parent: BoxCardboard
   id: BoxCoordinateDisksSaibasan
   description: This box is filled with disks.
@@ -18,7 +18,7 @@
 
 - type: entity
   name: coordinate disks box
-  suffix: InterPharm
+  suffix: "InterPharm, TW"
   parent: BoxCardboard
   id: BoxCoordinateDisksInterPharm
   description: This box is filled with disks.
@@ -34,7 +34,7 @@
 
 - type: entity
   name: coordinate disks box
-  suffix: NT
+  suffix: "NT, TW"
   parent: BoxCardboard
   id: BoxCoordinateDisksNanoTrasenStation
   description: This box is filled with disks.

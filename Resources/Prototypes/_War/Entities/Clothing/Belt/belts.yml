@@ -4,6 +4,7 @@
   id: ClothingBeltSyndicateToolbelt
   name: syndicate toolbelt
   description: Unique and versatile belt, can hold gear.
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Clothing/Belt/syndie_utility.rsi
@@ -15,6 +16,7 @@
   id: ClothingBeltSyndicateWebbing
   name: syndicate webbing
   description: Unique and versatile chest rig, can hold gear.
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Clothing/Belt/syndie_webbing.rsi

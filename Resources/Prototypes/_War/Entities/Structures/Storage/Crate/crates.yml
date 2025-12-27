@@ -4,6 +4,7 @@
   parent: CrateBaseSecure
   id: CrateSyndicateLocked
   name: secure syndicate crate
+  suffix: "TW"
   components:
   - type: Icon
     sprite: _War/Structures/Storage/Crates/syndicate_general_locked.rsi
@@ -16,6 +17,7 @@
   parent: CrateBaseSecure
   id: CrateSyndicateCommand
   name: syndicate command crate
+  suffix: "TW"
   components:
   - type: Icon
     sprite: _War/Structures/Storage/Crates/syndicate_command.rsi
@@ -28,6 +30,7 @@
   parent: CrateBaseSecure
   id: CrateSyndicateMedsci
   name: syndicate medical crate
+  suffix: "TW"
   components:
   - type: Icon
     sprite: _War/Structures/Storage/Crates/syndicate_medsci.rsi
@@ -40,6 +43,7 @@
   parent: CrateBaseSecure
   id: CrateSyndicateMilitary
   name: syndicate military crate
+  suffix: "TW"
   components:
   - type: Icon
     sprite: _War/Structures/Storage/Crates/syndicate_military.rsi
@@ -52,6 +56,7 @@
   parent: CrateBaseSecure
   id: CrateSyndicateSupplies
   name: syndicate supplies crate
+  suffix: "TW"
   components:
   - type: Icon
     sprite: _War/Structures/Storage/Crates/syndicate_supplies.rsi
@@ -66,6 +71,7 @@
   parent: [StructureWheeled, CrateBaseWeldable]
   id: CrateSyndicateCartUnlocked
   name: syndicate cart
+  suffix: "TW"
   components:
   - type: Icon
     sprite: _War/Structures/Storage/Crates/syndicate_cart_general_unlocked.rsi
@@ -83,6 +89,7 @@
   parent: [StructureWheeled, CrateBaseSecure]
   id: CrateSyndicateCartLocked
   name: secure syndicate cart
+  suffix: "TW"
   components:
   - type: Icon
     sprite: _War/Structures/Storage/Crates/syndicate_cart_general_locked.rsi
@@ -105,6 +112,7 @@
   parent: [StructureWheeled, CrateBaseSecure]
   id: CrateSyndicateCartCommand
   name: syndicate command cart
+  suffix: "TW"
   components:
   - type: Icon
     sprite: _War/Structures/Storage/Crates/syndicate_cart_command.rsi
@@ -127,6 +135,7 @@
   parent: [StructureWheeled, CrateBaseSecure]
   id: CrateSyndicateCartMedsci
   name: syndicate medical cart
+  suffix: "TW"
   components:
   - type: Icon
     sprite: _War/Structures/Storage/Crates/syndicate_cart_medsci.rsi
@@ -149,6 +158,7 @@
   parent: [StructureWheeled, CrateBaseSecure]
   id: CrateSyndicateCartMilitary
   name: syndicate military cart
+  suffix: "TW"
   components:
   - type: Icon
     sprite: _War/Structures/Storage/Crates/syndicate_cart_military.rsi
@@ -171,6 +181,7 @@
   parent: [StructureWheeled, CrateBaseSecure]
   id: CrateSyndicateCartSupplies
   name: syndicate supplies cart
+  suffix: "TW"
   components:
   - type: Icon
     sprite: _War/Structures/Storage/Crates/syndicate_cart_supplies.rsi

@@ -1,7 +1,7 @@
 - type: entity
   id: InvisibleLight
   name: invisible light
-  suffix: Goida
+  suffix: "Goida, TW"
   components:
   - type: Transform
     anchored: true

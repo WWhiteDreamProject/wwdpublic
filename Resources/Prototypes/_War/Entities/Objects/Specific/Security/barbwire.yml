@@ -3,6 +3,7 @@
   parent: BaseItem
   name: barbwire
   description: You'd better be careful with her
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Objects/Specific/Security/barbwire.rsi
@@ -23,7 +24,7 @@
 - type: entity
   parent: barbwire
   id: barbwire10
-  suffix: 10
+  suffix: "10, TW"
   components:
   - type: Stack
     count: 10
@@ -31,7 +32,7 @@
 - type: entity
   parent: barbwire
   id: barbwire30
-  suffix: 30
+  suffix: "30, TW"
   components:
   - type: Stack
     count: 30

@@ -3,7 +3,7 @@
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsSyndicateAuthority
-  suffix: Syndicate, Director, Locked
+  suffix: "Syndicate, Director, Locked, TW"
   components:
   - type: AccessReader
     access: [["AuthoritySyndicate"]]
@@ -11,7 +11,7 @@
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsSyndicateBridge
-  suffix: Syndicate, Bridge, Locked
+  suffix: "Syndicate, Bridge, Locked, TW"
   components:
     - type: AccessReader
       access: [["BridgeSyndicate"]]
@@ -21,7 +21,7 @@
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsSyndicateFood
-  suffix: Syndicate, Food, Locked
+  suffix: "Syndicate, Food, Locked, TW"
   components:
   - type: AccessReader
     access: [["FoodSyndicate"]]
@@ -29,7 +29,7 @@
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsSyndicateBar
-  suffix: Syndicate, Bar, Locked
+  suffix: "Syndicate, Bar, Locked, TW"
   components:
   - type: AccessReader
     access: [["BarSyndicate"]]
@@ -39,7 +39,7 @@
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsSyndicateTechnical
-  suffix: Syndicate, Technical, Locked
+  suffix: "Syndicate, Technical, Locked, TW"
   components:
   - type: AccessReader
     access: [["TechnicalSyndicate"]]
@@ -47,7 +47,7 @@
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsSyndicateAtmos
-  suffix: Syndicate, Atmos, Locked
+  suffix: "Syndicate, Atmos, Locked, TW"
   components:
     - type: AccessReader
       access: [["AtmosSyndicate"]]
@@ -55,7 +55,7 @@
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsSyndicatePilot
-  suffix: Syndicate, Pilot, Locked
+  suffix: "Syndicate, Pilot, Locked, TW"
   components:
   - type: AccessReader
     access: [["ShuttleSyndicate"]]
@@ -63,7 +63,7 @@
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsSyndicateShuttle
-  suffix: Syndicate, Shuttle, Locked
+  suffix: "Syndicate, Shuttle, Locked, TW"
   components:
     - type: AccessReader
       access: [["GatewaysSyndicate"]]
@@ -71,7 +71,7 @@
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsSyndicateSupplies
-  suffix: Syndicate, Supplies, Locked
+  suffix: "Syndicate, Supplies, Locked, TW"
   components:
     - type: AccessReader
       access: [["SuppliesSyndicate"]]
@@ -79,7 +79,7 @@
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsSyndicateMiners
-  suffix: Syndicate, Miners, Locked
+  suffix: "Syndicate, Miners, Locked, TW"
   components:
   - type: AccessReader
     access: [["MinersSyndicate"]]
@@ -89,7 +89,7 @@
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsSyndicateResearch
-  suffix: Syndicate, Research, Locked
+  suffix: "Syndicate, Research, Locked, TW"
   components:
   - type: AccessReader
     access: [["ResearchSyndicate"]]
@@ -97,7 +97,7 @@
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsSyndicateMedbay
-  suffix: Syndicate, Medbay, Locked
+  suffix: "Syndicate, Medbay, Locked, TW"
   components:
   - type: AccessReader
     access: [["MedbaySyndicate"]]
@@ -105,7 +105,7 @@
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsSyndicateChemistry
-  suffix: Syndicate, Chemistry, Locked
+  suffix: "Syndicate, Chemistry, Locked, TW"
   components:
     - type: AccessReader
       access: [["ChemistrySyndicate"]]
@@ -115,7 +115,7 @@
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsSyndicateArmory
-  suffix: Syndicate, Armory, Locked
+  suffix: "Syndicate, Armory, Locked, TW"
   components:
   - type: AccessReader
     access: [["ArmorySyndicate"]]
@@ -123,7 +123,7 @@
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsSyndicateBarracks
-  suffix: Syndicate, Barracks, Locked
+  suffix: "Syndicate, Barracks, Locked, TW"
   components:
   - type: AccessReader
     access: [["BarracksSyndicate"]]
@@ -133,7 +133,7 @@
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsSyndicateGateways
-  suffix: Syndicate, Gateways, Locked
+  suffix: "Syndicate, Gateways, Locked, TW"
   components:
   - type: AccessReader
     access: [["GatewaysSyndicate"]]
@@ -141,7 +141,7 @@
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsSyndicateMaintenance
-  suffix: Syndicate, Maintenance, Locked
+  suffix: "Syndicate, Maintenance, Locked, TW"
   components:
   - type: AccessReader
     access: [["MaintenanceSyndicate"]]
@@ -149,7 +149,7 @@
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsSyndicateGeneral
-  suffix: Syndicate, General, Locked
+  suffix: "Syndicate, General, Locked, TW"
   components:
   - type: AccessReader
     access: [["GeneralSyndicate"]]
@@ -157,7 +157,7 @@
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsPilotNT
-  suffix: NT, Pilot, Locked
+  suffix: "NT, Pilot, Locked, TW"
   components:
   - type: AccessReader
     access: [["PilotNT"]]

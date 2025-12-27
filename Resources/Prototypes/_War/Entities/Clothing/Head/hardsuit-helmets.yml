@@ -5,6 +5,7 @@
   id: ClothingHeadHelmetHardsuitSyndicateCommandor
   name: syndicate commandor helmet
   description: Dont forget add description....fuck.
+  suffix: "TW"
   components:
   - type: BreathMask
   - type: Sprite
@@ -45,6 +46,7 @@
   id: ClothingHeadHelmetHardsuitSyndicateDirector
   name: syndicate director helmet
   description: Dont forget add description....fuck..
+  suffix: "TW"
   components:
   - type: BreathMask
   - type: Sprite
@@ -90,6 +92,7 @@
   id: ClothingHeadHelmetHardsuitSyndicateOld
   name: old blood-red hardsuit helmet
   description: Dont forget add description....fuck.
+  suffix: "TW"
   components:
   - type: BreathMask
   - type: Sprite
@@ -130,6 +133,7 @@
   id: ClothingHeadHelmetHardsuitSyndicateParamed
   name: paramed syndicate hardsuit helmet
   description: Dont forget add description....fuck.
+  suffix: "TW"
   components:
   - type: BreathMask
   - type: Sprite
@@ -170,6 +174,7 @@
   id: ClothingHeadHelmetHardsuitSyndicateSalvage
   name: salvage hardsuit helmet
   description: Protects from something.
+  suffix: "TW"
   components:
   - type: BreathMask
   - type: Sprite
@@ -199,6 +204,7 @@
   id: ClothingHeadHelmetHardsuitSyndicateEngineering
   name: syndicate engineering hardsuit helmet
   description: An engineering hardsuit helmet designed for working in low-pressure, high radioactive environments.
+  suffix: "TW"
   components:
   - type: BreathMask
   - type: Sprite
@@ -231,6 +237,7 @@
   id: ClothingHeadHelmetHardsuitSyndicateManager
   name: syndicate manager helmet
   description: Dont forget add description....
+  suffix: "TW"
   components:
   - type: BreathMask
   - type: Sprite

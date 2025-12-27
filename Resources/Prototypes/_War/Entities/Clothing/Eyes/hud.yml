@@ -3,6 +3,7 @@
   id: ClothingEyesHudSyndicateMedical
   name: syndicate medical hud
   description: A heads-up display that scans the humanoids in view and provides accurate data about their health status.
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Clothing/Eyes/Hud/syndmed.rsi
@@ -14,6 +15,7 @@
   id: ClothingEyesEyepatchHudMedicalSyndicate
   name: syndicate medical hud eyepatch
   description: A heads-up display that scans the humanoids in view and provides accurate data about their health status.
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Clothing/Eyes/Hud/syndmedpatch.rsi

@@ -3,6 +3,7 @@
   id: ClothingOuterBioSyndicateBlack
   name: black bio suit
   description: A suit that protects against biological contamination.
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Clothing/OuterClothing/Bio/syndie_black.rsi
@@ -14,6 +15,7 @@
   id: ClothingOuterBioSyndicateRed
   name: red bio suit
   description: A suit that protects against biological contamination.
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Clothing/OuterClothing/Bio/syndie_red.rsi

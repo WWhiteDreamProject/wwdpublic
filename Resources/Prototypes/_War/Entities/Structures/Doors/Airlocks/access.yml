@@ -3,7 +3,7 @@
 - type: entity
   parent: AirlockSyndicateCommandBase
   id: AirlockSyndicateDirector
-  suffix: Syndicate, Director, Locked
+  suffix: "Syndicate, Director, Locked, TW"
   components:
   - type: ContainerFill
     containers:
@@ -12,7 +12,7 @@
 - type: entity
   parent: AirlockSyndicateCommandBase
   id: AirlockSyndicateCommand
-  suffix: Syndicate, Bridge, Locked
+  suffix: "Syndicate, Bridge, Locked, TW"
   components:
   - type: ContainerFill
     containers:
@@ -21,7 +21,7 @@
 - type: entity
   parent: AirlockSyndicateCommandInterBase
   id: AirlockSyndicateCommandInterPharm
-  suffix: Syndicate, Bridge, InterPharm, Locked
+  suffix: "Syndicate, Bridge, InterPharm, Locked, TW"
   components:
   - type: ContainerFill
     containers:
@@ -30,7 +30,7 @@
 - type: entity
   parent: AirlockSyndicateEngineeringBase
   id: AirlockSyndicateManager
-  suffix: Syndicate, SupplyManager, Locked
+  suffix: "Syndicate, SupplyManager, Locked, TW"
   components:
   - type: ContainerFill
     containers:
@@ -39,7 +39,7 @@
 - type: entity
   parent: AirlockSyndicateSecurityBase
   id: AirlockSyndicateCommander
-  suffix: Syndicate, Commander, Locked
+  suffix: "Syndicate, Commander, Locked, TW"
   components:
   - type: ContainerFill
     containers:
@@ -50,7 +50,7 @@
 - type: entity
   parent: AirlockSyndicateBase
   id: AirlockSyndicateFood
-  suffix: Syndicate, Food, Locked
+  suffix: "Syndicate, Food, Locked, TW"
   components:
   - type: ContainerFill
     containers:
@@ -59,7 +59,7 @@
 - type: entity
   parent: AirlockSyndicateBase
   id: AirlockSyndicateBar
-  suffix: Syndicate, Bar, Locked
+  suffix: "Syndicate, Bar, Locked, TW"
   components:
   - type: ContainerFill
     containers:
@@ -70,7 +70,7 @@
 - type: entity
   parent: AirlockSyndicateEngineeringBase
   id: AirlockSyndicateEngineering
-  suffix: Syndicate, Technical, Locked
+  suffix: "Syndicate, Technical, Locked, TW"
   components:
   - type: ContainerFill
     containers:
@@ -79,7 +79,7 @@
 - type: entity
   parent: AirlockSyndicateEngineeringInterBase
   id: AirlockSyndicateEngineeringInterPharm
-  suffix: Syndicate, Technical, InterPharm, Locked
+  suffix: "Syndicate, Technical, InterPharm, Locked, TW"
   components:
   - type: ContainerFill
     containers:
@@ -88,7 +88,7 @@
 - type: entity
   parent: AirlockSyndicateEngineeringBase
   id: AirlockSyndicateAtmos
-  suffix: Syndicate, Atmos, Locked
+  suffix: "Syndicate, Atmos, Locked, TW"
   components:
   - type: ContainerFill
     containers:
@@ -97,7 +97,7 @@
 - type: entity
   parent: AirlockSyndicateEngineeringBase
   id: AirlockSyndicateCargo
-  suffix: Syndicate, Supplies, Locked
+  suffix: "Syndicate, Supplies, Locked, TW"
   components:
   - type: ContainerFill
     containers:
@@ -106,7 +106,7 @@
 - type: entity
   parent: AirlockSyndicateEngineeringBase
   id: AirlockSyndicateMiners
-  suffix: Syndicate, Miners, Locked
+  suffix: "Syndicate, Miners, Locked, TW"
   components:
   - type: ContainerFill
     containers:
@@ -117,7 +117,7 @@
 - type: entity
   parent: AirlockSyndicateSecurityBase
   id: AirlockSyndicatePilot
-  suffix: Syndicate, Pilot, Locked
+  suffix: "Syndicate, Pilot, Locked, TW"
   components:
   - type: ContainerFill
     containers:
@@ -126,7 +126,7 @@
 - type: entity
   parent: AirlockSyndicateExternalBase
   id: AirlockSyndicateShuttle
-  suffix: Syndicate, Shuttle, Locked
+  suffix: "Syndicate, Shuttle, Locked, TW"
   components:
   - type: Sprite
     sprite: Structures/Doors/Airlocks/Standard/shuttle_syndicate.rsi
@@ -137,6 +137,7 @@
 - type: entity
   parent: AirlockShuttleSyndicate
   id: AirlockSyndicateDocking
+  suffix: "TW"
   components:
   - type: ContainerFill
     containers:
@@ -147,7 +148,7 @@
 - type: entity
   parent: AirlockSyndicate
   id: AirlockSyndicateScience
-  suffix: Syndicate, Research, Locked
+  suffix: "Syndicate, Research, Locked, TW"
   components:
   - type: ContainerFill
     containers:
@@ -156,7 +157,7 @@
 - type: entity
   parent: AirlockSyndicate
   id: AirlockSyndicateScienceInterPharm
-  suffix: Syndicate, Research, InterPharm, Locked
+  suffix: "Syndicate, Research, InterPharm, Locked, TW"
   components:
   - type: ContainerFill
     containers:
@@ -165,7 +166,7 @@
 - type: entity
   parent: AirlockSyndicateMedicalBase
   id: AirlockSyndicateMedical
-  suffix: Syndicate, Medbay, Locked
+  suffix: "Syndicate, Medbay, Locked, TW"
   components:
   - type: ContainerFill
     containers:
@@ -174,7 +175,7 @@
 - type: entity
   parent: AirlockSyndicateMedicalInterBase
   id: AirlockSyndicateMedicalInter
-  suffix: Syndicate, Medbay, InterPharm, Locked
+  suffix: "Syndicate, Medbay, InterPharm, Locked, TW"
   components:
   - type: ContainerFill
     containers:
@@ -183,7 +184,7 @@
 - type: entity
   parent: AirlockSyndicateMedicalBase
   id: AirlockSyndicateChemistry
-  suffix: Syndicate, Chemistry, Locked
+  suffix: "Syndicate, Chemistry, Locked, TW"
   components:
   - type: ContainerFill
     containers:
@@ -194,7 +195,7 @@
 - type: entity
   parent: AirlockSyndicateSecurityBase
   id: AirlockSyndicateArmory
-  suffix: Syndicate, Armory, Locked
+  suffix: "Syndicate, Armory, Locked, TW"
   components:
   - type: ContainerFill
     containers:
@@ -205,7 +206,7 @@
 - type: entity
   parent: AirlockSyndicateSecurityBase
   id: AirlockSyndicateSecurity
-  suffix: Syndicate, Barracks, Locked
+  suffix: "Syndicate, Barracks, Locked, TW"
   components:
   - type: ContainerFill
     containers:
@@ -214,7 +215,7 @@
 - type: entity
   parent: AirlockSyndicateSecurityInterBase
   id: AirlockSyndicateSecurityInterPharm
-  suffix: Syndicate, Barracks, InterPharm, Locked
+  suffix: "Syndicate, Barracks, InterPharm, Locked, TW"
   components:
   - type: ContainerFill
     containers:
@@ -223,7 +224,7 @@
 - type: entity
   parent: AirlockSyndicatePrisonBase
   id: AirlockSyndicatePrison
-  suffix: Syndicate, Prison, Locked
+  suffix: "Syndicate, Prison, Locked, TW"
   components:
   - type: ContainerFill
     containers:
@@ -232,7 +233,7 @@
 - type: entity
   parent: AirlockSyndicatePrisonInterBase
   id: AirlockSyndicatePrisonInterPharm
-  suffix: Syndicate, Prison, InterPharm, Locked
+  suffix: "Syndicate, Prison, InterPharm, Locked, TW"
   components:
   - type: ContainerFill
     containers:
@@ -243,7 +244,7 @@
 - type: entity
   parent: AirlockSyndicateExternalBase
   id: AirlockSyndicateExternalInterPharm
-  suffix: Syndicate, InterPharm, Gateways, Locked
+  suffix: "Syndicate, InterPharm, Gateways, Locked, TW"
   components:
   - type: ContainerFill
     containers:
@@ -252,7 +253,7 @@
 - type: entity
   parent: AirlockSyndicateExternalBase
   id: AirlockSyndicateExternalSaibasan
-  suffix: Syndicate, Saibasan, Gateways, Locked
+  suffix: "Syndicate, Saibasan, Gateways, Locked, TW"
   components:
   - type: Sprite
     sprite: Structures/Doors/Airlocks/Standard/shuttle_syndicate.rsi
@@ -263,7 +264,7 @@
 - type: entity
   parent: AirlockSyndicateMaintenanceBase
   id: AirlockSyndicateMaintenance
-  suffix: Syndicate, Maintenance, Locked
+  suffix: "Syndicate, Maintenance, Locked, TW"
   components:
   - type: ContainerFill
     containers:
@@ -272,7 +273,7 @@
 - type: entity
   parent: AirlockSyndicateMaintenanceInterBase
   id: AirlockSyndicateMaintenanceInterPharm
-  suffix: Syndicate, Maintenance, InterPharm, Locked
+  suffix: "Syndicate, Maintenance, InterPharm, Locked, TW"
   components:
   - type: ContainerFill
     containers:
@@ -281,7 +282,7 @@
 - type: entity
   parent: AirlockSyndicateBase
   id: AirlockSyndicateGeneral
-  suffix: Syndicate, General, Locked
+  suffix: "Syndicate, General, Locked, TW"
   components:
   - type: ContainerFill
     containers:
@@ -290,7 +291,7 @@
 - type: entity
   parent: AirlockSecurityLocked
   id: AirlockNTPilot
-  suffix: Pilot
+  suffix: "Pilot, TW"
   components:
   - type: ContainerFill
     containers:
@@ -311,7 +312,7 @@
 - type: entity
   parent: AirlockSyndicateCommandGlassBase
   id: AirlockSyndicateDirectorGlass
-  suffix: Syndicate, Director, Locked
+  suffix: "Syndicate, Director, Locked, TW"
   components:
   - type: ContainerFill
     containers:
@@ -320,7 +321,7 @@
 - type: entity
   parent: AirlockSyndicateCommandGlassBase
   id: AirlockSyndicateCommandGlass
-  suffix: Syndicate, Bridge, Glass, Locked
+  suffix: "Syndicate, Bridge, Glass, Locked, TW"
   components:
   - type: ContainerFill
     containers:
@@ -329,7 +330,7 @@
 - type: entity
   parent: AirlockSyndicateCommandInterGlassBase
   id: AirlockSyndicateCommandInterPharmGlass
-  suffix: Syndicate, Bridge, InterPharm, Glass, Locked
+  suffix: "Syndicate, Bridge, InterPharm, Glass, Locked, TW"
   components:
   - type: ContainerFill
     containers:
@@ -338,7 +339,7 @@
 - type: entity
   parent: AirlockSyndicateEngineeringGlassBase
   id: AirlockSyndicateManagerGlass
-  suffix: Syndicate, Manager, Glass, Locked
+  suffix: "Syndicate, Manager, Glass, Locked, TW"
   components:
   - type: ContainerFill
     containers:
@@ -347,7 +348,7 @@
 - type: entity
   parent: AirlockSyndicateSecurityGlassBase
   id: AirlockSyndicateCommanderGlass
-  suffix: Syndicate, Commander, Glass, Locked
+  suffix: "Syndicate, Commander, Glass, Locked, TW"
   components:
   - type: ContainerFill
     containers:
@@ -358,7 +359,7 @@
 - type: entity
   parent: AirlockSyndicateGlassBase
   id: AirlockSyndicateFoodGlass
-  suffix: Syndicate, Food, Glass, Locked
+  suffix: "Syndicate, Food, Glass, Locked, TW"
   components:
   - type: ContainerFill
     containers:
@@ -367,7 +368,7 @@
 - type: entity
   parent: AirlockSyndicateGlassBase
   id: AirlockSyndicateBarGlass
-  suffix: Syndicate, Bar, Glass, Locked
+  suffix: "Syndicate, Bar, Glass, Locked, TW"
   components:
   - type: ContainerFill
     containers:
@@ -378,7 +379,7 @@
 - type: entity
   parent: AirlockSyndicateEngineeringGlassBase
   id: AirlockSyndicateEngineeringGlass
-  suffix: Syndicate, Technical, Glass, Locked
+  suffix: "Syndicate, Technical, Glass, Locked, TW"
   components:
   - type: ContainerFill
     containers:
@@ -387,7 +388,7 @@
 - type: entity
   parent: AirlockSyndicateEngineeringInterGlassBase
   id: AirlockSyndicateEngineeringInterPharmGlass
-  suffix: Syndicate, Technical, Glass, InterPharm, Locked
+  suffix: "Syndicate, Technical, Glass, InterPharm, Locked, TW"
   components:
   - type: ContainerFill
     containers:
@@ -396,7 +397,7 @@
 - type: entity
   parent: AirlockSyndicateEngineeringGlassBase
   id: AirlockSyndicateAtmosGlass
-  suffix: Syndicate, Atmos, Glass, Locked
+  suffix: "Syndicate, Atmos, Glass, Locked, TW"
   components:
   - type: ContainerFill
     containers:
@@ -405,7 +406,7 @@
 - type: entity
   parent: AirlockSyndicateEngineeringGlassBase
   id: AirlockSyndicateCargoGlass
-  suffix: Syndicate, Supplies, Glass, Locked
+  suffix: "Syndicate, Supplies, Glass, Locked, TW"
   components:
   - type: ContainerFill
     containers:
@@ -414,7 +415,7 @@
 - type: entity
   parent: AirlockSyndicateEngineeringGlassBase
   id: AirlockSyndicateMinersGlass
-  suffix: Syndicate, Miners, Glass, Locked
+  suffix: "Syndicate, Miners, Glass, Locked, TW"
   components:
   - type: ContainerFill
     containers:
@@ -425,7 +426,7 @@
 - type: entity
   parent: AirlockSyndicateSecurityGlassBase
   id: AirlockSyndicatePilotGlass
-  suffix: Syndicate, Pilot, Locked
+  suffix: "Syndicate, Pilot, Locked, TW"
   components:
   - type: ContainerFill
     containers:
@@ -434,7 +435,7 @@
 - type: entity
   parent: AirlockSyndicateExternalGlassBase
   id: AirlockSyndicateShuttleGlass
-  suffix: Syndicate, Shuttle, Locked
+  suffix: "Syndicate, Shuttle, Locked, TW"
   components:
   - type: Sprite
     sprite: Structures/Doors/Airlocks/Glass/shuttle_syndicate.rsi
@@ -445,6 +446,7 @@
 - type: entity
   parent: AirlockGlassShuttleSyndicate
   id: AirlockSyndicateDockingGlass
+  suffix: "TW"
   components:
   - type: ContainerFill
     containers:
@@ -455,7 +457,7 @@
 - type: entity
   parent: AirlockSyndicateGlass
   id: AirlockSyndicateScienceGlass
-  suffix: Syndicate, Research, Glass, Locked
+  suffix: "Syndicate, Research, Glass, Locked, TW"
   components:
   - type: ContainerFill
     containers:
@@ -464,7 +466,7 @@
 - type: entity
   parent: AirlockSyndicateScienceInterGlassBase
   id: AirlockSyndicateScienceInterPharmGlass
-  suffix: Syndicate, Research, InterPharm, Glass, Locked
+  suffix: "Syndicate, Research, InterPharm, Glass, Locked, TW"
   components:
   - type: ContainerFill
     containers:
@@ -473,7 +475,7 @@
 - type: entity
   parent: AirlockSyndicateMedicalGlassBase
   id: AirlockSyndicateMedicalGlass
-  suffix: Syndicate, Medbay, Glass, Locked
+  suffix: "Syndicate, Medbay, Glass, Locked, TW"
   components:
   - type: ContainerFill
     containers:
@@ -482,7 +484,7 @@
 - type: entity
   parent: AirlockSyndicateMedicalInterGlassBase
   id: AirlockSyndicateMedicalInterPharmGlass
-  suffix: Syndicate, Medbay, InterPharm, Glass, Locked
+  suffix: "Syndicate, Medbay, InterPharm, Glass, Locked, TW"
   components:
   - type: ContainerFill
     containers:
@@ -491,7 +493,7 @@
 - type: entity
   parent: AirlockSyndicateMedicalGlassBase
   id: AirlockSyndicateChemistryGlass
-  suffix: Syndicate, Chemistry, Glass, Locked
+  suffix: "Syndicate, Chemistry, Glass, Locked, TW"
   components:
   - type: ContainerFill
     containers:
@@ -502,7 +504,7 @@
 - type: entity
   parent: AirlockSyndicateSecurityGlassBase
   id: AirlockSyndicateArmoryGlass
-  suffix: Syndicate, Armory, Glass, Locked
+  suffix: "Syndicate, Armory, Glass, Locked, TW"
   components:
   - type: ContainerFill
     containers:
@@ -513,7 +515,7 @@
 - type: entity
   parent: AirlockSyndicateSecurityGlassBase
   id: AirlockSyndicateSecurityGlass
-  suffix: Syndicate, Barracks, Glass, Locked
+  suffix: "Syndicate, Barracks, Glass, Locked, TW"
   components:
   - type: ContainerFill
     containers:
@@ -522,7 +524,7 @@
 - type: entity
   parent: AirlockSyndicateSecurityInterGlassBase
   id: AirlockSyndicateSecurityInterPharmGlass
-  suffix: Syndicate, Barracks, InterPharm, Glass, Locked
+  suffix: "Syndicate, Barracks, InterPharm, Glass, Locked, TW"
   components:
   - type: ContainerFill
     containers:
@@ -531,7 +533,7 @@
 - type: entity
   parent: AirlockSyndicatePrisonGlassBase
   id: AirlockSyndicatePrisonGlass
-  suffix: Syndicate, Prison, Glass, Locked
+  suffix: "Syndicate, Prison, Glass, Locked, TW"
   components:
   - type: ContainerFill
     containers:
@@ -540,7 +542,7 @@
 - type: entity
   parent: AirlockSyndicatePrisonInterGlassBase
   id: AirlockSyndicatePrisonInterPharmGlass
-  suffix: Syndicate, Prison, InterPharm, Glass, Locked
+  suffix: "Syndicate, Prison, InterPharm, Glass, Locked, TW"
   components:
   - type: ContainerFill
     containers:
@@ -551,7 +553,7 @@
 - type: entity
   parent: AirlockSyndicateExternalGlassBase
   id: AirlockSyndicateExternalInterPharmGlass
-  suffix: Syndicate, InterPharm, Gateways, Glass, Locked
+  suffix: "Syndicate, InterPharm, Gateways, Glass, Locked, TW"
   components:
   - type: ContainerFill
     containers:
@@ -560,7 +562,7 @@
 - type: entity
   parent: AirlockSyndicateExternalGlassBase
   id: AirlockSyndicateExternalSaibasanGlass
-  suffix: Syndicate, Saibasan, Gateways, Glass, Locked
+  suffix: "Syndicate, Saibasan, Gateways, Glass, Locked, TW"
   components:
   - type: Sprite
     sprite: Structures/Doors/Airlocks/Glass/shuttle_syndicate.rsi
@@ -571,7 +573,7 @@
 - type: entity
   parent: AirlockSyndicateMaintenanceGlassBase
   id: AirlockSyndicateMaintenanceGlass
-  suffix: Syndicate, Maintenance, Glass, Locked
+  suffix: "Syndicate, Maintenance, Glass, Locked, TW"
   components:
   - type: ContainerFill
     containers:
@@ -580,7 +582,7 @@
 - type: entity
   parent: AirlockSyndicateGlassBase
   id: AirlockSyndicateGeneralGlass
-  suffix: Syndicate, General, Glass, Locked
+  suffix: "Syndicate, General, Glass, Locked, TW"
   components:
   - type: ContainerFill
     containers:
@@ -589,7 +591,7 @@
 - type: entity
   parent: AirlockSecurityGlassLocked
   id: AirlockNTPilotGlass
-  suffix: Pilot
+  suffix: "Pilot, TW"
   components:
   - type: ContainerFill
     containers:

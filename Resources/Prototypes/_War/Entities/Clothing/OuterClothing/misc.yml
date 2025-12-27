@@ -3,6 +3,7 @@
   id: ClothingOuterApronSyndicateBotanist
   name: syndicate botanist`s apron
   description: Dirty apron for botanist`s.
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Clothing/OuterClothing/Misc/syndie_apronbotanist.rsi
@@ -14,6 +15,7 @@
   id: ClothingOuterApronSyndicateChef
   name: syndicate chef`s apron
   description: Chef`s apron covered with oil.
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Clothing/OuterClothing/Misc/syndie_apronchef.rsi

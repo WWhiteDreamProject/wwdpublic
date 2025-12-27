@@ -2,7 +2,7 @@
   id: RandomBarricadeSpawner
   name: Спавнер случайной баррикады
   parent: MarkerBase
-  suffix: Goida
+  suffix: "Goida, TW"
   components:
   - type: Sprite
     layers:

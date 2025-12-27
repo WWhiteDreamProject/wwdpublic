@@ -5,6 +5,7 @@
   id: ComputerShuttleSyndicateReconnaissance
   name: syndicate reconnaissance shuttle console
   description: Used to pilot a syndicate reconnaissance shuttle.
+  suffix: "TW"
   components:
   - type: Sprite
     layers:
@@ -36,6 +37,7 @@
   id: ComputerShuttleSyndicateCargo
   name: syndicate cargo shuttle console
   description: Used to pilot a syndicate cargo shuttle.
+  suffix: "TW"
   components:
   - type: Sprite
     layers:
@@ -67,6 +69,7 @@
   id: ComputerShuttleNanoTrasen
   name: nanotrasen shuttle console
   description: Used to pilot a NanoTrasen shuttle.
+  suffix: "TW"
   components:
   - type: Sprite
     layers:
@@ -98,7 +101,7 @@
   parent: BaseComputer
   id: ComputerResearchAndDevelopmentSyndicate
   name: R&D computer
-  suffix: Syndicate
+  suffix: "Syndicate, TW"
   description: A computer used to interface with R&D tools.
   components:
   - type: Sprite
@@ -142,6 +145,7 @@
   id: SyndicateComputerCommsStation
   name: syndicate communications computer
   description: A computer capable of remotely hacking into the station's communications systems. Using this to make an announcement will alert the station to your presence.
+  suffix: "TW"
   components:
   - type: Sprite
     layers:

@@ -2,7 +2,7 @@
 - type: entity
   id: ClosetL3Syndicate
   parent: ClosetL3
-  suffix: Syndicate
+  suffix: "Syndicate, TW"
   components:
   - type: Appearance
   - type: Sprite
@@ -18,7 +18,7 @@
 - type: entity
   id: ClosetBombSyndicate
   parent: ClosetBomb
-  suffix: Syndicate
+  suffix: "Syndicate, TW"
   components:
   - type: Appearance
   - type: Sprite

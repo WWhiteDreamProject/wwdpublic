@@ -3,6 +3,7 @@
   parent: BaseStructure
   name: barbwire
   description: Likely to find another way
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Structures/Specific/barbwire.rsi

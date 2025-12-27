@@ -7,6 +7,7 @@
   id: GeyserBase
   placement:
     mode: SnapgridCenter
+  suffix: "TW"
   components:
   - type: Clickable
   - type: Physics
@@ -29,6 +30,7 @@
   name: geyser
   parent: GeyserBase
   id: GeyserWaterVaporSmall
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Structures/Piping/Atmospherics/miners_watervapor.rsi
@@ -42,6 +44,7 @@
   name: geyser
   parent: GeyserWaterVaporSmall
   id: GeyserWaterVaporMedium
+  suffix: "TW"
   components:
   - type: GasMiner
     maxExternalPressure: 2500
@@ -50,6 +53,7 @@
   name: geyser
   parent: GeyserWaterVaporSmall
   id: GeyserWaterVaporLarge
+  suffix: "TW"
   components:
   - type: GasMiner
     maxExternalPressure: 4000
@@ -60,6 +64,7 @@
   name: plasma geyser
   parent: GeyserBase
   id: GeyserPlasmaSmall
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Structures/Piping/Atmospherics/miners_plasma.rsi
@@ -73,6 +78,7 @@
   name: plasma geyser
   parent: GeyserPlasmaSmall
   id: GeyserPlasmaMedium
+  suffix: "TW"
   components:
   - type: GasMiner
     maxExternalPressure: 2500
@@ -81,6 +87,7 @@
   name: plasma geyser
   parent: GeyserPlasmaSmall
   id: GeyserPlasmaLarge
+  suffix: "TW"
   components:
   - type: GasMiner
     maxExternalPressure: 4000

@@ -2,6 +2,7 @@
   parent: BaseWall
   id: CybersunBaseWall
   name: Cybersun wall # solid
+  suffix: "TW"
   components:
   - type: Tag
     tags:
@@ -53,6 +54,7 @@
   parent: BaseWall
   id: CybersunWallReinforced
   name: cybersun reinforced wall
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Structures/Walls/solid_cybersun.rsi
@@ -117,6 +119,7 @@
   parent: BaseWall
   id: InterPharmBaseWall
   name: Interpharm wall # solid
+  suffix: "TW"
   components:
   - type: Tag
     tags:
@@ -168,6 +171,7 @@
   parent: BaseWall
   id: InterPharmWhiteBaseWall
   name: InterPharm White BaseWall
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Structures/Walls/s_interior_white.rsi
@@ -206,6 +210,7 @@
   parent: BaseWall
   id: InterpharmWallReinforced
   name: Interpharm reinforced wall
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Structures/Walls/solid_interpharm.rsi
@@ -270,7 +275,7 @@
   parent: WallShuttleDiagonal
   id: CybersunWallSolidDiagonal
   name: solid wall
-  suffix: diagonal
+  suffix: "diagonal, TW"
   placement:
     mode: SnapgridCenter
     snap:
@@ -292,7 +297,7 @@
   parent: WallShuttleDiagonal
   id: CybersunReinforcedWallSolidDiagonal
   name: Reinforced wall #solid
-  suffix: diagonal
+  suffix: "diagonal, TW"
   placement:
     mode: SnapgridCenter
     snap:
@@ -320,7 +325,7 @@
 - type: entity
   id: BlackWallShuttleDiagonal
   name: black shuttle wall
-  suffix: Diagonal
+  suffix: "Diagonal, TW"
   description: Keeps the air in and the greytide out.
   placement:
     mode: SnapgridCenter
@@ -398,7 +403,7 @@
   parent: WallReinforced
   id: BlackWallShuttle
   name: black shuttle wall
-  suffix: Reinforced, Exterior
+  suffix: "Reinforced, Exterior, TW"
   components:
   - type: Sprite
     sprite: _War/Structures/Walls/black_shuttle.rsi
@@ -430,7 +435,7 @@
   parent: WallReinforced
   id: RedWallShuttle
   name: Red shuttle wall
-  suffix: Reinforced, Exterior
+  suffix: "Reinforced, Exterior, TW"
   components:
   - type: Sprite
     sprite: _War/Structures/Walls/red_shuttle.rsi
@@ -459,7 +464,7 @@
 - type: entity
   id: RedWallShuttleDiagonal
   name: red shuttle wall
-  suffix: Diagonal
+  suffix: "Diagonal, TW"
   description: Keeps the air in and the greytide out.
   placement:
     mode: SnapgridCenter
@@ -539,7 +544,7 @@
   parent: WallReinforced
   id: CargoWallShuttle
   name: cargo shuttle wall
-  suffix: Reinforced, Exterior, Shuttle
+  suffix: "Reinforced, Exterior, Shuttle, TW"
   components:
   - type: Sprite
     sprite: _War/Structures/Walls/shuttle_cargo.rsi
@@ -568,7 +573,7 @@
 - type: entity
   id: CargoWallShuttleDiagonal
   name: cargo shuttle wall
-  suffix: Diagonal
+  suffix: "Diagonal, TW"
   description: Keeps the air in and the greytide out.
   placement:
     mode: SnapgridCenter
@@ -646,7 +651,7 @@
   parent: WallReinforced
   id: SalvageWallShuttle
   name: salvage shuttle wall
-  suffix: Reinforced, Exterior, Shuttle
+  suffix: "Reinforced, Exterior, Shuttle, TW"
   components:
   - type: Sprite
     sprite: _War/Structures/Walls/shuttle_salvage.rsi
@@ -675,7 +680,7 @@
 - type: entity
   id: SalvageWallShuttleDiagonal
   name: salvage shuttle wall
-  suffix: Diagonal
+  suffix: "Diagonal, TW"
   description: Keeps the air in and the greytide out.
   placement:
     mode: SnapgridCenter
@@ -754,7 +759,7 @@
 - type: entity
   id: InterpharmWallReinforcedDiagonal
   name: interpharm reinforced wall
-  suffix: Diagonal
+  suffix: "Diagonal, TW"
   description: Keeps the air in and the greytide out.
   placement:
     mode: SnapgridCenter
@@ -830,7 +835,7 @@
 - type: entity
   id: InterPharmBaseWallDiagonal
   name: interpharm base wall
-  suffix: Diagonal
+  suffix: "Diagonal, TW"
   description: Keeps the air in and the greytide out.
   placement:
     mode: SnapgridCenter

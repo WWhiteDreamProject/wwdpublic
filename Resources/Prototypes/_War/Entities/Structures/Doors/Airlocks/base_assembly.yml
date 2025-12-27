@@ -3,6 +3,7 @@
   id: AirlockAssemblySyndicateBase
   name: airlock assembly
   description: It opens, it closes, and maybe crushes you.
+  suffix: "TW"
   components:
   - type: Clickable
   - type: InteractionOutline

@@ -2,7 +2,7 @@
   parent: CrateSyndicateMedsci
   id: CrateSyndicateMedsciFilled
   name: syndicate medical crate
-  suffix: Filled
+  suffix: "Filled, TW"
   components:
   - type: StorageFill
     contents:
@@ -30,7 +30,7 @@
   parent: CrateSyndicateCartMedsci
   id: CrateSyndicateCartMedsciFilled
   name: syndicate medical cart
-  suffix: Filled
+  suffix: "Filled, TW"
   components:
   - type: StorageFill
     contents:

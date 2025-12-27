@@ -3,7 +3,7 @@
   id: ClothingMasksBalaclavaSyndicateBrown
   name: brown balaclava
   description: I never really was on your side.
-  suffix: Chameleon
+  suffix: "Chameleon, TW"
   components:
   - type: Tag
     tags: [] # ignore "WhitelistChameleon" tag
@@ -24,7 +24,7 @@
   id: ClothingMaskBalaclavaSyndicateBlack
   name: black balaclava
   description: I never really was on your side.
-  suffix: Chameleon
+  suffix: "Chameleon, TW"
   components:
   - type: Tag
     tags: [] # ignore "WhitelistChameleon" tag

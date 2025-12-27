@@ -3,6 +3,7 @@
   id: PlushieRecruiterPencil
   name: Огрызок карандаша первого рекрутера
   description: Полусъеденный карандаш, которым подписали первый контракт сотрудника NanoTrasen. Почему-то он никогда не стачивается.
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Objects/Accessories/recruiter_pencil.rsi

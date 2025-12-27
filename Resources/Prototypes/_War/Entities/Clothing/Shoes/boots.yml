@@ -5,6 +5,7 @@
   id: ClothingShoesBootsWorkSyndicate
   name: syndicate workboots
   description: Engineering lace-up work boots for the especially blue-collar.
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Clothing/Shoes/Boots/s_workboots.rsi
@@ -17,6 +18,7 @@
   id: ClothingShoesBootsWorkSyndicateRed
   name: syndicate red workboots
   description: Engineering lace-up work boots for the especially blue-collar.
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Clothing/Shoes/Boots/s_workboots_red.rsi
@@ -31,6 +33,7 @@
   id: ClothingShoesBootsCombatSyndicatePilot
   name: pilot boots
   description: Robust pilot boots for pilots scenarios or pilots situations. All pilot, all the time.
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Clothing/Shoes/Boots/s_pilotboots.rsi
@@ -45,6 +48,7 @@
   id: ClothingShoesShoesSyndicate
   name: syndicate leather shoes
   description: Syndicate shoes.
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Clothing/Shoes/Boots/leather_red.rsi
@@ -59,6 +63,7 @@
   id: ClothingShoesShoesBlackRedSyndicate
   name: syndicate black-red shoes
   description: Syndicate black-red shoes.
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Clothing/Shoes/Color/black_red.rsi
@@ -71,6 +76,7 @@
   id: ClothingShoesShoesWhiteRedSyndicate
   name: syndicate white-red shoes
   description: Syndicate white-red shoes.
+  suffix: "TW"
   components:
   - type: Sprite
     sprite: _War/Clothing/Shoes/Color/white_red.rsi

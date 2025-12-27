@@ -1,7 +1,7 @@
 - type: entity
   id: CeilingFan
   parent: BaseStructure
-  suffix: THUNDER
+  suffix: "THUNDER, TW"
   name: ceiling fan
   description: An antiquated method of cooling the room, but it sure has a charm to it.
   placement:

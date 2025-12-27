@@ -2,6 +2,7 @@
   categories: [ HideSpawnMenu ]
   parent: ClothingBackpackSyndicate
   id: ClothingBackpackSyndicateFilled
+  suffix: "TW"
   components:
   - type: StorageFill
     contents:
@@ -11,6 +12,7 @@
   categories: [ HideSpawnMenu ]
   parent: ClothingBackpackDuffelSyndicate
   id: ClothingBackpackDuffelSyndicateFilled
+  suffix: "TW"
   components:
   - type: StorageFill
     contents:
