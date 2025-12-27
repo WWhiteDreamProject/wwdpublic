@@ -3,12 +3,12 @@ ent-PlayerSiliconBase = { "" }
     .suffix = { "" }
 
 
-ent-PlayerStationAiEmpty = Ядро ИИ
+ent-PlayerStationAiEmpty = ядро ИИ
     .desc = Новейший искусственный интеллект. У него есть панель, которую можно открутить для вскрытия экрана ломом.
     .suffix = { "" }
 
 
-ent-PlayerStationAi = Ядро ИИ
+ent-PlayerStationAi = ядро ИИ
     .desc = Новейший искусственный интеллект. У него есть панель, которую можно открутить для вскрытия экрана ломом.
     .suffix = { "Спавн работы" }
 
@@ -16,6 +16,6 @@ ent-PlayerBorgBattery = { ent-BorgChassisSelectable }
     .desc = { ent-BorgChassisSelectable.desc }
     .suffix = Батарея
 
-ent-Intellicard = Интелликарта
+ent-Intellicard = интелликарта
     .desc = Запоминающее устройство для ИИ.
     .suffix = { "" }
