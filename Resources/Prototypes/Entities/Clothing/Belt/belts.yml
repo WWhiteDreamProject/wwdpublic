@@ -585,7 +585,7 @@
         insertVerbText: sheath-insert-verb
         ejectVerbText: sheath-eject-verb
         insertSound: /Audio/SimpleStation14/Items/Handling/sword_sheath.ogg
-        ejectSound: /Audio/SimpleStation14/Items/Handling/sword_unsheath.ogg
+        # ejectSound: /Audio/SimpleStation14/Items/Handling/sword_unsheath.ogg # White Dream
         whitelist:
           tags:
           - CaptainSabre
@@ -746,7 +746,7 @@
   #   distanceSprinting: 3
 
 - type: entity
-  parent: [ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseSyndicateContraband, ClothingBaseWebbing] # WD EDIT: ClothingBaseWebbing
+  parent: [ContentsExplosionResistanceBase, BaseSyndicateContraband, ClothingBaseWebbing, ClothingBeltStorageBase] # WD EDIT: ClothingBaseWebbing
   id: ClothingBeltMilitaryWebbing
   name: chest rig
   description: A set of tactical webbing worn by boarding parties.

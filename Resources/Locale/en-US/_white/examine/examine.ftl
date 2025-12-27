@@ -50,3 +50,5 @@ humanoid-appearance-component-examine-selfaware = You are { INDEFINITE($age) } {
 # Description examine wrapper
 
 examine-entity-description-wrapper = [font size=11][italic][color=SlateGray]{ $description }[/color][/italic][/font]
+
+examine-handcuffed = [color=orange]{CAPITALIZE(POSS-ADJ($ent))} hands are tied![/color]

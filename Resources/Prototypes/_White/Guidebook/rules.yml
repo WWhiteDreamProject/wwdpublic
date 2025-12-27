@@ -1,4 +1,4 @@
 - type: guideEntry
-  id: MedusaRuleset
-  name: guide-entry-rules-white-medusa
-  text: "/ServerInfo/Guidebook/ServerRules/MedusaRules.xml"
+  id: WhiteDreamRuleset
+  name: guide-entry-rules-white-dream
+  text: "/ServerInfo/Guidebook/ServerRules/WhiteDreamRules.xml"
