@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-4.0",
+  "copyright": "NotAFemboy",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "wielded_left",
+      "directions": 4
+    },
+    {
+      "name": "wielded_right",
+      "directions": 4
+    },
+    {
+      "name": "EQUIPPED-backpack",
+      "directions": 4
+    },
+    {
+      "name": "EQUIPPED-hardsuit",
+      "directions": 4
+    },
+    {
+      "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4
+    }
+  ]
+}

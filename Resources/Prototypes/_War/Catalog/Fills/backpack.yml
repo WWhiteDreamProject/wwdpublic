@@ -1,0 +1,19 @@
+﻿- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingBackpackSyndicate
+  id: ClothingBackpackSyndicateFilled
+  suffix: "TW"
+  components:
+  - type: StorageFill
+    contents:
+    - id: BoxSurvival
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: ClothingBackpackDuffelSyndicate
+  id: ClothingBackpackDuffelSyndicateFilled
+  suffix: "TW"
+  components:
+  - type: StorageFill
+    contents:
+    - id: BoxSurvival

@@ -1,0 +1,14 @@
+ent-GeyserBase = geyser
+    .desc = A hot spring that periodically emits hot gas under high pressure.
+ent-GeyserWaterVaporSmall = geyser
+    .desc = { ent-GeyserBase.desc }
+ent-GeyserWaterVaporMedium = geyser
+    .desc = { ent-GeyserWaterVaporSmall.desc }
+ent-GeyserWaterVaporLarge = geyser
+    .desc = { ent-GeyserWaterVaporSmall.desc }
+ent-GeyserPlasmaSmall = plasma geyser
+    .desc = { ent-GeyserBase.desc }
+ent-GeyserPlasmaMedium = plasma geyser
+    .desc = { ent-GeyserPlasmaSmall.desc }
+ent-GeyserPlasmaLarge = plasma geyser
+    .desc = { ent-GeyserPlasmaSmall.desc }

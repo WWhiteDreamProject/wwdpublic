@@ -1,0 +1,108 @@
+{
+ "version" : 1,
+ "license" : "CC-BY-SA-3.0",
+ "copyright" : "Copyright (c) Giedi Prime Space Station 14",
+ "size" : {
+    "x" : 32,
+    "y" : 32
+ },
+ "states" : [
+    {
+        "name" : "unpowered"
+    },
+    {
+        "name" : "active"
+    },
+    {
+        "name" : "active-animated",
+        "delays" : [
+            [
+                1,
+                2
+            ]
+        ]
+    },
+    {
+        "name" : "off-inhand-right",
+        "directions" : 4
+    },
+    {
+        "name" : "off-inhand-left",
+        "directions" : 4
+    },
+    {
+        "name" : "on-inhand-right",
+        "directions" : 4,
+        "delays" : [
+            [
+                1,
+                2
+            ],
+            [
+                1,
+                2
+            ],
+            [
+                1,
+                2
+            ],
+            [
+                1,
+                2
+            ]
+        ]
+    },
+    {
+        "name" : "on-inhand-left",
+        "directions" : 4,
+        "delays" : [
+            [
+                1,
+                2
+            ],
+            [
+                1,
+                2
+            ],
+            [
+                1,
+                2
+            ],
+            [
+                1,
+                2
+            ]
+        ]
+    },
+    {
+        "name": "equipped-NECK",
+        "directions": 4,
+        "delays" : [
+            [
+                1,
+                2
+            ],
+            [
+                1,
+                2
+            ],
+            [
+                1,
+                2
+            ],
+            [
+                1,
+                2
+            ]
+        ]
+    },
+    {
+        "name" : "off-equipped-NECK",
+        "directions" : 4
+    },
+    {
+        "name": "equipped-INNERCLOTHING",
+        "directions" : 4
+    }
+  ]
+}

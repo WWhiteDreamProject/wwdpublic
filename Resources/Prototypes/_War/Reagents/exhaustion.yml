@@ -1,0 +1,12 @@
+#- type: reagent
+#  id: Nutritional
+#  name: питательный раствор
+#  desc: Сладкая непрозрачная жидкость для лечения истощения
+#  physicalDesc: Непрозрачная
+#  flavor: сладкий
+#  color: "#C6B2A5"
+#  metabolisms:
+#    Medicine:
+#      effects:
+#      - !type:ModifyExhaustion
+#        amount: -5

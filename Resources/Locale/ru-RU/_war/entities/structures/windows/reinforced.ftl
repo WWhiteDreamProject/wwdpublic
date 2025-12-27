@@ -1,0 +1,13 @@
+ent-CybersunReinforcedWindow = бронированное окно Cybersun
+    .desc = { ent-Window.desc }
+ent-InterpharmReinforcedWindow = бронированное окно Interpharm
+    .desc = { ent-Window.desc }
+ent-CybersunReinforcedWindowDiagonal = { ent-CybersunReinforcedWindow }
+    .suffix = diagonal
+    .desc = { ent-CybersunReinforcedWindow.desc }
+ent-InterpharmWindowReinforcedDirectional = направленное бронированное окно Interpharm
+    .desc = { ent-WindowReinforcedDirectional.desc }
+ent-GreenWindowReinforcedDirectional = направленное бронированное окно
+    .desc = Дождь был вынужден стать зеленым.
+ent-RedWindowReinforcedDirectional = направленное бронированное окно
+    .desc = Дождь был вынужден стать зеленым.

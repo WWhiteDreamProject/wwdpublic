@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "license": "Creative Commons 3.0 BY-SA",
+  "copyright": "Taken from ParadiseSS13 at https://github.com/ParadiseSS13/Paradise/blob/master/icons/obj/machines/bluespace_tap.dmi",
+  "size": {
+    "x": 96,
+    "y": 96
+  },
+  "states": [
+    {
+        "name": "engine_off"
+    },
+    {
+        "name": "engine_on",
+        "delays":
+        [
+            [0.15, 0.15, 0.15, 0.15]
+        ]
+    },
+    {
+        "name": "engine_broken",
+        "delays":
+        [
+            [0.1, 0.1, 0.1, 0.1]
+        ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+ent-ComputerShuttleSyndicateReconnaissance = syndicate reconnaissance shuttle console
+    .desc = Used to pilot a syndicate reconnaissance shuttle.
+ent-ComputerShuttleSyndicateCargo = syndicate cargo shuttle console
+    .desc = Used to pilot a syndicate cargo shuttle.
+ent-ComputerShuttleNanoTrasen = nanotrasen shuttle console
+    .desc = Used to pilot a NanoTrasen shuttle.
+ent-ComputerResearchAndDevelopmentSyndicate = R&D computer
+    .desc = A computer used to interface with R&D tools.
+    .suffix = Syndicate
+ent-SyndicateComputerCommsStation = syndicate communications computer
+    .desc = A computer capable of remotely hacking into the station's communications systems. Using this to make an announcement will alert the station to your presence.

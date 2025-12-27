@@ -1,0 +1,130 @@
+#Saibasan icons
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconSyndicatePilot
+  icon:
+    sprite: /Textures/_War/Interface/Misc/job_icons.rsi
+    state: spilotS
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconSyndicateSpy
+  icon:
+    sprite: /Textures/_War/Interface/Misc/job_icons.rsi
+    state: spyS
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconDirectorOfSaibasan
+  icon:
+    sprite: /Textures/_War/Interface/Misc/job_icons.rsi
+    state: directorS
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconLoader
+  icon:
+    sprite: /Textures/_War/Interface/Misc/job_icons.rsi
+    state: cargotechnicianS
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconSupplyManager
+  icon:
+    sprite: /Textures/_War/Interface/Misc/job_icons.rsi
+    state: chiefengineerS
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconSyndicateCommander
+  icon:
+    sprite: /Textures/_War/Interface/Misc/job_icons.rsi
+    state: commanderS
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconSyndicateParamedic
+  icon:
+    sprite: /Textures/_War/Interface/Misc/job_icons.rsi
+    state: paramedicS
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconSyndicateFighter
+  icon:
+    sprite: /Textures/_War/Interface/Misc/job_icons.rsi
+    state: securityofficerS
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconDisposal
+  icon:
+    sprite: /Textures/_War/Interface/Misc/job_icons.rsi
+    state: shaftminerS
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconAtmosphericEngineer
+  icon:
+    sprite: /Textures/_War/Interface/Misc/job_icons.rsi
+    state: stationengineerS
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconTechnician
+  icon:
+    sprite: /Textures/_War/Interface/Misc/job_icons.rsi
+    state: intern-techS
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconSyndicateRecruit
+  icon:
+    sprite: /Textures/_War/Interface/Misc/job_icons.rsi
+    state: intern-cadetS
+
+#Interpharm icons
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconSyndicateBotanist
+  icon:
+    sprite: /Textures/_War/Interface/Misc/job_icons.rsi
+    state: botanistS
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconSyndicateBartender
+  icon:
+    sprite: /Textures/_War/Interface/Misc/job_icons.rsi
+    state: bartenderS
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconSyndicateChef
+  icon:
+    sprite: /Textures/_War/Interface/Misc/job_icons.rsi
+    state: cookS
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconSyndicateClown
+  icon:
+    sprite: /Textures/_War/Interface/Misc/job_icons.rsi
+    state: clownS
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconSyndicateScientist
+  icon:
+    sprite: /Textures/_War/Interface/Misc/job_icons.rsi
+    state: scientistS
+
+# NT
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconPilot
+  icon:
+    sprite: /Textures/_War/Interface/Misc/job_icons.rsi
+    state: pilot
