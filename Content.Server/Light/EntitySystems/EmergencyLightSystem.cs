@@ -179,11 +179,7 @@ public sealed class EmergencyLightSystem : SharedEmergencyLightSystem
                 if (emergencyLight.AlarmSound == null)
                     continue;
 
-                var audioParams = emergencyLight.AlarmSound.Params
-                    .WithMaxDistance(10f)
-                    .WithRolloffFactor(2f);
-
-                _audioSystem.PlayEntity(emergencyLight.AlarmSound, Filter.Pvs(uid, 0.5f), uid, true, audioParams);
+                _audioSystem.PlayEntity(emergencyLight.AlarmSound, Filter.Pvs(uid, 0.5f), uid, true);
 
                 emergencyLight.AlarmNextSound =
                     _timing.CurTime.Add(emergencyLight.AlarmInterval);

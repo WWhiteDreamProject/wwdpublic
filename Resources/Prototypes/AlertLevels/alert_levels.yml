@@ -20,6 +20,8 @@
         params:
           pitch: 1.4
           volume: -7
+          maxDistance: 10
+          rolloffFactor: 2
       alarmInterval: 120 # White Dream
     violet:
       announcement: alert-level-violet-announcement
@@ -33,6 +35,8 @@
         params:
           pitch: 1.1
           volume: -7
+          maxDistance: 10
+          rolloffFactor: 2
       alarmInterval: 60 # White Dream
     white:
       announcement: alert-level-white-announcement
@@ -46,6 +50,8 @@
         params:
           pitch: 0.85
           volume: -7
+          maxDistance: 10
+          rolloffFactor: 2
       alarmInterval: 60 # White Dream
     yellow:
       announcement: alert-level-yellow-announcement
@@ -59,6 +65,8 @@
         params:
           volume: -7
           pitch: 0.89
+          maxDistance: 10
+          rolloffFactor: 2
       alarmInterval: 60 # White Dream
     red:
       announcement: alert-level-red-announcement
@@ -72,6 +80,8 @@
         params:
           volume: -7
           pitch: 0.89
+          maxDistance: 10
+          rolloffFactor: 2
       alarmInterval: 60 # White Dream
     gamma:
       announcement: alert-level-gamma-announcement
@@ -87,6 +97,8 @@
         params:
           volume: -7
           pitch: 0.6
+          maxDistance: 10
+          rolloffFactor: 2
       alarmInterval: 60 # White Dream
     delta:
       announcement: alert-level-delta-announcement
@@ -101,6 +113,8 @@
         path: /Audio/_White/Announcements/overload.ogg
         params:
           volume: -4
+          maxDistance: 10
+          rolloffFactor: 2
       alarmInterval: 45 # White Dream
     epsilon:
       announcement: alert-level-epsilon-announcement
@@ -115,4 +129,6 @@
         path: /Audio/_White/Announcements/angry.ogg
         params:
           volume: -10
+          maxDistance: 10
+          rolloffFactor: 2
       alarmInterval: 60 # White Dream

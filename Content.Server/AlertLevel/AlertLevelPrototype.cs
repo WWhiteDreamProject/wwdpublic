@@ -80,6 +80,6 @@ public sealed partial class AlertLevelDetail
     public SoundSpecifier? AlarmSound;
 
     [DataField]
-    public TimeSpan AlarmInterval = TimeSpan.FromSeconds(30f); // How often will the alarm play
+    public TimeSpan AlarmInterval = TimeSpan.FromSeconds(30); // How often will the alarm play
 }
 
