@@ -359,6 +359,22 @@ public abstract class SharedChatSystem : EntitySystem
         return rawmsg.Substring(tagStart, tagEnd - tagStart);
     }
 
+    // White Dream edit start
+    // Returns a message with a string inside tag removed and replaced
+    public static string SetStringInsideTag(ChatMessage message, string tag, string strInsert)
+    {
+        var rawmsg = message.WrappedMessage;
+        var tagStart = rawmsg.IndexOf($"[{tag}]");
+        var tagEnd = rawmsg.IndexOf($"[/{tag}]");
+        if (tagStart < 0 || tagEnd < 0)
+            return rawmsg;
+        tagStart += tag.Length + 2;
+        rawmsg = rawmsg.Remove(tagStart, tagEnd - tagStart);
+        rawmsg = rawmsg.Insert(tagStart, $"{strInsert}");
+        return rawmsg;
+    }
+    // White Dream edit end
+
     // WD EDIT START - Moved from ClatUIController
     /// <summary>
     /// Returns the chat name color for a mob

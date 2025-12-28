@@ -12,4 +12,10 @@ public sealed partial class WhiteCVars
 
     public static readonly CVarDef<bool> ColoredBubbleChat =
         CVarDef.Create("chat.colored_bubble", true, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    public static readonly CVarDef<int> SingleBubbleCharLimit =
+        CVarDef.Create("chat.bubble_character_limit", 43, CVar.SERVER | CVar.REPLICATED);
+
+    public static readonly CVarDef<int> SpeechBubbleCap =
+        CVarDef.Create("chat.bubble_max_count", 1, CVar.SERVER | CVar.REPLICATED);
 }

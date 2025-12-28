@@ -24,7 +24,7 @@ public sealed partial class TTSSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _xforms = default!;
     [Dependency] private readonly LanguageSystem _language = default!;
 
-    private const int MaxMessageChars = 100 * 2; // same as SingleBubbleCharLimit * 2
+    private int MaxMessageChars => _cfg.GetCVar(WhiteCVars.SingleBubbleCharLimit) * 2; // White dream moved to cvar
     private bool _isEnabled;
 
     public override void Initialize()

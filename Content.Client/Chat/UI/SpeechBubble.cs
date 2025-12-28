@@ -52,6 +52,12 @@ namespace Content.Client.Chat.UI
         /// </summary>
         public const float SpeechMaxWidth = 256;
 
+        /// <summary>
+        ///  White Dream;
+        ///  Max amount of characters in a speech bubble
+        /// </summary>
+        public int SingleBubbleCharLimit => ConfigManager.GetCVar(WhiteCVars.SingleBubbleCharLimit);
+
         private readonly EntityUid _senderEntity;
 
         private float _timeLeft = TotalTime;
@@ -222,6 +228,21 @@ namespace Content.Client.Chat.UI
             return FormatSpeech(SharedChatSystem.GetStringInsideTag(message, tag), fontColor);
         }
 
+        public ChatMessage TruncateWrappedMessage(ChatMessage message, int maxLength)
+        {
+            var text = SharedChatSystem.GetStringInsideTag(message, "BubbleContent");
+
+            if (text.Length <= maxLength)
+                return message;
+
+            text = text[..maxLength].TrimEnd(' ', '.', ',', ';', ':', '!', '?') + "...";
+
+            var newmsg = SharedChatSystem.SetStringInsideTag(message,"BubbleContent", text);
+
+            message.WrappedMessage = newmsg;
+
+            return message;
+        }
     }
 
     public sealed class TextSpeechBubble : SpeechBubble
@@ -237,6 +258,8 @@ namespace Content.Client.Chat.UI
             {
                 MaxWidth = SpeechMaxWidth,
             };
+
+            message = TruncateWrappedMessage(message, SingleBubbleCharLimit);  // White Dream
 
             label.SetMessage(FormatSpeech(message.WrappedMessage, fontColor, "Bedstead")); // WWDP EDIT
 
@@ -267,6 +290,8 @@ namespace Content.Client.Chat.UI
                 {
                     MaxWidth = SpeechMaxWidth
                 };
+
+                message = TruncateWrappedMessage(message, SingleBubbleCharLimit); // White Dream
 
                 label.SetMessage(FormatSpeech(SharedChatSystem.GetStringInsideTag(message, "BubbleContent"), fontColor, "Bedstead")); // WWDP EDIT // LESS USELESS ONE LINER FUNCS PLS
 
