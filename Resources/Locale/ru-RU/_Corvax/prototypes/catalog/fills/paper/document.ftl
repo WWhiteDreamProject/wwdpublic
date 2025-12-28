@@ -1,4 +1,4 @@
-doc-text-printer-report-station =
+﻿doc-text-printer-report-station =
    ⠀    ⠀[color=#1b487e]░░░░██░░░████░███[/color]
     ==================================================
                                 Отчёт о ситуации на станции
@@ -596,7 +596,7 @@ doc-text-printer-permission-equipment =
 
     ==================================================
                       Место для подписей и печатей
-doc-text-printer-permission-to-travel-in-case-of-threat=
+doc-text-printer-permission-to-travel-in-case-of-threat =
     ⠀[color=#1b487e]███░███░░░░██░░░░[/color]
     ⠀[color=#1b487e]░██░████░░░██░░░░[/color]            [head=3]Официальный[/head]
     ⠀[color=#1b487e]░░█░██░██░░██░█░░[/color]                  [head=3]документ[/head]
