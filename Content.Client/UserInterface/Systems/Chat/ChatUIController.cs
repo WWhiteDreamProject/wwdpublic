@@ -462,8 +462,10 @@ public sealed class ChatUIController : UIController
         if (existing.Count > SpeechBubbleCap)
         {
             // Get the oldest to start fading fast.
-            var last = existing[0];
-            last.FadeNow();
+            // White Dream edit - Get all of the older ones
+            var lastBubbles = existing[..^SpeechBubbleCap];
+            foreach (var last in lastBubbles)
+                last.FadeNow();
         }
     }
 
