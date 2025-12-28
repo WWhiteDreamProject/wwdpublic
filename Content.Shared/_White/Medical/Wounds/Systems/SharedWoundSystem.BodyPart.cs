@@ -1,5 +1,5 @@
 using Content.Shared._White.Body.Components;
-using Content.Shared._White.Medical.Wounds.Components.Woundable;
+using Content.Shared._White.Medical.Wounds.Components;
 using Content.Shared._White.Threshold;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;

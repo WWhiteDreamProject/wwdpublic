@@ -6,7 +6,7 @@ using Content.Server.Medical;
 using Content.Server.Medical.Components;
 using Content.Server.Popups;
 using Content.Server.Stack;
-using Content.Shared._White.Medical.Wounds.Components.Woundable;
+using Content.Shared._White.Medical.Wounds.Components;
 using Content.Shared._White.Medical.Wounds.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Database;

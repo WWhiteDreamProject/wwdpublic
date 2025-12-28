@@ -4,7 +4,7 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._White.Medical.Wounds.Components.Woundable;
+namespace Content.Shared._White.Medical.Wounds.Components;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(fieldDeltas: true)]
 public sealed partial class WoundableBoneComponent : Component

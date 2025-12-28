@@ -1,7 +1,5 @@
-using Content.Shared._White.Body.Components;
 using Content.Shared._White.Medical.Pain.Components;
 using Content.Shared._White.Medical.Wounds.Systems;
-using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
 using Content.Shared.Rejuvenate;
 

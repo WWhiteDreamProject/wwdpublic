@@ -14,6 +14,7 @@
   abstract: true
   components:
   - type: AmputatableBodyPart
+    wound: WoundScarAmputation
     supportedDamageType:
     - Slash
     chanceThresholds:
@@ -27,6 +28,21 @@
       Damaged: 0.6
       Cracked: 1
       Broken: 1.2
+  - type: GibbableBodyPart
+    supportedDamageType:
+    - Blunt
+    chanceThresholds:
+      0: 0
+      40: 0.2
+      60: 0.6
+      90: 0.9
+      100: 1
+    boneMultiplierThresholds:
+      Whole: 0.3
+      Damaged: 0.6
+      Cracked: 1
+      Broken: 1.2
+  - type: Gibbable
 
 # Head
 - type: entity

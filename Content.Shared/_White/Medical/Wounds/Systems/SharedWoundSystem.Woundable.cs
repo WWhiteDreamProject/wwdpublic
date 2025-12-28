@@ -1,5 +1,5 @@
 using Content.Shared._White.Body.Systems;
-using Content.Shared._White.Medical.Wounds.Components.Woundable;
+using Content.Shared._White.Medical.Wounds.Components;
 using Content.Shared.Damage;
 
 namespace Content.Shared._White.Medical.Wounds.Systems;

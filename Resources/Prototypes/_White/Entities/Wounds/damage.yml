@@ -1,11 +1,4 @@
 - type: entity
-  id: WoundBase
-  abstract: true
-  components:
-  - type: Wound
-    maximumDamage: 100
-
-- type: entity
   id: WoundBlunt
   parent: WoundBase
   name: bruise

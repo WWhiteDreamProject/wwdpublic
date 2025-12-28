@@ -1,5 +1,5 @@
 using Content.Shared._White.Medical.Pain.Components;
-using Content.Shared._White.Medical.Wounds.Components.Wound;
+using Content.Shared._White.Medical.Wounds.Components;
 using Content.Shared.FixedPoint;
 
 namespace Content.Shared._White.Medical.Pain.Systems;
@@ -17,6 +17,6 @@ public abstract partial class SharedPainSystem
         var delta = GameTiming.CurTime - wound.Comp1.WoundedAt;
         freshPain = FixedPoint2.Max(0, freshPain - delta.TotalSeconds * wound.Comp2.FreshPainDecreasePerSecond);
 
-        return lastingPain + freshPain;
+        return lastingPain + freshPain + wound.Comp2.Pain;
     }
 }

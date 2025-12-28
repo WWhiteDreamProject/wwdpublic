@@ -3,11 +3,17 @@ using Content.Shared.FixedPoint;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._White.Medical.Wounds.Components.Wound;
+namespace Content.Shared._White.Medical.Wounds.Components;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState, AutoGenerateComponentPause, EntityCategory("Wounds")]
 public sealed partial class WoundComponent : Component
 {
+    /// <summary>
+    /// Indicates whether the wound is a scar or not.
+    /// </summary>
+    [DataField]
+    public bool IsScar;
+
     /// <summary>
     /// Damage type of this wound.
     /// </summary>

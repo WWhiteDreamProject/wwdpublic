@@ -1,6 +1,6 @@
 using Content.Shared.DoAfter;
 
-namespace Content.Shared._White.Medical.Wounds.Components.Woundable;
+namespace Content.Shared._White.Medical.Wounds.Components;
 
 [RegisterComponent]
 public sealed partial class ExaminableWoundableComponent : Component

@@ -2,7 +2,7 @@ using Content.Shared.FixedPoint;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._White.Medical.Wounds.Components.Woundable;
+namespace Content.Shared._White.Medical.Wounds.Components;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class WoundableBodyPartComponent : Component

@@ -1,7 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared._White.Body.Components;
-using Content.Shared._White.Medical.Wounds.Components.Wound;
-using Content.Shared._White.Medical.Wounds.Components.Woundable;
+using Content.Shared._White.Medical.Wounds.Components;
 using Content.Shared._White.Threshold;
 using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
@@ -11,9 +10,9 @@ namespace Content.Shared._White.Medical.Wounds.Systems;
 
 public abstract partial class SharedWoundSystem
 {
-    #region Private API
+    #region Public API
 
-    private FixedPoint2 ChangeWoundDamage(Entity<WoundComponent?> wound, FixedPoint2 damageAmount)
+    public FixedPoint2 ChangeWoundDamage(Entity<WoundComponent?> wound, FixedPoint2 damageAmount)
     {
         if (!Resolve(wound, ref wound.Comp))
             return FixedPoint2.Zero;
@@ -25,17 +24,25 @@ public abstract partial class SharedWoundSystem
         if (wound.Comp.DamageAmount > oldDamage)
             wound.Comp.WoundedAt = _gameTiming.CurTime;
 
-        RaiseLocalEvent(wound, new WoundDamageChangedEvent(wound.Comp, oldDamage));
         Dirty(wound);
 
-        if (wound.Comp.DamageAmount == FixedPoint2.Zero)
+        var ev = new WoundDamageChangedEvent((wound, wound.Comp), oldDamage);
+        RaiseLocalEvent(wound, ev);
+
+        if (wound.Comp.Body.HasValue)
+            RaiseLocalEvent(wound.Comp.Body.Value, ev);
+
+        if (wound.Comp.Parent.HasValue)
+            RaiseLocalEvent(wound.Comp.Parent.Value, ev);
+
+        if (wound.Comp.IsScar && wound.Comp.DamageAmount == FixedPoint2.Zero)
             PredictedDel(wound.Owner);
 
         return wound.Comp.DamageAmount - oldDamage;
     }
 
-    private bool TryCreateWound(
-        Entity<BodyPartComponent, WoundableBodyPartComponent> bodyPart,
+    public bool TryCreateWound(
+        Entity<BodyPartComponent?, WoundableBodyPartComponent?> bodyPart,
         EntProtoId woundToSpawn,
         [NotNullWhen(true)] out Entity<WoundComponent>? wound,
         Entity<WoundableComponent?>? woundable = null
@@ -43,7 +50,8 @@ public abstract partial class SharedWoundSystem
     {
         wound = null;
 
-        if (!PredictedTrySpawnInContainer(woundToSpawn, bodyPart, WoundsContainerId, out var woundUid))
+        if (!Resolve(bodyPart, ref bodyPart.Comp1, ref bodyPart.Comp2)
+            || !PredictedTrySpawnInContainer(woundToSpawn, bodyPart, WoundsContainerId, out var woundUid))
             return false;
 
         if (!TryComp<WoundComponent>(woundUid, out var woundComponent))
@@ -66,11 +74,8 @@ public abstract partial class SharedWoundSystem
 
         return true;
     }
-    #endregion
 
-    #region Public API
-
-    public List<Entity<WoundComponent>> GetWounds(Entity<WoundableComponent?> woundable, string? damageType = null, BodyPartType bodyPartType = BodyPartType.All)
+    public List<Entity<WoundComponent>> GetWounds(Entity<WoundableComponent?> woundable, string? damageType = null, bool scar = false, BodyPartType bodyPartType = BodyPartType.All)
     {
         if (!Resolve(woundable, ref woundable.Comp))
             return new List<Entity<WoundComponent>>();
@@ -84,7 +89,8 @@ public abstract partial class SharedWoundSystem
             foreach (var wound in woundList)
             {
                 if (!TryComp<WoundComponent>(wound, out var woundComponent)
-                    || !string.IsNullOrEmpty(damageType) && woundComponent.DamageType != damageType)
+                    || !string.IsNullOrEmpty(damageType) && woundComponent.DamageType != damageType
+                    || woundComponent.IsScar && !scar)
                     continue;
 
                 wounds.Add((wound, woundComponent));
@@ -94,7 +100,7 @@ public abstract partial class SharedWoundSystem
         return wounds;
     }
 
-    public List<Entity<WoundComponent>> GetWounds(Entity<WoundableBodyPartComponent?> woundableBodyPart, string? damageType = null)
+    public List<Entity<WoundComponent>> GetWounds(Entity<WoundableBodyPartComponent?> woundableBodyPart, string? damageType = null, bool scar = false)
     {
         if (!Resolve(woundableBodyPart, ref woundableBodyPart.Comp))
             return new List<Entity<WoundComponent>>();
@@ -103,7 +109,8 @@ public abstract partial class SharedWoundSystem
         foreach (var wound in woundableBodyPart.Comp.Wounds)
         {
             if (!TryComp<WoundComponent>(wound, out var woundComponent)
-                || !string.IsNullOrEmpty(damageType) && woundComponent.DamageType != damageType)
+                || !string.IsNullOrEmpty(damageType) && woundComponent.DamageType != damageType
+                || woundComponent.IsScar && !scar)
                 continue;
 
             wounds.Add((wound, woundComponent));
@@ -112,21 +119,21 @@ public abstract partial class SharedWoundSystem
         return wounds;
     }
 
-    public List<Entity<WoundComponent>> GetWounds(EntityUid parent, string? damageType = null, BodyPartType bodyPartType = BodyPartType.All)
+    public List<Entity<WoundComponent>> GetWounds(EntityUid parent, string? damageType = null, bool scar = false, BodyPartType bodyPartType = BodyPartType.All)
     {
         if (TryComp<WoundableComponent>(parent, out var woundableComponent))
-            return GetWounds((parent, woundableComponent), damageType, bodyPartType);
+            return GetWounds((parent, woundableComponent), damageType, scar, bodyPartType);
 
         if (TryComp<WoundableBodyPartComponent>(parent, out var woundableBodyPartComponent))
-            return GetWounds((parent, woundableBodyPartComponent), damageType);
+            return GetWounds((parent, woundableBodyPartComponent), damageType, scar);
 
         return new List<Entity<WoundComponent>>();
     }
 
-    public List<Entity<WoundComponent, T>> GetWounds<T>(Entity<WoundableComponent?> woundable, string? damageType = null, BodyPartType bodyPartType = BodyPartType.All) where T : IComponent
+    public List<Entity<WoundComponent, T>> GetWounds<T>(Entity<WoundableComponent?> woundable, string? damageType = null, bool scar = false, BodyPartType bodyPartType = BodyPartType.All) where T : IComponent
     {
         var wounds = new List<Entity<WoundComponent, T>>();
-        foreach (var wound in GetWounds(woundable, damageType, bodyPartType))
+        foreach (var wound in GetWounds(woundable, damageType, scar, bodyPartType))
         {
             if (!TryComp<T>(wound, out var component))
                 continue;
@@ -137,10 +144,10 @@ public abstract partial class SharedWoundSystem
         return wounds;
     }
 
-    public List<Entity<WoundComponent, T>> GetWounds<T>(Entity<WoundableBodyPartComponent?> woundableBodyPart, string? damageType = null, BodyPartType bodyPartType = BodyPartType.All) where T : IComponent
+    public List<Entity<WoundComponent, T>> GetWounds<T>(Entity<WoundableBodyPartComponent?> woundableBodyPart, string? damageType = null, bool scar = false, BodyPartType bodyPartType = BodyPartType.All) where T : IComponent
     {
         var wounds = new List<Entity<WoundComponent, T>>();
-        foreach (var wound in GetWounds(woundableBodyPart, damageType, bodyPartType))
+        foreach (var wound in GetWounds(woundableBodyPart, damageType, scar, bodyPartType))
         {
             if (!TryComp<T>(wound, out var component))
                 continue;
@@ -151,10 +158,10 @@ public abstract partial class SharedWoundSystem
         return wounds;
     }
 
-    public List<Entity<WoundComponent, T>> GetWounds<T>(EntityUid parent, string? damageType = null, BodyPartType bodyPartType = BodyPartType.All) where T : IComponent
+    public List<Entity<WoundComponent, T>> GetWounds<T>(EntityUid parent, string? damageType = null, bool scar = false, BodyPartType bodyPartType = BodyPartType.All) where T : IComponent
     {
         var wounds = new List<Entity<WoundComponent, T>>();
-        foreach (var wound in GetWounds(parent, damageType, bodyPartType))
+        foreach (var wound in GetWounds(parent, damageType, scar, bodyPartType))
         {
             if (!TryComp<T>(wound, out var component))
                 continue;
@@ -165,52 +172,52 @@ public abstract partial class SharedWoundSystem
         return wounds;
     }
 
-    public bool HasWounds(Entity<WoundableComponent?> woundable, string? damageType = null, BodyPartType bodyPartType = BodyPartType.All) =>
-        GetWounds(woundable, damageType, bodyPartType).Count > 0;
+    public bool HasWounds(Entity<WoundableComponent?> woundable, string? damageType = null, bool scar = false, BodyPartType bodyPartType = BodyPartType.All) =>
+        GetWounds(woundable, damageType, scar, bodyPartType).Count > 0;
 
-    public bool HasWounds(Entity<WoundableBodyPartComponent?> woundableBodyPart, string? damageType = null) =>
-        GetWounds(woundableBodyPart, damageType).Count > 0;
+    public bool HasWounds(Entity<WoundableBodyPartComponent?> woundableBodyPart, string? damageType = null, bool scar = false) =>
+        GetWounds(woundableBodyPart, damageType, scar).Count > 0;
 
-    public bool HasWounds(EntityUid parent, string? damageType = null, BodyPartType bodyPartType = BodyPartType.All)
+    public bool HasWounds(EntityUid parent, string? damageType = null, bool scar = false, BodyPartType bodyPartType = BodyPartType.All)
     {
         if (TryComp<WoundableComponent>(parent, out var woundableComponent))
-            return HasWounds((parent, woundableComponent), damageType, bodyPartType);
+            return HasWounds((parent, woundableComponent), damageType, scar, bodyPartType);
 
         if (TryComp<WoundableBodyPartComponent>(parent, out var woundableBodyPartComponent))
-            return HasWounds((parent, woundableBodyPartComponent), damageType);
+            return HasWounds((parent, woundableBodyPartComponent), damageType, scar);
 
         return false;
     }
 
-    public bool HasWounds(Entity<WoundableComponent?> woundable, DamageSpecifier damage, BodyPartType bodyPartType = BodyPartType.All)
+    public bool HasWounds(Entity<WoundableComponent?> woundable, DamageSpecifier damage, bool scar = false, BodyPartType bodyPartType = BodyPartType.All)
     {
         foreach (var damageType in damage.DamageDict.Keys)
         {
-            if (HasWounds(woundable, damageType, bodyPartType))
+            if (HasWounds(woundable, damageType, scar, bodyPartType))
                 return true;
         }
 
         return false;
     }
 
-    public bool HasWounds(Entity<WoundableBodyPartComponent?> woundableBodyPart, DamageSpecifier damage)
+    public bool HasWounds(Entity<WoundableBodyPartComponent?> woundableBodyPart, DamageSpecifier damage, bool scar = false)
     {
         foreach (var damageType in damage.DamageDict.Keys)
         {
-            if (HasWounds(woundableBodyPart, damageType))
+            if (HasWounds(woundableBodyPart, damageType, scar))
                 return true;
         }
 
         return false;
     }
 
-    public bool HasWounds(EntityUid parent, DamageSpecifier damage, BodyPartType bodyPartType = BodyPartType.All)
+    public bool HasWounds(EntityUid parent, DamageSpecifier damage, bool scar = false, BodyPartType bodyPartType = BodyPartType.All)
     {
         if (TryComp<WoundableComponent>(parent, out var woundableComponent))
-            return HasWounds((parent, woundableComponent), damage, bodyPartType);
+            return HasWounds((parent, woundableComponent), damage, scar, bodyPartType);
 
         if (TryComp<WoundableBodyPartComponent>(parent, out var woundableBodyPartComponent))
-            return HasWounds((parent, woundableBodyPartComponent), damage);
+            return HasWounds((parent, woundableBodyPartComponent), damage, scar);
 
         return false;
     }

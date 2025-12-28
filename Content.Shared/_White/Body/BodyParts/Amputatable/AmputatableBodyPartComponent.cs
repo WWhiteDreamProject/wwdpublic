@@ -1,4 +1,4 @@
-using Content.Shared._White.Medical.Wounds.Components.Woundable;
+using Content.Shared._White.Medical.Wounds.Components;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Prototypes;
@@ -8,6 +8,12 @@ namespace Content.Shared._White.Body.BodyParts.Amputatable;
 [RegisterComponent]
 public sealed partial class AmputatableBodyPartComponent : Component
 {
+    /// <summary>
+    /// The wound that will be created after amputation of this limb.
+    /// </summary>
+    [DataField]
+    public EntProtoId<WoundComponent> Wound;
+
     /// <summary>
     /// Damage, the value of which affects the chance of amputating a body part.
     /// </summary>

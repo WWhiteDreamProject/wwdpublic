@@ -6,7 +6,7 @@ using Content.Server.Body.Systems;
 using Content.Server.Medical.Components;
 using Content.Server.Popups;
 using Content.Server.Stack;
-using Content.Shared._White.Medical.Wounds.Components.Woundable;
+using Content.Shared._White.Medical.Wounds.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Audio;
 using Content.Shared.Damage;
@@ -203,7 +203,7 @@ public sealed class HealingSystem : EntitySystem
         // WD EDIT START
         var bodyPartType = _targetDoll.GetSelectedBodyPart(user);
         if (TryComp<WoundableComponent>(target, out var woundableBodyComponent)
-            && !_wound.HasWounds((target, woundableBodyComponent), component.Damage, bodyPartType))
+            && !_wound.HasWounds((target, woundableBodyComponent), component.Damage, false, bodyPartType))
         {
             if (_wound.GetWoundableBodyParts((target, woundableBodyComponent), component.Damage).FirstOrNull() is not { } bodyPart)
             {

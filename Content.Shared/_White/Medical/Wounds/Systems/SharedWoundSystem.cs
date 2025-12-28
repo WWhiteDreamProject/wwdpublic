@@ -1,6 +1,5 @@
 using Content.Shared._White.Body.Systems;
-using Content.Shared._White.Medical.Wounds.Components.Wound;
-using Content.Shared._White.Medical.Wounds.Components.Woundable;
+using Content.Shared._White.Medical.Wounds.Components;
 using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Containers;
@@ -34,7 +33,7 @@ public abstract partial class SharedWoundSystem : EntitySystem
 /// <summary>
 /// Raised on wound after changing damage.
 /// </summary>
-public record struct WoundDamageChangedEvent(WoundComponent WoundComponent, FixedPoint2 OldDamage);
+public record struct WoundDamageChangedEvent(Entity<WoundComponent> Wound, FixedPoint2 OldDamage);
 
 /// <summary>
 /// Raised on woudable entity after changing the damage of its wound.
