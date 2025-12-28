@@ -38,5 +38,5 @@ public sealed partial class RandomSpawnRuleComponent : Component
     /// Locale to use for the announcement | WWDP
     /// </summary>
     [DataField]
-    public string LocId;
+    public string? LocId;
 }
