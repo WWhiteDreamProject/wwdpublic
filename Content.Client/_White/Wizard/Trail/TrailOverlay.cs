@@ -1,0 +1,166 @@
+using System.Numerics;
+using Content.Shared._White.Wizard.Projectiles;
+using Robust.Client.GameObjects;
+using Robust.Client.Graphics;
+using Robust.Shared.Enums;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
+using DrawDepth = Content.Shared.DrawDepth.DrawDepth;
+
+namespace Content.Client._White.Wizard.Trail;
+
+public sealed class TrailOverlay : Overlay
+{
+    public override OverlaySpace Space => OverlaySpace.WorldSpaceEntities;
+
+    private readonly IEntityManager _entManager;
+    private readonly IPrototypeManager _protoMan;
+    private readonly IGameTiming _timing;
+
+    private readonly SpriteSystem _sprite;
+    private readonly TransformSystem _transform;
+
+    public TrailOverlay(IEntityManager entManager, IPrototypeManager protoMan, IGameTiming timing)
+    {
+        ZIndex = (int) DrawDepth.Effects;
+
+        _entManager = entManager;
+        _protoMan = protoMan;
+        _timing = timing;
+        _sprite = _entManager.System<SpriteSystem>();
+        _transform = _entManager.System<TransformSystem>();
+    }
+
+    protected override void Draw(in OverlayDrawArgs args)
+    {
+        var eye = args.Viewport.Eye;
+
+        if (eye == null)
+            return;
+
+        var eyeRot = eye.Rotation;
+        var handle = args.WorldHandle;
+        var bounds = args.WorldAABB;
+
+        var xformQuery = _entManager.GetEntityQuery<TransformComponent>();
+        var spriteQuery = _entManager.GetEntityQuery<SpriteComponent>();
+
+        var query = _entManager.EntityQueryEnumerator<TrailComponent, TransformComponent>();
+        while (query.MoveNext(out _, out var trail, out var xform))
+        {
+            if (trail.TrailData.Count == 0)
+                continue;
+
+            var (position, rotation) = _transform.GetWorldPositionRotation(xform, xformQuery);
+
+            if (trail.Shader != null && _protoMan.TryIndex<ShaderPrototype>(trail.Shader, out var shaderProto))
+                handle.UseShader(shaderProto.InstanceUnique());
+
+            if (trail.RenderedEntity != null)
+            {
+                Direction? direction = null;
+                var rot = rotation;
+                switch (trail.RenderedEntityRotationStrategy)
+                {
+                    case LerpPropertyData.RenderedEntityRotationStrategy.Trail:
+                    {
+                        var dirRot = rotation + eyeRot;
+                        direction = dirRot.GetCardinalDir();
+                        break;
+                    }
+                    case LerpPropertyData.RenderedEntityRotationStrategy.RenderedEntity:
+                        rot = _transform.GetWorldRotation(trail.RenderedEntity.Value);
+                        break;
+                }
+
+                Entity<SpriteComponent?> sprite = trail.RenderedEntity.Value;
+                if (!spriteQuery.Resolve(sprite, ref sprite.Comp))
+                    continue;
+                foreach (var data in trail.TrailData)
+                {
+                    if (data.Color.A <= 0.01f || data.Scale <= 0.01f || data.MapId != args.MapId)
+                        continue;
+                    var worldPosition = data.Position;
+                    if (!bounds.Contains(worldPosition))
+                        continue;
+                    if (trail.RenderedEntityRotationStrategy == LerpPropertyData.RenderedEntityRotationStrategy.Particle)
+                    {
+                        rot = data.Angle;
+                        direction = (rot + eyeRot).GetCardinalDir();
+                    }
+                    var originalColor = sprite.Comp.Color;
+                    _sprite.SetColor(sprite, data.Color);
+                    var originalScale = sprite.Comp.Scale;
+                    _sprite.SetScale(sprite, originalScale * data.Scale);
+                    _sprite.RenderSprite((sprite, sprite.Comp), handle, eyeRot, rot, worldPosition, direction);
+                    _sprite.SetColor(sprite, originalColor);
+                    _sprite.SetScale(sprite, originalScale);
+                }
+
+            }
+
+            if (trail.Sprite == null)
+            {
+                if (xform.MapID == args.MapId)
+                {
+                    var start = trail.TrailData[^1].Position;
+                    DrawTrailLine(start, position, trail.Color, trail.Scale, bounds, handle);
+                }
+
+                for (var i = 1; i < trail.TrailData.Count; i++)
+                {
+                    var data = trail.TrailData[i];
+                    var prevData = trail.TrailData[i - 1];
+
+                    if (data.MapId == args.MapId && prevData.MapId == args.MapId)
+                        DrawTrailLine(prevData.Position, data.Position, data.Color, data.Scale, bounds, handle);
+                }
+
+                continue;
+            }
+
+            var textureSize = _sprite.Frame0(trail.Sprite).Size;
+            var pos = -(Vector2) textureSize / 2f / EyeManager.PixelsPerMeter;
+            foreach (var data in trail.TrailData)
+            {
+                if (data.Color.A <= 0.01f || data.Scale <= 0.01f || data.MapId != args.MapId)
+                    continue;
+
+                var worldPosition = data.Position;
+                if (!bounds.Contains(worldPosition))
+                    continue;
+
+                var scaleMatrix = Matrix3x2.CreateScale(new Vector2(data.Scale, data.Scale));
+                var worldMatrix = Matrix3Helpers.CreateTranslation(worldPosition);
+
+                var time = _timing.CurTime > data.SpawnTime ? _timing.CurTime - data.SpawnTime : TimeSpan.Zero;
+                var texture = _sprite.GetFrame(trail.Sprite, time);
+
+                handle.SetTransform(Matrix3x2.Multiply(scaleMatrix, worldMatrix));
+                handle.DrawTexture(texture, pos, data.Angle, data.Color);
+            }
+        }
+
+        handle.UseShader(null);
+        handle.SetTransform(Matrix3x2.Identity);
+    }
+
+    private static void DrawTrailLine(
+        Vector2 start,
+        Vector2 end,
+        Color color,
+        float scale,
+        Box2 bounds,
+        DrawingHandleWorld handle
+    )
+    {
+        if (color.A <= 0.01f || scale <= 0.01f || !bounds.Contains(start) || !bounds.Contains(end))
+            return;
+        var halfScale = scale * 0.5f;
+        var direction = end - start;
+        var angle = direction.ToAngle();
+        var box = new Box2(start - new Vector2(0f, halfScale), start + new Vector2(direction.Length(), halfScale));
+        var boxRotated = new Box2Rotated(box, angle, start);
+        handle.DrawRect(boxRotated, color);
+    }
+}

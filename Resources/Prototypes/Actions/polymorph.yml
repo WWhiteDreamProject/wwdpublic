@@ -34,11 +34,11 @@
   components:
   - type: InstantAction
     useDelay: 60
-    event: !type:PolymorphActionEvent
+    event: !type:PolymorphSpellEvent # WD edit
       protoId: WizardRod
     itemIconStyle: NoItem
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi # Goob edit
+      sprite: _White/Wizard/actions.rsi # WD edit
       state: immrod
   # WD EDIT START
   - type: ActionUpgrade
@@ -55,14 +55,20 @@
   description: Melt into the Ethereal Plane for a quick getaway!
   components:
   - type: Magic
+    requiresClothes: true # WD
+    school: Translocation # WD
+  - type: Sprite # WD - for apprentices
+    sprite: _White/Wizard/actions.rsi
+    state: jaunt
   - type: InstantAction
     useDelay: 30
-    event: !type:PolymorphActionEvent
-      protoId: Jaunt
-    itemIconStyle: NoItem
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi # Goob edit
+      sprite: _White/Wizard/actions.rsi # WD edit
       state: jaunt
+    itemIconStyle: NoItem
+#  - type: InstantAction
+    event: !type:PolymorphSpellEvent # WD edit
+      protoId: Jaunt
     # TODO: Effect ECS (from cardboard box)
   - type: ActionUpgrade
     effectedLevels:
@@ -77,11 +83,11 @@
   components:
   - type: InstantAction
     useDelay: 25
-    event: !type:PolymorphActionEvent
+    event: !type:PolymorphSpellEvent # WD edit
       protoId: Jaunt
     itemIconStyle: NoItem
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi # Goob edit
+      sprite: _White/Wizard/actions.rsi # WD edit
       state: jaunt
 
 - type: entity
@@ -92,9 +98,9 @@
   components:
   - type: InstantAction
     useDelay: 20
-    event: !type:PolymorphActionEvent
+    event: !type:PolymorphSpellEvent # WD edit
       protoId: Jaunt
     itemIconStyle: NoItem
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi # Goob edit
+      sprite: _White/Wizard/actions.rsi # WD edit
       state: jaunt

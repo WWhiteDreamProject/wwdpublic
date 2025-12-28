@@ -293,12 +293,13 @@
         color: Turquoise
         # TODO: Need Wizard Start sound
         #sound: "/Audio/Ambience/Antag/wizard_start.ogg"
-      startingGear: WizardBlueGear
+      startingGear: WizardGear # Goob edit
       # TODO: WizardComp as needed
       components:
       - type: NpcFactionMember
         factions:
         - Wizard
+      - type: Wizard # WD edit
       - type: RandomMetadata
         nameSegments:
         - names_wizard_first

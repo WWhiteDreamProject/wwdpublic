@@ -13,7 +13,7 @@
     checkCanAccess: false
     repeat: false
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi # Goob edit
+      sprite: _White/Wizard/actions.rsi # WD edit
       state: blink
     event: !type:TeleportSpellEvent
 
@@ -37,7 +37,7 @@
     checkCanAccess: false
     repeat: false
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi # Goob edit
+      sprite: _White/Wizard/actions.rsi # WD edit
       state: swap
     event: !type:VoidApplauseSpellEvent
       effect: EffectVoidBlink

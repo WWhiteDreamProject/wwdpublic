@@ -9,7 +9,7 @@
     sound: !type:SoundPathSpecifier
       path: /Audio/Magic/forcewall.ogg
     icon:
-      sprite: _Goobstation/Wizard/actions.rsi # Goob edit
+      sprite: _White/Wizard/actions.rsi # Goob edit
       state: shield_greater
     event: !type:InstantSpawnSpellEvent
       prototype: WallForce
