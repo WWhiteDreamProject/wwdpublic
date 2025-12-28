@@ -217,12 +217,10 @@ public sealed class EmergencyLightSystem : SharedEmergencyLightSystem
         }
         else if (!receiver.Powered && entity.Comp.ForciblyEnabled) // White Dream; Not powered but forcibly enabled, we do not switch color
         {
-            Log.Debug("peepee");
             SetState(entity.Owner, entity.Comp, EmergencyLightState.On);
         }
         else if (!receiver.Powered) // If internal battery runs out it will end in off red state
         {
-            Log.Debug("poopoo");
             TurnOn(entity, Color.Red);
             SetState(entity.Owner, entity.Comp, EmergencyLightState.On);
         }
