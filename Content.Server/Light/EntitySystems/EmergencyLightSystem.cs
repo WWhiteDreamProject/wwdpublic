@@ -13,6 +13,7 @@ using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Color = Robust.Shared.Maths.Color;
 
@@ -32,11 +33,14 @@ public sealed class EmergencyLightSystem : SharedEmergencyLightSystem
     {
         base.Initialize();
 
+        SubscribeLocalEvent<EmergencyLightComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<EmergencyLightComponent, EmergencyLightEvent>(OnEmergencyLightEvent);
         SubscribeLocalEvent<AlertLevelChangedEvent>(OnAlertLevelChanged);
         SubscribeLocalEvent<EmergencyLightComponent, ExaminedEvent>(OnEmergencyExamine);
         SubscribeLocalEvent<EmergencyLightComponent, PowerChangedEvent>(OnEmergencyPower);
     }
+
+    private void OnMapInit(Entity<EmergencyLightComponent> entity, ref MapInitEvent args) => UpdateState(entity);
 
     private void OnEmergencyPower(Entity<EmergencyLightComponent> entity, ref PowerChangedEvent args)
     {
@@ -87,9 +91,9 @@ public sealed class EmergencyLightSystem : SharedEmergencyLightSystem
         {
             case EmergencyLightState.On:
             case EmergencyLightState.Charging:
+            case EmergencyLightState.Full: // White Dream moved for audio
                 EnsureComp<ActiveEmergencyLightComponent>(uid);
                 break;
-            case EmergencyLightState.Full:
             case EmergencyLightState.Empty:
                 RemComp<ActiveEmergencyLightComponent>(uid);
                 break;
@@ -168,25 +172,21 @@ public sealed class EmergencyLightSystem : SharedEmergencyLightSystem
                     SetState(uid, emergencyLight, EmergencyLightState.Full);
                 }
             }
-        }
 
-        var soundQuery = EntityQueryEnumerator<EmergencyLightComponent>();
-
-        while (soundQuery.MoveNext(out var uid, out var emergencyLight))
-        {
-            if (emergencyLight.State == EmergencyLightState.Empty || !emergencyLight.AlarmSoundActive)
-                continue;
-
-            if (emergencyLight.AlarmNextSound < _timing.CurTime)
+            // Audio Alarm
+            if (emergencyLight.AlarmNextSound < _timing.CurTime && emergencyLight.AlarmSoundActive)
             {
-                var audioParams = AudioParams.Default
-                    .WithVolume(emergencyLight.AlarmVolume)
+                if (emergencyLight.AlarmSound == null)
+                    continue;
+
+                var audioParams = emergencyLight.AlarmSound.Params
                     .WithMaxDistance(10f)
                     .WithRolloffFactor(2f);
 
                 _audioSystem.PlayEntity(emergencyLight.AlarmSound, Filter.Pvs(uid, 0.5f), uid, true, audioParams);
 
-                emergencyLight.AlarmNextSound = _timing.CurTime.Add(TimeSpan.FromSeconds(emergencyLight.AlarmInterval));
+                emergencyLight.AlarmNextSound =
+                    _timing.CurTime.Add(emergencyLight.AlarmInterval);
             }
         }
     }
@@ -215,8 +215,14 @@ public sealed class EmergencyLightSystem : SharedEmergencyLightSystem
             TurnOff(entity, details.Color);
             SetState(entity.Owner, entity.Comp, EmergencyLightState.Charging);
         }
+        else if (!receiver.Powered && entity.Comp.ForciblyEnabled) // White Dream; Not powered but forcibly enabled, we do not switch color
+        {
+            Log.Debug("peepee");
+            SetState(entity.Owner, entity.Comp, EmergencyLightState.On);
+        }
         else if (!receiver.Powered) // If internal battery runs out it will end in off red state
         {
+            Log.Debug("poopoo");
             TurnOn(entity, Color.Red);
             SetState(entity.Owner, entity.Comp, EmergencyLightState.On);
         }
@@ -269,7 +275,7 @@ public sealed class EmergencyLightSystem : SharedEmergencyLightSystem
     // White Dream edit start - Audio Alert by Alert Level
     private void UpdateAlarmSound(Entity<EmergencyLightComponent> entity, AlertLevelDetail alertLevel)
     {
-        if (alertLevel.AlarmSound == null || !alertLevel.EnableAlarmSound)
+        if (alertLevel.AlarmSound == null)
         {
             entity.Comp.AlarmSoundActive = false;
             return;
@@ -277,13 +283,12 @@ public sealed class EmergencyLightSystem : SharedEmergencyLightSystem
 
         entity.Comp.AlarmSoundActive = true;
         entity.Comp.AlarmSound = alertLevel.AlarmSound;
-        entity.Comp.AlarmVolume = alertLevel.AlarmVolume;
         entity.Comp.AlarmInterval = alertLevel.AlarmInterval;
 
-        if (entity.Comp.AlarmInterval < 1f) // Safeguard against spam and client crash
-            entity.Comp.AlarmInterval = 1f;
+        if (entity.Comp.AlarmInterval < TimeSpan.FromSeconds(1f)) // Safeguard against spam and client crash
+            entity.Comp.AlarmInterval = TimeSpan.FromSeconds(1f);
 
-        entity.Comp.AlarmNextSound = _timing.CurTime.Add(TimeSpan.FromSeconds(entity.Comp.AlarmInterval));
+        entity.Comp.AlarmNextSound = _timing.CurTime.Add(entity.Comp.AlarmInterval);
     }
     // White Dream edit end
 }

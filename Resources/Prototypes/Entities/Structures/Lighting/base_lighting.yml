@@ -455,7 +455,7 @@
   - type: ExtensionCableReceiver
   - type: Battery
     maxCharge: 30000
-    startingCharge: 30000 # White Dream; 0 -> 30000
+    startingCharge: 0
   - type: EmergencyLight
   - type: RotatingLight
     speed: 120 # White Dream

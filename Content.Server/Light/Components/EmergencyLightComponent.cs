@@ -52,13 +52,10 @@ public sealed partial class EmergencyLightComponent : SharedEmergencyLightCompon
     public SoundSpecifier? AlarmSound;
 
     [DataField]
-    public float AlarmVolume;
+    public TimeSpan AlarmInterval;
 
     [DataField]
-    public float AlarmInterval;
-
-    [DataField]
-    public TimeSpan? AlarmNextSound;
+    public TimeSpan AlarmNextSound = TimeSpan.Zero;
 }
 
 public enum EmergencyLightState : byte

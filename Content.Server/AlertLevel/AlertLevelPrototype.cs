@@ -77,15 +77,9 @@ public sealed partial class AlertLevelDetail
     /// Alarm sound that the emergency lights will play
     /// </summary>
     [DataField]
-    public bool EnableAlarmSound;
-
-    [DataField]
     public SoundSpecifier? AlarmSound;
 
     [DataField]
-    public float AlarmVolume;
-
-    [DataField]
-    public float AlarmInterval = 30f; // How often will the alarm play, in seconds
+    public TimeSpan AlarmInterval = TimeSpan.FromSeconds(30f); // How often will the alarm play
 }
 
