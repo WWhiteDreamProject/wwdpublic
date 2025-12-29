@@ -4759,3 +4759,10 @@ Entries:
   id: 500
   time: '2025-12-28T19:22:13.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/921
+- author: vanx
+  changes:
+    - type: Fix
+      message: Формой жезла волшебника теперь нельзя управлять
+  id: 501
+  time: '2025-12-29T13:56:07.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/961
