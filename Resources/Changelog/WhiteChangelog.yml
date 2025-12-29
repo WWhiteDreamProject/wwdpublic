@@ -4773,3 +4773,10 @@ Entries:
   id: 502
   time: '2025-12-29T13:57:51.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/966
+- author: vanx
+  changes:
+    - type: Remove
+      message: Логирование осмотра персонажей в чате
+  id: 503
+  time: '2025-12-29T14:02:12.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/972
