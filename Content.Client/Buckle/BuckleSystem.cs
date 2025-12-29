@@ -2,6 +2,7 @@ using Content.Client.Rotation;
 using Content.Shared._White.Move;
 using Content.Shared.Buckle;
 using Content.Shared.Buckle.Components;
+using Content.Shared.Movement.Systems;
 using Content.Shared.Rotation;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
@@ -22,6 +23,15 @@ internal sealed class BuckleSystem : SharedBuckleSystem
         SubscribeLocalEvent<StrapComponent, MoveEventProxy>(OnStrapMoveEvent); // WD EDIT
         SubscribeLocalEvent<BuckleComponent, BuckledEvent>(OnBuckledEvent);
         SubscribeLocalEvent<BuckleComponent, UnbuckledEvent>(OnUnbuckledEvent);
+        SubscribeLocalEvent<BuckleComponent, AttemptMobCollideEvent>(OnMobCollide);
+    }
+
+    private void OnMobCollide(Entity<BuckleComponent> ent, ref AttemptMobCollideEvent args)
+    {
+        if (ent.Comp.Buckled)
+        {
+            args.Cancelled = true;
+        }
     }
 
     private void OnStrapMoveEvent(EntityUid uid, StrapComponent component, ref MoveEventProxy args) // WD EDIT
