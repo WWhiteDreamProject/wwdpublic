@@ -1290,6 +1290,7 @@
   id: SuperiorRadiationShielding
   category: Physical
   points: -4
+  enable: false # WD EDIT
   requirements:
     - !type:CharacterSpeciesRequirement
       species:
