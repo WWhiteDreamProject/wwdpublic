@@ -694,6 +694,9 @@ public sealed class PullingSystem : EntitySystem
             return false;
         }
 
+        if (_timing.CurTime < pullableComp.NextPullAttempt) // White Dream no locking with spam pulls
+            return false;
+
         if (pullerComp.Pulling == pullableUid)
             return true;
 
@@ -761,6 +764,8 @@ public sealed class PullingSystem : EntitySystem
             return false;
 
         // Pulling confirmed
+
+        pullableComp.NextPullAttempt = _timing.CurTime + pullableComp.PullAttemptCooldown; // White Dream no locking with spam pulls
 
         _interaction.DoContactInteraction(pullableUid, pullerUid);
 
