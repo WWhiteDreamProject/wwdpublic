@@ -174,11 +174,8 @@ public sealed class EmergencyLightSystem : SharedEmergencyLightSystem
             }
 
             // Audio Alarm
-            if (emergencyLight.AlarmNextSound < _timing.CurTime && emergencyLight.AlarmSoundActive)
+            if (emergencyLight.AlarmNextSound < _timing.CurTime && emergencyLight.AlarmSound != null)
             {
-                if (emergencyLight.AlarmSound == null)
-                    continue;
-
                 _audioSystem.PlayEntity(emergencyLight.AlarmSound, Filter.Pvs(uid, 0.5f), uid, true);
 
                 emergencyLight.AlarmNextSound =
@@ -271,11 +268,10 @@ public sealed class EmergencyLightSystem : SharedEmergencyLightSystem
     {
         if (alertLevel.AlarmSound == null)
         {
-            entity.Comp.AlarmSoundActive = false;
+            entity.Comp.AlarmSound = null;
             return;
         }
 
-        entity.Comp.AlarmSoundActive = true;
         entity.Comp.AlarmSound = alertLevel.AlarmSound;
         entity.Comp.AlarmInterval = alertLevel.AlarmInterval;
 

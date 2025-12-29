@@ -46,9 +46,6 @@ public sealed partial class EmergencyLightComponent : SharedEmergencyLightCompon
     /// Overwritten by AlertLevelPrototype on station alert level change
     /// </summary>
     [DataField]
-    public bool AlarmSoundActive;
-
-    [DataField]
     public SoundSpecifier? AlarmSound;
 
     [DataField]
