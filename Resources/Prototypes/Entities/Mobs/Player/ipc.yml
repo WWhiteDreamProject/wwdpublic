@@ -135,10 +135,12 @@
   - type: Damageable
     damageContainer: Silicon # WWDP EDIT: "SiliconUnshielded" --> "Silicon"
     damageModifierSet: IPC
-  - type: Barotrauma
-    damage:
-      types:
-        Heat: 0.55 #per second, scales with pressure and other constants. Uniquely Heat instead of blunt, to simulate mechanical overheating in vacuum. IPCs are normally air cooled.
+# WWDP EDIT START
+#  - type: Barotrauma
+#    damage:
+#      types:
+#        Heat: 0.55 #per second, scales with pressure and other constants. Uniquely Heat instead of blunt, to simulate mechanical overheating in vacuum. IPCs are normally air cooled.
+# WWDP EDIT STOP
   - type: Bloodstream
     bloodlossDamage:
       types:
