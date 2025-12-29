@@ -133,7 +133,7 @@
     - SiliconEmotes
     - SiliconMob
   - type: Damageable
-    damageContainer: Silicon
+    damageContainer: Silicon # WWDP EDIT: "SiliconUnshielded" --> "Silicon"
     damageModifierSet: IPC
   - type: Barotrauma
     damage:

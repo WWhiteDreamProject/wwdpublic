@@ -36,6 +36,7 @@
     damageContainers:
     - Inorganic
     - Silicon
+#    - SiliconUnshielded # WWDP EDIT
 
 - type: entity
   parent: [ClothingEyesBase, ShowMedicalIcons]
@@ -313,3 +314,4 @@
     damageContainers:
     - Inorganic
     - Silicon
+#    - SiliconUnshielded # WWDP EDIT

@@ -406,6 +406,15 @@
     Blunt: 1
     Slash: 1
     Piercing: 1
+# WWDP EDIT START
+#  flatReductions:
+#    Radiation: 1
+
+#- type: damageModifierSet
+#  id: SuperiorRadiationShielding
+#  flatReductions:
+#    Radiation: 4
+# WWDP EDIT STOP
 
 - type: damageModifierSet
   id: HardenedCircuits

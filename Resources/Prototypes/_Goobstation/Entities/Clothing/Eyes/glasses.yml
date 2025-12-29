@@ -23,11 +23,13 @@
     - Biological
     - Inorganic
     - Silicon
+#    - SiliconUnshielded # WWDP EDIT
   - type: ShowHealthIcons
     damageContainers:
     - Biological
     - Inorganic
     - Silicon
+#    - SiliconUnshielded # WWDP EDIT
   - type: Construction # WWDP
     graph: GlassesMedSecHUD
     node: glassesMedSec

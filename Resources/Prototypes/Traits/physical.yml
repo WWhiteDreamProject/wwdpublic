@@ -744,6 +744,7 @@
           damageContainers:
           - Inorganic
           - Silicon
+#          - SiliconUnshielded # WWDP EDIT
 
 - type: trait
   id: CyberEyesOmni
@@ -785,6 +786,7 @@
           - Biological
           - Inorganic
           - Silicon
+#          - SiliconUnshielded # WWDP EDIT
 
 - type: trait
   id: RestrictedGear
@@ -1084,6 +1086,7 @@
           damageContainers:
           - Inorganic
           - Silicon
+#          - SiliconUnshielded # WWDP EDIT
 
 - type: trait
   id: OmniEyesModule
@@ -1128,6 +1131,7 @@
           - Biological
           - Inorganic
           - Silicon
+#          - SiliconUnshielded # WWDP EDIT
 
 - type: trait
   id: LightAmplificationModule

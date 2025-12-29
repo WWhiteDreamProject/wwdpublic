@@ -48,7 +48,9 @@
     damageContainers:
     - Inorganic
     - Silicon
+#    - SiliconUnshielded # WWDP EDIT
   - type: ShowHealthIcons
     damageContainers:
     - Inorganic
     - Silicon
+#    - SiliconUnshielded # WWDP EDIT
