@@ -30,7 +30,27 @@ public sealed class StandingStateSystem : EntitySystem
     // WWDP edit start - increased friction when prone
     public override void Initialize()
     {
+        base.Initialize();
+        SubscribeLocalEvent<StandingStateComponent, AttemptMobCollideEvent>(OnMobCollide);
+        SubscribeLocalEvent<StandingStateComponent, AttemptMobTargetCollideEvent>(OnMobTargetCollide);
         SubscribeLocalEvent<StandingStateComponent, TileFrictionEvent>(OnProneTileFriction);
+    }
+
+    private void OnMobTargetCollide(Entity<StandingStateComponent> ent, ref AttemptMobTargetCollideEvent args)
+    {
+        Log.Debug(ent.Comp.CurrentState.ToString());
+        if (ent.Comp.CurrentState != StandingState.Standing)
+        {
+            args.Cancelled = true;
+        }
+    }
+
+    private void OnMobCollide(Entity<StandingStateComponent> ent, ref AttemptMobCollideEvent args)
+    {
+        if (ent.Comp.CurrentState != StandingState.Standing)
+        {
+            args.Cancelled = true;
+        }
     }
 
     private void OnProneTileFriction(EntityUid uid, StandingStateComponent component, ref TileFrictionEvent args)
