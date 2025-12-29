@@ -36,15 +36,6 @@
   - Shock
 
 - type: damageContainer
-  id: SiliconUnshielded
-  supportedGroups:
-  - Brute
-  supportedTypes:
-  - Heat
-  - Shock
-  - Radiation
-
-- type: damageContainer
   id: Shield
   supportedGroups:
   - Brute

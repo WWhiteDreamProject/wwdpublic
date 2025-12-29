@@ -133,7 +133,7 @@
     - SiliconEmotes
     - SiliconMob
   - type: Damageable
-    damageContainer: SiliconUnshielded
+    damageContainer: Silicon
     damageModifierSet: IPC
   - type: Barotrauma
     damage:

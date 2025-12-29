@@ -744,7 +744,6 @@
           damageContainers:
           - Inorganic
           - Silicon
-          - SiliconUnshielded
 
 - type: trait
   id: CyberEyesOmni
@@ -786,7 +785,6 @@
           - Biological
           - Inorganic
           - Silicon
-          - SiliconUnshielded
 
 - type: trait
   id: RestrictedGear
@@ -1086,7 +1084,6 @@
           damageContainers:
           - Inorganic
           - Silicon
-          - SiliconUnshielded
 
 - type: trait
   id: OmniEyesModule
@@ -1131,7 +1128,6 @@
           - Biological
           - Inorganic
           - Silicon
-          - SiliconUnshielded
 
 - type: trait
   id: LightAmplificationModule
