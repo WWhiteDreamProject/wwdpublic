@@ -4766,3 +4766,10 @@ Entries:
   id: 501
   time: '2025-12-29T13:56:07.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/961
+- author: vanx
+  changes:
+    - type: Fix
+      message: Принтер документов снова печатает с русской локализацией.
+  id: 502
+  time: '2025-12-29T13:57:51.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/966
