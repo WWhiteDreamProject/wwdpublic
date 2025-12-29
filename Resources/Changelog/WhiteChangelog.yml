@@ -4780,3 +4780,10 @@ Entries:
   id: 503
   time: '2025-12-29T14:02:12.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/972
+- author: vanx
+  changes:
+    - type: Add
+      message: Ивент с бродячей капсулой теперь указывает место приземления.
+  id: 504
+  time: '2025-12-29T14:15:14.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/953
