@@ -12,6 +12,7 @@ using Content.Shared.Emag.Systems;
 using Content.Shared.GameTicking;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
+using Content.Shared.Popups;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Roles;
 using Content.Shared.Silicons.Laws;
@@ -41,6 +42,7 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
     [Dependency] private readonly EmagSystem _emag = default!;
     [Dependency] private readonly TagSystem _tagSystem = default!; // WD edit - AiRemoteControl
     [Dependency] private readonly IRobustRandom _random = default!; // WWDP - random roundstart lawset
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
 
 
     /// <inheritdoc/>
@@ -163,7 +165,7 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
         }
     }
 
-    private void OnEmagLawsAdded(EntityUid uid, SiliconLawProviderComponent component, ref SiliconEmaggedEvent args)
+    private void OnEmagLawsAdded(EntityUid uid, SiliconLawProviderComponent component, SiliconEmaggedEvent args)
     {
         if (component.Lawset == null)
             component.Lawset = GetLawset(component.Laws);
@@ -205,7 +207,17 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
             if (!TryComp<EmagSiliconLawComponent>(update, out var emagSiliconLaw))
                 continue;
 
+            if (!TryComp<SiliconLawProviderComponent>(update, out var siliconLawProvider))
+                continue;
+
+            if (siliconLawProvider.Subverted) // Prevent adding laws multiple times
+            {
+                _popup.PopupEntity(Loc.GetString("law-emag-already-subverted"), ent, args.UserUid, PopupType.LargeCaution);
+                continue;
+            }
+
             OnGotEmagged(update, emagSiliconLaw, ref args);
+            _popup.PopupEntity(Loc.GetString("emag-success", ("target", Name(ent.Owner))), ent.Owner, args.UserUid);
         }
     }
     // WD edit end
