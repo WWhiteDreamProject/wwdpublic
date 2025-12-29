@@ -152,7 +152,7 @@
   name: recharger
   components:
   - type: Sprite
-    sprite: Structures/Power/recharger.rsi
+    sprite: _White/Structures/Power/recharger.rsi
     layers:
     - map: ["enum.PowerChargerVisualLayers.Base"]
       state: "empty"
@@ -187,7 +187,7 @@
   description: An overclocked recharger that's been adapted with a global port.
   components:
   - type: Sprite
-    sprite: Structures/Power/turbo_recharger.rsi
+    sprite: _White/Structures/Power/turbo_recharger.rsi
   - type: Machine
     board: TurboItemRechargerCircuitboard
   - type: Charger
