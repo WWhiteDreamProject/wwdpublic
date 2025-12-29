@@ -19,7 +19,7 @@ namespace Content.Shared.Movement.Components
         public const float DefaultWeightlessModifier = 0.7f;
         public const float DefaultWeightlessAcceleration = 1f;
 
-        public const float DefaultAcceleration = 20f;
+        public const float DefaultAcceleration = 50f; // White Dream inertia; 20f -> 50f
         public const float DefaultFriction = 20f;
         public const float DefaultFrictionNoInput = 20f;
 
