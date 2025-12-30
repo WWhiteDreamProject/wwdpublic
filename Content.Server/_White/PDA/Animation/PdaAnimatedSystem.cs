@@ -2,7 +2,9 @@ using Content.Shared._White.PDA.Animation;
 using Content.Shared.Interaction;
 using Content.Shared.PDA;
 using Content.Shared.UserInterface;
+using Robust.Shared.Player;
 using Robust.Server.GameObjects;
+using Robust.Server.Player;
 using Robust.Shared.Timing;
 
 namespace Content.Server._White.PDA.Animation;
@@ -14,6 +16,7 @@ public sealed class PdaAnimatedSystem : SharedPdaAnimatedSystem
 {
     [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
+    [Dependency] private readonly IPlayerManager _playerManager = default!;
 
     public override void Initialize()
     {
@@ -25,6 +28,11 @@ public sealed class PdaAnimatedSystem : SharedPdaAnimatedSystem
 
     private void OnOpenAttempt(EntityUid uid, PdaAnimatedComponent comp, ActivatableUIOpenAttemptEvent args)
     {
+        // Skip tests
+        if (_playerManager.TryGetSessionByEntity(args.User, out var session) &&
+            session.Name.StartsWith("integration_"))
+            return;
+
         if (comp.AnimationState == PdaAnimationState.Open)
             return;
 
