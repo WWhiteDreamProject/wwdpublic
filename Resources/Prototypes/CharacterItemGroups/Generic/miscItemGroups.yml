@@ -140,6 +140,10 @@
   items:
     - type: loadout
       id: PlushieSharkBlue
+# WWDP EDIT START
+    - type: loadout
+      id: PlushieSharkPink
+# WWDP EDIT STOP
     - type: loadout
       id: PlushieSharkGrey
     - type: loadout
