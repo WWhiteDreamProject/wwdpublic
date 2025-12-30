@@ -75,7 +75,7 @@
     state: death2_cap
   product: CrateFunSprayPaints
   cost: 2000
-  category: Fun
+  category: cargoproduct-category-name-fun # WWDP edit
   group: market
 
 - type: cargoProduct

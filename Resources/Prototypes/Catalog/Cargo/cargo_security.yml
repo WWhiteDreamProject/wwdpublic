@@ -1,7 +1,7 @@
 - type: cargoProduct
   id: SecurityArmor
   icon:
-    sprite: DeltaV/Clothing/OuterClothing/Armor/platecarrier.rsi # DeltaV - resprite
+    sprite: Clothing/OuterClothing/Armor/security.rsi # DeltaV - resprite
     state: icon
   product: CrateSecurityArmor
   cost: 800
@@ -41,42 +41,42 @@
 - type: cargoProduct
   id: SecuritySwat
   icon:
-    sprite: DeltaV/Clothing/OuterClothing/Armor/riot.rsi # DeltaV - resprite
+    sprite: Clothing/OuterClothing/Armor/swat.rsi # WD edit
     state: icon
   product: CrateSecuritySwat
   cost: 12500
   category: cargoproduct-category-name-security
   group: market
 
-- type: cargoProduct
-  id: SecurityHeavyAblative
-  icon:
-    sprite: _EE/Clothing/Generic/OuterClothing/heavy_armor_ablative.rsi
-    state: icon
-  product: CrateSecurityHeavyAblativeArmor
-  cost: 15000
-  category: cargoproduct-category-name-security
-  group: market
+# - type: cargoProduct
+#   id: SecurityHeavyAblative
+#   icon:
+#     sprite: _EE/Clothing/Generic/OuterClothing/heavy_armor_ablative.rsi
+#     state: icon
+#   product: CrateSecurityHeavyAblativeArmor
+#   cost: 15000
+#   category: cargoproduct-category-name-security
+#   group: market
 
-- type: cargoProduct
-  id: SecurityHeavyBallistic
-  icon:
-    sprite: _EE/Clothing/Generic/OuterClothing/heavy_armor_ballistic.rsi
-    state: icon
-  product: CrateSecurityHeavyBallisticArmor
-  cost: 15000
-  category: cargoproduct-category-name-security
-  group: market
+# - type: cargoProduct
+#   id: SecurityHeavyBallistic
+#   icon:
+#     sprite: _EE/Clothing/Generic/OuterClothing/heavy_armor_ballistic.rsi
+#     state: icon
+#   product: CrateSecurityHeavyBallisticArmor
+#   cost: 15000
+#   category: cargoproduct-category-name-security
+#   group: market
 
-- type: cargoProduct
-  id: SecurityHeavyStandard
-  icon:
-    sprite: _EE/Clothing/Generic/OuterClothing/heavy_armor_standard.rsi
-    state: icon
-  product: CrateSecurityHeavySecurityArmor
-  cost: 15000
-  category: cargoproduct-category-name-security
-  group: market
+# - type: cargoProduct
+#   id: SecurityHeavyStandard
+#   icon:
+#     sprite: _EE/Clothing/Generic/OuterClothing/heavy_armor_standard.rsi
+#     state: icon
+#   product: CrateSecurityHeavySecurityArmor
+#   cost: 15000
+#   category: cargoproduct-category-name-security
+#   group: market
 
 - type: cargoProduct
   id: SecuritySupplies
