@@ -4796,3 +4796,10 @@ Entries:
   id: 505
   time: '2025-12-29T14:27:55.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/979
+- author: vanx
+  changes:
+    - type: Remove
+      message: Инерция
+  id: 506
+  time: '2025-12-30T14:00:31.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/988
