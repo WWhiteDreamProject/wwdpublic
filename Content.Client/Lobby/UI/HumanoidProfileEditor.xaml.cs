@@ -984,6 +984,7 @@ namespace Content.Client.Lobby.UI
             UpdateSaveButton();
             UpdateMarkings();
             UpdateLoadouts(); // WD EDIT
+            CheckpointLoadouts(); // WD EDIT
             CharacterMenuUpdateRequired(); // WD EDIT
             UpdateHairPickers();
             UpdateCMarkingsHair();

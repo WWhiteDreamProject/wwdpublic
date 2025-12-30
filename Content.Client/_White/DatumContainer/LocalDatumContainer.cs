@@ -30,8 +30,14 @@ public sealed class LocalDatumContainer<T> where T : notnull
     public bool TryGetValue(string key,[NotNullWhen(true)] out T? value) =>
         _data.TryGetValue(key, out value);
 
-    public void SetValue(string key, T value)
+    public void SetValue(string key, T? value)
     {
+        if (value is null)
+        {
+            RemoveValue(key);
+            return;
+        }
+
         _data[key] = value;
         Dirty();
     }
@@ -62,7 +68,9 @@ public sealed class LocalDatumContainer<T> where T : notnull
         using var textReadStream = new StreamReader(stream);
         var yamlStream = new YamlStream();
         yamlStream.Load(textReadStream);
-        
-        _data = _serializationManager.Read<Dictionary<string, T>>(yamlStream.Documents[0].RootNode.ToDataNode(), notNullableOverride:true);
+
+        _data = _serializationManager.Read<Dictionary<string, T>>(yamlStream.Documents[0].RootNode.ToDataNode(), notNullableOverride:false);
     }
+
+    public T? GetValueOrDefault(string key) => _data.GetValueOrDefault(key);
 }

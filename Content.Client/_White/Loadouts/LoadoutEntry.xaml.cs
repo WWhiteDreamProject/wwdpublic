@@ -33,6 +33,18 @@ public sealed partial class LoadoutEntry : Control, IComparable<LoadoutEntry>
         set => SetLoadout(value);
     }
 
+    private int _cost;
+
+    public int Cost
+    {
+        get => _cost;
+        private set
+        {
+            LoadoutCostText.Text = value.ToString();
+            _cost = value;
+        }
+    }
+
     public bool CanWear { get; private set; } = true;
 
     public bool Selected
@@ -54,12 +66,12 @@ public sealed partial class LoadoutEntry : Control, IComparable<LoadoutEntry>
         OnLoadoutDirty?.Invoke(this);
     }
 
-    public void EnsureIsWearable(CharacterRequirementsArgs args, int loadoutPoint)
+    public bool EnsureIsWearable(CharacterRequirementsArgs args, int loadoutPoint)
     {
         if (CheckIsWearable(args, loadoutPoint, out var reason))
         {
             if (CanWear)
-                return;
+                return true;
 
             PreferenceButton.RemoveStyleClass(StyleBase.ButtonDanger);
             CanWear = true;
@@ -67,16 +79,19 @@ public sealed partial class LoadoutEntry : Control, IComparable<LoadoutEntry>
             HeirloomButton.Visible = true;
             HeadingButton.Visible = true;
 
-            return;
+            return true;
         }
 
         if (!CanWear)
-            return;
+            return false;
+
         PreferenceButton.AddStyleClass(StyleBase.ButtonDanger);
         CanWear = false;
         PreferenceButton.Disabled = true;
         HeirloomButton.Visible = false;
         HeadingButton.Visible = false;
+
+        return false;
     }
 
     public bool CheckIsWearable(CharacterRequirementsArgs characterRequirementsArgs, int loadoutPoint,[NotNullWhen(false)] out string? reason)
@@ -109,18 +124,12 @@ public sealed partial class LoadoutEntry : Control, IComparable<LoadoutEntry>
     {
         OnEditLoadoutRequired?.Invoke(this);
     }
-
-    public void SetLoadout(string prototype)
-    {
-        SetLoadout(new Loadout(prototype));
-    }
-
     public void SetLoadout(Loadout loadout)
     {
         _entityManager.DeleteEntity(_loadoutUid);
         var loadoutProto = _prototypeManager.Index<LoadoutPrototype>(loadout.LoadoutName);
         _loadoutUid = _entityManager.SpawnEntity(loadoutProto.Items.First(), MapCoordinates.Nullspace);
-        LoadoutCostText.Text = loadoutProto.Cost.ToString();
+        Cost = loadoutProto.Cost;
         PreviewLoadout.SetEntity(_loadoutUid);
 
         var loadoutName =
@@ -144,6 +153,11 @@ public sealed partial class LoadoutEntry : Control, IComparable<LoadoutEntry>
         LoadoutNameLabel.Text = loadoutName;
 
         _currentLoadout = loadout;
+    }
+
+    public void AppendErrorMessage(string message)
+    {
+
     }
 
     protected override void Dispose(bool disposing)

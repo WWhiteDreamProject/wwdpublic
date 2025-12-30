@@ -70,19 +70,15 @@ public sealed partial class HumanoidProfileEditor
         var currMenu = CurrentCharacterMenuEntry;
         do
         {
-            Logger.Debug(currMenu.Label + ">>");
             path.Push(currMenu.Label);
         } while ((currMenu = currMenu.Parent) != null);
 
         currMenu = BuildMenuGroup(MainCharacterMenuRoot);
 
-        Logger.Debug(path.Count + "<<");
-
         path.TryPop(out _); // Popup root
 
         while (path.TryPop(out var t1))
         {
-            Logger.Debug(t1);
             if(currMenu is not CharacterContainerMenuEntry containerMenuEntry)
                  break;
             var nextMenu = containerMenuEntry.Children.FirstOrDefault(p => p.Label == t1);
@@ -110,6 +106,13 @@ public sealed partial class HumanoidProfileEditor
                 _requirements.IsWhitelisted()
                 )
             );
+    }
+
+    private void CheckpointLoadouts()
+    {
+        if (Profile == null)
+            return;
+        Loadouts.SetCheckpoint();
     }
 
     private void OnLoadoutsChange(List<Loadout> loadouts)

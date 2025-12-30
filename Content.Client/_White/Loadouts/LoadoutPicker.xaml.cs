@@ -13,7 +13,6 @@ using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Configuration;
-using Robust.Shared.ContentPack;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
@@ -35,6 +34,9 @@ public sealed partial class LoadoutPicker : Control
     private readonly LocalDatumContainer<string> _customName;
     private readonly LocalDatumContainer<string> _customDescription;
     private readonly LocalDatumContainer<string> _customContent;
+
+    private List<Loadout> _checkpointLoadouts = new();
+    private CharacterRequirementsArgs? _checkpointRequirements;
 
     public Action<List<Loadout>>? OnLoadoutsChanged;
 
@@ -69,6 +71,21 @@ public sealed partial class LoadoutPicker : Control
 
         SaveButton.OnPressed += SaveButtonPressed;
         SpecialColorTintToggle.OnPressed += SpecialColorTintTogglePressed;
+        ResetButton.OnPressed += ResetButtonPressed;
+    }
+
+    private void ResetButtonPressed(BaseButton.ButtonEventArgs obj)
+    {
+        if(_checkpointRequirements is null)
+            return;
+
+        SetData(_checkpointLoadouts, _checkpointRequirements);
+    }
+
+    public void SetCheckpoint()
+    {
+        _checkpointLoadouts = _selectedLoadouts.Values.ToList();
+        _checkpointRequirements = CharacterRequirementsArgs;
     }
 
     public void SetData(IEnumerable<Loadout> selectedPreferenceList, CharacterRequirementsArgs characterRequirements)
@@ -79,73 +96,63 @@ public sealed partial class LoadoutPicker : Control
 
         foreach (var preference in selectedPreferenceList)
         {
-            if(!TryAddLoadout(preference.LoadoutName, out var loadout))
-                continue;
+            var loadoutEntry = CreateEntry(preference.LoadoutName);
 
-            loadout.CustomColorTint = preference.CustomColorTint;
-            loadout.CustomHeirloom = preference.CustomHeirloom;
-            loadout.CustomName = preference.CustomName;
-            loadout.CustomDescription = preference.CustomDescription;
-            loadout.CustomContent = preference.CustomContent;
+            if (!TrySelectLoadout(loadoutEntry))
+            {
+                Logger.Warning($"Removing loadout {preference.LoadoutName} from selected list.");
+                continue;
+            }
+
+            LoadoutPoint -= loadoutEntry.Cost;
+
+            if (loadoutEntry.Loadout.CustomContent != preference.CustomContent)
+            {
+                Logger.Warning("CustomContent mismatch, syncing...");
+                loadoutEntry.Loadout.CustomContent = preference.CustomContent;
+                _customContent.SetValue(preference.LoadoutName, preference.CustomContent);
+            }
+
+            if (loadoutEntry.Loadout.CustomName != preference.CustomName)
+            {
+                Logger.Warning("CustomName mismatch, syncing...");
+                loadoutEntry.Loadout.CustomName = preference.CustomName;
+                _customName.SetValue(preference.LoadoutName, preference.CustomName);
+            }
+
+            if (loadoutEntry.Loadout.CustomDescription != preference.CustomDescription)
+            {
+                Logger.Warning("CustomDescription mismatch, syncing...");
+                loadoutEntry.Loadout.CustomDescription = preference.CustomDescription;
+                _customDescription.SetValue(preference.LoadoutName, preference.CustomDescription);
+            }
+
+            if (loadoutEntry.Loadout.CustomHeirloom != preference.CustomHeirloom)
+            {
+                Logger.Warning("CustomHeirloom mismatch, syncing...");
+                loadoutEntry.Loadout.CustomHeirloom = preference.CustomHeirloom;
+
+                if( preference.CustomHeirloom is null)
+                    _customHeirloom.RemoveValue(preference.LoadoutName);
+                else
+                    _customHeirloom.SetValue(preference.LoadoutName, preference.CustomHeirloom.Value);
+            }
+
+            if (loadoutEntry.Loadout.CustomColorTint != preference.CustomColorTint)
+            {
+                Logger.Warning("CustomColorTint mismatch, syncing...");
+                loadoutEntry.Loadout.CustomColorTint = preference.CustomColorTint;
+                _customColorTints.SetValue(preference.LoadoutName, preference.CustomColorTint);
+            }
         }
 
         if (_selectedLoadoutCategory != null)
             LoadCategoryButtons(_selectedLoadoutCategory.Value);
     }
 
-    public bool TryAddLoadout(ProtoId<LoadoutPrototype> loadoutPrototype, [NotNullWhen(true)] out Loadout? loadout)
-    {
-        if (_selectedLoadouts.TryGetValue(loadoutPrototype.Id, out loadout))
-            return true;
-
-        loadout = new(loadoutPrototype);
-
-        return TryAddLoadout(loadout);
-    }
-
-    private bool TryAddLoadout(Loadout loadout)
-    {
-        ProtoId<LoadoutPrototype> loadoutPrototype = loadout.LoadoutName;
-
-        if (!_prototypeManager.TryIndex(loadoutPrototype, out var prototype))
-        {
-            Logger.Debug("F1");
-            return false;
-        }
-
-        if(prototype.Cost > LoadoutPoint)
-        {
-            Logger.Debug("F2");
-            return false;
-        }
-
-        foreach (var requirement in prototype.Requirements)
-        {
-            if (!CharacterRequirementsArgs.IsValid(requirement, prototype, out var a))
-            {
-                Logger.Debug("F3 " + a);
-                return false;
-            }
-        }
-
-        if(prototype.CanBeHeirloom && _customHeirloom.TryGetValue(loadoutPrototype.Id, out var customHeirloom))
-            loadout.CustomHeirloom = customHeirloom;
-        if(prototype.CustomContent && _customContent.TryGetValue(loadoutPrototype.Id, out var customContent))
-            loadout.CustomContent = customContent;
-        if(prototype.CustomName && _customName.TryGetValue(loadoutPrototype.Id, out var customName))
-            loadout.CustomName = customName;
-        if(prototype.CustomDescription && _customDescription.TryGetValue(loadoutPrototype.Id, out var customDescription))
-            loadout.CustomDescription = customDescription;
-
-        LoadoutPoint -= prototype.Cost;
-        _selectedLoadouts.Add(loadoutPrototype, loadout);
-        return true;
-    }
-
     public bool LoadCategoryButtons(ProtoId<LoadoutCategoryPrototype> loadoutCategoryPrototype)
     {
         ClearLoadoutCategoryButtons();
-        Logger.Debug(_selectedLoadouts.Count + "<<<");
         var loadoutPrototypes = GroupLoadoutsByGroup(loadoutCategoryPrototype).ToList();
         if (loadoutPrototypes.Count == 0)
             return false;
@@ -160,32 +167,64 @@ public sealed partial class LoadoutPicker : Control
                 loadoutEntry.Selected = true;
             }
             else
-                loadoutEntry.SetLoadout(loadoutPrototype.ID);
-
+            {
+                var newLoadout = new Loadout(
+                    loadoutPrototype.ID,
+                    _customName.GetValueOrDefault(loadoutPrototype.ID),
+                    _customDescription.GetValueOrDefault(loadoutPrototype.ID),
+                    _customContent.GetValueOrDefault(loadoutPrototype.ID),
+                    _customColorTints.GetValueOrDefault(loadoutPrototype.ID),
+                    _customHeirloom.GetValueOrDefault(loadoutPrototype.ID)
+                    );
+                loadoutEntry.SetLoadout(newLoadout);
+            }
             loadoutEntry.OnEditLoadoutRequired += OnEntryEditLoadoutRequired;
             loadoutEntry.OnLoadoutDirty += OnEntryLoadoutDirty;
             loadoutEntry.EnsureIsWearable(CharacterRequirementsArgs, LoadoutPoint);
 
             _loadoutEntries.Add(loadoutEntry);
-            SortAndPasteEntries();
         }
+
+        SortAndPasteEntries();
 
         _selectedLoadoutCategory = loadoutCategoryPrototype;
 
         return true;
     }
 
-    public void EnsureLoadouts()
-    {
-        foreach (var entry in _loadoutEntries)
-        {
-            entry.EnsureIsWearable(CharacterRequirementsArgs, LoadoutPoint);
-        }
-    }
-
     private void Dirty()
     {
         OnLoadoutsChanged?.Invoke(_selectedLoadouts.Select(x => x.Value).ToList());
+    }
+
+    private LoadoutEntry CreateEntry(string loadoutName)
+    {
+        if (!_prototypeManager.TryIndex<LoadoutPrototype>(loadoutName, out var prototype))
+        {
+            throw new Exception("Could not find a prototype " + loadoutName);
+        }
+
+        var loadout = new Loadout(
+            loadoutName,
+            _customName.GetValueOrDefault(loadoutName),
+            _customDescription.GetValueOrDefault(loadoutName),
+            _customContent.GetValueOrDefault(loadoutName),
+            _customColorTints.GetValueOrDefault(loadoutName),
+            _customHeirloom.GetValueOrDefault(loadoutName)
+        );
+
+        if(prototype.CanBeHeirloom && _customHeirloom.TryGetValue(loadoutName, out var customHeirloom))
+            loadout.CustomHeirloom = customHeirloom;
+        if(prototype.CustomContent && _customContent.TryGetValue(loadoutName, out var customContent))
+            loadout.CustomContent = customContent;
+        if(prototype.CustomName && _customName.TryGetValue(loadoutName, out var customName))
+            loadout.CustomName = customName;
+        if(prototype.CustomDescription && _customDescription.TryGetValue(loadoutName, out var customDescription))
+            loadout.CustomDescription = customDescription;
+
+        var entry = new LoadoutEntry();
+        entry.SetLoadout(loadout);
+        return entry;
     }
 
     private void SpecialColorTintTogglePressed(BaseButton.ButtonEventArgs obj)
@@ -196,19 +235,29 @@ public sealed partial class LoadoutPicker : Control
         ColorEdit.Visible = SpecialColorTintToggle.Pressed;
     }
 
-    private void OnEntryLoadoutDirty(LoadoutEntry obj)
+    private void OnEntryLoadoutDirty(LoadoutEntry entry)
     {
-        Logger.Debug("SELECT " + obj.Loadout.LoadoutName + " " + _selectedLoadouts.ContainsKey(obj.Loadout.LoadoutName));
-        if (TryFreeLoadout(obj.Loadout))
+        if (TryFreeLoadout(entry.Loadout))
         {
-            obj.Selected = false;
+            entry.Selected = false;
             LoadoutConfigContainer.Visible = false;
             Dirty();
             return;
         }
 
-        obj.Selected = TryAddLoadout(obj.Loadout);
+        entry.Selected = TrySelectLoadout(entry);
+
         Dirty();
+    }
+
+    private bool TrySelectLoadout(LoadoutEntry entry)
+    {
+        if (entry.EnsureIsWearable(CharacterRequirementsArgs, LoadoutPoint))
+        {
+            _selectedLoadouts.Add(entry.Loadout.LoadoutName, entry.Loadout);
+            return true;
+        }
+        return false;
     }
 
     private bool TryFreeLoadout(Loadout loadout)
@@ -232,11 +281,11 @@ public sealed partial class LoadoutPicker : Control
 
     public void EditLoadout(LoadoutEntry loadoutEntry)
     {
+        ClearupEdit();
         var loadout = loadoutEntry.Loadout;
         if (!_prototypeManager.TryIndex<LoadoutPrototype>(loadout.LoadoutName, out var loadoutPrototype))
         {
             Logger.Error($"Unable to load loadout: unknown prototype {loadout.LoadoutName}");
-            ClearupEdit();
             return;
         }
 
@@ -251,7 +300,7 @@ public sealed partial class LoadoutPicker : Control
             NameEdit.Text = loadout.CustomName ?? "";
 
         if (loadoutPrototype.CustomDescription)
-            DescriptionEdit.TextRope = new Rope.Leaf(loadout.CustomDescription ?? "");;
+            DescriptionEdit.TextRope = new Rope.Leaf(loadout.CustomDescription ?? "");
 
         if(loadoutPrototype.CustomContent)
             BookTextEdit.TextRope = new Rope.Leaf(loadout.CustomContent ?? "");
@@ -306,9 +355,9 @@ public sealed partial class LoadoutPicker : Control
         oldValue.CustomName = TextOrNull(NameEdit.Text);
         oldValue.CustomContent = TextOrNull(BookTextEdit.TextRope);
         oldValue.CustomDescription = TextOrNull(DescriptionEdit.TextRope);
-        oldValue.CustomColorTint = SpecialColorTintToggle.Pressed ? ColorEdit.Color.ToHex() : null;
-
-        _currEdit.SetLoadout(oldValue);
+        oldValue.CustomColorTint = _currPrototype?.CustomColorTint == true && SpecialColorTintToggle.Pressed
+            ? ColorEdit.Color.ToHex()
+            : null;
 
         if(oldValue.CustomName != null) _customName.SetValue(oldValue.LoadoutName, oldValue.CustomName);
         else _customName.RemoveValue(oldValue.LoadoutName);
@@ -328,6 +377,12 @@ public sealed partial class LoadoutPicker : Control
         LoadoutConfigContainer.Visible = false;
         _currEdit = null;
         _currPrototype = null;
+
+        NameEdit.Text = "";
+        DescriptionEdit.TextRope = Rope.Leaf.Empty;
+        BookTextEdit.TextRope = Rope.Leaf.Empty;
+        SpecialColorTintToggle.Pressed = false;
+        ColorEdit.Visible = false;
     }
 
     private string? TextOrNull(Rope.Node node)
@@ -382,7 +437,7 @@ public sealed class CharacterRequirementsArgs(
     public bool IsValid(CharacterRequirement requirement, IPrototype prototype,[NotNullWhen(false)] out string? reason)
     {
         Dependencies ??= IoCManager.Instance!;
-        return requirement.IsValid(
+        var valid = requirement.IsValid(
             Job,
             Profile,
             PlayTimes,
@@ -393,6 +448,7 @@ public sealed class CharacterRequirementsArgs(
             Dependencies.Resolve<IConfigurationManager>(),
             out reason,
             Depth,
-            Mind) && !requirement.Inverted;
+            Mind);
+        return requirement.Inverted ? !valid : valid;
     }
 }
