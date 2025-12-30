@@ -186,6 +186,7 @@
     forced: true
     revertOnCrit: false
     revertOnDeath: false
+    makeSentient: false # White Dream
 
 # Temporary Jaunt
 # Don't make permanent jaunts until action system can be reworked to allow do afters and cooldown pausing

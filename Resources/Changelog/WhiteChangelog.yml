@@ -4759,3 +4759,40 @@ Entries:
   id: 500
   time: '2025-12-28T19:22:13.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/921
+- author: vanx
+  changes:
+    - type: Fix
+      message: Формой жезла волшебника теперь нельзя управлять
+  id: 501
+  time: '2025-12-29T13:56:07.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/961
+- author: vanx
+  changes:
+    - type: Fix
+      message: Принтер документов снова печатает с русской локализацией.
+  id: 502
+  time: '2025-12-29T13:57:51.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/966
+- author: vanx
+  changes:
+    - type: Remove
+      message: Логирование осмотра персонажей в чате
+  id: 503
+  time: '2025-12-29T14:02:12.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/972
+- author: vanx
+  changes:
+    - type: Add
+      message: Ивент с бродячей капсулой теперь указывает место приземления.
+  id: 504
+  time: '2025-12-29T14:15:14.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/953
+- author: vanx
+  changes:
+    - type: Add
+      message: >-
+        Инерция. При беге персонаж теперь чуть медленнее разгоняется с места и
+        при резких разворотах. 
+  id: 505
+  time: '2025-12-29T14:27:55.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/979

@@ -13,6 +13,7 @@
   - type: MovementSpeedModifier
     baseSprintSpeed: 12
     baseWalkSpeed: 8
+    acceleration: 100 # White Dream
   - type: MovementIgnoreGravity
   - type: Physics
     bodyType: KinematicController

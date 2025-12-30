@@ -139,6 +139,13 @@ public sealed partial record PolymorphConfiguration
         "LanguageSpeaker",
         "Grammar"
     };
+
+    /// <summary>
+    /// White Dream -
+    /// Should the resulting entity be made sentient? Able to move, speak etc.
+    /// </summary>
+    [DataField]
+    public bool MakeSentient = true;
 }
 
 public enum PolymorphInventoryChange : byte

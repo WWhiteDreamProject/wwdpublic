@@ -16,7 +16,9 @@
     forced: true
     revertOnCrit: false
     revertOnDeath: false
+    makeSentient: false # White Dream
 #    attachToGridOrMap: true
+
 
 - type: polymorph
   id: WizardRodIII
@@ -30,6 +32,7 @@
     forced: true
     revertOnCrit: false
     revertOnDeath: false
+    makeSentient: false # White Dream
 #    attachToGridOrMap: true
 
 - type: polymorph
@@ -44,6 +47,7 @@
     forced: true
     revertOnCrit: false
     revertOnDeath: false
+    makeSentient: false # White Dream
 #    attachToGridOrMap: true
 
 - type: polymorph
@@ -58,6 +62,7 @@
     forced: true
     revertOnCrit: false
     revertOnDeath: false
+    makeSentient: false # White Dream
 #    attachToGridOrMap: true
 
 #- type: polymorph
