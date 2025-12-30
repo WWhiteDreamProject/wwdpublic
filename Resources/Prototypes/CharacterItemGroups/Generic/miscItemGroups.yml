@@ -134,40 +134,52 @@
     - type: loadout
       id: LoadoutItemNTDeck
 
-# White Dream - No Plushieslop
-
-# - type: characterItemGroup
-#   id: LoadoutPlushie
-#   maxItems: 1
-#   items:
-#     - type: loadout
-#       id: PlushieSharkBlue
-#     - type: loadout
-#       id: PlushieSharkGrey
-#     - type: loadout
-#       id: PlushieLizard
-#     - type: loadout
-#       id: PlushieArachind
-#     - type: loadout
-#       id: PlushieMoth
-#     - type: loadout
-#       id: PlushieHampter
-#     - type: loadout
-#       id: PlushieRouny
-#     - type: loadout
-#       id: PlushieCarp
-#     - type: loadout
-#       id: PlushieSlime
-#     - type: loadout
-#       id: PlushieVox
-#     - type: loadout
-#       id: PlushieHuman
-#     - type: loadout
-#       id: PlushieArachne
-#     - type: loadout
-#       id: PlushieVulp
-#     - type: loadout
-#       id: PlushieShadowkin
+- type: characterItemGroup
+  id: LoadoutPlushie
+  maxItems: 1
+  items:
+    - type: loadout
+      id: PlushieSharkBlue
+    - type: loadout
+      id: PlushieSharkGrey
+    - type: loadout
+      id: PlushieLizard
+    - type: loadout
+      id: PlushieArachind
+    - type: loadout
+      id: PlushieMoth
+    - type: loadout
+      id: PlushieHampter
+    - type: loadout
+      id: PlushieRouny
+    - type: loadout
+      id: PlushieCarp
+    - type: loadout
+      id: PlushieSlime
+    - type: loadout
+      id: PlushieVox
+    - type: loadout
+      id: PlushieHuman
+    - type: loadout
+      id: PlushieArachne
+    - type: loadout
+      id: PlushieVulp
+    - type: loadout
+      id: PlushieShadowkin
+# WWDP EDIT START
+    - type: loadout
+      id: PlushieIpc
+    - type: loadout
+      id: PlushieCatBlack
+    - type: loadout
+      id: PlushieGhost
+    - type: loadout
+      id: PlushieNuke
+    - type: loadout
+      id: PlushieDiona
+    - type: loadout
+      id: PlushieHarpy
+# WWDP EDIT STOP
 
 - type: characterItemGroup
   id: LoadoutMedkits
