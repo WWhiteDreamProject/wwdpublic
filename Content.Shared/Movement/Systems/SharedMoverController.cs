@@ -383,17 +383,6 @@ public abstract partial class SharedMoverController : VirtualController
             return;
 
         var accelSpeed = accel * frameTime * wishSpeed;
-
-        // White Dream edit start; Inertia/Gradual Acceleration
-        var progress = MathF.Max(0, currentSpeed) / wishSpeed;
-
-        accelSpeed *= progress;
-
-        var minAcceleration = MathF.Max(0.5f, 0.1f * wishSpeed);
-
-        accelSpeed = MathF.Max(accelSpeed, accel * frameTime * minAcceleration);
-        // White Dream edit end
-
         accelSpeed = MathF.Min(accelSpeed, addSpeed);
 
         currentVelocity += wishDir * accelSpeed;
