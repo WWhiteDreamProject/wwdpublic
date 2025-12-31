@@ -33,14 +33,14 @@ public sealed class EmergencyLightSystem : SharedEmergencyLightSystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<EmergencyLightComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<EmergencyLightComponent, MapInitEvent>(OnMapInit); // WD EDIT
         SubscribeLocalEvent<EmergencyLightComponent, EmergencyLightEvent>(OnEmergencyLightEvent);
         SubscribeLocalEvent<AlertLevelChangedEvent>(OnAlertLevelChanged);
         SubscribeLocalEvent<EmergencyLightComponent, ExaminedEvent>(OnEmergencyExamine);
         SubscribeLocalEvent<EmergencyLightComponent, PowerChangedEvent>(OnEmergencyPower);
     }
 
-    private void OnMapInit(Entity<EmergencyLightComponent> entity, ref MapInitEvent args) => UpdateState(entity);
+    private void OnMapInit(Entity<EmergencyLightComponent> entity, ref MapInitEvent args) => UpdateState(entity); // WD EDIT
 
     private void OnEmergencyPower(Entity<EmergencyLightComponent> entity, ref PowerChangedEvent args)
     {
@@ -174,13 +174,12 @@ public sealed class EmergencyLightSystem : SharedEmergencyLightSystem
             }
 
             // Audio Alarm
-            if (emergencyLight.AlarmNextSound < _timing.CurTime && emergencyLight.AlarmSound != null)
-            {
-                _audioSystem.PlayEntity(emergencyLight.AlarmSound, Filter.Pvs(uid, 0.5f), uid, true);
+            if (emergencyLight.AlarmNextSound >= _timing.CurTime || emergencyLight.AlarmSound == null)
+                continue;
 
-                emergencyLight.AlarmNextSound =
-                    _timing.CurTime.Add(emergencyLight.AlarmInterval);
-            }
+            _audioSystem.PlayEntity(emergencyLight.AlarmSound, Filter.Pvs(uid, 0.5f), uid, true);
+
+            emergencyLight.AlarmNextSound = _timing.CurTime.Add(emergencyLight.AlarmInterval);
         }
     }
     // White Dream edit end
@@ -208,13 +207,12 @@ public sealed class EmergencyLightSystem : SharedEmergencyLightSystem
             TurnOff(entity, details.Color);
             SetState(entity.Owner, entity.Comp, EmergencyLightState.Charging);
         }
-        else if (!receiver.Powered && entity.Comp.ForciblyEnabled) // White Dream; Not powered but forcibly enabled, we do not switch color
+        else if (!receiver.Powered) // If internal battery runs out
         {
-            SetState(entity.Owner, entity.Comp, EmergencyLightState.On);
-        }
-        else if (!receiver.Powered) // If internal battery runs out it will end in off red state
-        {
-            TurnOn(entity, Color.Red);
+            // WD EDIT START
+            if (!entity.Comp.ForciblyEnabled)
+                TurnOn(entity, Color.Red);
+            // WD EDIT END
             SetState(entity.Owner, entity.Comp, EmergencyLightState.On);
         }
         else // Powered and enabled
