@@ -21,3 +21,4 @@ popup-grab-retake-success-puller = {CAPITALIZE($puller)} освободил {CAP
 popup-grabbed-cant-speak = Не могу дышать!
 popup-grab-need-hand = Нужна свободная рука!
 popup-grab-throw-fail-cooldown = Нужно подождать перед тем как бросить {CAPITALIZE($pulled)}!
+popup-grab-too-often = Вы пытаетесь тянуть слишком часто!

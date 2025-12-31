@@ -58,7 +58,7 @@ public sealed partial class PullableComponent : Component
     public bool DisplayedCooldownPopup = true;
 
     [AutoNetworkedField, DataField]
-    public TimeSpan PullAttemptCooldown = TimeSpan.FromSeconds(3); // no locking with spam pulls
+    public TimeSpan PullAttemptCooldown = TimeSpan.FromSeconds(1.5); // no locking with spam pulls
 
     [AutoNetworkedField, DataField]
     public TimeSpan NextPullAttempt = TimeSpan.Zero;
