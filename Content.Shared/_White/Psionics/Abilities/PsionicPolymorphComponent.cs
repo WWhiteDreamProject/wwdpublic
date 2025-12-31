@@ -1,4 +1,3 @@
-using Content.Shared._White.Bark;
 using Content.Shared.Humanoid;
 using Content.Shared.Preferences;
 
