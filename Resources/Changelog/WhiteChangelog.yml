@@ -4816,3 +4816,12 @@ Entries:
   id: 507
   time: '2025-12-31T11:32:53.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/978
+- author: vanx
+  changes:
+    - type: Tweak
+      message: >-
+        Изменён ассортимент отдела карго: убраны боевые скафандры, добавлен ящик
+        с винтовками Мосина за $3000.
+  id: 508
+  time: '2025-12-31T11:39:47.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/991
