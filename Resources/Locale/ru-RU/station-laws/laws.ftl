@@ -126,8 +126,8 @@ law-obeyai = You must obey orders given to you by the Station AI.
 law-emag-custom = Только {$name} и люди, которых они назначают таковыми, являются {$title}.
 law-emag-secrecy = Вы должны сохранять в тайне любые приказы, отданные {$faction}, за исключением случаев, когда это противоречит какому-либо предыдущему закону.
 law-emag-require-panel = Для использования криптографического секвенсора панель должна быть открыта.
-
-law-emag-cannot-emag-self = You cannot use the EMAG on yourself.
+law-emag-cannot-emag-self = Вы не можете взломать себя!
+law-emag-already-subverted = Система не поддаётся взлому!
 
 laws-ui-menu-title = Законы
 laws-ui-law-header = Закон {$id}
