@@ -15,6 +15,12 @@
     TelekineticPulsePower: 1
     PyrokineticFlare: 1 # Leads to summon imp and pyrokenisis
     NoosphericZapPower: 1
+    AssayPower: 1
+    XenoglossyPower: 1
+    RevivifyPower: 1
+    DarkSwapPower: 1
+    SummonImpPower: 1
+    PyrokinesisPower: 1
     ClonePower: 1 #wwdp ability
     PolymorphPower: 1 #wwdp ability
 
@@ -28,6 +34,8 @@
     MassSleepPower: 1
     PsionicInvisibilityPower: 1
     MindSwapPower: 1
+    AssayPower: 1
+    XenoglossyPower: 1
 
 - type: weightedRandom # WWDP Edit All weights set to 1
   id: ElementalistPowerPool # Significantly slower power generation. No Telepathy.
@@ -38,5 +46,9 @@
     TelekineticPulsePower: 1
     PyrokineticFlare: 1
     NoosphericZapPower: 1
+    RevivifyPower: 1
+    DarkSwapPower: 1
+    SummonImpPower: 1
+    PyrokinesisPower: 1
     ClonePower: 1 #wwdp ability
     PolymorphPower: 1 #wwdp ability

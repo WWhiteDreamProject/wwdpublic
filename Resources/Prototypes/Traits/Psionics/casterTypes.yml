@@ -75,6 +75,7 @@
     - !type:TraitAddPsionics
       psionicPowers:
         - TelepathyPower
+        - PsychognomyPower #wwdp edit
   requirements:
     - !type:CharacterItemGroupRequirement
       group: TraitsCasterType
