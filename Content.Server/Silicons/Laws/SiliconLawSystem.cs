@@ -40,9 +40,11 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly UserInterfaceSystem _userInterface = default!;
     [Dependency] private readonly EmagSystem _emag = default!;
-    [Dependency] private readonly TagSystem _tagSystem = default!; // WD edit - AiRemoteControl
-    [Dependency] private readonly IRobustRandom _random = default!; // WWDP - random roundstart lawset
+    // WWDP edit start
+    [Dependency] private readonly TagSystem _tagSystem = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    // WWDP edit end
 
 
     /// <inheritdoc/>
@@ -165,7 +167,7 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
         }
     }
 
-    private void OnEmagLawsAdded(EntityUid uid, SiliconLawProviderComponent component, SiliconEmaggedEvent args)
+    private void OnEmagLawsAdded(EntityUid uid, SiliconLawProviderComponent component, ref SiliconEmaggedEvent args)
     {
         if (component.Lawset == null)
             component.Lawset = GetLawset(component.Laws);
