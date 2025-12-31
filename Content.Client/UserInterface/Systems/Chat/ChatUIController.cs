@@ -108,7 +108,7 @@ public sealed class ChatUIController : UIController
     /// <summary>
     ///     The max amount of chars allowed to fit in a single speech bubble.
     /// </summary>
-    private int SingleBubbleCharLimit => _config.GetCVar(WhiteCVars.SingleBubbleCharLimit); // White Dream moved to WhiteCvars
+    private int SingleBubbleCharLimit => _config.GetCVar(WhiteCVars.SingleBubbleCharLimit); // WWDP moved to WhiteCvars
 
     /// <summary>
     ///     Base queue delay each speech bubble has.
@@ -118,12 +118,28 @@ public sealed class ChatUIController : UIController
     /// <summary>
     ///     Factor multiplied by speech bubble char length to add to delay.
     /// </summary>
-    private const float BubbleDelayFactor =  0.8f / 100; // White Dream
+    private const float BubbleDelayFactor =  0.8f / 100; // WWDP edit
 
+    // WWDP edit start
     /// <summary>
     ///     The max amount of speech bubbles over a single entity at once.
     /// </summary>
-    private int SpeechBubbleCap => _config.GetCVar(WhiteCVars.SpeechBubbleCap); // White Dream moved to WhiteCvars
+    private int SpeechBubbleCap
+    {
+        get
+        {
+            var cvar = _config.GetCVar(WhiteCVars.SpeechBubbleCap);
+
+            if (cvar <= 0)
+            {
+                Logger.Error("Local CVar chat.bubble_max_count is set to 0 or lower");
+                cvar = 1;
+            }
+
+            return cvar;
+        }
+    }
+    // WWDP edit end
 
     private LayoutContainer _speechBubbleRoot = default!;
 
@@ -461,11 +477,12 @@ public sealed class ChatUIController : UIController
 
         if (existing.Count > SpeechBubbleCap)
         {
-            // Get the oldest to start fading fast.
-            // White Dream edit - Get all of the older ones
+            // WWDP edit start
+            // Get all of the older ones
             var lastBubbles = existing[..^SpeechBubbleCap];
             foreach (var last in lastBubbles)
                 last.FadeNow();
+            // WWDP edit end
         }
     }
 

@@ -359,7 +359,7 @@ public abstract class SharedChatSystem : EntitySystem
         return rawmsg.Substring(tagStart, tagEnd - tagStart);
     }
 
-    // White Dream edit start
+    // WWDP edit start
     // Returns a message with a string inside tag removed and replaced
     public static string SetStringInsideTag(ChatMessage message, string tag, string strInsert)
     {
@@ -373,7 +373,7 @@ public abstract class SharedChatSystem : EntitySystem
         rawmsg = rawmsg.Insert(tagStart, $"{strInsert}");
         return rawmsg;
     }
-    // White Dream edit end
+    // WWDP edit end
 
     // WD EDIT START - Moved from ClatUIController
     /// <summary>
