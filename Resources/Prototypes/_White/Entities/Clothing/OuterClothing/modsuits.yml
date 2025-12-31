@@ -27,3 +27,6 @@
         Caustic: 0.80
   - type: StaminaDamageResistance
     coefficient: 0.7
+  - type: PressureProtection
+    highPressureMultiplier: 0.05
+    lowPressureMultiplier: 1000
