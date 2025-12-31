@@ -86,6 +86,8 @@ public sealed class PolymorphPowerSystem : EntitySystem
         component.OriginalDescription = meta.EntityDescription;
 
         if (TryComp<HumanoidAppearanceComponent>(uid, out var humanoid))
-            component.OriginalProfile = humanoid.LastProfileLoaded;
+            return;
+        
+        component.OriginalProfile = humanoid.LastProfileLoaded;
     }
 }
