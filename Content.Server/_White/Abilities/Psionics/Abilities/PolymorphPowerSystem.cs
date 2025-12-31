@@ -42,6 +42,12 @@ public sealed class PolymorphPowerSystem : EntitySystem
             _appearance.CloneAppearance(target, user);
         }
 
+        if (TryComp<MetaDataComponent>(target, out var targetMeta))
+        {
+            _meta.SetEntityName(user, targetMeta.EntityName);
+            _meta.SetEntityDescription(user, targetMeta.EntityDescription);
+        }
+
         _psionics.LogPowerUsed(args.Performer, "polymorph");
         args.Handled = true;
     }
@@ -79,9 +85,7 @@ public sealed class PolymorphPowerSystem : EntitySystem
         component.OriginalName = meta.EntityName;
         component.OriginalDescription = meta.EntityDescription;
 
-        if (!TryComp<HumanoidAppearanceComponent>(uid, out var humanoid))
-            return;
-
-        component.OriginalProfile = humanoid.LastProfileLoaded;
+        if (TryComp<HumanoidAppearanceComponent>(uid, out var humanoid))
+            component.OriginalProfile = humanoid.LastProfileLoaded;
     }
 }
