@@ -4825,3 +4825,12 @@ Entries:
   id: 508
   time: '2025-12-31T11:39:47.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/991
+- author: SentryPrimies
+  changes:
+    - type: Add
+      message: Добавлены новые спрайты подстанциям
+    - type: Add
+      message: 'Добавлены новые спрайты заряжалкам '
+  id: 509
+  time: '2025-12-31T16:00:42.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/977
