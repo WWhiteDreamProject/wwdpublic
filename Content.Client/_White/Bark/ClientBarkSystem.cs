@@ -1,4 +1,3 @@
-using Content.Client.Language.Systems;
 using Content.Client.UserInterface.Systems.Chat;
 using Content.Shared._White.Bark;
 using Content.Shared._White.Bark.Components;
@@ -60,13 +59,10 @@ public sealed class BarkSystem : SharedBarkSystem
             return;
 
         // Exclude non-verbal languages, e.g. sign language
-        if (TryComp<LanguageSpeakerComponent>(ent, out var languageComp))
-        {
-            _protoManager.TryIndex<LanguagePrototype>(languageComp.CurrentLanguage, out var language);
-
-            if (language != null && !language.SpeechOverride.RequireSpeech)
-                return;
-        }
+        if (TryComp<LanguageSpeakerComponent>(ent, out var languageComp)
+            && _protoManager.TryIndex<LanguagePrototype>(languageComp.CurrentLanguage, out var language)
+            && !language.SpeechOverride.RequireSpeech)
+            return;
 
         Bark(new(ent, comp), message.Message, message.Channel == ChatChannel.Whisper);
     }
