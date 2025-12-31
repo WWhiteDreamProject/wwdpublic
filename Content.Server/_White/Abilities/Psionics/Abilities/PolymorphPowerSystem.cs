@@ -42,12 +42,9 @@ public sealed class PolymorphPowerSystem : EntitySystem
             _appearance.CloneAppearance(target, user);
         }
 
-        if (TryComp<MetaDataComponent>(target, out var targetMeta))
-        {
-            _meta.SetEntityName(user, targetMeta.EntityName);
-            _meta.SetEntityDescription(user, targetMeta.EntityDescription);
-        }
-
+        var targetMeta = MetaData(target);
+        _meta.SetEntityName(user, targetMeta.EntityName);
+        _meta.SetEntityDescription(user, targetMeta.EntityDescription);
         _psionics.LogPowerUsed(args.Performer, "polymorph");
         args.Handled = true;
     }
