@@ -15,6 +15,14 @@
       forceEnableEmergencyLights: true
       emergencyLightColor: DodgerBlue
       shuttleTime: 600
+      alarmSound: # White Dream
+        path: /Audio/_White/Announcements/beep_beep.ogg
+        params:
+          pitch: 1.4
+          volume: -7
+          maxDistance: 10
+          rolloffFactor: 2
+      alarmInterval: 120 # White Dream
     violet:
       announcement: alert-level-violet-announcement
       sound: /Audio/Announcements/Alerts/code_violet.ogg
@@ -22,12 +30,29 @@
       emergencyLightColor: Violet
       forceEnableEmergencyLights: true
       shuttleTime: 600
+      alarmSound: # White Dream
+        path: /Audio/_White/Announcements/alien.ogg
+        params:
+          pitch: 1.1
+          volume: -7
+          maxDistance: 10
+          rolloffFactor: 2
+      alarmInterval: 60 # White Dream
     white:
       announcement: alert-level-white-announcement
       sound: /Audio/Announcements/Alerts/code_white.ogg
       emergencyLightColor: "#F6CCF6"
       color: White
+      forceEnableEmergencyLights: true # White Dream
       shuttleTime: 600
+      alarmSound: # White Dream
+        path: /Audio/_White/Announcements/alien.ogg
+        params:
+          pitch: 0.85
+          volume: -7
+          maxDistance: 10
+          rolloffFactor: 2
+      alarmInterval: 60 # White Dream
     yellow:
       announcement: alert-level-yellow-announcement
       sound: /Audio/Announcements/Alerts/code_yellow.ogg
@@ -35,6 +60,14 @@
       emergencyLightColor: Goldenrod
       forceEnableEmergencyLights: true
       shuttleTime: 600
+      alarmSound: # White Dream
+        path: /Audio/_White/Announcements/rising.ogg
+        params:
+          volume: -7
+          pitch: 0.89
+          maxDistance: 10
+          rolloffFactor: 2
+      alarmInterval: 60 # White Dream
     red:
       announcement: alert-level-red-announcement
       sound: /Audio/Announcements/Alerts/code_red.ogg
@@ -42,6 +75,14 @@
       emergencyLightColor: Red
       forceEnableEmergencyLights: true
       shuttleTime: 600
+      alarmSound: # White Dream
+        path: /Audio/_White/Announcements/2_tone_alarm.ogg
+        params:
+          volume: -7
+          pitch: 0.89
+          maxDistance: 10
+          rolloffFactor: 2
+      alarmInterval: 60 # White Dream
     gamma:
       announcement: alert-level-gamma-announcement
       selectable: false
@@ -51,6 +92,14 @@
       emergencyLightColor: PaleVioletRed
       forceEnableEmergencyLights: true
       shuttleTime: 600
+      alarmSound: # White Dream
+        path: /Audio/_White/Announcements/2_tone_alarm.ogg
+        params:
+          volume: -7
+          pitch: 0.6
+          maxDistance: 10
+          rolloffFactor: 2
+      alarmInterval: 60 # White Dream
     delta:
       announcement: alert-level-delta-announcement
       selectable: false
@@ -60,6 +109,13 @@
       emergencyLightColor: Orange
       forceEnableEmergencyLights: true
       shuttleTime: 1200
+      alarmSound: # White Dream
+        path: /Audio/_White/Announcements/overload.ogg
+        params:
+          volume: -4
+          maxDistance: 10
+          rolloffFactor: 2
+      alarmInterval: 45 # White Dream
     epsilon:
       announcement: alert-level-epsilon-announcement
       selectable: false
@@ -69,3 +125,10 @@
       emergencyLightColor: DarkViolet
       forceEnableEmergencyLights: true
       shuttleTime: 1200
+      alarmSound: # White Dream
+        path: /Audio/_White/Announcements/angry.ogg
+        params:
+          volume: -10
+          maxDistance: 10
+          rolloffFactor: 2
+      alarmInterval: 60 # White Dream
