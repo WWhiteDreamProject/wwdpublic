@@ -32,6 +32,8 @@ public abstract partial class SharedWoundSystem
             return;
 
         var totalDamageDelta = FixedPoint2.Zero;
+        var organDamage = new DamageSpecifier();
+
         foreach (var (damageType, damageValue) in damage.DamageDict)
         {
             if (damageValue <= 0 || !bone.Comp2.SupportedDamageType.Contains(damageType))
@@ -40,6 +42,10 @@ public abstract partial class SharedWoundSystem
             var damageDelta = FixedPoint2.Max(damageValue - bone.Comp2.CurrentStrength, FixedPoint2.Zero);
             if (damageDelta == FixedPoint2.Zero)
                 continue;
+
+            var organDamageDelta = FixedPoint2.Max(damageDelta - bone.Comp2.CurrentStrength, FixedPoint2.Zero);
+            if (organDamageDelta > FixedPoint2.Zero)
+                organDamage.DamageDict.Add(damageType, organDamageDelta);
 
             totalDamageDelta += damageDelta;
         }
@@ -53,6 +59,9 @@ public abstract partial class SharedWoundSystem
         RaiseLocalEvent(bone, new BoneHealthChangedEvent(totalDamageDelta));
 
         CheckBoneStatusThreshold(bone);
+
+        foreach (var organ in _body.GetOrgans<WoundableOrganComponent>((bone, bone.Comp1)))
+            ApplyOrganDamage(organ.AsNullable(), organDamage);
     }
 
     private void CheckBoneStatusThreshold(Entity<BoneComponent?, WoundableBoneComponent?> bone)

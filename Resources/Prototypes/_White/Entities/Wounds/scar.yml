@@ -5,6 +5,7 @@
   components:
   - type: Wound
     damageType: Slash
+    isScar: true
   - type: PainfulWound
     pain: 20
     painCoefficients: 0.8

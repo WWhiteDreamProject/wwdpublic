@@ -113,8 +113,6 @@ public abstract class SharedGibbingSystem : EntitySystem
         return gibs;
     }
 
-    #region PrivateAPI
-
     public bool TryGibEntity(
         EntityUid outerEntity,
         Entity<GibbableComponent?> gibbable,
@@ -271,6 +269,8 @@ public abstract class SharedGibbingSystem : EntitySystem
         return true;
     }
 
+    #region PrivateAPI
+
     private void DropEntity(
         Entity<GibbableComponent?> gibbable,
         TransformComponent parentXform,
@@ -415,7 +415,7 @@ public abstract class SharedGibbingSystem : EntitySystem
         RaiseLocalEvent(gibbable, ref gibbedEvent);
 
         if (deleteTarget)
-            QueueDel(gibbable);
+            PredictedQueueDel(gibbable.Owner); // WD EDIT
     }
 
     private void FlingDroppedEntity(

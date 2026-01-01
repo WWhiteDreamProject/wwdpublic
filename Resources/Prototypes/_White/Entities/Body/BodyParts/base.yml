@@ -16,12 +16,13 @@
   - type: AmputatableBodyPart
     wound: WoundScarAmputation
     supportedDamageType:
-    - Slash
+      Slash: 1
+      Blunt: 0.3
     chanceThresholds:
       0: 0
-      40: 0.2
-      60: 0.6
-      90: 0.9
+      40: 0.1
+      60: 0.4
+      90: 0.7
       100: 1
     boneMultiplierThresholds:
       Whole: 0.3
@@ -29,19 +30,21 @@
       Cracked: 1
       Broken: 1.2
   - type: GibbableBodyPart
+    wound: WoundScarAmputation
     supportedDamageType:
-    - Blunt
+      Blunt: 1
+      Slash: 0.3
     chanceThresholds:
       0: 0
-      40: 0.2
-      60: 0.6
-      90: 0.9
-      100: 1
+      40: 0.1
+      70: 0.4
+      110: 0.7
+      150: 1
     boneMultiplierThresholds:
-      Whole: 0.3
-      Damaged: 0.6
-      Cracked: 1
-      Broken: 1.2
+      Whole: 0.2
+      Damaged: 0.5
+      Cracked: 0.8
+      Broken: 1
   - type: Gibbable
 
 # Head

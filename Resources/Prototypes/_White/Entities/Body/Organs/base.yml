@@ -5,7 +5,19 @@
   components:
   - type: Sprite
     sprite: Mobs/Species/Human/organs.rsi
+  - type: Damageable
   - type: Organ
+  - type: WoundableOrgan
+    supportedDamageType:
+    - Blunt
+    - Slash
+    - Piercing
+    organStatusThresholds:
+      100: Healthy
+      75: Bruised
+      50: Damaged
+      25: Critical
+      0: Dead
 
 - type: entity
   id: BaseOrganBrain

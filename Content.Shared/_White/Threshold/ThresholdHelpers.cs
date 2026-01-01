@@ -21,7 +21,7 @@ public static class ThresholdHelpers
     {
         foreach (var (threshold, data) in dictionary)
         {
-            if (key.CompareTo(threshold) >= 0)
+            if (key.CompareTo(threshold) > 0)
                 continue;
 
             return data;

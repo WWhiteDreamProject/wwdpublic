@@ -13,10 +13,10 @@ public abstract partial class SharedPainSystem
     private void OnBodyPartGetPain(Entity<PainfulBodyPartComponent> painfulBodyPart, ref GetPainEvent args)
     {
         painfulBodyPart.Comp.Pain = FixedPoint2.Zero;
-        foreach (var wound in _wound.GetWounds<PainfulWoundComponent>(painfulBodyPart))
+        foreach (var wound in _wound.GetWounds<PainfulWoundComponent>(painfulBodyPart, scar: true))
             painfulBodyPart.Comp.Pain += GetWoundPain(wound.AsNullable());
 
-        painfulBodyPart.Comp.Pain = FixedPoint2.Max(painfulBodyPart.Comp.Pain, FixedPoint2.Zero);
+        painfulBodyPart.Comp.Pain = FixedPoint2.Clamp(painfulBodyPart.Comp.Pain, FixedPoint2.Zero, painfulBodyPart.Comp.MaximumPain);
         painfulBodyPart.Comp.PainLevel = painfulBodyPart.Comp.Thresholds.HighestMatch(painfulBodyPart.Comp.Pain) ?? PainLevel.Zero;
         Dirty(painfulBodyPart);
 

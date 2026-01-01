@@ -3,16 +3,22 @@ using Content.Shared.Damage.Prototypes;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._White.Body.BodyParts.Gibbable;
+namespace Content.Server._White.Body.BodyParts.Gibbable;
 
 [RegisterComponent]
 public sealed partial class GibbableBodyPartComponent : Component
 {
     /// <summary>
+    /// The wound that will be created after gib of this limb.
+    /// </summary>
+    [DataField]
+    public EntProtoId<WoundComponent> Wound;
+
+    /// <summary>
     /// Damage, the value of which affects the chance of gibbing a body part.
     /// </summary>
     [DataField]
-    public List<ProtoId<DamageTypePrototype>> SupportedDamageType = new();
+    public Dictionary<ProtoId<DamageTypePrototype>, float> SupportedDamageType = new();
 
     /// <summary>
     /// Chance of gibbed body parts based on damage. The highest threshold is selected.
@@ -25,6 +31,9 @@ public sealed partial class GibbableBodyPartComponent : Component
     /// </summary>
     [DataField]
     public Dictionary<BoneStatus, float> BoneMultiplierThresholds= new();
+
+    [ViewVariables]
+    public FixedPoint2 TotalDamage = FixedPoint2.Zero;
 
     [ViewVariables]
     public float CurrentChance => float.Clamp(CurrentChanceThreshold * CurrentBoneMultiplierThreshold, 0f, 1f);

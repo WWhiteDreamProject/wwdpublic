@@ -1,4 +1,5 @@
 using Content.Shared._White.Body.Components;
+using Content.Shared._White.Gibbing;
 using Content.Shared._White.Medical.Wounds.Components;
 using Content.Shared._White.Threshold;
 using Content.Shared.Damage;
@@ -14,12 +15,19 @@ public abstract partial class SharedWoundSystem
 {
     private void InitializeBodyPart()
     {
+        SubscribeLocalEvent<WoundableBodyPartComponent, AttemptEntityContentsGibEvent>(OnAttemptEntityContentsGib);
         SubscribeLocalEvent<WoundableBodyPartComponent, ComponentInit>(OnBodyPartInit);
         SubscribeLocalEvent<WoundableBodyPartComponent, DamageChangedEvent>(OnBodyPartDamageChanged);
         SubscribeLocalEvent<WoundableBodyPartComponent, RejuvenateEvent>(OnBodyPartRejuvenate);
     }
 
     #region Event Handling
+
+    private void OnAttemptEntityContentsGib(Entity<WoundableBodyPartComponent> woundableBodyPart, ref AttemptEntityContentsGibEvent args)
+    {
+        foreach (var wound in GetWounds(woundableBodyPart.AsNullable(), scar:true))
+            PredictedQueueDel(wound.Owner);
+    }
 
     private void OnBodyPartInit(Entity<WoundableBodyPartComponent> woundableBodyPart, ref ComponentInit args) =>
         woundableBodyPart.Comp.Container = _container.EnsureContainer<Container>(woundableBodyPart.Owner, WoundsContainerId);
@@ -38,7 +46,7 @@ public abstract partial class SharedWoundSystem
         if (!TryComp<DamageableComponent>(woundableBodyPart, out var damageable))
             return;
 
-        foreach (var wound in GetWounds(woundableBodyPart.AsNullable()))
+        foreach (var wound in GetWounds(woundableBodyPart.AsNullable(), scar:true))
             PredictedQueueDel(wound.Owner);
 
         Damageable.SetAllDamage(woundableBodyPart, damageable, FixedPoint2.Zero);
@@ -153,6 +161,14 @@ public abstract partial class SharedWoundSystem
         bodyPart.Comp3.Damage.ApplyDamage(bodyPartDamage);
         Damageable.DamageChanged(bodyPart, bodyPart.Comp3, bodyPartDamage);
         bodyPart.Comp2.WoundSeverity = bodyPart.Comp2.Thresholds.HighestMatch(bodyPart.Comp3.TotalDamage) ?? WoundSeverity.Healthy;
+
+        foreach (var organSlot in bodyPart.Comp1.Organs.Values)
+        {
+            if (!TryComp<WoundableOrganComponent>(organSlot.OrganUid, out var woundableOrgan))
+                continue;
+
+            ApplyOrganDamage((organSlot.OrganUid.Value, null, woundableOrgan), bodyPartDamage);
+        }
 
         return bodyPartDamage;
     }

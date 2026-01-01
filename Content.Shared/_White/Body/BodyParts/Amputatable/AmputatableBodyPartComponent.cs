@@ -18,7 +18,7 @@ public sealed partial class AmputatableBodyPartComponent : Component
     /// Damage, the value of which affects the chance of amputating a body part.
     /// </summary>
     [DataField]
-    public List<ProtoId<DamageTypePrototype>> SupportedDamageType = new();
+    public Dictionary<ProtoId<DamageTypePrototype>, float> SupportedDamageType = new();
 
     /// <summary>
     /// Chance of amputated body parts based on damage. The highest threshold is selected.
@@ -31,6 +31,9 @@ public sealed partial class AmputatableBodyPartComponent : Component
     /// </summary>
     [DataField]
     public Dictionary<BoneStatus, float> BoneMultiplierThresholds= new();
+
+    [ViewVariables]
+    public FixedPoint2 TotalDamage = FixedPoint2.Zero;
 
     [ViewVariables]
     public float CurrentChance => float.Clamp(CurrentChanceThreshold * CurrentBoneMultiplierThreshold, 0f, 1f);

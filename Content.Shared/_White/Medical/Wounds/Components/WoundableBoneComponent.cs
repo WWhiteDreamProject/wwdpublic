@@ -49,7 +49,7 @@ public sealed partial class WoundableBoneComponent : Component
     public BoneStatus CurrentBoneStatusThreshold = BoneStatus.Whole;
 
     [ViewVariables]
-    public float CurrentStrength => StrengthThresholds[CurrentBoneStatusThreshold] *  StrengthMultiplier;
+    public float CurrentStrength => StrengthThresholds[CurrentBoneStatusThreshold] * StrengthMultiplier;
 }
 
 [Serializable, NetSerializable]

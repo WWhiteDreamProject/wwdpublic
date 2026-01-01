@@ -26,6 +26,7 @@ public abstract partial class SharedWoundSystem : EntitySystem
 
         InitializeBodyPart();
         InitializeBone();
+        InitializeOrgan();
         InitializeWoundable();
     }
 }
@@ -33,7 +34,11 @@ public abstract partial class SharedWoundSystem : EntitySystem
 /// <summary>
 /// Raised on wound after changing damage.
 /// </summary>
-public record struct WoundDamageChangedEvent(Entity<WoundComponent> Wound, FixedPoint2 OldDamage);
+public sealed class WoundDamageChangedEvent(Entity<WoundComponent> wound, FixedPoint2 oldDamage) : HandledEntityEventArgs
+{
+    public readonly Entity<WoundComponent> Wound = wound;
+    public readonly FixedPoint2 OldDamage = oldDamage;
+}
 
 /// <summary>
 /// Raised on woudable entity after changing the damage of its wound.
@@ -49,3 +54,13 @@ public record struct BoneHealthChangedEvent(FixedPoint2 DamageDelta);
 /// Raised on bone entity after changing his state.
 /// </summary>
 public record struct BoneStatusChangedEvent(Entity<WoundableBoneComponent> Bone, BoneStatus BoneState);
+
+/// <summary>
+/// Raised on organ entity after changing his health.
+/// </summary>
+public record struct OrganHealthChangedEvent(FixedPoint2 DamageDelta);
+
+/// <summary>
+/// Raised on organ entity after changing his state.
+/// </summary>
+public record struct OrganStatusChangedEvent(Entity<WoundableOrganComponent> Organ, OrganStatus OrganStatus);
