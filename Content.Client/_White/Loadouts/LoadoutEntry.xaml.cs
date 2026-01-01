@@ -53,6 +53,12 @@ public sealed partial class LoadoutEntry : Control, IComparable<LoadoutEntry>
         set => PreferenceButton.Pressed = value;
     }
 
+    public string LoadoutName
+    {
+        get => LoadoutNameLabel.Text ?? "";
+        set => LoadoutNameLabel.Text = value;
+    }
+
     public LoadoutEntry()
     {
         RobustXamlLoader.Load(this);
@@ -132,7 +138,7 @@ public sealed partial class LoadoutEntry : Control, IComparable<LoadoutEntry>
         Cost = loadoutProto.Cost;
         PreviewLoadout.SetEntity(_loadoutUid);
 
-        var loadoutName =
+        LoadoutName =
             Loc.GetString($"loadout-name-{loadoutProto.ID}") == $"loadout-name-{loadoutProto.ID}"
                 ? _entityManager.GetComponent<MetaDataComponent>(_loadoutUid).EntityName
                 : Loc.GetString($"loadout-name-{loadoutProto.ID}");
@@ -142,15 +148,13 @@ public sealed partial class LoadoutEntry : Control, IComparable<LoadoutEntry>
         {
             var itemLabel = labelComponent.CurrentLabel;
             if (!string.IsNullOrEmpty(itemLabel))
-                loadoutName += $" ({Loc.GetString(itemLabel)})";
+                LoadoutName += $" ({Loc.GetString(itemLabel)})";
         }
 
         var loadoutDesc =
             !Loc.TryGetString($"loadout-description-{loadoutProto.ID}", out var description)
                 ? _entityManager.GetComponent<MetaDataComponent>(_loadoutUid).EntityDescription
                 : description;
-
-        LoadoutNameLabel.Text = loadoutName;
 
         _currentLoadout = loadout;
     }

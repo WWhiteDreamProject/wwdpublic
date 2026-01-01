@@ -8,6 +8,7 @@
         <!-- Loadouts -->
         <BoxContainer Orientation="Vertical" HorizontalExpand="True">
             <BoxContainer HorizontalExpand="True">
+                <OptionButton Name="LoadoutCategoryButton" StyleClasses="OpenBoth" Access="Public" />
                 <Label Name="LoadoutPoints" Text="ХУЙ!" Margin="8 0" />
                 <LineEdit Name="LoadoutSearch" PlaceHolder="{Loc 'markings-search'}" HorizontalExpand="True" />
                 <Button Name="ResetButton" Text="{Loc 'ui-options-bind-reset'}" StyleClasses="OpenLeft" />

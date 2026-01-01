@@ -46,6 +46,8 @@ public sealed partial class LoadoutPicker : Control
 
     public CharacterRequirementsArgs CharacterRequirementsArgs = default!;
     private ProtoId<LoadoutCategoryPrototype>? _selectedLoadoutCategory;
+    private List<ProtoId<LoadoutCategoryPrototype>> _loadoutCategories = [];
+    private Dictionary<ProtoId<LoadoutCategoryPrototype>, List<LoadoutPrototype>> _loadoutCache = [];
 
     public int LoadoutPoint
     {
@@ -72,6 +74,31 @@ public sealed partial class LoadoutPicker : Control
         SaveButton.OnPressed += SaveButtonPressed;
         SpecialColorTintToggle.OnPressed += SpecialColorTintTogglePressed;
         ResetButton.OnPressed += ResetButtonPressed;
+        LoadoutCategoryButton.OnItemSelected += OnCategoryChange;
+        LoadoutSearch.OnTextChanged += args => Populate(args.Text);
+
+        foreach (var loadoutPrototype in _prototypeManager.EnumeratePrototypes<LoadoutPrototype>())
+        {
+            if (!_loadoutCache.TryGetValue(loadoutPrototype.Category, out var loadoutList))
+            {
+                loadoutList = new();
+                _loadoutCache.Add(loadoutPrototype.Category, loadoutList);
+            }
+
+            loadoutList.Add(loadoutPrototype);
+        }
+    }
+
+    private void OnCategoryChange(OptionButton.ItemSelectedEventArgs category)
+    {
+        LoadoutCategoryButton.SelectId(category.Id);
+        LoadCategoryButtons(_loadoutCategories[category.Id]);
+    }
+
+    private void Populate(string argsText)
+    {
+        if (_selectedLoadoutCategory != null)
+            LoadCategoryButtons(_selectedLoadoutCategory.Value);
     }
 
     private void ResetButtonPressed(BaseButton.ButtonEventArgs obj)
@@ -88,9 +115,13 @@ public sealed partial class LoadoutPicker : Control
         _checkpointRequirements = CharacterRequirementsArgs;
     }
 
+    public bool IsCategoryValid(ProtoId<LoadoutCategoryPrototype> category) => _loadoutCache.ContainsKey(category);
+
     public void SetData(IEnumerable<Loadout> selectedPreferenceList, CharacterRequirementsArgs characterRequirements)
     {
         ClearLoadouts();
+        ClearupEdit();
+        LoadoutSearch.Clear();
 
         CharacterRequirementsArgs = characterRequirements;
 
@@ -146,13 +177,14 @@ public sealed partial class LoadoutPicker : Control
             }
         }
 
-        if (_selectedLoadoutCategory != null)
-            LoadCategoryButtons(_selectedLoadoutCategory.Value);
+        SetupCategoryButtons();
     }
 
     public bool LoadCategoryButtons(ProtoId<LoadoutCategoryPrototype> loadoutCategoryPrototype)
     {
         ClearLoadoutCategoryButtons();
+        ClearupEdit();
+
         var loadoutPrototypes = GroupLoadoutsByGroup(loadoutCategoryPrototype).ToList();
         if (loadoutPrototypes.Count == 0)
             return false;
@@ -178,6 +210,10 @@ public sealed partial class LoadoutPicker : Control
                     );
                 loadoutEntry.SetLoadout(newLoadout);
             }
+
+            if (!string.IsNullOrEmpty(LoadoutSearch.Text) && !loadoutEntry.LoadoutName.Contains(LoadoutSearch.Text))
+                continue;
+
             loadoutEntry.OnEditLoadoutRequired += OnEntryEditLoadoutRequired;
             loadoutEntry.OnLoadoutDirty += OnEntryLoadoutDirty;
             loadoutEntry.EnsureIsWearable(CharacterRequirementsArgs, LoadoutPoint);
@@ -189,7 +225,29 @@ public sealed partial class LoadoutPicker : Control
 
         _selectedLoadoutCategory = loadoutCategoryPrototype;
 
+        LoadoutCategoryButton.SelectId(_loadoutCategories.IndexOf(_selectedLoadoutCategory.Value));
+
         return true;
+    }
+
+    private void SetupCategoryButtons()
+    {
+        LoadoutCategoryButton.Clear();
+        _loadoutCategories.Clear();
+
+        foreach (var categoryPrototype in _prototypeManager.EnumeratePrototypes<LoadoutCategoryPrototype>())
+        {
+            if(!_loadoutCache.ContainsKey(categoryPrototype.ID))
+                continue;
+
+            _loadoutCategories.Add(categoryPrototype);
+            LoadoutCategoryButton.AddItem(Loc.GetString($"loadout-category-{categoryPrototype.ID}"), _loadoutCategories.Count-1);
+        }
+
+        if (_selectedLoadoutCategory.HasValue && _loadoutCategories.Contains(_selectedLoadoutCategory.Value))
+            LoadCategoryButtons(_selectedLoadoutCategory.Value);
+        else if (_loadoutCategories.Count > 0)
+            LoadCategoryButtons(_loadoutCategories[0]);
     }
 
     private void Dirty()
@@ -240,7 +298,6 @@ public sealed partial class LoadoutPicker : Control
         if (TryFreeLoadout(entry.Loadout))
         {
             entry.Selected = false;
-            LoadoutConfigContainer.Visible = false;
             Dirty();
             return;
         }
@@ -409,11 +466,9 @@ public sealed partial class LoadoutPicker : Control
 
     private IEnumerable<LoadoutPrototype> GroupLoadoutsByGroup(ProtoId<LoadoutCategoryPrototype> loadoutCategoryPrototype)
     {
-        foreach (var loadoutPrototype in _prototypeManager.EnumeratePrototypes<LoadoutPrototype>())
-        {
-            if(loadoutPrototype.Category == loadoutCategoryPrototype)
-                yield return loadoutPrototype;
-        }
+        if (_loadoutCache.TryGetValue(loadoutCategoryPrototype, out var loadouts))
+            return loadouts;
+        return [];
     }
 }
 

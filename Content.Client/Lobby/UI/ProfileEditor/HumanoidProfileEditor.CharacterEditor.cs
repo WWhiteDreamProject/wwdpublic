@@ -1,13 +1,13 @@
 using System.Linq;
-using Content.Client._White.Loadouts;
+using System.Numerics;
 using Content.Shared._White.CharacterEditor;
 using Content.Shared.CCVar;
 using Content.Shared.Clothing.Loadouts.Prototypes;
 using Content.Shared.Clothing.Loadouts.Systems;
 using Content.Shared.Humanoid.Markings;
-using Content.Shared.Preferences;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 
 
 namespace Content.Client.Lobby.UI;
@@ -18,7 +18,6 @@ public sealed partial class HumanoidProfileEditor
     [ValidatePrototypeId<CharacterMenuRootPrototype>]
     public readonly ProtoId<CharacterMenuRootPrototype> MainCharacterMenuRoot = "root";
     private ICharacterMenuEntry? _currentCharacterMenuEntry;
-    private readonly Dictionary<LoadoutPreferenceSelector, Action<Loadout>> _handlerCache = [];
     private bool LoadoutsEnabled => _cfgManager.GetCVar(CCVars.GameLoadoutsEnabled);
 
     public ICharacterMenuEntry CurrentCharacterMenuEntry
@@ -151,6 +150,9 @@ public sealed partial class HumanoidProfileEditor
         {
             foreach (var loadoutCategory in group.LoadoutCategories)
             {
+                if(!editor.Loadouts.IsCategoryValid(loadoutCategory))
+                    continue;
+
                 entry.AddChild(new LoadoutShowMenuEntry(loadoutCategory));
                 weight++;
             }
@@ -171,11 +173,11 @@ public sealed partial class HumanoidProfileEditor
     }
 }
 
-
 public interface ICharacterMenuEntry
 {
     public ICharacterMenuEntry? Parent { get; set; }
     public string Label { get; }
+    public ResPath IconPath { get; }
 
     public void Act(HumanoidProfileEditor editor, BoxContainer characterSettingsContainer);
     public void Exit(HumanoidProfileEditor editor, BoxContainer characterSettingsContainer);
@@ -186,6 +188,7 @@ public sealed class LoadoutShowMenuEntry : ICharacterMenuEntry
     private readonly ProtoId<LoadoutCategoryPrototype> _loadoutCategory;
     public ICharacterMenuEntry? Parent { get; set; }
     public string Label { get; }
+    public ResPath IconPath { get; } = new ResPath("/Textures/Interface/inventory.svg.192dpi.png");
 
     public LoadoutShowMenuEntry(ProtoId<LoadoutCategoryPrototype> loadoutCategory)
     {
@@ -208,6 +211,7 @@ public sealed class MarkShowMenuEntry : ICharacterMenuEntry
 {
     public ICharacterMenuEntry? Parent { get; set; }
     public string Label { get; }
+    public ResPath IconPath { get; } = new ResPath("/Textures/Interface/character.svg.192dpi.png");
     public MarkingCategories Category { get; set; }
 
     public MarkShowMenuEntry(MarkingCategories category)
@@ -231,10 +235,11 @@ public sealed class CharacterContainerMenuEntry(string label) : ICharacterMenuEn
 {
     public ICharacterMenuEntry? Parent { get; set;}
     public string Label { get; } = label;
+    public ResPath IconPath { get; } = new ResPath("/Textures/Interface/hamburger.svg.192dpi.png");
 
     private readonly List<ICharacterMenuEntry> _children = [];
     public IReadOnlyList<ICharacterMenuEntry> Children => _children;
-    private readonly List<(Button, Action<BaseButton.ButtonEventArgs>)> _currBrns = [];
+    private readonly List<(BaseButton, Action<BaseButton.ButtonEventArgs>)> _currBrns = [];
 
     public void AddChild(params ICharacterMenuEntry[] children)
     {
@@ -254,7 +259,26 @@ public sealed class CharacterContainerMenuEntry(string label) : ICharacterMenuEn
         {
             var button = new Button()
             {
-                Text = menuEntry.Label
+                Children =
+                {
+                    new BoxContainer()
+                    {
+                        Orientation = BoxContainer.LayoutOrientation.Horizontal,
+                        SeparationOverride = 15,
+                        Children =
+                        {
+                            new TextureRect()
+                            {
+                                TexturePath = menuEntry.IconPath.ToString(),
+                                TextureScale = new Vector2(0.75f)
+                            },
+                            new Label()
+                            {
+                                Text = menuEntry.Label,
+                            }
+                        }
+                    }
+                }
             };
 
             Action<BaseButton.ButtonEventArgs> handler = (_) => editor.CurrentCharacterMenuEntry = menuEntry;
