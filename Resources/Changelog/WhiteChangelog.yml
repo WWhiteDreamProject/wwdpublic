@@ -4834,3 +4834,12 @@ Entries:
   id: 509
   time: '2025-12-31T16:00:42.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/977
+- author: vanx
+  changes:
+    - type: Add
+      message: >-
+        Аварийные лампы теперь светят заметнее и издают звуки в зависимости от
+        кода угрозы станции.
+  id: 510
+  time: '2026-01-01T19:27:05.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/940
