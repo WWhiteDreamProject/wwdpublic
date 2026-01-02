@@ -19,12 +19,18 @@ public sealed class PdaVisualizerSystem : VisualizerSystem<PdaVisualsComponent>
 
         if (AppearanceSystem.TryGetData<bool>(uid, PdaVisuals.IdCardInserted, out var isCardInserted, args.Component))
             args.Sprite.LayerSetVisible(PdaVisualLayers.IdLight, isCardInserted);
+
+        // WD EDIT START
+        if (AppearanceSystem.TryGetData<bool>(uid, PdaVisuals.Screen, out var screenOn, args.Component))
+            args.Sprite.LayerSetVisible(PdaVisualLayers.Screen, screenOn);
+        // WD EDIT END
     }
 
     public enum PdaVisualLayers : byte
     {
         Base,
         Flashlight,
-        IdLight
+        IdLight,
+        Screen // WWDP edit
     }
 }

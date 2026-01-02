@@ -238,8 +238,7 @@
   - type: Gun
     # minAngle: 21 - WD EDIT
     # maxAngle: 32 - WD EDIT
-    fireRate: 12
-    burstFireRate: 12
+    fireRate: 6
     selectedMode: FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/atreides.ogg

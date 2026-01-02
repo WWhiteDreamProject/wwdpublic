@@ -1,3 +1,3 @@
 battery-drinker-verb-drink = Сосать
-battery-drinker-empty = {CAPITALIZE(THE($target))} и так полностью заряжен!
+battery-drinker-empty = {CAPITALIZE($target)} и так полностью заряжен!
 

@@ -6,11 +6,8 @@
   components:
   - type: Pda
     id: HoboIDCard
-  - type: Appearance
-    appearanceDataInit:
-      enum.PdaVisuals.PdaType:
-        !type:String
-        pda-hobo
+  - type: Sprite
+    sprite: _White/Objects/Devices/Pda/pda.rsi
 
 - type: entity
   parent: BasePDA
@@ -20,8 +17,5 @@
   components:
   - type: Pda
     id: MaidIDCard
-  - type: Appearance
-    appearanceDataInit:
-      enum.PdaVisuals.PdaType:
-        !type:String
-        pda-maid
+  - type: Sprite
+    sprite: _White/Objects/Devices/Pda/maid.rsi

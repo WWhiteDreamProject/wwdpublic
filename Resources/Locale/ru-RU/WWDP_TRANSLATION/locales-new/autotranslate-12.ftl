@@ -1,23 +1,23 @@
-ent-RnDLootSpawner = Спавнер научного лута
+ent-RnDLootSpawner = спавнер научного лута
    .desc = ""
 
-ent-SalvagePartsT2Spawner = Спавнер ур.2 машинных деталей
+ent-SalvagePartsT2Spawner = спавнер ур.2 машинных деталей
    .desc = ""
 
-ent-SalvagePartsT3T4Spawner = Спавнер ур.3-4 машинных деталей
+ent-SalvagePartsT3T4Spawner = спавнер ур.3-4 машинных деталей
    .desc = ""
 
-ent-SalvagePartsT3Spawner = Спавнер ур.3 машинных деталей
+ent-SalvagePartsT3Spawner = спавнер ур.3 машинных деталей
    .desc = ""
 
-ent-SalvagePartsT4Spawner = Спавнер ур.4 машинных деталей
+ent-SalvagePartsT4Spawner = спавнер ур.4 машинных деталей
    .desc = ""
 
-ent-SpawnMobKangarooSalvage = Спавнер на обломке кенгуру
+ent-SpawnMobKangarooSalvage = спавнер на обломке кенгуру
    .desc = ""
 
-ent-SpawnMobSpiderSalvage = Спавнер на обломке космо-паук
+ent-SpawnMobSpiderSalvage = спавнер на обломке космо-паук
    .desc = ""
 
-ent-SpacemenFigureSpawner = Спавнер фигурки космонавта
+ent-SpacemenFigureSpawner = спавнер фигурки космонавта
    .desc = ""

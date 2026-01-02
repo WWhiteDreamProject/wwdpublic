@@ -154,11 +154,12 @@
       rolls: !type:RangeNumberSelector
         range: 0, 2
     # Plushies
-    - !type:NestedSelector
-      tableId: AllPlushiesTable
-      prob: 0.10
-      rolls: !type:RangeNumberSelector
-        range: 1, 2
+    # White Dream removed
+    # - !type:NestedSelector
+    #   tableId: AllPlushiesTable
+    #   prob: 0.10
+    #   rolls: !type:RangeNumberSelector
+    #     range: 1, 2
     # Weapons
     - !type:NestedSelector
       tableId: MaintWeaponTable

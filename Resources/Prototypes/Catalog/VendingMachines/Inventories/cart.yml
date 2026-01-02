@@ -2,7 +2,7 @@
   id: PTechInventory
   startingInventory:
     PassengerPDA: 5
-    ClearPDA: 5
+    # ClearPDA: 5 WWDP edit
   # Basic Department PDAs
     SecurityPDA: 2
     SecurityCadetPDA: 4

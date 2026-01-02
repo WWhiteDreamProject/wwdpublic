@@ -13,7 +13,7 @@ public sealed partial class RoundDurationCondition : EntityTableCondition
     /// Minimum time the round must have gone on for this condition to pass.
     /// </summary>
     [DataField]
-    public TimeSpan Min = TimeSpan.Zero;
+    public TimeSpan Min = TimeSpan.MinValue; // WD edit
 
     /// <summary>
     /// Maximum amount of time the round could go on for this condition to pass.

@@ -2376,7 +2376,6 @@
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/tankdispenser.rsi #TODO add visualiser for remaining tanks as layers
     layers:
-    - state: dispenser
     - state: dispensereng
 
 - type: entity

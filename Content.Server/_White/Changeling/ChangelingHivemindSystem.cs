@@ -14,7 +14,7 @@ public sealed class ChangelingHivemindSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly ILogManager _logManager = default!;
-    
+
     private const string HivemindChannelId = "Hivemind";
 
     private readonly string[] _changelingNameKeys =
@@ -44,23 +44,23 @@ public sealed class ChangelingHivemindSystem : EntitySystem
         "changeling-hivemind-name-psi",
         "changeling-hivemind-name-omega"
     };
-    
+
     private readonly HashSet<string> _usedNameKeys = new();
     private ISawmill _sawmill = default!;
 
     public override void Initialize()
     {
         base.Initialize();
-        
+
         _sawmill = _logManager.GetSawmill("changeling.hivemind");
-        
-        SubscribeLocalEvent<ChangelingComponent, TransformRadioSpeakerNameEvent>(OnRadioSpeakerNameTransform);
+
+        SubscribeLocalEvent<ChangelingComponent, TransformSpeakerNameEvent>(OnSpeakerNameTransform);
         SubscribeLocalEvent<HivemindComponent, ComponentStartup>(OnHivemindStartup);
     }
-    
-    private void OnRadioSpeakerNameTransform(EntityUid uid, ChangelingComponent component, ref TransformRadioSpeakerNameEvent args)
+
+    private void OnSpeakerNameTransform(EntityUid uid, ChangelingComponent component, ref TransformSpeakerNameEvent args)
     {
-        if (args.Channel.ID != HivemindChannelId)
+        if (args.Channel?.ID != HivemindChannelId)
             return;
 
         if (!TryComp<ChangelingHivemindNameComponent>(uid, out var nameComp))
@@ -82,22 +82,22 @@ public sealed class ChangelingHivemindSystem : EntitySystem
         args.VoiceName = Loc.GetString(nameComp.HivemindName);
         _sawmill.Debug($"Transformed speaker name for {ToPrettyString(uid)} to {args.VoiceName} in hivemind channel");
     }
-    
+
     private void OnHivemindStartup(EntityUid uid, HivemindComponent component, ComponentStartup args)
     {
         if (HasComp<ChangelingComponent>(uid))
             EnsureChangelingHivemindName(uid);
     }
-    
+
     public void EnsureChangelingHivemindName(EntityUid uid)
     {
         var nameComp = EnsureComp<ChangelingHivemindNameComponent>(uid);
 
         if (!string.IsNullOrEmpty(nameComp.HivemindName))
             return;
-        
+
         var availableNameKeys = _changelingNameKeys.Except(_usedNameKeys).ToList();
-        
+
         if (availableNameKeys.Count == 0)
         {
             var nameKey = _random.Pick(_changelingNameKeys);
@@ -111,13 +111,13 @@ public sealed class ChangelingHivemindSystem : EntitySystem
             nameComp.HivemindName = newNameKey;
             _sawmill.Debug($"Assigned hivemind name key {newNameKey} to {ToPrettyString(uid)}");
         }
-        
+
         Dirty(uid, nameComp);
     }
-    
+
     public override void Shutdown()
     {
         base.Shutdown();
         _usedNameKeys.Clear();
     }
-} 
+}

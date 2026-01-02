@@ -6,7 +6,9 @@ namespace Content.Shared.PDA
     public enum PdaVisuals
     {
         IdCardInserted,
-        PdaType
+        PdaType,
+        Enabled, // WWDP edit
+        Screen // WWDP edit
     }
 
     [Serializable, NetSerializable]

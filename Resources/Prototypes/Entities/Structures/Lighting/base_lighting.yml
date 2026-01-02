@@ -40,7 +40,7 @@
     offset: "0, -0.5"
   - type: Damageable
     damageContainer: StructuralInorganic # WWDP EDIT
-    damageModifierSet: StructuralMetallic # WWDP EDIT
+    damageModifierSet: Metallic # WWDP EDIT
   - type: RCDDeconstructable
     cost: 4
     delay: 2
@@ -54,10 +54,10 @@
           !type:PhysShapeAabb
           bounds: "-0.4,0.5,0.4,0.35"
         density: 190
-        mask:
-        - TabletopMachineMask
+        # mask: # White Dream
+        # - TabletopMachineMask
         layer:
-        - TabletopMachineLayer
+        - BulletImpassable # White Dream
   - type: Destructible
     thresholds:
     - trigger:
@@ -87,6 +87,7 @@
   - type: Tag # WWDP
     tags:
       - RCDLight
+  - type: RequireProjectileTarget # White Dream
   placement:
     mode: SnapgridCenter
     snap:
@@ -439,14 +440,14 @@
 - type: entity
   id: EmergencyLight
   name: emergency light
-  description: A small light with an internal battery that turns on as soon as it stops receiving any power. Nanotrasen technology allows it to adapt its color to alert crew to the conditions of the station.
+  description: A small light with an internal battery that alerts the crew about the station's conditions. Has an integrated speaker for sound alerts. # White Dream
   parent: AlwaysPoweredWallLight
   suffix: ""
   components:
   - type: PointLight
     enabled: false
-    radius: 5
-    energy: 0.6
+    radius: 3 # White Dream
+    energy: 2 # White Dream
     offset: "0, 0.4"
     color: "#7CFC00"
     mask: /Textures/Effects/LightMasks/double_cone.png
@@ -457,7 +458,7 @@
     startingCharge: 0
   - type: EmergencyLight
   - type: RotatingLight
-    speed: 40
+    speed: 120 # White Dream
   - type: Sprite
     sprite: Structures/Wallmounts/Lighting/emergency_light.rsi
     layers:
