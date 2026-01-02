@@ -63,6 +63,7 @@ public sealed partial class LoadoutEntry : Control, IComparable<LoadoutEntry>
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
+        MouseFilter = MouseFilterMode.Pass;
         HeadingButton.OnPressed += HeadingButtonPressed;
         PreferenceButton.OnPressed += PreferenceButtonPressed;
     }
@@ -84,9 +85,12 @@ public sealed partial class LoadoutEntry : Control, IComparable<LoadoutEntry>
             PreferenceButton.Disabled = false;
             HeirloomButton.Visible = true;
             HeadingButton.Visible = true;
+            PreferenceButton.MouseFilter = MouseFilterMode.Pass;
 
             return true;
         }
+
+        Reason.Text = reason;
 
         if (!CanWear)
             return false;
@@ -96,6 +100,7 @@ public sealed partial class LoadoutEntry : Control, IComparable<LoadoutEntry>
         PreferenceButton.Disabled = true;
         HeirloomButton.Visible = false;
         HeadingButton.Visible = false;
+        PreferenceButton.MouseFilter = MouseFilterMode.Ignore;
 
         return false;
     }
@@ -159,9 +164,17 @@ public sealed partial class LoadoutEntry : Control, IComparable<LoadoutEntry>
         _currentLoadout = loadout;
     }
 
-    public void AppendErrorMessage(string message)
+    protected override void MouseEntered()
     {
+        base.MouseEntered();
+        if (!CanWear)
+            ReasonNameContainer.Visible = true;
+    }
 
+    protected override void MouseExited()
+    {
+        base.MouseExited();
+        ReasonNameContainer.Visible = false;
     }
 
     protected override void Dispose(bool disposing)
