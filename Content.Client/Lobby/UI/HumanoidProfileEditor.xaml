@@ -35,27 +35,6 @@
                     <ScrollContainer HorizontalExpand="True" HScrollEnabled="True" VerticalExpand="True" VScrollEnabled="True">
                         <BoxContainer HorizontalExpand="True" Orientation="Vertical">
                             <ui:AlternatingBGContainer Orientation="Vertical" HorizontalExpand="True">
-                                <!-- WD EDIT START -->
-                                <BoxContainer HorizontalAlignment="Stretch" HorizontalExpand="True">
-                                    <Button Visible="False" Name="CharacterEditBackButton" Text="..."/>
-                                    <ScrollContainer Access="Public" Name="CharacterEditContainerScroll" HorizontalAlignment="Stretch" HorizontalExpand="True" MaxHeight="800">
-                                        <BoxContainer Orientation="Vertical" Name="CharacterEditButtonContainer" VerticalAlignment="Center"/>
-                                    </ScrollContainer>
-                                    <humanoid:MarkingPicker Name="Markings" HorizontalExpand="True" HorizontalAlignment="Stretch" Access="Public" Visible="False"/>
-                                    <loadouts:LoadoutPicker Name="Loadouts" HorizontalExpand="True" HorizontalAlignment="Stretch" Access="Public" Visible="False"/>
-                                    <BoxContainer Orientation="Vertical" VerticalAlignment="Center">
-                                        <SpriteView Name="CharacterSpriteView" OverrideDirection="South" Scale="8 8" />
-                                        <BoxContainer HorizontalExpand="True" Align="Center">
-                                            <Button Name="PreviewRotateLeftButton" StyleClasses="OpenRight" >
-                                                <TextureRect TexturePath="/Textures/Interface/Default/left_arrow.svg.192dpi.png" Stretch="KeepAspectCentered"/>
-                                            </Button>
-                                            <Button Name="PreviewRotateRightButton" StyleClasses="OpenLeft">
-                                                <TextureRect TexturePath="/Textures/Interface/Default/right_arrow.svg.192dpi.png" Stretch="KeepAspectCentered"/>
-                                            </Button>
-                                        </BoxContainer>
-                                    </BoxContainer>
-                                </BoxContainer>
-                                <!-- WD EDIT END -->
                                 <!-- Species -->
                                 <BoxContainer HorizontalExpand="True">
                                     <Label Text="{Loc 'humanoid-profile-editor-species-label'}" />
@@ -202,6 +181,22 @@
                                     <Label Name="WeightLabel" />
                                 </BoxContainer>
                             </ui:AlternatingBGContainer>
+                            <!-- WD EDIT START -->
+                            <Control Margin="5"/>
+                            <BoxContainer HorizontalExpand="True">
+                                <BoxContainer HorizontalExpand="True" Orientation="Vertical">
+                                    <Label Text="{Loc 'humanoid-profile-editor-markings-tab'}" />
+                                    <Control Margin="5"/>
+                                    <humanoid:MarkingPicker Name="Markings" HorizontalExpand="True" HorizontalAlignment="Stretch" Access="Public"/>
+                                </BoxContainer>
+                                <BoxContainer HorizontalExpand="True" Orientation="Vertical">
+                                    <Label Text="{Loc 'humanoid-profile-editor-loadouts-tab'}" />
+                                    <Control Margin="5"/>
+                                    <loadouts:LoadoutPicker Name="Loadouts" HorizontalExpand="True" HorizontalAlignment="Stretch" Access="Public"/>
+                                </BoxContainer>
+                            </BoxContainer>
+                            <Control Margin="5"/>
+                            <!-- WD EDIT END -->
                             <!-- Skin -->
                             <BoxContainer Margin="0 4 0 4" HorizontalExpand="True" Orientation="Vertical">
                                 <Label Text="{Loc 'humanoid-profile-editor-skin-color-label'}" />

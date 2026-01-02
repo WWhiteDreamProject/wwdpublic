@@ -144,6 +144,8 @@ namespace Content.Client.Lobby.UI
         private const string MimeNames = "MimeNames";
 
         private const string Uncategorized = "Uncategorized";
+
+        public SpriteView? CharacterSpriteView;
         // WD EDIT END
 
         public HumanoidProfileEditor(
@@ -921,7 +923,7 @@ namespace Content.Client.Lobby.UI
                 return;
 
             PreviewDummy = _controller.LoadProfileEntity(Profile, null, ShowClothes.Pressed, ShowLoadouts.Pressed);
-            CharacterSpriteView.SetEntity(PreviewDummy); // WWDP EDIT
+            CharacterSpriteView?.SetEntity(PreviewDummy); // WWDP EDIT
 
             // Check and set the dirty flag to enable the save/reset buttons as appropriate.
             SetDirty();
@@ -985,7 +987,6 @@ namespace Content.Client.Lobby.UI
             UpdateMarkings();
             UpdateLoadouts(); // WD EDIT
             CheckpointLoadouts(); // WD EDIT
-            CharacterMenuUpdateRequired(); // WD EDIT
             UpdateHairPickers();
             UpdateCMarkingsHair();
             UpdateCMarkingsFacialHair();
@@ -1339,7 +1340,6 @@ namespace Content.Client.Lobby.UI
             UpdateTTSVoicesControls(); // WD EDIT
             UpdateBodyTypes(); // WD EDIT
             UpdateBarksControl(); // WD EDIT
-            CharacterMenuUpdateRequired(); // WD EDIT
             ReloadProfilePreview();
         }
 
@@ -1425,7 +1425,6 @@ namespace Content.Client.Lobby.UI
             UpdateWeight();
             UpdateSpeciesGuidebookIcon();
             UpdateBodyTypes(); // WD EDIT
-            CharacterMenuUpdateRequired(); // WD EDIT
             ReloadProfilePreview();
             ReloadClothes(); // Species may have job-specific gear, reload the clothes
         }
@@ -1871,7 +1870,7 @@ namespace Content.Client.Lobby.UI
             else // Whelp, the fixture doesn't exist, guesstimate it instead
                 WeightLabel.Text = Loc.GetString("humanoid-profile-editor-weight-label", ("weight", (int) 71));
 
-            CharacterSpriteView.InvalidateMeasure();
+            CharacterSpriteView?.InvalidateMeasure();
         }
 
         private void UpdateHairPickers()
