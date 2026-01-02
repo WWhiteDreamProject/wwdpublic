@@ -229,7 +229,9 @@ public class FlexBox : Container
                 totalMainSize += columnGap * (line.Items.Count - 1);
 
         if (totalMainSize >= mainAxisSize)
-            return new Vector2(totalCrossSize, totalCrossSize);
+            return isRowDirection
+                ? new Vector2(mainAxisSize, totalCrossSize)
+                : new Vector2(totalCrossSize, mainAxisSize);
 
         return isRowDirection
                ? new Vector2(totalMainSize, totalCrossSize)
@@ -355,12 +357,11 @@ public class FlexBox : Container
             var line = lines[i];
             var lineIndex = isWrapReverse ? lines.Count - 1 - i : i;
 
-            if (AlignContent == FlexAlignContent.SpaceBetween && lines.Count > 1 && i < lines.Count - 1)
+            if (AlignContent == FlexAlignContent.SpaceBetween && lines.Count > 1)
             {
-                var remainingSpace = containerCrossSize - currentCrossPos - totalCrossSize;
-                var gapSize = remainingSpace / (lines.Count - i - 1);
-                line.CrossPosition = currentCrossPos;
-                currentCrossPos += line.CrossSize + gapSize;
+                var spaceBetween = (containerCrossSize - totalCrossSize) / (lines.Count - 1);
+                line.CrossPosition = i * spaceBetween + lines.Take(i).Sum(l => l.CrossSize);
+                currentCrossPos = line.CrossPosition + line.CrossSize;
             }
             else
             {

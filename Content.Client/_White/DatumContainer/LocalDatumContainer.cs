@@ -64,12 +64,28 @@ public sealed class LocalDatumContainer<T> where T : notnull
         if (!_resourceManager.UserData.Exists(_datumPath))
             return;
 
-        using var stream = _resourceManager.UserData.Open(_datumPath, FileMode.Open);
-        using var textReadStream = new StreamReader(stream);
-        var yamlStream = new YamlStream();
-        yamlStream.Load(textReadStream);
+        try
+        {
+            using var stream = _resourceManager.UserData.Open(_datumPath, FileMode.Open);
+            using var textReadStream = new StreamReader(stream);
+            var yamlStream = new YamlStream();
+            yamlStream.Load(textReadStream);
 
-        _data = _serializationManager.Read<Dictionary<string, T>>(yamlStream.Documents[0].RootNode.ToDataNode(), notNullableOverride:false);
+            if (yamlStream.Documents.Count == 0)
+                return;
+
+            var loaded = _serializationManager.Read(
+                typeof(Dictionary<string, T>),
+                yamlStream.Documents[0].RootNode.ToDataNode(),
+                notNullableOverride: false);
+
+            if (loaded is Dictionary<string, T> dictionary)
+                _data = dictionary;
+        }
+        catch (Exception ex)
+        {
+            Logger.WarningS("datum", $"Failed to load datum from {_datumPath}: {ex.Message}");
+        }
     }
 
     public T? GetValueOrDefault(string key) => _data.GetValueOrDefault(key);

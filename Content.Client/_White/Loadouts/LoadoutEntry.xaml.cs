@@ -29,7 +29,7 @@ public sealed partial class LoadoutEntry : Control, IComparable<LoadoutEntry>
 
     public Loadout Loadout
     {
-        get => _currentLoadout!;
+        get => _currentLoadout ?? throw new InvalidOperationException("Loadout not initialized. Call SetLoadout first.");
         set => SetLoadout(value);
     }
 
@@ -139,7 +139,13 @@ public sealed partial class LoadoutEntry : Control, IComparable<LoadoutEntry>
     {
         _entityManager.DeleteEntity(_loadoutUid);
         var loadoutProto = _prototypeManager.Index<LoadoutPrototype>(loadout.LoadoutName);
-        _loadoutUid = _entityManager.SpawnEntity(loadoutProto.Items.First(), MapCoordinates.Nullspace);
+        var firstItem = loadoutProto.Items.FirstOrDefault();
+        if (firstItem == default)
+        {
+            Logger.Warning($"Loadout {loadout.LoadoutName} has no items");
+            return;
+        }
+        _loadoutUid = _entityManager.SpawnEntity(firstItem, MapCoordinates.Nullspace);
         Cost = loadoutProto.Cost;
         PreviewLoadout.SetEntity(_loadoutUid);
 
@@ -182,6 +188,7 @@ public sealed partial class LoadoutEntry : Control, IComparable<LoadoutEntry>
         base.Dispose(disposing);
 
         HeadingButton.OnPressed -= HeadingButtonPressed;
+        PreferenceButton.OnPressed -= PreferenceButtonPressed;
         _entityManager.DeleteEntity(_loadoutUid);
     }
 
