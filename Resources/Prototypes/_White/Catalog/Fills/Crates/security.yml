@@ -8,3 +8,13 @@
     contents:
       - id: GrenadeBarrier
         amount: 4
+
+- type: entity
+  id: CrateArmoryMosin
+  parent: CrateWeaponSecure
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponSniperMosin
+      amount: 3
+    - id: BoxSpeedLoaderLightRifle

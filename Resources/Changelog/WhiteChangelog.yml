@@ -4803,3 +4803,43 @@ Entries:
   id: 506
   time: '2025-12-30T14:00:31.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/988
+- author: vanx
+  changes:
+    - type: Fix
+      message: Толчок теперь отменяет граб только при выпадении дизарма.
+    - type: Tweak
+      message: Кулдаун освобождения из граба уменьшен 3 -> 2 секунды.
+    - type: Tweak
+      message: >-
+        Базовый шанс вырваться из лёгкого граба 100% -> 50%, из сильного 50% ->
+        30%.
+  id: 507
+  time: '2025-12-31T11:32:53.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/978
+- author: vanx
+  changes:
+    - type: Tweak
+      message: >-
+        Изменён ассортимент отдела карго: убраны боевые скафандры, добавлен ящик
+        с винтовками Мосина за $3000.
+  id: 508
+  time: '2025-12-31T11:39:47.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/991
+- author: SentryPrimies
+  changes:
+    - type: Add
+      message: Добавлены новые спрайты подстанциям
+    - type: Add
+      message: 'Добавлены новые спрайты заряжалкам '
+  id: 509
+  time: '2025-12-31T16:00:42.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/977
+- author: vanx
+  changes:
+    - type: Add
+      message: >-
+        Аварийные лампы теперь светят заметнее и издают звуки в зависимости от
+        кода угрозы станции.
+  id: 510
+  time: '2026-01-01T19:27:05.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/940
