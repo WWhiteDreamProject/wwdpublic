@@ -4880,3 +4880,14 @@ Entries:
   id: 513
   time: '2026-01-03T20:08:21.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/998
+- author: vanx
+  changes:
+    - type: Fix
+      message: Дробовик Силовик снова самозарядный.
+    - type: Fix
+      message: Пистолет-пулемёт C20-R теперь берётся в 2 руки.
+    - type: Tweak
+      message: Винтовка Мосина теперь вмещает максимум 5 патронов.
+  id: 514
+  time: '2026-01-03T20:16:18.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1003
