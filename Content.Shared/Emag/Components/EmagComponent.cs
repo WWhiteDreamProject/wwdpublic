@@ -25,7 +25,7 @@ public sealed partial class EmagComponent : Component
     /// </summary>
     [DataField]
     [AutoNetworkedField]
-    public EmagType EmagType = EmagType.Interaction;
+    public EmagType EmagType = EmagType.All; // WWDP edit
 
     /// <summary>
     /// What sound should the emag play when used
