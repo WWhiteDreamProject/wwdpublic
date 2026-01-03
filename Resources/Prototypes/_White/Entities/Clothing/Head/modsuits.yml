@@ -19,14 +19,14 @@
       coefficients:
         Blunt: 0.9
         Slash: 0.9
-        Piercing: 0.85
+        Piercing: 0.9
         Heat: 0.9
   - type: ComponentToggler
     components:
     - type: BreathMask
     - type: PressureProtection
-      highPressureMultiplier: 0
-      lowPressureMultiplier: 0
+      highPressureMultiplier: 0.08
+      lowPressureMultiplier: 1000
     - type: TemperatureProtection
       heatingCoefficient: 0.1
       coolingCoefficient: 0.1
