@@ -1,6 +1,6 @@
 - type: entity
   name: adjutant
-  parent: BaseWeaponShotgun
+  parent: [BaseWeaponShotgun, BaseGunWieldable]
   id: WeaponShotgunAdjutant
   description: Sold as a "riot" shotgun, this shotgun has a special gas-operated mechanism that makes it highly effective for CQC and suppressive fire.
   components:
@@ -24,7 +24,7 @@
   - type: BallisticAmmoProvider
     soundRack: # WWDP
       path: /Audio/_White/Guns/shotgun_rack.ogg
-#    autoCycle: true
+    autoCycle: true # WD EDIT
     whitelist:
       tags:
       - ShellShotgun
