@@ -55,9 +55,11 @@ public sealed partial class LoadoutEntry : Control, IComparable<LoadoutEntry>
 
     public string LoadoutName
     {
-        get => LoadoutNameLabel.Text ?? "";
-        set => LoadoutNameLabel.Text = value;
+        get => LoadoutNameLabel.Text ?? string.Empty;
+        private set => LoadoutNameLabel.Text = value;
     }
+
+    public string LoadoutDescrtiption { get; private set; } = string.Empty;
 
     public LoadoutEntry()
     {
@@ -141,10 +143,8 @@ public sealed partial class LoadoutEntry : Control, IComparable<LoadoutEntry>
         var loadoutProto = _prototypeManager.Index<LoadoutPrototype>(loadout.LoadoutName);
         var firstItem = loadoutProto.Items.FirstOrDefault();
         if (firstItem == default)
-        {
-            Logger.Warning($"Loadout {loadout.LoadoutName} has no items");
-            return;
-        }
+           throw new InvalidOperationException($"Loadout {loadout.LoadoutName} has no items");
+
         _loadoutUid = _entityManager.SpawnEntity(firstItem, MapCoordinates.Nullspace);
         Cost = loadoutProto.Cost;
         PreviewLoadout.SetEntity(_loadoutUid);
@@ -162,7 +162,7 @@ public sealed partial class LoadoutEntry : Control, IComparable<LoadoutEntry>
                 LoadoutName += $" ({Loc.GetString(itemLabel)})";
         }
 
-        var loadoutDesc =
+        LoadoutDescrtiption =
             !Loc.TryGetString($"loadout-description-{loadoutProto.ID}", out var description)
                 ? _entityManager.GetComponent<MetaDataComponent>(_loadoutUid).EntityDescription
                 : description;

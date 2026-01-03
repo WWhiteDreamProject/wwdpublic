@@ -225,8 +225,12 @@ public class FlexBox : Container
 
         // Add gaps between items in lines
         foreach (var line in lines)
+        {
+            var lineSizeWithGap = line.MainSize;
             if (line.Items.Count > 1)
-                totalMainSize += columnGap * (line.Items.Count - 1);
+                lineSizeWithGap += columnGap * (line.Items.Count - 1);
+            totalMainSize = Math.Max(totalMainSize, lineSizeWithGap);
+        }
 
         if (totalMainSize >= mainAxisSize)
             return isRowDirection
@@ -285,7 +289,7 @@ public class FlexBox : Container
         var mainAxisSize = isRowDirection ? availableSize.X : availableSize.Y;
         var crossAxisSize = isRowDirection ? availableSize.Y : availableSize.X;
 
-        var gap = isRowDirection ? rowGap : columnGap;
+        var gap = isRowDirection ? columnGap : rowGap;
 
         var orderedChildren = children.OrderBy(c => GetFlexOrder(c)).ToList();
 
@@ -322,54 +326,63 @@ public class FlexBox : Container
         bool isWrapReverse
     )
     {
-        var totalCrossSize = lines.Sum(l => l.CrossSize);
+        if (lines.Count == 0)
+            return;
+
         var containerCrossSize = isRowDirection ? containerSize.Y : containerSize.X;
         var gap = isRowDirection ? ActualRowGap : ActualColumnGap;
 
-        if (lines.Count > 1)
-            totalCrossSize += gap * (lines.Count - 1);
+        var linesCrossSize = lines.Sum(l => l.CrossSize);
 
-        var crossStartPosition = 0f;
+        var totalGap = gap * Math.Max(0, lines.Count - 1);
+        var occupiedSize = linesCrossSize + totalGap;
+        var freeSpace = Math.Max(0, containerCrossSize - occupiedSize);
+
+        var startOffset = 0f;
+        var extraGap = 0f;
+
         switch (AlignContent)
         {
             case FlexAlignContent.FlexStart:
-                crossStartPosition = 0;
+                startOffset = 0f;
                 break;
-            case FlexAlignContent.Center:
-                crossStartPosition = Math.Max(0, (containerCrossSize - totalCrossSize) / 2);
-                break;
+
             case FlexAlignContent.FlexEnd:
-                crossStartPosition = Math.Max(0, containerCrossSize - totalCrossSize);
+                startOffset = freeSpace;
                 break;
+
+            case FlexAlignContent.Center:
+                startOffset = freeSpace / 2f;
+                break;
+
             case FlexAlignContent.SpaceBetween:
-                // Gaps will be distributed in the positioning loop
+                if (lines.Count > 1)
+                    extraGap = freeSpace / (lines.Count - 1);
                 break;
+
             case FlexAlignContent.SpaceAround:
-                // Equal space around each line
-                var spacePerLine = Math.Max(0, (containerCrossSize - totalCrossSize) / lines.Count);
-                crossStartPosition = spacePerLine / 2;
+                extraGap = freeSpace / lines.Count;
+                startOffset = extraGap / 2f;
                 break;
         }
 
-        var currentCrossPos = crossStartPosition;
-        for (var i = 0; i < lines.Count; i++)
+        var orderedLines = isWrapReverse
+            ? lines.AsEnumerable().Reverse().ToList()
+            : lines;
+
+        var currentCrossPos = startOffset;
+
+        for (int i = 0; i < orderedLines.Count; i++)
         {
-            var line = lines[i];
-            var lineIndex = isWrapReverse ? lines.Count - 1 - i : i;
+            var line = orderedLines[i];
 
-            if (AlignContent == FlexAlignContent.SpaceBetween && lines.Count > 1)
-            {
-                var spaceBetween = (containerCrossSize - totalCrossSize) / (lines.Count - 1);
-                line.CrossPosition = i * spaceBetween + lines.Take(i).Sum(l => l.CrossSize);
-                currentCrossPos = line.CrossPosition + line.CrossSize;
-            }
-            else
-            {
-                line.CrossPosition = currentCrossPos;
-                currentCrossPos += line.CrossSize + (i < lines.Count - 1 ? gap : 0);
-            }
+            line.CrossPosition = currentCrossPos;
+            line.LineIndex = i;
 
-            line.LineIndex = lineIndex;
+            currentCrossPos += line.CrossSize;
+
+            if (i < orderedLines.Count - 1)
+                currentCrossPos += gap + extraGap;
         }
     }
 
@@ -432,8 +445,8 @@ public class FlexBox : Container
             var mainPosition = currentMainPos;
             if (JustifyContent == FlexJustifyContent.SpaceBetween && items.Count > 1 && i < items.Count - 1)
             {
-                var remainingSpace = mainAxisSize - currentMainPos - lineMainSize;
-                var gapSize = remainingSpace / (items.Count - i - 1);
+                var totalGapSpace = mainAxisSize - lineMainSize;
+                var gapSize = totalGapSpace / (items.Count - 1);
                 currentMainPos += itemSize + gapSize;
             }
             else

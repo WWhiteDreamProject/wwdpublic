@@ -50,10 +50,17 @@ public sealed class LocalDatumContainer<T> where T : notnull
 
     private void Dirty()
     {
-        var rootNode = _serializationManager.WriteValue(_data, notNullableOverride:true);
-        using var stream = _resourceManager.UserData.Open(_datumPath, FileMode.Create);
-        using var textWriter = new StreamWriter(stream);
-        rootNode.Write(textWriter);
+        try
+        {
+            var rootNode = _serializationManager.WriteValue(_data, notNullableOverride: true);
+            using var stream = _resourceManager.UserData.Open(_datumPath, FileMode.Create);
+            using var textWriter = new StreamWriter(stream);
+            rootNode.Write(textWriter);
+        }
+        catch (Exception ex)
+        {
+            Logger.ErrorS("datum", $"Failed to save datum to {_datumPath}: {ex.Message}");
+        }
     }
 
     private void LoadDataFromUserData()
