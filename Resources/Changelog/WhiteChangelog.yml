@@ -4843,3 +4843,10 @@ Entries:
   id: 510
   time: '2026-01-01T19:27:05.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/940
+- author: vanx
+  changes:
+    - type: Fix
+      message: Барки больше не озвучивают язык жестов.
+  id: 511
+  time: '2026-01-03T19:58:15.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/974
