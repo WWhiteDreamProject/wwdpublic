@@ -59,7 +59,7 @@ public sealed partial class LoadoutEntry : Control, IComparable<LoadoutEntry>
         private set => LoadoutNameLabel.Text = value;
     }
 
-    public string LoadoutDescrtiption { get; private set; } = string.Empty;
+    public string LoadoutDescription { get; private set; } = string.Empty;
 
     public LoadoutEntry()
     {
@@ -114,13 +114,13 @@ public sealed partial class LoadoutEntry : Control, IComparable<LoadoutEntry>
 
         if (!_prototypeManager.TryIndex(loadoutPrototype, out var prototype))
         {
-            reason = "Prototype not found";
+            reason = Loc.GetString("loadout-error-prototype-not-found");
             return false;
         }
 
         if(prototype.Cost > loadoutPoint)
         {
-            reason = "Loadout is too expensive";
+            reason = Loc.GetString("loadout-error-too-expensive");
             return false;
         }
 
@@ -162,7 +162,7 @@ public sealed partial class LoadoutEntry : Control, IComparable<LoadoutEntry>
                 LoadoutName += $" ({Loc.GetString(itemLabel)})";
         }
 
-        LoadoutDescrtiption =
+        LoadoutDescription =
             !Loc.TryGetString($"loadout-description-{loadoutProto.ID}", out var description)
                 ? _entityManager.GetComponent<MetaDataComponent>(_loadoutUid).EntityDescription
                 : description;

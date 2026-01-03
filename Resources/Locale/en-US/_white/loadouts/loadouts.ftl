@@ -1,4 +1,8 @@
-﻿# Combat Maid
+﻿# loadout menu
+loadout-error-prototype-not-found = loadout prototype not found
+loadout-error-too-expensive = loadout is too expensive
+
+# Combat Maid
 loadout-category-JobsCommandMaid = Maid
 
 character-item-group-LoadoutMaidHats = Maid Hats
