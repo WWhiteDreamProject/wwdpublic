@@ -338,17 +338,31 @@ public class FlexBox : Container
         var gap = isRowDirection ? ActualRowGap : ActualColumnGap;
 
         var linesCrossSize = lines.Sum(l => l.CrossSize);
-
         var totalGap = gap * Math.Max(0, lines.Count - 1);
         var occupiedSize = linesCrossSize + totalGap;
-        var freeSpace = Math.Max(0, containerCrossSize - occupiedSize);
 
-        var startOffset = 0f;
-        var extraGap = 0f;
+        var freeSpace = containerCrossSize - occupiedSize;
+
+        // align-content: stretch
+        if (AlignContent == FlexAlignContent.Stretch && freeSpace > 0)
+        {
+            var extraPerLine = freeSpace / lines.Count;
+
+            for (int i = 0; i < lines.Count; i++)
+                lines[i].CrossSize += extraPerLine;
+
+            freeSpace = 0f;
+        }
+
+        freeSpace = Math.Max(0, freeSpace);
+
+        float startOffset = 0f;
+        float extraGap = 0f;
 
         switch (AlignContent)
         {
             case FlexAlignContent.FlexStart:
+            case FlexAlignContent.Stretch:
                 startOffset = 0f;
                 break;
 
@@ -549,7 +563,7 @@ public class FlexBox : Container
     {
         public List<FlexItem> Items { get; } = new();
         public float MainSize { get; private set; }
-        public float CrossSize { get; private set; }
+        public float CrossSize { get; set; }
         public float CrossPosition { get; set; }
         public int LineIndex { get; set; }
 
