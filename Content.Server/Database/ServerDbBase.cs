@@ -202,8 +202,8 @@ namespace Content.Server.Database
             var antags = profile.Antags.Select(a => new ProtoId<AntagPrototype>(a.AntagName));
             var traits = profile.Traits.Select(t => new ProtoId<TraitPrototype>(t.TraitName));
             // WWDP EDIT START
-            var loadouts = profile.Loadouts.Select(Shared.Clothing.Loadouts.Systems.Loadout (l) =>
-                new(
+            var loadouts = profile.Loadouts.Select(l =>
+                new Loadout(
                     l.LoadoutName,
                     l.CustomName,
                     l.CustomDescription,

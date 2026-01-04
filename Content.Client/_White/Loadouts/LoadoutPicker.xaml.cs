@@ -248,21 +248,12 @@ public sealed partial class LoadoutPicker : Control
 
         var loadout = new Loadout(
             loadoutName,
-            _customName.GetValueOrDefault(loadoutName),
-            _customDescription.GetValueOrDefault(loadoutName),
-            _customContent.GetValueOrDefault(loadoutName),
-            _customColorTints.GetValueOrDefault(loadoutName),
-            _customHeirloom.GetValueOrDefault(loadoutName)
+            prototype.CustomName ? _customName.GetValueOrDefault(loadoutName) : null,
+            prototype.CustomDescription ? _customDescription.GetValueOrDefault(loadoutName) : null,
+            prototype.CustomContent ? _customContent.GetValueOrDefault(loadoutName) : null,
+            prototype.CustomColorTint ? _customColorTints.GetValueOrDefault(loadoutName) : null,
+            prototype.CanBeHeirloom ? _customHeirloom.GetValueOrDefault(loadoutName) : null
         );
-
-        if(prototype.CanBeHeirloom && _customHeirloom.TryGetValue(loadoutName, out var customHeirloom))
-            loadout.CustomHeirloom = customHeirloom;
-        if(prototype.CustomContent && _customContent.TryGetValue(loadoutName, out var customContent))
-            loadout.CustomContent = customContent;
-        if(prototype.CustomName && _customName.TryGetValue(loadoutName, out var customName))
-            loadout.CustomName = customName;
-        if(prototype.CustomDescription && _customDescription.TryGetValue(loadoutName, out var customDescription))
-            loadout.CustomDescription = customDescription;
 
         var entry = new LoadoutEntry();
         entry.SetLoadout(loadout);
