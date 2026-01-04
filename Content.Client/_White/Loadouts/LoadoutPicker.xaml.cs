@@ -215,11 +215,11 @@ public sealed partial class LoadoutPicker : Control
             {
                 var newLoadout = new Loadout(
                     loadoutPrototype.ID,
-                    _customName.GetValueOrDefault(loadoutPrototype.ID),
-                    _customDescription.GetValueOrDefault(loadoutPrototype.ID),
-                    _customContent.GetValueOrDefault(loadoutPrototype.ID),
-                    _customColorTints.GetValueOrDefault(loadoutPrototype.ID),
-                    _customHeirloom.GetValueOrDefault(loadoutPrototype.ID)
+                    loadoutPrototype.CustomName ? _customName.GetValueOrDefault(loadoutPrototype.ID) : null,
+                    loadoutPrototype.CustomDescription ? _customDescription.GetValueOrDefault(loadoutPrototype.ID) : null,
+                    loadoutPrototype.CustomContent ? _customContent.GetValueOrDefault(loadoutPrototype.ID) : null,
+                    loadoutPrototype.CustomColorTint ? _customColorTints.GetValueOrDefault(loadoutPrototype.ID) : null,
+                    loadoutPrototype.CanBeHeirloom ? _customHeirloom.GetValueOrDefault(loadoutPrototype.ID) : null
                     );
                 loadoutEntry.SetLoadout(newLoadout);
             }
@@ -425,9 +425,8 @@ public sealed partial class LoadoutPicker : Control
 
     private string? TextOrNull(Rope.Node node)
     {
-        if(node is not Rope.Leaf leafNode)
-            return null;
-        return leafNode.Text;
+        var text = Rope.Collapse(node);
+        return string.IsNullOrEmpty(text) ? null : text;
     }
 
     private string? TextOrNull(string text)
