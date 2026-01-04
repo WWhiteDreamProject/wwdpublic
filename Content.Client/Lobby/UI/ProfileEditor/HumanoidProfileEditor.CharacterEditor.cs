@@ -1,18 +1,9 @@
-using System.Linq;
-using System.Numerics;
-using Content.Shared._White.CharacterEditor;
-using Content.Shared.CCVar;
-using Content.Shared.Clothing.Loadouts.Prototypes;
 using Content.Shared.Clothing.Loadouts.Systems;
-using Content.Shared.Humanoid.Markings;
-using Robust.Client.UserInterface.Controls;
-using Robust.Shared.Prototypes;
-using Robust.Shared.Utility;
 
 
 namespace Content.Client.Lobby.UI;
 
-
+// WWDP PARTIAL CLASS
 public sealed partial class HumanoidProfileEditor
 {
     private void InitializeCharacterMenu()

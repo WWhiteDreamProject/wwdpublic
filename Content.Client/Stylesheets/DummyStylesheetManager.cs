@@ -3,6 +3,7 @@ using Content.StyleSheetify.Client.StyleSheet.StyleBox;
 
 namespace Content.Client.Stylesheets;
 
+// WWDP CLASS
 public sealed class DummyStylesheetManager : IStylesheetManager
 {
     public StylesheetReference SheetNano { get; } = StylesheetReference.Empty;

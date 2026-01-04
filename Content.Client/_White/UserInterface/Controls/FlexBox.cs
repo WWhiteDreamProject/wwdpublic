@@ -3,13 +3,8 @@ using System.Numerics;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 
-
 namespace Content.Client._White.UserInterface.Controls;
 
-
-/// <summary>
-///     A container that implements CSS-like Flexbox layout for its children.
-/// </summary>
 [Virtual]
 public class FlexBox : Container
 {
@@ -63,91 +58,15 @@ public class FlexBox : Container
     public const string StylePropertyOrder = "order";
 
     private const float DefaultGap = 0f;
-    private FlexAlignContent _alignContent = FlexAlignContent.FlexStart;
-    private FlexAlignItems _alignItems = FlexAlignItems.Stretch;
 
-    private FlexDirection _direction = FlexDirection.Row;
-    private FlexJustifyContent _justifyContent = FlexJustifyContent.FlexStart;
-    private FlexWrap _wrap = FlexWrap.Wrap;
+    public FlexDirection Direction { get; set; } = FlexDirection.Row;
+    public FlexWrap Wrap { get; set; } = FlexWrap.Wrap;
+    public FlexAlignItems AlignItems { get; set; } = FlexAlignItems.Stretch;
+    public FlexJustifyContent JustifyContent { get; set; } = FlexJustifyContent.FlexStart;
+    public FlexAlignContent AlignContent { get; set; } = FlexAlignContent.FlexStart;
 
-    /// <summary>
-    ///     Main axis direction for flex items.
-    /// </summary>
-    public FlexDirection Direction
-    {
-        get => _direction;
-        set
-        {
-            _direction = value;
-            InvalidateMeasure();
-        }
-    }
-
-    /// <summary>
-    ///     Whether flex items should wrap onto multiple lines.
-    /// </summary>
-    public FlexWrap Wrap
-    {
-        get => _wrap;
-        set
-        {
-            _wrap = value;
-            InvalidateMeasure();
-        }
-    }
-
-    /// <summary>
-    ///     Alignment of items along the cross axis.
-    /// </summary>
-    public FlexAlignItems AlignItems
-    {
-        get => _alignItems;
-        set
-        {
-            _alignItems = value;
-            InvalidateMeasure();
-        }
-    }
-
-    /// <summary>
-    ///     Alignment of items along the main axis.
-    /// </summary>
-    public FlexJustifyContent JustifyContent
-    {
-        get => _justifyContent;
-        set
-        {
-            _justifyContent = value;
-            InvalidateMeasure();
-        }
-    }
-
-    /// <summary>
-    ///     Alignment of lines along the cross axis when there's extra space.
-    /// </summary>
-    public FlexAlignContent AlignContent
-    {
-        get => _alignContent;
-        set
-        {
-            _alignContent = value;
-            InvalidateMeasure();
-        }
-    }
-
-    /// <summary>
-    ///     Custom gap between items (overrides row-gap and column-gap if set).
-    /// </summary>
     public float? GapOverride { get; set; }
-
-    /// <summary>
-    ///     Custom row gap between items.
-    /// </summary>
     public float? RowGapOverride { get; set; }
-
-    /// <summary>
-    ///     Custom column gap between items.
-    /// </summary>
     public float? ColumnGapOverride { get; set; }
 
     private float ActualGap => GetStyleFloat(StylePropertyGap, GapOverride, DefaultGap);
@@ -167,427 +86,260 @@ public class FlexBox : Container
 
     protected override Vector2 MeasureOverride(Vector2 availableSize)
     {
-        var visibleChildren = Children.Where(c => c.Visible).ToList();
-        if (visibleChildren.Count == 0)
+        var children = new List<Control>(Children.Count());
+        foreach (var child in Children)
+        {
+            if (child.Visible)
+                children.Add(child);
+        }
+
+        if (children.Count == 0)
             return Vector2.Zero;
 
-        var isRowDirection =
-            Direction == FlexDirection.Row ||
-            Direction == FlexDirection.RowReverse;
-
-        var isWrap = Wrap != FlexWrap.NoWrap;
-
-        var mainGap = isRowDirection ? ActualColumnGap : ActualRowGap;
-        var crossGap = isRowDirection ? ActualRowGap : ActualColumnGap;
-
-        var availableMain = isRowDirection ? availableSize.X : availableSize.Y;
-        var hasMainConstraint = !float.IsPositiveInfinity(availableMain);
-
-        // Первый проход: измеряем детей без ограничений
-        foreach (var child in visibleChildren)
+        foreach (var child in children)
             child.Measure(Vector2.PositiveInfinity);
 
-        var orderedChildren = visibleChildren
-            .OrderBy(c => GetFlexOrder(c))
-            .ToList();
+        var lines = BuildLines(children, availableSize);
 
-        var lines = new List<FlexLine>();
-        var currentLine = new FlexLine();
+        var isRow = IsRow;
+        var main = lines.Max(l => l.MainSize);
+        var cross = lines.Sum(l => l.FinalCrossSize) +
+                    Math.Max(0, lines.Count - 1) * CrossGap;
 
-        foreach (var child in orderedChildren)
-        {
-            var mainSize = isRowDirection
-                ? child.DesiredSize.X
-                : child.DesiredSize.Y;
-
-            var crossSize = isRowDirection
-                ? child.DesiredSize.Y
-                : child.DesiredSize.X;
-
-            var projectedMain =
-                currentLine.Items.Count == 0
-                    ? mainSize
-                    : currentLine.MainSize + mainGap + mainSize;
-
-            if (isWrap &&
-                hasMainConstraint &&
-                projectedMain > availableMain &&
-                currentLine.Items.Count > 0)
-            {
-                lines.Add(currentLine);
-                currentLine = new FlexLine();
-            }
-
-            currentLine.AddItem(child, mainSize, mainSize, crossSize);
-        }
-
-        if (currentLine.Items.Count > 0)
-            lines.Add(currentLine);
-
-        var maxMainSize = 0f;
-        var totalCrossSize = 0f;
-
-        for (int i = 0; i < lines.Count; i++)
-        {
-            var line = lines[i];
-
-            maxMainSize = Math.Max(maxMainSize, line.MainSize);
-            totalCrossSize += line.CrossSize;
-
-            if (i < lines.Count - 1)
-                totalCrossSize += crossGap;
-        }
-
-        return isRowDirection
-            ? new Vector2(
-                hasMainConstraint ? Math.Min(maxMainSize, availableSize.X) : maxMainSize,
-                totalCrossSize)
-            : new Vector2(
-                totalCrossSize,
-                hasMainConstraint ? Math.Min(maxMainSize, availableSize.Y) : maxMainSize);
+        return isRow
+            ? new Vector2(main, cross)
+            : new Vector2(cross, main);
     }
 
     protected override Vector2 ArrangeOverride(Vector2 finalSize)
     {
-        var visibleChildren = Children.Where(c => c.Visible).ToList();
-        if (visibleChildren.Count == 0)
+        var children = Children.Where(c => c.Visible).ToList();
+        if (children.Count == 0)
             return finalSize;
 
-        var isRowDirection = Direction == FlexDirection.Row || Direction == FlexDirection.RowReverse;
-        var isRowReverse = Direction == FlexDirection.RowReverse;
-        var isColumnReverse = Direction == FlexDirection.ColumnReverse;
-        var isWrap = Wrap != FlexWrap.NoWrap;
-        var isWrapReverse = Wrap == FlexWrap.WrapReverse;
+        var lines = BuildLines(children, finalSize);
 
-        // Get gaps
-        var rowGap = ActualRowGap;
-        var columnGap = ActualColumnGap;
+        PositionLines(lines, finalSize);
 
-        // First pass: measure children
-        foreach (var child in visibleChildren)
-            child.Measure(Vector2.PositiveInfinity);
-
-        // Calculate layout
-        var lines = CalculateFlexLines(visibleChildren, finalSize, isRowDirection, isWrap, rowGap, columnGap);
-
-        // Position lines based on alignment
-        PositionFlexLines(lines, finalSize, isRowDirection, isWrapReverse);
-
-        // Position items within each line
         foreach (var line in lines)
-            PositionLineItems(line, isRowDirection, isRowReverse, isColumnReverse, columnGap, rowGap, finalSize);
+            PositionItems(line, finalSize);
 
         return finalSize;
     }
 
-    private List<FlexLine> CalculateFlexLines(
+    private bool IsRow =>
+        Direction == FlexDirection.Row ||
+        Direction == FlexDirection.RowReverse;
+
+    private bool IsReverse =>
+        Direction == FlexDirection.RowReverse ||
+        Direction == FlexDirection.ColumnReverse;
+
+    private float MainGap => IsRow ? ActualColumnGap : ActualRowGap;
+    private float CrossGap => IsRow ? ActualRowGap : ActualColumnGap;
+
+    private List<FlexLine> BuildLines(
         List<Control> children,
-        Vector2 availableSize,
-        bool isRowDirection,
-        bool isWrap,
-        float rowGap,
-        float columnGap
-    )
+        Vector2 size)
     {
-        var lines = new List<FlexLine>();
-        var currentLine = new FlexLine();
-        var mainAxisSize = isRowDirection ? availableSize.X : availableSize.Y;
-        var crossAxisSize = isRowDirection ? availableSize.Y : availableSize.X;
-
-        var gap = isRowDirection ? columnGap : rowGap;
-
-        var orderedChildren = children.OrderBy(c => GetFlexOrder(c)).ToList();
-
-        foreach (var child in orderedChildren)
+        children.Sort(static (a, b) =>
         {
-            var childSize = GetFlexBaseSize(child, isRowDirection);
-            var mainSize = isRowDirection ? child.DesiredSize.X : child.DesiredSize.Y;
-            var crossSize = isRowDirection ? child.DesiredSize.Y : child.DesiredSize.X;
+            var ao = a.TryGetStyleProperty(StylePropertyOrder, out int av) ? av : 0;
+            var bo = b.TryGetStyleProperty(StylePropertyOrder, out int bv) ? bv : 0;
+            return ao.CompareTo(bo);
+        });
 
-            // Check if we need to wrap
-            if (isWrap && currentLine.Items.Count > 0)
+        var lines = new List<FlexLine>();
+        var line = new FlexLine();
+
+        var maxMain = IsRow ? size.X : size.Y;
+        var wrap = Wrap != FlexWrap.NoWrap && !float.IsInfinity(maxMain);
+
+        foreach (var child in children)
+        {
+            var main = IsRow ? child.DesiredSize.X : child.DesiredSize.Y;
+            var cross = IsRow ? child.DesiredSize.Y : child.DesiredSize.X;
+
+            var projected =
+                line.Items.Count == 0
+                    ? main
+                    : line.MainSize + MainGap + main;
+
+            if (wrap && projected > maxMain && line.Items.Count > 0)
             {
-                var requiredSpace = currentLine.MainSize + gap + childSize;
-                if (requiredSpace > mainAxisSize)
-                {
-                    lines.Add(currentLine);
-                    currentLine = new();
-                }
+                lines.Add(line);
+                line = new FlexLine();
             }
 
-            currentLine.AddItem(child, childSize, mainSize, crossSize);
+            line.Add(child, main, cross, MainGap);
         }
 
-        if (currentLine.Items.Count > 0)
-            lines.Add(currentLine);
+        if (line.Items.Count > 0)
+            lines.Add(line);
 
         return lines;
     }
 
-    private void PositionFlexLines(
-        List<FlexLine> lines,
-        Vector2 containerSize,
-        bool isRowDirection,
-        bool isWrapReverse
-    )
+    private void PositionLines(List<FlexLine> lines, Vector2 size)
     {
-        if (lines.Count == 0)
-            return;
+        var crossSize = IsRow ? size.Y : size.X;
+        var totalCross =
+            lines.Sum(l => l.FinalCrossSize) +
+            Math.Max(0, lines.Count - 1) * CrossGap;
 
-        var containerCrossSize = isRowDirection ? containerSize.Y : containerSize.X;
-        var gap = isRowDirection ? ActualRowGap : ActualColumnGap;
+        var free = Math.Max(0, crossSize - totalCross);
 
-        var linesCrossSize = lines.Sum(l => l.CrossSize);
-        var totalGap = gap * Math.Max(0, lines.Count - 1);
-        var occupiedSize = linesCrossSize + totalGap;
+        float offset = 0;
+        float extraGap = 0;
 
-        var freeSpace = containerCrossSize - occupiedSize;
-
-        // align-content: stretch
-        if (AlignContent == FlexAlignContent.Stretch && freeSpace > 0)
-        {
-            var extraPerLine = freeSpace / lines.Count;
-
-            for (int i = 0; i < lines.Count; i++)
-                lines[i].CrossSize += extraPerLine;
-
-            freeSpace = 0f;
-        }
-
-        freeSpace = Math.Max(0, freeSpace);
-
-        float startOffset = 0f;
-        float extraGap = 0f;
+        foreach (var l in lines)
+            l.ExtraCrossSize = 0;
 
         switch (AlignContent)
         {
-            case FlexAlignContent.FlexStart:
-            case FlexAlignContent.Stretch:
-                startOffset = 0f;
-                break;
-
             case FlexAlignContent.FlexEnd:
-                startOffset = freeSpace;
+                offset = free;
                 break;
-
             case FlexAlignContent.Center:
-                startOffset = freeSpace / 2f;
+                offset = free / 2;
                 break;
-
             case FlexAlignContent.SpaceBetween:
                 if (lines.Count > 1)
-                    extraGap = freeSpace / (lines.Count - 1);
+                    extraGap = free / (lines.Count - 1);
                 break;
-
             case FlexAlignContent.SpaceAround:
-                extraGap = freeSpace / lines.Count;
-                startOffset = extraGap / 2f;
+                extraGap = free / lines.Count;
+                offset = extraGap / 2;
+                break;
+            case FlexAlignContent.Stretch:
+                var add = free / lines.Count;
+                foreach (var l in lines)
+                    l.ExtraCrossSize = add;
                 break;
         }
 
-        var orderedLines = isWrapReverse
-            ? lines.AsEnumerable().Reverse().ToList()
-            : lines;
+        var pos = offset;
 
-        var currentCrossPos = startOffset;
+        var wrapReverse = Wrap == FlexWrap.WrapReverse;
 
-        for (int i = 0; i < orderedLines.Count; i++)
+        foreach (var line in lines)
         {
-            var line = orderedLines[i];
+            line.CrossPos = wrapReverse
+                ? crossSize - pos - line.FinalCrossSize
+                : pos;
 
-            line.CrossPosition = currentCrossPos;
-            line.LineIndex = i;
-
-            currentCrossPos += line.CrossSize;
-
-            if (i < orderedLines.Count - 1)
-                currentCrossPos += gap + extraGap;
+            pos += line.FinalCrossSize + CrossGap + extraGap;
         }
     }
 
-    private void PositionLineItems(
-        FlexLine line,
-        bool isRowDirection,
-        bool isRowReverse,
-        bool isColumnReverse,
-        float columnGap,
-        float rowGap,
-        Vector2 containerSize
-    )
+    private void PositionItems(FlexLine line, Vector2 size)
     {
-        if (line.Items.Count == 0)
-            return;
+        var mainSize = IsRow ? size.X : size.Y;
+        var free = Math.Max(0, mainSize - line.MainSize);
 
-        var mainAxisSize = isRowDirection ? containerSize.X : containerSize.Y;
-        var itemGap = isRowDirection ? columnGap : rowGap;
-
-        var items = (isRowReverse || isColumnReverse)
-            ? line.Items.AsEnumerable().Reverse().ToList()
-            : line.Items;
-
-        var itemsMainSize = items.Sum(i => i.MainSize);
-        var totalGap = itemGap * Math.Max(0, items.Count - 1);
-        var occupiedSize = itemsMainSize + totalGap;
-        var freeSpace = Math.Max(0, mainAxisSize - occupiedSize);
-
-        float startOffset = 0f;
-        float extraGap = 0f;
+        float offset = 0;
+        float extraGap = 0;
 
         switch (JustifyContent)
         {
-            case FlexJustifyContent.FlexStart:
-                startOffset = 0f;
-                break;
-
             case FlexJustifyContent.FlexEnd:
-                startOffset = freeSpace;
+                offset = free;
                 break;
-
             case FlexJustifyContent.Center:
-                startOffset = freeSpace / 2f;
+                offset = free / 2;
                 break;
-
             case FlexJustifyContent.SpaceBetween:
-                if (items.Count > 1)
-                    extraGap = freeSpace / (items.Count - 1);
+                if (line.Items.Count > 1)
+                    extraGap = free / (line.Items.Count - 1);
                 break;
-
             case FlexJustifyContent.SpaceAround:
-                extraGap = freeSpace / items.Count;
-                startOffset = extraGap / 2f;
+                extraGap = free / line.Items.Count;
+                offset = extraGap / 2;
                 break;
-
             case FlexJustifyContent.SpaceEvenly:
-                extraGap = freeSpace / (items.Count + 1);
-                startOffset = extraGap;
+                extraGap = free / (line.Items.Count + 1);
+                offset = extraGap;
                 break;
         }
 
-        var currentMainPos = startOffset;
+        var pos = offset;
 
-        for (int i = 0; i < items.Count; i++)
+        if (IsReverse)
         {
-            var item = items[i];
-
-            var crossPosition = CalculateCrossPosition(
-                item.Control,
-                line.CrossPosition,
-                line.CrossSize,
-                isRowDirection);
-
-            ArrangeItem(
-                item.Control,
-                currentMainPos,
-                crossPosition,
-                item.MainSize,
-                line.CrossSize,
-                isRowDirection);
-
-            currentMainPos += item.MainSize;
-
-            if (i < items.Count - 1)
-                currentMainPos += itemGap + extraGap;
-        }
-    }
-
-    private float CalculateCrossPosition(Control child, float lineCrossPos, float lineCrossSize, bool isRowDirection)
-    {
-        var childCrossSize = isRowDirection ? child.DesiredSize.Y : child.DesiredSize.X;
-        var align = GetEffectiveAlignItems(child);
-
-        switch (align)
-        {
-            case FlexAlignItems.FlexStart:
-                return lineCrossPos;
-            case FlexAlignItems.Center:
-                return lineCrossPos + Math.Max(0, (lineCrossSize - childCrossSize) / 2);
-            case FlexAlignItems.FlexEnd:
-                return lineCrossPos + Math.Max(0, lineCrossSize - childCrossSize);
-            case FlexAlignItems.Stretch:
-            default:
-                return lineCrossPos;
-        }
-    }
-
-    private void ArrangeItem(
-        Control child,
-        float mainPos,
-        float crossPos,
-        float mainSize,
-        float crossSize,
-        bool isRowDirection
-    )
-    {
-        UIBox2 rect;
-        if (isRowDirection)
-        {
-            rect = new(
-                mainPos,
-                crossPos,
-                mainPos + mainSize,
-                crossPos + crossSize
-            );
+            for (var i = line.Items.Count - 1; i >= 0; i--)
+                PositionItem(line.Items[i]);
         }
         else
         {
-            rect = new(
-                crossPos,
-                mainPos,
-                crossPos + crossSize,
-                mainPos + mainSize
-            );
+            for (var i = 0; i < line.Items.Count; i++)
+                PositionItem(line.Items[i]);
         }
 
-        child.Arrange(rect);
+        return;
+
+        void PositionItem(FlexItem item)
+        {
+            var align = GetEffectiveAlignItems(item.Control);
+            var crossSize = align == FlexAlignItems.Stretch
+                ? line.FinalCrossSize
+                : item.CrossSize;
+
+            var crossPos = align switch
+            {
+                FlexAlignItems.Center => line.CrossPos + (line.FinalCrossSize - crossSize) / 2,
+                FlexAlignItems.FlexEnd => line.CrossPos + line.FinalCrossSize - crossSize,
+                _ => line.CrossPos
+            };
+
+            var rect = IsRow
+                ? new UIBox2(pos, crossPos, pos + item.MainSize, crossPos + crossSize)
+                : new UIBox2(crossPos, pos, crossPos + crossSize, pos + item.MainSize);
+
+            item.Control.Arrange(rect);
+
+            pos += item.MainSize + MainGap + extraGap;
+        }
     }
 
-    private float GetFlexBaseSize(Control child, bool isRowDirection) =>
-        // In a real implementation, this would consider flex-basis, flex-grow, and flex-shrink
-        isRowDirection ? child.DesiredSize.X : child.DesiredSize.Y;
+    private int GetFlexOrder(Control c) =>
+        c.TryGetStyleProperty(StylePropertyOrder, out int o) ? o : 0;
 
-    private int GetFlexOrder(Control child)
-    {
-        if (child.TryGetStyleProperty(StylePropertyOrder, out int order))
-            return order;
-        return 0;
-    }
-
-    private FlexAlignItems GetEffectiveAlignItems(Control child)
-    {
-        if (child.TryGetStyleProperty(StylePropertyAlignItems, out FlexAlignItems align))
-            return align;
-        return AlignItems;
-    }
+    private FlexAlignItems GetEffectiveAlignItems(Control c) =>
+        c.TryGetStyleProperty(StylePropertyAlignItems, out FlexAlignItems a)
+            ? a
+            : AlignItems;
 
     private sealed class FlexLine
     {
-        public List<FlexItem> Items { get; } = new();
-        public float MainSize { get; private set; }
-        public float CrossSize { get; set; }
-        public float CrossPosition { get; set; }
-        public int LineIndex { get; set; }
+        public readonly List<FlexItem> Items = new();
+        public float MainSize;
+        public float CrossSize;
+        public float ExtraCrossSize;
+        public float CrossPos;
+        public float FinalCrossSize => CrossSize + ExtraCrossSize;
 
-        public void AddItem(Control control, float mainSize, float actualMainSize, float crossSize)
+        public void Add(Control c, float main, float cross, float gap)
         {
-            Items.Add(new(control, mainSize, actualMainSize, crossSize));
-            MainSize += mainSize;
-            CrossSize = Math.Max(CrossSize, crossSize);
+            if (Items.Count > 0)
+                MainSize += gap;
+
+            Items.Add(new FlexItem(c, main, cross));
+            MainSize += main;
+            CrossSize = Math.Max(CrossSize, cross);
         }
     }
 
     private sealed class FlexItem
     {
-        public FlexItem(Control control, float mainSize, float actualMainSize, float crossSize)
-        {
-            Control = control;
-            MainSize = mainSize;
-            ActualMainSize = actualMainSize;
-            CrossSize = crossSize;
-        }
+        public readonly Control Control;
+        public readonly float MainSize;
+        public readonly float CrossSize;
 
-        public Control Control { get; }
-        public float MainSize { get; }
-        public float ActualMainSize { get; }
-        public float CrossSize { get; }
+        public FlexItem(Control c, float main, float cross)
+        {
+            Control = c;
+            MainSize = main;
+            CrossSize = cross;
+        }
     }
 }

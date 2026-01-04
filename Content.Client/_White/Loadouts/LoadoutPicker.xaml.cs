@@ -64,6 +64,7 @@ public sealed partial class LoadoutPicker : Control
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
+        CacheRootCategories();
 
         _customName = new("custom_name");
         _customDescription = new("custom_description");
@@ -74,7 +75,6 @@ public sealed partial class LoadoutPicker : Control
         SaveButton.OnPressed += SaveButtonPressed;
         SpecialColorTintToggle.OnPressed += SpecialColorTintTogglePressed;
         ResetButton.OnPressed += ResetButtonPressed;
-        LoadoutCategoryButton.OnItemSelected += OnCategoryChange;
         LoadoutSearch.OnTextChanged += args => Populate(args.Text);
 
         foreach (var loadoutPrototype in _prototypeManager.EnumeratePrototypes<LoadoutPrototype>())
@@ -87,13 +87,10 @@ public sealed partial class LoadoutPicker : Control
 
             loadoutList.Add(loadoutPrototype);
         }
+
+        InitializeCategories();
     }
 
-    private void OnCategoryChange(OptionButton.ItemSelectedEventArgs category)
-    {
-        LoadoutCategoryButton.SelectId(category.Id);
-        LoadCategoryButtons(_loadoutCategories[category.Id]);
-    }
 
     private void Populate(string argsText)
     {
@@ -177,7 +174,7 @@ public sealed partial class LoadoutPicker : Control
             }
         }
 
-        SetupCategoryButtons();
+        CurrentEntry = CurrentEntry;
     }
 
     public bool LoadCategoryButtons(ProtoId<LoadoutCategoryPrototype> loadoutCategoryPrototype)
@@ -224,30 +221,7 @@ public sealed partial class LoadoutPicker : Control
         SortAndPasteEntries();
 
         _selectedLoadoutCategory = loadoutCategoryPrototype;
-
-        LoadoutCategoryButton.SelectId(_loadoutCategories.IndexOf(_selectedLoadoutCategory.Value));
-
         return true;
-    }
-
-    private void SetupCategoryButtons()
-    {
-        LoadoutCategoryButton.Clear();
-        _loadoutCategories.Clear();
-
-        foreach (var categoryPrototype in _prototypeManager.EnumeratePrototypes<LoadoutCategoryPrototype>())
-        {
-            if(!_loadoutCache.ContainsKey(categoryPrototype.ID))
-                continue;
-
-            _loadoutCategories.Add(categoryPrototype);
-            LoadoutCategoryButton.AddItem(Loc.GetString($"loadout-category-{categoryPrototype.ID}"), _loadoutCategories.Count-1);
-        }
-
-        if (_selectedLoadoutCategory.HasValue && _loadoutCategories.Contains(_selectedLoadoutCategory.Value))
-            LoadCategoryButtons(_selectedLoadoutCategory.Value);
-        else if (_loadoutCategories.Count > 0)
-            LoadCategoryButtons(_loadoutCategories[0]);
     }
 
     private void Dirty()
