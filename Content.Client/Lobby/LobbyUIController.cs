@@ -115,9 +115,6 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
 
         if (obj.WasModified<TraitPrototype>())
             _profileEditor.UpdateTraits(null, true);
-
-        if (obj.WasModified<LoadoutPrototype>())
-            _profileEditor.UpdateLoadouts(null, true);
     }
 
     private void PreferencesDataLoaded()

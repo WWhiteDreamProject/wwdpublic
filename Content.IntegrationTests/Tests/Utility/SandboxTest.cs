@@ -30,8 +30,8 @@ public sealed class SandboxTest
                 typeof(Shared.Entry.EntryPoint).Assembly,
                 typeof(Client.Entry.EntryPoint).Assembly,
 
-                typeof(StyleSheetify.Client.EntryPoint).Assembly,
-                typeof(StyleSheetify.Shared.StylePrototypeIgnorance).Assembly,
+                typeof(StyleSheetify.Client.EntryPoint).Assembly, // WWDP EDIT
+                typeof(StyleSheetify.Shared.Dynamic.DynamicValue).Assembly, // WWDP EDIT
             },
             Options = new GameControllerOptions { LoadConfigAndUserData = false }
         };

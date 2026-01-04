@@ -63,6 +63,18 @@ namespace Content.Client.Lobby.UI
 
             StatsButton.OnPressed += _ => new PlaytimeStatsWindow().OpenCentered();
 
+            //WWDP EDIT START
+            profileEditor.CharacterSpriteView = CharacterSpriteView;
+            CharacterSpriteView.SetEntity(profileEditor.PreviewDummy);
+            PreviewRotateRightButton.OnPressed += args =>
+                CharacterSpriteView.OverrideDirection =
+                    (Direction)(((int)(CharacterSpriteView.OverrideDirection ?? Direction.South) + 2) % 8);
+
+            PreviewRotateLeftButton.OnPressed += args =>
+                CharacterSpriteView.OverrideDirection =
+                    (Direction)(((int)(CharacterSpriteView.OverrideDirection ?? Direction.South) + 6) % 8);
+            //WWDP EDIT END
+
             _cfg.OnValueChanged(CCVars.SeeOwnNotes, p => AdminRemarksButton.Visible = p, true);
         }
 
