@@ -4891,3 +4891,18 @@ Entries:
   id: 514
   time: '2026-01-03T20:16:18.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1003
+- author: Cinkafox
+  changes:
+    - type: Fix
+      message: Исправление стилей в чате лобби
+    - type: Tweak
+      message: Перенесен предпросмотр персонажа в профиль эдиторе
+    - type: Tweak
+      message: Перенесены маркапы и лоадауты
+    - type: Remove
+      message: Говнокод лоадаутов
+    - type: Add
+      message: Читаемый лоадауты
+  id: 515
+  time: '2026-01-04T21:33:01.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1001
