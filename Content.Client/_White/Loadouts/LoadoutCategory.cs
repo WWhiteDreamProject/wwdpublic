@@ -12,7 +12,6 @@ public interface ILoadoutMenuEntry
 {
     public ILoadoutMenuEntry? Parent { get; set; }
     public string Label { get; }
-    public ResPath IconPath { get; }
 
     public void Act(BoxContainer loadoutsContainer, LoadoutPicker loadoutPicker);
     public void Exit(BoxContainer loadoutsContainer , LoadoutPicker loadoutPicker);
@@ -23,7 +22,6 @@ public sealed class LoadoutCategoryShowMenuEntry : ILoadoutMenuEntry
     private readonly ProtoId<LoadoutCategoryPrototype> _loadoutCategory;
     public ILoadoutMenuEntry? Parent { get; set; }
     public string Label { get; }
-    public ResPath IconPath { get; } = new ResPath("/Textures/Interface/inventory.svg.192dpi.png");
 
     public LoadoutCategoryShowMenuEntry(ProtoId<LoadoutCategoryPrototype> loadoutCategory)
     {
@@ -46,7 +44,6 @@ public sealed class LoadoutEntriesContainerMenuEntry : ILoadoutMenuEntry
 {
     public ILoadoutMenuEntry? Parent { get; set;}
     public string Label { get; }
-    public ResPath IconPath { get; } = new ResPath("/Textures/Interface/hamburger.svg.192dpi.png");
 
     private readonly List<ILoadoutMenuEntry> _children = [];
     public IReadOnlyList<ILoadoutMenuEntry> Children => _children;
@@ -85,11 +82,6 @@ public sealed class LoadoutEntriesContainerMenuEntry : ILoadoutMenuEntry
                         SeparationOverride = 15,
                         Children =
                         {
-                            new TextureRect()
-                            {
-                                TexturePath = menuEntry.IconPath.ToString(),
-                                TextureScale = new Vector2(0.5f)
-                            },
                             new Label()
                             {
                                 Text = menuEntry.Label,

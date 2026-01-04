@@ -21,7 +21,7 @@
                             <PanelContainer.PanelOverride>
                                 <graphics:StyleBoxFlat BackgroundColor="#2f2f2f" />
                             </PanelContainer.PanelOverride>
-                            <SpriteView Name="PreviewLoadout" OverrideDirection="South" VerticalAlignment="Center" Scale="1.5,1.5"/>
+                            <SpriteView Name="PreviewLoadout" OverrideDirection="South" VerticalAlignment="Center" Margin="0" Scale="1.2,1.2" Stretch="Fill"/>
                         </PanelContainer>
                         <Label Name="LoadoutNameLabel" Margin="8,0,0,0"/>
                     </BoxContainer>
