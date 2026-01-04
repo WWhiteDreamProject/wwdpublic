@@ -1,6 +1,6 @@
 ﻿# loadout menu
-loadout-error-prototype-not-found = loadout prototype not found
-loadout-error-too-expensive = loadout is too expensive
+loadout-error-prototype-not-found = Loadout prototype not found.
+loadout-error-too-expensive = You cannot afford this item.
 
 # Combat Maid
 loadout-category-JobsCommandMaid = Maid

@@ -36,10 +36,5 @@
                 <Button Name="HeadingButton" Text="{Loc 'humanoid-profile-editor-loadouts-customize'}"/>
             </controls1:StyledButtonGroup>
         </BoxContainer>
-        <controls1:StripeBack Visible="False" Name="ReasonNameContainer">
-            <PanelContainer>
-                <RichTextLabel Name="Reason" HorizontalAlignment="Center" />
-            </PanelContainer>
-        </controls1:StripeBack>
     </Control>
 </controls:LoadoutEntry>

@@ -46,7 +46,6 @@ public sealed partial class LoadoutPicker : Control
 
     public CharacterRequirementsArgs CharacterRequirementsArgs = default!;
     private ProtoId<LoadoutCategoryPrototype>? _selectedLoadoutCategory;
-    private List<ProtoId<LoadoutCategoryPrototype>> _loadoutCategories = [];
     private Dictionary<ProtoId<LoadoutCategoryPrototype>, List<LoadoutPrototype>> _loadoutCache = [];
 
     public int LoadoutPoint
@@ -64,7 +63,6 @@ public sealed partial class LoadoutPicker : Control
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
-        CacheRootCategories();
 
         _customName = new("custom_name");
         _customDescription = new("custom_description");
@@ -76,7 +74,16 @@ public sealed partial class LoadoutPicker : Control
         SpecialColorTintToggle.OnPressed += SpecialColorTintTogglePressed;
         ResetButton.OnPressed += ResetButtonPressed;
         LoadoutSearch.OnTextChanged += args => Populate(args.Text);
+        _prototypeManager.PrototypesReloaded += OnPrototypesReloaded;
 
+        InitializeCache();
+        InitializeCategories();
+    }
+
+    private void InitializeCache()
+    {
+        CacheRootCategories();
+        _loadoutCache.Clear();
         foreach (var loadoutPrototype in _prototypeManager.EnumeratePrototypes<LoadoutPrototype>())
         {
             if (!_loadoutCache.TryGetValue(loadoutPrototype.Category, out var loadoutList))
@@ -87,12 +94,15 @@ public sealed partial class LoadoutPicker : Control
 
             loadoutList.Add(loadoutPrototype);
         }
-
-        InitializeCategories();
     }
 
+    private void OnPrototypesReloaded(PrototypesReloadedEventArgs obj)
+    {
+        if (obj.WasModified<LoadoutPrototype>())
+            InitializeCache();
+    }
 
-    private void Populate(string argsText)
+    private void Populate(string _)
     {
         if (_selectedLoadoutCategory != null)
             LoadCategoryButtons(_selectedLoadoutCategory.Value);

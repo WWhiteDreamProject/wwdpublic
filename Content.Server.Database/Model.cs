@@ -69,7 +69,7 @@ namespace Content.Server.Database
                 .HasIndex(p => new { HumanoidProfileId = p.ProfileId, p.TraitName })
                 .IsUnique();
 
-            modelBuilder.Entity<Loadout>()
+            modelBuilder.Entity<LoadoutItem>()
                 .HasIndex(p => new { HumanoidProfileId = p.ProfileId, p.LoadoutName })
                 .IsUnique();
 
@@ -427,7 +427,7 @@ namespace Content.Server.Database
         public List<Job> Jobs { get; } = new();
         public List<Antag> Antags { get; } = new();
         public List<Trait> Traits { get; } = new();
-        public List<Loadout> Loadouts { get; } = new();
+        public List<LoadoutItem> Loadouts { get; } = new();
 
         [Column("pref_unavailable")] public DbPreferenceUnavailableMode PreferenceUnavailable { get; set; }
 
@@ -472,8 +472,8 @@ namespace Content.Server.Database
         public string TraitName { get; set; } = null!;
     }
 
-    [Serializable]
-    public class Loadout
+    [Table("loadout")]
+    public class LoadoutItem
     {
         public string LoadoutName { get; set; } = null!;
         public string? CustomName { get; set; }
@@ -486,7 +486,7 @@ namespace Content.Server.Database
         public Profile Profile { get; set; } = null!;
         public int ProfileId { get; set; }
 
-        public Loadout(
+        public LoadoutItem(
             string loadoutName,
             string? customName = null,
             string? customDescription = null,

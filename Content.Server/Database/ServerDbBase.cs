@@ -360,7 +360,7 @@ namespace Content.Server.Database
 
             profile.Loadouts.Clear();
             profile.Loadouts.AddRange(humanoid.LoadoutPreferencesList
-                .Select(l => new Loadout(l.LoadoutName, l.CustomName, l.CustomDescription, l.CustomContent, l.CustomColorTint, l.CustomHeirloom))); // WD EDIT
+                .Select(l => new LoadoutItem(l.LoadoutName, l.CustomName, l.CustomDescription, l.CustomContent, l.CustomColorTint, l.CustomHeirloom))); // WD EDIT
 
             // WWDP EDIT START
             profile.BarkPause = humanoid.BarkSettings.Pause;
