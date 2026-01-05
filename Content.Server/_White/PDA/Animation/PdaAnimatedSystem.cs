@@ -48,10 +48,10 @@ public sealed class PdaAnimatedSystem : SharedPdaAnimatedSystem
 
                 if (TryComp<PdaComponent>(uid, out var pdaComponent))
                 {
-                    pdaComponent.Enabled = false;
-                    pdaComponent.Screen = false;
-                    Appearance.SetData(uid, PdaVisuals.Enabled, false);
-                    Appearance.SetData(uid, PdaVisuals.Screen, false);
+                    pdaComponent.Enabled = true;
+                    pdaComponent.Screen = true;
+                    Appearance.SetData(uid, PdaVisuals.Enabled, true);
+                    Appearance.SetData(uid, PdaVisuals.Screen, true);
                     Dirty(uid, pdaComponent);
                 }
 
@@ -97,6 +97,7 @@ public sealed class PdaAnimatedSystem : SharedPdaAnimatedSystem
                         !TerminatingOrDeleted(uid) &&
                         !TerminatingOrDeleted(comp.AnimatingUser.Value) &&
                         _uiSystem.HasUi(uid, PdaUiKey.Key) &&
+                        !_uiSystem.IsUiOpen(uid, PdaUiKey.Key, comp.AnimatingUser.Value) &&
                         _interactionSystem.InRangeUnobstructed(comp.AnimatingUser.Value, uid))
                     {
                         comp.AnimationState = PdaAnimationState.Open;
