@@ -18,13 +18,13 @@ public sealed partial class PdaAnimatedComponent : Component
     /// Duration of opening animation in seconds
     /// </summary>
     [DataField]
-    public float OpeningDuration = 1.65f; // ( 34 - 1 frames ) * 0.05s
+    public float OpeningDuration = 1.02f; // 34 frames * 0.03s
 
     /// <summary>
     /// Duration of closing animation in seconds
     /// </summary>
     [DataField]
-    public float ClosingDuration = 0.7f; // ( 15 - 1 frames ) * 0.05s
+    public float ClosingDuration = 0.45f; // 15 frames * 0.03s
 
     /// <summary>
     /// The user who is currently opening/closing the PDA
@@ -32,8 +32,11 @@ public sealed partial class PdaAnimatedComponent : Component
     [DataField, AutoNetworkedField]
     public EntityUid? AnimatingUser;
 
+    /// <summary>
+    /// Accumulator for tracking animation time
+    /// </summary>
     [DataField, AutoNetworkedField]
-    public bool ClosingAnimationStarted { get; set; } = false;
+    public float AnimationTimeAccumulator = 0f;
 }
 
 [Serializable, NetSerializable]

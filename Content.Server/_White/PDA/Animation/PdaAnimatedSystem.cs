@@ -1,11 +1,8 @@
 using Content.Shared._White.PDA.Animation;
-using Content.Shared.Interaction;
+using Content.Server.Interaction;
 using Content.Shared.PDA;
 using Content.Shared.UserInterface;
-using Robust.Shared.Player;
 using Robust.Server.GameObjects;
-using Robust.Server.Player;
-using Robust.Shared.Timing;
 
 namespace Content.Server._White.PDA.Animation;
 
@@ -14,9 +11,8 @@ namespace Content.Server._White.PDA.Animation;
 /// </summary>
 public sealed class PdaAnimatedSystem : SharedPdaAnimatedSystem
 {
-    [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
-    [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private readonly InteractionSystem _interactionSystem = default!;
 
     public override void Initialize()
     {
@@ -28,11 +24,6 @@ public sealed class PdaAnimatedSystem : SharedPdaAnimatedSystem
 
     private void OnOpenAttempt(EntityUid uid, PdaAnimatedComponent comp, ActivatableUIOpenAttemptEvent args)
     {
-        // Skip tests
-        if (_playerManager.TryGetSessionByEntity(args.User, out var session) &&
-            session.Name.StartsWith("integration_"))
-            return;
-
         if (comp.AnimationState == PdaAnimationState.Open)
             return;
 
@@ -48,6 +39,7 @@ public sealed class PdaAnimatedSystem : SharedPdaAnimatedSystem
 
             comp.AnimationState = PdaAnimationState.Opening;
             comp.AnimatingUser = args.User;
+            comp.AnimationTimeAccumulator = 0f;
             Dirty(uid, comp);
             UpdateAppearance(uid, comp);
 
@@ -59,25 +51,6 @@ public sealed class PdaAnimatedSystem : SharedPdaAnimatedSystem
                 Appearance.SetData(uid, PdaVisuals.Screen, true);
                 Dirty(uid, pda);
             }
-
-            Timer.Spawn(TimeSpan.FromSeconds(comp.OpeningDuration), () =>
-            {
-                if (!Deleted(uid) &&
-                    TryComp<PdaAnimatedComponent>(uid, out var animComp) &&
-                    animComp.AnimationState == PdaAnimationState.Opening)
-                {
-                    animComp.AnimationState = PdaAnimationState.Open;
-                    Dirty(uid, animComp);
-                    UpdateAppearance(uid, animComp);
-
-                    if (animComp.AnimatingUser != null &&
-                        _uiSystem.HasUi(uid, PdaUiKey.Key) &&
-                        _interactionSystem.InRangeUnobstructed(animComp.AnimatingUser.Value, uid))
-                    {
-                        _uiSystem.TryOpenUi(uid, PdaUiKey.Key, animComp.AnimatingUser.Value);
-                    }
-                }
-            });
         }
     }
 
@@ -88,31 +61,55 @@ public sealed class PdaAnimatedSystem : SharedPdaAnimatedSystem
         var query = EntityQueryEnumerator<PdaAnimatedComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
-            if (comp.AnimationState == PdaAnimationState.Closing && !_uiSystem.IsUiOpen(uid, PdaUiKey.Key))
+            if (comp.AnimationState == PdaAnimationState.Opening)
             {
-                if (!comp.ClosingAnimationStarted)
-                {
-                    comp.ClosingAnimationStarted = true;
-                    Dirty(uid, comp);
+                comp.AnimationTimeAccumulator += frameTime;
 
-                    Timer.Spawn(TimeSpan.FromSeconds(comp.ClosingDuration), () =>
+                if (comp.AnimationTimeAccumulator >= comp.OpeningDuration)
+                {
+                    if (comp.AnimatingUser != null &&
+                        !TerminatingOrDeleted(uid) &&
+                        !TerminatingOrDeleted(comp.AnimatingUser.Value) &&
+                        _uiSystem.HasUi(uid, PdaUiKey.Key) &&
+                        _interactionSystem.InRangeUnobstructed(comp.AnimatingUser.Value, uid))
                     {
-                        if (!Deleted(uid) &&
-                            TryComp<PdaAnimatedComponent>(uid, out var animComp) &&
-                            animComp.AnimationState == PdaAnimationState.Closing)
-                        {
-                            animComp.AnimationState = PdaAnimationState.Closed;
-                            animComp.AnimatingUser = null;
-                            animComp.ClosingAnimationStarted = false;
-                            Dirty(uid, animComp);
-                            UpdateAppearance(uid, animComp);
-                        }
-                    });
+                        comp.AnimationState = PdaAnimationState.Open;
+                        comp.AnimationTimeAccumulator = 0f;
+                        Dirty(uid, comp);
+                        UpdateAppearance(uid, comp);
+
+                        _uiSystem.TryOpenUi(uid, PdaUiKey.Key, comp.AnimatingUser.Value);
+                    }
+                    else
+                    {
+                        comp.AnimationState = PdaAnimationState.Closing;
+                        comp.AnimationTimeAccumulator = 0f;
+                        Dirty(uid, comp);
+                        UpdateAppearance(uid, comp);
+                    }
                 }
             }
-            else if (comp.AnimationState != PdaAnimationState.Closing)
+            else if (comp.AnimationState == PdaAnimationState.Closing)
             {
-                comp.ClosingAnimationStarted = false;
+                comp.AnimationTimeAccumulator += frameTime;
+
+                if (comp.AnimationTimeAccumulator >= comp.ClosingDuration)
+                {
+                    comp.AnimationState = PdaAnimationState.Closed;
+                    comp.AnimatingUser = null;
+                    comp.AnimationTimeAccumulator = 0f;
+                    Dirty(uid, comp);
+                    UpdateAppearance(uid, comp);
+
+                    if (TryComp<PdaComponent>(uid, out var pda))
+                    {
+                        pda.Enabled = false;
+                        pda.Screen = false;
+                        Appearance.SetData(uid, PdaVisuals.Enabled, false);
+                        Appearance.SetData(uid, PdaVisuals.Screen, false);
+                        Dirty(uid, pda);
+                    }
+                }
             }
         }
     }
@@ -126,31 +123,9 @@ public sealed class PdaAnimatedSystem : SharedPdaAnimatedSystem
         {
             comp.AnimationState = PdaAnimationState.Closing;
             comp.AnimatingUser = args.Actor;
-            comp.ClosingAnimationStarted = true;
+            comp.AnimationTimeAccumulator = 0f;
             Dirty(uid, comp);
             UpdateAppearance(uid, comp);
-
-            Timer.Spawn(TimeSpan.FromSeconds(comp.ClosingDuration), () =>
-            {
-                if (!Deleted(uid) &&
-                    TryComp<PdaAnimatedComponent>(uid, out var animComp) &&
-                    animComp.AnimationState == PdaAnimationState.Closing)
-                {
-                    animComp.AnimationState = PdaAnimationState.Closed;
-                    animComp.AnimatingUser = null;
-                    Dirty(uid, animComp);
-                    UpdateAppearance(uid, animComp);
-
-                    if (TryComp<PdaComponent>(uid, out var pda))
-                    {
-                        pda.Enabled = false;
-                        pda.Screen = false;
-                        Appearance.SetData(uid, PdaVisuals.Enabled, false);
-                        Appearance.SetData(uid, PdaVisuals.Screen, false);
-                        Dirty(uid, pda);
-                    }
-                }
-            });
         }
     }
 }
