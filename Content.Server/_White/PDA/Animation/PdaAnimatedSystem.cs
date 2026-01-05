@@ -3,6 +3,7 @@ using Content.Server.Interaction;
 using Content.Shared.PDA;
 using Content.Shared.UserInterface;
 using Robust.Server.GameObjects;
+using Robust.Shared.Configuration;
 
 namespace Content.Server._White.PDA.Animation;
 
@@ -12,6 +13,7 @@ namespace Content.Server._White.PDA.Animation;
 public sealed class PdaAnimatedSystem : SharedPdaAnimatedSystem
 {
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly InteractionSystem _interactionSystem = default!;
 
     public override void Initialize()
@@ -37,6 +39,26 @@ public sealed class PdaAnimatedSystem : SharedPdaAnimatedSystem
         {
             args.Cancel();
 
+            // Skip animations in test environment
+            if (comp.SkipAnimations)
+            {
+                comp.AnimationState = PdaAnimationState.Open;
+                Dirty(uid, comp);
+                UpdateAppearance(uid, comp);
+
+                if (TryComp<PdaComponent>(uid, out var pdaComponent))
+                {
+                    pdaComponent.Enabled = false;
+                    pdaComponent.Screen = false;
+                    Appearance.SetData(uid, PdaVisuals.Enabled, false);
+                    Appearance.SetData(uid, PdaVisuals.Screen, false);
+                    Dirty(uid, pdaComponent);
+                }
+
+                _uiSystem.TryOpenUi(uid, PdaUiKey.Key, args.User);
+                return;
+            }
+
             comp.AnimationState = PdaAnimationState.Opening;
             comp.AnimatingUser = args.User;
             comp.AnimationTimeAccumulator = 0f;
@@ -61,6 +83,10 @@ public sealed class PdaAnimatedSystem : SharedPdaAnimatedSystem
         var query = EntityQueryEnumerator<PdaAnimatedComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
+            // Skip anim in test
+            if (comp.SkipAnimations)
+                continue;
+
             if (comp.AnimationState == PdaAnimationState.Opening)
             {
                 comp.AnimationTimeAccumulator += frameTime;
@@ -121,6 +147,24 @@ public sealed class PdaAnimatedSystem : SharedPdaAnimatedSystem
 
         if (comp.AnimationState == PdaAnimationState.Open)
         {
+            if (comp.SkipAnimations)
+            {
+                comp.AnimationState = PdaAnimationState.Closed;
+                comp.AnimatingUser = null;
+                Dirty(uid, comp);
+                UpdateAppearance(uid, comp);
+
+                if (TryComp<PdaComponent>(uid, out var pda))
+                {
+                    pda.Enabled = false;
+                    pda.Screen = false;
+                    Appearance.SetData(uid, PdaVisuals.Enabled, false);
+                    Appearance.SetData(uid, PdaVisuals.Screen, false);
+                    Dirty(uid, pda);
+                }
+                return;
+            }
+
             comp.AnimationState = PdaAnimationState.Closing;
             comp.AnimatingUser = args.Actor;
             comp.AnimationTimeAccumulator = 0f;

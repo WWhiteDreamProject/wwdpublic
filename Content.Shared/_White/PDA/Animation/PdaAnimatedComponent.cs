@@ -37,6 +37,12 @@ public sealed partial class PdaAnimatedComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public float AnimationTimeAccumulator = 0f;
+
+    /// <summary>
+    /// If true, animations are skipped (used in tests)
+    /// </summary>
+    [DataField]
+    public bool SkipAnimations = false;
 }
 
 [Serializable, NetSerializable]
