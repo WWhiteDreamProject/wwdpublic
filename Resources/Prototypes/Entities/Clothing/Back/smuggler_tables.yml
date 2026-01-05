@@ -303,7 +303,7 @@
     children:
     - id: SpaceCash100
       weight: 100
-    - id: Katana
+    - id: Wakizashi # White Dream fix; Katana did not fit
     - id: ThrowingStar
       amount: !type:RangeNumberSelector
         range: 1, 5

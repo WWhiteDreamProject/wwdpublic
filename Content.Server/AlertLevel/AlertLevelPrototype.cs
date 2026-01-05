@@ -71,5 +71,19 @@ public sealed partial class AlertLevelDetail
     /// How long it takes for the shuttle to arrive when called.
     /// </summary>
     [DataField("shuttleTime")] public TimeSpan ShuttleTime { get; private set; } = TimeSpan.FromMinutes(5);
+
+    /// <summary>
+    /// White Dream
+    /// Alarm sound that the emergency lights will play
+    /// </summary>
+    [DataField]
+    public SoundSpecifier? AlarmSound;
+
+    /// <summary>
+    /// White Dream
+    /// How often will the alarm play
+    /// </summary>
+    [DataField]
+    public TimeSpan AlarmInterval = TimeSpan.FromSeconds(30);
 }
 

@@ -5,7 +5,7 @@ damage-examinable-verb-message = Examine the damage values.
 damage-hitscan = hitscan
 damage-projectile = projectile
 damage-melee = melee
-damage-melee-heavy = power attack
+damage-melee-heavy = swing
 damage-throw = throw
 
 damage-examine = It does the following damage:

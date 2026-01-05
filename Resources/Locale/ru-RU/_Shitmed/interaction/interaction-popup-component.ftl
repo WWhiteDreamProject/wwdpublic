@@ -1,3 +1,3 @@
-petting-success-spider-egg = Вы ласково погладили {THE($target)}... Оно шевельнулось?
-petting-failure-spider-egg = Вы ласково погладили {THE($target)}... Ничего не произошло.
+petting-success-spider-egg = Вы ласково погладили {$target}... Оно шевельнулось?
+petting-failure-spider-egg = Вы ласково погладили {$target}... Ничего не произошло.
 

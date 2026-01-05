@@ -130,7 +130,7 @@
   - ClothingUniformJumpskirtWardenBlue
   - ClothingUniformJumpsuitWardenGrey
   - ClothingUniformJumpskirtWardenGrey
-  - ClothingOuterStasecSweater
+  # - ClothingOuterStasecSweater # White Dream - no printable armor
   # EE EDIT END
 
 - type: latheRecipePack

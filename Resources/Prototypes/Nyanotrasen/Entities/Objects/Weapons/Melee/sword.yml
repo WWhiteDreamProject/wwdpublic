@@ -1,6 +1,6 @@
 - type: entity
   name: wakizashi
-  parent: BaseItem
+  parent: BaseSword # White Dream
   id: Wakizashi
   description: A short, multi-purpose sword of plasteel construction.
   components:

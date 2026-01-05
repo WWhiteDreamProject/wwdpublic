@@ -112,19 +112,24 @@ public sealed class ClientClothingSystem : ClothingSystem
             return;
 
         List<PrototypeLayerData>? layers = null;
+        var slot = args.Slot; // WD EDIT
 
         // WD EDIT START
         // body type specific
         if (TryComp(args.Equipee, out HumanoidAppearanceComponent? humanoid))
         {
-            var bodyTypeName = _prototype.Index<BodyTypePrototype>(humanoid.BodyType).Name;
-            item.ClothingVisuals.TryGetValue($"{args.Slot}-{bodyTypeName}", out layers);
+            if (item.ClothingVisuals.TryGetValue($"{slot}-{humanoid.Sex}", out layers))
+                slot = $"{slot}-{humanoid.Sex}";
+
+            var bodyTypeName = _prototype.Index(humanoid.BodyType).Name;
+            if (item.ClothingVisuals.TryGetValue($"{slot}-{bodyTypeName}", out layers))
+                slot = $"{slot}-{bodyTypeName}";
         }
         // WD EDIT END
 
         // first attempt to get species specific data.
         if (inventory.SpeciesId != null)
-            item.ClothingVisuals.TryGetValue($"{args.Slot}-{inventory.SpeciesId}", out layers);
+            item.ClothingVisuals.TryGetValue($"{slot}-{inventory.SpeciesId}", out layers); // WD EDIT
 
         // if that returned nothing, attempt to find generic data
         if (layers == null && !item.ClothingVisuals.TryGetValue(args.Slot, out layers))
@@ -189,7 +194,10 @@ public sealed class ClientClothingSystem : ClothingSystem
         // body type specific
         if (TryComp(target, out HumanoidAppearanceComponent? humanoid))
         {
-            var bodyTypeName = _prototype.Index<BodyTypePrototype>(humanoid.BodyType).Name;
+            if (rsi.TryGetState($"{state}-{humanoid.Sex}", out _))
+                state = $"{state}-{humanoid.Sex}";
+
+            var bodyTypeName = _prototype.Index(humanoid.BodyType).Name;
             if (rsi.TryGetState($"{state}-{bodyTypeName}", out _))
                 state = $"{state}-{bodyTypeName}";
         }
@@ -293,19 +301,24 @@ public sealed class ClientClothingSystem : ClothingSystem
             return;
         }
 
+        // Select displacement maps
+        var displacementData = inventory.Displacements.GetValueOrDefault(slot); //Default unsexed map
+
+        if (clothingComponent.RenderLayer != null)
+            slot = clothingComponent.RenderLayer;
+
         // temporary, until layer draw depths get added. Basically: a layer with the key "slot" is being used as a
         // bookmark to determine where in the list of layers we should insert the clothing layers.
         bool slotLayerExists = sprite.LayerMapTryGet(slot, out var index);
 
-        // Select displacement maps
-        var displacementData = inventory.Displacements.GetValueOrDefault(slot); //Default unsexed map
-
         // WD EDIT START
         string? bodyTypeName = null;
+        var sex = Sex.Unsexed;
         if (TryComp(equipee, out HumanoidAppearanceComponent? humanoid))
         {
             bodyTypeName = _prototype.Index(humanoid.BodyType).Name;
-            switch (humanoid.Sex)
+            sex = humanoid.Sex;
+            switch (sex)
             {
                 case Sex.Male:
                     if (inventory.MaleDisplacements.Count > 0)
@@ -384,8 +397,12 @@ public sealed class ClientClothingSystem : ClothingSystem
             if (displacementData is not null)
             {
                 //Checking that the state is not tied to the current race. In this case we don't need to use the displacement maps.
-                if (layerData.State is not null && (inventory.SpeciesId is not null && layerData.State.EndsWith(inventory.SpeciesId)
-                    || bodyTypeName is not null && layerData.State.EndsWith(bodyTypeName))) // WD EDIT
+                if (layerData.State is not null
+                    && (inventory.SpeciesId is not null && layerData.State.EndsWith(inventory.SpeciesId)
+                        // WD EDIT START
+                        || bodyTypeName is not null && layerData.State.EndsWith(bodyTypeName)
+                        || layerData.State.EndsWith(sex.ToString())))
+                        // WD EDIT END
                     continue;
 
                 if (_displacement.TryAddDisplacement(displacementData, sprite, index, key, revealedLayers))

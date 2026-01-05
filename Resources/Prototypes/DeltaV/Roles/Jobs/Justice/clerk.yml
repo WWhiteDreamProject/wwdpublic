@@ -22,7 +22,7 @@
 
   startingGear: ClerkGear
   icon: "JobIconClerk"
-  requireAdminNotify: true
+  requireAdminNotify: false # WWDP no need for admin notify
   supervisors: job-supervisors-cj
   canBeAntag: false
   access:

@@ -82,7 +82,7 @@
     wideAnimationRotation: 90
     animationRotation: 0 # WWDP
   - type: IgniteOnMeleeHit
-    fireStacks: 1
+    fireStacks: 3 # White Dream; 4 hits for max fire stacks
   - type: Sprite
     sprite: Objects/Weapons/Melee/fireaxeflaming.rsi
     state: icon

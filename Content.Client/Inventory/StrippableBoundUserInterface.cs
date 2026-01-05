@@ -234,11 +234,18 @@ namespace Content.Client.Inventory
             button.ClearHover();
             button.StorageButton.Visible = false;
 
-            if (entity == null || EntMan.HasComponent<StripMenuHideIconComponent>(entity.Value)) // WD EDIT
+            if (entity == null)
             {
                 button.SetEntity(null);
                 return;
             }
+
+            if (EntMan.HasComponent<StripMenuHideIconComponent>(entity.Value)) // WD EDIT
+            {
+                button.SetEntity(EntMan.SpawnEntity(HiddenPocketEntityId, MapCoordinates.Nullspace));
+                return;
+            }
+
             EntityUid? viewEnt;
             if (EntMan.TryGetComponent<VirtualItemComponent>(entity, out var virt))
                 viewEnt = EntMan.HasComponent<SpriteComponent>(virt.BlockingEntity) ? virt.BlockingEntity : null;
