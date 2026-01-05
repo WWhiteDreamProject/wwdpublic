@@ -8,7 +8,7 @@
   boilingPoint: -183.0
   meltingPoint: -218.4
   metabolisms:
-    Gas:
+    Respiration: # WD EDIT
       effects:
       - !type:Oxygenate
         conditions:
@@ -91,24 +91,7 @@
   - !type:FlammableTileReaction
     temperatureMultiplier: 1.5
   metabolisms:
-    Poison:
-      effects:
-      - !type:HealthChange
-        conditions:
-        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
-          type: Plasmaman
-          shouldHave: false
-        damage:
-          types:
-            Poison: 3
-      - !type:AdjustReagent
-        conditions:
-        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
-          type: Plasmaman
-          shouldHave: false
-        reagent: Inaprovaline
-        amount: -2.0
-    Gas:
+    Respiration: # WD EDIT
       effects:
       - !type:HealthChange
         conditions:
@@ -144,7 +127,7 @@
         ratios:
           Nitrogen: 1.0 # Interesting exhale for plasmamen
           Plasma: -1.0
-    Medicine:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         conditions:
@@ -167,6 +150,23 @@
           reagent: Plasma
           min: 4
         moodPrototype: PlasmamanIngestPlasma
+      # WD EDIT START
+      - !type:HealthChange
+        conditions:
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
+          type: Plasmaman
+          shouldHave: false
+        damage:
+          types:
+            Poison: 3
+      - !type:AdjustReagent
+        conditions:
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
+          type: Plasmaman
+          shouldHave: false
+        reagent: Inaprovaline
+        amount: -2.0
+      # WD EDIT END
   reactiveEffects:
     Flammable:
       methods: [ Touch ]
@@ -190,13 +190,13 @@
       - !type:FlammableReaction
         multiplier: 0.8
   metabolisms:
-    Poison:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         damage:
           types:
             Radiation: 3
-    Gas:
+    Respiration: # WD EDIT
       effects:
       - !type:HealthChange
         scaleByQuantity: true
@@ -222,7 +222,7 @@
   flavor: bitter
   color: "#66ff33"
   metabolisms:
-    Gas:
+    Respiration: # WD EDIT
       effects:
       - !type:Oxygenate
         conditions:
@@ -266,13 +266,13 @@
   boilingPoint: -195.8
   meltingPoint: -210.0
   metabolisms:
-    Poison:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         damage:
           types:
             Cold: 1 # liquid nitrogen is cold
-    Gas:
+    Respiration: # WD EDIT
       effects:
       - !type:Oxygenate
         conditions:
@@ -308,7 +308,7 @@
   boilingPoint: -88
   meltingPoint: -90
   metabolisms:
-    Gas:
+    Respiration: # WD EDIT
       effects:
       - !type:Emote
         conditions:
@@ -379,7 +379,7 @@
   boilingPoint: -195.8
   meltingPoint: -210.0
   metabolisms:
-    Gas:
+    Respiration: # WD EDIT
       effects:
       - !type:HealthChange
         conditions:

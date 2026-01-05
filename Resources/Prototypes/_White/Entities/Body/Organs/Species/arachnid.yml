@@ -98,7 +98,7 @@
   components:
   - type: Metabolizer
     updateInterval: 1.5
-    metabolizerTypes: [Arachnid]
+    types: [Arachnid]
 
 - type: entity
   id: OrganKidneysArachnid
@@ -107,4 +107,4 @@
   components:
   - type: Metabolizer
     updateInterval: 1.5
-    metabolizerTypes: [Animal]
+    types: [Animal]

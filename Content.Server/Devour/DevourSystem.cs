@@ -1,5 +1,5 @@
+using Content.Server._White.Body.Bloodstream.Systems;
 using Content.Server.Body.Components;
-using Content.Server.Body.Systems;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Devour;
 using Content.Shared.Devour.Components;
@@ -35,7 +35,7 @@ public sealed class DevourSystem : SharedDevourSystem
             {
                 ContainerSystem.Insert(args.Args.Target.Value, component.Stomach);
             }
-            _bloodstreamSystem.TryAddToChemicals(uid, ichorInjection);
+            _bloodstreamSystem.TryAddToBloodstream(uid, ichorInjection); // WD EDIT
         }
 
         //TODO: Figure out a better way of removing structures via devour that still entails standing still and waiting for a DoAfter. Somehow.
@@ -47,7 +47,7 @@ public sealed class DevourSystem : SharedDevourSystem
 
         _audioSystem.PlayPvs(component.SoundDevour, uid);
     }
-    
+
     private void OnGibContents(EntityUid uid, DevourerComponent component, ref BeingGibbedEvent args)
     {
         if (!component.ShouldStoreDevoured)

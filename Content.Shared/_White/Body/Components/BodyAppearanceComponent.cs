@@ -39,3 +39,22 @@ public sealed partial class BodyAppearanceLayerInfo
     [DataField]
     public bool Visible = true;
 }
+
+[Serializable, NetSerializable]
+public enum BodyAppearanceLayer
+{
+    Head,
+    Chest,
+    Groin,
+    LeftArm,
+    RightArm,
+    LeftHand,
+    RightHand,
+    LeftLeg,
+    RightLeg,
+    LeftFoot,
+    RightFoot,
+    Tail,
+    Wings,
+    Eyes
+}

@@ -13,13 +13,14 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Timing;
 using Content.Shared.Weapons.Melee.Events;
-using Content.Server.Body.Components;
 using System.Linq;
 using Content.Shared.Chemistry.Reagent;
 using Robust.Server.Audio;
 using Content.Server.Atmos.EntitySystems;
 using Content.Shared.DoAfter;
-using Content.Shared._Goobstation.Chemistry.Hypospray; // Goobstation
+using Content.Shared._Goobstation.Chemistry.Hypospray;
+using Content.Shared._White.Body.Bloodstream.Components;
+
 
 namespace Content.Server.Chemistry.EntitySystems;
 

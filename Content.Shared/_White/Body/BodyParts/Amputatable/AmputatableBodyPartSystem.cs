@@ -1,6 +1,6 @@
 using Content.Shared._White.Body.Components;
 using Content.Shared._White.Body.Systems;
-using Content.Shared._White.Medical.Wounds.Systems;
+using Content.Shared._White.Body.Wounds.Systems;
 using Content.Shared._White.Random;
 using Content.Shared._White.Threshold;
 using Content.Shared.FixedPoint;
@@ -21,9 +21,15 @@ public sealed class AmputatableBodyPartSystem : EntitySystem
 
     public override void Initialize()
     {
+        SubscribeLocalEvent<AmputatableBodyPartComponent, BodyPartRelayedEvent<RejuvenateEvent>>(OnRejuvenate);
         SubscribeLocalEvent<AmputatableBodyPartComponent, BoneStatusChangedEvent>(OnBoneStatusChange);
-        SubscribeLocalEvent<AmputatableBodyPartComponent, RejuvenateEvent>(OnRejuvenate);
         SubscribeLocalEvent<AmputatableBodyPartComponent, WoundDamageChangedEvent>(OnWoundDamageChanged);
+    }
+
+    private void OnRejuvenate(Entity<AmputatableBodyPartComponent> amputatableBodyPart, ref BodyPartRelayedEvent<RejuvenateEvent> args)
+    {
+        amputatableBodyPart.Comp.TotalDamage = FixedPoint2.Zero;
+        amputatableBodyPart.Comp.CurrentChanceThreshold = amputatableBodyPart.Comp.ChanceThresholds.HighestMatch(amputatableBodyPart.Comp.TotalDamage) ?? 0f;
     }
 
     private void OnBoneStatusChange(Entity<AmputatableBodyPartComponent> amputatableBodyPart, ref BoneStatusChangedEvent args)
@@ -32,12 +38,6 @@ public sealed class AmputatableBodyPartSystem : EntitySystem
             return;
 
         amputatableBodyPart.Comp.CurrentBoneMultiplierThreshold = boneMultiplier;
-    }
-
-    private void OnRejuvenate(Entity<AmputatableBodyPartComponent> amputatableBodyPart, ref RejuvenateEvent args)
-    {
-        amputatableBodyPart.Comp.TotalDamage = FixedPoint2.Zero;
-        amputatableBodyPart.Comp.CurrentChanceThreshold = amputatableBodyPart.Comp.ChanceThresholds.HighestMatch(amputatableBodyPart.Comp.TotalDamage) ?? 0f;
     }
 
     private void OnWoundDamageChanged(Entity<AmputatableBodyPartComponent> amputatableBodyPart, ref WoundDamageChangedEvent args)

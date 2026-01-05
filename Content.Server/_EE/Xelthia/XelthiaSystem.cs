@@ -1,7 +1,7 @@
+using Content.Server._White.Body.Bloodstream.Systems;
 using Content.Server._White.Body.Systems;
-using Content.Server.Body.Components;
-using Content.Server.Body.Systems;
 using Content.Shared._EE.Xelthia;
+using Content.Shared._White.Body.Bloodstream.Components;
 using Content.Shared._White.Body.Components;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.Humanoid;
@@ -98,6 +98,6 @@ public sealed class XelthiaSystem : EntitySystem
 
         TryComp<BloodstreamComponent>(uid, out var stream);
         solution.AddReagent("XelthiaArmJuice", 3.5);
-        _bloodstreamSystem.TryAddToChemicals(uid, solution, stream);
+        _bloodstreamSystem.TryAddToBloodstream((uid, stream), solution); // WD EDIT
     }
 }

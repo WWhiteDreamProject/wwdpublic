@@ -1,5 +1,5 @@
-using Content.Server.Body.Components;
-using Content.Shared.Body.Prototypes;
+using Content.Shared._White.Body.Organs.Metabolizer;
+using Content.Shared._White.Body.Prototypes;
 using Content.Shared.EntityEffects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
@@ -37,10 +37,9 @@ public sealed partial class MetabolizerType : EntityEffectCondition // WD EDIT: 
     public bool Condition(Entity<MetabolizerComponent?> metabolizer, IEntityManager entMan)
     {
         metabolizer.Comp ??= entMan.GetComponentOrNull<MetabolizerComponent>(metabolizer.Owner);
-        if (metabolizer.Comp != null
-            && metabolizer.Comp.MetabolizerTypes != null
-            && metabolizer.Comp.MetabolizerTypes.Contains(Type))
+        if (metabolizer.Comp != null && metabolizer.Comp.Types.Contains(Type)) // WD EDIT
             return ShouldHave;
+
         return !ShouldHave;
     }
 

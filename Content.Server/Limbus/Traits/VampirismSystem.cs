@@ -1,7 +1,8 @@
-using Content.Server.Body.Components;
+using Content.Server._White.Body.Organs.Stomach;
 using Content.Server.Limbus.Traits.Components;
 using Content.Server.Vampiric;
 using Content.Shared._White.Body.Components;
+using Content.Shared._White.Body.Organs.Metabolizer;
 using Content.Shared._White.Body.Systems;
 
 namespace Content.Server.Limbus.Traits;
@@ -9,6 +10,7 @@ namespace Content.Server.Limbus.Traits;
 public sealed class VampirismSystem : EntitySystem
 {
     [Dependency] private readonly SharedBodySystem _body = default!;
+    [Dependency] private readonly StomachSystem _stomach = default!;
 
     public override void Initialize()
     {
@@ -27,10 +29,9 @@ public sealed class VampirismSystem : EntitySystem
             if (!TryComp<StomachComponent>(organ.Owner, out var stomach)) // WD EDIT
                 continue;
 
-            organ.Comp2.MetabolizerTypes = ent.Comp.MetabolizerPrototypes; // WD EDIT
+            organ.Comp2.Types = ent.Comp.MetabolizerPrototypes; // WD EDIT
 
-            if (ent.Comp.SpecialDigestible is {} whitelist)
-                stomach.SpecialDigestible = whitelist;
+            _stomach.SetSpecialDigestible((organ.Owner, stomach), ent.Comp.SpecialDigestible); // WD EDIT
         }
     }
 

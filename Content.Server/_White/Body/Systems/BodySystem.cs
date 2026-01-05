@@ -22,10 +22,10 @@ public sealed partial class BodySystem : SharedBodySystem
         base.Initialize();
 
         SubscribeLocalEvent<BodyComponent, MoveInputEvent>(OnRelayMoveInput);
-        InitializeRelay();
         InitializeBody();
         InitializeBodyPart();
         InitializeBone();
+        InitializeRelay();
     }
 
     private void OnRelayMoveInput(Entity<BodyComponent> ent, ref MoveInputEvent args)

@@ -3,4 +3,4 @@
   parent: OrganStomachAnimal
   components:
   - type: Metabolizer
-    metabolizerTypes: [Vampiric]
+    types: [Vampiric]

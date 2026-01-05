@@ -7,7 +7,7 @@
   flavor: mindful
   color: "#915E48"
   metabolisms:
-    Poison:
+    Absorption:
       metabolismRate: 0.25
       effects:
       - !type:PopupMessage

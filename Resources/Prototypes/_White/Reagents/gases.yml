@@ -6,7 +6,7 @@
   flavor: bitter
   color: "#e69edd"
   metabolisms:
-    Gas:
+    Respiration:
       effects:
       - !type:GenericStatusEffect
         key: SeeingRainbows
@@ -66,7 +66,7 @@
   boilingPoint: -183.0
   meltingPoint: -218.4
   metabolisms:
-    Gas:
+    Respiration:
       effects:
       - !type:Oxygenate
         factor: 8
@@ -118,7 +118,7 @@
   boilingPoint: -253.0
   meltingPoint: -259.2
   metabolisms:
-    Gas:
+    Respiration:
       effects:
       - !type:MovespeedModifier
         conditions:
@@ -171,7 +171,7 @@
   boilingPoint: -253.0
   meltingPoint: -259.2
   metabolisms:
-    Gas:
+    Respiration:
       effects:
       - !type:GenericStatusEffect
         conditions:
@@ -191,11 +191,9 @@
         ignoreResistances: true
         damage:
           groups:
-            # WD EDIT START - small buff
             Brute: -2.0
             Burn: -2.0
             Toxin: -1.0
-            # WD EDIT END
 
 - type: reagent
   id: Hyper-Noblium
@@ -227,7 +225,7 @@
   boilingPoint: -253.0
   meltingPoint: -259.2
   metabolisms:
-    Gas:
+    Respiration:
       effects:
       - !type:HealthChange
         conditions:

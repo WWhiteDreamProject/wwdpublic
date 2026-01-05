@@ -9,7 +9,7 @@
       - Fruit
       - Paper
   - type: Metabolizer
-    metabolizerTypes: [ Moth ]
+    types: [ Moth ]
 
 - type: entity
   id: OrganEyesMoth

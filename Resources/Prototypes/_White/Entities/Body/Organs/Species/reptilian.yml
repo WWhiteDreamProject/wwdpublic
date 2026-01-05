@@ -3,4 +3,4 @@
   parent: OrganStomachHuman
   components:
   - type: Metabolizer
-    metabolizerTypes: [ Animal ]
+    types: [ Animal ]

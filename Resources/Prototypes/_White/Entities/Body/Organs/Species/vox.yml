@@ -6,7 +6,7 @@
   - type: Lung
     alert: LowNitrogen
   - type: Metabolizer
-    metabolizerTypes: [ Vox ]
+    types: [ Vox ]
 
 - type: entity
   id: OrganEyesVox

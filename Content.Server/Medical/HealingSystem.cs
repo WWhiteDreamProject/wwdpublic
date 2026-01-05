@@ -1,12 +1,12 @@
-using Content.Server._White.Medical.Wound.Systems;
+using Content.Server._White.Body.Bloodstream.Systems;
+using Content.Server._White.Body.Wound.Systems;
 using Content.Server._White.TargetDoll;
 using Content.Server.Administration.Logs;
-using Content.Server.Body.Components;
-using Content.Server.Body.Systems;
 using Content.Server.Medical.Components;
 using Content.Server.Popups;
 using Content.Server.Stack;
-using Content.Shared._White.Medical.Wounds.Components;
+using Content.Shared._White.Body.Bloodstream.Components;
+using Content.Shared._White.Body.Wounds.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Audio;
 using Content.Shared.Damage;
@@ -76,9 +76,9 @@ public sealed class HealingSystem : EntitySystem
         {
             if (!TryComp<BloodstreamComponent>(entity, out var bloodstream))
                 return;
-            var isBleeding = bloodstream.BleedAmount > 0;
+            var isBleeding = bloodstream.Bleeding > 0;
             _bloodstreamSystem.TryModifyBleedAmount(entity.Owner, healing.BloodlossModifier);
-            if (isBleeding != bloodstream.BleedAmount > 0)
+            if (isBleeding != bloodstream.Bleeding > 0)
             {
                 var popup = (args.User == entity.Owner)
                     ? Loc.GetString("medical-item-stop-bleeding-self")
@@ -155,7 +155,7 @@ public sealed class HealingSystem : EntitySystem
             }
 
             // Is ent bleeding and can we stop it?
-            if (healing.BloodlossModifier < 0 && bloodstream.BleedAmount > 0)
+            if (healing.BloodlossModifier < 0 && bloodstream.Bleeding > 0)
             {
                 return true;
             }

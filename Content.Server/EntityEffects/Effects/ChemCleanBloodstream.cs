@@ -1,4 +1,4 @@
-using Content.Server.Body.Systems;
+using Content.Server._White.Body.Bloodstream.Systems;
 using Content.Shared.EntityEffects;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
@@ -19,7 +19,7 @@ public sealed partial class ChemCleanBloodstream : EntityEffect
 
     public override void Effect(EntityEffectBaseArgs args)
     {
-        
+
         var cleanseRate = CleanseRate;
 
         var bloodstreamSys = args.EntityManager.System<BloodstreamSystem>();
@@ -30,11 +30,11 @@ public sealed partial class ChemCleanBloodstream : EntityEffect
                 return;
 
             cleanseRate *= reagentArgs.Scale.Float();
-            bloodstreamSys.FlushChemicals(args.TargetEntity, reagentArgs.Reagent.ID, cleanseRate);
+            bloodstreamSys.FlushChemicals(args.TargetEntity, cleanseRate, reagentArgs.Reagent.ID); // WD EDIT
         }
         else
         {
-            bloodstreamSys.FlushChemicals(args.TargetEntity, "", cleanseRate);
+            bloodstreamSys.FlushChemicals(args.TargetEntity, cleanseRate); // WD EDIT
         }
     }
 }

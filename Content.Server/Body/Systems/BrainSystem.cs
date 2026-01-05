@@ -1,6 +1,5 @@
 using Content.Server.Body.Components;
 using Content.Server.Ghost.Components;
-using Content.Shared._White.Body;
 using Content.Shared._White.Body.Components;
 using Content.Shared._White.Body.Systems;
 using Content.Shared.Mind;

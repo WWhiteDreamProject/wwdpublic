@@ -7,15 +7,17 @@ namespace Content.Server.Traits.Assorted;
 [RegisterComponent]
 public sealed partial class HemophiliaComponent : Component
 {
-    // <summary>
-    //   What the BleedReductionAmount should be multiplied by.
-    // </summary>
-    [DataField(required: true)]
-    public float BleedReductionModifier = 1f;
+    // WD EDIT START
+    /// <summary>
+    /// Multiplier to use for the amount of bloodloss reduction during a bleed tick.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float BleedReductionMultiplier = 0.33f;
 
     /// <summary>
-    ///   The damage increase from this trait.
+    /// Multiplier to use for the amount of blood lost during a bleed tick.
     /// </summary>
-    [DataField(required: true)]
-    public DamageModifierSet DamageModifiers = default!;
+    [DataField, AutoNetworkedField]
+    public float BleedAmountMultiplier = 1f;
+    // WD EDIT END
 }

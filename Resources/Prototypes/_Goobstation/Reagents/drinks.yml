@@ -7,7 +7,7 @@
   flavor: sour
   color: "#d9f929"
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       effects:
       - !type:SatiateThirst
       - !type:HealthChange

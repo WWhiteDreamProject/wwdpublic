@@ -1,6 +1,6 @@
-using Content.Server.Body.Components;
 using Content.Server.Body.Events;
 using Content.Server.Traits.Assorted;
+using Content.Shared._White.Body.Bloodstream.Components;
 using Content.Shared.FixedPoint;
 
 namespace Content.Server.Traits;
@@ -19,6 +19,6 @@ public sealed class BloodDeficiencySystem : EntitySystem
             return;
 
         args.Amount = FixedPoint2.Min(args.Amount, 0) // If the blood regen amount already was negative, we keep it.
-                      - bloodstream.BloodMaxVolume * ent.Comp.BloodLossPercentage;
+                      - bloodstream.CurrentBloodMaxVolume * ent.Comp.BloodLossPercentage; // WD EDIT
     }
 }

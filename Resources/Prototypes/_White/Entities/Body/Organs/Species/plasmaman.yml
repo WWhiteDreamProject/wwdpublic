@@ -83,7 +83,7 @@
     layers:
     - state: lungs
   - type: Metabolizer
-    metabolizerTypes: [ Plasmaman ]
+    types: [ Plasmaman ]
   - type: Lung
     alert: LowPlasma
   - type: SolutionContainerManager
@@ -131,7 +131,7 @@
   name: plasmaman liver
   components:
   - type: Metabolizer
-    metabolizerTypes: [ Plasmaman ]
+    types: [ Plasmaman ]
 
 - type: entity
   id: OrganKidneysPlasmaman
@@ -142,4 +142,4 @@
     layers:
     - state: kidneys
   - type: Metabolizer
-    metabolizerTypes: [ Plasmaman ]
+    types: [ Plasmaman ]

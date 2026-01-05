@@ -1,3 +1,4 @@
+using Content.Server._White.Body.Respirator.Components;
 using Content.Server.Abilities.Psionics;
 using Content.Server.Atmos.Components;
 using Content.Server.Body.Components;
@@ -14,6 +15,7 @@ using Content.Server.NPC.HTN;
 using Content.Server.NPC.Systems;
 using Content.Server.Speech.Components;
 using Content.Server.Temperature.Components;
+using Content.Shared._White.Body.Bloodstream.Components;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.CombatMode;
 using Content.Shared.CombatMode.Pacification;
@@ -192,9 +194,6 @@ public sealed partial class ZombieSystem
         //The zombie gets the assigned damage weaknesses and strengths
         _damageable.SetDamageModifierSetId(target, "Zombie");
 
-        //This makes it so the zombie doesn't take bloodloss damage.
-        //NOTE: they are supposed to bleed, just not take damage
-        _bloodstream.SetBloodLossThreshold(target, 0f);
         //Give them zombie blood
         _bloodstream.ChangeBloodReagent(target, zombiecomp.NewBloodReagent);
 

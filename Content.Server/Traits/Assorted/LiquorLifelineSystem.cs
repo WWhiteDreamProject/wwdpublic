@@ -1,6 +1,7 @@
 using Content.Server._White.Body.Systems;
-using Content.Server.Body.Components;
 using Content.Shared._White.Body.Components;
+using Content.Shared._White.Body.Organs.Metabolizer;
+
 
 namespace Content.Server.Traits.Assorted;
 
@@ -24,15 +25,11 @@ public sealed class LiquorLifelineSystem : EntitySystem
 
         foreach (var metabolizer in metabolizers)
         {
-            if (metabolizer.Comp2.MetabolizerTypes is null // WD EDIT
-                || metabolizer.Comp2.MetabolismGroups is null) // WD EDIT
-                continue;
-
-            foreach (var metabolismGroup in metabolizer.Comp2.MetabolismGroups) // WD EDIT
+            foreach (var metabolismGroup in metabolizer.Comp2.Stages) // WD EDIT
             {
                 // Add the LiquorLifeline metabolizer type to the liver and equivalent organs.
-                if (metabolismGroup.Id == "Alcohol")
-                    metabolizer.Comp2.MetabolizerTypes.Add("LiquorLifeline"); // WD EDIT
+                if (metabolismGroup.Key == "Absorption") // WD EDIT
+                    metabolizer.Comp2.Types.Add("LiquorLifeline"); // WD EDIT
             }
         }
     }

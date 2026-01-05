@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Shared._White.Body.Components;
+using Content.Shared.Rejuvenate;
 using Robust.Shared.Containers;
 
 namespace Content.Shared._White.Body.Systems;
@@ -10,11 +11,12 @@ public abstract partial class SharedBodySystem
     {
         SubscribeLocalEvent<OrganComponent, EntGotInsertedIntoContainerMessage>(OnOrganGotInserted);
         SubscribeLocalEvent<OrganComponent, EntGotRemovedFromContainerMessage>(OnOrganGotRemoved);
+        SubscribeLocalEvent<OrganComponent, OrganRelayedEvent<RejuvenateEvent>>(OnOrganRejuvenate);
     }
 
     #region Event Handling
 
-    private void OnOrganGotInserted(Entity<OrganComponent> organ, ref EntGotInsertedIntoContainerMessage args)
+    private void OnOrganGotInserted(Entity<OrganComponent> ent, ref EntGotInsertedIntoContainerMessage args)
     {
         var containerSlotId = args.Container.ID;
         if (containerSlotId.IndexOf(OrganSlotContainerIdPrefix, StringComparison.Ordinal) == -1)
@@ -29,10 +31,10 @@ public abstract partial class SharedBodySystem
         {
             if (!bodyPartComponent.Body.HasValue || !Resolve(bodyPartComponent.Body.Value, ref bodyComponent))
             {
-                organ.Comp.Parent = parent;
-                Dirty(organ);
+                ent.Comp.Parent = parent;
+                Dirty(ent);
 
-                RaiseLocalEvent(organ, new OrganAddedEvent(organ, null, parent, args.Container.ID));
+                RaiseLocalEvent(ent, new OrganAddedEvent(ent, null, parent, args.Container.ID));
 
                 return;
             }
@@ -43,10 +45,10 @@ public abstract partial class SharedBodySystem
         {
             if (!boneComponent.Body.HasValue || !Resolve(boneComponent.Body.Value, ref bodyComponent))
             {
-                organ.Comp.Parent = parent;
-                Dirty(organ);
+                ent.Comp.Parent = parent;
+                Dirty(ent);
 
-                RaiseLocalEvent(organ, new OrganAddedEvent(organ, null, parent, containerSlotId));
+                RaiseLocalEvent(ent, new OrganAddedEvent(ent, null, parent, containerSlotId));
 
                 return;
             }
@@ -56,21 +58,23 @@ public abstract partial class SharedBodySystem
         else
             return;
 
-        organ.Comp.Body = body;
-        organ.Comp.Parent = parent;
-        Dirty(organ);
+        ent.Comp.Body = body;
+        ent.Comp.Parent = parent;
+        Dirty(ent);
+
+        SetOrganEnable(ent.AsNullable(), true);
 
         var ev = new OrganAddedEvent(
-            organ,
+            ent,
             body,
             parent,
             args.Container.ID);
 
-        RaiseLocalEvent(organ, ev);
+        RaiseLocalEvent(ent, ev);
         RaiseLocalEvent(body, ev);
     }
 
-    private void OnOrganGotRemoved(Entity<OrganComponent> organ, ref EntGotRemovedFromContainerMessage args)
+    private void OnOrganGotRemoved(Entity<OrganComponent> ent, ref EntGotRemovedFromContainerMessage args)
     {
         var containerSlotId = args.Container.ID;
         if (containerSlotId.IndexOf(OrganSlotContainerIdPrefix, StringComparison.Ordinal) == -1)
@@ -85,10 +89,10 @@ public abstract partial class SharedBodySystem
         {
             if (!bodyPartComponent.Body.HasValue || !Resolve(bodyPartComponent.Body.Value, ref bodyComponent))
             {
-                organ.Comp.Parent = null;
-                Dirty(organ);
+                ent.Comp.Parent = null;
+                Dirty(ent);
 
-                RaiseLocalEvent(organ, new OrganAddedEvent(organ, null, parent, containerSlotId));
+                RaiseLocalEvent(ent, new OrganRemovedEvent(ent, null, parent, containerSlotId));
 
                 return;
             }
@@ -99,10 +103,10 @@ public abstract partial class SharedBodySystem
         {
             if (!boneComponent.Body.HasValue || !Resolve(boneComponent.Body.Value, ref bodyComponent))
             {
-                organ.Comp.Parent = null;
-                Dirty(organ);
+                ent.Comp.Parent = null;
+                Dirty(ent);
 
-                RaiseLocalEvent(organ, new OrganAddedEvent(organ, null, parent, args.Container.ID));
+                RaiseLocalEvent(ent, new OrganRemovedEvent(ent, null, parent, args.Container.ID));
 
                 return;
             }
@@ -112,19 +116,24 @@ public abstract partial class SharedBodySystem
         else
             return;
 
-        organ.Comp.Body = null;
-        organ.Comp.Parent = null;
-        Dirty(organ);
+        ent.Comp.Body = null;
+        ent.Comp.Parent = null;
+        Dirty(ent);
+
+        SetOrganEnable(ent.AsNullable(), false);
 
         var ev = new OrganRemovedEvent(
-            organ,
+            ent,
             body,
             parent,
             args.Container.ID);
 
-        RaiseLocalEvent(organ, ev);
+        RaiseLocalEvent(ent, ev);
         RaiseLocalEvent(body, ev);
     }
+
+    private void OnOrganRejuvenate(Entity<OrganComponent> ent, ref OrganRelayedEvent<RejuvenateEvent> args) =>
+        SetOrganEnable(ent.AsNullable(), true);
 
     #endregion
 
@@ -708,6 +717,18 @@ public abstract partial class SharedBodySystem
         TryCreateOrganSlot(parent, slotId, type) && TryAttachOrgan(parent, organ, slotId);
 
     #endregion
+
+    /// <summary>
+    /// Toggles the organ's functionality.
+    /// </summary>
+    public void SetOrganEnable(Entity<OrganComponent?> organ, bool value)
+    {
+        if (!Resolve(organ, ref organ.Comp) || organ.Comp.Enable == value)
+            return;
+
+        organ.Comp.Enable = value;
+        RaiseLocalEvent(organ, new AfterOrganToggledEvent(value));
+    }
 
     #endregion
 }

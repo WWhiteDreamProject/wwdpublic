@@ -1,3 +1,5 @@
+using Content.Server._White.Body.Bloodstream.Systems;
+using Content.Server._White.Body.Organs.Stomach;
 using Content.Server._White.Body.Systems;
 using Content.Shared.Verbs;
 using Content.Shared.Damage;
@@ -9,11 +11,10 @@ using Content.Shared.Administration.Logs;
 using Content.Shared.Vampiric;
 using Content.Shared.Cocoon;
 using Content.Server.Atmos.Components;
-using Content.Server.Body.Components;
-using Content.Server.Body.Systems;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Server.Popups;
 using Content.Server.DoAfter;
+using Content.Shared._White.Body.Bloodstream.Components;
 using Content.Shared._White.Body.Components;
 using Content.Shared.HealthExaminable;
 using Content.Shared.Nutrition.Components;
@@ -155,7 +156,7 @@ namespace Content.Server.Vampiric
                 return false;
 
             // No blood left, yikes.
-            if (_bloodstreamSystem.GetBloodLevelPercentage(victim, bloodstream) == 0.0f)
+            if (_bloodstreamSystem.GetBloodLevel((victim, bloodstream)) == 0.0f) // WD EDIT
                 return false;
 
             // Does bloodsucker have a stomach?
@@ -163,7 +164,7 @@ namespace Content.Server.Vampiric
             if (stomachList.Count == 0)
                 return false;
 
-            if (!_solutionSystem.TryGetSolution(stomachList[0].Owner, StomachSystem.DefaultSolutionName, out var stomachSolution))
+            if (!_solutionSystem.TryGetSolution(stomachList[0].Owner, stomachList[0].Comp2.SolutionName, out var stomachSolution)) // WD EDIT
                 return false;
 
             // Are we too full?
@@ -187,7 +188,7 @@ namespace Content.Server.Vampiric
                 return false;
 
             var temp = _solutionSystem.SplitSolution(bloodstream.BloodSolution.Value, bloodsuckerComp.UnitsToSucc);
-            _stomachSystem.TryTransferSolution(stomachList[0].Owner, temp, stomachList[0].Comp2); // WD EDIT
+            _stomachSystem.TryTransferSolution((stomachList[0].Owner, stomachList[0].Comp2), temp); // WD EDIT
 
             // Add a little pierce
             DamageSpecifier damage = new();

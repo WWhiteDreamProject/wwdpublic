@@ -8,6 +8,7 @@
   - type: Damageable
   - type: WoundableBodyPart
   - type: PainfulBodyPart
+  - type: BleedingBodyPart
 
 - type: entity
   id: BaseAmputatableBodyPart

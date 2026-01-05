@@ -85,6 +85,7 @@
       Damaged: 10
       Cracked: 5
       Broken: 0
+  - type: BloodGenerator
 
 # Arm Bone / Antebrachium
 - type: entity
@@ -110,6 +111,7 @@
       Damaged: 7
       Cracked: 5
       Broken: 0
+  - type: BloodGenerator
 
 - type: entity
   id: BaseBoneLeftArm

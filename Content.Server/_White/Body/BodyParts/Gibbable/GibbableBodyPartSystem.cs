@@ -1,7 +1,8 @@
 using Content.Shared._White.Body.BodyParts.Amputatable;
 using Content.Shared._White.Body.Components;
+using Content.Shared._White.Body.Systems;
+using Content.Shared._White.Body.Wounds.Systems;
 using Content.Shared._White.Gibbing;
-using Content.Shared._White.Medical.Wounds.Systems;
 using Content.Shared._White.Threshold;
 using Content.Shared.FixedPoint;
 using Content.Shared.Rejuvenate;
@@ -20,9 +21,15 @@ public sealed class GibbableBodyPartSystem : EntitySystem
 
     public override void Initialize()
     {
+        SubscribeLocalEvent<GibbableBodyPartComponent, BodyPartRelayedEvent<RejuvenateEvent>>(OnRejuvenate);
         SubscribeLocalEvent<GibbableBodyPartComponent, BoneStatusChangedEvent>(OnBoneStatusChange);
-        SubscribeLocalEvent<GibbableBodyPartComponent, RejuvenateEvent>(OnRejuvenate);
         SubscribeLocalEvent<GibbableBodyPartComponent, WoundDamageChangedEvent>(OnWoundDamageChanged, after: new [] {typeof(AmputatableBodyPartSystem)});
+    }
+
+    private void OnRejuvenate(Entity<GibbableBodyPartComponent> gibbableBodyPart, ref BodyPartRelayedEvent<RejuvenateEvent> args)
+    {
+        gibbableBodyPart.Comp.TotalDamage = FixedPoint2.Zero;
+        gibbableBodyPart.Comp.CurrentChanceThreshold = gibbableBodyPart.Comp.ChanceThresholds.HighestMatch(gibbableBodyPart.Comp.TotalDamage) ?? 0f;
     }
 
     private void OnBoneStatusChange(Entity<GibbableBodyPartComponent> gibbableBodyPart, ref BoneStatusChangedEvent args)
@@ -31,12 +38,6 @@ public sealed class GibbableBodyPartSystem : EntitySystem
             return;
 
         gibbableBodyPart.Comp.CurrentBoneMultiplierThreshold = boneMultiplier;
-    }
-
-    private void OnRejuvenate(Entity<GibbableBodyPartComponent> gibbableBodyPart, ref RejuvenateEvent args)
-    {
-        gibbableBodyPart.Comp.TotalDamage = FixedPoint2.Zero;
-        gibbableBodyPart.Comp.CurrentChanceThreshold = gibbableBodyPart.Comp.ChanceThresholds.HighestMatch(gibbableBodyPart.Comp.TotalDamage) ?? 0f;
     }
 
     private void OnWoundDamageChanged(Entity<GibbableBodyPartComponent> gibbableBodyPart, ref WoundDamageChangedEvent args)

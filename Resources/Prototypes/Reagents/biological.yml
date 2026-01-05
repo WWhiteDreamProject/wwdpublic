@@ -15,7 +15,7 @@
   physicalDesc: reagent-physical-desc-ferrous
   slippery: false
   metabolisms:
-    Drink:
+    Digestion: # WD EDIT
       effects:
       - !type:SatiateThirst
         factor: 0.5
@@ -56,16 +56,14 @@
         conditions:
           - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
             type: Vampiric
-    Food:
-      effects:
-        - !type:AdjustReagent
-          reagent: UncookedAnimalProteins
-          amount: 0.125 # 0.25 proteins for 1u of blood - restores 0.75 hunger, adds 0.25 blood per unit
-          conditions:
-          - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
-            type: Vampiric
-            shouldHave: false
-    Medicine:
+      - !type:AdjustReagent
+        reagent: UncookedAnimalProteins
+        amount: 0.125 # 0.25 proteins for 1u of blood - restores 0.75 hunger, adds 0.25 blood per unit
+        conditions:
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
+          type: Vampiric
+          shouldHave: false
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         conditions:
@@ -95,7 +93,7 @@
   physicalDesc: reagent-physical-desc-slimy
   slippery: false
   metabolisms:
-    Drink:
+    Digestion: # WD EDIT
       effects:
         - !type:ChemAddMoodlet
           moodPrototype: DrankInsectBlood
@@ -114,7 +112,7 @@
   tileReactions:
     - !type:SpillTileReaction
   metabolisms:
-    Food:
+    Digestion: # WD EDIT
       # Delicious!
       effects:
       - !type:SatiateHunger
@@ -138,7 +136,7 @@
   tileReactions:
     - !type:SpillTileReaction
   metabolisms:
-    Food:
+    Digestion: # WD EDIT
       # Sweet!
       effects:
       - !type:SatiateHunger
@@ -162,7 +160,7 @@
   physicalDesc: reagent-physical-desc-metallic
   slippery: false
   metabolisms:
-    Drink:
+    Digestion: # WD EDIT
       effects:
         - !type:ChemAddMoodlet
           moodPrototype: DrankBlood
@@ -182,7 +180,7 @@
   physicalDesc: reagent-physical-desc-pungent
   slippery: false
   metabolisms:
-    Drink:
+    Digestion: # WD EDIT
       effects:
         - !type:ChemAddMoodlet
           moodPrototype: DrankBlood
@@ -200,12 +198,12 @@
   color: "#2b0700"
   slippery: false
   metabolisms:
-    Drink:
+    Digestion: # WD EDIT
       # Disgusting!
       effects:
       - !type:SatiateThirst
         factor: -0.5
-    Poison:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         damage:
@@ -227,12 +225,12 @@
   color: "#f4692e"
   recognizable: true
   metabolisms:
-    Drink:
+    Digestion: # WD EDIT
       effects:
       - !type:SatiateThirst
         factor: 1.5
     # Dragon doesn't require airloss healing, so omnizine is still best for humans.
-    Medicine:
+    Absorption: # WD EDIT
       effects:
       - !type:ModifyBloodLevel
         amount: 3
@@ -277,13 +275,14 @@
   physicalDesc: reagent-physical-desc-pungent
   slippery: true
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Nutriment: 0.1
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 0.5
-      - !type:AdjustReagent
-        reagent: Nutriment
-        amount: 0.1
       - !type:ChemAddMoodlet
         moodPrototype: DrankVomit
   footstepSound:
@@ -301,11 +300,11 @@
   color: "#C584B8"
   slippery: false
   metabolisms:
-    Drink:
+    Digestion: # WD EDIT
       effects:
       - !type:SatiateHunger
         factor: 1.5
-    Poison:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         damage:

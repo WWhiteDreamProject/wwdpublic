@@ -75,7 +75,7 @@
   - type: Sprite
     sprite: Mobs/Species/Human/organs.rsi # We don't have a lung sprite for diona.
   - type: Metabolizer
-    metabolizerTypes: [ Plant ]
+    types: [ Plant ]
   - type: SolutionContainerManager
     solutions:
       organ:
@@ -120,7 +120,7 @@
           Quantity: 5
   - type: Metabolizer
     maxReagents: 6
-    metabolizerTypes: [ Plant ]
+    types: [ Plant ]
     removeEmpty: true
     groups:
     - id: Food

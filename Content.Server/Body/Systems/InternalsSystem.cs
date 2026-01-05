@@ -1,8 +1,8 @@
+using Content.Server._White.Body.Respirator.Systems;
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Components;
 using Content.Server.Popups;
-using Content.Shared._White.Body.Components;
 using Content.Shared.Alert;
 using Content.Shared.Atmos;
 using Content.Shared.DoAfter;
@@ -15,7 +15,6 @@ using Robust.Shared.Containers;
 using Robust.Shared.Utility;
 
 namespace Content.Server.Body.Systems;
-
 
 public sealed class InternalsSystem : EntitySystem
 {
@@ -54,7 +53,7 @@ public sealed class InternalsSystem : EntitySystem
             return; // already connected
 
         // Can the entity breathe the air it is currently exposed to?
-        if (!TryComp(uid, out RespiratorComponent? respirator) || _respirator.CanMetabolizeInhaledAir((uid, respirator)))
+        if (_respirator.CanMetabolizeInhaledAir(uid)) // WD EDIT
             return;
 
         var tank = FindBestGasTank(uid);
@@ -62,7 +61,7 @@ public sealed class InternalsSystem : EntitySystem
             return;
 
         // Could the entity metabolise the air in the linked gas tank?
-        if (!_respirator.CanMetabolizeGas(uid, tank.Value.Comp.Air))
+        if (!_respirator.CanMetabolizeInhaledAir(uid, tank.Value.Comp.Air)) // WD EDIT
             return;
 
         ToggleInternals(uid, uid, force: false, component);

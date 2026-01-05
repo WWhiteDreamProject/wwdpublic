@@ -1,5 +1,5 @@
-﻿using Content.Server.Atmos.EntitySystems;
-using Content.Server.Body.Systems;
+﻿using Content.Server._White.Body.Respirator.Systems;
+using Content.Server.Atmos.EntitySystems;
 using Content.Server.Disposal.Unit.Components;
 
 namespace Content.Server.Disposal.Unit.EntitySystems;

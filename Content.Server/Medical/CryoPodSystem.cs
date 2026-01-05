@@ -1,14 +1,14 @@
+using Content.Server._White.Body.Bloodstream.Systems;
 using Content.Server.Administration.Logs;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Atmos.Piping.Components;
 using Content.Server.Atmos.Piping.Unary.EntitySystems;
-using Content.Server.Body.Components;
-using Content.Server.Body.Systems;
 using Content.Server.Medical.Components;
 using Content.Server.NodeContainer.EntitySystems;
 using Content.Server.NodeContainer.NodeGroups;
 using Content.Server.NodeContainer.Nodes;
 using Content.Server.Temperature.Components;
+using Content.Shared._White.Body.Bloodstream.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Atmos;
 using Content.Shared.UserInterface;
@@ -112,7 +112,7 @@ public sealed partial class CryoPodSystem : SharedCryoPodSystem
                 }
 
                 var solutionToInject = _solutionContainerSystem.SplitSolution(containerSolution.Value, cryoPod.BeakerTransferAmount);
-                _bloodstreamSystem.TryAddToChemicals(patient.Value, solutionToInject, bloodstream);
+                _bloodstreamSystem.TryAddToBloodstream((patient.Value, bloodstream), solutionToInject); // WD EDIT
                 _reactiveSystem.DoEntityReaction(patient.Value, solutionToInject, ReactionMethod.Injection);
             }
         }

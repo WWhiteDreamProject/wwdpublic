@@ -22,6 +22,9 @@ public sealed partial class OrganComponent : Component
 
     [DataField("organType"), AutoNetworkedField] // It can't support the "type" tag.
     public OrganType Type = OrganType.None;
+
+    [ViewVariables, AutoNetworkedField]
+    public bool Enable;
 }
 
 /// <summary>

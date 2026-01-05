@@ -138,7 +138,7 @@
         - ReagentId: UncookedAnimalProteins
           Quantity: 5
   - type: Metabolizer
-    metabolizerTypes: [Shadowkin]
+    types: [Shadowkin]
 
 - type: entity
   id: OrganLiverShadowkin
@@ -147,7 +147,7 @@
   description: "Live 'er? I hardly know 'er!"
   components:
   - type: Metabolizer
-    metabolizerTypes: [Shadowkin]
+    types: [Shadowkin]
 
 - type: entity
   id: OrganKidneysShadowkin
@@ -159,4 +159,4 @@
     layers:
     - state: kidneys
   - type: Metabolizer
-    metabolizerTypes: [Shadowkin]
+    types: [Shadowkin]

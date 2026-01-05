@@ -3,18 +3,18 @@
   parent: OrganStomachAnimal
   components:
   - type: Metabolizer
-    metabolizerTypes: [ Bloodsucker ]
+    types: [ Bloodsucker ]
 
 - type: entity
   id: OrganLiverBloodsucker
   parent: OrganStomachAnimal
   components:
   - type: Metabolizer
-    metabolizerTypes: [ Bloodsucker ]
+    types: [ Bloodsucker ]
 
 - type: entity
   id: OrganKidneysBloodsucker
   parent: OrganStomachAnimal
   components:
   - type: Metabolizer
-    metabolizerTypes: [ Bloodsucker ]
+    types: [ Bloodsucker ]

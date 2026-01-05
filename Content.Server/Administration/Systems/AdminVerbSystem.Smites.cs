@@ -1,4 +1,5 @@
 using System.Threading;
+using Content.Server._White.Body.Bloodstream.Systems;
 using Content.Server._White.Body.Systems;
 using Content.Server._White.Gibbing;
 using Content.Server.Administration.Commands;
@@ -6,7 +7,6 @@ using Content.Server.Administration.Components;
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Components;
-using Content.Server.Body.Systems;
 using Content.Server.Electrocution;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.GhostKick;
@@ -20,6 +20,7 @@ using Content.Server.Storage.Components;
 using Content.Server.Storage.EntitySystems;
 using Content.Server.Tabletop;
 using Content.Server.Tabletop.Components;
+using Content.Shared._White.Body.Bloodstream.Components;
 using Content.Shared._White.Body.Components;
 using Content.Shared.Administration;
 using Content.Shared.Administration.Components;
@@ -276,7 +277,7 @@ public sealed partial class AdminVerbSystem
                 Icon = new SpriteSpecifier.Rsi(new ("/Textures/Fluids/tomato_splat.rsi"), "puddle-1"),
                 Act = () =>
                 {
-                    _bloodstreamSystem.SpillAllSolutions(args.Target, bloodstream);
+                    _bloodstreamSystem.SpillAllSolutions((args.Target, bloodstream)); // WD EDIT
                     var xform = Transform(args.Target);
                     _popupSystem.PopupEntity(Loc.GetString("admin-smite-remove-blood-self"), args.Target,
                         args.Target, PopupType.LargeCaution);

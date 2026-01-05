@@ -1,3 +1,4 @@
+using Content.Server._White.Body.Bloodstream.Systems;
 using Content.Server.Body.Components;
 using Content.Server.DoAfter;
 using Content.Server.Fluids.EntitySystems;
@@ -36,10 +37,11 @@ namespace Content.Server.Forensics
         {
             SubscribeLocalEvent<FingerprintComponent, ContactInteractionEvent>(OnInteract);
             SubscribeLocalEvent<ScentComponent, DidEquipEvent>(OnEquip);
-            SubscribeLocalEvent<FiberComponent, MapInitEvent>(OnFiberInit);
-            SubscribeLocalEvent<FingerprintComponent, MapInitEvent>(OnFingerprintInit);
-            SubscribeLocalEvent<DnaComponent, MapInitEvent>(OnDNAInit);
-            SubscribeLocalEvent<ScentComponent, MapInitEvent>(OnScentInit);
+            SubscribeLocalEvent<FiberComponent, MapInitEvent>(OnFiberInit, after: new[] { typeof(BloodstreamSystem) }); // WD EDIT
+            SubscribeLocalEvent<FingerprintComponent, MapInitEvent>(OnFingerprintInit, after: new[] { typeof(BloodstreamSystem) }); // WD EDIT
+            // The solution entities are spawned on MapInit as well, so we have to wait for that to be able to set the DNA in the bloodstream correctly without ResolveSolution failing
+            SubscribeLocalEvent<DnaComponent, MapInitEvent>(OnDNAInit, after: new[] { typeof(BloodstreamSystem) }); // WD EDIT
+            SubscribeLocalEvent<ScentComponent, MapInitEvent>(OnScentInit, after: new[] { typeof(BloodstreamSystem) }); // WD EDIT
 
             SubscribeLocalEvent<ForensicsComponent, BeingGibbedEvent>(OnBeingGibbed);
             SubscribeLocalEvent<ForensicsComponent, MeleeHitEvent>(OnMeleeHit,

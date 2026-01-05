@@ -99,6 +99,29 @@ public abstract partial class SharedBodySystem : EntitySystem
 }
 
 /// <summary>
+/// Raised on an organ after its toggled.
+/// </summary>
+public record struct AfterOrganToggledEvent(bool Enable);
+
+/// <summary>
+/// An event wrapper for passing events related to body parts.
+/// </summary>
+[ByRefEvent]
+public record struct BodyPartRelayedEvent<TEvent>(Entity<BodyComponent> Body, TEvent Args);
+
+/// <summary>
+/// An event wrapper for passing events related to bones.
+/// </summary>
+[ByRefEvent]
+public record struct BoneRelayedEvent<TEvent>(Entity<BodyComponent> Body, TEvent Args);
+
+/// <summary>
+/// An event wrapper for passing events related to organs.
+/// </summary>
+[ByRefEvent]
+public record struct OrganRelayedEvent<TEvent>(Entity<BodyComponent> Body, TEvent Args);
+
+/// <summary>
 /// Raised when a body part is attached to body.
 /// </summary>
 /// <param name="Part">The attached body part.</param>

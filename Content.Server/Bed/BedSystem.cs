@@ -1,10 +1,9 @@
 using Content.Server.Actions;
 using Content.Server.Bed.Components;
-using Content.Server.Body.Systems;
 using Content.Server.Construction;
-using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
-using Content.Shared._White.Body.Components;
+using Content.Shared._White.Bed.Components;
+using Content.Shared._White.Body.Organs.Metabolizer;
 using Content.Shared.Bed;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Buckle.Components;
@@ -28,6 +27,7 @@ namespace Content.Server.Bed
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
         [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
         [Dependency] private readonly IGameTiming _timing = default!;
+        [Dependency] private readonly SharedMetabolizerSystem _metabolizer = default!; // WD EDIT
 
         public override void Initialize()
         {
@@ -40,6 +40,8 @@ namespace Content.Server.Bed
             SubscribeLocalEvent<StasisBedComponent, GotEmaggedEvent>(OnEmagged);
             SubscribeLocalEvent<StasisBedComponent, RefreshPartsEvent>(OnRefreshParts);
             SubscribeLocalEvent<StasisBedComponent, UpgradeExamineEvent>(OnUpgradeExamine);
+
+            SubscribeLocalEvent<StasisBedBuckledComponent, GetMetabolicMultiplierEvent>(OnStasisGetMetabolicMultiplier); // WD EDIT
         }
 
         private void OnStrapped(Entity<HealOnBuckleComponent> bed, ref StrappedEvent args)
@@ -97,24 +99,18 @@ namespace Content.Server.Bed
 
         private void OnStasisStrapped(Entity<StasisBedComponent> bed, ref StrappedEvent args)
         {
-            if (!HasComp<BodyComponent>(args.Buckle) || !this.IsPowered(bed, EntityManager))
-                return;
-
-            var metabolicEvent = new ApplyMetabolicMultiplierEvent(args.Buckle, bed.Comp.Multiplier, true);
-            RaiseLocalEvent(args.Buckle, ref metabolicEvent);
-
-            EnsureComp<InStasisComponent>(args.Buckle);
+            // WD EDIT START
+            EnsureComp<StasisBedBuckledComponent>(args.Buckle);
+            _metabolizer.UpdateMetabolicRate(args.Buckle);
+            // WD EDIT END
         }
 
         private void OnStasisUnstrapped(Entity<StasisBedComponent> bed, ref UnstrappedEvent args)
         {
-            if (!HasComp<BodyComponent>(args.Buckle) || !this.IsPowered(bed, EntityManager))
-                return;
-
-            var metabolicEvent = new ApplyMetabolicMultiplierEvent(args.Buckle, bed.Comp.Multiplier, false);
-            RaiseLocalEvent(args.Buckle, ref metabolicEvent);
-
-            RemComp<InStasisComponent>(args.Buckle);
+            // WD EDIT START
+            RemComp<StasisBedBuckledComponent>(args.Buckle);
+            _metabolizer.UpdateMetabolicRate(args.Buckle);
+            // WD EDIT END
         }
 
         private void OnPowerChanged(EntityUid uid, StasisBedComponent component, ref PowerChangedEvent args)
@@ -145,8 +141,7 @@ namespace Content.Server.Bed
 
             foreach (var buckledEntity in strap.BuckledEntities)
             {
-                var metabolicEvent = new ApplyMetabolicMultiplierEvent(buckledEntity, component.Multiplier, shouldApply);
-                RaiseLocalEvent(buckledEntity, ref metabolicEvent);
+                _metabolizer.UpdateMetabolicRate(buckledEntity); // WD EDIT
             }
         }
 
@@ -162,5 +157,21 @@ namespace Content.Server.Bed
         {
             args.AddPercentageUpgrade("stasis-bed-component-upgrade-stasis", component.Multiplier / component.BaseMultiplier);
         }
+
+        // WD EDIT START
+        private void OnStasisGetMetabolicMultiplier(Entity<StasisBedBuckledComponent> ent, ref GetMetabolicMultiplierEvent args)
+        {
+            if (!TryComp<BuckleComponent>(ent, out var buckle) || buckle.BuckledTo is not { } buckledTo)
+                return;
+
+            if (!TryComp<StasisBedComponent>(buckledTo, out var stasis))
+                return;
+
+            if (!this.IsPowered(buckledTo, EntityManager))
+                return;
+
+            args.Multiplier *= stasis.Multiplier;
+        }
+        // WD EDIT END
     }
 }

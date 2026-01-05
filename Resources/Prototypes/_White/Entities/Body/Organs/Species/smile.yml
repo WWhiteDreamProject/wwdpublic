@@ -53,16 +53,20 @@
           Quantity: 10
   - type: Metabolizer
     maxReagents: 6
-    metabolizerTypes: [ Slime ]
-    removeEmpty: true
-    groups:
-    - id: Food
-    - id: Drink
-    - id: Medicine
-    - id: Poison
-    - id: Narcotic
-    - id: Alcohol
-      rateModifier: 0.25
+    types: [ Slime ]
+    stages:
+      Respiration:
+        solutionName: lung
+        solutionOnBody: false
+        metabolizeAll: true
+      Digestion:
+        solutionName: stomach
+        solutionOnBody: false
+        transferEfficacy: 0.5
+      Absorption:
+        solutionName: bloodstream
+      Excretion:
+        solutionName: bloodstream
 
 - type: entity
   id: OrganLungsSlime
@@ -77,7 +81,7 @@
   - type: Lung
     alert: LowNitrogen
   - type: Metabolizer
-    metabolizerTypes: [ Slime ]
+    types: [ Slime ]
   - type: SolutionContainerManager
     solutions:
       organ:

@@ -1,4 +1,4 @@
-using Content.Shared._White.Medical.Wounds.Systems;
+using Content.Shared._White.Body.Wounds.Systems;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.FixedPoint;
 using Content.Shared.Mobs;

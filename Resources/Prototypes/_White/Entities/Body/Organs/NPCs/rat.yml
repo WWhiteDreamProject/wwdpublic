@@ -4,7 +4,7 @@
   name: rat lungs
   components:
   - type: Metabolizer
-    metabolizerTypes: [ Rat ]
+    types: [ Rat ]
 
 - type: entity
   id: OrganStomachRat

@@ -1,7 +1,6 @@
 using System.Linq;
+using Content.Server._White.Body.Organs.Stomach;
 using Content.Server._White.Body.Systems;
-using Content.Server.Body.Components;
-using Content.Server.Body.Systems;
 using Content.Server.Inventory;
 using Content.Server.Nutrition.Components;
 using Content.Server.Popups;
@@ -223,6 +222,7 @@ public sealed class FoodSystem : EntitySystem
             NeedHand = forceFeed || _hands.IsHolding(user, food),
         };
 
+        _doAfter.TryStartDoAfter(doAfterArgs);
         return (true, true);
     }
 
@@ -264,14 +264,16 @@ public sealed class FoodSystem : EntitySystem
         foreach (var ent in stomachs)
         {
             var owner = ent.Owner;
-            if (!_stomach.CanTransferSolution(owner, split, ent.Comp2)) // WD EDIT
-                continue;
-
-            if (!_solutionContainer.ResolveSolution(owner, StomachSystem.DefaultSolutionName, ref ent.Comp2.Solution, out var stomachSol)) // WD EDIT
+            if (!_solutionContainer.ResolveSolution(owner, ent.Comp2.SolutionName, ref ent.Comp2.Solution, out var stomachSol)) // WD EDIT
                 continue;
 
             if (stomachSol.AvailableVolume <= highestAvailable)
                 continue;
+
+            // WD EDIT START
+            if (!IsDigestibleBy(ent, entity, entity))
+                continue;
+            // WD EDIT END
 
             stomachToUse = (ent, ent.Comp2); // WD EDIT
             highestAvailable = stomachSol.AvailableVolume;
@@ -286,7 +288,7 @@ public sealed class FoodSystem : EntitySystem
         }
 
         _reaction.DoEntityReaction(args.Target.Value, solution, ReactionMethod.Ingestion);
-        _stomach.TryTransferSolution(stomachToUse!.Value.Owner, split, stomachToUse);
+        _stomach.TryTransferSolution((stomachToUse.Value.Owner, stomachToUse.Value.Comp), split); // WD EDIT
 
         var flavors = args.FlavorMessage;
 

@@ -8,6 +8,7 @@
   - type: PainfulWound
     painCoefficients: 0.8
     freshPainCoefficients: 0.6
+  - type: BleedingWound
 
 - type: entity
   id: WoundSlash
@@ -19,6 +20,9 @@
   - type: PainfulWound
     painCoefficients: 0.8
     freshPainCoefficients: 0.6
+  - type: BleedingWound
+    bleedingCoefficient: 0.1
+    bleedingDurationCoefficient: 2
 
 - type: entity
   id: WoundPiercing
@@ -30,6 +34,9 @@
   - type: PainfulWound
     painCoefficients: 0.8
     freshPainCoefficients: 0.6
+  - type: BleedingWound
+    bleedingCoefficient: 0.1
+    bleedingDurationCoefficient: 2
 
 - type: entity
   id: WoundHeat

@@ -1,10 +1,11 @@
+using Content.Server._White.Body.Bloodstream.Systems;
+using Content.Server._White.Body.Organs.Stomach;
 using Content.Server._White.Body.Systems;
-using Content.Server.Body.Components;
-using Content.Server.Body.Systems;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Forensics;
 using Content.Server.Popups;
 using Content.Server.Stunnable;
+using Content.Shared._White.Body.Bloodstream.Components;
 using Content.Shared._White.Body.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Components;
@@ -63,7 +64,7 @@ namespace Content.Server.Medical
             // Empty the stomach out into it
             foreach (var stomach in stomachList)
             {
-                if (_solutionContainer.ResolveSolution(stomach.Owner, StomachSystem.DefaultSolutionName, ref stomach.Comp2.Solution, out var sol)) // WD EDIT
+                if (_solutionContainer.ResolveSolution(stomach.Owner, stomach.Comp2.SolutionName, ref stomach.Comp2.Solution, out var sol)) // WD EDIT
                 {
                     solution.AddSolution(sol, _proto);
                     sol.RemoveAllSolution();
@@ -78,14 +79,16 @@ namespace Content.Server.Medical
                 var vomitAmount = solutionSize;
 
                 // Takes 10% of the chemicals removed from the chem stream
-                if (_solutionContainer.ResolveSolution(uid, bloodStream.ChemicalSolutionName, ref bloodStream.ChemicalSolution))
-                {
-                    var vomitChemstreamAmount = _solutionContainer.SplitSolution(bloodStream.ChemicalSolution.Value, vomitAmount);
-                    vomitChemstreamAmount.ScaleSolution(chemMultiplier);
-                    solution.AddSolution(vomitChemstreamAmount, _proto);
+                // WD EDIT START
+                var chemicalSolution = _bloodstream.FlushChemicals((uid, bloodStream), vomitAmount);
 
-                    vomitAmount -= (float)vomitChemstreamAmount.Volume;
+                if (chemicalSolution != null)
+                {
+                    chemicalSolution.ScaleSolution(chemMultiplier);
+                    solution.AddSolution(chemicalSolution, _proto);
+                    vomitAmount -= (float)chemicalSolution.Volume;
                 }
+                // WD EDIT end
 
                 // Makes a vomit solution the size of 90% of the chemicals removed from the chemstream
                 solution.AddReagent(new ReagentId("Vomit", _bloodstream.GetEntityBloodData(uid)), vomitAmount); // TODO: Dehardcode vomit prototype

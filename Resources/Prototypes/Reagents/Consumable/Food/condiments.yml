@@ -8,7 +8,7 @@
   color: aquamarine
   recognizable: true
   metabolisms:
-    Food:
+    Digestion: # WD EDIT
       effects:
         - !type:ChemAddMoodlet
           moodPrototype: SweetenerEffect
@@ -23,7 +23,7 @@
   color: darkred
   recognizable: true
   metabolisms:
-    Food:
+    Digestion: # WD EDIT
       effects:
         - !type:ChemAddMoodlet
           moodPrototype: SweetenerEffect
@@ -52,7 +52,7 @@
   flavor: cold
   color: skyblue
   metabolisms:
-    Food:
+    Digestion: # WD EDIT
       effects:
         - !type:ChemAddMoodlet
           moodPrototype: MintyEffect
@@ -67,7 +67,7 @@
   color: gray
   recognizable: true
   metabolisms:
-    Food:
+    Digestion: # WD EDIT
       effects:
         - !type:ChemAddMoodlet
           moodPrototype: SpicyEffect
@@ -82,7 +82,7 @@
   color: red
   recognizable: true
   metabolisms:
-    Food:
+    Digestion: # WD EDIT
       effects:
         - !type:ChemAddMoodlet
           moodPrototype: SpicyEffect
@@ -97,7 +97,7 @@
   color: red
   recognizable: true
   metabolisms:
-    Food:
+    Digestion: # WD EDIT
       effects:
         - !type:ChemAddMoodlet
           moodPrototype: SweetenerEffect
@@ -112,7 +112,7 @@
   color: "#fba399"
   recognizable: true
   metabolisms:
-    Food:
+    Digestion: # WD EDIT
       effects:
         - !type:ChemAddMoodlet
           moodPrototype: SweetenerEffect
@@ -127,7 +127,7 @@
   color: "#803280"
   recognizable: true
   metabolisms:
-    Food:
+    Digestion: # WD EDIT
       effects:
         - !type:ChemAddMoodlet
           moodPrototype: SweetenerEffect
@@ -142,7 +142,7 @@
   color: "#f9f5e5"
   recognizable: true
   metabolisms:
-    Food:
+    Digestion: # WD EDIT
       effects:
         - !type:ChemAddMoodlet
           moodPrototype: SweetenerEffect
@@ -157,7 +157,7 @@
   color: "#ffdb58"
   recognizable: true
   metabolisms:
-    Food:
+    Digestion: # WD EDIT
       effects:
         - !type:ChemAddMoodlet
           moodPrototype: SweetenerEffect
@@ -172,7 +172,7 @@
   color: "#efdaae"
   recognizable: true
   metabolisms:
-    Food:
+    Digestion: # WD EDIT
       effects:
         - !type:ChemAddMoodlet
           moodPrototype: SweetenerEffect
@@ -187,7 +187,7 @@
   color: saddlebrown
   recognizable: true
   metabolisms:
-    Food:
+    Digestion: # WD EDIT
       effects:
       - !type:SatiateHunger
         factor: 0.5
@@ -221,7 +221,7 @@
   - !type:PlantAdjustHealth
     amount: -2
   metabolisms:
-    Food:
+    Digestion: # WD EDIT
       effects:
       # eating salt on its own kinda sucks, kids
       - !type:SatiateThirst
@@ -243,7 +243,7 @@
   tileReactions:
     - !type:SpillTileReaction
   metabolisms:
-    Food:
+    Digestion: # WD EDIT
       # 12 diona blood for 1 unit of syrup, this stuff better be worthwhile.
       effects:
       - !type:SatiateHunger

@@ -7,7 +7,7 @@
   flavor: medicine
   color: "#081a80"
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       metabolismRate: 0.1
       effects:
       - !type:GenericStatusEffect
@@ -38,7 +38,7 @@
   flavor: medicine
   color: "#3a1d8a"
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         damage:
@@ -87,7 +87,7 @@
   flavor: medicine
   color: "#64ffe6"
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       effects:
       - !type:AdjustReagent
         reagent: Histamine
@@ -110,7 +110,7 @@
   flavor: medicine
   color: "#2d5708"
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       effects:
       - !type:GenericStatusEffect
         key: Drunk
@@ -130,7 +130,7 @@
   flavor: medicine
   color: "#bd5902"
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         damage:
@@ -150,7 +150,7 @@
   flavor: medicine
   color: "#ffaa00"
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         damage:
@@ -193,7 +193,7 @@
     amount: 5
   - !type:PlantCryoxadone {}
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         conditions:
@@ -217,7 +217,7 @@
   color: "#32cd32"
   worksOnTheDead: true
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         conditions:
@@ -239,7 +239,7 @@
   flavor: medicine
   color: "#215263"
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         damage:
@@ -271,7 +271,7 @@
   flavor: medicine
   color: "#0041a8"
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         damage:
@@ -296,7 +296,7 @@
   flavor: medicine
   color: "#4da0bd"
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         damage:
@@ -329,7 +329,7 @@
   flavor: medicine
   color: "#d2fffa"
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         conditions:
@@ -399,7 +399,7 @@
   flavor: medicine
   color: "#4cb580"
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         damage:
@@ -428,7 +428,7 @@
   flavor: medicine
   color: "#422912"
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       effects:
       - !type:ChemVomit
         conditions:
@@ -445,7 +445,7 @@
   flavor: medicine
   color: "#731024"
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         conditions:
@@ -469,7 +469,7 @@
   flavor: medicine
   color: "#bf3d19"
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         damage:
@@ -504,7 +504,7 @@
   flavor: medicine
   color: "#ff7db5"
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         damage:
@@ -538,7 +538,7 @@
   flavor: medicine
   color: "#ff867d"
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         probability: 0.3
@@ -589,7 +589,7 @@
     - !type:ReagentThreshold
       min: 4
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         damage:
@@ -608,7 +608,7 @@
   flavor: violets
   color: "#9423FF"
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         damage:
@@ -635,7 +635,7 @@
   flavor: medicine
   color: "#86caf7"
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       effects:
       - !type:CureZombieInfection
         conditions:
@@ -656,7 +656,7 @@
   flavor: medicine
   color: "#1274b5"
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       effects:
       - !type:CureZombieInfection
         innoculate: true
@@ -678,7 +678,7 @@
   flavor: medicine
   color: "#FFE774"
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       effects:
       - !type:ModifyBleedAmount
         amount: -0.5
@@ -692,7 +692,7 @@
   flavor: salty
   color: "#0064C8"
   metabolisms:
-    Drink:
+    Digestion: # WD EDIT
       effects:
       - !type:SatiateThirst
         factor: 6
@@ -708,7 +708,7 @@
   flavor: medicine
   color: "#f4dab8"
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         damage:
@@ -724,7 +724,7 @@
   flavor: medicine
   color: "#2b2f77"
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         damage:
@@ -747,7 +747,7 @@
   flavor: medicine
   color: "#d49a2f"
   metabolisms:
-    Poison:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         damage:
@@ -780,7 +780,7 @@
   flavor: medicine
   color: "#ba7d7d"
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       effects:
       # Medium-large quantities can hurt you instead,
       # but still technically stop your bleeding.
@@ -803,7 +803,7 @@
   flavor: medicine
   color: "#00e5ff"
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         conditions:
@@ -830,7 +830,7 @@
   flavor: medicine
   color: "#2690b5"
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       effects:
       # what the hell, this isn't satiating at all!!
       - !type:SatiateHunger
@@ -846,7 +846,7 @@
   flavor: medicine
   color: "#fcf7f9"
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         damage:
@@ -865,7 +865,7 @@
   flavor: medicine
   color: "#520e30"
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         conditions:
@@ -908,7 +908,7 @@
   flavor: medicine
   color: "#404040"
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       effects:
       - !type:ChemHealEyeDamage
 
@@ -921,7 +921,7 @@
   flavor: magical
   color: "#b50ee8"
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       effects:
       - !type:MakeSentient
         conditions:
@@ -937,7 +937,7 @@
   flavor: medicine
   color: "#d5d5e4"
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       effects:
       - !type:Jitter
       - !type:GenericStatusEffect
@@ -966,7 +966,7 @@
   flavor: medicine
   color: "#b0abaa"
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       effects:
       - !type:GenericStatusEffect
         key: Drowsiness
@@ -991,7 +991,7 @@
   flavor: sweet
   color: "#e0a5b9"
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         damage:
@@ -1031,7 +1031,7 @@
   flavor: syrupy
   color: "#283332"
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         damage:
@@ -1056,7 +1056,7 @@
   flavor: fizzy
   color: "#b9bf93"
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         damage:
@@ -1082,7 +1082,7 @@
   flavor: sour
   color: "#ff3636"
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         damage:
@@ -1109,11 +1109,11 @@
   boilingPoint: 100.0
   meltingPoint: 0.0
   metabolisms: #Could nullify debuffs of feeding.
-    Drink:
+    Digestion: # WD EDIT
       effects:
       - !type:SatiateThirst
         factor: 3
-    Medicine:
+    Absorption: # WD EDIT
       effects:
       - !type:ModifyBloodLevel
         amount: 0.1
@@ -1163,7 +1163,7 @@
   flavor: syrupy
   color: "#aa4308"
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       metabolismRate: 0.1 # slow metabolism to not be a godly combat med, its for treating burn victims efficiently
       effects:
       - !type:HealthChange
@@ -1200,7 +1200,7 @@
   flavor: metallic
   color: "#8147ff"
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       effects:
       # heals shocks and removes shock chems
       - !type:HealthChange
@@ -1244,7 +1244,7 @@
   color: "#b5e36d"
   worksOnTheDead: true
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       effects:
       - !type:ReduceRotting
         seconds: 20
@@ -1273,7 +1273,7 @@
     amount: 5
   - !type:PlantCryoxadone {}
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         conditions:
@@ -1293,7 +1293,7 @@
   color: "#89f77f"
   worksOnTheDead: true
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         conditions:
@@ -1316,7 +1316,7 @@
   flavor: sweet
   color: "#A0A0A0"
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       effects:
       - !type:PopupMessage
         conditions:
@@ -1336,7 +1336,7 @@
   flavor: bitter
   color: "#07E79E"
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         conditions:
@@ -1374,7 +1374,7 @@
   flavor: medicine
   color: "#baa15d"
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       effects:
       - !type:GenericStatusEffect
         key: RadiationProtection
@@ -1399,7 +1399,7 @@
   flavor: medicine
   color: "#27870a"
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       effects:
       - !type:Emote
         emote: Yawn
@@ -1453,7 +1453,7 @@
   flavor: medicine
   color: "#382766"
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       effects:
       - !type:ModifyBleedAmount
         conditions:

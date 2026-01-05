@@ -33,7 +33,7 @@
   parent: [BaseOrganAnimal, BaseOrganLungs]
   components:
   - type: Metabolizer
-    metabolizerTypes: [ Animal ]
+    types: [ Animal ]
   - type: SolutionContainerManager
     solutions:
       organ:
@@ -67,18 +67,18 @@
         - ReagentId: UncookedAnimalProteins
           Quantity: 5
   - type: Metabolizer
-    metabolizerTypes: [ Animal ]
+    types: [ Animal ]
 
 - type: entity
   id: OrganLiverAnimal
   parent: [BaseOrganAnimal, BaseOrganLiver]
   components:
   - type: Metabolizer
-    metabolizerTypes: [ Animal ]
+    types: [ Animal ]
 
 - type: entity
   id: OrganKidneysAnimal
   parent: [BaseOrganAnimal, BaseOrganKidneys]
   components:
   - type: Metabolizer
-    metabolizerTypes: [ Animal ]
+    types: [ Animal ]

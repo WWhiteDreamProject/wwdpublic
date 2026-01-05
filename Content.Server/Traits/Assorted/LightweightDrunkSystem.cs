@@ -1,6 +1,4 @@
-using Content.Server.Body.Components;
-using Content.Server.Body.Systems;
-using Content.Shared.Chemistry.Reagent;
+using Content.Server._White.Body.Organs.Metabolizer;
 using Content.Shared.Traits.Assorted.Components;
 
 namespace Content.Shared.Traits.Assorted.Systems;

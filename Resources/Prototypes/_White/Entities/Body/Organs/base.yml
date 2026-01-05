@@ -13,8 +13,8 @@
     - Slash
     - Piercing
     organStatusThresholds:
-      100: Healthy
-      75: Bruised
+      90: Healthy
+      70: Bruised
       50: Damaged
       25: Critical
       0: Dead
@@ -36,6 +36,17 @@
   - type: InputMover
   - type: Examiner
   - type: BlockMovement
+  - type: WoundableOrgan
+    health: 120
+    maximumHealth: 120
+    organStatusThresholds:
+      110: Healthy
+      80: Bruised
+      55: Damaged
+      30: Critical
+      0: Dead
+  - type: RespiratorСonsumer
+    saturationConsumption: 0.004
 
 - type: entity
   id: BaseOrganHeart
@@ -48,6 +59,25 @@
     state: heart-on
   - type: Organ
     organType: Heart
+  - type: WoundableOrgan
+    health: 120
+    maximumHealth: 120
+    organStatusThresholds:
+      110: Healthy
+      80: Bruised
+      55: Damaged
+      30: Critical
+      0: Dead
+  - type: RespiratorСonsumer
+    saturationConsumption: 0.002
+    damageThreshold: 0.2
+  - type: Heart
+    strainDamageChanceThresholds:
+      0.1: 0
+      0.25: 0.001
+      0.5: 0.005
+      0.75: 0.01
+      1: 0.02
 
 - type: entity
   id: BaseOrganEyes
@@ -121,18 +151,20 @@
     organType: Lungs
   - type: Lung
   - type: Metabolizer
-    removeEmpty: true
-    solutionOnBody: false
-    solution: "lung"
-    metabolizerTypes: [ Human ]
-    groups:
-    - id: Gas
-      rateModifier: 100.0
+    types: [ Human ]
+    updateInterval: 0
+    stages:
+      Respiration:
+        solutionName: lung
+        solutionOnBody: false
+        metabolizeAll: true
   - type: SolutionContainerManager
     solutions:
       lung:
         maxVol: 100.0
         canReact: false
+  - type: RespiratorСonsumer
+    saturationConsumption: 0.001
 
 - type: entity
   id: BaseOrganStomach
@@ -152,10 +184,17 @@
         maxVol: 50
   - type: Metabolizer
     maxReagents: 3
-    metabolizerTypes: [Human]
+    types: [Human]
+    stages:
+      Digestion:
+        solutionName: stomach
+        solutionOnBody: false
+        transferEfficacy: 0.5
     groups:
     - id: Food
     - id: Drink
+  - type: RespiratorСonsumer
+    saturationConsumption: 0.001
 
 - type: entity
   id: BaseOrganLiver
@@ -170,14 +209,12 @@
     organType: Liver
   - type: Metabolizer
     maxReagents: 10
-    metabolizerTypes: [Human]
-    groups:
-    - id: Medicine
-    - id: Narcotic
-    - id: Poison
-      rateModifier: 0.5
-    - id: Alcohol
-      rateModifier: 0.1
+    types: [Human]
+    stages:
+      Absorption:
+        solutionName: bloodstream
+  - type: RespiratorСonsumer
+    saturationConsumption: 0.001
 
 - type: entity
   id: BaseOrganKidneys
@@ -194,11 +231,12 @@
     organType: Kidneys
   - type: Metabolizer
     maxReagents: 5
-    metabolizerTypes: [Human]
-    removeEmpty: true
-    groups:
-    - id: Poison
-      rateModifier: 0.5
+    types: [Human]
+    stages:
+      Excretion:
+        solutionName: bloodstream
+  - type: RespiratorСonsumer
+    saturationConsumption: 0.001
 
 - type: entity
   id: BaseOrganGland

@@ -10,4 +10,4 @@
       - Crayon
       - Paper
   - type: Metabolizer
-    metabolizerTypes: [ Xelthia ]
+    types: [ Xelthia ]

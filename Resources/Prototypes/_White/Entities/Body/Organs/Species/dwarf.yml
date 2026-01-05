@@ -3,7 +3,7 @@
   parent: OrganLiverHuman
   components:
   - type: Metabolizer
-    metabolizerTypes: [Dwarf, LiquorLifeline]
+    types: [Dwarf, LiquorLifeline]
 
 - type: entity
   id: OrganStomachDwarf
@@ -20,4 +20,4 @@
           Quantity: 5
   - type: Metabolizer
     maxReagents: 5
-    metabolizerTypes: [Dwarf]
+    types: [Dwarf]

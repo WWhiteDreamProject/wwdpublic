@@ -75,7 +75,7 @@
     layers:
     - state: plasma_vessel
   - type: Metabolizer
-    metabolizerTypes: [ Xenomorph ]
+    types: [ Xenomorph ]
   - type: SolutionContainerManager
     solutions:
       organ:
@@ -173,7 +173,7 @@
         - ReagentId: SulfuricAcid
           Quantity: 2
   - type: Metabolizer
-    metabolizerTypes: [Xenomorph]
+    types: [Xenomorph]
 
 - type: entity
   id: OrganLiverXenomorph
@@ -182,7 +182,7 @@
   description: A liver that used to belong to a killer alien, who knows what it used to eat.
   components:
   - type: Metabolizer
-    metabolizerTypes: [Xenomorph]
+    types: [Xenomorph]
 
 - type: entity
   id: OrganGlandAcidXenomorph
