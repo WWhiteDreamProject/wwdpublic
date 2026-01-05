@@ -26,7 +26,7 @@
   components:
   - type: Sprite
     sprite: _White/Structures/Wallmounts/Signs/32x32.rsi
-    state: arrivals
+    state: anchor
 
 - type: entity
   parent: BaseSign
