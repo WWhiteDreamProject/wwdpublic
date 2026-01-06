@@ -1,5 +1,5 @@
 ﻿global-antagonist-wizard-name = Маг
-global-antagonist-wizard-description = Старый сумашедший из Федерации Магов, обученный смертельным заклинаниям.
+global-antagonist-wizard-description = Старый сумасшедший из Федерации Магов, обученный смертельным заклинаниям.
 
 global-antagonist-nukeops-name = Ядерный оперативник
 global-antagonist-nukeops-description = Элитный наемник Синдиката.
@@ -22,7 +22,7 @@ global-antagonist-revenant-description = Призрачное существо �
 global-antagonist-slime-name = Слизень
 global-antagonist-slime-description = Голодный сгусток чего-то одновременно твердого и жидкого.
 
-global-antagonist-spider-name = Гигансткий паук
+global-antagonist-spider-name = Гигантский паук
 global-antagonist-spider-description = Соразмерный с человеком агрессивный паук.
 
 global-antagonist-spider-clown-name = Гигантский хонк-паук

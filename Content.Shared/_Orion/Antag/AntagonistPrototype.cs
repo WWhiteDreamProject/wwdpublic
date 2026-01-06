@@ -14,13 +14,13 @@ public sealed partial class AntagonistPrototype : IPrototype
     public string Name = default!;
 
     /// <summary>
-    ///     Description string to display in the character menu as an explanation of the department's function.
+    ///     Description string to display in the ghost teleport menu as an explanation of the antagonist's role.
     /// </summary>
     [DataField(required: true)]
     public string Description = default!;
 
     /// <summary>
-    ///     Description string to display in the character menu as an explanation of the department's function.
+    ///     Weight value for sorting antagonists in the ghost teleport menu. Higher values appear first.
     /// </summary>
     [DataField(required: true)]
     public int Weight;

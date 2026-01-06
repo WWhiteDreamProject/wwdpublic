@@ -333,21 +333,7 @@ namespace Content.Server.Ghost
                 return;
             }
 
-//            WarpTo(attached, target); // Orion-Edit: Removed
-
-            _adminLog.Add(LogType.GhostWarp, $"{ToPrettyString(attached)} ghost warped to {ToPrettyString(target)}");
-
-            if ((TryComp(target, out WarpPointComponent? warp) && warp.Follow) || HasComp<MobStateComponent>(target))
-            {
-                _followerSystem.StartFollowingEntity(attached, target);
-                return;
-            }
-
-            var xform = Transform(attached);
-            _transformSystem.SetCoordinates(attached, xform, Transform(target).Coordinates);
-            _transformSystem.AttachToGridOrMap(attached, xform);
-            if (TryComp(attached, out PhysicsComponent? physics))
-                _physics.SetLinearVelocity(attached, Vector2.Zero, body: physics);
+            WarpTo(attached, target);
         }
 
         private void OnGhostnadoRequest(GhostnadoRequestEvent msg, EntitySessionEventArgs args)
@@ -390,7 +376,7 @@ namespace Content.Server.Ghost
 
             while (allQuery.MoveNext(out var uid, out var warp))
             {
-                var newWarp =  new GhostWarpPlace(GetNetEntity(uid), warp.Location ?? Name(uid), warp.Location ?? Description(uid));
+                var newWarp =  new GhostWarpPlace(GetNetEntity(uid), warp.Location ?? Name(uid), Description(uid));
                 warps.Add(newWarp);
             }
 
@@ -492,10 +478,12 @@ namespace Content.Server.Ghost
         {
             var warps = new List<GhostWarpGlobalAntagonist>();
 
-            foreach (var antagonist in EntityQuery<GlobalAntagonistComponent>())
+            var query = EntityQueryEnumerator<GlobalAntagonistComponent>(); // WWDP EDIT
+
+            while (query.MoveNext(out var entity, out var antagonist)) // WWDP EDIT
             {
-                var entity = antagonist.Owner;
-                var prototype = _prototypeManager.Index<AntagonistPrototype>(antagonist.AntagonistPrototype ?? "globalAntagonistUnknown");
+                if(!_prototypeManager.TryIndex(antagonist.AntagonistPrototype, out var prototype))
+                    continue;
 
                 var warp = new GhostWarpGlobalAntagonist(
                     GetNetEntity(entity),

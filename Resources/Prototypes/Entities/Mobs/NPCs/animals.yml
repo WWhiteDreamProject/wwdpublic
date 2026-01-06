@@ -2852,9 +2852,6 @@
   - MobSpiderAngryBase
   - MobGiantSpider
   id: MobGiantSpiderAngry
-  components: # Orion
-  - type: GlobalAntagonist
-    antagonistPrototype: globalAntagonistSpider
 
 - type: entity
   name: clown spider

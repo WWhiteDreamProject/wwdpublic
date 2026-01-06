@@ -227,6 +227,7 @@ public sealed class MindSystem : SharedMindSystem
         var oldEntity = mind.OwnedEntity;
         if (TryComp(oldEntity, out MindContainerComponent? oldContainer))
         {
+            oldContainer.LastMindStored = oldContainer.Mind; // WWDP EDIT
             oldContainer.Mind = null;
             mind.OwnedEntity = null;
             Entity<MindComponent> mindEnt = (mindId, mind);

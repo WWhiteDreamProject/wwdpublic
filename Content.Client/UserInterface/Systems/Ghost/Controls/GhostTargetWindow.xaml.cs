@@ -429,13 +429,23 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
             return departmentPrototype.Weight;
         }
 
+        private int GetAntagWeights(GhostWarpGlobalAntagonist antag)
+        {
+            if (!_prototypeManager.TryIndex<AntagonistPrototype>(antag.PrototypeID, out var antagonistPrototype))
+            {
+                Logger.Error($"Error while getting {antag.Name} weights antag {antag.PrototypeID}");
+                return 0;
+            }
+            return antagonistPrototype.Weight;
+        }
+
         public List<List<GhostWarpGlobalAntagonist>> SortAntagsByWeight(List<GhostWarpGlobalAntagonist> antagonists)
         {
             if (antagonists.Count == 0)
                 return new List<List<GhostWarpGlobalAntagonist>>();
 
             return antagonists
-                .GroupBy(a => _prototypeManager.Index<AntagonistPrototype>(a.PrototypeID).Weight)
+                .GroupBy(GetAntagWeights)
                 .OrderBy(g => g.Key)
                 .Select(g => g.ToList())
                 .ToList();

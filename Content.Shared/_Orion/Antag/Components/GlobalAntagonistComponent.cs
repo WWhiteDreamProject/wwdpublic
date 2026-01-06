@@ -1,4 +1,5 @@
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Shared._Orion.Antag.Components;
@@ -6,6 +7,6 @@ namespace Content.Shared._Orion.Antag.Components;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class GlobalAntagonistComponent : Component
 {
-    [DataField(required: true, customTypeSerializer: typeof(PrototypeIdSerializer<AntagonistPrototype>))]
-    public string? AntagonistPrototype;
+    [DataField] // WWDP EDIT
+    public ProtoId<AntagonistPrototype> AntagonistPrototype = "globalAntagonistUnknown"; // WWDP EDIT
 }
