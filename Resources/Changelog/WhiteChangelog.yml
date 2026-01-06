@@ -4906,3 +4906,10 @@ Entries:
   id: 515
   time: '2026-01-04T21:33:01.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1001
+- author: Cinkafox
+  changes:
+    - type: Add
+      message: Добавлена менюшка выбора рас
+  id: 516
+  time: '2026-01-06T13:57:29.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1009
