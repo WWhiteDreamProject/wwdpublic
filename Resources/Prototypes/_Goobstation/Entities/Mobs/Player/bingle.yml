@@ -92,6 +92,8 @@
     activateSound: null
     deactivateSound: null
   - type: FlashImmunity
+  - type: GlobalAntagonist # Orion
+    antagonistPrototype: globalAntagonistBingle
 
 - type: entity
   id: MobBinglePrime

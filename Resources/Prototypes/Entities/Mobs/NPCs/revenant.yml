@@ -113,3 +113,5 @@
   - type: Tag
     tags:
     - NoPaint
+  - type: GlobalAntagonist # Orion
+    antagonistPrototype: globalAntagonistRevenant

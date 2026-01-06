@@ -98,6 +98,8 @@
     raffle:
       settings: default
   - type: GhostTakeoverAvailable
+  - type: GlobalAntagonist # Orion
+    antagonistPrototype: globalAntagonistXenomorph
 
 - type: entity
   parent: [BaseMobXenomorphDungeon, BaseMobXenomorphQueen]

@@ -62,6 +62,8 @@
         requireInputValidation: false
       enum.SurgeryUIKey.Key:
         type: SurgeryBui
+  - type: GlobalAntagonist # Orion
+    antagonistPrototype: globalAntagonistXenomorph
 
 - type: entity
   parent: [BaseMobXenomorphDungeon, BaseMobXenomorphDrone]

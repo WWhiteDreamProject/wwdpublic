@@ -2246,6 +2246,8 @@
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Zombie
+  - type: GlobalAntagonist # Orion
+    antagonistPrototype: globalAntagonistBlob
 
 - type: entity
   name: lizard #Weh
@@ -2803,6 +2805,8 @@
     raffle:
       settings: short
   - type: GhostTakeoverAvailable
+  - type: GlobalAntagonist # Orion
+    antagonistPrototype: globalAntagonistSpider
 
 - type: entity
   name: tarantula
@@ -2848,6 +2852,9 @@
   - MobSpiderAngryBase
   - MobGiantSpider
   id: MobGiantSpiderAngry
+  components: # Orion
+  - type: GlobalAntagonist
+    antagonistPrototype: globalAntagonistSpider
 
 - type: entity
   name: clown spider
@@ -2896,6 +2903,8 @@
   - type: Bloodstream
     bloodMaxVolume: 150
     bloodReagent: Laughter
+  - type: GlobalAntagonist # Orion
+    antagonistPrototype: globalAntagonistSpiderClown
 
 - type: entity
   name: wizard spider
@@ -2908,6 +2917,8 @@
     removes:
     - type: ReplacementAccent
       accent: xeno  #let this wizard speak
+  - type: GlobalAntagonist # Orion
+    antagonistPrototype: globalAntagonistSpider
 
 - type: entity
   name: possum

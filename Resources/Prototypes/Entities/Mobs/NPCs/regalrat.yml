@@ -140,6 +140,8 @@
     color: "#808080"
     activateSound: null
     deactivateSound: null
+  - type: GlobalAntagonist # Orion
+    antagonistPrototype: globalAntagonistRats
 
 - type: entity
   id: MobRatKingBuff
@@ -177,6 +179,8 @@
     guides:
     - MinorAntagonists
   - type: Fauna # Lavaland Change
+  - type: GlobalAntagonist # Orion
+    antagonistPrototype: globalAntagonistRats
 
 - type: entity
   name: rat servant

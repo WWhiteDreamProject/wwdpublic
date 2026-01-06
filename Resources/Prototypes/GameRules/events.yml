@@ -241,6 +241,8 @@
         nameSegments:
         - names_ninja_title
         - names_ninja
+      - type: GlobalAntagonist # Orion
+        antagonistPrototype: globalAntagonistNinja
       mindRoles:
       - MindRoleNinja
   - type: DynamicRuleCost
@@ -476,6 +478,8 @@
       - type: ZombifyOnDeath
       - type: IncurableZombie
       - type: InitialInfected
+      - type: GlobalAntagonist # Orion
+        antagonistPrototype: globalAntagonistZombie
       mindRoles:
       - MindRoleInitialInfected
   - type: DynamicRuleCost
@@ -503,6 +507,8 @@
       pickPlayer: false
       startingGear: SyndicateLoneOperativeGearFull
       components:
+      - type: GlobalAntagonist # Orion
+        antagonistPrototype: globalAntagonistLoneops
       - type: NukeOperative
       - type: RandomMetadata
         nameSegments:
