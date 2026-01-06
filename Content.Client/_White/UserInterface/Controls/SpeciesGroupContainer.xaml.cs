@@ -27,6 +27,8 @@ public sealed partial class SpeciesGroupContainer : Control
 
     public void Initialize(SpeciesDictionaryGroupPrototype group)
     {
+        Clear();
+
         GroupLabel.Text = Loc.GetString($"species-window-group-{group.ID.ToLower()}");
         foreach (var species in _prototypeManager.EnumeratePrototypes<SpeciesDictionaryPrototype>())
         {
