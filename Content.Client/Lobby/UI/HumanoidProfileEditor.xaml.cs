@@ -619,6 +619,7 @@ namespace Content.Client.Lobby.UI
 
             ReloadPreview();
             InitializeCharacterMenu(); // WWDP EDIT
+            InitializeSpeciesSelection(); // WWDP EDIT;
             IsDirty = false;
         }
 
