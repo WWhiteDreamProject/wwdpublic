@@ -5,7 +5,6 @@
   color: "#A46106"
   # Orion-Start
   weight: -5
-  buttonStyle: ButtonColorCargoDepartment
   # Orion-End
   roles:
   - CargoTechnician
@@ -20,7 +19,6 @@
   color: "#9FED58"
   # Orion-Start
   weight: -4
-  buttonStyle: ButtonColorCivilianDepartment
   # Orion-End
   roles:
   - Bartender
@@ -49,7 +47,6 @@
   color: "#0c344d"
   # Orion-Start
   weight: -1
-  buttonStyle: ButtonColorCentralCommandDepartment
   # Orion-End
   roles:
   - CentralCommandOfficial
@@ -71,7 +68,6 @@
   color: "#334E6D"
   # Orion-Start
   weight: -2
-  buttonStyle: ButtonColorCommandDepartment
   # Orion-End
   roles:
   - Captain
@@ -117,7 +113,6 @@
   color: "#EFB341"
   # Orion-Start
   weight: -6
-  buttonStyle: ButtonColorEngineeringDepartment
   # Orion-End
   roles:
   - AtmosphericTechnician
@@ -133,7 +128,6 @@
   color: "#52B4E9"
   # Orion-Start
   weight: -7
-  buttonStyle: ButtonColorMedicalDepartment
   # Orion-End
   roles:
   - Chemist
@@ -152,7 +146,6 @@
   color: "#DE3A3A"
   # Orion-Start
   weight: -3
-  buttonStyle: ButtonColorSecurityDepartment
   # Orion-End
   roles:
   - HeadOfSecurity
@@ -172,7 +165,6 @@
   color: "#D381C9"
   # Orion-Start
   weight: -8
-  buttonStyle: ButtonColorScienceDepartment
   # Orion-End
   roles:
   - ResearchDirector
@@ -191,7 +183,6 @@
   color: "#D381C9"
   # Orion-Start
   weight: -9
-  buttonStyle: ButtonColorSiliconDepartment
   # Orion-End
   roles:
   - Borg
@@ -201,10 +192,9 @@
   id: Specific
   name: department-Specific
   description: department-Specific-description
-  color: "#9FED58"
+  color: "#0a2b42"
   # Orion-Start
   weight: -42
-  buttonStyle: ButtonColorSpecificDepartment
   # Orion-End
   roles:
   - Boxer

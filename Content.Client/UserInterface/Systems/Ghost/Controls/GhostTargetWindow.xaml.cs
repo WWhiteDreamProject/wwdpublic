@@ -1,4 +1,6 @@
 using System.Linq;
+using Content.Client._White.UserInterface.Controls;
+using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Controls;
 using Content.Shared._Orion.Antag;
 using Content.Shared.Ghost;
@@ -18,6 +20,13 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
 /* // Orion-Edit: Removed
         private List<(string, NetEntity)> _warps = new();
 */
+
+        // WWDP EDIT START
+        public static readonly Color AntagonistButtonColor = Color.FromHex("#7F4141");
+
+        public static readonly Color LocationButtonColor = StyleNano.ButtonColorDefault;
+        // WWDP EDIT END
+
         private string _searchText = string.Empty;
 
         // Orion-Start
@@ -121,14 +130,14 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
             }
 */
 
-            // Orion-Start
-            AddAntagButtons(_globalAntagonists, "ghost-teleport-menu-antagonists-label", "ButtonColorAntagonistDepartment");
-            AddPlayerButtons(_alivePlayers, "ghost-teleport-menu-alive-label", string.Empty, true); // Alive
-            AddPlayerButtons(_ghostPlayers, "ghost-teleport-menu-ghosts-label", string.Empty, true); // Ghost
-            AddPlayerButtons(_leftPlayers, "ghost-teleport-menu-left-label", string.Empty, true); // Left
-            AddPlayerButtons(_deadPlayers, "ghost-teleport-menu-dead-label", string.Empty, true); // Dead
-            AddPlaceButtons(_placeWarps, "ghost-teleport-menu-locations-label", "ButtonColorSpecificDepartment");
-            // Orion-End
+            // Orion-Start // WWDP EDIT START
+            AddAntagButtons(_globalAntagonists, "ghost-teleport-menu-antagonists-label", AntagonistButtonColor);
+            AddPlayerButtons(_alivePlayers, "ghost-teleport-menu-alive-label", Color.Black, true); // Alive
+            AddPlayerButtons(_ghostPlayers, "ghost-teleport-menu-ghosts-label", Color.Black, true); // Ghost
+            AddPlayerButtons(_leftPlayers, "ghost-teleport-menu-left-label", Color.Black, true); // Left
+            AddPlayerButtons(_deadPlayers, "ghost-teleport-menu-dead-label", Color.Black, true); // Dead
+            AddPlaceButtons(_placeWarps, "ghost-teleport-menu-locations-label", LocationButtonColor);
+            // Orion-End // WWDP EDIT END
         }
 
 /* // Orion-Edit:Part of search bar
@@ -150,16 +159,21 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
         // Orion-Start
         private void AddPlayerButtons(List<GhostWarpPlayer> players,
             string text,
-            string styleClass,
+            Color buttonColor,
             bool enableByDepartmentColorSheet)
         {
             if (players.Count == 0)
                 return;
 
-            var bigGrid = new GridContainer();
+            var mainContainer = new BoxContainer()
+            {
+                Orientation = BoxContainer.LayoutOrientation.Vertical,
+                HorizontalExpand = true,
+                SeparationOverride = 5
+            };
 
             var header = CreateSectionHeader(text);
-            bigGrid.AddChild(header);
+            mainContainer.AddChild(header);
 
             var sortedPlayers = SortPlayersByDepartment(players);
 
@@ -168,14 +182,14 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
                 if (departmentList.Count == 0)
                     continue;
 
-                var departmentGrid = new GridContainer
+                var departmentBox = new FlexBox() // WWDP EDIT
                 {
-                    Columns = 5
+                    AlignContent = FlexBox.FlexAlignContent.SpaceBetween
                 };
 
                 var departmentPrototype = _prototypeManager.Index<DepartmentPrototype>(departmentList[0].DepartmentID);
                 if (enableByDepartmentColorSheet)
-                    styleClass = departmentPrototype.ButtonStyle;
+                    buttonColor = departmentPrototype.Color; // WWDP EDIT
 
                 var labelText = departmentPrototype.Name;
 
@@ -194,38 +208,45 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
                         HorizontalAlignment = HAlignment.Center,
                         VerticalAlignment = VAlignment.Center,
                         SizeFlagsStretchRatio = 1,
-                        StyleClasses = { styleClass },
+                        ModulateSelfOverride = buttonColor, // WWDP EDIT
                         ToolTip = player.JobName,
                         TooltipDelay = 0.1f,
                         SetWidth = 180,
                         ClipText = true,
                     };
 
+                    playerButton.Label.ModulateSelfOverride = GetTextColor(buttonColor);
+
                     playerButton.OnPressed += _ => WarpClicked?.Invoke(player.Entity);
 
-                    departmentGrid.AddChild(playerButton);
+                    departmentBox.AddChild(playerButton); // WWDP EDIT
                 }
 
-                bigGrid.AddChild(departmentLabel);
-                bigGrid.AddChild(departmentGrid);
+                mainContainer.AddChild(departmentLabel); // WWDP EDIT
+                mainContainer.AddChild(departmentBox); // WWDP EDIT
             }
 
-            GhostTeleportContainer.AddChild(bigGrid);
+            GhostTeleportContainer.AddChild(mainContainer); // WWDP EDIT
         }
 
-        private void AddPlaceButtons(List<GhostWarpPlace> places, string text, string styleClass)
+        private void AddPlaceButtons(List<GhostWarpPlace> places, string text, Color buttonColor)
         {
             if (places.Count == 0)
                 return;
 
-            var bigGrid = new GridContainer();
+            var mainContainer = new BoxContainer() // WWDP EDIT
+            {
+                Orientation = BoxContainer.LayoutOrientation.Vertical,
+                HorizontalExpand = true,
+                SeparationOverride = 5
+            };
 
             var header = CreateSectionHeader(text);
-            bigGrid.AddChild(header);
+            mainContainer.AddChild(header); // WWDP EDIT
 
-            var placesGrid = new GridContainer
+            var placesBox = new FlexBox() // WWDP EDIT
             {
-                Columns = 5,
+                AlignContent = FlexBox.FlexAlignContent.SpaceBetween
             };
 
             var countLabel = new Label
@@ -243,22 +264,24 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
                     HorizontalAlignment = HAlignment.Center,
                     VerticalAlignment = VAlignment.Center,
                     SizeFlagsStretchRatio = 1,
-                    StyleClasses = { styleClass },
+                    ModulateSelfOverride = buttonColor, // WWDP EDIT
                     ToolTip = place.Description,
                     TooltipDelay = 0.1f,
                     SetWidth = 180,
                     ClipText = true,
                 };
 
+                placeButton.Label.ModulateSelfOverride = GetTextColor(buttonColor);
+
                 placeButton.OnPressed += _ => WarpClicked?.Invoke(place.Entity);
 
-                placesGrid.AddChild(placeButton);
+                placesBox.AddChild(placeButton); // WWDP EDIT
             }
 
-            bigGrid.AddChild(countLabel);
-            bigGrid.AddChild(placesGrid);
+            mainContainer.AddChild(countLabel); // WWDP EDIT
+            mainContainer.AddChild(placesBox); // WWDP EDIT
 
-            GhostTeleportContainer.AddChild(bigGrid);
+            GhostTeleportContainer.AddChild(mainContainer); // WWDP EDIT
         }
         // Orion-End
 
@@ -288,15 +311,20 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
         }
 
         // Orion-Start
-        private void AddAntagButtons(List<GhostWarpGlobalAntagonist> antags, string text, string styleClass)
+        private void AddAntagButtons(List<GhostWarpGlobalAntagonist> antags, string text, Color buttonColor)
         {
             if (antags.Count == 0)
                 return;
 
-            var bigGrid = new GridContainer();
+            var mainContainer = new BoxContainer() // WWDP EDIT
+            {
+                Orientation = BoxContainer.LayoutOrientation.Vertical,
+                HorizontalExpand = true,
+                SeparationOverride = 5
+            };
 
             var header = CreateSectionHeader(text);
-            bigGrid.AddChild(header);
+            mainContainer.AddChild(header); // WWDP EDIT
 
             var sortedAntags = SortAntagsByWeight(antags);
 
@@ -305,9 +333,9 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
                 if (antagList.Count == 0)
                     continue;
 
-                var departmentGrid = new GridContainer
+                var departmentBox = new FlexBox() // WWDP EDIT
                 {
-                    Columns = 5
+                    AlignContent = FlexBox.FlexAlignContent.SpaceBetween
                 };
 
                 var labelText = antagList[0].AntagonistName;
@@ -321,16 +349,18 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
                         HorizontalAlignment = HAlignment.Center,
                         VerticalAlignment = VAlignment.Center,
                         SizeFlagsStretchRatio = 1,
-                        StyleClasses = { styleClass },
+                        ModulateSelfOverride = buttonColor, // WWDP EDIT
                         ToolTip = Loc.GetString(antag.AntagonistDescription),
                         TooltipDelay = 0.1f,
                         SetWidth = 180,
                         ClipText = true,
                     };
 
+                    playerButton.Label.ModulateSelfOverride = GetTextColor(buttonColor);
+
                     playerButton.OnPressed += _ => WarpClicked?.Invoke(antag.Entity);
 
-                    departmentGrid.AddChild(playerButton);
+                    departmentBox.AddChild(playerButton); // WWDP EDIT
                 }
 
                 var departmentLabel = new Label
@@ -339,18 +369,21 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
                     StyleClasses = { "LabelSecondaryColor" }
                 };
 
-                bigGrid.AddChild(departmentLabel);
-                bigGrid.AddChild(departmentGrid);
+                mainContainer.AddChild(departmentLabel); // WWDP EDIT
+                mainContainer.AddChild(departmentBox); // WWDP EDIT
             }
 
-            GhostTeleportContainer.AddChild(bigGrid);
+            GhostTeleportContainer.AddChild(mainContainer); // WWDP EDIT
         }
 
         private Control CreateSectionHeader(string text, bool useStripeBack = true)
         {
             if (useStripeBack)
             {
-                var stripe = new StripeBack();
+                var stripe = new StripeBack()
+                {
+                    HorizontalExpand = true // WWDP EDIT
+                };
                 var label = new Label
                 {
                     Text = Loc.GetString(text),
@@ -437,5 +470,18 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
             _ghostPlayers = _playerWarps.Where(warp => warp.IsGhost).ToList();
         }
         // Orion-End
+
+        // WWDP START
+        public static Color GetTextColor(Color background)
+        {
+            // Perceived luminance formula
+            double luminance = (0.299 * background.R +
+                0.587 * background.G +
+                0.114 * background.B);
+
+            // Light background -> dark text, dark background -> light text
+            return luminance > 0.5 ? Color.Black : Color.White;
+        }
+        //WWDP END
     }
 }
