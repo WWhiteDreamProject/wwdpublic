@@ -42,7 +42,7 @@
     walkSpeedModifier: 4.0
     sprintSpeedModifier: 1.5
   - type: Sprite
-    drawDepth: FloorTiles
+    drawdepth: FloorTiles
     sprite: _White/Structures/Misc/CentComShit/speed_frame.rsi
   - type: Icon
     sprite: _White/Structures/Misc/CentComShit/speed_frame.rsi
@@ -64,7 +64,7 @@
   - type: Transform
     anchored: true
   - type: Sprite
-    drawDepth: FloorTiles
+    drawdepth: FloorTiles
     sprite: _White/Structures/Misc/CentComShit/dance_floor.rsi
     layers:
     - state: floor1
