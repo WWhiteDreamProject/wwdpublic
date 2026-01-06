@@ -41,7 +41,7 @@ public sealed partial class SpeciesSelectWindow : DefaultWindow
         get => _selectedSpecies;
         set
         {
-            if(!_prototypeManager.TryIndex<SpeciesPrototype>(value, out var prototype))
+            if(!_prototypeManager.TryIndex<SpeciesPrototype>(value, out var prototype) || _playerManager.LocalSession is null)
                 return;
 
             InfoContainer.Children.Clear();
@@ -59,7 +59,7 @@ public sealed partial class SpeciesSelectWindow : DefaultWindow
             {
                 _dummyProfile = _dummyProfile.WithSpecies(_selectedSpecies.Value);
 
-                _dummyProfile.EnsureValid(_playerManager.LocalSession!, IoCManager.Instance!);
+                _dummyProfile.EnsureValid(_playerManager.LocalSession, IoCManager.Instance!);
             }
 
             _dummyUid = _entityManager.SpawnEntity(prototype.DollPrototype, MapCoordinates.Nullspace);
@@ -76,7 +76,9 @@ public sealed partial class SpeciesSelectWindow : DefaultWindow
             EntityFrontView.SetEntity(_dummyUid);
             EntityRightView.SetEntity(_dummyUid);
 
-            var dictionary = _dictionaryCache[_selectedSpecies.Value];
+            if(!_dictionaryCache.TryGetValue(_selectedSpecies.Value, out var dictionary))
+                return;
+
             _documentParsingManager.TryAddMarkup(InfoContainer, dictionary.GuidePrototype);
         }
     }
@@ -142,6 +144,7 @@ public sealed partial class SpeciesSelectWindow : DefaultWindow
     public override void Close()
     {
         base.Close();
+        _entityManager.DeleteEntity(_dummyUid);
         SelectButton.OnPressed -= SelectButtonOnOnPressed;
         DisposeContainers();
     }

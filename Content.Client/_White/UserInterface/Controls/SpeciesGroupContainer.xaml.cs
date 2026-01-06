@@ -60,6 +60,7 @@ public sealed partial class SpeciesGroupContainer : Control
         {
             button.OnPressed -= eventInternal;
         }
+        _buttonsEvents.Clear();
 
         SpeciesButtonContainer.Children.Clear();
     }

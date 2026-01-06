@@ -44,11 +44,6 @@
   groupPrototype: Other
 
 - type: speciesDictionary
-  id: Chitinid
-  guidePrototype: Chitinid
-  groupPrototype: Other
-
-- type: speciesDictionary
   id: Xelthia
   guidePrototype: Xelthia
   groupPrototype: Other

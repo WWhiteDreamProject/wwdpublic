@@ -5,6 +5,7 @@
   children:
     - Arachnid
     - Diona
+    - Felinid # WWDP EDIT
     - Human
     - Moth
     - Oni
@@ -16,6 +17,7 @@
     - Plasmaman
 #    - Chitinid
     - Tajaran
+    - Vulpkanin # WWDP EDIT
     - Xelthia
     # ImpStation additions
     - Thaven
