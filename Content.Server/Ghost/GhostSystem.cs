@@ -402,7 +402,7 @@ namespace Content.Server.Ghost
                 var entity = mindContainer.Owner;
                 var meta = Comp<MetaDataComponent>(entity);
 
-                if (HasComp<GlobalAntagonistComponent>(entity) || IsShitEntity(meta.EntityPrototype?.ID))
+                if (HasComp<GlobalAntagonistComponent>(entity) || IsHiddenFromGhostWarps(entity))
                     continue;
 
                 if (!HasComp<HumanoidAppearanceComponent>(entity) &&
@@ -449,31 +449,14 @@ namespace Content.Server.Ghost
             // Orion-End
         }
 
-        // Orion-Start
-        private bool IsShitEntity(string? entityId)
+        // WWDP EDIT START
+        private bool IsHiddenFromGhostWarps(EntityUid entity)
         {
-            if (entityId == null)
-                return false;
-
-            return entityId switch
-            {
-                "SalvageHumanCorpse" => true,
-                "MobRandomServiceCorpse" => true,
-                "MobRandomEngineerCorpse" => true,
-                "MobRandomCargoCorpse" => true,
-                "MobRandomMedicCorpse" => true,
-                "MobRandomScienceCorpse" => true,
-                "MobRandomSecurityCorpse" => true,
-                "MobRandomCommandCorpse" => true,
-/*                "MobMouse" => true,
-                "MobMouse1" => true,
-                "MobMouse2" => true,
-                "MobMouseDead" => true,
-                "MobCockroach" => true,*/
-                _ => false,
-            };
+            return _tag.HasTag(entity, "HideFromGhostWarps");
         }
+        // WWDP EDIT END
 
+        // Orion-Start
         private List<GhostWarpGlobalAntagonist> GetAntagonistWarps()
         {
             var warps = new List<GhostWarpGlobalAntagonist>();
@@ -485,12 +468,15 @@ namespace Content.Server.Ghost
                 if(!_prototypeManager.TryIndex(antagonist.AntagonistPrototype, out var prototype))
                     continue;
 
+                var isDead = _mobState.IsDead(entity); // WWDP EDIT
+
                 var warp = new GhostWarpGlobalAntagonist(
                     GetNetEntity(entity),
                     Comp<MetaDataComponent>(entity).EntityName,
                     prototype.Name,
                     prototype.Description,
-                    prototype.ID
+                    prototype.ID,
+                    isDead // WWDP EDIT
                 );
 
                 warps.Add(warp);

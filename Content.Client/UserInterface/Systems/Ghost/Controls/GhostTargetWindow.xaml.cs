@@ -40,6 +40,9 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
         private List<GhostWarpPlace> _placeWarps = new();
         private List<GhostWarpGlobalAntagonist> _globalAntagonists = new();
 
+        private List<GhostWarpGlobalAntagonist> _aliveGlobalAntagonists = new(); // WWDP EDIT
+        private List<GhostWarpGlobalAntagonist> _deadGlobalAntagonists = new(); // WWDP EDIT
+
         private List<GhostWarpPlayer> _alivePlayers = new();
         private List<GhostWarpPlayer> _leftPlayers = new();
         private List<GhostWarpPlayer> _deadPlayers = new();
@@ -131,11 +134,12 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
 */
 
             // Orion-Start // WWDP EDIT START
-            AddAntagButtons(_globalAntagonists, "ghost-teleport-menu-antagonists-label", AntagonistButtonColor);
+            AddAntagButtons(_aliveGlobalAntagonists, "ghost-teleport-menu-antagonists-label", AntagonistButtonColor);
             AddPlayerButtons(_alivePlayers, "ghost-teleport-menu-alive-label", Color.Black, true); // Alive
             AddPlayerButtons(_ghostPlayers, "ghost-teleport-menu-ghosts-label", Color.Black, true); // Ghost
             AddPlayerButtons(_leftPlayers, "ghost-teleport-menu-left-label", Color.Black, true); // Left
             AddPlayerButtons(_deadPlayers, "ghost-teleport-menu-dead-label", Color.Black, true); // Dead
+            AddAntagButtons(_deadGlobalAntagonists, "ghost-teleport-menu-dead-antagonists-label", AntagonistButtonColor); // WWDP EDIT
             AddPlaceButtons(_placeWarps, "ghost-teleport-menu-locations-label", LocationButtonColor);
             // Orion-End // WWDP EDIT END
         }
@@ -179,7 +183,8 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
 
             foreach (var departmentList in sortedPlayers)
             {
-                if (departmentList.Count == 0)
+                if (departmentList.Count == 0 ||
+                    !_prototypeManager.TryIndex<DepartmentPrototype>(departmentList[0].DepartmentID, out var departmentPrototype)) // WWDP EDIT
                     continue;
 
                 var departmentBox = new FlexBox() // WWDP EDIT
@@ -187,7 +192,6 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
                     AlignContent = FlexBox.FlexAlignContent.SpaceBetween
                 };
 
-                var departmentPrototype = _prototypeManager.Index<DepartmentPrototype>(departmentList[0].DepartmentID);
                 if (enableByDepartmentColorSheet)
                     buttonColor = departmentPrototype.Color; // WWDP EDIT
 
@@ -474,6 +478,9 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
 
         private void PlayersAllocation()
         {
+            _aliveGlobalAntagonists = _globalAntagonists.Where(warp => !warp.IsDead).ToList(); // WWDP EDIT
+            _deadGlobalAntagonists = _globalAntagonists.Where(warp => warp.IsDead).ToList(); // WWDP EDIT
+
             _alivePlayers = _playerWarps.Where(warp => warp.IsAlive).ToList();
             _deadPlayers = _playerWarps.Where(warp => warp.IsDead).ToList();
             _leftPlayers = _playerWarps.Where(warp => warp.IsLeft).ToList();

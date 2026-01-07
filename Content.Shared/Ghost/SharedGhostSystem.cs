@@ -145,13 +145,14 @@ namespace Content.Shared.Ghost
      [Serializable, NetSerializable]
      public struct GhostWarpGlobalAntagonist
      {
-         public GhostWarpGlobalAntagonist(NetEntity entity, string playerName, string antagonistName, string antagonistDescription, string prototypeID)
+         public GhostWarpGlobalAntagonist(NetEntity entity, string playerName, string antagonistName, string antagonistDescription, string prototypeID, bool isDead)
          {
              Entity = entity;
              Name = playerName;
              AntagonistName = antagonistName;
              AntagonistDescription = antagonistDescription;
              PrototypeID = prototypeID;
+             IsDead = isDead;
          }
 
          /// <summary>
@@ -179,6 +180,12 @@ namespace Content.Shared.Ghost
          /// A antagonist prototype id
          /// </summary>
          public string PrototypeID { get; }
+
+         /// <summary>
+         /// Is antagonist dead
+         /// WWDP EDIT
+         /// </summary>
+         public bool IsDead { get;  }
 
      }
     // Orion-End
