@@ -150,8 +150,6 @@
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
-  - type: GlobalAntagonist # Orion
-    antagonistPrototype: globalAntagonistSlime
 
 - type: entity
   name: blue slime

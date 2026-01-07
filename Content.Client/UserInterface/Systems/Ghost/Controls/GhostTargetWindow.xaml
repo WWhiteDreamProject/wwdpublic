@@ -1,3 +1,4 @@
+<!-- White Dream: New ghost target window-->
 <DefaultWindow xmlns="https://spacestation14.io"
                Title="{Loc 'ghost-target-window-title'}"
                MinSize="650 550"

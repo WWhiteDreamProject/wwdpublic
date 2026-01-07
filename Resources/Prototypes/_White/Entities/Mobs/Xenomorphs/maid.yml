@@ -62,5 +62,3 @@
   # - type: GuideHelp
   #   guides:
   #   - XenomorphMaid
-  - type: GlobalAntagonist # Orion
-    antagonistPrototype: globalAntagonistXenomorph

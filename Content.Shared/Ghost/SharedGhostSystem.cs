@@ -78,7 +78,7 @@ namespace Content.Shared.Ghost
     {
     }
 
-     // Orion-Start
+     // WWDP-Start
      /// <summary>
      /// An player body a ghost can warp to.
      /// This is used as part of <see cref="GhostWarpsResponseEvent"/>
@@ -93,10 +93,11 @@ namespace Content.Shared.Ghost
              JobName = playerJobName;
              DepartmentID = playerDepartmentID;
 
-             IsGhost = isGhost;
-             IsLeft = isLeft;
-             IsDead = isDead;
-             IsAlive = isAlive;
+             Status =
+                 (isGhost ? PlayerStatus.IsGhost : 0) |
+                 (isAlive ? PlayerStatus.IsAlive : 0) |
+                 (isDead ? PlayerStatus.IsDead : 0) |
+                 (isLeft ? PlayerStatus.IsLeft : 0) ;
          }
 
          /// <summary>
@@ -121,36 +122,27 @@ namespace Content.Shared.Ghost
          /// </summary>
          public string DepartmentID { get; set; }
 
-         /// <summary>
-         /// Is player is ghost
-         /// </summary>
-         public bool IsGhost { get;  }
+         public PlayerStatus Status { get; }
+     }
 
-         /// <summary>
-         /// Is player body alive
-         /// </summary>
-         public bool IsAlive { get;  }
-
-         /// <summary>
-         /// Is player body dead
-         /// </summary>
-         public bool IsDead { get;  }
-
-         /// <summary>
-         /// Is player left from body
-         /// </summary>
-         public bool IsLeft { get;  }
+     [Serializable, NetSerializable, Flags]
+     public enum PlayerStatus : byte
+     {
+        None = 0,
+        IsGhost = 1,
+        IsAlive = 1 << 1,
+        IsDead = 1 << 2,
+        IsLeft = 1 << 3,
      }
 
      [Serializable, NetSerializable]
-     public struct GhostWarpGlobalAntagonist
+     public struct GhostWarpGlobalRoles
      {
-         public GhostWarpGlobalAntagonist(NetEntity entity, string playerName, string antagonistName, string antagonistDescription, string prototypeID, bool isDead)
+         public GhostWarpGlobalRoles(NetEntity entity, string playerName, string roleDescription, string prototypeID, bool isDead)
          {
              Entity = entity;
              Name = playerName;
-             AntagonistName = antagonistName;
-             AntagonistDescription = antagonistDescription;
+             RoleDescription = roleDescription;
              PrototypeID = prototypeID;
              IsDead = isDead;
          }
@@ -167,14 +159,9 @@ namespace Content.Shared.Ghost
          public string Name { get; }
 
          /// <summary>
-         /// The display antagonist name to be surfaced in the ghost warps menu
-         /// </summary>
-         public string AntagonistName { get; }
-
-         /// <summary>
          /// The display antagonist description to be surfaced in the ghost warps menu
          /// </summary>
-         public string AntagonistDescription { get; }
+         public string RoleDescription { get; }
 
          /// <summary>
          /// A antagonist prototype id
@@ -183,28 +170,27 @@ namespace Content.Shared.Ghost
 
          /// <summary>
          /// Is antagonist dead
-         /// WWDP EDIT
          /// </summary>
          public bool IsDead { get;  }
 
      }
-    // Orion-End
+    // WWDP-End
 
     /// <summary>
     /// An individual place a ghost can warp to.
     /// This is used as part of <see cref="GhostWarpsResponseEvent"/>
     /// </summary>
     [Serializable, NetSerializable]
-    public struct GhostWarpPlace // Orion-Edit: GhostWarp > GhostWarpPlace
+    public struct GhostWarpPlace // WWDP-Edit: GhostWarp > GhostWarpPlace
     {
-        // Orion-Edit-Start
+        // WWDP-Edit-Start
         public GhostWarpPlace(NetEntity entity, string name, string description)
         {
             Entity = entity;
             Name = name;
             Description = description;
         }
-        // Orion-Edit-End
+        // WWDP-Edit-End
 
         /// <summary>
         /// The entity representing the warp point.
@@ -215,12 +201,12 @@ namespace Content.Shared.Ghost
         /// <summary>
         /// The display name to be surfaced in the ghost warps menu
         /// </summary>
-        public string Name { get; } // Orion-Edit: DisplayName > Name
+        public string Name { get; } // WWDP-Edit: DisplayName > Name
 
         /// <summary>
         /// Display name to be surfaced in the ghost warps menu
         /// </summary>
-        public string Description { get;  } // Orion-Edit: IsWarpPoint > Description
+        public string Description { get;  } // WWDP-Edit: IsWarpPoint > Description
     }
 
     /// <summary>
@@ -230,24 +216,12 @@ namespace Content.Shared.Ghost
     [Serializable, NetSerializable]
     public sealed class GhostWarpsResponseEvent : EntityEventArgs
     {
-/* // Orion-Edit: Removed
-        public GhostWarpsResponseEvent(List<GhostWarp> warps)
-        {
-            Warps = warps;
-        }
-
-        /// <summary>
-        /// A list of warp points.
-        /// </summary>
-        public List<GhostWarp> Warps { get; }
-*/
-
-        // Orion-Start
-        public GhostWarpsResponseEvent(List<GhostWarpPlayer> players, List<GhostWarpPlace> places, List<GhostWarpGlobalAntagonist> antagonists)
+        // WWDP-Start
+        public GhostWarpsResponseEvent(List<GhostWarpPlayer> players, List<GhostWarpPlace> places, List<GhostWarpGlobalRoles> roles)
         {
             Players = players;
             Places = places;
-            Antagonists = antagonists;
+            Roles = roles;
         }
 
         /// <summary>
@@ -263,8 +237,8 @@ namespace Content.Shared.Ghost
         /// <summary>
         /// A list of antagonists to teleport.
         /// </summary>
-        public List<GhostWarpGlobalAntagonist> Antagonists { get; }
-        // Orion-End
+        public List<GhostWarpGlobalRoles> Roles { get; }
+        // WWDP-End
     }
 
     /// <summary>

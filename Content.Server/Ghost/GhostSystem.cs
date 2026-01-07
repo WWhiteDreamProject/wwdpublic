@@ -1,16 +1,14 @@
 using System.Linq;
 using System.Numerics;
-using System.Collections.Frozen;
+using Content.Server.Access.Systems;
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
 using Content.Server.Ghost.Components;
 using Content.Server.Mind;
 using Content.Server.Preferences.Managers;
+using Content.Server.Roles;
 using Content.Server.Roles.Jobs;
-using Content.Server.Warps;
-using Content.Shared._Orion.Antag;
-using Content.Shared._Orion.Antag.Components;
 using Content.Shared._White.CustomGhostSystem;
 using Content.Shared.Actions;
 using Content.Shared.CCVar;
@@ -76,12 +74,18 @@ namespace Content.Server.Ghost
         [Dependency] private readonly GameTicker _gameTicker = default!;
         [Dependency] private readonly DamageableSystem _damageable = default!;
         [Dependency] private readonly IServerPreferencesManager _prefs = default!; // WWDP EDIT
+        [Dependency] private readonly RoleSystem _roles = default!; // WWDP EDIT
         [Dependency] private readonly SharedPopupSystem _popup = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly TagSystem _tag = default!;
 
         private EntityQuery<GhostComponent> _ghostQuery;
         private EntityQuery<PhysicsComponent> _physicsQuery;
+
+        [ValidatePrototypeId<DepartmentPrototype>]
+        public static ProtoId<DepartmentPrototype> SpecificDepartmentProtoId = "Specific"; // WWDP EDIT
+        [ValidatePrototypeId<RoleTypePrototype>]
+        public static ProtoId<RoleTypePrototype> NeutralRoleProtoId = "Neutral"; // WWDP EDIT
 
         public override void Initialize()
         {
@@ -306,13 +310,13 @@ namespace Content.Server.Ghost
                 return;
             }
 
-            // Orion-Start
+            // WWDP-Start
             var players = GetPlayerWarps();
             var places = GetLocationWarps();
-            var antagonists = GetAntagonistWarps();
+            var roles = GetByRoleWarps();
 
-            var response = new GhostWarpsResponseEvent(players, places, antagonists); // Orion-Edit
-            // Orion-End
+            var response = new GhostWarpsResponseEvent(players, places, roles);
+            // WWDP-End
             RaiseNetworkEvent(response, args.SenderSession.Channel);
         }
 
@@ -351,7 +355,7 @@ namespace Content.Server.Ghost
             WarpTo(uid, target);
         }
 
-        private void WarpTo(EntityUid uid, EntityUid target) // Orion-Edit
+        private void WarpTo(EntityUid uid, EntityUid target) // WWDP-Edit
         {
             _adminLog.Add(LogType.GhostWarp, $"{ToPrettyString(uid)} ghost warped to {ToPrettyString(target)}");
 
@@ -368,55 +372,26 @@ namespace Content.Server.Ghost
                 _physics.SetLinearVelocity(uid, Vector2.Zero, body: physics);
         }
 
-        // Orion-Start
-        private List<GhostWarpPlace> GetLocationWarps()
+        private List<GhostWarpPlayer> GetPlayerWarps()
         {
-            var warps = new List<GhostWarpPlace>();
-            var allQuery = AllEntityQuery<WarpPointComponent>();
-
-            while (allQuery.MoveNext(out var uid, out var warp))
-            {
-                var newWarp =  new GhostWarpPlace(GetNetEntity(uid), warp.Location ?? Name(uid), Description(uid));
-                warps.Add(newWarp);
-            }
-
-            return warps;
-        }
-        // Orion-End
-
-        private List<GhostWarpPlayer> GetPlayerWarps() // Orion-Edit: GetLocationWarps > GetPlayerWarps
-        {
-/* // Orion-Edit: Removed
-            var allQuery = AllEntityQuery<WarpPointComponent>();
-
-            while (allQuery.MoveNext(out var uid, out var warp))
-            {
-                yield return new GhostWarp(GetNetEntity(uid), warp.Location ?? Name(uid), true);
-            }
-*/
-
-            // Orion-Start
             var warps = new List<GhostWarpPlayer>();
-            foreach (var mindContainer in EntityQuery<MindContainerComponent>())
+
+            var query = EntityQueryEnumerator<MindContainerComponent>();
+
+            while (query.MoveNext(out var entity, out var mindContainer))
             {
-                var entity = mindContainer.Owner;
-                var meta = Comp<MetaDataComponent>(entity);
-
-                if (HasComp<GlobalAntagonistComponent>(entity) || IsHiddenFromGhostWarps(entity))
+                if(IsHiddenFromGhostWarps(entity))
                     continue;
 
-                if (!HasComp<HumanoidAppearanceComponent>(entity) &&
-                    !HasComp<GhostComponent>(entity) &&
-                    !HasComp<BorgBrainComponent>(entity) &&
-                    !HasComp<SiliconLawProviderComponent>(entity) && // Drone detection
-                    !HasComp<BorgChassisComponent>(entity))
+                if (TryComp<MindComponent>(mindContainer.Mind, out var mindComponent) &&
+                    mindComponent.RoleType != NeutralRoleProtoId)
                     continue;
 
-                var playerDepartmentId = _prototypeManager.Index<DepartmentPrototype>("Specific").ID;
+                var playerDepartmentId = SpecificDepartmentProtoId;
                 var playerJobName = Loc.GetString("generic-unknown-title");
 
-                if (_jobs.MindTryGetJob(mindContainer.Mind ?? mindContainer.LastMindStored,
-                        out var jobPrototype))
+                if (_jobs.MindTryGetJob(mindContainer.Mind ?? mindContainer.OriginalMind,
+                    out var jobPrototype))
                 {
                     playerJobName = Loc.GetString(jobPrototype.Name);
 
@@ -426,10 +401,10 @@ namespace Content.Server.Ghost
                     }
                 }
 
-                var hasAnyMind = (mindContainer.Mind ?? mindContainer.LastMindStored) != null;
+                var hasAnyMind = (mindContainer.Mind ?? mindContainer.OriginalMind) != null;
                 var isDead = _mobState.IsDead(entity);
                 var isLeft = TryComp<SSDIndicatorComponent>(entity, out var indicator) && indicator.IsSSD && !isDead &&
-                             hasAnyMind;
+                    hasAnyMind;
 
                 var warp = new GhostWarpPlayer(
                     GetNetEntity(entity),
@@ -446,37 +421,32 @@ namespace Content.Server.Ghost
             }
 
             return warps;
-            // Orion-End
         }
 
-        // WWDP EDIT START
-        private bool IsHiddenFromGhostWarps(EntityUid entity)
+        private List<GhostWarpGlobalRoles> GetByRoleWarps()
         {
-            return _tag.HasTag(entity, "HideFromGhostWarps");
-        }
-        // WWDP EDIT END
+            var warps = new List<GhostWarpGlobalRoles>();
 
-        // Orion-Start
-        private List<GhostWarpGlobalAntagonist> GetAntagonistWarps()
-        {
-            var warps = new List<GhostWarpGlobalAntagonist>();
+            var query = EntityQueryEnumerator<MindContainerComponent>();
 
-            var query = EntityQueryEnumerator<GlobalAntagonistComponent>(); // WWDP EDIT
-
-            while (query.MoveNext(out var entity, out var antagonist)) // WWDP EDIT
+            while (query.MoveNext(out var entity, out var mindContainer))
             {
-                if(!_prototypeManager.TryIndex(antagonist.AntagonistPrototype, out var prototype))
+                if (!TryComp<MindComponent>(mindContainer.Mind, out var mindComponent) ||
+                    mindComponent.RoleType == NeutralRoleProtoId)
                     continue;
 
-                var isDead = _mobState.IsDead(entity); // WWDP EDIT
+                if(!_prototypeManager.TryIndex(mindComponent.RoleType, out var roleTypePrototype))
+                    continue;
 
-                var warp = new GhostWarpGlobalAntagonist(
+                var isDead = _mobState.IsDead(entity);
+                var metadata = Comp<MetaDataComponent>(entity);
+
+                var warp = new GhostWarpGlobalRoles(
                     GetNetEntity(entity),
-                    Comp<MetaDataComponent>(entity).EntityName,
-                    prototype.Name,
-                    prototype.Description,
-                    prototype.ID,
-                    isDead // WWDP EDIT
+                    metadata.EntityName,
+                    metadata.EntityDescription,
+                    mindComponent.RoleType,
+                    isDead
                 );
 
                 warps.Add(warp);
@@ -484,28 +454,8 @@ namespace Content.Server.Ghost
 
             return warps;
         }
-        // Orion-End
+        // WWDP-End
 
-/* // Orion-Edit: Removed
-        private IEnumerable<GhostWarp> GetPlayerWarps(EntityUid except)
-        {
-            foreach (var player in _playerManager.Sessions)
-            {
-                if (player.AttachedEntity is not {Valid: true} attached)
-                    continue;
-
-                if (attached == except) continue;
-
-                TryComp<MindContainerComponent>(attached, out var mind);
-
-                var jobName = _jobs.MindTryGetJobName(mind?.Mind);
-                var playerInfo = $"{Comp<MetaDataComponent>(attached).EntityName} ({jobName})";
-
-                if (_mobState.IsAlive(attached) || _mobState.IsCritical(attached))
-                    yield return new GhostWarp(GetNetEntity(attached), playerInfo, false);
-            }
-        }
-*/
 
         #endregion
 
@@ -734,6 +684,27 @@ namespace Content.Server.Ghost
 
             return true;
         }
+
+        // WWDP-Start
+        private List<GhostWarpPlace> GetLocationWarps()
+        {
+            var warps = new List<GhostWarpPlace>();
+            var allQuery = AllEntityQuery<WarpPointComponent>();
+
+            while (allQuery.MoveNext(out var uid, out var warp))
+            {
+                var newWarp =  new GhostWarpPlace(GetNetEntity(uid), warp.Location ?? Name(uid), Description(uid));
+                warps.Add(newWarp);
+            }
+
+            return warps;
+        }
+
+        private bool IsHiddenFromGhostWarps(EntityUid entity)
+        {
+            return _tag.HasTag(entity, "HideFromGhostWarps");
+        }
+        // WWDP-End
     }
 
     public sealed class GhostAttemptHandleEvent(MindComponent mind, bool canReturnGlobal) : HandledEntityEventArgs

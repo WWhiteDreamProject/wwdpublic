@@ -165,8 +165,6 @@
     raffle:
       settings: default
   - type: GhostTakeoverAvailable
-  - type: GlobalAntagonist # Orion
-    antagonistPrototype: globalAntagonistBlob
 
 - type: entity
   parent: BaseBlob

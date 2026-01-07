@@ -96,7 +96,7 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
         if (Gui?.TargetWindow is not { } window)
             return;
 
-        window.UpdateWarps(msg.Players, msg.Places, msg.Antagonists); // Orion-Edit
+        window.UpdateWarps(msg.Players, msg.Places, msg.Roles); // Orion-Edit
         window.Populate();
     }
 

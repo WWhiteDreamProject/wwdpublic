@@ -16,12 +16,6 @@ public sealed partial class MindContainerComponent : Component
     [DataField, AutoNetworkedField]
     public EntityUid? Mind { get; set; }
 
-    // Orion-Start
-    [DataField, AutoNetworkedField]
-    [Access(typeof(SharedMindSystem), Other = AccessPermissions.Read)] // WWDP EDIT
-    public EntityUid? LastMindStored { get; set; }
-    // Orion-End
-
     /// <summary>
     ///     True if we have a mind, false otherwise.
     /// </summary>

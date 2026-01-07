@@ -213,8 +213,6 @@
     - type: GuideHelp
       guides:
       - Blob
-    - type: GlobalAntagonist # Orion
-      antagonistPrototype: globalAntagonistBlob
 
 # Observer
 - type: entity
@@ -291,5 +289,3 @@
     - type: Tag
       tags:
       - BypassInteractionRangeChecks
-    - type: GlobalAntagonist # Orion
-      antagonistPrototype: globalAntagonistBlob
