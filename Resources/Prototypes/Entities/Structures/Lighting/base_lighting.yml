@@ -38,6 +38,7 @@
     radius: 10
     softness: 1
     offset: "0, -0.5"
+  - type: LightingOverlay # White edit - lighting glow shader
   - type: Damageable
     damageContainer: StructuralInorganic # WWDP EDIT
     damageModifierSet: Metallic # WWDP EDIT

@@ -77,6 +77,7 @@ ui-options-lighting-very-low = Очень низкое
 ui-options-lighting-low = Низкое
 ui-options-lighting-medium = Среднее
 ui-options-lighting-high = Высокое
+ui-options-lighting-shader = Шейдеры освещения
 ui-options-scale-label = Масштаб UI:
 ui-options-scale-auto = Автоматическое ({ TOSTRING($scale, "P0") })
 ui-options-scale-75 = 75%
