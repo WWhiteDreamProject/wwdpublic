@@ -73,19 +73,23 @@ namespace Content.Server.Ghost
         [Dependency] private readonly SharedMindSystem _mind = default!;
         [Dependency] private readonly GameTicker _gameTicker = default!;
         [Dependency] private readonly DamageableSystem _damageable = default!;
-        [Dependency] private readonly IServerPreferencesManager _prefs = default!; // WWDP EDIT
-        [Dependency] private readonly RoleSystem _roles = default!; // WWDP EDIT
         [Dependency] private readonly SharedPopupSystem _popup = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly TagSystem _tag = default!;
+        // WD EDIT START
+        [Dependency] private readonly IServerPreferencesManager _prefs = default!;
+        [Dependency] private readonly RoleSystem _roles = default!;
+        // WD EDIT END
 
         private EntityQuery<GhostComponent> _ghostQuery;
         private EntityQuery<PhysicsComponent> _physicsQuery;
 
+        // WD EDIT START
         [ValidatePrototypeId<DepartmentPrototype>]
-        public static ProtoId<DepartmentPrototype> SpecificDepartmentProtoId = "Specific"; // WWDP EDIT
+        public static ProtoId<DepartmentPrototype> SpecificDepartmentProtoId = "Specific"; 
         [ValidatePrototypeId<RoleTypePrototype>]
-        public static ProtoId<RoleTypePrototype> NeutralRoleProtoId = "Neutral"; // WWDP EDIT
+        public static ProtoId<RoleTypePrototype> NeutralRoleProtoId = "Neutral";
+        // WD EDIT END
 
         public override void Initialize()
         {
@@ -342,8 +346,8 @@ namespace Content.Server.Ghost
 
         private void OnGhostnadoRequest(GhostnadoRequestEvent msg, EntitySessionEventArgs args)
         {
-            if (args.SenderSession.AttachedEntity is not { Valid: true } uid ||
-                !_ghostQuery.HasComp(uid))
+            if (args.SenderSession.AttachedEntity is not { Valid: true } uid // WD EDIT
+                || !_ghostQuery.HasComp(uid))
             {
                 Log.Warning($"User {args.SenderSession.Name} tried to ghostnado without being a ghost.");
                 return;
@@ -355,7 +359,7 @@ namespace Content.Server.Ghost
             WarpTo(uid, target);
         }
 
-        private void WarpTo(EntityUid uid, EntityUid target) // WWDP-Edit
+        private void WarpTo(EntityUid uid, EntityUid target)
         {
             _adminLog.Add(LogType.GhostWarp, $"{ToPrettyString(uid)} ghost warped to {ToPrettyString(target)}");
 
@@ -372,6 +376,7 @@ namespace Content.Server.Ghost
                 _physics.SetLinearVelocity(uid, Vector2.Zero, body: physics);
         }
 
+        // WD EDIT START
         private List<GhostWarpPlayer> GetPlayerWarps()
         {
             var warps = new List<GhostWarpPlayer>();

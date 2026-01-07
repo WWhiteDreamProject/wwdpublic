@@ -203,10 +203,12 @@ namespace Content.Shared.Ghost
         /// </summary>
         public string Name { get; } // WWDP-Edit: DisplayName > Name
 
+        // WD EDIT START
         /// <summary>
         /// Display name to be surfaced in the ghost warps menu
         /// </summary>
-        public string Description { get;  } // WWDP-Edit: IsWarpPoint > Description
+        public string Description { get;  } 
+        // WD EDIT END
     }
 
     /// <summary>

@@ -3,9 +3,7 @@
   name: department-Logistics
   description: department-Cargo-description
   color: "#A46106"
-  # Orion-Start
-  weight: -5
-  # Orion-End
+  weight: -5 # WD EDIT
   roles:
   - CargoTechnician
   - Quartermaster
@@ -17,9 +15,7 @@
   name: department-Civilian
   description: department-Civilian-description
   color: "#9FED58"
-  # Orion-Start
-  weight: -4
-  # Orion-End
+  weight: -4 # WD EDIT
   roles:
   - Bartender
   - Botanist
@@ -45,9 +41,7 @@
   name: department-CentralCommand
   description: department-CentralCommand-description
   color: "#0c344d"
-  # Orion-Start
-  weight: -1
-  # Orion-End
+  weight: -1 # WD EDIT
   roles:
   - CentralCommandOfficial
   - CBURN
@@ -59,16 +53,13 @@
   - ERTEngineer
   - DeathSquad
   editorHidden: true
-#  weight: 120 # Orion-Edit: Moved
 
 - type: department
   id: Command
   name: department-Command
   description: department-Command-description
   color: "#334E6D"
-  # Orion-Start
-  weight: -2
-  # Orion-End
+  weight: -2 # WD EDIT
   roles:
   - Captain
   - ChiefEngineer
@@ -90,7 +81,6 @@
   - DeathSquad
   - Maid # WD EDIT
   primary: false
-#  weight: 100 # Orion-Edit: Moved
 
 # WD EDIT START
 # - type: department
@@ -111,9 +101,7 @@
   name: department-Engineering
   description: department-Engineering-description
   color: "#EFB341"
-  # Orion-Start
-  weight: -6
-  # Orion-End
+  weight: -6 # WD EDIT
   roles:
   - AtmosphericTechnician
   - ChiefEngineer
@@ -126,9 +114,7 @@
   name: department-Medical
   description: department-Medical-description
   color: "#52B4E9"
-  # Orion-Start
-  weight: -7
-  # Orion-End
+  weight: -7 # WD EDIT
   roles:
   - Chemist
   - ChiefMedicalOfficer
@@ -144,9 +130,7 @@
   name: department-Security
   description: department-Security-description
   color: "#DE3A3A"
-  # Orion-Start
-  weight: -3
-  # Orion-End
+  weight: -3 # WD EDIT
   roles:
   - HeadOfSecurity
   - SecurityCadet
@@ -163,9 +147,7 @@
   name: department-Epistemics
   description: department-Science-description
   color: "#D381C9"
-  # Orion-Start
-  weight: -8
-  # Orion-End
+  weight: -8 # WD EDIT
   roles:
   - ResearchDirector
   - SeniorResearcher
@@ -181,9 +163,7 @@
   name: department-Silicon
   description: department-Silicon-description
   color: "#D381C9"
-  # Orion-Start
-  weight: -9
-  # Orion-End
+  weight: -9 # WD EDIT
   roles:
   - Borg
   - StationAi
@@ -193,9 +173,7 @@
   name: department-Specific
   description: department-Specific-description
   color: "#29282f"
-  # Orion-Start
-  weight: -42
-  # Orion-End
+  weight: -10 # WD EDIT
   roles:
   - Boxer
   - Reporter

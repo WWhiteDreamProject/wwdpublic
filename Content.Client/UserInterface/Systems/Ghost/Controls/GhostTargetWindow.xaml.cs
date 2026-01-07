@@ -73,7 +73,7 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
             // WWDP EDIT END
         }
 
-        public void UpdateWarps(List<GhostWarpPlayer> players, List<GhostWarpPlace> places, List<GhostWarpGlobalRoles> roles) // WWDP-Edit: Populate > UpdateWarps
+        public void UpdateWarps(List<GhostWarpPlayer> players, List<GhostWarpPlace> places, List<GhostWarpGlobalRoles> roles) // WD EDIT
         {
             // WWDP EDIT START
             _originalPlayerWarps = players.ToList();
@@ -96,7 +96,7 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
             AddPlayerButtons(_ghostPlayers, "ghost-teleport-menu-ghosts-label", Color.Black, true); // Ghost
             AddPlayerButtons(_leftPlayers, "ghost-teleport-menu-left-label", Color.Black, true); // Left
             AddPlayerButtons(_deadPlayers, "ghost-teleport-menu-dead-label", Color.Black, true); // Dead
-            AddRolesButtons(_deadGlobalRolesList, "ghost-teleport-menu-dead-antagonists-label"); // WWDP EDIT
+            AddRolesButtons(_deadGlobalRolesList, "ghost-teleport-menu-dead-antagonists-label");
             AddPlaceButtons(_placeWarps, "ghost-teleport-menu-locations-label", LocationButtonColor);
             // WWDP EDIT END
         }
@@ -321,33 +321,23 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
 
         private Control CreateSectionHeader(string text, bool useStripeBack = true)
         {
-            if (useStripeBack)
+            var label = new Label
             {
-                var stripe = new StripeBack()
-                {
-                    HorizontalExpand = true
-                };
-                var label = new Label
-                {
-                    Text = Loc.GetString(text),
-                    StyleClasses = { "LabelBig" },
-                    Align = Label.AlignMode.Center,
-                };
-                stripe.AddChild(label);
+                Text = Loc.GetString(text),
+                StyleClasses = { "LabelBig" },
+                Align = Label.AlignMode.Center,
+            };
 
-                return stripe;
-            }
-            else
-            {
-                var label = new Label
-                {
-                    Text = Loc.GetString(text),
-                    StyleClasses = { "LabelBig" },
-                    Align = Label.AlignMode.Center,
-                };
-
+            if (!useStripeBack)
                 return label;
-            }
+
+            var stripe = new StripeBack()
+            {
+                HorizontalExpand = true
+            };
+            stripe.AddChild(label);
+
+            return stripe;
         }
 
         public List<List<GhostWarpPlayer>> SortPlayersByDepartment(List<GhostWarpPlayer> players)
@@ -369,6 +359,7 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
                 _logger.Error($"Error while getting player weights {player.Name} for department {player.DepartmentID}");
                 return 0;
             }
+
             return departmentPrototype.Weight;
         }
 
