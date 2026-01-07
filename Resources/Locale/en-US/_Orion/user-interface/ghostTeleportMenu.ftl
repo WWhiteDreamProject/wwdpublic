@@ -22,10 +22,10 @@ global-antagonist-revenant-description = Ghostly creature that feeds on life for
 global-antagonist-slime-name = Slime
 global-antagonist-slime-description = Hungry lump of something both solid and liquid.
 
-global-antagonist-spider-name = Gigant spider
+global-antagonist-spider-name = Giant spider
 global-antagonist-spider-description = Aggressive spider commensurate with humans.
 
-global-antagonist-spider-clown-name = Gigant clown-spider
+global-antagonist-spider-clown-name = Giant clown-spider
 global-antagonist-spider-clown-description = Aggressive spider clown commensurate with a human. HONK!
 
 global-antagonist-rats-name = Rat
