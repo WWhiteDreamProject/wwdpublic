@@ -64,9 +64,9 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
             // WWDP EDIT START
             GhostTeleportContainer.DisposeAllChildren();
 
-            _playerWarps = _originalPlayerWarps;
-            _placeWarps = _originalPlaceWarps;
-            _globalRoles = _originalRolesWarps;
+            _playerWarps = _originalPlayerWarps.ToList();
+            _placeWarps = _originalPlaceWarps.ToList();
+            _globalRoles = _originalRolesWarps.ToList();
 
             PlayersAllocation();
             AddButtons();
@@ -283,8 +283,6 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
                     AlignContent = FlexBox.FlexAlignContent.SpaceBetween
                 };
 
-                var labelText = Loc.GetString(roleTypePrototype.Name);
-
                 foreach (var role in rolesList)
                 {
                     var playerButton = new Button
@@ -310,7 +308,7 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
 
                 var departmentLabel = new Label
                 {
-                    Text = Loc.GetString(labelText) + $": {rolesList.Count}",
+                    Text = Loc.GetString(roleTypePrototype.Name) + $": {rolesList.Count}",
                     StyleClasses = { "LabelSecondaryColor" }
                 };
 
