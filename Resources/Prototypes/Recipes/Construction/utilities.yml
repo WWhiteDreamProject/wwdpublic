@@ -556,6 +556,8 @@
     state: pipeStraight
   - sprite: Structures/Piping/Atmospherics/pump.rsi
     state: pumpPressure
+  - sprite: _White/Structures/Piping/Atmospherics/arrows.rsi # WWDP edit start
+    state: binary # WWDP edit end
   conditions:
     - !type:NoUnstackableInTile
 
@@ -577,6 +579,8 @@
     state: pipeStraight
   - sprite: Structures/Piping/Atmospherics/pump.rsi
     state: pumpVolume
+  - sprite: _White/Structures/Piping/Atmospherics/arrows.rsi # WWDP edit start
+    state: binary # WWDP edit end
   conditions:
     - !type:NoUnstackableInTile
 
@@ -598,6 +602,8 @@
     state: pipeStraight
   - sprite: Structures/Piping/Atmospherics/pump.rsi
     state: pumpPassiveGate
+  - sprite: _White/Structures/Piping/Atmospherics/arrows.rsi # WWDP edit start
+    state: binary # WWDP edit end
   conditions:
     - !type:NoUnstackableInTile
 
@@ -619,6 +625,8 @@
     state: pipeStraight
   - sprite: Structures/Piping/Atmospherics/pump.rsi
     state: pumpManualValve
+  - sprite: _White/Structures/Piping/Atmospherics/arrows.rsi # WWDP edit start
+    state: binary # WWDP edit end
   conditions:
     - !type:NoUnstackableInTile
 
@@ -640,6 +648,8 @@
     state: pipeStraight
   - sprite: Structures/Piping/Atmospherics/pump.rsi
     state: pumpSignalValve
+  - sprite: _White/Structures/Piping/Atmospherics/arrows.rsi # WWDP edit start
+    state: binary # WWDP edit end
   conditions:
   - !type:NoUnstackableInTile
 
@@ -725,6 +735,15 @@
   icon:
     sprite: Structures/Piping/Atmospherics/gasfilter.rsi
     state: gasFilter
+  layers: # WWDP edit start
+  - sprite: Structures/Piping/Atmospherics/pipe.rsi
+    state: pipeTrinaryConnectors
+  - sprite: Structures/Piping/Atmospherics/gasfilter.rsi
+    state: gasFilter
+  - sprite: Structures/Piping/Atmospherics/gasfilter.rsi
+    state: connector
+  - sprite: _White/Structures/Piping/Atmospherics/arrows.rsi
+    state: trinary # WWDP edit end
   mirror: GasFilterFlipped
   conditions:
     - !type:NoUnstackableInTile
@@ -743,6 +762,16 @@
   icon:
     sprite: Structures/Piping/Atmospherics/gasfilter.rsi
     state: gasFilterF
+  layers: # WWDP edit start
+  - sprite: Structures/Piping/Atmospherics/pipe.rsi
+    state: pipeTrinaryConnectors
+  - sprite: Structures/Piping/Atmospherics/gasfilter.rsi
+    state: gasFilterF
+  - sprite: Structures/Piping/Atmospherics/gasfilter.rsi
+    state: connectorF
+  - sprite: _White/Structures/Piping/Atmospherics/arrows.rsi
+    state: trinaryF # WWDP edit end
+
   mirror: GasFilter
   conditions:
     - !type:NoUnstackableInTile
@@ -760,6 +789,15 @@
   icon:
     sprite: Structures/Piping/Atmospherics/gasmixer.rsi
     state: gasMixer
+  layers: # WWDP edit start
+  - sprite: Structures/Piping/Atmospherics/pipe.rsi
+    state: pipeTrinaryConnectors
+  - sprite: Structures/Piping/Atmospherics/gasmixer.rsi
+    state: gasMixer
+  - sprite: Structures/Piping/Atmospherics/gasmixer.rsi
+    state: connector
+  - sprite: _White/Structures/Piping/Atmospherics/arrows.rsi
+    state: trinary # WWDP edit end
   mirror: GasMixerFlipped
   conditions:
     - !type:NoUnstackableInTile
@@ -778,6 +816,15 @@
   icon:
     sprite: Structures/Piping/Atmospherics/gasmixer.rsi
     state: gasMixerF
+  layers: # WWDP edit start
+  - sprite: Structures/Piping/Atmospherics/pipe.rsi
+    state: pipeTrinaryConnectors
+  - sprite: Structures/Piping/Atmospherics/gasmixer.rsi
+    state: gasMixerF
+  - sprite: Structures/Piping/Atmospherics/gasmixer.rsi
+    state: connectorF
+  - sprite: _White/Structures/Piping/Atmospherics/arrows.rsi
+    state: trinaryF # WWDP edit end
   mirror: GasMixer
   conditions:
     - !type:NoUnstackableInTile

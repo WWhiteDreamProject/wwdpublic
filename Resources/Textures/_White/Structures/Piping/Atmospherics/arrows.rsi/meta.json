@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-4.0",
+  "copyright": "Gersoon(gersoon458) for WWhiteDreamProject, 06.01.2026",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "trinary",
+      "directions": 4
+    },
+    {
+      "name": "binary",
+      "directions": 4
+    },
+    {
+      "name": "trinaryF",
+      "directions": 4
+    }
+  ]
+}
