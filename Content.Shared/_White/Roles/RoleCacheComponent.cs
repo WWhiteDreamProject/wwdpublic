@@ -14,8 +14,8 @@ public sealed partial class RoleCacheComponent : Component
     public bool IsAntag => AntagWeight > 0;
 
     [ViewVariables(VVAccess.ReadOnly)]
-    public ProtoId<AntagPrototype>? AntagPrototype { get; set; }
+    public ProtoId<AntagPrototype>? LastAntagPrototype { get; set; }
 
     [ViewVariables(VVAccess.ReadOnly)]
-    public ProtoId<JobPrototype>? JobPrototype { get; set; }
+    public ProtoId<JobPrototype>? LastJobPrototype { get; set; }
 }

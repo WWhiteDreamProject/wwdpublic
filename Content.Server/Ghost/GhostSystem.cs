@@ -373,7 +373,7 @@ namespace Content.Server.Ghost
 
             while (query.MoveNext(out var entity, out var mindContainer))
             {
-                if(IsHiddenFromGhostWarps(entity))
+                if(IsHiddenFromGhostWarps(entity) || !IsValidWarpTarget(entity))
                     continue;
 
                 var mindUid = mindContainer.Mind ?? mindContainer.OriginalMind;
@@ -391,7 +391,7 @@ namespace Content.Server.Ghost
 
                 if (TryComp<RoleCacheComponent>(mindUid, out var roleCacheComponent) &&
                     roleCacheComponent.IsAntag &&
-                    _prototypeManager.TryIndex(roleCacheComponent.AntagPrototype, out var antagPrototype))
+                    _prototypeManager.TryIndex(roleCacheComponent.LastAntagPrototype, out var antagPrototype))
                 {
                     var warp = SetupWarp(entity, mindContainer, Loc.GetString(antagPrototype.Name), AntagonistButtonColor);
                     warp.Group |= WarpGroup.Antag;
@@ -445,6 +445,15 @@ namespace Content.Server.Ghost
             }
 
             return warps;
+        }
+
+        private bool IsValidWarpTarget(EntityUid entity)
+        {
+            var transform = Transform(entity);
+            if (transform.MapID == MapId.Nullspace)
+                return false;
+
+            return true;
         }
 
         private bool IsHiddenFromGhostWarps(EntityUid entity)

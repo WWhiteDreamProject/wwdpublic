@@ -103,7 +103,7 @@ namespace Content.Shared.Ghost
 
          public Color? Color { get; }
 
-         public WarpGroup Group { get; set; }
+         public WarpGroup Group { get; set; } = WarpGroup.Location;
      }
 
      [Serializable, NetSerializable, Flags]

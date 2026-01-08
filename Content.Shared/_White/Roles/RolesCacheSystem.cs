@@ -10,11 +10,14 @@ public sealed class RolesCacheSystem : EntitySystem
     public override void Initialize()
     {
         SubscribeLocalEvent<MindComponent, RoleAddingEvent>(OnRoleAdded);
-        SubscribeLocalEvent<RoleCacheComponent, RoleRemovingEvent>(OnRoleRemoved);
+        SubscribeLocalEvent<MindComponent, RoleRemovingEvent>(OnRoleRemoved);
     }
 
-    private void OnRoleRemoved(EntityUid uid, RoleCacheComponent component, RoleRemovingEvent args)
+    private void OnRoleRemoved(EntityUid uid, MindComponent mind, RoleRemovingEvent args)
     {
+        if (!TryComp<RoleCacheComponent>(uid, out var component))
+            return;
+
         if (args.RoleComponent.Antag)
             component.AntagWeight -= 1;
     }
@@ -27,8 +30,8 @@ public sealed class RolesCacheSystem : EntitySystem
             cacheComp.AntagWeight += 1;
 
         if(args.RoleComponent.JobPrototype != null)
-            cacheComp.JobPrototype = args.RoleComponent.JobPrototype;
+            cacheComp.LastJobPrototype = args.RoleComponent.JobPrototype;
         if(args.RoleComponent.AntagPrototype != null)
-            cacheComp.AntagPrototype = args.RoleComponent.AntagPrototype;
+            cacheComp.LastAntagPrototype = args.RoleComponent.AntagPrototype;
     }
 }
