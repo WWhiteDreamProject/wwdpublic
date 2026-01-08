@@ -15,7 +15,7 @@ public sealed class RolesCacheSystem : EntitySystem
 
     private void OnRoleRemoved(EntityUid uid, MindComponent mind, RoleRemovingEvent args)
     {
-        if (!TryComp<RoleCacheComponent>(uid, out var component))
+        if (!TryComp<RoleCacheComponent>(mind.CurrentEntity, out var component))
             return;
 
         if (args.RoleComponent.Antag)
@@ -24,7 +24,10 @@ public sealed class RolesCacheSystem : EntitySystem
 
     private void OnRoleAdded(EntityUid uid, MindComponent component, RoleAddingEvent args)
     {
-        var cacheComp = EnsureComp<RoleCacheComponent>(uid);
+        if(component.CurrentEntity is null)
+            return;
+
+        var cacheComp = EnsureComp<RoleCacheComponent>(component.CurrentEntity.Value);
 
         if (args.RoleComponent.Antag)
             cacheComp.AntagWeight += 1;

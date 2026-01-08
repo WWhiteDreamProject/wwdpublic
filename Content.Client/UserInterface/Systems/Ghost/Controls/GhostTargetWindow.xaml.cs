@@ -6,7 +6,6 @@ using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;
 using Robust.Client.UserInterface.XAML;
-using Robust.Shared.Prototypes;
 
 namespace Content.Client.UserInterface.Systems.Ghost.Controls
 {
@@ -15,10 +14,7 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
     {
         private string _searchText = string.Empty;
 
-        // WWDP EDIT START
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-
-        private List<GhostWarp> _originalGhostWarps = new List<GhostWarp>();
+        private List<GhostWarp> _originalGhostWarps = [];
 
         private Dictionary<string, List<GhostWarp>> _alivePlayers = [];
         private Dictionary<string, List<GhostWarp>> _deadPlayers = [];
@@ -36,7 +32,6 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
 
         public GhostTargetWindow()
         {
-            IoCManager.InjectDependencies(this); // WWDP EDIT
             RobustXamlLoader.Load(this);
             SearchBar.OnTextChanged += OnSearchTextChanged;
 
@@ -125,10 +120,10 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
             AddButtons(_aliveAntags, "ghost-teleport-menu-antagonists-label");
             AddButtons(_alivePlayers, "ghost-teleport-menu-alive-label"); // Alive
             AddButtons(_ghostPlayers, "ghost-teleport-menu-ghosts-label"); // Ghost
-            AddButtons(_leftPlayers, "ghost-teleport-menu-left-label"); // Left
-            AddButtons(_deadPlayers, "ghost-teleport-menu-dead-label"); // Dead
-            AddButtons(_places, "ghost-teleport-menu-locations-label");
-            AddButtons(_other, "ghost-teleport-menu-other-label");
+            AddButtons(_leftPlayers, "ghost-teleport-menu-left-label", true); // Left
+            AddButtons(_deadPlayers, "ghost-teleport-menu-dead-label", true); // Dead
+            AddButtons(_places, "ghost-teleport-menu-locations-label", true);
+            AddButtons(_other, "ghost-teleport-menu-other-label", true);
             // WWDP EDIT END
         }
 
@@ -142,7 +137,7 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
 
         // WWDP EDIT START
 
-        private void AddButtons(Dictionary<string, List<GhostWarp>> sortedWarps, string text)
+        private void AddButtons(Dictionary<string, List<GhostWarp>> sortedWarps, string text, bool enableOtherCategory = false)
         {
             if(sortedWarps.Count == 0)
                 return;
@@ -167,7 +162,7 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
                 if(warps.Count == 0)
                     continue;
 
-                var isOtherContainer = string.IsNullOrEmpty(subCategory) || warps.Count == 1;
+                var isOtherContainer = enableOtherCategory && (string.IsNullOrEmpty(subCategory) || warps.Count == 1);
 
                 var subBox = new FlexBox()
                 {
@@ -212,7 +207,7 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
                 }
             }
 
-            if (otherContainer.ChildCount > 0)
+            if (enableOtherCategory && otherContainer.ChildCount > 0)
             {
                 var otherLabel = new Label
                 {

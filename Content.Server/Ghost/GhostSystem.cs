@@ -369,31 +369,29 @@ namespace Content.Server.Ghost
         {
             var warps = new List<GhostWarp>();
 
-            var query = EntityQueryEnumerator<MindContainerComponent>();
+            var query = EntityQueryEnumerator<MindContainerComponent, RoleCacheComponent>();
 
-            while (query.MoveNext(out var entity, out var mindContainer))
+            while (query.MoveNext(out var entity, out var mindContainer, out var roleCacheComponent))
             {
                 if(IsHiddenFromGhostWarps(entity) || !IsValidWarpTarget(entity))
                     continue;
 
-                var mindUid = mindContainer.Mind ?? mindContainer.OriginalMind;
                 var entityWarpsWeight = 0;
 
-                if (_jobs.MindTryGetJob(mindUid, out var jobPrototype) &&
+                if (_prototypeManager.TryIndex(roleCacheComponent.LastJobPrototype, out var jobPrototype) &&
                     _jobs.TryGetDepartment(jobPrototype.ID, out var departmentPrototype))
                 {
-                    var warp = SetupWarp(entity, mindContainer, Loc.GetString(jobPrototype.Name), departmentPrototype.Color);
+                    var warp = SetupWarp(entity, mindContainer, jobPrototype.Name, departmentPrototype.Color);
                     warp.Group |= WarpGroup.Department;
 
                     warps.Add(warp);
                     entityWarpsWeight++;
                 }
 
-                if (TryComp<RoleCacheComponent>(mindUid, out var roleCacheComponent) &&
-                    roleCacheComponent.IsAntag &&
+                if (roleCacheComponent.IsAntag &&
                     _prototypeManager.TryIndex(roleCacheComponent.LastAntagPrototype, out var antagPrototype))
                 {
-                    var warp = SetupWarp(entity, mindContainer, Loc.GetString(antagPrototype.Name), AntagonistButtonColor);
+                    var warp = SetupWarp(entity, mindContainer, antagPrototype.Name, AntagonistButtonColor);
                     warp.Group |= WarpGroup.Antag;
 
                     warps.Add(warp);
