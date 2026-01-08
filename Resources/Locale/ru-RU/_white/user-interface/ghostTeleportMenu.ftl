@@ -5,4 +5,5 @@ ghost-teleport-menu-dead-label = Мертвые
 ghost-teleport-menu-ghosts-label = Призраки
 ghost-teleport-menu-left-label = Вышедшие из тела
 ghost-teleport-menu-locations-label = Локации и объекты
+ghost-teleport-menu-other-label = Другие
 ghost-teleport-menu-count-label = Количество

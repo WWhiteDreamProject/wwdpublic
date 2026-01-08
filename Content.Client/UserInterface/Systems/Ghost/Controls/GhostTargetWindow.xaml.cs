@@ -18,7 +18,7 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
     public sealed partial class GhostTargetWindow : DefaultWindow
     {
         // WWDP EDIT START
-        public static readonly Color AntagonistButtonColor = Color.FromHex("#7F4141");
+
         public static readonly Color LocationButtonColor = StyleNano.ButtonColorDefault;
         // WWDP EDIT END
 
@@ -27,23 +27,23 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
         // WWDP EDIT START
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
+        private List<GhostWarp> _originalGhostWarps = new List<GhostWarp>();
+
+        private Dictionary<string, List<GhostWarp>> _alivePlayers = [];
+        private Dictionary<string, List<GhostWarp>> _deadPlayers = [];
+        private Dictionary<string, List<GhostWarp>> _ghostPlayers = [];
+        private Dictionary<string, List<GhostWarp>> _leftPlayers = [];
+
+        private Dictionary<string, List<GhostWarp>> _aliveAntags = [];
+        private Dictionary<string, List<GhostWarp>> _deadAntags = [];
+
+        private Dictionary<string, List<GhostWarp>> _places = [];
+
+        private Dictionary<string, List<GhostWarp>> _other = [];
+
         private ISawmill _logger;
 
-        private List<GhostWarpPlayer> _originalPlayerWarps = new();
-        private List<GhostWarpPlace> _originalPlaceWarps = new();
-        private List<GhostWarpGlobalRoles> _originalRolesWarps = new();
 
-        private List<GhostWarpPlayer> _playerWarps = new();
-        private List<GhostWarpPlace> _placeWarps = new();
-        private List<GhostWarpGlobalRoles> _globalRoles = new();
-
-        private List<GhostWarpGlobalRoles> _aliveGlobalRolesList = new();
-        private List<GhostWarpGlobalRoles> _deadGlobalRolesList = new();
-
-        private List<GhostWarpPlayer> _alivePlayers = new();
-        private List<GhostWarpPlayer> _leftPlayers = new();
-        private List<GhostWarpPlayer> _deadPlayers = new();
-        private List<GhostWarpPlayer> _ghostPlayers = new();
         // WWDP EDIT END
 
         public event Action<NetEntity>? WarpClicked;
@@ -63,27 +63,70 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
         {
             // WWDP EDIT START
             GhostTeleportContainer.DisposeAllChildren();
-
-            _playerWarps = _originalPlayerWarps.ToList();
-            _placeWarps = _originalPlaceWarps.ToList();
-            _globalRoles = _originalRolesWarps.ToList();
-
-            PlayersAllocation();
+            FilterWarps();
             AddButtons();
             // WWDP EDIT END
         }
 
-        public void UpdateWarps(List<GhostWarpPlayer> players, List<GhostWarpPlace> places, List<GhostWarpGlobalRoles> roles) // WWDP-Edit: Populate > UpdateWarps
+        private void FilterWarps()
+        {
+            _alivePlayers.Clear();
+            _deadPlayers.Clear();
+            _ghostPlayers.Clear();
+            _leftPlayers.Clear();
+            _aliveAntags.Clear();
+            _deadAntags.Clear();
+            _places.Clear();
+            _other.Clear();
+
+            foreach (var warp in _originalGhostWarps)
+            {
+                if(!string.IsNullOrEmpty(_searchText) && !warp.DisplayName.Contains(_searchText))
+                    continue;
+
+                if(warp.Group == WarpGroup.Location)
+                {
+                    FilterLocalWarps(_places, warp, null);
+                    continue;
+                }
+
+                if (warp.Group.HasFlag(WarpGroup.Department))
+                {
+                    FilterLocalWarps(_alivePlayers, warp, WarpGroup.Alive);
+                    FilterLocalWarps(_deadPlayers, warp, WarpGroup.Dead);
+                    FilterLocalWarps(_leftPlayers, warp, WarpGroup.Left);
+                    continue;
+                }
+
+                if (warp.Group.HasFlag(WarpGroup.Antag))
+                {
+                    FilterLocalWarps(_aliveAntags, warp, WarpGroup.Alive);
+                    FilterLocalWarps(_deadAntags, warp, WarpGroup.Dead);
+                    continue;
+                }
+
+                FilterLocalWarps(_other, warp, WarpGroup.Alive);
+            }
+        }
+
+        private void FilterLocalWarps(Dictionary<string, List<GhostWarp>> groups, GhostWarp warp, WarpGroup? group)
+        {
+            if (group != null && !warp.Group.HasFlag(group))
+               return;
+
+            if (!groups.TryGetValue(warp.SubGroup, out var list))
+            {
+                list = [];
+                groups.Add(warp.SubGroup, list);
+            }
+
+            list.Add(warp);
+        }
+
+        public void UpdateWarps(List<GhostWarp> warps) // WWDP-Edit: Populate > UpdateWarps
         {
             // WWDP EDIT START
-            _originalPlayerWarps = players.ToList();
-            _originalPlaceWarps = places.ToList();
-            _originalRolesWarps = roles.ToList();
-
-            _playerWarps = _originalPlayerWarps;
-            _placeWarps = _originalPlaceWarps;
-            _globalRoles = _originalRolesWarps;
-
+            _originalGhostWarps = warps;
             Populate();
             // WWDP EDIT END
         }
@@ -91,174 +134,30 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
         private void AddButtons()
         {
             // WWDP EDIT START
-            AddRolesButtons(_aliveGlobalRolesList, "ghost-teleport-menu-antagonists-label");
-            AddPlayerButtons(_alivePlayers, "ghost-teleport-menu-alive-label", Color.Black, true); // Alive
-            AddPlayerButtons(_ghostPlayers, "ghost-teleport-menu-ghosts-label", Color.Black, true); // Ghost
-            AddPlayerButtons(_leftPlayers, "ghost-teleport-menu-left-label", Color.Black, true); // Left
-            AddPlayerButtons(_deadPlayers, "ghost-teleport-menu-dead-label", Color.Black, true); // Dead
-            AddRolesButtons(_deadGlobalRolesList, "ghost-teleport-menu-dead-antagonists-label"); // WWDP EDIT
-            AddPlaceButtons(_placeWarps, "ghost-teleport-menu-locations-label", LocationButtonColor);
+            AddButtons(_aliveAntags, "ghost-teleport-menu-antagonists-label");
+            AddButtons(_alivePlayers, "ghost-teleport-menu-alive-label"); // Alive
+            AddButtons(_ghostPlayers, "ghost-teleport-menu-ghosts-label"); // Ghost
+            AddButtons(_leftPlayers, "ghost-teleport-menu-left-label"); // Left
+            AddButtons(_deadPlayers, "ghost-teleport-menu-dead-label"); // Dead
+            AddButtons(_deadAntags, "ghost-teleport-menu-dead-antagonists-label");
+            AddButtons(_places, "ghost-teleport-menu-locations-label");
+            AddButtons(_other, "ghost-teleport-menu-other-label");
             // WWDP EDIT END
         }
-
-        // WWDP EDIT START
-        private void AddPlayerButtons(List<GhostWarpPlayer> players,
-            string text,
-            Color buttonColor,
-            bool enableByDepartmentColorSheet)
-        {
-            if (players.Count == 0)
-                return;
-
-            var mainContainer = new BoxContainer()
-            {
-                Orientation = BoxContainer.LayoutOrientation.Vertical,
-                HorizontalExpand = true,
-                SeparationOverride = 5
-            };
-
-            var header = CreateSectionHeader(text);
-            mainContainer.AddChild(header);
-
-            var sortedPlayers = SortPlayersByDepartment(players);
-
-            foreach (var departmentList in sortedPlayers)
-            {
-                if (departmentList.Count == 0 ||
-                    !_prototypeManager.TryIndex<DepartmentPrototype>(departmentList[0].DepartmentID, out var departmentPrototype))
-                    continue;
-
-                var departmentBox = new FlexBox()
-                {
-                    AlignContent = FlexBox.FlexAlignContent.SpaceBetween
-                };
-
-                if (enableByDepartmentColorSheet)
-                    buttonColor = departmentPrototype.Color;
-
-                var labelText = departmentPrototype.Name;
-
-                var departmentLabel = new Label
-                {
-                    Text = Loc.GetString(labelText) + ": " + departmentList.Count,
-                    StyleClasses = { "LabelSecondaryColor" }
-                };
-
-                foreach (var player in departmentList)
-                {
-                    var playerButton = new Button
-                    {
-                        Text = player.Name,
-                        TextAlign = Label.AlignMode.Right,
-                        HorizontalAlignment = HAlignment.Center,
-                        VerticalAlignment = VAlignment.Center,
-                        SizeFlagsStretchRatio = 1,
-                        ModulateSelfOverride = buttonColor,
-                        ToolTip = player.JobName,
-                        TooltipDelay = 0.1f,
-                        SetWidth = 180,
-                        ClipText = true,
-                    };
-
-                    playerButton.Label.ModulateSelfOverride = GetTextColor(buttonColor);
-
-                    playerButton.OnPressed += _ => WarpClicked?.Invoke(player.Entity);
-
-                    departmentBox.AddChild(playerButton);
-                }
-
-                mainContainer.AddChild(departmentLabel);
-                mainContainer.AddChild(departmentBox);
-            }
-
-            GhostTeleportContainer.AddChild(mainContainer);
-        }
-
-        private void AddPlaceButtons(List<GhostWarpPlace> places, string text, Color buttonColor)
-        {
-            if (places.Count == 0)
-                return;
-
-            var mainContainer = new BoxContainer()
-            {
-                Orientation = BoxContainer.LayoutOrientation.Vertical,
-                HorizontalExpand = true,
-                SeparationOverride = 5
-            };
-
-            var header = CreateSectionHeader(text);
-            mainContainer.AddChild(header);
-
-            var placesBox = new FlexBox()
-            {
-                AlignContent = FlexBox.FlexAlignContent.SpaceBetween
-            };
-
-            var countLabel = new Label
-            {
-                Text = Loc.GetString("ghost-teleport-menu-count-label") + ": " + places.Count,
-                StyleClasses = { "LabelSecondaryColor" }
-            };
-
-            foreach (var place in places)
-            {
-                var placeButton = new Button
-                {
-                    Text = place.Name,
-                    TextAlign = Label.AlignMode.Right,
-                    HorizontalAlignment = HAlignment.Center,
-                    VerticalAlignment = VAlignment.Center,
-                    SizeFlagsStretchRatio = 1,
-                    ModulateSelfOverride = buttonColor,
-                    ToolTip = place.Description,
-                    TooltipDelay = 0.1f,
-                    SetWidth = 180,
-                    ClipText = true,
-                };
-
-                placeButton.Label.ModulateSelfOverride = GetTextColor(buttonColor);
-
-                placeButton.OnPressed += _ => WarpClicked?.Invoke(place.Entity);
-
-                placesBox.AddChild(placeButton);
-            }
-
-            mainContainer.AddChild(countLabel);
-            mainContainer.AddChild(placesBox);
-
-            GhostTeleportContainer.AddChild(mainContainer);
-        }
-        // WWDP EDIT END
 
         private void OnSearchTextChanged(LineEdit.LineEditEventArgs args)
         {
             // WWDP EDIT START
             _searchText = args.Text.ToLower();
-
-            GhostTeleportContainer.DisposeAllChildren();
-
-            if (string.IsNullOrEmpty(_searchText))
-            {
-                _playerWarps = _originalPlayerWarps;
-                _placeWarps = _originalPlaceWarps;
-                _globalRoles = _originalRolesWarps;
-            }
-            else
-            {
-                _playerWarps = GetSortedPlayers(_originalPlayerWarps).Where(p => p.Name.ToLower().Contains(_searchText)).ToList();
-                _placeWarps = GetSortedPlaces(_originalPlaceWarps).Where(p => p.Name.ToLower().Contains(_searchText)).ToList();
-                _globalRoles = GetSortedAntagonists(_originalRolesWarps).Where(a => a.Name.ToLower().Contains(_searchText)).ToList();
-            }
-            PlayersAllocation();
-
-            AddButtons();
+            Populate();
             // WWDP EDIT END
         }
 
         // WWDP EDIT START
-        private void AddRolesButtons(List<GhostWarpGlobalRoles> roles, string text)
+
+        private void AddButtons(Dictionary<string, List<GhostWarp>> sortedWarps, string text)
         {
-            if (roles.Count == 0)
+            if(sortedWarps.Count == 0)
                 return;
 
             var mainContainer = new BoxContainer()
@@ -271,49 +170,47 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
             var header = CreateSectionHeader(text);
             mainContainer.AddChild(header);
 
-            var sortedAntags = SortRolesByProto(roles);
-
-            foreach (var (key, rolesList) in sortedAntags)
+            foreach (var (subCategory, warps) in sortedWarps)
             {
-                if (rolesList.Count == 0 || !_prototypeManager.TryIndex(key, out var roleTypePrototype))
+                if(warps.Count == 0)
                     continue;
 
-                var departmentBox = new FlexBox()
+                var subBox = new FlexBox()
                 {
                     AlignContent = FlexBox.FlexAlignContent.SpaceBetween
                 };
 
-                foreach (var role in rolesList)
+                var departmentLabel = new Label
+                {
+                    Text = Loc.GetString(subCategory) + ": " + warps.Count,
+                    StyleClasses = { "LabelSecondaryColor" }
+                };
+
+                foreach (var warp in warps)
                 {
                     var playerButton = new Button
                     {
-                        Text = role.Name,
+                        Text = warp.DisplayName,
                         TextAlign = Label.AlignMode.Right,
                         HorizontalAlignment = HAlignment.Center,
                         VerticalAlignment = VAlignment.Center,
                         SizeFlagsStretchRatio = 1,
-                        ModulateSelfOverride = roleTypePrototype.Color,
-                        ToolTip = Loc.GetString(role.RoleDescription),
+                        ModulateSelfOverride = warp.Color,
+                        ToolTip = warp.Description,
                         TooltipDelay = 0.1f,
                         SetWidth = 180,
                         ClipText = true,
                     };
 
-                    playerButton.Label.ModulateSelfOverride = GetTextColor(roleTypePrototype.Color);
+                    playerButton.Label.ModulateSelfOverride = GetTextColor(warp.Color);
+                    playerButton.OnPressed += _ => WarpClicked?.Invoke(warp.Entity);
 
-                    playerButton.OnPressed += _ => WarpClicked?.Invoke(role.Entity);
-
-                    departmentBox.AddChild(playerButton);
+                    subBox.AddChild(playerButton);
                 }
 
-                var departmentLabel = new Label
-                {
-                    Text = Loc.GetString(roleTypePrototype.Name) + $": {rolesList.Count}",
-                    StyleClasses = { "LabelSecondaryColor" }
-                };
-
-                mainContainer.AddChild(departmentLabel);
-                mainContainer.AddChild(departmentBox);
+                if(!string.IsNullOrEmpty(subCategory))
+                    mainContainer.AddChild(departmentLabel);
+                mainContainer.AddChild(subBox);
             }
 
             GhostTeleportContainer.AddChild(mainContainer);
@@ -350,78 +247,15 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
             }
         }
 
-        public List<List<GhostWarpPlayer>> SortPlayersByDepartment(List<GhostWarpPlayer> players)
+        public static Color GetTextColor(Color? background)
         {
-            if (players.Count == 0)
-                return new List<List<GhostWarpPlayer>>();
+            if (background is null)
+                return Color.White;
 
-            return players
-                .GroupBy(GetPlayerWeights)
-                .OrderByDescending(g => g.Key)
-                .Select(g => g.ToList())
-                .ToList();
-        }
+            var luminance = (0.299 * background.Value.R +
+                0.587 * background.Value.G +
+                0.114 * background.Value.B);
 
-        private int GetPlayerWeights(GhostWarpPlayer player)
-        {
-            if (!_prototypeManager.TryIndex<DepartmentPrototype>(player.DepartmentID, out var departmentPrototype))
-            {
-                _logger.Error($"Error while getting player weights {player.Name} for department {player.DepartmentID}");
-                return 0;
-            }
-            return departmentPrototype.Weight;
-        }
-
-
-        public Dictionary<ProtoId<RoleTypePrototype>, List<GhostWarpGlobalRoles>> SortRolesByProto(List<GhostWarpGlobalRoles> antagonists)
-        {
-            if (antagonists.Count == 0)
-                return [];
-
-            return antagonists.GroupBy(k => new ProtoId<RoleTypePrototype>(k.PrototypeID))
-                .ToDictionary(g => g.Key, g => g.ToList());
-        }
-
-        private List<GhostWarpPlace> GetSortedPlaces(List<GhostWarpPlace> places)
-        {
-            return places
-                .OrderBy(w => w.Name)
-                .ToList();
-        }
-
-        private List<GhostWarpPlayer> GetSortedPlayers(List<GhostWarpPlayer> players)
-        {
-            return players
-                .OrderBy(w => w.Name)
-                .ToList();
-        }
-
-        private List<GhostWarpGlobalRoles> GetSortedAntagonists(List<GhostWarpGlobalRoles> antagonists)
-        {
-            return antagonists
-                .OrderBy(w => w.Name)
-                .ToList();
-        }
-
-        private void PlayersAllocation()
-        {
-            _aliveGlobalRolesList = _globalRoles.Where(warp => !warp.IsDead).ToList();
-            _deadGlobalRolesList = _globalRoles.Where(warp => warp.IsDead).ToList();
-
-            _alivePlayers = _playerWarps.Where(warp => warp.Status.HasFlag(PlayerStatus.IsAlive)).ToList();
-            _deadPlayers = _playerWarps.Where(warp => warp.Status.HasFlag(PlayerStatus.IsDead)).ToList();
-            _leftPlayers = _playerWarps.Where(warp => warp.Status.HasFlag(PlayerStatus.IsLeft)).ToList();
-            _ghostPlayers = _playerWarps.Where(warp => warp.Status.HasFlag(PlayerStatus.IsGhost)).ToList();
-        }
-
-        public static Color GetTextColor(Color background)
-        {
-            // Perceived luminance formula
-            double luminance = (0.299 * background.R +
-                0.587 * background.G +
-                0.114 * background.B);
-
-            // Light background -> dark text, dark background -> light text
             return luminance > 0.5 ? Color.Black : Color.White;
         }
         //WWDP EDIT END

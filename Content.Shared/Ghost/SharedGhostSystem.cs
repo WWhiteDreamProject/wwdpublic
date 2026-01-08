@@ -84,130 +84,40 @@ namespace Content.Shared.Ghost
      /// This is used as part of <see cref="GhostWarpsResponseEvent"/>
      /// </summary>
      [Serializable, NetSerializable]
-     public struct GhostWarpPlayer
+     public struct GhostWarp
      {
-         public GhostWarpPlayer(NetEntity entity, string playerName, string playerJobName, string playerDepartmentID, bool isGhost, bool isLeft, bool isDead, bool isAlive)
+         public GhostWarp(NetEntity entity, string displayName, string subGroup, string description, Color? color)
          {
              Entity = entity;
-             Name = playerName;
-             JobName = playerJobName;
-             DepartmentID = playerDepartmentID;
-
-             Status =
-                 (isGhost ? PlayerStatus.IsGhost : 0) |
-                 (isAlive ? PlayerStatus.IsAlive : 0) |
-                 (isDead ? PlayerStatus.IsDead : 0) |
-                 (isLeft ? PlayerStatus.IsLeft : 0) ;
+             DisplayName = displayName;
+             SubGroup = subGroup;
+             Color = color;
+             Description = description;
          }
 
-         /// <summary>
-         /// The entity representing the warp point.
-         /// This is passed back to the server in <see cref="GhostWarpToTargetRequestEvent"/>
-         /// </summary>
          public NetEntity Entity { get; }
 
-         /// <summary>
-         /// The display player name to be surfaced in the ghost warps menu
-         /// </summary>
-         public string Name { get; }
+         public string DisplayName { get; }
+         public string SubGroup { get; }
+         public string Description { get; }
 
-         /// <summary>
-         /// The display player job to be surfaced in the ghost warps menu
-         /// </summary>
+         public Color? Color { get; }
 
-         public string JobName { get; }
-
-         /// <summary>
-         /// The display player department to be surfaced in the ghost warps menu
-         /// </summary>
-         public string DepartmentID { get; set; }
-
-         public PlayerStatus Status { get; }
+         public WarpGroup Group { get; set; }
      }
 
      [Serializable, NetSerializable, Flags]
-     public enum PlayerStatus : byte
+     public enum WarpGroup
      {
-        None = 0,
-        IsGhost = 1,
-        IsAlive = 1 << 1,
-        IsDead = 1 << 2,
-        IsLeft = 1 << 3,
+        Location = 0,
+        Ghost = 1 << 0,
+        Alive = 1 << 1,
+        Dead =  1 << 2,
+        Left =  1 << 3,
+        Antag = 1 << 4,
+        Department = 1 << 5,
      }
 
-     [Serializable, NetSerializable]
-     public struct GhostWarpGlobalRoles
-     {
-         public GhostWarpGlobalRoles(NetEntity entity, string playerName, string roleDescription, string prototypeID, bool isDead)
-         {
-             Entity = entity;
-             Name = playerName;
-             RoleDescription = roleDescription;
-             PrototypeID = prototypeID;
-             IsDead = isDead;
-         }
-
-         /// <summary>
-         /// The entity representing the warp point.
-         /// This is passed back to the server in <see cref="GhostWarpToTargetRequestEvent"/>
-         /// </summary>
-         public NetEntity Entity { get; }
-
-         /// <summary>
-         /// The display player name to be surfaced in the ghost warps menu
-         /// </summary>
-         public string Name { get; }
-
-         /// <summary>
-         /// The display antagonist description to be surfaced in the ghost warps menu
-         /// </summary>
-         public string RoleDescription { get; }
-
-         /// <summary>
-         /// A antagonist prototype id
-         /// </summary>
-         public string PrototypeID { get; }
-
-         /// <summary>
-         /// Is antagonist dead
-         /// </summary>
-         public bool IsDead { get;  }
-
-     }
-    // WWDP-End
-
-    /// <summary>
-    /// An individual place a ghost can warp to.
-    /// This is used as part of <see cref="GhostWarpsResponseEvent"/>
-    /// </summary>
-    [Serializable, NetSerializable]
-    public struct GhostWarpPlace // WWDP-Edit: GhostWarp > GhostWarpPlace
-    {
-        // WWDP-Edit-Start
-        public GhostWarpPlace(NetEntity entity, string name, string description)
-        {
-            Entity = entity;
-            Name = name;
-            Description = description;
-        }
-        // WWDP-Edit-End
-
-        /// <summary>
-        /// The entity representing the warp point.
-        /// This is passed back to the server in <see cref="GhostWarpToTargetRequestEvent"/>
-        /// </summary>
-        public NetEntity Entity { get; }
-
-        /// <summary>
-        /// The display name to be surfaced in the ghost warps menu
-        /// </summary>
-        public string Name { get; } // WWDP-Edit: DisplayName > Name
-
-        /// <summary>
-        /// Display name to be surfaced in the ghost warps menu
-        /// </summary>
-        public string Description { get;  } // WWDP-Edit: IsWarpPoint > Description
-    }
 
     /// <summary>
     /// A server to client response for a <see cref="GhostWarpsRequestEvent"/>.
@@ -217,27 +127,15 @@ namespace Content.Shared.Ghost
     public sealed class GhostWarpsResponseEvent : EntityEventArgs
     {
         // WWDP-Start
-        public GhostWarpsResponseEvent(List<GhostWarpPlayer> players, List<GhostWarpPlace> places, List<GhostWarpGlobalRoles> roles)
+        public GhostWarpsResponseEvent(List<GhostWarp> warps)
         {
-            Players = players;
-            Places = places;
-            Roles = roles;
+            Warps = warps;
         }
 
         /// <summary>
-        /// A list of players to teleport.
+        /// A list of warps to teleport.
         /// </summary>
-        public List<GhostWarpPlayer> Players { get; }
-
-        /// <summary>
-        /// A list of warp points.
-        /// </summary>
-        public List<GhostWarpPlace> Places { get; }
-
-        /// <summary>
-        /// A list of antagonists to teleport.
-        /// </summary>
-        public List<GhostWarpGlobalRoles> Roles { get; }
+        public List<GhostWarp> Warps { get; }
         // WWDP-End
     }
 

@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Numerics;
+using System.Text.RegularExpressions;
 using Content.Server.Access.Systems;
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Managers;
@@ -10,6 +11,7 @@ using Content.Server.Preferences.Managers;
 using Content.Server.Roles;
 using Content.Server.Roles.Jobs;
 using Content.Shared._White.CustomGhostSystem;
+using Content.Shared._White.Roles;
 using Content.Shared.Actions;
 using Content.Shared.CCVar;
 using Content.Shared.Damage;
@@ -82,10 +84,7 @@ namespace Content.Server.Ghost
         private EntityQuery<GhostComponent> _ghostQuery;
         private EntityQuery<PhysicsComponent> _physicsQuery;
 
-        [ValidatePrototypeId<DepartmentPrototype>]
-        public static ProtoId<DepartmentPrototype> SpecificDepartmentProtoId = "Specific"; // WWDP EDIT
-        [ValidatePrototypeId<RoleTypePrototype>]
-        public static ProtoId<RoleTypePrototype> NeutralRoleProtoId = "Neutral"; // WWDP EDIT
+        public static readonly Color AntagonistButtonColor = Color.FromHex("#7F4141"); // WWDP EDIT
 
         public override void Initialize()
         {
@@ -311,11 +310,9 @@ namespace Content.Server.Ghost
             }
 
             // WWDP-Start
-            var players = GetPlayerWarps();
+            var mindContainers = GetMindContainersWarps();
             var places = GetLocationWarps();
-            var roles = GetByRoleWarps();
-
-            var response = new GhostWarpsResponseEvent(players, places, roles);
+            var response = new GhostWarpsResponseEvent(mindContainers.Concat(places).ToList());
             // WWDP-End
             RaiseNetworkEvent(response, args.SenderSession.Channel);
         }
@@ -372,9 +369,10 @@ namespace Content.Server.Ghost
                 _physics.SetLinearVelocity(uid, Vector2.Zero, body: physics);
         }
 
-        private List<GhostWarpPlayer> GetPlayerWarps()
+        // WWDP START
+        private List<GhostWarp> GetMindContainersWarps()
         {
-            var warps = new List<GhostWarpPlayer>();
+            var warps = new List<GhostWarp>();
 
             var query = EntityQueryEnumerator<MindContainerComponent>();
 
@@ -383,77 +381,82 @@ namespace Content.Server.Ghost
                 if(IsHiddenFromGhostWarps(entity))
                     continue;
 
-                if (TryComp<MindComponent>(mindContainer.Mind, out var mindComponent) &&
-                    mindComponent.RoleType != NeutralRoleProtoId)
-                    continue;
+                var mindUid = mindContainer.Mind ?? mindContainer.OriginalMind;
+                var entityWarpsWeight = 0;
 
-                var playerDepartmentId = SpecificDepartmentProtoId;
-                var playerJobName = Loc.GetString("generic-unknown-title");
-
-                if (_jobs.MindTryGetJob(mindContainer.Mind ?? mindContainer.OriginalMind,
-                    out var jobPrototype))
+                if (_jobs.MindTryGetJob(mindUid, out var jobPrototype) &&
+                    _jobs.TryGetDepartment(jobPrototype.ID, out var departmentPrototype))
                 {
-                    playerJobName = Loc.GetString(jobPrototype.Name);
+                    var warp = SetupWarp(entity, mindContainer, Loc.GetString(jobPrototype.Name), departmentPrototype.Color);
+                    warp.Group |= WarpGroup.Department;
 
-                    if (_jobs.TryGetDepartment(jobPrototype.ID, out var departmentPrototype))
-                    {
-                        playerDepartmentId = departmentPrototype.ID;
-                    }
+                    warps.Add(warp);
+                    entityWarpsWeight++;
                 }
 
-                var hasAnyMind = (mindContainer.Mind ?? mindContainer.OriginalMind) != null;
-                var isDead = _mobState.IsDead(entity);
-                var isLeft = TryComp<SSDIndicatorComponent>(entity, out var indicator) && indicator.IsSSD && !isDead &&
-                    hasAnyMind;
+                if (TryComp<RoleCacheComponent>(mindUid, out var roleCacheComponent) &&
+                    roleCacheComponent.IsAntag &&
+                    _prototypeManager.TryIndex(roleCacheComponent.AntagPrototype, out var antagPrototype))
+                {
+                    var warp = SetupWarp(entity, mindContainer, Loc.GetString(antagPrototype.Name), AntagonistButtonColor);
+                    warp.Group |= WarpGroup.Antag;
 
-                var warp = new GhostWarpPlayer(
-                    GetNetEntity(entity),
-                    Comp<MetaDataComponent>(entity).EntityName,
-                    playerJobName,
-                    playerDepartmentId,
-                    HasComp<GhostComponent>(entity),
-                    isLeft,
-                    isDead,
-                    _mobState.IsAlive(entity)
-                );
+                    warps.Add(warp);
+                    entityWarpsWeight++;
+                }
 
-                warps.Add(warp);
+                if(entityWarpsWeight == 0)
+                {
+                    var warp = SetupWarp(entity, mindContainer, MetaData(entity).EntityPrototype?.Name ?? "", null);
+                    warps.Add(warp);
+                }
             }
 
             return warps;
         }
 
-        private List<GhostWarpGlobalRoles> GetByRoleWarps()
+        private GhostWarp SetupWarp(EntityUid entity, MindContainerComponent mindContainer, string subGroup, Color? color)
         {
-            var warps = new List<GhostWarpGlobalRoles>();
+            var hasAnyMind = (mindContainer.Mind ?? mindContainer.OriginalMind) != null;
+            var isDead = _mobState.IsDead(entity);
+            var isLeft = TryComp<SSDIndicatorComponent>(entity, out var indicator) && indicator.IsSSD && !isDead &&
+                hasAnyMind;
 
-            var query = EntityQueryEnumerator<MindContainerComponent>();
+            var metadata = Comp<MetaDataComponent>(entity);
 
-            while (query.MoveNext(out var entity, out var mindContainer))
+            var warp = new GhostWarp(GetNetEntity(entity), metadata.EntityName, subGroup, metadata.EntityDescription, color);
+
+            if(isLeft)
+                warp.Group |= WarpGroup.Left;
+            if(_mobState.IsDead(entity))
+                warp.Group |= WarpGroup.Dead;
+            if(_mobState.IsAlive(entity))
+                warp.Group |= WarpGroup.Alive;
+            if(HasComp<GhostComponent>(entity))
+                warp.Group |= WarpGroup.Ghost;
+
+            return warp;
+        }
+
+        private List<GhostWarp> GetLocationWarps()
+        {
+            var warps = new List<GhostWarp>();
+            var allQuery = AllEntityQuery<WarpPointComponent>();
+
+            while (allQuery.MoveNext(out var uid, out var warp))
             {
-                if (!TryComp<MindComponent>(mindContainer.Mind, out var mindComponent) ||
-                    mindComponent.RoleType == NeutralRoleProtoId)
-                    continue;
-
-                if(!_prototypeManager.TryIndex(mindComponent.RoleType, out var roleTypePrototype))
-                    continue;
-
-                var isDead = _mobState.IsDead(entity);
-                var metadata = Comp<MetaDataComponent>(entity);
-
-                var warp = new GhostWarpGlobalRoles(
-                    GetNetEntity(entity),
-                    metadata.EntityName,
-                    metadata.EntityDescription,
-                    mindComponent.RoleType,
-                    isDead
-                );
-
-                warps.Add(warp);
+                var newWarp = new GhostWarp(GetNetEntity(uid), warp.Location ?? Name(uid), "", Description(uid), null);
+                warps.Add(newWarp);
             }
 
             return warps;
         }
+
+        private bool IsHiddenFromGhostWarps(EntityUid entity)
+        {
+            return _tag.HasTag(entity, "HideFromGhostWarps");
+        }
+
         // WWDP-End
 
 
@@ -685,26 +688,6 @@ namespace Content.Server.Ghost
             return true;
         }
 
-        // WWDP-Start
-        private List<GhostWarpPlace> GetLocationWarps()
-        {
-            var warps = new List<GhostWarpPlace>();
-            var allQuery = AllEntityQuery<WarpPointComponent>();
-
-            while (allQuery.MoveNext(out var uid, out var warp))
-            {
-                var newWarp =  new GhostWarpPlace(GetNetEntity(uid), warp.Location ?? Name(uid), Description(uid));
-                warps.Add(newWarp);
-            }
-
-            return warps;
-        }
-
-        private bool IsHiddenFromGhostWarps(EntityUid entity)
-        {
-            return _tag.HasTag(entity, "HideFromGhostWarps");
-        }
-        // WWDP-End
     }
 
     public sealed class GhostAttemptHandleEvent(MindComponent mind, bool canReturnGlobal) : HandledEntityEventArgs
