@@ -228,8 +228,7 @@ public sealed partial class ShuttleSystem
 
     private void OnGridFillMapInit(EntityUid uid, GridFillComponent component, MapInitEvent args)
     {
-        // WWDP edit start
-        if (!component.IgnoreCVars && !_cfg.GetCVar(CCVars.GridFill))
+        if (!_cfg.GetCVar(CCVars.GridFill))
             return;
 
         if (!TryComp<DockingComponent>(uid, out var dock) ||
@@ -238,7 +237,6 @@ public sealed partial class ShuttleSystem
         {
             return;
         }
-        // WWDP edit end
 
         // Spawn on a dummy map and try to dock if possible, otherwise dump it.
         _mapSystem.CreateMap(out var mapId);

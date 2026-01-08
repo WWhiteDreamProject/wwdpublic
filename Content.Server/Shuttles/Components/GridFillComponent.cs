@@ -13,11 +13,6 @@ public sealed partial class GridFillComponent : Component
     [DataField]
     public ResPath Path = new("/Maps/Shuttles/escape_pod_small.yml");
 
-    // WWDP edit start
-    [DataField]
-    public bool IgnoreCVars = false;
-    // WWDP edit end
-
     /// <summary>
     /// Components to be added to any spawned grids.
     /// </summary>
