@@ -4913,3 +4913,24 @@ Entries:
   id: 516
   time: '2026-01-06T13:57:29.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1009
+- author: Gersoon
+  changes:
+    - type: Add
+      message: >-
+        Новый ЦК с великой рп зоной и великой ареной + Вариации на арене ЦК
+        (rd_l353, Gersoon)
+    - type: Add
+      message: Баттлщипы, но только педально (sevassstyan)
+    - type: Tweak
+      message: >-
+        Теперь в рпд новые спрайты атмоса + теперь можно понять направление
+        девайсов атмоса при постройке
+    - type: Fix
+      message: Фиксы на вайтокартах
+    - type: Fix
+      message: Слой канистр теперь правильный
+    - type: Fix
+      message: У карт закончился период эмо
+  id: 517
+  time: '2026-01-08T21:50:23.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1010
