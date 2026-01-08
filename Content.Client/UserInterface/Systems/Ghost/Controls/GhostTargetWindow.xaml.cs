@@ -17,11 +17,6 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
     [GenerateTypedNameReferences]
     public sealed partial class GhostTargetWindow : DefaultWindow
     {
-        // WWDP EDIT START
-
-        public static readonly Color LocationButtonColor = StyleNano.ButtonColorDefault;
-        // WWDP EDIT END
-
         private string _searchText = string.Empty;
 
         // WWDP EDIT START
@@ -41,9 +36,6 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
 
         private Dictionary<string, List<GhostWarp>> _other = [];
 
-        private ISawmill _logger;
-
-
         // WWDP EDIT END
 
         public event Action<NetEntity>? WarpClicked;
@@ -53,7 +45,6 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
         {
             IoCManager.InjectDependencies(this); // WWDP EDIT
             RobustXamlLoader.Load(this);
-            _logger = Logger.GetSawmill("ghostTargetWindow");
             SearchBar.OnTextChanged += OnSearchTextChanged;
 
             GhostnadoButton.OnPressed += _ => OnGhostnadoClicked?.Invoke();
@@ -68,8 +59,10 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
             // WWDP EDIT END
         }
 
+        // WWDP EDIT START
         private void FilterWarps()
         {
+
             _alivePlayers.Clear();
             _deadPlayers.Clear();
             _ghostPlayers.Clear();
@@ -122,6 +115,8 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
 
             list.Add(warp);
         }
+
+        // WWDP EDIT END
 
         public void UpdateWarps(List<GhostWarp> warps) // WWDP-Edit: Populate > UpdateWarps
         {
@@ -218,33 +213,23 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
 
         private Control CreateSectionHeader(string text, bool useStripeBack = true)
         {
-            if (useStripeBack)
+            var label = new Label
             {
-                var stripe = new StripeBack()
-                {
-                    HorizontalExpand = true
-                };
-                var label = new Label
-                {
-                    Text = Loc.GetString(text),
-                    StyleClasses = { "LabelBig" },
-                    Align = Label.AlignMode.Center,
-                };
-                stripe.AddChild(label);
+                Text = Loc.GetString(text),
+                StyleClasses = { "LabelBig" },
+                Align = Label.AlignMode.Center,
+            };
 
-                return stripe;
-            }
-            else
-            {
-                var label = new Label
-                {
-                    Text = Loc.GetString(text),
-                    StyleClasses = { "LabelBig" },
-                    Align = Label.AlignMode.Center,
-                };
-
+            if (!useStripeBack)
                 return label;
-            }
+
+            var stripe = new StripeBack()
+            {
+                HorizontalExpand = true
+            };
+            stripe.AddChild(label);
+
+            return stripe;
         }
 
         public static Color GetTextColor(Color? background)

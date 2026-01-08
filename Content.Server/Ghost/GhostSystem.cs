@@ -1,7 +1,5 @@
 using System.Linq;
 using System.Numerics;
-using System.Text.RegularExpressions;
-using Content.Server.Access.Systems;
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
@@ -22,7 +20,6 @@ using Content.Shared.Eye;
 using Content.Shared.FixedPoint;
 using Content.Shared.Follower;
 using Content.Shared.Ghost;
-using Content.Shared.Humanoid;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
@@ -31,9 +28,6 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
-using Content.Shared.Roles;
-using Content.Shared.Silicons.Borgs.Components;
-using Content.Shared.Silicons.Laws.Components;
 using Content.Shared.SSDIndicator;
 using Content.Shared.Storage.Components;
 using Content.Shared.Tag;
@@ -42,7 +36,6 @@ using Robust.Server.GameObjects;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Map;
-using Robust.Shared.Network;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
@@ -75,11 +68,13 @@ namespace Content.Server.Ghost
         [Dependency] private readonly SharedMindSystem _mind = default!;
         [Dependency] private readonly GameTicker _gameTicker = default!;
         [Dependency] private readonly DamageableSystem _damageable = default!;
-        [Dependency] private readonly IServerPreferencesManager _prefs = default!; // WWDP EDIT
-        [Dependency] private readonly RoleSystem _roles = default!; // WWDP EDIT
         [Dependency] private readonly SharedPopupSystem _popup = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly TagSystem _tag = default!;
+        // WD EDIT START
+        [Dependency] private readonly IServerPreferencesManager _prefs = default!;
+        [Dependency] private readonly RoleSystem _roles = default!;
+        // WD EDIT END
 
         private EntityQuery<GhostComponent> _ghostQuery;
         private EntityQuery<PhysicsComponent> _physicsQuery;
@@ -339,8 +334,8 @@ namespace Content.Server.Ghost
 
         private void OnGhostnadoRequest(GhostnadoRequestEvent msg, EntitySessionEventArgs args)
         {
-            if (args.SenderSession.AttachedEntity is not { Valid: true } uid ||
-                !_ghostQuery.HasComp(uid))
+            if (args.SenderSession.AttachedEntity is not { Valid: true } uid // WD EDIT
+                || !_ghostQuery.HasComp(uid))
             {
                 Log.Warning($"User {args.SenderSession.Name} tried to ghostnado without being a ghost.");
                 return;
@@ -352,7 +347,7 @@ namespace Content.Server.Ghost
             WarpTo(uid, target);
         }
 
-        private void WarpTo(EntityUid uid, EntityUid target) // WWDP-Edit
+        private void WarpTo(EntityUid uid, EntityUid target)
         {
             _adminLog.Add(LogType.GhostWarp, $"{ToPrettyString(uid)} ghost warped to {ToPrettyString(target)}");
 
@@ -369,7 +364,7 @@ namespace Content.Server.Ghost
                 _physics.SetLinearVelocity(uid, Vector2.Zero, body: physics);
         }
 
-        // WWDP START
+        // WD EDIT START
         private List<GhostWarp> GetMindContainersWarps()
         {
             var warps = new List<GhostWarp>();
@@ -457,7 +452,7 @@ namespace Content.Server.Ghost
             return _tag.HasTag(entity, "HideFromGhostWarps");
         }
 
-        // WWDP-End
+        // WD EDIT END
 
 
         #endregion
