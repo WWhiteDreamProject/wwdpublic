@@ -359,6 +359,8 @@
     grid:
     - 0,0,3,3
     - 5,0,7,1
+  - type: Item
+    size: Huge
   - type: StorageFill
     contents:
     - id: BrickSatchelSlaughterEquipment
