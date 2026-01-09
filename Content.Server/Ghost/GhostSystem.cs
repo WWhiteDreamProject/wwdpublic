@@ -377,38 +377,38 @@ namespace Content.Server.Ghost
         {
             var warps = new List<GhostWarp>();
 
-            var query = EntityQueryEnumerator<MindContainerComponent, RoleCacheComponent>();
+            var query = EntityQueryEnumerator<MindContainerComponent>();
 
-            while (query.MoveNext(out var entity, out var mindContainer, out var roleCacheComponent))
+            while (query.MoveNext(out var entity, out var mindContainer))
             {
                 if(IsHiddenFromGhostWarps(entity) || !IsValidWarpTarget(entity))
                     continue;
 
-                var entityWarpsWeight = 0;
-
-                if (_prototypeManager.TryIndex(roleCacheComponent.LastJobPrototype, out var jobPrototype) &&
-                    _jobs.TryGetDepartment(jobPrototype.ID, out var departmentPrototype))
+                if (TryComp<RoleCacheComponent>(entity, out var roleCacheComponent))
                 {
-                    var warp = SetupWarp(entity, mindContainer, departmentPrototype.Name, departmentPrototype.Color, jobPrototype.Name);
-                    warp.Group |= WarpGroup.Department;
+                    if (_prototypeManager.TryIndex(roleCacheComponent.LastJobPrototype, out var jobPrototype) &&
+                        _jobs.TryGetDepartment(jobPrototype.ID, out var departmentPrototype))
+                    {
+                        var warp = SetupWarp(entity, mindContainer, departmentPrototype.Name, departmentPrototype.Color, jobPrototype.Name);
+                        warp.Group |= WarpGroup.Department;
 
-                    warps.Add(warp);
-                    entityWarpsWeight++;
+                        warps.Add(warp);
+                    }
+
+                    if (roleCacheComponent.IsAntag &&
+                        _prototypeManager.TryIndex(roleCacheComponent.LastAntagPrototype, out var antagPrototype))
+                    {
+                        var warp = SetupWarp(entity, mindContainer, antagPrototype.Name, AntagonistButtonColor, null);
+                        warp.Group |= WarpGroup.Antag;
+
+                        warps.Add(warp);
+                    }
                 }
-
-                if (roleCacheComponent.IsAntag &&
-                    _prototypeManager.TryIndex(roleCacheComponent.LastAntagPrototype, out var antagPrototype))
-                {
-                    var warp = SetupWarp(entity, mindContainer, antagPrototype.Name, AntagonistButtonColor, null);
-                    warp.Group |= WarpGroup.Antag;
-
-                    warps.Add(warp);
-                    entityWarpsWeight++;
-                }
-
-                if(entityWarpsWeight == 0)
+                else
                 {
                     var warp = SetupWarp(entity, mindContainer, MetaData(entity).EntityPrototype?.Name ?? "", null, null);
+                    warp.Group |= WarpGroup.Other;
+
                     warps.Add(warp);
                 }
             }
@@ -433,13 +433,17 @@ namespace Content.Server.Ghost
             if(isLeft)
                 warp.Group |= WarpGroup.Left;
 
-            if(isDead)
-                warp.Group |= WarpGroup.Dead;
-            else
-                warp.Group |= WarpGroup.Alive;
-
             if(HasComp<GhostComponent>(entity))
+            {
                 warp.Group |= WarpGroup.Ghost;
+            }
+            else
+            {
+                if(isDead)
+                    warp.Group |= WarpGroup.Dead;
+                else
+                    warp.Group |= WarpGroup.Alive;
+            }
 
             return warp;
         }

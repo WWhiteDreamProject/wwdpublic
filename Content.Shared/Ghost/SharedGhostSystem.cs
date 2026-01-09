@@ -116,6 +116,17 @@ namespace Content.Shared.Ghost
         Left =  1 << 3,
         Antag = 1 << 4,
         Department = 1 << 5,
+        Other = 1 << 6,
+
+        AliveAntag = Alive | Antag,
+        DeadAntag = Dead | Antag,
+
+        AliveDepartment = Alive | Department,
+        DeadDepartment = Dead | Department,
+        LeftDepartment = Left | Department,
+
+        AliveOther = Alive | Other
+
      }
 
 

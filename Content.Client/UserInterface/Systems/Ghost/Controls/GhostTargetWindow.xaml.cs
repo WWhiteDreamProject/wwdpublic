@@ -71,23 +71,15 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
                     continue;
                 }
 
-                if (warp.Group.HasFlag(WarpGroup.Department))
-                {
-                    FilterLocalWarps(_alivePlayers, warp, WarpGroup.Alive);
-                    FilterLocalWarps(_deadPlayers, warp, WarpGroup.Dead);
-                    FilterLocalWarps(_leftPlayers, warp, WarpGroup.Left);
-                    FilterLocalWarps(_ghostPlayers, warp, WarpGroup.Ghost);
-                    continue;
-                }
+                FilterLocalWarps(_alivePlayers, warp, WarpGroup.AliveDepartment);
+                FilterLocalWarps(_deadPlayers, warp, WarpGroup.DeadDepartment);
+                FilterLocalWarps(_leftPlayers, warp, WarpGroup.LeftDepartment);
 
-                if (warp.Group.HasFlag(WarpGroup.Antag))
-                {
-                    FilterLocalWarps(_aliveAntags, warp, WarpGroup.Alive);
-                    FilterLocalWarps(_deadPlayers, warp, WarpGroup.Dead);
-                    continue;
-                }
+                FilterLocalWarps(_aliveAntags, warp, WarpGroup.AliveAntag);
+                FilterLocalWarps(_deadPlayers, warp, WarpGroup.DeadAntag);
 
-                FilterLocalWarps(_other, warp, WarpGroup.Alive);
+                FilterLocalWarps(_ghostPlayers, warp, WarpGroup.Ghost);
+                FilterLocalWarps(_other, warp, WarpGroup.AliveOther);
             }
         }
 
