@@ -1,12 +1,84 @@
 ﻿{
-    "version": 1,
-    "license": "CC-BY-SA-3.0",
-    "copyright": "https://github.com/WWhiteDreamProject/wwdpublic/pull/490, by boevi4ok",
-    "size": {
-        "x": 32,
-        "y": 32
-    },
+  "version": 1,
+  "license": "CC-BY-NC-SA-4.0",
+  "copyright": "Gersoon (@gersoon458) for WWhiteDreamProject, 20.12.2025",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
     "states": [
+        {
+            "name": "cardbox"
+        },
+        {
+            "name": "cardbox_open"
+        },
+        {
+            "name": "icon"
+        },
+        {
+            "name": "beaker"
+        },
+        {
+            "name": "bottle"
+        },
+        {
+            "name": "candle"
+        },
+        {
+            "name": "circuit"
+        },
+        {
+            "name": "clown"
+        },
+        {
+            "name": "flare"
+        },
+        {
+            "name": "handcuff"
+        },
+        {
+            "name": "headset"
+        },
+        {
+            "name": "heart"
+        },
+        {
+            "name": "idcard"
+        },
+        {
+            "name": "light"
+        },
+        {
+            "name": "lightmixed"
+        },
+        {
+            "name": "lighttube"
+        },
+        {
+            "name": "meson"
+        },
+        {
+            "name": "swab"
+        },
+        {
+            "name": "trashbag"
+        },
+        {
+            "name": "vials"
+        },
+        {
+            "name": "ziptie"
+        },
+        {
+            "name": "encryptokey"
+        },
+        {
+            "name": "mousetraps"
+        },
+        {
+            "name": "pda"
+        },
         {
             "name": "boxwide"
         },

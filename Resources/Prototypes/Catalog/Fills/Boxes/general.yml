@@ -13,7 +13,18 @@
     grid:
     - 0,0,3,3
   - type: Sprite
-    state: box
+    sprite: _White/Objects/Storage/boxes.rsi # WWDP edit start
+    layers:
+    - state: icon
+    - state: cardbox
+      map: [ base ]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        base:
+          True: { state: cardbox_open }
+          False: { state: cardbox } # WWDP end
   - type: EmitSoundOnPickup
     sound: /Audio/SimpleStation14/Items/Handling/cardboardbox_pickup.ogg
   - type: EmitSoundOnDrop
@@ -36,8 +47,9 @@
           amount: 4
     - type: Sprite
       layers:
-        - state: box
-        - state: mousetraps
+      - state: mousetraps # WWDP edit start
+      - state: cardbox
+        map: [ base ] # WWDP end
 
 - type: entity
   name: lightbulb box
@@ -47,8 +59,9 @@
   components:
   - type: Sprite
     layers:
-      - state: box
-      - state: light
+    - state: light # WWDP edit start
+    - state: cardbox
+      map: [ base ] # WWDP end
   - type: Storage
     grid:
     - 0,0,5,3
@@ -77,8 +90,9 @@
   components:
   - type: Sprite
     layers:
-      - state: box
-      - state: lighttube
+    - state: lighttube # WWDP edit start
+    - state: cardbox
+      map: [ base ] # WWDP end
   - type: StorageFill
     contents:
       - id: LightTube
@@ -91,8 +105,9 @@
   components:
   - type: Sprite
     layers:
-      - state: box
-      - state: lightmixed
+    - state: lightmixed # WWDP edit start
+    - state: cardbox
+      map: [ base ] # WWDP end
   - type: StorageFill
     contents:
       - id: LightTube
@@ -132,8 +147,9 @@
         amount: 4
   - type: Sprite
     layers:
-      - state: box
-      - state: pda
+    - state: pda # WWDP edit start
+    - state: cardbox
+      map: [ base ] # WWDP end
 
 - type: entity
   name: ID card box
@@ -147,8 +163,9 @@
         amount: 4
   - type: Sprite
     layers:
-      - state: box
-      - state: pda
+    - state: idcard # WWDP edit start
+    - state: cardbox
+      map: [ base ] # WWDP end
 
 - type: entity
   name: headset box
@@ -162,8 +179,9 @@
         amount: 4
   - type: Sprite
     layers:
-      - state: box
-      - state: headset
+    - state: headset # WWDP edit start
+    - state: cardbox
+      map: [ base ] # WWDP end
 
 - type: entity
   name: meson box
@@ -177,8 +195,9 @@
         amount: 4
   - type: Sprite
     layers:
-      - state: box
-      - state: meson
+    - state: meson # WWDP edit start
+    - state: cardbox
+      map: [ base ] # WWDP end
 
 - type: entity
   name: M.R.E.
@@ -250,8 +269,9 @@
         amount: 6
   - type: Sprite
     layers:
-      - state: box
-      - state: flare
+    - state: flare # WWDP edit start
+    - state: cardbox
+      map: [ base ] # WWDP end
 
 - type: entity
   name: trashbag box
@@ -272,8 +292,9 @@
         - TrashBag
   - type: Sprite
     layers:
-      - state: box
-      - state: trashbag
+    - state: trashbag # WWDP edit start
+    - state: cardbox
+      map: [ base ] # WWDP end
 
 - type: entity
   name: passenger encryption key box
@@ -287,8 +308,9 @@
         amount: 4
   - type: Sprite
     layers:
-      - state: box
-      - state: encryptokey
+    - state: encryptokey # WWDP edit start
+    - state: cardbox
+      map: [ base ] # WWDP end
   - type: Storage
     whitelist:
       components:
@@ -408,8 +430,9 @@
   components:
   - type: Sprite
     layers:
-      - state: box
-      - state: candle
+    - state: candle # WWDP edit start
+    - state: cardbox
+      map: [ base ] # WWDP end
   - type: Storage
     grid:
     - 0,0,5,3
