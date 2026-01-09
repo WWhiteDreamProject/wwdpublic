@@ -14,6 +14,7 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
     {
         private string _searchText = string.Empty;
 
+        // WWDP EDIT START
         private List<GhostWarp> _originalGhostWarps = [];
 
         private Dictionary<string, List<GhostWarp>> _alivePlayers = [];
@@ -106,7 +107,7 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
 
         // WWDP EDIT END
 
-        public void UpdateWarps(List<GhostWarp> warps) // WWDP-Edit: Populate > UpdateWarps
+        public void UpdateWarps(List<GhostWarp> warps)
         {
             // WWDP EDIT START
             _originalGhostWarps = warps;

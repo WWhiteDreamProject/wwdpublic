@@ -126,7 +126,6 @@ namespace Content.Shared.Ghost
     [Serializable, NetSerializable]
     public sealed class GhostWarpsResponseEvent : EntityEventArgs
     {
-        // WWDP-Start
         public GhostWarpsResponseEvent(List<GhostWarp> warps)
         {
             Warps = warps;
@@ -136,7 +135,6 @@ namespace Content.Shared.Ghost
         /// A list of warps to teleport.
         /// </summary>
         public List<GhostWarp> Warps { get; }
-        // WWDP-End
     }
 
     /// <summary>

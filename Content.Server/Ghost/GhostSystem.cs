@@ -381,7 +381,7 @@ namespace Content.Server.Ghost
                 if (_prototypeManager.TryIndex(roleCacheComponent.LastJobPrototype, out var jobPrototype) &&
                     _jobs.TryGetDepartment(jobPrototype.ID, out var departmentPrototype))
                 {
-                    var warp = SetupWarp(entity, mindContainer, jobPrototype.Name, departmentPrototype.Color);
+                    var warp = SetupWarp(entity, mindContainer, departmentPrototype.Name, departmentPrototype.Color);
                     warp.Group |= WarpGroup.Department;
 
                     warps.Add(warp);
@@ -421,10 +421,12 @@ namespace Content.Server.Ghost
 
             if(isLeft)
                 warp.Group |= WarpGroup.Left;
-            if(_mobState.IsDead(entity))
+
+            if(isDead)
                 warp.Group |= WarpGroup.Dead;
-            if(_mobState.IsAlive(entity))
+            else
                 warp.Group |= WarpGroup.Alive;
+
             if(HasComp<GhostComponent>(entity))
                 warp.Group |= WarpGroup.Ghost;
 

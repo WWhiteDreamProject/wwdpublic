@@ -24,7 +24,7 @@ public sealed class RolesCacheSystem : EntitySystem
 
     private void OnRoleAdded(EntityUid uid, MindComponent component, RoleAddingEvent args)
     {
-        if(component.CurrentEntity is null)
+        if (component.CurrentEntity is null)
             return;
 
         var cacheComp = EnsureComp<RoleCacheComponent>(component.CurrentEntity.Value);
@@ -32,9 +32,9 @@ public sealed class RolesCacheSystem : EntitySystem
         if (args.RoleComponent.Antag)
             cacheComp.AntagWeight += 1;
 
-        if(args.RoleComponent.JobPrototype != null)
+        if (args.RoleComponent.JobPrototype != null)
             cacheComp.LastJobPrototype = args.RoleComponent.JobPrototype;
-        if(args.RoleComponent.AntagPrototype != null)
+        if (args.RoleComponent.AntagPrototype != null)
             cacheComp.LastAntagPrototype = args.RoleComponent.AntagPrototype;
     }
 }
