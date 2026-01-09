@@ -329,6 +329,14 @@ namespace Content.Server.Ghost
                 return;
             }
 
+            // WWDP EDIT START
+            if (IsHiddenFromGhostWarps(target) || !IsValidWarpTarget(target))
+            {
+                Log.Warning($"User {args.SenderSession.Name} tried to warp to an invalid/hidden target: {ToPrettyString(target)}");
+                return;
+            }
+            // WWDP EDIT END
+
             WarpTo(attached, target);
         }
 
@@ -443,6 +451,9 @@ namespace Content.Server.Ghost
 
             while (allQuery.MoveNext(out var uid, out var warp))
             {
+                if(IsHiddenFromGhostWarps(uid))
+                    continue;
+
                 var newWarp = new GhostWarp(GetNetEntity(uid), warp.Location ?? Name(uid), "", Description(uid), null);
                 warps.Add(newWarp);
             }
