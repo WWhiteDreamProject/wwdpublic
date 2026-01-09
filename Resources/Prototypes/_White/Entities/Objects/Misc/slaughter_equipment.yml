@@ -447,6 +447,8 @@
     - 8,0,9,2
     defaultStorageOrientation: Null
     maxItemSize: Huge
+  - type: Item
+    size: Huge
   - type: StorageFill
     contents:
     - id: ClothingOuterVestWeb
