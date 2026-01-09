@@ -186,7 +186,7 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls
                         VerticalAlignment = VAlignment.Center,
                         SizeFlagsStretchRatio = 1,
                         ModulateSelfOverride = warp.Color,
-                        ToolTip = warp.Description,
+                        ToolTip = Loc.GetString(warp.Description),
                         TooltipDelay = 0.1f,
                         SetWidth = 180,
                         ClipText = true,

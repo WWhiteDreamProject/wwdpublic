@@ -381,7 +381,7 @@ namespace Content.Server.Ghost
                 if (_prototypeManager.TryIndex(roleCacheComponent.LastJobPrototype, out var jobPrototype) &&
                     _jobs.TryGetDepartment(jobPrototype.ID, out var departmentPrototype))
                 {
-                    var warp = SetupWarp(entity, mindContainer, departmentPrototype.Name, departmentPrototype.Color);
+                    var warp = SetupWarp(entity, mindContainer, departmentPrototype.Name, departmentPrototype.Color, jobPrototype.Name);
                     warp.Group |= WarpGroup.Department;
 
                     warps.Add(warp);
@@ -391,7 +391,7 @@ namespace Content.Server.Ghost
                 if (roleCacheComponent.IsAntag &&
                     _prototypeManager.TryIndex(roleCacheComponent.LastAntagPrototype, out var antagPrototype))
                 {
-                    var warp = SetupWarp(entity, mindContainer, antagPrototype.Name, AntagonistButtonColor);
+                    var warp = SetupWarp(entity, mindContainer, antagPrototype.Name, AntagonistButtonColor, null);
                     warp.Group |= WarpGroup.Antag;
 
                     warps.Add(warp);
@@ -400,7 +400,7 @@ namespace Content.Server.Ghost
 
                 if(entityWarpsWeight == 0)
                 {
-                    var warp = SetupWarp(entity, mindContainer, MetaData(entity).EntityPrototype?.Name ?? "", null);
+                    var warp = SetupWarp(entity, mindContainer, MetaData(entity).EntityPrototype?.Name ?? "", null, null);
                     warps.Add(warp);
                 }
             }
@@ -408,7 +408,7 @@ namespace Content.Server.Ghost
             return warps;
         }
 
-        private GhostWarp SetupWarp(EntityUid entity, MindContainerComponent mindContainer, string subGroup, Color? color)
+        private GhostWarp SetupWarp(EntityUid entity, MindContainerComponent mindContainer, string subGroup, Color? color, string? description)
         {
             var hasAnyMind = (mindContainer.Mind ?? mindContainer.OriginalMind) != null;
             var isDead = _mobState.IsDead(entity);
@@ -417,7 +417,10 @@ namespace Content.Server.Ghost
 
             var metadata = Comp<MetaDataComponent>(entity);
 
-            var warp = new GhostWarp(GetNetEntity(entity), metadata.EntityName, subGroup, metadata.EntityDescription, color);
+            if (string.IsNullOrEmpty(description))
+                description = metadata.EntityDescription;
+
+            var warp = new GhostWarp(GetNetEntity(entity), metadata.EntityName, subGroup, description, color);
 
             if(isLeft)
                 warp.Group |= WarpGroup.Left;
