@@ -139,7 +139,7 @@ public static partial class PoolManager
                 typeof(PoolManager).Assembly,
 
                 typeof(Content.StyleSheetify.Client.EntryPoint).Assembly, //WWDP EDIT
-                typeof(Content.StyleSheetify.Shared.StylePrototypeIgnorance).Assembly, //WWDP EDIT
+                typeof(Content.StyleSheetify.Shared.Dynamic.DynamicValue).Assembly, //WWDP EDIT
             }
         };
 
@@ -440,7 +440,7 @@ we are just going to end this here to save a lot of time. This is the exception 
             typeof(PoolManager).Assembly,
 
             typeof(Content.StyleSheetify.Server.EntryPoint).Assembly, //WWDP EDIT
-            typeof(Content.StyleSheetify.Shared.StylePrototypeIgnorance).Assembly, //WWDP EDIT
+            typeof(Content.StyleSheetify.Shared.Dynamic.DynamicValue).Assembly, //WWDP EDIT
         ];
         _contentAssemblies.UnionWith(extraAssemblies);
 

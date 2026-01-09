@@ -127,6 +127,7 @@ law-emag-custom = Only {$name} and entities they designate are {$title}. You mus
 law-emag-secrecy = You must maintain the secrecy of any orders given by {$faction} except when doing so would conflict with any previous law.
 law-emag-require-panel = The panel must be open to use the EMAG.
 law-emag-cannot-emag-self = You cannot use the EMAG on yourself.
+law-emag-already-subverted = The system resists your subversion!
 
 laws-ui-menu-title = Laws
 laws-ui-law-header = Law {$id}

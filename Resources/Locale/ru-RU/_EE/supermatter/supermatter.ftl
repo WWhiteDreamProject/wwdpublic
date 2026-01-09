@@ -48,8 +48,8 @@ supermatter-announcement-cc-tamper =
     Инженерный отдел, немедленно доложите в отсек двигателя суперматерии!
 
 supermatter-collide =
-    {CAPITALIZE(THE($target))} врезается в {$sm}!
+    {CAPITALIZE($target)} врезается в {$sm}!
 
 supermatter-collide-mob =
-    Тело {CAPITALIZE(THE($target))} вспыхивает и обращается в прах!
+    Тело {CAPITALIZE($target)} вспыхивает и обращается в прах!
 

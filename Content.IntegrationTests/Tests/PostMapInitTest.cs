@@ -41,8 +41,9 @@ namespace Content.IntegrationTests.Tests
 
         private static readonly string[] Grids =
         {
-            "/Maps/CentralCommand/main.yml",
+            ///"/Maps/CentralCommand/main.yml",  WWDP edit, and now we have GREAT HUB
             /// "/Maps/CentralCommand/harmony.yml", // Harmony CC version, WWDP edit, no more CentCom rotation
+            "/Maps/_White/CentralCommand/hub.yml", // WD EDIT
             AdminTestArenaSystem.ArenaMapPath,
         };
 
@@ -66,18 +67,21 @@ namespace Content.IntegrationTests.Tests
             "/Maps/Shuttles/ShuttleEvent/instigator.yml",
             "/Maps/Shuttles/ShuttleEvent/syndie_evacpod.yml",
             "/Maps/_Lavaland/Lavaland/ruin_toyshop.yml",
+            "/Maps/_White/CentralCommand/hub.yml", // WD EDIT
             "/Maps/_White/WhiteBox.yml", // WD EDIT
             "/Maps/_White/DryDock.yml", // WD EDIT
             "/Maps/_White/Molecule.yml", // WD EDIT
             "/Maps/_White/Moose.yml", // WD EDIT
             "/Maps/_White/WonderBox.yml", // WD EDIT
+            "/Maps/_White/WhiteMeta.yml", // WD EDIT
+            "/Maps/_White/Kettle.yml", // WD EDIT
         };
 
         private static readonly string[] GameMaps =
         {
             "Dev",
             "TestTeg",
-            "CentCommMain",
+            // "CentCommMain",
             // "CentCommHarmony",
             "MeteorArena",
             "Core", // No current maintainer. In need of a rework...
@@ -110,6 +114,7 @@ namespace Content.IntegrationTests.Tests
             "WonderBox", //WWDP
             "Kettle", //WWDP
             "Molecule", //WWDP
+            "CentCommHub", //WWDP
         };
 
         /// <summary>

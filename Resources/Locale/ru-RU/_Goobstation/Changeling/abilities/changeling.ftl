@@ -6,9 +6,9 @@ changeling-action-fail-absorbed = Нужно поглотить ещё {$number}
 
 
 changeling-absorb-compatible = Существо совместимо. Нужно оставаться неподвижным...
-changeling-absorb-first = {CAPITALIZE(THE($user))} выпускает хоботок!
-changeling-absorb-second = {CAPITALIZE(THE($user))} пронзает {CAPITALIZE(THE($target))} хоботком!
-changeling-absorb-third = {CAPITALIZE(THE($user))} высасывает жидкости из {CAPITALIZE(THE($target))}!
+changeling-absorb-first = {CAPITALIZE($user)} выпускает хоботок!
+changeling-absorb-second = {CAPITALIZE($user)} пронзает {CAPITALIZE($target)} хоботком!
+changeling-absorb-third = {CAPITALIZE($user)} высасывает жидкости из {CAPITALIZE($target)}!
 changeling-absorb-fail-incapacitated = Нельзя поглотить, пока цель не обездвижена.
 changeling-absorb-fail-absorbed = Ты уже поглотил(а) эту цель.
 changeling-absorb-fail-unabsorbable = Цель непригодна для поглощения.
@@ -18,12 +18,12 @@ changeling-absorb-onexamine = [color=red]Тело кажется пустым в
 changeling-absorb-fail-nograb = Ты недостаточно сильно удерживаешь цель.
 
 
-changeling-convert-start = {CAPITALIZE(THE($user))} пытается ужалить {CAPITALIZE(THE($target))}!
+changeling-convert-start = {CAPITALIZE( $user )} пытается ужалить {CAPITALIZE( $target )}!
 changeling-convert-fail-incapacitated = Цель не обездвижена — заражение невозможно.
 changeling-convert-fail-already = Эта цель уже заражена.
 changeling-convert-fail-incompatible = Эта цель несовместима.
 changeling-convert-end = Ты заражаешь труп. Скоро он преобразится.
-changeling-convert-end-warning = {CAPITALIZE(THE($user))} жалит тебя! Ты чувствуешь резкую боль в руке…
+changeling-convert-end-warning = {CAPITALIZE( $user )} жалит тебя! Ты чувствуешь резкую боль в руке…
 changeling-convert-end-immune = Тело отвергает яйцо.
 changeling-convert-chestbursted-unused = [color=red]У него в груди зияет огромная дыра.[/color]
 
@@ -47,22 +47,22 @@ changeling-convert-eeped-4 = Кровь кипит...
 changeling-convert-skillissue = Боль уходит почти мгновенно. Мы знаем, что теперь делать.
 
 
-changeling-absorbbiomatter-start = {THE($user)} начинает поглощать пищу!
+changeling-absorbbiomatter-start = { $user } начинает поглощать пищу!
 changeling-absorbbiomatter-bad-food = Эта пища не подходит для поглощения.
 
 changeling-transform-cycle = Переключение на ДНК {$target}.
 changeling-transform-cycle-empty = У тебя нет образцов ДНК!
-changeling-transform-others = Тело {CAPITALIZE(THE($user))} искажается, принимая чужой облик!
+changeling-transform-others = Тело {CAPITALIZE( $user )} искажается, принимая чужой облик!
 changeling-transform-fail-self = Невозможно принять текущую форму.
 changeling-transform-fail-choose = Ты не выбрал(а) форму для трансформации!
 changeling-transform-fail-absorbed = Нельзя трансформироваться в пустую оболочку.
 changeling-transform-finish = Теперь ты — {$target}.
 
 
-changeling-sting-fail-self = Ты попытался(лась) ужалить {CAPITALIZE(THE($target))}, но что-то помешало!
+changeling-sting-fail-self = Ты попытался(лась) ужалить {CAPITALIZE( $target )}, но что-то помешало!
 changeling-sting-fail-ling = Кто-то только что попытался ужалить тебя!
 
-changeling-sting = Ты молча жалишь {CAPITALIZE(THE($target))}
+changeling-sting = Ты молча жалишь {CAPITALIZE( $target )}
 changeling-sting-fail-simplemob = Ты не можешь ужалить примитивное существо!
 changeling-sting-extract-fail = Невозможно извлечь ДНК
 changeling-sting-extract-max = Сначала нужно избавиться от уже хранящейся ДНК

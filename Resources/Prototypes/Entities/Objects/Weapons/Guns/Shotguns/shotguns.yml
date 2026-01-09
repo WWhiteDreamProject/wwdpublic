@@ -303,7 +303,7 @@
     # WD EDIT END
   - type: BallisticAmmoProvider
     capacity: 7
-    # autoCycle: false - WD EDIT
+    autoCycle: true # WD EDIT
   - type: Wieldable
   # - type: GunRequiresWield - WD EDIT
   - type: MeleeWeapon

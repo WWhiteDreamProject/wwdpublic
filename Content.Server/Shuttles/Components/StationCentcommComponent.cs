@@ -18,8 +18,9 @@ public sealed partial class StationCentcommComponent : Component
     [DataField]
     public List<ResPath> Maps = new()
     {
-        new("/Maps/CentralCommand/main.yml"),
+        ///new("/Maps/CentralCommand/main.yml"), WWDP edit, and now we have GREAT HUB
         /// new("/Maps/CentralCommand/harmony.yml") WWDP edit, no more CentCom rotation
+        new("/Maps/_White/CentralCommand/hub.yml"), // WD EDIT
     };
 
     /// <summary>

@@ -1,5 +1,6 @@
 ﻿using Content.Server.Chat.Systems;
 using Content.Shared.Chat;
+using Content.Shared.Station.Components;
 using Content.Shared.Teleportation;
 using Content.Shared.Teleportation.Components;
 using Content.Shared.Teleportation.Systems;
@@ -38,7 +39,7 @@ public sealed partial class TeleportLocationsSystem : SharedTeleportLocationsSys
 
     protected override void OnTeleportToLocationRequest(Entity<TeleportLocationsComponent> ent, ref TeleportLocationDestinationMessage args)
     {
-        if (!TryComp(ent.Owner, out UseDelayComponent? useDelay) || Delay.IsDelayed((ent.Owner,useDelay)))
+        if (!TryComp(ent.Owner, out UseDelayComponent? useDelay) || Delay.IsDelayed((ent.Owner,useDelay), ent.Comp.UseDelay)) // White Dream fix
             return;
 
         if (!string.IsNullOrWhiteSpace(ent.Comp.Speech))
@@ -63,6 +64,9 @@ public sealed partial class TeleportLocationsSystem : SharedTeleportLocationsSys
         while (allEnts.MoveNext(out var warpEnt, out var warpPointComp))
         {
             if (_whitelist.IsBlacklistPass(warpPointComp.Blacklist, warpEnt) || string.IsNullOrWhiteSpace(warpPointComp.Location))
+                continue;
+
+            if (ent.Comp.StationOnly && !HasComp<StationMemberComponent>(Transform(warpEnt).GridUid)) // White Dream
                 continue;
 
             ent.Comp.AvailableWarps.Add(new TeleportPoint(warpPointComp.Location, GetNetEntity(warpEnt)));

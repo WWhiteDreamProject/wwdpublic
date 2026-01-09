@@ -104,16 +104,10 @@
                 </Control>
             </BoxContainer>
             <!-- Right Panel -->
-            <PanelContainer Name="RightSide" Access="Public" StyleClasses="AngleRect" HorizontalAlignment="Right" VerticalExpand="True"
+            <PanelContainer Name="RightSide" Access="Public" StyleClasses="ChatMainPanel" HorizontalAlignment="Right" VerticalExpand="True"
                             VerticalAlignment="Stretch">
                 <BoxContainer Orientation="Vertical" HorizontalExpand="True">
                     <!-- Top row -->
-                    <BoxContainer Orientation="Horizontal" MinSize="0 40" Name="HeaderContainer" Access="Public"
-                                  SeparationOverride="4">
-                        <Label Name="ServerName" Access="Public" StyleClasses="LabelHeadingBigger" VAlign="Center"
-                               HorizontalExpand="True" HorizontalAlignment="Left" />
-                    </BoxContainer>
-                    <controls:HSpacer Spacing="10" />
                     <Control Margin="0,3,0,0">
                         <PanelContainer StyleClasses="PaperBackground" Margin="5,10,5,5">
                             <BoxContainer Orientation="Horizontal">

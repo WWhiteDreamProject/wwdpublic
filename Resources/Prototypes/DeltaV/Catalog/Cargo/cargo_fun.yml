@@ -5,7 +5,7 @@
     state: display
   product: CrateFunBBGun
   cost: 1000
-  category: Fun
+  category: cargoproduct-category-name-fun # WWDP edit
   group: market
 
 - type: cargoProduct
@@ -15,5 +15,5 @@
     state: icon
   product: CrateCapGunSet
   cost: 1000
-  category: Fun
+  category: cargoproduct-category-name-fun # WWDP edit
   group: market

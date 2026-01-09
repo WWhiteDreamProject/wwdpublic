@@ -127,11 +127,13 @@
   - type: EmbedPassiveDamage
   - type: ThrowingAngle
     angle: 225
-  # WD EDIT START: Guns resize
+  # WD EDIT START
   - type: Item
     storedRotation: 45
     shape:
     - 0,0,7,0
+  - type: BallisticAmmoProvider
+    capacity: 5
   # WD EDIT END
 
 - type: entity

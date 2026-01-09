@@ -12,13 +12,13 @@
     layers:
     - state: base_halfmask_01
       map: [ "mask_main" ]
-      scale: 2, 2
-      offset: 0,-0.6
+      #scale: 2, 2 # White Dream
+      offset: 0,-0.2 # White Dream: 0,-0.6 -> 0,-0.2
     - state: decor_base_halfmask_01
       map: [ "mask_decor" ]
       shader: unshaded
-      scale: 2, 2
-      offset: 0,-0.6
+      #scale: 2, 2 # White Dream
+      offset: 0,-0.2 # White Dream: 0,-0.6 -> 0,-0.2
   - type: Clothing
     sprite: _NF/Clothing/Mask/punkhalfmask.rsi
     clothingVisuals:
@@ -34,3 +34,6 @@
         base_halfmask_01: CyberpunkDark
       mask_decor:
         decor_base_halfmask_01: CyberpunkNeon
+  - type: IdentityBlocker # White Dream
+    coverage: MOUTH
+  - type: IngestionBlocker # White Dream

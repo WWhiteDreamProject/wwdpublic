@@ -39,8 +39,8 @@ public sealed partial class LoadoutPreferenceSelector : Control
 
     public LoadoutPrototype Loadout { get; }
 
-    private LoadoutPreference _preference = null!;
-    public LoadoutPreference Preference
+    private Loadout _preference = null!;
+    public Loadout Preference
     {
         get => _preference;
         set
@@ -53,7 +53,6 @@ public sealed partial class LoadoutPreferenceSelector : Control
             if (value.CustomColorTint != null)
                 UpdatePaint(new(DummyEntityUid, _entityManager.GetComponent<PaintedComponent>(DummyEntityUid)), _entityManager);
             HeirloomButton.Pressed = value.CustomHeirloom ?? false;
-            PreferenceButton.Pressed = value.Selected;
         }
     }
 
@@ -84,8 +83,7 @@ public sealed partial class LoadoutPreferenceSelector : Control
         }
     }
 
-    public event Action<LoadoutPreference>? PreferenceChanged;
-
+    public event Action<Loadout>? PreferenceChanged;
 
     public LoadoutPreferenceSelector(LoadoutPrototype loadout, JobPrototype highJob,
         HumanoidCharacterProfile profile, ref Dictionary<string, EntityUid> entities,
@@ -207,28 +205,6 @@ public sealed partial class LoadoutPreferenceSelector : Control
                 },
             },
         });
-        PreferenceButton.OnToggled += args =>
-        {
-            if (args.Pressed == _preference.Selected)
-                return;
-
-            _preference.Selected = args.Pressed;
-            PreferenceChanged?.Invoke(Preference);
-        };
-        HeirloomButton.OnToggled += args =>
-        {
-            if (args.Pressed == _preference.Selected)
-                return;
-
-            _preference.CustomHeirloom = args.Pressed ? true : null;
-            PreferenceChanged?.Invoke(Preference);
-        };
-        SaveButton.OnPressed += _ =>
-        {
-            _preference.CustomColorTint = SpecialColorTintToggle.Pressed ? ColorEdit.Color.ToHex() : null;
-            _preference.Selected = PreferenceButton.Pressed;
-            PreferenceChanged?.Invoke(Preference);
-        };
 
         // Update prefs cache when something changes
         NameEdit.OnTextChanged += _ =>

@@ -1,0 +1,654 @@
+- type: entity
+  name: slaughter equipment
+  parent: BaseItem
+  id: SlaughterEquipmentBase
+  description: "slaughter equipment"
+  components:
+  - type: Item
+    size: Ginormous
+  - type: Sprite
+    sprite: Clothing/Back/Backpacks/ertleader.rsi
+    state: icon
+  - type: RadialEntityMorph
+    entries:
+    - prototype: SlaughterEquipmentEnergySwordDouble
+    - prototype: SlaughterEquipmentClown
+    - prototype: SlaughterEquipmentMime
+    - prototype: SlaughterEquipmentWeaponRandom
+    - prototype: SlaughterEquipmentWeapon
+    - prototype: SlaughterEquipmentRandom
+    - prototype: SlaughterEquipmentKitRandom
+    - prototype: SlaughterEquipmentMedic
+    - prototype: SlaughterEquipmentBeltBrickSatchel
+    - prototype: SlaughterEquipmentBeltBaseBallBatHomeRun
+  - type: UserInterface
+    interfaces:
+      enum.RadialSelectorUiKey.Key:
+        type: TrackedRadialSelectorMenuBUI
+  - type: ActivatableUI
+    key: enum.RadialSelectorUiKey.Key
+    inHandsOnly: true
+
+- type: entity
+  name: slaughter equipment weapon
+  parent: SlaughterEquipmentBase
+  id: SlaughterEquipmentWeapon
+  description: "slaughter equipment weapon"
+  components:
+  - type: Item
+    size: Ginormous
+  - type: Sprite
+    sprite: Clothing/Back/Backpacks/ertsec.rsi
+    state: icon
+  - type: RadialEntityMorph
+    entries:
+    - prototype: SlaughterEquipmentDualetta
+    - prototype: SlaughterEquipmentAK47
+    - prototype: SlaughterEquipmentWeaponRandom
+    - prototype: SlaughterEquipmentBase
+    - prototype: SlaughterEquipmentC20R
+    - prototype: SlaughterEquipmentWT550
+    - prototype: SlaughterEquipmentEnforcer
+
+- type: entity
+  name: slaughter equipment kit random
+  parent: BaseItem
+  id: SlaughterEquipmentKitRandom
+  description: "slaughter equipment kit random"
+  components:
+  - type: Item
+    size: Ginormous
+  - type: Sprite
+    sprite: Clothing/Back/Backpacks/ertjanitor.rsi
+    state: icon
+  - type: SpawnItemsOnUse
+    items:
+    - id: SlaughterEquipmentEnergySwordDouble
+      orGroup: Equip
+    - id: SlaughterEquipmentClown
+      orGroup: Equip
+    - id: SlaughterEquipmentMime
+      orGroup: Equip
+    - id: SlaughterEquipmentMedic
+      orGroup: Equip
+    - id: SlaughterEquipmentBeltBrickSatchel
+      orGroup: Equip
+    - id: SlaughterEquipmentBeltBaseBallBatHomeRun
+      orGroup: Equip
+
+- type: entity
+  name: slaughter equipment weapon random
+  parent: BaseItem
+  id: SlaughterEquipmentWeaponRandom
+  description: "slaughter equipment weapon random"
+  components:
+  - type: Item
+    size: Ginormous
+  - type: Sprite
+    sprite: Clothing/Back/Backpacks/ertchaplain.rsi
+    state: icon
+  - type: SpawnItemsOnUse
+    items:
+    - id: SlaughterEquipmentDualetta
+      orGroup: Equip
+    - id: SlaughterEquipmentAK47
+      orGroup: Equip
+    - id: SlaughterEquipmentC20R
+      orGroup: Equip
+    - id: SlaughterEquipmentWT550
+      orGroup: Equip
+    - id: SlaughterEquipmentEnforcer
+      orGroup: Equip
+
+- type: entity
+  name: slaughter equipment random
+  parent: BaseItem
+  id: SlaughterEquipmentRandom
+  description: "slaughter equipment random"
+  components:
+  - type: Item
+    size: Ginormous
+  - type: Sprite
+    sprite: Clothing/Back/Backpacks/ertclown.rsi
+    state: icon
+  - type: SpawnItemsOnUse
+    items:
+    # Kit
+    - id: SlaughterEquipmentEnergySwordDouble
+      orGroup: Equip
+    - id: SlaughterEquipmentClown
+      orGroup: Equip
+    - id: SlaughterEquipmentMime
+      orGroup: Equip
+    - id: SlaughterEquipmentMedic
+      orGroup: Equip
+    - id: SlaughterEquipmentBeltBrickSatchel
+      orGroup: Equip
+    - id: SlaughterEquipmentBeltBaseBallBatHomeRun
+      orGroup: Equip
+    # Weapon
+    - id: SlaughterEquipmentDualetta
+      orGroup: Equip
+    - id: SlaughterEquipmentAK47
+      orGroup: Equip
+    - id: SlaughterEquipmentC20R
+      orGroup: Equip
+    - id: SlaughterEquipmentWT550
+      orGroup: Equip
+    - id: SlaughterEquipmentEnforcer
+      orGroup: Equip
+# Weapon
+# Dualetta
+- type: entity
+  parent: GunCaseSyndicateFilledDualetta
+  id: SlaughterEquipmentDualetta
+  name: dualetta kit
+  suffix: DONT MAP
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Clothing
+    equipSound: /Audio/_White/Equip/clothingrustle4.ogg
+    quickEquip: false
+    slots:
+    - back
+  - type: Item
+    size: Huge
+  - type: Storage
+    grid:
+    - 0,0,1,2
+    - 3,0,9,1
+  - type: StorageFill
+    contents:
+    - id: WeaponPistolDualetta
+      amount: 2
+    - id: MagazinePistolHighCapacity
+      amount: 4
+    - id: ClothingOuterVestWeb
+    - id: ClothingHeadHelmetBasic
+
+# AK47
+- type: entity
+  parent: ClothingBackpackSatchelSalvage
+  id: SlaughterEquipmentAK47
+  name: AK47 kit
+  suffix: DONT MAP
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Storage
+    grid:
+    - 0,0,1,2
+    - 3,0,10,3
+  - type: StorageFill
+    contents:
+    - id: WeaponRifleAk
+    - id: ClothingHeadHelmetBasic
+    - id: MagazineLightRifle
+      amount: 4
+    - id: ClothingOuterVestWeb
+
+# C20R
+- type: entity
+  parent: ClothingBackpackSyndicate
+  id: SlaughterEquipmentC20R
+  name: C20R kit
+  suffix: DONT MAP
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Storage
+    grid:
+    - 0,0,1,2
+    - 3,0,8,3
+  - type: StorageFill
+    contents:
+    - id: WeaponSubMachineGunC20r
+    - id: ClothingHeadHelmetBasic
+    - id: MagazinePistolSubMachineGun
+      amount: 4
+    - id: ClothingOuterVestWeb
+
+# WT550
+- type: entity
+  parent: ClothingBackpackSecurity
+  id: SlaughterEquipmentWT550
+  name: WT550 kit
+  suffix: DONT MAP
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Storage
+    grid:
+    - 0,0,1,2
+    - 3,0,8,3
+  - type: StorageFill
+    contents:
+    - id: WeaponSubMachineGunWt550
+    - id: ClothingHeadHelmetBasic
+    - id: MagazinePistolSubMachineGunTopMounted
+      amount: 4
+    - id: ClothingOuterVestWeb
+
+# Enforcer
+- type: entity
+  parent: ClothingBackpackSatchelLeather
+  id: SlaughterEquipmentEnforcer
+  name: enforcer kit
+  suffix: DONT MAP
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Storage
+    grid:
+    - 0,0,1,2
+    - 3,0,10,1
+  - type: StorageFill
+    contents:
+    - id: WeaponShotgunEnforcer
+    - id: MagazineShotgun
+      amount: 4
+    - id: ClothingOuterVestWeb
+    - id: ClothingHeadHelmetBasic
+
+# Kit
+# Clown
+- type: entity
+  parent: ClothingBackpackClown
+  id: SlaughterEquipmentClown
+  name: clown kit
+  suffix: DONT MAP
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Storage
+    grid:
+    - 0,0,3,3
+    - 5,0,8,1
+    - 5,3,10,4
+  - type: StorageFill
+    contents:
+    - id: LauncherCreamPieSlaughterEquipmentFilled
+    - id: SoapOmega
+    - id: ToyHammerSlaughterEquipment
+    - id: TrashBananaPeelExplosive
+      amount: 4
+    - id: FoodPieBananaCream
+      amount: 2
+    - id: ClothingOuterHardsuitClown
+
+- type: entity
+  parent: LauncherCreamPie
+  id: LauncherCreamPieSlaughterEquipmentFilled
+  suffix: 16, DONT MAP
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Gun
+    fireRate: 2
+  - type: StorageFill
+    contents:
+    - id: FoodPieBananaCream
+      amount: 16
+
+- type: entity
+  parent: ToyHammer
+  id: ToyHammerSlaughterEquipment
+  suffix: DONT MAP
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: WeaponRandom
+    damageBonus:
+      types:
+        Blunt: 1000
+    randomDamageChance: 0.075
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 5
+# Mime
+- type: entity
+  parent: ClothingBackpackMime
+  id: SlaughterEquipmentMime
+  name: mime kit
+  suffix: DONT MAP
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Storage
+    grid:
+    - 0,0,3,3
+    - 5,0,8,3
+  - type: StorageFill
+    contents:
+    - id: WeaponBaguette
+    - id: LauncherCroissantSlaughterEquipmentFilled
+    - id: SoapOmega
+    - id: WeaponCroissant
+      amount: 6
+    - id: ClothingOuterHardsuitMime
+
+- type: entity
+  parent: LauncherCreamPie
+  id: LauncherCroissantSlaughterEquipmentFilled
+  suffix: 16, DONT MAP
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Gun
+    fireRate: 2
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,7,1
+    whitelist:
+      components:
+      - Food
+  - type: StorageFill
+    contents:
+    - id: WeaponCroissant
+      amount: 16
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Cannons/pneumatic_cannon.rsi
+    layers:
+    - state: icon
+    - state: tank
+      map: [ "tank" ]
+      visible: false
+# BrickSatchel
+- type: entity
+  parent: ClothingBeltSecurityWebbing
+  id: SlaughterEquipmentBeltBrickSatchel
+  name: brick satchel kit
+  suffix: DONT MAP
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,3,3
+    - 5,0,7,1
+  - type: StorageFill
+    contents:
+    - id: BrickSatchelSlaughterEquipment
+    - id: ClothingHeadHelmetBasic
+    - id: RiotShieldSlaughterEquipment
+    - id: ClothingOuterArmorRiot
+
+- type: entity
+  parent: BrickSatchel
+  id: BrickSatchelSlaughterEquipment
+  suffix: DONT MAP
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Melee/Hosbat/brick_bag.rsi
+    state: icon
+  - type: Item
+    size: Small
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - belt
+  - type: EntityGenerator
+    prototypeId: BluespaceBrick
+    rechargeDuration: 6
+    onlyFullRecharge: true
+    maxCharges: 4
+    charges: 4
+
+- type: entity
+  parent: RiotBulletShield
+  id: RiotShieldSlaughterEquipment
+  name: riot slaughter shield
+  suffix: DONT MAP
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Item
+    size: Small
+  - type: Blocking
+    passiveBlockModifier:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.9
+    activeBlockModifier:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.9
+      flatReductions:
+        Blunt: 1
+        Slash: 1
+        Piercing: 1
+  - type: MeleeWeapon
+    animationRotation: -45
+    range: 1.6
+    attackRate: 2
+    damage:
+      types:
+        Blunt: 10
+    bluntStaminaDamageFactor: 1
+    soundHit:
+      collection: MetalThud
+  - type: MeleeThrowOnHit
+    speed: 15
+    distance: 1.25
+  - type: KnockdownOnHit
+    jitterTime: 0
+    stutterTime: 0
+    delay: 0
+    knockdownTime: 0.1
+# BaseBallBatHomeRun
+- type: entity
+  parent: ClothingBeltStorageWaistbag
+  id: SlaughterEquipmentBeltBaseBallBatHomeRun
+  name: home run bat kit
+  suffix: DONT MAP
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Storage
+    grid:
+    - 0,0,3,3
+    - 5,0,6,2
+    - 8,0,9,2
+    defaultStorageOrientation: Null
+    maxItemSize: Huge
+  - type: StorageFill
+    contents:
+    - id: ClothingOuterVestWeb
+    - id: MagazinePistol
+    - id: WeaponPistolMk58
+    - id: ClothingHeadHatHoboCap
+    - id: BallBatHomeRunSlaughterEquipment
+
+- type: entity
+  parent: BaseBallBatHomeRun
+  id: BallBatHomeRunSlaughterEquipment
+  suffix: DONT MAP
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Item
+    size: Large
+    storedRotation: 0
+    shape:
+    - 0,0,3,3
+  - type: MeleeThrowOnHit
+    speed: 50
+    distance: 0.5
+  - type: KnockdownOnHit
+    jitterTime: 0
+    stutterTime: 0
+    delay: 0
+    knockdownTime: 0.3
+# EnergySwordDouble
+- type: entity
+  parent: ClothingBackpackDuffelSyndicate
+  id: SlaughterEquipmentEnergySwordDouble
+  name: double esword kit
+  suffix: DONT MAP
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Storage
+    grid:
+    - 0,0,1,1
+  - type: StorageFill
+    contents:
+    - id: EnergySwordDouble
+    - id: ClothingHeadHelmetSwatSyndicate
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 1.15
+# Medic
+- type: entity
+  parent: ClothingBackpackMedical
+  id: SlaughterEquipmentMedic
+  name: medic kit
+  suffix: DONT MAP
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Storage
+    grid:
+    - 0,0,3,3
+    - 5,0,14,1
+    - 5,2,12,4
+  - type: StorageFill
+    contents:
+    - id: LauncherSyringeSlaughterEquipment
+    - id: JugChloralHydrate
+    - id: JugFresium
+    - id: JugPolytrinicAcid
+    - id: SawAdvanced
+    - id: MiniSyringeChloralHydrateSlaughterEquipment
+      amount: 4
+    - id: MiniSyringeFresiumSlaughterEquipment
+      amount: 4
+    - id: MiniSyringePolytrinicAcidSlaughterEquipment
+      amount: 4
+    - id: MiniSyringeSlaughterEquipment
+      amount: 12
+    - id: ClothingOuterHardsuitBrigmedic
+
+- type: entity
+  name: syringe gun
+  parent: LauncherCreamPie
+  id: LauncherSyringeSlaughterEquipment
+  description: Load full of poisoned syringes for optimal fun.
+  suffix: DONT MAP
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Cannons/syringe_gun.rsi
+    layers:
+    - state: syringe_gun
+  - type: Storage
+    grid:
+    - 0,0,2,1
+    whitelist:
+      tags:
+      - SyringeGunAmmo
+  - type: Gun
+    fireRate: 2
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/syringe_gun.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/empty.ogg
+
+- type: entity
+  parent: MiniSyringe
+  id: MiniSyringeSlaughterEquipment
+  suffix: DONT MAP
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SolutionInjectWhileEmbedded
+    transferAmount: 15
+    solution: injector
+    updateInterval: 2
+  - type: SolutionInjectOnEmbed
+    transferAmount: 15
+    solution: injector
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 30
+
+- type: entity
+  parent: Jug
+  id: JugChloralHydrate
+  suffix: DONT MAP
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Label
+    currentLabel: reagent-name-chloral-hydrate
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        reagents:
+        - ReagentId: ChloralHydrate
+          Quantity: 200
+
+- type: entity
+  parent: Jug
+  id: JugFresium
+  suffix: DONT MAP
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Label
+    currentLabel: reagent-name-fresium
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        reagents:
+        - ReagentId: Fresium
+          Quantity: 200
+
+- type: entity
+  parent: Jug
+  id: JugPolytrinicAcid
+  suffix: DONT MAP
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Label
+    currentLabel: reagent-name-polytrinic-acid
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        reagents:
+        - ReagentId: PolytrinicAcid
+          Quantity: 200
+
+- type: entity
+  parent: MiniSyringeSlaughterEquipment
+  id: MiniSyringeChloralHydrateSlaughterEquipment
+  suffix: DONT MAP
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Label
+    currentLabel: reagent-name-chloral-hydrate
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        reagents:
+        - ReagentId: ChloralHydrate
+          Quantity: 30
+
+- type: entity
+  parent: MiniSyringeSlaughterEquipment
+  id: MiniSyringeFresiumSlaughterEquipment
+  suffix: DONT MAP
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Label
+    currentLabel: reagent-name-fresium
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        reagents:
+        - ReagentId: Fresium
+          Quantity: 30
+
+- type: entity
+  parent: MiniSyringeSlaughterEquipment
+  id: MiniSyringePolytrinicAcidSlaughterEquipment
+  suffix: DONT MAP
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Label
+    currentLabel: reagent-name-polytrinic-acid
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        reagents:
+        - ReagentId: PolytrinicAcid
+          Quantity: 30
