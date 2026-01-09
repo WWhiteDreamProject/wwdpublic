@@ -4934,3 +4934,12 @@ Entries:
   id: 517
   time: '2026-01-08T21:50:23.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1010
+- author: Cinkafox
+  changes:
+    - type: Add
+      message: >-
+        Изменен интерфейс телепорта призрака, теперь он отображает антагонистов,
+        живых, мёртвых, призраков, вышедших и так далее.
+  id: 518
+  time: '2026-01-09T14:20:18.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1011
