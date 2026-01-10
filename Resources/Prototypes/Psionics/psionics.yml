@@ -171,9 +171,6 @@
     - !type:AddPsionicStatSources
       amplificationModifier: 0.5
       dampeningModifier: 0.5
-    - !type:PsionicAddAvailablePowers
-      powerPrototype: AssayPower
-      weight: 1 #wwdp 0.1 --> 1
   removalFunctions:
     - !type:RemovePsionicActions
     - !type:RemovePsionicPowerComponents
@@ -182,8 +179,6 @@
     - !type:RemovePsionicStatSources
     - !type:RemoveAssayFeedback
       assayFeedback: metapsionic-power-metapsionic-feedback
-    - !type:PsionicRemoveAvailablePowers
-      powerPrototype: AssayPower
 
 - type: psionicPower
   id: PsionicRegenerationPower
@@ -339,12 +334,6 @@
       feedbackMessage: telepathy-power-initialization-feedback
     - !type:AddPsionicAssayFeedback
       assayFeedback: telepathy-power-metapsionic-feedback
-    - !type:PsionicAddAvailablePowers
-      powerPrototype: XenoglossyPower
-      weight: 1 #wwdp 2 --> 1
-    - !type:PsionicAddAvailablePowers
-      powerPrototype: PsychognomyPower
-      weight: 1 #wwdp 0.1 --> 1
   removalFunctions:
     - !type:RemovePsionicActions #WD EDIT
     - !type:RemovePsionicPowerComponents
@@ -352,10 +341,6 @@
         - type: Telepathy
     - !type:RemoveAssayFeedback
       assayFeedback: telepathy-power-metapsionic-feedback
-    - !type:PsionicRemoveAvailablePowers
-      powerPrototype: XenoglossyPower
-    - !type:PsionicRemoveAvailablePowers
-      powerPrototype: PsychognomyPower
   powerSlotCost: 0
 
 - type: psionicPower
@@ -378,16 +363,11 @@
     - !type:AddPsionicStatSources
       amplificationModifier: 1
       dampeningModifier: 0.5
-    - !type:PsionicAddAvailablePowers
-      powerPrototype: RevivifyPower
-      weight: 2
   removalFunctions:
     - !type:RemovePsionicActions
     - !type:RemovePsionicStatSources
     - !type:RemoveAssayFeedback
       assayFeedback: healing-word-power-metapsionic-feedback
-    - !type:PsionicRemoveAvailablePowers
-      powerPrototype: RevivifyPower
 
 - type: psionicPower
   id: RevivifyPower
@@ -505,9 +485,6 @@
       amplificationModifier: 1
     - !type:AddPsionicPsychognomicDescriptors
       psychognomicDescriptor: tenebrous
-    - !type:PsionicAddAvailablePowers
-      powerPrototype: DarkSwapPower
-      weight: 1
   removalFunctions:
     - !type:RemovePsionicActions
     - !type:RemovePsionicStatSources
@@ -515,8 +492,6 @@
       assayFeedback: shadeskip-power-metapsionic-feedback
     - !type:RemovePsionicPsychognomicDescriptors
       psychognomicDescriptor: tenebrous
-    - !type:PsionicRemoveAvailablePowers
-      powerPrototype: DarkSwapPower
 
 - type: psionicPower
   id: TelekineticPulsePower
@@ -599,12 +574,6 @@
       assayFeedback: pyrokinetic-flare-power-metapsionic-feedback
     - !type:AddPsionicStatSources
       amplificationModifier: 0.25
-    - !type:PsionicAddAvailablePowers
-      powerPrototype: SummonImpPower
-      weight: 1
-    - !type:PsionicAddAvailablePowers
-      powerPrototype: PyrokinesisPower
-      weight: 1
     - !type:AddPsionicPsychognomicDescriptors
       psychognomicDescriptor: pyre
   removalFunctions:
@@ -612,12 +581,6 @@
     - !type:RemovePsionicStatSources
     - !type:RemoveAssayFeedback
       assayFeedback: pyrokinetic-flare-power-metapsionic-feedback
-    - !type:PsionicRemoveAvailablePowers
-      powerPrototype: SummonImpPower
-    - !type:PsionicRemoveAvailablePowers
-      powerPrototype: PyrokinesisPower
-    - !type:RemovePsionicPsychognomicDescriptors
-      psychognomicDescriptor: pyre
   powerSlotCost: 1
 
 - type: psionicPower
