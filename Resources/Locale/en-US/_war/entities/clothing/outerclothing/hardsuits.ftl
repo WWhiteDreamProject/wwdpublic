@@ -1,0 +1,14 @@
+ent-ClothingOuterHardsuitSyndicateCommandor = syndicate commandor hardsuit
+    .desc = Dont forget add description....fuck.
+ent-ClothingOuterHardsuitSyndicateDirector = syndicate director hardsuit
+    .desc = Dont forget add description....fuck.
+ent-ClothingOuterHardsuitSyndicateOld = old blood-red hardsuit
+    .desc = Dont forget add description....fuck.
+ent-ClothingOuterHardsuitSyndicateParamed = paramed syndicate hardsuit
+    .desc = Dont forget add description....fuck.
+ent-ClothingOuterHardsuitSyndicateMiner = syndicate mining hardsuit
+    .desc = We're rich!
+ent-ClothingOuterHardsuitSyndicateEngineer = syndicate engineering hardsuit
+    .desc = Steel and wires!
+ent-ClothingOuterHardsuitSyndicateSupplyManager = manager hardsuit
+    .desc = A special hardsuit for manager.

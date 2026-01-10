@@ -1,0 +1,31 @@
+# Saibasan
+- type: department
+  id: Saibasan
+  name: department-saibasan-name
+  description: department-saibasan-description
+  color: "#DE3A3A"
+  roles:
+  - DirectorOfSaibasan
+  - Commander
+  - SyndicatePilot
+  - Fighter
+#  - Recruit  [BETA]
+#  - SyndicateSpy  [BETA]
+  - SyndicateParamedic
+  - SupplyManager
+  - AtmosphericEngineer
+  - Disposal
+  - Loader
+
+# Interpharm
+- type: department
+  id: Interpharm
+  name: department-interpharm-name
+  description: department-interpharm-description
+  color: "#52B4E9"
+  roles:
+  - DirectorOfInterpharm
+  - SyndicateChef
+  - SyndicateBotanist
+  - SyndicateScientist
+  - SyndicateBartender

@@ -1,0 +1,11 @@
+ent-ClothingMaskGasPilot = пилотный противогаз
+    .desc = Professionals have standards.
+ent-ClothingMaskGasPilotSyndicate = пилотный противогаз синдиката
+    .desc = Professionals dont have standards.
+ent-ClothingMaskBalaclavaSyndicateBlackBase = черная балаклава
+    .desc = I never really was on your side.
+ent-ClothingMaskBalaclavaSyndicateBrownBase = черная балаклава
+    .desc = I never really was on your side.
+ent-ClothingMaskGasSyndicateTW = противогаз синдиката
+    .desc = Маска, закрывающая лицо, которую можно подключить к источнику воздуха.
+    .suffix = TOTAL WAR

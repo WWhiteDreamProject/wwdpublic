@@ -1,0 +1,62 @@
+{
+    "version": 1,
+    "license": "See LICENSE file for details",
+    "copyright": "Made by Gargarien. Exclusive for TotalWar/thunder (now wwdp). All rights reserved. Do not modify, publish, use, relicense or edit.",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "green"
+        },
+        {
+            "name": "syndicateatmosphericengineer"
+        },
+        {
+            "name": "syndicatecommander"
+        },
+        {
+            "name": "syndicatedirectorofsaibasan"
+        },
+        {
+            "name": "syndicatedisposal"
+        },
+        {
+            "name": "syndicatefighter"
+        },
+        {
+            "name": "syndicateloader"
+        },
+        {
+            "name": "syndicateparamedic"
+        },
+        {
+            "name": "syndicatepilot"
+        },
+        {
+            "name": "syndicaterecruit"
+        },
+        {
+            "name": "syndicatesupplymanager"
+        },
+        {
+            "name": "syndicatespy"
+        },
+        {
+            "name": "syndicatebotanist"
+        },
+        {
+            "name": "syndicatedirectorofinterpharm"
+        },
+        {
+            "name": "syndicatebartender"
+        },
+        {
+            "name": "syndicatechef"
+        },
+        {
+            "name": "syndicatescimed"
+        }
+    ]
+}

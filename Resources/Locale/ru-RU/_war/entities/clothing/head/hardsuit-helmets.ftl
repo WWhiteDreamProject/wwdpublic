@@ -1,0 +1,14 @@
+ent-ClothingHeadHelmetHardsuitSyndicateCommandor = шлем скафандра командора синдиката
+    .desc = Высококлассный шлем синдиката, в разы лучше чем у НТ.
+ent-ClothingHeadHelmetHardsuitSyndicateDirector = шлем скафандра директора синдиката
+    .desc = Высококлассный шлем синдиката, в разы лучше чем у НТ..
+ent-ClothingHeadHelmetHardsuitSyndicateOld = старый кроваво-красный шлем скафандра
+    .desc = Высококлассный шлем синдиката, в разы лучше чем у НТ.
+ent-ClothingHeadHelmetHardsuitSyndicateParamed = шлем скафандра парамедика синдиката
+    .desc = Высококлассный шлем синдиката, в разы лучше чем у НТ.
+ent-ClothingHeadHelmetHardsuitSyndicateSalvage = шлем скафандра утилизатора синдиката
+    .desc = Защищает от чего-то.
+ent-ClothingHeadHelmetHardsuitSyndicateEngineering = шлем скафандра инженера синдиката
+    .desc = Инженерный защитный шлем, предназначенный для работы в условиях низкого давления и высокой радиоактивности.
+ent-ClothingHeadHelmetHardsuitSyndicateManager = syndicate manager helmet
+    .desc = Высококлассный шлем синдиката, в разы лучше чем у НТ.

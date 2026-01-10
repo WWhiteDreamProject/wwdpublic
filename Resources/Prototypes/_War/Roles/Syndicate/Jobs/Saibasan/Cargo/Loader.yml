@@ -1,0 +1,13 @@
+- type: job
+  id: Loader
+  name: job-name-loader
+  description: job-description-loader
+  playTimeTracker: JobLoader
+  icon: "JobIconLoader" # НЕ ЗАБЫТЬ ДОБАВИТЬ
+  supervisors: job-supervisors-sm
+  access:
+  - TechnicalSyndicate
+  - SuppliesSyndicate
+  - MaintenanceSyndicate
+  - GatewaysSyndicate
+  - GeneralSyndicate

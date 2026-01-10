@@ -1,0 +1,14 @@
+ent-BlackShuttleWindow = Black shuttle window
+    .desc = { ent-WindowRCDResistant.desc }
+ent-BlackShuttleWindowDiagonal = { ent-BlackShuttleWindow }
+    .suffix = diagonal
+    .desc = { ent-BlackShuttleWindow.desc }
+ent-RedShuttleWindow = red shuttle window
+    .desc = { ent-WindowRCDResistant.desc }
+ent-RedShuttleWindowDiagonal = { ent-RedShuttleWindow }
+    .suffix = diagonal
+    .desc = { ent-RedShuttleWindow.desc }
+ent-CargoShuttleWindow = cargo shuttle window
+    .desc = { ent-WindowRCDResistant.desc }
+ent-SalvageShuttleWindow = salvage shuttle window
+    .desc = { ent-WindowRCDResistant.desc }

@@ -1,0 +1,15 @@
+- type: construction
+  id: BarbwireConstruction
+  name: barbwire
+  graph: barbwireGraph
+  startNode: start
+  targetNode: barbwire
+  category: construction-category-structures
+  icon:
+    sprite: /Textures/_War/Structures/Specific/barbwire.rsi
+    state: barbwireGround
+  objectType: Structure
+  placementMode: SnapgridCenter
+  canBuildInImpassable: false
+  conditions:
+  - !type:TileNotBlocked

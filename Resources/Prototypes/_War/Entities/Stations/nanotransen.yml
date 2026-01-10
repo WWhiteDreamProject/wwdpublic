@@ -1,0 +1,12 @@
+﻿- type: entity
+  id: StandardTWNanotrasenStation
+  parent:
+  - BaseStation
+  - BaseStationJobsSpawning
+  - BaseStationGateway
+  - BaseStationMagnet
+  - BaseStationNanotrasen
+  categories: [ HideSpawnMenu ]
+  suffix: "TW"
+  components:
+  - type: Transform

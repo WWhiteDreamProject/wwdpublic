@@ -1,0 +1,54 @@
+- type: job
+  id: DirectorOfInterpharm
+  name: job-name-directorofinterpharm
+  description: job-description-directorofinterpharm
+  playTimeTracker: JobSyndicateDirectorOfInterpharm
+#  requirements:
+#  - !type:RoleTimeRequirement
+#    role: JobSyndicateBartender
+#    time: 3600 #1 hrs
+#  - !type:RoleTimeRequirement
+#    role: JobSyndicateBotanist
+#    time: 3600 #1 hrs
+#  - !type:RoleTimeRequirement
+#    role: JobSyndicateChef
+#    time: 3600 #1 hrs
+#  - !type:RoleTimeRequirement
+#    role: JobSyndicateScientist
+#    time: 3600 #1 hrs
+  icon: "JobIconDirectorOfSaibasan" # НЕ ЗАБЫТЬ НАСПРАЙТИТЬ (не критично)
+  supervisors: job-supervisors-nobody
+  canBeAntag: false
+  access:
+  - AuthoritySyndicate
+  - BridgeSyndicate
+  - ArmorySyndicate
+  - BarracksSyndicate
+  - TechnicalSyndicate
+  - AtmosSyndicate
+  - ShuttleSyndicate
+  - SuppliesSyndicate
+  - MinersSyndicate
+  - MaintenanceSyndicate
+  - GatewaysSyndicate
+  - ResearchSyndicate
+  - MedbaySyndicate
+  - ChemistrySyndicate
+  - FoodSyndicate
+  - BarSyndicate
+  - GeneralSyndicate
+
+- type: startingGear
+  id: DirectorOfInterpharmGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSyndicateDirectorInterpharm
+    back: ClothingBackpackSyndicate # НЕ ЗАБЫТЬ ДОБАВИТЬ
+    shoes: ClothingShoesBootsCombatFilled
+    head: ClothingHeadHatCapcap # НЕ ЗАБЫТЬ ДОБАВИТЬ
+    eyes: ClothingEyesGlassesSecurity
+    outerClothing: ClothingOuterCoatSyndieCapArmored
+    id: SyndiPDA # НЕ ЗАБЫТЬ ДОБАВИТЬ
+    ears: ClothingHeadsetAltSyndicate # НЕ ЗАБЫТЬ ДОБАВИТЬ
+    belt: ClothingBeltSyndieHolster
+    pocket1: WeaponPistolCobra
+    pocket2: CyberPen

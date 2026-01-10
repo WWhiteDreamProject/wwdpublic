@@ -1,0 +1,6 @@
+- type: stack
+  id: barbwire
+  name: stack-barbwire
+  icon: { sprite: /Textures/_War/Objects/Specific/Security/barbwire.rsi, state: icon }
+  spawn: barbwire
+  maxCount: 30

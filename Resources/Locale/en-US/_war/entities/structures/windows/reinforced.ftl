@@ -1,0 +1,13 @@
+ent-CybersunReinforcedWindow = cybersun reinforced window
+    .desc = { ent-Window.desc }
+ent-InterpharmReinforcedWindow = interpharm reinforced window
+    .desc = { ent-Window.desc }
+ent-CybersunReinforcedWindowDiagonal = { ent-CybersunReinforcedWindow }
+    .suffix = diagonal
+    .desc = { ent-CybersunReinforcedWindow.desc }
+ent-InterpharmWindowReinforcedDirectional = interpharm directional reinforced window
+    .desc = { ent-WindowReinforcedDirectional.desc }
+ent-GreenWindowReinforcedDirectional = directional reinforced window
+    .desc = Rain was forced to be green.
+ent-RedWindowReinforcedDirectional = directional reinforced window
+    .desc = Rain was forced to be red.

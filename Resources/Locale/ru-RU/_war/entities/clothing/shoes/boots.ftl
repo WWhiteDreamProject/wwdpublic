@@ -1,0 +1,12 @@
+ent-ClothingShoesBootsWorkSyndicate = рабочие ботинки синдиката
+    .desc = Инженерные рабочие ботинки на шнуровке для особых «синих воротничков».
+ent-ClothingShoesBootsWorkSyndicateRed = красные рабочие ботинки синдиката
+    .desc = Инженерные рабочие ботинки на шнуровке для особых «синих воротничков».
+ent-ClothingShoesBootsCombatSyndicatePilot = ботинки пилота
+    .desc = Прочные ботинки для пилотов и ситуаций. All pilot, all the time.
+ent-ClothingShoesShoesSyndicate = кожаная обувь синдиката
+    .desc = Обувь синдиката.
+ent-ClothingShoesShoesBlackRedSyndicate = черно-красные туфли синдиката
+    .desc = Черно-красные туфли синдиката.
+ent-ClothingShoesShoesWhiteRedSyndicate = бело-красная обувь синдиката
+    .desc = Бело-красные туфли синдиката.

@@ -1,0 +1,21 @@
+- type: job
+  id: SyndicatePilot
+  name: job-name-syndicatepilot
+  description: job-description-syndicatepilot
+  playTimeTracker: JobSyndicateSecurityPilot
+#  requirements:
+#  - !type:RoleTimeRequirement
+#    role: JobSyndicateSecurityFighter
+#    time: 3600 #1 hrs
+  icon: "JobIconSyndicatePilot"
+  supervisors: job-supervisors-commander
+  canBeAntag: false
+  access:
+  - BarracksSyndicate
+  - TechnicalSyndicate
+  - ShuttleSyndicate
+  - SuppliesSyndicate
+  - MinersSyndicate
+  - MaintenanceSyndicate
+  - GatewaysSyndicate
+  - GeneralSyndicate

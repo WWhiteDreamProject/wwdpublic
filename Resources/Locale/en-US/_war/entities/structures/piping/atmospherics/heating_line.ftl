@@ -1,0 +1,17 @@
+ent-HeatingLineBase = heating line base
+    .desc = heating line base
+ent-HeatingLineStraight = heating line
+    .desc = Pipe insulation made of dense fabric.
+    .suffix = Straight
+ent-HeatingLineCorner = heating line
+    .desc = Pipe insulation made of dense fabric.
+    .suffix = Corner
+ent-HeatingLineEnd = heating line
+    .desc = Pipe insulation made of dense fabric.
+    .suffix = End
+ent-HeatingLineFourway = heating line
+    .desc = Pipe insulation made of dense fabric.
+    .suffix = Fourway
+ent-HeatingLineTJunction = heating line
+    .desc = Pipe insulation made of dense fabric.
+    .suffix = TJunction

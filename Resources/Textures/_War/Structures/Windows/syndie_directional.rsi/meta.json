@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "recolored by Gargarien",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "red_window",
+      "directions": 4
+    },
+    {
+      "name": "red_reinforced_window",
+      "directions": 4
+    },
+    {
+      "name": "green_window",
+      "directions": 4
+    },
+    {
+      "name": "green_reinforced_window",
+      "directions": 4
+    }
+  ]
+}

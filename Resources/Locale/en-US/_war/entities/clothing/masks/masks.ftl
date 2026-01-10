@@ -1,0 +1,11 @@
+ent-ClothingMaskGasPilot = pilot gas mask
+    .desc = Professionals have standards.
+ent-ClothingMaskGasPilotSyndicate = syndicate pilot gas mask
+    .desc = Professionals dont have standards.
+ent-ClothingMaskBalaclavaSyndicateBlackBase = black balaclava
+    .desc = I never really was on your side.
+ent-ClothingMaskBalaclavaSyndicateBrownBase = black balaclava
+    .desc = I never really was on your side.
+ent-ClothingMaskGasSyndicateTW = syndicate gas mask
+    .desc = A face-covering mask that can be connected to an air supply.
+    .suffix = TOTAL WAR

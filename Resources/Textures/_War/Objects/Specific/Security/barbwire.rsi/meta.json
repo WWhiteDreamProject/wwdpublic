@@ -1,0 +1,14 @@
+{
+    "copyright" : "Taken from https://github.com/Civ13/Civ13/blob/HEAD/icons/obj/materials.dmi",
+    "license" : "CC-BY-SA-3.0",
+    "size" : {
+        "x" : 32,
+        "y" : 32
+    },
+    "states": [
+        {
+            "name": "icon"
+        }
+    ],
+    "version" : 1
+}

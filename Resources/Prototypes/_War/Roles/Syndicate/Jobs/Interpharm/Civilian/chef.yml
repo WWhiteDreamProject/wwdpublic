@@ -1,0 +1,12 @@
+- type: job
+  id: SyndicateChef
+  name: job-name-syndchef
+  description: job-description-syndchef
+  playTimeTracker: JobSyndicateChef
+  icon: "JobIconSyndicateChef"
+  supervisors: job-supervisors-directorofinterpharm
+  access:
+  - MaintenanceSyndicate
+  - FoodSyndicate
+  - GeneralSyndicate
+

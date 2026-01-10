@@ -1,0 +1,147 @@
+# Command
+
+- type: accessLevel
+  id: AuthoritySyndicate
+  name: id-card-access-level-authoritysyndicate
+
+- type: accessLevel
+  id: BridgeSyndicate
+  name: id-card-access-level-bridgesyndicate
+
+- type: accessGroup
+  id: CommandSyndicate
+  tags:
+  - ArmorySyndicate
+  - BarracksSyndicate
+
+# Military
+
+- type: accessLevel
+  id: ArmorySyndicate
+  name: id-card-access-level-armorysyndicate
+
+- type: accessLevel
+  id: BarracksSyndicate
+  name: id-card-access-level-barrackssyndicate
+
+- type: accessGroup
+  id: MilitarySyndicate
+  tags:
+  - ArmorySyndicate
+  - BarracksSyndicate
+  - ShuttleSyndicate
+
+# Technical
+
+- type: accessLevel
+  id: TechnicalSyndicate
+  name: id-card-access-level-technicalsyndicate
+
+- type: accessLevel
+  id: AtmosSyndicate
+  name: id-card-access-level-atmossyndicate
+
+- type: accessLevel
+  id: ShuttleSyndicate
+  name: id-card-access-level-shuttlesyndicate
+
+- type: accessLevel
+  id: SuppliesSyndicate
+  name: id-card-access-level-suppliessyndicate
+
+- type: accessLevel
+  id: MinersSyndicate
+  name: id-card-access-level-minerssyndicate
+
+- type: accessGroup
+  id: TechnicalSuppliesSyndicate
+  tags:
+  - TechnicalSyndicate
+  - AtmosSyndicate
+  - ShuttleSyndicate
+  - SuppliesSyndicate
+  - MinersSyndicate
+
+# Misc
+
+- type: accessLevel
+  id: MaintenanceSyndicate
+  name: id-card-access-level-maintenancesyndicate
+
+- type: accessLevel
+  id: GatewaysSyndicate
+  name: id-card-access-level-gatewayssyndicate
+
+- type: accessGroup
+  id: MiscSyndicate
+  tags:
+  - MaintenanceSyndicate
+  - GatewaysSyndicate
+
+- type: accessGroup
+  id: AllTotalAccess
+  tags:
+  - ArmorySyndicate
+  - BarracksSyndicate
+  - AuthoritySyndicate
+  - BridgeSyndicate
+  - TechnicalSyndicate
+  - AtmosSyndicate
+  - ShuttleSyndicate
+  - SuppliesSyndicate
+  - MinersSyndicate
+  - MaintenanceSyndicate
+  - GatewaysSyndicate
+  - ResearchSyndicate
+  - MedbaySyndicate
+  - ChemistrySyndicate
+  - FoodSyndicate
+  - BarSyndicate
+  - GeneralSyndicate
+  - PilotNT
+
+# Research and Medbay
+
+- type: accessLevel
+  id: ResearchSyndicate
+  name: id-card-access-level-researchsyndicate
+
+- type: accessLevel
+  id: MedbaySyndicate
+  name: id-card-access-level-medbaysyndicate
+
+- type: accessLevel
+  id: ChemistrySyndicate
+  name: id-card-access-level-chemistrysyndicate
+
+- type: accessGroup
+  id: MedResSyndicate
+  tags:
+  - MaintenanceSyndicate
+  - GatewaysSyndicate
+  - ChemistrySyndicate
+
+# Service and general
+
+- type: accessLevel
+  id: FoodSyndicate
+  name: id-card-access-level-foodsyndicate
+
+- type: accessLevel
+  id: BarSyndicate
+  name: id-card-access-level-barsyndicate
+
+- type: accessGroup
+  id: ServiceSyndicate
+  tags:
+  - MaintenanceSyndicate
+  - GatewaysSyndicate
+  - ChemistrySyndicate
+
+- type: accessLevel
+  id: GeneralSyndicate
+  name: id-card-access-level-generalsyndicate
+
+- type: accessLevel
+  id: PilotNT
+  name: id-card-access-level-pilotnt
