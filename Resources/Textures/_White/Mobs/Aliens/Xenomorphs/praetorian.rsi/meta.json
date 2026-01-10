@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from tgstation on: https://github.com/tgstation/tgstation/blob/master/icons/mob/nonhuman-player/alienqueen.dmi | Edited by PuroSlavKing (Github)",
+  "license": "CC-BY-NC-SA-4.0",
+  "copyright": "T1nV(Valentyi) (randomm.ua) for WWhiteDreamProject, 07.01.2026",
   "size": {
     "x": 64,
     "y": 64
@@ -9,6 +9,10 @@
   "states": [
     {
       "name": "xenomorph",
+      "directions": 4
+    },
+    {
+      "name": "xenomorph_combat",
       "directions": 4
     },
     {
