@@ -34,7 +34,7 @@ lifepath_name_clone = Клон
 lifepath_description_clone = Вы — не уникальны. Созданные серийно и с определённой целью, вы отчаянно пытаетесь понять, кто вы на самом деле.
 
 lifepath_name_cultist = Культист
-lifepath_description_cultist = Вы выросли в маргинальном культе, связанные верой в идеологию, которую мало кто понимает
+lifepath_description_cultist = Вы выросли в маргинальном культе, связанные верой в идеологию, которую мало кто понимает.
 
 lifepath_name_miner = Шахтёр
 lifepath_description_miner = Вся ваша жизнь — это бурение астероидов и планет в поисках богатства в беспросветной темноте. Rock and Stones!
