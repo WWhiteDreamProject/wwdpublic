@@ -32,6 +32,9 @@ lifepath_description_warvet = You fought in a war that left scars on your body a
 lifepath_name_clone = Clone
 lifepath_description_clone = You are not unique. Mass-produced for a purpose, you struggle to define your own identity.
 
+lifepath_name_cultist = Cultist
+lifepath_description_cultist = You were raised in a fringe cult, bound by faith to an ideology that few understand.
+
 lifepath_name_miner = Miner
 lifepath_description_miner = Your life has been spent drilling into asteroids or planets, seeking wealth in the dark.
 
