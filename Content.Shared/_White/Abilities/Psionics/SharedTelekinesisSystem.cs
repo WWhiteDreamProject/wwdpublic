@@ -83,7 +83,8 @@ public abstract partial class SharedTelekinesisPowerSystem : EntitySystem
 
         var targetValue = component.TetheredEntity.Value;
 
-        var comp = Comp<TelekinesisTargetComponent>(targetValue);
+        if (!TryComp<TelekinesisTargetComponent>(targetValue, out var comp))
+            return;
 
         if (component.JointId != null && component.TetherPoint != null && component.TetheredEntity != null)
         {
@@ -119,6 +120,14 @@ public abstract partial class SharedTelekinesisPowerSystem : EntitySystem
             return;
 
         var coords = GetCoordinates(msg.Coordinates);
+
+        var userCoords = _transform.GetMapCoordinates(user.Value);
+        var targetCoords = _transform.ToMapCoordinates(coords);
+
+        const float maxDistance = 15f;
+        if ((userCoords.Position - targetCoords.Position).Length() > maxDistance)
+            return;
+
         _transform.SetCoordinates(power.TetherPoint.Value, coords);
     }
 

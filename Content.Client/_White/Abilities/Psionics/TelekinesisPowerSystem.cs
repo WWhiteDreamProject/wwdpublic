@@ -1,4 +1,5 @@
 using Content.Shared._White.Abilities.Psionics;
+using Content.Shared._White.Psionics.Abilities;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
 using Robust.Client.Player;
@@ -35,6 +36,12 @@ public sealed class TelekinesisPowerSystem : SharedTelekinesisPowerSystem
         _timeSinceLastSend += TimeSpan.FromSeconds(frameTime);
 
         var player = _player.LocalEntity;
+
+        if (player == null || !TryComp<TelekinesisPowerComponent>(player, out var power))
+            return;
+
+        if (power.TetheredEntity == null)
+            return;
 
         var mousePos = _input.MouseScreenPosition;
         var mouseWorldPos = _eyeManager.PixelToMap(mousePos);

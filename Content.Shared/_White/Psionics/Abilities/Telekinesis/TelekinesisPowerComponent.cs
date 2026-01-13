@@ -5,7 +5,7 @@ namespace Content.Shared._White.Psionics.Abilities;
 [RegisterComponent, AutoGenerateComponentState, NetworkedComponent]
 public sealed partial class TelekinesisPowerComponent : Component
 {
-    [DataField]
+    [DataField, AutoNetworkedField]
     public EntityUid? TetheredEntity;
 
     [ViewVariables]

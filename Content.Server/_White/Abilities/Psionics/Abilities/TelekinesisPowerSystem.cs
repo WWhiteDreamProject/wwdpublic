@@ -19,7 +19,7 @@ public sealed class TelekinesisPowerSystem : SharedTelekinesisPowerSystem
 
     private void AddTelekinesisVerb(EntityUid uid, TelekinesisPowerComponent component, GetVerbsEvent<InnateVerb> args)
     {
-        if (!TryComp<PsionicComponent>(uid, out var psyko))
+        if (!HasComp<PsionicComponent>(uid))
             return;
 
         var victim = args.Target;
@@ -27,7 +27,7 @@ public sealed class TelekinesisPowerSystem : SharedTelekinesisPowerSystem
         if (!TryComp<PhysicsComponent>(victim, out var physics))
             return;
 
-        if (TryComp<MobStateComponent>(victim, out var mobState))
+        if (HasComp<MobStateComponent>(victim)) //no mob telekinesis
             return;
 
         if (component.TetheredEntity == null || victim != component.TetheredEntity)
