@@ -23,3 +23,8 @@ action-name-revert-polymorph = Обратить полиморф
 action-description-revert-polymorph = Вернуться в исходное состояние
 polymorph-power-initialization-feedback = Кто-то зовёт меня сзади, я оборачиваюсь. Но там никого нет, там абсолютное ничто, нет даже самой пустоты пространства. Я не помню своего имени, я потерял своё происхождение, у меня нет прошлого, только будущее, которое я вынужден прожить под ярлыком имени из паспорта, но я отказываюсь.
 
+telekinesis-power-initialization-feedback = Я замираю. Мне начинает видеться само пространство вокруг меня, моя воля стала единственным законом тяготения.
+telekinesis-power-metapsionic-feedback = Воля {CAPITALIZE($entity)} - молот, разбивающий стандарты материи.
+telekinesis-big-mass = Слишком тяжело
+telekinesis-verb-tether = Схватить
+telekinesis-verb-untether = Отпустить

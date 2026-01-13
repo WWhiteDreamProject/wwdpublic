@@ -10,4 +10,7 @@ public sealed partial class TelekinesisTargetComponent : Component
 
     [DataField]
     public float OriginalAngularDamping;
+
+    [DataField]
+    public float OriginalLinearDamping;
 }

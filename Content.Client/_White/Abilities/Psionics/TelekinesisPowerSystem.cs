@@ -1,6 +1,4 @@
 using Content.Shared._White.Abilities.Psionics;
-using Content.Shared._White.Psionics.Abilities;
-using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
 using Robust.Client.Player;
@@ -17,7 +15,10 @@ public sealed class TelekinesisPowerSystem : SharedTelekinesisPowerSystem
     [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly MapSystem _map = default!;
+
+    private EntityCoordinates _lastSentCoords;
+    private TimeSpan _timeSinceLastSend;
+    private const float SendInterval = 1;
 
     public override void Initialize()
     {
@@ -30,6 +31,8 @@ public sealed class TelekinesisPowerSystem : SharedTelekinesisPowerSystem
 
         if (!_timing.IsFirstTimePredicted)
             return;
+
+        _timeSinceLastSend += TimeSpan.FromSeconds(frameTime);
 
         var player = _player.LocalEntity;
 
@@ -45,13 +48,17 @@ public sealed class TelekinesisPowerSystem : SharedTelekinesisPowerSystem
             coords = _transform.ToCoordinates(gridUid, mouseWorldPos);
         else
         {
-            coords = EntityCoordinates.FromMap(_mapManager.GetMapEntityId(mouseWorldPos.MapId), mouseWorldPos, _transform);
+            coords = _transform.ToCoordinates(mouseWorldPos);
         }
 
-        if (TryComp<TelekinesisPowerComponent>(player, out var component))
+        if (_timeSinceLastSend.TotalSeconds >= SendInterval && coords != _lastSentCoords)
         {
-            component.TargetPosition = mousePos.Position;
-            Dirty(component.Owner, component);
+            RaisePredictiveEvent(new RequestTelekinesisMoveEvent()
+            {
+                Coordinates = GetNetCoordinates(coords)
+            });
+            _lastSentCoords = coords;
+            _timeSinceLastSend = TimeSpan.Zero;
         }
     }
 }
