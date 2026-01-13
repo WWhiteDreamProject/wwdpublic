@@ -83,17 +83,16 @@ public abstract partial class SharedTelekinesisPowerSystem : EntitySystem
 
         var targetValue = component.TetheredEntity.Value;
 
-        if (!TryComp<TelekinesisTargetComponent>(targetValue, out var comp))
-            return;
-
         if (component.JointId != null && component.TetherPoint != null)
         {
             _joints.RemoveJoint(targetValue, component.JointId);
             component.JointId = null;
             QueueDel(component.TetherPoint);
+            component.TetherPoint = null;
         }
 
-        if (TryComp<PhysicsComponent>(component.TetheredEntity, out var targetPhysics))
+        if (TryComp<TelekinesisTargetComponent>(targetValue, out var comp) &&
+            TryComp<PhysicsComponent>(targetValue, out var targetPhysics))
         {
             _physics.SetBodyStatus(targetValue, targetPhysics, BodyStatus.OnGround);
             _physics.SetSleepingAllowed(targetValue, targetPhysics, true);
@@ -123,6 +122,9 @@ public abstract partial class SharedTelekinesisPowerSystem : EntitySystem
 
         var userCoords = _transform.GetMapCoordinates(user.Value);
         var targetCoords = _transform.ToMapCoordinates(coords);
+
+        if (userCoords.MapId != targetCoords.MapId)
+            return;
 
         const float maxDistance = 15f;
         if ((userCoords.Position - targetCoords.Position).Length() > maxDistance)
