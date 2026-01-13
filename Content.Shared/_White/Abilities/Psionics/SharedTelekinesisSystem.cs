@@ -86,7 +86,7 @@ public abstract partial class SharedTelekinesisPowerSystem : EntitySystem
         if (!TryComp<TelekinesisTargetComponent>(targetValue, out var comp))
             return;
 
-        if (component.JointId != null && component.TetherPoint != null && component.TetheredEntity != null)
+        if (component.JointId != null && component.TetherPoint != null)
         {
             _joints.RemoveJoint(targetValue, component.JointId);
             component.JointId = null;

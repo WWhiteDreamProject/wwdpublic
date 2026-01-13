@@ -36,7 +36,7 @@ public sealed class TelekinesisPowerSystem : SharedTelekinesisPowerSystem
             {
                 Act = () =>
                 {
-                    StartTether(uid, component, victim, physics);
+                    base.StartTether(uid, component, victim, physics);
                 },
                 Text = Loc.GetString("telekinesis-verb-tether"),
                 Icon = new SpriteSpecifier.Texture(new("/Textures/_White/Interface/VerbIcons/telekinesis.png")),
@@ -50,7 +50,7 @@ public sealed class TelekinesisPowerSystem : SharedTelekinesisPowerSystem
             {
                 Act = () =>
                 {
-                    StopTether(uid, component);
+                    base.StopTether(uid, component);
                 },
                 Text = Loc.GetString("telekinesis-verb-untether"),
                 Icon = new SpriteSpecifier.Texture(new("/Textures/_White/Interface/VerbIcons/telekinesis.png")),
@@ -59,11 +59,4 @@ public sealed class TelekinesisPowerSystem : SharedTelekinesisPowerSystem
             args.Verbs.Add(verb);
         }
     }
-
-    protected override void StartTether(EntityUid userUid, TelekinesisPowerComponent component, EntityUid target,
-        PhysicsComponent? targetPhysics = null, TransformComponent? targetXform = null) =>
-        base.StartTether(userUid, component, target, targetPhysics, targetXform);
-
-    protected override void StopTether(EntityUid uid, TelekinesisPowerComponent component) =>
-        base.StopTether(uid, component);
 }

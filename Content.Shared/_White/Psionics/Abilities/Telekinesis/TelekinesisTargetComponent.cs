@@ -6,7 +6,7 @@ namespace Content.Shared._White.Psionics.Abilities;
 public sealed partial class TelekinesisTargetComponent : Component
 {
     [DataField, AutoNetworkedField]
-    public EntityUid Tetherer;
+    public EntityUid? Tetherer;
 
     [DataField]
     public float OriginalAngularDamping;
