@@ -1,10 +1,6 @@
-// SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Numerics;
+using Content.Shared._White.CCVar;
 using Content.Shared._White.Lighting.Shaders;
-using Content.Shared.CCVar;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Shared.Configuration;
@@ -13,10 +9,6 @@ using Robust.Shared.Prototypes;
 using DrawDepth = Content.Shared.DrawDepth.DrawDepth;
 
 namespace Content.Client._White.Lighting.Shaders;
-
-//
-// License-Identifier: AGPL-3.0-or-later
-//
 
 public sealed class LightingOverlay : Overlay
 {
@@ -39,7 +31,7 @@ public sealed class LightingOverlay : Overlay
         _prototypeManager = prototypeManager;
         _transformSystem = entityManager.EntitySysManager.GetEntitySystem<TransformSystem>();
         _cfg = IoCManager.Resolve<IConfigurationManager>();
-        _cfg.OnValueChanged(CCVars.EnableLightsGlowing, val => _enableGlowing = val, true);
+        _cfg.OnValueChanged(WhiteCVars.EnableLightsGlowing, val => _enableGlowing = val, true);
 
         IoCManager.InjectDependencies(this);
 

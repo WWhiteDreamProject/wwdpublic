@@ -1,15 +1,7 @@
-// SPDX-FileCopyrightText: 2025 Space Station 14 Contributors
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using Robust.Client.Graphics;
 using Robust.Shared.Prototypes;
 
 namespace Content.Client._White.Lighting.Shaders;
-
-//
-// License-Identifier: AGPL-3.0-or-later
-//
 
 public sealed class LightingOverlaySystem : EntitySystem
 {
@@ -29,11 +21,11 @@ public sealed class LightingOverlaySystem : EntitySystem
     {
         base.Shutdown();
 
-        if (_lightingOverlay != null)
-        {
-            _overlayManager.RemoveOverlay(_lightingOverlay);
-            _lightingOverlay.Dispose();
-            _lightingOverlay = null;
-        }
+        if (_lightingOverlay == null)
+            return;
+
+        _overlayManager.RemoveOverlay(_lightingOverlay);
+        _lightingOverlay.Dispose();
+        _lightingOverlay = null;
     }
 }

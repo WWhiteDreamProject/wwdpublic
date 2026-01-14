@@ -59,7 +59,7 @@ public sealed partial class GraphicsTab : Control
 
         Control.AddOption(new OptionIntegerScaling(Control, _cfg, IntegerScalingCheckBox));
         Control.AddOptionCheckBox(CCVars.ViewportScaleRender, ViewportLowResCheckBox, invert: true);
-        Control.AddOptionCheckBox(CCVars.EnableLightsGlowing, LightingShaderCheckBox); // White
+        Control.AddOptionCheckBox(WhiteCVars.EnableLightsGlowing, LightingShaderCheckBox); // White
         Control.AddOptionCheckBox(CCVars.ParallaxLowQuality, ParallaxLowQualityCheckBox);
         // WD EDIT START
         Control.AddOptionCheckBox(WhiteCVars.FilmGrain, FilmGrainCheckBox);
@@ -142,25 +142,25 @@ public sealed partial class GraphicsTab : Control
                     _cfg.SetCVar(CVars.LightResolutionScale, 0.125f);
                     _cfg.SetCVar(CVars.LightSoftShadows, false);
                     _cfg.SetCVar(CVars.LightBlur, false);
-                    _cfg.SetCVar(CCVars.EnableLightsGlowing, false); // White
+                    _cfg.SetCVar(WhiteCVars.EnableLightsGlowing, false); // White
                     break;
                 case QualityLow:
                     _cfg.SetCVar(CVars.LightResolutionScale, 0.5f);
                     _cfg.SetCVar(CVars.LightSoftShadows, false);
                     _cfg.SetCVar(CVars.LightBlur, true);
-                    _cfg.SetCVar(CCVars.EnableLightsGlowing, false); // White
+                    _cfg.SetCVar(WhiteCVars.EnableLightsGlowing, false); // White
                     break;
                 default: // = QualityMedium
                     _cfg.SetCVar(CVars.LightResolutionScale, 0.5f);
                     _cfg.SetCVar(CVars.LightSoftShadows, true);
                     _cfg.SetCVar(CVars.LightBlur, true);
-                    _cfg.SetCVar(CCVars.EnableLightsGlowing, true); // White
+                    _cfg.SetCVar(WhiteCVars.EnableLightsGlowing, true); // White
                     break;
                 case QualityHigh:
                     _cfg.SetCVar(CVars.LightResolutionScale, 1);
                     _cfg.SetCVar(CVars.LightSoftShadows, true);
                     _cfg.SetCVar(CVars.LightBlur, true);
-                    _cfg.SetCVar(CCVars.EnableLightsGlowing, true); // White
+                    _cfg.SetCVar(WhiteCVars.EnableLightsGlowing, true); // White
                     break;
             }
         }
