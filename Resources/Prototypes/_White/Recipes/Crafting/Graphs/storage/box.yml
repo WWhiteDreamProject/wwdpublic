@@ -10,7 +10,7 @@
         amount: 1
         doAfter: 4
   - node: boxcardboard
-    entity: BoxCardboard
+    entity: BoxCardboardCrafted
 
 - type: constructionGraph
   id: BoxPlastic
@@ -24,7 +24,7 @@
               amount: 1
               doAfter: 4
     - node: boxplastic
-      entity: BoxPlastic
+      entity: BoxPlasticCrafted
 
 - type: constructionGraph
   id: BoxSteel
@@ -38,7 +38,7 @@
               amount: 1
               doAfter: 4
     - node: boxsteel
-      entity: BoxSteel
+      entity: BoxSteelCrafted
 
 - type: constructionGraph
   id: BoxCardboardWide
@@ -52,7 +52,7 @@
         amount: 2
         doAfter: 4
   - node: boxcardboardwide
-    entity: BoxCardboardWide
+    entity: BoxCardboardWideCrafted
 
 - type: constructionGraph
   id: BoxPlasticWide
@@ -66,7 +66,7 @@
         amount: 2
         doAfter: 4
   - node: boxplasticwide
-    entity: BoxPlasticWide
+    entity: BoxPlasticWideCrafted
 
 - type: constructionGraph
   id: BoxSteelWide
@@ -80,7 +80,7 @@
         amount: 2
         doAfter: 4
   - node: boxsteelwide
-    entity: BoxSteelWide
+    entity: BoxSteelWideCrafted
 
 - type: constructionGraph
   id: BoxCardboardSmall
@@ -94,7 +94,7 @@
         amount: 1
         doAfter: 4
   - node: boxcardboardsmall
-    entity: BoxCardboardSmall
+    entity: BoxCardboardSmallCrafted
 
 - type: constructionGraph
   id: BoxPlasticSmall
@@ -108,7 +108,7 @@
         amount: 1
         doAfter: 4
   - node: boxplasticsmall
-    entity: BoxPlasticSmall
+    entity: BoxPlasticSmallCrafted
 
 - type: constructionGraph
   id: BoxSteelSmall
@@ -122,4 +122,4 @@
         amount: 1
         doAfter: 4
   - node: boxsteelsmall
-    entity: BoxSteelSmalle
+    entity: BoxSteelSmalleCrafted

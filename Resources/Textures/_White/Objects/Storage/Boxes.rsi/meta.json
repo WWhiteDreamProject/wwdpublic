@@ -14,9 +14,6 @@
             "name": "box_card_open"
         },
         {
-            "name": "box_card_icon"
-        },
-        {
             "name": "box_card_base"
         },
         {
@@ -51,9 +48,6 @@
         },
         {
             "name": "box_plastic_rib_dark_base"
-        },
-        {
-            "name": "box_plastic_icon"
         },
         {
             "name": "box_plastic_eng"
@@ -107,9 +101,6 @@
             "name": "box_steel_open"
         },
         {
-            "name": "box_steel_icon"
-        },
-        {
             "name": "box_steel_base"
         },
         {
@@ -152,9 +143,6 @@
             "name": "box_card_wide_open"
         },
         {
-            "name": "box_card_wide_icon"
-        },
-        {
             "name": "box_card_wide_base"
         },
         {
@@ -180,9 +168,6 @@
         },
         {
             "name": "box_plastic_wide_open"
-        },
-        {
-            "name": "box_plastic_wide_icon"
         },
         {
             "name": "box_plastic_wide_base"
@@ -218,9 +203,6 @@
             "name": "box_steel_wide_open"
         },
         {
-            "name": "box_steel_wide_icon"
-        },
-        {
             "name": "box_steel_wide_base"
         },
         {
@@ -239,9 +221,6 @@
             "name": "box_card_small_open"
         },
         {
-            "name": "box_card_small_icon"
-        },
-        {
             "name": "box_card_small_base"
         },
         {
@@ -251,9 +230,6 @@
             "name": "box_plastic_small_open"
         },
         {
-            "name": "box_plastic_small_icon"
-        },
-        {
             "name": "box_plastic_small_base"
         },
         {
@@ -261,9 +237,6 @@
         },
         {
             "name": "box_steel_small_open"
-        },
-        {
-            "name": "box_steel_small_icon"
         },
         {
             "name": "box_steel_small_base"
@@ -276,15 +249,6 @@
         },
         {
             "name": "box_steel_small_med_open"
-        },
-        {
-            "name": "bg"
-        },
-        {
-            "name": "bg_dark"
-        },
-        {
-            "name": "bg_hug"
         }
     ]
 }

@@ -8,6 +8,15 @@
   },
     "states": [
         {
+            "name": "bg"
+        },
+        {
+            "name": "bg_dark"
+        },
+        {
+            "name": "bg_hug"
+        },
+        {
             "name": "beaker"
         },
         {

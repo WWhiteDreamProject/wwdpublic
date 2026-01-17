@@ -10,10 +10,13 @@
           amount: 4
     - type: Sprite
       layers:
-      - state: bg # WWDP edit start
-      - state: mousetraps
+      - state: box_card_base # WWDP edit start
+      - state: bg
+        map: [ paper ]
         sprite: _White/Objects/Storage/boxes_icon.rsi
-      - state: box_card_base
+      - state: mousetrap
+        map: [ label ]
+        sprite: _White/Objects/Storage/boxes_icon.rsi
       - state: box_card
         map: [ top ] # WWDP end
 
@@ -25,10 +28,13 @@
   components:
   - type: Sprite
     layers:
-    - state: bg # WWDP edit start
-    - state: light
+    - state: box_card_base # WWDP edit start
+    - state: bg
+      map: [ paper ]
       sprite: _White/Objects/Storage/boxes_icon.rsi
-    - state: box_card_base
+    - state: light
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
     - state: box_card_eng
       map: [ top ]
   - type: GenericVisualizer
@@ -59,10 +65,13 @@
   components:
   - type: Sprite
     layers:
-    - state: bg # WWDP edit start
-    - state: lighttube
+    - state: box_card_base # WWDP edit start
+    - state: bg
+      map: [ paper ]
       sprite: _White/Objects/Storage/boxes_icon.rsi
-    - state: box_card_base
+    - state: lighttube
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
     - state: box_card
       map: [ top ] # WWDP end
   - type: StorageFill
@@ -77,10 +86,13 @@
   components:
   - type: Sprite
     layers:
-    - state: bg # WWDP edit start
-    - state: lightmixed
+    - state: box_card_base # WWDP edit start
+    - state: bg
+      map: [ paper ]
       sprite: _White/Objects/Storage/boxes_icon.rsi
-    - state: box_card_base
+    - state: lightmixed
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
     - state: box_card
       map: [ top ] # WWDP end
   - type: StorageFill
@@ -97,10 +109,13 @@
   components:
   - type: Sprite
     layers:
-    - state: bg # WWDP edit start
-    - state: lighttube
+    - state: box_card_base # WWDP edit start
+    - state: bg
+      map: [ paper ]
       sprite: _White/Objects/Storage/boxes_icon.rsi
-    - state: box_card_base
+    - state: lighttube
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
     - state: box_card_eng
       map: [ top ] # WWDP end
   - type: StorageFill
@@ -126,10 +141,13 @@
         amount: 4
   - type: Sprite
     layers:
-    - state: bg # WWDP edit start
-    - state: pda
+    - state: box_card_base # WWDP edit start
+    - state: bg
+      map: [ paper ]
       sprite: _White/Objects/Storage/boxes_icon.rsi
-    - state: box_card_base
+    - state: pda
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
     - state: box_card
       map: [ top ] # WWDP end
 
@@ -145,10 +163,13 @@
         amount: 4
   - type: Sprite
     layers:
-    - state: bg # WWDP edit start
-    - state: idcard
+    - state: box_card_base # WWDP edit start
+    - state: bg
+      map: [ paper ]
       sprite: _White/Objects/Storage/boxes_icon.rsi
-    - state: box_card_base
+    - state: idcard
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
     - state: box_card
       map: [ top ] # WWDP end
 
@@ -164,10 +185,13 @@
         amount: 4
   - type: Sprite
     layers:
-    - state: bg # WWDP edit start
-    - state: headset
+    - state: box_card_base # WWDP edit start
+    - state: bg
+      map: [ paper ]
       sprite: _White/Objects/Storage/boxes_icon.rsi
-    - state: box_card_base
+    - state: headset
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
     - state: box_card
       map: [ top ] # WWDP end
 
@@ -183,10 +207,13 @@
         amount: 4
   - type: Sprite
     layers:
-    - state: bg # WWDP edit start
-    - state: meson
+    - state: box_plastic_base # WWDP edit start
+    - state: bg
+      map: [ paper ]
       sprite: _White/Objects/Storage/boxes_icon.rsi
-    - state: box_plastic_base
+    - state: meson
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
     - state: box_plastic_eng
       map: [ top ]
   - type: GenericVisualizer
@@ -210,10 +237,13 @@
       - id: FoodCondimentPacketKetchup
   - type: Sprite
     layers:
-    - state: bg # WWDP edit start
-    - state: mre
+    - state: box_steel_rib_base # WWDP edit start
+    - state: bg
+      map: [ paper ]
       sprite: _White/Objects/Storage/boxes_icon.rsi
-    - state: box_steel_rib_base
+    - state: mre
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
     - state: box_steel
       map: [ top ] # WWDP end
 
@@ -241,10 +271,13 @@
           amount: 2
   - type: Sprite
     layers:
-    - state: bg # WWDP edit start
-    - state: inflatable
+    - state: box_plastic_base # WWDP edit start
+    - state: bg
+      map: [ paper ]
       sprite: _White/Objects/Storage/boxes_icon.rsi
-    - state: box_plastic_base
+    - state: inflatable
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
     - state: box_plastic_eng
       map: [ top ]
   - type: GenericVisualizer
@@ -279,10 +312,13 @@
         amount: 6
   - type: Sprite
     layers:
-    - state: bg # WWDP edit start
-    - state: flare
+    - state: box_card_base # WWDP edit start
+    - state: bg
+      map: [ paper ]
       sprite: _White/Objects/Storage/boxes_icon.rsi
-    - state: box_card_base
+    - state: flare
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
     - state: box_card
       map: [ top ]  # WWDP end
 
@@ -298,11 +334,15 @@
         amount: 6
   - type: Sprite
     layers:
-    - state: bg # WWDP edit start
-    - state: trashbag
+    - state: box_card_wide_base # WWDP edit start
+    - state: bg
+      map: [ paper ]
       sprite: _White/Objects/Storage/boxes_icon.rsi
-    - state: box_card
-      map: [ base ] # WWDP end
+    - state: trash
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_card_wide
+      map: [ top ] # WWDP end
 
 - type: entity
   name: passenger encryption key box
@@ -316,10 +356,13 @@
         amount: 4
   - type: Sprite
     layers:
-    - state: bg # WWDP edit start
-    - state: encryptokey
+    - state: box_card_base # WWDP edit start
+    - state: bg
+      map: [ paper ]
       sprite: _White/Objects/Storage/boxes_icon.rsi
-    - state: box_card_base
+    - state: encryptokey
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
     - state: box_card
       map: [ top ] # WWDP end
 
@@ -344,10 +387,13 @@
         amount: 4
   - type: Sprite # WWDP edit start
     layers:
-    - state: bg
-    - state: encryptokey
-      sprite: _White/Objects/Storage/boxes_icon.rsi
     - state: box_card_base
+    - state: bg
+      map: [ paper ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: encryptokey
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
     - state: box_card_eng
       map: [ top ]
   - type: GenericVisualizer
@@ -378,10 +424,13 @@
         amount: 4
   - type: Sprite # WWDP edit start
     layers:
-    - state: bg
-    - state: encryptokey
-      sprite: _White/Objects/Storage/boxes_icon.rsi
     - state: box_card_base
+    - state: bg
+      map: [ paper ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: encryptokey
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
     - state: box_card_med
       map: [ top ]
   - type: GenericVisualizer
@@ -422,10 +471,13 @@
         amount: 4
   - type: Sprite # WWDP edit start
     layers:
-    - state: bg
-    - state: encryptokey
-      sprite: _White/Objects/Storage/boxes_icon.rsi
     - state: box_card_base
+    - state: bg
+      map: [ paper ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: encryptokey
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
     - state: box_card_sec
       map: [ top ]
   - type: GenericVisualizer
@@ -479,10 +531,13 @@
   components:
   - type: Sprite
     layers:
-    - state: bg # WWDP edit start
-    - state: candle
+    - state: box_card_wide_base # WWDP edit start
+    - state: bg
+      map: [ paper ]
       sprite: _White/Objects/Storage/boxes_icon.rsi
-    - state: box_card_wide_base
+    - state: candle
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
     - state: box_card_wide
       map: [ top ] # WWDP end
   - type: StorageFill
@@ -524,10 +579,13 @@
   components:
   - type: Sprite
     layers:
-    - state: bg # WWDP edit start
-    - state: darts
+    - state: box_card_base # WWDP edit start
+    - state: bg
+      map: [ paper ]
       sprite: _White/Objects/Storage/boxes_icon.rsi
-    - state: box_card_base
+    - state: darts
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
     - state: box_card
       map: [ top ] # WWDP end
   - type: StorageFill
@@ -549,10 +607,13 @@
   components:
   - type: Sprite
     layers:
-    - state: bg # WWDP edit start
-    - state: envelope
+    - state: box_card_base # WWDP edit start
+    - state: bg
+      map: [ paper ]
       sprite: _White/Objects/Storage/boxes_icon.rsi
-    - state: box_card_base
+    - state: envelope
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
     - state: box_card
       map: [ top ] # WWDP end
   - type: StorageFill
