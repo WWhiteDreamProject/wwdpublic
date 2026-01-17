@@ -147,7 +147,7 @@
   - type: ApcPowerReceiverBattery
     idleLoad: 50
     batteryRechargeRate: 1000
-    batteryRechargeEfficiency: 2.45
+    batteryRechargeEfficiency: 1.65
   - type: ApcPowerReceiver
     powerLoad: 50
   - type: Machine
