@@ -4970,3 +4970,17 @@ Entries:
   id: 521
   time: '2026-01-17T21:36:57.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1018
+- author: RedFoxIV
+  changes:
+    - type: Fix
+      message: >-
+        Зарядники и энерготурели больше не кошмарят все приборы, подключённые к
+        одной энергосети, если их энергопотребление сильно выше, чем может
+        предоставить энергосеть.
+    - type: Add
+      message: >-
+        Лампы тускнеют при чрезмерной нагрузке на энергосеть, к которой они
+        подключены.
+  id: 522
+  time: '2026-01-17T21:39:43.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1033
