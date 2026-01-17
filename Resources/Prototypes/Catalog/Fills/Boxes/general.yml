@@ -1,41 +1,4 @@
 - type: entity
-  name: cardboard box
-  parent: BoxBase
-  id: BoxCardboard
-  description: A cardboard box for storing things.
-  components:
-  - type: Item
-    size: Large
-    shape:
-    - 0,0,2,2
-  - type: Storage
-    maxItemSize: Small
-    grid:
-    - 0,0,3,3
-  - type: Sprite
-    sprite: _White/Objects/Storage/boxes.rsi # WWDP edit start
-    layers:
-    - state: icon
-    - state: cardbox
-      map: [ base ]
-  - type: Appearance
-  - type: GenericVisualizer
-    visuals:
-      enum.StorageVisuals.Open:
-        base:
-          True: { state: cardbox_open }
-          False: { state: cardbox } # WWDP end
-  - type: EmitSoundOnPickup
-    sound: /Audio/SimpleStation14/Items/Handling/cardboardbox_pickup.ogg
-  - type: EmitSoundOnDrop
-    sound: /Audio/SimpleStation14/Items/Handling/cardboardbox_drop.ogg
-  - type: EmitSoundOnLand
-    sound: /Audio/SimpleStation14/Items/Handling/cardboardbox_drop.ogg
-  - type: Tag
-    tags:
-    - BoxCardboard
-
-- type: entity
   name: mousetrap box
   parent: BoxCardboard
   id: BoxMousetrap
@@ -47,31 +10,37 @@
           amount: 4
     - type: Sprite
       layers:
-      - state: mousetraps # WWDP edit start
-      - state: cardbox
-        map: [ base ] # WWDP end
+      - state: bg # WWDP edit start
+      - state: mousetraps
+        sprite: _White/Objects/Storage/boxes_icon.rsi
+      - state: box_card_base
+      - state: box_card
+        map: [ top ] # WWDP end
 
 - type: entity
   name: lightbulb box
   parent: BoxCardboard
   id: BoxLightbulb
-  description: This box is shaped on the inside so that only light tubes and bulbs fit.
+  description: This box is filled with light bulbs and tubes.
   components:
   - type: Sprite
     layers:
-    - state: light # WWDP edit start
-    - state: cardbox
-      map: [ base ] # WWDP end
-  - type: Storage
-    grid:
-    - 0,0,5,3
-    whitelist:
-      components:
-      - LightBulb
+    - state: bg # WWDP edit start
+    - state: light
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_card_base
+    - state: box_card_eng
+      map: [ top ]
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        top:
+          True: { state: box_card_eng_open }
+          False: { state: box_card_eng } # WWDP end
   - type: StorageFill
     contents:
       - id: LightBulb
-        amount: 12
+        amount: 8 # WWDP edit
 
 - type: entity
   name: lightbulb box warm
@@ -81,7 +50,7 @@
   - type: StorageFill
     contents:
       - id: WarmLightBulb
-        amount: 12
+        amount: 8 # WWDP edit
 
 - type: entity
   name: lighttube box
@@ -90,13 +59,16 @@
   components:
   - type: Sprite
     layers:
-    - state: lighttube # WWDP edit start
-    - state: cardbox
-      map: [ base ] # WWDP end
+    - state: bg # WWDP edit start
+    - state: lighttube
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_card_base
+    - state: box_card
+      map: [ top ] # WWDP end
   - type: StorageFill
     contents:
       - id: LightTube
-        amount: 12
+        amount: 8 # WWDP edit
 
 - type: entity
   name: mixed lights box
@@ -105,28 +77,35 @@
   components:
   - type: Sprite
     layers:
-    - state: lightmixed # WWDP edit start
-    - state: cardbox
-      map: [ base ] # WWDP end
+    - state: bg # WWDP edit start
+    - state: lightmixed
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_card_base
+    - state: box_card
+      map: [ top ] # WWDP end
   - type: StorageFill
     contents:
       - id: LightTube
-        amount: 6
+        amount: 4 # WWDP edit
       - id: LightBulb
-        amount: 6
+        amount: 4 # WWDP edit
 
 - type: entity
   name: holiday lighttube box
   parent: BoxLightbulb
   id: BoxLighttubeHoliday
   components:
+  - type: Sprite
+    layers:
+    - state: bg # WWDP edit start
+    - state: lighttube
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_card_base
+    - state: box_card_eng
+      map: [ top ] # WWDP end
   - type: StorageFill
     contents:
       - id: LightTubeCrystalRed # Its alternating on purpose for the light replacer.
-      - id: LightTubeCrystalGreen
-      - id: LightTubeCrystalRed
-      - id: LightTubeCrystalGreen
-      - id: LightTubeCrystalRed
       - id: LightTubeCrystalGreen
       - id: LightTubeCrystalRed
       - id: LightTubeCrystalGreen
@@ -147,9 +126,12 @@
         amount: 4
   - type: Sprite
     layers:
-    - state: pda # WWDP edit start
-    - state: cardbox
-      map: [ base ] # WWDP end
+    - state: bg # WWDP edit start
+    - state: pda
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_card_base
+    - state: box_card
+      map: [ top ] # WWDP end
 
 - type: entity
   name: ID card box
@@ -163,9 +145,12 @@
         amount: 4
   - type: Sprite
     layers:
-    - state: idcard # WWDP edit start
-    - state: cardbox
-      map: [ base ] # WWDP end
+    - state: bg # WWDP edit start
+    - state: idcard
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_card_base
+    - state: box_card
+      map: [ top ] # WWDP end
 
 - type: entity
   name: headset box
@@ -179,13 +164,16 @@
         amount: 4
   - type: Sprite
     layers:
-    - state: headset # WWDP edit start
-    - state: cardbox
-      map: [ base ] # WWDP end
+    - state: bg # WWDP edit start
+    - state: headset
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_card_base
+    - state: box_card
+      map: [ top ] # WWDP end
 
 - type: entity
   name: meson box
-  parent: BoxCardboard
+  parent: BoxPlastic # WWDP edit
   id: BoxMesonScanners
   description: A box of spare meson goggles.
   components:
@@ -195,13 +183,22 @@
         amount: 4
   - type: Sprite
     layers:
-    - state: meson # WWDP edit start
-    - state: cardbox
-      map: [ base ] # WWDP end
+    - state: bg # WWDP edit start
+    - state: meson
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_plastic_base
+    - state: box_plastic_eng
+      map: [ top ]
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        top:
+          True: { state: box_plastic_eng_open }
+          False: { state: box_plastic_eng } # WWDP end
 
 - type: entity
   name: M.R.E.
-  parent: BoxCardboard
+  parent: BoxSteel # WWDP edit
   id: BoxMRE
   description: A box of decades old military surplus rations. It is surprisingly not rotten.
   components:
@@ -213,8 +210,12 @@
       - id: FoodCondimentPacketKetchup
   - type: Sprite
     layers:
-      - state: box
-      - state: writing
+    - state: bg # WWDP edit start
+    - state: mre
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_steel_rib_base
+    - state: box_steel
+      map: [ top ] # WWDP end
 
 - type: entity
   parent: BoxHug
@@ -228,7 +229,7 @@
 
 - type: entity
   name: inflatable wall box
-  parent: BoxCardboard
+  parent: BoxPlastic # WWDP edit
   id: BoxInflatable
   description: Inflatable walls are not to be used as floatation devices.
   components:
@@ -240,9 +241,18 @@
           amount: 2
   - type: Sprite
     layers:
-      - state: box
-      - state: inflatable
-
+    - state: bg # WWDP edit start
+    - state: inflatable
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_plastic_base
+    - state: box_plastic_eng
+      map: [ top ]
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        top:
+          True: { state: box_plastic_eng_open }
+          False: { state: box_plastic_eng } # WWDP end
 
 - type: entity
   name: hatsune miku day bag
@@ -269,13 +279,16 @@
         amount: 6
   - type: Sprite
     layers:
-    - state: flare # WWDP edit start
-    - state: cardbox
-      map: [ base ] # WWDP end
+    - state: bg # WWDP edit start
+    - state: flare
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_card_base
+    - state: box_card
+      map: [ top ]  # WWDP end
 
 - type: entity
   name: trashbag box
-  parent: BoxCardboard
+  parent: BoxCardboardWide # WWDP edit
   id: BoxTrashbag
   description: A box of trashbags. Happy janitor noises.
   components:
@@ -283,17 +296,12 @@
     contents:
       - id: TrashBag
         amount: 6
-  - type: Storage
-    grid:
-    - 0,0,5,3
-    maxItemSize: Large
-    whitelist:
-      tags:
-        - TrashBag
   - type: Sprite
     layers:
-    - state: trashbag # WWDP edit start
-    - state: cardbox
+    - state: bg # WWDP edit start
+    - state: trashbag
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_card
       map: [ base ] # WWDP end
 
 - type: entity
@@ -308,13 +316,12 @@
         amount: 4
   - type: Sprite
     layers:
-    - state: encryptokey # WWDP edit start
-    - state: cardbox
-      map: [ base ] # WWDP end
-  - type: Storage
-    whitelist:
-      components:
-      - EncryptionKey
+    - state: bg # WWDP edit start
+    - state: encryptokey
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_card_base
+    - state: box_card
+      map: [ top ] # WWDP end
 
 - type: entity
   name: logistics encryption key box # DeltaV - Logistics Department replacing Cargo
@@ -335,6 +342,20 @@
     contents:
       - id: EncryptionKeyEngineering
         amount: 4
+  - type: Sprite # WWDP edit start
+    layers:
+    - state: bg
+    - state: encryptokey
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_card_base
+    - state: box_card_eng
+      map: [ top ]
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        top:
+          True: { state: box_card_eng_open }
+          False: { state: box_card_eng } # WWDP end
 
 - type: entity
   name: med-sci encryption key box
@@ -355,6 +376,20 @@
     contents:
       - id: EncryptionKeyMedical
         amount: 4
+  - type: Sprite # WWDP edit start
+    layers:
+    - state: bg
+    - state: encryptokey
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_card_base
+    - state: box_card_med
+      map: [ top ]
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        top:
+          True: { state: box_card_med_open }
+          False: { state: box_card_med } # WWDP end
 
 - type: entity
   name: robotech encryption key box
@@ -385,6 +420,20 @@
     contents:
       - id: EncryptionKeySecurity
         amount: 4
+  - type: Sprite # WWDP edit start
+    layers:
+    - state: bg
+    - state: encryptokey
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_card_base
+    - state: box_card_sec
+      map: [ top ]
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        top:
+          True: { state: box_card_sec_open }
+          False: { state: box_card_sec } # WWDP end
 
 - type: entity
   name: service encryption key box
@@ -424,21 +473,18 @@
 
 - type: entity
   name: candle box
-  parent: BoxCardboard
+  parent: BoxCardboardWide # WWDP edit
   id: BoxCandle
   description: This box is specifically moulded to only carry candles.
   components:
   - type: Sprite
     layers:
-    - state: candle # WWDP edit start
-    - state: cardbox
-      map: [ base ] # WWDP end
-  - type: Storage
-    grid:
-    - 0,0,5,3
-    whitelist:
-      tags:
-      - Candle
+    - state: bg # WWDP edit start
+    - state: candle
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_card_wide_base
+    - state: box_card_wide
+      map: [ top ] # WWDP end
   - type: StorageFill
     contents:
       - id: Candle
@@ -478,8 +524,12 @@
   components:
   - type: Sprite
     layers:
-      - state: box
-      - state: darts
+    - state: bg # WWDP edit start
+    - state: darts
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_card_base
+    - state: box_card
+      map: [ top ] # WWDP end
   - type: StorageFill
     contents:
       - id: Dart
@@ -499,8 +549,12 @@
   components:
   - type: Sprite
     layers:
-      - state: box
-      - state: envelope
+    - state: bg # WWDP edit start
+    - state: envelope
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_card_base
+    - state: box_card
+      map: [ top ] # WWDP end
   - type: StorageFill
     contents:
       - id: Envelope

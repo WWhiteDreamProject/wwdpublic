@@ -1,13 +1,9 @@
 - type: entity
   name: beaker box
-  parent: BoxCardboard
+  parent: BoxPlastic # WWDP edit
   id: BoxBeaker
   description: A box full of beakers.
   components:
-  - type: Storage
-    grid:
-    - 0,0,3,2
-    maxItemSize: Normal
   - type: StorageFill
     contents:
     - id: LargeBeaker
@@ -16,5 +12,15 @@
       amount: 2
   - type: Sprite
     layers:
-      - state: box
-      - state: beaker
+    - state: bg # WWDP edit start
+    - state: beaker
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_plastic_base
+    - state: box_plastic_chem
+      map: [ top ]
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        top:
+          True: { state: box_plastic_chem_open }
+          False: { state: box_plastic_chem } # WWDP end

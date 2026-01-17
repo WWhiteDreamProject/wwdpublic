@@ -1,0 +1,179 @@
+﻿{
+  "version": 1,
+  "license": "CC-BY-NC-SA-4.0",
+  "copyright": "Gersoon (@gersoon458) for WWhiteDreamProject, 20.12.2025 - 11.01.2026",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+    "states": [
+        {
+            "name": "beaker"
+        },
+        {
+            "name": "bodybags"
+        },
+        {
+            "name": "bottle"
+        },
+        {
+            "name": "candle"
+        },
+        {
+            "name": "circuit"
+        },
+        {
+            "name": "clown"
+        },
+        {
+            "name": "darts"
+        },
+        {
+            "name": "encryptokey"
+        },
+        {
+            "name": "envelope"
+        },
+        {
+            "name": "evidence_markers"
+        },
+        {
+            "name": "flare"
+        },
+        {
+            "name": "flashbang"
+        },
+        {
+            "name": "flux"
+        },
+        {
+            "name": "forensic"
+        },
+        {
+            "name": "glasses"
+        },
+        {
+            "name": "handcuff"
+        },
+        {
+            "name": "headset"
+        },
+        {
+            "name": "heart"
+        },
+        {
+            "name": "holo"
+        },
+        {
+            "name": "holy"
+        },
+        {
+            "name": "icon"
+        },
+        {
+            "name": "idcard"
+        },
+        {
+            "name": "implant"
+        },
+        {
+            "name": "inflatable"
+        },
+        {
+            "name": "kobold"
+        },
+        {
+            "name": "latex"
+        },
+        {
+            "name": "light"
+        },
+        {
+            "name": "lightmixed"
+        },
+        {
+            "name": "lighttube"
+        },
+        {
+            "name": "magazine"
+        },
+        {
+            "name": "magazineshotgun"
+        },
+        {
+            "name": "meson"
+        },
+        {
+            "name": "mime"
+        },
+        {
+            "name": "monkey"
+        },
+        {
+            "name": "monkeykobold"
+        },
+        {
+            "name": "mousetraps"
+        },
+        {
+            "name": "mre"
+        },
+        {
+            "name": "nitrile"
+        },
+        {
+            "name": "omegacart"
+        },
+        {
+            "name": "pda"
+        },
+        {
+            "name": "pillbox"
+        },
+        {
+            "name": "recorder"
+        },
+        {
+            "name": "sechud"
+        },
+        {
+            "name": "shellmeteor"
+        },
+        {
+            "name": "shellfrag"
+        },
+        {
+            "name": "shelllaser"
+        },
+        {
+            "name": "shellbreach"
+        },
+        {
+            "name": "soap"
+        },
+        {
+            "name": "syringe"
+        },
+        {
+            "name": "sterile"
+        },
+        {
+            "name": "swab"
+        },
+        {
+            "name": "throwing_knives"
+        },
+        {
+            "name": "trashbag"
+        },
+        {
+            "name": "vials"
+        },
+        {
+            "name": "writing"
+        },
+        {
+            "name": "ziptie"
+        }
+    ]
+}

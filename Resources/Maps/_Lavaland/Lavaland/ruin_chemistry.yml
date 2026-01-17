@@ -289,17 +289,6 @@ entities:
     - type: Transform
       pos: 10.174223,4.5496836
       parent: 2
-- proto: BoxAgrichem
-  entities:
-  - uid: 84
-    components:
-    - type: Transform
-      parent: 82
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: CableApcExtension
   entities:
   - uid: 51

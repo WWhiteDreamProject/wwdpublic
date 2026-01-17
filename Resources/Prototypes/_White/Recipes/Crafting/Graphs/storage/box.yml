@@ -1,0 +1,125 @@
+- type: constructionGraph
+  id: BoxCardboard
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: boxcardboard
+      steps:
+      - material: Cardboard
+        amount: 1
+        doAfter: 4
+  - node: boxcardboard
+    entity: BoxCardboard
+
+- type: constructionGraph
+  id: BoxPlastic
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: boxplastic
+          steps:
+            - material: Plastic
+              amount: 1
+              doAfter: 4
+    - node: boxplastic
+      entity: BoxPlastic
+
+- type: constructionGraph
+  id: BoxSteel
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: boxsteel
+          steps:
+            - material: Steel
+              amount: 1
+              doAfter: 4
+    - node: boxsteel
+      entity: BoxSteel
+
+- type: constructionGraph
+  id: BoxCardboardWide
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: boxcardboardwide
+      steps:
+      - material: Cardboard
+        amount: 2
+        doAfter: 4
+  - node: boxcardboardwide
+    entity: BoxCardboardWide
+
+- type: constructionGraph
+  id: BoxPlasticWide
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: boxplasticwide
+      steps:
+      - material: Plastic
+        amount: 2
+        doAfter: 4
+  - node: boxplasticwide
+    entity: BoxPlasticWide
+
+- type: constructionGraph
+  id: BoxSteelWide
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: boxsteelwide
+      steps:
+      - material: Steel
+        amount: 2
+        doAfter: 4
+  - node: boxsteelwide
+    entity: BoxSteelWide
+
+- type: constructionGraph
+  id: BoxCardboardSmall
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: boxcardboardsmall
+      steps:
+      - material: Cardboard
+        amount: 1
+        doAfter: 4
+  - node: boxcardboardsmall
+    entity: BoxCardboardSmall
+
+- type: constructionGraph
+  id: BoxPlasticSmall
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: boxplasticsmall
+      steps:
+      - material: Plastic
+        amount: 1
+        doAfter: 4
+  - node: boxplasticsmall
+    entity: BoxPlasticSmall
+
+- type: constructionGraph
+  id: BoxSteelSmall
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: boxsteelsmall
+      steps:
+      - material: Steel
+        amount: 1
+        doAfter: 4
+  - node: boxsteelsmall
+    entity: BoxSteelSmalle

@@ -10,8 +10,18 @@
         amount: 4
   - type: Sprite
     layers:
-      - state: box
-      - state: encryptokey
+    - state: bg # WWDP edit start
+    - state: encryptokey
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_card_base
+    - state: box_card_sec
+      map: [ top ]
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        top:
+          True: { state: box_card_sec_open }
+          False: { state: box_card_sec } # WWDP end
   - type: Storage
     whitelist:
       components:

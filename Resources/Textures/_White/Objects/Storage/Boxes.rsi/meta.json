@@ -1,98 +1,290 @@
 ﻿{
   "version": 1,
   "license": "CC-BY-NC-SA-4.0",
-  "copyright": "Gersoon (@gersoon458) for WWhiteDreamProject, 20.12.2025",
+  "copyright": "Gersoon (@gersoon458) for WWhiteDreamProject, 20.12.2025 - 11.01.2026",
   "size": {
     "x": 32,
     "y": 32
   },
     "states": [
         {
-            "name": "cardbox"
+            "name": "box_card"
         },
         {
-            "name": "cardbox_open"
+            "name": "box_card_open"
         },
         {
-            "name": "icon"
+            "name": "box_card_icon"
         },
         {
-            "name": "beaker"
+            "name": "box_card_base"
         },
         {
-            "name": "bottle"
+            "name": "box_card_eng"
         },
         {
-            "name": "candle"
+            "name": "box_card_eng_open"
         },
         {
-            "name": "circuit"
+            "name": "box_card_med"
         },
         {
-            "name": "clown"
+            "name": "box_card_med_open"
         },
         {
-            "name": "flare"
+            "name": "box_card_sec"
         },
         {
-            "name": "handcuff"
+            "name": "box_card_sec_open"
         },
         {
-            "name": "headset"
+            "name": "box_plastic"
         },
         {
-            "name": "heart"
+            "name": "box_plastic_open"
         },
         {
-            "name": "idcard"
+            "name": "box_plastic_base"
         },
         {
-            "name": "light"
+            "name": "box_plastic_rib_grey_base"
         },
         {
-            "name": "lightmixed"
+            "name": "box_plastic_rib_dark_base"
         },
         {
-            "name": "lighttube"
+            "name": "box_plastic_icon"
         },
         {
-            "name": "meson"
+            "name": "box_plastic_eng"
         },
         {
-            "name": "swab"
+            "name": "box_plastic_eng_open"
         },
         {
-            "name": "trashbag"
+            "name": "box_plastic_hug"
         },
         {
-            "name": "vials"
+            "name": "box_plastic_hug_open"
         },
         {
-            "name": "ziptie"
+            "name": "box_plastic_hug_base"
         },
         {
-            "name": "encryptokey"
+            "name": "box_plastic_med"
         },
         {
-            "name": "mousetraps"
+            "name": "box_plastic_med_open"
         },
         {
-            "name": "pda"
+            "name": "box_plastic_chem"
         },
         {
-            "name": "boxwide"
+            "name": "box_plastic_chem_open"
         },
         {
-            "name": "shellmeteor"
+            "name": "box_plastic_sec"
         },
         {
-            "name": "shellfrag"
+            "name": "box_plastic_sec_open"
         },
         {
-            "name": "shelllaser"
+            "name": "box_plastic_sci"
         },
         {
-            "name": "shellbreach"
+            "name": "box_plastic_sci_open"
+        },
+        {
+            "name": "box_plastic_synd"
+        },
+        {
+            "name": "box_plastic_synd_open"
+        },
+        {
+            "name": "box_steel"
+        },
+        {
+            "name": "box_steel_open"
+        },
+        {
+            "name": "box_steel_icon"
+        },
+        {
+            "name": "box_steel_base"
+        },
+        {
+            "name": "box_steel_rib_base"
+        },
+        {
+            "name": "box_steel_rib_dark_base"
+        },
+        {
+            "name": "box_steel_hug"
+        },
+        {
+            "name": "box_steel_hug_open"
+        },
+        {
+            "name": "box_steel_hug_base"
+        },
+        {
+            "name": "box_steel_med"
+        },
+        {
+            "name": "box_steel_med_open"
+        },
+        {
+            "name": "box_steel_sec"
+        },
+        {
+            "name": "box_steel_sec_open"
+        },
+        {
+            "name": "box_steel_synd"
+        },
+        {
+            "name": "box_steel_synd_open"
+        },
+        {
+            "name": "box_card_wide"
+        },
+        {
+            "name": "box_card_wide_open"
+        },
+        {
+            "name": "box_card_wide_icon"
+        },
+        {
+            "name": "box_card_wide_base"
+        },
+        {
+            "name": "box_card_wide_eng"
+        },
+        {
+            "name": "box_card_wide_eng_open"
+        },
+        {
+            "name": "box_card_wide_med"
+        },
+        {
+            "name": "box_card_wide_med_open"
+        },
+        {
+            "name": "box_card_wide_sec"
+        },
+        {
+            "name": "box_card_wide_sec_open"
+        },
+        {
+            "name": "box_plastic_wide"
+        },
+        {
+            "name": "box_plastic_wide_open"
+        },
+        {
+            "name": "box_plastic_wide_icon"
+        },
+        {
+            "name": "box_plastic_wide_base"
+        },
+        {
+            "name": "box_plastic_wide_rib_grey_base"
+        },
+        {
+            "name": "box_plastic_wide_rib_dark_base"
+        },
+        {
+            "name": "box_plastic_wide_eng"
+        },
+        {
+            "name": "box_plastic_wide_eng_open"
+        },
+        {
+            "name": "box_plastic_wide_sec"
+        },
+        {
+            "name": "box_plastic_wide_sec_open"
+        },
+        {
+            "name": "box_plastic_wide_synd"
+        },
+        {
+            "name": "box_plastic_wide_synd_open"
+        },
+        {
+            "name": "box_steel_wide"
+        },
+        {
+            "name": "box_steel_wide_open"
+        },
+        {
+            "name": "box_steel_wide_icon"
+        },
+        {
+            "name": "box_steel_wide_base"
+        },
+        {
+            "name": "box_steel_wide_rib_base"
+        },
+        {
+            "name": "box_steel_wide_sec"
+        },
+        {
+            "name": "box_steel_wide_sec_open"
+        },
+        {
+            "name": "box_card_small"
+        },
+        {
+            "name": "box_card_small_open"
+        },
+        {
+            "name": "box_card_small_icon"
+        },
+        {
+            "name": "box_card_small_base"
+        },
+        {
+            "name": "box_plastic_small"
+        },
+        {
+            "name": "box_plastic_small_open"
+        },
+        {
+            "name": "box_plastic_small_icon"
+        },
+        {
+            "name": "box_plastic_small_base"
+        },
+        {
+            "name": "box_steel_small"
+        },
+        {
+            "name": "box_steel_small_open"
+        },
+        {
+            "name": "box_steel_small_icon"
+        },
+        {
+            "name": "box_steel_small_base"
+        },
+        {
+            "name": "box_steel_small_rib_base"
+        },
+        {
+            "name": "box_steel_small_med"
+        },
+        {
+            "name": "box_steel_small_med_open"
+        },
+        {
+            "name": "bg"
+        },
+        {
+            "name": "bg_dark"
+        },
+        {
+            "name": "bg_hug"
         }
     ]
 }

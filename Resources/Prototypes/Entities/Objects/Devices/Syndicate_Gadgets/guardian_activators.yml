@@ -34,7 +34,7 @@
 
 - type: entity
   name: holoparasite box
-  parent: [BoxCardboard, BaseSyndicateContraband]
+  parent: [BoxSteel, BaseSyndicateContraband] # WWDP edit BoxCardboard -> BoxSteel
   id: BoxHoloparasite
   description: A box containing a holoparasite injector.
   components:
@@ -45,12 +45,22 @@
       - id: ClothingHeadHatBizarreSoft
   - type: Sprite
     layers:
-      - state: box
-      - state: holo
+    - state: bg_dark # WWDP edit start
+    - state: holo
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_steel_rib_dark_base
+    - state: box_steel_synd
+      map: [ top ]
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        top:
+          True: { state: box_steel_synd_open }
+          False: { state: box_steel_synd} # WWDP end
 
 - type: entity
   name: holoclown box
-  parent: [BoxCardboard, BaseSyndicateContraband]
+  parent: [BoxSteel, BaseSyndicateContraband] # WWDP edit BoxCardboard -> BoxSteel
   id: BoxHoloclown
   description: A box containing a holoclown injector.
   components:
@@ -61,8 +71,18 @@
       - id: ToyHammer
   - type: Sprite
     layers:
-      - state: box_hug
-      - state: holo
+    - state: bg_hug # WWDP edit start
+    - state: holo
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_steel_hug_base
+    - state: box_steel_hug
+      map: [ top ]
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        top:
+          True: { state: box_steel_hug_open }
+          False: { state: box_steel_hug } # WWDP end
   - type: Tag
     tags:
       - BoxHug

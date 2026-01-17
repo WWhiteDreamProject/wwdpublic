@@ -1,5 +1,5 @@
 - type: entity
-  parent: BoxCardboard
+  parent: BoxSteelSmall # WWDP edit
   name: monkey cube box
   id: MonkeyCubeBox
   description: Drymate brand monkey cubes. Just add water!
@@ -8,12 +8,20 @@
     contents:
       - id: MonkeyCubeWrapped
         amount: 6
-  - type: Storage
-    grid:
-    - 0,0,2,1
   - type: Sprite
-    sprite: Objects/Misc/monkeycube.rsi
-    state: box
+    layers: # WWDP edit start
+    - state: bg
+    - state: monkey
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_steel_small_rib_base
+    - state: box_steel_small_med
+      map: [ top ]
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        top:
+          True: { state: box_steel_small_med_open }
+          False: { state: box_steel_small_med } # WWDP end
 
 - type: entity
   parent: BaseItem
@@ -47,8 +55,13 @@
       - id: KoboldCubeWrapped
         amount: 6
   - type: Sprite
-    sprite: Objects/Misc/monkeycube.rsi
-    state: box_kobold
+    layers: # WWDP edit start
+    - state: bg
+    - state: kobold
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_steel_small_rib_base
+    - state: box_steel_small_med
+      map: [ top ] # WWDP end
 
 - type: entity
   parent: MonkeyCubeBox
@@ -63,8 +76,13 @@
       - id: MonkeyCubeWrapped
         amount: 3
   - type: Sprite
-    sprite: Objects/Misc/monkeycube.rsi
-    state: box_variant
+    layers: # WWDP edit start
+    - state: bg
+    - state: monkeykobold
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_steel_small_rib_base
+    - state: box_steel_small_med
+      map: [ top ] # WWDP end
 
 - type: entity
   parent: MonkeyCubeWrapped
@@ -89,17 +107,18 @@
   id: SyndicateSpongeBox
   description: Drymate brand monkey cubes. Just add water!
   components:
-  - type: Storage
-    whitelist:
-      tags:
-      - MonkeyCube
   - type: StorageFill
     contents:
       - id: SyndicateSpongeWrapped
         amount: 6
   - type: Sprite
-    sprite: Objects/Misc/monkeycube.rsi
-    state: box
+    layers: # WWDP edit start
+    - state: bg_dark
+    - state: monkey
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_steel_small_rib_base
+    - state: box_steel_small_med
+      map: [ top ] # WWDP end
 
 - type: entity
   parent: MonkeyCubeWrapped

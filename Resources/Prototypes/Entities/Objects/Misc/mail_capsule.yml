@@ -136,4 +136,15 @@
         amount: 10
   - type: Sprite
     layers:
-      - state: box
+    - state: bg # WWDP edit start
+    - state: mousetraps
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_card_base
+    - state: box_card
+      map: [ top ]
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        top:
+          True: { state: box_card_open }
+          False: { state: box_card } # WWDP end

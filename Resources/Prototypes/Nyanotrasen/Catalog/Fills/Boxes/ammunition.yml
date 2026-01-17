@@ -28,13 +28,6 @@
     contents:
       - id: MagazineUniversalMagnum
         amount: 6
-  - type: Storage
-    maxItemSize: Small
-    grid:
-      - 0,0,3,2
-    whitelist:
-      components:
-        - BallisticAmmoProvider
 
 - type: entity
   name: box of .45 magnum Universal (practice) magazines
@@ -46,13 +39,6 @@
     contents:
       - id: MagazineUniversalMagnumPractice
         amount: 6
-  - type: Storage
-    maxItemSize: Small
-    grid:
-      - 0,0,3,2
-    whitelist:
-      components:
-        - BallisticAmmoProvider
 
 - type: entity
   name: box of .30 rifle speed loaders
@@ -64,10 +50,3 @@
     contents:
     - id: SpeedLoaderLightRifle
       amount: 6
-  - type: Storage
-    maxItemSize: Small
-    grid:
-      - 0,0,3,2
-    whitelist:
-      tags:
-        - SpeedLoaderRifle

@@ -42,3 +42,9 @@
 
 - type: Tag
   id: EvacPod
+
+- type: Tag
+  id: BoxPlastic
+
+- type: Tag
+  id: BoxSteel

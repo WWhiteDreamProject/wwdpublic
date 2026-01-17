@@ -21,21 +21,29 @@
     - Chemicals
 
 - type: entity
-  parent: BaseAmmoProvider # this is for cycling swabs out and not spawning 30 entities, trust
+  parent: BoxCardboardWide
   id: BoxMouthSwab
   name: sterile swab dispenser
   description: Dispenses 30 sterile swabs, extremely useful for botany.
   components:
   - type: Sprite
     layers:
-    - state: boxwide
+    - state: bg # WWDP edit start
     - state: swab
-  - type: BallisticAmmoProvider
-    whitelist:
-      components:
-      - BotanySwab
-    proto: DiseaseSwab
-    capacity: 30
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_card_wide_base
+    - state: box_card_wide_med
+      map: [ top ]
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        top:
+          True: { state: box_card_wide_med_open }
+          False: { state: box_card_wide_med } # WWDP end
+  - type: StorageFill
+    contents:
+    - id: DiseaseSwab
+      amount: 32
   - type: GuideHelp
     guides:
   # - Virology (when it's back)
