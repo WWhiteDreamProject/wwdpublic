@@ -142,6 +142,10 @@ namespace Content.Shared.PDA
                     case PdaState.Opening:
                         SetState(ent.AsNullable(), PdaState.Open);
                         break;
+                    case PdaState.Open:
+                    case PdaState.Closed:
+                        _activePda.Remove((ent, ent.Comp));
+                        break;
                 }
             }
         }
