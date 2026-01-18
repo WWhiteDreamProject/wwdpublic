@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Shared.Access.Components;
 using Content.Shared.Containers.ItemSlots;
 using Robust.Shared.Containers;
@@ -17,7 +18,7 @@ namespace Content.Shared.PDA
         ///     A set of pda that are currently opening, closing, or just queued to open/close after some delay.
         /// </summary>
         private readonly HashSet<Entity<PdaComponent>> _activePda = new();
-        // WD DIT END
+        // WD EDIT END
 
         public override void Initialize()
         {
@@ -122,7 +123,7 @@ namespace Content.Shared.PDA
         // WD EDIT START
         public override void Update(float frameTime)
         {
-            foreach (var ent in _activePda)
+            foreach (var ent in _activePda.ToList())
             {
                 if (ent.Comp.Deleted || ent.Comp.NextStateChange == null)
                 {

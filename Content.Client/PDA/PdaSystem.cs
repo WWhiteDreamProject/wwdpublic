@@ -19,6 +19,8 @@ public sealed class PdaSystem : SharedPdaSystem
 
     protected override void OnComponentInit(EntityUid uid, PdaComponent pda, ComponentInit args)
     {
+        base.OnComponentInit(uid, pda, args);
+
         pda.OpeningAnimation = new Animation
         {
             Length = pda.OpeningAnimationTime,
