@@ -8,10 +8,10 @@
     "copyright":"made by ckey(@not_a_femb0y), edited by Gersoon(@gersoon458) for WhiteDreamProject, 04.12.2025",
     "states":[
     {
-      "name": "pda"
+      "name": "closed"
     },
     {
-      "name": "pda_on"
+      "name": "open"
     }
   ]
 }
