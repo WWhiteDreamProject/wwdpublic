@@ -105,13 +105,13 @@ namespace Content.Shared.PDA
         /// The length of the pda's opening animation.
         /// </summary>
         [DataField]
-        public TimeSpan OpeningAnimationTime = TimeSpan.FromSeconds(1.7f); // 34 frames * 0.05s
+        public TimeSpan OpeningAnimationTime = TimeSpan.FromSeconds(1.7f);
 
         /// <summary>
         /// The length of the pda's closing animation.
         /// </summary>
         [DataField]
-        public TimeSpan ClosingAnimationTime = TimeSpan.FromSeconds(0.75f); // 15 frames * 0.05s
+        public TimeSpan ClosingAnimationTime = TimeSpan.FromSeconds(1.7f);
 
         /// <summary>
         /// The animation used when the pda closes.
