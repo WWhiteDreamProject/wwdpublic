@@ -390,7 +390,7 @@
           - CartridgePistol
   - type: MagazineVisuals
     magState: mag
-    steps: 6
+    steps: 8 # WWDP edit
     zeroVisible: true
   - type: Appearance
   # WD EDIT START: Guns resize

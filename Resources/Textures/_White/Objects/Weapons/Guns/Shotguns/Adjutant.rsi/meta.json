@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-4.0",
+  "copyright": "Swebit (@bonquai) for WWhiteDreamProject, 18.01.2026",
+  "size": {
+    "x": 48,
+    "y": 32
+  },
+    "states": [
+        {
+            "name": "icon"
+        },
+        {
+            "name": "base"
+        },
+        {
+            "name": "bolt-open"
+        },
+        {
+            "name": "mag-unshaded-0"
+        },
+        {
+            "name": "shotgun-shell-0"
+        },
+        {
+            "name": "shotgun-shell-1"
+        },
+        {
+            "name": "shotgun-shell-2"
+        },
+        {
+            "name": "shotgun-shell-3"
+        },
+        {
+            "name": "inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "wielded-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "wielded-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "equipped-BACKPACK",
+            "directions": 4
+        },
+        {
+            "name": "equipped-SUITSTORAGE",
+            "directions": 4
+        }
+    ]
+}
