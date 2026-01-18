@@ -538,7 +538,7 @@
 
 - type: entity
   id: HappyHonk
-  parent: [ BoxCardboard, BaseBagOpenClose ]
+  parent: [ BoxBase, BaseBagOpenClose ] # WWDP edit BoxCardboard -> BoxBase
   name: happy honk meal
   suffix: Toy Safe
   description: The toy is more edible than the food.
@@ -549,14 +549,26 @@
     layers:
     - state: box
   - type: Item
+    size: Large # WWDP edit start
+    shape:
+    - 0,0,2,2 # WWDP end
     sprite: Objects/Storage/Happyhonk/clown.rsi
     heldPrefix: box
   - type: Storage
     maxItemSize: Normal
     grid:
     - 0,0,3,3
+  - type: Appearance # WWDP edit start
+  - type: EmitSoundOnPickup
+    sound: /Audio/SimpleStation14/Items/Handling/cardboardbox_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound: /Audio/SimpleStation14/Items/Handling/cardboardbox_drop.ogg
+  - type: EmitSoundOnLand
+    sound: /Audio/SimpleStation14/Items/Handling/cardboardbox_drop.ogg # WWDP end
   - type: Tag
     tags:
+    - BoxMaterial # WWDP edit
+    - BoxCardBoard # WWDP edit
     - Trash
     - HappyHonk
   - type: StorageFill
