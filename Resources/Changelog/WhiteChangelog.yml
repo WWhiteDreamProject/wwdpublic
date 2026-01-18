@@ -4984,3 +4984,10 @@ Entries:
   id: 522
   time: '2026-01-17T21:39:43.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1033
+- author: Myaflic
+  changes:
+    - type: Add
+      message: Добавлены анимации для PDA
+  id: 523
+  time: '2026-01-18T15:22:46.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/938
