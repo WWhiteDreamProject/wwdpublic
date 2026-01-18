@@ -12,6 +12,7 @@
   - SpaceTrafficControlFriendlyEventScheduler
   - BasicRoundstartVariation
   - LavalandStormScheduler # Lavaland Change
+  - NoosphereEventsScheduler
 
 - type: gamePreset
   id: KesslerSyndrome
@@ -28,6 +29,7 @@
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
   - LavalandStormScheduler # Lavaland Change
+  - NoosphereEventsScheduler
 
 - type: gamePreset
   id: SurvivalHellshift
@@ -43,6 +45,7 @@
   - SpaceTrafficControlFriendlyEventScheduler
   - BasicRoundstartVariation
   - LavalandStormScheduler # Lavaland Change
+  - NoosphereEventsScheduler
 
 - type: gamePreset
   id: SurvivalIrregular
@@ -57,6 +60,7 @@
   - SpaceTrafficControlFriendlyEventScheduler
   - BasicRoundstartVariation
   - LavalandStormScheduler # Lavaland Change
+  - NoosphereEventsScheduler
 
 - type: gamePreset
   id: SurvivalIrregularExtended
@@ -71,6 +75,7 @@
   - SpaceTrafficControlFriendlyEventScheduler
   - BasicRoundstartVariation
   - LavalandStormScheduler # Lavaland Change
+  - NoosphereEventsScheduler
 
 - type: gamePreset
   id: AllAtOnce
@@ -91,6 +96,7 @@
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
   - LavalandStormScheduler # Lavaland Change
+  - NoosphereEventsScheduler
 
 - type: gamePreset
   id: AllerAtOnce
@@ -120,6 +126,7 @@
   - BasicRoundstartVariation
   - LavalandStormScheduler # Lavaland Change
   - Shadowling
+  - NoosphereEventsScheduler
 
 - type: gamePreset
   id: Extended
@@ -134,6 +141,7 @@
   - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler
   - LavalandStormScheduler # Lavaland Change
+  - NoosphereEventsScheduler
 
 - type: gamePreset
   id: Greenshift
@@ -147,6 +155,7 @@
   - SpaceTrafficControlFriendlyEventScheduler
   - BasicRoundstartVariation
   - LavalandStormScheduler # Lavaland Change
+  - NoosphereEventsScheduler
 
 - type: gamePreset
   id: Dynamic
@@ -164,6 +173,7 @@
   - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
+  - NoosphereEventsScheduler
 
 - type: gamePreset
   id: Secret
@@ -176,6 +186,7 @@
   rules:
   - Secret
   - LavalandStormScheduler # Lavaland Change
+  - NoosphereEventsScheduler
 
 - type: gamePreset
   id: SecretExtended #For Admin Use: Runs Extended but shows "Secret" in lobby.
@@ -189,6 +200,7 @@
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
   - LavalandStormScheduler # Lavaland Change
+  - NoosphereEventsScheduler
 
 - type: gamePreset
   id: SecretGreenshift #For Admin Use: Runs Greenshift but shows "Secret" in lobby.
@@ -201,6 +213,7 @@
   - SpaceTrafficControlFriendlyEventScheduler
   - BasicRoundstartVariation
   - LavalandStormScheduler # Lavaland Change
+  - NoosphereEventsScheduler
 
 - type: gamePreset
   id: Sandbox
@@ -213,6 +226,7 @@
   rules:
   - Sandbox
   - LavalandStormScheduler # Lavaland Change
+  - NoosphereEventsScheduler
 
 - type: gamePreset
   id: Traitor
@@ -230,6 +244,7 @@
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
   - LavalandStormScheduler # Lavaland Change
+  - NoosphereEventsScheduler
 
 - type: gamePreset
   id: Deathmatch
@@ -259,6 +274,7 @@
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
   - LavalandStormScheduler # Lavaland Change
+  - NoosphereEventsScheduler
 
 - type: gamePreset
   id: Revolutionary
@@ -277,6 +293,7 @@
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
   - LavalandStormScheduler # Lavaland Change
+  - NoosphereEventsScheduler
 
 - type: gamePreset
   id: Wizard
@@ -292,6 +309,7 @@
   - MeteorSwarmScheduler
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
+  - NoosphereEventsScheduler
 
 - type: gamePreset
   id: Zombie
@@ -311,6 +329,7 @@
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
   - LavalandStormScheduler # Lavaland Change
+  - NoosphereEventsScheduler
 
 - type: gamePreset
   id: Zombieteors
@@ -328,6 +347,7 @@
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
   - LavalandStormScheduler # Lavaland Change
+  - NoosphereEventsScheduler
 
 - type: gamePreset
   id: Changeling
@@ -347,3 +367,4 @@
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
   - LavalandStormScheduler # Lavaland Change
+  - NoosphereEventsScheduler
