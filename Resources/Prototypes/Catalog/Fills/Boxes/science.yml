@@ -12,10 +12,13 @@
       amount: 2
   - type: Sprite
     layers:
-    - state: bg # WWDP edit start
-    - state: beaker
+    - state: box_plastic_base # WWDP edit start
+    - state: bg
+      map: [ paper ]
       sprite: _White/Objects/Storage/boxes_icon.rsi
-    - state: box_plastic_base
+    - state: beaker
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
     - state: box_plastic_chem
       map: [ top ]
   - type: GenericVisualizer

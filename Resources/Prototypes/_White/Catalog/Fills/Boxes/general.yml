@@ -336,7 +336,7 @@
     sprite: _White/Objects/Storage/boxes.rsi
     layers:
     - state: box_card_small_base
-    - state: bg
+    - state: bg_small
       map: [ paper ]
       sprite: _White/Objects/Storage/boxes_icon.rsi
     - state: icon
@@ -382,7 +382,7 @@
     sprite: _White/Objects/Storage/boxes.rsi
     layers:
     - state: box_plastic_small_base
-    - state: bg
+    - state: bg_small
       map: [ paper ]
       sprite: _White/Objects/Storage/boxes_icon.rsi
     - state: icon
@@ -428,7 +428,7 @@
     sprite: _White/Objects/Storage/boxes.rsi
     layers:
     - state: box_steel_small_base
-    - state: bg
+    - state: bg_small
       map: [ paper ]
       sprite: _White/Objects/Storage/boxes_icon.rsi
     - state: icon

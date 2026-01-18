@@ -45,10 +45,13 @@
       - id: ClothingHeadHatBizarreSoft
   - type: Sprite
     layers:
-    - state: bg_dark # WWDP edit start
-    - state: holo
+    - state: box_steel_rib_dark_base # WWDP edit start
+    - state: bg_hug
+      map: [ paper ]
       sprite: _White/Objects/Storage/boxes_icon.rsi
-    - state: box_steel_rib_dark_base
+    - state: holo
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
     - state: box_steel_synd
       map: [ top ]
   - type: GenericVisualizer
@@ -71,10 +74,13 @@
       - id: ToyHammer
   - type: Sprite
     layers:
-    - state: bg_hug # WWDP edit start
-    - state: holo
+    - state: box_steel_hug_base # WWDP edit start
+    - state: bg_hug
+      map: [ paper ]
       sprite: _White/Objects/Storage/boxes_icon.rsi
-    - state: box_steel_hug_base
+    - state: holo
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
     - state: box_steel_hug
       map: [ top ]
   - type: GenericVisualizer

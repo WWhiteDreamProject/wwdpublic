@@ -17,6 +17,9 @@
             "name": "box_card_base"
         },
         {
+            "name": "box_card_icon"
+        },
+        {
             "name": "box_card_eng"
         },
         {
@@ -42,6 +45,9 @@
         },
         {
             "name": "box_plastic_base"
+        },
+        {
+            "name": "box_plastic_icon"
         },
         {
             "name": "box_plastic_rib_grey_base"
@@ -104,6 +110,9 @@
             "name": "box_steel_base"
         },
         {
+            "name": "box_steel_icon"
+        },
+        {
             "name": "box_steel_rib_base"
         },
         {
@@ -146,6 +155,9 @@
             "name": "box_card_wide_base"
         },
         {
+            "name": "box_card_wide_icon"
+        },
+        {
             "name": "box_card_wide_eng"
         },
         {
@@ -171,6 +183,9 @@
         },
         {
             "name": "box_plastic_wide_base"
+        },
+        {
+            "name": "box_plastic_wide_icon"
         },
         {
             "name": "box_plastic_wide_rib_grey_base"
@@ -206,6 +221,9 @@
             "name": "box_steel_wide_base"
         },
         {
+            "name": "box_steel_wide_icon"
+        },
+        {
             "name": "box_steel_wide_rib_base"
         },
         {
@@ -224,6 +242,9 @@
             "name": "box_card_small_base"
         },
         {
+            "name": "box_card_small_icon"
+        },
+        {
             "name": "box_plastic_small"
         },
         {
@@ -233,6 +254,63 @@
             "name": "box_plastic_small_base"
         },
         {
+            "name": "box_plastic_small_icon"
+        },
+        {
+            "name": "box_plastic_small_rib_grey_base"
+        },
+        {
+            "name": "box_plastic_small_rib_dark_base"
+        },
+        {
+            "name": "box_plastic_small_eng"
+        },
+        {
+            "name": "box_plastic_small_eng_open"
+        },
+        {
+            "name": "box_plastic_small_eng_base"
+        },
+        {
+            "name": "box_plastic_small_emer"
+        },
+        {
+            "name": "box_plastic_small_emer_open"
+        },
+        {
+            "name": "box_plastic_small_emer_base"
+        },
+        {
+            "name": "box_plastic_small_hug"
+        },
+        {
+            "name": "box_plastic_small_hug_open"
+        },
+        {
+            "name": "box_plastic_small_hug_base"
+        },
+        {
+            "name": "box_plastic_small_med"
+        },
+        {
+            "name": "box_plastic_small_med_open"
+        },
+        {
+            "name": "box_plastic_small_med_base"
+        },
+        {
+            "name": "box_plastic_small_sec"
+        },
+        {
+            "name": "box_plastic_small_sec_open"
+        },
+        {
+            "name": "box_plastic_small_synd"
+        },
+        {
+            "name": "box_plastic_small_synd_open"
+        },
+        {
             "name": "box_steel_small"
         },
         {
@@ -240,6 +318,9 @@
         },
         {
             "name": "box_steel_small_base"
+        },
+        {
+            "name": "box_steel_small_icon"
         },
         {
             "name": "box_steel_small_rib_base"

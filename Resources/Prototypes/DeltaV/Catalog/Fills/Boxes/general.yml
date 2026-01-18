@@ -10,10 +10,13 @@
         amount: 4
   - type: Sprite
     layers:
-    - state: bg # WWDP edit start
-    - state: encryptokey
+    - state: box_card_base # WWDP edit start
+    - state: bg
+      map: [ paper ]
       sprite: _White/Objects/Storage/boxes_icon.rsi
-    - state: box_card_base
+    - state: encryptokey
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
     - state: box_card_sec
       map: [ top ]
   - type: GenericVisualizer

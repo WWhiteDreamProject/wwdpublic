@@ -11,10 +11,13 @@
   - type: Sprite
     sprite: _White/Objects/Storage/boxes.rsi
     layers:
-    - state: bg
-    - state: shellmeteor
-      sprite: _White/Objects/Storage/boxes_icon.rsi
     - state: box_steel_rib_base
+    - state: bg
+      map: [ paper ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: shellmeteor
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
     - state: box_steel_sec
       map: [ top ]
 
@@ -31,10 +34,13 @@
   - type: Sprite
     sprite: _White/Objects/Storage/boxes.rsi
     layers:
-    - state: bg
-    - state: shellfrag
-      sprite: _White/Objects/Storage/boxes_icon.rsi
     - state: box_steel_rib_base
+    - state: bg
+      map: [ paper ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: shellfrag
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
     - state: box_steel_sec
       map: [ top ]
 
@@ -44,15 +50,20 @@
   id: BoxLaser
   description: A dispenser box full of laser shots, designed for riot shotguns.
   components:
-  - type: BallisticAmmoProvider
-    proto: ShellShotgunLaser
+  - type: StorageFill
+    contents:
+    - id: ShellShotgunLaser
+      amount: 16
   - type: Sprite
     sprite: _White/Objects/Storage/boxes.rsi
     layers:
-    - state: bg
-    - state: shelllaser
-      sprite: _White/Objects/Storage/boxes_icon.rsi
     - state: box_steel_rib_base
+    - state: bg
+      map: [ paper ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: shelllaser
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
     - state: box_steel_sec
       map: [ top ]
 
@@ -62,14 +73,19 @@
   id: BoxBreach
   description: A dispenser box full of breach shots, designed for riot shotguns.
   components:
-  - type: BallisticAmmoProvider
-    proto: ShellShotgunBreach
+  - type: StorageFill
+    contents:
+    - id: ShellShotgunBreach
+      amount: 16
   - type: Sprite
     sprite: _White/Objects/Storage/boxes.rsi
     layers:
-    - state: bg
-    - state: shellbreach
-      sprite: _White/Objects/Storage/boxes_icon.rsi
     - state: box_steel_rib_base
+    - state: bg
+      map: [ paper ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: shellbreach
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
     - state: box_steel_sec
       map: [ top ]

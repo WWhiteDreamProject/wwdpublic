@@ -10,10 +10,13 @@
         amount: 6
   - type: Sprite
     layers:
-    - state: bg # WWDP edit start
-    - state: syringe
+    - state: box_plastic_base # WWDP edit start
+    - state: bg
+      map: [ paper ]
       sprite: _White/Objects/Storage/boxes_icon.rsi
-    - state: box_plastic_base
+    - state: syringe
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
     - state: box_plastic_chem
       map: [ top ]
   - type: GenericVisualizer
@@ -35,10 +38,13 @@
         amount: 9
   - type: Sprite
     layers:
-    - state: bg # WWDP edit start
-    - state: pillbox
+    - state: box_plastic_base # WWDP edit start
+    - state: bg
+      map: [ paper ]
       sprite: _White/Objects/Storage/boxes_icon.rsi
-    - state: box_plastic_base
+    - state: pillbox
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
     - state: box_plastic_chem
       map: [ top ]
   - type: GenericVisualizer
@@ -60,10 +66,13 @@
         amount: 6
   - type: Sprite
     layers:
-    - state: bg # WWDP edit start
-    - state: bottle
+    - state: box_plastic_base # WWDP edit start
+    - state: bg
+      map: [ paper ]
       sprite: _White/Objects/Storage/boxes_icon.rsi
-    - state: box_plastic_base
+    - state: bottle
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
     - state: box_plastic_chem
       map: [ top ]
   - type: GenericVisualizer
@@ -85,10 +94,13 @@
         amount: 4
   - type: Sprite
     layers:
-    - state: bg # WWDP edit start
-    - state: sterile
+    - state: box_plastic_base # WWDP edit start
+    - state: bg
+      map: [ paper ]
       sprite: _White/Objects/Storage/boxes_icon.rsi
-    - state: box_plastic_base
+    - state: sterile
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
     - state: box_plastic_med
       map: [ top ]
   - type: GenericVisualizer
@@ -110,10 +122,13 @@
         amount: 4
   - type: Sprite
     layers:
-    - state: bg # WWDP edit start
-    - state: latex
+    - state: box_plastic_base # WWDP edit start
+    - state: bg
+      map: [ paper ]
       sprite: _White/Objects/Storage/boxes_icon.rsi
-    - state: box_plastic_base
+    - state: latex
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
     - state: box_plastic_med
       map: [ top ]
   - type: GenericVisualizer
@@ -135,10 +150,13 @@
         amount: 4
   - type: Sprite
     layers:
-    - state: bg # WWDP edit start
-    - state: nitrile
+    - state: box_plastic_base # WWDP edit start
+    - state: bg
+      map: [ paper ]
       sprite: _White/Objects/Storage/boxes_icon.rsi
-    - state: box_plastic_base
+    - state: nitrile
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
     - state: box_plastic_med
       map: [ top ]
   - type: GenericVisualizer
@@ -161,10 +179,13 @@
         amount: 4
   - type: Sprite
     layers:
-    - state: bg # WWDP edit start
-    - state: bodybags
+    - state: box_plastic_base # WWDP edit start
+    - state: bg
+      map: [ paper ]
       sprite: _White/Objects/Storage/boxes_icon.rsi
-    - state: box_plastic_base
+    - state: bodybags
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
     - state: box_plastic_med
       map: [ top ]
   - type: GenericVisualizer
@@ -186,10 +207,13 @@
         amount: 6
   - type: Sprite
     layers:
-    - state: bg # WWDP edit start
-    - state: vials
+    - state: box_plastic_base # WWDP edit start
+    - state: bg
+      map: [ paper ]
       sprite: _White/Objects/Storage/boxes_icon.rsi
-    - state: box_plastic_base
+    - state: vials
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
     - state: box_plastic_chem
       map: [ top ]
   - type: GenericVisualizer

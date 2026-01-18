@@ -17,6 +17,15 @@
             "name": "bg_hug"
         },
         {
+            "name": "bg_small"
+        },
+        {
+            "name": "bg_small_dark"
+        },
+        {
+            "name": "bg_small_hug"
+        },
+        {
             "name": "beaker"
         },
         {
@@ -161,13 +170,22 @@
             "name": "soap"
         },
         {
-            "name": "syringe"
-        },
-        {
             "name": "sterile"
         },
         {
             "name": "swab"
+        },
+        {
+            "name": "syringe"
+        },
+        {
+            "name": "tankblue"
+        },
+        {
+            "name": "tankred"
+        },
+        {
+            "name": "tankyellow"
         },
         {
             "name": "throwing_knives"

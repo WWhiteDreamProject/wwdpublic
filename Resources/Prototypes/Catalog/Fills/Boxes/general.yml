@@ -14,7 +14,7 @@
       - state: bg
         map: [ paper ]
         sprite: _White/Objects/Storage/boxes_icon.rsi
-      - state: mousetrap
+      - state: mousetraps
         map: [ label ]
         sprite: _White/Objects/Storage/boxes_icon.rsi
       - state: box_card
@@ -338,7 +338,7 @@
     - state: bg
       map: [ paper ]
       sprite: _White/Objects/Storage/boxes_icon.rsi
-    - state: trash
+    - state: trashbag
       map: [ label ]
       sprite: _White/Objects/Storage/boxes_icon.rsi
     - state: box_card_wide
@@ -615,7 +615,7 @@
       map: [ label ]
       sprite: _White/Objects/Storage/boxes_icon.rsi
     - state: box_card
-      map: [ top ] # WWDP end
+      map: [ top ] # WWDP edit end
   - type: StorageFill
     contents:
       - id: Envelope

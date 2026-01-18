@@ -10,10 +10,13 @@
         amount: 6
   - type: Sprite
     layers: # WWDP edit start
-    - state: bg
-    - state: monkey
-      sprite: _White/Objects/Storage/boxes_icon.rsi
     - state: box_steel_small_rib_base
+    - state: bg_small
+      map: [ paper ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: monkey
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
     - state: box_steel_small_med
       map: [ top ]
   - type: GenericVisualizer
@@ -56,10 +59,13 @@
         amount: 6
   - type: Sprite
     layers: # WWDP edit start
-    - state: bg
-    - state: kobold
-      sprite: _White/Objects/Storage/boxes_icon.rsi
     - state: box_steel_small_rib_base
+    - state: bg_small
+      map: [ paper ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: kobold
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
     - state: box_steel_small_med
       map: [ top ] # WWDP end
 
@@ -77,10 +83,13 @@
         amount: 3
   - type: Sprite
     layers: # WWDP edit start
-    - state: bg
-    - state: monkeykobold
-      sprite: _White/Objects/Storage/boxes_icon.rsi
     - state: box_steel_small_rib_base
+    - state: bg_small
+      map: [ paper ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: monkeykobold
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
     - state: box_steel_small_med
       map: [ top ] # WWDP end
 
@@ -113,10 +122,13 @@
         amount: 6
   - type: Sprite
     layers: # WWDP edit start
-    - state: bg_dark
-    - state: monkey
-      sprite: _White/Objects/Storage/boxes_icon.rsi
     - state: box_steel_small_rib_base
+    - state: bg_small_dark
+      map: [ paper ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: monkey
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
     - state: box_steel_small_med
       map: [ top ] # WWDP end
 

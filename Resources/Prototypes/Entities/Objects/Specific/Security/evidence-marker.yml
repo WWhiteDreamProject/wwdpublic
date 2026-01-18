@@ -76,7 +76,7 @@
 
 - type: entity
   name: evidence marker box
-  parent: BoxPlastic # WWDP edit
+  parent: BoxPlasticSmall # WWDP edit
   id: BoxEvidenceMarkers
   description: A pack of numbered yellow markers, useful for labeling evidence on a crime scene.
   components:
@@ -93,15 +93,18 @@
       - id: EvidenceMarkerNine
   - type: Sprite
     layers:
-    - state: bg # WWDP edit start
-    - state: evidence_markers
+    - state: box_plastic_small_rib_grey_base # WWDP edit start
+    - state: bg
+      map: [ paper ]
       sprite: _White/Objects/Storage/boxes_icon.rsi
-    - state: box_plastic_rib_grey_base
-    - state: box_plastic_sec
+    - state: evidence_markers
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_plastic_small_sec
       map: [ top ]
   - type: GenericVisualizer
     visuals:
       enum.StorageVisuals.Open:
         top:
-          True: { state: box_plastic_sec_open }
-          False: { state: box_plastic_sec } # WWDP end
+          True: { state: box_plastic_small_sec_open }
+          False: { state: box_plastic_small_sec } # WWDP end
