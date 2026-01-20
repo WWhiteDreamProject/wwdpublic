@@ -6,6 +6,7 @@
   components:
     - type: CloningPod
       doMetempsychosis: true
+      HumanoidBaseChance: 0.8
       biomassCostMultiplier: 0.5
     - type: Machine
       board: MetempsychoticMachineCircuitboard
