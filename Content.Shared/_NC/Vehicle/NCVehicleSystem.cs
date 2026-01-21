@@ -420,6 +420,7 @@ public sealed class NCVehicleSystem : EntitySystem
             xform.LocalPosition = offset;
             component.SpawnedSeats.Add(seat);
         }
+        Dirty(uid, component);
     }
 
     private void OnGetVerbs(EntityUid uid, NCVehicleComponent component, GetVerbsEvent<AlternativeVerb> args)
@@ -445,10 +446,9 @@ public sealed class NCVehicleSystem : EntitySystem
                         else
                             _lock.Lock(uid, args.User, lockComp);
                     },
-                    Text = Loc.GetString("Закрыть машину"), // Hardcoded as requested or use Loc key if I added one.
-                                                            // User asked to sign it as "Закрыть машину".
+                    Text = lockComp.Locked ? Loc.GetString("Открыть дверь") : Loc.GetString("Закрыть дверь"),
                     Priority = 10,
-                    Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/lock.svg.192dpi.png"))
+                    Icon = new SpriteSpecifier.Texture(new ResPath(lockComp.Locked ? "/Textures/Interface/VerbIcons/unlock.svg.192dpi.png" : "/Textures/Interface/VerbIcons/lock.svg.192dpi.png"))
                 });
             }
         }

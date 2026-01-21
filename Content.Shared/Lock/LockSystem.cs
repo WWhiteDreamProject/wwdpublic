@@ -1,4 +1,5 @@
 using Content.Shared._White.Lockers;
+using Content.Shared._NC.Vehicle;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.ActionBlocker;
@@ -283,6 +284,9 @@ public sealed class LockSystem : EntitySystem
     private void AddToggleLockVerb(EntityUid uid, LockComponent component, GetVerbsEvent<AlternativeVerb> args)
     {
         if (!args.CanAccess || !args.CanInteract)
+            return;
+
+        if (HasComp<NCVehicleComponent>(uid))
             return;
 
         AlternativeVerb verb = new()
