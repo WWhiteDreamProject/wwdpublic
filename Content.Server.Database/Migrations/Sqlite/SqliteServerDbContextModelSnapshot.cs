@@ -663,7 +663,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.ToTable("job", (string)null);
                 });
 
-            modelBuilder.Entity("Content.Server.Database.Loadout", b =>
+            modelBuilder.Entity("Content.Server.Database.LoadoutItem", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -1684,7 +1684,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Navigation("Profile");
                 });
 
-            modelBuilder.Entity("Content.Server.Database.Loadout", b =>
+            modelBuilder.Entity("Content.Server.Database.LoadoutItem", b =>
                 {
                     b.HasOne("Content.Server.Database.Profile", "Profile")
                         .WithMany("Loadouts")
