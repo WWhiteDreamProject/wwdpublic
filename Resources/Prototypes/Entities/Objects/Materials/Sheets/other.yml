@@ -114,13 +114,13 @@
     - plasma_2
     - plasma_3
   - type: Sprite
-    sprite: _White/Objects/Materials/Sheets/other.rsi # WWDP edit
+    sprite: Objects/Materials/Sheets/other.rsi
     state: plasma_3
     layers:
     - state: plasma_3
       map: ["base"]
   - type: Item
-    sprite: _White/Objects/Materials/Sheets/other.rsi # WWDP edit
+    sprite: Objects/Materials/Sheets/other.rsi
     heldPrefix: plasma
   - type: Appearance
   - type: Extractable
@@ -196,13 +196,13 @@
     - plastic_2
     - plastic_3
   - type: Sprite
-    sprite: _White/Objects/Materials/Sheets/other.rsi # WWDP edit
+    sprite: Objects/Materials/Sheets/other.rsi
     state: plastic_3
     layers:
     - state: plastic_3
       map: ["base"]
   - type: Item
-    sprite: _White/Objects/Materials/Sheets/other.rsi # WWDP edit
+    sprite: Objects/Materials/Sheets/other.rsi
     heldPrefix: plastic
   - type: Appearance
   - type: Extractable
@@ -283,14 +283,14 @@
     - uranium_2
     - uranium_3
   - type: Sprite
-    sprite: _White/Objects/Materials/Sheets/other.rsi # WWDP edit
+    sprite: Objects/Materials/Sheets/other.rsi
     state: uranium_3
     layers:
     - state: uranium_3
       map: ["base"]
   - type: Appearance
   - type: Item
-    sprite: _White/Objects/Materials/Sheets/other.rsi # WWDP edit
+    sprite: Objects/Materials/Sheets/other.rsi
     heldPrefix: uranium
   - type: Extractable
     grindableSolutionName: food

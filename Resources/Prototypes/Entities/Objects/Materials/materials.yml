@@ -41,7 +41,7 @@
     - cardboard_2
     - cardboard_3
   - type: Sprite
-    sprite: _White/Objects/Materials/materials.rsi # WWDP edit
+    sprite: Objects/Materials/materials.rsi
     state: cardboard_3
     layers:
     - state: cardboard_3
@@ -61,7 +61,7 @@
           Quantity: 6
   - type: Item
     heldPrefix: cardboard
-    sprite: _White/Objects/Materials/materials.rsi # WWDP edit
+    sprite: Objects/Materials/materials.rsi
   # WD EDIT START - Quick crafting
   - type: UserInterface
     interfaces:
@@ -552,14 +552,14 @@
     - diamond_2
     - diamond_3
   - type: Sprite
-    sprite: _White/Objects/Materials/materials.rsi # WWDP edit
+    sprite: Objects/Materials/materials.rsi
     state: diamond
     layers:
     - state: diamond
       map: ["base"]
   - type: Appearance
   - type: Item
-    sprite: _White/Objects/Materials/materials.rsi # WWDP edit
+    sprite: Objects/Materials/materials.rsi
     heldPrefix: diamond
   - type: Extractable
     grindableSolutionName: diamond
@@ -698,7 +698,7 @@
     materialComposition:
       Bananium: 150
   - type: Sprite
-    sprite: _White/Objects/Materials/materials.rsi # WWDP edit
+    sprite: Objects/Materials/materials.rsi
     state: bananium_1
     layers:
     - state: bananium_1
@@ -739,7 +739,7 @@
         Quantity: 5
   - type: Appearance
   - type: Item
-    sprite: _White/Objects/Materials/materials.rsi # WWDP edit
+    sprite: Objects/Materials/materials.rsi
     heldPrefix: bananium
   # WD EDIT START - Short crafting
   - type: UserInterface
