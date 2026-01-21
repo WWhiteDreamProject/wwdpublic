@@ -44,13 +44,13 @@
     - gold_2
     - gold_3
   - type: Sprite
-    sprite: _White/Objects/Materials/ingots.rsi # WWDP edit
+    sprite: Objects/Materials/ingots.rsi
     state: gold_3
     layers:
     - state: gold_3
       map: ["base"]
   - type: Item
-    sprite: _White/Objects/Materials/ingots.rsi # WWDP edit
+    sprite: Objects/Materials/ingots.rsi
     heldPrefix: gold
   - type: Appearance
   - type: Extractable
@@ -104,13 +104,13 @@
     - silver_2
     - silver_3
   - type: Sprite
-    sprite: _White/Objects/Materials/ingots.rsi # WWDP edit
+    sprite: Objects/Materials/ingots.rsi
     state: silver_3
     layers:
     - state: silver_3
       map: ["base"]
   - type: Item
-    sprite: _White/Objects/Materials/ingots.rsi # WWDP edit
+    sprite: Objects/Materials/ingots.rsi
     heldPrefix: silver
   - type: Appearance
   - type: Extractable
