@@ -1,0 +1,24 @@
+- type: job
+  id: NCPDCadet
+  name: Кадет
+  description: job-description-ncpd-cadet
+  playTimeTracker: JobNCPDCadet
+  weight: 15
+  startingGear: NCPDCadetGear
+  icon: "JobIconNCPDCadet"
+  supervisors: job-supervisors-ncpd-sergeant
+  access:
+    - Security
+    - Maintenance
+    - External
+
+- type: startingGear
+  id: NCPDCadetGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSecGrey
+    back: ClothingBackpackSecurity
+    shoes: ClothingShoesBootsJack
+    head: ClothingHeadHatSecurityGrey
+    ears: ClothingHeadsetSecurity
+    id: SecurityPDA
+    belt: ClothingBeltSecurityFilled

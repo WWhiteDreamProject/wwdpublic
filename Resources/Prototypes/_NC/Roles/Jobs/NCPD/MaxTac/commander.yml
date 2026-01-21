@@ -1,0 +1,35 @@
+- type: job
+  id: MaxTacCommander
+  name: Командир отряда Макс-Так
+  description: job-description-maxtac-commander
+  playTimeTracker: JobMaxTacCommander
+  requirements:
+    - !type:RoleTimeRequirement
+      role: JobNCPDChief
+      time: 36000 # 10 hours
+  weight: 5
+  startingGear: MaxTacCommanderGear
+  icon: "JobIconMaxTacCommander"
+  supervisors: job-supervisors-centcom
+  access:
+    - Command
+    - Security
+    - Armory
+    - Brig
+    - Detective
+    - Weapons
+    - Maintenance
+    - External
+
+- type: startingGear
+  id: MaxTacCommanderGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMaxTacCommander
+    back: ClothingBackpackSecurity
+    shoes: ClothingShoesBootsCombatFilled
+    head: ClothingHeadHelmetHardsuitMaxTacCommander
+    eyes: ClothingEyesGlassesSunglasses
+    ears: ClothingHeadsetSecurity
+    id: HoSPDA
+    belt: ClothingBeltSecurityFilled
+    outerClothing: ClothingOuterHardsuitMaxTacCommander

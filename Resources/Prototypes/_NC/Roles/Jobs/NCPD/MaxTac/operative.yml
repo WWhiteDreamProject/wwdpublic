@@ -1,0 +1,31 @@
+- type: job
+  id: MaxTacOperative
+  name: Оперативник Макс-Так
+  description: job-description-maxtac-operative
+  playTimeTracker: JobMaxTacOperative
+  requirements:
+    - !type:RoleTimeRequirement
+      role: JobNCPDSergeant
+      time: 18000 # 5 hours
+  weight: 10
+  startingGear: MaxTacOperativeGear
+  icon: "JobIconMaxTacOperative"
+  supervisors: job-supervisors-maxtac-commander
+  access:
+    - Security
+    - Brig
+    - Armory
+    - Maintenance
+    - External
+
+- type: startingGear
+  id: MaxTacOperativeGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMaxTacOperative
+    back: ClothingBackpackSecurity
+    shoes: ClothingShoesBootsCombatFilled
+    head: ClothingHeadHelmetHardsuitMaxTacOperative
+    ears: ClothingHeadsetSecurity
+    id: SecurityPDA
+    belt: ClothingBeltSecurityFilled
+    outerClothing: ClothingOuterHardsuitMaxTacOperative

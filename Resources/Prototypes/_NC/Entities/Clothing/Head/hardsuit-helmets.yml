@@ -1,0 +1,71 @@
+# Trauma Team Hardsuit Helmets
+# Paramedic / Medic Helmet
+- type: entity
+  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  id: ClothingHeadHelmetHardsuitTraumaTeamMedic
+  name: шлем хардсьюта медика Trauma Team
+  description: Шлем со встроенным фонарем и защитой от давления, стандарт для медиков Trauma Team.
+  components:
+  - type: Sprite
+    sprite: _NC/Clothing/Head/Hardsuits/trauma_med_helmet.rsi
+  - type: Clothing
+    sprite: _NC/Clothing/Head/Hardsuits/trauma_med_helmet.rsi
+    clothingVisuals:
+      head:
+      - state: off-equipped-HELMET
+  - type: PointLight
+    color: "#adf1ff"
+  - type: ToggleableLightVisuals
+    spriteLayer: light
+    clothingVisuals:
+      head:
+      - state: on-equipped-HELMET
+  - type: PressureProtection
+    highPressureMultiplier: 0.6
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.9
+        Radiation: 0.9
+        Caustic: 0.8
+
+# Operative / Armored Helmet
+- type: entity
+  parent: [ ClothingHeadHardsuitBase, ClothingHeadSuitWithLightBase ]
+  id: ClothingHeadHelmetHardsuitTraumaTeamOperative
+  name: шлем штурмового хардсьюта Trauma Team
+  description: Усиленный шлем для оперативников Trauma Team, обеспечивающий отличную защиту и видимость в темных зонах.
+  components:
+  - type: Sprite
+    sprite: _NC/Clothing/Head/Hardsuits/trauma_armored_helmet.rsi
+  - type: Clothing
+    sprite: _NC/Clothing/Head/Hardsuits/trauma_armored_helmet.rsi
+    clothingVisuals:
+      head:
+      - state: off-equipped-HELMET
+  - type: PointLight
+    color: "#ff0000" # Red light for operative? Or stick to white/blue? Blue is standard for medical. Let's use blue/cyan to match faction. Actually trauma team often has red accents.
+  - type: ToggleableLightVisuals
+    spriteLayer: light
+    clothingVisuals:
+      head:
+      - state: on-equipped-HELMET
+  - type: PressureProtection
+    highPressureMultiplier: 0.3
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+        Heat: 0.8
+        Radiation: 0.8
+        Caustic: 0.8
+  - type: FlashImmunity
+  - type: FlashSoundSuppression
+  - type: EyeProtection

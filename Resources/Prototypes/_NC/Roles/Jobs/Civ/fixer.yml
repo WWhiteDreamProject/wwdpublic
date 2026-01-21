@@ -1,0 +1,20 @@
+- type: job
+  id: Fixer
+  name: Фиксер
+  description: job-description-fixer
+  playTimeTracker: JobFixer
+  access:
+    - Service
+    - Maintenance
+    - External
+  startingGear: FixerGear
+
+- type: startingGear
+  id: FixerGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitFormal
+    back: ClothingBackpackSatchelLeather
+    shoes: ClothingShoesColorBlack
+    id: PassengerPDA
+    ears: ClothingHeadsetService
+    eyes: ClothingEyesGlassesSunglasses

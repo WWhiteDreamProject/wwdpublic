@@ -1,0 +1,20 @@
+- type: job
+  id: EdgeRunnerSolo
+  name: Эджраннер
+  description: job-description-edgerunner
+  playTimeTracker: JobEdgeRunnerSolo
+  access:
+    - Maintenance
+    - External
+  startingGear: EdgeRunnerSoloGear
+
+- type: startingGear
+  id: EdgeRunnerSoloGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorBlack
+    back: ClothingBackpackSatchelSecurity
+    shoes: ClothingShoesBootsCombat
+    id: PassengerPDA
+    ears: ClothingHeadsetSecurity
+    gloves: ClothingHandsGlovesColorBlack
+    outerClothing: ClothingOuterVestKevlar

@@ -1,0 +1,30 @@
+- type: job
+  id: NCPDSergeant
+  name: Сержант
+  description: job-description-ncpd-sergeant
+  playTimeTracker: JobNCPDSergeant
+  requirements:
+    - !type:RoleTimeRequirement
+      role: JobNCPDOfficer
+      time: 10800 # 3 hours
+  weight: 10
+  startingGear: NCPDSergeantGear
+  icon: "JobIconNCPDSergeant"
+  supervisors: job-supervisors-ncpd-chief
+  access:
+    - Security
+    - Brig
+    - Maintenance
+    - External
+
+- type: startingGear
+  id: NCPDSergeantGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitWarden
+    back: ClothingBackpackSecurity
+    shoes: ClothingShoesBootsJack
+    head: ClothingHeadHatWarden
+    ears: ClothingHeadsetSecurity
+    id: WardenPDA
+    belt: ClothingBeltSecurityFilled
+    outerClothing: ClothingOuterArmorWarden

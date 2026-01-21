@@ -1,0 +1,18 @@
+- type: job
+  id: Reaper
+  name: Риппер
+  description: job-description-reaper
+  playTimeTracker: JobReaper
+  access:
+    - Medical
+    - Maintenance
+  startingGear: ReaperGear
+
+- type: startingGear
+  id: ReaperGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMedicalDoctor
+    back: ClothingBackpackSatchelMedical
+    shoes: ClothingShoesColorWhite
+    id: MedicalPDA
+    ears: ClothingHeadsetMedical

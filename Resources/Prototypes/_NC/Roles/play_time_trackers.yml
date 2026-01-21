@@ -1,3 +1,31 @@
+# Jobs CivilianNC
+- type: playTimeTracker
+  id: JobCitizen
+- type: playTimeTracker
+  id: JobReaper
+- type: playTimeTracker
+  id: JobFixer
+- type: playTimeTracker
+  id: JobEdgeRunnerSolo
+
+# Jobs NCPD
+- type: playTimeTracker
+  id: JobNCPDChief
+- type: playTimeTracker
+  id: JobNCPDWatchAgent
+- type: playTimeTracker
+  id: JobNCPDSergeant
+- type: playTimeTracker
+  id: JobNCPDOfficer
+- type: playTimeTracker
+  id: JobNCPDCadet
+- type: playTimeTracker
+  id: JobMaxTacCommander
+- type: playTimeTracker
+  id: JobMaxTacOperative
+- type: playTimeTracker
+  id: JobMaxTacNetrunner
+
 # Jobs Militech
 - type: playTimeTracker
   id: JobHoDM
@@ -16,19 +44,3 @@
 
 - type: playTimeTracker
   id: JobSecM
-
-# Jobs NCPD
-- type: playTimeTracker
-  id: JobNCPDOfficer
-
-- type: playTimeTracker
-  id: JobNCPDSWAT
-
-- type: playTimeTracker
-  id: JobNCPDInspector
-
-- type: playTimeTracker
-  id: JobNCPDChief
-
-
-

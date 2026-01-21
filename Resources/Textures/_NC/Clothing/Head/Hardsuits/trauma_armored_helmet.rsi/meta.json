@@ -1,0 +1,25 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Trauma Team Bundle",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "icon"
+        },
+        {
+            "name": "icon-on"
+        },
+        {
+            "name": "off-equipped-HELMET",
+            "directions": 4
+        },
+        {
+            "name": "on-equipped-HELMET",
+            "directions": 4
+        }
+    ]
+}

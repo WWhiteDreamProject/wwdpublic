@@ -1,0 +1,64 @@
+# Trauma Team Hardsuits
+# Paramedic / Medic Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ClothingOuterHardsuitTraumaTeamMedic
+  name: бронекостюм медика Trauma Team
+  description: Специализированный бронекостюм для сотрудников Trauma Team, обеспечивающий защиту в опасных зонах при оказании медицинской помощи.
+  components:
+  - type: Sprite
+    sprite: _NC/Clothing/OuterClothing/Hardsuits/trauma_med_hardsuit.rsi
+  - type: Clothing
+    sprite: _NC/Clothing/OuterClothing/Hardsuits/trauma_med_hardsuit.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.3
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+        Heat: 0.5
+        Radiation: 0.5
+        Caustic: 0.3
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 1.2
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitTraumaTeamMedic
+
+# Operative / Armored Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitBaseMedium
+  id: ClothingOuterHardsuitTraumaTeamOperative
+  name: штурмовой бронекостюм Trauma Team
+  description: Усиленный бронекостюм для оперативников Trauma Team, предназначенный для работы в условиях активных боевых действий.
+  components:
+  - type: Sprite
+    sprite: _NC/Clothing/OuterClothing/Hardsuits/trauma_armored_hardsuit.rsi
+  - type: Clothing
+    sprite: _NC/Clothing/OuterClothing/Hardsuits/trauma_armored_hardsuit.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.05
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.6
+        Radiation: 0.6
+        Caustic: 0.6
+  - type: ClothingSpeedModifier
+    walkModifier: 0.85
+    sprintModifier: 1
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitTraumaTeamOperative
+  - type: StaminaDamageResistance
+    coefficient: 0.6 # 40%
