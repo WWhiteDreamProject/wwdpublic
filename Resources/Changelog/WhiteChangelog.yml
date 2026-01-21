@@ -4934,3 +4934,60 @@ Entries:
   id: 517
   time: '2026-01-08T21:50:23.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1010
+- author: Cinkafox
+  changes:
+    - type: Add
+      message: >-
+        Изменен интерфейс телепорта призрака, теперь он отображает антагонистов,
+        живых, мёртвых, призраков, вышедших и так далее.
+  id: 518
+  time: '2026-01-09T14:20:18.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1011
+- author: DVOniksWyvern
+  changes:
+    - type: Add
+      message: Добавлено веселье :D
+    - type: Tweak
+      message: Изменено веселье~
+    - type: Fix
+      message: Исправлено веселье!
+    - type: Remove
+      message: Удалено веселье :(
+  id: 519
+  time: '2026-01-10T15:53:36.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1014
+- author: Kutosss
+  changes:
+    - type: Add
+      message: Шейдеры освещения
+  id: 520
+  time: '2026-01-14T16:59:27.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1017
+- author: kekoven1
+  changes:
+    - type: Add
+      message: жизненный путь культиста
+  id: 521
+  time: '2026-01-17T21:36:57.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1018
+- author: RedFoxIV
+  changes:
+    - type: Fix
+      message: >-
+        Зарядники и энерготурели больше не кошмарят все приборы, подключённые к
+        одной энергосети, если их энергопотребление сильно выше, чем может
+        предоставить энергосеть.
+    - type: Add
+      message: >-
+        Лампы тускнеют при чрезмерной нагрузке на энергосеть, к которой они
+        подключены.
+  id: 522
+  time: '2026-01-17T21:39:43.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1033
+- author: Myaflic
+  changes:
+    - type: Add
+      message: Добавлены анимации для PDA
+  id: 523
+  time: '2026-01-18T15:22:46.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/938

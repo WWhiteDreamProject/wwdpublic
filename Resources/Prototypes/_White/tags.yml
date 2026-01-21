@@ -54,3 +54,6 @@
 
 - type: Tag
   id: BoxSteel
+
+- type: Tag
+  id: HideFromGhostWarps

@@ -32,3 +32,8 @@
   id: RemoteControl
   kind: source
   path: "/Textures/_White/Shaders/remotecontrol.swsl"
+
+- type: shader
+  id: LightingOverlay
+  kind: source
+  path: "/Textures/_White/Effects/Shaders/light.swsl"

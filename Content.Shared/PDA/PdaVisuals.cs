@@ -6,9 +6,7 @@ namespace Content.Shared.PDA
     public enum PdaVisuals
     {
         IdCardInserted,
-        PdaType,
-        Enabled, // WWDP edit
-        Screen // WWDP edit
+        State // WD EDIT
     }
 
     [Serializable, NetSerializable]
@@ -17,4 +15,22 @@ namespace Content.Shared.PDA
         Key
     }
 
+    // WD EDIT START
+    [Serializable, NetSerializable]
+    public enum PdaState : byte
+    {
+        Closed,
+        Closing,
+        Open,
+        Opening
+    }
+
+    public enum PdaVisualLayers : byte
+    {
+        Flashlight,
+        IdLight,
+        Screen,
+        State
+    }
+    // WD EDIT END
 }
