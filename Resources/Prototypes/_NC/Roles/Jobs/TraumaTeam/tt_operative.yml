@@ -5,7 +5,6 @@
   playTimeTracker: JobTraumaTeamOperative
   weight: 15
   startingGear: TraumaTeamOperativeGear
-  icon: "JobIconSecurityOfficer"
   supervisors: job-supervisors-traumateam-chief
   access:
     - Medical
@@ -17,7 +16,7 @@
 - type: startingGear
   id: TraumaTeamOperativeGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitSecBlue # Should probable be something cooler if available, but standard for now.
+    jumpsuit: ClothingUniformJumpsuitSecBlue
     back: ClothingBackpackSecurity
     shoes: ClothingShoesBootsCombatFilled
     head: ClothingHeadHelmetHardsuitTraumaTeamOperative

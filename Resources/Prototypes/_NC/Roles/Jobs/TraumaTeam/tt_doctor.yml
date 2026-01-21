@@ -5,11 +5,10 @@
   playTimeTracker: JobTraumaTeamDoctor
   weight: 20
   startingGear: TraumaTeamDoctorGear
-  icon: "JobIconMedicalDoctor"
   supervisors: job-supervisors-traumateam-chief
   access:
     - Medical
-    - Maintenance # Trauma team often operates in field? Maybe restricted to Medbay for logic, but verified with user prompt context implies field work. Let's keep Medbay focused but standard doctor access.
+    - Maintenance
 
 - type: startingGear
   id: TraumaTeamDoctorGear

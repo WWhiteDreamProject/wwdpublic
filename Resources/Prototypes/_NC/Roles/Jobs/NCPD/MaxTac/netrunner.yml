@@ -3,13 +3,8 @@
   name: Нетраннер Макс-Так
   description: job-description-maxtac-netrunner
   playTimeTracker: JobMaxTacNetrunner
-  requirements:
-    - !type:RoleTimeRequirement
-      role: JobNCPDSergeant
-      time: 18000 # 5 hours
   weight: 5
   startingGear: MaxTacNetrunnerGear
-  icon: "JobIconMaxTacNetrunner"
   supervisors: job-supervisors-maxtac-commander
   access:
     - Security
@@ -26,6 +21,6 @@
     shoes: ClothingShoesBootsCombatFilled
     head: ClothingHeadHelmetHardsuitMaxTacNetrunner
     ears: ClothingHeadsetSecurity
-    id: ResearchPDA
+    id: SciencePDA
     belt: ClothingBeltSecurityFilled
     outerClothing: ClothingOuterHardsuitMaxTacNetrunner

@@ -5,7 +5,6 @@
   playTimeTracker: JobNCPDOfficer
   weight: 20
   startingGear: NCPDOfficerGear
-  icon: "JobIconNCPDOfficer"
   supervisors: job-supervisors-ncpd-sergeant
   access:
     - Security

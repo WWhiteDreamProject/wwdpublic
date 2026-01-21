@@ -3,13 +3,8 @@
   name: Оперативник Макс-Так
   description: job-description-maxtac-operative
   playTimeTracker: JobMaxTacOperative
-  requirements:
-    - !type:RoleTimeRequirement
-      role: JobNCPDSergeant
-      time: 18000 # 5 hours
   weight: 10
   startingGear: MaxTacOperativeGear
-  icon: "JobIconMaxTacOperative"
   supervisors: job-supervisors-maxtac-commander
   access:
     - Security

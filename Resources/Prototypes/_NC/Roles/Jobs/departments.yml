@@ -4,7 +4,7 @@
   description: department-CivilianNC-description
   color: "#999999"
   roles:
-    - Citizen
+    - NCCitizen
     - Reaper
     - Fixer
     - EdgeRunnerSolo

@@ -3,13 +3,8 @@
   name: Командир отряда Макс-Так
   description: job-description-maxtac-commander
   playTimeTracker: JobMaxTacCommander
-  requirements:
-    - !type:RoleTimeRequirement
-      role: JobNCPDChief
-      time: 36000 # 10 hours
   weight: 5
   startingGear: MaxTacCommanderGear
-  icon: "JobIconMaxTacCommander"
   supervisors: job-supervisors-centcom
   access:
     - Command

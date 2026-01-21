@@ -3,13 +3,8 @@
   name: Начальник департамента полиции
   description: job-description-ncpd-chief
   playTimeTracker: JobNCPDChief
-  requirements:
-    - !type:RoleTimeRequirement
-      role: JobNCPDOfficer
-      time: 18000 # 5 hours
   weight: 10
   startingGear: NCPDChiefGear
-  icon: "JobIconNCPDChief"
   supervisors: job-supervisors-centcom
   access:
     - Command

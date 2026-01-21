@@ -1,16 +1,16 @@
 - type: job
-  id: Citizen
+  id: NCCitizen
   name: Житель
   description: job-description-citizen
-  playTimeTracker: JobCitizen
-  startingGear: CitizenGear
+  playTimeTracker: JobNCCitizen
+  startingGear: NCCitizenGear
   access:
     - Service
 
-  startingGear:
-    id: CitizenGear
-    equipment:
-      jumpsuit: ClothingUniformJumpsuitColorGrey
-      back: ClothingBackpackSatchel
-      shoes: ClothingShoesColorBlack
-      id: PassengerPDA
+- type: startingGear
+  id: NCCitizenGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorGrey
+    back: ClothingBackpackSatchel
+    shoes: ClothingShoesColorBlack
+    id: PassengerPDA
