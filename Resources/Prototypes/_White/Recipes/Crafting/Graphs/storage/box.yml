@@ -122,4 +122,4 @@
         amount: 1
         doAfter: 4
   - node: boxsteelsmall
-    entity: BoxSteelSmalleCrafted
+    entity: BoxSteelSmallCrafted

@@ -568,7 +568,7 @@
   - type: Tag
     tags:
     - BoxMaterial # WWDP edit
-    - BoxCardBoard # WWDP edit
+    - BoxCardboard # WWDP edit
     - Trash
     - HappyHonk
   - type: StorageFill

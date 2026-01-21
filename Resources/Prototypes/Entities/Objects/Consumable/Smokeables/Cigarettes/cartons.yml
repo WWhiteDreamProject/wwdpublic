@@ -37,8 +37,6 @@
   components:
   - type: Sprite
     sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/red.rsi
-    state: closed # WWDP edit start
-    map: [ box ] # WWDP edit end
   - type: StorageFill
     contents:
       - id: CigPackRed
@@ -52,8 +50,6 @@
   components:
   - type: Sprite
     sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/blue.rsi
-    state: closed # WWDP edit start
-    map: [ box ] # WWDP edit end
   - type: StorageFill
     contents:
       - id: CigPackBlue
@@ -67,8 +63,6 @@
   components:
   - type: Sprite
     sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/black.rsi
-    state: closed # WWDP edit start
-    map: [ box ] # WWDP edit end
   - type: StorageFill
     contents:
       - id: CigPackBlack
@@ -82,8 +76,6 @@
   components:
   - type: Sprite
     sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/mixed.rsi
-    state: closed # WWDP edit start
-    map: [ box ] # WWDP edit end
   - type: StorageFill
     contents:
       - id: CigPackMixedMedical

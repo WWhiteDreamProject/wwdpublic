@@ -399,12 +399,12 @@
       sprite: _White/Objects/Storage/boxes_icon.rsi
     - state: box_plastic_small
       map: [ top ]
-    - type: GenericVisualizer
-      visuals:
-        enum.StorageVisuals.Open:
-          top:
-            True: { state: box_plastic_small_open }
-            False: { state: box_plastic_small } # WWDP end
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        top:
+          True: { state: box_plastic_small_open }
+          False: { state: box_plastic_small } # WWDP end
 
 - type: entity
   parent: BoxMime # WWDP edit
