@@ -40,18 +40,20 @@
   # WD EDIT END
 
 - type: entity
-  name: china lake
+  name: M80 Heracles # WWDP edit
   parent: [BaseWeaponLauncher, BaseGunWieldable, BaseSyndicateContraband]
   id: WeaponLauncherChinaLake
-  description: PLOOP.
+  description: An ancient weapon of mass destruction used by mercenary assault squads. The corporation refuses to acknowledge the existence of this weapon, and users can only speculate about the origins of this powerful object. There is a theory that it is a heavily modified mortar that was once integrated into combat exoskeletons. It is recommended to use it with caution, showing respect and primal fear.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Launchers/china_lake.rsi
+    sprite: _White/Objects/Weapons/Guns/Launchers/M80-Heracles.rsi # WWDP edit
     layers:
     - state: icon
       map: ["enum.GunVisualLayers.Base"]
+    - state: unshaded-laser
+      shader: unshaded
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Launchers/china_lake.rsi
+    sprite: _White/Objects/Weapons/Guns/Launchers/M80-Heracles.rsi # WWDP edit
     slots:
     - Back
     - suitStorage

@@ -1,5 +1,5 @@
-uplink-gun-case-viper-name = Viper
-uplink-gun-case-viper-desc = An easily concealed pistol with a switchable automatic mode. Comes in a case with two magazines (.35 auto).
+uplink-gun-case-viper-name = MPr-10 Xyphos
+uplink-gun-case-viper-desc = Modification of a submachine gun into a close-range weapon.
 
 uplink-gun-case-cobra-name = Cobra
 uplink-gun-case-cobra-desc = A reliable pistol with an integrated suppressor. Comes in a case with two magazines (.25 caseless).
@@ -31,8 +31,8 @@ uplink-energy-crossbow-desc = A relatively quiet weapon that automatically reloa
 uplink-gun-case-c20r-name = C-20r
 uplink-gun-case-c20r-desc = Old faithful: classic C-20r submachine gun bundled with two extra magazines (.35).
 
-uplink-gun-case-ak220-name = AK-220
-uplink-gun-case-ak220-desc = An updated version of the iconic weapon in a stylish gun case, complete with two extra magazines (.30).
+uplink-gun-case-ar31hydra-name = AR31 Hydra
+uplink-gun-case-ar31hydra-desc = Once the Syndicate's primary assault rifle, it now serves as a reminder to the Corporation that not all manufacturing facilities are under their control.
 
 uplink-gun-case-wspr-name = WSPR
 uplink-gun-case-wspr-desc = A sleek subsonic rifle with integrated suppression. If you can hear it, you're already dead. Comes with two extra .30 caliber subsonic magazines.

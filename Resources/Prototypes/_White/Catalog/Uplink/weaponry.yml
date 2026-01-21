@@ -3,7 +3,7 @@
   name: uplink-gun-case-viper-name
   description: uplink-gun-case-viper-desc
   productEntity: GunCaseSyndicateFilledViper
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Pistols/viper.rsi, state: icon }
+  icon: { sprite: /Textures/_White/Objects/Weapons/Guns/Pistols/Xyphos.rsi, state: icon } # WWDP edit
   discountCategory: usualDiscounts
   discountDownTo:
     Telecrystal: 1
@@ -154,7 +154,7 @@
   id: UplinkC20RBundle
   name: uplink-gun-case-c20r-name
   description: uplink-gun-case-c20r-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/SMGs/c20r.rsi, state: icon }
+  icon: { sprite: /Textures/_White/Objects/Weapons/Guns/SMGs/c-12r-moros.rsi, state: icon } # WWDP edit
   productEntity: GunCaseSyndicateFilledC20r
   discountCategory: rareDiscounts
   discountDownTo:
@@ -165,11 +165,11 @@
   - UplinkWeaponry
 
 - type: listing
-  id: UplinkGunCaseAK220
-  name: uplink-gun-case-ak220-name
-  description: uplink-gun-case-ak220-desc
-  icon: { sprite: /Textures/_White/Objects/Weapons/Guns/Rifles/AK220.rsi, state: icon }
-  productEntity: GunCaseSyndicateFilledAK220
+  id: UplinkGunCaseAR31Hydra
+  name: uplink-gun-case-ar31hydra-name
+  description: uplink-gun-case-ar31hydra-desc
+  icon: { sprite: /Textures/_White/Objects/Weapons/Guns/Rifles/ar-31-hydra.rsi, state: icon } # WWDP edit
+  productEntity: GunCaseSyndicateFilledAR31Hydra
   discountCategory: veryRareDiscounts
   discountDownTo:
     Telecrystal: 4
@@ -196,7 +196,7 @@
   id: UplinkGunCaseBulldog
   name: uplink-gun-case-bulldog-name
   description: uplink-gun-case-bulldog-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Shotguns/bulldog.rsi, state: icon }
+  icon: { sprite: /Textures/_White/Objects/Weapons/Guns/Shotguns/Cerberus.rsi, state: icon } # WWDP edit
   productEntity: GunCaseSyndicateFilledBulldog
   discountCategory: veryRareDiscounts
   discountDownTo:
@@ -210,7 +210,7 @@
   id: UplinkGunCaseChinaLake
   name: uplink-gun-case-china-lake-name
   description: uplink-gun-case-china-lake-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Launchers/china_lake.rsi, state: icon }
+  icon: { sprite: /Textures/_White/Objects/Weapons/Guns/Launchers/M80-Heracles.rsi, state: icon } # WWDP edit
   productEntity: GunCaseSyndicateFilledChinaLake
   discountCategory: veryRareDiscounts
   discountDownTo:
@@ -224,7 +224,7 @@
   id: UplinkGunCaseL6Saw
   name: uplink-gun-case-l6-saw-name
   description: uplink-gun-case-l6-saw-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/LMGs/l6.rsi, state: icon }
+  icon: { sprite: /Textures/_White/Objects/Weapons/Guns/LMGs/L9-Centaur.rsi, state: icon } # WWDP edit
   productEntity: GunCaseSyndicateFilledL6Saw
   discountCategory: veryRareDiscounts
   discountDownTo:

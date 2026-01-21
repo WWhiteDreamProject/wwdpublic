@@ -188,6 +188,7 @@
   placement:
     mode: SnapgridCenter
 
+
 - type: entity
   id: AirlockRCDResistant
   parent: Airlock

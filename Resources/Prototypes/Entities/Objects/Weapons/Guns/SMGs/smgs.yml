@@ -131,20 +131,20 @@
   # WD EDIT END
 
 - type: entity
-  name: C-20r submachine gun
+  name: CR-12 Moros # WWDP edit
   parent: [BaseWeaponSubMachineGun, BaseSyndicateContraband, BaseGunWieldable] # WD EDIT: BaseGunWieldable
   id: WeaponSubMachineGunC20r
-  description: Manufactured by Cybersun-Armaments, the C-20r is one of the most popular personal small-arms in the Coalition of Colonies. Uses .35 auto ammo.
+  description: The primary firearm of any Syndicate operative. It utilises manufacturing technologies unfamiliar to the Corporation, so it is unknown whether it is a copy of older, pre-Corporation weapon models or something entirely new. It is incredibly compact for its lethality, easy to use, and simple to maintain.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/SMGs/c20r.rsi
+    sprite: _White/Objects/Weapons/Guns/SMGs/c-12r-moros.rsi # WWDP EDIT
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
-    sprite: Objects/Weapons/Guns/SMGs/c20r.rsi
+    sprite: _White/Objects/Weapons/Guns/SMGs/c-12r-moros.rsi # WWDP EDIT
   # WD EDIT START
   # - type: Wieldable
   # - type: GunWieldBonus
@@ -169,7 +169,7 @@
     autoEject: true
   - type: MagazineVisuals
     magState: mag
-    steps: 6
+    steps: 4 # WWDP edit
     zeroVisible: true
   - type: Appearance
   # WD DIT START: Guns resize

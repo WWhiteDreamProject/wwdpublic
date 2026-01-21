@@ -69,8 +69,8 @@
 
 - type: entity
   parent: GunCaseSyndicate
-  id: GunCaseSyndicateFilledAK220
-  suffix: Syndicate, AK220
+  id: GunCaseSyndicateFilledAR31Hydra
+  suffix: Syndicate, AR 31Hydra
   components:
   - type: Item
     shape:
@@ -81,8 +81,8 @@
     - 9,0,10,1
   - type: StorageFill
     contents:
-    - id: WeaponLightRifleAK220
-    - id: MagazineLightRifleAK220
+    - id: WeaponLightRifleAR31Hydra
+    - id: MagazineLightRifleAR31Hydra
       amount: 2
 
 - type: entity

@@ -98,14 +98,14 @@
 # WD EDIT END
 
 - type: entity
-  name: Bulldog
+  name: AD-11 Cerberus # WWDP edit
   # Don't parent to BaseWeaponShotgun because it differs significantly
   parent: [BaseItem, BaseGunWieldable, BaseSyndicateContraband]
   id: WeaponShotgunBulldog
-  description: It's a magazine-fed shotgun designed for close quarters combat. Uses .50 shotgun shells.
+  description: An automatic shotgun with a drum magazine. Reclassified as a ‘weapon of mass destruction’ after dozens of ‘labor-cides,’ after which they ceased to be supplied to security departments at Corporation stations. In an unknown manner, large surpluses of this weapon fell into widespread use by the Syndicate.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Shotguns/bulldog.rsi
+    sprite: _White/Objects/Weapons/Guns/Shotguns/Cerberus.rsi # WWDP EDIT
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -118,7 +118,7 @@
     - 0,0,5,1
     # WD EDIT END
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Shotguns/bulldog.rsi
+    sprite: _White/Objects/Weapons/Guns/Shotguns/Cerberus.rsi # WWDP EDIT
     quickEquip: false
     slots:
     - Back
