@@ -1,8 +1,8 @@
 using Content.Server.Stack;
 using Content.Server.Popups;
-using Content.Shared._NC.Bank.Components; 
+using Content.Shared._NC.Bank.Components;
 using Content.Server._NC.Bank; // Ваша BankSystem
-using Content.Shared._NC.Bank; 
+using Content.Shared._NC.Bank;
 using Content.Shared.Interaction;
 using Content.Shared.Stacks;
 using Content.Server.Station.Systems;
@@ -23,11 +23,12 @@ namespace Content.Server._NC.Bank.ATM
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
         [Dependency] private readonly StationSystem _stationSystem = default!;
-        
+
         // Работаем с вашей системой БД
         [Dependency] private readonly BankSystem _bankSystem = default!;
 
-        private const string CurrencyPrototypeId = "SpaceCash"; 
+        private const string CurrencyPrototypeId = "SpaceCash";
+        private const string CurrencyStackId = "Credit";
 
         public override void Initialize()
         {
@@ -43,8 +44,8 @@ namespace Content.Server._NC.Bank.ATM
         // === ВСТАВКА ДЕНЕГ РУКАМИ ===
         private void OnInteractUsing(EntityUid uid, AtmComponent component, InteractUsingEvent args)
         {
-            if (!TryComp<StackComponent>(args.Used, out var stack) || 
-                MetaData(args.Used).EntityPrototype?.ID != CurrencyPrototypeId) return;
+            if (!TryComp<StackComponent>(args.Used, out var stack) ||
+                stack.StackTypeId != CurrencyStackId) return;
 
             if (_containerSystem.TryGetContainer(uid, AtmComponent.CashSlotId, out var cashContainer))
             {
@@ -93,7 +94,7 @@ namespace Content.Server._NC.Bank.ATM
             if (args.Actor is not { Valid: true } player) return;
 
             // 1. Проверяем наличие карты
-            if (!IsIdCardInserted(uid)) 
+            if (!IsIdCardInserted(uid))
             {
                 _popupSystem.PopupEntity("Вставьте карту!", uid, player);
                 return;
@@ -108,13 +109,13 @@ namespace Content.Server._NC.Bank.ATM
 
             // 3. Считаем
             int totalAmount = _stackSystem.GetCount(item, stack);
-            int tax = (int)(totalAmount * component.TaxRate);
+            int tax = (int) (totalAmount * component.TaxRate);
             int finalDeposit = totalAmount - tax;
 
             if (finalDeposit <= 0)
             {
-                 _popupSystem.PopupEntity("Сумма слишком мала.", uid, player);
-                 return;
+                _popupSystem.PopupEntity("Сумма слишком мала.", uid, player);
+                return;
             }
 
             // 4. Зачисляем ИГРОКУ (args.Actor)
@@ -132,7 +133,7 @@ namespace Content.Server._NC.Bank.ATM
         {
             if (taxAmount <= 0) return;
             var stationUid = _stationSystem.GetOwningStation(atmUid);
-            
+
             if (stationUid != null && TryComp<StationBankComponent>(stationUid, out var stationBank))
             {
                 ref var cityAccount = ref CollectionsMarshal.GetValueRefOrNullRef(stationBank.Accounts, SectorBankAccount.CityAdmin);
@@ -173,21 +174,21 @@ namespace Content.Server._NC.Bank.ATM
                 cashContainer.ContainedEntities.Count > 0)
             {
                 var item = cashContainer.ContainedEntities[0];
-                if (TryComp<StackComponent>(item, out var stack) && 
-                    MetaData(item).EntityPrototype?.ID == CurrencyPrototypeId)
+                if (TryComp<StackComponent>(item, out var stack) &&
+                    stack.StackTypeId == CurrencyStackId)
                 {
                     depositAmount = _stackSystem.GetCount(item, stack);
                 }
             }
 
             var state = new AtmBoundUserInterfaceState(
-                balance, 
-                accountName, 
-                isCardInserted, 
+                balance,
+                accountName,
+                isCardInserted,
                 component.TaxRate,
                 depositAmount
             );
-            
+
             _uiSystem.SetUiState(uid, AtmUiKey.Key, state);
         }
 
@@ -196,7 +197,7 @@ namespace Content.Server._NC.Bank.ATM
         private bool TryGetIdCardEntity(EntityUid uid, out EntityUid card)
         {
             card = EntityUid.Invalid;
-            if (_containerSystem.TryGetContainer(uid, AtmComponent.IdSlotId, out var container) && 
+            if (_containerSystem.TryGetContainer(uid, AtmComponent.IdSlotId, out var container) &&
                 container.ContainedEntities.Count > 0)
             {
                 card = container.ContainedEntities[0];
