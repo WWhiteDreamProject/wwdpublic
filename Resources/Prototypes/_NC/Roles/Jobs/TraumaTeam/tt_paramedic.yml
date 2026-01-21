@@ -1,0 +1,25 @@
+- type: job
+  id: TraumaTeamParamedic
+  name: Парамедик Trauma Team
+  description: job-description-traumateam-paramedic
+  playTimeTracker: JobTraumaTeamParamedic
+  weight: 20
+  startingGear: TraumaTeamParamedicGear
+  icon: "JobIconParamedic"
+  supervisors: job-supervisors-traumateam-chief
+  access:
+    - Medical
+    - Maintenance
+    - External
+
+- type: startingGear
+  id: TraumaTeamParamedicGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMedicalParamedic
+    back: ClothingBackpackSatchelMedical
+    shoes: ClothingShoesBootsCombat
+    head: ClothingHeadHelmetHardsuitTraumaTeamMedic
+    ears: ClothingHeadsetMedical
+    id: MedicalPDA
+    belt: ClothingBeltMedicalEMTFilled
+    outerClothing: ClothingOuterHardsuitTraumaTeamMedic

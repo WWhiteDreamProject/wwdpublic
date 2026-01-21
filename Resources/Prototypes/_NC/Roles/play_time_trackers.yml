@@ -26,21 +26,14 @@
 - type: playTimeTracker
   id: JobMaxTacNetrunner
 
-# Jobs Militech
+# Jobs TraumaTeam
 - type: playTimeTracker
-  id: JobHoDM
-
+  id: JobTraumaTeamChief
 - type: playTimeTracker
-  id: JobHoSM
-
+  id: JobTraumaTeamDoctor
 - type: playTimeTracker
-  id: JobMedTechM
-
+  id: JobTraumaTeamChemist
 - type: playTimeTracker
-  id: JobOperativeM
-
+  id: JobTraumaTeamParamedic
 - type: playTimeTracker
-  id: JobSCM
-
-- type: playTimeTracker
-  id: JobSecM
+  id: JobTraumaTeamOperative

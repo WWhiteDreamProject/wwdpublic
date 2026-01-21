@@ -10,19 +10,6 @@
     - EdgeRunnerSolo
 
 - type: department
-  id: Militech
-  name: Корпорация Militech
-  description: department-Militech-description
-  color: "#2e4053"
-  roles:
-    - HoSMilitech
-    - HoDMilitech
-    - SquadCommanderMilitech
-    - SecurityMilitech
-    - MedTechM
-    - OperativeMilitech
-
-- type: department
   id: NCPD
   name: NCPD
   description: department-NCPD-description
@@ -36,3 +23,15 @@
     - MaxTacCommander
     - MaxTacOperative
     - MaxTacNetrunner
+
+- type: department
+  id: TraumaTeam
+  name: Отдление TraumaTeam
+  description: department-TraumaTeam-description
+  color: "#e74c3c"
+  roles:
+    - TraumaTeamChief
+    - TraumaTeamDoctor
+    - TraumaTeamChemist
+    - TraumaTeamParamedic
+    - TraumaTeamOperative

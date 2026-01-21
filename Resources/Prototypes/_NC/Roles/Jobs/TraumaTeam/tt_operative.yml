@@ -1,0 +1,27 @@
+- type: job
+  id: TraumaTeamOperative
+  name: Оперативник Trauma Team
+  description: job-description-traumateam-operative
+  playTimeTracker: JobTraumaTeamOperative
+  weight: 15
+  startingGear: TraumaTeamOperativeGear
+  icon: "JobIconSecurityOfficer"
+  supervisors: job-supervisors-traumateam-chief
+  access:
+    - Medical
+    - Security
+    - Armory
+    - Maintenance
+    - External
+
+- type: startingGear
+  id: TraumaTeamOperativeGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSecBlue # Should probable be something cooler if available, but standard for now.
+    back: ClothingBackpackSecurity
+    shoes: ClothingShoesBootsCombatFilled
+    head: ClothingHeadHelmetHardsuitTraumaTeamOperative
+    ears: ClothingHeadsetSecurity
+    id: SecurityPDA
+    belt: ClothingBeltSecurityFilled
+    outerClothing: ClothingOuterHardsuitTraumaTeamOperative

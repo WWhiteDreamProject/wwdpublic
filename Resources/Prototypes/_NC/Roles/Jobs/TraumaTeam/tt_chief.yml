@@ -1,0 +1,32 @@
+- type: job
+  id: TraumaTeamChief
+  name: Руководитель отдела Trauma Team
+  description: job-description-traumateam-chief
+  playTimeTracker: JobTraumaTeamChief
+  requirements:
+    - !type:RoleTimeRequirement
+      role: JobTraumaTeamDoctor
+      time: 18000 # 5 hours
+  weight: 10
+  startingGear: TraumaTeamChiefGear
+  icon: "JobIconCMO"
+  supervisors: job-supervisors-centcom
+  access:
+    - Command
+    - Medical
+    - Chemistry
+    - Maintenance
+    - External
+
+- type: startingGear
+  id: TraumaTeamChiefGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCMO
+    back: ClothingBackpackSatchelMedical
+    shoes: ClothingShoesColorWhite
+    head: ClothingHeadHatBeretMedical
+    eyes: ClothingEyesGlassesSunglasses
+    ears: ClothingHeadsetMedical
+    id: CMOPDA
+    belt: ClothingBeltMedicalFilled
+    outerClothing: ClothingOuterCoatCMO
