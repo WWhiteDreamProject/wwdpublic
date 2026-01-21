@@ -1,0 +1,17 @@
+- type: job
+  id: MedTechM
+  name: job-name-medtechm
+  description: job-description-medtechm
+  playTimeTracker: JobMedTechM
+  startingGear: MedTechMGear
+  icon: "JobIconPassenger" #TODO: change icon
+  access:   #TODO: change access
+  - Militech
+  - MedMilitech
+
+
+- type: startingGear
+  id: MedTechMGear
+  equipment:
+    id: HoPPDA
+    jumpsuit: ClothingUniformJumpsuitColorGrey

@@ -1,0 +1,68 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      Title="Trauma Team Dispatch"
+                      MinSize="600 500"
+                      SetSize="800 500">
+    <!-- Material Dark Background -->
+    <PanelContainer StyleClasses="LowDivider">
+        <BoxContainer Orientation="Vertical" Margin="10">
+                <!-- Header / Logo Area -->
+                <PanelContainer StyleClasses="LowDivider" MinHeight="50" Margin="0 0 0 10">
+                     <BoxContainer Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                         <Label Text="TRAUMA TEAM INTERNATIONAL" FontColorOverride="#D32F2F" StyleClasses="LabelBig" />
+                     </BoxContainer>
+                </PanelContainer>
+
+                <!-- Table Headers - Red 700 Text, Dark Background -->
+                <PanelContainer StyleClasses="LowDivider" MinHeight="30" Margin="0 0 0 5">
+                    <BoxContainer Orientation="Horizontal" Margin="5 0">
+                        <Label Text="CLIENT NAME" HorizontalExpand="True" FontColorOverride="#D32F2F" StyleClasses="LabelHeading"/>
+                        <Control MinSize="10 0"/>
+                         <Label Text="JOB" MinWidth="100" FontColorOverride="#D32F2F" StyleClasses="LabelHeading"/>
+                        <Control MinSize="10 0"/>
+                         <Label Text="DAMAGE" MinWidth="80" FontColorOverride="#D32F2F" StyleClasses="LabelHeading"/>
+                        <Control MinSize="10 0"/>
+                        <Label Text="STATUS" MinWidth="70" FontColorOverride="#D32F2F" StyleClasses="LabelHeading" Align="Center"/>
+                        <Control MinSize="10 0"/>
+                        <Label Text="COVERAGE" MinWidth="140" FontColorOverride="#D32F2F" StyleClasses="LabelHeading" Align="Center"/>
+                    </BoxContainer>
+                </PanelContainer>
+
+                <!-- Scrollable List -->
+                <ScrollContainer VerticalExpand="True">
+                    <BoxContainer Orientation="Vertical" SeparationOverride="4">
+
+                        <!-- Platinum Section - Red 700 Header -->
+                        <PanelContainer StyleClasses="LowDivider" MinHeight="25" Margin="0 0 0 5">
+                            <Label Text="PLATINUM SUBSCRIBERS" FontColorOverride="#D32F2F" Align="Center" StyleClasses="LabelHeading"/>
+                        </PanelContainer>
+                        <BoxContainer Name="PlatinumList" Orientation="Vertical" SeparationOverride="4" Margin="0 0 0 10"/>
+
+                        <!-- General Section - Red 700 Header -->
+                        <PanelContainer StyleClasses="LowDivider" MinHeight="25" Margin="0 0 0 5">
+                            <Label Text="GENERAL SUBSCRIBERS" FontColorOverride="#D32F2F" Align="Center" StyleClasses="LabelHeading"/>
+                        </PanelContainer>
+                        <BoxContainer Name="GeneralList" Orientation="Vertical" SeparationOverride="4"/>
+
+                    </BoxContainer>
+                </ScrollContainer>
+
+                <!-- Footer -->
+                 <PanelContainer MinHeight="20" Margin="0 10 0 0">
+                     <Label Text="PLATINUM COVERAGE GUARANTEES 3-MINUTE RESPONSE TIME" FontColorOverride="#BDBDBD" Align="Center" />
+                 </PanelContainer>
+
+                 <Control MinSize="0 10"/>
+
+                 <!-- Logs Section -->
+                 <Label Text="ACTIVITY LOGS" FontColorOverride="#D32F2F" StyleClasses="LabelHeading"/>
+                 <PanelContainer StyleClasses="LowDivider" VerticalExpand="True" MinHeight="100">
+                     <ScrollContainer VerticalExpand="True">
+                         <BoxContainer Name="LogList" Orientation="Vertical" Margin="5"/>
+                     </ScrollContainer>
+                 </PanelContainer>
+
+            </BoxContainer>
+    </PanelContainer>
+</controls:FancyWindow>

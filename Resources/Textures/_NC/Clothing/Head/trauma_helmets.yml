@@ -1,0 +1,45 @@
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitTraumaTeamOperative
+  name: Шлем костюма оперативника на Trauma Team
+  description: Лёгкий медицинский шлем костюма, не ограничивающий
+  components:
+  - type: Sprite
+    sprite: _NC/Clothing/Head/Hardsuits/trauma_helmet.rsi
+  - type: Clothing
+    sprite: _NC/Clothing/Head/Hardsuits/trauma_helmet.rsi
+  - type: PointLight
+    color: "#adf1ff"
+  - type: PressureProtection
+    highPressureMultiplier: 0.6
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.1
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitTraumaTeamMedic
+  name: Шлем медика костюма на Trauma Team
+  description: Лёгкий медицинский шлем костюма, не ограничивающий
+  components:
+  - type: Sprite
+    sprite: _NC/Clothing/Head/Hardsuits/trauma_med_helmet.rsi
+  - type: Clothing
+    sprite: _NC/Clothing/Head/Hardsuits/trauma_med_helmet.rsi
+  - type: PointLight
+    color: "#adf1ff"
+  - type: PressureProtection
+    highPressureMultiplier: 0.6
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Caustic: 0.1
+  - type: Tag
+    tags:
+    - WhitelistChameleon

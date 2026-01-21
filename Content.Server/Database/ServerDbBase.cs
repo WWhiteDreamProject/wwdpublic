@@ -261,6 +261,7 @@ namespace Content.Server.Database
                 profile.Width,
                 profile.Age,
                 sex,
+                0, // BankBalance (DB SCHEMA MIGRATION REQUIRED)
                 voice, // WD EDIT
                 profile.BarkVoice, // WD EDIT
                                    // WD EDIT START

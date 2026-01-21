@@ -1,0 +1,19 @@
+- type: entity
+  id: NCStationBank
+  parent: BaseStationCargo
+  name: station bank settings
+  components:
+  - type: StationBankAccount
+    accounts:
+      CityAdmin:
+        balance: 50000
+        increasePerSecond: 15
+      TraumaTeam:
+        balance: 10000
+        increasePerSecond: 5
+      Militech:
+        balance: 25000
+        increasePerSecond: 8
+      Biotechnica:
+        balance: 15000
+        increasePerSecond: 6

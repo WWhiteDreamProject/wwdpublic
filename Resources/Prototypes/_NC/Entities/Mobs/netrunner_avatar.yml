@@ -1,0 +1,60 @@
+- type: entity
+  parent: BaseMob
+  id: NCNetrunnerAvatar
+  name: Netrunner Avatar
+  description: Проекция разума в сети.
+  components:
+  - type: MindContainer
+  - type: Input
+  - type: MobState 
+
+  # === 1. НЕВИДИМОСТЬ ===
+  # - type: Visibility
+  #   layer: 2
+  - type: Eye
+    # drawFov: false — чтобы видеть сквозь стены (как камера)
+    drawFov: false 
+    # visibilityMask: 5 — Это битовая маска (1 + 4).
+    # 1 = Normal (Видит обычный мир)
+    # 4 = Ghost (Видит других аватаров и призраков)
+    visibilityMask: 5 
+
+  # === 2. ФИЗИКА (ПРОХОД СКВОЗЬ СТЕНЫ) ===
+  - type: Physics
+    bodyType: KinematicController
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 10
+        # hard: false — означает, что физика есть, но она не "твердая" для пуль
+        hard: false 
+        # mask: GhostImpassable — сталкивается ТОЛЬКО с барьерами для призраков (край карты)
+        # Стены, шлюзы, столы — игнорируются.
+        mask:
+        - GhostImpassable 
+  
+  - type: MovementIgnoreGravity
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 6
+    baseSprintSpeed: 8 # Летает быстро
+  
+  - type: MobMover
+  - type: InputMover
+  
+  # === ВИЗУАЛ ===
+  - type: Sprite
+    sprite: Mobs/Silicon/station_ai.rsi
+    layers:
+    - state: ai_camera
+      shader: unshaded
+      # color: "#00FFFF88" — можно добавить полупрозрачность
+      map: ["base"]
+  - type: StationAiOverlay
+  
+  # === ИНТЕРФЕЙС ===
+  - type: Actions 
+  - type: ShowJobIcons
+  # УБРАЛИ: ShowHealthBars (здоровья нет)

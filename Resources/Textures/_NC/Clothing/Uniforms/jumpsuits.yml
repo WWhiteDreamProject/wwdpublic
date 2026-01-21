@@ -1,0 +1,51 @@
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitArmoredBusinessSuit
+  name: Деловой костюм с кевларом
+  description: Деловой костюм, усиленный кевларовыми вставками для дополнительной защиты. Идеально подходит для профессионалов, которым требуется сочетание стиля и безопасности в городской среде.
+  components:
+  - type: Sprite
+    sprite: _NC/Clothing/Uniforms/Jumpsuits/armored_business_suit.rsi
+  - type: Clothing
+    sprite: _NC/Clothing/Uniforms/Jumpsuits/armored_business_suit.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.7
+        Piercing: 0.7
+        Heat: 0.90
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitMilitech
+  name: Одежда работника Militech
+  description: Одежда, разработанная для сотрудников корпорации Militech. Практичный и функциональный костюм, обеспечивающий комфорт и защиту в различных условиях работы.
+  components:
+  - type: Sprite
+    sprite: _NC/Clothing/Uniforms/Jumpsuits/militech_jumpsuit.rsi
+  - type: Clothing
+    sprite:  _NC/Clothing/Uniforms/Jumpsuits/militech_jumpsuit.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.9
+        Piercing: 0.8
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitBiotech
+  name: Одежда работника Biotech
+  description: Одежда сотрудника Biotech, разработанная с учётом передовых технологий и комфорта. Идеально подходит для работы в лабораторных и полевых условиях, обеспечивая защиту и функциональность.
+  components:
+  - type: Sprite
+    sprite: _NC/Clothing/Uniforms/Jumpsuits/biotech_jumpsuit.rsi
+  - type: Clothing
+    sprite:  _NC/Clothing/Uniforms/Jumpsuits/biotech_jumpsuit.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.7
+        Slash: 0.9
+        Piercing: 0.8

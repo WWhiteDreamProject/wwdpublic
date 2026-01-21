@@ -44,6 +44,15 @@ namespace Content.Shared.PDA
         [ViewVariables] public string? StationAlertLevel;
         [ViewVariables] public Color StationAlertColor = Color.White;
 
+        [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+        public string? VehicleName;
+
+        [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+        public string? VehiclePlate;
+
+        [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+        public string? VehicleId;
+
         // WD EDIT START
         public const string AnimationKey = "pda_animation";
 

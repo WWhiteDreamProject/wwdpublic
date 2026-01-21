@@ -96,6 +96,9 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
     [DataField]
     public Sex Sex { get; private set; } = Sex.Male;
 
+    [DataField]
+    public int BankBalance { get; set; } = 0;
+
     // WD EDIT START
     [DataField]
     public string BodyType { get; set; } = SharedHumanoidAppearanceSystem.DefaultBodyType;
@@ -169,6 +172,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
         float width,
         int age,
         Sex sex,
+        int bankBalance,
         string voice, // WD EDIT
         string barkVoice, // WD EDIT
         BarkPercentageApplyData barkSettings, // WD EDIT
@@ -200,6 +204,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
         Width = width;
         Age = age;
         Sex = sex;
+        BankBalance = bankBalance;
         Voice = voice; // WD EDIT
         BarkVoice = barkVoice; // WD EDIT
         BodyType = bodyType; // WD EDIT
@@ -249,6 +254,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
             other.Width,
             other.Age,
             other.Sex,
+            other.BankBalance,
             other.Voice, // WD EDIT
             other.BarkVoice, // WD EDIT
             other.BarkSettings.Clone(), // WD EDIT
@@ -356,7 +362,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
             .EnumeratePrototypes<TTSVoicePrototype>()
             .Where(o => CanHaveVoice(o, sex)).ToArray()
         ).ID;
-         // WD EDIT END
+        // WD EDIT END
 
         var name = GetName(species, gender);
 
@@ -399,6 +405,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
         new(this) { BarkVoice = barkVoice, BarkSettings = setting.Clone() }; // WD EDIT
 
     public HumanoidCharacterProfile WithAge(int age) => new(this) { Age = age };
+    public HumanoidCharacterProfile WithBankBalance(int bankBalance) => new(this) { BankBalance = bankBalance };
     // EE - Contractors Change Start
     public HumanoidCharacterProfile WithNationality(string nationality) => new(this) { Nationality = nationality };
     public HumanoidCharacterProfile WithEmployer(string employer) => new(this) { Employer = employer };
@@ -519,6 +526,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
             && Name == other.Name
             && Age == other.Age
             && Sex == other.Sex
+            && BankBalance == other.BankBalance
             && Voice == other.Voice // WD EDIT
             && BarkVoice == other.BarkVoice // WD EDIT
             && BodyType == other.BodyType // WD EDIT
@@ -711,7 +719,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
         if (voice is null || !CanHaveVoice(voice, Sex))
             Voice = SharedHumanoidAppearanceSystem.DefaultSexVoice[sex];
 
-        if(!CanHaveBark(prototypeManager, collection))
+        if (!CanHaveBark(prototypeManager, collection))
             BarkVoice = SharedHumanoidAppearanceSystem.DefaultBarkVoice;
 
         foreach (var (key, loadout) in loadouts)
@@ -745,12 +753,12 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
     }
 
     public bool CanHaveBark(
-        IPrototypeManager prototypeManager,IDependencyCollection collection,
+        IPrototypeManager prototypeManager, IDependencyCollection collection,
         ProtoId<BarkListPrototype>? id = null
     )
     {
         var voice = BarkVoice;
-        if(
+        if (
             !prototypeManager.TryIndex<BarkListPrototype>(id ?? "default", out var barkList) ||
             !barkList.VoiceList.TryGetValue(voice, out var voiceRequirements) ||
             !prototypeManager.TryIndex<BarkVoicePrototype>(voice, out var voicePrototype))

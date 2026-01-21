@@ -1,0 +1,39 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                      xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      Title="Night City Bank ATM"
+                      SetSize="350 250"
+                      MinSize="350 250">
+    <BoxContainer Margin="10 10 10 10" Orientation="Vertical" SeparationOverride="10">
+        
+        <Label Name="StatusLabel" Text="Вставьте ID карту" Align="Center" FontColorOverride="#FF5555"/>
+
+        <Control VerticalExpand="True" />
+
+        <BoxContainer Orientation="Horizontal">
+            <Label Text="Баланс счета: " StyleClasses="LabelKeyText" />
+            <Label Name="BalanceLabel" Text="---" />
+        </BoxContainer>
+        
+        <BoxContainer Orientation="Horizontal">
+            <Label Text="Текущий налог: " StyleClasses="LabelKeyText" />
+            <Label Name="TaxLabel" Text="0%" FontColorOverride="#AAAAAA"/>
+        </BoxContainer>
+
+        <PanelContainer StyleClasses="LowDivider" />
+
+        <BoxContainer Orientation="Horizontal" SeparationOverride="5">
+            <LineEdit Name="WithdrawEdit" PlaceHolder="Сумма" MinSize="100 0" />
+            <Button Name="WithdrawButton" Text="Снять" HorizontalExpand="True"/>
+        </BoxContainer>
+
+        <PanelContainer StyleClasses="LowDivider" />
+
+        <BoxContainer Orientation="Horizontal">
+            <Label Text="В лотке: " StyleClasses="LabelKeyText" />
+            <Label Name="DepositLabel" Text="0$" />
+        </BoxContainer>
+        <Button Name="DepositButton" Text="Внести средства" />
+
+    </BoxContainer>
+</controls:FancyWindow>

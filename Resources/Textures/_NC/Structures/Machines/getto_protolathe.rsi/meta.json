@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "by yagulash(discord)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "getto_icon"
+    },
+    {
+      "name": "getto_panel"
+    },
+    {
+      "name": "getto_unlit"
+    },
+    {
+      "name": "getto_building",
+      "delays": [
+        [
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10
+        ]
+      ]
+    },
+    {
+      "name": "getto_unlit-building",
+      "delays": [
+        [
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10
+        ]
+      ]
+    },
+    {
+      "name": "inserting",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    }
+  ]
+}

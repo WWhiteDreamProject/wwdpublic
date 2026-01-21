@@ -1,0 +1,61 @@
+- type: entity
+  id: NCATM
+  name: банкомат
+  description: Терминал для операций с валютой. Взимает налог 10%. Требуется ID карта.
+  parent: BaseMachinePowered
+  components:
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 200
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: InteractionOutline
+  - type: Clickable
+  - type: ApcPowerReceiver
+    powerLoad: 100
+    needsPower: true
+  - type: Appearance
+  - type: Sprite
+    netsync: false
+    noRot: true
+    sprite: _NF/Structures/Machines/atm/atm.rsi
+    layers:
+    - map: ["computerLayerBody"]
+      state: icon
+    - map: ["computerLayerScreen"]
+      state: unshaded
+      shader: unshaded 
+      visible: false
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        computerLayerScreen:
+          True: { visible: true }
+          False: { visible: false }
+  - type: Atm
+    taxRate: 0.1
+
+  - type: ActivatableUI
+    key: enum.AtmUiKey.Key
+    inHands: false 
+    singleUser: true
+
+  - type: UserInterface
+    interfaces:
+      enum.AtmUiKey.Key:             
+        type: AtmBoundUserInterface 
+
+  - type: ContainerContainer
+    containers:
+      atm_id_slot: !type:ContainerSlot {}
+      atm_cash_slot: !type:ContainerSlot {}

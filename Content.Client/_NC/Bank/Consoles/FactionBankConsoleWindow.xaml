@@ -1,0 +1,44 @@
+<DefaultWindow xmlns="https://spacestation14.io"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+        Title="Corporate Bank"
+        Resizable="False"
+        SetSize="500 500">
+    <BoxContainer Orientation="Vertical" Margin="10">
+        <!-- Title & Balance -->
+        <Label Name="LblTitle" Text="Organization" FontColorOverride="Gold" HorizontalAlignment="Center"/>
+        <BoxContainer Orientation="Horizontal" HorizontalAlignment="Center">
+             <Label Text="Balance: " />
+             <Label Name="LblBalance" Text="0" FontColorOverride="Green"/>
+        </BoxContainer>
+
+        <Control RectClipContent="true" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" MinHeight="10"/>
+
+        <!-- Inputs -->
+        <BoxContainer Orientation="Vertical">
+            <BoxContainer Orientation="Horizontal">
+                <Label Text="Amount:" MinWidth="80"/>
+                <LineEdit Name="LeAmount" PlaceHolder="Enter amount" HorizontalExpand="True"/>
+            </BoxContainer>
+            <BoxContainer Orientation="Horizontal" Margin="0 5 0 0">
+                <Label Text="Reason:" MinWidth="80"/>
+                <LineEdit Name="LeDescription" PlaceHolder="Transaction description" HorizontalExpand="True"/>
+            </BoxContainer>
+        </BoxContainer>
+
+        <Control RectClipContent="true" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" MinHeight="10"/>
+
+        <!-- Buttons -->
+         <BoxContainer Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Name="BtnWithdraw" Text="Withdraw" MinWidth="100"/>
+            <Control MinSize="20 0"/>
+            <Button Name="BtnDeposit" Text="Deposit" MinWidth="100"/>
+        </BoxContainer>
+
+        <Control RectClipContent="true" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" MinHeight="20"/>
+
+        <Label Text="Transaction Logs:" FontColorOverride="LightGray"/>
+        <ItemList Name="LogList" VerticalExpand="True" MinHeight="200" SelectMode="None"/>
+
+    </BoxContainer>
+</DefaultWindow>

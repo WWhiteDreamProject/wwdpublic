@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "by yagulash(discord)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "biotech_icon"
+    },
+    {
+      "name": "biotech_panel"
+    },
+    {
+      "name": "biotech_unlit"
+    },
+    {
+      "name": "biotech_building",
+      "delays": [
+        [
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10
+        ]
+      ]
+    },
+    {
+      "name": "biotech_unlit-building",
+      "delays": [
+        [
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10
+        ]
+      ]
+    },
+    {
+      "name": "inserting",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    }
+  ]
+}

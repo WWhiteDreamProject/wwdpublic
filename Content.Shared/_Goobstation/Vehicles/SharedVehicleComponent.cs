@@ -50,6 +50,15 @@ public sealed partial class VehicleComponent : Component
     /// </summary>
     [DataField]
     public VehicleRenderOver RenderOver = VehicleRenderOver.None;
+
+    /// <summary>
+    /// The slot name where the key is inserted.
+    /// </summary>
+    [DataField]
+    public string KeySlot = "key_slot";
+
+    [ViewVariables(VVAccess.ReadWrite)]
+    public bool IsBroken = false;
 }
 [Serializable, NetSerializable]
 public enum VehicleState : byte

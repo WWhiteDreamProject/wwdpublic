@@ -1,0 +1,97 @@
+- type: entity
+  id: NCBaseFactionBankConsole
+  parent: BaseComputer
+  name: corporate bank console
+  abstract: true
+  components:
+  - type: FactionBankConsole
+  - type: ActivatableUI
+    key: enum.FactionBankConsoleUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.FactionBankConsoleUiKey.Key:
+        type: FactionBankConsoleBoundUserInterface
+  - type: ContainerContainer
+    containers:
+      cash_slot: !type:Container {}
+      board: !type:Container {}
+
+- type: entity
+  id: NCConsoleCityAdmin
+  parent: NCBaseFactionBankConsole
+  name: city admin bank console
+  components:
+  - type: FactionBankConsole
+    bankAccount: CityAdmin
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: command
+    - map: ["computerLayerKeys"]
+      state: generic_keys
+  - type: AccessReader
+    access: [["Command"]]
+
+- type: entity
+  id: NCConsoleTraumaTeam
+  parent: NCBaseFactionBankConsole
+  name: trauma team bank console
+  components:
+  - type: FactionBankConsole
+    bankAccount: TraumaTeam
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: med
+    - map: ["computerLayerKeys"]
+      state: generic_keys
+  - type: AccessReader
+    access: [["Medical"]]
+
+- type: entity
+  id: NCConsoleMilitech
+  parent: NCBaseFactionBankConsole
+  name: militech bank console
+  components:
+  - type: FactionBankConsole
+    bankAccount: Militech
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: sec
+    - map: ["computerLayerKeys"]
+      state: generic_keys
+  - type: AccessReader
+    access: [["Security"]]
+
+- type: entity
+  id: NCConsoleBiotechnica
+  parent: NCBaseFactionBankConsole
+  name: biotechnica bank console
+  components:
+  - type: FactionBankConsole
+    bankAccount: Biotechnica
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: research
+    - map: ["computerLayerKeys"]
+      state: generic_keys
+  - type: AccessReader
+    access: [["Research"]]

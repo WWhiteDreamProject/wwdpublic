@@ -6,6 +6,36 @@
   components:
   - type: Vehicle
     renderOver: East, SouthEast, South, SouthWest, West
+  - type: NCVehicle
+    fuelConsumptionPerSecond: 0.5
+    idleFuelConsumption: 0.1
+    collisionDamageMultiplier: 5.0
+    minCollisionSpeed: 5.0
+  - type: Lock
+    locked: false
+  - type: SolutionContainerManager
+    solutions:
+      fuel:
+        maxVol: 1000
+        reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 500
+  - type: RefillableSolution
+    solution: fuel
+  - type: ExaminableSolution
+    solution: fuel
+  - type: Storage
+    grid:
+    - 0,0,5,2
+    maxItemSize: Normal
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
   - type: Strap
     position: Stand
   - type: Appearance

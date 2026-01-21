@@ -1,0 +1,34 @@
+# Jobs Militech
+- type: playTimeTracker
+  id: JobHoDM
+
+- type: playTimeTracker
+  id: JobHoSM
+
+- type: playTimeTracker
+  id: JobMedTechM
+
+- type: playTimeTracker
+  id: JobOperativeM
+
+- type: playTimeTracker
+  id: JobSCM
+
+- type: playTimeTracker
+  id: JobSecM
+
+# Jobs NCPD
+- type: playTimeTracker
+  id: JobNCPDOfficer
+
+- type: playTimeTracker
+  id: JobNCPDSWAT
+
+- type: playTimeTracker
+  id: JobNCPDInspector
+
+- type: playTimeTracker
+  id: JobNCPDChief
+
+
+

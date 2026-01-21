@@ -1,0 +1,8 @@
+- type: entity
+  id: NCVehicleSeat
+  name: passenger seat
+  components:
+  - type: Strap
+    position: Stand
+    buckleOffset: "0, 0"
+  - type: InteractionOutline

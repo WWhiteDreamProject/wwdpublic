@@ -1,0 +1,18 @@
+- type: job
+  id: TraumaTeamDoctor
+  name: Врач TraumaTeam
+  description: job-description-traumateam-doctor
+  playTimeTracker: JobTraumaTeamDoctor
+  startingGear: TraumaTeamDoctorGear
+  access:
+    - Medical
+
+- type: startingGear
+  id: TraumaTeamDoctorGear
+  equipment:
+    id: HoPPDA
+    jumpsuit: ClothingUniformJumpsuitMedicalDoctor
+    ears: ClothingHeadsetMedical
+    belt: ClothingBeltMedicalFilled
+    back: ClothingBackpackSatchelMedical
+    shoes: ClothingShoesColorWhite

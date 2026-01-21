@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "by yagulash(discord)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "militech_icon"
+    },
+    {
+      "name": "militech_panel"
+    },
+    {
+      "name": "militech_unlit"
+    },
+    {
+      "name": "militech_building",
+      "delays": [
+        [
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10
+        ]
+      ]
+    },
+    {
+      "name": "militech_unlit-building",
+      "delays": [
+        [
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10,
+          0.10
+        ]
+      ]
+    },
+    {
+      "name": "inserting",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    }
+  ]
+}

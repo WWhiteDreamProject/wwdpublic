@@ -125,6 +125,12 @@ namespace Content.Shared.Roles
         [DataField("antagAdvantage")]
         public int AntagAdvantage = 0;
 
+        /// <summary>
+        ///     The salary paid to this job periodically (Bank System).
+        /// </summary>
+        [DataField("salary")]
+        public int Salary { get; private set; } = 0;
+
         [DataField("startingGear", customTypeSerializer: typeof(PrototypeIdSerializer<StartingGearPrototype>))]
         public string? StartingGear { get; private set; }
 

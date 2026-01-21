@@ -1,0 +1,86 @@
+- type: entity
+  id: VehicleAmeriCar
+  parent: BaseVehicle
+  name: AmeriCar
+  description: Classic American muscle car. Seats 3 people and has a spacious trunk.
+  components:
+  - type: Sprite
+    sprite: _NC/Objects/Vehicle/americar.rsi
+    scale: 0.75, 0.75
+    layers:
+    - state: hull
+    - state: vehicle
+    - state: engine
+    - state: lights
+      shader: unshaded
+      visible: false
+    noRot: true
+  - type: Vehicle
+    hornSound:
+      collection: BikeHorn
+      params:
+        variation: 0.125
+    renderOver: North, NorthEast, East, SouthEast, South, SouthWest, West, NorthWest
+  - type: Lock
+    locked: false
+  - type: Strap
+    buckleOffset: "0, 0.15"
+  - type: NCVehicle
+    fuelConsumptionPerSecond: 3.5
+    idleFuelConsumption: 0.1
+    collisionDamageMultiplier: 6.0 # High Speed ram
+    minCollisionSpeed: 5.0
+    selfDamageMultiplier: 3.0
+    hidePassengers: true
+    # Passenger Seats
+    passengerSlots:
+    - "0.2, -0.1"
+  - type: MovementSpeedModifier
+    baseAcceleration: 6
+    baseFriction: 0.3
+    baseSprintSpeed: 7.0
+    baseWalkSpeed: 4.0
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.75,-0.375,0.75,0.375"
+        density: 500  # Heavier than base vehicles
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Storage  # Larger trunk
+    grid:
+    - 0,0,6,3
+    maxItemSize: Ginormous  # Accepts almost anything
+  - type: SolutionContainerManager
+    solutions:
+      fuel:
+        maxVol: 2000  # Bigger fuel tank
+        reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 1000
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: ItemSlots
+    slots:
+      key_slot:
+        name: vehicle-slot-component-slot-name-keys
+        whitelist:
+          requireAll: false
+          components:
+          - IdCard
+          tags:
+          - AmeriCarKeys
+        insertSound:
+          path: /Audio/Effects/Vehicle/vehiclestartup.ogg
+          params:
+            volume: -3

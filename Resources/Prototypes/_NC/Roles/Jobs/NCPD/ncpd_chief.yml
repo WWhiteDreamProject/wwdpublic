@@ -1,0 +1,22 @@
+- type: job
+  id: NCPDChief
+  name: Начальник полиции
+  description: job-description-ncpd-chief
+  playTimeTracker: JobNCPDChief
+  startingGear: NCPDChiefGear
+  icon: "JobIconHeadOfSecurity" #TODO: заменить иконку
+  access:
+    - ChiefNCPD
+    - NCPD
+
+- type: startingGear
+  id: NCPDChiefGear
+  equipment:
+    id: HoPPDA
+    jumpsuit: ClothingUniformJumpsuitBlueshieldOfficer
+    outerCloting: ClothingOuterCoatHoSTrench
+    ears: ClothingHeadsetSecurity
+    back: ClothingBackpackSatchelSecurity
+    shoes: ClothingShoesBootsJack
+    head: ClothingHeadHatBeretHoS
+    eyes: ClothingEyesGlassesSecurity
