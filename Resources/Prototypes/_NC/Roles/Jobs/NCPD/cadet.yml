@@ -17,6 +17,6 @@
     back: ClothingBackpackSecurity
     shoes: ClothingShoesBootsJack
     head: ClothingHeadHatBeretSecurity
-    ears: ClothingHeadsetSecurity
+    ears: ClothingHeadsetAltSecurity
     id: SecurityPDA
     belt: ClothingBeltSecurityFilled

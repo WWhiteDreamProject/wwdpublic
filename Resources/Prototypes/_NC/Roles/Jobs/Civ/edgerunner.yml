@@ -14,6 +14,6 @@
     back: ClothingBackpackSatchelSecurity
     shoes: ClothingShoesBootsCombat
     id: PassengerPDA
-    ears: ClothingHeadsetSecurity
+    ears: ClothingHeadsetAltSecurity
     gloves: ClothingHandsGlovesColorBlack
-    outerClothing: ClothingOuterVestKevlar
+    outerClothing: ClothingOuterArmorBasic

@@ -1,0 +1,173 @@
+- type: storeContractPack
+  id: PackBazar
+  contracts:
+  - id: caravan_contract_MaterialThread
+    weight: 50
+  - id: caravan_contract_MaterialCloth
+    weight: 50
+  - id: caravan_contract_MaterialWoodPlank1
+    weight: 50
+  - id: caravan_contract_FloraProduceTomato
+    weight: 50
+  - id: caravan_contract_FoodMeat
+    weight: 50
+  - id: caravan_contract_MobRat
+    weight: 50
+  - id: caravan_contract_MobCockroach
+    weight: 50
+  - id: caravan_contract_MobChicken
+    weight: 50
+
+- type: storeContractsPreset
+  id: PresetBazar
+  limits:
+    Easy: 3
+    Medium: 2
+    Hard: 1
+  packs:
+  - id: PackBazar
+    weight: 1
+
+- type: storeContract
+  id: caravan_contract_MaterialThread
+  name: "Требуются нитки"
+  description: "Для создания новой одежды требуются нитки."
+  difficulty: Easy
+  targets:
+  - id: MaterialDurathread1
+    required: { min: 3, max: 6 }
+  rewards:
+  - type: Currency
+    id: SpaceCash
+    amount: { min: 100, max: 150 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_easy
+
+- type: storeContract
+  id: caravan_contract_MaterialCloth
+  name: "Требуется ткань"
+  description: "Для создания новой одежды нужна ткань."
+  difficulty: Easy
+  targets:
+  - id: MaterialCloth1
+    required: { min: 3, max: 6 }
+  rewards:
+  - type: Currency
+    id: SpaceCash
+    amount: { min: 100, max: 150 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_easy
+
+- type: storeContract
+  id: caravan_contract_MaterialWoodPlank1
+  name: "Древесина"
+  description: "Нужна древесина для строительства."
+  difficulty: Easy
+  targets:
+  - id: MaterialWoodPlank1
+    required: { min: 6, max: 15 }
+  rewards:
+  - type: Currency
+    id: SpaceCash
+    amount: { min: 100, max: 150 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_easy
+
+- type: storeContract
+  id: caravan_contract_FloraProduceTomato
+  name: "Помидоры"
+  description: "Нужны свежие помидоры для салата."
+  difficulty: Easy
+  targets:
+  - id: FoodTomato
+    required: { min: 3, max: 6 }
+  rewards:
+  - type: Currency
+    id: SpaceCash
+    amount: { min: 100, max: 150 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_easy
+
+- type: storeContract
+  id: caravan_contract_FoodMeat
+  name: "Мясо"
+  description: "Нужно свежее мясо."
+  difficulty: Easy
+  targets:
+  - id: FoodMeat
+    required: { min: 3, max: 5 }
+  rewards:
+  - type: Currency
+    id: SpaceCash
+    amount: { min: 100, max: 150 }
+  - type: Pool
+    amount: { min: 1, max: 3 }
+    options:
+    - type: Pool
+      id: caravan_easy
+
+- type: storeContract
+  id: caravan_contract_MobRat
+  name: "Мыши"
+  description: "Избавь нас от грызунов, принеси их тушки."
+  difficulty: Easy
+  targets:
+  - id: MobMouse
+    required: { min: 2, max: 4 }
+  rewards:
+  - type: Currency
+    id: SpaceCash
+    amount: { min: 50, max: 100 }
+  - type: Pool
+    amount: 1
+    options:
+    - type: Pool
+      id: caravan_easy
+
+- type: storeContract
+  id: caravan_contract_MobCockroach
+  name: "Тараканы"
+  description: "Мерзкие твари. Убей их."
+  difficulty: Easy
+  targets:
+  - id: MobCockroach
+    required: { min: 3, max: 6 }
+  rewards:
+  - type: Currency
+    id: SpaceCash
+    amount: { min: 50, max: 100 }
+  - type: Pool
+    amount: 1
+    options:
+    - type: Pool
+      id: caravan_easy
+
+- type: storeContract
+  id: caravan_contract_MobChicken
+  name: "Курица"
+  description: "Принеси курочку на суп."
+  difficulty: Easy
+  targets:
+  - id: MobChicken
+    required: 1
+  rewards:
+  - type: Currency
+    id: SpaceCash
+    amount: { min: 100, max: 150 }
+  - type: Pool
+    amount: 1
+    options:
+    - type: Pool
+      id: caravan_easy

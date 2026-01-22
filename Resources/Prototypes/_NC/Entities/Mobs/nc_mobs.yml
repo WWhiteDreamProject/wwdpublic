@@ -1,0 +1,135 @@
+- type: entity
+  parent: MobHuman
+  id: MobNCCitizen
+  name: Citizen
+  components:
+  - type: Loadout
+    prototypes: [NCCitizenGear]
+
+- type: entity
+  parent: MobHuman
+  id: MobNCReaper
+  name: Ripper
+  components:
+  - type: Loadout
+    prototypes: [ReaperGear]
+
+- type: entity
+  parent: MobHuman
+  id: MobNCFixer
+  name: Fixer
+  components:
+  - type: Loadout
+    prototypes: [FixerGear]
+
+- type: entity
+  parent: MobHuman
+  id: MobNCEdgeRunner
+  name: EdgeRunner
+  components:
+  - type: Loadout
+    prototypes: [EdgeRunnerSoloGear]
+
+- type: entity
+  parent: MobHuman
+  id: MobNCPDChief
+  name: NCPD Chief
+  components:
+  - type: Loadout
+    prototypes: [NCPDChiefGear]
+
+- type: entity
+  parent: MobHuman
+  id: MobNCPDWatchAgent
+  name: NCPD Watch Agent
+  components:
+  - type: Loadout
+    prototypes: [NCPDWatchAgentGear]
+
+- type: entity
+  parent: MobHuman
+  id: MobNCPDSergeant
+  name: NCPD Sergeant
+  components:
+  - type: Loadout
+    prototypes: [NCPDSergeantGear]
+
+- type: entity
+  parent: MobHuman
+  id: MobNCPDOfficer
+  name: NCPD Officer
+  components:
+  - type: Loadout
+    prototypes: [NCPDOfficerGear]
+
+- type: entity
+  parent: MobHuman
+  id: MobNCPDCadet
+  name: NCPD Cadet
+  components:
+  - type: Loadout
+    prototypes: [NCPDCadetGear]
+
+- type: entity
+  parent: MobHuman
+  id: MobMaxTacCommander
+  name: MaxTac Commander
+  components:
+  - type: Loadout
+    prototypes: [MaxTacCommanderGear]
+
+- type: entity
+  parent: MobHuman
+  id: MobMaxTacOperative
+  name: MaxTac Operative
+  components:
+  - type: Loadout
+    prototypes: [MaxTacOperativeGear]
+
+- type: entity
+  parent: MobHuman
+  id: MobMaxTacNetrunner
+  name: MaxTac Netrunner
+  components:
+  - type: Loadout
+    prototypes: [MaxTacNetrunnerGear]
+
+- type: entity
+  parent: MobHuman
+  id: MobTraumaTeamChief
+  name: Trauma Team Chief
+  components:
+  - type: Loadout
+    prototypes: [TraumaTeamChiefGear]
+
+- type: entity
+  parent: MobHuman
+  id: MobTraumaTeamDoctor
+  name: Trauma Team Doctor
+  components:
+  - type: Loadout
+    prototypes: [TraumaTeamDoctorGear]
+
+- type: entity
+  parent: MobHuman
+  id: MobTraumaTeamChemist
+  name: Trauma Team Chemist
+  components:
+  - type: Loadout
+    prototypes: [TraumaTeamChemistGear]
+
+- type: entity
+  parent: MobHuman
+  id: MobTraumaTeamParamedic
+  name: Trauma Team Paramedic
+  components:
+  - type: Loadout
+    prototypes: [TraumaTeamParamedicGear]
+
+- type: entity
+  parent: MobHuman
+  id: MobTraumaTeamOperative
+  name: Trauma Team Operative
+  components:
+  - type: Loadout
+    prototypes: [TraumaTeamOperativeGear]

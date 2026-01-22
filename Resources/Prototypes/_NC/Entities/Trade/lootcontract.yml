@@ -1,0 +1,30 @@
+- type: entity
+  name: Briefcase
+  parent: BaseItem
+  id: NcBriefcaseContract
+  description: A small tin hiding riches, treasures, or maybe just garbage. You'll only know when you open it.
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Objects/Storage/Briefcases/briefcase_brown.rsi
+    state: icon
+  - type: Item
+    sprite: Objects/Storage/Briefcases/briefcase_brown.rsi
+    size: Huge
+  - type: StaticPrice
+    price: 0
+
+- type: entity
+  name: Briefcase
+  parent: NcBriefcaseContract
+  id: NcBriefcaseContractSS
+  description: A small tin hiding riches, treasures, or maybe just garbage. You'll only know when you open it.
+  components:
+  - type: SpawnItemsOnUse
+    items:
+      - id: WeaponSubMachineGunWt550
+      - id: MagazinePistolHighCapacity
+        amount: 3
+      - id: MagazineBoxPistol
+    sound:
+      path: /Audio/Items/can_open3.ogg

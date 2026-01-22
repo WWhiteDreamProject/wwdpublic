@@ -10,7 +10,7 @@
 - type: startingGear
   id: FixerGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitFormal
+    jumpsuit: ClothingUniformJumpsuitDetectiveGrey
     back: ClothingBackpackSatchelLeather
     shoes: ClothingShoesColorBlack
     id: PassengerPDA

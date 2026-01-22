@@ -1,0 +1,53 @@
+<PanelContainer xmlns="https://spacestation14.io"
+                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                xmlns:controls="clr-namespace:Content.Client._NC.Trade.Controls"
+                HorizontalExpand="True"
+                VerticalExpand="True"
+                StyleClasses="PanelBackgroundBaseDark">
+
+    <BoxContainer Orientation="Horizontal"
+                  HorizontalExpand="True"
+                  VerticalExpand="True">
+
+        <PanelContainer VerticalExpand="True"
+                        MinWidth="230"
+                        StyleClasses="PanelBackgroundBaseDark">
+            <BoxContainer Orientation="Vertical"
+                          VerticalExpand="True">
+                <Label Name="TabHeading"
+                       StyleClasses="LabelHeading"
+                       Margin="6 6 6 6" />
+
+                <controls:NcCategoryBar Name="CategoryBar"
+                                        VerticalExpand="True"
+                                        HorizontalExpand="True" />
+            </BoxContainer>
+        </PanelContainer>
+
+        <PanelContainer MinWidth="1"
+                        StyleClasses="HighDivider" />
+
+        <BoxContainer Orientation="Vertical"
+                      VerticalExpand="True"
+                      HorizontalExpand="True"
+                      Margin="6 4 6 4">
+
+            <Label Name="CategoryHeader"
+                   StyleClasses="LabelHeading"
+                   Margin="0 0 0 6"
+                   Text="{Loc 'nc-store-select-category'}" />
+
+            <BoxContainer Name="MassSellRow"
+                          Orientation="Horizontal"
+                          Margin="0 0 0 6"
+                          Visible="False">
+                <Button Name="MassSellButton"
+                        MinWidth="260" />
+            </BoxContainer>
+
+            <controls:NcListingsPane Name="Pane"
+                                    VerticalExpand="True"
+                                    HorizontalExpand="True" />
+        </BoxContainer>
+    </BoxContainer>
+</PanelContainer>

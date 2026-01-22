@@ -1,0 +1,22 @@
+<BoxContainer xmlns="https://spacestation14.io"
+              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+              Orientation="Vertical"
+              SeparationOverride="0"
+              HorizontalExpand="True"
+              VerticalExpand="True">
+
+    <Label Name="MessageLabel"
+           HorizontalExpand="True"
+           Visible="False" />
+
+    <BoxContainer Name="ItemsHost"
+                  Orientation="Vertical"
+                  SeparationOverride="0"
+                  HorizontalExpand="True"
+                  VerticalExpand="True" />
+
+    <Button Name="MoreButton"
+            HorizontalExpand="True"
+            Margin="0 8 0 8"
+            Visible="False" />
+</BoxContainer>

@@ -19,7 +19,7 @@
     back: ClothingBackpackSatchelSecurity
     shoes: ClothingShoesBootsCombatFilled
     head: ClothingHeadHelmetHardsuitSecurity
-    ears: ClothingHeadsetSecurity
+    ears: ClothingHeadsetAltSecurity
     id: SciencePDA
     belt: ClothingBeltSecurityFilled
     outerClothing: ClothingOuterHardsuitSecurity

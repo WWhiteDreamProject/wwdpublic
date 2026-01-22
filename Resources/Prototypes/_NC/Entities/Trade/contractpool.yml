@@ -1,0 +1,115 @@
+- type: ncContractRewardPool
+  id: caravan_easy
+  entries:
+  - type: Item
+    id: WeaponPistolMk58
+    weight: 1
+  - type: Item
+    id: WeaponPistolViper
+    weight: 1
+  - type: Item
+    id: WeaponLaserGun
+    weight: 1
+  - type: Item
+    id: SheetSteel
+    amount: { min: 4, max: 8 }
+    weight: 3
+  - type: Item
+    id: SheetGlass
+    amount: { min: 4, max: 8 }
+    weight: 3
+  - type: Item
+    id: IngotGold
+    amount: { min: 1, max: 2 }
+    weight: 1
+  - type: Item
+    id: IngotSilver
+    amount: { min: 2, max: 4 }
+    weight: 3
+  - type: Item
+    id: Syringe
+    amount: { min: 1, max: 3 }
+    weight: 3
+  - type: Item
+    id: ClothingOuterArmorBasic
+    weight: 3
+  - type: Item
+    id: ClothingHeadHelmetBasic
+    weight: 3
+  - type: Item
+    id: ClothingOuterCoatTrench
+    weight: 3
+
+- type: ncContractRewardPool
+  id: caravan_medium
+  entries:
+  - type: Item
+    id: MedkitFilled
+    weight: 2
+  - type: Item
+    id: WeaponShotgunBulldog
+    weight: 1
+  - type: Item
+    id: WeaponLaserCarbine
+    weight: 1
+  - type: Item
+    id: ClothingOuterArmorVest
+    weight: 2
+  - type: Item
+    id: ClothingHeadHelmetRiot
+    weight: 2
+  - type: Item
+    id: WeaponSubMachineGunWt550
+    weight: 2
+  - type: Item
+    id: ClothingOuterHardsuitSecurity
+    weight: 1
+  - type: Item
+    id: WeaponEnergyGun
+    weight: 1
+  - type: Item
+    id: WeaponSubMachineGunC20r
+    weight: 1
+
+- type: ncContractRewardPool
+  id: caravan_hard
+  entries:
+  - type: Item
+    id: MedkitCombatFilled
+    weight: 1
+  - type: Item
+    id: WeaponShotgunEnforcer
+    weight: 1
+  - type: Item
+    id: WeaponRifleAk
+    weight: 1
+  - type: Item
+    id: WeaponRifleM90GrenadeLauncher
+    weight: 1
+  - type: Item
+    id: ClothingOuterArmorRiot
+    weight: 1
+  - type: Item
+    id: ClothingHeadHelmetHardsuitSecurity
+    weight: 1
+  - type: Item
+    id: WeaponPulseRifle
+    weight: 1
+
+- type: ncContractRewardPool
+  id: caravan_easy_nonweapons
+  entries:
+  - type: Item
+    id: SheetSteel
+    amount: { min: 4, max: 8 }
+    weight: 3
+  - type: Item
+    id: IngotSilver
+    amount: { min: 2, max: 4 }
+    weight: 3
+  - type: Item
+    id: ClothingOuterArmorBasic
+    weight: 1
+  - type: Item
+    id: ClothingHeadHelmetBasic
+    weight: 2

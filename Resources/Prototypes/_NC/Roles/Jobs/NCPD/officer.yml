@@ -16,8 +16,8 @@
     jumpsuit: ClothingUniformJumpsuitSecBlue
     back: ClothingBackpackSecurity
     shoes: ClothingShoesBootsJack
-    head: ClothingHeadHelmetSecurity
-    ears: ClothingHeadsetSecurity
+    head: ClothingHeadHelmetBasic
+    ears: ClothingHeadsetAltSecurity
     id: SecurityPDA
     belt: ClothingBeltSecurityFilled
     outerClothing: ClothingOuterArmorBasic

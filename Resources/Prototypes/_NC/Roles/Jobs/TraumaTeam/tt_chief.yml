@@ -19,9 +19,9 @@
     jumpsuit: ClothingUniformJumpsuitCMO
     back: ClothingBackpackSatchelMedical
     shoes: ClothingShoesColorWhite
-    head: ClothingHeadHatBeretMedical
+    head: ClothingHeadHatBeretSeniorPhysician
     eyes: ClothingEyesGlassesSunglasses
-    ears: ClothingHeadsetMedical
+    ears: ClothingHeadsetCMO
     id: CMOPDA
     belt: ClothingBeltMedicalFilled
-    outerClothing: ClothingOuterCoatCMO
+    outerClothing: ClothingOuterCoatLabCmo

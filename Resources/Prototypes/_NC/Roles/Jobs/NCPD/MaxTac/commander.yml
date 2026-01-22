@@ -24,7 +24,7 @@
     shoes: ClothingShoesBootsCombatFilled
     head: ClothingHeadHelmetHardsuitSecurityRed
     eyes: ClothingEyesGlassesSunglasses
-    ears: ClothingHeadsetSecurity
+    ears: ClothingHeadsetAltSecurity
     id: HoSPDA
     belt: ClothingBeltSecurityFilled
     outerClothing: ClothingOuterHardsuitSecurityRed

@@ -1,0 +1,220 @@
+- type: entity
+  id: Trademachine
+  abstract: true
+  name: Торговый автомат Города
+  description: Нужно срочно — он рядом. Выбирай, плати, забирай.
+  suffix: vendor, normal
+  components:
+  - type: UserInterface
+    interfaces:
+      enum.StoreUiKey.Key:
+        type: NcStoreStructuredBoundUi
+  - type: ActivatableUI
+    key: enum.StoreUiKey.Key
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Transform
+    anchored: true
+    noRot: true
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        density: 300
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Sprite
+    sprite: Structures/Machines/VendingMachines/ammo.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "normal-unshaded"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+  - type: PointLight
+    radius: 2.5
+    energy: 1
+    color: "#b34747"
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+
+- type: entity
+  id: TrademachineCity
+  parent: Trademachine
+  name: Торговый автомат Города
+  description: Нужно срочно — он рядом. Выбирай, плати, забирай.
+  suffix: vendor, normal
+  components:
+  - type: NcStore
+    buyPresets:
+    - TradeCity_Buy
+    sellPresets:
+    - TradeCity_Sell
+    contractPresets:
+    - PresetBazar
+
+- type: entity
+  id: TrademachineTickets
+  parent: Trademachine
+  name: торговый автомат каравана
+  description: Специфичный по своей сути торговый автомат, который принимает талоны каравана, взамен предоставляя отличное снаряжение.
+  suffix: vendor, Tickets
+  components:
+  - type: NcStore
+    buyPresets:
+    - TradeTickets_Buy
+    sellPresets:
+    - TradeTickets_Sell
+  - type: Sprite
+    sprite: Structures/Machines/VendingMachines/ammo.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "normal-unshaded"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+
+# ----------------------------
+# TradeCity Categories (Standard Currency)
+# ----------------------------
+
+- type: storeCategoryStructured
+  id: Cat_City_Weapons
+  name: "Оружие"
+  entries:
+  - proto: WeaponPistolMk58
+    price: 300
+  - proto: WeaponPistolViper
+    price: 250
+  - proto: WeaponSubMachineGunWt550
+    price: 800
+  - proto: WeaponSubMachineGunC20r
+    price: 1200
+  - proto: WeaponShotgunBulldog
+    price: 1200
+  - proto: WeaponShotgunEnforcer
+    price: 1500
+  - proto: WeaponRifleAk
+    price: 2500
+  - proto: WeaponRifleM90GrenadeLauncher
+    price: 3500
+
+- type: storeCategoryStructured
+  id: Cat_City_Ammo
+  name: "Патроны"
+  entries:
+  - proto: MagazinePistol
+    price: 40
+  - proto: MagazinePistolHighCapacity
+    price: 80
+  - proto: MagazineLightRifle
+    price: 60
+  - proto: MagazineRifle
+    price: 80
+  - proto: MagazineMagnum
+    price: 100
+  - proto: SpeedLoaderPistol
+    price: 40
+  - proto: SpeedLoaderMagnum
+    price: 80
+
+- type: storeCategoryStructured
+  id: Cat_City_Melee
+  name: "Ближний Бой"
+  entries:
+  - proto: Stunbaton
+    price: 250
+
+- type: storeCategoryStructured
+  id: Cat_City_Medical
+  name: "Медикаменты"
+  entries:
+  - proto: MedkitFilled
+    price: 100
+  - proto: Brutepack
+    price: 20
+  - proto: Ointment
+    price: 20
+  - proto: Syringe
+    price: 10
+  - proto: PillCanisterBicaridine
+    price: 50
+  - proto: PillCanisterKelotane
+    price: 50
+  - proto: PillCanisterTricordrazine
+    price: 80
+
+- type: storeCategoryStructured
+  id: Cat_City_Apparel
+  name: "Снаряжение"
+  entries:
+  - proto: ClothingOuterArmorBasic
+    price: 300
+  - proto: ClothingOuterArmorVest
+    price: 250
+  - proto: ClothingOuterCoatTrench
+    price: 150
+  - proto: ClothingOuterVestWebMerc
+    price: 200
+  - proto: ClothingShoesBootsCombat
+    price: 100
+  - proto: ClothingEyesGlassesSunglasses
+    price: 50
+
+- type: storePresetStructured
+  id: TradeCity_Buy
+  currency: SpaceCash
+  categories:
+  - Cat_City_Weapons
+  - Cat_City_Ammo
+  - Cat_City_Melee
+  - Cat_City_Medical
+  - Cat_City_Apparel
+
+- type: storePresetStructured
+  id: TradeCity_Sell
+  currency: SpaceCash
+  categories:
+  - Cat_City_Weapons
+  - Cat_City_Ammo
+  - Cat_City_Melee
+  - Cat_City_Apparel
+
+# ----------------------------
+# TradeTickets Categories (Prize Tickets)
+# ----------------------------
+
+- type: storeCategoryStructured
+  id: Cat_Tickets_Exotic
+  name: "Элитное Снаряжение"
+  entries:
+  - proto: WeaponPistolCobra
+    price: 5
+  - proto: WeaponRevolverPython
+    price: 4
+  - proto: WeaponRifleLecter
+    price: 8
+  - proto: ClothingOuterArmorRiot
+    price: 6
+  - proto: ClothingOuterHardsuitSecurity
+    price: 15
+
+- type: storePresetStructured
+  id: TradeTickets_Buy
+  currency: PrizeTicket
+  categories:
+  - Cat_Tickets_Exotic
+  - Cat_City_Ammo
+  - Cat_City_Medical
+
+- type: storePresetStructured
+  id: TradeTickets_Sell
+  currency: PrizeTicket
+  categories:
+  - Cat_Tickets_Exotic

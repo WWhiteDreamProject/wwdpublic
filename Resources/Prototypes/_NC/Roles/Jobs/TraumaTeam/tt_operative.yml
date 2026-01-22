@@ -17,9 +17,9 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitSecBlue
     back: ClothingBackpackSecurity
-    shoes: ClothingShoesBootsCombatFilled
+    shoes: ClothingShoesBootsCombat
     head: ClothingHeadHelmetHardsuitTraumaTeamOperative
-    ears: ClothingHeadsetSecurity
+    ears: ClothingHeadsetAltSecurity
     id: SecurityPDA
     belt: ClothingBeltSecurityFilled
     outerClothing: ClothingOuterHardsuitTraumaTeamOperative

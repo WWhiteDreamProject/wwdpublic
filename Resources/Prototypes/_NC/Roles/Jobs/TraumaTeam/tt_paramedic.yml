@@ -15,7 +15,7 @@
 - type: startingGear
   id: TraumaTeamParamedicGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitMedicalParamedic
+    jumpsuit: ClothingUniformJumpsuitParamedic
     back: ClothingBackpackSatchelMedical
     shoes: ClothingShoesBootsCombat
     head: ClothingHeadHelmetHardsuitTraumaTeamMedic

@@ -1,0 +1,59 @@
+<controls1:FancyWindow
+    xmlns="https://spacestation14.io"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls1="clr-namespace:Content.Client.UserInterface.Controls"
+    xmlns:controls="clr-namespace:Content.Client._NC.Trade.Controls"
+    Title="{Loc 'nc-store-window-title'}"
+    MinWidth="1300" MinHeight="820"
+    StyleClasses="WindowLarge">
+    <BoxContainer Orientation="Vertical" StyleClasses="PanelBackgroundBase">
+        <controls:NcStoreHeaderBar Name="Header"
+                               Margin="4 4 4 0"
+                               StyleClasses="PanelBackgroundBaseDark" />
+
+        <TabContainer Name="Tabs"
+                      StyleClasses="TabContainerLarge"
+                      VerticalExpand="True"
+                      Margin="4">
+
+            <PanelContainer Name="TabBuy"
+                            VerticalExpand="True"
+                            StyleClasses="PanelBackgroundBaseDark">
+                <controls:NcStoreListingsView Name="BuyView"
+                                             VerticalExpand="True"
+                                             HorizontalExpand="True" />
+            </PanelContainer>
+
+            <PanelContainer Name="TabSell"
+                            VerticalExpand="True"
+                            StyleClasses="PanelBackgroundBaseDark">
+                <controls:NcStoreListingsView Name="SellView"
+                                             VerticalExpand="True"
+                                             HorizontalExpand="True" />
+            </PanelContainer>
+
+            <PanelContainer Name="TabContracts"
+                            VerticalExpand="True"
+                            StyleClasses="PanelBackgroundBaseDark">
+                <BoxContainer Orientation="Vertical"
+                              VerticalExpand="True"
+                              HorizontalExpand="True"
+                              Margin="6 4 6 4">
+
+                    <Label Text="{Loc 'nc-store-tab-contracts'}"
+                           StyleClasses="LabelHeading"
+                           Margin="0 0 0 6" />
+
+                    <ScrollContainer VerticalExpand="True"
+                                     HorizontalExpand="True">
+                        <BoxContainer Name="ContractList"
+                                      Orientation="Vertical"
+                                      SeparationOverride="8" />
+                    </ScrollContainer>
+                </BoxContainer>
+            </PanelContainer>
+
+        </TabContainer>
+
+        </BoxContainer>
+</controls1:FancyWindow>

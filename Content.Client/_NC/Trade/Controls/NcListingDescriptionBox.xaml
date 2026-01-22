@@ -1,0 +1,13 @@
+<PanelContainer xmlns="https://spacestation14.io"
+                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                RectClipContent="True"
+                HorizontalExpand="True"
+                VerticalExpand="True"
+                Margin="0">
+    <RichTextLabel Name="Label"
+                   HorizontalExpand="True"
+                   VerticalExpand="True"
+                   VerticalAlignment="Top"
+                   HorizontalAlignment="Left"
+                   Margin="0"/>
+</PanelContainer>

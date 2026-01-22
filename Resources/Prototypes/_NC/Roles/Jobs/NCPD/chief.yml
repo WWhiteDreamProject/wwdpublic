@@ -21,7 +21,7 @@
     shoes: ClothingShoesBootsJack
     head: ClothingHeadHatBeretHoS
     eyes: ClothingEyesGlassesSunglasses
-    ears: ClothingHeadsetSecurity
+    ears: ClothingHeadsetAltSecurity
     id: HoSPDA
     belt: ClothingBeltSecurityFilled
-    outerClothing: ClothingOuterCoatHoS
+    outerClothing: ClothingOuterCoatHoSTrench
