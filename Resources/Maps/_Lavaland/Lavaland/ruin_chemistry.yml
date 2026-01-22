@@ -524,7 +524,6 @@ entities:
           occludes: True
           ents:
           - 85
-          - 84
           - 83
         paper_label: !type:ContainerSlot
           showEnts: False

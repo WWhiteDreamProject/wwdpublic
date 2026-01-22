@@ -644,7 +644,7 @@
     - state: lightmixed
       map: [ label ]
       sprite: _White/Objects/Storage/boxes_icon.rsi
-    - state: box_card_wide
+    - state: box_card_wide_eng
       map: [ top ]
   - type: StorageFill
     contents:
