@@ -6,7 +6,7 @@
   targetNode: boxcardboard
   category: construction-category-storage
   description: A small box for storing things.
-  icon: { sprite: _White/Objects/Storage/boxes.rsi, state: box_card_icon }
+  icon: { sprite: _White/Objects/Storage/Boxes.rsi, state: box_card_icon }
   objectType: Item
 
 - type: construction
@@ -17,7 +17,7 @@
   targetNode: boxplastic
   category: construction-category-storage
   description: A small box for storing things.
-  icon: { sprite: _White/Objects/Storage/boxes.rsi, state: box_plastic_icon }
+  icon: { sprite: _White/Objects/Storage/Boxes.rsi, state: box_plastic_icon }
   objectType: Item
 
 - type: construction
@@ -28,7 +28,7 @@
   targetNode: boxsteel
   category: construction-category-storage
   description: A small box for storing things.
-  icon: { sprite: _White/Objects/Storage/boxes.rsi, state: box_steel_icon }
+  icon: { sprite: _White/Objects/Storage/Boxes.rsi, state: box_steel_icon }
   objectType: Item
 
 - type: construction
@@ -39,7 +39,7 @@
   targetNode: boxcardboardwide
   category: construction-category-storage
   description: A big box for storing things.
-  icon: { sprite: _White/Objects/Storage/boxes.rsi, state: box_card_wide_icon }
+  icon: { sprite: _White/Objects/Storage/Boxes.rsi, state: box_card_wide_icon }
   objectType: Item
 
 - type: construction
@@ -50,7 +50,7 @@
   targetNode: boxplasticwide
   category: construction-category-storage
   description: A big box for storing things.
-  icon: { sprite: _White/Objects/Storage/boxes.rsi, state: box_plastic_wide_icon }
+  icon: { sprite: _White/Objects/Storage/Boxes.rsi, state: box_plastic_wide_icon }
   objectType: Item
 
 - type: construction
@@ -61,7 +61,7 @@
   targetNode: boxsteelwide
   category: construction-category-storage
   description: A big box for storing things.
-  icon: { sprite: _White/Objects/Storage/boxes.rsi, state: box_steel_wide_icon }
+  icon: { sprite: _White/Objects/Storage/Boxes.rsi, state: box_steel_wide_icon }
   objectType: Item
 
 - type: construction
@@ -72,7 +72,7 @@
   targetNode: boxcardboardsmall
   category: construction-category-storage
   description: A big box for storing things.
-  icon: { sprite: _White/Objects/Storage/boxes.rsi, state: box_card_small_icon }
+  icon: { sprite: _White/Objects/Storage/Boxes.rsi, state: box_card_small_icon }
   objectType: Item
 
 - type: construction
@@ -83,7 +83,7 @@
   targetNode: boxplasticsmall
   category: construction-category-storage
   description: A big box for storing things.
-  icon: { sprite: _White/Objects/Storage/boxes.rsi, state: box_plastic_small_icon }
+  icon: { sprite: _White/Objects/Storage/Boxes.rsi, state: box_plastic_small_icon }
   objectType: Item
 
 - type: construction
@@ -94,5 +94,5 @@
   targetNode: boxsteelsmall
   category: construction-category-storage
   description: A big box for storing things.
-  icon: { sprite: _White/Objects/Storage/boxes.rsi, state: box_steel_small_icon }
+  icon: { sprite: _White/Objects/Storage/Boxes.rsi, state: box_steel_small_icon }
   objectType: Item
