@@ -23,7 +23,7 @@
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: "Dev"
+          mapNameTemplate: "Devv"
         - type: StationJobs
           availableJobs:
             Captain: [ -1, -1 ]
