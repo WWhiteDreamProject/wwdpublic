@@ -1,12 +1,18 @@
 {
   "version": 1,
   "license": "CC-BY-NC-SA-4.0",
-  "copyright": "Purka (@purplepigeon580) and Gersoon (@gersoon458) for WWhiteDreamProject, 17.01.2026",
+  "copyright": "Purka (@purplepigeon580), Gersoon (@gersoon458) and Valentyi (randomm.ua) for WWhiteDreamProject, 17.01.2026",
   "size": {
     "x": 32,
     "y": 32
   },
     "states": [
+        {
+            "name": "ash"
+        },
+        {
+            "name": "alienhide"
+        },
         {
             "name": "bananium"
         },
@@ -20,6 +26,20 @@
         },
         {
             "name": "bananium_1"
+        },
+        {
+            "name": "bearpelt"
+        },
+        {
+            "name": "bearpelt_glow",
+            "delays": [
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ]
+            ]
         },
         {
             "name": "cardboard"
@@ -39,6 +59,71 @@
             "name": "cardboard_3"
         },
         {
+            "name": "cathide"
+        },
+        {
+            "name": "cloth"
+        },
+        {
+            "name": "cloth-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "cloth-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "cloth_2"
+        },
+        {
+            "name": "cloth_3"
+        },
+        {
+            "name": "corgihide"
+        },
+        {
+            "name": "corgihide-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "corgihide-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "cotton"
+        },
+        {
+            "name": "cotton-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "cotton-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "cotton_2"
+        },
+        {
+            "name": "cotton_3"
+        },
+        {
+            "name": "pyrotton"
+        },
+        {
+            "name": "pyrotton-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "pyrotton-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "pyrotton_2"
+        },
+        {
+            "name": "pyrotton_3"
+        },
+        {
             "name": "diamond"
         },
         {
@@ -54,7 +139,98 @@
         {
             "name": "diamond-inhand-right",
             "directions": 4
-        },        {
+        },
+        {
+            "name": "durathread"
+        },
+        {
+            "name": "durathread-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "durathread-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "durathread_2"
+        },
+        {
+            "name": "durathread_3"
+        },
+        {
+            "name": "durathreadraw"
+        },
+        {
+            "name": "durathreadraw_2"
+        },
+        {
+            "name": "durathreadraw_3"
+        },
+        {
+            "name": "hide"
+        },
+        {
+            "name": "hide_2"
+        },
+        {
+            "name": "hide_3"
+        },
+        {
+            "name": "leather"
+        },
+        {
+            "name": "leather_2"
+        },
+        {
+            "name": "leather_3"
+        },
+        {
+            "name": "monkeyhide"
+        },
+        {
+            "name": "phoron_gem"
+        },
+        {
+            "name": "peel"
+        },
+        {
+            "name": "phoron_gem_spent"
+        },
+        {
+            "name": "wood"
+        },
+        {
+            "name": "wood_2"
+        },
+        {
+            "name": "wood_3"
+        },
+        {
+            "name": "wood-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "wood-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "bones"
+        },
+        {
+            "name": "bones-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "bones-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "bones_2"
+        },
+        {
+            "name": "bones_3"
+        },
+        {
             "name": "bluespace"
         },
         {
@@ -62,6 +238,15 @@
         },
         {
             "name": "bluespace_3"
+        },
+        {
+            "name": "normality"
+        },
+        {
+            "name": "normality_2"
+        },
+        {
+            "name": "normality_3"
         }
     ]
 }

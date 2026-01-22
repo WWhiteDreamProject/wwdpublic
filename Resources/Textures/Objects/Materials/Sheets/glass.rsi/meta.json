@@ -1,12 +1,12 @@
 {
   "version": 1,
   "license": "CC-BY-NC-SA-4.0",
-  "copyright": "Purka (@purplepigeon580) for WWhiteDreamProject, 17.01.2026",
+  "copyright": "Purka (@purplepigeon580), Gersoon (@gersoon458) and Valentyi (randomm.ua) for WWhiteDreamProject, 17.01.2026",
   "size": {
     "x": 32,
     "y": 32
   },
-    "states": [
+  "states": [
     {
       "name": "glass"
     },
@@ -42,6 +42,23 @@
       "directions": 4
     },
     {
+      "name": "plastitaniumglass"
+    },
+    {
+      "name": "plastitaniumglass_2"
+    },
+    {
+      "name": "plastitaniumglass_3"
+    },
+    {
+      "name": "plastitaniumglass-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "plastitaniumglass-inhand-right",
+      "directions": 4
+    },
+    {
       "name": "rpglass"
     },
     {
@@ -73,6 +90,23 @@
     },
     {
       "name": "rglass-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "titaniumglass"
+    },
+    {
+      "name": "titaniumglass_2"
+    },
+    {
+      "name": "titaniumglass_3"
+    },
+    {
+      "name": "titaniumglass-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "titaniumglass-inhand-right",
       "directions": 4
     },
     {

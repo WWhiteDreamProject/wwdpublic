@@ -1,12 +1,40 @@
 {
   "version": 1,
   "license": "CC-BY-NC-SA-4.0",
-  "copyright": "Purka (@purplepigeon580) for WWhiteDreamProject, 17.01.2026",
+  "copyright": "Purka (@purplepigeon580), Gersoon (@gersoon458) and Valentyi (randomm.ua) for WWhiteDreamProject, 17.01.2026",
   "size": {
     "x": 32,
     "y": 32
   },
-    "states": [
+  "states": [
+    {
+      "name": "phoron"
+    },
+    {
+      "name": "phoron-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "phoron-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "paper"
+    },
+    {
+      "name": "paper_2"
+    },
+    {
+      "name": "paper_3"
+    },
+    {
+      "name": "paper-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "paper-inhand-right",
+      "directions": 4
+    },
     {
       "name": "plastic"
     },

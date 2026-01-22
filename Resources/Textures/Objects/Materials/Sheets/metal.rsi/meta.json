@@ -1,12 +1,12 @@
 {
   "version": 1,
   "license": "CC-BY-NC-SA-4.0",
-  "copyright": "Purka (@purplepigeon580) for WWhiteDreamProject, 17.01.2026",
+  "copyright": "Purka (@purplepigeon580), Gersoon (@gersoon458) and Valentyi (randomm.ua) for WWhiteDreamProject, 17.01.2026",
   "size": {
     "x": 32,
     "y": 32
   },
-    "states": [
+  "states": [
     {
       "name": "brass"
     },
@@ -42,6 +42,23 @@
       "directions": 4
     },
     {
+      "name": "plastitanium"
+    },
+    {
+      "name": "plastitanium_2"
+    },
+    {
+      "name": "plastitanium_3"
+    },
+    {
+      "name": "plastitanium-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "plastitanium-inhand-right",
+      "directions": 4
+    },
+    {
       "name": "steel"
     },
     {
@@ -56,6 +73,23 @@
     },
     {
       "name": "steel-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "titanium"
+    },
+    {
+      "name": "titanium_2"
+    },
+    {
+      "name": "titanium_3"
+    },
+    {
+      "name": "titanium-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "titanium-inhand-right",
       "directions": 4
     }
   ]
