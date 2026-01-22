@@ -11,7 +11,7 @@ namespace Content.Server._White.Chemistry.ReagentEffects
     public sealed partial class ChemGivePsionic : EntityEffect
     {
         protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
-            => Loc.GetString("reagent-effect-guidebook-chem-remove-psionic", ("chance", Probability));
+            => Loc.GetString("reagent-effect-guidebook-chem-give-psionic", ("chance", Probability));
 
         public override void Effect(EntityEffectBaseArgs args)
         {
