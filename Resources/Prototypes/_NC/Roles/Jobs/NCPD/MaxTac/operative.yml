@@ -7,20 +7,19 @@
   startingGear: MaxTacOperativeGear
   supervisors: job-supervisors-maxtac-commander
   access:
-    - Security
-    - Brig
-    - Armory
-    - Maintenance
-    - External
+    - MaxTac_General
+    - MaxTac_Armory
+    - NCPD_Patrol
+    - NC_General
 
 - type: startingGear
   id: MaxTacOperativeGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitMaxTacOperative
+    jumpsuit: ClothingUniformJumpsuitSec
     back: ClothingBackpackSecurity
     shoes: ClothingShoesBootsCombatFilled
-    head: ClothingHeadHelmetHardsuitMaxTacOperative
+    head: ClothingHeadHelmetHardsuitSecurity
     ears: ClothingHeadsetSecurity
     id: SecurityPDA
     belt: ClothingBeltSecurityFilled
-    outerClothing: ClothingOuterHardsuitMaxTacOperative
+    outerClothing: ClothingOuterHardsuitSecurity

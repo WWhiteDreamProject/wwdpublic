@@ -7,10 +7,9 @@
   startingGear: NCPDSergeantGear
   supervisors: job-supervisors-ncpd-chief
   access:
-    - Security
-    - Brig
-    - Maintenance
-    - External
+    - NCPD_Patrol
+    - NCPD_Armory
+    - NC_General
 
 - type: startingGear
   id: NCPDSergeantGear

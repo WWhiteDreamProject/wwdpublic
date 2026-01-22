@@ -4,9 +4,7 @@
   description: job-description-fixer
   playTimeTracker: JobFixer
   access:
-    - Service
-    - Maintenance
-    - External
+    - NC_General
   startingGear: FixerGear
 
 - type: startingGear

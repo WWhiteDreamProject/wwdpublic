@@ -1,0 +1,75 @@
+- type: accessLevel
+  id: NCPD_Patrol
+  name: access-level-ncpd-patrol
+
+- type: accessLevel
+  id: NCPD_Armory
+  name: access-level-ncpd-armory
+
+- type: accessLevel
+  id: NCPD_Detective
+  name: access-level-ncpd-detective
+
+- type: accessLevel
+  id: NCPD_Command
+  name: access-level-ncpd-command
+
+- type: accessGroup
+  id: NCPD
+  tags:
+  - NCPD_Patrol
+  - NCPD_Armory
+  - NCPD_Detective
+  - NCPD_Command
+
+- type: accessLevel
+  id: MaxTac_General
+  name: access-level-maxtac-general
+
+- type: accessLevel
+  id: MaxTac_Armory
+  name: access-level-maxtac-armory
+
+- type: accessLevel
+  id: MaxTac_Command
+  name: access-level-maxtac-command
+
+- type: accessGroup
+  id: MaxTac
+  tags:
+  - MaxTac_General
+  - MaxTac_Armory
+  - MaxTac_Command
+
+- type: accessLevel
+  id: Trauma_Medical
+  name: access-level-trauma-medical
+
+- type: accessLevel
+  id: Trauma_Morgue
+  name: access-level-trauma-morgue
+
+- type: accessLevel
+  id: Trauma_Hangar
+  name: access-level-trauma-hangar
+
+- type: accessLevel
+  id: Trauma_Command
+  name: access-level-trauma-command
+
+- type: accessGroup
+  id: TraumaTeam
+  tags:
+  - Trauma_Medical
+  - Trauma_Morgue
+  - Trauma_Hangar
+  - Trauma_Command
+
+- type: accessLevel
+  id: NC_General
+  name: access-level-nc-general
+
+- type: accessGroup
+  id: NightCity
+  tags:
+  - NC_General

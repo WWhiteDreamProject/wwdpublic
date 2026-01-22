@@ -7,11 +7,10 @@
   startingGear: TraumaTeamOperativeGear
   supervisors: job-supervisors-traumateam-chief
   access:
-    - Medical
-    - Security
-    - Armory
-    - Maintenance
-    - External
+    - Trauma_Medical
+    - Trauma_Hangar
+    - Trauma_Morgue
+    - NC_General
 
 - type: startingGear
   id: TraumaTeamOperativeGear

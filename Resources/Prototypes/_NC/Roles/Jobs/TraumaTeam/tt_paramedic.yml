@@ -7,9 +7,10 @@
   startingGear: TraumaTeamParamedicGear
   supervisors: job-supervisors-traumateam-chief
   access:
-    - Medical
-    - Maintenance
-    - External
+    - Trauma_Medical
+    - Trauma_Morgue
+    - Trauma_Hangar
+    - NC_General
 
 - type: startingGear
   id: TraumaTeamParamedicGear

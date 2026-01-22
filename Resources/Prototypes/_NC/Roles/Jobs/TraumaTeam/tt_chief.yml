@@ -7,11 +7,11 @@
   startingGear: TraumaTeamChiefGear
   supervisors: job-supervisors-centcom
   access:
-    - Command
-    - Medical
-    - Chemistry
-    - Maintenance
-    - External
+    - Trauma_Command
+    - Trauma_Medical
+    - Trauma_Morgue
+    - Trauma_Hangar
+    - NC_General
 
 - type: startingGear
   id: TraumaTeamChiefGear

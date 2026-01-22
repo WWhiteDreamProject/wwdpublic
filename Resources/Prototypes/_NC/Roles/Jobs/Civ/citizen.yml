@@ -5,7 +5,7 @@
   playTimeTracker: JobNCCitizen
   startingGear: NCCitizenGear
   access:
-    - Service
+    - NC_General
 
 - type: startingGear
   id: NCCitizenGear
@@ -14,3 +14,4 @@
     back: ClothingBackpackSatchel
     shoes: ClothingShoesColorBlack
     id: PassengerPDA
+    ears: ClothingHeadsetGrey

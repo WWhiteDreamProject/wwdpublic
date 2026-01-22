@@ -7,9 +7,8 @@
   startingGear: NCPDCadetGear
   supervisors: job-supervisors-ncpd-sergeant
   access:
-    - Security
-    - Maintenance
-    - External
+    - NCPD_Patrol
+    - NC_General
 
 - type: startingGear
   id: NCPDCadetGear
@@ -17,7 +16,7 @@
     jumpsuit: ClothingUniformJumpsuitSecGrey
     back: ClothingBackpackSecurity
     shoes: ClothingShoesBootsJack
-    head: ClothingHeadHatSecurityGrey
+    head: ClothingHeadHatBeretSecurity
     ears: ClothingHeadsetSecurity
     id: SecurityPDA
     belt: ClothingBeltSecurityFilled

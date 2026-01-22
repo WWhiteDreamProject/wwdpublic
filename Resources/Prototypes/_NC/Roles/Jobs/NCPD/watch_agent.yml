@@ -7,11 +7,9 @@
   startingGear: NCPDWatchAgentGear
   supervisors: job-supervisors-ncpd-chief
   access:
-    - Security
-    - Brig
-    - Detective
-    - Maintenance
-    - External
+    - NCPD_Patrol
+    - NCPD_Detective
+    - NC_General
 
 - type: startingGear
   id: NCPDWatchAgentGear

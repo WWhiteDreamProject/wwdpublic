@@ -7,20 +7,19 @@
   startingGear: MaxTacNetrunnerGear
   supervisors: job-supervisors-maxtac-commander
   access:
-    - Security
-    - Brig
-    - Research
-    - Maintenance
-    - External
+    - MaxTac_General
+    - MaxTac_Armory
+    - NCPD_Patrol
+    - NC_General
 
 - type: startingGear
   id: MaxTacNetrunnerGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitMaxTacNetrunner
+    jumpsuit: ClothingUniformJumpsuitResearchDirector
     back: ClothingBackpackSatchelSecurity
     shoes: ClothingShoesBootsCombatFilled
-    head: ClothingHeadHelmetHardsuitMaxTacNetrunner
+    head: ClothingHeadHelmetHardsuitSecurity
     ears: ClothingHeadsetSecurity
     id: SciencePDA
     belt: ClothingBeltSecurityFilled
-    outerClothing: ClothingOuterHardsuitMaxTacNetrunner
+    outerClothing: ClothingOuterHardsuitSecurity

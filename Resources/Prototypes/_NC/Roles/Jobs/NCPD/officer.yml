@@ -7,10 +7,8 @@
   startingGear: NCPDOfficerGear
   supervisors: job-supervisors-ncpd-sergeant
   access:
-    - Security
-    - Brig
-    - Maintenance
-    - External
+    - NCPD_Patrol
+    - NC_General
 
 - type: startingGear
   id: NCPDOfficerGear
@@ -22,4 +20,4 @@
     ears: ClothingHeadsetSecurity
     id: SecurityPDA
     belt: ClothingBeltSecurityFilled
-    outerClothing: ClothingOuterArmorVest
+    outerClothing: ClothingOuterArmorBasic

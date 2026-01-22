@@ -4,8 +4,7 @@
   description: job-description-reaper
   playTimeTracker: JobReaper
   access:
-    - Medical
-    - Maintenance
+    - NC_General
   startingGear: ReaperGear
 
 - type: startingGear

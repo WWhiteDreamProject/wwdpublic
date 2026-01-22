@@ -7,24 +7,24 @@
   startingGear: MaxTacCommanderGear
   supervisors: job-supervisors-centcom
   access:
-    - Command
-    - Security
-    - Armory
-    - Brig
-    - Detective
-    - Weapons
-    - Maintenance
-    - External
+    - MaxTac_Command
+    - MaxTac_General
+    - MaxTac_Armory
+    - NCPD_Command
+    - NCPD_Patrol
+    - NCPD_Armory
+    - NCPD_Detective
+    - NC_General
 
 - type: startingGear
   id: MaxTacCommanderGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitMaxTacCommander
+    jumpsuit: ClothingUniformJumpsuitHoS
     back: ClothingBackpackSecurity
     shoes: ClothingShoesBootsCombatFilled
-    head: ClothingHeadHelmetHardsuitMaxTacCommander
+    head: ClothingHeadHelmetHardsuitSecurityRed
     eyes: ClothingEyesGlassesSunglasses
     ears: ClothingHeadsetSecurity
     id: HoSPDA
     belt: ClothingBeltSecurityFilled
-    outerClothing: ClothingOuterHardsuitMaxTacCommander
+    outerClothing: ClothingOuterHardsuitSecurityRed

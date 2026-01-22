@@ -7,14 +7,11 @@
   startingGear: NCPDChiefGear
   supervisors: job-supervisors-centcom
   access:
-    - Command
-    - Security
-    - Armory
-    - Brig
-    - Detective
-    - Weapons
-    - Maintenance
-    - External
+    - NCPD_Command
+    - NCPD_Patrol
+    - NCPD_Armory
+    - NCPD_Detective
+    - NC_General
 
 - type: startingGear
   id: NCPDChiefGear
@@ -22,7 +19,7 @@
     jumpsuit: ClothingUniformJumpsuitSheriff
     back: ClothingBackpackSatchelSecurity
     shoes: ClothingShoesBootsJack
-    head: ClothingHeadHatSheriff
+    head: ClothingHeadHatBeretHoS
     eyes: ClothingEyesGlassesSunglasses
     ears: ClothingHeadsetSecurity
     id: HoSPDA

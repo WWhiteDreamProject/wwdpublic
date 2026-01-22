@@ -7,8 +7,8 @@
   startingGear: TraumaTeamChemistGear
   supervisors: job-supervisors-traumateam-chief
   access:
-    - Medical
-    - Chemistry
+    - Trauma_Medical
+    - NC_General
 
 - type: startingGear
   id: TraumaTeamChemistGear

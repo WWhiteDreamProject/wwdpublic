@@ -4,8 +4,7 @@
   description: job-description-edgerunner
   playTimeTracker: JobEdgeRunnerSolo
   access:
-    - Maintenance
-    - External
+    - NC_General
   startingGear: EdgeRunnerSoloGear
 
 - type: startingGear
