@@ -9,7 +9,7 @@
     - id: ShellShotgunMeteor
       amount: 16
   - type: Sprite
-    sprite: _White/Objects/Storage/Boxes.rsi
+    sprite: _White/Objects/Storage/boxes.rsi
     layers:
     - state: box_steel_rib_base
     - state: bg
@@ -32,7 +32,7 @@
     - id: ShellShotgunFrag
       amount: 16
   - type: Sprite
-    sprite: _White/Objects/Storage/Boxes.rsi
+    sprite: _White/Objects/Storage/boxes.rsi
     layers:
     - state: box_steel_rib_base
     - state: bg
@@ -55,7 +55,7 @@
     - id: ShellShotgunLaser
       amount: 16
   - type: Sprite
-    sprite: _White/Objects/Storage/Boxes.rsi
+    sprite: _White/Objects/Storage/boxes.rsi
     layers:
     - state: box_steel_rib_base
     - state: bg
@@ -78,7 +78,7 @@
     - id: ShellShotgunBreach
       amount: 16
   - type: Sprite
-    sprite: _White/Objects/Storage/Boxes.rsi
+    sprite: _White/Objects/Storage/boxes.rsi
     layers:
     - state: box_steel_rib_base
     - state: bg

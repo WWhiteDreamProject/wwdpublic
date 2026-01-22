@@ -16,7 +16,7 @@
     grid:
     - 0,0,3,3
   - type: Sprite
-    sprite: _White/Objects/Storage/Boxes.rsi
+    sprite: _White/Objects/Storage/boxes.rsi
     layers:
     - state: bg
       map: [ paper ]
@@ -70,7 +70,7 @@
   description: A cardboard box for storing things.
   components:
   - type: Sprite
-    sprite: _White/Objects/Storage/Boxes.rsi
+    sprite: _White/Objects/Storage/boxes.rsi
     layers:
     - state: box_card_base
     - state: bg
@@ -108,7 +108,7 @@
   description: A plastic box for storing things.
   components:
   - type: Sprite
-    sprite: _White/Objects/Storage/Boxes.rsi
+    sprite: _White/Objects/Storage/boxes.rsi
     layers:
     - state: box_plastic_base
     - state: bg
@@ -146,7 +146,7 @@
   description: A steel box for storing things.
   components:
   - type: Sprite
-    sprite: _White/Objects/Storage/Boxes.rsi
+    sprite: _White/Objects/Storage/boxes.rsi
     layers:
     - state: box_steel_base
     - state: bg
@@ -195,7 +195,7 @@
     grid:
     - 0,0,7,3
   - type: Sprite
-    sprite: _White/Objects/Storage/Boxes.rsi
+    sprite: _White/Objects/Storage/boxes.rsi
     layers:
     - state: box_card_wide_base
     - state: bg
@@ -241,7 +241,7 @@
     grid:
     - 0,0,7,3
   - type: Sprite
-    sprite: _White/Objects/Storage/Boxes.rsi
+    sprite: _White/Objects/Storage/boxes.rsi
     layers:
     - state: box_plastic_wide_base
     - state: bg
@@ -287,7 +287,7 @@
     grid:
     - 0,0,7,3
   - type: Sprite
-    sprite: _White/Objects/Storage/Boxes.rsi
+    sprite: _White/Objects/Storage/boxes.rsi
     layers:
     - state: box_steel_wide_base
     - state: bg
@@ -333,7 +333,7 @@
     grid:
     - 0,0,2,2
   - type: Sprite
-    sprite: _White/Objects/Storage/Boxes.rsi
+    sprite: _White/Objects/Storage/boxes.rsi
     layers:
     - state: box_card_small_base
     - state: bg_small
@@ -379,7 +379,7 @@
     grid:
     - 0,0,2,2
   - type: Sprite
-    sprite: _White/Objects/Storage/Boxes.rsi
+    sprite: _White/Objects/Storage/boxes.rsi
     layers:
     - state: box_plastic_small_base
     - state: bg_small
@@ -425,7 +425,7 @@
     grid:
     - 0,0,2,2
   - type: Sprite
-    sprite: _White/Objects/Storage/Boxes.rsi
+    sprite: _White/Objects/Storage/boxes.rsi
     layers:
     - state: box_steel_small_base
     - state: bg_small
