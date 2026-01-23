@@ -20,8 +20,33 @@
     BookSpaceLaw: 3
     LuxuryPen: 2
   contrabandInventory:
+  startingItemPrices:
+    ClothingUniformJumpsuitLawyerBlue: 50
+    ClothingUniformJumpskirtLawyerBlue: 50
+    ClothingUniformJumpsuitLawyerPurple: 50
+    ClothingUniformJumpskirtLawyerPurple: 50
+    ClothingUniformJumpsuitLawyerRed: 50
+    ClothingUniformJumpskirtLawyerRed: 50
+    ClothingUniformJumpsuitLawyerBlack: 50
+    ClothingUniformJumpskirtLawyerBlack: 50
+    ClothingUniformJumpsuitLawyerGood: 50
+    ClothingUniformJumpskirtLawyerGood: 50
+    ClothingShoesBootsLaceup: 50
+    ClothingHeadsetJustice: 100
+    ClothingNeckLawyerbadge: 30
+    ClothingOuterCoatOvercoat: 100
+    RubberStampLawyer: 50
+    BriefcaseBrown: 50
+    BookSpaceLaw: 10
+    LuxuryPen: 50
     ClothingOuterRobesJudge: 1
     ClothingHeadHatPwig: 1
     SpaceCash100: 2 # "Legally" obtained currency
   emaggedInventory:
     CyberPen: 1
+  contrabandItemPrices:
+    ClothingOuterRobesJudge: 500
+    ClothingHeadHatPwig: 100
+    SpaceCash100: 100
+  emaggedItemPrices:
+    CyberPen: 100

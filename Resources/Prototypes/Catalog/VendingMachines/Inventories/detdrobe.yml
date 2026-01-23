@@ -16,6 +16,21 @@
     ClothingHandsGlovesLatex: 2
     ClothingHeadsetAltSecurityRegular: 2 # Goobstation
   # Shhhhh... They don't know...
+  startingItemPrices:
+    ClothingUniformJumpsuitDetective: 50
+    ClothingUniformJumpskirtDetective: 50
+    ClothingShoesColorBrown: 50
+    ClothingOuterCoatDetectiveLoadout: 200
+    ClothingOuterCoatDetectiveLoadoutGrey: 200
+    ClothingHeadHatFedoraBrown: 50
+    ClothingUniformJumpsuitDetectiveGrey: 50
+    ClothingUniformJumpskirtDetectiveGrey: 50
+    ClothingOuterVestDetective: 200
+    ClothingNeckTieDet: 20
+    ClothingHeadHatFedoraGrey: 50
+    ClothingHandsGlovesColorBlack: 20
+    ClothingHandsGlovesLatex: 10
+    ClothingHeadsetAltSecurityRegular: 100
   contrabandInventory:
     SpaceCash2500: 1 # WWDP
   emaggedInventory:
@@ -24,3 +39,9 @@
     ClothingBeltSyndieHolster: 1
     DrinkVodkaBottleFull: 1
     #WWDP edit end
+  contrabandItemPrices:
+    SpaceCash2500: 2500
+  emaggedItemPrices:
+    WeaponShotgunDoubleBarreled: 500
+    ClothingBeltSyndieHolster: 100
+    DrinkVodkaBottleFull: 20

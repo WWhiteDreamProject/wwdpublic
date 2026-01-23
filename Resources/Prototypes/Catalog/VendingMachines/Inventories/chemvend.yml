@@ -22,8 +22,32 @@
     JugSodium: 2
     JugSugar: 3
     JugSulfur: 1
+  startingItemPrices:
+    Jug: 10
+    JugAluminium: 20
+    JugCarbon: 20
+    JugChlorine: 20
+    JugCopper: 20
+    JugEthanol: 20
+    JugFluorine: 20
+    JugHydrogen: 20
+    JugIodine: 20
+    JugIron: 20
+    JugLithium: 20
+    JugMercury: 20
+    JugNitrogen: 20
+    JugOxygen: 20
+    JugPhosphorus: 20
+    JugPotassium: 20
+    JugRadium: 50
+    JugSilicon: 20
+    JugSodium: 20
+    JugSugar: 10
+    JugSulfur: 20
   emaggedInventory:
     VestineChemistryVial: 1 #WWDP edit
+  emaggedItemPrices:
+    VestineChemistryVial: 100
 
 - type: vendingMachineInventory
   id: ChemVendInventorySyndicate
@@ -50,8 +74,36 @@
     JugSugar: 3
     JugSulfur: 1
     JugWeldingFuel: 1
+  startingItemPrices:
+    Jug: 10
+    JugAluminium: 20
+    JugCarbon: 20
+    JugChlorine: 20
+    JugCopper: 20
+    JugEthanol: 20
+    JugFluorine: 20
+    JugHydrogen: 20
+    JugIodine: 20
+    JugIron: 20
+    JugLithium: 20
+    JugMercury: 20
+    JugNitrogen: 20
+    JugOxygen: 20
+    JugPhosphorus: 20
+    JugPotassium: 20
+    JugRadium: 50
+    JugSilicon: 20
+    JugSodium: 20
+    JugSugar: 10
+    JugSulfur: 20
+    JugWeldingFuel: 20
   emaggedInventory:
     PaxChemistryBottle: 3
     MuteToxinChemistryBottle: 3
     LeadChemistryBottle: 2
     VestineChemistryVial: 1 #WWDP edit
+  emaggedItemPrices:
+    PaxChemistryBottle: 100
+    MuteToxinChemistryBottle: 100
+    LeadChemistryBottle: 100
+    VestineChemistryVial: 100

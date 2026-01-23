@@ -10,10 +10,24 @@
     RadioHandheld: 2
     # WeaponGrapplingGun: 2
     WeaponProtoKineticAccelerator: 4
+  startingItemPrices:
+    Crowbar: 20
+    Pickaxe: 50
+    OreBag: 20
+    Flare: 10
+    FlashlightLantern: 20
+    HandheldGPSBasic: 100
+    RadioHandheld: 50
+    WeaponProtoKineticAccelerator: 500
   # WD EDIT START
   contrabandInventory:
     ClothingEyesNightVisionGoggles : 1
+  contrabandItemPrices:
+    ClothingEyesNightVisionGoggles: 500
   emaggedInventory:
     AntiPoisonMedipen: 1
     CombatMedipen: 1
+  emaggedItemPrices:
+    AntiPoisonMedipen: 100
+    CombatMedipen: 100
   # WD EDIT END

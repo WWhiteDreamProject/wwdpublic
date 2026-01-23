@@ -7,6 +7,15 @@
     FoodSnackPistachios: 3
     FoodSnackSus: 3
     FoodSnackSemki: 3
+  startingItemPrices:
+    FoodSnackRaisins: 10
+    FoodSnackChocolate: 10
+    FoodSnackCnDs: 10
+    FoodSnackPistachios: 10
+    FoodSnackSus: 10
+    FoodSnackSemki: 10
   emaggedInventory:
     FoodSnackSyndi: 3
+  emaggedItemPrices:
+    FoodSnackSyndi: 100
 

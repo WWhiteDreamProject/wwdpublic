@@ -15,3 +15,16 @@
   emaggedInventory:
     ImplanterSyndi: 1
   #WWDP edit end
+  startingItemPrices:
+    ClothingUniformJumpsuitVirology: 50
+    ClothingUniformJumpskirtVirology: 50
+    ClothingShoesColorWhite: 50
+    ClothingOuterCoatLabViro: 50
+    ClothingOuterWinterViro: 100
+    ClothingMaskSterile: 20
+    ClothingBackpackVirology: 50
+    ClothingBackpackSatchelVirology: 50
+    ClothingBackpackDuffelVirology: 50
+    ClothingShoesBootsWinterViro: 50
+  emaggedItemPrices:
+    ImplanterSyndi: 500

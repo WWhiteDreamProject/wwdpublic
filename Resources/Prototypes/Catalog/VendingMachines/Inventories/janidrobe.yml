@@ -13,8 +13,25 @@
     ClothingShoesBootsWinterJani: 2 #Delta V: Add departmental winter boots
     ClothingUniformJumpskirtJanimaid: 2 # Delta V: the maiden outfits no longer require emagging.
     ClothingUniformJumpskirtJanimaidmini: 1
-  
+  startingItemPrices:
+    ClothingUniformJumpsuitJanitor: 50
+    ClothingUniformJumpskirtJanitor: 50
+    ClothingHandsGlovesJanitor: 20
+    ClothingShoesColorBlack: 50
+    ClothingHeadHatPurplesoft: 30
+    ClothingBeltJanitor: 50
+    ClothingHeadsetService: 100
+    ClothingOuterWinterJani: 100
+    ClothingNeckScarfStripedPurple: 20
+    ClothingShoesBootsWinterJani: 50
+    ClothingUniformJumpskirtJanimaid: 200
+    ClothingUniformJumpskirtJanimaidmini: 200
+
   emaggedInventory: # Delta V: tactical maid outfit set is now the emagg reward.
     ClothingHandsTacticalMaidGloves: 1
     ClothingUniformJumpskirtTacticalMaid: 1
     ClothingHeadHatTacticalMaidHeadband: 1
+  emaggedItemPrices:
+    ClothingHandsTacticalMaidGloves: 50
+    ClothingUniformJumpskirtTacticalMaid: 200
+    ClothingHeadHatTacticalMaidHeadband: 100

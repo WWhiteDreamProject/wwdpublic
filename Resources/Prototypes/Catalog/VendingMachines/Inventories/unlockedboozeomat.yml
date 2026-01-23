@@ -34,3 +34,36 @@
     DrinkSpaceUpBottleFull: 3
     DrinkTonicWaterCan: 8
     DrinkVermouthBottleFull: 4
+  startingItemPrices:
+    DrinkGlass: 5
+    DrinkShotGlass: 5
+    DrinkGlassCoupeShaped: 5
+    DrinkVacuumFlask: 20
+    DrinkFlaskBar: 20
+    DrinkShaker: 20
+    CustomDrinkJug: 20
+    DrinkAleBottleFull: 20
+    DrinkBeerBottleFull: 20
+    DrinkBeerCan: 10
+    DrinkWineCan: 10
+    DrinkSolDryCan: 10
+    DrinkWineBottleFull: 20
+    DrinkSojuBottleFull: 20
+    DrinkSakeBottleFull: 30
+    DrinkGinBottleFull: 30
+    DrinkRumBottleFull: 30
+    DrinkTequilaBottleFull: 30
+    DrinkVodkaBottleFull: 20
+    DrinkWhiskeyBottleFull: 30
+    DrinkColaBottleFull: 10
+    DrinkCreamCarton: 10
+    DrinkGrenadineBottleFull: 20
+    DrinkJuiceLimeCarton: 10
+    DrinkJuiceOrangeCarton: 10
+    DrinkJuiceTomatoCarton: 10
+    DrinkCoffeeLiqueurBottleFull: 30
+    DrinkSodaWaterCan: 10
+    DrinkSpaceMountainWindBottleFull: 20
+    DrinkSpaceUpBottleFull: 20
+    DrinkTonicWaterCan: 10
+    DrinkVermouthBottleFull: 30

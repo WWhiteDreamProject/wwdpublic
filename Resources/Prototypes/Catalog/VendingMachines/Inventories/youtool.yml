@@ -13,10 +13,29 @@
     FlashlightLantern: 5
     ClothingHandsGlovesColorYellowBudget: 3
     SprayPainter: 3
+  startingItemPrices:
+    CableApcStack: 10
+    Crowbar: 20
+    Welder: 50
+    Wirecutter: 20
+    Wrench: 20
+    Screwdriver: 20
+    trayScanner: 50
+    NetworkConfigurator: 100
+    GasAnalyzer: 100
+    FlashlightLantern: 20
+    ClothingHandsGlovesColorYellowBudget: 50
+    SprayPainter: 50
   # Some engineer forgot to take the multitool out the youtool when working on it, happens.
   contrabandInventory:
     Multitool: 1
     AccessConfigurator: 1
+  contrabandItemPrices:
+    Multitool: 100
+    AccessConfigurator: 500
   emaggedInventory:
     ClothingHandsGlovesColorYellow: 1
     SyndicateJawsOfLife: 1 # WWDP
+  emaggedItemPrices:
+    ClothingHandsGlovesColorYellow: 200
+    SyndicateJawsOfLife: 500

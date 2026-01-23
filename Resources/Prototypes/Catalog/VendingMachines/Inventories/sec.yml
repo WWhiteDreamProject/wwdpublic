@@ -28,13 +28,44 @@
     RadioHandheldSecurity: 5
     # WD - armor moved to SecDrobe
     BreachingCharge: 4 # WWDP less boom boom
+  startingItemPrices:
+    SecurityWhistle: 10
+    Handcuffs: 20
+    WeaponSecurityRiotLauncher: 500
+    GrenadeFlashBang: 50
+    GrenadeBarrier: 50
+    TearGasGrenade: 50
+    ClusterBangFull: 200
+    GrenadeStinger: 50
+    Flash: 20
+    Tourniquet: 10
+    FlashlightSeclite: 20
+    HoloprojectorSecurity: 20
+    ClothingEyesGlassesSunglasses: 20
+    ClothingEyesGlassesSecurity: 100
+    ClothingBeltSecurityWebbing: 50
+    CombatKnife: 50
+    Truncheon: 30
+    Zipties: 10
+    BolaEnergy: 50
+    RiotShield: 100
+    RiotLaserShield: 100
+    RiotBulletShield: 100
+    RadioHandheldSecurity: 50
+    BreachingCharge: 100
   # security officers need to follow a diet regimen!
   contrabandInventory:
     FoodDonutHomer: 12
     FoodBoxDonut: 2
+  contrabandItemPrices:
+    FoodDonutHomer: 10
+    FoodBoxDonut: 50
     #box evidence
   #WWDP edit start
   emaggedInventory:
     GrenadeShrapnel: 1
     EmpGrenade: 1
+  emaggedItemPrices:
+    GrenadeShrapnel: 200
+    EmpGrenade: 200
   #WWDP edit end

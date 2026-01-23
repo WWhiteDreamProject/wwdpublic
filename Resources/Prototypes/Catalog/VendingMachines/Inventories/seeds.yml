@@ -42,3 +42,45 @@
   emaggedInventory:
     FlyAmanitaSeeds: 1
     NettleSeeds: 1 #WWDP edit start
+  startingItemPrices:
+    AloeSeeds: 100
+    AmbrosiaVulgarisSeeds: 100
+    AppleSeeds: 100
+    BananaSeeds: 100
+    BerrySeeds: 100
+    CarrotSeeds: 100
+    CabbageSeeds: 100
+    ChanterelleSeeds: 100
+    CherrySeeds: 100
+    ChiliSeeds: 100
+    CocoaSeeds: 100
+    CornSeeds: 100
+    CottonSeeds: 100
+    EggplantSeeds: 100
+    EggySeeds: 100
+    GalaxythistleSeeds: 100
+    GarlicSeeds: 100
+    GrapeSeeds: 100
+    LemonSeeds: 100
+    LimeSeeds: 100
+    PineappleSeeds: 100
+    LingzhiSeeds: 100
+    OatSeeds: 100
+    OnionSeeds: 100
+    OnionRedSeeds: 100
+    OrangeSeeds: 100
+    PeaSeeds: 100
+    PoppySeeds: 100
+    PotatoSeeds: 100
+    PumpkinSeeds: 100
+    RiceSeeds: 100
+    SoybeanSeeds: 100
+    SugarcaneSeeds: 100
+    TeaPlantSeeds: 100
+    TomatoSeeds: 100
+    TowercapSeeds: 100
+    WheatSeeds: 100
+    WatermelonSeeds: 100
+  emaggedItemPrices:
+    FlyAmanitaSeeds: 200
+    NettleSeeds: 200

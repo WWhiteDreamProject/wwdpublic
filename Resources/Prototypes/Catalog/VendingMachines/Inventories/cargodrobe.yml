@@ -15,5 +15,22 @@
     ClothingOuterWinterMiner: 2
     ClothingNeckScarfStripedBrown: 3
     ClothingShoesBootsWinterCargo: 2
+  startingItemPrices:
+    ClothingBackpackCargo: 50
+    ClothingBackpackSatchelCargo: 50
+    ClothingBackpackDuffelCargo: 50
+    ClothingUniformJumpsuitCargo: 50
+    ClothingUniformJumpskirtCargo: 50
+    ClothingShoesColorBlack: 50
+    ClothingHandsGlovesFingerless: 20
+    ClothingHeadHatCargosoft: 20
+    ClothingHeadBandBrown: 20
+    ClothingHeadsetCargo: 100
+    ClothingOuterWinterCargo: 100
+    ClothingOuterWinterMiner: 100
+    ClothingNeckScarfStripedBrown: 20
+    ClothingShoesBootsWinterCargo: 50
   contrabandInventory:
     SadTromboneImplanter: 1 # WWDP
+  contrabandItemPrices:
+    SadTromboneImplanter: 50

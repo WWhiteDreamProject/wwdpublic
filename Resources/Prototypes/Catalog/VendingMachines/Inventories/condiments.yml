@@ -18,3 +18,21 @@
     KnifePlastic: 10
     FoodPlatePlastic: 10
     FoodPlateSmallPlastic: 10
+  startingItemPrices:
+    FoodCondimentPacketAstrotame: 2
+    FoodCondimentPacketBbq: 2
+    FoodCondimentPacketFrostoil: 2
+    FoodCondimentPacketHorseradish: 2
+    FoodCondimentPacketHotsauce: 2
+    FoodCondimentPacketKetchup: 2
+    FoodCondimentPacketMustard: 2
+    FoodCondimentPacketPepper: 2
+    FoodCondimentPacketSalt: 2
+    FoodCondimentPacketSoy: 2
+    FoodCondimentPacketSugar: 2
+    FoodCondimentPacketCornoil: 2
+    ForkPlastic: 2
+    SpoonPlastic: 2
+    KnifePlastic: 2
+    FoodPlatePlastic: 5
+    FoodPlateSmallPlastic: 5

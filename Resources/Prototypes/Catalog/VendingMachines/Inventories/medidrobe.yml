@@ -34,6 +34,39 @@
     ClothingEyesGlasses: 5 # WD EDIT
     ClothingEyesHudMedical: 2 # WD EDIT
     ClothingEyesEyepatchHudMedical: 2 # WD EDIT
+  startingItemPrices:
+    ClothingBackpackDuffelMedical: 50
+    ClothingBackpackMedical: 50
+    ClothingBackpackSatchelMedical: 50
+    ClothingUniformJumpsuitMedicalDoctor: 50
+    ClothingUniformJumpskirtMedicalDoctor: 50
+    ClothingUniformJumpsuitMedicalBlue: 50
+    ClothingUniformJumpsuitMedicalGreen: 50
+    ClothingUniformJumpsuitParamedicUniform: 50
+    ClothingHeadHatBeretMedic: 30
+    ClothingHeadNurseHat: 30
+    ClothingOuterCoatLab: 50
+    ClothingShoesColorWhite: 50
+    ClothingShoesMedicalBlue: 50
+    ClothingHandsGlovesLatex: 10
+    ClothingHandsGlovesVinylDark: 20
+    ClothingHandsGlovesVinylOrange: 20
+    ClothingHandsGlovesNitrile: 20
+    ClothingOuterJacketSurgical: 50
+    ClothingHeadsetMedical: 100
+    ClothingOuterWinterMed: 100
+    ClothingOuterHospitalGown: 20
+    UniformScrubsColorGreen: 50
+    UniformScrubsColorBlue: 50
+    UniformScrubsColorPurple: 50
+    ClothingHeadHatSurgcapGreen: 20
+    ClothingHeadHatSurgcapBlue: 20
+    ClothingHeadHatSurgcapPurple: 20
+    ClothingShoesBootsWinterMed: 50
+    ClothingBeltMedical: 50
+    ClothingEyesGlasses: 50
+    ClothingEyesHudMedical: 100
+    ClothingEyesEyepatchHudMedical: 100
   contrabandInventory: #DeltaV
     UniformScrubsColorCybersun: 1 #DeltaV
     ClothingHeadHatSurgcapCybersun: 1 #DeltaV

@@ -18,3 +18,16 @@
 
     MagazineBoxRifle: 6
     MagazineBoxRiflePractice: 3
+  startingItemPrices:
+    MagazineBoxCaselessRifle: 50
+    MagazineBoxCaselessRiflePractice: 10
+    MagazineBoxLightRifleBig: 50
+    MagazineBoxLightRiflePractice: 10
+    MagazineBoxMagnum: 50
+    MagazineBoxMagnumPractice: 10
+    MagazineBoxSpecial: 50
+    MagazineBoxSpecialPractice: 10
+    MagazineBoxPistol: 50
+    MagazineBoxPistolPractice: 10
+    MagazineBoxRifle: 50
+    MagazineBoxRiflePractice: 10

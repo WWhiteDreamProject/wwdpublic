@@ -4,3 +4,7 @@
     DrinkSodaWaterCan: 10 #typically hacked product. Default product is "soda"
   contrabandInventory:
     DrinkColaCan: 10
+  startingItemPrices:
+    DrinkSodaWaterCan: 10
+  contrabandItemPrices:
+    DrinkColaCan: 10

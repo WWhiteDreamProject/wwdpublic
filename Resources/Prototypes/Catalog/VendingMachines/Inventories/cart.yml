@@ -44,9 +44,54 @@
     EncryptionKeyScience: 2
     EncryptionKeySecurity: 2
     EncryptionKeyService: 4
+  startingItemPrices:
+    PassengerPDA: 50
+    SecurityPDA: 50
+    SecurityCadetPDA: 50
+    MedicalPDA: 50
+    MedicalInternPDA: 50
+    EngineerPDA: 50
+    TechnicalAssistantPDA: 50
+    SciencePDA: 50
+    ResearchAssistantPDA: 50
+    CargoPDA: 50
+    SalvagePDA: 50
+    ServiceWorkerPDA: 50
+    ChefPDA: 50
+    BotanistPDA: 50
+    BartenderPDA: 50
+    JanitorPDA: 50
+    LibrarianPDA: 50
+    LawyerPDA: 50
+    ReporterPDA: 50
+    ZookeeperPDA: 50
+    BoxerPDA: 50
+    ClownPDA: 50
+    MimePDA: 50
+    MusicianPDA: 50
+    ClothingHeadsetGrey: 50
+    ClothingHeadsetService: 50
+    ClothingHeadsetCargo: 50
+    ClothingHeadsetEngineering: 50
+    ClothingHeadsetMedical: 50
+    ClothingHeadsetScience: 50
+    RubberStampApproved: 20
+    RubberStampDenied: 20
+    Paper: 5
+    Envelope: 5
+    EncryptionKeyCargo: 50
+    EncryptionKeyEngineering: 50
+    EncryptionKeyMedical: 50
+    EncryptionKeyScience: 50
+    EncryptionKeySecurity: 50
+    EncryptionKeyService: 50
   #WWDP edit start
   emaggedInventory:
     EncryptionKeySyndie: 2
     RubberStampSyndicate: 1
     SyndiPDA: 2
+  emaggedItemPrices:
+    EncryptionKeySyndie: 500
+    RubberStampSyndicate: 200
+    SyndiPDA: 500
   #WWDP edit end

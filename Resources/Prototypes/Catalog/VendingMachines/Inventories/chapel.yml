@@ -25,6 +25,30 @@
     BoxCandle: 2
     BoxCandleSmall: 2
     Urn: 5
+  startingItemPrices:
+    ClothingUniformJumpsuitChaplain: 50
+    ClothingUniformJumpskirtChaplain: 50
+    ClothingUniformJumpsuitMonasticRobeDark: 100
+    ClothingUniformJumpsuitMonasticRobeLight: 100
+    ClothingOuterHoodieChaplain: 50
+    ClothingOuterHoodieBlack: 50
+    ClothingHeadHatHoodNunHood: 50
+    ClothingOuterNunRobe: 100
+    ClothingHeadHatFez: 50
+    ClothingHeadHatPlaguedoctor: 100
+    ClothingHeadHatWitch: 100
+    ClothingHeadHatWitch1: 100
+    ClothingOuterPlagueSuit: 200
+    ClothingMaskPlague: 50
+    ClothingNeckScarfChaplainStole: 20
+    ClothingHeadsetService: 100
+    RubberStampChaplain: 50
+    Bible: 20
+    ClothingNeckCrucifix: 20
+    ClothingNeckStoleChaplain: 20
+    BoxCandle: 10
+    BoxCandleSmall: 10
+    Urn: 50
   emaggedInventory:
     ClothingOuterArmorCult: 1
     ClothingHeadHelmetCult: 1
@@ -34,3 +58,11 @@
     BedsheetCult: 4
     ClothingNeckScarfStripedBlack: 3
     BibleNecronomicon: 1 #WWDP edit
+  emaggedItemPrices:
+    ClothingOuterArmorCult: 500
+    ClothingHeadHelmetCult: 200
+    ClothingOuterRobesCult: 200
+    ClothingShoesCult: 50
+    BedsheetCult: 100
+    ClothingNeckScarfStripedBlack: 20
+    BibleNecronomicon: 1000

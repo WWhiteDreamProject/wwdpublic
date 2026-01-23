@@ -21,11 +21,36 @@
     ClothingHandsGlovesColorBlack: 4
     ClothingEyesGlassesCheapSunglasses: 2
     ClothingClothWrap: 4
+  startingItemPrices:
+    ClothingBackpack: 50
+    ClothingBackpackDuffel: 50
+    ClothingBackpackSatchel: 50
+    ClothingBackpackSatchelLeather: 100
+    ClothingRandomSpawner: 50
+    ClothingHeadBandBlack: 20
+    ClothingHeadHatGreyFlatcap: 30
+    ClothingUniformJumpsuitColorGrey: 50
+    ClothingUniformJumpskirtColorGrey: 50
+    ClothingShoesColorBlack: 50
+    ClothingHeadHatGreysoft: 30
+    ClothingHeadHatCorpsoft: 50
+    ClothingOuterWinterCoat: 100
+    ClothingOuterCorporateJacket: 200
+    ClothingBeltStorageWaistbag: 50
+    ClothingEyesGlasses: 50
+    ClothingHandsGlovesColorBlack: 30
+    ClothingEyesGlassesCheapSunglasses: 20
+    ClothingClothWrap: 10
   contrabandInventory:
     ClothingMaskNeckGaiter: 2
     ClothingUniformJumpsuitTacticool: 1
     ClothingUniformJumpskirtTacticool: 1
     ClothingBackpackSatchelSmugglerUnanchored: 1 # this definitely is not intended for loadout
+  contrabandItemPrices:
+    ClothingMaskNeckGaiter: 30
+    ClothingUniformJumpsuitTacticool: 100
+    ClothingUniformJumpskirtTacticool: 100
+    ClothingBackpackSatchelSmugglerUnanchored: 200
   #WWDP edit start
   emaggedInventory:
     ClothingHandsGlovesCombat: 1
@@ -35,4 +60,12 @@
     ClothingHeadsetAltSyndicate: 1
     ClothingShoesBootsCombatFilled: 1
     ClothingMaskGasSyndicate: 1
+  emaggedItemPrices:
+    ClothingHandsGlovesCombat: 200
+    ClothingUniformJumpsuitOperative: 500
+    ClothingBeltMilitaryWebbing: 150
+    ClothingBackpackDuffelSyndicate: 200
+    ClothingHeadsetAltSyndicate: 500
+    ClothingShoesBootsCombatFilled: 200
+    ClothingMaskGasSyndicate: 300
   #WWDP edit end

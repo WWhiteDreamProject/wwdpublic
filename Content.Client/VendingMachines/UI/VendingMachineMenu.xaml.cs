@@ -72,10 +72,10 @@ namespace Content.Client.VendingMachines.UI
 
         private void GenerateButton(ListData data, ListContainerButton button)
         {
-            if (data is not VendorItemsListData { ItemProtoID: var protoID, ItemText: var text })
+            if (data is not VendorItemsListData { ItemProtoID: var protoID, ItemText: var text, Price: var price })
                 return;
 
-            var item = new VendingMachineItem(protoID, text);
+            var item = new VendingMachineItem(protoID, text, price);
             _listItems[protoID] = (button, item);
             button.AddChild(item);
             button.AddStyleClass("ButtonSquare");
@@ -152,6 +152,7 @@ namespace Content.Client.VendingMachines.UI
                 listData.Add(new VendorItemsListData(prototype.ID, i)
                 {
                     ItemText = itemText,
+                    Price = entry.Price
                 });
             }
 
@@ -173,11 +174,12 @@ namespace Content.Client.VendingMachines.UI
                     continue;
 
                 var dummy = _dummies[proto];
-                var amount = cachedInventory.First(o => o.ID == proto).Amount;
+                var entry = cachedInventory.First(o => o.ID == proto);
+                var amount = entry.Amount;
                 // Could be better? Problem is all inventory entries get squashed.
                 var text = GetItemText(dummy, amount);
 
-                button.Item.SetText(text);
+                button.Item.UpdateData(text, entry.Price);
                 button.Button.Disabled = !enabled || amount == 0;
             }
         }
@@ -198,5 +200,6 @@ namespace Content.Client.VendingMachines.UI
     public record VendorItemsListData(EntProtoId ItemProtoID, int ItemIndex) : ListData
     {
         public string ItemText = string.Empty;
+        public uint Price = 0;
     }
 }

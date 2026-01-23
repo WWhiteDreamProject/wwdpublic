@@ -19,6 +19,26 @@
     ClothingHeadCage: 2 # WWDP - moved from SecDrobe
     ClothingShoesBootsWinterSci: 2
   #WWDP edit start
+  startingItemPrices:
+    ClothingBackpackScience: 50
+    ClothingBackpackSatchelScience: 50
+    ClothingBackpackDuffelScience: 50
+    ClothingUniformJumpsuitScientist: 50
+    ClothingUniformJumpskirtScientist: 50
+    ClothingUniformJumpsuitScientistFormal: 50
+    ClothingOuterCoatRnd: 50
+    ClothingShoesColorWhite: 50
+    ClothingNeckTieSci: 20
+    ClothingHeadsetScience: 100
+    ClothingMaskGas: 50
+    ClothingOuterWinterSci: 100
+    ClothingNeckScarfStripedPurple: 20
+    ClothingHeadTinfoil: 10
+    ClothingHeadHelmetInsulated: 100
+    ClothingHeadCage: 100
+    ClothingShoesBootsWinterSci: 50
   emaggedInventory:
     ClothingEyesNightVisionGogglesSyndie: 1
+  emaggedItemPrices:
+    ClothingEyesNightVisionGogglesSyndie: 500
   #WWDP edit end

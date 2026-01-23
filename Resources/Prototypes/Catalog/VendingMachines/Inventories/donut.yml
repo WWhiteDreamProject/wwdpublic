@@ -5,5 +5,12 @@
     FoodDonutApple: 3
     FoodDonutPink: 3
     FoodDonutBungo: 3
+  startingItemPrices:
+    FoodDonutChocolate: 10
+    FoodDonutApple: 10
+    FoodDonutPink: 10
+    FoodDonutBungo: 10
   emaggedInventory:
     FoodDonutPoison: 1
+  emaggedItemPrices:
+    FoodDonutPoison: 100

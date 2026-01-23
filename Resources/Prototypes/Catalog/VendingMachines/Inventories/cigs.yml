@@ -14,5 +14,20 @@
     CheapLighter: 4
     Lighter: 2
     FlippoLighter: 2
+  startingItemPrices:
+    CigPackGreen: 10
+    CigPackRed: 10
+    CigPackBlue: 10
+    CigPackBlack: 10
+    CigPackMixed: 10
+    CigarCase: 50
+    SmokingPipeFilledTobacco: 50
+    Matchbox: 2
+    PackPaperRollingFilters: 5
+    CheapLighter: 5
+    Lighter: 10
+    FlippoLighter: 20
   emaggedInventory:
     CigPackSyndicate: 1
+  emaggedItemPrices:
+    CigPackSyndicate: 100

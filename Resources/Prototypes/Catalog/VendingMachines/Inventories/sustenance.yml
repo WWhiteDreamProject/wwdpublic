@@ -25,3 +25,26 @@
     SpaceMedipen: 2
     HappyHonkNukie: 2
     #WWDP edit end
+  startingItemPrices:
+    DrinkMREFlask: 20
+    FoodSnackNutribrick: 10
+    FoodSnackMREBrownie: 10
+    FoodCondimentPacketKetchup: 2
+    FoodCondimentPacketPepper: 2
+    FoodCondimentPacketSalt: 2
+    ReagentTinPowderedMilkSoy: 10
+    ReagentTinPowderedJuiceOrange: 10
+    FoodBowlBig: 5
+    FoodPlateTin: 5
+    ForkPlastic: 2
+    SpoonPlastic: 2
+    KnifePlastic: 2
+  emaggedItemPrices:
+    EnergyDagger: 500
+    ClothingOuterHardsuitSyndicate: 1000
+    ClothingHeadHelmetSyndicate: 500
+    NitrogenTankFilled: 50
+    OxygenTankFilled: 50
+    DoubleEmergencyPlasmaTankFilled: 100
+    SpaceMedipen: 50
+    HappyHonkNukie: 100

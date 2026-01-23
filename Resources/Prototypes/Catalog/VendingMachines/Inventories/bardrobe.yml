@@ -16,9 +16,29 @@
     ClothingOuterVest: 2
     ClothingBeltBandolier: 2
     ClothingEyesGlassesSunglasses: 2
+  startingItemPrices:
+    ClothingHeadHatBowlerHat: 100
+    ClothingHeadHatTophat: 100
+    ClothingEyesHudBeer: 100
+    ClothingEyesEyepatchHudBeer: 100
+    ClothingHeadsetService: 100
+    ClothingOuterApronBar: 20
+    ClothingOuterWinterBar: 100
+    ClothingUniformJumpsuitBartender: 50
+    ClothingUniformJumpskirtBartender: 50
+    ClothingUniformJumpsuitBartenderPurple: 50
+    ClothingShoesColorBlack: 50
+    ClothingOuterArmorDuraVest: 500
+    ClothingOuterVest: 100
+    ClothingBeltBandolier: 50
+    ClothingEyesGlassesSunglasses: 20
   #WWDP edit start
   emaggedInventory:
     WeaponRevolverPython: 1
     ClothingHeadHatOutlawHat: 1
     ClothingOuterCoatSyndieCapArmored: 1
+  emaggedItemPrices:
+    WeaponRevolverPython: 500
+    ClothingHeadHatOutlawHat: 100
+    ClothingOuterCoatSyndieCapArmored: 500
   #WWDP edit end

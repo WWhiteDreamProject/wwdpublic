@@ -18,9 +18,30 @@
     Welder: 1
     Screwdriver: 2
     Crowbar: 2
+  startingItemPrices:
+    CableApcStack: 10
+    SciFlash: 20
+    ProximitySensor: 50
+    ClothingEyesHudDiagnostic: 100
+    ClothingEyesEyepatchHudDiag: 100
+    RemoteSignaller: 50
+    Igniter: 20
+    HandheldHealthAnalyzer: 1000
+    Scalpel: 50
+    SawElectric: 50
+    NitrousOxideTankFilled: 50
+    ClothingMaskBreathMedical: 20
+    ClothingHeadHatWeldingMaskFlame: 50
+    Welder: 50
+    Screwdriver: 20
+    Crowbar: 20
   #WWDP edit start
   emaggedInventory:
     SawAdvanced: 1
     ScalpelAdvanced: 1
     EncryptionKeyBinarySyndicate: 1
+  emaggedItemPrices:
+    SawAdvanced: 200
+    ScalpelAdvanced: 200
+    EncryptionKeyBinarySyndicate: 500
   #WWDP edit end

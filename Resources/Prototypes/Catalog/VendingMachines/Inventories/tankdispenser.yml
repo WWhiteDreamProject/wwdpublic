@@ -4,9 +4,16 @@
     OxygenTankFilled: 6 # WD EDIT: 10 -> 6
     NitrogenTankFilled: 6 # WD EDIT: 10 -> 6
     AirTankFilled: 3 # WD EDIT: PlasmaTankFilled 10 -> AirTankFilled 3
+  startingItemPrices:
+    OxygenTankFilled: 50
+    NitrogenTankFilled: 50
+    AirTankFilled: 50
 
 - type: vendingMachineInventory
   id: TankDispenserEngineeringInventory
   startingInventory:
     PlasmaTankFilled: 6  # WD EDIT: 10 -> 6
     OxygenTankFilled: 6  # WD EDIT: 10 -> 6
+  startingItemPrices:
+    PlasmaTankFilled: 100
+    OxygenTankFilled: 50

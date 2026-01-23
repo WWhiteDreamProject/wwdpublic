@@ -19,6 +19,31 @@
     ClothingHeadHatSantahat: 2
     ClothingHeadHatXmasCrown: 2
   emaggedInventory:
+    ClothingNeckScarfStripedRed: 3
+    ClothingNeckScarfStripedCentcom: 3
+  startingItemPrices:
+    ClothingNeckScarfStripedRed: 20
+    ClothingNeckScarfStripedGreen: 20
+    ClothingNeckScarfStripedBlue: 20
+    ClothingNeckScarfStripedBlack: 20
+    ClothingNeckScarfStripedBrown: 20
+    ClothingNeckScarfStripedLightBlue: 20
+    ClothingNeckScarfStripedOrange: 20
+    ClothingNeckScarfStripedPurple: 20
+    ClothingOuterCoatTrench: 100
+    ClothingOuterWinterCoat: 100
+    ClothingShoesBootsWinter: 50
+    ClothingOuterFlannelRed: 50
+    ClothingOuterFlannelBlue: 50
+    ClothingOuterFlannelGreen: 50
+    ClothingOuterCoatBomber: 100
+    ClothingHeadHatSantahat: 20
+    ClothingHeadHatXmasCrown: 50
+  emaggedInventory:
     ClothingNeckScarfStripedSyndieGreen: 3
     ClothingNeckScarfStripedSyndieRed: 3
     ClothingNeckScarfStripedCentcom: 3
+  emaggedItemPrices:
+    ClothingNeckScarfStripedSyndieGreen: 20
+    ClothingNeckScarfStripedSyndieRed: 20
+    ClothingNeckScarfStripedCentcom: 50

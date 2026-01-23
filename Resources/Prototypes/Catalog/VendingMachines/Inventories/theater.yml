@@ -133,6 +133,139 @@
     ClothingUniformJumpskirtMime: 2
     ClothingBeltSuspendersRed: 2
     RubberStampMime: 1
+  startingItemPrices:
+    ClothingHeadHatJester: 50
+    ClothingUniformJumpsuitJester: 50
+    ClothingHeadHatJesterAlt: 50
+    ClothingUniformJumpsuitJesterAlt: 50
+    ClothingShoesJester: 50
+    ClothingOuterWinterClown: 100
+    ClothingOuterWinterMime: 100
+    ClothingOuterWinterMusician: 100
+    ClothingMaskJoy: 50
+    ClothingHeadHatCardborg: 50
+    ClothingOuterCardborg: 50
+    ClothingHeadHatSombrero: 50
+    ClothingOuterPonchoClassic: 50
+    ClothingUniformJumpsuitKilt: 50
+    ClothingEyesEyepatch: 20
+    ClothingUniformJumpsuitBlackTurtleneck : 50
+    ClothingHeadHatPwig: 50
+    ClothingOuterRobesJudge: 100
+    ClothingOuterPoncho: 50
+    ClothingHeadHatSantahat: 20
+    ClothingOuterSanta: 50
+    ClothingHeadHatSkub: 50
+    ClothingOuterSkub: 50
+    ClothingHeadHatBeretFrench: 20
+    ClothingOuterSuitChicken: 50
+    ClothingHeadHatChickenhead: 50
+    ClothingOuterSuitMonkey: 50
+    ClothingHeadHatPumpkin: 50
+    ClothingHeadHatShrineMaidenWig: 50
+    ClothingOuterSuitShrineMaiden: 100
+    Gohei: 20
+    ClothingOuterSuitWitchRobes: 100
+    ClothingHeadHatWitch1: 50
+    ClothingHeadHatWitch: 50
+    ClothingHeadHatRedRacoon: 50
+    ClothingOuterRedRacoon: 100
+    ClothingHeadPaperSack: 10
+    ClothingHeadPaperSackSmile: 10
+    ClothingEyesBlindfold: 10
+    ClothingHeadRastaHat: 50
+    ClothingUniformJumpsuitDameDane: 50
+    ClothingShoesDameDane: 50
+    ClothingOuterDameDane: 50
+    ClothingOuterClownPriest: 100
+    ClothingMaskSadMime: 50
+    ClothingMaskScaredMime: 50
+    ClothingUniformJumpsuitKimono: 100
+    ClothingHeadHatCasa: 50
+    FoodPoppy: 10
+    ClothingHeadHatGladiator: 50
+    ClothingUniformJumpsuitGladiator: 50
+    ClothingUniformSkirtTurtle: 50
+    ClothingUniformSwimsuitBlue: 50
+    ClothingCostumeBunnySuit: 100
+    ClothingHeadHatBunny: 50
+    ClothingUniformDressRed: 50
+    ClothingHeadHatCake: 50
+    ClothingUniformSchoolGakuranBlack: 50
+    UniformSchoolgirlBlack: 50
+    UniformSchoolgirlBlue: 50
+    UniformSchoolgirlCyan: 50
+    UniformSchoolgirlGreen: 50
+    UniformSchoolgirlOrange: 50
+    UniformSchoolgirlPink: 50
+    UniformSchoolgirlPurple: 50
+    UniformSchoolgirlRed: 50
+    UniformSchoolgirlDusk: 50
+    UniformSchoolgirlBlazerTan: 50
+    UniformGeisha: 50
+    ClothingKimonoBlue: 100
+    ClothingKimonoPink: 100
+    ClothingKimonoPurple: 100
+    ClothingKimonoSky: 100
+    ClothingKimonoGreen: 100
+    ClothingMaskOniBlue: 50
+    ClothingMaskOniRed: 50
+    ClothingCostumeArcDress: 50
+    ClothingCostumeMioSkirt: 50
+    ClothingCostumeNaota: 50
+    ClothingUniformJumpsuitSober: 50
+    ClothingOuterSuitCarp: 100
+    ClothingShoesBootsWinterClown: 50
+    ClothingShoesBootsWinterMime: 50
+    ClothingHeadHatCowboyBrown: 50
+    ClothingHeadHatCowboyBlack: 50
+    ClothingHeadHatCowboyWhite: 50
+    ClothingHeadHatCowboyGrey: 50
+    ClothingShoesBootsCowboyBrown: 50
+    ClothingShoesBootsCowboyBlack: 50
+    ClothingShoesBootsCowboyWhite: 50
+    ClothingMaskNeckGaiterRed: 20
+    ClothingUniformJumpskirtPerformer: 50
+    ClothingShoesBootsPerformer: 50
+    ClothingNeckCloakMoth: 50
+    ClothingUniformJumpskirtJanimaid: 200
+    ClothingNeckCloakVoid: 50
+    ClothingHeadBandRed: 20
+    ClothingHeadHatPirate: 50
+    ClothingOuterCoatPirate: 100
+    ClothingUniformJumpsuitPirate: 50
+    ClothingShoesBootsLaceup: 50
+    FoamCutlass: 20
+    ClothingHeadSafari: 50
+    ClothingUniformJumpsuitSafari: 50
+    ClothingUniformRandomArmlessNoSkirt: 50
+    ClothingUniformRandomArmless: 50
+    ClothingUniformRandomStandard: 50
+    ClothingUniformRandomBra: 50
+    ClothingUniformRandomShorts: 50
+    ClothingUniformRandomShirt: 50
+    ClothingHandsGlovesBoxingRed: 20
+    ClothingHandsGlovesBoxingBlue: 20
+    ClothingHandsGlovesBoxingYellow: 20
+    ClothingHandsGlovesBoxingGreen: 20
+    UniformShortsRed: 20
+    UniformShortsRedWithTop: 20
+    ClothingBackpackClown: 50
+    ClothingBackpackSatchelClown: 50
+    ClothingBackpackDuffelClown: 50
+    ClothingMaskClown: 50
+    ClothingShoesClown: 50
+    ClothingUniformJumpsuitClown: 50
+    RubberStampClown: 50
+    ClothingBackpackMime: 50
+    ClothingBackpackSatchelMime: 50
+    ClothingBackpackDuffelMime: 50
+    ClothingHeadHatMimesoft: 50
+    ClothingMaskMime: 50
+    ClothingUniformJumpsuitMime: 50
+    ClothingUniformJumpskirtMime: 50
+    ClothingBeltSuspendersRed: 20
+    RubberStampMime: 50
   contrabandInventory:
     ClothingHeadHatMimesoftFlipped: 1
     BarberScissors: 1
@@ -146,3 +279,16 @@
     ClothingMaskSexyMime: 1
     ClothingHeadHatCowboyBountyHunter: 1
     Katana: 1 #WWDP edit
+  contrabandItemPrices:
+    ClothingHeadHatMimesoftFlipped: 100
+    BarberScissors: 20
+    ClothingNeckBellCollar: 50
+    ClothingOuterUnathiRobe: 100
+  emaggedItemPrices:
+    ClothingShoesBling: 100
+    ClothingShoesBootsCowboyFancy: 100
+    ClothingOuterDogi: 100
+    ClothingMaskSexyClown: 100
+    ClothingMaskSexyMime: 100
+    ClothingHeadHatCowboyBountyHunter: 100
+    Katana: 500

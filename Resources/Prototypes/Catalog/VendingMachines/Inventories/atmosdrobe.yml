@@ -18,3 +18,19 @@
     ClothingOuterSuitAtmosFire: 1
     ClothingHeadHelmetAtmosFire: 1
     #WWDP edit end
+  startingItemPrices:
+    ClothingBackpackDuffelAtmospherics: 50
+    ClothingBackpackSatchelAtmospherics: 50
+    ClothingBackpackAtmospherics: 50
+    ClothingUniformJumpsuitAtmos: 50
+    ClothingUniformJumpskirtAtmos: 50
+    ClothingUniformJumpsuitAtmosCasual: 50
+    ClothingShoesBootsWorkAtmos: 50
+    ClothingHeadsetEngineering: 100
+    ClothingHeadHelmetFire: 50
+    ClothingOuterSuitFire: 100
+    ClothingOuterWinterAtmos: 100
+    ClothingNeckScarfStripedLightBlue: 20
+    ClothingShoesBootsWinterAtmos: 50
+    ClothingOuterSuitAtmosFire: 100
+    ClothingHeadHelmetAtmosFire: 50

@@ -13,3 +13,16 @@
     ClothingShoesBootsWinterChef: 2 #Delta V: Add departmental winter boots
     ClothingShoesChef: 2
     ClothingBeltChef: 2
+  startingItemPrices:
+    ClothingHeadsetService: 100
+    ClothingOuterApronChef: 20
+    ClothingOuterWinterChef: 100
+    ClothingOuterJacketChef: 50
+    ClothingUniformJumpsuitChef: 50
+    ClothingMaskItalianMoustache: 20
+    ClothingUniformJumpskirtChef: 50
+    ClothingHeadHatChef: 20
+    ClothingShoesColorBlack: 50
+    ClothingShoesBootsWinterChef: 50
+    ClothingShoesChef: 50
+    ClothingBeltChef: 50

@@ -91,17 +91,17 @@
   - proto: WeaponPistolMk58
     price: 300
   - proto: WeaponPistolViper
-    price: 250
+    price: 150
   - proto: WeaponSubMachineGunWt550
-    price: 800
+    price: 600
   - proto: WeaponSubMachineGunC20r
-    price: 1200
+    price: 800
   - proto: WeaponShotgunBulldog
-    price: 1200
+    price: 850
   - proto: WeaponShotgunEnforcer
-    price: 1500
+    price: 1200
   - proto: WeaponRifleAk
-    price: 2500
+    price: 1500
   - proto: WeaponRifleM90GrenadeLauncher
     price: 3500
 
@@ -110,26 +110,26 @@
   name: "Патроны"
   entries:
   - proto: MagazinePistol
-    price: 40
+    price: 20
   - proto: MagazinePistolHighCapacity
-    price: 80
-  - proto: MagazineLightRifle
-    price: 60
-  - proto: MagazineRifle
-    price: 80
-  - proto: MagazineMagnum
-    price: 100
-  - proto: SpeedLoaderPistol
     price: 40
+  - proto: MagazineLightRifle
+    price: 30
+  - proto: MagazineRifle
+    price: 40
+  - proto: MagazineMagnum
+    price: 50
+  - proto: SpeedLoaderPistol
+    price: 20
   - proto: SpeedLoaderMagnum
-    price: 80
+    price: 40
 
 - type: storeCategoryStructured
   id: Cat_City_Melee
   name: "Ближний Бой"
   entries:
   - proto: Stunbaton
-    price: 250
+    price: 100
 
 - type: storeCategoryStructured
   id: Cat_City_Medical
@@ -138,38 +138,38 @@
   - proto: MedkitFilled
     price: 100
   - proto: Brutepack
-    price: 20
-  - proto: Ointment
-    price: 20
-  - proto: Syringe
     price: 10
+  - proto: Ointment
+    price: 10
+  - proto: Syringe
+    price: 5
   - proto: PillCanisterBicaridine
     price: 50
   - proto: PillCanisterKelotane
     price: 50
   - proto: PillCanisterTricordrazine
-    price: 80
+    price: 50
 
 - type: storeCategoryStructured
   id: Cat_City_Apparel
   name: "Снаряжение"
   entries:
   - proto: ClothingOuterArmorBasic
-    price: 300
-  - proto: ClothingOuterArmorVest
-    price: 250
-  - proto: ClothingOuterCoatTrench
-    price: 150
-  - proto: ClothingOuterVestWebMerc
     price: 200
-  - proto: ClothingShoesBootsCombat
+  - proto: ClothingOuterArmorVest
+    price: 150
+  - proto: ClothingOuterCoatTrench
     price: 100
-  - proto: ClothingEyesGlassesSunglasses
+  - proto: ClothingOuterVestWebMerc
+    price: 150
+  - proto: ClothingShoesBootsCombat
     price: 50
+  - proto: ClothingEyesGlassesSunglasses
+    price: 20
 
 - type: storePresetStructured
   id: TradeCity_Buy
-  currency: SpaceCash
+  currency: Credit
   categories:
   - Cat_City_Weapons
   - Cat_City_Ammo
@@ -179,7 +179,7 @@
 
 - type: storePresetStructured
   id: TradeCity_Sell
-  currency: SpaceCash
+  currency: Credit
   categories:
   - Cat_City_Weapons
   - Cat_City_Ammo

@@ -12,4 +12,17 @@
     ClothingHeadBandBotany: 3
     ClothingHeadsetService: 2
     ClothingOuterWinterHydro: 2
-    ClothingShoesBootsWinterHydro: 2 #Delta V: Add departmental winter boots
+    ClothingShoesBootsWinterHydro: 2
+  startingItemPrices:
+    ClothingBackpackHydroponics: 100
+    ClothingBackpackSatchelHydroponics: 100
+    ClothingBackpackDuffelHydroponics: 100
+    ClothingUniformJumpsuitHydroponics: 100
+    ClothingUniformJumpskirtHydroponics: 100
+    ClothingHandsGlovesBotanistLeather: 50
+    ClothingOuterApronBotanist: 50
+    ClothingOuterWinterHydro: 200
+    ClothingBeltPlant: 100
+    ClothingHeadHatFlowerCrown: 50
+    ClothingHeadsetService: 100
+    ClothingShoesBootsWinterHydro: 100 #Delta V: Add departmental winter boots

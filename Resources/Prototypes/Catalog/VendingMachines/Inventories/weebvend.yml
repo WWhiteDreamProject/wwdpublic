@@ -6,7 +6,15 @@
     FoodSnackPokeysticks: 3
     FoodSnackChocobanana: 3
     FoodSnackDango: 3
+  startingItemPrices:
+    FoodSnackRedalertnuts: 20
+    FoodSnackRicecake: 20
+    FoodSnackPokeysticks: 20
+    FoodSnackChocobanana: 20
+    FoodSnackDango: 20
   #WWDP edit start
   emaggedInventory:
     Wakizashi: 1
+  emaggedItemPrices:
+    Wakizashi: 500
   #WWDP edit end

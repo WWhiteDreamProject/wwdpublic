@@ -11,3 +11,14 @@
     FoodSnackMarsFrouka: 3
     FoodSnackVenusianhotcakes: 3
     FoodSnackOortrocks: 3
+  startingItemPrices:
+    FoodSnackLunacakeWrapped: 10
+    FoodSnackMochicakeWrapped: 10
+    FoodSnackMooncakeWrapped: 10
+    FoodSnackTidegobs: 10
+    FoodSnackSaturnos: 10
+    FoodSnackJoveGello: 10
+    FoodSnackPlutoniumrods: 10
+    FoodSnackMarsFrouka: 10
+    FoodSnackVenusianhotcakes: 10
+    FoodSnackOortrocks: 10

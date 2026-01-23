@@ -20,7 +20,29 @@
     ClothingOuterWinterEngi: 2
     ClothingNeckScarfStripedOrange: 3
     ClothingShoesBootsWinterEngi: 2
+  startingItemPrices:
+    ClothingBackpackDuffelEngineering: 50
+    ClothingBackpackSatchelEngineering: 50
+    ClothingBackpackEngineering: 50
+    ClothingUniformJumpsuitEngineerPolar: 50
+    ClothingUniformJumpsuitOldEngineerWorker: 50
+    ClothingUniformJumpsuitOldEngineerCasual: 50
+    ClothingUniformJumpsuitOldEngineer: 50
+    ClothingUniformJumpsuitEngineering: 50
+    ClothingUniformJumpskirtEngineering: 50
+    ClothingUniformJumpsuitEngineeringHazard: 50
+    ClothingShoesColorBlack: 50
+    ClothingOuterVestHazard: 50
+    ClothingShoesBootsWork: 50
+    ClothingHeadHatHardhatYellow: 50
+    ClothingHeadHatHardhatOrange: 50
+    ClothingHeadsetEngineering: 100
+    ClothingOuterWinterEngi: 100
+    ClothingNeckScarfStripedOrange: 20
+    ClothingShoesBootsWinterEngi: 50
   #WWDP edit start
   emaggedInventory:
     ClothingHandsGlovesConducting: 1
+  emaggedItemPrices:
+    ClothingHandsGlovesConducting: 200
   #WWDP edit end

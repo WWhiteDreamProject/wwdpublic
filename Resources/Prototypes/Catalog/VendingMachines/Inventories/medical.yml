@@ -18,7 +18,26 @@
     ParamedHypo: 2 #Goobstation - ParamedHypo
     EmergencyRollerBedSpawnFolded: 1 # WD EDIT
     VehicleWheelchairFolded: 3 # Goobstation - Vehicles
+
+    #NC EDIT START
+  startingItemPrices:
+    HandheldHealthAnalyzer: 1000
+    Brutepack: 50
+    Ointment: 50
+    MedicalPatchPrefilledBicaridine: 50
+    MedicalPatchPrefilledDermaline: 50
+    Bloodpack: 50
+    EpinephrineChemistryBottle: 50
+    Syringe: 20
+    Defibrillator: 500
+    ParamedHypo: 100
+    EmergencyRollerBedSpawnFolded: 100
+    VehicleWheelchairFolded: 100
+    #NC EDIT END
+
   # WD EDIT START
   emaggedInventory:
     StimpackMini: 1
+  emaggedItemPrices:
+    StimpackMini: 500
   # WD EDIT END

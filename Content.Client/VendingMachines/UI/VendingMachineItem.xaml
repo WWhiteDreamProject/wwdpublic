@@ -13,4 +13,7 @@
             SizeFlagsStretchRatio="3"
             HorizontalExpand="True"
             ClipText="True"/>
+    <Label Name="PriceLabel"
+            Align="Right"
+            Margin="0 0 4 0"/>
 </BoxContainer>

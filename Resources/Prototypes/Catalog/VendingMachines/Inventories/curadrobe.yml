@@ -15,3 +15,18 @@
     ClothingShoesBootsLaceup: 2
     ClothingHeadsetService: 2
     PrinterDocFlatpack: 2 # Corvax-Printer
+  startingItemPrices:
+    BooksBag: 20
+    BriefcaseBrown: 50
+    HandLabeler: 20
+    Cane: 50
+    ClothingEyesGlasses: 50
+    ClothingEyesGlassesJamjar: 50
+    ClothingNeckScarfStripedGreen: 20
+    ClothingUniformJumpsuitCurator: 50
+    ClothingUniformJumpskirtCurator: 50
+    ClothingUniformJumpsuitLibrarian: 50
+    ClothingUniformJumpskirtLibrarian: 50
+    ClothingShoesBootsLaceup: 50
+    ClothingHeadsetService: 100
+    PrinterDocFlatpack: 50

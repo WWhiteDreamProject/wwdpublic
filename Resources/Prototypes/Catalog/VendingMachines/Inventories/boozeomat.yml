@@ -47,9 +47,60 @@
     DrinkSojuBottleFull: 2 # DeltaV - Soju bottle
     DrinkBeerCan: 5
     DrinkWineCan: 5
+  startingItemPrices:
+    DrinkGlass: 5
+    DrinkShotGlass: 5
+    DrinkGlassCoupeShaped: 5
+    DrinkVacuumFlask: 20
+    DrinkFlaskBar: 20
+    DrinkShaker: 20
+    DrinkJigger: 10
+    DrinkIceBucket: 20
+    BarSpoon: 5
+    CustomDrinkJug: 10
+    DrinkAbsintheBottleFull: 50
+    DrinkAleBottleFull: 20
+    DrinkBeerBottleFull: 20
+    DrinkBlueCuracaoBottleFull: 30
+    DrinkCognacBottleFull: 50
+    DrinkCoconutWaterCarton: 10
+    DrinkColaBottleFull: 10
+    DrinkEnergyDrinkCan: 10
+    DrinkMilkCarton: 10
+    DrinkCreamCarton: 10
+    DrinkGinBottleFull: 30
+    DrinkGildlagerBottleFull: 50
+    DrinkGrenadineBottleFull: 20
+    DrinkJuiceLimeCarton: 10
+    DrinkJuiceLemonCarton: 10
+    DrinkJuiceOrangeCarton: 10
+    DrinkJuiceTomatoCarton: 10
+    DrinkCoffeeLiqueurBottleFull: 30
+    DrinkMelonLiquorBottleFull: 30
+    DrinkPatronBottleFull: 40
+    DrinkRumBottleFull: 30
+    DrinkSodaWaterCan: 10
+    DrinkSolDryCan: 10
+    DrinkSpaceMountainWindBottleFull: 20
+    DrinkSpaceUpBottleFull: 20
+    DrinkTequilaBottleFull: 30
+    DrinkTonicWaterCan: 10
+    DrinkVermouthBottleFull: 30
+    DrinkVodkaBottleFull: 20
+    DrinkWhiskeyBottleFull: 30
+    DrinkWineBottleFull: 20
+    DrinkChampagneBottleFull: 100
+    DrinkSakeBottleFull: 30
+    DrinkSojuBottleFull: 20
+    DrinkBeerCan: 10
+    DrinkWineCan: 10
   emaggedInventory:
     DrinkPoisonWinebottleFull: 2
     #WWDP edit start
     DrinkNukieCan: 4
     DrinkChangelingStingCan: 4
     #WWDP edit end
+  emaggedItemPrices:
+    DrinkPoisonWinebottleFull: 200
+    DrinkNukieCan: 100
+    DrinkChangelingStingCan: 100

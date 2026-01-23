@@ -9,6 +9,18 @@
     DrinkLemonLimeCan: 2
     DrinkLemonLimeCranberryCan: 2
     DrinkFourteenLokoCan: 2
+  startingItemPrices:
+    DrinkColaCan: 10
+    DrinkGrapeCan: 10
+    DrinkRootBeerCan: 10
+    DrinkIcedTeaCan: 10
+    DrinkSolDryCan: 10
+    DrinkLemonLimeCan: 10
+    DrinkLemonLimeCranberryCan: 10
+    DrinkFourteenLokoCan: 10
   emaggedInventory:
     DrinkNukieCan: 2
     DrinkChangelingStingCan: 2
+  emaggedItemPrices:
+    DrinkNukieCan: 100
+    DrinkChangelingStingCan: 100

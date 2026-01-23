@@ -21,3 +21,22 @@
     ClothingEyesGlassesChemist: 2 # Safety glasses
     ClothingHandsGlovesChemist: 2 # Heavy duty chemistry gloves
     # End of modified code
+  startingItemPrices:
+    ClothingUniformJumpsuitChemistry: 50
+    ClothingUniformJumpskirtChemistry: 50
+    ClothingOuterCoatLabChem: 50
+    ClothingShoesColorWhite: 50
+    ClothingBackpackChemistry: 50
+    ClothingBackpackSatchelChemistry: 50
+    ClothingBackpackDuffelChemistry: 50
+    ChemBag: 20
+    ClothingBeltMedical: 50
+    ClothingHandsGlovesLatex: 10
+    ClothingHeadsetMedical: 100
+    ClothingOuterWinterChem: 100
+    ClothingUniformJumpsuitChemShirt: 50
+    ClothingNeckTieChem: 20
+    ClothingShoesEnclosedChem: 50
+    ClothingOuterApronChemist: 50
+    ClothingEyesGlassesChemist: 50
+    ClothingHandsGlovesChemist: 50

@@ -22,16 +22,16 @@ namespace Content.Shared.VendingMachines;
 public abstract partial class SharedVendingMachineSystem : EntitySystem
 {
     [Dependency] protected readonly IGameTiming Timing = default!;
-    [Dependency] private   readonly INetManager _net = default!;
+    [Dependency] private readonly INetManager _net = default!;
     [Dependency] protected readonly IPrototypeManager PrototypeManager = default!;
-    [Dependency] private   readonly AccessReaderSystem _accessReader = default!;
-    [Dependency] private   readonly SharedAppearanceSystem _appearanceSystem = default!;
+    [Dependency] private readonly AccessReaderSystem _accessReader = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
     [Dependency] protected readonly SharedAudioSystem Audio = default!;
-    [Dependency] private   readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] protected readonly SharedPointLightSystem Light = default!;
-    [Dependency] private   readonly SharedPowerReceiverSystem _receiver = default!;
+    [Dependency] private readonly SharedPowerReceiverSystem _receiver = default!;
     [Dependency] protected readonly SharedPopupSystem Popup = default!;
-    [Dependency] private   readonly SharedSpeakOnUIClosedSystem _speakOn = default!;
+    [Dependency] private readonly SharedSpeakOnUIClosedSystem _speakOn = default!;
     [Dependency] protected readonly SharedUserInterfaceSystem UISystem = default!;
     [Dependency] protected readonly IRobustRandom Randomizer = default!;
     [Dependency] private readonly EmagSystem _emag = default!;
@@ -293,7 +293,7 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
     /// <param name="type">The type of inventory the item is from</param>
     /// <param name="itemId">The prototype ID of the item</param>
     /// <param name="component"></param>
-    public void AuthorizedVend(EntityUid uid, EntityUid sender, InventoryType type, string itemId, VendingMachineComponent component)
+    public virtual void AuthorizedVend(EntityUid uid, EntityUid sender, InventoryType type, string itemId, VendingMachineComponent component)
     {
         if (IsAuthorized(uid, sender, component))
         {
@@ -312,9 +312,9 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
         if (!PrototypeManager.TryIndex(component.PackPrototypeId, out VendingMachineInventoryPrototype? packPrototype))
             return;
 
-        AddInventoryFromPrototype(uid, packPrototype.StartingInventory, InventoryType.Regular, component, restockQuality);
-        AddInventoryFromPrototype(uid, packPrototype.EmaggedInventory, InventoryType.Emagged, component, restockQuality);
-        AddInventoryFromPrototype(uid, packPrototype.ContrabandInventory, InventoryType.Contraband, component, restockQuality);
+        AddInventoryFromPrototype(uid, packPrototype.StartingInventory, packPrototype.StartingItemPrices, InventoryType.Regular, component, restockQuality);
+        AddInventoryFromPrototype(uid, packPrototype.EmaggedInventory, packPrototype.EmaggedItemPrices, InventoryType.Emagged, component, restockQuality);
+        AddInventoryFromPrototype(uid, packPrototype.ContrabandInventory, packPrototype.ContrabandItemPrices, InventoryType.Contraband, component, restockQuality);
         Dirty(uid, component);
     }
 
@@ -363,6 +363,7 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
     }
 
     private void AddInventoryFromPrototype(EntityUid uid, Dictionary<string, uint>? entries,
+        Dictionary<string, uint>? prices,
         InventoryType type,
         VendingMachineComponent? component = null, float restockQuality = 1.0f)
     {
@@ -400,7 +401,14 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
                     restock = (uint) Math.Floor(amount * result / chanceOfMissingStock);
                 }
 
+                uint price = 0;
+                if (prices != null && prices.TryGetValue(id, out var p))
+                {
+                    price = p;
+                }
+
                 if (inventory.TryGetValue(id, out var entry))
+                {
                     // Prevent a machine's stock from going over three times
                     // the prototype's normal amount. This is an arbitrary
                     // number and meant to be a convenience for someone
@@ -408,8 +416,10 @@ public abstract partial class SharedVendingMachineSystem : EntitySystem
                     // all the items just to restock one empty slot without
                     // losing the rest of the restock.
                     entry.Amount = Math.Min(entry.Amount + amount, 3 * restock);
+                    entry.Price = price; // Update price on restock
+                }
                 else
-                    inventory.Add(id, new VendingMachineInventoryEntry(type, id, restock));
+                    inventory.Add(id, new VendingMachineInventoryEntry(type, id, restock, price));
             }
         }
     }

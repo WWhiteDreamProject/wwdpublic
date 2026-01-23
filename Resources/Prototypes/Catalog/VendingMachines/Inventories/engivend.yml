@@ -11,3 +11,14 @@
     BoxInflatable: 2
     ClothingHeadHatCone: 4
     AccessConfigurator: 4
+  startingItemPrices:
+    ClothingEyesGlassesMeson: 100
+    ClothingHeadHatWelding: 50
+    CrowbarYellow: 20
+    Multitool: 100
+    NetworkConfigurator: 100
+    PowerCellMedium: 20
+    ClothingHandsGlovesColorYellow: 200
+    BoxInflatable: 50
+    ClothingHeadHatCone: 10
+    AccessConfigurator: 500

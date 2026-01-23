@@ -14,3 +14,15 @@
   emaggedInventory:
     Snatcherprod: 1
   #WWDP edit end
+  startingItemPrices:
+    RemoteSignaller: 20
+    Igniter: 20
+    Wirecutter: 20
+    CableApcStack: 10
+    FlashlightLantern: 20
+    PowerCellSmallPrinted: 20
+    MatterBinStockPart: 50
+    CapacitorStockPart: 50
+    MicroManipulatorStockPart: 50
+  emaggedItemPrices:
+    Snatcherprod: 500

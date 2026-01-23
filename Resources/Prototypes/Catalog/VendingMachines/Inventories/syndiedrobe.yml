@@ -16,8 +16,29 @@
     ClothingNeckScarfStripedSyndieRed: 2
     ClothingShoesBootsWinterSyndicate: 2
   emaggedInventory:
+  startingItemPrices:
+    ClothingHeadHatOutlawHat: 50
+    ClothingHeadHatSyndie: 50
+    ClothingMaskNeckGaiter: 30
+    ClothingOuterWinterSyndie: 100
+    ClothingHeadHatSyndieMAA: 50
+    ClothingOuterWinterSyndieCap: 200
+    ClothingOuterCoatSyndieCap: 200
+    ClothingUniformJumpsuitSyndieFormal: 100
+    ClothingUniformJumpskirtSyndieFormalDress: 100
+    ClothingUniformJumpsuitOperative: 100
+    ClothingUniformJumpskirtOperative: 100
+    ClothingNeckScarfStripedSyndieGreen: 20
+    ClothingNeckScarfStripedSyndieRed: 20
+    ClothingShoesBootsWinterSyndicate: 50
     ClothingOuterCoatSyndieCapArmored: 1
     ClothingOuterWinterSyndieCapArmored: 1
     ClothingHeadHatTacticalMaidHeadband: 5
     ClothingUniformJumpskirtTacticalMaid: 5
     ClothingHandsTacticalMaidGloves: 5
+  emaggedItemPrices:
+    ClothingOuterCoatSyndieCapArmored: 500
+    ClothingOuterWinterSyndieCapArmored: 500
+    ClothingHeadHatTacticalMaidHeadband: 100
+    ClothingUniformJumpskirtTacticalMaid: 200
+    ClothingHandsTacticalMaidGloves: 50

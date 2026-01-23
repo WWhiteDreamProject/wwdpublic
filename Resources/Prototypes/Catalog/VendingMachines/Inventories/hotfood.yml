@@ -6,3 +6,9 @@
     FoodSnackAncientFries: 1
     FoodSnackAncientHotdog: 1
     FoodSnackAncientTaco: 1
+  startingItemPrices:
+    FoodSnackAncientBurger: 20
+    FoodSnackAncientPizza: 20
+    FoodSnackAncientFries: 20
+    FoodSnackAncientHotdog: 20
+    FoodSnackAncientTaco: 20

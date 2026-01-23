@@ -24,7 +24,33 @@
     ReagentContainerSalt: 1 # DeltaV adds big containers
     ReagentContainerPepper: 1 # DeltaV adds big containers
     ReagentContainerChocolate: 1 # DeltaV adds big containers
+  startingItemPrices:
+    ReagentContainerFlour: 10
+    ReagentContainerCornmeal: 10
+    ReagentContainerSugar: 10
+    ReagentContainerRice: 10
+    FoodCondimentPacketSalt: 5
+    FoodCondimentBottleEnzyme: 20
+    FoodCondimentBottleHotsauce: 20
+    FoodCondimentBottleKetchup: 20
+    FoodCondimentBottleBBQ: 20
+    FoodCondimentBottleVinegar: 20
+    ReagentContainerOliveoil: 20
+    ReagentContainerMayo: 20
+    VariantCubeBox: 50
+    FoodContainerEgg: 10
+    DrinkMilkCarton: 10
+    DrinkSoyMilkCarton: 10
+    FoodButter: 10
+    FoodCheese: 10
+    FoodMeat: 20
+    LunchboxGenericFilledRandom: 20
+    ReagentContainerSalt: 20
+    ReagentContainerPepper: 20
+    ReagentContainerChocolate: 20
   #wwdp edit start
   emaggedInventory:
     Whetstone: 2
+  emaggedItemPrices:
+    Whetstone: 100
   #wwdp edit end

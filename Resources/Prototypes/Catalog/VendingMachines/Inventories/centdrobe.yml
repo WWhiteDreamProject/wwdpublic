@@ -19,3 +19,22 @@
     ClothingNeckScarfStripedCentcom: 3
     ClothingShoesBootsWinterCentCom: 2 #Delta V: Add departmental winter boots
     ClothingNeckCloakCentcom: 3
+  startingItemPrices:
+    ClothingShoesBootsLaceup: 50
+    ClothingShoesBootsJack: 50
+    ClothingHandsGlovesCombat: 50
+    ClothingEyesGlassesSunglasses: 20
+    ClothingUniformJumpsuitCentcomOfficer: 200
+    ClothingUniformJumpsuitCentcomOfficial: 200
+    ClothingUniformJumpsuitCentcomAgent: 200
+    ClothingUniformJumpsuitCentcomFormal: 200
+    ClothingUniformJumpskirtCentcomFormalDress: 200
+    ClothingHeadHatCentcom: 100
+    ClothingHeadHatCentcomcap: 100
+    ClothingMaskGasCentcom: 100
+    ClothingHeadsetCentCom: 200
+    ClothingOuterWinterCentcom: 200
+    ClothingOuterCoatExpensive: 500
+    ClothingNeckScarfStripedCentcom: 50
+    ClothingShoesBootsWinterCentCom: 100
+    ClothingNeckCloakCentcom: 200

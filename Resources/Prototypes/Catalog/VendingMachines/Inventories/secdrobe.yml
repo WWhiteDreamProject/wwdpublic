@@ -26,5 +26,31 @@
     ClothingHeadHelmetJustice: 1
     ClothingOuterStasecSweater: 2 # WWDP - moved sweaters from security lockers to SecDrobe
     ClothingOuterArmorBasic: 2 # WWDP - moved body armour back to SecDrobe from SecTech
+  startingItemPrices:
+    ClothingBackpackSecurity: 50
+    ClothingBackpackSatchelSecurity: 50
+    ClothingBackpackDuffelSecurity: 50
+    ClothingUniformJumpsuitSec: 50
+    ClothingShoesBootsJack: 50
+    ClothingHeadHatBeretSecurity: 30
+    ClothingHeadBandRed: 20
+    ClothingMaskNeckGaiterRed: 20
+    ClothingHandsGlovesColorBlack: 30
+    ClothingHandsGlovesFingerless: 30
+    ClothingUniformJumpskirtSec: 50
+    ClothingUniformJumpsuitSecGrey: 50
+    ClothingUniformJumpskirtSecGrey: 50
+    ClothingUniformJumpsuitSecBlue: 50
+    ClothingUniformJumpskirtSecBlue: 50
+    ClothingHeadsetAltSecurityRegular: 100
+    ClothingOuterWinterSec: 100
+    ClothingOuterCoatGreatcoat: 200
+    ClothingNeckScarfStripedRed: 20
+    ClothingEyesBlindfold: 10
+    ClothingShoesBootsCombat: 150
+    ClothingShoesBootsWinterSec: 100
+    ClothingHeadHelmetJustice: 100
+    ClothingOuterStasecSweater: 80
+    ClothingOuterArmorBasic: 500
   contrabandInventory:
     ClothingMaskClownSecurity: 1

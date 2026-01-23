@@ -10,3 +10,13 @@
     ClothingBackpackSatchelGenetics: 2
     ClothingBackpackDuffelGenetics: 2
     ClothingShoesBootsWinterGenetics: 2 #Delta V: Add departmental winter boots
+  startingItemPrices:
+    ClothingUniformJumpsuitGenetics: 50
+    ClothingUniformJumpskirtGenetics: 50
+    ClothingShoesColorWhite: 50
+    ClothingOuterCoatLabGene: 50
+    ClothingOuterWinterGen: 100
+    ClothingBackpackGenetics: 50
+    ClothingBackpackSatchelGenetics: 50
+    ClothingBackpackDuffelGenetics: 50
+    ClothingShoesBootsWinterGenetics: 50

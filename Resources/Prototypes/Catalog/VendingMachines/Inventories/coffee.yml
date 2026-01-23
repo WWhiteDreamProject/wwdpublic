@@ -6,5 +6,13 @@
     DrinkTeacup: 5
     DrinkGreenTea: 5
     DrinkHotCoco: 5
+  startingItemPrices:
+    DrinkHotCoffee: 10
+    DrinkCafeLatte: 10
+    DrinkTeacup: 10
+    DrinkGreenTea: 10
+    DrinkHotCoco: 10
   emaggedInventory:
     DrinkNothing: 2
+  emaggedItemPrices:
+    DrinkNothing: 50

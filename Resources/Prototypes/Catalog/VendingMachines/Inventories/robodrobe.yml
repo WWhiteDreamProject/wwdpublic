@@ -15,9 +15,28 @@
     ClothingBackpackRobotics: 2
     ClothingBackpackSatchelRobotics: 2
     ClothingBackpackDuffelRobotics: 2
+  startingItemPrices:
+    ClothingOuterCoatRobo: 50
+    ClothingUniformJumpsuitRoboticist: 50
+    ClothingUniformJumpskirtRoboticist: 50
+    ClothingEyesHudDiagnostic: 100
+    ClothingShoesColorBlack: 50
+    ClothingHandsGlovesRobohands: 20
+    ClothingHeadHatCorpsoft: 50
+    ClothingHeadBandSkull: 20
+    ClothingHeadsetRobotics: 100
+    ClothingOuterWinterRobo: 100
+    ClothingShoesBootsWinterRobo: 50
+    ClothingBackpackRobotics: 50
+    ClothingBackpackSatchelRobotics: 50
+    ClothingBackpackDuffelRobotics: 50
   #WWDP edit start
   contrabandInventory:
     ClothingEyesGlassesMeson: 1
+  contrabandItemPrices:
+    ClothingEyesGlassesMeson: 100
   emaggedInventory:
     BorgModuleMartyr: 1
+  emaggedItemPrices:
+    BorgModuleMartyr: 500
   #WWDP edit end

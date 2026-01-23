@@ -8,17 +8,26 @@ namespace Content.Client.VendingMachines.UI;
 [GenerateTypedNameReferences]
 public sealed partial class VendingMachineItem : BoxContainer
 {
-    public VendingMachineItem(EntProtoId entProto, string text)
+    public VendingMachineItem(EntProtoId entProto, string text, uint price)
     {
         RobustXamlLoader.Load(this);
 
         ItemPrototype.SetPrototype(entProto);
 
-        NameLabel.Text = text;
+        UpdateData(text, price);
     }
 
-    public void SetText(string text)
+    public void UpdateData(string text, uint price)
     {
         NameLabel.Text = text;
+        if (price > 0)
+        {
+            PriceLabel.Text = $"{price} эдди.";
+            PriceLabel.Visible = true;
+        }
+        else
+        {
+            PriceLabel.Visible = false;
+        }
     }
 }

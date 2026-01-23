@@ -18,3 +18,21 @@
     BooksBag: 3
     CardBoxBlack: 3
     BoxPlaysetEvacPod: 1 # WD EDIT
+  startingItemPrices:
+    DiceBag: 20
+    Paper: 5
+    d6Dice: 5
+    ChessBoard: 50
+    BackgammonBoard: 50
+    ParchisBoard: 50
+    CheckerBoard: 50
+    ShipBattlemap: 20
+    SnowBattlemap: 20
+    SandBattlemap: 20
+    MoonBattlemap: 20
+    GrassBattlemap: 20
+    PaperCNCSheet: 10
+    MysteryFigureBox: 50
+    BooksBag: 20
+    CardBoxBlack: 20
+    BoxPlaysetEvacPod: 100
