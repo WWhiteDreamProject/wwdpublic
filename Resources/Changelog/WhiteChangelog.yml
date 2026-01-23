@@ -4991,3 +4991,10 @@ Entries:
   id: 523
   time: '2026-01-18T15:22:46.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/938
+- author: Valentyi
+  changes:
+    - type: Tweak
+      message: Изменены спрайты материалов
+  id: 524
+  time: '2026-01-23T15:35:38.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1045
