@@ -5,7 +5,7 @@ using Robust.Shared.GameObjects;
 
 namespace Content.Shared._NC.Doors.Components;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)] // NC
 public sealed partial class DoorInterfaceComponent : Component
 {
     [DataField("price")]
@@ -19,6 +19,9 @@ public sealed partial class DoorInterfaceComponent : Component
 
     [DataField("address")]
     public string Address = "Квартира";
+
+    [DataField, AutoNetworkedField]
+    public string? DoorCode; // NC
 }
 
 [Serializable, NetSerializable]

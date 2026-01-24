@@ -47,6 +47,12 @@
             <ContainerButton Name="StationAlertLevelInstructionsButton">
                 <RichTextLabel Name="StationAlertLevelInstructions" Access="Public"/>
             </ContainerButton>
+            <ContainerButton Name="HousingButton"> <!-- NC -->
+                <RichTextLabel Name="HousingLabel" Access="Public"/>
+            </ContainerButton>
+            <ContainerButton Name="VehicleButton"> <!-- NC -->
+                <RichTextLabel Name="VehicleLabel" Access="Public"/>
+            </ContainerButton>
         </BoxContainer>
         <ScrollContainer HorizontalExpand="True" VerticalExpand="True" HScrollEnabled="True">
             <BoxContainer Orientation="Vertical"

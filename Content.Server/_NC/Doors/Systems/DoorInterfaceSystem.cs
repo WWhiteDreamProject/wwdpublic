@@ -11,7 +11,13 @@ using Robust.Shared.IoC;
 using Robust.Shared.Player;
 using Content.Shared.Popups;
 using Content.Server.Popups;
+using Robust.Shared.Random;
 using System;
+
+using Content.Server.PDA;
+using Content.Shared.Inventory;
+using Content.Shared.PDA;
+using Content.Shared.Containers.ItemSlots;
 
 namespace Content.Server._NC.Doors.Systems;
 
@@ -22,6 +28,9 @@ public sealed class DoorInterfaceSystem : EntitySystem
     [Dependency] private readonly BankSystem _bankSystem = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
+    [Dependency] private readonly PdaSystem _pdaSystem = default!;
+    [Dependency] private readonly InventorySystem _inventorySystem = default!;
+    [Dependency] private readonly IRobustRandom _random = default!; // NC
 
     public override void Initialize()
     {
@@ -51,6 +60,8 @@ public sealed class DoorInterfaceSystem : EntitySystem
         UpdateState(uid, component);
     }
 
+    // ...
+
     private void OnStartup(EntityUid uid, DoorInterfaceComponent component, ComponentStartup args)
     {
         if (!TryComp<DoorComponent>(uid, out var door))
@@ -60,6 +71,23 @@ public sealed class DoorInterfaceSystem : EntitySystem
 
         if (component.OwnerId == null)
             SetBolts(uid, true);
+
+        if (string.IsNullOrEmpty(component.DoorCode)) // NC
+        {
+            component.DoorCode = GenerateDoorCode();
+        }
+    }
+
+    private string GenerateDoorCode()
+    {
+        // 2 Letters + 3 Digits
+        var letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        var l1 = letters[_random.Next(letters.Length)];
+        var l2 = letters[_random.Next(letters.Length)];
+        var d1 = _random.Next(0, 10);
+        var d2 = _random.Next(0, 10);
+        var d3 = _random.Next(0, 10);
+        return $"{l1}{l2}-{d1}{d2}{d3}"; // NC
     }
 
     private void OnGetAltVerbs(EntityUid uid, DoorInterfaceComponent component, GetVerbsEvent<AlternativeVerb> args)
@@ -133,6 +161,12 @@ public sealed class DoorInterfaceSystem : EntitySystem
 
             SetBolts(uid, false);
             UpdateState(uid, component);
+
+            if (_inventorySystem.TryGetSlotEntity(user, "id", out var pdaUid) && TryComp<PdaComponent>(pdaUid, out var pda)) // NC
+            {
+                var code = component.DoorCode ?? "UNKNOWN";
+                _pdaSystem.AddHousing(pdaUid.Value, code, pda);
+            }
         }
         else
         {
@@ -160,6 +194,12 @@ public sealed class DoorInterfaceSystem : EntitySystem
 
             SetBolts(uid, true);
             UpdateState(uid, component);
+
+            if (_inventorySystem.TryGetSlotEntity(user, "id", out var pdaUid) && TryComp<PdaComponent>(pdaUid, out var pda)) // NC
+            {
+                var code = component.DoorCode ?? "UNKNOWN";
+                _pdaSystem.RemoveHousing(pdaUid.Value, code, pda);
+            }
         }
     }
 

@@ -31,3 +31,8 @@ comp-pda-ui-unknown = Неизвестно
 comp-pda-ui-unassigned = Не назначено
 pda-notification-message = [font size=12][bold]PDA[/bold] { $header }: [/font]
     "{ $message }"
+
+comp-pda-ui-housing = Жилье: [color=white]{ $housing }[/color]
+comp-pda-housing-none = Отсутствует
+comp-pda-ui-vehicle = Транспорт: [color=white]{ $vehicle }[/color]
+comp-pda-vehicle-none = Отсутствует

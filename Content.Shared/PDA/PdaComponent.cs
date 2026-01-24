@@ -53,6 +53,9 @@ namespace Content.Shared.PDA
         [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
         public string? VehicleId;
 
+        [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+        public string? HousingName; // NC
+
         // WD EDIT START
         public const string AnimationKey = "pda_animation";
 

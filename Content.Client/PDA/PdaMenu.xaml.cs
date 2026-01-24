@@ -32,7 +32,9 @@ namespace Content.Client.PDA
         private string _stationName = Loc.GetString("comp-pda-ui-unknown");
         private string _alertLevel = Loc.GetString("comp-pda-ui-unknown");
         private string _instructions = Loc.GetString("comp-pda-ui-unknown");
-        
+        private string _housing = Loc.GetString("comp-pda-housing-none"); // NC
+        private string _vehicle = Loc.GetString("comp-pda-vehicle-none"); // NC
+
 
         private int _currentView;
 
@@ -126,7 +128,17 @@ namespace Content.Client.PDA
                 _clipboard.SetText(_instructions);
             };
 
-            
+            HousingButton.OnPressed += _ => // NC
+            {
+                _clipboard.SetText(_housing);
+            };
+
+            VehicleButton.OnPressed += _ => // NC
+            {
+                _clipboard.SetText(_vehicle);
+            };
+
+
 
 
             HideAllViews();
@@ -166,7 +178,7 @@ namespace Content.Client.PDA
             _stationName = state.StationName ?? Loc.GetString("comp-pda-ui-unknown");
             StationNameLabel.SetMarkup(Loc.GetString("comp-pda-ui-station",
                 ("station", _stationName)));
-            
+
 
             var stationTime = _gameTiming.CurTime.Subtract(_gameTicker.RoundStartTimeSpan);
 
@@ -188,6 +200,12 @@ namespace Content.Client.PDA
                 "comp-pda-ui-station-alert-level-instructions",
                 ("instructions", _instructions))
             );
+
+            _housing = state.HousingName ?? Loc.GetString("comp-pda-housing-none"); // NC
+            HousingLabel.SetMarkup(Loc.GetString("comp-pda-ui-housing", ("housing", _housing))); // NC
+
+            _vehicle = state.VehicleName ?? Loc.GetString("comp-pda-vehicle-none"); // NC
+            VehicleLabel.SetMarkup(Loc.GetString("comp-pda-ui-vehicle", ("vehicle", _vehicle))); // NC
 
             AddressLabel.Text = state.Address?.ToUpper() ?? " - ";
 

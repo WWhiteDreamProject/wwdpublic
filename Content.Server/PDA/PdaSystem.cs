@@ -23,6 +23,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
+using System.Linq; // NC
 
 namespace Content.Server.PDA
 {
@@ -125,6 +126,43 @@ namespace Content.Server.PDA
             UpdatePdaUi(uid, pda);
         }
 
+        public void AddHousing(EntityUid uid, string code, PdaComponent? pda = null) // NC
+        {
+            if (!Resolve(uid, ref pda))
+                return;
+
+            if (string.IsNullOrEmpty(pda.HousingName))
+            {
+                pda.HousingName = code;
+            }
+            else
+            {
+                var housings = pda.HousingName.Split(",", StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries).ToList();
+                if (!housings.Contains(code))
+                {
+                    housings.Add(code);
+                    pda.HousingName = string.Join(", ", housings);
+                }
+            }
+            UpdatePdaUi(uid, pda);
+        }
+
+        public void RemoveHousing(EntityUid uid, string code, PdaComponent? pda = null) // NC
+        {
+            if (!Resolve(uid, ref pda))
+                return;
+
+            if (string.IsNullOrEmpty(pda.HousingName))
+                return;
+
+            var housings = pda.HousingName.Split(",", StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries).ToList();
+            if (housings.Remove(code))
+            {
+                pda.HousingName = housings.Count > 0 ? string.Join(", ", housings) : null;
+                UpdatePdaUi(uid, pda);
+            }
+        }
+
         private void OnStationRenamed(StationRenamedEvent ev)
         {
             UpdateAllPdaUisOnStation();
@@ -210,7 +248,9 @@ namespace Content.Server.PDA
                 pda.StationName,
                 showUplink,
                 hasInstrument,
-                address);
+                address,
+                pda.HousingName, // NC
+                pda.VehicleName); // NC
 
             _ui.SetUiState(uid, PdaUiKey.Key, state);
         }
