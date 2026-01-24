@@ -1,0 +1,29 @@
+<DefaultWindow xmlns="https://spacestation14.io"
+               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+               xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+               x:Class="Content.Client._NC.Doors.UI.DoorInterfaceWindow"
+               Title="Door Interface"
+               MinSize="300 220">
+    <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" Margin="20" SeparationOverride="10">
+
+        <Label Name="AddressLabel" Text="Адрес квартиры" HorizontalAlignment="Center" StyleClasses="LabelHeading" />
+
+        <BoxContainer Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 10 0 20">
+            <Label Text="Владелец: " />
+            <Label Name="OwnerLabel" Text="Нет" Modulate="#B2B2B2" />
+        </BoxContainer>
+
+        <Control VerticalExpand="True"/>
+
+        <!-- Action Buttons -->
+        <BoxContainer Orientation="Horizontal" HorizontalAlignment="Center" SeparationOverride="10">
+            <Button Name="ActionBtn" Text="Купить" MinWidth="100" MinHeight="40"/>
+            <Button Name="LockBtn" Text="Закрыть" MinWidth="100" MinHeight="40" Disabled="True"/>
+        </BoxContainer>
+
+        <Control VerticalExpand="True"/>
+
+        <Label Name="PriceLabel" Text="Цена: 1000$" HorizontalAlignment="Center" StyleClasses="LabelBig" />
+
+    </BoxContainer>
+</DefaultWindow>

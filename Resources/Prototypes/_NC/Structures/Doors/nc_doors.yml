@@ -1,0 +1,54 @@
+- type: entity
+  id: BaseNCAirlock
+  parent: Airlock
+  abstract: true
+  name: дверь
+  components:
+  - type: Sprite
+    sprite: Structures/Doors/Airlocks/Standard/basic.rsi
+
+- type: entity
+  id: NCAirlock
+  parent: BaseNCAirlock
+  name: дверь
+  components:
+  - type: Sprite
+  - type: UserInterface
+    interfaces:
+      enum.DoorInterfaceUiKey.Key:
+        type: DoorInterfaceBoundUserInterface
+  - type: DoorInterface
+    price: 1500
+    address: "Апартаменты"
+  - type: AccessReader
+    access: [["NC_General"]]
+
+- type: entity
+  id: NCAirlockNCPD
+  parent: BaseNCAirlock
+  name: дверь NCPD
+  components:
+  - type: Sprite
+    color: "#3366FF"
+  - type: AccessReader
+    access: [["NCPD_Patrol"]]
+
+- type: entity
+  id: NCAirlockMaxTac
+  parent: BaseNCAirlock
+  name: дверь MaxTac
+  components:
+  - type: Sprite
+    color: "#202020"
+  - type: AccessReader
+    access: [["MaxTac_General"]]
+
+- type: entity
+  id: NCAirlockTraumaTeam
+  parent: BaseNCAirlock
+  name: дверь Trauma Team
+  components:
+  - type: Sprite
+    color: "#FF4500"
+  - type: AccessReader
+    access: [["Trauma_Medical"]]
