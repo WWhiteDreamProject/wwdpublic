@@ -398,6 +398,7 @@ namespace Content.Server.Database
         public string Lifepath { get; set; } = null!;
         public int Age { get; set; }
         public string Sex { get; set; } = null!;
+        public int BankBalance { get; set; } = 0; // NC
         public string BodyType { get; set; } = null!; // WD EDIT
         public string Voice { get; set; } = null!; // WD EDIT
         public string BarkVoice { get; set; } = null!; // WD EDIT

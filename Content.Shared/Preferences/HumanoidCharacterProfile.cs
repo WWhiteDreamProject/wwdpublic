@@ -172,7 +172,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
         float width,
         int age,
         Sex sex,
-        int bankBalance,
+        int bankBalance, // NC
         string voice, // WD EDIT
         string barkVoice, // WD EDIT
         BarkPercentageApplyData barkSettings, // WD EDIT
@@ -254,7 +254,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
             other.Width,
             other.Age,
             other.Sex,
-            other.BankBalance,
+            other.BankBalance, // NC
             other.Voice, // WD EDIT
             other.BarkVoice, // WD EDIT
             other.BarkSettings.Clone(), // WD EDIT

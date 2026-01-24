@@ -261,7 +261,7 @@ namespace Content.Server.Database
                 profile.Width,
                 profile.Age,
                 sex,
-                0, // BankBalance (DB SCHEMA MIGRATION REQUIRED)
+                profile.BankBalance, // NC
                 voice, // WD EDIT
                 profile.BarkVoice, // WD EDIT
                                    // WD EDIT START
@@ -317,6 +317,7 @@ namespace Content.Server.Database
             profile.Employer = humanoid.Employer;
             profile.Lifepath = humanoid.Lifepath;
             profile.Age = humanoid.Age;
+            profile.BankBalance = humanoid.BankBalance; // NC
             profile.Sex = humanoid.Sex.ToString();
             profile.Voice = humanoid.Voice; // WD EDIT
             profile.BarkVoice = humanoid.BarkVoice; // WD EDIT
