@@ -1,0 +1,19 @@
+- type: gameMap
+  id: Almagest
+  mapName: 'Almagest'
+  mapPath: /Maps/_White/Event/Almagest.yml
+  minPlayers: 200
+  maxPlayers: 200
+  stations:
+    Almagest:
+      stationProto: StandardNanotrasenStationNothing
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: '{0} Almagest {1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: 'WWDP'
+      - type: StationJobs
+        availableJobs:
+          Passenger: [ -1, -1 ]
+
