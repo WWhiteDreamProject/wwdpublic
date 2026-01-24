@@ -41,12 +41,12 @@
   slots: 0
   requirements:
   - !type:CharacterSpeciesRequirement
-      inverted: true
-      species:
-        - IPC
-        - Arachnid
-        - SlimePerson
-        - Shadowkin
+    inverted: true
+    species:
+      - IPC
+      - Arachnid
+      - SlimePerson
+      - Shadowkin
   functions:
     - !type:TraitAddComponent
       components:
