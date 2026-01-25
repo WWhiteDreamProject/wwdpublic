@@ -712,7 +712,7 @@
 - type: entity
   name: maintenance lightbulb box
   parent: BoxLightbulbWide
-  id: BoxMaintenanceLightbulbWie
+  id: BoxMaintenanceLightbulbWide
   components:
   - type: StorageFill
     contents:
