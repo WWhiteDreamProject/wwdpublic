@@ -78,7 +78,7 @@
 # Egg
 
 - type: entity
-  parent: [ BoxMaterialBase, BaseBagOpenClose ] # WWDP edit BoxCardboard -> BoxMaterialBase
+  parent: [ BoxBase, BaseBagOpenClose ] # WWDP edit BoxCardboard -> BoxBase
   id: FoodContainerEgg
   name: egg carton
   description: Don't drop 'em!
@@ -161,6 +161,14 @@
   - type: Tag # WWDP edit start
     tags:
     - BoxCardboard
+    - BoxMaterial
+  - type: Appearance
+  - type: EmitSoundOnPickup
+    sound: /Audio/SimpleStation14/Items/Handling/cardboardbox_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound: /Audio/SimpleStation14/Items/Handling/cardboardbox_drop.ogg
+  - type: EmitSoundOnLand
+    sound: /Audio/SimpleStation14/Items/Handling/cardboardbox_drop.ogg
   - type: Construction
     graph: BoxCardboard
     node: boxcardboard
@@ -214,7 +222,7 @@
 # Since you could open pizza boxes in the stack.
 
 - type: entity
-  parent: BoxMaterialBase # WWDP edit
+  parent: BoxBase # WWDP edit
   id: FoodBoxPizza
   name: pizza box
   components:
@@ -249,11 +257,19 @@
   - type: Tag # WWDP edit start
     tags:
     - BoxCardboard
-  - type: Construction # WWDP edit start
+    - BoxMaterial
+  - type: Construction
     graph: BoxCardboard
     node: boxcardboard
     containers:
     - entity_storage
+  - type: Appearance
+  - type: EmitSoundOnPickup
+    sound: /Audio/SimpleStation14/Items/Handling/cardboardbox_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound: /Audio/SimpleStation14/Items/Handling/cardboardbox_drop.ogg
+  - type: EmitSoundOnLand
+    sound: /Audio/SimpleStation14/Items/Handling/cardboardbox_drop.ogg
   - type: PhysicalComposition
     materialComposition:
       Cardboard: 100 # WWDP end

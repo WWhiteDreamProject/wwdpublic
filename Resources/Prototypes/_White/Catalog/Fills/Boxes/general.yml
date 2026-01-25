@@ -35,6 +35,7 @@
   - type: ContainerContainer
     containers:
       label-slot: !type:ContainerSlot { }
+      storagebase: !type:Container
   - type: ItemMapper
     sprite: _White/Objects/Storage/boxes_icon.rsi
     mapLayers:
