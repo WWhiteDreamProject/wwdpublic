@@ -708,3 +708,29 @@
     - id: LightTubeCrystalGreen
     - id: LightTubeCrystalRed
     - id: LightTubeCrystalGreen
+
+- type: entity
+  name: maintenance lightbulb box
+  parent: BoxLightbulbWide
+  id: BoxMaintenanceLightbulbWie
+  components:
+  - type: StorageFill
+    contents:
+    - id: LightBulbMaintenance
+      amount: 8
+    - id: LightBulbMaintenanceRed
+      amount: 8
+
+- type: entity
+  name: colored lighttube box
+  parent: BoxLightbulbWide
+  id: BoxColoredLighttubeWide
+  components:
+  - type: StorageFill
+    contents:
+    - id: ColoredLightTubeRed
+      amount: 4
+    - id: ColoredLightTubeFrostyBlue
+      amount: 4
+    - id: ColoredLightTubeBlackLight
+      amount: 4

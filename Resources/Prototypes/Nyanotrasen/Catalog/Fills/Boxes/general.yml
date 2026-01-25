@@ -2,29 +2,27 @@
   name: colored lighttube box
   parent: BoxLighttube # WWDP edit
   id: BoxColoredLighttube
-  description: This box is shaped on the inside so that only light tubes and bulbs fit.
   components:
   - type: StorageFill
     contents:
       - id: ColoredLightTubeRed
-        amount: 4
+        amount: 2 # WWDP edit
       - id: ColoredLightTubeFrostyBlue
-        amount: 4
+        amount: 2 # WWDP edit
       - id: ColoredLightTubeBlackLight
-        amount: 4
+        amount: 2 # WWDP edit
 
 - type: entity
   name: maintenance lightbulb box
   parent: BoxLightbulb # WWDP edit
   id: BoxMaintenanceLightbulb
-  description: This box is shaped on the inside so that only light tubes and bulbs fit.
   components:
   - type: StorageFill
     contents:
       - id: LightBulbMaintenance
-        amount: 6
+        amount: 4 # WWDP edit
       - id: LightBulbMaintenanceRed
-        amount: 6
+        amount: 4 # WWDP edit
 
 - type: entity
   name: holy water kit
