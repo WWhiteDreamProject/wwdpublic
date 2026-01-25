@@ -1,0 +1,202 @@
+- type: entity
+  id: SpawnPointNCCitizen
+  parent: SpawnPointJobBase
+  name: nc citizen spawn point
+  components:
+  - type: SpawnPoint
+    job_id: NCCitizen
+  - type: Sprite
+    layers:
+      - state: green
+
+- type: entity
+  id: SpawnPointEdgeRunnerSolo
+  parent: SpawnPointJobBase
+  name: edgerunner spawn point
+  components:
+  - type: SpawnPoint
+    job_id: EdgeRunnerSolo
+  - type: Sprite
+    layers:
+      - state: green
+
+- type: entity
+  id: SpawnPointFixer
+  parent: SpawnPointJobBase
+  name: fixer spawn point
+  components:
+  - type: SpawnPoint
+    job_id: Fixer
+  - type: Sprite
+    layers:
+      - state: green
+
+- type: entity
+  id: SpawnPointReaper
+  parent: SpawnPointJobBase
+  name: reaper spawn point
+  components:
+  - type: SpawnPoint
+    job_id: Reaper
+  - type: Sprite
+    layers:
+      - state: green
+
+# NCPD
+
+- type: entity
+  id: SpawnPointNCPDCadet
+  parent: SpawnPointJobBase
+  name: ncpd cadet spawn point
+  components:
+  - type: SpawnPoint
+    job_id: NCPDCadet
+  - type: Sprite
+    layers:
+      - state: green
+      - state: security_cadet
+
+- type: entity
+  id: SpawnPointNCPDChief
+  parent: SpawnPointJobBase
+  name: ncpd chief spawn point
+  components:
+  - type: SpawnPoint
+    job_id: NCPDChief
+  - type: Sprite
+    layers:
+      - state: green
+      - state: hos
+
+- type: entity
+  id: SpawnPointNCPDOfficer
+  parent: SpawnPointJobBase
+  name: ncpd officer spawn point
+  components:
+  - type: SpawnPoint
+    job_id: NCPDOfficer
+  - type: Sprite
+    layers:
+      - state: green
+      - state: security_officer
+
+- type: entity
+  id: SpawnPointNCPDSergeant
+  parent: SpawnPointJobBase
+  name: ncpd sergeant spawn point
+  components:
+  - type: SpawnPoint
+    job_id: NCPDSergeant
+  - type: Sprite
+    layers:
+      - state: green
+      - state: warden
+
+- type: entity
+  id: SpawnPointNCPDWatchAgent
+  parent: SpawnPointJobBase
+  name: ncpd watch agent spawn point
+  components:
+  - type: SpawnPoint
+    job_id: NCPDWatchAgent
+  - type: Sprite
+    layers:
+      - state: green
+      - state: detective
+
+# MaxTac
+
+- type: entity
+  id: SpawnPointMaxTacCommander
+  parent: SpawnPointJobBase
+  name: maxtac commander spawn point
+  components:
+  - type: SpawnPoint
+    job_id: MaxTacCommander
+  - type: Sprite
+    layers:
+      - state: green
+      - state: hos
+
+- type: entity
+  id: SpawnPointMaxTacNetrunner
+  parent: SpawnPointJobBase
+  name: maxtac netrunner spawn point
+  components:
+  - type: SpawnPoint
+    job_id: MaxTacNetrunner
+  - type: Sprite
+    layers:
+      - state: green
+
+- type: entity
+  id: SpawnPointMaxTacOperative
+  parent: SpawnPointJobBase
+  name: maxtac operative spawn point
+  components:
+  - type: SpawnPoint
+    job_id: MaxTacOperative
+  - type: Sprite
+    layers:
+      - state: green
+
+# Trauma Team
+
+- type: entity
+  id: SpawnPointTraumaTeamChief
+  parent: SpawnPointJobBase
+  name: trauma team chief spawn point
+  components:
+  - type: SpawnPoint
+    job_id: TraumaTeamChief
+  - type: Sprite
+    layers:
+      - state: green
+      - state: cmo
+
+- type: entity
+  id: SpawnPointTraumaTeamDoctor
+  parent: SpawnPointJobBase
+  name: trauma team doctor spawn point
+  components:
+  - type: SpawnPoint
+    job_id: TraumaTeamDoctor
+  - type: Sprite
+    layers:
+      - state: green
+      - state: doctor
+
+- type: entity
+  id: SpawnPointTraumaTeamParamedic
+  parent: SpawnPointJobBase
+  name: trauma team paramedic spawn point
+  components:
+  - type: SpawnPoint
+    job_id: TraumaTeamParamedic
+  - type: Sprite
+    layers:
+      - state: green
+      - state: paramedic
+
+- type: entity
+  id: SpawnPointTraumaTeamChemist
+  parent: SpawnPointJobBase
+  name: trauma team chemist spawn point
+  components:
+  - type: SpawnPoint
+    job_id: TraumaTeamChemist
+  - type: Sprite
+    layers:
+      - state: green
+      - state: chemist
+
+- type: entity
+  id: SpawnPointTraumaTeamOperative
+  parent: SpawnPointJobBase
+  name: trauma team operative spawn point
+  components:
+  - type: SpawnPoint
+    job_id: TraumaTeamOperative
+  - type: Sprite
+    layers:
+      - state: green
