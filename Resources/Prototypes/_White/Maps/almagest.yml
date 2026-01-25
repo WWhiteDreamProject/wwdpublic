@@ -4,6 +4,8 @@
   mapPath: /Maps/_White/Event/Almagest.yml
   minPlayers: 200
   maxPlayers: 200
+  maxRandomOffset: 0
+  randomRotation: false
   stations:
     Almagest:
       stationProto: StandardNanotrasenStationNothing
