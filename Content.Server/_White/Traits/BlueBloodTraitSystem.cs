@@ -37,15 +37,15 @@ public sealed class BlueBloodTraitSystem : EntitySystem
         }
     }
 
-    private bool TryGetHeart(EntityUid uid, out EntityUid? heartUid)
+    private bool TryGetMetabolizer(EntityUid uid, out Entity<MetabolizerComponent>? metabolizer)
     {
-        heartUid = null;
+        metabolizer = null;
 
-        foreach (var (organId, organComp) in _bodySys.GetBodyOrgans(uid))
+        foreach (var (organId, _) in _bodySys.GetBodyOrgans(uid))
         {
-            if (HasComp<HeartComponent>(organId))
+            if (TryComp(organId, out MetabolizerComponent? metabolizerComp))
             {
-                heartUid = organId;
+                metabolizer = (organId, metabolizerComp);
                 return true;
             }
         }
