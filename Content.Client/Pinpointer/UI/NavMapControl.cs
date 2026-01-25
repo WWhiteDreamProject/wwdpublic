@@ -51,7 +51,7 @@ public partial class NavMapControl : MapGridControl
     public List<NavMapRegionOverlay> RegionOverlays = new();
 
     // Custom beacons (Client-side only)
-    public List<(EntityCoordinates Coords, string Text, Color Color)> CustomBeacons = new();
+    public List<(EntityCoordinates Coords, string Text, Color Color, bool Blinking)> CustomBeacons = new();
 
     // Default colors
     public Color WallColor = new(102, 217, 102);
@@ -468,9 +468,9 @@ public partial class NavMapControl : MapGridControl
             {
                 var font = new VectorFont(fontRes, fontSize);
 
-                foreach (var (coords, text, color) in CustomBeacons)
+                foreach (var (coords, text, color, blinking) in CustomBeacons)
                 {
-                    if (!lit) continue; // Blink!
+                    if (blinking && !lit) continue; // Blink!
 
                     var mapPos = _transformSystem.ToMapCoordinates(coords);
                     if (mapPos.MapId != MapId.Nullspace)

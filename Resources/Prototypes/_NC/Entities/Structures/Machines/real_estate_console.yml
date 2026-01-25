@@ -1,0 +1,24 @@
+- type: entity
+  id: RealEstateConsole
+  parent: BaseComputer
+  name: терминал недвижимости
+  description: Консоль для просмотра и покупки доступной недвижимости.
+  components:
+  - type: DoorPurchaseConsole
+  - type: UserInterface
+    interfaces:
+      enum.DoorPurchaseConsoleUiKey.Key:
+        type: DoorPurchaseConsoleBoundUserInterface
+  - type: Sprite
+    netsync: false
+    noRot: true
+    sprite: _NF/Structures/Machines/atm/atm.rsi
+    layers:
+    - map: ["computerLayerBody"]
+      state: icon
+    - map: ["computerLayerScreen"]
+      state: unshaded
+      shader: unshaded
+      visible: false
+  - type: ActivatableUI
+    key: enum.DoorPurchaseConsoleUiKey.Key

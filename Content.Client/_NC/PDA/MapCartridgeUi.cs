@@ -121,7 +121,7 @@ public sealed partial class MapCartridgeUi : UIFragment
                 if (door.DoorCode != null && codes.Contains(door.DoorCode))
                 {
                     var coords = new EntityCoordinates(uid, Vector2.Zero);
-                    _navMap.CustomBeacons.Add((coords, door.DoorCode, Robust.Shared.Maths.Color.Yellow));
+                    _navMap.CustomBeacons.Add((coords, door.DoorCode, Robust.Shared.Maths.Color.Yellow, true));
                 }
             }
         }
@@ -135,7 +135,7 @@ public sealed partial class MapCartridgeUi : UIFragment
                 if (vehicle.OwnerPlate != null && vehicle.OwnerPlate == pda.VehicleId)
                 {
                     var coords = new EntityCoordinates(uid, Vector2.Zero);
-                    _navMap.CustomBeacons.Add((coords, vehicle.OwnerPlate, Robust.Shared.Maths.Color.Cyan));
+                    _navMap.CustomBeacons.Add((coords, vehicle.OwnerPlate, Robust.Shared.Maths.Color.Cyan, true));
                 }
             }
         }

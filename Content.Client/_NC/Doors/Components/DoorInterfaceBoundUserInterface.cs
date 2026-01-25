@@ -22,6 +22,13 @@ public sealed class DoorInterfaceBoundUserInterface : BoundUserInterface
     protected override void Open()
     {
         base.Open();
+
+        if (_window != null)
+        {
+            _window.OpenCentered();
+            return;
+        }
+
         _window = new DoorInterfaceWindow();
         _window.OnClose += Close;
         _window.OnAction += OnAction;

@@ -96,6 +96,10 @@ public sealed class DoorInterfaceSystem : EntitySystem
         if (!args.CanAccess || !args.CanInteract)
             return;
 
+        // Power Check
+        if (TryComp<Content.Server.Power.Components.ApcPowerReceiverComponent>(uid, out var power) && !power.Powered)
+            return;
+
         args.Verbs.Add(new AlternativeVerb
         {
             Act = () => _uiSystem.TryToggleUi(uid, DoorInterfaceUiKey.Key, args.User),
@@ -113,6 +117,10 @@ public sealed class DoorInterfaceSystem : EntitySystem
             return;
 
         if (!_playerManager.TryGetSessionByEntity(args.User, out var session) || session.UserId != component.OwnerId)
+            return;
+
+        // Power Check
+        if (TryComp<Content.Server.Power.Components.ApcPowerReceiverComponent>(uid, out var power) && !power.Powered)
             return;
 
         args.Verbs.Add(new Verb

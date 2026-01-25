@@ -1,0 +1,8 @@
+<DefaultWindow xmlns="https://spacestation14.io"
+               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+               xmlns:ui="clr-namespace:Content.Client.Pinpointer.UI"
+               Title="Терминал Недвижимости"
+               SetSize="600 600"
+               Resizable="True">
+    <ui:NavMapControl Name="NavMap" HorizontalExpand="True" VerticalExpand="True" />
+</DefaultWindow>
