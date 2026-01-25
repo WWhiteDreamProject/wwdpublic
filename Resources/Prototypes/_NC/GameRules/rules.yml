@@ -1,0 +1,7 @@
+- type: entity
+  id: NightCityRoundDuration
+  parent: BaseGameRule
+  components:
+  - type: MaxTimeRestartRule
+    roundMaxTime: 7200 # 2 hours
+    roundEndDelay: 10

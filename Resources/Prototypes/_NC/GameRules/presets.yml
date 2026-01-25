@@ -1,0 +1,10 @@
+- type: gamePreset
+  id: City
+  alias:
+  - aldente
+  name: City Life
+  description: A peaceful mode for roleplay. No antagonists, no random events.
+  showInVote: true
+  supportedMaps: NCMapPool
+  rules:
+  - NightCityRoundDuration

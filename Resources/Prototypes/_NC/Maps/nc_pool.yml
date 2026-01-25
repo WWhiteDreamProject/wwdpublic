@@ -1,0 +1,4 @@
+- type: gameMapPool
+  id: NCMapPool
+  maps:
+  - Aldente
