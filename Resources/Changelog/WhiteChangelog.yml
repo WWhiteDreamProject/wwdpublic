@@ -5018,3 +5018,10 @@ Entries:
   id: 526
   time: '2026-01-25T15:32:53.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1050
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: Максимальная скорость шаттла 20 -> 60
+  id: 527
+  time: '2026-01-25T15:42:01.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1052
