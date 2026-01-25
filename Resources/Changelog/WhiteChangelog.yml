@@ -4998,3 +4998,16 @@ Entries:
   id: 524
   time: '2026-01-23T15:35:38.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1045
+- author: Gersoon458
+  changes:
+    - type: Add
+      message: Ивентокарта (Форсмаппить)
+    - type: Tweak
+      message: >-
+        Радар агоста расширен до 2048 (Колесиком крутить) + максимальный зум
+        через нумпад до 50 (Раньше 10)
+    - type: Fix
+      message: Боевые шаттлы больше не кошмар эпилептика (sevassstyan)
+  id: 525
+  time: '2026-01-25T12:04:12.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1051
