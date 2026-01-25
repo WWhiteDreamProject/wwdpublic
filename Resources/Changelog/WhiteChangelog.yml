@@ -5011,3 +5011,10 @@ Entries:
   id: 525
   time: '2026-01-25T12:04:12.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1051
+- author: kekoven1
+  changes:
+    - type: Add
+      message: добавлен трейт на медную кровь
+  id: 526
+  time: '2026-01-25T15:32:53.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1050
