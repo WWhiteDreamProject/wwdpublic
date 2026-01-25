@@ -28,13 +28,8 @@ public sealed class BlueBloodTraitSystem : EntitySystem
             _bloodstream.TryModifyBloodLevel(uid, bloodstream.BloodMaxVolume, bloodstream, false);
         }
 
-        if (TryGetHeart(uid, out var heartUid))
-        {
-            if (!TryComp<MetabolizerComponent>(heartUid, out var metabolizer))
-                return;
-
-            metabolizer.MetabolizerTypes = component.MetabolizerPrototype;
-        }
+        if (TryGetMetabolizer(uid, out var metabolizer) && metabolizer != null)
+                metabolizer.Value.Comp.MetabolizerTypes = component.MetabolizerPrototype;
     }
 
     private bool TryGetMetabolizer(EntityUid uid, out Entity<MetabolizerComponent>? metabolizer)
