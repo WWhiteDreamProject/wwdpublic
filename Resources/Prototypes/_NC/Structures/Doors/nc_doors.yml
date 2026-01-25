@@ -7,10 +7,21 @@
   - type: Sprite
     sprite: Structures/Doors/Airlocks/Standard/basic.rsi
 
+
+- type: entity
+  id: NCAirlockGeneral
+  parent: BaseNCAirlock
+  name: дверь
+  components:
+  - type: Sprite
+  - type: AccessReader
+    access: [["NC_General"]]
+
 - type: entity
   id: NCAirlock
   parent: BaseNCAirlock
   name: дверь
+  suffix: "квартира"
   components:
   - type: Sprite
   - type: UserInterface

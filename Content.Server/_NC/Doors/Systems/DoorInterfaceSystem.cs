@@ -75,6 +75,7 @@ public sealed class DoorInterfaceSystem : EntitySystem
         if (string.IsNullOrEmpty(component.DoorCode)) // NC
         {
             component.DoorCode = GenerateDoorCode();
+            Dirty(uid, component);
         }
     }
 
@@ -160,6 +161,7 @@ public sealed class DoorInterfaceSystem : EntitySystem
             _popupSystem.PopupEntity("Вы приобрели недвижимость!", user, user);
 
             SetBolts(uid, false);
+            Dirty(uid, component); // Network fields
             UpdateState(uid, component);
 
             if (_inventorySystem.TryGetSlotEntity(user, "id", out var pdaUid) && TryComp<PdaComponent>(pdaUid, out var pda)) // NC
@@ -193,6 +195,7 @@ public sealed class DoorInterfaceSystem : EntitySystem
             _popupSystem.PopupEntity("Вы продали недвижимость.", user, user);
 
             SetBolts(uid, true);
+            Dirty(uid, component); // Network fields
             UpdateState(uid, component);
 
             if (_inventorySystem.TryGetSlotEntity(user, "id", out var pdaUid) && TryComp<PdaComponent>(pdaUid, out var pda)) // NC
@@ -221,7 +224,8 @@ public sealed class DoorInterfaceSystem : EntitySystem
             component.OwnerName,
             component.Address,
             component.OwnerId,
-            isLocked
+            isLocked,
+            component.DoorCode
         );
 
         _uiSystem.SetUiState(uid, DoorInterfaceUiKey.Key, state);

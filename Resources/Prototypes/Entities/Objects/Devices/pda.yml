@@ -111,6 +111,7 @@
     - NotekeeperCartridge
     - NewsReaderCartridge
     - NanoChatCartridge # DeltaV
+    - MapCartridge # NC
     cartridgeSlot:
       priority: -1
       name: device-pda-slot-component-slot-name-cartridge
@@ -172,6 +173,7 @@
     - CrimeAssistCartridge # DeltaV
     - SecWatchCartridge # DeltaV
     - NanoChatCartridge # DeltaV
+    - MapCartridge # NC
 
 - type: entity
   parent: BasePDA
@@ -186,6 +188,7 @@
     - NewsReaderCartridge
     - MedTekCartridge
     - NanoChatCartridge # DeltaV
+    - MapCartridge # NC
 
 - type: entity
   parent: BasePDA
@@ -430,6 +433,7 @@
     - NewsReaderCartridge
     - GlimmerMonitorCartridge
     - NanoChatCartridge # DeltaV
+    - MapCartridge # NC
     - PsiWatchCartridge
 
 - type: entity
@@ -463,6 +467,7 @@
     - NewsReaderCartridge
     - MailMetricsCartridge
     - NanoChatCartridge
+    - MapCartridge # NC
     - StockTradingCartridge # DeltaV - StockTrading
 
 - type: entity
@@ -486,6 +491,7 @@
     - MailMetricsCartridge # DeltaV - MailMetrics courier tracker
     - StockTradingCartridge # DeltaV - StockTrading
     - NanoChatCartridge # DeltaV
+    - MapCartridge # NC
 
 - type: entity
   parent: BasePDA
@@ -506,6 +512,7 @@
     - NewsReaderCartridge
     - StockTradingCartridge # DeltaV - StockTrading
     - NanoChatCartridge # DeltaV
+    - MapCartridge # NC
 
 - type: entity
   parent: BasePDA
@@ -528,6 +535,7 @@
     - NewsReaderCartridge
     - AstroNavCartridge
     - NanoChatCartridge
+    - MapCartridge # NC
 
 - type: entity
   parent: BasePDA
@@ -568,6 +576,7 @@
     - GlimmerMonitorCartridge
     - NanoChatCartridge
     - PsiWatchCartridge
+    - MapCartridge # NC
 
 - type: entity
   parent: LibrarianPDA
@@ -606,6 +615,7 @@
     - CrimeAssistCartridge
     - SecWatchCartridge
     - NanoChatCartridge
+    - MapCartridge # NC
 
 - type: entity
   parent: LawyerPDA
@@ -915,6 +925,7 @@
     - NewsReaderCartridge
     - GlimmerMonitorCartridge
     - NanoChatCartridge # DeltaV
+    - MapCartridge # NC
     - PsiWatchCartridge
 
 - type: entity
@@ -938,6 +949,7 @@
     - NewsReaderCartridge
     - GlimmerMonitorCartridge
     - NanoChatCartridge
+    - MapCartridge # NC
     - PsiWatchCartridge
 
 - type: entity
@@ -960,6 +972,7 @@
     - NewsReaderCartridge
     - GlimmerMonitorCartridge
     - NanoChatCartridge # DeltaV
+    - MapCartridge # NC
 
 - type: entity
   parent: SciencePDA
@@ -997,6 +1010,7 @@
     - CrimeAssistCartridge # DeltaV
     - SecWatchCartridge # DeltaV
     - NanoChatCartridge # DeltaV
+    - MapCartridge # NC
 
 - type: entity
   parent: BaseSecurityPDA
@@ -1069,6 +1083,7 @@
     - CrimeAssistCartridge # DeltaV
     - SecWatchCartridge # DeltaV
     - NanoChatCartridge # DeltaV
+    - MapCartridge # NC
 
 - type: entity
   parent: CentcomPDA
@@ -1097,6 +1112,7 @@
     - SecWatchCartridge # DeltaV: SecWatch replaces WantedList
     - StockTradingCartridge # Delta-V
     - NanoChatCartridge # DeltaV
+    - MapCartridge # NC
   - type: Tag #  Ignore Chameleon tags
     tags:
     - DoorBumpOpener
@@ -1188,6 +1204,7 @@
     preinstalled:
     - NotekeeperCartridge
     - NanoChatCartridge # DeltaV
+    - MapCartridge # NC
   - type: ClothingAddFaction
     faction: Syndicate
 

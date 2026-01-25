@@ -19,13 +19,13 @@ public sealed partial class StationBiomeComponent : Component
     ///     Adds a list of biome marker layers after creating the planet. Useful if you wish to make your planet station also have ores to mine.
     /// </summary>
     [DataField]
-    public List<ProtoId<BiomeMarkerLayerPrototype>> BiomeLayers;
+    public List<ProtoId<BiomeMarkerLayerPrototype>> BiomeLayers = new();
 
     /// <summary>
     ///     Whether your station comes with one or more complimentary dungeons somewhere in the world.
     /// </summary>
     [DataField]
-    public List<DungeonConfigPrototype> Dungeons;
+    public List<DungeonConfigPrototype> Dungeons = new();
 
     [DataField]
     public float DungeonMinDistance = 100f;

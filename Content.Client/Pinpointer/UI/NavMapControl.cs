@@ -50,6 +50,9 @@ public partial class NavMapControl : MapGridControl
     public List<(Vector2[], Color)> TilePolygons = new();
     public List<NavMapRegionOverlay> RegionOverlays = new();
 
+    // Custom beacons (Client-side only)
+    public List<(EntityCoordinates Coords, string Text, Color Color)> CustomBeacons = new();
+
     // Default colors
     public Color WallColor = new(102, 217, 102);
     public Color TileColor = new(30, 67, 30);
@@ -112,6 +115,8 @@ public partial class NavMapControl : MapGridControl
         Margin = new Thickness(4f, 0f),
         Pressed = true,
     };
+
+    public bool ClientBeaconsEnabled { get; set; } = true;
 
     public NavMapControl() : base(MinDisplayedRange, MaxDisplayedRange, DefaultDisplayedRange)
     {
@@ -229,7 +234,7 @@ public partial class NavMapControl : MapGridControl
             {
                 if (!blip.Selectable)
                     continue;
-                
+
                 var currentDistance = (_transformSystem.ToMapCoordinates(blip.Coordinates).Position - worldPosition).Length();
 
                 if (closestDistance < currentDistance || currentDistance * MinimapScale > MaxSelectableDistance)
@@ -435,7 +440,7 @@ public partial class NavMapControl : MapGridControl
             var rectBuffer = new Vector2(5f, 3f);
 
             // Calculate font size for current zoom level
-            var fontSize = (int)Math.Round(1 / WorldRange * DefaultDisplayedRange * UIScale * _targetFontsize, 0);
+            var fontSize = (int) Math.Round(1 / WorldRange * DefaultDisplayedRange * UIScale * _targetFontsize, 0);
             var font = new VectorFont(_cache.GetResource<FontResource>("/Fonts/NotoSans/NotoSans-Bold.ttf"), fontSize);
 
             foreach (var beacon in _navMap.Beacons.Values)
@@ -446,6 +451,38 @@ public partial class NavMapControl : MapGridControl
                 var textDimensions = handle.GetDimensions(font, beacon.Text, 1f);
                 handle.DrawRect(new UIBox2(position - textDimensions / 2 - rectBuffer, position + textDimensions / 2 + rectBuffer), BackgroundColor);
                 handle.DrawString(font, position - textDimensions / 2, beacon.Text, beacon.Color);
+            }
+        }
+
+        // Custom Beacons (Blinking)
+        if (ClientBeaconsEnabled && CustomBeacons.Count > 0)
+        {
+            var rectBuffer = new Vector2(5f, 3f);
+            var fontSize = (int) Math.Round(1 / WorldRange * DefaultDisplayedRange * UIScale * _targetFontsize, 0);
+
+            // Optimization: Cache font or ensure simplified creation.
+            // Since we don't have a resource handle field for the font here, getting it from cache is fine (it returns a handle),
+            // but new VectorFont() is weird.
+            // Using a static or cached resource is better, but for now just ensure path is correct and valid.
+            if (_cache.TryGetResource<FontResource>("/Fonts/NotoSans/NotoSans-Bold.ttf", out var fontRes))
+            {
+                var font = new VectorFont(fontRes, fontSize);
+
+                foreach (var (coords, text, color) in CustomBeacons)
+                {
+                    if (!lit) continue; // Blink!
+
+                    var mapPos = _transformSystem.ToMapCoordinates(coords);
+                    if (mapPos.MapId != MapId.Nullspace)
+                    {
+                        var offsetPos = Vector2.Transform(mapPos.Position, _transformSystem.GetInvWorldMatrix(_xform)) - offset;
+                        var position = ScalePosition(new Vector2(offsetPos.X, -offsetPos.Y));
+
+                        var textDimensions = handle.GetDimensions(font, text, 1f);
+                        handle.DrawRect(new UIBox2(position - textDimensions / 2 - rectBuffer, position + textDimensions / 2 + rectBuffer), BackgroundColor);
+                        handle.DrawString(font, position - textDimensions / 2, text, color);
+                    }
+                }
             }
         }
     }
@@ -538,7 +575,7 @@ public partial class NavMapControl : MapGridControl
                 // North edge
                 var neighborData = 0;
                 if (relativeTile.Y != SharedNavMapSystem.ChunkSize - 1)
-                    neighborData = chunk.TileData[i+1];
+                    neighborData = chunk.TileData[i + 1];
                 else if (_navMap.Chunks.TryGetValue(chunkOrigin + Vector2i.Up, out neighborChunk))
                     neighborData = neighborChunk.TileData[i + 1 - SharedNavMapSystem.ChunkSize];
 

@@ -27,7 +27,7 @@ public sealed partial class DoorInterfaceWindow : DefaultWindow
         _isOwner = isOwner;
         _hasOwner = state.OwnerName != null;
 
-        AddressLabel.Text = state.Address;
+        AddressLabel.Text = $"{state.Address} {state.DoorCode}";
         OwnerLabel.Text = state.OwnerName ?? "Нет";
         PriceLabel.Text = $"Цена: {state.Price}$";
 

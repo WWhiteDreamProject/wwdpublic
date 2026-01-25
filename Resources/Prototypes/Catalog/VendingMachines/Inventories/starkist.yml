@@ -9,9 +9,7 @@
     DrinkLemonLimeCan: 2
     DrinkLemonLimeCranberryCan: 2
     DrinkFourteenLokoCan: 2
-  emaggedInventory:
-    DrinkNukieCan: 2
-    DrinkChangelingStingCan: 2
+
   startingItemPrices:
     DrinkStarkistCan: 10
     DrinkGrapeCan: 10

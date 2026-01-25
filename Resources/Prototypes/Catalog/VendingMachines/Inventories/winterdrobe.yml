@@ -18,9 +18,7 @@
     ClothingOuterCoatBomber: 3
     ClothingHeadHatSantahat: 2
     ClothingHeadHatXmasCrown: 2
-  emaggedInventory:
-    ClothingNeckScarfStripedRed: 3
-    ClothingNeckScarfStripedCentcom: 3
+
   startingItemPrices:
     ClothingNeckScarfStripedRed: 20
     ClothingNeckScarfStripedGreen: 20

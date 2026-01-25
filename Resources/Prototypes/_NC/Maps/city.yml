@@ -1,0 +1,23 @@
+- type: gameMap
+  id: Aldente
+  mapName: 'New Aldente'
+  mapPath: /Maps/_NC/night_city.yml
+  maxRandomOffset: 0
+  randomPainting: false
+  minPlayers: 0 # TempChange 0 (10)
+  maxPlayers: 60
+  stations:
+    City:
+      stationProto: StandardNanotrasenStation
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: '{0} New Aldente {1}'
+        nameGenerator:
+          !type:NanotrasenNameGenerator
+          prefixCreator: 'NC'
+      - type: StationBiome
+        biome: LowDesert
+      - type: StationJobs
+        availableJobs:
+          TraumaTeamOperative: [-1, -1]
+

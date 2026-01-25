@@ -32,14 +32,16 @@ public sealed class DoorInterfaceState : BoundUserInterfaceState
     public string Address { get; }
     public Guid? OwnerId { get; }
     public bool IsLocked { get; }
+    public string? DoorCode { get; }
 
-    public DoorInterfaceState(int price, string? ownerName, string address, Guid? ownerId, bool isLocked)
+    public DoorInterfaceState(int price, string? ownerName, string address, Guid? ownerId, bool isLocked, string? doorCode)
     {
         Price = price;
         OwnerName = ownerName;
         Address = address;
         OwnerId = ownerId;
         IsLocked = isLocked;
+        DoorCode = doorCode;
     }
 }
 

@@ -2,18 +2,19 @@
   id: DefaultMapPool
   maps:
   # WD EDIT START - white dream maps
-  - Kettle
-  - Moose
-  - WonderBox
-  - WhiteMeta
-  # TempChange 0 start
-  - Gax
-  - Asterisk
-  - Bagel
-  - Pebble
-  - Saltern
-  - Anchor
-  - Core
-  - Shoukou
-  # TempChange 0 end
-  # WD EDIT END
+  # - Kettle
+  # - Moose
+  # - WonderBox
+  # - WhiteMeta
+  # # TempChange 0 start
+  # - Gax
+  # - Asterisk
+  # - Bagel
+  # - Pebble
+  # - Saltern
+  # - Anchor
+  # - Core
+  # - Shoukou
+  # # TempChange 0 end
+  # # WD EDIT END
+  - Aldente
