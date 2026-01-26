@@ -37,6 +37,12 @@ public sealed partial class CyberdeckComponent : Component
     public float Range = 10.0f;
 
     /// <summary>
+    /// The currently selected target for hacks.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public EntityUid? ActiveTarget;
+
+    /// <summary>
     /// Accumulator for passive RAM regeneration.
     /// </summary>
     public float RecoveryAccumulator = 0f;

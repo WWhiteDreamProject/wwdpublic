@@ -37,16 +37,19 @@
         whitelist:
           tags:
           - NCProgramCartridge
+        insertOnInteract: false
       program_slot_2:
         name: Program Slot 2
         whitelist:
           tags:
           - NCProgramCartridge
+        insertOnInteract: false
       program_slot_3:
         name: Program Slot 3
         whitelist:
           tags:
           - NCProgramCartridge
+        insertOnInteract: false
   - type: PowerCellSlot
     cellSlotId: cell_slot
   - type: ContainerContainer

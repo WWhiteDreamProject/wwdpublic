@@ -20,11 +20,14 @@ public sealed partial class CyberdeckWindow : DefaultWindow
 
     public event Action<NetEntity>? OnProgramSelected;
 
-    public void UpdateState(int currentRam, int maxRam, List<(string, NetEntity, NetProgramData)>? programs = null)
+    public void UpdateState(int currentRam, int maxRam, List<(string, NetEntity, NetProgramData)>? programs = null, string? targetName = null)
     {
         RamBar.MaxValue = maxRam;
         RamBar.Value = currentRam;
         RamText.Text = $"{currentRam} / {maxRam} RAM";
+
+        TargetLabel.Text = targetName != null ? $"Active Target: {targetName}" : "No Target";
+        TargetLabel.FontColorOverride = targetName != null ? Color.Red : Color.Gray;
 
         if (programs == null) return;
 

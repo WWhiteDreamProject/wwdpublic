@@ -24,12 +24,16 @@ public sealed class CyberdeckBoundUiState : BoundUserInterfaceState
     public int CurrentRam;
     public int MaxRam;
     public Dictionary<NetEntity, NetProgramData> Programs;
+    public NetEntity? TargetId;
+    public string? TargetName;
 
-    public CyberdeckBoundUiState(int currentRam, int maxRam, Dictionary<NetEntity, NetProgramData> programs)
+    public CyberdeckBoundUiState(int currentRam, int maxRam, Dictionary<NetEntity, NetProgramData> programs, NetEntity? targetId, string? targetName)
     {
         CurrentRam = currentRam;
         MaxRam = maxRam;
         Programs = programs;
+        TargetId = targetId;
+        TargetName = targetName;
     }
 }
 

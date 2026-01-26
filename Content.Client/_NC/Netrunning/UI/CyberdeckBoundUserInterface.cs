@@ -47,7 +47,7 @@ public sealed class CyberdeckBoundUserInterface : BoundUserInterface
             }
         }
 
-        _window.UpdateState(cast.CurrentRam, cast.MaxRam, programs);
+        _window.UpdateState(cast.CurrentRam, cast.MaxRam, programs, cast.TargetName);
     }
 
     protected override void Dispose(bool disposing)

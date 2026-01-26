@@ -30,4 +30,46 @@
     ramCost: 2
     beamColor: "#00FF00"
 
+- type: entity
+  parent: NCProgramBase
+  id: NCProgramBlind
+  name: Optics Rewrite
+  description: Temporarily blinds the target.
+  components:
+  - type: NetProgram
+    programType: Quickhack
+    quickhackType: Blind
+    ramCost: 4
+    uploadTime: 2.0
+    duration: 10.0
+    beamColor: "#000000"
+
+- type: entity
+  parent: NCProgramBase
+  id: NCProgramDrop
+  name: Weapon Glitch
+  description: Forces the target to drop their active item.
+  components:
+  - type: NetProgram
+    programType: Quickhack
+    quickhackType: WeaponDrop
+    ramCost: 3
+    uploadTime: 1.0
+    beamColor: "#FFFF00"
+
+- type: entity
+  parent: NCProgramBase
+  id: NCProgramShock
+  name: Short Circuit
+  description: Deals electrical damage to the target.
+  components:
+  - type: NetProgram
+    programType: Quickhack
+    quickhackType: Damage
+    ramCost: 5
+    uploadTime: 1.5
+    damage: 15
+    stunDuration: 5.0
+    beamColor: "#0000FF"
+
 
