@@ -1,0 +1,20 @@
+- type: entity
+  parent: BaseItem
+  id: NCProgramBase
+  name: netrunning program
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/pda.rsi # Placeholder: Cartridge
+    state: cartridge
+  - type: Item
+    size: Tiny
+  - type: Tag
+    tags:
+    - NCProgramCartridge
+
+- type: entity
+  parent: NCProgramBase
+  id: NCProgramPing
+  name: Ping 1.0
+  description: A basic network diagnostic tool.

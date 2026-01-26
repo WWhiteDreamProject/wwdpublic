@@ -1,0 +1,58 @@
+- type: entity
+  parent: BaseItem
+  id: NCCyberdeck
+  name: cyberdeck
+  description: A high-end portable computer used for netrunning. Requires a battery and both hands to operate.
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/pda.rsi # Placeholder, maybe use a laptop sprite if available
+    state: pda-bartender # Placeholder
+    layers:
+    - state: pda-bartender # Placeholder
+  - type: Item
+    size: Large
+  - type: Cyberdeck
+    maxRam: 10
+    recoverySpeed: 1.0
+    range: 15.0
+  - type: Wieldable
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.6
+    sprintModifier: 0.6
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellMedium
+        whitelist:
+          components:
+          - PowerCell
+      program_slot_1:
+        name: Program Slot 1
+        whitelist:
+          tags:
+          - NCProgramCartridge
+      program_slot_2:
+        name: Program Slot 2
+        whitelist:
+          tags:
+          - NCProgramCartridge
+      program_slot_3:
+        name: Program Slot 3
+        whitelist:
+          tags:
+          - NCProgramCartridge
+  - type: PowerCellSlot
+    cellSlotId: cell_slot
+  - type: ContainerContainer
+    containers:
+      cell_slot: !type:ContainerSlot
+      program_slot_1: !type:ContainerSlot
+      program_slot_2: !type:ContainerSlot
+      program_slot_3: !type:ContainerSlot
+  - type: Battery
+    maxCharge: 1000
+    startingCharge: 1000
+  - type: BatterySelfRecharger # Charges internal battery from cell if implemented, or we just rely on cell?
+    autoRecharge: true
+    active: true
