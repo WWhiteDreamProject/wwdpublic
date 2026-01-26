@@ -1,3 +1,4 @@
+
 - type: entity
   parent: BaseItem
   id: NCProgramBase
@@ -5,8 +6,8 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: Objects/Devices/pda.rsi # Placeholder: Cartridge
-    state: cartridge
+    sprite: Objects/Devices/cartridges.rsi
+    state: cart
   - type: Item
     size: Tiny
   - type: Tag
@@ -28,3 +29,5 @@
     programType: Network
     ramCost: 2
     beamColor: "#00FF00"
+
+

@@ -1,15 +1,83 @@
-using Content.Shared._NC.Netrunning.Components;
 using Content.Server.Power.Components;
+using Content.Shared._NC.Netrunning.Components;
+using Content.Shared.Interaction.Events;
+using Content.Shared.Verbs;
+using Content.Shared.Wieldable;
+using Robust.Server.GameObjects;
+using Robust.Shared.Containers;
+using Robust.Shared.GameObjects;
+using System.Collections.Generic;
 using Robust.Shared.Timing;
 
 namespace Content.Server._NC.Netrunning.Systems;
 
 public sealed class CyberdeckSystem : EntitySystem
 {
+    [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
+    [Dependency] private readonly SharedContainerSystem _containerSystem = default!; // Added dependency
+
     public override void Initialize()
     {
         base.Initialize();
-        // SubscribeLocalEvent<CyberdeckComponent, ...>(...);
+
+        SubscribeLocalEvent<CyberdeckComponent, ItemWieldedEvent>(OnWielded);
+        SubscribeLocalEvent<CyberdeckComponent, ItemUnwieldedEvent>(OnUnwielded);
+        SubscribeLocalEvent<CyberdeckComponent, GetVerbsEvent<ActivationVerb>>(AddOpenUiVerb);
+        SubscribeLocalEvent<CyberdeckComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<CyberdeckComponent, EntInsertedIntoContainerMessage>(OnContainerModified);
+        SubscribeLocalEvent<CyberdeckComponent, EntRemovedFromContainerMessage>(OnContainerModified);
+        SubscribeLocalEvent<CyberdeckComponent, CyberdeckProgramRequestMessage>(OnProgramRequest);
+    }
+
+    private void OnContainerModified(EntityUid uid, CyberdeckComponent component, ContainerModifiedMessage args)
+    {
+        UpdateUi(uid, component);
+    }
+
+    private void OnProgramRequest(EntityUid uid, CyberdeckComponent component, CyberdeckProgramRequestMessage args)
+    {
+        // TODO: Validate user range, blindness, etc.
+        var programUid = GetEntity(args.ProgramId);
+        if (!TryComp<NetProgramComponent>(programUid, out var program))
+            return;
+
+        if (!TryUseRam(uid, program.RamCost, component))
+            return;
+
+        // Execute program logic here
+        // For now, just a popup
+        // Use a proper dependency for popups if needed, or simple distinct log
+    }
+
+    private void OnStartup(EntityUid uid, CyberdeckComponent component, ComponentStartup args)
+    {
+        UpdateUi(uid, component);
+    }
+
+    private void OnWielded(EntityUid uid, CyberdeckComponent component, ref ItemWieldedEvent args)
+    {
+        // Battery Check
+        if (TryComp<BatteryComponent>(uid, out var battery) && battery.CurrentCharge <= 0)
+            return; // No power, UI won't open
+
+        _uiSystem.OpenUi(uid, CyberdeckUiKey.Key, args.User);
+    }
+
+    private void OnUnwielded(EntityUid uid, CyberdeckComponent component, ref ItemUnwieldedEvent args)
+    {
+        _uiSystem.CloseUi(uid, CyberdeckUiKey.Key, args.User);
+    }
+
+    private void AddOpenUiVerb(EntityUid uid, CyberdeckComponent component, GetVerbsEvent<ActivationVerb> args)
+    {
+        if (!args.CanAccess || !args.CanInteract)
+            return;
+
+        args.Verbs.Add(new ActivationVerb
+        {
+            Text = "Open Cyberdeck",
+            Act = () => _uiSystem.TryToggleUi(uid, CyberdeckUiKey.Key, args.User)
+        });
     }
 
     public override void Update(float frameTime)
@@ -26,30 +94,16 @@ public sealed class CyberdeckSystem : EntitySystem
             if (battery.CurrentCharge <= 0)
                 continue;
 
-            deck.RecoveryAccumulator += frameTime;
+            deck.RecoveryAccumulator += frameTime * deck.RecoverySpeed;
             if (deck.RecoveryAccumulator >= 1.0f)
             {
-                deck.RecoveryAccumulator -= 1.0f;
-                // Recover RAM based on speed
-                int amount = (int) System.Math.Floor(deck.RecoverySpeed);
-                // Handle fractional speed better? For now simple integer steps per second.
-                // Or: acc += frameTime * speed.
+                var amount = (int) deck.RecoveryAccumulator;
+                deck.RecoveryAccumulator -= amount;
 
-                // Let's change logic: Accumulator reaches 1/Speed then adds 1 RAM.
-                // But deck.RecoverySpeed is "RAM per second".
-                // So expected gain is frameTime * RecoverySpeed.
-                // Since RAM is int, we accumulate "partial RAM" or just tick whole numbers.
-
-                // Better approach:
-                // Accumulate tokens.
-
-                // Revert to simple 1 sec interval adds Speed amount.
                 deck.CurrentRam = System.Math.Min(deck.CurrentRam + amount, deck.MaxRam);
 
-                // Consume a bit of power for netrunning standby?
-                // Optional.
-
                 Dirty(uid, deck);
+                UpdateUi(uid, deck);
             }
         }
     }
@@ -63,9 +117,29 @@ public sealed class CyberdeckSystem : EntitySystem
         {
             deck.CurrentRam -= cost;
             Dirty(uid, deck);
+            UpdateUi(uid, deck);
             return true;
         }
 
         return false;
+    }
+
+    private void UpdateUi(EntityUid uid, CyberdeckComponent deck)
+    {
+        var programs = new Dictionary<NetEntity, NetProgramData>();
+
+        // Scan all containers for programs
+        foreach (var container in _containerSystem.GetAllContainers(uid))
+        {
+            foreach (var entity in container.ContainedEntities)
+            {
+                if (TryComp<NetProgramComponent>(entity, out var program))
+                {
+                    programs[GetNetEntity(entity)] = new NetProgramData(program.ProgramType, program.RamCost, program.EnergyCost);
+                }
+            }
+        }
+
+        _uiSystem.SetUiState(uid, CyberdeckUiKey.Key, new CyberdeckBoundUiState(deck.CurrentRam, deck.MaxRam, programs));
     }
 }

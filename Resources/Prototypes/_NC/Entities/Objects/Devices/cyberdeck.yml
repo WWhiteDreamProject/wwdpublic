@@ -15,7 +15,12 @@
     maxRam: 10
     recoverySpeed: 1.0
     range: 15.0
+  - type: UserInterface
+    interfaces:
+      enum.CyberdeckUiKey.Key:
+        type: CyberdeckBoundUserInterface
   - type: Wieldable
+    autoWield: false
   - type: SpeedModifiedOnWield
     walkModifier: 0.6
     sprintModifier: 0.6
