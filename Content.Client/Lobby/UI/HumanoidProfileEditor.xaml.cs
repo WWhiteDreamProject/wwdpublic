@@ -2393,7 +2393,72 @@ namespace Content.Client.Lobby.UI
 
         private void HideEmptyTabs(List<TraitCategoryPrototype> cats)
         {
-            // TODO: HIDE LOGIC LATER
+            void CheckAndHideTabs(NeoTabContainer container)
+            {
+                foreach (var tabId in container.TakenIds.ToList())
+                {
+                    var tabControl = container.GetControl<Control>(tabId);
+
+                    if (tabControl == null)
+                        continue;
+
+                    // Если это вложенный NeoTabContainer, рекурсивно проверяем его
+                    if (tabControl is NeoTabContainer nestedContainer)
+                    {
+                        CheckAndHideTabs(nestedContainer);
+
+                        // Проверяем, есть ли хотя бы одна видимая вкладка внутри
+                        var hasVisibleTabs = nestedContainer.TakenIds.Any(id =>
+                        {
+                            var ctrl = nestedContainer.GetControl<Control>(id);
+                            return ctrl != null && ctrl.Visible;
+                        });
+
+                        // Если нет видимых вкладок, скрываем родительскую вкладку
+                        if (!hasVisibleTabs)
+                        {
+                            container.SetTabVisible(tabId, false);
+                        }
+                    }
+                    // Если это BoxContainer с трейтами
+                    else if (tabControl is BoxContainer boxContainer)
+                    {
+                        // Ищем все TraitPreferenceSelector через структуру:
+                        // BoxContainer -> ScrollContainer -> BoxContainer -> TraitPreferenceSelector
+                        var hasVisibleTraits = false;
+
+                        foreach (var scrollChild in boxContainer.Children)
+                        {
+                            if (scrollChild is ScrollContainer scroll)
+                            {
+                                foreach (var innerBox in scroll.Children)
+                                {
+                                    if (innerBox is BoxContainer inner)
+                                    {
+                                        var selectors = inner.Children.OfType<TraitPreferenceSelector>();
+                                        if (selectors.Any(s => s.Visible))
+                                        {
+                                            hasVisibleTraits = true;
+                                            break;
+                                        }
+                                    }
+                                }
+                            }
+
+                            if (hasVisibleTraits)
+                                break;
+                        }
+
+                        // Если нет видимых трейтов, скрываем вкладку
+                        if (!hasVisibleTraits)
+                        {
+                            container.SetTabVisible(tabId, false);
+                        }
+                    }
+                }
+            }
+
+            CheckAndHideTabs(TraitsTabs);
         }
 
         private void TryRemoveUnusableTraits()
