@@ -1,0 +1,99 @@
+- type: entity
+  parent: BaseMachine
+  id: NCServerBase
+  name: net server
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/server.rsi
+    state: server
+  - type: NetServer
+  - type: Physics
+    bodyType: Static
+  - type: InteractionOutline
+  - type: Rotatable
+  - type: Anchorable
+
+- type: entity
+  parent: NCServerBase
+  id: NCServerLowEnd
+  name: standard server rack
+  description: A basic server rack with 2 ICE slots.
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/server.rsi
+    state: server
+  - type: ItemSlots
+    slots:
+      ice_slot_1:
+        name: ICE Slot 1
+        whitelist:
+          tags:
+          - NCIceBoard
+      ice_slot_2:
+        name: ICE Slot 2
+        whitelist:
+          tags:
+          - NCIceBoard
+      ice_slot_3:
+        name: ICE Slot 3
+        whitelist:
+          tags:
+          - NCIceBoard
+  - type: ContainerContainer
+    containers:
+      ice_slot_1: !type:ContainerSlot
+      ice_slot_2: !type:ContainerSlot
+      ice_slot_3: !type:ContainerSlot
+
+- type: entity
+  parent: NCServerBase
+  id: NCServerHighEnd
+  name: mainframe server rack
+  description: A high-performance server rack with 4 ICE slots.
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/server.rsi
+    state: server
+    # Maybe color it differently?
+    color: "#AAAAFF"
+  - type: ItemSlots
+    slots:
+      ice_slot_1:
+        name: ICE Slot 1
+        whitelist:
+          tags:
+          - NCIceBoard
+      ice_slot_2:
+        name: ICE Slot 2
+        whitelist:
+          tags:
+          - NCIceBoard
+      ice_slot_3:
+        name: ICE Slot 3
+        whitelist:
+          tags:
+          - NCIceBoard
+      ice_slot_4:
+        name: ICE Slot 4
+        whitelist:
+          tags:
+          - NCIceBoard
+      ice_slot_5:
+        name: ICE Slot 5
+        whitelist:
+          tags:
+          - NCIceBoard
+      ice_slot_6:
+        name: ICE Slot 6
+        whitelist:
+          tags:
+          - NCIceBoard
+  - type: ContainerContainer
+    containers:
+      ice_slot_1: !type:ContainerSlot
+      ice_slot_2: !type:ContainerSlot
+      ice_slot_3: !type:ContainerSlot
+      ice_slot_4: !type:ContainerSlot
+      ice_slot_5: !type:ContainerSlot
+      ice_slot_6: !type:ContainerSlot

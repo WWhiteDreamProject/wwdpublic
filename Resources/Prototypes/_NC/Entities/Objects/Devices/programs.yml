@@ -12,9 +12,19 @@
   - type: Tag
     tags:
     - NCProgramCartridge
+  - type: NetProgram
+    programType: Network
+    ramCost: 1
+    energyCost: 0
+    duration: 5.0
 
 - type: entity
   parent: NCProgramBase
   id: NCProgramPing
   name: Ping 1.0
   description: A basic network diagnostic tool.
+  components:
+  - type: NetProgram
+    programType: Network
+    ramCost: 2
+    beamColor: "#00FF00"

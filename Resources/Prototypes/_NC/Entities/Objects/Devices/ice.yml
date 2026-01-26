@@ -1,0 +1,44 @@
+- type: entity
+  parent: BaseItem
+  id: NCIceBase
+  name: ICE board
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/cartridges.rsi
+    state: cart
+  - type: Item
+    size: Small
+  - type: Tag
+    tags:
+    - NCIceBoard
+
+- type: entity
+  parent: NCIceBase
+  id: NCIceGate
+  name: Gate ICE
+  description: A basic password protection board.
+  components:
+  - type: NetIce
+    iceType: Gate
+    level: 1
+
+- type: entity
+  parent: NCIceBase
+  id: NCIceSentry
+  name: Sentry ICE
+  description: Active defense system that traces intruders.
+  components:
+  - type: NetIce
+    iceType: Sentry
+    level: 2
+
+- type: entity
+  parent: NCIceBase
+  id: NCIceKiller
+  name: Killer ICE
+  description: Lethal defense system. User discretion advised.
+  components:
+  - type: NetIce
+    iceType: Killer
+    level: 3
