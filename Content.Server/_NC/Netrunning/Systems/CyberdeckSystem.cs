@@ -8,6 +8,8 @@ using Content.Shared.Wieldable.Components;
 using Content.Shared.Interaction;
 using Robust.Shared.Utility;
 using Robust.Server.GameObjects;
+using Content.Shared.Damage;
+using Content.Shared.Damage.Prototypes;
 using Robust.Shared.Containers;
 using Robust.Shared.GameObjects;
 using System.Collections.Generic;
@@ -25,7 +27,9 @@ namespace Content.Server._NC.Netrunning.Systems;
 public sealed partial class CyberdeckSystem : EntitySystem
 {
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
-    [Dependency] private readonly SharedContainerSystem _containerSystem = default!; // Added dependency
+    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
+    [Dependency] private readonly SharedWieldableSystem _wieldable = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!; // Added
 
     public override void Initialize()
     {
@@ -38,25 +42,47 @@ public sealed partial class CyberdeckSystem : EntitySystem
         SubscribeLocalEvent<CyberdeckComponent, EntInsertedIntoContainerMessage>(OnContainerModified);
         SubscribeLocalEvent<CyberdeckComponent, EntRemovedFromContainerMessage>(OnContainerModified);
         SubscribeLocalEvent<CyberdeckComponent, CyberdeckProgramRequestMessage>(OnProgramRequest);
+        SubscribeLocalEvent<CyberdeckComponent, CyberdeckSetTargetMessage>(OnSetTarget);
+
         SubscribeLocalEvent<CyberdeckComponent, AfterInteractEvent>(OnAfterInteract);
-        SubscribeLocalEvent<CyberdeckComponent, CyberdeckQuickhackDoAfterEvent>(OnDoAfter);
         SubscribeLocalEvent<CyberdeckComponent, InteractUsingEvent>(OnInteractUsing);
+        SubscribeLocalEvent<CyberdeckComponent, UseInHandEvent>(OnUseInHand);
     }
 
-    private void OnDoAfter(EntityUid uid, CyberdeckComponent component, CyberdeckQuickhackDoAfterEvent args)
+    [Dependency] private readonly NetServerSystem _netServer = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly HackingSystem _hacking = default!;
+
+    private void OnUseInHand(EntityUid uid, CyberdeckComponent component, UseInHandEvent args)
     {
-        if (args.Cancelled || args.Handled)
+        if (args.Handled)
             return;
 
-        var target = GetEntity(args.TargetId);
-        var programUid = GetEntity(args.ProgramId);
+        // Custom Wielding Logic:
+        // If NOT wielded -> Try to Wield.
+        // If Wielded -> Toggle UI.
 
-        if (!TryComp<NetProgramComponent>(programUid, out var program))
+        var isWielded = TryComp<WieldableComponent>(uid, out var w) && w.Wielded;
+
+        // Debug
+        //_popup.PopupEntity($"UseInHand: Wielded={isWielded}", uid, args.User);
+
+        if (!isWielded && w != null)
         {
-            return;
+            if (_wieldable.TryWield(uid, w, args.User))
+            {
+                // _popup.PopupEntity("Wield Success", uid, args.User);
+            }
+            else
+            {
+                _popup.PopupEntity("Failed to wield (Need 2 hands free?)", uid, args.User);
+            }
+        }
+        else
+        {
+            _uiSystem.TryToggleUi(uid, CyberdeckUiKey.Key, args.User);
         }
 
-        _quickhack.ApplyEffect(target, program);
         args.Handled = true;
     }
 
@@ -65,16 +91,17 @@ public sealed partial class CyberdeckSystem : EntitySystem
         if (args.Target == null)
             return;
 
+        // Strict Wield Check
+        var isWielded = TryComp<WieldableComponent>(uid, out var w) && w.Wielded;
+        if (!isWielded)
+        {
+            _popup.PopupEntity("You must hold the deck with both hands!", uid, args.User);
+            return;
+        }
+
         var target = args.Target.Value;
 
-        // Проверяем: живое существо (MobState) ИЛИ киборг
-        var isMob = HasComp<MobStateComponent>(target);
-        var isBorg = HasComp<BorgChassisComponent>(target);
-
-        if (!isMob && !isBorg)
-            return;
-
-        // Проверяем дистанцию от ПОЛЬЗОВАТЕЛЯ до цели и прямую видимость (используем args.User)
+        // Check Range
         if (!_interaction.InRangeUnobstructed(args.User, target, component.Range))
             return;
 
@@ -85,24 +112,19 @@ public sealed partial class CyberdeckSystem : EntitySystem
 
     private void OnInteractUsing(EntityUid uid, CyberdeckComponent component, InteractUsingEvent args)
     {
-        // Проверяем, что используется программа
         if (!HasComp<NetProgramComponent>(args.Used))
             return;
 
-        // Получаем все слоты кибердека
         if (!TryComp<ItemSlotsComponent>(uid, out var slotsComp))
             return;
 
-        // Ищем первый свободный слот среди всех program_slot_*
         foreach (var (slotName, slot) in slotsComp.Slots)
         {
-            // Пропускаем слоты, которые не являются слотами программ
             if (!slotName.StartsWith("program_slot_"))
                 continue;
 
             if (slot.Item == null)
             {
-                // Нашли свободный слот - вставляем
                 if (_itemSlots.TryInsert(uid, slotName, args.Used, args.User))
                 {
                     args.Handled = true;
@@ -112,7 +134,6 @@ public sealed partial class CyberdeckSystem : EntitySystem
             }
         }
 
-        // Все слоты заняты - показываем попап
         _popup.PopupEntity("Все слоты для программ заняты!", uid, args.User);
         args.Handled = true;
     }
@@ -131,17 +152,20 @@ public sealed partial class CyberdeckSystem : EntitySystem
 
     private void OnProgramRequest(EntityUid uid, CyberdeckComponent component, CyberdeckProgramRequestMessage args)
     {
+        // Check Wielded
+        var isWielded = TryComp<WieldableComponent>(uid, out var w) && w.Wielded;
+        if (!isWielded)
+            return;
+
         var programUid = GetEntity(args.ProgramId);
         if (!TryComp<NetProgramComponent>(programUid, out var program))
             return;
 
-        // Получаем пользователя (кто держит кибердек)
         if (!TryComp<TransformComponent>(uid, out var xform) || xform.ParentUid == EntityUid.Invalid)
             return;
 
         var user = xform.ParentUid;
 
-        // If Quickhack, validate target
         if (program.ProgramType == NetProgramType.Quickhack)
         {
             if (component.ActiveTarget == null)
@@ -149,10 +173,8 @@ public sealed partial class CyberdeckSystem : EntitySystem
 
             var target = component.ActiveTarget.Value;
 
-            // Проверка дистанции от ПОЛЬЗОВАТЕЛЯ до цели
             if (Deleted(target) || !_interaction.InRangeUnobstructed(user, target, component.Range))
             {
-                // Popup: Target out of range
                 component.ActiveTarget = null;
                 Dirty(uid, component);
                 UpdateUi(uid, component);
@@ -162,20 +184,17 @@ public sealed partial class CyberdeckSystem : EntitySystem
             if (!TryUseRam(uid, program.RamCost, component))
                 return;
 
-            // Start DoAfter на пользователе
             var doAfterArgs = new DoAfterArgs(EntityManager, user, TimeSpan.FromSeconds(program.UploadTime), new CyberdeckQuickhackDoAfterEvent(GetNetEntity(target), GetNetEntity(programUid)), uid, target: target, used: uid)
             {
                 BreakOnMove = false,
                 BreakOnDamage = true,
-                NeedHand = true,
-                DistanceThreshold = component.Range // Явно задаем дистанцию
+                NeedHand = false, // Wielded requires both hands, so "NeedHand" might fail if it checks for free hand. Better to use false? Wielding occupies hands.
+                DistanceThreshold = component.Range
             };
 
             _doAfter.TryStartDoAfter(doAfterArgs);
         }
     }
-
-
 
     private void OnStartup(EntityUid uid, CyberdeckComponent component, ComponentStartup args)
     {
@@ -184,9 +203,8 @@ public sealed partial class CyberdeckSystem : EntitySystem
 
     private void OnWielded(EntityUid uid, CyberdeckComponent component, ref ItemWieldedEvent args)
     {
-        // Battery Check
         if (TryComp<BatteryComponent>(uid, out var battery) && battery.CurrentCharge <= 0)
-            return; // No power, UI won't open
+            return;
 
         _uiSystem.OpenUi(uid, CyberdeckUiKey.Key, args.User);
     }
@@ -198,7 +216,8 @@ public sealed partial class CyberdeckSystem : EntitySystem
 
     private void AddOpenUiVerb(EntityUid uid, CyberdeckComponent component, GetVerbsEvent<ActivationVerb> args)
     {
-        if (!args.CanAccess || !args.CanInteract)
+        var isWielded = TryComp<WieldableComponent>(uid, out var w) && w.Wielded;
+        if (!args.CanAccess || !args.CanInteract || !isWielded)
             return;
 
         args.Verbs.Add(new ActivationVerb
@@ -218,8 +237,11 @@ public sealed partial class CyberdeckSystem : EntitySystem
             if (deck.CurrentRam >= deck.MaxRam)
                 continue;
 
-            // Only regenerate if battery has charge
             if (battery.CurrentCharge <= 0)
+                continue;
+
+            // Block RAM recovery during active hacking session
+            if (_hacking.IsHacking(uid))
                 continue;
 
             deck.RecoveryAccumulator += frameTime * deck.RecoverySpeed;
@@ -252,11 +274,31 @@ public sealed partial class CyberdeckSystem : EntitySystem
         return false;
     }
 
-    private void UpdateUi(EntityUid uid, CyberdeckComponent deck)
+    private void OnSetTarget(EntityUid uid, CyberdeckComponent component, CyberdeckSetTargetMessage args)
+    {
+        var user = args.Actor;
+
+        // Enforce Wielded
+        var isWielded = TryComp<WieldableComponent>(uid, out var w) && w.Wielded;
+        if (!isWielded)
+            return;
+
+        var target = GetEntity(args.TargetId);
+
+        if (Deleted(target) || !_interaction.InRangeUnobstructed(user, target, component.Range))
+            return;
+
+        component.ActiveTarget = target;
+        Dirty(uid, component);
+        UpdateUi(uid, component);
+    }
+
+
+
+    public void UpdateUi(EntityUid uid, CyberdeckComponent deck)
     {
         var programs = new Dictionary<NetEntity, NetProgramData>();
 
-        // Scan all containers for programs
         foreach (var container in _containerSystem.GetAllContainers(uid))
         {
             foreach (var entity in container.ContainedEntities)
@@ -268,6 +310,7 @@ public sealed partial class CyberdeckSystem : EntitySystem
             }
         }
 
-        _uiSystem.SetUiState(uid, CyberdeckUiKey.Key, new CyberdeckBoundUiState(deck.CurrentRam, deck.MaxRam, programs, GetNetEntity(deck.ActiveTarget), deck.ActiveTarget != null ? Name(deck.ActiveTarget.Value) : null));
+        // Return the Cached Scan results
+        _uiSystem.SetUiState(uid, CyberdeckUiKey.Key, new CyberdeckBoundUiState(deck.CurrentRam, deck.MaxRam, programs, GetNetEntity(deck.ActiveTarget), deck.ActiveTarget != null ? Name(deck.ActiveTarget.Value) : null, deck.LastScan));
     }
 }

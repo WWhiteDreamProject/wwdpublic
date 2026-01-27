@@ -46,4 +46,16 @@ public sealed partial class CyberdeckComponent : Component
     /// Accumulator for passive RAM regeneration.
     /// </summary>
     public float RecoveryAccumulator = 0f;
+
+    /// <summary>
+    /// Radius to scan for nearby network devices.
+    /// </summary>
+    [DataField("scanRadius"), ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    public float ScanRadius = 1.0f; // Default small radius per user request
+
+    /// <summary>
+    /// Cache of last scan results. Not serialized.
+    /// </summary>
+    [ViewVariables]
+    public Dictionary<NetEntity, string> LastScan = new();
 }

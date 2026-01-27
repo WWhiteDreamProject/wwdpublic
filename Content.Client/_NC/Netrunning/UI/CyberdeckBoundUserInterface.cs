@@ -24,6 +24,7 @@ public sealed class CyberdeckBoundUserInterface : BoundUserInterface
         _window = new CyberdeckWindow();
         _window.OnClose += Close;
         _window.OnProgramSelected += id => SendMessage(new CyberdeckProgramRequestMessage(id));
+        _window.OnTargetSelected += id => SendMessage(new CyberdeckSetTargetMessage(id)); // Added handler
         _window.OpenCentered();
     }
 
@@ -47,7 +48,7 @@ public sealed class CyberdeckBoundUserInterface : BoundUserInterface
             }
         }
 
-        _window.UpdateState(cast.CurrentRam, cast.MaxRam, programs, cast.TargetName);
+        _window.UpdateState(cast.CurrentRam, cast.MaxRam, programs, cast.TargetName, cast.NearbyDevices);
     }
 
     protected override void Dispose(bool disposing)

@@ -13,32 +13,49 @@
     tags:
     - NCIceBoard
 
+# Gate ICE: Password-based protection
 - type: entity
   parent: NCIceBase
   id: NCIceGate
   name: Gate ICE
-  description: A basic password protection board.
+  description: A basic password protection board. Blocks access until correct password entered.
   components:
   - type: NetIce
     iceType: Gate
     level: 1
+    maxHealth: 20
+    currentHealth: 20
+    damage: 5           # Accumulated damage on each wrong attempt
+    ramDamage: 0        # Gate doesn't attack RAM
+    maxPasswordAttempts: 3
 
+# Sentry ICE: Active defense with chance to disconnect
 - type: entity
   parent: NCIceBase
   id: NCIceSentry
   name: Sentry ICE
-  description: Active defense system that traces intruders.
+  description: Active defense system that traces intruders. Can lock you out of the network.
   components:
   - type: NetIce
     iceType: Sentry
     level: 2
+    maxHealth: 50
+    currentHealth: 50
+    damage: 10          # Accumulated thermal damage
+    ramDamage: 8        # RAM damage per attack
+    disconnectChance: 0.50
 
+# Killer ICE: High damage, no disconnect
 - type: entity
   parent: NCIceBase
   id: NCIceKiller
   name: Killer ICE
-  description: Lethal defense system. User discretion advised.
+  description: Lethal defense system. Burns through neural interfaces without mercy.
   components:
   - type: NetIce
     iceType: Killer
     level: 3
+    maxHealth: 30
+    currentHealth: 30
+    damage: 25          # High accumulated thermal damage
+    ramDamage: 15       # High RAM damage

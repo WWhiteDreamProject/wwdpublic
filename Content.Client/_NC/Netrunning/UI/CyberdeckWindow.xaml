@@ -15,5 +15,9 @@
 
         <Label Text="Installed Programs:" FontColorOverride="Gray" Margin="0 10 0 0"/>
         <GridContainer Name="ProgramList" Columns="3" HorizontalExpand="True" VerticalExpand="True"/>
+
+        <Label Text="Nearby Networks:" FontColorOverride="Gray" Margin="0 10 0 0"/>
+
+        <BoxContainer Name="DeviceList" Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" MinHeight="100"/>
     </BoxContainer>
 </DefaultWindow>

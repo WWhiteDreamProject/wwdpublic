@@ -18,7 +18,9 @@ public enum QuickhackType : byte
     Ping,
     Blind,
     WeaponDrop,
-    Damage
+    Damage,
+    HighJack,
+    Backdoor // Safe exit from hacking
 }
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
@@ -50,4 +52,7 @@ public sealed partial class NetProgramComponent : Component
 
     [DataField("stunDuration"), ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public float StunDuration = 0f;
+
+    [DataField("defense"), ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    public int Defense = 0; // Damage reduction
 }

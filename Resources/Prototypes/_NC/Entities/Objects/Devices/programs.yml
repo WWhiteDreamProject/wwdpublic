@@ -23,10 +23,11 @@
   parent: NCProgramBase
   id: NCProgramPing
   name: Ping 1.0
-  description: A basic network diagnostic tool.
+  description: Reveals information about the target's network security.
   components:
   - type: NetProgram
-    programType: Network
+    programType: Quickhack
+    quickhackType: Ping
     ramCost: 2
     beamColor: "#00FF00"
 
@@ -39,7 +40,7 @@
   - type: NetProgram
     programType: Quickhack
     quickhackType: Blind
-    ramCost: 4
+    ramCost: 40
     uploadTime: 2.0
     duration: 10.0
     beamColor: "#000000"
@@ -53,7 +54,7 @@
   - type: NetProgram
     programType: Quickhack
     quickhackType: WeaponDrop
-    ramCost: 3
+    ramCost: 30
     uploadTime: 1.0
     beamColor: "#FFFF00"
 
@@ -66,10 +67,72 @@
   - type: NetProgram
     programType: Quickhack
     quickhackType: Damage
-    ramCost: 5
+    ramCost: 50
     uploadTime: 1.5
     damage: 15
     stunDuration: 5.0
     beamColor: "#0000FF"
 
+- type: entity
+  parent: NCProgramBase
+  id: NCProgramBreach
+  name: Breach 1.0
+  description: Instantly cracks Gate passwords.
+  components:
+  - type: NetProgram
+    programType: Network
+    ramCost: 50
+    damage: 100
+    beamColor: "#00FF00"
 
+- type: entity
+  parent: NCProgramBase
+  id: NCProgramSword
+  name: Digital Sword
+  description: Offensive program. High damage against ICE.
+  components:
+  - type: NetProgram
+    programType: Network
+    ramCost: 30
+    damage: 20
+    beamColor: "#FF0000"
+
+- type: entity
+  parent: NCProgramBase
+  id: NCProgramShield
+  name: Net Shield
+  description: Reduces incoming damage from ICE retaliations.
+  components:
+  - type: NetProgram
+    programType: Network
+    ramCost: 20
+    defense: 10
+    duration: 10.0
+    beamColor: "#00FFFF"
+
+- type: entity
+  parent: NCProgramBase
+  id: NCProgramHighJack
+  name: HighJack 1.0
+  description: Connects to the target's network architecture, revealing all ICE layers.
+  components:
+  - type: NetProgram
+    programType: Quickhack
+    quickhackType: HighJack
+    ramCost: 40
+    uploadTime: 2.0
+    beamColor: "#FF00FF"
+
+# Backdoor: Safe exit from network architecture
+- type: entity
+  parent: NCProgramBase
+  id: NCProgramBackdoor
+  name: Backdoor 1.0
+  description: Creates a safe exit point. Use during hacking to disconnect without neural feedback damage.
+  components:
+  - type: NetProgram
+    programType: Network
+    ramCost: 5
+    damage: 0
+    defense: 0
+    beamColor: "#00FF00"

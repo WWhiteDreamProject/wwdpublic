@@ -12,15 +12,18 @@
   - type: Item
     size: Large
   - type: Cyberdeck
-    maxRam: 10
-    recoverySpeed: 1.0
+    maxRam: 100
+    recoverySpeed: 40
+    scanRadius: 10
     range: 15.0
+  - type: Wieldable
+    autoWield: false
   - type: UserInterface
     interfaces:
       enum.CyberdeckUiKey.Key:
         type: CyberdeckBoundUserInterface
-  - type: Wieldable
-    autoWield: false
+      enum.HackingUiKey.Key:
+        type: HackingBoundUserInterface
   - type: SpeedModifiedOnWield
     walkModifier: 0.6
     sprintModifier: 0.6

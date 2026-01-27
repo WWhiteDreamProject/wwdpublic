@@ -27,13 +27,16 @@ public sealed class CyberdeckBoundUiState : BoundUserInterfaceState
     public NetEntity? TargetId;
     public string? TargetName;
 
-    public CyberdeckBoundUiState(int currentRam, int maxRam, Dictionary<NetEntity, NetProgramData> programs, NetEntity? targetId, string? targetName)
+    public Dictionary<NetEntity, string> NearbyDevices;
+
+    public CyberdeckBoundUiState(int currentRam, int maxRam, Dictionary<NetEntity, NetProgramData> programs, NetEntity? targetId, string? targetName, Dictionary<NetEntity, string> nearbyDevices)
     {
         CurrentRam = currentRam;
         MaxRam = maxRam;
         Programs = programs;
         TargetId = targetId;
         TargetName = targetName;
+        NearbyDevices = nearbyDevices;
     }
 }
 
@@ -47,3 +50,16 @@ public sealed class CyberdeckProgramRequestMessage : BoundUserInterfaceMessage
         ProgramId = programId;
     }
 }
+
+[Serializable, NetSerializable]
+public sealed class CyberdeckSetTargetMessage : BoundUserInterfaceMessage
+{
+    public NetEntity TargetId;
+
+    public CyberdeckSetTargetMessage(NetEntity targetId)
+    {
+        TargetId = targetId;
+    }
+}
+
+

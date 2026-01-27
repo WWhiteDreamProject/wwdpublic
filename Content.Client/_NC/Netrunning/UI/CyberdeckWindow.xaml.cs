@@ -19,8 +19,9 @@ public sealed partial class CyberdeckWindow : DefaultWindow
     }
 
     public event Action<NetEntity>? OnProgramSelected;
+    public event Action<NetEntity>? OnTargetSelected; // Added event
 
-    public void UpdateState(int currentRam, int maxRam, List<(string, NetEntity, NetProgramData)>? programs = null, string? targetName = null)
+    public void UpdateState(int currentRam, int maxRam, List<(string, NetEntity, NetProgramData)>? programs = null, string? targetName = null, Dictionary<NetEntity, string>? devices = null)
     {
         RamBar.MaxValue = maxRam;
         RamBar.Value = currentRam;
@@ -29,19 +30,41 @@ public sealed partial class CyberdeckWindow : DefaultWindow
         TargetLabel.Text = targetName != null ? $"Active Target: {targetName}" : "No Target";
         TargetLabel.FontColorOverride = targetName != null ? Color.Red : Color.Gray;
 
-        if (programs == null) return;
-
-        ProgramList.Children.Clear();
-        foreach (var (name, id, program) in programs)
+        if (programs != null)
         {
-            var btn = new Button
+            ProgramList.Children.Clear();
+            foreach (var (name, id, program) in programs)
             {
-                Text = $"{name} ({program.RamCost} RAM)",
-                ToolTip = $"Type: {program.ProgramType}\nCost: {program.RamCost} RAM, {program.EnergyCost} Energy",
-                HorizontalExpand = true
-            };
-            btn.OnPressed += _ => OnProgramSelected?.Invoke(id);
-            ProgramList.AddChild(btn);
+                var btn = new Button
+                {
+                    Text = $"{name} ({program.RamCost} RAM)",
+                    ToolTip = $"Type: {program.ProgramType}\nCost: {program.RamCost} RAM, {program.EnergyCost} Energy",
+                    HorizontalExpand = true
+                };
+                btn.OnPressed += _ => OnProgramSelected?.Invoke(id);
+                ProgramList.AddChild(btn);
+            }
         }
+
+        // Update Device List
+        if (devices != null)
+        {
+            DeviceList.Children.Clear();
+            foreach (var (id, name) in devices)
+            {
+                var btn = new Button
+                {
+                    Text = name,
+                    HorizontalExpand = true
+                };
+                btn.OnPressed += _ => OnTargetSelected?.Invoke(id);
+                DeviceList.AddChild(btn);
+            }
+        }
+    }
+
+    protected override void Opened()
+    {
+        base.Opened();
     }
 }
