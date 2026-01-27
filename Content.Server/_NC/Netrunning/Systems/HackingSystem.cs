@@ -147,7 +147,7 @@ public sealed class HackingSystem : EntitySystem
             {
                 // Apply penalty for unsafe disconnect
                 session.AccumulatedDamage += 15;
-                ShowPopup(uid, session, "АВАРИЙНЫЙ РАЗРЫВ! (Manual Abort)", Shared.Popups.PopupType.LargeCaution);
+                ShowPopup(uid, session, "АВАРИЙНЫЙ РАЗРЫВ!", Shared.Popups.PopupType.LargeCaution);
                 DisconnectHack(uid, session);
             }
         }
@@ -237,6 +237,8 @@ public sealed class HackingSystem : EntitySystem
         {
             var damageDealt = Math.Max(0, program.Damage);
             ice.CurrentHealth -= damageDealt;
+
+
 
             // Visual feedback
             ShowPopup(uid, session, $"Нанесено {damageDealt} урона");
@@ -457,6 +459,7 @@ public sealed class HackingSystem : EntitySystem
             ram,
             maxRam,
             session.InactivityTimer,
+            session.AccumulatedDamage,
             programs
         );
 
@@ -476,16 +479,28 @@ public sealed class HackingSystem : EntitySystem
 
             // Use Shitmed targeting system to hit the Head
             // This attempts to hit the Head, if available.
+            // Disable evasion for neural feedback!
             var result = _damageable.TryChangeDamage(
                 session.User,
                 damageSpec,
-                targetPart: Content.Shared._Shitmed.Targeting.TargetBodyPart.Head
+                targetPart: Content.Shared._Shitmed.Targeting.TargetBodyPart.Head,
+                canEvade: false
             );
 
-            if (result != null)
-                ShowPopup(deck, session, $"НЕЙРОННАЯ ОБРАТНАЯ СВЯЗЬ! (Head Target) Получено {session.AccumulatedDamage} теплового урона!", Shared.Popups.PopupType.LargeCaution);
-            else
-                ShowPopup(deck, session, $"ОШИБКА: Не удалось нанести урон!", Shared.Popups.PopupType.LargeCaution);
+            // Fallback: If Head not found (result null) or dealt no damage, try Torso
+            if (result == null || result.GetTotal() == 0)
+            {
+                result = _damageable.TryChangeDamage(
+                   session.User,
+                   damageSpec,
+                   targetPart: Content.Shared._Shitmed.Targeting.TargetBodyPart.Torso,
+                   canEvade: false
+               );
+            }
+
+            // Visuals & Audio for Shock (Always play if we tried to damage)
+            Spawn("EffectSparks", Transform(session.User).Coordinates);
+            _audio.PlayPvs("/Audio/Effects/sparks4.ogg", session.User);
         }
 
         _sessions.Remove(deck);

@@ -93,7 +93,7 @@
   components:
   - type: NetProgram
     programType: Network
-    ramCost: 30
+    ramCost: 15
     damage: 20
     beamColor: "#FF0000"
 

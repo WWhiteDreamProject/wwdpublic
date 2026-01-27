@@ -15,6 +15,7 @@ public sealed partial class HackingWindow : DefaultWindow
     public event Action<string>? OnSubmitPassword;
 
     private readonly Label _targetName;
+    private readonly Label _heatLabel;
     private readonly Label _floorLabel;
     private readonly Label _timerLabel;
     private readonly Label _iceTypeLabel;
@@ -32,6 +33,7 @@ public sealed partial class HackingWindow : DefaultWindow
         RobustXamlLoader.Load(this);
 
         _targetName = FindControl<Label>("TargetName");
+        _heatLabel = FindControl<Label>("HeatLabel");
         _floorLabel = FindControl<Label>("FloorLabel");
         _timerLabel = FindControl<Label>("TimerLabel");
         _iceTypeLabel = FindControl<Label>("IceTypeLabel");
@@ -55,6 +57,9 @@ public sealed partial class HackingWindow : DefaultWindow
     {
         _targetName.Text = state.TargetSlot; // Or Server Name?
         _floorLabel.Text = state.TargetSlot;
+
+        // Heat
+        _heatLabel.Text = $"{state.AccumulatedDamage}";
 
         // Update timer
         _timerLabel.Text = $"{(int) state.RemainingTime}";
