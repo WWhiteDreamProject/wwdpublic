@@ -14,7 +14,16 @@ using Robust.Shared.Containers;
 using Robust.Shared.GameObjects;
 using Robust.Shared.IoC;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Prototypes;
 using System.Linq;
+using Content.Shared.Doors.Components;
+using Content.Shared.Tag;
+using Robust.Shared.Map;
+using Robust.Shared.Maths;
+using Content.Shared.Mobs.Components;
+using Content.Shared.SurveillanceCamera.Components;
+using Robust.Shared.Player;
+
 
 namespace Content.Server._NC.Netrunning.Systems;
 
@@ -24,6 +33,8 @@ public sealed class NetServerSystem : EntitySystem
     [Dependency] private readonly ItemSlotsSystem _slots = default!;
     [Dependency] private readonly MetaDataSystem _meta = default!;
     [Dependency] private readonly NodeContainerSystem _nodeContainer = default!;
+    [Dependency] private readonly Content.Server.Doors.Systems.DoorSystem _door = default!;
+    [Dependency] private readonly CyberdeckSystem _cyberdeck = default!;
 
     public override void Initialize()
     {
@@ -33,6 +44,8 @@ public sealed class NetServerSystem : EntitySystem
         SubscribeLocalEvent<NetServerComponent, EntInsertedIntoContainerMessage>(OnContainerModified);
         SubscribeLocalEvent<NetServerComponent, EntRemovedFromContainerMessage>(OnContainerModified);
         SubscribeLocalEvent<NetServerComponent, NetServerSetPasswordMessage>(OnSetPassword);
+        SubscribeLocalEvent<NetServerComponent, NetServerOpenMapMessage>(OnOpenMap);
+        SubscribeLocalEvent<NetServerComponent, NetMapInteractMessage>(OnMapInteract); // New
         SubscribeLocalEvent<NetServerComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<NetServerComponent, BoundUIOpenedEvent>(OnUiOpened);
         SubscribeLocalEvent<NetServerComponent, AnchorStateChangedEvent>(OnAnchorChanged);
@@ -44,9 +57,64 @@ public sealed class NetServerSystem : EntitySystem
         MarkConnectedDevices(uid);
     }
 
+    private void OnOpenMap(EntityUid uid, NetServerComponent component, NetServerOpenMapMessage args)
+    {
+        _ui.OpenUi(uid, NetMapUiKey.Key, args.Actor);
+    }
+
+    private void OnMapInteract(EntityUid uid, NetServerComponent component, NetMapInteractMessage args)
+    {
+        var user = args.Actor;
+        var target = GetEntity(args.Target);
+
+        if (Deleted(target)) return;
+
+        // Remote validation: Check if target is "visible" to the specific network is implicit
+        // because the client only sees blips sent by UpdateMapUi.
+        // However, we should verify that 'uid' (Server) still has access to 'target'.
+        // For now, trusting the client's valid entity request + Range check (admin/root access implied interact range).
+
+        // Use Interaction System to check if User can interact?
+        // No, this is remote. We check if User has Root Access (Active Session / Hack).
+        // Assuming if they have the UI open, they have access.
+
+        switch (args.Action)
+        {
+            case NetMapAction.Open:
+                if (TryComp<DoorComponent>(target, out var door))
+                    _door.TryOpen(target, door);
+                break;
+            case NetMapAction.Close:
+                if (TryComp<DoorComponent>(target, out var door2))
+                    _door.TryClose(target, door2);
+                break;
+            case NetMapAction.Toggle:
+                if (TryComp<DoorComponent>(target, out var door3))
+                    _door.TryToggleDoor(target, door3);
+                // TODO: Light Toggle
+                break;
+            case NetMapAction.Bolt:
+                // Requires Hacking/Emag technically, but Root Access grants full control?
+                // Let's allow basic bolting if we have full control.
+                if (TryComp<DoorBoltComponent>(target, out var bolts))
+                    _door.SetBoltsDown((target, bolts), !bolts.BoltsDown, user);
+                break;
+            case NetMapAction.Attack:
+                _cyberdeck.TrySetTargetFromHands(user, target);
+                break;
+        }
+
+        // Force UI update to reflect changes (e.g. door closed)
+        Dirty(uid, component);
+        UpdateMapUi(uid, component);
+    }
+
     private void OnUiOpened(EntityUid uid, NetServerComponent component, BoundUIOpenedEvent args)
     {
-        UpdateUi(uid, component);
+        if (args.UiKey is NetServerUiKey)
+            UpdateUi(uid, component);
+        else if (args.UiKey is NetMapUiKey)
+            UpdateMapUi(uid, component);
     }
 
     private void OnAnchorChanged(EntityUid uid, NetServerComponent component, ref AnchorStateChangedEvent args)
@@ -175,15 +243,109 @@ public sealed class NetServerSystem : EntitySystem
         _ui.SetUiState(uid, NetServerUiKey.Key, state);
     }
 
-    private List<NetDeviceData> GetConnectedDevices(EntityUid uid)
+    private void UpdateMapUi(EntityUid uid, NetServerComponent component)
     {
-        var devices = new List<NetDeviceData>();
+        var blips = new List<NetMapBlip>();
+        var networkEntities = GetNetworkEntities(uid).Distinct().ToList();
 
+        // 1. Add Network Devices
+        foreach (var entity in networkEntities)
+        {
+            if (Deleted(entity) || !TryComp<TransformComponent>(entity, out var xform))
+                continue;
+
+            var coords = GetNetCoordinates(xform.Coordinates);
+            var color = Color.Green; // Default online
+            var type = NetBlipType.Generic;
+            var name = Name(entity);
+
+            // Determine Type & Color
+            if (HasComp<DoorComponent>(entity))
+            {
+                type = NetBlipType.Door;
+                if (TryComp<DoorComponent>(entity, out var door))
+                {
+                    if (door.State == DoorState.Open) color = Color.Green;
+                    else if (door.State == DoorState.Closed) color = Color.Red;
+                    // Check Bolt?
+                }
+            }
+            else if (HasComp<ApcPowerReceiverComponent>(entity) && !HasComp<DoorComponent>(entity))
+            {
+                // Generic Device
+                if (HasComp<SurveillanceCameraComponent>(entity)) type = NetBlipType.Camera;
+                else type = NetBlipType.Generic;
+            }
+
+            blips.Add(new NetMapBlip(GetNetEntity(entity), coords, color, type, name));
+        }
+
+        // 2. Add Mobs (Radar) - "Fog of War" / Vision
+        // Simple implementation: Find all mobs on same grid, check distance to ANY network entity
+        if (TryComp<TransformComponent>(uid, out var serverXform) && serverXform.GridUid != null)
+        {
+            var mobs = new List<EntityUid>();
+            // Only track MobState (alive/dead mobs)
+            // Using EntityQuery is faster
+            var query = EntityQueryEnumerator<MobStateComponent, TransformComponent>();
+            while (query.MoveNext(out var mobUid, out var mobState, out var mobXform))
+            {
+                if (mobXform.GridUid != serverXform.GridUid) continue;
+                mobs.Add(mobUid);
+            }
+
+            foreach (var mob in mobs)
+            {
+                if (mob == uid) continue; // Should not happen
+
+                // Check distance to nearest network node (Server or Devices)
+                // Start with Server
+                bool visible = false;
+                if (serverXform.Coordinates.TryDistance(EntityManager, Transform(mob).Coordinates, out var dist) && dist < 15f)
+                {
+                    visible = true;
+                }
+                else
+                {
+                    // Check devices (Optimization: maybe just check one nearby?)
+                    // For now, check all.
+                    // TODO: This is O(M*N), might be slow. Limit N?
+                    // Optimization: Use Lookup?
+                    // Let's assume network covers the station.
+                    // Scan Radius check:
+                    foreach (var netEnt in networkEntities)
+                    {
+                        if (TryComp<TransformComponent>(netEnt, out var netXform) &&
+                            netXform.Coordinates.TryDistance(EntityManager, Transform(mob).Coordinates, out var d) && d < 10f)
+                        {
+                            visible = true;
+                            break;
+                        }
+                    }
+                }
+
+                if (visible)
+                {
+                    // Color Coding: Player = Blue, NPC = Yellow
+                    var blipColor = Color.Yellow;
+                    if (HasComp<ActorComponent>(mob))
+                        blipColor = Color.Cyan;
+
+                    blips.Add(new NetMapBlip(GetNetEntity(mob), GetNetCoordinates(Transform(mob).Coordinates), blipColor, NetBlipType.Mob, Name(mob)));
+                }
+            }
+        }
+
+        var state = new NetMapBoundUiState(GetNetEntity(Transform(uid).GridUid), blips);
+        _ui.SetUiState(uid, NetMapUiKey.Key, state);
+    }
+
+    private IEnumerable<EntityUid> GetNetworkEntities(EntityUid uid)
+    {
         if (TryComp<NodeContainerComponent>(uid, out var nodeContainer) &&
             nodeContainer.Nodes.TryGetValue("input", out var mvNode) &&
             mvNode.NodeGroup != null)
         {
-            // 1. Scan MV network for APCs
             foreach (var node in mvNode.NodeGroup.Nodes)
             {
                 var entity = node.Owner;
@@ -193,24 +355,34 @@ public sealed class NetServerSystem : EntitySystem
                     apcNodes.Nodes.TryGetValue("output", out var lvNode) &&
                     lvNode.NodeGroup is ApcNet apcNet)
                 {
-                    // 2. Scan APC Net for Providers (Cables) -> Receivers (Devices)
                     foreach (var provider in apcNet.Providers)
                     {
                         foreach (var receiver in provider.LinkedReceivers)
                         {
-                            var device = receiver.Owner;
-                            if (TryComp<MetaDataComponent>(device, out var meta) && meta.EntityPrototype != null)
-                            {
-                                devices.Add(new NetDeviceData(Name(device), meta.EntityPrototype.ID, receiver.Powered));
-
-                                // Mark device as protected by this server
-                                var protComp = EnsureComp<ProtectedByComponent>(device);
-                                protComp.Server = uid;
-                                Dirty(device, protComp);
-                            }
+                            yield return receiver.Owner;
                         }
                     }
                 }
+            }
+        }
+    }
+
+    private List<NetDeviceData> GetConnectedDevices(EntityUid uid)
+    {
+        var devices = new List<NetDeviceData>();
+
+        foreach (var device in GetNetworkEntities(uid))
+        {
+            if (TryComp<MetaDataComponent>(device, out var meta) && meta.EntityPrototype != null)
+            {
+                bool isPowered = true; // Simplified, assuming receiver is valid
+                if (TryComp<ApcPowerReceiverComponent>(device, out var power)) isPowered = power.Powered;
+
+                devices.Add(new NetDeviceData(Name(device), meta.EntityPrototype.ID, isPowered));
+
+                var protComp = EnsureComp<ProtectedByComponent>(device);
+                protComp.Server = uid;
+                Dirty(device, protComp);
             }
         }
 

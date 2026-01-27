@@ -43,6 +43,9 @@
       enum.NetServerUiKey.Key:
         type: NetServerBoundUserInterface
         interactionRange: 30
+      enum.NetMapUiKey.Key:
+        type: NetMapBoundUserInterface
+        interactionRange: 30 # Larger range for map viewing
   - type: ActivatableUI
     key: enum.NetServerUiKey.Key
 

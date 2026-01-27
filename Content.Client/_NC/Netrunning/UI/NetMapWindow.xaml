@@ -1,0 +1,7 @@
+<DefaultWindow xmlns="https://spacestation14.io"
+               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+               xmlns:local="clr-namespace:Content.Client._NC.Netrunning.UI"
+               Title="Tactical NetMap"
+               SetSize="600 600">
+    <local:NetMapControl Name="NavMap" VerticalExpand="True" HorizontalExpand="True" />
+</DefaultWindow>

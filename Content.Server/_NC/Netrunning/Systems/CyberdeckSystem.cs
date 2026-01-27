@@ -149,6 +149,7 @@ public sealed partial class CyberdeckSystem : EntitySystem
     [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
+    [Dependency] private readonly Content.Shared.Hands.EntitySystems.SharedHandsSystem _hands = default!;
 
     private void OnProgramRequest(EntityUid uid, CyberdeckComponent component, CyberdeckProgramRequestMessage args)
     {
@@ -173,7 +174,7 @@ public sealed partial class CyberdeckSystem : EntitySystem
 
             var target = component.ActiveTarget.Value;
 
-            if (Deleted(target) || !_interaction.InRangeUnobstructed(user, target, component.Range))
+            if (Deleted(target))
             {
                 component.ActiveTarget = null;
                 Dirty(uid, component);
@@ -181,15 +182,30 @@ public sealed partial class CyberdeckSystem : EntitySystem
                 return;
             }
 
+            var userXform = Transform(user);
+            var targetXform = Transform(target);
+
+            // Allow Wall-Hacking: Check Distance only, ignore LoS
+            if (!userXform.Coordinates.TryDistance(EntityManager, targetXform.Coordinates, out var dist) || dist > component.Range)
+            {
+                // Only clear target if out of range, or keep it but fail?
+                // Standard behavior: Fail action if out of range.
+                _popup.PopupEntity("Цель вне зоны покрытия!", uid, user);
+                return;
+            }
+
             if (!TryUseRam(uid, program.RamCost, component))
                 return;
 
-            var doAfterArgs = new DoAfterArgs(EntityManager, user, TimeSpan.FromSeconds(program.UploadTime), new CyberdeckQuickhackDoAfterEvent(GetNetEntity(target), GetNetEntity(programUid)), uid, target: target, used: uid)
+            // Pass target: null to bypass DoAfter's built-in obstruction/range checks.
+            // We rely on the initial check in OnProgramRequest and the Event payload.
+            var doAfterArgs = new DoAfterArgs(EntityManager, user, TimeSpan.FromSeconds(program.UploadTime), new CyberdeckQuickhackDoAfterEvent(GetNetEntity(target), GetNetEntity(programUid)), uid, target: null, used: uid)
             {
                 BreakOnMove = false,
                 BreakOnDamage = true,
-                NeedHand = false, // Wielded requires both hands, so "NeedHand" might fail if it checks for free hand. Better to use false? Wielding occupies hands.
-                DistanceThreshold = component.Range
+                NeedHand = false,
+                // DistanceThreshold = component.Range, // Disabled to allow wall hacking / walking away slightly
+                RequireCanInteract = false
             };
 
             _doAfter.TryStartDoAfter(doAfterArgs);
@@ -293,6 +309,45 @@ public sealed partial class CyberdeckSystem : EntitySystem
         UpdateUi(uid, component);
     }
 
+    public void SetTarget(EntityUid deckUid, EntityUid target, EntityUid user)
+    {
+        if (!TryComp<CyberdeckComponent>(deckUid, out var component)) return;
+
+        // Remote Target Set - we skip physics range because Map gave us the target.
+        // But maybe we should check if target is valid/alive.
+        if (Deleted(target)) return;
+
+        component.ActiveTarget = target;
+        Dirty(deckUid, component);
+        UpdateUi(deckUid, component);
+
+        _popup.PopupEntity($"Цель захвачена: {Name(target)}", deckUid, user);
+    }
+
+    public void TrySetTargetFromHands(EntityUid user, EntityUid target)
+    {
+        EntityUid? deckUid = null;
+        foreach (var hand in _hands.EnumerateHeld(user))
+        {
+            if (TryComp<CyberdeckComponent>(hand, out var deckComp) &&
+                TryComp<WieldableComponent>(hand, out var w) &&
+                w.Wielded)
+            {
+                deckUid = hand;
+                break;
+            }
+        }
+
+        if (deckUid != null)
+        {
+            SetTarget(deckUid.Value, target, user);
+        }
+        else
+        {
+            _popup.PopupEntity("Возьмите деку в руки (wielded)!", user, user);
+        }
+    }
+
 
 
     public void UpdateUi(EntityUid uid, CyberdeckComponent deck)
@@ -312,5 +367,79 @@ public sealed partial class CyberdeckSystem : EntitySystem
 
         // Return the Cached Scan results
         _uiSystem.SetUiState(uid, CyberdeckUiKey.Key, new CyberdeckBoundUiState(deck.CurrentRam, deck.MaxRam, programs, GetNetEntity(deck.ActiveTarget), deck.ActiveTarget != null ? Name(deck.ActiveTarget.Value) : null, deck.LastScan));
+    }
+    public void TryRemoteAttack(EntityUid user, EntityUid target)
+    {
+        // 1. Find Wielded Deck
+        EntityUid? deckUid = null;
+        foreach (var hand in _hands.EnumerateHeld(user))
+        {
+            if (TryComp<CyberdeckComponent>(hand, out var deckComp) &&
+                TryComp<WieldableComponent>(hand, out var w) &&
+                w.Wielded)
+            {
+                deckUid = hand;
+                break;
+            }
+        }
+
+        if (deckUid == null)
+        {
+            _popup.PopupEntity("Вы должны держать деку в руках!", user, user);
+            return;
+        }
+
+        if (!TryComp<CyberdeckComponent>(deckUid, out var deck)) return;
+
+        // 2. Find Offensive Program (Quickhack)
+        // Ideally we use a "Selected Program", but for now pick the first valid Quickhack.
+        EntityUid? programUid = null;
+        NetProgramComponent? program = null;
+
+        foreach (var container in _containerSystem.GetAllContainers(deckUid.Value))
+        {
+            foreach (var entity in container.ContainedEntities)
+            {
+                if (TryComp<NetProgramComponent>(entity, out var p) && p.ProgramType == NetProgramType.Quickhack)
+                {
+                    programUid = entity;
+                    program = p;
+                    break; // Use the first one found
+                }
+            }
+            if (programUid != null) break;
+        }
+
+        if (programUid == null || program == null)
+        {
+            _popup.PopupEntity("Нет доступных боевых скриптов (Quickhacks)!", deckUid.Value, user);
+            return;
+        }
+
+        // 3. Execute
+        // Remote Attack Bypass: We assume the Map grants visibility/targeting data implies validity.
+        // We skip "Line of Sight" checks here because it's a "Remote Attack through Map".
+        // But check RAM.
+
+        if (!TryUseRam(deckUid.Value, program.RamCost, deck))
+        {
+            _popup.PopupEntity("Недостаточно RAM!", deckUid.Value, user);
+            return;
+        }
+
+        _popup.PopupEntity($"Запуск {Name(programUid.Value)} на {Name(target)}...", deckUid.Value, user);
+
+        // Start DoAfter - using Key as Invalid to avoid UI overlap? Or just standard.
+        // Use CyberdeckQuickhackDoAfterEvent.
+        var doAfterArgs = new DoAfterArgs(EntityManager, user, TimeSpan.FromSeconds(program.UploadTime), new CyberdeckQuickhackDoAfterEvent(GetNetEntity(target), GetNetEntity(programUid.Value)), deckUid.Value, target: target, used: deckUid.Value)
+        {
+            BreakOnMove = false,
+            BreakOnDamage = true,
+            NeedHand = false,
+            DistanceThreshold = 1000f, // Infinite range theoretically if via Map
+            RequireCanInteract = false // Map interaction
+        };
+
+        _doAfter.TryStartDoAfter(doAfterArgs);
     }
 }

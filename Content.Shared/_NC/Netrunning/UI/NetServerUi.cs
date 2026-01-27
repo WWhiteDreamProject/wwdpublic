@@ -77,3 +77,8 @@ public sealed class NetServerSetPasswordMessage : BoundUserInterfaceMessage
         Password = password;
     }
 }
+
+[Serializable, NetSerializable]
+public sealed class NetServerOpenMapMessage : BoundUserInterfaceMessage
+{
+}

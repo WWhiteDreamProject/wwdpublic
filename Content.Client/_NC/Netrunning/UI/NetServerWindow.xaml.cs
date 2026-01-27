@@ -19,10 +19,12 @@ namespace Content.Client._NC.Netrunning.UI;
 public sealed partial class NetServerWindow : DefaultWindow
 {
     public event Action<string, string>? OnPasswordSet;
+    public event Action? OnOpenMap;
 
     public NetServerWindow()
     {
         RobustXamlLoader.Load(this);
+        OpenMapButton.OnPressed += _ => OnOpenMap?.Invoke();
     }
 
     public void UpdateState(NetServerBoundUiState state)
