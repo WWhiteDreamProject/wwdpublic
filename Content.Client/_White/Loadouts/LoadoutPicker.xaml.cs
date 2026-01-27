@@ -142,13 +142,13 @@ public sealed partial class LoadoutPicker : Control
 
             var loadoutEntry = CreateEntry(preference.LoadoutName);
 
-            if (!TrySelectLoadout(loadoutEntry))
-            {
-                Logger.Warning($"Removing loadout {preference.LoadoutName} from selected list.");
-                continue;
-            }
+            loadoutEntry.Selected = true;
+            _selectedLoadouts.Add(preference.LoadoutName, loadoutEntry.Loadout);
 
-            LoadoutPoint -= loadoutEntry.Cost;
+            loadoutEntry.EnsureIsWearable(CharacterRequirementsArgs, LoadoutPoint);
+
+            if (loadoutEntry.CanWear)
+                LoadoutPoint -= loadoutEntry.Cost;
 
             if (proto.CustomContent && loadoutEntry.Loadout.CustomContent != preference.CustomContent)
             {

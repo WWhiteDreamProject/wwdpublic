@@ -2410,6 +2410,8 @@ namespace Content.Client.Lobby.UI
                     var tabControl = container.GetControl<Control>(tabId);
                     if (tabControl == null) continue;
 
+                    container.SetTabVisible(tabId, true);
+
                     var shouldHide = tabControl switch
                     {
                         NeoTabContainer nested => CheckNestedContainer(nested),
@@ -2476,6 +2478,8 @@ namespace Content.Client.Lobby.UI
             }
 
             Profile = currentProfile;
+            ReloadProfilePreview();
+            ReloadClothes();
             UpdateLoadouts();
         }
 
@@ -2488,7 +2492,7 @@ namespace Content.Client.Lobby.UI
                 LoadoutsRemoveUnusableButton.Text = Loc.GetString(
                     "humanoid-profile-editor-loadouts-remove-unusable-button",
                     ("count", unusableCount));
-                LoadoutsRemoveUnusableButton.RemoveStyleClass(StyleBase.ButtonOpenRight);
+                LoadoutsRemoveUnusableButton.RemoveStyleClass(StyleBase.ButtonOpenLeft);
                 LoadoutsRemoveUnusableButton.AddStyleClass(StyleBase.ButtonDanger);
                 LoadoutsRemoveUnusableButton.Disabled = false;
             }
@@ -2498,7 +2502,7 @@ namespace Content.Client.Lobby.UI
                     "humanoid-profile-editor-loadouts-remove-unusable-button",
                     ("count", 0));
                 LoadoutsRemoveUnusableButton.RemoveStyleClass(StyleBase.ButtonDanger);
-                LoadoutsRemoveUnusableButton.AddStyleClass(StyleBase.ButtonOpenRight);
+                LoadoutsRemoveUnusableButton.AddStyleClass(StyleBase.ButtonOpenLeft);
                 LoadoutsRemoveUnusableButton.Disabled = true;
             }
         }

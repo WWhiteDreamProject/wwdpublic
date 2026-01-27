@@ -20,12 +20,14 @@ namespace Content.Client._White.Loadouts;
 [GenerateTypedNameReferences]
 public sealed partial class LoadoutEntry : Control, IComparable<LoadoutEntry>
 {
+    [Dependency] private readonly ILogManager _logManager = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
 
     public Action<LoadoutEntry>? OnLoadoutDirty;
     public Action<LoadoutEntry>? OnEditLoadoutRequired;
 
+    private ISawmill _sawmill = default!;
     private Loadout? _currentLoadout;
     private EntityUid _loadoutUid;
 
@@ -67,6 +69,7 @@ public sealed partial class LoadoutEntry : Control, IComparable<LoadoutEntry>
         get => _showUnusable;
         set
         {
+            _sawmill.Debug($"ShowUnusable set to {value} for {Loadout.LoadoutName}, Selected={Selected}, CanWear={CanWear}");
             _showUnusable = value;
             Visible = CanWear || _showUnusable;
 
@@ -88,6 +91,8 @@ public sealed partial class LoadoutEntry : Control, IComparable<LoadoutEntry>
         HeadingButton.OnPressed += HeadingButtonPressed;
         PreferenceButton.OnPressed += PreferenceButtonPressed;
         TooltipSupplier = OnTooltipSupplierRequired;
+        IoCManager.InjectDependencies(this);
+        _sawmill = _logManager.GetSawmill("loadouts.entry");
     }
 
     private Control? OnTooltipSupplierRequired(Control sender) => CanWear ? null : _reasonTooltip;
@@ -122,11 +127,13 @@ public sealed partial class LoadoutEntry : Control, IComparable<LoadoutEntry>
 
         if (Selected)
         {
+            _sawmill.Debug($"Loadout {Loadout.LoadoutName} is selected but unavailable - keeping button enabled");
             PreferenceButton.Disabled = false;
             PreferenceButton.MouseFilter = MouseFilterMode.Pass;
         }
         else
         {
+            _sawmill.Debug($"Loadout {Loadout.LoadoutName} is not selected and unavailable - disabling button");
             PreferenceButton.Disabled = true;
             PreferenceButton.MouseFilter = MouseFilterMode.Ignore;
         }
