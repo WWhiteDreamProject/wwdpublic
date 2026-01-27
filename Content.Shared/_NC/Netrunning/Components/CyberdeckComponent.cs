@@ -43,6 +43,12 @@ public sealed partial class CyberdeckComponent : Component
     public EntityUid? ActiveTarget;
 
     /// <summary>
+    /// Color of the visual beam (synced for NetVisor).
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public Color BeamColor = Color.Red;
+
+    /// <summary>
     /// Accumulator for passive RAM regeneration.
     /// </summary>
     public float RecoveryAccumulator = 0f;

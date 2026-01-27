@@ -9,6 +9,7 @@ using Robust.Shared.IoC;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Linq;
+using Robust.Shared.Audio.Systems;
 
 namespace Content.Server._NC.Netrunning.Systems;
 
@@ -21,6 +22,8 @@ public sealed class HackingSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly Content.Shared.Body.Systems.SharedBodySystem _body = default!;
 
     // Track active sessions: DeckUID -> Session
     private readonly Dictionary<EntityUid, HackingSession> _sessions = new();
@@ -119,7 +122,18 @@ public sealed class HackingSystem : EntitySystem
         // 2. Open UI
         _ui.OpenUi(deck, HackingUiKey.Key, user);
 
-        // 3. Update State
+        // 3. Update Visuals
+        if (TryComp<CyberdeckComponent>(deck, out var deckComp))
+        {
+            deckComp.ActiveTarget = targetDevice;
+            deckComp.BeamColor = Color.Blue; // Scanning/Connecting color
+            Dirty(deck, deckComp);
+        }
+
+        // 4. Play Sound
+        _audio.PlayPvs("/Audio/Machines/machine_switch.ogg", deck); // Placeholder connect sound
+
+        // 5. Update State
         UpdateHackingState(deck, session);
     }
 
@@ -127,7 +141,15 @@ public sealed class HackingSystem : EntitySystem
     {
         if (args.UiKey is HackingUiKey)
         {
-            _sessions.Remove(uid);
+            // If session still exists, it means it wasn't closed by code (Safe/Success/Fail)
+            // Treat as Emergency Disconnect caused by user closing the window manually
+            if (_sessions.TryGetValue(uid, out var session))
+            {
+                // Apply penalty for unsafe disconnect
+                session.AccumulatedDamage += 15;
+                ShowPopup(uid, session, "АВАРИЙНЫЙ РАЗРЫВ! (Manual Abort)", Shared.Popups.PopupType.LargeCaution);
+                DisconnectHack(uid, session);
+            }
         }
     }
 
@@ -140,6 +162,23 @@ public sealed class HackingSystem : EntitySystem
 
         var programEnt = GetEntity(args.ProgramEntity);
         if (!TryComp<NetProgramComponent>(programEnt, out var program)) return;
+
+        // Update Scan Beam Color
+        if (program.BeamColor != Color.FromHex("#00000000")) // Assuming transparent is default invalid
+        {
+            component.BeamColor = program.BeamColor;
+        }
+        else
+        {
+            // Fallback colors
+            if (program.Damage > 0)
+                component.BeamColor = Color.Red;
+            else if (program.Defense > 0)
+                component.BeamColor = Color.Cyan;
+            else
+                component.BeamColor = Color.Green;
+        }
+        Dirty(uid, component);
 
         // Check RAM cost - disconnect with 15 Heat if insufficient
         if (component.CurrentRam < program.RamCost)
@@ -434,13 +473,33 @@ public sealed class HackingSystem : EntitySystem
         {
             var damageSpec = new DamageSpecifier();
             damageSpec.DamageDict.Add("Heat", session.AccumulatedDamage);
-            _damageable.TryChangeDamage(session.User, damageSpec);
 
-            _popup.PopupEntity($"НЕЙРОННАЯ ОБРАТНАЯ СВЯЗЬ! Получено {session.AccumulatedDamage} теплового урона!", session.User, session.User, Shared.Popups.PopupType.LargeCaution);
+            // Use Shitmed targeting system to hit the Head
+            // This attempts to hit the Head, if available.
+            var result = _damageable.TryChangeDamage(
+                session.User,
+                damageSpec,
+                targetPart: Content.Shared._Shitmed.Targeting.TargetBodyPart.Head
+            );
+
+            if (result != null)
+                ShowPopup(deck, session, $"НЕЙРОННАЯ ОБРАТНАЯ СВЯЗЬ! (Head Target) Получено {session.AccumulatedDamage} теплового урона!", Shared.Popups.PopupType.LargeCaution);
+            else
+                ShowPopup(deck, session, $"ОШИБКА: Не удалось нанести урон!", Shared.Popups.PopupType.LargeCaution);
         }
 
         _sessions.Remove(deck);
         _ui.CloseUi(deck, HackingUiKey.Key, session.User);
+
+        // Clear visuals
+        if (TryComp<CyberdeckComponent>(deck, out var deckComp))
+        {
+            deckComp.ActiveTarget = null;
+            Dirty(deck, deckComp);
+        }
+
+        // Play Fail Sound
+        _audio.PlayPvs("/Audio/Machines/machine_switch.ogg", deck); // Placeholder fail sound (different pitch?)
     }
 
     private void CompleteHack(EntityUid deck, HackingSession session)
@@ -449,6 +508,16 @@ public sealed class HackingSystem : EntitySystem
         // No damage on success!
         _sessions.Remove(deck);
         _ui.CloseUi(deck, HackingUiKey.Key, session.User);
+
+        // Clear visuals
+        if (TryComp<CyberdeckComponent>(deck, out var deckComp))
+        {
+            deckComp.ActiveTarget = null;
+            Dirty(deck, deckComp);
+        }
+
+        // Play Success Sound
+        _audio.PlayPvs("/Audio/Machines/machine_vend.ogg", deck); // Placeholder success sound
 
         // Trigger Success Callback?
         // For now just close. The Quickhack system would need to wait for this result.
