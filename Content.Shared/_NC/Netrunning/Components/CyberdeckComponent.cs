@@ -64,4 +64,10 @@ public sealed partial class CyberdeckComponent : Component
     /// </summary>
     [ViewVariables]
     public Dictionary<NetEntity, string> LastScan = new();
+
+    /// <summary>
+    /// Set of Server UIDs that have been successfully hacked (Root Access).
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public HashSet<EntityUid> HackedNetworks = new();
 }

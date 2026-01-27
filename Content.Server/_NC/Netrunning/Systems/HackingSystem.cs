@@ -107,6 +107,19 @@ public sealed class HackingSystem : EntitySystem
 
     public void StartHacking(EntityUid user, EntityUid deck, EntityUid targetDevice, EntityUid targetServer)
     {
+        if (TryComp<CyberdeckComponent>(deck, out var deckComp))
+        {
+            // Check for Root Access (Admin Key)
+            if (deckComp.HackedNetworks.Contains(targetServer))
+            {
+                // Already hacked! Open Admin Panel directly.
+                _ui.OpenUi(targetServer, NetServerUiKey.Key, user);
+                // Also play a success sound to indicate authorized access
+                _audio.PlayPvs("/Audio/Machines/machine_switch.ogg", deck);
+                return;
+            }
+        }
+
         // 1. Initialize Session
         var session = new HackingSession
         {
@@ -123,11 +136,11 @@ public sealed class HackingSystem : EntitySystem
         _ui.OpenUi(deck, HackingUiKey.Key, user);
 
         // 3. Update Visuals
-        if (TryComp<CyberdeckComponent>(deck, out var deckComp))
+        if (TryComp<CyberdeckComponent>(deck, out var deckVisuals))
         {
-            deckComp.ActiveTarget = targetDevice;
-            deckComp.BeamColor = Color.Blue; // Scanning/Connecting color
-            Dirty(deck, deckComp);
+            deckVisuals.ActiveTarget = targetDevice;
+            deckVisuals.BeamColor = Color.Blue; // Scanning/Connecting color
+            Dirty(deck, deckVisuals);
         }
 
         // 4. Play Sound
@@ -528,11 +541,22 @@ public sealed class HackingSystem : EntitySystem
         if (TryComp<CyberdeckComponent>(deck, out var deckComp))
         {
             deckComp.ActiveTarget = null;
+
+            // Grant Root Access
+            if (deckComp.HackedNetworks.Add(session.TargetServer))
+            {
+                // New network hacked!
+                _popup.PopupEntity("ROOT ACCESS GRANTED. KEYS SAVED.", deck, session.User, Shared.Popups.PopupType.Large);
+            }
+
             Dirty(deck, deckComp);
         }
 
         // Play Success Sound
         _audio.PlayPvs("/Audio/Machines/machine_vend.ogg", deck); // Placeholder success sound
+
+        // Open Admin Panel
+        _ui.OpenUi(session.TargetServer, NetServerUiKey.Key, session.User);
 
         // Trigger Success Callback?
         // For now just close. The Quickhack system would need to wait for this result.

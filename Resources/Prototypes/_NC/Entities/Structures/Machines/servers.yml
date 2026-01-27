@@ -42,6 +42,7 @@
     interfaces:
       enum.NetServerUiKey.Key:
         type: NetServerBoundUserInterface
+        interactionRange: 30
   - type: ActivatableUI
     key: enum.NetServerUiKey.Key
 
