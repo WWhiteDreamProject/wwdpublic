@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
 using Robust.Shared.ContentPack;
@@ -6,12 +9,8 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Timing;
 using SixLabors.ImageSharp;
-using SixLabors.ImageSharp.Metadata.Profiles.Exif;
 using SixLabors.ImageSharp.PixelFormats;
 using SixLabors.ImageSharp.Processing;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using static Robust.UnitTesting.RobustIntegrationTest;
 
 namespace Content.MapRenderer.Painters
@@ -44,14 +43,6 @@ namespace Content.MapRenderer.Painters
 
             var images = GetTileImages(_sTileDefinitionManager, _resManager, tileSize);
             var i = 0;
-
-            // WD EDIT START
-            foreach (var tiles in images.Values)
-            {
-                foreach (var image in tiles)
-                    image.Mutate(o => o.Flip(FlipMode.Vertical));
-            }
-            // WD EDIT END
 
             _sMapSystem.GetAllTiles(gridUid, grid).AsParallel().ForAll(tile =>
             {
