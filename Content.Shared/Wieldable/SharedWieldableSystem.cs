@@ -134,7 +134,10 @@ public abstract class SharedWieldableSystem : EntitySystem
     // WD EDIT START
     private void OnSelectWieldable(EntityUid uid, WieldableComponent component, HandSelectedEvent args)
     {
-        if (component.AutoWield && _hands.EnumerateHands(args.User).Count() > 2)
+        if (!component.AutoWield)
+            return;
+
+        if (_hands.EnumerateHands(args.User).Count() > 2)
             return;
 
         TryWield(uid, component, args.User, false, true);

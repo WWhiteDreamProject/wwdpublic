@@ -1,0 +1,57 @@
+<DefaultWindow xmlns="https://spacestation14.io"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="NET SPACE INTERFACE"
+        SetSize="600 550"
+        MinSize="600 550"
+        Resizable="False">
+    <BoxContainer Orientation="Vertical" Margin="10">
+        <!-- Header: Target Info -->
+        <BoxContainer Orientation="Horizontal" SeparationOverride="10" Margin="0 0 0 10">
+            <Label Text="ЦЕЛЕВОЙ СЕРВЕР:" FontColorOverride="#00FF00" />
+            <Label Name="TargetName" Text="Неизвестно" />
+            <Control HorizontalExpand="True" />
+            <Label Text="ТАЙМЕР:" FontColorOverride="#FF5500"/>
+            <Label Name="TimerLabel" Text="10" FontColorOverride="#FF5500"/>
+            <Label Text="УРОВЕНЬ:" FontColorOverride="#FFFF00" Margin="20 0 0 0"/>
+            <Label Name="FloorLabel" Text="1" />
+        </BoxContainer>
+
+        <!-- Main Display: ICE Status -->
+        <PanelContainer VerticalExpand="True" StyleClasses="LowDivider">
+            <BoxContainer Orientation="Vertical" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Label Name="IceTypeLabel" Text="GATE ЛЁД ОБНАРУЖЕН" Align="Center" FontColorOverride="#FF0000" StyleClasses="LabelHeading"/>
+
+                <ProgressBar Name="IceHealthBar" MinHeight="20" MinWidth="200" Margin="0 10 0 0">
+                    <Label Name="IceHealthLabel" Text="20/20" Align="Center" StyleClasses="LabelSmall" />
+                </ProgressBar>
+
+                <Label Name="StatusLog" Text="Соединение установлено..." Align="Center" FontColorOverride="Gray" Margin="0 10 0 0"/>
+            </BoxContainer>
+        </PanelContainer>
+
+        <!-- Player Stats -->
+        <BoxContainer Orientation="Horizontal" Margin="0 10 0 5">
+            <Label Text="ЦЕЛОСТНОСТЬ RAM:" FontColorOverride="#00FFFF"/>
+            <ProgressBar Name="PlayerRamBar" HorizontalExpand="True" MinHeight="15" Margin="5 0 0 0">
+                <Label Name="PlayerRamLabel" Text="10/10" Align="Center" StyleClasses="LabelSmall"/>
+            </ProgressBar>
+        </BoxContainer>
+
+        <BoxContainer Orientation="Horizontal" Margin="0 0 0 10">
+            <Label Text="НЕЙРО-ФИДБЕК:" FontColorOverride="#FF0000"/>
+            <Label Name="HeatLabel" Text="0" FontColorOverride="#FF0000" Margin="10 0 0 0"/>
+        </BoxContainer>
+
+        <!-- Programs (Combat) -->
+        <Label Text="ДОСТУПНЫЕ ПРОГРАММЫ:" FontColorOverride="Gray" Margin="0 5 0 2"/>
+        <GridContainer Name="ProgramGrid" Columns="4" HorizontalExpand="True" VerticalExpand="True" MinHeight="80"/>
+
+        <!-- Password (Gate) -->
+        <BoxContainer Name="PasswordContainer" Orientation="Horizontal" Margin="0 10 0 0" Visible="False">
+            <Label Text="ТРЕБУЕТСЯ ПАРОЛЬ:" VerticalAlignment="Center" FontColorOverride="#FFAA00"/>
+            <LineEdit Name="PasswordInput" HorizontalExpand="True" PlaceHolder="Введите 4 цифры"/>
+            <Button Name="SubmitPasswordButton" Text="ВЫПОЛНИТЬ" />
+        </BoxContainer>
+
+    </BoxContainer>
+</DefaultWindow>

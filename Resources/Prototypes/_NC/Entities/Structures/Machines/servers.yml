@@ -1,0 +1,167 @@
+- type: entity
+  parent: BaseStructure
+  id: NCServerBase
+  name: net server
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/server.rsi
+    state: server
+  - type: NetServer
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: InteractionOutline
+  - type: Rotatable
+  - type: Anchorable
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: NodeContainer
+    examinable: true
+    nodes:
+      input:
+        !type:CableDeviceNode
+        nodeGroupID: MVPower
+  - type: UserInterface
+    interfaces:
+      enum.NetServerUiKey.Key:
+        type: NetServerBoundUserInterface
+        interactionRange: 30
+      enum.NetMapUiKey.Key:
+        type: NetMapBoundUserInterface
+        interactionRange: 30 # Larger range for map viewing
+  - type: ActivatableUI
+    key: enum.NetServerUiKey.Key
+
+- type: entity
+  parent: NCServerBase
+  id: NCMicroServer
+  name: micro-server
+  description: A budget server rack with 3 ICE floors.
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/server.rsi
+    state: server
+  - type: ItemSlots
+    slots:
+      ice_slot_1:
+        name: Floor 1 (Perimeter)
+        whitelist: { tags: [ NCIceBoard ] }
+      ice_slot_2:
+        name: Floor 2
+        whitelist: { tags: [ NCIceBoard ] }
+      ice_slot_3:
+        name: Floor 3 (Root)
+        whitelist: { tags: [ NCIceBoard ] }
+  - type: ContainerContainer
+    containers:
+      ice_slot_1: !type:ContainerSlot
+      ice_slot_2: !type:ContainerSlot
+      ice_slot_3: !type:ContainerSlot
+
+- type: entity
+  parent: NCServerBase
+  id: NCMainframe
+  name: mainframe
+  description: A standard server rack with 6 ICE floors.
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/server.rsi
+    state: server
+    # Maybe color it differently?
+    color: "#AAAAFF"
+  - type: ItemSlots
+    slots:
+      ice_slot_1:
+        name: Floor 1 (Perimeter)
+        whitelist: { tags: [ NCIceBoard ] }
+      ice_slot_2:
+        name: Floor 2
+        whitelist: { tags: [ NCIceBoard ] }
+      ice_slot_3:
+        name: Floor 3
+        whitelist: { tags: [ NCIceBoard ] }
+      ice_slot_4:
+        name: Floor 4
+        whitelist: { tags: [ NCIceBoard ] }
+      ice_slot_5:
+        name: Floor 5
+        whitelist: { tags: [ NCIceBoard ] }
+      ice_slot_6:
+        name: Floor 6 (Root)
+        whitelist: { tags: [ NCIceBoard ] }
+  - type: ContainerContainer
+    containers:
+      ice_slot_1: !type:ContainerSlot
+      ice_slot_2: !type:ContainerSlot
+      ice_slot_3: !type:ContainerSlot
+      ice_slot_4: !type:ContainerSlot
+      ice_slot_5: !type:ContainerSlot
+      ice_slot_6: !type:ContainerSlot
+
+- type: entity
+  parent: NCServerBase
+  id: NCCitadelServer
+  name: citadel server
+  description: A fortress-grade server with 9 ICE floors.
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/server.rsi
+    state: server
+    color: "#FF5555"
+  - type: ItemSlots
+    slots:
+      ice_slot_1:
+        name: Floor 1 (Perimeter)
+        whitelist: { tags: [ NCIceBoard ] }
+      ice_slot_2:
+        name: Floor 2
+        whitelist: { tags: [ NCIceBoard ] }
+      ice_slot_3:
+        name: Floor 3
+        whitelist: { tags: [ NCIceBoard ] }
+      ice_slot_4:
+        name: Floor 4
+        whitelist: { tags: [ NCIceBoard ] }
+      ice_slot_5:
+        name: Floor 5
+        whitelist: { tags: [ NCIceBoard ] }
+      ice_slot_6:
+        name: Floor 6
+        whitelist: { tags: [ NCIceBoard ] }
+      ice_slot_7:
+        name: Floor 7
+        whitelist: { tags: [ NCIceBoard ] }
+      ice_slot_8:
+        name: Floor 8
+        whitelist: { tags: [ NCIceBoard ] }
+      ice_slot_9:
+        name: Floor 9 (Root)
+        whitelist: { tags: [ NCIceBoard ] }
+  - type: ContainerContainer
+    containers:
+      ice_slot_1: !type:ContainerSlot
+      ice_slot_2: !type:ContainerSlot
+      ice_slot_3: !type:ContainerSlot
+      ice_slot_4: !type:ContainerSlot
+      ice_slot_5: !type:ContainerSlot
+      ice_slot_6: !type:ContainerSlot
+      ice_slot_7: !type:ContainerSlot
+      ice_slot_8: !type:ContainerSlot
+      ice_slot_9: !type:ContainerSlot

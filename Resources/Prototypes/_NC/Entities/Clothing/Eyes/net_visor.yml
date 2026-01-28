@@ -1,0 +1,31 @@
+- type: entity
+  parent: ClothingEyesGlasses
+  id: ClothingEyesNetVisor
+  name: NetVisor
+  description: Specialized eyewear that visualizes network data traffic and hacking attempts.
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/Eyes/Glasses/punk_glasses.rsi
+    layers:
+    - state: base_glasses_01
+      map: [ "glasses_main" ]
+      scale: 2.5, 2.5
+      offset: 0,-0.6
+    - state: decor_base_glasses_01
+      map: [ "glasses_decor" ]
+      scale: 2.5, 2.5
+      offset: 0,-0.6
+      shader: unshaded
+  - type: Clothing
+    sprite: _NF/Clothing/Eyes/Glasses/punk_glasses.rsi
+    clothingVisuals:
+      eyes:
+      - state: base_glasses_01
+        map: [ "glasses_main" ]
+      - state: decor_base_glasses_01
+        map: [ "glasses_decor" ]
+        shader: unshaded
+  - type: NetVisor
+  - type: Tag
+    tags:
+    - NetVisor

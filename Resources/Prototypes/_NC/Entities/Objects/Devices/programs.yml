@@ -1,0 +1,138 @@
+
+- type: entity
+  parent: BaseItem
+  id: NCProgramBase
+  name: программа нетраннинга
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/cartridges.rsi
+    state: cart
+  - type: Item
+    size: Tiny
+  - type: Tag
+    tags:
+    - NCProgramCartridge
+  - type: NetProgram
+    programType: Network
+    ramCost: 1
+    energyCost: 0
+    duration: 5.0
+
+- type: entity
+  parent: NCProgramBase
+  id: NCProgramPing
+  name: Пинг 1.0
+  description: Раскрывает информацию о сетевой защите цели.
+  components:
+  - type: NetProgram
+    programType: Quickhack
+    quickhackType: Ping
+    ramCost: 2
+    beamColor: "#00FF00"
+
+- type: entity
+  parent: NCProgramBase
+  id: NCProgramBlind
+  name: Перезапись оптики
+  description: Временно ослепляет цель.
+  components:
+  - type: NetProgram
+    programType: Quickhack
+    quickhackType: Blind
+    ramCost: 40
+    uploadTime: 5.0
+    duration: 20.0
+    beamColor: "#000000"
+
+- type: entity
+  parent: NCProgramBase
+  id: NCProgramDrop
+  name: Сбой оружия
+  description: Заставляет цель выбросить активный предмет из рук.
+  components:
+  - type: NetProgram
+    programType: Quickhack
+    quickhackType: WeaponDrop
+    ramCost: 30
+    uploadTime: 2.0
+    beamColor: "#FFFF00"
+
+- type: entity
+  parent: NCProgramBase
+  id: NCProgramShock
+  name: Замыкание
+  description: Наносит электрический урон цели.
+  components:
+  - type: NetProgram
+    programType: Quickhack
+    quickhackType: Damage
+    ramCost: 50
+    uploadTime: 3.0
+    damage: 15
+    stunDuration: 5.0
+    beamColor: "#0000FF"
+
+- type: entity
+  parent: NCProgramBase
+  id: NCProgramBreach
+  name: Взлом 1.0
+  description: Мгновенно взламывает пароли Gate.
+  components:
+  - type: NetProgram
+    programType: Network
+    ramCost: 20
+    damage: 100
+    beamColor: "#00FF00"
+
+- type: entity
+  parent: NCProgramBase
+  id: NCProgramSword
+  name: Цифровой Меч
+  description: Боевая программа. Высокий урон против ICE.
+  components:
+  - type: NetProgram
+    programType: Network
+    ramCost: 30
+    damage: 10
+    beamColor: "#FF0000"
+
+# - type: entity
+#   parent: NCProgramBase
+#   id: NCProgramShield
+#   name: Сетевой Щит
+#   description: Снижает входящий урон от атак ICE.
+#   components:
+#   - type: NetProgram
+#     programType: Network
+#     ramCost: 20
+#     defense: 10
+#     duration: 10.0
+#     beamColor: "#00FFFF"
+
+- type: entity
+  parent: NCProgramBase
+  id: NCProgramHighJack
+  name: Хайджек 1.0
+  description: Подключается к сетевой архитектуре цели, раскрывая все слои ICE.
+  components:
+  - type: NetProgram
+    programType: Quickhack
+    quickhackType: HighJack
+    ramCost: 20
+    uploadTime: 2.0
+    beamColor: "#FF00FF"
+
+# Backdoor: Safe exit from network architecture
+- type: entity
+  parent: NCProgramBase
+  id: NCProgramBackdoor
+  name: Бэкдор 1.0
+  description: Создает безопасную точку выхода. Используйте при взломе для отключения без нейронного урона.
+  components:
+  - type: NetProgram
+    programType: Network
+    ramCost: 5
+    damage: 0
+    defense: 0
+    beamColor: "#00FF00"

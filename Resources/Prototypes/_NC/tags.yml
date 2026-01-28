@@ -1,0 +1,11 @@
+- type: Tag
+  id: NCIceBoard
+  name: ICE Board
+
+- type: Tag
+  id: NCProgramCartridge
+  name: Program Cartridge
+
+- type: Tag
+  id: NetVisor
+  name: NetVisor

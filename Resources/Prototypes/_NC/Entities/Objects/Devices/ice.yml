@@ -1,0 +1,61 @@
+- type: entity
+  parent: BaseItem
+  id: NCIceBase
+  name: плата ICE
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/cartridges.rsi
+    state: cart
+  - type: Item
+    size: Small
+  - type: Tag
+    tags:
+    - NCIceBoard
+
+# Gate ICE: Password-based protection
+- type: entity
+  parent: NCIceBase
+  id: NCIceGate
+  name: Врата
+  description: Базовая плата защиты паролем. Блокирует доступ до ввода правильного пароля.
+  components:
+  - type: NetIce
+    iceType: Gate
+    level: 1
+    maxHealth: 20
+    currentHealth: 20
+    damage: 5           # Accumulated damage on each wrong attempt
+    ramDamage: 0        # Gate doesn't attack RAM
+    maxPasswordAttempts: 3
+
+# Sentry ICE: Active defense with chance to disconnect
+- type: entity
+  parent: NCIceBase
+  id: NCIceSentry
+  name: Страж
+  description: Система активной защиты, отслеживающая нарушителей. Может заблокировать вам доступ к сети.
+  components:
+  - type: NetIce
+    iceType: WhiteICE
+    level: 2
+    maxHealth: 50
+    currentHealth: 50
+    damage: 10          # Accumulated thermal damage
+    ramDamage: 8        # RAM damage per attack
+    disconnectChance: 0.30
+
+# Killer ICE: High damage, no disconnect
+- type: entity
+  parent: NCIceBase
+  id: NCIceKiller
+  name: Убийца
+  description: Летальная система защиты. Выжигает нейроинтерфейсы без жалости.
+  components:
+  - type: NetIce
+    iceType: BlackICE
+    level: 3
+    maxHealth: 30
+    currentHealth: 30
+    damage: 25          # High accumulated thermal damage
+    ramDamage: 15       # High RAM damage
