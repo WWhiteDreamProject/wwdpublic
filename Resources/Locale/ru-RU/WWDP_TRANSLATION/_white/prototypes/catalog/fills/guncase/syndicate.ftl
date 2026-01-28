@@ -8,7 +8,7 @@ ent-GunCaseSyndicateFilledCobra = { ent-GunCasePistolSyndicate }
 
 ent-GunCaseSyndicateFilledViper = { ent-GunCasePistolSyndicate }
     .desc = { ent-GunCasePistolSyndicate.desc }
-    .suffix = Синдикат, Гадюка
+    .suffix = Синдикат, MPr-10 Xyphos
 
 ent-GunCaseSyndicateFilledM90 = { ent-GunCaseSyndicate }
     .desc = { ent-GunCaseSyndicate.desc }
@@ -22,12 +22,12 @@ ent-GunCaseSyndicateFilledFPA90 = { ent-GunCaseSyndicate }
 
 ent-GunCaseSyndicateFilledC20r = { ent-GunCaseSyndicate }
     .desc = { ent-GunCaseSyndicate.desc }
-    .suffix = Синдикат, C20r
+    .suffix = Синдикат, CR-12 Moros
 
 
-ent-GunCaseSyndicateFilledAK220 = { ent-GunCaseSyndicate }
+ent-GunCaseSyndicateFilledAR31Hydra = { ent-GunCaseSyndicate }
     .desc = { ent-GunCaseSyndicate.desc }
-    .suffix = Синдикат, АК220
+    .suffix = Синдикат, AR31 Hydra
 
 
 ent-GunCaseSyndicateFilledWSPR = { ent-GunCaseSyndicate }
@@ -37,14 +37,14 @@ ent-GunCaseSyndicateFilledWSPR = { ent-GunCaseSyndicate }
 
 ent-GunCaseSyndicateFilledBulldog = { ent-GunCaseSyndicate }
     .desc = { ent-GunCaseSyndicate.desc }
-    .suffix = Синдикат, Bulldog
+    .suffix = Синдикат, AD-11 Cerberus
 
 
 ent-GunCaseSyndicateFilledChinaLake = { ent-GunCaseSyndicate }
     .desc = { ent-GunCaseSyndicate.desc }
-    .suffix = Синдикат, China-Lake
+    .suffix = Синдикат, M80 Heracles
 
 
 ent-GunCaseSyndicateFilledL6Saw = { ent-GunCaseSyndicate }
     .desc = { ent-GunCaseSyndicate.desc }
-    .suffix = Синдикат, L6 Saw
+    .suffix = Синдикат, L9 Centaur

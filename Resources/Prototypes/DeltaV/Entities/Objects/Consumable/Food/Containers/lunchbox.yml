@@ -1,6 +1,6 @@
 - type: entity
   id: LunchboxGeneric
-  parent: [ BoxCardboard, BaseBagOpenClose ]
+  parent: [ BoxBase, BaseBagOpenClose ] # WWDP edit BoxCardboard -> BoxBase
   name: lunchbox
   description: For on-the-go meal carrying needs.
   components:
@@ -35,6 +35,11 @@
       path: "/Audio/Weapons/click.ogg"
   - type: DamageOtherOnHit
     staminaCost: 6
+  - type: Construction # WWDP edit start
+    graph: BoxPlastic
+    node: boxplastic
+    containers:
+    - entity_storage # WWDP end
 
 - type: entity
   parent: LunchboxGeneric
