@@ -44,6 +44,12 @@ namespace Content.MapRenderer.Painters
             var images = GetTileImages(_sTileDefinitionManager, _resManager, tileSize);
             var i = 0;
 
+            foreach (var tiles in images.Values)
+            {
+                foreach (var image in tiles)
+                    image.Mutate(o => o.Flip(FlipMode.Vertical));
+            }
+
             _sMapSystem.GetAllTiles(gridUid, grid).AsParallel().ForAll(tile =>
             {
                 var path = _sTileDefinitionManager[tile.Tile.TypeId].Sprite.ToString();
