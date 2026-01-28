@@ -376,12 +376,15 @@ public sealed partial class CloningSystem : EntitySystem
         switch (ev.ForcedType)
         {
             case ForcedMetempsychosisType.None:
-                if (!ev.NeverTrulyClone
-                    && chance > 1
-                    && _random.Prob(chance - 1))
+                if (!ev.NeverTrulyClone)
                 {
-                    changeProfile = false;
-                    return oldSpecies.Prototype;
+                    var cloneChance = 1.0f - Math.Clamp(chance, 0, 1);
+
+                    if (_random.Prob(Math.Clamp(cloneChance, 0, 1)))
+                    {
+                        changeProfile = false;
+                        return oldSpecies.Prototype;
+                    }
                 }
 
                 chance = Math.Clamp(chance, 0, 1);

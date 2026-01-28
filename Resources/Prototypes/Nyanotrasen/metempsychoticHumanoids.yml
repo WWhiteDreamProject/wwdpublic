@@ -8,8 +8,22 @@
     Harpy: 1
     Moth: 1
     Tajaran: 1 # Einstein Engines
-    Diona: 0.5
-    Reptilian: 0.5
-    SlimePerson: 0.5
-    Vulpkanin: 0.5
-    Plasmaman: 0.25
+    #wwdp edit start
+    Diona: 1 # 0.5 -> 1
+    Reptilian: 1 # 0.5 -> 1
+    SlimePerson: 1 # 0.5 -> 1
+    Vulpkanin: 1 # 0.5 -> 1
+    Plasmaman: 1 # 0.25 -> 1
+    Shadow: 1
+    Vox: 1
+    Xelthia: 1
+    Dwarf: 1
+    Arachne: 1
+    Kobold: 1
+    Skeleton: 1
+    Shadowkin: 1
+    Abductor: 1
+    Thaven: 1
+    Gingerbread: 1
+    Chitinid: 1
+    #wwdp edit end
