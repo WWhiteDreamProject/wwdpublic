@@ -231,6 +231,8 @@ public sealed partial class LoadoutPicker : Control
             loadoutEntry.OnLoadoutDirty += OnEntryLoadoutDirty;
             loadoutEntry.EnsureIsWearable(CharacterRequirementsArgs, LoadoutPoint);
 
+            loadoutEntry.ShowUnusable = _showUnusable;
+
             _loadoutEntries.Add(loadoutEntry);
         }
 
@@ -307,6 +309,20 @@ public sealed partial class LoadoutPicker : Control
             LoadoutPoint += prototype.Cost;
 
         return true;
+    }
+
+    private bool _showUnusable;
+    public bool ShowUnusable
+    {
+        get => _showUnusable;
+        set
+        {
+            _showUnusable = value;
+            foreach (var entry in _loadoutEntries)
+            {
+                entry.ShowUnusable = value;
+            }
+        }
     }
 
     private void OnEntryEditLoadoutRequired(LoadoutEntry entry)
