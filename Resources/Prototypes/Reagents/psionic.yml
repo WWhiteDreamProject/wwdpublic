@@ -98,6 +98,11 @@
         - !type:ReagentThreshold
           reagent: LotophagoiOil
           min: 5
+      - !type:ChemGivePsionic #wwdp edit
+        conditions:
+        - !type:ReagentThreshold
+          reagent: LotophagoiOil
+          min: 40
 
 - type: reagent
   id: OusianaDust
