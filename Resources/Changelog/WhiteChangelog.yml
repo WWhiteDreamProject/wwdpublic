@@ -5025,3 +5025,10 @@ Entries:
   id: 527
   time: '2026-01-25T15:42:01.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1052
+- author: DVOniksWyvern
+  changes:
+    - type: Add
+      message: WWDP-ICLA v1
+  id: 528
+  time: '2026-01-28T17:26:47.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1059
