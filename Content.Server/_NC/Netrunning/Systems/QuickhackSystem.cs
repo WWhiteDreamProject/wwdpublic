@@ -13,6 +13,8 @@ using Content.Shared.Popups; // Added
 
 using Content.Server.Electrocution;
 using Content.Server.Power.Components;
+using Content.Shared.Administration.Logs;
+using Content.Shared.Database;
 
 namespace Content.Server._NC.Netrunning.Systems;
 
@@ -29,6 +31,7 @@ public sealed class QuickhackSystem : EntitySystem
     [Dependency] private readonly Content.Shared.Containers.ItemSlots.ItemSlotsSystem _itemSlots = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly CyberdeckSystem _cyberdeck = default!;
+    [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
 
     public override void Initialize()
     {
@@ -58,6 +61,7 @@ public sealed class QuickhackSystem : EntitySystem
         }
 
         // Apply Effect
+        _adminLog.Add(LogType.Action, LogImpact.Medium, $"{ToPrettyString(args.User)} executed quickhack {program.ProgramType} on {ToPrettyString(target)}");
         ApplyEffect(uid, args.User, target, program);
     }
 
@@ -97,31 +101,27 @@ public sealed class QuickhackSystem : EntitySystem
                 break;
 
             case QuickhackType.Ping:
-                var status = "Unprotected";
-                // GetProtectingServer, GetActiveIceName etc are methods of NetServerSystem or HackingSystem?
-                // Previously HackingSystem was used. Checking HackingSystem source for GetActiveIceName?
-                // HackingSystem has GetActiveIce(session). It doesn't seem to expose a generic "GetActiveIceName(server)" that is public static or simple.
-                // However, NetServerSystem has GetProtectingServer.
+                var status = "Нет защиты";
 
                 if (_netServer.GetProtectingServer(target) is { } server)
                 {
-                    status = $"Protected by {Name(server)}";
+                    status = $"Под защитой: {Name(server)}";
                     if (_netServer.HasActiveIce(server))
                     {
-                        status += " (ICE Active)";
+                        status += " (Активен ICE)";
 
                         // Safe access to item slots
                         if (_itemSlots.GetItemOrNull(server, "ice_slot_1") is { } iceUid)
                         {
-                            status += $" - Detected {Name(iceUid)}";
+                            status += $" - Обнаружен {Name(iceUid)}";
                         }
                     }
                     else
                     {
-                        status += " (No Active ICE)";
+                        status += " (Без ICE)";
                     }
                 }
-                _popup.PopupEntity($"Ping Result: {Name(target)} - {status}", target, user);
+                _popup.PopupEntity($"Результат сканирования: {Name(target)} - {status}", target, user);
                 break;
 
             case QuickhackType.HighJack:
@@ -140,7 +140,7 @@ public sealed class QuickhackSystem : EntitySystem
 
                 if (serverToHack == null)
                 {
-                    _popup.PopupEntity("Target is not connected to any network.", deckUid, user);
+                    _popup.PopupEntity("Цель не подключена к сети.", deckUid, user);
                     break;
                 }
 

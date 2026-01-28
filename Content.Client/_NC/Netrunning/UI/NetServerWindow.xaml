@@ -8,18 +8,18 @@
 
         <!-- LEFT COLUMN: Server Status & Slots -->
         <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="0 0 10 0">
-             <Label Name="ServerNameLabel" Text="Server: Unknown" FontColorOverride="LightBlue" />
+             <Label Name="ServerNameLabel" Text="Сервер: Неизвестно" FontColorOverride="LightBlue" />
              <BoxContainer Orientation="Horizontal">
-                <Label Text="Power Status: " />
-                <Label Name="PowerStatusLabel" Text="Offline" FontColorOverride="Red" />
+                <Label Text="Питание: " />
+                <Label Name="PowerStatusLabel" Text="Оффлайн" FontColorOverride="Red" />
              </BoxContainer>
              <BoxContainer Orientation="Horizontal">
-                <Label Text="APC Connection: " />
-                <Label Name="ApcStatusLabel" Text="Disconnected" FontColorOverride="Red" />
+                <Label Text="Связь с ЛКП: " />
+                <Label Name="ApcStatusLabel" Text="Отключено" FontColorOverride="Red" />
              </BoxContainer>
 
              <PanelContainer StyleClasses="LowDivider" />
-             <Label Text="Network Architecture (ICE Floors)" FontColorOverride="Gold" HorizontalAlignment="Center" />
+             <Label Text="Архитектура Сети" FontColorOverride="Gold" HorizontalAlignment="Center" />
              <ScrollContainer VerticalExpand="True">
                  <BoxContainer Name="SlotsContainer" Orientation="Vertical" />
              </ScrollContainer>
@@ -30,12 +30,12 @@
 
         <!-- RIGHT COLUMN: Network Devices -->
         <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="10 0 0 0" MinWidth="250">
-             <Label Text="Connected Devices" FontColorOverride="LightGreen" HorizontalAlignment="Center" />
+             <Label Text="Подключенные устройства" FontColorOverride="LightGreen" HorizontalAlignment="Center" />
              <PanelContainer StyleClasses="LowDivider" />
              <ScrollContainer VerticalExpand="True">
                  <BoxContainer Name="DevicesContainer" Orientation="Vertical" />
              </ScrollContainer>
-             <Button Name="OpenMapButton" Text="OPEN TACTICAL MAP" HorizontalAlignment="Stretch" Margin="0 5 0 0" StyleClasses="Caution" />
+             <Button Name="OpenMapButton" Text="ОТКРЫТЬ КАРТУ СЕТИ" HorizontalAlignment="Stretch" Margin="0 5 0 0" StyleClasses="Caution" />
         </BoxContainer>
 
     </BoxContainer>

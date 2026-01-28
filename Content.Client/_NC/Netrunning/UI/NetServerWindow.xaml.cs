@@ -29,12 +29,12 @@ public sealed partial class NetServerWindow : DefaultWindow
 
     public void UpdateState(NetServerBoundUiState state)
     {
-        ServerNameLabel.Text = $"Server: {state.ServerName}";
+        ServerNameLabel.Text = $"Сервер: {state.ServerName}";
 
-        PowerStatusLabel.Text = state.IsPowered ? "Online" : "Offline";
+        PowerStatusLabel.Text = state.IsPowered ? "Онлайн" : "Оффлайн";
         PowerStatusLabel.FontColorOverride = state.IsPowered ? Color.Green : Color.Red;
 
-        ApcStatusLabel.Text = state.HasApc ? "Connected" : "Disconnected";
+        ApcStatusLabel.Text = state.HasApc ? "Подключено" : "Отключено";
         ApcStatusLabel.FontColorOverride = state.HasApc ? Color.Green : Color.Red;
 
         // Render Slots (Left)
@@ -46,7 +46,7 @@ public sealed partial class NetServerWindow : DefaultWindow
             var headerText = $"{slot.SlotLabel}";
             if (slot.HasIce)
             {
-                headerText += $" [{slot.IceType}]: {slot.ItemName}";
+                headerText += $" [{GetLocalizedIceType(slot.IceType)}]: {slot.ItemName}";
             }
             else if (!string.IsNullOrEmpty(slot.ItemName))
             {
@@ -54,7 +54,7 @@ public sealed partial class NetServerWindow : DefaultWindow
             }
             else
             {
-                headerText += ": Empty";
+                headerText += ": Пусто";
             }
 
             slotBox.AddChild(new Label { Text = headerText, FontColorOverride = slot.HasIce ? Color.Cyan : Color.Gray });
@@ -81,7 +81,7 @@ public sealed partial class NetServerWindow : DefaultWindow
                     }
                 };
 
-                var btn = new Button { Text = "Set" };
+                var btn = new Button { Text = "Ввод" };
                 btn.OnPressed += _ => OnPasswordSet?.Invoke(slot.SlotName, input.Text);
                 pwdBox.AddChild(input);
                 pwdBox.AddChild(btn);
@@ -127,12 +127,23 @@ public sealed partial class NetServerWindow : DefaultWindow
             // Status
             var statusLabel = new Label
             {
-                Text = dev.IsPowered ? "ON" : "OFF",
+                Text = dev.IsPowered ? "ВКЛ" : "ВЫКЛ",
                 FontColorOverride = dev.IsPowered ? Color.Green : Color.Red
             };
             row.AddChild(statusLabel);
 
             DevicesContainer.AddChild(row);
         }
+    }
+
+    private string GetLocalizedIceType(NetIceType? type)
+    {
+        return type switch
+        {
+            NetIceType.Gate => "Врата",
+            NetIceType.WhiteICE => "Белый Лёд",
+            NetIceType.BlackICE => "Чёрный Лёд",
+            _ => "Лёд"
+        };
     }
 }

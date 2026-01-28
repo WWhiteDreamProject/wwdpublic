@@ -10,6 +10,8 @@ using Robust.Shared.Utility;
 using Robust.Server.GameObjects;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
+using Content.Shared.Administration.Logs;
+using Content.Shared.Database;
 using Robust.Shared.Containers;
 using Robust.Shared.GameObjects;
 using System.Collections.Generic;
@@ -75,7 +77,7 @@ public sealed partial class CyberdeckSystem : EntitySystem
             }
             else
             {
-                _popup.PopupEntity("Failed to wield (Need 2 hands free?)", uid, args.User);
+                _popup.PopupEntity("Не удалось взять в руки (Нужно 2 свободные руки?)", uid, args.User);
             }
         }
         else
@@ -95,7 +97,7 @@ public sealed partial class CyberdeckSystem : EntitySystem
         var isWielded = TryComp<WieldableComponent>(uid, out var w) && w.Wielded;
         if (!isWielded)
         {
-            _popup.PopupEntity("You must hold the deck with both hands!", uid, args.User);
+            _popup.PopupEntity("Вы должны держать деку обеими руками!", uid, args.User);
             return;
         }
 
@@ -150,6 +152,7 @@ public sealed partial class CyberdeckSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
     [Dependency] private readonly Content.Shared.Hands.EntitySystems.SharedHandsSystem _hands = default!;
+    [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
 
     private void OnProgramRequest(EntityUid uid, CyberdeckComponent component, CyberdeckProgramRequestMessage args)
     {
@@ -238,7 +241,7 @@ public sealed partial class CyberdeckSystem : EntitySystem
 
         args.Verbs.Add(new ActivationVerb
         {
-            Text = "Open Cyberdeck",
+            Text = "Открыть деку",
             Act = () => _uiSystem.TryToggleUi(uid, CyberdeckUiKey.Key, args.User)
         });
     }
@@ -431,14 +434,17 @@ public sealed partial class CyberdeckSystem : EntitySystem
 
         // Start DoAfter - using Key as Invalid to avoid UI overlap? Or just standard.
         // Use CyberdeckQuickhackDoAfterEvent.
-        var doAfterArgs = new DoAfterArgs(EntityManager, user, TimeSpan.FromSeconds(program.UploadTime), new CyberdeckQuickhackDoAfterEvent(GetNetEntity(target), GetNetEntity(programUid.Value)), deckUid.Value, target: target, used: deckUid.Value)
+        // Pass target: null to bypass DoAfter's built-in obstruction checks (Map Attack allows wall hacking)
+        var doAfterArgs = new DoAfterArgs(EntityManager, user, TimeSpan.FromSeconds(program.UploadTime), new CyberdeckQuickhackDoAfterEvent(GetNetEntity(target), GetNetEntity(programUid.Value)), deckUid.Value, target: null, used: deckUid.Value)
         {
             BreakOnMove = false,
             BreakOnDamage = true,
             NeedHand = false,
-            DistanceThreshold = 1000f, // Infinite range theoretically if via Map
+            // DistanceThreshold = 1000f,
             RequireCanInteract = false // Map interaction
         };
+
+        _adminLog.Add(LogType.Action, LogImpact.Medium, $"{ToPrettyString(user)} remote launched {ToPrettyString(programUid.Value)} on {ToPrettyString(target)} via NetMap");
 
         _doAfter.TryStartDoAfter(doAfterArgs);
     }

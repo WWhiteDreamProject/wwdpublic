@@ -23,6 +23,8 @@ using Robust.Shared.Maths;
 using Content.Shared.Mobs.Components;
 using Content.Shared.SurveillanceCamera.Components;
 using Robust.Shared.Player;
+using Content.Shared.Database;
+using Content.Shared.Administration.Logs;
 
 
 namespace Content.Server._NC.Netrunning.Systems;
@@ -35,6 +37,7 @@ public sealed class NetServerSystem : EntitySystem
     [Dependency] private readonly NodeContainerSystem _nodeContainer = default!;
     [Dependency] private readonly Content.Server.Doors.Systems.DoorSystem _door = default!;
     [Dependency] private readonly CyberdeckSystem _cyberdeck = default!;
+    [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
 
     public override void Initialize()
     {
@@ -82,22 +85,34 @@ public sealed class NetServerSystem : EntitySystem
         {
             case NetMapAction.Open:
                 if (TryComp<DoorComponent>(target, out var door))
+                {
                     _door.TryOpen(target, door);
+                    _adminLog.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(user)} opened {ToPrettyString(target)} via NetMap");
+                }
                 break;
             case NetMapAction.Close:
                 if (TryComp<DoorComponent>(target, out var door2))
+                {
                     _door.TryClose(target, door2);
+                    _adminLog.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(user)} closed {ToPrettyString(target)} via NetMap");
+                }
                 break;
             case NetMapAction.Toggle:
                 if (TryComp<DoorComponent>(target, out var door3))
+                {
                     _door.TryToggleDoor(target, door3);
+                    _adminLog.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(user)} toggled {ToPrettyString(target)} via NetMap");
+                }
                 // TODO: Light Toggle
                 break;
             case NetMapAction.Bolt:
                 // Requires Hacking/Emag technically, but Root Access grants full control?
                 // Let's allow basic bolting if we have full control.
                 if (TryComp<DoorBoltComponent>(target, out var bolts))
+                {
                     _door.SetBoltsDown((target, bolts), !bolts.BoltsDown, user);
+                    _adminLog.Add(LogType.Action, LogImpact.Medium, $"{ToPrettyString(user)} toggled bolts on {ToPrettyString(target)} via NetMap");
+                }
                 break;
             case NetMapAction.Attack:
                 _cyberdeck.TrySetTargetFromHands(user, target);
@@ -194,7 +209,7 @@ public sealed class NetServerSystem : EntitySystem
                 if (!slotName.StartsWith("ice_slot_"))
                     continue;
 
-                string itemName = "Empty";
+                string itemName = "Пусто";
                 NetIceType iceType = NetIceType.Gate; // Default
                 bool hasIce = false;
                 string password = "";

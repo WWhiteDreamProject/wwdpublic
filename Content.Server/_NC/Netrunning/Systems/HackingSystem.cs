@@ -10,6 +10,8 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Linq;
 using Robust.Shared.Audio.Systems;
+using Content.Shared.Administration.Logs;
+using Content.Shared.Database;
 
 namespace Content.Server._NC.Netrunning.Systems;
 
@@ -24,6 +26,7 @@ public sealed class HackingSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly Content.Shared.Body.Systems.SharedBodySystem _body = default!;
+    [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
 
     // Track active sessions: DeckUID -> Session
     private readonly Dictionary<EntityUid, HackingSession> _sessions = new();
@@ -113,12 +116,20 @@ public sealed class HackingSystem : EntitySystem
             if (deckComp.HackedNetworks.Contains(targetServer))
             {
                 // Already hacked! Open Admin Panel directly.
+                _popup.PopupEntity("СЕРВЕР УЖЕ ВЗЛОМАН: Root доступ получен.", user, user);
                 _ui.OpenUi(targetServer, NetServerUiKey.Key, user);
                 // Also play a success sound to indicate authorized access
                 _audio.PlayPvs("/Audio/Machines/machine_switch.ogg", deck);
+                _adminLog.Add(LogType.Action, LogImpact.Medium, $"{ToPrettyString(user)} accessed already hacked server {ToPrettyString(targetServer)}");
                 return;
             }
         }
+
+        // Show generic Hacking Popup
+        _popup.PopupEntity("Начинается последовательность взлома...", user, user);
+
+        // Log
+        _adminLog.Add(LogType.Action, LogImpact.Medium, $"{ToPrettyString(user)} started hacking {ToPrettyString(targetDevice)} (Server: {ToPrettyString(targetServer)})");
 
         // 1. Initialize Session
         var session = new HackingSession
@@ -161,6 +172,7 @@ public sealed class HackingSystem : EntitySystem
                 // Apply penalty for unsafe disconnect
                 session.AccumulatedDamage += 15;
                 ShowPopup(uid, session, "АВАРИЙНЫЙ РАЗРЫВ!", Shared.Popups.PopupType.LargeCaution);
+                _adminLog.Add(LogType.Action, LogImpact.Medium, $"{ToPrettyString(session.User)} manually disconnected from hacking {ToPrettyString(session.TargetServer)}");
                 DisconnectHack(uid, session);
             }
         }
@@ -198,6 +210,7 @@ public sealed class HackingSystem : EntitySystem
         {
             ShowPopup(uid, session, "КРИТИЧЕСКАЯ ОШИБКА: Недостаточно RAM! Экстренное отключение!", Shared.Popups.PopupType.LargeCaution);
             session.AccumulatedDamage += 15; // Fixed 15 Heat for RAM failure
+            _adminLog.Add(LogType.Action, LogImpact.Medium, $"{ToPrettyString(session.User)} disconnected from hacking {ToPrettyString(session.TargetServer)} due to insufficient RAM");
             DisconnectHack(uid, session);
             return;
         }
@@ -214,6 +227,7 @@ public sealed class HackingSystem : EntitySystem
                 meta.EntityName.Contains("Backdoor", StringComparison.OrdinalIgnoreCase))
             {
                 ShowPopup(uid, session, "Бэкдор активирован. Безопасное отключение.", Shared.Popups.PopupType.Medium);
+                _adminLog.Add(LogType.Action, LogImpact.Medium, $"{ToPrettyString(session.User)} used a backdoor to safely disconnect from hacking {ToPrettyString(session.TargetServer)}");
                 SafeDisconnect(uid, session);
                 return;
             }
@@ -251,14 +265,14 @@ public sealed class HackingSystem : EntitySystem
             var damageDealt = Math.Max(0, program.Damage);
             ice.CurrentHealth -= damageDealt;
 
-
-
             // Visual feedback
             ShowPopup(uid, session, $"Нанесено {damageDealt} урона");
+            _adminLog.Add(LogType.Action, LogImpact.Medium, $"{ToPrettyString(session.User)} used {ToPrettyString(programEnt)} dealing {damageDealt} damage to {ToPrettyString(iceEnt.Value)} on {ToPrettyString(session.TargetServer)}");
 
             if (ice.CurrentHealth <= 0)
             {
                 ShowPopup(uid, session, "ЛЁД уничтожен!", Shared.Popups.PopupType.Large);
+                _adminLog.Add(LogType.Action, LogImpact.Medium, $"{ToPrettyString(session.User)} destroyed {ToPrettyString(iceEnt.Value)} on {ToPrettyString(session.TargetServer)}");
                 session.PasswordAttempts = 0;
                 session.CurrentIceSlotIndex++;
 
@@ -304,6 +318,7 @@ public sealed class HackingSystem : EntitySystem
         {
             deckComp.CurrentRam = Math.Max(0, deckComp.CurrentRam - ramDamage);
             ShowPopup(deck, session, $"ICE атакует! -{ramDamage} RAM", Shared.Popups.PopupType.MediumCaution);
+            _adminLog.Add(LogType.Action, LogImpact.Medium, $"{ToPrettyString(ice.Owner)} dealt {ramDamage} RAM damage to {ToPrettyString(session.User)} on {ToPrettyString(session.TargetServer)}");
         }
         else
         {
@@ -321,6 +336,7 @@ public sealed class HackingSystem : EntitySystem
                 if (_random.Prob(ice.DisconnectChance))
                 {
                     ShowPopup(deck, session, "SENTRY ЛОКАУТ! Отключение от сети!", Shared.Popups.PopupType.LargeCaution);
+                    _adminLog.Add(LogType.Action, LogImpact.Medium, $"{ToPrettyString(session.User)} disconnected by SENTRY ICE from {ToPrettyString(session.TargetServer)}");
                     DisconnectHack(deck, session);
                     return;
                 }

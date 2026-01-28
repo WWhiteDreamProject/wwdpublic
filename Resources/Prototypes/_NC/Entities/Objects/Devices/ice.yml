@@ -1,7 +1,7 @@
 - type: entity
   parent: BaseItem
   id: NCIceBase
-  name: ICE board
+  name: плата ICE
   abstract: true
   components:
   - type: Sprite
@@ -17,8 +17,8 @@
 - type: entity
   parent: NCIceBase
   id: NCIceGate
-  name: Gate ICE
-  description: A basic password protection board. Blocks access until correct password entered.
+  name: Врата
+  description: Базовая плата защиты паролем. Блокирует доступ до ввода правильного пароля.
   components:
   - type: NetIce
     iceType: Gate
@@ -33,8 +33,8 @@
 - type: entity
   parent: NCIceBase
   id: NCIceSentry
-  name: Sentry
-  description: Active defense system that traces intruders. Can lock you out of the network.
+  name: Страж
+  description: Система активной защиты, отслеживающая нарушителей. Может заблокировать вам доступ к сети.
   components:
   - type: NetIce
     iceType: WhiteICE
@@ -43,14 +43,14 @@
     currentHealth: 50
     damage: 10          # Accumulated thermal damage
     ramDamage: 8        # RAM damage per attack
-    disconnectChance: 0.50
+    disconnectChance: 0.30
 
 # Killer ICE: High damage, no disconnect
 - type: entity
   parent: NCIceBase
   id: NCIceKiller
-  name: Killer
-  description: Lethal defense system. Burns through neural interfaces without mercy.
+  name: Убийца
+  description: Летальная система защиты. Выжигает нейроинтерфейсы без жалости.
   components:
   - type: NetIce
     iceType: BlackICE

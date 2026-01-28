@@ -69,7 +69,14 @@ public sealed partial class HackingWindow : DefaultWindow
             _timerLabel.FontColorOverride = Color.FromHex("#FF5500");
 
         // Update ICE
-        _iceTypeLabel.Text = $"{state.TargetIceType} ЛЁД ОБНАРУЖЕН";
+        var iceName = state.TargetIceType switch
+        {
+            "Gate" => "Врата",
+            "WhiteICE" => "БЕЛЫЙ ЛЁД",
+            "BlackICE" => "ЧЁРНЫЙ ЛЁД",
+            _ => state.TargetIceType.ToUpper()
+        };
+        _iceTypeLabel.Text = $"{iceName} ОБНАРУЖЕН";
         _iceHealthBar.MaxValue = state.TargetIceMaxHealth > 0 ? state.TargetIceMaxHealth : 1;
         _iceHealthBar.Value = state.TargetIceHealth;
         _iceHealthLabel.Text = $"{state.TargetIceHealth}/{state.TargetIceMaxHealth}";

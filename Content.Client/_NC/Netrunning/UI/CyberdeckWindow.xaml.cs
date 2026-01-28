@@ -27,7 +27,7 @@ public sealed partial class CyberdeckWindow : DefaultWindow
         RamBar.Value = currentRam;
         RamText.Text = $"{currentRam} / {maxRam} RAM";
 
-        TargetLabel.Text = targetName != null ? $"Active Target: {targetName}" : "No Target";
+        TargetLabel.Text = targetName != null ? $"Цель: {targetName}" : "Нет цели";
         TargetLabel.FontColorOverride = targetName != null ? Color.Red : Color.Gray;
 
         if (programs != null)
@@ -38,7 +38,7 @@ public sealed partial class CyberdeckWindow : DefaultWindow
                 var btn = new Button
                 {
                     Text = $"{name} ({program.RamCost} RAM)",
-                    ToolTip = $"Type: {program.ProgramType}\nCost: {program.RamCost} RAM, {program.EnergyCost} Energy",
+                    ToolTip = $"Тип: {program.ProgramType}\nЦена: {program.RamCost} RAM, {program.EnergyCost} Энергия",
                     HorizontalExpand = true
                 };
                 btn.OnPressed += _ => OnProgramSelected?.Invoke(id);
