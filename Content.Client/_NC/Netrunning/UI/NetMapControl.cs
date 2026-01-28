@@ -126,16 +126,16 @@ public sealed partial class NetMapControl : NavMapControl
             Texture? texture = null;
             if (blip.BlipType == NetBlipType.Door)
             {
-                texture = _spriteSys.Frame0(new SpriteSpecifier.Rsi(new ResPath("/Textures/Structures/Doors/Airlocks/standard/basic_fill.rsi"), "closed"));
+                texture = _spriteSys.Frame0(new SpriteSpecifier.Rsi(new ResPath("/Textures/Structures/Doors/Airlocks/Standard/basic.rsi"), "closed"));
             }
             else if (blip.BlipType == NetBlipType.Camera)
             {
-                texture = _spriteSys.Frame0(new SpriteSpecifier.Rsi(new ResPath("/Textures/Structures/Machines/cameras.rsi"), "camera"));
+                texture = _spriteSys.Frame0(new SpriteSpecifier.Rsi(new ResPath("/Textures/Structures/Wallmounts/camera.rsi"), "camera"));
             }
             else if (blip.BlipType == NetBlipType.Mob)
             {
-                // Simple bullet for mobs
-                texture = _spriteSys.Frame0(new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/Misc/bullet.png")));
+                // Simple bullet/dot for mobs
+                texture = _spriteSys.Frame0(new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/NavMap/beveled_circle.png")));
             }
             else
             {

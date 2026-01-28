@@ -33,11 +33,11 @@
 - type: entity
   parent: NCIceBase
   id: NCIceSentry
-  name: Sentry ICE
+  name: Sentry
   description: Active defense system that traces intruders. Can lock you out of the network.
   components:
   - type: NetIce
-    iceType: Sentry
+    iceType: WhiteICE
     level: 2
     maxHealth: 50
     currentHealth: 50
@@ -49,11 +49,11 @@
 - type: entity
   parent: NCIceBase
   id: NCIceKiller
-  name: Killer ICE
+  name: Killer
   description: Lethal defense system. Burns through neural interfaces without mercy.
   components:
   - type: NetIce
-    iceType: Killer
+    iceType: BlackICE
     level: 3
     maxHealth: 30
     currentHealth: 30

@@ -316,7 +316,7 @@ public sealed class HackingSystem : EntitySystem
         // Check disconnect based on ICE type
         switch (ice.IceType)
         {
-            case NetIceType.Sentry:
+            case NetIceType.WhiteICE:
                 // Sentry has chance to disconnect
                 if (_random.Prob(ice.DisconnectChance))
                 {
@@ -326,7 +326,7 @@ public sealed class HackingSystem : EntitySystem
                 }
                 break;
 
-            case NetIceType.Killer:
+            case NetIceType.BlackICE:
                 // Killer just deals damage, no disconnect
                 break;
 

@@ -7,8 +7,8 @@ namespace Content.Shared._NC.Netrunning.Components;
 public enum NetIceType
 {
     Gate,
-    Sentry,
-    Killer
+    WhiteICE,
+    BlackICE
 }
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
