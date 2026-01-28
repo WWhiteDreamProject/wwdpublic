@@ -1,0 +1,9 @@
+ent-DoubleGlassAirlockScienceInterPharm = { ent-DoubleGlassAirlockScienceBase }
+    .suffix = Double, Syndicate, Research, InterPharm, Locked
+    .desc = { ent-DoubleGlassAirlockScienceBase.desc }
+ent-DoubleGlassAirlockMedicalInterPharm = { ent-DoubleGlassAirlockMedicalBase }
+    .suffix = Double, Syndicate, Medbay, InterPharm, Locked
+    .desc = { ent-DoubleGlassAirlockMedicalBase.desc }
+ent-DoubleGlassAirlockInterPharm = { ent-DoubleGlassAirlockBase }
+    .suffix = Double, Syndicate, Maintenance, Glass, Locked
+    .desc = { ent-DoubleGlassAirlockBase.desc }

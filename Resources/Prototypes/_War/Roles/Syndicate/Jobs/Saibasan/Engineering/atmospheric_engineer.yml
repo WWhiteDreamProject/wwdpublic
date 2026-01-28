@@ -1,0 +1,15 @@
+- type: job
+  id: AtmosphericEngineer
+  name: job-name-atmoeng
+  description: job-description-atmoeng
+  playTimeTracker: JobAtmosphericEngineer
+  icon: "JobIconAtmosphericEngineer"
+  supervisors: job-supervisors-supplymanager
+  canBeAntag: true
+  access:
+    - TechnicalSyndicate
+    - AtmosSyndicate
+    - SuppliesSyndicate
+    - MaintenanceSyndicate
+    - GatewaysSyndicate
+    - GeneralSyndicate

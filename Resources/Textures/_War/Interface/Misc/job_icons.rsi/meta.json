@@ -1,0 +1,78 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from tgstation at commit https://github.com/tgstation/tgstation/commit/d917f4c2a088419d5c3aec7656b7ff8cebd1822e; all syndicate by Gargarien for TotalWar; icons based on Gargarien made by 6Mirage6 for TotalWar",
+
+    "size": {
+        "x": 8,
+        "y": 8
+    },
+    "states": [
+        {
+            "name": "spilotS"
+        },
+        {
+            "name": "spyS"
+        },
+        {
+            "name": "directorS"
+        },
+        {
+            "name": "cargotechnicianS"
+        },
+        {
+            "name": "chiefengineerS"
+        },
+        {
+            "name": "commanderS"
+        },
+        {
+            "name": "paramedicS"
+        },
+        {
+            "name": "securityofficerS"
+        },
+        {
+            "name": "shaftminerS"
+        },
+        {
+            "name": "stationengineerS"
+        },
+        {
+            "name": "intern-techS"
+        },
+        {
+            "name": "intern-cadetS"
+        },
+        {
+            "name": "bartenderS"
+        },
+        {
+            "name": "intern-serviceS"
+        },
+        {
+            "name": "botanistS"
+        },
+        {
+            "name": "clownS"
+        },
+        {
+            "name": "cookS"
+        },
+        {
+            "name": "academicengineerS"
+        },
+        {
+            "name": "medicaldoctorS"
+        },
+        {
+            "name": "scientistS"
+        },
+        {
+            "name": "intern-sciS"
+        },
+        {
+            "name": "pilot"
+        }
+    ]
+}

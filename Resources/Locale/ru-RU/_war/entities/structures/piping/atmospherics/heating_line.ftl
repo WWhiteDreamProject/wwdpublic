@@ -1,0 +1,17 @@
+ent-HeatingLineBase = основание теплотрассы
+    .desc = Основание теплотрассы
+ent-HeatingLineStraight = теплотрасса
+    .desc = Трубная изоляция из плотной ткани.
+    .suffix = Straight
+ent-HeatingLineCorner = теплотрасса
+    .desc = Трубная изоляция из плотной ткани.
+    .suffix = Corner
+ent-HeatingLineEnd = теплотрасса
+    .desc = Трубная изоляция из плотной ткани.
+    .suffix = End
+ent-HeatingLineFourway = теплотрасса
+    .desc = Трубная изоляция из плотной ткани.
+    .suffix = Fourway
+ent-HeatingLineTJunction = теплотрасса
+    .desc = Трубная изоляция из плотной ткани.
+    .suffix = TJunction

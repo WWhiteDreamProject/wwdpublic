@@ -1,0 +1,12 @@
+- type: job
+  id: SyndicateBotanist
+  name: job-name-syndbotanist
+  description: job-description-syndbotanist
+  playTimeTracker: JobSyndicateBotanist
+  icon: "JobIconSyndicateBotanist"
+  supervisors: job-supervisors-directorofinterpharm
+  access:
+  - MaintenanceSyndicate
+  - FoodSyndicate
+  - GeneralSyndicate
+

@@ -1,0 +1,14 @@
+ent-BlackShuttleWindow = черное окно шаттла
+    .desc = { ent-WindowRCDResistant.desc }
+ent-BlackShuttleWindowDiagonal = { ent-BlackShuttleWindow }
+    .suffix = diagonal
+    .desc = { ent-BlackShuttleWindow.desc }
+ent-RedShuttleWindow = красное окно шаттла
+    .desc = { ent-WindowRCDResistant.desc }
+ent-RedShuttleWindowDiagonal = { ent-RedShuttleWindow }
+    .suffix = diagonal
+    .desc = { ent-RedShuttleWindow.desc }
+ent-CargoShuttleWindow = окно грузового шаттла
+    .desc = { ent-WindowRCDResistant.desc }
+ent-SalvageShuttleWindow = окно экспедиционного шаттла
+    .desc = { ent-WindowRCDResistant.desc }

@@ -1,0 +1,26 @@
+- type: entity
+  id: StandardTWSyndicateStation
+  parent:
+  - BaseStation
+  - BaseStationJobsSpawning
+  - BaseStationGateway
+  - BaseStationMagnet
+  - BaseStationSyndicate
+  categories: [ HideSpawnMenu ]
+  suffix: "TW"
+  components:
+  - type: Transform
+
+- type: entity
+  id: StandardTWSyndicateGroundStation
+  parent:
+  - BaseStation
+  - BaseStationJobsSpawning
+  - BaseStationGateway
+  - BaseStationSyndicate
+  categories: [ HideSpawnMenu ]
+  suffix: "TW"
+  components:
+  - type: Transform
+
+

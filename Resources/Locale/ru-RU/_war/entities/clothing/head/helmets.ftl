@@ -1,0 +1,14 @@
+ent-ClothingHeadHelmetSyndicatePilot = шлем пилота синдиката
+    .desc = Шлем для пилота.
+ent-ClothingHeadHelmetPilot = шлем пилота нанотрайзена
+    .desc = Шлем для пилота.
+ent-ClothingHeadHelmetSyndicateSecurityV1 = шлем синдиката MARK-I
+    .desc = Первое поколение шлемов синдиката.
+ent-ClothingHeadHelmetSyndicateSecurityV2 = шлем синдиката MARK-II
+    .desc = Второе поколение шлемов синдиката.
+ent-ClothingHeadHelmetSyndicateSecurityV3 = шлем синдиката MARK-III
+    .desc = Третье поколение шлемов синдиката.
+ent-ClothingHeadHelmetSyndicateBombsuit = шлем подрывника синдиката
+    .desc = Тяжелый шлем, предназначенный для того, чтобы выдерживать давление, создаваемое бомбой и ее осколками.
+ent-ClothingHeadHelmetSyndicateFire = пожарная каска синдиката
+    .desc = Обеспечивает определенную термостойкость и выглядит круто.
