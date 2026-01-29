@@ -66,7 +66,13 @@ public sealed partial class LoadoutPicker
             throw new Exception($"Cannot load prototype {categoryPrototypeId}");
 
         if (categoryPrototype.SubCategories.Count == 0)
+        {
+            if (!_loadoutCache.ContainsKey(categoryPrototypeId) ||
+            _loadoutCache[categoryPrototypeId].Count == 0)
+                return (new LoadoutCategoryShowMenuEntry(categoryPrototypeId), 0);
+
             return (new LoadoutCategoryShowMenuEntry(categoryPrototypeId), 1);
+        }
 
         var entry = new LoadoutEntriesContainerMenuEntry(categoryPrototypeId);
 
