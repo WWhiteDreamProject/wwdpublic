@@ -13,4 +13,7 @@ access-level-trauma-hangar = Ангар
 access-level-trauma-command = Главврач TT
 
 access-level-nc-general = Житель Найт-Сити
+access-level-edgerunner = Эджраннер
+access-level-fixer = Фиксер
+access-level-ripper = Рипер
 

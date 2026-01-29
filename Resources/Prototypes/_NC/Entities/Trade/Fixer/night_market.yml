@@ -7,8 +7,8 @@
   components:
   - type: UserInterface
     interfaces:
-      enum.StoreUiKey.Key:
-        type: NcStoreStructuredBoundUi
+    enum.StoreUiKey.Key:
+      type: NcStoreStructuredBoundUi
   - type: Sprite
     sprite: Objects/Devices/pda.rsi # Placeholder, maybe use a laptop sprite if available
     state: pda-bartender # Placeholder
@@ -19,62 +19,8 @@
     - NightMarket_Buy
     contractPresets:
     - PresetBazar
-
-- type: storeCategoryStructured
-  id: NightMarket_Seeds
-  name: "Ботаника"
-  entries:
-  - proto: SeedExtractorFlatpack
-    price: 2000
-    count: 2
-  - proto: HydroponicsTrayFlatpack
-    price: 600
-    count: 6
-  - proto: AloeSeeds
-    price: 225
-    count: 5
-  - proto: AmbrosiaVulgarisSeeds
-    price: 425
-    count: 5
-  - proto: ChiliSeeds
-    price: 250
-    count: 3
-  - proto: CocoaSeeds
-    price: 750
-    count: 1
-  - proto: CornSeeds
-    price: 125
-    count: 5
-  - proto: GarlicSeeds
-    price: 200
-    count: 4
-  - proto: OnionSeeds
-    price: 200
-    count: 4
-  - proto: OnionRedSeeds
-    price: 225
-    count: 3
-  - proto: PoppySeeds
-    price: 450
-    count: 2
-  - proto: PotatoSeeds
-    price: 150
-    count: 5
-  - proto: RiceSeeds
-    price: 150
-    count: 5
-  - proto: SoybeanSeeds
-    price: 100
-    count: 5
-  - proto: TeaPlantSeeds
-    price: 700
-    count: 1
-  - proto: TomatoSeeds
-    price: 275
-    count: 4
-  - proto: WheatSeeds
-    price: 150
-    count: 5
+  - type: AccessReader
+    access: [["Fixer"]]
 
 - type: storeCategoryStructured
   id: NightMarket_Weapons
@@ -102,10 +48,9 @@
     price: 2500
     count: 1
 
-
 - type: storeCategoryStructured
   id: NightMarket_Armor
-  name: "Броня и Шлемы"
+  name: "Защита"
   entries:
   - proto: ClothingOuterArmorBasic
     price: 350
@@ -155,7 +100,6 @@
     price: 1500
     count: 1
 
-
 - type: storeCategoryStructured
   id: NightMarket_Ammo
   name: "Боеприпасы"
@@ -197,6 +141,95 @@
     price: 80
     count: 3
 
+- type: storeCategoryStructured
+  id: NightMarket_Medical
+  name: "Медицина"
+  entries:
+  - proto: HandheldHealthAnalyzer
+    price: 400
+    count: 6
+  - proto: EmergencyRollerBedSpawnFolded
+    price: 600
+    count: 3
+  - proto: Brutepack
+    price: 100
+    count: 20
+  - proto: Ointment
+    price: 100
+    count: 20
+  - proto: Bloodpack
+    price: 150
+    count: 10
+  - proto: Defibrillator
+    price: 900
+    count: 2
+  - proto: EpinephrineChemistryBottle
+    price: 300
+    count: 6
+  - proto: Syringe
+    price: 40
+    count: 30
+
+- type: storeCategoryStructured
+  id: NightMarket_BotanyEquipment
+  name: "Бот. Оборудование"
+  entries:
+  - proto: SeedExtractorFlatpack
+    price: 2000
+    count: 1
+  - proto: HydroponicsTrayFlatpack
+    price: 600
+    count: 3
+
+- type: storeCategoryStructured
+  id: NightMarket_Seeds
+  name: "Семена"
+  entries:
+  - proto: AloeSeeds
+    price: 225
+    count: 5
+  - proto: AmbrosiaVulgarisSeeds
+    price: 425
+    count: 5
+  - proto: ChiliSeeds
+    price: 250
+    count: 3
+  - proto: CocoaSeeds
+    price: 750
+    count: 1
+  - proto: CornSeeds
+    price: 125
+    count: 5
+  - proto: GarlicSeeds
+    price: 200
+    count: 4
+  - proto: OnionSeeds
+    price: 200
+    count: 4
+  - proto: OnionRedSeeds
+    price: 225
+    count: 3
+  - proto: PoppySeeds
+    price: 450
+    count: 2
+  - proto: PotatoSeeds
+    price: 150
+    count: 5
+  - proto: RiceSeeds
+    price: 150
+    count: 5
+  - proto: SoybeanSeeds
+    price: 100
+    count: 5
+  - proto: TeaPlantSeeds
+    price: 700
+    count: 1
+  - proto: TomatoSeeds
+    price: 275
+    count: 4
+  - proto: WheatSeeds
+    price: 150
+    count: 5
 
 - type: storePresetStructured
   id: NightMarket_Buy
@@ -206,4 +239,7 @@
   - NightMarket_Weapons
   - NightMarket_Armor
   - NightMarket_Ammo
+  - NightMarket_Medical
+  - NightMarket_BotanyEquipment
   - NightMarket_Seeds
+泛泛泛

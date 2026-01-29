@@ -1,0 +1,127 @@
+- type: entity
+  id: TrademachineBotany
+  parent: Trademachine
+  name: ООО "Веселый огородник"
+  description: Нелегальная ботаника в каждый дом. В мире киббла каждый помидор — на вес золота.
+  suffix: botany, normal
+  components:
+  - type: NcStore
+    buyPresets:
+    - TradeBotany_Buy
+    sellPresets:
+    - TradeBotany_Sell
+    contractPresets:
+    - PresetBotany
+
+- type: storeCategoryStructured
+  id: TradeBotany_Equipment
+  name: "Оборудование"
+  entries:
+  - proto: SeedExtractorFlatpack
+    price: 5000
+    count: 1
+  - proto: HydroponicsTrayFlatpack
+    price: 1200
+    count: 3
+
+- type: storeCategoryStructured
+  id: TradeBotany_Seeds
+  name: "Семена"
+  entries:
+  - proto: AloeSeeds
+    price: 800
+    count: 5
+  - proto: AmbrosiaVulgarisSeeds
+    price: 2500
+    count: 2
+  - proto: ChiliSeeds
+    price: 700
+    count: 5
+  - proto: CocoaSeeds
+    price: 4000
+    count: 1
+  - proto: CornSeeds
+    price: 400
+    count: 10
+  - proto: GarlicSeeds
+    price: 600
+    count: 5
+  - proto: OnionSeeds
+    price: 500
+    count: 5
+  - proto: OnionRedSeeds
+    price: 600
+    count: 5
+  - proto: PoppySeeds
+    price: 1500
+    count: 3
+  - proto: PotatoSeeds
+    price: 400
+    count: 10
+  - proto: RiceSeeds
+    price: 400
+    count: 10
+  - proto: SoybeanSeeds
+    price: 400
+    count: 10
+  - proto: TeaPlantSeeds
+    price: 3000
+    count: 1
+  - proto: TomatoSeeds
+    price: 600
+    count: 5
+  - proto: WheatSeeds
+    price: 400
+    count: 10
+
+- type: storeCategoryStructured
+  id: TradeBotany_SellCrops
+  name: "Сбыт урожая (Luxury Food)"
+  entries:
+  - proto: FoodTomato
+    price: 220
+  - proto: FoodPotato
+    price: 140
+  - proto: FoodCarrot
+    price: 140
+  - proto: FoodGarlic
+    price: 220
+  - proto: FoodOnion
+    price: 180
+  - proto: FoodOnionRed
+    price: 220
+  - proto: FoodChiliPepper
+    price: 250
+  - proto: FoodAloe
+    price: 300
+  - proto: RiceBushel
+    price: 120
+  - proto: FoodSoybeans
+    price: 120
+  - proto: FoodCorn
+    price: 140
+  - proto: WheatBushel
+    price: 150
+  - proto: OatBushel
+    price: 150
+  - proto: Sugarcane
+    price: 250
+  - proto: Log
+    price: 400
+  - proto: FoodAmbrosiaVulgaris
+    price: 900
+  - proto: FoodPoppy
+    price: 550
+
+- type: storePresetStructured
+  id: TradeBotany_Buy
+  currency: Credit
+  categories:
+  - TradeBotany_Equipment
+  - TradeBotany_Seeds
+
+- type: storePresetStructured
+  id: TradeBotany_Sell
+  currency: Credit
+  categories:
+  - TradeBotany_SellCrops

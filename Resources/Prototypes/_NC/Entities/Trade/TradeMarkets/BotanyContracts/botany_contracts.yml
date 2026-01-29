@@ -1,0 +1,195 @@
+- type: storeContractPack
+  id: PackBotany
+  contracts:
+  - id: botany_contract_SoupBase
+    weight: 50
+  - id: botany_contract_GrainSupply
+    weight: 50
+  - id: botany_contract_OnionMix
+    weight: 30
+  - id: botany_contract_MedicalHerbs
+    weight: 40
+  - id: botany_contract_SpicyMix
+    weight: 40
+  - id: botany_contract_SoyProtein
+    weight: 40
+  - id: botany_contract_EliteBrew
+    weight: 20
+  - id: botany_contract_Narcotics
+    weight: 20
+
+- type: storeContractsPreset
+  id: PresetBotany
+  limits:
+    Easy: 3
+    Medium: 2
+    Hard: 1
+  packs:
+  - id: PackBotany
+    weight: 1
+
+# --- Easy Contracts ---
+
+- type: storeContract
+  id: botany_contract_SoupBase
+  name: "Набор для супа"
+  description: "Местный приют нуждается в свежих овощах для похлебки. Настоящие продукты — залог здоровья."
+  difficulty: Easy
+  targets:
+  - id: FoodTomato
+    required: { min: 4, max: 6 }
+  - id: FoodPotato
+    required: { min: 4, max: 6 }
+  rewards:
+  - type: Currency
+    id: Credit
+    amount: { min: 1500, max: 2500 }
+  - type: Pool
+    amount: { min: 1, max: 2 }
+    options:
+    - type: Pool
+      id: botany_easy
+
+- type: storeContract
+  id: botany_contract_GrainSupply
+  name: "Зерновой фонд"
+  description: "Нам нужно зерно для выпечки настоящего хлеба. Жители станции устали от синтетики."
+  difficulty: Easy
+  targets:
+  - id: WheatBushel
+    required: { min: 5, max: 8 }
+  - id: RiceBushel
+    required: { min: 5, max: 8 }
+  rewards:
+  - type: Currency
+    id: Credit
+    amount: { min: 1200, max: 2000 }
+  - type: Pool
+    amount: 1
+    options:
+    - type: Pool
+      id: botany_easy
+
+- type: storeContract
+  id: botany_contract_OnionMix
+  name: "Луковое ассорти"
+  description: "Заказ от сети закусочных. Им нужен лук для бургеров класса 'Люкс'."
+  difficulty: Easy
+  targets:
+  - id: FoodOnion
+    required: { min: 4, max: 6 }
+  - id: FoodOnionRed
+    required: { min: 4, max: 6 }
+  rewards:
+  - type: Currency
+    id: Credit
+    amount: { min: 1800, max: 2800 }
+  - type: Pool
+    amount: 1
+    options:
+    - type: Pool
+      id: botany_easy
+
+# --- Medium Contracts ---
+
+- type: storeContract
+  id: botany_contract_MedicalHerbs
+  name: "Фармацевтический заказ"
+  description: "Подпольная клиника риперов ищет компоненты для регенеративных мазей."
+  difficulty: Medium
+  targets:
+  - id: FoodAloe
+    required: { min: 5, max: 8 }
+  - id: FoodAmbrosiaVulgaris
+    required: { min: 4, max: 6 }
+  rewards:
+  - type: Currency
+    id: Credit
+    amount: { min: 3500, max: 5500 }
+  - type: Pool
+    amount: { min: 1, max: 2 }
+    options:
+    - type: Pool
+      id: botany_medium
+
+- type: storeContract
+  id: botany_contract_SpicyMix
+  name: "Острый дефицит"
+  description: "Нам нужны натуральные консерванты и специи. Чили и чеснок — отличный выбор."
+  difficulty: Medium
+  targets:
+  - id: FoodChiliPepper
+    required: { min: 5, max: 8 }
+  - id: FoodGarlic
+    required: { min: 5, max: 8 }
+  rewards:
+  - type: Currency
+    id: Credit
+    amount: { min: 3000, max: 5000 }
+  - type: Pool
+    amount: 1
+    options:
+    - type: Pool
+      id: botany_medium
+
+- type: storeContract
+  id: botany_contract_SoyProtein
+  name: "Белковый концентрат"
+  description: "Производство искусственного мяса требует натуральных добавок. Соя и кукуруза — лучший вариант."
+  difficulty: Medium
+  targets:
+  - id: FoodSoybeans
+    required: { min: 10, max: 15 }
+  - id: FoodCorn
+    required: { min: 10, max: 15 }
+  rewards:
+  - type: Currency
+    id: Credit
+    amount: { min: 4000, max: 6000 }
+  - type: Pool
+    amount: 1
+    options:
+    - type: Pool
+      id: botany_medium
+
+# --- Hard Contracts ---
+
+- type: storeContract
+  id: botany_contract_EliteBrew
+  name: "Элитный вечер"
+  description: "Один из руководителей корпорации желает устроить чаепитие. Нужен лучший чай и какао."
+  difficulty: Hard
+  targets:
+  - id: LeavesTea
+    required: { min: 5, max: 8 }
+  - id: FoodCocoaPod
+    required: { min: 5, max: 8 }
+  rewards:
+  - type: Currency
+    id: Credit
+    amount: { min: 12000, max: 18000 }
+  - type: Pool
+    amount: { min: 2, max: 3 }
+    options:
+    - type: Pool
+      id: botany_hard
+
+- type: storeContract
+  id: botany_contract_Narcotics
+  name: "Заказ от химии"
+  description: "Нам нужны растения с высоким содержанием алкалоидов. Вопросы не задавать."
+  difficulty: Hard
+  targets:
+  - id: FoodPoppy
+    required: { min: 8, max: 12 }
+  - id: FoodAmbrosiaVulgaris
+    required: { min: 8, max: 12 }
+  rewards:
+  - type: Currency
+    id: Credit
+    amount: { min: 15000, max: 22000 }
+  - type: Pool
+    amount: { min: 2, max: 3 }
+    options:
+    - type: Pool
+      id: botany_hard

@@ -1,0 +1,142 @@
+- type: entity
+  id: TrademachineEdge
+  parent: Trademachine
+  name: Торговый автомат эджраннеров
+  description: Нужно срочно — он рядом. Выбирай, плати, забирай.
+  suffix: vendor, normal
+  components:
+  - type: NcStore
+    buyPresets:
+    - TradeEdge_Buy
+    sellPresets:
+    - TradeEdge_Sell
+    contractPresets:
+    - PresetBazar
+  - type: AccessReader
+    access: [["Edgerunner"]]
+
+- type: storeCategoryStructured
+  id: EdgeMarket_Melee
+  name: "Ближний бой"
+  entries:
+  - proto: CombatKnife
+    price: 250
+    count: 5
+  - proto: SurvivalKnife
+    price: 350
+    count: 3
+  - proto: Machete
+    price: 400
+    count: 3
+  - proto: KukriKnife
+    price: 450
+    count: 2
+  - proto: FireAxe
+    price: 1000
+    count: 1
+  - proto: Katana
+    price: 1500
+    count: 1
+
+
+- type: storeCategoryStructured
+  id: EdgeMarket_Medical
+  name: "Медицина"
+  entries:
+  - proto: HandheldHealthAnalyzer
+    price: 500
+    count: 5
+  - proto: EmergencyRollerBedSpawnFolded
+    price: 800
+    count: 2
+  - proto: Brutepack
+    price: 150
+    count: 10
+  - proto: Ointment
+    price: 150
+    count: 10
+  - proto: Bloodpack
+    price: 200
+    count: 5
+  - proto: Defibrillator
+    price: 1200
+    count: 2
+  - proto: EpinephrineChemistryBottle
+    price: 400
+    count: 3
+  - proto: Syringe
+    price: 50
+    count: 20
+
+- type: storeCategoryStructured
+  id: EdgeMarket_Ranged
+  name: "Дальний бой"
+  entries:
+  - proto: WeaponPistolMk58
+    price: 700
+    count: 3
+  - proto: WeaponPistolN1984
+    price: 1000
+    count: 2
+  - proto: WeaponRifleM04
+    price: 3500
+    count: 1
+  - proto: WeaponSubMachineGunWt550
+    price: 2000
+    count: 2
+
+- type: storeCategoryStructured
+  id: EdgeMarket_Ammo
+  name: "Патроны"
+  entries:
+  - proto: MagazinePistol
+    price: 150
+    count: 10
+  - proto: MagazineMagnum
+    price: 250
+    count: 5
+  - proto: MagazinePistolSubMachineGunTopMounted
+    price: 300
+    count: 5
+  - proto: MagazineGrenadeFrag
+    price: 600
+    count: 2
+  - proto: MagazineBoxPistol
+    price: 800
+    count: 5
+  - proto: MagazineBoxMagnum
+    price: 1000
+    count: 3
+  - proto: MagazineBoxRifle
+    price: 1500
+    count: 2
+
+- type: storeCategoryStructured
+  id: EdgeMarket_Armor
+  name: "Защита"
+  entries:
+  - proto: ClothingOuterArmorBasic
+    price: 500
+    count: 5
+  - proto: ClothingOuterVestWebMerc
+    price: 700
+    count: 3
+  - proto: ClothingOuterArmorBulletproof
+    price: 1500
+    count: 2
+  - proto: ClothingHeadHelmetBasic
+    price: 250
+    count: 5
+  - proto: ClothingHeadHelmetMerc
+    price: 500
+    count: 3
+
+- type: storePresetStructured
+  id: TradeEdge_Buy
+  currency: Credit
+  categories:
+  - EdgeMarket_Melee
+  - EdgeMarket_Medical
+  - EdgeMarket_Ranged
+  - EdgeMarket_Ammo
+  - EdgeMarket_Armor

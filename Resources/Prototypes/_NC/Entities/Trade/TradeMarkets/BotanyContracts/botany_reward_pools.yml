@@ -1,0 +1,62 @@
+- type: ncContractRewardPool
+  id: botany_easy
+  entries:
+  - type: Item
+    id: SeedExtractorFlatpack
+    weight: 1
+  - type: Item
+    id: HydroponicsTrayFlatpack
+    weight: 2
+  - type: Item
+    id: MaterialDurathread1
+    amount: { min: 5, max: 10 }
+    weight: 3
+  - type: Item
+    id: MaterialCloth1
+    amount: { min: 5, max: 10 }
+    weight: 3
+  - type: Item
+    id: ClothingOuterArmorBasic
+    weight: 1
+  - type: Item
+    id: Syringe
+    amount: { min: 5, max: 10 }
+    weight: 5
+
+- type: ncContractRewardPool
+  id: botany_medium
+  entries:
+  - type: Item
+    id: WeaponPistolMk58
+    weight: 1
+  - type: Item
+    id: WeaponPistolViper
+    weight: 1
+  - type: Item
+    id: MedkitFilled
+    weight: 2
+  - type: Item
+    id: ClothingOuterVestWebMerc
+    weight: 2
+  - type: Item
+    id: MagazineBoxPistol
+    weight: 2
+
+- type: ncContractRewardPool
+  id: botany_hard
+  entries:
+  - type: Item
+    id: WeaponShotgunBulldog
+    weight: 1
+  - type: Item
+    id: WeaponSubMachineGunWt550
+    weight: 1
+  - type: Item
+    id: MedkitCombatFilled
+    weight: 1
+  - type: Item
+    id: ClothingOuterArmorBulletproof
+    weight: 1
+  - type: Item
+    id: MagazineBoxRifle
+    weight: 1

@@ -6,6 +6,7 @@
   salary: 0
   access:
     - NC_General
+    - Fixer
   startingGear: FixerGear
 
 - type: startingGear

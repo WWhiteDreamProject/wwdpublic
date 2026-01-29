@@ -69,7 +69,22 @@
   id: NC_General
   name: access-level-nc-general
 
+- type: accessLevel
+  id: EdgeRunner
+  name: access-level-edgerunner
+
+- type: accessLevel
+  id: Fixer
+  name: access-level-fixer
+
+- type: accessLevel
+  id: Ripper
+  name: access-level-ripper
+
 - type: accessGroup
   id: NightCity
   tags:
   - NC_General
+  - EdgeRunner
+  - Fixer
+  - Ripper
