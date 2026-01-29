@@ -5,7 +5,21 @@
   name: дверь
   components:
   - type: Sprite
-    sprite: Structures/Doors/Airlocks/Standard/basic.rsi
+    sprite: _NC/Structures/Doors/Door.rsi
+    layers:
+    - state: closed
+      map: ["enum.DoorVisualLayers.Base"]
+    - state: closed_unlit
+      map: ["enum.DoorVisualLayers.BaseUnlit"]
+      shader: unshaded
+    - state: welded
+      map: ["enum.WeldableLayers.BaseWelded"]
+    - state: bolted_unlit
+      map: ["enum.DoorVisualLayers.BaseBolted"]
+      shader: unshaded
+    - state: emergency_unlit
+      map: ["enum.DoorVisualLayers.BaseEmergencyAccess"]
+      shader: unshaded
 
 
 - type: entity
@@ -33,33 +47,3 @@
     address: "Апартаменты"
   - type: AccessReader
     access: [["NC_General"]]
-
-- type: entity
-  id: NCAirlockNCPD
-  parent: BaseNCAirlock
-  name: дверь NCPD
-  components:
-  - type: Sprite
-    color: "#3366FF"
-  - type: AccessReader
-    access: [["NCPD_Patrol"]]
-
-- type: entity
-  id: NCAirlockMaxTac
-  parent: BaseNCAirlock
-  name: дверь MaxTac
-  components:
-  - type: Sprite
-    color: "#202020"
-  - type: AccessReader
-    access: [["MaxTac_General"]]
-
-- type: entity
-  id: NCAirlockTraumaTeam
-  parent: BaseNCAirlock
-  name: дверь Trauma Team
-  components:
-  - type: Sprite
-    color: "#FF4500"
-  - type: AccessReader
-    access: [["Trauma_Medical"]]

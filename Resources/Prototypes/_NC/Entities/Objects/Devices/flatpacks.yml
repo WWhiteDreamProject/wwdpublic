@@ -1,0 +1,29 @@
+- type: entity
+  parent: BaseFlatpack
+  id: HydroponicsTrayFlatpack
+  name: упаковка гидропонного лотка
+  description: Набор деталей для сборки гидропонного лотка.
+  components:
+  - type: Flatpack
+    entity: hydroponicsTray
+  - type: Sprite
+    layers:
+    - state: base
+    - state: overlay
+      color: "#cec8ac"
+    - state: icon-default
+
+- type: entity
+  parent: BaseFlatpack
+  id: SeedExtractorFlatpack
+  name: упаковка экстрактора семян
+  description: Набор деталей для сборки экстрактора семян.
+  components:
+  - type: Flatpack
+    entity: SeedExtractor
+  - type: Sprite
+    layers:
+    - state: base
+    - state: overlay
+      color: "#cec8ac"
+    - state: icon-default

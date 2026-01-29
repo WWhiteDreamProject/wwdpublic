@@ -4,6 +4,7 @@
   description: job-description-ncpd-sergeant
   playTimeTracker: JobNCPDSergeant
   weight: 10
+  salary: 900
   startingGear: NCPDSergeantGear
   supervisors: job-supervisors-ncpd-chief
   access:

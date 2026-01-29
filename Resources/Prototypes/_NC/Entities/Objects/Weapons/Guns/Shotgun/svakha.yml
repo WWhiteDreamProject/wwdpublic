@@ -1,0 +1,30 @@
+- type: entity
+  name: Сваха
+  parent: BaseWeaponShotgun
+  id: WeaponShotgunSvakha
+  description: Сваха от Джорджии Армс — это экзотический дробовик низкого качества со скользящим затвором. В магазине всего 1 патрон, зато он принимает почти любые патроны.
+  components:
+  - type: Sprite
+    sprite: _NC/Objects/Weapons/Guns/Rifles/svaha.rsi
+    layers:
+    - state: piecannon
+      map: [ "enum.GunVisualLayers.Base" ]
+  - type: Clothing
+    sprite: _NC/Objects/Weapons/Guns/Rifles/svaha.rsi
+  - type: Gun
+    fireRate: 0.5
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
+  - type: BallisticAmmoProvider
+    capacity: 1
+    proto: ShellShotgun
+    whitelist:
+      tags:
+      - ShellShotgun
+      - Flare
+  - type: Item
+    size: Large
+  - type: Wieldable
+    autoWield: false
+  - type: StaticPrice
+    price: 350

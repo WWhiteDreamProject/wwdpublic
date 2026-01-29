@@ -3,6 +3,7 @@
   name: Риппер
   description: job-description-reaper
   playTimeTracker: JobReaper
+  salary: 300
   access:
     - NC_General
   startingGear: ReaperGear

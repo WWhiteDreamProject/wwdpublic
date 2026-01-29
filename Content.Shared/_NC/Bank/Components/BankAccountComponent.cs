@@ -8,10 +8,10 @@ namespace Content.Shared._NC.Bank.Components
     public sealed partial class BankAccountComponent : Component
     {
         /// <summary>
-        /// Текущий баланс. 
+        /// Текущий баланс.
         /// Атрибут AutoNetworkedField сам отправит значение клиенту, когда мы изменим его на сервере.
         /// </summary>
         [DataField, AutoNetworkedField]
-        public int Balance = 0;
+        public int Balance = 2000;
     }
 }

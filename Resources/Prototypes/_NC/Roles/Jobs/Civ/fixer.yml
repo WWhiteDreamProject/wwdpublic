@@ -3,6 +3,7 @@
   name: Фиксер
   description: job-description-fixer
   playTimeTracker: JobFixer
+  salary: 0
   access:
     - NC_General
   startingGear: FixerGear

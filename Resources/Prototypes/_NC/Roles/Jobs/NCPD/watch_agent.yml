@@ -4,6 +4,7 @@
   description: job-description-ncpd-watch-agent
   playTimeTracker: JobNCPDWatchAgent
   weight: 10
+  salary: 800
   startingGear: NCPDWatchAgentGear
   supervisors: job-supervisors-ncpd-chief
   access:

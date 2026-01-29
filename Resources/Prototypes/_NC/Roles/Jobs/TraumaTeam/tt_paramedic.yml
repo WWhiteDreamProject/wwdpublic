@@ -4,6 +4,7 @@
   description: job-description-traumateam-paramedic
   playTimeTracker: JobTraumaTeamParamedic
   weight: 20
+  salary: 850
   startingGear: TraumaTeamParamedicGear
   supervisors: job-supervisors-traumateam-chief
   access:

@@ -3,6 +3,7 @@
   name: Эджраннер
   description: job-description-edgerunner
   playTimeTracker: JobEdgeRunnerSolo
+  salary: 0
   access:
     - NC_General
   startingGear: EdgeRunnerSoloGear

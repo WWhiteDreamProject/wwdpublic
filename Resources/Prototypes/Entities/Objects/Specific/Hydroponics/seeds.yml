@@ -42,6 +42,7 @@
   parent: SeedBase
   name: packet of wheat seeds
   id: WheatSeeds
+  description: "These may look like normal wheat seeds, but they are actually tiny little bread plants."
   components:
     - type: Seed
       seedId: wheat
@@ -63,6 +64,7 @@
   parent: SeedBase
   name: packet of oat seeds
   id: OatSeeds
+  description: "These seeds grow into oats. Good for porridge."
   components:
     - type: Seed
       seedId: oat
@@ -73,6 +75,7 @@
   parent: SeedBase
   name: packet of banana seeds
   id: BananaSeeds
+  description: "They're seeds that grow into bananas. Keep away from the clown."
   components:
     - type: Seed
       seedId: banana
@@ -83,6 +86,7 @@
   parent: SeedBase
   name: packet of mimana seeds
   id: MimanaSeeds
+  description: "These seeds glow with a silent hush."
   components:
     - type: Seed
       seedId: mimana
@@ -93,6 +97,7 @@
   parent: SeedBase
   name: packet of carrot seeds
   id: CarrotSeeds
+  description: "These seeds grow into carrots."
   components:
     - type: Seed
       seedId: carrots
@@ -103,6 +108,7 @@
   parent: SeedBase
   name: packet of cabbage seeds
   id: CabbageSeeds
+  description: "These seeds grow into cabbages."
   components:
     - type: Seed
       seedId: cabbage
@@ -113,6 +119,7 @@
   parent: SeedBase
   name: packet of garlic seeds
   id: GarlicSeeds
+  description: "These seeds grow into garlic."
   components:
     - type: Seed
       seedId: garlic
@@ -134,6 +141,7 @@
   parent: SeedBase
   name: packet of lemon seeds
   id: LemonSeeds
+  description: "These seeds grow into lemon trees."
   components:
     - type: Seed
       seedId: lemon
@@ -144,6 +152,7 @@
   parent: SeedBase
   name: packet of lemoon seeds
   id: LemoonSeeds
+  description: "These seeds grow into lemoon trees."
   components:
     - type: Seed
       seedId: lemoon
@@ -154,6 +163,7 @@
   parent: SeedBase
   name: packet of lime seeds
   id: LimeSeeds
+  description: "These seeds grow into lime trees."
   components:
     - type: Seed
       seedId: lime
@@ -164,6 +174,7 @@
   parent: SeedBase
   name: packet of orange seeds
   id: OrangeSeeds
+  description: "These seeds grow into orange trees."
   components:
     - type: Seed
       seedId: orange
@@ -185,6 +196,7 @@
   parent: SeedBase
   name: packet of pineapple seeds
   id: PineappleSeeds
+  description: "These seeds grow into pineapple plants."
   components:
     - type: Seed
       seedId: pineapple
@@ -195,6 +207,7 @@
   parent: SeedBase
   name: packet of potato seeds
   id: PotatoSeeds
+  description: "Boil 'em! Mash 'em! Stick 'em in a stew!"
   components:
     - type: Seed
       seedId: potato
@@ -205,6 +218,7 @@
   parent: SeedBase
   name: packet of sugarcane seeds
   id: SugarcaneSeeds
+  description: "These seeds grow into sugarcane."
   components:
     - type: Seed
       seedId: sugarcane
@@ -215,6 +229,7 @@
   parent: SeedBase
   name: packet of tea plant seeds
   id: TeaPlantSeeds
+  description: "These seeds grow into tea plants."
   components:
     - type: Seed
       seedId: teaPlant
@@ -225,6 +240,7 @@
   parent: SeedBase
   name: packet of papercane seeds
   id: PapercaneSeeds
+  description: "These seeds grow into papercane."
   components:
     - type: Seed
       seedId: papercane
@@ -235,6 +251,7 @@
   parent: SeedBase
   name: packet of tower cap spores
   id: TowercapSeeds
+  description: "These spores grow into tower caps."
   components:
     - type: Seed
       seedId: towercap
@@ -245,6 +262,7 @@
   parent: SeedBase
   name: packet of steel cap spores
   id: SteelcapSeeds
+  description: "These spores grow into steel caps."
   components:
     - type: Seed
       seedId: steelcap
@@ -255,6 +273,7 @@
   parent: SeedBase
   name: packet of tomato seeds
   id: TomatoSeeds
+  description: "These seeds grow into tomato plants."
   components:
     - type: Seed
       seedId: tomato
@@ -265,6 +284,7 @@
   parent: SeedBase
   name: packet of blue tomato seeds
   id: BlueTomatoSeeds
+  description: "These seeds grow into blue tomato plants."
   components:
     - type: Seed
       seedId: blueTomato
@@ -275,6 +295,7 @@
   parent: SeedBase
   name: packet of blood tomato seeds
   id: BloodTomatoSeeds
+  description: "These seeds grow into blood tomato plants."
   components:
     - type: Seed
       seedId: bloodTomato
@@ -285,6 +306,7 @@
   parent: SeedBase
   name: packet of killer tomato seeds
   id: KillerTomatoSeeds
+  description: "These seeds grow into killer tomato plants."
   components:
     - type: Seed
       seedId: killerTomato
@@ -295,6 +317,7 @@
   parent: SeedBase
   name: packet of eggplant seeds
   id: EggplantSeeds
+  description: "These seeds grow into eggplants."
   components:
     - type: Seed
       seedId: eggplant
@@ -305,6 +328,7 @@
   parent: SeedBase
   name: packet of apple seeds
   id: AppleSeeds
+  description: "These seeds grow into apple trees."
   components:
     - type: Seed
       seedId: apple
@@ -315,6 +339,7 @@
   parent: SeedBase
   name: packet of golden apple seeds
   id: GoldenAppleSeeds
+  description: "These seeds grow into golden apple trees."
   components:
     - type: Seed
       seedId: goldenApple
@@ -325,6 +350,7 @@
   parent: SeedBase
   name: packet of corn seeds
   id: CornSeeds
+  description: "I love corn!"
   components:
     - type: Seed
       seedId: corn
@@ -335,6 +361,7 @@
   parent: SeedBase
   name: packet of chanterelle spores
   id: ChanterelleSeeds
+  description: "These spores grow into chanterelle mushrooms."
   components:
     - type: Seed
       seedId: chanterelle
@@ -345,6 +372,7 @@
   parent: SeedBase
   name: packet of egg-plant seeds
   id: EggySeeds
+  description: "These seeds grow into egg-plants."
   components:
     - type: Seed
       seedId: eggy
@@ -553,6 +581,7 @@
   parent: SeedBase
   name: packet of rice seeds
   id: RiceSeeds
+  description: "These seeds grow into rice stalks."
   components:
     - type: Seed
       seedId: rice
@@ -563,6 +592,7 @@
   parent: SeedBase
   name: packet of soybean seeds
   id: SoybeanSeeds
+  description: "These seeds grow into soybeans."
   components:
     - type: Seed
       seedId: soybeans
@@ -573,6 +603,7 @@
   parent: SeedBase
   name: packet of spaceman's trumpet seeds
   id: SpacemansTrumpetSeeds
+  description: "A plant that makes no sound."
   components:
     - type: Seed
       seedId: spacemansTrumpet
@@ -583,6 +614,7 @@
   parent: SeedBase
   name: packet of koibean seeds
   id: KoibeanSeeds
+  description: "These seeds grow into koibeans."
   components:
     - type: Seed
       seedId: koibean
@@ -604,6 +636,7 @@
   parent: SeedBase
   name: packet of watermelon seeds
   id: WatermelonSeeds
+  description: "These seeds grow into watermelons."
   components:
     - type: Seed
       seedId: watermelon
@@ -614,6 +647,7 @@
   parent: SeedBase
   name: packet of holymelon seeds
   id: HolymelonSeeds
+  description: "These seeds grow into holy melons."
   components:
     - type: Seed
       seedId: holymelon
@@ -624,6 +658,7 @@
   parent: SeedBase
   name: packet of grape seeds
   id: GrapeSeeds
+  description: "These seeds grow into grapes."
   components:
     - type: Seed
       seedId: grape
@@ -634,6 +669,7 @@
   parent: SeedBase
   name: packet of cocoa seeds
   id: CocoaSeeds
+  description: "These seeds grow into cacao plants."
   components:
     - type: Seed
       seedId: cocoa
@@ -644,6 +680,7 @@
   parent: SeedBase
   name: packet of berry seeds
   id: BerrySeeds
+  description: "These seeds grow into berry bushes."
   components:
     - type: Seed
       seedId: berries
@@ -687,6 +724,7 @@
   parent: SeedBase
   name: packet of pumpkin seeds
   id: PumpkinSeeds
+  description: "These seeds grow into pumpkins."
   components:
     - type: Seed
       seedId: pumpkin
@@ -697,6 +735,7 @@
   parent: SeedBase
   name: packet of blue pumpkin seeds
   id: BluePumpkinSeeds
+  description: "These seeds grow into blue pumpkins."
   components:
     - type: Seed
       seedId: bluePumpkin
@@ -707,6 +746,7 @@
   parent: SeedBase
   name: packet of cotton seeds
   id: CottonSeeds
+  description: "These seeds grow into cotton plants."
   components:
     - type: Seed
       seedId: cotton
@@ -717,6 +757,7 @@
   parent: SeedBase
   name: packet of pyrotton seeds
   id: PyrottonSeeds
+  description: "These seeds grow into pyrotton plants."
   components:
     - type: Seed
       seedId: pyrotton
@@ -746,6 +787,7 @@
   parent: SeedBase
   name: packet of cherry seeds
   id: CherrySeeds
+  description: "These seeds grow into cherry trees."
   components:
     - type: Seed
       seedId: cherry
@@ -756,6 +798,7 @@
   parent: SeedBase
   name: packet of anomaly berry seeds
   id: AnomalyBerrySeeds
+  description: "These seeds grow into anomaly berry bushes."
   components:
     - type: Seed
       seedId: anomalyBerry

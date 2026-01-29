@@ -3,6 +3,7 @@
   name: Житель
   description: job-description-citizen
   playTimeTracker: JobNCCitizen
+  salary: 50
   startingGear: NCCitizenGear
   access:
     - NC_General

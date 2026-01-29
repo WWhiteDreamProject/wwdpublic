@@ -4,6 +4,7 @@
   description: job-description-ncpd-cadet
   playTimeTracker: JobNCPDCadet
   weight: 15
+  salary: 300
   startingGear: NCPDCadetGear
   supervisors: job-supervisors-ncpd-sergeant
   access:

@@ -4,6 +4,7 @@
   description: job-description-maxtac-operative
   playTimeTracker: JobMaxTacOperative
   weight: 10
+  salary: 1500
   startingGear: MaxTacOperativeGear
   supervisors: job-supervisors-maxtac-commander
   access:

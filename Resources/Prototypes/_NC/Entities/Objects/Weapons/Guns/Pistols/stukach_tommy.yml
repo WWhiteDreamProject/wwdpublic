@@ -1,0 +1,154 @@
+# Стукач Томми — комбинированное оружие (пистолет + подствольный дробовик)
+# Путь: Resources/Prototypes/_NC/Entities/Objects/Weapons/Guns/Pistols/stukach_tommy.yml
+
+- type: entity
+  name: Стукач Томми
+  parent: BaseItem
+  id: WeaponPistolStukachTommy
+  description: Экзотическая комбинация крупнокалиберного пистолета и дробовика от Centurian Essentials. Невероятно непрактичен, но выглядит круто. Требует удержания двумя руками — иначе вылетит из рук при выстреле.
+  components:
+  # Спрайт — пока placeholder, можно заменить на свой
+  - type: Sprite
+    sprite: _NC/Objects/Weapons/Guns/Pistol/stukach.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+
+  # Clothing — для ношения на поясе/спине
+  - type: Clothing
+    sprite: _NC/Objects/Weapons/Guns/Pistol/stukach.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - Belt
+
+  # Item — размер Large (двуручное, нельзя скрыть)
+  - type: Item
+    size: Large
+
+  # Gun — основные параметры стрельбы (будут меняться при переключении режима)
+  - type: Gun
+    fireRate: 4
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/mk58.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/empty.ogg
+    fireOnDropChance: 0.3
+    # Повышенная отдача для крупного калибра
+    minAngle: 2
+    maxAngle: 25
+    angleIncrease: 8
+    angleDecay: 6
+
+  # Ballistic ammo provider — начинаем с режима пистолета
+  - type: BallisticAmmoProvider
+    capacity: 8
+    proto: CartridgeMagnum
+    whitelist:
+      tags:
+      - CartridgeMagnum
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/bullet_insert.ogg
+    autoCycle: true
+
+  # Контейнер для боеприпасов
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+        ents: []
+
+  # DualAmmoProvider — два режима: пистолет и дробовик
+  - type: DualAmmoProvider
+    currentMode: 0
+    modes:
+    - prototype: CartridgeMagnum
+      capacity: 8
+      count: 8
+      modeName: dual-ammo-mode-pistol
+      fireRate: 4
+      soundGunshot:
+        path: /Audio/Weapons/Guns/Gunshots/mk58.ogg
+      whitelistTags:
+      - CartridgeMagnum
+    - prototype: ShellShotgun
+      capacity: 2
+      count: 2
+      modeName: dual-ammo-mode-shotgun
+      fireRate: 1.5
+      soundGunshot:
+        path: /Audio/Weapons/Guns/Gunshots/shotgun.ogg
+      whitelistTags:
+      - ShellShotgun
+
+  # Wieldable — можно взять двумя руками
+  - type: Wieldable
+    autoWield: false
+
+  # DropOnShoot — выпадает при стрельбе без wield
+  - type: DropOnShoot
+    dropMessage: gun-drop-on-shoot
+
+  # AmmoCounter — UI отображение патронов
+  - type: AmmoCounter
+
+  # MagazineVisuals — визуализация магазина
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+
+  - type: Appearance
+
+  # Цена
+  - type: StaticPrice
+    price: 1000
+
+  # Ближний бой
+  - type: MeleeWeapon
+    attackRate: 1.0
+    damage:
+      types:
+        Blunt: 10
+    swapKeys: true
+    disableHeavy: true
+    animation: WeaponArcThrust
+    wideAnimationRotation: 135
+    soundHit:
+      collection: MetalThud
+
+  - type: DamageOtherOnHit
+    staminaCost: 8
+
+  # Tag для идентификации
+  - type: Tag
+    tags:
+    - Sidearm
+
+# Пустой вариант для лута
+- type: entity
+  name: Стукач Томми
+  parent: WeaponPistolStukachTommy
+  id: WeaponPistolStukachTommyEmpty
+  suffix: Empty
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 8
+    proto: null
+  - type: DualAmmoProvider
+    currentMode: 0
+    modes:
+    - prototype: CartridgeMagnum
+      capacity: 8
+      count: 0
+      modeName: dual-ammo-mode-pistol
+      fireRate: 4
+    - prototype: ShellShotgun
+      capacity: 2
+      count: 0
+      modeName: dual-ammo-mode-shotgun
+      fireRate: 1.5

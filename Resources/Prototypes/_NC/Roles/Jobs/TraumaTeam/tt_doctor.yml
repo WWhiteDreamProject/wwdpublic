@@ -4,6 +4,7 @@
   description: job-description-traumateam-doctor
   playTimeTracker: JobTraumaTeamDoctor
   weight: 20
+  salary: 750
   startingGear: TraumaTeamDoctorGear
   supervisors: job-supervisors-traumateam-chief
   access:

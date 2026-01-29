@@ -1,0 +1,77 @@
+- type: entity
+  name: Штейнмейер М-04
+  parent: BaseItem
+  id: WeaponRifleM04
+  description: "М-04 Изменяемая Штурмовка от компании Штейнмейер. Компактное многоцелевое оружие с встроенным гранатометом. Магазин винтовки на 20 патронов, гранатомета — на 2 гранаты. Перезаряжаются отдельно."
+  components:
+  - type: Sprite
+    sprite: _NC/Objects/Weapons/Guns/Rifles/pie_cannon.rsi
+    layers:
+    - state: piecannon
+      map: [ "enum.GunVisualLayers.Base" ]
+  - type: Clothing
+    sprite: _NC/Objects/Weapons/Guns/Rifles/pie_cannon.rsi
+    slots:
+    - Back
+    - SuitStorage
+
+  - type: Item
+    size: Huge
+    heldPrefix: twohand
+  - type: Wieldable
+  - type: GunRequiresWield
+
+  - type: Gun
+    fireRate: 5
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/batrifle.ogg
+
+  # Ballistic ammo provider - initially Rifle
+  - type: BallisticAmmoProvider
+    capacity: 20
+    proto: CartridgeRifle
+    whitelist:
+      tags:
+      - CartridgeRifle
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+    autoCycle: true
+
+  # Контейнер для боеприпасов
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+        ents: []
+
+  # Dual Ammo Provider
+  - type: DualAmmoProvider
+    currentMode: 0
+    modes:
+    - prototype: CartridgeRifle
+      capacity: 20
+      count: 20
+      modeName: dual-ammo-mode-rifle
+      fireRate: 5
+      soundGunshot:
+        path: /Audio/Weapons/Guns/Gunshots/batrifle.ogg
+      whitelistTags:
+      - CartridgeRifle
+
+    - prototype: GrenadeFrag
+      capacity: 2
+      count: 2
+      modeName: dual-ammo-mode-grenade
+      fireRate: 1
+      soundGunshot:
+        path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
+      whitelistTags:
+      - Grenade
+
+  - type: AmmoCounter
+
+  - type: StaticPrice
+    price: 2500

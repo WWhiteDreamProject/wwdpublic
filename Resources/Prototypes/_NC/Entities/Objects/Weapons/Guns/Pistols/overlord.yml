@@ -1,0 +1,50 @@
+- type: entity
+  name: Ручная пушка Оверлорд
+  parent: BaseItem
+  id: WeaponPistolOverlord
+  description: "Решение ГанМарт для ультрадешевого запугивания. Выглядит как револьвер, но барабан декоративный. Использует встроенный магазин в рукоятке. Тяжелый, ненадежный и медленный."
+  components:
+  - type: Sprite
+    sprite: _NC/Objects/Weapons/Guns/Pistol/overlord.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+  - type: Clothing
+    sprite: _NC/Objects/Weapons/Guns/Pistol/overlord.rsi
+    slots:
+    - Belt
+
+  - type: Item
+    size: Normal
+
+  - type: Tag
+    tags:
+    - Sidearm
+
+  - type: Gun
+    fireRate: 1.5
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/mateba.ogg
+
+  - type: BallisticAmmoProvider
+    capacity: 6
+    proto: CartridgeMagnum
+    whitelist:
+      tags:
+      - CartridgeMagnum
+    soundInsert:
+      path: /Audio/Weapons/Guns/MagIn/revolver_magin.ogg
+    autoCycle: true
+
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+        ents: []
+
+  - type: AmmoCounter
+
+  - type: StaticPrice
+    price: 1500

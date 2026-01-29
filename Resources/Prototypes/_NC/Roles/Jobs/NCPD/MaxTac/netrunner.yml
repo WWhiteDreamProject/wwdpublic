@@ -4,6 +4,7 @@
   description: job-description-maxtac-netrunner
   playTimeTracker: JobMaxTacNetrunner
   weight: 5
+  salary: 1200
   startingGear: MaxTacNetrunnerGear
   supervisors: job-supervisors-maxtac-commander
   access:

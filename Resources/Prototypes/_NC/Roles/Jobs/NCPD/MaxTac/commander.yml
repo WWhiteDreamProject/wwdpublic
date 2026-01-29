@@ -4,6 +4,7 @@
   description: job-description-maxtac-commander
   playTimeTracker: JobMaxTacCommander
   weight: 5
+  salary: 1800
   startingGear: MaxTacCommanderGear
   supervisors: job-supervisors-centcom
   access:

@@ -4,6 +4,7 @@
   description: job-description-traumateam-operative
   playTimeTracker: JobTraumaTeamOperative
   weight: 15
+  salary: 900
   startingGear: TraumaTeamOperativeGear
   supervisors: job-supervisors-traumateam-chief
   access:
