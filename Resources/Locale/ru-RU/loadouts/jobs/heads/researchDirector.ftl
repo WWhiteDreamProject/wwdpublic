@@ -1,3 +1,3 @@
-loadout-description-LoadoutCommandRDNeckMantle = To show who has the authority around here.
-loadout-description-LoadoutCommandRDNeckCloak = To really show who has the authority around here.
-loadout-description-LoadoutCommandRDOuterWinter = A warm coat for the cold of space.
+loadout-description-LoadoutCommandRDNeckMantle = Чтобы показать, у кого здесь власть.
+loadout-description-LoadoutCommandRDNeckCloak = Чтобы действительно показать, у кого здесь есть власть.
+loadout-description-LoadoutCommandRDOuterWinter = Теплое пальто для холодного космоса.

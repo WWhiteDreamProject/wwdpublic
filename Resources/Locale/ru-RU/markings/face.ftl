@@ -94,8 +94,8 @@ marking-FaceNeckWideThick-neck_thick_m = Покрытие шеи (широкое
 marking-IronJaw = Железная челюсть
 marking-IronJaw-iron_jaw = Железная челюсть
 
-marking-EmissiveEyeRight-tattoo_eye_r = Right Cybernetic Eye (Emissive)
-marking-EmissiveEyeRight = Right Cybernetic Eye (Emissive)
+marking-EmissiveEyeRight-tattoo_eye_r = Правый кибернетический глаз (светящийся)
+marking-EmissiveEyeRight = Правый кибернетический глаз (светящийся)
 
-marking-EmissiveEyeLeft-tattoo_eye_l = Left Cybernetic Eye (Emissive)
-marking-EmissiveEyeLeft = Left Cybernetic Eye (Emissive)
+marking-EmissiveEyeLeft-tattoo_eye_l = Левый кибернетический глаз (светящийся)
+marking-EmissiveEyeLeft = Левый кибернетический глаз (светящийся)

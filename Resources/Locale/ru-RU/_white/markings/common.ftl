@@ -1,0 +1,1 @@
+marking-color-label = Цвет для «{$name}»:

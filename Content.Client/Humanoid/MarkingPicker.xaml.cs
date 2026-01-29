@@ -171,6 +171,13 @@ public sealed partial class MarkingPicker : Control
     private List<string> GetMarkingStateNames(MarkingPrototype marking)
     {
         List<string> result = new();
+        // WWDP EDIT START
+        if (marking.Sprites.Count == 1)
+        {
+            result.Add(GetMarkingName(marking));
+            return result;
+        }
+        // WWDP EDIT END
         foreach (var markingState in marking.Sprites)
         {
             switch (markingState)
@@ -238,7 +245,7 @@ public sealed partial class MarkingPicker : Control
             };
             var customize = new Button
             {
-                Text = "Customize",
+                Text = Loc.GetString("humanoid-profile-editor-loadouts-customize"), // WWDP EDIT
                 StyleClasses = { StyleBase.ButtonOpenLeft, },
                 Disabled = !item.Pressed,
             };
@@ -341,7 +348,7 @@ public sealed partial class MarkingPicker : Control
 
             var colorSelector = new ColorSelectorSliders();
 
-            colorContainer.AddChild(new Label { Text = $"{stateNames[i]} color:" });
+            colorContainer.AddChild(new Label { Text = Loc.GetString("marking-color-label", ("name", stateNames[i])) }); // WWDP EDIT
             colorContainer.AddChild(colorSelector);
 
             var listing = _currentMarkings.Markings[_selectedMarkingCategory];
