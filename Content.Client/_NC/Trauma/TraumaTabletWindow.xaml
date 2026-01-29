@@ -1,0 +1,57 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+                    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    Title="Trauma Tablet"
+                    MinSize="350 500"
+                    SetSize="400 600">
+    <PanelContainer StyleClasses="LowDivider">
+        <BoxContainer Orientation="Vertical" Margin="5">
+            <!-- HEADER / NAVIGATION -->
+            <BoxContainer Orientation="Horizontal" MinHeight="30" Margin="0 0 0 5">
+                <Control HorizontalExpand="True"/>
+                <Label Name="TitleLabel" Text="NO ACTIVE DISPATCH" StyleClasses="LabelHeading"/>
+                <Control HorizontalExpand="True"/>
+            </BoxContainer>
+
+            <!-- EMPTY / MESSAGE VIEW -->
+            <BoxContainer Name="PatientListContainer" Orientation="Vertical" VerticalExpand="True" Visible="True">
+                 <!-- Will be populated via CS -->
+            </BoxContainer>
+
+            <!-- OPEN MAP BUTTON (Always visible or visible on dispatch) -->
+            <Button Name="OpenMapButton" Text="OPEN STATION MAP" Modulate="#4FC3F7" MinHeight="40" Margin="0 0 0 10"/>
+
+            <!-- VIEW 2: DETAILS (Details view) -->
+            <BoxContainer Name="PatientDetailContainer" Orientation="Vertical" VerticalExpand="True" Visible="False">
+
+                <ScrollContainer VerticalExpand="True">
+                     <BoxContainer Orientation="Vertical">
+                        <!-- DOLL AND VITALS -->
+                        <BoxContainer Orientation="Horizontal" Margin="0 0 0 5">
+                            <PanelContainer>
+                                <SpriteView Name="SpriteView" OverrideDirection="South" SetSize="96 96"/>
+                            </PanelContainer>
+
+                             <BoxContainer Orientation="Vertical" Margin="10 0 0 0" HorizontalExpand="True">
+                                <Label Name="PatientNameLabel" StyleClasses="LabelHeading"/>
+                                <Label Name="PatientJobLabel" StyleClasses="LabelSubText"/>
+                                <Control MinSize="0 10"/>
+                                <GridContainer Columns="2">
+                                    <Label Text="Status: "/>
+                                    <Label Name="PatientStatusLabel"/>
+                                    <Label Text="Damage: "/>
+                                    <Label Name="PatientDamageLabel"/>
+                                </GridContainer>
+                             </BoxContainer>
+                        </BoxContainer>
+
+                        <Label Text="DAMAGE BREAKDOWN" StyleClasses="LabelHeading" Margin="0 10 0 5"/>
+                        <BoxContainer Name="DamageList" Orientation="Vertical"/>
+
+                     </BoxContainer>
+                </ScrollContainer>
+            </BoxContainer>
+
+        </BoxContainer>
+    </PanelContainer>
+</controls:FancyWindow>

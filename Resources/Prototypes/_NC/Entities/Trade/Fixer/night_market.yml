@@ -1,4 +1,5 @@
 - type: entity
+  parent: BaseItem
   id: NightMarket
   name: Ночной рынок
   description: Особое устройство фиксера для покупки редкого снаряжения.
@@ -8,8 +9,6 @@
     interfaces:
       enum.StoreUiKey.Key:
         type: NcStoreStructuredBoundUi
-  - type: ActivatableUI
-    key: enum.StoreUiKey.Key
   - type: Sprite
     sprite: Objects/Devices/pda.rsi # Placeholder, maybe use a laptop sprite if available
     state: pda-bartender # Placeholder

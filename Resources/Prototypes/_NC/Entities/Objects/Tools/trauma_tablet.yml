@@ -1,0 +1,26 @@
+- type: entity
+  parent: BaseItem
+  id: TraumaTablet
+  name: планшет Trauma Team
+  description: Устройство для получения экстренных вызовов о пациентах с платиновой страховкой.
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/pda.rsi # Placeholder, maybe use a laptop sprite if available
+    state: pda-bartender # Placeholder
+    layers:
+    - state: pda-bartender # Placeholder
+  - type: Item
+    size: Small
+  - type: TraumaTablet
+  - type: StationMap
+  - type: ActivatableUI
+    key: enum.TraumaTabletUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.TraumaTabletUiKey.Key:
+        type: TraumaTabletBoundUserInterface
+      enum.StationMapUiKey.Key:
+        type: StationMapBoundUserInterface
+  - type: Tag
+    tags:
+    - Tablet

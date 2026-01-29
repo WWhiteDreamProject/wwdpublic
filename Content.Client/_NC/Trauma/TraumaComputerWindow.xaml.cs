@@ -12,6 +12,7 @@ namespace Content.Client._NC.Trauma
     public sealed partial class TraumaComputerWindow : FancyWindow
     {
         public event Action<NetEntity, TraumaSubscriptionTier>? OnSubscriptionChanged;
+        public event Action<NetEntity>? OnDispatch;
 
         private readonly BoxContainer _platinumList;
         private readonly BoxContainer _generalList;
@@ -121,6 +122,21 @@ namespace Content.Client._NC.Trauma
                 };
 
                 rowContent.AddChild(tierSelector);
+
+                rowContent.AddChild(new Control { MinSize = new Vector2(10, 0) });
+
+                if (patient.Subscription == TraumaSubscriptionTier.Platinum)
+                {
+                    var dispatchBtn = new Button
+                    {
+                        Text = "DISPATCH",
+                        Modulate = Color.Red,
+                        MinWidth = 80
+                    };
+                    dispatchBtn.OnPressed += _ => OnDispatch?.Invoke(patient.EntityUid);
+                    rowContent.AddChild(dispatchBtn);
+                }
+
 
                 rowPanel.AddChild(rowContent);
 

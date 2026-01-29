@@ -9,3 +9,7 @@
 - type: Tag
   id: NetVisor
   name: NetVisor
+
+- type: Tag
+  id: Tablet
+  name: Tablet

@@ -17,12 +17,18 @@ namespace Content.Client._NC.Trauma
             base.Open();
             _window = new TraumaComputerWindow();
             _window.OnClose += Close; // Закрыть BUI при закрытии окна
-            
+
             // Подписываемся на событие изменения в окне
             _window.OnSubscriptionChanged += (entity, tier) =>
             {
                 // Отправляем сообщение на сервер
+                // Отправляем сообщение на сервер
                 SendMessage(new TraumaChangeSubscriptionMsg(entity, tier));
+            };
+
+            _window.OnDispatch += (entity) =>
+            {
+                SendMessage(new TraumaDispatchMsg(entity));
             };
 
             _window.OpenCentered();

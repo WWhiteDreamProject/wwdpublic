@@ -11,6 +11,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
+using Content.Shared.Interaction.Events;
 
 
 namespace Content.Server._NC.Trade;
@@ -80,6 +81,7 @@ public sealed partial class StoreStructuredSystem : EntitySystem
         SubscribeLocalEvent<NcStoreComponent, ClaimContractBoundMessage>(OnClaimContract);
         SubscribeLocalEvent<EntityStorageComponent, StorageAfterOpenEvent>(OnStorageOpen);
         SubscribeLocalEvent<EntityStorageComponent, StorageAfterCloseEvent>(OnStorageClose);
+        SubscribeLocalEvent<NcStoreComponent, UseInHandEvent>(OnUseInHand);
     }
 
 
@@ -389,10 +391,49 @@ public sealed partial class StoreStructuredSystem : EntitySystem
         _watchByStore.Remove(storeUid);
     }
 
+    private void TryOpenStoreUi(EntityUid uid, NcStoreComponent comp, EntityUid user, string source)
+    {
+        if (!_ui.HasUi(uid, StoreUiKey.Key))
+            return;
+        if (!_storeSystem.CanUseStore(uid, comp, user))
+            return;
+        if (comp.CurrentUser is { } current && current != user)
+            return;
+        if (TryComp(uid, out TransformComponent? sX) && TryComp(user, out TransformComponent? uX) &&
+            !_xform.InRange(sX.Coordinates, uX.Coordinates, AutoCloseDistance))
+            return;
+
+        var wasInUse = comp.CurrentUser != null;
+        comp.CurrentUser = user;
+        if (!wasInUse)
+            _openStoreUids.Add(uid);
+
+        if (!_ui.IsUiOpen(uid, StoreUiKey.Key, user))
+            _ui.OpenUi(uid, StoreUiKey.Key, user);
+
+        EnsureCrateWatchUpToDate(uid, user);
+
+        _loader.EnsureLoaded(uid, comp, source);
+
+        SendCatalog(uid, comp, user);
+        UpdateDynamicState(uid, comp, user);
+    }
+
+    private void OnUseInHand(EntityUid uid, NcStoreComponent comp, UseInHandEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        args.Handled = true;
+        TryOpenStoreUi(uid, comp, args.User, "UseInHand");
+    }
+
     private void OnUiOpenAttempt(EntityUid uid, NcStoreComponent comp, ref ActivatableUIOpenAttemptEvent ev)
     {
         ev.Cancel();
         var user = ev.User;
+
+        TryOpenStoreUi(uid, comp, ev.User, "UiOpenAttempt");
 
         if (!_ui.HasUi(uid, StoreUiKey.Key))
             return;

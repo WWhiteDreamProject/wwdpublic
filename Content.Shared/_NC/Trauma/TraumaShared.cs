@@ -19,6 +19,12 @@ namespace Content.Shared._NC.Trauma
         Key
     }
 
+    [Serializable, NetSerializable]
+    public enum TraumaTabletUiKey
+    {
+        Key
+    }
+
     // Структура данных об одном пациенте для передачи по сети
     [Serializable, NetSerializable]
     public struct TraumaPatientData
@@ -68,6 +74,38 @@ namespace Content.Shared._NC.Trauma
         {
             TargetEntity = target;
             NewTier = tier;
+        }
+    }
+    [Serializable, NetSerializable]
+    public sealed class TraumaDispatchMsg : BoundUserInterfaceMessage
+    {
+        public NetEntity TargetEntity;
+
+        public TraumaDispatchMsg(NetEntity target)
+        {
+            TargetEntity = target;
+        }
+    }
+
+    [Serializable, NetSerializable]
+    public sealed class TraumaOpenMapMsg : BoundUserInterfaceMessage
+    {
+        public NetEntity TargetEntity;
+
+        public TraumaOpenMapMsg(NetEntity target)
+        {
+            TargetEntity = target;
+        }
+    }
+
+    [Serializable, NetSerializable]
+    public sealed class TraumaTabletState : BoundUserInterfaceState
+    {
+        public TraumaPatientData? ActivePatient;
+
+        public TraumaTabletState(TraumaPatientData? activePatient)
+        {
+            ActivePatient = activePatient;
         }
     }
 }
