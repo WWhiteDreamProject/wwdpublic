@@ -36,7 +36,7 @@
     shoes: ClothingShoesBootsCombatFilled
     id: SyndiPDA
     pocket1: DoubleEmergencyOxygenTankFilled
-    pocket2: PlushieCarp
+    #pocket2: PlushieCarp # White Dream no toyslop
     belt: ClothingBeltMilitaryWebbing
   storage:
     back:

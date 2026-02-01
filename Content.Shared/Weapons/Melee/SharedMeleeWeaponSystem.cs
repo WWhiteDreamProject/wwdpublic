@@ -861,6 +861,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             }
 
             meleeWeapon.SoundHit = itemToggleMelee.ActivatedSoundOnHit;
+            DirtyField(uid, meleeWeapon, nameof(MeleeWeaponComponent.SoundHit)); // White Dream fix
 
             if (itemToggleMelee.ActivatedSoundOnHitNoDamage != null)
             {

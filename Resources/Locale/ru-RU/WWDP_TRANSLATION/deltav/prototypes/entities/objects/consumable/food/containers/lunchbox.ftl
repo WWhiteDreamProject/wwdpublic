@@ -1,8 +1,8 @@
-ent-LunchboxGeneric = коробка для завтрака
+ent-LunchboxGeneric = ланчбокс
     .desc = Для переноски еды в дороге.
     .suffix = { "" }
 
-ent-LunchboxGenericFilledRandom = предупакованная коробка для завтрака
+ent-LunchboxGenericFilledRandom = ланчбокс
     .desc = Упаковано с любовью.
     .suffix = Заполненный, Случайный
 

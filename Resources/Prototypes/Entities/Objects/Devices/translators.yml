@@ -35,6 +35,7 @@
   parent: [ TranslatorUnpowered, PowerCellSlotMediumItem ]
   components:
   - type: ItemToggle
+  - type: ToggleCellDraw # WD EDIT
   - type: PowerCellDraw
     drawRate: 1
   - type: ItemSlots

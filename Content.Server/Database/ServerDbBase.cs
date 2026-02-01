@@ -201,7 +201,17 @@ namespace Content.Server.Database
             var jobs = profile.Jobs.ToDictionary(j => new ProtoId<JobPrototype>(j.JobName), j => (JobPriority) j.Priority);
             var antags = profile.Antags.Select(a => new ProtoId<AntagPrototype>(a.AntagName));
             var traits = profile.Traits.Select(t => new ProtoId<TraitPrototype>(t.TraitName));
-            var loadouts = profile.Loadouts.Select(Shared.Clothing.Loadouts.Systems.Loadout (l) => l);
+            // WWDP EDIT START
+            var loadouts = profile.Loadouts.Select(l =>
+                new Loadout(
+                    l.LoadoutName,
+                    l.CustomName,
+                    l.CustomDescription,
+                    l.CustomContent,
+                    l.CustomColorTint,
+                    l.CustomHeirloom
+                    ));
+            // WWDP EDIT END
 
             var sex = Sex.Male;
             if (Enum.TryParse<Sex>(profile.Sex, true, out var sexVal))
@@ -283,15 +293,7 @@ namespace Content.Server.Database
                 (PreferenceUnavailableMode) profile.PreferenceUnavailable,
                 antags.ToHashSet(),
                 traits.ToHashSet(),
-                loadouts.Select(l => new LoadoutPreference(l.LoadoutName)
-                {
-                    CustomName = l.CustomName,
-                    CustomDescription = l.CustomDescription,
-                    CustomContent = l.CustomContent, // WD EDIT
-                    CustomColorTint = l.CustomColorTint,
-                    CustomHeirloom = l.CustomHeirloom,
-                    Selected = true,
-                }).ToHashSet()
+                loadouts.ToDictionary(p => p.LoadoutName) // WWDP EDIT
             );
         }
 
@@ -357,8 +359,8 @@ namespace Content.Server.Database
             );
 
             profile.Loadouts.Clear();
-            profile.Loadouts.AddRange(humanoid.LoadoutPreferences
-                .Select(l => new Loadout(l.LoadoutName, l.CustomName, l.CustomDescription, l.CustomContent, l.CustomColorTint, l.CustomHeirloom))); // WD EDIT
+            profile.Loadouts.AddRange(humanoid.LoadoutPreferencesList
+                .Select(l => new LoadoutItem(l.LoadoutName, l.CustomName, l.CustomDescription, l.CustomContent, l.CustomColorTint, l.CustomHeirloom))); // WD EDIT
 
             // WWDP EDIT START
             profile.BarkPause = humanoid.BarkSettings.Pause;

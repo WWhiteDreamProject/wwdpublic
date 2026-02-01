@@ -29,7 +29,7 @@ salvage-expedition-not-all-present = Не все утилизаторы нахо
 # Runner
 salvage-expedition-announcement-countdown-minutes = { $duration } минут осталось до завершения экспедиции.
 salvage-expedition-announcement-countdown-seconds = { $duration } секунд осталось до завершения экспедиции.
-salvage-expedition-announcement-dungeon = Подземелье расположено на { $direction }.
+salvage-expedition-announcement-dungeon = Подземелье расположено на { $direction }е от шаттла.
 salvage-expedition-completed = Экспедиция завершена.
 salvage-expedition-reward-description = Награда за выполнение миссии
 # Salvage biome mod

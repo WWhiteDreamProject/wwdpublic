@@ -3,7 +3,9 @@
 ui-options-header-target-doll = Target doll
 
 ui-options-function-look-up = Look up/Take aim
-ui-options-function-toggle-look-up = Hold down the key to aim
+ui-options-function-toggle-look-up = Toggle aiming
+
+ui-options-lighting-shader = Lighting Shaders
 
 ui-options-function-target-doll-head = Select head
 ui-options-function-target-doll-chest = Select chest

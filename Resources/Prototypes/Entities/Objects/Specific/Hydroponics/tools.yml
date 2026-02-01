@@ -12,6 +12,7 @@
     sprite: Objects/Tools/Hydroponics/hoe.rsi
     state: icon
   - type: MeleeWeapon
+    animationRotation: 135 # White Dream
     wideAnimationRotation: 135
     swingLeft: true
     damage:
@@ -23,12 +24,29 @@
     heavyDamageBaseModifier: 1.25
     maxTargets: 6
     angle: 100
+    soundHit: # White Dream
+      path: /Audio/Weapons/bladeslice.ogg
   - type: DamageOtherOnHit
     staminaCost: 5
   - type: ThrowingAngle
     angle: 135
   - type: Item
     sprite: Objects/Tools/Hydroponics/hoe.rsi
+  - type: EmitSoundOnPickup # White Dream
+    sound:
+      path: /Audio/SimpleStation14/Items/Handling/screwdriver_pickup.ogg
+      params:
+        volume: -2
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/SimpleStation14/Items/Handling/screwdriver_drop.ogg
+      params:
+        volume: -2
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Items/screwdriver_drop.ogg
+      params:
+        volume: -2
 
 - type: entity
   name: plant clippers
@@ -59,6 +77,21 @@
   - type: Item
     sprite: Objects/Tools/Hydroponics/clippers.rsi
     storedRotation: -90
+  - type: EmitSoundOnPickup # White Dream
+    sound:
+      path: /Audio/SimpleStation14/Items/Handling/wirecutter_pickup.ogg
+      params:
+        volume: -2
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/SimpleStation14/Items/Handling/wirecutter_drop.ogg
+      params:
+        volume: -2
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Items/wirecutter_drop.ogg
+      params:
+        volume: -2
 
 - type: entity
   name: scythe
@@ -71,7 +104,8 @@
     sprite: Objects/Tools/Hydroponics/scythe.rsi
     state: icon
   - type: MeleeWeapon
-    wideAnimationRotation: 135
+    animationRotation: -45 # White Dream
+    wideAnimationRotation: -120 # White Dream
     range: 1.25
     damage:
       types:
@@ -82,6 +116,8 @@
     heavyStaminaCost: 2.5
     maxTargets: 1
     angle: 120
+    soundHit: # White Dream
+      path: /Audio/Weapons/bladeslice.ogg
   - type: DamageOtherOnHit
     staminaCost: 7
   - type: EmbeddableProjectile
@@ -98,6 +134,18 @@
   - type: StaticPrice
     price: 40
   - type: Execution # WWDP
+  - type: EmitSoundOnPickup # White Dream
+    sound: /Audio/Items/unsheath.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/SimpleStation14/Items/Handling/crowbar_drop.ogg
+      params:
+        volume: -2
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Items/crowbar_drop.ogg
+      params:
+        volume: -2
 
 - type: entity
   name: hatchet
@@ -113,6 +161,7 @@
     sprite: Objects/Tools/Hydroponics/hatchet.rsi
     state: icon
   - type: MeleeWeapon
+    animationRotation: 45 # White Dream
     wideAnimationRotation: 135
     swingLeft: true
     attackRate: .9
@@ -123,6 +172,8 @@
     heavyRateModifier: 1.25
     heavyDamageBaseModifier: 1.2
     heavyStaminaCost: 2.5
+    soundHit: # White Dream
+      path: /Audio/Weapons/bladeslice.ogg
   - type: DamageOtherOnHit
     meleeDamageMultiplier: 1.5
     staminaCost: 6.5
@@ -132,6 +183,18 @@
   - type: Item
     sprite: Objects/Tools/Hydroponics/hatchet.rsi
   - type: Execution # WWDP
+  - type: EmitSoundOnPickup # White Dream
+    sound: /Audio/Items/unsheath.ogg
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/SimpleStation14/Items/Handling/crowbar_drop.ogg
+      params:
+        volume: -2
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Items/crowbar_drop.ogg
+      params:
+        volume: -2
 
 - type: entity
   name: spade
@@ -166,6 +229,21 @@
     sprite: Objects/Tools/Hydroponics/spade.rsi
   - type: Shovel
     speedModifier: 0.85 # slower at digging than a full-sized shovel
+  - type: EmitSoundOnPickup # White Dream
+    sound:
+      path: /Audio/SimpleStation14/Items/Handling/screwdriver_pickup.ogg
+      params:
+        volume: -2
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/SimpleStation14/Items/Handling/screwdriver_drop.ogg
+      params:
+        volume: -2
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Items/screwdriver_drop.ogg
+      params:
+        volume: -2
 
 - type: entity
   name: plant bag

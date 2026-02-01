@@ -1,0 +1,91 @@
+- type: entity
+  parent: BaseWall
+  id: WallRivetedIndestructible
+  name: riveted wall
+  suffix: indestructible
+  components:
+  - type: Tag
+    tags:
+    - Wall
+  - type: Sprite
+    sprite: Structures/Walls/riveted.rsi
+  - type: Icon
+    sprite: Structures/Walls/riveted.rsi
+  - type: IconSmooth
+    key: walls
+    base: riveted
+
+- type: entity
+  id: SpeedFrame
+  name: speed frame
+  description: It's very speedy.
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Clickable
+  - type: Transform
+    anchored: true
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        hard: false
+        density: 7
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        layer:
+        - MidImpassable
+  - type: SpeedModifierContacts
+    walkSpeedModifier: 4.0
+    sprintSpeedModifier: 1.5
+  - type: Sprite
+    drawdepth: FloorTiles
+    sprite: _White/Structures/Misc/CentComShit/speed_frame.rsi
+  - type: Icon
+    sprite: _White/Structures/Misc/CentComShit/speed_frame.rsi
+    state: full
+  - type: IconSmooth
+    key: frameSp
+    base: frame
+
+- type: entity
+  id: SlowFrame
+  parent: SpeedFrame
+  name: slow frame
+  description: It's very slowy.
+  components:
+  - type: SpeedModifierContacts
+    walkSpeedModifier: 0.4
+    sprintSpeedModifier: 0.4
+  - type: Sprite
+    drawdepth: FloorTiles
+    sprite: _White/Structures/Misc/CentComShit/slow_frame.rsi
+  - type: Icon
+    sprite: _White/Structures/Misc/CentComShit/slow_frame.rsi
+    state: full
+  - type: IconSmooth
+    key: frameSl
+    base: frame
+
+- type: entity
+  id: DanceFloor
+  name: dance floor
+  description: Let's dance!.
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Clickable
+  - type: Transform
+    anchored: true
+  - type: Sprite
+    drawdepth: FloorTiles
+    sprite: _White/Structures/Misc/CentComShit/dance_floor.rsi
+    layers:
+    - state: floor1
+    - state: light1
+      shader: unshaded

@@ -1,0 +1,15 @@
+- type: gameMap
+  id: CentCommHub
+  isGrid: true
+  mapName: 'Central Command'
+  mapPath: /Maps/_White/CentralCommand/hub.yml
+  minPlayers: 0
+  stations:
+    centcomm:
+      stationProto: NanotrasenCentralCommand
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: '{0} Central Command {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: 'WWDP'

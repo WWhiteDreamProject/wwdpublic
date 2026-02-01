@@ -58,15 +58,15 @@ ent-WeaponPistolCobraEmpty = Кобра
     .suffix = Пистолет, Пустой
 
 
-ent-WeaponPistolUniversal = МК32 "Универсал"
+ent-WeaponPistolUniversal = Mk32 "Универсал"
     .desc = Дорогой пистолет с превосходными боевыми характеристиками. Использует патроны калибра .45 магнум.
     .suffix = Пистолет
 
-ent-WeaponPistolUniversalEmpty = МК32 "Универсал"
+ent-WeaponPistolUniversalEmpty = Mk32 "Универсал"
     .desc = Дорогой пистолет с превосходными боевыми характеристиками. Использует патроны калибра .45 магнум.
     .suffix = Пистолет, Пустой
 
-ent-WeaponPistolUniversalSecurity = МК32 "Универсал"
+ent-WeaponPistolUniversalSecurity = Mk32 "Универсал"
     .desc = Дорогой пистолет с превосходными боевыми характеристиками. Использует патроны калибра .45 магнум. Серийный номер указывает на его принадлежность офицеру СБ NanoTrasen.
     .suffix = Пистолет, СБ
 

@@ -100,8 +100,16 @@ public sealed class ItemSystem : SharedItemSystem
             ? defaultKey
             : $"{item.HeldPrefix}-{defaultKey}";
 
+        // WWDP edit start
+        // Fallback to defaultKey
         if (!rsi.TryGetState(state, out var _))
-            return false;
+        {
+            if (rsi.TryGetState(defaultKey, out var _))
+                state = defaultKey;
+            else
+                return false;
+        }
+        // WWDP edit end
 
         var layer = new PrototypeLayerData();
         layer.RsiPath = rsi.Path.ToString();

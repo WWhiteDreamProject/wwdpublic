@@ -163,8 +163,8 @@
         prob: 0.50
       - id: CrayonBox
         prob: 0.10
-      - id: ClearPDA # change to visitor one day.
-        prob: 0.10
+      # - id: ClearPDA # change to visitor one day.     WWDP edit
+      #  prob: 0.10 WWDP edit
       - id: PersonalAI
 
 - type: entity

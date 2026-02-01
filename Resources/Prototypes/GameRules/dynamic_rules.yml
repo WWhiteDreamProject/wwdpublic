@@ -16,7 +16,7 @@
       - !type:GroupSelector
         conditions:
         - !type:RoundDurationCondition
-          max: 120 # WD edit 1 -> 120, because of lags rounds don't start immediately.
+          max: 180 # WD edit 1 -> 180, because of lags rounds don't start immediately.
         children:
         - id: Traitor
           weight: 34
@@ -83,7 +83,7 @@
       - !type:GroupSelector
         conditions:
         - !type:RoundDurationCondition
-          max: 120 # WD edit 1 -> 120, because of lags rounds don't start immediately.
+          max: 180 # WD edit 1 -> 180, because of lags rounds don't start immediately.
         children:
 #        - id: Thief
 #          prob: 0.5

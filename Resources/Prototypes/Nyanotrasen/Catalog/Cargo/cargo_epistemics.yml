@@ -5,5 +5,5 @@
     state: icon
   product: CrateHolyWaterKit
   cost: 3000
-  category: Epistemics
+  category: cargoproduct-category-name-science # WWDP edit
   group: market

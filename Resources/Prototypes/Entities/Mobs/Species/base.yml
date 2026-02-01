@@ -258,6 +258,12 @@
   # WD EDIT START
   - type: TTS
   - type: ExaminableCharacter
+  - type: OfferItem
+  - type: LayingDown
+  - type: MobState
+    allowMovementWhileCrit: true
+    allowMovementWhileSoftCrit: true
+  - type: MobThresholdSounds
   - type: BodyAppearance
   # WD EDIT END
 
@@ -328,14 +334,9 @@
         Asphyxiation: -1.0
   - type: FireVisuals
     alternateState: Standing
-  - type: OfferItem
-  - type: LayingDown
   # WD EDIT START
   - type: Bloodstream
     powerMassAdjust: 0.6
-  - type: MobState
-    allowMovementWhileCrit: true
-    allowMovementWhileSoftCrit: true
   # WD EDIT END
 
 - type: entity

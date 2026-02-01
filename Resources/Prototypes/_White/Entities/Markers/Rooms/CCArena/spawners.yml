@@ -1,0 +1,26 @@
+# Base
+- type: entity
+  id: RoomSpawnerRoomsCCHubArena
+  name: Room marker CCArena
+  parent: BaseRoomMarker
+  suffix: CC ARENA
+  components:
+  - type: RoomFill
+    clearExisting: False
+    minSize: 35,20
+    maxSize: 35,20
+    roomWhitelist:
+      tags:
+      - RoomsCCHubArena
+    rotation: false
+  - type: Sprite
+    granularLayersRendering: true
+    alpha: 0.25
+    layers:
+    - sprite: _White/Markers/Rooms/Lines/5x5.rsi
+      state: maint_wonder_1
+      offset: 2, 2
+      scale: 2, 2
+      renderingStrategy: NoRotation
+    - sprite: _White/Markers/Rooms/icon.rsi
+      state: 5x5_maint_wonder_1

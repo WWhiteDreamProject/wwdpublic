@@ -15,6 +15,7 @@
                 <CheckBox Name="ViewportLowResCheckBox" Text="{Loc 'ui-options-vp-low-res'}" />
                 <CheckBox Name="ParallaxLowQualityCheckBox" Text="{Loc 'ui-options-parallax-low-quality'}" />
                 <!-- WD EDIT START -->
+                <CheckBox Name="LightingShaderCheckBox" Text="{Loc 'ui-options-lighting-shader'}" />
                 <CheckBox Name="FilmGrainCheckBox" Text="{Loc 'ui-options-film-grain'}" />
                 <ui:OptionSlider Name="FilmGrainSlider"/>
                 <!-- WD EDIT END -->

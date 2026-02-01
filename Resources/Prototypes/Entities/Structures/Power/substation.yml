@@ -160,7 +160,7 @@
     sprite: Structures/Power/substation.rsi
     layers:
     - state: substation_wall
-    - state: screen
+    - state: screen-wall ##WD EDIT
       shader: unshaded
   - type: Battery
     maxCharge: 2000000

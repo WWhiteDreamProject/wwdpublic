@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "license": "CC0-1.0",
-  "copyright": "Created by TheShuEd(github) for ss14",
+  "license": "CC-BY-NC-SA-4.0",
+  "copyright": "SentryPrimis (@sentryprimies) for WWhiteDreamProject, 23.11.2025. Edited by Gersoon (@gersoon458) + inhands",
   "size": {
     "x": 32,
     "y": 32
@@ -17,6 +17,9 @@
     },
     {
       "name": "icon"
+    },
+    {
+        "name": "icon-open"
     }
   ]
 }

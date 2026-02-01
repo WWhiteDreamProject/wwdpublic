@@ -1,12 +1,12 @@
 {
-  "version": 1,
-  "license": "CC-BY-SA-4.0",
-  "copyright": "Kevin Zheng 2022",
-  "size": {
-    "x": 32,
-    "y": 32
-  },
-  "states": [
+   "version":1,
+   "size":{
+      "x":32,
+      "y":32
+   },
+   "license":"CC-BY-NC-SA-4.0",
+   "copyright":"Gersoon(gersoon458) for WWhiteDreamProject, 22.11.2025",
+    "states":[
     {
       "name": "off",
       "directions": 4
@@ -14,6 +14,11 @@
     {
       "name": "on",
       "directions": 4
+    },
+    {
+      "name": "connector",
+      "directions": 4
     }
+
   ]
 }

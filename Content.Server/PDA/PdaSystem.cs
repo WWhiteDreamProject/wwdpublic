@@ -46,7 +46,6 @@ namespace Content.Server.PDA
             SubscribeLocalEvent<PdaComponent, LightToggleEvent>(OnLightToggle);
 
             // UI Events:
-            SubscribeLocalEvent<PdaComponent, BoundUIOpenedEvent>(OnPdaOpen);
             SubscribeLocalEvent<PdaComponent, PdaRequestUpdateInterfaceMessage>(OnUiMessage);
             SubscribeLocalEvent<PdaComponent, PdaToggleFlashlightMessage>(OnUiMessage);
             SubscribeLocalEvent<PdaComponent, PdaShowRingtoneMessage>(OnUiMessage);
@@ -199,7 +198,7 @@ namespace Content.Server.PDA
                 pda.FlashlightOn,
                 pda.PenSlot.HasItem,
                 pda.PaiSlot.HasItem,
-                pda.PassportSlot.HasItem, // WD EDIT
+                pda.PassportSlot.HasItem,
                 new PdaIdInfoText
                 {
                     ActualOwnerName = pda.OwnerName,
@@ -216,8 +215,10 @@ namespace Content.Server.PDA
             _ui.SetUiState(uid, PdaUiKey.Key, state);
         }
 
-        private void OnPdaOpen(Entity<PdaComponent> ent, ref BoundUIOpenedEvent args)
+        protected override void OnUIOpen(Entity<PdaComponent> ent, ref BoundUIOpenedEvent args) // WD EDIT
         {
+            base.OnUIOpen(ent, ref args); // WD EDIT
+
             if (!PdaUiKey.Key.Equals(args.UiKey))
                 return;
 

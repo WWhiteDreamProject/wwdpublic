@@ -1,0 +1,191 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-4.0",
+  "copyright": "SentryPrimis(sentryprimies), resprited by Purka(purplepigeon580) for WWhiteDreamProject, 04.10.2025",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "can-o0",
+      "delays": [
+        [
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "can-o1"
+    },
+    {
+      "name": "can-o2"
+    },
+    {
+      "name": "can-o3"
+    },
+    {
+      "name": "can-connector"
+    },
+    {
+      "name": "can-open"
+    },
+    {
+      "name": "air"
+    },
+    {
+      "name": "ammonia"
+    },
+    {
+      "name": "anti_noblium"
+    },
+    {
+      "name": "bz"
+    },
+    {
+      "name": "carbon_dioxide"
+    },
+    {
+      "name": "experimental"
+    },
+    {
+      "name": "frezon"
+    },
+    {
+      "name": "halon"
+    },
+    {
+      "name": "helium"
+    },
+    {
+      "name": "healium"
+    },
+    {
+      "name": "hydrogen"
+    },
+    {
+      "name": "hyper_noblium"
+    },
+    {
+      "name": "liquid_carbon_dioxide"
+    },
+    {
+      "name": "liquid_nitrogen"
+    },
+    {
+      "name": "liquid_oxygen"
+    },
+    {
+      "name": "locked"
+    },
+    {
+      "name": "nitric_oxide"
+    },
+    {
+      "name": "nitrium"
+    },
+    {
+      "name": "nitrogen"
+    },
+    {
+      "name": "oxygen"
+    },
+    {
+      "name": "plasma"
+    },
+    {
+      "name": "pluoxium"
+    },
+    {
+      "name": "proto_nitrate"
+    },
+    {
+      "name": "tritium"
+    },
+    {
+      "name": "unlocked"
+    },
+    {
+      "name": "water_vapor"
+    },
+    {
+      "name": "zauker"
+    },
+    {
+      "name": "broken_bz"
+    },
+    {
+      "name": "broken_air"
+    },
+    {
+      "name": "broken_ammonia"
+    },
+    {
+      "name": "broken_anti_noblium"
+    },
+    {
+      "name": "broken_carbon_dioxide"
+    },
+    {
+      "name": "broken_experimental"
+    },
+    {
+      "name": "broken_frezon"
+    },
+    {
+      "name": "broken_halon"
+    },
+    {
+      "name": "broken_helium"
+    },
+    {
+      "name": "broken_healium"
+    },
+    {
+      "name": "broken_hydrogen"
+    },
+    {
+      "name": "broken_hyper_noblium"
+    },
+    {
+      "name": "broken_liquid_carbon_dioxide"
+    },
+    {
+      "name": "broken_liquid_nitrogen"
+    },
+    {
+      "name": "broken_liquid_oxygen"
+    },
+    {
+      "name": "broken_nitric_oxide"
+    },
+    {
+      "name": "broken_nitrium"
+    },
+    {
+      "name": "broken_nitrogen"
+    },
+    {
+      "name": "broken_oxygen"
+    },
+    {
+      "name": "broken_plasma"
+    },
+    {
+      "name": "broken_pluoxium"
+    },
+    {
+      "name": "broken_proto_nitrate"
+    },
+    {
+      "name": "broken_tritium"
+    },
+    {
+      "name": "broken_water_vapor"
+    },
+    {
+      "name": "broken_zauker"
+    }
+  ]
+}

@@ -694,6 +694,14 @@ public sealed class PullingSystem : EntitySystem
             return false;
         }
 
+        // WWDP edit start
+        if (_timing.CurTime < pullableComp.NextPullAttempt) // no locking with spam pulls
+        {
+            _popup.PopupClient(Loc.GetString("popup-grab-too-often"), pullerUid);
+            return false;
+        }
+        // WWDP edit end
+
         if (pullerComp.Pulling == pullableUid)
             return true;
 
@@ -761,6 +769,10 @@ public sealed class PullingSystem : EntitySystem
             return false;
 
         // Pulling confirmed
+
+        // WWDP edit start
+        pullableComp.NextPullAttempt = _timing.CurTime + pullableComp.PullAttemptCooldown; // no locking with spam pulls
+        // WWDP edit end
 
         _interaction.DoContactInteraction(pullableUid, pullerUid);
 
