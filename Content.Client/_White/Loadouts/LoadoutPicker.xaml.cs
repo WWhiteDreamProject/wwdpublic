@@ -13,6 +13,7 @@ using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Configuration;
+using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
@@ -25,6 +26,7 @@ public sealed partial class LoadoutPicker : Control
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IConfigurationManager _configManager = default!;
+    [Dependency] private readonly IEntityManager _entityManager = default!;
 
     private readonly Dictionary<string, Loadout> _selectedLoadouts = [];
     private readonly List<LoadoutEntry> _loadoutEntries = new();
@@ -47,6 +49,7 @@ public sealed partial class LoadoutPicker : Control
     public CharacterRequirementsArgs CharacterRequirementsArgs = default!;
     private ProtoId<LoadoutCategoryPrototype>? _selectedLoadoutCategory;
     private Dictionary<ProtoId<LoadoutCategoryPrototype>, List<LoadoutPrototype>> _loadoutCache = [];
+    private Dictionary<string, string> _loadoutDisplayNames = new();
 
     public int LoadoutPoint
     {
@@ -84,6 +87,8 @@ public sealed partial class LoadoutPicker : Control
     {
         CacheRootCategories();
         _loadoutCache.Clear();
+        _loadoutDisplayNames.Clear();
+
         foreach (var loadoutPrototype in _prototypeManager.EnumeratePrototypes<LoadoutPrototype>())
         {
             if (!_loadoutCache.TryGetValue(loadoutPrototype.Category, out var loadoutList))
@@ -93,6 +98,15 @@ public sealed partial class LoadoutPicker : Control
             }
 
             loadoutList.Add(loadoutPrototype);
+
+            var displayName = Loc.GetString($"loadout-name-{loadoutPrototype.ID}");
+            if (displayName == $"loadout-name-{loadoutPrototype.ID}" && loadoutPrototype.Items.Any())
+            {
+                var tempEntity = _entityManager.SpawnEntity(loadoutPrototype.Items.First(), MapCoordinates.Nullspace);
+                displayName = _entityManager.GetComponent<MetaDataComponent>(tempEntity).EntityName;
+                _entityManager.DeleteEntity(tempEntity);
+            }
+            _loadoutDisplayNames[loadoutPrototype.ID] = displayName;
         }
     }
 
@@ -102,10 +116,68 @@ public sealed partial class LoadoutPicker : Control
             InitializeCache();
     }
 
-    private void Populate(string _)
+    private void Populate(string searchText)
     {
-        if (_selectedLoadoutCategory != null)
-            LoadCategoryButtons(_selectedLoadoutCategory.Value);
+        if (string.IsNullOrEmpty(searchText))
+        {
+            EntryBackButton.Visible = CurrentEntry.Parent != null;
+
+            if (_selectedLoadoutCategory != null)
+                LoadCategoryButtons(_selectedLoadoutCategory.Value);
+            else
+            {
+                ClearLoadoutCategoryButtons();
+                CurrentEntry = CurrentEntry;
+            }
+
+            return;
+        }
+
+        ClearLoadoutCategoryButtons();
+        ClearupEdit();
+
+        EntryBackButton.Visible = true;
+
+        foreach (var (categoryId, loadouts) in _loadoutCache)
+        {
+            foreach (var loadoutPrototype in loadouts)
+            {
+                var displayName = _loadoutDisplayNames.GetValueOrDefault(loadoutPrototype.ID, loadoutPrototype.ID);
+
+                if (!loadoutPrototype.ID.Contains(searchText, StringComparison.OrdinalIgnoreCase) &&
+                    !displayName.Contains(searchText, StringComparison.OrdinalIgnoreCase))
+                    continue;
+
+                var loadoutEntry = new LoadoutEntry();
+
+                if (_selectedLoadouts.TryGetValue(loadoutPrototype.ID, out var loadout))
+                {
+                    loadoutEntry.SetLoadout(loadout);
+                    loadoutEntry.Selected = true;
+                }
+                else
+                {
+                    var newLoadout = new Loadout(
+                        loadoutPrototype.ID,
+                        loadoutPrototype.CustomName ? _customName.GetValueOrDefault(loadoutPrototype.ID) : null,
+                        loadoutPrototype.CustomDescription ? _customDescription.GetValueOrDefault(loadoutPrototype.ID) : null,
+                        loadoutPrototype.CustomContent ? _customContent.GetValueOrDefault(loadoutPrototype.ID) : null,
+                        loadoutPrototype.CustomColorTint ? _customColorTints.GetValueOrDefault(loadoutPrototype.ID) : null,
+                        loadoutPrototype.CanBeHeirloom ? _customHeirloom.GetValueOrDefault(loadoutPrototype.ID) : null
+                    );
+                    loadoutEntry.SetLoadout(newLoadout);
+                }
+
+                loadoutEntry.OnEditLoadoutRequired += OnEntryEditLoadoutRequired;
+                loadoutEntry.OnLoadoutDirty += OnEntryLoadoutDirty;
+                loadoutEntry.EnsureIsWearable(CharacterRequirementsArgs, LoadoutPoint);
+                loadoutEntry.ShowUnusable = _showUnusable;
+
+                _loadoutEntries.Add(loadoutEntry);
+            }
+        }
+
+        SortAndPasteEntries();
     }
 
     private void ResetButtonPressed(BaseButton.ButtonEventArgs obj)
@@ -204,9 +276,18 @@ public sealed partial class LoadoutPicker : Control
 
         foreach (var loadoutPrototype in loadoutPrototypes)
         {
+            if (!string.IsNullOrEmpty(LoadoutSearch.Text))
+            {
+                var displayName = _loadoutDisplayNames.GetValueOrDefault(loadoutPrototype.ID, loadoutPrototype.ID);
+
+                if (!loadoutPrototype.ID.Contains(LoadoutSearch.Text, StringComparison.OrdinalIgnoreCase) &&
+                    !displayName.Contains(LoadoutSearch.Text, StringComparison.OrdinalIgnoreCase))
+                    continue;
+            }
+
             var loadoutEntry = new LoadoutEntry();
 
-            if(_selectedLoadouts.TryGetValue(loadoutPrototype.ID, out var loadout))
+            if (_selectedLoadouts.TryGetValue(loadoutPrototype.ID, out var loadout))
             {
                 loadoutEntry.SetLoadout(loadout);
                 loadoutEntry.Selected = true;
@@ -220,17 +301,13 @@ public sealed partial class LoadoutPicker : Control
                     loadoutPrototype.CustomContent ? _customContent.GetValueOrDefault(loadoutPrototype.ID) : null,
                     loadoutPrototype.CustomColorTint ? _customColorTints.GetValueOrDefault(loadoutPrototype.ID) : null,
                     loadoutPrototype.CanBeHeirloom ? _customHeirloom.GetValueOrDefault(loadoutPrototype.ID) : null
-                    );
+                );
                 loadoutEntry.SetLoadout(newLoadout);
             }
-
-            if (!string.IsNullOrEmpty(LoadoutSearch.Text) && !loadoutEntry.LoadoutName.Contains(LoadoutSearch.Text))
-                continue;
 
             loadoutEntry.OnEditLoadoutRequired += OnEntryEditLoadoutRequired;
             loadoutEntry.OnLoadoutDirty += OnEntryLoadoutDirty;
             loadoutEntry.EnsureIsWearable(CharacterRequirementsArgs, LoadoutPoint);
-
             loadoutEntry.ShowUnusable = _showUnusable;
 
             _loadoutEntries.Add(loadoutEntry);

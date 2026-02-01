@@ -54,7 +54,13 @@ public sealed partial class LoadoutPicker
 
     private void EntryBackButtonPressed(BaseButton.ButtonEventArgs obj)
     {
-        if(CurrentEntry.Parent != null)
+        if (!string.IsNullOrEmpty(LoadoutSearch.Text))
+        {
+            LoadoutSearch.Clear();
+            return;
+        }
+
+        if (CurrentEntry.Parent != null)
             CurrentEntry = CurrentEntry.Parent;
     }
 
