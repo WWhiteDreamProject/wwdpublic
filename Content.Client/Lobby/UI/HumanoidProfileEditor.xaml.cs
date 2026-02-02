@@ -1581,7 +1581,7 @@ namespace Content.Client.Lobby.UI
                 CBodyTypesButton.AddItem(Loc.GetString(_bodyTypes[i].Name), i);
 
             // If current body type is not valid.
-            if (!_bodyTypes.Select(proto => proto.ID).Contains(Profile.BodyType))
+            if (!_bodyTypes.Select<BodyTypePrototype, ProtoId<BodyTypePrototype>>(proto => proto.ID).Contains(Profile.BodyType))
             {
                 // Then replace it with a first valid body type.
                 SetBodyType(_bodyTypes.First().ID);
@@ -1948,7 +1948,7 @@ namespace Content.Client.Lobby.UI
             {
                 if (_markingManager.CanBeApplied(Profile.Species, Profile.Sex, hairProto, _prototypeManager))
                 {
-                    hairColor = _markingManager.MustMatchSkin(Profile.Species, HumanoidVisualLayers.Hair, out _, _prototypeManager)
+                    hairColor = _markingManager.MustMatchSkin(Profile.Species, MarkingCategories.Hair, out _, _prototypeManager) // WD EDIT
                         ? Profile.Appearance.SkinColor
                         : Profile.Appearance.HairColor;
                 }

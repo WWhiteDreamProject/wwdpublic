@@ -272,6 +272,15 @@ public sealed class MetabolizerSystem : SharedMetabolizerSystem
             _solutionContainer.UpdateChemicals(stageEntry.Solution.Value);
         }
     }
+
+    public void AddMetabolizerTypes(Entity<MetabolizerComponent?> ent, HashSet<ProtoId<MetabolizerTypePrototype>> metabolizerTypes)
+    {
+        if (!_metabolizerQuery.Resolve(ent, ref ent.Comp))
+            return;
+
+        foreach (var metabolizerType in metabolizerTypes)
+            ent.Comp.Types.Add(metabolizerType);
+    }
 }
 
 [ByRefEvent]
