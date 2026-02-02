@@ -145,9 +145,9 @@
     maxCharge: 10000
     startingCharge: 0
   - type: ApcPowerReceiverBattery
-    idleLoad: 50
-    batteryRechargeRate: 1000
-    batteryRechargeEfficiency: 1.65
+    idleLoad: 10
+    batteryRechargeRate: 500
+    batteryRechargeEfficiency: 1.5
   - type: ApcPowerReceiver
     powerLoad: 50
   - type: Machine
