@@ -5032,3 +5032,10 @@ Entries:
   id: 528
   time: '2026-01-28T17:26:47.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1059
+- author: DDDecard
+  changes:
+    - type: Fix
+      message: Исправлен рендер тайлов и декалей для MapRender
+  id: 529
+  time: '2026-02-02T19:17:05.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1063
