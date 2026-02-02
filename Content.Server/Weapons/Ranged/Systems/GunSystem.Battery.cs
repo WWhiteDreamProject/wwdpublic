@@ -146,7 +146,8 @@ public sealed partial class GunSystem
     private void OnContainerBatteryRemoved(EntityUid uid, ContainerBatteryAmmoProviderComponent comp, EntGotRemovedFromContainerMessage args)
     {
         var contUid = args.Container.Owner;
-        var tracker = Comp<ContainerBatteryAmmoTrackerComponent>(contUid); // intended to throw on failure, should not happen
+        if (!TryComp<ContainerBatteryAmmoTrackerComponent>(contUid, out var tracker))
+            return;
         tracker.Linked.Remove(uid);
         comp.Linked = null;
         if (tracker.Linked.Count == 0)

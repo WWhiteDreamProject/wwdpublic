@@ -13,7 +13,7 @@
     - Ethereal
     - AGhost # WD EDIT
   - type: ContentEye
-    maxZoom: 10, 10 # WD EDIT
+    maxZoom: 50, 50 # WD EDIT
   # WD EDIT START
   - type: MovementSpeedModifier
     baseSprintSpeed: 20
@@ -86,6 +86,7 @@
     title: comms-console-announcement-title-centcom
     color: "#228b22"
   - type: RadarConsole
+    maxRange: 2048 # WWDP edit
     followEntity: true
   - type: CargoOrderConsole
   - type: BankClient

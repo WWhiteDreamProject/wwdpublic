@@ -4991,3 +4991,44 @@ Entries:
   id: 523
   time: '2026-01-18T15:22:46.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/938
+- author: Valentyi
+  changes:
+    - type: Tweak
+      message: Изменены спрайты материалов
+  id: 524
+  time: '2026-01-23T15:35:38.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1045
+- author: Gersoon458
+  changes:
+    - type: Add
+      message: Ивентокарта (Форсмаппить)
+    - type: Tweak
+      message: >-
+        Радар агоста расширен до 2048 (Колесиком крутить) + максимальный зум
+        через нумпад до 50 (Раньше 10)
+    - type: Fix
+      message: Боевые шаттлы больше не кошмар эпилептика (sevassstyan)
+  id: 525
+  time: '2026-01-25T12:04:12.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1051
+- author: kekoven1
+  changes:
+    - type: Add
+      message: добавлен трейт на медную кровь
+  id: 526
+  time: '2026-01-25T15:32:53.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1050
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: Максимальная скорость шаттла 20 -> 60
+  id: 527
+  time: '2026-01-25T15:42:01.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1052
+- author: DVOniksWyvern
+  changes:
+    - type: Add
+      message: WWDP-ICLA v1
+  id: 528
+  time: '2026-01-28T17:26:47.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1059
