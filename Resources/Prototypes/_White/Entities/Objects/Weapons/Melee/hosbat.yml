@@ -27,8 +27,9 @@
     - type: MeleeThrowOnHit
       speed: 10
       distance: 0.05
-    - type: FlipOnHit
+    - type: AnimateOnHit
       applyToSelf: false
+      animation: Flip
     - type: MeleeBlock
       delay: 12.1
     - type: Execution

@@ -446,7 +446,8 @@
   - type: ToggleableWielded
   - type: MeleeBlock
     delay: 3.1
-  - type: FlipOnHit
+  - type: AnimateOnHit
+    animation: Flip
   - type: Construction
     deconstructionTarget: null
     graph: EnergyDoubleSwordGraph
