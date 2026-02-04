@@ -1,0 +1,22 @@
+- type: animation
+  id: Flip
+  length: 0.5
+  animationTracksData:
+  - !type:AnimationTrackComponentPropertyData
+    componentType: Sprite
+    property: Rotation
+    interpolationMode: Linear
+    keyFrames:
+    - !type:KeyFramePropertyData
+      value: 0
+      type: angle
+      keyframe: 0
+    - !type:KeyFramePropertyData
+      value: 180
+      type: angle
+      keyframe: 0.25
+    - !type:KeyFramePropertyData
+      value: 360
+      type: angle
+      keyframe: 0.25
+  key: flip
