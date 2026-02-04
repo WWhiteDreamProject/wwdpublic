@@ -8,7 +8,6 @@ using Robust.Client.Animations;
 using Robust.Client.Audio;
 using Robust.Client.GameObjects;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Utility;
 
 namespace Content.Client._White.Animations.Systems;
 
@@ -139,16 +138,7 @@ public sealed class WhiteAnimationPlayerSystem : SharedWhiteAnimationPlayerSyste
             if (keyFrame is not KeyFramePropertyData keyFrameProperty)
                 continue;
 
-            object result = keyFrameProperty.Type.ToLower() switch
-            {
-                "int" => int.Parse(keyFrameProperty.Value),
-                "float" => float.Parse(keyFrameProperty.Value),
-                "vector2" => YamlHelpers.AsVector2(keyFrameProperty.Value),
-                "angle" => Angle.FromDegrees(float.Parse(keyFrameProperty.Value)),
-                _ => 0
-            };
-
-            animationTrack.KeyFrames.Add(new (result, keyFrame.Keyframe));
+            animationTrack.KeyFrames.Add(new (keyFrameProperty.Value.Value, keyFrame.Keyframe));
         }
     }
 

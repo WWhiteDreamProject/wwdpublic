@@ -1,5 +1,5 @@
+using Content.Shared._White.Helpers;
 using Robust.Shared.Audio;
-using Robust.Shared.Utility;
 
 namespace Content.Shared._White.Animations;
 
@@ -16,11 +16,7 @@ public sealed partial class KeyFramePropertyData : KeyFrameData
 {
     [DataField]
     [AlwaysPushInheritance]
-    public string Type;
-
-    [DataField]
-    [AlwaysPushInheritance]
-    public string Value;
+    public DynamicValue Value;
 }
 
 [Serializable, DataDefinition]

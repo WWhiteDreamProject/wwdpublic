@@ -8,15 +8,18 @@
     interpolationMode: Linear
     keyFrames:
     - !type:KeyFramePropertyData
-      value: 0
-      type: angle
+      value:
+        type: "Robust.Shared.Maths.Angle, Robust.Shared.Maths"
+        value: 0
       keyframe: 0
     - !type:KeyFramePropertyData
-      value: 180
-      type: angle
+      value:
+        type: "Robust.Shared.Maths.Angle, Robust.Shared.Maths"
+        value: 180
       keyframe: 0.25
     - !type:KeyFramePropertyData
-      value: 360
-      type: angle
+      value:
+        type: "Robust.Shared.Maths.Angle, Robust.Shared.Maths"
+        value: 360
       keyframe: 0.25
   key: flip
