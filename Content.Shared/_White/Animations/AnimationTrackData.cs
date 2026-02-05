@@ -42,5 +42,10 @@ public sealed partial class AnimationTrackControlPropertyData : AnimationTrackPr
 public sealed partial class AnimationTrackPlaySoundData : AnimationTrackData;
 
 [Serializable, DataDefinition]
-public sealed partial class AnimationTrackSpriteFlickData : AnimationTrackData;
+public sealed partial class AnimationTrackSpriteFlickData : AnimationTrackData
+{
+    [DataField]
+    [AlwaysPushInheritance]
+    public Enum LayerKey;
+}
 

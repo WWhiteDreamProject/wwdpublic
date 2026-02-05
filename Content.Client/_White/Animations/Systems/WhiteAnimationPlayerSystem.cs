@@ -91,10 +91,7 @@ public sealed class WhiteAnimationPlayerSystem : SharedWhiteAnimationPlayerSyste
 
     private AnimationTrackControlProperty GetControlProperty(AnimationTrackControlPropertyData animationTrackData)
     {
-        var animationTrack = new AnimationTrackControlProperty
-        {
-            Property = animationTrackData.Property
-        };
+        var animationTrack = new AnimationTrackControlProperty { Property = animationTrackData.Property, };
 
         SetProperty(animationTrack, animationTrackData);
 
@@ -117,7 +114,7 @@ public sealed class WhiteAnimationPlayerSystem : SharedWhiteAnimationPlayerSyste
 
     private AnimationTrackSpriteFlick GetSpriteFlick(AnimationTrackSpriteFlickData animationTrackData)
     {
-        var animationTrack = new AnimationTrackSpriteFlick();
+        var animationTrack = new AnimationTrackSpriteFlick {LayerKey = animationTrackData.LayerKey, };
         foreach (var keyFrame in animationTrackData.KeyFrames)
         {
             if (keyFrame is not KeyFrameSpriteFlickData keyFrameSpriteFlick)
