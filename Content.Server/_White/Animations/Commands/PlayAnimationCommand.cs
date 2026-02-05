@@ -1,53 +1,56 @@
-using System.Linq;
 using Content.Server._White.Animations.Systems;
 using Content.Server.Administration;
 using Content.Shared._White.Animations.Prototypes;
 using Content.Shared.Administration;
 using Robust.Shared.Console;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server._White.Animations.Commands;
 
 [AdminCommand(AdminFlags.Fun)]
-public sealed class PlayAnimationCommand : IConsoleCommand
+public sealed class PlayAnimationCommand : LocalizedCommands
 {
     [Dependency] private readonly IEntityManager _entityManager = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
-    public string Command => "playanimation";
+    public override string Command => "playanimation";
 
-    public string Description => "Plays animation on given entity.";
-
-    public string Help => "playanimation <entityUid> <animation>";
-
-    public void Execute(IConsoleShell shell, string arg, string[] args)
+    public override void Execute(IConsoleShell shell, string arg, string[] args)
     {
-        if (args.Length == 0 || args.Length < 2)
-            return;
-
-        if (!NetEntity.TryParse(args[0], out var targetUidNet) || !_entityManager.TryGetEntity(targetUidNet, out var targetEntity))
+        if (args.Length == 0)
         {
-            shell.WriteLine(Loc.GetString("shell-entity-uid-must-be-number"));
+            shell.WriteError(Loc.GetString("shell-wrong-arguments-number"));
+            shell.WriteLine(Help);
             return;
         }
 
-        _entityManager.System<WhiteAnimationPlayerSystem>().Play(targetEntity.Value, args[1]);
+        var entity = shell.Player?.AttachedEntity;
+        if (args.Length == 2)
+        {
+            if (!NetEntity.TryParse(args[0], out var netEntity))
+            {
+                shell.WriteError(Loc.GetString("shell-invalid-entity-id"));
+                return;
+            }
+
+            entity = _entityManager.GetEntity(netEntity);
+        }
+        else if (!entity.HasValue)
+        {
+            shell.WriteError(Loc.GetString("shell-wrong-arguments-number"));
+            shell.WriteLine(Help);
+            return;
+        }
+
+        _entityManager.System<WhiteAnimationPlayerSystem>().Play(entity.Value, args[0]);
     }
 
-    public CompletionResult GetCompletion(IConsoleShell shell, string[] args)
+    public override CompletionResult GetCompletion(IConsoleShell shell, string[] args)
     {
-        switch (args.Length)
-        {
-            case 1:
-                return CompletionResult.FromHint("<entityUid>");
-            case 2:
-                var prototypes = _prototypeManager.EnumeratePrototypes<AnimationPrototype>().OrderBy(p => p.ID);
+        if (args.Length == 1)
+            return CompletionResult.FromHintOptions(CompletionHelper.PrototypeIDs<AnimationPrototype>(), Loc.GetString("shell-argument-animation-id-hint"));
 
-                var options = new List<string>();
-                foreach (var prototype in prototypes) options.Add(prototype.ID);
+        if (args.Length == 2)
+            return CompletionResult.FromHint(Loc.GetString("shell-argument-entity-optional-hint"));
 
-                return CompletionResult.FromHintOptions(options, "<animation>");
-        }
         return CompletionResult.Empty;
     }
 }
