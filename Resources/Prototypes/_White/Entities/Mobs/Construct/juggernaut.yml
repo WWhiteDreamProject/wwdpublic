@@ -28,7 +28,7 @@
     - ActionBloodCultGauntletEcho
 
 - type: entity
-  id: ConstructShellComponent
+  id: MobConstructJuggernaut
   parent: BaseMobConstructJuggernaut
   components:
   - type: BloodCultist

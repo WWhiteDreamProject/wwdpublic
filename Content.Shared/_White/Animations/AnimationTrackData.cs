@@ -15,25 +15,17 @@ public abstract class AnimationTrackPropertyData : AnimationTrackData
 {
     [DataField]
     [AlwaysPushInheritance]
-    public AnimationInterpolationMode InterpolationMode;
+    public AnimationInterpolationMode InterpolationMode = AnimationInterpolationMode.Linear;
 }
 
 [Serializable, DataDefinition]
 public sealed partial class AnimationTrackComponentPropertyData : AnimationTrackPropertyData
 {
-    [DataField]
+    [DataField(required: true)]
     [AlwaysPushInheritance]
     public string ComponentType;
 
-    [DataField]
-    [AlwaysPushInheritance]
-    public string Property;
-}
-
-[Serializable, DataDefinition]
-public sealed partial class AnimationTrackControlPropertyData : AnimationTrackPropertyData
-{
-    [DataField]
+    [DataField(required: true)]
     [AlwaysPushInheritance]
     public string Property;
 }
@@ -44,8 +36,9 @@ public sealed partial class AnimationTrackPlaySoundData : AnimationTrackData;
 [Serializable, DataDefinition]
 public sealed partial class AnimationTrackSpriteFlickData : AnimationTrackData
 {
-    [DataField]
+    [DataField(required: true)]
     [AlwaysPushInheritance]
     public Enum LayerKey;
 }
+
 

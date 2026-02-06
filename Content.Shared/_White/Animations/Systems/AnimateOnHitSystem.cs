@@ -2,11 +2,13 @@ using Content.Shared._White.Animations.Components;
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Standing;
 using Content.Shared.Weapons.Melee.Events;
+using Content.Shared.Whitelist;
 
 namespace Content.Shared._White.Animations.Systems;
 
 public sealed class AnimateOnHitSystem : EntitySystem
 {
+    [Dependency] private readonly EntityWhitelistSystem _entityWhitelist = default!;
     [Dependency] private readonly SharedWhiteAnimationPlayerSystem _whiteAnimationPlayer = default!;
     [Dependency] private readonly StandingStateSystem _standingState = default!;
 
@@ -25,11 +27,21 @@ public sealed class AnimateOnHitSystem : EntitySystem
         if (TryComp(ent, out ItemToggleComponent? itemToggle) && !itemToggle.Activated)
             return;
 
-        var target = ent.Comp.ApplyToSelf ? args.User : args.HitEntities[0];
+        if (ent.Comp.ApplyToUser)
+        {
+            PlayAnimation(args.User, ent.Comp, args.User);
+            return;
+        }
 
-        if (_standingState.IsDown(target))
+        foreach (var target in args.HitEntities)
+            PlayAnimation(target, ent.Comp, args.User);
+    }
+
+    private void PlayAnimation(EntityUid target, AnimateOnHitComponent component, EntityUid recipient)
+    {
+        if (_standingState.IsDown(target) || _entityWhitelist.IsWhitelistFail(component.Whitelist, target))
             return;
 
-        _whiteAnimationPlayer.Play(target, ent.Comp.Animation);
+        _whiteAnimationPlayer.PlayPredicted(target, component.Animation, recipient);
     }
 }

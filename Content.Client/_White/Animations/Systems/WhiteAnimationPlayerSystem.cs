@@ -7,14 +7,23 @@ using Content.Shared._White.Animations.Systems;
 using Robust.Client.Animations;
 using Robust.Client.Audio;
 using Robust.Client.GameObjects;
+using Robust.Client.Player;
+using Robust.Shared.Animations;
+using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.Manager;
+using Robust.Shared.Serialization.Markdown.Value;
+using Robust.Shared.Timing;
 
 namespace Content.Client._White.Animations.Systems;
 
 public sealed class WhiteAnimationPlayerSystem : SharedWhiteAnimationPlayerSystem
 {
     [Dependency] private readonly IComponentFactory _component = default!;
+    [Dependency] private readonly IGameTiming _gameTiming = default!;
+    [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private readonly ISerializationManager _serialization = default!;
 
     [Dependency] private readonly AnimationPlayerSystem _animationPlayer = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
@@ -25,11 +34,21 @@ public sealed class WhiteAnimationPlayerSystem : SharedWhiteAnimationPlayerSyste
     {
         base.Initialize();
 
+        SubscribeAllEvent<PlayAnimationMessage>(OnPlayAnimationMessage);
+        SubscribeAllEvent<StopAnimationMessage>(OnStopAnimationMessage);
+
         _prototype.PrototypesReloaded += OnPrototypeReload;
-        SubscribeNetworkEvent<PlayAnimationMessage>(OnPlayAnimationMessage);
 
         CachePrototypes();
     }
+
+    #region Event Handling
+
+    private void OnPlayAnimationMessage(PlayAnimationMessage message) =>
+        Play(GetEntity(message.AnimatedEntity), message.AnimationId, message.Force);
+
+    private void OnStopAnimationMessage(StopAnimationMessage message) =>
+        Stop(GetEntity(message.AnimatedEntity), message.AnimationKey);
 
     private void OnPrototypeReload(PrototypesReloadedEventArgs args)
     {
@@ -37,63 +56,71 @@ public sealed class WhiteAnimationPlayerSystem : SharedWhiteAnimationPlayerSyste
             CachePrototypes();
     }
 
-    private void OnPlayAnimationMessage(PlayAnimationMessage message) =>
-        Play(GetEntity(message.AnimatedEntity), message.AnimationId);
-
     private void CachePrototypes()
     {
         var animationPrototypes = _prototype.EnumeratePrototypes<AnimationPrototype>().ToList();
 
         foreach (var animationPrototype in animationPrototypes)
         {
-            var animation = new Animation
-            {
-                Length = animationPrototype.Length
-            };
+            var animation = new Animation();
+            var realLength = TimeSpan.Zero;
 
             foreach (var animationTrackData in animationPrototype.AnimationTracksData)
             {
                 AnimationTrack? animationTrack = null;
                 if (animationTrackData is AnimationTrackComponentPropertyData componentPropertyData)
                     animationTrack = GetComponentProperty(componentPropertyData);
-                else if (animationTrackData is AnimationTrackControlPropertyData controlPropertyData)
-                    animationTrack = GetControlProperty(controlPropertyData);
                 else if (animationTrackData is AnimationTrackPlaySoundData playSoundData)
                     animationTrack = GetPlaySound(playSoundData);
                 else if (animationTrackData is AnimationTrackSpriteFlickData spriteFlickData)
                     animationTrack = GetSpriteFlick(spriteFlickData);
 
                 if (animationTrack == null)
-                    return;
+                    continue;
+
+                foreach (var keyFrame in animationTrackData.KeyFrames)
+                    realLength += TimeSpan.FromSeconds(keyFrame.Keyframe);
 
                 animation.AnimationTracks.Add(animationTrack);
             }
+
+            animation.Length = animationPrototype.Length ?? realLength;
 
             animationPrototype.Animation = animation;
         }
 
         _animations = animationPrototypes.ToFrozenDictionary(x => x.ID);
     }
+    #endregion
 
-    private AnimationTrackComponentProperty GetComponentProperty(AnimationTrackComponentPropertyData animationTrackData)
+    #region Private API
+
+    private AnimationTrackComponentProperty? GetComponentProperty(AnimationTrackComponentPropertyData animationTrackData)
     {
         var animationTrack = new AnimationTrackComponentProperty();
 
         if (!_component.TryGetRegistration(animationTrackData.ComponentType, out var registration, true))
-            return animationTrack;
+            return null;
 
         animationTrack.ComponentType = registration.Type;
         animationTrack.Property = animationTrackData.Property;
-        SetProperty(animationTrack, animationTrackData);
+        animationTrack.InterpolationMode = animationTrackData.InterpolationMode;
 
-        return animationTrack;
-    }
+        var propertyType = AnimationHelper.GetAnimatableProperty(_component.GetComponent(registration), animationTrack.Property)?.GetType();
+        if (propertyType == null)
+            return null;
 
-    private AnimationTrackControlProperty GetControlProperty(AnimationTrackControlPropertyData animationTrackData)
-    {
-        var animationTrack = new AnimationTrackControlProperty { Property = animationTrackData.Property, };
+        foreach (var keyFrame in animationTrackData.KeyFrames)
+        {
+            if (keyFrame is not KeyFramePropertyData keyFrameProperty)
+                continue;
 
-        SetProperty(animationTrack, animationTrackData);
+            var value = _serialization.Read(propertyType, new ValueDataNode(keyFrameProperty.Value));
+            if (value == null)
+                continue;
+
+            animationTrack.KeyFrames.Add(new (value, keyFrame.Keyframe));
+        }
 
         return animationTrack;
     }
@@ -125,30 +152,111 @@ public sealed class WhiteAnimationPlayerSystem : SharedWhiteAnimationPlayerSyste
 
         return animationTrack;
     }
+    #endregion
 
-    private void SetProperty(AnimationTrackProperty animationTrack, AnimationTrackPropertyData animationTrackData)
-    {
-        animationTrack.InterpolationMode = animationTrackData.InterpolationMode;
-
-        foreach (var keyFrame in animationTrackData.KeyFrames)
-        {
-            if (keyFrame is not KeyFramePropertyData keyFrameProperty)
-                continue;
-
-            animationTrack.KeyFrames.Add(new (keyFrameProperty.Value.Value, keyFrame.Keyframe));
-        }
-    }
+    #region Public API
 
     public bool TryGetAnimation(string animationId, [NotNullWhen(true)] out AnimationPrototype? animation) =>
         _animations.TryGetValue(animationId, out animation);
 
-    public override void Play(EntityUid uid, ProtoId<AnimationPrototype> animationId)
+    public override void Play(EntityUid uid, ProtoId<AnimationPrototype> animationId, bool force = false)
     {
-        if (!TryGetAnimation(animationId, out var animation)
-            || !uid.Valid
-            || _animationPlayer.HasRunningAnimation(uid, animation.Key))
+        if (!TryGetAnimation(animationId, out var animation) || !uid.Valid)
             return;
+
+        if (_animationPlayer.HasRunningAnimation(uid, animation.Key))
+        {
+            if (!force)
+                return;
+
+            _animationPlayer.Stop(uid, animation.Key);
+        }
 
         _animationPlayer.Play(uid, (Animation) animation.Animation, animation.Key);
     }
+
+    public override void Play(EntityUid uid, ProtoId<AnimationPrototype> animationId, EntityUid recipient, bool force = false)
+    {
+        if (_player.LocalEntity != recipient)
+            return;
+
+        Play(uid, animationId, force);
+    }
+
+    public override void Play(EntityUid uid, ProtoId<AnimationPrototype> animationId, ICommonSession recipient, bool force = false)
+    {
+        if (_player.LocalSession != recipient)
+            return;
+
+        Play(uid, animationId, force);
+    }
+
+    public override void Play(EntityUid uid, ProtoId<AnimationPrototype> animationId, Filter filter, bool force = false)
+    {
+        if (!filter.Recipients.Contains(_player.LocalSession))
+            return;
+
+        Play(uid, animationId, force);
+    }
+
+    public override void PlayClient(EntityUid uid, ProtoId<AnimationPrototype> animationId, EntityUid recipient, bool force = false)
+    {
+        if (!_gameTiming.IsFirstTimePredicted)
+            return;
+
+        Play(uid, animationId, recipient, force);
+    }
+
+    public override void PlayPredicted(EntityUid uid, ProtoId<AnimationPrototype> animationId, EntityUid recipient, bool force = false)
+    {
+        if (!_gameTiming.IsFirstTimePredicted)
+            return;
+
+        Play(uid, animationId, recipient, force);
+    }
+
+    public override void Stop(EntityUid uid, string animationkey) =>
+        _animationPlayer.Stop(uid, animationkey);
+
+    public override void Stop(EntityUid uid, string animationkey, EntityUid recipient)
+    {
+        if (_player.LocalEntity != recipient)
+            return;
+
+        Stop(uid, animationkey);
+    }
+
+    public override void Stop(EntityUid uid, string animationkey, ICommonSession recipient)
+    {
+        if (_player.LocalSession != recipient)
+            return;
+
+        Stop(uid, animationkey);
+    }
+
+    public override void Stop(EntityUid uid, string animationkey, Filter filter)
+    {
+        if (!filter.Recipients.Contains(_player.LocalSession))
+            return;
+
+        Stop(uid, animationkey);
+    }
+
+    public override void StopClient(EntityUid uid, string animationkey, EntityUid recipient)
+    {
+        if (!_gameTiming.IsFirstTimePredicted)
+            return;
+
+        Stop(uid, animationkey, recipient);
+    }
+
+    public override void StopPredicted(EntityUid uid, string animationkey, EntityUid recipient)
+    {
+        if (!_gameTiming.IsFirstTimePredicted)
+            return;
+
+        Stop(uid, animationkey, recipient);
+    }
+
+    #endregion
 }

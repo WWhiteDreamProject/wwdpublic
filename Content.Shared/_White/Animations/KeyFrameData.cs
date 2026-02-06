@@ -1,4 +1,3 @@
-using Content.Shared._White.Helpers;
 using Robust.Shared.Audio;
 
 namespace Content.Shared._White.Animations;
@@ -14,15 +13,15 @@ public abstract class KeyFrameData
 [Serializable, DataDefinition]
 public sealed partial class KeyFramePropertyData : KeyFrameData
 {
-    [DataField]
+    [DataField(required: true)]
     [AlwaysPushInheritance]
-    public DynamicValue Value;
+    public string Value;
 }
 
 [Serializable, DataDefinition]
 public sealed partial class KeyFrameSoundData : KeyFrameData
 {
-    [DataField]
+    [DataField(required: true)]
     [AlwaysPushInheritance]
     public SoundSpecifier Sound;
 }
@@ -30,7 +29,7 @@ public sealed partial class KeyFrameSoundData : KeyFrameData
 [Serializable, DataDefinition]
 public sealed partial class KeyFrameSpriteFlickData : KeyFrameData
 {
-    [DataField]
+    [DataField(required: true)]
     [AlwaysPushInheritance]
     public string State;
 }

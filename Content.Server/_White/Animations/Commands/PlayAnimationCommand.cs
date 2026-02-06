@@ -23,9 +23,9 @@ public sealed class PlayAnimationCommand : LocalizedCommands
         }
 
         var entity = shell.Player?.AttachedEntity;
-        if (args.Length == 2)
+        if (args.Length >= 2)
         {
-            if (!NetEntity.TryParse(args[0], out var netEntity))
+            if (!NetEntity.TryParse(args[1], out var netEntity))
             {
                 shell.WriteError(Loc.GetString("shell-invalid-entity-id"));
                 return;
@@ -33,7 +33,8 @@ public sealed class PlayAnimationCommand : LocalizedCommands
 
             entity = _entityManager.GetEntity(netEntity);
         }
-        else if (!entity.HasValue)
+
+        if (!entity.HasValue)
         {
             shell.WriteError(Loc.GetString("shell-wrong-arguments-number"));
             shell.WriteLine(Help);

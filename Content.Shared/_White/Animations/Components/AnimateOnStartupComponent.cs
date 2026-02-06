@@ -9,4 +9,10 @@ public sealed partial class AnimateOnStartupComponent : Component
 {
     [DataField(required: true), AutoNetworkedField]
     public ProtoId<AnimationPrototype> Animation = string.Empty;
+
+    [DataField, AutoNetworkedField]
+    public bool Force;
+
+    [ViewVariables]
+    public bool Played;
 }

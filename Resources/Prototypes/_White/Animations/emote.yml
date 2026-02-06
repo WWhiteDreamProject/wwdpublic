@@ -1,88 +1,59 @@
 - type: animation
   id: Flip
-  length: 0.5
   animationTracksData:
   - !type:AnimationTrackComponentPropertyData
     componentType: Sprite
     property: Rotation
-    interpolationMode: Linear
     keyFrames:
     - !type:KeyFramePropertyData
-      value:
-        type: "Robust.Shared.Maths.Angle, Robust.Shared.Maths"
-        value: 0
+      value: 0
       keyframe: 0
     - !type:KeyFramePropertyData
-      value:
-        type: "Robust.Shared.Maths.Angle, Robust.Shared.Maths"
-        value: 180
+      value: 180
       keyframe: 0.25
     - !type:KeyFramePropertyData
-      value:
-        type: "Robust.Shared.Maths.Angle, Robust.Shared.Maths"
-        value: 360
+      value: 360
       keyframe: 0.25
   key: flip
 
 - type: animation
   id: Spin
-  length: 0.6
   animationTracksData:
   - !type:AnimationTrackComponentPropertyData
     componentType: Transform
     property: LocalRotation
-    interpolationMode: Linear
     keyFrames:
     - !type:KeyFramePropertyData
-      value:
-        type: "Robust.Shared.Maths.Angle, Robust.Shared.Maths"
-        value: 0
+      value: 0
       keyframe: 0
     - !type:KeyFramePropertyData
-      value:
-        type: "Robust.Shared.Maths.Angle, Robust.Shared.Maths"
-        value: 90
+      value: 90
       keyframe: 0.075
     - !type:KeyFramePropertyData
-      value:
-        type: "Robust.Shared.Maths.Angle, Robust.Shared.Maths"
-        value: 180
+      value: 180
       keyframe: 0.075
     - !type:KeyFramePropertyData
-      value:
-        type: "Robust.Shared.Maths.Angle, Robust.Shared.Maths"
-        value: 270
+      value: 270
       keyframe: 0.075
     - !type:KeyFramePropertyData
-      value:
-        type: "Robust.Shared.Maths.Angle, Robust.Shared.Maths"
-        value: 0
+      value: 0
       keyframe: 0.075
     - !type:KeyFramePropertyData
-      value:
-        type: "Robust.Shared.Maths.Angle, Robust.Shared.Maths"
-        value: 90
+      value: 90
       keyframe: 0.075
     - !type:KeyFramePropertyData
-      value:
-        type: "Robust.Shared.Maths.Angle, Robust.Shared.Maths"
-        value: 180
+      value: 180
       keyframe: 0.075
     - !type:KeyFramePropertyData
-      value:
-        type: "Robust.Shared.Maths.Angle, Robust.Shared.Maths"
-        value: 270
+      value: 270
       keyframe: 0.075
     - !type:KeyFramePropertyData
-      value:
-        type: "Robust.Shared.Maths.Angle, Robust.Shared.Maths"
-        value: 0
+      value: 0
       keyframe: 0.075
   key: spin
 
 - type: animation
   id: Jump
-  length: 0.25
   animationTracksData:
   - !type:AnimationTrackComponentPropertyData
     componentType: Sprite
@@ -90,18 +61,12 @@
     interpolationMode: Cubic
     keyFrames:
     - !type:KeyFramePropertyData
-      value:
-        type: "System.Numerics.Vector2"
-        value: 0, 0
+      value: 0, 0
       keyframe: 0
     - !type:KeyFramePropertyData
-      value:
-        type: "System.Numerics.Vector2"
-        value: 0, 0.35
+      value: 0, 0.35
       keyframe: 0.125
     - !type:KeyFramePropertyData
-      value:
-        type: "System.Numerics.Vector2"
-        value: 0, 0
+      value: 0, 0
       keyframe: 0.125
   key: jump
