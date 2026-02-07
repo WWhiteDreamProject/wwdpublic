@@ -42,6 +42,12 @@ public sealed class WhiteAnimationPlayerSystem : SharedWhiteAnimationPlayerSyste
         CachePrototypes();
     }
 
+    public override void Shutdown()
+    {
+        base.Shutdown();
+        _prototype.PrototypesReloaded -= OnPrototypeReload;
+    }
+
     #region Event Handling
 
     private void OnPlayAnimationMessage(PlayAnimationMessage message) =>
@@ -63,7 +69,7 @@ public sealed class WhiteAnimationPlayerSystem : SharedWhiteAnimationPlayerSyste
         foreach (var animationPrototype in animationPrototypes)
         {
             var animation = new Animation();
-            var realLength = TimeSpan.Zero;
+            var realLength = 0f;
 
             foreach (var animationTrackData in animationPrototype.AnimationTracksData)
             {
@@ -78,13 +84,15 @@ public sealed class WhiteAnimationPlayerSystem : SharedWhiteAnimationPlayerSyste
                 if (animationTrack == null)
                     continue;
 
+                var animationTrackLength = 0f;
                 foreach (var keyFrame in animationTrackData.KeyFrames)
-                    realLength += TimeSpan.FromSeconds(keyFrame.Keyframe);
+                    animationTrackLength += keyFrame.Keyframe;
 
+                realLength = MathF.Max(realLength, animationTrackLength);
                 animation.AnimationTracks.Add(animationTrack);
             }
 
-            animation.Length = animationPrototype.Length ?? realLength;
+            animation.Length = animationPrototype.Length ?? TimeSpan.FromSeconds(realLength);
 
             animationPrototype.Animation = animation;
         }

@@ -49,7 +49,7 @@ public abstract class SharedWhiteAnimationPlayerSystem : EntitySystem
     /// Stop animation on entity for every player in pvs range.
     /// </summary>
     /// <param name="uid">The UID of the entity.</param>
-    /// <param name="animationKey">The key of the animation that will be stoped.</param>
+    /// <param name="animationKey">The key of the animation that will be stopped.</param>
     public abstract void Stop(EntityUid uid, string animationKey);
 
     /// <summary>
@@ -75,7 +75,7 @@ public abstract class SharedWhiteAnimationPlayerSystem : EntitySystem
     public abstract void StopClient(EntityUid uid, string animationKey, EntityUid recipient);
 
     /// <summary>
-    /// Variant of <see cref="Stop(EntityUid, string, EntityUid)"/> for use with prediction. The local client will play
+    /// Variant of <see cref="Stop(EntityUid, string, EntityUid)"/> for use with prediction. The local client will stop
     /// animation to the recipient, and the server will stop it to every other player in pvs range.
     /// </summary>
     public abstract void StopPredicted(EntityUid uid, string animationKey, EntityUid recipient);
