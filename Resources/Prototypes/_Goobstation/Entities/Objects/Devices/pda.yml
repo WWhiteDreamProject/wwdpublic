@@ -6,16 +6,9 @@
   components:
   - type: Pda
     id: BlueshieldIDCard
-  - type: Appearance
-    appearanceDataInit:
-      enum.PdaVisuals.PdaType:
-        !type:String
-        pda-blueshield
-  - type: Icon
-    sprite: _Goobstation/Objects/Devices/pda.rsi
-    state: pda-blueshield
+  # WD EDIT START
   - type: Sprite
-    sprite: _Goobstation/Objects/Devices/pda.rsi
-    state: pda-blueshield
+    sprite: _White/Objects/Devices/Pda/pda.rsi
+  # WD EDIT END
   - type: PdaBorderColor
     borderColor: "#3c94c5"

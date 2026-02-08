@@ -54,13 +54,13 @@ public sealed class SharedLoadoutSystem : EntitySystem
         _station.EquipStartingGear(uid, proto);
     }
 
-    public (List<EntityUid>, List<(EntityUid, LoadoutPreference, int)>) ApplyCharacterLoadout(
+    public (List<EntityUid>, List<(EntityUid, Loadout, int)>) ApplyCharacterLoadout(
         EntityUid uid,
         ProtoId<JobPrototype> job,
         HumanoidCharacterProfile profile,
         Dictionary<string, TimeSpan> playTimes,
         bool whitelisted,
-        out List<(EntityUid, LoadoutPreference)> heirlooms)
+        out List<(EntityUid, Loadout)> heirlooms)
     {
         var jobPrototype = _prototype.Index(job);
         return ApplyCharacterLoadout(uid, jobPrototype, profile, playTimes, whitelisted, out heirlooms);
@@ -76,21 +76,21 @@ public sealed class SharedLoadoutSystem : EntitySystem
     /// <param name="whitelisted">If the player is whitelisted</param>
     /// <param name="heirlooms">Every entity the player selected as a potential heirloom</param>
     /// <returns>A list of loadout items that couldn't be equipped but passed checks</returns>
-    public (List<EntityUid>, List<(EntityUid, LoadoutPreference, int)>) ApplyCharacterLoadout(
+    public (List<EntityUid>, List<(EntityUid, Loadout, int)>) ApplyCharacterLoadout(
         EntityUid uid,
         JobPrototype job,
         HumanoidCharacterProfile profile,
         Dictionary<string, TimeSpan> playTimes,
         bool whitelisted,
-        out List<(EntityUid, LoadoutPreference)> heirlooms)
+        out List<(EntityUid, Loadout)> heirlooms)
     {
         var failedLoadouts = new List<EntityUid>();
-        var allLoadouts = new List<(EntityUid, LoadoutPreference, int)>();
+        var allLoadouts = new List<(EntityUid, Loadout, int)>();
         heirlooms = new();
         if (!job.SpawnLoadout)
             return (failedLoadouts, allLoadouts);
 
-        foreach (var loadout in profile.LoadoutPreferences)
+        foreach (var loadout in profile.LoadoutPreferencesList) // WWDP EDIT
         {
             var slot = "";
 
@@ -192,7 +192,7 @@ public sealed class SharedLoadoutSystem : EntitySystem
 }
 
 [Serializable, NetSerializable, ImplicitDataDefinitionForInheritors]
-public abstract partial class Loadout
+public sealed partial class Loadout
 {
     [DataField] public string LoadoutName { get; set; }
     [DataField] public string? CustomName { get; set; }
@@ -201,7 +201,7 @@ public abstract partial class Loadout
     [DataField] public string? CustomColorTint { get; set; }
     [DataField] public bool? CustomHeirloom { get; set; }
 
-    protected Loadout(
+    public Loadout(
         string loadoutName,
         string? customName = null,
         string? customDescription = null,
@@ -217,21 +217,6 @@ public abstract partial class Loadout
         CustomColorTint = customColorTint;
         CustomHeirloom = customHeirloom;
     }
-}
-
-[Serializable, NetSerializable]
-public sealed partial class LoadoutPreference : Loadout
-{
-    [DataField] public bool Selected;
-
-    public LoadoutPreference(
-        string loadoutName,
-        string? customName = null,
-        string? customDescription = null,
-        string? customContent = null, // WD EDIT
-        string? customColorTint = null,
-        bool? customHeirloom = null
-    ) : base(loadoutName, customName, customDescription, customContent, customColorTint, customHeirloom) { } // WD EDIT
 }
 
 /// <summary>

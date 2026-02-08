@@ -1,8 +1,8 @@
-zzzz-fmt-direction-North = Север
-zzzz-fmt-direction-South = Юг
-zzzz-fmt-direction-East = Восток
-zzzz-fmt-direction-West = Запад
-zzzz-fmt-direction-NorthEast = Северо-восток
-zzzz-fmt-direction-SouthEast = Юго-восток
-zzzz-fmt-direction-NorthWest = Северо-запад
-zzzz-fmt-direction-SouthWest = Северо-восток
+zzzz-fmt-direction-North = север
+zzzz-fmt-direction-South = юг
+zzzz-fmt-direction-East = восток
+zzzz-fmt-direction-West = запад
+zzzz-fmt-direction-NorthEast = северо-восток
+zzzz-fmt-direction-SouthEast = юго-восток
+zzzz-fmt-direction-NorthWest = северо-запад
+zzzz-fmt-direction-SouthWest = юго-запад

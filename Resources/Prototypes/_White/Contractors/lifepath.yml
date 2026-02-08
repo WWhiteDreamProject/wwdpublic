@@ -1,0 +1,4 @@
+- type: lifepath
+  id: Cultist
+  nameKey: lifepath_name_cultist
+  descriptionKey: lifepath_description_cultist

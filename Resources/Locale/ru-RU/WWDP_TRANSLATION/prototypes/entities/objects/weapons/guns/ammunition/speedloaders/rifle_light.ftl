@@ -1,2 +1,2 @@
-ent-SpeedLoaderLightRifle = спидлоадер (.30 винтовочные)
+ent-SpeedLoaderLightRifle = обойма (.30 винтовочные)
     .desc = { ent-BaseItem.desc }

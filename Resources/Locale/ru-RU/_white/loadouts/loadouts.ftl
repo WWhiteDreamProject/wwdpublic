@@ -1,4 +1,8 @@
-﻿# Combat Maid
+﻿# loadout menu
+loadout-error-prototype-not-found = Прототип лоадаута не найден
+loadout-error-too-expensive = Данный предмет вам не по карману!
+
+# Combat Maid
 loadout-category-JobsCommandMaid = Горничная
 
 character-item-group-LoadoutMaidHats = Головные уборы горничной

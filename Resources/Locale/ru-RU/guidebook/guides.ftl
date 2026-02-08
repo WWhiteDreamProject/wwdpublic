@@ -129,13 +129,14 @@ guide-entry-rules-s7 = S7
 guide-entry-rules-s8 = S8
 guide-entry-rules-s9 = S9
 guide-entry-rules-s10 = S10
-guide-entry-rules-space-law = Space Law
-guide-entry-rules-sl-crime-list = Law Book
+guide-entry-rules-space-law = Космический Закон
+guide-entry-rules-sl-crime-list = Классификация законов
 guide-entry-rules-sl-controlled-substances = Controlled Substances
 guide-entry-rules-sl-restricted-gear = Restricted Gear
 guide-entry-rules-sl-restricted-weapons = Restricted Weapons
 guide-entry-rules-ban-types = Ban Types
 guide-entry-rules-ban-durations = Ban Durations
+guide-entry-rules-white-dream = Правила White Dream
 
 guide-entry-writing = Разметка письма
 guide-entry-glossary = Словарь терминов

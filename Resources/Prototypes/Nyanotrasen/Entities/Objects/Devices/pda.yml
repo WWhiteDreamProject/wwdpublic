@@ -64,26 +64,12 @@
   name: martial artist PDA
   description: Smells like straw.
   components:
+  # WD EDIT START
   - type: Sprite
-    sprite: DeltaV/Objects/Devices/pda.rsi
-    layers:
-    - map: [ "enum.PdaVisualLayers.Base" ]
-      state: "pda"
-    - state: "light_overlay"
-      map: [ "enum.PdaVisualLayers.Flashlight" ]
-      shader: "unshaded"
-      visible: false
-    - state: "id_overlay"
-      map: [ "enum.PdaVisualLayers.IdLight" ]
-      shader: "unshaded"
-      visible: false
+    sprite: _White/Objects/Devices/Pda/pda.rsi
+  # WD EDIT END
   - type: Pda
     id: MartialArtistIDCard
-  - type: Appearance
-    appearanceDataInit:
-      enum.PdaVisuals.PdaType:
-        !type:String
-        pda-martialartist
   - type: PdaBorderColor
     borderColor: "#d7d7d0"
     accentHColor: "#232323"

@@ -239,7 +239,7 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
         var entWeapon = GetEntity(ev.Weapon);
 
         // Entity might not have been sent by PVS.
-        if (!Exists(ent) || Exists(entWeapon))
+        if (!Exists(ent) || !Exists(entWeapon)) // White Dream fix
             return;
 
         DoLunge(ent, entWeapon, ev.Angle, ev.LocalPos, ev.Animation, ev.SpriteRotation); // WD EDIT

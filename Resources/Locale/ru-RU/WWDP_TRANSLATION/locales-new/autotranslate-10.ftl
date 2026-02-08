@@ -1,59 +1,59 @@
-ent-SpawnPointSeniorResearcher = Точка спавна ведущего исследователя
+ent-SpawnPointSeniorResearcher = точка спавна ведущего исследователя
    .desc = ""
 
-ent-SpawnPointSeniorOfficer = Точка спавна ветерана СБ
+ent-SpawnPointSeniorOfficer = точка спавна ветерана СБ
    .desc = ""
 
-ent-SpawnPointBrigmedic = Точка спавна бригмедика
+ent-SpawnPointBrigmedic = точка спавна бригмедика
    .desc = ""
 
-ent-SpawnMechRipley = Спавнер рипли
+ent-SpawnMechRipley = спавнер рипли
    .desc = ""
 
-ent-SpawnMechHonker = Спавнер Х.О.Н.К'а
+ent-SpawnMechHonker = спавнер Х.О.Н.К'а
    .desc = ""
 
-ent-SpawnMobCatBingus = Спавнер бингуса
+ent-SpawnMobCatBingus = спавнер бингуса
    .desc = ""
 
-ent-SpawnMobCatSpace = Спавнер космической кошки
+ent-SpawnMobCatSpace = спавнер космической кошки
    .desc = ""
 
-ent-SpawnMobShiva = Спавнер Шивы
+ent-SpawnMobShiva = спавнер Шивы
    .desc = ""
 
-ent-SpawnMobKangarooWillow = Спавнер Уиллоуа
+ent-SpawnMobKangarooWillow = спавнер Уиллоуа
    .desc = ""
 
-ent-SpawnMobKangaroo = Спавнер космического кенгуру
+ent-SpawnMobKangaroo = спавнер космического кенгуру
    .desc = ""
 
-ent-SpawnMobBoxingKangaroo = Спавнер боксёрского кенгуру
+ent-SpawnMobBoxingKangaroo = спавнер боксёрского кенгуру
    .desc = ""
 
-ent-SpawnMobSpaceSpider = Спавнер космического паука
+ent-SpawnMobSpaceSpider = спавнер космического паука
    .desc = ""
 
-ent-SpawnMobAdultSlimesBlue = Спавнер синего слайма
+ent-SpawnMobAdultSlimesBlue = спавнер синего слайма
    .desc = ""
 
-ent-SpawnMobAdultSlimesBlueAngry = Спавнер злого синего слайма
+ent-SpawnMobAdultSlimesBlueAngry = спавнер злого синего слайма
    .desc = ""
 
-ent-SpawnMobAdultSlimesGreen = Спавнер зеленого слайма
+ent-SpawnMobAdultSlimesGreen = спавнер зеленого слайма
    .desc = ""
 
-ent-SpawnMobAdultSlimesGreenAngry = Спавнер злого зеленого слайма
+ent-SpawnMobAdultSlimesGreenAngry = спавнер злого зеленого слайма
    .desc = ""
 
-ent-SpawnMobAdultSlimesYellow = Спавнер жёлтого слайма
+ent-SpawnMobAdultSlimesYellow = спавнер жёлтого слайма
    .desc = ""
 
-ent-SpawnMobAdultSlimesYellowAngry = Спавнер злого желтого слайма
+ent-SpawnMobAdultSlimesYellowAngry = спавнер злого желтого слайма
    .desc = ""
 
-ent-SpawnMobSmile = Спавнер слайма Улыбкин
+ent-SpawnMobSmile = спавнер слайма Улыбкин
    .desc = ""
 
-ent-SpawnMobMonkeyPunpun = Спавнер Пун Пун
+ent-SpawnMobMonkeyPunpun = спавнер Пун Пун
    .desc = ""

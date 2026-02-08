@@ -1,1 +1,1 @@
-﻿virtual-item-dropped-other = Ты уронил {THE($dropped)}!
+﻿virtual-item-dropped-other = Вы уронили {$dropped}!

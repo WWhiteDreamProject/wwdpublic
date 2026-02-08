@@ -38,7 +38,7 @@ health-analyzer-window-damage-group-Genetic = Генетические:
 health-analyzer-window-damage-type-Cellular = Клеточные:
 
 health-analyzer-window-malnutrition = Тяжёлое недоедание
-health-analyzer-popup-scan-target = {CAPITALIZE(THE($user))} is trying to scan you!
+health-analyzer-popup-scan-target = {CAPITALIZE($user)} is trying to scan you!
 
 health-analyzer-window-entity-unrevivable-text = Unique body composition detected! Patient can not be resuscitated by normal means!
 health-analyzer-window-entity-bleeding-text = Пациент истекает кровью!

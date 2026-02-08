@@ -29,7 +29,7 @@
   <Box>
     <GuideEntityEmbed Entity="Wrench" Caption="Промышленность"/>
     <GuideEntityEmbed Entity="Syringe" Caption="Биохимия"/>
-    <GuideEntityEmbed Entity="DeviceQuantumSpinInverter" Caption="Экспериментальные"/>
+    <GuideEntityEmbed Entity="WeaponTetherGun" Caption="Экспериментальные"/>
     <GuideEntityEmbed Entity="ComputerTelevision" Caption="Гражданские службы"/>
     <GuideEntityEmbed Entity="WeaponXrayCannon" Caption="Арсенал"/>
   </Box>

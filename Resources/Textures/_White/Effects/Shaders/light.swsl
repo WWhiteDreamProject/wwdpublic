@@ -1,0 +1,63 @@
+// White edit - lighting glow shader
+uniform sampler2D SCREEN_TEXTURE;
+
+const highp float[3] weights = float[](0.2, 0.0625, 0.0375);
+
+// Function to adjust alpha
+highp float adjustAlpha(highp vec4 background) {
+    highp float avgColor = dot(background.rgb, vec3(0.3333));
+    highp float boost = (1.0 - (1.0 - avgColor) / 1.25);
+    highp float transition = clamp((avgColor - 0.035) / 0.125, 0.0, 2.0);
+    return boost * (1.0 - transition) + transition;
+}
+
+// Function to warm up the color
+highp vec3 warmColor(highp vec3 color) {
+    highp vec3 warmTint = vec3(0.85, 0.9, 0.9);
+    return color * warmTint;
+}
+
+// Function to adjust saturation
+highp vec3 adjustSaturation(highp vec3 color, highp float saturation) {
+    highp float luminance = dot(color, vec3(0.299, 0.587, 0.114));
+    return mix(vec3(luminance), color, saturation);
+}
+
+// Function to add haze effect
+highp vec4 addHaze(highp vec4 color, highp float intensity) {
+    highp vec3 hazeColor = vec3(0.85, 0.82, 0.9);
+    return vec4(mix(color.rgb, hazeColor, intensity), color.a);
+}
+
+// Function to calculate offset based on index
+highp vec2 calculateOffset(highp int index, highp float step) {
+    highp vec3 base = vec3(1.0, 0.0, -1.0);
+    highp vec2 offsets[8];
+    offsets[0] = base.xy;
+    offsets[1] = -base.xy;
+    offsets[2] = base.yx;
+    offsets[3] = -base.yx;
+    offsets[4] = base.xx;
+    offsets[5] = vec2(base.x, base.z);
+    offsets[6] = vec2(base.z, base.x);
+    offsets[7] = base.zz;
+
+    return offsets[index % 8] * step;
+}
+
+void fragment() {
+    highp vec4 sprite = zTexture(UV);
+
+    if (sprite.a == 0.0) {
+        discard;
+    }
+
+    highp vec4 screenColor = zTextureSpec(SCREEN_TEXTURE, FRAGCOORD.xy * SCREEN_PIXEL_SIZE);
+    sprite.a *= adjustAlpha(screenColor);
+
+    sprite.rgb = warmColor(sprite.rgb);
+    sprite.rgb = adjustSaturation(sprite.rgb, 1.1);
+    sprite = addHaze(sprite, 0.05);
+
+    COLOR = sprite;
+}

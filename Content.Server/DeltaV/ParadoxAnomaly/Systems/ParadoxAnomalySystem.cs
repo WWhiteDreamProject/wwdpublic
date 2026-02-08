@@ -67,7 +67,7 @@ public sealed class ParadoxAnomalySystem : EntitySystem
         twin = null;
 
         // Get a list of potential candidates
-        var candidates = new List<(EntityUid, EntityUid, SpeciesPrototype, HumanoidCharacterProfile)>();
+        var candidates = new List<(EntityUid, EntityUid, SpeciesPrototype, HumanoidCharacterProfile, ProtoId<JobPrototype>)>(); // WD EDIT
         var query = EntityQueryEnumerator<MindContainerComponent, HumanoidAppearanceComponent>();
         while (query.MoveNext(out var uid, out var mindContainer, out var humanoid))
         {
@@ -77,29 +77,31 @@ public sealed class ParadoxAnomalySystem : EntitySystem
             if (!_proto.TryIndex<SpeciesPrototype>(humanoid.Species, out var species))
                 continue;
 
-            if (_mind.GetMind(uid, mindContainer) is not {} mindId || !HasComp<JobRoleComponent>(mindId))
+            if (_mind.GetMind(uid, mindContainer) is not {} mindId
+                // WD EDIT START
+                || ! _role.MindHasRole<JobRoleComponent>(mindId, out var jobRole)
+                || !jobRole.Value.Comp2.Prototype.HasValue)
+                // WD EDIT END
                 continue;
 
             if (_role.MindIsAntagonist(mindId))
                 continue;
 
             // TODO: when metempsychosis real skip whoever has Karma
-
-            candidates.Add((uid, mindId, species, profile));
+            candidates.Add((uid, mindId, species, profile, jobRole.Value.Comp2.Prototype.Value)); // WD EDIT
         }
 
         twin = SpawnParadoxAnomaly(candidates, rule);
         return twin != null;
     }
 
-    private EntityUid? SpawnParadoxAnomaly(List<(EntityUid, EntityUid, SpeciesPrototype, HumanoidCharacterProfile)> candidates, string rule)
+    private EntityUid? SpawnParadoxAnomaly(List<(EntityUid, EntityUid, SpeciesPrototype, HumanoidCharacterProfile, ProtoId<JobPrototype>)> candidates, string rule) // WD EDIT
     {
         // Select a candidate.
         if (candidates.Count == 0)
             return null;
 
-        var (uid, mindId, species, profile) = _random.Pick(candidates);
-        var jobId = Comp<JobRoleComponent>(mindId).Prototype;
+        var (uid, mindId, species, profile, jobId) = _random.Pick(candidates); // WD EDIT
         var job = _proto.Index<JobPrototype>(jobId!);
 
         // Find a suitable spawn point.

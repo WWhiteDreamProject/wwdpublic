@@ -4,8 +4,8 @@
         "x": 32,
         "y": 32
     },
-    "license": "CC-BY-SA-3.0",
-    "copyright": "https://github.com/discordia-space/CEV-Eris/raw/9ea3eccbe22e18d24653949067f3d7dd12194ea9/icons/obj/stationobjs.dmi",
+    "license": "CC-BY-NC-SA-4.0",
+    "copyright": "Made by @sentryprimies",
     "states": [
         {
             "name": "empty"
@@ -51,8 +51,8 @@
             "name": "light-charged",
             "delays": [
                 [
-                    0.2,
-                    0.1
+                    0.1,
+                    0.8
                 ]
             ]
         }

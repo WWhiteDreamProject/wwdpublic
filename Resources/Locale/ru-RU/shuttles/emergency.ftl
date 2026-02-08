@@ -19,31 +19,11 @@ emergency-shuttle-command-launch-desc = Досрочно запускает эв
 emergency-shuttle-left = Эвакуационный шаттл покинул станцию. Расчетное время прибытия шаттла на станцию ЦентКома - { $transitTime } секунд.
 emergency-shuttle-launch-time = Эвакуационный шаттл будет запущен через { $consoleAccumulator } секунд.
 emergency-shuttle-docked =
-    Эвакуационный шаттл пристыковался на { $direction ->
-        [north] севере
-        [northeast] северо-востоке
-        [east] востоке
-        [southeast] юго-востоке
-        [south] юге
-        [southwest] юго-западе
-        [west] западе
-        [northwest] северо-западе
-        *[other] _
-    } от станции, {$location}. Он покинет станцию через {$time} секунд.{$extended}
+    Эвакуационный шаттл пристыковался на { $direction }е станции, {$location}. Он покинет станцию через {$time} секунд.{$extended}
 emergency-shuttle-good-luck = Эвакуационный шаттл не может найти станцию. Удачи.
 emergency-shuttle-nearby =
-    Эвакуационный шаттл не может найти подходящий стыковочный шлюз. Он дрейфует на { $direction ->
-        [north] севере
-        [northeast] северо-востоке
-        [east] востоке
-        [southeast] юго-востоке
-        [south] юге
-        [southwest] юго-западе
-        [west] западе
-        [northwest] северо-западе
-        *[other] _
-    } от станции, {$location}. Он покинет станцию через {$time} секунд.{$extended}
-emergency-shuttle-extended = {" "}Время запуска было увеличено из-за неблагоприятных обстоятельств.
+    Эвакуационный шаттл не может найти подходящий стыковочный шлюз. Он дрейфует на { $direction }е от станции, {$location}. Он покинет станцию через {$time} секунд.{$extended}
+emergency-shuttle-extended = {" "}Время до запуска было увеличено из-за неблагоприятных обстоятельств.
 
 # Emergency shuttle console popup / announcement
 # Emergency shuttle console popup / announcement
@@ -74,5 +54,5 @@ emergency-shuttle-ui-repeal = ПОВТОРИТЬ
 emergency-shuttle-ui-authorizations = Авторизации
 emergency-shuttle-ui-remaining = Осталось: { $remaining }
 # Map Misc.
-map-name-centcomm = Central Command
-map-name-terminal = Arrivals Terminal
+map-name-centcomm = Центральное Командование
+map-name-terminal = Терминал Прибытия

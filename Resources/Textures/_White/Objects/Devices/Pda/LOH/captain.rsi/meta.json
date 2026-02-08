@@ -8,13 +8,13 @@
     "copyright":"made by ckey(@not_a_femb0y), edited by Gersoon(@gersoon458) for WhiteDreamProject, 04.12.2025",
     "states":[
     {
-      "name": "pda"
+      "name": "closed"
     },
     {
-      "name": "pda_on"
+      "name": "open"
     },
     {
-      "name": "screen_on",
+      "name": "screen",
       "delays": [ [ 1.0,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2,0.2] ]
     }
   ]

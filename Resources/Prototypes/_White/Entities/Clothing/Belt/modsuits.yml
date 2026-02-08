@@ -18,13 +18,6 @@
     quickEquip: false
     slots:
     - belt
-  - type: Storage
-    defaultStorageOrientation: Vertical
-    grid:
-    - 0,0,2,1
-    - 4,0,6,1
-    - 8,0,10,1
-    maxItemSize: Huge
   - type: ContainerContainer
     containers:
       storagebase: !type:Container

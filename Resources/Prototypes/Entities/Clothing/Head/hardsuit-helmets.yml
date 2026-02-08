@@ -559,11 +559,6 @@
     sprite: Clothing/Head/Hardsuits/syndieelite.rsi # WD EDIT - WD nuke sprite
   - type: Clothing
     sprite: Clothing/Head/Hardsuits/syndieelite.rsi # WD EDIT - WD nuke sprite
-    clothingVisuals:
-      head:
-      - state: equipped-head
-      - state: equipped-head-unshaded
-        shader: unshaded
   - type: PointLight
     color: red
   - type: PressureProtection

@@ -1,59 +1,59 @@
-ent-SpawnMobBehonker = Спавнер Бонкера
+ent-SpawnMobBehonker = спавнер Бонкера
    .desc = ""
 
-ent-SpawnMobMonkey = Спавнер обезьяны
+ent-SpawnMobMonkey = спавнер обезьяны
    .desc = ""
 
-ent-SpawnMobPurpleSnake = Спавнер фиолетовой змеи
+ent-SpawnMobPurpleSnake = спавнер фиолетовой змеи
    .desc = ""
 
-ent-SpawnMobSmallPurpleSnake = Спавнер маленькой фиолетовой змеи
+ent-SpawnMobSmallPurpleSnake = спавнер маленькой фиолетовой змеи
    .desc = ""
 
-ent-SpawnMobSlug = Спавнер слизня
+ent-SpawnMobSlug = спавнер слизня
    .desc = ""
 
-ent-SpawnMobLizard = Спавнер ящерицы
+ent-SpawnMobLizard = спавнер ящерицы
    .desc = ""
 
-ent-SpawnMobCrab = Спавнер краба
+ent-SpawnMobCrab = спавнер краба
    .desc = ""
 
-ent-SpawnMobGoat = Спавнер козы
+ent-SpawnMobGoat = спавнер козы
    .desc = ""
 
-ent-SpawnMobFrog = Спавнер лягушки
+ent-SpawnMobFrog = спавнер лягушки
    .desc = ""
 
-ent-SpawnMobBee = Спавнер пчелы
+ent-SpawnMobBee = спавнер пчелы
    .desc = ""
 
-ent-SpawnMobParrot = Спавнер попугая
+ent-SpawnMobParrot = спавнер попугая
    .desc = ""
 
-ent-SpawnMobButterfly = Спавнер бабочки
+ent-SpawnMobButterfly = спавнер бабочки
    .desc = ""
 
-ent-SpawnMobCow = Спавнер коровы
+ent-SpawnMobCow = спавнер коровы
    .desc = ""
 
-ent-SpawnMobGorilla = Спавнер гориллы
+ent-SpawnMobGorilla = спавнер гориллы
    .desc = ""
 
-ent-SpawnMobPenguin = Спавнер пингвина
+ent-SpawnMobPenguin = спавнер пингвина
    .desc = ""
 
-ent-SpawnVehicleMotobike = Спавнер мотобайка
+ent-SpawnVehicleMotobike = спавнер мотобайка
    .desc = ""
 
-ent-EngiLootSpawner = Спавнер инженерного лута
+ent-EngiLootSpawner = спавнер инженерного лута
    .desc = ""
 
-ent-CommonLootSpawner = Спавнер общего лута
+ent-CommonLootSpawner = спавнер общего лута
    .desc = ""
 
-ent-SecLootSpawner = Спавнер СБ лута
+ent-SecLootSpawner = спавнер СБ лута
    .desc = ""
 
-ent-MedLootSpawner = Спавнер медицинского лута
+ent-MedLootSpawner = спавнер медицинского лута
    .desc = ""

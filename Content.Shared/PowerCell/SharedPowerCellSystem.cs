@@ -76,7 +76,7 @@ public abstract class SharedPowerCellSystem : EntitySystem
     /// </summary>
     public void QueueUpdate(Entity<PowerCellDrawComponent?> ent)
     {
-        if (Resolve(ent, ref ent.Comp))
+        if (Resolve(ent, ref ent.Comp, false)) // WD EDIT
             ent.Comp.NextUpdateTime = Timing.CurTime;
     }
 

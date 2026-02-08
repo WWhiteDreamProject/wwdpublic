@@ -45,3 +45,7 @@
 - type: font
   id: HombreRegular
   path: /Fonts/_White/Hombre/Hombre Regular.otf
+
+- type: font
+  id: Cygre
+  path: /Fonts/_White/Cygre/Cygre.ttf

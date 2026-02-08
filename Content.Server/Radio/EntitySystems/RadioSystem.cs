@@ -128,10 +128,10 @@ public sealed class RadioSystem : EntitySystem
         if (!_messages.Add(message))
             return;
 
-        var transformEvent = new TransformRadioSpeakerNameEvent(messageSource, Name(messageSource), channel); // WWDP edit evt -> transformEvent, TransformSpeakerNameEvent -> TransformRadioSpeakerNameEvent
-        RaiseLocalEvent(messageSource, ref transformEvent);
+        var evt = new TransformSpeakerNameEvent(messageSource, Name(messageSource), channel); // WD EDIT
+        RaiseLocalEvent(messageSource, evt);
 
-        var name = transformEvent.VoiceName; // WWDP edit evt -> transformEvent
+        var name = evt.VoiceName;
         name = FormattedMessage.EscapeText(name);
 
         // most radios are relayed to chat, so lets parse the chat message beforehand
@@ -139,12 +139,12 @@ public sealed class RadioSystem : EntitySystem
             ? FormattedMessage.EscapeText(message)
             : message;
 
-        var wrappedMessage = WrapRadioMessage(messageSource, channel, name, content, transformEvent, language, frequency); // WWDP edit evt -> transformEvent
+        var wrappedMessage = WrapRadioMessage(messageSource, channel, name, content, evt, language, frequency);
         var msg = new ChatMessage(ChatChannel.Radio, content, wrappedMessage, NetEntity.Invalid, null);
 
         // ... you guess it
         var obfuscated = _language.ObfuscateSpeech(content, language);
-        var obfuscatedWrapped = WrapRadioMessage(messageSource, channel, name, obfuscated, transformEvent, language, frequency); // WWDP edit evt -> transformEvent
+        var obfuscatedWrapped = WrapRadioMessage(messageSource, channel, name, obfuscated, evt, language, frequency);
         var notUdsMsg = new ChatMessage(ChatChannel.Radio, obfuscated, obfuscatedWrapped, NetEntity.Invalid, null);
 
         var ev = new RadioReceiveEvent(messageSource, channel, msg, notUdsMsg, language, radioSource);

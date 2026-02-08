@@ -115,7 +115,7 @@
     state: implanter0
   product: CrateMindShieldImplants
   cost: 3000
-  category: cargoproduct-category-name-armory # WWDP
+  category: cargoproduct-category-name-security # WWDP
   group: market
 
 - type: cargoProduct

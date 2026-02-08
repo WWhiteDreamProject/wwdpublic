@@ -210,8 +210,8 @@ uplink-syndicate-martyr-module-desc = Превратите своего взло
 uplink-singularity-beacon-name = Маяк сингулярности
 uplink-singularity-beacon-desc = Устройство, притягивающее сингулярность и теслу. Должно быть закреплено и запитано. При поглощении сингулярностью увеличивает ее размеры.
 
-uplink-antimov-law-name = Antimov Law Circuit
-uplink-antimov-law-desc = A very dangerous Lawset to use when you want to cause the A.I. to go haywire, use with caution.
+uplink-antimov-law-name = плата законов Антимов
+uplink-antimov-law-desc = Электронная плата, заставляющая ИИ нарушать все законы Азимова. Использовать с осторожностью.
 
 # Implants
 uplink-storage-implanter-name = Имплант хранения
@@ -532,11 +532,9 @@ uplink-cameraBug-desc = A portable device that allows you to view the station's 
 uplink-combat-bakery-name = Боевой набор пекаря
 uplink-combat-bakery-desc = Набор тайного печеного оружия. Содержит багетный меч, пару метательных круассанов и микроволновую доску Синдиката для изготовления большего количества. После завершения работы съешьте улики.
 
-uplink-business-card-name = Syndicate Business Card
-uplink-business-card-desc = A business card that you can give to someone to demonstrate your involvement in the syndicate or leave at the crime scene in order to make fun of the detective. You can buy no more than three of them.
-
-uplink-fake-mindshield-name = Fake Mindshield
-uplink-fake-mindshield-desc = A togglable implant capable of mimicking the same transmissions a real mindshield puts out when on, tricking capable Heads-up displays into thinking you have a mindshield (Nanotrasen brand implanter not provided.)
-
+uplink-business-card-name = Визитная карточка синдиката
+uplink-business-card-desc = Визитная карточка, которую вы можете подарить кому-нибудь, чтобы продемонстрировать свою причастность к синдикату, или оставить на месте преступления, чтобы посмеяться над детективом. Вы можете купить не более трех таких визиток.
+uplink-fake-mindshield-name = Поддельный имплант защиты разума
+uplink-fake-mindshield-desc = Переключаемый имплант, способный имитировать те же сигналы, что и у настоящего импланта защиты разума, обманывая сканирование (имплант марки NanoTrasen в комплект поставки не входит).
 uplink-smuggler-satchel-name = Сумка контрабандиста
 uplink-smuggler-satchel-desc = Удобная, подозрительного вида сумка. Достаточно плоская, чтобы поместиться под напольной плиткой.

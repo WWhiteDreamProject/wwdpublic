@@ -15,6 +15,12 @@
     color: "#FD009899"
   - type: TimedDespawn
     lifetime: 5.0
+  # WD EDIT START
+  - type: PointLight
+    radius: 1.5
+    energy: 2
+    color: "#B069DB"
+  # WD EDIT END
 
 - type: entity
   id: EffectTeleportationEntity
@@ -31,3 +37,9 @@
     color: "#FD009899"
   - type: TimedDespawn
     lifetime: 5.0
+  # WD EDIT START
+  - type: PointLight
+    radius: 1.5
+    energy: 2
+    color: "#B069DB"
+  # WD EDIT END

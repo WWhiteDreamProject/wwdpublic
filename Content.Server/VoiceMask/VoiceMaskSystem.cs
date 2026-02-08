@@ -32,8 +32,8 @@ public sealed partial class VoiceMaskSystem : EntitySystem
         SubscribeLocalEvent<VoiceMaskComponent, ClothingGotEquippedEvent>(OnEquip);
         SubscribeLocalEvent<VoiceMaskSetNameEvent>(OpenUI);
 
-        // WD EDIT START - TTS
-        SubscribeLocalEvent<VoiceMaskComponent, TransformSpeakerVoiceEvent>(OnSpeakerVoiceTransform);
+        // WD EDIT START - TTS/Barks
+        SubscribeLocalEvent<VoiceMaskComponent, InventoryRelayedEvent<TransformSpeakerVoiceEvent>>(OnSpeakerVoiceTransform);
         SubscribeLocalEvent<VoiceMaskComponent, VoiceMaskChangeVoiceMessage>(OnChangeVoice);
         // WD EDIT END
     }
@@ -74,8 +74,9 @@ public sealed partial class VoiceMaskSystem : EntitySystem
         UpdateUI(entity);
     }
 
-    private void OnSpeakerVoiceTransform(EntityUid uid, VoiceMaskComponent component, TransformSpeakerVoiceEvent args) =>
-        args.VoiceId = component.VoiceId;
+    // WD EDIT START
+    private void OnSpeakerVoiceTransform(EntityUid uid, VoiceMaskComponent component, InventoryRelayedEvent<TransformSpeakerVoiceEvent> args) =>
+        args.Args.VoiceId = component.VoiceId;
 
     private void OnChangeVoice(Entity<VoiceMaskComponent> entity, ref VoiceMaskChangeVoiceMessage msg)
     {
@@ -89,6 +90,7 @@ public sealed partial class VoiceMaskSystem : EntitySystem
 
         UpdateUI(entity);
     }
+    // WD EDIT END
     #endregion
 
     #region UI
@@ -98,7 +100,7 @@ public sealed partial class VoiceMaskSystem : EntitySystem
         if (component.Action == null)
             return;
         // WD EDIT END
-        
+
         _actions.AddAction(args.Wearer, ref component.ActionEntity, component.Action, uid);
     }
 

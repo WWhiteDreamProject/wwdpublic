@@ -10,53 +10,53 @@ ent-PuddleSparkle = Sparkle
 ent-Puddle = лужа
    .desc = Лужа жидкости.
 
-ent-SalvageHumanCorpseSpawner = Спавнер тела человека
+ent-SalvageHumanCorpseSpawner = спавнер тела человека
    .desc = ""
 
-ent-RandomServiceCorpseSpawner = Спавнер случайного сервисного сотрудника
+ent-RandomServiceCorpseSpawner = спавнер случайного сервисного сотрудника
    .desc = ""
 
-ent-RandomEngineerCorpseSpawner = Спавнер случайного тела инженера
+ent-RandomEngineerCorpseSpawner = спавнер случайного тела инженера
    .desc = ""
 
-ent-RandomCargoCorpseSpawner = Спавнер случайного тела карго
+ent-RandomCargoCorpseSpawner = спавнер случайного тела карго
    .desc = ""
 
-ent-RandomMedicCorpseSpawner = Спавнер случайного тела медика
+ent-RandomMedicCorpseSpawner = спавнер случайного тела медика
    .desc = ""
 
-ent-RandomScienceCorpseSpawner = Спавнер случайного тела учёного
+ent-RandomScienceCorpseSpawner = спавнер случайного тела учёного
    .desc = ""
 
-ent-RandomSecurityCorpseSpawner = Спавнер случайного тела СБ
+ent-RandomSecurityCorpseSpawner = спавнер случайного тела СБ
    .desc = ""
 
-ent-RandomCommandCorpseSpawner = Спавнер случайного тела коммандного
+ent-RandomCommandCorpseSpawner = спавнер случайного тела коммандного
    .desc = ""
 
-ent-SpawnMobHuman = Спавнер Уриста
+ent-SpawnMobHuman = спавнер Уриста
    .desc = ""
 
-ent-SpawnPointLoneNukeOperative = Точка спавна одинокого нюки
+ent-SpawnPointLoneNukeOperative = точка спавна одинокого нюки
    .desc = ""
 
-ent-SpawnPointGhostDragon = Точка спавна дракона
+ent-SpawnPointGhostDragon = точка спавна дракона
    .desc = ""
 
-ent-SpawnPointResearchAssistant = Точка спавна научного ассистента
+ent-SpawnPointResearchAssistant = точка спавна научного ассистента
    .desc = ""
 
-ent-SpawnPointBoxer = Точка спавна боксёра
+ent-SpawnPointBoxer = точка спавна боксёра
    .desc = ""
 
-ent-SpawnPointSeniorEngineer = Точка спавна бригадира
+ent-SpawnPointSeniorEngineer = точка спавна бригадира
    .desc = ""
 
-ent-SpawnPointSeniorPhysician = Точка спавна медицинского офицера
+ent-SpawnPointSeniorPhysician = точка спавна медицинского офицера
    .desc = ""
 
-ent-SpawnPointSeniorSalvageSpecialist = Точка спавна охтника карго
+ent-SpawnPointSeniorSalvageSpecialist = точка спавна охотника карго
    .desc = ""
 
-ent-SpawnPointParamedic = Точка спавна парамедика
+ent-SpawnPointParamedic = точка спавна парамедика
    .desc = ""

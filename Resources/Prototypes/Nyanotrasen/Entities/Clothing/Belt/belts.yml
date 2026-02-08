@@ -60,6 +60,7 @@
     whitelist:
       tags:
         - Katana
+    storageInsertSound: /Audio/SimpleStation14/Items/Handling/sword_sheath.ogg
   - type: ItemMapper
     mapLayers:
       sheath-sabre:

@@ -6,6 +6,7 @@ using Content.Server.Language;
 using Content.Shared._White.CCVar;
 using Content.Shared._White.TTS;
 using Content.Shared.GameTicking;
+using Content.Shared.Inventory;
 using Content.Shared.Language;
 using Content.Shared.Language.Components;
 using Robust.Shared.Configuration;
@@ -191,8 +192,9 @@ public sealed partial class TTSSystem : EntitySystem
     }
 }
 
-public sealed class TransformSpeakerVoiceEvent(EntityUid sender, string voiceId) : EntityEventArgs
+public sealed class TransformSpeakerVoiceEvent(EntityUid sender, string voiceId) : EntityEventArgs, IInventoryRelayEvent
 {
+    public SlotFlags TargetSlots => SlotFlags.WITHOUT_POCKET;
     public EntityUid Sender = sender;
     public string VoiceId = voiceId;
 }

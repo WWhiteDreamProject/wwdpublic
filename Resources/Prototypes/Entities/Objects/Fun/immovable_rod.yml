@@ -108,7 +108,7 @@
         Blunt: 120
 
 - type: entity
-  parent: ImmovableRodKeepTilesStill
+  parent: ImmovableRodDespawn # White Dream: ImmovableRodKeepTilesStill -> ImmovableRodDespawn 
   id: ImmovableRodMop
   name: immovable mop
   description: Hurled like a javelin, with the power of a thousand furious janitors.
@@ -120,7 +120,7 @@
     noRot: false
 
 - type: entity
-  parent: ImmovableRodKeepTilesStill
+  parent: ImmovableRodDespawn # White Dream: ImmovableRodKeepTilesStill -> ImmovableRodDespawn 
   id: ImmovableRodShark
   name: immovable shark
   description: SHARK TORNADO!
@@ -132,7 +132,7 @@
     noRot: false
 
 - type: entity
-  parent: ImmovableRodKeepTilesStill
+  parent: ImmovableRodDespawn # White Dream: ImmovableRodKeepTilesStill -> ImmovableRodDespawn 
   id: ImmovableRodClown
   name: immovable clown
   description: Ejected from the neighbouring station one solar system over. HONK!
@@ -144,7 +144,7 @@
     noRot: false
 
 - type: entity
-  parent: ImmovableRodKeepTilesStill
+  parent: ImmovableRodDespawn # White Dream: ImmovableRodKeepTilesStill -> ImmovableRodDespawn 
   id: ImmovableRodBanana
   name: immovable banana
   description: At least you won't slip on it.
@@ -155,7 +155,7 @@
     noRot: false
 
 - type: entity
-  parent: ImmovableRodKeepTilesStill
+  parent: ImmovableRodDespawn # White Dream: ImmovableRodKeepTilesStill -> ImmovableRodDespawn 
   id: ImmovableRodHammer
   name: immovable hammer
   description: Bwoink.
@@ -167,7 +167,7 @@
     noRot: false
 
 - type: entity
-  parent: ImmovableRodKeepTilesStill
+  parent: ImmovableRodDespawn # White Dream: ImmovableRodKeepTilesStill -> ImmovableRodDespawn 
   id: ImmovableRodThrongler
   name: immovable throngler
   description: If you catch it, you can keep it.
@@ -179,7 +179,7 @@
     noRot: false
 
 - type: entity
-  parent: ImmovableRodKeepTilesStill
+  parent: ImmovableRodDespawn # White Dream: ImmovableRodKeepTilesStill -> ImmovableRodDespawn 
   id: ImmovableRodGibstick
   name: immovable gibstick
   description: What did you expect?

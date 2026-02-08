@@ -48,7 +48,7 @@ public abstract partial class SharedDoAfterSystem : EntitySystem
 
     private void OnStateChanged(EntityUid uid, DoAfterComponent component, MobStateChangedEvent args)
     {
-        if (args.NewMobState != MobState.Dead || args.NewMobState != MobState.Critical)
+        if (args.NewMobState == MobState.Dead || args.NewMobState == MobState.Critical) // WWDP edit
             return;
 
         foreach (var doAfter in component.DoAfters.Values)

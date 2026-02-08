@@ -33,7 +33,7 @@
           !type:PhysShapeCircle
           radius: 0.40
         density: 80
-        mask:
+        layer: # White Dream fix
         - GhostImpassable
   - type: MovementIgnoreGravity
   - type: Damageable
@@ -89,9 +89,9 @@
     - StolenEssence
   - type: RandomMetadata
     nameSegments:
-    - The
+    # - The # White Dream
     - RevenantType
-    - of
+    # - of
     - RevenantAdjective
     - RevenantTheme
   - type: Speech

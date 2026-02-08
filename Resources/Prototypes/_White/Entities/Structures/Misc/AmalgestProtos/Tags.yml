@@ -1,0 +1,20 @@
+- type: Tag
+  id: AmalgestCartridge
+
+- type: Tag
+  id: CartridgeWhite
+
+- type: Tag
+  id: CartridgeYellow
+
+- type: Tag
+  id: CartridgeRed
+
+- type: Tag
+  id: CartridgeBlue
+
+- type: Tag
+  id: CartridgeGreen
+
+- type: Tag
+  id: CartridgePurple

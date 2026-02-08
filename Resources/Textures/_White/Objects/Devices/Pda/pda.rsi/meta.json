@@ -5,14 +5,77 @@
         "y":32
     },
     "license":"CC-BY-NC-SA-4.0",
-    "copyright":"made by ckey(@not_a_femb0y), edited by Gersoon(@gersoon458) for WhiteDreamProject, 04.12.2025",
+    "copyright":"made by ckey(@not_a_femb0y), edited by Gersoon(@gersoon458) for WhiteDreamProject, 04.12.2025; edited by Myaflic(@lachklen) for WWhiteDreamProject 10.12.2025",
     "states":[
+    {
+      "name": "closed"
+    },
+    {
+      "name": "open"
+    },
+    {
+      "name": "closing",
+      "delays":
+      [
+        [
+          0.05, 0.05, 0.05, 0.05,
+          0.05, 0.05, 0.05, 0.05,
+          0.05, 0.05, 0.05, 0.05,
+          0.05, 0.05, 0.05
+        ]
+      ]
+    },
+    {
+      "name": "opening",
+      "delays":
+      [
+        [
+          0.05, 0.05, 0.05, 0.05, 0.05, 0.05,
+          0.05, 0.05, 0.05, 0.05, 0.05, 0.05,
+          0.05, 0.05, 0.05, 0.05, 0.05, 0.05,
+          0.05, 0.05, 0.05, 0.05, 0.05, 0.05,
+          0.05, 0.05, 0.05, 0.05, 0.05, 0.05,
+          0.05, 0.05, 0.05, 0.05
+        ]
+      ]
+    },
+    {
+      "name": "screen"
+    },
+    {
+      "name": "screen_closing",
+      "delays":
+      [
+        [
+          0.05, 0.05, 0.05, 0.05,
+          0.05, 0.05, 0.05, 0.05,
+          0.05, 0.05, 0.05, 0.05,
+          0.05, 0.05, 0.05
+        ]
+      ]
+    },
+    {
+      "name": "screen_opening",
+      "delays":
+      [
+        [
+          0.05, 0.05, 0.05, 0.05, 0.05, 0.05,
+          0.05, 0.05, 0.05, 0.05, 0.05, 0.05,
+          0.05, 0.05, 0.05, 0.05, 0.05, 0.05,
+          0.05, 0.05, 0.05, 0.05, 0.05, 0.05,
+          0.05, 0.05, 0.05, 0.05, 0.05, 0.05,
+          0.05, 0.05, 0.05, 0.05
+        ]
+      ]
+    },
     {
       "name": "id_overlay"
     },
     {
-      "name": "equipped-BELT",
-      "directions": 4
+      "name": "insert_overlay"
+    },
+    {
+      "name": "light_overlay"
     },
     {
       "name": "inhand-left",
@@ -23,24 +86,12 @@
       "directions": 4
     },
     {
-      "name": "insert_overlay"
-    },
-    {
-      "name": "light_overlay"
+      "name": "equipped-BELT",
+      "directions": 4
     },
     {
       "name": "equipped-IDCARD",
       "directions": 4
-    },
-    {
-      "name": "pda"
-    },
-    {
-      "name": "pda_on"
-    },
-    {
-      "name": "screen_on",
-      "delays": [ [ 1.0] ]
     }
   ]
 }

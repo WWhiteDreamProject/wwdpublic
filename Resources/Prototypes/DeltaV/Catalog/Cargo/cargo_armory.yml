@@ -1,12 +1,13 @@
-- type: cargoProduct
-  id: ArmoryGrand
-  icon:
-    sprite: Nyanotrasen/Objects/Weapons/Guns/Snipers/grand_rifle.rsi
-    state: base
-  product: CrateArmoryGrand
-  cost: 5500
-  category: Armory
-  group: market
+# WWDP disabled
+# - type: cargoProduct
+#   id: ArmoryGrand
+#   icon:
+#     sprite: Nyanotrasen/Objects/Weapons/Guns/Snipers/grand_rifle.rsi
+#     state: base
+#   product: CrateArmoryGrand
+#   cost: 5500
+#   category: cargoproduct-category-name-armory # WWDP edit
+#   group: market
 
 - type: cargoProduct
   id: ArmoryUniversal
@@ -15,7 +16,7 @@
     state: icon
   product: CrateArmoryUniversal
   cost: 22500
-  category: Armory
+  category: cargoproduct-category-name-armory # WWDP edit
   group: market
 
 # WWDP disabled
@@ -26,7 +27,7 @@
 #     state: icon
 #   product: CrateArmoryAdjutant
 #   cost: 10000
-#   category: Armory
+#   category: cargoproduct-category-name-armory # WWDP edit
 #   group: market
 
 - type: cargoProduct
@@ -36,7 +37,7 @@
     state: icon
   product: CrateArmoryEnergyGun
   cost: 5500
-  category: Armory
+  category: cargoproduct-category-name-armory # WWDP edit
   group: market
 
 - type: cargoProduct
@@ -46,5 +47,5 @@
     state: icon
   product: CrateArmoryEnergyGunMini
   cost: 3500
-  category: Armory
+  category: cargoproduct-category-name-armory # WWDP edit
   group: market

@@ -23,6 +23,8 @@
     - Slicing
     useSound:
       path: /Audio/Items/Culinary/chop.ogg
+  - type: EmitSoundOnPickup # White Dream
+    sound: /Audio/Items/unsheath.ogg
 
 - type: entity
   name: captain's sabre

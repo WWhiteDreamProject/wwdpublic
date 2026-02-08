@@ -13,18 +13,6 @@
 - type: htnCompound
   id: BeforeMeleeAttackTargetCompound
   branches:
-    # WWDP edit
-    - preconditions:
-        - !type:KeyExistsPrecondition
-          key: Target
-        - !type:TargetInRangePrecondition
-          targetKey: Target
-          rangeKey: MeleeRange
-      tasks:
-        - !type:HTNPrimitiveTask
-          operator: !type:MeleeOperator
-            targetKey: Target
-    # WWDP edit end
     - preconditions:
         - !type:BuckledPrecondition
           isBuckled: true

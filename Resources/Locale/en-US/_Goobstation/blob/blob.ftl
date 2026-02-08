@@ -62,7 +62,7 @@ blob-mob-zombify-third-start = { $pod } starts turning { $target } into a zombie
 blob-mob-zombify-second-end = { $pod } turns you into a zombie.
 blob-mob-zombify-third-end = { $pod } turns { $target } into a zombie.
 
-blobberaut-factory-destroy = factory destroy
+blobberaut-factory-destroy = Your factory has been destroyed!
 blob-target-already-connected = already connected
 
 

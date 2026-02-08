@@ -7,5 +7,5 @@ department-Medical = Медицинский отдел
 department-Security = Служба безопасности
 department-Epistemics = Epistemics
 department-Silicon = Синтетики
-department-Specific = На определённых станциях
+department-Specific = Прочие
 department-Dignitary = Высокопоставленные

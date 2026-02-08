@@ -1,6 +1,6 @@
-mining-voucher-select-first = Select a kit to redeem first!
-mining-voucher-unpowered = {CAPITALIZE(THE($vendor))} is unpowered!
-mining-voucher-selected = Selected {$kit}!
+mining-voucher-select-first = Сперва выберите набор!
+mining-voucher-unpowered = {CAPITALIZE($vendor)} не запитан!
+mining-voucher-selected = Выбран {$kit}!
 
 mining-voucher-crusher-name = Crusher Kit
 mining-voucher-crusher-description =

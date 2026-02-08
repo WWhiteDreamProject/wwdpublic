@@ -4,19 +4,10 @@
   name: corpsman PDA
   description: Red and Sterile. Has a built-in health analyzer.
   components:
+  # WD EDIT START
   - type: Sprite
-    sprite: DeltaV/Objects/Devices/pda.rsi
-    layers:
-    - map: [ "enum.PdaVisualLayers.Base" ]
-      state: "pda"
-    - state: "light_overlay"
-      map: [ "enum.PdaVisualLayers.Flashlight" ]
-      shader: "unshaded"
-      visible: false
-    - state: "id_overlay"
-      map: [ "enum.PdaVisualLayers.IdLight" ]
-      shader: "unshaded"
-      visible: false
+    sprite: _White/Objects/Devices/Pda/pda.rsi
+  # WD EDIT END
   - type: CartridgeLoader # DeltaV - Crime Assist + SecWatch
     preinstalled:
       - CrewManifestCartridge
@@ -27,11 +18,6 @@
       - NanoChatCartridge
   - type: Pda
     id: BrigmedicIDCard
-  - type: Appearance
-    appearanceDataInit:
-      enum.PdaVisuals.PdaType:
-        !type:String
-        pda-corpsman
   - type: PdaBorderColor
     borderColor: "#A32D26"
     accentVColor: "#447987"
@@ -49,19 +35,10 @@
   name: chief justice PDA
   description: Whosoever bears this PDA is the law.
   components:
+  # WD EDIT START
   - type: Sprite
-    sprite: DeltaV/Objects/Devices/pda.rsi
-    layers:
-    - map: [ "enum.PdaVisualLayers.Base" ]
-      state: "pda"
-    - state: "light_overlay"
-      map: [ "enum.PdaVisualLayers.Flashlight" ]
-      shader: "unshaded"
-      visible: false
-    - state: "id_overlay"
-      map: [ "enum.PdaVisualLayers.IdLight" ]
-      shader: "unshaded"
-      visible: false
+    sprite: _White/Objects/Devices/Pda/pda.rsi
+  # WD EDIT END
   - type: Pda
     id: ChiefJusticeIDCard
     penSlot:
@@ -70,11 +47,6 @@
       whitelist:
         tags:
         - Write
-  - type: Appearance
-    appearanceDataInit:
-      enum.PdaVisuals.PdaType:
-        !type:String
-        pda-chiefjustice
   - type: PdaBorderColor
     borderColor: "#470823"
   - type: Icon
@@ -94,19 +66,10 @@
   name: clerk PDA
   description: It has the stamp to prove it's been officially notarized!
   components:
+  # WD EDIT START
   - type: Sprite
-    sprite: DeltaV/Objects/Devices/pda.rsi
-    layers:
-    - map: [ "enum.PdaVisualLayers.Base" ]
-      state: "pda"
-    - state: "light_overlay"
-      map: [ "enum.PdaVisualLayers.Flashlight" ]
-      shader: "unshaded"
-      visible: false
-    - state: "id_overlay"
-      map: [ "enum.PdaVisualLayers.IdLight" ]
-      shader: "unshaded"
-      visible: false
+    sprite: _White/Objects/Devices/Pda/pda.rsi
+  # WD EDIT END
   - type: Pda
     id: ClerkIDCard
     penSlot:
@@ -115,11 +78,6 @@
       whitelist:
         tags:
         - Write
-  - type: Appearance
-    appearanceDataInit:
-      enum.PdaVisuals.PdaType:
-        !type:String
-        pda-clerk
   - type: PdaBorderColor
     borderColor: "#611528"
   - type: Icon
@@ -139,19 +97,10 @@
   name: prosecutor PDA
   description: Sharp. Looks like it could prosecute you all on its own.
   components:
+  # WD EDIT START
   - type: Sprite
-    sprite: DeltaV/Objects/Devices/pda.rsi
-    layers:
-    - map: [ "enum.PdaVisualLayers.Base" ]
-      state: "pda"
-    - state: "light_overlay"
-      map: [ "enum.PdaVisualLayers.Flashlight" ]
-      shader: "unshaded"
-      visible: false
-    - state: "id_overlay"
-      map: [ "enum.PdaVisualLayers.IdLight" ]
-      shader: "unshaded"
-      visible: false
+    sprite: _White/Objects/Devices/Pda/pda.rsi
+  # WD EDIT END
   - type: Pda
     id: ProsecutorIDCard
     penSlot:
@@ -160,11 +109,6 @@
       whitelist:
         tags:
         - Write
-  - type: Appearance
-    appearanceDataInit:
-      enum.PdaVisuals.PdaType:
-        !type:String
-        pda-prosecutor
   - type: PdaBorderColor
     borderColor: "#6f6192"
   - type: Icon
@@ -196,19 +140,10 @@
   name: administrative assistant PDA
   description: Theres pen scribbles all over the edges, and a few sticky notes stuck on it.
   components:
+  # WD EDIT START
   - type: Sprite
-    sprite: Objects/Devices/pda.rsi
-    layers:
-    - map: [ "enum.PdaVisualLayers.Base" ]
-      state: "pda"
-    - state: "light_overlay"
-      map: [ "enum.PdaVisualLayers.Flashlight" ]
-      shader: "unshaded"
-      visible: false
-    - state: "id_overlay"
-      map: [ "enum.PdaVisualLayers.IdLight" ]
-      shader: "unshaded"
-      visible: false
+    sprite: _White/Objects/Devices/Pda/pda.rsi
+  # WD EDIT END
   - type: Pda
     id: AdminAssistantIDCard
     penSlot:
@@ -217,11 +152,6 @@
       whitelist:
         tags:
         - Write
-  - type: Appearance
-    appearanceDataInit:
-      enum.PdaVisuals.PdaType:
-        !type:String
-        pda-lawyer
   - type: Icon
     sprite: Objects/Devices/pda.rsi
     state: pda-lawyer

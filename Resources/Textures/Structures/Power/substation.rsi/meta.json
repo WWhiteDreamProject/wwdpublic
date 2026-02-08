@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from cev-eris at commit https://github.com/discordia-space/CEV-Eris/commit/b63634bc17efe2f09cf06ef0e9a90d24d37f6203, wall modified by Peptide90",
+  "license": "CC-BY-NC-SA-4.0",
+  "copyright": "Made by @sentryprimies",
   "size": {
     "x": 32,
     "y": 32
@@ -28,18 +28,17 @@
     {
       "name": "dead"
     },
-    {
-      "name": "screen",
-      "delays": [
-        [
-          0.15,
-          0.15,
-          0.15,
-          0.15,
-          0.15,
-          0.15
-        ]
-      ]
-    }
+	{
+		"name": "screen",
+		"delays": [
+		  [6.15,0.15,0.15,0.15,0.15,0.15,0.15]
+		]
+	  },
+	  {
+		"name": "screen-wall",
+		"delays": [
+		  [0.45, 0.45, 0.45, 0.45]
+		]
+	  }
   ]
 }

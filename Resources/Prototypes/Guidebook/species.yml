@@ -5,6 +5,7 @@
   children:
     - Arachnid
     - Diona
+    - Felinid # WWDP EDIT
     - Human
     - Moth
     - Oni
@@ -16,6 +17,7 @@
     - Plasmaman
 #    - Chitinid
     - Tajaran
+    - Vulpkanin # WWDP EDIT
     - Xelthia
     # ImpStation additions
     - Thaven
@@ -84,3 +86,17 @@
   id: Xelthia
   name: species-name-xelthia
   text: "/ServerInfo/_EE/Guidebook/Mobs/Xelthia.xml"
+
+# WWDP EDIT START
+
+- type: guideEntry
+  id: Felinid
+  name: species-name-felinid
+  text: "/ServerInfo/Guidebook/Mobs/Felinid.xml"
+
+- type: guideEntry
+  id: Vulpkanin
+  name: species-name-vulpkanin
+  text: "/ServerInfo/Guidebook/Mobs/Vulpkanin.xml"
+
+# WWDP EDIT END

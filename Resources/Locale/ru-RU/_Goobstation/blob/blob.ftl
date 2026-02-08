@@ -1,25 +1,25 @@
-ent-SpawnPointGhostBlob = Точка появления блоба
-    .suffix = ОТЛАДКА, Точка появления призрака
+ent-SpawnPointGhostBlob = точка появления блоба
+    .suffix = DEBUG, точка появления призрака
     .desc = { ent-MarkerBase.desc }
-ent-MobBlobPod = Споры блоба
+ent-MobBlobPod = спора блоба
     .desc = Обычный боец блоба.
-ent-MobBlobBlobbernaut = Блоббернаут
+ent-MobBlobBlobbernaut = блоббернаут
     .desc = Элитный боец блоба.
 ent-BaseBlob = базовый блоб
     .desc = { "" }
-ent-NormalBlobTile = Обычная плитка блоба
+ent-NormalBlobTile = обычная плитка блоба
     .desc = Обычная часть блоба, необходимая для строительства более продвинутых плиток.
-ent-CoreBlobTile = Ядро блоба
+ent-CoreBlobTile = ядро блоба
     .desc = Самый важный орган блоба. Уничтожив ядро, инфекция прекратится.
-ent-FactoryBlobTile = Фабрика блоба
+ent-FactoryBlobTile = фабрика блоба
     .desc = Со временем производит споры блоба и блоббернаутов.
-ent-ResourceBlobTile = Ресурсный блоб
+ent-ResourceBlobTile = ресурсная плитка блоба
     .desc = Производит ресурсы для блоба.
-ent-NodeBlobTile = Узловой блоб
+ent-NodeBlobTile = узловой блоб
     .desc = Мини-версия ядра, которая позволяет размещать специальные плитки блоба вокруг себя.
-ent-StrongBlobTile = Прочная плитка блоба
+ent-StrongBlobTile = прочная плитка блоба
     .desc = Укреплённая версия обычной плитки. Не пропускает воздух и защищает от механических повреждений.
-ent-ReflectiveBlobTile = Отражающая плитка блоба
+ent-ReflectiveBlobTile = отражающая плитка блоба
     .desc = Отражает лазеры, но не так хорошо защищает от механических повреждений.
 objective-issuer-blob = Блоб
 
@@ -61,7 +61,7 @@ blob-mob-zombify-third-start = { $pod } начинает превращать { 
 blob-mob-zombify-second-end = { $pod } превращает вас в зомби.
 blob-mob-zombify-third-end = { $pod } превращает { $target } в зомби.
 
-blobberaut-factory-destroy = factory destroy
+blobberaut-factory-destroy = Ваша фабрика была уничтожена!
 blob-target-already-connected = уже соединено
 
 
@@ -69,7 +69,7 @@ blob-target-already-connected = уже соединено
 blob-chem-swap-ui-window-name = Смена химикатов
 blob-chem-reactivespines-info = Реактивные шипы
                                 Наносит 25 механического урона.
-blob-chem-blazingoil-info = Горящее масло
+blob-chem-blazingoil-info = Пылающее масло
                             Наносит 15 ожогового урона и поджигает цели.
                             Делает вас уязвимым к воде.
 blob-chem-regenerativemateria-info = Регенеративная материя
@@ -188,4 +188,4 @@ speak-vv-blob-core = Ядро блоба
 # Language
 language-Blob-name = Блоб
 chat-language-Blob-name = Блоб
-language-Blob-description = Блиб боб! Блоб блоб! 
+language-Blob-description = Блиб боб! Блоб блоб!

@@ -6,7 +6,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: ClothingOuterArmorPlateCarrier # DeltaV - ClothingOuterArmorBulletproof replaced in favour of plate carrier
+      - id: ClothingOuterArmorBasic # WD edit
         amount: 3
 
 - type: entity

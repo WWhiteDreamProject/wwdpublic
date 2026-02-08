@@ -27,18 +27,6 @@
   artist: Tarantoga
 
 - type: animatedLobbyScreen
-  id: SeaLobbyScreen
-  path: /Textures/_White/LobbyScreens/sea.rsi
-  name: Floating in Space
-  artist: Don Mupasi
-
-- type: animatedLobbyScreen
-  id: SyndicateLobbyScreen
-  path: /Textures/_White/LobbyScreens/syndicate.rsi
-  name: YOU EITHER DRIP OR DROWN NT MAN
-  artist: Bill Steven
-
-- type: animatedLobbyScreen
   id: VangoghLobbyScreen
   path: /Textures/_White/LobbyScreens/vangogh.rsi
   name: Starry Night

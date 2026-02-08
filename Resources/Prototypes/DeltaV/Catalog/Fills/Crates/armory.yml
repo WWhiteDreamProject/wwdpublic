@@ -1,13 +1,14 @@
-- type: entity
-  id: CrateArmoryGrand
-  parent: CrateWeaponSecure
-  components:
-  - type: StorageFill
-    contents:
-      - id: WeaponSniperGrand
-        amount: 2
-      - id: MagazineLightRifleMarkOne
-        amount: 4
+# WWDP disabled
+# - type: entity
+#   id: CrateArmoryGrand
+#   parent: CrateWeaponSecure
+#   components:
+#   - type: StorageFill
+#     contents:
+#       - id: WeaponSniperGrand
+#         amount: 2
+#       - id: MagazineLightRifleMarkOne
+#         amount: 4
 
 - type: entity
   id: CrateArmoryUniversal
@@ -36,15 +37,15 @@
   parent: CrateWeaponSecure
   components:
   - type: StorageFill
-    contents: 
+    contents:
       - id: WeaponEnergyGun
         amount: 3
-  
+
 - type: entity
   id: CrateArmoryEnergyGunMini
   parent: CrateWeaponSecure
   components:
   - type: StorageFill
-    contents: 
+    contents:
       - id: WeaponEnergyGunMini
         amount: 3

@@ -95,8 +95,8 @@
     - id: ClothingEyesGlassesSecurity
     - id: ClothingHandsGlovesColorBlack
     - id: ClothingShoesBootsJack
-    - id: WeaponMeleeNeedle
-      prob: 0.1
+    # - id: WeaponMeleeNeedle - WD EDIT
+    #   prob: 0.1
     - id: HoloprojectorSecurity
       prob: 0.6
     - id: BookSpaceLaw

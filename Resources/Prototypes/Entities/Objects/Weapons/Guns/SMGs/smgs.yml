@@ -132,7 +132,7 @@
 
 - type: entity
   name: C-20r submachine gun
-  parent: [BaseWeaponSubMachineGun, BaseSyndicateContraband]
+  parent: [BaseWeaponSubMachineGun, BaseSyndicateContraband, BaseGunWieldable] # WD EDIT: BaseGunWieldable
   id: WeaponSubMachineGunC20r
   description: Manufactured by Cybersun-Armaments, the C-20r is one of the most popular personal small-arms in the Coalition of Colonies. Uses .35 auto ammo.
   components:
@@ -238,8 +238,7 @@
   - type: Gun
     # minAngle: 21 - WD EDIT
     # maxAngle: 32 - WD EDIT
-    fireRate: 12
-    burstFireRate: 12
+    fireRate: 6
     selectedMode: FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/atreides.ogg

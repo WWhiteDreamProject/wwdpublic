@@ -249,8 +249,16 @@
   - type: SurgeryTarget
   - type: MovedByPressure
     cutoffTime: 1.0
-  - type: TTS # WD EDIT
-  - type: ExaminableCharacter # WWDP
+  # WD EDIT START
+  - type: TTS
+  - type: ExaminableCharacter
+  - type: OfferItem
+  - type: LayingDown
+  - type: MobState
+    allowMovementWhileCrit: true
+    allowMovementWhileSoftCrit: true
+  - type: MobThresholdSounds
+  # WD EDIT END
 
 - type: entity
   save: false
@@ -319,13 +327,8 @@
         Asphyxiation: -1.0
   - type: FireVisuals
     alternateState: Standing
-  - type: OfferItem
-  - type: LayingDown
   - type: BloodstreamAffectedByMass
     power: 0.6 # A minimum size felinid will have 30% blood, a minimum size vulp will have 60%, a maximum size oni will have ~200%
-  - type: MobState # WWDP
-    allowMovementWhileCrit: true
-    allowMovementWhileSoftCrit: true
 
 - type: entity
   save: false

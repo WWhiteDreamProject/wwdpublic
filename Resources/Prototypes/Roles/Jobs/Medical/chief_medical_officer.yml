@@ -24,7 +24,7 @@
   weight: 10
   startingGear: CMOGear
   icon: "JobIconChiefMedicalOfficer"
-  requireAdminNotify: true
+  requireAdminNotify: false # WWDP no need for admin notify
   supervisors: job-supervisors-captain
   canBeAntag: false
   access:

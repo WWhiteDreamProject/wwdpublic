@@ -1,0 +1,47 @@
+- type: dungeonRoom
+  id: RoomsCCHubArena_1a
+  size: 35,20
+  atlas: /Maps/_White/CentralCommand/arenaAtlas.yml
+  offset: 0,0
+  ignoreTile: FloorShuttleOrange
+  tags: [ RoomsCCHubArena ]
+
+- type: dungeonRoom
+  id: RoomsCCHubArena_1b
+  size: 35,20
+  atlas: /Maps/_White/CentralCommand/arenaAtlas.yml
+  offset: 36,0
+  ignoreTile: FloorShuttleOrange
+  tags: [ RoomsCCHubArena ]
+
+- type: dungeonRoom
+  id: RoomsCCHubArena_1c
+  size: 35,20
+  atlas: /Maps/_White/CentralCommand/arenaAtlas.yml
+  offset: 72,0
+  ignoreTile: FloorShuttleOrange
+  tags: [ RoomsCCHubArena ]
+
+- type: dungeonRoom
+  id: RoomsCCHubArena_1d
+  size: 35,20
+  atlas: /Maps/_White/CentralCommand/arenaAtlas.yml
+  offset: 0,21
+  ignoreTile: FloorShuttleOrange
+  tags: [ RoomsCCHubArena ]
+
+- type: dungeonRoom
+  id: RoomsCCHubArena_1e
+  size: 35,20
+  atlas: /Maps/_White/CentralCommand/arenaAtlas.yml
+  offset: 36,21
+  ignoreTile: FloorShuttleOrange
+  tags: [ RoomsCCHubArena ]
+
+- type: dungeonRoom
+  id: RoomsCCHubArena_1f
+  size: 35,20
+  atlas: /Maps/_White/CentralCommand/arenaAtlas.yml
+  offset: 72,21
+  ignoreTile: FloorShuttleOrange
+  tags: [ RoomsCCHubArena ]

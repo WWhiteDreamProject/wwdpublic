@@ -96,6 +96,9 @@ namespace Content.Server.Hands.Systems
             if (args.Handled)
                 return;
 
+            if (!_random.Prob(args.DisarmProbability)) // WWDP shove, with a chance to disarm
+                return;
+
             // Break any pulls
             if (TryComp(uid, out PullerComponent? puller) && TryComp(puller.Pulling, out PullableComponent? pullable))
                 _pullingSystem.TryStopPull(puller.Pulling.Value, pullable, ignoreGrab: true); // Goobstation edit added check for grab
@@ -105,9 +108,6 @@ namespace Content.Server.Hands.Systems
             // WWDP edit start
             if (TryGetActiveItem((args.Target, component), out var item))
             {
-                if (!_random.Prob(args.DisarmProbability)) // WWDP shove
-                    return;
-
                 args.DisarmObject = item.Value;
 
                 if (args.PickupToHands)

@@ -5,7 +5,7 @@
     state: normal
   product: CrateServiceReplacementColoredLights
   cost: 600
-  category: Service
+  category: cargoproduct-category-name-service # WWDP edit
   group: market
 
 - type: cargoProduct
@@ -15,5 +15,5 @@
     state: normal
   product: CrateServiceReplacementMaintenanceLights
   cost: 600
-  category: Service
+  category: cargoproduct-category-name-service # WWDP edit
   group: market

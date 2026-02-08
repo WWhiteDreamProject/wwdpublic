@@ -11,7 +11,7 @@
       noRot: true
     - type: Sprite
       offset: 0,0.3125 # WWDP edit start
-      drawDepth: OverMobs
+      drawdepth: OverMobs
       sprite: _White/Structures/Storage/canister.rsi # WWDP edit end
       noRot: true
       layers:

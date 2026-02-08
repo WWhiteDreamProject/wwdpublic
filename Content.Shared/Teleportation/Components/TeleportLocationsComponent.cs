@@ -45,6 +45,20 @@ public sealed partial class TeleportLocationsComponent : Component
     /// </summary>
     [DataField]
     public LocId? Speech;
+
+    /// <summary>
+    /// White Dream
+    /// If true, only allows teleporting to the station warp points
+    /// </summary>
+    [DataField]
+    public bool StationOnly;
+
+    /// <summary>
+    /// White Dream
+    /// UseDelay to use for the teleport cooldown
+    /// </summary>
+    [DataField]
+    public string UseDelay = "default";
 }
 
 /// <summary>

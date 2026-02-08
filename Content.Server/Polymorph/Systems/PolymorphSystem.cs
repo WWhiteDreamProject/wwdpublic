@@ -218,8 +218,9 @@ public sealed partial class PolymorphSystem : EntitySystem
             AddComp(child, copy, true);
         }
 
-        // Ensure the resulting entity is sentient (why? this sucks)
-        MakeSentientCommand.MakeSentient(child, EntityManager);
+        // Ensure the resulting entity is sentient (why? this sucks) // White Dream make it optional
+        if (configuration.MakeSentient)
+            MakeSentientCommand.MakeSentient(child, EntityManager);
 
         var polymorphedComp = _compFact.GetComponent<PolymorphedEntityComponent>();
         polymorphedComp.Parent = uid;

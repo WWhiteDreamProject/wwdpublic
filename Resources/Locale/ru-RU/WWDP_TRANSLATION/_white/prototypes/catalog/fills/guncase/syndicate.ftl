@@ -2,6 +2,13 @@ ent-GunCaseSyndicateFilledDualetta = { ent-GunCasePistolSyndicate }
     .desc = { ent-GunCasePistolSyndicate.desc }
     .suffix = Синдикат, Дуэт
 
+ent-GunCaseSyndicateFilledCobra = { ent-GunCasePistolSyndicate }
+    .desc = { ent-GunCasePistolSyndicate.desc }
+    .suffix = Синдикат, Кобра
+
+ent-GunCaseSyndicateFilledViper = { ent-GunCasePistolSyndicate }
+    .desc = { ent-GunCasePistolSyndicate.desc }
+    .suffix = Синдикат, Гадюка
 
 ent-GunCaseSyndicateFilledM90 = { ent-GunCaseSyndicate }
     .desc = { ent-GunCaseSyndicate.desc }

@@ -19,7 +19,6 @@
   id: StraySupplyPod
   components:
     - type: StationEvent
-      startAnnouncement: true
       weight: 8
       duration: 1
       minimumPlayers: 5
@@ -27,13 +26,14 @@
       reoccurrenceDelay: 15
     - type: RandomSpawnRule
       prototype: SpawnStraySupplyPod
+      announce: true
+      locId: station-event-stray-supply-pod-announcement
 
 - type: entity
   parent: BaseGameRule
   id: StraySupplyPodSyndicate
   components:
     - type: StationEvent
-      startAnnouncement: true
       weight: 6
       duration: 1
       minimumPlayers: 10
@@ -41,6 +41,8 @@
       reoccurrenceDelay: 40
     - type: RandomSpawnRule
       prototype: SpawnStraySupplyPodSyndicate
+      announce: true
+      locId: station-event-stray-supply-pod-announcement
 
 - type: entity
   parent: BaseGameRule
@@ -73,17 +75,3 @@
       - MindRoleXenomorph
   - type: DynamicRuleCost # WD edit
     cost: 24
-
-- type: entity
-  parent: BaseGameRule
-  id: HeadcrabInvasion
-  components:
-    - type: StationEvent
-      startAnnouncement: true
-      weight: 8
-      duration: 1
-      minimumPlayers: 15
-      earliestStart: 15
-      reoccurrenceDelay: 25
-    - type: RandomSpawnRule
-      prototype: SpawnHeadcrabNest

@@ -46,8 +46,6 @@ namespace Content.Server.PDA
             SubscribeLocalEvent<PdaComponent, LightToggleEvent>(OnLightToggle);
 
             // UI Events:
-            SubscribeLocalEvent<PdaComponent, BoundUIOpenedEvent>(OnPdaOpen);
-            SubscribeLocalEvent<PdaComponent, BoundUIClosedEvent>(OnPdaClose); // WWDP edit
             SubscribeLocalEvent<PdaComponent, PdaRequestUpdateInterfaceMessage>(OnUiMessage);
             SubscribeLocalEvent<PdaComponent, PdaToggleFlashlightMessage>(OnUiMessage);
             SubscribeLocalEvent<PdaComponent, PdaShowRingtoneMessage>(OnUiMessage);
@@ -200,7 +198,7 @@ namespace Content.Server.PDA
                 pda.FlashlightOn,
                 pda.PenSlot.HasItem,
                 pda.PaiSlot.HasItem,
-                pda.PassportSlot.HasItem, // WD EDIT
+                pda.PassportSlot.HasItem,
                 new PdaIdInfoText
                 {
                     ActualOwnerName = pda.OwnerName,
@@ -217,33 +215,15 @@ namespace Content.Server.PDA
             _ui.SetUiState(uid, PdaUiKey.Key, state);
         }
 
-        private void OnPdaOpen(Entity<PdaComponent> ent, ref BoundUIOpenedEvent args)
+        protected override void OnUIOpen(Entity<PdaComponent> ent, ref BoundUIOpenedEvent args) // WD EDIT
         {
+            base.OnUIOpen(ent, ref args); // WD EDIT
+
             if (!PdaUiKey.Key.Equals(args.UiKey))
                 return;
-            // WWDP edit start
-            ent.Comp.Enabled = true;
-            ent.Comp.Screen = true;
-            Appearance.SetData(ent.Owner, PdaVisuals.Enabled, true);
-            Appearance.SetData(ent.Owner, PdaVisuals.Screen, true);
-            Dirty(ent.Owner, ent.Comp);
-            // WWDP edit end
+
             UpdatePdaUi(ent.Owner, ent.Comp);
         }
-
-        // WWDP edit start
-        private void OnPdaClose(Entity<PdaComponent> ent, ref BoundUIClosedEvent args)
-        {
-            if (!PdaUiKey.Key.Equals(args.UiKey))
-                return;
-
-            ent.Comp.Enabled = false;
-            ent.Comp.Screen = false;
-            Appearance.SetData(ent.Owner, PdaVisuals.Enabled, false);
-            Appearance.SetData(ent.Owner, PdaVisuals.Screen, false);
-            Dirty(ent.Owner, ent.Comp);
-        }
-        // WWDP edit end
 
         private void OnUiMessage(EntityUid uid, PdaComponent pda, PdaRequestUpdateInterfaceMessage msg)
         {

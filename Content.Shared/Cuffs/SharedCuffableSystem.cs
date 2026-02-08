@@ -9,6 +9,7 @@ using Content.Shared.Cuffs.Components;
 using Content.Shared.Database;
 using Content.Shared.Flight;
 using Content.Shared.DoAfter;
+using Content.Shared.Examine;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
@@ -93,6 +94,7 @@ namespace Content.Shared.Cuffs
             SubscribeLocalEvent<HandcuffComponent, MeleeHitEvent>(OnCuffMeleeHit);
             SubscribeLocalEvent<HandcuffComponent, AddCuffDoAfterEvent>(OnAddCuffDoAfter);
             SubscribeLocalEvent<HandcuffComponent, VirtualItemDeletedEvent>(OnCuffVirtualItemDeleted);
+            SubscribeLocalEvent<CuffableComponent, ExaminedEvent>(OnExamined); // White Dream
         }
 
         private void CheckInteract(Entity<CuffableComponent> ent, ref InteractionAttemptEvent args)
@@ -756,6 +758,20 @@ namespace Content.Shared.Cuffs
                 }
             }
             cuff.Removing = false;
+        }
+
+        // White Dream Examine
+        private void OnExamined(Entity<CuffableComponent> ent, ref ExaminedEvent args)
+        {
+            if (ent.Comp.CanStillInteract)
+                return;
+
+            var locId = "examine-handcuffed";
+
+            if (args.Examiner == args.Examined)
+                locId += "-selfaware";
+
+            args.PushMarkup(Loc.GetString(locId, ("ent", ent.Owner)));
         }
 
         #region ActionBlocker

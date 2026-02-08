@@ -15,3 +15,10 @@
   requirements:
   - !type:CharacterItemGroupRequirement
     group: LoadoutHead
+
+- type: loadout
+  id: LoadoutItemCane
+  category: Items
+  cost: 4
+  items:
+  - Cane

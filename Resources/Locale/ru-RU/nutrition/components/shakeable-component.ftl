@@ -1,3 +1,3 @@
 shakeable-verb = Встряхнуть
-shakeable-popup-message-others = { CAPITALIZE(THE($user)) } встряхивает { THE($shakeable) }.
-shakeable-popup-message-self = Вы энергично встряхиваете { THE($shakeable) }.
+shakeable-popup-message-others = { CAPITALIZE($user) } встряхивает { $shakeable }.
+shakeable-popup-message-self = Вы энергично встряхиваете { $shakeable }.

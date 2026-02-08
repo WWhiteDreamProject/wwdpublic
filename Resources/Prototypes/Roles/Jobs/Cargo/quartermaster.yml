@@ -22,7 +22,7 @@
   weight: 10
   startingGear: QuartermasterGear
   icon: "JobIconQuarterMaster"
-  requireAdminNotify: true
+  requireAdminNotify: false # WWDP no need for admin notify
   supervisors: job-supervisors-captain
   canBeAntag: false
   access:

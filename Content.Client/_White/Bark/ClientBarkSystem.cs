@@ -4,11 +4,14 @@ using Content.Shared._White.Bark.Components;
 using Content.Shared._White.Bark.Systems;
 using Content.Shared._White.CCVar;
 using Content.Shared.Chat;
+using Content.Shared.Language;
+using Content.Shared.Language.Components;
 using Robust.Client.Audio;
 using Robust.Client.UserInterface;
 using Robust.Shared.Audio;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Client._White.Bark;
@@ -19,6 +22,7 @@ public sealed class BarkSystem : SharedBarkSystem
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly AudioSystem _sharedAudio = default!;
     [Dependency] private readonly IUserInterfaceManager _uiManager = default!;
+    [Dependency] private readonly IPrototypeManager _protoManager = default!;
 
     private bool _clientSideEnabled;
     private float _volume;
@@ -52,6 +56,12 @@ public sealed class BarkSystem : SharedBarkSystem
 
         var ent = GetEntity(message.SenderEntity);
         if (!TryComp<BarkComponent>(ent, out var comp))
+            return;
+
+        // Exclude non-verbal languages, e.g. sign language
+        if (TryComp<LanguageSpeakerComponent>(ent, out var languageComp)
+            && _protoManager.TryIndex<LanguagePrototype>(languageComp.CurrentLanguage, out var language)
+            && !language.SpeechOverride.RequireSpeech)
             return;
 
         Bark(new(ent, comp), message.Message, message.Channel == ChatChannel.Whisper);

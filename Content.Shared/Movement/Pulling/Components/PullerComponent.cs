@@ -108,8 +108,8 @@ public sealed partial class PullerComponent : Component
     public Dictionary<GrabStage, float> EscapeChances = new()
     {
         { GrabStage.No, 1f },
-        { GrabStage.Soft, 1f }, // WD EDIT
-        { GrabStage.Hard, 0.5f }, // WD EDIT
+        { GrabStage.Soft, 0.5f }, // WD EDIT
+        { GrabStage.Hard, 0.3f }, // WD EDIT
         { GrabStage.Suffocate, 0.1f },
     };
 

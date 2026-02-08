@@ -1,0 +1,9 @@
+﻿- type: cargoProduct
+  id: ArmoryMosin
+  icon:
+    sprite: Objects/Weapons/Guns/Snipers/bolt_gun_wood.rsi
+    state: base
+  product: CrateArmoryMosin
+  cost: 3000
+  category: cargoproduct-category-name-armory # WWDP edit
+  group: market

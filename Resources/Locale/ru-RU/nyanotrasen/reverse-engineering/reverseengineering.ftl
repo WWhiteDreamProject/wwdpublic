@@ -30,6 +30,6 @@ reverse-engineering-success = Прорывной прогресс
 reverse-engineering-machine-bonus-upgrade = Сила аналитики
 reverse-engineering-machine-aversion-upgrade = Бонус к предотвращению разрушения
 
-reverse-engineering-popup-failure = {CAPITALIZE(THE($machine))} взрывается, раскидывая обломки везде!
+reverse-engineering-popup-failure = {CAPITALIZE($machine)} взрывается, раскидывая обломки везде!
 
 reverse-engineering-examine = [color=yellow]Данный предмет можно исследовать методом обратной инженерии. Сложность: {$diff}[/color]

@@ -5,7 +5,7 @@ toilet-component-suicide-head-message-others = { $victim } засовывает 
 toilet-component-suicide-head-message = Вы засовываете свою голову в { $owner } и жмёте на слив!
 toilet-component-suicide-message-others = { $victim } бьётся об { $owner }!
 toilet-component-suicide-message = Вы бьётесь об { $owner }!
-toilet-seat-close = Close Seat
-toilet-seat-open = Open Seat
+toilet-seat-close = Опустить крышку
+toilet-seat-open = Поднять крышку
 
-plunger-unblock = You unblock the {THE($target)}!
+plunger-unblock = Вы прочистили {$target}!

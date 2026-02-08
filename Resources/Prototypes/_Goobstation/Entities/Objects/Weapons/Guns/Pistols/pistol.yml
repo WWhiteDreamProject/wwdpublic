@@ -99,3 +99,16 @@
       ballistic-ammo: !type:Container
   - type: DualWield # WWDP dual wielding
   #- type: Multishot # WWDP
+  # WD EDIT START
+  - type: EmitSoundOnPickup
+    sound:
+      collection: PistolsPickUp
+  - type: EmitSoundOnDrop
+    sound:
+      collection: PistolsDrop
+  - type: EmitSoundOnLand
+    sound:
+      collection: PistolsDrop
+  - type: DisarmMalus
+    malus: 0.3
+  # WD EDIT END

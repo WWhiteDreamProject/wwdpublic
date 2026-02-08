@@ -1,14 +1,13 @@
+using Content.StyleSheetify.Client.StyleSheet;
 using Content.StyleSheetify.Client.StyleSheet.StyleBox;
-using Robust.Client.UserInterface;
-
 
 namespace Content.Client.Stylesheets;
 
-
+// WWDP CLASS
 public sealed class DummyStylesheetManager : IStylesheetManager
 {
-    public Stylesheet SheetNano { get; } = new Stylesheet([]);
-    public Stylesheet SheetSpace { get; } = new Stylesheet([]);
+    public StylesheetReference SheetNano { get; } = StylesheetReference.Empty;
+    public StylesheetReference SheetSpace { get; } = StylesheetReference.Empty;
 
     public DummyStylesheetManager()
     {
@@ -16,5 +15,4 @@ public sealed class DummyStylesheetManager : IStylesheetManager
     }
 
     public void Initialize(){}
-
 }

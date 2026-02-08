@@ -21,7 +21,7 @@
   weight: 20
   startingGear: CaptainGear
   icon: "JobIconCaptain"
-  requireAdminNotify: true
+  requireAdminNotify: false # WWDP no need for admin notify
   joinNotifyCrew: true
   supervisors: job-supervisors-centcom
   canBeAntag: false

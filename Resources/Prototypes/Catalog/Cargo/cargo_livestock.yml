@@ -65,7 +65,7 @@
     state: pibble
   product: CrateNPCPibble
   cost: 700
-  category: Livestock
+  category: cargoproduct-category-name-livestock # WWDP edit
   group: market
 
 - type: cargoProduct

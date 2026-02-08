@@ -25,7 +25,7 @@
     state: implanter0
   product: CrateTrackingImplants
   cost: 1000
-  category: cargoproduct-category-name-armory
+  category: cargoproduct-category-name-security # WWDP edit
   group: market
 
 - type: cargoProduct
@@ -35,7 +35,7 @@
     state: training-bomb
   product: CrateTrainingBombs
   cost: 3000
-  category: cargoproduct-category-name-armory
+  category: cargoproduct-category-name-security # WWDP edit
   group: market
 
 - type: cargoProduct

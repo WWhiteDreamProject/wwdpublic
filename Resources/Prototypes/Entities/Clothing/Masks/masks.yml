@@ -40,6 +40,8 @@
         Slash: 0.95
         Piercing: 0.95
         Heat: 0.95
+  - type: IdentityBlocker # White Dream
+    coverage: MOUTH
   # - type: IngestionBlocker - WWDP moved to parent
   #   blockSmokeIngestion: true
 
@@ -155,6 +157,8 @@
     tags:
     - PetWearable
     - WhitelistChameleon
+  - type: IdentityBlocker # White Dream
+    coverage: MOUTH
 
 - type: entity
   parent: ClothingMaskBreathMedical
@@ -200,6 +204,8 @@
       Plastic: 100
   - type: StaticPrice
     price: 30 # increases in price after decomposed into raw materials
+  - type: IdentityBlocker # White Dream
+    coverage: MOUTH
 
 - type: entity
   parent: ClothingMaskBase
@@ -621,8 +627,8 @@
     sprite: Clothing/Mask/neckgaiter.rsi
   - type: Clothing
     sprite: Clothing/Mask/neckgaiter.rsi
-  - type: IdentityBlocker
-    coverage: MOUTH
+  - type: IdentityBlocker # White Dream
+  - type: IngestionBlocker # White Dream
   - type: Tag
     tags:
     - WhitelistChameleon

@@ -31,7 +31,7 @@
   weight: 20
   startingGear: BlueshieldOfficerGear
   icon: "JobIconBlueshield"
-  requireAdminNotify: true
+  requireAdminNotify: false # WWDP no need for admin notify
   joinNotifyCrew: true
   supervisors: job-supervisors-centcom
   canBeAntag: false

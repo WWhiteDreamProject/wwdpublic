@@ -27,4 +27,16 @@ public sealed partial class RandomSpawnRuleComponent : Component
     /// </summary>
     [DataField("maxCount")]
     public int MaxCount = 1;
+
+    /// <summary>
+    /// Should the station receive an announcement with the approximate spawn location? | WWDP
+    /// </summary>
+    [DataField]
+    public bool Announce;
+
+    /// <summary>
+    /// Locale to use for the announcement | WWDP
+    /// </summary>
+    [DataField]
+    public string? LocId;
 }

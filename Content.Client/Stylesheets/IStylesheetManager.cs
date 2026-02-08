@@ -1,11 +1,12 @@
+using Content.StyleSheetify.Client.StyleSheet;
 using Robust.Client.UserInterface;
 
 namespace Content.Client.Stylesheets
 {
     public interface IStylesheetManager
     {
-        Stylesheet SheetNano { get; }
-        Stylesheet SheetSpace { get; }
+        StylesheetReference SheetNano { get; } // WWDP EDIT
+        StylesheetReference SheetSpace { get; } // WWDP EDIT
 
         void Initialize();
     }

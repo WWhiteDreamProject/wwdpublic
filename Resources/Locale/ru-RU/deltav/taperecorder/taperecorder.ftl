@@ -1,5 +1,5 @@
-cassette-repair-start = Ты начинаешь аккуратно наматывать плёнку обратно в {THE($item)}.
-cassette-repair-finish = Тебе удаётся вернуть плёнку на место внутри {THE($item)}.
+cassette-repair-start = Ты начинаешь аккуратно наматывать плёнку обратно в {$item}.
+cassette-repair-finish = Тебе удаётся вернуть плёнку на место внутри {$item}.
 tape-cassette-position = Кассета проиграна примерно на [color=green]{$position}%[/color].
 tape-cassette-damaged = Плёнка размотана. Используй ручку или отвёртку, чтобы её починить.
 tape-recorder-playing = Магнитофон в режиме [color=green]воспроизведения[/color].

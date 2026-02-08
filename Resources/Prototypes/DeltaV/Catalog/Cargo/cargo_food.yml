@@ -5,7 +5,7 @@
     state: kvass
   product: KvassTankFull
   cost: 2000
-  category: Food
+  category: cargoproduct-category-name-food # WWDP edit
   group: market
 
 - type: cargoProduct
@@ -15,7 +15,7 @@
     state: pizza-box
   product: CrateFoodDonkpocketSavory
   cost: 6000 # Thanks bounties
-  category: Food
+  category: cargoproduct-category-name-food # WWDP edit
   group: market
 
 - type: cargoProduct
@@ -25,7 +25,7 @@
     state: berry-box
   product: CrateFoodDonkpocketSweet
   cost: 6000 # Thanks bounties
-  category: Food
+  category: cargoproduct-category-name-food # WWDP edit
   group: market
 
 - type: cargoProduct
@@ -35,7 +35,7 @@
     state: tin
   product: CrateFoodEmergencyPie
   cost: 3333
-  category: Food
+  category: cargoproduct-category-name-food # WWDP edit
   group: market
 
 - type: cargoProduct
@@ -45,7 +45,7 @@
     state: icon-order-dairy
   product: CrateHydroCoDairy
   cost: 1500
-  category: Food
+  category: cargoproduct-category-name-food # WWDP edit
   group: market
 
 - type: cargoProduct
@@ -55,5 +55,5 @@
     state: icon-order-juices
   product: CrateHydroCoJuice
   cost: 1500
-  category: Food
+  category: cargoproduct-category-name-food # WWDP edit
   group: market

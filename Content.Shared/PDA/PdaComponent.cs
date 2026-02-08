@@ -6,7 +6,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototy
 
 namespace Content.Shared.PDA
 {
-    [RegisterComponent, NetworkedComponent, AutoGenerateComponentState] // WWDP edit +AutoGenerateComponentState
+    [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true)] // WD EDIT
     public sealed partial class PdaComponent : Component
     {
         public const string PdaIdSlotId = "PDA-id";
@@ -25,13 +25,6 @@ namespace Content.Shared.PDA
 
         [DataField]
         public ItemSlot PassportSlot = new();
-        // WWDP edit start
-        [DataField, AutoNetworkedField]
-        public bool Enabled { get; set; } = false;
-
-        [DataField, AutoNetworkedField]
-        public bool Screen { get; set; } = false;
-        // WWDP edit end
 
         // Really this should just be using ItemSlot.StartingItem. However, seeing as we have so many different starting
         // PDA's and no nice way to inherit the other fields from the ItemSlot data definition, this makes the yaml much
@@ -50,5 +43,93 @@ namespace Content.Shared.PDA
         [ViewVariables] public string? StationName;
         [ViewVariables] public string? StationAlertLevel;
         [ViewVariables] public Color StationAlertColor = Color.White;
+
+        // WD EDIT START
+        public const string AnimationKey = "pda_animation";
+
+        /// <summary>
+        /// The current state of the pda.
+        /// </summary>
+        [DataField, AutoNetworkedField]
+        public PdaState State = PdaState.Closed;
+
+        /// <summary>
+        /// The sprite state used for the pda when it's closed.
+        /// </summary>
+        [DataField]
+        public string ClosedSpriteState = "closed";
+
+        /// <summary>
+        /// The sprite state used for the pda when it's closing.
+        /// </summary>
+        [DataField]
+        public string ClosingSpriteState = "closing";
+
+        /// <summary>
+        /// The sprite state used for the pda when it's open.
+        /// </summary>
+        [DataField]
+        public string OpenSpriteState = "open";
+
+        /// <summary>
+        /// The sprite state used for the pda when it's opening.
+        /// </summary>
+        [DataField]
+        public string OpeningSpriteState = "opening";
+
+        /// <summary>
+        /// The sprite state used for the pda screen when it's closed.
+        /// </summary>
+        [DataField]
+        public string ScreenClosedSpriteState = "screen";
+
+        /// <summary>
+        /// The sprite state used for the pda screen when it's closing.
+        /// </summary>
+        [DataField]
+        public string ScreenClosingSpriteState = "screen_closing";
+
+        /// <summary>
+        /// The sprite state used for the pda screen when it's open.
+        /// </summary>
+        [DataField]
+        public string ScreenOpenSpriteState = "screen";
+
+        /// <summary>
+        /// The sprite state used for the pda screen when it's opening.
+        /// </summary>
+        [DataField]
+        public string ScreenOpeningSpriteState = "screen_opening";
+
+        /// <summary>
+        /// The length of the pda's opening animation.
+        /// </summary>
+        [DataField]
+        public TimeSpan OpeningAnimationTime = TimeSpan.FromSeconds(1.7f);
+
+        /// <summary>
+        /// The length of the pda's closing animation.
+        /// </summary>
+        [DataField]
+        public TimeSpan ClosingAnimationTime = TimeSpan.FromSeconds(1.7f);
+
+        /// <summary>
+        /// The animation used when the pda closes.
+        /// </summary>
+        [ViewVariables]
+        public object ClosingAnimation = null!;
+
+        /// <summary>
+        /// The animation used when the pda opens.
+        /// </summary>
+        [ViewVariables]
+        public object OpeningAnimation = null!;
+
+        /// <summary>
+        /// This is the time when the state will next update.
+        /// </summary>
+        [ViewVariables, AutoNetworkedField]
+        public TimeSpan? NextStateChange;
+        // WD EDIT END
     }
 }

@@ -35,6 +35,9 @@
         Heat: 0.80
   - type: ExplosionResistance
     damageCoefficient: 1 #its a coat. it doesnt do shit
+  - type: TemperatureProtection # White Dream
+    heatingCoefficient: 0.7
+    coolingCoefficient: 0.7
 
 - type: entity
   parent: [ClothingOuterCoatDetectiveLoadout]
@@ -66,9 +69,12 @@
     sprite: Clothing/OuterClothing/Coats/gentlecoat.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/gentlecoat.rsi
+  - type: TemperatureProtection # White Dream
+    heatingCoefficient: 0.7
+    coolingCoefficient: 0.7
 
 - type: entity
-  parent: [ClothingOuterArmorCaptainCarapace, ClothingOuterStorageBase]
+  parent: [ClothingOuterCoatCaptain, ClothingOuterStorageBase] # White Dream: ClothingOuterArmorCaptainCarapace -> ClothingOuterCoatCaptain
   id: ClothingOuterCoatCapTrench
   name: captain's armored trenchcoat
   description: A greatcoat enhanced with a special alloy for some extra protection and style for those with a commanding presence, outfitted with emblems and decor befitting its wearer. Issued only to the station's finest.
@@ -77,6 +83,9 @@
     sprite: Clothing/OuterClothing/Coats/cap_trenchcoat.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/cap_trenchcoat.rsi
+  - type: TemperatureProtection # White Dream
+    heatingCoefficient: 0.7
+    coolingCoefficient: 0.7
 
 - type: entity
   abstract: true
@@ -93,6 +102,9 @@
         Caustic: 0.75 # not the full 90% from ss13 because of the head
   - type: ExplosionResistance
     damageCoefficient: 0.9
+  - type: TemperatureProtection # White Dream
+    heatingCoefficient: 0.7
+    coolingCoefficient: 0.7
 
 - type: entity
   abstract: true
@@ -108,6 +120,9 @@
         Heat: 0.7
   - type: ExplosionResistance
     damageCoefficient: 0.9
+  - type: TemperatureProtection # White Dream
+    heatingCoefficient: 0.7
+    coolingCoefficient: 0.7
 
 - type: entity
   parent: [ClothingOuterArmorHoS, ClothingOuterStorageBase, BaseSecurityCommandContraband]
@@ -129,6 +144,9 @@
         Caustic: 0.75 #not the full 90% from ss13 because of the head
   - type: ExplosionResistance
     damageCoefficient: 0.90
+  - type: TemperatureProtection # White Dream
+    heatingCoefficient: 0.7
+    coolingCoefficient: 0.7
 
 - type: entity
   parent: ClothingOuterStorageToggleableBase
@@ -142,6 +160,9 @@
     sprite: Clothing/OuterClothing/Coats/jensencoat.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodChaplainHood
+  - type: TemperatureProtection # White Dream
+    heatingCoefficient: 0.7
+    coolingCoefficient: 0.7
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -343,6 +364,9 @@
     sprite: Clothing/OuterClothing/Coats/pirate.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/pirate.rsi
+  - type: TemperatureProtection # White Dream
+    heatingCoefficient: 0.7
+    coolingCoefficient: 0.7
 
 - type: entity
   parent: [ClothingOuterArmorWarden, ClothingOuterStorageBase, BaseRestrictedContraband]
@@ -374,6 +398,9 @@
     sprite: Clothing/OuterClothing/Coats/damedanecoat.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/damedanecoat.rsi
+  - type: TemperatureProtection # White Dream
+    heatingCoefficient: 0.7
+    coolingCoefficient: 0.7
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -385,6 +412,9 @@
     sprite: Clothing/OuterClothing/Coats/clownpriest.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/clownpriest.rsi
+  - type: TemperatureProtection # White Dream
+    heatingCoefficient: 0.7
+    coolingCoefficient: 0.7
 
 - type: entity
   parent: [ClothingOuterStorageBase, BaseMajorContraband]
@@ -402,6 +432,9 @@
         Blunt: 0.8
         Slash: 0.65
         Piercing: 0.85
+  - type: TemperatureProtection # White Dream
+    heatingCoefficient: 0.7
+    coolingCoefficient: 0.7
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -413,6 +446,9 @@
     sprite: Clothing/OuterClothing/Coats/windbreaker_paramedic.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/windbreaker_paramedic.rsi
+  - type: TemperatureProtection # White Dream
+    heatingCoefficient: 0.5
+    coolingCoefficient: 0.5
 
 - type: entity
   parent: [ClothingOuterStorageBase, BaseSyndicateContraband]
@@ -424,6 +460,9 @@
     sprite: Clothing/OuterClothing/Coats/syndicate/coatsyndiecap.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/syndicate/coatsyndiecap.rsi
+  - type: TemperatureProtection # White Dream
+    heatingCoefficient: 0.7
+    coolingCoefficient: 0.7
 
 - type: entity
   parent: [BaseSyndicateContraband, ClothingOuterCoatHoSTrench] # BaseSyndicateContraband as first parent so contraband system takes that as priority, yeah I know
@@ -454,6 +493,9 @@
         Piercing: 0.85
         Heat: 0.75
         Caustic: 0.75
+  - type: TemperatureProtection # White Dream
+    heatingCoefficient: 0.7
+    coolingCoefficient: 0.7
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -495,6 +537,9 @@
     sprite: Clothing/OuterClothing/Coats/space_asshole.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/space_asshole.rsi
+  - type: TemperatureProtection # White Dream
+    heatingCoefficient: 0.5
+    coolingCoefficient: 0.5
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -506,6 +551,9 @@
     sprite: Clothing/OuterClothing/Coats/expensive_coat.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/expensive_coat.rsi
+  - type: TemperatureProtection # White Dream
+    heatingCoefficient: 0.7
+    coolingCoefficient: 0.7
 
 - type: entity
   parent: ClothingOuterStorageBase # WWDP
@@ -517,6 +565,9 @@
     sprite: Clothing/OuterClothing/Coats/modern_coat.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/modern_coat.rsi
+  - type: TemperatureProtection # White Dream
+    heatingCoefficient: 0.7
+    coolingCoefficient: 0.7
 
 - type: entity
   parent: ClothingOuterStorageBase # WWDP
@@ -528,6 +579,9 @@
     sprite: Clothing/OuterClothing/Coats/tailcoat.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/tailcoat.rsi
+  - type: TemperatureProtection # White Dream
+    heatingCoefficient: 0.7
+    coolingCoefficient: 0.7
 
 - type: entity
   parent: ClothingOuterStorageBase # WWDP
@@ -539,6 +593,9 @@
     sprite: Clothing/OuterClothing/Coats/victorian_coat.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/victorian_coat.rsi
+  - type: TemperatureProtection # White Dream
+    heatingCoefficient: 0.7
+    coolingCoefficient: 0.7
 
 - type: entity
   parent: ClothingOuterStorageBase # WWDP
@@ -550,6 +607,9 @@
     sprite: Clothing/OuterClothing/Coats/victorian_coat_red.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/victorian_coat_red.rsi
+  - type: TemperatureProtection # White Dream
+    heatingCoefficient: 0.7
+    coolingCoefficient: 0.7
 
 - type: entity
   parent: ClothingOuterStorageFoldableBase
@@ -561,11 +621,18 @@
     sprite: Clothing/OuterClothing/Coats/peacoat.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/peacoat.rsi
+  - type: TemperatureProtection # White Dream
+    heatingCoefficient: 0.7
+    coolingCoefficient: 0.7
 
 - type: entity
   parent: [ClothingOuterFoldableBaseOpened, ClothingOuterCoatPeacoat]
   id: ClothingOuterCoatPeacoatOpened
   name: peacoat
+  components:
+  - type: TemperatureProtection # White Dream
+    heatingCoefficient: 0.9
+    coolingCoefficient: 0.9
 
 - type: entity
   parent: ClothingOuterStorageFoldableBase
@@ -593,9 +660,16 @@
     sprite: Clothing/OuterClothing/Coats/submariner.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/submariner.rsi
+  - type: TemperatureProtection # White Dream
+    heatingCoefficient: 0.5
+    coolingCoefficient: 0.5
 
 - type: entity
   parent: [ClothingOuterFoldableBaseOpened, ClothingOuterCoatSubmariner]
   id: ClothingOuterCoatSubmarinerOpened
   name: submariner coat
+  components:
+  - type: TemperatureProtection # White Dream
+    heatingCoefficient: 0.7
+    coolingCoefficient: 0.7
 

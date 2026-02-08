@@ -7,6 +7,7 @@ using Content.Shared.Alert;
 using Content.Shared.Atmos;
 using Content.Shared.Damage;
 using Content.Shared.Database;
+using Content.Shared.Examine;
 using Content.Shared.Inventory;
 using Content.Shared.Rejuvenate;
 using Content.Shared.Temperature;
@@ -14,6 +15,8 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Physics.Events;
 using Content.Shared.Projectiles;
+using Content.Shared.Verbs;
+using Robust.Shared.Utility;
 
 namespace Content.Server.Temperature.Systems;
 
@@ -24,6 +27,7 @@ public sealed class TemperatureSystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly TemperatureSystem _temperature = default!;
+    [Dependency] private readonly ExamineSystemShared _examine = default!; // WD EDIT
 
     /// <summary>
     ///     All the components that will have their damage updated at the end of the tick.
@@ -60,6 +64,7 @@ public sealed class TemperatureSystem : EntitySystem
             OnParentThresholdStartup);
         SubscribeLocalEvent<ContainerTemperatureDamageThresholdsComponent, ComponentShutdown>(
             OnParentThresholdShutdown);
+        SubscribeLocalEvent<TemperatureProtectionComponent, GetVerbsEvent<ExamineVerb>>(OnClothingVerbExamine); // White Dream
     }
 
     public override void Update(float frameTime)
@@ -472,4 +477,56 @@ public sealed class TemperatureSystem : EntitySystem
 
         return (newHeatThreshold, newColdThreshold);
     }
+    // White Dream edit start
+    private void OnClothingVerbExamine(EntityUid uid, TemperatureProtectionComponent component, GetVerbsEvent<ExamineVerb> args)
+    {
+        if (!args.CanInteract || !args.CanAccess)
+            return;
+
+        var cooling = component.CoolingCoefficient;
+        var heating = component.HeatingCoefficient;
+
+        if (cooling == 1.0f && heating == 1.0f)
+            return;
+
+        var examineMarkup = GetClothingExamine(cooling, heating);
+
+        _examine.AddDetailedExamineVerb(args, component, examineMarkup,
+            Loc.GetString("temperature-clothing-examinable-verb-text"), "/Textures/Interface/VerbIcons/snow.svg.192dpi.png",
+            Loc.GetString("temperature-clothing-examinable-verb-message"));
+    }
+
+    private FormattedMessage GetClothingExamine(float cooling, float heating)
+    {
+        var msg = new FormattedMessage();
+        msg.AddMarkupOrThrow(Loc.GetString("temperature-clothing-examine"));
+
+        if (cooling != 1.0f)
+        {
+            msg.PushNewline();
+
+            cooling = MathF.Round((1f - cooling) * 100, 1);
+
+            if (cooling > 0)
+                msg.AddMarkupOrThrow(Loc.GetString("cooling-resistance", ("value", cooling)));
+            else
+                msg.AddMarkupOrThrow(Loc.GetString("cooling-resistance-negative", ("value", Math.Abs(cooling))
+            ));
+        }
+
+        if (heating != 1.0f)
+        {
+            msg.PushNewline();
+
+            heating = MathF.Round((1f - heating) * 100, 1);
+
+            if (heating > 0)
+                msg.AddMarkupOrThrow(Loc.GetString("heating-resistance", ("value", heating)));
+            else
+                msg.AddMarkupOrThrow(Loc.GetString("heating-resistance-negative",("value", Math.Abs(heating))));
+        }
+
+        return msg;
+    }
+    // White Dream edit end
 }

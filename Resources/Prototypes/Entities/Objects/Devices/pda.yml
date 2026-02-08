@@ -7,38 +7,46 @@
   components:
   - type: Appearance
   - type: Sprite
-    sprite: _White/Objects/Devices/Pda/pda.rsi # WWDP edit
+  # WD EDIT START
+    sprite: _White/Objects/Devices/Pda/pda.rsi
     layers:
-    - map: [ "enum.PdaVisualLayers.Base" ]
-      state: "pda"
+    - map: [ "enum.PdaVisualLayers.State" ]
+      state: "closed"
     - state: "light_overlay"
       map: [ "enum.PdaVisualLayers.Flashlight" ]
       shader: "unshaded"
       visible: false
-      sprite: _White/Objects/Devices/Pda/pda.rsi # WWDP edit
+      sprite: _White/Objects/Devices/Pda/pda.rsi
     - state: "id_overlay"
       map: [ "enum.PdaVisualLayers.IdLight" ]
       shader: "unshaded"
       visible: false
-      sprite: _White/Objects/Devices/Pda/pda.rsi # WWDP edit start
-    - state: "screen_on"
+      sprite: _White/Objects/Devices/Pda/pda.rsi
+    - state: "screen"
       map: [ "enum.PdaVisualLayers.Screen" ]
       shader: "unshaded"
       visible: false
       sprite: _White/Objects/Devices/Pda/pda.rsi
   - type: GenericVisualizer
     visuals:
-      enum.PdaVisuals.Enabled:
-        enum.PdaVisualLayers.Base:
-          True: { state: "pda_on" }
-          False: { state: "pda" }
-      enum.PdaVisuals.Screen:
+      enum.UnpoweredFlashlightVisuals.LightOn:
+        enum.PdaVisualLayers.Flashlight:
+          True: { visible: true }
+          False: { visible: false }
+      enum.PdaVisuals.IdCardInserted:
+        enum.PdaVisualLayers.IdLight:
+          True: { visible: true }
+          False: { visible: false }
+      enum.PdaVisuals.State:
         enum.PdaVisualLayers.Screen:
-          True: { state: "screen_on", shader: unshaded }
-          False: { visible: false} # WWDP edit end
+          Closed: { visible: false }
+          Closing: { visible: true }
+          Open: { visible: true }
+          Opening: { visible: true }
   - type: Icon
-    sprite: _White/Objects/Devices/Pda/pda.rsi # WWDP edit
-    state: pda
+    sprite: _White/Objects/Devices/Pda/pda.rsi
+    state: closed
+  # WD EDIT END
   - type: Pda
     passportSlot:
       priority: -3
@@ -63,7 +71,6 @@
       whitelist:
         components:
         - IdCard
-  - type: PdaVisuals
   - type: Item
     size: Small
     shape:
@@ -666,11 +673,12 @@
         - Write
   - type: PdaBorderColor
     borderColor: "#7C5D00"
-  - type: Sprite # WWDP edit start
+  # WD EDIT START
+  - type: Sprite
     sprite: _White/Objects/Devices/Pda/LOH/captain.rsi
     layers:
-    - map: [ "enum.PdaVisualLayers.Base" ]
-      state: "pda"
+    - map: [ "enum.PdaVisualLayers.State" ]
+      state: "closed"
     - state: "light_overlay"
       map: [ "enum.PdaVisualLayers.Flashlight" ]
       shader: "unshaded"
@@ -681,11 +689,12 @@
       shader: "unshaded"
       visible: false
       sprite: _White/Objects/Devices/Pda/pda.rsi
-    - state: "screen_on"
+    - state: "screen"
       map: [ "enum.PdaVisualLayers.Screen" ]
       shader: "unshaded"
       visible: false
-      sprite: _White/Objects/Devices/Pda/LOH/captain.rsi # WWDP end
+      sprite: _White/Objects/Devices/Pda/LOH/captain.rsi
+    # WD EDIT END
 
 - type: entity
   parent: BasePDA
@@ -1554,11 +1563,12 @@
         - Write
   - type: PdaBorderColor
     borderColor: "#7F3300"
-  - type: Sprite # WWDP edit start
+  # WD EDIT START
+  - type: Sprite
     sprite: _White/Objects/Devices/Pda/wizard.rsi
     layers:
-    - map: [ "enum.PdaVisualLayers.Base" ]
-      state: "pda"
+    - map: [ "enum.PdaVisualLayers.State" ]
+      state: "closed"
     - state: "light_overlay"
       map: [ "enum.PdaVisualLayers.Flashlight" ]
       shader: "unshaded"
@@ -1569,8 +1579,9 @@
       shader: "unshaded"
       visible: false
       sprite: _White/Objects/Devices/Pda/pda.rsi
-    - state: "screen_on"
+    - state: "screen"
       map: [ "enum.PdaVisualLayers.Screen" ]
       shader: "unshaded"
       visible: false
-      sprite: _White/Objects/Devices/Pda/wizard.rsi # WWDP edit end
+      sprite: _White/Objects/Devices/Pda/wizard.rsi
+    # WD EDIT END

@@ -15,3 +15,14 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsMedicalSecurity ]
+
+- type: entity
+  parent: AirlockGlassShuttle
+  id: AirlockExternalGlassSY52
+  suffix: DONT MAP, External, BattleShip, SY-52, Glass, Docking
+  components:
+  - type: GridFill
+    path: /Maps/_White/Shuttles/BattleShips/SY-52.yml
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsExternal ]
