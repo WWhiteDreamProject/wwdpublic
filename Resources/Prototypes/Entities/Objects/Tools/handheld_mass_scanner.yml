@@ -15,7 +15,7 @@
         visible: true
         map: [ "enum.PowerDeviceVisualLayers.Powered" ]
   - type: RadarConsole
-    maxRange: 64
+    maxRange: 256 # WWDP edit
     followEntity: true
   - type: Appearance
   - type: GenericVisualizer

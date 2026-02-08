@@ -155,3 +155,5 @@
   - type: UpgradeBattery
     maxChargeMultiplier: 3
     baseMaxCharge: 10000
+  - type: RadarConsole
+    maxRange: 448
