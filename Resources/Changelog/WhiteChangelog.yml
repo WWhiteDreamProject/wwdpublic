@@ -5046,3 +5046,10 @@ Entries:
   id: 530
   time: '2026-02-08T12:59:27.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1065
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: Потребление корабельных турелей было уменьшено.
+  id: 531
+  time: '2026-02-08T12:59:54.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1066
