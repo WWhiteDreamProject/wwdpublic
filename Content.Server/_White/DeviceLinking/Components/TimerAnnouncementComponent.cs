@@ -10,15 +10,14 @@ namespace Content.Server.DeviceLinking.Components
     public sealed partial class TimerAnnouncementComponent : Component
     {
         [DataField]
-        public string? StartMessage; // Изменено с LocId? на string?
+        public string? StartMessage;
 
         [DataField]
-        public string? EndMessage; // Изменено с LocId? на string?
+        public string? EndMessage;
 
         [DataField]
         public string? CancelMessage;
 
-        // Остальные поля остаются без изменений
         [ViewVariables(VVAccess.ReadWrite)]
         [DataField("sender")]
         public string Sender = "Timer";

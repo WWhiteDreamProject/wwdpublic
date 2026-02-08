@@ -71,8 +71,10 @@ public sealed class SignalTimerSystem : EntitySystem
         _audio.PlayPvs(signalTimer.DoneSound, uid);
         _signalSystem.InvokePort(uid, signalTimer.TriggerPort);
 
+        // WWDP edit start
         var triggerEv = new SignalTimerTriggeredEvent();
         RaiseLocalEvent(uid, ref triggerEv);
+        // WWDP edit end
 
         if (_ui.HasUi(uid, SignalTimerUiKey.Key))
         {
@@ -179,16 +181,14 @@ public sealed class SignalTimerSystem : EntitySystem
         {
             _appearanceSystem.SetData(uid, TextScreenVisuals.TargetTime, _gameTiming.CurTime);
 
-            // Отправляем событие отмены
+            // WWDP edit start
             var cancelEv = new SignalTimerCancelledEvent();
             RaiseLocalEvent(uid, ref cancelEv);
 
-            // Выполняем только необходимые действия без вызова Trigger
             RemComp<ActiveSignalTimerComponent>(uid);
             _audio.PlayPvs(component.DoneSound, uid);
             _signalSystem.InvokePort(uid, component.TriggerPort);
 
-            // Обновляем UI
             if (_ui.HasUi(uid, SignalTimerUiKey.Key))
             {
                 _ui.SetUiState(uid, SignalTimerUiKey.Key, new SignalTimerBoundUserInterfaceState(component.Label,
@@ -199,6 +199,7 @@ public sealed class SignalTimerSystem : EntitySystem
                     false,
                     true,
                     component.CanEditDelay));
+                // WWDP edit end
             }
         }
         else
@@ -227,7 +228,9 @@ public sealed class SignalTimerSystem : EntitySystem
 
         _signalSystem.InvokePort(uid, component.StartPort);
 
+        // WWDP edit start
         var startEv = new SignalTimerStartedEvent();
         RaiseLocalEvent(uid, ref startEv);
+        // WWDP edit end
     }
 }
