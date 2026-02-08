@@ -1,0 +1,564 @@
+# Base Capture Point
+- type: entity
+  id: CapturePointFrame
+  name: capture point frame
+  description: capture point frame
+  parent: BaseStructure
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Construction
+    graph: CapturePointGraph
+    node: capturepoint
+  - type: Sprite
+    sprite: _White/Structures/Misc/AmalgestShit/capture_points.rsi
+    layers:
+    - state: base
+
+- type: entity
+  id: CapturePoint
+  name: capture point
+  description: capture point
+  parent: BaseStructure
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: ExtensionCableReceiver
+  - type: DeviceLinkSource
+    ports:
+    - Start
+    - Timer
+  - type: DeviceLinkSink
+    ports:
+    - Trigger
+  - type: ActivatableUI
+    key: enum.SignalTimerUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.SignalTimerUiKey.Key:
+        type: SignalTimerBoundUserInterface
+  - type: Appearance
+  - type: Clickable
+  - type: InteractionOutline
+  - type: TextScreenVisuals
+    color: FloralWhite
+    textOffset: 0,8
+    timerOffset: 0,8
+    textLength: 5
+    rows: 1
+  - type: Sprite
+    sprite: _White/Structures/Misc/AmalgestShit/capture_points.rsi
+    layers:
+    - state: base
+    - state: grey
+      shader: unshaded
+  - type: Construction
+    graph: CapturePointGraph
+    node: capturePoint
+  - type: SignalTimer
+    canEditLabel: false
+    delay: 120
+    canEditDelay: false
+  - type: TimerAnnouncement
+    startMessage: "START"
+    cancelMessage: "CANCEL"
+    endMessage: "END"
+    sender: "TIMER SYSTEM"
+    senderColor: "#ffffff"
+    textColor: "#00FF00"
+    fontSize: 16
+    sound:
+      path: /Audio/Announcements/announce.ogg
+
+# Frames (A-E)
+- type: entity
+  id: CapturePointFrameA
+  parent: CapturePointFrame
+  name: capture point frame A
+  components:
+  - type: Construction
+    graph: CapturePointGraphA
+    node: start
+
+- type: entity
+  id: CapturePointFrameB
+  parent: CapturePointFrame
+  name: capture point frame B
+  components:
+  - type: Construction
+    graph: CapturePointGraphB
+    node: start
+
+- type: entity
+  id: CapturePointFrameC
+  parent: CapturePointFrame
+  name: capture point frame C
+  components:
+  - type: Construction
+    graph: CapturePointGraphC
+    node: start
+
+- type: entity
+  id: CapturePointFrameD
+  parent: CapturePointFrame
+  name: capture point frame D
+  components:
+  - type: Construction
+    graph: CapturePointGraphD
+    node: start
+
+- type: entity
+  id: CapturePointFrameE
+  parent: CapturePointFrame
+  name: capture point frame E
+  components:
+  - type: Construction
+    graph: CapturePointGraphE
+    node: start
+
+# Team base points
+
+- type: entity
+  id: CapturePointWhite
+  parent: CapturePoint
+  name: white capture point
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Misc/AmalgestShit/capture_points.rsi
+    layers:
+    - state: base
+    - state: white
+      shader: unshaded
+  - type: TimerAnnouncement
+    startMessage: "Белая команда начала захват точки!"
+    cancelMessage: "Захват точки белой командой прерван!"
+    endMessage: "Белая команда захватила точку!"
+    sender: "Точка"
+    textColor: "#FFFFFF"
+
+- type: entity
+  id: CapturePointYellow
+  parent: CapturePoint
+  name: yellow capture point
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Misc/AmalgestShit/capture_points.rsi
+    layers:
+    - state: base
+    - state: yellow
+      shader: unshaded
+  - type: TimerAnnouncement
+    startMessage: "Желтая команда начала захват точки!"
+    cancelMessage: "Захват точки желтой командой прерван!"
+    endMessage: "Желтая команда захватила точку!"
+    sender: "Точка"
+    textColor: "#FFFF00"
+
+- type: entity
+  id: CapturePointRed
+  parent: CapturePoint
+  name: red capture point
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Misc/AmalgestShit/capture_points.rsi
+    layers:
+    - state: base
+    - state: red
+      shader: unshaded
+  - type: TimerAnnouncement
+    startMessage: "Красная команда начала захват точки!"
+    cancelMessage: "Захват точки красной командой прерван!"
+    endMessage: "Красная команда захватила точку!"
+    sender: "Точка"
+    textColor: "#FF0000"
+
+- type: entity
+  id: CapturePointBlue
+  parent: CapturePoint
+  name: blue capture point
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Misc/AmalgestShit/capture_points.rsi
+    layers:
+    - state: base
+    - state: blue
+      shader: unshaded
+  - type: TimerAnnouncement
+    startMessage: "Синяя команда начала захват точки!"
+    cancelMessage: "Захват точки синей командой прерван!"
+    endMessage: "Синяя команда захватила точку!"
+    sender: "Точка"
+    textColor: "#03A7FFFF"
+
+- type: entity
+  id: CapturePointGreen
+  parent: CapturePoint
+  name: green capture point
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Misc/AmalgestShit/capture_points.rsi
+    layers:
+    - state: base
+    - state: green
+      shader: unshaded
+  - type: TimerAnnouncement
+    startMessage: "Зеленая команда начала захват точки!"
+    cancelMessage: "Захват точки зеленой командой прерван!"
+    endMessage: "Зеленая команда захватила точку!"
+    sender: "Точка"
+    textColor: "#00FF00"
+
+- type: entity
+  id: CapturePointPurple
+  parent: CapturePoint
+  name: purple capture point
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Misc/AmalgestShit/capture_points.rsi
+    layers:
+    - state: base
+    - state: purple
+      shader: unshaded
+  - type: TimerAnnouncement
+    startMessage: "Фиолетовая команда начала захват точки!"
+    cancelMessage: "Захват точки фиолетовой командой прерван!"
+    endMessage: "Фиолетовая команда захватила точку!"
+    sender: "Точка"
+    textColor: "#FF00FF"
+
+# Blue per-point entities
+- type: entity
+  id: CapturePointBlueA
+  parent: CapturePointBlue
+  suffix: "Blue A"
+  components:
+  - type: Construction
+    graph: CapturePointGraphA
+    node: capturePointBlue
+  - type: TimerAnnouncement
+    sender: "Точка А"
+
+- type: entity
+  id: CapturePointBlueB
+  parent: CapturePointBlue
+  suffix: "Blue B"
+  components:
+  - type: Construction
+    graph: CapturePointGraphB
+    node: capturePointBlue
+  - type: TimerAnnouncement
+    sender: "Точка B"
+
+- type: entity
+  id: CapturePointBlueC
+  parent: CapturePointBlue
+  suffix: "Blue C"
+  components:
+  - type: Construction
+    graph: CapturePointGraphC
+    node: capturePointBlue
+  - type: TimerAnnouncement
+    sender: "Точка C"
+
+- type: entity
+  id: CapturePointBlueD
+  parent: CapturePointBlue
+  suffix: "Blue D"
+  components:
+  - type: Construction
+    graph: CapturePointGraphD
+    node: capturePointBlue
+  - type: TimerAnnouncement
+    sender: "Точка D"
+
+- type: entity
+  id: CapturePointBlueE
+  parent: CapturePointBlue
+  suffix: "Blue E"
+  components:
+  - type: Construction
+    graph: CapturePointGraphE
+    node: capturePointBlue
+  - type: TimerAnnouncement
+    sender: "Точка E"
+
+# White per-point entities
+- type: entity
+  id: CapturePointWhiteA
+  parent: CapturePointWhite
+  suffix: "White A"
+  components:
+  - type: Construction
+    graph: CapturePointGraphA
+    node: capturePointWhite
+  - type: TimerAnnouncement
+    sender: "Точка А"
+
+- type: entity
+  id: CapturePointWhiteB
+  parent: CapturePointWhite
+  suffix: "White B"
+  components:
+  - type: Construction
+    graph: CapturePointGraphB
+    node: capturePointWhite
+  - type: TimerAnnouncement
+    sender: "Точка B"
+
+- type: entity
+  id: CapturePointWhiteC
+  parent: CapturePointWhite
+  suffix: "White C"
+  components:
+  - type: Construction
+    graph: CapturePointGraphC
+    node: capturePointWhite
+  - type: TimerAnnouncement
+    sender: "Точка C"
+
+- type: entity
+  id: CapturePointWhiteD
+  parent: CapturePointWhite
+  suffix: "White D"
+  components:
+  - type: Construction
+    graph: CapturePointGraphD
+    node: capturePointWhite
+  - type: TimerAnnouncement
+    sender: "Точка D"
+
+- type: entity
+  id: CapturePointWhiteE
+  parent: CapturePointWhite
+  suffix: "White E"
+  components:
+  - type: Construction
+    graph: CapturePointGraphE
+    node: capturePointWhite
+  - type: TimerAnnouncement
+    sender: "Точка E"
+
+# Yellow per-point entities
+
+- type: entity
+  id: CapturePointYellowA
+  parent: CapturePointYellow
+  suffix: "Yellow A"
+  components:
+  - type: Construction
+    graph: CapturePointGraphA
+    node: capturePointYellow
+  - type: TimerAnnouncement
+    sender: "Точка А"
+
+- type: entity
+  id: CapturePointYellowB
+  parent: CapturePointYellow
+  suffix: "Yellow B"
+  components:
+  - type: Construction
+    graph: CapturePointGraphB
+    node: capturePointYellow
+  - type: TimerAnnouncement
+    sender: "Точка B"
+
+- type: entity
+  id: CapturePointYellowC
+  parent: CapturePointYellow
+  suffix: "C"
+  components:
+  - type: Construction
+    graph: CapturePointGraphC
+    node: capturePointYellow
+  - type: TimerAnnouncement
+    sender: "Точка C"
+
+- type: entity
+  id: CapturePointYellowD
+  parent: CapturePointYellow
+  suffix: "D"
+  components:
+  - type: Construction
+    graph: CapturePointGraphD
+    node: capturePointYellow
+  - type: TimerAnnouncement
+    sender: "Точка D"
+
+- type: entity
+  id: CapturePointYellowE
+  parent: CapturePointYellow
+  suffix: "E"
+  components:
+  - type: Construction
+    graph: CapturePointGraphE
+    node: capturePointYellow
+  - type: TimerAnnouncement
+    sender: "Точка E"
+
+# Red per-point entities
+- type: entity
+  id: CapturePointRedA
+  parent: CapturePointRed
+  suffix: "Red A"
+  components:
+  - type: Construction
+    graph: CapturePointGraphA
+    node: capturePointRed
+  - type: TimerAnnouncement
+    sender: "Точка А"
+
+- type: entity
+  id: CapturePointRedB
+  parent: CapturePointRed
+  suffix: "Red B"
+  components:
+  - type: Construction
+    graph: CapturePointGraphB
+    node: capturePointRed
+  - type: TimerAnnouncement
+    sender: "Точка B"
+
+- type: entity
+  id: CapturePointRedC
+  parent: CapturePointRed
+  suffix: "C"
+  components:
+  - type: Construction
+    graph: CapturePointGraphC
+    node: capturePointRed
+  - type: TimerAnnouncement
+    sender: "Точка C"
+
+- type: entity
+  id: CapturePointRedD
+  parent: CapturePointRed
+  suffix: "D"
+  components:
+  - type: Construction
+    graph: CapturePointGraphD
+    node: capturePointRed
+  - type: TimerAnnouncement
+    sender: "Точка D"
+
+- type: entity
+  id: CapturePointRedE
+  parent: CapturePointRed
+  suffix: "E"
+  components:
+  - type: Construction
+    graph: CapturePointGraphE
+    node: capturePointRed
+  - type: TimerAnnouncement
+    sender: "Точка E"
+
+# Green per-point entities
+- type: entity
+  id: CapturePointGreenA
+  parent: CapturePointGreen
+  suffix: "Green A"
+  components:
+  - type: Construction
+    graph: CapturePointGraphA
+    node: capturePointGreen
+  - type: TimerAnnouncement
+    sender: "Точка А"
+
+- type: entity
+  id: CapturePointGreenB
+  parent: CapturePointGreen
+  suffix: "Green B"
+  components:
+  - type: Construction
+    graph: CapturePointGraphB
+    node: capturePointGreen
+  - type: TimerAnnouncement
+    sender: "Точка B"
+
+- type: entity
+  id: CapturePointGreenC
+  parent: CapturePointGreen
+  suffix: "C"
+  components:
+  - type: Construction
+    graph: CapturePointGraphC
+    node: capturePointGreen
+  - type: TimerAnnouncement
+    sender: "Точка C"
+
+- type: entity
+  id: CapturePointGreenD
+  parent: CapturePointGreen
+  suffix: "D"
+  components:
+  - type: Construction
+    graph: CapturePointGraphD
+    node: capturePointGreen
+  - type: TimerAnnouncement
+    sender: "Точка D"
+
+- type: entity
+  id: CapturePointGreenE
+  parent: CapturePointGreen
+  suffix: "E"
+  components:
+  - type: Construction
+    graph: CapturePointGraphE
+    node: capturePointGreen
+  - type: TimerAnnouncement
+    sender: "Точка E"
+
+# Purple per-point entities
+- type: entity
+  id: CapturePointPurpleA
+  parent: CapturePointPurple
+  suffix: "Purple A"
+  components:
+  - type: Construction
+    graph: CapturePointGraphA
+    node: capturePointPurple
+  - type: TimerAnnouncement
+    sender: "Точка А"
+
+- type: entity
+  id: CapturePointPurpleB
+  parent: CapturePointPurple
+  suffix: "Purple B"
+  components:
+  - type: Construction
+    graph: CapturePointGraphB
+    node: capturePointPurple
+  - type: TimerAnnouncement
+    sender: "Точка B"
+
+- type: entity
+  id: CapturePointPurpleC
+  parent: CapturePointPurple
+  suffix: "C"
+  components:
+  - type: Construction
+    graph: CapturePointGraphC
+    node: capturePointPurple
+  - type: TimerAnnouncement
+    sender: "Точка C"
+
+- type: entity
+  id: CapturePointPurpleD
+  parent: CapturePointPurple
+  suffix: "D"
+  components:
+  - type: Construction
+    graph: CapturePointGraphD
+    node: capturePointPurple
+  - type: TimerAnnouncement
+    sender: "Точка D"
+
+- type: entity
+  id: CapturePointPurpleE
+  parent: CapturePointPurple
+  suffix: "E"
+  components:
+  - type: Construction
+    graph: CapturePointGraphE
+    node: capturePointPurple
+  - type: TimerAnnouncement
+    sender: "Точка E"

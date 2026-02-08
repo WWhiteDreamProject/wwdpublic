@@ -1,0 +1,103 @@
+# Base
+- type: entity
+  id: CaptureCartridge
+  name: cartridge
+  parent: BaseItem
+  description: Cartridge
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: Objects/Misc/id_cards.rsi
+    state: centcom
+# Teams
+
+- type: entity
+  id: CaptureCartridgeWhite
+  name: white cartridge
+  parent: BaseItem
+  description: White team cartridge
+  components:
+  - type: Item
+    size: Small
+  - type: Tag
+    tags:
+    - CartridgeWhite
+  - type: Sprite
+    sprite: Objects/Misc/id_cards.rsi
+    state: centcom
+
+- type: entity
+  id: CaptureCartridgeYellow
+  name: yellow cartridge
+  parent: BaseItem
+  description: Yellow team cartridge
+  components:
+  - type: Item
+    size: Small
+  - type: Tag
+    tags:
+    - CartridgeYellow
+  - type: Sprite
+    sprite: Objects/Misc/id_cards.rsi
+    state: centcom
+
+- type: entity
+  id: CaptureCartridgeRed
+  name: red cartridge
+  parent: BaseItem
+  description: Red team cartridge
+  components:
+  - type: Item
+    size: Small
+  - type: Tag
+    tags:
+    - CartridgeRed
+  - type: Sprite
+    sprite: Objects/Misc/id_cards.rsi
+    state: centcom
+
+- type: entity
+  id: CaptureCartridgeBlue
+  name: blue cartridge
+  parent: BaseItem
+  description: Blue team cartridge
+  components:
+  - type: Item
+    size: Small
+  - type: Tag
+    tags:
+    - CartridgeBlue
+  - type: Sprite
+    sprite: Objects/Misc/id_cards.rsi
+    state: centcom
+
+- type: entity
+  id: CaptureCartridgeGreen
+  name: green cartridge
+  parent: BaseItem
+  description: Green team cartridge
+  components:
+  - type: Item
+    size: Small
+  - type: Tag
+    tags:
+    - CartridgeGreen
+  - type: Sprite
+    sprite: Objects/Misc/id_cards.rsi
+    state: centcom
+
+- type: entity
+  id: CaptureCartridgePurple
+  name: purple cartridge
+  parent: BaseItem
+  description: Purple team cartridge
+  components:
+  - type: Item
+    size: Small
+  - type: Tag
+    tags:
+    - CartridgePurple
+  - type: Sprite
+    sprite: Objects/Misc/id_cards.rsi
+    state: centcom

@@ -37,6 +37,10 @@ public sealed class SignalTimerBoundUserInterface : BoundUserInterface
     {
         if (_window == null)
             return;
+
+        if (!_window.CanEditDelay)
+            return;
+
         SendMessage(new SignalTimerDelayChangedMessage(_window.GetDelay()));
     }
 
