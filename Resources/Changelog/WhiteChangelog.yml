@@ -5039,3 +5039,10 @@ Entries:
   id: 529
   time: '2026-02-02T19:17:05.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1063
+- author: Spatison
+  changes:
+    - type: Add
+      message: Крюк-пушка и грави-пушка возвращены в игру
+  id: 530
+  time: '2026-02-08T12:59:27.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1065
