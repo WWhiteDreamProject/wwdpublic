@@ -7,9 +7,6 @@
   placement:
     mode: SnapgridCenter
   components:
-  - type: Construction
-    graph: CapturePointGraph
-    node: capturepoint
   - type: Sprite
     sprite: _White/Structures/Misc/AmalgestShit/capture_points.rsi
     layers:
