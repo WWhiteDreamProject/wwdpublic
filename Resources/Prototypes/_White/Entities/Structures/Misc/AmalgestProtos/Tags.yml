@@ -1,4 +1,7 @@
 - type: Tag
+  id: AmalgestCartridge
+
+- type: Tag
   id: CartridgeWhite
 
 - type: Tag
