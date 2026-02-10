@@ -15,15 +15,21 @@ public sealed class PlayAnimationCommand : LocalizedCommands
 
     public override void Execute(IConsoleShell shell, string arg, string[] args)
     {
-        if (args.Length == 0)
+        if (args.Length == 1)
         {
-            shell.WriteError(Loc.GetString("shell-wrong-arguments-number"));
-            shell.WriteLine(Help);
+            var entity = shell.Player?.AttachedEntity;
+            if (!entity.HasValue)
+            {
+                shell.WriteError(Loc.GetString("shell-wrong-arguments-number"));
+                shell.WriteLine(Help);
+                return;
+            }
+
+            _entityManager.System<WhiteAnimationPlayerSystem>().Play(entity.Value, args[0]);
             return;
         }
 
-        var entity = shell.Player?.AttachedEntity;
-        if (args.Length >= 2)
+        if (args.Length == 2)
         {
             if (!NetEntity.TryParse(args[1], out var netEntity))
             {
@@ -31,17 +37,13 @@ public sealed class PlayAnimationCommand : LocalizedCommands
                 return;
             }
 
-            entity = _entityManager.GetEntity(netEntity);
-        }
-
-        if (!entity.HasValue)
-        {
-            shell.WriteError(Loc.GetString("shell-wrong-arguments-number"));
-            shell.WriteLine(Help);
+            var entity = _entityManager.GetEntity(netEntity);
+            _entityManager.System<WhiteAnimationPlayerSystem>().Play(entity, args[0]);
             return;
         }
 
-        _entityManager.System<WhiteAnimationPlayerSystem>().Play(entity.Value, args[0]);
+        shell.WriteError(Loc.GetString("shell-wrong-arguments-number"));
+        shell.WriteLine(Help);
     }
 
     public override CompletionResult GetCompletion(IConsoleShell shell, string[] args)
