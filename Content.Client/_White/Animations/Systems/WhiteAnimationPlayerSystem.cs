@@ -207,6 +207,9 @@ public sealed class WhiteAnimationPlayerSystem : SharedWhiteAnimationPlayerSyste
         Play(uid, animationId, force);
     }
 
+    public override void PlayClient(EntityUid uid, ProtoId<AnimationPrototype> animationId, bool force = false) =>
+        Play(uid, animationId, force);
+
     public override void PlayClient(EntityUid uid, ProtoId<AnimationPrototype> animationId, EntityUid recipient, bool force = false)
     {
         if (!_gameTiming.IsFirstTimePredicted)

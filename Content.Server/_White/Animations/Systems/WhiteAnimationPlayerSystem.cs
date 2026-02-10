@@ -29,6 +29,11 @@ public sealed class WhiteAnimationPlayerSystem : SharedWhiteAnimationPlayerSyste
     public override void Play(EntityUid uid, ProtoId<AnimationPrototype> animationId, Filter filter, bool force = false) =>
         RaiseNetworkEvent(new PlayAnimationMessage(GetNetEntity(uid), animationId, force), filter);
 
+    public override void PlayClient(EntityUid uid, ProtoId<AnimationPrototype> animationId, bool force = false)
+    {
+        // This is for the client
+    }
+
     public override void PlayClient(EntityUid uid, ProtoId<AnimationPrototype> animationId, EntityUid recipient, bool force = false)
     {
         // This is for the client

@@ -34,6 +34,12 @@ public abstract class SharedWhiteAnimationPlayerSystem : EntitySystem
     public abstract void Play(EntityUid uid, ProtoId<AnimationPrototype> animationId, Filter filter, bool force = false);
 
     /// <summary>
+    /// Variant of <see cref="Play(EntityUid, ProtoId{AnimationPrototype}, bool)"/> that only runs on the client, outside of prediction.
+    /// Useful for shared code always run by both sides to avoid animation duplicate.
+    /// </summary>
+    public abstract void PlayClient(EntityUid uid, ProtoId<AnimationPrototype> animationId, bool force = false);
+
+    /// <summary>
     /// Variant of <see cref="Play(EntityUid, ProtoId{AnimationPrototype}, EntityUid, bool)"/> that only runs on the client, outside of prediction.
     /// Useful for shared code always run by both sides to avoid animation duplicate.
     /// </summary>
