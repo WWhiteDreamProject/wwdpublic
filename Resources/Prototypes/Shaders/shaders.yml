@@ -125,6 +125,11 @@
   path: "/Textures/Shaders/color_tint.swsl"
 
 - type: shader
+  id: GhostCompositeTint
+  kind: source
+  path: "/Textures/Shaders/ghost_composite_tint.swsl"
+
+- type: shader
   id: Ethereal
   kind: source
   path: "/Textures/Shaders/ethereal.swsl"

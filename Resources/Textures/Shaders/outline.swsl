@@ -33,48 +33,49 @@ uniform bool outline_fullbright; // =false;
 uniform highp float light_boost; // = 4.0;
 uniform highp float light_gamma; // = 1.0;
 uniform highp float light_whitepoint; // = 1.0;
+uniform highp float alpha_cutoff; // = 0.0;
+
+highp float mask_alpha(highp float alpha)
+{
+	if (alpha_cutoff <= 0.0)
+		return alpha;
+
+	return alpha > alpha_cutoff ? 1.0 : 0.0;
+}
 
 void fragment() {
 	highp vec4 col = zTexture(UV);
 	highp vec2 ps = TEXTURE_PIXEL_SIZE;
 	highp float a;
-	highp float maxa = col.a;
-	highp float mina = col.a;
+	highp float cola = mask_alpha(col.a);
+	highp float maxa = cola;
 
 	// note: these bypass zTexture because only alpha is queried.
-	a = texture2D(TEXTURE, UV + vec2(0.0, -outline_width)*ps).a;
+	a = mask_alpha(texture2D(TEXTURE, UV + vec2(0.0, -outline_width)*ps).a);
 	maxa = max(a, maxa);
-	mina = min(a, mina);
 
-    a = texture2D(TEXTURE, UV + vec2(-outline_width, -outline_width)*ps).a;
+    a = mask_alpha(texture2D(TEXTURE, UV + vec2(-outline_width, -outline_width)*ps).a);
     maxa = max(a, maxa);
-    mina = min(a, mina);
 
-	a = texture2D(TEXTURE, UV + vec2(0.0, outline_width)*ps).a;
+	a = mask_alpha(texture2D(TEXTURE, UV + vec2(0.0, outline_width)*ps).a);
 	maxa = max(a, maxa);
-	mina = min(a, mina);
 
-    a = texture2D(TEXTURE, UV + vec2(outline_width, -outline_width)*ps).a;
+    a = mask_alpha(texture2D(TEXTURE, UV + vec2(outline_width, -outline_width)*ps).a);
     maxa = max(a, maxa);
-    mina = min(a, mina);
 
-	a = texture2D(TEXTURE, UV + vec2(-outline_width,0.0)*ps).a;
+	a = mask_alpha(texture2D(TEXTURE, UV + vec2(-outline_width,0.0)*ps).a);
 	maxa = max(a, maxa);
-	mina = min(a, mina);
 
-    a = texture2D(TEXTURE, UV + vec2(-outline_width, outline_width)*ps).a;
+    a = mask_alpha(texture2D(TEXTURE, UV + vec2(-outline_width, outline_width)*ps).a);
     maxa = max(a, maxa);
-    mina = min(a, mina);
 
-	a = texture2D(TEXTURE, UV + vec2(outline_width, 0.0)*ps).a;
+	a = mask_alpha(texture2D(TEXTURE, UV + vec2(outline_width, 0.0)*ps).a);
 	maxa = max(a, maxa);
-	mina = min(a, mina);
 
-    a = texture2D(TEXTURE, UV + vec2(outline_width, outline_width)*ps).a;
+    a = mask_alpha(texture2D(TEXTURE, UV + vec2(outline_width, outline_width)*ps).a);
     maxa = max(a, maxa);
-    mina = min(a, mina);
 
 	lowp float sampledLight = outline_fullbright ? 1.0 : clamp( (pow( zGrayscale_BT601(lightSample.rgb) * light_whitepoint, light_gamma) / light_whitepoint ) * light_boost, 0.0, 1.0);
-	COLOR = mix(col, outline_color * vec4(vec3(1.0), sampledLight), maxa - col.a);
+	COLOR = mix(col, outline_color * vec4(vec3(1.0), sampledLight), maxa - cola);
 	lightSample = vec3(1.0);
 }

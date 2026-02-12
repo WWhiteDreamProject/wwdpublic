@@ -434,7 +434,7 @@ namespace Content.Server.GameTicking
                 _roles.MindAddRole(mind.Value, "MindRoleObserver");
             }
 
-            var ghost = _ghost.SpawnGhost(mind.Value);
+            var ghost = _ghost.SpawnLobbyObserverGhost(mind.Value);
             _adminLogger.Add(LogType.LateJoin,
                 LogImpact.Low,
                 $"{player.Name} late joined the round as an Observer with {ToPrettyString(ghost):entity}.");

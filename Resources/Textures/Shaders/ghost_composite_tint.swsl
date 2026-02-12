@@ -1,0 +1,12 @@
+light_mode unshaded;
+
+uniform lowp vec3 ghost_tint; // RGB between 0 and 1.
+uniform lowp float ghost_alpha; // Alpha between 0 and 1.
+
+void fragment()
+{
+    highp vec4 col = zTexture(UV);
+    col.rgb *= ghost_tint;
+    col.a *= ghost_alpha;
+    COLOR = col;
+}

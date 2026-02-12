@@ -7,6 +7,7 @@
     light_boost: 2
     light_gamma: 1.5
     light_whitepoint: 48
+    alpha_cutoff: 0.0
 
 - type: shader
   id: SelectionOutlineInrange
@@ -17,3 +18,4 @@
     light_boost: 2
     light_gamma: 0.9
     light_whitepoint: 1
+    alpha_cutoff: 0.0

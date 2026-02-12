@@ -1,20 +1,30 @@
+using System;
 using Content.Client.Movement.Systems;
 using Content.Shared.Actions;
 using Content.Shared.Ghost;
 using Robust.Client.Console;
 using Robust.Client.GameObjects;
+using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 
 namespace Content.Client.Ghost
 {
     public sealed class GhostSystem : SharedGhostSystem
     {
+        private const string VisualObserverPrototypePrefix = "MobObserverVisual";
+        private const string CompositeGhostShaderId = "GhostCompositeTint";
+        private const float VisualObserverAlphaMultiplier = 0.50f;
+
         [Dependency] private readonly IClientConsoleHost _console = default!;
         [Dependency] private readonly IPlayerManager _playerManager = default!;
+        [Dependency] private readonly IPrototypeManager _prototype = default!;
         [Dependency] private readonly SharedActionsSystem _actions = default!;
         [Dependency] private readonly PointLightSystem _pointLightSystem = default!;
         [Dependency] private readonly ContentEyeSystem _contentEye = default!;
+
+        private readonly Dictionary<EntityUid, ShaderInstance> _compositeGhostShaders = new();
 
         public int AvailableGhostRoleCount { get; private set; }
 
@@ -72,7 +82,10 @@ namespace Content.Client.Ghost
         private void OnStartup(EntityUid uid, GhostComponent component, ComponentStartup args)
         {
             if (TryComp(uid, out SpriteComponent? sprite))
+            {
                 sprite.Visible = GhostVisibility || uid == _playerManager.LocalEntity;
+                ApplyGhostVisuals(uid, component, sprite);
+            }
         }
 
         private void OnToggleLighting(EntityUid uid, EyeComponent component, ToggleLightingActionEvent args)
@@ -129,6 +142,8 @@ namespace Content.Client.Ghost
 
         private void OnGhostRemove(EntityUid uid, GhostComponent component, ComponentRemove args)
         {
+            RemoveGhostCompositeShader(uid);
+
             _actions.RemoveAction(uid, component.ToggleLightingActionEntity);
             _actions.RemoveAction(uid, component.ToggleFoVActionEntity);
             _actions.RemoveAction(uid, component.ToggleGhostsActionEntity);
@@ -150,7 +165,7 @@ namespace Content.Client.Ghost
         private void OnGhostState(EntityUid uid, GhostComponent component, ref AfterAutoHandleStateEvent args)
         {
             if (TryComp<SpriteComponent>(uid, out var sprite))
-                sprite.LayerSetColor(0, component.color);
+                ApplyGhostVisuals(uid, component, sprite);
 
             if (uid != _playerManager.LocalEntity)
                 return;
@@ -210,6 +225,50 @@ namespace Content.Client.Ghost
         {
             var msg = new GhostReturnToRoundRequest();
             RaiseNetworkEvent(msg);
+        }
+
+        private void ApplyGhostVisuals(EntityUid uid, GhostComponent component, SpriteComponent sprite)
+        {
+            if (TryComp(uid, out MetaDataComponent? metaData) &&
+                metaData.EntityPrototype?.ID.StartsWith(VisualObserverPrototypePrefix, StringComparison.Ordinal) == true)
+            {
+                var shader = EnsureGhostCompositeShader(uid, sprite);
+                shader.SetParameter("ghost_tint", new Robust.Shared.Maths.Vector3(component.color.R, component.color.G, component.color.B));
+                shader.SetParameter("ghost_alpha", Math.Clamp(component.color.A * VisualObserverAlphaMultiplier, 0f, 1f));
+                sprite.Color = Color.White;
+                return;
+            }
+
+            RemoveGhostCompositeShader(uid, sprite);
+            sprite.Color = component.color;
+        }
+
+        private ShaderInstance EnsureGhostCompositeShader(EntityUid uid, SpriteComponent sprite)
+        {
+            if (!_compositeGhostShaders.TryGetValue(uid, out var shader))
+            {
+                shader = _prototype.Index<ShaderPrototype>(CompositeGhostShaderId).InstanceUnique();
+                _compositeGhostShaders[uid] = shader;
+            }
+
+            if (sprite.PostShader != shader)
+                sprite.PostShader = shader;
+
+            return shader;
+        }
+
+        private void RemoveGhostCompositeShader(EntityUid uid, SpriteComponent? sprite = null)
+        {
+            if (!_compositeGhostShaders.Remove(uid, out var shader))
+                return;
+
+            if (sprite == null)
+                TryComp(uid, out sprite);
+
+            if (sprite != null && sprite.PostShader == shader)
+                sprite.PostShader = null;
+
+            shader.Dispose();
         }
     }
 }
