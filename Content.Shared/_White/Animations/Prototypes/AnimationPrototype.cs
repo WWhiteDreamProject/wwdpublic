@@ -16,7 +16,4 @@ public sealed class AnimationPrototype : IPrototype
 
     [DataField(required: true)]
     public string Key = string.Empty;
-
-    [ViewVariables]
-    public object Animation = null!;
 }

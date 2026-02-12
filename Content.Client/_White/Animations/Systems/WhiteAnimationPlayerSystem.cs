@@ -28,7 +28,7 @@ public sealed class WhiteAnimationPlayerSystem : SharedWhiteAnimationPlayerSyste
     [Dependency] private readonly AnimationPlayerSystem _animationPlayer = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
 
-    private FrozenDictionary<string, AnimationPrototype> _animations = default!;
+    private FrozenDictionary<string, AnimationData> _animations = default!;
 
     public override void Initialize()
     {
@@ -64,22 +64,22 @@ public sealed class WhiteAnimationPlayerSystem : SharedWhiteAnimationPlayerSyste
 
     private void CachePrototypes()
     {
-        var animationPrototypes = _prototype.EnumeratePrototypes<AnimationPrototype>().ToList();
+        var animations = new Dictionary<string, AnimationData>();
 
-        foreach (var animationPrototype in animationPrototypes)
+        foreach (var animationPrototype in _prototype.EnumeratePrototypes<AnimationPrototype>())
         {
             var animation = new Animation();
             var realLength = 0f;
 
             foreach (var animationTrackData in animationPrototype.AnimationTracksData)
             {
-                AnimationTrack? animationTrack = null;
-                if (animationTrackData is AnimationTrackComponentPropertyData componentPropertyData)
-                    animationTrack = GetComponentProperty(componentPropertyData);
-                else if (animationTrackData is AnimationTrackPlaySoundData playSoundData)
-                    animationTrack = GetPlaySound(playSoundData);
-                else if (animationTrackData is AnimationTrackSpriteFlickData spriteFlickData)
-                    animationTrack = GetSpriteFlick(spriteFlickData);
+                AnimationTrack? animationTrack = animationTrackData switch
+                {
+                    AnimationTrackComponentPropertyData componentPropertyData => GetComponentProperty(componentPropertyData),
+                    AnimationTrackPlaySoundData playSoundData => GetPlaySound(playSoundData),
+                    AnimationTrackSpriteFlickData spriteFlickData => GetSpriteFlick(spriteFlickData),
+                    _ => null
+                };
 
                 if (animationTrack == null)
                     continue;
@@ -94,10 +94,10 @@ public sealed class WhiteAnimationPlayerSystem : SharedWhiteAnimationPlayerSyste
 
             animation.Length = animationPrototype.Length ?? TimeSpan.FromSeconds(realLength);
 
-            animationPrototype.Animation = animation;
+            animations.Add(animationPrototype.ID, new (animation, animationPrototype.Key));
         }
 
-        _animations = animationPrototypes.ToFrozenDictionary(x => x.ID);
+        _animations = animations.ToFrozenDictionary();
     }
     #endregion
 
@@ -164,7 +164,7 @@ public sealed class WhiteAnimationPlayerSystem : SharedWhiteAnimationPlayerSyste
 
     #region Public API
 
-    public bool TryGetAnimation(string animationId, [NotNullWhen(true)] out AnimationPrototype? animation) =>
+    public bool TryGetAnimation(string animationId, [NotNullWhen(true)] out AnimationData? animation) =>
         _animations.TryGetValue(animationId, out animation);
 
     public override void Play(EntityUid uid, ProtoId<AnimationPrototype> animationId, bool force = false)
@@ -180,7 +180,7 @@ public sealed class WhiteAnimationPlayerSystem : SharedWhiteAnimationPlayerSyste
             _animationPlayer.Stop(uid, animation.Key);
         }
 
-        _animationPlayer.Play(uid, (Animation) animation.Animation, animation.Key);
+        _animationPlayer.Play(uid, animation.Animation, animation.Key);
     }
 
     public override void Play(EntityUid uid, ProtoId<AnimationPrototype> animationId, EntityUid recipient, bool force = false)
@@ -275,4 +275,10 @@ public sealed class WhiteAnimationPlayerSystem : SharedWhiteAnimationPlayerSyste
     }
 
     #endregion
+}
+
+public sealed class AnimationData(Animation animation, string key)
+{
+    public Animation Animation = animation;
+    public string Key = key;
 }
