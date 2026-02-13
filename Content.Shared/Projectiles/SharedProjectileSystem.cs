@@ -211,13 +211,10 @@ public abstract partial class SharedProjectileSystem : EntitySystem
             return;
         }
 
-        Log.Error("1");
         if (component.EmbeddedIntoUid is not null)
         {
-            Log.Error("2");
             if (TryComp<EmbeddedContainerComponent>(component.EmbeddedIntoUid.Value, out var embeddedContainer))
             {
-                Log.Error("3");
                 embeddedContainer.EmbeddedObjects.Remove(uid);
             }
         }
