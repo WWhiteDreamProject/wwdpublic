@@ -25,6 +25,9 @@
         whitelist:
           components:
           - CapturePointCartridge
+  - type: ContainerContainer
+    containers:
+      cartridge_slot: !type:ContainerSlot
 
 - type: entity
   id: CapturePointA

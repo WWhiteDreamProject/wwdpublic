@@ -1,8 +1,0 @@
-- type: entity
-  parent: ComputerRadar
-  id: ComputerRadarWide
-  name: wide mass scanner computer
-  description: A computer for detecting distant bodies, displaying them by position and mass.
-  components:
-  - type: RadarConsole
-    maxRange: 2048
