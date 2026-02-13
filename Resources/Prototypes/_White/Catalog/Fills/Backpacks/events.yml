@@ -1,7 +1,6 @@
 - type: entity
   parent: ClothingBackpackERTMedical
   id: ClothingBackpackAmalgestWhite
-  name: backpack
   components:
   - type: StorageFill
     contents:
@@ -14,7 +13,6 @@
 - type: entity
   parent: ClothingBackpackERTEngineer
   id: ClothingBackpackAmalgestYellow
-  name: backpack
   components:
   - type: StorageFill
     contents:
@@ -27,7 +25,6 @@
 - type: entity
   parent: ClothingBackpackERTSecurity
   id: ClothingBackpackAmalgestRed
-  name: backpack
   components:
   - type: StorageFill
     contents:
@@ -40,7 +37,6 @@
 - type: entity
   parent: ClothingBackpackERTLeader
   id: ClothingBackpackAmalgestBlue
-  name: backpack
   components:
   - type: StorageFill
     contents:
@@ -53,7 +49,6 @@
 - type: entity
   parent: ClothingBackpackERTClown
   id: ClothingBackpackAmalgestGreen
-  name: backpack
   components:
   - type: StorageFill
     contents:
@@ -66,7 +61,6 @@
 - type: entity
   parent: ClothingBackpackERTJanitor
   id: ClothingBackpackAmalgestPurple
-  name: backpack
   components:
   - type: StorageFill
     contents:

@@ -192,14 +192,4 @@ public sealed partial class SignalTimerWindow : DefaultWindow
             seconds = 0;
         return TimeSpan.FromMinutes(minutes) + TimeSpan.FromSeconds(seconds);
     }
-    // WWDP edit start
-    public bool CanEditDelay { get; private set; }
-
-    public void SetCanEditDelay(bool canEdit)
-    {
-        CanEditDelay = canEdit;
-        CurrentDelayEditMinutes.Editable = canEdit;
-        CurrentDelayEditSeconds.Editable = canEdit;
-    }
-    // WWDP edit end
 }
