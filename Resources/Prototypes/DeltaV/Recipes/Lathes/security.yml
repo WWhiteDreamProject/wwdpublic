@@ -2,6 +2,7 @@
   id: SpeedLoaderSpecial
   result: SpeedLoaderSpecial
   categories:
+  - Ammo
   completetime: 5
   materials:
     Steel: 200
