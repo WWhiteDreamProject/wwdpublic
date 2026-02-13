@@ -1,0 +1,62 @@
+- type: entity
+  id: CapturePoint
+  parent: BaseStructure
+  name: capture point
+  description: Insert the cartridge to begin capturing the nearby area.
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Misc/AmalgestShit/capture_points.rsi
+    layers:
+    - state: base
+    - state: grey
+      shader: unshaded
+  - type: Appearance
+  - type: InteractionOutline
+  - type: TextScreenVisuals
+    color: FloralWhite
+    textOffset: 0,8
+    timerOffset: 0,8
+    textLength: 5
+    rows: 1
+  - type: CapturePoint
+    delay: 120
+
+- type: entity
+  id: CapturePointA
+  parent: CapturePoint
+  name: capture point A
+  components:
+  - type: CapturePoint
+    sender: "capture-point-sender-A"
+
+- type: entity
+  id: CapturePointB
+  parent: CapturePoint
+  name: capture point B
+  components:
+  - type: CapturePoint
+    sender: "capture-point-sender-B"
+
+- type: entity
+  id: CapturePointC
+  parent: CapturePoint
+  name: capture point C
+  components:
+  - type: CapturePoint
+    sender: "capture-point-sender-C"
+
+- type: entity
+  id: CapturePointD
+  parent: CapturePoint
+  name: capture point D
+  components:
+  - type: CapturePoint
+    sender: "capture-point-sender-D"
+
+- type: entity
+  id: CapturePointE
+  parent: CapturePoint
+  name: capture point E
+  components:
+  - type: CapturePoint
+    sender: "capture-point-sender-E"

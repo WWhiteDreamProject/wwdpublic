@@ -6,11 +6,3 @@
   components:
   - type: RadarConsole
     maxRange: 2048
-
-- type: entity
-  parent: BaseComputerCircuitboard
-  id: RadarConsoleCircuitboardWide
-  name: wide radar console computer board
-  components:
-  - type: ComputerBoard
-    prototype: ComputerRadarWide
