@@ -19,7 +19,12 @@
     textLength: 5
     rows: 1
   - type: CapturePoint
-    delay: 120
+  - type: ItemSlots
+    slots:
+      cartridge_slot:
+        whitelist:
+          components:
+          - CapturePointCartridge
 
 - type: entity
   id: CapturePointA

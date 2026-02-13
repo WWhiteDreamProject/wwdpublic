@@ -1,4 +1,4 @@
-namespace Content.Server._White.Event.CapturePoint;
+namespace Content.Shared._White.Event.CapturePoint;
 
 [RegisterComponent]
 public sealed partial class CapturePointCartridgeComponent : Component
