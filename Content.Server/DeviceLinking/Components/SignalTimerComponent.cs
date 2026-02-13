@@ -17,6 +17,11 @@ public sealed partial class SignalTimerComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public bool CanEditLabel = true;
 
+    // WWDP edit start
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public bool CanEditDelay = true;
+    // WWDP edit end
+
     /// <summary>
     ///     The label, used for TextScreen visuals currently.
     /// </summary>
