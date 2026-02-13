@@ -15,6 +15,7 @@ using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Screens;
 using Content.Client.UserInterface.Systems.Chat.Widgets;
 using Content.Client.UserInterface.Systems.Gameplay;
+using Content.Shared._White.CCVar;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
@@ -107,7 +108,7 @@ public sealed class ChatUIController : UIController
     /// <summary>
     ///     The max amount of chars allowed to fit in a single speech bubble.
     /// </summary>
-    private const int SingleBubbleCharLimit = 100;
+    private int SingleBubbleCharLimit => _config.GetCVar(WhiteCVars.SingleBubbleCharLimit); // WWDP moved to WhiteCvars
 
     /// <summary>
     ///     Base queue delay each speech bubble has.
@@ -117,12 +118,28 @@ public sealed class ChatUIController : UIController
     /// <summary>
     ///     Factor multiplied by speech bubble char length to add to delay.
     /// </summary>
-    private const float BubbleDelayFactor = 0.8f / SingleBubbleCharLimit;
+    private const float BubbleDelayFactor =  0.8f / 100; // WWDP edit
 
+    // WWDP edit start
     /// <summary>
     ///     The max amount of speech bubbles over a single entity at once.
     /// </summary>
-    private const int SpeechBubbleCap = 4;
+    private int SpeechBubbleCap
+    {
+        get
+        {
+            var cvar = _config.GetCVar(WhiteCVars.SpeechBubbleCap);
+
+            if (cvar <= 0)
+            {
+                Logger.Error("Local CVar chat.bubble_max_count is set to 0 or lower");
+                cvar = 1;
+            }
+
+            return cvar;
+        }
+    }
+    // WWDP edit end
 
     private LayoutContainer _speechBubbleRoot = default!;
 
@@ -460,9 +477,12 @@ public sealed class ChatUIController : UIController
 
         if (existing.Count > SpeechBubbleCap)
         {
-            // Get the oldest to start fading fast.
-            var last = existing[0];
-            last.FadeNow();
+            // WWDP edit start
+            // Get all of the older ones
+            var lastBubbles = existing[..^SpeechBubbleCap];
+            foreach (var last in lastBubbles)
+                last.FadeNow();
+            // WWDP edit end
         }
     }
 
