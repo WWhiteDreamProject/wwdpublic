@@ -91,8 +91,8 @@ trait-description-RussianAccent = You speak with a Russian accent.
 trait-name-FrenchAccent = French accent
 trait-description-FrenchAccent = You speak with a French accent.
 
-trait-name-СowboyAccent = Cowboy accent
-trait-description-СowboyAccent = You speak with a distinct cowboy accent!
+trait-name-CowboyAccent = Cowboy accent
+trait-description-CowboyAccent = You speak with a distinct cowboy accent!
 
 trait-name-ItalianAccent = Italian accent
 trait-description-ItalianAccent = You speak with a Italian accent.

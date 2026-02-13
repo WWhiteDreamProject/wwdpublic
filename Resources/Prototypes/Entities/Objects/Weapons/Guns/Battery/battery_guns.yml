@@ -409,6 +409,7 @@
     proto: BulletPulse
     fireCost: 100
     # WD EDIT END
+  - type: Battery
     maxCharge: 3000 # WD EDIT: 2000 -> 3000
     startingCharge: 3000 # WD EDIT: 2000 -> 3000
 

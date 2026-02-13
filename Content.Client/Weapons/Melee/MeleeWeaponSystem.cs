@@ -99,7 +99,7 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
         var coordinates = TransformSystem.ToCoordinates(mousePos);
 
         // If the gun has AltFireComponent, it can be used to attack.
-        if (Resolve(weaponUid, ref gun) && gun.UseKey && TryComp<AltFireMeleeComponent>(weaponUid, out var altFireComponent) && (!weapon.SwapKeys ? altDown : useDown)) // WD EDIT
+        if (Resolve(weaponUid, ref gun, false) && gun.UseKey && TryComp<AltFireMeleeComponent>(weaponUid, out var altFireComponent) && (!weapon.SwapKeys ? altDown : useDown)) // WD EDIT
         {
             switch (altFireComponent.AttackType)
             {
