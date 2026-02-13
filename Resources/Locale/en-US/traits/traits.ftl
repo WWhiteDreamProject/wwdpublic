@@ -103,6 +103,9 @@ trait-description-SpanishAccent = You speak with a Spanish accent.
 trait-name-PainNumbness = Numb
 trait-description-PainNumbness = You lack any sense of feeling pain, being unaware of how hurt you may be.
 
+trait-name-SouthernAccent = Southern drawl
+trait-description-SouthernAccent = You have a different way of speakin'.
+
 trait-name-Snoring = Snoring
 trait-description-Snoring = You tend to snore loudly while sleeping.
 
