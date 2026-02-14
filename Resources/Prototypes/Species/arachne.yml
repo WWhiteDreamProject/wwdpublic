@@ -65,7 +65,6 @@
     RArm: MobHumanRArm
     LHand: MobHumanLHand
     RHand: MobHumanRHand
-    Undershirt: MobHumanoidAnyMarking
 
 - type: humanoidBaseSprite
   id: MobArachneEyes
