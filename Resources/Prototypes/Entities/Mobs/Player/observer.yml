@@ -92,6 +92,7 @@
     tags:
     - AllowGhostShownByEvent
 
+# // WWDP EDIT START
 - type: entity
   parent:
   - Incorporeal
@@ -1360,6 +1361,7 @@
       Brute:
         sprite: Mobs/Effects/brute_damage.rsi
         color: "#00FF69"
+# // WWDP EDIT END
 
 - type: entity
   id: ActionGhostBoo

@@ -232,7 +232,7 @@ public sealed class PsionicAbilitiesSystem : EntitySystem
         if (!_mind.TryGetMind(session, out var mindId, out var mind))
             return;
 
-        _ghost.SpawnGhost((mindId, mind), Transform(uid).Coordinates, false, uid);
+        _ghost.SpawnGhost((mindId, mind), Transform(uid).Coordinates, false, uid); // WWDP EDIT
         _npcFaction.AddFaction(uid, "SimpleNeutral");
         var htn = EnsureComp<HTNComponent>(uid);
         htn.RootTask = new HTNCompoundTask() { Task = "IdleCompound" };

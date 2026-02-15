@@ -1,53 +1,53 @@
 using System.Linq;
 using System.Numerics;
 using Content.Server.Administration.Logs;
-using Content.Server.Body.Components;
+using Content.Server.Body.Components; // WWDP EDIT
 using Content.Server.Chat.Managers;
-using Content.Server.Clothing.Systems;
+using Content.Server.Clothing.Systems; // WWDP EDIT
 using Content.Server.GameTicking;
 using Content.Server.Ghost.Components;
-using Content.Server.Humanoid;
+using Content.Server.Humanoid; // WWDP EDIT
 using Content.Server.Mind;
-using Content.Server.Players.PlayTimeTracking;
+using Content.Server.Players.PlayTimeTracking; // WWDP EDIT
 using Content.Server.Preferences.Managers;
 using Content.Server.Roles.Jobs;
-using Content.Server.Station.Systems;
+using Content.Server.Station.Systems; // WWDP EDIT
 using Content.Shared._White.CustomGhostSystem;
-using Content.Shared.Clothing.Components;
-using Content.Shared.Clothing.EntitySystems;
+using Content.Shared.Clothing.Components; // WWDP EDIT
+using Content.Shared.Clothing.EntitySystems; // WWDP EDIT
 using Content.Shared._White.Roles;
 using Content.Shared.Actions;
 using Content.Shared.CCVar;
 using Content.Shared.Damage;
-using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Components; // WWDP EDIT
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Database;
 using Content.Shared.Examine;
 using Content.Shared.Eye;
 using Content.Shared.FixedPoint;
 using Content.Shared.Follower;
-using Content.Shared.GameTicking;
+using Content.Shared.GameTicking; // WWDP EDIT
 using Content.Shared.Ghost;
-using Content.Shared.Humanoid;
-using Content.Shared.Humanoid.Prototypes;
-using Content.Shared.Inventory;
-using Content.Shared.Item;
+using Content.Shared.Humanoid; // WWDP EDIT
+using Content.Shared.Humanoid.Prototypes; // WWDP EDIT
+using Content.Shared.Inventory; // WWDP EDIT
+using Content.Shared.Item; // WWDP EDIT
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
-using Content.Shared.Movement.Components;
+using Content.Shared.Movement.Components; // WWDP EDIT
 using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Systems;
-using Content.Shared.Players;
-using Content.Shared.Preferences;
+using Content.Shared.Players; // WWDP EDIT
+using Content.Shared.Preferences; // WWDP EDIT
 using Content.Shared.Popups;
-using Content.Shared.Roles;
+using Content.Shared.Roles; // WWDP EDIT
 using Content.Shared.SSDIndicator;
 using Content.Shared.Storage.Components;
 using Content.Shared.Tag;
-using Content.Shared.Traits.Assorted.Components;
+using Content.Shared.Traits.Assorted.Components; // WWDP EDIT
 using Content.Shared.Warps;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
@@ -66,23 +66,23 @@ namespace Content.Server.Ghost
     {
         [Dependency] private readonly SharedActionsSystem _actions = default!;
         [Dependency] private readonly IAdminLogManager _adminLog = default!;
-        [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+        [Dependency] private readonly SharedAppearanceSystem _appearance = default!; // WWDP EDIT
         [Dependency] private readonly SharedEyeSystem _eye = default!;
-        [Dependency] private readonly ClothingSystem _clothing = default!;
+        [Dependency] private readonly ClothingSystem _clothing = default!; // WWDP EDIT
         [Dependency] private readonly FollowerSystem _followerSystem = default!;
         [Dependency] private readonly IGameTiming _gameTiming = default!;
-        [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
-        [Dependency] private readonly InventorySystem _inventory = default!;
-        [Dependency] private readonly SharedItemSystem _item = default!;
+        [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!; // WWDP EDIT
+        [Dependency] private readonly InventorySystem _inventory = default!; // WWDP EDIT
+        [Dependency] private readonly SharedItemSystem _item = default!; // WWDP EDIT
         [Dependency] private readonly JobSystem _jobs = default!;
         [Dependency] private readonly EntityLookupSystem _lookup = default!;
-        [Dependency] private readonly LoadoutSystem _loadout = default!;
+        [Dependency] private readonly LoadoutSystem _loadout = default!; // WWDP EDIT
         [Dependency] private readonly MindSystem _minds = default!;
         [Dependency] private readonly MobStateSystem _mobState = default!;
         [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-        [Dependency] private readonly PlayTimeTrackingManager _playTimeTracking = default!;
+        [Dependency] private readonly PlayTimeTrackingManager _playTimeTracking = default!; // WWDP EDIT
         [Dependency] private readonly IPlayerManager _playerManager = default!;
-        [Dependency] private readonly StationSpawningSystem _stationSpawning = default!;
+        [Dependency] private readonly StationSpawningSystem _stationSpawning = default!; // WWDP EDIT
         [Dependency] private readonly TransformSystem _transformSystem = default!;
         [Dependency] private readonly VisibilitySystem _visibilitySystem = default!;
         [Dependency] private readonly MetaDataSystem _metaData = default!;
@@ -96,7 +96,7 @@ namespace Content.Server.Ghost
         [Dependency] private readonly SharedPopupSystem _popup = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly TagSystem _tag = default!;
-        [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
+        [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!; // WWDP EDIT
         [Dependency] private readonly IServerPreferencesManager _prefs = default!;
 
         private EntityQuery<GhostComponent> _ghostQuery;
@@ -105,6 +105,7 @@ namespace Content.Server.Ghost
 
         public static readonly Color AntagonistButtonColor = Color.FromHex("#7F4141"); // WWDP EDIT
 
+        // WWDP EDIT START
         [ValidatePrototypeId<EntityPrototype>]
         private const string VisualObserverPrototypeName = "MobObserverVisualHumanoid";
 
@@ -132,6 +133,7 @@ namespace Content.Server.Ghost
             "innerBelt",
             "innerNeck"
         };
+        // WWDP EDIT END
 
         public override void Initialize()
         {
@@ -149,8 +151,8 @@ namespace Content.Server.Ghost
             SubscribeLocalEvent<GhostComponent, MindRemovedMessage>(OnMindRemovedMessage);
             SubscribeLocalEvent<GhostComponent, MindUnvisitedMessage>(OnMindUnvisitedMessage);
             SubscribeLocalEvent<GhostComponent, PlayerDetachedEvent>(OnPlayerDetached);
-            SubscribeLocalEvent<MindComponent, MindGotRemovedEvent>(OnMindGotRemoved);
-            SubscribeLocalEvent<MindComponent, EntityTerminatingEvent>(OnMindTerminating);
+            SubscribeLocalEvent<MindComponent, MindGotRemovedEvent>(OnMindGotRemoved); // WWDP EDIT
+            SubscribeLocalEvent<MindComponent, EntityTerminatingEvent>(OnMindTerminating); // WWDP EDIT
 
             SubscribeLocalEvent<GhostOnMoveComponent, MoveInputEvent>(OnRelayMoveInput);
 
@@ -323,6 +325,7 @@ namespace Content.Server.Ghost
             DeleteEntity(uid);
         }
 
+        // WWDP EDIT START
         private void OnMindGotRemoved(EntityUid uid, MindComponent component, MindGotRemovedEvent args)
         {
             TryCaptureMindHumanoidSnapshot(uid, args.Container.Owner);
@@ -332,6 +335,7 @@ namespace Content.Server.Ghost
         {
             ClearMindHumanoidSnapshot(uid);
         }
+        // WWDP EDIT END
 
         private void DeleteEntity(EntityUid uid)
         {
@@ -595,6 +599,7 @@ namespace Content.Server.Ghost
             return ghostBoo.Handled;
         }
 
+        // WWDP EDIT START
         public EntityUid? SpawnGhost(Entity<MindComponent?> mind, EntityUid targetEntity,
             bool canReturn = false)
         {
@@ -1003,6 +1008,7 @@ namespace Content.Server.Ghost
 
             return null;
         }
+        // WWDP EDIT END
 
         public bool OnGhostAttempt(EntityUid mindId, bool canReturnGlobal, bool viaCommand = false, MindComponent? mind = null)
         {
@@ -1086,7 +1092,7 @@ namespace Content.Server.Ghost
             if (playerEntity != null)
                 _adminLog.Add(LogType.Mind, $"{EntityManager.ToPrettyString(playerEntity.Value):player} ghosted{(!canReturn ? " (non-returnable)" : "")}");
 
-            var ghost = SpawnGhost((mindId, mind), position, canReturn, playerEntity);
+            var ghost = SpawnGhost((mindId, mind), position, canReturn, playerEntity); // WWDP EDIT
 
             if (ghost == null)
                 return false;

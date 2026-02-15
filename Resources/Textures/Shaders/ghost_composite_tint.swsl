@@ -1,3 +1,4 @@
+// WWDP EDIT START
 light_mode unshaded;
 
 uniform lowp vec3 ghost_tint; // RGB between 0 and 1.
@@ -10,3 +11,4 @@ void fragment()
     col.a *= ghost_alpha;
     COLOR = col;
 }
+// WWDP EDIT END

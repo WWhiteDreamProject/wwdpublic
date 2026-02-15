@@ -124,10 +124,12 @@
   kind: source
   path: "/Textures/Shaders/color_tint.swsl"
 
+# // WWDP EDIT START
 - type: shader
   id: GhostCompositeTint
   kind: source
   path: "/Textures/Shaders/ghost_composite_tint.swsl"
+# // WWDP EDIT END
 
 - type: shader
   id: Ethereal
