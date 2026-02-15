@@ -13,3 +13,13 @@
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
   - LavalandStormScheduler
+
+- type: gamePreset
+  id: Empty
+  alias:
+  - empty
+  name: preset-empty-title
+  description: preset-empty-description
+  showInVote: false
+  rules:
+  - DisablePreloadsRule

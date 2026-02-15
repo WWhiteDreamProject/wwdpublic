@@ -1,5 +1,4 @@
 using System.Linq;
-using Content.Shared._White.Body.Components;
 using Content.Shared._White.Body.Systems;
 using Content.Shared.Alert;
 using Content.Shared.CombatMode.Pacification;
@@ -259,23 +258,18 @@ public abstract class SharedEnsnareableSystem : EntitySystem
             || component.IgnoredTargets is not null && _entityWhitelist.IsValid(component.IgnoredTargets, target))
             return false;
 
-        // Need to insert before free legs check.
-        Container.Insert(ensnare, ensnareable.Container);
+        var numEnsnares = ensnareable.Container.ContainedEntities.Count;
 
-        var legs = _body.GetBodyParts(target, BodyPartType.Leg).Count(); // WD EDIT
-        var ensnaredLegs = (2 * ensnareable.Container.ContainedEntities.Count);
-        var freeLegs = legs - ensnaredLegs;
-
-        if (freeLegs > 0)
+        //Don't do anything if the maximum number of ensnares is applied.
+        if (numEnsnares >= component.MaxEnsnares)
             return false;
 
-        // Apply stamina damage to target if they weren't ensnared before.
-        if (ensnareable.IsEnsnared != true)
+        Container.Insert(ensnare, ensnareable.Container);
+
+        // Apply stamina damage to target
+        if (TryComp<StaminaComponent>(target, out var stamina))
         {
-            if (TryComp<StaminaComponent>(target, out var stamina))
-            {
-                _stamina.TakeStaminaDamage(target, component.StaminaDamage, with: ensnare, component: stamina);
-            }
+            _stamina.TakeStaminaDamage(target, component.StaminaDamage, with: ensnare, component: stamina);
         }
 
         component.Ensnared = target;

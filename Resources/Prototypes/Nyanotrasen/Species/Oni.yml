@@ -51,7 +51,6 @@
       points: 6
       required: false
     # WD EDIT END
-    Underwear:
     RightLeg:
       points: 6
       required: false

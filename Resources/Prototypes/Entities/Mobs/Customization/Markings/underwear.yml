@@ -1,6 +1,6 @@
 - type: marking
   id: UnderwearDefault
-  markingCategory: Underwear
+  markingCategory: UndergarmentBottom
   speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Diona, Moth, Harpy, Tajaran, Oni, Felinid, Chitinid, IPC, Vulpkanin, Shadowkin]
   coloring:
     default:
@@ -11,13 +11,13 @@
   - sprite: Mobs/Customization/underwear.rsi
     state: boxers
     # WD EDIT START
-    layer: enum.HumanoidVisualLayers.Underwear
+    layer: enum.HumanoidVisualLayers.UndergarmentBottom
     bodyPart: Groin
     # WD EDIT END
 
 - type: marking
   id: UnderwearBriefs
-  markingCategory: Underwear
+  markingCategory: UndergarmentBottom
   speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Diona, Moth, Harpy, Tajaran, Oni, Felinid, Chitinid, IPC, Vulpkanin, Shadowkin]
   coloring:
     default:
@@ -28,13 +28,13 @@
   - sprite: Mobs/Customization/underwear.rsi
     state: briefs
     # WD EDIT START
-    layer: enum.HumanoidVisualLayers.Underwear
+    layer: enum.HumanoidVisualLayers.UndergarmentBottom
     bodyPart: Groin
     # WD EDIT END
 
 - type: marking
   id: UnderwearLowriders
-  markingCategory: Underwear
+  markingCategory: UndergarmentBottom
   speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Diona, Moth, Harpy, Tajaran, Oni, Felinid, Chitinid, IPC, Vulpkanin, Shadowkin]
   coloring:
     default:
@@ -45,13 +45,13 @@
   - sprite: Mobs/Customization/underwear.rsi
     state: lowriders
     # WD EDIT START
-    layer: enum.HumanoidVisualLayers.Underwear
+    layer: enum.HumanoidVisualLayers.UndergarmentBottom
     bodyPart: Groin
     # WD EDIT END
 
 - type: marking
   id: UnderwearSatin
-  markingCategory: Underwear
+  markingCategory: UndergarmentBottom
   speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Diona, Moth, Harpy, Tajaran, Oni, Felinid, Chitinid, IPC, Vulpkanin, Shadowkin]
   coloring:
     default:
@@ -62,13 +62,13 @@
   - sprite: Mobs/Customization/underwear.rsi
     state: satin
     # WD EDIT START
-    layer: enum.HumanoidVisualLayers.Underwear
+    layer: enum.HumanoidVisualLayers.UndergarmentBottom
     bodyPart: Groin
     # WD EDIT END
 
 - type: marking
   id: UnderwearTanga
-  markingCategory: Underwear
+  markingCategory: UndergarmentBottom
   speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Diona, Moth, Harpy, Tajaran, Oni, Felinid, Chitinid, IPC, Vulpkanin, Shadowkin]
   coloring:
     default:
@@ -79,6 +79,6 @@
   - sprite: Mobs/Customization/underwear.rsi
     state: tanga
     # WD EDIT START
-    layer: enum.HumanoidVisualLayers.Underwear
+    layer: enum.HumanoidVisualLayers.UndergarmentBottom
     bodyPart: Groin
     # WD EDIT END

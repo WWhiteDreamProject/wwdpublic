@@ -256,6 +256,7 @@
   - type: EggLayer
     eggSpawn:
     - id: FoodEgg
+  - type: ExamineableHunger
   - type: LanguageKnowledge
     speaks:
     - Chicken
@@ -902,6 +903,7 @@
   - type: EggLayer
     eggSpawn:
     - id: FoodEgg
+  - type: ExamineableHunger
   - type: LanguageKnowledge
     speaks:
     - Duck
@@ -1073,6 +1075,7 @@
     reagentId: Milk
     quantityPerUpdate: 25
     growthDelay: 30
+  - type: ExamineableHunger
   - type: Butcherable
     spawned:
     - id: FoodMeat
@@ -1238,6 +1241,7 @@
     reagentId: MilkGoat
     quantityPerUpdate: 25
     growthDelay: 20
+  - type: ExamineableHunger
   - type: Wooly
   - type: Food
     solution: wool
@@ -1549,8 +1553,8 @@
       state: body-overlay-2
       visible: false
     - map: [ "ears" ]
-    - map: [ "outerClothing" ]
     - map: [ "id" ]
+    - map: [ "outerClothing" ]
     - map: [ "mask" ]
     - map: [ "head" ]
     - map: [ "enum.BodyAppearanceLayer.Tail" ] # WD EDIT: BodyAppearanceLayer
@@ -1623,11 +1627,12 @@
       methods: [ Touch ]
       effects:
       - !type:WashCreamPieReaction
-  # WD EDIT START
+      # WD EDIT START
   - type: Body
     prototype: Monkey
   - type: BodyAppearance
   # WD EDIT END
+
 
 
 - type: entity
@@ -1830,7 +1835,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      75: Critical
+      100: Critical
       200: Dead
   - type: NpcFactionMember
     factions:
@@ -3960,7 +3965,6 @@
     understands:
     - TauCetiBasic
     - RootSpeak
-  - type: IsDeadIC # WD EDIT
 
 - type: entity
   parent: MobDionaNymph

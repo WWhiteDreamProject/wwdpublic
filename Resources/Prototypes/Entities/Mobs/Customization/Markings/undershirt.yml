@@ -1,6 +1,6 @@
 - type: marking
   id: UndershirtDefault
-  markingCategory: Undershirt
+  markingCategory: UndergarmentTop
   speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Diona, Moth, Harpy, Tajaran, Oni, Felinid, Chitinid, IPC, Vulpkanin, Shadowkin, Arachne]
   coloring:
     default:
@@ -11,13 +11,13 @@
   - sprite: Mobs/Customization/undershirt.rsi
     state: undershirt
     # WD EDIT START
-    layer: enum.HumanoidVisualLayers.Undershirt
+    layer: enum.HumanoidVisualLayers.UndergarmentTop
     bodyPart: Chest
     # WD EDIT END
 
 - type: marking
   id: UndershirtRolled
-  markingCategory: Undershirt
+  markingCategory: UndergarmentTop
   speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Diona, Moth, Harpy, Tajaran, Oni, Felinid, Chitinid, IPC, Vulpkanin, Shadowkin, Arachne]
   coloring:
     default:
@@ -28,13 +28,13 @@
   - sprite: Mobs/Customization/undershirt.rsi
     state: rolled_undershirt
     # WD EDIT START
-    layer: enum.HumanoidVisualLayers.Undershirt
+    layer: enum.HumanoidVisualLayers.UndergarmentTop
     bodyPart: Chest
     # WD EDIT END
 
 - type: marking
   id: UndershirtSleeveless
-  markingCategory: Undershirt
+  markingCategory: UndergarmentTop
   speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Diona, Moth, Harpy, Tajaran, Oni, Felinid, Chitinid, IPC, Vulpkanin, Shadowkin, Arachne]
   coloring:
     default:
@@ -45,13 +45,13 @@
   - sprite: Mobs/Customization/undershirt.rsi
     state: sleeveless
     # WD EDIT START
-    layer: enum.HumanoidVisualLayers.Undershirt
+    layer: enum.HumanoidVisualLayers.UndergarmentTop
     bodyPart: Chest
     # WD EDIT END
 
 - type: marking
   id: UndershirtRolledSleeveless
-  markingCategory: Undershirt
+  markingCategory: UndergarmentTop
   speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Diona, Moth, Harpy, Tajaran, Oni, Felinid, Chitinid, IPC, Vulpkanin, Shadowkin, Arachne]
   coloring:
     default:
@@ -62,13 +62,13 @@
   - sprite: Mobs/Customization/undershirt.rsi
     state: rolled_undershirt_sleeveless
     # WD EDIT START
-    layer: enum.HumanoidVisualLayers.Undershirt
+    layer: enum.HumanoidVisualLayers.UndergarmentTop
     bodyPart: Chest
     # WD EDIT END
 
 - type: marking
   id: UndershirtGrossSleeveless
-  markingCategory: Undershirt
+  markingCategory: UndergarmentTop
   speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Diona, Moth, Harpy, Tajaran, Oni, Felinid, Chitinid, IPC, Vulpkanin, Shadowkin, Arachne]
   coloring:
     default:
@@ -79,13 +79,13 @@
   - sprite: Mobs/Customization/undershirt.rsi
     state: gross_sleeveless
     # WD EDIT START
-    layer: enum.HumanoidVisualLayers.Undershirt
+    layer: enum.HumanoidVisualLayers.UndergarmentTop
     bodyPart: Chest
     # WD EDIT END
 
 - type: marking
   id: UndershirtNanotrasen
-  markingCategory: Undershirt
+  markingCategory: UndergarmentTop
   speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Diona, Moth, Harpy, Tajaran, Oni, Felinid, Chitinid, IPC, Vulpkanin, Shadowkin, Arachne]
   coloring:
     default:
@@ -96,13 +96,13 @@
   - sprite: Mobs/Customization/undershirt.rsi
     state: nanotrasen
     # WD EDIT START
-    layer: enum.HumanoidVisualLayers.Undershirt
+    layer: enum.HumanoidVisualLayers.UndergarmentTop
     bodyPart: Chest
     # WD EDIT END
 
 - type: marking
   id: UndershirtBinder
-  markingCategory: Undershirt
+  markingCategory: UndergarmentTop
   speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Diona, Moth, Harpy, Tajaran, Oni, Felinid, Chitinid, IPC, Vulpkanin, Shadowkin, Arachne]
   coloring:
     default:
@@ -113,13 +113,13 @@
   - sprite: Mobs/Customization/undershirt.rsi
     state: binder
     # WD EDIT START
-    layer: enum.HumanoidVisualLayers.Undershirt
+    layer: enum.HumanoidVisualLayers.UndergarmentTop
     bodyPart: Chest
     # WD EDIT END
 
 - type: marking
   id: UndershirtBraClassic
-  markingCategory: Undershirt
+  markingCategory: UndergarmentTop
   speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Diona, Moth, Harpy, Tajaran, Oni, Felinid, Chitinid, IPC, Vulpkanin, Shadowkin, Arachne]
   coloring:
     default:
@@ -130,13 +130,13 @@
   - sprite: Mobs/Customization/undershirt.rsi
     state: classic
     # WD EDIT START
-    layer: enum.HumanoidVisualLayers.Undershirt
+    layer: enum.HumanoidVisualLayers.UndergarmentTop
     bodyPart: Chest
     # WD EDIT END
 
 - type: marking
   id: UndershirtBraSports
-  markingCategory: Undershirt
+  markingCategory: UndergarmentTop
   speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Diona, Moth, Harpy, Tajaran, Oni, Felinid, Chitinid, IPC, Vulpkanin, Shadowkin, Arachne]
   coloring:
     default:
@@ -147,13 +147,13 @@
   - sprite: Mobs/Customization/undershirt.rsi
     state: sports
     # WD EDIT START
-    layer: enum.HumanoidVisualLayers.Undershirt
+    layer: enum.HumanoidVisualLayers.UndergarmentTop
     bodyPart: Chest
     # WD EDIT END
 
 - type: marking
   id: UndershirtBraStrapless
-  markingCategory: Undershirt
+  markingCategory: UndergarmentTop
   speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Diona, Moth, Harpy, Tajaran, Oni, Felinid, Chitinid, IPC, Vulpkanin, Shadowkin, Arachne]
   coloring:
     default:
@@ -164,6 +164,6 @@
   - sprite: Mobs/Customization/undershirt.rsi
     state: strapless
     # WD EDIT START
-    layer: enum.HumanoidVisualLayers.Undershirt
+    layer: enum.HumanoidVisualLayers.UndergarmentTop
     bodyPart: Chest
     # WD EDIT END

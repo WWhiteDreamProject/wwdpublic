@@ -103,8 +103,8 @@
       - map: [ "enum.BodyAppearanceLayer.RightLeg" ]
       - map: [ "enum.BodyAppearanceLayer.LeftLeg" ]
       # WD EDIT END
-      - map: [ "enum.HumanoidVisualLayers.Underwear" ]
-      - map: [ "enum.HumanoidVisualLayers.Undershirt" ]
+      - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
+      - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ]
       - map: [ "jumpsuit" ]
       # WD EDIT START: HumanoidVisualLayers -> BodyAppearanceLayer
       - map: ["enum.BodyAppearanceLayer.LeftFoot"]
@@ -122,16 +122,16 @@
       - map: [ "ears" ]
       - map: [ "innerBelt" ]
       - map: [ "innerNeck" ]
-      - map: [ "outerClothing" ]
       - map: [ "eyes" ]
       - map: [ "belt" ]
       - map: [ "id" ]
+      - map: [ "outerClothing" ]
       # WD EDIT START: HumanoidVisualLayers -> BodyAppearanceLayer
       - map: [ "enum.BodyAppearanceLayer.Tail" ]
       - map: [ "enum.BodyAppearanceLayer.Wings" ]
       # WD EDIT END
-      - map: [ "neck" ]
       - map: [ "back" ]
+      - map: [ "neck" ]
       - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
       - map: [ "enum.HumanoidVisualLayers.Hair" ]
       - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
@@ -147,6 +147,7 @@
   - type: FootPrints
   - type: CanMoveInAir
   - type: Inventory
+    speciesId: moth
     femaleDisplacements:
       jumpsuit:
         sizeMaps:
@@ -179,8 +180,8 @@
     - map: [ "enum.BodyAppearanceLayer.RightLeg" ]
     - map: [ "enum.BodyAppearanceLayer.LeftLeg" ]
     # WD EDIT END
-    - map: [ "enum.HumanoidVisualLayers.Underwear" ]
-    - map: [ "enum.HumanoidVisualLayers.Undershirt" ]
+    - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
+    - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ]
     - map: [ "jumpsuit" ]
     # WD EDIT START: HumanoidVisualLayers -> BodyAppearanceLayer
     - map: ["enum.BodyAppearanceLayer.LeftFoot"]
@@ -198,10 +199,10 @@
     - map: [ "ears" ]
     - map: [ "innerBelt" ]
     - map: [ "innerNeck" ]
-    - map: [ "outerClothing" ]
     - map: [ "eyes" ]
     - map: [ "belt" ]
     - map: [ "id" ]
+    - map: [ "outerClothing" ]
     # WD EDIT START: HumanoidVisualLayers -> BodyAppearanceLayer
     - map: [ "enum.BodyAppearanceLayer.Wings" ]
     - map: [ "enum.BodyAppearanceLayer.Tail" ]
@@ -221,6 +222,7 @@
       state: "creampie_moth"
       visible: false
   - type: Inventory
+    speciesId: moth
     femaleDisplacements:
       jumpsuit:
         sizeMaps:

@@ -24,7 +24,7 @@
     hideOnToggle: true
 
 - type: entity
-  parent: [ClothingMaskGas, BaseRestrictedContraband]
+  parent: [ClothingMaskGas, BaseSecurityContraband]
   id: ClothingMaskGasSecurity
   name: security gas mask
   description: A standard issue Security gas mask.
@@ -44,8 +44,6 @@
         Heat: 0.95
   - type: IdentityBlocker # White Dream
     coverage: MOUTH
-  # - type: IngestionBlocker - WWDP moved to parent
-  #   blockSmokeIngestion: true
 
 - type: entity
   parent: [ClothingMaskGas, BaseSyndicateContraband]
@@ -68,8 +66,6 @@
         Slash: 0.95
         Piercing: 0.95
         Heat: 0.95
-  # - type: IngestionBlocker # WWDP moved to parent
-  #   blockSmokeIngestion: true
 
 - type: entity
   parent: ClothingMaskGas
@@ -265,7 +261,7 @@
     node: mask
 
 - type: entity
-  parent: [ClothingMaskClown, BaseRestrictedContraband]
+  parent: [ClothingMaskClown, BaseSecurityContraband]
   id: ClothingMaskClownSecurity
   name: security clown wig and mask
   description: A debatably oxymoronic but protective mask and wig.
@@ -294,14 +290,14 @@
     sprite: Clothing/Mask/joy.rsi
   - type: BreathMask
   - type: IdentityBlocker
-  - type: Tag
-    tags:
-    - IPCMaskWearable
   - type: HideLayerClothing
     slots:
     # WD EDIT START
     - enum.HumanoidVisualLayers.Snout
     # WD EDIT END
+  - type: Tag
+    tags:
+    - IPCMaskWearable
 
 - type: entity
   parent: ClothingMaskBase
@@ -357,10 +353,11 @@
     sprite: Clothing/Mask/muzzle.rsi
   - type: Clothing
     sprite: Clothing/Mask/muzzle.rsi
+    equipDelay: 3
+    unequipDelay: 3
   - type: IngestionBlocker
   - type: AddAccentClothing
-    accent: ReplacementAccent
-    replacement: mumble
+    accent: MumbleAccent
   - type: Construction
     graph: Muzzle
     node: muzzle
@@ -401,7 +398,7 @@
     accent: StutteringAccent
 
 - type: entity
-  parent: [ ClothingMaskGas, BaseRestrictedContraband ]
+  parent: [ ClothingMaskGas, BaseSecurityContraband ]
   id: ClothingMaskGasSwat
   name: swat gas mask
   description: A elite issue Security gas mask.
@@ -475,8 +472,6 @@
         Slash: 0.95
         Piercing: 0.95
         Heat: 0.95
-  # - type: IngestionBlocker # WWDP moved to parent
-  #   blockSmokeIngestion: true
 
 - type: entity
   parent: ClothingMaskGasERT
@@ -509,9 +504,9 @@
   - type: BreathMask
   - type: Tag
     tags:
-    - IPCMaskWearable
     - HamsterWearable
     - WhitelistChameleon
+    - IPCMaskWearable
   - type: HideLayerClothing
     slots:
     # WD EDIT START
@@ -531,14 +526,14 @@
     sprite: Clothing/Mask/fox.rsi
   - type: BreathMask
   - type: IdentityBlocker
-  - type: Tag
-    tags:
-    - IPCMaskWearable
   - type: HideLayerClothing
     slots:
     # WD EDIT START
     - enum.HumanoidVisualLayers.Snout
     # WD EDIT END
+  - type: Tag
+    tags:
+    - IPCMaskWearable
 
 - type: entity
   parent: ClothingMaskBase
@@ -552,14 +547,14 @@
     sprite: Clothing/Mask/bee.rsi
   - type: BreathMask
   - type: IdentityBlocker
-  - type: Tag
-    tags:
-    - IPCMaskWearable
   - type: HideLayerClothing
     slots:
     # WD EDIT START
     - enum.HumanoidVisualLayers.Snout
     # WD EDIT END
+  - type: Tag
+    tags:
+    - IPCMaskWearable
 
 - type: entity
   parent: ClothingMaskBase
@@ -573,14 +568,14 @@
     sprite: Clothing/Mask/bear.rsi
   - type: BreathMask
   - type: IdentityBlocker
-  - type: Tag
-    tags:
-    - IPCMaskWearable
   - type: HideLayerClothing
     slots:
     # WD EDIT START
     - enum.HumanoidVisualLayers.Snout
     # WD EDIT END
+  - type: Tag
+    tags:
+    - IPCMaskWearable
 
 - type: entity
   parent: ClothingMaskBase
@@ -594,14 +589,14 @@
     sprite: Clothing/Mask/raven.rsi
   - type: BreathMask
   - type: IdentityBlocker
-  - type: Tag
-    tags:
-    - IPCMaskWearable
   - type: HideLayerClothing
     slots:
     # WD EDIT START
     - enum.HumanoidVisualLayers.Snout
     # WD EDIT END
+  - type: Tag
+    tags:
+    - IPCMaskWearable
 
 - type: entity
   parent: ClothingMaskBase
@@ -615,14 +610,14 @@
     sprite: Clothing/Mask/jackal.rsi
   - type: BreathMask
   - type: IdentityBlocker
-  - type: Tag
-    tags:
-    - IPCMaskWearable
   - type: HideLayerClothing
     slots:
     # WD EDIT START
     - enum.HumanoidVisualLayers.Snout
     # WD EDIT END
+  - type: Tag
+    tags:
+    - IPCMaskWearable
 
 - type: entity
   parent: ClothingMaskBase
@@ -636,14 +631,14 @@
     sprite: Clothing/Mask/bat.rsi
   - type: BreathMask
   - type: IdentityBlocker
-  - type: Tag
-    tags:
-    - IPCMaskWearable
   - type: HideLayerClothing
     slots:
     # WD EDIT START
     - enum.HumanoidVisualLayers.Snout
     # WD EDIT END
+  - type: Tag
+    tags:
+    - IPCMaskWearable
 
 - type: entity
   parent: ClothingMaskBase
@@ -684,30 +679,30 @@
 
 - type: entity
   parent: ClothingMaskClownBase
-  id: ClothingMaskSexyClown
-  name: sexy clown mask
-  description: Some naughty clowns think this is what the Honkmother looks like.
+  id: ClothingMaskBlushingClown
+  name: blushing clown mask
+  description: A mask for a blushing clown.
   components:
   - type: Sprite
-    sprite: Clothing/Mask/sexyclown.rsi
+    sprite: Clothing/Mask/blushingclown.rsi
   - type: Clothing
-    sprite: Clothing/Mask/sexyclown.rsi
+    sprite: Clothing/Mask/blushingclown.rsi
   # WD EDIT START
   - type: Construction
     graph: BananaClownMask
-    node: sexymask
+    node: blushingmask
   # WD EDIT END
 
 - type: entity
   parent: ClothingMaskMime
-  id: ClothingMaskSexyMime
-  name: sexy mime mask
+  id: ClothingMaskBlushingMime
+  name: blushing mime mask
   description: Those ruddy cheeks just want to be rubbed.
   components:
   - type: Sprite
-    sprite: Clothing/Mask/sexymime.rsi
+    sprite: Clothing/Mask/blushingmime.rsi
   - type: Clothing
-    sprite: Clothing/Mask/sexymime.rsi
+    sprite: Clothing/Mask/blushingmime.rsi
 
 - type: entity
   parent: ClothingMaskMime
@@ -766,3 +761,26 @@
     tags:
     - IPCMaskWearable
   - type: Unremoveable
+
+- type: entity
+  parent: ClothingMaskGas
+  id: ClothingMaskWeldingGas
+  name: welding gas mask
+  description: A gas mask with built in welding goggles and face shield. Looks like a skull, clearly designed by a nerd.
+  components:
+  - type: Sprite
+    sprite: Clothing/Mask/welding-gas.rsi
+    state: icon
+  - type: Clothing
+    sprite: Clothing/Mask/welding-gas.rsi
+  - type: FlashImmunity
+  - type: EyeProtection
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 200
+      Glass: 100
+  - type: StaticPrice
+    price: 100
+  - type: Tag
+    tags:
+    - WhitelistChameleon

@@ -28,8 +28,8 @@
   - type: Butcherable
     butcheringType: Spike
     spawned:
-      - id: FoodMeatSpider
-        amount: 5
+    - id: FoodMeatSpider
+      amount: 5
   - type: Reactive
     reactions:
     - reagents: [Water]
@@ -77,61 +77,61 @@
     proto: spider
   - type: Sprite # I'd prefer if these maps were better. Insert map pun here.
     layers:
-      # WD EDIT START: HumanoidVisualLayers -> BodyAppearanceLayer
-      - map: [ "enum.BodyAppearanceLayer.Chest" ]
-      - map: [ "enum.BodyAppearanceLayer.Groin" ]
-      - map: [ "enum.BodyAppearanceLayer.Head" ]
-      # WD EDIT END
-      - map: [ "enum.HumanoidVisualLayers.Snout" ]
-      - map: [ "enum.BodyAppearanceLayer.Eyes" ] # WD EDIT: HumanoidVisualLayers -> BodyAppearanceLayer
-      - map: [ "enum.HumanoidVisualLayers.Face" ]
-      # WD EDIT: HumanoidVisualLayers -> BodyAppearanceLayer
-      - map: [ "enum.BodyAppearanceLayer.RightArm" ]
-      - map: [ "enum.BodyAppearanceLayer.LeftArm" ]
-      - map: [ "enum.BodyAppearanceLayer.RightLeg" ]
-      - map: [ "enum.BodyAppearanceLayer.LeftLeg" ]
-      # WD EDIT END
-      - map: [ "enum.HumanoidVisualLayers.Underwear" ]
-      - map: [ "enum.HumanoidVisualLayers.Undershirt" ]
-      - map: ["jumpsuit"]
-      # WD EDIT START: HumanoidVisualLayers -> BodyAppearanceLayer
-      - map: ["enum.BodyAppearanceLayer.LeftFoot"]
-      - map: ["enum.BodyAppearanceLayer.RightFoot"]
-      - map: ["enum.BodyAppearanceLayer.LeftHand"]
-      - map: ["enum.BodyAppearanceLayer.RightHand"]
-      # WD EDIT END
-      - map: [ "gloves" ]
-      - map: [ "shoes" ]
-      - map: [ "ears" ]
-      - map: [ "innerBelt" ]
-      - map: [ "innerNeck" ]
-      - map: [ "outerClothing" ]
-      - map: [ "eyes" ]
-      - map: [ "belt" ]
-      - map: [ "id" ]
-      # WD EDIT START: HumanoidVisualLayers -> BodyAppearanceLayer
-      - map: [ "enum.BodyAppearanceLayer.Tail" ]
-      - map: [ "enum.BodyAppearanceLayer.Wings" ]
-      # WD EDIT END
-      - map: [ "neck" ]
-      - map: [ "back" ]
-      - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
-      - map: [ "enum.HumanoidVisualLayers.Hair" ] # Do these need to be here? (arachnid hair arachnid hair)
-      - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
-      - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
-      - map: [ "mask" ]
-      - map: [ "head" ]
-      - map: [ "pocket1" ]
-      - map: [ "pocket2" ]
-      - map: ["enum.HumanoidVisualLayers.Handcuffs"]
-        color: "#ffffff"
-        sprite: Objects/Misc/handcuffs.rsi
-        state: body-overlay-2
-        visible: false
-      - map: [ "clownedon" ] # Dynamically generated
-        sprite: "Effects/creampie.rsi"
-        state: "creampie_arachnid"
-        visible: false
+    # WD EDIT START: HumanoidVisualLayers -> BodyAppearanceLayer
+    - map: [ "enum.BodyAppearanceLayer.Chest" ]
+    - map: [ "enum.BodyAppearanceLayer.Groin" ]
+    - map: [ "enum.BodyAppearanceLayer.Head" ]
+    # WD EDIT END
+    - map: [ "enum.HumanoidVisualLayers.Snout" ]
+    - map: [ "enum.BodyAppearanceLayer.Eyes" ] # WD EDIT: HumanoidVisualLayers -> BodyAppearanceLayer
+    - map: [ "enum.HumanoidVisualLayers.Face" ]
+    # WD EDIT: HumanoidVisualLayers -> BodyAppearanceLayer
+    - map: [ "enum.BodyAppearanceLayer.RightArm" ]
+    - map: [ "enum.BodyAppearanceLayer.LeftArm" ]
+    - map: [ "enum.BodyAppearanceLayer.RightLeg" ]
+    - map: [ "enum.BodyAppearanceLayer.LeftLeg" ]
+    # WD EDIT END
+    - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
+    - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ]
+    - map: ["jumpsuit"]
+    # WD EDIT START: HumanoidVisualLayers -> BodyAppearanceLayer
+    - map: ["enum.BodyAppearanceLayer.LeftFoot"]
+    - map: ["enum.BodyAppearanceLayer.RightFoot"]
+    - map: ["enum.BodyAppearanceLayer.LeftHand"]
+    - map: ["enum.BodyAppearanceLayer.RightHand"]
+    # WD EDIT END
+    - map: [ "gloves" ]
+    - map: [ "shoes" ]
+    - map: [ "ears" ]
+    - map: [ "innerBelt" ]
+    - map: [ "innerNeck" ]
+    - map: [ "eyes" ]
+    - map: [ "belt" ]
+    - map: [ "id" ]
+    - map: [ "outerClothing" ]
+    # WD EDIT START: HumanoidVisualLayers -> BodyAppearanceLayer
+    - map: [ "enum.BodyAppearanceLayer.Tail" ]
+    - map: [ "enum.BodyAppearanceLayer.Wings" ]
+    # WD EDIT END
+    - map: [ "back" ]
+    - map: [ "neck" ]
+    - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
+    - map: [ "enum.HumanoidVisualLayers.Hair" ] # Do these need to be here? (arachnid hair arachnid hair)
+    - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+    - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+    - map: [ "mask" ]
+    - map: [ "head" ]
+    - map: [ "pocket1" ]
+    - map: [ "pocket2" ]
+    - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+      color: "#ffffff"
+      sprite: Objects/Misc/handcuffs.rsi
+      state: body-overlay-2
+      visible: false
+    - map: [ "clownedon" ] # Dynamically generated
+      sprite: "Effects/creampie.rsi"
+      state: "creampie_arachnid"
+      visible: false
   - type: Spider
   - type: IgnoreSpiderWeb
   - type: FootPrints
@@ -139,6 +139,7 @@
     rightBarePrint: "footprint-right-bare-spider"
   - type: Inventory
     templateId: arachnid
+    speciesId: arachnid
 
 - type: entity
   parent: BaseSpeciesDummy
@@ -149,6 +150,7 @@
     species: Arachnid
   - type: Inventory
     templateId: arachnid
+    speciesId: arachnid
   # WD EDIT START
   - type: Body
     prototype: Arachnid

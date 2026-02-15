@@ -23,18 +23,18 @@
       - map: [ "enum.BodyAppearanceLayer.RightLeg" ]
       - map: [ "enum.BodyAppearanceLayer.LeftLeg" ]
       # WD EDIT END
-      - map: [ "enum.HumanoidVisualLayers.Underwear" ]
-      - map: [ "enum.HumanoidVisualLayers.Undershirt" ]
+      - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
+      - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ]
       - map: [ "underpants" ]
       - map: [ "undershirt" ]
       - map: [ "socks" ]
       - map: [ "jumpsuit" ]
-      # WD EDIT START: HumanoidVisualLayers -> BodyAppearanceLayer
+    # WD EDIT START: HumanoidVisualLayers -> BodyAppearanceLayer
       - map: ["enum.BodyAppearanceLayer.LeftFoot"]
       - map: ["enum.BodyAppearanceLayer.RightFoot"]
       - map: ["enum.BodyAppearanceLayer.LeftHand"]
       - map: ["enum.BodyAppearanceLayer.RightHand"]
-      # WD EDIT END
+    # WD EDIT END
       - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
         color: "#ffffff"
         sprite: Objects/Misc/handcuffs.rsi
@@ -242,7 +242,7 @@
               layerKey: dummy
               parameterTexture: displacementMap
               parameterUV: displacementUV
-  # WD EDIT START
+    # WD EDIT START
     femaleDisplacements:
       jumpsuit-body-slim:
         sizeMaps:

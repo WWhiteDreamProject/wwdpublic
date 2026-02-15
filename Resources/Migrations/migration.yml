@@ -452,6 +452,10 @@ LightTree04: LightTree
 LightTree05: LightTree
 LightTree06: LightTree
 
+#2025-01-06
+ClothingMaskSexyClown: ClothingMaskBlushingClown
+ClothingMaskSexyMime: ClothingMaskBlushingMime
+
 # 2025-02-11
 WallShuttleInterior: WallShuttle
 
@@ -463,14 +467,6 @@ WeaponSubMachineGunVectorRubber: null
 PosterLegitEnlist: null
 PosterLegitNoErp: null
 PosterContrabandEnlistGorlex: null
-
-# 2025-04-26
-WeaponTetherGun: null
-WeaponForceGun: null
-WeaponGrapplingGun: null
-BorgModuleGrapplingGun: null
-WeaponForceGunAdmin: null
-WeaponTetherGunAdmin: null
 
 # Lavaland EE stuff
 TreasureDatadiskEncrypted: null

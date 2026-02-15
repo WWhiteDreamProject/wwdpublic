@@ -43,17 +43,17 @@
     Chest:
       points: 6
       required: false
+    UndergarmentTop:
+      points: 1
+      required: false
+    UndergarmentBottom:
+      points: 1
+      required: false
     # WD EDIT START
     Groin:
       points: 6
       required: false
     # WD EDIT END
-    Underwear:
-      points: 1
-      required: false
-    Undershirt:
-      points: 1
-      required: false
     RightLeg:
       points: 6
       required: false

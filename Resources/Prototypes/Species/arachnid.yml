@@ -33,6 +33,12 @@
       points: 6
       required: true
       defaultMarkings: [ ArachnidCheliceraeDownwards ]
+    UndergarmentTop:
+      points: 1
+      required: false
+    UndergarmentBottom:
+      points: 1
+      required: false
     Chest:
       points: 6
       required: false
@@ -41,12 +47,6 @@
       points: 6
       required: false
     # WD EDIT END
-    Underwear:
-      points: 1
-      required: false
-    Undershirt:
-      points: 1
-      required: false
     RightLeg:
       points: 6
       required: false

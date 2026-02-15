@@ -1,0 +1,274 @@
+# These options are kept very sparse to not put emphasis on nudity, and to provide a base for players to feel comfortable with.
+# It's unlikely more will be added to upstream for cosmetic reasons.
+
+- type: marking
+  id: UndergarmentBottomBoxers
+  markingCategory: UndergarmentBottom
+  speciesRestriction: [Arachnid, Diona, Human, Dwarf, Moth, SlimePerson]
+  coloring:
+    default:
+      type: null
+      fallbackColor: '#FFFFFF'
+  sprites:
+  - sprite: Mobs/Customization/undergarments.rsi
+    state: boxers
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.UndergarmentBottom
+    bodyPart: Groin
+    # WD EDIT END
+
+- type: marking
+  id: UndergarmentBottomBriefs
+  markingCategory: UndergarmentBottom
+  speciesRestriction: [Arachnid, Diona, Human, Dwarf, Moth, SlimePerson]
+  coloring:
+    default:
+      type: null
+      fallbackColor: '#FFFFFF'
+  sprites:
+  - sprite: Mobs/Customization/undergarments.rsi
+    state: briefs
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.UndergarmentBottom
+    bodyPart: Groin
+    # WD EDIT END
+
+- type: marking
+  id: UndergarmentBottomSatin
+  markingCategory: UndergarmentBottom
+  speciesRestriction: [Arachnid, Diona, Human, Dwarf, Moth, SlimePerson]
+  coloring:
+    default:
+      type: null
+      fallbackColor: '#FFFFFF'
+  sprites:
+  - sprite: Mobs/Customization/undergarments.rsi
+    state: satin
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.UndergarmentBottom
+    bodyPart: Groin
+    # WD EDIT END
+
+- type: marking
+  id: UndergarmentTopBra
+  markingCategory: UndergarmentTop
+  speciesRestriction: [Arachnid, Diona, Human, Dwarf, Moth, Reptilian, SlimePerson]
+  coloring:
+    default:
+      type: null
+      fallbackColor: '#FFFFFF'
+  sprites:
+  - sprite: Mobs/Customization/undergarments.rsi
+    state: classic
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.UndergarmentTop
+    bodyPart: Chest
+    # WD EDIT END
+
+- type: marking
+  id: UndergarmentTopSportsbra
+  markingCategory: UndergarmentTop
+  speciesRestriction: [Arachnid, Diona, Human, Dwarf, Moth, Reptilian, SlimePerson]
+  coloring:
+    default:
+      type: null
+      fallbackColor: '#FFFFFF'
+  sprites:
+  - sprite: Mobs/Customization/undergarments.rsi
+    state: sports
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.UndergarmentTop
+    bodyPart: Chest
+    # WD EDIT END
+
+- type: marking
+  id: UndergarmentTopBinder
+  markingCategory: UndergarmentTop
+  speciesRestriction: [Arachnid, Diona, Human, Dwarf, Moth, Reptilian, SlimePerson]
+  coloring:
+    default:
+      type: null
+      fallbackColor: '#FFFFFF'
+  sprites:
+  - sprite: Mobs/Customization/undergarments.rsi
+    state: binder
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.UndergarmentTop
+    bodyPart: Chest
+    # WD EDIT END
+
+- type: marking
+  id: UndergarmentTopTanktop
+  markingCategory: UndergarmentTop
+  speciesRestriction: [Arachnid, Diona, Human, Dwarf, Moth, Reptilian, SlimePerson]
+  coloring:
+    default:
+      type: null
+      fallbackColor: '#FFFFFF'
+  sprites:
+  - sprite: Mobs/Customization/undergarments.rsi
+    state: tanktop
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.UndergarmentTop
+    bodyPart: Chest
+    # WD EDIT END
+
+- type: marking
+  id: UndergarmentBottomBoxersVox # Voxers.
+  markingCategory: UndergarmentBottom
+  speciesRestriction: [Vox]
+  coloring:
+    default:
+      type: null
+      fallbackColor: '#FFFFFF'
+  sprites:
+  - sprite: Mobs/Customization/undergarments.rsi
+    state: boxers_vox
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.UndergarmentBottom
+    bodyPart: Groin
+    # WD EDIT END
+
+- type: marking
+  id: UndergarmentBottomBriefsVox
+  markingCategory: UndergarmentBottom
+  speciesRestriction: [Vox]
+  coloring:
+    default:
+      type: null
+      fallbackColor: '#FFFFFF'
+  sprites:
+  - sprite: Mobs/Customization/undergarments.rsi
+    state: briefs_vox
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.UndergarmentBottom
+    bodyPart: Groin
+    # WD EDIT END
+
+- type: marking
+  id: UndergarmentBottomSatinVox
+  markingCategory: UndergarmentBottom
+  speciesRestriction: [Vox]
+  coloring:
+    default:
+      type: null
+      fallbackColor: '#FFFFFF'
+  sprites:
+  - sprite: Mobs/Customization/undergarments.rsi
+    state: satin_vox
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.UndergarmentBottom
+    bodyPart: Groin
+    # WD EDIT END
+
+- type: marking
+  id: UndergarmentTopBraVox
+  markingCategory: UndergarmentTop
+  speciesRestriction: [Vox]
+  coloring:
+    default:
+      type: null
+      fallbackColor: '#FFFFFF'
+  sprites:
+  - sprite: Mobs/Customization/undergarments.rsi
+    state: classic_vox
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.UndergarmentTop
+    bodyPart: Chest
+    # WD EDIT END
+
+- type: marking
+  id: UndergarmentTopSportsbraVox
+  markingCategory: UndergarmentTop
+  speciesRestriction: [Vox]
+  coloring:
+    default:
+      type: null
+      fallbackColor: '#FFFFFF'
+  sprites:
+  - sprite: Mobs/Customization/undergarments.rsi
+    state: sports_vox
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.UndergarmentTop
+    bodyPart: Chest
+    # WD EDIT END
+
+- type: marking
+  id: UndergarmentTopBinderVox
+  markingCategory: UndergarmentTop
+  speciesRestriction: [Vox]
+  coloring:
+    default:
+      type: null
+      fallbackColor: '#FFFFFF'
+  sprites:
+  - sprite: Mobs/Customization/undergarments.rsi
+    state: binder_vox
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.UndergarmentTop
+    bodyPart: Chest
+    # WD EDIT END
+
+- type: marking
+  id: UndergarmentTopTanktopVox
+  markingCategory: UndergarmentTop
+  speciesRestriction: [Vox]
+  coloring:
+    default:
+      type: null
+      fallbackColor: '#FFFFFF'
+  sprites:
+  - sprite: Mobs/Customization/undergarments.rsi
+    state: tanktop_vox
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.UndergarmentTop
+    bodyPart: Chest
+    # WD EDIT END
+
+- type: marking
+  id: UndergarmentBottomBoxersReptilian
+  markingCategory: UndergarmentBottom
+  speciesRestriction: [Reptilian]
+  coloring:
+    default:
+      type: null
+      fallbackColor: '#FFFFFF'
+  sprites:
+  - sprite: Mobs/Customization/undergarments.rsi
+    state: boxers_reptilian
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.UndergarmentBottom
+    bodyPart: Groin
+    # WD EDIT END
+
+- type: marking
+  id: UndergarmentBottomBriefsReptilian
+  markingCategory: UndergarmentBottom
+  speciesRestriction: [Reptilian]
+  coloring:
+    default:
+      type: null
+      fallbackColor: '#FFFFFF'
+  sprites:
+  - sprite: Mobs/Customization/undergarments.rsi
+    state: briefs_reptilian
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.UndergarmentBottom
+    bodyPart: Groin
+    # WD EDIT END
+
+- type: marking
+  id: UndergarmentBottomSatinReptilian
+  markingCategory: UndergarmentBottom
+  speciesRestriction: [Reptilian]
+  coloring:
+    default:
+      type: null
+      fallbackColor: '#FFFFFF'
+  sprites:
+  - sprite: Mobs/Customization/undergarments.rsi
+    state: satin_reptilian
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.UndergarmentBottom
+    bodyPart: Groin
+    # WD EDIT END

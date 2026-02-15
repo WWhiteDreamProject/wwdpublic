@@ -1,10 +1,13 @@
 using System.Numerics;
 using Content.Client._White.Body.Systems;
+using Content.Shared.CCVar;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Preferences;
 using Robust.Client.GameObjects;
+using Robust.Shared.Configuration;
+using Robust.Shared.Physics;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
@@ -14,6 +17,7 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly MarkingManager _markingManager = default!;
+    [Dependency] private readonly IConfigurationManager _configurationManager = default!;
     [Dependency] private readonly BodySystem _body = default!; // WD EDIT
 
     public override void Initialize()
@@ -21,11 +25,22 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
         base.Initialize();
 
         SubscribeLocalEvent<HumanoidAppearanceComponent, AfterAutoHandleStateEvent>(OnHandleState);
+        Subs.CVar(_configurationManager, CCVars.AccessibilityClientCensorNudity, OnCvarChanged, true);
+        Subs.CVar(_configurationManager, CCVars.AccessibilityServerCensorNudity, OnCvarChanged, true);
     }
 
     private void OnHandleState(EntityUid uid, HumanoidAppearanceComponent component, ref AfterAutoHandleStateEvent args)
     {
         UpdateSprite(component, Comp<SpriteComponent>(uid));
+    }
+
+    private void OnCvarChanged(bool value)
+    {
+        var humanoidQuery = EntityManager.AllEntityQueryEnumerator<HumanoidAppearanceComponent, SpriteComponent>();
+        while (humanoidQuery.MoveNext(out var _, out var humanoidComp, out var spriteComp))
+        {
+            UpdateSprite(humanoidComp, spriteComp);
+        }
     }
 
     private void UpdateSprite(HumanoidAppearanceComponent component, SpriteComponent sprite)

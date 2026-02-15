@@ -5,6 +5,7 @@ namespace Content.Shared.Humanoid.Markings
     [Serializable, NetSerializable]
     public enum MarkingCategories : byte
     {
+        Special,
         Face,
         Hair,
         FacialHair,
@@ -14,6 +15,8 @@ namespace Content.Shared.Humanoid.Markings
         Snout,
         Chest,
         Groin, // WD EDIT
+        UndergarmentTop,
+        UndergarmentBottom,
         RightArm,
         RightHand,
         LeftArm,
@@ -23,8 +26,6 @@ namespace Content.Shared.Humanoid.Markings
         LeftLeg,
         LeftFoot,
         Wings,
-        Underwear,
-        Undershirt,
         Tail,
         Overlay
     }
@@ -35,6 +36,7 @@ namespace Content.Shared.Humanoid.Markings
         {
             return layer switch
             {
+                HumanoidVisualLayers.Special => MarkingCategories.Special,
                 HumanoidVisualLayers.Face => MarkingCategories.Face,
                 HumanoidVisualLayers.Hair => MarkingCategories.Hair,
                 HumanoidVisualLayers.FacialHair => MarkingCategories.FacialHair,
@@ -42,9 +44,9 @@ namespace Content.Shared.Humanoid.Markings
                 HumanoidVisualLayers.HeadTop => MarkingCategories.HeadTop,
                 HumanoidVisualLayers.HeadSide => MarkingCategories.HeadSide,
                 HumanoidVisualLayers.Snout => MarkingCategories.Snout,
-                HumanoidVisualLayers.Undershirt => MarkingCategories.Undershirt,
-                HumanoidVisualLayers.Underwear => MarkingCategories.Underwear,
                 HumanoidVisualLayers.Chest => MarkingCategories.Chest,
+                HumanoidVisualLayers.UndergarmentTop => MarkingCategories.UndergarmentTop,
+                HumanoidVisualLayers.UndergarmentBottom => MarkingCategories.UndergarmentBottom,
                 HumanoidVisualLayers.RArm => MarkingCategories.RightArm,
                 HumanoidVisualLayers.LArm => MarkingCategories.LeftArm,
                 HumanoidVisualLayers.RHand => MarkingCategories.RightHand,
