@@ -98,14 +98,14 @@
 # WD EDIT END
 
 - type: entity
-  name: AD-11 Cerberus # WWDP edit
+  name: Bulldog
   # Don't parent to BaseWeaponShotgun because it differs significantly
   parent: [BaseItem, BaseGunWieldable, BaseSyndicateContraband]
   id: WeaponShotgunBulldog
-  description: An automatic shotgun with a drum magazine. Reclassified as a ‘weapon of mass destruction’ after dozens of ‘labor-cides,’ after which they ceased to be supplied to security departments at Corporation stations. In an unknown manner, large surpluses of this weapon fell into widespread use by the Syndicate.
+  description: An automatic magazine-fed shotgun for close-quarters combat. Kicks like a mule on steroids. Uses .50 shotgun shells.
   components:
   - type: Sprite
-    sprite: _White/Objects/Weapons/Guns/Shotguns/Cerberus.rsi # WWDP EDIT
+    sprite: Objects/Weapons/Guns/Shotguns/Cerberus.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -118,7 +118,7 @@
     - 0,0,5,1
     # WD EDIT END
   - type: Clothing
-    sprite: _White/Objects/Weapons/Guns/Shotguns/Cerberus.rsi # WWDP EDIT
+    sprite: Objects/Weapons/Guns/Shotguns/Cerberus.rsi
     quickEquip: false
     slots:
     - Back
@@ -257,7 +257,7 @@
     sprite: Objects/Weapons/Guns/Shotguns/db_shotgun_inhands_64x.rsi
   # - type: GunRequiresWield - WD EDIT
   - type: Gun
-    fireRate: 2
+    fireRate: 3
     fireOnDropChance: 0.5
   - type: Wieldable
   - type: BallisticAmmoProvider
@@ -286,10 +286,10 @@
 
 - type: entity
   name: Enforcer
-  parent: [BaseWeaponShotgun, BaseGunWieldable, BaseRestrictedContraband]
+  parent: [BaseWeaponShotgun, BaseGunWieldable, BaseSecurityContraband]
   id: WeaponShotgunEnforcer
-  description: A premium combat shotgun based on the Kammerer design, featuring an upgraded clip capacity. .50 shotgun shells.
-  components:
+  description: A premium semi-automatic shotgun, and the pride of all security forces. Uses .50 shotgun shells.
+  components: # intend for Enforcer to have wider choke for semi-auto function
   - type: Sprite
     sprite: Objects/Weapons/Guns/Shotguns/enforcer.rsi
   - type: Clothing
@@ -324,10 +324,10 @@
 
 - type: entity
   name: Kammerer
-  parent: [BaseWeaponShotgun, BaseGunWieldable, BaseRestrictedContraband]
+  parent: [BaseWeaponShotgun, BaseGunWieldable, BaseSecurityContraband]
   id: WeaponShotgunKammerer
-  description: When an old Remington design meets modern materials, this is the result. A favourite weapon of militia forces throughout many worlds. Uses .50 shotgun shells.
-  components:
+  description: An old yet faithful design, and a favorite among irregular forces of many worlds. Uses .50 shotgun shells.
+  components: # intend for Kammerer to have tighter choke for slower fire rate and/or manual cycling
   - type: Item
     # WD EDIT START: Guns resize
     size: Huge
@@ -340,13 +340,8 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/Shotguns/pump.rsi
   # - type: GunRequiresWield - WD EDIT
-  - type: BallisticAmmoProvider
-    # WD EDIT START
-    capacity: 7 # 4 -> 7
-    # autoCycle: false
-    soundRack:
-      path: /Audio/_White/Guns/shotgun_rack.ogg
-    # WD EDIT END
+  - type: Gun
+    fireRate: 1
   - type: Tag
     tags:
     - WeaponShotgunKammerer
@@ -360,6 +355,10 @@
   #       fontSize: 12
   #       color: "#ff4f00"
   #       requireDetailRange: false
+  - type: BallisticAmmoProvider
+    capacity: 7
+    soundRack:
+      path: /Audio/_White/Guns/shotgun_rack.ogg
   # WD EDIT END
 
 - type: entity
@@ -367,7 +366,7 @@
   parent: [ BaseWeaponShotgunSmall, BaseSecurityBartenderContraband ] # WD EDIT: BaseWeaponShotgun -> BaseWeaponShotgunSmall
   id: WeaponShotgunSawn
   description: Groovy! Uses .50 shotgun shells.
-  components:
+  components: # needs to be super inaccurate because you don't need to wield it
   - type: Sprite
     sprite: DeltaV/Objects/Weapons/Guns/Shotguns/sawn.rsi # Delta-V
   - type: Clothing
@@ -380,7 +379,7 @@
     # WD EDIT END
     sprite: Objects/Weapons/Guns/Shotguns/sawn_inhands_64x.rsi
   - type: Gun
-    fireRate: 4
+    fireRate: 3
     fireOnDropChance: 0.5
     shotgunSpreadMultiplier: 3
     damageModifier: 1.5

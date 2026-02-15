@@ -5,7 +5,7 @@
   prototype: MobArachnid
   # WD EDIT START
   bodyTypes:
-    - ArachnidNormal
+  - ArachnidNormal
   # WD EDIT END
   defaultSkinTone: "#385878"
   markingLimits: MobArachnidMarkingLimits
@@ -21,12 +21,12 @@
 - type: bodyType
   id: ArachnidNormal
   name: body-normal
-# WD EDIT END
+  # WD EDIT END
   sprites:
     Head: MobArachnidHead
     Snout: MobHumanoidAnyMarking
-    Underwear: MobHumanoidAnyMarking
-    Undershirt: MobHumanoidAnyMarking
+    UndergarmentTop: MobHumanoidAnyMarking
+    UndergarmentBottom: MobHumanoidAnyMarking
     Chest: MobArachnidTorso
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
@@ -68,14 +68,14 @@
       points: 6
       required: true
       defaultMarkings: [ ArachnidCheliceraeDownwards ]
+    UndergarmentTop:
+      points: 1
+      required: false
+    UndergarmentBottom:
+      points: 1
+      required: false
     Chest:
       points: 6
-      required: false
-    Underwear:
-      points: 1
-      required: false
-    Undershirt:
-      points: 1
       required: false
     RightLeg:
       points: 6

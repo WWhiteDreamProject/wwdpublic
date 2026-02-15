@@ -753,7 +753,7 @@
     sprite: Clothing/Uniforms/Jumpsuit/roboticist.rsi
 
 - type: entity
-  parent: [ClothingUniformBase, ClothingUniformFoldableBase, BaseRestrictedContraband]
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase, BaseSecurityContraband]
   id: ClothingUniformJumpsuitSec
   name: security jumpsuit
   description: Charcoal trousers and a dull red shirt, the standard-issue uniform of the infamous Station Security Department. # DeltaV - improved description
@@ -776,7 +776,7 @@
       - state: overlay-inhand-right
 
 - type: entity
-  parent: [ClothingUniformBase, ClothingUniformFoldableBase, BaseRestrictedContraband]
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase, BaseSecurityContraband]
   id: ClothingUniformJumpsuitSecBlue
   name: blue security jumpsuit # DeltaV - renamed to mirror other security uniforms
   description: A cool blue shirt over charcoal trousers, for the calm and collected security officer. # DeltaV - improved description
@@ -787,7 +787,7 @@
     sprite: Clothing/Uniforms/Jumpsuit/security_blue.rsi # WD EDIT
 
 - type: entity
-  parent: [ClothingUniformBase, ClothingUniformFoldableBase, BaseRestrictedContraband]
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase, BaseSecurityContraband]
   id: ClothingUniformJumpsuitSecGrey
   name: grey security jumpsuit
   description: A light grey shirt with bright red highlights, for dedicated and responsive security officers. # DeltaV - improved description
@@ -798,7 +798,7 @@
     sprite: DeltaV/Clothing/Uniforms/Jumpsuit/security_grey.rsi # DeltaV - resprite
 
 - type: entity
-  parent: [ClothingUniformBase, BaseRestrictedContraband]
+  parent: [ClothingUniformBase, BaseSecurityContraband]
   id: ClothingUniformSecurityTrooper
   name: trooper uniform
   description: A formal uniform issued to the Nanotrasen Troopers, usually it comes with a car.
@@ -809,7 +809,7 @@
     sprite: Clothing/Uniforms/Jumpsuit/security_trooper.rsi
 
 - type: entity
-  parent: [ClothingUniformBase, ClothingUniformFoldableBase, BaseRestrictedContraband]
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase, BaseSecurityContraband]
   id: ClothingUniformJumpsuitWarden
   name: warden's jumpsuit # DeltaV - renamed to mirror other security uniforms
   description: Red shirt on charcoal trousers, with white markings and epaulettes that denote a warden's rank. # DeltaV - improved description
