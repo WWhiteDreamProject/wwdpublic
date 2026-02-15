@@ -236,14 +236,14 @@ namespace Content.Client.Ghost
                 metaData.EntityPrototype?.ID.StartsWith(VisualObserverPrototypePrefix, StringComparison.Ordinal) == true)
             {
                 var shader = EnsureGhostCompositeShader(uid, sprite);
-                shader.SetParameter("ghost_tint", new Robust.Shared.Maths.Vector3(component.color.R, component.color.G, component.color.B));
-                shader.SetParameter("ghost_alpha", Math.Clamp(component.color.A * VisualObserverAlphaMultiplier, 0f, 1f));
+                shader.SetParameter("ghost_tint", new Robust.Shared.Maths.Vector3(component.Color.R, component.Color.G, component.Color.B));
+                shader.SetParameter("ghost_alpha", Math.Clamp(component.Color.A * VisualObserverAlphaMultiplier, 0f, 1f));
                 sprite.Color = Color.White;
                 return;
             }
 
             RemoveGhostCompositeShader(uid, sprite);
-            sprite.Color = component.color;
+            sprite.Color = component.Color;
         }
 
         private ShaderInstance EnsureGhostCompositeShader(EntityUid uid, SpriteComponent sprite)
