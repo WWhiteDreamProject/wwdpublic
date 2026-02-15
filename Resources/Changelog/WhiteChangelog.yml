@@ -5053,3 +5053,19 @@ Entries:
   id: 531
   time: '2026-02-08T12:59:54.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1066
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: Конструкты кровавого культа теперь светятся в темноте
+    - type: Fix
+      message: 'Меню выбора конструкта культа теперь корректно отображается '
+  id: 532
+  time: '2026-02-13T19:40:44.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1067
+- author: Spatison
+  changes:
+    - type: Add
+      message: Перенесен небольшой пак контента с виздена.
+  id: 533
+  time: '2026-02-14T22:29:25.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1071

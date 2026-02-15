@@ -261,7 +261,7 @@
   - type: Ammo
     muzzleFlash: null # WWDP
   - type: StaminaDamageOnCollide
-    damage: 30
+    damage: 33
   - type: Projectile
     impactEffect: BulletImpactEffectDisabler
     damage:

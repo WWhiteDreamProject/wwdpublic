@@ -1,0 +1,90 @@
+# Base
+- type: entity
+  id: CaptureCartridge
+  parent: BaseItem
+  abstract: true
+  name: capture cartridge
+  description: Insert the cartridge into the capture point to capture the nearby area.
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Misc/AmalgestShit/cartridges.rsi
+    layers:
+    - state: base
+    - state: grey
+  - type: Item
+    size: Small
+  - type: CapturePointCartridge
+
+# Teams
+
+- type: entity
+  id: CaptureCartridgeWhite
+  parent: CaptureCartridge
+  name: white capture cartridge
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: white
+  - type: CapturePointCartridge
+    teamMessage: team-white
+
+- type: entity
+  id: CaptureCartridgeYellow
+  parent: CaptureCartridge
+  name: yellow capture cartridge
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: yellow
+  - type: CapturePointCartridge
+    teamMessage: team-yellow
+
+- type: entity
+  id: CaptureCartridgeRed
+  parent: CaptureCartridge
+  name: red capture cartridge
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: red
+  - type: CapturePointCartridge
+    teamMessage: team-red
+
+- type: entity
+  id: CaptureCartridgeBlue
+  parent: CaptureCartridge
+  name: blue capture cartridge
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: blue
+  - type: CapturePointCartridge
+    teamMessage: team-blue
+
+- type: entity
+  id: CaptureCartridgeGreen
+  parent: CaptureCartridge
+  name: green capture cartridge
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: green
+  - type: CapturePointCartridge
+    teamMessage: team-green
+
+- type: entity
+  id: CaptureCartridgePurple
+  parent: CaptureCartridge
+  name: purple capture cartridge
+  components:
+  - type: Sprite
+    layers:
+    - state: base
+    - state: purple
+  - type: CapturePointCartridge
+    teamMessage: team-purple
