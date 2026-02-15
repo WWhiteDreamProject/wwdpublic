@@ -123,3 +123,12 @@
   categories: [HideSpawnMenu]
   components:
   - type: Transform
+
+- type: entity # WWDP edit start
+  id: StandardNanotrasenStationNothing
+  parent:
+  - BaseStation
+  - BaseStationJobsSpawning
+  categories: [HideSpawnMenu]
+  components:
+  - type: Transform # WWDP edit end

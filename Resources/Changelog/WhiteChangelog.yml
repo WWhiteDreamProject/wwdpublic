@@ -4991,3 +4991,81 @@ Entries:
   id: 523
   time: '2026-01-18T15:22:46.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/938
+- author: Valentyi
+  changes:
+    - type: Tweak
+      message: Изменены спрайты материалов
+  id: 524
+  time: '2026-01-23T15:35:38.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1045
+- author: Gersoon458
+  changes:
+    - type: Add
+      message: Ивентокарта (Форсмаппить)
+    - type: Tweak
+      message: >-
+        Радар агоста расширен до 2048 (Колесиком крутить) + максимальный зум
+        через нумпад до 50 (Раньше 10)
+    - type: Fix
+      message: Боевые шаттлы больше не кошмар эпилептика (sevassstyan)
+  id: 525
+  time: '2026-01-25T12:04:12.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1051
+- author: kekoven1
+  changes:
+    - type: Add
+      message: добавлен трейт на медную кровь
+  id: 526
+  time: '2026-01-25T15:32:53.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1050
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: Максимальная скорость шаттла 20 -> 60
+  id: 527
+  time: '2026-01-25T15:42:01.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1052
+- author: DVOniksWyvern
+  changes:
+    - type: Add
+      message: WWDP-ICLA v1
+  id: 528
+  time: '2026-01-28T17:26:47.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1059
+- author: DDDecard
+  changes:
+    - type: Fix
+      message: Исправлен рендер тайлов и декалей для MapRender
+  id: 529
+  time: '2026-02-02T19:17:05.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1063
+- author: Spatison
+  changes:
+    - type: Add
+      message: Крюк-пушка и грави-пушка возвращены в игру
+  id: 530
+  time: '2026-02-08T12:59:27.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1065
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: Потребление корабельных турелей было уменьшено.
+  id: 531
+  time: '2026-02-08T12:59:54.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1066
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: Конструкты кровавого культа теперь светятся в темноте
+    - type: Fix
+      message: 'Меню выбора конструкта культа теперь корректно отображается '
+  id: 532
+  time: '2026-02-13T19:40:44.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1067
+- author: Spatison
+  changes:
+    - type: Add
+      message: Перенесен небольшой пак контента с виздена.
+  id: 533
+  time: '2026-02-14T22:29:25.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1071

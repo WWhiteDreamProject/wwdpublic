@@ -80,14 +80,14 @@
   source: "https://freesound.org/people/IENBA/sounds/697379/"
 
 - files:
-  - highheels1.ogg
-  - highheels2.ogg
-  - highheels3.ogg
-  - highheels4.ogg
-  - highheels5.ogg
+  - heelsclack1.ogg
+  - heelsclack2.ogg
+  - heelsclack3.ogg
+  - heelsclack4.ogg
+  - heelsclack5.ogg
   license: "CC0-1.0"
-  copyright: "Made by philRacoIndie freesound.org, modified by Skubman"
-  source: "https://freesound.org/people/nhaudio/sounds/179203/"
+  copyright: "Taken from NachtmahrTV on freesound.org, clipped by Centronias"
+  source: "https://freesound.org/people/NachtmahrTV/sounds/571801/"
 
 - files:
   - tacsuit_step_00.ogg

@@ -399,7 +399,7 @@ public abstract class SharedStorageSystem : EntitySystem
     /// <returns>true if inserted, false otherwise</returns>
     private void OnInteractUsing(EntityUid uid, StorageComponent storageComp, InteractUsingEvent args)
     {
-        if (args.Handled || !CanInteract(args.User, (uid, storageComp), storageComp.ClickInsert, false))
+        if (args.Handled || !storageComp.ClickInsert || !CanInteract(args.User, (uid, storageComp), silent: false))
             return;
 
         if (HasComp<PlaceableSurfaceComponent>(uid))
@@ -417,7 +417,7 @@ public abstract class SharedStorageSystem : EntitySystem
     /// </summary>
     private void OnActivate(EntityUid uid, StorageComponent storageComp, ActivateInWorldEvent args)
     {
-        if (args.Handled || !args.Complex || !CanInteract(args.User, (uid, storageComp), storageComp.ClickInsert))
+        if (args.Handled || !args.Complex || !storageComp.OpenOnActivate || !CanInteract(args.User, (uid, storageComp)))
             return;
 
         // Toggle
@@ -497,7 +497,7 @@ public abstract class SharedStorageSystem : EntitySystem
             }
 
             //If there's only one then let's be generous
-            if (_entList.Count > 1)
+            if (_entList.Count >= 1)
             {
                 var doAfterArgs = new DoAfterArgs(EntityManager, args.User, delay, new AreaPickupDoAfterEvent(GetNetEntityList(_entList)), uid, target: uid)
                 {
@@ -530,10 +530,9 @@ public abstract class SharedStorageSystem : EntitySystem
             {
                 var parent = transformOwner.ParentUid;
 
-                var position = EntityCoordinates.FromMap(
+                var position = TransformSystem.ToCoordinates(
                     parent.IsValid() ? parent : uid,
-                    TransformSystem.GetMapCoordinates(transformEnt),
-                    TransformSystem
+                    TransformSystem.GetMapCoordinates(transformEnt)
                 );
 
                 args.Handled = true;
@@ -583,15 +582,14 @@ public abstract class SharedStorageSystem : EntitySystem
                 continue;
             }
 
-            var position = EntityCoordinates.FromMap(
+            var position = TransformSystem.ToCoordinates(
                 xform.ParentUid.IsValid() ? xform.ParentUid : uid,
-                new MapCoordinates(TransformSystem.GetWorldPosition(targetXform), targetXform.MapID),
-                TransformSystem
+                new MapCoordinates(TransformSystem.GetWorldPosition(targetXform), targetXform.MapID)
             );
 
             var angle = targetXform.LocalRotation;
 
-            if (PlayerInsertEntityInWorld((uid, component), args.Args.User, entity))
+            if (PlayerInsertEntityInWorld((uid, component), args.Args.User, entity, playSound: false))
             {
                 successfullyInserted.Add(entity);
                 successfullyInsertedPositions.Add(position);
@@ -1156,12 +1154,12 @@ public abstract class SharedStorageSystem : EntitySystem
     /// <param name="player">The player to insert an entity with</param>
     /// <param name="toInsert"></param>
     /// <returns>true if inserted, false otherwise</returns>
-    public bool PlayerInsertEntityInWorld(Entity<StorageComponent?> uid, EntityUid player, EntityUid toInsert)
+    public bool PlayerInsertEntityInWorld(Entity<StorageComponent?> uid, EntityUid player, EntityUid toInsert, bool playSound = true)
     {
         if (!Resolve(uid, ref uid.Comp) || !_interactionSystem.InRangeUnobstructed(player, uid.Owner))
             return false;
 
-        if (!Insert(uid, toInsert, out _, user: player, uid.Comp))
+        if (!Insert(uid, toInsert, out _, user: player, uid.Comp, playSound: playSound))
         {
             _popupSystem.PopupClient(Loc.GetString("comp-storage-cant-insert"), uid, player);
             return false;
