@@ -12,40 +12,41 @@ public abstract partial class SharedWoundSystem
 {
     #region Public API
 
-    public FixedPoint2 ChangeWoundDamage(Entity<WoundComponent?> wound, FixedPoint2 damageAmount)
+    public FixedPoint2 ChangeWoundDamage(
+        Entity<WoundComponent?> wound,
+        FixedPoint2 damageAmount,
+        EntityUid? origin = null
+        )
     {
         if (!Resolve(wound, ref wound.Comp))
             return FixedPoint2.Zero;
 
-        var oldDamage = wound.Comp.DamageAmount;
-        wound.Comp.DamageAmount = FixedPoint2.Max(oldDamage + damageAmount, FixedPoint2.Zero);
-        wound.Comp.WoundSeverity = wound.Comp.Thresholds.HighestMatch(wound.Comp.DamageAmount) ?? WoundSeverity.Healthy;
+        var oldDamage = wound.Comp.Damage;
+        wound.Comp.Damage = FixedPoint2.Max(oldDamage + damageAmount, FixedPoint2.Zero);
+        wound.Comp.WoundSeverity = wound.Comp.Thresholds.HighestMatch(wound.Comp.Damage) ?? WoundSeverity.Healthy;
 
-        if (wound.Comp.DamageAmount > oldDamage)
+        if (wound.Comp.Damage > oldDamage)
             wound.Comp.WoundedAt = _gameTiming.CurTime;
 
         Dirty(wound);
 
-        var ev = new WoundDamageChangedEvent((wound, wound.Comp), oldDamage);
+        var ev = new WoundDamageChangedEvent((wound, wound.Comp), oldDamage, origin);
         RaiseLocalEvent(wound, ev);
+        RaiseLocalEvent(wound.Comp.Parent, ev);
 
         if (wound.Comp.Body.HasValue)
             RaiseLocalEvent(wound.Comp.Body.Value, ev);
 
-        if (wound.Comp.Parent.HasValue)
-            RaiseLocalEvent(wound.Comp.Parent.Value, ev);
-
-        if (wound.Comp.IsScar && wound.Comp.DamageAmount == FixedPoint2.Zero)
+        if (wound.Comp.IsScar && wound.Comp.Damage == FixedPoint2.Zero)
             PredictedDel(wound.Owner);
 
-        return wound.Comp.DamageAmount - oldDamage;
+        return wound.Comp.Damage - oldDamage;
     }
 
     public bool TryCreateWound(
         Entity<BodyPartComponent?, WoundableBodyPartComponent?> bodyPart,
         EntProtoId woundToSpawn,
-        [NotNullWhen(true)] out Entity<WoundComponent>? wound,
-        Entity<WoundableComponent?>? woundable = null
+        [NotNullWhen(true)] out Entity<WoundComponent>? wound
     )
     {
         wound = null;
@@ -64,13 +65,14 @@ public abstract partial class SharedWoundSystem
         woundComponent.Parent = bodyPart;
         woundComponent.WoundedAt = _gameTiming.CurTime;
 
-        if (woundable == null && TryComp<WoundableComponent>(bodyPart.Comp2.Parent, out var woundableComponent))
-            woundable = (bodyPart.Comp2.Parent.Value,  woundableComponent);
+        if (!TryComp<WoundableComponent>(bodyPart.Comp2.Parent, out var woundableComponent))
+        {
+            PredictedQueueDel(woundUid);
+            return false;
+        }
 
-        if (woundable is {} woundableEntity && Resolve(woundableEntity, ref woundableEntity.Comp))
-            woundableEntity.Comp.Wounds[bodyPart.Comp1.Type] = bodyPart.Comp2.Wounds;
-
-        woundComponent.Body = woundable;
+        woundableComponent.Wounds[bodyPart.Comp1.Type] = bodyPart.Comp2.Wounds;
+        woundComponent.Body = bodyPart.Comp2.Parent;
 
         return true;
     }

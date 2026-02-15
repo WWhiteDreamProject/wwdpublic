@@ -47,9 +47,9 @@ public sealed class GibbableBodyPartSystem : EntitySystem
             || !gibbableBodyPart.Comp.SupportedDamageType.TryGetValue(args.Wound.Comp.DamageType, out var modify))
             return;
 
-        gibbableBodyPart.Comp.TotalDamage += (args.Wound.Comp.DamageAmount - args.OldDamage) * modify;
+        gibbableBodyPart.Comp.TotalDamage += (args.Wound.Comp.Damage - args.OldDamage) * modify;
 
-        if (args.OldDamage >= args.Wound.Comp.DamageAmount)
+        if (args.OldDamage >= args.Wound.Comp.Damage)
             return;
 
         gibbableBodyPart.Comp.CurrentChanceThreshold = gibbableBodyPart.Comp.ChanceThresholds.HighestMatch(gibbableBodyPart.Comp.TotalDamage) ?? 0f;

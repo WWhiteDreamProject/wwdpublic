@@ -59,7 +59,7 @@ public abstract partial class SharedWoundSystem
 
         foreach (var bodyPart in bodyParts)
         {
-            var bodyPartDamage = ApplyBodyPartDamage(bodyPart.AsNullable(), damage, woundable.AsNullable(), args.IgnoreResistances);
+            var bodyPartDamage = ApplyBodyPartDamage(bodyPart.AsNullable(), damage, args.IgnoreResistances, args.Origin);
 
             foreach (var (damageType, damageValue) in bodyPartDamage.DamageDict)
             {

@@ -143,7 +143,7 @@ namespace Content.Shared.Damage
                 return null;
 
             // WD EDIT START
-            var beforeCommit = new BeforeDamageCommitEvent(damage, ignoreResistances, bodyPartType);
+            var beforeCommit = new BeforeDamageCommitEvent(damage, ignoreResistances, bodyPartType, origin);
             RaiseLocalEvent(uid.Value, ref beforeCommit);
 
             if (beforeCommit.Handled)
@@ -406,12 +406,13 @@ namespace Content.Shared.Damage
     /// Raised before damage is applied to a Damageable.
     /// </summary>
     [ByRefEvent]
-    public sealed class BeforeDamageCommitEvent(DamageSpecifier damage, bool ignoreResistances, BodyPartType bodyPartType) : HandledEntityEventArgs
+    public sealed class BeforeDamageCommitEvent(DamageSpecifier damage, bool ignoreResistances, BodyPartType bodyPartType, EntityUid? origin) : HandledEntityEventArgs
     {
         public DamageSpecifier Damage = damage;
 
         public readonly bool IgnoreResistances = ignoreResistances;
         public readonly BodyPartType BodyPartType = bodyPartType;
+        public readonly EntityUid? Origin = origin;
     }
     // WD EDIT END
 }

@@ -35,10 +35,11 @@ public abstract partial class SharedWoundSystem : EntitySystem
 /// <summary>
 /// Raised on wound after changing damage.
 /// </summary>
-public sealed class WoundDamageChangedEvent(Entity<WoundComponent> wound, FixedPoint2 oldDamage) : HandledEntityEventArgs
+public sealed class WoundDamageChangedEvent(Entity<WoundComponent> wound, FixedPoint2 oldDamage, EntityUid? origin = null) : HandledEntityEventArgs
 {
     public readonly Entity<WoundComponent> Wound = wound;
     public readonly FixedPoint2 OldDamage = oldDamage;
+    public readonly EntityUid? Origin = origin;
 }
 
 /// <summary>

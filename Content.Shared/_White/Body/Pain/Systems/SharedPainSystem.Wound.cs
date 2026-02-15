@@ -11,8 +11,8 @@ public abstract partial class SharedPainSystem
         if (!Resolve(wound, ref wound.Comp1, ref wound.Comp2))
             return FixedPoint2.Zero;
 
-        var lastingPain = wound.Comp2.PainCoefficients * wound.Comp1.DamageAmount;
-        var freshPain = wound.Comp2.FreshPainCoefficients * wound.Comp1.DamageAmount;
+        var lastingPain = wound.Comp2.PainCoefficients * wound.Comp1.Damage;
+        var freshPain = wound.Comp2.FreshPainCoefficients * wound.Comp1.Damage;
 
         var delta = GameTiming.CurTime - wound.Comp1.WoundedAt;
         freshPain = FixedPoint2.Max(0, freshPain - delta.TotalSeconds * wound.Comp2.FreshPainDecreasePerSecond);

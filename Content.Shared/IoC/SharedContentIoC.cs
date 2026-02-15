@@ -14,6 +14,6 @@ public static class SharedContentIoC
         IoCManager.Register<ContentLocalizationManager, ContentLocalizationManager>();
         IoCManager.Register<TagSystem>();
         IoCManager.Register<EntityWhitelistSystem>();
-        IoCManager.Register<PredictedRandomManager>(); // WD EDIT
+        IoCManager.Register<IPredictedRandom, PredictedRandom>(); // WD EDIT
     }
 }

@@ -1,4 +1,9 @@
 - type: entityCategory
+  id: Particles
+  name: entity-category-name-particles
+  hideSpawnMenu: true
+
+- type: entityCategory
   id: Wounds
   name: entity-category-name-wounds
   hideSpawnMenu: true

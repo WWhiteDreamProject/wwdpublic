@@ -9,6 +9,7 @@
     painCoefficients: 0.8
     freshPainCoefficients: 0.6
   - type: BleedingWound
+  - type: BloodSplatterWound
 
 - type: entity
   id: WoundSlash
@@ -23,6 +24,12 @@
   - type: BleedingWound
     bleedingCoefficient: 0.1
     bleedingDurationCoefficient: 2
+  - type: BloodSplatterWound
+    damageToVolumeFactor: 0.51
+    emissionSpreadDistance: 3
+    maxSplatterVolume: 5
+    splatterPrototype: BloodSplatterSlashParticle
+    splatterType: Line
 
 - type: entity
   id: WoundPiercing
@@ -37,6 +44,13 @@
   - type: BleedingWound
     bleedingCoefficient: 0.1
     bleedingDurationCoefficient: 2
+  - type: BloodSplatterWound
+    emissionSpreadAngle: 5
+    emissionSpreadDistance: 3
+    maxSplatterCount: 1
+    maxSplatterVolume: 10
+    splatterPrototype: BloodSplatterPiercingParticle
+    splatterType: Line
 
 - type: entity
   id: WoundHeat

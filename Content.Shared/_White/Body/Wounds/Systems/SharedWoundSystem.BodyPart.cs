@@ -98,16 +98,14 @@ public abstract partial class SharedWoundSystem
     private DamageSpecifier ApplyBodyPartDamage(
         Entity<BodyPartComponent?, WoundableBodyPartComponent?, DamageableComponent?> bodyPart,
         DamageSpecifier damage,
-        Entity<WoundableComponent?>? woundable = null,
-        bool ignoreResistance = false
+        bool ignoreResistance = false,
+        EntityUid? origin = null
         )
     {
         var bodyPartDamage = new DamageSpecifier();
 
         if (!Resolve(bodyPart, ref bodyPart.Comp1, ref bodyPart.Comp2, ref bodyPart.Comp3))
             return bodyPartDamage;
-
-        woundable ??= bodyPart.Comp1.Body;
 
         foreach (var (damageType, damageValue) in damage.DamageDict)
         {
@@ -134,10 +132,10 @@ public abstract partial class SharedWoundSystem
                 var modifyDamage = new DamageSpecifier();
                 modifyDamage.DamageDict.Add(damageType, newDamageValue);
 
-                if (woundable.HasValue)
+                if (bodyPart.Comp1.Body.HasValue)
                 {
-                    var damageModify = new DamageModifyEvent(modifyDamage, woundable, bodyPart.Comp1.Type);
-                    RaiseLocalEvent(woundable.Value, damageModify);
+                    var damageModify = new DamageModifyEvent(modifyDamage, origin, bodyPart.Comp1.Type);
+                    RaiseLocalEvent(bodyPart.Comp1.Body.Value, damageModify);
 
                     newDamageValue = damageModify.Damage[damageType];
                 }
@@ -149,11 +147,10 @@ public abstract partial class SharedWoundSystem
                     || !TryCreateWound(
                         (bodyPart, bodyPart.Comp1, bodyPart.Comp2),
                         woundPrototype,
-                        out wound,
-                        woundable)))
+                        out wound)))
                 continue;
 
-            newDamageValue = ChangeWoundDamage(wound.Value.AsNullable(), newDamageValue);
+            newDamageValue = ChangeWoundDamage(wound.Value.AsNullable(), newDamageValue, origin);
 
             if (!bodyPartDamage.DamageDict.TryAdd(damageType, newDamageValue))
                 bodyPartDamage.DamageDict[damageType] += newDamageValue;

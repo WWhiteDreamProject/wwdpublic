@@ -3,6 +3,7 @@ using Content.Server.EntityEffects.Effects;
 using Content.Shared._White.Body.Bloodstream.Components;
 using Content.Shared._White.Body.Bloodstream.Systems;
 using Content.Shared._White.Chemistry.Reagent;
+using Content.Shared._White.Particles.Systems;
 using Content.Shared.CCVar;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reaction;
@@ -10,15 +11,22 @@ using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Contests;
 using Content.Shared.Forensics;
 using Content.Shared.HeightAdjust;
+using Robust.Server.Audio;
+using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
+using Robust.Shared.Random;
 
 namespace Content.Server._White.Body.Bloodstream.Systems;
 
-public sealed class BloodstreamSystem : SharedBloodstreamSystem
+public sealed partial class BloodstreamSystem : SharedBloodstreamSystem
 {
     [Dependency] private readonly IConfigurationManager _configuration = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
 
+    [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly ContestsSystem _contests = default!;
+    [Dependency] private readonly ParticleSystem _particle = default!;
+    [Dependency] private readonly TransformSystem _transform = default!;
 
     public override void Initialize()
     {
@@ -30,6 +38,8 @@ public sealed class BloodstreamSystem : SharedBloodstreamSystem
         SubscribeLocalEvent<BloodstreamComponent, HeightAdjustedEvent>(OnHeightAdjusted);
         SubscribeLocalEvent<BloodstreamComponent, ReactionAttemptEvent>(OnReactionAttempt);
         SubscribeLocalEvent<BloodstreamComponent, SolutionRelayEvent<ReactionAttemptEvent>>(OnReactionAttempt);
+
+        InitializeWound();
     }
 
     #region Event Handling

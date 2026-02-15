@@ -14,11 +14,12 @@ public abstract partial class SharedBloodstreamSystem
 
     private void OnWoundDamageChange(Entity<BleedingWoundComponent> ent, ref WoundDamageChangedEvent args)
     {
-        if (args.Wound.Comp.DamageAmount <= args.OldDamage
-            || args.Wound.Comp.DamageAmount < ent.Comp.StartsBleedingAbove)
+        if (args.Wound.Comp.Damage <= args.OldDamage
+            || args.Wound.Comp.Damage < ent.Comp.StartsBleedingAbove)
             return;
 
-        TryModifyWoundBleedAmount(ent.AsNullable(), (args.Wound.Comp.DamageAmount - args.OldDamage).Float() * ent.Comp.BleedingCoefficient);
+        var damageAmount = args.Wound.Comp.Damage - args.OldDamage;
+        TryModifyWoundBleedAmount(ent.AsNullable(), damageAmount * ent.Comp.BleedingCoefficient);
     }
 
     #endregion
@@ -31,14 +32,14 @@ public abstract partial class SharedBloodstreamSystem
             return 0f;
 
         var ratio = 1f;
-        if (wound.Comp1.DamageAmount < wound.Comp2.RequiresTendingAbove)
+        if (wound.Comp1.Damage < wound.Comp2.RequiresTendingAbove)
         {
-            var expiresAfter = TimeSpan.FromSeconds((wound.Comp1.DamageAmount * wound.Comp2.BleedingDurationCoefficient).Double());
+            var expiresAfter = TimeSpan.FromSeconds((wound.Comp1.Damage * wound.Comp2.BleedingDurationCoefficient).Double());
 
-            if (wound.Comp1.WoundedAt + expiresAfter <= _timing.CurTime)
+            if (wound.Comp1.WoundedAt + expiresAfter <= _gameTiming.CurTime)
                 return 0f;
 
-            var expiryTime = (wound.Comp1.WoundedAt + expiresAfter - _timing.CurTime).TotalSeconds;
+            var expiryTime = (wound.Comp1.WoundedAt + expiresAfter - _gameTiming.CurTime).TotalSeconds;
             ratio = (float)(expiryTime / expiresAfter.TotalSeconds);
         }
 

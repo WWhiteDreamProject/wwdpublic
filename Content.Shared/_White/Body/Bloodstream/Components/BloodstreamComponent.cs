@@ -109,12 +109,6 @@ public sealed partial class BloodstreamComponent : Component
     public ProtoId<AlertPrototype> BleedingAlert = "Bleed";
 
     /// <summary>
-    /// The sound to be played when some damage actually heals bleeding rather than starting it.
-    /// </summary>
-    [DataField]
-    public SoundSpecifier BloodHealedSound = new SoundPathSpecifier("/Audio/Effects/lightburn.ogg");
-
-    /// <summary>
     /// Defines which reagents are considered as 'blood'.
     /// </summary>
     /// <remarks>
@@ -122,12 +116,6 @@ public sealed partial class BloodstreamComponent : Component
     /// </remarks>
     [DataField, AutoNetworkedField]
     public ProtoId<ReagentPrototype> BloodReagent = "Blood";
-
-    /// <summary>
-    /// The sound to be played when a weapon instantly deals blood loss damage.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public SoundSpecifier InstantBloodSound = new SoundCollectionSpecifier("blood");
 
     /// <summary>
     /// Name/Key that <see cref="BloodSolution"/> is indexed by.
@@ -172,9 +160,6 @@ public sealed partial class BloodstreamComponent : Component
     /// </summary>
     [ViewVariables]
     public FixedPoint2 CurrentBloodMaxVolume => BloodMaxVolume * BloodMaxVolumeMultiplier;
-
-    [ViewVariables]
-    public float SaturationLevel = 1f;
 
     /// <summary>
     /// Caches the blood data of an entity.

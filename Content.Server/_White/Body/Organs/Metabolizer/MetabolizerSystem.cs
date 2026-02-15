@@ -98,7 +98,7 @@ public sealed class MetabolizerSystem : SharedMetabolizerSystem
     }
 
     private void OnOrganHealthChanged(Entity<MetabolizerComponent> ent, ref OrganHealthChangedEvent args) =>
-        ent.Comp.UpdateIntervalHealthMultiplier = (args.Organ.Comp2.MaximumHealth / args.Organ.Comp2.Health).Float();
+        ent.Comp.UpdateIntervalHealthMultiplier = (args.Organ.Comp2.Health / args.Organ.Comp2.MaximumHealth).Float();
 
     private void OnApplyMetabolicMultiplier(Entity<MetabolizerComponent> ent, ref OrganRelayedEvent<ApplyMetabolicRateEvent> args) =>
         ent.Comp.UpdateIntervalMultiplier = args.Args.Rate == 0 ? 0 : 1 / args.Args.Rate;

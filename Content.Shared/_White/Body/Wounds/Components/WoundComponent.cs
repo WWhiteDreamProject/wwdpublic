@@ -49,13 +49,13 @@ public sealed partial class WoundComponent : Component
     /// Parent body part for this wound.
     /// </summary>
     [ViewVariables, AutoNetworkedField]
-    public EntityUid? Parent;
+    public EntityUid Parent;
 
     /// <summary>
     /// Actually, damage to this wound.
     /// </summary>
     [ViewVariables, AutoNetworkedField]
-    public FixedPoint2 DamageAmount;
+    public FixedPoint2 Damage;
 
     /// <summary>
     /// The time of the last positive change in the amount of damage.

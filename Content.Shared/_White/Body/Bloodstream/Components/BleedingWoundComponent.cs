@@ -7,6 +7,12 @@ namespace Content.Shared._White.Body.Bloodstream.Components;
 public sealed partial class BleedingWoundComponent : Component
 {
     /// <summary>
+    /// Coefficient of damage to bleeding rate.
+    /// </summary>
+    [DataField]
+    public FixedPoint2 BleedingCoefficient = 0.015f;
+
+    /// <summary>
     /// The maximum amount of bleeding.
     /// </summary>
     [DataField, AutoNetworkedField]
@@ -23,12 +29,6 @@ public sealed partial class BleedingWoundComponent : Component
     /// </summary>
     [DataField]
     public FixedPoint2 StartsBleedingAbove = 10;
-
-    /// <summary>
-    /// Coefficient of damage to bleeding rate.
-    /// </summary>
-    [DataField]
-    public float BleedingCoefficient = 0.015f;
 
     /// <summary>
     /// Coefficient of damage to bleeding duration.

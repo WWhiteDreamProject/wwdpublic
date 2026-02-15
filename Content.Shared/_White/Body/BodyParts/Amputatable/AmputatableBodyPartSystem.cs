@@ -13,7 +13,7 @@ namespace Content.Shared._White.Body.BodyParts.Amputatable;
 public sealed class AmputatableBodyPartSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly PredictedRandomManager _random = default!;
+    [Dependency] private readonly IPredictedRandom _random = default!;
 
     [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly SharedWoundSystem _wound = default!;
@@ -48,15 +48,15 @@ public sealed class AmputatableBodyPartSystem : EntitySystem
             || !amputatableBodyPart.Comp.SupportedDamageType.TryGetValue(args.Wound.Comp.DamageType, out var modify))
             return;
 
-        amputatableBodyPart.Comp.TotalDamage += (args.Wound.Comp.DamageAmount - args.OldDamage) * modify;
+        amputatableBodyPart.Comp.TotalDamage += (args.Wound.Comp.Damage - args.OldDamage) * modify;
 
-        if (args.OldDamage >= args.Wound.Comp.DamageAmount)
+        if (args.OldDamage >= args.Wound.Comp.Damage)
             return;
 
         amputatableBodyPart.Comp.CurrentChanceThreshold = amputatableBodyPart.Comp.ChanceThresholds.HighestMatch(amputatableBodyPart.Comp.TotalDamage) ?? 0f;
 
         var random = _random.GetRandom(amputatableBodyPart);
-        if (!_random.Prob(random, amputatableBodyPart.Comp.CurrentChance))
+        if (!random.Prob(amputatableBodyPart.Comp.CurrentChance))
             return;
 
         if (TryComp<BodyPartComponent>(amputatableBodyPart, out var bodyPartComponent)
@@ -67,8 +67,8 @@ public sealed class AmputatableBodyPartSystem : EntitySystem
         _body.TryDetachBodyPart(amputatableBodyPart);
         _throwing.TryThrow(
             amputatableBodyPart,
-            _random.NextAngle(random).ToWorldVec() * _random.NextFloat(random, 0.8f, 2f),
-            _random.NextFloat(random, 0.5f, 1f),
+            random.NextAngle().ToWorldVec() * random.NextFloat(0.8f, 2f),
+            random.NextFloat(0.5f, 1f),
             pushbackRatio: 0.3f);
 
         args.Handled = true;

@@ -1,0 +1,14 @@
+- type: animation
+  id: Scale
+  animationTracksData:
+  - !type:AnimationTrackComponentPropertyData
+    componentType: Sprite
+    property: Scale
+    keyFrames:
+    - !type:KeyFramePropertyData
+      value: 0.25, 0.25
+      keyframe: 0
+    - !type:KeyFramePropertyData
+      value: 1, 1
+      keyframe: 0.5
+  key: scale

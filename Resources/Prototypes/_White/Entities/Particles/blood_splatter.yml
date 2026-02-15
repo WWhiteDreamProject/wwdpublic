@@ -1,0 +1,57 @@
+- type: entity
+  id: BaseBloodSplatterParticle
+  parent: BaseLiquidParticle
+  name: blood splatter
+  components:
+  - type: Sprite
+    sprite: _White/Particles/blood_splatter.rsi
+  - type: Particle
+    soundOnLand:
+      params:
+        volume: 12
+      collection: LiquidDrop
+
+- type: entity
+  id: BloodSplatterBluntParticle
+  parent: BaseBloodSplatterParticle
+  components:
+  - type: Sprite
+    sprite: _White/Particles/liquid.rsi
+    layers:
+    - state: particle1
+      map: [ "blood" ]
+  - type: AnimateOnStartup
+    animation: Offset
+  - type: RandomSprite
+    available:
+    - blood:
+        particle1: ""
+        particle2: ""
+        particle3: ""
+  - type: Transform
+    noRot: true
+  - type: Particle
+    spawnOnLand: BloodSplatterBlunt
+
+- type: entity
+  id: BloodSplatterSlashParticle
+  parent: BaseBloodSplatterParticle
+  components:
+  - type: Sprite
+    state: slash1
+  - type: AnimateOnStartup
+    animation: Scale
+  - type: Particle
+    spawnOnLand: BloodSplatterSlash
+
+- type: entity
+  id: BloodSplatterPiercingParticle
+  parent: BaseBloodSplatterParticle
+  components:
+  - type: Sprite
+    state: piercing1
+    rotation: -135
+  - type: AnimateOnStartup
+    animation: Scale
+  - type: Particle
+    spawnOnLand: BloodSplatterPiercing
