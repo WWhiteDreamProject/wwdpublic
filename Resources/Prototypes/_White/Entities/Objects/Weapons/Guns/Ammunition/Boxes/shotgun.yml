@@ -89,3 +89,6 @@
       sprite: _White/Objects/Storage/boxes_icon.rsi
     - state: box_steel_sec
       map: [ top ]
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 30
