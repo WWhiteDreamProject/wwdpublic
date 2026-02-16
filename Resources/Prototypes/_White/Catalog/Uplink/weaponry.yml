@@ -1,9 +1,23 @@
-- type: listing
-  id: UplinkGunCaseViper
-  name: uplink-gun-case-viper-name
-  description: uplink-gun-case-viper-desc
-  productEntity: GunCaseSyndicateFilledViper
-  icon: { sprite: /Textures/_White/Objects/Weapons/Guns/Pistols/Xyphos.rsi, state: icon } # WWDP edit
+#- type: listing
+#  id: UplinkGunCaseViper
+#  name: uplink-gun-case-viper-name
+#  description: uplink-gun-case-viper-desc
+#  productEntity: GunCaseSyndicateFilledViper
+#  icon: { sprite: /Textures/Objects/Weapons/Guns/Pistols/viper.rsi, state: icon }
+#  discountCategory: usualDiscounts
+#  discountDownTo:
+#    Telecrystal: 1
+#  cost:
+#    Telecrystal: 2
+#  categories:
+#  - UplinkWeaponry
+
+- type: listing # WWDP weapon resprite
+  id: UplinkGunCaseMPr10Xyphos
+  name: uplink-gun-case-mpr10xyphos-name
+  description: uplink-gun-case-mpr10xyphos-desc
+  productEntity: GunCaseSyndicateFilledMPr10Xyphos
+  icon: { sprite: /Textures/_White/Objects/Weapons/Guns/Pistols/Xyphos.rsi, state: icon }
   discountCategory: usualDiscounts
   discountDownTo:
     Telecrystal: 1
@@ -150,12 +164,26 @@
       tags:
       - NukeOpsUplink
 
-- type: listing
-  id: UplinkC20RBundle
-  name: uplink-gun-case-c20r-name
-  description: uplink-gun-case-c20r-desc
-  icon: { sprite: /Textures/_White/Objects/Weapons/Guns/SMGs/c-12r-moros.rsi, state: icon } # WWDP edit
-  productEntity: GunCaseSyndicateFilledC20r
+#- type: listing
+#  id: UplinkC20RBundle
+#  name: uplink-gun-case-c20r-name
+#  description: uplink-gun-case-c20r-desc
+#  icon: { sprite: /Textures/Objects/Weapons/Guns/SMGs/c20r.rsi, state: icon }
+#  productEntity: GunCaseSyndicateFilledC20r
+#  discountCategory: rareDiscounts
+#  discountDownTo:
+#    Telecrystal: 3
+#  cost:
+#    Telecrystal: 13
+#  categories:
+#  - UplinkWeaponry
+
+- type: listing # WWDP weapon resprite
+  id: UplinkCR12MorosBundle
+  name: uplink-gun-case-cr12moros-name
+  description: uplink-gun-case-cr12moros-desc
+  icon: { sprite: /Textures/_White/Objects/Weapons/Guns/SMGs/c-12r-moros.rsi, state: icon }
+  productEntity: GunCaseSyndicateFilledCR12Moros
   discountCategory: rareDiscounts
   discountDownTo:
     Telecrystal: 3
@@ -168,7 +196,7 @@
   id: UplinkGunCaseAR31Hydra
   name: uplink-gun-case-ar31hydra-name
   description: uplink-gun-case-ar31hydra-desc
-  icon: { sprite: /Textures/_White/Objects/Weapons/Guns/Rifles/ar-31-hydra.rsi, state: icon } # WWDP edit
+  icon: { sprite: /Textures/_White/Objects/Weapons/Guns/Rifles/ar-31-hydra.rsi, state: icon }
   productEntity: GunCaseSyndicateFilledAR31Hydra
   discountCategory: veryRareDiscounts
   discountDownTo:
@@ -192,12 +220,26 @@
   categories:
   - UplinkWeaponry
 
-- type: listing
-  id: UplinkGunCaseBulldog
-  name: uplink-gun-case-bulldog-name
-  description: uplink-gun-case-bulldog-desc
-  icon: { sprite: /Textures/_White/Objects/Weapons/Guns/Shotguns/Cerberus.rsi, state: icon } # WWDP edit
-  productEntity: GunCaseSyndicateFilledBulldog
+#- type: listing
+#  id: UplinkGunCaseBulldog
+#  name: uplink-gun-case-bulldog-name
+#  description: uplink-gun-case-bulldog-desc
+#  icon: { sprite: /Textures/Objects/Weapons/Guns/Shotguns/bulldog.rsi, state: icon }
+#  productEntity: GunCaseSyndicateFilledBulldog
+#  discountCategory: veryRareDiscounts
+#  discountDownTo:
+#    Telecrystal: 4
+#  cost:
+#    Telecrystal: 20
+#  categories:
+#  - UplinkWeaponry
+
+- type: listing # WWDP weapon resprite
+  id: UplinkGunCaseAD11Cerberus
+  name: uplink-gun-case-ad11cerberus-name
+  description: uplink-gun-case-ad11cerberus-desc
+  icon: { sprite: /Textures/_White/Objects/Weapons/Guns/Shotguns/Cerberus.rsi, state: icon }
+  productEntity: GunCaseSyndicateFilledAD11Cerberus
   discountCategory: veryRareDiscounts
   discountDownTo:
     Telecrystal: 4
@@ -206,12 +248,26 @@
   categories:
   - UplinkWeaponry
 
-- type: listing
-  id: UplinkGunCaseChinaLake
-  name: uplink-gun-case-china-lake-name
-  description: uplink-gun-case-china-lake-desc
-  icon: { sprite: /Textures/_White/Objects/Weapons/Guns/Launchers/M80-Heracles.rsi, state: icon } # WWDP edit
-  productEntity: GunCaseSyndicateFilledChinaLake
+#- type: listing
+#  id: UplinkGunCaseChinaLake
+#  name: uplink-gun-case-china-lake-name
+#  description: uplink-gun-case-china-lake-desc
+#  icon: { sprite: { sprite: /Textures/Objects/Weapons/Guns/Launchers/china_lake.rsi, state: icon }
+#  productEntity: GunCaseSyndicateFilledChinaLake
+#  discountCategory: veryRareDiscounts
+#  discountDownTo:
+#    Telecrystal: 5
+#  cost:
+#    Telecrystal: 25
+#  categories:
+#  - UplinkWeaponry
+
+- type: listing # WWDP weapon resprite
+  id: UplinkGunCaseM80Heracles
+  name: uplink-gun-case-m80heracles-name
+  description: uplink-gun-case-m80heracles-desc
+  icon: { sprite: /Textures/_White/Objects/Weapons/Guns/Launchers/M80-Heracles.rsi, state: icon }
+  productEntity: GunCaseSyndicateFilledM80Heracles
   discountCategory: veryRareDiscounts
   discountDownTo:
     Telecrystal: 5
@@ -220,11 +276,25 @@
   categories:
   - UplinkWeaponry
 
-- type: listing
-  id: UplinkGunCaseL6Saw
-  name: uplink-gun-case-l6-saw-name
-  description: uplink-gun-case-l6-saw-desc
-  icon: { sprite: /Textures/_White/Objects/Weapons/Guns/LMGs/L9-Centaur.rsi, state: icon } # WWDP edit
+#- type: listing
+#  id: UplinkGunCaseL6Saw
+#  name: uplink-gun-case-l6-saw-name
+#  description: uplink-gun-case-l6-saw-desc
+#  icon: { sprite: /Textures/Objects/Weapons/Guns/LMGs/l6.rsi, state: icon }
+#  productEntity: GunCaseSyndicateFilledL6Saw
+#  discountCategory: veryRareDiscounts
+#  discountDownTo:
+#    Telecrystal: 6
+#  cost:
+#    Telecrystal: 30
+#  categories:
+#  - UplinkWeaponry
+
+- type: listing # WWDP weapon resprite
+  id: UplinkGunCaseL9Centaur
+  name: uplink-gun-case-l9centaur-name
+  description: uplink-gun-case-l9centaur-desc
+  icon: { sprite: /Textures/_White/Objects/Weapons/Guns/LMGs/L9-Centaur.rsi, state: icon }
   productEntity: GunCaseSyndicateFilledL6Saw
   discountCategory: veryRareDiscounts
   discountDownTo:

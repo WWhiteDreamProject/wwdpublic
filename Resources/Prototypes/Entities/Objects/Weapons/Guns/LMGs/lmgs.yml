@@ -99,13 +99,13 @@
       collection: RiflesDrop
 
 - type: entity
-  name: L9 Centaur # WWDP edit
+  name: L6 SAW
   id: WeaponLightMachineGunL6
   parent: [BaseWeaponLightMachineGun, BaseSyndicateContraband]
-  description: A light machine gun widely used throughout inhabited space. Easy to use, reliable, lethal, and inexpensive. The number of units in use is unknown—after the corporate takeover of Proxima Centauri, the planet-factory producing the L9 ceased publishing sales data.
+  description: A rather traditionally made LMG with a pleasantly lacquered wooden pistol grip. Uses .30 rifle ammo.
   components:
   - type: Sprite
-    sprite: _White/Objects/Weapons/Guns/LMGs/L9-Centaur.rsi # WWDP edit
+    sprite: Objects/Weapons/Guns/LMGs/l6.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -113,7 +113,7 @@
       map: ["enum.GunVisualLayers.Mag"]
   - type: MagazineVisuals
     magState: mag
-    steps: 5 # WWDP edit
+    steps: 4
     zeroVisible: true
   - type: Appearance
   - type: Item # WWDP guns resize

@@ -1,5 +1,5 @@
-uplink-gun-case-viper-name = MPr-10 Xyphos
-uplink-gun-case-viper-desc = Modification of a submachine gun into a close-range weapon.
+uplink-gun-case-viper-name = Viper
+uplink-gun-case-viper-desc = An easily concealed pistol with a switchable automatic mode. Comes in a case with two magazines (.35 auto).
 
 uplink-gun-case-cobra-name = Cobra
 uplink-gun-case-cobra-desc = A reliable pistol with an integrated suppressor. Comes in a case with two magazines (.25 caseless).
@@ -45,3 +45,18 @@ uplink-gun-case-china-lake-desc = An old China Lake grenade launcher, equipped w
 
 uplink-gun-case-l6-saw-name = L6 Saw
 uplink-gun-case-l6-saw-desc = The iconic L6 light machine gun, bundled with two extra box magazines (.30).
+
+uplink-gun-case-mpr10xyphos-name = MPr-10 Xyphos
+uplink-gun-case-mpr10xyphos-desc = Modification of a submachine gun into a close-range weapon (.35 auto).
+
+uplink-gun-case-cr12moros-name = CR-12 Moros
+uplink-gun-case-cr12moros-desc = The primary firearm of any Syndicate operative (.35).
+
+uplink-gun-case-ad11cerberus-name = AD-11 Cerberus
+uplink-gun-case-ad11cerberus-desc = An automatic shotgun with a drum magazine.
+
+uplink-gun-case-m80heracles-name = M80 Heracles
+uplink-gun-case-m80heracles-desc = An ancient weapon of mass destruction used by mercenary assault squads.
+
+uplink-gun-case-l9centaur-name = L9 Centaur
+uplink-gun-case-l9centaur-desc = A light machine gun widely used throughout inhabited space.

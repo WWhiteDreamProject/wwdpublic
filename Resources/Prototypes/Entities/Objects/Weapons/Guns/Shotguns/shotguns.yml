@@ -105,7 +105,7 @@
   description: An automatic magazine-fed shotgun for close-quarters combat. Kicks like a mule on steroids. Uses .50 shotgun shells.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Shotguns/Cerberus.rsi
+    sprite: Objects/Weapons/Guns/Shotguns/bulldog.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -118,7 +118,7 @@
     - 0,0,5,1
     # WD EDIT END
   - type: Clothing
-    sprite: Objects/Weapons/Guns/Shotguns/Cerberus.rsi
+    sprite: Objects/Weapons/Guns/Shotguns/bulldog.rsi
     quickEquip: false
     slots:
     - Back

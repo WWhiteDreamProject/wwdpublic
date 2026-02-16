@@ -107,13 +107,13 @@
   # WD EDIT END
 
 - type: entity
-  name: MPR-10 Xyphos # WWDP edit
+  name: viper
   parent: [BaseWeaponPistol, BaseSyndicateContraband]
   id: WeaponPistolViper
-  description: Modification of a submachine gun into a close-range weapon. Ideal for boarding lightly armoured vessels and intimidating the crew. The blueprints for this pistol were released into the public domain sixty years ago due to copyright confusion, and since then, the Corporation has lost control over the mass production and modification of this weapon. Many versions, however, only have a semi-automatic firing mode.
+  description: A small, easily concealable, but somewhat underpowered gun, produced by a bulk arms manufacturer now defunct for over a century. Uses .35 auto ammo.
   components:
   - type: Sprite
-    sprite: _White/Objects/Weapons/Guns/Pistols/Xyphos.rsi # WWDP edit
+    sprite: Objects/Weapons/Guns/Pistols/viper.rsi
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -147,18 +147,6 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/pistol.ogg
     fireOnDropChance: 0.3
-  - type: MeleeWeapon # WWDP edit
-    animationRotation: -90
-    wideAnimationRotation: 0
-    range: 1.5
-    attackRate: 0.9
-    damage:
-      types:
-        Piercing: 7
-        Slash: 3
-    animation: WeaponArcThrust
-    soundHit:
-      path: /Audio/Weapons/bladeslice.ogg # WWDP
 
 - type: entity
   name: viper
