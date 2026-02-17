@@ -30,8 +30,8 @@ uplink-energy-crossbow-desc = Довольно тихое оружие, кото
 uplink-gun-case-c20r-name = C-20r
 uplink-gun-case-c20r-desc = Старый добрый: классический пистолет-пулемет C-20r в комплекте с двумя дополнительными магазинами (.35).
 
-uplink-gun-case-ak220-name = АК-220
-uplink-gun-case-ak220-desc = Обновлённая версия культового оружия в стильном оружейном кейсе в комплекте с двумя дополнительными магазинами (.30).
+uplink-gun-case-ar31hydra-name = АР-31 "Гидра"
+uplink-gun-case-ar31hydra-desc = В прошлом, основная штурмовая винтовка Синдиката, теперь - напоминание Корпорации о том, что не все производственные мощности находятся под их контролем.
 
 uplink-gun-case-wspr-name = WSPR
 uplink-gun-case-wspr-desc = Элегантная дозвуковая винтовка со встроенным глушителем. Если вы её слышите, значит, вы уже мертвы. В комплекте — два дополнительных магазина дозвуковых патронов .30.
@@ -44,3 +44,18 @@ uplink-gun-case-china-lake-desc = Старый гранатомёт China Lake, 
 
 uplink-gun-case-l6-saw-name = L6 Saw
 uplink-gun-case-l6-saw-desc = Культовый легкий ручной пулемет L6 в комплекте с двумя дополнительными коробчатыми магазинами (.30).
+
+uplink-gun-case-mpr10xyphos-name = MPr-10 Xyphos
+uplink-gun-case-mpr10xyphos-desc = Модификация пистолета-пулемёта в оружие для ближнего боя. (.35 авто).
+
+uplink-gun-case-cr12moros-name = CR-12 Moros
+uplink-gun-case-cr12moros-desc = Основное огнестрельное оружие любого оперативника Синдиката.  (.35).
+
+uplink-gun-case-ad11cerberus-name = AD-11 Cerberus
+uplink-gun-case-ad11cerberus-desc = Автоматический дробовик с барабанным магазином.
+
+uplink-gun-case-m80heracles-name = M80 Heracles
+uplink-gun-case-m80heracles-desc = Старинное оружие массового поражения, которое используется штурмовыми отрядами наёмников.
+
+uplink-gun-case-l9centaur-name = L9 Centaur
+uplink-gun-case-l9centaur-desc = Легкий пулемёт, широко распространенный во всём обитаемом космосе.

@@ -31,8 +31,8 @@ uplink-energy-crossbow-desc = A relatively quiet weapon that automatically reloa
 uplink-gun-case-c20r-name = C-20r
 uplink-gun-case-c20r-desc = Old faithful: classic C-20r submachine gun bundled with two extra magazines (.35).
 
-uplink-gun-case-ak220-name = AK-220
-uplink-gun-case-ak220-desc = An updated version of the iconic weapon in a stylish gun case, complete with two extra magazines (.30).
+uplink-gun-case-ar31hydra-name = AR31 Hydra
+uplink-gun-case-ar31hydra-desc = Once the Syndicate's primary assault rifle, it now serves as a reminder to the Corporation that not all manufacturing facilities are under their control.
 
 uplink-gun-case-wspr-name = WSPR
 uplink-gun-case-wspr-desc = A sleek subsonic rifle with integrated suppression. If you can hear it, you're already dead. Comes with two extra .30 caliber subsonic magazines.
@@ -45,3 +45,18 @@ uplink-gun-case-china-lake-desc = An old China Lake grenade launcher, equipped w
 
 uplink-gun-case-l6-saw-name = L6 Saw
 uplink-gun-case-l6-saw-desc = The iconic L6 light machine gun, bundled with two extra box magazines (.30).
+
+uplink-gun-case-mpr10xyphos-name = MPr-10 Xyphos
+uplink-gun-case-mpr10xyphos-desc = Modification of a submachine gun into a close-range weapon (.35 auto).
+
+uplink-gun-case-cr12moros-name = CR-12 Moros
+uplink-gun-case-cr12moros-desc = The primary firearm of any Syndicate operative (.35).
+
+uplink-gun-case-ad11cerberus-name = AD-11 Cerberus
+uplink-gun-case-ad11cerberus-desc = An automatic shotgun with a drum magazine.
+
+uplink-gun-case-m80heracles-name = M80 Heracles
+uplink-gun-case-m80heracles-desc = An ancient weapon of mass destruction used by mercenary assault squads.
+
+uplink-gun-case-l9centaur-name = L9 Centaur
+uplink-gun-case-l9centaur-desc = A light machine gun widely used throughout inhabited space.

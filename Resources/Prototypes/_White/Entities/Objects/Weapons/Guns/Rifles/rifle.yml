@@ -1,18 +1,18 @@
 ﻿- type: entity
   parent: BaseWeaponRifle
-  id: WeaponLightRifleAK220
-  name: AK-220
-  description: Updated version of iconic weapon. Uses .30 rifle ammo.
+  id: WeaponLightRifleAR31Hydra
+  name: AR31 Hydra
+  description: Once the Syndicate's primary assault rifle, it now serves as a reminder to the Corporation that not all manufacturing facilities are under their control. It took the Corporation nearly eight years of major combat operations to find and destroy all the fabricators needed to produce Hydra, after Moros had already become the Syndicate's primary weapon.
   components:
   - type: Sprite
-    sprite: _White/Objects/Weapons/Guns/Rifles/AK220.rsi
+    sprite: _White/Objects/Weapons/Guns/Rifles/ar-31-hydra.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
-    sprite: _White/Objects/Weapons/Guns/Rifles/AK220.rsi
+    sprite: _White/Objects/Weapons/Guns/Rifles/ar-31-hydra.rsi
   - type: Gun
     shotsPerBurst: 3
     availableModes:
@@ -31,7 +31,7 @@
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: MagazineLightRifleAK220
+        startingItem: MagazineLightRifleAR31Hydra
         insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
         priority: 2
@@ -51,7 +51,7 @@
       gun_chamber: !type:ContainerSlot
   - type: MagazineVisuals
     magState: mag
-    steps: 5
+    steps: 4
     zeroVisible: true
   - type: Appearance
   - type: EmitSoundOnPickup

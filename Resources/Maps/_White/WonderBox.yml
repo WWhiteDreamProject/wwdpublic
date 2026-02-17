@@ -4,8 +4,8 @@ meta:
   engineVersion: 260.2.0
   forkId: ""
   forkVersion: ""
-  time: 01/04/2026 17:28:19
-  entityCount: 23573
+  time: 01/17/2026 17:31:01
+  entityCount: 23509
 maps:
 - 1
 grids:
@@ -15418,7 +15418,7 @@ entities:
       pos: -66.5,7.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -116480.34
+      secondsUntilStateChange: -116586.01
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -15804,7 +15804,7 @@ entities:
       pos: 3.5,-11.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -135608.61
+      secondsUntilStateChange: -135714.28
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -15881,7 +15881,7 @@ entities:
       pos: 18.5,-13.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -119721.984
+      secondsUntilStateChange: -119827.65
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -21954,6 +21954,11 @@ entities:
     - type: Transform
       pos: 73.5,13.5
       parent: 2
+  - uid: 921
+    components:
+    - type: Transform
+      pos: 31.5,-68.5
+      parent: 2
   - uid: 986
     components:
     - type: Transform
@@ -21968,6 +21973,11 @@ entities:
     components:
     - type: Transform
       pos: 0.5,-4.5
+      parent: 2
+  - uid: 1115
+    components:
+    - type: Transform
+      pos: 30.5,-57.5
       parent: 2
   - uid: 1153
     components:
@@ -21993,6 +22003,11 @@ entities:
     components:
     - type: Transform
       pos: 19.5,-2.5
+      parent: 2
+  - uid: 1242
+    components:
+    - type: Transform
+      pos: 31.5,-57.5
       parent: 2
   - uid: 1290
     components:
@@ -25523,6 +25538,11 @@ entities:
     components:
     - type: Transform
       pos: 16.5,51.5
+      parent: 2
+  - uid: 2022
+    components:
+    - type: Transform
+      pos: 29.5,-57.5
       parent: 2
   - uid: 2023
     components:
@@ -38569,11 +38589,6 @@ entities:
     - type: Transform
       pos: 32.5,-62.5
       parent: 2
-  - uid: 24082
-    components:
-    - type: Transform
-      pos: 32.5,-61.5
-      parent: 2
   - uid: 24083
     components:
     - type: Transform
@@ -38658,11 +38673,6 @@ entities:
     components:
     - type: Transform
       pos: 32.5,-68.5
-      parent: 2
-  - uid: 24284
-    components:
-    - type: Transform
-      pos: 32.5,-69.5
       parent: 2
   - uid: 24285
     components:
@@ -38798,11 +38808,6 @@ entities:
     components:
     - type: Transform
       pos: 33.5,-56.5
-      parent: 2
-  - uid: 24315
-    components:
-    - type: Transform
-      pos: 31.5,-56.5
       parent: 2
   - uid: 24412
     components:
@@ -62615,7 +62620,7 @@ entities:
       pos: 52.5,13.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -56097.582
+      secondsUntilStateChange: -56203.25
       state: Closing
   - uid: 12969
     components:
@@ -109944,23 +109949,6 @@ entities:
     - type: Transform
       pos: 43.57538,14.122072
       parent: 2
-- proto: MysteryFigureBox
-  entities:
-  - uid: 15768
-    components:
-    - type: Transform
-      pos: 29.736385,16.706722
-      parent: 2
-  - uid: 19780
-    components:
-    - type: Transform
-      pos: 29.249273,16.670595
-      parent: 2
-  - uid: 27545
-    components:
-    - type: Transform
-      pos: 29.51989,16.48996
-      parent: 2
 - proto: N14ChairMetalBlue
   entities:
   - uid: 4454
@@ -111980,138 +111968,6 @@ entities:
     - type: Transform
       pos: 32.5,-75.5
       parent: 2
-- proto: PlushieAtmosian
-  entities:
-  - uid: 27123
-    components:
-    - type: Transform
-      pos: -3.4785697,-54.38691
-      parent: 2
-- proto: PlushieBee
-  entities:
-  - uid: 16456
-    components:
-    - type: Transform
-      pos: 31.533596,-10.5197315
-      parent: 2
-    - type: ContainerContainer
-      containers:
-        item: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        stash: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-- proto: PlushieCorgi
-  entities:
-  - uid: 10992
-    components:
-    - type: Transform
-      pos: 7.539212,-3.1042123
-      parent: 2
-- proto: PlushieDiona
-  entities:
-  - uid: 16457
-    components:
-    - type: Transform
-      pos: 55.44615,-12.029556
-      parent: 2
-    - type: ContainerContainer
-      containers:
-        item: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        stash: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-- proto: PlushieHuman
-  entities:
-  - uid: 17479
-    components:
-    - type: Transform
-      pos: 75.453545,16.521841
-      parent: 2
-- proto: PlushieLamp
-  entities:
-  - uid: 16459
-    components:
-    - type: Transform
-      pos: -2.5895042,56.62824
-      parent: 2
-    - type: ContainerContainer
-      containers:
-        item: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        stash: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-- proto: PlushieLizard
-  entities:
-  - uid: 16460
-    components:
-    - type: Transform
-      pos: 55.511005,-23.358524
-      parent: 2
-    - type: ContainerContainer
-      containers:
-        item: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        stash: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-- proto: PlushieOrangeFox
-  entities:
-  - uid: 1115
-    components:
-    - type: Transform
-      pos: 69.796906,17.446037
-      parent: 2
-- proto: PlushieSharkBlue
-  entities:
-  - uid: 3432
-    components:
-    - type: Transform
-      pos: -55.471233,26.521465
-      parent: 2
-  - uid: 16461
-    components:
-    - type: Transform
-      pos: -28.520807,45.55991
-      parent: 2
-    - type: ContainerContainer
-      containers:
-        item: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        stash: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-- proto: PlushieSharkGrey
-  entities:
-  - uid: 1242
-    components:
-    - type: Transform
-      pos: -55.471233,27.426056
-      parent: 2
-- proto: PlushieSharkPink
-  entities:
-  - uid: 2022
-    components:
-    - type: Transform
-      pos: -55.49826,28.384653
-      parent: 2
 - proto: PlushieSlips
   entities:
   - uid: 19369
@@ -112128,45 +111984,6 @@ entities:
       angularDamping: 0
       linearDamping: 0
     - type: RenderOrder
-- proto: PlushieSpaceLizard
-  entities:
-  - uid: 16462
-    components:
-    - type: Transform
-      pos: 14.191115,10.546078
-      parent: 2
-    - type: ContainerContainer
-      containers:
-        item: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        stash: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-  - uid: 16463
-    components:
-    - type: Transform
-      pos: -2.5962336,25.944868
-      parent: 2
-    - type: ContainerContainer
-      containers:
-        item: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        stash: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-- proto: PlushieVox
-  entities:
-  - uid: 20163
-    components:
-    - type: Transform
-      pos: 57.48412,-30.073143
-      parent: 2
 - proto: PortableFlasher
   entities:
   - uid: 16465
@@ -132181,293 +131998,6 @@ entities:
     - type: Transform
       pos: -4.501646,-36.577587
       parent: 2
-- proto: ToyDeathRipley
-  entities:
-  - uid: 19894
-    components:
-    - type: Transform
-      pos: 26.489397,31.873997
-      parent: 2
-- proto: ToyFigurineAtmosTech
-  entities:
-  - uid: 14453
-    components:
-    - type: Transform
-      pos: 12.092048,-28.536745
-      parent: 2
-- proto: ToyFigurineBartender
-  entities:
-  - uid: 16761
-    components:
-    - type: Transform
-      pos: 34.508003,-3.3439527
-      parent: 2
-- proto: ToyFigurineBotanist
-  entities:
-  - uid: 16153
-    components:
-    - type: Transform
-      pos: 23.55636,-15.291092
-      parent: 2
-- proto: ToyFigurineBoxer
-  entities:
-  - uid: 17020
-    components:
-    - type: Transform
-      pos: 26.431889,24.742388
-      parent: 2
-- proto: ToyFigurineCaptain
-  entities:
-  - uid: 14248
-    components:
-    - type: Transform
-      pos: -11.596742,-3.4671097
-      parent: 2
-- proto: ToyFigurineCargoTech
-  entities:
-  - uid: 17033
-    components:
-    - type: Transform
-      pos: -27.632837,-5.737964
-      parent: 2
-- proto: ToyFigurineChaplain
-  entities:
-  - uid: 17288
-    components:
-    - type: Transform
-      pos: 59.71085,18.657177
-      parent: 2
-- proto: ToyFigurineChef
-  entities:
-  - uid: 17040
-    components:
-    - type: Transform
-      pos: 22.753923,-2.529245
-      parent: 2
-- proto: ToyFigurineChemist
-  entities:
-  - uid: 17311
-    components:
-    - type: Transform
-      pos: 53.759266,-1.0669351
-      parent: 2
-- proto: ToyFigurineChiefEngineer
-  entities:
-  - uid: 10451
-    components:
-    - type: Transform
-      pos: 4.4934015,-43.968487
-      parent: 2
-- proto: ToyFigurineChiefMedicalOfficer
-  entities:
-  - uid: 19272
-    components:
-    - type: Transform
-      pos: 42.103153,-27.35852
-      parent: 2
-- proto: ToyFigurineClown
-  entities:
-  - uid: 19276
-    components:
-    - type: Transform
-      pos: 51.520203,6.7749424
-      parent: 2
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-    - type: RenderOrder
-  - uid: 23466
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 3.7366874,50.330402
-      parent: 2
-- proto: ToyFigurineDetective
-  entities:
-  - uid: 921
-    components:
-    - type: Transform
-      pos: -12.202619,34.366405
-      parent: 2
-  - uid: 14710
-    components:
-    - type: Transform
-      pos: 19.980787,17.656176
-      parent: 2
-- proto: ToyFigurineEngineer
-  entities:
-  - uid: 23792
-    components:
-    - type: Transform
-      pos: 3.3104155,-48.618706
-      parent: 2
-- proto: ToyFigurineGreytider
-  entities:
-  - uid: 9176
-    components:
-    - type: Transform
-      pos: -11.290685,-10.598974
-      parent: 2
-  - uid: 14227
-    components:
-    - type: Transform
-      pos: -18.63307,-48.494614
-      parent: 2
-  - uid: 23479
-    components:
-    - type: Transform
-      pos: -43.535847,10.780638
-      parent: 2
-  - uid: 23673
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -60.46837,0.2789709
-      parent: 2
-  - uid: 26300
-    components:
-    - type: Transform
-      pos: -21.5874,32.62023
-      parent: 2
-- proto: ToyFigurineHamlet
-  entities:
-  - uid: 9528
-    components:
-    - type: Transform
-      pos: 1.5453442,11.849339
-      parent: 2
-- proto: ToyFigurineHeadOfPersonnel
-  entities:
-  - uid: 23761
-    components:
-    - type: Transform
-      pos: 6.827772,1.7186763
-      parent: 2
-- proto: ToyFigurineHeadOfSecurity
-  entities:
-  - uid: 23762
-    components:
-    - type: Transform
-      pos: -0.10250366,57.576653
-      parent: 2
-- proto: ToyFigurineLawyer
-  entities:
-  - uid: 23764
-    components:
-    - type: Transform
-      pos: -3.6451914,31.680529
-      parent: 2
-- proto: ToyFigurineLibrarian
-  entities:
-  - uid: 24423
-    components:
-    - type: Transform
-      pos: 32.036663,7.739607
-      parent: 2
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-    - type: RenderOrder
-- proto: ToyFigurineMedicalDoctor
-  entities:
-  - uid: 23768
-    components:
-    - type: Transform
-      pos: 44.446262,-5.675225
-      parent: 2
-- proto: ToyFigurineMime
-  entities:
-  - uid: 23769
-    components:
-    - type: Transform
-      pos: 50.50858,12.770079
-      parent: 2
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
-    - type: RenderOrder
-- proto: ToyFigurineMusician
-  entities:
-  - uid: 23775
-    components:
-    - type: Transform
-      pos: 43.750423,13.454393
-      parent: 2
-- proto: ToyFigurineParamedic
-  entities:
-  - uid: 9447
-    components:
-    - type: Transform
-      pos: 53.693687,-34.384872
-      parent: 2
-- proto: ToyFigurinePassenger
-  entities:
-  - uid: 23773
-    components:
-    - type: Transform
-      pos: 26.816698,24.676836
-      parent: 2
-- proto: ToyFigurineQuartermaster
-  entities:
-  - uid: 9512
-    components:
-    - type: Transform
-      pos: -19.525036,-10.995848
-      parent: 2
-- proto: ToyFigurineResearchDirector
-  entities:
-  - uid: 23780
-    components:
-    - type: Transform
-      pos: 58.881603,-21.269377
-      parent: 2
-- proto: ToyFigurineSalvage
-  entities:
-  - uid: 23783
-    components:
-    - type: Transform
-      pos: -28.773693,-22.390232
-      parent: 2
-- proto: ToyFigurineScientist
-  entities:
-  - uid: 23784
-    components:
-    - type: Transform
-      pos: 61.745735,-8.257803
-      parent: 2
-- proto: ToyFigurineSecurity
-  entities:
-  - uid: 23785
-    components:
-    - type: Transform
-      pos: -8.378072,42.120018
-      parent: 2
-- proto: ToyFigurineWarden
-  entities:
-  - uid: 23801
-    components:
-    - type: Transform
-      pos: -15.689874,49.427517
-      parent: 2
-- proto: ToyGriffin
-  entities:
-  - uid: 19895
-    components:
-    - type: Transform
-      pos: 7.496003,25.111048
-      parent: 2
-  - uid: 19896
-    components:
-    - type: Transform
-      pos: 26.651356,29.564087
-      parent: 2
-- proto: ToyGygax
-  entities:
-  - uid: 19897
-    components:
-    - type: Transform
-      pos: 7.47517,31.015709
-      parent: 2
 - proto: ToyHammer
   entities:
   - uid: 25981
@@ -132479,44 +132009,6 @@ entities:
       linearDamping: 0
       canCollide: False
     - type: InsideEntityStorage
-- proto: ToyIan
-  entities:
-  - uid: 19898
-    components:
-    - type: Transform
-      pos: 26.372215,29.46209
-      parent: 2
-    - type: ContainerContainer
-      containers:
-        item: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-        stash: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-- proto: ToyMarauder
-  entities:
-  - uid: 19899
-    components:
-    - type: Transform
-      pos: 12.487209,32.010876
-      parent: 2
-- proto: ToyPhazon
-  entities:
-  - uid: 19901
-    components:
-    - type: Transform
-      pos: 26.676897,31.69679
-      parent: 2
-- proto: ToyRipley
-  entities:
-  - uid: 19902
-    components:
-    - type: Transform
-      pos: 26.385231,31.757217
-      parent: 2
 - proto: ToyRubberDuck
   entities:
   - uid: 23955
@@ -132567,20 +132059,6 @@ entities:
     components:
     - type: Transform
       pos: 18.515913,19.477844
-      parent: 2
-- proto: ToySeraph
-  entities:
-  - uid: 19903
-    components:
-    - type: Transform
-      pos: 26.437313,31.64467
-      parent: 2
-- proto: ToySkeleton
-  entities:
-  - uid: 19904
-    components:
-    - type: Transform
-      pos: 26.453438,29.720446
       parent: 2
 - proto: ToySpawner
   entities:

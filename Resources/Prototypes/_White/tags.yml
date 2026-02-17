@@ -44,4 +44,16 @@
   id: EvacPod
 
 - type: Tag
+  id: BoxMaterial
+
+- type: Tag
+  id: BoxCardboard
+
+- type: Tag
+  id: BoxPlastic
+
+- type: Tag
+  id: BoxSteel
+
+- type: Tag
   id: HideFromGhostWarps

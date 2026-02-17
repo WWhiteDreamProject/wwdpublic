@@ -72,7 +72,7 @@
     - EvacPod
 
 - type: entity
-  parent: [ BoxCardboard, BaseBagOpenClose ]
+  parent: [ BoxBase, BaseBagOpenClose ] # WWDP edit BoxCardboard -> BoxBase
   id: BoxPlaysetEvacPod
   name: EvacPod playset box
   description: A box with a playset for playing EvacPod.
@@ -121,3 +121,11 @@
         amount: 1
       - id: EvacPodCarpet
         amount: 18
+  - type: Construction # WWDP edit start
+    graph: BoxCardboard
+    node: boxcardboard
+    containers:
+    - entity_storage
+  - type: PhysicalComposition
+    materialComposition:
+      Cardboard: 100 # WWDP end

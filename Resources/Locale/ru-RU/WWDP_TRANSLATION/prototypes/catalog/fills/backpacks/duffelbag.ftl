@@ -13,7 +13,7 @@ ent-ClothingBackpackDuffelSyndicateFilledSMG = набор "C-20r"
 ent-ClothingBackpackDuffelSyndicateFilledRevolver = набор "Питон"
     .desc = Выступите громко и гордо с заряженным Магнум Питон и двумя спидлоадерами.
 
-ent-ClothingBackpackDuffelSyndicateFilledLMG = набор "L6 Saw"
+ent-ClothingBackpackDuffelSyndicateFilledLMG = "L6 Saw"
     .desc = Еще больше дакки: культовый лёгкий пулемет L6 в комплекте с 2 коробами патронов.
 
 ent-ClothingBackpackDuffelSyndicateFilledGrenadeLauncher = набор "Крайт"

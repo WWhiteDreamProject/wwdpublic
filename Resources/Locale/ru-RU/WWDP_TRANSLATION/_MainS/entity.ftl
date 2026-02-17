@@ -1793,10 +1793,8 @@ ent-SpeedLoaderSpecialMindbreaker = спидлоадер "Майндбрейке
 
 ent-SpeedLoaderSpecialHoly = освящённый ускоренный спидлоадер (.38)
 
-
 ent-WeaponLauncherChinaLakeBorg = "Чайна Лейк"
     .desc = ПЛУП! Имеет встроенный репликатор, который медленно создаёт боеприпасы.
-
 
 ent-WeaponLightMachineGunL6Borg = экспериментальный L6 SAW
     .desc = Довольно традиционно собранный пулемёт с лакированной деревянной рукоятью. Использует внутренне генерируемые патроны .30 калибра.
@@ -17085,7 +17083,7 @@ ent-ShellShotgunFrag = патрон (.50 FRAG)
 ent-ShellShotgunBreach = патрон (.50 бронебойный)
 
 
-ent-MagazineLightRifleAK220 = увеличенный магазин .30
+ent-MagazineLightRifleAR31Hydra = увеличенный магазин .30
 
 ent-MagazineShotgunMeteor = барабан (.50 метеор)
     .desc = Барабан на 8 зарядов.
@@ -17129,7 +17127,7 @@ ent-PelletShellLaserSpread = лазерный залп (.50)
 ent-ShellLaserBolt = лазер (.50)
 
 
-ent-WeaponLightRifleAK220 = АК-220
+ent-WeaponLightAR31Hydra = АР-31 "Гидра"
     .desc = Обновлённая версия легендарного оружия. Использует патроны калибра .30.
 
 
