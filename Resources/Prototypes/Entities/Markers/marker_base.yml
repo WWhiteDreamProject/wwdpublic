@@ -12,6 +12,7 @@
   - type: Tag
     tags:
     - ForceFixRotations
+    - Marker # WWDP edit for FixDirectionRotationsCommand.cs for some reason it can't link to MarkerComponent, so a new tag was created.
   - type: Sprite
     drawdepth: Overdoors
     sprite: Markers/cross.rsi

@@ -26,6 +26,7 @@
   - type: Tag
     tags:
     - ForceFixRotations # Allow fixrotations to target these
+    - ForceDirectionFixRotations # WWDP edit
   - type: Destructible
     thresholds:
     - trigger:
@@ -199,6 +200,7 @@
   - type: Tag
     tags:
     - ForceNoFixRotations # Prevent fixrotations from targeting these, since the base Firelock is targeted
+    - ForceNoDirectionFixRotations # WWDP edit
   - type: Door
     occludes: false
   - type: Physics

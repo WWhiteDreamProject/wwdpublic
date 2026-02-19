@@ -6,6 +6,15 @@
   - type: Sprite
     drawdepth: WallTops
     sprite: Structures/Windows/reinforced_plasma_window.rsi
+    layers: # WWDP edit start
+    - map: [ "enum.EdgeLayer.South" ]
+      state: rpwindow_south
+    - map: [ "enum.EdgeLayer.East" ]
+      state: rpwindow_east
+    - map: [ "enum.EdgeLayer.North" ]
+      state: rpwindow_north
+    - map: [ "enum.EdgeLayer.West" ]
+      state: rpwindow_west # WWDP edit end
   - type: Icon
     sprite: Structures/Windows/reinforced_plasma_window.rsi
   - type: Damageable

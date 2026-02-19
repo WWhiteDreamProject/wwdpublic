@@ -167,6 +167,7 @@
   - type: Tag
     tags:
     - Airlock
+    - ForceDirectionFixRotations # WWDP edit
     # This tag is used to nagivate the Airlock construction graph. It's needed because the construction graph is shared between Airlock, AirlockGlass, and HighSecDoor
   - type: PryUnpowered
   - type: BlockWeather
@@ -235,3 +236,5 @@
     tags:
     - GlassAirlock
     # This tag is used to nagivate the Airlock construction graph. It's needed because the construction graph is shared between Airlock, AirlockGlass, and HighSecDoor
+    - ForceFixRotations # WWDP edit for FixDirectionFixRotationsCommand.cs
+    - ForceDirectionFixRotations # WWDP edit

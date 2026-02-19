@@ -135,7 +135,7 @@
   - type: Sprite
     layers:
     - state: box_plastic_rib_dark_base
-    - state: bg
+    - state: bg_dark
       map: [ paper ]
       sprite: _White/Objects/Storage/boxes_icon.rsi
     - state: bodybags

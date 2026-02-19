@@ -66,6 +66,18 @@
 
 - type: Tag
   id: MothEmotes
-  
+
 - type: Tag
   id: MortarGrenade
+
+- type: Tag # For FixDirRotations start
+  id: ForceDirectionFixRotations
+
+- type: Tag
+  id: ForceNoDirectionFixRotations
+
+- type: Tag
+  id: Marker
+
+- type: Tag
+  id: Table # For FixDirRotations end
