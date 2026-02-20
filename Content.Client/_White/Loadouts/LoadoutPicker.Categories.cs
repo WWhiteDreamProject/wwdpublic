@@ -57,11 +57,15 @@ public sealed partial class LoadoutPicker
         if (!string.IsNullOrEmpty(LoadoutSearch.Text))
         {
             LoadoutSearch.Clear();
+            Populate("");
             return;
         }
 
         if (CurrentEntry.Parent != null)
+        {
+            _selectedLoadoutCategory = null;
             CurrentEntry = CurrentEntry.Parent;
+        }
     }
 
     private (ILoadoutMenuEntry, int) BuildMenuGroup(ProtoId<LoadoutCategoryPrototype> categoryPrototypeId)

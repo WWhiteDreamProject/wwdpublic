@@ -200,6 +200,9 @@ public sealed partial class LoadoutPicker : Control
     {
         ClearLoadouts();
         ClearupEdit();
+
+        var currentSearchText = LoadoutSearch.Text;
+
         LoadoutSearch.Clear();
 
         CharacterRequirementsArgs = characterRequirements;
@@ -208,6 +211,7 @@ public sealed partial class LoadoutPicker : Control
         {
             if (!_prototypeManager.TryIndex<LoadoutPrototype>(preference.LoadoutName, out var proto))
             {
+                // Remove this if not needed
                 Logger.Error($"Cannot add loadout to selected loadouts: prototype {preference.LoadoutName} not found");
                 continue;
             }
@@ -224,6 +228,7 @@ public sealed partial class LoadoutPicker : Control
 
             if (proto.CustomContent && loadoutEntry.Loadout.CustomContent != preference.CustomContent)
             {
+                // Remove this if not needed
                 Logger.Warning("CustomContent mismatch, syncing...");
                 loadoutEntry.Loadout.CustomContent = preference.CustomContent;
                 _customContent.SetValue(preference.LoadoutName, preference.CustomContent);
@@ -231,24 +236,27 @@ public sealed partial class LoadoutPicker : Control
 
             if (proto.CustomName && loadoutEntry.Loadout.CustomName != preference.CustomName)
             {
+                // Remove this if not needed
                 Logger.Warning("CustomName mismatch, syncing...");
                 loadoutEntry.Loadout.CustomName = preference.CustomName;
                 _customName.SetValue(preference.LoadoutName, preference.CustomName);
             }
 
-            if (proto.CustomDescription &&  loadoutEntry.Loadout.CustomDescription != preference.CustomDescription)
+            if (proto.CustomDescription && loadoutEntry.Loadout.CustomDescription != preference.CustomDescription)
             {
+                // Remove this if not needed
                 Logger.Warning("CustomDescription mismatch, syncing...");
                 loadoutEntry.Loadout.CustomDescription = preference.CustomDescription;
                 _customDescription.SetValue(preference.LoadoutName, preference.CustomDescription);
             }
 
-            if (proto.CanBeHeirloom &&  loadoutEntry.Loadout.CustomHeirloom != preference.CustomHeirloom)
+            if (proto.CanBeHeirloom && loadoutEntry.Loadout.CustomHeirloom != preference.CustomHeirloom)
             {
+                // Remove this if not needed
                 Logger.Warning("CustomHeirloom mismatch, syncing...");
                 loadoutEntry.Loadout.CustomHeirloom = preference.CustomHeirloom;
 
-                if( preference.CustomHeirloom is null)
+                if (preference.CustomHeirloom is null)
                     _customHeirloom.RemoveValue(preference.LoadoutName);
                 else
                     _customHeirloom.SetValue(preference.LoadoutName, preference.CustomHeirloom.Value);
@@ -256,6 +264,7 @@ public sealed partial class LoadoutPicker : Control
 
             if (proto.CustomColorTint && loadoutEntry.Loadout.CustomColorTint != preference.CustomColorTint)
             {
+                // Remove this if not needed
                 Logger.Warning("CustomColorTint mismatch, syncing...");
                 loadoutEntry.Loadout.CustomColorTint = preference.CustomColorTint;
                 _customColorTints.SetValue(preference.LoadoutName, preference.CustomColorTint);
@@ -263,6 +272,8 @@ public sealed partial class LoadoutPicker : Control
         }
 
         CurrentEntry = CurrentEntry;
+        if (!string.IsNullOrEmpty(currentSearchText))
+            LoadoutSearch.Text = currentSearchText;
     }
 
     public bool LoadCategoryButtons(ProtoId<LoadoutCategoryPrototype> loadoutCategoryPrototype)
