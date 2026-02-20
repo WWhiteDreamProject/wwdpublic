@@ -175,7 +175,7 @@ public sealed partial class LoadoutEntry : Control, IComparable<LoadoutEntry>
         var loadoutProto = _prototypeManager.Index<LoadoutPrototype>(loadout.LoadoutName);
         var firstItem = loadoutProto.Items.FirstOrDefault();
         if (firstItem == default)
-           throw new InvalidOperationException($"Loadout {loadout.LoadoutName} has no items");
+            throw new InvalidOperationException($"Loadout {loadout.LoadoutName} has no items");
 
         _loadoutUid = _entityManager.SpawnEntity(firstItem, MapCoordinates.Nullspace);
         Cost = loadoutProto.Cost;
@@ -219,7 +219,7 @@ public sealed partial class LoadoutEntry : Control, IComparable<LoadoutEntry>
             return 1;
 
         var canWearCompare = other.CanWear.CompareTo(CanWear);
-        if(canWearCompare != 0)
+        if (canWearCompare != 0)
             return canWearCompare;
 
         return string.Compare(Loadout.LoadoutName, other.Loadout.LoadoutName, StringComparison.CurrentCulture);

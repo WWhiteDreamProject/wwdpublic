@@ -72,7 +72,7 @@ public sealed partial class LoadoutPicker
     {
         var weight = 0;
 
-        if(!_prototypeManager.TryIndex(categoryPrototypeId, out var categoryPrototype))
+        if (!_prototypeManager.TryIndex(categoryPrototypeId, out var categoryPrototype))
             throw new Exception($"Cannot load prototype {categoryPrototypeId}");
 
         if (categoryPrototype.SubCategories.Count == 0)
@@ -89,9 +89,9 @@ public sealed partial class LoadoutPicker
         foreach (var category in categoryPrototype.SubCategories)
         {
             var child = BuildMenuGroup(category);
-            if(child.Item2 == 0) continue;
+            if (child.Item2 == 0) continue;
             entry.AddChild(child.Item1);
-            weight+= child.Item2;
+            weight += child.Item2;
         }
 
         return (entry, weight);

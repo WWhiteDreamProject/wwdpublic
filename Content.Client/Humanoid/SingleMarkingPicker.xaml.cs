@@ -283,7 +283,7 @@ public sealed partial class SingleMarkingPicker : BoxContainer
 
         for (var i = 0; i < PointsUsed; i++)
         {
-            SlotSelector.AddItem(Loc.GetString("marking-slot-number", ("number", i + 1)), i);
+            SlotSelector.AddItem(Loc.GetString("marking-slot-number", ("number", i + 1)), i); // WWDP EDIT
 
             if (i == _slot)
             {

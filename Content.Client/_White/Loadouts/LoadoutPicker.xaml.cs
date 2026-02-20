@@ -182,7 +182,7 @@ public sealed partial class LoadoutPicker : Control
 
     private void ResetButtonPressed(BaseButton.ButtonEventArgs obj)
     {
-        if(_checkpointRequirements is null)
+        if (_checkpointRequirements is null)
             return;
 
         SetData(_checkpointLoadouts, _checkpointRequirements);
@@ -358,7 +358,7 @@ public sealed partial class LoadoutPicker : Control
 
     private void SpecialColorTintTogglePressed(BaseButton.ButtonEventArgs obj)
     {
-        if(_currPrototype == null || !_currPrototype.CustomColorTint)
+        if (_currPrototype == null || !_currPrototype.CustomColorTint)
             return;
 
         ColorEdit.Visible = SpecialColorTintToggle.Pressed;
@@ -393,7 +393,7 @@ public sealed partial class LoadoutPicker : Control
         if (!_selectedLoadouts.Remove(loadout.LoadoutName, out _))
             return false;
 
-        if(_prototypeManager.TryIndex<LoadoutPrototype>(loadout.LoadoutName, out var prototype))
+        if (_prototypeManager.TryIndex<LoadoutPrototype>(loadout.LoadoutName, out var prototype))
             LoadoutPoint += prototype.Cost;
 
         return true;
@@ -444,12 +444,12 @@ public sealed partial class LoadoutPicker : Control
         if (loadoutPrototype.CustomDescription)
             DescriptionEdit.TextRope = new Rope.Leaf(loadout.CustomDescription ?? "");
 
-        if(loadoutPrototype.CustomContent)
+        if (loadoutPrototype.CustomContent)
             BookTextEdit.TextRope = new Rope.Leaf(loadout.CustomContent ?? "");
 
-        if (loadoutPrototype.CustomColorTint )
+        if (loadoutPrototype.CustomColorTint)
         {
-            if(loadout.CustomColorTint is not null)
+            if (loadout.CustomColorTint is not null)
             {
                 SpecialColorTintToggle.Pressed = true;
                 ColorEdit.Color = Color.FromHex(loadout.CustomColorTint);
@@ -490,7 +490,7 @@ public sealed partial class LoadoutPicker : Control
 
     private void SaveButtonPressed(BaseButton.ButtonEventArgs obj)
     {
-        if(_currEdit == null)
+        if (_currEdit == null)
             return;
 
         var oldValue = _currEdit.Loadout;
@@ -501,13 +501,13 @@ public sealed partial class LoadoutPicker : Control
             ? ColorEdit.Color.ToHex()
             : null;
 
-        if(oldValue.CustomName != null) _customName.SetValue(oldValue.LoadoutName, oldValue.CustomName);
+        if (oldValue.CustomName != null) _customName.SetValue(oldValue.LoadoutName, oldValue.CustomName);
         else _customName.RemoveValue(oldValue.LoadoutName);
-        if(oldValue.CustomContent != null) _customContent.SetValue(oldValue.LoadoutName, oldValue.CustomContent);
+        if (oldValue.CustomContent != null) _customContent.SetValue(oldValue.LoadoutName, oldValue.CustomContent);
         else _customContent.RemoveValue(oldValue.LoadoutName);
-        if(oldValue.CustomDescription != null) _customDescription.SetValue(oldValue.LoadoutName, oldValue.CustomDescription);
+        if (oldValue.CustomDescription != null) _customDescription.SetValue(oldValue.LoadoutName, oldValue.CustomDescription);
         else _customDescription.RemoveValue(oldValue.LoadoutName);
-        if(oldValue.CustomColorTint != null) _customColorTints.SetValue(oldValue.LoadoutName, oldValue.CustomColorTint);
+        if (oldValue.CustomColorTint != null) _customColorTints.SetValue(oldValue.LoadoutName, oldValue.CustomColorTint);
         else _customColorTints.RemoveValue(oldValue.LoadoutName);
 
         ClearupEdit();
@@ -573,7 +573,7 @@ public sealed class CharacterRequirementsArgs(
     public MindComponent? Mind { get; set; } = mind;
     public IDependencyCollection? Dependencies { get; set; } = dependencies;
 
-    public bool IsValid(CharacterRequirement requirement, IPrototype prototype,[NotNullWhen(false)] out string? reason)
+    public bool IsValid(CharacterRequirement requirement, IPrototype prototype, [NotNullWhen(false)] out string? reason)
     {
         Dependencies ??= IoCManager.Instance!;
         var valid = requirement.IsValid(

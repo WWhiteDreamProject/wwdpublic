@@ -14,7 +14,7 @@ public interface ILoadoutMenuEntry
     public string Label { get; }
 
     public void Act(BoxContainer loadoutsContainer, LoadoutPicker loadoutPicker);
-    public void Exit(BoxContainer loadoutsContainer , LoadoutPicker loadoutPicker);
+    public void Exit(BoxContainer loadoutsContainer, LoadoutPicker loadoutPicker);
 }
 
 public sealed class LoadoutCategoryShowMenuEntry : ILoadoutMenuEntry
@@ -42,7 +42,7 @@ public sealed class LoadoutCategoryShowMenuEntry : ILoadoutMenuEntry
 
 public sealed class LoadoutEntriesContainerMenuEntry : ILoadoutMenuEntry
 {
-    public ILoadoutMenuEntry? Parent { get; set;}
+    public ILoadoutMenuEntry? Parent { get; set; }
     public string Label { get; }
 
     private readonly List<ILoadoutMenuEntry> _children = [];
