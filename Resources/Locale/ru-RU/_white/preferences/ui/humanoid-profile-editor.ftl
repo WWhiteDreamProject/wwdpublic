@@ -10,3 +10,4 @@ humanoid-profile-editor-bark-pitch-variance-label = Вариативность �
 humanoid-profile-editor-bark-pause-label = Пауза между букв
 
 marking-slot-number = Слот {$number}
+flavor-text-character-count = {$current}/{$max} символов

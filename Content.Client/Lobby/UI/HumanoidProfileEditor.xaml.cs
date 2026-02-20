@@ -1530,7 +1530,10 @@ namespace Content.Client.Lobby.UI
         private void UpdateFlavorTextEdit()
         {
             if (_flavorTextEdit != null)
+            { // WWDP EDIT
                 _flavorTextEdit.TextRope = new Rope.Leaf(Profile?.FlavorText ?? "");
+                _flavorText?.UpdateCharacterCount(); // WWDP EDIT
+            } // WWDP EDIT
         }
 
         private void UpdateAgeEdit()
