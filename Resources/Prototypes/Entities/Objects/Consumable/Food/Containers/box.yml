@@ -6,7 +6,7 @@
 # an alpha color which -Y- said he would implement.
 
 - type: entity
-  parent: [ BoxCardboard, BaseBagOpenClose ]
+  parent: [ BoxBase, BaseBagOpenClose ] # WWDP edit BoxCardboard -> BoxBase
   id: FoodBoxDonut
   name: donut box
   description: Mmm, Donuts.
@@ -66,11 +66,19 @@
     - box5
     - pink-box6
   - type: Appearance
+  - type: Construction # WWDP edit start
+    graph: BoxCardboard
+    node: boxcardboard
+    containers:
+    - entity_storage
+  - type: PhysicalComposition
+    materialComposition:
+      Cardboard: 100 # WWDP end
 
 # Egg
 
 - type: entity
-  parent: [ BoxCardboard, BaseBagOpenClose ]
+  parent: [ BoxBase, BaseBagOpenClose ] # WWDP edit BoxCardboard -> BoxBase
   id: FoodContainerEgg
   name: egg carton
   description: Don't drop 'em!
@@ -150,7 +158,25 @@
     - box10
     - box11
     - box12
+  - type: Tag # WWDP edit start
+    tags:
+    - BoxCardboard
+    - BoxMaterial
   - type: Appearance
+  - type: EmitSoundOnPickup
+    sound: /Audio/SimpleStation14/Items/Handling/cardboardbox_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound: /Audio/SimpleStation14/Items/Handling/cardboardbox_drop.ogg
+  - type: EmitSoundOnLand
+    sound: /Audio/SimpleStation14/Items/Handling/cardboardbox_drop.ogg
+  - type: Construction
+    graph: BoxCardboard
+    node: boxcardboard
+    containers:
+    - entity_storage
+  - type: PhysicalComposition
+    materialComposition:
+      Cardboard: 100 # WWDP end
   # Someday...
   # - type: DamageOnLand
   # - type: DamageOtherOnHit
@@ -196,7 +222,7 @@
 # Since you could open pizza boxes in the stack.
 
 - type: entity
-  parent: BoxCardboard
+  parent: BoxBase # WWDP edit
   id: FoodBoxPizza
   name: pizza box
   components:
@@ -223,12 +249,30 @@
     heldPrefix: box
     shape:
     - 0,0,2,1
-  - type: Appearance
   - type: EntityStorageVisuals
     stateDoorOpen: box-open
     stateDoorClosed: box
   - type: StaticPrice
     price: 0
+  - type: Tag # WWDP edit start
+    tags:
+    - BoxCardboard
+    - BoxMaterial
+  - type: Construction
+    graph: BoxCardboard
+    node: boxcardboard
+    containers:
+    - entity_storage
+  - type: Appearance
+  - type: EmitSoundOnPickup
+    sound: /Audio/SimpleStation14/Items/Handling/cardboardbox_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound: /Audio/SimpleStation14/Items/Handling/cardboardbox_drop.ogg
+  - type: EmitSoundOnLand
+    sound: /Audio/SimpleStation14/Items/Handling/cardboardbox_drop.ogg
+  - type: PhysicalComposition
+    materialComposition:
+      Cardboard: 100 # WWDP end
 
 - type: entity
   name: pizza box
@@ -300,7 +344,7 @@
 # Nugget
 
 - type: entity
-  parent: [ BoxCardboard, BaseBagOpenClose ]
+  parent: [ BoxBase, BaseBagOpenClose ] # WWDP edit BoxCardboard -> BoxBase
   id: FoodBoxNugget
   name: chicken nuggets
   description: You suddenly have an urge to trade on the intergalactic stock market.
@@ -355,11 +399,19 @@
     - box5
     - box6
   - type: Appearance
+  - type: Construction # WWDP edit start
+    graph: BoxCardboard
+    node: boxcardboard
+    containers:
+    - entity_storage
+  - type: PhysicalComposition
+    materialComposition:
+      Cardboard: 100 # WWDP end
 
 # Donkpocket
 
 - type: entity
-  parent: BoxCardboard
+  parent: BoxMaterialBase # WWDP edit
   id: FoodBoxDonkpocket
   name: box of donk-pockets
   description: 'Instructions: Heat in microwave. Product will cool if not eaten within seven minutes.'
@@ -369,7 +421,7 @@
     state: box
   - type: Storage
     grid:
-    - 0,0,3,2
+    - 0,0,3,2 # WWDP edit
     whitelist:
       tags:
       - DonkPocket
@@ -380,6 +432,14 @@
     contents:
     - id: FoodDonkpocket
       amount: 6
+  - type: Construction # WWDP edit start
+    graph: BoxCardboard
+    node: boxcardboard
+    containers:
+    - entity_storage
+  - type: PhysicalComposition
+    materialComposition:
+      Cardboard: 100 # WWDP end
 
 - type: entity
   parent: FoodBoxDonkpocket
@@ -494,7 +554,7 @@
 
 - type: entity
   id: HappyHonk
-  parent: [ BoxCardboard, BaseBagOpenClose ]
+  parent: [ BoxBase, BaseBagOpenClose ] # WWDP edit BoxCardboard -> BoxBase
   name: happy honk meal
   suffix: Toy Safe
   description: The toy is more edible than the food.
@@ -505,14 +565,26 @@
     layers:
     - state: box
   - type: Item
+    size: Large # WWDP edit start
+    shape:
+    - 0,0,2,2 # WWDP end
     sprite: Objects/Storage/Happyhonk/clown.rsi
     heldPrefix: box
   - type: Storage
     maxItemSize: Normal
     grid:
     - 0,0,3,3
+  - type: Appearance # WWDP edit start
+  - type: EmitSoundOnPickup
+    sound: /Audio/SimpleStation14/Items/Handling/cardboardbox_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound: /Audio/SimpleStation14/Items/Handling/cardboardbox_drop.ogg
+  - type: EmitSoundOnLand
+    sound: /Audio/SimpleStation14/Items/Handling/cardboardbox_drop.ogg # WWDP end
   - type: Tag
     tags:
+    - BoxMaterial # WWDP edit
+    - BoxCardboard # WWDP edit
     - Trash
     - HappyHonk
   - type: StorageFill
@@ -784,16 +856,6 @@
   name: box of FlutterSoft-brand cloth
   description: Fiber is the most important moth meal of the day! Don't skip it or use bottom-of-the-locker junk, buy high-quality FlutterSoft-brand cloth instead.
   components:
-  - type: Sprite
-    sprite: Objects/Consumable/Food/ingredients.rsi
-    state: cloth-box
-  - type: Storage
-    grid:
-    - 0,0,1,1
-    maxItemSize: Normal
-    whitelist:
-      tags:
-      - ClothMade
   - type: Item
     size: Normal
   - type: StorageFill

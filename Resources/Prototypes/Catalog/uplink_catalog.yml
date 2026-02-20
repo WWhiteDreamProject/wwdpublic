@@ -139,13 +139,11 @@
 #   name: uplink-revolver-python-name
 #   description: uplink-revolver-python-desc
 #   productEntity: WeaponRevolverPythonAP
-#   # WD EDIT START
 #   discountCategory: rareDiscounts
 #   discountDownTo:
-#     Telecrystal: 2
+#     Telecrystal: 1 # WD EDIT: 2 -> 1
 #   cost:
-#     Telecrystal: 8
-#   # WD EDIT END
+#     Telecrystal: 4
 #   categories:
 #   - UplinkWeaponry
 #
@@ -184,7 +182,7 @@
   id: UplinkSniperBundle
   name: uplink-sniper-bundle-name
   description: uplink-sniper-bundle-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Snipers/heavy_sniper.rsi, state: base }
+  icon: { sprite: /Textures/_White/Objects/Weapons/Guns/Snipers/dmr-51-cyclops.rsi, state: base } # WWDP edit
   productEntity: BriefcaseSyndieSniperBundleFilled
   # WD EDIT START
   discountCategory: veryRareDiscounts
@@ -291,10 +289,10 @@
   - UplinkExplosives
 
 - type: listing
-  id: UplinkSupermatterGrenade
-  name: uplink-supermatter-grenade-name
-  description: uplink-supermatter-grenade-desc
-  productEntity: SupermatterGrenade
+  id: UplinkSingularityGrenade
+  name: uplink-singularity-grenade-name
+  description: uplink-singularity-grenade-desc
+  productEntity: SingularityGrenade
   discountCategory: usualDiscounts
   discountDownTo:
     Telecrystal: 2 # WD EDIT
@@ -2202,11 +2200,11 @@
   name: uplink-revolver-cap-gun-fake-name
   description: uplink-revolver-cap-gun-fake-desc
   productEntity: RevolverCapGunFake
-  discountCategory: rareDiscounts # WD EDIT
+  discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 1 # WD EDIT
+    Telecrystal: 1 # WD EDIT: 3 -> 1
   cost:
-    Telecrystal: 4 # WD EDIT
+    Telecrystal: 4 # WD EDIT: 5 -> 4
   categories:
   - UplinkJob
   conditions:
@@ -2376,11 +2374,11 @@
   description: uplink-combat-bakery-desc
   icon: { sprite:  Objects/Consumable/Food/Baked/bread.rsi, state: baguette}
   productEntity: CombatBakeryKit
-  discountCategory: rareDiscounts
+  discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 1 # WD EDIT
+    Telecrystal: 1 # WD EDIT: 2 -> 1
   cost:
-    Telecrystal: 3 # WD EDIT
+    Telecrystal: 3 # WD EDIT: 4 -> 3
   categories:
   - UplinkJob
   conditions:

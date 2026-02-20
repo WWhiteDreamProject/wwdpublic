@@ -29,6 +29,8 @@
   parent: BaseMobConstructHarvester
   components:
   - type: BloodCultist
+  - type: AnimateOnStartup
+    animation: MobSpawnConstruct
 
 - type: entity
   id: MobConstructHarvesterHoly
@@ -36,3 +38,6 @@
   - BaseMobConstructHoly
   - BaseMobConstructHarvester
   name: purified harvester
+  components:
+  - type: AnimateOnStartup
+    animation: MobSpawnConstructHoly

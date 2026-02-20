@@ -82,17 +82,15 @@
   components:
   - type: Sprite
     sprite: Objects/Specific/Cargo/mail_large.rsi
-    scale: 0.85,0.85
     layers:
     - state: icon
       map: [ "enum.DeliveryVisualLayers.Icon" ]
+    - map: [ "enum.DeliveryVisualLayers.JobStamp" ]
+      offset: 0.21875, -0.1875 # WWDP edit start
     - state: trash
       map: [ "enum.DeliveryVisualLayers.Trash" ]
       visible: false
-    - state: postmark
-    - map: [ "enum.DeliveryVisualLayers.JobStamp" ]
-      scale: 0.6, 0.6
-      offset: -0.23, -0.23
+    - state: postmark # WWDP edit end
     - state: fragile
       map: [ "enum.DeliveryVisualLayers.FragileStamp" ]
       visible: false
@@ -122,7 +120,6 @@
   components:
   - type: Sprite
     sprite: Objects/Specific/Cargo/mail.rsi
-    scale: 0.8,0.8
     layers:
     - state: icon
       map: [ "enum.DeliveryVisualLayers.Icon" ]
@@ -131,8 +128,7 @@
       visible: false
     - state: postmark
     - map: [ "enum.DeliveryVisualLayers.JobStamp" ]
-      scale: 0.8, 0.8
-      offset: 0.225, 0.165
+      offset: 0.125, 0.0625 # WWDP edit
     - state: fragile
       map: [ "enum.DeliveryVisualLayers.FragileStamp" ]
       visible: false

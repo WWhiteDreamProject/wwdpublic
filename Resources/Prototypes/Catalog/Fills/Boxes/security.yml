@@ -1,25 +1,34 @@
 - type: entity
   name: handcuff box
-  parent: BoxCardboard
+  parent: BoxPlastic # WWDP edit
   id: BoxHandcuff
   description: A box full of handcuffs.
   components:
-  - type: Storage
-    whitelist:
-      components:
-      - Handcuff
   - type: StorageFill
     contents:
       - id: Handcuffs
         amount: 4
   - type: Sprite
     layers:
-      - state: box_security
-      - state: handcuff
+    - state: box_plastic_rib_grey_base # WWDP edit start
+    - state: bg
+      map: [ paper ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: handcuff
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_plastic_sec
+      map: [ top ]
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        top:
+          True: { state: box_plastic_sec_open }
+          False: { state: box_plastic_sec } # WWDP end
 
 - type: entity
   name: prisoner headset box
-  parent: BoxCardboard
+  parent: BoxPlastic # WWDP edit
   id: BoxPrisonerHeadset
   description: A box of prisoner headsets.
   components:
@@ -29,12 +38,25 @@
       amount: 4
   - type: Sprite
     layers:
-    - state: box_security
+    - state: box_plastic_rib_grey_base # WWDP edit start
+    - state: bg
+      map: [ paper ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
     - state: headset
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_plastic_chem
+      map: [ top ]
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        top:
+          True: { state: box_plastic_chem_open }
+          False: { state: box_plastic_chem } # WWDP end
 
 - type: entity
   name: flashbang box
-  parent: BoxCardboard
+  parent: BoxSteel # WWDP edit
   id: BoxFlashbang
   description: 'WARNING: These devices are extremely dangerous and can cause blindness or deafness in repeated use.'
   components:
@@ -44,12 +66,25 @@
         amount: 4
   - type: Sprite
     layers:
-      - state: box_security
-      - state: flashbang
+    - state: box_steel_rib_base # WWDP edit start
+    - state: bg
+      map: [ paper ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: flashbang
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_steel_sec
+      map: [ top ]
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        top:
+          True: { state: box_steel_sec_open }
+          False: { state: box_steel_sec } # WWDP end
 
 - type: entity
   name: sechud box
-  parent: BoxCardboard
+  parent: BoxPlastic # WWDP edit
   id: BoxSechud
   description: A box of security glasses.
   components:
@@ -59,44 +94,74 @@
         amount: 4
   - type: Sprite
     layers:
-      - state: box_security
-      - state: sechud
+    - state: box_plastic_rib_grey_base # WWDP edit start
+    - state: bg
+      map: [ paper ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: sechud
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_plastic_sec
+      map: [ top ]
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        top:
+          True: { state: box_plastic_sec_open }
+          False: { state: box_plastic_sec } # WWDP end
 
 - type: entity
   name: ziptie box
-  parent: BoxCardboard
+  parent: BoxPlastic # WWDP edit
   id: BoxZiptie
   description: A box full of zipties.
   components:
-  - type: Storage
-    grid:
-    - 0,0,4,3
-    whitelist:
-      components:
-      - Handcuff
   - type: StorageFill
     contents:
       - id: Zipties
         amount: 10
   - type: Sprite
     layers:
-      - state: box_security
-      - state: ziptie
+    - state: box_plastic_rib_grey_base # WWDP edit start
+    - state: bg
+      map: [ paper ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: ziptie
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_plastic_sec
+      map: [ top ]
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        top:
+          True: { state: box_plastic_sec_open }
+          False: { state: box_plastic_sec } # WWDP end
 
 - type: entity
   name: forensic pad box
-  parent: BoxCardboard
+  parent: BoxPlastic # WWDP edit
   id: BoxForensicPad
   description: A box of forensic pads.
   components:
-  - type: Item
-    shape:
-    - 0,0,1,1
   - type: StorageFill
     contents:
     - id: ForensicPad
       amount: 9
   - type: Sprite
     layers:
-      - state: box_security
-      - state: forensic
+    - state: box_plastic_rib_grey_base # WWDP edit start
+    - state: bg
+      map: [ paper ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: forensic
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_plastic_sec
+      map: [ top ]
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        top:
+          True: { state: box_plastic_sec_open }
+          False: { state: box_plastic_sec } # WWDP end
