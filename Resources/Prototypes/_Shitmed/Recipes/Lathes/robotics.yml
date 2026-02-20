@@ -1,7 +1,8 @@
 - type: latheRecipe
   abstract: true
   id: BaseIPCLimbRecipe
-  category: Robotics
+  categories:
+  - Robotics
   completetime: 2
   materials:
     Steel: 250
@@ -11,7 +12,8 @@
 - type: latheRecipe
   abstract: true
   id: BaseIPCOrganRecipe
-  category: Robotics
+  categories:
+  - Robotics
   completetime: 2
   materials:
     Steel: 250
@@ -21,7 +23,8 @@
 - type: latheRecipe
   id: TorsoIPC
   result: TorsoIPC
-  category: Robotics
+  categories:
+  - Robotics
   completetime: 3
   materials:
     Steel: 3000
@@ -34,7 +37,8 @@
 - type: latheRecipe
   id: LeftArmIPC
   result: LeftArmIPC
-  category: Robotics
+  categories:
+  - Robotics
   completetime: 2
   materials:
     Steel: 250
@@ -44,7 +48,8 @@
 - type: latheRecipe
   id: RightArmIPC
   result: RightArmIPC
-  category: Robotics
+  categories:
+  - Robotics
   completetime: 2
   materials:
     Steel: 250
@@ -54,7 +59,8 @@
 - type: latheRecipe
   id: LeftHandIPC
   result: LeftHandIPC
-  category: Robotics
+  categories:
+  - Robotics
   completetime: 2
   materials:
     Steel: 250
@@ -64,7 +70,8 @@
 - type: latheRecipe
   id: RightHandIPC
   result: RightHandIPC
-  category: Robotics
+  categories:
+  - Robotics
   completetime: 2
   materials:
     Steel: 250
@@ -74,7 +81,8 @@
 - type: latheRecipe
   id: LeftLegIPC
   result: LeftLegIPC
-  category: Robotics
+  categories:
+  - Robotics
   completetime: 2
   materials:
     Steel: 250
@@ -84,7 +92,8 @@
 - type: latheRecipe
   id: RightLegIPC
   result: RightLegIPC
-  category: Robotics
+  categories:
+  - Robotics
   completetime: 2
   materials:
     Steel: 250
@@ -94,7 +103,8 @@
 - type: latheRecipe
   id: LeftFootIPC
   result: LeftFootIPC
-  category: Robotics
+  categories:
+  - Robotics
   completetime: 2
   materials:
     Steel: 250
@@ -104,7 +114,8 @@
 - type: latheRecipe
   id: RightFootIPC
   result: RightFootIPC
-  category: Robotics
+  categories:
+  - Robotics
   completetime: 2
   materials:
     Steel: 250
@@ -114,7 +125,8 @@
 - type: latheRecipe
   id: HeadIPC
   result: HeadIPC
-  category: Robotics
+  categories:
+  - Robotics
   completetime: 2
   materials:
     Steel: 250
@@ -124,7 +136,8 @@
 - type: latheRecipe
   id: OrganIPCEyes
   result: OrganIPCEyes
-  category: Robotics
+  categories:
+  - Robotics
   completetime: 2
   materials:
     Steel: 250
@@ -134,7 +147,8 @@
 - type: latheRecipe
   id: OrganIPCPump
   result: OrganIPCPump
-  category: Robotics
+  categories:
+  - Robotics
   completetime: 2
   materials:
     Steel: 250
@@ -144,7 +158,8 @@
 - type: latheRecipe
   id: BorgModuleSurgery
   result: BorgModuleSurgery
-  category: Robotics
+  categories:
+  - Robotics
   completetime: 3
   materials:
     Steel: 250
@@ -154,7 +169,8 @@
 - type: latheRecipe
   id: BorgModuleAdvancedSurgery
   result: BorgModuleAdvancedSurgery
-  category: Robotics
+  categories:
+  - Robotics
   completetime: 3
   materials:
     Steel: 500
@@ -165,7 +181,8 @@
 - type: latheRecipe
   id: JawsOfLifeLeftArm
   result: JawsOfLifeLeftArm
-  category: Robotics
+  categories:
+  - Robotics
   completetime: 5
   materials:
     Steel: 1000
@@ -177,7 +194,8 @@
 - type: latheRecipe
   id: JawsOfLifeRightArm
   result: JawsOfLifeRightArm
-  category: Robotics
+  categories:
+  - Robotics
   completetime: 5
   materials:
     Steel: 1000
@@ -189,7 +207,8 @@
 - type: latheRecipe
   id: SpeedLeftLeg
   result: SpeedLeftLeg
-  category: Robotics
+  categories:
+  - Robotics
   completetime: 5
   materials:
     Steel: 1000
@@ -201,7 +220,8 @@
 - type: latheRecipe
   id: SpeedRightLeg
   result: SpeedRightLeg
-  category: Robotics
+  categories:
+  - Robotics
   completetime: 5
   materials:
     Steel: 1000
@@ -213,7 +233,8 @@
 - type: latheRecipe
   id: BasicCyberneticEyes
   result: BasicCyberneticEyes
-  category: Robotics
+  categories:
+  - Robotics
   completetime: 5
   materials:
     Steel: 1000

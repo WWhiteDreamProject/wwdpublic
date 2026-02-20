@@ -1,6 +1,6 @@
 - type: entity
   name: syringe box
-  parent: BoxCardboard
+  parent: BoxPlastic # WWDP edit
   id: BoxSyringe
   description: A box full of syringes.
   components:
@@ -10,12 +10,25 @@
         amount: 6
   - type: Sprite
     layers:
-      - state: box
-      - state: syringe
+    - state: box_plastic_base # WWDP edit start
+    - state: bg
+      map: [ paper ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: syringe
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_plastic_chem
+      map: [ top ]
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        top:
+          True: { state: box_plastic_chem_open }
+          False: { state: box_plastic_chem } # WWDP end
 
 - type: entity
   name: pill canister box
-  parent: BoxCardboard
+  parent: BoxPlastic # WWDP edit
   id: BoxPillCanister
   description: A box full of pill canisters.
   components:
@@ -25,12 +38,25 @@
         amount: 9
   - type: Sprite
     layers:
-      - state: box
-      - state: pillbox
+    - state: box_plastic_base # WWDP edit start
+    - state: bg
+      map: [ paper ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: pillbox
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_plastic_chem
+      map: [ top ]
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        top:
+          True: { state: box_plastic_chem_open }
+          False: { state: box_plastic_chem } # WWDP end
 
 - type: entity
   name: bottle box
-  parent: BoxCardboard
+  parent: BoxPlastic # WWDP edit
   id: BoxBottle
   description: A box full of bottles.
   components:
@@ -40,12 +66,25 @@
         amount: 6
   - type: Sprite
     layers:
-      - state: box
-      - state: bottle
+    - state: box_plastic_base # WWDP edit start
+    - state: bg
+      map: [ paper ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: bottle
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_plastic_chem
+      map: [ top ]
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        top:
+          True: { state: box_plastic_chem_open }
+          False: { state: box_plastic_chem } # WWDP end
 
 - type: entity
   name: sterile mask box
-  parent: BoxCardboard
+  parent: BoxPlastic # WWDP edit
   id: BoxSterileMask
   description: This box contains sterile medical masks.
   components:
@@ -55,12 +94,25 @@
         amount: 4
   - type: Sprite
     layers:
-      - state: box
-      - state: sterile
+    - state: box_plastic_base # WWDP edit start
+    - state: bg
+      map: [ paper ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: sterile
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_plastic_med
+      map: [ top ]
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        top:
+          True: { state: box_plastic_med_open }
+          False: { state: box_plastic_med } # WWDP end
 
 - type: entity
   name: latex gloves box
-  parent: BoxCardboard
+  parent: BoxPlastic # WWDP edit
   id: BoxLatexGloves
   description: Contains sterile latex gloves.
   components:
@@ -70,12 +122,25 @@
         amount: 4
   - type: Sprite
     layers:
-      - state: box
-      - state: latex
+    - state: box_plastic_base # WWDP edit start
+    - state: bg
+      map: [ paper ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: latex
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_plastic_med
+      map: [ top ]
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        top:
+          True: { state: box_plastic_med_open }
+          False: { state: box_plastic_med } # WWDP end
 
 - type: entity
   name: nitrile gloves box
-  parent: BoxCardboard
+  parent: BoxPlastic # WWDP edit
   id: BoxNitrileGloves
   description: Contains sterile nitrile gloves. Better than latex.
   components:
@@ -85,12 +150,26 @@
         amount: 4
   - type: Sprite
     layers:
-      - state: box
-      - state: nitrile
+    - state: box_plastic_base # WWDP edit start
+    - state: bg
+      map: [ paper ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: nitrile
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_plastic_med
+      map: [ top ]
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        top:
+          True: { state: box_plastic_med_open }
+          False: { state: box_plastic_med } # WWDP end
+
 
 - type: entity
   name: body bag box
-  parent: BoxCardboard
+  parent: BoxPlastic # WWDP edit
   id: BoxBodyBag
   description: Contains body bags.
   components:
@@ -100,26 +179,46 @@
         amount: 4
   - type: Sprite
     layers:
-      - state: box
-      - state: bodybags
-    whitelist:
-      tags:
-        - BodyBag
+    - state: box_plastic_base # WWDP edit start
+    - state: bg
+      map: [ paper ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: bodybags
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_plastic_med
+      map: [ top ]
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        top:
+          True: { state: box_plastic_med_open }
+          False: { state: box_plastic_med } # WWDP end
 
 - type: entity
   name: vial box
-  parent: BoxCardboard
+  parent: BoxPlastic # WWDP edit
   id: BoxVial
   description: A box full of vials.
   components:
-  - type: Storage
-    grid:
-    - 0,0,2,1
   - type: StorageFill
     contents:
       - id: BaseChemistryEmptyVial
         amount: 6
   - type: Sprite
     layers:
-      - state: box
-      - state: vials
+    - state: box_plastic_base # WWDP edit start
+    - state: bg
+      map: [ paper ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: vials
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_plastic_chem
+      map: [ top ]
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        top:
+          True: { state: box_plastic_chem_open }
+          False: { state: box_plastic_chem } # WWDP end

@@ -1,8 +1,8 @@
 - type: listing
-  id: UplinkMagazineLightRifleAK220
-  name: uplink-magazine-light-rifle-ak220-name
-  description: uplink-magazine-light-rifle-ak220-desc
-  productEntity: MagazineLightRifleAK220
+  id: UplinkMagazineLightRifleAR31Hydra
+  name: uplink-magazine-light-rifle-ar31hydra-name
+  description: uplink-magazine-light-rifle-ar31hydra-desc
+  productEntity: MagazineLightRifleAR31Hydra
   discountCategory: usualDiscounts
   discountDownTo:
     Telecrystal: 1

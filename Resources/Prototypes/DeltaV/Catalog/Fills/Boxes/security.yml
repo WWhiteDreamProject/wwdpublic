@@ -6,9 +6,21 @@
   components:
   - type: Sprite
     layers:
-    - state: box_security
-    - sprite: DeltaV/Objects/Storage/boxes.rsi
-      state: recorder
+    - state: box_card_base # WWDP edit start
+    - state: bg
+      map: [ paper ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: recorder
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_card_sec
+      map: [ top ]
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        top:
+          True: { state: box_card_sec_open }
+          False: { state: box_card_sec } # WWDP end
   - type: StorageFill
     contents:
     - id: CassetteTape

@@ -12,6 +12,8 @@
     - Energy
     reflectProb: 0.2
     spread: 90
+  - type: RadiationBlockingContainer
+    resistance: 2.5
   - type: DamageOtherOnHit
     damage:
       types:
@@ -186,7 +188,7 @@
 # Secure Crates
 
 - type: entity
-  parent: [ CrateBaseSecure, BaseRestrictedContraband ]
+  parent: [ CrateBaseSecure, BaseSecurityContraband ]
   id: CrateSecgear
   name: secgear crate
   components:
@@ -314,7 +316,7 @@
     access: [["Armory"]]
 
 - type: entity
-  parent: [ CrateBaseSecureReinforced, BaseRestrictedContraband ]
+  parent: [ CrateBaseSecureReinforced, BaseSecurityContraband ]
   suffix: Armory, Secure, Reinforced
   id: CrateContrabandStorageSecure
   name: contraband storage crate

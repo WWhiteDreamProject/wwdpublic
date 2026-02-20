@@ -24,3 +24,9 @@
       - MindRoleBloodCultist
   - type: DynamicRuleCost
     cost: 24
+
+- type: entity
+  id: DisablePreloadsRule
+  parent: BaseGameRule
+  components:
+  - type: DisablePreloadsRule
