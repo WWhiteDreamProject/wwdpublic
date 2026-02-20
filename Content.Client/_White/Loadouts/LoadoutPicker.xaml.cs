@@ -407,10 +407,14 @@ public sealed partial class LoadoutPicker : Control
         {
             _showUnusable = value;
             foreach (var entry in _loadoutEntries)
-            {
                 entry.ShowUnusable = value;
-            }
+            UpdateCategoriesVisibility();
         }
+    }
+
+    public bool IsCategoryVisiblePublic(ProtoId<LoadoutCategoryPrototype> categoryId)
+    {
+        return IsCategoryVisible(categoryId);
     }
 
     private void OnEntryEditLoadoutRequired(LoadoutEntry entry)
