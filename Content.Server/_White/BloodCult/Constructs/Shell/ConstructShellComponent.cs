@@ -14,16 +14,16 @@ public sealed partial class ConstructShellComponent : Component
     [DataField]
     public List<RadialSelectorEntry> Constructs = new()
     {
-        new() { Prototype = "SpawnMobConstructArtificerEffect", },
-        new() { Prototype = "SpawnMobConstructJuggernautEffect", },
-        new() { Prototype = "SpawnMobConstructWraithEffect", }
+        new() { Prototype = "MobConstructArtificer", },
+        new() { Prototype = "MobConstructJuggernaut", },
+        new() { Prototype = "MobConstructWraith", }
     };
 
     [DataField]
     public List<RadialSelectorEntry> PurifiedConstructs = new()
     {
-        new() { Prototype = "SpawnMobConstructArtificerHolyEffect", },
-        new() { Prototype = "SpawnMobConstructJuggernautHolyEffect", },
-        new() { Prototype = "SpawnMobConstructWraithHolyEffect", }
+        new() { Prototype = "MobConstructArtificerHoly", },
+        new() { Prototype = "MobConstructJuggernautHoly", },
+        new() { Prototype = "MobConstructWraithHoly", }
     };
 }

@@ -1,55 +1,94 @@
 ﻿- type: entity
   name: shotgun meteor cartridges dispenser
-  parent: AmmoProviderShotgunShell
+  parent: BoxMagazine
   id: BoxMeteor
   description: A dispenser box full of meteor shots, designed for riot shotguns.
   components:
-  - type: BallisticAmmoProvider
-    proto: ShellShotgunMeteor
+  - type: StorageFill
+    contents:
+    - id: ShellShotgunMeteor
+      amount: 16
   - type: Sprite
-    sprite: _White/Objects/Storage/Boxes.rsi
+    sprite: _White/Objects/Storage/boxes.rsi
     layers:
-    - state: boxwide
+    - state: box_steel_rib_base
+    - state: bg
+      map: [ paper ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
     - state: shellmeteor
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_steel_sec
+      map: [ top ]
 
 - type: entity
   name: shotgun FRAG cartridges dispenser
-  parent: AmmoProviderShotgunShell
+  parent: BoxMagazine
   id: BoxFrag
   description: A dispenser box full of FRAG shots, designed for riot shotguns.
   components:
-  - type: BallisticAmmoProvider
-    proto: ShellShotgunFrag
+  - type: StorageFill
+    contents:
+    - id: ShellShotgunFrag
+      amount: 16
   - type: Sprite
-    sprite: _White/Objects/Storage/Boxes.rsi
+    sprite: _White/Objects/Storage/boxes.rsi
     layers:
-    - state: boxwide
+    - state: box_steel_rib_base
+    - state: bg
+      map: [ paper ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
     - state: shellfrag
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_steel_sec
+      map: [ top ]
 
 - type: entity
   name: shotgun laser cartridges dispenser
-  parent: AmmoProviderShotgunShell
+  parent: BoxMagazine
   id: BoxLaser
   description: A dispenser box full of laser shots, designed for riot shotguns.
   components:
-  - type: BallisticAmmoProvider
-    proto: ShellShotgunLaser
+  - type: StorageFill
+    contents:
+    - id: ShellShotgunLaser
+      amount: 16
   - type: Sprite
-    sprite: _White/Objects/Storage/Boxes.rsi
+    sprite: _White/Objects/Storage/boxes.rsi
     layers:
-    - state: boxwide
+    - state: box_steel_rib_base
+    - state: bg
+      map: [ paper ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
     - state: shelllaser
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_steel_sec
+      map: [ top ]
 
 - type: entity
   name: shotgun breach cartridges dispenser
-  parent: AmmoProviderShotgunShell
+  parent: BoxMagazine
   id: BoxBreach
   description: A dispenser box full of breach shots, designed for riot shotguns.
   components:
-  - type: BallisticAmmoProvider
-    proto: ShellShotgunBreach
+  - type: StorageFill
+    contents:
+    - id: ShellShotgunBreach
+      amount: 16
   - type: Sprite
-    sprite: _White/Objects/Storage/Boxes.rsi
+    sprite: _White/Objects/Storage/boxes.rsi
     layers:
-    - state: boxwide
+    - state: box_steel_rib_base
+    - state: bg
+      map: [ paper ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
     - state: shellbreach
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_steel_sec
+      map: [ top ]
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 30

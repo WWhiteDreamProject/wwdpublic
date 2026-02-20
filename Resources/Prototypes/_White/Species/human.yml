@@ -8,8 +8,8 @@
     Hair: MobHumanoidAnyMarking
     FacialHair: MobHumanoidAnyMarking
     Snout: MobHumanoidAnyMarking
-    Underwear: MobHumanoidAnyMarking
-    Undershirt: MobHumanoidAnyMarking
+    UndergarmentTop: MobHumanoidAnyMarking
+    UndergarmentBottom: MobHumanoidAnyMarking
     Chest: MobHumanSlimTorso
     HeadTop: MobHumanoidAnyMarking
     Tail: MobHumanoidAnyMarking
@@ -36,7 +36,7 @@
   baseSprite:
     sprite: _White/Mobs/Species/Human/parts.rsi
     state: head_slim_f
-    
+
 - type: humanoidBaseSprite
   id: MobHumanSlimHeadFemale
   baseSprite:
@@ -54,7 +54,7 @@
   baseSprite:
     sprite: _White/Mobs/Species/Human/parts.rsi
     state: torso_slim_f
-    
+
 - type: humanoidBaseSprite
   id: MobHumanSlimTorsoFemale
   baseSprite:

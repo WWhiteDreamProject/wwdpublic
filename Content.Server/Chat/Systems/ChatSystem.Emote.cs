@@ -225,6 +225,11 @@ public partial class ChatSystem
     {
         var ev = new EmoteEvent(proto);
         RaiseLocalEvent(uid, ref ev, true); // goob edit
+
+        // WD EDIT START
+        if (proto.Animation.HasValue)
+            _whiteAnimationPlayer.Play(uid, proto.Animation.Value);
+        // WD EDIT END
     }
 }
 

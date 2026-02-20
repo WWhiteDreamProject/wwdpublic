@@ -5,7 +5,7 @@
   prototype: MobVox
   # WD EDIT START
   bodyTypes:
-    - VoxNormal
+  - VoxNormal
   # WD EDIT END
   markingLimits: MobVoxMarkingLimits
   dollPrototype: MobVoxDummy
@@ -21,12 +21,14 @@
 - type: bodyType
   id: VoxNormal
   name: body-normal
-# WD EDIT END
+  # WD EDIT END
   sprites:
     Head: MobVoxHead
     Snout: MobHumanoidAnyMarking
     Hair: MobHumanoidAnyMarking
     FacialHair: MobHumanoidAnyMarking
+    UndergarmentTop: MobHumanoidAnyMarking
+    UndergarmentBottom: MobHumanoidAnyMarking
     Chest: MobVoxTorso
     Eyes: MobVoxEyes
     LArm: MobVoxLArm
@@ -88,6 +90,12 @@
       points: 1
       required: true
       defaultMarkings: [ VoxLFootScales ]
+    UndergarmentTop:
+      points: 1
+      required: false
+    UndergarmentBottom:
+      points: 1
+      required: false
     Chest:
       points: 1
       required: false

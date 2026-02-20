@@ -5,9 +5,18 @@
   description: Sold as a "riot" shotgun, this shotgun has a special gas-operated mechanism that makes it highly effective for CQC and suppressive fire.
   components:
   - type: Sprite
-    sprite: DeltaV/Objects/Weapons/Guns/Shotguns/Adjutant.rsi
+    sprite: _White/Objects/Weapons/Guns/Shotguns/Adjutant.rsi # WWDP edit start
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: shotgun-shell-1
+      map: [ "shotgun-shell-1" ]
+    - state: shotgun-shell-2
+      map: [ "shotgun-shell-2" ]
+    - state: shotgun-shell-3
+      map: [ "shotgun-shell-3" ] # WWDP edit end
   - type: Clothing
-    sprite: DeltaV/Objects/Weapons/Guns/Shotguns/Adjutant.rsi
+    sprite: _White/Objects/Weapons/Guns/Shotguns/Adjutant.rsi # WWDP edit
   - type: Item
     size: Large
     shape: # WWDP guns resize
@@ -32,6 +41,42 @@
     proto: ShellShotgun
     soundInsert:
       path: /Audio/Weapons/Guns/MagIn/shotgun_insert.ogg
+  - type: Storage # WWDP edit start +vibe shizophrenia
+    maxItemSize: Small
+    grid:
+    - 0,0,2,0
+    whitelist:
+      tags:
+      - ShellShotgun
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+        ents: []
+      storagebase: !type:Container
+        ents: []
+  - type: ItemMapper
+    containerWhitelist: [storagebase]
+    mapLayers:
+      shotgun-shell-1:
+        minCount: 1
+        whitelist:
+          tags:
+          - ShellShotgun
+      shotgun-shell-2:
+        minCount: 2
+        whitelist:
+          tags:
+          - ShellShotgun
+      shotgun-shell-3:
+        minCount: 3
+        whitelist:
+          tags:
+          - ShellShotgun
+  - type: Appearance # WWDP edit end +vibe shizophrenia
 
 - type: entity
   name: Kammerer

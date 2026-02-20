@@ -82,7 +82,7 @@
     - BorgModuleCargo
 
   defaultModules:
-#  - BorgModuleGrapplingGun
+  - BorgModuleGrapplingGun
   - BorgModuleMining
   - BorgModuleAppraisal
   - BorgModulePKA # Lavaland

@@ -1,0 +1,72 @@
+- type: animation
+  id: Flip
+  animationTracksData:
+  - !type:AnimationTrackComponentPropertyData
+    componentType: Sprite
+    property: Rotation
+    keyFrames:
+    - !type:KeyFramePropertyData
+      value: 0
+      keyframe: 0
+    - !type:KeyFramePropertyData
+      value: 180
+      keyframe: 0.25
+    - !type:KeyFramePropertyData
+      value: 360
+      keyframe: 0.25
+  key: flip
+
+- type: animation
+  id: Spin
+  animationTracksData:
+  - !type:AnimationTrackComponentPropertyData
+    componentType: Transform
+    property: LocalRotation
+    keyFrames:
+    - !type:KeyFramePropertyData
+      value: 0
+      keyframe: 0
+    - !type:KeyFramePropertyData
+      value: 90
+      keyframe: 0.075
+    - !type:KeyFramePropertyData
+      value: 180
+      keyframe: 0.075
+    - !type:KeyFramePropertyData
+      value: 270
+      keyframe: 0.075
+    - !type:KeyFramePropertyData
+      value: 0
+      keyframe: 0.075
+    - !type:KeyFramePropertyData
+      value: 90
+      keyframe: 0.075
+    - !type:KeyFramePropertyData
+      value: 180
+      keyframe: 0.075
+    - !type:KeyFramePropertyData
+      value: 270
+      keyframe: 0.075
+    - !type:KeyFramePropertyData
+      value: 0
+      keyframe: 0.075
+  key: spin
+
+- type: animation
+  id: Jump
+  animationTracksData:
+  - !type:AnimationTrackComponentPropertyData
+    componentType: Sprite
+    property: Offset
+    interpolationMode: Cubic
+    keyFrames:
+    - !type:KeyFramePropertyData
+      value: 0, 0
+      keyframe: 0
+    - !type:KeyFramePropertyData
+      value: 0, 0.35
+      keyframe: 0.125
+    - !type:KeyFramePropertyData
+      value: 0, 0
+      keyframe: 0.125
+  key: jump

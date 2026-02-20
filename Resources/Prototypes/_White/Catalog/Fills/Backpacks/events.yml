@@ -1,0 +1,71 @@
+- type: entity
+  parent: ClothingBackpackERTMedical
+  id: ClothingBackpackAmalgestWhite
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingOuterHardsuitERTMedical
+    - id: Crowbar
+    - id: ClothingMaskGas
+    - id: BoxCaptureCartridgeWhite
+    - id: ClothingHeadsetCargo
+
+- type: entity
+  parent: ClothingBackpackERTEngineer
+  id: ClothingBackpackAmalgestYellow
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingOuterHardsuitERTEngineer
+    - id: Crowbar
+    - id: ClothingMaskGas
+    - id: BoxCaptureCartridgeYellow
+    - id: ClothingHeadsetEngineering
+
+- type: entity
+  parent: ClothingBackpackERTSecurity
+  id: ClothingBackpackAmalgestRed
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingOuterHardsuitERTSecurity
+    - id: Crowbar
+    - id: ClothingMaskGas
+    - id: BoxCaptureCartridgeRed
+    - id: ClothingHeadsetPrison
+
+- type: entity
+  parent: ClothingBackpackERTLeader
+  id: ClothingBackpackAmalgestBlue
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingOuterHardsuitERTLeader
+    - id: Crowbar
+    - id: ClothingMaskGas
+    - id: BoxCaptureCartridgeBlue
+    - id: ClothingHeadsetMedical
+
+- type: entity
+  parent: ClothingBackpackERTClown
+  id: ClothingBackpackAmalgestGreen
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingOuterHardsuitERTCentcomm
+    - id: Crowbar
+    - id: ClothingMaskGas
+    - id: BoxCaptureCartridgeGreen
+    - id: ClothingHeadsetService
+
+- type: entity
+  parent: ClothingBackpackERTJanitor
+  id: ClothingBackpackAmalgestPurple
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingOuterHardsuitERTJanitor
+    - id: Crowbar
+    - id: ClothingMaskGas
+    - id: BoxCaptureCartridgePurple
+    - id: ClothingHeadsetScience

@@ -20,7 +20,7 @@
       "directions": 4
     },
     {
-      "name": "make_cult",
+      "name": "spawn_construct",
       "delays": [
         [
           0.075,
@@ -37,7 +37,24 @@
       ]
     },
     {
-      "name": "make_holy",
+      "name": "spawn_glow_cult",
+      "delays": [
+        [
+          0.075,
+          0.075,
+          0.075,
+          0.075,
+          0.075,
+          0.075,
+          0.075,
+          0.075,
+          0.075,
+          0.35
+        ]
+      ]
+    },
+    {
+      "name": "spawn_glow_holy",
       "delays": [
         [
           0.075,

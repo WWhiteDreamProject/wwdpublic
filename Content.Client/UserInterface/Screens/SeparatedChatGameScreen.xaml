@@ -17,7 +17,7 @@
     VerticalExpand="False"
     VerticalAlignment="Bottom"
     HorizontalAlignment="Center">
-    <controls:RecordedSplitContainer Name="ScreenContainer" HorizontalExpand="True" VerticalExpand="True" SplitWidth="0" StretchDirection="TopLeft">
+    <SplitContainer Name="ScreenContainer" HorizontalExpand="True" VerticalExpand="True" SplitWidth="0" StretchDirection="TopLeft">
         <LayoutContainer Name="ViewportContainer" HorizontalExpand="True" VerticalExpand="True">
             <controls:MainViewport Name="MainViewport"/>
             <widgets:GhostGui Name="Ghost" Access="Protected" />
@@ -36,7 +36,7 @@
             </BoxContainer>
             <alerts:AlertsUI Name="Alerts" Access="Protected" />
         </LayoutContainer>
-        <PanelContainer HorizontalExpand="True" MinWidth="300" StyleClasses="ChatMainPanel">
+        <PanelContainer Name="SeparatedChatPanel" HorizontalExpand="True" MinWidth="300" StyleClasses="ChatMainPanel">
             <BoxContainer Orientation="Vertical" HorizontalExpand="True" SeparationOverride="10" Margin="10">
                 <PanelContainer StyleClasses="TopButtonChat">
                     <menuBar:GameTopMenuBar Name="TopBar" HorizontalExpand="True" Access="Protected" />
@@ -44,5 +44,5 @@
                 <chat:ChatBox VerticalExpand="True" HorizontalExpand="True" Name="Chat" Access="Protected" MinSize="0 0"/>
             </BoxContainer>
         </PanelContainer>
-    </controls:RecordedSplitContainer>
+    </SplitContainer>
 </screens:SeparatedChatGameScreen>

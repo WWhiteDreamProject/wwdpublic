@@ -1,4 +1,3 @@
-using Content.Shared.Chat;
 using Content.Shared._Goobstation.Flashbang;
 using Content.Shared.Chat;
 using Content.Shared.Chemistry;
@@ -16,15 +15,14 @@ using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Systems;
 using Content.Shared.NameModifier.EntitySystems;
 using Content.Shared.Overlays;
+using Content.Shared.Overlays.Switchable;
 using Content.Shared.Radio;
 using Content.Shared.Slippery;
 using Content.Shared.Strip.Components;
+using Content.Shared.Stunnable;
 using Content.Shared.Temperature;
 using Content.Shared.Verbs;
 using Content.Shared.Weapons.Ranged.Events;
-using Content.Shared.Overlays.Switchable;
-using Content.Shared.Stunnable;
-using Content.Shared.Movement.Events;
 
 namespace Content.Shared.Inventory;
 
@@ -33,7 +31,6 @@ public partial class InventorySystem
     public void InitializeRelay()
     {
         SubscribeLocalEvent<InventoryComponent, DamageModifyEvent>(RelayInventoryEvent);
-        SubscribeLocalEvent<InventoryComponent, TakeStaminaDamageEvent>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, ElectrocutionAttemptEvent>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, SlipAttemptEvent>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, RefreshMovementSpeedModifiersEvent>(RelayInventoryEvent);
@@ -43,12 +40,13 @@ public partial class InventorySystem
         SubscribeLocalEvent<InventoryComponent, GetDefaultRadioChannelEvent>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, RefreshNameModifiersEvent>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, TransformSpeakerNameEvent>(RelayInventoryEvent);
-        SubscribeLocalEvent<InventoryComponent, GetFlashbangedEvent>(RelayInventoryEvent); // goob edit
         SubscribeLocalEvent<InventoryComponent, SelfBeforeHyposprayInjectsEvent>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, TargetBeforeHyposprayInjectsEvent>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, SelfBeforeGunShotEvent>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, SelfBeforeClimbEvent>(RelayInventoryEvent);
+        SubscribeLocalEvent<InventoryComponent, TakeStaminaDamageEvent>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, MakeFootstepSoundEvent>(RelayInventoryEvent);
+        SubscribeLocalEvent<InventoryComponent, GetFlashbangedEvent>(RelayInventoryEvent); // goob edit
 
         // by-ref events
         SubscribeLocalEvent<InventoryComponent, GetExplosionResistanceEvent>(RefRelayInventoryEvent);
@@ -65,17 +63,17 @@ public partial class InventorySystem
         SubscribeLocalEvent<InventoryComponent, SolutionScanEvent>(RelayInventoryEvent);
 
         // ComponentActivatedClientSystems
-        SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<ShowJobIconsComponent>>(RelayInventoryEvent);
-        SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<ShowHealthBarsComponent>>(RelayInventoryEvent);
-        SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<ShowHealthIconsComponent>>(RelayInventoryEvent);
-        SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<ShowHungerIconsComponent>>(RelayInventoryEvent);
-        SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<ShowThirstIconsComponent>>(RelayInventoryEvent);
-        SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<ShowMindShieldIconsComponent>>(RelayInventoryEvent);
-        SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<ShowSyndicateIconsComponent>>(RelayInventoryEvent);
-        SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<ShowCriminalRecordIconsComponent>>(RelayInventoryEvent);
-        SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<ShowPsionicsRecordIconsComponent>>(RelayInventoryEvent);
-        SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<NightVisionComponent>>(RelayInventoryEvent);
-        SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<ThermalVisionComponent>>(RelayInventoryEvent);
+        SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<ShowJobIconsComponent>>(RefRelayInventoryEvent);
+        SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<ShowHealthBarsComponent>>(RefRelayInventoryEvent);
+        SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<ShowHealthIconsComponent>>(RefRelayInventoryEvent);
+        SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<ShowHungerIconsComponent>>(RefRelayInventoryEvent);
+        SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<ShowThirstIconsComponent>>(RefRelayInventoryEvent);
+        SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<ShowMindShieldIconsComponent>>(RefRelayInventoryEvent);
+        SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<ShowSyndicateIconsComponent>>(RefRelayInventoryEvent);
+        SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<ShowCriminalRecordIconsComponent>>(RefRelayInventoryEvent);
+        SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<ShowPsionicsRecordIconsComponent>>(RefRelayInventoryEvent);
+        SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<NightVisionComponent>>(RefRelayInventoryEvent);
+        SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<ThermalVisionComponent>>(RefRelayInventoryEvent);
 
         SubscribeLocalEvent<InventoryComponent, GetVerbsEvent<EquipmentVerb>>(OnGetEquipmentVerbs);
     }

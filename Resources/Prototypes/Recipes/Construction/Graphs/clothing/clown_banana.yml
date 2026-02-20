@@ -80,8 +80,8 @@
       - material: Bananium
         amount: 1
         doAfter: 1
-  - node: sexymask
-    entity: ClothingMaskSexyClown
+  - node: blushingmask
+    entity: ClothingMaskBlushingClown
     edges:
     - to: mask
       steps:

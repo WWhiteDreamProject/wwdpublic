@@ -26,11 +26,6 @@
     <ProjectReference Include="..\StyleSheetify\Content.StyleSheetify.Client\Content.StyleSheetify.Client.csproj" />
     <ProjectReference Include="..\StyleSheetify\Content.StyleSheetify.Shared\Content.StyleSheetify.Shared.csproj" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Spawners\" />
-    <Folder Include="_Goobstation\Devil\UI\" />
-    <Folder Include="_EE\Shadowling\UI\" />
-  </ItemGroup>
   <Import Project="..\RobustToolbox\MSBuild\Robust.Properties.targets" />
   <Import Project="..\RobustToolbox\MSBuild\XamlIL.targets" />
 </Project>

@@ -31,6 +31,7 @@
     - bluespace_3
     count: 5
   - type: Item
+    sprite: Objects/Materials/materials.rsi
     size: Small
   # WWDP quick crafts
   - type: Construction

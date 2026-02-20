@@ -20,8 +20,8 @@ namespace Content.Client.Power.APC
         protected override void Open()
         {
             base.Open();
-
             _menu = this.CreateWindow<ApcMenu>();
+            _menu.SetEntity(Owner);
             _menu.OnBreaker += BreakerPressed;
 
             var hasAccess = false;

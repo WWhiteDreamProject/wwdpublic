@@ -1,14 +1,18 @@
 - type: entity
   id: CigCartonGreen
-  parent: [ BoxCardboard, BaseBagOpenClose ]
+  parent: [ BoxBase , BaseBagOpenClose ] # WWDP edit
   name: Spessman's Smokes carton
   description: "A carton containing 6 packets of Spessman's Smokes."
   components:
   - type: Sprite
     sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/green.rsi
-    state: icon
+    layers:
+    - state: closed
+      map: ["closeLayer"]
+    - state: open
+      map: ["openLayer"]
+      visible: false
   - type: Item
-    sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/green.rsi
     size: Normal
   - type: Storage
     grid:
@@ -33,9 +37,6 @@
   components:
   - type: Sprite
     sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/red.rsi
-    state: icon
-  - type: Item
-    sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/red.rsi
   - type: StorageFill
     contents:
       - id: CigPackRed
@@ -48,9 +49,6 @@
   description: A carton containing 6 packets of AcmeCo.
   components:
   - type: Sprite
-    sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/blue.rsi
-    state: icon
-  - type: Item
     sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/blue.rsi
   - type: StorageFill
     contents:
@@ -65,9 +63,6 @@
   components:
   - type: Sprite
     sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/black.rsi
-    state: icon
-  - type: Item
-    sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/black.rsi
   - type: StorageFill
     contents:
       - id: CigPackBlack
@@ -80,9 +75,6 @@
   description: A carton containg 3 packets of Dan's soaked smokes.
   components:
   - type: Sprite
-    sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/mixed.rsi
-    state: icon
-  - type: Item
     sprite: Objects/Consumable/Smokeables/Cigarettes/Cartons/mixed.rsi
   - type: StorageFill
     contents:

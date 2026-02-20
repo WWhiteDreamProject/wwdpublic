@@ -5025,3 +5025,65 @@ Entries:
   id: 527
   time: '2026-01-25T15:42:01.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1052
+- author: DVOniksWyvern
+  changes:
+    - type: Add
+      message: WWDP-ICLA v1
+  id: 528
+  time: '2026-01-28T17:26:47.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1059
+- author: DDDecard
+  changes:
+    - type: Fix
+      message: Исправлен рендер тайлов и декалей для MapRender
+  id: 529
+  time: '2026-02-02T19:17:05.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1063
+- author: Spatison
+  changes:
+    - type: Add
+      message: Крюк-пушка и грави-пушка возвращены в игру
+  id: 530
+  time: '2026-02-08T12:59:27.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1065
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: Потребление корабельных турелей было уменьшено.
+  id: 531
+  time: '2026-02-08T12:59:54.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1066
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: Конструкты кровавого культа теперь светятся в темноте
+    - type: Fix
+      message: 'Меню выбора конструкта культа теперь корректно отображается '
+  id: 532
+  time: '2026-02-13T19:40:44.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1067
+- author: Spatison
+  changes:
+    - type: Add
+      message: Перенесен небольшой пак контента с виздена.
+  id: 533
+  time: '2026-02-14T22:29:25.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1071
+- author: Gersoon458
+  changes:
+    - type: Add
+      message: Новые спрайты огнестрела (Swebit)
+    - type: Add
+      message: >-
+        Дробовик Адъютант добавлен новый боковой контейнер для боезапаса.
+        Открывается на Е, доставать ручками, приоритет заполнения стоит у
+        магазина
+    - type: Add
+      message: >-
+        Новые спрайты коробок + новые коробки + их крафты + стейт открытого
+        состояния + рандом на спрайты больших коробок + новые иконки + стандарты
+        размеров инвентаря по размеру спрайта (Все коробки делятся на 3 основных
+        размера, а не как раньше в разнобой, но с вайтлистами)
+  id: 534
+  time: '2026-02-17T16:41:55.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1044

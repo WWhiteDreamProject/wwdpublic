@@ -7,8 +7,8 @@
     Head: MobReptilianSlimHead
     Face: MobHumanoidAnyMarking
     Snout: MobHumanoidAnyMarking
-    Underwear: MobHumanoidAnyMarking
-    Undershirt: MobHumanoidAnyMarking
+    UndergarmentTop: MobHumanoidAnyMarking
+    UndergarmentBottom: MobHumanoidAnyMarking
     Chest: MobReptilianSlimTorso
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
@@ -36,7 +36,7 @@
   baseSprite:
     sprite: _White/Mobs/Species/Reptilian/parts.rsi
     state: head_slim_f
-    
+
 - type: humanoidBaseSprite
   id: MobReptilianSlimHeadFemale
   baseSprite:
@@ -54,7 +54,7 @@
   baseSprite:
     sprite: _White/Mobs/Species/Reptilian/parts.rsi
     state: torso_slim_f
-    
+
 - type: humanoidBaseSprite
   id: MobReptilianSlimTorsoFemale
   baseSprite:

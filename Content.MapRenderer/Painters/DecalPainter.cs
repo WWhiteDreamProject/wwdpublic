@@ -1,8 +1,7 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using Content.Shared.Decals;
-using Robust.Client.ResourceManagement;
 using Robust.Client.Utility;
 using Robust.Shared.ContentPack;
 using Robust.Shared.Prototypes;
@@ -93,8 +92,6 @@ public sealed class DecalPainter
             .DrawImage(coloredImage, PixelColorBlendingMode.Multiply, PixelAlphaCompositionMode.SrcAtop, 1.0f)
             .Flip(FlipMode.Vertical));
 
-        // Very unsure why the - 1 is needed in the first place but all decals are off by exactly one pixel otherwise
-        // Woohoo!
-        canvas.Mutate(o => o.DrawImage(image, new Point((int) data.X, (int) data.Y - 1), 1.0f));
+        canvas.Mutate(o => o.DrawImage(image, new Point((int) data.X, (int) data.Y), 1.0f));
     }
 }

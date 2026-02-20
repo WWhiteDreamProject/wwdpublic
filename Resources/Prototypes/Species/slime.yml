@@ -5,7 +5,7 @@
   prototype: MobSlimePerson
   # WD EDIT START
   bodyTypes:
-    - SlimeNormal
+  - SlimeNormal
   # WD EDIT END
   defaultSkinTone: "#b8b8b8"
   markingLimits: MobSlimeMarkingLimits
@@ -16,15 +16,15 @@
 - type: bodyType
   id: SlimeNormal
   name: body-normal
-# WD EDIT END
+  # WD EDIT END
   sprites:
     Face: MobHumanoidAnyMarking
     Head: MobSlimeHead
     HeadSide: MobHumanoidAnyMarking
     Hair: MobSlimeMarkingFollowSkin
     FacialHair: MobSlimeMarkingFollowSkin
-    Underwear: MobHumanoidAnyMarking
-    Undershirt: MobHumanoidAnyMarking
+    UndergarmentTop: MobHumanoidAnyMarking
+    UndergarmentBottom: MobHumanoidAnyMarking
     Chest: MobSlimeTorso
     Eyes: MobHumanoidEyes
     LArm: MobSlimeLArm
@@ -48,14 +48,14 @@
     FacialHair:
       points: 1
       required: false
+    UndergarmentTop:
+      points: 1
+      required: false
+    UndergarmentBottom:
+      points: 1
+      required: false
     Chest:
       points: 6
-      required: false
-    Underwear:
-      points: 1
-      required: false
-    Undershirt:
-      points: 1
       required: false
     RightLeg:
       points: 2
@@ -85,7 +85,7 @@
 - type: humanoidBaseSprite
   id: MobSlimeMarkingFollowSkin
   markingsMatchSkin: true
-  layerAlpha: 0.75
+  layerAlpha: 0.72
 
 - type: humanoidBaseSprite
   id: MobSlimeHead

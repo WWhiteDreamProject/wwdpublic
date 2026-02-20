@@ -27,5 +27,3 @@ markings-category-LeftLeg = Left Leg
 markings-category-LeftFoot = Left Foot
 markings-category-Tail = Хвост
 markings-category-Overlay = Наложение
-markings-category-Undershirt = Рубашка
-markings-category-Underwear = Нижнее белье

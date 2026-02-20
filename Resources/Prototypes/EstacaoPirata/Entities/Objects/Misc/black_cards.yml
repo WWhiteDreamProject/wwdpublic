@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ BoxCardboard, BaseBagOpenClose ]
+  parent: [ BoxBase, BaseBagOpenClose ] # WWDP edit BoxCardboard -> BoxBase
   id: CardBoxBase
   name: deck box
   categories: [ HideSpawnMenu ]
@@ -27,6 +27,14 @@
     - id: CardDeckBase
       amount: 1
   - type: Appearance
+  - type: Construction # WWDP edit start
+    graph: BoxCardboard
+    node: boxcardboard
+    containers:
+    - entity_storage
+  - type: PhysicalComposition
+    materialComposition:
+      Cardboard: 100 # WWDP end
 
 # Frontier: base stack for card stack component
 - type: entity
@@ -73,7 +81,6 @@
   - type: Item
     size: Normal
   - type: CardDeck
-
 
 - type: entity
   parent: CardBoxBase

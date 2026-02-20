@@ -67,7 +67,8 @@
 - type: latheRecipe
   id: DiskBurnerMachineCircuitboard
   result: DiskBurnerMachineCircuitboard
-  category: Circuitry
+  categories:
+  - Circuitry
   completetime: 4
   materials:
      Steel: 100

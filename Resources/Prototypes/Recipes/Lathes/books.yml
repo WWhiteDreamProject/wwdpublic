@@ -2,7 +2,8 @@
   abstract: true
   id: BaseBookRecipe
   result: BookBase
-  category: Books
+  categories:
+  - Books
   completetime: 2
   materials:
     Paper: 500

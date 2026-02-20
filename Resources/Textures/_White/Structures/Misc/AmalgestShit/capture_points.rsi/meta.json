@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-4.0",
+  "copyright": "Made by @sentryprimies and edited by Gersoon(@gersoon458) for event, 08.02.2026",
+  "size": {
+    "x": 32,
+    "y": 64
+  },
+  "states": [
+    {
+      "name": "base"
+    },
+    {
+      "name": "white"
+    },
+    {
+      "name": "yellow"
+    },
+    {
+      "name": "red"
+    },
+    {
+      "name": "blue"
+    },
+    {
+      "name": "green"
+    },
+    {
+      "name": "purple"
+    },
+    {
+      "name": "grey"
+    }
+  ]
+}
