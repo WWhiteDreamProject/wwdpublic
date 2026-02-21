@@ -141,10 +141,30 @@
     tags:
     - BypassInteractionRangeChecks
     - AllowGhostShownByEvent
+  - type: VisualObserver
+    shaderName: GhostCompositeTint
+    alphaMultiplier: 0.5
+    snapshotSlots:
+    - shoes
+    - jumpsuit
+    - outerClothing
+    - gloves
+    - neck
+    - mask
+    - eyes
+    - ears
+    - head
+    - id
+    - belt
+    - back
+    - suitstorage
+    - innerBelt
+    - innerNeck
 
 - type: entity
   parent: MobObserverVisualBase
-  id: MobObserverVisualHumanoid
+  id: MobObserverVisualHumanoidBase
+  abstract: true
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -217,6 +237,14 @@
         sprite: Mobs/Effects/burn_damage.rsi
   - type: IgnoreSlowOnDamage
   - type: SpeedModifierImmunity
+
+- type: entity
+  parent: MobObserverVisualHumanoidBase
+  id: MobObserverVisualHumanoid
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: VisualObserver
+    fallbackPrototype: true
 
 - type: entity
   parent: MobObserverVisualBase
@@ -302,7 +330,7 @@
   - type: SpeedModifierImmunity
 
 - type: entity
-  parent: MobObserverVisualHumanoid
+  parent: MobObserverVisualHumanoidBase
   id: MobObserverVisualMoth
   categories: [ HideSpawnMenu ]
   components:
@@ -382,7 +410,7 @@
         sprite: Mobs/Effects/burn_damage.rsi
 
 - type: entity
-  parent: MobObserverVisualHumanoid
+  parent: MobObserverVisualHumanoidBase
   id: MobObserverVisualHarpy
   categories: [ HideSpawnMenu ]
   components:
@@ -459,7 +487,7 @@
     species: Harpy
 
 - type: entity
-  parent: MobObserverVisualHumanoid
+  parent: MobObserverVisualHumanoidBase
   id: MobObserverVisualShadowkin
   categories: [ HideSpawnMenu ]
   components:
@@ -527,7 +555,7 @@
         color: "#1c1624"
 
 - type: entity
-  parent: MobObserverVisualHumanoid
+  parent: MobObserverVisualHumanoidBase
   id: MobObserverVisualLamia
   categories: [ HideSpawnMenu ]
   components:
@@ -602,7 +630,7 @@
         sprite: Nyanotrasen/Mobs/Effects/Lamia/burn_damage.rsi
 
 - type: entity
-  parent: MobObserverVisualHumanoid
+  parent: MobObserverVisualHumanoidBase
   id: MobObserverVisualThaven
   categories: [ HideSpawnMenu ]
   components:
@@ -685,7 +713,7 @@
     species: Thaven
 
 - type: entity
-  parent: MobObserverVisualHumanoid
+  parent: MobObserverVisualHumanoidBase
   id: MobObserverVisualHuman
   categories: [ HideSpawnMenu ]
   components:
@@ -693,7 +721,7 @@
     species: Human
 
 - type: entity
-  parent: MobObserverVisualHumanoid
+  parent: MobObserverVisualHumanoidBase
   id: MobObserverVisualAbductor
   categories: [ HideSpawnMenu ]
   components:
@@ -701,7 +729,7 @@
     species: Abductor
 
 - type: entity
-  parent: MobObserverVisualHumanoid
+  parent: MobObserverVisualHumanoidBase
   id: MobObserverVisualArachnid
   categories: [ HideSpawnMenu ]
   components:
@@ -726,7 +754,7 @@
         sprite: Mobs/Effects/burn_damage.rsi
 
 - type: entity
-  parent: MobObserverVisualHumanoid
+  parent: MobObserverVisualHumanoidBase
   id: MobObserverVisualChitinid
   categories: [ HideSpawnMenu ]
   components:
@@ -742,7 +770,7 @@
             state: jumpsuit-female
 
 - type: entity
-  parent: MobObserverVisualHumanoid
+  parent: MobObserverVisualHumanoidBase
   id: MobObserverVisualDiona
   categories: [ HideSpawnMenu ]
   components:
@@ -773,7 +801,7 @@
         sprite: Mobs/Effects/burn_damage.rsi
 
 - type: entity
-  parent: MobObserverVisualHumanoid
+  parent: MobObserverVisualHumanoidBase
   id: MobObserverVisualDwarf
   categories: [ HideSpawnMenu ]
   components:
@@ -788,7 +816,7 @@
             state: jumpsuit-female
 
 - type: entity
-  parent: MobObserverVisualHumanoid
+  parent: MobObserverVisualHumanoidBase
   id: MobObserverVisualFelinid
   categories: [ HideSpawnMenu ]
   components:
@@ -805,7 +833,7 @@
             state: jumpsuit-female
 
 - type: entity
-  parent: MobObserverVisualHumanoid
+  parent: MobObserverVisualHumanoidBase
   id: MobObserverVisualGingerbread
   categories: [ HideSpawnMenu ]
   components:
@@ -835,7 +863,7 @@
         sprite: Mobs/Effects/burn_damage.rsi
 
 - type: entity
-  parent: MobObserverVisualHumanoid
+  parent: MobObserverVisualHumanoidBase
   id: MobObserverVisualIPC
   categories: [ HideSpawnMenu ]
   components:
@@ -845,7 +873,7 @@
     templateId: ipc
 
 - type: entity
-  parent: MobObserverVisualHumanoid
+  parent: MobObserverVisualHumanoidBase
   id: MobObserverVisualKobold
   categories: [ HideSpawnMenu ]
   components:
@@ -853,7 +881,7 @@
     species: Kobold
 
 - type: entity
-  parent: MobObserverVisualHumanoid
+  parent: MobObserverVisualHumanoidBase
   id: MobObserverVisualMonkey
   categories: [ HideSpawnMenu ]
   components:
@@ -861,7 +889,7 @@
     species: Monkey
 
 - type: entity
-  parent: MobObserverVisualHumanoid
+  parent: MobObserverVisualHumanoidBase
   id: MobObserverVisualOni
   categories: [ HideSpawnMenu ]
   components:
@@ -878,7 +906,7 @@
             state: jumpsuit-female
 
 - type: entity
-  parent: MobObserverVisualHumanoid
+  parent: MobObserverVisualHumanoidBase
   id: MobObserverVisualPlasmaman
   categories: [ HideSpawnMenu ]
   components:
@@ -909,7 +937,7 @@
         sprite: Mobs/Effects/burn_damage.rsi
 
 - type: entity
-  parent: MobObserverVisualHumanoid
+  parent: MobObserverVisualHumanoidBase
   id: MobObserverVisualReptilian
   categories: [ HideSpawnMenu ]
   components:
@@ -941,7 +969,7 @@
             state: shoes-digi
 
 - type: entity
-  parent: MobObserverVisualHumanoid
+  parent: MobObserverVisualHumanoidBase
   id: MobObserverVisualResomi
   categories: [ HideSpawnMenu ]
   components:
@@ -1022,7 +1050,7 @@
         sprite: _White/Mobs/Effects/Resomi/burn_damage.rsi
 
 - type: entity
-  parent: MobObserverVisualHumanoid
+  parent: MobObserverVisualHumanoidBase
   id: MobObserverVisualShadow
   categories: [ HideSpawnMenu ]
   components:
@@ -1045,7 +1073,7 @@
         sprite: Mobs/Effects/burn_damage.rsi
 
 - type: entity
-  parent: MobObserverVisualHumanoid
+  parent: MobObserverVisualHumanoidBase
   id: MobObserverVisualShadowling
   categories: [ HideSpawnMenu ]
   components:
@@ -1068,7 +1096,7 @@
         sprite: Mobs/Effects/burn_damage.rsi
 
 - type: entity
-  parent: MobObserverVisualHumanoid
+  parent: MobObserverVisualHumanoidBase
   id: MobObserverVisualSkeleton
   categories: [ HideSpawnMenu ]
   components:
@@ -1098,7 +1126,7 @@
         sprite: Mobs/Effects/burn_damage.rsi
 
 - type: entity
-  parent: MobObserverVisualHumanoid
+  parent: MobObserverVisualHumanoidBase
   id: MobObserverVisualSlimePerson
   categories: [ HideSpawnMenu ]
   components:
@@ -1128,7 +1156,7 @@
         sprite: Mobs/Effects/burn_damage.rsi
 
 - type: entity
-  parent: MobObserverVisualHumanoid
+  parent: MobObserverVisualHumanoidBase
   id: MobObserverVisualSynthHuman
   categories: [ HideSpawnMenu ]
   components:
@@ -1136,7 +1164,7 @@
     species: SynthHuman
 
 - type: entity
-  parent: MobObserverVisualHumanoid
+  parent: MobObserverVisualHumanoidBase
   id: MobObserverVisualTajaran
   categories: [ HideSpawnMenu ]
   components:
@@ -1153,7 +1181,7 @@
             state: jumpsuit-female
 
 - type: entity
-  parent: MobObserverVisualHumanoid
+  parent: MobObserverVisualHumanoidBase
   id: MobObserverVisualVox
   categories: [ HideSpawnMenu ]
   components:
@@ -1214,7 +1242,7 @@
         sprite: Mobs/Effects/burn_damage.rsi
 
 - type: entity
-  parent: MobObserverVisualHumanoid
+  parent: MobObserverVisualHumanoidBase
   id: MobObserverVisualVulpkanin
   categories: [ HideSpawnMenu ]
   components:
@@ -1230,7 +1258,7 @@
             state: jumpsuit-female
 
 - type: entity
-  parent: MobObserverVisualHumanoid
+  parent: MobObserverVisualHumanoidBase
   id: MobObserverVisualXelthia
   categories: [ HideSpawnMenu ]
   components:
@@ -1458,3 +1486,6 @@
   - type: TelegnosticProjection
   - type: Stealth
     lastVisibility: 0.66
+
+
+

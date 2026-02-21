@@ -50,6 +50,7 @@ using Content.Shared.Tag;
 using Content.Shared.Traits.Assorted.Components; // WWDP EDIT
 using Content.Shared.Warps;
 using Robust.Server.GameObjects;
+using Robust.Shared.GameObjects; // WWDP EDIT
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Map;
@@ -67,6 +68,7 @@ namespace Content.Server.Ghost
         [Dependency] private readonly SharedActionsSystem _actions = default!;
         [Dependency] private readonly IAdminLogManager _adminLog = default!;
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!; // WWDP EDIT
+        [Dependency] private readonly IComponentFactory _componentFactory = default!; // WWDP EDIT
         [Dependency] private readonly SharedEyeSystem _eye = default!;
         [Dependency] private readonly ClothingSystem _clothing = default!; // WWDP EDIT
         [Dependency] private readonly FollowerSystem _followerSystem = default!;
@@ -102,37 +104,17 @@ namespace Content.Server.Ghost
         private EntityQuery<GhostComponent> _ghostQuery;
         private EntityQuery<PhysicsComponent> _physicsQuery;
         private readonly Dictionary<EntityUid, EntityUid> _mindHumanoidSnapshotSources = new();
+        private readonly Dictionary<ProtoId<SpeciesPrototype>, string> _visualObserverBySpecies = new(); // WWDP EDIT
+        private string? _fallbackVisualObserverPrototype; // WWDP EDIT
 
         public static readonly Color AntagonistButtonColor = Color.FromHex("#7F4141"); // WWDP EDIT
 
         // WWDP EDIT START
-        [ValidatePrototypeId<EntityPrototype>]
-        private const string VisualObserverPrototypeName = "MobObserverVisualHumanoid";
-
         private enum GhostSpawnMode
         {
             Default,
             LobbyObserver
         }
-
-        private static readonly HashSet<string> VisualSnapshotSlots = new(StringComparer.Ordinal)
-        {
-            "shoes",
-            "jumpsuit",
-            "outerClothing",
-            "gloves",
-            "neck",
-            "mask",
-            "eyes",
-            "ears",
-            "head",
-            "id",
-            "belt",
-            "back",
-            "suitstorage",
-            "innerBelt",
-            "innerNeck"
-        };
         // WWDP EDIT END
 
         public override void Initialize()
@@ -141,6 +123,7 @@ namespace Content.Server.Ghost
 
             _ghostQuery = GetEntityQuery<GhostComponent>();
             _physicsQuery = GetEntityQuery<PhysicsComponent>();
+            RebuildVisualObserverPrototypeCache(); // WWDP EDIT
 
             SubscribeLocalEvent<GhostComponent, ComponentStartup>(OnGhostStartup);
             SubscribeLocalEvent<GhostComponent, MapInitEvent>(OnMapInit);
@@ -167,7 +150,65 @@ namespace Content.Server.Ghost
 
             SubscribeLocalEvent<RoundEndTextAppendEvent>(_ => MakeVisible(true));
             SubscribeLocalEvent<ToggleGhostVisibilityToAllEvent>(OnToggleGhostVisibilityToAll);
+            SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnPrototypesReloaded); // WWDP EDIT
         }
+
+        // WWDP EDIT START
+        private void OnPrototypesReloaded(PrototypesReloadedEventArgs args)
+        {
+            if (!args.WasModified<EntityPrototype>())
+                return;
+
+            RebuildVisualObserverPrototypeCache();
+        }
+
+        private void RebuildVisualObserverPrototypeCache()
+        {
+            _visualObserverBySpecies.Clear();
+            _fallbackVisualObserverPrototype = null;
+
+            foreach (var prototype in _prototypeManager.EnumeratePrototypes<EntityPrototype>())
+            {
+                if (prototype.Abstract ||
+                    !prototype.TryGetComponent<VisualObserverComponent>(out var visualObserver, _componentFactory))
+                {
+                    continue;
+                }
+
+                var protoId = prototype.ID;
+                if (visualObserver.FallbackPrototype)
+                {
+                    if (_fallbackVisualObserverPrototype is { } existingFallback &&
+                        existingFallback != protoId)
+                    {
+                        Log.Warning($"Multiple visual observer fallbacks configured: {existingFallback} and {prototype.ID}. Keeping {existingFallback}.");
+                    }
+                    else
+                    {
+                        _fallbackVisualObserverPrototype = protoId;
+                    }
+
+                    continue;
+                }
+
+                if (!prototype.TryGetComponent<HumanoidAppearanceComponent>(out var humanoid, _componentFactory))
+                {
+                    Log.Warning($"Visual observer prototype {prototype.ID} has no {nameof(HumanoidAppearanceComponent)} and cannot be species-mapped.");
+
+                    continue;
+                }
+
+                if (_visualObserverBySpecies.TryGetValue(humanoid.Species, out var existing) &&
+                    existing != protoId)
+                {
+                    Log.Warning($"Duplicate visual observer species mapping for {humanoid.Species}: {existing} and {prototype.ID}. Keeping {existing}.");
+                    continue;
+                }
+
+                _visualObserverBySpecies[humanoid.Species] = protoId;
+            }
+        }
+        // WWDP EDIT END
 
         private void OnGhostHearingAction(EntityUid uid, GhostComponent component, ToggleGhostHearingActionEvent args)
         {
@@ -893,45 +934,20 @@ namespace Content.Server.Ghost
 
         private bool TryGetVisualObserverPrototype(ProtoId<SpeciesPrototype> species, out string prototype)
         {
-            prototype = VisualObserverPrototypeName;
-            if (!_prototypeManager.TryIndex(species, out var speciesPrototype))
-                return _prototypeManager.HasIndex<EntityPrototype>(prototype);
-
-            var bySpecies = $"MobObserverVisual{speciesPrototype.ID}";
-            if (_prototypeManager.HasIndex<EntityPrototype>(bySpecies))
+            if (_visualObserverBySpecies.TryGetValue(species, out var bySpecies))
             {
                 prototype = bySpecies;
                 return true;
             }
 
-            var byDoll = TryGetVisualObserverPrototypeFromDoll(speciesPrototype.DollPrototype);
-            if (byDoll != null && _prototypeManager.HasIndex<EntityPrototype>(byDoll))
+            if (_fallbackVisualObserverPrototype is { } fallback)
             {
-                prototype = byDoll;
+                prototype = fallback;
                 return true;
             }
 
-            return _prototypeManager.HasIndex<EntityPrototype>(prototype);
-        }
-
-        private static string? TryGetVisualObserverPrototypeFromDoll(EntProtoId dollPrototype)
-        {
-            const string dollPrefix = "Mob";
-            const string dollSuffix = "Dummy";
-
-            var dollId = dollPrototype.Id;
-            if (!dollId.StartsWith(dollPrefix, StringComparison.Ordinal) ||
-                !dollId.EndsWith(dollSuffix, StringComparison.Ordinal))
-            {
-                return null;
-            }
-
-            var speciesIdLength = dollId.Length - dollPrefix.Length - dollSuffix.Length;
-            if (speciesIdLength <= 0)
-                return null;
-
-            var speciesId = dollId.Substring(dollPrefix.Length, speciesIdLength);
-            return $"MobObserverVisual{speciesId}";
+            prototype = default!;
+            return false;
         }
 
         private void ClearMindHumanoidSnapshot(EntityUid mindId)
@@ -956,19 +972,21 @@ namespace Content.Server.Ghost
 
         private void CopyInventorySnapshot(EntityUid sourceEntity, EntityUid ghost)
         {
-            if (!_inventory.TryGetSlots(sourceEntity, out var slots))
+            if (!TryComp<VisualObserverComponent>(ghost, out var visualObserver) ||
+                visualObserver.SnapshotSlots.Count == 0)
                 return;
 
             var ghostCoordinates = Transform(ghost).Coordinates;
-            foreach (var slot in slots)
+            var seen = new HashSet<string>(StringComparer.Ordinal);
+            foreach (var slotName in visualObserver.SnapshotSlots)
             {
-                if (!VisualSnapshotSlots.Contains(slot.Name))
+                if (!seen.Add(slotName))
                     continue;
 
-                if (!_inventory.TryGetSlotEntity(sourceEntity, slot.Name, out var sourceItem))
+                if (!_inventory.TryGetSlotEntity(sourceEntity, slotName, out var sourceItem))
                     continue;
 
-                CopyInventorySlotVisualSnapshot(sourceItem.Value, ghost, slot.Name, ghostCoordinates);
+                CopyInventorySlotVisualSnapshot(sourceItem.Value, ghost, slotName, ghostCoordinates);
             }
         }
 

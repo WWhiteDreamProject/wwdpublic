@@ -13,9 +13,13 @@ namespace Content.Client.Ghost
 {
     public sealed class GhostSystem : SharedGhostSystem
     {
-        private const string VisualObserverPrototypePrefix = "MobObserverVisual"; // WWDP EDIT
-        private const string CompositeGhostShaderId = "GhostCompositeTint"; // WWDP EDIT
-        private const float VisualObserverAlphaMultiplier = 0.50f; // WWDP EDIT
+        // WWDP EDIT START
+        private sealed class GhostShaderData(ShaderInstance shader, string shaderName)
+        {
+            public ShaderInstance Shader = shader;
+            public string ShaderName = shaderName;
+        }
+        // WWDP EDIT END
 
         [Dependency] private readonly IClientConsoleHost _console = default!;
         [Dependency] private readonly IPlayerManager _playerManager = default!;
@@ -24,7 +28,7 @@ namespace Content.Client.Ghost
         [Dependency] private readonly PointLightSystem _pointLightSystem = default!;
         [Dependency] private readonly ContentEyeSystem _contentEye = default!;
 
-        private readonly Dictionary<EntityUid, ShaderInstance> _compositeGhostShaders = new(); // WWDP EDIT
+        private readonly Dictionary<EntityUid, GhostShaderData> _compositeGhostShaders = new(); // WWDP EDIT
 
         public int AvailableGhostRoleCount { get; private set; }
 
@@ -67,6 +71,7 @@ namespace Content.Client.Ghost
             SubscribeLocalEvent<GhostComponent, ComponentStartup>(OnStartup);
             SubscribeLocalEvent<GhostComponent, ComponentRemove>(OnGhostRemove);
             SubscribeLocalEvent<GhostComponent, AfterAutoHandleStateEvent>(OnGhostState);
+            SubscribeLocalEvent<VisualObserverComponent, AfterAutoHandleStateEvent>(OnVisualObserverState); // WWDP EDIT
 
             SubscribeLocalEvent<GhostComponent, LocalPlayerAttachedEvent>(OnGhostPlayerAttach);
             SubscribeLocalEvent<GhostComponent, LocalPlayerDetachedEvent>(OnGhostPlayerDetach);
@@ -175,6 +180,19 @@ namespace Content.Client.Ghost
             PlayerUpdated?.Invoke(component);
         }
 
+        // WWDP EDIT START
+        private void OnVisualObserverState(EntityUid uid, VisualObserverComponent component, ref AfterAutoHandleStateEvent args)
+        {
+            if (!TryComp<GhostComponent>(uid, out var ghost) ||
+                !TryComp<SpriteComponent>(uid, out var sprite))
+            {
+                return;
+            }
+
+            ApplyGhostVisuals(uid, ghost, sprite);
+        }
+        // WWDP EDIT END
+
         private void OnGhostPlayerDetach(EntityUid uid, GhostComponent component, LocalPlayerDetachedEvent args)
         {
             GhostVisibility = false;
@@ -232,12 +250,17 @@ namespace Content.Client.Ghost
         // WWDP EDIT START
         private void ApplyGhostVisuals(EntityUid uid, GhostComponent component, SpriteComponent sprite)
         {
-            if (TryComp(uid, out MetaDataComponent? metaData) &&
-                metaData.EntityPrototype?.ID.StartsWith(VisualObserverPrototypePrefix, StringComparison.Ordinal) == true)
+            if (TryComp(uid, out VisualObserverComponent? visualObserver))
             {
-                var shader = EnsureGhostCompositeShader(uid, sprite);
+                var shader = EnsureGhostCompositeShader(uid, sprite, visualObserver.ShaderName);
+                if (shader == null)
+                {
+                    sprite.Color = component.Color;
+                    return;
+                }
+
                 shader.SetParameter("ghost_tint", new Robust.Shared.Maths.Vector3(component.Color.R, component.Color.G, component.Color.B));
-                shader.SetParameter("ghost_alpha", Math.Clamp(component.Color.A * VisualObserverAlphaMultiplier, 0f, 1f));
+                shader.SetParameter("ghost_alpha", Math.Clamp(component.Color.A * visualObserver.AlphaMultiplier, 0f, 1f));
                 sprite.Color = Color.White;
                 return;
             }
@@ -246,32 +269,48 @@ namespace Content.Client.Ghost
             sprite.Color = component.Color;
         }
 
-        private ShaderInstance EnsureGhostCompositeShader(EntityUid uid, SpriteComponent sprite)
+        private ShaderInstance? EnsureGhostCompositeShader(EntityUid uid, SpriteComponent sprite, string shaderName)
         {
-            if (!_compositeGhostShaders.TryGetValue(uid, out var shader))
+            if (!_prototype.TryIndex<ShaderPrototype>(shaderName, out var shaderPrototype))
             {
-                shader = _prototype.Index<ShaderPrototype>(CompositeGhostShaderId).InstanceUnique();
-                _compositeGhostShaders[uid] = shader;
+                RemoveGhostCompositeShader(uid, sprite);
+                return null;
             }
 
-            if (sprite.PostShader != shader)
-                sprite.PostShader = shader;
+            if (!_compositeGhostShaders.TryGetValue(uid, out var shaderData))
+            {
+                var shader = shaderPrototype.InstanceUnique();
+                shaderData = new GhostShaderData(shader, shaderName);
+                _compositeGhostShaders[uid] = shaderData;
+            }
+            else if (shaderData.ShaderName != shaderName)
+            {
+                if (sprite.PostShader == shaderData.Shader)
+                    sprite.PostShader = null;
 
-            return shader;
+                shaderData.Shader.Dispose();
+                shaderData.Shader = shaderPrototype.InstanceUnique();
+                shaderData.ShaderName = shaderName;
+            }
+
+            if (sprite.PostShader != shaderData.Shader)
+                sprite.PostShader = shaderData.Shader;
+
+            return shaderData.Shader;
         }
 
         private void RemoveGhostCompositeShader(EntityUid uid, SpriteComponent? sprite = null)
         {
-            if (!_compositeGhostShaders.Remove(uid, out var shader))
+            if (!_compositeGhostShaders.Remove(uid, out var shaderData))
                 return;
 
             if (sprite == null)
                 TryComp(uid, out sprite);
 
-            if (sprite != null && sprite.PostShader == shader)
+            if (sprite != null && sprite.PostShader == shaderData.Shader)
                 sprite.PostShader = null;
 
-            shader.Dispose();
+            shaderData.Shader.Dispose();
         }
         // WWDP EDIT END
     }
