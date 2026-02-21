@@ -5087,3 +5087,12 @@ Entries:
   id: 534
   time: '2026-02-17T16:41:55.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1044
+- author: kekoven1
+  changes:
+    - type: Add
+      message: >-
+        добавлены Инфернал и Шадовкин как варианты типа псикастера в чертах
+        персонажа
+  id: 535
+  time: '2026-02-21T20:26:28.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1072
