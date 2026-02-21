@@ -9,3 +9,13 @@
   - ActionBloodCultSummonCombatEquipment
   - ActionBloodCultSummonRitualDagger
   - ActionBloodCultBloodRites
+
+- type: weightedRandom
+  id: InfernalPowerPool
+  weights:
+    PyrokineticFlare: 1
+
+- type: weightedRandom
+  id: ShadowkinPowerPool
+  weights:
+    ShadeskipPower: 1

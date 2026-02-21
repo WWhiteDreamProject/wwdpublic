@@ -1,0 +1,70 @@
+- type: trait
+  id: Shadowkin
+  category: Psionics
+  points: -4
+  functions:
+    - !type:TraitAddComponent
+      components:
+        - type: Psionic
+          baselinePowerCost: 100
+          nextPowerCost: 0
+          removable: false
+          powerPool: ShadowkinPowerPool
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: TraitsCasterType
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - Borg
+        - MedicalBorg
+        - ResearchDirector
+        - ForensicMantis
+        - Chaplain
+        - Librarian
+        - Prisoner
+    - !type:CharacterLogicOrRequirement
+      requirements:
+        - !type:CharacterSpeciesRequirement
+          inverted: true
+          species:
+            - IPC
+        - !type:CharacterTraitRequirement
+          traits:
+            - AnomalousPositronics
+
+- type: trait
+  id: Infernal
+  category: Psionics
+  points: -4
+  functions:
+    - !type:TraitAddComponent
+      components:
+        - type: Psionic
+          removable: false
+          powerPool: InfernalPowerPool
+    - !type:TraitAddPsionics
+      psionicPowers:
+        - TelepathyPower
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: TraitsCasterType
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - Borg
+        - MedicalBorg
+        - ResearchDirector
+        - ForensicMantis
+        - Chaplain
+        - Librarian
+        - Prisoner
+    - !type:CharacterLogicOrRequirement
+      requirements:
+        - !type:CharacterSpeciesRequirement
+          inverted: true
+          species:
+            - IPC
+        - !type:CharacterTraitRequirement
+          traits:
+            - AnomalousPositronics
