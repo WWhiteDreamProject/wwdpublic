@@ -975,6 +975,8 @@ namespace Content.Client.Lobby.UI
             IsDirty = false;
             JobOverride = null;
 
+            Loadouts.ClearCustomValues(); // WD EDIT
+
             UpdateNameEdit();
             UpdateFlavorTextEdit();
             UpdateSexControls();

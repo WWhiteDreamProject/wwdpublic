@@ -435,6 +435,35 @@ public sealed partial class LoadoutPicker : Control
             return;
         }
 
+        if (loadoutPrototype.CustomName)
+        {
+            NameEdit.Text = loadout.CustomName ?? "";
+            if (loadoutPrototype.Items.Any())
+            {
+                var tempEntity = _entityManager.SpawnEntity(loadoutPrototype.Items.First(), MapCoordinates.Nullspace);
+                var itemName = _entityManager.GetComponent<MetaDataComponent>(tempEntity).EntityName;
+                NameEdit.PlaceHolder = itemName;
+                _entityManager.DeleteEntity(tempEntity);
+            }
+        }
+
+        if (loadoutPrototype.CustomDescription)
+        {
+            DescriptionEdit.TextRope = new Rope.Leaf(loadout.CustomDescription ?? "");
+            if (loadoutPrototype.Items.Any())
+            {
+                var tempEntity = _entityManager.SpawnEntity(loadoutPrototype.Items.First(), MapCoordinates.Nullspace);
+                var itemDesc = _entityManager.GetComponent<MetaDataComponent>(tempEntity).EntityDescription;
+                DescriptionEdit.Placeholder = new Rope.Leaf(itemDesc);
+                _entityManager.DeleteEntity(tempEntity);
+            }
+        }
+
+        if (loadoutPrototype.CustomContent)
+        {
+            BookTextEdit.TextRope = new Rope.Leaf(loadout.CustomContent ?? "");
+            BookTextEdit.Placeholder = new Rope.Leaf(Loc.GetString("humanoid-profile-editor-loadouts-customize-book-text-placeholder"));
+        }
         LoadoutConfigContainer.Visible = true;
 
         SpecialName.Visible = loadoutPrototype.CustomName;
@@ -468,6 +497,15 @@ public sealed partial class LoadoutPicker : Control
 
         _currEdit = loadoutEntry;
         _currPrototype = loadoutPrototype;
+    }
+
+    public void ClearCustomValues()
+    {
+        _customName.Clear();
+        _customDescription.Clear();
+        _customContent.Clear();
+        _customColorTints.Clear();
+        _customHeirloom.Clear();
     }
 
     private void ClearLoadoutCategoryButtons()
