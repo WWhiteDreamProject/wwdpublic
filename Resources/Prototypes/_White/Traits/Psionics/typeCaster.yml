@@ -43,9 +43,6 @@
         - type: Psionic
           removable: false
           powerPool: InfernalPowerPool
-    - !type:TraitAddPsionics
-      psionicPowers:
-        - TelepathyPower
   requirements:
     - !type:CharacterItemGroupRequirement
       group: TraitsCasterType
