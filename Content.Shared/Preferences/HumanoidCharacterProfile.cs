@@ -532,6 +532,8 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
             // EE - Contractors Change End
             && PreferenceUnavailable == other.PreferenceUnavailable
             && SpawnPriority == other.SpawnPriority
+            && Height == other.Height // WD EDIT
+            && Width == other.Width // WD EDIT
             && _jobPriorities.SequenceEqual(other._jobPriorities)
             && _antagPreferences.SequenceEqual(other._antagPreferences)
             && _traitPreferences.SequenceEqual(other._traitPreferences)

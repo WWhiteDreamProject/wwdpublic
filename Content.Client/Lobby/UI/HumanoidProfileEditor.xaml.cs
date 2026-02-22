@@ -1494,14 +1494,14 @@ namespace Content.Client.Lobby.UI
         {
             Profile = Profile?.WithHeight(height);
             IsDirty = true;
-            ReloadProfilePreview();
+            UpdateWeight(); // WWDP EDIT
         }
 
         private void SetProfileWidth(float width)
         {
             Profile = Profile?.WithWidth(width);
             IsDirty = true;
-            ReloadProfilePreview();
+            UpdateWeight(); // WWDP EDIT
         }
 
         public bool IsDirty
@@ -1812,13 +1812,13 @@ namespace Content.Client.Lobby.UI
             WidthSlider.MaxValue = species.MaxWidth;
             WidthSlider.SetValueWithoutEvent(Profile?.Width ?? species.DefaultWidth);
 
-            var height = MathF.Round(species.AverageHeight * HeightSlider.Value);
+            var height = MathF.Round(species.AverageHeight * (Profile?.Height ?? species.DefaultHeight)); // WWDP EDIT
             HeightLabel.Text = Loc.GetString("humanoid-profile-editor-height-label", ("height", (int) height));
 
-            var width = MathF.Round(species.AverageWidth * WidthSlider.Value);
+            var width = MathF.Round(species.AverageWidth * (Profile?.Width ?? species.DefaultWidth)); // WWDP EDIT
             WidthLabel.Text = Loc.GetString("humanoid-profile-editor-width-label", ("width", (int) width));
 
-            UpdateDimensions(SliderUpdate.Both);
+            UpdateWeight(); // WWDP EDIT
         }
 
         private enum SliderUpdate
@@ -1864,6 +1864,7 @@ namespace Content.Client.Lobby.UI
             WidthLabel.Text = Loc.GetString("humanoid-profile-editor-width-label", ("width", (int) width));
 
             UpdateWeight();
+            ReloadProfilePreview(); // WWDP EDIT
         }
 
         private void UpdateWeight()
