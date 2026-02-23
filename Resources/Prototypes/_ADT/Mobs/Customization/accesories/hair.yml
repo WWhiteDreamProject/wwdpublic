@@ -1,15 +1,20 @@
 - type: marking
   id: ADTAllhonor
-  bodyPart: Hair
   markingCategory: Hair
   sprites:
     - sprite: _ADT/Mobs/Customization/Hair/hair.rsi
       state: honor
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: ADTAllShavedFemale
-  bodyPart: Hair
   markingCategory: Hair
   sprites:
     - sprite: _ADT/Mobs/Customization/Hair/hair.rsi
       state: shaved_female
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head

@@ -22,12 +22,12 @@ using Content.Shared.NPC.Systems;
 using Content.Shared.Weapons.Melee;
 using Robust.Shared.Audio;
 using Content.Shared.Tag;
-using Content.Shared.Body.Part;
 using Content.Server.Body.Systems;
-using Content.Shared.Body.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
 using System.Linq;
+using Content.Server._White.Body.Systems;
+using Content.Shared._White.Body.Components;
 using Robust.Shared.Utility;
 using Robust.Shared.GameStates;
 using Content.Shared.Humanoid;
@@ -813,6 +813,7 @@ public sealed partial class TraitAddTag : TraitFunction
     }
 }
 
+/* TODO
 // <summary>
 //      Replaces a body part with a cybernetic. This is only for limbs such as arms and legs, don't use this for organs(old or new).
 // </summary>
@@ -821,9 +822,6 @@ public sealed partial class TraitCyberneticLimbReplacement : TraitFunction
 {
     [DataField, AlwaysPushInheritance]
     public BodyPartType RemoveBodyPart { get; private set; } = BodyPartType.Arm;
-
-    [DataField, AlwaysPushInheritance]
-    public BodyPartSymmetry PartSymmetry { get; private set; } = BodyPartSymmetry.Left;
 
     [DataField, AlwaysPushInheritance]
     public EntProtoId? ProtoId { get; private set; }
@@ -866,7 +864,7 @@ public sealed partial class TraitCyberneticLimbReplacement : TraitFunction
                 bodySystem.AttachPart(root.Value.Entity, SlotId, newLimb, root.Value.BodyPart, limbComp);
         }
     }
-}
+}*/
 
 // This may seem self referential, but it's a convenient shorthand for systems other than Traits that also use these functions.
 // By Hullrot's request for the sanity of their contributors.

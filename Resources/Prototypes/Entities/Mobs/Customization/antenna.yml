@@ -1,89 +1,119 @@
 - type: marking
   speciesRestriction: [IPC]
   id: RobotAntennaTv
-  bodyPart: HeadTop
   markingCategory: HeadTop
   sprites:
     - sprite: Mobs/Customization/ipc_antenna.rsi
       state: ipc_antenna_tv
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   speciesRestriction: [IPC]
   id: RobotAntennaTesla
-  bodyPart: HeadTop
   markingCategory: HeadTop
   sprites:
     - sprite: Mobs/Customization/ipc_antenna.rsi
       state: ipc_antenna_tesla
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 
 # - type: marking
 #   speciesRestriction: [IPC]
 #   id: RobotAntennaLightb
-#   bodyPart: HeadTop
 #   markingCategory: HeadTop
 #   sprites:
 #     - sprite: Mobs/Customization/ipc_antenna.rsi
 #       state: ipc_antenna_lightb
+#       # WD EDIT START
+#       layer: enum.HumanoidVisualLayers.HeadTop
+#       bodyPart: Head
+#       # WD EDIT END
 
 # - type: marking
 #   speciesRestriction: [IPC]
 #   id: RobotAntennaLight
-#   bodyPart: HeadTop
 #   markingCategory: HeadTop
 #   sprites:
 #     - sprite: Mobs/Customization/ipc_antenna.rsi
 #       state: ipc_antenna_light
+#       # WD EDIT START
+#       layer: enum.HumanoidVisualLayers.HeadTop
+#       bodyPart: Head
+#       # WD EDIT END
 
 - type: marking
   speciesRestriction: [IPC]
   id: RobotAntennaCyberhead
-  bodyPart: HeadTop
   markingCategory: HeadTop
   sprites:
     - sprite: Mobs/Customization/ipc_antenna.rsi
       state: ipc_antenna_cyberhead
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 
 # - type: marking
 #   speciesRestriction: [IPC]
 #   id: RobotAntennaSidelights
-#   bodyPart: HeadTop
 #   markingCategory: HeadTop
 #   sprites:
 #     - sprite: Mobs/Customization/ipc_antenna.rsi
 #       state: ipc_antenna_sidelights
+#       # WD EDIT START
+#       layer: enum.HumanoidVisualLayers.HeadTop
+#       bodyPart: Head
+#       # WD EDIT END
 
 - type: marking
   speciesRestriction: [IPC]
   id: RobotAntennaAntlers
-  bodyPart: HeadTop
   markingCategory: HeadTop
   sprites:
     - sprite: Mobs/Customization/ipc_antenna.rsi
       state: ipc_antenna_antlers
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   speciesRestriction: [IPC]
   id: RobotAntennaDroneeyes
-  bodyPart: HeadTop
   markingCategory: HeadTop
   sprites:
     - sprite: Mobs/Customization/ipc_antenna.rsi
       state: ipc_antenna_droneeyes
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   speciesRestriction: [IPC]
   id: RobotAntennaCrowned
-  bodyPart: HeadTop
   markingCategory: HeadTop
   sprites:
     - sprite: Mobs/Customization/ipc_antenna.rsi
       state: ipc_antenna_crowned
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   speciesRestriction: [IPC]
   id: RobotAntennaTowers
-  bodyPart: HeadTop
   markingCategory: HeadTop
   sprites:
     - sprite: Mobs/Customization/ipc_antenna.rsi
       state: ipc_antenna_towers
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.HeadTop
+      bodyPart: Head
+      # WD EDIT END

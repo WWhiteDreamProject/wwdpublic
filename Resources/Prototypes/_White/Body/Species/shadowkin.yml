@@ -1,0 +1,94 @@
+- type: body
+  id: Shadowkin
+  root: chest
+  bodyParts:
+    head:
+      type: Head
+      startingBodyPart: BodyPartHeadShadowkin
+      connections:
+      - chest
+      organs:
+        brain:
+          type: Brain
+          startingOrgan: OrganBrainShadowkin
+        ears:
+          type: Ears
+          startingOrgan: OrganEarsShadowkin
+        eyes:
+          type: Eyes
+          startingOrgan: OrganEyesShadowkin
+        tongue:
+          type: Tongue
+          startingOrgan: OrganTongueShadowkin
+    chest:
+      type: Chest
+      startingBodyPart: BodyPartChestShadowkin
+      connections:
+      - wings
+      - right_arm
+      - left_arm
+      - groin
+      organs:
+        heart:
+          type: Heart
+          startingOrgan: OrganHeartShadowkin
+        lungs:
+          type: Lungs
+          startingOrgan: OrganLungsShadowkin
+    groin:
+      type: Groin
+      startingBodyPart: BodyPartGroinShadowkin
+      connections:
+      - tail
+      - right_leg
+      - left_leg
+      organs:
+        stomach:
+          type: Stomach
+          startingOrgan: OrganStomachShadowkin
+        liver:
+          type: Liver
+          startingOrgan: OrganLiverShadowkin
+        kidneys:
+          type: Kidneys
+          startingOrgan: OrganKidneysShadowkin
+        appendix:
+          type: Appendix
+          startingOrgan: OrganAppendixShadowkin
+    left_arm:
+      type: LeftArm
+      startingBodyPart: BodyPartLeftArmShadowkin
+      connections:
+      - left_hand
+    right_arm:
+      type: RightArm
+      startingBodyPart: BodyPartRightArmShadowkin
+      connections:
+      - right_hand
+    left_hand:
+      type: LeftHand
+      startingBodyPart: BodyPartLeftHandShadowkin
+    right_hand:
+      type: RightHand
+      startingBodyPart: BodyPartRightHandShadowkin
+    left_leg:
+      type: LeftLeg
+      startingBodyPart: BodyPartLeftLegShadowkin
+      connections:
+      - left_foot
+    right_leg:
+      type: RightLeg
+      startingBodyPart: BodyPartRightLegShadowkin
+      connections:
+      - right_foot
+    left_foot:
+      type: LeftFoot
+      startingBodyPart: BodyPartLeftFootShadowkin
+    right_foot:
+      type: RightFoot
+      startingBodyPart: BodyPartRightFootShadowkin
+    tail:
+      type: Tail
+      startingBodyPart: BodyPartTailShadowkin
+    wings:
+      type: Wings

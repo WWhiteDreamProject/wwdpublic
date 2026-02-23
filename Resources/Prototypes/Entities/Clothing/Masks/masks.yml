@@ -18,7 +18,9 @@
     - WhitelistChameleon
   - type: HideLayerClothing
     slots:
-    - Snout
+    # WD EDIT START
+    - enum.HumanoidVisualLayers.Snout
+    # WD EDIT END
     hideOnToggle: true
 
 - type: entity
@@ -223,7 +225,9 @@
     - IPCMaskWearable
   - type: HideLayerClothing
     slots:
-    - Snout
+    # WD EDIT START
+    - enum.HumanoidVisualLayers.Snout
+    # WD EDIT END
 
 - type: entity
   parent: ClothingMaskClownBase
@@ -236,8 +240,8 @@
     - WhitelistChameleon
   - type: HideLayerClothing
     slots:
-    - Snout
   # WD EDIT START
+    - enum.HumanoidVisualLayers.Snout
   - type: Construction
     graph: BananaClownMask
     node: basemask
@@ -288,7 +292,9 @@
   - type: IdentityBlocker
   - type: HideLayerClothing
     slots:
-    - Snout
+    # WD EDIT START
+    - enum.HumanoidVisualLayers.Snout
+    # WD EDIT END
   - type: Tag
     tags:
     - IPCMaskWearable
@@ -312,7 +318,9 @@
     - IPCMaskWearable
   - type: HideLayerClothing
     slots:
-    - Snout
+    # WD EDIT START
+    - enum.HumanoidVisualLayers.Snout
+    # WD EDIT END
 
 - type: entity
   parent: ClothingMaskPullableBase
@@ -369,7 +377,9 @@
   - type: IdentityBlocker
   - type: HideLayerClothing
     slots:
-    - Snout
+    # WD EDIT START
+    - enum.HumanoidVisualLayers.Snout
+    # WD EDIT END
     hideOnToggle: true
 
 - type: entity
@@ -402,8 +412,10 @@
     - WhitelistChameleon
   - type: HideLayerClothing
     slots:
-    - Hair
-    - Snout
+    # WD EDIT START
+    - enum.HumanoidVisualLayers.Hair
+    - enum.HumanoidVisualLayers.Snout
+    # WD EDIT END
     hideOnToggle: true
   - type: Armor
     modifiers:
@@ -446,8 +458,10 @@
     - WhitelistChameleon
   - type: HideLayerClothing
     slots:
-    - Hair
-    - Snout
+    # WD EDIT START
+    - enum.HumanoidVisualLayers.Hair
+    - enum.HumanoidVisualLayers.Snout
+    # WD EDIT END
     hideOnToggle: true
   - type: FlashImmunity
   - type: EyeProtection
@@ -495,7 +509,9 @@
     - IPCMaskWearable
   - type: HideLayerClothing
     slots:
-    - Snout
+    # WD EDIT START
+    - enum.HumanoidVisualLayers.Snout
+    # WD EDIT END
   - type: IdentityBlocker
 
 - type: entity
@@ -512,7 +528,9 @@
   - type: IdentityBlocker
   - type: HideLayerClothing
     slots:
-    - Snout
+    # WD EDIT START
+    - enum.HumanoidVisualLayers.Snout
+    # WD EDIT END
   - type: Tag
     tags:
     - IPCMaskWearable
@@ -531,7 +549,9 @@
   - type: IdentityBlocker
   - type: HideLayerClothing
     slots:
-    - Snout
+    # WD EDIT START
+    - enum.HumanoidVisualLayers.Snout
+    # WD EDIT END
   - type: Tag
     tags:
     - IPCMaskWearable
@@ -550,7 +570,9 @@
   - type: IdentityBlocker
   - type: HideLayerClothing
     slots:
-    - Snout
+    # WD EDIT START
+    - enum.HumanoidVisualLayers.Snout
+    # WD EDIT END
   - type: Tag
     tags:
     - IPCMaskWearable
@@ -569,7 +591,9 @@
   - type: IdentityBlocker
   - type: HideLayerClothing
     slots:
-    - Snout
+    # WD EDIT START
+    - enum.HumanoidVisualLayers.Snout
+    # WD EDIT END
   - type: Tag
     tags:
     - IPCMaskWearable
@@ -588,7 +612,9 @@
   - type: IdentityBlocker
   - type: HideLayerClothing
     slots:
-    - Snout
+    # WD EDIT START
+    - enum.HumanoidVisualLayers.Snout
+    # WD EDIT END
   - type: Tag
     tags:
     - IPCMaskWearable
@@ -607,7 +633,9 @@
   - type: IdentityBlocker
   - type: HideLayerClothing
     slots:
-    - Snout
+    # WD EDIT START
+    - enum.HumanoidVisualLayers.Snout
+    # WD EDIT END
   - type: Tag
     tags:
     - IPCMaskWearable

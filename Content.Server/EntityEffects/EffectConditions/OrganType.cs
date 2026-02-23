@@ -1,5 +1,5 @@
-using Content.Server.Body.Components;
-using Content.Shared.Body.Prototypes;
+using Content.Shared._White.Body.Organs.Metabolizer;
+using Content.Shared._White.Body.Prototypes;
 using Content.Shared.EntityEffects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
@@ -9,7 +9,7 @@ namespace Content.Server.EntityEffects.EffectConditions;
 /// <summary>
 ///     Requires that the metabolizing organ is or is not tagged with a certain MetabolizerType
 /// </summary>
-public sealed partial class OrganType : EntityEffectCondition
+public sealed partial class MetabolizerType : EntityEffectCondition // WD EDIT: OrganType -> MetabolizerType
 {
     [DataField(required: true, customTypeSerializer: typeof(PrototypeIdSerializer<MetabolizerTypePrototype>))]
     public string Type = default!;
@@ -37,10 +37,9 @@ public sealed partial class OrganType : EntityEffectCondition
     public bool Condition(Entity<MetabolizerComponent?> metabolizer, IEntityManager entMan)
     {
         metabolizer.Comp ??= entMan.GetComponentOrNull<MetabolizerComponent>(metabolizer.Owner);
-        if (metabolizer.Comp != null
-            && metabolizer.Comp.MetabolizerTypes != null
-            && metabolizer.Comp.MetabolizerTypes.Contains(Type))
+        if (metabolizer.Comp != null && metabolizer.Comp.Types.Contains(Type)) // WD EDIT
             return ShouldHave;
+
         return !ShouldHave;
     }
 

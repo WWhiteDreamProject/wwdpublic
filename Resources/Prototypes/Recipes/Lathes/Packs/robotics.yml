@@ -19,19 +19,16 @@
   - BorgModuleFireExtinguisher
   - BorgModuleRadiationDetection
   - BorgModuleTool
-  # EE EDIT START
-  - BorgModuleSurgery
-  # EE EDIT END
 
 - type: latheRecipePack
   id: BorgLimbsStatic
   recipes:
-  - LeftArmBorg
-  - RightArmBorg
-  - LeftLegBorg
-  - RightLegBorg
-  - LightHeadBorg
-  - TorsoBorg
+  - BodyPartLeftArmBorg # WD EDIT: LeftArmBorg -> BodyPartLeftArmBorg
+  - BodyPartRightArmBorg # WD EDIT: RightArmBorg -> BodyPartRightArmBorg
+  - BodyPartLeftLegBorg # WD EDIT: LeftLegBorg -> BodyPartLeftLegBorg
+  - BodyPartRightLegBorg # WD EDIT: RightLegBorg -> BodyPartRightLegBorg
+  - BodyPartHeadBorg # WD EDIT: LightHeadBorg -> BodyPartHeadBorg
+  - BodyPartTorsoBorg # WD EDIT: TorsoBorg -> BodyPartTorsoBorg
 
 ## Dynamic
 
@@ -60,7 +57,6 @@
   - BorgModuleAdvancedTreatment
   # EE EDIT START
   - BorgModulePka
-  - BorgModuleAdvancedSurgery
   - BorgModuleJetpack
   # EE EDIT END
 

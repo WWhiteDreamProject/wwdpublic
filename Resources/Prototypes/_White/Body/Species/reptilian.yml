@@ -1,0 +1,94 @@
+﻿- type: body
+  id: Reptilian
+  root: chest
+  bodyParts:
+    head:
+      type: Head
+      startingBodyPart: BodyPartHeadReptilian
+      connections:
+      - chest
+      organs:
+        brain:
+          type: Brain
+          startingOrgan: OrganBrainHuman
+        ears:
+          type: Ears
+          startingOrgan: OrganEarsHuman
+        eyes:
+          type: Eyes
+          startingOrgan: OrganEyesHuman
+        tongue:
+          type: Tongue
+          startingOrgan: OrganTongueHuman
+    chest:
+      type: Chest
+      startingBodyPart: BodyPartChestReptilian
+      connections:
+      - wings
+      - right_arm
+      - left_arm
+      - groin
+      organs:
+        heart:
+          type: Heart
+          startingOrgan: OrganHeartHuman
+        lungs:
+          type: Lungs
+          startingOrgan: OrganLungsHuman
+    groin:
+      type: Groin
+      startingBodyPart: BodyPartGroinReptilian
+      connections:
+      - tail
+      - right_leg
+      - left_leg
+      organs:
+        stomach:
+          type: Stomach
+          startingOrgan: OrganStomachReptilian
+        liver:
+          type: Liver
+          startingOrgan: OrganLiverHuman
+        kidneys:
+          type: Kidneys
+          startingOrgan: OrganKidneysHuman
+        appendix:
+          type: Appendix
+          startingOrgan: OrganAppendixHuman
+    left_arm:
+      type: LeftArm
+      startingBodyPart: BodyPartLeftArmReptilian
+      connections:
+      - left_hand
+    right_arm:
+      type: RightArm
+      startingBodyPart: BodyPartRightArmReptilian
+      connections:
+      - right_hand
+    left_hand:
+      type: LeftHand
+      startingBodyPart: BodyPartLeftHandReptilian
+    right_hand:
+      type: RightHand
+      startingBodyPart: BodyPartRightHandReptilian
+    left_leg:
+      type: LeftLeg
+      startingBodyPart: BodyPartLeftLegReptilian
+      connections:
+      - left_foot
+    right_leg:
+      type: RightLeg
+      startingBodyPart: BodyPartRightLegReptilian
+      connections:
+      - right_foot
+    left_foot:
+      type: LeftFoot
+      startingBodyPart: BodyPartLeftFootReptilian
+    right_foot:
+      type: RightFoot
+      startingBodyPart: BodyPartRightFootReptilian
+    tail:
+      type: Tail
+      startingBodyPart: BodyPartTailReptilian
+    wings:
+      type: Wings

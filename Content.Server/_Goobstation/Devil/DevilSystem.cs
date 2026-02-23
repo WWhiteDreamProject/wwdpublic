@@ -9,6 +9,7 @@ using Content.Server._Goobstation.Devil.Condemned;
 using Content.Server._Goobstation.Devil.Contract;
 using Content.Server._Goobstation.Devil.Objectives.Components;
 using Content.Server._Goobstation.Possession;
+using Content.Server._White.Body.Systems;
 using Content.Shared._Goobstation.Bible;
 using Content.Shared._Goobstation.CheatDeath;
 using Content.Shared._Goobstation.CrematorImmune;
@@ -20,7 +21,6 @@ using Content.Server.Actions;
 using Content.Server.Administration.Systems;
 using Content.Server.Atmos.Components;
 using Content.Server.Bible.Components;
-using Content.Server.Body.Systems;
 using Content.Server.Chat.Systems;
 using Content.Server.Destructible;
 using Content.Server.Hands.Systems;
@@ -34,7 +34,6 @@ using Content.Server.Stunnable;
 using Content.Server.Temperature.Components;
 using Content.Server.Zombies;
 using Content.Shared.Silicon.Components;
-using Content.Shared._Shitmed.Body.Components;
 using Content.Shared.Actions;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage;
@@ -113,7 +112,6 @@ public sealed partial class DevilSystem : EntitySystem
 
         // Adjust stats
         EnsureComp<ZombieImmuneComponent>(devil);
-        EnsureComp<BreathingImmunityComponent>(devil);
         EnsureComp<PressureImmunityComponent>(devil);
         EnsureComp<ActiveListenerComponent>(devil);
         EnsureComp<WeakToHolyComponent>(devil).AlwaysTakeHoly = true;

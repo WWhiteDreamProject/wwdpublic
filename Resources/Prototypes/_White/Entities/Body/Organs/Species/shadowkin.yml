@@ -1,0 +1,162 @@
+- type: entity
+  id: BaseOrganShadowkin
+  parent: BaseOrgan
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Shadowkin/organs.rsi
+  - type: Food
+  - type: Extractable
+    grindableSolutionName: organ
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+  - type: FlavorProfile
+    flavors:
+    - people
+  - type: Tag
+    tags:
+    - Meat
+
+- type: entity
+  id: OrganBrainShadowkin
+  parent: [BaseOrganShadowkin, BaseOrganBrain]
+  name: shadowkin brain
+  description: Oops, I should put this back where I found it.
+  components:
+  - type: Sprite
+    state: heart
+  - type: BadFood
+  - type: FoodSequenceElement
+    entries:
+      Burger: Brain
+      Taco: Brain
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: GreyMatter
+          Quantity: 5
+
+- type: entity
+  id: OrganHeartShadowkin
+  parent: [BaseOrganShadowkin, BaseOrganHeart]
+  name: shadowkin heart
+  description: Oops, I think this belongs to someone!
+  components:
+  - type: Sprite
+    state: heart
+
+- type: entity
+  id: OrganEyesShadowkin
+  parent: [BaseOrganShadowkin, BaseOrganEyes]
+  name: shadowkin eyes
+  description: I see beyond anything you ever will!
+  components:
+  - type: Sprite
+    layers:
+    - state: eyes
+  - type: OrganAppearance
+    sprite: Mobs/Species/Shadowkin/parts.rsi
+
+- type: entity
+  id: OrganTongueShadowkin
+  parent: [BaseOrganShadowkin, BaseOrganTongue]
+  name: shadowkin tongue
+  description: What does this do again?
+
+- type: entity
+  id: OrganAppendixShadowkin
+  parent: [BaseOrganShadowkin, BaseOrganAppendix]
+  name: shadowkin appendix
+  description: I think it does nothing...
+  components:
+  - type: Sprite
+    layers:
+    - state: appendix
+
+- type: entity
+  id: OrganEarsShadowkin
+  parent: [BaseOrganShadowkin, BaseOrganEars]
+  name: shadowkin ears
+  description: Hey, listen!
+
+- type: entity
+  id: OrganLungsShadowkin
+  parent: [BaseOrganShadowkin, BaseOrganLungs]
+  name: shadowkin lungs
+  description: What is this thing?
+  components:
+  - type: Sprite
+    layers:
+    - state: core
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+      lung:
+        maxVol: 100.0
+        canReact: false
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+
+- type: entity
+  id: OrganStomachShadowkin
+  parent: [BaseOrganShadowkin, BaseOrganStomach]
+  name: shadowkin stomach
+  description: 'Yummy!", says the stomach, although you are unable to hear it.'
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+      stomach:
+        maxVol: 50
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+  - type: Metabolizer
+    types: [Shadowkin]
+
+- type: entity
+  id: OrganLiverShadowkin
+  parent: [BaseOrganShadowkin, BaseOrganLiver]
+  name: shadowkin liver
+  description: "Live 'er? I hardly know 'er!"
+  components:
+  - type: Metabolizer
+    types: [Shadowkin]
+
+- type: entity
+  id: OrganKidneysShadowkin
+  parent: [BaseOrganShadowkin, BaseOrganKidneys]
+  name: shadowkin kidneys
+  description: Give the kid their knees back, please, this is the third time this week.
+  components:
+  - type: Sprite
+    layers:
+    - state: kidneys
+  - type: Metabolizer
+    types: [Shadowkin]

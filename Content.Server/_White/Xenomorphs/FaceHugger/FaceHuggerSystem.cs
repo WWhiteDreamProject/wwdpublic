@@ -1,6 +1,7 @@
-using Content.Server.Body.Systems;
+using Content.Server._White.Body.Systems;
 using Content.Server.Popups;
 using Content.Server.Stunnable;
+using Content.Shared._White.Body.Components;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Damage;
 using Content.Shared.Hands;
@@ -119,13 +120,12 @@ public sealed class FaceHuggerSystem : EntitySystem
             || !TryComp<ClothingComponent>(uid, out var clothing)
             || clothing.InSlot != component.Slot
             || !_container.TryGetContainingContainer((uid, null, null), out var target)
-            || _body.GetRootPartOrNull(target.Owner) is not {} rootPart)
+            || _body.GetBodyParts(target.Owner, component.BodyPartType).FirstOrNull() is not {} bodyPart)
             return;
 
         var organ = Spawn(component.InfectionPrototype);
-        _body.TryCreateOrganSlot(rootPart.Entity, component.InfectionSlotId, out _, rootPart.BodyPart);
-
-        if (!_body.InsertOrgan(rootPart.Entity, organ, component.InfectionSlotId, rootPart.BodyPart))
+        if (!TryComp<OrganComponent>(organ, out var organComponent)
+            || !_body.TryCreateOrganSlotAndAttachOrgan(bodyPart.AsNullable(), (organ, organComponent), component.InfectionSlotId, organComponent.Type))
         {
             QueueDel(organ);
             return;

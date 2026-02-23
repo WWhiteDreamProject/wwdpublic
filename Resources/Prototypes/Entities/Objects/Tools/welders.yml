@@ -128,14 +128,6 @@
         Blunt: -15
         Piercing: -15
         Slash: -15
-  # Shitmed Change
-  - type: Cautery
-    speed: 0.7
-  - type: SurgeryTool
-    startSound:
-      collection: Welder
-    endSound:
-      collection: WelderOff
   - type: Fixtures
     fixtures:
       fix1:

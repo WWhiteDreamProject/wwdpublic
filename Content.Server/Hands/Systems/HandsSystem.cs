@@ -1,14 +1,13 @@
 using System.Numerics;
-using Content.Server._White.Throwing;
+using Content.Server._White.Body.Systems;
 using Content.Server.Inventory;
 using Content.Server.Stack;
 using Content.Server.Stunnable;
+using Content.Shared._White.Body.Components;
+using Content.Shared._White.Body.Systems;
 using Content.Shared.ActionBlocker;
-using Content.Shared.Body.Part;
-using Content.Shared.Body.Systems; // Shitmed Change
-using Content.Shared._Shitmed.Body.Events; // Shitmed Change
+using Content.Shared._White.Hands;
 using Content.Shared.CombatMode;
-using Content.Shared.Damage.Systems;
 using Content.Shared.Explosion;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
@@ -27,8 +26,6 @@ using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
-using Robust.Shared.Serialization;
-using Content.Shared._White.Hands;
 
 namespace Content.Server.Hands.Systems
 {
@@ -42,7 +39,8 @@ namespace Content.Server.Hands.Systems
         [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
         [Dependency] private readonly PullingSystem _pullingSystem = default!;
         [Dependency] private readonly ThrowingSystem _throwingSystem = default!;
-        [Dependency] private readonly SharedBodySystem _bodySystem = default!; // Shitmed Change
+        [Dependency] private readonly BodySystem _body = default!; // WD EDIT
+
         public override void Initialize()
         {
             base.Initialize();
@@ -58,8 +56,6 @@ namespace Content.Server.Hands.Systems
             SubscribeLocalEvent<HandsComponent, ComponentGetState>(GetComponentState);
 
             SubscribeLocalEvent<HandsComponent, BeforeExplodeEvent>(OnExploded);
-            SubscribeLocalEvent<HandsComponent, BodyPartEnabledEvent>(HandleBodyPartEnabled); // Shitmed Change
-            SubscribeLocalEvent<HandsComponent, BodyPartDisabledEvent>(HandleBodyPartDisabled); // Shitmed Change
 
             CommandBinds.Builder
                 .Bind(ContentKeyFunctions.ThrowItemInHand, new PointerInputCmdHandler(HandleThrowItem))
@@ -136,56 +132,34 @@ namespace Content.Server.Hands.Systems
             args.Handled = true; // Successful disarm.
         }
 
-        // Shitmed Change Start
-        private void TryAddHand(EntityUid uid, HandsComponent component, Entity<BodyPartComponent> part, string slot)
+        private void HandleBodyPartAdded(EntityUid uid, HandsComponent component, ref BodyPartAddedEvent args)
         {
-            if (part.Comp is null
-                || part.Comp.PartType != BodyPartType.Hand)
+            if (!args.Part.Comp.Type.HasFlag(BodyPartType.Hand)) // WD EDIT
                 return;
 
             // If this annoys you, which it should.
             // Ping Smugleaf.
-            var location = part.Comp.Symmetry switch
+            // WD EDIT START
+            var location = args.Part.Comp.Type switch
             {
-                BodyPartSymmetry.None => HandLocation.Middle,
-                BodyPartSymmetry.Left => HandLocation.Left,
-                BodyPartSymmetry.Right => HandLocation.Right,
-                _ => throw new ArgumentOutOfRangeException(nameof(part.Comp.Symmetry))
+                BodyPartType.Hand => HandLocation.Middle,
+                BodyPartType.MiddleHand => HandLocation.Middle,
+                BodyPartType.LeftHand => HandLocation.Left,
+                BodyPartType.RightHand => HandLocation.Right,
+                _ => throw new ArgumentOutOfRangeException(nameof(args.Part.Comp.Type))
             };
+            // WD EDIT END
 
-            if (part.Comp.Enabled
-                && _bodySystem.TryGetParentBodyPart(part, out var _, out var parentPartComp)
-                && parentPartComp.Enabled)
-                AddHand(uid, slot, location);
-        }
-
-        private void HandleBodyPartAdded(EntityUid uid, HandsComponent component, ref BodyPartAddedEvent args)
-        {
-            TryAddHand(uid, component, args.Part, args.Slot);
+            AddHand(uid, _body.GetBodyPartSlotId(args.SlotId), location); // WD EDIT
         }
 
         private void HandleBodyPartRemoved(EntityUid uid, HandsComponent component, ref BodyPartRemovedEvent args)
         {
-            if (args.Part.Comp is null
-                || args.Part.Comp.PartType != BodyPartType.Hand)
-                return;
-            RemoveHand(uid, args.Slot);
-        }
-
-        private void HandleBodyPartEnabled(EntityUid uid, HandsComponent component, ref BodyPartEnabledEvent args) =>
-            TryAddHand(uid, component, args.Part, SharedBodySystem.GetPartSlotContainerId(args.Part.Comp.ParentSlot?.Id ?? string.Empty));
-
-        private void HandleBodyPartDisabled(EntityUid uid, HandsComponent component, ref BodyPartDisabledEvent args)
-        {
-            if (TerminatingOrDeleted(uid)
-                || args.Part.Comp is null
-                || args.Part.Comp.PartType != BodyPartType.Hand)
+            if (!args.Part.Comp.Type.HasFlag(BodyPartType.Hand)) // WD EDIT
                 return;
 
-            RemoveHand(uid, SharedBodySystem.GetPartSlotContainerId(args.Part.Comp.ParentSlot?.Id ?? string.Empty));
+            RemoveHand(uid, _body.GetBodyPartSlotId(args.SlotId)); // WD EDIT
         }
-
-        // Shitmed Change End
 
         #region pulling
 

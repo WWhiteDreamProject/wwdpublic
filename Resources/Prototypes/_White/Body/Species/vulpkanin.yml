@@ -1,0 +1,92 @@
+﻿- type: body
+  id: Vulpkanin
+  root: chest
+  bodyParts:
+    head:
+      type: Head
+      startingBodyPart: BodyPartHeadVulpkanin
+      connections:
+      - chest
+      organs:
+        brain:
+          type: Brain
+          startingOrgan: OrganBrainHuman
+        ears:
+          type: Ears
+          startingOrgan: OrganEarsHuman
+        eyes:
+          type: Eyes
+          startingOrgan: OrganEyesHuman
+        tongue:
+          type: Tongue
+          startingOrgan: OrganTongueHuman
+    chest:
+      type: Chest
+      startingBodyPart: BodyPartChestVulpkanin
+      connections:
+      - wings
+      - right_arm
+      - left_arm
+      - groin
+      organs:
+        heart:
+          type: Heart
+          startingOrgan: OrganHeartAnimal
+        lungs:
+          type: Lungs
+          startingOrgan: OrganLungsHuman
+    groin:
+      type: Groin
+      startingBodyPart: BodyPartGroinVulpkanin
+      connections:
+      - tail
+      - right_leg
+      - left_leg
+      organs:
+        stomach:
+          type: Stomach
+          startingOrgan: OrganStomachVulpkanin
+        liver:
+          type: Liver
+          startingOrgan: OrganLiverAnimal
+        kidneys:
+          type: Kidneys
+          startingOrgan: OrganKidneysAnimal
+    left_arm:
+      type: LeftArm
+      startingBodyPart: BodyPartLeftArmVulpkanin
+      connections:
+      - left_hand
+    right_arm:
+      type: RightArm
+      startingBodyPart: BodyPartRightArmVulpkanin
+      connections:
+      - right_hand
+    left_hand:
+      type: LeftHand
+      startingBodyPart: BodyPartLeftHandVulpkanin
+    right_hand:
+      type: RightHand
+      startingBodyPart: BodyPartRightHandVulpkanin
+    left_leg:
+      type: LeftLeg
+      startingBodyPart: BodyPartLeftLegVulpkanin
+      connections:
+      - left_foot
+    right_leg:
+      type: RightLeg
+      startingBodyPart: BodyPartRightLegVulpkanin
+      connections:
+      - right_foot
+    left_foot:
+      type: LeftFoot
+      startingBodyPart: BodyPartLeftFootVulpkanin
+    right_foot:
+      type: RightFoot
+      startingBodyPart: BodyPartRightFootVulpkanin
+    tail:
+      type: Tail
+      startingBodyPart: BodyPartTailVulpkanin
+    wings:
+      type: Wings
+

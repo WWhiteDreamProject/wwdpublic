@@ -1,0 +1,63 @@
+- type: entity
+  id: BaseBodyPartArachne
+  parent: BaseBodyPart
+  abstract: true
+  name: arachne body part
+  components:
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 3
+      - ReagentId: DemonsBlood
+        Quantity: 10
+
+# Groin
+- type: entity
+  id: BodyPartGroinArachne
+  parent: [BaseBodyPartGroin, BaseBodyPartArachne]
+  name: arachne thorax
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/arachne.rsi
+    state: spider_body # placeholder sprite
+  - type: BodyPartAppearance
+    sprite: Mobs/Species/Arachnid/parts.rsi
+    state: spider_body # placeholder sprite
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 10
+      - ReagentId: Blood
+        Quantity: 20
+
+# Leg
+
+- type: entity
+  id: BodyPartLeftLegArachne
+  parent: BaseBodyPartArachne
+  name: arachne left leg
+  components:
+  - type: Sprite
+    sprite: Objects/Consumable/Food/meat.rsi # placeholder sprite
+    state: spiderleg
+  - type: Icon
+    sprite: Objects/Consumable/Food/meat.rsi
+    state: spiderleg
+  - type: BodyPart
+    bodyPartType: FullLeftLeg
+
+- type: entity
+  id: BodyPartRightLegArachne
+  parent: BaseBodyPartArachne
+  name: arachne right leg
+  components:
+  - type: Sprite
+    sprite: Objects/Consumable/Food/meat.rsi # placeholder sprite
+    state: spiderleg
+  - type: Icon
+    sprite: Objects/Consumable/Food/meat.rsi
+    state: spiderleg
+  - type: BodyPart
+    bodyPartType: FullRightLeg

@@ -1,0 +1,101 @@
+- type: entity
+  id: BaseBodyPartSkeleton
+  parent: BaseBodyPart
+  abstract: true
+  name: skeleton body part
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Skeleton/parts.rsi
+  - type: BodyPartAppearance
+    sprite: Mobs/Species/Skeleton/parts.rsi
+
+# Head
+- type: entity
+  id: BodyPartHeadSkeleton
+  parent: [BaseBodyPartHead, BaseBodyPartSkeleton]
+  name: skeleton head
+  components:
+  - type: Input
+    context: "human"
+  - type: Speech
+    speechVerb: Skeleton
+  - type: SkeletonAccent
+  - type: Actions
+  - type: Vocal
+    sounds:
+      Male: Skeleton
+      Female: Skeleton
+      Unsexed: Skeleton
+  - type: Emoting
+  - type: Grammar
+    attributes:
+      proper: true
+  - type: Examiner
+  - type: DoAfter
+  - type: MobState
+    allowedStates:
+    - Alive
+  - type: Tag
+    tags:
+    - MindTransferTarget
+    - Head
+
+# Chest
+- type: entity
+  id: BodyPartChestSkeleton
+  parent: [BaseBodyPartChest, BaseBodyPartSkeleton]
+  name: skeleton chest
+
+# Groin
+- type: entity
+  id: BodyPartGroinSkeleton
+  parent: [BaseBodyPartGroin, BaseBodyPartSkeleton]
+  name: skeleton groin
+
+# Arms
+
+- type: entity
+  id: BodyPartLeftArmSkeleton
+  parent: [BaseBodyPartLeftArm, BaseBodyPartSkeleton]
+  name: skeleton left arm
+
+- type: entity
+  id: BodyPartRightArmSkeleton
+  parent: [BaseBodyPartRightArm, BaseBodyPartSkeleton]
+  name: skeleton right arm
+
+# Hand
+
+- type: entity
+  id: BodyPartLeftHandSkeleton
+  parent: [BaseBodyPartLeftHand, BaseBodyPartSkeleton]
+  name: skeleton left hand
+
+- type: entity
+  id: BodyPartRightHandSkeleton
+  parent: [BaseBodyPartRightHand, BaseBodyPartSkeleton]
+  name: skeleton right hand
+
+# Leg
+
+- type: entity
+  id: BodyPartLeftLegSkeleton
+  parent: [BaseBodyPartLeftLeg, BaseBodyPartSkeleton]
+  name: skeleton left leg
+
+- type: entity
+  id: BodyPartRightLegSkeleton
+  parent: [BaseBodyPartRightLeg, BaseBodyPartSkeleton]
+  name: skeleton right leg
+
+# Foot
+
+- type: entity
+  id: BodyPartLeftFootSkeleton
+  parent: [BaseBodyPartLeftFoot, BaseBodyPartSkeleton]
+  name: skeleton left foot
+
+- type: entity
+  id: BodyPartRightFootSkeleton
+  parent: [BaseBodyPartRightFoot, BaseBodyPartSkeleton]
+  name: skeleton right foot

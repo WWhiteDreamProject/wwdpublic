@@ -1,0 +1,6 @@
+﻿- type: entity
+  id: OrganStomachReptilian
+  parent: OrganStomachHuman
+  components:
+  - type: Metabolizer
+    types: [ Animal ]

@@ -1,9 +1,9 @@
 using System;
+using Content.Server._White.Body.Bloodstream.Systems;
+using Content.Shared._White.Body.Bloodstream.Components;
 using Robust.Shared.IoC;
 using Robust.Shared.Log;
-using Content.Server.Body.Components;
 using Content.Shared.Chemistry.Reagent;
-using Content.Server.Body.Systems;
 using Content.Shared.EntityEffects;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Prototypes;
@@ -44,7 +44,7 @@ public sealed partial class AddReagentToBlood : EntityEffect
         var amt = Amount;
         var solution = new Solution();
         solution.AddReagent(Reagent, amt);
-        sys.TryAddToChemicals(args.TargetEntity, solution, blood);
+        sys.TryAddToBloodstream((args.TargetEntity, blood), solution); // WD EDIT
     }
 
     protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)

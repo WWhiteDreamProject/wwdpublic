@@ -40,43 +40,10 @@ public sealed partial class HumanoidAppearanceSystem
                         component.BodyType, // WD EDIT
                         component.Sex,
                         component.SkinColor,
-                        component.CustomBaseLayers
+                        component.EyeColor // WD EDIT
                     ));
             }
         });
-    }
-
-    private void OnBaseLayersSet(EntityUid uid, HumanoidAppearanceComponent component,
-        HumanoidMarkingModifierBaseLayersSetMessage message)
-    {
-        if (!_adminManager.HasAdminFlag(message.Actor, AdminFlags.Fun))
-        {
-            return;
-        }
-
-        if (message.Info == null)
-        {
-            component.CustomBaseLayers.Remove(message.Layer);
-        }
-        else
-        {
-            component.CustomBaseLayers[message.Layer] = message.Info.Value;
-        }
-
-        Dirty(uid, component);
-
-        if (message.ResendState)
-        {
-            _uiSystem.SetUiState(
-                uid,
-                HumanoidMarkingModifierKey.Key,
-                new HumanoidMarkingModifierState(component.MarkingSet, component.Species,
-                    component.BodyType, // WD EDIT
-                        component.Sex,
-                        component.SkinColor,
-                        component.CustomBaseLayers
-                    ));
-        }
     }
 
     private void OnMarkingsSet(EntityUid uid, HumanoidAppearanceComponent component,
@@ -99,7 +66,7 @@ public sealed partial class HumanoidAppearanceSystem
                     component.BodyType, // WD EDIT
                         component.Sex,
                         component.SkinColor,
-                        component.CustomBaseLayers
+                        component.EyeColor // WD EDIT
                     ));
         }
 

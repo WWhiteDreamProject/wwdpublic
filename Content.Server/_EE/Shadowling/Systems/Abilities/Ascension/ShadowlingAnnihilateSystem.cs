@@ -1,7 +1,6 @@
 using Content.Server.Actions;
 using Content.Shared._EE.Shadowling;
-using Content.Shared.Gibbing.Events;
-using Content.Server.Body.Systems;
+using Content.Shared._White.Gibbing;
 
 
 namespace Content.Server._EE.Shadowling;
@@ -13,8 +12,8 @@ namespace Content.Server._EE.Shadowling;
 /// </summary>
 public sealed class ShadowlingAnnihilateSystem : EntitySystem
 {
-    [Dependency] private readonly BodySystem _body = default!;
     [Dependency] private readonly ActionsSystem _actions = default!;
+    [Dependency] private readonly GibbingSystem _gibbing = default!; // WD EDIT
     /// <inheritdoc/>
     public override void Initialize()
     {
@@ -29,8 +28,8 @@ public sealed class ShadowlingAnnihilateSystem : EntitySystem
         var target = args.Target;
         if (HasComp<ShadowlingComponent>(target))
             return;
-        
-        _body.GibBody(target, contents: GibContentsOption.Gib);
+
+        _gibbing.Gib(target); // WD EDIT
 
         _actions.StartUseDelay(args.Action);
     }

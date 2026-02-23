@@ -1,6 +1,5 @@
 - type: marking
   id: Malstrem
-  bodyPart: Eyes
   markingCategory: Head
   speciesRestriction: [Dwarf, Human, SlimePerson, Felinid, Oni, Harpy, Vulpkanin, Arachne, Lamia, Tajaran]
   forcedColoring: false
@@ -8,10 +7,13 @@
   sprites:
   - sprite: _ADT/Mobs/Customization/augments/headaugs.rsi
     state: malstrem
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Eyes
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: Beholder
-  bodyPart: Eyes
   markingCategory: Head
   speciesRestriction: [Dwarf, Human, SlimePerson, Felinid, Oni, Harpy, Vulpkanin, Arachne, Lamia, Tajaran]
   forcedColoring: false
@@ -19,4 +21,8 @@
   sprites:
   - sprite: _ADT/Mobs/Customization/augments/headaugs.rsi
     state: beholder
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Eyes
+    bodyPart: Head
+    # WD EDIT END
 

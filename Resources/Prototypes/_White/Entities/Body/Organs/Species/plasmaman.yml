@@ -1,0 +1,145 @@
+- type: entity
+  id: BaseOrganPlasmaman
+  parent: BaseOrgan
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Plasmaman/organs.rsi
+  - type: Food
+  - type: Extractable
+    grindableSolutionName: organ
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Plasma
+          Quantity: 2.5
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Plasma
+          Quantity: 5
+  - type: FlavorProfile
+    flavors:
+    - plasma
+
+- type: entity
+  id: OrganBrainPlasmaman
+  parent: [BaseOrganPlasmaman, BaseOrganBrain]
+  name: plasmaman brain
+  components:
+  - type: BadFood
+  - type: FoodSequenceElement
+    entries:
+      Burger: Brain
+      Taco: Brain
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Plasma
+          Quantity: 2.5
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: GreyMatter
+          Quantity: 5
+        - ReagentId: Plasma
+          Quantity: 5
+
+- type: entity
+  id: OrganHeartPlasmaman
+  parent: [BaseOrganPlasmaman, BaseOrganHeart]
+  name: plasmaman heart
+  description: It pulses with plasma even outside the body.
+
+- type: entity
+  id: OrganEyesPlasmaman
+  parent: [BaseOrganPlasmaman, BaseOrganEyes]
+  name: plasmaman eyes
+  components:
+  - type: Sprite
+    layers:
+    - state: eyes
+  - type: OrganAppearance
+    sprite: Mobs/Customization/plasmaman.rsi
+
+- type: entity
+  id: OrganTonguePlasmaman
+  parent: [BaseOrganPlasmaman, BaseOrganTongue]
+  name: plasmaman tongue
+
+- type: entity
+  id: OrganLungsPlasmaman
+  parent: [BaseOrganPlasmaman, BaseOrganLungs]
+  name: plasmaman lungs
+  description: The lungs yearn for the plasma. Only plasma gas can satiate these lungs, and oxygen is lethally toxic.
+  components:
+  - type: Sprite
+    layers:
+    - state: lungs
+  - type: Metabolizer
+    types: [ Plasmaman ]
+  - type: Lung
+    alert: LowPlasma
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Plasma
+          Quantity: 2.5
+      lung:
+        maxVol: 100.0
+        canReact: false
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Plasma
+          Quantity: 5
+
+- type: entity
+  id: OrganStomachPlasmaman
+  parent: [BaseOrganPlasmaman, BaseOrganStomach]
+  name: plasmaman stomach
+  description: Why do plasmamen have stomachs if they don't need to eat?
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 8
+        - ReagentId: Plasma
+          Quantity: 4
+      stomach:
+        maxVol: 50
+      food:
+        maxVol: 8
+        reagents:
+        - ReagentId: Plasma
+          Quantity: 8
+
+- type: entity
+  id: OrganLiverPlasmaman
+  parent: [BaseOrganPlasmaman, BaseOrganLiver]
+  name: plasmaman liver
+  components:
+  - type: Metabolizer
+    types: [ Plasmaman ]
+
+- type: entity
+  id: OrganKidneysPlasmaman
+  parent: [BaseOrganPlasmaman, BaseOrganKidneys]
+  name: plasmaman kidneys
+  components:
+  - type: Sprite
+    layers:
+    - state: kidneys
+  - type: Metabolizer
+    types: [ Plasmaman ]

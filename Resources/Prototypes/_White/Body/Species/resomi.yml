@@ -1,0 +1,91 @@
+﻿- type: body
+  id: Resomi
+  root: chest
+  bodyParts:
+    head:
+      type: Head
+      startingBodyPart: BodyPartHeadResomi
+      connections:
+      - chest
+      organs:
+        brain:
+          type: Brain
+          startingOrgan: OrganBrainHuman
+        ears:
+          type: Ears
+          startingOrgan: OrganEarsHuman
+        eyes:
+          type: Eyes
+          startingOrgan: OrganEyesHuman
+        tongue:
+          type: Tongue
+          startingOrgan: OrganTongueHuman
+    chest:
+      type: Chest
+      startingBodyPart: BodyPartChestResomi
+      connections:
+      - wings
+      - right_arm
+      - left_arm
+      - groin
+      organs:
+        heart:
+          type: Heart
+          startingOrgan: OrganHeartHuman
+        lungs:
+          type: Lungs
+          startingOrgan: OrganLungsHuman
+    groin:
+      type: Groin
+      startingBodyPart: BodyPartGroinResomi
+      connections:
+      - tail
+      - right_leg
+      - left_leg
+      organs:
+        stomach:
+          type: Stomach
+          startingOrgan: OrganStomachHuman
+        liver:
+          type: Liver
+          startingOrgan: OrganLiverHuman
+        kidneys:
+          type: Kidneys
+          startingOrgan: OrganKidneysHuman
+    left_arm:
+      type: LeftArm
+      startingBodyPart: BodyPartLeftArmResomi
+      connections:
+      - left_hand
+    right_arm:
+      type: RightArm
+      startingBodyPart: BodyPartRightArmResomi
+      connections:
+      - right_hand
+    left_hand:
+      type: LeftHand
+      startingBodyPart: BodyPartLeftHandResomi
+    right_hand:
+      type: RightHand
+      startingBodyPart: BodyPartRightHandResomi
+    left_leg:
+      type: LeftLeg
+      startingBodyPart: BodyPartLeftLegResomi
+      connections:
+      - left_foot
+    right_leg:
+      type: RightLeg
+      startingBodyPart: BodyPartRightLegResomi
+      connections:
+      - right_foot
+    left_foot:
+      type: LeftFoot
+      startingBodyPart: BodyPartLeftFootResomi
+    right_foot:
+      type: RightFoot
+      startingBodyPart: BodyPartRightFootResomi
+    tail:
+      type: Tail
+      startingBodyPart: BodyPartTailResomi
+    wings:
+      type: Wings

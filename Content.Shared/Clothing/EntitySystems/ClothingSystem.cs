@@ -1,5 +1,3 @@
-using Content.Shared.Body.Part;
-using Content.Shared.Body.Systems;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
@@ -33,7 +31,6 @@ public abstract class ClothingSystem : EntitySystem
         SubscribeLocalEvent<ClothingComponent, GotUnequippedEvent>(OnGotUnequipped);
         SubscribeLocalEvent<ClothingComponent, ItemMaskToggledEvent>(OnMaskToggled);
         SubscribeLocalEvent<ClothingComponent, GettingPickedUpAttemptEvent>(OnPickedUp);
-        SubscribeLocalEvent<HumanoidAppearanceComponent, BodyPartAddedEvent>(OnPartAttachedToBody, after: [typeof(SharedBodySystem)]);
 
         SubscribeLocalEvent<ClothingComponent, ClothingEquipDoAfterEvent>(OnEquipDoAfter);
         SubscribeLocalEvent<ClothingComponent, ClothingUnequipDoAfterEvent>(OnUnequipDoAfter);
@@ -94,9 +91,9 @@ public abstract class ClothingSystem : EntitySystem
         }
     }
 
-    private void ToggleVisualLayers(EntityUid equipee, HashSet<HumanoidVisualLayers> layers, HashSet<HumanoidVisualLayers> appearanceLayers, bool force = false)
+    private void ToggleVisualLayers(EntityUid equipee, HashSet<Enum> layers, HashSet<Enum> appearanceLayers, bool force = false) // WD EDIT
     {
-        foreach (HumanoidVisualLayers layer in layers)
+        foreach (Enum layer in layers) // WD EDIT
         {
             if (!force && !appearanceLayers.Contains(layer))
                 continue;
@@ -198,20 +195,6 @@ public abstract class ClothingSystem : EntitySystem
             return;
 
         args.Cancel();
-    }
-
-    // Yes, this is exclusive C# just so that high heels selected from loadouts still hide the feet layers
-    // after Shitmed (SharedBodySystem.PartAppearance) initializes the feet parts setting their layer visibility to true.
-    private void OnPartAttachedToBody(Entity<HumanoidAppearanceComponent> ent, ref BodyPartAddedEvent args)
-    {
-        var enumerator = _invSystem.GetSlotEnumerator(ent.Owner);
-        while (enumerator.NextItem(out var item))
-        {
-            if (!TryComp<HideLayerClothingComponent>(item, out var comp))
-                continue;
-
-            CheckEquipmentForLayerHide(item, ent.Owner);
-        }
     }
 
     private void OnEquipDoAfter(Entity<ClothingComponent> ent, ref ClothingEquipDoAfterEvent args)

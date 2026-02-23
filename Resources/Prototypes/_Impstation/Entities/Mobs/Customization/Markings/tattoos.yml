@@ -1,6 +1,5 @@
 - type: marking
   id: ChestCutHere
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Human, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Felinid, Arachne, Shadowkin, Moth, Vulpkanin]
   coloring:
@@ -11,10 +10,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/tattoos.rsi
     state: chest_cuthere
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+    # WD EDIT END
 
 - type: marking
   id: ArmDollJointsTattooLeft
-  bodyPart: LArm
   markingCategory: LeftArm
   speciesRestriction: [Human, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Felinid, Arachne, Shadowkin, Moth, Vulpkanin]
   coloring:
@@ -25,11 +27,14 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/tattoos.rsi
     state: l_arm_doll
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftArm
+    bodyPart: LeftArm
+    # WD EDIT END
 
 
 - type: marking
   id: ArmDollJointsTattooRight
-  bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [Human, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Felinid, Arachne, Shadowkin, Moth, Vulpkanin]
   coloring:
@@ -40,10 +45,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/tattoos.rsi
     state: r_arm_doll
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightArm
+    bodyPart: RightArm
+    # WD EDIT END
 
 - type: marking
   id: HandDollJointsTattooLeft
-  bodyPart: LHand
   markingCategory: LeftHand
   speciesRestriction: [Human, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Felinid, Arachne, Shadowkin, Moth, Vulpkanin]
   coloring:
@@ -54,10 +62,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/tattoos.rsi
     state: l_hand_doll
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftHand
+    bodyPart: LeftHand
+    # WD EDIT END
 
 - type: marking
   id: HandDollJointsTattooRight
-  bodyPart: RHand
   markingCategory: RightHand
   speciesRestriction: [Human, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Felinid, Arachne, Shadowkin, Moth, Vulpkanin]
   coloring:
@@ -68,10 +79,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/tattoos.rsi
     state: r_hand_doll
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightHand
+    bodyPart: RightHand
+    # WD EDIT END
 
 - type: marking
   id: LegDollJointsTattooLeft
-  bodyPart: LLeg
   markingCategory: LeftLeg
   speciesRestriction: [Human, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Felinid, Arachne, Shadowkin, Moth, Vulpkanin]
   coloring:
@@ -82,10 +96,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/tattoos.rsi
     state: l_leg_doll
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftLeg
+    bodyPart: LeftLeg
+    # WD EDIT END
 
 - type: marking
   id: LegDollJointsTattooRight
-  bodyPart: RLeg
   markingCategory: RightLeg
   speciesRestriction: [Human, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Felinid, Arachne, Shadowkin, Moth, Vulpkanin]
   coloring:
@@ -96,10 +113,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/tattoos.rsi
     state: r_leg_doll
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightLeg
+    bodyPart: RightLeg
+    # WD EDIT END
 
 - type: marking
   id: FootDollJointsTattooLeft
-  bodyPart: LFoot
   markingCategory: LeftFoot
   speciesRestriction: [Human, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Felinid, Arachne, Shadowkin, Moth, Vulpkanin]
   coloring:
@@ -110,10 +130,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/tattoos.rsi
     state: l_foot_doll
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftFoot
+    bodyPart: LeftFoot
+    # WD EDIT END
 
 - type: marking
   id: FootDollJointsTattooRight
-  bodyPart: RFoot
   markingCategory: RightFoot
   speciesRestriction: [Human, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Felinid, Arachne, Shadowkin, Moth, Vulpkanin]
   coloring:
@@ -124,10 +147,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/tattoos.rsi
     state: r_foot_doll
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightFoot
+    bodyPart: RightFoot
+    # WD EDIT END
 
 - type: marking
   id: ArmDollJointsTattooLeftIPCONLY
-  bodyPart: LLeg
   markingCategory: Overlay
   speciesRestriction: [IPC]
   coloring:
@@ -138,11 +164,14 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/tattoos.rsi
     state: l_arm_doll
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftFoot
+    bodyPart: LeftFoot
+    # WD EDIT END
 
 
 - type: marking
   id: ArmDollJointsTattooRightIPCONLY
-  bodyPart: LLeg
   markingCategory: Overlay
   speciesRestriction: [IPC]
   coloring:
@@ -153,10 +182,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/tattoos.rsi
     state: r_arm_doll
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftLeg
+    bodyPart: LeftLeg
+    # WD EDIT END
 
 - type: marking
   id: HandDollJointsTattooLeftIPCONLY
-  bodyPart: LLeg
   markingCategory: Overlay
   speciesRestriction: [IPC]
   coloring:
@@ -167,10 +199,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/tattoos.rsi
     state: l_hand_doll
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftLeg
+    bodyPart: LeftLeg
+    # WD EDIT END
 
 - type: marking
   id: HandDollJointsTattooRightIPCONLY
-  bodyPart: LLeg
   markingCategory: Overlay
   speciesRestriction: [IPC]
   coloring:
@@ -181,10 +216,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/tattoos.rsi
     state: r_hand_doll
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftLeg
+    bodyPart: LeftLeg
+    # WD EDIT END
 
 - type: marking
   id: LegDollJointsTattooLeftIPCONLY
-  bodyPart: LLeg
   markingCategory: Overlay
   speciesRestriction: [IPC]
   coloring:
@@ -195,10 +233,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/tattoos.rsi
     state: l_leg_doll
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftLeg
+    bodyPart: LeftLeg
+    # WD EDIT END
 
 - type: marking
   id: LegDollJointsTattooRightIPCONLY
-  bodyPart: LLeg
   markingCategory: Overlay
   speciesRestriction: [IPC]
   coloring:
@@ -209,10 +250,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/tattoos.rsi
     state: r_leg_doll
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftLeg
+    bodyPart: LeftLeg
+    # WD EDIT END
 
 - type: marking
   id: FootDollJointsTattooLeftIPCONLY
-  bodyPart: LLeg
   markingCategory: Overlay
   speciesRestriction: [IPC]
   coloring:
@@ -223,10 +267,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/tattoos.rsi
     state: l_foot_doll
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftLeg
+    bodyPart: LeftLeg
+    # WD EDIT END
 
 - type: marking
   id: FootDollJointsTattooRightIPCONLY
-  bodyPart: LLeg
   markingCategory: Overlay
   speciesRestriction: [IPC]
   coloring:
@@ -237,3 +284,7 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/tattoos.rsi
     state: r_foot_doll
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftLeg
+    bodyPart: LeftLeg
+    # WD EDIT END

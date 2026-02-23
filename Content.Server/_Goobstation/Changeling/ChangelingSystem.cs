@@ -22,7 +22,6 @@ using Robust.Shared.Random;
 using Content.Shared.Popups;
 using Content.Shared.Damage;
 using Robust.Shared.Prototypes;
-using Content.Server.Body.Systems;
 using Content.Shared.Actions;
 using Content.Shared.Polymorph;
 using Robust.Shared.Serialization.Manager;
@@ -56,11 +55,14 @@ using Content.Server.Stunnable;
 using Content.Shared.Jittering;
 using Content.Server.Explosion.EntitySystems;
 using System.Linq;
+using Content.Server._White.Body.Bloodstream.Systems;
+using Content.Server._White.Body.Systems;
 using Content.Server.Flash.Components;
 using Content.Server.Radio.Components;
 // using Content.Shared.Heretic;
 using Content.Shared._Goobstation.Actions;
 using Content.Shared._Goobstation.Weapons.AmmoSelector;
+using Content.Shared._White.Gibbing;
 using Content.Shared.Chat;
 using Content.Shared.Projectiles;
 // using Content.Shared._White.Overlays;
@@ -111,12 +113,12 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     [Dependency] private readonly StunSystem _stun = default!;
     [Dependency] private readonly SharedJitteringSystem _jitter = default!;
     [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
-    [Dependency] private readonly BodySystem _bodySystem = default!;
     [Dependency] private readonly IComponentFactory _compFactory = default!;
     [Dependency] private readonly RejuvenateSystem _rejuv = default!;
     [Dependency] private readonly SelectableAmmoSystem _selectableAmmo = default!;
     [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
     [Dependency] private readonly SharedSuicideSystem _suicide = default!; // WD EDIT
+    [Dependency] private readonly GibbingSystem _gibbing = default!; // WD EDIT
 
     public EntProtoId ArmbladePrototype = "ArmBladeChangeling";
     public EntProtoId FakeArmbladePrototype = "FakeArmBladeChangeling";
@@ -689,13 +691,6 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         radio.Channels = new() { "Hivemind" };
         transmitter.Channels = new() { "Hivemind" };
         //WD edit end
-
-        // Shitmed: Prevent changelings from getting their body parts severed
-        foreach (var (id, part) in _bodySystem.GetBodyChildren(uid))
-        {
-            part.CanSever = false;
-            Dirty(id, part);
-        }
     }
 
     private void OnMobStateChange(EntityUid uid, ChangelingComponent comp, ref MobStateChangedEvent args)

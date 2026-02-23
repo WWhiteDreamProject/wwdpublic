@@ -1,0 +1,87 @@
+- type: body
+  id: Monkey
+  root: chest
+  bodyParts:
+    head:
+      type: Head
+      startingBodyPart: BodyPartHeadMonkey
+      connections:
+      - chest
+      organs:
+        brain:
+          type: Brain
+          startingOrgan: OrganBrainHuman
+        ears:
+          type: Ears
+          startingOrgan: OrganEarsHuman
+        eyes:
+          type: Eyes
+          startingOrgan: OrganEyesHuman
+        tongue:
+          type: Tongue
+          startingOrgan: OrganTongueHuman
+    chest:
+      type: Chest
+      startingBodyPart: BodyPartChestMonkey
+      connections:
+      - right_arm
+      - left_arm
+      - groin
+      organs:
+        heart:
+          type: Heart
+          startingOrgan: OrganHeartHuman
+        lungs:
+          type: Lungs
+          startingOrgan: OrganLungsHuman
+    groin:
+      type: Groin
+      startingBodyPart: BodyPartGroinMonkey
+      connections:
+      - right_leg
+      - left_leg
+      organs:
+        stomach:
+          type: Stomach
+          startingOrgan: OrganStomachHuman
+        liver:
+          type: Liver
+          startingOrgan: OrganLiverHuman
+        kidneys:
+          type: Kidneys
+          startingOrgan: OrganKidneysHuman
+        appendix:
+          type: Appendix
+          startingOrgan: OrganAppendixHuman
+    left_arm:
+      type: LeftArm
+      startingBodyPart: BodyPartLeftArmMonkey
+      connections:
+      - left_hand
+    right_arm:
+      type: RightArm
+      startingBodyPart: BodyPartRightArmMonkey
+      connections:
+      - right_hand
+    left_hand:
+      type: LeftHand
+      startingBodyPart: BodyPartLeftHandMonkey
+    right_hand:
+      type: RightHand
+      startingBodyPart: BodyPartRightHandMonkey
+    left_leg:
+      type: LeftLeg
+      startingBodyPart: BodyPartLeftLegMonkey
+      connections:
+      - left_foot
+    right_leg:
+      type: RightLeg
+      startingBodyPart: BodyPartRightLegMonkey
+      connections:
+      - right_foot
+    left_foot:
+      type: LeftFoot
+      startingBodyPart: BodyPartLeftFootMonkey
+    right_foot:
+      type: RightFoot
+      startingBodyPart: BodyPartRightFootMonkey

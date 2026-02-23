@@ -1,0 +1,97 @@
+- type: entity
+  id: WoundBlunt
+  parent: WoundBase
+  name: bruise
+  components:
+  - type: Wound
+    damageType: Blunt
+  - type: PainfulWound
+    painCoefficients: 0.8
+    freshPainCoefficients: 0.6
+  - type: BleedingWound
+  - type: BloodSplatterWound
+
+- type: entity
+  id: WoundSlash
+  parent: WoundBase
+  name: cut
+  components:
+  - type: Wound
+    damageType: Slash
+  - type: PainfulWound
+    painCoefficients: 0.8
+    freshPainCoefficients: 0.6
+  - type: BleedingWound
+    bleedingCoefficient: 0.1
+    bleedingDurationCoefficient: 2
+  - type: BloodSplatterWound
+    damageToVolumeFactor: 0.51
+    emissionSpreadDistance: 3
+    maxSplatterVolume: 5
+    splatterPrototype: BloodSplatterSlashParticle
+    splatterType: Line
+
+- type: entity
+  id: WoundPiercing
+  parent: WoundBase
+  name: puncture
+  components:
+  - type: Wound
+    damageType: Piercing
+  - type: PainfulWound
+    painCoefficients: 0.8
+    freshPainCoefficients: 0.6
+  - type: BleedingWound
+    bleedingCoefficient: 0.1
+    bleedingDurationCoefficient: 2
+  - type: BloodSplatterWound
+    emissionSpreadAngle: 5
+    emissionSpreadDistance: 3
+    maxSplatterCount: 1
+    maxSplatterVolume: 10
+    splatterPrototype: BloodSplatterPiercingParticle
+    splatterType: Line
+
+- type: entity
+  id: WoundHeat
+  parent: WoundBase
+  name: burn
+  components:
+  - type: Wound
+    damageType: Heat
+  - type: PainfulWound
+    painCoefficients: 0.6
+    freshPainCoefficients: 0.8
+
+- type: entity
+  id: WoundCold
+  parent: WoundBase
+  name: frostbite
+  components:
+  - type: Wound
+    damageType: Cold
+  - type: PainfulWound
+    painCoefficients: 0.6
+    freshPainCoefficients: 0.8
+
+- type: entity
+  id: WoundCaustic
+  parent: WoundBase
+  name: caustic burn
+  components:
+  - type: Wound
+    damageType: Caustic
+  - type: PainfulWound
+    painCoefficients: 0.6
+    freshPainCoefficients: 0.8
+
+- type: entity
+  id: WoundShock
+  parent: WoundBase
+  name: shock burn
+  components:
+  - type: Wound
+    damageType: Shock
+  - type: PainfulWound
+    painCoefficients: 0.6
+    freshPainCoefficients: 0.8

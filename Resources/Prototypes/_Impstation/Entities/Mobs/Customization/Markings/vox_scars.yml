@@ -1,6 +1,5 @@
 - type: marking
   id: ScarsVoxRoadrashLeftHead
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Vox]
   coloring:
@@ -11,10 +10,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/vox_scars.rsi
     state: roadrash_l_head
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: ScarsVoxRoadrashRightHead
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Vox]
   coloring:
@@ -25,10 +27,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/vox_scars.rsi
     state: roadrash_r_head
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: ScarsVoxBigslashLeftHead
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Vox]
   coloring:
@@ -39,10 +44,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/vox_scars.rsi
     state: bigslash_l_head
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: ScarsVoxBigslashRightHead
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Vox]
   coloring:
@@ -53,10 +61,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/vox_scars.rsi
     state: bigslash_r_head
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: ScarsVoxSlashLeftHead
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Vox]
   coloring:
@@ -67,10 +78,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/vox_scars.rsi
     state: slash_l_head
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: ScarsVoxSlashRightHead
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Vox]
   coloring:
@@ -81,10 +95,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/vox_scars.rsi
     state: slash_r_head
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: ScarsVoxClawTorso
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Vox]
   coloring:
@@ -95,4 +112,8 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/vox_scars.rsi
     state: claw_torso
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+    # WD EDIT END
 

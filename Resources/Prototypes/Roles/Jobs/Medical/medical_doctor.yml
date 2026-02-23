@@ -27,8 +27,8 @@
   - !type:AddComponentSpecial
     components:
     - type: CPRTraining
-    - type: SurgerySpeedModifier
-      speedModifier: 3 # WWDP
+    # - type: SurgerySpeedModifier
+    #   speedModifier: 3 # WWDP
 
 - type: startingGear
   id: DoctorGear

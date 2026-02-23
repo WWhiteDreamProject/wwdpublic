@@ -794,13 +794,6 @@
     netsync: false
     radius: 1.5
     color: red
-  - type: Cautery
-    speed: 0.45
-  - type: SurgeryTool
-    startSound:
-      collection: lighterOnSounds
-    endSound:
-      collection: lighterOffSounds
 
 - type: entity
   id: FishArmorfish
@@ -856,13 +849,6 @@
     netsync: false
     radius: 1.5
     color: blue
-  - type: Cautery
-    speed: 0.45
-  - type: SurgeryTool
-    startSound:
-      collection: lighterOnSounds
-    endSound:
-      collection: lighterOffSounds
 
 - type: entity
   id: FishHalfFish

@@ -223,4 +223,4 @@
           Blunt: 350
       randomDamageChance: 0.001
       applyBonusOnThrow: true
-      forcedThrowTargetPart: "Head"
+      # forcedThrowTargetPart: "Head"

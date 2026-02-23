@@ -54,25 +54,25 @@
   components:
   - type: StorageFill
     contents:
-    - id: HeadHuman
+    - id: BodyPartHeadHuman # WD EDIT
       amount: 1
-    - id: TorsoHuman
+    - id: BodyPartGroinHuman # WD EDIT
       amount: 1
-    - id: LeftArmHuman
+    - id: BodyPartLeftArmHuman # WD EDIT
       amount: 1
-    - id: RightArmHuman
+    - id: BodyPartRightArmHuman # WD EDIT
       amount: 1
-    - id: LeftHandHuman
+    - id: BodyPartLeftHandHuman # WD EDIT
       amount: 1
-    - id: RightHandHuman
+    - id: BodyPartRightHandHuman # WD EDIT
       amount: 1
-    - id: LeftLegHuman
+    - id: BodyPartLeftLegHuman # WD EDIT
       amount: 1
-    - id: RightLegHuman
+    - id: BodyPartRightLegHuman # WD EDIT
       amount: 1
-    - id: LeftFootHuman
+    - id: BodyPartLeftFootHuman # WD EDIT
       amount: 1
-    - id: RightFootHuman
+    - id: BodyPartRightFootHuman # WD EDIT
       amount: 1
   - type: Storage
     grid:
@@ -121,25 +121,25 @@
   components:
   - type: StorageFill
     contents:
-    - id: HeadReptilian
+    - id: BodyPartHeadReptilian # WD EDIT
       amount: 1
-    - id: TorsoReptilian
+    - id: BodyPartGroinReptilian # WD EDIT
       amount: 1
-    - id: LeftArmReptilian
+    - id: BodyPartLeftArmReptilian # WD EDIT
       amount: 1
-    - id: RightArmReptilian
+    - id: BodyPartRightArmReptilian # WD EDIT
       amount: 1
-    - id: LeftHandReptilian
+    - id: BodyPartLeftHandReptilian # WD EDIT
       amount: 1
-    - id: RightHandReptilian
+    - id: BodyPartRightHandReptilian # WD EDIT
       amount: 1
-    - id: LeftLegReptilian
+    - id: BodyPartLeftLegReptilian # WD EDIT
       amount: 1
-    - id: RightLegReptilian
+    - id: BodyPartRightLegReptilian # WD EDIT
       amount: 1
-    - id: LeftFootReptilian
+    - id: BodyPartLeftFootReptilian # WD EDIT
       amount: 1
-    - id: RightFootReptilian
+    - id: BodyPartRightFootReptilian # WD EDIT
       amount: 1
 
 - type: entity
@@ -151,25 +151,25 @@
   components:
   - type: StorageFill
     contents:
-    - id: HeadSlime
+    - id: BodyPartHeadSlime # WD EDIT
       amount: 1
-    - id: TorsoSlime
+    - id: BodyPartGroinSlime # WD EDIT
       amount: 1
-    - id: LeftArmSlime
+    - id: BodyPartLeftArmSlime # WD EDIT
       amount: 1
-    - id: RightArmSlime
+    - id: BodyPartRightArmSlime # WD EDIT
       amount: 1
-    - id: LeftHandSlime
+    - id: BodyPartLeftHandSlime # WD EDIT
       amount: 1
-    - id: RightHandSlime
+    - id: BodyPartRightHandSlime # WD EDIT
       amount: 1
-    - id: LeftLegSlime
+    - id: BodyPartLeftLegSlime # WD EDIT
       amount: 1
-    - id: RightLegSlime
+    - id: BodyPartRightLegSlime # WD EDIT
       amount: 1
-    - id: LeftFootSlime
+    - id: BodyPartLeftFootSlime # WD EDIT
       amount: 1
-    - id: RightFootSlime
+    - id: BodyPartRightFootSlime # WD EDIT
       amount: 1
 
 - type: entity
@@ -181,23 +181,23 @@
   components:
   - type: StorageFill
     contents:
-    - id: HeadVulpkanin
+    - id: BodyPartHeadVulpkanin # WD EDIT
       amount: 1
-    - id: TorsoVulpkanin
+    - id: BodyPartGroinVulpkanin # WD EDIT
       amount: 1
-    - id: LeftArmVulpkanin
+    - id: BodyPartLeftArmVulpkanin # WD EDIT
       amount: 1
-    - id: RightArmVulpkanin
+    - id: BodyPartRightArmVulpkanin # WD EDIT
       amount: 1
-    - id: LeftHandVulpkanin
+    - id: BodyPartLeftHandVulpkanin # WD EDIT
       amount: 1
-    - id: RightHandVulpkanin
+    - id: BodyPartRightHandVulpkanin # WD EDIT
       amount: 1
-    - id: LeftLegVulpkanin
+    - id: BodyPartLeftLegVulpkanin # WD EDIT
       amount: 1
-    - id: RightLegVulpkanin
+    - id: BodyPartRightLegVulpkanin # WD EDIT
       amount: 1
-    - id: LeftFootVulpkanin
+    - id: BodyPartLeftFootVulpkanin # WD EDIT
       amount: 1
-    - id: RightFootVulpkanin
+    - id: BodyPartRightFootVulpkanin # WD EDIT
       amount: 1

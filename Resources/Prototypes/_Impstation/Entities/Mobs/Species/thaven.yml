@@ -24,7 +24,6 @@
     scale: 1, 1.05
   - type: Body
     prototype: Thaven
-    requiredLegs: 2
   - type: NoContractionsAccent
   - type: Damageable
     damageContainer: Biological
@@ -67,8 +66,10 @@
   - type: HumanoidAppearance
     species: Thaven
     hideLayersOnEquip:
-    - Hair
-    - Snout
+    # WD EDIT START
+    - enum.HumanoidVisualLayers.Hair
+    - enum.HumanoidVisualLayers.Snout
+    # WD EDIT END
   - type: UserInterface
     interfaces:
       enum.ThavenMoodsUiKey.Key: # impstation edit
@@ -80,9 +81,6 @@
         type: HumanoidMarkingModifierBoundUserInterface
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
-      # Shitmed
-      enum.SurgeryUIKey.Key:
-        type: SurgeryBui
   - type: Inventory
     templateId: thaven
     displacements:
@@ -241,3 +239,7 @@
               layerKey: dummy
               parameterTexture: displacementMap
               parameterUV: displacementUV
+  # WD EDIT START
+  - type: Body
+    prototype: Thaven
+  # WD EDIT END

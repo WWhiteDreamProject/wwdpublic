@@ -12,6 +12,7 @@ using Content.Shared.Rounding;
 using Content.Shared.Actions;
 using Robust.Shared.Prototypes;
 using Content.Server.Abilities.Psionics;
+using Content.Server.Humanoid;
 
 namespace Content.Server.Shadowkin;
 
@@ -22,6 +23,7 @@ public sealed class ShadowkinSystem : EntitySystem
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly HumanoidAppearanceSystem _humanoidAppearance = default!; // WD EDIT
 
     public const string ShadowkinSleepActionId = "ShadowkinActionSleep";
     public override void Initialize()
@@ -56,8 +58,7 @@ public sealed class ShadowkinSystem : EntitySystem
         if (TryComp<HumanoidAppearanceComponent>(uid, out var humanoid))
         {
             component.OldEyeColor = humanoid.EyeColor;
-            humanoid.EyeColor = component.BlackEyeColor;
-            Dirty(uid, humanoid);
+            _humanoidAppearance.SetEyeColor(uid, component.BlackEyeColor, humanoid: humanoid); // WD EDIT
         }
 
         if (TryComp<StaminaComponent>(uid, out var stamina))
@@ -71,11 +72,7 @@ public sealed class ShadowkinSystem : EntitySystem
 
         RemComp<MindbrokenComponent>(uid);
 
-        if (TryComp<HumanoidAppearanceComponent>(uid, out var humanoid))
-        {
-            humanoid.EyeColor = component.OldEyeColor;
-            Dirty(uid, humanoid);
-        }
+        _humanoidAppearance.SetEyeColor(uid, component.OldEyeColor); // WD EDIT
 
         EnsureComp<PsionicComponent>(uid, out _);
         if (_prototypeManager.TryIndex<PsionicPowerPrototype>("ShadowkinPowers", out var shadowkinPowers))

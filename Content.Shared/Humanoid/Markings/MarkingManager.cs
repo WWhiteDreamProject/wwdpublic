@@ -33,6 +33,11 @@ namespace Content.Shared.Humanoid.Markings
 
             foreach (var prototype in _prototypeManager.EnumeratePrototypes<MarkingPrototype>())
             {
+                // WD EDIT START
+                foreach (var layerInfo in prototype.Sprites)
+                    layerInfo.MarkingId = prototype.ID;
+                // WD EDIT END
+
                 _index.Add(prototype);
                 markingDict[prototype.MarkingCategory].Add(prototype.ID, prototype);
             }
@@ -214,22 +219,21 @@ namespace Content.Shared.Humanoid.Markings
             return true;
         }
 
-        public bool MustMatchSkin(string species, HumanoidVisualLayers layer, out float alpha, IPrototypeManager? prototypeManager = null)
+        public bool MustMatchSkin(string species, MarkingCategories categories, out float alpha, IPrototypeManager? prototypeManager = null) // WD EDIT
         {
             IoCManager.Resolve(ref prototypeManager);
             var speciesProto = prototypeManager.Index<SpeciesPrototype>(species);
-            if (
-                !prototypeManager.TryIndex(speciesProto.BodyTypes.First(), out BodyTypePrototype? baseBodyType) || // WD EDIT
-                !baseBodyType.Sprites.TryGetValue(layer, out var spriteName) || // WD EDIT
-                !prototypeManager.TryIndex(spriteName, out HumanoidSpeciesSpriteLayer? sprite) ||
-                !sprite.MarkingsMatchSkin
-            )
+            // WD EDIT START
+            if (!prototypeManager.TryIndex(speciesProto.MarkingPoints, out MarkingPointsPrototype? markingPoints)
+                || !markingPoints.Points.TryGetValue(categories, out var points)
+                || !points.MatchSkin)
             {
                 alpha = 1f;
                 return false;
             }
+            // WD EDIT END
 
-            alpha = sprite.LayerAlpha;
+            alpha = points.LayerAlpha; // WD EDIT
             return true;
         }
 

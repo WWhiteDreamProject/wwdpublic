@@ -12,7 +12,6 @@
     state: full
   - type: Body
     prototype: Slime
-    requiredLegs: 2
   # they like eat it idk lol
   - type: Storage
     clickInsert: false
@@ -36,8 +35,6 @@
         type: HumanoidMarkingModifierBoundUserInterface
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
-      enum.SurgeryUIKey.Key:
-        type: SurgeryBui
   # to prevent bag open/honk spam
   - type: UseDelay
     delay: 0.5
@@ -149,3 +146,7 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
+  # WD EDIT START
+  - type: Body
+    prototype: Slime
+  # WD EDIT END

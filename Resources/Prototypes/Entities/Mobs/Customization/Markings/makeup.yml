@@ -1,6 +1,5 @@
 - type: marking
   id: MakeupLips
-  bodyPart: Face
   markingCategory: Face
   speciesRestriction: [Dwarf, Human, SlimePerson, Felinid, Oni, Harpy, Arachne, Lamia, Tajaran] # Delta V - Felinid, Oni, Harpy
   coloring:
@@ -11,10 +10,13 @@
   sprites:
   - sprite: Mobs/Customization/makeup.rsi
     state: lips
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Face
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MakeupBlush
-  bodyPart: Face
   markingCategory: Face
   speciesRestriction: [Dwarf, Human, Reptilian, SlimePerson, Felinid, Oni, Vulpkanin, Harpy, Arachne, Lamia, Tajaran] # Delta V - Felinid, Oni, Vulpkanin, Harpy
   coloring:
@@ -25,10 +27,13 @@
   sprites:
   - sprite: Mobs/Customization/makeup.rsi
     state: blush
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Face
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MakeupNailPolishRight
-  bodyPart: RHand
   markingCategory: RightHand
   speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Felinid, Oni, Vulpkanin, Arachne, Lamia, Tajaran] # Delta V - Felinid, Oni, Vulpkanin
   coloring:
@@ -39,10 +44,13 @@
   sprites:
   - sprite: Mobs/Customization/makeup.rsi
     state: nail_polish_r
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightHand
+    bodyPart: RightHand
+    # WD EDIT END
 
 - type: marking
   id: MakeupNailPolishLeft
-  bodyPart: LHand
   markingCategory: LeftHand
   speciesRestriction: [Dwarf, Human, Reptilian, Arachnid, SlimePerson, Felinid, Oni, Vulpkanin, Arachne, Lamia, Tajaran] # Delta V - Felinid, Oni, Vulpkanin
   coloring:
@@ -53,12 +61,15 @@
   sprites:
   - sprite: Mobs/Customization/makeup.rsi
     state: nail_polish_l
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftHand
+    bodyPart: LeftHand
+    # WD EDIT END
 
 # Moth-specific
 
 - type: marking
   id: MakeupMothLips
-  bodyPart: Face
   markingCategory: Face
   speciesRestriction: [Moth]
   coloring:
@@ -69,10 +80,13 @@
   sprites:
   - sprite: Mobs/Customization/makeup.rsi
     state: moth_lips
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Face
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MakeupMothBlush
-  bodyPart: Face
   markingCategory: Face
   speciesRestriction: [Moth]
   coloring:
@@ -83,3 +97,7 @@
   sprites:
   - sprite: Mobs/Customization/makeup.rsi
     state: moth_blush
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Face
+    bodyPart: Head
+    # WD EDIT END

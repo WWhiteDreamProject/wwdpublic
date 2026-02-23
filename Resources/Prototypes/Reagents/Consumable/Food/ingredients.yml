@@ -8,16 +8,15 @@
   color: white
   recognizable: true
   metabolisms:
-    Food:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Sugar: 0.4
+        Nutriment: 0.1
+    # WD EDIT END
       effects:
-      - !type:AdjustReagent
-        reagent: Sugar
-        amount: 0.4
       - !type:SatiateThirst
         factor: -0.2 #its flour
-      - !type:AdjustReagent
-        reagent: Nutriment
-        amount: 0.1
 
 - type: reagent
   id: Cornmeal
@@ -28,13 +27,14 @@
   flavor: corn #so corn doesnt taste chalky
   color: tan
   metabolisms:
-    Food:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Nutriment: 0.1
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: -0.2 #its cornflour
-      - !type:AdjustReagent
-        reagent: Nutriment
-        amount: 0.1
 
 - type: reagent
   id: Oats
@@ -45,14 +45,12 @@
   flavor: oats
   color: tan
   metabolisms:
-    Food:
-      effects:
-      - !type:AdjustReagent
-        reagent: Sugar
-        amount: 0.2
-      - !type:AdjustReagent
-        reagent: Nutriment
-        amount: 0.3
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Sugar: 0.2
+        Nutriment: 0.3
+    # WD EDIT END
 
 - type: reagent
   id: Enzyme
@@ -73,11 +71,11 @@
   color: white
   recognizable: true
   metabolisms:
-    Food:
-      effects:
-      - !type:AdjustReagent
-        reagent: UncookedAnimalProteins
-        amount: 0.5
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        UncookedAnimalProteins: 0.5
+    # WD EDIT END
 
 - type: reagent
   id: EggCooked
@@ -89,11 +87,11 @@
   color: white
   recognizable: true
   metabolisms:
-    Food:
-      effects:
-      - !type:AdjustReagent
-        reagent: Protein
-        amount: 1
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Protein: 1
+    # WD EDIT END
 
 - type: reagent
   id: Blackpepper
@@ -105,7 +103,7 @@
   color: black
   recognizable: true
   metabolisms:
-    Food:
+    Digestion: # WD EDIT
       effects:
       - !type:ChemAddMoodlet
         moodPrototype: PepperEffect
@@ -120,14 +118,13 @@
   color: tan
   recognizable: true
   metabolisms:
-    Food:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Water: 0.4
+        Vitamin: 0.1
+    # WD EDIT END
       effects:
-      - !type:AdjustReagent
-        reagent: Water
-        amount: 0.4
-      - !type:AdjustReagent
-        reagent: Vitamin
-        amount: 0.1
       - !type:ChemVomit
         probability: 0.1
         conditions:
@@ -144,14 +141,12 @@
   color: white
   recognizable: true
   metabolisms:
-    Food:
-      effects:
-      - !type:AdjustReagent
-        reagent: Sugar
-        amount: 0.4
-      - !type:AdjustReagent
-        reagent: Nutriment
-        amount: 0.1
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Sugar: 0.4
+        Nutriment: 0.1
+    # WD EDIT END
 
 - type: reagent
   id: OilOlive
@@ -166,11 +161,12 @@
   boilingPoint: 299.0
   recognizable: true
   metabolisms:
-    Food:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Nutriment: 0.75
+    # WD EDIT END
       effects:
-      - !type:AdjustReagent
-        reagent: Nutriment
-        amount: 0.75
       - !type:ChemAddMoodlet
         moodPrototype: OilyEffect
 
@@ -202,14 +198,15 @@
   meltingPoint: 146
   boilingPoint: 410 # Really high boiling point compared to its melting
   metabolisms:
-    Food:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Nutriment: 0.75
+    # WD EDIT END
       effects:
-      - !type:AdjustReagent
-        reagent: Nutriment #Oils enhance nutrition
-        amount: 0.75
       - !type:ChemAddMoodlet
         moodPrototype: SpicyEffect
-    Poison:
+    Absorption: # WD EDIT
       effects:
         - !type:AdjustTemperature
           amount: 250 # thermal energy, not temp
@@ -235,7 +232,11 @@
   color: "#800000"
   meltingPoint: 146.0
   metabolisms:
-    Food:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Theobromine: 0.02
+    # WD EDIT END
       effects:
       - !type:SatiateHunger
         conditions:
@@ -243,11 +244,6 @@
           reagent: Nutriment
           min: 0.1
         factor: 1
-        #WD edit start
-      - !type:AdjustReagent
-         reagent: Theobromine
-         amount: 0.02
-         #WD edit end
       - !type:ChemAddMoodlet
         moodPrototype: ChocolateEffect
   plantMetabolism:
@@ -270,11 +266,12 @@
   boilingPoint: 100.0
   recognizable: true
   metabolisms:
-    Food:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Nutriment: 0.75
+    # WD EDIT END
       effects:
-      - !type:AdjustReagent
-        reagent: Nutriment
-        amount: 0.75
       - !type:ChemAddMoodlet
         moodPrototype: ButterEffect
 
@@ -287,10 +284,11 @@
   color: "#7F8400"
   group: Foods
   metabolisms:
-    Food:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Nutriment: 0.1
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: -0.2
-      - !type:AdjustReagent
-        reagent: Nutriment
-        amount: 0.1

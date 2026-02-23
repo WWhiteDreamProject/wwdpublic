@@ -21,10 +21,7 @@ public sealed class DamageOnHitSystem : EntitySystem
     private void DamageSelf(EntityUid uid, DamageOnHitComponent component, MeleeHitEvent args)
     {
         if (args.HitEntities.Any()) {
-            _damageableSystem.TryChangeDamage(uid, component.Damage, component.IgnoreResistances,
-                targetPart: component.TargetParts is not null
-                            ? component.TargetParts[_random.Next(component.TargetParts.Count)]
-                            : null);
+            _damageableSystem.TryChangeDamage(uid, component.Damage, component.IgnoreResistances);
         }
     }
 }

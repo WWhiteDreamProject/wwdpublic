@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-4.0",
+  "copyright": "Valentyi (@randomm.ua)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "blunt1"
+    },
+    {
+      "name": "blunt2"
+    },
+    {
+      "name": "blunt3"
+    },
+    {
+      "name": "blunt4"
+    },
+    {
+      "name": "blunt5"
+    },
+    {
+      "name": "blunt6"
+    },
+    {
+      "name": "piercing1"
+    },
+    {
+      "name": "slash1"
+    }
+  ]
+}

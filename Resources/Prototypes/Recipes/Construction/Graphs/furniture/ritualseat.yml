@@ -32,7 +32,7 @@
           - tag: Head
             icon:
               sprite: Mobs/Species/Human/parts.rsi
-              state: "head_m"
+              state: "head" # WD EDIT: head_m -> head
             name: human head
             doAfter: 1
 
@@ -42,7 +42,7 @@
         - to: chairRitual
           completed:
             - !type:SpawnPrototype
-              prototype: HeadHuman
+              prototype: BodyPartHeadHuman # WD EDIT: HeadHuman -> BodyPartHeadHuman
               amount: 1
           steps:
             - tool: Prying

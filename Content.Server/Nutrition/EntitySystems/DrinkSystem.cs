@@ -1,3 +1,5 @@
+using Content.Server._White.Body.Organs.Stomach;
+using Content.Server._White.Body.Systems;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.EntityEffects.Effects;
@@ -6,8 +8,8 @@ using Content.Server.Forensics;
 using Content.Server.Inventory;
 using Content.Server.Popups;
 using Content.Server.Traits.Assorted.Components;
+using Content.Shared._White.Body.Components;
 using Content.Shared.Administration.Logs;
-using Content.Shared.Body.Components;
 using Content.Shared.CCVar;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
@@ -265,37 +267,24 @@ public sealed class DrinkSystem : SharedDrinkSystem
         if (transferAmount <= 0)
             return;
 
-        if (!_body.TryGetBodyOrganEntityComps<StomachComponent>((args.Target.Value, body), out var stomachs))
-        {
-            _popup.PopupEntity(Loc.GetString(forceDrink ? "drink-component-try-use-drink-cannot-drink-other" : "drink-component-try-use-drink-had-enough"), args.Target.Value, args.User);
-
-            if (HasComp<RefillableSolutionComponent>(args.Target.Value))
-            {
-                _puddle.TrySpillAt(args.User, drained, out _);
-                return;
-            }
-
-            _solutionContainer.Refill(args.Target.Value, soln.Value, drained);
+        // WD EDIT START
+        if (!_body.TryGetOrgans<StomachComponent>((args.Target.Value, body), out var stomachs, OrganType.Stomach))
             return;
-        }
 
-        var firstStomach = stomachs.FirstOrNull(stomach => _stomach.CanTransferSolution(stomach.Owner, drained, stomach.Comp1));
+        Entity<StomachComponent>? stomachToUse = null;
+        foreach (var stomach in stomachs)
+            stomachToUse = (stomach, stomach.Comp2);
 
-        //All stomachs are full or can't handle whatever solution we have.
-        if (firstStomach == null)
+        if (stomachToUse == null)
         {
             _popup.PopupEntity(Loc.GetString("drink-component-try-use-drink-had-enough"), args.Target.Value, args.Target.Value);
+            if (!forceDrink)
+                return;
 
-            if (forceDrink)
-            {
-                _popup.PopupEntity(Loc.GetString("drink-component-try-use-drink-had-enough-other"), args.Target.Value, args.User);
-                _puddle.TrySpillAt(args.Target.Value, drained, out _);
-            }
-            else
-                _solutionContainer.TryAddSolution(soln.Value, drained);
-
+            _popup.PopupEntity(Loc.GetString("drink-component-try-use-drink-had-enough-other"), args.Target.Value, args.User);
             return;
         }
+        // WD EDIT END
 
         var flavors = args.FlavorMessage;
 
@@ -328,7 +317,7 @@ public sealed class DrinkSystem : SharedDrinkSystem
         _audio.PlayPvs(entity.Comp.UseSound, args.Target.Value, AudioParams.Default.WithVolume(-2f).WithVariation(0.25f));
 
         _reaction.DoEntityReaction(args.Target.Value, solution, ReactionMethod.Ingestion);
-        _stomach.TryTransferSolution(firstStomach.Value.Owner, drained, firstStomach.Value.Comp1);
+        _stomach.TryTransferSolution((stomachToUse.Value.Owner, stomachToUse.Value.Comp), drained); // WD EDIT
 
         _forensics.TransferDna(entity, args.Target.Value);
 
@@ -342,7 +331,7 @@ public sealed class DrinkSystem : SharedDrinkSystem
             !ev.CanInteract ||
             !ev.CanAccess ||
             !TryComp<BodyComponent>(ev.User, out var body) ||
-            !_body.TryGetBodyOrganEntityComps<StomachComponent>((ev.User, body), out var stomachs))
+            !_body.TryGetOrgans<StomachComponent>((ev.User, body), out var stomachs, OrganType.Stomach)) // WD EDIT
             return;
 
         // Make sure the solution exists

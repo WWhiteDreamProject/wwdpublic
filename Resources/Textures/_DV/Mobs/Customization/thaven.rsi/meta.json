@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "cheek_barbels, eyebrow_barbels, underbelly_face, underbelly_torso, carp_spots by kushbreth (github).",
+    "copyright": "cheek_barbels, eyebrow_barbels, underbelly_face, underbelly_torso, carp_spots by kushbreth (github). The division of the torso into chest and groin was done by Sparison.",
     "size": {
         "x": 32,
         "y": 32
@@ -20,11 +20,19 @@
             "directions": 4
         },
         {
-            "name": "underbelly_torso",
+            "name": "underbelly_chest",
             "directions": 4
         },
         {
-            "name": "carp_spots",
+            "name": "underbelly_groin",
+            "directions": 4
+        },
+        {
+            "name": "carp_spots_chest",
+            "directions": 4
+        },
+        {
+            "name": "carp_spots_groin",
             "directions": 4
         }
     ]

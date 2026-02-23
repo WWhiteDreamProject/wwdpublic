@@ -1,0 +1,242 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "https://github.com/tgstation/tgstation/commit/c7e14784b35b1a136351c396d3a546f461ee2451",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "chest_none"
+        },
+        {
+            "name": "chest_zero"
+        },
+        {
+            "name": "chest_mild"
+        },
+        {
+            "name": "chest_moderate"
+        },
+        {
+            "name": "chest_severe"
+        },
+        {
+            "name": "chest_excruciating"
+        },
+        {
+            "name": "chest_mortal"
+        },
+        {
+            "name": "groin_none"
+        },
+        {
+            "name": "groin_zero"
+        },
+        {
+            "name": "groin_mild"
+        },
+        {
+            "name": "groin_moderate"
+        },
+        {
+            "name": "groin_severe"
+        },
+        {
+            "name": "groin_excruciating"
+        },
+        {
+            "name": "groin_mortal"
+        },
+        {
+            "name": "head_none"
+        },
+        {
+            "name": "head_zero"
+        },
+        {
+            "name": "head_mild"
+        },
+        {
+            "name": "head_moderate"
+        },
+        {
+            "name": "head_severe"
+        },
+        {
+            "name": "head_excruciating"
+        },
+        {
+            "name": "head_mortal"
+        },
+        {
+            "name": "leftarm_none"
+        },
+        {
+            "name": "leftarm_zero"
+        },
+        {
+            "name": "leftarm_mild"
+        },
+        {
+            "name": "leftarm_moderate"
+        },
+        {
+            "name": "leftarm_severe"
+        },
+        {
+            "name": "leftarm_excruciating"
+        },
+        {
+            "name": "leftarm_mortal"
+        },
+        {
+            "name": "leftfoot_none"
+        },
+        {
+            "name": "leftfoot_zero"
+        },
+        {
+            "name": "leftfoot_mild"
+        },
+        {
+            "name": "leftfoot_moderate"
+        },
+        {
+            "name": "leftfoot_severe"
+        },
+        {
+            "name": "leftfoot_excruciating"
+        },
+        {
+            "name": "leftfoot_mortal"
+        },
+        {
+            "name": "lefthand_none"
+        },
+        {
+            "name": "lefthand_zero"
+        },
+        {
+            "name": "lefthand_mild"
+        },
+        {
+            "name": "lefthand_moderate"
+        },
+        {
+            "name": "lefthand_severe"
+        },
+        {
+            "name": "lefthand_excruciating"
+        },
+        {
+            "name": "lefthand_mortal"
+        },
+        {
+            "name": "leftleg_none"
+        },
+        {
+            "name": "leftleg_zero"
+        },
+        {
+            "name": "leftleg_mild"
+        },
+        {
+            "name": "leftleg_moderate"
+        },
+        {
+            "name": "leftleg_severe"
+        },
+        {
+            "name": "leftleg_excruciating"
+        },
+        {
+            "name": "leftleg_mortal"
+        },
+        {
+            "name": "rightarm_none"
+        },
+        {
+            "name": "rightarm_zero"
+        },
+        {
+            "name": "rightarm_mild"
+        },
+        {
+            "name": "rightarm_moderate"
+        },
+        {
+            "name": "rightarm_severe"
+        },
+        {
+            "name": "rightarm_excruciating"
+        },
+        {
+            "name": "rightarm_mortal"
+        },
+        {
+            "name": "rightfoot_none"
+        },
+        {
+            "name": "rightfoot_zero"
+        },
+        {
+            "name": "rightfoot_mild"
+        },
+        {
+            "name": "rightfoot_moderate"
+        },
+        {
+            "name": "rightfoot_severe"
+        },
+        {
+            "name": "rightfoot_excruciating"
+        },
+        {
+            "name": "rightfoot_mortal"
+        },
+        {
+            "name": "righthand_none"
+        },
+        {
+            "name": "righthand_zero"
+        },
+        {
+            "name": "righthand_mild"
+        },
+        {
+            "name": "righthand_moderate"
+        },
+        {
+            "name": "righthand_severe"
+        },
+        {
+            "name": "righthand_excruciating"
+        },
+        {
+            "name": "righthand_mortal"
+        },
+        {
+            "name": "rightleg_none"
+        },
+        {
+            "name": "rightleg_zero"
+        },
+        {
+            "name": "rightleg_mild"
+        },
+        {
+            "name": "rightleg_moderate"
+        },
+        {
+            "name": "rightleg_severe"
+        },
+        {
+            "name": "rightleg_excruciating"
+        },
+        {
+            "name": "rightleg_mortal"
+        }
+    ]
+}

@@ -78,8 +78,6 @@
       alternateState: Standing
     - type: OfferItem
     - type: LayingDown
-    - type: BloodstreamAffectedByMass
-      power: 0.6
     - type: Hunger
     - type: Thirst
     - type: Carriable
@@ -151,16 +149,21 @@
       drawdepth: Mobs
       scale: 0.85, 0.85
       layers:
-        - map: ["enum.HumanoidVisualLayers.Chest"]
-        - map: ["enum.HumanoidVisualLayers.Head"]
+        # WD EDIT START: HumanoidVisualLayers -> BodyAppearanceLayer
+        - map: [ "enum.BodyAppearanceLayer.Chest" ]
+        - map: [ "enum.BodyAppearanceLayer.Groin" ]
+        - map: [ "enum.BodyAppearanceLayer.Head" ]
+        # WD EDIT END
         - map: ["enum.HumanoidVisualLayers.Snout"]
-        - map: ["enum.HumanoidVisualLayers.Eyes"]
+        - map: [ "enum.BodyAppearanceLayer.Eyes" ] # WD EDIT: HumanoidVisualLayers -> BodyAppearanceLayer
           shader: unshaded
         - map: ["enum.HumanoidVisualLayers.Face"]
-        - map: ["enum.HumanoidVisualLayers.RArm"]
-        - map: ["enum.HumanoidVisualLayers.LArm"]
-        - map: ["enum.HumanoidVisualLayers.RLeg"]
-        - map: ["enum.HumanoidVisualLayers.LLeg"]
+        # WD EDIT: HumanoidVisualLayers -> BodyAppearanceLayer
+        - map: [ "enum.BodyAppearanceLayer.RightArm" ]
+        - map: [ "enum.BodyAppearanceLayer.LeftArm" ]
+        - map: [ "enum.BodyAppearanceLayer.RightLeg" ]
+        - map: [ "enum.BodyAppearanceLayer.LeftLeg" ]
+        # WD EDIT END
 #     - shader: StencilClear
 #      sprite: Mobs/Species/Human/parts.rsi
 #      state: l_leg
@@ -169,14 +172,18 @@
           sprite: Mobs/Customization/masking_helpers.rsi
           state: full
           visible: false
-        - map: ["enum.HumanoidVisualLayers.LFoot"]
-        - map: ["enum.HumanoidVisualLayers.RFoot"]
+        # WD EDIT START: HumanoidVisualLayers -> BodyAppearanceLayer
+        - map: ["enum.BodyAppearanceLayer.LeftFoot"]
+        - map: ["enum.BodyAppearanceLayer.RightFoot"]
+        # WD EDIT END
         - map: ["socks"]
         - map: ["underpants"]
         - map: ["undershirt"]
         - map: ["jumpsuit"]
-        - map: ["enum.HumanoidVisualLayers.LHand"]
-        - map: ["enum.HumanoidVisualLayers.RHand"]
+        # WD EDIT START: HumanoidVisualLayers -> BodyAppearanceLayer
+        - map: ["enum.BodyAppearanceLayer.LeftHand"]
+        - map: ["enum.BodyAppearanceLayer.RightHand"]
+        # WD EDIT END
         - map: ["enum.HumanoidVisualLayers.Handcuffs"]
           color: "#ffffff"
           sprite: Objects/Misc/handcuffs.rsi
@@ -201,7 +208,10 @@
         - map: ["head"]
         - map: ["pocket1"]
         - map: ["pocket2"]
-        - map: ["enum.HumanoidVisualLayers.Tail"]
+        # WD EDIT START: HumanoidVisualLayers -> BodyAppearanceLayer
+        - map: [ "enum.BodyAppearanceLayer.Tail" ]
+        - map: [ "enum.BodyAppearanceLayer.Wings" ]
+        # WD EDIT END
     - type: MeleeWeapon
       soundHit:
         collection: AlienClaw
@@ -260,16 +270,21 @@
       drawdepth: Mobs
       scale: 0.85, 0.85 # Small
       layers:
-        - map: ["enum.HumanoidVisualLayers.Chest"]
-        - map: ["enum.HumanoidVisualLayers.Head"]
+        # WD EDIT START: HumanoidVisualLayers -> BodyAppearanceLayer
+        - map: [ "enum.BodyAppearanceLayer.Chest" ]
+        - map: [ "enum.BodyAppearanceLayer.Groin" ]
+        - map: [ "enum.BodyAppearanceLayer.Head" ]
+        # WD EDIT END
         - map: ["enum.HumanoidVisualLayers.Snout"]
-        - map: ["enum.HumanoidVisualLayers.Eyes"]
+        - map: [ "enum.BodyAppearanceLayer.Eyes" ] # WD EDIT: HumanoidVisualLayers -> BodyAppearanceLayer
           shader: unshaded
         - map: ["enum.HumanoidVisualLayers.Face"]
-        - map: ["enum.HumanoidVisualLayers.RArm"]
-        - map: ["enum.HumanoidVisualLayers.LArm"]
-        - map: ["enum.HumanoidVisualLayers.RLeg"]
-        - map: ["enum.HumanoidVisualLayers.LLeg"]
+        # WD EDIT: HumanoidVisualLayers -> BodyAppearanceLayer
+        - map: [ "enum.BodyAppearanceLayer.RightArm" ]
+        - map: [ "enum.BodyAppearanceLayer.LeftArm" ]
+        - map: [ "enum.BodyAppearanceLayer.RightLeg" ]
+        - map: [ "enum.BodyAppearanceLayer.LeftLeg" ]
+        # WD EDIT END
 #     - shader: StencilClear
 #      sprite: Mobs/Species/Human/parts.rsi
 #      state: l_leg
@@ -278,14 +293,18 @@
           sprite: Mobs/Customization/masking_helpers.rsi
           state: full
           visible: false
-        - map: ["enum.HumanoidVisualLayers.LFoot"]
-        - map: ["enum.HumanoidVisualLayers.RFoot"]
+        # WD EDIT START: HumanoidVisualLayers -> BodyAppearanceLayer
+        - map: ["enum.BodyAppearanceLayer.LeftFoot"]
+        - map: ["enum.BodyAppearanceLayer.RightFoot"]
+        # WD EDIT END
         - map: ["socks"]
         - map: ["underpants"]
         - map: ["undershirt"]
         - map: ["jumpsuit"]
-        - map: ["enum.HumanoidVisualLayers.LHand"]
-        - map: ["enum.HumanoidVisualLayers.RHand"]
+        # WD EDIT START: HumanoidVisualLayers -> BodyAppearanceLayer
+        - map: ["enum.BodyAppearanceLayer.LeftHand"]
+        - map: ["enum.BodyAppearanceLayer.RightHand"]
+        # WD EDIT END
         - map: ["enum.HumanoidVisualLayers.Handcuffs"]
           color: "#ffffff"
           sprite: Objects/Misc/handcuffs.rsi
@@ -310,4 +329,8 @@
         - map: ["head"]
         - map: ["pocket1"]
         - map: ["pocket2"]
-        - map: ["enum.HumanoidVisualLayers.Tail"]
+        - map: [ "enum.BodyAppearanceLayer.Tail" ] # WD EDIT: HumanoidVisualLayers -> BodyAppearanceLayer
+    # WD EDIT START
+    - type: Body
+      prototype: Shadowkin
+    # WD EDIT END

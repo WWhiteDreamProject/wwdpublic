@@ -7,7 +7,7 @@
   flavor: clean
   color: "#ff0000"
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       metabolismRate: 0.5
       effects:
         - !type:HealthChange
@@ -51,7 +51,7 @@
   color: "#ff0000"
   worksOnTheDead: true
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       metabolismRate: 0.5
       effects:
         - !type:ModifyBloodLevel
@@ -82,7 +82,7 @@
   flavor: medicine
   color: "#ffff64"
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         damage:
@@ -144,7 +144,7 @@
   flavor: medicine
   color: "#ffc41a"
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       metabolismRate: 0.05
       effects:
       - !type:ChemVomit
@@ -162,7 +162,7 @@
   flavor: terrible
   color: "#cc9c14"
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         damage:
@@ -173,7 +173,7 @@
         amount: -0.5
       - !type:ModifyBloodLevel
         amount: 3
-    Food:
+    Digestion: # WD EDIT
       effects:
       - !type:SatiateHunger
         factor: 1.5 # 50% less
@@ -187,7 +187,7 @@
   flavor: medicine
   color: "#ff6060"
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         damage:
@@ -222,7 +222,7 @@
     - !type:PlantAdjustToxins
       amount: -30
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       metabolismRate: 3
       effects:
       - !type:HealthChange
@@ -266,7 +266,7 @@
   flavor: medicine
   color: "#e1d758"
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       metabolismRate: 0.25
       effects:
       - !type:HealthChange
@@ -296,7 +296,7 @@
   flavor: medicine
   color: "#996fcc"
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       metabolismRate: 3
       effects:
       - !type:HealthChange
@@ -340,7 +340,7 @@
   flavor: medicine
   color: "#ff8af3"
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       metabolismRate: 0.5
       effects:
       - !type:HealthChange
@@ -377,7 +377,7 @@
   flavor: medicine
   color: "#ffdf97"
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       metabolismRate: 3
       effects:
       - !type:HealthChange
@@ -423,7 +423,7 @@
   flavor: medicine
   color: "#65583b"
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       metabolismRate: 0.05
       effects:
       - !type:HealthChange
@@ -460,20 +460,8 @@
     - !type:PlantAdjustHealth
       amount: 10
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       effects:
-      - !type:AdjustReagent
-        group: Medicine
-        amount: -3
-        conditions:
-        - !type:UniqueBloodstreamChemThreshold
-          max: 3 # the gist is, 2 and below this sucks, 3 and above it's great; mix with water etc for good results
-      - !type:AdjustReagent
-        group: Poison
-        amount: -3
-      - !type:AdjustReagent
-        group: Narcotic
-        amount: -3
       - !type:HealthChange
         damage:
           types:
@@ -506,7 +494,7 @@
     - !type:PlantAdjustHealth
       amount: -10
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         conditions:
@@ -539,7 +527,7 @@
     - !type:PlantAdjustHealth
       amount: -50
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       metabolismRate: 1
       effects:
       - !type:ChemCleanBloodstream
@@ -588,12 +576,9 @@
     - !type:PlantAdjustHealth
       amount: -20
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       metabolismRate: 0.1
       effects:
-      - !type:AdjustReagent
-        group: Poison
-        amount: -6
       - !type:HealthChange
         damage:
           types:
@@ -669,7 +654,7 @@
     - !type:PlantAdjustHealth
       amount: -10
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         conditions:
@@ -696,7 +681,7 @@
     - !type:PlantAdjustHealth
       amount: -10
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       metabolismRate: 0.1
       effects:
       - !type:HealthChange
@@ -762,7 +747,7 @@
           - type: PressureProtection # can't get through this to reach the bodyparts!
           invert: true
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       metabolismRate: 3
       effects:
       - !type:HealthChange
@@ -828,7 +813,7 @@
           - type: PressureProtection
           invert: true
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       metabolismRate: 3
       effects:
       - !type:HealthChange
@@ -857,7 +842,7 @@
     - !type:PlantAdjustHealth
       amount: -10
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         damage:
@@ -902,7 +887,7 @@
     - !type:PlantAdjustHealth
       amount: -8
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         damage:
@@ -952,7 +937,7 @@
     - !type:PlantAdjustToxins
       amount: -8
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       metabolismRate: 0.25
       effects:
       - !type:ChemCleanBloodstream
@@ -982,7 +967,7 @@
     - !type:PlantAdjustHealth
       amount: -5
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       metabolismRate: 0.25
       effects:
       - !type:HealthChange
@@ -1044,7 +1029,7 @@
     - !type:PlantAdjustHealth
       amount: -20
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       metabolismRate: 1
       effects:
       - !type:HealthChange
@@ -1097,7 +1082,7 @@
           min: 160.15
         amount: -10000
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         damage:
@@ -1154,7 +1139,7 @@
           max: 420
         amount: 10000
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         damage:

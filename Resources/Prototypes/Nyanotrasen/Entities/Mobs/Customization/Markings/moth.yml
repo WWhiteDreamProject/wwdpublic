@@ -1,7 +1,6 @@
 # Antennas
 - type: marking
   id: MothAntennasClassicAspen
-  bodyPart: HeadTop
   markingCategory: HeadTop
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -13,10 +12,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_antennas.rsi
     state: aspen
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothAntennasClassicBrown
-  bodyPart: HeadTop
   markingCategory: HeadTop
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -28,10 +30,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_antennas.rsi
     state: brown
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothAntennasClassicDeathshead
-  bodyPart: HeadTop
   markingCategory: HeadTop
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -43,10 +48,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_antennas.rsi
     state: deathshead
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothAntennasClassicFeathery
-  bodyPart: HeadTop
   markingCategory: HeadTop
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -58,10 +66,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_antennas.rsi
     state: feathery
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothAntennasClassicFirewatch
-  bodyPart: HeadTop
   markingCategory: HeadTop
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -73,10 +84,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_antennas.rsi
     state: firewatch
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothAntennasClassicGothic
-  bodyPart: HeadTop
   markingCategory: HeadTop
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -88,10 +102,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_antennas.rsi
     state: gothic
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothAntennasClassicJungle
-  bodyPart: HeadTop
   markingCategory: HeadTop
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -103,10 +120,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_antennas.rsi
     state: jungle
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothAntennasClassicLovers
-  bodyPart: HeadTop
   markingCategory: HeadTop
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -118,10 +138,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_antennas.rsi
     state: lovers
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothAntennasClassicMint
-  bodyPart: HeadTop
   markingCategory: HeadTop
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -133,10 +156,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_antennas.rsi
     state: mint
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothAntennasClassicMoffra
-  bodyPart: HeadTop
   markingCategory: HeadTop
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -148,10 +174,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_antennas.rsi
     state: moffra
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothAntennasClassicMoonfly
-  bodyPart: HeadTop
   markingCategory: HeadTop
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -163,10 +192,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_antennas.rsi
     state: moonfly
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothAntennasClassicOakworm
-  bodyPart: HeadTop
   markingCategory: HeadTop
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -178,10 +210,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_antennas.rsi
     state: oakworm
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothAntennasClassicPlain
-  bodyPart: HeadTop
   markingCategory: HeadTop
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -193,10 +228,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_antennas.rsi
     state: plain
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothAntennasClassicPlasmafire
-  bodyPart: HeadTop
   markingCategory: HeadTop
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -208,10 +246,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_antennas.rsi
     state: plasmafire
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothAntennasClassicPoison
-  bodyPart: HeadTop
   markingCategory: HeadTop
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -223,10 +264,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_antennas.rsi
     state: poison
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothAntennasClassicReddish
-  bodyPart: HeadTop
   markingCategory: HeadTop
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -238,10 +282,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_antennas.rsi
     state: reddish
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothAntennasClassicRegal
-  bodyPart: HeadTop
   markingCategory: HeadTop
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -253,10 +300,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_antennas.rsi
     state: regal
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothAntennasClassicRosy
-  bodyPart: HeadTop
   markingCategory: HeadTop
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -268,10 +318,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_antennas.rsi
     state: rosy
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothAntennasClassicRoyal
-  bodyPart: HeadTop
   markingCategory: HeadTop
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -283,10 +336,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_antennas.rsi
     state: royal
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothAntennasClassicSnow
-  bodyPart: HeadTop
   markingCategory: HeadTop
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -298,10 +354,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_antennas.rsi
     state: snow
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothAntennasClassicWhitefly
-  bodyPart: HeadTop
   markingCategory: HeadTop
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -313,10 +372,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_antennas.rsi
     state: whitefly
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothAntennasClassicWitchking
-  bodyPart: HeadTop
   markingCategory: HeadTop
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -328,12 +390,15 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_antennas.rsi
     state: witchking
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 # Wings
 - type: marking
   id: MothWingsClassicAspen
-  bodyPart: Tail
-  markingCategory: Tail
+  markingCategory: Wings # WD EDIT: Tail -> Wings
   forcedColoring: true
   speciesRestriction: [Moth]
   coloring:
@@ -344,11 +409,15 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_wings.rsi
     state: aspen
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    replacementBodyPart: BodyPartWingsMoth
+    # WD EDIT END
 
 - type: marking
   id: MothWingsClassicAtlas
-  bodyPart: Tail
-  markingCategory: Tail
+  markingCategory: Wings # WD EDIT: Tail -> Wings
   forcedColoring: true
   speciesRestriction: [Moth]
   coloring:
@@ -359,11 +428,15 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_wings.rsi
     state: atlas
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    replacementBodyPart: BodyPartWingsMoth
+    # WD EDIT END
 
 - type: marking
   id: MothWingsClassicBrown
-  bodyPart: Tail
-  markingCategory: Tail
+  markingCategory: Wings # WD EDIT: Tail -> Wings
   forcedColoring: true
   speciesRestriction: [Moth]
   coloring:
@@ -374,11 +447,15 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_wings.rsi
     state: brown
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    replacementBodyPart: BodyPartWingsMoth
+    # WD EDIT END
 
 - type: marking
   id: MothWingsClassicDeathshead
-  bodyPart: Tail
-  markingCategory: Tail
+  markingCategory: Wings # WD EDIT: Tail -> Wings
   forcedColoring: true
   speciesRestriction: [Moth]
   coloring:
@@ -389,11 +466,15 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_wings.rsi
     state: deathshead
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    replacementBodyPart: BodyPartWingsMoth
+    # WD EDIT END
 
 - type: marking
   id: MothWingsClassicFeathery
-  bodyPart: Tail
-  markingCategory: Tail
+  markingCategory: Wings # WD EDIT: Tail -> Wings
   forcedColoring: true
   speciesRestriction: [Moth]
   coloring:
@@ -404,11 +485,15 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_wings.rsi
     state: feathery
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    replacementBodyPart: BodyPartWingsMoth
+    # WD EDIT END
 
 - type: marking
   id: MothWingsClassicFirewatch
-  bodyPart: Tail
-  markingCategory: Tail
+  markingCategory: Wings # WD EDIT: Tail -> Wings
   forcedColoring: true
   speciesRestriction: [Moth]
   coloring:
@@ -419,11 +504,15 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_wings.rsi
     state: firewatch
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    replacementBodyPart: BodyPartWingsMoth
+    # WD EDIT END
 
 - type: marking
   id: MothWingsClassicGothic
-  bodyPart: Tail
-  markingCategory: Tail
+  markingCategory: Wings # WD EDIT: Tail -> Wings
   forcedColoring: true
   speciesRestriction: [Moth]
   coloring:
@@ -434,11 +523,15 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_wings.rsi
     state: gothic
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    replacementBodyPart: BodyPartWingsMoth
+    # WD EDIT END
 
 - type: marking
   id: MothWingsClassicJungle
-  bodyPart: Tail
-  markingCategory: Tail
+  markingCategory: Wings # WD EDIT: Tail -> Wings
   forcedColoring: true
   speciesRestriction: [Moth]
   coloring:
@@ -449,11 +542,15 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_wings.rsi
     state: jungle
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    replacementBodyPart: BodyPartWingsMoth
+    # WD EDIT END
 
 - type: marking
   id: MothWingsClassicLovers
-  bodyPart: Tail
-  markingCategory: Tail
+  markingCategory: Wings # WD EDIT: Tail -> Wings
   forcedColoring: true
   speciesRestriction: [Moth]
   coloring:
@@ -464,11 +561,15 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_wings.rsi
     state: lovers
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    replacementBodyPart: BodyPartWingsMoth
+    # WD EDIT END
 
 - type: marking
   id: MothWingsClassicLuna
-  bodyPart: Tail
-  markingCategory: Tail
+  markingCategory: Wings # WD EDIT: Tail -> Wings
   forcedColoring: true
   speciesRestriction: [Moth]
   coloring:
@@ -479,11 +580,15 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_wings.rsi
     state: luna
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    replacementBodyPart: BodyPartWingsMoth
+    # WD EDIT END
 
 - type: marking
   id: MothWingsClassicMint
-  bodyPart: Tail
-  markingCategory: Tail
+  markingCategory: Wings # WD EDIT: Tail -> Wings
   forcedColoring: true
   speciesRestriction: [Moth]
   coloring:
@@ -494,11 +599,15 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_wings.rsi
     state: mint
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    replacementBodyPart: BodyPartWingsMoth
+    # WD EDIT END
 
 - type: marking
   id: MothWingsClassicMoffra
-  bodyPart: Tail
-  markingCategory: Tail
+  markingCategory: Wings # WD EDIT: Tail -> Wings
   forcedColoring: true
   speciesRestriction: [Moth]
   coloring:
@@ -509,11 +618,15 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_wings.rsi
     state: moffra
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    replacementBodyPart: BodyPartWingsMoth
+    # WD EDIT END
 
 - type: marking
   id: MothWingsClassicMonarch
-  bodyPart: Tail
-  markingCategory: Tail
+  markingCategory: Wings # WD EDIT: Tail -> Wings
   forcedColoring: true
   speciesRestriction: [Moth]
   coloring:
@@ -524,11 +637,15 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_wings.rsi
     state: monarch
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    replacementBodyPart: BodyPartWingsMoth
+    # WD EDIT END
 
 - type: marking
   id: MothWingsClassicMoonfly
-  bodyPart: Tail
-  markingCategory: Tail
+  markingCategory: Wings # WD EDIT: Tail -> Wings
   forcedColoring: true
   speciesRestriction: [Moth]
   coloring:
@@ -539,11 +656,15 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_wings.rsi
     state: moonfly
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    replacementBodyPart: BodyPartWingsMoth
+    # WD EDIT END
 
 - type: marking
   id: MothWingsClassicOakworm
-  bodyPart: Tail
-  markingCategory: Tail
+  markingCategory: Wings # WD EDIT: Tail -> Wings
   forcedColoring: true
   speciesRestriction: [Moth]
   coloring:
@@ -554,11 +675,15 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_wings.rsi
     state: oakworm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    replacementBodyPart: BodyPartWingsMoth
+    # WD EDIT END
 
 - type: marking
   id: MothWingsClassicPlain
-  bodyPart: Tail
-  markingCategory: Tail
+  markingCategory: Wings # WD EDIT: Tail -> Wings
   forcedColoring: true
   speciesRestriction: [Moth]
   coloring:
@@ -569,11 +694,15 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_wings.rsi
     state: plain
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    replacementBodyPart: BodyPartWingsMoth
+    # WD EDIT END
 
 - type: marking
   id: MothWingsClassicPlasmafire
-  bodyPart: Tail
-  markingCategory: Tail
+  markingCategory: Wings # WD EDIT: Tail -> Wings
   forcedColoring: true
   speciesRestriction: [Moth]
   coloring:
@@ -584,11 +713,15 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_wings.rsi
     state: plasmafire
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    replacementBodyPart: BodyPartWingsMoth
+    # WD EDIT END
 
 - type: marking
   id: MothWingsClassicPoison
-  bodyPart: Tail
-  markingCategory: Tail
+  markingCategory: Wings # WD EDIT: Tail -> Wings
   forcedColoring: true
   speciesRestriction: [Moth]
   coloring:
@@ -599,11 +732,15 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_wings.rsi
     state: poison
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    replacementBodyPart: BodyPartWingsMoth
+    # WD EDIT END
 
 - type: marking
   id: MothWingsClassicRagged
-  bodyPart: Tail
-  markingCategory: Tail
+  markingCategory: Wings # WD EDIT: Tail -> Wings
   forcedColoring: true
   speciesRestriction: [Moth]
   coloring:
@@ -614,11 +751,15 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_wings.rsi
     state: ragged
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    replacementBodyPart: BodyPartWingsMoth
+    # WD EDIT END
 
 - type: marking
   id: MothWingsClassicReddish
-  bodyPart: Tail
-  markingCategory: Tail
+  markingCategory: Wings # WD EDIT: Tail -> Wings
   forcedColoring: true
   speciesRestriction: [Moth]
   coloring:
@@ -629,11 +770,15 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_wings.rsi
     state: reddish
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    replacementBodyPart: BodyPartWingsMoth
+    # WD EDIT END
 
 - type: marking
   id: MothWingsClassicRosy
-  bodyPart: Tail
-  markingCategory: Tail
+  markingCategory: Wings # WD EDIT: Tail -> Wings
   forcedColoring: true
   speciesRestriction: [Moth]
   coloring:
@@ -644,11 +789,15 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_wings.rsi
     state: rosy
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    replacementBodyPart: BodyPartWingsMoth
+    # WD EDIT END
 
 - type: marking
   id: MothWingsClassicRoyal
-  bodyPart: Tail
-  markingCategory: Tail
+  markingCategory: Wings # WD EDIT: Tail -> Wings
   forcedColoring: true
   speciesRestriction: [Moth]
   coloring:
@@ -659,11 +808,15 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_wings.rsi
     state: royal
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    replacementBodyPart: BodyPartWingsMoth
+    # WD EDIT END
 
 - type: marking
   id: MothWingsClassicSnow
-  bodyPart: Tail
-  markingCategory: Tail
+  markingCategory: Wings # WD EDIT: Tail -> Wings
   forcedColoring: true
   speciesRestriction: [Moth]
   coloring:
@@ -674,11 +827,15 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_wings.rsi
     state: snow
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    replacementBodyPart: BodyPartWingsMoth
+    # WD EDIT END
 
 - type: marking
   id: MothWingsClassicWhitefly
-  bodyPart: Tail
-  markingCategory: Tail
+  markingCategory: Wings # WD EDIT: Tail -> Wings
   forcedColoring: true
   speciesRestriction: [Moth]
   coloring:
@@ -689,11 +846,15 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_wings.rsi
     state: whitefly
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    replacementBodyPart: BodyPartWingsMoth
+    # WD EDIT END
 
 - type: marking
   id: MothWingsClassicWitchking
-  bodyPart: Tail
-  markingCategory: Tail
+  markingCategory: Wings # WD EDIT: Tail -> Wings
   forcedColoring: true
   speciesRestriction: [Moth]
   coloring:
@@ -704,12 +865,16 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_wings.rsi
     state: witchking
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    replacementBodyPart: BodyPartWingsMoth
+    # WD EDIT END
 
 # Body Markings
 # Deathshead
 - type: marking
   id: MothHeadClassicDeathshead
-  bodyPart: Head
   markingCategory: Head
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -721,10 +886,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: deathshead-head
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothChestClassicDeathshead
-  bodyPart: Chest
   markingCategory: Chest
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -736,10 +904,29 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: deathshead-chest
+# WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+
+- type: marking
+  id: MothGroinClassicDeathshead
+  markingCategory: Groin
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: deathshead-groin
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
+# WD EDIT END
 
 - type: marking
   id: MothLArmClassicDeathshead
-  bodyPart: LArm
   markingCategory: LeftArm
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -751,10 +938,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: deathshead-leftarm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftArm
+    bodyPart: LeftArm
+    # WD EDIT END
 
 - type: marking
   id: MothRArmClassicDeathshead
-  bodyPart: RArm
   markingCategory: RightArm
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -766,10 +956,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: deathshead-rightarm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightArm
+    bodyPart: RightArm
+    # WD EDIT END
 
 - type: marking
   id: MothLLegClassicDeathshead
-  bodyPart: LLeg
   markingCategory: LeftLeg
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -781,10 +974,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: deathshead-leftleg
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftLeg
+    bodyPart: LeftLeg
+    # WD EDIT END
 
 - type: marking
   id: MothRLegClassicDeathshead
-  bodyPart: RLeg
   markingCategory: RightLeg
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -796,12 +992,15 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: deathshead-rightleg
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightLeg
+    bodyPart: RightLeg
+    # WD EDIT END
 
 
 # Firewatch
 - type: marking
   id: MothHeadClassicFirewatch
-  bodyPart: Head
   markingCategory: Head
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -813,10 +1012,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: firewatch-head
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothChestClassicFirewatch
-  bodyPart: Chest
   markingCategory: Chest
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -828,10 +1030,29 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: firewatch-chest
+# WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+
+- type: marking
+  id: MothGroinClassicFirewatch
+  markingCategory: Groin
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: firewatch-groin
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
+# WD EDIT END
 
 - type: marking
   id: MothLArmClassicFirewatch
-  bodyPart: LArm
   markingCategory: LeftArm
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -843,10 +1064,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: firewatch-leftarm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftArm
+    bodyPart: LeftArm
+    # WD EDIT END
 
 - type: marking
   id: MothRArmClassicFirewatch
-  bodyPart: RArm
   markingCategory: RightArm
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -858,10 +1082,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: firewatch-rightarm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightArm
+    bodyPart: RightArm
+    # WD EDIT END
 
 - type: marking
   id: MothLLegClassicFirewatch
-  bodyPart: LLeg
   markingCategory: LeftLeg
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -873,10 +1100,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: firewatch-leftleg
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftLeg
+    bodyPart: LeftLeg
+    # WD EDIT END
 
 - type: marking
   id: MothRLegClassicFirewatch
-  bodyPart: RLeg
   markingCategory: RightLeg
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -888,11 +1118,14 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: firewatch-rightleg
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightLeg
+    bodyPart: RightLeg
+    # WD EDIT END
 
 # Gothic
 - type: marking
   id: MothHeadClassicGothic
-  bodyPart: Head
   markingCategory: Head
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -904,10 +1137,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: gothic-head
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothChestClassicGothic
-  bodyPart: Chest
   markingCategory: Chest
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -919,10 +1155,29 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: gothic-chest
+# WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+
+- type: marking
+  id: MothGroinClassicGothic
+  markingCategory: Groin
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: gothic-groin
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
+# WD EDIT END
 
 - type: marking
   id: MothLArmClassicGothic
-  bodyPart: LArm
   markingCategory: LeftArm
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -934,10 +1189,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: gothic-leftarm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftArm
+    bodyPart: LeftArm
+    # WD EDIT END
 
 - type: marking
   id: MothRArmClassicGothic
-  bodyPart: RArm
   markingCategory: RightArm
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -949,10 +1207,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: gothic-rightarm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightArm
+    bodyPart: RightArm
+    # WD EDIT END
 
 - type: marking
   id: MothLLegClassicGothic
-  bodyPart: LLeg
   markingCategory: LeftLeg
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -964,10 +1225,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: gothic-leftleg
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftLeg
+    bodyPart: LeftLeg
+    # WD EDIT END
 
 - type: marking
   id: MothRLegClassicGothic
-  bodyPart: RLeg
   markingCategory: RightLeg
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -979,11 +1243,14 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: gothic-rightleg
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightLeg
+    bodyPart: RightLeg
+    # WD EDIT END
 
 # Jungle
 - type: marking
   id: MothHeadClassicJungle
-  bodyPart: Head
   markingCategory: Head
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -995,10 +1262,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: jungle-head
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothChestClassicJungle
-  bodyPart: Chest
   markingCategory: Chest
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -1010,10 +1280,29 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: jungle-chest
+# WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+
+- type: marking
+  id: MothGroinClassicJungle
+  markingCategory: Groin
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: jungle-groin
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
+# WD EDIT END
 
 - type: marking
   id: MothLArmClassicJungle
-  bodyPart: LArm
   markingCategory: LeftArm
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -1025,10 +1314,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: jungle-leftarm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftArm
+    bodyPart: LeftArm
+    # WD EDIT END
 
 - type: marking
   id: MothRArmClassicJungle
-  bodyPart: RArm
   markingCategory: RightArm
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -1040,10 +1332,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: jungle-rightarm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightArm
+    bodyPart: RightArm
+    # WD EDIT END
 
 - type: marking
   id: MothLLegClassicJungle
-  bodyPart: LLeg
   markingCategory: LeftLeg
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -1055,10 +1350,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: jungle-leftleg
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftLeg
+    bodyPart: LeftLeg
+    # WD EDIT END
 
 - type: marking
   id: MothRLegClassicJungle
-  bodyPart: RLeg
   markingCategory: RightLeg
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -1070,11 +1368,14 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: jungle-rightleg
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightLeg
+    bodyPart: RightLeg
+    # WD EDIT END
 
 # Lovers
 - type: marking
   id: MothHeadClassicLovers
-  bodyPart: Head
   markingCategory: Head
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -1086,10 +1387,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: lovers-head
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothChestClassicLovers
-  bodyPart: Chest
   markingCategory: Chest
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -1101,10 +1405,29 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: lovers-chest
+# WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+
+- type: marking
+  id: MothGroinClassicLovers
+  markingCategory: Groin
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: lovers-groin
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
+# WD EDIT END
 
 - type: marking
   id: MothLArmClassicLovers
-  bodyPart: LArm
   markingCategory: LeftArm
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -1116,10 +1439,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: lovers-leftarm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftArm
+    bodyPart: LeftArm
+    # WD EDIT END
 
 - type: marking
   id: MothRArmClassicLovers
-  bodyPart: RArm
   markingCategory: RightArm
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -1131,10 +1457,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: lovers-rightarm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightArm
+    bodyPart: RightArm
+    # WD EDIT END
 
 - type: marking
   id: MothLLegClassicLovers
-  bodyPart: LLeg
   markingCategory: LeftLeg
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -1146,10 +1475,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: lovers-leftleg
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftLeg
+    bodyPart: LeftLeg
+    # WD EDIT END
 
 - type: marking
   id: MothRLegClassicLovers
-  bodyPart: RLeg
   markingCategory: RightLeg
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -1161,11 +1493,14 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: lovers-rightleg
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightLeg
+    bodyPart: RightLeg
+    # WD EDIT END
 
 # Moonfly
 - type: marking
   id: MothHeadClassicMoonfly
-  bodyPart: Head
   markingCategory: Head
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -1177,10 +1512,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: moonfly-head
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothChestClassicMoonfly
-  bodyPart: Chest
   markingCategory: Chest
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -1192,10 +1530,29 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: moonfly-chest
+# WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+
+- type: marking
+  id: MothGroinClassicMoonfly
+  markingCategory: Groin
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: moonfly-groin
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
+# WD EDIT END
 
 - type: marking
   id: MothLArmClassicMoonfly
-  bodyPart: LArm
   markingCategory: LeftArm
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -1207,10 +1564,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: moonfly-leftarm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftArm
+    bodyPart: LeftArm
+    # WD EDIT END
 
 - type: marking
   id: MothRArmClassicMoonfly
-  bodyPart: RArm
   markingCategory: RightArm
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -1222,10 +1582,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: moonfly-rightarm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightArm
+    bodyPart: RightArm
+    # WD EDIT END
 
 - type: marking
   id: MothLLegClassicMoonfly
-  bodyPart: LLeg
   markingCategory: LeftLeg
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -1237,10 +1600,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: moonfly-leftleg
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftLeg
+    bodyPart: LeftLeg
+    # WD EDIT END
 
 - type: marking
   id: MothRLegClassicMoonfly
-  bodyPart: RLeg
   markingCategory: RightLeg
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -1252,11 +1618,14 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: moonfly-rightleg
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightLeg
+    bodyPart: RightLeg
+    # WD EDIT END
 
 # Oakworm
 - type: marking
   id: MothHeadClassicOakworm
-  bodyPart: Head
   markingCategory: Head
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -1268,10 +1637,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: oakworm-head
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothChestClassicOakworm
-  bodyPart: Chest
   markingCategory: Chest
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -1283,10 +1655,29 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: oakworm-chest
+# WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+
+- type: marking
+  id: MothGroinClassicOakworm
+  markingCategory: Groin
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: oakworm-groin
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
+# WD EDIT END
 
 - type: marking
   id: MothLArmClassicOakworm
-  bodyPart: LArm
   markingCategory: LeftArm
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -1298,10 +1689,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: oakworm-leftarm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftArm
+    bodyPart: LeftArm
+    # WD EDIT END
 
 - type: marking
   id: MothRArmClassicOakworm
-  bodyPart: RArm
   markingCategory: RightArm
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -1313,10 +1707,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: oakworm-rightarm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightArm
+    bodyPart: RightArm
+    # WD EDIT END
 
 - type: marking
   id: MothLLegClassicOakworm
-  bodyPart: LLeg
   markingCategory: LeftLeg
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -1328,10 +1725,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: oakworm-leftleg
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftLeg
+    bodyPart: LeftLeg
+    # WD EDIT END
 
 - type: marking
   id: MothRLegClassicOakworm
-  bodyPart: RLeg
   markingCategory: RightLeg
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -1343,11 +1743,14 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: oakworm-rightleg
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightLeg
+    bodyPart: RightLeg
+    # WD EDIT END
 
 # Poison
 - type: marking
   id: MothHeadClassicPoison
-  bodyPart: Head
   markingCategory: Head
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -1359,10 +1762,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: poison-head
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothChestClassicPoison
-  bodyPart: Chest
   markingCategory: Chest
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -1374,10 +1780,29 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: poison-chest
+# WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+
+- type: marking
+  id: MothGroinClassicPoison
+  markingCategory: Groin
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: poison-groin
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
+# WD EDIT END
 
 - type: marking
   id: MothLArmClassicPoison
-  bodyPart: LArm
   markingCategory: LeftArm
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -1389,10 +1814,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: poison-leftarm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftArm
+    bodyPart: LeftArm
+    # WD EDIT END
 
 - type: marking
   id: MothRArmClassicPoison
-  bodyPart: RArm
   markingCategory: RightArm
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -1404,10 +1832,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: poison-rightarm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightArm
+    bodyPart: RightArm
+    # WD EDIT END
 
 - type: marking
   id: MothLLegClassicPoison
-  bodyPart: LLeg
   markingCategory: LeftLeg
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -1419,10 +1850,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: poison-leftleg
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftLeg
+    bodyPart: LeftLeg
+    # WD EDIT END
 
 - type: marking
   id: MothRLegClassicPoison
-  bodyPart: RLeg
   markingCategory: RightLeg
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -1434,11 +1868,14 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: poison-rightleg
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightLeg
+    bodyPart: RightLeg
+    # WD EDIT END
 
 # Ragged
 - type: marking
   id: MothHeadClassicRagged
-  bodyPart: Head
   markingCategory: Head
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -1450,10 +1887,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: ragged-head
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothChestClassicRagged
-  bodyPart: Chest
   markingCategory: Chest
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -1465,10 +1905,29 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: ragged-chest
+# WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+
+- type: marking
+  id: MothGroinClassicRagged
+  markingCategory: Groin
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: ragged-groin
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
+# WD EDIT END
 
 - type: marking
   id: MothLArmClassicRagged
-  bodyPart: LArm
   markingCategory: LeftArm
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -1480,10 +1939,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: ragged-leftarm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftArm
+    bodyPart: LeftArm
+    # WD EDIT END
 
 - type: marking
   id: MothRArmClassicRagged
-  bodyPart: RArm
   markingCategory: RightArm
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -1495,10 +1957,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: ragged-rightarm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightArm
+    bodyPart: RightArm
+    # WD EDIT END
 
 - type: marking
   id: MothLLegClassicRagged
-  bodyPart: LLeg
   markingCategory: LeftLeg
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -1510,10 +1975,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: ragged-leftleg
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftLeg
+    bodyPart: LeftLeg
+    # WD EDIT END
 
 - type: marking
   id: MothRLegClassicRagged
-  bodyPart: RLeg
   markingCategory: RightLeg
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -1525,11 +1993,14 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: ragged-rightleg
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightLeg
+    bodyPart: RightLeg
+    # WD EDIT END
 
 # Reddish
 - type: marking
   id: MothHeadClassicReddish
-  bodyPart: Head
   markingCategory: Head
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -1541,10 +2012,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: reddish-head
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothChestClassicReddish
-  bodyPart: Chest
   markingCategory: Chest
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -1556,10 +2030,29 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: reddish-chest
+# WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+
+- type: marking
+  id: MothGroinClassicReddish
+  markingCategory: Groin
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: reddish-groin
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
+# WD EDIT END
 
 - type: marking
   id: MothLArmClassicReddish
-  bodyPart: LArm
   markingCategory: LeftArm
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -1571,10 +2064,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: reddish-leftarm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftArm
+    bodyPart: LeftArm
+    # WD EDIT END
 
 - type: marking
   id: MothRArmClassicReddish
-  bodyPart: RArm
   markingCategory: RightArm
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -1586,10 +2082,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: reddish-rightarm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightArm
+    bodyPart: RightArm
+    # WD EDIT END
 
 - type: marking
   id: MothLLegClassicReddish
-  bodyPart: LLeg
   markingCategory: LeftLeg
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -1601,10 +2100,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: reddish-leftleg
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftLeg
+    bodyPart: LeftLeg
+    # WD EDIT END
 
 - type: marking
   id: MothRLegClassicReddish
-  bodyPart: RLeg
   markingCategory: RightLeg
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -1616,11 +2118,14 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: reddish-rightleg
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightLeg
+    bodyPart: RightLeg
+    # WD EDIT END
 
 # Royal
 - type: marking
   id: MothHeadClassicRoyal
-  bodyPart: Head
   markingCategory: Head
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -1632,10 +2137,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: royal-head
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothChestClassicRoyal
-  bodyPart: Chest
   markingCategory: Chest
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -1647,10 +2155,29 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: royal-chest
+# WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+
+- type: marking
+  id: MothGroinClassicRoyal
+  markingCategory: Groin
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: royal-groin
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
+# WD EDIT END
 
 - type: marking
   id: MothLArmClassicRoyal
-  bodyPart: LArm
   markingCategory: LeftArm
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -1662,10 +2189,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: royal-leftarm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftArm
+    bodyPart: LeftArm
+    # WD EDIT END
 
 - type: marking
   id: MothRArmClassicRoyal
-  bodyPart: RArm
   markingCategory: RightArm
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -1677,10 +2207,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: royal-rightarm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightArm
+    bodyPart: RightArm
+    # WD EDIT END
 
 - type: marking
   id: MothLLegClassicRoyal
-  bodyPart: LLeg
   markingCategory: LeftLeg
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -1692,10 +2225,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: royal-leftleg
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftLeg
+    bodyPart: LeftLeg
+    # WD EDIT END
 
 - type: marking
   id: MothRLegClassicRoyal
-  bodyPart: RLeg
   markingCategory: RightLeg
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -1707,11 +2243,14 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: royal-rightleg
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightLeg
+    bodyPart: RightLeg
+    # WD EDIT END
 
 # Whitefly
 - type: marking
   id: MothHeadClassicWhitefly
-  bodyPart: Head
   markingCategory: Head
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -1723,10 +2262,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: whitefly-head
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothChestClassicWhitefly
-  bodyPart: Chest
   markingCategory: Chest
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -1738,10 +2280,29 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: whitefly-chest
+# WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+
+- type: marking
+  id: MothGroinClassicWhitefly
+  markingCategory: Groin
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: whitefly-groin
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
+# WD EDIT END
 
 - type: marking
   id: MothLArmClassicWhitefly
-  bodyPart: LArm
   markingCategory: LeftArm
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -1753,10 +2314,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: whitefly-leftarm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftArm
+    bodyPart: LeftArm
+    # WD EDIT END
 
 - type: marking
   id: MothRArmClassicWhitefly
-  bodyPart: RArm
   markingCategory: RightArm
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -1768,10 +2332,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: whitefly-rightarm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightArm
+    bodyPart: RightArm
+    # WD EDIT END
 
 - type: marking
   id: MothLLegClassicWhitefly
-  bodyPart: LLeg
   markingCategory: LeftLeg
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -1783,10 +2350,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: whitefly-leftleg
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftLeg
+    bodyPart: LeftLeg
+    # WD EDIT END
 
 - type: marking
   id: MothRLegClassicWhitefly
-  bodyPart: RLeg
   markingCategory: RightLeg
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -1798,11 +2368,14 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: whitefly-rightleg
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightLeg
+    bodyPart: RightLeg
+    # WD EDIT END
 
 # Witchking
 - type: marking
   id: MothHeadClassicWitchking
-  bodyPart: Head
   markingCategory: Head
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -1814,10 +2387,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: witchking-head
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: MothChestClassicWitchking
-  bodyPart: Chest
   markingCategory: Chest
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -1829,10 +2405,29 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: witchking-chest
+# WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+
+- type: marking
+  id: MothGroinClassicWitchking
+  markingCategory: Groin
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: witchking-groin
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
+# WD EDIT END
 
 - type: marking
   id: MothLArmClassicWitchking
-  bodyPart: LArm
   markingCategory: LeftArm
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -1844,10 +2439,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: witchking-leftarm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftArm
+    bodyPart: LeftArm
+    # WD EDIT END
 
 - type: marking
   id: MothRArmClassicWitchking
-  bodyPart: RArm
   markingCategory: RightArm
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -1859,10 +2457,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: witchking-rightarm
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightArm
+    bodyPart: RightArm
+    # WD EDIT END
 
 - type: marking
   id: MothLLegClassicWitchking
-  bodyPart: LLeg
   markingCategory: LeftLeg
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -1874,10 +2475,13 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: witchking-leftleg
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftLeg
+    bodyPart: LeftLeg
+    # WD EDIT END
 
 - type: marking
   id: MothRLegClassicWitchking
-  bodyPart: RLeg
   markingCategory: RightLeg
   forcedColoring: true
   speciesRestriction: [Moth]
@@ -1889,3 +2493,7 @@
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
     state: witchking-rightleg
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightLeg
+    bodyPart: RightLeg
+    # WD EDIT END

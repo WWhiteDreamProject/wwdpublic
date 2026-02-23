@@ -1,0 +1,87 @@
+- type: body
+  id: Plasmaman
+  root: chest
+  bodyParts:
+    head:
+      type: Head
+      startingBodyPart: BodyPartHeadPlasmaman
+      connections:
+      - chest
+      organs:
+        brain:
+          type: Brain
+          startingOrgan: OrganBrainPlasmaman
+        eyes:
+          type: Eyes
+          startingOrgan: OrganEyesPlasmaman
+        tongue:
+          type: Tongue
+          startingOrgan: OrganTonguePlasmaman
+    chest:
+      type: Chest
+      startingBodyPart: BodyPartChestPlasmaman
+      connections:
+      - wings
+      - right_arm
+      - left_arm
+      - groin
+      organs:
+        heart:
+          type: Heart
+          startingOrgan: OrganHeartPlasmaman
+        lungs:
+          type: Lungs
+          startingOrgan: OrganLungsPlasmaman
+    groin:
+      type: Groin
+      startingBodyPart: BodyPartGroinPlasmaman
+      connections:
+      - tail
+      - right_leg
+      - left_leg
+      organs:
+        stomach:
+          type: Stomach
+          startingOrgan: OrganStomachPlasmaman
+        liver:
+          type: Liver
+          startingOrgan: OrganLiverPlasmaman
+        kidneys:
+          type: Kidneys
+          startingOrgan: OrganKidneysPlasmaman
+    left_arm:
+      type: LeftArm
+      startingBodyPart: BodyPartLeftArmPlasmaman
+      connections:
+      - left_hand
+    right_arm:
+      type: RightArm
+      startingBodyPart: BodyPartRightArmPlasmaman
+      connections:
+      - right_hand
+    left_hand:
+      type: LeftHand
+      startingBodyPart: BodyPartLeftHandPlasmaman
+    right_hand:
+      type: RightHand
+      startingBodyPart: BodyPartRightHandPlasmaman
+    left_leg:
+      type: LeftLeg
+      startingBodyPart: BodyPartLeftLegPlasmaman
+      connections:
+      - left_foot
+    right_leg:
+      type: RightLeg
+      startingBodyPart: BodyPartRightLegPlasmaman
+      connections:
+      - right_foot
+    left_foot:
+      type: LeftFoot
+      startingBodyPart: BodyPartLeftFootPlasmaman
+    right_foot:
+      type: RightFoot
+      startingBodyPart: BodyPartRightFootPlasmaman
+    tail:
+      type: Tail
+    wings:
+      type: Wings

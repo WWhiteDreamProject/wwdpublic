@@ -563,9 +563,3 @@ public abstract class SharedMindSystem : EntitySystem
 /// <param name="Dead"></param>
 [ByRefEvent]
 public record struct GetCharactedDeadIcEvent(bool? Dead);
-
-/// <summary>
-///     Shitmed Change: Raised on an entity to notify that an objective has been added to the mind.
-/// </summary>
-/// <param name="Objective"></param>
-public record struct ObjectiveAddedEvent(EntityUid Objective);

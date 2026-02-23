@@ -3,10 +3,6 @@
   name: species-name-felinid
   roundStart: true
   prototype: MobFelinid
-  # WD EDIT START
-  bodyTypes:
-  - HumanNormal
-  # WD EDIT END
   defaultSkinTone: "#c0967f"
   markingLimits: MobFelinidMarkingLimits
   dollPrototype: MobFelinidDummy
@@ -17,6 +13,11 @@
   minWidth: 0.8
   defaultWidth: 0.8
   maxWidth: 1 # White Dream: End of changes
+  # WD EDIT START
+  bodyTypes:
+  - Normal
+  - Slim
+  # WD EDIT END
 
 - type: markingPoints
   id: MobFelinidMarkingLimits
@@ -38,6 +39,11 @@
     Chest:
       points: 1
       required: false
+    # WD EDIT START
+    Groin:
+      points: 1
+      required: false
+    # WD EDIT END
     RightLeg:
       points: 6
       required: false

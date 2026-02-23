@@ -1,0 +1,15 @@
+- type: entity
+  id: WoundScarAmputation
+  parent: WoundBase
+  name: bruise
+  components:
+  - type: Wound
+    damageType: Slash
+    isScar: true
+  - type: PainfulWound
+    pain: 20
+    painCoefficients: 0.8
+    freshPainCoefficients: 0.6
+  - type: BleedingWound
+    bleedingCoefficient: 0.02
+    bleedingDurationCoefficient: 2

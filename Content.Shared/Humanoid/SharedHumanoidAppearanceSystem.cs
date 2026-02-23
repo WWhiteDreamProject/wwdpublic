@@ -7,7 +7,6 @@ using Content.Shared._White.TTS;
 using Content.Shared.Examine;
 using Content.Shared.Humanoid.Markings;
 using Content.Shared.Humanoid.Prototypes;
-using Content.Shared._Shitmed.Humanoid.Events; // Shitmed Change
 using Content.Shared.IdentityManagement;
 using Content.Shared.Preferences;
 using Content.Shared.HeightAdjust;
@@ -24,8 +23,10 @@ using Robust.Shared.Utility;
 using YamlDotNet.RepresentationModel;
 using Content.Shared._EE.GenderChange;
 using Content.Shared._White.Bark.Systems;
- 
- namespace Content.Shared.Humanoid;
+using Content.Shared._White.Body.Components;
+using Content.Shared._White.Body.Systems;
+
+namespace Content.Shared.Humanoid;
 
 /// <summary>
 ///     HumanoidSystem. Primarily deals with the appearance and visual data
@@ -45,7 +46,10 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     [Dependency] private readonly ISerializationManager _serManager = default!;
     [Dependency] private readonly HeightAdjustSystem _heightAdjust = default!;
     [Dependency] private readonly ISharedPlayerManager _sharedPlayerManager = default!;
-    [Dependency] private readonly SharedBarkSystem _barkSystem = default!; // WWDP EDIT
+     // WD EDIT SRART
+    [Dependency] private readonly SharedBodySystem _body = default!;
+    [Dependency] private readonly SharedBarkSystem _bark = default!;
+    // wd EDIT END
 
     [ValidatePrototypeId<SpeciesPrototype>]
     public const string DefaultSpecies = "Human";
@@ -61,7 +65,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
 
     // WD EDIT START
     [ValidatePrototypeId<BodyTypePrototype>]
-    public const string DefaultBodyType = "HumanNormal";
+    public const string DefaultBodyType = "Normal";
 
     public const string DefaultVoice = "Aidar";
     public const string DefaultBarkVoice = "Txt1";
@@ -123,10 +127,6 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
             return;
         }
 
-        // Do this first, because profiles currently do not support custom base layers
-        foreach (var (layer, info) in startingSet.CustomBaseLayers)
-            humanoid.CustomBaseLayers.Add(layer, info);
-
         LoadProfile(uid, startingSet.Profile, humanoid, false, false);
     }
 
@@ -161,7 +161,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     /// <param name="layer">Layer to toggle visibility for</param>
     /// <param name="humanoid">Humanoid component of the entity</param>
     public void SetLayerVisibility(EntityUid uid,
-        HumanoidVisualLayers layer,
+        Enum layer, // WD EDIT
         bool visible,
         bool permanent = false,
         HumanoidAppearanceComponent? humanoid = null)
@@ -183,7 +183,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     /// <param name="visible">The visibility state of the layers given</param>
     /// <param name="permanent">If this is a permanent change, or temporary. Permanent layers are stored in their own hash set.</param>
     /// <param name="humanoid">Humanoid component of the entity</param>
-    public void SetLayersVisibility(EntityUid uid, IEnumerable<HumanoidVisualLayers> layers, bool visible, bool permanent = false,
+    public void SetLayersVisibility(EntityUid uid, IEnumerable<Enum> layers, bool visible, bool permanent = false, // WD EDIT
         HumanoidAppearanceComponent? humanoid = null)
     {
         if (!Resolve(uid, ref humanoid))
@@ -201,7 +201,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     protected virtual void SetLayerVisibility(
         EntityUid uid,
         HumanoidAppearanceComponent humanoid,
-        HumanoidVisualLayers layer,
+        Enum layer, // WD EDIT
         bool visible,
         bool permanent,
         ref bool dirty)
@@ -245,8 +245,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     }
 
     /// <summary>
-    ///     Sets the skin color of this humanoid mob. Will only affect base layers that are not custom,
-    ///     custom base layers should use <see cref="SetBaseLayerColor"/> instead.
+    ///     Sets the skin color of this humanoid mob.
     /// </summary>
     /// <param name="uid">The humanoid mob's UID.</param>
     /// <param name="skinColor">Skin color to set on the humanoid mob.</param>
@@ -266,50 +265,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
 
         humanoid.SkinColor = skinColor;
 
-        if (sync)
-            Dirty(uid, humanoid);
-    }
-
-    /// <summary>
-    ///     Sets the base layer ID of this humanoid mob. A humanoid mob's 'base layer' is
-    ///     the skin sprite that is applied to the mob's sprite upon appearance refresh.
-    /// </summary>
-    /// <param name="uid">The humanoid mob's UID.</param>
-    /// <param name="layer">The layer to target on this humanoid mob.</param>
-    /// <param name="id">The ID of the sprite to use. See <see cref="HumanoidSpeciesSpriteLayer"/>.</param>
-    /// <param name="sync">Whether to synchronize this to the humanoid mob, or not.</param>
-    /// <param name="humanoid">Humanoid component of the entity</param>
-    public void SetBaseLayerId(EntityUid uid, HumanoidVisualLayers layer, string? id, bool sync = true,
-        HumanoidAppearanceComponent? humanoid = null)
-    {
-        if (!Resolve(uid, ref humanoid))
-            return;
-
-        if (humanoid.CustomBaseLayers.TryGetValue(layer, out var info))
-            humanoid.CustomBaseLayers[layer] = info with { Id = id };
-        else
-            humanoid.CustomBaseLayers[layer] = new(id);
-
-        if (sync)
-            Dirty(uid, humanoid);
-    }
-
-    /// <summary>
-    ///     Sets the color of this humanoid mob's base layer. See <see cref="SetBaseLayerId"/> for a
-    ///     description of how base layers work.
-    /// </summary>
-    /// <param name="uid">The humanoid mob's UID.</param>
-    /// <param name="layer">The layer to target on this humanoid mob.</param>
-    /// <param name="color">The color to set this base layer to.</param>
-    public void SetBaseLayerColor(EntityUid uid, HumanoidVisualLayers layer, Color? color, bool sync = true, HumanoidAppearanceComponent? humanoid = null)
-    {
-        if (!Resolve(uid, ref humanoid))
-            return;
-
-        if (humanoid.CustomBaseLayers.TryGetValue(layer, out var info))
-            humanoid.CustomBaseLayers[layer] = info with { Color = color };
-        else
-            humanoid.CustomBaseLayers[layer] = new(null, color);
+        _body.SetBodyColor(uid, skinColor, sync); // WD EDIT
 
         if (sync)
             Dirty(uid, humanoid);
@@ -363,7 +319,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     }
 
     /// <summary>
-    ///     Set a humanoid mob's body tupe. This will change their base sprites.
+    ///     Set a humanoid mob's body type. This will change their base sprites.
     /// </summary>
     /// <param name="uid">The humanoid mob's UID.</param>
     /// <param name="bodyType">The body type to set the mob to. Will return if the body type prototype was invalid.</param>
@@ -378,11 +334,32 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         if (!Resolve(uid, ref humanoid))
             return;
 
-        var speciesPrototype = _proto.Index<SpeciesPrototype>(humanoid.Species);
-        if (speciesPrototype.BodyTypes.Contains(bodyType))
-            humanoid.BodyType = bodyType;
-        else
-            humanoid.BodyType = speciesPrototype.BodyTypes.First();
+        var speciesPrototype = _proto.Index(humanoid.Species);
+        humanoid.BodyType = speciesPrototype.BodyTypes.Contains(bodyType) ? bodyType : speciesPrototype.BodyTypes.First();
+
+        if (sync)
+            Dirty(uid, humanoid);
+    }
+
+    /// <summary>
+    ///     Sets the eye color of this humanoid mob.
+    /// </summary>
+    /// <param name="uid">The humanoid mob's UID.</param>
+    /// <param name="eyeColor">Eyes color to set on the humanoid mob.</param>
+    /// <param name="sync">Whether to immediately synchronize this to the humanoid mob, or not.</param>
+    /// <param name="humanoid">Humanoid component of the entity</param>
+    public void SetEyeColor(
+        EntityUid uid,
+        Color eyeColor,
+        bool sync = true,
+        HumanoidAppearanceComponent? humanoid = null)
+    {
+        if (!Resolve(uid, ref humanoid))
+            return;
+
+        humanoid.EyeColor = eyeColor;
+
+        _body.SetBodyOrganColor(uid, eyeColor, OrganType.Eyes, sync); // WD EDIT
 
         if (sync)
             Dirty(uid, humanoid);
@@ -469,7 +446,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         SetSex(uid, profile.Sex, false, humanoid);
         SetTTSVoice(uid, profile.Voice, false, humanoid); // WD EDIT
         SetBodyType(uid, profile.BodyType, false, humanoid); // WD EDIT
-        _barkSystem.ApplyBark(uid, profile.BarkVoice, profile.BarkSettings); // WD EDIT
+        _bark.ApplyBark(uid, profile.BarkVoice, profile.BarkSettings); // WD EDIT
 
         humanoid.Gender = profile.Gender;
         if (TryComp<GrammarComponent>(uid, out var grammar))
@@ -482,7 +459,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
 
         humanoid.CustomSpecieName = profile.Customspeciename;
 
-        humanoid.EyeColor = profile.Appearance.EyeColor;
+        SetEyeColor(uid, profile.Appearance.EyeColor, false, humanoid); // WD EDIT
         var ev = new EyeColorInitEvent();
         RaiseLocalEvent(uid, ref ev);
 
@@ -504,7 +481,12 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
 
         humanoid.LastProfileLoaded = profile; //But traits can also modify the profile so we need to set it again.
         Dirty(uid, humanoid);
-        RaiseLocalEvent(uid, new ProfileLoadFinishedEvent());
+
+        // WD EDIT START
+        _body.SetupBodyAppearance((uid, null, null, humanoid));
+        humanoid.ClientOldMarkings.Clear();
+        humanoid.ClientOldMarkings = new (humanoid.MarkingSet);
+        // WD EDIT END
     }
 
     public void SetMarkings(EntityUid uid, HumanoidCharacterProfile profile, HumanoidAppearanceComponent humanoid)
@@ -525,9 +507,9 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
 
         // Hair/facial hair - this may eventually be deprecated.
         // We need to ensure hair before applying it or coloring can try depend on markings that can be invalid
-        var hairColor = _markingManager.MustMatchSkin(profile.Species, HumanoidVisualLayers.Hair, out var hairAlpha, _proto)
+        var hairColor = _markingManager.MustMatchSkin(profile.Species, MarkingCategories.Hair, out var hairAlpha, _proto) // WD EDIT
             ? profile.Appearance.SkinColor.WithAlpha(hairAlpha) : profile.Appearance.HairColor;
-        var facialHairColor = _markingManager.MustMatchSkin(profile.Species, HumanoidVisualLayers.FacialHair, out var facialHairAlpha, _proto)
+        var facialHairColor = _markingManager.MustMatchSkin(profile.Species, MarkingCategories.FacialHair, out var facialHairAlpha, _proto) // WD EDIT
             ? profile.Appearance.SkinColor.WithAlpha(facialHairAlpha) : profile.Appearance.FacialHairColor;
 
         if (_markingManager.Markings.TryGetValue(profile.Appearance.HairStyleId, out var hairPrototype) &&

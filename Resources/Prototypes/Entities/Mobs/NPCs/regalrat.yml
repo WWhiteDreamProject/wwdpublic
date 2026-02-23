@@ -58,7 +58,6 @@
         Piercing: 8
   - type: Body
     prototype: Rat
-    requiredLegs: 1 # TODO: More than 1 leg
   - type: Hunger # probably should be prototyped
     thresholds:
       Overfed: 200
@@ -129,11 +128,6 @@
     understands:
     - TauCetiBasic
     - Mouse
-  - type: SurgeryTarget
-  - type: UserInterface
-    interfaces:
-      enum.SurgeryUIKey.Key:
-        type: SurgeryBui
   - type: NightVision
     isActive: true
     toggleAction: null
@@ -219,11 +213,6 @@
     - map: [ "enum.DamageStateVisualLayers.BaseUnshaded"]
       state: eyes
       shader: unshaded
-  - type: SurgeryTarget
-  - type: UserInterface
-    interfaces:
-      enum.SurgeryUIKey.Key:
-        type: SurgeryBui
   - type: SpriteMovement
     movementLayers:
       movement:
@@ -263,7 +252,6 @@
         Piercing: 3
   - type: Body
     prototype: Rat
-    requiredLegs: 1 # TODO: More than 1 leg
   - type: Hunger # probably should be prototyped
     thresholds:
       Overfed: 200

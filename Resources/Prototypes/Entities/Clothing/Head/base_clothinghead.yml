@@ -132,10 +132,12 @@
   - type: IdentityBlocker
   - type: HideLayerClothing
     slots:
-    - Hair
-    - Snout
-    - HeadTop
-    - HeadSide
+    # WD EDIT START
+    - enum.HumanoidVisualLayers.Hair
+    - enum.HumanoidVisualLayers.Snout
+    - enum.HumanoidVisualLayers.HeadTop
+    - enum.HumanoidVisualLayers.HeadSide
+    # WD EDIT END
 
 - type: entity
   abstract: true
@@ -166,10 +168,12 @@
   - type: IdentityBlocker
   - type: HideLayerClothing
     slots:
-    - Hair
-    - Snout
-    - HeadTop
-    - HeadSide
+    # WD EDIT START
+    - enum.HumanoidVisualLayers.Hair
+    - enum.HumanoidVisualLayers.Snout
+    - enum.HumanoidVisualLayers.HeadTop
+    - enum.HumanoidVisualLayers.HeadSide
+    # WD EDIT END
 
 - type: entity
   abstract: true
@@ -215,10 +219,12 @@
   - type: IdentityBlocker
   - type: HideLayerClothing
     slots:
-    - Hair
-    - Snout
-    - HeadTop
-    - HeadSide
+    # WD EDIT START
+    - enum.HumanoidVisualLayers.Hair
+    - enum.HumanoidVisualLayers.Snout
+    - enum.HumanoidVisualLayers.HeadTop
+    - enum.HumanoidVisualLayers.HeadSide
+    # WD EDIT END
   # WD EDIT START
   #- type: Reflect
   #  spread: 270
@@ -278,8 +284,10 @@
     - PlasmamanSafe
   - type: HideLayerClothing
     slots:
-    - Hair
-    - Snout
+    # WD EDIT START
+    - enum.HumanoidVisualLayers.Hair
+    - enum.HumanoidVisualLayers.Snout
+    # WD EDIT END
     clothingSlots:
     - mask
   - type: ToggleableLightVisuals
@@ -397,7 +405,7 @@
 - type: entity
   abstract: true
   # No parent since it isn't an item
-  # must parent both this and the desired helmet base when using 
+  # must parent both this and the desired helmet base when using
   id: ClothingHeadSuitWithLightBase
   name: base hardsuit helmet with light
   categories: [ HideSpawnMenu ]
@@ -470,6 +478,8 @@
   - type: GroupExamine
   - type: HideLayerClothing
     slots:
-    - Hair
-    - HeadTop
-    - HeadSide
+    # WD EDIT START
+    - enum.HumanoidVisualLayers.Hair
+    - enum.HumanoidVisualLayers.HeadTop
+    - enum.HumanoidVisualLayers.HeadSide
+    # WD EDIT END

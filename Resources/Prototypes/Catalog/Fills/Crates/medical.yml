@@ -65,12 +65,8 @@
       - id: Retractor
       - id: Cautery
       - id: Drill
-      - id: SawElectric # Shitmed Change
+      - id: Saw
       - id: Hemostat
-      # Shitmed Change
-      - id: BoneGel
-      - id: BoxLatexGloves
-      - id: BoxSterileMask
 
 - type: entity
   id: CrateMedicalScrubs

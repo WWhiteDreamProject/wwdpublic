@@ -1,18 +1,18 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Creator was not supplied, oldest reference tracked to Cael Aislinn in commit https://github.com/ParadiseSS13/Paradise/commit/9e4539fdce01f00ed7e47ca1174a1470ac5fe77c. Small changes made by SX-7. Names are as provided, sans torso_f front which is a combined version of modified torso_m front, and modified torso_f",
+    "copyright": "Creator was not supplied, oldest reference tracked to Cael Aislinn in commit https://github.com/ParadiseSS13/Paradise/commit/9e4539fdce01f00ed7e47ca1174a1470ac5fe77c. Small changes made by SX-7. Names are as provided, sans torso_f front which is a combined version of modified torso_m front, and modified torso_f. Changed by WWDP",
     "size": {
         "x": 32,
         "y": 32
     },
     "states": [
         {
-            "name": "head_f",
+            "name": "head",
             "directions": 4
         },
         {
-            "name": "head_m",
+            "name": "head_female",
             "directions": 4
         },
         {
@@ -48,11 +48,19 @@
             "directions": 4
         },
         {
-            "name": "torso_f",
+            "name": "chest",
             "directions": 4
         },
         {
-            "name": "torso_m",
+            "name": "chest_female",
+            "directions": 4
+        },
+        {
+            "name": "groin",
+            "directions": 4
+        },
+        {
+            "name": "groin_female",
             "directions": 4
         }
     ]

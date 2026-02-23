@@ -1,3 +1,4 @@
+using Content.Shared._White.Body.Components;
 using Content.Shared.CCVar;
 using Content.Shared.Chemistry.Hypospray.Events;
 using Content.Shared.Climbing.Components;
@@ -68,7 +69,7 @@ public sealed class ClumsySystem : EntitySystem
             return;
 
         if (ent.Comp.GunShootFailDamage != null)
-            _damageable.TryChangeDamage(ent, ent.Comp.GunShootFailDamage, origin: ent);
+            _damageable.TryChangeDamage(ent, ent.Comp.GunShootFailDamage, origin: ent, bodyPartType: BodyPartType.Hands); // WD EDIT
 
         _stun.TryParalyze(ent, ent.Comp.GunShootFailStunTime, true);
 
@@ -137,7 +138,7 @@ public sealed class ClumsySystem : EntitySystem
         {
             stunTime = bonkComp.BonkTime;
             if (bonkComp.BonkDamage != null)
-                _damageable.TryChangeDamage(target, bonkComp.BonkDamage, true);
+                _damageable.TryChangeDamage(target, bonkComp.BonkDamage, true, bodyPartType:BodyPartType.Head); // WD EDIT
         }
 
         _stun.TryParalyze(target, stunTime, true);

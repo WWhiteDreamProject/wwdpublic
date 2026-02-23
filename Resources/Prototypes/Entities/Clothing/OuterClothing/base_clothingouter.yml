@@ -149,7 +149,7 @@
     coolingCoefficient: 0.01
   - type: IgniteFromGasImmunity
     parts:
-    - Torso
+    - Chest # WD EDIT: Torso -> Chest
     - Groin
     - LeftArm
     - LeftHand
@@ -343,7 +343,7 @@
     coolingCoefficient: 0.2 # WD EDIT: 0.01 -> 0.2
   - type: IgniteFromGasImmunity
     parts:
-    - Torso
+    - Chest # WD EDIT: Torso -> Chest
     - Groin
     - LeftArm
     - LeftHand

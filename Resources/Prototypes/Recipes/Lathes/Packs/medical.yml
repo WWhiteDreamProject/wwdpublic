@@ -42,9 +42,6 @@
   - Drill
   - Saw
   - Hemostat
-  # EE EDIT START
-  - BoneGel
-  # EE EDIT END
 
 - type: latheRecipePack
   id: MedicalStatic
@@ -119,7 +116,6 @@
   - CryoPodMachineCircuitboard
   - BiomassReclaimerMachineCircuitboard
   # EE EDIT START
-  - AutodocCircuitboard
   - CloningConsoleComputerCircuitboard
   - MedicalScannerMachineCircuitboard
   # EE EDIT END

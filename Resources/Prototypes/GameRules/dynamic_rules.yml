@@ -155,22 +155,6 @@
           - !type:RoundDurationCondition
             min: 2100 # 35 minutes
         # WD edit start
-        - id: LoneAbductorSpawn
-          weight: 7.5
-          conditions:
-          - !type:HasBudgetCondition
-          - !type:PlayerCountCondition
-            min: 10
-          - !type:RoundDurationCondition
-            min: 900 # 15 minutes
-        - id: DuoAbductorSpawn
-          weight: 7.5
-          conditions:
-          - !type:HasBudgetCondition
-          - !type:PlayerCountCondition
-            min: 20
-          - !type:RoundDurationCondition
-            min: 900 # 15 minutes
         - id: XenomorphsInfestation
           weight: 5
           conditions:

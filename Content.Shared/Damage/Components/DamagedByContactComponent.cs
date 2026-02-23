@@ -1,3 +1,4 @@
+using Content.Shared._White.Body.Components;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
@@ -11,4 +12,9 @@ public sealed partial class DamagedByContactComponent : Component
 
     [ViewVariables]
     public DamageSpecifier? Damage;
+
+    // WD EDIT START
+    [ViewVariables]
+    public BodyPartType BodyPartType;
+    // WD EDIT END
 }

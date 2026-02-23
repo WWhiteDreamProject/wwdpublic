@@ -54,7 +54,7 @@ public sealed class ProjectileSystem : SharedProjectileSystem
             return;
         }
 
-        var ev = new ProjectileHitEvent(component.Damage, target, component.Shooter);
+        var ev = new ProjectileHitEvent(component.Damage, target, component.Shooter, component.BodyPartType); // WD EDIT
         RaiseLocalEvent(uid, ref ev);
 
         var otherName = ToPrettyString(target);
@@ -64,7 +64,7 @@ public sealed class ProjectileSystem : SharedProjectileSystem
             damageRequired -= damageableComponent.TotalDamage;
             damageRequired = FixedPoint2.Max(damageRequired, FixedPoint2.Zero);
         }
-        var modifiedDamage = _damageableSystem.TryChangeDamage(target, ev.Damage, component.IgnoreResistances, damageable: damageableComponent, origin: component.Shooter);
+        var modifiedDamage = _damageableSystem.TryChangeDamage(target, ev.Damage, component.IgnoreResistances, damageable: damageableComponent, origin: component.Shooter, bodyPartType: component.BodyPartType); // WD EDIT
         var deleted = Deleted(target);
 
         if (modifiedDamage is not null && EntityManager.EntityExists(component.Shooter))

@@ -1,14 +1,13 @@
 using System.Linq;
-using Content.Server.Body.Components;
-using Content.Server.Body.Systems;
+using Content.Server._White.Body.Organs.Stomach;
+using Content.Server._White.Body.Systems;
 using Content.Server.Inventory;
 using Content.Server.Nutrition.Components;
 using Content.Server.Popups;
 using Content.Server.Stack;
 using Content.Server.Traits.Assorted.Components;
+using Content.Shared._White.Body.Components;
 using Content.Shared.Administration.Logs;
-using Content.Shared.Body.Components;
-using Content.Shared.Body.Organ;
 using Content.Shared.CCVar;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.EntitySystems;
@@ -129,7 +128,7 @@ public sealed class FoodSystem : EntitySystem
         if (!_solutionContainer.TryGetSolution(food, foodComp.Solution, out _, out var foodSolution))
             return (false, false);
 
-        if (!_body.TryGetBodyOrganEntityComps<StomachComponent>((target, body), out var stomachs))
+        if (!_body.TryGetOrgans<StomachComponent>((target, body), out var stomachs, OrganType.Stomach)) // WD EDIT
             return (false, false);
 
         // Check for special digestibles
@@ -182,14 +181,10 @@ public sealed class FoodSystem : EntitySystem
             return (false, true);
         }
 
-        // Shitmed Change
-        EntityUid? userName = null;
-
         var forceFeed = user != target;
         if (forceFeed)
         {
-            // Shitmed Change
-            userName = Identity.Entity(user, EntityManager);
+            var userName = Identity.Entity(user, EntityManager);
             _popup.PopupEntity(
                 Loc.GetString("food-system-force-feed", ("user", userName)),
                 user,
@@ -227,25 +222,7 @@ public sealed class FoodSystem : EntitySystem
             NeedHand = forceFeed || _hands.IsHolding(user, food),
         };
 
-        // Shitmed Change - track success of doafter to prevent popup on doafter cancel
-        var doAfterSuccess = _doAfter.TryStartDoAfter(doAfterArgs);
-
-        // Shitmed Change
-        if (foodComp.PopupOnEat && doAfterSuccess)
-        {
-            userName ??= Identity.Entity(user, EntityManager);
-            var foodName = Identity.Entity(food, EntityManager);
-            _popup.PopupPredicted(
-                !forceFeed
-                    ? Loc.GetString("food-system-eat-broadcasted", ("user", userName), ("food", foodName))
-                    : Loc.GetString("food-system-force-feed-broadcasted", ("user", userName), ("target", Identity.Entity(target, EntityManager)), ("food", foodName)),
-                user, target, PopupType.SmallCaution);
-
-            if (!forceFeed)
-                _popup.PopupEntity(Loc.GetString("food-system-eat-broadcasted-self", ("user", userName), ("food", foodName)),
-                    user, target, PopupType.SmallCaution);
-        }
-
+        _doAfter.TryStartDoAfter(doAfterArgs);
         return (true, true);
     }
 
@@ -257,7 +234,7 @@ public sealed class FoodSystem : EntitySystem
         if (!TryComp<BodyComponent>(args.Target.Value, out var body))
             return;
 
-        if (!_body.TryGetBodyOrganEntityComps<StomachComponent>((args.Target.Value, body), out var stomachs))
+        if (!_body.TryGetOrgans<StomachComponent>((args.Target.Value, body), out var stomachs, OrganType.Stomach)) // WD EDIT
             return;
 
         if (args.Used is null || !_solutionContainer.TryGetSolution(args.Used.Value, args.Solution, out var soln, out var solution))
@@ -287,16 +264,18 @@ public sealed class FoodSystem : EntitySystem
         foreach (var ent in stomachs)
         {
             var owner = ent.Owner;
-            if (!_stomach.CanTransferSolution(owner, split, ent.Comp1))
-                continue;
-
-            if (!_solutionContainer.ResolveSolution(owner, StomachSystem.DefaultSolutionName, ref ent.Comp1.Solution, out var stomachSol))
+            if (!_solutionContainer.ResolveSolution(owner, ent.Comp2.SolutionName, ref ent.Comp2.Solution, out var stomachSol)) // WD EDIT
                 continue;
 
             if (stomachSol.AvailableVolume <= highestAvailable)
                 continue;
 
-            stomachToUse = ent;
+            // WD EDIT START
+            if (!IsDigestibleBy(ent, entity, entity))
+                continue;
+            // WD EDIT END
+
+            stomachToUse = (ent, ent.Comp2); // WD EDIT
             highestAvailable = stomachSol.AvailableVolume;
         }
 
@@ -309,7 +288,7 @@ public sealed class FoodSystem : EntitySystem
         }
 
         _reaction.DoEntityReaction(args.Target.Value, solution, ReactionMethod.Ingestion);
-        _stomach.TryTransferSolution(stomachToUse!.Value.Owner, split, stomachToUse);
+        _stomach.TryTransferSolution((stomachToUse.Value.Owner, stomachToUse.Value.Comp), split); // WD EDIT
 
         var flavors = args.FlavorMessage;
 
@@ -321,23 +300,12 @@ public sealed class FoodSystem : EntitySystem
 
             _popup.PopupEntity(Loc.GetString("food-system-force-feed-success-user", ("target", targetName)), args.User, args.User);
 
-            // Shitmed change
-            if (entity.Comp.PopupOnEat)
-                _popup.PopupEntity(Loc.GetString("food-system-force-feed-broadcasted-success", ("user", userName), ("target", targetName), ("food", Identity.Entity(entity.Owner, EntityManager))),
-                    args.User, Filter.Pvs(args.User, entityManager: EntityManager).RemovePlayersByAttachedEntity([args.User, args.Target.Value]),
-                    true, PopupType.MediumCaution);
-
             // log successful force feed
             _adminLogger.Add(LogType.ForceFeed, LogImpact.Medium, $"{ToPrettyString(entity.Owner):user} forced {ToPrettyString(args.User):target} to eat {ToPrettyString(entity.Owner):food}");
         }
         else
         {
             _popup.PopupEntity(Loc.GetString(entity.Comp.EatMessage, ("food", entity.Owner), ("flavors", flavors)), args.User, args.User);
-
-            // Shitmed change
-            if (entity.Comp.PopupOnEat)
-                _popup.PopupPredicted(Loc.GetString("food-system-eat-broadcasted-success", ("user", Identity.Entity(args.User, EntityManager)), ("food", Identity.Entity(entity.Owner, EntityManager))),
-                    args.User, args.User, PopupType.MediumCaution);
 
             foreach (var mood in entity.Comp.MoodletsOnEat)
                 RaiseLocalEvent(args.User, new MoodEffectEvent(mood));
@@ -422,7 +390,7 @@ public sealed class FoodSystem : EntitySystem
             !ev.CanInteract ||
             !ev.CanAccess ||
             !TryComp<BodyComponent>(ev.User, out var body) ||
-            !_body.TryGetBodyOrganEntityComps<StomachComponent>((ev.User, body), out var stomachs))
+            !_body.TryGetOrgans<StomachComponent>((ev.User, body), out var stomachs, OrganType.Stomach)) // WD EDIT
             return;
 
         // have to kill mouse before eating it
@@ -456,7 +424,7 @@ public sealed class FoodSystem : EntitySystem
         if (!Resolve(food, ref foodComp, false))
             return false;
 
-        if (!_body.TryGetBodyOrganEntityComps<StomachComponent>(uid, out var stomachs))
+        if (!_body.TryGetOrgans<StomachComponent>(uid, out var stomachs, OrganType.Stomach)) // WD EDIT
             return false;
 
         return IsDigestibleBy(food, foodComp, stomachs);
@@ -466,7 +434,7 @@ public sealed class FoodSystem : EntitySystem
     ///     Returns true if <paramref name="stomachs"/> has a <see cref="StomachComponent.SpecialDigestible"/> that whitelists
     ///     this <paramref name="food"/> (or if they even have enough stomachs in the first place).
     /// </summary>
-    private bool IsDigestibleBy(EntityUid food, FoodComponent component, List<Entity<StomachComponent, OrganComponent>> stomachs)
+    private bool IsDigestibleBy(EntityUid food, FoodComponent component, List<Entity<OrganComponent, StomachComponent>> stomachs) // WD EDIT
     {
         var digestible = true;
 
@@ -478,10 +446,10 @@ public sealed class FoodSystem : EntitySystem
         foreach (var ent in stomachs)
         {
             // Find a stomach with a SpecialDigestible
-            if (ent.Comp1.SpecialDigestible == null)
+            if (ent.Comp2.SpecialDigestible == null) // WD EDIT
                 continue;
             // Check if the food is in the whitelist
-            if (_whitelistSystem.IsWhitelistPass(ent.Comp1.SpecialDigestible, food))
+            if (_whitelistSystem.IsWhitelistPass(ent.Comp2.SpecialDigestible, food)) // WD EDIT
                 return true;
 
             // They can only eat whitelist food and the food isn't in the whitelist. It's not edible.

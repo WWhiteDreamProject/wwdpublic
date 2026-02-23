@@ -6,7 +6,7 @@
   flavor: bitter
   color: "#e69edd"
   metabolisms:
-    Gas:
+    Respiration:
       effects:
       - !type:GenericStatusEffect
         key: SeeingRainbows
@@ -29,7 +29,7 @@
         - !type:ReagentThreshold
           reagent: BZ
           min: 1
-        - !type:OrganType
+        - !type:MetabolizerType
           type: Slime
         type: Local
         visualType: Medium
@@ -40,7 +40,7 @@
         - !type:ReagentThreshold
           reagent: BZ
           min: 1
-        - !type:OrganType
+        - !type:MetabolizerType
           type: Slime
         walkSpeedModifier: 0.65
         sprintSpeedModifier: 0.65
@@ -49,7 +49,7 @@
         - !type:ReagentThreshold
           reagent: BZ
           min: 1
-        - !type:OrganType
+        - !type:MetabolizerType
           type: Slime
         key: ForcedSleep
         component: ForcedSleeping
@@ -66,31 +66,31 @@
   boilingPoint: -183.0
   meltingPoint: -218.4
   metabolisms:
-    Gas:
+    Respiration:
       effects:
       - !type:Oxygenate
         factor: 8
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType
           type: Human
       - !type:Oxygenate
         factor: 8
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType
           type: Animal
       - !type:Oxygenate
         factor: 8
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType
           type: Rat
       - !type:Oxygenate
         factor: 8
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType
           type: Plant
       - !type:ModifyLungGas
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType
           type: Vox
           shouldHave: false
         ratios:
@@ -118,7 +118,7 @@
   boilingPoint: -253.0
   meltingPoint: -259.2
   metabolisms:
-    Gas:
+    Respiration:
       effects:
       - !type:MovespeedModifier
         conditions:
@@ -171,7 +171,7 @@
   boilingPoint: -253.0
   meltingPoint: -259.2
   metabolisms:
-    Gas:
+    Respiration:
       effects:
       - !type:GenericStatusEffect
         conditions:
@@ -191,11 +191,9 @@
         ignoreResistances: true
         damage:
           groups:
-            # WD EDIT START - small buff
             Brute: -2.0
             Burn: -2.0
             Toxin: -1.0
-            # WD EDIT END
 
 - type: reagent
   id: Hyper-Noblium
@@ -227,7 +225,7 @@
   boilingPoint: -253.0
   meltingPoint: -259.2
   metabolisms:
-    Gas:
+    Respiration:
       effects:
       - !type:HealthChange
         conditions:

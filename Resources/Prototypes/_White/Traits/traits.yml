@@ -23,16 +23,16 @@
   id: Contract
   category: Psionics
   points: 13
-  enable: false # WD EDIT
+  enable: false
   functions:
   - !type:TraitAddComponent
     components:
-      - type: TriggerOnMobstateChange
-        mobState:
-        - Dead
-      - type: DeleteOnTrigger
-      - type: SpawnOnTrigger
-        proto: giber
+    - type: TriggerOnMobstateChange
+      mobState:
+      - Dead
+    - type: DeleteOnTrigger
+    - type: SpawnOnTrigger
+      proto: giber
 
 - type: trait
   id: BlueBlood
@@ -43,11 +43,13 @@
   - !type:CharacterSpeciesRequirement
     inverted: true
     species:
-      - IPC
-      - Arachnid
-      - SlimePerson
-      - Shadowkin
+    - Arachnid
+    - IPC
+    - Shadowkin
+    - SlimePerson
   functions:
-    - !type:TraitAddComponent
-      components:
-        - type: BlueBloodTrait
+  - !type:TraitAddMetabolizerTypes
+    metabolizerTypes:
+    - Arachnid
+  - !type:TraitReplaceBloodReagent
+    reagent: CopperBlood

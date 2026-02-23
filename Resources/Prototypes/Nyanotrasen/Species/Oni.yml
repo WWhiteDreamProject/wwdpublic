@@ -5,10 +5,6 @@
   prototype: MobOni
   dollPrototype: MobOniDummy
   markingLimits: MobOniMarkingLimits
-  # WD EDIT START
-  bodyTypes:
-  - HumanNormal
-  # WD EDIT END
   defaultSkinTone: "#ab5150"
   skinColoration: Hues
   maleFirstNames: names_oni_male
@@ -21,6 +17,11 @@
   minWidth: 0.85
   defaultWidth: 1.2
   maxWidth: 1.35
+  # WD EDIT START
+  bodyTypes:
+  - Normal
+  - Slim
+  # WD EDIT END
 
 - type: markingPoints
   id: MobOniMarkingLimits
@@ -45,6 +46,11 @@
     Chest:
       points: 6
       required: false
+    # WD EDIT START
+    Groin:
+      points: 6
+      required: false
+    # WD EDIT END
     RightLeg:
       points: 6
       required: false

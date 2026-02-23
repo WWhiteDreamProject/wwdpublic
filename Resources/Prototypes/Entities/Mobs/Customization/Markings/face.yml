@@ -1,6 +1,5 @@
 - type: marking
   id: FaceBindi
-  bodyPart: Face
   markingCategory: Face
   speciesRestriction: [Dwarf, Human, SlimePerson, Felinid, Oni, Harpy, Reptilian, Vulpkanin, Arachne, Lamia, Tajaran, Tajaran]
   coloring:
@@ -11,10 +10,13 @@
   sprites:
   - sprite: Mobs/Customization/face.rsi
     state: bindi
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Face
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: FaceFullblush
-  bodyPart: Face
   markingCategory: Face
   speciesRestriction: [Dwarf, Human, SlimePerson, Felinid, Oni, Harpy, Vulpkanin, Arachne, Lamia, Tajaran]
   coloring:
@@ -25,10 +27,13 @@
   sprites:
   - sprite: Mobs/Customization/face.rsi
     state: fullblush
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Face
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: FaceCheekspotRight
-  bodyPart: Face
   markingCategory: Face
   speciesRestriction: [Dwarf, Human, SlimePerson, Felinid, Oni, Harpy, Reptilian, Vulpkanin, Arachne, Lamia, Tajaran]
   coloring:
@@ -39,10 +44,13 @@
   sprites:
   - sprite: Mobs/Customization/face.rsi
     state: cheekspot_r
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Face
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: FaceCheekspotLeft
-  bodyPart: Face
   markingCategory: Face
   speciesRestriction: [Dwarf, Human, SlimePerson, Felinid, Oni, Harpy, Reptilian, Vulpkanin, Arachne, Lamia, Tajaran]
   coloring:
@@ -53,10 +61,13 @@
   sprites:
   - sprite: Mobs/Customization/face.rsi
     state: cheekspot_l
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Face
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: FaceChesireRight
-  bodyPart: Face
   markingCategory: Face
   speciesRestriction: [Dwarf, Human, SlimePerson, Felinid, Oni, Harpy, Arachne, Lamia, Tajaran]
   coloring:
@@ -67,10 +78,13 @@
   sprites:
   - sprite: Mobs/Customization/face.rsi
     state: chesire_r
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Face
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: FaceChesireLeft
-  bodyPart: Face
   markingCategory: Face
   speciesRestriction: [Dwarf, Human, SlimePerson, Felinid, Oni, Harpy, Arachne, Lamia, Tajaran]
   coloring:
@@ -81,10 +95,13 @@
   sprites:
   - sprite: Mobs/Customization/face.rsi
     state: chesire_l
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Face
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: FaceCrowRight
-  bodyPart: Face
   markingCategory: Face
   speciesRestriction: [Dwarf, Human, SlimePerson, Felinid, Oni, Harpy, Reptilian, Vulpkanin, Arachne, Lamia, Tajaran]
   coloring:
@@ -95,10 +112,13 @@
   sprites:
   - sprite: Mobs/Customization/face.rsi
     state: crow_r
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Face
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: FaceCrowLeft
-  bodyPart: Face
   markingCategory: Face
   speciesRestriction: [Dwarf, Human, SlimePerson, Felinid, Oni, Harpy, Reptilian, Vulpkanin, Arachne, Lamia, Tajaran]
   coloring:
@@ -109,10 +129,13 @@
   sprites:
   - sprite: Mobs/Customization/face.rsi
     state: crow_l
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Face
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: FaceEarRight
-  bodyPart: Face
   markingCategory: Face
   speciesRestriction: [Dwarf, Human, SlimePerson, Felinid, Oni, Harpy, Arachne, Lamia, Tajaran]
   coloring:
@@ -123,10 +146,13 @@
   sprites:
   - sprite: Mobs/Customization/face.rsi
     state: ear_r
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Face
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: FaceEarLeft
-  bodyPart: Face
   markingCategory: Face
   speciesRestriction: [Dwarf, Human, SlimePerson, Felinid, Oni, Harpy, Arachne, Lamia, Tajaran]
   coloring:
@@ -137,10 +163,13 @@
   sprites:
   - sprite: Mobs/Customization/face.rsi
     state: ear_l
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Face
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: FaceEyebrowRight
-  bodyPart: Face
   markingCategory: Face
   speciesRestriction: [Dwarf, Human, SlimePerson, Felinid, Oni, Harpy, Reptilian, Vulpkanin, Arachne, Lamia, Tajaran]
   coloring:
@@ -151,11 +180,14 @@
   sprites:
   - sprite: Mobs/Customization/face.rsi
     state: eyebrow_r
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Face
+    bodyPart: Head
+    # WD EDIT END
 
 
 - type: marking
   id: FaceEyebrowLeft
-  bodyPart: Face
   markingCategory: Face
   speciesRestriction: [Dwarf, Human, SlimePerson, Felinid, Oni, Harpy, Reptilian, Vulpkanin, Arachne, Lamia, Tajaran]
   coloring:
@@ -166,11 +198,14 @@
   sprites:
   - sprite: Mobs/Customization/face.rsi
     state: eyebrow_l
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Face
+    bodyPart: Head
+    # WD EDIT END
 
 
 - type: marking
   id: FaceEyebrows
-  bodyPart: Face
   markingCategory: Face
   speciesRestriction: [Dwarf, Human, SlimePerson, Felinid, Oni, Harpy, Reptilian, Vulpkanin, Arachne, Lamia, Tajaran]
   coloring:
@@ -181,10 +216,13 @@
   sprites:
   - sprite: Mobs/Customization/face.rsi
     state: eyebrows
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Face
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: FaceEyecornerRight
-  bodyPart: Face
   markingCategory: Face
   speciesRestriction: [Dwarf, Human, SlimePerson, Felinid, Oni, Harpy, Reptilian, Vulpkanin, Arachne, Lamia, Tajaran]
   coloring:
@@ -195,10 +233,13 @@
   sprites:
   - sprite: Mobs/Customization/face.rsi
     state: eyecorner_r
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Face
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: FaceEyecornerLeft
-  bodyPart: Face
   markingCategory: Face
   speciesRestriction: [Dwarf, Human, SlimePerson, Felinid, Oni, Harpy, Reptilian, Vulpkanin, Arachne, Lamia, Tajaran]
   coloring:
@@ -209,10 +250,13 @@
   sprites:
   - sprite: Mobs/Customization/face.rsi
     state: eyecorner_l
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Face
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: FaceEyelashRight
-  bodyPart: Face
   markingCategory: Face
   speciesRestriction: [Dwarf, Human, SlimePerson, Felinid, Oni, Harpy, Reptilian, Vulpkanin, Arachne, Lamia, Tajaran]
   coloring:
@@ -223,10 +267,13 @@
   sprites:
   - sprite: Mobs/Customization/face.rsi
     state: eyelash_r
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Face
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: FaceEyelashLeft
-  bodyPart: Face
   markingCategory: Face
   speciesRestriction: [Dwarf, Human, SlimePerson, Felinid, Oni, Harpy, Reptilian, Vulpkanin, Arachne, Lamia, Tajaran]
   coloring:
@@ -237,10 +284,13 @@
   sprites:
   - sprite: Mobs/Customization/face.rsi
     state: eyelash_l
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Face
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: FaceEyestripe
-  bodyPart: Face
   markingCategory: Face
   speciesRestriction: [Dwarf, Human, SlimePerson, Felinid, Oni, Harpy, Arachne, Lamia, Tajaran]
   coloring:
@@ -251,10 +301,13 @@
   sprites:
   - sprite: Mobs/Customization/face.rsi
     state: eyestripe
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Face
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: FaceLipcornerRight
-  bodyPart: Face
   markingCategory: Face
   speciesRestriction: [Dwarf, Human, SlimePerson, Felinid, Oni, Harpy, Reptilian, Vulpkanin, Arachne, Lamia, Tajaran]
   coloring:
@@ -265,10 +318,13 @@
   sprites:
   - sprite: Mobs/Customization/face.rsi
     state: lipcorner_r
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Face
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: FaceLipcornerLeft
-  bodyPart: Face
   markingCategory: Face
   speciesRestriction: [Dwarf, Human, SlimePerson, Felinid, Oni, Harpy, Reptilian, Vulpkanin, Arachne, Lamia, Tajaran]
   coloring:
@@ -279,10 +335,13 @@
   sprites:
   - sprite: Mobs/Customization/face.rsi
     state: lipcorner_l
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Face
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: FaceGlabella
-  bodyPart: Face
   markingCategory: Face
   speciesRestriction: [Dwarf, Human, SlimePerson, Felinid, Oni, Harpy, Reptilian, Vulpkanin, Arachne, Lamia, Tajaran]
   coloring:
@@ -293,10 +352,13 @@
   sprites:
   - sprite: Mobs/Customization/face.rsi
     state: glabella
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Face
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: FaceLowercheekRight
-  bodyPart: Face
   markingCategory: Face
   speciesRestriction: [Dwarf, Human, SlimePerson, Felinid, Oni, Harpy, Reptilian, Vulpkanin, Arachne, Lamia, Tajaran]
   coloring:
@@ -307,10 +369,13 @@
   sprites:
   - sprite: Mobs/Customization/face.rsi
     state: lowercheek_r
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Face
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: FaceLowercheekLeft
-  bodyPart: Face
   markingCategory: Face
   speciesRestriction: [Dwarf, Human, SlimePerson, Felinid, Oni, Harpy, Reptilian, Vulpkanin, Arachne, Lamia, Tajaran]
   coloring:
@@ -321,10 +386,13 @@
   sprites:
   - sprite: Mobs/Customization/face.rsi
     state: lowercheek_l
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Face
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: FaceNosetape
-  bodyPart: Face
   markingCategory: Face
   speciesRestriction: [Dwarf, Human, SlimePerson, Felinid, Oni, Harpy, Arachne, Lamia, Tajaran]
   coloring:
@@ -335,10 +403,13 @@
   sprites:
   - sprite: Mobs/Customization/face.rsi
     state: nosetape
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Face
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: FaceNosetip
-  bodyPart: Face
   markingCategory: Face
   speciesRestriction: [Dwarf, Human, SlimePerson, Felinid, Oni, Harpy, Arachne, Lamia, Tajaran]
   coloring:
@@ -349,11 +420,14 @@
   sprites:
   - sprite: Mobs/Customization/face.rsi
     state: nosetip
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Face
+    bodyPart: Head
+    # WD EDIT END
 
 
 - type: marking
   id: FaceNosestripe
-  bodyPart: Face
   markingCategory: Face
   speciesRestriction: [Dwarf, Human, SlimePerson, Felinid, Oni, Harpy, Arachne, Lamia, Tajaran]
   coloring:
@@ -364,10 +438,13 @@
   sprites:
   - sprite: Mobs/Customization/face.rsi
     state: nosestripe
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Face
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: FaceUnibrow
-  bodyPart: Face
   markingCategory: Face
   speciesRestriction: [Dwarf, Human, SlimePerson, Felinid, Oni, Harpy, Reptilian, Vulpkanin, Arachne, Lamia, Tajaran]
   coloring:
@@ -378,50 +455,65 @@
   sprites:
   - sprite: Mobs/Customization/face.rsi
     state: unibrow
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Face
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: FaceNeckSlim
-  bodyPart: Face
   markingCategory: Face
   speciesRestriction: [Dwarf, Human, SlimePerson, Felinid, Oni, Harpy, Reptilian, Vulpkanin, Arachne, Lamia, Tajaran]
   followSkinColor: true
   sprites:
   - sprite: Mobs/Customization/face.rsi
     state: neck_f
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Face
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: FaceNeckWide
-  bodyPart: Face
   markingCategory: Face
   speciesRestriction: [Dwarf, Human, SlimePerson, Felinid, Oni, Harpy, Reptilian, Vulpkanin, Arachne, Lamia, Tajaran]
   followSkinColor: true
   sprites:
   - sprite: Mobs/Customization/face.rsi
     state: neck_m
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Face
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: FaceNeckSlimThick
-  bodyPart: Face
   markingCategory: Face
   speciesRestriction: [Dwarf, Human, SlimePerson, Felinid, Oni, Harpy, Reptilian, Vulpkanin, Arachne, Lamia, Tajaran]
   followSkinColor: true
   sprites:
   - sprite: Mobs/Customization/face.rsi
     state: neck_thick_f
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Face
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: FaceNeckWideThick
-  bodyPart: Face
   markingCategory: Face
   speciesRestriction: [Dwarf, Human, SlimePerson, Felinid, Oni, Harpy, Reptilian, Vulpkanin, Arachne, Lamia, Tajaran]
   followSkinColor: true
   sprites:
   - sprite: Mobs/Customization/face.rsi
     state: neck_thick_m
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Face
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: IronJaw
-  bodyPart: Face
   markingCategory: Face
   speciesRestriction: [Dwarf, Human, SlimePerson, Felinid, Oni, Harpy, Arachne, Lamia, Tajaran]
   coloring:
@@ -432,3 +524,7 @@
   sprites:
   - sprite: _ADT/Mobs/Customization/augments/headaugs.rsi
     state: iron_jaw
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Face
+    bodyPart: Head
+    # WD EDIT END

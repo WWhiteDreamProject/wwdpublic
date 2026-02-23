@@ -1,0 +1,78 @@
+﻿- type: body
+  id: IPC
+  root: chest
+  bodyParts:
+    head:
+      type: Head
+      startingBodyPart: BodyPartHeadIPC
+      connections:
+      - chest
+      organs:
+        ears:
+          type: Ears
+          startingOrgan: OrganEarsIPC
+        eyes:
+          type: Eyes
+          startingOrgan: OrganEyesIPC
+        tongue:
+          type: Tongue
+          startingOrgan: OrganTongueIPC
+    chest:
+      type: Chest
+      startingBodyPart: BodyPartChestIPC
+      connections:
+      - wings
+      - right_arm
+      - left_arm
+      - groin
+      organs:
+        eyes:
+          type: Heart
+          startingOrgan: OrganHeartIPC
+    groin:
+      type: Groin
+      startingBodyPart: BodyPartGroinIPC
+      connections:
+      - tail
+      - right_leg
+      - left_leg
+      organs:
+        brain:
+          type: Brain
+          startingOrgan: PositronicBrain
+    left_arm:
+      type: LeftArm
+      startingBodyPart: BodyPartLeftArmIPC
+      connections:
+      - left_hand
+    right_arm:
+      type: RightArm
+      startingBodyPart: BodyPartRightArmIPC
+      connections:
+      - right_hand
+    left_hand:
+      type: LeftHand
+      startingBodyPart: BodyPartLeftHandIPC
+    right_hand:
+      type: RightHand
+      startingBodyPart: BodyPartRightHandIPC
+    left_leg:
+      type: LeftLeg
+      startingBodyPart: BodyPartLeftLegIPC
+      connections:
+      - left_foot
+    right_leg:
+      type: RightLeg
+      startingBodyPart: BodyPartRightLegIPC
+      connections:
+      - right_foot
+    left_foot:
+      type: LeftFoot
+      startingBodyPart: BodyPartLeftFootIPC
+    right_foot:
+      type: RightFoot
+      startingBodyPart: BodyPartRightFootIPC
+    tail:
+      type: Tail
+    wings:
+      type: Wings

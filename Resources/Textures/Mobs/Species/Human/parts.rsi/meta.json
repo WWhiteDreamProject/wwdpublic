@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "https://github.com/tgstation/tgstation/blob/8024397cc81c5f47f74cf4279e35728487d0a1a7/icons/mob/human_parts_greyscale.dmi and modified by DrSmugleaf",
+  "copyright": "https://github.com/tgstation/tgstation/blob/8024397cc81c5f47f74cf4279e35728487d0a1a7/icons/mob/human_parts_greyscale.dmi and modified by DrSmugleaf. The division of the torso into chest and groin was done by Sparison. Slim body type by WWDP TEAM",
   "size": {
     "x": 32,
     "y": 32
@@ -11,11 +11,15 @@
       "name": "full"
     },
     {
-      "name": "head_f",
+      "name": "head",
       "directions": 4
     },
     {
-      "name": "head_m",
+      "name": "head_female",
+      "directions": 4
+    },
+    {
+      "name": "head_female_slim",
       "directions": 4
     },
     {
@@ -23,7 +27,15 @@
       "directions": 4
     },
     {
+      "name": "l_arm_slim",
+      "directions": 4
+    },
+    {
       "name": "l_foot",
+      "directions": 4
+    },
+    {
+      "name": "l_foot_slim",
       "directions": 4
     },
     {
@@ -31,7 +43,15 @@
       "directions": 4
     },
     {
+      "name": "l_hand_slim",
+      "directions": 4
+    },
+    {
       "name": "l_leg",
+      "directions": 4
+    },
+    {
+      "name": "l_leg_slim",
       "directions": 4
     },
     {
@@ -39,7 +59,15 @@
       "directions": 4
     },
     {
+      "name": "r_arm_slim",
+      "directions": 4
+    },
+    {
       "name": "r_foot",
+      "directions": 4
+    },
+    {
+      "name": "r_foot_slim",
       "directions": 4
     },
     {
@@ -47,15 +75,39 @@
       "directions": 4
     },
     {
+      "name": "r_hand_slim",
+      "directions": 4
+    },
+    {
       "name": "r_leg",
       "directions": 4
     },
     {
-      "name": "torso_f",
+      "name": "r_leg_slim",
       "directions": 4
     },
     {
-      "name": "torso_m",
+      "name": "chest",
+      "directions": 4
+    },
+    {
+      "name": "chest_female",
+      "directions": 4
+    },
+    {
+      "name": "chest_female_slim",
+      "directions": 4
+    },
+    {
+      "name": "groin",
+      "directions": 4
+    },
+    {
+      "name": "groin_female",
+      "directions": 4
+    },
+    {
+      "name": "groin_female_slim",
       "directions": 4
     }
   ]

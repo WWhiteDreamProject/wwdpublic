@@ -1,27 +1,40 @@
 - type: marking
   id: LesserShadowlingEyes
-  bodyPart: Eyes
   markingCategory: Head
   speciesRestriction: [Shadow]
   sprites:
   - sprite: _EE/Mobs/Customization/Shadow/lesser_eyes.rsi
     state: lesser_eyes
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Eyes
+    organ: Eyes
+    # WD EDIT END
 
 - type: marking
   id: AbominationHorns
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Shadowling]
   sprites:
   - sprite: _EE/Mobs/Customization/Shadow/abomination_horns.rsi
     state: abomination_horns
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: AbominationTorso
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Shadowling]
   sprites:
   - sprite: _EE/Mobs/Customization/Shadow/abomination_torso.rsi
-    state: abomination_torso
+  # WD EDIT START
+    state: abomination_chest
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+  - sprite: _EE/Mobs/Customization/Shadow/abomination_torso.rsi
+    state: abomination_groin
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
+  # WD EDIT END
 

@@ -172,7 +172,7 @@
   components:
   - type: IgniteFromGasImmunity
     parts:
-    - Torso
+    - Chest # WD EDIT: Torso -> Chest
     - Groin
     - LeftArm
     - LeftHand

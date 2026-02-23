@@ -30,7 +30,6 @@
     damageContainer: Biological
   - type: Body
     prototype: Shadowling
-    requiredLegs: 2
   - type: Tag
     tags:
     - CanPilot
@@ -60,8 +59,6 @@
         Heat: -0.14
       groups:
         Brute: -0.14
-  - type: Targeting
-  - type: SurgeryTarget
   - type: Bloodstream
     bloodReagent: FluorosulfuricAcid
   - type: LanguageSpeaker
@@ -80,6 +77,10 @@
   components:
   - type: HumanoidAppearance
     species: Shadowling
+  # WD EDIT START
+  - type: Body
+    prototype: Shadowling
+  # WD EDIT END
 
 # for yaml linter
 - type: entity

@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Numerics;
+using Content.Shared._White.TargetDoll;
 using Content.Shared._White.Xenomorphs.Xenomorph;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
@@ -24,11 +25,12 @@ public sealed class SharedTailLashSystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedInteractionSystem _interaction = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly SharedMeleeWeaponSystem _meleeWeapon = default!;
+    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private readonly SharedTargetDollSystem _targetDoll = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {
@@ -87,7 +89,8 @@ public sealed class SharedTailLashSystem : EntitySystem
         _interaction.DoContactInteraction(uid, uid);
 
         var hitEntities = results.Where(result => _interaction.InRangeUnobstructed(uid, result, range: range)).ToList();
-        var hitEvent = new MeleeHitEvent(hitEntities, uid, uid, component.TailDamage, null);
+        var bodyPartType = _targetDoll.GetSelectedBodyPart(uid);
+        var hitEvent = new MeleeHitEvent(hitEntities, uid, uid, component.TailDamage, null, bodyPartType);
         RaiseLocalEvent(uid, hitEvent);
 
         foreach (var hit in hitEntities)
@@ -98,7 +101,7 @@ public sealed class SharedTailLashSystem : EntitySystem
             RaiseLocalEvent(hit, attackedEv);
 
             var modifiedDamage = DamageSpecifier.ApplyModifierSets(component.TailDamage + hitEvent.BonusDamage + attackedEv.BonusDamage, hitEvent.ModifiersList);
-            _damageable.TryChangeDamage(hit, modifiedDamage, origin:uid);
+            _damageable.TryChangeDamage(hit, modifiedDamage, origin:uid, bodyPartType: bodyPartType);
 
             if (component.Inject == null || !_solutionContainer.TryGetInjectableSolution(hit, out var solutionEnt, out _))
                 continue;

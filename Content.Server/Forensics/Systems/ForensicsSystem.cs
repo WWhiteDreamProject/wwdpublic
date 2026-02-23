@@ -1,9 +1,10 @@
-using Content.Server.Body.Components;
+using Content.Server._White.Body.Bloodstream.Systems;
 using Content.Server.DoAfter;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Forensics.Components;
 using Content.Server.Popups;
 using Content.Shared._White.Blocking;
+using Content.Shared._White.Gibbing;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Popups;
 using Content.Shared.Chemistry.Components;
@@ -36,12 +37,13 @@ namespace Content.Server.Forensics
         {
             SubscribeLocalEvent<FingerprintComponent, ContactInteractionEvent>(OnInteract);
             SubscribeLocalEvent<ScentComponent, DidEquipEvent>(OnEquip);
-            SubscribeLocalEvent<FiberComponent, MapInitEvent>(OnFiberInit);
-            SubscribeLocalEvent<FingerprintComponent, MapInitEvent>(OnFingerprintInit);
-            SubscribeLocalEvent<DnaComponent, MapInitEvent>(OnDNAInit);
-            SubscribeLocalEvent<ScentComponent, MapInitEvent>(OnScentInit);
+            SubscribeLocalEvent<FiberComponent, MapInitEvent>(OnFiberInit, after: new[] { typeof(BloodstreamSystem) }); // WD EDIT
+            SubscribeLocalEvent<FingerprintComponent, MapInitEvent>(OnFingerprintInit, after: new[] { typeof(BloodstreamSystem) }); // WD EDIT
+            // The solution entities are spawned on MapInit as well, so we have to wait for that to be able to set the DNA in the bloodstream correctly without ResolveSolution failing
+            SubscribeLocalEvent<DnaComponent, MapInitEvent>(OnDNAInit, after: new[] { typeof(BloodstreamSystem) }); // WD EDIT
+            SubscribeLocalEvent<ScentComponent, MapInitEvent>(OnScentInit, after: new[] { typeof(BloodstreamSystem) }); // WD EDIT
 
-            SubscribeLocalEvent<ForensicsComponent, BeingGibbedEvent>(OnBeingGibbed);
+            SubscribeLocalEvent<ForensicsComponent, GibbedBeforeDeletionEvent>(OnBeingGibbed);
             SubscribeLocalEvent<ForensicsComponent, MeleeHitEvent>(OnMeleeHit,
                 after: new[] {typeof(MeleeBlockSystem)}); // WD EDIT
             SubscribeLocalEvent<ForensicsComponent, GotRehydratedEvent>(OnRehydrated);
@@ -110,14 +112,14 @@ namespace Content.Server.Forensics
             Dirty(uid, updatecomp);
         }
 
-        private void OnBeingGibbed(EntityUid uid, ForensicsComponent component, BeingGibbedEvent args)
+        private void OnBeingGibbed(Entity<ForensicsComponent> ent, ref GibbedBeforeDeletionEvent args) // WD EDIT
         {
             string dna = Loc.GetString("forensics-dna-unknown");
 
-            if (TryComp(uid, out DnaComponent? dnaComp))
+            if (TryComp(ent, out DnaComponent? dnaComp)) // WD EDIT
                 dna = dnaComp.DNA;
 
-            foreach (EntityUid part in args.GibbedParts)
+            foreach (var part in args.Giblets) // WD EDIT
             {
                 var partComp = EnsureComp<ForensicsComponent>(part);
                 partComp.DNAs.Add(dna);

@@ -344,7 +344,6 @@
     - MechEquipment
     # EE EDIT START
     - Modsuit
-    - Cybernetics
     # EE EDIT END
   - type: EmagLatheRecipes
     emagDynamicPacks:
@@ -448,7 +447,6 @@
     - SecurityWeapons
     # EE EDIT START
     - SecurityClothing
-    - SecurityCybernetics
     - MechEquipmentSecurity
     # EE EDIT END
   - type: MaterialStorage
@@ -534,7 +532,6 @@
     - Chemistry
     - BodyBag # WD EDIT
   # EE EDIT START
-    - Surgery
     - MedicalClothing
   - type: EmagLatheRecipes
     emagStaticPacks:

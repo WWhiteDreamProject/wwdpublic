@@ -348,19 +348,23 @@ namespace Content.Client.Options.UI.Tabs
             AddButton(EngineKeyFunctions.EscapeMenu);
             AddButton(ContentKeyFunctions.EscapeContext);
 
-            // Shitmed Change Start - TODO: Add groin targeting.
-            AddHeader("ui-options-header-targeting");
-            AddButton(ContentKeyFunctions.TargetHead);
-            AddButton(ContentKeyFunctions.TargetTorso);
-            AddButton(ContentKeyFunctions.TargetLeftArm);
-            AddButton(ContentKeyFunctions.TargetLeftHand);
-            AddButton(ContentKeyFunctions.TargetRightArm);
-            AddButton(ContentKeyFunctions.TargetRightHand);
-            AddButton(ContentKeyFunctions.TargetLeftLeg);
-            AddButton(ContentKeyFunctions.TargetLeftFoot);
-            AddButton(ContentKeyFunctions.TargetRightLeg);
-            AddButton(ContentKeyFunctions.TargetRightFoot);
-            // Shitmed Change End
+            // WD EDIT START
+            AddHeader("ui-options-header-target-doll");
+            AddButton(ContentKeyFunctions.TargetDollHead);
+            AddButton(ContentKeyFunctions.TargetDollChest);
+            AddButton(ContentKeyFunctions.TargetDollGroin);
+            AddButton(ContentKeyFunctions.TargetDollRightArm);
+            AddButton(ContentKeyFunctions.TargetDollRightHand);
+            AddButton(ContentKeyFunctions.TargetDollLeftArm);
+            AddButton(ContentKeyFunctions.TargetDollLeftHand);
+            AddButton(ContentKeyFunctions.TargetDollRightLeg);
+            AddButton(ContentKeyFunctions.TargetDollRightFoot);
+            AddButton(ContentKeyFunctions.TargetDollLeftLeg);
+            AddButton(ContentKeyFunctions.TargetDollLeftFoot);
+            AddButton(ContentKeyFunctions.TargetDollTail);
+            AddButton(ContentKeyFunctions.TargetDollEyes);
+            AddButton(ContentKeyFunctions.TargetDollMouth);
+            // WD EDIT END
 
             AddHeader("ui-options-header-misc");
             AddButton(ContentKeyFunctions.TakeScreenshot);

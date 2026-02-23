@@ -8,7 +8,7 @@
   boilingPoint: 255.0
   meltingPoint: 36.0
   metabolisms:
-    Narcotic:
+    Absorption: # WD EDIT
       effects:
       - !type:TakeStaminaDamage
         amount: 15
@@ -24,7 +24,7 @@
   boilingPoint: 255.0
   meltingPoint: 36.0
   metabolisms:
-    Narcotic:
+    Absorption: # WD EDIT
       effects:
       - !type:GenericStatusEffect
         key: TemporaryBlindness
@@ -42,7 +42,7 @@
   flavor: oily
   color: "#75fff5"
   metabolisms:
-    Narcotic:
+    Absorption: # WD EDIT
       effects:
       - !type:GenericStatusEffect
         key: Stun

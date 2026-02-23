@@ -59,36 +59,15 @@
     offset: 0, 0.4
     layers: #TODO: manually fix these layers
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
-        color: "#e8b59b"
-        sprite: Nyanotrasen/Mobs/Species/lamia.rsi
-        state: torso_m
       - map: [ "enum.HumanoidVisualLayers.Head" ]
-        color: "#e8b59b"
-        sprite: Mobs/Species/Human/parts.rsi
-        state: head_m
       - map: [ "enum.HumanoidVisualLayers.Eyes" ]
-        color: "#008800"
-        sprite: Mobs/Customization/eyes.rsi
-        state: eyes
       - map: [ "enum.HumanoidVisualLayers.Face" ]
       - map: [ "enum.HumanoidVisualLayers.RArm" ]
-        color: "#e8b59b"
-        sprite: Mobs/Species/Human/parts.rsi
-        state: r_arm
       - map: [ "enum.HumanoidVisualLayers.LArm" ]
-        color: "#e8b59b"
-        sprite: Mobs/Species/Human/parts.rsi
-        state: l_arm
       - map: [ "enum.HumanoidVisualLayers.Tail" ]
       - map: [ "jumpsuit" ]
       - map: [ "enum.HumanoidVisualLayers.LHand" ]
-        color: "#e8b59b"
-        sprite: Mobs/Species/Human/parts.rsi
-        state: l_hand
       - map: [ "enum.HumanoidVisualLayers.RHand" ]
-        color: "#e8b59b"
-        sprite: Mobs/Species/Human/parts.rsi
-        state: r_hand
       - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
         color: "#ffffff"
         sprite: Objects/Misc/handcuffs.rsi
@@ -126,10 +105,13 @@
   - type: DamageVisuals
     thresholds: [ 60, 120, 200 ] #these values aren't final, adjust accordingly with thresholds above'
     targetLayers:
-      - "enum.HumanoidVisualLayers.Chest"
-      - "enum.HumanoidVisualLayers.Head"
-      - "enum.HumanoidVisualLayers.LArm"
-      - "enum.HumanoidVisualLayers.RArm"
+    # WD EDIT START: HumanoidVisualLayers -> BodyAppearanceLayer
+    - "enum.BodyAppearanceLayer.Chest"
+    - "enum.BodyAppearanceLayer.Groin"
+    - "enum.BodyAppearanceLayer.Head"
+    - "enum.BodyAppearanceLayer.LeftArm"
+    - "enum.BodyAppearanceLayer.LeftLeg"
+    # WD EDIT END
     damageOverlayGroups:
       Brute:
         sprite: Nyanotrasen/Mobs/Effects/Lamia/brute_damage.rsi
@@ -247,36 +229,15 @@
     scale: 1, 1
     layers:
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
-        color: "#e8b59b"
-        sprite: Nyanotrasen/Mobs/Species/lamia.rsi
-        state: torso_m
       - map: [ "enum.HumanoidVisualLayers.Head" ]
-        color: "#e8b59b"
-        sprite: Mobs/Species/Human/parts.rsi
-        state: head_m
       - map: [ "enum.HumanoidVisualLayers.Eyes" ]
-        color: "#008800"
-        sprite: Mobs/Customization/eyes.rsi
-        state: eyes
       - map: [ "enum.HumanoidVisualLayers.Face" ]
       - map: [ "enum.HumanoidVisualLayers.RArm" ]
-        color: "#e8b59b"
-        sprite: Mobs/Species/Human/parts.rsi
-        state: r_arm
       - map: [ "enum.HumanoidVisualLayers.LArm" ]
-        color: "#e8b59b"
-        sprite: Mobs/Species/Human/parts.rsi
-        state: l_arm
       - map: [ "jumpsuit" ]
         shader: StencilDraw
       - map: [ "enum.HumanoidVisualLayers.LHand" ]
-        color: "#e8b59b"
-        sprite: Mobs/Species/Human/parts.rsi
-        state: l_hand
       - map: [ "enum.HumanoidVisualLayers.RHand" ]
-        color: "#e8b59b"
-        sprite: Mobs/Species/Human/parts.rsi
-        state: r_hand
       - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
         color: "#ffffff"
         sprite: Objects/Misc/handcuffs.rsi

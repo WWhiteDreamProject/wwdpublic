@@ -1,0 +1,140 @@
+- type: entity
+  id: BaseOrganDiona
+  parent: BaseOrgan
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Diona/organs.rsi
+  - type: Food
+  - type: Extractable
+    grindableSolutionName: organ
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+  - type: FlavorProfile
+    flavors:
+    - people
+
+- type: entity
+  id: OrganBrainDiona
+  parent: [BaseOrganDiona, BaseOrganBrain]
+  name: diona brain
+  components:
+  - type: BadFood
+  - type: FoodSequenceElement
+    entries:
+      Burger: Brain
+      Taco: Brain
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: GreyMatter
+          Quantity: 5
+
+- type: entity
+  id: OrganBrainDionaNymph
+  parent: OrganBrainDiona
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Nymph
+    entityPrototype: MobDionaNymphBrain
+    transferMind: true
+
+- type: entity
+  id: OrganEyesDiona
+  parent: [BaseOrganDiona, BaseOrganEyes]
+  name: diona eyes
+  components:
+  - type: OrganAppearance
+    state: diona
+
+- type: entity
+  id: OrganEarsDiona
+  parent: [BaseOrganDiona, BaseOrganEars]
+  name: diona ears
+
+- type: entity
+  id: OrganLungsDiona
+  parent: [BaseOrganDiona, BaseOrganLungs]
+  name: diona lungs
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/organs.rsi # We don't have a lung sprite for diona.
+  - type: Metabolizer
+    types: [ Plant ]
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        maxVol: 10
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+      lung:
+        maxVol: 100
+        canReact: False
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+
+- type: entity
+  id: OrganLungsDionaNymph
+  parent: OrganLungsDiona
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Nymph
+    entityPrototype: MobDionaNymphLungs
+
+- type: entity
+  id: OrganStomachDiona
+  parent: [BaseOrganDiona, BaseOrganStomach]
+  name: diona stomach
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+      stomach:
+        maxVol: 50
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+  - type: Metabolizer
+    maxReagents: 6
+    types: [ Plant ]
+    removeEmpty: true
+    groups:
+    - id: Food
+    - id: Drink
+    - id: Medicine
+    - id: Poison
+    - id: Narcotic
+    - id: Alcohol
+      rateModifier: 0.1
+
+- type: entity
+  id: OrganStomachDionaNymph
+  parent: OrganStomachDiona
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Nymph
+    entityPrototype: MobDionaNymphStomach

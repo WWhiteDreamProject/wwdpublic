@@ -1,0 +1,17 @@
+- type: entity
+  id: OrganStomachMouse
+  parent: OrganStomachAnimal
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+      stomach:
+        maxVol: 30
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5

@@ -1,131 +1,297 @@
 # Chelicerae
 - type: marking
   id: ArachnidCheliceraeDownwards
-  bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [Arachnid]
   sprites:
   - sprite: Mobs/Customization/Arachnid/chelicerae.rsi
     state: downwards
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: ArachnidCheliceraeInwards
-  bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [Arachnid]
   sprites:
   - sprite: Mobs/Customization/Arachnid/chelicerae.rsi
     state: inwards
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
 
 # Appendages
 - type: marking
   id: ArachnidAppendagesDefault
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Arachnid]
   sprites:
   - sprite: Mobs/Customization/Arachnid/appendages.rsi
-    state: long_primary
+  # WD EDIT START
+    state: long_chest_primary
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    replacementBodyPart: BodyPartWingsArachnid
   - sprite: Mobs/Customization/Arachnid/appendages.rsi
-    state: long_secondary
+    state: long_groin_primary
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+  # WD EDIT END
+  - sprite: Mobs/Customization/Arachnid/appendages.rsi
+  # WD EDIT START
+    state: long_chest_secondary
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    replacementBodyPart: BodyPartTailArachnid
+  - sprite: Mobs/Customization/Arachnid/appendages.rsi
+    state: long_groin_secondary
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+  # WD EDIT END
 
 - type: marking
   id: ArachnidAppendagesSharp
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Arachnid]
   sprites:
   - sprite: Mobs/Customization/Arachnid/appendages.rsi
-    state: sharp_primary
+  # WD EDIT START
+    state: sharp_chest_primary
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    replacementBodyPart: BodyPartWingsArachnid
   - sprite: Mobs/Customization/Arachnid/appendages.rsi
-    state: sharp_secondary
+    state: sharp_groin_primary
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+  # WD EDIT END
+  - sprite: Mobs/Customization/Arachnid/appendages.rsi
+  # WD EDIT START
+    state: sharp_chest_secondary
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    replacementBodyPart: BodyPartTailArachnid
+  - sprite: Mobs/Customization/Arachnid/appendages.rsi
+    state: sharp_groin_secondary
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+  # WD EDIT END
 
 - type: marking
   id: ArachnidAppendagesStingers
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Arachnid]
   sprites:
   - sprite: Mobs/Customization/Arachnid/appendages.rsi
-    state: stingers_primary
+  # WD EDIT START
+    state: stingers_chest_primary
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    replacementBodyPart: BodyPartWingsArachnid
   - sprite: Mobs/Customization/Arachnid/appendages.rsi
-    state: stingers_secondary
+    state: stingers_groin_primary
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+  # WD EDIT END
+  - sprite: Mobs/Customization/Arachnid/appendages.rsi
+  # WD EDIT START
+    state: stingers_chest_secondary
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    replacementBodyPart: BodyPartTailArachnid
+  - sprite: Mobs/Customization/Arachnid/appendages.rsi
+    state: stingers_groin_secondary
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+  # WD EDIT END
 
 - type: marking
   id: ArachnidAppendagesZigZag
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Arachnid]
   sprites:
   - sprite: Mobs/Customization/Arachnid/appendages.rsi
-    state: zigzag_primary
+  # WD EDIT START
+    state: zigzag_chest_primary
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    replacementBodyPart: BodyPartWingsArachnid
   - sprite: Mobs/Customization/Arachnid/appendages.rsi
-    state: zigzag_secondary
+    state: zigzag_groin_primary
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+  # WD EDIT END
+  - sprite: Mobs/Customization/Arachnid/appendages.rsi
+  # WD EDIT START
+    state: zigzag_chest_secondary
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    replacementBodyPart: BodyPartTailArachnid
+  - sprite: Mobs/Customization/Arachnid/appendages.rsi
+    state: zigzag_groin_secondary
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+  # WD EDIT END
 
 - type: marking
   id: ArachnidAppendagesCurled
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Arachnid]
   sprites:
   - sprite: Mobs/Customization/Arachnid/appendages.rsi
-    state: curled_primary
+  # WD EDIT START
+    state: curled_chest_primary
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    replacementBodyPart: BodyPartWingsArachnid
   - sprite: Mobs/Customization/Arachnid/appendages.rsi
-    state: curled_secondary
+    state: curled_groin_primary
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+  # WD EDIT END
+  - sprite: Mobs/Customization/Arachnid/appendages.rsi
+  # WD EDIT START
+    state: curled_chest_secondary
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    replacementBodyPart: BodyPartTailArachnid
+  - sprite: Mobs/Customization/Arachnid/appendages.rsi
+    state: curled_groin_secondary
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+  # WD EDIT END
 
 - type: marking
   id: ArachnidAppendagesChipped
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Arachnid]
   sprites:
   - sprite: Mobs/Customization/Arachnid/appendages.rsi
-    state: chipped_primary
+  # WD EDIT START
+    state: chipped_chest_primary
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    replacementBodyPart: BodyPartWingsArachnid
   - sprite: Mobs/Customization/Arachnid/appendages.rsi
-    state: chipped_secondary
+    state: chipped_groin_primary
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+  # WD EDIT END
+  - sprite: Mobs/Customization/Arachnid/appendages.rsi
+  # WD EDIT START
+    state: chipped_chest_secondary
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    replacementBodyPart: BodyPartTailArachnid
+  - sprite: Mobs/Customization/Arachnid/appendages.rsi
+    state: chipped_groin_secondary
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+  # WD EDIT END
 
 - type: marking
   id: ArachnidAppendagesHarvest
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Arachnid]
   sprites:
   - sprite: Mobs/Customization/Arachnid/appendages.rsi
-    state: harvest_primary
+  # WD EDIT START
+    state: harvest_chest_primary
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    replacementBodyPart: BodyPartWingsArachnid
   - sprite: Mobs/Customization/Arachnid/appendages.rsi
-    state: harvest_secondary
+    state: harvest_groin_primary
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+  # WD EDIT END
+  - sprite: Mobs/Customization/Arachnid/appendages.rsi
+  # WD EDIT START
+    state: harvest_chest_secondary
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    replacementBodyPart: BodyPartTailArachnid
+  - sprite: Mobs/Customization/Arachnid/appendages.rsi
+    state: harvest_groin_secondary
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+  # WD EDIT END
 
 - type: marking
   id: ArachnidAppendagesShort
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Arachnid]
   sprites:
   - sprite: Mobs/Customization/Arachnid/appendages.rsi
-    state: short_primary
+  # WD EDIT START
+    state: short_chest_primary
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    replacementBodyPart: BodyPartWingsArachnid
   - sprite: Mobs/Customization/Arachnid/appendages.rsi
-    state: short_secondary
+    state: short_groin_primary
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+  # WD EDIT END
+  - sprite: Mobs/Customization/Arachnid/appendages.rsi
+  # WD EDIT START
+    state: short_chest_secondary
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    replacementBodyPart: BodyPartTailArachnid
+  - sprite: Mobs/Customization/Arachnid/appendages.rsi
+    state: short_groin_secondary
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+  # WD EDIT END
 
 - type: marking
   id: ArachnidAppendagesFreaky
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Arachnid]
   sprites:
   - sprite: Mobs/Customization/Arachnid/appendages.rsi
-    state: freaky_primary
+  # WD EDIT START
+    state: freaky_chest_primary
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+    replacementBodyPart: BodyPartWingsArachnid
   - sprite: Mobs/Customization/Arachnid/appendages.rsi
-    state: freaky_secondary
+    state: freaky_groin_primary
+    layer: enum.BodyAppearanceLayer.Wings
+    bodyPart: Wings
+  # WD EDIT END
+  - sprite: Mobs/Customization/Arachnid/appendages.rsi
+    # WD EDIT START
+    state: freaky_chest_secondary
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    replacementBodyPart: BodyPartTailArachnid
+  - sprite: Mobs/Customization/Arachnid/appendages.rsi
+    state: freaky_groin_secondary
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+  # WD EDIT END
 
 # Chest
 - type: marking
   id: ArachnidTorsoStripes
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Arachnid, Arachne]
   sprites:
   - sprite: Mobs/Customization/Arachnid/chest.rsi
-    state: stripes
+  # WD EDIT START
+    state: stripes_chest
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+  - sprite: Mobs/Customization/Arachnid/chest.rsi
+    state: stripes_groin
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
+  # WD EDIT END
   coloring:
     default:
       type:
@@ -133,12 +299,19 @@
 
 - type: marking
   id: ArachnidTorsoSlashes
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Arachnid, Arachne]
   sprites:
   - sprite: Mobs/Customization/Arachnid/chest.rsi
-    state: slashes
+  # WD EDIT START
+    state: slashes_chest
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+  - sprite: Mobs/Customization/Arachnid/chest.rsi
+    state: slashes_groin
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
+  # WD EDIT END
   coloring:
     default:
       type:
@@ -146,12 +319,19 @@
 
 - type: marking
   id: ArachnidTorsoX
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Arachnid, Arachne]
   sprites:
   - sprite: Mobs/Customization/Arachnid/chest.rsi
-    state: x
+  # WD EDIT START
+    state: x_chest
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+  - sprite: Mobs/Customization/Arachnid/chest.rsi
+    state: x_groin
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
+  # WD EDIT END
   coloring:
     default:
       type:
@@ -159,12 +339,19 @@
 
 - type: marking
   id: ArachnidTorsoCross
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Arachnid, Arachne]
   sprites:
   - sprite: Mobs/Customization/Arachnid/chest.rsi
-    state: cross
+  # WD EDIT START
+    state: cross_chest
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+  - sprite: Mobs/Customization/Arachnid/chest.rsi
+    state: cross_groin
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
+  # WD EDIT END
   coloring:
     default:
       type:
@@ -172,12 +359,19 @@
 
 - type: marking
   id: ArachnidTorsoHeart
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Arachnid, Arachne]
   sprites:
   - sprite: Mobs/Customization/Arachnid/chest.rsi
-    state: heart
+  # WD EDIT START
+    state: heart_chest
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+  - sprite: Mobs/Customization/Arachnid/chest.rsi
+    state: heart_groin
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
+  # WD EDIT END
   coloring:
     default:
       type:
@@ -185,12 +379,19 @@
 
 - type: marking
   id: ArachnidTorsoHourglass
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Arachnid, Arachne]
   sprites:
   - sprite: Mobs/Customization/Arachnid/chest.rsi
-    state: hourglass
+  # WD EDIT START
+    state: hourglass_chest
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+  - sprite: Mobs/Customization/Arachnid/chest.rsi
+    state: hourglass_groin
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
+  # WD EDIT END
   coloring:
     default:
       type:
@@ -198,12 +399,19 @@
 
 - type: marking
   id: ArachnidTorsoNailAndHammer
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Arachnid, Arachne]
   sprites:
   - sprite: Mobs/Customization/Arachnid/chest.rsi
-    state: nail-and-hammer
+  # WD EDIT START
+    state: nail-and-hammer_chest
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+  - sprite: Mobs/Customization/Arachnid/chest.rsi
+    state: nail-and-hammer_groin
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
+  # WD EDIT END
   coloring:
     default:
       type:
@@ -211,12 +419,19 @@
 
 - type: marking
   id: ArachnidTorsoStar
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Arachnid, Arachne]
   sprites:
   - sprite: Mobs/Customization/Arachnid/chest.rsi
-    state: star
+  # WD EDIT START
+    state: star_chest
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+  - sprite: Mobs/Customization/Arachnid/chest.rsi
+    state: star_groin
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
+  # WD EDIT END
   coloring:
     default:
       type:
@@ -224,12 +439,19 @@
 
 - type: marking
   id: ArachnidTorsoArrows
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Arachnid, Arachne]
   sprites:
   - sprite: Mobs/Customization/Arachnid/chest.rsi
-    state: arrows
+  # WD EDIT START
+    state: arrows_chest
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+  - sprite: Mobs/Customization/Arachnid/chest.rsi
+    state: arrows_groin
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
+  # WD EDIT END
   coloring:
     default:
       type:
@@ -237,12 +459,19 @@
 
 - type: marking
   id: ArachnidTorsoCore
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Arachnid, Arachne]
   sprites:
   - sprite: Mobs/Customization/Arachnid/chest.rsi
-    state: core
+  # WD EDIT START
+    state: core_chest
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+  - sprite: Mobs/Customization/Arachnid/chest.rsi
+    state: core_groin
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
+  # WD EDIT END
   coloring:
     default:
       type:
@@ -250,12 +479,19 @@
 
 - type: marking
   id: ArachnidTorsoFiddleback
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Arachnid, Arachne]
   sprites:
   - sprite: Mobs/Customization/Arachnid/chest.rsi
-    state: fiddleback
+  # WD EDIT START
+    state: fiddleback_chest
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+  - sprite: Mobs/Customization/Arachnid/chest.rsi
+    state: fiddleback_groin
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
+  # WD EDIT END
   coloring:
     default:
       type:
@@ -263,12 +499,19 @@
 
 - type: marking
   id: ArachnidTorsoSkull
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Arachnid, Arachne]
   sprites:
   - sprite: Mobs/Customization/Arachnid/chest.rsi
-    state: skull
+  # WD EDIT START
+    state: skull_chest
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+  - sprite: Mobs/Customization/Arachnid/chest.rsi
+    state: skull_groin
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
+  # WD EDIT END
   coloring:
     default:
       type:
@@ -276,12 +519,15 @@
 
 - type: marking
   id: ArachnidTorsoTarget
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Arachnid, Arachne]
   sprites:
   - sprite: Mobs/Customization/Arachnid/chest.rsi
     state: target
+  # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+  # WD EDIT END
   coloring:
     default:
       type:
@@ -290,12 +536,15 @@
 # Arms
 - type: marking
   id: ArachnidRArmStripes
-  bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [Arachnid, Arachne]
   sprites:
   - sprite: Mobs/Customization/Arachnid/arms.rsi
     state: stripes_right
+  # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightArm
+    bodyPart: RightArm
+  # WD EDIT END
   coloring:
     default:
       type:
@@ -303,12 +552,15 @@
 
 - type: marking
   id: ArachnidLArmStripes
-  bodyPart: LArm
   markingCategory: LeftArm
   speciesRestriction: [Arachnid, Arachne]
   sprites:
   - sprite: Mobs/Customization/Arachnid/arms.rsi
     state: stripes_left
+  # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftArm
+    bodyPart: LeftArm
+  # WD EDIT END
   coloring:
     default:
       type:
@@ -317,12 +569,15 @@
 # Legs
 - type: marking
   id: ArachnidRLegStripes
-  bodyPart: RLeg
   markingCategory: RightLeg
   speciesRestriction: [Arachnid]
   sprites:
   - sprite: Mobs/Customization/Arachnid/legs.rsi
     state: stripes_right
+  # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightLeg
+    bodyPart: RightLeg
+  # WD EDIT END
   coloring:
     default:
       type:
@@ -330,12 +585,15 @@
 
 - type: marking
   id: ArachnidLLegStripes
-  bodyPart: LLeg
   markingCategory: LeftLeg
   speciesRestriction: [Arachnid]
   sprites:
   - sprite: Mobs/Customization/Arachnid/legs.rsi
     state: stripes_left
+  # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftLeg
+    bodyPart: LeftLeg
+  # WD EDIT END
   coloring:
     default:
       type:
@@ -344,10 +602,41 @@
 # Overlay
 - type: marking
   id: ArachnidOverlayFuzzy
-  bodyPart: Chest
   markingCategory: Overlay
   forcedColoring: true
   speciesRestriction: [Arachnid]
   sprites:
   - sprite: Mobs/Customization/Arachnid/overlay.rsi
-    state: fuzzy
+    state: fuzzy_chest
+  # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+  - sprite: Mobs/Customization/Arachnid/overlay.rsi
+    state: fuzzy_head
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+  - sprite: Mobs/Customization/Arachnid/overlay.rsi
+    state: fuzzy_l_arm
+    layer: enum.BodyAppearanceLayer.LeftArm
+    bodyPart: LeftArm
+  - sprite: Mobs/Customization/Arachnid/overlay.rsi
+    state: fuzzy_l_hand
+    layer: enum.BodyAppearanceLayer.LeftHand
+    bodyPart: LeftHand
+  - sprite: Mobs/Customization/Arachnid/overlay.rsi
+    state: fuzzy_l_leg
+    layer: enum.BodyAppearanceLayer.LeftLeg
+    bodyPart: LeftLeg
+  - sprite: Mobs/Customization/Arachnid/overlay.rsi
+    state: fuzzy_r_arm
+    layer: enum.BodyAppearanceLayer.RightArm
+    bodyPart: RightArm
+  - sprite: Mobs/Customization/Arachnid/overlay.rsi
+    state: fuzzy_r_hand
+    layer: enum.BodyAppearanceLayer.RightHand
+    bodyPart: RightHand
+  - sprite: Mobs/Customization/Arachnid/overlay.rsi
+    state: fuzzy_r_leg
+    layer: enum.BodyAppearanceLayer.RightLeg
+    bodyPart: RightLeg
+  # WD EDIT END

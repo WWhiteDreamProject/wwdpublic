@@ -45,8 +45,6 @@
     damage:
       types:
         Slash: 15
-    clickPartDamageMultiplier: 3
-    heavyPartDamageMultiplier: 2.5
     heavyRateModifier: 1.25
     lightRangeModifier: 1.25
     heavyDamageBaseModifier: 1

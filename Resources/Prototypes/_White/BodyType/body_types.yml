@@ -1,0 +1,9 @@
+- type: bodyType
+  id: Normal
+  name: body-normal
+
+- type: bodyType
+  id: Slim
+  name: body-slim
+  sexRestrictions:
+  - Male

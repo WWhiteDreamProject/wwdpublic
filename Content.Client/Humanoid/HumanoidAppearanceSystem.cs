@@ -1,5 +1,5 @@
 using System.Numerics;
-using Content.Shared._White.Humanoid.Prototypes;
+using Content.Client._White.Body.Systems;
 using Content.Shared.CCVar;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
@@ -18,6 +18,7 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly MarkingManager _markingManager = default!;
     [Dependency] private readonly IConfigurationManager _configurationManager = default!;
+    [Dependency] private readonly BodySystem _body = default!; // WD EDIT
 
     public override void Initialize()
     {
@@ -44,9 +45,6 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
 
     private void UpdateSprite(HumanoidAppearanceComponent component, SpriteComponent sprite)
     {
-        UpdateLayers(component, sprite);
-        ApplyMarkingSet(component, sprite);
-
         var speciesPrototype = _prototypeManager.Index(component.Species);
 
         var height = Math.Clamp(component.Height, speciesPrototype.MinHeight, speciesPrototype.MaxHeight);
@@ -55,74 +53,6 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
         component.Width = width;
 
         sprite.Scale = new Vector2(width, height);
-
-        sprite[sprite.LayerMapReserveBlank(HumanoidVisualLayers.Eyes)].Color = component.EyeColor;
-    }
-
-    private static bool IsHidden(HumanoidAppearanceComponent humanoid, HumanoidVisualLayers layer)
-        => humanoid.HiddenLayers.Contains(layer) || humanoid.PermanentlyHidden.Contains(layer);
-
-    private void UpdateLayers(HumanoidAppearanceComponent component, SpriteComponent sprite)
-    {
-        var oldLayers = new HashSet<HumanoidVisualLayers>(component.BaseLayers.Keys);
-        component.BaseLayers.Clear();
-
-        // add default species layers
-        var bodyTypeProto = _prototypeManager.Index<BodyTypePrototype>(component.BodyType); // WD EDIT
-        foreach (var (key, id) in bodyTypeProto.Sprites) // WD EDIT
-        {
-            oldLayers.Remove(key);
-            if (!component.CustomBaseLayers.ContainsKey(key))
-                SetLayerData(component, sprite, key, id, sexMorph: true);
-        }
-
-        // add custom layers
-        foreach (var (key, info) in component.CustomBaseLayers)
-        {
-            oldLayers.Remove(key);
-            // Shitmed Change: For whatever reason these weren't actually ignoring the skin color as advertised.
-            SetLayerData(component, sprite, key, info.Id, sexMorph: false, color: info.Color, overrideSkin: true);
-        }
-
-        // hide old layers
-        // TODO maybe just remove them altogether?
-        foreach (var key in oldLayers)
-        {
-            if (sprite.LayerMapTryGet(key, out var index))
-                sprite[index].Visible = false;
-        }
-    }
-
-    private void SetLayerData(
-        HumanoidAppearanceComponent component,
-        SpriteComponent sprite,
-        HumanoidVisualLayers key,
-        string? protoId,
-        bool sexMorph = false,
-        Color? color = null,
-        bool overrideSkin = false) // Shitmed Change
-    {
-        var layerIndex = sprite.LayerMapReserveBlank(key);
-        var layer = sprite[layerIndex];
-        layer.Visible = !IsHidden(component, key);
-
-        if (color != null)
-            layer.Color = color.Value;
-
-        if (protoId == null)
-            return;
-
-        if (sexMorph)
-            protoId = HumanoidVisualLayersExtension.GetSexMorph(key, component.Sex, protoId);
-
-        var proto = _prototypeManager.Index<HumanoidSpeciesSpriteLayer>(protoId);
-        component.BaseLayers[key] = proto;
-
-        if (proto.MatchSkin && !overrideSkin) // Shitmed Change
-            layer.Color = component.SkinColor.WithAlpha(proto.LayerAlpha);
-
-        if (proto.BaseSprite != null)
-            sprite.LayerSetSprite(layerIndex, proto.BaseSprite);
     }
 
     /// <summary>
@@ -149,8 +79,6 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
             return;
         }
 
-        var customBaseLayers = new Dictionary<HumanoidVisualLayers, CustomBaseLayerInfo>();
-
         var speciesPrototype = _prototypeManager.Index<SpeciesPrototype>(profile.Species);
         var markings = new MarkingSet(speciesPrototype.MarkingPoints, _markingManager, _prototypeManager);
 
@@ -176,13 +104,13 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
         //markings.RemoveCategory(MarkingCategories.FacialHair);
 
         // We need to ensure hair before applying it or coloring can try depend on markings that can be invalid
-        var hairColor = _markingManager.MustMatchSkin(profile.Species, HumanoidVisualLayers.Hair, out var hairAlpha, _prototypeManager)
+        var hairColor = _markingManager.MustMatchSkin(profile.Species, MarkingCategories.Hair, out var hairAlpha, _prototypeManager) // WD EDIT
             ? profile.Appearance.SkinColor.WithAlpha(hairAlpha)
             : profile.Appearance.HairColor;
         var hair = new Marking(profile.Appearance.HairStyleId,
             new[] { hairColor });
 
-        var facialHairColor = _markingManager.MustMatchSkin(profile.Species, HumanoidVisualLayers.FacialHair, out var facialHairAlpha, _prototypeManager)
+        var facialHairColor = _markingManager.MustMatchSkin(profile.Species, MarkingCategories.FacialHair, out var facialHairAlpha, _prototypeManager) // WD EDIT
             ? profile.Appearance.SkinColor.WithAlpha(facialHairAlpha)
             : profile.Appearance.FacialHairColor;
         var facialHair = new Marking(profile.Appearance.FacialHairStyleId,
@@ -219,9 +147,10 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
         DebugTools.Assert(IsClientSide(uid));
 
         humanoid.MarkingSet = markings;
-        humanoid.PermanentlyHidden = new HashSet<HumanoidVisualLayers>();
-        humanoid.HiddenLayers = new HashSet<HumanoidVisualLayers>();
-        humanoid.CustomBaseLayers = customBaseLayers;
+        // WD EDIT START
+        humanoid.PermanentlyHidden = new HashSet<Enum>();
+        humanoid.HiddenLayers = new HashSet<Enum>();
+        // WD EDIT END
         humanoid.Sex = profile.Sex;
         humanoid.Gender = profile.Gender;
         humanoid.DisplayPronouns = profile.DisplayPronouns;
@@ -236,166 +165,11 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
         humanoid.Width = profile.Width;
 
         UpdateSprite(humanoid, Comp<SpriteComponent>(uid));
-    }
-
-    private void ApplyMarkingSet(HumanoidAppearanceComponent humanoid, SpriteComponent sprite)
-    {
-        // I am lazy and I CBF resolving the previous mess, so I'm just going to nuke the markings.
-        // Really, markings should probably be a separate component altogether.
-        ClearAllMarkings(humanoid, sprite);
-
-        var censorNudity = _configurationManager.GetCVar(CCVars.AccessibilityClientCensorNudity) ||
-            _configurationManager.GetCVar(CCVars.AccessibilityServerCensorNudity);
-        // The reason we're splitting this up is in case the character already has undergarment equipped in that slot.
-        var applyUndergarmentTop = censorNudity;
-        var applyUndergarmentBottom = censorNudity;
-
-        foreach (var markingList in humanoid.MarkingSet.Markings.Values)
-        {
-            foreach (var marking in markingList)
-            {
-                if (_markingManager.TryGetMarking(marking, out var markingPrototype))
-                {
-                    ApplyMarking(markingPrototype, marking.MarkingColors, marking.Visible, humanoid, sprite);
-                    if (markingPrototype.BodyPart == HumanoidVisualLayers.UndergarmentTop)
-                        applyUndergarmentTop = false;
-                    else if (markingPrototype.BodyPart == HumanoidVisualLayers.UndergarmentBottom)
-                        applyUndergarmentBottom = false;
-                }
-            }
-        }
-
-        humanoid.ClientOldMarkings = new MarkingSet(humanoid.MarkingSet);
-
-        AddUndergarments(humanoid, sprite, applyUndergarmentTop, applyUndergarmentBottom);
-    }
-
-    private void ClearAllMarkings(HumanoidAppearanceComponent humanoid, SpriteComponent sprite)
-    {
-        foreach (var markingList in humanoid.ClientOldMarkings.Markings.Values)
-        {
-            foreach (var marking in markingList)
-            {
-                RemoveMarking(marking, sprite);
-            }
-        }
-
+        // WD EDIT START
+        _body.SetupBodyAppearance((uid, null, null, humanoid));
         humanoid.ClientOldMarkings.Clear();
-
-        foreach (var markingList in humanoid.MarkingSet.Markings.Values)
-        {
-            foreach (var marking in markingList)
-            {
-                RemoveMarking(marking, sprite);
-            }
-        }
-    }
-
-    private void RemoveMarking(Marking marking, SpriteComponent spriteComp)
-    {
-        if (!_markingManager.TryGetMarking(marking, out var prototype))
-        {
-            return;
-        }
-
-        foreach (var sprite in prototype.Sprites)
-        {
-            if (sprite is not SpriteSpecifier.Rsi rsi)
-            {
-                continue;
-            }
-
-            var layerId = $"{marking.MarkingId}-{rsi.RsiState}";
-            if (!spriteComp.LayerMapTryGet(layerId, out var index))
-            {
-                continue;
-            }
-
-            spriteComp.LayerMapRemove(layerId);
-            spriteComp.RemoveLayer(index);
-        }
-    }
-
-    private void AddUndergarments(HumanoidAppearanceComponent humanoid, SpriteComponent sprite, bool undergarmentTop, bool undergarmentBottom)
-    {
-        if (undergarmentTop && humanoid.UndergarmentTop != null)
-        {
-            var marking = new Marking(humanoid.UndergarmentTop, new List<Color> { new Color() });
-            if (_markingManager.TryGetMarking(marking, out var prototype))
-            {
-                // Markings are added to ClientOldMarkings because otherwise it causes issues when toggling the feature on/off.
-                humanoid.ClientOldMarkings.Markings.Add(MarkingCategories.UndergarmentTop, new List<Marking>{ marking });
-                ApplyMarking(prototype, null, true, humanoid, sprite);
-            }
-        }
-
-        if (undergarmentBottom && humanoid.UndergarmentBottom != null)
-        {
-            var marking = new Marking(humanoid.UndergarmentBottom, new List<Color> { new Color() });
-            if (_markingManager.TryGetMarking(marking, out var prototype))
-            {
-                humanoid.ClientOldMarkings.Markings.Add(MarkingCategories.UndergarmentBottom, new List<Marking>{ marking });
-                ApplyMarking(prototype, null, true, humanoid, sprite);
-            }
-        }
-    }
-
-    private void ApplyMarking(MarkingPrototype markingPrototype,
-        IReadOnlyList<Color>? colors,
-        bool visible,
-        HumanoidAppearanceComponent humanoid,
-        SpriteComponent sprite)
-    {
-        if (!sprite.LayerMapTryGet(markingPrototype.BodyPart, out int targetLayer))
-        {
-            return;
-        }
-
-        visible &= !IsHidden(humanoid, markingPrototype.BodyPart);
-        visible &= humanoid.BaseLayers.TryGetValue(markingPrototype.BodyPart, out var setting)
-           && setting.AllowsMarkings;
-
-        for (var j = 0; j < markingPrototype.Sprites.Count; j++)
-        {
-            var markingSprite = markingPrototype.Sprites[j];
-
-            if (markingSprite is not SpriteSpecifier.Rsi rsi)
-            {
-                continue;
-            }
-
-            var layerId = $"{markingPrototype.ID}-{rsi.RsiState}";
-
-            if (!sprite.LayerMapTryGet(layerId, out _))
-            {
-                var layer = sprite.AddLayer(markingSprite, targetLayer + j + 1);
-                sprite.LayerMapSet(layerId, layer);
-                sprite.LayerSetSprite(layerId, rsi);
-            }
-
-            sprite.LayerSetVisible(layerId, visible);
-
-            if (!visible || setting == null) // this is kinda implied
-            {
-                continue;
-            }
-
-            // Okay so if the marking prototype is modified but we load old marking data this may no longer be valid
-            // and we need to check the index is correct.
-            // So if that happens just default to white?
-            if (colors != null && j < colors.Count)
-            {
-                sprite.LayerSetColor(layerId, colors[j]);
-            }
-            else
-            {
-                sprite.LayerSetColor(layerId, Color.White);
-            }
-
-            var shaders = markingPrototype.Shaders;
-            if (shaders is not null && shaders.ContainsKey(rsi.RsiState))
-                sprite.LayerSetShader(layerId, shaders[rsi.RsiState]);
-        }
+        humanoid.ClientOldMarkings = new (humanoid.MarkingSet);
+        // WD EDIT END
     }
 
     public override void SetSkinColor(EntityUid uid, Color skinColor, bool sync = true, bool verify = true, HumanoidAppearanceComponent? humanoid = null)
@@ -404,24 +178,12 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
             return;
 
         base.SetSkinColor(uid, skinColor, false, verify, humanoid);
-
-        if (!TryComp(uid, out SpriteComponent? sprite))
-            return;
-
-        foreach (var (layer, spriteInfo) in humanoid.BaseLayers)
-        {
-            if (!spriteInfo.MatchSkin)
-                continue;
-
-            var index = sprite.LayerMapReserveBlank(layer);
-            sprite[index].Color = skinColor.WithAlpha(spriteInfo.LayerAlpha);
-        }
     }
 
     protected override void SetLayerVisibility(
         EntityUid uid,
         HumanoidAppearanceComponent humanoid,
-        HumanoidVisualLayers layer,
+        Enum layer, // WD EDIT
         bool visible,
         bool permanent,
         ref bool dirty)
@@ -442,16 +204,5 @@ public sealed class HumanoidAppearanceSystem : SharedHumanoidAppearanceSystem
             return;
 
         spriteLayer.Visible = visible;
-
-        // I fucking hate this. I'll get around to refactoring sprite layers eventually I swear
-
-        foreach (var markingList in humanoid.MarkingSet.Markings.Values)
-        {
-            foreach (var marking in markingList)
-            {
-                if (_markingManager.TryGetMarking(marking, out var markingPrototype) && markingPrototype.BodyPart == layer)
-                    ApplyMarking(markingPrototype, marking.MarkingColors, marking.Visible, humanoid, sprite);
-            }
-        }
     }
 }

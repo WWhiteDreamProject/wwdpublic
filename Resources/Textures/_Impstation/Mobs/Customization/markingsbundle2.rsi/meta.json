@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "sprites by carousel for impstation",
+  "copyright": "sprites by carousel for impstation. The division of the torso into chest and groin was done by Sparison",
 
   "size": {
     "x": 32,
@@ -29,7 +29,11 @@
       "directions": 4
     },
     {
-      "name": "abdomenbasic1",
+      "name": "abdomenbasic1_chest",
+      "directions": 4
+    },
+    {
+      "name": "abdomenbasic1_groin",
       "directions": 4
     },
     {
@@ -89,7 +93,11 @@
       "directions": 4
     },
     {
-      "name": "widow1",
+      "name": "widow1_chest",
+      "directions": 4
+    },
+    {
+      "name": "widow1_groin",
       "directions": 4
     },
     {

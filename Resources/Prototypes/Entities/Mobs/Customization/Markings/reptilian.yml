@@ -1,388 +1,587 @@
 - type: marking
   id: LizardFrillsAquatic
-  bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [Reptilian, Human, Lamia, IPC]
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
     state: frills_aquatic
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: LizardFrillsShort
-  bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [Reptilian, Human, Lamia, IPC]
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
     state: frills_short
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: LizardFrillsSimple
-  bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [Reptilian, Human, Lamia, IPC]
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
     state: frills_simple
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: LizardFrillsDivinity
-  bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [Reptilian, Human, Lamia, IPC]
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
     state: frills_divinity
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: LizardFrillsBig
-  bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [Reptilian, Human, Lamia, IPC]
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
     state: frills_big
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: LizardFrillsAxolotl
-  bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [Reptilian, Human, Lamia, IPC]
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
     state: frills_axolotl
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: LizardFrillsHood
-  bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [Reptilian, Human, Lamia, IPC]
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
     state: frills_hood_primary
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
   - sprite: Mobs/Customization/reptilian_parts.rsi
     state: frills_hood_secondary
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: LizardFrillsNeckfull
-  bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [Reptilian, Lamia, IPC]
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
     state: frills_neckfull
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: LizardHornsAngler
-  bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Reptilian, Human, Lamia, Kobold, IPC] # Shitmed Change
+  speciesRestriction: [Reptilian, Human, Lamia, IPC]
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
     state: horns_angler
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: LizardHornsCurled
-  bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Reptilian, Human, Lamia, Kobold, IPC] # Shitmed Change
+  speciesRestriction: [Reptilian, Human, Lamia, IPC]
   sprites:
   - sprite: _White/Mobs/Customization/reptilian_parts.rsi # WWDP-Edit
     state: horns_curled_l
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
   - sprite: _White/Mobs/Customization/reptilian_parts.rsi # WWDP-Edit
     state: horns_curled_r
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: LizardHornsRam
-  bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Reptilian, Human, Lamia, Kobold, IPC] # Shitmed Change
+  speciesRestriction: [Reptilian, Human, Lamia, IPC]
   sprites:
   - sprite: _White/Mobs/Customization/reptilian_parts.rsi # WWDP-Edit
     state: horns_ram_l
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
   - sprite: _White/Mobs/Customization/reptilian_parts.rsi # WWDP-Edit
     state: horns_ram_r
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: LizardHornsShort
-  bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Reptilian, Human, Lamia, Kobold, IPC] # Shitmed Change
+  speciesRestriction: [Reptilian, Human, Lamia, IPC]
   sprites:
   - sprite: _White/Mobs/Customization/reptilian_parts.rsi # WWDP-Edit
     state: horns_short_l
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
   - sprite: _White/Mobs/Customization/reptilian_parts.rsi # WWDP-Edit
     state: horns_short_r
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: LizardHornsSimple
-  bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Reptilian, Human, Lamia, Kobold, IPC] # Shitmed Change
+  speciesRestriction: [Reptilian, Human, Lamia, IPC]
   sprites:
   - sprite: _White/Mobs/Customization/reptilian_parts.rsi # WWDP-Edit
     state: horns_simple_l
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
   - sprite: _White/Mobs/Customization/reptilian_parts.rsi # WWDP-Edit
     state: horns_simple_r
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: LizardHornsDouble
-  bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Reptilian, Human, Lamia, Kobold, IPC] # Shitmed Change
+  speciesRestriction: [Reptilian, Human, Lamia, IPC]
   sprites:
   - sprite: _White/Mobs/Customization/reptilian_parts.rsi # WWDP-Edit
     state: horns_double_l
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
   - sprite: _White/Mobs/Customization/reptilian_parts.rsi # WWDP-Edit
     state: horns_double_r
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: LizardTailSmooth
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Reptilian, Human, IPC]
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
     state: tail_smooth_primary
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    replacementBodyPart: BodyPartTailReptilian
+    # WD EDIT END
   - sprite: Mobs/Customization/reptilian_parts.rsi
     state: tail_smooth_secondary
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    # WD EDIT END
 
 - type: marking
   id: LizardTailLarge
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Reptilian, Human, IPC]
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
     state: tail_large
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    replacementBodyPart: BodyPartTailReptilian
+    # WD EDIT END
 
 - type: marking
   id: LizardTailSpikes
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Reptilian, Human, IPC]
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
     state: tail_spikes
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    replacementBodyPart: BodyPartTailReptilian
+    # WD EDIT END
 
 - type: marking
   id: LizardTailLTiger
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Reptilian, Human, IPC]
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
     state: tail_ltiger
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    replacementBodyPart: BodyPartTailReptilian
+    # WD EDIT END
 
 - type: marking
   id: LizardTailDTiger
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Reptilian, Human, IPC]
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
     state: tail_dtiger
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    replacementBodyPart: BodyPartTailReptilian
+    # WD EDIT END
 
 - type: marking
   id: LizardSnoutRound
-  bodyPart: Snout
   markingCategory: Snout
   forcedColoring: true
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
     state: snout_round
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Snout
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: LizardSnoutSharp
-  bodyPart: Snout
   markingCategory: Snout
   forcedColoring: true
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
     state: snout_sharp
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Snout
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: LizardSnoutSplotch
-  bodyPart: Snout
   markingCategory: Snout
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
     state: snout_splotch_primary
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Snout
+    bodyPart: Head
+    # WD EDIT END
   - sprite: Mobs/Customization/reptilian_parts.rsi
     state: snout_splotch_secondary
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Snout
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: LizardChestTiger
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Reptilian, Shadowkin, Lamia]
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
-    state: body_tiger
+# WD EDIT START
+    state: chest_tiger
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+
+- type: marking
+  id: LizardGroinTiger
+  markingCategory: Groin
+  speciesRestriction: [Reptilian, Shadowkin, Lamia]
+  sprites:
+  - sprite: Mobs/Customization/reptilian_parts.rsi
+    state: groin_tiger
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
+# WD EDIT END
 
 - type: marking
   id: LizardHeadTiger
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
     state: head_tiger
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: LizardLArmTiger
-  bodyPart: LArm
   markingCategory: LeftArm
   speciesRestriction: [Reptilian, Lamia]
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
     state: l_arm_tiger
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftArm
+    bodyPart: LeftArm
+    # WD EDIT END
 
 - type: marking
   id: LizardLLegTiger
-  bodyPart: LLeg
   markingCategory: LeftLeg
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
     state: l_leg_tiger
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftLeg
+    bodyPart: LeftLeg
+    # WD EDIT END
 
 - type: marking
   id: LizardRArmTiger
-  bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [Reptilian, Lamia]
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
     state: r_arm_tiger
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightArm
+    bodyPart: RightArm
+    # WD EDIT END
 
 - type: marking
   id: LizardRLegTiger
-  bodyPart: RLeg
   markingCategory: RightLeg
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
     state: r_leg_tiger
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightLeg
+    bodyPart: RightLeg
+    # WD EDIT END
 
 - type: marking
   id: LizardHornsArgali
-  bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Reptilian, Human, Lamia, Kobold, IPC] # Shitmed Change
+  speciesRestriction: [Reptilian, Human, Lamia, IPC]
   sprites:
   - sprite: _White/Mobs/Customization/reptilian_parts.rsi # WWDP-Edit
     state: horns_argali_l
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
   - sprite: _White/Mobs/Customization/reptilian_parts.rsi # WWDP-Edit
     state: horns_argali_r
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: LizardHornsAyrshire
-  bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Reptilian, Human, Lamia, Kobold, IPC] # Shitmed Change
+  speciesRestriction: [Reptilian, Human, Lamia, IPC]
   sprites:
   - sprite: _White/Mobs/Customization/reptilian_parts.rsi # WWDP-Edit
     state: horns_ayrshire_l
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
   - sprite: _White/Mobs/Customization/reptilian_parts.rsi # WWDP-Edit
     state: horns_ayrshire_r
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: LizardHornsMyrsore
-  bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Reptilian, Human, Lamia, Kobold, IPC] # Shitmed Change
+  speciesRestriction: [Reptilian, Human, Lamia, IPC]
   sprites:
   - sprite: _White/Mobs/Customization/reptilian_parts.rsi # WWDP-Edit
     state: horns_myrsore_l
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
   - sprite: _White/Mobs/Customization/reptilian_parts.rsi # WWDP-Edit
     state: horns_myrsore_r
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: LizardHornsBighorn
-  bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Reptilian, Human, Lamia, Kobold, IPC] # Shitmed Change
+  speciesRestriction: [Reptilian, Human, Lamia, IPC]
   sprites:
   - sprite: _White/Mobs/Customization/reptilian_parts.rsi # WWDP-Edit
     state: horns_bighorn_l
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
   - sprite: _White/Mobs/Customization/reptilian_parts.rsi # WWDP-Edit
     state: horns_bighorn_r
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: LizardHornsKoboldEars
-  bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Reptilian, Human, Kobold, IPC] # Shitmed Change
+  speciesRestriction: [Reptilian, Human, IPC]
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
     state: horns_kobold_ears
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: LizardHornsFloppyKoboldEars
-  bodyPart: HeadSide
   markingCategory: HeadSide
-  speciesRestriction: [Reptilian, Human, Kobold, IPC] # Shitmed Change
+  speciesRestriction: [Reptilian, Human, IPC]
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
     state: horns_floppy_kobold_ears
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: LizardChestUnderbelly
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Reptilian]
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
-    state: body_underbelly
+  # WD EDIT START
+    state: chest_underbelly
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+  - sprite: Mobs/Customization/reptilian_parts.rsi
+    state: groin_underbelly
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
+  # WD EDIT END
 
 - type: marking
   id: LizardChestBackspikes
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Reptilian, Lamia]
   sprites:
   - sprite: Mobs/Customization/reptilian_parts.rsi
-    state: body_backspikes
+    # WD EDIT START
+    state: chest_backspikes
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+  - sprite: Mobs/Customization/reptilian_parts.rsi
+    state: groin_backspikes
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
+  # WD EDIT END
 
 # Animated
 - type: marking
   id: LizardTailSmoothAnimated
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: []
   sprites:
     - sprite: Mobs/Customization/reptilian_parts.rsi
       state: tail_smooth_wagging_primary
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      replacementBodyPart: BodyPartTailReptilian
+      # WD EDIT END
     - sprite: Mobs/Customization/reptilian_parts.rsi
       state: tail_smooth_wagging_secondary
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      # WD EDIT END
 
 - type: marking
   id: LizardTailSpikesAnimated
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: []
   sprites:
     - sprite: Mobs/Customization/reptilian_parts.rsi
       state: tail_spikes_wagging
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      replacementBodyPart: BodyPartTailReptilian
+      # WD EDIT END
 
 - type: marking
   id: LizardTailLTigerAnimated
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: []
   sprites:
     - sprite: Mobs/Customization/reptilian_parts.rsi
       state: tail_ltiger_wagging
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      replacementBodyPart: BodyPartTailReptilian
+      # WD EDIT END
 
 - type: marking
   id: LizardTailDTigerAnimated
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: []
   sprites:
     - sprite: Mobs/Customization/reptilian_parts.rsi
       state: tail_dtiger_wagging
+      # WD EDIT START
+      layer: enum.BodyAppearanceLayer.Tail
+      bodyPart: Tail
+      replacementBodyPart: BodyPartTailReptilian
+      # WD EDIT END

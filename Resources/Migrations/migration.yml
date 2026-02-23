@@ -360,38 +360,38 @@ BlueprintFlare: null
 
 # 2024-10-09
 # Removal of separate borg chassis parts, replace them with generic borg parts.
-LeftArmBorgEngineer: LeftArmBorg
-RightArmBorgEngineer: RightArmBorg
-LeftLegBorgEngineer: LeftLegBorg
-RightLegBorgEngineer: RightLegBorg
-HeadBorgEngineer: LightHeadBorg
-TorsoBorgEngineer: TorsoBorg
+LeftArmBorgEngineer: BodyPartLeftArmBorg # WD EDIT: LeftArmBorg -> BodyPartLeftArmBorg
+RightArmBorgEngineer: BodyPartRightArmBorg # WD EDIT: RightArmBorg -> BodyPartRightArmBorg
+LeftLegBorgEngineer: BodyPartLeftLegBorg # WD EDIT: LeftLegBorg -> BodyPartLeftLegBorg
+RightLegBorgEngineer: BodyPartRightLegBorg # WD EDIT: RightLegBorg -> BodyPartRightLegBorg
+HeadBorgEngineer: BodyPartHeadBorg # WD EDIT: LightHeadBorg -> BodyPartHeadBorg
+TorsoBorgEngineer: BodyPartTorsoBorg # WD EDIT: TorsoBorg -> BodyPartTorsoBorg
 
-LeftArmBorgMedical: LeftArmBorg
-RightArmBorgMedical: RightArmBorg
-LeftLegBorgMedical: LeftLegBorg
-RightLegBorgMedical: RightLegBorg
-HeadBorgMedical: LightHeadBorg
-TorsoBorgMedical: TorsoBorg
+LeftArmBorgMedical: BodyPartLeftArmBorg # WD EDIT: LeftArmBorg -> BodyPartLeftArmBorg
+RightArmBorgMedical: BodyPartRightArmBorg # WD EDIT: RightArmBorg -> BodyPartRightArmBorg
+LeftLegBorgMedical: BodyPartLeftLegBorg # WD EDIT: LeftLegBorg -> BodyPartLeftLegBorg
+RightLegBorgMedical: BodyPartRightLegBorg # WD EDIT: RightLegBorg -> BodyPartRightLegBorg
+HeadBorgMedical: BodyPartHeadBorg # WD EDIT: LightHeadBorg -> BodyPartHeadBorg
+TorsoBorgMedical: BodyPartTorsoBorg # WD EDIT: TorsoBorg -> BodyPartTorsoBorg
 
-LeftArmBorgMining: LeftArmBorg
-RightArmBorgMining: RightArmBorg
-LeftLegBorgMining: LeftLegBorg
-RightLegBorgMining: RightLegBorg
-HeadBorgMining: LightHeadBorg
-TorsoBorgMining: TorsoBorg
+LeftArmBorgMining: BodyPartLeftArmBorg # WD EDIT: LeftArmBorg -> BodyPartLeftArmBorg
+RightArmBorgMining: BodyPartRightArmBorg # WD EDIT: RightArmBorg -> BodyPartRightArmBorg
+LeftLegBorgMining: BodyPartLeftLegBorg # WD EDIT: LeftLegBorg -> BodyPartLeftLegBorg
+RightLegBorgMining: BodyPartRightLegBorg # WD EDIT: RightLegBorg -> BodyPartRightLegBorg
+HeadBorgMining: BodyPartHeadBorg # WD EDIT: LightHeadBorg -> BodyPartHeadBorg
+TorsoBorgMining: BodyPartTorsoBorg # WD EDIT: TorsoBorg -> BodyPartTorsoBorg
 
-LeftArmBorgService: LeftArmBorg
-RightArmBorgService: RightArmBorg
-LeftLegBorgService: LeftLegBorg
-RightLegBorgService: RightLegBorg
-HeadBorgService: LightHeadBorg
-TorsoBorgService: TorsoBorg
+LeftArmBorgService: BodyPartLeftArmBorg # WD EDIT: LeftArmBorg -> BodyPartLeftArmBorg
+RightArmBorgService: BodyPartRightArmBorg # WD EDIT: RightArmBorg -> BodyPartRightArmBorg
+LeftLegBorgService: BodyPartLeftLegBorg # WD EDIT: LeftLegBorg -> BodyPartLeftLegBorg
+RightLegBorgService: BodyPartRightLegBorg # WD EDIT: RightLegBorg -> BodyPartRightLegBorg
+HeadBorgService: BodyPartHeadBorg # WD EDIT: LightHeadBorg -> BodyPartHeadBorg
+TorsoBorgService: BodyPartTorsoBorg # WD EDIT: TorsoBorg -> BodyPartTorsoBorg
 
-LeftLegBorgJanitor: LeftLegBorg
-RightLegBorgJanitor: RightLegBorg
-HeadBorgJanitor: LightHeadBorg
-TorsoBorgJanitor: TorsoBorg
+LeftLegBorgJanitor: BodyPartLeftLegBorg # WD EDIT: LeftLegBorg -> BodyPartLeftLegBorg
+RightLegBorgJanitor: BodyPartRightLegBorg # WD EDIT: RightLegBorg -> BodyPartRightLegBorg
+HeadBorgJanitor: BodyPartHeadBorg # WD EDIT: LightHeadBorg -> BodyPartHeadBorg
+TorsoBorgJanitor: BodyPartTorsoBorg # WD EDIT: TorsoBorg -> BodyPartTorsoBorg
 
 # 2024-11-17
 PresentRandomAsh: PresentRandomCoal

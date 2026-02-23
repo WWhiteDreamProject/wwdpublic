@@ -1,5 +1,4 @@
 using Content.Server.Administration.Logs;
-using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.EntityEffects.Effects;
 using Content.Server.Spreader;
@@ -21,7 +20,9 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using System.Linq;
+using Content.Server._White.Body.Bloodstream.Systems;
 using Content.Server.Nutrition.Components;
+using Content.Shared._White.Body.Bloodstream.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Nutrition.Components;
 using TimedDespawnComponent = Robust.Shared.Spawners.TimedDespawnComponent;
@@ -267,7 +268,7 @@ public sealed class SmokeSystem : EntitySystem
         if (!TryComp<BloodstreamComponent>(entity, out var bloodstream))
             return;
 
-        if (!_solutionContainerSystem.ResolveSolution(entity, bloodstream.ChemicalSolutionName, ref bloodstream.ChemicalSolution, out var chemSolution) || chemSolution.AvailableVolume <= 0)
+        if (!_solutionContainerSystem.ResolveSolution(entity, bloodstream.BloodSolutionName, ref bloodstream.BloodSolution, out var chemSolution) || chemSolution.AvailableVolume <= 0) // WD EDIT
             return;
 
         var blockIngestion = _internals.AreInternalsWorking(entity);
@@ -298,7 +299,7 @@ public sealed class SmokeSystem : EntitySystem
         if (blockIngestion)
             return;
 
-        if (_blood.TryAddToChemicals(entity, transferSolution, bloodstream))
+        if (_blood.TryAddToBloodstream((entity, bloodstream), transferSolution)) // WD EDIT
         {
             // Log solution addition by smoke
             _logger.Add(LogType.ForceFeed, LogImpact.Medium, $"{ToPrettyString(entity):target} ingested smoke {SharedSolutionContainerSystem.ToPrettyString(transferSolution)}");

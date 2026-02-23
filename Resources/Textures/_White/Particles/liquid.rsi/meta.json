@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-4.0",
+  "copyright": "Valentyi (@randomm.ua)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "particle1"
+    },
+    {
+      "name": "particle2"
+    },
+    {
+      "name": "particle3"
+    }
+  ]
+}

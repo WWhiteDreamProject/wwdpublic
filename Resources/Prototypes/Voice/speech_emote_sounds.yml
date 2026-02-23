@@ -40,6 +40,10 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: MaleDeathGasp
+    # WD EDIT START
+    PainScream:
+      collection: MalePainScream
+    # WD EDIT END
 
 - type: emoteSounds
   id: FemaleHuman
@@ -82,6 +86,10 @@
       collection: FemaleGasp
     DefaultDeathgasp:
       collection: FemaleDeathGasp
+    # WD EDIT START
+    PainScream:
+      collection: FemalePainScream
+    # WD EDIT END
 
 - type: emoteSounds
   id: MaleReptilian
@@ -124,6 +132,10 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: DeathGasp
+    # WD EDIT START
+    PainScream:
+      collection: MalePainScream
+    # WD EDIT END
 
 - type: emoteSounds
   id: FemaleReptilian
@@ -166,6 +178,10 @@
       collection: FemaleGasp
     DefaultDeathgasp:
       collection: FemaleDeathGasp
+    # WD EDIT START
+    PainScream:
+      collection: FemalePainScream
+    # WD EDIT END
 
 - type: emoteSounds
   id: MaleSlime
@@ -210,6 +226,10 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: MaleDeathGasp
+    # WD EDIT START
+    PainScream:
+      collection: MalePainScream
+    # WD EDIT END
 
 - type: emoteSounds
   id: FemaleSlime
@@ -254,6 +274,10 @@
       collection: FemaleGasp
     DefaultDeathgasp:
       collection: FemaleDeathGasp
+    # WD EDIT START
+    PainScream:
+      collection: FemalePainScream
+    # WD EDIT END
 
 - type: emoteSounds
   id: MaleShadowkin
@@ -302,6 +326,10 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: MaleDeathGasp
+    # WD EDIT START
+    PainScream:
+      collection: MalePainScream
+    # WD EDIT END
 
 - type: emoteSounds
   id: FemaleShadowkin
@@ -350,6 +378,10 @@
       collection: FemaleGasp
     DefaultDeathgasp:
       collection: FemaleDeathGasp
+    # WD EDIT START
+    PainScream:
+      collection: FemalePainScream
+    # WD EDIT END
 
 - type: emoteSounds
   id: UnisexVox
@@ -392,6 +424,10 @@
       collection: FemaleGasp
     DefaultDeathgasp:
       collection: FemaleDeathGasp
+    # WD EDIT START
+    PainScream:
+      collection: FemalePainScream
+    # WD EDIT END
 
 - type: emoteSounds
   id: UnisexDiona
@@ -436,6 +472,10 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: DeathGasp
+    # WD EDIT START
+    PainScream:
+      collection: MalePainScream
+    # WD EDIT END
 
 - type: emoteSounds
   id: UnisexArachnid
@@ -484,6 +524,10 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: DeathGasp
+    # WD EDIT START
+    PainScream:
+      collection: MalePainScream
+    # WD EDIT END
 
 - type: emoteSounds
   id: UnisexDwarf
@@ -527,6 +571,10 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: MaleDeathGasp
+    # WD EDIT START
+    PainScream:
+      collection: MalePainScream
+    # WD EDIT END
 
 - type: emoteSounds
   id: FemaleDwarf
@@ -570,6 +618,10 @@
       collection: FemaleGasp
     DefaultDeathgasp:
       collection: FemaleDeathGasp
+    # WD EDIT START
+    PainScream:
+      collection: FemalePainScream
+    # WD EDIT END
 
 - type: emoteSounds
   id: UnisexMoth
@@ -618,6 +670,10 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: MothDeathGasp
+    # WD EDIT START
+    PainScream:
+      collection: MalePainScream
+    # WD EDIT END
 
 - type: emoteSounds
   id: UnisexIPC

@@ -36,11 +36,11 @@ public sealed partial class FoldableClothingComponent : Component
     /// Which layers does this hide when Unfolded? See <see cref="HumanoidVisualLayers"/> and <see cref="HideLayerClothingComponent"/>
     /// </summary>
     [DataField]
-    public HashSet<HumanoidVisualLayers> UnfoldedHideLayers = new();
+    public HashSet<Enum> UnfoldedHideLayers = new(); // WD EDIT
 
     /// <summary>
     /// Which layers does this hide when folded? See <see cref="HumanoidVisualLayers"/> and <see cref="HideLayerClothingComponent"/>
     /// </summary>
     [DataField]
-    public HashSet<HumanoidVisualLayers> FoldedHideLayers = new();
+    public HashSet<Enum> FoldedHideLayers = new(); // WD EDIT
 }

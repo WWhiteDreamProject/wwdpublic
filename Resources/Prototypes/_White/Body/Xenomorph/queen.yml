@@ -1,0 +1,36 @@
+- type: body
+  id: XenomorphQueen
+  organs:
+    brain:
+      type: Brain
+      startingOrgan: OrganBrainXenomorph
+    eyes:
+      type: Eyes
+      startingOrgan: OrganEyesXenomorph
+    tongue:
+      type: Tongue
+      startingOrgan: OrganTongueXenomorph
+    lungs:
+      type: Lungs
+      startingOrgan: OrganLungsLargeQueenXenomorph
+    stomach:
+      type: Stomach
+      startingOrgan: OrganStomachXenomorph
+    liver:
+      type: Liver
+      startingOrgan: OrganLiverXenomorph
+    acid_gland:
+      type: Gland
+      startingOrgan: OrganGlandAcidXenomorph
+    neurotoxin_gland:
+      type: Gland
+      startingOrgan: OrganGlandNeurotoxinXenomorph
+    egg_sack:
+      type: Specific
+      startingOrgan: OrganEggSackXenomorph
+    hive_node:
+      type: Specific
+      startingOrgan: OrganHiveNodeXenomorph
+    resin_spinner:
+      type: Specific
+      startingOrgan: OrganResinSpinnerXenomorph

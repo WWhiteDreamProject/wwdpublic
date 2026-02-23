@@ -149,7 +149,7 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
-      # WD EDIT START
+  # WD EDIT START
       jumpsuit-body-slim:
         sizeMaps:
           32:
@@ -180,4 +180,6 @@
           32:
             sprite: _White/Mobs/Species/Human/displacement.rsi
             state: suit
-      # WD EDIT END
+  - type: Body
+    prototype: Felinid
+  # WD EDIT END

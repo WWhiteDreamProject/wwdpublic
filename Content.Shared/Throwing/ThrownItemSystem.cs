@@ -1,7 +1,6 @@
 using System.Linq;
-using Content.Shared._Shitmed.Targeting;
+using Content.Shared._White.TargetDoll;
 using Content.Shared.Administration.Logs;
-using Content.Shared.Body.Systems;
 using Content.Shared.Database;
 using Content.Shared.Gravity;
 using Content.Shared.Physics;
@@ -25,7 +24,7 @@ namespace Content.Shared.Throwing
         [Dependency] private readonly FixtureSystem _fixtures = default!;
         [Dependency] private readonly SharedPhysicsSystem _physics = default!;
         [Dependency] private readonly SharedGravitySystem _gravity = default!;
-        [Dependency] private readonly SharedBodySystem _body = default!;
+        [Dependency] private readonly SharedTargetDollSystem _targetDoll = default!; // WD EDIT
 
         private const string ThrowingFixture = "throw-fixture";
 
@@ -150,17 +149,11 @@ namespace Content.Shared.Throwing
                 _adminLogger.Add(LogType.ThrowHit, LogImpact.Low,
                     $"{ToPrettyString(thrown):thrown} thrown by {ToPrettyString(component.Thrower.Value):thrower} hit {ToPrettyString(target):target}.");
 
-            //WWDP EDIT START
-            TryComp<TargetingComponent>(component.Thrower, out var targetingComponent);
-
-            var targetPart =  targetingComponent?.Target ?? _body.GetRandomBodyPart(target);
-            //WWDP EDIT END
-
-            if (component.Thrower is not null)// Nyano - Summary: Gotta check if there was a thrower.
-                RaiseLocalEvent(target, new ThrowHitByEvent(component.Thrower.Value, thrown, target, component, targetPart), true); // Nyano - Summary: Gotta update for who threw it.
-            else
-                RaiseLocalEvent(target, new ThrowHitByEvent(null, thrown, target, component, targetPart), true); // Nyano - Summary: No thrower.
-            RaiseLocalEvent(thrown, new ThrowDoHitEvent(thrown, target, component, targetPart), true);
+            // WD EDIT START
+            var bodyPartType = component.Thrower.HasValue ? _targetDoll.GetSelectedBodyPart(component.Thrower.Value) : _targetDoll.GetRandomValidBodyPart(target);
+            RaiseLocalEvent(target, new ThrowHitByEvent(component.Thrower, thrown, target, component, bodyPartType), true);
+            RaiseLocalEvent(thrown, new ThrowDoHitEvent(thrown, target, component, bodyPartType), true);
+            // WD EDIT END
         }
 
         public override void Update(float frameTime)

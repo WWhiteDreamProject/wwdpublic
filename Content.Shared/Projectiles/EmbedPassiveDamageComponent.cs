@@ -1,8 +1,8 @@
+using Content.Shared._White.Body.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.FixedPoint;
 using Content.Shared.Mobs.Components;
-using Content.Shared._Shitmed.Targeting;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 using Robust.Shared.GameStates;
 
@@ -33,12 +33,6 @@ public sealed partial class EmbedPassiveDamageComponent : Component
     public MobStateComponent? EmbeddedMobState = null;
 
     /// <summary>
-    ///   The body part to apply damage to.
-    /// </summary>
-    [ViewVariables(VVAccess.ReadOnly)]
-    public TargetBodyPart? EmbeddedBodyPart = null;
-
-    /// <summary>
     ///   Damage per interval dealt to the entity every interval.
     ///   If this is set manually, DamageMultiplier will be ignored.
     /// </summary>
@@ -54,4 +48,12 @@ public sealed partial class EmbedPassiveDamageComponent : Component
 
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan NextDamage = TimeSpan.Zero;
+
+    // WD EDIT START
+    /// <summary>
+    /// The body part that will be damaged
+    /// </summary>
+    [ViewVariables]
+    public BodyPartType BodyPartType = BodyPartType.All;
+    // WD EDIT END
 }
