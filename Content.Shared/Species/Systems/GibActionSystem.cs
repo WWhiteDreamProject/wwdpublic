@@ -14,7 +14,7 @@ public sealed partial class GibActionSystem : EntitySystem
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
     [Dependency] private readonly IPrototypeManager _protoManager = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly SharedGibbingSystem _gibbing = default!; // WD EDIT
+    [Dependency] private readonly GibbingSystem _gibbing = default!; // WD EDIT
 
     public override void Initialize()
     {
@@ -52,7 +52,7 @@ public sealed partial class GibActionSystem : EntitySystem
     {
         // When they use the action, gib them.
         _popupSystem.PopupClient(Loc.GetString(comp.PopupText, ("name", uid)), uid, uid);
-        _gibbing.GibBody(uid, true); // WD EDIT
+        _gibbing.Gib(uid, user: args.Performer); // WD EDIT
     }
 
 

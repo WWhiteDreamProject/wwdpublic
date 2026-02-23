@@ -1,5 +1,6 @@
 using Content.Shared._White.Body.Components;
 using Content.Shared.Humanoid.Markings;
+using Content.Shared.Inventory;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 
@@ -25,6 +26,7 @@ public abstract partial class SharedBodySystem : EntitySystem
     [Dependency] private readonly MarkingManager _marking = default!;
     [Dependency] protected new readonly IPrototypeManager Prototype = default!;
 
+    [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
 
     private ISawmill _sawmill = default!;

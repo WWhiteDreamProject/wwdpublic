@@ -1,7 +1,7 @@
-using Content.Server._White.Gibbing;
 using Content.Server.Explosion.Components;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Popups;
+using Content.Shared._White.Gibbing;
 using Content.Shared.Implants.Components;
 using Content.Shared.Popups;
 using Robust.Server.GameObjects;
@@ -76,7 +76,6 @@ public sealed class PreventGridLeaveSystem : EntitySystem
         }
 
         // In case there is no implant, gib or delete
-        if (!_gibbing.TryGibBody(uid, out _, true))
-            Del(uid);
+        _gibbing.Gib(uid);
     }
 }

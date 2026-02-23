@@ -1,4 +1,4 @@
-using Content.Server._White.Gibbing;
+using Content.Shared._White.Gibbing;
 using Robust.Shared.Timing;
 using Content.Shared.Changeling;
 using Content.Shared.Mind;
@@ -39,7 +39,7 @@ public sealed class ChangelingEggSystem : EntitySystem
 
         if (TerminatingOrDeleted(comp.LingMind))
         {
-            _gibbing.GibBody(uid); // WD EDIT
+            _gibbing.Gib(uid); // WD EDIT
             return;
         }
 
@@ -55,6 +55,6 @@ public sealed class ChangelingEggSystem : EntitySystem
         if (comp.AugmentedEyesightPurchased)
             _changeling.InitializeAugmentedEyesight(newUid);
 
-        _gibbing.GibBody(uid); // WD EDIT
+        _gibbing.Gib(uid); // WD EDIT
     }
 }

@@ -1,7 +1,6 @@
 using System.Threading;
 using Content.Server._White.Body.Bloodstream.Systems;
 using Content.Server._White.Body.Systems;
-using Content.Server._White.Gibbing;
 using Content.Server.Administration.Commands;
 using Content.Server.Administration.Components;
 using Content.Server.Atmos.Components;
@@ -22,6 +21,7 @@ using Content.Server.Tabletop;
 using Content.Server.Tabletop.Components;
 using Content.Shared._White.Body.Bloodstream.Components;
 using Content.Shared._White.Body.Components;
+using Content.Shared._White.Gibbing;
 using Content.Shared.Administration;
 using Content.Shared.Administration.Components;
 using Content.Shared.Clumsy;
@@ -113,7 +113,7 @@ public sealed partial class AdminVerbSystem
                         4, 1, 2, args.Target, maxTileBreak: 0), // it gibs, damage doesn't need to be high.
                     CancellationToken.None);
 
-                _gibbing.GibBody(args.Target); // WD EDIT
+                _gibbing.Gib(args.Target); // WD EDIT
             },
             Impact = LogImpact.Extreme,
             Message = string.Join(": ", explodeName, Loc.GetString("admin-smite-explode-description")) // we do this so the description tells admins the Text to run it via console.

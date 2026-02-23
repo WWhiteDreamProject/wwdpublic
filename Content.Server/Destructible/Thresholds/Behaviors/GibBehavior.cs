@@ -10,7 +10,7 @@ namespace Content.Server.Destructible.Thresholds.Behaviors
 
         public void Execute(EntityUid owner, DestructibleSystem system, EntityUid? cause = null)
         {
-            system.GibbingSystem.GibBody(owner, _recursive); // WD EDIT
+            system.Gibbing.Gib(owner, _recursive); // WD EDIT
         }
     }
 }

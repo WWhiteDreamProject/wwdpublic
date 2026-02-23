@@ -5,6 +5,7 @@ using Content.Shared._White.Gibbing;
 using Content.Shared._White.Threshold;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
+using Content.Shared.Destructible;
 using Content.Shared.FixedPoint;
 using Content.Shared.Rejuvenate;
 using Robust.Shared.Containers;
@@ -16,19 +17,13 @@ public abstract partial class SharedWoundSystem
 {
     private void InitializeBodyPart()
     {
-        SubscribeLocalEvent<WoundableBodyPartComponent, AttemptEntityContentsGibEvent>(OnAttemptEntityContentsGib);
         SubscribeLocalEvent<WoundableBodyPartComponent, ComponentInit>(OnBodyPartInit);
         SubscribeLocalEvent<WoundableBodyPartComponent, DamageChangedEvent>(OnBodyPartDamageChanged);
+        SubscribeLocalEvent<WoundableBodyPartComponent, DestructionEventArgs>(OnDestruction);
         SubscribeLocalEvent<WoundableBodyPartComponent, BodyPartRelayedEvent<RejuvenateEvent>>(OnBodyPartRejuvenate);
     }
 
     #region Event Handling
-
-    private void OnAttemptEntityContentsGib(Entity<WoundableBodyPartComponent> woundableBodyPart, ref AttemptEntityContentsGibEvent args)
-    {
-        foreach (var wound in GetWounds(woundableBodyPart.AsNullable(), scar:true))
-            PredictedQueueDel(wound.Owner);
-    }
 
     private void OnBodyPartInit(Entity<WoundableBodyPartComponent> woundableBodyPart, ref ComponentInit args) =>
         woundableBodyPart.Comp.Container = _container.EnsureContainer<Container>(woundableBodyPart.Owner, WoundsContainerId);
@@ -40,6 +35,12 @@ public abstract partial class SharedWoundSystem
 
         foreach (var bone in _body.GetBones<WoundableBoneComponent>(woundableBodyPart))
             ApplyBoneDamage(bone.AsNullable(), args.DamageDelta);
+    }
+
+    private void OnDestruction(Entity<WoundableBodyPartComponent> woundableBodyPart, ref DestructionEventArgs args)
+    {
+        foreach (var wound in GetWounds(woundableBodyPart.AsNullable(), scar:true))
+            PredictedQueueDel(wound.Owner);
     }
 
     private void OnBodyPartRejuvenate(Entity<WoundableBodyPartComponent> woundableBodyPart, ref BodyPartRelayedEvent<RejuvenateEvent> args)

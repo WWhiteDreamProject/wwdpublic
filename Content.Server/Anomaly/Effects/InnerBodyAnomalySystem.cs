@@ -1,10 +1,9 @@
-using Content.Server._White.Gibbing;
 using Content.Server.Administration.Logs;
 using Content.Server.Chat.Managers;
 using Content.Server.Jittering;
 using Content.Server.Mind;
 using Content.Server.Stunnable;
-using Content.Shared._White.Body.Components;
+using Content.Shared._White.Gibbing;
 using Content.Shared.Anomaly;
 using Content.Shared.Anomaly.Components;
 using Content.Shared.Anomaly.Effects;
@@ -129,10 +128,7 @@ public sealed class InnerBodyAnomalySystem : SharedInnerBodyAnomalySystem
 
     private void OnAnomalySupercritical(Entity<InnerBodyAnomalyComponent> ent, ref AnomalySupercriticalEvent args)
     {
-        if (!TryComp<BodyComponent>(ent, out var body))
-            return;
-
-        _gibbing.GibBody((ent.Owner, body, null), true, splatModifier: 5f); // WD EDIT
+        _gibbing.Gib(ent.Owner); // WD EDIT
     }
 
     private void OnSeverityChanged(Entity<InnerBodyAnomalyComponent> ent, ref AnomalySeverityChangedEvent args)

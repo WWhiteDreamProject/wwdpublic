@@ -1,8 +1,8 @@
-using Content.Server._White.Gibbing;
 using Content.Server.DoAfter;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Jittering;
 using Content.Server.Popups;
+using Content.Shared._White.Gibbing;
 using Content.Shared._White.Xenomorphs;
 using Content.Shared._White.Xenomorphs.Larva;
 using Content.Shared.DoAfter;
@@ -74,6 +74,6 @@ public sealed class XenomorphLarvaSystem : EntitySystem
             return;
 
         _container.Remove(uid, container);
-        _gibbing.GibBody(victim);
+        _gibbing.Gib(victim);
     }
 }

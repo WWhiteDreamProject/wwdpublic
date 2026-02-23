@@ -1,5 +1,5 @@
 using Content.Server._White.Body.Bloodstream.Systems;
-using Content.Server.Body.Components;
+using Content.Shared._White.Gibbing;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Devour;
 using Content.Shared.Devour.Components;
@@ -16,7 +16,7 @@ public sealed class DevourSystem : SharedDevourSystem
         base.Initialize();
 
         SubscribeLocalEvent<DevourerComponent, DevourDoAfterEvent>(OnDoAfter);
-        SubscribeLocalEvent<DevourerComponent, BeingGibbedEvent>(OnGibContents);
+        SubscribeLocalEvent<DevourerComponent, GibbedBeforeDeletionEvent>(OnGibContents); // WD EDIT
     }
 
     private void OnDoAfter(EntityUid uid, DevourerComponent component, DevourDoAfterEvent args)
@@ -48,7 +48,7 @@ public sealed class DevourSystem : SharedDevourSystem
         _audioSystem.PlayPvs(component.SoundDevour, uid);
     }
 
-    private void OnGibContents(EntityUid uid, DevourerComponent component, ref BeingGibbedEvent args)
+    private void OnGibContents(EntityUid uid, DevourerComponent component, ref GibbedBeforeDeletionEvent args) // WD EDIT
     {
         if (!component.ShouldStoreDevoured)
             return;

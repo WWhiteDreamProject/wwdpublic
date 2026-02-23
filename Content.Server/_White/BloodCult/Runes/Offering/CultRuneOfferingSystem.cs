@@ -1,13 +1,12 @@
 ﻿using System.Linq;
 using Content.Server._White.GameTicking.Rules;
-using Content.Server._White.Gibbing;
 using Content.Server.Bible.Components;
-using Content.Server.Body.Systems;
 using Content.Server.Cuffs;
 using Content.Server.Mind;
 using Content.Server.Stunnable;
 using Content.Shared._White.BloodCult.BloodCultist;
 using Content.Shared._White.BloodCult.Runes.Components;
+using Content.Shared._White.Gibbing;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Damage;
 using Content.Shared.Mindshield.Components;
@@ -104,7 +103,7 @@ public sealed class CultRuneOfferingSystem : EntitySystem
             _mind.UnVisit(mindId);
         }
 
-        _gibbing.GibBody(target);
+        _gibbing.Gib(target);
     }
 
     private void Convert(Entity<CultRuneOfferingComponent> rune, EntityUid target, EntityUid user)

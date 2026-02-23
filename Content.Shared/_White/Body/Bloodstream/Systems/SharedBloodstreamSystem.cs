@@ -5,6 +5,7 @@ using Content.Shared._White.Body.Components;
 using Content.Shared._White.Body.Organs.Metabolizer;
 using Content.Shared._White.Body.Wounds.Systems;
 using Content.Shared._White.Chemistry.Reagent;
+using Content.Shared._White.Gibbing;
 using Content.Shared.Alert;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
@@ -43,6 +44,7 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
 
         SubscribeLocalEvent<BloodstreamComponent, ApplyMetabolicRateEvent>(OnApplyMetabolicMultiplier);
         SubscribeLocalEvent<BloodstreamComponent, EntRemovedFromContainerMessage>(OnEntRemoved);
+        SubscribeLocalEvent<BloodstreamComponent, GibbedBeforeDeletionEvent>(OnGibbedBeforeDeletion);
         SubscribeLocalEvent<BloodstreamComponent, HealthBeingExaminedEvent>(OnHealthBeingExamined);
         SubscribeLocalEvent<BloodstreamComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<BloodstreamComponent, RejuvenateEvent>(OnRejuvenate);
@@ -69,6 +71,9 @@ public abstract partial class SharedBloodstreamSystem : EntitySystem
         if (args.Entity == entity.Comp.TemporarySolution?.Owner)
             entity.Comp.TemporarySolution = null;
     }
+
+    private void OnGibbedBeforeDeletion(Entity<BloodstreamComponent> ent, ref GibbedBeforeDeletionEvent args) =>
+        SpillAllSolutions(ent.AsNullable());
 
     private void OnHealthBeingExamined(Entity<BloodstreamComponent> ent, ref HealthBeingExaminedEvent args)
     {

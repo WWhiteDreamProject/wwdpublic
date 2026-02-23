@@ -1,9 +1,9 @@
-using Content.Server._White.Gibbing;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Popups;
 using Content.Server.Tools.Innate;
 using Content.Shared.UserInterface;
 using Content.Shared._Imp.Drone;
+using Content.Shared._White.Gibbing;
 using Content.Shared.Emoting;
 using Content.Shared.Examine;
 using Content.Shared.Ghost;
@@ -109,7 +109,7 @@ namespace Content.Server._Imp.Drone
                 if (TryComp<InnateToolComponent>(uid, out var innate))
                     _innateToolSystem.Cleanup(uid, innate);
 
-                _gibbing.GibBody(uid); // WD EDIT
+                _gibbing.Gib(uid); // WD EDIT
                 QueueDel(uid);
             }
         }

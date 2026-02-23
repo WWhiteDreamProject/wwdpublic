@@ -1,4 +1,3 @@
-using Content.Server.Body.Components;
 using Content.Server.EntityEffects.Effects;
 using Content.Shared._White.Body.Bloodstream.Components;
 using Content.Shared._White.Body.Bloodstream.Systems;
@@ -32,7 +31,6 @@ public sealed partial class BloodstreamSystem : SharedBloodstreamSystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<BloodstreamComponent, BeingGibbedEvent>(OnBeingGibbed);
         SubscribeLocalEvent<BloodstreamComponent, ComponentInit>(OnComponentInit);
         SubscribeLocalEvent<BloodstreamComponent, GenerateDnaEvent>(OnDnaGenerated);
         SubscribeLocalEvent<BloodstreamComponent, HeightAdjustedEvent>(OnHeightAdjusted);
@@ -43,9 +41,6 @@ public sealed partial class BloodstreamSystem : SharedBloodstreamSystem
     }
 
     #region Event Handling
-
-    private void OnBeingGibbed(Entity<BloodstreamComponent> ent, ref BeingGibbedEvent args) => SpillAllSolutions(ent.AsNullable());
-
     private void OnComponentInit(Entity<BloodstreamComponent> ent, ref ComponentInit args)
     {
         if (!SolutionContainer.EnsureSolution(ent.Owner, ent.Comp.BloodSolutionName, out var bloodSolution)

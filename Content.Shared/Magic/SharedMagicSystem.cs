@@ -68,7 +68,7 @@ public abstract class SharedMagicSystem : EntitySystem
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
     [Dependency] private readonly SharedChargesSystem _charges = default!;
-    [Dependency] private readonly SharedGibbingSystem _gibbing = default!; // WD EDIT
+    [Dependency] private readonly GibbingSystem _gibbing = default!; // WD EDIT
 
     private static readonly ProtoId<TagPrototype> InvalidForGlobalSpawnSpellTag = "InvalidForGlobalSpawnSpell";
 
@@ -412,7 +412,7 @@ public abstract class SharedMagicSystem : EntitySystem
 
         _physics.ApplyLinearImpulse(ev.Target, impulseVector);
 
-        _gibbing.GibBody(ev.Target, true); // WD EDIT
+        _gibbing.Gib(ev.Target); // WD EDIT
     }
 
     // End Touch Spells

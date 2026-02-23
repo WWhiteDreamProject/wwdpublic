@@ -1,8 +1,7 @@
-﻿using Content.Server._White.Body.Systems;
-using Content.Server._White.Gibbing;
-using Content.Server.Kitchen.Components;
+﻿using Content.Server.Kitchen.Components;
 using Content.Server.Nutrition.EntitySystems;
 using Content.Shared._White.Body.Components;
+using Content.Shared._White.Gibbing;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Interaction;
@@ -24,7 +23,6 @@ namespace Content.Server.Kitchen.EntitySystems;
 
 public sealed class SharpSystem : EntitySystem
 {
-    [Dependency] private readonly BodySystem _bodySystem = default!;
     [Dependency] private readonly SharedDestructibleSystem _destructibleSystem = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
@@ -123,9 +121,7 @@ public sealed class SharpSystem : EntitySystem
         _popupSystem.PopupEntity(Loc.GetString("butcherable-knife-butchered-success", ("target", args.Args.Target.Value), ("knife", uid)),
             popupEnt, args.Args.User, popupType);
 
-        if (hasBody)
-            _gibbing.GibBody((args.Args.Target.Value, body, null)); // WD EDIT
-
+        _gibbing.Gib(args.Args.Target.Value); // WD EDIT
         _destructibleSystem.DestroyEntity(args.Args.Target.Value);
 
         args.Handled = true;

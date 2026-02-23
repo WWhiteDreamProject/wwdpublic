@@ -43,7 +43,6 @@ public sealed class AmputatableBodyPartSystem : EntitySystem
     private void OnWoundDamageChanged(Entity<AmputatableBodyPartComponent> amputatableBodyPart, ref WoundDamageChangedEvent args)
     {
         if (!_gameTiming.IsFirstTimePredicted
-            || args.Handled
             || args.Wound.Comp.IsScar
             || !amputatableBodyPart.Comp.SupportedDamageType.TryGetValue(args.Wound.Comp.DamageType, out var modify))
             return;
@@ -70,7 +69,5 @@ public sealed class AmputatableBodyPartSystem : EntitySystem
             random.NextAngle().ToWorldVec() * random.NextFloat(0.8f, 2f),
             random.NextFloat(0.5f, 1f),
             pushbackRatio: 0.3f);
-
-        args.Handled = true;
     }
 }

@@ -1,9 +1,7 @@
-using Content.Server._White.Body.Systems;
-using Content.Server._White.Gibbing;
-using Content.Server.Body.Systems;
 using Content.Server.Polymorph.Components;
 using Content.Server.Popups;
 using Content.Shared._White.Body.Components;
+using Content.Shared._White.Gibbing;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.Popups;
@@ -21,7 +19,6 @@ public sealed class ImmovableRodSystem : EntitySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
 
-    [Dependency] private readonly BodySystem _bodySystem = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -126,7 +123,7 @@ public sealed class ImmovableRodSystem : EntitySystem
                 return;
             }
 
-            _gibbing.GibBody((ent, body, null)); // WD EDIT
+            _gibbing.Gib(ent); // WD EDIT
             return;
         }
 

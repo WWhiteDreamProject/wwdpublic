@@ -13,7 +13,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Content.Shared.Language.Events;
 using Content.Server._Goobstation.Blob.Systems;
-using Content.Server._White.Gibbing;
+using Content.Shared._White.Gibbing;
 
 namespace Content.Server._Goobstation.Blob;
 
@@ -115,6 +115,6 @@ public sealed class BlobCarrierSystem : SharedBlobCarrierSystem
             Spawn(ent.Comp.CoreBlobPrototype, xform.Coordinates);
         }
 
-        _gibbing.GibBody(ent.Owner); // WD EDIT
+        _gibbing.Gib(ent.Owner); // WD EDIT
     }
 }

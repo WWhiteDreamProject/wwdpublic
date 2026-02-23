@@ -1,13 +1,9 @@
-using Content.Server._White.Body.Systems;
-using Content.Server._White.Gibbing;
-using Content.Server.Body.Systems;
 using Content.Server.Popups;
-using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Stack;
 using Content.Server.Storage.Components;
 using Content.Server.Xenoarchaeology.XenoArtifacts;
-using Content.Shared._White.Body.Components;
+using Content.Shared._White.Gibbing;
 using Content.Shared.Damage;
 using Content.Shared.Power;
 using Content.Shared.Verbs;
@@ -25,7 +21,6 @@ public sealed class ArtifactCrusherSystem : SharedArtifactCrusherSystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly ArtifactSystem _artifact = default!;
-    [Dependency] private readonly BodySystem _body = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly StackSystem _stack = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
@@ -109,8 +104,7 @@ public sealed class ArtifactCrusherSystem : SharedArtifactCrusherSystem
                 _artifact.ForceActivateArtifact(contained);
             }
 
-            if (!_gibbing.TryGibBody(contained, out var gibs, true)) // WD EDIT
-                Del(contained);
+            var gibs = _gibbing.Gib(contained); // WD EDIT
 
             foreach (var gib in gibs)
             {

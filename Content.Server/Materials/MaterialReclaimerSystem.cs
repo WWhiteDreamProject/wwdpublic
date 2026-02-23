@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Server.Administration.Logs;
 using Content.Server.Construction;
 using Content.Server.Fluids.EntitySystems;
@@ -6,6 +7,7 @@ using Content.Server.Popups;
 using Content.Server.Repairable;
 using Content.Server.Stack;
 using Content.Server.Wires;
+using Content.Shared._White.Gibbing;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
@@ -23,10 +25,6 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
-using System.Linq;
-using Content.Server._White.Gibbing;
-using Content.Shared._White.Body.Systems;
-
 
 namespace Content.Server.Materials;
 
@@ -40,7 +38,6 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
     [Dependency] private readonly OpenableSystem _openable = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
-    [Dependency] private readonly SharedBodySystem _body = default!; //bobby
     [Dependency] private readonly PuddleSystem _puddle = default!;
     [Dependency] private readonly StackSystem _stack = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
@@ -128,7 +125,7 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
             Filter.PvsExcept(victim, entityManager: EntityManager),
             true);
 
-        _gibbing.GibBody(victim, true); // WD EDIT
+        _gibbing.Gib(victim); // WD EDIT
         _appearance.SetData(entity.Owner, RecyclerVisuals.Bloody, true);
         args.Handled = true;
     }
@@ -206,7 +203,7 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
         {
             _adminLogger.Add(LogType.Gib, LogImpact.Extreme, $"{ToPrettyString(item):victim} was gibbed by {ToPrettyString(uid):entity} ");
             SpawnChemicalsFromComposition(uid, item, completion, false, component, xform);
-            _gibbing.GibBody(item, true); // WD EDIT
+            _gibbing.Gib(item); // WD EDIT
             _appearance.SetData(uid, RecyclerVisuals.Bloody, true);
         }
         else

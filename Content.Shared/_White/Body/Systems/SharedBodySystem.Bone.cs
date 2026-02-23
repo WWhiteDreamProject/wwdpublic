@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Shared._White.Body.Components;
+using Content.Shared._White.Gibbing;
 using Robust.Shared.Containers;
 
 namespace Content.Shared._White.Body.Systems;
@@ -8,15 +9,24 @@ public abstract partial class SharedBodySystem
 {
     private void InitializeBone()
     {
-        SubscribeLocalEvent<BoneComponent, MapInitEvent>(OnBoneMapInit);
-
+        SubscribeLocalEvent<BoneComponent, BeingGibbedEvent>(OnBeingGibbed);
         SubscribeLocalEvent<BoneComponent, EntGotInsertedIntoContainerMessage>(OnBoneGotInserted);
         SubscribeLocalEvent<BoneComponent, EntGotRemovedFromContainerMessage>(OnBoneGotRemoved);
+        SubscribeLocalEvent<BoneComponent, MapInitEvent>(OnBoneMapInit);
     }
 
     #region Event Handling
 
-    private void OnBoneMapInit(Entity<BoneComponent> bone, ref MapInitEvent args) => SetupOrgans(bone, bone.Comp.Organs);
+    private void OnBeingGibbed(Entity<BoneComponent> bone, ref BeingGibbedEvent args)
+    {
+        foreach (var organSlot in bone.Comp.Organs.Values)
+        {
+            if (!organSlot.OrganUid.HasValue)
+                continue;
+
+            args.Giblets.Add(organSlot.OrganUid.Value);
+        }
+    }
 
     private void OnBoneGotInserted(Entity<BoneComponent> bone, ref EntGotInsertedIntoContainerMessage args)
     {
@@ -95,6 +105,8 @@ public abstract partial class SharedBodySystem
         RaiseLocalEvent(bone, ev);
         RaiseLocalEvent(body, ev);
     }
+
+    private void OnBoneMapInit(Entity<BoneComponent> bone, ref MapInitEvent args) => SetupOrgans(bone, bone.Comp.Organs);
 
     #endregion
 

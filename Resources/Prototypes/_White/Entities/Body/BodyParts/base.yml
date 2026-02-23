@@ -46,7 +46,6 @@
       Damaged: 0.5
       Cracked: 0.8
       Broken: 1
-  - type: Gibbable
 
 # Head
 - type: entity

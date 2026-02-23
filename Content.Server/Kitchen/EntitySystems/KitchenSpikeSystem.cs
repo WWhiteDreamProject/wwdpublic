@@ -1,9 +1,7 @@
-using Content.Server._White.Body.Systems;
-using Content.Server._White.Gibbing;
 using Content.Server.Administration.Logs;
-using Content.Server.Body.Systems;
 using Content.Server.Kitchen.Components;
 using Content.Server.Popups;
+using Content.Shared._White.Gibbing;
 using Content.Shared.Chat;
 using Content.Shared.Damage;
 using Content.Shared.Database;
@@ -162,7 +160,7 @@ namespace Content.Server.Kitchen.EntitySystems
             _transform.SetCoordinates(victimUid, Transform(uid).Coordinates);
             // THE WHAT?
             // TODO: Need to be able to leave them on the spike to do DoT, see ss13.
-            _gibbing.GibBody(victimUid, true); // WD EDIT
+            _gibbing.Gib(victimUid); // WD EDIT
 
             _audio.PlayPvs(component.SpikeSound, uid);
         }

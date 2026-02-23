@@ -1,6 +1,7 @@
 using System.Linq;
 using Content.Shared._White.Body.Components;
 using Content.Shared._White.Body.Prototypes;
+using Content.Shared._White.Gibbing;
 using Content.Shared.Humanoid;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
@@ -9,9 +10,27 @@ namespace Content.Shared._White.Body.Systems;
 
 public abstract partial class SharedBodySystem
 {
-    private void InitializeBody() => SubscribeLocalEvent<BodyComponent, MapInitEvent>(OnBodyMapInit);
+    private void InitializeBody()
+    {
+        SubscribeLocalEvent<BodyComponent, BeingGibbedEvent>(OnBeingGibbed);
+        SubscribeLocalEvent<BodyComponent, MapInitEvent>(OnBodyMapInit);
+    }
 
     #region Event Handling
+
+    private void OnBeingGibbed(Entity<BodyComponent> body, ref BeingGibbedEvent args)
+    {
+        foreach (var bodyPart in GetBodyParts(body.AsNullable()))
+        {
+            foreach (var organ in GetOrgans(bodyPart.AsNullable()))
+                args.Giblets.Add(organ);
+
+            PredictedQueueDel(bodyPart.Owner);
+        }
+
+        foreach (var item in _inventory.GetHandOrInventoryEntities(body.Owner))
+            args.Giblets.Add(item);
+    }
 
     private void OnBodyMapInit(Entity<BodyComponent> body, ref MapInitEvent args)
     {

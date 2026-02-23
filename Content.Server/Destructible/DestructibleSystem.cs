@@ -20,8 +20,8 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Linq;
 using Content.Server._White.Body.Systems;
-using Content.Server._White.Gibbing;
 using Content.Server.Construction.Completions;
+using Content.Shared._White.Gibbing;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Projectiles;
 using Content.Shared.Throwing;
@@ -49,7 +49,7 @@ namespace Content.Server.Destructible
         [Dependency] public readonly IAdminLogManager AdminLogger = default!;
         [Dependency] private readonly ThrowingSystem _throwing = default!;
         [Dependency] private readonly SharedProjectileSystem _projectile = default!;
-        [Dependency] public readonly GibbingSystem GibbingSystem = default!; // WD EDIT
+        [Dependency] public readonly GibbingSystem Gibbing = default!; // WD EDIT
 
         public override void Initialize()
         {

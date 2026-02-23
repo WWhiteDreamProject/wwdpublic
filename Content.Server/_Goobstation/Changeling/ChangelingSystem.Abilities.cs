@@ -782,7 +782,7 @@ public sealed partial class ChangelingSystem
 
         PlayMeatySound(uid, comp);
 
-        _gibbing.GibBody(uid); // WD EDIT
+        _gibbing.Gib(uid); // WD EDIT
     }
 
     #endregion

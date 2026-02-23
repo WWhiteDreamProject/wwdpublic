@@ -1,8 +1,8 @@
 using System.Linq;
 using System.Numerics;
-using Content.Server._White.Gibbing;
 using Content.Server.Charges.Systems;
 using Content.Server.Standing;
+using Content.Shared._White.Gibbing;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Maps;
@@ -58,7 +58,7 @@ public sealed class ExperimentalTeleporterSystem : EntitySystem
             || EmergencyTeleportation(args.User, uid, component, xform, oldCoords, newOffset))
             return;
 
-        _gibbing.GibBody(args.User, true, splatModifier: 3F);
+        _gibbing.Gib(args.User);
     }
 
     private bool EmergencyTeleportation(EntityUid uid, EntityUid teleporterUid, ExperimentalTeleporterComponent component, TransformComponent xform, EntityCoordinates oldCoords, Vector2 offset)

@@ -1,6 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared._White.Body.Components;
+using Content.Shared._White.Gibbing;
 using Robust.Shared.Containers;
 
 namespace Content.Shared._White.Body.Systems;
@@ -9,21 +10,39 @@ public abstract partial class SharedBodySystem
 {
     private void InitializeBodyPart()
     {
-        SubscribeLocalEvent<BodyPartComponent, MapInitEvent>(OnBodyPartMapInit);
-
+        SubscribeLocalEvent<BodyPartComponent, BeingGibbedEvent>(OnBeingGibbed);
         SubscribeLocalEvent<BodyPartComponent, EntGotInsertedIntoContainerMessage>(OnBodyPartGotInserted);
         SubscribeLocalEvent<BodyPartComponent, EntGotRemovedFromContainerMessage>(OnBodyPartGotRemoved);
+        SubscribeLocalEvent<BodyPartComponent, MapInitEvent>(OnBodyPartMapInit);
     }
 
     #region Event Handling
 
-    private void OnBodyPartMapInit(Entity<BodyPartComponent> bodyPart, ref MapInitEvent args)
+    private void OnBeingGibbed(Entity<BodyPartComponent> bodyPart, ref BeingGibbedEvent args)
     {
-        SetupBodyParts(bodyPart, bodyPart.Comp.BodyParts);
+        foreach (var organSlot in bodyPart.Comp.BodyParts.Values)
+        {
+            if (!organSlot.BodyPartUid.HasValue)
+                continue;
 
-        SetupBones(bodyPart, bodyPart.Comp.Bones);
+            args.Giblets.Add(organSlot.v.Value);
+        }
 
-        SetupOrgans(bodyPart, bodyPart.Comp.Organs);
+        foreach (var organSlot in bodyPart.Comp.Bones.Values)
+        {
+            if (!organSlot.BoneUid.HasValue)
+                continue;
+
+            args.Giblets.Add(organSlot.BoneUid.Value);
+        }
+
+        foreach (var organSlot in bodyPart.Comp.Organs.Values)
+        {
+            if (!organSlot.OrganUid.HasValue)
+                continue;
+
+            args.Giblets.Add(organSlot.OrganUid.Value);
+        }
     }
 
     private void OnBodyPartGotInserted(Entity<BodyPartComponent> bodyPart, ref EntGotInsertedIntoContainerMessage args)
@@ -135,6 +154,15 @@ public abstract partial class SharedBodySystem
 
         RaiseLocalEvent(bodyPart, ev);
         RaiseLocalEvent(body, ev);
+    }
+
+    private void OnBodyPartMapInit(Entity<BodyPartComponent> bodyPart, ref MapInitEvent args)
+    {
+        SetupBodyParts(bodyPart, bodyPart.Comp.BodyParts);
+
+        SetupBones(bodyPart, bodyPart.Comp.Bones);
+
+        SetupOrgans(bodyPart, bodyPart.Comp.Organs);
     }
 
     #endregion
