@@ -13,4 +13,7 @@ public sealed partial class WhiteCVars
 
     public static readonly CVarDef<bool> PixelSnapCamera =
     	CVarDef.Create("experimental.pixel_snap_camera", false, CVar.CLIENTONLY | CVar.ARCHIVE);
+
+    public static readonly CVarDef<float> AltExamineHoldThreshold =
+        CVarDef.Create("game.alt_examine_hold_threshold", 0.3f, CVar.REPLICATED | CVar.ARCHIVE);
 }
