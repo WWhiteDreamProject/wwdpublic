@@ -51,6 +51,7 @@
   - type: Gun
     fireRate: 3.5
     selectedMode: FullAuto
+    projectileSpeed: 60
     availableModes:
     - FullAuto
     soundGunshot:
@@ -68,7 +69,7 @@
   parent: BaseWeaponShipLightEnergy
   id: WeaponShipLightAnnihilator
   name: Annihilator Rocket Launcher
-  description: Fires a spread of unguided flash-printed microrockets that cover a wide arc. Despite the low damage output, it can still deal a devastating blow in hands of a skilled fighter pilot.  
+  description: Fires a spread of unguided flash-printed microrockets that cover a wide arc. Despite the low damage output, it can still deal a devastating blow in hands of a skilled fighter pilot.
   components:
   - type: Sprite
     sprite: _White/Objects/Weapons/Guns/Turrets/annihilator.rsi
@@ -87,7 +88,7 @@
       params:
         volume: -5
   - type: ProjectileContainerBatteryAmmoProvider
-    proto: BulletWeakRocket
+    proto: BulletMediumRocket
     fireCost: 1000
   - type: ModularTurretWeapon
     dollyMixSprite: _White/Objects/Weapons/Guns/Turrets/annihilator.rsi
@@ -96,7 +97,7 @@
   parent: BaseWeaponShipLightEnergy
   id: WeaponShipLightMiningLaser
   name: Mining Laser
-  description: A cheap utility laser, excels at melting loose rock and cutting various salvage into pieces, but performs poorly against softer targets. Has a rather short focus range, making it ill-suited for combat use. 
+  description: A cheap utility laser, excels at melting loose rock and cutting various salvage into pieces, but performs poorly against softer targets. Has a rather short focus range, making it ill-suited for combat use.
   components:
   - type: Sprite
     sprite: _White/Objects/Weapons/Guns/Turrets/mining_laser.rsi
@@ -192,7 +193,7 @@
     - 0,4
     - 0,6
     - 0,8
-    - 0,10    
+    - 0,10
   - type: TimedDespawn
     lifetime: 1
 
@@ -200,7 +201,7 @@
 #- type: entity
 #  parent: BaseWeaponShipLightEnergy
 #  id: WeaponShipLightAutopulse
-#  name: Autopulse Laser Cannon 
+#  name: Autopulse Laser Cannon
 #  description: 	Numerous built-in capacitors are at the core of this extremely inefficient, yet potent energy weapon.
 #  components:
 #  - type: Sprite
@@ -224,7 +225,7 @@
   parent: BaseWeaponShipLightEnergy
   id: WeaponShipLightHotspot
   name: Hotspot PD
-  description: A rapid fire ballistic weapon effective against soft targets. A respectable close-in weapon system, it's effectiveness is severely limited by poor accuracy and low damage against any substantial armor. 
+  description: A rapid fire ballistic weapon effective against soft targets. A respectable close-in weapon system, it's effectiveness is severely limited by poor accuracy and low damage against any substantial armor.
   components:
   - type: Sprite
     sprite: _White/Objects/Weapons/Guns/Turrets/hotspot.rsi
@@ -234,6 +235,7 @@
     angleDecay: 12
     angleIncrease: 3
     maxAngle: 20
+    projectileSpeed: 60
     selectedMode: FullAuto
     availableModes:
     - FullAuto
@@ -276,7 +278,7 @@
   parent: BaseWeaponShipLightEnergy
   id: WeaponShipLightHMG
   name: Ship HMG
-  description: A jack of all trades, this weapon is a well-rounded option for any type of job. 
+  description: A jack of all trades, this weapon is a well-rounded option for any type of job.
   components:
   - type: Sprite
     sprite: _White/Objects/Weapons/Guns/Turrets/hmg.rsi
@@ -286,6 +288,7 @@
     angleDecay: 10
     angleIncrease: 5
     maxAngle: 25
+    projectileSpeed: 60
     selectedMode: FullAuto
     availableModes:
     - FullAuto
@@ -312,7 +315,7 @@
       types:
         Piercing: 25
         Structural: 25 # weaker compared to other .50 cal bullets
-    
+
 
 
 
@@ -320,7 +323,7 @@
   parent: BaseWeaponShipLightEnergy
   id: WeaponShipLightBlaster
   name: Mining Blaster
-  description: Able to carve out chunks of stone and hull alike, this weapon's performance is severely hampered by it's low firerate and projectile speed. 
+  description: Able to carve out chunks of stone and hull alike, this weapon's performance is severely hampered by it's low firerate and projectile speed.
   components:
   - type: Sprite
     sprite: _White/Objects/Weapons/Guns/Turrets/blaster.rsi

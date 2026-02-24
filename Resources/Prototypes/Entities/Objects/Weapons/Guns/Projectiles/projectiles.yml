@@ -750,6 +750,10 @@
     totalIntensity: 150 # a ~2 tile radius
     intensitySlope: 5
     maxIntensity: 10
+  # WD EDIT START: Battleship
+  - type: TimedDespawn
+    lifetime: 60
+  # WD EDIT END
 
 - type: entity
   id: BulletGrenadeFlash
@@ -788,6 +792,10 @@
     totalIntensity: 175 # about a ~6 tile radius
     intensitySlope: 1
     maxIntensity: 10
+  # WD EDIT START: Battleship
+  - type: TimedDespawn
+    lifetime: 60
+  # WD EDIT END
 
 - type: entity
   id: BulletGrenadeEMP
