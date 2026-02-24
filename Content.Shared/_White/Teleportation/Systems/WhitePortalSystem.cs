@@ -57,7 +57,16 @@ public sealed class WhitePortalSystem : EntitySystem
         if (_net.IsClient) // TODO: Use PredictedRandom
             return;
 
-        var newMap = _random.Pick(_map.GetAllMapIds().ToList());
+        var activeMaps = new List<MapId>();
+        foreach (var map in _map.GetAllMapIds())
+        {
+            if (_map.IsPaused(map))
+                continue;
+
+            activeMaps.Add(map);
+        }
+
+        var newMap = _random.Pick(activeMaps);
         var newCoordinates = _random.NextVector2(ent.Comp.MaxRandomDistance);
 
         _transform.SetMapCoordinates((args.OtherEntity, transform), new (newCoordinates, newMap));
@@ -74,6 +83,7 @@ public sealed class WhitePortalSystem : EntitySystem
         if (_portalQuery.TryComp(portal, out var portalComponent))
         {
             portalComponent.Coordinates = teleportTo;
+            Dirty(portal, portalComponent);
             return;
         }
 

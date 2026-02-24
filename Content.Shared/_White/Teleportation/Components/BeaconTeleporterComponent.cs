@@ -18,6 +18,6 @@ public sealed partial class BeaconTeleporterComponent : Component
     [DataField, AutoNetworkedField]
     public SoundSpecifier? PortalCreateSound = new SoundPathSpecifier("/Audio/Machines/high_tech_confirm.ogg", AudioParams.Default.WithVolume(-2f));
 
-    [ViewVariables]
+    [ViewVariables, AutoNetworkedField]
     public EntityUid? Beacon;
 }

@@ -43,10 +43,13 @@ public sealed class BeaconTeleporterSystem : EntitySystem
             }
 
             ent.Comp.Beacon = args.Target;
+            Dirty(ent);
+
             _audio.PlayPredicted(beacon.LinkSound, ent, args.User);
             _popup.PopupClient(Loc.GetString("beacon-teleporter-linked"), ent, args.User);
 
             args.Handled = true;
+            return;
         }
 
         if (Deleted(ent.Comp.Beacon) || _useDelay.IsDelayed(ent.Owner))
@@ -91,7 +94,11 @@ public sealed class BeaconTeleporterSystem : EntitySystem
             MovementThreshold = 0.5f
         };
 
-        args.Handled = _doAfter.TryStartDoAfter(doAfterArgs);
+        if (!_doAfter.TryStartDoAfter(doAfterArgs))
+            return;
+
+        args.ApplyDelay = true;
+        args.Handled = true;
     }
 }
 

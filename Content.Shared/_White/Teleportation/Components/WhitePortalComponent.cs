@@ -1,15 +1,16 @@
 using Robust.Shared.Audio;
+using Robust.Shared.GameStates;
 using Robust.Shared.Map;
 
 namespace Content.Shared._White.Teleportation.Components;
 
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class WhitePortalComponent : Component
 {
     /// <summary>
     /// The sound that plays when entering the portal.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public SoundSpecifier? EnteringSound = new SoundPathSpecifier("/Audio/Effects/teleport_arrival.ogg");
 
     /// <summary>
@@ -18,6 +19,6 @@ public sealed partial class WhitePortalComponent : Component
     [DataField]
     public float MaxRandomDistance = 1000f;
 
-    [ViewVariables]
+    [ViewVariables, AutoNetworkedField]
     public EntityCoordinates? Coordinates;
 }
