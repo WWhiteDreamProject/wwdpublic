@@ -1,8 +1,10 @@
+using Content.Shared._White.CCVar;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Shuttles.BUIStates;
 using Content.Shared.Shuttles.Components;
 using Content.Shared.Shuttles.UI.MapObjects;
 using Content.Shared.Whitelist;
+using Robust.Shared.Configuration;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
@@ -18,9 +20,12 @@ public abstract partial class SharedShuttleSystem : EntitySystem
     [Dependency] protected readonly SharedMapSystem Maps = default!;
     [Dependency] protected readonly SharedTransformSystem XformSystem = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private readonly IConfigurationManager _configuration = default!; // WD EDIT
 
-    public const float FTLRange = 256f;
-    public const float FTLBufferRange = 8f;
+    // WD EDIT START
+    public float FTLRange;
+    public float FTLBufferRange;
+    // WD EDIT END
 
     private EntityQuery<MapGridComponent> _gridQuery;
     private EntityQuery<PhysicsComponent> _physicsQuery;
@@ -34,6 +39,11 @@ public abstract partial class SharedShuttleSystem : EntitySystem
         _gridQuery = GetEntityQuery<MapGridComponent>();
         _physicsQuery = GetEntityQuery<PhysicsComponent>();
         _xformQuery = GetEntityQuery<TransformComponent>();
+
+        // WD EDIT START
+        _configuration.OnValueChanged(WhiteCVars.FTLRange, range => FTLRange = range, true);
+        _configuration.OnValueChanged(WhiteCVars.FTLBufferRange, range => FTLBufferRange = range, true);
+        // WD EDIT END
     }
 
     /// <summary>
