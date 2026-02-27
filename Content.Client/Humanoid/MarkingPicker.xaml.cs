@@ -253,9 +253,17 @@ public sealed partial class MarkingPicker : Control
             item.OnToggled += _ =>
             {
                 // Add the marking if they have points for it
-                item.Pressed = item.Pressed && !Forced ? _currentMarkings.PointsLeft(_selectedMarkingCategory) > 0 : item.Pressed;
+                //item.Pressed = item.Pressed && !Forced ? _currentMarkings.PointsLeft(_selectedMarkingCategory) > 0 : item.Pressed; // WWDP EDIT
                 if (item.Pressed)
+                { // WWDP EDIT START
+                    if (_currentMarkings.TryGetCategory(_selectedMarkingCategory, out var categoryMarkings) && _currentMarkings.PointsLeft(_selectedMarkingCategory) == 0)
+                        _currentMarkings.Remove(_selectedMarkingCategory, 0);
+                    // WWDP EDIT END
                     MarkingAdd(_prototypeManager.Index<MarkingPrototype>(item.Name));
+                    // WWDP EDIT START
+                    OnMarkingAdded?.Invoke(_currentMarkings);
+                    Populate(CMarkingSearch.Text);
+                } // WWDP EDIT END
                 else
                     MarkingRemove(_prototypeManager.Index<MarkingPrototype>(item.Name));
                 customize.Disabled = !item.Pressed;
