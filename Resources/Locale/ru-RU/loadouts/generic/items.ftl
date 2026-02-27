@@ -1,55 +1,55 @@
-loadout-description-LoadoutItemBlackDeck = A black box containing the standard 53 playing cards. Please gamble responsibly.
-loadout-description-LoadoutItemNTDeck = A Nanotrasen-branded box containing the standard 53 playing cards. Please gamble responsibly.
-loadout-description-LoadoutItemCig = Cool guys always have one.
-loadout-description-LoadoutItemCigsGreen = A pack a day keeps the doctor well-paid!
-loadout-description-LoadoutItemCigsRed = A pack a day keeps the doctor well-paid!
-loadout-description-LoadoutItemCigsBlue = A pack a day keeps the doctor well-paid!
-loadout-description-LoadoutItemCigsBlack = A pack a day keeps the doctor well-paid!
-loadout-description-LoadoutItemPAI = A little flakey on booting up, but a more loyal friend you won't find.
-loadout-description-LoadoutItemLighter = A basic lighter.
-loadout-description-LoadoutItemLighterCheap = A very basic lighter.
-loadout-description-LoadoutItemMatches = A box of matches.
-loadout-description-LoadoutItemPlushieSharkBlue = Dive into battle with your very own aquatic ally, the Blue Shark Plushie! It's more cuddly than fierce, but don't underestimate its ability to strike fear into the hearts of your enemies… or at least make them laugh as they're devoured by cuteness overload.
-loadout-description-LoadoutItemPlushieSharkPink = Unleash the power of pink with the Pink Shark Plushie! This rosy-hued predator might not have real teeth, but its sheer adorableness is enough to take a bite out of anyone's resolve. Watch as foes melt away in the face of its cottony charm.
-loadout-description-LoadoutItemPlushieSharkGrey = Introducing the Grey Shark Plushie, the apex predator of snuggles! With its sleek and understated design, this plushie strikes the perfect balance between cuddle companion and imaginary ocean guardian. Beware; opponents may be mesmerized by its dorsal fin's hypnotic sway!
-loadout-description-LoadoutItemPlushieCarp = Brace for extraterrestrial antics with the Purple Space Carp Plushie! A fishy invader from the cosmic deep, this plushie brings a splash of humor to zero-gravity escapades. From hostile waters to interstellar giggles, it's a cuddly contradiction that's out of this world
-loadout-description-LoadoutSolCommonTranslator = The most common of all translators, such that it can be purchased in any civilized station.
-                                                 This device translates Sol Common speech into Galactic Common.
-loadout-name-LoadoutItemPapers = papers (x4)
-loadout-description-LoadoutItemPapers = four pieces of paper, good for filling out tedious paperwork and silent communication.
-loadout-description-LoadoutItemBoxFolderGrey = A folder to store papers and top secret documents.
-loadout-description-LoadoutBookRandom = A notebook with a random cover. Can be used as a diary, or for writing fanfiction drafts for SpacePad.
-loadout-description-LoadoutPen = An extra pen, just in case your pen from your PDA gets robbed by skeletal space pirates.
-loadout-description-LoadoutItemLunchboxGenericFilledRandom = Packed with love.
-                                                             This is only useful when the chefs are either a.) nonexistent or b.) not doing their job.
-                                                             In conclusion, this lunchbox is useful most of the time.
-loadout-description-LoadoutHandLabeler = A hand labeler, used to label items and objects.
-                                         It's not really recommended to use this to label a fuel tank with "SOLUTION TO CLOWN PROBLEM".
-loadout-description-LoadoutEmergencyMedipen = A rapid and safe way to stabilize patients in critical condition for personnel without advanced medical knowledge.
-                                              WARNING: injecting two emergency medipens at once will cause an epinephrine overdose.
-loadout-description-LoadoutSpaceMedipen = Contains a mix of chemicals that protect you from the deadly effects of space.
-                                          Also known as the "poor man's hardsuit".
-                                          WARNING: injecting two space medipens at once will cause a barozine overdose.
+loadout-description-LoadoutItemBlackDeck = Черная коробка со стандартными 53 игральными картами. (Джокер в комплекте) Пожалуйста, играйте ответственно.
+loadout-description-LoadoutItemNTDeck = Коробка с логотипом Nanotrasen, содержащая стандартные 53 игральные карты. (Джокер в комплекте) Пожалуйста, играйте ответственно.
+loadout-description-LoadoutItemCig = У крутых парней всегда есть это.
+loadout-description-LoadoutItemCigsGreen = За пачку в день врачу хорошо платят!
+loadout-description-LoadoutItemCigsRed = За пачку в день врачу хорошо платят!
+loadout-description-LoadoutItemCigsBlue = За пачку в день врачу хорошо платят!
+loadout-description-LoadoutItemCigsBlack = За пачку в день врачу хорошо платят!
+loadout-description-LoadoutItemPAI = Немного не в себе при загрузке, но более преданного друга вы не найдете.
+loadout-description-LoadoutItemLighter = Обычная зажигалка.
+loadout-description-LoadoutItemLighterCheap = Очень простая зажигалка.
+loadout-description-LoadoutItemMatches = Коробок спичек.
+loadout-description-LoadoutItemPlushieSharkBlue = Вступайте в бой со своим собственным водным союзником, голубой плюшевой акулой! Она скорее приятная, чем свирепая, но не стоит недооценивать ее способность вселять страх в сердца ваших врагов… или, по крайней мере, смешить их, когда они будут поглощены чрезмерной привлекательностью.
+loadout-description-LoadoutItemPlushieSharkPink = Раскройте всю мощь розового цвета с плюшевой игрушкой "Розовая акула"! У этой хищницы розового оттенка, возможно, и нет настоящих зубов, но ее очарования достаточно, чтобы лишить решимости любого. Наблюдайте, как враги тают перед ее мягким очарованием.
+loadout-description-LoadoutItemPlushieSharkGrey = Представляем вам плюшевую серую акулу, главного хищника среди любителей обнимашек! Благодаря своему изящному и сдержанному дизайну, эта плюшевая игрушка представляет собой идеальный баланс между компаньоном для обнимашек и воображаемым стражем океана. Будьте осторожны, противники могут быть загипнотизированы гипнотическим покачиванием ее спинного плавника!
+loadout-description-LoadoutItemPlushieCarp = Приготовьтесь к выходкам инопланетян с фиолетовым плюшевым космическим карпом! Этот плюшевый рыбный захватчик из космических глубин привносит нотку юмора в эскапады в условиях невесомости. От враждебных вод до межзвездного хихиканья - это приятное противоречие, которое не от мира сего.
+loadout-description-LoadoutSolCommonTranslator = Самый распространенный из всех переводчиков, такой, что его можно приобрести на любой цивилизованной станции.
+                                                 Это устройство переводит обычную Солнечную речь на общий галактический язык.
+loadout-name-LoadoutItemPapers = бумаги (x4)
+loadout-description-LoadoutItemPapers = четыре листа бумаги, которые хороши для заполнения утомительной бумажной работы и молчаливого общения.
+loadout-description-LoadoutItemBoxFolderGrey = Папка для хранения бумаг и совершенно секретных документов.
+loadout-description-LoadoutBookRandom = Блокнот в произвольной обложке. Может использоваться как дневник или для написания черновиков фанфиков для SpacePad.
+loadout-description-LoadoutPen = Запасная ручка, на всякий случай, если вашу ручку из КПК украдут космические пираты-скелеты.
+loadout-description-LoadoutItemLunchboxGenericFilledRandom = Наполненный любовью.
+                                                             Это полезно только в том случае, если повара либо а) отсутствуют, либо б) не выполняют свою работу.
+                                                             В заключение хочу сказать, что этот ланчбокс полезен большую часть времени.
+loadout-description-LoadoutHandLabeler = Ручная этикетировочная машина, используемая для наклеивания этикеток на предметы.
+                                         На самом деле не рекомендуется использовать это для маркировки топливного бака надписью: «РЕШЕНИЕ ПРОБЛЕМ КЛОУНА».
+loadout-description-LoadoutEmergencyMedipen = Быстрый и безопасный способ стабилизации состояния пациентов в критическом состоянии для персонала, не обладающего глубокими медицинскими знаниями.
+                                              ПРЕДУПРЕЖДЕНИЕ: одновременное введение двух экстренных медипенов может привести к передозировке адреналина.
+loadout-description-LoadoutSpaceMedipen = Содержит смесь химических веществ, которые защищают вас от смертельного воздействия космоса.
+                                          Также известен как «нищий скафандр».
+                                          ПРЕДУПРЕЖДЕНИЕ: одновременное введение двух космических медипенов может привести к передозировке барозином.
 
-loadout-name-LoadoutItemBoxSurvival = survival box (standard)
-loadout-name-LoadoutItemBoxSurvivalEngineering = extended-capacity survival box (engineering)
-loadout-name-LoadoutItemBoxSurvivalSecurity = survival box (security)
-loadout-name-LoadoutItemBoxSurvivalBrigmedic = survival box (corpsman)
-loadout-name-LoadoutItemBoxSurvivalMedical = survival box (medical)
-loadout-name-LoadoutItemBoxHug = box of hugs (clown)
+loadout-name-LoadoutItemBoxSurvival = коробка для выживания (стандартная)
+loadout-name-LoadoutItemBoxSurvivalEngineering = коробка для выживания повышенной вместимости (инженеров)
+loadout-name-LoadoutItemBoxSurvivalSecurity = коробка для выживания (службы безопасности)
+loadout-name-LoadoutItemBoxSurvivalBrigmedic = коробка для выживания (бригмедика)
+loadout-name-LoadoutItemBoxSurvivalMedical = коробка для выживания (медиков)
+loadout-name-LoadoutItemBoxHug = коробка обнимашек (клоуна)
 
-loadout-name-LoadoutItemLighter = lighter (colorable)
-loadout-name-LoadoutItemLighterCheap = cheap lighter (colorable)
-loadout-name-LoadoutItemLighterFlippo = flippo lighter (colorable)
-loadout-name-LoadoutItemDrinkShinyFlask = shiny flask (colorable)
-loadout-name-LoadoutItemDrinkLithiumFlask = lithium flask (colorable)
-loadout-name-LoadoutItemDrinkVacuumFlask = vacuum flask (colorable)
+loadout-name-LoadoutItemLighter = зажигалка (раскрашиваемое)
+loadout-name-LoadoutItemLighterCheap = дешевая зажигалка (раскрашиваемое)
+loadout-name-LoadoutItemLighterFlippo = зажигалка flippo (раскрашиваемое)
+loadout-name-LoadoutItemDrinkShinyFlask = блестящая фляжка (раскрашиваемое)
+loadout-name-LoadoutItemDrinkLithiumFlask = литиевая фляжка (раскрашиваемое)
+loadout-name-LoadoutItemDrinkVacuumFlask = вакуумная фляжка (раскрашиваемое)
 
-loadout-name-LoadoutItemShadowkinPlush = shadowkin plushie
+loadout-name-LoadoutItemShadowkinPlush = плюевый шадоукин
 
-loadout-name-LoadoutItemPetMouse = pet mouse (colorable)
-loadout-name-LoadoutItemPetHamster = pet hamster (colorable)
-loadout-name-LoadoutItemPetMothroach = pet mothroach (colorable)
-loadout-name-LoadoutItemPetSquackroach = pet squackroach (colorable)
-loadout-name-LoadoutItemPetCockroach = pet cockroach (colorable)
-loadout-name-LoadoutItemPetGoldfish = pet space goldfish (colorable)
+loadout-name-LoadoutItemPetMouse = мышка-питомец (раскрашиваемое)
+loadout-name-LoadoutItemPetHamster = хомяк-питомец (раскрашиваемое)
+loadout-name-LoadoutItemPetMothroach = мольтаракан-питомец (раскрашиваемое)
+loadout-name-LoadoutItemPetSquackroach = квакн-питомец (раскрашиваемое)
+loadout-name-LoadoutItemPetCockroach = таракан-питомец (раскрашиваемое)
+loadout-name-LoadoutItemPetGoldfish = мини-карпик-питомец (раскрашиваемое)

@@ -23,17 +23,17 @@ marking-FootDollJointsTattooRight-r_foot_doll = Тату «Суставы кук
 marking-FootDollJointsTattooRight = Тату «Суставы куклы» (правая ступня)
 
 
-marking-ArmDollJointsTattooLeftIPCONLY = Тату «Суставы куклы» (левая рука) [IPC]
-marking-ArmDollJointsTattooRightIPCONLY = Тату «Суставы куклы» (правая рука) [IPC]
+marking-ArmDollJointsTattooLeftIPCONLY = Тату «Суставы куклы» (левая рука) [КПБ]
+marking-ArmDollJointsTattooRightIPCONLY = Тату «Суставы куклы» (правая рука) [КПБ]
 
-marking-HandDollJointsTattooLeftIPCONLY = Тату «Суставы куклы» (левая кисть) [IPC]
-marking-HandDollJointsTattooRightIPCONLY = Тату «Суставы куклы» (правая кисть) [IPC]
+marking-HandDollJointsTattooLeftIPCONLY = Тату «Суставы куклы» (левая кисть) [КПБ]
+marking-HandDollJointsTattooRightIPCONLY = Тату «Суставы куклы» (правая кисть) [КПБ]
 
-marking-LegDollJointsTattooLeftIPCONLY = Тату «Суставы куклы» (левая нога) [IPC]
-marking-LegDollJointsTattooRightIPCONLY = Тату «Суставы куклы» (правая нога) [IPC]
+marking-LegDollJointsTattooLeftIPCONLY = Тату «Суставы куклы» (левая нога) [КПБ]
+marking-LegDollJointsTattooRightIPCONLY = Тату «Суставы куклы» (правая нога) [КПБ]
 
-marking-FootDollJointsTattooLeftIPCONLY = Тату «Суставы куклы» (левая ступня) [IPC]
-marking-FootDollJointsTattooRightIPCONLY = Тату «Суставы куклы» (правая ступня) [IPC]
+marking-FootDollJointsTattooLeftIPCONLY = Тату «Суставы куклы» (левая ступня) [КПБ]
+marking-FootDollJointsTattooRightIPCONLY = Тату «Суставы куклы» (правая ступня) [КПБ]
 
 
 marking-ChestCutHere-chest_cuthere = Тату «Резать здесь»

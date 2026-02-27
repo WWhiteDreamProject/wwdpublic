@@ -9,5 +9,5 @@ marking-ScarTopSurgeryShort = Хирургический шрам (Коротк�
 marking-ScarTopSurgeryLong-scar_top_surgery_long = Хирургический шрам (Длинный)
 marking-ScarTopSurgeryLong = Хирургический шрам (Длинный)
 
-marking-ScarChest-scar_chest = Chest Scar
-marking-ScarChest = Chest Scar
+marking-ScarChest-scar_chest = Шрам на груди
+marking-ScarChest = Шрам на груди
