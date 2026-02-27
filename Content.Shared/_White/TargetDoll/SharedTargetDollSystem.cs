@@ -14,87 +14,104 @@ public abstract class SharedTargetDollSystem : EntitySystem
 
     [Dependency] private readonly SharedBodySystem _body = default!;
 
+    protected EntityQuery<TargetDollComponent> TargetDollQuery;
+
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeAllEvent<SelectBodyPartRequestEvent>(OnSelectBodyPartRequest);
+        SubscribeAllEvent<SelectProviderRequestEvent>(OnSelectProviderRequest);
 
         CommandBinds.Builder
-            .Bind(TargetDollHead, InputCmdHandler.FromDelegate(session => HandleBodyPartSelect(session, BodyPartType.Head), handle: false, outsidePrediction: false))
-            .Bind(TargetDollChest, InputCmdHandler.FromDelegate(session => HandleBodyPartSelect(session, BodyPartType.Chest), handle: false, outsidePrediction: false))
-            .Bind(TargetDollGroin, InputCmdHandler.FromDelegate(session => HandleBodyPartSelect(session, BodyPartType.Groin), handle: false, outsidePrediction: false))
-            .Bind(TargetDollRightArm, InputCmdHandler.FromDelegate(session => HandleBodyPartSelect(session, BodyPartType.RightArm, BodyPartType.RightHand), handle: false, outsidePrediction: false))
-            .Bind(TargetDollRightHand, InputCmdHandler.FromDelegate(session => HandleBodyPartSelect(session, BodyPartType.RightHand), handle: false, outsidePrediction: false))
-            .Bind(TargetDollLeftArm, InputCmdHandler.FromDelegate(session => HandleBodyPartSelect(session, BodyPartType.LeftArm, BodyPartType.LeftHand), handle: false, outsidePrediction: false))
-            .Bind(TargetDollLeftHand, InputCmdHandler.FromDelegate(session => HandleBodyPartSelect(session, BodyPartType.LeftHand), handle: false, outsidePrediction: false))
-            .Bind(TargetDollRightLeg, InputCmdHandler.FromDelegate(session => HandleBodyPartSelect(session, BodyPartType.RightLeg, BodyPartType.RightFoot), handle: false, outsidePrediction: false))
-            .Bind(TargetDollRightFoot, InputCmdHandler.FromDelegate(session => HandleBodyPartSelect(session, BodyPartType.RightFoot), handle: false, outsidePrediction: false))
-            .Bind(TargetDollLeftLeg, InputCmdHandler.FromDelegate(session => HandleBodyPartSelect(session, BodyPartType.LeftLeg, BodyPartType.LeftFoot), handle: false, outsidePrediction: false))
-            .Bind(TargetDollLeftFoot, InputCmdHandler.FromDelegate(session => HandleBodyPartSelect(session, BodyPartType.LeftFoot), handle: false, outsidePrediction: false))
-            .Bind(TargetDollTail, InputCmdHandler.FromDelegate(session => HandleBodyPartSelect(session, BodyPartType.Tail), handle: false, outsidePrediction: false))
-            .Bind(TargetDollEyes, InputCmdHandler.FromDelegate(session => HandleBodyPartSelect(session, BodyPartType.Eyes), handle: false, outsidePrediction: false))
-            .Bind(TargetDollMouth, InputCmdHandler.FromDelegate(session => HandleBodyPartSelect(session, BodyPartType.Mouth), handle: false, outsidePrediction: false))
+            .Bind(TargetDollHead, InputCmdHandler.FromDelegate(session => HandleProviderSelect(session, BodyProviderType.Head), handle: false, outsidePrediction: false))
+            .Bind(TargetDollChest, InputCmdHandler.FromDelegate(session => HandleProviderSelect(session, BodyProviderType.Chest), handle: false, outsidePrediction: false))
+            .Bind(TargetDollGroin, InputCmdHandler.FromDelegate(session => HandleProviderSelect(session, BodyProviderType.Groin), handle: false, outsidePrediction: false))
+            .Bind(TargetDollRightArm, InputCmdHandler.FromDelegate(session => HandleProviderSelect(session, BodyProviderType.RightArm, BodyProviderType.RightHand), handle: false, outsidePrediction: false))
+            .Bind(TargetDollRightHand, InputCmdHandler.FromDelegate(session => HandleProviderSelect(session, BodyProviderType.RightHand), handle: false, outsidePrediction: false))
+            .Bind(TargetDollLeftArm, InputCmdHandler.FromDelegate(session => HandleProviderSelect(session, BodyProviderType.LeftArm, BodyProviderType.LeftHand), handle: false, outsidePrediction: false))
+            .Bind(TargetDollLeftHand, InputCmdHandler.FromDelegate(session => HandleProviderSelect(session, BodyProviderType.LeftHand), handle: false, outsidePrediction: false))
+            .Bind(TargetDollRightLeg, InputCmdHandler.FromDelegate(session => HandleProviderSelect(session, BodyProviderType.RightLeg, BodyProviderType.RightFoot), handle: false, outsidePrediction: false))
+            .Bind(TargetDollRightFoot, InputCmdHandler.FromDelegate(session => HandleProviderSelect(session, BodyProviderType.RightFoot), handle: false, outsidePrediction: false))
+            .Bind(TargetDollLeftLeg, InputCmdHandler.FromDelegate(session => HandleProviderSelect(session, BodyProviderType.LeftLeg, BodyProviderType.LeftFoot), handle: false, outsidePrediction: false))
+            .Bind(TargetDollLeftFoot, InputCmdHandler.FromDelegate(session => HandleProviderSelect(session, BodyProviderType.LeftFoot), handle: false, outsidePrediction: false))
+            .Bind(TargetDollTail, InputCmdHandler.FromDelegate(session => HandleProviderSelect(session, BodyProviderType.Tail), handle: false, outsidePrediction: false))
+            .Bind(TargetDollEyes, InputCmdHandler.FromDelegate(session => HandleProviderSelect(session, BodyProviderType.Eyes), handle: false, outsidePrediction: false))
+            .Bind(TargetDollMouth, InputCmdHandler.FromDelegate(session => HandleProviderSelect(session, BodyProviderType.Mouth), handle: false, outsidePrediction: false))
             .Register<SharedTargetDollSystem>();
+
+        TargetDollQuery = GetEntityQuery<TargetDollComponent>();
     }
 
-    private void OnSelectBodyPartRequest(SelectBodyPartRequestEvent msg, EntitySessionEventArgs args)
+    #region Event Handling
+
+    private void OnSelectProviderRequest(SelectProviderRequestEvent msg, EntitySessionEventArgs args)
     {
-        if (args.SenderSession.AttachedEntity is not { Valid: true, } uid
-            || !TryComp<TargetDollComponent>(uid, out var targetDoll))
+        if (args.SenderSession.AttachedEntity is not { Valid: true, } uid || !TargetDollQuery.TryComp(uid, out var targetDollComp))
         {
-            Log.Warning($"User {args.SenderSession.Name} sent an invalid {nameof(SelectBodyPartRequestEvent)}");
+            Log.Warning($"User {args.SenderSession.Name} sent an invalid {nameof(SelectProviderRequestEvent)}");
             return;
         }
 
-        SelectBodyPart((uid, targetDoll), msg.BodyPartType);
+        SelectProvider((uid, targetDollComp), msg.Provider);
     }
 
-    private void HandleBodyPartSelect(ICommonSession? session, BodyPartType bodyPartType, BodyPartType? alreadySelectedBodyPart = null)
+    #endregion
+
+    #region Public API
+
+    public virtual void SelectProvider(Entity<TargetDollComponent?> ent, BodyProviderType provider)
     {
-        if (session is not { AttachedEntity: { } uid, }
-            || !TryComp<TargetDollComponent>(uid, out var targetDoll))
+        if (!TargetDollQuery.Resolve(ent, ref ent.Comp, false))
             return;
 
-        if (targetDoll.SelectedBodyPartType == bodyPartType)
-        {
-            if (alreadySelectedBodyPart != null)
-                SelectBodyPart((uid, targetDoll), alreadySelectedBodyPart.Value);
-
-            return;
-        }
-
-        SelectBodyPart((uid, targetDoll), bodyPartType);
-    }
-
-    public virtual void SelectBodyPart(Entity<TargetDollComponent> ent, BodyPartType bodyPartType)
-    {
-        if (ent.Comp.SelectedBodyPartType == bodyPartType)
+        if (ent.Comp.SelectedProvider == provider)
             return;
 
-        ent.Comp.SelectedBodyPartType = bodyPartType;
+        ent.Comp.SelectedProvider = provider;
         Dirty(ent);
     }
 
-    public BodyPartType GetSelectedBodyPart(Entity<TargetDollComponent?> ent)
+    public BodyProviderType GetRandomProvider(Entity<BodyComponent?> body)
     {
-        if (!Resolve(ent, ref ent.Comp, false))
-            return BodyPartType.None;
+        if (!_body.TryGetProviders(body, out var providers))
+            return BodyProviderType.All;
 
-        return ent.Comp.SelectedBodyPartType;
+        return _random.PickAndTake(providers).Comp.Type;
     }
 
-    public BodyPartType GetRandomValidBodyPart(Entity<BodyComponent?> body)
+    public BodyProviderType GetSelectedProvider(Entity<TargetDollComponent?> ent)
     {
-        if (!Resolve(body, ref body.Comp, false) || !_body.TryGetBodyParts(body, out var bodyParts))
-            return BodyPartType.None;
+        if (!TargetDollQuery.Resolve(ent, ref ent.Comp, false))
+            return BodyProviderType.All;
 
-        return _random.PickAndTake(bodyParts).Comp.Type;
+        return ent.Comp.SelectedProvider;
     }
+
+    #endregion
+
+    #region Private API
+
+    private void HandleProviderSelect(ICommonSession? session, BodyProviderType provider, BodyProviderType? alreadySelectedProvider = null)
+    {
+        if (session is not { AttachedEntity: { } uid, } || !TargetDollQuery.TryComp(uid, out var targetDollComp))
+            return;
+
+        if (targetDollComp.SelectedProvider == provider)
+        {
+            if (alreadySelectedProvider != null)
+                SelectProvider((uid, targetDollComp), alreadySelectedProvider.Value);
+
+            return;
+        }
+
+        SelectProvider((uid, targetDollComp), provider);
+    }
+
+    #endregion
 }
 
 [Serializable, NetSerializable]
-public sealed class SelectBodyPartRequestEvent(BodyPartType bodyPartType) : EntityEventArgs
+public sealed class SelectProviderRequestEvent(BodyProviderType provider) : EntityEventArgs
 {
-    public BodyPartType BodyPartType { get; } = bodyPartType;
+    public BodyProviderType Provider { get; } = provider;
 }

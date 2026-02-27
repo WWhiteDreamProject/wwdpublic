@@ -1,14 +1,15 @@
+using Content.Shared._White.Random;
 using Content.Shared.Destructible;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.Physics.Systems;
-using Robust.Shared.Random;
 
 namespace Content.Shared._White.Gibbing;
 
 public sealed class GibbingSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly IPredictedRandom _random = default!;
+
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedDestructibleSystem _destructible = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
@@ -54,8 +55,10 @@ public sealed class GibbingSystem : EntitySystem
 
     private void FlingDroppedEntity(EntityUid target)
     {
-        var impulse = GibletLaunchImpulse + _random.NextFloat(GibletLaunchImpulseVariance);
-        var scatterVec = _random.NextAngle().ToVec() * impulse;
+        var random = _random.GetRandom(target);
+        var impulse = GibletLaunchImpulse + random.NextFloat(GibletLaunchImpulseVariance);
+        var scatterVec = random.NextAngle().ToVec() * impulse;
+
         _physics.ApplyLinearImpulse(target, scatterVec);
     }
 }

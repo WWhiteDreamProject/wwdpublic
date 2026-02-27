@@ -1,7 +1,7 @@
 #nullable enable
 using System.Linq;
 using System.Collections.Generic;
-using Content.Server.Body.Components;
+using Content.Server._White.Body.Respirator.Components;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Presets;
 using Content.Server.GameTicking.Rules.Components;
@@ -10,8 +10,8 @@ using Content.Server.Roles;
 using Content.Server.RoundEnd;
 using Content.Server.Shuttles.Components;
 using Content.Server.Station.Components;
+using Content.Shared._White.Damage.Components;
 using Content.Shared.CCVar;
-using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
 using Content.Shared.GameTicking;
 using Content.Shared.Hands.Components;

@@ -1,6 +1,7 @@
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Lightning;
 using Content.Server.Lightning.Components;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Damage;
 using Robust.Server.GameObjects;
 
@@ -26,7 +27,7 @@ public sealed class LightningTargetSystem : EntitySystem
     {
         DamageSpecifier damage = new();
         damage.DamageDict.Add("Structural", uid.Comp.DamageFromLightning);
-        _damageable.TryChangeDamage(uid, damage, true);
+        _damageable.ChangeDamage(uid.Owner, damage, true); // WD EDIT
 
         if (uid.Comp.LightningExplode)
         {

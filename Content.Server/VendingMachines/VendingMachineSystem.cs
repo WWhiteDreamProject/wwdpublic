@@ -1,10 +1,8 @@
 using System.Linq;
 using System.Numerics;
 using Content.Server.Cargo.Systems;
-using Content.Server.Emp;
 using Content.Server.Power.Components;
-using Content.Server.Power.EntitySystems;
-using Content.Shared.Damage;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Destructible;
 using Content.Shared.DoAfter;
 using Content.Shared.Emp;
@@ -103,10 +101,10 @@ namespace Content.Server.VendingMachines
             }
 
             if (component.Broken || component.DispenseOnHitCoolingDown ||
-                component.DispenseOnHitChance == null || args.DamageDelta == null)
+                component.DispenseOnHitChance == null)
                 return;
 
-            if (args.DamageIncreased && args.DamageDelta.GetTotal() >= component.DispenseOnHitThreshold &&
+            if (args.DamageIncreased && args.Damage.GetTotal() >= component.DispenseOnHitThreshold && // WD EDIT
                 _random.Prob(component.DispenseOnHitChance.Value))
             {
                 if (component.DispenseOnHitCooldown != null)

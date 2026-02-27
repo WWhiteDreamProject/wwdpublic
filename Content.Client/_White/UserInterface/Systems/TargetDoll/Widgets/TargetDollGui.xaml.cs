@@ -9,26 +9,30 @@ namespace Content.Client._White.UserInterface.Systems.TargetDoll.Widgets;
 [GenerateTypedNameReferences]
 public sealed partial class TargetDollGui : UIWidget
 {
-    private readonly Dictionary<BodyPartType, BodyPartButton?> _bodyPartButtons;
+    private readonly Dictionary<BodyProviderType, BodyProviderButton> _bodyProviderButtons;
 
     public TargetDollGui()
     {
         RobustXamlLoader.Load(this);
         var controller = UserInterfaceManager.GetUIController<TargetDollUIController>();
 
-        _bodyPartButtons = new();
-        foreach (var bodyPart in Control.BodyParts.Children)
+        _bodyProviderButtons = new();
+        foreach (var provider in Control.Providers.Children)
         {
-            if (bodyPart is not BodyPartButton bodyPartButton)
+            if (provider is not BodyProviderButton providerButton)
                 continue;
 
-            bodyPartButton.MouseFilter = MouseFilterMode.Stop;
-            bodyPartButton.OnPressed += _ => controller.SelectBodyPart(bodyPartButton.BodyPartType);
-            bodyPartButton.OnMouseEntered += _ => Control.TextureHovered = bodyPartButton.TextureHovered;
-            bodyPartButton.OnMouseExited += _ => Control.TextureHovered = null;
-            _bodyPartButtons[bodyPartButton.BodyPartType] = bodyPartButton;
+            providerButton.MouseFilter = MouseFilterMode.Stop;
+            providerButton.OnPressed += _ => controller.SelectProvider(providerButton.Provider);
+            providerButton.OnMouseEntered += _ => Control.TextureHovered = providerButton.TextureHovered;
+            providerButton.OnMouseExited += _ => Control.TextureHovered = null;
+
+            _bodyProviderButtons[providerButton.Provider] = providerButton;
         }
     }
 
-    public void OnTargetDollUpdated(BodyPartType bodyPartType) => Control.TextureFocused = _bodyPartButtons[bodyPartType]?.TextureFocused;
+    public void OnTargetDollUpdated(BodyProviderType provider)
+    {
+        Control.TextureFocused = _bodyProviderButtons[provider].TextureFocused;
+    }
 }

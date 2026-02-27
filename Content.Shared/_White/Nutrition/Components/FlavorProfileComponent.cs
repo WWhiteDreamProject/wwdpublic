@@ -1,0 +1,27 @@
+using Content.Shared.Chemistry.Reagent;
+using Content.Shared.Nutrition;
+using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
+
+namespace Content.Shared._White.Nutrition.Components;
+
+[RegisterComponent, NetworkedComponent]
+public sealed partial class FlavorProfileComponent : Component
+{
+    /// <summary>
+    /// Localized string containing the base flavor of this entity.
+    /// </summary>
+    [DataField]
+    public HashSet<ProtoId<FlavorPrototype>> Flavors { get; private set; } = new();
+
+    /// <summary>
+    /// Reagent IDs to ignore when processing this flavor profile. Defaults to nutriment.
+    /// </summary>
+    [DataField]
+    public HashSet<ProtoId<ReagentPrototype>> Ignored { get; private set; } = new()
+    {
+        "Nutriment",
+        "Vitamin",
+        "Protein",
+    };
+}

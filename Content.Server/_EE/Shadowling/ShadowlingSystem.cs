@@ -10,12 +10,12 @@ using Content.Shared._EE.Shadowling.Systems;
 using Content.Shared._EE.Shadowling;
 using Content.Shared._EE.Shadowling.Components;
 using Content.Shared._Goobstation.Flashbang;
+using Content.Shared._White.Damage.Components;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.Actions;
-using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
-using Content.Shared.Humanoid;
 using Content.Shared.Inventory;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
@@ -115,7 +115,7 @@ public sealed partial class ShadowlingSystem : SharedShadowlingSystem
         if (!TryComp<DamageableComponent>(uid, out var damageableComp))
             return;
 
-        _damageable.TryChangeDamage(uid, component.HeatDamage, damageable: damageableComp);
+        _damageable.ChangeDamage((uid, damageableComp), component.HeatDamage); // WD EDIT
     }
     public void OnThrallAdded(EntityUid uid, EntityUid thrall, ShadowlingComponent comp)
     {
@@ -227,7 +227,7 @@ public sealed partial class ShadowlingSystem : SharedShadowlingSystem
         if (!_random.Prob(0.5f))
             return;
 
-        _damageable.TryChangeDamage(ent, ent.Comp.GunShootFailDamage, origin: ent);
+        _damageable.ChangeDamage(ent.Owner, ent.Comp.GunShootFailDamage, origin: ent); // WD EDIT
 
         _stun.TryParalyze(ent, ent.Comp.GunShootFailStunTime, false);
 

@@ -1,7 +1,7 @@
 using Content.Server.Ghost;
+using Content.Shared._White.Damage.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Chat;
-using Content.Shared.Damage;
 using Content.Shared.Database;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mind;

@@ -1,6 +1,7 @@
+using Content.Shared._White.Damage.Components;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Damage;
 using Content.Shared.InteractionVerbs;
-using Robust.Shared.Serialization;
 
 namespace Content.Server.InteractionVerbs.Actions;
 
@@ -23,7 +24,6 @@ public sealed partial class ModifyHealthAction : InteractionAction
 
     public override bool Perform(InteractionArgs args, InteractionVerbPrototype proto, VerbDependencies deps)
     {
-        return deps.EntMan.System<DamageableSystem>()
-            .TryChangeDamage(args.Target, Damage, IgnoreResistance, origin: args.User) is not null;
+        return deps.EntMan.System<DamageableSystem>().TryChangeDamage(args.Target, Damage, IgnoreResistance, origin: args.User); // WD EDIT
     }
 }

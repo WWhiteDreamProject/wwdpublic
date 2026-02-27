@@ -1,6 +1,6 @@
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Actions;
 using Content.Shared.Buckle.Components;
-using Content.Shared.Damage;
 using Content.Shared.Damage.Events;
 using Content.Shared.Damage.ForceSay;
 using Content.Shared.Emoting;
@@ -214,10 +214,10 @@ public sealed partial class SleepingSystem : EntitySystem
     /// </summary>
     private void OnDamageChanged(Entity<SleepingComponent> ent, ref DamageChangedEvent args)
     {
-        if (!args.DamageIncreased || args.DamageDelta == null)
+        if (!args.DamageIncreased)
             return;
 
-        if (args.DamageDelta.GetTotal() >= ent.Comp.WakeThreshold)
+        if (args.Damage.GetTotal() >= ent.Comp.WakeThreshold) // WD EDIT
             TryWaking((ent, ent.Comp));
     }
 

@@ -26,6 +26,7 @@ using Content.Shared.Overlays.Switchable;
 using Robust.Shared.Utility;
 using Robust.Shared.Physics.Components;
 using Content.Server.Ghost;
+using Content.Shared._White.Damage.Components;
 
 namespace Content.Server.Changeling;
 
@@ -233,7 +234,7 @@ public sealed partial class ChangelingSystem
         }
 
         var dmg = new DamageSpecifier(damageProto, deadThreshold!.Value.Int());
-        var dmgTotal = _damage.TryChangeDamage(target, dmg, false, damageable: damageable, origin: uid);
+        var dmgTotal = _damage.ChangeDamage((target, damageable), dmg, origin: uid); // WD EDIT
         if (dmgTotal is null || !dmgTotal.AnyPositive())
             return;
 
@@ -763,8 +764,8 @@ public sealed partial class ChangelingSystem
             return;
 
         var dmg = new DamageSpecifier(damageProto, deadThreshold!.Value.Int());
-        var dmgTotal = _damage.TryChangeDamage(target, dmg, false, damageable: damageable, origin: uid);
-        if (dmgTotal is null || !dmgTotal.AnyPositive())
+        var dmgTotal = _damage.ChangeDamage((target, damageable), dmg, origin: uid); // WD EDIT
+        if (!dmgTotal.AnyPositive())
             return;
 
         comp.IsInLastResort = false;

@@ -16,28 +16,31 @@ public sealed partial class BodyAppearanceComponent : Component
 }
 
 [DataDefinition, Serializable, NetSerializable]
-public sealed partial class BodyAppearanceLayerInfo
+public sealed partial class BodyAppearanceLayerData
 {
+    /// <summary>
+    /// The data for the layer.
+    /// </summary>
+    [DataField(required: true)]
+    public PrototypeLayerData Data;
+
+    /// <summary>
+    /// The "body type" of the layer.
+    /// </summary>
     [DataField]
     public ProtoId<BodyTypePrototype>? BodyType;
 
+    /// <summary>
+    /// The color of the layer
+    /// </summary>
     [DataField]
     public Color Color = Color.White;
 
-    [DataField]
-    public List<MarkingLayerInfo> MarkingsLayers = new();
-
-    [DataField]
-    public ResPath Sprite;
-
+    /// <summary>
+    /// The "sex" of this layer.
+    /// </summary>
     [DataField]
     public Sex Sex = Sex.Unsexed;
-
-    [DataField]
-    public string State = string.Empty;
-
-    [DataField]
-    public bool Visible = true;
 }
 
 [Serializable, NetSerializable]

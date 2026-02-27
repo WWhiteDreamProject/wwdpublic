@@ -1,3 +1,4 @@
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Damage.Components;
 using Content.Shared.Database;
@@ -55,15 +56,13 @@ public sealed class DamageOnInteractSystem : EntitySystem
 
             // if protectiveComp isn't null after all that, it means the user has protection,
             // so let's calculate how much they resist
-            if (protectiveEntity.Comp != null && protectiveEntity.Comp.BodyPartType.HasFlag(entity.Comp.BodyPartType)) // WD EDIT
+            if (protectiveEntity.Comp != null)
             {
                 totalDamage = DamageSpecifier.ApplyModifierSet(totalDamage, protectiveEntity.Comp.DamageProtection);
             }
         }
 
-        totalDamage = _damageableSystem.TryChangeDamage(args.User, totalDamage,  origin: args.Target, bodyPartType: entity.Comp.BodyPartType); // WD EDIT
-
-        if (totalDamage != null && totalDamage.AnyPositive())
+        if (_damageableSystem.TryChangeDamage(args.User, totalDamage, out totalDamage,  origin: args.Target) && totalDamage.AnyPositive()) // WD EDIT
         {
             args.Handled = true;
             _adminLogger.Add(LogType.Damaged, $"{ToPrettyString(args.User):user} injured their hand by interacting with {ToPrettyString(args.Target):target} and received {totalDamage.GetTotal():damage} damage");

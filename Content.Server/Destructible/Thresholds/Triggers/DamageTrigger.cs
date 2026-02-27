@@ -1,4 +1,4 @@
-using Content.Shared.Damage;
+using Content.Shared._White.Damage.Components;
 
 namespace Content.Server.Destructible.Thresholds.Triggers
 {

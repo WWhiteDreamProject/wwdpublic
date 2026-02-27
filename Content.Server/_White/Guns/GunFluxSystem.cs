@@ -1,14 +1,12 @@
-using Content.Server._White.Knockdown;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Flash;
 using Content.Server.Stunnable;
-using Content.Server.Temperature.Systems;
 using Content.Shared._Lavaland.Weapons.Ranged.Events;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared._White.Guns;
 using Content.Shared.Damage;
 using Content.Shared.Projectiles;
 using Content.Shared.Random.Helpers;
-using Content.Shared.Temperature;
 using Content.Shared.Throwing;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Systems;
@@ -28,11 +26,6 @@ public sealed class GunFluxSystem : SharedGunFluxSystem
     {
         base.Initialize();
         SubscribeLocalEvent<GunFluxComponent, ProjectileShotEvent>(OnProjectileShot);
-    }
-
-    protected override void OnGunShot(EntityUid uid, GunFluxComponent comp, ref GunShotEvent args)
-    {
-        base.OnGunShot(uid, comp, ref args);
     }
 
     private void OnProjectileShot(EntityUid uid, GunFluxComponent comp, ProjectileShotEvent args)

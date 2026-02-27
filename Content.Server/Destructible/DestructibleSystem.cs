@@ -9,7 +9,6 @@ using Content.Server.Explosion.EntitySystems;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Stack;
 using Content.Shared.Chemistry.EntitySystems;
-using Content.Shared.Damage;
 using Content.Shared.Database;
 using Content.Shared.Destructible;
 using Content.Shared.FixedPoint;
@@ -21,8 +20,8 @@ using Robust.Shared.Random;
 using System.Linq;
 using Content.Server._White.Body.Systems;
 using Content.Server.Construction.Completions;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared._White.Gibbing;
-using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Projectiles;
 using Content.Shared.Throwing;
 

@@ -21,7 +21,8 @@ using Content.Shared.SSDIndicator;
 using Content.Shared.Damage.ForceSay;
 using Content.Shared.Chat;
 using Content.Server.Language;
-using Content.Shared._White.Body.Bloodstream.Components;
+using Content.Shared._White.Bloodstream.Components;
+using Content.Shared._White.Damage.Components;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.Language.Components;
 using Content.Shared.Nutrition.Components;
@@ -255,7 +256,7 @@ public sealed partial class CloningSystem
 
         bloodSolution.AddReagent("Blood", 0.8f
             * ((blood is not null)
-                ? blood.BloodMaxVolume
+                ? blood.MaxVolume
                 : 300));
 
         _puddleSystem.TrySpillAt(uid, bloodSolution, out _);

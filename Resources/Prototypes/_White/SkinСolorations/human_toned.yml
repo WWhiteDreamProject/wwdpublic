@@ -1,0 +1,3 @@
+- type: skinColoration
+  id: HumanToned
+  strategy: !type:HumanTonedSkinColoration {}

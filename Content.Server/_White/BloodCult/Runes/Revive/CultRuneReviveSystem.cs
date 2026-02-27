@@ -6,7 +6,8 @@ using Content.Server.Mind;
 using Content.Server.Popups;
 using Content.Shared._White.BloodCult.BloodCultist;
 using Content.Shared._White.BloodCult.Runes.Components;
-using Content.Shared.Damage;
+using Content.Shared._White.Damage.Components;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
@@ -66,7 +67,7 @@ public sealed class CultRuneReviveSystem : EntitySystem
     private void Revive(EntityUid target, EntityUid user, Entity<CultRuneReviveComponent> rune)
     {
         var deadThreshold = _threshold.GetThresholdForState(target, MobState.Dead);
-        _damageable.TryChangeDamage(target, rune.Comp.Healing);
+        _damageable.ChangeDamage(target, rune.Comp.Healing);
 
         if (!TryComp<DamageableComponent>(target, out var damageable) || damageable.TotalDamage > deadThreshold)
             return;

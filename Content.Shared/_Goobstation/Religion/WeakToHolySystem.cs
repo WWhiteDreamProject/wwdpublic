@@ -8,6 +8,8 @@
 using Content.Shared._Goobstation.Bible;
 using Content.Shared._Goobstation.Religion.Nullrod;
 using Content.Server.Bible.Components;
+using Content.Shared._White.Damage.Components;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
@@ -72,7 +74,7 @@ public sealed class WeakToHolySystem : EntitySystem
             },
         };
 
-        args.Damage = DamageSpecifier.ApplyModifierSet(args.Damage, modifierSet);
+        args.Result = DamageSpecifier.ApplyModifierSet(args.Damage, modifierSet);
     }
 
     private void OnUnholyItemDamage(Entity<WeakToHolyComponent> uid, ref DamageUnholyEvent args)

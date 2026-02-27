@@ -99,6 +99,16 @@ namespace Content.Shared.Damage
             DamageDict = new() { { type.ID, value } };
         }
 
+        // WD EDIT START
+        /// <summary>
+        /// Constructor that takes a single damage type and a damage value.
+        /// </summary>
+        public DamageSpecifier(ProtoId<DamageTypePrototype> type, FixedPoint2 value)
+        {
+            DamageDict = new() { { type, value } };
+        }
+        // WD EDIT END
+
         /// <summary>
         ///     Constructor that takes a single damage group prototype and a damage value. The value is divided between members of the damage group.
         /// </summary>
@@ -320,7 +330,7 @@ namespace Content.Shared.Damage
                     DamageDict[type] = FixedPoint2.Max(FixedPoint2.Zero, existing + value);
         }
 
-        public void MakePositiveDamage()
+        public void MakePositive()
         {
             foreach (var (type, value) in DamageDict)
             {

@@ -1,4 +1,4 @@
-﻿using Content.Shared.Damage;
+﻿using Content.Shared._White.Damage.Systems;
 using Content.Shared.Silicons.Borgs.Components;
 
 namespace Content.Shared.Silicons.Borgs;

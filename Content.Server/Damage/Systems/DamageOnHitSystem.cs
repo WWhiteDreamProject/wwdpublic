@@ -1,8 +1,7 @@
-using Content.Server.Damage.Components;
-using Content.Shared.Damage;
-using Robust.Shared.Player;
-using Content.Shared.Weapons.Melee.Events;
 using System.Linq;
+using Content.Server.Damage.Components;
+using Content.Shared._White.Damage.Systems;
+using Content.Shared.Weapons.Melee.Events;
 
 namespace Content.Server.Damage.Systems;
 

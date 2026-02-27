@@ -1,8 +1,8 @@
 using Content.Server.Polymorph.Components;
 using Content.Server.Popups;
 using Content.Shared._White.Body.Components;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared._White.Gibbing;
-using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;

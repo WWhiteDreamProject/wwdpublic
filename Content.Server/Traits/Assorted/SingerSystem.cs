@@ -1,9 +1,8 @@
 using Content.Server.Instruments;
 using Content.Server.Speech.Components;
-using Content.Server.UserInterface;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Bed.Sleep;
-using Content.Shared.Damage;
 using Content.Shared.Damage.ForceSay;
 using Content.Shared.FixedPoint;
 using Content.Shared.Instruments;
@@ -19,7 +18,6 @@ using Content.Shared.Traits.Assorted.Systems;
 using Content.Shared.UserInterface;
 using Content.Shared.Zombies;
 using Robust.Shared.Player;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server.Traits.Assorted;
 
@@ -112,14 +110,13 @@ public sealed class SingerSystem : SharedSingerSystem
     private void OnDamageChanged(EntityUid uid, SharedInstrumentComponent instrumentComponent, DamageChangedEvent args)
     {
         if (!TryComp<DamageForceSayComponent>(uid, out var component) ||
-            args.DamageDelta == null ||
             !args.DamageIncreased ||
-            args.DamageDelta.GetTotal() < component.DamageThreshold ||
+            args.Damage.GetTotal() < component.DamageThreshold ||
             component.ValidDamageGroups == null)
             return;
 
         var totalApplicableDamage = FixedPoint2.Zero;
-        foreach (var (group, value) in args.DamageDelta.GetDamagePerGroup(ProtoMan))
+        foreach (var (group, value) in args.Damage.GetDamagePerGroup(ProtoMan))
         {
             if (!component.ValidDamageGroups.Contains(group))
                 continue;

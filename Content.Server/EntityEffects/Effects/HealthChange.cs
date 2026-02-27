@@ -7,6 +7,8 @@ using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using System.Linq;
 using System.Text.Json.Serialization;
+using Content.Shared._White.Damage.Systems;
+
 
 namespace Content.Server.EntityEffects.Effects
 {
@@ -120,7 +122,7 @@ namespace Content.Server.EntityEffects.Effects
                 scale = ScaleByQuantity ? reagentArgs.Quantity * reagentArgs.Scale : reagentArgs.Scale;
             }
 
-            args.EntityManager.System<DamageableSystem>().TryChangeDamage(
+            args.EntityManager.System<DamageableSystem>().TryChangeDamage( // WD EDIT
                 args.TargetEntity,
                 Damage * scale,
                 IgnoreResistances,

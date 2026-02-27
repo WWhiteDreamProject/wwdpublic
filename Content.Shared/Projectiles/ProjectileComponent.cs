@@ -124,6 +124,6 @@ public sealed partial class ProjectileComponent : Component
 
     // WD EDIT START
     [ViewVariables(VVAccess.ReadWrite)]
-    public BodyPartType BodyPartType = BodyPartType.All;
+    public BodyProviderType BodyProviderType = BodyProviderType.AllParts;
     // WD EDIT END
 }

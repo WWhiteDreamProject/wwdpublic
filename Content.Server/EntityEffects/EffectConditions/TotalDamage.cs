@@ -1,5 +1,5 @@
+using Content.Shared._White.Damage.Components;
 using Content.Shared.EntityEffects;
-using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Prototypes;
 

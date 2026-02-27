@@ -1,5 +1,4 @@
 using Robust.Shared.Physics;
-using Content.Shared.Damage;
 using Content.Shared.Explosion;
 using Content.Shared.Humanoid;
 using Content.Shared.Clothing.Components;
@@ -13,6 +12,7 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
 using System.Numerics;
+using Content.Shared._White.Damage.Systems;
 using Robust.Shared.Network;
 
 namespace Content.Shared.SegmentedEntity;
@@ -229,16 +229,13 @@ public sealed partial class LamiaSystem : EntitySystem
     private void HandleSegmentDamage(EntityUid uid, SegmentedEntitySegmentComponent component, DamageModifyEvent args)
     {
         if (args.Origin == component.Lamia)
-            args.Damage *= 0;
-        args.Damage = args.Damage / component.DamageModifyFactor;
+            args.Result *= 0;
+        args.Result = args.Damage / component.DamageModifyFactor;
     }
 
     private void HandleDamageTransfer(EntityUid uid, SegmentedEntitySegmentComponent component, DamageChangedEvent args)
     {
-        if (args.DamageDelta == null)
-            return;
-
-        _damageableSystem.TryChangeDamage(component.Lamia, args.DamageDelta);
+        _damageableSystem.ChangeDamage(component.Lamia, args.Damage); // WD EDIT
     }
 
     private void OnLamiaStorageInsertAttempt(EntityUid uid, SegmentedEntityComponent comp, ref InsertIntoEntityStorageAttemptEvent args)

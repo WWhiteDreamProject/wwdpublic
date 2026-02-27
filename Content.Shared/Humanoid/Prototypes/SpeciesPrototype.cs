@@ -56,12 +56,6 @@ public sealed partial class SpeciesPrototype : IPrototype
     public int DefaultHumanSkinTone { get; private set; } = 20;
 
     /// <summary>
-    ///     The limit of body markings that you can place on this species.
-    /// </summary>
-    [DataField("markingLimits")]
-    public string MarkingPoints { get; private set; } = default!;
-
-    /// <summary>
     ///     Humanoid species variant used by this entity.
     /// </summary>
     [DataField(required: true)]
@@ -83,7 +77,7 @@ public sealed partial class SpeciesPrototype : IPrototype
     /// Method of skin coloration used by the species.
     /// </summary>
     [DataField(required: true)]
-    public HumanoidSkinColor SkinColoration { get; private set; }
+    public ProtoId<SkinColorationPrototype> SkinColoration { get; private set; } // WD EDIT
 
     [DataField]
     public string MaleFirstNames { get; private set; } = "names_first_male";

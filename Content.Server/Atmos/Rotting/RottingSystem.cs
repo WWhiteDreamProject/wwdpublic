@@ -1,9 +1,9 @@
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Temperature.Components;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared._White.Gibbing;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Rotting;
-using Content.Shared.Damage;
 using Robust.Server.Containers;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Timing;

@@ -1,5 +1,5 @@
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Bed.Sleep;
-using Content.Shared.Damage;
 using Content.Shared.Damage.Events;
 using Content.Shared.Damage.ForceSay;
 using Content.Shared.FixedPoint;
@@ -98,13 +98,13 @@ public sealed class DamageForceSaySystem : EntitySystem
 
     private void OnDamageChanged(EntityUid uid, DamageForceSayComponent component, DamageChangedEvent args)
     {
-        if (args.DamageDelta == null || !args.DamageIncreased || args.DamageDelta.GetTotal() < component.DamageThreshold)
+        if (!args.DamageIncreased || args.Damage.GetTotal() < component.DamageThreshold)
             return;
 
         if (component.ValidDamageGroups != null)
         {
             var totalApplicableDamage = FixedPoint2.Zero;
-            foreach (var (group, value) in args.DamageDelta.GetDamagePerGroup(_prototype))
+            foreach (var (group, value) in args.Damage.GetDamagePerGroup(_prototype))
             {
                 if (!component.ValidDamageGroups.Contains(group))
                     continue;

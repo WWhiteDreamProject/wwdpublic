@@ -1,4 +1,3 @@
-using Content.Shared._White.Body.Components;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
@@ -48,12 +47,6 @@ public sealed partial class DamageOnInteractComponent : Component
     public bool IsDamageActive = true;
 
     // WD EDIT START
-    /// <summary>
-    /// The body part that will be damaged
-    /// </summary>
-    [DataField]
-    public BodyPartType BodyPartType = BodyPartType.Hands;
-
     /// <summary>
     /// Entities that do not take damage when interacted
     /// </summary>

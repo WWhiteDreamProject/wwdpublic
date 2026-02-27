@@ -1,7 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Threading.Tasks;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.ActionBlocker;
-using Content.Shared.Damage;
 using Content.Shared.Hands.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Tag;
@@ -65,11 +65,11 @@ public abstract partial class SharedDoAfterSystem : EntitySystem
     {
         // If we're applying state then let the server state handle the do_after prediction.
         // This is to avoid scenarios where a do_after is erroneously cancelled on the final tick.
-        if (!args.InterruptsDoAfters || !args.DamageIncreased || args.DamageDelta == null || GameTiming.ApplyingState
-            || args.DamageDelta.DamageDict.ContainsKey("Radiation")) //Sanity check so people can crowbar doors open to flee from Lord Singuloth
+        if (!args.InterruptsDoAfters || !args.DamageIncreased|| GameTiming.ApplyingState
+            || args.Damage.DamageDict.ContainsKey("Radiation")) //Sanity check so people can crowbar doors open to flee from Lord Singuloth
             return;
 
-        var delta = args.DamageDelta.GetTotal();
+        var delta = args.Damage.GetTotal();
 
         var dirty = false;
         foreach (var doAfter in component.DoAfters.Values)

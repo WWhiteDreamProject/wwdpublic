@@ -9,6 +9,8 @@ using Content.Server.Preferences.Managers;
 using Content.Server.Roles;
 using Content.Server.Roles.Jobs;
 using Content.Shared._White.CustomGhostSystem;
+using Content.Shared._White.Damage.Components;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared._White.Roles;
 using Content.Shared.Actions;
 using Content.Shared.CCVar;
@@ -637,6 +639,8 @@ namespace Content.Server.Ghost
             if (handleEv.Handled)
                 return handleEv.Result;
 
+            mind.TimeOfDeath ??= _gameTiming.RealTime; // WD EDIT
+
             if (mind.PreventGhosting)
             {
                 if (mind.Session != null) // Logging is suppressed to prevent spam from ghost attempts caused by movement attempts
@@ -695,7 +699,7 @@ namespace Content.Server.Ghost
 
                     DamageSpecifier damage = new(_prototypeManager.Index<DamageTypePrototype>("Asphyxiation"), dealtDamage);
 
-                    _damageable.TryChangeDamage(playerEntity, damage, true);
+                    _damageable.ChangeDamage(playerEntity.Value, damage, true); // WD EDIT
                 }
             }
 

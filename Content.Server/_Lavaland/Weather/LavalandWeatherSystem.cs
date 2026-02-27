@@ -4,8 +4,8 @@ using Content.Server._Lavaland.Procedural.Components;
 using Content.Server.Temperature.Systems;
 using Content.Server.Weather;
 using Content.Shared._Lavaland.Weather;
-using Content.Shared.Damage;
-using Content.Shared.Humanoid;
+using Content.Shared._White.Damage.Components;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Popups;
 using Robust.Shared.CPUJob.JobQueues;
 using Robust.Shared.CPUJob.JobQueues.Queues;
@@ -51,7 +51,7 @@ public sealed class LavalandWeatherSystem : EntitySystem
 
         var proto = _proto.Index(lavaland.Comp.CurrentWeather);
         _temperature.ChangeHeat(entity, proto.TemperatureChange, ignoreHeatResistance: true);
-        _damage.TryChangeDamage(entity, proto.Damage);
+        _damage.TryChangeDamage(entity.AsNullable(), proto.Damage); // WD EDIT
     }
 
     public override void Update(float frameTime)

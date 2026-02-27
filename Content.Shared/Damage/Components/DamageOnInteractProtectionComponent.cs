@@ -1,4 +1,3 @@
-using Content.Shared._White.Body.Components;
 using Content.Shared.Inventory;
 using Robust.Shared.GameStates;
 
@@ -27,12 +26,4 @@ public sealed partial class DamageOnInteractProtectionComponent : Component, ICl
     /// </summary>
     [DataField]
     public SlotFlags Slots { get; set; } = SlotFlags.GLOVES;
-
-    // WD EDIT START
-    /// <summary>
-    /// The part of the body that will be protected from damage.
-    /// </summary>
-    [DataField]
-    public BodyPartType BodyPartType = BodyPartType.Hands;
-    // WD EDIT END
 }

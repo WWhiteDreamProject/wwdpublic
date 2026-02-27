@@ -1,7 +1,7 @@
 using Content.Server.DoAfter;
 using Content.Server.Popups;
 using Content.Server.PowerCell;
-using Content.Shared.Damage;
+using Content.Shared._White.Damage.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Drugs;
 using Content.Shared.Drunk;
@@ -9,11 +9,8 @@ using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Medical;
 using Content.Shared.Mobs.Components;
-using Content.Shared.Mobs.Systems;
 using Content.Shared.Traits.Assorted.Components;
 using Robust.Server.GameObjects;
-using Robust.Shared.Player;
-using Robust.Shared.Timing;
 
 namespace Content.Server.Medical;
 /// <summary>

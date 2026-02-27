@@ -1,23 +1,22 @@
-using Content.Shared.Cocoon;
-using Content.Shared.IdentityManagement;
-using Content.Shared.Verbs;
-using Content.Shared.DoAfter;
-using Content.Shared.Stunnable;
-using Content.Shared.Eye.Blinding.Systems;
-using Content.Shared.Containers.ItemSlots;
-using Content.Shared.Damage;
-using Content.Shared.Administration.Logs;
-using Content.Shared.Database;
-using Content.Shared.Humanoid;
-using Content.Server.Popups;
 using Content.Server.DoAfter;
+using Content.Server.Popups;
 using Content.Server.Speech.Components;
-using Robust.Shared.Containers;
-using Content.Shared.Mobs.Components;
+using Content.Shared._White.Damage.Systems;
+using Content.Shared.Administration.Logs;
+using Content.Shared.Cocoon;
+using Content.Shared.Containers.ItemSlots;
+using Content.Shared.Database;
 using Content.Shared.Destructible;
-using Robust.Shared.Random;
+using Content.Shared.DoAfter;
+using Content.Shared.Eye.Blinding.Systems;
+using Content.Shared.IdentityManagement;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Storage;
+using Content.Shared.Stunnable;
+using Content.Shared.Verbs;
+using Robust.Shared.Containers;
+using Robust.Shared.Random;
 using Robust.Shared.Utility;
 
 namespace Content.Server.Cocoon
@@ -116,11 +115,13 @@ namespace Content.Server.Cocoon
 
         private void OnDamageChanged(EntityUid uid, CocoonComponent component, DamageChangedEvent args)
         {
-            if (!args.DamageIncreased || args.DamageDelta == null || component.Victim == null)
+            // WD EDIT START
+            if (!args.DamageIncreased || component.Victim == null)
                 return;
 
-            var damage = args.DamageDelta * component.DamagePassthrough;
-            _damageableSystem.TryChangeDamage(component.Victim, damage);
+            var damage = args.Damage * component.DamagePassthrough;
+            _damageableSystem.ChangeDamage(component.Victim.Value, damage);
+            // WD EDIT END
         }
 
         private void StartCocooning(EntityUid uid, CocoonerComponent component, EntityUid target)

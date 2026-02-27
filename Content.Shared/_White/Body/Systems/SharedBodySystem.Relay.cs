@@ -1,8 +1,7 @@
-using Content.Shared._White.Body.Bloodstream.Systems;
+using Content.Shared._White.Bloodstream.Systems;
 using Content.Shared._White.Body.Components;
-using Content.Shared._White.Body.Organs.Metabolizer;
-using Content.Shared._White.Body.Pain.Systems;
-using Content.Shared.Rejuvenate;
+using Content.Shared._White.Pain.Systems;
+using Content.Shared._White.Wounds.Systems;
 
 namespace Content.Shared._White.Body.Systems;
 
@@ -10,74 +9,62 @@ public abstract partial class SharedBodySystem
 {
     private void InitializeRelay()
     {
-        SubscribeLocalEvent<BodyComponent, GetBleedEvent>(RelayEventToBodyParts);
-        SubscribeLocalEvent<BodyComponent, GetPainEvent>(RelayEventToBodyParts);
+        SubscribeLocalEvent<BodyComponent, BloodAmountChangedEvent>(RelayEvent);
+        SubscribeLocalEvent<BodyComponent, GetMetabolicRateEvent>(RelayEvent);
+        SubscribeLocalEvent<BodyComponent, GetWoundableDamageEvent>(RelayEvent);
+        SubscribeLocalEvent<BodyComponent, MetabolicRateChangedEvent>(RelayEvent);
+        SubscribeLocalEvent<BodyComponent, PainChangedEvent>(RelayEvent);
 
-        SubscribeLocalEvent<BodyComponent, AfterBloodAmountChangedEvent>(RelayEventToOrgans);
-        SubscribeLocalEvent<BodyComponent, ApplyMetabolicRateEvent>(RelayEventToOrgans);
-        SubscribeLocalEvent<BodyComponent, GetMetabolicMultiplierEvent>(RelayEventToOrgans);
-        SubscribeLocalEvent<BodyComponent, GetMetabolicRateEvent>(RelayEventToOrgans);
-
-        SubscribeLocalEvent<BodyComponent, GetBloodReductionEvent>(RelayEventToAll);
-        SubscribeLocalEvent<BodyComponent, RejuvenateEvent>(RelayEventToAll);
+        SubscribeLocalEvent<BodyProviderComponent, GetWoundableDamageEvent>(RelayEvent);
+        SubscribeLocalEvent<BodyProviderComponent, WoundableDamageChangedEvent>(RelayEvent);
     }
 
-    protected void RelayEventToBones<T>(Entity<BodyComponent> body, ref T args) where T : struct
+    protected void RelayEvent<T>(Entity<BodyComponent> ent, ref T args) where T : IBodyRelayEvent
     {
-        var ev = new BoneRelayedEvent<T>(body, args);
-        foreach (var organ in GetBones(body.AsNullable()))
-            RaiseLocalEvent(organ, ref ev);
+        var ev = new BodyRelayedEvent<T>(args);
+
+        foreach (var provider in GetProviders(ent.AsNullable(), args.Type))
+        {
+            ev.Provider = provider.Comp;
+            RaiseLocalEvent(provider, ref ev);
+        }
+
         args = ev.Args;
     }
 
-    protected void RelayEventToBones<T>(EntityUid uid, BodyComponent component, T args) where T : class
+    protected void RelayEvent<T>(Entity<BodyProviderComponent> ent, ref T args) where T : IBodyRelayEvent
     {
-        var ev = new BoneRelayedEvent<T>((uid, component), args);
-        foreach (var organ in GetBones((uid, component)))
-            RaiseLocalEvent(organ, ref ev);
-    }
+        var ev = new BodyRelayedEvent<T>(args);
 
-    protected void RelayEventToBodyParts<T>(Entity<BodyComponent> body, ref T args) where T : struct
-    {
-        var ev = new BodyPartRelayedEvent<T>(body, args);
-        foreach (var organ in GetBodyParts(body.AsNullable()))
-            RaiseLocalEvent(organ, ref ev);
+        foreach (var provider in GetProviders(ent.AsNullable(), args.Type))
+        {
+            ev.Provider = provider.Comp;
+            RaiseLocalEvent(provider, ref ev);
+        }
+
         args = ev.Args;
     }
+}
 
-    protected void RelayEventToBodyParts<T>(EntityUid uid, BodyComponent component, T args) where T : class
-    {
-        var ev = new BodyPartRelayedEvent<T>((uid, component), args);
-        foreach (var organ in GetBodyParts((uid, component)))
-            RaiseLocalEvent(organ, ref ev);
-    }
+/// <summary>
+/// An event wrapper for passing events related to body provider.
+/// </summary>
+[ByRefEvent]
+public record struct BodyRelayedEvent<TEvent>(TEvent Args)
+{
+    /// <summary>
+    /// This is the component to which the event was relayed.
+    /// </summary>
+    public BodyProviderComponent Provider;
+}
 
-    protected void RelayEventToOrgans<T>(Entity<BodyComponent> body, ref T args) where T : struct
-    {
-        var ev = new OrganRelayedEvent<T>(body, args);
-        foreach (var organ in GetOrgans(body.AsNullable()))
-            RaiseLocalEvent(organ, ref ev);
-        args = ev.Args;
-    }
-
-    protected void RelayEventToOrgans<T>(EntityUid uid, BodyComponent component, T args) where T : class
-    {
-        var ev = new OrganRelayedEvent<T>((uid, component), args);
-        foreach (var organ in GetOrgans((uid, component)))
-            RaiseLocalEvent(organ, ref ev);
-    }
-
-    protected void RelayEventToAll<T>(Entity<BodyComponent> body, ref T args) where T : struct
-    {
-        RelayEventToBodyParts(body, ref args);
-        RelayEventToBones(body, ref args);
-        RelayEventToOrgans(body, ref args);
-    }
-
-    protected void RelayEventToAll<T>(EntityUid uid, BodyComponent component, T args) where T : class
-    {
-        RelayEventToBodyParts(uid, component, args);
-        RelayEventToBones(uid, component, args);
-        RelayEventToOrgans(uid, component, args);
-    }
+/// <summary>
+/// Events that should be relayed to body providers should implement this interface.
+/// </summary>
+public interface IBodyRelayEvent
+{
+    /// <summary>
+    /// What body providers should this event be relayed to.
+    /// </summary>
+    public BodyProviderType Type { get; }
 }

@@ -1,4 +1,3 @@
-using Content.Shared._White.Body.Components;
 using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
 
@@ -18,12 +17,4 @@ public sealed partial class DamageContactsComponent : Component
     /// </summary>
     [DataField("ignoreWhitelist")]
     public EntityWhitelist? IgnoreWhitelist;
-
-    // WD EDIT START
-    /// <summary>
-    /// The body part that will be damaged.
-    /// </summary>
-    [DataField]
-    public BodyPartType BodyPartType = BodyPartType.All;
-    // WD EDIT END
 }

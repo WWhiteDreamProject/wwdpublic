@@ -7,8 +7,8 @@ using Content.Server.Destructible.Thresholds.Behaviors;
 using Content.Server.Destructible.Thresholds.Triggers;
 using Content.Server.Power.EntitySystems;
 using Content.Server.StationRecords;
+using Content.Shared._White.Damage.Components;
 using Content.Shared.Chemistry.EntitySystems;
-using Content.Shared.Damage;
 using Content.Shared.Delivery;
 using Content.Shared.EntityTable;
 using Content.Shared.Fluids.Components;
@@ -215,7 +215,7 @@ public sealed partial class DeliverySystem
 
         // It might be made of non-reinforced glass.
         if (TryComp<DamageableComponent>(uid, out var damageableComponent)
-            && damageableComponent.DamageModifierSetId == "Glass")
+            && damageableComponent.DamageModifierSet == "Glass")
             return true;
 
         // Fallback: It breaks or is destroyed in less than a damage

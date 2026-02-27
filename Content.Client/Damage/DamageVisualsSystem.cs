@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared._White.Damage.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.FixedPoint;
@@ -149,8 +150,8 @@ public sealed class DamageVisualsSystem : VisualizerSystem<DamageVisualsComponen
 
         // If the damage container on our entity's DamageableComponent
         // is not null, we can try to check through its groups.
-        if (damageComponent.DamageContainerID != null
-            && _prototypeManager.TryIndex<DamageContainerPrototype>(damageComponent.DamageContainerID, out var damageContainer))
+        if (damageComponent.DamageContainer != null // WD EDIT
+            && _prototypeManager.TryIndex(damageComponent.DamageContainer, out var damageContainer)) // WD EDIT
         {
             // Are we using damage overlay sprites by group?
             // Check if the container matches the supported groups,

@@ -1,6 +1,6 @@
 using Content.Shared._White.Body.Components;
-using Content.Shared.Humanoid.Markings;
-using Content.Shared.Inventory;
+using Content.Shared._White.Humanoid.Markings;
+using Content.Shared.DragDrop;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 
@@ -8,28 +8,21 @@ namespace Content.Shared._White.Body.Systems;
 
 public abstract partial class SharedBodySystem : EntitySystem
 {
-    /// <summary>
-    /// Container ID prefix for any organs.
-    /// </summary>
-    public const string OrganSlotContainerIdPrefix = "organ_slot_";
-
-    /// <summary>
-    /// Container ID prefix for any body parts.
-    /// </summary>
-    public const string BodyPartSlotContainerIdPrefix = "body_part_slot_";
-
-    /// <summary>
-    /// Container ID prefix for any bones.
-    /// </summary>
-    public const string BoneSlotContainerIdPrefix = "bone_slot_";
-
     [Dependency] private readonly MarkingManager _marking = default!;
     [Dependency] protected new readonly IPrototypeManager Prototype = default!;
 
-    [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     private ISawmill _sawmill = default!;
+
+    private EntityQuery<BodyComponent> _bodyQuery;
+    private EntityQuery<BodyProviderComponent> _providerQuery;
+
+    /// <summary>
+    /// Container ID prefix for any body provider.
+    /// </summary>
+    public const string ProviderSlotContainerIdPrefix = "body_provider_slot_";
 
     public override void Initialize()
     {
@@ -37,146 +30,92 @@ public abstract partial class SharedBodySystem : EntitySystem
 
         _sawmill = Logger.GetSawmill("body");
 
+        SubscribeLocalEvent<BodyComponent, CanDragEvent>(OnCanDrag);
+        SubscribeLocalEvent<BodyComponent, MapInitEvent>(OnMapInit);
+
         InitializeAppearance();
-        InitializeBody();
-        InitializeBodyPart();
-        InitializeBone();
-        InitializeOrgan();
+        InitializeProvider();
         InitializeRelay();
+
+        _bodyQuery = GetEntityQuery<BodyComponent>();
+        _providerQuery = GetEntityQuery<BodyProviderComponent>();
     }
+
+    #region Event Handling
+
+    private void OnCanDrag(Entity<BodyComponent> ent, ref CanDragEvent args)
+    {
+        args.Handled = true;
+    }
+
+    private void OnMapInit(Entity<BodyComponent> body, ref MapInitEvent args)
+    {
+        SetupProvider(body.Comp.RootProvider, body, body, body.Comp.RootProviderId);
+    }
+
+    #endregion
+
+    #region Public API
 
     /// <summary>
     /// Gets the container id for the specified slotId.
     /// </summary>
-    public static string GetBodyPartSlotContainerId(string slotId) => BodyPartSlotContainerIdPrefix + slotId;
+    public static string GetProviderSlotContainerId(string slotId)
+    {
+        return ProviderSlotContainerIdPrefix + slotId;
+    }
 
     /// <summary>
     /// Gets the slot id for the specified container id.
     /// </summary>
-    public string GetBodyPartSlotId(string containerSlotId)
+    public string GetProviderSlotId(string containerSlotId)
     {
-        var slotIndex = containerSlotId.IndexOf(BodyPartSlotContainerIdPrefix, StringComparison.Ordinal);
+        var slotIndex = containerSlotId.IndexOf(ProviderSlotContainerIdPrefix, StringComparison.Ordinal);
 
-        if (slotIndex < 0)
-            return string.Empty;
-
-        return containerSlotId.Remove(slotIndex, BodyPartSlotContainerIdPrefix.Length);
+        return slotIndex < 0 ? string.Empty : containerSlotId.Remove(slotIndex, ProviderSlotContainerIdPrefix.Length);
     }
 
-    /// <summary>
-    /// Gets the container id for the specified slotId.
-    /// </summary>
-    public static string GetOrganContainerId(string slotId) => OrganSlotContainerIdPrefix + slotId;
-
-    /// <summary>
-    /// Gets the slot id for the specified container id.
-    /// </summary>
-    public string GetOrganSlotId(string containerSlotId)
-    {
-        var slotIndex = containerSlotId.IndexOf(OrganSlotContainerIdPrefix, StringComparison.Ordinal);
-
-        if (slotIndex < 0)
-            return string.Empty;
-
-        return containerSlotId.Remove(slotIndex, OrganSlotContainerIdPrefix.Length);
-    }
-
-    /// <summary>
-    /// Gets the container id for the specified slotId.
-    /// </summary>
-    public static string GetBoneContainerId(string slotId) => BoneSlotContainerIdPrefix + slotId;
-
-    /// <summary>
-    /// Gets the slot id for the specified container id.
-    /// </summary>
-    public string GetBoneSlotId(string containerSlotId)
-    {
-        var slotIndex = containerSlotId.IndexOf(BoneSlotContainerIdPrefix, StringComparison.Ordinal);
-
-        if (slotIndex < 0)
-            return string.Empty;
-
-        return containerSlotId.Remove(slotIndex, BoneSlotContainerIdPrefix.Length);
-    }
+    #endregion
 }
 
 /// <summary>
-/// Raised on an organ after its toggled.
-/// </summary>
-public record struct AfterOrganToggledEvent(bool Enable);
-
-/// <summary>
-/// An event wrapper for passing events related to body parts.
+/// Event raised on body provider entity, when it is inserted into a body.
 /// </summary>
 [ByRefEvent]
-public record struct BodyPartRelayedEvent<TEvent>(Entity<BodyComponent> Body, TEvent Args);
+public readonly record struct BodyProviderGotInsertedEvent(EntityUid Body);
 
 /// <summary>
-/// An event wrapper for passing events related to bones.
+/// Event raised on body provider entity, when it is inserted into a parent.
 /// </summary>
 [ByRefEvent]
-public record struct BoneRelayedEvent<TEvent>(Entity<BodyComponent> Body, TEvent Args);
+public readonly record struct BodyProviderGotInsertedIntoParentEvent(EntityUid Parent);
 
 /// <summary>
-/// An event wrapper for passing events related to organs.
+/// Event raised on body provider entity, when it is removed from a body.
 /// </summary>
 [ByRefEvent]
-public record struct OrganRelayedEvent<TEvent>(Entity<BodyComponent> Body, TEvent Args);
+public readonly record struct BodyProviderGotRemovedEvent(EntityUid Body);
 
 /// <summary>
-/// Raised when a body part is attached to body.
+/// Event raised on body provider entity, when it is removed from a parent.
 /// </summary>
-/// <param name="Part">The attached body part.</param>
-/// <param name="Body">The body to which the body part was attached.</param>
-/// <param name="SlotId">Container ID of Part.</param>
-public readonly record struct BodyPartAddedEvent(
-    Entity<BodyPartComponent> Part,
-    Entity<BodyComponent>? Body,
-    EntityUid Parent,
-    string SlotId);
+[ByRefEvent]
+public readonly record struct BodyProviderGotRemovedFromParentEvent(EntityUid Parent);
 
 /// <summary>
-/// Raised when a body part is detached from body.
+/// Event raised on body entity, when a body provider is inserted into it.
 /// </summary>
-/// <param name="Part">The detached body part.</param>
-/// <param name="Body">The body from which the body part was detached.</param>
-/// <param name="SlotId">Container ID of Part.</param>
-public readonly record struct BodyPartRemovedEvent(
-    Entity<BodyPartComponent> Part,
-    Entity<BodyComponent>? Body,
-    EntityUid Parent,
-    string SlotId);
-
-public readonly record struct BoneAddedEvent(
-    Entity<BoneComponent> Bone,
-    Entity<BodyComponent>? Body,
-    EntityUid Parent,
-    string SlotId);
-
-public readonly record struct BoneRemovedEvent(
-    Entity<BoneComponent> Bone,
-    Entity<BodyComponent>? Body,
-    EntityUid Parent,
-    string SlotId);
+[ByRefEvent]
+public readonly record struct BodyProviderInsertedIntoEvent(EntityUid Provider);
 
 /// <summary>
-/// Raised when an organ attaches to body.
+/// Event raised on body entity, when a body provider is removed from it.
 /// </summary>
-/// <param name="Body">The body to which the organ is attached.</param>
-/// <param name="Parent">The parent to which the organ is attached.</param>
-public readonly record struct OrganAddedEvent(
-    Entity<OrganComponent> Organ,
-    Entity<BodyComponent>? Body,
-    EntityUid Parent,
-    string SlotId);
+[ByRefEvent]
+public readonly record struct BodyProviderRemovedFromEvent(EntityUid Provider);
 
 /// <summary>
-/// Raised when an organ detaches from body.
+/// Event raised on body entity, when an organ/body part/bone is having its appearance copied to it.
 /// </summary>
-/// <param name="Body">The body from which the organ is detached.</param>
-/// <param name="Parent">The parent from which the organ is detached.</param>
-public readonly record struct OrganRemovedEvent(
-    Entity<OrganComponent> Organ,
-    Entity<BodyComponent>? Body,
-    EntityUid Parent,
-    string SlotId);
+[ByRefEvent]
+public readonly record struct BodyCopyAppearanceEvent(EntityUid Provider);

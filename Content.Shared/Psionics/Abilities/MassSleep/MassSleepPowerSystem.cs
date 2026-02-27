@@ -1,5 +1,5 @@
+using Content.Shared._White.Damage.Components;
 using Content.Shared.Bed.Sleep;
-using Content.Shared.Damage;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Actions.Events;
 
@@ -26,7 +26,7 @@ namespace Content.Shared.Abilities.Psionics
             {
                 if (HasComp<MobStateComponent>(entity) && entity != uid && !HasComp<PsionicInsulationComponent>(entity))
                 {
-                    if (TryComp<DamageableComponent>(entity, out var damageable) && damageable.DamageContainerID == "Biological")
+                    if (TryComp<DamageableComponent>(entity, out var damageable) && damageable.DamageContainer == "Biological")
                         EnsureComp<SleepingComponent>(entity);
                 }
             }

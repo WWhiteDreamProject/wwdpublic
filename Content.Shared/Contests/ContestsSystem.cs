@@ -1,6 +1,6 @@
+using Content.Shared._White.Damage.Components;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.CCVar;
-using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;

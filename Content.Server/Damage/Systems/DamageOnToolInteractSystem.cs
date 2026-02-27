@@ -1,6 +1,6 @@
 using Content.Server.Administration.Logs;
 using Content.Server.Damage.Components;
-using Content.Shared.Damage;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Database;
 using Content.Shared.Interaction;
 using Content.Shared.Tools.Components;
@@ -35,7 +35,7 @@ namespace Content.Server.Damage.Systems
             && itemToggle.Activated
             && !welder.TankSafe)
             {
-                var dmg = _damageableSystem.TryChangeDamage(args.Target, weldingDamage, origin: args.User);
+                var dmg = _damageableSystem.ChangeDamage(args.Target, weldingDamage, origin: args.User); // WD EDIT
 
                 if (dmg != null)
                     _adminLogger.Add(LogType.Damaged,
@@ -46,7 +46,7 @@ namespace Content.Server.Damage.Systems
             else if (component.DefaultDamage is {} damage
                 && _toolSystem.HasQuality(args.Used, component.Tools))
             {
-                var dmg = _damageableSystem.TryChangeDamage(args.Target, damage, origin: args.User);
+                var dmg = _damageableSystem.ChangeDamage(args.Target, damage, origin: args.User); // WD EDIT
 
                 if (dmg != null)
                     _adminLogger.Add(LogType.Damaged,

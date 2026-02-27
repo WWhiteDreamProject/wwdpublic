@@ -1,3 +1,5 @@
+using Content.Shared._White.Damage.Components;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Damage.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Mobs.Components;
@@ -47,7 +49,7 @@ public sealed class PassiveDamageSystem : EntitySystem
             foreach (var allowedState in comp.AllowedStates)
             {
                 if(allowedState == mobState.CurrentState)
-                    _damageable.TryChangeDamage(uid, comp.Damage, true, false, damage, bodyPartType: comp.BodyPartType); // WD EDIT
+                    _damageable.ChangeDamage((uid, damage), comp.Damage, true, false); // WD EDIT
             }
         }
     }

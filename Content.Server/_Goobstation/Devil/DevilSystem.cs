@@ -10,7 +10,6 @@ using Content.Server._Goobstation.Devil.Contract;
 using Content.Server._Goobstation.Devil.Objectives.Components;
 using Content.Server._Goobstation.Possession;
 using Content.Server._White.Body.Systems;
-using Content.Shared._Goobstation.Bible;
 using Content.Shared._Goobstation.CheatDeath;
 using Content.Shared._Goobstation.CrematorImmune;
 using Content.Shared._Goobstation.Devil;
@@ -21,7 +20,6 @@ using Content.Server.Actions;
 using Content.Server.Administration.Systems;
 using Content.Server.Atmos.Components;
 using Content.Server.Bible.Components;
-using Content.Server.Chat.Systems;
 using Content.Server.Destructible;
 using Content.Server.Hands.Systems;
 using Content.Server.Jittering;
@@ -33,24 +31,21 @@ using Content.Server.Speech.Components;
 using Content.Server.Stunnable;
 using Content.Server.Temperature.Components;
 using Content.Server.Zombies;
+using Content.Shared._White.Damage.Components;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Silicon.Components;
 using Content.Shared.Actions;
 using Content.Shared.CombatMode;
-using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
 using Content.Shared.IdentityManagement.Components;
-using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition.Components;
-using Content.Shared.Polymorph;
 using Content.Shared.Popups;
-using Content.Shared.Silicon.Components;
 using Content.Shared.Temperature.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -124,7 +119,7 @@ public sealed partial class DevilSystem : EntitySystem
 
         // Change damage modifier
         if (TryComp<DamageableComponent>(devil, out var damageableComp))
-            _damageable.SetDamageModifierSetId(devil, devil.Comp.DevilDamageModifierSet, damageableComp);
+            _damageable.SetDamageModifierSet((devil, damageableComp), devil.Comp.DevilDamageModifierSet); // WD EDIT
 
         // Add base actions
         foreach (var actionId in devil.Comp.BaseDevilActions)
@@ -221,7 +216,7 @@ public sealed partial class DevilSystem : EntitySystem
 
         if (HasComp<BibleUserComponent>(args.Source))
         {
-            _damageable.TryChangeDamage(devil, devil.Comp.DamageOnTrueName * devil.Comp.BibleUserDamageMultiplier, true);
+            _damageable.TryChangeDamage(devil.Owner, devil.Comp.DamageOnTrueName * devil.Comp.BibleUserDamageMultiplier, true); // WD EDIT
             _stun.TryParalyze(devil, devil.Comp.ParalyzeDurationOnTrueName * devil.Comp.BibleUserDamageMultiplier, false);
 
             var popup = Loc.GetString("devil-true-name-heard-chaplain", ("speaker", args.Source), ("target", devil));
@@ -230,7 +225,7 @@ public sealed partial class DevilSystem : EntitySystem
         else
         {
             _stun.TryParalyze(devil, devil.Comp.ParalyzeDurationOnTrueName, false);
-            _damageable.TryChangeDamage(devil, devil.Comp.DamageOnTrueName, true);
+            _damageable.TryChangeDamage(devil.Owner, devil.Comp.DamageOnTrueName, true); // WD EDIT
 
             var popup = Loc.GetString("devil-true-name-heard", ("speaker", args.Source), ("target", devil));
             _popup.PopupEntity(popup, devil, PopupType.LargeCaution);

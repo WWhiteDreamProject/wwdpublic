@@ -1,3 +1,4 @@
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Damage.Components;
 using Content.Shared.Whitelist;
 using Robust.Shared.Physics.Components;
@@ -34,7 +35,7 @@ public sealed class DamageContactsSystem : EntitySystem
             damaged.NextSecond = _timing.CurTime + TimeSpan.FromSeconds(1);
 
             if (damaged.Damage != null)
-                _damageable.TryChangeDamage(ent, damaged.Damage, interruptsDoAfters: false, bodyPartType:damaged.BodyPartType); // WD EDIT
+                _damageable.TryChangeDamage(ent, damaged.Damage, interruptsDoAfters: false);
         }
     }
 
@@ -70,6 +71,5 @@ public sealed class DamageContactsSystem : EntitySystem
 
         var damagedByContact = EnsureComp<DamagedByContactComponent>(otherUid);
         damagedByContact.Damage = component.Damage;
-        damagedByContact.BodyPartType = component.BodyPartType; // WD EDIT
     }
 }

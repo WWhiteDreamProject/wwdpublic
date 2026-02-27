@@ -1,4 +1,5 @@
 using Content.Shared._White.Move;
+using Content.Shared._White.Nutrition.Systems;
 using Content.Shared.Camera;
 using Content.Shared.Hands.Components;
 using Content.Shared.Movement.Systems;
@@ -12,7 +13,10 @@ public abstract partial class SharedHandsSystem
         SubscribeLocalEvent<HandsComponent, GetEyeOffsetRelayedEvent>(RelayEvent);
         SubscribeLocalEvent<HandsComponent, GetEyePvsScaleRelayedEvent>(RelayEvent);
         SubscribeLocalEvent<HandsComponent, RefreshMovementSpeedModifiersEvent>(RelayEvent);
+        // WD EDIT START
+        SubscribeLocalEvent<HandsComponent, GetUtensilEvent>(RelayEvent);
         SubscribeLocalEvent<HandsComponent, MoveEventProxy>(RelayEvent);
+        // WD EDIT END
     }
 
     private void RelayEvent<T>(Entity<HandsComponent> entity, ref T args) where T : notnull // WD EDIT

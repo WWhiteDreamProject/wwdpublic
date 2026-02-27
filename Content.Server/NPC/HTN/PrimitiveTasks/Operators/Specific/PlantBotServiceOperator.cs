@@ -1,8 +1,8 @@
 using Content.Server.Botany.Components;
 using Content.Server.Botany.Systems;
 using Content.Server.Chat.Systems;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Chat;
-using Content.Shared.Damage;
 using Content.Shared.Emag.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;

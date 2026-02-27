@@ -1,6 +1,6 @@
 using Content.Server.Destructible.Thresholds.Behaviors;
 using Content.Server.Destructible.Thresholds.Triggers;
-using Content.Shared.Damage;
+using Content.Shared._White.Damage.Components;
 
 namespace Content.Server.Destructible.Thresholds
 {

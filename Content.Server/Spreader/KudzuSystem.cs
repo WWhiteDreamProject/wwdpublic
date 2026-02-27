@@ -1,4 +1,5 @@
-using Content.Shared.Damage;
+using Content.Shared._White.Damage.Components;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Spreader;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;

@@ -8,8 +8,10 @@ namespace Content.Shared._White.Particles.Systems;
 
 public sealed partial class ParticleSystem
 {
-    private void InitializeLiquid() =>
+    private void InitializeLiquid()
+    {
         SubscribeLocalEvent<LiquidParticleComponent, AfterParticleLandedEvent>(OnLiquidAfterParticleLanded);
+    }
 
     private void OnLiquidAfterParticleLanded(Entity<LiquidParticleComponent> ent, ref AfterParticleLandedEvent args)
     {

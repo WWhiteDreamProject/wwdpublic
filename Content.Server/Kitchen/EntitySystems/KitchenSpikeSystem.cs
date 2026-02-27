@@ -1,9 +1,9 @@
 using Content.Server.Administration.Logs;
 using Content.Server.Kitchen.Components;
 using Content.Server.Popups;
+using Content.Shared._White.Damage.Components;
 using Content.Shared._White.Gibbing;
 using Content.Shared.Chat;
-using Content.Shared.Damage;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
 using Content.Shared.DragDrop;

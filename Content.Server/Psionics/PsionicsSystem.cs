@@ -17,15 +17,14 @@ using Content.Shared.Popups;
 using Content.Shared.Chat;
 using Robust.Server.Player;
 using Content.Server.Chat.Managers;
+using Content.Shared._White.Damage.Systems;
 using Robust.Shared.Prototypes;
 using Content.Shared.Mobs;
-using Content.Shared.Damage;
 using Content.Shared.Interaction.Events;
 using Timer = Robust.Shared.Timing.Timer;
 using Content.Shared.Alert;
 using Content.Shared.NPC.Components;
 using Content.Shared.NPC.Systems;
-using Content.Shared.Rounding;
 
 namespace Content.Server.Psionics;
 
@@ -220,9 +219,9 @@ public sealed class PsionicsSystem : EntitySystem
 
         if (component.Potentia < component.NextPowerCost)
             return false;
-        
+
         const float maxPowerCost = 800f; //wwdp edit
-        
+
         while (component.Potentia >= component.NextPowerCost)
         {
             component.Potentia -= component.NextPowerCost;

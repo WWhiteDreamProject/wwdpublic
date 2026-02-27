@@ -1,6 +1,7 @@
+using Content.Shared._White.Damage.Components;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared._White.Overlays;
 using Content.Shared.CCVar;
-using Content.Shared.Damage;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
@@ -116,9 +117,9 @@ public sealed class CRTVisionSystem : EntitySystem
             return;
 
         // Check if it was damage and not healing
-        if (args is { DamageIncreased: true, DamageDelta: not null, })
+        if (args is { DamageIncreased: true })
         {
-            var damageAmount = (float) args.DamageDelta.GetTotal();
+            var damageAmount = (float) args.Damage.GetTotal();
             TriggerImpactEffect(damageAmount);
         }
 

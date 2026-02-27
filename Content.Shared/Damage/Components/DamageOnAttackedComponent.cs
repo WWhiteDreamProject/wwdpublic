@@ -1,4 +1,3 @@
-using Content.Shared._White.Body.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
@@ -45,12 +44,4 @@ public sealed partial class DamageOnAttackedComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool IsDamageActive = true;
-
-    // WD EDIT START
-    /// <summary>
-    /// The body part that will be damaged
-    /// </summary>
-    [DataField]
-    public BodyPartType BodyPartType = BodyPartType.Hands;
-    // WD EDIT END
 }

@@ -1,20 +1,17 @@
 using Content.Server.Storage.Components;
 using Content.Server.Storage.EntitySystems;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Access.Components;
 using Content.Shared.CardboardBox;
 using Content.Shared.CardboardBox.Components;
-using Content.Shared.Damage;
 using Content.Shared.Interaction;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Stealth;
 using Content.Shared.Stealth.Components;
 using Content.Shared.Storage.Components;
-using Robust.Server.GameObjects;
-using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
-using Robust.Shared.Player;
 using Robust.Shared.Timing;
 
 namespace Content.Server.CardboardBox;
@@ -109,10 +106,12 @@ public sealed class CardboardBoxSystem : SharedCardboardBoxSystem
     //Relay damage to the mover
     private void OnDamage(EntityUid uid, CardboardBoxComponent component, DamageChangedEvent args)
     {
-        if (args.DamageDelta != null && args.DamageIncreased)
-        {
-            _damageable.TryChangeDamage(component.Mover, args.DamageDelta, origin: args.Origin);
-        }
+        // WD EDIT START
+        if (!component.Mover.HasValue || !args.DamageIncreased)
+            return;
+
+        _damageable.TryChangeDamage(component.Mover.Value, args.Damage, origin: args.Origin);
+        // WD EDIT END
     }
 
     private void OnEntInserted(EntityUid uid, CardboardBoxComponent component, EntInsertedIntoContainerMessage args)

@@ -1,6 +1,7 @@
+using Content.Shared._White.Damage.Components;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
-using Content.Shared.Damage;
 using Content.Shared.Database;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
@@ -136,7 +137,7 @@ public abstract partial class SharedDeployableTurretSystem : EntitySystem
         {
             var damageSetID = ent.Comp.Enabled ? ent.Comp.DeployedDamageModifierSetId : ent.Comp.RetractedDamageModifierSetId;
             if (damageSetID.HasValue)
-                _damageable.SetDamageModifierSetId(ent, damageSetID, damageable);
+                _damageable.SetDamageModifierSet((ent, damageable), damageSetID); // WD EDIT
         }
 
         // Change the turret's fixtures

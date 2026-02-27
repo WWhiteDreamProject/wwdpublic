@@ -90,7 +90,7 @@ public sealed partial class HandsComponent : Component
 }
 
 [DataDefinition, Serializable, NetSerializable] // WD EDIT
-public sealed partial class Hand // WD EDIT
+public partial record struct Hand
 {
     // WD EDIT START
     [DataField]

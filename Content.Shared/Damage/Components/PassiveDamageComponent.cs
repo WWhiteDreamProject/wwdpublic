@@ -1,4 +1,3 @@
-using Content.Shared._White.Body.Components;
 using Content.Shared.Mobs;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
@@ -38,12 +37,4 @@ public sealed partial class PassiveDamageComponent : Component
 
     [DataField("nextDamage", customTypeSerializer: typeof(TimeOffsetSerializer)), ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public TimeSpan NextDamage = TimeSpan.Zero;
-
-    // WD EDIT START
-    /// <summary>
-    /// The body part that will be damaged
-    /// </summary>
-    [DataField]
-    public BodyPartType BodyPartType = BodyPartType.All;
-    // WD EDIT END
 }

@@ -4,8 +4,7 @@ using Content.Server.Popups;
 using Content.Shared._White.BloodCult;
 using Content.Shared._White.BloodCult.BloodCultist;
 using Content.Shared._White.BloodCult.Components;
-using Content.Shared._White.BloodCult.Construct;
-using Content.Shared.Damage;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Interaction;
@@ -17,7 +16,6 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
-using Robust.Shared.Player;
 using Robust.Shared.Random;
 
 namespace Content.Server._White.BloodCult.Pylon;
@@ -132,7 +130,7 @@ public sealed class PylonSystem : EntitySystem
         foreach (var target in targets)
         {
             if (HasComp<BloodCultistComponent>(target) && !_mobState.IsDead(target))
-                _damageable.TryChangeDamage(target, pylon.Comp.Healing, true);
+                _damageable.TryChangeDamage(target.Owner, pylon.Comp.Healing, true);
         }
     }
 }

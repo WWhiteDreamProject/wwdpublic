@@ -1,0 +1,6 @@
+- type: skinColoration
+  id: AnimalFur
+  strategy: !type:ClampedHsvColoration
+    hue: [0.056, 0.167]
+    saturation: [0, 1]
+    value: [0, 1]

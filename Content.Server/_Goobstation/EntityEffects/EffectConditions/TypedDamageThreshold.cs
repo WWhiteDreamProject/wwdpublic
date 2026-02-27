@@ -1,3 +1,4 @@
+using Content.Shared._White.Damage.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.EntityEffects;

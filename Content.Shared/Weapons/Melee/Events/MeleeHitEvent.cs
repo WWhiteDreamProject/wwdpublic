@@ -60,9 +60,9 @@ public sealed class MeleeHitEvent : HandledEntityEventArgs
 
     // WD EDIT START
     /// <summary>
-    /// The part of the body that was struck.
+    /// The provider of the body that was struck.
     /// </summary>
-    public readonly BodyPartType BodyPartType;
+    public readonly BodyProviderType BodyProviderType;
     // WD EDIT END
 
     /// <summary>
@@ -74,14 +74,14 @@ public sealed class MeleeHitEvent : HandledEntityEventArgs
     /// </remarks>
     public bool IsHit = true;
 
-    public MeleeHitEvent(List<EntityUid> hitEntities, EntityUid user, EntityUid weapon, DamageSpecifier baseDamage, Vector2? direction, BodyPartType bodyPartType) // WD EDIT
+    public MeleeHitEvent(List<EntityUid> hitEntities, EntityUid user, EntityUid weapon, DamageSpecifier baseDamage, Vector2? direction, BodyProviderType bodyProviderType) // WD EDIT
     {
         HitEntities = hitEntities;
         User = user;
         Weapon = weapon;
         BaseDamage = baseDamage;
         Direction = direction;
-        BodyPartType = bodyPartType; // WD EDIT
+        BodyProviderType = bodyProviderType; // WD EDIT
     }
 }
 

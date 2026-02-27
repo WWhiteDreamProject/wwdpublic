@@ -8,5 +8,5 @@ namespace Content.Shared._White.TargetDoll;
 public sealed partial class TargetDollComponent : Component
 {
     [ViewVariables, AutoNetworkedField]
-    public BodyPartType SelectedBodyPartType = BodyPartType.Chest;
+    public BodyProviderType SelectedProvider = BodyProviderType.Chest;
 }

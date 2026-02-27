@@ -18,11 +18,10 @@ using Content.Server._Imp.Drone;
 using Content.Server._White.Body.Systems;
 using Content.Server.Hands.Systems;
 using Content.Server.Implants;
-using Content.Server.Paper;
 using Content.Server.Polymorph.Systems;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Changeling;
 using Content.Shared.Silicon.Components;
-using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.Paper;
@@ -346,7 +345,7 @@ public sealed partial class DevilContractSystem : EntitySystem
         if (clause.DamageModifierSet == null)
             return;
 
-        _damageable.SetDamageModifierSetId(target, clause.DamageModifierSet); // todo - refactor this shit to use a comp, because modifiers suck bad
+        _damageable.SetDamageModifierSet(target, clause.DamageModifierSet); // WD EDIT: todo - refactor this shit to use a comp, because modifiers suck bad
         _sawmill.Debug($"Changed {ToPrettyString(target)} modifier set to {clause.DamageModifierSet}");
     }
 

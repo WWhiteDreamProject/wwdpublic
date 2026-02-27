@@ -2,7 +2,7 @@
 using Content.Server.Damage.Components;
 using Content.Server.Destructible;
 using Content.Server.Destructible.Thresholds.Triggers;
-using Content.Shared.Damage;
+using Content.Shared._White.Damage.Components;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Examine;
 using Content.Shared.Rounding;

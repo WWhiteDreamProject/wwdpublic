@@ -1,7 +1,8 @@
 using Content.Server._White.Body.Bloodstream.Systems;
 using Content.Server._White.Melee.Crit;
 using Content.Server._White.Other.BloodLust;
-using Content.Shared._White.Body.Bloodstream.Components;
+using Content.Shared._White.Bloodstream.Components;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Weapons.Melee.Events;
@@ -39,7 +40,7 @@ public sealed class BloodAbsorbSystem : EntitySystem
             if (!TryComp(target, out BloodstreamComponent? bloodstream))
                 continue;
 
-            var blood = bloodstream.BloodSolution;
+            var blood = bloodstream.Solution;
 
             if (blood == null)
                 continue;
@@ -66,6 +67,6 @@ public sealed class BloodAbsorbSystem : EntitySystem
             return;
 
         EnsureComp<BloodLustComponent>(args.User);
-        _bloodstream.TryModifyBleedAmount((args.User, bloodstream), bloodstream.MaximumBleeding);
+        _bloodstream.TryModifyBleedAmount((args.User, bloodstream), bloodstream.MaxBleeding);
     }
 }

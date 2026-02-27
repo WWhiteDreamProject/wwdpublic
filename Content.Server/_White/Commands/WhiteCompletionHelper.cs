@@ -11,5 +11,8 @@ public static class WhiteCompletionHelper
     /// <summary>
     /// Returns the enum as completion options.
     /// </summary>
-    public static IEnumerable<CompletionOption> Emuns(Type type) => Enum.GetNames(type).Select(name => new CompletionOption(name));
+    public static IEnumerable<CompletionOption> Emuns(Type type)
+    {
+        return Enum.GetNames(type).Select(name => new CompletionOption(name));
+    }
 }

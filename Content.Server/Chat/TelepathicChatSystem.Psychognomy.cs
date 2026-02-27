@@ -1,5 +1,4 @@
 using Content.Shared.Humanoid;
-using Content.Shared.Damage;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Physics;
 using Content.Shared.Speech;
@@ -12,6 +11,7 @@ using Content.Shared.Abilities.Psionics;
 using Content.Server.Abilities.Psionics;
 using Content.Server.Cloning.Components;
 using Content.Server.Psionics.Glimmer;
+using Content.Shared._White.Damage.Components;
 using Robust.Shared.GameObjects.Components.Localization;
 using Robust.Shared.Enums;
 using Robust.Shared.Physics;
@@ -63,7 +63,7 @@ public sealed partial class TelepathicChatSystem
 
     private void DescribeDamage(EntityUid uid, DamageableComponent component, GetPsychognomicDescriptorEvent ev)
     {
-        if (component.DamageContainerID == "CorporealSpirit")
+        if (component.DamageContainer == "CorporealSpirit")
         {
             ev.Descriptors.Add(Loc.GetString("p-descriptor-liminal"));
             if (!HasComp<HumanoidAppearanceComponent>(uid))

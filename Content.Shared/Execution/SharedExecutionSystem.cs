@@ -1,3 +1,4 @@
+using Content.Shared._White.Damage.Components;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Chat;
 using Content.Shared.CombatMode;

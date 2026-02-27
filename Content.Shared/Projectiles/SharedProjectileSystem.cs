@@ -355,7 +355,7 @@ public record struct ProjectileReflectAttemptEvent(EntityUid ProjUid, Projectile
 /// Raised when a projectile hits an entity
 /// </summary>
 [ByRefEvent]
-public record struct ProjectileHitEvent(DamageSpecifier Damage, EntityUid Target, EntityUid? Shooter = null, BodyPartType BodyPartType = BodyPartType.None); // WD EDIT
+public record struct ProjectileHitEvent(DamageSpecifier Damage, EntityUid Target, EntityUid? Shooter = null, BodyProviderType BodyProviderType = BodyProviderType.None); // WD EDIT
 
 /// <summary>
 /// Raised after a projectile has dealt it's damage.

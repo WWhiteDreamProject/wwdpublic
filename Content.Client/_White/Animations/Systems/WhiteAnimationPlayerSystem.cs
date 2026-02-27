@@ -99,6 +99,7 @@ public sealed class WhiteAnimationPlayerSystem : SharedWhiteAnimationPlayerSyste
 
         _animations = animations.ToFrozenDictionary();
     }
+
     #endregion
 
     #region Private API

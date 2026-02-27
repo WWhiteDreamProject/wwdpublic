@@ -4,13 +4,12 @@ using Content.Shared.Speech;
 using Content.Shared.Stealth.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs;
-using Content.Shared.Damage;
 using Content.Server.Mind;
 using Content.Shared.Mobs.Systems;
 using Content.Server.Popups;
 using Content.Shared.Psionics;
-using Content.Server.GameTicking;
 using Content.Server.Ghost;
+using Content.Shared._White.Damage.Components;
 using Content.Shared.Mind;
 using Content.Shared.Actions.Events;
 
@@ -40,7 +39,7 @@ namespace Content.Server.Abilities.Psionics
         private void OnPowerUsed(MindSwapPowerActionEvent args)
         {
             if (!_psionics.OnAttemptPowerUse(args.Performer, args.Target, "mind swap", true)
-                || !(TryComp<DamageableComponent>(args.Target, out var damageable) && damageable.DamageContainerID == "Biological"))
+                || !(TryComp<DamageableComponent>(args.Target, out var damageable) && damageable.DamageContainer == "Biological"))
                 return;
 
             Swap(args.Performer, args.Target);

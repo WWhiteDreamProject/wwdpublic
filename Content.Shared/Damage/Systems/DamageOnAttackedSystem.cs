@@ -1,3 +1,4 @@
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Damage.Components;
 using Content.Shared.Database;
@@ -67,15 +68,13 @@ public sealed class DamageOnAttackedSystem : EntitySystem
             }
 
             // if comp is NOT NULL that means they have damage protection!
-            if (protectiveEntity.Comp != null && protectiveEntity.Comp.BodyPartType.HasFlag(entity.Comp.BodyPartType)) // WD EDIT
+            if (protectiveEntity.Comp != null)
             {
                 totalDamage = DamageSpecifier.ApplyModifierSet(totalDamage, protectiveEntity.Comp.DamageProtection);
             }
         }
 
-        totalDamage = _damageableSystem.TryChangeDamage(args.User, totalDamage, entity.Comp.IgnoreResistances, origin: entity, bodyPartType: entity.Comp.BodyPartType); // WD EDIT
-
-        if (totalDamage != null && totalDamage.AnyPositive())
+        if (_damageableSystem.TryChangeDamage(args.User, totalDamage, out totalDamage,  entity.Comp.IgnoreResistances, origin: entity) && totalDamage.AnyPositive()) // WD EDIT
         {
             _adminLogger.Add(LogType.Damaged, $"{ToPrettyString(args.User):user} injured themselves by attacking {ToPrettyString(entity):target} and received {totalDamage.GetTotal():damage} damage");
             _audioSystem.PlayPredicted(entity.Comp.InteractSound, entity, args.User);

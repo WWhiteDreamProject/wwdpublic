@@ -14,8 +14,8 @@ using Content.Server.Atmos.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Server.Popups;
 using Content.Server.DoAfter;
-using Content.Shared._White.Body.Bloodstream.Components;
-using Content.Shared._White.Body.Components;
+using Content.Shared._White.Bloodstream.Components;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.HealthExaminable;
 using Content.Shared.Nutrition.Components;
 using Robust.Shared.Prototypes;
@@ -126,7 +126,7 @@ namespace Content.Server.Vampiric
                 }
             }
 
-            if (stream.BloodReagent != "Blood")
+            if (stream.Reagent != "Blood")
                 _popups.PopupEntity(Loc.GetString("bloodsucker-not-blood", ("target", victim)), victim, bloodsucker, Shared.Popups.PopupType.Medium);
             else if (_solutionSystem.PercentFull(victim) != 0)
                 _popups.PopupEntity(Loc.GetString("bloodsucker-fail-no-blood", ("target", victim)), victim, bloodsucker, Shared.Popups.PopupType.Medium);
@@ -184,17 +184,17 @@ namespace Content.Server.Vampiric
             EnsureComp<BloodSuckedComponent>(victim);
 
             // Make everything actually ingest.
-            if (bloodstream.BloodSolution == null)
+            if (bloodstream.Solution == null)
                 return false;
 
-            var temp = _solutionSystem.SplitSolution(bloodstream.BloodSolution.Value, bloodsuckerComp.UnitsToSucc);
+            var temp = _solutionSystem.SplitSolution(bloodstream.Solution.Value, bloodsuckerComp.UnitsToSucc);
             _stomachSystem.TryTransferSolution((stomachList[0].Owner, stomachList[0].Comp2), temp); // WD EDIT
 
             // Add a little pierce
             DamageSpecifier damage = new();
             damage.DamageDict.Add("Piercing", 1); // Slowly accumulate enough to gib after like half an hour
 
-            _damageableSystem.TryChangeDamage(victim, damage, true, true);
+            _damageableSystem.ChangeDamage(victim, damage, true);
 
             //I'm not porting the nocturine gland, this code is deprecated, and will be reworked at a later date.
             //if (bloodsuckerComp.InjectWhenSucc && _solutionSystem.TryGetInjectableSolution(victim, out var injectable))

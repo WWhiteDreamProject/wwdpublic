@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Numerics;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared._White.TargetDoll;
 using Content.Shared._White.Xenomorphs.Xenomorph;
 using Content.Shared.ActionBlocker;

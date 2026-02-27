@@ -1,7 +1,7 @@
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
-using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mobs.Components;
@@ -23,7 +23,7 @@ public sealed class KillOnDamageSystem : EntitySystem
         if (!TryComp<MobStateComponent>(uid, out var mobState))
             return;
 
-        if (!_mob.IsDead(uid) && !(args.DamageDelta == null) && args.DamageDelta.DamageDict.TryGetValue(component.DamageType, out FixedPoint2 value) && value >= component.Threshold)
+        if (!_mob.IsDead(uid) && args.Damage.DamageDict.TryGetValue(component.DamageType, out FixedPoint2 value) && value >= component.Threshold) // WD EDIT
         {
             var popup = Loc.GetString(component.Popup, ("name", Identity.Name(uid, EntityManager)));
             _popup.PopupEntity(popup, uid, PopupType.LargeCaution);

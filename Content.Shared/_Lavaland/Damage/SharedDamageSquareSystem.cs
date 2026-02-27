@@ -1,5 +1,6 @@
 ﻿using System.Linq;
-using Content.Shared.Damage;
+using Content.Shared._White.Damage.Components;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Mobs.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -65,7 +66,7 @@ public abstract class SharedDamageSquareSystem : EntitySystem
             }
 
             // Damage
-            _dmg.TryChangeDamage(entity, field.Comp.Damage, damageable: dmg);
+            _dmg.TryChangeDamage((entity, dmg), field.Comp.Damage); // WD EDIT
             // Sound
             if (field.Comp.Sound != null)
                 _aud.PlayEntity(field.Comp.Sound, entity, entity, AudioParams.Default.WithVolume(-3f));

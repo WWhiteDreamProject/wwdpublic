@@ -14,6 +14,8 @@ using Content.Server.Popups;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
+using Content.Shared._White.Damage.Components;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
@@ -241,8 +243,8 @@ public sealed partial class DeepFryerSystem : SharedDeepfryerSystem
             var damage = new DamageSpecifier(_prototypeManager.Index<DamageTypePrototype>(CookingDamageType),
                 CookingDamageAmount);
 
-            var result = _damageableSystem.TryChangeDamage(item, damage, origin: uid);
-            if (result?.GetTotal() > FixedPoint2.Zero)
+            var result = _damageableSystem.ChangeDamage(item, damage, origin: uid); // WD EDIT
+            if (result.GetTotal() > FixedPoint2.Zero) // WD EDIT
             {
                 // TODO: Smoke, waste, sound, or some indication.
             }

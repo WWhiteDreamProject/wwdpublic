@@ -1,4 +1,6 @@
 using Content.Server.Chat.Systems;
+using Content.Shared._White.Damage.Components;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Chat;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
@@ -88,7 +90,7 @@ public sealed partial class WeldbotWeldOperator : HTNOperator
             if (!_prototypeManager.TryIndex<DamageGroupPrototype>("Burn", out var prototype) || weldableIsStructure)
                 return HTNOperatorStatus.Failed;
 
-            _damageableSystem.TryChangeDamage(target, new DamageSpecifier(prototype, EmaggedBurnDamage), true, false, damage);
+            _damageableSystem.TryChangeDamage((target, damage), new DamageSpecifier(prototype, EmaggedBurnDamage), true, false);
         }
         else
         {
@@ -97,12 +99,12 @@ public sealed partial class WeldbotWeldOperator : HTNOperator
                 if (!_prototypeManager.TryIndex<DamageGroupPrototype>("Brute", out var prototype))
                     return HTNOperatorStatus.Failed;
 
-                _damageableSystem.TryChangeDamage(target, new DamageSpecifier(prototype, -SiliconRepairAmount), true, false, damage);
+                _damageableSystem.TryChangeDamage((target, damage), new DamageSpecifier(prototype, -SiliconRepairAmount), true, false);
             }
             else if (weldableIsStructure)
             {
                 //If a structure explicitly has a tag to allow a Weldbot to fix it, trust that we can just do so no matter what the damage actually is.
-                _damageableSystem.ChangeAllDamage(target,  damage, -StructureRepairAmount);
+                _damageableSystem.ChangeAllDamage((target, damage), -StructureRepairAmount); // WD EDIT
             }
             else
             {

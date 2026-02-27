@@ -22,15 +22,12 @@ using Content.Shared.NPC.Systems;
 using Content.Shared.Weapons.Melee;
 using Robust.Shared.Audio;
 using Content.Shared.Tag;
-using Content.Server.Body.Systems;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
 using System.Linq;
-using Content.Server._White.Body.Systems;
-using Content.Shared._White.Body.Components;
+using Content.Shared._White.Damage.Components;
 using Robust.Shared.Utility;
 using Robust.Shared.GameStates;
-using Content.Shared.Humanoid;
 
 namespace Content.Server.Traits;
 
@@ -418,8 +415,8 @@ public sealed partial class TraitAddArmor : TraitFunction
         ISerializationManager serializationManager)
     {
         entityManager.EnsureComponent<DamageableComponent>(uid, out var damageableComponent);
-        foreach (var modifierSet in DamageModifierSets)
-            damageableComponent.DamageModifierSets.Add(modifierSet);
+        /*foreach (var modifierSet in  TODO: FUCK
+            damageableComponent.DamageModifierSets.Add(modifierSet);*/
 
         // These functions live in the Server, but these components are Shared, so we gotta dirty so that prediction will work.
         entityManager.Dirty(uid, damageableComponent);
@@ -440,8 +437,8 @@ public sealed partial class TraitRemoveArmor : TraitFunction
         if (!entityManager.TryGetComponent<DamageableComponent>(uid, out var damageableComponent))
             return;
 
-        foreach (var modifierSet in DamageModifierSets)
-            damageableComponent.DamageModifierSets.Remove(modifierSet);
+        /*foreach (var modifierSet in DamageModifierSets) TODO: Fuck
+            damageableComponent.DamageModifierSets.Remove(modifierSet);*/
 
         // These functions live in the Server, but these components are Shared, so we gotta dirty so that prediction will work.
         entityManager.Dirty(uid, damageableComponent);

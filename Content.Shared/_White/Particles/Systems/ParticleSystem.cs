@@ -47,8 +47,10 @@ public sealed partial class ParticleSystem : EntitySystem
         _particles.Add(ent);
     }
 
-    private void OnRemove(Entity<ParticleComponent> ent, ref ComponentRemove args) =>
+    private void OnRemove(Entity<ParticleComponent> ent, ref ComponentRemove args)
+    {
         _particles.Remove(ent);
+    }
 
     public override void Update(float frameTime)
     {

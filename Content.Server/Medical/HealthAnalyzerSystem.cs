@@ -1,9 +1,9 @@
 using Content.Server.Medical.Components;
 using Content.Server.PowerCell;
 using Content.Server.Temperature.Components;
-using Content.Shared._White.Body.Bloodstream.Components;
-using Content.Shared._White.Body.Bloodstream.Systems;
-using Content.Shared.Damage;
+using Content.Shared._White.Bloodstream.Components;
+using Content.Shared._White.Bloodstream.Systems;
+using Content.Shared._White.Damage.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;

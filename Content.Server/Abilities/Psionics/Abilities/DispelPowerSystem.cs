@@ -5,6 +5,7 @@ using Content.Shared.Revenant.Components;
 using Content.Server.Guardian;
 using Content.Server.Bible.Components;
 using Content.Server.Popups;
+using Content.Shared._White.Damage.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Content.Shared.Actions.Events;

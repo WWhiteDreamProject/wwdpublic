@@ -3,10 +3,11 @@ using Content.Server.Destructible;
 using Content.Server.Destructible.Thresholds;
 using Content.Server.Destructible.Thresholds.Behaviors;
 using Content.Server.Destructible.Thresholds.Triggers;
+using Content.Shared._White.Damage.Components;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.FixedPoint;
-using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Prototypes;
@@ -124,7 +125,7 @@ namespace Content.IntegrationTests.Tests.Destructible
                 Assert.That(sTestThresholdListenerSystem.ThresholdsReached, Is.Empty);
 
                 // Set damage to 0
-                sDamageableSystem.SetAllDamage(sDestructibleEntity, sDamageableComponent, 0);
+                sDamageableSystem.SetAllDamage((sDestructibleEntity, sDamageableComponent), 0); // WD EDIT
 
                 // Damage for 100, up to 100
                 sDamageableSystem.TryChangeDamage(sDestructibleEntity, bluntDamage * 10, true);
@@ -185,7 +186,7 @@ namespace Content.IntegrationTests.Tests.Destructible
                 sTestThresholdListenerSystem.ThresholdsReached.Clear();
 
                 // Heal all damage
-                sDamageableSystem.SetAllDamage(sDestructibleEntity, sDamageableComponent, 0);
+                sDamageableSystem.SetAllDamage((sDestructibleEntity, sDamageableComponent), 0); // WD EDIT
 
                 // Damage up to 50
                 sDamageableSystem.TryChangeDamage(sDestructibleEntity, bluntDamage * 5, true);
@@ -247,7 +248,7 @@ namespace Content.IntegrationTests.Tests.Destructible
                 sTestThresholdListenerSystem.ThresholdsReached.Clear();
 
                 // Heal the entity completely
-                sDamageableSystem.SetAllDamage(sDestructibleEntity, sDamageableComponent, 0);
+                sDamageableSystem.SetAllDamage((sDestructibleEntity, sDamageableComponent), 0); // WD EDIT
 
                 // Check that the entity has 0 damage
                 Assert.That(sDamageableComponent.TotalDamage, Is.EqualTo(FixedPoint2.Zero));

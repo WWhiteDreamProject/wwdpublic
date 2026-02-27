@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Server._Lavaland.Tendril.Components;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Destructible;
 using Content.Shared.FixedPoint;

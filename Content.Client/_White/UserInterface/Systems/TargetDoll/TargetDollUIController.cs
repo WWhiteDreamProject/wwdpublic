@@ -34,7 +34,10 @@ public sealed class TargetDollUIController : UIController, IOnStateEntered<Gamep
         TargetDollGui.Visible = _targetingComponent != null;
     }
 
-    private void OnTargetDollUpdated(BodyPartType bodyPartType) => TargetDollGui?.OnTargetDollUpdated(bodyPartType);
+    private void OnTargetDollUpdated(BodyProviderType provider)
+    {
+        TargetDollGui?.OnTargetDollUpdated(provider);
+    }
 
     private void OnTargetDollAdded(TargetDollComponent component)
     {
@@ -42,7 +45,7 @@ public sealed class TargetDollUIController : UIController, IOnStateEntered<Gamep
             TargetDollGui.Visible = true;
 
         _targetingComponent = component;
-        OnTargetDollUpdated(component.SelectedBodyPartType);
+        OnTargetDollUpdated(component.SelectedProvider);
     }
 
     private void OnTargetDollRemoved()
@@ -53,6 +56,8 @@ public sealed class TargetDollUIController : UIController, IOnStateEntered<Gamep
         _targetingComponent = null;
     }
 
-    public void SelectBodyPart(BodyPartType bodyPartType) =>
-        EntityManager.RaisePredictiveEvent(new SelectBodyPartRequestEvent(bodyPartType));
+    public void SelectProvider(BodyProviderType provider)
+    {
+        EntityManager.RaisePredictiveEvent(new SelectProviderRequestEvent(provider));
+    }
 }

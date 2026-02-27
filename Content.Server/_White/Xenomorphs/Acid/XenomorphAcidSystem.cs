@@ -1,7 +1,7 @@
 using Content.Shared._White.Xenomorphs.Acid;
 using Content.Shared._White.Xenomorphs.Acid.Components;
 using Content.Server.Actions;
-using Content.Shared.Damage;
+using Content.Shared._White.Damage.Systems;
 
 namespace Content.Server._White.Xenomorphs.Acid;
 
@@ -33,7 +33,7 @@ public sealed class XenomorphAcidSystem : SharedXenomorphAcidSystem
         {
             if (time > acidCorrodingComponent.NextDamageAt)
             {
-                _damageable.TryChangeDamage(uid, acidCorrodingComponent.DamagePerSecond);
+                _damageable.ChangeDamage(uid, acidCorrodingComponent.DamagePerSecond);
                 acidCorrodingComponent.NextDamageAt = time + TimeSpan.FromSeconds(1);
             }
 

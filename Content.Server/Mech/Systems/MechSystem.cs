@@ -1,11 +1,13 @@
+
+
 using System.Linq;
 using Content.Server._White.Body.Respirator.Systems;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Mech.Components;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.ActionBlocker;
-using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.FixedPoint;
 using Content.Shared.Interaction;
@@ -15,14 +17,14 @@ using Content.Shared.Mech.EntitySystems;
 using Content.Shared.Movement.Events;
 using Content.Shared.Popups;
 using Content.Shared.Tools.Components;
-using Content.Shared.Verbs;
-using Content.Shared.Wires;
 using Content.Shared.Tools.Systems;
+using Content.Shared.Verbs;
+using Content.Shared.Whitelist;
+using Content.Shared.Wires;
 using Robust.Server.Containers;
 using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
-using Content.Shared.Whitelist;
 
 namespace Content.Server.Mech.Systems;
 
@@ -255,11 +257,10 @@ public sealed partial class MechSystem : SharedMechSystem
         SetIntegrity(uid, integrity, component);
 
         if (args.DamageIncreased &&
-            args.DamageDelta != null &&
             component.PilotSlot.ContainedEntity != null)
         {
-            var damage = args.DamageDelta * component.MechToPilotDamageMultiplier;
-            _damageable.TryChangeDamage(component.PilotSlot.ContainedEntity, damage);
+            var damage = args.Damage * component.MechToPilotDamageMultiplier; // WD EDIT
+            _damageable.ChangeDamage(component.PilotSlot.ContainedEntity.Value, damage); // WD EDIT
         }
     }
 

@@ -1,12 +1,12 @@
+using System.Linq;
+using Content.Shared._White.Damage.Components;
 using Content.Shared.Atmos.Rotting;
-using Content.Shared.Damage;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Overlays;
 using Content.Shared.StatusIcon;
 using Content.Shared.StatusIcon.Components;
 using Robust.Shared.Prototypes;
-using System.Linq;
 
 namespace Content.Client.Overlays;
 
@@ -64,8 +64,8 @@ public sealed class ShowHealthIconsSystem : EquipmentHudSystem<ShowHealthIconsCo
     {
         var damageableComponent = entity.Comp;
 
-        if (damageableComponent.DamageContainerID == null ||
-            !DamageContainers.Contains(damageableComponent.DamageContainerID))
+        if (damageableComponent.DamageContainer == null || // WD EDIT
+            !DamageContainers.Contains(damageableComponent.DamageContainer)) // WD EDIT
         {
             return Array.Empty<HealthIconPrototype>();
         }
@@ -73,7 +73,7 @@ public sealed class ShowHealthIconsSystem : EquipmentHudSystem<ShowHealthIconsCo
         var result = new List<HealthIconPrototype>();
 
         // Here you could check health status, diseases, mind status, etc. and pick a good icon, or multiple depending on whatever.
-        if (damageableComponent?.DamageContainerID == "Biological")
+        if (damageableComponent?.DamageContainer == "Biological") // WD EDIT
         {
             if (TryComp<MobStateComponent>(entity, out var state))
             {

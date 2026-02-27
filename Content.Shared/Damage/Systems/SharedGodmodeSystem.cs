@@ -1,3 +1,5 @@
+using Content.Shared._White.Damage.Components;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Damage.Components;
 using Content.Shared.Rejuvenate;
 using Content.Shared.Slippery;
@@ -59,7 +61,7 @@ public abstract class SharedGodmodeSystem : EntitySystem
 
         if (TryComp<DamageableComponent>(uid, out var damageable) && godmode.OldDamage != null)
         {
-            _damageable.SetDamage(uid, damageable, godmode.OldDamage);
+            _damageable.SetDamage((uid, damageable), godmode.OldDamage); // WD EDIT
         }
 
         RemComp<GodmodeComponent>(uid);

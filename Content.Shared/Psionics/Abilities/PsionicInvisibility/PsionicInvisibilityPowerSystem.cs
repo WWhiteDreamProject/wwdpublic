@@ -1,5 +1,5 @@
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Actions;
-using Content.Shared.Damage;
 using Content.Shared.Stunnable;
 using Content.Shared.Stealth;
 using Content.Shared.Stealth.Components;
@@ -102,7 +102,7 @@ public sealed class PsionicInvisibilityPowerSystem : EntitySystem
     private void OnDamageChanged(EntityUid uid, PsionicInvisibilityUsedComponent component, DamageChangedEvent args)
     {
         if (!TryComp<PsionicComponent>(uid, out var psionic)
-            || !args.DamageIncreased || args.DamageDelta is not null && args.DamageDelta.GetTotal() < component.DamageToStun)
+            || !args.DamageIncreased && args.Damage.GetTotal() < component.DamageToStun) // WD EDIT
             return;
 
         ToggleInvisibility(uid);

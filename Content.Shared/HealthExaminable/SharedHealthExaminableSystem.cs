@@ -7,6 +7,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Verbs;
 using Robust.Shared.Utility;
 using System.Linq;
+using Content.Shared._White.Damage.Components;
 using Content.Shared.Traits.Assorted.Components;
 
 namespace Content.Shared.HealthExaminable;

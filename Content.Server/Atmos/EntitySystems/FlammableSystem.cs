@@ -5,11 +5,11 @@ using Content.Server.Stunnable;
 using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
 using Content.Server.Damage.Components;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Alert;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
-using Content.Shared.Damage;
 using Content.Shared.Database;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
@@ -358,12 +358,8 @@ namespace Content.Server.Atmos.EntitySystems
             if (!TryComp<FlammableComponent>(uid, out var flammable))
                 return;
 
-            // Make sure the damage delta isn't null
-            if (args.DamageDelta == null)
-                return;
-
             // Check if its' taken any heat damage, and give the value
-            if (args.DamageDelta.DamageDict.TryGetValue("Heat", out FixedPoint2 value))
+            if (args.Damage.DamageDict.TryGetValue("Heat", out FixedPoint2 value))
             {
                 // Make sure the value is greater than the threshold
                 if(value <= component.Threshold)

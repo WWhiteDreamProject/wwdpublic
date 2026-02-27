@@ -3,8 +3,9 @@ using Content.Server.Damage.Systems;
 using Content.Server.Destructible;
 using Content.Server.Effects;
 using Content.Server.Weapons.Ranged.Systems;
+using Content.Shared._White.Damage.Components;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Camera;
-using Content.Shared.Damage;
 using Content.Shared.Damage.Events;
 using Content.Shared.Database;
 using Content.Shared.FixedPoint;
@@ -54,7 +55,7 @@ public sealed class ProjectileSystem : SharedProjectileSystem
             return;
         }
 
-        var ev = new ProjectileHitEvent(component.Damage, target, component.Shooter, component.BodyPartType); // WD EDIT
+        var ev = new ProjectileHitEvent(component.Damage, target, component.Shooter, component.BodyProviderType); // WD EDIT
         RaiseLocalEvent(uid, ref ev);
 
         var otherName = ToPrettyString(target);
@@ -64,10 +65,10 @@ public sealed class ProjectileSystem : SharedProjectileSystem
             damageRequired -= damageableComponent.TotalDamage;
             damageRequired = FixedPoint2.Max(damageRequired, FixedPoint2.Zero);
         }
-        var modifiedDamage = _damageableSystem.TryChangeDamage(target, ev.Damage, component.IgnoreResistances, damageable: damageableComponent, origin: component.Shooter, bodyPartType: component.BodyPartType); // WD EDIT
+        var modifiedDamage = _damageableSystem.ChangeDamage((target, damageableComponent), ev.Damage, component.IgnoreResistances, origin: component.Shooter, providerType: component.BodyProviderType); // WD EDIT
         var deleted = Deleted(target);
 
-        if (modifiedDamage is not null && EntityManager.EntityExists(component.Shooter))
+        if (EntityManager.EntityExists(component.Shooter))
         {
             if (modifiedDamage.AnyPositive() && !deleted)
                 _color.RaiseEffect(Color.Red, [ target, ], Filter.Pvs(target, entityManager: EntityManager));
@@ -79,7 +80,7 @@ public sealed class ProjectileSystem : SharedProjectileSystem
         }
 
         // If penetration is to be considered, we need to do some checks to see if the projectile should stop.
-        if (modifiedDamage is not null && component.PenetrationThreshold != 0)
+        if (component.PenetrationThreshold != 0)
         {
             // If a damage type is required, stop the bullet if the hit entity doesn't have that type.
             if (component.PenetrationDamageTypeRequirement != null)
@@ -163,7 +164,7 @@ public sealed class ProjectileSystem : SharedProjectileSystem
     // WD EDIT START
     private void OnEmbed(EntityUid uid, EmbeddableProjectileComponent component, ref EmbedEvent args)
     {
-        var dmg = _damageableSystem.TryChangeDamage(args.Embedded, component.Damage, origin: args.Shooter);
+        var dmg = _damageableSystem.ChangeDamage(args.Embedded, component.Damage, origin: args.Shooter); // WD EDIT
         if (dmg is { Empty: false })
             _color.RaiseEffect(Color.Red, new List<EntityUid>() { args.Embedded }, Filter.Pvs(args.Embedded, entityManager: EntityManager));
     }

@@ -5,11 +5,12 @@ using Content.Server.Administration.Logs;
 using Content.Server.Medical.Components;
 using Content.Server.Popups;
 using Content.Server.Stack;
-using Content.Shared._White.Body.Bloodstream.Components;
-using Content.Shared._White.Body.Wounds.Components;
+using Content.Shared._White.Bloodstream.Components;
+using Content.Shared._White.Damage.Components;
+using Content.Shared._White.Damage.Systems;
+using Content.Shared._White.Wounds.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Audio;
-using Content.Shared.Damage;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
 using Content.Shared.FixedPoint;
@@ -24,7 +25,6 @@ using Content.Shared.Popups;
 using Content.Shared.Stacks;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Random;
-using Robust.Shared.Utility;
 
 namespace Content.Server.Medical;
 
@@ -148,7 +148,7 @@ public sealed class HealingSystem : EntitySystem
         {
             // Is ent missing blood that we can restore?
             if (healing.ModifyBloodLevel > 0
-                && _solutionContainerSystem.ResolveSolution(ent.Owner, bloodstream.BloodSolutionName, ref bloodstream.BloodSolution, out var bloodSolution)
+                && _solutionContainerSystem.ResolveSolution(ent.Owner, bloodstream.SolutionName, ref bloodstream.Solution, out var bloodSolution)
                 && bloodSolution.Volume < bloodSolution.MaxVolume)
             {
                 return true;

@@ -6,9 +6,9 @@ using Content.Server.Mind;
 using Content.Server.Stunnable;
 using Content.Shared._White.BloodCult.BloodCultist;
 using Content.Shared._White.BloodCult.Runes.Components;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared._White.Gibbing;
 using Content.Shared.Cuffs.Components;
-using Content.Shared.Damage;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.StatusEffect;
@@ -117,6 +117,6 @@ public sealed class CultRuneOfferingSystem : EntitySystem
         }
 
         _statusEffects.TryRemoveStatusEffect(target, "Muted");
-        _damageable.TryChangeDamage(target, rune.Comp.ConvertHealing);
+        _damageable.ChangeDamage(target, rune.Comp.ConvertHealing);
     }
 }

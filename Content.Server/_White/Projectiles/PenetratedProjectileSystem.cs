@@ -1,8 +1,8 @@
 using System.Numerics;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared._White.Penetrated;
 using Content.Shared._White.Projectile;
 using Content.Shared.Buckle;
-using Content.Shared.Damage;
 using Content.Shared.Projectiles;
 using Content.Shared.Throwing;
 using Robust.Shared.Physics;

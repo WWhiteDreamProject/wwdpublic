@@ -2,8 +2,8 @@ using Content.Server.Actions;
 using Content.Server.Popups;
 using Content.Server.Stunnable;
 using Content.Shared._EE.Shadowling;
-using Content.Shared.Damage;
-using Content.Shared.Humanoid;
+using Content.Shared._White.Damage.Components;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Content.Shared.Silicon.Components;
@@ -52,7 +52,7 @@ public sealed class ShadowlingSonicScreechSystem : EntitySystem
             if (_tag.HasTag(entity, component.WindowTag) &&
                 TryComp<DamageableComponent>(entity, out var damageableComponent))
             {
-                _damageable.TryChangeDamage(entity, component.WindowDamage, true, damageable: damageableComponent);
+                _damageable.TryChangeDamage((entity, damageableComponent), component.WindowDamage, true);
                 continue;
             }
 
