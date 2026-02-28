@@ -1,57 +1,136 @@
 <controls:FancyWindow xmlns="https://spacestation14.io"
                     xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                    xmlns:trauma="clr-namespace:Content.Client._NC.Trauma"
+                    xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    x:Class="Content.Client._NC.Trauma.TraumaTabletWindow"
                     Title="Trauma Tablet"
-                    MinSize="350 500"
-                    SetSize="400 600">
-    <PanelContainer StyleClasses="LowDivider">
-        <BoxContainer Orientation="Vertical" Margin="5">
-            <!-- HEADER / NAVIGATION -->
-            <BoxContainer Orientation="Horizontal" MinHeight="30" Margin="0 0 0 5">
-                <Control HorizontalExpand="True"/>
-                <Label Name="TitleLabel" Text="NO ACTIVE DISPATCH" StyleClasses="LabelHeading"/>
-                <Control HorizontalExpand="True"/>
+                    MinSize="750 500"
+                    SetSize="850 550">
+    <PanelContainer>
+        <PanelContainer.PanelOverride>
+            <gfx:StyleBoxFlat BackgroundColor="#050d12" BorderColor="#14606E" BorderThickness="2"/>
+        </PanelContainer.PanelOverride>
+        <BoxContainer Orientation="Vertical" Margin="10">
+            <!-- Header -->
+            <BoxContainer Orientation="Horizontal" MinHeight="30" Margin="0 0 5 10" HorizontalAlignment="Center">
+                <Label Name="TitleLabel" Text="TT-BIOTRACKER v3.2 - PLATINUM ACTIVE" FontColorOverride="#FF5252" StyleClasses="LabelBig"/>
             </BoxContainer>
 
-            <!-- EMPTY / MESSAGE VIEW -->
+            <!-- EMPTY WAIT VIEW -->
             <BoxContainer Name="PatientListContainer" Orientation="Vertical" VerticalExpand="True" Visible="True">
-                 <!-- Will be populated via CS -->
+                 <Control VerticalExpand="True"/>
+                 <Label Text="AWAITING DISPATCH SIGNAL..." FontColorOverride="#4DD0E1" StyleClasses="LabelBig" HorizontalAlignment="Center"/>
+                 <Control VerticalExpand="True"/>
             </BoxContainer>
 
-            <!-- OPEN MAP BUTTON (Always visible or visible on dispatch) -->
-            <Button Name="OpenMapButton" Text="OPEN STATION MAP" Modulate="#4FC3F7" MinHeight="40" Margin="0 0 0 10"/>
+            <!-- DETAILS VIEW (Two Columns) -->
+            <BoxContainer Name="PatientDetailContainer" Orientation="Horizontal" VerticalExpand="True" Visible="False">
 
-            <!-- VIEW 2: DETAILS (Details view) -->
-            <BoxContainer Name="PatientDetailContainer" Orientation="Vertical" VerticalExpand="True" Visible="False">
+                <!-- LEFT PANEL (Vitals) -->
+                <PanelContainer HorizontalExpand="True" MinWidth="260" Margin="0 0 10 0">
+                    <PanelContainer.PanelOverride>
+                        <gfx:StyleBoxFlat BackgroundColor="#091316" BorderColor="#14606E" BorderThickness="1"/>
+                    </PanelContainer.PanelOverride>
+                    <BoxContainer Orientation="Vertical" Margin="10">
+                        <!-- Target Name Box -->
+                        <PanelContainer Margin="0 0 0 10">
+                            <PanelContainer.PanelOverride>
+                                <gfx:StyleBoxFlat BackgroundColor="#0a2a2f" BorderColor="#00E5FF" BorderThickness="1"/>
+                            </PanelContainer.PanelOverride>
+                            <BoxContainer Margin="5">
+                                <Label Text="TARGET: " FontColorOverride="#00E5FF" StyleClasses="LabelHeading"/>
+                                <Label Name="PatientNameLabel" FontColorOverride="#00E5FF" StyleClasses="LabelHeading"/>
+                            </BoxContainer>
+                        </PanelContainer>
 
-                <ScrollContainer VerticalExpand="True">
-                     <BoxContainer Orientation="Vertical">
-                        <!-- DOLL AND VITALS -->
-                        <BoxContainer Orientation="Horizontal" Margin="0 0 0 5">
-                            <PanelContainer>
-                                <SpriteView Name="SpriteView" OverrideDirection="South" SetSize="96 96"/>
-                            </PanelContainer>
-
-                             <BoxContainer Orientation="Vertical" Margin="10 0 0 0" HorizontalExpand="True">
-                                <Label Name="PatientNameLabel" StyleClasses="LabelHeading"/>
-                                <Label Name="PatientJobLabel" StyleClasses="LabelSubText"/>
-                                <Control MinSize="0 10"/>
-                                <GridContainer Columns="2">
-                                    <Label Text="Status: "/>
-                                    <Label Name="PatientStatusLabel"/>
-                                    <Label Text="Damage: "/>
-                                    <Label Name="PatientDamageLabel"/>
-                                </GridContainer>
-                             </BoxContainer>
+                        <BoxContainer Orientation="Horizontal" Margin="0 0 0 10">
+                            <Label Text="STATUS: " FontColorOverride="#4DD0E1" StyleClasses="LabelHeading"/>
+                            <Label Name="PatientStatusLabel" FontColorOverride="#FF5252" StyleClasses="LabelHeading"/>
                         </BoxContainer>
 
-                        <Label Text="DAMAGE BREAKDOWN" StyleClasses="LabelHeading" Margin="0 10 0 5"/>
-                        <BoxContainer Name="DamageList" Orientation="Vertical"/>
+                        <!-- Bars -->
+                        <BoxContainer Orientation="Horizontal" Margin="0 0 0 5">
+                            <Label Text="BRUTE  " MinWidth="60" FontColorOverride="#4DD0E1"/>
+                            <ProgressBar Name="BruteBar" MinWidth="150" HorizontalExpand="True" MaxValue="200" Value="0">
+                                <ProgressBar.ForegroundStyleBoxOverride>
+                                    <gfx:StyleBoxFlat BackgroundColor="#FF5252"/>
+                                </ProgressBar.ForegroundStyleBoxOverride>
+                                <ProgressBar.BackgroundStyleBoxOverride>
+                                    <gfx:StyleBoxFlat BackgroundColor="#1E1E1E"/>
+                                </ProgressBar.BackgroundStyleBoxOverride>
+                            </ProgressBar>
+                        </BoxContainer>
+                        <BoxContainer Orientation="Horizontal" Margin="0 0 0 5">
+                            <Label Text="BURN   " MinWidth="60" FontColorOverride="#4DD0E1"/>
+                            <ProgressBar Name="BurnBar" MinWidth="150" HorizontalExpand="True" MaxValue="200" Value="0">
+                                <ProgressBar.ForegroundStyleBoxOverride>
+                                    <gfx:StyleBoxFlat BackgroundColor="#FF9800"/>
+                                </ProgressBar.ForegroundStyleBoxOverride>
+                                <ProgressBar.BackgroundStyleBoxOverride>
+                                    <gfx:StyleBoxFlat BackgroundColor="#1E1E1E"/>
+                                </ProgressBar.BackgroundStyleBoxOverride>
+                            </ProgressBar>
+                        </BoxContainer>
+                        <BoxContainer Orientation="Horizontal" Margin="0 0 0 15">
+                            <Label Text="TOXIN  " MinWidth="60" FontColorOverride="#4DD0E1"/>
+                            <ProgressBar Name="ToxinBar" MinWidth="150" HorizontalExpand="True" MaxValue="200" Value="0">
+                                <ProgressBar.ForegroundStyleBoxOverride>
+                                    <gfx:StyleBoxFlat BackgroundColor="#4CAF50"/>
+                                </ProgressBar.ForegroundStyleBoxOverride>
+                                <ProgressBar.BackgroundStyleBoxOverride>
+                                    <gfx:StyleBoxFlat BackgroundColor="#1E1E1E"/>
+                                </ProgressBar.BackgroundStyleBoxOverride>
+                            </ProgressBar>
+                        </BoxContainer>
 
-                     </BoxContainer>
-                </ScrollContainer>
+                        <!-- Doll Container -->
+                        <Control VerticalExpand="True"/>
+                        <BoxContainer HorizontalAlignment="Center">
+                            <PanelContainer Margin="5" MinWidth="128" MinHeight="128">
+                                <PanelContainer.PanelOverride>
+                                    <gfx:StyleBoxFlat BackgroundColor="Transparent" BorderColor="#FF5252" BorderThickness="1"/>
+                                </PanelContainer.PanelOverride>
+                                <!-- We just display the SpriteView of the client here -->
+                                <SpriteView Name="SpriteView" OverrideDirection="South" SetSize="96 96" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </PanelContainer>
+                        </BoxContainer>
+
+                        <!-- Кнопка "Выполнено" -->
+                        <Button Name="CompleteBtn"
+                                Text="✓ ВЫПОЛНЕНО"
+                                Modulate="#4CAF50"
+                                HorizontalAlignment="Stretch"
+                                Margin="0 10 0 0"
+                                MinHeight="35"/>
+                    </BoxContainer>
+                </PanelContainer>
+
+                <!-- RIGHT PANEL (Map) -->
+                <PanelContainer Name="MapPanel" HorizontalExpand="True" VerticalExpand="True" MinWidth="350">
+                    <PanelContainer.PanelOverride>
+                        <gfx:StyleBoxFlat BackgroundColor="#091316" BorderColor="#14606E" BorderThickness="1"/>
+                    </PanelContainer.PanelOverride>
+                    <BoxContainer Orientation="Vertical" Margin="10">
+                        <PanelContainer Margin="0 0 0 10">
+                            <BoxContainer Margin="0" HorizontalAlignment="Center">
+                                <Label Text="NAVIGATION &amp; MAP" FontColorOverride="#00E5FF" StyleClasses="LabelHeading"/>
+                            </BoxContainer>
+                        </PanelContainer>
+                        <!-- Координаты над картой -->
+                        <BoxContainer Orientation="Horizontal" Margin="0 0 0 5" HorizontalAlignment="Center">
+                             <Label Text="COORD: " FontColorOverride="#4DD0E1" StyleClasses="LabelHeading"/>
+                             <Label Name="CoordLabel" Text="UNKNOWN" FontColorOverride="#4DD0E1" StyleClasses="LabelHeading"/>
+                        </BoxContainer>
+
+                        <!-- Map Control inside a clipped/bordered area -->
+                        <PanelContainer VerticalExpand="True">
+                             <trauma:TraumaNavMapControl Name="NavMap" Margin="2" HorizontalExpand="True" VerticalExpand="True" />
+                        </PanelContainer>
+                    </BoxContainer>
+                </PanelContainer>
+
             </BoxContainer>
-
         </BoxContainer>
     </PanelContainer>
 </controls:FancyWindow>
