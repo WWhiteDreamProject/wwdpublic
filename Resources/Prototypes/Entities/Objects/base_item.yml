@@ -49,6 +49,7 @@
   abstract: true
   components:
   - type: Storage
+    openDelay: 1.5
   - type: UserInterface
     interfaces:
       enum.StorageUiKey.Key:

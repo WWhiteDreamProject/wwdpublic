@@ -1,5 +1,4 @@
 # Стукач Томми — комбинированное оружие (пистолет + подствольный дробовик)
-# Путь: Resources/Prototypes/_NC/Entities/Objects/Weapons/Guns/Pistols/stukach_tommy.yml
 
 - type: entity
   name: Стукач Томми

@@ -1,6 +1,6 @@
 - type: entity
   name: Ручная пушка Оверлорд
-  parent: BaseItem
+  parent: [BaseItem, NCBrandMilitech]
   id: WeaponPistolOverlord
   description: "Решение ГанМарт для ультрадешевого запугивания. Выглядит как револьвер, но барабан декоративный. Использует встроенный магазин в рукоятке. Тяжелый, ненадежный и медленный."
   components:

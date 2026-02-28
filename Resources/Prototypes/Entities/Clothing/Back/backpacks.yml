@@ -20,6 +20,7 @@
     grid:
     - 0,0,6,3
     maxItemSize: Huge
+    openDelay: 1.5
   - type: ContainerContainer
     containers:
       storagebase: !type:Container
