@@ -1,0 +1,25 @@
+- type: job
+  id: NCPDLieutenant
+  name: Лейтенант
+  description: Вы — тот самый средний палец системы, который давит на патрульных снизу и получает нагоняи от руководства сверху. Ваша задача — следить, чтобы младший состав не перестрелял друг друга раньше, чем преступников, и чтобы отчеты выглядели достаточно правдоподобно для прессы. Помните: вы уже заслужили право на собственный кабинет, но всё еще обязаны знать, как пахнет порох в трущобах Хейвуда
+  playTimeTracker: JobNCPDLieutenant
+  weight: 10
+  salary: 800
+  startingGear: NCPDLieutenantGear
+  supervisors: Коммандер
+  access:
+    - NCPD_Patrol
+    - NCPD_Armory
+    - NC_General
+
+- type: startingGear
+  id: NCPDLieutenantGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitWarden
+    back: ClothingBackpackSecurity
+    shoes: ClothingShoesBootsJack
+    head: ClothingHeadHatWarden
+    ears: ClothingHeadsetAltSecurity
+    id: WardenPDA
+    belt: ClothingBeltSecurityFilled
+    outerClothing: ClothingOuterCoatWarden

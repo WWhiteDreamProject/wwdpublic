@@ -16,13 +16,17 @@
   color: "#1e90ff"
   roles:
     - NCPDChief
-    - NCPDWatchAgent
+    - NCPDCommander
+    - NCPDInspector
+    - NCPDLieutenant
     - NCPDSergeant
     - NCPDOfficer
-    - NCPDCadet
+    - NCPDWatchAgent
     - MaxTacCommander
-    - MaxTacOperative
     - MaxTacNetrunner
+    - MaxTacEraser
+    - MaxTacPretor
+    - MaxTacInterdictor
 
 - type: department
   id: TraumaTeam

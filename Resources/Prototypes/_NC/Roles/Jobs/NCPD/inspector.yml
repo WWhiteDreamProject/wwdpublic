@@ -1,0 +1,23 @@
+- type: job
+  id: NCPDInspector
+  name: Инспектор
+  description: Вы — элита из Отдела уголовных расследований, занимающаяся самыми ВАЖНЫМИ делами в участке. Пока патрульные гоняются за мелкими воришками, вы распутываете заговоры, которые тянутся в зеркальные башни мегакорпораций. Относиться к офицерскому составу — значит иметь привилегию видеть то, что другим не положено, и нести ответственность, от которой у обычного копа расплавится процессор
+  playTimeTracker: JobNCPDInspector
+  weight: 15
+  salary: 800
+  startingGear: NCPDInspectorGear
+  supervisors: Коммандер
+  access:
+    - NCPD_Patrol
+    - NC_General
+
+- type: startingGear
+  id: NCPDInspectorGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSecGrey
+    back: ClothingBackpackSecurity
+    shoes: ClothingShoesBootsJack
+    head: ClothingHeadHatBeretSecurity
+    ears: ClothingHeadsetAltSecurity
+    id: SecurityPDA
+    belt: ClothingBeltSecurityFilled

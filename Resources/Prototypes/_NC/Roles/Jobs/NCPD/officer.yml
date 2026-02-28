@@ -1,12 +1,12 @@
 - type: job
   id: NCPDOfficer
-  name: Офицер полиции
-  description: job-description-ncpd-officer
+  name: Младший патрульный
+  description: Вы — самая нижняя строчка в пищевой цепочке департамента и основной расходный материал городских улиц. Ваша работа — это бесконечные пешие обходы, проверка документов у подозрительных типов и надежда, что первый же выстрел из подворотни не станет для вас последним. Помните: пока вы рядовой, вы обязаны подчиняться всем, у кого на плечах больше одной полоски, и молиться, чтобы ваш напарник не сбежал при виде первой же банды
   playTimeTracker: JobNCPDOfficer
   weight: 20
-  salary: 600
+  salary: 350
   startingGear: NCPDOfficerGear
-  supervisors: job-supervisors-ncpd-sergeant
+  supervisors: Старший патрульный
   access:
     - NCPD_Patrol
     - NC_General

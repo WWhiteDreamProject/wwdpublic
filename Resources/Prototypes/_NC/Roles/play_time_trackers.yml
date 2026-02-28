@@ -12,19 +12,27 @@
 - type: playTimeTracker
   id: JobNCPDChief
 - type: playTimeTracker
-  id: JobNCPDWatchAgent
+  id: JobNCPDCommander
+- type: playTimeTracker
+  id: JobNCPDInspector
+- type: playTimeTracker
+  id: JobNCPDLieutenant
 - type: playTimeTracker
   id: JobNCPDSergeant
 - type: playTimeTracker
   id: JobNCPDOfficer
 - type: playTimeTracker
-  id: JobNCPDCadet
+  id: JobNCPDWatchAgent
 - type: playTimeTracker
   id: JobMaxTacCommander
 - type: playTimeTracker
-  id: JobMaxTacOperative
-- type: playTimeTracker
   id: JobMaxTacNetrunner
+- type: playTimeTracker
+  id: JobMaxTacEraser
+- type: playTimeTracker
+  id: JobMaxTacPretor
+- type: playTimeTracker
+  id: JobMaxTacInterdictor
 
 # Jobs TraumaTeam
 - type: playTimeTracker

@@ -1,12 +1,12 @@
 - type: job
   id: MaxTacNetrunner
-  name: Нетраннер Макс-Так
-  description: job-description-maxtac-netrunner
+  name: Сенсор-Лид
+  description: Нетраннер ПсихОтряда, который видит мир через код и протоколы взлома. Пока коллеги работают свинцом, вы вскрываете боевое ПО противника и поджариваете мозги через нейроинтерфейс. Вы — тот, кто находит "черный ход" в сознании монстра, чтобы Стиратели могли сделать свою работу
   playTimeTracker: JobMaxTacNetrunner
   weight: 5
-  salary: 1200
+  salary: 1500
   startingGear: MaxTacNetrunnerGear
-  supervisors: job-supervisors-maxtac-commander
+  supervisors: Штурм командир
   access:
     - MaxTac_General
     - MaxTac_Armory

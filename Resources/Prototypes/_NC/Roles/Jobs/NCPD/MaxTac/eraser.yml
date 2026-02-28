@@ -1,0 +1,26 @@
+- type: job
+  id: MaxTacEraser
+  name: Стиратель
+  description: Стандартизированная ячейка ПсихОтряда и ваша персональная путевка в чистилище. Используя штатное снаряжение MAX-TAC, вы методично зачищаете последствия чужого цифрового безумия. Вы — последняя линия обороны, за которой только тишина и отчеты о летальных исходах
+  playTimeTracker: JobMaxTacEraser
+  weight: 10
+  salary: 1200
+  startingGear: MaxTacEraserGear
+  supervisors: Штурм командир
+  access:
+    - MaxTac_General
+    - MaxTac_Armory
+    - NCPD_Patrol
+    - NC_General
+
+- type: startingGear
+  id: MaxTacEraserGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSec
+    back: ClothingBackpackSecurity
+    shoes: ClothingShoesBootsCombatFilled
+    head: ClothingHeadHelmetHardsuitSecurity
+    ears: ClothingHeadsetAltSecurity
+    id: SecurityPDA
+    belt: ClothingBeltSecurityFilled
+    outerClothing: ClothingOuterHardsuitSecurity

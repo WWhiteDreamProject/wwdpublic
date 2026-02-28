@@ -1,0 +1,26 @@
+- type: job
+  id: MaxTacInterdictor
+  name: Интердиктор
+  description: Специалист по принудительному "выключению" тех, кто перебрал с хромом. Ваша задача — вывести импланты из строя с помощью электрического снаряжения раньше, чем киберпсихопат превратит улицу в фарш. Вы не просто оперативник, вы — ходячее короткое замыкание для любого, в ком железа больше, чем плоти
+  playTimeTracker: JobMaxTacInterdictor
+  weight: 10
+  salary: 1500
+  startingGear: MaxTacInterdictorGear
+  supervisors: job-supervisors-maxtac-commander
+  access:
+    - MaxTac_General
+    - MaxTac_Armory
+    - NCPD_Patrol
+    - NC_General
+
+- type: startingGear
+  id: MaxTacInterdictorGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSec
+    back: ClothingBackpackSecurity
+    shoes: ClothingShoesBootsCombatFilled
+    head: ClothingHeadHelmetHardsuitSecurity
+    ears: ClothingHeadsetAltSecurity
+    id: SecurityPDA
+    belt: ClothingBeltSecurityFilled
+    outerClothing: ClothingOuterHardsuitSecurity

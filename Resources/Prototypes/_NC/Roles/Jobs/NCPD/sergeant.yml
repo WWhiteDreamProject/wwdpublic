@@ -1,12 +1,12 @@
 - type: job
   id: NCPDSergeant
-  name: Сержант
-  description: job-description-ncpd-sergeant
+  name: Старший патрульный
+  description: Стандартный патрульный, относящийся к сержантскому составу и знающий улицу лучше, чем собственную квартиру. Ваша смена — это лотерея между "скучным дежурством" и "кровавой баней", где бронежилет защищает от пуль, но не от цинизма. Если вы доживете до конца дня без новых дырок в теле — это уже отличный повод выпить синтетического пива
   playTimeTracker: JobNCPDSergeant
   weight: 10
-  salary: 900
+  salary: 600
   startingGear: NCPDSergeantGear
-  supervisors: job-supervisors-ncpd-chief
+  supervisors: Лейтенант
   access:
     - NCPD_Patrol
     - NCPD_Armory

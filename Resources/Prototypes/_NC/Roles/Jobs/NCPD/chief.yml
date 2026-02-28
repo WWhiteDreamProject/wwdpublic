@@ -1,12 +1,11 @@
 - type: job
   id: NCPDChief
   name: Начальник департамента полиции
-  description: job-description-ncpd-chief
+  description: Вы — лицо закона в городе, где закон продается со скидкой. Ваша задача — балансировать между отчетами для мэрии и интересами корпораций, стараясь, чтобы ваши офицеры не разбежались к наемникам до самой пенсии. Помните: порядок в Найт-Сити — это когда перестрелки идут строго по расписанию
   playTimeTracker: JobNCPDChief
   weight: 10
   salary: 1500
   startingGear: NCPDChiefGear
-  supervisors: job-supervisors-centcom
   access:
     - NCPD_Command
     - NCPD_Patrol
