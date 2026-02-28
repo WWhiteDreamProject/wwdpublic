@@ -5,10 +5,23 @@
   description: Устройство для получения экстренных вызовов о пациентах с платиновой страховкой.
   components:
   - type: Sprite
-    sprite: Objects/Devices/pda.rsi # Placeholder, maybe use a laptop sprite if available
+    sprite: Objects/Devices/pda.rsi # Placeholder
     state: pda-bartender # Placeholder
     layers:
     - state: pda-bartender # Placeholder
+    - sprite: Objects/Tools/pinpointer.rsi
+      state: arrow
+      map: [ "arrow" ]
+      visible: false
+  - type: GenericVisualizer
+    visuals:
+      enum.PinpointerVisuals.IsActive:
+        arrow:
+          enum.PinpointerState.Active:
+            state: arrow
+            visible: true
+          enum.PinpointerState.Inactive:
+            visible: false
   - type: Item
     size: Small
   - type: TraumaTablet

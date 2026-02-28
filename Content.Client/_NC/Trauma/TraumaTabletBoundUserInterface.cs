@@ -22,6 +22,12 @@ namespace Content.Client._NC.Trauma
                 SendMessage(new TraumaOpenMapMsg(netTarget));
             };
 
+            // Оперативник нажал "Выполнено"
+            _window.OnCompleteMission += (netTarget) =>
+            {
+                SendMessage(new TraumaCompleteMissionMsg(netTarget));
+            };
+
             _window.OpenCentered();
         }
 
@@ -30,7 +36,7 @@ namespace Content.Client._NC.Trauma
             base.UpdateState(state);
             if (state is TraumaTabletState castState)
             {
-                _window?.UpdateState(castState.ActivePatient);
+                _window?.UpdateState(castState.ActivePatient, castState.IsPendingCompletion);
             }
         }
 

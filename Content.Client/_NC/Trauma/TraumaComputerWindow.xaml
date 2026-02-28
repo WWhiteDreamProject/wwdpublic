@@ -1,68 +1,64 @@
 <controls:FancyWindow xmlns="https://spacestation14.io"
                       xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      x:Class="Content.Client._NC.Trauma.TraumaComputerWindow"
                       Title="Trauma Team Dispatch"
-                      MinSize="600 500"
-                      SetSize="800 500">
-    <!-- Material Dark Background -->
-    <PanelContainer StyleClasses="LowDivider">
+                      MinSize="800 600"
+                      SetSize="900 650">
+    <PanelContainer>
+        <PanelContainer.PanelOverride>
+            <gfx:StyleBoxFlat BackgroundColor="#050d12" BorderColor="#14606E" BorderThickness="2"/>
+        </PanelContainer.PanelOverride>
         <BoxContainer Orientation="Vertical" Margin="10">
-                <!-- Header / Logo Area -->
-                <PanelContainer StyleClasses="LowDivider" MinHeight="50" Margin="0 0 0 10">
-                     <BoxContainer Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                         <Label Text="TRAUMA TEAM INTERNATIONAL" FontColorOverride="#D32F2F" StyleClasses="LabelBig" />
-                     </BoxContainer>
-                </PanelContainer>
+            <!-- Header / Logo Area -->
+            <PanelContainer MinHeight="45" Margin="0 0 0 10">
+                 <PanelContainer.PanelOverride>
+                     <gfx:StyleBoxFlat BackgroundColor="#0a2a2f" BorderColor="#00E5FF" BorderThickness="2"/>
+                 </PanelContainer.PanelOverride>
+                 <BoxContainer Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                     <Label Text="* TRAUMA TEAM INTL. - CLIENT DATABASE 2045" FontColorOverride="#00E5FF" StyleClasses="LabelBig" Margin="5"/>
+                 </BoxContainer>
+            </PanelContainer>
 
-                <!-- Table Headers - Red 700 Text, Dark Background -->
-                <PanelContainer StyleClasses="LowDivider" MinHeight="30" Margin="0 0 0 5">
-                    <BoxContainer Orientation="Horizontal" Margin="5 0">
-                        <Label Text="CLIENT NAME" HorizontalExpand="True" FontColorOverride="#D32F2F" StyleClasses="LabelHeading"/>
-                        <Control MinSize="10 0"/>
-                         <Label Text="JOB" MinWidth="100" FontColorOverride="#D32F2F" StyleClasses="LabelHeading"/>
-                        <Control MinSize="10 0"/>
-                         <Label Text="DAMAGE" MinWidth="80" FontColorOverride="#D32F2F" StyleClasses="LabelHeading"/>
-                        <Control MinSize="10 0"/>
-                        <Label Text="STATUS" MinWidth="70" FontColorOverride="#D32F2F" StyleClasses="LabelHeading" Align="Center"/>
-                        <Control MinSize="10 0"/>
-                        <Label Text="COVERAGE" MinWidth="140" FontColorOverride="#D32F2F" StyleClasses="LabelHeading" Align="Center"/>
-                    </BoxContainer>
-                </PanelContainer>
+            <!-- Table Headers - Cyan Text -->
+            <PanelContainer MinHeight="30" Margin="0 0 0 5">
+                <BoxContainer Orientation="Horizontal" Margin="5 0">
+                    <Label Text="[ID]" MinWidth="60" FontColorOverride="#4DD0E1" StyleClasses="LabelHeading"/>
+                    <Control MinSize="10 0"/>
+                    <Label Text="[NAME]" HorizontalExpand="True" FontColorOverride="#4DD0E1" StyleClasses="LabelHeading"/>
+                    <Control MinSize="10 0"/>
+                    <Label Text="[TIER]" MinWidth="130" FontColorOverride="#4DD0E1" StyleClasses="LabelHeading" Align="Center"/>
+                    <Control MinSize="10 0"/>
+                    <Label Text="[STATUS]" MinWidth="100" FontColorOverride="#4DD0E1" StyleClasses="LabelHeading" Align="Center"/>
+                    <Control MinSize="10 0"/>
+                    <Label Text="[ACTION]" MinWidth="120" FontColorOverride="#4DD0E1" StyleClasses="LabelHeading" Align="Center"/>
+                </BoxContainer>
+            </PanelContainer>
 
-                <!-- Scrollable List -->
-                <ScrollContainer VerticalExpand="True">
-                    <BoxContainer Orientation="Vertical" SeparationOverride="4">
-
-                        <!-- Platinum Section - Red 700 Header -->
-                        <PanelContainer StyleClasses="LowDivider" MinHeight="25" Margin="0 0 0 5">
-                            <Label Text="PLATINUM SUBSCRIBERS" FontColorOverride="#D32F2F" Align="Center" StyleClasses="LabelHeading"/>
-                        </PanelContainer>
-                        <BoxContainer Name="PlatinumList" Orientation="Vertical" SeparationOverride="4" Margin="0 0 0 10"/>
-
-                        <!-- General Section - Red 700 Header -->
-                        <PanelContainer StyleClasses="LowDivider" MinHeight="25" Margin="0 0 0 5">
-                            <Label Text="GENERAL SUBSCRIBERS" FontColorOverride="#D32F2F" Align="Center" StyleClasses="LabelHeading"/>
-                        </PanelContainer>
-                        <BoxContainer Name="GeneralList" Orientation="Vertical" SeparationOverride="4"/>
-
-                    </BoxContainer>
+            <!-- Scrollable List -->
+            <PanelContainer VerticalExpand="True">
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat BackgroundColor="#091316" BorderColor="#14606E" BorderThickness="1"/>
+                </PanelContainer.PanelOverride>
+                <ScrollContainer VerticalExpand="True" Margin="2">
+                    <BoxContainer Name="PatientList" Orientation="Vertical" SeparationOverride="2"/>
                 </ScrollContainer>
+            </PanelContainer>
 
-                <!-- Footer -->
-                 <PanelContainer MinHeight="20" Margin="0 10 0 0">
-                     <Label Text="PLATINUM COVERAGE GUARANTEES 3-MINUTE RESPONSE TIME" FontColorOverride="#BDBDBD" Align="Center" />
-                 </PanelContainer>
+            <Control MinSize="0 10"/>
 
-                 <Control MinSize="0 10"/>
+            <!-- Logs Section -->
+            <Label Text="ACTIVITY LOGS" FontColorOverride="#00E5FF" StyleClasses="LabelHeading"/>
+            <PanelContainer VerticalExpand="True" MinHeight="100">
+                <PanelContainer.PanelOverride>
+                    <gfx:StyleBoxFlat BackgroundColor="#061013" BorderColor="#14606E" BorderThickness="1"/>
+                </PanelContainer.PanelOverride>
+                <ScrollContainer VerticalExpand="True">
+                    <BoxContainer Name="LogList" Orientation="Vertical" Margin="5"/>
+                </ScrollContainer>
+            </PanelContainer>
 
-                 <!-- Logs Section -->
-                 <Label Text="ACTIVITY LOGS" FontColorOverride="#D32F2F" StyleClasses="LabelHeading"/>
-                 <PanelContainer StyleClasses="LowDivider" VerticalExpand="True" MinHeight="100">
-                     <ScrollContainer VerticalExpand="True">
-                         <BoxContainer Name="LogList" Orientation="Vertical" Margin="5"/>
-                     </ScrollContainer>
-                 </PanelContainer>
-
-            </BoxContainer>
+        </BoxContainer>
     </PanelContainer>
 </controls:FancyWindow>

@@ -8,5 +8,10 @@ namespace Content.Shared._NC.Trauma.Components
     {
         [DataField]
         public NetEntity? ActivePatient;
+
+        /// <summary>
+        /// Флаг: оперативник нажал "Выполнено", ожидаем подтверждения диспетчера.
+        /// </summary>
+        public bool IsPendingCompletion;
     }
 }
