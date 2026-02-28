@@ -31,6 +31,12 @@ namespace Content.Client._NC.Trauma
                 SendMessage(new TraumaDispatchMsg(entity));
             };
 
+            // Диспетчер подтверждает завершение миссии
+            _window.OnConfirmCompletion += (entity) =>
+            {
+                SendMessage(new TraumaConfirmCompletionMsg(entity));
+            };
+
             _window.OpenCentered();
         }
 

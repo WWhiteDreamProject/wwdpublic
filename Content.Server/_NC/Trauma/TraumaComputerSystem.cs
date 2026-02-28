@@ -43,12 +43,9 @@ namespace Content.Server._NC.Trauma
             // Console Events
             SubscribeLocalEvent<TraumaComputerComponent, TraumaChangeSubscriptionMsg>(OnSubscriptionChange);
             SubscribeLocalEvent<TraumaComputerComponent, TraumaDispatchMsg>(OnDispatch);
+            SubscribeLocalEvent<TraumaComputerComponent, TraumaConfirmCompletionMsg>(OnConfirmCompletion);
             SubscribeLocalEvent<TraumaComputerComponent, BoundUIOpenedEvent>(OnUiOpen);
             SubscribeLocalEvent<TraumaComputerComponent, InteractUsingEvent>(OnInteractUsing);
-
-            // Tablet Events
-            SubscribeLocalEvent<TraumaTabletComponent, BoundUIOpenedEvent>(OnTabletUiOpen);
-            SubscribeLocalEvent<TraumaTabletComponent, TraumaOpenMapMsg>(OnOpenMap);
         }
 
         public override void Update(float frameTime)
@@ -67,17 +64,7 @@ namespace Content.Server._NC.Trauma
             var consoleQuery = EntityQueryEnumerator<TraumaComputerComponent>();
             while (consoleQuery.MoveNext(out var uid, out var comp))
             {
-                UpdateUserInterface(uid, comp.Logs, TraumaComputerUiKey.Key);
-            }
-
-            // Update all tablets
-            var tabletQuery = EntityQueryEnumerator<TraumaTabletComponent>();
-            while (tabletQuery.MoveNext(out var uid, out var comp))
-            {
-                if (comp.ActivePatient != null)
-                {
-                    UpdateTabletInterface(uid, comp);
-                }
+                UpdateUserInterface(uid, comp.Logs, TraumaComputerUiKey.Key, comp.PendingCompletions);
             }
         }
 
@@ -85,7 +72,7 @@ namespace Content.Server._NC.Trauma
 
         private void OnUiOpen(EntityUid uid, TraumaComputerComponent component, BoundUIOpenedEvent args)
         {
-            UpdateUserInterface(uid, component.Logs, TraumaComputerUiKey.Key);
+            UpdateUserInterface(uid, component.Logs, TraumaComputerUiKey.Key, component.PendingCompletions);
         }
 
         private void OnInteractUsing(EntityUid uid, TraumaComputerComponent component, InteractUsingEvent args)
@@ -102,7 +89,7 @@ namespace Content.Server._NC.Trauma
                     subscriber.Tier = TraumaSubscriptionTier.Bronze;
                     Dirty(user, subscriber);
                     _popup.PopupEntity("Вы успешно подписались на Trauma Team (Bronze)!", uid, args.User);
-                    UpdateUserInterface(uid, component.Logs, TraumaComputerUiKey.Key);
+                    UpdateUserInterface(uid, component.Logs, TraumaComputerUiKey.Key, component.PendingCompletions);
                 }
                 else
                 {
@@ -140,103 +127,59 @@ namespace Content.Server._NC.Trauma
                     if (component.Logs.Count > 50) component.Logs.RemoveAt(0);
                 }
 
-                UpdateUserInterface(uid, component.Logs, TraumaComputerUiKey.Key);
+                UpdateUserInterface(uid, component.Logs, TraumaComputerUiKey.Key, component.PendingCompletions);
             }
         }
 
         private void OnDispatch(EntityUid uid, TraumaComputerComponent component, TraumaDispatchMsg args)
         {
             var target = GetEntity(args.TargetEntity);
-            DispatchTeam(target, uid);
-        }
-
-        // --- TABLET HANDLERS ---
-
-        private void OnTabletUiOpen(EntityUid uid, TraumaTabletComponent component, BoundUIOpenedEvent args)
-        {
-            // Send current active patient if any
-            UpdateTabletInterface(uid, component);
-        }
-
-        private void OnOpenMap(EntityUid uid, TraumaTabletComponent component, TraumaOpenMapMsg args)
-        {
-            var user = args.Actor;
-            if (_ui.HasUi(uid, StationMapUiKey.Key))
+            if (TryComp<TraumaSubscriberComponent>(target, out var subscriber) && subscriber.Tier == TraumaSubscriptionTier.Platinum)
             {
-                _ui.OpenUi(uid, StationMapUiKey.Key, user);
+                var tabletSystem = EntityManager.System<TraumaTabletSystem>();
+                if (tabletSystem.DispatchTeam(target))
+                {
+                    _popup.PopupEntity("Команда успешно отправлена!", uid, args.Actor);
+                }
+                else
+                {
+                    _popup.PopupEntity("Ошибка: Нет свободных планшетов для отправки.", uid, args.Actor, PopupType.LargeCaution);
+                }
             }
+            else
+            {
+                _popup.PopupEntity("Ошибка: Цель должна иметь уровень страховки Platinum.", uid, args.Actor, PopupType.LargeCaution);
+            }
+        }
+
+        /// <summary>
+        /// Диспетчер подтвердил завершение миссии.
+        /// </summary>
+        private void OnConfirmCompletion(EntityUid uid, TraumaComputerComponent component, TraumaConfirmCompletionMsg args)
+        {
+            var patientNetEntity = args.TargetEntity;
+
+            // Убираем из pending
+            component.PendingCompletions.Remove(patientNetEntity);
+
+            // Очищаем планшеты
+            var tabletSystem = EntityManager.System<TraumaTabletSystem>();
+            tabletSystem.ClearTabletMission(patientNetEntity);
+
+            // Также убираем pending со всех остальных консолей
+            var consoleQuery = EntityQueryEnumerator<TraumaComputerComponent>();
+            while (consoleQuery.MoveNext(out var consoleUid, out var consoleComp))
+            {
+                consoleComp.PendingCompletions.Remove(patientNetEntity);
+            }
+
+            _popup.PopupEntity("Миссия подтверждена! Планшеты очищены.", uid, args.Actor);
+            UpdateUserInterface(uid, component);
         }
 
         // --- HELPERS ---
 
-        private void DispatchTeam(EntityUid targetPatient, EntityUid sourceConsole)
-        {
-            // Update ALL tablets to point to this patient
-            var query = EntityQueryEnumerator<TraumaTabletComponent, TransformComponent>();
-            while (query.MoveNext(out var tabletUid, out var tabletComp, out var tabletXform))
-            {
-                // Play sound
-                _audio.PlayPvs("/Audio/Effects/alert.ogg", tabletUid);
-
-                // Popup
-                _popup.PopupEntity($"!!! PLATINUM TRAUMA ALERT !!!\nPatient: {Name(targetPatient)}", tabletUid, PopupType.LargeCaution);
-
-                // Set Active Patient
-                tabletComp.ActivePatient = GetNetEntity(targetPatient);
-                Dirty(tabletUid, tabletComp);
-
-                // Update UI for this tablet
-                UpdateTabletInterface(tabletUid, tabletComp);
-            }
-        }
-
-        private void UpdateTabletInterface(EntityUid tabletUid, TraumaTabletComponent component)
-        {
-            TraumaPatientData? patientData = null;
-
-            if (component.ActivePatient != null)
-            {
-                _sawmill.Info($"Updating tablet {tabletUid} for patient {component.ActivePatient}");
-
-                var patientUid = GetEntity(component.ActivePatient.Value);
-                // Fetch data for this specific patient
-                if (TryComp<TraumaSubscriberComponent>(patientUid, out var sub) &&
-                    TryComp<MetaDataComponent>(patientUid, out var meta) &&
-                    TryComp<MobStateComponent>(patientUid, out var mobState) &&
-                    TryComp<MindContainerComponent>(patientUid, out var mindContainer))
-                {
-                    string status = _mobState.IsDead(patientUid, mobState) ? "Dead" :
-                                    (_mobState.IsCritical(patientUid, mobState) ? "Critical" : "Alive");
-
-                    var damageInfo = "HP: 100%";
-                    if (TryComp<DamageableComponent>(patientUid, out var damageable))
-                        damageInfo = $"Dmg: {damageable.TotalDamage}";
-
-                    var jobTitle = "Unknown";
-                    if (mindContainer.Mind.HasValue && _jobs.MindTryGetJob(mindContainer.Mind.Value, out var prototype))
-                        jobTitle = prototype.LocalizedName;
-
-                    patientData = new TraumaPatientData
-                    {
-                        EntityUid = component.ActivePatient.Value,
-                        Name = meta.EntityName,
-                        HealthStatus = status,
-                        Subscription = sub.Tier,
-                        Job = jobTitle,
-                        DamageInfo = damageInfo
-                    };
-                }
-                else
-                {
-                    // Patient invalid
-                    _sawmill.Info($"Tablet {tabletUid}: Patient entity invalid or missing components");
-                }
-            }
-
-            _ui.SetUiState(tabletUid, TraumaTabletUiKey.Key, new TraumaTabletState(patientData));
-        }
-
-        private void UpdateUserInterface(EntityUid uid, List<TraumaLogEntry> logs, Enum uiKey)
+        private void UpdateUserInterface(EntityUid uid, List<TraumaLogEntry> logs, Enum uiKey, HashSet<NetEntity>? pendingCompletions = null)
         {
             var patients = new List<TraumaPatientData>();
 
@@ -266,12 +209,12 @@ namespace Content.Server._NC.Trauma
                 });
             }
 
-            _ui.SetUiState(uid, uiKey, new TraumaComputerState(patients, logs));
+            _ui.SetUiState(uid, uiKey, new TraumaComputerState(patients, logs, pendingCompletions));
         }
 
         public void UpdateUserInterface(EntityUid uid, TraumaComputerComponent? component = null)
         {
-            UpdateUserInterface(uid, component?.Logs ?? new List<TraumaLogEntry>(), TraumaComputerUiKey.Key);
+            UpdateUserInterface(uid, component?.Logs ?? new List<TraumaLogEntry>(), TraumaComputerUiKey.Key, component?.PendingCompletions);
         }
     }
 }

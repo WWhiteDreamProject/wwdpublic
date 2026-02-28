@@ -10,5 +10,10 @@ namespace Content.Shared._NC.Trauma.Components
     {
         [DataField]
         public List<TraumaLogEntry> Logs = new();
+
+        /// <summary>
+        /// Множество пациентов, ожидающих подтверждения завершения миссии.
+        /// </summary>
+        public HashSet<NetEntity> PendingCompletions = new();
     }
 }

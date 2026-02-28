@@ -1,4 +1,5 @@
 using Robust.Shared.Serialization;
+using Robust.Shared.Map;
 
 namespace Content.Shared._NC.Trauma
 {
@@ -34,7 +35,12 @@ namespace Content.Shared._NC.Trauma
         public string HealthStatus; // Состояние (Alive, Critical, Dead)
         public TraumaSubscriptionTier Subscription; // Текущая подписка
         public string Job;
-        public string DamageInfo;
+        public string DamageInfo; // legacy or combined
+        public float BruteDamage;
+        public float BurnDamage;
+        public float ToxinDamage;
+
+        public NetCoordinates? TargetCoords; // Координаты для карты
     }
 
     // Состояние интерфейса (Сервер -> Клиент)
@@ -44,11 +50,13 @@ namespace Content.Shared._NC.Trauma
     {
         public List<TraumaPatientData> Patients;
         public List<TraumaLogEntry> Logs;
+        public HashSet<NetEntity> PendingCompletions; // Пациенты, ожидающие подтверждения завершения
 
-        public TraumaComputerState(List<TraumaPatientData> patients, List<TraumaLogEntry> logs)
+        public TraumaComputerState(List<TraumaPatientData> patients, List<TraumaLogEntry> logs, HashSet<NetEntity>? pendingCompletions = null)
         {
             Patients = patients;
             Logs = logs;
+            PendingCompletions = pendingCompletions ?? new HashSet<NetEntity>();
         }
     }
 
@@ -98,14 +106,40 @@ namespace Content.Shared._NC.Trauma
         }
     }
 
+    // Сообщение "Миссия выполнена" от планшета (Клиент -> Сервер)
+    [Serializable, NetSerializable]
+    public sealed class TraumaCompleteMissionMsg : BoundUserInterfaceMessage
+    {
+        public NetEntity TargetEntity;
+
+        public TraumaCompleteMissionMsg(NetEntity target)
+        {
+            TargetEntity = target;
+        }
+    }
+
+    // Подтверждение завершения миссии от диспетчера (Клиент -> Сервер)
+    [Serializable, NetSerializable]
+    public sealed class TraumaConfirmCompletionMsg : BoundUserInterfaceMessage
+    {
+        public NetEntity TargetEntity;
+
+        public TraumaConfirmCompletionMsg(NetEntity target)
+        {
+            TargetEntity = target;
+        }
+    }
+
     [Serializable, NetSerializable]
     public sealed class TraumaTabletState : BoundUserInterfaceState
     {
         public TraumaPatientData? ActivePatient;
+        public bool IsPendingCompletion; // Ожидает подтверждения диспетчера
 
-        public TraumaTabletState(TraumaPatientData? activePatient)
+        public TraumaTabletState(TraumaPatientData? activePatient, bool isPendingCompletion = false)
         {
             ActivePatient = activePatient;
+            IsPendingCompletion = isPendingCompletion;
         }
     }
 }
