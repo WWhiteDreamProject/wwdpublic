@@ -1,0 +1,24 @@
+- type: job
+  id: TraumaTeamCoroner
+  name: Коронер Trauma Team
+  description: Для вас Найт-Сити — это бесконечный поток улик и органов на хранение. Вы следите за порядком в "банке тел" и помогаете копам из NCPD понять, почему этот парень стал трупом. Ваше кредо: мертвые не болтают, но их потроха могут рассказать чертовски много
+  playTimeTracker: JobTraumaTeamCoroner
+  weight: 20
+  salary: 600
+  startingGear: TraumaTeamCoronerGear
+  supervisors: Главный врач Trauma Team
+  access:
+    - Trauma_Medical
+    - Trauma_Morgue
+    - NC_General
+
+- type: startingGear
+  id: TraumaTeamCoronerGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMedicalDoctor
+    back: ClothingBackpackMedical
+    shoes: ClothingShoesColorWhite
+    ears: ClothingHeadsetMedical
+    id: MedicalPDA
+    belt: ClothingBeltMedicalFilled
+    outerClothing: ClothingOuterCoatLab

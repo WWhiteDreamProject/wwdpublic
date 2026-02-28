@@ -1,12 +1,12 @@
 - type: job
   id: TraumaTeamOperative
   name: Оперативник Trauma Team
-  description: job-description-traumateam-operative
+  description: Ангел-хранитель с пулеметом и скверным характером. Вы не лечите, вы устраняете препятствия между врачом и телом. Если кто-то мешает спасению — превратите его в статистику. Ваше кредо: "Клиент должен жить, остальные — не обязательно"
   playTimeTracker: JobTraumaTeamOperative
   weight: 15
   salary: 900
   startingGear: TraumaTeamOperativeGear
-  supervisors: job-supervisors-traumateam-chief
+  supervisors: Главный врач Trauma Team, Парамедик Trauma Team
   access:
     - Trauma_Medical
     - Trauma_Hangar

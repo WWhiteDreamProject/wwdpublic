@@ -32,6 +32,7 @@
   roles:
     - TraumaTeamChief
     - TraumaTeamDoctor
-    - TraumaTeamChemist
     - TraumaTeamParamedic
     - TraumaTeamOperative
+    - TraumaTeamTech
+    - TraumaTeamCoroner

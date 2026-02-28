@@ -1,12 +1,12 @@
 - type: job
   id: TraumaTeamParamedic
   name: Парамедик Trauma Team
-  description: job-description-traumateam-paramedic
+  description: Элитный мясник на зарплате. Ваша задача — заставить сердце клиента биться, даже если оно решило уйти на покой. Плевать на этику: залейте пациента стимуляторами и латайте дыры. Пока горит статус "Платина", смерть — лишь техническое неудобство
   playTimeTracker: JobTraumaTeamParamedic
   weight: 20
   salary: 850
   startingGear: TraumaTeamParamedicGear
-  supervisors: job-supervisors-traumateam-chief
+  supervisors: Главный врач Trauma Team 
   access:
     - Trauma_Medical
     - Trauma_Morgue

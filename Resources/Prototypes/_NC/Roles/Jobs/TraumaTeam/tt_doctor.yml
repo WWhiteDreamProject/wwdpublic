@@ -1,12 +1,12 @@
 - type: job
   id: TraumaTeamDoctor
-  name: Врач Trauma Team
-  description: job-description-traumateam-doctor
+  name: Медтех Trauma Team
+  description: Вы — элита операционной, способная заменить почку на хромированный фильтр прямо под обстрелом. Ваша работа — установка имплантов и сложные операции, за которые парамедикам платить побоялись. Если клиент хочет стать быстрее звука или просто дожить до завтра — это ваша забота
   playTimeTracker: JobTraumaTeamDoctor
   weight: 20
   salary: 750
   startingGear: TraumaTeamDoctorGear
-  supervisors: job-supervisors-traumateam-chief
+  supervisors: Главный врач Trauma Team
   access:
     - Trauma_Medical
     - Trauma_Morgue

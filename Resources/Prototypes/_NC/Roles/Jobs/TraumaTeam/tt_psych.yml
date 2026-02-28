@@ -1,0 +1,24 @@
+- type: job
+  id: TraumaTeamPsych
+  name: Психолог Trauma Team
+  description: Вы — тонкая грань между крутым наемником и съехавшим с катушек мясником. Вы ведете учет всех "железных" парней и выписываете нейролептики тем, кто начинает слышать голоса своего процессора. А если таблетки не помогут — вы первый, кто наберет номер MAX-TAC
+  playTimeTracker: JobTraumaTeamPsych
+  weight: 20
+  salary: 800
+  startingGear: TraumaTeamPsychGear
+  supervisors: Главный врач Trauma Team
+  access:
+    - Trauma_Medical
+    - Trauma_Morgue
+    - NC_General
+
+- type: startingGear
+  id: TraumaTeamPsychGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMedicalDoctor
+    back: ClothingBackpackMedical
+    shoes: ClothingShoesColorWhite
+    ears: ClothingHeadsetMedical
+    id: MedicalPDA
+    belt: ClothingBeltMedicalFilled
+    outerClothing: ClothingOuterCoatLab

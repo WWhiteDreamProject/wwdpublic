@@ -32,8 +32,10 @@
 - type: playTimeTracker
   id: JobTraumaTeamDoctor
 - type: playTimeTracker
-  id: JobTraumaTeamChemist
-- type: playTimeTracker
   id: JobTraumaTeamParamedic
 - type: playTimeTracker
   id: JobTraumaTeamOperative
+- type: playTimeTracker
+  id: JobTraumaTeamTech
+- type: playTimeTracker
+  id: JobTraumaTeamCoroner
