@@ -5,6 +5,7 @@ using Content.Shared.Examine;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
+using Content.Shared.Weapons.Ranged;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
@@ -186,22 +187,39 @@ public sealed class DualAmmoProviderSystem : EntitySystem
     /// </summary>
     private void ApplyMode(EntityUid uid, DualAmmoProviderComponent component, int modeIndex, EntityUid? user, bool silent = false)
     {
-        if (!TryComp<BallisticAmmoProviderComponent>(uid, out var ballistic))
-            return;
-
         var mode = component.Modes[modeIndex];
 
         // Обновляем текущий режим
         component.CurrentMode = modeIndex;
         Dirty(uid, component);
 
-        // Обновляем BallisticAmmoProvider
-        // Сначала устанавливаем прототип и обнуляем контейнер (он должен быть пуст после Sync)
-        ballistic.Proto = mode.Prototype;
-        ballistic.Capacity = mode.Capacity;
+        if (mode.UsesMagazine)
+        {
+            // Переключаемся на магазинное питание
+            EnsureComp<MagazineAmmoProviderComponent>(uid);
+            RemComp<BallisticAmmoProviderComponent>(uid);
+        }
+        else
+        {
+            // Переключаемся на встроенное баллистическое питание
+            var ballistic = EnsureComp<BallisticAmmoProviderComponent>(uid);
+            RemComp<MagazineAmmoProviderComponent>(uid);
 
-        // Восстанавливаем патроны как Unspawned
-        ballistic.UnspawnedCount = mode.Count;
+            ballistic.Proto = mode.Prototype;
+            ballistic.Capacity = mode.Capacity;
+            ballistic.UnspawnedCount = mode.Count;
+
+            if (mode.WhitelistTags != null)
+            {
+                var whitelist = new EntityWhitelist();
+                whitelist.Tags = new List<ProtoId<TagPrototype>>();
+                foreach (var tag in mode.WhitelistTags)
+                {
+                    whitelist.Tags.Add(tag);
+                }
+                ballistic.Whitelist = whitelist;
+            }
+        }
 
         // Обновляем параметры Gun если указаны
         if (TryComp<GunComponent>(uid, out var gun))
@@ -214,18 +232,6 @@ public sealed class DualAmmoProviderSystem : EntitySystem
 
             // Обновляем модификаторы
             _gun.RefreshModifiers(uid);
-        }
-
-        // Обновляем Whitelist для патронов
-        if (mode.WhitelistTags != null)
-        {
-            var whitelist = new EntityWhitelist();
-            whitelist.Tags = new List<ProtoId<TagPrototype>>();
-            foreach (var tag in mode.WhitelistTags)
-            {
-                whitelist.Tags.Add(tag);
-            }
-            ballistic.Whitelist = whitelist;
         }
 
         // Показываем popup и проигрываем звук (только для первого предсказания)
@@ -246,10 +252,16 @@ public sealed class DualAmmoProviderSystem : EntitySystem
     /// </summary>
     private void SyncAmmoFromProvider(EntityUid uid, DualAmmoProviderComponent component)
     {
-        if (!TryComp<BallisticAmmoProviderComponent>(uid, out var ballistic))
+        if (component.CurrentMode < 0 || component.CurrentMode >= component.Modes.Count)
             return;
 
-        if (component.CurrentMode < 0 || component.CurrentMode >= component.Modes.Count)
+        var mode = component.Modes[component.CurrentMode];
+
+        // Если режим использует внешний магазин, нам не нужно синхронизировать внутренний счётчик патронов
+        if (mode.UsesMagazine)
+            return;
+
+        if (!TryComp<BallisticAmmoProviderComponent>(uid, out var ballistic))
             return;
 
         // Считаем общее количество патронов (виртуальные + реальные)

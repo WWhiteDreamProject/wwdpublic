@@ -1,0 +1,415 @@
+# Базовые шаблоны оружейных брендов Найт-Сити
+# Каждый бренд — абстрактный шаблон с настроенным NCWeapon-компонентом.
+# Конкретное оружие наследует: parent: [BaseWeaponPistol, NCBrand<Name>]
+# и получает все механики бренда автоматически.
+
+#region ТИР-0: «Одноразовый пластик» (Плохое качество)
+# Общее: нельзя починить, быстрый износ, дешёвое.
+
+# GunMart — «Клин-машина»
+# Высокий шанс зажевать патрон. Быстрая деградация.
+- type: entity
+  id: NCBrandGunMart
+  abstract: true
+  components:
+  - type: Clothing
+    equipDelay: 0.5
+    unequipDelay: 0.5
+  - type: NCWeapon
+    manufacturer: GunMart
+    tier: Poor
+    durability: 40
+    maxDurability: 40
+    degradationRate: 3
+    jamChance: 0.35         # 35% шанс заклинить
+    unjamTime: 3           # 3 сек на извлечение патрона
+    isRepairable: false
+
+# BudgetArms — «Пластиковый сюрприз»
+# При критической поломке ствол взрывается в руках.
+- type: entity
+  id: NCBrandBudgetArms
+  abstract: true
+  components:
+  - type: Clothing
+    equipDelay: 0.5
+    unequipDelay: 0.5
+  - type: NCWeapon
+    manufacturer: BudgetArms
+    tier: Poor
+    durability: 35
+    maxDurability: 35
+    degradationRate: 2.5
+    jamChance: 0.05
+    explodeChance: 0.1    # 10% шанс взрыва за выстрел (x3 при прочности <30%)
+    isRepairable: false
+    explodeSound:
+      collection: ExplosionSmall
+    explodeDamage:
+      types:
+        Blunt: 15
+        Heat: 10
+
+# Darra Polytechnic — «Критический перегрев»
+# Дешёвые сплавы не держат температуру. Термический урон владельцу.
+- type: entity
+  id: NCBrandDarraPolytechnic
+  abstract: true
+  components:
+  - type: Clothing
+    equipDelay: 0.5
+    unequipDelay: 0.5
+  - type: NCWeapon
+    manufacturer: DarraPolytechnic
+    tier: Poor
+    durability: 45
+    maxDurability: 45
+    degradationRate: 2
+    jamChance: 0.03
+    overheatHeat: 15        # Быстро набирает тепло
+    overheatThreshold: 60   # Низкий порог перегрева
+    cooldownRate: 3          # Медленно остывает
+    isRepairable: false
+    overheatDamage:
+      types:
+        Heat: 8
+    overheatSound:
+      path: /Audio/Effects/sizzle.ogg
+
+# Sanroo — «Детская баллистика»
+# Огромный разброс и минимальный урон.
+- type: entity
+  id: NCBrandSanroo
+  abstract: true
+  components:
+  - type: Clothing
+    equipDelay: 0.5
+    unequipDelay: 0.5
+  - type: NCWeapon
+    manufacturer: Sanroo
+    tier: Poor
+    durability: 50
+    maxDurability: 50
+    degradationRate: 1.5
+    jamChance: 0.04
+    spreadMultiplier: 2.5   # Разброс x2.5
+    damageMultiplier: 0.5   # Урон x0.5
+    isRepairable: false
+
+# Dai Lung — «Китайская рулетка»
+# Шанс безвозвратного уничтожения оружия при каждом выстреле.
+- type: entity
+  id: NCBrandDaiLung
+  abstract: true
+  components:
+  - type: Clothing
+    equipDelay: 0.5
+    unequipDelay: 0.5
+  - type: NCWeapon
+    manufacturer: DaiLung
+    tier: Poor
+    durability: 30
+    maxDurability: 30
+    degradationRate: 2
+    jamChance: 0.08
+    breakChance: 0.25      # 25% шанс рассыпаться за выстрел
+    isRepairable: false
+    breakSound:
+      collection: MetalBreak
+
+#endregion
+
+#region ТИР-1: «Рабочие лошадки» (Стандартное качество)
+# Общее: надёжно, скучно, требует чистки.
+
+# Federated Arms — «Кирпич с курком»
+# Клинит редко, но медленно достаётся из кобуры.
+- type: entity
+  id: NCBrandFederatedArms
+  abstract: true
+  components:
+  - type: Clothing
+    equipDelay: 1.5
+    unequipDelay: 1.5
+  - type: NCWeapon
+    manufacturer: FederatedArms
+    tier: Standard
+    durability: 100
+    maxDurability: 100
+    degradationRate: 0.5
+    jamChance: 0.01
+    drawTimeMultiplier: 1.5  # На 50% дольше достаёшь
+
+# Constitution Arms — «Удар копытом»
+# Убойная сила выше среднего, но сильная отдача.
+- type: entity
+  id: NCBrandConstitutionArms
+  abstract: true
+  components:
+  - type: Clothing
+    equipDelay: 0.5
+    unequipDelay: 0.5
+  - type: NCWeapon
+    manufacturer: ConstitutionArms
+    tier: Standard
+    durability: 100
+    maxDurability: 100
+    degradationRate: 0.8
+    jamChance: 0.02
+    recoilDamagePenalty: 2   # 2 урона Blunt стрелку за выстрел (без кибер-рук)
+    spreadMultiplier: 1.3    # Потеря точности в очередях
+
+# Militech — «Военная приемка»
+# Жрёт любые патроны без риска. Стабильные средние характеристики.
+- type: entity
+  id: NCBrandMilitech
+  abstract: true
+  components:
+  - type: Clothing
+    equipDelay: 0.5
+    unequipDelay: 0.5
+  - type: NCWeapon
+    manufacturer: Militech
+    tier: Standard
+    durability: 120
+    maxDurability: 120
+    degradationRate: 0.4     # Медленный износ
+    jamChance: 0.005
+
+# Rostović — «Полевой ремонт»
+# Быстрый износ, но легко чинится ударом (90% шанс).
+- type: entity
+  id: NCBrandRostovic
+  abstract: true
+  components:
+  - type: Clothing
+    equipDelay: 0.5
+    unequipDelay: 0.5
+  - type: NCWeapon
+    manufacturer: Rostovic
+    tier: Standard
+    durability: 70
+    maxDurability: 70
+    degradationRate: 1.5     # Быстрый износ
+    jamChance: 0.06
+    unjamTime: 0.5           # Но расклинивается мгновенно (ударом)
+
+# Kang Tao — «Китайский смарт-линк»
+# Бонус точности, но прицел иногда сбоит.
+# TODO: Механика ложного захвата цели требует интеграции с targeting-системой
+- type: entity
+  id: NCBrandKangTao
+  abstract: true
+  components:
+  - type: Clothing
+    equipDelay: 0.5
+    unequipDelay: 0.5
+  - type: NCWeapon
+    manufacturer: KangTao
+    tier: Standard
+    durability: 85
+    maxDurability: 85
+    degradationRate: 0.7
+    jamChance: 0.02
+    spreadMultiplier: 0.8    # Бонус к точности (-20% разброс)
+    requiresSmartLink: true
+
+# Chadran Arms — «Урбан-Мясорубка»
+# Массивный ствол, бонус подавления. Нельзя спрятать.
+- type: entity
+  id: NCBrandChadranArms
+  abstract: true
+  components:
+  - type: Clothing
+    equipDelay: 0.5
+    unequipDelay: 0.5
+  - type: NCWeapon
+    manufacturer: ChadranArms
+    tier: Standard
+    durability: 100
+    maxDurability: 100
+    degradationRate: 0.6
+    jamChance: 0.02
+    meleeDamageBonus: 5      # Мощный приклад
+
+# Mustang Arms — «Патрульный стандарт»
+# Увеличенные магазины, но долгая перезарядка.
+- type: entity
+  id: NCBrandMustangArms
+  abstract: true
+  components:
+  - type: Clothing
+    equipDelay: 0.5
+    unequipDelay: 0.5
+  - type: NCWeapon
+    manufacturer: MustangArms
+    tier: Standard
+    durability: 95
+    maxDurability: 95
+    degradationRate: 0.6
+    jamChance: 0.02
+    reloadTimeMultiplier: 1.5  # На 50% дольше перезаряжаешь
+
+# Techtronika — «Тяжесть — это надежно»
+# Танк среди оружия. Мощный удар прикладом, но тяжёлый.
+- type: entity
+  id: NCBrandTechtronika
+  abstract: true
+  components:
+  - type: Clothing
+    equipDelay: 0.5
+    unequipDelay: 0.5
+  - type: NCWeapon
+    manufacturer: Techtronika
+    tier: Standard
+    durability: 150
+    maxDurability: 150
+    degradationRate: 0.3     # Почти вечный
+    jamChance: 0.01
+    meleeDamageBonus: 10     # Приклад — холодное оружие
+    drawTimeMultiplier: 1.8  # Очень долго доставать
+
+#endregion
+
+#region ТИР-2: «Корпоративная Элита» (Отличное качество)
+# Общее: идеальная эргономика, встроенные системы. Дорогой ремонт.
+
+# Sternmeyer — «Хирургическая точность»
+# Бонус к меткости, особенно на дальних дистанциях.
+- type: entity
+  id: NCBrandSternmeyer
+  abstract: true
+  components:
+  - type: Clothing
+    equipDelay: 0.5
+    unequipDelay: 0.5
+  - type: NCWeapon
+    manufacturer: Sternmeyer
+    tier: Excellent
+    durability: 100
+    maxDurability: 100
+    degradationRate: 0.3
+    jamChance: 0.01
+    spreadMultiplier: 0.6    # Отличная точность (-40% разброс)
+
+# Arasaka — «Теневой протокол»
+# Компактное и тихое. Можно спрятать под плащом.
+- type: entity
+  id: NCBrandArasaka
+  abstract: true
+  components:
+  - type: Clothing
+    equipDelay: 0.5
+    unequipDelay: 0.5
+  - type: NCWeapon
+    manufacturer: Arasaka
+    tier: Excellent
+    durability: 90
+    maxDurability: 90
+    degradationRate: 0.4
+    jamChance: 0.01
+    drawTimeMultiplier: 0.7  # Быстрое извлечение
+
+# Tsunami Arms — «Умный перегруз»
+# Высокотехнологичная система. Уязвимо к ЭМИ.
+# TODO: Механика переключения типов урона и ЭМИ-уязвимости
+- type: entity
+  id: NCBrandTsunamiArms
+  abstract: true
+  components:
+  - type: Clothing
+    equipDelay: 0.5
+    unequipDelay: 0.5
+  - type: NCWeapon
+    manufacturer: TsunamiArms
+    tier: Excellent
+    durability: 85
+    maxDurability: 85
+    degradationRate: 0.5
+    jamChance: 0.01
+    spreadMultiplier: 0.75
+    requiresSmartLink: true
+
+# Kendachi — «Моно-кромка»
+# Высокотехнологичное холодное оружие. Игнорирует базовую броню.
+# TODO: Механика игнорирования брони и отсечения конечностей
+- type: entity
+  id: NCBrandKendachi
+  abstract: true
+  components:
+  - type: Clothing
+    equipDelay: 0.5
+    unequipDelay: 0.5
+  - type: NCWeapon
+    manufacturer: Kendachi
+    tier: Excellent
+    durability: 80
+    maxDurability: 80
+    degradationRate: 0.6
+    jamChance: 0
+    meleeDamageBonus: 15     # Мощное холодное оружие
+
+# Centurion Essentials — «Надёжность для всех»
+# Дешёвые, но очень надёжные пистолеты. Почти не ломаются.
+- type: entity
+  id: NCBrandCenturionEssentials
+  abstract: true
+  components:
+  - type: Clothing
+    equipDelay: 0.5
+    unequipDelay: 0.5
+  - type: NCWeapon
+    manufacturer: CenturionEssentials
+    tier: Excellent
+    durability: 120
+    maxDurability: 120
+    degradationRate: 0.2     # Очень медленный износ
+    jamChance: 0.005         # Почти не клинит
+    spreadMultiplier: 1.1    # Чуть хуже точность
+
+#endregion
+
+#region ТИР-3: «Уникальный кастом» (Легендарное и экзотическое)
+# Общее: нарушает стандарты. Ремонт — искусство.
+
+# Malorian Arms — «Остеохондроз»
+# Чудовищный урон. Без кибер-руки ломает суставы стрелку.
+- type: entity
+  id: NCBrandMalorianArms
+  abstract: true
+  components:
+  - type: Clothing
+    equipDelay: 0.5
+    unequipDelay: 0.5
+  - type: NCWeapon
+    manufacturer: MalorianArms
+    tier: Legendary
+    durability: 60
+    maxDurability: 60
+    degradationRate: 1
+    jamChance: 0.01
+    recoilDamagePenalty: 5   # 5 Blunt-урона стрелку без кибер-рук
+    spreadMultiplier: 0.5    # Отличная точность
+    damageMultiplier: 1.5    # +50% урон снарядов
+
+# Nomad Customs — «Всеядность Пустошей»
+# Стреляет чем угодно. Чинится мусором. Кучность нулевая.
+# TODO: Механика стрельбы мусором (кастомный AmmoProvider)
+- type: entity
+  id: NCBrandNomad
+  abstract: true
+  components:
+  - type: Clothing
+    equipDelay: 0.5
+    unequipDelay: 0.5
+  - type: NCWeapon
+    manufacturer: Nomad
+    tier: Legendary
+    durability: 50
+    maxDurability: 50
+    degradationRate: 2
+    jamChance: 0.08
+    spreadMultiplier: 3.0    # Кучность нулевая
+    unjamTime: 0.5           # Быстрая расклинка (изолентой)
+
+#endregion

@@ -1,0 +1,46 @@
+- type: entity
+  name: Пневматический Гвоздемет Кочевников
+  parent: [BaseItem, NCBrandNomad]
+  id: WeaponRifleNomadGvozdemet
+  description: "Экзотическая снайперская винтовка Кочевников. Огромная, тяжелая, стреляет заточенными штырями (использует винтовочный калибр). Занимает 2 руки. Нельзя скрыть."
+  components:
+  - type: Sprite
+    sprite: _NC/Objects/Weapons/Guns/Rifles/NomadSniperRifle/big.rsi
+    scale: 0.75, 0.75
+    layers:
+    - state: icon
+      map: [ "enum.GunVisualLayers.Base" ]
+  - type: Clothing
+    sprite: _NC/Objects/Weapons/Guns/Rifles/NomadSniperRifle/tiny.rsi
+    slots:
+    - Back
+  - type: Item
+    sprite: _NC/Objects/Weapons/Guns/Rifles/NomadSniperRifle/tiny.rsi
+    size: Huge
+    heldPrefix: twohand
+  - type: Wieldable
+  - type: GunRequiresWield
+  - type: Gun
+    fireRate: 1
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/batrifle.ogg
+  - type: MagazineAmmoProvider
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineRifleNomad
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        whitelist:
+          tags:
+          - MagazineRifle
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+  - type: AmmoCounter
+  - type: StaticPrice
+    price: 500

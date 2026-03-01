@@ -38,6 +38,13 @@ public sealed partial class DualAmmoProviderComponent : Component
 public sealed partial class DualAmmoMode
 {
     /// <summary>
+    /// Использует ли этот режим съемные магазины (MagazineAmmoProvider).
+    /// Если true, то Prototype, Capacity и Count игнорируются, а патроны берутся из ItemSlot "gun_magazine".
+    /// </summary>
+    [DataField]
+    public bool UsesMagazine = false;
+
+    /// <summary>
     /// Прототип снаряда для данного режима.
     /// </summary>
     [DataField(required: true)]

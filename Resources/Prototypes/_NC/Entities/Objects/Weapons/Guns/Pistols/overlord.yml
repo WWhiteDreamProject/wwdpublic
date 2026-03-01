@@ -1,6 +1,6 @@
 - type: entity
   name: Ручная пушка Оверлорд
-  parent: BaseItem
+  parent: [BaseItem, NCBrandGunMart]
   id: WeaponPistolOverlord
   description: "Решение ГанМарт для ультрадешевого запугивания. Выглядит как револьвер, но барабан декоративный. Использует встроенный магазин в рукоятке. Тяжелый, ненадежный и медленный."
   components:
@@ -29,20 +29,20 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/mateba.ogg
 
-  - type: BallisticAmmoProvider
-    capacity: 6
-    proto: CartridgeMagnum
-    whitelist:
-      tags:
-      - CartridgeMagnum
-    soundInsert:
-      path: /Audio/Weapons/Guns/MagIn/revolver_magin.ogg
-    autoCycle: true
-
+  - type: MagazineAmmoProvider
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazinePistolOverlord
+        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        whitelist:
+          tags:
+          - MagazinePistol
   - type: ContainerContainer
     containers:
-      ballistic-ammo: !type:Container
-        ents: []
+      gun_magazine: !type:ContainerSlot
 
   - type: AmmoCounter
 

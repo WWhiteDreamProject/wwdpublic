@@ -1,0 +1,56 @@
+- type: entity
+  id: MagazineRifleNomad
+  name: магазин пневматического гвоздемета (.20 винтовочный)
+  description: Самодельный магазин для пневматического гвоздемета Кочевников. Вмещает 8 гвоздей.
+  parent: BaseMagazineRifle
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 8
+    proto: CartridgeRifle
+  - type: Sprite
+    layers:
+    - state: red
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Tag
+    tags:
+    - MagazineRifle
+
+- type: entity
+  id: MagazineRifleArasaka
+  name: магазин штурмовой винтовки Арасака (.20 винтовочный)
+  description: Высокотехнологичный магазин для винтовки Арасака. Вмещает 30 патронов.
+  parent: BaseMagazineRifle
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 30
+    proto: CartridgeRifle
+  - type: Sprite
+    layers:
+    - state: red
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Tag
+    tags:
+    - MagazineRifle
+
+- type: entity
+  id: MagazineRifleM04
+  name: магазин М-04 (.20 винтовочный)
+  description: Стандартный магазин для штурмовой винтовки Штейнмейер М-04. Вмещает 20 патронов.
+  parent: BaseMagazineRifle
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 20
+    proto: CartridgeRifle
+  - type: Sprite
+    layers:
+    - state: red
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Tag
+    tags:
+    - MagazineRifle

@@ -65,6 +65,12 @@ namespace Content.Shared.Storage
         [DataField]
         public TimeSpan OpenUiCooldown = TimeSpan.Zero;
 
+        /// <summary>
+        /// Delay before the storage UI opens (e.g., for backpacks).
+        /// </summary>
+        [DataField]
+        public TimeSpan OpenDelay = TimeSpan.Zero;
+
         [DataField]
         public bool ClickInsert = true; // Can insert stuff by clicking the storage entity with it
 
@@ -142,6 +148,11 @@ namespace Content.Shared.Storage
         {
             Key,
         }
+    }
+
+    [Serializable, NetSerializable]
+    public sealed partial class StorageOpenDoAfterEvent : Content.Shared.DoAfter.SimpleDoAfterEvent
+    {
     }
 
     [Serializable, NetSerializable]

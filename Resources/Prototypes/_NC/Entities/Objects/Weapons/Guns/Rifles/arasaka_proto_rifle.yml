@@ -1,0 +1,100 @@
+- type: entity
+  name: Прототип Изменяемой Штурмовой Винтовки Арасака
+  parent: [BaseItem, NCBrandArasaka]
+  id: WeaponRifleArasakaProto
+  description: "Экзотическая штурмовая винтовка отличного качества с уникальным альтернативным режимом рельсотрона. В альтернативном режиме стреляет мощными бронебойными зарядами."
+  components:
+  - type: Sprite
+    sprite: _NC/Objects/Weapons/Guns/Rifles/ArasakaPrototypeAssaultRifle/big.rsi
+    scale: 0.6, 0.6
+    layers:
+    - state: icon
+      map: [ "enum.GunVisualLayers.Base" ]
+  - type: Clothing
+    sprite: _NC/Objects/Weapons/Guns/Rifles/ArasakaPrototypeAssaultRifle/tiny.rsi
+    slots:
+    - Back
+    - SuitStorage
+
+  - type: Item
+    sprite: _NC/Objects/Weapons/Guns/Rifles/ArasakaPrototypeAssaultRifle/tiny.rsi
+    size: Huge
+    heldPrefix: twohand
+  - type: Wieldable
+  - type: GunRequiresWield
+
+  - type: Gun
+    fireRate: 6
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/batrifle.ogg
+
+  # Двойной магазин (Обычный + Рельсотрон)
+  # В оригинале рельсотрон сжигает и патрон и батарею, но для движка пока делаем как переключаемые магазины.
+  - type: DualAmmoProvider
+    currentMode: 0
+    modes:
+    - prototype: CartridgeRifle
+      usesMagazine: true
+      modeName: dual-ammo-mode-rifle
+      fireRate: 6
+      soundGunshot:
+        path: /Audio/Weapons/Guns/Gunshots/batrifle.ogg
+      whitelistTags:
+      - MagazineRifle
+
+    - prototype: CartridgeArasakaRailgun # Лазерный выстрел (рельсотрон)
+      capacity: 8
+      count: 8
+      modeName: ammo-provider-mode-railgun
+      fireRate: 1
+      soundGunshot:
+        path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+      whitelistTags:
+      - CartridgeArasakaRailgun
+
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+        ents: []
+      gun_magazine: !type:ContainerSlot
+
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineRifleArasaka
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        whitelist:
+          tags:
+          - MagazineRifle
+
+  - type: AmmoCounter
+
+  - type: StaticPrice
+    price: 15000
+
+- type: Tag
+  id: CartridgeArasakaRailgun
+
+- type: entity
+  id: CartridgeArasakaRailgun
+  name: батарея рельсотрона
+  parent: BaseItem
+  description: Конденсированный заряд энергии для винтовки Арасака.
+  components:
+  - type: Item
+    size: Small
+  - type: Tag
+    tags:
+    - Cartridge
+    - CartridgeArasakaRailgun
+  - type: CartridgeAmmo
+    proto: BulletLaserHeavy # Используем мощный лазер
+  - type: Sprite
+    sprite: Objects/Power/power_cells.rsi
+    state: small

@@ -44,26 +44,26 @@ namespace Content.Shared.Storage.EntitySystems;
 
 public abstract class SharedStorageSystem : EntitySystem
 {
-    [Dependency] private   readonly IConfigurationManager _cfg = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] protected readonly IGameTiming Timing = default!;
-    [Dependency] private   readonly IPrototypeManager _prototype = default!;
+    [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] protected readonly IRobustRandom Random = default!;
-    [Dependency] private   readonly ISharedAdminLogManager _adminLog = default!;
+    [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
 
     [Dependency] protected readonly ActionBlockerSystem ActionBlocker = default!;
-    [Dependency] private   readonly EntityLookupSystem _entityLookupSystem = default!;
-    [Dependency] private   readonly EntityWhitelistSystem _whitelistSystem = default!;
-    [Dependency] private   readonly InventorySystem _inventory = default!;
-    [Dependency] private   readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly EntityLookupSystem _entityLookupSystem = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] protected readonly SharedAudioSystem Audio = default!;
     [Dependency] protected readonly SharedContainerSystem ContainerSystem = default!;
-    [Dependency] private   readonly SharedDoAfterSystem _doAfterSystem = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
     [Dependency] protected readonly SharedEntityStorageSystem EntityStorage = default!;
-    [Dependency] private   readonly SharedInteractionSystem _interactionSystem = default!;
+    [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
     [Dependency] protected readonly SharedItemSystem ItemSystem = default!;
-    [Dependency] private   readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private   readonly SharedHandsSystem _sharedHandsSystem = default!;
-    [Dependency] private   readonly SharedStackSystem _stack = default!;
+    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+    [Dependency] private readonly SharedHandsSystem _sharedHandsSystem = default!;
+    [Dependency] private readonly SharedStackSystem _stack = default!;
     [Dependency] protected readonly SharedTransformSystem TransformSystem = default!;
     [Dependency] protected readonly SharedUserInterfaceSystem UI = default!;
     [Dependency] protected readonly UseDelaySystem UseDelay = default!;
@@ -150,6 +150,7 @@ public abstract class SharedStorageSystem : EntitySystem
         SubscribeLocalEvent<StorageComponent, ContainerIsInsertingAttemptEvent>(OnInsertAttempt);
 
         SubscribeLocalEvent<StorageComponent, AreaPickupDoAfterEvent>(OnDoAfter);
+        SubscribeLocalEvent<StorageComponent, StorageOpenDoAfterEvent>(OnStorageOpenDoAfter);
 
         SubscribeAllEvent<OpenNestedStorageEvent>(OnStorageNested);
         SubscribeAllEvent<StorageTransferItemEvent>(OnStorageTransfer);
@@ -350,10 +351,29 @@ public abstract class SharedStorageSystem : EntitySystem
             return;
 
         // prevent spamming bag open / honkerton honk sound
-        silent |= TryComp<UseDelayComponent>(uid, out var useDelay) && UseDelay.IsDelayed((uid, useDelay), id: OpenUiUseDelayID);
+        var useDelay = CompOrNull<UseDelayComponent>(uid);
+        silent |= useDelay != null && UseDelay.IsDelayed((uid, useDelay), id: OpenUiUseDelayID);
         if (!CanInteract(entity, (uid, storageComp), silent: silent))
             return;
 
+        if (storageComp.OpenDelay > TimeSpan.Zero)
+        {
+            var doAfterArgs = new DoAfterArgs(EntityManager, entity, storageComp.OpenDelay, new StorageOpenDoAfterEvent(), uid, target: uid)
+            {
+                BreakOnDamage = true,
+                BreakOnMove = true,
+                NeedHand = true
+            };
+
+            _doAfterSystem.TryStartDoAfter(doAfterArgs);
+            return;
+        }
+
+        OpenStorageUIInternalFinal(uid, entity, storageComp, silent, useDelay);
+    }
+
+    private void OpenStorageUIInternalFinal(EntityUid uid, EntityUid entity, StorageComponent storageComp, bool silent, UseDelayComponent? useDelay)
+    {
         if (!UI.TryOpenUi(uid, StorageComponent.StorageUiKey.Key, entity))
             return;
 
@@ -366,7 +386,20 @@ public abstract class SharedStorageSystem : EntitySystem
         }
     }
 
-    public virtual void UpdateUI(Entity<StorageComponent?> entity) {}
+    private void OnStorageOpenDoAfter(Entity<StorageComponent> ent, ref StorageOpenDoAfterEvent args)
+    {
+        if (args.Handled || args.Cancelled)
+            return;
+
+        args.Handled = true;
+
+        var useDelay = CompOrNull<UseDelayComponent>(ent);
+        var silent = useDelay != null && UseDelay.IsDelayed((ent.Owner, useDelay), id: OpenUiUseDelayID);
+
+        OpenStorageUIInternalFinal(ent.Owner, args.Args.User, ent.Comp, silent, useDelay);
+    }
+
+    public virtual void UpdateUI(Entity<StorageComponent?> entity) { }
 
     private void AddTransferVerbs(EntityUid uid, StorageComponent component, GetVerbsEvent<UtilityVerb> args)
     {

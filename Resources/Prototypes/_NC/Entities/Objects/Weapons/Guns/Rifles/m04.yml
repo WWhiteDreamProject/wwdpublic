@@ -1,6 +1,6 @@
 - type: entity
   name: Штейнмейер М-04
-  parent: BaseItem
+  parent: [BaseItem, NCBrandSternmeyer]
   id: WeaponRifleM04
   description: "М-04 Изменяемая Штурмовка от компании Штейнмейер. Компактное многоцелевое оружие с встроенным гранатометом. Магазин винтовки на 20 патронов, гранатомета — на 2 гранаты. Перезаряжаются отдельно."
   components:
@@ -30,36 +30,35 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/batrifle.ogg
 
-  # Ballistic ammo provider - initially Rifle
-  - type: BallisticAmmoProvider
-    capacity: 20
-    proto: CartridgeRifle
-    whitelist:
-      tags:
-      - CartridgeRifle
-    soundInsert:
-      path: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
-    autoCycle: true
-
-  # Контейнер для боеприпасов
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container
         ents: []
+      gun_magazine: !type:ContainerSlot
+
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineRifleM04
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        whitelist:
+          tags:
+          - MagazineRifle
 
   # Dual Ammo Provider
   - type: DualAmmoProvider
     currentMode: 0
     modes:
     - prototype: CartridgeRifle
-      capacity: 20
-      count: 20
+      usesMagazine: true
       modeName: dual-ammo-mode-rifle
       fireRate: 5
       soundGunshot:
         path: /Audio/Weapons/Guns/Gunshots/batrifle.ogg
       whitelistTags:
-      - CartridgeRifle
+      - MagazineRifle
 
     - prototype: GrenadeFrag
       capacity: 2
