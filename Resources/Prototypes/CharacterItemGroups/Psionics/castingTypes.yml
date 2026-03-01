@@ -8,3 +8,7 @@
       id: PsionicInsulation
     - type: trait
       id: PsychoHistorian
+    - type: trait
+      id: Shadowkin #wwdp
+    - type: trait
+      id: Infernal #wwdp
