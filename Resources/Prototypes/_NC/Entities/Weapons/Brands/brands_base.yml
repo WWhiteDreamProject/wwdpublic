@@ -351,6 +351,24 @@
     jamChance: 0
     meleeDamageBonus: 15     # Мощное холодное оружие
 
+# Centurion Essentials — «Надёжность для всех»
+# Дешёвые, но очень надёжные пистолеты. Почти не ломаются.
+- type: entity
+  id: NCBrandCenturionEssentials
+  abstract: true
+  components:
+  - type: Clothing
+    equipDelay: 0.5
+    unequipDelay: 0.5
+  - type: NCWeapon
+    manufacturer: CenturionEssentials
+    tier: Excellent
+    durability: 120
+    maxDurability: 120
+    degradationRate: 0.2     # Очень медленный износ
+    jamChance: 0.005         # Почти не клинит
+    spreadMultiplier: 1.1    # Чуть хуже точность
+
 #endregion
 
 #region ТИР-3: «Уникальный кастом» (Легендарное и экзотическое)

@@ -1,6 +1,6 @@
 - type: entity
   name: Штейнмейер М-04
-  parent: BaseItem
+  parent: [BaseItem, NCBrandSternmeyer]
   id: WeaponRifleM04
   description: "М-04 Изменяемая Штурмовка от компании Штейнмейер. Компактное многоцелевое оружие с встроенным гранатометом. Магазин винтовки на 20 патронов, гранатомета — на 2 гранаты. Перезаряжаются отдельно."
   components:

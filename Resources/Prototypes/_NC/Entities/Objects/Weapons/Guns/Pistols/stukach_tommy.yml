@@ -2,7 +2,7 @@
 
 - type: entity
   name: Стукач Томми
-  parent: BaseItem
+  parent: [BaseItem, NCBrandCenturionEssentials]
   id: WeaponPistolStukachTommy
   description: Экзотическая комбинация крупнокалиберного пистолета и дробовика от Centurian Essentials. Невероятно непрактичен, но выглядит круто. Требует удержания двумя руками — иначе вылетит из рук при выстреле.
   components:

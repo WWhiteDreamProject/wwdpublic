@@ -32,6 +32,7 @@ public enum WeaponManufacturer : byte
     Arasaka,
     TsunamiArms,
     Kendachi,
+    CenturionEssentials,
 
     // ТИР-3: «Уникальный кастом»
     MalorianArms,
