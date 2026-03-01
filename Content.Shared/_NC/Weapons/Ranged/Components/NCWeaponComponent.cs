@@ -52,17 +52,6 @@ public enum WeaponTier : byte
 }
 
 /// <summary>
-/// Скрытность оружия — где можно спрятать.
-/// </summary>
-[NetSerializable, Serializable]
-public enum Concealability : byte
-{
-    None,
-    Pocket,
-    Jacket
-}
-
-/// <summary>
 /// Компонент оружия Найт-Сити. Содержит параметры бренда, прочности,
 /// механик деградации и состояния оружия.
 /// Обрабатывается NCWeaponSystem на сервере.
@@ -84,11 +73,7 @@ public sealed partial class NCWeaponComponent : Component
     [DataField("tier"), AutoNetworkedField]
     public WeaponTier Tier = WeaponTier.Standard;
 
-    /// <summary>
-    /// Скрытность — можно ли спрятать оружие.
-    /// </summary>
-    [DataField("concealability"), AutoNetworkedField]
-    public Concealability Concealability = Concealability.None;
+
 
     #endregion
 

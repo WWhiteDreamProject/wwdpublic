@@ -231,7 +231,6 @@
     degradationRate: 0.6
     jamChance: 0.02
     meleeDamageBonus: 5      # Мощный приклад
-    concealability: None     # Невозможно спрятать
 
 # Mustang Arms — «Патрульный стандарт»
 # Увеличенные магазины, но долгая перезарядка.
@@ -309,7 +308,6 @@
     maxDurability: 90
     degradationRate: 0.4
     jamChance: 0.01
-    concealability: Jacket   # Можно спрятать под курткой
     drawTimeMultiplier: 0.7  # Быстрое извлечение
 
 # Tsunami Arms — «Умный перегруз»
