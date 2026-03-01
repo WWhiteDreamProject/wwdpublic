@@ -261,7 +261,6 @@ public sealed partial class MarkingPicker : Control
                     // WWDP EDIT END
                     MarkingAdd(_prototypeManager.Index<MarkingPrototype>(item.Name));
                     // WWDP EDIT START
-                    OnMarkingAdded?.Invoke(_currentMarkings);
                     Populate(CMarkingSearch.Text);
                 } // WWDP EDIT END
                 else
