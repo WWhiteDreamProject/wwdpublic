@@ -57,7 +57,6 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
     public Dictionary<string, Loadout> LoadoutPreferences => _loadoutPreferences; // WWDP EDIT
     public IEnumerable<Loadout> LoadoutPreferencesList => _loadoutPreferences.Values; // WWDP EDIT
 
-    [DataField(customTypeSerializer: typeof(LoadoutPreferencesSerializer))] // WWDP EDIT
     private Dictionary<string, Loadout> _loadoutPreferences = new(); // WWDP EDIT
 
     [DataField]
