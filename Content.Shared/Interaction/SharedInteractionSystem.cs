@@ -342,6 +342,10 @@ namespace Content.Shared.Interaction
             if (!_itemQuery.HasComp(target))
                 return false;
 
+            // WWDP EDIT START
+            if (!_containerSystem.IsEntityInContainer(target.Value))
+                return false;
+            // WWDP EDIT END
             var combatEv = new CombatModeShouldHandInteractEvent();
             RaiseLocalEvent(target.Value, ref combatEv);
 
