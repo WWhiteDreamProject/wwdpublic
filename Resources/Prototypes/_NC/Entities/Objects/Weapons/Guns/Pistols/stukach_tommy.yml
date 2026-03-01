@@ -44,36 +44,35 @@
     angleIncrease: 8
     angleDecay: 6
 
-  # Ballistic ammo provider — начинаем с режима пистолета
-  - type: BallisticAmmoProvider
-    capacity: 8
-    proto: CartridgeMagnum
-    whitelist:
-      tags:
-      - CartridgeMagnum
-    soundInsert:
-      path: /Audio/Weapons/Guns/MagIn/bullet_insert.ogg
-    autoCycle: true
-
-  # Контейнер для боеприпасов
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container
         ents: []
+      gun_magazine: !type:ContainerSlot
+
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazinePistolStukach
+        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        whitelist:
+          tags:
+          - MagazinePistol
 
   # DualAmmoProvider — два режима: пистолет и дробовик
   - type: DualAmmoProvider
     currentMode: 0
     modes:
     - prototype: CartridgeMagnum
-      capacity: 8
-      count: 8
+      usesMagazine: true
       modeName: dual-ammo-mode-pistol
       fireRate: 4
       soundGunshot:
         path: /Audio/Weapons/Guns/Gunshots/mk58.ogg
       whitelistTags:
-      - CartridgeMagnum
+      - MagazinePistol
     - prototype: ShellShotgun
       capacity: 2
       count: 2
@@ -135,15 +134,21 @@
   id: WeaponPistolStukachTommyEmpty
   suffix: Empty
   components:
-  - type: BallisticAmmoProvider
-    capacity: 8
-    proto: null
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: null
+        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        whitelist:
+          tags:
+          - MagazinePistol
   - type: DualAmmoProvider
     currentMode: 0
     modes:
     - prototype: CartridgeMagnum
-      capacity: 8
-      count: 0
+      usesMagazine: true
       modeName: dual-ammo-mode-pistol
       fireRate: 4
     - prototype: ShellShotgun
