@@ -1,0 +1,48 @@
+# NC — Корпоративные радиоканалы CitiNet
+# Закрытые частоты для официальных структур Найт-Сити
+# Доступ через гарнитуры + EncryptionKey
+
+- type: radioChannel
+  id: NCPD
+  name: chat-radio-ncpd
+  keycodes:
+    - 'p'
+    - 'п'
+  frequency: 1500
+  color: "#3366ff"
+
+- type: radioChannel
+  id: TraumaTeam
+  name: chat-radio-traumateam
+  keycodes:
+    - 'r'
+    - 'я'
+  frequency: 1510
+  color: "#ff3333"
+
+- type: radioChannel
+  id: MaxTac
+  name: chat-radio-maxtac
+  keycodes:
+    - 'x'
+    - 'ж'
+  frequency: 1520
+  color: "#000099"
+
+- type: radioChannel
+  id: Militech
+  name: chat-radio-militech
+  keycodes:
+    - 'l'
+    - 'л'
+  frequency: 1530
+  color: "#888888"
+
+- type: radioChannel
+  id: Biotechnica
+  name: chat-radio-biotechnica
+  keycodes:
+    - 'i'
+    - 'и'
+  frequency: 1540
+  color: "#33cc33"

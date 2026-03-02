@@ -1,0 +1,25 @@
+# NC — CitiNet Relay
+# Локальный городской узел связи. Маршрутизирует гражданские коммуникации.
+# При обесточивании все CitiNet-функции на карте падают.
+
+- type: entity
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  id: CitiNetRelay
+  name: citinet-relay-name
+  description: citinet-relay-description
+  components:
+  - type: CitiNetRelay
+  - type: Sprite
+    sprite: Structures/Machines/telecomms.rsi
+    state: icon
+  - type: ApcPowerReceiver
+    powerLoad: 200
+  - type: ExtensionCableReceiver
+  - type: Anchorable
+
+# Предзаполненный вариант для маппинга
+- type: entity
+  parent: CitiNetRelay
+  id: CitiNetRelayFilled
+  suffix: Filled
+  components: []

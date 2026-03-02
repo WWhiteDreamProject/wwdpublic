@@ -1,0 +1,22 @@
+# NC — CitiNet BBS каналы
+# Гражданские текстовые каналы, маршрутизируемые через CitiNet Relay
+
+- type: citiNetChannel
+  id: CitiNetPublic
+  name: citinet-bbs-channel-public
+  color: "#cccccc"
+  isAnonymous: true
+
+- type: citiNetChannel
+  id: Afterlife
+  name: citinet-bbs-channel-afterlife
+  color: "#9933ff"
+  isHidden: true
+
+- type: citiNetChannel
+  id: Maelstrom
+  name: citinet-bbs-channel-maelstrom
+  color: "#ff6600"
+  requiresPassword: true
+  password: "iron"
+  isHidden: true
