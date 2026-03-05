@@ -20,6 +20,7 @@
     selectedMode: SemiAuto
     availableModes:
       - SemiAuto
+    shipWeapon: true # WD EDIT
   - type: Fixtures
     fixtures:
       fix1:

@@ -135,7 +135,7 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
 
         _docks = state.Docks;
 
-        FieldOfView = state.FieldOfView; // WD EDIT
+        FieldOfView = (float) state.FieldOfView.Theta; // WD EDIT
 
         NfUpdateState(state); // Frontier Update State
     }
@@ -382,7 +382,6 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
         {
             handle.DrawString(Font, uiPos, label, color);
         }
-        DrawCircles(handle);
         // WD EDIT END
     }
 

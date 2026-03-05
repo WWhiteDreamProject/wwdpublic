@@ -88,6 +88,7 @@
   - type: RadarConsole
     maxRange: 2048 # WWDP edit
     followEntity: true
+    rotateWithEntity: false # WD EDIT
   - type: CargoOrderConsole
   - type: BankClient
   - type: CrewMonitoringConsole
