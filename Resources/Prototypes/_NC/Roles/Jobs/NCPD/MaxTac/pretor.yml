@@ -21,6 +21,6 @@
     shoes: ClothingShoesBootsCombatFilled
     head: ClothingHeadHelmetHardsuitSecurity
     ears: ClothingHeadsetAltSecurity
-    id: SecurityPDA
+    id: MaxTacPDA
     belt: ClothingBeltSecurityFilled
     outerClothing: ClothingOuterHardsuitSecurity

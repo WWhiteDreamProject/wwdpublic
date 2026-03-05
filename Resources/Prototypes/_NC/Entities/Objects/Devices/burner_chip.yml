@@ -1,0 +1,18 @@
+# NC — BurnerChip (Одноразовый чип анонимности)
+# Дешёвый чип с чёрного рынка, подменяет ID владельца PDA.
+
+- type: entity
+  parent: BaseItem
+  id: BurnerChip
+  name: citinet-burner-chip-name
+  description: citinet-burner-chip-description
+  components:
+  - type: BurnerChip
+  - type: Sprite
+    sprite: Objects/Devices/encryption_keys.rsi
+    layers:
+    - state: crypt_red
+    - state: synd_label
+  - type: Item
+    sprite: Objects/Devices/encryption_keys.rsi
+    size: Tiny

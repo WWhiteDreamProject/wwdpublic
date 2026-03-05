@@ -47,3 +47,6 @@
   id: JobTraumaTeamTech
 - type: playTimeTracker
   id: JobTraumaTeamCoroner
+- type: playTimeTracker
+  id: JobTraumaTeamPsych
+

@@ -1,0 +1,103 @@
+<BoxContainer xmlns="https://spacestation14.io"
+              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+              x:Class="Content.Client._NC.CitiNet.UI.CitiNetUiFragment"
+              Orientation="Vertical"
+              HorizontalExpand="True"
+              VerticalExpand="True"
+              Margin="4">
+
+    <!-- HEADER / STATUS ROW -->
+    <BoxContainer Orientation="Horizontal" Margin="0 0 0 4">
+        <RichTextLabel Name="HeaderLabel" HorizontalExpand="True" VerticalAlignment="Center"/>
+        <BoxContainer Orientation="Vertical" HorizontalAlignment="Right">
+            <RichTextLabel Name="NetworkStatusLabel" HorizontalAlignment="Right"/>
+            <RichTextLabel Name="LocationLabel" HorizontalAlignment="Right"/>
+        </BoxContainer>
+    </BoxContainer>
+
+    <!-- MAIN 3-COLUMN LAYOUT -->
+    <BoxContainer Orientation="Horizontal" VerticalExpand="True">
+
+        <!-- ======================= -->
+        <!-- COLUMN 1: SIDEBAR (MENU)-->
+        <!-- ======================= -->
+        <PanelContainer StyleClasses="BorderedWindowPanel" MinWidth="170" Margin="0 0 4 0">
+            <BoxContainer Orientation="Vertical" Margin="4">
+                <RichTextLabel Name="UsernameLabel" Margin="0 0 0 8"/>
+                <RichTextLabel Margin="0 0 0 4" Name="OnlineStatusLabel" />
+
+                <Label Text="[ MENU ]" FontColorOverride="#51f542" Margin="0 12 0 4"/>
+
+                <Button Name="MenuDirectCallsBtn" Text="[1] DIRECT CALLS" Margin="0 2 0 0" HorizontalAlignment="Left" StyleClasses="OpenRight"/>
+                <Button Name="MenuChatRoomsBtn" Text="[2] CHAT ROOMS" Margin="0 2 0 0" HorizontalAlignment="Left" StyleClasses="OpenRight"/>
+                <Button Name="MenuDataPoolBtn" Text="[3] DATA POOL" Margin="0 2 0 0" HorizontalAlignment="Left" StyleClasses="OpenRight"/>
+                <Button Name="MenuNetworkStatusBtn" Text="[4] NETWORK STATUS" Margin="0 2 0 0" HorizontalAlignment="Left" StyleClasses="OpenRight"/>
+            </BoxContainer>
+        </PanelContainer>
+
+        <!-- ======================= -->
+        <!-- COLUMN 2: LIST (MIDDLE) -->
+        <!-- ======================= -->
+        <PanelContainer StyleClasses="BorderedWindowPanel" MinWidth="220" Margin="0 0 4 0">
+            <BoxContainer Orientation="Vertical" Margin="4" VerticalExpand="True">
+                <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="0 0 0 4">
+                    <Label Name="ListTitleLabel" Text="[ CHAT ROOMS ]" FontColorOverride="#51f542" HorizontalExpand="True"/>
+                </BoxContainer>
+
+                <Label Name="ListSubtitleLabel" Text="ACTIVE CHANNELS:" FontColorOverride="#51f542" Margin="0 4 0 4"/>
+
+                <ScrollContainer VerticalExpand="True" HScrollEnabled="False">
+                    <BoxContainer Name="ListContainer" Orientation="Vertical"/>
+                </ScrollContainer>
+            </BoxContainer>
+        </PanelContainer>
+
+        <!-- ======================= -->
+        <!-- COLUMN 3: CONTENT (RIGHT) -->
+        <!-- ======================= -->
+        <PanelContainer StyleClasses="BorderedWindowPanel" HorizontalExpand="True" MinWidth="350">
+            <BoxContainer Orientation="Vertical" Margin="4" VerticalExpand="True">
+
+                <!-- Chat Window Header -->
+                <RichTextLabel Name="ContentHeaderLabel" Margin="0 0 0 4"/>
+
+                <!-- Password Input (if needed for secure channel) -->
+                <BoxContainer Name="PasswordPanel" Orientation="Horizontal" Visible="False" Margin="0 0 0 4">
+                    <LineEdit Name="PasswordInput" HorizontalExpand="True" PlaceHolder="ENTER ACCESS CODE..."/>
+                    <Button Name="PasswordSubmitBtn" Text="[SUBMIT]" Margin="2 0 0 0"/>
+                </BoxContainer>
+
+                <!-- Chat Messages Scroll -->
+                <ScrollContainer VerticalExpand="True" HScrollEnabled="False">
+                    <BoxContainer Name="ContentMessagesContainer" Orientation="Vertical"/>
+                </ScrollContainer>
+
+                <!-- Active Call Control Panel (Visible only during calls/bridge) -->
+                <BoxContainer Name="CallControlsPanel" Orientation="Horizontal" Visible="False" Margin="0 4 0 4">
+                    <RichTextLabel Name="CallControlsStatusLabel" HorizontalExpand="True" VerticalAlignment="Center"/>
+                    <Button Name="CallDialButton" Text="DIAL VOICE" StyleClasses="ButtonColorGreen" Visible="False"/>
+                    <Button Name="CallAcceptButton" Text="ACCEPT" StyleClasses="ButtonColorGreen" Visible="False"/>
+                    <Button Name="CallDeclineButton" Text="DECLINE" StyleClasses="ButtonColorRed" Visible="False"/>
+                    <Button Name="CallJoinVoiceButton" Text="JOIN VOICE" StyleClasses="ButtonColorGreen" Visible="False"/>
+                    <Button Name="CallLeaveVoiceButton" Text="LEAVE VOICE" StyleClasses="ButtonColorRed" Margin="2 0 0 0" Visible="False"/>
+                    <Button Name="CallPingLocationButton" Text="PING LOCATION" Margin="2 0 0 0"/>
+                    <Button Name="CallHangUpButton" Text="HANG UP" StyleClasses="ButtonColorRed" Margin="2 0 0 0" Visible="False"/>
+                </BoxContainer>
+
+                <!-- Action Controls Panel (Contextual inputs: e.g. dial number, create bridge) -->
+                <BoxContainer Name="ActionControlsPanel" Orientation="Horizontal" Visible="False" Margin="0 4 0 4">
+                    <LineEdit Name="ActionInput" HorizontalExpand="True" PlaceHolder="..."/>
+                    <Button Name="ActionButton" Text="[ACTION]" Margin="2 0 0 0"/>
+                </BoxContainer>
+
+                <!-- Chat Input Line -->
+                <BoxContainer Name="ChatInputPanel" Orientation="Horizontal" Margin="0 4 0 0">
+                    <Label Text=">>" FontColorOverride="#51f542" VerticalAlignment="Center" Margin="0 0 4 0"/>
+                    <LineEdit Name="ChatInput" HorizontalExpand="True" PlaceHolder="Type your message: [                     ]"/>
+                    <Button Name="ChatSendButton" Text="[SEND]" Margin="2 0 0 0"/>
+                </BoxContainer>
+
+            </BoxContainer>
+        </PanelContainer>
+    </BoxContainer>
+</BoxContainer>

@@ -1,0 +1,40 @@
+# NC — CitiNet BBS каналы
+# Гражданские текстовые каналы, маршрутизируемые через CitiNet Relay
+
+- type: citiNetChannel
+  id: CitiNetPublic
+  name: citinet-bbs-channel-public
+  color: "#cccccc"
+  isAnonymous: true
+
+- type: citiNetChannel
+  id: Afterlife
+  name: citinet-bbs-channel-afterlife
+  color: "#9933ff"
+  isHidden: true
+
+- type: citiNetChannel
+  id: NCPD_HQ
+  name: citinet-bbs-channel-ncpd
+  color: "#2f5c9e"
+  access:
+    - NCPD_Patrol
+    - NCPD_Command
+    - NC_General
+  isHidden: false
+
+- type: citiNetChannel
+  id: MaxTac_HQ
+  name: citinet-bbs-channel-maxtac
+  color: "#182c4d"
+  access:
+    - MaxTac_General
+  isHidden: false
+
+- type: citiNetChannel
+  id: TraumaTeam_HQ
+  name: citinet-bbs-channel-traumateam
+  color: "#4bdc99"
+  access:
+    - Trauma_Medical
+  isHidden: false

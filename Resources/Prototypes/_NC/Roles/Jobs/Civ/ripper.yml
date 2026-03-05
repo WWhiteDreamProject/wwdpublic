@@ -14,5 +14,5 @@
     jumpsuit: ClothingUniformJumpsuitMedicalDoctor
     back: ClothingBackpackSatchelMedical
     shoes: ClothingShoesColorWhite
-    id: MedicalPDA
+    id: RipperPDA
     ears: ClothingHeadsetMedical

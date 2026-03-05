@@ -15,6 +15,6 @@
     jumpsuit: ClothingUniformJumpsuitDetectiveGrey
     back: ClothingBackpackSatchelLeather
     shoes: ClothingShoesColorBlack
-    id: PassengerPDA
+    id: FixerPDA
     ears: ClothingHeadsetService
     eyes: ClothingEyesGlassesSunglasses

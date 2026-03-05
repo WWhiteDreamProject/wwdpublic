@@ -1,0 +1,140 @@
+- type: entity
+  parent: IDCardStandard
+  id: NCPDIDCard
+  name: идентификационная карта NCPD
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: department
+      color: "#2f5c9e"
+    - state: subdepartment
+      color: "#2f5c9e"
+    - state: securityofficer
+  - type: Access
+    tags:
+    - NCPD_Patrol
+    - NC_General
+  - type: PresetIdCard
+    job: NCPDOfficer
+
+- type: entity
+  parent: IDCardStandard
+  id: MaxTacIDCard
+  name: идентификационная карта MaxTac
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: department
+      color: "#182c4d"
+    - state: subdepartment
+      color: "#182c4d"
+    - state: securityofficer
+  - type: Access
+    tags:
+    - MaxTac_General
+    - MaxTac_Armory
+    - NCPD_Patrol
+    - NC_General
+  - type: PresetIdCard
+    job: MaxTacInterdictor
+
+- type: entity
+  parent: IDCardStandard
+  id: TraumaTeamIDCard
+  name: идентификационная карта Trauma Team
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: department
+      color: "#4bdc99"
+    - state: subdepartment
+      color: "#4bdc99"
+    - state: paramedic
+  - type: Access
+    tags:
+    - Trauma_Medical
+    - Trauma_Morgue
+    - Trauma_Hangar
+    - NC_General
+  - type: PresetIdCard
+    job: TraumaTeamParamedic
+
+- type: entity
+  parent: IDCardStandard
+  id: CitizenIDCard
+  name: идентификационная карта жителя
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: department
+      color: "#888888"
+    - state: assistant
+  - type: Access
+    tags:
+    - NC_General
+  - type: PresetIdCard
+    job: NCCitizen
+
+- type: entity
+  parent: IDCardStandard
+  id: EdgeRunnerIDCard
+  name: идентификационная карта эджраннера
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: department
+      color: "#ffda1a"
+    - state: subdepartment
+      color: "#000000"
+    - state: assistant
+  - type: Access
+    tags:
+    - NC_General
+    - EdgeRunner
+  - type: PresetIdCard
+    job: EdgeRunnerSolo
+
+- type: entity
+  parent: IDCardStandard
+  id: FixerIDCard
+  name: идентификационная карта фиксера
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: department
+      color: "#b18644"
+    - state: subdepartment
+      color: "#888888"
+    - state: assistant
+  - type: Access
+    tags:
+    - NC_General
+    - Fixer
+  - type: PresetIdCard
+    job: Fixer
+
+- type: entity
+  parent: IDCardStandard
+  id: RipperIDCard
+  name: идентификационная карта риппера
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: department
+      color: "#5b97bc"
+    - state: subdepartment
+      color: "#aaffcc"
+    - state: medicaldoctor
+  - type: Access
+    tags:
+    - NC_General
+    - Ripper
+  - type: PresetIdCard
+    job: Reaper

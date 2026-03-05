@@ -6,7 +6,7 @@
   weight: 20
   salary: 850
   startingGear: TraumaTeamParamedicGear
-  supervisors: Главный врач Trauma Team 
+  supervisors: Главный врач Trauma Team
   access:
     - Trauma_Medical
     - Trauma_Morgue
@@ -21,6 +21,6 @@
     shoes: ClothingShoesBootsCombat
     head: ClothingHeadHelmetHardsuitTraumaTeamMedic
     ears: ClothingHeadsetMedical
-    id: MedicalPDA
+    id: TraumaTeamPDA
     belt: ClothingBeltMedicalEMTFilled
     outerClothing: ClothingOuterHardsuitTraumaTeamMedic

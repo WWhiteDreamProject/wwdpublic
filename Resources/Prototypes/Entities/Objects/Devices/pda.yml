@@ -110,8 +110,9 @@
     - CrewManifestCartridge
     - NotekeeperCartridge
     - NewsReaderCartridge
-    - NanoChatCartridge # DeltaV
+    # - NanoChatCartridge # DeltaV
     - MapCartridge # NC
+    - CitiNetCartridge # NC — CitiNet: звонки, группа, BBS
     cartridgeSlot:
       priority: -1
       name: device-pda-slot-component-slot-name-cartridge
