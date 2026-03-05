@@ -21,6 +21,6 @@
     shoes: ClothingShoesBootsCombat
     head: ClothingHeadHelmetHardsuitTraumaTeamOperative
     ears: ClothingHeadsetAltSecurity
-    id: SecurityPDA
+    id: TraumaTeamPDA
     belt: ClothingBeltSecurityFilled
     outerClothing: ClothingOuterHardsuitTraumaTeamOperative

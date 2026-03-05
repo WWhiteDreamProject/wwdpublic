@@ -9,6 +9,9 @@ chat-radio-biotechnica = Biotechnica
 citinet-bbs-channel-public = City Net
 citinet-bbs-channel-afterlife = Afterlife
 citinet-bbs-channel-maelstrom = Maelstrom
+citinet-bbs-channel-ncpd = NCPD HQ
+citinet-bbs-channel-maxtac = MaxTac HQ
+citinet-bbs-channel-traumateam = Trauma Team HQ
 
 # CitiNet Cartridge UI
 citinet-cartridge-name = CitiNet

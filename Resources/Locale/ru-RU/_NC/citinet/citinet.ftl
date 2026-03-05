@@ -9,6 +9,9 @@ chat-radio-biotechnica = Биотехника
 citinet-bbs-channel-public = Городская сеть
 citinet-bbs-channel-afterlife = Посмертие
 citinet-bbs-channel-maelstrom = Мальстрём
+citinet-bbs-channel-ncpd = База NCPD
+citinet-bbs-channel-maxtac = Штаб MaxTac
+citinet-bbs-channel-traumateam = Командный центр Trauma Team
 
 # CitiNet Cartridge UI
 citinet-cartridge-name = CitiNet

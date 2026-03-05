@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared.Access.Components;
 using Content.Server.CartridgeLoader;
 using Content.Server.Power.Components;
 using Content.Shared._NC.CitiNet;
@@ -483,6 +484,32 @@ public sealed class CitiNetCartridgeSystem : EntitySystem
         if (!_prototype.TryIndex<CitiNetBBSChannelPrototype>(msg.TargetId, out var channel))
             return;
 
+        // Проверка доступа по ID-карте
+        if (channel.Access != null && channel.Access.Count > 0)
+        {
+            HashSet<string> pdaAccess = new();
+            if (ent.Comp.LoaderUid != null && TryComp<PdaComponent>(ent.Comp.LoaderUid.Value, out var pda) && pda.ContainedId != null)
+            {
+                if (TryComp<AccessComponent>(pda.ContainedId.Value, out var accessComp))
+                {
+                    pdaAccess = accessComp.Tags.Select(t => (string) t).ToHashSet();
+                }
+            }
+
+            bool hasAccess = false;
+            foreach (var requiredTag in channel.Access)
+            {
+                if (pdaAccess.Contains(requiredTag))
+                {
+                    hasAccess = true;
+                    break;
+                }
+            }
+
+            if (!hasAccess)
+                return; // У персонажа нет нужного доступа
+        }
+
         // Проверяем пароль если нужен
         if (channel.RequiresPassword)
         {
@@ -855,11 +882,40 @@ public sealed class CitiNetCartridgeSystem : EntitySystem
             groupParticipants.Add(new CitiNetGroupParticipant(name, isAlive));
         }
 
-        // Список BBS-каналов (только публичные или те, к которым мы присоединились)
+        // Собираем доступы (теги) из ID-карты в PDA
+        HashSet<string> pdaAccess = new();
+        if (ent.Comp.LoaderUid != null && TryComp<PdaComponent>(ent.Comp.LoaderUid.Value, out var pda) && pda.ContainedId != null)
+        {
+            if (TryComp<AccessComponent>(pda.ContainedId.Value, out var accessComp))
+            {
+                pdaAccess = accessComp.Tags.Select(t => (string) t).ToHashSet();
+            }
+        }
+
+        // Список BBS-каналов (только публичные, по доступу, или те, к которым мы уже присоединились)
         var channels = new List<CitiNetChannelInfo>();
         foreach (var proto in _prototype.EnumeratePrototypes<CitiNetBBSChannelPrototype>())
         {
             var isJoined = ent.Comp.JoinedChannels.Contains(proto.ID);
+
+            // Проверка доступа по ID
+            bool hasAccess = true;
+            if (proto.Access != null && proto.Access.Count > 0)
+            {
+                hasAccess = false;
+                foreach (var requiredTag in proto.Access)
+                {
+                    if (pdaAccess.Contains(requiredTag))
+                    {
+                        hasAccess = true;
+                        break;
+                    }
+                }
+            }
+
+            // Если доступа нет, канал даже не показывается в списке
+            if (!hasAccess)
+                continue;
 
             // Показываем только если мы присоединены, либо если канал не скрыт
             if (isJoined || !proto.IsHidden)

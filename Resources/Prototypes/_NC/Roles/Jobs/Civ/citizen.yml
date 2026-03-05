@@ -14,5 +14,5 @@
     jumpsuit: ClothingUniformJumpsuitColorGrey
     back: ClothingBackpackSatchel
     shoes: ClothingShoesColorBlack
-    id: PassengerPDA
+    id: CitizenPDA
     ears: ClothingHeadsetGrey

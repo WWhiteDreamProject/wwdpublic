@@ -51,4 +51,11 @@ public sealed partial class CitiNetBBSChannelPrototype : IPrototype
     /// </summary>
     [DataField]
     public bool IsHidden { get; private set; }
+
+    /// <summary>
+    /// Требуемые теги доступа (например, "NCPD_Patrol"). Если пусто, доступно всем.
+    /// Требуется хотя бы один из указанных тегов для видимости и доступа к каналу.
+    /// </summary>
+    [DataField]
+    public HashSet<string>? Access { get; private set; }
 }

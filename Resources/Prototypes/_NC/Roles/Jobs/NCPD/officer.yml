@@ -19,6 +19,6 @@
     shoes: ClothingShoesBootsJack
     head: ClothingHeadHelmetBasic
     ears: ClothingHeadsetAltSecurity
-    id: SecurityPDA
+    id: NCPDPDA
     belt: ClothingBeltSecurityFilled
     outerClothing: ClothingOuterArmorBasic

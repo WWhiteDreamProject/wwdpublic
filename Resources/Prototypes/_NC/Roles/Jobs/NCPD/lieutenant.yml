@@ -20,6 +20,6 @@
     shoes: ClothingShoesBootsJack
     head: ClothingHeadHatWarden
     ears: ClothingHeadsetAltSecurity
-    id: WardenPDA
+    id: NCPDPDA
     belt: ClothingBeltSecurityFilled
     outerClothing: ClothingOuterCoatWarden

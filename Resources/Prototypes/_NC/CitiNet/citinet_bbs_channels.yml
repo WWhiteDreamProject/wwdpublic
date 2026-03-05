@@ -14,9 +14,27 @@
   isHidden: true
 
 - type: citiNetChannel
-  id: Maelstrom
-  name: citinet-bbs-channel-maelstrom
-  color: "#ff6600"
-  requiresPassword: true
-  password: "iron"
-  isHidden: true
+  id: NCPD_HQ
+  name: citinet-bbs-channel-ncpd
+  color: "#2f5c9e"
+  access:
+    - NCPD_Patrol
+    - NCPD_Command
+    - NC_General
+  isHidden: false
+
+- type: citiNetChannel
+  id: MaxTac_HQ
+  name: citinet-bbs-channel-maxtac
+  color: "#182c4d"
+  access:
+    - MaxTac_General
+  isHidden: false
+
+- type: citiNetChannel
+  id: TraumaTeam_HQ
+  name: citinet-bbs-channel-traumateam
+  color: "#4bdc99"
+  access:
+    - Trauma_Medical
+  isHidden: false

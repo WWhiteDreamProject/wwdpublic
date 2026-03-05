@@ -15,7 +15,7 @@
     jumpsuit: ClothingUniformJumpsuitColorBlack
     back: ClothingBackpackSatchelSecurity
     shoes: ClothingShoesBootsCombat
-    id: PassengerPDA
+    id: EdgeRunnerPDA
     ears: ClothingHeadsetAltSecurity
     gloves: ClothingHandsGlovesColorBlack
     outerClothing: ClothingOuterArmorBasic
