@@ -835,6 +835,8 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
         hashCode.Add(BodyType); // WD EDIT
         hashCode.Add(BarkVoice); // WD EDIT
         hashCode.Add(BarkSettings); // WD EDIT
+        hashCode.Add(Height); // WWDP EDIT
+        hashCode.Add(Width);  // WWDP EDIT
         hashCode.Add(Appearance);
         hashCode.Add((int) SpawnPriority);
         hashCode.Add((int) PreferenceUnavailable);
