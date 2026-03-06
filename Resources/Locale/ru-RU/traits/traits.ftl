@@ -70,6 +70,9 @@ trait-description-ItalianAccent = Lasciatemi cantare.
 trait-name-SpanishAccent = Испанский акцент
 trait-description-SpanishAccent = Вы чуствуете острую необходимость показать красный платок и без того разгневанному быку.
 
+trait-name-PainNumbness = Анальгезия
+trait-description-PainNumbness = Вам не хватает чувства боли, и вы не осознаете, насколько вам может быть больно.
+
 trait-name-Snoring = Храп
 trait-description-Snoring = Вы храпите во время сна.
 
