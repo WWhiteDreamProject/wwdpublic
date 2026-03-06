@@ -120,13 +120,10 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
     {
         if (dataNode is not MappingDataNode rootMapping)
             return;
-
         if (!rootMapping.TryGet<MappingDataNode>("profile", out var profile))
             return;
-
         if (!profile.TryGet("_loadoutPreferences", out var loadoutsNode))
             return;
-
         if (loadoutsNode is MappingDataNode)
             return;
 
@@ -139,11 +136,9 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
             if (item is not MappingDataNode itemMapping)
                 continue;
 
-            if (itemMapping.TryGet<ValueDataNode>("selected", out var selectedNode))
-            {
-                if (selectedNode.Value.Equals("false", StringComparison.OrdinalIgnoreCase))
-                    continue;
-            }
+            if (itemMapping.TryGet<ValueDataNode>("selected", out var selectedNode)
+                && selectedNode.Value.Equals("false", StringComparison.OrdinalIgnoreCase))
+                continue;
 
             if (!itemMapping.TryGet<ValueDataNode>("loadoutName", out var nameNode))
                 continue;
@@ -152,9 +147,8 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
             if (string.IsNullOrEmpty(name))
                 continue;
 
-            var cleanItem = itemMapping.Copy() as MappingDataNode ?? new MappingDataNode();
+            var cleanItem = (MappingDataNode) itemMapping.Copy();
             cleanItem.Remove("selected");
-
             newMapping[name] = cleanItem;
         }
 

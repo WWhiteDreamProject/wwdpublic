@@ -2,7 +2,6 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using Content.Shared._White.Bark;
 using Content.Shared._White.Bark.Systems;
-using Content.Shared._White.Preferences; // WWDP EDIT
 using Content.Shared._White.TTS;
 using Content.Shared.CCVar;
 using Content.Shared.Clothing.Loadouts.Prototypes;
