@@ -619,7 +619,7 @@
   suffix: Space Drugs, 5
   components:
   - type: Label
-    currentLabel: LSD 15u
+    currentLabel: reagent-name-space-drugs-15u # WWDP EDIT
   - type: StorageFill
     contents:
     - id: PillSpaceDrugs

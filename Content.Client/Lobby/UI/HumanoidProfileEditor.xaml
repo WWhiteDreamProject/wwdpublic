@@ -159,7 +159,9 @@
                                 <BoxContainer HorizontalExpand="True">
                                     <Label Text="{Loc 'humanoid-profile-editor-loadouts'}" />
                                     <Control HorizontalExpand="True"/>
-                                    <Button Name="ShowLoadouts" Pressed="True" ToggleMode="True" Text="{Loc 'Show'}" HorizontalAlignment="Right" />
+                                    <!-- WD EDIT START -->
+                                    <Button Name="ShowLoadouts" Pressed="True" ToggleMode="True" Text="{Loc 'humanoid-profile-editor-clothing-show'}" HorizontalAlignment="Right" />
+                                    <!-- WD EDIT END -->
                                 </BoxContainer>
                                 <!-- Spawn Priority -->
                                 <BoxContainer HorizontalExpand="True">
@@ -196,6 +198,23 @@
                                     <Label Text="{Loc 'humanoid-profile-editor-loadouts-tab'}" />
                                     <Control Margin="5"/>
                                     <loadouts:LoadoutPicker Name="Loadouts" HorizontalExpand="True" HorizontalAlignment="Stretch" Access="Public"/>
+                                    <BoxContainer HorizontalExpand="True" Margin="0 0 0 5">
+                                        <Button
+                                            Name="LoadoutsShowUnusableButton"
+                                            Text="{Loc 'humanoid-profile-editor-loadouts-show-unusable-button'}"
+                                            ToolTip="{Loc 'humanoid-profile-editor-loadouts-show-unusable-button-tooltip'}"
+                                            ToggleMode="True"
+                                            HorizontalAlignment="Stretch"
+                                            HorizontalExpand="True"
+                                            StyleClasses="OpenRight" />
+                                        <Button
+                                            Name="LoadoutsRemoveUnusableButton"
+                                            Text="You shouldn't see this"
+                                            ToolTip="{Loc 'humanoid-profile-editor-loadouts-remove-unusable-button-tooltip'}"
+                                            HorizontalAlignment="Stretch"
+                                            HorizontalExpand="True"
+                                            StyleClasses="OpenLeft" />
+                                    </BoxContainer>
                                 </BoxContainer>
                             </BoxContainer>
                             <Control Margin="5"/>

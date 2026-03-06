@@ -1,3 +1,3 @@
-loadout-description-LoadoutCommandQMNeckMantle = To show who has the authority around here. It's stained with beer.
-loadout-description-LoadoutCommandQMNeckCloak = To really show who has the authority around here. It's stained with beer. It's stained with beer. It's stained with beer.
-loadout-description-LoadoutCommandQMHeadSoft = The QM's hat. It's stained with beer.
+loadout-description-LoadoutCommandQMNeckMantle = Чтобы показать, кто здесь главный. Он весь в пятнах от пива.
+loadout-description-LoadoutCommandQMNeckCloak = Чтобы показать, кто здесь главный. Он весь в пятнах от пива. Он весь в пятнах от пива. Он весь в пятнах от пива.
+loadout-description-LoadoutCommandQMHeadSoft = Шляпа КМ'а. Она вся в пятнах от пива.

@@ -104,6 +104,7 @@ namespace Content.Client.Lobby.UI
         // EE - Contractor System Changes End
 
         private Dictionary<Button, ConfirmationData> _confirmationData = new();
+        private Dictionary<LoadoutPrototype, bool> _loadouts = new(); // WD EDIT
         private List<TraitPreferenceSelector> _traitPreferences = new();
         private int _traitCount;
 
@@ -593,6 +594,14 @@ namespace Content.Client.Lobby.UI
 
             TraitsShowUnusableButton.OnToggled += args => UpdateTraits(args.Pressed);
             TraitsRemoveUnusableButton.OnPressed += _ => TryRemoveUnusableTraits();
+            // WWDP EDIT START
+            LoadoutsShowUnusableButton.OnToggled += args =>
+            {
+                Loadouts.ShowUnusable = args.Pressed;
+                UpdateLoadouts();
+            };
+            LoadoutsRemoveUnusableButton.OnPressed += _ => TryRemoveUnusableLoadouts();
+            // WWDP EDIT END
 
             UpdateTraits(false);
 
@@ -965,6 +974,8 @@ namespace Content.Client.Lobby.UI
             CharacterSlot = slot;
             IsDirty = false;
             JobOverride = null;
+
+            Loadouts.ClearCustomValues(); // WD EDIT
 
             UpdateNameEdit();
             UpdateFlavorTextEdit();
@@ -1483,14 +1494,14 @@ namespace Content.Client.Lobby.UI
         {
             Profile = Profile?.WithHeight(height);
             IsDirty = true;
-            ReloadProfilePreview();
+            UpdateWeight(); // WWDP EDIT
         }
 
         private void SetProfileWidth(float width)
         {
             Profile = Profile?.WithWidth(width);
             IsDirty = true;
-            ReloadProfilePreview();
+            UpdateWeight(); // WWDP EDIT
         }
 
         public bool IsDirty
@@ -1521,7 +1532,10 @@ namespace Content.Client.Lobby.UI
         private void UpdateFlavorTextEdit()
         {
             if (_flavorTextEdit != null)
+            { // WWDP EDIT
                 _flavorTextEdit.TextRope = new Rope.Leaf(Profile?.FlavorText ?? "");
+                _flavorText?.UpdateCharacterCount(); // WWDP EDIT
+            } // WWDP EDIT
         }
 
         private void UpdateAgeEdit()
@@ -1798,13 +1812,13 @@ namespace Content.Client.Lobby.UI
             WidthSlider.MaxValue = species.MaxWidth;
             WidthSlider.SetValueWithoutEvent(Profile?.Width ?? species.DefaultWidth);
 
-            var height = MathF.Round(species.AverageHeight * HeightSlider.Value);
+            var height = MathF.Round(species.AverageHeight * (Profile?.Height ?? species.DefaultHeight)); // WWDP EDIT
             HeightLabel.Text = Loc.GetString("humanoid-profile-editor-height-label", ("height", (int) height));
 
-            var width = MathF.Round(species.AverageWidth * WidthSlider.Value);
+            var width = MathF.Round(species.AverageWidth * (Profile?.Width ?? species.DefaultWidth)); // WWDP EDIT
             WidthLabel.Text = Loc.GetString("humanoid-profile-editor-width-label", ("width", (int) width));
 
-            UpdateDimensions(SliderUpdate.Both);
+            UpdateWeight(); // WWDP EDIT
         }
 
         private enum SliderUpdate
@@ -1850,6 +1864,7 @@ namespace Content.Client.Lobby.UI
             WidthLabel.Text = Loc.GetString("humanoid-profile-editor-width-label", ("width", (int) width));
 
             UpdateWeight();
+            ReloadProfilePreview(); // WWDP EDIT
         }
 
         private void UpdateWeight()
@@ -2391,10 +2406,48 @@ namespace Content.Client.Lobby.UI
             return tree;
         }
 
+        // WWDP EDIT START
         private void HideEmptyTabs(List<TraitCategoryPrototype> cats)
         {
-            // TODO: HIDE LOGIC LATER
+            void CheckAndHideTabs(NeoTabContainer container)
+            {
+                foreach (var tabId in container.TakenIds.ToList())
+                {
+                    var tabControl = container.GetControl<Control>(tabId);
+                    if (tabControl == null) continue;
+
+                    container.SetTabVisible(tabId, true);
+
+                    var shouldHide = tabControl switch
+                    {
+                        NeoTabContainer nested => CheckNestedContainer(nested),
+                        BoxContainer box => !HasVisibleTraits(box),
+                        _ => false
+                    };
+
+                    if (shouldHide)
+                        container.SetTabVisible(tabId, false);
+                }
+            }
+
+            bool CheckNestedContainer(NeoTabContainer nested)
+            {
+                CheckAndHideTabs(nested);
+                return !nested.TakenIds.Any(id => nested.GetControl<Control>(id)?.Visible ?? false);
+            }
+
+            bool HasVisibleTraits(BoxContainer box)
+            {
+                return box.Children
+                    .OfType<ScrollContainer>()
+                    .SelectMany(scroll => scroll.Children.OfType<BoxContainer>())
+                    .SelectMany(inner => inner.Children.OfType<TraitPreferenceSelector>())
+                    .Any(selector => selector.Visible);
+            }
+
+            CheckAndHideTabs(TraitsTabs);
         }
+        // WWDP EDIT END
 
         private void TryRemoveUnusableTraits()
         {
@@ -2407,6 +2460,59 @@ namespace Content.Client.Lobby.UI
                 Profile = Profile?.WithTraitPreference(trait.ID, false);
             UpdateCharacterRequired();
         }
+
+        // WWDP EDIT START
+        private void TryRemoveUnusableLoadouts()
+        {
+            if (!AdminUIHelpers.TryConfirm(LoadoutsRemoveUnusableButton, _confirmationData))
+                return;
+
+            if (Profile == null)
+                return;
+
+            var unusableLoadouts = _loadouts.Where(l => !l.Value).Select(l => l.Key.ID).ToList();
+
+            var currentProfile = Profile;
+            foreach (var loadoutId in unusableLoadouts)
+            {
+                var loadout = currentProfile.LoadoutPreferencesList.FirstOrDefault(l => l.LoadoutName == loadoutId);
+                if (loadout != null)
+                {
+                    var newList = currentProfile.LoadoutPreferencesList.Where(l => l.LoadoutName != loadoutId).ToList();
+                    currentProfile = currentProfile.WithLoadoutPreference(newList);
+                }
+            }
+
+            Profile = currentProfile;
+            ReloadProfilePreview();
+            ReloadClothes();
+            UpdateLoadouts();
+        }
+
+        private void UpdateLoadoutsRemoveButton()
+        {
+            var unusableCount = _loadouts.Count(l => !l.Value);
+
+            if (unusableCount > 0)
+            {
+                LoadoutsRemoveUnusableButton.Text = Loc.GetString(
+                    "humanoid-profile-editor-loadouts-remove-unusable-button",
+                    ("count", unusableCount));
+                LoadoutsRemoveUnusableButton.RemoveStyleClass(StyleBase.ButtonOpenLeft);
+                LoadoutsRemoveUnusableButton.AddStyleClass(StyleBase.ButtonDanger);
+                LoadoutsRemoveUnusableButton.Disabled = false;
+            }
+            else
+            {
+                LoadoutsRemoveUnusableButton.Text = Loc.GetString(
+                    "humanoid-profile-editor-loadouts-remove-unusable-button",
+                    ("count", 0));
+                LoadoutsRemoveUnusableButton.RemoveStyleClass(StyleBase.ButtonDanger);
+                LoadoutsRemoveUnusableButton.AddStyleClass(StyleBase.ButtonOpenLeft);
+                LoadoutsRemoveUnusableButton.Disabled = true;
+            }
+        }
+        // WWDP EDIT END
 
         #endregion
 
