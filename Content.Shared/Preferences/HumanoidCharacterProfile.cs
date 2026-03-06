@@ -301,6 +301,8 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
             Nationality = SharedHumanoidAppearanceSystem.DefaultNationality,
             Employer = SharedHumanoidAppearanceSystem.DefaultEmployer,
             Lifepath = SharedHumanoidAppearanceSystem.DefaultLifepath,
+            Height = speciesPrototype?.DefaultHeight ?? 1f, // WWDP EDIT
+            Width = speciesPrototype?.DefaultWidth ?? 1f, // WWDP EDIT
         };
     }
 
@@ -580,6 +582,8 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
         };
 
         var bodyType = speciesPrototype.BodyTypes.Contains(BodyType) ? BodyType : speciesPrototype.BodyTypes.First(); // WD EDIT
+        var height = Height <= 0 ? speciesPrototype.DefaultHeight : Math.Clamp(Height, speciesPrototype.MinHeight, speciesPrototype.MaxHeight); // WD EDIT
+        var width = Width <= 0 ? speciesPrototype.DefaultWidth : Math.Clamp(Width, speciesPrototype.MinWidth, speciesPrototype.MaxWidth); // WD EDIT
 
         string name;
         if (string.IsNullOrEmpty(Name))
@@ -690,6 +694,8 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
         Sex = sex;
         Gender = gender;
         BodyType = bodyType; // WD EDIT
+        Height = height; // WD EDIT
+        Width = width; // WD EDIT
         Appearance = appearance;
         SpawnPriority = spawnPriority;
 

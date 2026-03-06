@@ -136,8 +136,7 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
             if (item is not MappingDataNode itemMapping)
                 continue;
 
-            if (itemMapping.TryGet<ValueDataNode>("selected", out var selectedNode)
-                && selectedNode.Value.Equals("false", StringComparison.OrdinalIgnoreCase))
+            if (!itemMapping.TryGet<ValueDataNode>("selected", out var selectedNode) || !selectedNode.Value.Equals("true", StringComparison.OrdinalIgnoreCase))
                 continue;
 
             if (!itemMapping.TryGet<ValueDataNode>("loadoutName", out var nameNode))
