@@ -155,7 +155,8 @@ public sealed class DollyMixtureSystem : SharedDollyMixtureSystem
                 if (comp.DefaultShader is string defaultshader)
                     sprite.LayerSetShader(layerIndex, defaultshader); // crutch for customghosts
                 string layerMap = $"dmm-{comp.StatePrefix}{i}({repeat}/{comp.RepeatLayers})";
-                sprite.LayerMapSet(layerMap, layerIndex);
+                if (!sprite.LayerExists(layerMap))
+                    sprite.LayerMapSet(layerMap, layerIndex);
                 comp.LayerMappings.Add(layerMap);
 
                 if (RSI.TryGetState($"{comp.StatePrefix}{i}-unshaded", out var unshadedState))
