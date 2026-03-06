@@ -73,7 +73,7 @@
     - Inorganic
     - Silicon
     - Biological
-    - SiliconUnshielded
+#    - SiliconUnshielded # WWDP EDIT
   - type: ShowHealthIcons
     damageContainers:
     - Biological
