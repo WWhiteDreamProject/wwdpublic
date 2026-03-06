@@ -19,5 +19,5 @@
     back: ClothingBackpackDuffel
     shoes: ClothingShoesColorWhite
     ears: ClothingHeadsetMedical
-    id: TraumaTeamPDA
+    id: TraumaTeamTechPDA
     belt: ClothingBeltUtilityFilled

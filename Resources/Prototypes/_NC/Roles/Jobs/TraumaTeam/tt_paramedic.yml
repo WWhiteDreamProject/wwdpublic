@@ -21,6 +21,6 @@
     shoes: ClothingShoesBootsCombat
     head: ClothingHeadHelmetHardsuitTraumaTeamMedic
     ears: ClothingHeadsetMedical
-    id: TraumaTeamPDA
+    id: TraumaTeamParamedicPDA
     belt: ClothingBeltMedicalEMTFilled
     outerClothing: ClothingOuterHardsuitTraumaTeamMedic

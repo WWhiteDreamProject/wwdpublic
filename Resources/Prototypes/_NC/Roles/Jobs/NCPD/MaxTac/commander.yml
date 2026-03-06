@@ -26,6 +26,6 @@
     head: ClothingHeadHelmetHardsuitSecurityRed
     eyes: ClothingEyesGlassesSunglasses
     ears: ClothingHeadsetAltSecurity
-    id: MaxTacPDA
+    id: MaxTacCommanderPDA
     belt: ClothingBeltSecurityFilled
     outerClothing: ClothingOuterHardsuitSecurityRed

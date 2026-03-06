@@ -1,0 +1,126 @@
+- type: entity
+  id: TrademachineBandits
+  parent: Trademachine
+  name: Торговый автомат бандитов
+  description: Нужно срочно — он рядом. Выбирай, плати, забирай.
+  suffix: vendor, normal
+  components:
+  - type: NcStore
+    buyPresets:
+    - TradeBandits_Buy
+    sellPresets:
+    - TradeBandits_Sell
+    contractPresets:
+    - PresetBazar
+
+
+- type: storeCategoryStructured
+  id: Cat_Bandits_Weapons
+  name: "Оружие"
+  entries:
+  - proto: WeaponPistolN1984
+    price: 150
+  - proto: WeaponPistolViper
+    price: 600
+  - proto: WeaponRifleNovaliteC1
+    price: 800
+  - proto: WeaponRifleGestio
+    price: 850
+  - proto: WeaponLightRifleAK220
+    price: 1200
+  - proto: WeaponRifleAk
+    price: 1500
+  - proto: WeaponShotgunKammerer
+    price: 3500
+
+- type: storeCategoryStructured
+  id: Cat_Bandits_Ammo
+  name: "Патроны"
+  entries:
+  - proto: MagazinePistol
+    price: 20
+  - proto: MagazinePistolHighCapacity
+    price: 40
+  - proto: MagazineLightRifle
+    price: 30
+  - proto: MagazineRifle
+    price: 40
+  - proto: MagazineMagnum
+    price: 50
+  - proto: SpeedLoaderPistol
+    price: 20
+  - proto: SpeedLoaderMagnum
+    price: 40
+  - proto: MagazineLightRifleAK220
+    price: 80
+  - proto: MagazineLightRifleLowCapacity
+    price: 10
+  - proto: MagazineNovaliteC1
+    price: 20
+
+- type: storeCategoryStructured
+  id: Cat_Bandits_Medical
+  name: "Медикаменты"
+  entries:
+  - proto: MedkitFilled
+    price: 100
+  - proto: Brutepack
+    price: 10
+  - proto: Ointment
+    price: 10
+  - proto: Syringe
+    price: 5
+  - proto: PillCanisterBicaridine
+    price: 50
+  - proto: PillCanisterKelotane
+    price: 50
+  - proto: PillCanisterTricordrazine
+    price: 50
+
+- type: storeCategoryStructured
+  id: Cat_Bandits_Apparel
+  name: "Снаряжение"
+  entries:
+  - proto: ClothingHeadHelmetMerc
+    price: 200
+  - proto: ClothingOuterArmorElitePunkRandomized
+    price: 150
+  - proto: ClothingOuterArmorBasic
+    price: 100
+  - proto: ClothingOuterArmorBulletproof
+    price: 150
+  - proto: ClothingOuterArmorPlateCarrier
+    price: 50
+  - proto: ClothingEyesGlassesSunglasses
+    price: 20
+  - proto: ClothingHeadHelmetBombSuit
+    price: 20
+  - proto: ClothingHeadHelmetTemplar
+    price: 20
+  - proto: ClothingHeadHelmetHeavyBallistic
+    price: 20
+  - proto: ClothingHeadHelmetRiot
+    price: 20
+
+- type: storePresetStructured
+  id: TradeBandits_Buy
+  currency: Credit
+  categories:
+  - Cat_City_Weapons
+  - Cat_City_Ammo
+  - Cat_City_Melee
+  - Cat_City_Medical
+  - Cat_City_Apparel
+
+- type: storePresetStructured
+  id: TradeBandits_Sell
+  currency: Credit
+  categories:
+  - Cat_City_Weapons
+  - Cat_City_Ammo
+  - Cat_City_Melee
+  - Cat_City_Apparel
+
+# TODO: For NCPD use
+# ClothingOuterArmorStandardHeavy
+# ClothingOuterArmorHoSHeavy

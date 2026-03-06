@@ -19,6 +19,6 @@
     back: ClothingBackpackMedical
     shoes: ClothingShoesColorWhite
     ears: ClothingHeadsetMedical
-    id: TraumaTeamPDA
+    id: TraumaTeamCoronerPDA
     belt: ClothingBeltMedicalFilled
     outerClothing: ClothingOuterCoatLab

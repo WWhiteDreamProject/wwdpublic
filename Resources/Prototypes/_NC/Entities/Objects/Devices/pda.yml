@@ -1,49 +1,298 @@
 - type: entity
   parent: BasePDA
-  id: NCPDPDA
-  name: КПК NCPD
+  id: NCPDChiefPDA
+  name: КПК шефа NCPD
   description: Стандартный КПК сотрудника Полицейского Департамента Найт-Сити.
   components:
-  - type: Pda
-    id: NCPDIDCard
-  - type: Sprite
-    sprite: Objects/Devices/Pda/security.rsi
-  - type: PdaBorderColor
-    borderColor: "#4d4d4d"
-    accentHColor: "#2f5c9e"
-    accentVColor: "#2f5c9e"
+    - type: Pda
+      id: NCPDChiefIDCard
+    - type: Sprite
+      sprite: _White/Objects/Devices/Pda/security.rsi
+    - type: PdaBorderColor
+      borderColor: '#4d4d4d'
+      accentHColor: '#2f5c9e'
+      accentVColor: '#2f5c9e'
+- type: entity
+  parent: BasePDA
+  id: NCPDCommanderPDA
+  name: КПК коммандера NCPD
+  description: Стандартный КПК сотрудника Полицейского Департамента Найт-Сити.
+  components:
+    - type: Pda
+      id: NCPDCommanderIDCard
+    - type: Sprite
+      sprite: _White/Objects/Devices/Pda/security.rsi
+    - type: PdaBorderColor
+      borderColor: '#4d4d4d'
+      accentHColor: '#2f5c9e'
+      accentVColor: '#2f5c9e'
 
 - type: entity
   parent: BasePDA
-  id: MaxTacPDA
-  name: КПК MaxTac
+  id: NCPDInspectorPDA
+  name: КПК инспектора NCPD
+  description: Стандартный КПК сотрудника Полицейского Департамента Найт-Сити.
+  components:
+    - type: Pda
+      id: NCPDInspectorIDCard
+    - type: Sprite
+      sprite: _White/Objects/Devices/Pda/security.rsi
+    - type: PdaBorderColor
+      borderColor: '#4d4d4d'
+      accentHColor: '#2f5c9e'
+      accentVColor: '#2f5c9e'
+
+- type: entity
+  parent: BasePDA
+  id: NCPDLieutenantPDA
+  name: КПК лейтенанта NCPD
+  description: Стандартный КПК сотрудника Полицейского Департамента Найт-Сити.
+  components:
+    - type: Pda
+      id: NCPDLieutenantIDCard
+    - type: Sprite
+      sprite: _White/Objects/Devices/Pda/security.rsi
+    - type: PdaBorderColor
+      borderColor: '#4d4d4d'
+      accentHColor: '#2f5c9e'
+      accentVColor: '#2f5c9e'
+
+- type: entity
+  parent: BasePDA
+  id: NCPDSergeantPDA
+  name: КПК сержанта NCPD
+  description: Стандартный КПК сотрудника Полицейского Департамента Найт-Сити.
+  components:
+    - type: Pda
+      id: NCPDSergeantIDCard
+    - type: Sprite
+      sprite: _White/Objects/Devices/Pda/security.rsi
+    - type: PdaBorderColor
+      borderColor: '#4d4d4d'
+      accentHColor: '#2f5c9e'
+      accentVColor: '#2f5c9e'
+
+- type: entity
+  parent: BasePDA
+  id: NCPDOfficerPDA
+  name: КПК офицера NCPD
+  description: Стандартный КПК сотрудника Полицейского Департамента Найт-Сити.
+  components:
+    - type: Pda
+      id: NCPDOfficerIDCard
+    - type: Sprite
+      sprite: _White/Objects/Devices/Pda/security.rsi
+    - type: PdaBorderColor
+      borderColor: '#4d4d4d'
+      accentHColor: '#2f5c9e'
+      accentVColor: '#2f5c9e'
+
+- type: entity
+  parent: BasePDA
+  id: NCPDWatchAgentPDA
+  name: КПК патрульного NCPD
+  description: Стандартный КПК сотрудника Полицейского Департамента Найт-Сити.
+  components:
+    - type: Pda
+      id: NCPDWatchAgentIDCard
+    - type: Sprite
+      sprite: _White/Objects/Devices/Pda/security.rsi
+    - type: PdaBorderColor
+      borderColor: '#4d4d4d'
+      accentHColor: '#2f5c9e'
+      accentVColor: '#2f5c9e'
+
+- type: entity
+  parent: BasePDA
+  id: MaxTacCommanderPDA
+  name: КПК коммандера MaxTac
   description: Усиленный тактический КПК подразделения MaxTac.
   components:
-  - type: Pda
-    id: MaxTacIDCard
-  - type: Sprite
-    sprite: Objects/Devices/Pda/security.rsi
-    color: "#444444"
-  - type: PdaBorderColor
-    borderColor: "#182c4d"
-    accentHColor: "#0f1c30"
-    accentVColor: "#0f1c30"
+    - type: Pda
+      id: MaxTacCommanderIDCard
+    - type: Sprite
+      sprite: _White/Objects/Devices/Pda/security.rsi
+      color: '#444444'
+    - type: PdaBorderColor
+      borderColor: '#182c4d'
+      accentHColor: '#0f1c30'
+      accentVColor: '#0f1c30'
+
+- type: entity
+  parent: BasePDA
+  id: MaxTacEraserPDA
+  name: КПК штурмовика MaxTac
+  description: Усиленный тактический КПК подразделения MaxTac.
+  components:
+    - type: Pda
+      id: MaxTacEraserIDCard
+    - type: Sprite
+      sprite: _White/Objects/Devices/Pda/security.rsi
+      color: '#444444'
+    - type: PdaBorderColor
+      borderColor: '#182c4d'
+      accentHColor: '#0f1c30'
+      accentVColor: '#0f1c30'
+
+- type: entity
+  parent: BasePDA
+  id: MaxTacInterdictorPDA
+  name: КПК специалиста MaxTac
+  description: Усиленный тактический КПК подразделения MaxTac.
+  components:
+    - type: Pda
+      id: MaxTacInterdictorIDCard
+    - type: Sprite
+      sprite: _White/Objects/Devices/Pda/security.rsi
+      color: '#444444'
+    - type: PdaBorderColor
+      borderColor: '#182c4d'
+      accentHColor: '#0f1c30'
+      accentVColor: '#0f1c30'
+
+- type: entity
+  parent: BasePDA
+  id: MaxTacNetrunnerPDA
+  name: КПК нетранера MaxTac
+  description: Усиленный тактический КПК подразделения MaxTac.
+  components:
+    - type: Pda
+      id: MaxTacNetrunnerIDCard
+    - type: Sprite
+      sprite: _White/Objects/Devices/Pda/security.rsi
+      color: '#444444'
+    - type: PdaBorderColor
+      borderColor: '#182c4d'
+      accentHColor: '#0f1c30'
+      accentVColor: '#0f1c30'
+
+- type: entity
+  parent: BasePDA
+  id: MaxTacPretorPDA
+  name: КПК претора MaxTac
+  description: Усиленный тактический КПК подразделения MaxTac.
+  components:
+    - type: Pda
+      id: MaxTacPretorIDCard
+    - type: Sprite
+      sprite: _White/Objects/Devices/Pda/security.rsi
+      color: '#444444'
+    - type: PdaBorderColor
+      borderColor: '#182c4d'
+      accentHColor: '#0f1c30'
+      accentVColor: '#0f1c30'
 
 - type: entity
   parent: BaseMedicalPDA
-  id: TraumaTeamPDA
-  name: КПК Trauma Team
-  description: Высокотехнологичный медицинский терминал парамедика Trauma Team.
+  id: TraumaTeamChiefPDA
+  name: КПК шефа Trauma Team
+  description: Высокотехнологичный медицинский терминал сотрудника Trauma Team.
   components:
-  - type: Pda
-    id: TraumaTeamIDCard
-  - type: Sprite
-    sprite: Objects/Devices/Pda/medical.rsi
-    color: "#aaffcc"
-  - type: PdaBorderColor
-    borderColor: "#e6e6e6"
-    accentHColor: "#4bdc99"
-    accentVColor: "#4bdc99"
+    - type: Pda
+      id: TraumaTeamChiefIDCard
+    - type: Sprite
+      sprite: _White/Objects/Devices/Pda/medical.rsi
+      color: '#aaffcc'
+    - type: PdaBorderColor
+      borderColor: '#e6e6e6'
+      accentHColor: '#4bdc99'
+      accentVColor: '#4bdc99'
+
+- type: entity
+  parent: BaseMedicalPDA
+  id: TraumaTeamCoronerPDA
+  name: КПК коронера Trauma Team
+  description: Высокотехнологичный медицинский терминал сотрудника Trauma Team.
+  components:
+    - type: Pda
+      id: TraumaTeamCoronerIDCard
+    - type: Sprite
+      sprite: _White/Objects/Devices/Pda/medical.rsi
+      color: '#aaffcc'
+    - type: PdaBorderColor
+      borderColor: '#e6e6e6'
+      accentHColor: '#4bdc99'
+      accentVColor: '#4bdc99'
+
+- type: entity
+  parent: BaseMedicalPDA
+  id: TraumaTeamDoctorPDA
+  name: КПК доктора Trauma Team
+  description: Высокотехнологичный медицинский терминал сотрудника Trauma Team.
+  components:
+    - type: Pda
+      id: TraumaTeamDoctorIDCard
+    - type: Sprite
+      sprite: _White/Objects/Devices/Pda/medical.rsi
+      color: '#aaffcc'
+    - type: PdaBorderColor
+      borderColor: '#e6e6e6'
+      accentHColor: '#4bdc99'
+      accentVColor: '#4bdc99'
+
+- type: entity
+  parent: BaseMedicalPDA
+  id: TraumaTeamOperativePDA
+  name: КПК оперативника Trauma Team
+  description: Высокотехнологичный медицинский терминал сотрудника Trauma Team.
+  components:
+    - type: Pda
+      id: TraumaTeamOperativeIDCard
+    - type: Sprite
+      sprite: _White/Objects/Devices/Pda/medical.rsi
+      color: '#aaffcc'
+    - type: PdaBorderColor
+      borderColor: '#e6e6e6'
+      accentHColor: '#4bdc99'
+      accentVColor: '#4bdc99'
+
+- type: entity
+  parent: BaseMedicalPDA
+  id: TraumaTeamParamedicPDA
+  name: КПК парамедика Trauma Team
+  description: Высокотехнологичный медицинский терминал сотрудника Trauma Team.
+  components:
+    - type: Pda
+      id: TraumaTeamParamedicIDCard
+    - type: Sprite
+      sprite: _White/Objects/Devices/Pda/medical.rsi
+      color: '#aaffcc'
+    - type: PdaBorderColor
+      borderColor: '#e6e6e6'
+      accentHColor: '#4bdc99'
+      accentVColor: '#4bdc99'
+
+- type: entity
+  parent: BaseMedicalPDA
+  id: TraumaTeamPsychPDA
+  name: КПК психолога Trauma Team
+  description: Высокотехнологичный медицинский терминал сотрудника Trauma Team.
+  components:
+    - type: Pda
+      id: TraumaTeamPsychIDCard
+    - type: Sprite
+      sprite: _White/Objects/Devices/Pda/medical.rsi
+      color: '#aaffcc'
+    - type: PdaBorderColor
+      borderColor: '#e6e6e6'
+      accentHColor: '#4bdc99'
+      accentVColor: '#4bdc99'
+
+- type: entity
+  parent: BaseMedicalPDA
+  id: TraumaTeamTechPDA
+  name: КПК техника Trauma Team
+  description: Высокотехнологичный медицинский терминал сотрудника Trauma Team.
+  components:
+    - type: Pda
+      id: TraumaTeamTechIDCard
+    - type: Sprite
+      sprite: _White/Objects/Devices/Pda/medical.rsi
+      color: '#aaffcc'
+    - type: PdaBorderColor
+      borderColor: '#e6e6e6'
+      accentHColor: '#4bdc99'
+      accentVColor: '#4bdc99'
 
 - type: entity
   parent: BasePDA
@@ -51,14 +300,14 @@
   name: КПК жителя
   description: Обычный чип-терминал жителя Найт-Сити.
   components:
-  - type: Pda
-    id: CitizenIDCard
-  - type: Sprite
-    sprite: Objects/Devices/Pda/pda.rsi
-  - type: PdaBorderColor
-    borderColor: "#4d4d4d"
-    accentHColor: "#888888"
-    accentVColor: "#888888"
+    - type: Pda
+      id: CitizenIDCard
+    - type: Sprite
+      sprite: _White/Objects/Devices/Pda/pda.rsi
+    - type: PdaBorderColor
+      borderColor: '#4d4d4d'
+      accentHColor: '#888888'
+      accentVColor: '#888888'
 
 - type: entity
   parent: BasePDA
@@ -66,15 +315,15 @@
   name: КПК эджраннера
   description: Кастомный терминал с защищенным каналом.
   components:
-  - type: Pda
-    id: EdgeRunnerIDCard
-  - type: Sprite
-    sprite: Objects/Devices/Pda/pda.rsi
-    color: "#ffda1a"
-  - type: PdaBorderColor
-    borderColor: "#1a1a1a"
-    accentHColor: "#ffda1a"
-    accentVColor: "#ffda1a"
+    - type: Pda
+      id: EdgeRunnerIDCard
+    - type: Sprite
+      sprite: _White/Objects/Devices/Pda/pda.rsi
+      color: '#ffda1a'
+    - type: PdaBorderColor
+      borderColor: '#1a1a1a'
+      accentHColor: '#ffda1a'
+      accentVColor: '#ffda1a'
 
 - type: entity
   parent: BasePDA
@@ -82,28 +331,28 @@
   name: КПК фиксера
   description: Инструмент для тех, кто решает проблемы.
   components:
-  - type: Pda
-    id: FixerIDCard
-  - type: Sprite
-    sprite: Objects/Devices/Pda/pda.rsi
-    color: "#b18644"
-  - type: PdaBorderColor
-    borderColor: "#4d4d4d"
-    accentHColor: "#b18644"
-    accentVColor: "#b18644"
-
+    - type: Pda
+      id: FixerIDCard
+    - type: Sprite
+      sprite: _White/Objects/Devices/Pda/pda.rsi
+      color: '#b18644'
+    - type: PdaBorderColor
+      borderColor: '#4d4d4d'
+      accentHColor: '#b18644'
+      accentVColor: '#b18644'
+      
 - type: entity
   parent: BaseMedicalPDA
   id: RipperPDA
   name: КПК риппера
   description: Медицинский терминал для работы в полевых условиях.
   components:
-  - type: Pda
-    id: RipperIDCard
-  - type: Sprite
-    sprite: Objects/Devices/Pda/medical.rsi
-    color: "#5b97bc"
-  - type: PdaBorderColor
-    borderColor: "#1a1a1a"
-    accentHColor: "#aaffcc"
-    accentVColor: "#aaffcc"
+    - type: Pda
+      id: RipperIDCard
+    - type: Sprite
+      sprite: _White/Objects/Devices/Pda/medical.rsi
+      color: '#5b97bc'
+    - type: PdaBorderColor
+      borderColor: '#1a1a1a'
+      accentHColor: '#aaffcc'
+      accentVColor: '#aaffcc'
