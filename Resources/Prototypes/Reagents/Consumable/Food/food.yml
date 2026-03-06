@@ -8,7 +8,7 @@
   flavor: nutriment
   color: "#24591F"
   metabolisms:
-    Food:
+    Digestion: # WD EDIT
       effects:
       - !type:SatiateHunger
   plantMetabolism:
@@ -27,7 +27,11 @@
   flavor: vitamin
   color: "#D3D3D3"
   metabolisms:
-    Food: #This makes it not compete with medicines, a large bonus for something that can heal
+    # WD EDIT START
+    Digestion:
+      effects:
+      - !type:SatiateHunger #Numbers are balanced with this in mind + it helps limit how much healing you can get from food
+    Absorption:
       effects:
       - !type:HealthChange
         probability: 0.5
@@ -38,7 +42,7 @@
       # Helps you stop bleeding to an extent.
       - !type:ModifyBleedAmount
         amount: -0.25
-      - !type:SatiateHunger #Numbers are balanced with this in mind + it helps limit how much healing you can get from food
+    # WD EDIT END
   # Lets plants benefit too
   plantMetabolism:
   - !type:PlantAdjustNutrition
@@ -56,7 +60,11 @@
   flavor: protein
   color: "#FFFFE5"
   metabolisms:
-    Food:
+    # WD EDIT START
+    Digestion:
+      effects:
+      - !type:SatiateHunger
+    Absorption:
       effects:
       - !type:HealthChange
         probability: 0.5
@@ -65,7 +73,7 @@
             Brute: -0.4
       - !type:ModifyBloodLevel
         amount: 1 # weaker than iron but pretty good all things considered
-      - !type:SatiateHunger
+    # WD EDIT END
   pricePerUnit: 3
 
 - type: reagent
@@ -78,7 +86,7 @@
   color: white
   meltingPoint: 146.0
   metabolisms:
-    Food:
+    Digestion: # WD EDIT
       effects:
       - !type:SatiateHunger
         conditions:

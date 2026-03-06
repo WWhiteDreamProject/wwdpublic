@@ -14,7 +14,7 @@ orphans: []
 nullspace: []
 tilemap:
   0: Space
-  3: FloorAbductor
+  3: FloorArcadeBlue2
   18: FloorAstroGrass
   26: FloorBedrock
   48: FloorDarkMini

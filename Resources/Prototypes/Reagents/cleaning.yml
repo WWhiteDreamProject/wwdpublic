@@ -8,7 +8,7 @@
   boilingPoint: 111.0
   meltingPoint: -5.0
   metabolisms:
-    Poison:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         damage:
@@ -49,14 +49,7 @@
   boilingPoint: 100.0
   meltingPoint: 60.0
   metabolisms:
-    Food:
-      effects:
-      - !type:ChemVomit
-        conditions:
-        - !type:ReagentThreshold
-          min: 6
-        probability: 0.20
-    Drink:
+    Digestion: # WD EDIT
       effects:
       - !type:ChemVomit
         conditions:
@@ -102,7 +95,7 @@
       - !type:ModifyBleedAmount
         amount: -1.5
   metabolisms:
-    Narcotic:
+    Absorption: # WD EDIT
       effects:
       - !type:GenericStatusEffect
         key: SeeingRainbows
@@ -110,7 +103,7 @@
         type: Add
         time: 5
         refresh: false
-    Drink:
+    Digestion: # WD EDIT
       effects:
       - !type:GenericStatusEffect
         key: Muted

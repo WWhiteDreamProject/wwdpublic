@@ -1,5 +1,5 @@
-using Content.Server.Body.Components;
-using Content.Server.Body.Systems;
+using Content.Server._White.Body.Bloodstream.Systems;
+using Content.Shared._White.Body.Bloodstream.Components;
 using Content.Shared.EntityEffects;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Prototypes;
@@ -31,7 +31,7 @@ public sealed partial class ModifyBloodLevel : EntityEffect
                 amt *= reagentArgs.Scale;
             }
 
-            sys.TryModifyBloodLevel(args.TargetEntity, amt, blood);
+            sys.TryModifyBloodLevel((args.TargetEntity, blood), amt);
         }
     }
 }

@@ -1,0 +1,88 @@
+﻿- type: body
+  id: Vox
+  root: chest
+  bodyParts:
+    head:
+      type: Head
+      startingBodyPart: BodyPartHeadVox
+      connections:
+      - chest
+      organs:
+        brain:
+          type: Brain
+          startingOrgan: OrganBrainHuman
+        ears:
+          type: Ears
+          startingOrgan: OrganEarsHuman
+        eyes:
+          type: Eyes
+          startingOrgan: OrganEyesVox
+        tongue:
+          type: Tongue
+          startingOrgan: OrganTongueHuman
+    chest:
+      type: Chest
+      startingBodyPart: BodyPartChestVox
+      connections:
+      - right_arm
+      - left_arm
+      - groin
+      organs:
+        heart:
+          type: Heart
+          startingOrgan: OrganHeartHuman
+        lungs:
+          type: Lungs
+          startingOrgan: OrganLungsVox
+    groin:
+      type: Groin
+      startingBodyPart: BodyPartGroinVox
+      connections:
+      - tail
+      - right_leg
+      - left_leg
+      organs:
+        stomach:
+          type: Stomach
+          startingOrgan: OrganStomachHuman
+        liver:
+          type: Liver
+          startingOrgan: OrganLiverHuman
+        kidneys:
+          type: Kidneys
+          startingOrgan: OrganKidneysHuman
+    left_arm:
+      type: LeftArm
+      startingBodyPart: BodyPartLeftArmVox
+      connections:
+      - left_hand
+    right_arm:
+      type: RightArm
+      startingBodyPart: BodyPartRightArmVox
+      connections:
+      - right_hand
+    left_hand:
+      type: LeftHand
+      startingBodyPart: BodyPartLeftHandVox
+    right_hand:
+      type: RightHand
+      startingBodyPart: BodyPartRightHandVox
+    left_leg:
+      type: LeftLeg
+      startingBodyPart: BodyPartLeftLegVox
+      connections:
+      - left_foot
+    right_leg:
+      type: RightLeg
+      startingBodyPart: BodyPartRightLegVox
+      connections:
+      - right_foot
+    left_foot:
+      type: LeftFoot
+      startingBodyPart: BodyPartLeftFootVox
+    right_foot:
+      type: RightFoot
+      startingBodyPart: BodyPartRightFootVox
+    tail:
+      type: Tail
+      startingBodyPart: BodyPartTailVox

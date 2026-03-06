@@ -39,14 +39,6 @@
     - Slicing
     useSound:
       path: /Audio/Items/Culinary/chop.ogg
-  # Shitmed Change
-  - type: Scalpel
-    speed: 0.65
-  - type: SurgeryTool
-    startSound:
-      path: /Audio/Medical/Surgery/scalpel1.ogg
-    endSound:
-      path: /Audio/Medical/Surgery/scalpel2.ogg
   - type: EmitSoundOnPickup # White Dream
     sound: /Audio/Items/unsheath.ogg
 
@@ -103,11 +95,6 @@
     guides:
     - Chef
     - FoodRecipes
-  # Shitmed Change
-  - type: Scalpel
-    speed: 0.3
-  - type: BoneSaw
-    speed: 0.5
 
 - type: entity
   name: combat knife

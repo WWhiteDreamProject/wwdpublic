@@ -1,0 +1,87 @@
+- type: entity
+  abstract: true
+  id: BaseMobWoundable
+  components:
+  - type: Woundable
+  - type: Damageable
+    damageContainer: Biological
+  - type: RadiationReceiver
+  - type: Stamina
+  - type: MobState
+  - type: MobStateActions
+    actions:
+      Critical:
+      - ActionCritSuccumb
+      - ActionCritFakeDeath
+      - ActionCritLastWords
+  - type: Deathgasp
+  - type: HealthExaminable
+    examinableTypes:
+    - Blunt
+    - Slash
+    - Piercing
+    - Heat
+    - Shock
+  - type: DamageOnHighSpeedImpact
+    damage:
+      types:
+        Blunt: 5
+    soundHit:
+      path: /Audio/Effects/hit_kick.ogg
+  - type: Pullable
+  - type: LightningTarget
+    priority: 2
+    lightningExplode: false
+  - type: Hearing
+  - type: Painful
+  - type: PainThresholds
+    mobStateThresholds:
+      0: Alive
+      200: Critical
+      500: Dead
+    painLevelThresholds:
+      0: Zero
+      25: Mild
+      70: Moderate
+      130: Severe
+      200: Excruciating
+      350: Mortal
+    painEffects:
+      Moderate:
+      - !type:Emote
+        emote: PainScream
+        showInChat: true
+      - !type:Jitter
+        amplitude: 24
+        frequency: 1
+        time: 0.9
+      Severe:
+      - !type:Emote
+        emote: PainScream
+        showInChat: true
+      - !type:Jitter
+        amplitude: 30
+        frequency: 12
+        time: 0.9
+      Excruciating:
+      - !type:Emote
+        emote: PainScream
+        showInChat: true
+      - !type:Jitter
+        amplitude: 20
+        frequency: 7
+        time: 4
+      - !type:Paralyze
+        paralyzeTime: 2
+      # TODO: Release of adrenaline into the blood.
+      Mortal:
+      - !type:Emote
+        emote: PainScream
+        showInChat: true
+      - !type:Jitter
+        amplitude: 20
+        frequency: 7
+        time: 7
+      - !type:Paralyze
+        paralyzeTime: 3
+        # TODO: Release of adrenaline into the blood.

@@ -1,28 +1,20 @@
-using Content.Server.Body.Systems;
-using Content.Server.Body.Components;
-using Content.Shared.Damage;
+using Content.Shared._White.Body.Bloodstream.Systems;
 
 namespace Content.Server.Traits.Assorted;
 
 public sealed class HemophiliaSystem : EntitySystem
 {
+    // WD EDIT START
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<HemophiliaComponent, ComponentStartup>(OnStartup);
-        SubscribeLocalEvent<HemophiliaComponent, DamageModifyEvent>(OnDamageModify);
+        SubscribeLocalEvent<HemophiliaComponent, BleedModifierEvent>(OnBleedModifier);
     }
 
-    private void OnStartup(EntityUid uid, HemophiliaComponent component, ComponentStartup args)
+    private void OnBleedModifier(Entity<HemophiliaComponent> ent, ref BleedModifierEvent args)
     {
-        if (!TryComp<BloodstreamComponent>(uid, out var bloodstream))
-            return;
-
-        bloodstream.BleedReductionAmount *= component.BleedReductionModifier;
+        args.BleedReductionAmount *= ent.Comp.BleedReductionMultiplier;
+        args.Bleeding *= ent.Comp.BleedAmountMultiplier;
     }
-
-    private void OnDamageModify(EntityUid uid, HemophiliaComponent component, DamageModifyEvent args)
-    {
-        args.Damage = DamageSpecifier.ApplyModifierSet(args.Damage, component.DamageModifiers);
-    }
+    // WD EDIT END
 }

@@ -119,8 +119,10 @@
   - type: HideLayerClothing
     force: true
     slots:
-    - LFoot
-    - RFoot
+    # WD EDIT START
+    - enum.BodyAppearanceLayer.LeftFoot
+    - enum.BodyAppearanceLayer.RightFoot
+    # WD EDIT END
 
 - type: entity
   parent: [ ClothingShoesMilitaryBase ]

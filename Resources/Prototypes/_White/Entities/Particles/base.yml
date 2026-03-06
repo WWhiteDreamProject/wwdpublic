@@ -1,0 +1,36 @@
+- type: entity
+  id: BaseParticle
+  abstract: true
+  name: particle
+  components:
+  - type: Sprite
+    drawdepth: Effects
+  - type: Particle
+  - type: AnimationPlayer
+  - type: Physics
+    bodyType: Dynamic
+    fixedRotation: false
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.1
+        density: 20
+        mask:
+        - ItemMask
+
+- type: entity
+  id: BaseLiquidParticle
+  parent: BaseParticle
+  abstract: true
+  name: liquid particle
+  components:
+  - type: LiquidParticle
+  - type: Puddle
+    solution: particle
+  - type: Appearance
+  - type: SolutionContainerManager
+    solutions:
+      particle:
+        maxVol: 5

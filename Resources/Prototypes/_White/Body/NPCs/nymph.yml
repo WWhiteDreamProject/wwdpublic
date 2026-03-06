@@ -1,0 +1,59 @@
+- type: body
+  id: DionaNymphBrain
+  organs:
+    brain:
+      type: Brain
+      startingOrgan: OrganBrainDiona
+    heart:
+      type: Heart
+      startingOrgan: OrganHeartAnimal
+    lungs:
+      type: Lungs
+      startingOrgan: OrganLungsAnimal
+    stomach:
+      type: Stomach
+      startingOrgan: OrganStomachAnimal
+    liver:
+      type: Liver
+      startingOrgan: OrganLiverAnimal
+    kidneys:
+      type: Kidneys
+      startingOrgan: OrganKidneysAnimal
+
+- type: body
+  id: DionaNymphStomach
+  organs:
+    heart:
+      type: Heart
+      startingOrgan: OrganHeartAnimal
+    lungs:
+      type: Lungs
+      startingOrgan: OrganLungsAnimal
+    stomach:
+      type: Stomach
+      startingOrgan: OrganStomachDiona
+    liver:
+      type: Liver
+      startingOrgan: OrganLiverAnimal
+    kidneys:
+      type: Kidneys
+      startingOrgan: OrganKidneysAnimal
+
+- type: body
+  id: DionaNymphLungs
+  organs:
+    heart:
+      type: Heart
+      startingOrgan: OrganHeartAnimal
+    lungs:
+      type: Lungs
+      startingOrgan: OrganLungsDiona
+    stomach:
+      type: Stomach
+      startingOrgan: OrganStomachAnimal
+    liver:
+      type: Liver
+      startingOrgan: OrganLiverAnimal
+    kidneys:
+      type: Kidneys
+      startingOrgan: OrganKidneysAnimal

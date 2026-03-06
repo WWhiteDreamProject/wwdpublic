@@ -1,4 +1,3 @@
-using Content.Shared._Shitmed.Targeting;
 using System.Numerics;
 using Content.Shared.Damage;
 using Robust.Shared.Audio;
@@ -67,12 +66,6 @@ public sealed partial class EmbeddableProjectileComponent : Component
     /// </summary>
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField]
     public TimeSpan? AutoRemoveTime = null;
-
-    /// <summary>
-    ///   The body part of the target this embeddable is attached to.
-    /// </summary>
-    [ViewVariables, AutoNetworkedField]
-    public TargetBodyPart? TargetBodyPart = null;
 
     // WD EDIT START
     [DataField]

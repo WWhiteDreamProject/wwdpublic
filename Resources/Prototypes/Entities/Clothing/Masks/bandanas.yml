@@ -13,7 +13,9 @@
     - MASK
     foldedHideLayers: []
     unfoldedHideLayers:
-    - Snout
+    # WD EDIT START
+    - enum.HumanoidVisualLayers.Snout
+    # WD EDIT END
   - type: Mask
   - type: IngestionBlocker
   - type: IdentityBlocker
@@ -30,7 +32,9 @@
     - Bandana
   - type: HideLayerClothing
     slots:
-    - Snout
+    # WD EDIT START
+    - enum.HumanoidVisualLayers.Snout
+    # WD EDIT END
     hideOnToggle: true
 
 - type: entity

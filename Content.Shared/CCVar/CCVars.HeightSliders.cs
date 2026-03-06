@@ -20,7 +20,7 @@ public sealed partial class CCVars
     ///     Whether height & width sliders adjust a player's bloodstream volume.
     /// </summary>
     /// <remarks>
-    ///     This can be configured more precisely by modifying BloodstreamAffectedByMassComponent.
+    ///     This can be configured more precisely by modifying BloodstreamComponent.
     /// </remarks>
     public static readonly CVarDef<bool> HeightAdjustModifiesBloodstream =
         CVarDef.Create("heightadjust.modifies_bloodstream", true, CVar.SERVERONLY);

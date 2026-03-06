@@ -1,4 +1,5 @@
-using Content.Server.Body.Components;
+using Content.Server._White.Body.Bloodstream.Systems;
+using Content.Shared._White.Body.Bloodstream.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.EntityEffects;
 using Robust.Shared.Prototypes;
@@ -17,9 +18,10 @@ public sealed partial class UniqueBloodstreamChemThreshold : EntityEffectConditi
     {
         if (args.EntityManager.TryGetComponent<BloodstreamComponent>(args.TargetEntity, out var blood))
         {
-            if (args.EntityManager.System<SharedSolutionContainerSystem>().ResolveSolution(args.TargetEntity, blood.ChemicalSolutionName, ref blood.ChemicalSolution, out var chemSolution))
-                return chemSolution.Contents.Count > Min && chemSolution.Contents.Count < Max;
-            return false;
+            // WD EDIT START
+            var reagents = args.EntityManager.System<BloodstreamSystem>().GetChemicals((args.TargetEntity, blood));
+            return reagents.Count > Min && reagents.Count < Max;
+            // WD EDIT END
         }
         throw new NotImplementedException();
     }

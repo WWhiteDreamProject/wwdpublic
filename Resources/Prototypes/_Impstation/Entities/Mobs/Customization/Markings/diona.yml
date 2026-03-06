@@ -1,46 +1,77 @@
 - type: marking
   id: DionaThornsHead_colorable
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Diona]
   sprites:
   - sprite: _Impstation/Mobs/Customization/diona.rsi
     state: thorns_head_colorable
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: DionaThornsBody_colorable
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Diona]
   sprites:
   - sprite: _Impstation/Mobs/Customization/diona.rsi
-    state: thorns_body_colorable
+  # WD EDIT START
+    state: thorns_chest_colorable
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+  - sprite: _Impstation/Mobs/Customization/diona.rsi
+    state: thorns_groin_colorable
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
+  # WD EDIT END
 
 - type: marking
   id: DionaFlowersHead_colorable
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Diona]
   sprites:
   - sprite: _Impstation/Mobs/Customization/diona.rsi
     state: flowers_head_primary_colorable
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
   - sprite: _Impstation/Mobs/Customization/diona.rsi
     state: flowers_head_secondary_colorable
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: DionaFlowersBody_colorable
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Diona]
   sprites:
   - sprite: _Impstation/Mobs/Customization/diona.rsi
-    state: flowers_body_primary_colorable
+  # WD EDIT START
+    state: flowers_chest_primary_colorable
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
   - sprite: _Impstation/Mobs/Customization/diona.rsi
-    state: flowers_body_secondary_colorable
+    state: flowers_groin_primary_colorable
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
+  # WD EDIT END
+  - sprite: _Impstation/Mobs/Customization/diona.rsi
+  # WD EDIT START
+    state: flowers_chest_secondary_colorable
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+  - sprite: _Impstation/Mobs/Customization/diona.rsi
+    state: flowers_groin_secondary_colorable
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
+  # WD EDIT END
 
 - type: marking
   id: DionaLeafCover_colorable
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Diona]
   coloring:
@@ -49,22 +80,36 @@
         !type:SkinColoring
   sprites:
   - sprite: _Impstation/Mobs/Customization/diona.rsi
-    state: leaf_cover_colorable
+  # WD EDIT START
+    state: leaf_cover_chest_colorable
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+  - sprite: _Impstation/Mobs/Customization/diona.rsi
+    state: leaf_cover_groin_colorable
+    layer: enum.BodyAppearanceLayer.Groin
+    bodyPart: Groin
+  # WD EDIT END
 
 - type: marking
   id: DionaBloomHead_colorable
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Diona]
   sprites:
   - sprite: _Impstation/Mobs/Customization/diona.rsi
     state: bloom_primary_colorable
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
   - sprite: _Impstation/Mobs/Customization/diona.rsi
     state: bloom_secondary_colorable
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: DionaBracketHead_colorable
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Diona]
   coloring:
@@ -74,10 +119,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/diona.rsi
     state: bracket_colorable
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: DionaBrushHead_colorable
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Diona]
   coloring:
@@ -87,225 +135,373 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/diona.rsi
     state: brush_colorable
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: DionaCornflowerHead_colorable
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Diona]
   sprites:
   - sprite: _Impstation/Mobs/Customization/diona.rsi
     state: cornflower_primary_colorable
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
   - sprite: _Impstation/Mobs/Customization/diona.rsi
     state: cornflower_secondary_colorable
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
   - sprite: _Impstation/Mobs/Customization/diona.rsi
     state: cornflower_flowers_colorable
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: DionaFicusHead_colorable
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Diona]
   sprites:
   - sprite: _Impstation/Mobs/Customization/diona.rsi
     state: ficus_colorable
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: DionaGarlandHead_colorable
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Diona]
   sprites:
   - sprite: _Impstation/Mobs/Customization/diona.rsi
     state: garland_primary_colorable
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
   - sprite: _Impstation/Mobs/Customization/diona.rsi
     state: garland_secondary_colorable
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
   - sprite: _Impstation/Mobs/Customization/diona.rsi
     state: garland_flowers1_colorable
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
   - sprite: _Impstation/Mobs/Customization/diona.rsi
     state: garland_flowers2_colorable
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
   - sprite: _Impstation/Mobs/Customization/diona.rsi
     state: garland_flowers3_colorable
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: DionaKingHead_colorable
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Diona]
   sprites:
   - sprite: _Impstation/Mobs/Customization/diona.rsi
     state: king_primary_colorable
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
   - sprite: _Impstation/Mobs/Customization/diona.rsi
     state: king_secondary_colorable
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: DionaLaurelHead_colorable
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Diona]
   sprites:
   - sprite: _Impstation/Mobs/Customization/diona.rsi
     state: laurel_colorable
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: DionaLeafyHeadTop_colorable
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Diona]
   sprites:
   - sprite: _Impstation/Mobs/Customization/diona.rsi
     state: leafy_colorable
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: DionaLotusHead_colorable
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Diona]
   sprites:
   - sprite: _Impstation/Mobs/Customization/diona.rsi
     state: lotus_primary_colorable
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
   - sprite: _Impstation/Mobs/Customization/diona.rsi
     state: lotus_secondary_colorable
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: DionaMeadowHeadTop_colorable
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Diona]
   sprites:
   - sprite: _Impstation/Mobs/Customization/diona.rsi
     state: meadow_colorable
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: DionaOakHead_colorable
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Diona]
   sprites:
   - sprite: _Impstation/Mobs/Customization/diona.rsi
     state: oak_colorable
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: DionaPalmHead_colorable
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Diona]
   sprites:
   - sprite: _Impstation/Mobs/Customization/diona.rsi
     state: palm_colorable
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: DionaRootHead_colorable
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Diona]
   sprites:
   - sprite: _Impstation/Mobs/Customization/diona.rsi
     state: root_colorable
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: DionaRoseHead_colorable
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Diona]
   sprites:
   - sprite: _Impstation/Mobs/Customization/diona.rsi
     state: rose_primary_colorable
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
   - sprite: _Impstation/Mobs/Customization/diona.rsi
     state: rose_secondary_colorable
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: DionaRoseyHead_colorable
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Diona]
   sprites:
   - sprite: _Impstation/Mobs/Customization/diona.rsi
     state: rosey_primary_colorable
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
   - sprite: _Impstation/Mobs/Customization/diona.rsi
     state: rosey_secondary_colorable
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
   - sprite: _Impstation/Mobs/Customization/diona.rsi
     state: rosey_flowers_colorable
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: DionaShrubHeadTop_colorable
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Diona]
   sprites:
   - sprite: _Impstation/Mobs/Customization/diona.rsi
     state: shrub_colorable
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: DionaSpinnerHeadSide_colorable
-  bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [Diona]
   sprites:
   - sprite: _Impstation/Mobs/Customization/diona.rsi
     state: spinner_primary_colorable
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
   - sprite: _Impstation/Mobs/Customization/diona.rsi
     state: spinner_secondary_colorable
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: DionaSproutHeadSide_colorable
-  bodyPart: HeadSide
   markingCategory: HeadSide
   speciesRestriction: [Diona]
   sprites:
   - sprite: _Impstation/Mobs/Customization/diona.rsi
     state: sprout_primary_colorable
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
   - sprite: _Impstation/Mobs/Customization/diona.rsi
     state: sprout_secondary_colorable
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadSide
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: DionaVineHeadTop_colorable
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Diona]
   sprites:
   - sprite: _Impstation/Mobs/Customization/diona.rsi
     state: vine_primary_colorable
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
   - sprite: _Impstation/Mobs/Customization/diona.rsi
     state: vine_secondary_colorable
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: DionaVinelHead_colorable
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Diona]
   sprites:
   - sprite: _Impstation/Mobs/Customization/diona.rsi
     state: vinel_primary_colorable
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
   - sprite: _Impstation/Mobs/Customization/diona.rsi
     state: vinel_secondary_colorable
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: DionaVinesHead_colorable
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Diona]
   sprites:
   - sprite: _Impstation/Mobs/Customization/diona.rsi
     state: vines_primary_colorable
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
   - sprite: _Impstation/Mobs/Customization/diona.rsi
     state: vines_secondary_colorable
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: DionaWildflowerHead_colorable
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Diona]
   sprites:
   - sprite: _Impstation/Mobs/Customization/diona.rsi
     state: wildflower_primary_colorable
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
   - sprite: _Impstation/Mobs/Customization/diona.rsi
     state: wildflower_secondary_colorable
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
   - sprite: _Impstation/Mobs/Customization/diona.rsi
     state: wildflower_flowers1_colorable
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
   - sprite: _Impstation/Mobs/Customization/diona.rsi
     state: wildflower_flowers2_colorable
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
   - sprite: _Impstation/Mobs/Customization/diona.rsi
     state: wildflower_flowers3_colorable
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
   - sprite: _Impstation/Mobs/Customization/diona.rsi
     state: wildflower_flowers4_colorable
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END

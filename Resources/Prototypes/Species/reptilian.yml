@@ -3,11 +3,6 @@
   name: species-name-reptilian
   roundStart: true
   prototype: MobReptilian
-  # WD EDIT START
-  bodyTypes:
-  - ReptilianNormal
-  - ReptilianSlim
-  # WD EDIT END
   defaultSkinTone: "#34a223"
   markingLimits: MobReptilianMarkingLimits
   dollPrototype: MobReptilianDummy
@@ -21,33 +16,11 @@
   minWidth: 0.9
   defaultWidth: 1.1
   maxWidth: 1.2 # White Dream: End of changes.
-
-# WD EDIT START
-- type: bodyType
-  id: ReptilianNormal
-  name: body-normal
+  # WD EDIT START
+  bodyTypes:
+  - Normal
+  - Slim
   # WD EDIT END
-  sprites:
-    Head: MobReptilianHead
-    Face: MobHumanoidAnyMarking
-    Snout: MobHumanoidAnyMarking
-    UndergarmentTop: MobHumanoidAnyMarking
-    UndergarmentBottom: MobHumanoidAnyMarking
-    Chest: MobReptilianTorso
-    HeadTop: MobHumanoidAnyMarking
-    HeadSide: MobHumanoidAnyMarking
-    Tail: MobHumanoidAnyMarking
-    Eyes: MobHumanoidEyes
-    LArm: MobReptilianLArm
-    RArm: MobReptilianRArm
-    LHand: MobReptilianLHand
-    RHand: MobReptilianRHand
-    # WD EDIT START
-    LLeg: MobReptilianDigiLLeg
-    RLeg: MobReptilianDigiRLeg
-    LFoot: MobReptilianDigiLFoot
-    RFoot: MobReptilianDigiRFoot
-    # WD EDIT END
 
 - type: markingPoints
   id: MobReptilianMarkingLimits
@@ -61,8 +34,7 @@
       required: false
     Tail:
       points: 1
-      required: true
-      defaultMarkings: [ LizardTailSmooth ]
+      required: false # WD EDIT
     Snout:
       points: 1
       required: true
@@ -82,6 +54,11 @@
     Chest:
       points: 6
       required: false
+    # WD EDIT START
+    Groin:
+      points: 6
+      required: false
+    # WD EDIT END
     RightLeg:
       points: 6
       required: false
@@ -106,87 +83,3 @@
     LeftHand:
       points: 6
       required: false
-
-- type: humanoidBaseSprite
-  id: MobReptilianHead
-  baseSprite:
-    sprite: Mobs/Species/Reptilian/parts.rsi
-    state: head_m
-
-- type: humanoidBaseSprite
-  id: MobReptilianHeadMale
-  baseSprite:
-    sprite: Mobs/Species/Reptilian/parts.rsi
-    state: head_m
-
-- type: humanoidBaseSprite
-  id: MobReptilianHeadFemale
-  baseSprite:
-    sprite: Mobs/Species/Reptilian/parts.rsi
-    state: head_f
-
-- type: humanoidBaseSprite
-  id: MobReptilianTorso
-  baseSprite:
-    sprite: Mobs/Species/Reptilian/parts.rsi
-    state: torso_m
-
-- type: humanoidBaseSprite
-  id: MobReptilianTorsoMale
-  baseSprite:
-    sprite: Mobs/Species/Reptilian/parts.rsi
-    state: torso_m
-
-- type: humanoidBaseSprite
-  id: MobReptilianTorsoFemale
-  baseSprite:
-    sprite: Mobs/Species/Reptilian/parts.rsi
-    state: torso_f
-
-- type: humanoidBaseSprite
-  id: MobReptilianLLeg
-  baseSprite:
-    sprite: Mobs/Species/Reptilian/parts.rsi
-    state: l_leg
-
-- type: humanoidBaseSprite
-  id: MobReptilianLHand
-  baseSprite:
-    sprite: Mobs/Species/Reptilian/parts.rsi
-    state: l_hand
-
-- type: humanoidBaseSprite
-  id: MobReptilianLArm
-  baseSprite:
-    sprite: Mobs/Species/Reptilian/parts.rsi
-    state: l_arm
-
-- type: humanoidBaseSprite
-  id: MobReptilianLFoot
-  baseSprite:
-    sprite: Mobs/Species/Reptilian/parts.rsi
-    state: l_foot
-
-- type: humanoidBaseSprite
-  id: MobReptilianRLeg
-  baseSprite:
-    sprite: Mobs/Species/Reptilian/parts.rsi
-    state: r_leg
-
-- type: humanoidBaseSprite
-  id: MobReptilianRHand
-  baseSprite:
-    sprite: Mobs/Species/Reptilian/parts.rsi
-    state: r_hand
-
-- type: humanoidBaseSprite
-  id: MobReptilianRArm
-  baseSprite:
-    sprite: Mobs/Species/Reptilian/parts.rsi
-    state: r_arm
-
-- type: humanoidBaseSprite
-  id: MobReptilianRFoot
-  baseSprite:
-    sprite: Mobs/Species/Reptilian/parts.rsi
-    state: r_foot

@@ -1,0 +1,17 @@
+- type: entity
+  id: OrganLungsVox
+  parent: OrganLungsHuman
+  name: vox lungs
+  components:
+  - type: Lung
+    alert: LowNitrogen
+  - type: Metabolizer
+    types: [ Vox ]
+
+- type: entity
+  id: OrganEyesVox
+  parent: OrganEyesHuman
+  components:
+  - type: OrganAppearance
+    sprite: Mobs/Species/Vox/parts.rsi
+

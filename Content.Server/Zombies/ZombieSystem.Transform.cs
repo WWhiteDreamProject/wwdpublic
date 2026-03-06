@@ -1,3 +1,4 @@
+using Content.Server._White.Body.Respirator.Components;
 using Content.Server.Abilities.Psionics;
 using Content.Server.Atmos.Components;
 using Content.Server.Body.Components;
@@ -14,6 +15,7 @@ using Content.Server.NPC.HTN;
 using Content.Server.NPC.Systems;
 using Content.Server.Speech.Components;
 using Content.Server.Temperature.Components;
+using Content.Shared._White.Body.Bloodstream.Components;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.CombatMode;
 using Content.Shared.CombatMode.Pacification;
@@ -157,20 +159,13 @@ public sealed partial class ZombieSystem
             //store some values before changing them in case the humanoid get cloned later
             zombiecomp.BeforeZombifiedSkinColor = huApComp.SkinColor;
             zombiecomp.BeforeZombifiedEyeColor = huApComp.EyeColor;
-            zombiecomp.BeforeZombifiedCustomBaseLayers = new(huApComp.CustomBaseLayers);
             if (TryComp<BloodstreamComponent>(target, out var stream))
                 zombiecomp.BeforeZombifiedBloodReagent = stream.BloodReagent;
 
             _humanoidAppearance.SetSkinColor(target, zombiecomp.SkinColor, verify: false, humanoid: huApComp);
 
             // Messing with the eye layer made it vanish upon cloning, and also it didn't even appear right
-            huApComp.EyeColor = zombiecomp.EyeColor;
-
-            // this might not resync on clone?
-            _humanoidAppearance.SetBaseLayerId(target, HumanoidVisualLayers.Tail, zombiecomp.BaseLayerExternal, humanoid: huApComp);
-            _humanoidAppearance.SetBaseLayerId(target, HumanoidVisualLayers.HeadSide, zombiecomp.BaseLayerExternal, humanoid: huApComp);
-            _humanoidAppearance.SetBaseLayerId(target, HumanoidVisualLayers.HeadTop, zombiecomp.BaseLayerExternal, humanoid: huApComp);
-            _humanoidAppearance.SetBaseLayerId(target, HumanoidVisualLayers.Snout, zombiecomp.BaseLayerExternal, humanoid: huApComp);
+            _humanoidAppearance.SetEyeColor(target, zombiecomp.EyeColor, humanoid: huApComp); // WD EDIT
 
             //This is done here because non-humanoids shouldn't get baller damage
             //lord forgive me for the hardcoded damage
@@ -199,9 +194,6 @@ public sealed partial class ZombieSystem
         //The zombie gets the assigned damage weaknesses and strengths
         _damageable.SetDamageModifierSetId(target, "Zombie");
 
-        //This makes it so the zombie doesn't take bloodloss damage.
-        //NOTE: they are supposed to bleed, just not take damage
-        _bloodstream.SetBloodLossThreshold(target, 0f);
         //Give them zombie blood
         _bloodstream.ChangeBloodReagent(target, zombiecomp.NewBloodReagent);
 

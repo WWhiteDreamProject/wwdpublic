@@ -1,241 +1,331 @@
 - type: marking
   id: ZetaHairLongSpikehair
-  bodyPart: Hair
   markingCategory: Hair
   sprites:
     - sprite: _Nuclear14/Mobs/Customization/hair.rsi
       state: long_spikehair
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: ZetaHairNerfish
-  bodyPart: Hair
   markingCategory: Hair
   sprites:
     - sprite: _Nuclear14/Mobs/Customization/hair.rsi
       state: nerfish
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: ZetaHairPlantpoofs
-  bodyPart: Hair
   markingCategory: Hair
   sprites:
     - sprite: _Nuclear14/Mobs/Customization/hair.rsi
       state: plantish_poofs
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: ZetaHairRattyRoyalty
-  bodyPart: Hair
   markingCategory: Hair
   sprites:
     - sprite: _Nuclear14/Mobs/Customization/hair.rsi
       state: ratty_royalty
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: ZetaHairShortMessy
-  bodyPart: Hair
   markingCategory: Hair
   sprites:
     - sprite: _Nuclear14/Mobs/Customization/hair.rsi
       state: short_and_messy
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: ZetaHairShortSpikehair
-  bodyPart: Hair
   markingCategory: Hair
   sprites:
     - sprite: _Nuclear14/Mobs/Customization/hair.rsi
       state: short_spikehair
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: ZetaHairSpikehawk
-  bodyPart: Hair
   markingCategory: Hair
   sprites:
     - sprite: _Nuclear14/Mobs/Customization/hair.rsi
       state: spikehawk
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: ZetaHairPolitical
-  bodyPart: Hair
   markingCategory: Hair
   sprites:
     - sprite: _Nuclear14/Mobs/Customization/hair.rsi
       state: the_political
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: ZetaHairZetaBasicBraids
-  bodyPart: Hair
   markingCategory: Hair
   sprites:
     - sprite: _Nuclear14/Mobs/Customization/hair.rsi
       state: zeta_basic_braids
-      
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
+
 - type: marking
   id: ZetaHairQuadspike
-  bodyPart: Hair
   markingCategory: Hair
   sprites:
     - sprite: _Nuclear14/Mobs/Customization/hair.rsi
       state: quadspike
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: ZetaHairJohnny
-  bodyPart: Hair
   markingCategory: Hair
   sprites:
     - sprite: _Nuclear14/Mobs/Customization/hair.rsi
       state: the_johnny
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: ZetaHairMattedSpikes
-  bodyPart: Hair
   markingCategory: Hair
   sprites:
     - sprite: _Nuclear14/Mobs/Customization/hair.rsi
       state: matted_spikes
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: ZetaHairManageableMess
-  bodyPart: Hair
   markingCategory: Hair
   sprites:
     - sprite: _Nuclear14/Mobs/Customization/hair.rsi
       state: manageable_mess
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: ZetaHairPoofed
-  bodyPart: Hair
   markingCategory: Hair
   sprites:
     - sprite: _Nuclear14/Mobs/Customization/hair.rsi
       state: poofed
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: ZetaHairOverShoulderBraids
-  bodyPart: Hair
   markingCategory: Hair
   sprites:
     - sprite: _Nuclear14/Mobs/Customization/hair.rsi
       state: over_shoulder_braids
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: ZetaHairMonk
-  bodyPart: Hair
   markingCategory: Hair
   sprites:
     - sprite: _Nuclear14/Mobs/Customization/hair.rsi
       state: monk
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: ZetaHairMiniMattedSpikes
-  bodyPart: Hair
   markingCategory: Hair
   sprites:
     - sprite: _Nuclear14/Mobs/Customization/hair.rsi
       state: mini_matted_spikes
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: ZetaHairNaturalMessShort
-  bodyPart: Hair
   markingCategory: Hair
   sprites:
     - sprite: _Nuclear14/Mobs/Customization/hair.rsi
       state: natural_mess_short
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: ZetaHairNaturalMessLong
-  bodyPart: Hair
   markingCategory: Hair
   sprites:
     - sprite: _Nuclear14/Mobs/Customization/hair.rsi
       state: natural_mess_long
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: ZetaHairFrontSpikes
-  bodyPart: Hair
   markingCategory: Hair
   sprites:
     - sprite: _Nuclear14/Mobs/Customization/hair.rsi
       state: front_spikes
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: ZetaHairMessyPonytail
-  bodyPart: Hair
   markingCategory: Hair
   sprites:
     - sprite: _Nuclear14/Mobs/Customization/hair.rsi
       state: messy_ponytail
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: ZetaHairFaded
-  bodyPart: Hair
   markingCategory: Hair
   sprites:
     - sprite: _Nuclear14/Mobs/Customization/hair.rsi
       state: faded
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: ZetaHairHalfsies
-  bodyPart: Hair
   markingCategory: Hair
   sprites:
     - sprite: _Nuclear14/Mobs/Customization/hair.rsi
       state: halfsies
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: ZetaHairPorcupine
-  bodyPart: Hair
   markingCategory: Hair
   sprites:
     - sprite: _Nuclear14/Mobs/Customization/hair.rsi
       state: porcupine
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: ZetaHairHalfShavedBraids
-  bodyPart: Hair
   markingCategory: Hair
   sprites:
     - sprite: _Nuclear14/Mobs/Customization/hair.rsi
       state: half_shaved_braids
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: ZetaHairLoneTail
-  bodyPart: Hair
   markingCategory: Hair
   sprites:
     - sprite: _Nuclear14/Mobs/Customization/hair.rsi
       state: lone_tail
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 # Falling out irradiated hair. Commented out because it's probably not needed here?
 #- type: marking
 #  id: ZetaHairRadical
-#  bodyPart: Hair
 #  markingCategory: Hair
 #  sprites:
 #    - sprite: _Nuclear14/Mobs/Customization/hair.rsi
 #      state: radical
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
 
 # Just a fallout reference. Unlikely to be wanted on the main EE repo?
 #- type: marking
 #  id: ZetaHairTunnelSnake
-#  bodyPart: Hair
 #  markingCategory: Hair
 #  sprites:
 #    - sprite: _Nuclear14/Mobs/Customization/hair.rsi
 #      state: tunnel_snake
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
 
 - type: marking
   id: ZetaHairOverTheShoulder
-  bodyPart: Hair
   markingCategory: Hair
   sprites:
     - sprite: _Nuclear14/Mobs/Customization/hair.rsi
       state: over_the_shoulder
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END
 
 - type: marking
   id: ZetaHairStandardAsymmetry
-  bodyPart: Hair
   markingCategory: Hair
   sprites:
     - sprite: _Nuclear14/Mobs/Customization/hair.rsi
       state: standard_asymmetry
+      # WD EDIT START
+      layer: enum.HumanoidVisualLayers.Hair
+      bodyPart: Head
+      # WD EDIT END

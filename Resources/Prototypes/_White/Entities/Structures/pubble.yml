@@ -1,0 +1,96 @@
+- type: entity
+  id: BaseSplatter
+  name: splatter
+  abstract: true
+  components:
+  - type: Sprite
+    drawdepth: Puddles
+    color: "#FFFFFF80"
+  - type: Appearance
+  - type: Clickable
+  - type: Transform
+    noRot: false
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.25
+      slipFixture:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.4"
+        mask:
+        - ItemMask
+        layer:
+        - SlipLayer
+        hard: false
+  - type: SolutionContainerManager
+    solutions:
+      particle:
+        maxVol: 5
+  - type: Puddle
+    solution: particle
+  - type: ExaminableSolution
+    solution: particle
+  - type: DrawableSolution
+    solution: particle
+  - type: MixableSolution
+    solution: particle
+  - type: BadDrink
+  - type: Drink
+    delay: 3
+    transferAmount: 1
+    solution: particle
+    examinable: false
+  - type: IgnoresFingerprints
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepWater
+      params:
+        volume: 3
+  - type: Tag
+    tags:
+    - DNASolutionScannable
+
+- type: entity
+  id: BloodSplatterBlunt
+  parent: BaseSplatter
+  components:
+  - type: Sprite
+    sprite: _White/Particles/blood_splatter.rsi
+    layers:
+    - state: blunt1
+      map: [ "blood" ]
+  - type: RandomSprite
+    available:
+    - blood:
+        blunt1: ""
+        blunt2: ""
+        blunt3: ""
+        blunt4: ""
+        blunt5: ""
+        blunt6: ""
+
+- type: entity
+  id: BloodSplatterSlash
+  parent: BaseSplatter
+  components:
+  - type: Sprite
+    sprite: _White/Particles/blood_splatter.rsi
+    state: slash1
+  - type: AnimateOnStartup
+    animation: Startup
+
+- type: entity
+  id: BloodSplatterPiercing
+  parent: BaseSplatter
+  components:
+  - type: Sprite
+    sprite: _White/Particles/blood_splatter.rsi
+    state: piercing1
+    rotation: -135
+  - type: AnimateOnStartup
+    animation: Startup

@@ -1,20 +1,21 @@
 using Content.Server.Explosion.Components;
 using Content.Server.Explosion.EntitySystems;
-using Content.Shared.Body.Components;
-using Content.Shared.Body.Systems;
+using Content.Server.Popups;
+using Content.Shared._White.Gibbing;
 using Content.Shared.Implants.Components;
 using Content.Shared.Popups;
+using Robust.Server.GameObjects;
 using Robust.Shared.Timing;
-
 
 namespace Content.Server._White.PreventGridLeave;
 
 public sealed class PreventGridLeaveSystem : EntitySystem
 {
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly SharedBodySystem _body = default!;
+
+    [Dependency] private readonly GibbingSystem _gibbing = default!;
+    [Dependency] private readonly PopupSystem _popupSystem = default!;
+    [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly TriggerSystem _trigger = default!;
 
     public override void Initialize()
@@ -75,9 +76,6 @@ public sealed class PreventGridLeaveSystem : EntitySystem
         }
 
         // In case there is no implant, gib or delete
-        if (TryComp<BodyComponent>(uid, out var body))
-            _body.GibBody(uid, true, body);
-        else
-            Del(uid);
+        _gibbing.Gib(uid);
     }
 }

@@ -26,7 +26,6 @@ public sealed class HumanoidMarkingModifierBoundUserInterface : BoundUserInterfa
         _window.OnMarkingRemoved += SendMarkingSet;
         _window.OnMarkingColorChange += SendMarkingSetNoResend;
         _window.OnMarkingRankChange += SendMarkingSet;
-        _window.OnLayerInfoModified += SendBaseLayer;
     }
 
     protected override void UpdateState(BoundUserInterfaceState state)
@@ -38,7 +37,7 @@ public sealed class HumanoidMarkingModifierBoundUserInterface : BoundUserInterfa
             return;
         }
 
-        _window.SetState(cast.MarkingSet, cast.Species, cast.Sex, cast.SkinColor, cast.CustomBaseLayers);
+        _window.SetState(cast.MarkingSet, cast.Species, cast.Sex, cast.SkinColor, cast.EyeColor); // WD EDIT
     }
 
     private void SendMarkingSet(MarkingSet set)
@@ -49,11 +48,6 @@ public sealed class HumanoidMarkingModifierBoundUserInterface : BoundUserInterfa
     private void SendMarkingSetNoResend(MarkingSet set)
     {
         SendMessage(new HumanoidMarkingModifierMarkingSetMessage(set, false));
-    }
-
-    private void SendBaseLayer(HumanoidVisualLayers layer, CustomBaseLayerInfo? info)
-    {
-        SendMessage(new HumanoidMarkingModifierBaseLayersSetMessage(layer, info, true));
     }
 }
 

@@ -1,10 +1,9 @@
-using Content.Server.Body.Systems;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Popups;
 using Content.Server.Tools.Innate;
 using Content.Shared.UserInterface;
-using Content.Shared.Body.Components;
 using Content.Shared._Imp.Drone;
+using Content.Shared._White.Gibbing;
 using Content.Shared.Emoting;
 using Content.Shared.Examine;
 using Content.Shared.Ghost;
@@ -24,7 +23,6 @@ namespace Content.Server._Imp.Drone
 {
     public sealed class DroneSystem : SharedDroneSystem
     {
-        [Dependency] private readonly BodySystem _bodySystem = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly TagSystem _tagSystem = default!;
         [Dependency] private readonly EntityLookupSystem _lookup = default!;
@@ -33,6 +31,7 @@ namespace Content.Server._Imp.Drone
         [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
         [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+        [Dependency] private readonly GibbingSystem _gibbing = default!; // WD EDIT
 
         public override void Initialize()
         {
@@ -110,8 +109,7 @@ namespace Content.Server._Imp.Drone
                 if (TryComp<InnateToolComponent>(uid, out var innate))
                     _innateToolSystem.Cleanup(uid, innate);
 
-                if (TryComp<BodyComponent>(uid, out var body))
-                    _bodySystem.GibBody(uid, body: body);
+                _gibbing.Gib(uid); // WD EDIT
                 QueueDel(uid);
             }
         }

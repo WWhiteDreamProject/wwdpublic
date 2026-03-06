@@ -12,7 +12,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared._Lavaland.Body;
 
-// TODO: Use Shitmed instead of Shitcode
+// TODO: Use WhiteMed instead of Shitcode
 public sealed class CursedHeartSystem : EntitySystem
 {
     [Dependency] private readonly SharedActionsSystem _actions = default!;

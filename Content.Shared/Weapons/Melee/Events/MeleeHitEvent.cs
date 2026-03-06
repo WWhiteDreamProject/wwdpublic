@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Shared._White.Body.Components;
 using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Audio;
@@ -57,6 +58,13 @@ public sealed class MeleeHitEvent : HandledEntityEventArgs
     /// </summary>
     public readonly Vector2? Direction;
 
+    // WD EDIT START
+    /// <summary>
+    /// The part of the body that was struck.
+    /// </summary>
+    public readonly BodyPartType BodyPartType;
+    // WD EDIT END
+
     /// <summary>
     /// Check if this is true before attempting to do something during a melee attack other than changing/adding bonus damage. <br/>
     /// For example, do not spend charges unless <see cref="IsHit"/> equals true.
@@ -66,13 +74,14 @@ public sealed class MeleeHitEvent : HandledEntityEventArgs
     /// </remarks>
     public bool IsHit = true;
 
-    public MeleeHitEvent(List<EntityUid> hitEntities, EntityUid user, EntityUid weapon, DamageSpecifier baseDamage, Vector2? direction)
+    public MeleeHitEvent(List<EntityUid> hitEntities, EntityUid user, EntityUid weapon, DamageSpecifier baseDamage, Vector2? direction, BodyPartType bodyPartType) // WD EDIT
     {
         HitEntities = hitEntities;
         User = user;
         Weapon = weapon;
         BaseDamage = baseDamage;
         Direction = direction;
+        BodyPartType = bodyPartType; // WD EDIT
     }
 }
 

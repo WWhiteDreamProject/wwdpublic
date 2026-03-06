@@ -60,8 +60,6 @@
       enum.InstrumentUiKey.Key:
         type: InstrumentBoundUserInterface
         requireInputValidation: false
-      enum.SurgeryUIKey.Key:
-        type: SurgeryBui
 
 - type: entity
   parent: [BaseMobXenomorphDungeon, BaseMobXenomorphDrone]

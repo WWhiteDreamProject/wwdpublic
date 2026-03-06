@@ -18,7 +18,7 @@
   boilingPoint: 55.5
   meltingPoint: -50.0
   metabolisms:
-    Poison:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         damage:
@@ -35,7 +35,7 @@
   boilingPoint: 4200.0
   meltingPoint: 3550.0
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         damage:
@@ -66,7 +66,7 @@
   physicalDesc: reagent-physical-desc-crystalline
   color: "#776291"
   metabolisms:
-    Poison:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         damage:
@@ -90,7 +90,7 @@
   boilingPoint: 353.2
   meltingPoint: 278.7
   metabolisms:
-    Poison:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         damage:
@@ -115,14 +115,12 @@
   boilingPoint: 1661.0
   meltingPoint: 596.0
   metabolisms:
-    Poison:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         damage:
           types:
             Heat: 1.5
-    Medicine:
-      effects:
       - !type:ChemVomit
         conditions:
         - !type:ReagentThreshold
@@ -147,7 +145,7 @@
   physicalDesc: reagent-physical-desc-grainy
   color: "#F0F0F0"
   metabolisms:
-    Poison:
+    Absorption: # WD EDIT
       effects:
       - !type:SatiateThirst
         factor: -5 # This is basically industrial dessicant
@@ -176,7 +174,7 @@
   physicalDesc: reagent-physical-desc-refreshing
   color: "#bf1365"
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         damage:

@@ -1,6 +1,6 @@
 using System.Linq;
 using System.Numerics;
-using Content.Shared._Shitmed.Targeting;
+using Content.Shared._White.Body.Components;
 using Content.Shared._White.Penetrated;
 using Content.Shared._White.Projectile;
 using Content.Shared.Damage;
@@ -130,12 +130,12 @@ public abstract partial class SharedProjectileSystem : EntitySystem
             || HasComp<ThrownItemImmuneComponent>(args.Target)) // I hate it. TODO: Use before event unstead HasComp<ImuneShitComponent>. By Spatison
             return;
 
-        EmbedAttach(embeddable, args.Target, null, embeddable.Comp);
+        EmbedAttach(embeddable, args.Target, null, embeddable.Comp, args.BodyPartType); // WD EDIT
     }
 
     private void OnEmbedProjectileHit(Entity<EmbeddableProjectileComponent> embeddable, ref ProjectileHitEvent args)
     {
-        EmbedAttach(embeddable, args.Target, args.Shooter, embeddable.Comp);
+        EmbedAttach(embeddable, args.Target, args.Shooter, embeddable.Comp, args.BodyPartType); // WD EDIT
 
         // Raise a specific event for projectiles.
         if (TryComp(embeddable, out ProjectileComponent? projectile))
@@ -145,7 +145,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         }
     }
 
-    public void EmbedAttach(EntityUid uid, EntityUid target, EntityUid? user, EmbeddableProjectileComponent component, TargetBodyPart? targetPart = null)
+    public void EmbedAttach(EntityUid uid, EntityUid target, EntityUid? user, EmbeddableProjectileComponent component, BodyPartType bodyPartType = BodyPartType.None) // WD EDIT
     {
         // WD EDIT START
         if (!TryComp<PhysicsComponent>(uid, out var physics)
@@ -181,9 +181,8 @@ public abstract partial class SharedProjectileSystem : EntitySystem
 
         _audio.PlayPredicted(component.Sound, uid, null);
 
-        component.TargetBodyPart = targetPart;
         component.EmbeddedIntoUid = target;
-        var ev = new EmbedEvent(user, target, targetPart);
+        var ev = new EmbedEvent(user, target, bodyPartType); // WD EDIT
         RaiseLocalEvent(uid, ref ev);
 
         if (component.AutoRemoveDuration != 0)
@@ -221,7 +220,6 @@ public abstract partial class SharedProjectileSystem : EntitySystem
 
         component.AutoRemoveTime = null;
         component.EmbeddedIntoUid = null;
-        component.TargetBodyPart = null;
         RemCompDeferred<ActiveEmbeddableProjectileComponent>(uid);
 
         var ev = new RemoveEmbedEvent(remover);
@@ -287,6 +285,17 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         Dirty(id, component);
     }
 
+    // WD EDIT START
+    public void SetBodyPartType(Entity<ProjectileComponent> projectile, BodyPartType bodyPartType)
+    {
+        if (projectile.Comp.BodyPartType == bodyPartType)
+            return;
+
+        projectile.Comp.BodyPartType = bodyPartType;
+        Dirty(projectile);
+    }
+    // WD EDIT END
+
     private void OnExamined(EntityUid uid, EmbeddableProjectileComponent component, ExaminedEvent args)
     {
         if (!(component.EmbeddedIntoUid is { } target))
@@ -294,17 +303,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
 
         var targetIdentity = Identity.Entity(target, EntityManager);
 
-        var loc = component.TargetBodyPart == null
-            ? Loc.GetString("throwing-examine-embedded",
-            ("embedded", uid),
-            ("target", targetIdentity))
-            : Loc.GetString("throwing-examine-embedded-part",
-            ("embedded", uid),
-            ("target", targetIdentity),
-            ("targetName", Name(targetIdentity)), // WWDP
-            ("targetPart", Loc.GetString($"body-part-{component.TargetBodyPart.ToString()}")));
-
-        args.PushMarkup(loc);
+        args.PushMarkup(Loc.GetString("throwing-examine-embedded", ("embedded", uid), ("target", targetIdentity)));
     }
 
     // WD EDIT START
@@ -356,7 +355,7 @@ public record struct ProjectileReflectAttemptEvent(EntityUid ProjUid, Projectile
 /// Raised when a projectile hits an entity
 /// </summary>
 [ByRefEvent]
-public record struct ProjectileHitEvent(DamageSpecifier Damage, EntityUid Target, EntityUid? Shooter = null);
+public record struct ProjectileHitEvent(DamageSpecifier Damage, EntityUid Target, EntityUid? Shooter = null, BodyPartType BodyPartType = BodyPartType.None); // WD EDIT
 
 /// <summary>
 /// Raised after a projectile has dealt it's damage.

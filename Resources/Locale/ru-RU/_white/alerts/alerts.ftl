@@ -12,3 +12,6 @@ alerts-queen-finder-desc = Позволяет вам чувствовать об
 
 alerts-blood-cult-empowered-name = Усиленный
 alerts-blood-cult-empowered-desc = Магия крови и начертание рун требуют гораздо меньше времени, так же вы теряете меньше крови.
+
+alerts-body-status-name = Состояние тела
+alerts-body-status-desc = Текущее ощущение боли вашим телом. Синий - хорошо. Красный — плохое.

@@ -8,18 +8,11 @@
   "copyright": "Drawn by Ubaser, modified by Bhijn and Myr, parts splitted up by Roudenn (GitHub)",
   "states": [
     {
-      "name": "kobold",
+      "name": "full",
       "directions": 4
     },
     {
-      "name": "full"
-    },
-    {
-      "name": "head_f",
-      "directions": 4
-    },
-    {
-      "name": "head_m",
+      "name": "head",
       "directions": 4
     },
     {
@@ -55,19 +48,15 @@
       "directions": 4
     },
     {
-      "name": "torso_f",
+      "name": "chest",
       "directions": 4
     },
     {
-      "name": "torso_m",
+      "name": "groin",
       "directions": 4
     },
     {
       "name": "tail",
-      "directions": 4
-    },
-    {
-      "name": "eyes",
       "directions": 4
     },
     {

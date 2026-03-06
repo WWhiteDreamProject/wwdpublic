@@ -1,3 +1,4 @@
+using Content.Shared._White.Body.Wounds.Systems;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.FixedPoint;
 using Content.Shared.Mobs;
@@ -17,7 +18,7 @@ namespace Content.Shared.Damage
     /// </remarks>
     [RegisterComponent]
     [NetworkedComponent]
-    [Access(typeof(DamageableSystem), Other = AccessPermissions.ReadExecute)]
+    [Access(typeof(DamageableSystem), typeof(SharedWoundSystem), Other = AccessPermissions.ReadExecute)] // WD EDIT: WoundSystem
     public sealed partial class DamageableComponent : Component
     {
         /// <summary>

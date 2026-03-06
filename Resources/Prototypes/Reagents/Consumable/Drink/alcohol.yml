@@ -16,13 +16,14 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.7
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.7
 
 - type: reagent
   id: Ale
@@ -73,13 +74,14 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.25
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.25
 
 - type: reagent
   id: BlueHawaiian
@@ -93,13 +95,14 @@
     sprite: Objects/Consumable/Drinks/bluehawaiian.rsi
     state: icon
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.154
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.154
 
 - type: reagent
   id: Cognac
@@ -117,13 +120,14 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.4
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.4
 
 - type: reagent
   id: DeadRum
@@ -140,13 +144,14 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.6
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.6
 
 - type: reagent
   id: Ethanol
@@ -160,7 +165,7 @@
   boilingPoint: 78.2
   meltingPoint: -114.1
   metabolisms:
-    Alcohol:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         conditions:
@@ -176,13 +181,13 @@
           reagent: Ethanol
           min: 12
         # dwarves immune to vomiting from alcohol
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Dwarf
           shouldHave: false
       # Drunken Resilience
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: LiquorLifeline
         - !type:ReagentThreshold
           reagent: Ethanol
@@ -197,7 +202,7 @@
             Cold: -0.13
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: LiquorLifeline
         - !type:ReagentThreshold
           reagent: Ethanol
@@ -212,7 +217,7 @@
             Cold: -0.26
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: LiquorLifeline
         - !type:ReagentThreshold
           reagent: Ethanol
@@ -227,7 +232,7 @@
             Cold: -0.53
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: LiquorLifeline
         - !type:ReagentThreshold
           reagent: Ethanol
@@ -242,7 +247,7 @@
             Cold: -1.06
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: LiquorLifeline
         - !type:ReagentThreshold
           reagent: Ethanol
@@ -280,13 +285,14 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.45
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.45
 
 - type: reagent
   id: CoffeeLiqueur
@@ -303,16 +309,12 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
   metabolisms:
-    Drink:
-      effects:
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.20
-        # WD edit start
-      - !type:AdjustReagent
-        reagent: Theobromine
-        amount: 0.02
-        # WD edit end
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.2
+        Theobromine: 0.02
+    # WD EDIT END
 
 - type: reagent
   id: MelonLiquor
@@ -329,11 +331,11 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
   metabolisms:
-    Drink:
-      effects:
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.20
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.2
+    # WD EDIT END
 
 - type: reagent
   id: NTCahors
@@ -350,11 +352,11 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
   metabolisms:
-    Drink:
-      effects:
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.17
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.17
+    # WD EDIT END
 
 - type: reagent
   id: PoisonWine
@@ -371,14 +373,15 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.11
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.11
-    Poison:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         damage:
@@ -401,13 +404,14 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.4
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.40
 
 ##Commented out in favor of Nyano sake/soju
 #- type: reagent
@@ -434,13 +438,14 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.4
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.40
 
 - type: reagent
   id: Vermouth
@@ -457,11 +462,11 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
-      effects:
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.16
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.16
+    # WD EDIT END
 
 - type: reagent
   id: Vodka
@@ -479,13 +484,14 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.4
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.40
 
 - type: reagent
   id: Whiskey
@@ -503,13 +509,14 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.4
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.40
 
 - type: reagent
   id: Wine
@@ -527,13 +534,14 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.11
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.11
 
 - type: reagent
   id: Champagne
@@ -551,13 +559,14 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.12
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 3
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.12
   fizziness: 0.8
 
 # Mixed Alcohol
@@ -577,13 +586,14 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.073
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 1
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.073
 
 - type: reagent
   id: AlliesCocktail
@@ -600,13 +610,14 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.37
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.37
 
 - type: reagent
   id: Aloe
@@ -638,13 +649,14 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.204
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.204
 
 - type: reagent
   id: Andalusia
@@ -661,13 +673,14 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.27
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.27
 
 - type: reagent
   id: Antifreeze
@@ -684,13 +697,14 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.2
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.2
 
 - type: reagent
   id: AtomicBomb
@@ -707,16 +721,15 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.254
+        Uranium: 0.05
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.254
-      - !type:AdjustReagent
-        reagent: Uranium
-        amount: 0.05
 
 - type: reagent
   id: B52
@@ -733,13 +746,14 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.2
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.28
 
 - type: reagent
   id: BahamaMama
@@ -756,13 +770,14 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.11
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.11
 
 - type: reagent
   id: BananaHonk
@@ -794,13 +809,14 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.05
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.05
 
 - type: reagent
   id: BeepskySmash
@@ -817,13 +833,14 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.13
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.13
   fizziness: 0.3
 
 - type: reagent
@@ -841,18 +858,15 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.33
+        Theobromine: 0.02
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.33
-        # WD edit start
-      - !type:AdjustReagent
-        reagent: Theobromine
-        amount: 0.02
-        # WD edit end
 
 - type: reagent
   id: BloodyMary
@@ -869,13 +883,14 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.13
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.13
 
 - type: reagent
   id:  Booger
@@ -892,13 +907,14 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.08
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.08
 
 - type: reagent
   id: BraveBull
@@ -915,13 +931,14 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.33
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.33
 
 - type: reagent
   id: CoconutRum
@@ -935,13 +952,14 @@
     sprite: Objects/Consumable/Drinks/coconutrum.rsi
     state: icon
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.26
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.26
 
 - type: reagent
   id: Cosmopolitan
@@ -955,13 +973,14 @@
     sprite: Objects/Consumable/Drinks/cosmopolitan.rsi
     state: icon
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.13
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.13
 
 - type: reagent
   id: CubaLibre
@@ -978,13 +997,14 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.13
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.13
   fizziness: 0.2
 
 - type: reagent
@@ -1002,13 +1022,14 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.1
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.10
   fizziness: 0.3
 
 - type: reagent
@@ -1026,13 +1047,14 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.2
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.20
 
 - type: reagent
   id: DoctorsDelight
@@ -1049,7 +1071,7 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    Digestion: # WD EDIT
       effects:
       - !type:SatiateThirst
         factor: 2
@@ -1078,13 +1100,14 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.225
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.225
 
 - type: reagent
   id: ErikaSurprise
@@ -1101,13 +1124,14 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.02
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.02
   fizziness: 0.15
 
 - type: reagent
@@ -1125,13 +1149,14 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.32
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.32
 
 - type: reagent
   id: GinFizz
@@ -1148,13 +1173,14 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.15
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.15
   fizziness: 0.4
 
 - type: reagent
@@ -1172,13 +1198,14 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.15
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.15
   fizziness: 0.4
 
 - type: reagent
@@ -1196,13 +1223,14 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.363
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.363
 
 - type: reagent
   id: Grog
@@ -1219,13 +1247,14 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.1
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.10
 
 - type: reagent
   id: HippiesDelight
@@ -1242,13 +1271,14 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.16
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.16
 
 - type: reagent
   id: Hooch
@@ -1259,13 +1289,14 @@
   flavor: hooch
   color: "#664e00"
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.5
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.50
 
 - type: reagent
   id: IcedBeer
@@ -1298,13 +1329,14 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.16
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.16
 
 - type: reagent
   id: IrishCream
@@ -1321,13 +1353,14 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.266
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.266
 
 - type: reagent
   id: IrishCoffee
@@ -1344,18 +1377,15 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.133
+        Theobromine: 0.02
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.133
-        # WD edit start
-      - !type:AdjustReagent
-        reagent: Theobromine
-        amount: 0.02
-        # WD edit end
 
 - type: reagent
   id: LongIslandIcedTea
@@ -1372,13 +1402,14 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.273
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.273
 
 - type: reagent
   id: Manhattan
@@ -1395,13 +1426,14 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.32
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.32
 
 - type: reagent
   id: ManhattanProject
@@ -1418,13 +1450,14 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.363
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.363
 
 - type: reagent
   id: ManlyDorf
@@ -1472,13 +1505,14 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.353
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.353
 
 - type: reagent
   id: Mead
@@ -1511,13 +1545,14 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.1
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.10
   fizziness: 0.3
 
 - type: reagent
@@ -1535,7 +1570,11 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.4
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
@@ -1558,14 +1597,15 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.16
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.16
-    Poison:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         damage:
@@ -1584,13 +1624,14 @@
     sprite: Objects/Consumable/Drinks/painkiller.rsi
     state: icon
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.04
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.04
 
 - type: reagent
   id: Patron
@@ -1607,13 +1648,14 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.5
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.50
 
 - type: reagent
   id: RedMead
@@ -1643,13 +1685,14 @@
     sprite: Objects/Consumable/Drinks/pinacolada.rsi
     state: icon
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.06
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.06
 
 - type: reagent
   id: Sbiten
@@ -1666,13 +1709,14 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.2
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.2
 
 - type: reagent
   id: ScrewdriverCocktail
@@ -1689,13 +1733,14 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.13
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.13
 
 - type: reagent
   id: CogChamp
@@ -1712,16 +1757,17 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.176
+    # WD EDIT END
       effects:
       - !type:GenericStatusEffect
         key: RatvarianLanguage
         component: RatvarianLanguage
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.176
 
 - type: reagent
   id: Silencer
@@ -1738,7 +1784,7 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    Digestion: # WD EDIT
       effects:
       - !type:GenericStatusEffect
         key: Muted
@@ -1761,13 +1807,14 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.23
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.23
 
 - type: reagent
   id: SnowWhite
@@ -1784,13 +1831,14 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.03
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.03
   fizziness: 0.3
 
 - type: reagent
@@ -1808,13 +1856,14 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.13
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.13
   fizziness: 0.2
 
 - type: reagent
@@ -1832,13 +1881,14 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.095
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.095
   fizziness: 0.6
 
 - type: reagent
@@ -1856,13 +1906,14 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.26
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.26
 
 - type: reagent
   id: TheMartinez
@@ -1879,13 +1930,14 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.13
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.13
   fizziness: 0.2
 
 - type: reagent
@@ -1903,16 +1955,15 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.273
+        Uranium: 0.05
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.273
-      - !type:AdjustReagent
-        reagent: Uranium
-        amount: 0.05
 
 - type: reagent
   id: ToxinsSpecial
@@ -1929,13 +1980,14 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.112
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.112
 
 - type: reagent
   id: VodkaMartini
@@ -1952,13 +2004,14 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.32
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.32
 
 - type: reagent
   id: VodkaTonic
@@ -1975,13 +2028,14 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.13
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.13
   fizziness: 0.4
 
 - type: reagent
@@ -1999,13 +2053,14 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.013
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.013
   fizziness: 0.3
 
 - type: reagent
@@ -2023,13 +2078,14 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.13
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.13
   fizziness: 0.4
 
 - type: reagent
@@ -2041,13 +2097,14 @@
   flavor: white-gilgamesh
   color: "#e5d27e"
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.04
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 1
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.04
   fizziness: 0.5
 
 - type: reagent
@@ -2065,13 +2122,14 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.33
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.33
 
 - type: reagent
   id: VodkaRedBool
@@ -2088,18 +2146,14 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.1
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 1
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.10
-        #WD edit start
-      #- !type:AdjustReagent
-        #reagent: Theobromine
-        #amount: 0.05
-        #WD edit end
       - !type:GenericStatusEffect
         key: Drowsiness
         time: 1.0
@@ -2121,18 +2175,14 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.15
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 1
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.15
-        #WD edit start
-      #- !type:AdjustReagent
-        #reagent: Theobromine
-        #amount: 0.05
-        #WD edit end
       - !type:GenericStatusEffect
         key: Drowsiness
         time: 1.0
@@ -2154,18 +2204,17 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.1
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 1
       - !type:AdjustReagent
         reagent: Ethanol
         amount: 0.10
-        #WD edit start
-      #- !type:AdjustReagent
-        #reagent: Theobromine
-        #amount: 0.05
-        #WD edit end
       - !type:GenericStatusEffect
         key: Drowsiness
         time: 1.0
@@ -2187,18 +2236,14 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.15
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 1
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.15
-        #WD edit start
-      #- !type:AdjustReagent
-        #reagent: Theobromine
-        #amount: 0.05
-        #WD edit end
       - !type:GenericStatusEffect
         key: Drowsiness
         time: 1.0
@@ -2220,16 +2265,15 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.07
+        Theobromine: 0.02
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 1
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.07
-      - !type:AdjustReagent
-        reagent: Theobromine
-        amount: 0.02 # WD EDIT: 0.05 -> 0.02
       - !type:GenericStatusEffect
         key: Drowsiness
         time: 1.0
@@ -2251,18 +2295,14 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.15
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 1
-      - !type:AdjustReagent
-        reagent: Ethanol
-        amount: 0.15
-        #WD edit start
-      #- !type:AdjustReagent
-        #reagent: Theobromine
-        #amount: 0.05
-        #WD edit end
       - !type:GenericStatusEffect
         key: Drowsiness
         time: 1.0
@@ -2284,10 +2324,11 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Ethanol: 0.25
+    # WD EDIT END
       effects:
         - !type:SatiateThirst
           factor: 1
-        - !type:AdjustReagent
-          reagent: Ethanol
-          amount: 0.25

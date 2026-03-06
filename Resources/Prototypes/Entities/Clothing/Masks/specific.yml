@@ -22,7 +22,9 @@
           type: ChameleonBoundUserInterface
     - type: HideLayerClothing
       slots:
-      - Snout
+      # WD EDIT START
+      - enum.HumanoidVisualLayers.Snout
+      # WD EDIT END
 
 - type: entity
   parent: ClothingMaskGasChameleon
@@ -32,7 +34,9 @@
     - type: VoiceMask
     - type: HideLayerClothing
       slots:
-      - Snout
+      # WD EDIT START
+      - enum.HumanoidVisualLayers.Snout
+      # WD EDIT END
     - type: UserInterface
       interfaces:
         enum.ChameleonUiKey.Key:
@@ -73,7 +77,9 @@
         Piercing: 0.4
   - type: HideLayerClothing
     slots:
-    - Snout
+    # WD EDIT START
+    - enum.HumanoidVisualLayers.Snout
+    # WD EDIT END
   - type: IngestionBlocker
   - type: StaticPrice
     price: 5000

@@ -14,6 +14,7 @@ namespace Content.Shared.Humanoid.Markings
         HeadSide,
         Snout,
         Chest,
+        Groin, // WD EDIT
         UndergarmentTop,
         UndergarmentBottom,
         RightArm,

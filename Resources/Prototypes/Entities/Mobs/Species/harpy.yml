@@ -10,24 +10,31 @@
   - type: Sprite
     scale: 0.9, 0.9
     layers:
-      - map: [ "enum.HumanoidVisualLayers.Chest" ]
-      - map: [ "enum.HumanoidVisualLayers.Head" ]
+      # WD EDIT START: HumanoidVisualLayers -> BodyAppearanceLayer
+      - map: [ "enum.BodyAppearanceLayer.Chest" ]
+      - map: [ "enum.BodyAppearanceLayer.Groin" ]
+      - map: [ "enum.BodyAppearanceLayer.Head" ]
+      # WD EDIT END
       - map: [ "enum.HumanoidVisualLayers.Snout" ]
-      - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+      - map: [ "enum.BodyAppearanceLayer.Eyes" ] # WD EDIT: HumanoidVisualLayers -> BodyAppearanceLayer
       - map: [ "enum.HumanoidVisualLayers.Face" ]
-      - map: [ "enum.HumanoidVisualLayers.LArm" ]
-      - map: [ "enum.HumanoidVisualLayers.RLeg" ]
-      - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+      # WD EDIT: HumanoidVisualLayers -> BodyAppearanceLayer
+      - map: [ "enum.BodyAppearanceLayer.LeftArm" ]
+      - map: [ "enum.BodyAppearanceLayer.RightLeg" ]
+      - map: [ "enum.BodyAppearanceLayer.LeftLeg" ]
+      # WD EDIT END
       - map: [ "enum.HumanoidVisualLayers.UndergarmentBottom" ]
       - map: [ "enum.HumanoidVisualLayers.UndergarmentTop" ]
       - map: [ "underpants" ]
       - map: [ "undershirt" ]
       - map: [ "socks" ]
       - map: [ "jumpsuit" ]
-      - map: ["enum.HumanoidVisualLayers.LFoot"]
-      - map: ["enum.HumanoidVisualLayers.RFoot"]
-      - map: ["enum.HumanoidVisualLayers.LHand"]
-      - map: ["enum.HumanoidVisualLayers.RHand"]
+    # WD EDIT START: HumanoidVisualLayers -> BodyAppearanceLayer
+      - map: ["enum.BodyAppearanceLayer.LeftFoot"]
+      - map: ["enum.BodyAppearanceLayer.RightFoot"]
+      - map: ["enum.BodyAppearanceLayer.LeftHand"]
+      - map: ["enum.BodyAppearanceLayer.RightHand"]
+    # WD EDIT END
       - map: [ "enum.HumanoidVisualLayers.Handcuffs" ]
         color: "#ffffff"
         sprite: Objects/Misc/handcuffs.rsi
@@ -45,7 +52,10 @@
       - map: [ "back" ]
       - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
       - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
-      - map: [ "enum.HumanoidVisualLayers.Tail" ]
+      # WD EDIT START: HumanoidVisualLayers -> BodyAppearanceLayer
+      - map: [ "enum.BodyAppearanceLayer.Tail" ]
+      - map: [ "enum.BodyAppearanceLayer.Wings" ]
+      # WD EDIT END
       - map: [ "pocket1" ]
       - map: [ "pocket2" ]
       - map: [ "clownedon" ] # Dynamically generated
@@ -53,7 +63,7 @@
         state: "creampie_human"
         visible: false
 # Yes, RArm has to be down here
-      - map: [ "enum.HumanoidVisualLayers.RArm" ]
+      - map: [ "enum.BodyAppearanceLayer.RightArm" ] # WD EDIT: HumanoidVisualLayers -> BodyAppearanceLayer
       - map: [ "enum.HumanoidVisualLayers.Hair" ]
       - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
       - map: [ "mask" ]
@@ -167,22 +177,29 @@
   - type: Sprite
     scale: 0.9, 0.9
     layers:
-      - map: [ "enum.HumanoidVisualLayers.Chest" ]
-      - map: [ "enum.HumanoidVisualLayers.Head" ]
+      # WD EDIT START: HumanoidVisualLayers -> BodyAppearanceLayer
+      - map: [ "enum.BodyAppearanceLayer.Chest" ]
+      - map: [ "enum.BodyAppearanceLayer.Groin" ]
+      - map: [ "enum.BodyAppearanceLayer.Head" ]
+      # WD EDIT END
       - map: [ "enum.HumanoidVisualLayers.Snout" ]
-      - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+      - map: [ "enum.BodyAppearanceLayer.Eyes" ] # WD EDIT: HumanoidVisualLayers -> BodyAppearanceLayer
       - map: [ "enum.HumanoidVisualLayers.Face" ]
-      - map: [ "enum.HumanoidVisualLayers.LArm" ]
-      - map: [ "enum.HumanoidVisualLayers.RLeg" ]
-      - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+      # WD EDIT: HumanoidVisualLayers -> BodyAppearanceLayer
+      - map: [ "enum.BodyAppearanceLayer.LeftArm" ]
+      - map: [ "enum.BodyAppearanceLayer.RightLeg" ]
+      - map: [ "enum.BodyAppearanceLayer.LeftLeg" ]
+      # WD EDIT END
       - map: [ "underpants" ]
       - map: [ "undershirt" ]
       - map: [ "socks" ]
       - map: [ "jumpsuit" ]
-      - map: ["enum.HumanoidVisualLayers.LFoot"]
-      - map: ["enum.HumanoidVisualLayers.RFoot"]
-      - map: ["enum.HumanoidVisualLayers.LHand"]
-      - map: ["enum.HumanoidVisualLayers.RHand"]
+      # WD EDIT START: HumanoidVisualLayers -> BodyAppearanceLayer
+      - map: ["enum.BodyAppearanceLayer.LeftFoot"]
+      - map: ["enum.BodyAppearanceLayer.RightFoot"]
+      - map: ["enum.BodyAppearanceLayer.LeftHand"]
+      - map: ["enum.BodyAppearanceLayer.RightHand"]
+      # WD EDIT END
       - map: [ "id" ]
       - map: [ "gloves" ]
       - map: [ "ears" ]
@@ -196,7 +213,7 @@
       - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
       - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
       - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
-      - map: [ "enum.HumanoidVisualLayers.Tail" ]
+      - map: [ "enum.BodyAppearanceLayer.Tail" ] # WD EDIT: HumanoidVisualLayers -> BodyAppearanceLayer
       - map: [ "pocket1" ]
       - map: [ "pocket2" ]
       - map: [ "clownedon" ] # Dynamically generated
@@ -204,7 +221,7 @@
         state: "creampie_human"
         visible: false
 # Yes, RArm has to be down here
-      - map: [ "enum.HumanoidVisualLayers.RArm" ]
+      - map: [ "enum.BodyAppearanceLayer.RightArm" ] # WD EDIT: HumanoidVisualLayers -> BodyAppearanceLayer
       - map: [ "enum.HumanoidVisualLayers.Hair" ]
       - map: [ "mask" ]
       - map: [ "head" ]
@@ -232,7 +249,9 @@
           32:
             sprite: _White/Mobs/Species/Harpy/displacement.rsi
             state: jumpsuit-slim
-    # WD EDIT END
+  - type: Body
+    prototype: Harpy
+  # WD EDIT END
 
 - type: entity
   id: ActionHarpyPlayMidi

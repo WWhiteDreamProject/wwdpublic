@@ -1,0 +1,107 @@
+- type: entity
+  id: BaseBodyPartGingerbread
+  parent: BaseBodyPart
+  abstract: true
+  name: gingerbread body part
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Gingerbread/parts.rsi
+  - type: BodyPartAppearance
+    sprite: Mobs/Species/Gingerbread/parts.rsi
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 3
+      - ReagentId: Sugar
+        Quantity: 10
+
+# Head
+- type: entity
+  id: BodyPartHeadGingerbread
+  parent: [BaseBodyPartHead, BaseBodyPartGingerbread]
+  name: gingerbread head
+  components:
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 5
+      - ReagentId: Sugar
+        Quantity: 10
+
+# Chest
+- type: entity
+  id: BodyPartChestGingerbread
+  parent: [BaseBodyPartChest, BaseBodyPartGingerbread]
+  name: gingerbread chest
+  components:
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 10
+      - ReagentId: Sugar
+        Quantity: 20
+
+# Groin
+- type: entity
+  id: BodyPartGroinGingerbread
+  parent: [BaseBodyPartGroin, BaseBodyPartGingerbread]
+  name: gingerbread groin
+  components:
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Nutriment
+        Quantity: 10
+      - ReagentId: Sugar
+        Quantity: 20
+
+# Arms
+
+- type: entity
+  id: BodyPartLeftArmGingerbread
+  parent: [BaseBodyPartLeftArm, BaseBodyPartGingerbread]
+  name: gingerbread left arm
+
+- type: entity
+  id: BodyPartRightArmGingerbread
+  parent: [BaseBodyPartRightArm, BaseBodyPartGingerbread]
+  name: gingerbread right arm
+
+# Hand
+
+- type: entity
+  id: BodyPartLeftHandGingerbread
+  parent: [BaseBodyPartLeftHand, BaseBodyPartGingerbread]
+  name: gingerbread left hand
+
+- type: entity
+  id: BodyPartRightHandGingerbread
+  parent: [BaseBodyPartRightHand, BaseBodyPartGingerbread]
+  name: gingerbread right hand
+
+# Leg
+
+- type: entity
+  id: BodyPartLeftLegGingerbread
+  parent: [BaseBodyPartLeftLeg, BaseBodyPartGingerbread]
+  name: gingerbread left leg
+
+- type: entity
+  id: BodyPartRightLegGingerbread
+  parent: [BaseBodyPartRightLeg, BaseBodyPartGingerbread]
+  name: gingerbread right leg
+
+# Foot
+
+- type: entity
+  id: BodyPartLeftFootGingerbread
+  parent: [BaseBodyPartLeftFoot, BaseBodyPartGingerbread]
+  name: gingerbread left foot
+
+- type: entity
+  id: BodyPartRightFootGingerbread
+  parent: [BaseBodyPartRightFoot, BaseBodyPartGingerbread]
+  name: gingerbread right foot

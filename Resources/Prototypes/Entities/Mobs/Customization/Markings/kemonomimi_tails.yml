@@ -1,6 +1,5 @@
 - type: marking
   id: BunnyTail
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Human, IPC]
   coloring:
@@ -15,10 +14,14 @@
   sprites:
   - sprite: Mobs/Customization/kemonomimi-tails.rsi
     state: bunnytail
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    replacementBodyPart: BodyPartTailFelinid
+    # WD EDIT END
 
 - type: marking
   id: BunnyTailAlt
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Human, IPC]
   coloring:
@@ -33,10 +36,14 @@
   sprites:
   - sprite: Mobs/Customization/kemonomimi-tails.rsi
     state: bunnytailalt
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    replacementBodyPart: BodyPartTailFelinid
+    # WD EDIT END
 
 - type: marking
   id: DobleFur
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Human, IPC]
   coloring:
@@ -51,12 +58,20 @@
   sprites:
   - sprite: Mobs/Customization/kemonomimi-tails.rsi
     state: doblefurtailtone1
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    replacementBodyPart: BodyPartTailFelinid
+    # WD EDIT END
   - sprite: Mobs/Customization/kemonomimi-tails.rsi
     state: doblefurtailtone2
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    # WD EDIT END
 
 - type: marking
   id: FluffyTail
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Human, IPC]
   coloring:
@@ -71,10 +86,14 @@
   sprites:
   - sprite: Mobs/Customization/kemonomimi-tails.rsi
     state: fluffytail
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    replacementBodyPart: BodyPartTailFelinid
+    # WD EDIT END
 
 - type: marking
   id: FoxNineTails
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Human, IPC]
   coloring:
@@ -89,12 +108,20 @@
   sprites:
   - sprite: Mobs/Customization/kemonomimi-tails.rsi
     state: foxninetailstone1
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    replacementBodyPart: BodyPartTailFelinid
+    # WD EDIT END`
   - sprite: Mobs/Customization/kemonomimi-tails.rsi
     state: foxninetailstone2
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    # WD EDIT END
 
 - type: marking
   id: FoxThreeTails
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Human, IPC]
   coloring:
@@ -109,12 +136,20 @@
   sprites:
   - sprite: Mobs/Customization/kemonomimi-tails.rsi
     state: foxthreetailstone1
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    replacementBodyPart: BodyPartTailFelinid
+    # WD EDIT END
   - sprite: Mobs/Customization/kemonomimi-tails.rsi
     state: foxthreetailstone2
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    # WD EDIT END
 
 - type: marking
   id: HorseTailCulty
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Human, IPC]
   coloring:
@@ -129,10 +164,14 @@
   sprites:
   - sprite: Mobs/Customization/kemonomimi-tails.rsi
     state: horsetailculty
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    replacementBodyPart: BodyPartTailFelinid
+    # WD EDIT END
 
 - type: marking
   id: HorseTailLong
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Human, IPC]
   coloring:
@@ -147,10 +186,14 @@
   sprites:
   - sprite: Mobs/Customization/kemonomimi-tails.rsi
     state: horsetaillong
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    replacementBodyPart: BodyPartTailFelinid
+    # WD EDIT END
 
 - type: marking
   id: SharkTail
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Human, IPC]
   coloring:
@@ -165,10 +208,14 @@
   sprites:
   - sprite: Mobs/Customization/kemonomimi-tails.rsi
     state: sharktail
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    replacementBodyPart: BodyPartTailFelinid
+    # WD EDIT END
 
 - type: marking
   id: TasselTail
-  bodyPart: Tail
   markingCategory: Tail
   speciesRestriction: [Human, IPC]
   coloring:
@@ -183,5 +230,14 @@
   sprites:
   - sprite: Mobs/Customization/kemonomimi-tails.rsi
     state: tasseltailtone1
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    replacementBodyPart: BodyPartTailFelinid
+    # WD EDIT END
   - sprite: Mobs/Customization/kemonomimi-tails.rsi
     state: tasseltailtone2
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Tail
+    bodyPart: Tail
+    # WD EDIT END

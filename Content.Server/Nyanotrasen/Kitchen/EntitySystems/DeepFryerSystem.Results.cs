@@ -1,10 +1,12 @@
 ﻿using System.Text;
+using Content.Server._White.Body.Respirator.Components;
 using Content.Server.Atmos.Components;
 using Content.Server.Body.Components;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Kitchen.Components;
 using Content.Server.Nutrition.Components;
 using Content.Server.Nyanotrasen.Kitchen.Components;
+using Content.Shared._White.Body.Bloodstream.Components;
 using Content.Shared.Atmos.Rotting;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Chemistry.Components;
@@ -65,7 +67,7 @@ public sealed partial class DeepFryerSystem
             if (alreadyHadFood)
                 _solutionContainerSystem.RemoveAllSolution(mobFoodSolution.Value);
 
-            if (TryComp<BloodstreamComponent>(mob, out var bloodstreamComponent) && bloodstreamComponent.ChemicalSolution != null)
+            if (TryComp<BloodstreamComponent>(mob, out var bloodstreamComponent) && bloodstreamComponent.BloodSolution != null) // WD EDIT
             {
                 // Fry off any blood into protein.
                 var bloodSolution = bloodstreamComponent.BloodSolution;
@@ -83,9 +85,9 @@ public sealed partial class DeepFryerSystem
 
                 // Bring in whatever chemicals they had in them too.
                 mobFoodSolution.Value.Comp.Solution.MaxVolume +=
-                    bloodstreamComponent.ChemicalSolution.Value.Comp.Solution.Volume;
+                    bloodstreamComponent.BloodSolution.Value.Comp.Solution.Volume; // WD EDIT
                 _solutionContainerSystem.AddSolution(mobFoodSolution.Value,
-                    bloodstreamComponent.ChemicalSolution.Value.Comp.Solution);
+                    bloodstreamComponent.BloodSolution.Value.Comp.Solution); // WD EDIT
             }
 
             return true;

@@ -1,8 +1,8 @@
+using Content.Server._White.Body.Bloodstream.Systems;
 using Content.Server._White.Chemistry.Components;
-using Content.Server.Body.Components;
-using Content.Server.Body.Systems;
 using Content.Server.Chemistry.Components;
 using Content.Shared._White.Blocking;
+using Content.Shared._White.Body.Bloodstream.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Events;
 using Content.Shared.Inventory;
@@ -159,7 +159,7 @@ public sealed class SolutionInjectOnCollideSystem : EntitySystem
             // Take our portion of the adjusted solution for this target
             var individualInjection = solutionToInject.SplitSolution(volumePerBloodstream);
             // Inject our portion into the target's bloodstream
-            if (_bloodstream.TryAddToChemicals(targetBloodstream.Owner, individualInjection, targetBloodstream.Comp))
+            if (_bloodstream.TryAddToBloodstream((targetBloodstream.Owner, targetBloodstream.Comp), individualInjection)) // WD EDIT
                 anySuccess = true;
         }
 

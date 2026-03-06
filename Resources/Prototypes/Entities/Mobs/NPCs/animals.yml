@@ -419,7 +419,6 @@
         damage: 10
       behaviors:
       - !type:GibBehavior
-        gibContents: Skip
         recursive: false # WD EDIT
   - type: NonSpreaderZombie
   - type: LanguageKnowledge
@@ -619,14 +618,11 @@
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Mouse_burning
-  - type: SurgeryTarget
   - type: Strippable
   - type: UserInterface
     interfaces:
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
-      enum.SurgeryUIKey.Key:
-        type: SurgeryBui
   - type: InventorySlots
   - type: Inventory
     speciesId: hamster
@@ -817,11 +813,8 @@
   - type: FootPrints
     leftBarePrint: "footprint-left-bare-lizard"
     rightBarePrint: "footprint-right-bare-lizard"
-  - type: SurgeryTarget
   - type: UserInterface
     interfaces:
-      enum.SurgeryUIKey.Key:
-        type: SurgeryBui
       enum.InstrumentUiKey.Key:
         type: InstrumentBoundUserInterface
         requireInputValidation: false
@@ -909,7 +902,7 @@
     bloodMaxVolume: 100
   - type: EggLayer
     eggSpawn:
-    - id:
+    - id: FoodEgg
   - type: ExamineableHunger
   - type: LanguageKnowledge
     speaks:
@@ -924,11 +917,6 @@
   - type: RandomBark
     barkType: chicken # Duh
     barkMultiplier: 0.7
-  - type: SurgeryTarget
-  - type: UserInterface
-    interfaces:
-      enum.SurgeryUIKey.Key:
-        type: SurgeryBui
 
 - type: entity
   name: white duck #Quack
@@ -1109,7 +1097,7 @@
     factions:
     - Passive
   - type: Body
-    prototype: AnimalRuminant
+    prototype: Ruminant # WD EDIT: AnimalRuminant -> Ruminant
   - type: HTN
     rootTask:
       task: RuminantCompound
@@ -1191,15 +1179,8 @@
   - type: HTN
     rootTask:
       task: RuminantCompound
-  - type: Body
-    prototype: AnimalHemocyanin
   - type: RandomBark
     barkType: crab
-  - type: SurgeryTarget
-  - type: UserInterface
-    interfaces:
-      enum.SurgeryUIKey.Key:
-        type: SurgeryBui
 
 - type: entity
   name: goat
@@ -1297,18 +1278,13 @@
     factions:
     - Passive
   - type: Body
-    prototype: AnimalRuminant
+    prototype: Ruminant # WD EDIT: AnimalRuminant -> Ruminant
   - type: NPCRetaliation
     attackMemoryLength: 5
   - type: FactionException
   - type: HTN
     rootTask:
       task: RuminantHostileCompound
-  - type: SurgeryTarget
-  - type: UserInterface
-    interfaces:
-      enum.SurgeryUIKey.Key:
-        type: SurgeryBui
 
 # Note that we gotta make this bitch vomit someday when you feed it anthrax or sumthin. Needs to be a small item thief too and aggressive if attacked.
 - type: entity
@@ -1526,12 +1502,6 @@
   abstract: true
   components:
   - type: CombatMode
-  # Shitmed Change Start
-  - type: SurgeryTarget
-  - type: Targeting
-  - type: HumanoidAppearance
-    species: Monkey
-  # Shitmed Change End
   - type: Inventory
     templateId: monkey
     speciesId: monkey
@@ -1557,51 +1527,43 @@
     interfaces:
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
-      enum.SurgeryUIKey.Key:
-        type: SurgeryBui
   - type: Sprite
     drawdepth: Mobs
     layers:
-    # Shitmed Change Start
-    - map: [ "enum.HumanoidVisualLayers.Chest" ]
-    - map: [ "enum.HumanoidVisualLayers.Head" ]
-    - map: [ "enum.HumanoidVisualLayers.Snout" ]
-    - map: [ "enum.HumanoidVisualLayers.Eyes" ]
-    - map: [ "enum.HumanoidVisualLayers.RArm" ]
-    - map: [ "enum.HumanoidVisualLayers.LArm" ]
-    - map: [ "enum.HumanoidVisualLayers.RLeg" ]
-    - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+    # WD EDIT START: BodyAppearanceLayer
+    - map: [ "enum.BodyAppearanceLayer.Chest" ]
+    - map: [ "enum.BodyAppearanceLayer.Groin" ]
+    - map: [ "enum.BodyAppearanceLayer.Head" ]
+    - map: [ "enum.BodyAppearanceLayer.Eyes" ]
+    - map: [ "enum.BodyAppearanceLayer.RightArm" ]
+    - map: [ "enum.BodyAppearanceLayer.LeftArm" ]
+    - map: [ "enum.BodyAppearanceLayer.RightLeg" ]
+    - map: [ "enum.BodyAppearanceLayer.LeftLeg" ]
+    # WD EDIT END
     - map: ["jumpsuit"]
-    - map: ["enum.HumanoidVisualLayers.LFoot"]
-    - map: ["enum.HumanoidVisualLayers.RFoot"]
-    - map: ["enum.HumanoidVisualLayers.LHand"]
-    - map: ["enum.HumanoidVisualLayers.RHand"]
+    # WD EDIT START: BodyAppearanceLayer
+    - map: ["enum.BodyAppearanceLayer.LeftFoot"]
+    - map: ["enum.BodyAppearanceLayer.RightFoot"]
+    - map: ["enum.BodyAppearanceLayer.LeftHand"]
+    - map: ["enum.BodyAppearanceLayer.RightHand"]
+    # WD EDIT END
     - map: ["enum.HumanoidVisualLayers.Handcuffs"]
       color: "#ffffff"
       sprite: Objects/Misc/handcuffs.rsi
       state: body-overlay-2
       visible: false
-    - map: [ "gloves" ]
-    - map: [ "shoes" ]
     - map: [ "ears" ]
-    - map: [ "innerBelt" ] # Einstein Engines
-    - map: [ "innerNeck" ] # Einstein Engines
-    - map: [ "eyes" ]
-    - map: [ "belt" ]
     - map: [ "id" ]
     - map: [ "outerClothing" ]
-    - map: [ "neck" ]
-    - map: [ "back" ]
-    - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
-    - map: [ "enum.HumanoidVisualLayers.Hair" ]
-    - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
-    - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
-    - map: [ "enum.HumanoidVisualLayers.Tail" ]
     - map: [ "mask" ]
     - map: [ "head" ]
-    - map: [ "pocket1" ]
-    - map: [ "pocket2" ]
-    # Shitmed Change End
+    - map: [ "enum.BodyAppearanceLayer.Tail" ] # WD EDIT: BodyAppearanceLayer
+    - map: [ "innerBelt" ] # Einstein Engines
+    - map: [ "innerNeck" ] # Einstein Engines
+    - map: [ "clownedon" ]
+      sprite: "Effects/creampie.rsi"
+      state: "creampie_human"
+      visible: false
   - type: Carriable
   - type: Hands
   - type: ComplexInteraction
@@ -1611,9 +1573,6 @@
         clownedon:
           True: {visible: true}
           False: {visible: false}
-  - type: Body # Shitmed Change
-    prototype: Monkey
-    requiredLegs: 2
   - type: CreamPied
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
@@ -1668,6 +1627,11 @@
       methods: [ Touch ]
       effects:
       - !type:WashCreamPieReaction
+      # WD EDIT START
+  - type: Body
+    prototype: Monkey
+  - type: BodyAppearance
+  # WD EDIT END
 
 
 
@@ -1842,13 +1806,10 @@
   - type: RandomBark
     barkMultiplier: 0.65
     barkType: kobold
-  # Shitmed Change Start
-  - type: HumanoidAppearance
-    species: Kobold
+  # WD EDIT START
   - type: Body
     prototype: Kobold
-    requiredLegs: 2
-  # Shitmed Change End
+  # WD EDIT END
 
 - type: entity
   name: kobold
@@ -2082,11 +2043,6 @@
     whitelist:
       types:
       - Landmine
-  - type: SurgeryTarget
-  - type: UserInterface
-    interfaces:
-      enum.SurgeryUIKey.Key:
-        type: SurgeryBui
   - type: FoodSequenceElement
     entries:
       Taco: RatTaco
@@ -2107,7 +2063,6 @@
         damage: 100
       behaviors:
       - !type:GibBehavior
-        gibContents: Skip
         recursive: false
   # WD EDIT END
 
@@ -2703,8 +2658,6 @@
     - id: FoodMeatSpider
       amount: 2
   - type: CombatMode
-  - type: Body
-    prototype: AnimalHemocyanin
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -2777,11 +2730,6 @@
   - type: BloodSucker
     webRequired: true
   - type: Cocooner
-  - type: SurgeryTarget
-  - type: UserInterface
-    interfaces:
-      enum.SurgeryUIKey.Key:
-        type: SurgeryBui
   - type: Fauna # Lavaland Change
 
 - type: entity

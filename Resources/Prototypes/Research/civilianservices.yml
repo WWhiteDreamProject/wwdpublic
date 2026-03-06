@@ -26,6 +26,10 @@
   - BorgModuleArtifact
   - BorgModuleAnomaly
   - DroneElectronics
+  # WD EDIT START
+  - BorgModuleAdvancedTreatment
+  - BorgModuleDefibrillator
+  # WD EDIT END
 
 - type: technology
   id: BasicElectronics

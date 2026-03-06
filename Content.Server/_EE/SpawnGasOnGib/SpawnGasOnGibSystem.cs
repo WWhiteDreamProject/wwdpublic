@@ -1,5 +1,5 @@
 using Content.Server.Atmos.EntitySystems;
-using Content.Server.Body.Components;
+using Content.Shared._White.Gibbing;
 
 namespace Content.Server._EE.SpawnGasOnGib;
 

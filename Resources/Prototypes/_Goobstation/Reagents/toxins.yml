@@ -7,7 +7,7 @@
   flavor: terrible
   color: "#174f17"
   metabolisms:
-    Poison:
+    Absorption: # WD EDIT
       effects: # considering vomiting and re-add the metabolism rate works out to ~2.5/s
       - !type:HealthChange # ~20/20 damage per 15u, inconsistent
         damage:
@@ -52,7 +52,7 @@
   flavor: bitter
   color: "#1abcff"
   metabolisms:
-    Poison:
+    Absorption: # WD EDIT
       metabolismRate: 0.1
       effects:
       - !type:HealthChange
@@ -73,25 +73,9 @@
   flavor: bitter
   color: "#819cb5"
   metabolisms:
-    Poison:
+    Absorption: # WD EDIT
       metabolismRate: 0.05
       effects:
-      - !type:AdjustReagent
-        group: Medicine
-        amount: -4.5
-        conditions: # higher quality anti-poisons, save for calomel which is low effort but high risk
-        - !type:BloodReagentThreshold
-          reagent: PentenicAcid
-          max: 0.1
-        - !type:BloodReagentThreshold
-          reagent: Calomel
-          max: 0.1
-        - !type:BloodReagentThreshold
-          reagent: Diphenhydramine
-          max: 0.1
-      - !type:AdjustReagent
-        group: Medicine
-        amount: -0.5
       - !type:HealthChange
         damage:
           types:
@@ -106,11 +90,8 @@
   flavor: bitter
   color: "#22ff1a"
   metabolisms:
-    Poison:
+    Absorption: # WD EDIT
       effects:
-      - !type:AdjustReagent
-        group: Medicine
-        amount: -5
       - !type:HealthChange
         damage:
           types:
@@ -134,7 +115,7 @@
   flavor: bitter
   color: "#8e8e8e"
   metabolisms:
-    Poison:
+    Absorption: # WD EDIT
       metabolismRate: 3
       effects:
       - !type:HealthChange

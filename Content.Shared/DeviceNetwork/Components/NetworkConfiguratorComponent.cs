@@ -56,7 +56,4 @@ public sealed partial class NetworkConfiguratorComponent : Component
 
     [DataField]
     public SoundSpecifier SoundSwitchMode = new SoundPathSpecifier("/Audio/Machines/quickbeep.ogg");
-
-    [DataField]
-    public bool ShowLabel = true; // Shitmed - Starlight Abductors Change
 }

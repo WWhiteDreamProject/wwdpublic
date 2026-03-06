@@ -7,14 +7,13 @@ namespace Content.Server.Bed.Components
     public sealed partial class StasisBedComponent : Component
     {
         [DataField]
-        public float BaseMultiplier = 10f;
+        public float BaseMultiplier = 0.1f; // WD EDIT
 
         /// <summary>
-        ///     What the metabolic update rate will be multiplied by (higher = slower metabolism)
+        ///     What the metabolic update rate will be multiplied by (lesser = slower metabolism)
         /// </summary>
-        [ViewVariables(VVAccess.ReadOnly)] // Writing is is not supported. ApplyMetabolicMultiplierEvent needs to be refactored first
         [DataField]
-        public float Multiplier = 10f;
+        public float Multiplier = 0.1f; // WD EDIT
 
         [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<MachinePartPrototype>))]
         public string MachinePartMetabolismModifier = "Capacitor";

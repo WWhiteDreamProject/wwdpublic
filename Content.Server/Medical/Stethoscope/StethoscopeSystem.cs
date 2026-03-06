@@ -1,4 +1,4 @@
-using Content.Server.Body.Components;
+using Content.Server._White.Body.Respirator.Components;
 using Content.Server.Medical.Components;
 using Content.Server.Medical.Stethoscope.Components;
 using Content.Server.Popups;

@@ -1,6 +1,6 @@
 using System.Linq;
+using Content.Server._White.Body.Bloodstream.Systems;
 using Content.Server.Actions;
-using Content.Server.Body.Systems;
 using Content.Server.Chat;
 using Content.Server.Chat.Systems;
 using Content.Server.Emoting.Systems;
@@ -285,14 +285,9 @@ namespace Content.Server.Zombies
             if (!Resolve(source, ref zombiecomp))
                 return false;
 
-            foreach (var (layer, info) in zombiecomp.BeforeZombifiedCustomBaseLayers)
-            {
-                _humanoidAppearance.SetBaseLayerColor(target, layer, info.Color);
-                _humanoidAppearance.SetBaseLayerId(target, layer, info.Id);
-            }
             if (TryComp<HumanoidAppearanceComponent>(target, out var appcomp))
             {
-                appcomp.EyeColor = zombiecomp.BeforeZombifiedEyeColor;
+                _humanoidAppearance.SetEyeColor(target, zombiecomp.BeforeZombifiedEyeColor, false, appcomp); // WD EDIT
             }
             _humanoidAppearance.SetSkinColor(target, zombiecomp.BeforeZombifiedSkinColor, false);
             _bloodstream.ChangeBloodReagent(target, zombiecomp.BeforeZombifiedBloodReagent);

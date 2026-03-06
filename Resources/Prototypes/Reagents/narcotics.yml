@@ -9,7 +9,7 @@
   boilingPoint: 212.0  # Dexosyephedrine vape when?
   meltingPoint: 170.0
   metabolisms:
-    Poison:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         damage:
@@ -23,8 +23,6 @@
           types:
             Poison: 2 # this is added to the base damage of the meth.
             Asphyxiation: 2
-    Narcotic:
-      effects:
       - !type:MovespeedModifier
         walkSpeedModifier: 1.35
         sprintSpeedModifier: 1.35
@@ -54,8 +52,6 @@
         time: 5
       - !type:ChemAddMoodlet
         moodPrototype: StrongStimulant
-    Medicine:
-      effects:
       - !type:ResetNarcolepsy
         conditions:
         - !type:ReagentThreshold
@@ -72,7 +68,7 @@
   boilingPoint: 255.0
   meltingPoint: 36.0
   metabolisms:
-    Narcotic:
+    Absorption: # WD EDIT
       effects:
       - !type:MovespeedModifier
         walkSpeedModifier: 1.25
@@ -114,11 +110,11 @@
       - !type:ChemAddMoodlet
         moodPrototype: StrongStimulant
       # WD EDIT START
-      - !type:GenericStatusEffect # WWDP
+      - !type:GenericStatusEffect
         key: NoScream
         component: NoScream
         time: 5
-      - !type:PopupMessage # WWDP
+      - !type:PopupMessage
         visualType: Medium
         messages: [ "morphine-wear-off" ]
         type: Local
@@ -129,8 +125,6 @@
           max: 1.1
           min: 1
       # WD EDIT END
-    Medicine:
-      effects:
       - !type:ResetNarcolepsy
         conditions:
         - !type:ReagentThreshold
@@ -147,7 +141,7 @@
   boilingPoint: 212.0
   meltingPoint: 170.0
   metabolisms:
-    Narcotic:
+    Absorption: # WD EDIT
       metabolismRate: 0.2 # WD EDIT - unnerf stims
       effects:
       - !type:MovespeedModifier
@@ -198,9 +192,6 @@
         time: 5
       - !type:ChemAddMoodlet
         moodPrototype: StrongStimulant
-    Medicine:
-      metabolismRate: 1.0
-      effects:
       - !type:ResetNarcolepsy
       - !type:SatiateHunger
         factor: 1
@@ -231,7 +222,7 @@
   - !type:PlantAdjustHealth
     amount: -1
   metabolisms:
-    Narcotic:
+    Absorption: # WD EDIT
       effects:
       - !type:GenericStatusEffect
         key: SeeingRainbows
@@ -252,7 +243,7 @@
   - !type:PlantAdjustHealth
     amount: -5
   metabolisms:
-    Narcotic:
+    Absorption: # WD EDIT
       effects:
       - !type:ChemAddMoodlet
         moodPrototype: NicotineBenefit
@@ -267,7 +258,7 @@
   flavor: bitter
   color: "#215263"
   metabolisms:
-    Narcotic:
+    Absorption: # WD EDIT
       effects:
       - !type:MovespeedModifier
         walkSpeedModifier: 0.65
@@ -296,7 +287,7 @@
   flavor: bitter
   color: "#63806e"
   metabolisms:
-    Narcotic:
+    Absorption: # WD EDIT
       effects:
       - !type:GenericStatusEffect
         key: SeeingRainbows
@@ -321,7 +312,7 @@
   flavor: bitter
   color: "#ffff00"
   metabolisms:
-    Narcotic:
+    Absorption: # WD EDIT
       effects:
       - !type:GenericStatusEffect
         key: SeeingRainbows
@@ -341,7 +332,7 @@
   boilingPoint: 444.0
   meltingPoint: 128.0
   metabolisms:
-    Narcotic:
+    Absorption: # WD EDIT
       effects:
       - !type:GenericStatusEffect
         conditions:
@@ -363,7 +354,7 @@
   boilingPoint: 255.0
   meltingPoint: 36.0
   metabolisms:
-    Narcotic:
+    Absorption: # WD EDIT
       effects:
       - !type:GenericStatusEffect
         key: Muted
@@ -380,7 +371,7 @@
   boilingPoint: 255.0
   meltingPoint: 36.0
   metabolisms:
-    Narcotic:
+    Absorption: # WD EDIT
       effects:
       - !type:PopupMessage
         type: Local
@@ -424,7 +415,7 @@
   boilingPoint: 255.0
   meltingPoint: 36.0
   metabolisms:
-    Narcotic:
+    Absorption: # WD EDIT
       effects:
       - !type:PopupMessage
         type: Local
@@ -470,7 +461,7 @@
   flavor: paintthinner
   color: "#EE35FF"
   metabolisms:
-    Narcotic:
+    Absorption: # WD EDIT
       effects:
       - !type:Emote
         emote: Laugh
@@ -511,7 +502,7 @@
   color: "#46a6f5"
   physicalDesc: reagent-physical-desc-sugary
   metabolisms:
-    Narcotic:
+    Absorption: # WD EDIT
       effects:
       - !type:StaminaChange
         amount: -3
@@ -534,7 +525,7 @@
   color: "#f73715"
   physicalDesc: reagent-physical-desc-unhealthy
   metabolisms:
-    Narcotic:
+    Absorption: # WD EDIT
       effects:
       - !type:StaminaChange
         amount: -6

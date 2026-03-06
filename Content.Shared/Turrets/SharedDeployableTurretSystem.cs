@@ -135,7 +135,8 @@ public abstract partial class SharedDeployableTurretSystem : EntitySystem
         if (TryComp<DamageableComponent>(ent, out var damageable))
         {
             var damageSetID = ent.Comp.Enabled ? ent.Comp.DeployedDamageModifierSetId : ent.Comp.RetractedDamageModifierSetId;
-            _damageable.SetDamageModifierSetId(ent, damageSetID, damageable);
+            if (damageSetID.HasValue)
+                _damageable.SetDamageModifierSetId(ent, damageSetID, damageable);
         }
 
         // Change the turret's fixtures

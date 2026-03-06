@@ -1,6 +1,5 @@
 - type: marking
   id: HumanLongEars
-  bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Human, Dwarf]
   forcedColoring: true
@@ -8,3 +7,7 @@
   sprites:
   - sprite: Mobs/Customization/ears.rsi
     state: long_ears
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.HeadTop
+    bodyPart: Head
+    # WD EDIT END

@@ -46,12 +46,6 @@
         Blunt: 2.5
   - type: DamageOtherOnHit
     staminaCost: 7
-  # Shitmed Change
-  - type: Cautery
-    speed: 0.9
-  - type: SurgeryTool
-    endSound:
-      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
   # WD EDIT START
   - type: DisarmMalus
     malus: 0.3
@@ -120,12 +114,6 @@
         Blunt: 2.5
   - type: DamageOtherOnHit
     staminaCost: 7
-  # Shitmed Change
-  - type: Cautery
-    speed: 0.9
-  - type: SurgeryTool
-    endSound:
-      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
 
 - type: entity
   id: BaseWeaponBatterySmall

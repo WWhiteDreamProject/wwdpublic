@@ -1,0 +1,70 @@
+- type: entity
+  id: BaseBodyBoneHuman
+  parent: BaseBone
+  abstract: true
+  name: human bone
+  components:
+  - type: Sprite
+    sprite: _White/Body/Bone/human.rsi
+
+# Skull / Сranium
+- type: entity
+  id: BoneSkullHuman
+  parent: [BaseBoneSkull, BaseBodyBoneHuman]
+  name: human skull
+
+# Rib Cage / Thorax
+- type: entity
+  id: BoneRibCageHuman
+  parent: [BaseBoneRibCage, BaseBodyBoneHuman]
+  name: human rib cage
+
+# Pelvis / Coxae
+- type: entity
+  id: BonePelvisHuman
+  parent: [BaseBonePelvis, BaseBodyBoneHuman]
+  name: human pelvis
+
+# Arm Bone / Antebrachium
+- type: entity
+  id: BoneLeftArmHuman
+  parent: [BaseBoneLeftArm, BaseBodyBoneHuman]
+  name: human left arm bone
+
+- type: entity
+  id: BoneRightArmHuman
+  parent: [BaseBoneRightArm, BaseBodyBoneHuman]
+  name: human right arm bone
+
+# Hand Bone / Manus
+- type: entity
+  id: BoneLeftHandHuman
+  parent: [BaseBoneLeftHand, BaseBodyBoneHuman]
+  name: human left hand bone
+
+- type: entity
+  id: BoneRightHandHuman
+  parent: [BaseBoneRightHand, BaseBodyBoneHuman]
+  name: human right hand bone
+
+# Leg Bone / Crus
+- type: entity
+  id: BoneLeftLegHuman
+  parent: [BaseBoneLeftLeg, BaseBodyBoneHuman]
+  name: human left leg bone
+
+- type: entity
+  id: BoneRightLegHuman
+  parent: [BaseBoneRightLeg, BaseBodyBoneHuman]
+  name: human right leg bone
+
+# Foot Bone / Pedis
+- type: entity
+  id: BoneLeftFootHuman
+  parent: [BaseBoneLeftFoot, BaseBodyBoneHuman]
+  name: human left foot bone
+
+- type: entity
+  id: BoneRightFootHuman
+  parent: [BaseBoneRightFoot, BaseBodyBoneHuman]
+  name: human right foot bone

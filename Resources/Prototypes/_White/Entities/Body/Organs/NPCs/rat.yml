@@ -1,0 +1,25 @@
+- type: entity
+  id: OrganLungsRat
+  parent: OrganLungsAnimal
+  name: rat lungs
+  components:
+  - type: Metabolizer
+    types: [ Rat ]
+
+- type: entity
+  id: OrganStomachRat
+  parent: OrganStomachAnimal
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+      stomach:
+        maxVol: 50
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5

@@ -1,0 +1,24 @@
+# Animal metabolism stages
+
+- type: metabolismStage
+  id: Respiration
+  name: metabolism-stage-respiration
+
+- type: metabolismStage
+  id: Digestion
+  name: metabolism-stage-digestion
+
+- type: metabolismStage
+  id: Absorption
+  name: metabolism-stage-absorption
+
+- type: metabolismStage
+  id: Excretion
+  name: metabolism-stage-excretion
+
+# Dummy for the guide
+
+- type: metabolismStage
+  id: PlantMetabolisms
+  name: metabolism-stage-plant
+

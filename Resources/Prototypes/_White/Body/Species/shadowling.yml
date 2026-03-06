@@ -1,0 +1,90 @@
+- type: body
+  id: Shadowling
+  root: chest
+  bodyParts:
+    head:
+      type: Head
+      startingBodyPart: BodyPartHeadShadowling
+      connections:
+      - chest
+      organs:
+        brain:
+          type: Brain
+          startingOrgan: OrganBrainHuman
+        ears:
+          type: Ears
+          startingOrgan: OrganEarsHuman
+        eyes:
+          type: Eyes
+          startingOrgan: OrganEyesHuman
+        tongue:
+          type: Tongue
+          startingOrgan: OrganTongueHuman
+    chest:
+      type: Chest
+      startingBodyPart: BodyPartChestShadowling
+      connections:
+      - wings
+      - right_arm
+      - left_arm
+      - groin
+      organs:
+        heart:
+          type: Heart
+          startingOrgan: OrganHeartHuman
+        lungs:
+          type: Lungs
+          startingOrgan: OrganLungsHuman
+    groin:
+      type: Groin
+      startingBodyPart: BodyPartGroinShadowling
+      connections:
+      - tail
+      - right_leg
+      - left_leg
+      organs:
+        stomach:
+          type: Stomach
+          startingOrgan: OrganStomachHuman
+        liver:
+          type: Liver
+          startingOrgan: OrganLiverHuman
+        kidneys:
+          type: Kidneys
+          startingOrgan: OrganKidneysHuman
+    left_arm:
+      type: LeftArm
+      startingBodyPart: BodyPartLeftArmShadowling
+      connections:
+      - left_hand
+    right_arm:
+      type: RightArm
+      startingBodyPart: BodyPartRightArmShadowling
+      connections:
+      - right_hand
+    left_hand:
+      type: LeftHand
+      startingBodyPart: BodyPartLeftHandShadowling
+    right_hand:
+      type: RightHand
+      startingBodyPart: BodyPartRightHandShadowling
+    left_leg:
+      type: LeftLeg
+      startingBodyPart: BodyPartLeftLegShadowling
+      connections:
+      - left_foot
+    right_leg:
+      type: RightLeg
+      startingBodyPart: BodyPartRightLegShadowling
+      connections:
+      - right_foot
+    left_foot:
+      type: LeftFoot
+      startingBodyPart: BodyPartLeftFootShadowling
+    right_foot:
+      type: RightFoot
+      startingBodyPart: BodyPartRightFootShadowling
+    tail:
+      type: Tail
+    wings:
+      type: Wings

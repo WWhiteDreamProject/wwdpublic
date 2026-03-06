@@ -1,6 +1,5 @@
 - type: marking
   id: GoblinTusksSmall
-  bodyPart: Face
   markingCategory: Face
   speciesRestriction: [Oni]
   coloring:
@@ -11,10 +10,13 @@
   sprites:
   - sprite: Mobs/Customization/goblin_tusks.rsi
     state: goblin_tusks_small
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Face
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: GoblinTusksBig
-  bodyPart: Face
   markingCategory: Face
   speciesRestriction: [Oni]
   coloring:
@@ -25,3 +27,7 @@
   sprites:
   - sprite: Mobs/Customization/goblin_tusks.rsi
     state: goblin_tusks_big
+    # WD EDIT START
+    layer: enum.HumanoidVisualLayers.Face
+    bodyPart: Head
+    # WD EDIT END

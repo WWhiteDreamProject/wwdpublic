@@ -1,9 +1,9 @@
-﻿using Content.Server.Body.Components;
-using Content.Server.Body.Systems;
+﻿using Content.Server._White.Body.Bloodstream.Systems;
 using Content.Server.DoAfter;
 using Content.Server.Popups;
 using Content.Shared._White.BloodCult.BloodCultist;
 using Content.Shared._White.BloodCult.BloodRites;
+using Content.Shared._White.Body.Bloodstream.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
@@ -168,7 +168,7 @@ public sealed class BloodRitesSystem : SharedBloodRitesSystem
         if (target.Comp.BloodSolution is null)
             return false;
 
-        _bloodstream.FlushChemicals(target, string.Empty, 10);
+        _bloodstream.FlushChemicals(target.Owner, 10);
         var missingBlood = target.Comp.BloodSolution.Value.Comp.Solution.AvailableVolume;
         if (missingBlood == 0)
             return false;
@@ -183,8 +183,8 @@ public sealed class BloodRitesSystem : SharedBloodRitesSystem
             bloodCost = user.Comp.StoredBloodAmount;
         }
 
-        _bloodstream.TryModifyBleedAmount(target, -3);
-        _bloodstream.TryModifyBloodLevel(target, bloodCost / rites.Comp.BloodRegenerationRatio);
+        _bloodstream.TryModifyBleedAmount(target.Owner, -3);
+        _bloodstream.TryModifyBloodLevel(target.Owner, bloodCost / rites.Comp.BloodRegenerationRatio);
 
         user.Comp.StoredBloodAmount -= bloodCost;
         Dirty(user);

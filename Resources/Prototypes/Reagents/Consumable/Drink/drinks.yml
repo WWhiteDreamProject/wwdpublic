@@ -8,7 +8,11 @@
   color: "#664300"
   recognizable: true
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Theobromine: 0.02
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
@@ -16,9 +20,6 @@
         key: Drowsiness
         time: 2.0
         type: Remove
-      - !type:AdjustReagent
-        reagent: Theobromine
-        amount: 0.02 # WD EDIT: 0.05 -> 0.02
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/coffeeglass.rsi
     state: icon_empty
@@ -36,13 +37,14 @@
   color: "#664300"
   recognizable: true
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Theobromine: 0.2
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Theobromine
-        amount: 0.2 # WD EDIT: 0.05 -> 0.2
 
 - type: reagent
   id: Cream
@@ -53,7 +55,7 @@
   flavor: creamy
   color: "#DFD7AF"
   metabolisms:
-    Drink:
+    Digestion: # WD EDIT
       effects:
       - !type:SatiateThirst
         factor: 1
@@ -67,7 +69,7 @@
   flavor: nutty
   color: "#f4eadb"
   metabolisms:
-    Drink:
+    Digestion: # WD EDIT
       effects:
       - !type:SatiateThirst
         factor: 4 # Coconut water is 94% water
@@ -81,7 +83,7 @@
   flavor: creamy
   color: "#FFEABF"
   metabolisms:
-    Drink:
+    Digestion: # WD EDIT
       effects:
       - !type:SatiateThirst
         factor: 2
@@ -101,7 +103,11 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Theobromine: 0.01
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
@@ -109,11 +115,6 @@
         key: Drowsiness
         time: 2.0
         type: Remove
-        #WD edit start
-      - !type:AdjustReagent
-        reagent: Theobromine
-        amount: 0.01
-        #WD edit end
 
 - type: reagent
   id: GreenTea
@@ -129,16 +130,15 @@
   metamorphicMaxFillLevels: 4
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
-  #WD edit start
+  # WD EDIT START
   metabolisms:
-    Drink:
+    Digestion:
+      metabolites:
+        Theobromine: 0.02
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Theobromine
-        amount: 0.02
-        #WD edit end
+  # WD EDIT END
 
 - type: reagent
   id: Grenadine
@@ -174,7 +174,11 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Theobromine: 0.01
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
@@ -182,11 +186,6 @@
         key: Drowsiness
         time: 2.0
         type: Remove
-        #WD edit start
-      - !type:AdjustReagent
-        reagent: Theobromine
-        amount: 0.01
-        #WD edit end
 
 - type: reagent
   id: IcedGreenTea
@@ -218,13 +217,14 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Theobromine: 0.01
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Theobromine
-        amount: 0.01 # WD EDIT: 0.05 -> 0.01
 
 - type: reagent
   id: JuiceBerryPoison
@@ -236,10 +236,10 @@
   flavor: bitter
   color: "#6600CC"
   metabolisms:
-    Drink:
+    Digestion: # WD EDIT
       effects:
       - !type:SatiateThirst
-    Poison:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         damage:
@@ -262,7 +262,7 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    Digestion: # WD EDIT
       effects:
       - !type:SatiateThirst
         factor: 2
@@ -282,13 +282,13 @@
     - !type:PlantAdjustWater
       amount: 0.9
   metabolisms:
-    Drink:
+    Digestion: # WD EDIT
       effects:
       - !type:SatiateThirst
         factor: 4
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Plasmaman
         damage:
           groups:
@@ -299,7 +299,7 @@
             Caustic: -0.30
       - !type:ChemAddMoodlet
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Plasmaman
         - !type:ReagentThreshold
           reagent: Milk
@@ -322,7 +322,7 @@
   color: "#DEDACD"
   recognizable: true
   metabolisms:
-    Drink:
+    Digestion: # WD EDIT
       effects:
       - !type:SatiateThirst
         factor: 4
@@ -345,7 +345,7 @@
   flavor: terrible
   color: "#faffba"
   metabolisms:
-    Drink:
+    Digestion: # WD EDIT
       effects:
       - !type:SatiateThirst
         factor: -2
@@ -357,7 +357,7 @@
   group: Drinks
   physicalDesc: reagent-physical-desc-nothing
   metabolisms:
-    Drink:
+    Digestion: # WD EDIT
       effects:
       - !type:SatiateThirst
         factor: 2
@@ -379,7 +379,7 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    Digestion: # WD EDIT
       effects:
       - !type:SatiateThirst
         factor: 6
@@ -387,7 +387,7 @@
         key: Drowsiness
         time: 3.0
         type: Remove
-    Poison:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         damage:
@@ -420,7 +420,11 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: false
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Theobromine: 0.01
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
@@ -428,11 +432,6 @@
         key: Drowsiness
         time: 2.0
         type: Remove
-        #WD edit start
-      - !type:AdjustReagent
-        reagent: Theobromine
-        amount: 0.01
-        #WD edit end
 
 - type: reagent
   id: Tea
@@ -444,13 +443,14 @@
   color: "#8a5a3a"
   recognizable: true
   metabolisms:
-    Drink:
+    # WD EDIT START
+    Digestion:
+      metabolites:
+        Theobromine: 0.02
+    # WD EDIT END
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Theobromine
-        amount: 0.02 # WD EDIT: 0.05 -> 0.02
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/teaglass.rsi
     state: icon_empty
@@ -487,7 +487,7 @@
   boilingPoint: 100.0
   meltingPoint: 0.0
   metabolisms:
-    Drink:
+    Digestion: # WD EDIT
       effects:
       - !type:SatiateThirst
         factor: 4
@@ -521,7 +521,7 @@
   flavor: cheapnoodles
   color: "#664300"
   metabolisms:
-    Food:
+    Digestion: # WD EDIT:
       effects:
       - !type:SatiateHunger
         factor: 1
@@ -535,7 +535,7 @@
   flavor: cheapnoodles
   color: "#664300"
   metabolisms:
-    Food:
+    Digestion: # WD EDIT:
       effects:
       - !type:SatiateHunger
         factor: 4
@@ -552,15 +552,10 @@
     sprite: Objects/Consumable/Drinks/arnoldpalmer.rsi
     state: icon
   metabolisms:
-    Drink:
+    Digestion: # WD EDIT
       effects:
       - !type:SatiateThirst
         factor: 4
-        #WD edit start
-      #- !type:AdjustReagent
-        #reagent: Theobromine
-        #amount: 0.05
-        #WD edit end
 
 - type: reagent
   id: Pilk
@@ -571,7 +566,7 @@
   flavor: pilk
   color: "#e7c69f"
   metabolisms:
-    Drink:
+    Digestion: # WD EDIT
       effects:
         - !type:SatiateThirst
           factor: 1
@@ -617,16 +612,15 @@
   metamorphicFillBaseName: fill-
   metamorphicChangeColor: true
   fizziness: 0.3
-  #WD edit start
+  # WD EDIT START
   metabolisms:
-    Drink:
+    Digestion:
+      metabolites:
+        Theobromine: 0.01
       effects:
       - !type:SatiateThirst
         factor: 2
-      - !type:AdjustReagent
-        reagent: Theobromine
-        amount: 0.01
-        #WD edit end
+  # WD EDIT END
 
 - type: reagent
   id: Mopwata
@@ -637,7 +631,7 @@
   flavor: mopwata
   color: "#59502b"
   metabolisms:
-    Drink:
+    Digestion: # WD EDIT
       effects:
       - !type:SatiateThirst
         factor: 0.6

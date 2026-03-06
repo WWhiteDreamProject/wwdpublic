@@ -1,13 +1,14 @@
+using Content.Server._White.Body.Bloodstream.Systems;
+using Content.Server._White.Body.Wound.Systems;
+using Content.Server._White.TargetDoll;
 using Content.Server.Administration.Logs;
-using Content.Server.Body.Components;
-using Content.Server.Body.Systems;
 using Content.Server.Medical.Components;
 using Content.Server.Popups;
 using Content.Server.Stack;
-using Content.Shared._Shitmed.Targeting;
+using Content.Shared._White.Body.Bloodstream.Components;
+using Content.Shared._White.Body.Wounds.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Audio;
-using Content.Shared.Body.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
@@ -23,6 +24,7 @@ using Content.Shared.Popups;
 using Content.Shared.Stacks;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Random;
+using Robust.Shared.Utility;
 
 namespace Content.Server.Medical;
 
@@ -39,8 +41,10 @@ public sealed class HealingSystem : EntitySystem
     [Dependency] private readonly MobThresholdSystem _mobThresholdSystem = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
-    [Dependency] private readonly SharedTargetingSystem _targetingSystem = default!; // Shitmed Change
-    [Dependency] private readonly SharedBodySystem _bodySystem = default!; // Shitmed Change
+    // WD EDIT START
+    [Dependency] private readonly TargetDollSystem _targetDoll = default!;
+    [Dependency] private readonly WoundSystem _wound = default!;
+    // WD EDIT END
 
     public override void Initialize()
     {
@@ -72,9 +76,9 @@ public sealed class HealingSystem : EntitySystem
         {
             if (!TryComp<BloodstreamComponent>(entity, out var bloodstream))
                 return;
-            var isBleeding = bloodstream.BleedAmount > 0;
+            var isBleeding = bloodstream.Bleeding > 0;
             _bloodstreamSystem.TryModifyBleedAmount(entity.Owner, healing.BloodlossModifier);
-            if (isBleeding != bloodstream.BleedAmount > 0)
+            if (isBleeding != bloodstream.Bleeding > 0)
             {
                 var popup = (args.User == entity.Owner)
                     ? Loc.GetString("medical-item-stop-bleeding-self")
@@ -87,7 +91,7 @@ public sealed class HealingSystem : EntitySystem
         if (healing.ModifyBloodLevel != 0)
             _bloodstreamSystem.TryModifyBloodLevel(entity.Owner, healing.ModifyBloodLevel);
 
-        var healed = _damageable.TryChangeDamage(entity.Owner, healing.Damage, true, origin: args.User, canSever: false); // Shitmed Change
+        var healed = _damageable.TryChangeDamage(entity.Owner, healing.Damage, true, origin: args.Args.User);
 
         if (healed == null && healing.BloodlossModifier != 0)
             return;
@@ -119,10 +123,10 @@ public sealed class HealingSystem : EntitySystem
                 $"{EntityManager.ToPrettyString(args.User):user} healed themselves for {total:damage} damage");
         }
 
-        _audio.PlayPvs(healing.HealingEndSound, entity.Owner, AudioHelpers.WithVariation(0.125f, _random).WithVolume(-5f));
+        _audio.PlayPvs(healing.HealingEndSound, entity.Owner, AudioHelpers.WithVariation(0.125f, _random).WithVolume(1f));
 
         // Logic to determine the whether or not to repeat the healing action
-        args.Repeat = HasDamage(entity, healing) && !dontRepeat || IsPartDamaged(args.User, entity); // Shitmed Change
+        args.Repeat = (HasDamage(entity, healing) && !dontRepeat);
         if (!args.Repeat && !dontRepeat)
             _popupSystem.PopupEntity(Loc.GetString("medical-item-finished-using", ("item", args.Used)), entity.Owner, args.User);
         args.Handled = true;
@@ -151,7 +155,7 @@ public sealed class HealingSystem : EntitySystem
             }
 
             // Is ent bleeding and can we stop it?
-            if (healing.BloodlossModifier < 0 && bloodstream.BleedAmount > 0)
+            if (healing.BloodlossModifier < 0 && bloodstream.Bleeding > 0)
             {
                 return true;
             }
@@ -159,23 +163,6 @@ public sealed class HealingSystem : EntitySystem
 
         return false;
     }
-
-    // Shitmed Change Start
-    private bool IsPartDamaged(EntityUid user, EntityUid target)
-    {
-        if (!TryComp(user, out TargetingComponent? targeting))
-            return false;
-
-        var (targetType, targetSymmetry) = _bodySystem.ConvertTargetBodyPart(targeting.Target);
-        foreach (var part in _bodySystem.GetBodyChildrenOfType(target, targetType, symmetry: targetSymmetry))
-            if (TryComp<DamageableComponent>(part.Id, out var damageable)
-                && damageable.TotalDamage > part.Component.MinIntegrity)
-                return true;
-
-        return false;
-    }
-
-    // Shitmed Change End
 
     private void OnHealingUse(Entity<HealingComponent> entity, ref UseInHandEvent args)
     {
@@ -213,7 +200,23 @@ public sealed class HealingSystem : EntitySystem
         if (TryComp<StackComponent>(uid, out var stack) && stack.Count < 1)
             return false;
 
-        if (!(HasDamage((target, targetDamage), component) || IsPartDamaged(user, target))) // Shitmed Change
+        // WD EDIT START
+        var bodyPartType = _targetDoll.GetSelectedBodyPart(user);
+        if (TryComp<WoundableComponent>(target, out var woundableBodyComponent)
+            && !_wound.HasWounds((target, woundableBodyComponent), component.Damage, false, bodyPartType))
+        {
+            if (_wound.GetWoundableBodyParts((target, woundableBodyComponent), component.Damage).FirstOrNull() is not { } bodyPart)
+            {
+                _popupSystem.PopupEntity(Loc.GetString("medical-item-cant-use", ("item", uid)), uid, user);
+                return false;
+            }
+
+            _popupSystem.PopupEntity(Loc.GetString("medical-item-cant-use-switch-body-part", ("item", uid), ("body-part", bodyPartType), ("new-body-part", bodyPart.Comp1.Type)), uid, user);
+            bodyPartType = bodyPart.Comp1.Type;
+        }
+        // WD EDIT END
+
+        if (!HasDamage((target, targetDamage), component))
         {
             _popupSystem.PopupEntity(Loc.GetString("medical-item-cant-use", ("item", uid)), uid, user);
             return false;
@@ -235,7 +238,7 @@ public sealed class HealingSystem : EntitySystem
             : component.Delay * GetScaledHealingPenalty(user, component);
 
         var doAfterEventArgs =
-            new DoAfterArgs(EntityManager, user, delay, new HealingDoAfterEvent(), target, target: target, used: uid)
+            new DoAfterArgs(EntityManager, user, delay, new HealingDoAfterEvent(bodyPartType), target, target: target, used: uid) // WD EDIT
             {
                 // Didn't break on damage as they may be trying to prevent it and
                 // not being able to heal your own ticking damage would be frustrating.

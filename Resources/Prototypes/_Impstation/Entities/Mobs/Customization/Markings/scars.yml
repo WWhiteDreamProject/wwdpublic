@@ -1,146 +1,187 @@
 - type: marking
   id: ArmTwistingLeft
-  bodyPart: LArm
   markingCategory: LeftArm
   speciesRestriction: [Human, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Felinid, Arachne, Shadowkin, Vulpkanin]
   followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/scars.rsi
     state: arm_l_twisting
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftArm
+    bodyPart: LeftArm
+    # WD EDIT END
 
 - type: marking
   id: ArmTwistingRight
-  bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [Human, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Felinid, Arachne, Shadowkin, Vulpkanin]
   followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/scars.rsi
     state: arm_r_twisting
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightArm
+    bodyPart: RightArm
+    # WD EDIT END
 
 - type: marking
   id: ChestBackstabbed
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Human, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Felinid, Arachne, Shadowkin, Moth, Vulpkanin]
   followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/scars.rsi
     state: chest_backstabbed
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+    # WD EDIT END
 
 - type: marking
   id: ChestTwistingLeft
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Human, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Felinid, Arachne, Shadowkin, Vulpkanin]
   followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/scars.rsi
     state: chest_l_twisting
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+    # WD EDIT END
 
 - type: marking
   id: ChestTwistingRight
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Human, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Felinid, Arachne, Shadowkin, Vulpkanin]
   followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/scars.rsi
     state: chest_r_twisting
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+    # WD EDIT END
 
 - type: marking
   id: ChestStar
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Human, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Felinid, Arachne, Shadowkin, Vulpkanin]
   followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/scars.rsi
     state: chest_star
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+    # WD EDIT END
 
 - type: marking
   id: HandTwistingLeft
-  bodyPart: LHand
   markingCategory: LeftHand
   speciesRestriction: [Human, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Felinid, Arachne, Shadowkin, Vulpkanin]
   followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/scars.rsi
     state: hand_l_twisting
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftHand
+    bodyPart: LeftHand
+    # WD EDIT END
 
 - type: marking
   id: HandTwistingRight
-  bodyPart: RHand
   markingCategory: RightHand
   speciesRestriction: [Human, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Felinid, Arachne, Shadowkin, Vulpkanin]
   followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/scars.rsi
     state: hand_r_twisting
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightHand
+    bodyPart: RightHand
+    # WD EDIT END
 
 - type: marking
   id: SmileScars
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Human, Oni, SlimePerson, Tajaran, Felinid, Arachne]
   followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/scars.rsi
     state: head_smile
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: HeadTwisting
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Human, Oni, SlimePerson, Tajaran, Felinid, Arachne]
   followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/scars.rsi
     state: head_twisting
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: HeadTwistingFlipped
-  bodyPart: Head
   markingCategory: Head
   speciesRestriction: [Human, Oni, SlimePerson, Tajaran, Felinid, Arachne]
   followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/scars.rsi
     state: head_twisting_flipped
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Head
+    bodyPart: Head
+    # WD EDIT END
 
 - type: marking
   id: LegTwistingLeft
-  bodyPart: LLeg
   markingCategory: LeftLeg
   speciesRestriction: [Human, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Felinid, Shadowkin, Moth, Vulpkanin]
   followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/scars.rsi
     state: leg_l_twisting
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftLeg
+    bodyPart: LeftLeg
+    # WD EDIT END
 
 - type: marking
   id: LegTwistingRight
-  bodyPart: RLeg
   markingCategory: RightLeg
   speciesRestriction: [Human, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Felinid, Shadowkin, Moth, Vulpkanin]
   followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/scars.rsi
     state: leg_r_twisting
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightLeg
+    bodyPart: RightLeg
+    # WD EDIT END
 
 - type: marking
   id: TorsoIncision
-  bodyPart: Chest
   markingCategory: Chest
   speciesRestriction: [Human, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Felinid, Arachne, Shadowkin, Vulpkanin]
   followSkinColor: false
   sprites:
   - sprite: _Impstation/Mobs/Customization/scars.rsi
     state: torso_incision
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.Chest
+    bodyPart: Chest
+    # WD EDIT END
 
 - type: marking
   id: ArmProstheticLeft
-  bodyPart: LArm
   markingCategory: LeftArm
   speciesRestriction: [Human, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Felinid, Arachne, Shadowkin, Vulpkanin]
   followSkinColor: false
@@ -152,10 +193,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/scars.rsi
     state: arm_l_prosthetic
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftArm
+    bodyPart: LeftArm
+    # WD EDIT END
 
 - type: marking
   id: ArmProstheticRight
-  bodyPart: RArm
   markingCategory: RightArm
   speciesRestriction: [Human, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Felinid, Arachne, Shadowkin, Vulpkanin]
   followSkinColor: false
@@ -167,10 +211,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/scars.rsi
     state: arm_r_prosthetic
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightArm
+    bodyPart: RightArm
+    # WD EDIT END
 
 - type: marking
   id: FootProstheticLeft
-  bodyPart: LFoot
   markingCategory: LeftFoot
   speciesRestriction: [Human, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Felinid, Shadowkin, Moth, Vulpkanin]
   followSkinColor: false
@@ -182,10 +229,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/scars.rsi
     state: foot_l_prosthetic
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftFoot
+    bodyPart: LeftFoot
+    # WD EDIT END
 
 - type: marking
   id: FootProstheticRight
-  bodyPart: RFoot
   markingCategory: RightFoot
   speciesRestriction: [Human, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Felinid, Shadowkin, Moth, Vulpkanin]
   followSkinColor: false
@@ -197,10 +247,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/scars.rsi
     state: foot_r_prosthetic
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightFoot
+    bodyPart: RightFoot
+    # WD EDIT END
 
 - type: marking
   id: HandProstheticLeft
-  bodyPart: LHand
   markingCategory: LeftHand
   speciesRestriction: [Human, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Felinid, Arachne, Shadowkin, Vulpkanin]
   followSkinColor: false
@@ -212,10 +265,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/scars.rsi
     state: hand_l_prosthetic
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftHand
+    bodyPart: LeftHand
+    # WD EDIT END
 
 - type: marking
   id: HandProstheticRight
-  bodyPart: RHand
   markingCategory: RightHand
   speciesRestriction: [Human, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Felinid, Arachne, Shadowkin, Vulpkanin]
   followSkinColor: false
@@ -227,10 +283,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/scars.rsi
     state: hand_r_prosthetic
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightHand
+    bodyPart: RightHand
+    # WD EDIT END
 
 - type: marking
   id: LegProstheticLeft
-  bodyPart: LLeg
   markingCategory: LeftLeg
   speciesRestriction: [Human, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Felinid, Shadowkin, Moth, Vulpkanin]
   followSkinColor: false
@@ -242,10 +301,13 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/scars.rsi
     state: leg_l_prosthetic
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.LeftLeg
+    bodyPart: LeftLeg
+    # WD EDIT END
 
 - type: marking
   id: LegProstheticRight
-  bodyPart: RLeg
   markingCategory: RightLeg
   speciesRestriction: [Human, Oni, Reptilian, SlimePerson, Arachnid, Tajaran, Felinid, Shadowkin, Moth, Vulpkanin]
   followSkinColor: false
@@ -257,3 +319,7 @@
   sprites:
   - sprite: _Impstation/Mobs/Customization/scars.rsi
     state: leg_r_prosthetic
+    # WD EDIT START
+    layer: enum.BodyAppearanceLayer.RightLeg
+    bodyPart: RightLeg
+    # WD EDIT END

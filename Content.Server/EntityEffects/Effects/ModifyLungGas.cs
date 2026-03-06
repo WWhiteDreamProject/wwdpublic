@@ -1,4 +1,4 @@
-using Content.Server.Body.Components;
+using Content.Server._White.Body.Organs.Lung;
 using Content.Shared.Atmos;
 using Content.Shared.EntityEffects;
 using Robust.Shared.Prototypes;

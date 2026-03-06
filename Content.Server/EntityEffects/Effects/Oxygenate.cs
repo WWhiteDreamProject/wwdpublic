@@ -1,5 +1,5 @@
-using Content.Server.Body.Components;
-using Content.Server.Body.Systems;
+using Content.Server._White.Body.Respirator.Components;
+using Content.Server._White.Body.Respirator.Systems;
 using Content.Shared.EntityEffects;
 using Robust.Shared.Prototypes;
 
@@ -26,7 +26,7 @@ public sealed partial class Oxygenate : EntityEffect
         if (args.EntityManager.TryGetComponent<RespiratorComponent>(args.TargetEntity, out var resp))
         {
             var respSys = args.EntityManager.System<RespiratorSystem>();
-            respSys.UpdateSaturation(args.TargetEntity, multiplier * Factor, resp);
+            respSys.ChangeSaturationLevel((args.TargetEntity, resp), multiplier * Factor * 0.01f); // WD EDIT
         }
     }
 }

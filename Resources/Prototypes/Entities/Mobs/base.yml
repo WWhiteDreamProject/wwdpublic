@@ -136,6 +136,7 @@
     damage:
       groups:
         Brute: 5
+  - type: TargetDoll # WD EDIT
 
 # Used for mobs that are affected by atmospherics, pressure, and heat
 - type: entity
@@ -234,7 +235,7 @@
   components:
   - type: SolutionContainerManager
   - type: InjectableSolution
-    solution: chemicals
+    solution: bloodstream # WD EDIT: chemicals -> bloodstream
   - type: Bloodstream
     bloodlossDamage:
       types:
