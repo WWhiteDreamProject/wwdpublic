@@ -3,6 +3,7 @@ using Content.Server.Chat.Systems;
 using Content.Server.DeviceLinking.Components;
 using Content.Shared._White.Event.CapturePoint;
 using Content.Shared.Chat;
+using Content.Shared.Containers.ItemSlots;
 using Content.Shared.TextScreen;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
@@ -20,14 +21,23 @@ public sealed class CapturePointSystem : EntitySystem
 
     [Dependency] private readonly AppearanceSystem _appearance = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
+        SubscribeLocalEvent<CapturePointComponent, ComponentInit>(OnInit);
+        SubscribeLocalEvent<CapturePointComponent, ComponentRemove>(OnRemove);
         SubscribeLocalEvent<CapturePointComponent, EntInsertedIntoContainerMessage>(OnEntInserted);
         SubscribeLocalEvent<CapturePointComponent, EntRemovedFromContainerMessage>(OnEntRemoved);
     }
+
+    private void OnInit(Entity<CapturePointComponent> ent, ref ComponentInit args) =>
+        _itemSlots.AddItemSlot(ent, ent.Comp.CartridgeSlotId, ent.Comp.CartridgeSlot);
+
+    private void OnRemove(Entity<CapturePointComponent> ent, ref ComponentRemove args) =>
+        _itemSlots.RemoveItemSlot(ent, ent.Comp.CartridgeSlot);
 
     private void OnEntInserted(Entity<CapturePointComponent> ent, ref EntInsertedIntoContainerMessage args)
     {

@@ -1,0 +1,13 @@
+- type: entity
+  id: BeaconTeleporter
+  parent: BaseItem
+  name: beacon teleporter
+  description: "Nanotrasen's signature product—only the finest technology in blue space. Instructions: Connect the teleporter to the beacon. Use the teleporter, and a portal will open leading to the connected beacon."
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/hand_teleporter.rsi
+    layers:
+    - state: icon
+  - type: BeaconTeleporter
+  - type: UseDelay
+    delay: 180

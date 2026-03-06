@@ -19,12 +19,11 @@
     textLength: 5
     rows: 1
   - type: CapturePoint
+    cartridgeSlot:
+      whitelist:
+        components:
+        - CapturePointCartridge
   - type: ItemSlots
-    slots:
-      cartridge_slot:
-        whitelist:
-          components:
-          - CapturePointCartridge
   - type: ContainerContainer
     containers:
       cartridge_slot: !type:ContainerSlot

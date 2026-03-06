@@ -10,3 +10,10 @@
     damage:
       types:
         Caustic: 1
+
+- type: entity
+  id: BulletMediumRocket
+  parent: BulletRocket
+  components:
+  - type: Explosive
+    totalIntensity: 40
