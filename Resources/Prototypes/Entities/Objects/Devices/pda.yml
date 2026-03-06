@@ -113,6 +113,8 @@
     # - NanoChatCartridge # DeltaV
     - MapCartridge # NC
     - CitiNetCartridge # NC — CitiNet: звонки, группа, BBS
+    - CitiNetLiveCartridge # NC — CitiNet Live: стриминг
+
     cartridgeSlot:
       priority: -1
       name: device-pda-slot-component-slot-name-cartridge

@@ -114,4 +114,7 @@ public sealed partial class CitiNetCartridgeComponent : Component
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public string AgentNumber = string.Empty;
+
+
 }
+

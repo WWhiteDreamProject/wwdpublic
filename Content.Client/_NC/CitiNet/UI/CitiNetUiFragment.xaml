@@ -1,5 +1,6 @@
 <BoxContainer xmlns="https://spacestation14.io"
               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+              xmlns:viewport="clr-namespace:Content.Client.Viewport"
               x:Class="Content.Client._NC.CitiNet.UI.CitiNetUiFragment"
               Orientation="Vertical"
               HorizontalExpand="True"

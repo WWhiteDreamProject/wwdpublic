@@ -5,6 +5,7 @@ using Robust.Client.UserInterface;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 
+
 namespace Content.Client._NC.CitiNet.UI;
 
 /// <summary>
@@ -19,6 +20,7 @@ public sealed partial class CitiNetUi : UIFragment
     private int _lastGroupMessagesCount = 0;
     private int _lastBbsMessagesCount = 0;
     private CitiNetCallState _lastCallState = CitiNetCallState.None;
+
 
     public override Control GetUIFragmentRoot()
     {
@@ -38,7 +40,7 @@ public sealed partial class CitiNetUi : UIFragment
     {
         _fragment = new CitiNetUiFragment();
 
-        // Подписка на действия из UI-фрагмента
+        // Подписка на обычные действия CitiNet
         _fragment.OnSendMessage += (type, targetId, content) =>
         {
             var citiNetMessage = new CitiNetUiMessageEvent(type, targetId, content);
@@ -69,6 +71,7 @@ public sealed partial class CitiNetUi : UIFragment
         _lastGroupMessagesCount = cast.GroupMessages.Count;
         _lastBbsMessagesCount = cast.ChannelMessages.Count;
         _lastCallState = cast.CallState;
+
 
         _fragment?.UpdateState(cast);
     }

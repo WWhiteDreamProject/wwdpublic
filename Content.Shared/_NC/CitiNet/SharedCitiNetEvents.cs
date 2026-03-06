@@ -1,4 +1,5 @@
 using Content.Shared.CartridgeLoader;
+using Content.Shared._NC.CitiNet.Live;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._NC.CitiNet;
@@ -73,6 +74,27 @@ public sealed class CitiNetUiMessageEvent : CartridgeMessageEvent
     {
         Type = type;
         TargetId = targetId;
+        Content = content;
+    }
+}
+
+/// <summary>
+/// NC — Сообщение из вкладки LIVE.
+/// Передаётся через CartridgeLoader отдельным типом.
+/// </summary>
+[Serializable, NetSerializable]
+public sealed class CitiNetLiveMessageEvent : CartridgeMessageEvent
+{
+    public readonly CitiNetLiveMessageType Type;
+
+    /// <summary>
+    /// Содержимое: название стрима, NetEntity строка, "amount|msg" для доната, текст чата.
+    /// </summary>
+    public readonly string? Content;
+
+    public CitiNetLiveMessageEvent(CitiNetLiveMessageType type, string? content = null)
+    {
+        Type = type;
         Content = content;
     }
 }
@@ -204,6 +226,7 @@ public sealed class CitiNetUiState : BoundUserInterfaceState
     public readonly List<CitiNetChannelInfo> Channels;
     public readonly string? CurrentChannelId;
     public readonly List<CitiNetBBSMessage> ChannelMessages;
+
 
     public CitiNetUiState(
         string ownNumber,

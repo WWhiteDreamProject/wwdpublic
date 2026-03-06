@@ -6777,18 +6777,9 @@ ent-ActionPAIPlayMidi = Воспроизвести MIDI
 ent-ActionPAIOpenMap = Открыть карту
     .desc = Включить карту и помочь хозяину не заблудиться.
 
-    .desc = Призовой билет. Можно обменять на крутой приз!
-
 
 ent-PrizeTicket = призовой билет
-
-ent-PrizeTicket10 = призовой билет
-
-ent-PrizeTicket30 = призовой билет
-
-ent-PrizeTicket60 = призовой билет
-
-ent-PrizeTicket1 = призовой билет
+    .desc = Призовой билет. Можно обменять на крутой приз!
 
 
 ent-PrizeBall = призовой шар

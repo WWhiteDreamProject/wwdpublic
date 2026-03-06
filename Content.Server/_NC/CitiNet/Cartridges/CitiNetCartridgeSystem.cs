@@ -17,6 +17,11 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Content.Server.Chat.Managers;
+using Content.Server._NC.Bank;
+using Content.Server._NC.CitiNet.Live;
+using Content.Shared._NC.CitiNet.Live;
+using Content.Server.PowerCell;
+using Content.Shared.Inventory;
 
 namespace Content.Server._NC.CitiNet.Cartridges;
 
@@ -35,6 +40,9 @@ public sealed class CitiNetCartridgeSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
+    [Dependency] private readonly CitiNetStreamSystem _liveStream = default!;
+    [Dependency] private readonly BankSystem _bank = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!;
 
     public override void Initialize()
     {
@@ -79,10 +87,10 @@ public sealed class CitiNetCartridgeSystem : EntitySystem
 
     private void OnMessage(Entity<CitiNetCartridgeComponent> ent, ref CartridgeMessageEvent args)
     {
+        var loader = GetEntity(args.LoaderUid);
+
         if (args is not CitiNetUiMessageEvent msg)
             return;
-
-        var loader = GetEntity(args.LoaderUid);
 
         // Проверяем наличие CitiNet Relay для большинства операций
         switch (msg.Type)
@@ -875,8 +883,8 @@ public sealed class CitiNetCartridgeSystem : EntitySystem
             var isAlive = true;
 
             // Проверяем MobState владельца PDA
-            var ownerUid = GetPdaHolderUid((memberUid, memberComp));
-            if (ownerUid != null && TryComp<MobStateComponent>(ownerUid, out var mobState))
+            var memberOwner = GetPdaHolderUid((memberUid, memberComp));
+            if (memberOwner != null && TryComp<MobStateComponent>(memberOwner, out var mobState))
                 isAlive = mobState.CurrentState == MobState.Alive;
 
             groupParticipants.Add(new CitiNetGroupParticipant(name, isAlive));
@@ -937,6 +945,7 @@ public sealed class CitiNetCartridgeSystem : EntitySystem
             channelMessages = msgs;
         }
 
+
         var state = new CitiNetUiState(
             ent.Comp.AgentNumber,
             hasRelay,
@@ -955,4 +964,5 @@ public sealed class CitiNetCartridgeSystem : EntitySystem
 
         _cartridge.UpdateCartridgeUiState(loader, state);
     }
+
 }

@@ -35,3 +35,26 @@
     state: cart-sys
   - type: Item
     sprite: Objects/Devices/cartridge.rsi
+
+# NC — Картридж CitiNet Live
+# Отдельное приложение для стриминга через CitiNet.
+- type: entity
+  id: CitiNetLiveCartridge
+  parent: BaseItem
+  name: citinet-live-cartridge-name
+  description: citinet-live-cartridge-description
+  components:
+  - type: Cartridge
+    programName: citinet-live-cartridge-name
+    icon:
+      sprite: DeltaV/Misc/program_icons.rsi
+      state: nanochat
+  - type: UIFragment
+    ui: !type:CitiNetLiveUi
+  - type: CitiNetLiveCartridge
+  - type: Sprite
+    sprite: Objects/Devices/cartridge.rsi
+    state: cart-log
+  - type: Item
+    sprite: Objects/Devices/cartridge.rsi
+

@@ -11,5 +11,9 @@
   name: NetVisor
 
 - type: Tag
+  id: StreamCamNC
+  name: Stream Cam NC
+
+- type: Tag
   id: Tablet
   name: Tablet

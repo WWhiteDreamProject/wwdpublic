@@ -1,0 +1,49 @@
+- type: entity
+  parent: BaseItem
+  id: StreamCamNC
+  name: stream-cam-nc-name
+  description: stream-cam-nc-desc
+  components:
+
+  # NC — Логика стрима (серверный компонент)
+  - type: StreamCam
+    energyDrainRate: 5
+
+  # Слот питания — стандартная малая батарея
+  - type: PowerCellSlot
+    cellSlotId: cell_slot
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellSmall
+        insertOnInteract: false
+        whitelist:
+          components:
+          - PowerCell
+
+  # SurveillanceCamera для ViewSubscriberSystem (viewport зрителей)
+  - type: SurveillanceCamera
+  - type: Eye
+
+  # Одежда — крепится как "внутренний" аксессуар
+  - type: Clothing
+    slots:
+    - innerClothing
+    quickEquip: false
+
+  # Физика предмета
+  - type: Item
+    size: Small
+    sprite: Objects/Devices/camera_bug.rsi
+
+  # Визуал — заглушка
+  - type: Sprite
+    sprite: Objects/Devices/camera_bug.rsi
+    state: camera_bug
+
+  - type: Appearance
+
+  - type: Tag
+    tags:
+    - StreamCamNC

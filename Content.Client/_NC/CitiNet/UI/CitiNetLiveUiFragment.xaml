@@ -1,0 +1,96 @@
+<!-- NC — XAML для CartridgeUI CitiNet Live (отдельное PDA-приложение) -->
+<BoxContainer xmlns="https://spacestation14.io"
+              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+              xmlns:viewport="clr-namespace:Content.Client.Viewport"
+              x:Class="Content.Client._NC.CitiNet.UI.CitiNetLiveUiFragment"
+              Orientation="Vertical"
+              HorizontalExpand="True"
+              VerticalExpand="True"
+              Margin="4">
+
+    <!-- ===== ЭКРАН 1: СПИСОК СТРИМОВ (StreamListPanel) ===== -->
+    <BoxContainer Name="StreamListPanel" Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True">
+        <!-- Заголовок -->
+        <RichTextLabel Name="HeaderLabel" Margin="0 2 0 4" />
+        <!-- Счётчик активных стримов -->
+        <RichTextLabel Name="StreamCountLabel" Margin="0 0 0 4" />
+
+        <!-- Скролл-контейнер со списком стримов -->
+        <ScrollContainer VerticalExpand="True" HorizontalExpand="True" Margin="0 4 0 4">
+            <BoxContainer Name="StreamListContainer" Orientation="Vertical" HorizontalExpand="True" />
+        </ScrollContainer>
+
+        <!-- Поле ввода названия и кнопка START STREAM -->
+        <BoxContainer Name="StartStreamPanel" Orientation="Horizontal" HorizontalExpand="True" Margin="0 4 0 0">
+            <LineEdit Name="StreamTitleInput" HorizontalExpand="True" PlaceHolder="Enter stream title..." />
+            <Button Name="StartStreamBtn" Text="[GO LIVE]" MinWidth="110" Margin="4 0 0 0" />
+        </BoxContainer>
+    </BoxContainer>
+
+    <!-- ===== ЭКРАН 2: СТРИМЕР (StreamerPanel) ===== -->
+    <BoxContainer Name="StreamerPanel" Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True" Visible="False">
+        <!-- Шапка: ● LIVE | viewers | battery | STOP -->
+        <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="0 0 0 4">
+            <RichTextLabel Name="StreamerLiveLabel" />
+            <RichTextLabel Name="StreamerViewerLabel" Margin="8 0 0 0" />
+            <RichTextLabel Name="StreamerBatteryLabel" Margin="8 0 0 0" />
+            <Control HorizontalExpand="True" />
+            <Button Name="StopStreamBtn" Text="[STOP STREAM]" MinWidth="100" />
+        </BoxContainer>
+
+        <!-- Чат стримера -->
+        <ScrollContainer VerticalExpand="True" HorizontalExpand="True" Margin="0 4 0 4">
+            <BoxContainer Name="StreamerChatContainer" Orientation="Vertical" HorizontalExpand="True" />
+        </ScrollContainer>
+
+        <!-- Поле ввода чата стримера -->
+        <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="0 4 0 0">
+            <LineEdit Name="StreamerChatInput"
+                      HorizontalExpand="True"
+                      PlaceHolder="Enter Message..." />
+            <Button Name="StreamerChatSendBtn" Text="SEND" MinWidth="60" Margin="4 0 0 0" />
+        </BoxContainer>
+    </BoxContainer>
+
+    <!-- ===== ЭКРАН 3: ЗРИТЕЛЬ (ViewerPanel) ===== -->
+    <BoxContainer Name="ViewerPanel" Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True" Visible="False">
+        <Control Name="CameraViewBox" HorizontalExpand="True" MinHeight="350" Margin="0 0 0 4">
+            <viewport:ScalingViewport Name="CameraView"
+                                      HorizontalExpand="True"
+                                      VerticalExpand="True" />
+            <TextureRect Name="CameraViewBackground"
+                         HorizontalExpand="True"
+                         VerticalExpand="True" />
+        </Control>
+
+        <!-- ● LIVE индикатор + имя стримера + назад -->
+        <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="0 2 0 2">
+            <RichTextLabel Name="ViewerLiveLabel" />
+            <RichTextLabel Name="ViewerStreamerLabel" Margin="8 0 0 0" />
+            <Control HorizontalExpand="True" />
+            <Button Name="BackToListBtn" Text="[BACK]" MinWidth="60" />
+        </BoxContainer>
+
+        <!-- Чат зрителя -->
+        <ScrollContainer VerticalExpand="True" HorizontalExpand="True" Margin="0 4 0 4">
+            <BoxContainer Name="ViewerChatContainer" Orientation="Vertical" HorizontalExpand="True" />
+        </ScrollContainer>
+
+        <!-- Поле ввода + DONATE -->
+        <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="0 4 0 0">
+            <LineEdit Name="ViewerChatInput"
+                      HorizontalExpand="True"
+                      PlaceHolder="Enter Message..." />
+            <Button Name="ViewerSendBtn" Text="SEND" MinWidth="50" Margin="4 0 0 0" />
+            <Button Name="ViewerDonateBtn" Text="DONATE" MinWidth="70" Margin="4 0 0 0" />
+        </BoxContainer>
+
+        <!-- Панель доната (скрыта по умолчанию) -->
+        <BoxContainer Name="DonatePanel" Orientation="Horizontal" HorizontalExpand="True" Visible="False" Margin="0 4 0 0">
+            <LineEdit Name="DonateAmountInput" PlaceHolder="$" MinWidth="60" />
+            <LineEdit Name="DonateMessageInput" HorizontalExpand="True" PlaceHolder="Message..." Margin="4 0 0 0" />
+            <Button Name="DonateSubmitBtn" Text="SEND $" MinWidth="60" Margin="4 0 0 0" />
+        </BoxContainer>
+    </BoxContainer>
+
+</BoxContainer>
