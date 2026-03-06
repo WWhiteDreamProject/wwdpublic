@@ -13,7 +13,8 @@ namespace Content.Shared._White.Preferences;
 
 [TypeSerializer]
 public sealed class LoadoutPreferencesSerializer : ITypeReader<Dictionary<string, Loadout>, MappingDataNode>,
-                                                   ITypeReader<Dictionary<string, Loadout>, SequenceDataNode>
+                                                   ITypeReader<Dictionary<string, Loadout>, SequenceDataNode>,
+                                                   ITypeWriter<Dictionary<string, Loadout>> // WWDP EDIT
 {
     public ValidationNode Validate(ISerializationManager serializationManager,
         MappingDataNode node,
@@ -112,4 +113,22 @@ public sealed class LoadoutPreferencesSerializer : ITypeReader<Dictionary<string
 
         return result;
     }
+    // WWDP EDIT START
+    public DataNode Write(ISerializationManager serializationManager,
+        Dictionary<string, Loadout> value,
+        IDependencyCollection dependencies,
+        bool alwaysWrite = false,
+        ISerializationContext? context = null)
+    {
+        var mapping = new MappingDataNode();
+
+        foreach (var (key, loadout) in value)
+        {
+            var loadoutNode = serializationManager.WriteValue(loadout, alwaysWrite, context, notNullableOverride: true);
+            mapping[key] = loadoutNode;
+        }
+
+        return mapping;
+    }
+    // WWDP EDIT END
 }

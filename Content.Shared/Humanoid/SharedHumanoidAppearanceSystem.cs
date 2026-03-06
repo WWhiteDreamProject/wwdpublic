@@ -17,6 +17,9 @@ using Robust.Shared.GameObjects.Components.Localization;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.Markdown.Mapping; // WWDP EDIT
+using Robust.Shared.Serialization.Markdown.Sequence; // WWDP EDIT
+using Robust.Shared.Serialization.Markdown.Value; // WWDP EDIT
 using Content.Shared.Shadowkin;
 using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Serialization.Markdown;
@@ -24,7 +27,7 @@ using Robust.Shared.Utility;
 using YamlDotNet.RepresentationModel;
 using Content.Shared._EE.GenderChange;
 using Content.Shared._White.Bark.Systems;
- 
+
  namespace Content.Shared.Humanoid;
 
 /// <summary>
@@ -101,7 +104,9 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         yamlStream.Load(reader);
 
         var root = yamlStream.Documents[0].RootNode;
-        var export = _serManager.Read<HumanoidProfileExport>(root.ToDataNode(), notNullableOverride: true);
+        var dataNode = root.ToDataNode(); // WWDP EDIT
+        MigrateLoadoutPreferences(dataNode); // WWDP EDIT
+        var export = _serManager.Read<HumanoidProfileExport>(dataNode, notNullableOverride: true); // WWDP EDIT
 
         // Add custom handling here for forks / version numbers if you care
 
@@ -110,6 +115,53 @@ public abstract class SharedHumanoidAppearanceSystem : EntitySystem
         profile.EnsureValid(session, collection!);
         return profile;
     }
+    // WWDP EDIT START
+    private static void MigrateLoadoutPreferences(DataNode dataNode)
+    {
+        if (dataNode is not MappingDataNode rootMapping)
+            return;
+
+        if (!rootMapping.TryGet<MappingDataNode>("profile", out var profile))
+            return;
+
+        if (!profile.TryGet("_loadoutPreferences", out var loadoutsNode))
+            return;
+
+        if (loadoutsNode is MappingDataNode)
+            return;
+
+        if (loadoutsNode is not SequenceDataNode sequence)
+            return;
+
+        var newMapping = new MappingDataNode();
+        foreach (var item in sequence)
+        {
+            if (item is not MappingDataNode itemMapping)
+                continue;
+
+            if (itemMapping.TryGet<ValueDataNode>("selected", out var selectedNode))
+            {
+                if (selectedNode.Value.Equals("false", StringComparison.OrdinalIgnoreCase))
+                    continue;
+            }
+
+            if (!itemMapping.TryGet<ValueDataNode>("loadoutName", out var nameNode))
+                continue;
+
+            var name = nameNode.Value;
+            if (string.IsNullOrEmpty(name))
+                continue;
+
+            var cleanItem = itemMapping.Copy() as MappingDataNode ?? new MappingDataNode();
+            cleanItem.Remove("selected");
+
+            newMapping[name] = cleanItem;
+        }
+
+        profile.Remove("_loadoutPreferences");
+        profile["_loadoutPreferences"] = newMapping;
+    }
+    // WWDP EDIT END
 
     private void OnInit(EntityUid uid, HumanoidAppearanceComponent humanoid, ComponentInit args)
     {

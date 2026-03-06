@@ -57,6 +57,7 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
     public Dictionary<string, Loadout> LoadoutPreferences => _loadoutPreferences; // WWDP EDIT
     public IEnumerable<Loadout> LoadoutPreferencesList => _loadoutPreferences.Values; // WWDP EDIT
 
+    [DataField]
     private Dictionary<string, Loadout> _loadoutPreferences = new(); // WWDP EDIT
 
     [DataField]
@@ -369,6 +370,8 @@ public sealed partial class HumanoidCharacterProfile : ICharacterProfile
             Voice = voiceId, // WD EDIT
             BodyType = bodyType, // WD EDIT
             Species = species,
+            Height = speciesPrototype?.DefaultHeight ?? 1f, // WWDP EDIT
+            Width = speciesPrototype?.DefaultWidth ?? 1f, // WWDP EDIT
             Appearance = HumanoidCharacterAppearance.Random(species, sex),
             Nationality = SharedHumanoidAppearanceSystem.DefaultNationality,
             Employer = SharedHumanoidAppearanceSystem.DefaultEmployer,
