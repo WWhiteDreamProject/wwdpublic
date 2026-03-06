@@ -17,3 +17,7 @@
 - type: Tag
   id: Tablet
   name: Tablet
+
+- type: Tag
+  id: MagazinePistolHelloCutie
+  name: MagazinePistolHelloCutie

@@ -1,0 +1,79 @@
+- type: entity
+  name: viper
+  parent: [BaseWeaponPistol, NCBrandSanroo]
+  id: WeaponPistolHelloCutie
+  description: A small, easily concealable, but somewhat underpowered gun, produced by a bulk arms manufacturer now defunct for over a century. Uses .35 auto ammo.
+  components:
+  - type: Sprite
+    sprite: _NC/Objects/Weapons/Guns/Pistol/hello_cutie.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _NC/Objects/Weapons/Guns/Pistol/hello_cutie.rsi
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazinePistolHelloCutie
+        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazinePistolHelloCutie
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgePistol
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgePistol
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: Gun
+    fireRate: 6
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/pistol.ogg
+    fireOnDropChance: 0.3
+
+- type: entity
+  id: MagazinePistolHelloCutie
+  name: magazine hello cutie (.35 auto)
+  parent: [ BaseItem, BaseRestrictedContraband ]
+  components:
+  - type: Tag
+    tags:
+    - MagazinePistolHelloCutie
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    proto: CartridgePistol
+    whitelist:
+      tags:
+      - CartridgePistol
+    capacity: 12
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _NC/Objects/Weapons/Guns/Pistol/hello_cutie.rsi
+    layers:
+    - state: hello-cutie
+      map: ["enum.GunVisualLayers.Base"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: false
+  - type: Appearance
+

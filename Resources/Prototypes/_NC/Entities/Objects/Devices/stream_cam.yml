@@ -5,9 +5,9 @@
   description: stream-cam-nc-desc
   components:
 
-  # NC — Логика стрима (серверный компонент)
+  # NC — Логика стрима
   - type: StreamCam
-    energyDrainRate: 5
+    energyDrainRate: 1
 
   # Слот питания — стандартная малая батарея
   - type: PowerCellSlot
