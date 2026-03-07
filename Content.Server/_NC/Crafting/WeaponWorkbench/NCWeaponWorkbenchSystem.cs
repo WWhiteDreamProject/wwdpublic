@@ -61,16 +61,12 @@ public sealed partial class NCWeaponWorkbenchSystem : EntitySystem
     }
 
     /// <summary>
-    /// Обработка команд оператора. Блокируется при кулдауне и при системной блокировке.
+    /// Обработка команд оператора. Блокируется при системной блокировке.
     /// </summary>
     private void OnOperatorCommand(EntityUid uid, NCWeaponWorkbenchComponent component, NCWorkbenchOperatorCommandMessage args)
     {
         // Во время системной блокировки кнопки оператора не работают
         if (component.IsSystemLocked)
-            return;
-
-        // Кулдаун кнопок — нельзя спамить (кроме Start)
-        if (args.CommandType != OperatorCommandType.StartScraping && component.ButtonCooldownTimer > 0f)
             return;
 
         switch (args.CommandType)
@@ -79,22 +75,18 @@ public sealed partial class NCWeaponWorkbenchSystem : EntitySystem
                 TryStartCycle(uid, component);
                 break;
             case OperatorCommandType.ApplyCoolant:
-                // Сдвигает Heat к центру (0.5)
-                component.Heat = Math.Max(0.5f, component.Heat - 0.2f);
-                component.ButtonCooldownTimer = ButtonCooldown;
+                // Сдвигает Heat к нулю
+                component.Heat = Math.Max(0.0f, component.Heat - 0.2f);
                 break;
             case OperatorCommandType.SpotWeld:
-                // Сдвигает Integrity к центру (0.5)
-                component.Integrity = Math.Min(0.5f, component.Integrity + 0.2f);
-                component.ButtonCooldownTimer = ButtonCooldown;
+                // Сдвигает Integrity к максимуму
+                component.Integrity = Math.Min(1.0f, component.Integrity + 0.2f);
                 break;
             case OperatorCommandType.AlignLeft:
-                component.Alignment = Math.Max(0f, component.Alignment - 0.15f);
-                component.ButtonCooldownTimer = ButtonCooldown;
+                component.Alignment = Math.Max(0.0f, component.Alignment - 0.15f);
                 break;
             case OperatorCommandType.AlignRight:
-                component.Alignment = Math.Min(1f, component.Alignment + 0.15f);
-                component.ButtonCooldownTimer = ButtonCooldown;
+                component.Alignment = Math.Min(1.0f, component.Alignment + 0.15f);
                 break;
         }
 
@@ -132,6 +124,17 @@ public sealed partial class NCWeaponWorkbenchSystem : EntitySystem
         var materialContainer = (ContainerSlot) _container.GetContainer(uid, NCWeaponWorkbenchComponent.MaterialSlotId);
         if (materialContainer.ContainedEntity == null)
             return;
+
+        // Копируем настройки из болванки, если компонент присутствует
+        if (TryComp<NCWeaponBlankComponent>(materialContainer.ContainedEntity.Value, out var blank))
+        {
+            component.CurrentSafeZoneHalf = blank.SafeZoneHalf;
+            component.ToleranceTime = blank.ToleranceTime;
+            component.ProgressSpeed = blank.ProgressSpeed;
+            component.Anomalies = new Dictionary<float, NCWorkbenchAnomalyType>(blank.Anomalies);
+            component.ResultEntityId = blank.ResultEntityId;
+            component.EnableSystemLock = blank.EnableSystemLock;
+        }
 
         // Сброс всех параметров мини-игры
         component.State = NCWeaponWorkbenchState.Processing;
@@ -208,12 +211,14 @@ public sealed partial class NCWeaponWorkbenchSystem : EntitySystem
                 }
             }
 
-            // === Проверка критического состояния ===
-            bool isCritical = Math.Abs(comp.Heat - 0.5f) > comp.CurrentSafeZoneHalf ||
-                              Math.Abs(comp.Integrity - 0.5f) > comp.CurrentSafeZoneHalf ||
-                              Math.Abs(comp.Alignment - 0.5f) > comp.CurrentSafeZoneHalf;
+            // === Проверка критического состояния (Красная зона) ===
+            // Таймер смерти включается только если датчик почти в самом конце шкал (отклонение > 0.45)
+            // Это дает игроку шанс спасти деталь одним кликом.
+            bool isDeadly = Math.Abs(comp.Heat - 0.5f) > 0.45f ||
+                             Math.Abs(comp.Integrity - 0.5f) > 0.45f ||
+                             Math.Abs(comp.Alignment - 0.5f) > 0.45f;
 
-            if (isCritical)
+            if (isDeadly)
             {
                 comp.CriticalTimer += frameTime;
                 if (comp.CriticalTimer > comp.ToleranceTime)
@@ -224,6 +229,7 @@ public sealed partial class NCWeaponWorkbenchSystem : EntitySystem
             }
             else
             {
+                // Если мы вышли из красной зоны (даже если мы всё еще в желтой), таймер сбрасывается.
                 comp.CriticalTimer = 0f;
             }
 
@@ -250,24 +256,24 @@ public sealed partial class NCWeaponWorkbenchSystem : EntitySystem
         {
             case NCWorkbenchAnomalyType.HeatSpike:
                 component.Heat = 1.0f;
-                component.WarningMessage = "⚠ WARNING: THERMAL RUNAWAY!";
+                component.WarningMessage = "⚠ ВНИМАНИЕ: СКАЧОК ТЕМПЕРАТУРЫ!";
                 break;
             case NCWorkbenchAnomalyType.IntegrityDrop:
                 component.Integrity = 0.0f;
-                component.WarningMessage = "⚠ WARNING: STRUCTURAL STRESS!";
+                component.WarningMessage = "⚠ ВНИМАНИЕ: СТРУКТУРНЫЙ СТРЕСС!";
                 break;
             case NCWorkbenchAnomalyType.AlignmentLeft:
                 component.Alignment = 0.0f;
-                component.WarningMessage = "⚠ WARNING: OPTICS MISALIGNED!";
+                component.WarningMessage = "⚠ ВНИМАНИЕ: СБОЙ ОПТИКИ!";
                 break;
             case NCWorkbenchAnomalyType.AlignmentRight:
                 component.Alignment = 1.0f;
-                component.WarningMessage = "⚠ WARNING: OPTICS MISALIGNED!";
+                component.WarningMessage = "⚠ ВНИМАНИЕ: СБОЙ ОПТИКИ!";
                 break;
             case NCWorkbenchAnomalyType.DoubleTrouble:
                 component.Heat = 1.0f;
                 component.Integrity = 0.0f;
-                component.WarningMessage = "☠ CRITICAL: MULTIPLE SYSTEM FAILURES!";
+                component.WarningMessage = "☠ КРИТИЧЕСКИ: МНОЖЕСТВЕННЫЕ СБОИ!";
                 break;
         }
     }
@@ -312,6 +318,11 @@ public sealed partial class NCWeaponWorkbenchSystem : EntitySystem
             return;
 
         var materialContainer = (ContainerSlot) _container.GetContainer(uid, NCWeaponWorkbenchComponent.MaterialSlotId);
+        string? sourceProto = null;
+        if (materialContainer.ContainedEntity is { } materialent)
+        {
+            sourceProto = MetaData(materialent).EntityPrototype?.ID;
+        }
 
         var state = new NCWeaponWorkbenchUpdateState(
             component.State,
@@ -322,6 +333,8 @@ public sealed partial class NCWeaponWorkbenchSystem : EntitySystem
             component.CurrentSafeZoneHalf,
             component.WarningMessage,
             materialContainer.ContainedEntity != null,
+            sourceProto,
+            component.ResultEntityId,
             component.FlashTimer > 0f,
             component.ButtonCooldownTimer,
             component.IsSystemLocked,

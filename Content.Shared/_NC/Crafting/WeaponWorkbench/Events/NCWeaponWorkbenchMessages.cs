@@ -18,6 +18,8 @@ public sealed class NCWeaponWorkbenchUpdateState : BoundUserInterfaceState
     public float SafeZoneHalfWidth { get; }
     public string WarningMessage { get; }
     public bool HasMaterial { get; }
+    public string? SourcePrototypeId { get; }      // Прототип вставленной болванки
+    public string? ResultPrototypeId { get; }      // Прототип результата обработки
     public bool IsFlashing { get; }              // Красное мигание при аномалии
     public float ButtonCooldownRemaining { get; } // Оставшийся кулдаун кнопок (0..0.5)
     public bool IsSystemLocked { get; }           // Системная блокировка (Тир 3)
@@ -32,6 +34,8 @@ public sealed class NCWeaponWorkbenchUpdateState : BoundUserInterfaceState
         float safeZoneHalfWidth,
         string warningMessage,
         bool hasMaterial,
+        string? sourcePrototypeId,
+        string? resultPrototypeId,
         bool isFlashing,
         float buttonCooldownRemaining,
         bool isSystemLocked,
@@ -45,6 +49,8 @@ public sealed class NCWeaponWorkbenchUpdateState : BoundUserInterfaceState
         SafeZoneHalfWidth = safeZoneHalfWidth;
         WarningMessage = warningMessage;
         HasMaterial = hasMaterial;
+        SourcePrototypeId = sourcePrototypeId;
+        ResultPrototypeId = resultPrototypeId;
         IsFlashing = isFlashing;
         ButtonCooldownRemaining = buttonCooldownRemaining;
         IsSystemLocked = isSystemLocked;

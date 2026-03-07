@@ -12,16 +12,25 @@ namespace Content.Client._NC.Crafting.WeaponWorkbench.UI;
 
 public sealed class NCWeaponWorkbenchWindow : DefaultWindow
 {
-    private readonly BoxContainer _mainContainer;
-
-    // --- Элементы UI ---
-    private readonly Label _statusLabel;
-    private readonly Label _predictiveLogLabel;
-    private readonly ProgressBar _progressBar;
-
     private readonly WorkbenchSensorControl _heatSensor;
     private readonly WorkbenchSensorControl _integritySensor;
     private readonly WorkbenchSensorControl _alignmentSensor;
+
+    // Ссылки на UI элементы, которые раньше были в XAML
+    private readonly Label _predictiveLogLabel;
+    private readonly Label _materialLabel;
+    private readonly TextureRect _materialSprite;
+    private readonly EntityPrototypeView _materialSpriteView;
+    private readonly Label _resultLabel;
+    private readonly TextureRect _resultSprite;
+    private readonly EntityPrototypeView _resultSpriteView;
+
+    private readonly Label _heatStatusLabel;
+    private readonly Label _heatPercentLabel;
+    private readonly Label _alignmentStatusLabel;
+    private readonly Label _alignmentPercentLabel;
+    private readonly Label _integrityStatusLabel;
+    private readonly Label _integrityPercentLabel;
 
     private readonly Button _btnStart;
     private readonly Button _btnCoolant;
@@ -29,287 +38,312 @@ public sealed class NCWeaponWorkbenchWindow : DefaultWindow
     private readonly Button _btnAlignLeft;
     private readonly Button _btnAlignRight;
 
-    private readonly Label _materialLabel;
-
-    // Красное мигание
+    private readonly Label _globalProgressLabel;
     private readonly PanelContainer _flashOverlay;
-
-    // Системная блокировка (Тир 3)
     private readonly PanelContainer _lockPanel;
-    private readonly Label _lockLabel;
-    private readonly Label _lockCodeDisplay;
     private readonly LineEdit _lockInput;
     private readonly Button _lockSubmit;
-
-    // Визуальный кулдаун
-    private readonly Label _cooldownLabel;
 
     public event Action<OperatorCommandType>? OnOperatorCommand;
     public event Action<string>? OnLockCodeSubmit;
 
     public NCWeaponWorkbenchWindow()
     {
-        Title = Loc.GetString("nc-workbench-title") ?? "CNC Weapon Workbench";
-        MinSize = SetSize = new Vector2(620, 500);
+        Title = Loc.GetString("nc-workbench-title");
+        MinSize = new Vector2(480, 580);
+        SetSize = new Vector2(480, 580);
 
-        _mainContainer = new BoxContainer
+        var rootPanel = new PanelContainer();
+        // Background CRT Screen
+        rootPanel.AddChild(new PanelContainer { PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex("#1a2b20") } });
+
+        var mainLayout = new BoxContainer
         {
             Orientation = BoxContainer.LayoutOrientation.Vertical,
-            HorizontalExpand = true,
-            VerticalExpand = true,
             Margin = new Thickness(10)
         };
+        rootPanel.AddChild(mainLayout);
 
-        // --- ЗОНА А: СЛОТЫ ВВОДА ---
-        var inputZone = new BoxContainer
+        // TOP: Predictive Log Panel
+        var logPanel = new PanelContainer
         {
-            Orientation = BoxContainer.LayoutOrientation.Horizontal,
-            HorizontalExpand = true,
-            Margin = new Thickness(0, 0, 0, 10)
+            Margin = new Thickness(0, 0, 0, 10),
+            MinSize = new Vector2(0, 80),
+            PanelOverride = new StyleBoxFlat() { BackgroundColor = Color.FromHex("#221100"), BorderThickness = new Thickness(2), BorderColor = Color.FromHex("#ff6f00") }
         };
+        mainLayout.AddChild(logPanel);
 
-        var inputPanel = new PanelContainer
+        var logBox = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Vertical, Margin = new Thickness(8) };
+        logPanel.AddChild(logBox);
+        logBox.AddChild(new Label { Text = "ПРЕДИКАТИВНЫЙ ЛОГ:", FontColorOverride = Color.FromHex("#b87a32") });
+        _predictiveLogLabel = new Label { Text = "> ОЖИДАНИЕ СИСТЕМЫ", FontColorOverride = Color.FromHex("#ff9a00") };
+        logBox.AddChild(_predictiveLogLabel);
+
+        // MIDDLE: Left Material Panel + Right Sensors
+        var middleBox = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Horizontal, VerticalExpand = true };
+        mainLayout.AddChild(middleBox);
+
+        // LEFT: Material Info
+        var leftPanel = new PanelContainer
         {
-            PanelOverride = new StyleBoxFlat { BackgroundColor = new Color(40, 40, 45) },
-            HorizontalExpand = true,
-            HorizontalAlignment = HAlignment.Stretch,
-            VerticalAlignment = VAlignment.Stretch,
-            Margin = new Thickness(5)
+            MinSize = new Vector2(140, 0), Margin = new Thickness(0, 0, 10, 0),
+            PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex("#111c15"), BorderThickness = new Thickness(2), BorderColor = Color.FromHex("#4caf50") }
         };
-        var inputContent = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Vertical, Margin = new Thickness(5) };
-        inputContent.AddChild(new Label { Text = "INPUT SYSTEM", FontColorOverride = Color.LimeGreen });
-        _materialLabel = new Label { Text = "Base Material: NONE", FontColorOverride = Color.Red };
-        inputContent.AddChild(_materialLabel);
-        inputPanel.AddChild(inputContent);
-        inputZone.AddChild(inputPanel);
+        middleBox.AddChild(leftPanel);
 
-        _btnStart = new Button { Text = "START CYCLE", MinSize = new Vector2(100, 30), HorizontalAlignment = HAlignment.Right, VerticalAlignment = VAlignment.Center };
-        _btnStart.OnPressed += _ => OnOperatorCommand?.Invoke(OperatorCommandType.StartScraping);
-        inputZone.AddChild(new Control { MinSize = new Vector2(20, 0) });
-        inputZone.AddChild(_btnStart);
+        var leftContentBox = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Vertical, HorizontalAlignment = HAlignment.Center, VerticalAlignment = VAlignment.Center };
+        leftPanel.AddChild(leftContentBox);
 
-        _mainContainer.AddChild(inputZone);
+        _materialLabel = new Label { Text = "[МАТЕРИАЛ: НЕТ]", FontColorOverride = Color.FromHex("#4caf50"), HorizontalAlignment = HAlignment.Center };
+        leftContentBox.AddChild(_materialLabel);
+        _materialSprite = new TextureRect { MinSize = new Vector2(64, 64), HorizontalAlignment = HAlignment.Center, Margin = new Thickness(0, 10, 0, 0) };
+        leftContentBox.AddChild(_materialSprite);
+        leftContentBox.AddChild(new Control { MinSize = new Vector2(0, 20) });
+        leftContentBox.AddChild(new Label { Text = "[РЕЦЕПТ:]", FontColorOverride = Color.FromHex("#4caf50"), HorizontalAlignment = HAlignment.Center });
+        _resultLabel = new Label { Text = "[НЕТ]", FontColorOverride = Color.FromHex("#4caf50"), HorizontalAlignment = HAlignment.Center };
+        leftContentBox.AddChild(_resultLabel);
+        _resultSprite = new TextureRect { MinSize = new Vector2(64, 64), HorizontalAlignment = HAlignment.Center, Margin = new Thickness(0, 10, 0, 0) };
+        leftContentBox.AddChild(_resultSprite);
 
-        // --- ЗОНА Б: СТАТУС И ПРОГРЕСС ---
-        _statusLabel = new Label { Text = "STATUS: IDLE", HorizontalAlignment = HAlignment.Center, FontColorOverride = Color.Cyan };
-        _mainContainer.AddChild(_statusLabel);
-
-        _predictiveLogLabel = new Label { Text = "[SYSTEM LOG: STANDBY]", HorizontalAlignment = HAlignment.Center, FontColorOverride = Color.Orange };
-        _mainContainer.AddChild(_predictiveLogLabel);
-
-        _progressBar = new ProgressBar
-        {
-            MinSize = new Vector2(0, 25),
-            MinValue = 0f,
-            MaxValue = 1.0f,
-            HorizontalExpand = true,
-            Margin = new Thickness(0, 5, 0, 10)
-        };
-        _mainContainer.AddChild(_progressBar);
-
-        // --- ЗОНА В: ДАТЧИКИ ---
-        var sensorsZone = new BoxContainer
-        {
-            Orientation = BoxContainer.LayoutOrientation.Horizontal,
-            HorizontalExpand = true,
-            VerticalExpand = true,
-            Margin = new Thickness(0, 0, 0, 10)
-        };
-
-        _heatSensor = CreateSensorPanel("HEAT", sensorsZone, Color.OrangeRed);
-        _integritySensor = CreateSensorPanel("INTEGRITY", sensorsZone, Color.DodgerBlue);
-        _alignmentSensor = CreateSensorPanel("ALIGNMENT", sensorsZone, Color.Purple);
-
-        _mainContainer.AddChild(sensorsZone);
-
-        // --- ЗОНА Г: ПАНЕЛЬ КОМАНД ---
-        var commandsZone = new BoxContainer
-        {
-            Orientation = BoxContainer.LayoutOrientation.Horizontal,
-            HorizontalExpand = true,
-            HorizontalAlignment = HAlignment.Center
-        };
-
-        commandsZone.AddChild(_btnCoolant = CreateOperatorButton("COOLANT"));
-        _btnCoolant.OnPressed += _ => OnOperatorCommand?.Invoke(OperatorCommandType.ApplyCoolant);
-
-        commandsZone.AddChild(_btnSpotWeld = CreateOperatorButton("SPOT WELD"));
-        _btnSpotWeld.OnPressed += _ => OnOperatorCommand?.Invoke(OperatorCommandType.SpotWeld);
-
-        commandsZone.AddChild(_btnAlignLeft = CreateOperatorButton("ALIGN ←"));
-        _btnAlignLeft.OnPressed += _ => OnOperatorCommand?.Invoke(OperatorCommandType.AlignLeft);
-
-        commandsZone.AddChild(_btnAlignRight = CreateOperatorButton("ALIGN →"));
-        _btnAlignRight.OnPressed += _ => OnOperatorCommand?.Invoke(OperatorCommandType.AlignRight);
-
-        _mainContainer.AddChild(commandsZone);
-
-        // Индикатор кулдауна кнопок
-        _cooldownLabel = new Label
-        {
-            Text = "",
-            HorizontalAlignment = HAlignment.Center,
-            FontColorOverride = Color.Gray,
-            Margin = new Thickness(0, 2, 0, 0)
-        };
-        _mainContainer.AddChild(_cooldownLabel);
-
-        // --- Создаём корневой Layout с оверлеями ---
-        var rootLayout = new LayoutContainer
+        // RIGHT: Sensors
+        var rightPanel = new PanelContainer
         {
             HorizontalExpand = true,
-            VerticalExpand = true
+            PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex("#111c15"), BorderThickness = new Thickness(2), BorderColor = Color.FromHex("#2e5c3e") }
         };
+        middleBox.AddChild(rightPanel);
 
-        // Основной контент
-        LayoutContainer.SetAnchorPreset(_mainContainer, LayoutContainer.LayoutPreset.Wide);
-        rootLayout.AddChild(_mainContainer);
+        var rightLayout = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Vertical, HorizontalExpand = true, VerticalExpand = true, Margin = new Thickness(10) };
+        rightPanel.AddChild(rightLayout);
 
-        // Красное мигание (оверлей поверх всего)
+        // TOP ROW: Heat + Integrity
+        var topRow = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Horizontal, HorizontalExpand = true, VerticalExpand = true };
+        rightLayout.AddChild(topRow);
+
+        // Heat Sensor Container
+        var heatBox = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Vertical, HorizontalExpand = true, HorizontalAlignment = HAlignment.Center };
+        topRow.AddChild(heatBox);
+        heatBox.AddChild(new Label { Text = "ТЕМП.", FontColorOverride = Color.FromHex("#4caf50"), HorizontalAlignment = HAlignment.Center });
+        _heatStatusLabel = new Label { Text = "[ОК]", FontColorOverride = Color.FromHex("#4caf50"), HorizontalAlignment = HAlignment.Center };
+        heatBox.AddChild(_heatStatusLabel);
+
+        var heatSensorContainer = new Control { VerticalExpand = true, MinSize = new Vector2(30, 0), HorizontalAlignment = HAlignment.Center, Margin = new Thickness(0, 5, 0, 5) };
+        heatBox.AddChild(heatSensorContainer);
+        _heatPercentLabel = new Label { Text = "0%", FontColorOverride = Color.FromHex("#4caf50"), HorizontalAlignment = HAlignment.Center };
+        heatBox.AddChild(_heatPercentLabel);
+
+        // Integrity Sensor Container
+        var integrityBox = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Vertical, HorizontalExpand = true, HorizontalAlignment = HAlignment.Center };
+        topRow.AddChild(integrityBox);
+        integrityBox.AddChild(new Label { Text = "ЦЕЛОСТН.", FontColorOverride = Color.FromHex("#4caf50"), HorizontalAlignment = HAlignment.Center });
+        _integrityStatusLabel = new Label { Text = "[ОК]", FontColorOverride = Color.FromHex("#4caf50"), HorizontalAlignment = HAlignment.Center };
+        integrityBox.AddChild(_integrityStatusLabel);
+
+        var integritySensorContainer = new Control { VerticalExpand = true, MinSize = new Vector2(30, 0), HorizontalAlignment = HAlignment.Center, Margin = new Thickness(0, 5, 0, 5) };
+        integrityBox.AddChild(integritySensorContainer);
+        _integrityPercentLabel = new Label { Text = "100%", FontColorOverride = Color.FromHex("#4caf50"), HorizontalAlignment = HAlignment.Center };
+        integrityBox.AddChild(_integrityPercentLabel);
+
+        // BOTTOM ROW: Alignment Sensor
+        var alignBox = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Vertical, HorizontalExpand = true, Margin = new Thickness(0, 10, 0, 0) };
+        rightLayout.AddChild(alignBox);
+
+        var alignHeaderBox = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Horizontal, HorizontalAlignment = HAlignment.Center };
+        alignBox.AddChild(alignHeaderBox);
+        alignHeaderBox.AddChild(new Label { Text = "КАЛИБР.", FontColorOverride = Color.FromHex("#4caf50"), Margin = new Thickness(0, 0, 10, 0) });
+        _alignmentStatusLabel = new Label { Text = "[ОК]", FontColorOverride = Color.FromHex("#4caf50") };
+        alignHeaderBox.AddChild(_alignmentStatusLabel);
+
+        var alignSensorContainer = new Control { HorizontalExpand = true, MinSize = new Vector2(0, 30), Margin = new Thickness(0, 5, 0, 5) };
+        alignBox.AddChild(alignSensorContainer);
+        _alignmentPercentLabel = new Label { Text = "50%", FontColorOverride = Color.FromHex("#4caf50"), HorizontalAlignment = HAlignment.Center };
+        alignBox.AddChild(_alignmentPercentLabel);
+
+        // START BUTTON
+        _btnStart = new Button
+        {
+            MinSize = new Vector2(0, 40),
+            Margin = new Thickness(0, 0, 0, 10),
+        };
+        _btnStart.AddChild(new Label { Text = "[ЗАПУСК ОБРАБОТКИ]", FontColorOverride = Color.LimeGreen, HorizontalAlignment = HAlignment.Center, VerticalAlignment = VAlignment.Center });
+        mainLayout.AddChild(_btnStart);
+
+        // BOTTOM: Operator Controls
+        var opPanel = new PanelContainer
+        {
+            Margin = new Thickness(0, 0, 0, 0), MinSize = new Vector2(0, 80),
+            PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex("#111c15"), BorderThickness = new Thickness(2), BorderColor = Color.FromHex("#2e5c3e") }
+        };
+        mainLayout.AddChild(opPanel);
+
+        var opBox = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Vertical, Margin = new Thickness(5), HorizontalExpand = true, VerticalExpand = true, HorizontalAlignment = HAlignment.Center };
+        opPanel.AddChild(opBox);
+        opBox.AddChild(new Label { Text = "ОПЕРАТОР:", FontColorOverride = Color.FromHex("#4caf50"), HorizontalAlignment = HAlignment.Center });
+
+        var btnsBox = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Horizontal, HorizontalAlignment = HAlignment.Center, Margin = new Thickness(0, 5, 0, 0) };
+        opBox.AddChild(btnsBox);
+
+        var coolantBox = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Vertical, HorizontalAlignment = HAlignment.Center, Margin = new Thickness(5, 0, 5, 0) };
+        _btnCoolant = new Button { MinSize = new Vector2(48, 48) };
+        coolantBox.AddChild(_btnCoolant);
+        coolantBox.AddChild(new Label { Text = "[ОХЛАЖДЕНИЕ]", FontColorOverride = Color.FromHex("#4caf50"), HorizontalAlignment = HAlignment.Center });
+        btnsBox.AddChild(coolantBox);
+
+        var weldBox = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Vertical, HorizontalAlignment = HAlignment.Center, Margin = new Thickness(5, 0, 5, 0) };
+        _btnSpotWeld = new Button { MinSize = new Vector2(48, 48) };
+        weldBox.AddChild(_btnSpotWeld);
+        weldBox.AddChild(new Label { Text = "[СВАРКА]", FontColorOverride = Color.FromHex("#4caf50"), HorizontalAlignment = HAlignment.Center });
+        btnsBox.AddChild(weldBox);
+
+        var alignLeftBox = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Vertical, HorizontalAlignment = HAlignment.Center, Margin = new Thickness(5, 0, 5, 0) };
+        _btnAlignLeft = new Button { MinSize = new Vector2(48, 48) };
+        alignLeftBox.AddChild(_btnAlignLeft);
+        alignLeftBox.AddChild(new Label { Text = "[ДРЕЙФ ЛЕВ.]", FontColorOverride = Color.FromHex("#4caf50"), HorizontalAlignment = HAlignment.Center });
+        btnsBox.AddChild(alignLeftBox);
+
+        var alignRightBox = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Vertical, HorizontalAlignment = HAlignment.Center, Margin = new Thickness(5, 0, 5, 0) };
+        _btnAlignRight = new Button { MinSize = new Vector2(48, 48) };
+        alignRightBox.AddChild(_btnAlignRight);
+        alignRightBox.AddChild(new Label { Text = "[ДРЕЙФ ПРАВ.]", FontColorOverride = Color.FromHex("#4caf50"), HorizontalAlignment = HAlignment.Center });
+        btnsBox.AddChild(alignRightBox);
+
+        // VERY BOTTOM: Global Progress
+        var progressPanel = new PanelContainer
+        {
+            Margin = new Thickness(0, 5, 0, 0), MinSize = new Vector2(0, 30),
+            PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex("#111c15"), BorderThickness = new Thickness(2), BorderColor = Color.FromHex("#4caf50") }
+        };
+        mainLayout.AddChild(progressPanel);
+        _globalProgressLabel = new Label { Text = "ОБЩИЙ ПРОГРЕСС: ОЖИДАНИЕ", FontColorOverride = Color.FromHex("#4caf50"), Margin = new Thickness(5) };
+        progressPanel.AddChild(_globalProgressLabel);
+
+        // OVERLAYS
         _flashOverlay = new PanelContainer
         {
-            PanelOverride = new StyleBoxFlat { BackgroundColor = new Color(255, 0, 0, 60) },
             Visible = false,
-            MouseFilter = MouseFilterMode.Ignore // Не перехватывает клики
+            MouseFilter = MouseFilterMode.Ignore,
+            PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex("#66ff0000") }
         };
-        LayoutContainer.SetAnchorPreset(_flashOverlay, LayoutContainer.LayoutPreset.Wide);
-        rootLayout.AddChild(_flashOverlay);
+        rootPanel.AddChild(_flashOverlay);
 
-        // Панель системной блокировки (Тир 3)
         _lockPanel = new PanelContainer
         {
-            PanelOverride = new StyleBoxFlat { BackgroundColor = new Color(0, 0, 0, 200) },
-            Visible = false
+            Visible = false,
+            PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex("#cc000000") }
         };
-        LayoutContainer.SetAnchorPreset(_lockPanel, LayoutContainer.LayoutPreset.Wide);
+        rootPanel.AddChild(_lockPanel);
 
-        var lockContent = new BoxContainer
-        {
-            Orientation = BoxContainer.LayoutOrientation.Vertical,
-            HorizontalAlignment = HAlignment.Center,
-            VerticalAlignment = VAlignment.Center,
-            Margin = new Thickness(50)
-        };
-        _lockLabel = new Label { Text = "⚠ SYSTEM LOCK", FontColorOverride = Color.Red, HorizontalAlignment = HAlignment.Center };
-        _lockCodeDisplay = new Label { Text = "ENTER ACCESS CODE:", FontColorOverride = Color.Yellow, HorizontalAlignment = HAlignment.Center };
-        _lockInput = new LineEdit
-        {
-            PlaceHolder = "0000",
-            MinSize = new Vector2(120, 30),
-            HorizontalAlignment = HAlignment.Center
-        };
-        _lockSubmit = new Button { Text = "SUBMIT", MinSize = new Vector2(120, 35), HorizontalAlignment = HAlignment.Center };
-        _lockSubmit.OnPressed += _ =>
-        {
-            OnLockCodeSubmit?.Invoke(_lockInput.Text);
-            _lockInput.Text = string.Empty;
-        };
-        // Enter key submission
-        _lockInput.OnTextEntered += _ =>
-        {
-            OnLockCodeSubmit?.Invoke(_lockInput.Text);
-            _lockInput.Text = string.Empty;
-        };
+        var lockBox = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Vertical, HorizontalAlignment = HAlignment.Center, VerticalAlignment = VAlignment.Center };
+        _lockPanel.AddChild(lockBox);
+        lockBox.AddChild(new Label { Text = "БЛОКИРОВКА СИСТЕМЫ", FontColorOverride = Color.Red, HorizontalAlignment = HAlignment.Center });
+        lockBox.AddChild(new Label { Text = "ВВЕДИТЕ КОД ДОСТУПА:", FontColorOverride = Color.Yellow, HorizontalAlignment = HAlignment.Center, Margin = new Thickness(0, 10, 0, 5) });
+        _lockInput = new LineEdit { PlaceHolder = "0000", MinSize = new Vector2(120, 30), HorizontalAlignment = HAlignment.Center };
+        lockBox.AddChild(_lockInput);
+        _lockSubmit = new Button { Text = "ПОДТВЕРДИТЬ", MinSize = new Vector2(120, 35), HorizontalAlignment = HAlignment.Center, Margin = new Thickness(0, 5, 0, 0) };
+        lockBox.AddChild(_lockSubmit);
 
-        lockContent.AddChild(_lockLabel);
-        lockContent.AddChild(new Control { MinSize = new Vector2(0, 10) });
-        lockContent.AddChild(_lockCodeDisplay);
-        lockContent.AddChild(new Control { MinSize = new Vector2(0, 5) });
-        lockContent.AddChild(_lockInput);
-        lockContent.AddChild(new Control { MinSize = new Vector2(0, 5) });
-        lockContent.AddChild(_lockSubmit);
-        _lockPanel.AddChild(lockContent);
-        rootLayout.AddChild(_lockPanel);
+        Contents.AddChild(rootPanel);
 
-        Contents.AddChild(rootLayout);
+        // In-line init
+        _heatSensor = new WorkbenchSensorControl(Color.Red, Color.Yellow, Color.LimeGreen);
+        heatSensorContainer.AddChild(_heatSensor);
 
-        DisableOperatorButtons();
-    }
+        _alignmentSensor = new WorkbenchSensorControl(Color.Red, Color.Yellow, Color.LimeGreen, true);
+        alignSensorContainer.AddChild(_alignmentSensor);
 
-    private Button CreateOperatorButton(string text)
-    {
-        return new Button
-        {
-            Text = text,
-            MinSize = new Vector2(130, 40),
-            Margin = new Thickness(3)
-        };
-    }
+        _integritySensor = new WorkbenchSensorControl(Color.Brown, Color.Yellow, Color.LimeGreen);
+        integritySensorContainer.AddChild(_integritySensor);
 
-    private WorkbenchSensorControl CreateSensorPanel(string labelText, BoxContainer parent, Color themeColor)
-    {
-        var panel = new PanelContainer
-        {
-            PanelOverride = new StyleBoxFlat { BackgroundColor = new Color(30, 30, 30) },
-            HorizontalExpand = true,
-            VerticalExpand = true,
-            HorizontalAlignment = HAlignment.Stretch,
-            VerticalAlignment = VAlignment.Stretch,
-            Margin = new Thickness(5)
-        };
+        _materialSpriteView = new EntityPrototypeView { Scale = new Vector2(2, 2) };
+        _materialSprite.AddChild(_materialSpriteView);
 
-        var vbox = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Vertical, Margin = new Thickness(5) };
-        vbox.AddChild(new Label { Text = labelText, HorizontalAlignment = HAlignment.Center, FontColorOverride = themeColor });
+        _resultSpriteView = new EntityPrototypeView { Scale = new Vector2(2, 2) };
+        _resultSprite.AddChild(_resultSpriteView);
 
-        var sensor = new WorkbenchSensorControl
-        {
-            HorizontalExpand = true,
-            VerticalExpand = true,
-            MinSize = new Vector2(0, 30)
-        };
-        vbox.AddChild(sensor);
+        _btnStart.OnPressed += _ => OnOperatorCommand?.Invoke(OperatorCommandType.StartScraping);
+        _btnCoolant.OnPressed += _ => OnOperatorCommand?.Invoke(OperatorCommandType.ApplyCoolant);
+        _btnSpotWeld.OnPressed += _ => OnOperatorCommand?.Invoke(OperatorCommandType.SpotWeld);
+        _btnAlignLeft.OnPressed += _ => OnOperatorCommand?.Invoke(OperatorCommandType.AlignLeft);
+        _btnAlignRight.OnPressed += _ => OnOperatorCommand?.Invoke(OperatorCommandType.AlignRight);
 
-        panel.AddChild(vbox);
-        parent.AddChild(panel);
+        _btnCoolant.AddChild(new TextureRect { TexturePath = "/Textures/Interface/VerbIcons/snow.svg.192dpi.png", HorizontalExpand = true, VerticalExpand = true, Stretch = TextureRect.StretchMode.KeepAspectCentered });
+        _btnSpotWeld.AddChild(new TextureRect { TexturePath = "/Textures/Interface/VerbIcons/zap.svg.192dpi.png", HorizontalExpand = true, VerticalExpand = true, Stretch = TextureRect.StretchMode.KeepAspectCentered });
+        _btnAlignLeft.AddChild(new TextureRect { TexturePath = "/Textures/Interface/VerbIcons/rotate_ccw.svg.192dpi.png", HorizontalExpand = true, VerticalExpand = true, Stretch = TextureRect.StretchMode.KeepAspectCentered });
+        _btnAlignRight.AddChild(new TextureRect { TexturePath = "/Textures/Interface/VerbIcons/rotate_cw.svg.192dpi.png", HorizontalExpand = true, VerticalExpand = true, Stretch = TextureRect.StretchMode.KeepAspectCentered });
 
-        return sensor;
+        _lockSubmit.OnPressed += _ => OnLockCodeSubmit?.Invoke(_lockInput.Text);
     }
 
     public void UpdateState(NCWeaponWorkbenchUpdateState state)
     {
-        // Материал
-        _materialLabel.Text = state.HasMaterial ? "Base Material: LOADED" : "Base Material: NONE";
-        _materialLabel.FontColorOverride = state.HasMaterial ? Color.LimeGreen : Color.Red;
+        // 1. Предсказания и логи
+        _predictiveLogLabel.Text = "> " + (string.IsNullOrEmpty(state.WarningMessage) ? "SYSTEM STANDBY" : state.WarningMessage);
 
-        // Статус
-        _statusLabel.Text = $"STATUS: {state.WorkbenchState.ToString().ToUpper()}";
-        _btnStart.Disabled = state.WorkbenchState != NCWeaponWorkbenchState.Idle || !state.HasMaterial;
+        // 2. Детали и иконки
+        _materialLabel.Text = state.HasMaterial ? "[МАТЕРИАЛ: ОК]" : "[МАТЕРИАЛ: НЕТ]";
+        _materialSpriteView.SetPrototype(state.SourcePrototypeId);
 
-        // Лог
-        _predictiveLogLabel.Text = string.IsNullOrEmpty(state.WarningMessage)
-            ? "[SYSTEM LOG: STANDBY]"
-            : state.WarningMessage;
+        _resultLabel.Text = state.ResultPrototypeId != null ? "[РЕЦЕПТ: ОК]" : "[РЕЦЕПТ: НЕТ]";
+        _resultSpriteView.SetPrototype(state.ResultPrototypeId);
 
-        // Прогресс
-        _progressBar.Value = state.Progress;
+        // 3. Сенсоры
+        // Вычисляем статус
+        var heatCond = GetCondition(state.Heat, state.SafeZoneHalfWidth);
+        var alignCond = GetCondition(state.Alignment, state.SafeZoneHalfWidth);
+        var integrCond = GetCondition(state.Integrity, state.SafeZoneHalfWidth);
 
-        // Датчики
-        _heatSensor.UpdateSensor(state.Heat, state.SafeZoneHalfWidth);
-        _integritySensor.UpdateSensor(state.Integrity, state.SafeZoneHalfWidth);
-        _alignmentSensor.UpdateSensor(state.Alignment, state.SafeZoneHalfWidth);
+        // 3. Сенсоры
+        UpdateSensorStatusLabel(_heatStatusLabel, heatCond);
+        _heatSensor.TargetValue = Math.Clamp(state.Heat, 0f, 1f);
+        _heatPercentLabel.Text = $"{(int) (state.Heat * 100)}%";
 
-        // Кнопки оператора
-        if (state.WorkbenchState == NCWeaponWorkbenchState.Processing && !state.IsSystemLocked)
-            EnableOperatorButtons();
-        else
+        UpdateSensorStatusLabel(_alignmentStatusLabel, alignCond);
+        _alignmentSensor.TargetValue = Math.Clamp(state.Alignment, 0f, 1f);
+        _alignmentPercentLabel.Text = $"{(int) (state.Alignment * 100)}%";
+
+        UpdateSensorStatusLabel(_integrityStatusLabel, integrCond);
+        _integritySensor.TargetValue = Math.Clamp(state.Integrity, 0f, 1f);
+        _integrityPercentLabel.Text = $"{(int) (state.Integrity * 100)}%";
+
+        // 4. Глобальный прогресс
+        _globalProgressLabel.Text = $"GLOBAL PROGRESS: {(int) (state.Progress * 100)}%";
+
+        // 5. Блокировка системы (Уровень 3)
+        if (state.IsSystemLocked)
+        {
+            _lockPanel.Visible = true;
             DisableOperatorButtons();
-
-        // Визуальный кулдаун
-        if (state.ButtonCooldownRemaining > 0f)
-        {
-            _cooldownLabel.Text = $"COOLDOWN: {state.ButtonCooldownRemaining:F1}s";
-            _cooldownLabel.FontColorOverride = Color.OrangeRed;
         }
         else
         {
-            _cooldownLabel.Text = "";
+            _lockPanel.Visible = false;
+            EnableOperatorButtons();
         }
 
-        // Красное мигание экрана
+        // Вспышка ошибки
         _flashOverlay.Visible = state.IsFlashing;
+    }
 
-        // Системная блокировка
-        _lockPanel.Visible = state.IsSystemLocked;
+    private enum SensorCondition { Optimal, Warning, Critical }
+
+    private static SensorCondition GetCondition(float value, float safeZoneHalf)
+    {
+        float dist = Math.Abs(value - 0.5f);
+        if (dist <= safeZoneHalf) return SensorCondition.Optimal;
+        if (dist <= safeZoneHalf + 0.15f) return SensorCondition.Warning;
+        return SensorCondition.Critical;
+    }
+
+    private static void UpdateSensorStatusLabel(Label label, SensorCondition status)
+    {
+        label.Text = $"[{status.ToString().ToUpper()}]";
+        label.FontColorOverride = status switch
+        {
+            SensorCondition.Optimal => Color.LimeGreen,
+            SensorCondition.Warning => Color.Yellow,
+            SensorCondition.Critical => Color.Red,
+            _ => Color.LimeGreen
+        };
     }
 
     private void EnableOperatorButtons()
@@ -330,56 +364,113 @@ public sealed class NCWeaponWorkbenchWindow : DefaultWindow
 }
 
 /// <summary>
-/// Кастомный контрол датчика: Зелёная/Жёлтая/Красная зоны + ползунок.
+/// Кастомный контрол рисующий вертикальную шкалу с ползунком-стрелочкой
 /// </summary>
 public sealed class WorkbenchSensorControl : Control
 {
-    private float _currentValue = 0.5f;
-    private float _safeHalfWidth = 0.15f;
+    private float _currentValue = 0f;
+    public float TargetValue { get; set; } = 0f;
 
-    public void UpdateSensor(float value, float safeHalfWidth)
+    private readonly Color _dangerColor;
+    private readonly Color _warningColor;
+    private readonly Color _safeColor;
+    private readonly bool _isHorizontal;
+
+    public WorkbenchSensorControl(Color danger, Color warning, Color safe, bool isHorizontal = false)
     {
-        _currentValue = Math.Clamp(value, 0f, 1f);
-        _safeHalfWidth = Math.Clamp(safeHalfWidth, 0.05f, 0.5f);
+        _isHorizontal = isHorizontal;
+        if (_isHorizontal)
+        {
+            MinSize = new Vector2(100, 30);
+            HorizontalExpand = true;
+        }
+        else
+        {
+            MinSize = new Vector2(30, 100);
+            VerticalExpand = true;
+        }
+        _dangerColor = danger;
+        _warningColor = warning;
+        _safeColor = safe;
+    }
+
+    protected override void FrameUpdate(Robust.Shared.Timing.FrameEventArgs args)
+    {
+        base.FrameUpdate(args);
+
+        // Плавная анимация сенсора
+        if (MathHelper.CloseToPercent(_currentValue, TargetValue, 0.01f))
+            return;
+
+        float speed = 2.0f;
+        _currentValue = MathHelper.Lerp(_currentValue, TargetValue, speed * args.DeltaSeconds);
     }
 
     protected override void Draw(DrawingHandleScreen handle)
     {
         base.Draw(handle);
-
         var rect = PixelSizeBox;
 
-        // Фон
-        handle.DrawRect(rect, new Color(40, 40, 40));
+        if (!_isHorizontal)
+        {
+            // Рисуем рамку и зоны
+            // Опасная зона (верхние 20%, 0.8-1.0)
+            var dangerBox = new UIBox2i(rect.Left, rect.Top, rect.Right - 10, rect.Top + (int) (rect.Height * 0.2f));
+            handle.DrawRect(dangerBox, _dangerColor);
 
-        // Зоны
-        float center = rect.Width / 2f;
-        float safePixelWidth = rect.Width * _safeHalfWidth;
+            // Зона предупреждения (0.6-0.8)
+            var warnBox = new UIBox2i(rect.Left, dangerBox.Bottom, rect.Right - 10, dangerBox.Bottom + (int) (rect.Height * 0.2f));
+            handle.DrawRect(warnBox, _warningColor);
 
-        // Красные зоны (по краям)
-        var redLeft = new UIBox2i(rect.Left, rect.Top, rect.Left + (int) (rect.Width * 0.1f), rect.Bottom);
-        var redRight = new UIBox2i(rect.Right - (int) (rect.Width * 0.1f), rect.Top, rect.Right, rect.Bottom);
+            // Безопасная зона (низ 0.0-0.6)
+            var safeBox = new UIBox2i(rect.Left, warnBox.Bottom, rect.Right - 10, rect.Bottom);
+            handle.DrawRect(safeBox, _safeColor);
 
-        // Зелёная зона (в центре)
-        var greenZone = new UIBox2i(
-            (int) (center - safePixelWidth), rect.Top,
-            (int) (center + safePixelWidth), rect.Bottom
-        );
+            handle.DrawRect(new UIBox2i(rect.Left, rect.Top, rect.Right - 10, rect.Bottom), Color.White, false);
 
-        handle.DrawRect(redLeft, new Color(150, 0, 0, 100));
-        handle.DrawRect(redRight, new Color(150, 0, 0, 100));
-        handle.DrawRect(greenZone, new Color(0, 150, 0, 80));
+            // Индикатор-Стрелочка
+            int indicatorY = (int) (rect.Bottom - rect.Height * _currentValue);
 
-        // Ползунок
-        int indicatorX = (int) (rect.Left + rect.Width * _currentValue);
-        var indicatorBox = new UIBox2i(indicatorX - 3, rect.Top, indicatorX + 3, rect.Bottom);
+            var indicatorBox = new UIBox2i(rect.Left, indicatorY - 3, rect.Right, indicatorY + 3);
+            handle.DrawRect(indicatorBox, Color.White);
 
-        Color indicatorColor = Color.Yellow;
-        if (_currentValue < 0.1f || _currentValue > 0.9f)
-            indicatorColor = Color.Red;
-        else if (Math.Abs(_currentValue - 0.5f) <= _safeHalfWidth)
-            indicatorColor = Color.LimeGreen;
+            var pt1 = new Vector2(rect.Right - 8, indicatorY);
+            var pt2 = new Vector2(rect.Right, indicatorY - 6);
+            var pt3 = new Vector2(rect.Right, indicatorY + 6);
+            handle.DrawPrimitives(DrawPrimitiveTopology.TriangleList, new[] { pt1, pt2, pt3 }, Color.Red);
+        }
+        else
+        {
+            // Для выравнивания: Опасные зоны по краям, зеленая по центру
+            int hm = (int) (rect.Bottom - 10);
+            int safeStart = (int) (rect.Width * 0.35f);
+            int safeEnd = (int) (rect.Width * 0.65f);
 
-        handle.DrawRect(indicatorBox, indicatorColor);
+            var dangerLeftBox = new UIBox2i(rect.Left, rect.Top, rect.Left + (int) (rect.Width * 0.2f), hm);
+            handle.DrawRect(dangerLeftBox, _dangerColor);
+
+            var warnLeftBox = new UIBox2i(dangerLeftBox.Right, rect.Top, rect.Left + safeStart, hm);
+            handle.DrawRect(warnLeftBox, _warningColor);
+
+            var safeBox = new UIBox2i(warnLeftBox.Right, rect.Top, rect.Left + safeEnd, hm);
+            handle.DrawRect(safeBox, _safeColor);
+
+            var warnRightBox = new UIBox2i(safeBox.Right, rect.Top, rect.Left + (int) (rect.Width * 0.8f), hm);
+            handle.DrawRect(warnRightBox, _warningColor);
+
+            var dangerRightBox = new UIBox2i(warnRightBox.Right, rect.Top, rect.Right, hm);
+            handle.DrawRect(dangerRightBox, _dangerColor);
+
+            handle.DrawRect(new UIBox2i(rect.Left, rect.Top, rect.Right, hm), Color.White, false);
+
+            int indicatorX = (int) (rect.Left + rect.Width * _currentValue);
+            var indicatorBox = new UIBox2i(indicatorX - 3, rect.Top, indicatorX + 3, hm);
+            handle.DrawRect(indicatorBox, Color.White);
+
+            var pt1 = new Vector2(indicatorX, hm + 8);
+            var pt2 = new Vector2(indicatorX - 6, hm);
+            var pt3 = new Vector2(indicatorX + 6, hm);
+            handle.DrawPrimitives(DrawPrimitiveTopology.TriangleList, new[] { pt1, pt2, pt3 }, Color.Red);
+        }
     }
 }
