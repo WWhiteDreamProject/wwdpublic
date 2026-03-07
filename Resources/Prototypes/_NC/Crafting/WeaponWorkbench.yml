@@ -1,4 +1,4 @@
-# Базовая болванка (пример)
+# Базовая болванка (пример Тир 2)
 - type: entity
   id: NCBlankBarrelPolymer
   name: необработанный полимерный ствол
@@ -6,10 +6,19 @@
   parent: BaseItem
   components:
     - type: Sprite
-      sprite: Objects/Misc/module.rsi # Заглушка
-      state: module
+      sprite: Objects/Tools/wrench.rsi
+      state: icon
+    - type: NCWeaponBlank
+      safeZoneHalf: 0.15
+      toleranceTime: 1.5
+      progressSpeed: 0.05
+      resultEntity: NCProcessedBarrel
+      anomalies:
+        0.15: IntegrityDrop
+        0.45: HeatSpike
+        0.80: DoubleTrouble
 
-# Тестовый верстак (Тир 2 — средняя сложность)
+# Тестовый верстак
 - type: entity
   name: ЧПУ-станок Найт-Сити
   id: NCWeaponWorkbench

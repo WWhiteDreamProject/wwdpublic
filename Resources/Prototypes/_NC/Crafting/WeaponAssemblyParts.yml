@@ -2,7 +2,7 @@
 # Обработанные детали (выход верстака)
 # ============================
 
-# Обработанный ствол — принимает Рамку, даёт промежуточную сборку
+# Обработанный ствол
 - type: entity
   id: NCProcessedBarrel
   name: обработанный ствол
@@ -10,12 +10,10 @@
   parent: BaseItem
   components:
     - type: Sprite
-      sprite: Objects/Misc/module.rsi # Заглушка
-      state: module
+      sprite: Objects/Tools/wrench.rsi
+      state: icon
     - type: NCWeaponPart
       partType: Barrel
-      acceptsNext: Frame
-      combineResult: NCBarrelFrameAssembly
 
 # Обработанная рамка
 - type: entity
@@ -25,8 +23,8 @@
   parent: BaseItem
   components:
     - type: Sprite
-      sprite: Objects/Misc/module.rsi # Заглушка
-      state: module
+      sprite: Objects/Tools/wrench.rsi
+      state: icon
     - type: NCWeaponPart
       partType: Frame
 
@@ -38,26 +36,46 @@
   parent: BaseItem
   components:
     - type: Sprite
-      sprite: Objects/Misc/module.rsi # Заглушка
-      state: module
+      sprite: Objects/Tools/wrench.rsi
+      state: icon
     - type: NCWeaponPart
       partType: Board
 
 # ============================
-# Промежуточные сборки
+# Чертежи для сборки (Этап 3)
 # ============================
 
-# Ствол + Рамка → промежуточная сборка, принимает Плату
+# Чертеж АК-образного карабина (Тестовый)
 - type: entity
-  id: NCBarrelFrameAssembly
-  name: сборка ствол-рамка
-  description: Промежуточная сборка. Осталось установить электронику.
+  id: NCBlueprintTestAk
+  name: чертеж "Карабин Улицы"
+  description: Диск с инструкциями по сборке и физический каркас под детали. При неверной сборке самоуничтожится.
   parent: BaseItem
   components:
     - type: Sprite
-      sprite: Objects/Misc/module.rsi # Заглушка
-      state: module
-    - type: NCWeaponPart
-      partType: BarrelFrame
-      acceptsNext: Board
-      combineResult: WeaponRifleAk
+      sprite: Objects/Tools/wrench.rsi
+      state: icon
+    - type: NCBlueprint
+      resultEntity: WeaponRifleAk
+      garbageEntity: Wrench
+      steps:
+        - part: Frame
+          doAfterTime: 2.0
+          sound:
+            path: /Audio/Items/handling_gun.ogg
+        - part: Barrel
+          doAfterTime: 2.0
+          sound:
+            path: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
+        - tool: Screwing
+          doAfterTime: 3.0
+          sound:
+            path: /Audio/Items/screwdriver2.ogg
+        - part: Board
+          doAfterTime: 1.5
+          sound:
+            path: /Audio/Machines/button.ogg
+        - tool: Pulsing
+          doAfterTime: 2.5
+          sound:
+            path: /Audio/Items/multitool.ogg
