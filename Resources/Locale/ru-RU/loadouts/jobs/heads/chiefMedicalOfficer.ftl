@@ -1,6 +1,6 @@
-loadout-description-LoadoutCommandCMONeckMantle = To show who has the authority around here. It seems unusually clean.
-loadout-description-LoadoutCommandCMONeckCloak = To really show who has the authority around here. It seems unusually clean.
-loadout-description-LoadoutCommandCMOOuterWinter = A warm coat for the cold of space. It seems unusually clean.
-loadout-description-LoadoutCommandCMOOuterLab = A lab coat for the CMO. It seems unusually clean.
-loadout-description-LoadoutCommandCMOHatBeret = A beret for the CMO. It seems unusually clean.
-loadout-name-LoadoutChiefMedicalOfficerBeltMilitaryWebbingCMOFilled = chief medical officer's chest rig (filled)
+loadout-description-LoadoutCommandCMONeckMantle = Чтобы показать, кто здесь главный. Оно необычайно чистое.
+loadout-description-LoadoutCommandCMONeckCloak = Чтобы действительно показать, кто здесь главный. Оно необычайно чистое.
+loadout-description-LoadoutCommandCMOOuterWinter = Теплое пальто для холодного космоса. Оно необычайно чистое.
+loadout-description-LoadoutCommandCMOOuterLab = Лабораторный халат для технического директора. Он необычайно чистый.
+loadout-description-LoadoutCommandCMOHatBeret = Берет для СМО (Главного Врача). Он необычайно чистый.
+loadout-name-LoadoutChiefMedicalOfficerBeltMilitaryWebbingCMOFilled = нагрудная разгрузка главного врача (заполненный)

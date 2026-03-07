@@ -14,12 +14,12 @@ marking-LizardHornsShort-horns_short = Ящер, рожки (Короткие)
 marking-LizardHornsShort = Ящер, рожки (Короткие)
 marking-LizardHornsSimple-horns_simple = Ящер, рожки
 marking-LizardHornsSimple = Ящер, рожки
-marking-LizardTailSmooth-tail_smooth_primary = Lizard Tail
-marking-LizardTailSmooth-tail_smooth_secondary = Under Tone
+marking-LizardTailSmooth-tail_smooth_primary = Хвост ящерицы
+marking-LizardTailSmooth-tail_smooth_secondary = Под тон
 marking-LizardTailSmooth = Ящер, хвост (Гладкий)
 marking-LizardTailSmoothAnimated = Ящер, хвост (Гладкий) (Анимированный)
-marking-LizardTailLarge-tail_large = Lizard Tail (Large)
-marking-LizardTailLarge = Lizard Tail (Large)
+marking-LizardTailLarge-tail_large = Хвост ящерицы (Большой)
+marking-LizardTailLarge = Хвост ящерицы (Большой)
 
 marking-LizardTailSpikes-tail_spikes = Ящер, хвост (Шипастый)
 marking-LizardTailSpikes = Ящер, хвост (Шипастый)
@@ -34,7 +34,7 @@ marking-LizardSnoutRound-snout_round = Ящер, морда (Круглая)
 marking-LizardSnoutRound = Ящер, морда (Круглая)
 marking-LizardSnoutSharp-snout_sharp = Ящер, морда (Заострёная)
 marking-LizardSnoutSharp = Ящер, морда (Заострёная)
-marking-LizardChestTiger-body_tiger = Lizard Chest (Tiger)
+marking-LizardChestTiger-body_tiger = Грудь ящерицы (Тигра)
 marking-LizardChestTiger = Ящер, грудь (Тигр)
 marking-LizardHeadTiger-head_tiger = Ящер, голова (Тигр)
 marking-LizardHeadTiger = Ящер, голова (Тигр)
@@ -50,40 +50,40 @@ marking-LizardFrillsDivinity-frills_divinity = Ящер, воротник (Бо�
 marking-LizardFrillsDivinity = Ящер, воротник (Божественный)
 marking-LizardFrillsBig-frills_big = Ящер, воротник (Большой)
 marking-LizardFrillsBig = Ящер, воротник (Большой)
-marking-LizardFrillsNeckfull-frills_neckfull = Lizard Frills (Neckfull)
-marking-LizardFrillsNeckfull = Lizard Frills (Neckfull)
+marking-LizardFrillsNeckfull-frills_neckfull = Оборки в виде ящерицы (С вырезом)
+marking-LizardFrillsNeckfull = Оборки в виде ящерицы (С вырезом)
 
 marking-LizardHornsDouble-horns_double = Ящер, рожки (Двойные)
 marking-LizardHornsDouble = Ящер, рожки (Двойные)
 marking-LizardFrillsAxolotl-frills_axolotl = Ящер, воротник (Аксолотль)
 marking-LizardFrillsAxolotl = Ящер, воротник (Аксолотль)
-marking-LizardFrillsHood-frills_hood_primary = Outer Hood
-marking-LizardFrillsHood-frills_hood_secondary = Inner Hood
+marking-LizardFrillsHood-frills_hood_primary = Наружный колпак
+marking-LizardFrillsHood-frills_hood_secondary = Внутренний колпак
 marking-LizardFrillsHood = Ящер, воротник (Капюшон)
-marking-LizardHornsArgali-horns_argali = Lizard Horns (Argali)
-marking-LizardHornsArgali = Lizard Horns (Argali)
+marking-LizardHornsArgali-horns_argali = Рога ящерицы (Архара)
+marking-LizardHornsArgali = Рога ящерицы (Архара)
 
-marking-LizardHornsAyrshire-horns_ayrshire = Lizard Horns (Ayrshire)
-marking-LizardHornsAyrshire = Lizard Horns (Ayrshire)
+marking-LizardHornsAyrshire-horns_ayrshire = Рога ящерицы (Айршир)
+marking-LizardHornsAyrshire = Рога ящерицы (Айршир)
 
-marking-LizardHornsMyrsore-horns_myrsore = Lizard Horns (Myrsore)
-marking-LizardHornsMyrsore = Lizard Horns (Myrsore)
+marking-LizardHornsMyrsore-horns_myrsore = Рога ящерицы (Мирсора)
+marking-LizardHornsMyrsore = Рога ящерицы (Мирсора)
 
-marking-LizardHornsBighorn-horns_bighorn = Lizard Horns (Bighorn)
-marking-LizardHornsBighorn = Lizard Horns (Bighorn)
+marking-LizardHornsBighorn-horns_bighorn = Рога ящерицы (Бигхорн)
+marking-LizardHornsBighorn = Рога ящерицы (Бигхорн)
 
-marking-LizardHornsKoboldEars-horns_kobold_ears = Lizard Ears (Kobold)
-marking-LizardHornsKoboldEars = Lizard Ears (Kobold)
+marking-LizardHornsKoboldEars-horns_kobold_ears = Уши ящерицы (Кобольда)
+marking-LizardHornsKoboldEars = Уши ящерицы (Кобольда)
 
-marking-LizardHornsFloppyKoboldEars-horns_floppy_kobold_ears = Lizard Ears (Floppy Kobold)
-marking-LizardHornsFloppyKoboldEars = Lizard Ears (Floppy Kobold)
+marking-LizardHornsFloppyKoboldEars-horns_floppy_kobold_ears = Уши ящерицы (Гибкий кобольд)
+marking-LizardHornsFloppyKoboldEars = Уши ящерицы (Гибкий кобольд)
 
-marking-LizardChestUnderbelly-body_underbelly = Lizard Chest (Underbelly)
-marking-LizardChestUnderbelly = Lizard Chest (Underbelly)
+marking-LizardChestUnderbelly-body_underbelly = Грудь ящерицы (Подбрюшье)
+marking-LizardChestUnderbelly = Грудь ящерицы (Подбрюшье)
 
-marking-LizardChestBackspikes-body_backspikes = Lizard Back spikes (Four)
-marking-LizardChestBackspikes = Lizard Back spikes (Four)
+marking-LizardChestBackspikes-body_backspikes = Шипы на спине ящерицы (Четыре)
+marking-LizardChestBackspikes = Шипы на спине ящерицы (Четыре)
 
-marking-LizardSnoutSplotch = Lizard Snout (Splotch)
-marking-LizardSnoutSplotch-snout_splotch_primary = Muzzle
-marking-LizardSnoutSplotch-snout_splotch_secondary = Snoot
+marking-LizardSnoutSplotch = Морда ящерицы (Пятно)
+marking-LizardSnoutSplotch-snout_splotch_primary = Морда
+marking-LizardSnoutSplotch-snout_splotch_secondary = Мордочка

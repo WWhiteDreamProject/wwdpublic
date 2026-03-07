@@ -2,6 +2,7 @@
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Utility;
+using Content.Shared.Preferences; // WWDP EDIT
 
 namespace Content.Client.FlavorText
 {
@@ -18,11 +19,41 @@ namespace Content.Client.FlavorText
             var loc = IoCManager.Resolve<ILocalizationManager>();
             CFlavorTextInput.Placeholder = new Rope.Leaf(loc.GetString("flavor-text-placeholder"));
             CFlavorTextInput.OnTextChanged  += _ => FlavorTextChanged();
+            UpdateCharacterCount(); // WWDP EDIT
         }
 
         public void FlavorTextChanged()
         {
             OnFlavorTextChanged?.Invoke(Rope.Collapse(CFlavorTextInput.TextRope).Trim());
+// WWDP EDIT START
+            UpdateCharacterCount();
+        }
+
+        public void UpdateCharacterCount()
+        {
+            var loc = IoCManager.Resolve<ILocalizationManager>();
+            var currentLength = CFlavorTextInput.TextLength;
+            var maxLength = HumanoidCharacterProfile.MaxDescLength;
+
+            CharacterCountLabel.Text = loc.GetString("flavor-text-character-count",
+                ("current", currentLength),
+                ("max", maxLength));
+
+            if (currentLength > maxLength)
+            {
+                CharacterCountLabel.StyleClasses.Clear();
+                CharacterCountLabel.StyleClasses.Add("LabelDanger");
+            }
+            else if (currentLength > maxLength * 0.9)
+            {
+                CharacterCountLabel.StyleClasses.Clear();
+                CharacterCountLabel.StyleClasses.Add("LabelWarning");
+            }
+            else
+            {
+                CharacterCountLabel.StyleClasses.Clear();
+            }
+// WWDP EDIT END
         }
     }
 }

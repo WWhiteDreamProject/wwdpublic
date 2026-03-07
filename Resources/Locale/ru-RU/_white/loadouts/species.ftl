@@ -1,0 +1,3 @@
+loadout-name-LoadoutSpeciesExtendedEmergencyNitrogenTank = аварийный азотный баллон повышенной ёмкости
+loadout-name-LoadoutSpeciesDoubleEmergencyNitrogenTank = двойной аварийный азотный баллон
+loadout-name-LoadoutSpeciesEmergencyNitrogenTank = аварийный азотный баллон

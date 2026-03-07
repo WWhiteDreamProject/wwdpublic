@@ -1,110 +1,110 @@
 # Alphabetically ordered, except for Uncategorized since it is always first
 
-loadout-category-Uncategorized = Uncategorized
-loadout-category-Accessories = Accessories
-loadout-category-Backpacks = Backpacks
-loadout-category-Eyes = Eyes
-loadout-category-Hands = Hands
-loadout-category-Head = Head
-loadout-category-Items = Items
+loadout-category-Uncategorized = Без категории
+loadout-category-Accessories = Аксессуары
+loadout-category-Backpacks = Рюкзаки
+loadout-category-Eyes = Очки
+loadout-category-Hands = Перчатки
+loadout-category-Head = Шапки
+loadout-category-Items = Предметы
 
+# Работы
 # Jobs
-# Jobs
-loadout-category-Jobs = Jobs
-loadout-category-JobsAUncategorized = Uncategorized
+loadout-category-Jobs = Вещи специальностей
+loadout-category-JobsAUncategorized = Без категории
 
+# Командование
 # Command
-# Command
-loadout-category-JobsCommand = Command
-loadout-category-JobsCommandAUncategorized = All Command
-loadout-category-JobsCommandCaptain = Captain
-loadout-category-JobsCommandHeadOfPersonnel = Head of Personnel
+loadout-category-JobsCommand = Командование
+loadout-category-JobsCommandAUncategorized = Для всего командования
+loadout-category-JobsCommandCaptain = Капитан
+loadout-category-JobsCommandHeadOfPersonnel = Глава Персонала
 loadout-category-JobsCommandAdminAssistant = Administrative Assistant
-loadout-category-JobsCommandBlueshieldOfficer = Blueshield Officer
-loadout-category-JobsCommandNanorep = Nanotrasen Representative
+loadout-category-JobsCommandBlueshieldOfficer = Синий Щит
+loadout-category-JobsCommandNanorep = Представитель NanoTrasen
+loadout-category-JobsCommandMagistrate = Магистрат
 
+# Инженерный Отдел
 # Engineering
-loadout-category-JobsCommandMagistrate = Magistrate
+loadout-category-JobsEngineering = Инженерный Отдел
+loadout-category-JobsEngineeringAAUncategorized = Для всего Инженерного Отдела
+loadout-category-JobsEngineeringAtmosphericTechnician = Для Атмосфероного Техника
+loadout-category-JobsEngineeringChiefEngineer = Для Старшего Инженера
+loadout-category-JobsEngineeringSeniorEngineer = Для Бригадира
+loadout-category-JobsEngineeringStationEngineer = Для Инженера
+loadout-category-JobsEngineeringTechnicalAssistant = Для Технического Ассистента
 
-# Engineering
-loadout-category-JobsEngineering = Engineering
-loadout-category-JobsEngineeringAAUncategorized = All Engineers
-loadout-category-JobsEngineeringAtmosphericTechnician = Atmospheric Technician
-loadout-category-JobsEngineeringChiefEngineer = Chief Engineer
-loadout-category-JobsEngineeringSeniorEngineer = Senior Engineer
-loadout-category-JobsEngineeringStationEngineer = Station Engineer
-loadout-category-JobsEngineeringTechnicalAssistant = Technical Assistant
-
+# Научный Отдел
 # Epistemics
-# Epistemics
-loadout-category-JobsEpistemics = Epistemics
-loadout-category-JobsEpistemicsAAUncategorized = All Epistemiologists
-loadout-category-JobsEpistemicsAcolyte = Acolyte
-loadout-category-JobsEpistemicsCataloger = Cataloger
-loadout-category-JobsEpistemicsChaplain = Chaplain
-loadout-category-JobsEpistemicsGolemancer = Golemancer
-loadout-category-JobsEpistemicsMystagogue = Mystagogue
-loadout-category-JobsEpistemicsMystic = Mystic
-loadout-category-JobsEpistemicsNoviciate = Noviciate
-loadout-category-JobsEpistemicsPsionicMantis = Psionic Mantis
+loadout-category-JobsEpistemics = Научный Отдел
+loadout-category-JobsEpistemicsAAUncategorized = Для всего Научного Отдела
+loadout-category-JobsEpistemicsAcolyte = Для Учёного
+loadout-category-JobsEpistemicsCataloger = Для Библиотекаря
+loadout-category-JobsEpistemicsChaplain = Для Священника
+loadout-category-JobsEpistemicsGolemancer = Для Робототехника
+loadout-category-JobsEpistemicsMystagogue = Для Мистагога
+loadout-category-JobsEpistemicsMystic = Для Ведущего Исследователя
+loadout-category-JobsEpistemicsNoviciate = Для Научного Ассистента
+loadout-category-JobsEpistemicsPsionicMantis = Для Мантиса
 
+# Отдел Карго
 # Logistics
-# Logistics
-loadout-category-JobsLogistics = Logistics
-loadout-category-JobsLogisticsAUncategorized = All Logistics
-loadout-category-JobsLogisticsCargoTechnician = Cargo Technician
-loadout-category-JobsLogisticsCourier = Courier
-loadout-category-JobsLogisticsLogisticsOfficer = Logistics Officer
-loadout-category-JobsLogisticsSalvageSpecialist = Salvage Specialist
+loadout-category-JobsLogistics = Отдел Карго
+loadout-category-JobsLogisticsAUncategorized = Для всего Отдела Карго
+loadout-category-JobsLogisticsCargoTechnician = Для Каргоновца
+loadout-category-JobsLogisticsCourier = Для Курьера
+loadout-category-JobsLogisticsLogisticsOfficer = Для КвартирМейстера
+loadout-category-JobsLogisticsSalvageSpecialist = Для Утилизатора
 
+# Медицинский Отдел
 # Medical
-# Medical
-loadout-category-JobsMedical = Medical
-loadout-category-JobsMedicalAUncategorized = All Medical
-loadout-category-JobsMedicalChemist = Chemist
-loadout-category-JobsMedicalChiefMedicalOfficer = Chief Medical Officer
-loadout-category-JobsMedicalMedicalDoctor = Medical Doctor
-loadout-category-JobsMedicalMedicalIntern = Medical Intern
-loadout-category-JobsMedicalParamedic = Paramedic
-loadout-category-JobsMedicalPsychologist = Psychologist
-loadout-category-JobsMedicalSeniorPhysician = Senior Physician
+loadout-category-JobsMedical = Медицинский Отдел
+loadout-category-JobsMedicalAUncategorized = Для всего Медицинского Отдела
+loadout-category-JobsMedicalChemist = Для Химика
+loadout-category-JobsMedicalChiefMedicalOfficer = Для Главного Врача
+loadout-category-JobsMedicalMedicalDoctor = Для Врача
+loadout-category-JobsMedicalMedicalIntern = Для Интерна
+loadout-category-JobsMedicalParamedic = Для Парамедика
+loadout-category-JobsMedicalPsychologist = Для Психолога
+loadout-category-JobsMedicalSeniorPhysician = Для Медицинского Офицера
 
+# Служба Безопасности
 # Security
-# Security
-loadout-category-JobsSecurity = Security
-loadout-category-JobsSecurityWeapons = Duty Weapon
-loadout-category-JobsSecurityAUncategorized = All Security
-loadout-category-JobsSecurityCadet = Cadet
-loadout-category-JobsSecurityCorpsman = Corpsman
-loadout-category-JobsSecurityDetective = Detective
-loadout-category-JobsSecurityHeadOfSecurity = Head of Security
-loadout-category-JobsSecuritySecurityOfficer = Security Officer
-loadout-category-JobsSecuritySeniorOfficer = Senior Officer
-loadout-category-JobsSecurityWarden = Warden
+loadout-category-JobsSecurity = Служба Безопасности
+loadout-category-JobsSecurityWeapons = Личное оружие
+loadout-category-JobsSecurityAUncategorized = Для всей Службы Безопасности
+loadout-category-JobsSecurityCadet = Для Кадета СБ
+loadout-category-JobsSecurityCorpsman = Для Бригмедика
+loadout-category-JobsSecurityDetective = Для Детектива
+loadout-category-JobsSecurityHeadOfSecurity = Для Главы Службы Безопасности
+loadout-category-JobsSecuritySecurityOfficer = Для Офицера СБ
+loadout-category-JobsSecuritySeniorOfficer = Для Ветерана СБ
+loadout-category-JobsSecurityWarden = Для Смотрителя
 
+# Сервисный Отдел
 # Service
-# Service
-loadout-category-JobsService = Service
-loadout-category-JobsServiceAUncategorized = All Service
-loadout-category-JobsServiceBartender = Bartender
-loadout-category-JobsServiceBotanist = Botanist
-loadout-category-JobsServiceChef = Chef
-loadout-category-JobsServiceClown = Clown
-loadout-category-JobsServiceJanitor = Janitor
-loadout-category-JobsServiceLawyer = Lawyer
-loadout-category-JobsServiceMime = Mime
-loadout-category-JobsServiceMusician = Musician
-loadout-category-JobsServiceReporter = Reporter
+loadout-category-JobsService = Сервисный Отдел
+loadout-category-JobsServiceAUncategorized = Для всего Сервисного Отдела
+loadout-category-JobsServiceBartender = Для Бармена
+loadout-category-JobsServiceBotanist = Для Ботаника
+loadout-category-JobsServiceChef = Для Шеф-Повара
+loadout-category-JobsServiceClown = Для Клоуна
+loadout-category-JobsServiceJanitor = Для Уборщика
+loadout-category-JobsServiceLawyer = Для Юриста
+loadout-category-JobsServiceMime = Для Мима
+loadout-category-JobsServiceMusician = Для Музыканта
+loadout-category-JobsServiceReporter = Для Репортёра
 
+# Разное
 # Misc
-loadout-category-JobsZMisc = Misc
-loadout-category-JobsZMiscAUncategorized = All Misc
-loadout-category-JobsZMiscPrisoner = Prisoner
+loadout-category-JobsZMisc = Разное
+loadout-category-JobsZMiscAUncategorized = Всё остальное
+loadout-category-JobsZMiscPrisoner = Для Заключённого
 
-loadout-category-Mask = Mask
-loadout-category-Neck = Neck
-loadout-category-Outer = Outer
-loadout-category-Belt = Belt
-loadout-category-Shoes = Shoes
-loadout-category-Species = Species
-loadout-category-Uniform = Uniform
+loadout-category-Mask = Маски
+loadout-category-Neck = Шея
+loadout-category-Outer = Верхняя одежда
+loadout-category-Belt = Пояса
+loadout-category-Shoes = Ботинки
+loadout-category-Species = Специальное
+loadout-category-Uniform = Униформа
