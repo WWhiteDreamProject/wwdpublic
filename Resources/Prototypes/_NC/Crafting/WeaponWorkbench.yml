@@ -1,0 +1,51 @@
+# Базовая болванка (пример)
+- type: entity
+  id: NCBlankBarrelPolymer
+  name: необработанный полимерный ствол
+  description: Требует обработки на станке с ЧПУ для использования в сборке оружия Найт-Сити.
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: Objects/Misc/module.rsi # Заглушка
+      state: module
+
+# Тестовый верстак (Тир 2 — средняя сложность)
+- type: entity
+  name: ЧПУ-станок Найт-Сити
+  id: NCWeaponWorkbench
+  description: Высокотехнологичный станок для вытачивания деталей оружия.
+  parent: BaseMachinePowered
+  components:
+    - type: Sprite
+      sprite: Structures/Machines/protolathe.rsi
+      snapCardinals: true
+      layers:
+      - state: icon
+        map: ["enum.LatheVisualLayers.IsRunning"]
+      - state: unlit
+        shader: unshaded
+        map: ["enum.PowerDeviceVisualLayers.Powered"]
+      - state: inserting
+        map: ["enum.MaterialStorageVisualLayers.Inserting"]
+      - state: panel
+        map: ["enum.WiresVisualLayers.MaintenancePanel"]
+    - type: NCWeaponWorkbench
+      # Настройки сложности (Тир 2 по умолчанию)
+      safeZoneHalf: 0.15       # 30% ширина зелёной зоны
+      toleranceTime: 1.5       # 1.5 секунды на реакцию
+      progressSpeed: 0.05      # ~20 секунд до 100%
+      resultEntity: Wrench     # Заглушка, потом заменить на реальную деталь
+      # Жёстко детерминированные аномалии
+      anomalies:
+        0.15: IntegrityDrop    # 15% — падение целостности
+        0.45: HeatSpike        # 45% — скачок температуры
+        0.80: DoubleTrouble    # 80% — двойной сбой
+    - type: UserInterface
+      interfaces:
+        enum.NCWeaponWorkbenchUiKey.Key:
+          type: NCWeaponWorkbenchBoundUserInterface
+    - type: ActivatableUI
+      key: enum.NCWeaponWorkbenchUiKey.Key
+    - type: ContainerContainer
+      containers:
+        workbench_material_slot: !type:ContainerSlot

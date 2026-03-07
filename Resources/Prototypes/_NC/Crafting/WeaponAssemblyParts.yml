@@ -1,0 +1,63 @@
+# ============================
+# Обработанные детали (выход верстака)
+# ============================
+
+# Обработанный ствол — принимает Рамку, даёт промежуточную сборку
+- type: entity
+  id: NCProcessedBarrel
+  name: обработанный ствол
+  description: Выточенный на ЧПУ-станке ствол. Готов к финальной сборке.
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: Objects/Misc/module.rsi # Заглушка
+      state: module
+    - type: NCWeaponPart
+      partType: Barrel
+      acceptsNext: Frame
+      combineResult: NCBarrelFrameAssembly
+
+# Обработанная рамка
+- type: entity
+  id: NCProcessedFrame
+  name: обработанная рамка
+  description: Полимерная рамка, готовая к сборке.
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: Objects/Misc/module.rsi # Заглушка
+      state: module
+    - type: NCWeaponPart
+      partType: Frame
+
+# Обработанная плата
+- type: entity
+  id: NCProcessedBoard
+  name: печатная плата
+  description: Печатная плата управления, готовая к сборке.
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: Objects/Misc/module.rsi # Заглушка
+      state: module
+    - type: NCWeaponPart
+      partType: Board
+
+# ============================
+# Промежуточные сборки
+# ============================
+
+# Ствол + Рамка → промежуточная сборка, принимает Плату
+- type: entity
+  id: NCBarrelFrameAssembly
+  name: сборка ствол-рамка
+  description: Промежуточная сборка. Осталось установить электронику.
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: Objects/Misc/module.rsi # Заглушка
+      state: module
+    - type: NCWeaponPart
+      partType: BarrelFrame
+      acceptsNext: Board
+      combineResult: WeaponRifleAk
