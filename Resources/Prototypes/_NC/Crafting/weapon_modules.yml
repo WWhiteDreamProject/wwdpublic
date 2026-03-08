@@ -17,22 +17,18 @@
       garbageEntity: Wrench
       steps:
         - part: Frame
+          prototype: NCProcessedFrameT2
           doAfterTime: 2.0
-          sound:
-            path: /Audio/Items/handling_gun.ogg
         - part: Barrel
+          prototype: NCProcessedBarrelT2
           doAfterTime: 2.0
-          sound:
-            path: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
         - tool: Screwing
           doAfterTime: 3.0
-          sound:
-            path: /Audio/Items/screwdriver2.ogg
+        - part: Internals
+          prototype: NCProcessedInternalsT2
+          doAfterTime: 2.5
         - part: Board
+          prototype: NCProcessedElectronicsT2
           doAfterTime: 1.5
-          sound:
-            path: /Audio/Machines/button.ogg
         - tool: Pulsing
           doAfterTime: 2.5
-          sound:
-            path: /Audio/Items/multitool.ogg

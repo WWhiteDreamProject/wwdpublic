@@ -53,9 +53,23 @@ public sealed class NCWeaponAssemblySystem : EntitySystem
         var currentStepDef = blueprint.Steps[blueprint.CurrentStep];
 
         // Ожидается деталь
-        if (currentStepDef.Part.HasValue)
+        if (currentStepDef.Part.HasValue || !string.IsNullOrEmpty(currentStepDef.RequiredPrototype))
         {
-            if (isPart && usedPart!.PartType == currentStepDef.Part.Value)
+            bool match = true;
+
+            // Проверяем тип, если он задан
+            if (currentStepDef.Part.HasValue && (!isPart || usedPart!.PartType != currentStepDef.Part.Value))
+                match = false;
+
+            // Проверяем конкретный прототип, если он задан
+            if (match && !string.IsNullOrEmpty(currentStepDef.RequiredPrototype))
+            {
+                var prototype = MetaData(args.Used).EntityPrototype?.ID;
+                if (prototype != currentStepDef.RequiredPrototype)
+                    match = false;
+            }
+
+            if (match)
             {
                 StartAssemblyDoAfter(uid, blueprint, args.Used, args.User, currentStepDef);
             }

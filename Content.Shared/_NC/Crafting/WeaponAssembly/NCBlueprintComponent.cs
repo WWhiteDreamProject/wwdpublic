@@ -23,6 +23,12 @@ public sealed partial class NCAssemblyStep
     public string? ToolQuality;
 
     /// <summary>
+    /// Если задано, на этом шаге игрок должен вставить ПРИСТРОГО указанную сущность (прототип).
+    /// </summary>
+    [DataField("prototype", customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
+    public string? RequiredPrototype;
+
+    /// <summary>
     /// Время (в секундах) на сборку / установку.
     /// </summary>
     [DataField("doAfterTime")]
