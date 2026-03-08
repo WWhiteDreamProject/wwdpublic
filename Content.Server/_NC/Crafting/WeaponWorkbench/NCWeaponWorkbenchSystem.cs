@@ -18,6 +18,7 @@ public sealed partial class NCWeaponWorkbenchSystem : EntitySystem
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
 
     // Кулдаун кнопок оператора (0.5 сек по диздоку)
     private const float ButtonCooldown = 0.5f;
@@ -116,6 +117,12 @@ public sealed partial class NCWeaponWorkbenchSystem : EntitySystem
         UpdateUserInterface(uid, component);
     }
 
+    private void SetState(EntityUid uid, NCWeaponWorkbenchComponent component, NCWeaponWorkbenchState state)
+    {
+        component.State = state;
+        _appearance.SetData(uid, NCWeaponWorkbenchVisuals.State, state);
+    }
+
     private void TryStartCycle(EntityUid uid, NCWeaponWorkbenchComponent component)
     {
         if (component.State != NCWeaponWorkbenchState.Idle)
@@ -137,7 +144,7 @@ public sealed partial class NCWeaponWorkbenchSystem : EntitySystem
         }
 
         // Сброс всех параметров мини-игры
-        component.State = NCWeaponWorkbenchState.Processing;
+        SetState(uid, component, NCWeaponWorkbenchState.Processing);
         component.Progress = 0f;
         component.Heat = 0.5f;
         component.Integrity = 0.5f;
@@ -280,7 +287,7 @@ public sealed partial class NCWeaponWorkbenchSystem : EntitySystem
 
     private void FailCrafting(EntityUid uid, NCWeaponWorkbenchComponent component)
     {
-        component.State = NCWeaponWorkbenchState.Failed;
+        SetState(uid, component, NCWeaponWorkbenchState.Failed);
         component.WarningMessage = "☠ CRITICAL FAILURE! SCRAP PRODUCED.";
 
         var materialContainer = (ContainerSlot) _container.GetContainer(uid, NCWeaponWorkbenchComponent.MaterialSlotId);
@@ -289,13 +296,13 @@ public sealed partial class NCWeaponWorkbenchSystem : EntitySystem
 
         Spawn("Wrench", Transform(uid).Coordinates); // Заглушка-мусор
 
-        component.State = NCWeaponWorkbenchState.Idle;
+        SetState(uid, component, NCWeaponWorkbenchState.Idle);
         UpdateUserInterface(uid, component);
     }
 
     private void SucceedCrafting(EntityUid uid, NCWeaponWorkbenchComponent component)
     {
-        component.State = NCWeaponWorkbenchState.Success;
+        SetState(uid, component, NCWeaponWorkbenchState.Success);
         component.WarningMessage = "✔ CRAFTING COMPLETE.";
 
         var materialContainer = (ContainerSlot) _container.GetContainer(uid, NCWeaponWorkbenchComponent.MaterialSlotId);
@@ -308,7 +315,7 @@ public sealed partial class NCWeaponWorkbenchSystem : EntitySystem
 
         Spawn(resultId, Transform(uid).Coordinates);
 
-        component.State = NCWeaponWorkbenchState.Idle;
+        SetState(uid, component, NCWeaponWorkbenchState.Idle);
         UpdateUserInterface(uid, component);
     }
 

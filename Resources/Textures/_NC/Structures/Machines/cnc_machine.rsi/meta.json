@@ -1,0 +1,79 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by Dr_alpha02 (discord)",
+  "size": {
+    "x": 64,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "base_broken"
+    },
+    {
+      "name": "base_construction"
+    },
+    {
+      "name": "base_construction_with_cables"
+    },
+    {
+      "name": "base_full_off"
+    },
+    {
+      "name": "base_power_connect_burnt"
+    },
+    {
+      "name": "base_power_connect_no_monitor"
+    },
+    {
+      "name": "base_power_connect_no_monitor_and_light"
+    },
+    {
+      "name": "base_power_connect_off"
+    },
+    {
+      "name": "base_power_connect_on"
+    },
+    {
+      "name": "base_power_connect_on_door_open"
+    },
+    {
+      "name": "base_power_connect_on_door_open_drill_broken"
+    },
+    {
+      "name": "base_power_connect_on_door_open_with_items"
+    },
+    {
+      "name": "base_power_connect_on_error"
+    },
+    {
+      "name": "base_power_connect_on_error_door_open"
+    },
+    {
+      "name": "anim1_smoke",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "anim1",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    }
+  ]
+}

@@ -6,18 +6,20 @@
   parent: BaseMachinePowered
   components:
     - type: Sprite
-      sprite: Structures/Machines/protolathe.rsi
+      sprite: _NC/Structures/Machines/cnc_machine.rsi
       snapCardinals: true
       layers:
-      - state: icon
-        map: ["enum.LatheVisualLayers.IsRunning"]
-      - state: unlit
-        shader: unshaded
-        map: ["enum.PowerDeviceVisualLayers.Powered"]
-      - state: inserting
-        map: ["enum.MaterialStorageVisualLayers.Inserting"]
-      - state: panel
-        map: ["enum.WiresVisualLayers.MaintenancePanel"]
+      - state: base_power_connect_on
+        map: ["enum.NCWeaponWorkbenchVisualLayers.Base"]
+    - type: Appearance
+    - type: GenericVisualizer
+      visuals:
+        enum.NCWeaponWorkbenchVisuals.State:
+          enum.NCWeaponWorkbenchVisualLayers.Base:
+            Idle: { state: base_power_connect_on }
+            Processing: { state: anim1 }
+            Success: { state: base_power_connect_on_door_open }
+            Failed: { state: base_power_connect_on_error }
     - type: NCWeaponWorkbench
     - type: UserInterface
       interfaces:

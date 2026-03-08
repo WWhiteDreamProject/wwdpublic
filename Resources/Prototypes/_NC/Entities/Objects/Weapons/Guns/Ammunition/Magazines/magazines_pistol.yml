@@ -15,7 +15,7 @@
       map: ["enum.GunVisualLayers.Mag"]
   - type: Tag
     tags:
-    - MagazinePistol
+    - MagazinePistolStukach
 
 - type: entity
   id: MagazinePistolOverlord
@@ -34,4 +34,73 @@
       map: ["enum.GunVisualLayers.Mag"]
   - type: Tag
     tags:
-    - MagazinePistol
+    - MagazinePistolOverlord
+
+- type: entity
+  id: MagazinePistolAvenger
+  name: магазин Militech "AVENGER" (.45)
+  description: Маленький магазин для тяжелого пистолета Militech "AVENGER". Вмещает 10 мощных патронов.
+  parent: BaseMagazinePistol
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 12
+    proto: CartridgeMagnum
+  - type: Sprite
+    layers:
+    - state: red
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Tag
+    tags:
+    - MagazinePistolAvenger
+
+- type: entity
+  id: MagazinePistolHelloCutie
+  name: magazine hello cutie (.35 auto)
+  parent: [ BaseItem, BaseRestrictedContraband ]
+  components:
+  - type: Tag
+    tags:
+    - MagazinePistolHelloCutie
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    proto: CartridgePistol
+    whitelist:
+      tags:
+      - CartridgePistol
+    capacity: 12
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _NC/Objects/Weapons/Guns/Pistol/hello_cutie.rsi
+    layers:
+    - state: hello-cutie
+      map: ["enum.GunVisualLayers.Base"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  id: MagazinePistolStreetMaster
+  name: магазин Dai Lung "StreetMaster" (.35)
+  description: Маленький магазин для тяжелого пистолета Militech "AVENGER". Вмещает 10 мощных патронов.
+  parent: BaseMagazinePistol
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 12
+    proto: CartridgeMagnum
+  - type: Sprite
+    layers:
+    - state: red
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Tag
+    tags:
+    - MagazinePistolStreetMaster

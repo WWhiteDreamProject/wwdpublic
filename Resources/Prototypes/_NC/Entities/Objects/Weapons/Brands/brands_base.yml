@@ -21,8 +21,8 @@
     durability: 40
     maxDurability: 40
     degradationRate: 3
-    jamChance: 0.35         # 35% шанс заклинить
-    unjamTime: 3           # 3 сек на извлечение патрона
+    jamChance: 0.2         # 20% шанс заклинить
+    unjamTime: 2           # 2 сек на извлечение патрона
     isRepairable: false
 
 # BudgetArms — «Пластиковый сюрприз»
@@ -41,6 +41,7 @@
     maxDurability: 35
     degradationRate: 2.5
     jamChance: 0.05
+    unjamTime: 1
     explodeChance: 0.1    # 10% шанс взрыва за выстрел (x3 при прочности <30%)
     isRepairable: false
     explodeSound:
@@ -66,6 +67,7 @@
     maxDurability: 45
     degradationRate: 2
     jamChance: 0.03
+    unjamTime: 1
     overheatHeat: 15        # Быстро набирает тепло
     overheatThreshold: 60   # Низкий порог перегрева
     cooldownRate: 3          # Медленно остывает
@@ -92,6 +94,7 @@
     maxDurability: 50
     degradationRate: 1.5
     jamChance: 0.04
+    unjamTime: 1
     spreadMultiplier: 2.5   # Разброс x2.5
     damageMultiplier: 0.5   # Урон x0.5
     isRepairable: false
@@ -112,6 +115,7 @@
     maxDurability: 30
     degradationRate: 2
     jamChance: 0.08
+    unjamTime: 1
     breakChance: 0.25      # 25% шанс рассыпаться за выстрел
     isRepairable: false
     breakSound:

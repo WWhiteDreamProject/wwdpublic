@@ -1,29 +1,29 @@
 - type: entity
-  name: Hello Cutie
-  parent: [BaseWeaponPistol, NCBrandSanroo]
-  id: WeaponPistolHelloCutie
-  description: A small, easily concealable, but somewhat underpowered gun, produced by a bulk arms manufacturer now defunct for over a century. Uses .35 auto ammo.
+  name: Militech "AVENGER"
+  parent: [BaseWeaponPistol, NCBrandMilitech]
+  id: WeaponPistolAvenger
+  description: 'Тяжелый армейский пистолет с квадратным силуэтом, ценящийся за эталонную надежность Militech и пробивную мощь калибра .45 в любых условиях «Четвертой корпоративной».'
   components:
   - type: Sprite
-    sprite: _NC/Objects/Weapons/Guns/Pistol/hello_cutie.rsi
+    sprite: _NC/Objects/Weapons/Guns/Pistol/militech_avenger.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
     - state: mag-0
       map: ["enum.GunVisualLayers.Mag"]
   - type: Clothing
-    sprite: _NC/Objects/Weapons/Guns/Pistol/hello_cutie.rsi
+    sprite: _NC/Objects/Weapons/Guns/Pistol/militech_avenger.rsi
   - type: ItemSlots
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: MagazinePistolHelloCutie
+        startingItem: MagazinePistolAvenger
         insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
         priority: 2
         whitelist:
           tags:
-            - MagazinePistolHelloCutie
+            - MagazinePistolAvenger
         whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
@@ -37,11 +37,10 @@
       gun_magazine: !type:ContainerSlot
       gun_chamber: !type:ContainerSlot
   - type: Gun
-    fireRate: 6
+    fireRate: 3
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
-    - FullAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/pistol.ogg
     fireOnDropChance: 0.3
@@ -49,9 +48,9 @@
 
 # Пустой вариант для лута
 - type: entity
-  name: Hello Cutie
-  parent: WeaponPistolHelloCutie
-  id: WeaponPistolHelloCutieEmpty
+  name: Militech "AVENGER"
+  parent: WeaponPistolAvenger
+  id: WeaponPistolAvengerEmpty
   suffix: Empty
   components:
   - type: ItemSlots
@@ -63,5 +62,4 @@
         ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
         whitelist:
           tags:
-          - MagazinePistolHelloCutie
-
+          - MagazinePistolAvenger

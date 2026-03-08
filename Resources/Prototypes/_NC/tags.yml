@@ -21,3 +21,19 @@
 - type: Tag
   id: MagazinePistolHelloCutie
   name: MagazinePistolHelloCutie
+
+- type: Tag
+  id: MagazinePistolOverlord
+  name: MagazinePistolOverlord
+
+- type: Tag
+  id: MagazinePistolAvenger
+  name: MagazinePistolAvenger
+
+- type: Tag
+  id: MagazinePistolStukachTommy
+  name: MagazinePistolStukachTommy
+
+- type: Tag
+  id: MagazinePistolStreetMaster
+  name: MagazinePistolStreetMaster

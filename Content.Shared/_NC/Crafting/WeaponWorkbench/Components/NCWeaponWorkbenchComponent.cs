@@ -16,6 +16,18 @@ public enum NCWeaponWorkbenchState : byte
     Failed      // Фатальная ошибка, получен мусор
 }
 
+[Serializable, NetSerializable]
+public enum NCWeaponWorkbenchVisuals : byte
+{
+    State
+}
+
+[Serializable, NetSerializable]
+public enum NCWeaponWorkbenchVisualLayers : byte
+{
+    Base
+}
+
 /// <summary>
 /// Компонент высокотехнологичного верстака (ЧПУ-станка), для которого
 /// требуется мини-игра активной калибровки.
