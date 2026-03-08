@@ -1,0 +1,10 @@
+- type: reagent
+  id: Gunpowder
+  name: Порох
+  group: Elements
+  desc: Взрывчатое вещество для патронов.
+  physicalDesc: Серый порошок.
+  color: "#404040"
+  tileReactions:
+  - !type:SpillToStackReaction
+    entity: MaterialGunpowder

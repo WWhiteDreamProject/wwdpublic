@@ -138,6 +138,7 @@
 - type: material
   id: Gunpowder
   name: materials-gunpowder
+  stackEntity: MaterialGunpowder
   unit: materials-unit-piece
   icon: { sprite: Objects/Misc/reagent_fillings.rsi, state: powderpile }
   color: "#A9A9A9"

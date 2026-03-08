@@ -1,0 +1,90 @@
+# _NC: Материалы для боеприпасов — пуля и гильза
+# Делаются из стали, используются в упаковщике/латэ для крафта патронов.
+
+# ==========================================
+# Прототипы материалов (Material)
+# ==========================================
+
+- type: material
+  id: NCBulletTipMat
+  name: пуля
+  stackEntity: NCMaterialBulletTip
+  unit: materials-unit-piece
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi, state: tip }
+  color: "#C0C0C0"
+  price: 0
+
+- type: material
+  id: NCCasingMat
+  name: гильза
+  stackEntity: NCMaterialCasing
+  unit: materials-unit-piece
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi, state: base }
+  color: "#D4A520"
+  price: 0
+
+# ==========================================
+# Прототипы стаков (Stack)
+# ==========================================
+
+- type: stack
+  id: NCBulletTip
+  name: пуля
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi, state: tip }
+  spawn: NCMaterialBulletTip
+  maxCount: 30
+
+- type: stack
+  id: NCCasing
+  name: гильза
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi, state: base }
+  spawn: NCMaterialCasing
+  maxCount: 30
+
+# ==========================================
+# Энтити материалов (Entity)
+# ==========================================
+
+- type: entity
+  parent: MaterialBase
+  id: NCMaterialBulletTip
+  name: пуля
+  description: Стальной наконечник для снаряжения патронов.
+  components:
+  - type: Material
+  - type: Stack
+    stackType: NCBulletTip
+    count: 1
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
+    state: tip
+  - type: PhysicalComposition
+    materialComposition:
+      NCBulletTipMat: 100
+  - type: Item
+    size: Tiny
+  - type: Tag
+    tags:
+    - RawMaterial
+
+- type: entity
+  parent: MaterialBase
+  id: NCMaterialCasing
+  name: гильза
+  description: Стальная гильза для снаряжения патронов.
+  components:
+  - type: Material
+  - type: Stack
+    stackType: NCCasing
+    count: 1
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
+    state: base
+  - type: PhysicalComposition
+    materialComposition:
+      NCCasingMat: 100
+  - type: Item
+    size: Tiny
+  - type: Tag
+    tags:
+    - RawMaterial

@@ -1,0 +1,12 @@
+- type: reaction
+  id: GunpowderNC
+  name: Порох
+  reactants:
+    Potassium:
+      amount: 1
+    Carbon:
+      amount: 1
+    Sulfur:
+      amount: 1
+  products:
+    Gunpowder: 3
