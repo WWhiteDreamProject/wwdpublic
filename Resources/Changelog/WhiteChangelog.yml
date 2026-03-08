@@ -5127,3 +5127,16 @@ Entries:
   id: 537
   time: '2026-03-07T21:22:20.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1056
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: >-
+        Корабельные турели удаленного контроля теперь имеют расширенный обзор и
+        способность прицеливаться
+    - type: Fix
+      message: Исправлен интерфейс сканера масс
+    - type: Fix
+      message: Псевдо 3д текстуры теперь не ломают реплеи
+  id: 538
+  time: '2026-03-08T13:24:54.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1080
