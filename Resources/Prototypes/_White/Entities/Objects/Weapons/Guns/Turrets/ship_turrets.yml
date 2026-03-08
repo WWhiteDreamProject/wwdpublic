@@ -132,7 +132,7 @@
 
 
 - type: entity
-  parent: [ BaseWeaponTurretShip, InnateMassScanner150 ]
+  parent: BaseWeaponTurretShip
   id: WeaponTurretShipLight
   suffix: Naval, Remote Controlled
   name: small weapon mount
@@ -155,5 +155,21 @@
   - type: UpgradeBattery
     maxChargeMultiplier: 3
     baseMaxCharge: 10000
+  - type: IntrinsicUI
+    uis:
+      enum.RadarConsoleUiKey.Key:
+        toggleAction: ActionAGhostShowRadar
+  - type: UserInterface
+    interfaces:
+      enum.RadarConsoleUiKey.Key:
+        type: RadarConsoleBoundUserInterface
   - type: RadarConsole
+    fieldOfView: 150
     maxRange: 448
+    followEntity: true
+  - type: ContentEye
+    targetZoom: 2, 2
+    maxZoom: 2, 2
+  - type: EyeCursorOffset
+    maxOffset: 15
+    pvsIncrease: 1.5

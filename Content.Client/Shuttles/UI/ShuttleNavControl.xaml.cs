@@ -135,7 +135,7 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
 
         _docks = state.Docks;
 
-        FieldOfView = state.FieldOfView; // WD EDIT
+        FieldOfView = (float) state.FieldOfView.Theta; // WD EDIT
 
         NfUpdateState(state); // Frontier Update State
     }
@@ -204,8 +204,6 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
         _grids.Clear();
         _mapManager.FindGridsIntersecting(xform.MapID, new Box2(mapPos.Position - MaxRadarRangeVector, mapPos.Position + MaxRadarRangeVector), ref _grids, approx: true, includeMap: false);
 
-        List<(Vector2, string, Color)> IFFLabels = new(); // WD EDIT
-
         // Draw other grids... differently
         foreach (var grid in _grids)
         {
@@ -239,7 +237,7 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
             {
                 var gridBounds = grid.Comp.LocalAABB;
 
-                var distance = gridCentre.Length();
+                var distance = (gridBody.LocalCenter - xform.LocalPosition).Length(); // WD EDIT
                 var labelText = Loc.GetString("shuttle-console-iff-label", ("name", labelName),
                     ("distance", $"{distance:0.0}"));
 
@@ -283,8 +281,6 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
                 {
                     handle.DrawString(Font, coordUiPosition, coordsText, 0.7f, coordColor);
                 }
-
-                IFFLabels.Add((coordUiPosition, labelText, labelColor)); // WD EDIT
             }
 
             // Detailed view
@@ -377,12 +373,6 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
             }
             handle.DrawPrimitives(DrawPrimitiveTopology.TriangleFan, hidesey, new Color(0.08f, 0.02f, 0.08f));
         }
-
-        foreach(var (uiPos, label, color) in IFFLabels)
-        {
-            handle.DrawString(Font, uiPos, label, color);
-        }
-        DrawCircles(handle);
         // WD EDIT END
     }
 
