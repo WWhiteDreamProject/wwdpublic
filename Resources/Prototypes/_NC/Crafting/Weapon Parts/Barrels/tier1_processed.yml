@@ -1,0 +1,11 @@
+- type: entity
+  id: NCProcessedBarrelT1
+  name: гладкоствольная трубка (Т1)
+  description: Выточенный на ЧПУ-станке гладкий ствол. Т1.
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: Objects/Tools/wrench.rsi
+      state: icon
+    - type: NCWeaponPart
+      partType: Barrel

@@ -1,0 +1,20 @@
+- type: entity
+  id: NCBlankInternalsEM
+  name: электромагнитный компенсатор
+  description: Магнитная система гашения отдачи. Т3.
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: Objects/Tools/wrench.rsi
+      state: icon
+    - type: NCWeaponBlank
+      safeZoneHalf: 0.10
+      toleranceTime: 1.2
+      progressSpeed: 0.033
+      enableSystemLock: true
+      resultEntity: NCProcessedInternalsT3
+      anomalies:
+        0.25: AlignmentShift
+        0.45: DoubleTrouble
+        0.70: SystemLock
+        0.85: HeatSpike

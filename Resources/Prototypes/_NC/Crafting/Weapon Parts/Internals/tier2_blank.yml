@@ -1,0 +1,20 @@
+# ==========================================
+# ЭЛЕКТРОНИКА (ELECTRONICS)
+# ==========================================
+- type: entity
+  id: NCBlankElectronicsCircuit
+  name: базовая текстолитовая плата
+  description: Пустая плата, требующая микропайки на ЧПУ. Т2.
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: Objects/Tools/wrench.rsi
+      state: icon
+    - type: NCWeaponBlank
+      safeZoneHalf: 0.12
+      toleranceTime: 1.5
+      progressSpeed: 0.04
+      resultEntity: NCProcessedElectronicsT2
+      anomalies:
+        0.30: HeatSpike
+        0.70: IntegrityDrop

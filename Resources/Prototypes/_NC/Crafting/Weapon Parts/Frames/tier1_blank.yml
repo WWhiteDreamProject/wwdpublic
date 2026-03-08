@@ -1,0 +1,20 @@
+# ==========================================
+# КАРКАСЫ И РАМКИ (FRAMES)
+# ==========================================
+- type: entity
+  id: NCBlankFramePlastic
+  name: штампованный полимер
+  description: Дешевая пластиковая форма, легко плавится при ошибке на станке. Т1.
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: Objects/Tools/wrench.rsi
+      state: icon
+    - type: NCWeaponBlank
+      safeZoneHalf: 0.20
+      toleranceTime: 2.5
+      progressSpeed: 0.05
+      resultEntity: NCProcessedFrameT1
+      anomalies:
+        0.40: HeatSpike
+        0.80: IntegrityDrop

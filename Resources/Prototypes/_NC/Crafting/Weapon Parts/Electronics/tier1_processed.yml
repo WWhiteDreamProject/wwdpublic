@@ -1,0 +1,11 @@
+- type: entity
+  id: NCProcessedInternalsT1
+  name: примитивный УСМ (Т1)
+  description: Простой ударно-спусковой механизм для самопала. Т1.
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: Objects/Tools/wrench.rsi
+      state: icon
+    - type: NCWeaponPart
+      partType: Internals

@@ -1,0 +1,20 @@
+- type: entity
+  id: NCBlankFrameCarbon
+  name: карбон-полимерная матрица
+  description: Сверхлегкий и прочный композитный материал. Т3.
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: Objects/Tools/wrench.rsi
+      state: icon
+    - type: NCWeaponBlank
+      safeZoneHalf: 0.075
+      toleranceTime: 1.0
+      progressSpeed: 0.033
+      enableSystemLock: true
+      resultEntity: NCProcessedFrameT3
+      anomalies:
+        0.20: HeatSpike
+        0.40: DoubleTrouble
+        0.65: SystemLock
+        0.85: IntegrityDrop

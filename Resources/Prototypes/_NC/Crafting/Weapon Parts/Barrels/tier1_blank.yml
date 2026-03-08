@@ -1,0 +1,21 @@
+# ==========================================
+# 1. СТВОЛЬНЫЕ ГРУППЫ (BARRELS)
+# ==========================================
+
+- type: entity
+  id: NCBlankBarrelPipe
+  name: трубная заготовка
+  description: Грубый кусок дешевой стали. Выглядит как кусок водопроводной трубы. Т1.
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: Objects/Tools/wrench.rsi
+      state: icon
+    - type: NCWeaponBlank
+      safeZoneHalf: 0.25
+      toleranceTime: 3.0
+      progressSpeed: 0.05
+      resultEntity: NCProcessedBarrelT1
+      anomalies:
+        0.30: IntegrityDrop
+        0.70: HeatSpike

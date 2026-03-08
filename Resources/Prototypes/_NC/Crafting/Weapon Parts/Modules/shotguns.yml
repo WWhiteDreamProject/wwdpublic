@@ -1,0 +1,31 @@
+# ============================
+# Чертежи Дробовиков (Shotguns)
+# ============================
+
+# Сваха (Tier 1)
+- type: entity
+  id: NCBlueprintSvakha
+  name: чертеж "Сваха"
+  description: Диск с инструкциями по сборке и физический каркас под детали для дробовика Сваха.
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: Objects/Tools/blueprint.rsi
+      state: icon
+    - type: NCBlueprint
+      resultEntity: WeaponShotgunSvakha
+      garbageEntity: Scrap
+      steps:
+        - part: Frame
+          prototype: NCProcessedFrameT1
+          doAfterTime: 2.0
+        - part: Barrel
+          prototype: NCProcessedBarrelT1
+          doAfterTime: 2.5
+        - tool: Screwing
+          doAfterTime: 3.5
+        - part: Internals
+          prototype: NCProcessedInternalsT1
+          doAfterTime: 3.0
+        - tool: Screwing
+          doAfterTime: 2.5

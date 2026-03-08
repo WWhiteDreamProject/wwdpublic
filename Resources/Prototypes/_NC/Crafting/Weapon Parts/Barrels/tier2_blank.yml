@@ -1,0 +1,18 @@
+- type: entity
+  id: NCBlankBarrelAlloy
+  name: сплавная болванка
+  description: Тяжелый цилиндр из оружейной стали корпоративного стандарта. Т2.
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: Objects/Tools/wrench.rsi
+      state: icon
+    - type: NCWeaponBlank
+      safeZoneHalf: 0.15
+      toleranceTime: 1.5
+      progressSpeed: 0.045
+      resultEntity: NCProcessedBarrelT2
+      anomalies:
+        0.20: IntegrityDrop
+        0.50: HeatSpike
+        0.85: DoubleTrouble

@@ -1,0 +1,11 @@
+- type: entity
+  id: NCProcessedFrameT2
+  name: корпоративная ствольная коробка (Т2)
+  description: Надежная металлическая рамка корпоративного стандарта. Т2.
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: Objects/Tools/wrench.rsi
+      state: icon
+    - type: NCWeaponPart
+      partType: Frame
