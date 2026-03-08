@@ -1,24 +1,40 @@
+- type: latheRecipePack
+  id: NCDebugAll
+  recipes:
+  - NCBlankBarrelPipe
+  - NCBlankBarrelAlloy
+  - NCBlankBarrelTungsten
+  - NCBlankFramePlastic
+  - NCBlankFrameMilled
+  - NCBlankFrameCarbon
+  - NCBlankInternalsScrap
+  - NCBlankInternalsBolt
+  - NCBlankInternalsEM
+  - NCBlankElectronicsCircuit
+  - NCBlankElectronicsNeuro
+
+
 # ==========================================
 # РЕЦЕПТЫ ПРИНТЕРА (BLANK RECIPES)
 # ==========================================
 
 # Стволы
 - type: latheRecipe
-  id: NCRRecipeBlankBarrelPipe
+  id: NCBlankBarrelPipe
   result: NCBlankBarrelPipe
   comms: true
   materials:
     Metal: 500
 
 - type: latheRecipe
-  id: NCRRecipeBlankBarrelAlloy
+  id: NCBlankBarrelAlloy
   result: NCBlankBarrelAlloy
   comms: true
   materials:
     Plasteel: 750
 
 - type: latheRecipe
-  id: NCRRecipeBlankBarrelTungsten
+  id: NCBlankBarrelTungsten
   result: NCBlankBarrelTungsten
   comms: true
   materials:
@@ -27,14 +43,14 @@
 
 # Рамки
 - type: latheRecipe
-  id: NCRRecipeBlankFramePlastic
+  id: NCBlankFramePlastic
   result: NCBlankFramePlastic
   comms: true
   materials:
     Plastic: 1500
 
 - type: latheRecipe
-  id: NCRRecipeBlankFrameMilled
+  id: NCBlankFrameMilled
   result: NCBlankFrameMilled
   comms: true
   materials:
@@ -42,7 +58,7 @@
     Plastic: 500
 
 - type: latheRecipe
-  id: NCRRecipeBlankFrameCarbon
+  id: NCBlankFrameCarbon
   result: NCBlankFrameCarbon
   comms: true
   materials:
@@ -52,14 +68,14 @@
 
 # Механизмы
 - type: latheRecipe
-  id: NCRRecipeBlankInternalsScrap
+  id: NCBlankInternalsScrap
   result: NCBlankInternalsScrap
   comms: true
   materials:
     Metal: 300
 
 - type: latheRecipe
-  id: NCRRecipeBlankInternalsBolt
+  id: NCBlankInternalsBolt
   result: NCBlankInternalsBolt
   comms: true
   materials:
@@ -67,7 +83,7 @@
     Plasteel: 500
 
 - type: latheRecipe
-  id: NCRRecipeBlankInternalsEM
+  id: NCBlankInternalsEM
   result: NCBlankInternalsEM
   comms: true
   materials:
@@ -76,7 +92,7 @@
 
 # Электроника
 - type: latheRecipe
-  id: NCRRecipeBlankElectronicsCircuit
+  id: NCBlankElectronicsCircuit
   result: NCBlankElectronicsCircuit
   comms: true
   materials:
@@ -84,7 +100,7 @@
     Metal: 200
 
 - type: latheRecipe
-  id: NCRRecipeBlankElectronicsNeuro
+  id: NCBlankElectronicsNeuro
   result: NCBlankElectronicsNeuro
   comms: true
   materials:

@@ -1,20 +1,21 @@
 - type: entity
-  id: NCBlankInternalsEM
-  name: электромагнитный компенсатор
-  description: Магнитная система гашения отдачи. Т3.
+  id: NCBlankElectronicsNeuro
+  name: чистая нейро-плата
+  description: Высокотехнологичный чип, способный соединяться с нейропортом. Т3.
   parent: BaseItem
   components:
     - type: Sprite
       sprite: Objects/Tools/wrench.rsi
       state: icon
     - type: NCWeaponBlank
-      safeZoneHalf: 0.10
-      toleranceTime: 1.2
-      progressSpeed: 0.033
+      safeZoneHalf: 0.06
+      toleranceTime: 0.8
+      progressSpeed: 0.025
       enableSystemLock: true
-      resultEntity: NCProcessedInternalsT3
+      resultEntity: NCProcessedElectronicsT3
       anomalies:
-        0.25: AlignmentShift
-        0.45: DoubleTrouble
-        0.70: SystemLock
-        0.85: HeatSpike
+        0.20: AlignmentRight
+        0.40: DoubleTrouble
+        0.60: AlignmentLeft
+        0.80: DoubleTrouble
+        0.95: HeatSpike

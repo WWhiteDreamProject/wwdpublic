@@ -1,11 +1,11 @@
 - type: entity
-  id: NCProcessedInternalsT2
-  name: затворная группа военого стандарта (Т2)
-  description: Высокоточный затворный механизм военного образца. Т2.
+  id: NCProcessedElectronicsT2
+  name: контроллер боепитания (Т2)
+  description: Электронный чип управления подачей и оптикой. Т2.
   parent: BaseItem
   components:
     - type: Sprite
       sprite: Objects/Tools/wrench.rsi
       state: icon
     - type: NCWeaponPart
-      partType: Internals
+      partType: Board

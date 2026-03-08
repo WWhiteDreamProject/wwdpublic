@@ -1,12 +1,11 @@
-
 - type: entity
-  id: NCProcessedElectronicsT3
-  name: смарт-модуль наведения (Т3)
-  description: Нейро-интерфейс для системы Смарт-линк. Т3.
+  id: NCProcessedInternalsT3
+  name: микрогидравлическая система отдачи (Т3)
+  description: Совершенная система стабилизации для высокотехнологичного оружия. Т3.
   parent: BaseItem
   components:
     - type: Sprite
       sprite: Objects/Tools/wrench.rsi
       state: icon
     - type: NCWeaponPart
-      partType: Board
+      partType: Internals

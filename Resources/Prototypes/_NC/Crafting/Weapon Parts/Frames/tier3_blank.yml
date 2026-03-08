@@ -16,5 +16,5 @@
       anomalies:
         0.20: HeatSpike
         0.40: DoubleTrouble
-        0.65: SystemLock
+        0.65: AlignmentRight
         0.85: IntegrityDrop

@@ -1,20 +1,18 @@
-# ==========================================
-# ЭЛЕКТРОНИКА (ELECTRONICS)
-# ==========================================
 - type: entity
-  id: NCBlankElectronicsCircuit
-  name: базовая текстолитовая плата
-  description: Пустая плата, требующая микропайки на ЧПУ. Т2.
+  id: NCBlankInternalsBolt
+  name: неоткалиброванный затвор
+  description: Сложный механический узел, требующий точной подгонки на станке. Т2.
   parent: BaseItem
   components:
     - type: Sprite
       sprite: Objects/Tools/wrench.rsi
       state: icon
     - type: NCWeaponBlank
-      safeZoneHalf: 0.12
+      safeZoneHalf: 0.15
       toleranceTime: 1.5
       progressSpeed: 0.04
-      resultEntity: NCProcessedElectronicsT2
+      resultEntity: NCProcessedInternalsT2
       anomalies:
-        0.30: HeatSpike
-        0.70: IntegrityDrop
+        0.30: AlignmentLeft
+        0.60: HeatSpike
+        0.90: IntegrityDrop
