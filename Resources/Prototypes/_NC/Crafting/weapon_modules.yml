@@ -1,0 +1,38 @@
+# ============================
+# Чертежи для сборки
+# ============================
+
+# Чертеж АК-образного карабина (Тестовый)
+- type: entity
+  id: NCBlueprintTestAk
+  name: чертеж "Карабин Улицы"
+  description: Диск с инструкциями по сборке и физический каркас под детали. При неверной сборке самоуничтожится.
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: Objects/Tools/wrench.rsi
+      state: icon
+    - type: NCBlueprint
+      resultEntity: WeaponRifleAk
+      garbageEntity: Wrench
+      steps:
+        - part: Frame
+          doAfterTime: 2.0
+          sound:
+            path: /Audio/Items/handling_gun.ogg
+        - part: Barrel
+          doAfterTime: 2.0
+          sound:
+            path: /Audio/Weapons/Guns/MagIn/smg_magin.ogg
+        - tool: Screwing
+          doAfterTime: 3.0
+          sound:
+            path: /Audio/Items/screwdriver2.ogg
+        - part: Board
+          doAfterTime: 1.5
+          sound:
+            path: /Audio/Machines/button.ogg
+        - tool: Pulsing
+          doAfterTime: 2.5
+          sound:
+            path: /Audio/Items/multitool.ogg

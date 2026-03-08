@@ -1,0 +1,93 @@
+# ==========================================
+# РЕЦЕПТЫ ПРИНТЕРА (BLANK RECIPES)
+# ==========================================
+
+# Стволы
+- type: latheRecipe
+  id: NCRRecipeBlankBarrelPipe
+  result: NCBlankBarrelPipe
+  comms: true
+  materials:
+    Metal: 500
+
+- type: latheRecipe
+  id: NCRRecipeBlankBarrelAlloy
+  result: NCBlankBarrelAlloy
+  comms: true
+  materials:
+    Plasteel: 750
+
+- type: latheRecipe
+  id: NCRRecipeBlankBarrelTungsten
+  result: NCBlankBarrelTungsten
+  comms: true
+  materials:
+    Plasteel: 1000
+    Uranium: 200
+
+# Рамки
+- type: latheRecipe
+  id: NCRRecipeBlankFramePlastic
+  result: NCBlankFramePlastic
+  comms: true
+  materials:
+    Plastic: 1500
+
+- type: latheRecipe
+  id: NCRRecipeBlankFrameMilled
+  result: NCBlankFrameMilled
+  comms: true
+  materials:
+    Metal: 1000
+    Plastic: 500
+
+- type: latheRecipe
+  id: NCRRecipeBlankFrameCarbon
+  result: NCBlankFrameCarbon
+  comms: true
+  materials:
+    Plasteel: 1000
+    Glass: 500
+    Plastic: 500
+
+# Механизмы
+- type: latheRecipe
+  id: NCRRecipeBlankInternalsScrap
+  result: NCBlankInternalsScrap
+  comms: true
+  materials:
+    Metal: 300
+
+- type: latheRecipe
+  id: NCRRecipeBlankInternalsBolt
+  result: NCBlankInternalsBolt
+  comms: true
+  materials:
+    Metal: 500
+    Plasteel: 500
+
+- type: latheRecipe
+  id: NCRRecipeBlankInternalsEM
+  result: NCBlankInternalsEM
+  comms: true
+  materials:
+    Plasteel: 1000
+    Gold: 100
+
+# Электроника
+- type: latheRecipe
+  id: NCRRecipeBlankElectronicsCircuit
+  result: NCBlankElectronicsCircuit
+  comms: true
+  materials:
+    Glass: 500
+    Metal: 200
+
+- type: latheRecipe
+  id: NCRRecipeBlankElectronicsNeuro
+  result: NCBlankElectronicsNeuro
+  comms: true
+  materials:
+    Glass: 1000
+    Gold: 200
+    Plastic: 300

@@ -1,0 +1,372 @@
+# ==========================================
+# 1. СТВОЛЬНЫЕ ГРУППЫ (BARRELS)
+# ==========================================
+
+# Тир 1: Трубная заготовка
+- type: entity
+  id: NCBlankBarrelPipe
+  name: трубная заготовка
+  description: Грубый кусок дешевой стали. Выглядит как кусок водопроводной трубы. Т1.
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: Objects/Tools/wrench.rsi
+      state: icon
+    - type: NCWeaponBlank
+      safeZoneHalf: 0.25
+      toleranceTime: 3.0
+      progressSpeed: 0.05
+      resultEntity: NCProcessedBarrelT1
+      anomalies:
+        0.30: IntegrityDrop
+        0.70: HeatSpike
+
+- type: entity
+  id: NCProcessedBarrelT1
+  name: гладкоствольная трубка (Т1)
+  description: Выточенный на ЧПУ-станке гладкий ствол. Т1.
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: Objects/Tools/wrench.rsi
+      state: icon
+    - type: NCWeaponPart
+      partType: Barrel
+
+# Тир 2: Сплавная болванка
+- type: entity
+  id: NCBlankBarrelAlloy
+  name: сплавная болванка
+  description: Тяжелый цилиндр из оружейной стали корпоративного стандарта. Т2.
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: Objects/Tools/wrench.rsi
+      state: icon
+    - type: NCWeaponBlank
+      safeZoneHalf: 0.15
+      toleranceTime: 1.5
+      progressSpeed: 0.045
+      resultEntity: NCProcessedBarrelT2
+      anomalies:
+        0.20: IntegrityDrop
+        0.50: HeatSpike
+        0.85: DoubleTrouble
+
+- type: entity
+  id: NCProcessedBarrelT2
+  name: стандартный нарезной ствол (Т2)
+  description: Качественный нарезной ствол военного образца. Т2.
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: Objects/Tools/wrench.rsi
+      state: icon
+    - type: NCWeaponPart
+      partType: Barrel
+
+# Тир 3: Вольфрамовый стержень
+- type: entity
+  id: NCBlankBarrelTungsten
+  name: вольфрамовый стержень
+  description: Увесистый тугоплавкий стержень, требующий лазерной фрезеровки. Т3.
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: Objects/Tools/wrench.rsi
+      state: icon
+    - type: NCWeaponBlank
+      safeZoneHalf: 0.075
+      toleranceTime: 1.0
+      progressSpeed: 0.035
+      enableSystemLock: true
+      resultEntity: NCProcessedBarrelT3
+      anomalies:
+        0.15: IntegrityDrop
+        0.35: HeatSpike
+        0.55: DoubleTrouble
+        0.75: SystemLock
+        0.90: DoubleTrouble
+
+- type: entity
+  id: NCProcessedBarrelT3
+  name: ствол с магнитной стабилизацией (Т3)
+  description: Смарт-ствол с интегрированными магнитами стабилизации пули. Т3.
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: Objects/Tools/wrench.rsi
+      state: icon
+    - type: NCWeaponPart
+      partType: Barrel
+
+# ==========================================
+# 2. КАРКАСЫ И РАМКИ (FRAMES)
+# ==========================================
+
+# Тир 1: Штампованный полимер
+- type: entity
+  id: NCBlankFramePlastic
+  name: штампованный полимер
+  description: Дешевая пластиковая форма, легко плавится при ошибке на станке. Т1.
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: Objects/Tools/wrench.rsi
+      state: icon
+    - type: NCWeaponBlank
+      safeZoneHalf: 0.20
+      toleranceTime: 2.5
+      progressSpeed: 0.05
+      resultEntity: NCProcessedFrameT1
+      anomalies:
+        0.40: HeatSpike
+        0.80: IntegrityDrop
+
+- type: entity
+  id: NCProcessedFrameT1
+  name: рамка кустарного оружия (Т1)
+  description: Грубая пластиковая рамка для дешевого огнестрела. Т1.
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: Objects/Tools/wrench.rsi
+      state: icon
+    - type: NCWeaponPart
+      partType: Frame
+
+# Тир 2: Фрезерованный блок
+- type: entity
+  id: NCBlankFrameMilled
+  name: фрезерованный блок
+  description: Цельный кусок металла, из которого станок вытачивает ствольную коробку. Т2.
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: Objects/Tools/wrench.rsi
+      state: icon
+    - type: NCWeaponBlank
+      safeZoneHalf: 0.12
+      toleranceTime: 1.5
+      progressSpeed: 0.04
+      resultEntity: NCProcessedFrameT2
+      anomalies:
+        0.25: IntegrityDrop
+        0.55: HeatSpike
+        0.85: DoubleTrouble
+
+- type: entity
+  id: NCProcessedFrameT2
+  name: корпоративная ствольная коробка (Т2)
+  description: Надежная металлическая рамка корпоративного стандарта. Т2.
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: Objects/Tools/wrench.rsi
+      state: icon
+    - type: NCWeaponPart
+      partType: Frame
+
+# Тир 3: Карбон-полимерная матрица
+- type: entity
+  id: NCBlankFrameCarbon
+  name: карбон-полимерная матрица
+  description: Сверхлегкий и прочный композитный материал. Т3.
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: Objects/Tools/wrench.rsi
+      state: icon
+    - type: NCWeaponBlank
+      safeZoneHalf: 0.075
+      toleranceTime: 1.0
+      progressSpeed: 0.033
+      enableSystemLock: true
+      resultEntity: NCProcessedFrameT3
+      anomalies:
+        0.20: HeatSpike
+        0.40: DoubleTrouble
+        0.65: SystemLock
+        0.85: IntegrityDrop
+
+- type: entity
+  id: NCProcessedFrameT3
+  name: эргономичный смарт-каркас (Т3)
+  description: Композитный каркас со встроенными сенсорами и нейроинтерфейсом. Т3.
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: Objects/Tools/wrench.rsi
+      state: icon
+    - type: NCWeaponPart
+      partType: Frame
+
+# ==========================================
+# 3. МЕХАНИЗМЫ И ЗАТВОРЫ (INTERNALS)
+# ==========================================
+
+# Тир 1: Набор пружин и штифтов
+- type: entity
+  id: NCBlankInternalsScrap
+  name: набор пружин и штифтов
+  description: Горсть грубых пружин и бойков. Т1.
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: Objects/Tools/wrench.rsi
+      state: icon
+    - type: NCWeaponBlank
+      safeZoneHalf: 0.25
+      toleranceTime: 3.0
+      progressSpeed: 0.06
+      resultEntity: NCProcessedInternalsT1
+      anomalies:
+        0.50: AlignmentShift
+
+- type: entity
+  id: NCProcessedInternalsT1
+  name: примитивный УСМ (Т1)
+  description: Простой ударно-спусковой механизм для самопала. Т1.
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: Objects/Tools/wrench.rsi
+      state: icon
+    - type: NCWeaponPart
+      partType: Internals
+
+# Тир 2: Неоткалиброванный затвор
+- type: entity
+  id: NCBlankInternalsBolt
+  name: неоткалиброванный затвор
+  description: Сложный механический узел, требующий точной подгонки на станке. Т2.
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: Objects/Tools/wrench.rsi
+      state: icon
+    - type: NCWeaponBlank
+      safeZoneHalf: 0.15
+      toleranceTime: 1.5
+      progressSpeed: 0.04
+      resultEntity: NCProcessedInternalsT2
+      anomalies:
+        0.30: AlignmentShift
+        0.60: HeatSpike
+        0.90: IntegrityDrop
+
+- type: entity
+  id: NCProcessedInternalsT2
+  name: затворная группа военого стандарта (Т2)
+  description: Высокоточный затворный механизм военного образца. Т2.
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: Objects/Tools/wrench.rsi
+      state: icon
+    - type: NCWeaponPart
+      partType: Internals
+
+# Тир 3: Электромагнитный компенсатор
+- type: entity
+  id: NCBlankInternalsEM
+  name: электромагнитный компенсатор
+  description: Магнитная система гашения отдачи. Т3.
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: Objects/Tools/wrench.rsi
+      state: icon
+    - type: NCWeaponBlank
+      safeZoneHalf: 0.10
+      toleranceTime: 1.2
+      progressSpeed: 0.033
+      enableSystemLock: true
+      resultEntity: NCProcessedInternalsT3
+      anomalies:
+        0.25: AlignmentShift
+        0.45: DoubleTrouble
+        0.70: SystemLock
+        0.85: HeatSpike
+
+- type: entity
+  id: NCProcessedInternalsT3
+  name: микрогидравлическая система отдачи (Т3)
+  description: Совершенная система стабилизации для высокотехнологичного оружия. Т3.
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: Objects/Tools/wrench.rsi
+      state: icon
+    - type: NCWeaponPart
+      partType: Internals
+
+# ==========================================
+# 4. ЭЛЕКТРОНИКА (ELECTRONICS)
+# ==========================================
+
+# Тир 2: Базовая плата (Текстолит)
+- type: entity
+  id: NCBlankElectronicsCircuit
+  name: базовая текстолитовая плата
+  description: Пустая плата, требующая микропайки на ЧПУ. Т2.
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: Objects/Tools/wrench.rsi
+      state: icon
+    - type: NCWeaponBlank
+      safeZoneHalf: 0.12
+      toleranceTime: 1.5
+      progressSpeed: 0.04
+      resultEntity: NCProcessedElectronicsT2
+      anomalies:
+        0.30: HeatSpike
+        0.70: IntegrityDrop
+
+- type: entity
+  id: NCProcessedElectronicsT2
+  name: контроллер боепитания (Т2)
+  description: Электронный чип управления подачей и оптикой. Т2.
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: Objects/Tools/wrench.rsi
+      state: icon
+    - type: NCWeaponPart
+      partType: Board
+
+# Тир 3: Чистая нейро-плата
+- type: entity
+  id: NCBlankElectronicsNeuro
+  name: чистая нейро-плата
+  description: Высокотехнологичный чип, способный соединяться с нейропортом. Т3.
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: Objects/Tools/wrench.rsi
+      state: icon
+    - type: NCWeaponBlank
+      safeZoneHalf: 0.06
+      toleranceTime: 0.8
+      progressSpeed: 0.025
+      enableSystemLock: true
+      resultEntity: NCProcessedElectronicsT3
+      anomalies:
+        0.20: AlignmentShift
+        0.40: DoubleTrouble
+        0.60: SystemLock
+        0.80: DoubleTrouble
+        0.95: HeatSpike
+
+- type: entity
+  id: NCProcessedElectronicsT3
+  name: смарт-модуль наведения (Т3)
+  description: Нейро-интерфейс для системы Смарт-линк. Т3.
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: Objects/Tools/wrench.rsi
+      state: icon
+    - type: NCWeaponPart
+      partType: Board
