@@ -23,3 +23,16 @@
     color: "#05DAF2"
   - type: AccessReader
     access: [["Captain"]]
+
+- type: entity
+  parent: VendingMachineTankDispenserEVA
+  id: VendingMachineTankDispenserEVAEmergency
+  suffix: EVA [O2, N2, Emergency]
+  name: emergency gas tank dispenser
+  description: A vendor for dispensing emergency gas tanks.
+  components:
+  - type: VendingMachine
+    pack: TankDispenserEVAInventoryEmergency
+  - type: Sprite
+    sprite: Structures/Machines/VendingMachines/tankdispenser.rsi
+    state: dispenser
