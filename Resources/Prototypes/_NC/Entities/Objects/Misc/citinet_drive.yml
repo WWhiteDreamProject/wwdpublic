@@ -1,0 +1,16 @@
+- type: entity
+  id: NCBlankDrive
+  parent: BaseItem
+  name: Пустой носитель (Blank Drive)
+  description: "Массивный накопитель для извлечения данных из CitiNet. Перед использованием убедитесь в наличии стабильного питания."
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    layers:
+    - state: datadisk_base
+    - state: datadisk_label
+  - type: CitiNetBlankDrive
+  - type: PhysicalComposition
+    materialComposition:
+      Metal: 100
+      Glass: 50
