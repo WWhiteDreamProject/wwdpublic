@@ -1,0 +1,29 @@
+# Прототипы для консоли-компилятора (Техно-Принтер)
+
+# ─── Сама консоль ───
+- type: entity
+  parent: BaseStructure
+  id: NCConsoleCompiler
+  name: console-compiler-name
+  description: console-compiler-desc
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: Structures/Machines/tech_disk_printer.rsi
+    layers:
+    - map: ["computerLayerBody"]
+      state: icon
+    - map: ["computerLayerScreen"]
+      state: unshaded
+  - type: ConsoleCompiler
+    printBlueprintCost: 400
+    printRecipeCost: 100
+    printDoAfterTime: 4.0
+    burnedDiskPrototype: NCRawDataBurned
+  - type: ItemSlots
+  - type: UserInterface
+    interfaces:
+      enum.ConsoleCompilerUiKey.Key:
+        type: ConsoleCompilerBoundUserInterface
+  - type: ActivatableUI
+    key: enum.ConsoleCompilerUiKey.Key

@@ -1,0 +1,50 @@
+<DefaultWindow xmlns="https://spacestation14.io"
+               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+               Title="CONSOLE COMPILER // TECH-PRINTER"
+               SetSize="560 400"
+               MinSize="520 380">
+    <BoxContainer Orientation="Vertical" Margin="10" SeparationOverride="10">
+
+        <!-- ═══ Заголовок ═══ -->
+        <Label Text="▶ CONSOLE COMPILER v1.0" FontColorOverride="#22EE22"/>
+
+        <BoxContainer Orientation="Horizontal" SeparationOverride="12" VerticalExpand="True">
+
+            <!-- ═══ Левая панель: БАНК ДАННЫХ ═══ -->
+            <PanelContainer HorizontalExpand="True" VerticalExpand="True" StyleClasses="Inset">
+                <BoxContainer Orientation="Vertical" Margin="8" SeparationOverride="6">
+                    <Label Text="═══ БАНК ДАННЫХ ═══" FontColorOverride="#DDCC55"/>
+                    <Label Name="AvailableDataLabel" Text="ПАМЯТЬ: 0 данных" FontColorOverride="#77E6FF"/>
+
+                    <Control MinSize="1 8"/>
+
+                    <Button Name="DigitizeButton" Text="[ ОЦИФРОВАТЬ ]"/>
+                    <Button Name="EjectReceiverButton" Text="[ ИЗВЛЕЧЬ ]"/>
+                </BoxContainer>
+            </PanelContainer>
+
+            <!-- ═══ Правая панель: КОМПИЛЯТОР ═══ -->
+            <PanelContainer HorizontalExpand="True" VerticalExpand="True" StyleClasses="Inset">
+                <BoxContainer Orientation="Vertical" Margin="8" SeparationOverride="6">
+                    <Label Text="═══ КОМПИЛЯТОР ═══" FontColorOverride="#DDCC55"/>
+                    <Label Name="MasterDiskLabel" Text="Загружено: нет диска" FontColorOverride="#77E6FF"/>
+                    <Label Name="UsesLeftLabel" Text="Остаток ресурса: —" FontColorOverride="#FFAA44"/>
+
+                    <Control MinSize="1 8"/>
+
+                    <Button Name="PrintBlueprintButton" Text="[ ПЕЧАТЬ: ЧЕРТЁЖ ]"/>
+                    <Button Name="PrintRecipeButton" Text="[ ПЕЧАТЬ: РЕЦЕПТ ]"/>
+
+                    <Control MinSize="1 4"/>
+
+                    <Button Name="EjectMasterButton" Text="[ ИЗВЛЕЧЬ ДИСК ]"/>
+                </BoxContainer>
+            </PanelContainer>
+
+        </BoxContainer>
+
+        <!-- ═══ Статус ═══ -->
+        <Label Name="StatusLabel" Text="" FontColorOverride="#888888"/>
+
+    </BoxContainer>
+</DefaultWindow>
