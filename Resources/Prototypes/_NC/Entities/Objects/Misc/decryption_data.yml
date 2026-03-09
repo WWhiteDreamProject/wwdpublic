@@ -1,0 +1,53 @@
+- type: entity
+  parent: BaseItem
+  id: NCRawDataBase
+  name: Raw Data Disk
+  description: Unprocessed carrier with encrypted data points.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    layers:
+    - state: datadisk_base
+    - state: datadisk_label
+  - type: RawData
+    dataPoints: 100
+  - type: StaticPrice
+    price: 120
+
+- type: entity
+  parent: NCRawDataBase
+  id: NCRawDataTier1
+  name: Raw Data Disk (Tier 1)
+  components:
+  - type: RawData
+    dataPoints: 100
+
+- type: entity
+  parent: NCRawDataBase
+  id: NCRawDataTier2
+  name: Raw Data Disk (Tier 2)
+  components:
+  - type: RawData
+    dataPoints: 200
+
+- type: entity
+  parent: NCRawDataBase
+  id: NCRawDataTier3
+  name: Raw Data Disk (Tier 3)
+  components:
+  - type: RawData
+    dataPoints: 300
+
+- type: entity
+  parent: BaseItem
+  id: NCRawDataBurned
+  name: Burned Raw Data Disk
+  description: Data corrupted by ICE. Useless after burn.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    layers:
+    - state: datadisk_base
+    - state: datadisk_encrypted
+  - type: StaticPrice
+    price: 1
