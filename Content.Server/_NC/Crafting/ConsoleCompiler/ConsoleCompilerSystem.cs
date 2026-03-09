@@ -196,7 +196,6 @@ public sealed class ConsoleCompilerSystem : EntitySystem
 
         // Запускаем DoAfter
         comp.IsPrinting = true;
-        Dirty(uid, comp);
 
         var ev = new ConsoleCompilerDoAfterEvent(args.IsBlueprint);
         var doAfterArgs = new DoAfterArgs(EntityManager, actor, comp.PrintDoAfterTime, ev, uid, target: uid)
@@ -206,7 +205,12 @@ public sealed class ConsoleCompilerSystem : EntitySystem
             NeedHand = false
         };
 
-        _doAfter.TryStartDoAfter(doAfterArgs);
+        if (!_doAfter.TryStartDoAfter(doAfterArgs))
+        {
+            comp.IsPrinting = false;
+        }
+
+        Dirty(uid, comp);
         UpdateUserInterface(uid, comp);
     }
 
@@ -297,8 +301,8 @@ public sealed class ConsoleCompilerSystem : EntitySystem
 
         var masterName = string.Empty;
         var masterUses = 0;
-        var blueprintCost = comp.PrintBlueprintCost;
-        var recipeCost = comp.PrintRecipeCost;
+        var blueprintCost = 0;
+        var recipeCost = 0;
 
         if (hasMaster && comp.MasterDiskSlot.Item is { } masterEnt &&
             TryComp<DecryptionTechnologyComponent>(masterEnt, out var tech))

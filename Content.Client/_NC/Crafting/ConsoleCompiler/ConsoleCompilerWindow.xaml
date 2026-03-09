@@ -1,50 +1,166 @@
 <DefaultWindow xmlns="https://spacestation14.io"
                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-               Title="CONSOLE COMPILER // TECH-PRINTER"
-               SetSize="560 400"
-               MinSize="520 380">
-    <BoxContainer Orientation="Vertical" Margin="10" SeparationOverride="10">
+               x:Class="Content.Client._NC.Crafting.ConsoleCompiler.ConsoleCompilerWindow"
+               Title="MILITECH // COMPILER_OS v1.4"
+               SetWidth="640"
+               SetHeight="480">
+    <BoxContainer Orientation="Vertical" Margin="8" SeparationOverride="8">
 
-        <!-- ═══ Заголовок ═══ -->
-        <Label Text="▶ CONSOLE COMPILER v1.0" FontColorOverride="#22EE22"/>
+        <!-- ═══ Заголовок терминала ═══ -->
+        <Label Text="COMPILER_OS v1.4"
+               FontColorOverride="#55EEFF"
+               StyleClasses="LabelBig"
+               HorizontalAlignment="Center"/>
 
-        <BoxContainer Orientation="Horizontal" SeparationOverride="12" VerticalExpand="True">
+        <BoxContainer Orientation="Horizontal" SeparationOverride="10" VerticalExpand="True">
 
-            <!-- ═══ Левая панель: БАНК ДАННЫХ ═══ -->
+            <!-- ══════════════════════════════════════════ -->
+            <!-- ═══ ЛЕВАЯ ПАНЕЛЬ: DATA BANK / УТИЛИЗАЦИЯ ═══ -->
+            <!-- ══════════════════════════════════════════ -->
             <PanelContainer HorizontalExpand="True" VerticalExpand="True" StyleClasses="Inset">
-                <BoxContainer Orientation="Vertical" Margin="8" SeparationOverride="6">
-                    <Label Text="═══ БАНК ДАННЫХ ═══" FontColorOverride="#DDCC55"/>
-                    <Label Name="AvailableDataLabel" Text="ПАМЯТЬ: 0 данных" FontColorOverride="#77E6FF"/>
+                <BoxContainer Orientation="Vertical" Margin="10" SeparationOverride="8">
 
-                    <Control MinSize="1 8"/>
+                    <!-- Заголовок панели -->
+                    <Label Text="[ DATA BANK // УТИЛИЗАЦИЯ ]"
+                           FontColorOverride="#DDCC44"
+                           Margin="0 0 0 4"/>
 
-                    <Button Name="DigitizeButton" Text="[ ОЦИФРОВАТЬ ]"/>
+                    <!-- Инфо-блок: что вставлено -->
+                    <PanelContainer StyleClasses="Inset" Margin="0 0 0 4">
+                        <BoxContainer Orientation="Horizontal" Margin="8" SeparationOverride="10">
+                            <!-- Иконка дискеты -->
+                            <TextureRect Name="InputDiskIcon"
+                                         TexturePath="/Textures/Objects/Misc/module.rsi/datadisk_base.png"
+                                         SetWidth="32"
+                                         SetHeight="32"
+                                         VerticalAlignment="Center"/>
+
+                            <BoxContainer Orientation="Vertical" VerticalAlignment="Center">
+                                <Label Text="> INPUT:" FontColorOverride="#55EEFF" StyleClasses="LabelSubText"/>
+                                <Label Name="InputItemLabel"
+                                       Text="НЕТ НОСИТЕЛЯ"
+                                       FontColorOverride="#55EEFF"
+                                       StyleClasses="LabelHeading"/>
+                            </BoxContainer>
+                        </BoxContainer>
+                    </PanelContainer>
+
+                    <!-- Кнопка ОЦИФРОВАТЬ -->
+                    <Button Name="DigitizeButton"
+                            Text="[ ОЦИФРОВАТЬ ДАННЫЕ ]"
+                            StyleClasses="Caution"
+                            MinHeight="40"/>
+
+                    <!-- Подсказки -->
+                    <BoxContainer Orientation="Vertical" SeparationOverride="2">
+                        <Label Text="* СЖИГАЕТ НОСИТЕЛЬ" FontColorOverride="#AAAAAA" StyleClasses="LabelSubText"/>
+                        <Label Text="* КОНВЕРТИРУЕТ В МБ" FontColorOverride="#AAAAAA" StyleClasses="LabelSubText"/>
+                    </BoxContainer>
+
+                    <Control VerticalExpand="True"/>
+
+                    <!-- Блок памяти -->
+                    <PanelContainer StyleClasses="Inset">
+                        <BoxContainer Orientation="Vertical" Margin="8" SeparationOverride="2">
+                            <Label Text="СВОБОДНАЯ ПАМЯТЬ:" FontColorOverride="#55EEFF" HorizontalAlignment="Center"/>
+                            <Label Name="AvailableDataLabel"
+                                   Text="0 МБ"
+                                   FontColorOverride="#DDCC44"
+                                   StyleClasses="LabelBig"
+                                   HorizontalAlignment="Center"/>
+                        </BoxContainer>
+                    </PanelContainer>
+
+                    <!-- Кнопка ИЗВЛЕЧЬ -->
                     <Button Name="EjectReceiverButton" Text="[ ИЗВЛЕЧЬ ]"/>
+
                 </BoxContainer>
             </PanelContainer>
 
-            <!-- ═══ Правая панель: КОМПИЛЯТОР ═══ -->
+            <!-- ══════════════════════════════════════════ -->
+            <!-- ═══ ПРАВАЯ ПАНЕЛЬ: COMPILER / ПЕЧАТЬ ═══ -->
+            <!-- ══════════════════════════════════════════ -->
             <PanelContainer HorizontalExpand="True" VerticalExpand="True" StyleClasses="Inset">
-                <BoxContainer Orientation="Vertical" Margin="8" SeparationOverride="6">
-                    <Label Text="═══ КОМПИЛЯТОР ═══" FontColorOverride="#DDCC55"/>
-                    <Label Name="MasterDiskLabel" Text="Загружено: нет диска" FontColorOverride="#77E6FF"/>
-                    <Label Name="UsesLeftLabel" Text="Остаток ресурса: —" FontColorOverride="#FFAA44"/>
+                <BoxContainer Orientation="Vertical" Margin="10" SeparationOverride="8">
 
-                    <Control MinSize="1 8"/>
+                    <!-- Заголовок панели -->
+                    <Label Text="[ COMPILER // ПЕЧАТЬ ]"
+                           FontColorOverride="#DDCC44"
+                           Margin="0 0 0 4"/>
 
-                    <Button Name="PrintBlueprintButton" Text="[ ПЕЧАТЬ: ЧЕРТЁЖ ]"/>
-                    <Button Name="PrintRecipeButton" Text="[ ПЕЧАТЬ: РЕЦЕПТ ]"/>
+                    <!-- Инфо-блок: загруженная технология -->
+                    <PanelContainer StyleClasses="Inset" Margin="0 0 0 4">
+                        <BoxContainer Orientation="Horizontal" Margin="8" SeparationOverride="10">
+                            <!-- Иконка мастер-диска -->
+                            <TextureRect Name="MasterDiskIcon"
+                                         TexturePath="/Textures/Objects/Misc/module.rsi/datadisk_base.png"
+                                         SetWidth="32"
+                                         SetHeight="32"
+                                         VerticalAlignment="Center"/>
 
-                    <Control MinSize="1 4"/>
+                            <BoxContainer Orientation="Vertical" VerticalAlignment="Center">
+                                <Label Text="> LOADED:" FontColorOverride="#DDCC44" StyleClasses="LabelSubText"/>
+                                <Label Name="MasterDiskLabel"
+                                       Text="НЕТ ДИСКА"
+                                       FontColorOverride="#DDCC44"
+                                       StyleClasses="LabelHeading"/>
+                            </BoxContainer>
+                        </BoxContainer>
+                    </PanelContainer>
 
+                    <!-- Статус матрицы -->
+                    <Label Name="MatrixStatusLabel"
+                           Text="СТАТУС МАТРИЦЫ: [РАСШИФРОВАНА]"
+                           FontColorOverride="#AAAAAA"
+                           StyleClasses="LabelSubText"/>
+
+                    <!-- Остаток использований -->
+                    <BoxContainer Orientation="Vertical" SeparationOverride="0">
+                        <Label Text="ОСТАТОК ЦЕЛОСТНОСТИ:" FontColorOverride="#AAAAAA" StyleClasses="LabelSubText"/>
+                        <Label Name="UsesLeftLabel"
+                               Text="[ — ]"
+                               FontColorOverride="#DDCC44"
+                               StyleClasses="LabelHeading"/>
+                    </BoxContainer>
+
+                    <Control VerticalExpand="True"/>
+
+                    <!-- Кнопка ПЕЧАТЬ ЧЕРТЕЖ -->
+                    <BoxContainer Orientation="Vertical" SeparationOverride="2">
+                        <Button Name="PrintBlueprintButton"
+                                Text="[ ПЕЧАТЬ: ЧЕРТЕЖ СБОРКИ ]"
+                                StyleClasses="Caution"
+                                MinHeight="36"/>
+                        <Label Name="BlueprintCostLabel"
+                               Text="ЦЕНА: 400 МБ | РАСХОД: 1 ЗАРЯД"
+                               FontColorOverride="#AAAAAA"
+                               StyleClasses="LabelSubText"
+                               HorizontalAlignment="Center"/>
+                    </BoxContainer>
+
+                    <!-- Кнопка ПЕЧАТЬ РЕЦЕПТ -->
+                    <BoxContainer Orientation="Vertical" SeparationOverride="2">
+                        <Button Name="PrintRecipeButton"
+                                Text="[ ПЕЧАТЬ: РЕЦЕПТ ДЕТАЛИ ]"
+                                StyleClasses="Caution"
+                                MinHeight="36"/>
+                        <Label Name="RecipeCostLabel"
+                               Text="ЦЕНА: 100 МБ | РАСХОД: 1 ЗАРЯД"
+                               FontColorOverride="#AAAAAA"
+                               StyleClasses="LabelSubText"
+                               HorizontalAlignment="Center"/>
+                    </BoxContainer>
+
+                    <!-- Кнопка ИЗВЛЕЧЬ ДИСК -->
                     <Button Name="EjectMasterButton" Text="[ ИЗВЛЕЧЬ ДИСК ]"/>
+
                 </BoxContainer>
             </PanelContainer>
 
         </BoxContainer>
 
-        <!-- ═══ Статус ═══ -->
-        <Label Name="StatusLabel" Text="" FontColorOverride="#888888"/>
+        <!-- ═══ Статусная строка ═══ -->
+        <Label Name="StatusLabel" Text="" FontColorOverride="#666666" StyleClasses="LabelSubText"/>
 
     </BoxContainer>
 </DefaultWindow>
