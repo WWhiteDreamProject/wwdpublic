@@ -1,0 +1,36 @@
+- type: entity
+  id: NCDecryptionTerminal
+  parent: BaseComputer
+  name: Decryption Terminal
+  description: Device for decrypting data disks and removing ICE protections.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: Structures/Machines/tech_disk_printer.rsi
+    layers:
+    - map: ["computerLayerBody"]
+      state: icon
+    - map: ["computerLayerScreen"]
+      state: unshaded
+  - type: DecryptionTerminal
+    burnedMediaPrototype: NCRawDataBurned
+    matrixWidth: 26
+    matrixHeight: 22
+    maxAttempts: 4
+    attemptIntegrityDamage: 25
+    logLineLimit: 20
+    activeIceTimeoutSeconds: 30
+    activeIceLegendaryOnly: false
+  - type: ActivatableUI
+    key: enum.DecryptionUiKey.Key
+    inHands: false
+    singleUser: true
+  - type: ActivatableUIRequiresPower
+  - type: UserInterface
+    interfaces:
+      enum.DecryptionUiKey.Key:
+        type: DecryptionBoundUserInterface
+  - type: ContainerContainer
+    containers:
+      decryption_data_slot: !type:ContainerSlot {}
+

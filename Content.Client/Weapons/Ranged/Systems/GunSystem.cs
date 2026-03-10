@@ -287,9 +287,12 @@ public sealed partial class GunSystem : SharedGunSystem
                         MuzzleFlash(gunUid, cartridge, worldAngle, user);
                         Audio.PlayPredicted(gun.SoundGunshotModified, gunUid, user);
                         Recoil(user, direction, gun.CameraRecoilScalarModified);
-                        // TODO: Can't predict entity deletions.
-                        //if (cartridge.DeleteOnSpawn)
-                        //    Del(cartridge.Owner);
+                        // WD EDIT: Hide caseless ammo on client to prevent visual casing popping out before server deletion.
+                        if (cartridge.DeleteOnSpawn)
+                        {
+                            if (TryComp<SpriteComponent>(ent.Value, out var sprite))
+                                sprite.Visible = false;
+                        }
                     }
                     else
                     {

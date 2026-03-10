@@ -1,0 +1,21 @@
+- type: entity
+  id: NCBlankBarrelTungsten
+  name: вольфрамовый стержень
+  description: Увесистый тугоплавкий стержень, требующий лазерной фрезеровки. Т3.
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: Objects/Tools/wrench.rsi
+      state: icon
+    - type: NCWeaponBlank
+      safeZoneHalf: 0.08
+      toleranceTime: 1.7
+      progressSpeed: 0.035
+      enableSystemLock: true
+      resultEntity: NCProcessedBarrelT3
+      anomalies:
+        0.15: IntegrityDrop
+        0.35: HeatSpike
+        0.55: DoubleTrouble
+        0.75: AlignmentLeft
+        0.90: DoubleTrouble

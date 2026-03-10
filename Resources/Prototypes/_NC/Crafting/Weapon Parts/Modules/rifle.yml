@@ -1,0 +1,62 @@
+# ============================
+# Чертежи Винтовок (Rifles)
+# ============================
+
+# Штейнмейер М-04 (Tier 3)
+- type: entity
+  id: NCBlueprintM04
+  name: чертеж "Штейнмейер М-04"
+  description: Диск с инструкциями по сборке и физический каркас под детали для штурмовой винтовки М-04.
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: Objects/Tools/blueprint.rsi
+      state: icon
+    - type: NCBlueprint
+      resultEntity: WeaponRifleM04
+      garbageEntity: Scrap
+      steps:
+        - part: Frame
+          prototype: NCProcessedFrameT3
+          doAfterTime: 2.5
+        - part: Barrel
+          prototype: NCProcessedBarrelT3
+          doAfterTime: 2.5
+        - tool: Screwing
+          doAfterTime: 3.5
+        - part: Internals
+          prototype: NCProcessedInternalsT3
+          doAfterTime: 3.0
+        - tool: Screwing
+          doAfterTime: 2.5
+
+# Прототип Арасака (Tier 3)
+- type: entity
+  id: NCBlueprintArasakaProto
+  name: чертеж "Прототип Арасака"
+  description: Диск с секретными инструкциями по сборке и физический каркас под детали для прототипа Арасака.
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: Objects/Tools/blueprint.rsi
+      state: icon
+    - type: NCBlueprint
+      resultEntity: WeaponRifleArasakaProto
+      garbageEntity: Scrap
+      steps:
+        - part: Frame
+          prototype: NCProcessedFrameT3
+          doAfterTime: 3.0
+        - part: Barrel
+          prototype: NCProcessedBarrelT3
+          doAfterTime: 3.0
+        - tool: Screwing
+          doAfterTime: 4.0
+        - part: Internals
+          prototype: NCProcessedInternalsT3
+          doAfterTime: 3.5
+        - part: Board
+          prototype: NCProcessedElectronicsT3
+          doAfterTime: 2.5
+        - tool: Pulsing
+          doAfterTime: 4.0

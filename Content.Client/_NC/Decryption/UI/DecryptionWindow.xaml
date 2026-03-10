@@ -1,0 +1,41 @@
+<DefaultWindow xmlns="https://spacestation14.io"
+               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+               Title="ICE DECRYPTION TERMINAL"
+               SetSize="1120 760"
+               MinSize="1024 700">
+    <BoxContainer Orientation="Vertical" Margin="10" SeparationOverride="8">
+        <BoxContainer Orientation="Horizontal" SeparationOverride="12">
+            <Label Text="PROTOCOL:" FontColorOverride="#22EE22"/>
+            <Label Name="ProtocolLabel" Text="-" FontColorOverride="#22EE22"/>
+            <Control HorizontalExpand="True"/>
+            <Label Text="TIER:" FontColorOverride="#DDCC55"/>
+            <Label Name="TierLabel" Text="-" FontColorOverride="#DDCC55"/>
+            <Control MinSize="20 1"/>
+            <Label Text="TIMER:" FontColorOverride="#FF6666"/>
+            <Label Name="TimerLabel" Text="--" FontColorOverride="#FF6666"/>
+            <Control MinSize="20 1"/>
+            <Label Text="INTEGRITY:" FontColorOverride="#77E6FF"/>
+            <Label Name="IntegrityLabel" Text="100%" FontColorOverride="#77E6FF"/>
+            <Control MinSize="20 1"/>
+            <Label Text="ATTEMPTS:" FontColorOverride="#FFAA44"/>
+            <Label Name="AttemptsLabel" Text="[#] [#] [#] [#]" FontColorOverride="#FFAA44"/>
+        </BoxContainer>
+
+        <BoxContainer Orientation="Horizontal" SeparationOverride="10" VerticalExpand="True">
+            <PanelContainer Name="LeftPanel" HorizontalExpand="True" VerticalExpand="True" RectClipContent="True" StyleClasses="Inset">
+                <BoxContainer Name="MatrixRows" Margin="8" Orientation="Vertical" SeparationOverride="1" HorizontalExpand="True" VerticalExpand="True" RectClipContent="True"/>
+            </PanelContainer>
+
+            <PanelContainer Name="RightPanel" HorizontalExpand="False" VerticalExpand="True" RectClipContent="True" StyleClasses="Inset">
+                <RichTextLabel Name="LogText" Margin="8" HorizontalExpand="True" VerticalExpand="True"/>
+            </PanelContainer>
+        </BoxContainer>
+
+        <BoxContainer Orientation="Horizontal" SeparationOverride="8">
+            <Button Name="StartButton" Text="START DECRYPTION"/>
+            <Button Name="EjectButton" Text="EJECT CARRIER"/>
+            <Control HorizontalExpand="True"/>
+            <Label Name="StatusLabel" Text="" FontColorOverride="#888888"/>
+        </BoxContainer>
+    </BoxContainer>
+</DefaultWindow>

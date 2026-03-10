@@ -1,0 +1,18 @@
+- type: entity
+  id: NCBlankFrameMilled
+  name: фрезерованный блок
+  description: Цельный кусок металла, из которого станок вытачивает ствольную коробку. Т2.
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: Objects/Tools/wrench.rsi
+      state: icon
+    - type: NCWeaponBlank
+      safeZoneHalf: 0.12
+      toleranceTime: 2.2
+      progressSpeed: 0.04
+      resultEntity: NCProcessedFrameT2
+      anomalies:
+        0.25: IntegrityDrop
+        0.55: HeatSpike
+        0.85: DoubleTrouble

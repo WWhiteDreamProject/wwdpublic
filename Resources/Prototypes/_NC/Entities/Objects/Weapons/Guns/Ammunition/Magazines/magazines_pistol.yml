@@ -1,12 +1,12 @@
 - type: entity
   id: MagazinePistolStukach
-  name: магазин Стукача Томми (.35 авто)
-  description: Вместительный магазин для пистолета-дробовика Стукач Томми. Вмещает 8 патронов.
+  name: магазин Стукача Томми (12.7мм)
+  description: Вместительный магазин для тяжелого пистолета Стукач Томми. Заряжен убойными патронами 12.7мм. Вмещает 8 патронов.
   parent: BaseMagazinePistol
   components:
   - type: BallisticAmmoProvider
     capacity: 8
-    proto: CartridgeMagnum
+    proto: Cartridge127mm
   - type: Sprite
     layers:
     - state: red
@@ -15,17 +15,17 @@
       map: ["enum.GunVisualLayers.Mag"]
   - type: Tag
     tags:
-    - MagazinePistol
+    - MagazinePistolStukach
 
 - type: entity
   id: MagazinePistolOverlord
-  name: магазин Ручной пушки Оверлорд (.35 авто)
-  description: Маленький магазин для револьвероподобного пистолета Оверлорд. Вмещает 6 мощных патронов.
+  name: магазин Оверлорда (12.7мм)
+  description: Магазин для ручной пушки Оверлорд. Вмещает 6 чудовищно мощных патронов калибра 12.7мм.
   parent: BaseMagazinePistol
   components:
   - type: BallisticAmmoProvider
     capacity: 6
-    proto: CartridgeMagnum
+    proto: Cartridge127mm
   - type: Sprite
     layers:
     - state: red
@@ -34,4 +34,74 @@
       map: ["enum.GunVisualLayers.Mag"]
   - type: Tag
     tags:
-    - MagazinePistol
+    - MagazinePistolOverlord
+
+- type: entity
+  id: MagazinePistolAvenger
+  name: магазин Militech "AVENGER" (11.4мм)
+  description: Стандартный магазин для армейского пистолета Militech "AVENGER". Вмещает 10 патронов калибра 11.4мм.
+  parent: BaseMagazinePistol
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 10
+    proto: Cartridge114mm
+  - type: Sprite
+    layers:
+    - state: red
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Tag
+    tags:
+    - MagazinePistolAvenger
+
+- type: entity
+  id: MagazinePistolHelloCutie
+  name: магазин Hello Cutie (11.4мм)
+  description: Яркий магазин, скрывающий в себе серьезную мощь калибра 11.4мм. Вмещает 12 патронов.
+  parent: [ BaseItem, BaseRestrictedContraband ]
+  components:
+  - type: Tag
+    tags:
+    - MagazinePistolHelloCutie
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    proto: Cartridge114mm
+    whitelist:
+      tags:
+      - Cartridge114mm
+    capacity: 12
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: _NC/Objects/Weapons/Guns/Pistol/hello_cutie.rsi
+    layers:
+    - state: hello-cutie
+      map: ["enum.GunVisualLayers.Base"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  id: MagazinePistolStreetMaster
+  name: магазин Dai Lung "StreetMaster" (11.4мм)
+  description: Магазин для уличного пистолета StreetMaster. Вмещает 12 надежных патронов калибра 11.4мм.
+  parent: BaseMagazinePistol
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 12
+    proto: Cartridge114mm
+  - type: Sprite
+    layers:
+    - state: red
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Tag
+    tags:
+    - MagazinePistolStreetMaster

@@ -1,0 +1,11 @@
+- type: entity
+  id: NCProcessedFrameT1
+  name: рамка кустарного оружия (Т1)
+  description: Грубая пластиковая рамка для дешевого огнестрела. Т1.
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: Objects/Tools/wrench.rsi
+      state: icon
+    - type: NCWeaponPart
+      partType: Frame

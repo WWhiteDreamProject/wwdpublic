@@ -1,0 +1,65 @@
+- type: entity
+  name: Dai Lung "StreetMaster"
+  parent: [BaseWeaponPistol, NCBrandDaiLung]
+  id: WeaponPistolStreetMaster
+  description: 'Тяжелый армейский пистолет с квадратным силуэтом, ценящийся за эталонную надежность Militech и пробивную мощь калибра .45 в любых условиях «Четвертой корпоративной».'
+  components:
+  - type: Sprite
+    sprite: _NC/Objects/Weapons/Guns/Pistol/Dai_Lung_Streetmaster.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _NC/Objects/Weapons/Guns/Pistol/Dai_Lung_Streetmaster.rsi
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazinePistolStreetMaster
+        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazinePistolStreetMaster
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgePistol
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgePistol
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: Gun
+    fireRate: 4
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/pistol.ogg
+    fireOnDropChance: 0.3
+
+
+# Пустой вариант для лута
+- type: entity
+  name: Dai Lung "StreetMaster"
+  parent: WeaponPistolStreetMaster
+  id: WeaponPistolStreetMasterEmpty
+  suffix: Empty
+  components:
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: null
+        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        whitelist:
+          tags:
+          - MagazinePistolStreetMaster

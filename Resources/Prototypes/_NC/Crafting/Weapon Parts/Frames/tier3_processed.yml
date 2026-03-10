@@ -1,0 +1,11 @@
+- type: entity
+  id: NCProcessedFrameT3
+  name: эргономичный смарт-каркас (Т3)
+  description: Композитный каркас со встроенными сенсорами и нейроинтерфейсом. Т3.
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: Objects/Tools/wrench.rsi
+      state: icon
+    - type: NCWeaponPart
+      partType: Frame

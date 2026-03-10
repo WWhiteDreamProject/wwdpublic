@@ -1,5 +1,5 @@
 - type: entity
-  name: viper
+  name: Hello Cutie
   parent: [BaseWeaponPistol, NCBrandSanroo]
   id: WeaponPistolHelloCutie
   description: A small, easily concealable, but somewhat underpowered gun, produced by a bulk arms manufacturer now defunct for over a century. Uses .35 auto ammo.
@@ -46,34 +46,22 @@
       path: /Audio/Weapons/Guns/Gunshots/pistol.ogg
     fireOnDropChance: 0.3
 
+
+# Пустой вариант для лута
 - type: entity
-  id: MagazinePistolHelloCutie
-  name: magazine hello cutie (.35 auto)
-  parent: [ BaseItem, BaseRestrictedContraband ]
+  name: Hello Cutie
+  parent: WeaponPistolHelloCutie
+  id: WeaponPistolHelloCutieEmpty
+  suffix: Empty
   components:
-  - type: Tag
-    tags:
-    - MagazinePistolHelloCutie
-  - type: BallisticAmmoProvider
-    mayTransfer: true
-    proto: CartridgePistol
-    whitelist:
-      tags:
-      - CartridgePistol
-    capacity: 12
-  - type: Item
-    size: Small
-  - type: ContainerContainer
-    containers:
-      ballistic-ammo: !type:Container
-  - type: Sprite
-    sprite: _NC/Objects/Weapons/Guns/Pistol/hello_cutie.rsi
-    layers:
-    - state: hello-cutie
-      map: ["enum.GunVisualLayers.Base"]
-  - type: MagazineVisuals
-    magState: mag
-    steps: 5
-    zeroVisible: false
-  - type: Appearance
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: null
+        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        whitelist:
+          tags:
+          - MagazinePistolHelloCutie
 

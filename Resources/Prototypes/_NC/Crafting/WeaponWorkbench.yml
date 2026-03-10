@@ -1,0 +1,32 @@
+# Тестовый верстак
+- type: entity
+  name: ЧПУ-станок Найт-Сити
+  id: NCWeaponWorkbench
+  description: Высокотехнологичный станок для вытачивания деталей оружия.
+  parent: BaseMachinePowered
+  components:
+    - type: Sprite
+      sprite: _NC/Structures/Machines/cnc_machine.rsi
+      snapCardinals: true
+      layers:
+      - state: base_power_connect_on
+        map: ["enum.NCWeaponWorkbenchVisualLayers.Base"]
+    - type: Appearance
+    - type: GenericVisualizer
+      visuals:
+        enum.NCWeaponWorkbenchVisuals.State:
+          enum.NCWeaponWorkbenchVisualLayers.Base:
+            Idle: { state: base_power_connect_on }
+            Processing: { state: anim1 }
+            Success: { state: base_power_connect_on_door_open }
+            Failed: { state: base_power_connect_on_error }
+    - type: NCWeaponWorkbench
+    - type: UserInterface
+      interfaces:
+        enum.NCWeaponWorkbenchUiKey.Key:
+          type: NCWeaponWorkbenchBoundUserInterface
+    - type: ActivatableUI
+      key: enum.NCWeaponWorkbenchUiKey.Key
+    - type: ContainerContainer
+      containers:
+        workbench_material_slot: !type:ContainerSlot

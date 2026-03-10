@@ -1,0 +1,109 @@
+- type: latheRecipePack
+  id: NCDebugAll
+  recipes:
+  - NCBlankBarrelPipe
+  - NCBlankBarrelAlloy
+  - NCBlankBarrelTungsten
+  - NCBlankFramePlastic
+  - NCBlankFrameMilled
+  - NCBlankFrameCarbon
+  - NCBlankInternalsScrap
+  - NCBlankInternalsBolt
+  - NCBlankInternalsEM
+  - NCBlankElectronicsCircuit
+  - NCBlankElectronicsNeuro
+
+
+# ==========================================
+# РЕЦЕПТЫ ПРИНТЕРА (BLANK RECIPES)
+# ==========================================
+
+# Стволы
+- type: latheRecipe
+  id: NCBlankBarrelPipe
+  result: NCBlankBarrelPipe
+  comms: true
+  materials:
+    Metal: 500
+
+- type: latheRecipe
+  id: NCBlankBarrelAlloy
+  result: NCBlankBarrelAlloy
+  comms: true
+  materials:
+    Plasteel: 750
+
+- type: latheRecipe
+  id: NCBlankBarrelTungsten
+  result: NCBlankBarrelTungsten
+  comms: true
+  materials:
+    Plasteel: 1000
+    Uranium: 200
+
+# Рамки
+- type: latheRecipe
+  id: NCBlankFramePlastic
+  result: NCBlankFramePlastic
+  comms: true
+  materials:
+    Plastic: 1500
+
+- type: latheRecipe
+  id: NCBlankFrameMilled
+  result: NCBlankFrameMilled
+  comms: true
+  materials:
+    Metal: 1000
+    Plastic: 500
+
+- type: latheRecipe
+  id: NCBlankFrameCarbon
+  result: NCBlankFrameCarbon
+  comms: true
+  materials:
+    Plasteel: 1000
+    Glass: 500
+    Plastic: 500
+
+# Механизмы
+- type: latheRecipe
+  id: NCBlankInternalsScrap
+  result: NCBlankInternalsScrap
+  comms: true
+  materials:
+    Metal: 300
+
+- type: latheRecipe
+  id: NCBlankInternalsBolt
+  result: NCBlankInternalsBolt
+  comms: true
+  materials:
+    Metal: 500
+    Plasteel: 500
+
+- type: latheRecipe
+  id: NCBlankInternalsEM
+  result: NCBlankInternalsEM
+  comms: true
+  materials:
+    Plasteel: 1000
+    Gold: 100
+
+# Электроника
+- type: latheRecipe
+  id: NCBlankElectronicsCircuit
+  result: NCBlankElectronicsCircuit
+  comms: true
+  materials:
+    Glass: 500
+    Metal: 200
+
+- type: latheRecipe
+  id: NCBlankElectronicsNeuro
+  result: NCBlankElectronicsNeuro
+  comms: true
+  materials:
+    Glass: 1000
+    Gold: 200
+    Plastic: 300

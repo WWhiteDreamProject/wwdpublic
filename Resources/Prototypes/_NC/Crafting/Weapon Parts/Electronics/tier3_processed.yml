@@ -1,0 +1,12 @@
+
+- type: entity
+  id: NCProcessedElectronicsT3
+  name: смарт-модуль наведения (Т3)
+  description: Нейро-интерфейс для системы Смарт-линк. Т3.
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: Objects/Tools/wrench.rsi
+      state: icon
+    - type: NCWeaponPart
+      partType: Board

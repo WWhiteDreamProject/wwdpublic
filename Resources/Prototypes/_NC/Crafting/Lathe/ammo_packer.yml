@@ -1,0 +1,61 @@
+# _NC: Упаковщик патронов — крафтит коробки с боеприпасами из пуль, гильз и пороха
+# Переделка Protolathe под станок снаряжения патронов
+
+# ==========================================
+# Рецепт: Коробка 9мм патронов
+# ==========================================
+
+- type: latheRecipe
+  id: NCAmmoBox9mm
+  result: MagazineBoxPistol
+  completetime: 5
+  materials:
+    NCBulletTipMat: 3000  # 30 наконечников (по 100u каждый)
+    NCCasingMat: 3000     # 30 гильз (по 100u каждый)
+    Gunpowder: 3000       # 30 пороха (по 100u каждый)
+
+# ==========================================
+# Пак рецептов для упаковщика
+# ==========================================
+
+- type: latheRecipePack
+  id: NCAmmoPackerStatic
+  recipes:
+  - NCAmmoBox9mm
+
+# ==========================================
+# Энтити упаковщика
+# ==========================================
+
+- type: entity
+  id: NCAmmoPackerMachine
+  parent: [BaseLatheLube, BaseMaterialSiloUtilizer]
+  name: упаковщик патронов
+  description: Станок для снаряжения патронов из гильз, пуль и пороха.
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/protolathe.rsi
+    snapCardinals: true
+    layers:
+    - state: icon
+      map: ["enum.LatheVisualLayers.IsRunning"]
+    - state: unlit
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    - state: inserting
+      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Machine
+    board: ProtolatheMachineCircuitboard
+  - type: MaterialStorage
+    whitelist:
+      tags:
+      - RawMaterial
+  - type: Lathe
+    idleState: icon
+    runningState: building
+    unlitIdleState: unlit
+    unlitRunningState: unlit-building
+    staticPacks:
+    - NCAmmoPackerStatic
