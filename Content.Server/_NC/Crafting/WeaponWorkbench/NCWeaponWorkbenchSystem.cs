@@ -5,6 +5,7 @@ using Content.Shared.Interaction;
 using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
 using Robust.Shared.Random;
+using System;
 
 namespace Content.Server._NC.Crafting.WeaponWorkbench;
 
@@ -106,12 +107,12 @@ public sealed partial class NCWeaponWorkbenchSystem : EntitySystem
         {
             // Код верный — блокировка снята
             component.IsSystemLocked = false;
-            component.WarningMessage = "✔ ACCESS CODE ACCEPTED.";
+            component.WarningMessage = Loc.GetString("nc-workbench-system-access-accepted");
         }
         else
         {
             // Неверный код — оповещаем но не фейлим
-            component.WarningMessage = "✖ INVALID CODE. TRY AGAIN.";
+            component.WarningMessage = Loc.GetString("nc-workbench-system-invalid-code");
         }
 
         UpdateUserInterface(uid, component);
@@ -213,7 +214,7 @@ public sealed partial class NCWeaponWorkbenchSystem : EntitySystem
                     comp.IsSystemLocked = true;
                     comp.LockTriggered = true;
                     comp.LockCode = _random.Next(1000, 9999).ToString();
-                    comp.WarningMessage = "⚠ SYSTEM LOCK: ENTER ACCESS CODE";
+                    comp.WarningMessage = Loc.GetString("nc-workbench-system-lock-warning");
                     comp.FlashTimer = FlashDuration;
                 }
             }
@@ -263,24 +264,24 @@ public sealed partial class NCWeaponWorkbenchSystem : EntitySystem
         {
             case NCWorkbenchAnomalyType.HeatSpike:
                 component.Heat = 1.0f;
-                component.WarningMessage = "⚠ ВНИМАНИЕ: СКАЧОК ТЕМПЕРАТУРЫ!";
+                component.WarningMessage = Loc.GetString("nc-workbench-system-anomaly-heat");
                 break;
             case NCWorkbenchAnomalyType.IntegrityDrop:
                 component.Integrity = 0.0f;
-                component.WarningMessage = "⚠ ВНИМАНИЕ: СТРУКТУРНЫЙ СТРЕСС!";
+                component.WarningMessage = Loc.GetString("nc-workbench-system-anomaly-integrity");
                 break;
             case NCWorkbenchAnomalyType.AlignmentLeft:
                 component.Alignment = 0.0f;
-                component.WarningMessage = "⚠ ВНИМАНИЕ: СБОЙ ОПТИКИ!";
+                component.WarningMessage = Loc.GetString("nc-workbench-system-anomaly-alignment");
                 break;
             case NCWorkbenchAnomalyType.AlignmentRight:
                 component.Alignment = 1.0f;
-                component.WarningMessage = "⚠ ВНИМАНИЕ: СБОЙ ОПТИКИ!";
+                component.WarningMessage = Loc.GetString("nc-workbench-system-anomaly-alignment");
                 break;
             case NCWorkbenchAnomalyType.DoubleTrouble:
                 component.Heat = 1.0f;
                 component.Integrity = 0.0f;
-                component.WarningMessage = "☠ КРИТИЧЕСКИ: МНОЖЕСТВЕННЫЕ СБОИ!";
+                component.WarningMessage = Loc.GetString("nc-workbench-system-anomaly-critical");
                 break;
         }
     }
@@ -288,7 +289,7 @@ public sealed partial class NCWeaponWorkbenchSystem : EntitySystem
     private void FailCrafting(EntityUid uid, NCWeaponWorkbenchComponent component)
     {
         SetState(uid, component, NCWeaponWorkbenchState.Failed);
-        component.WarningMessage = "☠ CRITICAL FAILURE! SCRAP PRODUCED.";
+        component.WarningMessage = Loc.GetString("nc-workbench-system-failure");
 
         var materialContainer = (ContainerSlot) _container.GetContainer(uid, NCWeaponWorkbenchComponent.MaterialSlotId);
         if (materialContainer.ContainedEntity != null)
@@ -303,7 +304,7 @@ public sealed partial class NCWeaponWorkbenchSystem : EntitySystem
     private void SucceedCrafting(EntityUid uid, NCWeaponWorkbenchComponent component)
     {
         SetState(uid, component, NCWeaponWorkbenchState.Success);
-        component.WarningMessage = "✔ CRAFTING COMPLETE.";
+        component.WarningMessage = Loc.GetString("nc-workbench-system-success");
 
         var materialContainer = (ContainerSlot) _container.GetContainer(uid, NCWeaponWorkbenchComponent.MaterialSlotId);
         if (materialContainer.ContainedEntity != null)

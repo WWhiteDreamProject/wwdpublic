@@ -1,13 +1,13 @@
 <DefaultWindow xmlns="https://spacestation14.io"
                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                x:Class="Content.Client._NC.Crafting.ConsoleCompiler.ConsoleCompilerWindow"
-               Title="MILITECH // COMPILER_OS v1.4"
+               Title="{Loc 'console-compiler-window-title'}"
                SetWidth="640"
                SetHeight="480">
     <BoxContainer Orientation="Vertical" Margin="8" SeparationOverride="8">
 
         <!-- ═══ Заголовок терминала ═══ -->
-        <Label Text="COMPILER_OS v1.4"
+        <Label Text="{Loc 'console-compiler-window-title'}"
                FontColorOverride="#55EEFF"
                StyleClasses="LabelBig"
                HorizontalAlignment="Center"/>
@@ -21,7 +21,7 @@
                 <BoxContainer Orientation="Vertical" Margin="10" SeparationOverride="8">
 
                     <!-- Заголовок панели -->
-                    <Label Text="[ DATA BANK // УТИЛИЗАЦИЯ ]"
+                    <Label Text="{Loc 'console-compiler-window-data-bank-header'}"
                            FontColorOverride="#DDCC44"
                            Margin="0 0 0 4"/>
 
@@ -36,9 +36,9 @@
                                          VerticalAlignment="Center"/>
 
                             <BoxContainer Orientation="Vertical" VerticalAlignment="Center">
-                                <Label Text="> INPUT:" FontColorOverride="#55EEFF" StyleClasses="LabelSubText"/>
+                                <Label Text="{Loc 'console-compiler-window-input-label'}" FontColorOverride="#55EEFF" StyleClasses="LabelSubText"/>
                                 <Label Name="InputItemLabel"
-                                       Text="НЕТ НОСИТЕЛЯ"
+                                       Text="{Loc 'console-compiler-window-input-empty'}"
                                        FontColorOverride="#55EEFF"
                                        StyleClasses="LabelHeading"/>
                             </BoxContainer>
@@ -47,14 +47,14 @@
 
                     <!-- Кнопка ОЦИФРОВАТЬ -->
                     <Button Name="DigitizeButton"
-                            Text="[ ОЦИФРОВАТЬ ДАННЫЕ ]"
+                            Text="{Loc 'console-compiler-window-digitize-button'}"
                             StyleClasses="Caution"
                             MinHeight="40"/>
 
                     <!-- Подсказки -->
                     <BoxContainer Orientation="Vertical" SeparationOverride="2">
-                        <Label Text="* СЖИГАЕТ НОСИТЕЛЬ" FontColorOverride="#AAAAAA" StyleClasses="LabelSubText"/>
-                        <Label Text="* КОНВЕРТИРУЕТ В МБ" FontColorOverride="#AAAAAA" StyleClasses="LabelSubText"/>
+                        <Label Text="{Loc 'console-compiler-window-digitize-hint-1'}" FontColorOverride="#AAAAAA" StyleClasses="LabelSubText"/>
+                        <Label Text="{Loc 'console-compiler-window-digitize-hint-2'}" FontColorOverride="#AAAAAA" StyleClasses="LabelSubText"/>
                     </BoxContainer>
 
                     <Control VerticalExpand="True"/>
@@ -62,9 +62,9 @@
                     <!-- Блок памяти -->
                     <PanelContainer StyleClasses="Inset">
                         <BoxContainer Orientation="Vertical" Margin="8" SeparationOverride="2">
-                            <Label Text="СВОБОДНАЯ ПАМЯТЬ:" FontColorOverride="#55EEFF" HorizontalAlignment="Center"/>
+                            <Label Text="{Loc 'console-compiler-window-memory-label'}" FontColorOverride="#55EEFF" HorizontalAlignment="Center"/>
                             <Label Name="AvailableDataLabel"
-                                   Text="0 МБ"
+                                   Text="0 MB"
                                    FontColorOverride="#DDCC44"
                                    StyleClasses="LabelBig"
                                    HorizontalAlignment="Center"/>
@@ -72,7 +72,7 @@
                     </PanelContainer>
 
                     <!-- Кнопка ИЗВЛЕЧЬ -->
-                    <Button Name="EjectReceiverButton" Text="[ ИЗВЛЕЧЬ ]"/>
+                    <Button Name="EjectReceiverButton" Text="{Loc 'console-compiler-window-eject-button'}"/>
 
                 </BoxContainer>
             </PanelContainer>
@@ -84,7 +84,7 @@
                 <BoxContainer Orientation="Vertical" Margin="10" SeparationOverride="8">
 
                     <!-- Заголовок панели -->
-                    <Label Text="[ COMPILER // ПЕЧАТЬ ]"
+                    <Label Text="{Loc 'console-compiler-window-compiler-header'}"
                            FontColorOverride="#DDCC44"
                            Margin="0 0 0 4"/>
 
@@ -99,9 +99,9 @@
                                          VerticalAlignment="Center"/>
 
                             <BoxContainer Orientation="Vertical" VerticalAlignment="Center">
-                                <Label Text="> LOADED:" FontColorOverride="#DDCC44" StyleClasses="LabelSubText"/>
+                                <Label Text="{Loc 'console-compiler-window-loaded-label'}" FontColorOverride="#DDCC44" StyleClasses="LabelSubText"/>
                                 <Label Name="MasterDiskLabel"
-                                       Text="НЕТ ДИСКА"
+                                       Text="{Loc 'console-compiler-window-matrix-not-found'}"
                                        FontColorOverride="#DDCC44"
                                        StyleClasses="LabelHeading"/>
                             </BoxContainer>
@@ -110,13 +110,13 @@
 
                     <!-- Статус матрицы -->
                     <Label Name="MatrixStatusLabel"
-                           Text="СТАТУС МАТРИЦЫ: [РАСШИФРОВАНА]"
+                           Text="STATUS: [UNKNOWN]"
                            FontColorOverride="#AAAAAA"
                            StyleClasses="LabelSubText"/>
 
                     <!-- Остаток использований -->
                     <BoxContainer Orientation="Vertical" SeparationOverride="0">
-                        <Label Text="ОСТАТОК ЦЕЛОСТНОСТИ:" FontColorOverride="#AAAAAA" StyleClasses="LabelSubText"/>
+                        <Label Text="{Loc 'console-compiler-window-uses-label'}" FontColorOverride="#AAAAAA" StyleClasses="LabelSubText"/>
                         <Label Name="UsesLeftLabel"
                                Text="[ — ]"
                                FontColorOverride="#DDCC44"
@@ -128,11 +128,11 @@
                     <!-- Кнопка ПЕЧАТЬ ЧЕРТЕЖ -->
                     <BoxContainer Orientation="Vertical" SeparationOverride="2">
                         <Button Name="PrintBlueprintButton"
-                                Text="[ ПЕЧАТЬ: ЧЕРТЕЖ СБОРКИ ]"
+                                Text="{Loc 'console-compiler-window-print-blueprint'}"
                                 StyleClasses="Caution"
                                 MinHeight="36"/>
                         <Label Name="BlueprintCostLabel"
-                               Text="ЦЕНА: 400 МБ | РАСХОД: 1 ЗАРЯД"
+                               Text="COST: 0 MB | DRAIN: 0 USES"
                                FontColorOverride="#AAAAAA"
                                StyleClasses="LabelSubText"
                                HorizontalAlignment="Center"/>
@@ -141,18 +141,18 @@
                     <!-- Кнопка ПЕЧАТЬ РЕЦЕПТ -->
                     <BoxContainer Orientation="Vertical" SeparationOverride="2">
                         <Button Name="PrintRecipeButton"
-                                Text="[ ПЕЧАТЬ: РЕЦЕПТ ДЕТАЛИ ]"
+                                Text="{Loc 'console-compiler-window-print-recipe'}"
                                 StyleClasses="Caution"
                                 MinHeight="36"/>
                         <Label Name="RecipeCostLabel"
-                               Text="ЦЕНА: 100 МБ | РАСХОД: 1 ЗАРЯД"
+                               Text="COST: 0 MB | DRAIN: 0 USES"
                                FontColorOverride="#AAAAAA"
                                StyleClasses="LabelSubText"
                                HorizontalAlignment="Center"/>
                     </BoxContainer>
 
                     <!-- Кнопка ИЗВЛЕЧЬ ДИСК -->
-                    <Button Name="EjectMasterButton" Text="[ ИЗВЛЕЧЬ ДИСК ]"/>
+                    <Button Name="EjectMasterButton" Text="{Loc 'console-compiler-window-eject-master-button'}"/>
 
                 </BoxContainer>
             </PanelContainer>

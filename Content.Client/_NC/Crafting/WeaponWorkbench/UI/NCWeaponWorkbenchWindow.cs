@@ -10,13 +10,16 @@ using Robust.Shared.Localization;
 
 namespace Content.Client._NC.Crafting.WeaponWorkbench.UI;
 
+/// <summary>
+/// Окно верстака оружейника.
+/// </summary>
 public sealed class NCWeaponWorkbenchWindow : DefaultWindow
 {
     private readonly WorkbenchSensorControl _heatSensor;
     private readonly WorkbenchSensorControl _integritySensor;
     private readonly WorkbenchSensorControl _alignmentSensor;
 
-    // Ссылки на UI элементы, которые раньше были в XAML
+    // Ссылки на UI элементы
     private readonly Label _predictiveLogLabel;
     private readonly Label _materialLabel;
     private readonly TextureRect _materialSprite;
@@ -49,7 +52,7 @@ public sealed class NCWeaponWorkbenchWindow : DefaultWindow
 
     public NCWeaponWorkbenchWindow()
     {
-        Title = Loc.GetString("nc-workbench-title");
+        Title = Loc.GetString("nc-workbench-window-title");
         MinSize = new Vector2(480, 580);
         SetSize = new Vector2(480, 580);
 
@@ -75,8 +78,8 @@ public sealed class NCWeaponWorkbenchWindow : DefaultWindow
 
         var logBox = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Vertical, Margin = new Thickness(8) };
         logPanel.AddChild(logBox);
-        logBox.AddChild(new Label { Text = "ПРЕДИКАТИВНЫЙ ЛОГ:", FontColorOverride = Color.FromHex("#b87a32") });
-        _predictiveLogLabel = new Label { Text = "> ОЖИДАНИЕ СИСТЕМЫ", FontColorOverride = Color.FromHex("#ff9a00") };
+        logBox.AddChild(new Label { Text = Loc.GetString("nc-workbench-window-log-header"), FontColorOverride = Color.FromHex("#b87a32") });
+        _predictiveLogLabel = new Label { Text = Loc.GetString("nc-workbench-window-log-standby"), FontColorOverride = Color.FromHex("#ff9a00") };
         logBox.AddChild(_predictiveLogLabel);
 
         // MIDDLE: Left Material Panel + Right Sensors
@@ -94,13 +97,13 @@ public sealed class NCWeaponWorkbenchWindow : DefaultWindow
         var leftContentBox = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Vertical, HorizontalAlignment = HAlignment.Center, VerticalAlignment = VAlignment.Center };
         leftPanel.AddChild(leftContentBox);
 
-        _materialLabel = new Label { Text = "[МАТЕРИАЛ: НЕТ]", FontColorOverride = Color.FromHex("#4caf50"), HorizontalAlignment = HAlignment.Center };
+        _materialLabel = new Label { HorizontalAlignment = HAlignment.Center, FontColorOverride = Color.FromHex("#4caf50") };
         leftContentBox.AddChild(_materialLabel);
         _materialSprite = new TextureRect { MinSize = new Vector2(64, 64), HorizontalAlignment = HAlignment.Center, Margin = new Thickness(0, 10, 0, 0) };
         leftContentBox.AddChild(_materialSprite);
         leftContentBox.AddChild(new Control { MinSize = new Vector2(0, 20) });
-        leftContentBox.AddChild(new Label { Text = "[РЕЦЕПТ:]", FontColorOverride = Color.FromHex("#4caf50"), HorizontalAlignment = HAlignment.Center });
-        _resultLabel = new Label { Text = "[НЕТ]", FontColorOverride = Color.FromHex("#4caf50"), HorizontalAlignment = HAlignment.Center };
+        leftContentBox.AddChild(new Label { Text = Loc.GetString("nc-workbench-window-recipe-header"), FontColorOverride = Color.FromHex("#4caf50"), HorizontalAlignment = HAlignment.Center });
+        _resultLabel = new Label { HorizontalAlignment = HAlignment.Center, FontColorOverride = Color.FromHex("#4caf50") };
         leftContentBox.AddChild(_resultLabel);
         _resultSprite = new TextureRect { MinSize = new Vector2(64, 64), HorizontalAlignment = HAlignment.Center, Margin = new Thickness(0, 10, 0, 0) };
         leftContentBox.AddChild(_resultSprite);
@@ -123,8 +126,8 @@ public sealed class NCWeaponWorkbenchWindow : DefaultWindow
         // Heat Sensor Container
         var heatBox = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Vertical, HorizontalExpand = true, HorizontalAlignment = HAlignment.Center };
         topRow.AddChild(heatBox);
-        heatBox.AddChild(new Label { Text = "ТЕМП.", FontColorOverride = Color.FromHex("#4caf50"), HorizontalAlignment = HAlignment.Center });
-        _heatStatusLabel = new Label { Text = "[ОК]", FontColorOverride = Color.FromHex("#4caf50"), HorizontalAlignment = HAlignment.Center };
+        heatBox.AddChild(new Label { Text = Loc.GetString("nc-workbench-window-sensor-heat"), FontColorOverride = Color.FromHex("#4caf50"), HorizontalAlignment = HAlignment.Center });
+        _heatStatusLabel = new Label { HorizontalAlignment = HAlignment.Center, FontColorOverride = Color.FromHex("#4caf50") };
         heatBox.AddChild(_heatStatusLabel);
 
         var heatSensorContainer = new Control { VerticalExpand = true, MinSize = new Vector2(30, 0), HorizontalAlignment = HAlignment.Center, Margin = new Thickness(0, 5, 0, 5) };
@@ -135,8 +138,8 @@ public sealed class NCWeaponWorkbenchWindow : DefaultWindow
         // Integrity Sensor Container
         var integrityBox = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Vertical, HorizontalExpand = true, HorizontalAlignment = HAlignment.Center };
         topRow.AddChild(integrityBox);
-        integrityBox.AddChild(new Label { Text = "ЦЕЛОСТН.", FontColorOverride = Color.FromHex("#4caf50"), HorizontalAlignment = HAlignment.Center });
-        _integrityStatusLabel = new Label { Text = "[ОК]", FontColorOverride = Color.FromHex("#4caf50"), HorizontalAlignment = HAlignment.Center };
+        integrityBox.AddChild(new Label { Text = Loc.GetString("nc-workbench-window-sensor-integrity"), FontColorOverride = Color.FromHex("#4caf50"), HorizontalAlignment = HAlignment.Center });
+        _integrityStatusLabel = new Label { HorizontalAlignment = HAlignment.Center, FontColorOverride = Color.FromHex("#4caf50") };
         integrityBox.AddChild(_integrityStatusLabel);
 
         var integritySensorContainer = new Control { VerticalExpand = true, MinSize = new Vector2(30, 0), HorizontalAlignment = HAlignment.Center, Margin = new Thickness(0, 5, 0, 5) };
@@ -150,8 +153,8 @@ public sealed class NCWeaponWorkbenchWindow : DefaultWindow
 
         var alignHeaderBox = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Horizontal, HorizontalAlignment = HAlignment.Center };
         alignBox.AddChild(alignHeaderBox);
-        alignHeaderBox.AddChild(new Label { Text = "КАЛИБР.", FontColorOverride = Color.FromHex("#4caf50"), Margin = new Thickness(0, 0, 10, 0) });
-        _alignmentStatusLabel = new Label { Text = "[ОК]", FontColorOverride = Color.FromHex("#4caf50") };
+        alignHeaderBox.AddChild(new Label { Text = Loc.GetString("nc-workbench-window-sensor-alignment"), FontColorOverride = Color.FromHex("#4caf50"), Margin = new Thickness(0, 0, 10, 0) });
+        _alignmentStatusLabel = new Label { FontColorOverride = Color.FromHex("#4caf50") };
         alignHeaderBox.AddChild(_alignmentStatusLabel);
 
         var alignSensorContainer = new Control { HorizontalExpand = true, MinSize = new Vector2(0, 30), Margin = new Thickness(0, 5, 0, 5) };
@@ -165,7 +168,7 @@ public sealed class NCWeaponWorkbenchWindow : DefaultWindow
             MinSize = new Vector2(0, 40),
             Margin = new Thickness(0, 0, 0, 10),
         };
-        _btnStart.AddChild(new Label { Text = "[ЗАПУСК ОБРАБОТКИ]", FontColorOverride = Color.LimeGreen, HorizontalAlignment = HAlignment.Center, VerticalAlignment = VAlignment.Center });
+        _btnStart.AddChild(new Label { Text = Loc.GetString("nc-workbench-window-start-button"), FontColorOverride = Color.LimeGreen, HorizontalAlignment = HAlignment.Center, VerticalAlignment = VAlignment.Center });
         mainLayout.AddChild(_btnStart);
 
         // BOTTOM: Operator Controls
@@ -178,7 +181,7 @@ public sealed class NCWeaponWorkbenchWindow : DefaultWindow
 
         var opBox = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Vertical, Margin = new Thickness(5), HorizontalExpand = true, VerticalExpand = true, HorizontalAlignment = HAlignment.Center };
         opPanel.AddChild(opBox);
-        opBox.AddChild(new Label { Text = "ОПЕРАТОР:", FontColorOverride = Color.FromHex("#4caf50"), HorizontalAlignment = HAlignment.Center });
+        opBox.AddChild(new Label { Text = Loc.GetString("nc-workbench-window-operator-header"), FontColorOverride = Color.FromHex("#4caf50"), HorizontalAlignment = HAlignment.Center });
 
         var btnsBox = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Horizontal, HorizontalAlignment = HAlignment.Center, Margin = new Thickness(0, 5, 0, 0) };
         opBox.AddChild(btnsBox);
@@ -186,25 +189,25 @@ public sealed class NCWeaponWorkbenchWindow : DefaultWindow
         var coolantBox = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Vertical, HorizontalAlignment = HAlignment.Center, Margin = new Thickness(5, 0, 5, 0) };
         _btnCoolant = new Button { MinSize = new Vector2(48, 48) };
         coolantBox.AddChild(_btnCoolant);
-        coolantBox.AddChild(new Label { Text = "[ОХЛАЖДЕНИЕ]", FontColorOverride = Color.FromHex("#4caf50"), HorizontalAlignment = HAlignment.Center });
+        coolantBox.AddChild(new Label { Text = Loc.GetString("nc-workbench-window-op-coolant"), FontColorOverride = Color.FromHex("#4caf50"), HorizontalAlignment = HAlignment.Center });
         btnsBox.AddChild(coolantBox);
 
         var weldBox = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Vertical, HorizontalAlignment = HAlignment.Center, Margin = new Thickness(5, 0, 5, 0) };
         _btnSpotWeld = new Button { MinSize = new Vector2(48, 48) };
         weldBox.AddChild(_btnSpotWeld);
-        weldBox.AddChild(new Label { Text = "[СВАРКА]", FontColorOverride = Color.FromHex("#4caf50"), HorizontalAlignment = HAlignment.Center });
+        weldBox.AddChild(new Label { Text = Loc.GetString("nc-workbench-window-op-weld"), FontColorOverride = Color.FromHex("#4caf50"), HorizontalAlignment = HAlignment.Center });
         btnsBox.AddChild(weldBox);
 
         var alignLeftBox = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Vertical, HorizontalAlignment = HAlignment.Center, Margin = new Thickness(5, 0, 5, 0) };
         _btnAlignLeft = new Button { MinSize = new Vector2(48, 48) };
         alignLeftBox.AddChild(_btnAlignLeft);
-        alignLeftBox.AddChild(new Label { Text = "[ДРЕЙФ ЛЕВ.]", FontColorOverride = Color.FromHex("#4caf50"), HorizontalAlignment = HAlignment.Center });
+        alignLeftBox.AddChild(new Label { Text = Loc.GetString("nc-workbench-window-op-align-left"), FontColorOverride = Color.FromHex("#4caf50"), HorizontalAlignment = HAlignment.Center });
         btnsBox.AddChild(alignLeftBox);
 
         var alignRightBox = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Vertical, HorizontalAlignment = HAlignment.Center, Margin = new Thickness(5, 0, 5, 0) };
         _btnAlignRight = new Button { MinSize = new Vector2(48, 48) };
         alignRightBox.AddChild(_btnAlignRight);
-        alignRightBox.AddChild(new Label { Text = "[ДРЕЙФ ПРАВ.]", FontColorOverride = Color.FromHex("#4caf50"), HorizontalAlignment = HAlignment.Center });
+        alignRightBox.AddChild(new Label { Text = Loc.GetString("nc-workbench-window-op-align-right"), FontColorOverride = Color.FromHex("#4caf50"), HorizontalAlignment = HAlignment.Center });
         btnsBox.AddChild(alignRightBox);
 
         // VERY BOTTOM: Global Progress
@@ -214,7 +217,7 @@ public sealed class NCWeaponWorkbenchWindow : DefaultWindow
             PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex("#111c15"), BorderThickness = new Thickness(2), BorderColor = Color.FromHex("#4caf50") }
         };
         mainLayout.AddChild(progressPanel);
-        _globalProgressLabel = new Label { Text = "ОБЩИЙ ПРОГРЕСС: ОЖИДАНИЕ", FontColorOverride = Color.FromHex("#4caf50"), Margin = new Thickness(5) };
+        _globalProgressLabel = new Label { Text = Loc.GetString("nc-workbench-window-progress-waiting"), FontColorOverride = Color.FromHex("#4caf50"), Margin = new Thickness(5) };
         progressPanel.AddChild(_globalProgressLabel);
 
         // OVERLAYS
@@ -235,11 +238,11 @@ public sealed class NCWeaponWorkbenchWindow : DefaultWindow
 
         var lockBox = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Vertical, HorizontalAlignment = HAlignment.Center, VerticalAlignment = VAlignment.Center };
         _lockPanel.AddChild(lockBox);
-        lockBox.AddChild(new Label { Text = "БЛОКИРОВКА СИСТЕМЫ", FontColorOverride = Color.Red, HorizontalAlignment = HAlignment.Center });
-        lockBox.AddChild(new Label { Text = "ВВЕДИТЕ КОД ДОСТУПА:", FontColorOverride = Color.Yellow, HorizontalAlignment = HAlignment.Center, Margin = new Thickness(0, 10, 0, 5) });
+        lockBox.AddChild(new Label { Text = Loc.GetString("nc-workbench-window-lock-header"), FontColorOverride = Color.Red, HorizontalAlignment = HAlignment.Center });
+        lockBox.AddChild(new Label { Text = Loc.GetString("nc-workbench-window-lock-input-label"), FontColorOverride = Color.Yellow, HorizontalAlignment = HAlignment.Center, Margin = new Thickness(0, 10, 0, 5) });
         _lockInput = new LineEdit { PlaceHolder = "0000", MinSize = new Vector2(120, 30), HorizontalAlignment = HAlignment.Center };
         lockBox.AddChild(_lockInput);
-        _lockSubmit = new Button { Text = "ПОДТВЕРДИТЬ", MinSize = new Vector2(120, 35), HorizontalAlignment = HAlignment.Center, Margin = new Thickness(0, 5, 0, 0) };
+        _lockSubmit = new Button { Text = Loc.GetString("nc-workbench-window-lock-submit"), MinSize = new Vector2(120, 35), HorizontalAlignment = HAlignment.Center, Margin = new Thickness(0, 5, 0, 0) };
         lockBox.AddChild(_lockSubmit);
 
         Contents.AddChild(rootPanel);
@@ -272,27 +275,31 @@ public sealed class NCWeaponWorkbenchWindow : DefaultWindow
         _btnAlignRight.AddChild(new TextureRect { TexturePath = "/Textures/Interface/VerbIcons/rotate_cw.svg.192dpi.png", HorizontalExpand = true, VerticalExpand = true, Stretch = TextureRect.StretchMode.KeepAspectCentered });
 
         _lockSubmit.OnPressed += _ => OnLockCodeSubmit?.Invoke(_lockInput.Text);
+
+        UpdateState(new NCWeaponWorkbenchUpdateState(NCWeaponWorkbenchState.Idle, 0.5f, 0.5f, 0.5f, 0f, 0.15f, string.Empty, false, null, null, false, 0f, false, null));
     }
 
     public void UpdateState(NCWeaponWorkbenchUpdateState state)
     {
         // 1. Предсказания и логи
-        _predictiveLogLabel.Text = "> " + (string.IsNullOrEmpty(state.WarningMessage) ? "SYSTEM STANDBY" : state.WarningMessage);
+        _predictiveLogLabel.Text = "> " + (string.IsNullOrEmpty(state.WarningMessage)
+            ? Loc.GetString("nc-workbench-window-log-standby")
+            : state.WarningMessage);
 
         // 2. Детали и иконки
-        _materialLabel.Text = state.HasMaterial ? "[МАТЕРИАЛ: ОК]" : "[МАТЕРИАЛ: НЕТ]";
+        var materialStatus = state.HasMaterial ? Loc.GetString("nc-workbench-window-material-status-ok") : Loc.GetString("nc-workbench-window-material-status-none");
+        _materialLabel.Text = Loc.GetString("nc-workbench-window-material-label", ("status", materialStatus));
         _materialSpriteView.SetPrototype(state.SourcePrototypeId);
 
-        _resultLabel.Text = state.ResultPrototypeId != null ? "[РЕЦЕПТ: ОК]" : "[РЕЦЕПТ: НЕТ]";
+        var recipeStatus = state.ResultPrototypeId != null ? Loc.GetString("nc-workbench-window-recipe-status-ok") : Loc.GetString("nc-workbench-window-recipe-status-none");
+        _resultLabel.Text = Loc.GetString("nc-workbench-window-recipe-label", ("status", recipeStatus));
         _resultSpriteView.SetPrototype(state.ResultPrototypeId);
 
         // 3. Сенсоры
-        // Вычисляем статус
         var heatCond = GetCondition(state.Heat, state.SafeZoneHalfWidth);
         var alignCond = GetCondition(state.Alignment, state.SafeZoneHalfWidth);
         var integrCond = GetCondition(state.Integrity, state.SafeZoneHalfWidth);
 
-        // 3. Сенсоры
         UpdateSensorStatusLabel(_heatStatusLabel, heatCond);
         _heatSensor.TargetValue = Math.Clamp(state.Heat, 0f, 1f);
         _heatPercentLabel.Text = $"{(int) (state.Heat * 100)}%";
@@ -306,7 +313,10 @@ public sealed class NCWeaponWorkbenchWindow : DefaultWindow
         _integrityPercentLabel.Text = $"{(int) (state.Integrity * 100)}%";
 
         // 4. Глобальный прогресс
-        _globalProgressLabel.Text = $"GLOBAL PROGRESS: {(int) (state.Progress * 100)}%";
+        if (state.Progress > 0)
+            _globalProgressLabel.Text = Loc.GetString("nc-workbench-window-progress-label", ("value", (int) (state.Progress * 100)));
+        else
+            _globalProgressLabel.Text = Loc.GetString("nc-workbench-window-progress-waiting");
 
         // 5. Блокировка системы (Уровень 3)
         if (state.IsSystemLocked)
@@ -336,7 +346,15 @@ public sealed class NCWeaponWorkbenchWindow : DefaultWindow
 
     private static void UpdateSensorStatusLabel(Label label, SensorCondition status)
     {
-        label.Text = $"[{status.ToString().ToUpper()}]";
+        var statusKey = status switch
+        {
+            SensorCondition.Optimal => "nc-workbench-window-sensor-status-optimal",
+            SensorCondition.Warning => "nc-workbench-window-sensor-status-warning",
+            SensorCondition.Critical => "nc-workbench-window-sensor-status-critical",
+            _ => "nc-workbench-window-sensor-status-optimal"
+        };
+
+        label.Text = Loc.GetString("nc-workbench-window-sensor-status", ("status", Loc.GetString(statusKey)));
         label.FontColorOverride = status switch
         {
             SensorCondition.Optimal => Color.LimeGreen,
@@ -467,7 +485,8 @@ public sealed class WorkbenchSensorControl : Control
             var indicatorBox = new UIBox2i(indicatorX - 3, rect.Top, indicatorX + 3, hm);
             handle.DrawRect(indicatorBox, Color.White);
 
-            var pt1 = new Vector2(indicatorX, hm + 8);
+            int arrowTop = hm + 8;
+            var pt1 = new Vector2(indicatorX, arrowTop);
             var pt2 = new Vector2(indicatorX - 6, hm);
             var pt3 = new Vector2(indicatorX + 6, hm);
             handle.DrawPrimitives(DrawPrimitiveTopology.TriangleList, new[] { pt1, pt2, pt3 }, Color.Red);

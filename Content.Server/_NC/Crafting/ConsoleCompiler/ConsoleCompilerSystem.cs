@@ -132,7 +132,7 @@ public sealed class ConsoleCompilerSystem : EntitySystem
         _itemSlots.TryEject(uid, comp.ReceiverSlot, actor, out _);
         QueueDel(receiverEntity.Value);
 
-        _popup.PopupEntity($"+{rawData.DataPoints} данных оцифровано", uid);
+        _popup.PopupEntity(Loc.GetString("console-compiler-popup-digitized", ("amount", rawData.DataPoints)), uid);
         Dirty(uid, comp);
         UpdateUserInterface(uid, comp);
     }
@@ -190,7 +190,7 @@ public sealed class ConsoleCompilerSystem : EntitySystem
         // Проверка баланса
         if (comp.AvailableData < cost)
         {
-            _popup.PopupEntity("Недостаточно данных!", uid);
+            _popup.PopupEntity(Loc.GetString("console-compiler-popup-no-data"), uid);
             return;
         }
 
@@ -260,8 +260,11 @@ public sealed class ConsoleCompilerSystem : EntitySystem
         if (!string.IsNullOrEmpty(prototype))
         {
             Spawn(prototype, Transform(uid).Coordinates);
-            var label = args.IsBlueprint ? "Чертёж" : "Рецепт";
-            _popup.PopupEntity($"✔ {label} напечатан!", uid);
+            var type = args.IsBlueprint
+                ? Loc.GetString("console-compiler-popup-printed-blueprint")
+                : Loc.GetString("console-compiler-popup-printed-recipe");
+
+            _popup.PopupEntity(Loc.GetString("console-compiler-popup-printed", ("type", type)), uid);
         }
 
         // Проверка истощения мастер-диска
@@ -286,7 +289,7 @@ public sealed class ConsoleCompilerSystem : EntitySystem
         // Спавним сгоревшую болванку на координатах консоли
         Spawn(comp.BurnedDiskPrototype, Transform(uid).Coordinates);
 
-        _popup.PopupEntity("☠ Мастер-диск исчерпан! Болванка сгорела.", uid);
+        _popup.PopupEntity(Loc.GetString("console-compiler-popup-exhausted"), uid);
     }
 
     // ─── Обновление BUI ───

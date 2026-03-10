@@ -9,7 +9,7 @@ namespace Content.Client._NC.Crafting.ConsoleCompiler;
 
 /// <summary>
 /// Окно консоли-компилятора (Техно-Принтер).
-/// Полностью соответствует макету MILITECH // COMPILER_OS v1.4.
+/// Полностью локализовано через .ftl.
 /// </summary>
 [GenerateTypedNameReferences]
 public sealed partial class ConsoleCompilerWindow : DefaultWindow
@@ -33,6 +33,8 @@ public sealed partial class ConsoleCompilerWindow : DefaultWindow
     private readonly Button _digitizeButton;
     private readonly Button _printBlueprintButton;
     private readonly Button _printRecipeButton;
+    private readonly Button _ejectReceiverButton;
+    private readonly Button _ejectMasterButton;
 
     private readonly Label _blueprintCostLabel;
     private readonly Label _recipeCostLabel;
@@ -43,7 +45,6 @@ public sealed partial class ConsoleCompilerWindow : DefaultWindow
     private static readonly Color CyanColor = Color.FromHex("#55EEFF");
     private static readonly Color AmberColor = Color.FromHex("#DDCC44");
     private static readonly Color GrayColor = Color.FromHex("#AAAAAA");
-    private static readonly Color RedColor = Color.FromHex("#FF5555");
 
     public ConsoleCompilerWindow()
     {
@@ -54,6 +55,7 @@ public sealed partial class ConsoleCompilerWindow : DefaultWindow
         _inputDiskIcon = FindControl<TextureRect>("InputDiskIcon");
         _availableDataLabel = FindControl<Label>("AvailableDataLabel");
         _digitizeButton = FindControl<Button>("DigitizeButton");
+        _ejectReceiverButton = FindControl<Button>("EjectReceiverButton");
 
         // Правая панель — COMPILER
         _masterDiskLabel = FindControl<Label>("MasterDiskLabel");
@@ -62,6 +64,7 @@ public sealed partial class ConsoleCompilerWindow : DefaultWindow
         _usesLeftLabel = FindControl<Label>("UsesLeftLabel");
         _printBlueprintButton = FindControl<Button>("PrintBlueprintButton");
         _printRecipeButton = FindControl<Button>("PrintRecipeButton");
+        _ejectMasterButton = FindControl<Button>("EjectMasterButton");
 
         _blueprintCostLabel = FindControl<Label>("BlueprintCostLabel");
         _recipeCostLabel = FindControl<Label>("RecipeCostLabel");
@@ -71,8 +74,8 @@ public sealed partial class ConsoleCompilerWindow : DefaultWindow
 
         // Подписки кнопок
         _digitizeButton.OnPressed += _ => OnDigitize?.Invoke();
-        FindControl<Button>("EjectReceiverButton").OnPressed += _ => OnEjectReceiver?.Invoke();
-        FindControl<Button>("EjectMasterButton").OnPressed += _ => OnEjectMaster?.Invoke();
+        _ejectReceiverButton.OnPressed += _ => OnEjectReceiver?.Invoke();
+        _ejectMasterButton.OnPressed += _ => OnEjectMaster?.Invoke();
         _printBlueprintButton.OnPressed += _ => OnPrint?.Invoke(true);
         _printRecipeButton.OnPressed += _ => OnPrint?.Invoke(false);
     }
@@ -85,19 +88,20 @@ public sealed partial class ConsoleCompilerWindow : DefaultWindow
         // ─── DATA BANK — Левая панель ───
         if (state.HasReceiverItem)
         {
-            _inputItemLabel.Text = "RAW_DATA_SHARD"; // В идеале тут имя из метаданных, но для стиля можно апперкейс
+            _inputItemLabel.Text = "RAW_DATA_SHARD";
             _inputItemLabel.FontColorOverride = CyanColor;
             _inputDiskIcon.Visible = true;
         }
         else
         {
-            _inputItemLabel.Text = "EMPTY_SLOT";
+            _inputItemLabel.Text = Loc.GetString("console-compiler-window-input-empty");
             _inputItemLabel.FontColorOverride = GrayColor;
             _inputDiskIcon.Visible = false;
         }
 
-        _availableDataLabel.Text = $"{state.AvailableData} МБ";
+        _availableDataLabel.Text = Loc.GetString("console-compiler-window-memory-value", ("value", state.AvailableData));
         _digitizeButton.Disabled = !state.HasReceiverItem || state.IsPrinting;
+        _ejectReceiverButton.Disabled = state.IsPrinting;
 
         // ─── COMPILER — Правая панель ───
         if (state.HasMasterDisk)
@@ -105,18 +109,20 @@ public sealed partial class ConsoleCompilerWindow : DefaultWindow
             _masterDiskLabel.Text = state.MasterDiskName.ToUpper().Replace(" ", "_");
             _masterDiskLabel.FontColorOverride = AmberColor;
             _masterDiskIcon.Visible = true;
-            _matrixStatusLabel.Text = "СТАТУС МАТРИЦЫ: [РАСШИФРОВАНА]";
-            _matrixStatusLabel.FontColorOverride = Color.FromHex("#22EE22"); // Зелёный статус из макета
-            _usesLeftLabel.Text = $"[ {state.MasterDiskUsesLeft} ИСПОЛЬЗОВАНИЯ ]";
+            _matrixStatusLabel.Text = Loc.GetString("console-compiler-window-matrix-status",
+                ("status", Loc.GetString("console-compiler-window-matrix-status-ready")));
+            _matrixStatusLabel.FontColorOverride = Color.FromHex("#22EE22");
+            _usesLeftLabel.Text = Loc.GetString("console-compiler-window-uses-value", ("count", state.MasterDiskUsesLeft));
         }
         else
         {
-            _masterDiskLabel.Text = "NO_DATA_MATRIX";
+            _masterDiskLabel.Text = Loc.GetString("console-compiler-window-matrix-not-found");
             _masterDiskLabel.FontColorOverride = GrayColor;
             _masterDiskIcon.Visible = false;
-            _matrixStatusLabel.Text = "СТАТУС МАТРИЦЫ: [ОТСУТСТВУЕТ]";
+            _matrixStatusLabel.Text = Loc.GetString("console-compiler-window-matrix-status",
+                ("status", Loc.GetString("console-compiler-window-matrix-status-missing")));
             _matrixStatusLabel.FontColorOverride = GrayColor;
-            _usesLeftLabel.Text = "[ — ]";
+            _usesLeftLabel.Text = Loc.GetString("console-compiler-window-uses-value", ("count", 0));
         }
 
         // Кнопки печати
@@ -125,27 +131,23 @@ public sealed partial class ConsoleCompilerWindow : DefaultWindow
 
         _printBlueprintButton.Disabled = !canBlueprint;
         _printRecipeButton.Disabled = !canRecipe;
+        _ejectMasterButton.Disabled = state.IsPrinting;
 
         // Стоимости под кнопками
-        var blueprintUses = state.HasMasterDisk ? 1 : 0;
-        var recipeUses = state.HasMasterDisk ? 1 : 0;
-
-        _blueprintCostLabel.Text = $"ЦЕНА: {state.BlueprintCost} МБ | РАСХОД: {blueprintUses} ЗАРЯД";
-        _recipeCostLabel.Text = $"ЦЕНА: {state.RecipeCost} МБ | РАСХОД: {recipeUses} ЗАРЯД";
-
-        // Блокируем извлечение во время печати
-        EjectReceiverButton.Disabled = state.IsPrinting;
-        EjectMasterButton.Disabled = state.IsPrinting;
+        _blueprintCostLabel.Text = Loc.GetString("console-compiler-window-cost-label",
+            ("cost", state.BlueprintCost), ("uses", state.HasMasterDisk ? 1 : 0));
+        _recipeCostLabel.Text = Loc.GetString("console-compiler-window-cost-label",
+            ("cost", state.RecipeCost), ("uses", state.HasMasterDisk ? 1 : 0));
 
         // ─── Статус нижний ───
         if (state.IsPrinting)
         {
-            _statusLabel.Text = ">> СИСТЕМА: ИДЕТ ПРОЦЕСС КОМПИЛЯЦИИ...";
+            _statusLabel.Text = Loc.GetString("console-compiler-window-status-printing");
             _statusLabel.FontColorOverride = AmberColor;
         }
         else
         {
-            _statusLabel.Text = $">> СИСТЕМА: ГОТОВА К РАБОТЕ. ВЕРСИЯ ЯДРА 1.4.0";
+            _statusLabel.Text = Loc.GetString("console-compiler-window-status-ready");
             _statusLabel.FontColorOverride = GrayColor;
         }
     }
