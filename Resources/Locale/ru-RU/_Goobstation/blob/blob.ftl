@@ -33,7 +33,7 @@ ghost-role-information-blob-description = Вы - инфекция Блоба. П
 roles-antag-blob-name = Блоб
 roles-antag-blob-objective = Достигните критической массы.
 
-guide-entry-blob = Blob
+guide-entry-blob = Блоб
 
 # Popups
 blob-target-normal-blob-invalid = Неправильный тип блоба, выберите обычный блоб.

@@ -1,10 +1,10 @@
 ﻿guidebook-reagent-effect-description =
     {$chance ->
         [1] { $effect }
-        *[other] Has a { NATURALPERCENT($chance, 2) } chance to { $effect }
+        *[other] Имеет { NATURALPERCENT($chance, 2) } шанс на { $effect }
     }{ $conditionCount ->
         [0] .
-        *[other] {" "}when { $conditions }.
+        *[other] {" "} когда { $conditions }.
     }
 
 guidebook-reagent-name = [bold][color={ $color }]{ CAPITALIZE($name) }[/color][/bold]
@@ -15,8 +15,8 @@ guidebook-reagent-sources-ent-wrapper = [bold]{$name}[/bold] \[1\]
 guidebook-reagent-sources-gas-wrapper = [bold]{$name} (газ)[/bold] \[1\]
 guidebook-reagent-effects-header = Эффекты
 guidebook-reagent-effects-metabolism-group-rate = [bold]{ $group }[/bold] [color=gray]({ $rate } единиц в секунду)[/color]
-guidebook-reagent-plant-metabolisms-header = Plant Metabolism
-guidebook-reagent-plant-metabolisms-rate = [bold]Plant Metabolism[/bold] [color=gray](1 unit every 3 seconds as base)[/color]
+guidebook-reagent-plant-metabolisms-header = Метаболизм растений
+guidebook-reagent-plant-metabolisms-rate = [bold]Метаболизм растений[/bold] [color=gray](1 унция каждые 3 секунды в качестве базовой)[/color]
 guidebook-reagent-physical-description = [italic]Кажется {$description}.[/italic]
 guidebook-reagent-recipes-mix-info = {$minTemp ->
     [0] {$hasMax ->
