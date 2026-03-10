@@ -31,9 +31,37 @@
   name: MagazinePistolAvenger
 
 - type: Tag
-  id: MagazinePistolStukachTommy
-  name: MagazinePistolStukachTommy
+  id: MagazinePistolStukach
+  name: MagazinePistolStukach
 
 - type: Tag
   id: MagazinePistolStreetMaster
   name: MagazinePistolStreetMaster
+
+- type: Tag
+  id: Cartridge114mm
+  name: Cartridge114mm
+
+- type: Tag
+  id: Cartridge127mm
+  name: Cartridge127mm
+
+- type: Tag
+  id: Cartridge622mm
+  name: Cartridge622mm
+
+- type: Tag
+  id: Cartridge622mmCaseless
+  name: Cartridge622mmCaseless
+
+- type: Tag
+  id: Cartridge152mm
+  name: Cartridge152mm
+
+- type: Tag
+  id: Magazine622mmCaseless
+  name: Magazine622mmCaseless
+
+- type: Tag
+  id: CartridgeNomadSpike
+  name: CartridgeNomadSpike

@@ -1,0 +1,75 @@
+- type: entity
+  id: AmmoBox114mm
+  name: коробка патронов (11.4мм)
+  parent: BaseMagazineBoxPistol
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 30
+    proto: Cartridge114mm
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  id: AmmoBox127mm
+  name: коробка патронов (12.7мм)
+  parent: BaseMagazineBoxPistol
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 20
+    proto: Cartridge127mm
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  id: AmmoBox622mmCaseless
+  name: коробка патронов (6.22мм безгильзовые)
+  parent: BaseMagazineBoxRifle
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 30
+    proto: Cartridge622mmCaseless
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  id: AmmoBox152mm
+  name: коробка патронов (15.2мм)
+  parent: BaseMagazineBoxAntiMateriel
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 10
+    proto: Cartridge152mm
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  id: AmmoBoxNomadSpike
+  name: коробка заточенных штырей
+  description: Тяжелая металлическая коробка, наполненная заточенной арматурой для пневматического оружия.
+  parent: BaseMagazineBoxRifle
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 12
+    proto: CartridgeNomadSpike
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]

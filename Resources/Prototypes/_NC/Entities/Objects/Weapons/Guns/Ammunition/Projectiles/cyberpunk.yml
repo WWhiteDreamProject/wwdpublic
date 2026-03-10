@@ -1,0 +1,68 @@
+- type: entity
+  id: Bullet114mm
+  name: пуля (11.4мм)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 35
+
+- type: entity
+  id: Bullet127mm
+  name: пуля (12.7мм)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 55
+  - type: Sprite
+    layers:
+    - state: magnum
+      shader: unshaded
+
+- type: entity
+  id: Bullet622mmCaseless
+  name: пуля (6.22мм безгильзовая)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 40
+
+- type: entity
+  id: Bullet152mm
+  name: пуля (15.2мм)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 150
+        Structural: 400
+  - type: Sprite
+    layers:
+    - state: antimat
+      shader: unshaded
+
+- type: entity
+  id: BulletNomadSpike
+  name: тяжелый штырь
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 75
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/arrows.rsi
+    layers:
+    - state: bolt
+      shader: unshaded

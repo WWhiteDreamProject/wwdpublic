@@ -37,7 +37,7 @@
   - type: DualAmmoProvider
     currentMode: 0
     modes:
-    - prototype: CartridgeRifle
+    - prototype: Cartridge622mmCaseless
       usesMagazine: true
       modeName: dual-ammo-mode-rifle
       fireRate: 6

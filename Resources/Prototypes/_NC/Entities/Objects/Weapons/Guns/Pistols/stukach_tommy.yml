@@ -65,7 +65,7 @@
   - type: DualAmmoProvider
     currentMode: 0
     modes:
-    - prototype: CartridgeMagnum
+    - prototype: Cartridge127mm
       usesMagazine: true
       modeName: dual-ammo-mode-pistol
       fireRate: 4
@@ -147,7 +147,7 @@
   - type: DualAmmoProvider
     currentMode: 0
     modes:
-    - prototype: CartridgeMagnum
+    - prototype: Cartridge127mm
       usesMagazine: true
       modeName: dual-ammo-mode-pistol
       fireRate: 4

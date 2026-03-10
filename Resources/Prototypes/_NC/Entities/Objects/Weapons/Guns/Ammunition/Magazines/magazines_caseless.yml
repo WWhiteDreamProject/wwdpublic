@@ -1,0 +1,11 @@
+- type: entity
+  id: Magazine622mmCaseless
+  name: магазин (6.22мм безгильзовые)
+  parent: BaseMagazineRifle
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 30
+    proto: Cartridge622mmCaseless
+  - type: Tag
+    tags:
+    - Magazine622mmCaseless
