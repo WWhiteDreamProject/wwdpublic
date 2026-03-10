@@ -158,6 +158,7 @@ public sealed partial class NCWeaponWorkbenchSystem : EntitySystem
         component.IsSystemLocked = false;
         component.LockCode = string.Empty;
         component.LockTriggered = false;
+        component.AnomalyGraceTimer = 0f;
 
         UpdateUserInterface(uid, component);
     }
@@ -176,6 +177,10 @@ public sealed partial class NCWeaponWorkbenchSystem : EntitySystem
             // Тикаем таймер красного мигания
             if (comp.FlashTimer > 0f)
                 comp.FlashTimer = Math.Max(0f, comp.FlashTimer - frameTime);
+
+            // Тикаем таймер "окна безопасности"
+            if (comp.AnomalyGraceTimer > 0f)
+                comp.AnomalyGraceTimer = Math.Max(0f, comp.AnomalyGraceTimer - frameTime);
 
             if (comp.State != NCWeaponWorkbenchState.Processing)
                 continue;
@@ -226,7 +231,8 @@ public sealed partial class NCWeaponWorkbenchSystem : EntitySystem
                              Math.Abs(comp.Integrity - 0.5f) > 0.45f ||
                              Math.Abs(comp.Alignment - 0.5f) > 0.45f;
 
-            if (isDeadly)
+            // Если активно "окно безопасности", CriticalTimer не тикает
+            if (isDeadly && comp.AnomalyGraceTimer <= 0f)
             {
                 comp.CriticalTimer += frameTime;
                 if (comp.CriticalTimer > comp.ToleranceTime)
@@ -259,28 +265,31 @@ public sealed partial class NCWeaponWorkbenchSystem : EntitySystem
     {
         // Включаем красное мигание
         component.FlashTimer = FlashDuration;
+        // Даем окно безопасности, чтобы игрок успел среагировать
+        component.AnomalyGraceTimer = 0.8f;
+        component.CriticalTimer = 0f;
 
         switch (anomaly)
         {
             case NCWorkbenchAnomalyType.HeatSpike:
-                component.Heat = 1.0f;
+                component.Heat = 0.93f; // Смягчено с 1.0f
                 component.WarningMessage = Loc.GetString("nc-workbench-system-anomaly-heat");
                 break;
             case NCWorkbenchAnomalyType.IntegrityDrop:
-                component.Integrity = 0.0f;
+                component.Integrity = 0.07f; // Смягчено с 0.0f
                 component.WarningMessage = Loc.GetString("nc-workbench-system-anomaly-integrity");
                 break;
             case NCWorkbenchAnomalyType.AlignmentLeft:
-                component.Alignment = 0.0f;
+                component.Alignment = 0.07f;
                 component.WarningMessage = Loc.GetString("nc-workbench-system-anomaly-alignment");
                 break;
             case NCWorkbenchAnomalyType.AlignmentRight:
-                component.Alignment = 1.0f;
+                component.Alignment = 0.93f;
                 component.WarningMessage = Loc.GetString("nc-workbench-system-anomaly-alignment");
                 break;
             case NCWorkbenchAnomalyType.DoubleTrouble:
-                component.Heat = 1.0f;
-                component.Integrity = 0.0f;
+                component.Heat = 0.93f;
+                component.Integrity = 0.07f;
                 component.WarningMessage = Loc.GetString("nc-workbench-system-anomaly-critical");
                 break;
         }

@@ -32,6 +32,7 @@ nc-workbench-window-progress-waiting = ОБЩИЙ ПРОГРЕСС: ОЖИДАН
 nc-workbench-window-lock-header = БЛОКИРОВКА СИСТЕМЫ
 nc-workbench-window-lock-input-label = ВВЕДИТЕ КОД ДОСТУПА:
 nc-workbench-window-lock-submit = ПОДТВЕРДИТЬ
+nc-workbench-window-lock-code-display = СГЕНЕРИРОВАННЫЙ КОД: { $code }
 
 # System Messages
 nc-workbench-system-access-accepted = КОД ДОСТУПА ПРИНЯТ.

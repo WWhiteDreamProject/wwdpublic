@@ -9,7 +9,7 @@
       state: icon
     - type: NCWeaponBlank
       safeZoneHalf: 0.10
-      toleranceTime: 1.2
+      toleranceTime: 1.7
       progressSpeed: 0.033
       enableSystemLock: true
       resultEntity: NCProcessedInternalsT3

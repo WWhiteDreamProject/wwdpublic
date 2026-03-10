@@ -12,7 +12,7 @@
       state: icon
     - type: NCWeaponBlank
       safeZoneHalf: 0.12
-      toleranceTime: 1.5
+      toleranceTime: 2.2
       progressSpeed: 0.04
       resultEntity: NCProcessedElectronicsT2
       anomalies:

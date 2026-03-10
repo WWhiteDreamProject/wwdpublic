@@ -32,6 +32,7 @@ nc-workbench-window-progress-waiting = GLOBAL PROGRESS: STANDBY
 nc-workbench-window-lock-header = SYSTEM LOCKDOWN
 nc-workbench-window-lock-input-label = ENTER ACCESS CODE:
 nc-workbench-window-lock-submit = CONFIRM
+nc-workbench-window-lock-code-display = GENERATED CODE: { $code }
 
 # System Messages
 nc-workbench-system-access-accepted = ✔ ACCESS CODE ACCEPTED.

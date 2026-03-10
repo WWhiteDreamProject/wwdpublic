@@ -140,6 +140,13 @@ public sealed partial class NCWeaponWorkbenchComponent : Component
     public float FlashTimer = 0f;
 
     /// <summary>
+    /// "Окно безопасности" после аномалии (секунды), когда CriticalTimer не тикает.
+    /// Чтобы игрок успел среагировать на резкий скачок.
+    /// </summary>
+    [AutoNetworkedField]
+    public float AnomalyGraceTimer = 0f;
+
+    /// <summary>
     /// Включена ли системная блокировка для этого верстака (Тир 3).
     /// </summary>
     [DataField("enableSystemLock")]

@@ -8,8 +8,8 @@
       sprite: Objects/Tools/wrench.rsi
       state: icon
     - type: NCWeaponBlank
-      safeZoneHalf: 0.06
-      toleranceTime: 0.8
+      safeZoneHalf: 0.08
+      toleranceTime: 1.7
       progressSpeed: 0.025
       enableSystemLock: true
       resultEntity: NCProcessedElectronicsT3

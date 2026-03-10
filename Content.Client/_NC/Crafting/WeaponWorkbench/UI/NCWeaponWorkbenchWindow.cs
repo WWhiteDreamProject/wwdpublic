@@ -46,6 +46,7 @@ public sealed class NCWeaponWorkbenchWindow : DefaultWindow
     private readonly PanelContainer _lockPanel;
     private readonly LineEdit _lockInput;
     private readonly Button _lockSubmit;
+    private readonly Label _lockCodeLabel;
 
     public event Action<OperatorCommandType>? OnOperatorCommand;
     public event Action<string>? OnLockCodeSubmit;
@@ -232,18 +233,38 @@ public sealed class NCWeaponWorkbenchWindow : DefaultWindow
         _lockPanel = new PanelContainer
         {
             Visible = false,
-            PanelOverride = new StyleBoxFlat { BackgroundColor = Color.FromHex("#cc000000") }
+            HorizontalExpand = true,
+            VerticalExpand = true,
+            PanelOverride = new StyleBoxFlat { BackgroundColor = Color.Black.WithAlpha(0.9f) }
         };
         rootPanel.AddChild(_lockPanel);
 
-        var lockBox = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Vertical, HorizontalAlignment = HAlignment.Center, VerticalAlignment = VAlignment.Center };
-        _lockPanel.AddChild(lockBox);
+        var lockDialog = new PanelContainer
+        {
+            MinSize = new Vector2(280, 200),
+            HorizontalAlignment = HAlignment.Center,
+            VerticalAlignment = VAlignment.Center,
+            PanelOverride = new StyleBoxFlat
+            {
+                BackgroundColor = Color.FromHex("#1a1a1a"),
+                BorderThickness = new Thickness(2),
+                BorderColor = Color.FromHex("#ff0000") // Red border for "CRITICAL/LOCKED" feel
+            }
+        };
+        _lockPanel.AddChild(lockDialog);
+
+        var lockBox = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Vertical, Margin = new Thickness(20), HorizontalExpand = true, VerticalExpand = true };
+        lockDialog.AddChild(lockBox);
+
         lockBox.AddChild(new Label { Text = Loc.GetString("nc-workbench-window-lock-header"), FontColorOverride = Color.Red, HorizontalAlignment = HAlignment.Center });
         lockBox.AddChild(new Label { Text = Loc.GetString("nc-workbench-window-lock-input-label"), FontColorOverride = Color.Yellow, HorizontalAlignment = HAlignment.Center, Margin = new Thickness(0, 10, 0, 5) });
-        _lockInput = new LineEdit { PlaceHolder = "0000", MinSize = new Vector2(120, 30), HorizontalAlignment = HAlignment.Center };
+        _lockInput = new LineEdit { PlaceHolder = "0000", MinSize = new Vector2(150, 35), HorizontalAlignment = HAlignment.Center };
         lockBox.AddChild(_lockInput);
-        _lockSubmit = new Button { Text = Loc.GetString("nc-workbench-window-lock-submit"), MinSize = new Vector2(120, 35), HorizontalAlignment = HAlignment.Center, Margin = new Thickness(0, 5, 0, 0) };
+        _lockSubmit = new Button { Text = Loc.GetString("nc-workbench-window-lock-submit"), MinSize = new Vector2(150, 40), HorizontalAlignment = HAlignment.Center, Margin = new Thickness(0, 10, 0, 0) };
         lockBox.AddChild(_lockSubmit);
+
+        _lockCodeLabel = new Label { FontColorOverride = Color.Lime, HorizontalAlignment = HAlignment.Center, Margin = new Thickness(0, 15, 0, 0) };
+        lockBox.AddChild(_lockCodeLabel);
 
         Contents.AddChild(rootPanel);
 
@@ -322,6 +343,7 @@ public sealed class NCWeaponWorkbenchWindow : DefaultWindow
         if (state.IsSystemLocked)
         {
             _lockPanel.Visible = true;
+            _lockCodeLabel.Text = Loc.GetString("nc-workbench-window-lock-code-display", ("code", state.LockCode ?? "####"));
             DisableOperatorButtons();
         }
         else
