@@ -2,7 +2,7 @@
 # Чертежи Винтовок (Rifles)
 # ============================
 
-# Штейнмейер М-04 (Tier 2)
+# Штейнмейер М-04 (Tier 3)
 - type: entity
   id: NCBlueprintM04
   name: чертеж "Штейнмейер М-04"
@@ -17,21 +17,18 @@
       garbageEntity: Scrap
       steps:
         - part: Frame
-          prototype: NCProcessedFrameT2
+          prototype: NCProcessedFrameT3
           doAfterTime: 2.5
         - part: Barrel
-          prototype: NCProcessedBarrelT2
+          prototype: NCProcessedBarrelT3
           doAfterTime: 2.5
         - tool: Screwing
           doAfterTime: 3.5
         - part: Internals
-          prototype: NCProcessedInternalsT2
+          prototype: NCProcessedInternalsT3
           doAfterTime: 3.0
-        - part: Board
-          prototype: NCProcessedElectronicsT2
-          doAfterTime: 2.0
-        - tool: Pulsing
-          doAfterTime: 3.0
+        - tool: Screwing
+          doAfterTime: 2.5
 
 # Прототип Арасака (Tier 3)
 - type: entity

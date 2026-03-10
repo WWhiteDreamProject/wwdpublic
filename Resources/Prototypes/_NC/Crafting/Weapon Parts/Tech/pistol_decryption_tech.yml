@@ -1,0 +1,94 @@
+- type: entity
+  parent: BaseItem
+  id: NCTechPistolHelloCutie
+  name: Технология (Pistol Hello Cutie)
+  description: Технология для создания модуля "Hello Cutie".
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    layers:
+    - state: datadisk_base
+    - state: datadisk_label
+  - type: DecryptionTechnology
+    tier: Standard
+    modulePrototype: NCBlueprintHelloCutie
+    recipePrototype: NCRecipePaperHelloCutie
+    moduleCost: 30
+    recipeCost: 50
+    maxUses: 5
+
+- type: entity
+  parent: BaseItem
+  id: NCTechPistolOverlord
+  name: Технология (Pistol Overlord)
+  description: Технология для создания модуля "Overlord".
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    layers:
+    - state: datadisk_base
+    - state: datadisk_label
+  - type: DecryptionTechnology
+    tier: Standard
+    modulePrototype: NCBlueprintOverlord
+    recipePrototype: NCRecipePaperOverlord
+    moduleCost: 60
+    recipeCost: 90
+    maxUses: 4
+
+- type: entity
+  parent: BaseItem
+  id: NCTechPistolStukachTommy
+  name: Технология (Pistol Stukach Tommy)
+  description: Технология для создания модуля "Stukach Tommy".
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    layers:
+    - state: datadisk_base
+    - state: datadisk_label
+  - type: DecryptionTechnology
+    tier: Excellent
+    modulePrototype: NCBlueprintStukachTommy
+    recipePrototype: NCRecipePaperStukachTommy
+    moduleCost: 100
+    recipeCost: 140
+    maxUses: 3
+
+- type: entity
+  parent: BaseItem
+  id: NCTechPistolStreetMaster
+  name: Технология (Dai Lung StreetMaster)
+  description: Технология для создания модуля "StreetMaster". Т1.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    layers:
+    - state: datadisk_base
+    - state: datadisk_label
+  - type: DecryptionTechnology
+    tier: Standard
+    modulePrototype: NCBlueprintStreetMaster
+    recipePrototype: NCRecipePaperStreetMaster
+    moduleCost: 50
+    recipeCost: 80
+    maxUses: 5
+
+- type: entity
+  parent: BaseItem
+  id: NCTechPistolAvenger
+  name: Технология (Militech Avenger)
+  description: Технология для создания модуля "Avenger". Т2.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    layers:
+    - state: datadisk_base
+    - state: datadisk_label
+  - type: DecryptionTechnology
+    tier: Excellent
+    modulePrototype: NCBlueprintAvenger
+    recipePrototype: NCRecipePaperAvenger
+    moduleCost: 110
+    recipeCost: 150
+    maxUses: 3

@@ -88,3 +88,62 @@
           doAfterTime: 1.5
         - tool: Pulsing
           doAfterTime: 2.5
+
+# Dai Lung StreetMaster (Tier 1)
+- type: entity
+  id: NCBlueprintStreetMaster
+  name: чертеж "Dai Lung StreetMaster"
+  description: Диск с инструкциями по сборке и физический каркас под детали для тяжелого пистолета StreetMaster.
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: Objects/Tools/blueprint.rsi
+      state: icon
+    - type: NCBlueprint
+      resultEntity: WeaponPistolStreetMaster
+      garbageEntity: Scrap
+      steps:
+        - part: Frame
+          prototype: NCProcessedFrameT1
+          doAfterTime: 2.0
+        - part: Barrel
+          prototype: NCProcessedBarrelT1
+          doAfterTime: 2.0
+        - tool: Screwing
+          doAfterTime: 3.0
+        - part: Internals
+          prototype: NCProcessedInternalsT1
+          doAfterTime: 2.5
+        - tool: Screwing
+          doAfterTime: 2.5
+
+# Militech Avenger (Tier 2)
+- type: entity
+  id: NCBlueprintAvenger
+  name: чертеж "Militech Avenger"
+  description: Диск с инструкциями по сборке и физический каркас под детали для пистолета Militech Avenger.
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: Objects/Tools/blueprint.rsi
+      state: icon
+    - type: NCBlueprint
+      resultEntity: WeaponPistolAvenger
+      garbageEntity: Scrap
+      steps:
+        - part: Frame
+          prototype: NCProcessedFrameT2
+          doAfterTime: 2.0
+        - part: Barrel
+          prototype: NCProcessedBarrelT2
+          doAfterTime: 2.0
+        - tool: Screwing
+          doAfterTime: 3.0
+        - part: Internals
+          prototype: NCProcessedInternalsT2
+          doAfterTime: 2.5
+        - part: Board
+          prototype: NCProcessedElectronicsT2
+          doAfterTime: 1.5
+        - tool: Pulsing
+          doAfterTime: 2.5

@@ -1,0 +1,37 @@
+- type: entity
+  parent: BaseItem
+  id: NCTechRifleM04
+  name: Технология (Rifle Steinmeyer M-04)
+  description: Технология для создания модуля "Штейнмейер М-04". Т2.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    layers:
+    - state: datadisk_base
+    - state: datadisk_label
+  - type: DecryptionTechnology
+    tier: Legendary
+    modulePrototype: NCBlueprintM04
+    recipePrototype: NCRecipePaperM04
+    moduleCost: 350
+    recipeCost: 500
+    maxUses: 3
+
+- type: entity
+  parent: BaseItem
+  id: NCTechRifleArasakaProto
+  name: Технология (Rifle Arasaka Proto)
+  description: Технология для создания модуля "Прототип Арасака". Т3.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    layers:
+    - state: datadisk_base
+    - state: datadisk_label
+  - type: DecryptionTechnology
+    tier: Legendary
+    modulePrototype: NCBlueprintArasakaProto
+    recipePrototype: NCRecipePaperArasakaProto
+    moduleCost: 450
+    recipeCost: 600
+    maxUses: 2

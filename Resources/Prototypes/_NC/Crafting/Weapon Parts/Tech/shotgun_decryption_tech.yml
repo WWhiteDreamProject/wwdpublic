@@ -1,0 +1,18 @@
+- type: entity
+  parent: BaseItem
+  id: NCTechShotgunSvakha
+  name: Технология (Shotgun Svakha)
+  description: Технология для создания модуля "Сваха". Т1.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    layers:
+    - state: datadisk_base
+    - state: datadisk_label
+  - type: DecryptionTechnology
+    tier: Standard
+    modulePrototype: NCBlueprintSvakha
+    recipePrototype: NCRecipePaperSvakha
+    moduleCost: 60
+    recipeCost: 90
+    maxUses: 4

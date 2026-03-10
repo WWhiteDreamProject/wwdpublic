@@ -1,0 +1,153 @@
+- type: entity
+  parent: Paper
+  id: NCRecipePaperBase
+  abstract: true
+  name: технический рецепт
+  description: Лист технической бумаги с закодированными инструкциями по сборке.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/bureaucracy.rsi
+    layers:
+    - state: paper
+    - state: paper_words
+      map: ["enum.PaperVisualLayers.Writing"]
+      visible: true
+  - type: Paper
+    content: "ИНСТРУКЦИЯ ПО СБОРКЕ: [ДАННЫЕ ПОВРЕЖДЕНЫ]\n\nНа этой бумаге можно писать дополнительные заметки."
+
+# --- ПИСТОЛЕТЫ ---
+
+- type: entity
+  parent: NCRecipePaperBase
+  id: NCRecipePaperHelloCutie
+  name: рецепт (Hello Cutie)
+  components:
+  - type: Paper
+    content: |
+      ИНСТРУКЦИЯ ПО СБОРКЕ: Hello Cutie
+
+      Алгоритм сборки:
+      1. Установите [рамка кустарного оружия]
+      2. Установите [гладкоствольная трубка]
+      3. Инструмент: Screwing
+      4. Установите [примитивный УСМ]
+      5. Инструмент: Screwing
+
+- type: entity
+  parent: NCRecipePaperBase
+  id: NCRecipePaperOverlord
+  name: рецепт (Overlord)
+  components:
+  - type: Paper
+    content: |
+      ИНСТРУКЦИЯ ПО СБОРКЕ: Overlord
+
+      Алгоритм сборки:
+      1. Установите [рамка кустарного оружия]
+      2. Установите [гладкоствольная трубка]
+      3. Инструмент: Screwing
+      4. Установите [примитивный УСМ]
+      5. Инструмент: Screwing
+
+- type: entity
+  parent: NCRecipePaperBase
+  id: NCRecipePaperStreetMaster
+  name: рецепт (Dai Lung StreetMaster)
+  components:
+  - type: Paper
+    content: |
+      ИНСТРУКЦИЯ ПО СБОРКЕ: StreetMaster
+
+      Алгоритм сборки:
+      1. Установите [рамка кустарного оружия]
+      2. Установите [гладкоствольная трубка]
+      3. Инструмент: Screwing
+      4. Установите [примитивный УСМ]
+      5. Инструмент: Screwing
+
+- type: entity
+  parent: NCRecipePaperBase
+  id: NCRecipePaperStukachTommy
+  name: рецепт (Стукач Томми)
+  components:
+  - type: Paper
+    content: |
+      ИНСТРУКЦИЯ ПО СБОРКЕ: Стукач Томми
+
+      Алгоритм сборки:
+      1. Установите [корпоративная ствольная коробка]
+      2. Установите [стандартный нарезной ствол]
+      3. Инструмент: Screwing
+      4. Установите [затворная группа военого стандарта]
+      5. Установите [контроллер боепитания]
+      6. Инструмент: Pulsing
+
+- type: entity
+  parent: NCRecipePaperBase
+  id: NCRecipePaperAvenger
+  name: рецепт (Militech Avenger)
+  components:
+  - type: Paper
+    content: |
+      ИНСТРУКЦИЯ ПО СБОРКЕ: Militech Avenger
+
+      Алгоритм сборки:
+      1. Установите [корпоративная ствольная коробка]
+      2. Установите [стандартный нарезной ствол]
+      3. Инструмент: Screwing
+      4. Установите [затворная группа военого стандарта]
+      5. Установите [контроллер боепитания]
+      6. Инструмент: Pulsing
+
+# --- ВИНТОВКИ ---
+
+- type: entity
+  parent: NCRecipePaperBase
+  id: NCRecipePaperM04
+  name: рецепт (Штейнмейер М-04)
+  components:
+  - type: Paper
+    content: |
+      ИНСТРУКЦИЯ ПО СБОРКЕ: Steinmeyer M-04 (Т3)
+
+      Алгоритм сборки:
+      1. Установите [эргономичный смарт-каркас]
+      2. Установите [ствол с магнитной стабилизацией]
+      3. Инструмент: Screwing
+      4. Установите [микрогидравлическая система отдачи]
+      5. Инструмент: Screwing
+
+- type: entity
+  parent: NCRecipePaperBase
+  id: NCRecipePaperArasakaProto
+  name: рецепт (Прототип Арасака)
+  components:
+  - type: Paper
+    content: |
+      ИНСТРУКЦИЯ ПО СБОРКЕ: Arasaka Prototype
+
+      ВНИМАНИЕ: СЕКРЕТНЫЕ ПРОТОТИПЫ
+      1. Установите [эргономичный смарт-каркас]
+      2. Установите [ствол с магнитной стабилизацией]
+      3. Инструмент: Screwing
+      4. Установите [микрогидравлическая система отдачи]
+      5. Установите [смарт-модуль наведения]
+      6. Инструмент: Pulsing
+
+# --- ДРОБОВИКИ ---
+
+- type: entity
+  parent: NCRecipePaperBase
+  id: NCRecipePaperSvakha
+  name: рецепт (Сваха)
+  components:
+  - type: Paper
+    content: |
+      ИНСТРУКЦИЯ ПО СБОРКЕ: Сваха
+
+      Алгоритм сборки:
+      1. Установите [рамка кустарного оружия]
+      2. Установите [гладкоствольная трубка]
+      3. Инструмент: Screwing
+      4. Установите [примитивный УСМ]
+      5. Инструмент: Screwing

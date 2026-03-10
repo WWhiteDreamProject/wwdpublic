@@ -10,14 +10,14 @@ namespace Content.Shared._NC.Weapons.Ranged.NCWeapon;
 [NetSerializable, Serializable]
 public enum WeaponManufacturer : byte
 {
-    // ТИР-0: «Одноразовый пластик»
+    // ТИР-1: «Одноразовый пластик»
     GunMart,
     BudgetArms,
     DaiLung,
     Sanroo,
     DarraPolytechnic,
 
-    // ТИР-1: «Рабочие лошадки»
+    // ТИР-2: «Рабочие лошадки»
     FederatedArms,
     ConstitutionArms,
     Militech,
@@ -27,14 +27,14 @@ public enum WeaponManufacturer : byte
     MustangArms,
     Techtronika,
 
-    // ТИР-2: «Корпоративная Элита»
+    // ТИР-3: «Корпоративная Элита»
     Sternmeyer,
     Arasaka,
     TsunamiArms,
     Kendachi,
     CenturionEssentials,
 
-    // ТИР-3: «Уникальный кастом»
+    // ТИР-4: «Уникальный кастом»
     MalorianArms,
     Nomad
 }
