@@ -50,23 +50,9 @@ public sealed class NcpdCaptainConsoleSystem : EntitySystem
 
     private void UpdateUiState(EntityUid consoleUid)
     {
-        EntityUid? stationUid = _stationSystem.GetOwningStation(consoleUid);
-        if (stationUid == null)
-        {
-            var stations = _stationSystem.GetStationsSet();
-            if (stations.Count > 0)
-                stationUid = stations.First();
-        }
+        EntityUid? stationUid = GetStation(consoleUid);
 
-        if (stationUid == null) 
-        {
-            var queryBank = EntityQueryEnumerator<StationBankComponent>();
-            if (queryBank.MoveNext(out var bankUid, out _))
-            {
-                stationUid = bankUid;
-            }
-            else return;
-        }
+        if (stationUid == null) return;
 
         // 1. Бюджет
         int budget = 0;
@@ -120,14 +106,7 @@ public sealed class NcpdCaptainConsoleSystem : EntitySystem
 
     private void OnPurchase(EntityUid uid, NcpdCaptainConsoleComponent component, NcpdPurchaseMessage args)
     {
-        EntityUid? stationUid = _stationSystem.GetOwningStation(uid);
-        if (stationUid == null)
-        {
-            var stations = _stationSystem.GetStationsSet();
-            if (stations.Count > 0)
-                stationUid = stations.First();
-        }
-
+        EntityUid? stationUid = GetStation(uid);
         if (stationUid == null) return;
 
         if (!_catalog.TryGetValue(args.ItemId, out var product)) return;
@@ -141,14 +120,7 @@ public sealed class NcpdCaptainConsoleSystem : EntitySystem
 
     private void OnRevokeAccess(EntityUid uid, NcpdCaptainConsoleComponent component, NcpdRevokeAccessMessage args)
     {
-        EntityUid? stationUid = _stationSystem.GetOwningStation(uid);
-        if (stationUid == null)
-        {
-            var stations = _stationSystem.GetStationsSet();
-            if (stations.Count > 0)
-                stationUid = stations.First();
-        }
-
+        EntityUid? stationUid = GetStation(uid);
         if (stationUid == null) return;
 
         var targetUid = _entityManager.GetEntity(args.TargetEntity);
@@ -173,14 +145,7 @@ public sealed class NcpdCaptainConsoleSystem : EntitySystem
 
     private void OnClearLogs(EntityUid uid, NcpdCaptainConsoleComponent component, NcpdClearLogsMessage args)
     {
-        EntityUid? stationUid = _stationSystem.GetOwningStation(uid);
-        if (stationUid == null)
-        {
-            var stations = _stationSystem.GetStationsSet();
-            if (stations.Count > 0)
-                stationUid = stations.First();
-        }
-
+        EntityUid? stationUid = GetStation(uid);
         if (stationUid == null) return;
 
         if (TryComp<NcpdStationComponent>(stationUid.Value, out var ncpdComp))
@@ -190,5 +155,23 @@ public sealed class NcpdCaptainConsoleSystem : EntitySystem
         }
 
         UpdateUiState(uid);
+    }
+
+    private EntityUid? GetStation(EntityUid console)
+    {
+        var station = _stationSystem.GetOwningStation(console);
+        if (station == null)
+            station = _stationSystem.GetStationsSet().FirstOrDefault();
+        
+        if (station == null)
+        {
+            var queryBank = EntityQueryEnumerator<StationBankComponent>();
+            if (queryBank.MoveNext(out var bankUid, out _))
+            {
+                station = bankUid;
+            }
+        }
+
+        return station;
     }
 }

@@ -73,7 +73,7 @@ public sealed partial class NcpdCaptainConsoleWindow : DefaultWindow
 
             logVbox.AddChild(new Label 
             { 
-                Text = $"[{log.Time:hh\\:mm\\:ss}] {log.OfficerName} | Оштрафовал: {log.TargetName} | Сумма: {log.Amount} | {log.Status}",
+                Text = $"{log.Time:hh\\:mm\\:ss} | {log.OfficerName} | Оштрафовал: {log.TargetName} | Сумма: {log.Amount} | {log.Status}",
                 FontColorOverride = log.Status.Contains("ПРИНУДИТЕЛЬНОЕ") ? Color.OrangeRed : Color.LimeGreen
             });
 
@@ -81,7 +81,7 @@ public sealed partial class NcpdCaptainConsoleWindow : DefaultWindow
             {
                 logVbox.AddChild(new Label
                 {
-                    Text = $"   > ПРИЧИНА: {log.Reason}",
+                    Text = $"   ПРИЧИНА: {log.Reason}",
                     FontColorOverride = Color.FromHex("#aaaaaa"),
                     Margin = new Thickness(20, 0, 0, 0)
                 });
@@ -102,7 +102,7 @@ public sealed partial class NcpdCaptainConsoleWindow : DefaultWindow
 
             var nameLabel = new Label 
             { 
-                Text = $"[{p.Job}] {p.Name}", 
+                Text = $"{p.Job} | {p.Name}", 
                 FontColorOverride = p.IsSuspended ? Color.DimGray : Color.White,
                 HorizontalExpand = true 
             };

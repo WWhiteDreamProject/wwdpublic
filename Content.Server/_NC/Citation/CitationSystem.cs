@@ -51,39 +51,33 @@ public sealed class CitationSystem : EntitySystem
         SubscribeLocalEvent<CitationDeviceComponent, CitationForceDoAfterEvent>(OnForceDoAfter);
     }
 
-    /// <summary>
-    /// Офицер кликает терминалом по другому игроку.
-    /// </summary>
     private void OnAfterInteract(EntityUid uid, CitationDeviceComponent component, AfterInteractEvent args)
     {
         if (!args.CanReach || args.Target == null)
             return;
 
-        // Терминал применяется на игрока
         if (!HasComp<MindContainerComponent>(args.Target.Value) && !HasComp<ActorComponent>(args.Target.Value))
             return;
 
         if (args.User == args.Target.Value)
         {
-            _popupSystem.PopupEntity("Нельзя оштрафовать самого себя.", uid, args.User);
+            _popupSystem.PopupEntity("Нельзя оштрафовать самого себя", uid, args.User);
             return;
         }
 
-        var stationUid = _stationSystem.GetOwningStation(uid) ?? _stationSystem.GetOwningStation(args.User);
+        var stationUid = GetStation(uid, args.User);
         if (stationUid != null && _ncpdSystem.IsSuspended(stationUid.Value, args.User))
         {
             _popupSystem.PopupEntity("УЧЕТНАЯ ЗАПИСЬ ПРИОСТАНОВЛЕНА", uid, args.User);
             return;
         }
 
-        // Проверяем кулдаун на цель
         if (CheckCooldown(args.Target.Value, out var timeLeft))
         {
             _popupSystem.PopupEntity($"ЦЕЛЬ УЖЕ ОШТРАФОВАНА НЕДАВНО. Ждите {timeLeft.Minutes}м {timeLeft.Seconds}с", uid, args.User);
             return;
         }
 
-        // Открываем UI копу
         component.ActiveTarget = args.Target.Value;
         component.ActiveIdCard = null;
         component.ActiveOfficer = args.User;
@@ -91,22 +85,18 @@ public sealed class CitationSystem : EntitySystem
         args.Handled = true;
     }
 
-    /// <summary>
-    /// Офицер кликает чужой ID-картой по терминалу (для принудительного штрафа).
-    /// </summary>
     private void OnInteractUsing(EntityUid uid, CitationDeviceComponent component, InteractUsingEvent args)
     {
         if (!TryComp<IdCardComponent>(args.Used, out var idCard))
             return;
 
-        var stationUid = _stationSystem.GetOwningStation(uid) ?? _stationSystem.GetOwningStation(args.User);
+        var stationUid = GetStation(uid, args.User);
         if (stationUid != null && _ncpdSystem.IsSuspended(stationUid.Value, args.User))
         {
             _popupSystem.PopupEntity("УЧЕТНАЯ ЗАПИСЬ ПРИОСТАНОВЛЕНА", uid, args.User);
             return;
         }
 
-        // Открываем UI копу, запоминаем карту
         component.ActiveIdCard = args.Used;
         component.ActiveTarget = null;
         component.ActiveOfficer = args.User;
@@ -126,7 +116,9 @@ public sealed class CitationSystem : EntitySystem
         else if (component.ActiveIdCard != null)
             targetName = CompOrNull<IdCardComponent>(component.ActiveIdCard.Value)?.FullName ?? "Неизвестная карта";
 
-        var state = new CitationDeviceBuiState(targetName, limit, false);
+        int budget = GetNcpdBudget(uid, user);
+
+        var state = new CitationDeviceBuiState(targetName, limit, budget, false);
         _uiSystem.SetUiState(uid, CitationDeviceUiKey.Key, state);
     }
 
@@ -140,7 +132,7 @@ public sealed class CitationSystem : EntitySystem
 
         return (jobId?.Id ?? "Unknown") switch
         {
-            "Captain" => 99999, // Безлимит
+            "Captain" => 99999,
             "HoS" => component.DetectiveLimit,
             "Warden" => component.DetectiveLimit,
             "Detective" => component.DetectiveLimit,
@@ -148,9 +140,6 @@ public sealed class CitationSystem : EntitySystem
         };
     }
 
-    /// <summary>
-    /// Офицер ввел сумму и нажал "Выписать штраф".
-    /// </summary>
     private void OnUiMessage(EntityUid uid, CitationDeviceComponent component, CitationDeviceCreateMessage args)
     {
         var user = args.Actor;
@@ -165,7 +154,6 @@ public sealed class CitationSystem : EntitySystem
         component.RequestedAmount = amount;
         component.Reason = args.Reason;
 
-        // Если это принудительный штраф через ID-карту
         if (component.ActiveIdCard != null)
         {
             var doAfterArgs = new DoAfterArgs(EntityManager, user, TimeSpan.FromSeconds(5), new CitationForceDoAfterEvent(amount), uid, target: component.ActiveIdCard.Value)
@@ -180,31 +168,25 @@ public sealed class CitationSystem : EntitySystem
             return;
         }
 
-        // Если это добровольный штраф по игроку
         if (component.ActiveTarget != null)
         {
-            // Проверка, может ли цель вообще ответить (в сознании ли)
             if (HasComp<StunnedComponent>(component.ActiveTarget.Value) || HasComp<KnockedDownComponent>(component.ActiveTarget.Value))
             {
-                _popupSystem.PopupEntity("Подозреваемый без сознания! Снимите с него ID-карту для принудительного штрафа.", uid, user);
+                _popupSystem.PopupEntity("Подозреваемый без сознания! Снимите ID-карту", uid, user);
                 return;
             }
 
-            // Отправляем Alert-диалог подозреваемому
             var ev = new CitationTargetUiMessage(GetNetEntity(uid), Name(user), amount, args.Reason);
             RaiseNetworkEvent(ev, component.ActiveTarget.Value);
 
-            // Обновляем UI копу (Ожидание)
-            var state = new CitationDeviceBuiState(Name(component.ActiveTarget.Value), limit, true);
+            int budget = GetNcpdBudget(uid, user);
+            var state = new CitationDeviceBuiState(Name(component.ActiveTarget.Value), limit, budget, true);
             _uiSystem.SetUiState(uid, CitationDeviceUiKey.Key, state);
             
-            _popupSystem.PopupEntity("Запрос отправлен...", uid, user);
+            _popupSystem.PopupEntity("Запрос отправлен", uid, user);
         }
     }
 
-    /// <summary>
-    /// Ответ от подозреваемого (Оплатить / Отказаться).
-    /// </summary>
     private void OnTargetResponse(CitationTargetResponseMessage ev, EntitySessionEventArgs args)
     {
         if (args.SenderSession.AttachedEntity is not { Valid: true } target)
@@ -221,22 +203,17 @@ public sealed class CitationSystem : EntitySystem
 
         if (!ev.Accept)
         {
-            // ОТКАЗ
             if (cop != null)
-                _popupSystem.PopupEntity("ОТКАЗ В ОПЛАТЕ!", uid, cop.Value);
+                _popupSystem.PopupEntity("ОТКАЗ В ОПЛАТЕ", uid, cop.Value);
             
-            _popupSystem.PopupEntity("Вы отказались от штрафа.", target, target);
+            _popupSystem.PopupEntity("Вы отказались от штрафа", target, target);
             ResetTerminal(uid, component);
             return;
         }
 
-        // ОПЛАТА
         ProcessPayment(uid, component, target, component.RequestedAmount);
     }
 
-    /// <summary>
-    /// Завершение DoAfter для принудительного штрафа по ID карте.
-    /// </summary>
     private void OnForceDoAfter(EntityUid uid, CitationDeviceComponent component, CitationForceDoAfterEvent args)
     {
         if (args.Handled || args.Cancelled)
@@ -245,10 +222,9 @@ public sealed class CitationSystem : EntitySystem
         var targetCard = args.Args.Target;
         if (targetCard == null) return;
 
-        // Поиск владельца по ID-карте
         if (!TryComp<IdCardComponent>(targetCard.Value, out var idCard) || idCard.FullName == null)
         {
-            _popupSystem.PopupEntity("Не удалось установить владельца карты.", uid, args.Args.User);
+            _popupSystem.PopupEntity("Не удалось установить владельца карты", uid, args.Args.User);
             return;
         }
 
@@ -265,12 +241,11 @@ public sealed class CitationSystem : EntitySystem
 
         if (cardOwner == null)
         {
-            _popupSystem.PopupEntity("Владелец карты не найден на сервере (возможно, отключился).", uid, args.Args.User);
+            _popupSystem.PopupEntity("Владелец карты не найден на сервере", uid, args.Args.User);
             return;
         }
 
-        // Принудительная оплата
-        _popupSystem.PopupEntity("Банковский пин-код взломан!", uid, args.Args.User);
+        _popupSystem.PopupEntity("Банковский пин-код взломан", uid, args.Args.User);
         ProcessPayment(uid, component, cardOwner.Value, args.Amount, true);
         
         args.Handled = true;
@@ -281,27 +256,21 @@ public sealed class CitationSystem : EntitySystem
         var cop = component.ActiveOfficer;
         if (cop == null) return;
 
-        // Пытаемся снять деньги
         if (!_bankSystem.TryBankWithdraw(targetUid, amount))
         {
-            _popupSystem.PopupEntity("НЕДОСТАТОЧНО СРЕДСТВ!", terminalUid, cop.Value);
+            _popupSystem.PopupEntity("НЕДОСТАТОЧНО СРЕДСТВ", terminalUid, cop.Value);
             if (cop != targetUid)
-                _popupSystem.PopupEntity("Недостаточно средств на счете.", targetUid, targetUid);
+                _popupSystem.PopupEntity("Недостаточно средств на счете", targetUid, targetUid);
             ResetTerminal(terminalUid, component);
             return;
         }
 
-        // Деньги сняты. Распределяем: 30% копу, 70% департаменту
         int copShare = (int)(amount * component.CommissionRate);
         int deptShare = amount - copShare;
 
         _bankSystem.TryBankDeposit(cop.Value, copShare);
 
-        var stationUid = _stationSystem.GetOwningStation(terminalUid) ?? _stationSystem.GetOwningStation(cop.Value);
-        if (stationUid == null && _stationSystem.GetStationsSet().Count > 0)
-        {
-            stationUid = _stationSystem.GetStationsSet().First();
-        }
+        var stationUid = GetStation(terminalUid, cop.Value);
 
         string jobName = "Офицер";
         if (_idCardSystem.TryFindIdCard(cop.Value, out var idCard) && !string.IsNullOrWhiteSpace(idCard.Comp.LocalizedJobTitle))
@@ -313,20 +282,14 @@ public sealed class CitationSystem : EntitySystem
         if (stationUid != null)
         {
             _bankSystem.TryFactionDeposit(stationUid.Value, SectorBankAccount.Ncpd, deptShare);
-            
-            // Логируем
-            string status = isForced ? "ПРИНУДИТЕЛЬНОЕ СПИСАНИЕ" : $"ДОЛЯ NCPD: +{deptShare} эдди";
-            _ncpdSystem.AddLog(stationUid.Value, fullCopName, Name(targetUid), amount, status, component.Reason);
+            _ncpdSystem.AddLog(stationUid.Value, fullCopName, Name(targetUid), amount, isForced ? "ПРИНУДИТЕЛЬНОЕ СПИСАНИЕ" : $"ДОЛЯ NCPD: +{deptShare} эдди", component.Reason);
         }
 
-        // ПЕЧАТЬ БУМАГИ
         PrintCitationPaper(terminalUid, fullCopName, Name(targetUid), amount, component.Reason);
 
-        // Успех
         _popupSystem.PopupEntity($"ОПЛАТА УСПЕШНА: +{copShare} Эдди комиссии", terminalUid, cop.Value);
         _popupSystem.PopupEntity($"Вы оплатили штраф: {amount} Эдди", targetUid, targetUid);
 
-        // Ставим кулдаун
         EnsureComp<CitationCooldownComponent>(targetUid).LastCitationTime = _timing.CurTime;
 
         ResetTerminal(terminalUid, component);
@@ -349,7 +312,6 @@ public sealed class CitationSystem : EntitySystem
             
             _paperSystem.SetContent((paper, paperComp), content);
             
-            // Ставим печать NCPD (условную)
             var stamp = new Content.Shared.Paper.StampDisplayInfo
             {
                 StampedName = "NCPD BUREAU",
@@ -361,15 +323,15 @@ public sealed class CitationSystem : EntitySystem
 
     private void ResetTerminal(EntityUid uid, CitationDeviceComponent component)
     {
+        var officer = component.ActiveOfficer;
         component.ActiveTarget = null;
         component.ActiveIdCard = null;
         component.RequestedAmount = 0;
         component.Reason = string.Empty;
         
-        // Find the actor to close UI for
-        if (component.ActiveOfficer != null)
+        if (officer != null)
         {
-            _uiSystem.CloseUi(uid, CitationDeviceUiKey.Key, component.ActiveOfficer.Value);
+            _uiSystem.CloseUi(uid, CitationDeviceUiKey.Key, officer.Value);
         }
     }
 
@@ -386,5 +348,30 @@ public sealed class CitationSystem : EntitySystem
             }
         }
         return false;
+    }
+
+    private EntityUid? GetStation(EntityUid terminal, EntityUid? user)
+    {
+        var station = _stationSystem.GetOwningStation(terminal);
+        if (station == null && user != null)
+            station = _stationSystem.GetOwningStation(user.Value);
+        
+        if (station == null)
+            station = _stationSystem.GetStationsSet().FirstOrDefault();
+
+        return station;
+    }
+
+    private int GetNcpdBudget(EntityUid terminal, EntityUid user)
+    {
+        var stationUid = GetStation(terminal, user);
+        if (stationUid == null) return 0;
+
+        var bank = _bankSystem.EnsureStationBank(stationUid.Value);
+        if (bank.Accounts.TryGetValue(SectorBankAccount.Ncpd, out var account))
+        {
+            return account.Balance;
+        }
+        return 0;
     }
 }

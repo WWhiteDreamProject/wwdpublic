@@ -6,28 +6,6 @@
 
 - type: entity
   parent: SurgeryStepBase
-  id: SurgeryStepOpenIncisionScalpel
-  name: Cut with a scalpel
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: SurgeryStep
-    tool:
-    - type: Scalpel
-    add:
-    - type: IncisionOpen
-    duration: 10 # WWDP all durations are x5 longer, offset by SurgerySpeedModifier on professionals
-  - type: Sprite
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/scalpel.rsi
-    state: scalpel
-  - type: SurgeryDamageChangeEffect
-    damage:
-      types:
-        Bloodloss: 10
-    sleepModifier: 0.5
-  - type: SurgeryStepEmoteEffect
-
-- type: entity
-  parent: SurgeryStepBase
   id: SurgeryStepClampBleeders
   name: Clamp the bleeders
   categories: [ HideSpawnMenu ]

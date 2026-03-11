@@ -4,19 +4,6 @@
 
 - type: entity
   parent: SurgeryBase
-  id: SurgeryOpenIncision
-  name: Open Incision
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Surgery
-    steps:
-    - SurgeryStepOpenIncisionScalpel
-    - SurgeryStepRetractSkin
-    - SurgeryStepClampBleeders
-  - type: SurgeryPartPresentCondition
-
-- type: entity
-  parent: SurgeryBase
   id: SurgeryCloseIncision
   name: Close Incision
   categories: [ HideSpawnMenu ]

@@ -19,12 +19,14 @@ public sealed class CitationDeviceBuiState : BoundUserInterfaceState
 {
     public readonly string TargetName;
     public readonly int MaxLimit;
+    public readonly int Budget;
     public readonly bool TargetActive; // Идет ли сейчас процесс ожидания ответа
 
-    public CitationDeviceBuiState(string targetName, int maxLimit, bool targetActive)
+    public CitationDeviceBuiState(string targetName, int maxLimit, int budget, bool targetActive)
     {
         TargetName = targetName;
         MaxLimit = maxLimit;
+        Budget = budget;
         TargetActive = targetActive;
     }
 }
