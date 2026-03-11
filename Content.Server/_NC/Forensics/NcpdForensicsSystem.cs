@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using Content.Server.Station.Systems;
 using Content.Shared._NC.Forensics;
@@ -91,3 +91,4 @@ public sealed class NcpdForensicsSystem : EntitySystem
         _uiSystem.SetUiState(uid, NcpdForensicsConsoleUiKey.Key, state);
     }
 }
+

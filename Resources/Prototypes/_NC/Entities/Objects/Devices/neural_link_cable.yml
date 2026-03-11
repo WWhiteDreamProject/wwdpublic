@@ -1,0 +1,12 @@
+﻿- type: entity
+  id: NeuralLinkCable
+  name: neural link cable
+  parent: BaseItem
+  description: Direct neural interface cable for cyber-autopsy.
+  components:
+  - type: Sprite
+    sprite: Objects/Tools/cable-coil.rsi
+    state: coil
+  - type: Item
+    size: Small
+  - type: NeuralLinkCable
