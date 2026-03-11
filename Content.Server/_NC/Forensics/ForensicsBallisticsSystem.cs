@@ -10,11 +10,14 @@ using Content.Shared.DoAfter;
 using Content.Shared.Popups;
 using Content.Shared._Shitmed.Medical.Surgery.Tools;
 using Content.Shared.Tag;
+using Content.Shared.Chat;
 using Content.Server.Projectiles;
 using Content.Server.Hands.Systems;
+using Content.Server.Chat.Managers;
 using Robust.Shared.Random;
 using Robust.Shared.Containers;
 using Robust.Server.GameObjects;
+using Robust.Shared.Player;
 using System.Linq;
 using Content.Shared._Lavaland.Weapons.Ranged.Events;
 
@@ -28,7 +31,10 @@ public sealed class ForensicsBallisticsSystem : EntitySystem
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly HandsSystem _hands = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private readonly IChatManager _chatManager = default!;
+    [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
+
+    private const int MaxStuckBullets = 3;
 
     public override void Initialize()
     {
@@ -36,14 +42,17 @@ public sealed class ForensicsBallisticsSystem : EntitySystem
 
         SubscribeLocalEvent<ForensicsProjectileHashComponent, ProjectileHitEvent>(OnProjectileHit);
         
+        // Инструменты
         SubscribeLocalEvent<BodyComponent, InteractUsingEvent>(OnInteractUsing);
-        SubscribeLocalEvent<ForensicsWeaponHashComponent, InteractUsingEvent>(OnGunInteractUsing);
         
+        // DoAfters
         SubscribeLocalEvent<BodyComponent, BallisticIncisionDoAfterEvent>(OnIncisionDone);
         SubscribeLocalEvent<BodyComponent, BallisticExtractionDoAfterEvent>(OnExtractionDone);
-        SubscribeLocalEvent<ForensicsWeaponHashComponent, BallisticReassembleDoAfterEvent>(OnReassembleDone);
 
+        // Хэширование оружия (MapInit)
         SubscribeLocalEvent<ForensicsWeaponHashComponent, MapInitEvent>(OnHashMapInit);
+        
+        // Перехват выстрела
         SubscribeLocalEvent<GunComponent, ProjectileShotEvent>(OnProjectileShot);
     }
 
@@ -78,6 +87,16 @@ public sealed class ForensicsBallisticsSystem : EntitySystem
         if (!TryComp<BodyComponent>(target, out var body))
             return;
 
+        int totalBullets = 0;
+        foreach (var part in _body.GetBodyChildren(target))
+        {
+            if (_container.TryGetContainer(part.Id, "forensics_bullets", out var cont))
+                totalBullets += cont.ContainedEntities.Count;
+        }
+
+        if (totalBullets >= MaxStuckBullets)
+            return;
+
         var hitPart = _body.GetBodyChildren(target).FirstOrDefault(p => p.Component.PartType == BodyPartType.Torso).Id;
         
         if (!hitPart.Valid)
@@ -93,6 +112,13 @@ public sealed class ForensicsBallisticsSystem : EntitySystem
         var container = _container.EnsureContainer<ContainerSlot>(hitPart, "forensics_bullets");
         _container.Insert(stuckBullet, container);
 
+        // Уведомление в чат жертве
+        if (_playerManager.TryGetSessionByEntity(target, out var session))
+        {
+            var msg = "Вы чувствуете, как пуля застряла глубоко в плоти!";
+            _chatManager.ChatMessageToOne(ChatChannel.Local, msg, msg, target, false, session.Channel, Robust.Shared.Maths.Color.Red);
+        }
+
         _popup.PopupEntity("Вы чувствуете резкую боль от застрявшей пули", target, target, PopupType.LargeCaution);
     }
 
@@ -100,21 +126,21 @@ public sealed class ForensicsBallisticsSystem : EntitySystem
     {
         if (args.Handled) return;
 
+        if (!TryComp<TargetingComponent>(args.User, out var targeting))
+            return;
+
+        var partEntity = GetPartEntityByTarget(uid, targeting.Target);
+        if (partEntity == null) return;
+
+        if (!_container.TryGetContainer(partEntity.Value, "forensics_bullets", out var container) || container.ContainedEntities.Count == 0)
+            return;
+
+        var bullet = container.ContainedEntities.First();
+        if (!TryComp<ForensicsStuckBulletComponent>(bullet, out var stuck))
+            return;
+
         if (HasComp<ScalpelComponent>(args.Used))
         {
-            if (!TryComp<TargetingComponent>(args.User, out var targeting))
-                return;
-
-            var partEntity = GetPartEntityByTarget(uid, targeting.Target);
-            if (partEntity == null) return;
-
-            if (!_container.TryGetContainer(partEntity.Value, "forensics_bullets", out var container) || container.ContainedEntities.Count == 0)
-                return;
-
-            var bullet = container.ContainedEntities.First();
-            if (!TryComp<ForensicsStuckBulletComponent>(bullet, out var stuck))
-                return;
-
             if (stuck.IncisionMade)
             {
                 _popup.PopupEntity("Надрез здесь уже сделан", uid, args.User);
@@ -132,19 +158,6 @@ public sealed class ForensicsBallisticsSystem : EntitySystem
         }
         else if (HasComp<TweezersComponent>(args.Used) || HasComp<HemostatComponent>(args.Used))
         {
-            if (!TryComp<TargetingComponent>(args.User, out var targeting))
-                return;
-
-            var partEntity = GetPartEntityByTarget(uid, targeting.Target);
-            if (partEntity == null) return;
-
-            if (!_container.TryGetContainer(partEntity.Value, "forensics_bullets", out var container) || container.ContainedEntities.Count == 0)
-                return;
-
-            var bullet = container.ContainedEntities.First();
-            if (!TryComp<ForensicsStuckBulletComponent>(bullet, out var stuck))
-                return;
-
             if (!stuck.IncisionMade)
             {
                 _popup.PopupEntity("Сначала нужно сделать надрез скальпелем", uid, args.User);
@@ -160,26 +173,6 @@ public sealed class ForensicsBallisticsSystem : EntitySystem
             _doAfter.TryStartDoAfter(doAfter);
             args.Handled = true;
         }
-    }
-
-    private void OnGunInteractUsing(EntityUid uid, ForensicsWeaponHashComponent component, InteractUsingEvent args)
-    {
-        if (args.Handled) return;
-
-        if (component.Tier > 1) return;
-
-        if (!_tag.HasTag(args.Used, "Screwdriver")) return;
-
-        var doAfter = new DoAfterArgs(EntityManager, args.User, 10f, new BallisticReassembleDoAfterEvent(), uid, target: uid, used: args.Used)
-        {
-            BreakOnMove = true,
-            BreakOnDamage = true,
-            NeedHand = true
-        };
-        
-        _popup.PopupEntity("Вы начинаете пересборку оружия...", uid, args.User);
-        _doAfter.TryStartDoAfter(doAfter);
-        args.Handled = true;
     }
 
     private void OnIncisionDone(EntityUid uid, BodyComponent component, BallisticIncisionDoAfterEvent args)
@@ -229,15 +222,6 @@ public sealed class ForensicsBallisticsSystem : EntitySystem
         }
     }
 
-    private void OnReassembleDone(EntityUid uid, ForensicsWeaponHashComponent component, BallisticReassembleDoAfterEvent args)
-    {
-        if (args.Cancelled || args.User == null) return;
-
-        component.Hash = GenerateRandomHash();
-        Dirty(uid, component);
-        _popup.PopupEntity("Оружие пересобрано. Нарезы ствола изменились", uid, args.User);
-    }
-
     private EntityUid? GetPartEntityByTarget(EntityUid body, TargetBodyPart target)
     {
         var bodyParts = _body.GetBodyChildren(body).ToList();
@@ -268,7 +252,6 @@ public sealed class ForensicsBallisticsSystem : EntitySystem
 
     private string GenerateRandomHash()
     {
-        // Формат: "88F-A1" (Random 3 chars - random 2 chars)
         const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
         var part1 = new string(Enumerable.Repeat(chars, 3)
             .Select(s => s[_random.Next(s.Length)]).ToArray());

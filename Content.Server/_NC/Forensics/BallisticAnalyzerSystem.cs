@@ -2,12 +2,14 @@ using Content.Shared._NC.Forensics;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.DoAfter;
 using Content.Shared.Paper;
+using Content.Shared.Chat;
 using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Serialization;
+using Content.Server.Chat.Managers;
 using System;
 
 namespace Content.Server._NC.Forensics;
@@ -20,6 +22,8 @@ public sealed class BallisticAnalyzerSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly Content.Shared.Paper.PaperSystem _paper = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
+    [Dependency] private readonly IChatManager _chatManager = default!;
+    [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
 
     public override void Initialize()
     {
@@ -64,14 +68,14 @@ public sealed class BallisticAnalyzerSystem : EntitySystem
 
         if (_doAfter.TryStartDoAfter(doAfter))
         {
-            _audio.PlayPvs("/Audio/Effects/beep1.ogg", uid); // Звук готовности/начала
+            _audio.PlayPvs("/Audio/Effects/beep1.ogg", uid); 
             UpdateUiState(uid, component, true);
         }
     }
 
     private void OnAnalysisComplete(EntityUid uid, BallisticAnalyzerComponent component, BallisticAnalysisDoAfterEvent args)
     {
-        if (args.Cancelled)
+        if (args.Cancelled || args.User == EntityUid.Invalid)
         {
             UpdateUiState(uid, component);
             return;
@@ -100,6 +104,15 @@ public sealed class BallisticAnalyzerSystem : EntitySystem
 
         UpdateUiState(uid, component, false, result);
         
+        // Уведомление в чат
+        var resText = result == BallisticMatchResult.Match ? "СОВПАДЕНИЕ 100%" : "СОВПАДЕНИЕ 0%";
+        var resColor = result == BallisticMatchResult.Match ? Robust.Shared.Maths.Color.Green : Robust.Shared.Maths.Color.Red;
+
+        if (_playerManager.TryGetSessionByEntity(args.User, out var session))
+        {
+            _chatManager.ChatMessageToOne(ChatChannel.Local, $"Анализ завершен: {resText}", $"Анализ завершен: {resText}", uid, false, session.Channel, resColor);
+        }
+
         // Печать отчета
         PrintReport(uid, bulletHash, weaponHash, result);
     }
@@ -108,7 +121,6 @@ public sealed class BallisticAnalyzerSystem : EntitySystem
     {
         var report = Spawn("Paper", Transform(uid).Coordinates);
         var resText = result == BallisticMatchResult.Match ? "СОВПАДЕНИЕ 100%" : "СОВПАДЕНИЕ 0%";
-        var resColor = result == BallisticMatchResult.Match ? "green" : "red";
 
         if (TryComp<PaperComponent>(report, out var paper))
         {

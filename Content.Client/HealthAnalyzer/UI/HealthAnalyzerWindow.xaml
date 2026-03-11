@@ -209,6 +209,8 @@
                     <Label Name="BloodLabel"/>
                     <Label Text="{Loc 'health-analyzer-window-entity-damage-total-text'}"/>
                     <Label Name="DamageLabel"/>
+                    <Label Name="StuckBulletText" Text="Инородный объект:" Visible="False"/>
+                    <Label Name="StuckBulletLabel" Text="ОБНАРУЖЕНА ПУЛЯ" FontColorOverride="Red" Visible="False"/>
                 </GridContainer>
             </BoxContainer>
 
