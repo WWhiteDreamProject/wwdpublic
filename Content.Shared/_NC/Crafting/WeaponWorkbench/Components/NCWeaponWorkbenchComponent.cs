@@ -1,5 +1,7 @@
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
+using System;
+using System.Collections.Generic;
 using Content.Shared._NC.Crafting.WeaponWorkbench.Prototypes;
 
 namespace Content.Shared._NC.Crafting.WeaponWorkbench.Components;
@@ -13,7 +15,8 @@ public enum NCWeaponWorkbenchState : byte
     Idle,       // Ожидание ввода материалов
     Processing, // Идёт мини-игра калибровки
     Success,    // Мини-игра пройдена, деталь готова
-    Failed      // Фатальная ошибка, получен мусор
+    Failed,     // Фатальная ошибка, получен мусор
+    Unpowered   // Отключено питание
 }
 
 [Serializable, NetSerializable]

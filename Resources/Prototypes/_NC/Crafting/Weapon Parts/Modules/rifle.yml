@@ -14,7 +14,7 @@
       state: icon
     - type: NCBlueprint
       resultEntity: WeaponRifleM04
-      garbageEntity: Scrap
+      garbageEntity: Wrench
       steps:
         - part: Frame
           prototype: NCProcessedFrameT3
@@ -42,7 +42,7 @@
       state: icon
     - type: NCBlueprint
       resultEntity: WeaponRifleArasakaProto
-      garbageEntity: Scrap
+      garbageEntity: Wrench
       steps:
         - part: Frame
           prototype: NCProcessedFrameT3

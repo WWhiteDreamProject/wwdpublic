@@ -14,7 +14,7 @@
       state: icon
     - type: NCBlueprint
       resultEntity: WeaponShotgunSvakha
-      garbageEntity: Scrap
+      garbageEntity: Wrench
       steps:
         - part: Frame
           prototype: NCProcessedFrameT1

@@ -1,7 +1,10 @@
+using Content.Server.Popups;
+using Content.Server.Power.EntitySystems;
 using Content.Shared._NC.Crafting.WeaponWorkbench.Components;
 using Content.Shared._NC.Crafting.WeaponWorkbench.Events;
 using Content.Shared._NC.Crafting.WeaponWorkbench.Prototypes;
 using Content.Shared.Interaction;
+using Content.Shared.Power;
 using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
 using Robust.Shared.Random;
@@ -20,6 +23,8 @@ public sealed partial class NCWeaponWorkbenchSystem : EntitySystem
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly PowerReceiverSystem _power = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
 
     // Кулдаун кнопок оператора (0.5 сек по диздоку)
     private const float ButtonCooldown = 0.5f;
@@ -33,6 +38,7 @@ public sealed partial class NCWeaponWorkbenchSystem : EntitySystem
 
         SubscribeLocalEvent<NCWeaponWorkbenchComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<NCWeaponWorkbenchComponent, InteractUsingEvent>(OnInteractUsing);
+        SubscribeLocalEvent<NCWeaponWorkbenchComponent, PowerChangedEvent>(OnPowerChanged);
 
         // BUI messages
         SubscribeLocalEvent<NCWeaponWorkbenchComponent, NCWorkbenchOperatorCommandMessage>(OnOperatorCommand);
@@ -42,12 +48,20 @@ public sealed partial class NCWeaponWorkbenchSystem : EntitySystem
     private void OnInit(EntityUid uid, NCWeaponWorkbenchComponent component, ComponentInit args)
     {
         _container.EnsureContainer<ContainerSlot>(uid, NCWeaponWorkbenchComponent.MaterialSlotId);
+
+        UpdateAppearance(uid, component);
     }
 
     private void OnInteractUsing(EntityUid uid, NCWeaponWorkbenchComponent component, InteractUsingEvent args)
     {
         if (component.State != NCWeaponWorkbenchState.Idle)
             return;
+
+        if (!_power.IsPowered(uid))
+        {
+            _popup.PopupEntity(Loc.GetString("nc-workbench-no-power"), uid, args.User);
+            return;
+        }
 
         var materialContainer = (ContainerSlot) _container.GetContainer(uid, NCWeaponWorkbenchComponent.MaterialSlotId);
 
@@ -62,11 +76,26 @@ public sealed partial class NCWeaponWorkbenchSystem : EntitySystem
         }
     }
 
+    private void OnPowerChanged(EntityUid uid, NCWeaponWorkbenchComponent component, ref PowerChangedEvent args)
+    {
+        if (!args.Powered)
+        {
+            _uiSystem.CloseUi(uid, NCWeaponWorkbenchUiKey.Key);
+        }
+
+        UpdateAppearance(uid, component);
+        UpdateUserInterface(uid, component);
+    }
+
     /// <summary>
     /// Обработка команд оператора. Блокируется при системной блокировке.
     /// </summary>
     private void OnOperatorCommand(EntityUid uid, NCWeaponWorkbenchComponent component, NCWorkbenchOperatorCommandMessage args)
     {
+        // Проверка питания
+        if (!_power.IsPowered(uid))
+            return;
+
         // Во время системной блокировки кнопки оператора не работают
         if (component.IsSystemLocked)
             return;
@@ -100,7 +129,7 @@ public sealed partial class NCWeaponWorkbenchSystem : EntitySystem
     /// </summary>
     private void OnLockCodeInput(EntityUid uid, NCWeaponWorkbenchComponent component, NCWorkbenchLockCodeInputMessage args)
     {
-        if (!component.IsSystemLocked)
+        if (!component.IsSystemLocked || !_power.IsPowered(uid))
             return;
 
         if (args.Code == component.LockCode)
@@ -121,12 +150,24 @@ public sealed partial class NCWeaponWorkbenchSystem : EntitySystem
     private void SetState(EntityUid uid, NCWeaponWorkbenchComponent component, NCWeaponWorkbenchState state)
     {
         component.State = state;
-        _appearance.SetData(uid, NCWeaponWorkbenchVisuals.State, state);
+        UpdateAppearance(uid, component);
+    }
+
+    private void UpdateAppearance(EntityUid uid, NCWeaponWorkbenchComponent component)
+    {
+        if (!_power.IsPowered(uid))
+        {
+            _appearance.SetData(uid, NCWeaponWorkbenchVisuals.State, NCWeaponWorkbenchState.Unpowered);
+        }
+        else
+        {
+            _appearance.SetData(uid, NCWeaponWorkbenchVisuals.State, component.State);
+        }
     }
 
     private void TryStartCycle(EntityUid uid, NCWeaponWorkbenchComponent component)
     {
-        if (component.State != NCWeaponWorkbenchState.Idle)
+        if (component.State != NCWeaponWorkbenchState.Idle || !_power.IsPowered(uid))
             return;
 
         var materialContainer = (ContainerSlot) _container.GetContainer(uid, NCWeaponWorkbenchComponent.MaterialSlotId);
@@ -170,7 +211,9 @@ public sealed partial class NCWeaponWorkbenchSystem : EntitySystem
         var query = EntityQueryEnumerator<NCWeaponWorkbenchComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
-            // Тикаем кулдаун кнопок всегда
+            // Тикаем кулдаун кнопок всегда (если есть питание?)
+            // В принципе можно и без питания тикать кулдаун, но логичнее только при питании.
+            // Однако IsPowered может быть затратным в Update, так что проверим только для Processing.
             if (comp.ButtonCooldownTimer > 0f)
                 comp.ButtonCooldownTimer = Math.Max(0f, comp.ButtonCooldownTimer - frameTime);
 
@@ -183,6 +226,10 @@ public sealed partial class NCWeaponWorkbenchSystem : EntitySystem
                 comp.AnomalyGraceTimer = Math.Max(0f, comp.AnomalyGraceTimer - frameTime);
 
             if (comp.State != NCWeaponWorkbenchState.Processing)
+                continue;
+
+            // Если питание пропало во время работы — паузим или просто не тикаем прогресс.
+            if (!_power.IsPowered(uid))
                 continue;
 
             // === Естественный дрейф датчиков (даже во время блокировки!) ===

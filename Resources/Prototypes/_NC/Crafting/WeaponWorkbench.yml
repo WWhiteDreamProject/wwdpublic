@@ -16,6 +16,7 @@
       visuals:
         enum.NCWeaponWorkbenchVisuals.State:
           enum.NCWeaponWorkbenchVisualLayers.Base:
+            Unpowered: { state: base_power_connect_off }
             Idle: { state: base_power_connect_on }
             Processing: { state: anim1 }
             Success: { state: base_power_connect_on_door_open }
