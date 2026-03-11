@@ -9,6 +9,7 @@ using Content.Shared.Containers;
 using Content.Shared.Interaction;
 using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
+using System.Linq;
 using Content.Server.Popups;
 using Content.Server.Stack;
 using Robust.Shared.Timing;
@@ -59,14 +60,14 @@ namespace Content.Server._NC.Bank.Consoles
 
         private void UpdateUi(EntityUid uid, FactionBankConsoleComponent component)
         {
-            var station = _stationSystem.GetOwningStation(uid);
+            var station = GetStation(uid);
             var balance = 0;
             var logs = new List<BankTransaction>();
 
             if (station != null && component.BankAccount != SectorBankAccount.Invalid)
             {
-                if (TryComp<StationBankComponent>(station, out var stationBank) &&
-                    stationBank.Accounts.TryGetValue(component.BankAccount, out var info))
+                var stationBank = _bankSystem.EnsureStationBank(station.Value);
+                if (stationBank.Accounts.TryGetValue(component.BankAccount, out var info))
                 {
                     balance = info.Balance;
                     logs = info.Logs;
@@ -88,7 +89,7 @@ namespace Content.Server._NC.Bank.Consoles
                 return;
             }
 
-            var station = _stationSystem.GetOwningStation(uid);
+            var station = GetStation(uid);
             if (station == null) return;
 
             if (_bankSystem.TryFactionWithdraw(station.Value, component.BankAccount, args.Amount))
@@ -113,7 +114,7 @@ namespace Content.Server._NC.Bank.Consoles
             if (args.Amount <= 0) return;
             if (args.Actor is not { Valid: true } player) return;
 
-            var station = _stationSystem.GetOwningStation(uid);
+            var station = GetStation(uid);
             if (station == null) return;
 
             if (!_containerSystem.TryGetContainer(uid, CashSlotId, out var cashContainer) ||
@@ -165,15 +166,32 @@ namespace Content.Server._NC.Bank.Consoles
             }
         }
 
-        private void AddLog(EntityUid stationUid, SectorBankAccount account, BankTransaction log)
+        private void AddLog(EntityUid stationUid, SectorBankAccount account, BankTransaction transaction)
         {
-            if (TryComp<StationBankComponent>(stationUid, out var bank) &&
-                bank.Accounts.TryGetValue(account, out var info))
+            if (!TryComp<StationBankComponent>(stationUid, out var stationBank)) return;
+            if (!stationBank.Accounts.TryGetValue(account, out var info)) return;
+
+            info.Logs.Add(transaction);
+            // Limit logs size??
+            if (info.Logs.Count > 50) info.Logs.RemoveAt(0);
+        }
+
+        private EntityUid? GetStation(EntityUid console)
+        {
+            var station = _stationSystem.GetOwningStation(console);
+            if (station == null)
+                station = _stationSystem.GetStationsSet().FirstOrDefault();
+
+            if (station == null)
             {
-                info.Logs.Add(log);
-                // Limit logs size??
-                if (info.Logs.Count > 50) info.Logs.RemoveAt(0);
+                var queryBank = EntityQueryEnumerator<StationBankComponent>();
+                if (queryBank.MoveNext(out var bankUid, out _))
+                {
+                    station = bankUid;
+                }
             }
+
+            return station;
         }
     }
 }

@@ -1,4 +1,5 @@
 using System;
+using Robust.Shared.Localization;
 using System.Linq;
 using Content.Shared._NC.Forensics;
 using Content.Shared.DoAfter;
@@ -36,26 +37,26 @@ public sealed class NeuralLinkCableSystem : EntitySystem
 
         if (!TryComp<MobStateComponent>(target, out var mob) || mob.CurrentState != MobState.Dead)
         {
-            _popup.PopupEntity("Target is not dead.", uid, args.User);
+            _popup.PopupEntity(Loc.GetString("forensics-neural-target-not-dead"), uid, args.User);
             return;
         }
 
         if (!TryComp<NeuralPortBufferComponent>(target, out var buffer))
         {
-            _popup.PopupEntity("No neural port data.", uid, args.User);
+            _popup.PopupEntity(Loc.GetString("forensics-neural-no-data"), uid, args.User);
             return;
         }
 
         if (buffer.TimeOfDeath == null)
         {
-            _popup.PopupEntity("Neural port timing unavailable.", uid, args.User);
+            _popup.PopupEntity(Loc.GetString("forensics-neural-no-timing"), uid, args.User);
             return;
         }
 
         var delta = _timing.CurTime - buffer.TimeOfDeath.Value;
         if (delta.TotalMinutes > component.MaxDeathMinutes)
         {
-            _popup.PopupEntity("Neural port has decayed.", uid, args.User);
+            _popup.PopupEntity(Loc.GetString("forensics-neural-decayed"), uid, args.User);
             return;
         }
 
@@ -82,7 +83,8 @@ public sealed class NeuralLinkCableSystem : EntitySystem
         if (!TryComp<NeuralPortBufferComponent>(target.Value, out var buffer))
             return;
 
-        var timeOfDeath = buffer.TimeOfDeath?.ToString(@"hh\:mm\:ss") ?? "Unknown";
+        var unknown = Loc.GetString("forensics-neural-unknown");
+        var timeOfDeath = buffer.TimeOfDeath?.ToString(@"hh\:mm\:ss") ?? unknown;
         var critical = buffer.LastCriticalDamage;
 
         var victimName = Name(target.Value);
@@ -90,20 +92,23 @@ public sealed class NeuralLinkCableSystem : EntitySystem
             .Take(component.MaxLogLines)
             .Select(l =>
             {
-                var speaker = l.IsVictim ? victimName : "Anonymous";
-                return $"[{l.Time:hh\\:mm\\:ss}] {speaker}: {l.Message}";
+                var speaker = l.IsVictim ? victimName : Loc.GetString("forensics-neural-anonymous");
+                return Loc.GetString("forensics-neural-log-line", 
+                    ("time", l.Time.ToString(@"hh\:mm\:ss")), 
+                    ("speaker", speaker), 
+                    ("message", l.Message));
             })
             .ToList();
 
         if (lines.Count == 0)
-            lines.Add("(no audio data)");
+            lines.Add(Loc.GetString("forensics-neural-no-audio"));
 
-        var content = "--- NEURAL PORT LOG ---\n\n" +
-                      $"TIME OF SHUTDOWN: {timeOfDeath}\n" +
-                      $"CRITICAL DAMAGE: {critical}\n\n" +
-                      "AUDIO BUFFER:\n" +
-                      string.Join("\n", lines) +
-                      "\n\n----------------------";
+        var content = Loc.GetString("forensics-neural-log-header") + "\n\n" +
+                      Loc.GetString("forensics-neural-log-shutdown", ("time", timeOfDeath)) + "\n" +
+                      Loc.GetString("forensics-neural-log-damage", ("damage", critical)) + "\n\n" +
+                      Loc.GetString("forensics-neural-log-audio") + "\n" +
+                      string.Join("\n", lines) + "\n\n" +
+                      Loc.GetString("forensics-report-separator");
 
         var coords = Transform(args.Args.User).Coordinates;
         var paper = Spawn("Paper", coords);

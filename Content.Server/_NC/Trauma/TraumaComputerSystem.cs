@@ -88,12 +88,12 @@ namespace Content.Server._NC.Trauma
                 {
                     subscriber.Tier = TraumaSubscriptionTier.Bronze;
                     Dirty(user, subscriber);
-                    _popup.PopupEntity("Вы успешно подписались на Trauma Team (Bronze)!", uid, args.User);
+                    _popup.PopupEntity(Loc.GetString("trauma-computer-ui-bronze-success"), uid, args.User);
                     UpdateUserInterface(uid, component.Logs, TraumaComputerUiKey.Key, component.PendingCompletions);
                 }
                 else
                 {
-                    _popup.PopupEntity($"Вы уже подписаны! Ваш статус: {subscriber.Tier}", uid, args.User);
+                    _popup.PopupEntity(Loc.GetString("trauma-computer-ui-already-subscribed", ("tier", subscriber.Tier)), uid, args.User);
                 }
             }
         }
@@ -139,16 +139,16 @@ namespace Content.Server._NC.Trauma
                 var tabletSystem = EntityManager.System<TraumaTabletSystem>();
                 if (tabletSystem.DispatchTeam(target))
                 {
-                    _popup.PopupEntity("Команда успешно отправлена!", uid, args.Actor);
+                    _popup.PopupEntity(Loc.GetString("trauma-computer-ui-dispatch-success"), uid, args.Actor);
                 }
                 else
                 {
-                    _popup.PopupEntity("Ошибка: Нет свободных планшетов для отправки.", uid, args.Actor, PopupType.LargeCaution);
+                    _popup.PopupEntity(Loc.GetString("trauma-computer-ui-dispatch-no-tablets"), uid, args.Actor, PopupType.LargeCaution);
                 }
             }
             else
             {
-                _popup.PopupEntity("Ошибка: Цель должна иметь уровень страховки Platinum.", uid, args.Actor, PopupType.LargeCaution);
+                _popup.PopupEntity(Loc.GetString("trauma-computer-ui-dispatch-platinum-required"), uid, args.Actor, PopupType.LargeCaution);
             }
         }
 
@@ -173,7 +173,7 @@ namespace Content.Server._NC.Trauma
                 consoleComp.PendingCompletions.Remove(patientNetEntity);
             }
 
-            _popup.PopupEntity("Миссия подтверждена! Планшеты очищены.", uid, args.Actor);
+            _popup.PopupEntity(Loc.GetString("trauma-computer-ui-mission-confirmed"), uid, args.Actor);
             UpdateUserInterface(uid, component);
         }
 
@@ -187,14 +187,14 @@ namespace Content.Server._NC.Trauma
 
             while (query.MoveNext(out var entity, out var sub, out var meta, out var mobState, out var mindContainer))
             {
-                string status = _mobState.IsDead(entity, mobState) ? "Dead" :
-                                (_mobState.IsCritical(entity, mobState) ? "Critical" : "Alive");
+                string status = _mobState.IsDead(entity, mobState) ? Loc.GetString("trauma-status-dead") :
+                                (_mobState.IsCritical(entity, mobState) ? Loc.GetString("trauma-status-critical") : Loc.GetString("trauma-status-alive"));
 
-                var damageInfo = "HP: 100%";
+                var damageInfo = Loc.GetString("trauma-hp-format", ("hp", 100));
                 if (TryComp<DamageableComponent>(entity, out var damageable))
-                    damageInfo = $"Dmg: {damageable.TotalDamage}";
+                    damageInfo = Loc.GetString("trauma-dmg-format", ("damage", damageable.TotalDamage));
 
-                var jobTitle = "Unknown";
+                var jobTitle = Loc.GetString("trauma-unknown-job");
                 if (mindContainer.Mind.HasValue && _jobs.MindTryGetJob(mindContainer.Mind.Value, out var prototype))
                     jobTitle = prototype.LocalizedName;
 

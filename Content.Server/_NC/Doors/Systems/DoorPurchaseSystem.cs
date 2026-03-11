@@ -50,7 +50,7 @@ public sealed class DoorPurchaseSystem : EntitySystem
             // Ensure coordinates are relative to the map/grid we are displaying
             var netCoords = GetNetCoordinates(doorXform.Coordinates);
             var netUid = GetNetEntity(doorUid);
-            string doorCode = doorInterface.DoorCode ?? "???";
+            string doorCode = doorInterface.DoorCode ?? Loc.GetString("door-interface-unknown-code");
 
             properties.Add((netUid, netCoords, doorInterface.Price, doorCode));
         }

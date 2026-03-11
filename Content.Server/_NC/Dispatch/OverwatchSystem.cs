@@ -1,6 +1,6 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
+using Robust.Shared.Localization;
 using Content.Shared._NC.Dispatch;
 using Content.Shared._NC.Dispatch.Components;
 using Content.Shared.SurveillanceCamera.Components;
@@ -68,7 +68,7 @@ namespace Content.Server._NC.Dispatch
                 return;
 
             var sector = surv.CameraId ?? uid.ToString();
-            AddAlert(uid, "ПОТЕРЯ СВЯЗИ", sector, false);
+            AddAlert(uid, Loc.GetString("overwatch-alert-loss-of-connection"), sector, false);
         }
 
         private void OnUiOpen(EntityUid uid, OverwatchConsoleComponent comp, BoundUIOpenedEvent args)
@@ -111,7 +111,11 @@ namespace Content.Server._NC.Dispatch
             var ticket = EntityManager.SpawnEntity("DispatchCallTicket", Transform(uid).Coordinates);
             if (TryComp<PaperComponent>(ticket, out var paper))
             {
-                paper.Content = $"Официальный бланк NCPD. Зафиксирована {alert.Type.ToLower()} в секторе: {alert.Sector}. Время: {alert.TimeStr}";
+                var content = Loc.GetString("overwatch-ticket-content",
+                    ("type", alert.Type.ToLower()),
+                    ("sector", alert.Sector),
+                    ("time", alert.TimeStr));
+                paper.Content = content;
                 Dirty(ticket, paper);
             }
         }
@@ -171,8 +175,8 @@ namespace Content.Server._NC.Dispatch
                 }
 
                 // Build alert
-                var alertType = "Стрельба";
-                var sector = surv.CameraId ?? "Неизвестный сектор";
+                var alertType = Loc.GetString("overwatch-alert-gunfire");
+                var sector = surv.CameraId ?? Loc.GetString("overwatch-alert-unknown-sector");
 
                 AddAlert(camUid, alertType, sector, true);
             }

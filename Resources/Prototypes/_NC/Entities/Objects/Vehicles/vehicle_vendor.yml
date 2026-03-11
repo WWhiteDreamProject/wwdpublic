@@ -1,8 +1,8 @@
 - type: entity
   id: VehicleVendor
   parent: BaseComputer
-  name: Vehicle Purchase Console
-  description: A console to purchase personal vehicles.
+  name: Консоль покупки транспорта
+  description: Консоль для покупки личного транспорта.
   components:
   - type: VehicleVendor
     vehicles:

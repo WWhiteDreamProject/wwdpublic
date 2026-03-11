@@ -1,4 +1,5 @@
-﻿using System;
+using System;
+using Robust.Shared.Localization;
 using System.Linq;
 using Content.Server.Chat.Systems;
 using Content.Shared.Damage;
@@ -69,10 +70,10 @@ public sealed class NeuralPortBufferSystem : EntitySystem
         // Basic mapping for forensic summary.
         return damageType switch
         {
-            "Heat" or "Cold" or "Shock" => "Thermal",
-            "Slash" => "Slash",
-            "Piercing" or "Blunt" => "Firearm",
-            _ => "Unknown"
+            "Heat" or "Cold" or "Shock" => Loc.GetString("forensics-damage-thermal"),
+            "Slash" => Loc.GetString("forensics-damage-slash"),
+            "Piercing" or "Blunt" => Loc.GetString("forensics-damage-firearm"),
+            _ => Loc.GetString("forensics-damage-unknown")
         };
     }
 

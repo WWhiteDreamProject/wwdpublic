@@ -11,6 +11,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Serialization;
 using Content.Server.Chat.Managers;
 using System;
+using Robust.Shared.Localization;
 
 namespace Content.Server._NC.Forensics;
 
@@ -105,12 +106,15 @@ public sealed class BallisticAnalyzerSystem : EntitySystem
         UpdateUiState(uid, component, false, result);
         
         // Уведомление в чат
-        var resText = result == BallisticMatchResult.Match ? "СОВПАДЕНИЕ 100%" : "СОВПАДЕНИЕ 0%";
+        var resText = result == BallisticMatchResult.Match 
+            ? Loc.GetString("forensics-ballistic-match-100") 
+            : Loc.GetString("forensics-ballistic-match-0");
         var resColor = result == BallisticMatchResult.Match ? Robust.Shared.Maths.Color.Green : Robust.Shared.Maths.Color.Red;
 
         if (_playerManager.TryGetSessionByEntity(args.User, out var session))
         {
-            _chatManager.ChatMessageToOne(ChatChannel.Local, $"Анализ завершен: {resText}", $"Анализ завершен: {resText}", uid, false, session.Channel, resColor);
+            var msg = Loc.GetString("forensics-ballistic-analysis-complete", ("result", resText));
+            _chatManager.ChatMessageToOne(ChatChannel.Local, msg, msg, uid, false, session.Channel, resColor);
         }
 
         // Печать отчета
@@ -120,20 +124,23 @@ public sealed class BallisticAnalyzerSystem : EntitySystem
     private void PrintReport(EntityUid uid, string? bHash, string? wHash, BallisticMatchResult result)
     {
         var report = Spawn("Paper", Transform(uid).Coordinates);
-        var resText = result == BallisticMatchResult.Match ? "СОВПАДЕНИЕ 100%" : "СОВПАДЕНИЕ 0%";
+        var resText = result == BallisticMatchResult.Match 
+            ? Loc.GetString("forensics-ballistic-match-100") 
+            : Loc.GetString("forensics-ballistic-match-0");
 
         if (TryComp<PaperComponent>(report, out var paper))
         {
-            string content = $"Баллистическая Экспертиза NCPD\n" +
-                             $"--------------------------\n" +
-                             $"Хэш пули: {bHash ?? "ОШИБКА"}\n" +
-                             $"Хэш оружия: {wHash ?? "ОШИБКА"}\n" +
-                             $"Результат: {resText}\n" +
-                             $"--------------------------\n" +
-                             $"Данный отчет является официальным документом.";
+            var error = Loc.GetString("forensics-report-error");
+            string content = Loc.GetString("forensics-report-header") + "\n" +
+                             Loc.GetString("forensics-report-separator") + "\n" +
+                             Loc.GetString("forensics-report-bullet-hash", ("hash", bHash ?? error)) + "\n" +
+                             Loc.GetString("forensics-report-weapon-hash", ("hash", wHash ?? error)) + "\n" +
+                             Loc.GetString("forensics-report-result", ("result", resText)) + "\n" +
+                             Loc.GetString("forensics-report-separator") + "\n" +
+                             Loc.GetString("forensics-report-footer");
             
             _paper.SetContent((report, paper), content);
-            _metaData.SetEntityName(report, $"Отчет баллистики ({resText})");
+            _metaData.SetEntityName(report, Loc.GetString("forensics-report-name", ("result", resText)));
         }
     }
 

@@ -13,6 +13,7 @@ using Robust.Shared.Prototypes;
 using Content.Shared.Roles.Jobs;
 using Content.Shared.Mind; // Необходим для работы с MindSystem
 using Content.Server.Popups;
+using Robust.Shared.Localization;
 
 namespace Content.Server._NC.Bank
 {
@@ -154,20 +155,8 @@ namespace Content.Server._NC.Bank
             return true;
         }
 
-        /// <summary>
-        /// Массовая выдача зарплат всем игрокам.
-        /// </summary>
         private void ProcessPayday()
         {
-            // ... (rest of ProcessPayday implementation remains the same, assuming it was correct before)
-            // But I am replacing the whole file content block potentially or just the init/update part.
-            // Wait, I am using ReplaceFileContent targetting the WHOLE file structure logic?
-            // The prompt says "ReplacementContent".
-            // I should be careful not to delete existing methods if I use "ReplaceFileContent" with a range.
-            // Let's replace from Initialize() down to before ProcessPayday and update ProcessPayday inside standard context if needed.
-            // Actually, I can replace Initialize and Update methods specifically.
-
-            // Retaining original ProcessPayday logic...
             _log.Info("PAYDAY: Начало начисления зарплат...");
             int count = 0;
 
@@ -182,7 +171,7 @@ namespace Content.Server._NC.Bank
                 {
                     count++;
 
-                    _popupSystem.PopupEntity($"Зарплата: +{salary} эдди.", playerUid, playerUid);
+                    _popupSystem.PopupEntity(Loc.GetString("bank-payday-message", ("amount", salary)), playerUid, playerUid);
                 }
             }
 

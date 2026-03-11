@@ -2,7 +2,7 @@
   id: VehicleAmeriCar
   parent: BaseVehicle
   name: AmeriCar
-  description: Classic American muscle car. Seats 3 people and has a spacious trunk.
+  description: Классический американский маслкар. Вмещает 3 человек и имеет просторный багажник.
   components:
   - type: Sprite
     sprite: _NC/Objects/Vehicle/americar.rsi

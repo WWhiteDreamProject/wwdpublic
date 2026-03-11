@@ -13,6 +13,7 @@ using Content.Shared.Popups;
 using Content.Server.Popups;
 using Robust.Shared.Random;
 using System;
+using Robust.Shared.Localization;
 
 using Content.Server.PDA;
 using Content.Shared.Inventory;
@@ -103,7 +104,7 @@ public sealed class DoorInterfaceSystem : EntitySystem
         args.Verbs.Add(new AlternativeVerb
         {
             Act = () => _uiSystem.TryToggleUi(uid, DoorInterfaceUiKey.Key, args.User),
-            Text = "Открыть интерфейс",
+            Text = Loc.GetString("door-interface-verb-open"),
             Priority = 1
         });
     }
@@ -126,7 +127,7 @@ public sealed class DoorInterfaceSystem : EntitySystem
         args.Verbs.Add(new Verb
         {
             Act = () => ToggleLock(uid),
-            Text = "Блокировать/Разблокировать",
+            Text = Loc.GetString("door-interface-verb-toggle-lock"),
             Priority = 1,
             Category = VerbCategory.Interaction
         });
@@ -166,7 +167,7 @@ public sealed class DoorInterfaceSystem : EntitySystem
             component.OwnerName = Name(user);
             component.Price /= 2;
 
-            _popupSystem.PopupEntity("Вы приобрели недвижимость!", user, user);
+            _popupSystem.PopupEntity(Loc.GetString("door-interface-popup-bought"), user, user);
 
             SetBolts(uid, false);
             Dirty(uid, component); // Network fields
@@ -174,13 +175,13 @@ public sealed class DoorInterfaceSystem : EntitySystem
 
             if (_inventorySystem.TryGetSlotEntity(user, "id", out var pdaUid) && TryComp<PdaComponent>(pdaUid, out var pda)) // NC
             {
-                var code = component.DoorCode ?? "UNKNOWN";
+                var code = component.DoorCode ?? Loc.GetString("door-interface-pda-unknown");
                 _pdaSystem.AddHousing(pdaUid.Value, code, pda);
             }
         }
         else
         {
-            _popupSystem.PopupEntity("Недостаточно средств!", user, user);
+            _popupSystem.PopupEntity(Loc.GetString("door-interface-popup-insufficient-funds"), user, user);
         }
     }
 
@@ -200,7 +201,7 @@ public sealed class DoorInterfaceSystem : EntitySystem
             component.OwnerName = null;
             component.Price *= 2;
 
-            _popupSystem.PopupEntity("Вы продали недвижимость.", user, user);
+            _popupSystem.PopupEntity(Loc.GetString("door-interface-popup-sold"), user, user);
 
             SetBolts(uid, true);
             Dirty(uid, component); // Network fields
@@ -208,7 +209,7 @@ public sealed class DoorInterfaceSystem : EntitySystem
 
             if (_inventorySystem.TryGetSlotEntity(user, "id", out var pdaUid) && TryComp<PdaComponent>(pdaUid, out var pda)) // NC
             {
-                var code = component.DoorCode ?? "UNKNOWN";
+                var code = component.DoorCode ?? Loc.GetString("door-interface-pda-unknown");
                 _pdaSystem.RemoveHousing(pdaUid.Value, code, pda);
             }
         }

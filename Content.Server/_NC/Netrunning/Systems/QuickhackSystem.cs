@@ -101,27 +101,27 @@ public sealed class QuickhackSystem : EntitySystem
                 break;
 
             case QuickhackType.Ping:
-                var status = "Нет защиты";
+                var status = Loc.GetString("quickhack-scan-no-protection");
 
                 if (_netServer.GetProtectingServer(target) is { } server)
                 {
-                    status = $"Под защитой: {Name(server)}";
+                    status = Loc.GetString("quickhack-scan-protected", ("server", server));
                     if (_netServer.HasActiveIce(server))
                     {
-                        status += " (Активен ICE)";
+                        status += Loc.GetString("quickhack-scan-ice-active");
 
                         // Safe access to item slots
                         if (_itemSlots.GetItemOrNull(server, "ice_slot_1") is { } iceUid)
                         {
-                            status += $" - Обнаружен {Name(iceUid)}";
+                            status += Loc.GetString("quickhack-scan-ice-detected", ("ice", iceUid));
                         }
                     }
                     else
                     {
-                        status += " (Без ICE)";
+                        status += Loc.GetString("quickhack-scan-ice-inactive");
                     }
                 }
-                _popup.PopupEntity($"Результат сканирования: {Name(target)} - {status}", target, user);
+                _popup.PopupEntity(Loc.GetString("quickhack-scan-result", ("target", target), ("status", status)), target, user);
                 break;
 
             case QuickhackType.HighJack:
@@ -140,7 +140,7 @@ public sealed class QuickhackSystem : EntitySystem
 
                 if (serverToHack == null)
                 {
-                    _popup.PopupEntity("Цель не подключена к сети.", deckUid, user);
+                    _popup.PopupEntity(Loc.GetString("quickhack-target-not-connected"), deckUid, user);
                     break;
                 }
 

@@ -1,6 +1,6 @@
 - type: gameMap
   id: Aldente
-  mapName: 'New Aldente'
+  mapName: 'New Aldenteе'
   mapPath: /Maps/_NC/night_city.yml
   maxRandomOffset: 0
   randomPainting: false

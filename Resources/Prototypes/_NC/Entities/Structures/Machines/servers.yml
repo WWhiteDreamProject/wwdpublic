@@ -1,7 +1,7 @@
 - type: entity
   parent: BaseStructure
   id: NCServerBase
-  name: net server
+  name: сетевой сервер
   abstract: true
   components:
   - type: Sprite
@@ -52,8 +52,8 @@
 - type: entity
   parent: NCServerBase
   id: NCMicroServer
-  name: micro-server
-  description: A budget server rack with 3 ICE floors.
+  name: микро-сервер
+  description: Бюджетная серверная стойка с 3 уровнями ЛЬДА.
   components:
   - type: Sprite
     sprite: Structures/Machines/server.rsi
@@ -67,7 +67,7 @@
         name: Floor 2
         whitelist: { tags: [ NCIceBoard ] }
       ice_slot_3:
-        name: Floor 3 (Root)
+        name: Уровень 3 (Root)
         whitelist: { tags: [ NCIceBoard ] }
   - type: ContainerContainer
     containers:
@@ -78,8 +78,8 @@
 - type: entity
   parent: NCServerBase
   id: NCMainframe
-  name: mainframe
-  description: A standard server rack with 6 ICE floors.
+  name: мэйнфрейм
+  description: Стандартная серверная стойка с 6 уровнями ЛЬДА.
   components:
   - type: Sprite
     sprite: Structures/Machines/server.rsi
@@ -104,7 +104,7 @@
         name: Floor 5
         whitelist: { tags: [ NCIceBoard ] }
       ice_slot_6:
-        name: Floor 6 (Root)
+        name: Уровень 6 (Root)
         whitelist: { tags: [ NCIceBoard ] }
   - type: ContainerContainer
     containers:
@@ -118,8 +118,8 @@
 - type: entity
   parent: NCServerBase
   id: NCCitadelServer
-  name: citadel server
-  description: A fortress-grade server with 9 ICE floors.
+  name: сервер Цитадель
+  description: Сервер крепостного класса с 9 уровнями ЛЬДА.
   components:
   - type: Sprite
     sprite: Structures/Machines/server.rsi
@@ -143,16 +143,16 @@
         name: Floor 5
         whitelist: { tags: [ NCIceBoard ] }
       ice_slot_6:
-        name: Floor 6
+        name: Уровень 6
         whitelist: { tags: [ NCIceBoard ] }
       ice_slot_7:
-        name: Floor 7
+        name: Уровень 7
         whitelist: { tags: [ NCIceBoard ] }
       ice_slot_8:
-        name: Floor 8
+        name: Уровень 8
         whitelist: { tags: [ NCIceBoard ] }
       ice_slot_9:
-        name: Floor 9 (Root)
+        name: Уровень 9 (Root)
         whitelist: { tags: [ NCIceBoard ] }
   - type: ContainerContainer
     containers:

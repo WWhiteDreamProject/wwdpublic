@@ -32,8 +32,8 @@
 - type: entity
   id: NCComputerPalletConsole
   parent: BaseComputerAiAccess
-  name: cargo sale computer x2
-  description: Used to sell goods loaded onto cargo pallets.
+  name: консоль продажи грузов x2
+  description: Используется для продажи товаров, загруженных на грузовые паллеты.
   components:
   - type: Sprite
     layers:
@@ -74,8 +74,8 @@
 - type: entity
   parent: BaseComputerAiAccess
   id: ComputerOverwatch
-  name: overwatch dispatch console
-  description: Console used by NCPD Overwatch network; displays gunshot/explosion alerts.
+  name: диспетчерская консоль Overwatch
+  description: Консоль, используемая сетью Overwatch NCPD; отображает оповещения о выстрелах и взрывах.
   components:
   - type: Sprite
     layers:

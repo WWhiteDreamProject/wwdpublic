@@ -18,6 +18,7 @@ using Content.Shared.Access.Components;
 using Robust.Shared.Containers;
 using System;
 using System.Linq;
+using Robust.Shared.Localization;
 
 namespace Content.Server._NC.Citation;
 
@@ -61,20 +62,20 @@ public sealed class CitationSystem : EntitySystem
 
         if (args.User == args.Target.Value)
         {
-            _popupSystem.PopupEntity("Нельзя оштрафовать самого себя", uid, args.User);
+            _popupSystem.PopupEntity(Loc.GetString("citation-popup-self"), uid, args.User);
             return;
         }
 
         var stationUid = GetStation(uid, args.User);
         if (stationUid != null && _ncpdSystem.IsSuspended(stationUid.Value, args.User))
         {
-            _popupSystem.PopupEntity("УЧЕТНАЯ ЗАПИСЬ ПРИОСТАНОВЛЕНА", uid, args.User);
+            _popupSystem.PopupEntity(Loc.GetString("citation-popup-suspended"), uid, args.User);
             return;
         }
 
         if (CheckCooldown(args.Target.Value, out var timeLeft))
         {
-            _popupSystem.PopupEntity($"ЦЕЛЬ УЖЕ ОШТРАФОВАНА НЕДАВНО. Ждите {timeLeft.Minutes}м {timeLeft.Seconds}с", uid, args.User);
+            _popupSystem.PopupEntity(Loc.GetString("citation-popup-cooldown", ("minutes", timeLeft.Minutes), ("seconds", timeLeft.Seconds)), uid, args.User);
             return;
         }
 
@@ -93,7 +94,7 @@ public sealed class CitationSystem : EntitySystem
         var stationUid = GetStation(uid, args.User);
         if (stationUid != null && _ncpdSystem.IsSuspended(stationUid.Value, args.User))
         {
-            _popupSystem.PopupEntity("УЧЕТНАЯ ЗАПИСЬ ПРИОСТАНОВЛЕНА", uid, args.User);
+            _popupSystem.PopupEntity(Loc.GetString("citation-popup-suspended"), uid, args.User);
             return;
         }
 
@@ -109,12 +110,12 @@ public sealed class CitationSystem : EntitySystem
         _uiSystem.OpenUi(uid, CitationDeviceUiKey.Key, user);
 
         int limit = GetCitationLimit(user, component);
-        string targetName = "Неизвестный";
+        string targetName = Loc.GetString("citation-ui-unknown");
         
         if (component.ActiveTarget != null)
             targetName = Name(component.ActiveTarget.Value);
         else if (component.ActiveIdCard != null)
-            targetName = CompOrNull<IdCardComponent>(component.ActiveIdCard.Value)?.FullName ?? "Неизвестная карта";
+            targetName = CompOrNull<IdCardComponent>(component.ActiveIdCard.Value)?.FullName ?? Loc.GetString("citation-ui-unknown-card");
 
         int budget = GetNcpdBudget(uid, user);
 
@@ -172,7 +173,7 @@ public sealed class CitationSystem : EntitySystem
         {
             if (HasComp<StunnedComponent>(component.ActiveTarget.Value) || HasComp<KnockedDownComponent>(component.ActiveTarget.Value))
             {
-                _popupSystem.PopupEntity("Подозреваемый без сознания! Снимите ID-карту", uid, user);
+                _popupSystem.PopupEntity(Loc.GetString("citation-popup-unconscious"), uid, user);
                 return;
             }
 
@@ -183,7 +184,7 @@ public sealed class CitationSystem : EntitySystem
             var state = new CitationDeviceBuiState(Name(component.ActiveTarget.Value), limit, budget, true);
             _uiSystem.SetUiState(uid, CitationDeviceUiKey.Key, state);
             
-            _popupSystem.PopupEntity("Запрос отправлен", uid, user);
+            _popupSystem.PopupEntity(Loc.GetString("citation-popup-sent"), uid, user);
         }
     }
 
@@ -204,9 +205,9 @@ public sealed class CitationSystem : EntitySystem
         if (!ev.Accept)
         {
             if (cop != null)
-                _popupSystem.PopupEntity("ОТКАЗ В ОПЛАТЕ", uid, cop.Value);
+                _popupSystem.PopupEntity(Loc.GetString("citation-popup-refused-cop"), uid, cop.Value);
             
-            _popupSystem.PopupEntity("Вы отказались от штрафа", target, target);
+            _popupSystem.PopupEntity(Loc.GetString("citation-popup-refused-target"), target, target);
             ResetTerminal(uid, component);
             return;
         }
@@ -224,7 +225,7 @@ public sealed class CitationSystem : EntitySystem
 
         if (!TryComp<IdCardComponent>(targetCard.Value, out var idCard) || idCard.FullName == null)
         {
-            _popupSystem.PopupEntity("Не удалось установить владельца карты", uid, args.Args.User);
+            _popupSystem.PopupEntity(Loc.GetString("citation-popup-owner-not-found"), uid, args.Args.User);
             return;
         }
 
@@ -241,11 +242,11 @@ public sealed class CitationSystem : EntitySystem
 
         if (cardOwner == null)
         {
-            _popupSystem.PopupEntity("Владелец карты не найден на сервере", uid, args.Args.User);
+            _popupSystem.PopupEntity(Loc.GetString("citation-popup-owner-not-on-server"), uid, args.Args.User);
             return;
         }
 
-        _popupSystem.PopupEntity("Банковский пин-код взломан", uid, args.Args.User);
+        _popupSystem.PopupEntity(Loc.GetString("citation-popup-pin-cracked"), uid, args.Args.User);
         ProcessPayment(uid, component, cardOwner.Value, args.Amount, true);
         
         args.Handled = true;
@@ -258,9 +259,9 @@ public sealed class CitationSystem : EntitySystem
 
         if (!_bankSystem.TryBankWithdraw(targetUid, amount))
         {
-            _popupSystem.PopupEntity("НЕДОСТАТОЧНО СРЕДСТВ", terminalUid, cop.Value);
+            _popupSystem.PopupEntity(Loc.GetString("citation-popup-insufficient-funds-cop"), terminalUid, cop.Value);
             if (cop != targetUid)
-                _popupSystem.PopupEntity("Недостаточно средств на счете", targetUid, targetUid);
+                _popupSystem.PopupEntity(Loc.GetString("citation-popup-insufficient-funds-target"), targetUid, targetUid);
             ResetTerminal(terminalUid, component);
             return;
         }
@@ -272,7 +273,7 @@ public sealed class CitationSystem : EntitySystem
 
         var stationUid = GetStation(terminalUid, cop.Value);
 
-        string jobName = "Офицер";
+        string jobName = Loc.GetString("citation-job-officer");
         if (_idCardSystem.TryFindIdCard(cop.Value, out var idCard) && !string.IsNullOrWhiteSpace(idCard.Comp.LocalizedJobTitle))
         {
             jobName = idCard.Comp.LocalizedJobTitle;
@@ -282,13 +283,13 @@ public sealed class CitationSystem : EntitySystem
         if (stationUid != null)
         {
             _bankSystem.TryFactionDeposit(stationUid.Value, SectorBankAccount.Ncpd, deptShare);
-            _ncpdSystem.AddLog(stationUid.Value, fullCopName, Name(targetUid), amount, isForced ? "ПРИНУДИТЕЛЬНОЕ СПИСАНИЕ" : $"ДОЛЯ NCPD: +{deptShare} эдди", component.Reason);
+            _ncpdSystem.AddLog(stationUid.Value, fullCopName, Name(targetUid), amount, isForced ? Loc.GetString("citation-log-forced") : Loc.GetString("citation-log-share", ("amount", deptShare)), component.Reason);
         }
 
         PrintCitationPaper(terminalUid, fullCopName, Name(targetUid), amount, component.Reason);
 
-        _popupSystem.PopupEntity($"ОПЛАТА УСПЕШНА: +{copShare} Эдди комиссии", terminalUid, cop.Value);
-        _popupSystem.PopupEntity($"Вы оплатили штраф: {amount} Эдди", targetUid, targetUid);
+        _popupSystem.PopupEntity(Loc.GetString("citation-popup-success-cop", ("amount", copShare)), terminalUid, cop.Value);
+        _popupSystem.PopupEntity(Loc.GetString("citation-popup-success-target", ("amount", amount)), targetUid, targetUid);
 
         EnsureComp<CitationCooldownComponent>(targetUid).LastCitationTime = _timing.CurTime;
 
@@ -302,12 +303,12 @@ public sealed class CitationSystem : EntitySystem
         
         if (TryComp<Content.Shared.Paper.PaperComponent>(paper, out var paperComp))
         {
-            string content = $"--- КВИТАНЦИЯ NCPD ---\n\n" +
-                             $"ОФИЦЕР: {officer}\n" +
-                             $"НАРУШИТЕЛЬ: {suspect}\n" +
-                             $"СУММА: {amount} Эдди\n" +
-                             $"ПРИЧИНА: {reason}\n\n" +
-                             $"СТАТУС: ОПЛАЧЕНО\n" +
+            string content = $"{Loc.GetString("citation-paper-title")}\n\n" +
+                             $"{Loc.GetString("citation-paper-officer", ("officer", officer))}\n" +
+                             $"{Loc.GetString("citation-paper-suspect", ("suspect", suspect))}\n" +
+                             $"{Loc.GetString("citation-paper-amount", ("amount", amount))}\n" +
+                             $"{Loc.GetString("citation-paper-reason", ("reason", reason))}\n\n" +
+                             $"{Loc.GetString("citation-paper-status")}\n" +
                              $"----------------------";
             
             _paperSystem.SetContent((paper, paperComp), content);

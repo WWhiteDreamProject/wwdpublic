@@ -19,6 +19,7 @@ using Robust.Shared.Containers;
 using Robust.Server.GameObjects;
 using Robust.Shared.Player;
 using System.Linq;
+using Robust.Shared.Localization;
 using Content.Shared._Lavaland.Weapons.Ranged.Events;
 
 namespace Content.Server._NC.Forensics;
@@ -115,11 +116,11 @@ public sealed class ForensicsBallisticsSystem : EntitySystem
         // Уведомление в чат жертве
         if (_playerManager.TryGetSessionByEntity(target, out var session))
         {
-            var msg = "Вы чувствуете, как пуля застряла глубоко в плоти!";
+            var msg = Loc.GetString("forensics-bullet-stuck-chat");
             _chatManager.ChatMessageToOne(ChatChannel.Local, msg, msg, target, false, session.Channel, Robust.Shared.Maths.Color.Red);
         }
 
-        _popup.PopupEntity("Вы чувствуете резкую боль от застрявшей пули", target, target, PopupType.LargeCaution);
+        _popup.PopupEntity(Loc.GetString("forensics-bullet-stuck-popup"), target, target, PopupType.LargeCaution);
     }
 
     private void OnInteractUsing(EntityUid uid, BodyComponent component, InteractUsingEvent args)
@@ -143,7 +144,7 @@ public sealed class ForensicsBallisticsSystem : EntitySystem
         {
             if (stuck.IncisionMade)
             {
-                _popup.PopupEntity("Надрез здесь уже сделан", uid, args.User);
+                _popup.PopupEntity(Loc.GetString("forensics-incision-already-made"), uid, args.User);
                 return;
             }
 
@@ -160,7 +161,7 @@ public sealed class ForensicsBallisticsSystem : EntitySystem
         {
             if (!stuck.IncisionMade)
             {
-                _popup.PopupEntity("Сначала нужно сделать надрез скальпелем", uid, args.User);
+                _popup.PopupEntity(Loc.GetString("forensics-incision-needed"), uid, args.User);
                 return;
             }
 
@@ -191,7 +192,7 @@ public sealed class ForensicsBallisticsSystem : EntitySystem
         {
             stuck.IncisionMade = true;
             Dirty(bullet, stuck);
-            _popup.PopupEntity("Надрез сделан. Теперь пулю можно извлечь", uid, args.User);
+            _popup.PopupEntity(Loc.GetString("forensics-incision-success"), uid, args.User);
         }
     }
 
@@ -217,7 +218,7 @@ public sealed class ForensicsBallisticsSystem : EntitySystem
 
             _hands.TryPickupAnyHand(args.User, deformedBullet);
 
-            _popup.PopupEntity("Пуля извлечена", uid, args.User);
+            _popup.PopupEntity(Loc.GetString("forensics-extraction-success"), uid, args.User);
             QueueDel(bulletEntity);
         }
     }

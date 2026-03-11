@@ -152,7 +152,7 @@ public sealed class CitiNetStreamSystem : EntitySystem
         var reason = reasonLocKey != null
             ? Loc.GetString(reasonLocKey)
             : Loc.GetString("citinet-live-signal-lost");
-        AddChatMessage(comp, new LiveChatMessage(_timing.CurTime, "SYSTEM", reason, true));
+        AddChatMessage(comp, new LiveChatMessage(_timing.CurTime, Loc.GetString("citinet-live-sender-system"), reason, true));
 
         _liveCartridge.UpdateAllLiveUIs();
     }

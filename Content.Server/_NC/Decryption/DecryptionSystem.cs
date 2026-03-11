@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Shared._NC.Decryption.Components;
+using Robust.Shared.Localization;
 using Content.Shared._NC.Decryption.UI;
 using Content.Shared._NC.Weapons.Ranged.NCWeapon;
 using Content.Shared.Containers.ItemSlots;
@@ -26,19 +27,23 @@ public sealed class DecryptionSystem : EntitySystem
 
     private static readonly string[] ProtocolTitles =
     {
-        "ROBCO INDUSTRIES UNIFIED OPERATING SYSTEM",
-        "MILITECH ICE PROTOCOL v2.0",
-        "NETWORK ENTRY INTERFACE // SECURE MODE",
-        "DATA-ICE DECRYPTION SUBROUTINE",
+        "decryption-protocol-1",
+        "decryption-protocol-2",
+        "decryption-protocol-3",
+        "decryption-protocol-4",
     };
 
     private static readonly string[] WordPool =
     {
-        "CHROME", "WEAPON", "MATRIX", "CIPHER", "BREACH", "CYBER", "SCRIPT", "HOST", "GRID", "NODE",
-        "PROXY", "SHARD", "SENTRY", "GATE", "GHOST", "ACCESS", "KERNEL", "INTRUDE", "NETWORK", "PAYLOAD",
-        "FIREWALL", "OVERRIDE", "ENCRYPT", "DECRYPT", "PROTOCOL", "BACKDOOR", "BLACKICE", "WHITEICE",
-        "SYNAPSE", "DATAVAULT", "MAINFRAME", "TERMINAL", "INJECTOR", "SCANLINE", "CHECKSUM", "VECTOR",
-        "NEXUS", "NANOWIRE", "MEGACORP", "ICEBREAKER", "NEURALINK", "CYBERDECK", "DATASHARD", "GIGAFRAME"
+        "decryption-word-1", "decryption-word-2", "decryption-word-3", "decryption-word-4", "decryption-word-5",
+        "decryption-word-6", "decryption-word-7", "decryption-word-8", "decryption-word-9", "decryption-word-10",
+        "decryption-word-11", "decryption-word-12", "decryption-word-13", "decryption-word-14", "decryption-word-15",
+        "decryption-word-16", "decryption-word-17", "decryption-word-18", "decryption-word-19", "decryption-word-20",
+        "decryption-word-21", "decryption-word-22", "decryption-word-23", "decryption-word-24", "decryption-word-25",
+        "decryption-word-26", "decryption-word-27", "decryption-word-28", "decryption-word-29", "decryption-word-30",
+        "decryption-word-31", "decryption-word-32", "decryption-word-33", "decryption-word-34", "decryption-word-35",
+        "decryption-word-36", "decryption-word-37", "decryption-word-38", "decryption-word-39", "decryption-word-40",
+        "decryption-word-41", "decryption-word-42", "decryption-word-43", "decryption-word-44"
     };
 
     private const string JunkSymbols = "!@#$%^&*;:+-=?/|~";
@@ -94,8 +99,8 @@ public sealed class DecryptionSystem : EntitySystem
             if (!_sessions.TryGetValue(uid, out var session) || !TryComp<DecryptionTerminalComponent>(uid, out var component))
                 continue;
 
-            session.Log.Add("> ACTIVE ICE TIMEOUT.");
-            session.Log.Add("> CARRIER BURNED.");
+            session.Log.Add(Loc.GetString("decryption-log-ice-timeout"));
+            session.Log.Add(Loc.GetString("decryption-log-carrier-burned"));
             CompleteFailure(uid, component);
         }
     }
@@ -142,8 +147,8 @@ public sealed class DecryptionSystem : EntitySystem
         {
             UpdateUi(uid, component, new List<string>
             {
-                "> INSERT TECHNOLOGY PAYLOAD.",
-                "> RAW DATA IS NOT SUPPORTED HERE."
+                Loc.GetString("decryption-log-insert-tech"),
+                Loc.GetString("decryption-log-raw-data-unsupported")
             });
             return;
         }
@@ -153,8 +158,8 @@ public sealed class DecryptionSystem : EntitySystem
             _sessions.Remove(uid);
             UpdateUi(uid, component, new List<string>
             {
-                "> TECHNOLOGY ALREADY DECRYPTED.",
-                "> INSERT NEW TECHNOLOGY PAYLOAD."
+                Loc.GetString("decryption-log-already-decrypted"),
+                Loc.GetString("decryption-log-insert-new")
             });
             return;
         }
@@ -186,12 +191,12 @@ public sealed class DecryptionSystem : EntitySystem
         if (session.RemovedWords.Contains(word) || !session.Words.Contains(word))
             return;
 
-        session.Log.Add($"> INPUT: {word}");
+        session.Log.Add(Loc.GetString("decryption-log-input", ("word", word)));
 
         if (word == session.Password)
         {
-            session.Log.Add("> ACCESS GRANTED.");
-            session.Log.Add($"> DECRYPTION SUCCESS. INTEGRITY: {session.Integrity}%.");
+            session.Log.Add(Loc.GetString("decryption-log-access-granted"));
+            session.Log.Add(Loc.GetString("decryption-log-success", ("integrity", session.Integrity)));
             CompleteSuccess(uid, component, session);
             return;
         }
@@ -200,13 +205,13 @@ public sealed class DecryptionSystem : EntitySystem
         session.PermanentMistakes++;
 
         var match = CountExactPositionMatches(word, session.Password);
-        session.Log.Add("> ACCESS DENIED.");
-        session.Log.Add($"> MATCH: {match}/{session.Password.Length}.");
+        session.Log.Add(Loc.GetString("decryption-log-access-denied"));
+        session.Log.Add(Loc.GetString("decryption-log-match", ("match", match), ("length", session.Password.Length)));
 
         if (session.AttemptsRemaining <= 0)
         {
-            session.Log.Add("> DEFENSIVE ICE TRIGGERED.");
-            session.Log.Add("> CARRIER BURNED.");
+            session.Log.Add(Loc.GetString("decryption-log-ice-triggered"));
+            session.Log.Add(Loc.GetString("decryption-log-carrier-burned"));
             CompleteFailure(uid, component);
             return;
         }
@@ -233,18 +238,18 @@ public sealed class DecryptionSystem : EntitySystem
             {
                 var removed = _random.Pick(candidates);
                 RemoveDudFromMatrix(session, removed);
-                session.Log.Add("> DUD REMOVED.");
+                session.Log.Add(Loc.GetString("decryption-log-dud-removed"));
             }
             else
             {
-                session.Log.Add("> BACKDOOR EMPTY: NO DUDS LEFT.");
+                session.Log.Add(Loc.GetString("decryption-log-backdoor-empty"));
             }
         }
         else
         {
             session.AttemptsRemaining = session.MaxAttempts;
             session.PermanentMistakes = 0;
-            session.Log.Add("> ATTEMPTS REPLENISHED.");
+            session.Log.Add(Loc.GetString("decryption-log-attempts-replenished"));
         }
 
         TrimLog(session.Log, session.LogLineLimit);
@@ -273,13 +278,16 @@ public sealed class DecryptionSystem : EntitySystem
         }
     }
 
-    private static void OnTechnologyExamined(EntityUid uid, DecryptionTechnologyComponent component, ExaminedEvent args)
+    private void OnTechnologyExamined(EntityUid uid, DecryptionTechnologyComponent component, ExaminedEvent args)
     {
         if (!args.IsInDetailsRange)
             return;
 
-        var status = component.IsDecrypted ? "Decrypted" : "Encrypted";
-        args.PushMarkup($"Technology: {status}");
+        var status = component.IsDecrypted 
+            ? Loc.GetString("decryption-status-decrypted") 
+            : Loc.GetString("decryption-status-encrypted");
+        
+        args.PushMarkup(Loc.GetString("decryption-examine-status", ("status", status)));
     }
     private void OnEjectCarrier(EntityUid uid, DecryptionTerminalComponent component, DecryptionEjectCarrierMessage args)
     {
@@ -305,10 +313,10 @@ public sealed class DecryptionSystem : EntitySystem
         _sessions.Remove(uid);
         UpdateUi(uid, component, new List<string>
         {
-            "> DECRYPTION COMPLETE.",
-            $"> FINAL INTEGRITY: {session.Integrity}%.",
-            $"> TECHNOLOGY ENTITY: {session.SelectedTechnologyEntityId}",
-            $"> USES: {session.SelectedTechnologyUses}."
+            Loc.GetString("decryption-complete-success"),
+            Loc.GetString("decryption-final-integrity", ("integrity", session.Integrity)),
+            Loc.GetString("decryption-final-entity", ("id", session.SelectedTechnologyEntityId)),
+            Loc.GetString("decryption-final-uses", ("uses", session.SelectedTechnologyUses))
         });
     }
 
@@ -385,12 +393,12 @@ public sealed class DecryptionSystem : EntitySystem
 
         BuildMatrix(session, words, backdoorCount);
 
-        session.Log.Add("> INITIALIZING PROTOCOL...");
-        session.Log.Add($"> TARGET TIER: {tier}");
-        session.Log.Add($"> TARGET TECH ENTITY: {session.SelectedTechnologyEntityId}");
+        session.Log.Add(Loc.GetString("decryption-log-initializing"));
+        session.Log.Add(Loc.GetString("decryption-log-target-tier", ("tier", tier)));
+        session.Log.Add(Loc.GetString("decryption-log-target-entity", ("id", session.SelectedTechnologyEntityId)));
         if (enableTimer)
-            session.Log.Add($"> ACTIVE ICE TIMEOUT: {terminal.ActiveIceTimeoutSeconds}s.");
-        session.Log.Add("> CLICK MATRIX SYMBOLS TO PROBE ICE.");
+            session.Log.Add(Loc.GetString("decryption-log-active-ice-timer", ("seconds", terminal.ActiveIceTimeoutSeconds)));
+        session.Log.Add(Loc.GetString("decryption-log-instructions"));
         TrimLog(session.Log, session.LogLineLimit);
 
         return session;
@@ -410,6 +418,7 @@ public sealed class DecryptionSystem : EntitySystem
     private List<string> PickWords(int length, int count)
     {
         var pool = WordPool
+            .Select(w => Loc.GetString(w))
             .Where(w => w.Length == length)
             .Distinct()
             .ToList();
@@ -564,7 +573,9 @@ public sealed class DecryptionSystem : EntitySystem
         var hasCarrier = TryGetCarrier(uid, out var carrier);
         _sessions.TryGetValue(uid, out var session);
 
-        var protocol = session?.ProtocolTitle ?? "DATA DECRYPTION TERMINAL";
+        var protocol = session != null 
+            ? Loc.GetString(session.ProtocolTitle) 
+            : Loc.GetString("decryption-terminal-unknown");
 
         var tierLabel = "N/A";
         if (carrier is { } c && TryComp<DecryptionTechnologyComponent>(c, out var technology))
@@ -593,12 +604,12 @@ public sealed class DecryptionSystem : EntitySystem
         {
             if (!hasCarrier)
             {
-                log.Add("> INSERT TECHNOLOGY PAYLOAD INTO SLOT.");
+                log.Add(Loc.GetString("decryption-terminal-insert-payload"));
             }
             else
             {
-                log.Add("> TERMINAL READY.");
-                log.Add("> PRESS START.");
+                log.Add(Loc.GetString("decryption-terminal-ready"));
+                log.Add(Loc.GetString("decryption-terminal-start"));
             }
         }
 

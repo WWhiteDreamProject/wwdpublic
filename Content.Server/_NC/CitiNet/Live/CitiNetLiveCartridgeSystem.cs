@@ -63,7 +63,7 @@ public sealed class CitiNetLiveCartridgeSystem : EntitySystem
         {
             case CitiNetLiveMessageType.StartStream:
                 if (!cam.HasValue) return;
-                var title = string.IsNullOrWhiteSpace(msg.Content) ? "live" : msg.Content;
+                var title = string.IsNullOrWhiteSpace(msg.Content) ? Loc.GetString("citinet-live-stream-default-title") : msg.Content;
                 if (_liveStream.TryStartStream(cam.Value, title, out _))
                 {
                     if (TryComp<StreamCamComponent>(cam.Value, out var camComp))
@@ -176,7 +176,7 @@ public sealed class CitiNetLiveCartridgeSystem : EntitySystem
             if (!TryComp<StreamCamComponent>(streamCamUid, out var sCam))
                 continue;
 
-            var streamerName = sCam.HolderUid.HasValue ? Name(sCam.HolderUid.Value) : "???";
+            var streamerName = sCam.HolderUid.HasValue ? Name(sCam.HolderUid.Value) : Loc.GetString("citinet-live-unknown-streamer");
             activeStreams.Add(new StreamInfo(
                 GetNetEntity(streamCamUid),
                 sCam.StreamTitle,
@@ -190,7 +190,7 @@ public sealed class CitiNetLiveCartridgeSystem : EntitySystem
             watchedCamNet = GetNetEntity(ent.Comp.WatchedCamUid.Value);
             if (TryComp<StreamCamComponent>(ent.Comp.WatchedCamUid.Value, out var wCam))
             {
-                watchedStreamerName = wCam.HolderUid.HasValue ? Name(wCam.HolderUid.Value) : "???";
+                watchedStreamerName = wCam.HolderUid.HasValue ? Name(wCam.HolderUid.Value) : Loc.GetString("citinet-live-unknown-streamer");
                 chatMessages = new List<LiveChatMessage>(wCam.ChatMessages);
             }
         }
