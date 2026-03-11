@@ -52,26 +52,35 @@ namespace Content.Server._NC.Bank
 
         private void OnStationBankInit(EntityUid uid, StationBankComponent component, MapInitEvent args)
         {
-            // Инициализируем дефолтные счета, если их нет
-            EnsureAccount(component, SectorBankAccount.CityAdmin);
-            EnsureAccount(component, SectorBankAccount.TraumaTeam);
-            EnsureAccount(component, SectorBankAccount.Militech);
-            EnsureAccount(component, SectorBankAccount.Biotechnica);
-            EnsureAccount(component, SectorBankAccount.Ncpd);
+            EnsureDefaultAccounts(component);
         }
 
-        private void EnsureAccount(StationBankComponent component, SectorBankAccount account)
+        public StationBankComponent EnsureStationBank(EntityUid stationUid)
+        {
+            var bank = EnsureComp<StationBankComponent>(stationUid);
+            EnsureDefaultAccounts(bank);
+            return bank;
+        }
+
+        private void EnsureDefaultAccounts(StationBankComponent component)
+        {
+            EnsureAccount(component, SectorBankAccount.CityAdmin, 0, 0);
+            EnsureAccount(component, SectorBankAccount.TraumaTeam, 10000, 5);
+            EnsureAccount(component, SectorBankAccount.Militech, 25000, 8);
+            EnsureAccount(component, SectorBankAccount.Biotechnica, 15000, 6);
+            EnsureAccount(component, SectorBankAccount.Ncpd, 5000, 0);
+        }
+        private void EnsureAccount(StationBankComponent component, SectorBankAccount account, int defaultBalance, int defaultIncrease)
         {
             if (!component.Accounts.ContainsKey(account))
             {
                 component.Accounts[account] = new StationBankAccountInfo
                 {
-                    Balance = 10000, // Стартовый капитал
-                    IncreasePerSecond = 5 // Пассивный доход
+                    Balance = defaultBalance,
+                    IncreasePerSecond = defaultIncrease
                 };
             }
         }
-
         /// <summary>
         /// Выполняется каждый тик. Отсчитывает время до зарплаты и начисляет доход фракциям.
         /// </summary>
@@ -119,7 +128,7 @@ namespace Content.Server._NC.Bank
         {
             if (amount <= 0) return false;
 
-            if (!TryComp<StationBankComponent>(stationUid, out var bank)) return false;
+            var bank = EnsureStationBank(stationUid);
             if (!bank.Accounts.TryGetValue(accountType, out var account)) return false;
 
             if (account.Balance < amount) return false;
@@ -136,15 +145,9 @@ namespace Content.Server._NC.Bank
         {
             if (amount <= 0) return false;
 
-            if (!TryComp<StationBankComponent>(stationUid, out var bank)) return false;
+            var bank = EnsureStationBank(stationUid);
 
-            // Если счета нет - создадим (или вернем false, зависит от логики)
-            // Здесь лучше вернуть false или создать. Допустим, создаем если нет.
-            if (!bank.Accounts.TryGetValue(accountType, out var account))
-            {
-                EnsureAccount(bank, accountType);
-                account = bank.Accounts[accountType];
-            }
+            if (!bank.Accounts.TryGetValue(accountType, out var account)) return false;
 
             account.Balance += amount;
             Dirty(stationUid, bank);
@@ -271,3 +274,8 @@ namespace Content.Server._NC.Bank
         }
     }
 }
+
+
+
+
+

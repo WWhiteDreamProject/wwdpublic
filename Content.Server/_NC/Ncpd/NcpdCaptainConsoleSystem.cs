@@ -60,8 +60,8 @@ public sealed class NcpdCaptainConsoleSystem : EntitySystem
 
         // 1. Бюджет
         int budget = 0;
-        if (TryComp<StationBankComponent>(stationUid.Value, out var stationBank) && 
-            stationBank.Accounts.TryGetValue(SectorBankAccount.Ncpd, out var account))
+        var stationBank = _bankSystem.EnsureStationBank(stationUid.Value);
+        if (stationBank.Accounts.TryGetValue(SectorBankAccount.Ncpd, out var account))
         {
             budget = account.Balance;
         }
@@ -158,3 +158,4 @@ public sealed class NcpdCaptainConsoleSystem : EntitySystem
         UpdateUiState(uid);
     }
 }
+
