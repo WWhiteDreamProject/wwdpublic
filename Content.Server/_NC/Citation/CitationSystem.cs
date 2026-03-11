@@ -323,8 +323,8 @@ public sealed class CitationSystem : EntitySystem
         PrintCitationPaper(terminalUid, fullCopName, Name(targetUid), amount, component.Reason);
 
         // Успех
-        _popupSystem.PopupEntity($"ОПЛАТА УСПЕШНА: +{copShare} Эдди комиссии.", terminalUid, cop.Value);
-        _popupSystem.PopupEntity($"Вы оплатили штраф: {amount} Эдди.", targetUid, targetUid);
+        _popupSystem.PopupEntity($"ОПЛАТА УСПЕШНА: +{copShare} Эдди комиссии", terminalUid, cop.Value);
+        _popupSystem.PopupEntity($"Вы оплатили штраф: {amount} Эдди", targetUid, targetUid);
 
         // Ставим кулдаун
         EnsureComp<CitationCooldownComponent>(targetUid).LastCitationTime = _timing.CurTime;
