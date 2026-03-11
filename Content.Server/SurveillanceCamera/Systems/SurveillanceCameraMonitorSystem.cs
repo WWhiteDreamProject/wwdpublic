@@ -457,6 +457,15 @@ public sealed class SurveillanceCameraMonitorSystem : EntitySystem
         }
     }
 
+    /// <summary>
+    /// Public wrapper that allows other systems (such as the Overwatch console)
+    /// to programmatically switch the camera displayed by a monitor.
+    /// </summary>
+    public void SwitchCameraToUid(EntityUid monitorUid, EntityUid cameraUid)
+    {
+        TrySwitchCameraByUid(monitorUid, cameraUid);
+    }
+
     private void RemoveActiveCamera(EntityUid uid, SurveillanceCameraMonitorComponent? monitor = null)
     {
         if (!Resolve(uid, ref monitor)

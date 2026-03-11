@@ -13,6 +13,23 @@
         type: TraumaComputerBoundUserInterface
 
 - type: entity
+  id: NCOverwatchConsole
+  parent: BaseComputer
+  name: консоль Overwatch
+  description: Мощный центральный терминал, принимающий тревоги от сети "Око Сити".
+  components:
+  - type: OverwatchConsole
+  - type: SurveillanceCameraMonitor
+  - type: ActivatableUI
+    key: enum.OverwatchConsoleUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.OverwatchConsoleUiKey.Key:
+        type: OverwatchConsoleBoundUserInterface
+      enum.SurveillanceCameraMonitorUiKey.Key:
+        type: SurveillanceCameraMonitorBoundUserInterface
+
+- type: entity
   id: NCComputerPalletConsole
   parent: BaseComputerAiAccess
   name: cargo sale computer x2
@@ -53,5 +70,47 @@
     - Cargo
   - type: CargoSellModifier
     multiplier: 2.0
+
+- type: entity
+  parent: BaseComputerAiAccess
+  id: ComputerOverwatch
+  name: overwatch dispatch console
+  description: Console used by NCPD Overwatch network; displays gunshot/explosion alerts.
+  components:
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: security
+    - map: ["computerLayerKeys"]
+      state: generic_keys
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#1f8c28"
+  - type: Computer
+    board: StationRecordsComputerCircuitboard
+  - type: ActivatableUI
+    key: enum.OverwatchConsoleUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.OverwatchConsoleUiKey.Key:
+        type: OverwatchConsoleBoundUserInterface
+      enum.SurveillanceCameraMonitorUiKey.Key:
+        type: SurveillanceCameraMonitorBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  - type: SurveillanceCameraMonitor
+  - type: OverwatchConsole
+  - type: AccessReader
+    access:
+      - ["NCPD"]
+  - type: ApcPowerReceiver
+    powerLoad: 1000
 
 

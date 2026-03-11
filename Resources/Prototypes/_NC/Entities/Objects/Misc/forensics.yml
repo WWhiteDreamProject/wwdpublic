@@ -45,3 +45,16 @@
         whitelist:
           components:
           - Gun
+
+- type: entity
+  id: DispatchCallTicket
+  parent: BaseItem
+  name: "Тикет вызова"
+  description: "Бланк для выдачи патрулю. Содержит информацию по тревоге."
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/prizeticket.rsi
+    state: ticket
+  - type: Paper
+    content: ""
+
