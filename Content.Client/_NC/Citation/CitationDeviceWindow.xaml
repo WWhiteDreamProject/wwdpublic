@@ -1,0 +1,25 @@
+<DefaultWindow
+    xmlns="https://spacestation14.io"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="ТЕРМИНАЛ ШТРАФОВ NCPD">
+    
+    <BoxContainer Orientation="Vertical" Margin="10" SeparationOverride="10">
+        
+        <Label Text="ЦЕЛЬ:" FontColorOverride="#aaaaaa" />
+        <Label Name="TargetNameLabel" Text="ИМЯ ЦЕЛИ" FontColorOverride="#ffb700" HorizontalAlignment="Center" />
+        
+        <Label Text="ЛИМИТ ШТРАФА:" FontColorOverride="#aaaaaa" />
+        <Label Name="LimitLabel" Text="500 Эдди" FontColorOverride="#ffb700" HorizontalAlignment="Center" />
+        
+        <Label Text="СУММА ШТРАФА (Эдди):" FontColorOverride="#aaaaaa" />
+        <LineEdit Name="AmountInput" MinWidth="150" HorizontalAlignment="Center" PlaceHolder="Введите сумму..." />
+
+        <Label Text="ПРИЧИНА ШТРАФА:" FontColorOverride="#aaaaaa" />
+        <LineEdit Name="ReasonInput" MinWidth="150" HorizontalAlignment="Center" PlaceHolder="Введите причину..." />
+        
+        <Button Name="SubmitButton" Text="ВЫПИСАТЬ ШТРАФ" Modulate="#ffb700" HorizontalAlignment="Center" MinWidth="150" MinHeight="40" />
+
+        <Label Name="StatusLabel" Text="ОЖИДАНИЕ ВВОДА..." FontColorOverride="#aaaaaa" HorizontalAlignment="Center" />
+        
+    </BoxContainer>
+</DefaultWindow>

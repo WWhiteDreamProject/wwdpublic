@@ -1,0 +1,18 @@
+- type: entity
+  parent: BaseMachinePowered
+  id: NcpdCaptainConsole
+  name: Главный терминал капитана NCPD
+  description: Массивный сервер, обрабатывающий транзакции департамента. Только для высшего руководства.
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/server.rsi # Временный спрайт
+    state: server
+  - type: NcpdCaptainConsole
+  - type: ActivatableUI
+    key: enum.NcpdCaptainConsoleUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.NcpdCaptainConsoleUiKey.Key:
+        type: NcpdCaptainConsoleBoundUserInterface
+  - type: AccessReader
+    access: [["Captain"]] # Или специфичный доступ Chief of Police, для примера Captain

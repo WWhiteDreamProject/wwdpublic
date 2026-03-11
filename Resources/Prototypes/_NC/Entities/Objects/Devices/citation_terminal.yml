@@ -1,0 +1,18 @@
+- type: entity
+  parent: BaseItem
+  id: NcpdCitationTerminal
+  name: Полицейский терминал штрафов
+  description: Массивный прибор с встроенным сканером ID-карт. Служит для легализованного грабежа... то есть, взыскания штрафов на месте.
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/pda.rsi # Временный спрайт, 
+    state: pda
+  - type: Item
+    size: Small
+  - type: CitationDevice
+  - type: ActivatableUI
+    key: enum.CitationDeviceUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.CitationDeviceUiKey.Key:
+        type: CitationDeviceBoundUserInterface

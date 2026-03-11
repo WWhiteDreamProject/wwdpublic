@@ -57,6 +57,7 @@ namespace Content.Server._NC.Bank
             EnsureAccount(component, SectorBankAccount.TraumaTeam);
             EnsureAccount(component, SectorBankAccount.Militech);
             EnsureAccount(component, SectorBankAccount.Biotechnica);
+            EnsureAccount(component, SectorBankAccount.Ncpd);
         }
 
         private void EnsureAccount(StationBankComponent component, SectorBankAccount account)

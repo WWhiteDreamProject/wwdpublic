@@ -3,11 +3,11 @@
   parent: BaseStationCargo
   name: station bank settings
   components:
-  - type: StationBankAccount
+  - type: StationBank
     accounts:
       CityAdmin:
-        balance: 50000
-        increasePerSecond: 15
+        balance: 0
+        increasePerSecond: 0
       TraumaTeam:
         balance: 10000
         increasePerSecond: 5
@@ -17,3 +17,6 @@
       Biotechnica:
         balance: 15000
         increasePerSecond: 6
+      Ncpd:
+        balance: 5000
+        increasePerSecond: 0
