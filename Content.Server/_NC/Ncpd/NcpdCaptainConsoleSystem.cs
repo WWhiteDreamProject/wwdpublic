@@ -1,4 +1,4 @@
-using Content.Shared._NC.Ncpd;
+﻿using Content.Shared._NC.Ncpd;
 using Content.Server.Station.Systems;
 using Content.Server._NC.Bank;
 using Content.Shared._NC.Bank;
@@ -25,14 +25,8 @@ public sealed class NcpdCaptainConsoleSystem : EntitySystem
     [Dependency] private readonly NcpdSystem _ncpdSystem = default!;
     [Dependency] private readonly EntityManager _entityManager = default!;
 
-    // Каталог товаров
-    private readonly Dictionary<string, (int Price, string Prototype)> _catalog = new()
-    {
-        { "ammo_ap", (800, "BoxMagazineRifleArmorPiercing") },
-        { "emp_grenades", (1200, "BoxGrenadeEmp") },
-        { "heavy_armor", (5000, "ClothingOuterArmorHeavy") }, // Условные названия прототипов
-        { "hunter_bot", (10000, "MobCleanBot") } // Для примера
-    };
+    // Каталог товаров очищен (пустой список по запросу)
+    private readonly Dictionary<string, (int Price, string Prototype)> _catalog = new();
 
     public override void Initialize()
     {
@@ -58,7 +52,7 @@ public sealed class NcpdCaptainConsoleSystem : EntitySystem
 
         if (stationUid == null) return;
 
-        // 1. Бюджет
+        // 1. Р‘СЋРґР¶РµС‚
         int budget = 0;
         var stationBank = _bankSystem.EnsureStationBank(stationUid.Value);
         if (stationBank.Accounts.TryGetValue(SectorBankAccount.Ncpd, out var account))
@@ -66,14 +60,14 @@ public sealed class NcpdCaptainConsoleSystem : EntitySystem
             budget = account.Balance;
         }
 
-        // 2. Логи
+        // 2. Р›РѕРіРё
         var logs = new List<NcpdLogEntry>();
         if (TryComp<NcpdStationComponent>(stationUid.Value, out var ncpdComp))
         {
             logs = ncpdComp.Logs.ToList();
         }
 
-        // 3. Персонал
+        // 3. РџРµСЂСЃРѕРЅР°Р»
         var personnel = new List<NcpdPersonnelData>();
         var mindQuery = EntityQueryEnumerator<MindContainerComponent>();
         while (mindQuery.MoveNext(out var playerUid, out var mindContainer))
@@ -84,7 +78,7 @@ public sealed class NcpdCaptainConsoleSystem : EntitySystem
             if (!_jobSystem.MindTryGetJobId(mindId, out var jobId))
                 continue;
 
-            // Фильтруем только копов
+            // Р¤РёР»СЊС‚СЂСѓРµРј С‚РѕР»СЊРєРѕ РєРѕРїРѕРІ
             if (jobId?.Id is "SecurityOfficer" or "Warden" or "Detective" or "HoS")
             {
                 bool isSuspended = _ncpdSystem.IsSuspended(stationUid.Value, playerUid);
@@ -111,7 +105,7 @@ public sealed class NcpdCaptainConsoleSystem : EntitySystem
 
         if (_bankSystem.TryFactionWithdraw(stationUid.Value, SectorBankAccount.Ncpd, product.Price))
         {
-            // Спавним ящик рядом с консолью (в идеале на Cargo Pad)
+            // РЎРїР°РІРЅРёРј СЏС‰РёРє СЂСЏРґРѕРј СЃ РєРѕРЅСЃРѕР»СЊСЋ (РІ РёРґРµР°Р»Рµ РЅР° Cargo Pad)
             Spawn(product.Prototype, Transform(uid).Coordinates);
             UpdateUiState(uid);
         }
@@ -125,10 +119,10 @@ public sealed class NcpdCaptainConsoleSystem : EntitySystem
         var targetUid = _entityManager.GetEntity(args.TargetEntity);
         if (!targetUid.Valid) return;
 
-        // 1. Отстраняем в системе (чтобы не мог выписывать штрафы)
+        // 1. РћС‚СЃС‚СЂР°РЅСЏРµРј РІ СЃРёСЃС‚РµРјРµ (С‡С‚РѕР±С‹ РЅРµ РјРѕРі РІС‹РїРёСЃС‹РІР°С‚СЊ С€С‚СЂР°С„С‹)
         _ncpdSystem.SetSuspended(stationUid.Value, targetUid, true);
 
-        // 2. Лишаем доступов на ID-карте
+        // 2. Р›РёС€Р°РµРј РґРѕСЃС‚СѓРїРѕРІ РЅР° ID-РєР°СЂС‚Рµ
         if (_idCardSystem.TryFindIdCard(targetUid, out var idCard))
         {
             if (TryComp<AccessComponent>(idCard.Owner, out var access))
@@ -158,4 +152,9 @@ public sealed class NcpdCaptainConsoleSystem : EntitySystem
         UpdateUiState(uid);
     }
 }
+
+
+
+
+
 
