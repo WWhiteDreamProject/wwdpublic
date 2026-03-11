@@ -12,6 +12,7 @@ using Content.Shared.Roles;
 using Robust.Shared.Prototypes;
 using Content.Shared.Roles.Jobs;
 using Content.Shared.Mind; // Необходим для работы с MindSystem
+using Content.Shared.Ghost;
 using Content.Server.Popups;
 using Robust.Shared.Localization;
 
@@ -163,6 +164,9 @@ namespace Content.Server._NC.Bank
             foreach (var session in _playerManager.Sessions)
             {
                 if (session.Status != SessionStatus.InGame || session.AttachedEntity is not { Valid: true } playerUid)
+                    continue;
+
+                if (HasComp<GhostComponent>(playerUid))
                     continue;
 
                 int salary = GetSalaryForPlayer(playerUid);
