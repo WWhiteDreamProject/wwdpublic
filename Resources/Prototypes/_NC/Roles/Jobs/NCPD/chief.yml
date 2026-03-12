@@ -12,6 +12,16 @@
     - NCPD_Armory
     - NCPD_Detective
     - NC_General
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: Condemned
+      soulOwnedNotDevil: true
+    - type: MapBeacon
+      group: NCPD
+      color: "#ffaa00"
+      icon: /Textures/Interface/VerbIcons/star-solid-yellow.svg.192dpi.png
+      visibleInWorld: false
 
 - type: startingGear
   id: NCPDChiefGear

@@ -35,6 +35,11 @@
     - type: CommandStaff
     - type: Condemned # Goobstation - Nanotrasen owns your soul pal.
       soulOwnedNotDevil: true
+    - type: MapBeacon
+      group: NCPD
+      color: "#ffaa00"
+      icon: /Textures/Interface/VerbIcons/star-solid-yellow.svg.192dpi.png
+      visibleInWorld: false
   afterLoadoutSpecial:
   - !type:ModifyEnvirosuitSpecial
     charges: 8

@@ -1,6 +1,6 @@
 - type: entity
-  id: MapSectorAnchor
-  name: Map Sector Anchor
+  id: MapBeaconAnchor
+  name: Map POI Anchor
   suffix: CitiNet
   components:
   - type: Transform
@@ -14,14 +14,15 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.4,-0.4,0.4,0.4"
-        hard: false # So people can walk through it
+          bounds: "-0.25,-0.25,0.25,0.25"
+        hard: false
   - type: Sprite
     sprite: Markers/cross.rsi
     state: cross
+    color: "#00ff00" # Зеленый крестик для маяков
     drawdepth: SmallObjects
-  - type: MapSector
-    name: "New Sector"
-    color: "#ff00ff44"
-    bounds: "-10, -10, 10, 10"
+  - type: MapBeacon
+    label: "New POI"
+    color: "#00ffff"
+    icon: /Textures/Interface/VerbIcons/information.svg.192dpi.png
     visibleInWorld: true

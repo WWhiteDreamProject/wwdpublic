@@ -10,6 +10,14 @@
   access:
     - NCPD_Patrol
     - NC_General
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: MapBeacon
+      group: NCPD
+      color: "#ffaa00"
+      icon: /Textures/Interface/VerbIcons/star-solid-yellow.svg.192dpi.png
+      visibleInWorld: false
 
 - type: startingGear
   id: NCPDOfficerGear

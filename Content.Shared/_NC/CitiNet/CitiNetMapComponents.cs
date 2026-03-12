@@ -12,27 +12,34 @@ namespace Content.Shared._NC.CitiNet;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class CitiNetMapCartridgeComponent : Component { }
 
-[RegisterComponent, NetworkedComponent]
-public sealed partial class CitiNetMapComponent : Component { }
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+public sealed partial class CitiNetMapComponent : Component 
+{
+    [DataField("visibleGroups"), AutoNetworkedField]
+    public List<string> VisibleGroups = new() { "Public" };
+}
 
-// This component is for sectors/zones on the map (like "Corporate District")
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class MapSectorComponent : Component
 {
     [DataField("name"), AutoNetworkedField] public string SectorName = "Unknown Sector";
     [DataField("color"), AutoNetworkedField] public Color Color = Color.DimGray;
     [DataField("bounds"), AutoNetworkedField] public Box2 Bounds = new(-10, -10, 10, 10);
-    [DataField("visibleInWorld"), AutoNetworkedField] public bool VisibleInWorld = true;
+    [DataField("visibleInWorld"), AutoNetworkedField] public bool VisibleInWorld = false;
+    [DataField("fontSize"), AutoNetworkedField] public int FontSize = 12;
 }
 
-// This component is for points of interest (POI)
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class MapBeaconComponent : Component
 {
-    [DataField("label")] public string Label = string.Empty;
-    [DataField("icon")] public SpriteSpecifier? Icon;
-    [DataField("color")] public Color Color = Color.White;
-    [DataField("visible")] public bool IsVisible = true;
+    [DataField("label"), AutoNetworkedField] public string Label = string.Empty;
+    [DataField("icon"), AutoNetworkedField] public SpriteSpecifier? Icon;
+    [DataField("color"), AutoNetworkedField] public Color Color = Color.White;
+    [DataField("visible"), AutoNetworkedField] public bool IsVisible = true;
+    [DataField("visibleInWorld"), AutoNetworkedField] public bool VisibleInWorld = false;
+    [DataField("fontSize"), AutoNetworkedField] public int FontSize = 10;
+    [DataField("group")] public string Group = "Public"; 
+    [DataField("requiredRole")] public string RequiredRole = string.Empty; 
 }
 
 [Serializable, NetSerializable]
@@ -61,12 +68,14 @@ public struct CitiNetMapSectorData
     public string Name;
     public Color Color;
     public Box2 Bounds;
+    public int FontSize;
 
-    public CitiNetMapSectorData(string name, Color color, Box2 bounds)
+    public CitiNetMapSectorData(string name, Color color, Box2 bounds, int fontSize)
     {
         Name = name;
         Color = color;
         Bounds = bounds;
+        FontSize = fontSize;
     }
 }
 
@@ -78,23 +87,30 @@ public struct CitiNetMapBeaconData
     public SpriteSpecifier? Icon;
     public Color Color;
     public Vector2 LocalPosition;
+    public int FontSize;
+    public bool IsDead;
+    public bool IsSelf;
 
-    public CitiNetMapBeaconData(NetEntity netEnt, string label, SpriteSpecifier? icon, Color color, Vector2 localPosition)
+    public CitiNetMapBeaconData(NetEntity netEnt, string label, SpriteSpecifier? icon, Color color, Vector2 localPosition, int fontSize, bool isDead = false, bool isSelf = false)
     {
         NetEnt = netEnt;
         Label = label;
         Icon = icon;
         Color = color;
         LocalPosition = localPosition;
+        FontSize = fontSize;
+        IsDead = isDead;
+        IsSelf = isSelf;
     }
 }
 
-// Layer 4: Dynamic Pings (Radars, Trackers, Gunshots)
-[RegisterComponent, NetworkedComponent]
-public sealed partial class CitiNetPingComponent : Component
+[Serializable, NetSerializable]
+public enum CitiNetPingType : byte
 {
-    [DataField("color")] public Color Color = Color.Red;
-    [DataField("radius")] public float Radius = 2f;
+    Generic,
+    Gunshot,
+    SOS,
+    Tracker
 }
 
 [Serializable, NetSerializable, DataRecord]
@@ -103,11 +119,13 @@ public struct CitiNetMapPingData
     public Vector2 LocalPosition;
     public Color Color;
     public float Radius;
+    public CitiNetPingType Type;
 
-    public CitiNetMapPingData(Vector2 localPosition, Color color, float radius)
+    public CitiNetMapPingData(Vector2 localPosition, Color color, float radius, CitiNetPingType type = CitiNetPingType.Generic)
     {
         LocalPosition = localPosition;
         Color = color;
         Radius = radius;
+        Type = type;
     }
 }

@@ -1,0 +1,80 @@
+- type: entity
+  id: CitiNetConsoleNCPD
+  parent: BaseComputer
+  name: тактическая консоль NCPD
+  description: Терминал сети Overwatch для координации оперативных групп.
+  components:
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: security
+    - map: ["computerLayerKeys"]
+      state: generic_keys
+  - type: CitiNetMap
+    visibleGroups: ["Public", "NCPD"]
+  - type: ActivatableUI
+    key: enum.CitiNetMapUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.CitiNetMapUiKey.Key:
+        type: CitiNetMapConsoleBoundUserInterface
+  - type: AccessReader
+    access:
+      - ["NCPD"]
+
+- type: entity
+  id: CitiNetConsoleTrauma
+  parent: BaseComputer
+  name: консоль мониторинга Trauma Team
+  description: Отображает жизненные показатели и местоположение клиентов платиновой подписки.
+  components:
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: medical
+    - map: ["computerLayerKeys"]
+      state: generic_keys
+  - type: CitiNetMap
+    visibleGroups: ["Public", "TraumaTeam"]
+  - type: ActivatableUI
+    key: enum.CitiNetMapUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.CitiNetMapUiKey.Key:
+        type: CitiNetMapConsoleBoundUserInterface
+  - type: AccessReader
+    access:
+      - ["Medical"]
+
+- type: entity
+  id: CitiNetConsoleBiotechnica
+  parent: BaseComputer
+  name: терминал активов Biotechnica
+  description: Консоль для отслеживания полевого персонала и имущества корпорации.
+  components:
+  - type: Sprite
+    layers:
+    - map: ["computerLayerBody"]
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
+    - map: ["computerLayerScreen"]
+      state: research
+    - map: ["computerLayerKeys"]
+      state: generic_keys
+  - type: CitiNetMap
+    visibleGroups: ["Public", "Biotechnica"]
+  - type: ActivatableUI
+    key: enum.CitiNetMapUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.CitiNetMapUiKey.Key:
+        type: CitiNetMapConsoleBoundUserInterface
