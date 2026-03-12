@@ -140,7 +140,7 @@ guide-entry-rules-white-dream = Правила White Dream
 
 guide-entry-writing = Разметка письма
 guide-entry-glossary = Словарь терминов
-guide-entry-altars-golemancy = Алтари и Големансия
+guide-entry-altars-golemancy = Алтари и големансия
 guide-entry-glimmer-creatures = Существа глиммера
 guide-entry-reverse-engineering = Обратное изучение
 
