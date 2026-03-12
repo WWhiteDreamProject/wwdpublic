@@ -16,12 +16,13 @@ public sealed partial class CitiNetMapCartridgeComponent : Component { }
 public sealed partial class CitiNetMapComponent : Component { }
 
 // This component is for sectors/zones on the map (like "Corporate District")
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class MapSectorComponent : Component
 {
-    [DataField("name")] public string SectorName = "Unknown Sector";
-    [DataField("color")] public Color Color = Color.DimGray;
-    [DataField("bounds")] public Box2 Bounds = new(-10, -10, 10, 10);
+    [DataField("name"), AutoNetworkedField] public string SectorName = "Unknown Sector";
+    [DataField("color"), AutoNetworkedField] public Color Color = Color.DimGray;
+    [DataField("bounds"), AutoNetworkedField] public Box2 Bounds = new(-10, -10, 10, 10);
+    [DataField("visibleInWorld"), AutoNetworkedField] public bool VisibleInWorld = true;
 }
 
 // This component is for points of interest (POI)

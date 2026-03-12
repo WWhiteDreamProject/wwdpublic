@@ -1,7 +1,9 @@
 using Content.Shared._NC.CitiNet;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
+using Robust.Shared.GameObjects;
 using Robust.Shared.Input;
+using Robust.Shared.IoC;
 
 namespace Content.Client._NC.CitiNet.UI;
 

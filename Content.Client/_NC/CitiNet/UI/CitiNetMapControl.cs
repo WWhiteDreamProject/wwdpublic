@@ -47,35 +47,47 @@ public sealed partial class CitiNetMapControl : NavMapControl
 
     protected override void Draw(DrawingHandleScreen handle)
     {
-        // 1. Manually draw the background to ensure it's at the very bottom
-        handle.DrawRect(new UIBox2(Vector2.Zero, PixelSize), CitiNetBg.WithAlpha(0.95f));
+        // 1. Manually draw the absolute background
+        handle.DrawRect(new UIBox2(Vector2.Zero, PixelSize), CitiNetBg.WithAlpha(0.98f));
 
-        var offset = GetOffset();
-
-        // 2. Overlay CitiNet-specific Sectors *under* the walls
-        if (ShowSectors)
-        {
-            foreach (var sector in MapSectors)
-            {
-                // Convert world bounds to local relative positions, then scale to screen
-                var leftTop = ScalePositionFlipY(new Vector2(sector.Bounds.Left, sector.Bounds.Top) - offset);
-                var rightBottom = ScalePositionFlipY(new Vector2(sector.Bounds.Right, sector.Bounds.Bottom) - offset);
-                
-                // Note: ScalePositionFlipY handles the Y inversion and MidPoint centering
-                handle.DrawRect(new UIBox2(leftTop, rightBottom), sector.Color.WithAlpha(0.3f));
-                handle.DrawRect(new UIBox2(leftTop, rightBottom), sector.Color.WithAlpha(0.6f), false); // Border
-            }
-        }
-
-        // 3. Temporarily hide base background to prevent overwriting sectors
+        // 2. Clear base background before drawing walls/tiles
         var originalBg = BackgroundColor;
         BackgroundColor = Color.Transparent;
 
-        // 4. Draw the base NavMap (Tiles, RegionOverlays, Walls)
+        // 3. Draw base NavMap (Walls, Tiles, etc.)
         base.Draw(handle);
-
-        // Restore base background
+        
+        // Restore background color for other systems if needed
         BackgroundColor = originalBg;
+
+        var offset = GetOffset();
+
+        // 4. Draw CitiNet Sectors OVER the base map but with low alpha
+        if (ShowSectors)
+        {
+            var font = new VectorFont(_cache.GetResource<FontResource>("/Fonts/NotoSans/NotoSans-Bold.ttf"), 12);
+            
+            foreach (var sector in MapSectors)
+            {
+                var leftTop = ScalePositionFlipY(new Vector2(sector.Bounds.Left, sector.Bounds.Top) - offset);
+                var rightBottom = ScalePositionFlipY(new Vector2(sector.Bounds.Right, sector.Bounds.Bottom) - offset);
+                var box = new UIBox2(leftTop, rightBottom);
+
+                // Very faint fill for the district area
+                handle.DrawRect(box, sector.Color.WithAlpha(0.15f));
+                
+                // Slightly stronger border
+                handle.DrawRect(box, sector.Color.WithAlpha(0.35f), false);
+
+                // Draw Sector Name in the center
+                var center = box.Center;
+                var textPos = center - new Vector2(sector.Name.Length * 3.5f, 6); // Rough centering
+                
+                // Draw name with a shadow for clarity
+                handle.DrawString(font, textPos + new Vector2(1, 1), sector.Name, Color.Black.WithAlpha(0.4f));
+                handle.DrawString(font, textPos, sector.Name, sector.Color.WithAlpha(0.8f));
+            }
+        }
 
         // 5. Draw Dynamic Pings (Layer 4)
         if (MapPings.Count > 0)
@@ -85,30 +97,22 @@ public sealed partial class CitiNetMapControl : NavMapControl
             foreach (var ping in MapPings)
             {
                 var pos = ScalePositionFlipY(ping.LocalPosition - offset);
-                
-                // Calculate pulsing radius based on time
-                var cycle = timeInstance % 1.5; // 1.5 second ping cycle
-                var progress = (float)(cycle / 1.5); // 0.0 to 1.0 progress
-                var currentRadius = ping.Radius * MinimapScale * progress; // Screen scale radius
-                
-                // Opacity fades out as it expands
+                var cycle = timeInstance % 1.5; 
+                var progress = (float)(cycle / 1.5); 
+                var currentRadius = ping.Radius * MinimapScale * progress; 
                 var alpha = 1f - progress;
                 
-                // Draw expanding ring
                 handle.DrawCircle(pos, currentRadius, ping.Color.WithAlpha(alpha), false);
-                
-                // Draw inner dot
                 handle.DrawCircle(pos, 2f, ping.Color);
             }
         }
 
-        // 6. Draw CitiNet-specific Beacons (POIs) with premium typography *over* the walls
+        // 6. Draw POIs (Layer 3)
         if (ClientBeaconsEnabled)
         {
-            var fontSize = (int) Math.Round(1 / WorldRange * DefaultDisplayedRange * UIScale * 10, 0);
+            var fontSize = (int) Math.Round(1 / WorldRange * DefaultDisplayedRange * UIScale * 11, 0);
             var font = new VectorFont(_cache.GetResource<FontResource>("/Fonts/NotoSans/NotoSans-Bold.ttf"), fontSize);
             
-            // Icon sizing
             var iconSize = new Vector2(16, 16);
             var halfIconSize = iconSize / 2f;
             
@@ -120,7 +124,6 @@ public sealed partial class CitiNetMapControl : NavMapControl
                 var pos = ScalePositionFlipY(beacon.LocalPosition - offset);
                 var labelPos = pos + new Vector2(10, -5);
 
-                // If we have an icon specified, draw it
                 if (beacon.Icon != null)
                 {
                     var texture = spriteSys.Frame0(beacon.Icon);
@@ -128,19 +131,13 @@ public sealed partial class CitiNetMapControl : NavMapControl
                     {
                         var rect = new UIBox2(pos - halfIconSize, pos + halfIconSize);
                         handle.DrawTextureRect(texture, rect, beacon.Color);
-                        
-                        // Draw Label next to the icon
                         handle.DrawString(font, labelPos + new Vector2(1, 1), beacon.Label, Color.Black.WithAlpha(0.5f));
                         handle.DrawString(font, labelPos, beacon.Label, beacon.Color);
                         continue;
                     }
                 }
                 
-                // Fallback: Draw default primitive icon (diamond) if no sprite is set
                 handle.DrawCircle(pos, 5f, beacon.Color);
-                handle.DrawCircle(pos, 3f, Color.White.WithAlpha(0.8f)); // Inner dot for "premium" look
-                
-                // Text with shadow for readability
                 handle.DrawString(font, labelPos + new Vector2(1, 1), beacon.Label, Color.Black.WithAlpha(0.5f));
                 handle.DrawString(font, labelPos, beacon.Label, beacon.Color);
             }

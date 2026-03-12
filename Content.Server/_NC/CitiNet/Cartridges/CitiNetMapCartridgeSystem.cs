@@ -20,18 +20,18 @@ public sealed class CitiNetMapCartridgeSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<global::Content.Shared._NC.CitiNet.CitiNetMapCartridgeComponent, CartridgeUiReadyEvent>(OnUiReady);
-        SubscribeLocalEvent<global::Content.Shared._NC.CitiNet.CitiNetMapCartridgeComponent, CartridgeMessageEvent>(OnMessage);
+        SubscribeLocalEvent<CitiNetMapCartridgeComponent, CartridgeUiReadyEvent>(OnUiReady);
+        SubscribeLocalEvent<CitiNetMapCartridgeComponent, CartridgeMessageEvent>(OnMessage);
     }
 
-    private void OnUiReady(Entity<global::Content.Shared._NC.CitiNet.CitiNetMapCartridgeComponent> ent, ref CartridgeUiReadyEvent args)
+    private void OnUiReady(Entity<CitiNetMapCartridgeComponent> ent, ref CartridgeUiReadyEvent args)
     {
         UpdateUI(ent, args.Loader);
     }
 
-    private void OnMessage(Entity<global::Content.Shared._NC.CitiNet.CitiNetMapCartridgeComponent> ent, ref CartridgeMessageEvent args)
+    private void OnMessage(Entity<CitiNetMapCartridgeComponent> ent, ref CartridgeMessageEvent args)
     {
-        if (args is not global::Content.Shared._NC.CitiNet.CitiNetUiMessageEvent)
+        if (args is not CitiNetUiMessageEvent)
             return;
 
         UpdateUI(ent, GetEntity(args.LoaderUid));
@@ -39,9 +39,9 @@ public sealed class CitiNetMapCartridgeSystem : EntitySystem
 
     private void UpdateUI(EntityUid uid, EntityUid loader)
     {
-        var sectors = new List<Content.Shared._NC.CitiNet.CitiNetMapSectorData>();
-        var beacons = new List<Content.Shared._NC.CitiNet.CitiNetMapBeaconData>();
-        var pings = new List<Content.Shared._NC.CitiNet.CitiNetMapPingData>();
+        var sectors = new List<CitiNetMapSectorData>();
+        var beacons = new List<CitiNetMapBeaconData>();
+        var pings = new List<CitiNetMapPingData>();
 
         // Get the grid we are currently on
         var xform = Transform(loader);
@@ -50,13 +50,13 @@ public sealed class CitiNetMapCartridgeSystem : EntitySystem
         if (gridUid != null)
         {
             // 1. Scan for Sectors
-            var sectorQuery = EntityQueryEnumerator<Content.Shared._NC.CitiNet.MapSectorComponent, TransformComponent>();
+            var sectorQuery = EntityQueryEnumerator<MapSectorComponent, TransformComponent>();
             while (sectorQuery.MoveNext(out var sUid, out var sector, out var sXform))
             {
                 if (sXform.GridUid != gridUid)
                     continue;
 
-                sectors.Add(new Content.Shared._NC.CitiNet.CitiNetMapSectorData(
+                sectors.Add(new CitiNetMapSectorData(
                     sector.SectorName,
                     sector.Color,
                     sector.Bounds
@@ -64,13 +64,13 @@ public sealed class CitiNetMapCartridgeSystem : EntitySystem
             }
 
             // 2. Scan for Beacons (POIs)
-            var beaconQuery = EntityQueryEnumerator<Content.Shared._NC.CitiNet.MapBeaconComponent, TransformComponent>();
+            var beaconQuery = EntityQueryEnumerator<MapBeaconComponent, TransformComponent>();
             while (beaconQuery.MoveNext(out var bUid, out var beacon, out var bXform))
             {
                 if (bXform.GridUid != gridUid || !beacon.IsVisible)
                     continue;
 
-                beacons.Add(new Content.Shared._NC.CitiNet.CitiNetMapBeaconData(
+                beacons.Add(new CitiNetMapBeaconData(
                     GetNetEntity(bUid),
                     beacon.Label,
                     beacon.Icon,
@@ -80,13 +80,13 @@ public sealed class CitiNetMapCartridgeSystem : EntitySystem
             }
 
             // 3. Scan for Dynamic Pings
-            var pingQuery = EntityQueryEnumerator<Content.Shared._NC.CitiNet.CitiNetPingComponent, TransformComponent>();
+            var pingQuery = EntityQueryEnumerator<CitiNetPingComponent, TransformComponent>();
             while (pingQuery.MoveNext(out var pUid, out var ping, out var pXform))
             {
                 if (pXform.GridUid != gridUid)
                     continue;
 
-                pings.Add(new Content.Shared._NC.CitiNet.CitiNetMapPingData(
+                pings.Add(new CitiNetMapPingData(
                     pXform.LocalPosition,
                     ping.Color,
                     ping.Radius
@@ -94,7 +94,7 @@ public sealed class CitiNetMapCartridgeSystem : EntitySystem
             }
         }
 
-        var state = new global::Content.Shared._NC.CitiNet.CitiNetMapBoundUserInterfaceState(GetNetEntity(gridUid), sectors, beacons, pings);
+        var state = new CitiNetMapBoundUserInterfaceState(gridUid != null ? GetNetEntity(gridUid.Value) : null, sectors, beacons, pings);
         _cartridge.UpdateCartridgeUiState(loader, state);
     }
 }
