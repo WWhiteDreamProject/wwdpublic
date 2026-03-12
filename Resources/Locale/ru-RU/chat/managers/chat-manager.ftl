@@ -21,7 +21,7 @@ chat-manager-whisper-headset-on-message = Вы не можете шептать 
 chat-manager-language-prefix = ({ $language }){" "}
 
 chat-manager-server-wrap-message = СЕРВЕР: { $message }
-chat-manager-sender-announcement = Central Command
+chat-manager-sender-announcement = Центрального Командования
 chat-manager-sender-announcement-wrap-message = [font size=14][bold]Объявление {$sender}:[/font][font size=12]
                                                 {$message}[/bold][/font]
 
@@ -57,7 +57,7 @@ chat-manager-rate-limit-admin-announcement = Игрок { $player } превыс
 chat-manager-send-empathy-chat-wrap-message = {$source}: {$message}
 
 chat-manager-send-cult-chat-wrap-message = [bold]\[{ $channelName }\] [BubbleHeader]{ $player }[/BubbleHeader]:[/bold] [BubbleContent]{ $message }[/BubbleContent]
-chat-manager-cult-channel-name = Blood Cult
+chat-manager-cult-channel-name = Кровавого Культа
 
 ## Speech verbs for chat
 

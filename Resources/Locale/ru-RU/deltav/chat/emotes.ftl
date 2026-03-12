@@ -13,21 +13,21 @@ delta-chat-emote-name-awoo = Аууу
 
 # Сообщения
 # Message
-chat-emote-msg-ring = звенит.
+chat-emote-msg-ring = дзынькает.
 chat-emote-msg-pew = пиу!
 chat-emote-msg-bang = бахает!
 chat-emote-msg-rev = ревёт!
 chat-emote-msg-caw = каркает.
 chat-emote-msg-hoot = ухает.
 chat-emote-msg-bark = лает.
-chat-emote-msg-snarl = рычит.
+chat-emote-msg-snarl = скалится.
 chat-emote-msg-whine = скулит.
 chat-emote-msg-howl = воет!
 chat-emote-msg-awoo = аукает!
 
 # Триггеры
 # Triggers
-chat-emote-trigger-ring-1 = звенит
+chat-emote-trigger-ring-1 = дзынькает
 chat-emote-trigger-pew-1 = пиу
 chat-emote-trigger-pew-2 = пиупиу
 chat-emote-trigger-bang-1 = бах
@@ -35,7 +35,7 @@ chat-emote-trigger-rev-1 = ревёт
 chat-emote-trigger-caw-1 = каркает
 chat-emote-trigger-hoot-1 = ухает
 chat-emote-trigger-bark-1 = лает
-chat-emote-trigger-snarl-1 = рычит
+chat-emote-trigger-snarl-1 = скалится
 chat-emote-trigger-whine-1 = скулит
 chat-emote-trigger-howl-1 = воет
 chat-emote-trigger-awoo-1 = аукает
