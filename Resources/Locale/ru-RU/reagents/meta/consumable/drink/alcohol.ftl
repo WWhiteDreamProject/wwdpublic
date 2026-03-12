@@ -53,8 +53,8 @@ reagent-name-atomic-bomb = атомная бомба
 reagent-desc-atomic-bomb = Распространение ядерного оружия никогда не было таким вкусным.
 reagent-name-b52 = B-52
 reagent-desc-b52 = Кофе, айриш крим и коньяк. Просто бомба.
-reagent-name-blue-hawaiian = blue hawaiian
-reagent-desc-blue-hawaiian = Aloha! Does that mean hello or goodbye?
+reagent-name-blue-hawaiian = голубая гавайка
+reagent-desc-blue-hawaiian = Алоха! Это значит привет или пока?
 
 reagent-name-bahama-mama = багама-мама
 reagent-desc-bahama-mama = Тропический коктейль.
@@ -72,11 +72,11 @@ reagent-name-booger = козявка
 reagent-desc-booger = Фууу...
 reagent-name-brave-bull = храбрый бык
 reagent-desc-brave-bull = Так же эффективен, как и голландский кураж!
-reagent-name-coconut-rum = coconut rum
-reagent-desc-coconut-rum = Rum with coconut for that tropical feel.
+reagent-name-coconut-rum = кокосовый ром
+reagent-desc-coconut-rum = Ром с кокосом для тропического настроения.
 
-reagent-name-cosmopolitan = cosmopolitan
-reagent-desc-cosmopolitan = Even in the worst situations, nothing beats a fresh cosmopolitan.
+reagent-name-cosmopolitan = Космополитен
+reagent-desc-cosmopolitan = Даже в самых худших ситуациях ничто не сравнится со свежим космополитеном.
 
 reagent-name-cuba-libre = куба-либре
 reagent-desc-cuba-libre = Ром, смешанный с колой. Да здравствует революция.
@@ -96,8 +96,8 @@ reagent-name-gin-fizz = шипучий джин
 reagent-desc-gin-fizz = Освежающе лимонный, восхитительно сухой.
 reagent-name-gin-tonic = джин-тоник
 reagent-desc-gin-tonic = Классический мягкий коктейль всех времен и народов.
-reagent-name-gildlager = gildlager
-reagent-desc-gildlager = 100 proof cinnamon schnapps, made for alcoholic teen girls on spring break.
+reagent-name-gildlager = гилдлагер
+reagent-desc-gildlager = Стопроцентный золочёный коричный шнапс. Любимый напиток девочек на весенних школьных каникулах.
 
 reagent-name-grog = грог
 reagent-desc-grog = Ром, разбавленный водой, одобрено пиратами!
@@ -135,13 +135,13 @@ reagent-name-moonshine = самогон
 reagent-desc-moonshine = Самодельный напиток, изготавливаемый в домашних условиях. Что может пойти не так?
 reagent-name-neurotoxin = нейротоксин
 reagent-desc-neurotoxin = Сильный нейротоксин, который вводит субъекта в состояние, напоминающее смерть.
-reagent-name-painkiller = painkiller
-reagent-desc-painkiller = A cure for what ails you.
+reagent-name-painkiller = пейнкиллер
+reagent-desc-painkiller = Лекарство от того, что вас беспокоит.
 
 reagent-name-patron = покровитель
 reagent-desc-patron = Текила с серебром в своем составе, фаворит женщин-алкоголичек из клубной тусовки.
-reagent-name-pina-colada = piña colada
-reagent-desc-pina-colada = For getting lost in the rain.
+reagent-name-pina-colada = пинья колада
+reagent-desc-pina-colada = За то, что заблудился под дождем.
 
 reagent-name-red-mead = красная медовуха
 reagent-desc-red-mead = Настоящий напиток викингов! Несмотря на то, что он имеет странный красный цвет.
@@ -179,23 +179,23 @@ reagent-name-whiskey-soda = виски с содовой
 reagent-desc-whiskey-soda = Невероятно освежающе!
 reagent-name-white-russian = белый русский
 reagent-desc-white-russian = Но это только твоё мнение, чувак.
-reagent-name-vodka-red-bool = vodka red bool
-reagent-desc-vodka-red-bool = Because heart failure and liver failure go hand in hand.
+reagent-name-vodka-red-bool = водка с ред булианом
+reagent-desc-vodka-red-bool = Потому что сердечная и печёночная недостаточность идут рука об руку.
 
-reagent-name-xeno-basher = xeno basher
-reagent-desc-xeno-basher = The perfect drink before an expedition.
+reagent-name-xeno-basher = дробитель ксеносов
+reagent-desc-xeno-basher = Идеальный напиток перед экспедицией.
 
-reagent-name-irish-bool = irish bool
-reagent-desc-irish-bool = Like a bool in a Ireland shop.
+reagent-name-irish-bool = ирландский бык
+reagent-desc-irish-bool = Как бык в ирландском магазине.
 
-reagent-name-budget-insuls = budget insuls
-reagent-desc-budget-insuls = A tider's preferred drink.
+reagent-name-budget-insuls = дешевые оскорбления
+reagent-desc-budget-insuls = Предпочитаемый напиток любителя сидра.
 
-reagent-name-watermelon-wakeup = watermelon wakeup
-reagent-desc-watermelon-wakeup = If you want to be awake, this will do it... Also sweet.
+reagent-name-watermelon-wakeup = арбузный заряд
+reagent-desc-watermelon-wakeup = Если вы хотите быть бодрствующим, это сработает... А ещё оно сладкое!
 
-reagent-name-rubberneck = rubberneck
-reagent-desc-rubberneck = A popular drink amongst those adhering to an all synthetic diet.
+reagent-name-rubberneck = зевака
+reagent-desc-rubberneck = Популярный напиток среди тех, кто придерживается полностью резиновой диеты.
 
-reagent-name-zombiecocktail = zombie
-reagent-desc-zombiecocktail = It gets in your head. Your he-eyeh-ead.
+reagent-name-zombiecocktail = зомби
+reagent-desc-zombiecocktail = Это забивается в твою голову. В твою го-о-уоу-лову.

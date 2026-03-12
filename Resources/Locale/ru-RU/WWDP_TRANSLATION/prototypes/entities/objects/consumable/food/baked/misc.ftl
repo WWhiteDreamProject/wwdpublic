@@ -89,3 +89,7 @@ ent-FoodBakedPretzel = крендель с маком
 ent-FoodBakedCannoli = канноли
     .desc = Сицилийское лакомство, превращает вас в мудреца.
     .suffix = { "" }
+
+ent-FoodBakedGrilledCheeseSandwich = сэндвич с жареным сыром
+    .desc = Хлеб и сыр, поджаренные с маслом, идеально подходят для холодного дня в космосе.
+    .suffix = { "" }
