@@ -26,7 +26,7 @@
 
 - type: entity
   id: Bullet622mmCaseless
-  name: пуля (6.22мм безгильзовая)
+  name: пуля (6.22мм, безгильзовая)
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:

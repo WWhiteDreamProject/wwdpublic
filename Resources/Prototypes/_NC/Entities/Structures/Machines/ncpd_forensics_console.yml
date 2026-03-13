@@ -1,6 +1,6 @@
 ﻿- type: entity
   id: NcpdForensicsConsole
-  name: NCPD forensic console
+  name: Flatline консоль NCPD
   parent: BaseMachinePowered
   description: Lists flatline alerts across the station.
   components:

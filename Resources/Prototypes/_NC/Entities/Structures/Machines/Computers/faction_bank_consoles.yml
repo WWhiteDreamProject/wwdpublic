@@ -39,7 +39,7 @@
 - type: entity
   id: NCConsoleTraumaTeam
   parent: NCBaseFactionBankConsole
-  name: trauma team bank console
+  name: Консоль бюджета Trauma Team
   components:
   - type: FactionBankConsole
     bankAccount: TraumaTeam
@@ -54,12 +54,12 @@
     - map: ["computerLayerKeys"]
       state: generic_keys
   - type: AccessReader
-    access: [["Medical"]]
+    access: [["TraumaTeam"]]
 
 - type: entity
   id: NCConsoleMilitech
   parent: NCBaseFactionBankConsole
-  name: militech bank console
+  name: Консоль бюджета Militech
   components:
   - type: FactionBankConsole
     bankAccount: Militech
@@ -79,7 +79,7 @@
 - type: entity
   id: NCConsoleBiotechnica
   parent: NCBaseFactionBankConsole
-  name: biotechnica bank console
+  name: Консоль бюджета Biotechnica
   components:
   - type: FactionBankConsole
     bankAccount: Biotechnica

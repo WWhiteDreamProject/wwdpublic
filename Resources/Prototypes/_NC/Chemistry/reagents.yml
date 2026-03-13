@@ -1,5 +1,5 @@
 - type: reagent
-  id: Gunpowder
+  id: GunpowderNC
   name: Порох
   group: Elements
   desc: Взрывчатое вещество для патронов.
@@ -8,3 +8,255 @@
   tileReactions:
   - !type:SpillToStackReaction
     entity: MaterialGunpowder
+
+- type: reagent
+  id: Yeast
+  name: Дрожжи
+  group: Foods
+  desc: На вид рассыпчатые и влажные.
+  physicalDesc: Рассыпчатое и влажное.
+  flavor: bitter
+  color: "#d2b48c"
+  metabolisms:
+    Food:
+      metabolismRate: 0.5
+      effects:
+      - !type:SatiateHunger
+        factor: 1.5
+      - !type:Drunk
+        boozePower: 0.05
+
+- type: reagent
+  id: CornSmoothie
+  name: Кукурузный смузи
+  group: Foods
+  desc: На вид как перемолотое растение.
+  physicalDesc: Перемолотое растение.
+  flavor: leaf
+  color: "#e8d382"
+  metabolisms:
+    Drink:
+      metabolismRate: 0.5
+      effects:
+      - !type:SatiateThirst
+    Food:
+      metabolismRate: 0.5
+      effects:
+      - !type:SatiateHunger
+        factor: 1.5
+
+- type: reagent
+  id: WheatSmoothie
+  name: Пшеничный смузи
+  group: Foods
+  desc: На вид как перемолотое растение.
+  physicalDesc: Перемолотое растение.
+  flavor: leaf
+  color: "#e8e1bc"
+  metabolisms:
+    Drink:
+      metabolismRate: 0.5
+      effects:
+      - !type:SatiateThirst
+    Food:
+      metabolismRate: 0.5
+      effects:
+      - !type:SatiateHunger
+        factor: 1.5
+
+- type: reagent
+  id: Berserk
+  name: Берсерк
+  group: Narcotics
+  desc: На вид вещество алое и пузырится. Настоящий драйв для умирающего.
+  physicalDesc: Алое и пузырящееся.
+  flavor: metallic
+  color: "#e60000"
+  metabolisms:
+    Narcotic:
+      metabolismRate: 0.5
+      effects:
+      - !type:GenericStatusEffect
+        key: SeeingRainbows
+        component: SeeingRainbows
+        time: 5
+      - !type:GenericStatusEffect
+        key: Adrenaline
+        component: IgnoreSlowOnDamage
+        time: 3
+      - !type:GenericStatusEffect
+        key: StaminaModifier
+        component: StaminaModifier
+        time: 3
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 1
+            Asphyxiation: 1
+      - !type:HealthChange
+        damage:
+          types:
+            Asphyxiation: -1
+            Bloodloss: -1
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 14
+        damage:
+          types:
+            Cellular: 6
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 17
+        damage:
+          groups:
+            Brute: -25
+            Toxin: -25
+            Airloss: -25
+            Burn: -25
+
+- type: reagent
+  id: BerserkNeutralizer
+  name: Нейтрализатор Берсерка
+  group: Medicine
+  desc: На вид вещество бледно-розовое. Используется для предотвращения абуза берсерка.
+  physicalDesc: Бледно-розовое.
+  flavor: bitter
+  color: "#ffccdf"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.5
+      effects:
+      - !type:ChemVomit
+        probability: 1.0
+      - !type:AdjustReagent
+        reagent: Berserk
+        amount: -10
+
+- type: reagent
+  id: WhiteMatter
+  name: Белое вещество
+  group: Elements
+  desc: Важный компонент нервной системы, богатый миелином.
+  physicalDesc: Белое и маслянистое.
+  flavor: metallic
+  color: "#f0f0f0"
+
+- type: reagent
+  id: NeuroStim
+  name: НейроСтим
+  group: Narcotics
+  desc: На вид вещество пенное. Служит основой для продвинутых нейростимуляторов.
+  physicalDesc: Пенное.
+  flavor: metallic
+  color: "#e0f7fa"
+  metabolisms:
+    Narcotic:
+      metabolismRate: 0.5
+      effects: [] # Добавил пустой список эффектов, чтобы не ломать парсер
+
+- type: reagent
+  id: PrimeTime
+  name: Прайм Тайм
+  group: Narcotics
+  desc: На вид как последняя надежда. Экстремальный стимулятор с фатальными побочными эффектами.
+  physicalDesc: Ярко-голубое и светящееся.
+  flavor: metallic
+  color: "#00ffff"
+  metabolisms:
+    Narcotic:
+      metabolismRate: 0.5
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 1
+            Asphyxiation: 1
+      - !type:PrimeTimeEffect
+        headGibChance: 0.03
+        legDropChance: 0.05
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 6
+        damage:
+          types:
+            Asphyxiation: -8
+            Poison: -7
+            Blunt: -9
+            Slash: -8
+            Piercing: -11
+            Heat: -7
+            Shock: -2
+            Cold: -3
+            Caustic: -4
+
+- type: reagent
+  id: SixGun
+  name: Шестистволка
+  group: Narcotics
+  desc: На вид как безумство. Дает невероятную скорость ценой собственного тела.
+  physicalDesc: Пульсирующее фиолетовое.
+  flavor: bitter
+  color: "#4b0082"
+  metabolisms:
+    Narcotic:
+      metabolismRate: 0.5
+      effects:
+      - !type:Jitter
+      - !type:GenericStatusEffect
+        key: Stutter
+        component: StutteringAccent
+        time: 3
+      - !type:ChemVomit
+        probability: 0.1
+      - !type:SixGunEffect
+        armDropChance: 0.1
+        legDropChance: 0.12
+        blindChance: 0.15
+
+- type: reagent
+  id: NitroPolymer
+  name: Нитро-полимер
+  group: Elements
+  desc: На вид глянцевое. Едкий запах. Используется для производства боеприпасов.
+  physicalDesc: Глянцевое и едкое.
+  flavor: chemical
+  color: "#3a3a3a"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.5
+      effects:
+      - !type:ChemVomit
+        probability: 0.6
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 2
+      - !type:Drunk
+        boozePower: 0.5
+
+- type: reagent
+  id: BioEthanol
+  name: Био-этанол
+  group: Foods
+  desc: На вид сильно пахнущее. Получено путем ферментации.
+  physicalDesc: Сильно пахнущее.
+  flavor: alcohol
+  color: "#b05b3c"
+  metabolisms:
+    Alcohol:
+      metabolismRate: 0.5
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 0.02
+            Blunt: -0.03
+            Slash: -0.03
+            Piercing: -0.04
+      - !type:ChemVomit
+        probability: 0.1
+      - !type:Drunk
+        boozePower: 40

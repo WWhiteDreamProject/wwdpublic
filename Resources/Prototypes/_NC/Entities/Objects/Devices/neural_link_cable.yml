@@ -1,8 +1,8 @@
 ﻿- type: entity
   id: NeuralLinkCable
-  name: neural link cable
+  name: Нейро-транслятор
   parent: BaseItem
-  description: Direct neural interface cable for cyber-autopsy.
+  description: "Нейроинтерфейс, позволяющий подключаться к нейрочипу умершего и получить доступ к его логам. Требует осторожного обращения из-за чувствительности к повреждениям."
   components:
   - type: Sprite
     sprite: Objects/Tools/cable-coil.rsi

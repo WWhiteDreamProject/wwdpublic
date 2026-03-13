@@ -65,13 +65,17 @@
     solutions:
       organ:
         reagents:
-        - ReagentId: Nutriment
+        - ReagentId: GreyMatter
+          Quantity: 10
+        - ReagentId: WhiteMatter
           Quantity: 10
       food:
-        maxVol: 5
+        maxVol: 20
         reagents:
         - ReagentId: GreyMatter
-          Quantity: 5
+          Quantity: 10
+        - ReagentId: WhiteMatter
+          Quantity: 10
   - type: FlavorProfile
     flavors:
       - people

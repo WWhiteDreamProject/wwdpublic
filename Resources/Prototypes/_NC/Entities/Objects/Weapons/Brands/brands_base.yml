@@ -22,7 +22,7 @@
     maxDurability: 40
     degradationRate: 3
     jamChance: 0.2         # 20% шанс заклинить
-    unjamTime: 2           # 2 сек на извлечение патрона
+    unjamTime: 3           # 3 сек на извлечение патрона
     isRepairable: false
 
 # BudgetArms — «Пластиковый сюрприз»

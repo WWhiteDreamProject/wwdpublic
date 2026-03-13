@@ -30,11 +30,11 @@
 
 - type: entity
   id: AmmoBox622mmCaseless
-  name: коробка патронов (6.22мм безгильзовые)
+  name: коробка патронов (6.22мм, безгильзовые)
   parent: BaseMagazineBoxRifle
   components:
   - type: BallisticAmmoProvider
-    capacity: 30
+    capacity: 60
     proto: Cartridge622mmCaseless
   - type: Sprite
     layers:

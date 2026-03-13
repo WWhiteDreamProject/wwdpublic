@@ -36,7 +36,7 @@
 
 - type: entity
   id: Cartridge622mmCaseless
-  name: патрон (6.22мм безгильзовый)
+  name: патрон (6.22мм, безгильзовый)
   parent: BaseCartridge
   components:
   - type: Tag

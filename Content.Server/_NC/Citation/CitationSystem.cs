@@ -12,6 +12,7 @@ using Content.Shared._NC.Citation;
 using Robust.Server.GameObjects;
 using Robust.Shared.Timing;
 using Robust.Shared.Player;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Stunnable;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Access.Components;
@@ -38,6 +39,7 @@ public sealed class CitationSystem : EntitySystem
     [Dependency] private readonly NcpdSystem _ncpdSystem = default!;
     [Dependency] private readonly Content.Shared.Access.Systems.SharedIdCardSystem _idCardSystem = default!;
     [Dependency] private readonly Content.Shared.Paper.PaperSystem _paperSystem = default!;
+    [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
 
     public override void Initialize()
     {
@@ -286,7 +288,7 @@ public sealed class CitationSystem : EntitySystem
             _ncpdSystem.AddLog(stationUid.Value, fullCopName, Name(targetUid), amount, isForced ? Loc.GetString("citation-log-forced") : Loc.GetString("citation-log-share", ("amount", deptShare)), component.Reason);
         }
 
-        PrintCitationPaper(terminalUid, fullCopName, Name(targetUid), amount, component.Reason);
+        PrintCitationPaper(terminalUid, cop.Value, fullCopName, Name(targetUid), amount, component.Reason);
 
         _popupSystem.PopupEntity(Loc.GetString("citation-popup-success-cop", ("amount", copShare)), terminalUid, cop.Value);
         _popupSystem.PopupEntity(Loc.GetString("citation-popup-success-target", ("amount", amount)), targetUid, targetUid);
@@ -296,10 +298,11 @@ public sealed class CitationSystem : EntitySystem
         ResetTerminal(terminalUid, component);
     }
 
-    private void PrintCitationPaper(EntityUid terminalUid, string officer, string suspect, int amount, string reason)
+    private void PrintCitationPaper(EntityUid terminalUid, EntityUid officerUid, string officer, string suspect, int amount, string reason)
     {
         var coords = Transform(terminalUid).Coordinates;
         var paper = Spawn("Paper", coords);
+        _handsSystem.TryPickupAnyHand(officerUid, paper);
         
         if (TryComp<Content.Shared.Paper.PaperComponent>(paper, out var paperComp))
         {
@@ -315,10 +318,10 @@ public sealed class CitationSystem : EntitySystem
             
             var stamp = new Content.Shared.Paper.StampDisplayInfo
             {
-                StampedName = "NCPD BUREAU",
-                StampedColor = Color.Yellow
+                StampedName = "NCPD",
+                StampedColor = Color.Blue
             };
-            _paperSystem.TryStamp((paper, paperComp), stamp, "stamp_police");
+            _paperSystem.TryStamp((paper, paperComp), stamp, "paper_stamp-corporate-nanotrasen");
         }
     }
 
