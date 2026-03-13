@@ -36,30 +36,6 @@
 
 - type: entity
   parent: BaseChemistryBottleFilled
-  id: BerserkChemistryBottle
-  name: мензурка (берсерк)
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        reagents:
-        - ReagentId: Berserk
-          Quantity: 30
-
-- type: entity
-  parent: BaseChemistryBottleFilled
-  id: BerserkNeutralizerChemistryBottle
-  name: мензурка (нейтрализатор берсерка)
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        reagents:
-        - ReagentId: BerserkNeutralizer
-          Quantity: 30
-
-- type: entity
-  parent: BaseChemistryBottleFilled
   id: WhiteMatterChemistryBottle
   name: мензурка (белое вещество)
   components:

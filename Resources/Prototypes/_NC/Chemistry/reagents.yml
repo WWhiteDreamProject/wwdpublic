@@ -65,76 +65,6 @@
         factor: 1.5
 
 - type: reagent
-  id: Berserk
-  name: Берсерк
-  group: Narcotics
-  desc: На вид вещество алое и пузырится. Настоящий драйв для умирающего.
-  physicalDesc: Алое и пузырящееся.
-  flavor: metallic
-  color: "#e60000"
-  metabolisms:
-    Narcotic:
-      metabolismRate: 0.5
-      effects:
-      - !type:GenericStatusEffect
-        key: SeeingRainbows
-        component: SeeingRainbows
-        time: 5
-      - !type:GenericStatusEffect
-        key: Adrenaline
-        component: IgnoreSlowOnDamage
-        time: 3
-      - !type:GenericStatusEffect
-        key: StaminaModifier
-        component: StaminaModifier
-        time: 3
-      - !type:HealthChange
-        damage:
-          types:
-            Poison: 1
-            Asphyxiation: 1
-      - !type:HealthChange
-        damage:
-          types:
-            Asphyxiation: -1
-            Bloodloss: -1
-      - !type:HealthChange
-        conditions:
-        - !type:ReagentThreshold
-          min: 14
-        damage:
-          types:
-            Cellular: 6
-      - !type:HealthChange
-        conditions:
-        - !type:ReagentThreshold
-          min: 17
-        damage:
-          groups:
-            Brute: -25
-            Toxin: -25
-            Airloss: -25
-            Burn: -25
-
-- type: reagent
-  id: BerserkNeutralizer
-  name: Нейтрализатор Берсерка
-  group: Medicine
-  desc: На вид вещество бледно-розовое. Используется для предотвращения абуза берсерка.
-  physicalDesc: Бледно-розовое.
-  flavor: bitter
-  color: "#ffccdf"
-  metabolisms:
-    Medicine:
-      metabolismRate: 0.5
-      effects:
-      - !type:ChemVomit
-        probability: 1.0
-      - !type:AdjustReagent
-        reagent: Berserk
-        amount: -10
-
-- type: reagent
   id: WhiteMatter
   name: Белое вещество
   group: Elements
@@ -154,7 +84,7 @@
   metabolisms:
     Narcotic:
       metabolismRate: 0.5
-      effects: [] # Добавил пустой список эффектов, чтобы не ломать парсер
+      effects: []
 
 - type: reagent
   id: PrimeTime
@@ -173,24 +103,9 @@
           types:
             Poison: 1
             Asphyxiation: 1
-      - !type:PrimeTimeEffect
+      - !type:NCDrugLogicEffect
         headGibChance: 0.03
-        legDropChance: 0.05
-      - !type:HealthChange
-        conditions:
-        - !type:ReagentThreshold
-          min: 6
-        damage:
-          types:
-            Asphyxiation: -8
-            Poison: -7
-            Blunt: -9
-            Slash: -8
-            Piercing: -11
-            Heat: -7
-            Shock: -2
-            Cold: -3
-            Caustic: -4
+        legDropChance: 0.04
 
 - type: reagent
   id: SixGun
@@ -211,10 +126,11 @@
         time: 3
       - !type:ChemVomit
         probability: 0.1
-      - !type:SixGunEffect
-        armDropChance: 0.1
-        legDropChance: 0.12
+      - !type:NCDrugLogicEffect
+        armDropChance: 0.03
+        legDropChance: 0.04
         blindChance: 0.15
+        laughChance: 0.2
 
 - type: reagent
   id: NitroPolymer

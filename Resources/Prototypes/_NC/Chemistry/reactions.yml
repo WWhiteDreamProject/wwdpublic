@@ -26,31 +26,6 @@
   minTemp: 329
 
 - type: reaction
-  id: BerserkNC
-  name: Берсерк
-  reactants:
-    Nitrogen:
-      amount: 1
-    Impedrezene:
-      amount: 1
-    Ephedrine:
-      amount: 2
-  products:
-    Berserk: 4
-  minTemp: 373
-
-- type: reaction
-  id: BerserkNeutralizerNC
-  name: Нейтрализатор Берсерка
-  reactants:
-    Berserk:
-      amount: 10
-    Doxarubixadone:
-      amount: 1
-  products:
-    BerserkNeutralizer: 1
-
-- type: reaction
   id: NeuroStimNC
   name: НейроСтим
   reactants:
