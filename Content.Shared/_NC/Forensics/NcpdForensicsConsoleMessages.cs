@@ -23,6 +23,26 @@ public sealed class NcpdForensicsConsoleBuiState : BoundUserInterfaceState
 }
 
 [Serializable, NetSerializable]
+public enum NcpdForensicsAlertAction : byte
+{
+    DispatchToTablet,
+    PrintTicket
+}
+
+[Serializable, NetSerializable]
+public sealed class NcpdForensicsAlertActionMessage : BoundUserInterfaceMessage
+{
+    public int AlertIndex;
+    public NcpdForensicsAlertAction Action;
+
+    public NcpdForensicsAlertActionMessage(int alertIndex, NcpdForensicsAlertAction action)
+    {
+        AlertIndex = alertIndex;
+        Action = action;
+    }
+}
+
+[Serializable, NetSerializable]
 public struct ForensicsAlertData
 {
     public string Victim;

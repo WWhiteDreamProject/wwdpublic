@@ -13,6 +13,8 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Random;
 using Robust.Shared.Map;
 using Robust.Shared.GameStates;
+using Content.Server._NC.Ncpd;
+using Content.Shared._NC.Ncpd;
 using System.Linq;
 
 namespace Content.Server._NC.Forensics;
@@ -25,12 +27,48 @@ public sealed class NcpdForensicsSystem : EntitySystem
     [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
+    [Dependency] private readonly NcpdDispatchSystem _dispatchSystem = default!;
 
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<MobStateChangedEvent>(OnMobStateChanged);
         SubscribeLocalEvent<NcpdForensicsConsoleComponent, BoundUIOpenedEvent>(OnConsoleOpened);
+        
+        Subs.BuiEvents<NcpdForensicsConsoleComponent>(NcpdForensicsConsoleUiKey.Key, subs => {
+            subs.Event<NcpdForensicsAlertActionMessage>(OnAlertAction);
+        });
+    }
+
+    private void OnAlertAction(EntityUid uid, NcpdForensicsConsoleComponent component, NcpdForensicsAlertActionMessage msg)
+    {
+        var stationUid = _stationSystem.GetOwningStation(uid);
+        if (stationUid == null && _stationSystem.GetStationsSet().Count > 0)
+        {
+            stationUid = _stationSystem.GetStationsSet().First();
+        }
+
+        if (stationUid == null)
+            return;
+
+        var station = EnsureComp<NcpdForensicsStationComponent>(stationUid.Value);
+        if (msg.AlertIndex < 0 || msg.AlertIndex >= station.Alerts.Count)
+            return;
+
+        var alert = station.Alerts[msg.AlertIndex];
+
+        switch (msg.Action)
+        {
+            case NcpdForensicsAlertAction.DispatchToTablet:
+                var mapCoords = new MapCoordinates(alert.X, alert.Y, _transformSystem.GetMapCoordinates(uid).MapId);
+                var netCoords = GetNetCoordinates(_transformSystem.ToCoordinates(mapCoords));
+                _dispatchSystem.AddCall("Flatline Alert", alert.Location, $"Victim: {alert.Victim}", netCoords);
+                break;
+            case NcpdForensicsAlertAction.PrintTicket:
+                var call = new NcpdCallData(0, "Flatline Alert", alert.Location, $"Victim: {alert.Victim}", default, alert.Time);
+                _dispatchSystem.SpawnDispatchTicket(uid, call);
+                break;
+        }
     }
 
     private void OnMobStateChanged(MobStateChangedEvent args)

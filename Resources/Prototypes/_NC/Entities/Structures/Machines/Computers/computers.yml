@@ -15,25 +15,6 @@
         type: TraumaComputerBoundUserInterface
 
 - type: entity
-  id: NCOverwatchConsole
-  parent: BaseComputer
-  name: консоль Overwatch
-  description: Мощный центральный терминал, принимающий тревоги от сети "Око Сити".
-  components:
-  - type: OverwatchConsole
-  - type: CitiNetMap
-    visibleGroups: ["Public", "NCPD"]
-  - type: SurveillanceCameraMonitor
-  - type: ActivatableUI
-    key: enum.OverwatchConsoleUiKey.Key
-  - type: UserInterface
-    interfaces:
-      enum.OverwatchConsoleUiKey.Key:
-        type: OverwatchConsoleBoundUserInterface
-      enum.SurveillanceCameraMonitorUiKey.Key:
-        type: SurveillanceCameraMonitorBoundUserInterface
-
-- type: entity
   parent: BaseComputerAiAccess
   id: ComputerOverwatch
   name: диспетчерская консоль Overwatch

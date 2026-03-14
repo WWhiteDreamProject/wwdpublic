@@ -17,6 +17,7 @@ public sealed class NcpdForensicsConsoleBoundUserInterface : BoundUserInterface
         base.Open();
         _window = new NcpdForensicsConsoleWindow();
         _window.OnClose += Close;
+        _window.OnAlertAction += (index, action) => SendMessage(new NcpdForensicsAlertActionMessage(index, action));
         _window.OpenCentered();
     }
 

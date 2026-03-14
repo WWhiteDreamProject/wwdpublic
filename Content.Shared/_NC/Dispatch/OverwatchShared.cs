@@ -53,7 +53,8 @@ namespace Content.Shared._NC.Dispatch
     {
         ConnectCamera,
         PrintTicket,
-        Archive
+        Archive,
+        DispatchToTablet
     }
 
     [Serializable, NetSerializable]

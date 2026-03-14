@@ -17,6 +17,7 @@ using Content.Shared.Weapons.Ranged;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
+using Content.Server._NC.Ncpd;
 using Robust.Shared.Player;
 using Robust.Shared.Map;
 using Robust.Shared.Physics;
@@ -41,6 +42,7 @@ namespace Content.Server._NC.Dispatch
         [Dependency] private readonly SurveillanceCameraMonitorSystem _cameraMonitorSystem = default!;
         [Dependency] private readonly IPrototypeManager _proto = default!;
         [Dependency] private readonly GameTicker _gameTicker = default!;
+        [Dependency] private readonly NcpdDispatchSystem _dispatchSystem = default!;
 
         private const float GunshotCooldown = 30f; // seconds per camera
 
@@ -99,6 +101,11 @@ namespace Content.Server._NC.Dispatch
                     break;
                 case OverwatchAlertAction.Archive:
                     comp.ActiveAlerts.Remove(msg.AlertId);
+                    break;
+                case OverwatchAlertAction.DispatchToTablet:
+                    var camUid = EntityManager.GetEntity(alert.CameraUid);
+                    var coords = Transform(camUid).Coordinates;
+                    _dispatchSystem.AddCall(alert.Type, alert.Sector, $"Alert from {alert.CameraName}", GetNetCoordinates(coords));
                     break;
             }
 

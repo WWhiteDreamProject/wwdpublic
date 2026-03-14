@@ -94,15 +94,18 @@ namespace Content.Client._NC.Dispatch
 
             // actions
             var actions = new BoxContainer { Orientation = BoxContainer.LayoutOrientation.Horizontal, SeparationOverride = 2 };
-            row.ConnectBtn = new Button { Text = "Подключиться", MinWidth = 80 };
-            row.PrintBtn = new Button { Text = "Печатать", MinWidth = 60 };
+            row.ConnectBtn = new Button { Text = "Смотреть", MinWidth = 70 };
+            row.PrintBtn = new Button { Text = "Печать", MinWidth = 60 };
             row.ArchiveBtn = new Button { Text = "Архив", MinWidth = 60 };
+            var dispatchBtn = new Button { Text = "В Планшет", MinWidth = 80, Modulate = Color.FromHex("#4DD0E1") };
 
             row.ConnectBtn.OnPressed += _ => OnAlertAction?.Invoke(id, OverwatchAlertAction.ConnectCamera);
             row.PrintBtn.OnPressed += _ => OnAlertAction?.Invoke(id, OverwatchAlertAction.PrintTicket);
             row.ArchiveBtn.OnPressed += _ => OnAlertAction?.Invoke(id, OverwatchAlertAction.Archive);
+            dispatchBtn.OnPressed += _ => OnAlertAction?.Invoke(id, OverwatchAlertAction.DispatchToTablet);
 
             actions.AddChild(row.ConnectBtn);
+            actions.AddChild(dispatchBtn);
             actions.AddChild(row.PrintBtn);
             actions.AddChild(row.ArchiveBtn);
 

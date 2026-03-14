@@ -5,6 +5,7 @@ using Content.Shared._NC.CitiNet;
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface;
+using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Input;
 using Robust.Shared.IoC;
 using Robust.Shared.Maths;
@@ -30,7 +31,29 @@ public sealed partial class CitiNetMapControl : NavMapControl
         IoCManager.InjectDependencies(this);
         BackgroundColor = CitiNetBg.WithAlpha(0.95f);
         WallColor = CitiNetCyan;
-        TileColor = Color.FromHex("#0a1a1a"); 
+        TileColor = Color.FromHex("#0a1a1a");
+
+        // Скрываем встроенную верхнюю панель NavMapControl (zoom, checkbox, recenter)
+        // и растягиваем topContainer на всё пространство
+        foreach (var child in Children)
+        {
+            if (child is not BoxContainer box)
+                continue;
+
+            // Растягиваем topContainer по вертикали
+            box.VerticalExpand = true;
+
+            foreach (var boxChild in box.Children)
+            {
+                if (boxChild is PanelContainer panel)
+                {
+                    panel.Visible = false;
+                    break;
+                }
+            }
+
+            break;
+        }
     }
 
     public void Recenter() => Recentering = true;
