@@ -20,6 +20,8 @@ namespace Content.Server._NC.Ncpd
 
         private readonly List<NcpdCallData> _activeCalls = new();
         private int _nextCallId = 1;
+        private float _updateTimer = 0f;
+        private const float UpdateInterval = 5.0f;
 
         public override void Initialize()
         {
@@ -28,6 +30,18 @@ namespace Content.Server._NC.Ncpd
             SubscribeLocalEvent<NcpdTabletComponent, BoundUIOpenedEvent>(OnTabletOpened);
             SubscribeLocalEvent<NcpdTabletComponent, NcpdTabletSelectCallMsg>(OnSelectCall);
             SubscribeLocalEvent<NcpdTabletComponent, NcpdTabletClearCallMsg>(OnClearCall);
+        }
+
+        public override void Update(float frameTime)
+        {
+            base.Update(frameTime);
+
+            _updateTimer += frameTime;
+            if (_updateTimer >= UpdateInterval)
+            {
+                _updateTimer = 0f;
+                UpdateAllTablets();
+            }
         }
 
         private void OnTabletOpened(EntityUid uid, NcpdTabletComponent component, BoundUIOpenedEvent args)
@@ -78,6 +92,9 @@ namespace Content.Server._NC.Ncpd
 
         private void UpdateTabletUi(EntityUid uid, NcpdTabletComponent component)
         {
+            if (!_ui.IsUiOpen(uid, NcpdTabletUiKey.Key))
+                return;
+
             var gridUid = _transform.GetGrid(uid);
             var mapUid = _transform.GetMap(uid);
 
@@ -93,7 +110,10 @@ namespace Content.Server._NC.Ncpd
             while (beaconQuery.MoveNext(out var bUid, out var bComp, out var bXform))
             {
                 if (!bComp.IsVisible) continue;
-                if (!string.IsNullOrEmpty(bComp.RequiredRole) && bComp.RequiredRole != "NCPD") continue;
+                
+                // SHOW ONLY PUBLIC BEACONS: No required role AND group is Public
+                if (!string.IsNullOrEmpty(bComp.RequiredRole)) continue;
+                if (bComp.Group != "Public") continue;
 
                 var bPos = _transform.GetGridOrMapTilePosition(bUid, bXform);
                 beacons.Add(new CitiNetMapBeaconData(
