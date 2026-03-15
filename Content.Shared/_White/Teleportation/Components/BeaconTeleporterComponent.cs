@@ -18,6 +18,12 @@ public sealed partial class BeaconTeleporterComponent : Component
     [DataField, AutoNetworkedField]
     public SoundSpecifier? PortalCreateSound = new SoundPathSpecifier("/Audio/Machines/high_tech_confirm.ogg", AudioParams.Default.WithVolume(-2f));
 
+    /// <summary>
+    /// Whether the do-after should break on movement. Can be overridden per entity.
+    /// </summary>
+    [DataField("breakOnMove")]
+    public bool BreakOnMove = true;
+
     [ViewVariables, AutoNetworkedField]
     public EntityUid? Beacon;
 }

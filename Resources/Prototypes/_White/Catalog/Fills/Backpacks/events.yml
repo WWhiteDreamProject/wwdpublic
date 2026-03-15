@@ -1,7 +1,7 @@
 # Base colors
 - type: entity
   parent: ClothingBackpackERTMedical
-  id: ClothingBackpackAmalgestWhite
+  id: ClothingBackpackAlmagestWhite
   components:
   - type: StorageFill
     contents:
@@ -13,7 +13,7 @@
 
 - type: entity
   parent: ClothingBackpackERTEngineer
-  id: ClothingBackpackAmalgestYellow
+  id: ClothingBackpackAlmagestYellow
   components:
   - type: StorageFill
     contents:
@@ -25,7 +25,7 @@
 
 - type: entity
   parent: ClothingBackpackERTSecurity
-  id: ClothingBackpackAmalgestRed
+  id: ClothingBackpackAlmagestRed
   components:
   - type: StorageFill
     contents:
@@ -37,7 +37,7 @@
 
 - type: entity
   parent: ClothingBackpackERTLeader
-  id: ClothingBackpackAmalgestBlue
+  id: ClothingBackpackAlmagestBlue
   components:
   - type: StorageFill
     contents:
@@ -49,7 +49,7 @@
 
 - type: entity
   parent: ClothingBackpackERTClown
-  id: ClothingBackpackAmalgestGreen
+  id: ClothingBackpackAlmagestGreen
   components:
   - type: StorageFill
     contents:
@@ -61,7 +61,7 @@
 
 - type: entity
   parent: ClothingBackpackERTJanitor
-  id: ClothingBackpackAmalgestPurple
+  id: ClothingBackpackAlmagestPurple
   components:
   - type: StorageFill
     contents:
@@ -74,8 +74,8 @@
 # Amalga v3
 - type: entity
   parent: ClothingBeltMilitaryWebbing
-  id: ClothingBeltMilitaryWebbingAmalgestEquip
-  suffix: Amalgest, DONT SPAWN
+  id: ClothingBeltMilitaryWebbingAlmagestEquip
+  suffix: Almagest, DONT SPAWN
   components:
   - type: StorageFill
     contents:
@@ -89,8 +89,8 @@
 # Red
 - type: entity
   parent: ClothingBeltChiefEngineerFilled
-  id: ClothingBeltChiefEngineerFilledAmalgestEquip
-  suffix: Amalgest, DONT SPAWN
+  id: ClothingBeltChiefEngineerFilledAlmagestEquip
+  suffix: Almagest, DONT SPAWN
   components:
   - type: Storage
     grid:
@@ -113,41 +113,41 @@
     - id: BeaconTeleporter
 
 - type: entity
-  parent: ClothingBackpackAmalgestRed
-  id: ClothingBackpackAmalgestRedMarine
+  parent: ClothingBackpackAlmagestRed
+  id: ClothingBackpackAlmagestRedMarine
   name: marine backpack
   components:
   - type: StorageFill
     contents:
     - id: ClothingOuterHardsuitERTSecurity
-    - id: ClothingBeltMilitaryWebbingAmalgestEquip
+    - id: ClothingBeltMilitaryWebbingAlmagestEquip
     - id: ERTLeaderPDA
     - id: ClothingHeadsetPrison
     - id: ClothingNeckMantleHOS
 
 - type: entity
-  parent: ClothingBackpackAmalgestRed
-  id: ClothingBackpackAmalgestRedCaptain
+  parent: ClothingBackpackAlmagestRed
+  id: ClothingBackpackAlmagestRedCaptain
   name: captain backpack
   components:
   - type: StorageFill
     contents:
     - id: ClothingOuterHardsuitERTSecurity
-    - id: ClothingBeltMilitaryWebbingAmalgestEquip
+    - id: ClothingBeltMilitaryWebbingAlmagestEquip
     - id: ERTLeaderPDA
     - id: ClothingHeadsetPrison
     - id: WeaponAntiqueLaser
     - id: ClothingNeckCloakCap
 
 - type: entity
-  parent: ClothingBackpackAmalgestRed
-  id: ClothingBackpackAmalgestRedEngineer
+  parent: ClothingBackpackAlmagestRed
+  id: ClothingBackpackAlmagestRedEngineer
   name: engineer backpack
   components:
   - type: StorageFill
     contents:
     - id: ClothingOuterHardsuitERTSecurity
-    - id: ClothingBeltChiefEngineerFilledAmalgestEquip
+    - id: ClothingBeltChiefEngineerFilledAlmagestEquip
     - id: ClothingMaskBreath
     - id: ERTLeaderPDA
     - id: ClothingHeadsetPrison
@@ -159,7 +159,7 @@
     - id: ClothingNeckMantleCE
 
 - type: entity
-  id: ClothingBackpackAmalgestRedEquipEngineer
+  id: ClothingBackpackAlmagestRedEquipEngineer
   name: engineer backpack
   parent: BaseItem
   categories: [ HideSpawnMenu ]
@@ -170,51 +170,51 @@
     state: icon
   - type: SpawnItemsOnUse
     items:
-    - id: ClothingBackpackAmalgestRedEngineer
+    - id: ClothingBackpackAlmagestRedEngineer
       orGroup: BackPack
     - id: JetpackVoidFilled
       orGroup: Jetpack
 
 # Blue
 - type: entity
-  parent: ClothingBackpackAmalgestBlue
-  id: ClothingBackpackAmalgestBlueMarine
+  parent: ClothingBackpackAlmagestBlue
+  id: ClothingBackpackAlmagestBlueMarine
   name: marine backpack
   components:
   - type: StorageFill
     contents:
-    - id: ClothingOuterHardsuitERTSecurity
-    - id: ClothingBeltMilitaryWebbingAmalgestEquip
+    - id: ClothingOuterHardsuitERTLeader
+    - id: ClothingBeltMilitaryWebbingAlmagestEquip
     - id: ERTLeaderPDA
-    - id: ClothingHeadsetPrison
+    - id: ClothingHeadsetMedical
     - id: ClothingNeckMantleHOS
 
 - type: entity
-  parent: ClothingBackpackAmalgestBlue
-  id: ClothingBackpackAmalgestBlueCaptain
+  parent: ClothingBackpackAlmagestBlue
+  id: ClothingBackpackAlmagestBlueCaptain
   name: captain backpack
   components:
   - type: StorageFill
     contents:
-    - id: ClothingOuterHardsuitERTSecurity
-    - id: ClothingBeltMilitaryWebbingAmalgestEquip
+    - id: ClothingOuterHardsuitERTLeader
+    - id: ClothingBeltMilitaryWebbingAlmagestEquip
     - id: ERTLeaderPDA
-    - id: ClothingHeadsetPrison
+    - id: ClothingHeadsetMedical
     - id: WeaponAntiqueLaser
     - id: ClothingNeckCloakCap
 
 - type: entity
-  parent: ClothingBackpackAmalgestBlue
-  id: ClothingBackpackAmalgestBlueEngineer
+  parent: ClothingBackpackAlmagestBlue
+  id: ClothingBackpackAlmagestBlueEngineer
   name: engineer backpack
   components:
   - type: StorageFill
     contents:
-    - id: ClothingOuterHardsuitERTSecurity
-    - id: ClothingBeltChiefEngineerFilledAmalgestEquip
+    - id: ClothingOuterHardsuitERTLeader
+    - id: ClothingBeltChiefEngineerFilledAlmagestEquip
     - id: ClothingMaskBreath
     - id: ERTLeaderPDA
-    - id: ClothingHeadsetPrison
+    - id: ClothingHeadsetMedical
     - id: ClothingShoesBootsMagAdv
     - id: ClothingEyesGlassesMeson
     - id: HandHeldMassScanner
@@ -223,7 +223,7 @@
     - id: ClothingNeckMantleCE
 
 - type: entity
-  id: ClothingBackpackAmalgestBlueEquipEngineer
+  id: ClothingBackpackAlmagestBlueEquipEngineer
   name: engineer backpack
   parent: BaseItem
   categories: [ HideSpawnMenu ]
@@ -234,7 +234,7 @@
     state: icon
   - type: SpawnItemsOnUse
     items:
-    - id: ClothingBackpackAmalgestBlueEngineer
+    - id: ClothingBackpackAlmagestBlueEngineer
       orGroup: BackPack
     - id: JetpackVoidFilled
       orGroup: Jetpack
@@ -243,7 +243,7 @@
 - type: entity
   name: red equipment
   parent: BaseItem
-  id: AmalgestEquipmentBaseRed
+  id: AlmagestEquipmentBaseRed
   description: "rede equipment"
   components:
   - type: Item
@@ -253,8 +253,8 @@
     state: icon
   - type: RadialEntityMorph
     entries:
-    - prototype: ClothingBackpackAmalgestRedEquipEngineer
-    - prototype: ClothingBackpackAmalgestRedMarine
+    - prototype: ClothingBackpackAlmagestRedEquipEngineer
+    - prototype: ClothingBackpackAlmagestRedMarine
   - type: UserInterface
     interfaces:
       enum.RadialSelectorUiKey.Key:
@@ -266,7 +266,7 @@
 - type: entity
   name: blue equipment
   parent: BaseItem
-  id: AmalgestEquipmentBaseBlue
+  id: AlmagestEquipmentBaseBlue
   description: "blue equipment"
   components:
   - type: Item
@@ -276,8 +276,8 @@
     state: icon
   - type: RadialEntityMorph
     entries:
-    - prototype: ClothingBackpackAmalgestBlueEquipEngineer
-    - prototype: ClothingBackpackAmalgestBlueMarine
+    - prototype: ClothingBackpackAlmagestBlueEquipEngineer
+    - prototype: ClothingBackpackAlmagestBlueMarine
   - type: UserInterface
     interfaces:
       enum.RadialSelectorUiKey.Key:
