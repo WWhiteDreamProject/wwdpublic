@@ -74,8 +74,12 @@
   name: start timer
   components:
   - type: CapturePoint
-    sender: "[color=#14fffb]Almagest[/color]"
+    sender: "capture-point-sender-start-timer"
     startMessage: "capture-point-start-message-start-timer"
     endMessage: "capture-point-end-message-start-timer"
     cancelMessage: "capture-point-cancel-message-start-timer"
     delay: 600
+    sound:
+      path: /Audio/_White/Announcements/crashing.ogg
+      params:
+        volume: 5
