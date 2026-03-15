@@ -105,3 +105,22 @@
   - type: Tag
     tags:
     - MagazinePistolStreetMaster
+
+- type: entity
+  id: MagazinePistolMarkIII
+  name: магазин Mark III (12.7мм)
+  description: Вместительный магазин для тяжелого пистолета Mark III. Заряжен убойными патронами 12.7мм. Вмещает 8 патронов.
+  parent: BaseMagazinePistol
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 8
+    proto: Cartridge127mm
+  - type: Sprite
+    layers:
+    - state: red
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Tag
+    tags:
+    - MagazinePistolMarkIII

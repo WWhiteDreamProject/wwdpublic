@@ -65,3 +65,7 @@
 - type: Tag
   id: CartridgeNomadSpike
   name: CartridgeNomadSpike
+
+- type: Tag
+  id: MagazinePistolMarkIII
+  name: MagazinePistolMarkIII
