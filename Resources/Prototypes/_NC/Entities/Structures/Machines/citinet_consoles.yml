@@ -39,7 +39,7 @@
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
     - map: ["computerLayerScreen"]
-      state: medical
+      state: medcomp
     - map: ["computerLayerKeys"]
       state: generic_keys
   - type: CitiNetMap
@@ -67,7 +67,7 @@
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
     - map: ["computerLayerScreen"]
-      state: research
+      state: rdcomp
     - map: ["computerLayerKeys"]
       state: generic_keys
   - type: CitiNetMap

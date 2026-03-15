@@ -32,7 +32,7 @@
     maxGroupParticipants: 10
   - type: Sprite
     sprite: Objects/Devices/cartridge.rsi
-    state: cart-sys
+    state: cart-sec
   - type: Item
     sprite: Objects/Devices/cartridge.rsi
 

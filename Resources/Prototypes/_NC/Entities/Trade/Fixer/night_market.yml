@@ -7,8 +7,8 @@
   components:
   - type: UserInterface
     interfaces:
-    enum.StoreUiKey.Key:
-      type: NcStoreStructuredBoundUi
+      enum.StoreUiKey.Key:
+        type: NcStoreStructuredBoundUi
   - type: Sprite
     sprite: Objects/Devices/pda.rsi # Placeholder, maybe use a laptop sprite if available
     state: pda-bartender # Placeholder

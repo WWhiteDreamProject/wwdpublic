@@ -50,7 +50,7 @@
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
     - map: ["computerLayerScreen"]
-      state: med
+      state: medcomp
     - map: ["computerLayerKeys"]
       state: generic_keys
   - type: AccessReader
@@ -70,7 +70,7 @@
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
     - map: ["computerLayerScreen"]
-      state: sec
+      state: security
     - map: ["computerLayerKeys"]
       state: generic_keys
   - type: AccessReader
@@ -90,7 +90,7 @@
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
     - map: ["computerLayerScreen"]
-      state: research
+      state: rdcomp
     - map: ["computerLayerKeys"]
       state: generic_keys
   - type: AccessReader

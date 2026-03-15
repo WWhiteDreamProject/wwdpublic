@@ -25,7 +25,7 @@
   components:
   - type: Sprite
     sprite: Structures/Machines/artifact_analyzer.rsi
-    state: analyzer
+    state: icon
   - type: BallisticAnalyzer
   - type: ActivatableUI
     key: enum.BallisticAnalyzerUiKey.Key

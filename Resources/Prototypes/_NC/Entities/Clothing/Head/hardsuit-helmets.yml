@@ -42,6 +42,11 @@
   components:
   - type: Sprite
     sprite: _NC/Clothing/Head/Hardsuits/trauma_armored_helmet.rsi
+    layers:
+    - state: icon
+    - state: icon-on
+      map: [ "light" ]
+      visible: false
   - type: Clothing
     sprite: _NC/Clothing/Head/Hardsuits/trauma_armored_helmet.rsi
     clothingVisuals:

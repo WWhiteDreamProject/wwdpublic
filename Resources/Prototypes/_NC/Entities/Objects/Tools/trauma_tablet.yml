@@ -9,8 +9,8 @@
     state: pda-bartender # Placeholder
     layers:
     - state: pda-bartender # Placeholder
-    - sprite: Objects/Tools/pinpointer.rsi
-      state: arrow
+    - sprite: Objects/Devices/pinpointer.rsi
+      state: pinondirect
       map: [ "arrow" ]
       visible: false
   - type: GenericVisualizer
@@ -18,7 +18,7 @@
       enum.PinpointerVisuals.IsActive:
         arrow:
           enum.PinpointerState.Active:
-            state: arrow
+            state: pinondirect
             visible: true
           enum.PinpointerState.Inactive:
             visible: false
