@@ -22,6 +22,8 @@ public sealed class NcpdCaptainConsoleBoundUserInterface : BoundUserInterface
         _window.OnPurchase += id => SendMessage(new NcpdPurchaseMessage(id));
         _window.OnRevoke += target => SendMessage(new NcpdRevokeAccessMessage(target));
         _window.OnClearLogs += () => SendMessage(new NcpdClearLogsMessage());
+        _window.OnWithdraw += amount => SendMessage(new NcpdWithdrawBudgetMessage(amount));
+        _window.OnDeposit += amount => SendMessage(new NcpdDepositBudgetMessage(amount));
 
         _window.OpenCentered();
     }

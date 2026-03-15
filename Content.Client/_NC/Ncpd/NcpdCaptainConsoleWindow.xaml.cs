@@ -14,55 +14,48 @@ public sealed partial class NcpdCaptainConsoleWindow : DefaultWindow
     public event Action<string>? OnPurchase;
     public event Action<NetEntity>? OnRevoke;
     public event Action? OnClearLogs;
+    public event Action<int>? OnWithdraw;
+    public event Action<int>? OnDeposit;
 
     public NcpdCaptainConsoleWindow()
     {
         RobustXamlLoader.Load(this);
 
         Tabs.SetTabTitle(0, "АУДИТ ШТРАФОВ");
-        Tabs.SetTabTitle(1, "КОРПОРАТИВНЫЕ ЗАКУПКИ");
-        Tabs.SetTabTitle(2, "ЧЕРНЫЙ СПИСОК");
+        Tabs.SetTabTitle(1, "БЮДЖЕТ");
 
         ClearLogsButton.OnPressed += _ => OnClearLogs?.Invoke();
 
-        PopulateStore();
-    }
-
-    private void PopulateStore()
-    {
-        // Хардкод списка товаров для визуализации в UI
-        var products = new (string Id, string Name, int Price)[]
+        WithdrawButton.OnPressed += _ =>
         {
-            ("ammo_ap", "Ящик бронебойных безгильзовых патронов (Т2)", 800),
-            ("emp_grenades", "ЭМИ-гранаты (3 шт)", 1200),
-            ("heavy_armor", "Тяжелая броня спецназа (MaxTac)", 5000),
-            ("hunter_bot", "Разрешение на вызов Тяжелого Бота-Охотника", 10000)
+            if (int.TryParse(WithdrawAmountInput.Text, out var amount) && amount > 0)
+            {
+                OnWithdraw?.Invoke(amount);
+                WithdrawAmountInput.Text = string.Empty;
+            }
         };
 
-        foreach (var prod in products)
+        DepositButton.OnPressed += _ =>
         {
-            var hbox = new BoxContainer
+            if (int.TryParse(WithdrawAmountInput.Text, out var amount) && amount > 0)
             {
-                Orientation = BoxContainer.LayoutOrientation.Horizontal,
-                SeparationOverride = 20
-            };
-            
-            hbox.AddChild(new Label { Text = $"{prod.Name} — {prod.Price} Эдди", FontColorOverride = Color.White, HorizontalExpand = true });
-            
-            var buyBtn = new Button { Text = "КУПИТЬ", Modulate = Color.LimeGreen };
-            buyBtn.OnPressed += _ => OnPurchase?.Invoke(prod.Id);
-            
-            hbox.AddChild(buyBtn);
-            StoreContainer.AddChild(hbox);
-        }
+                OnDeposit?.Invoke(amount);
+                WithdrawAmountInput.Text = string.Empty;
+            }
+        };
     }
 
     public void UpdateState(NcpdCaptainConsoleBuiState state)
     {
         BudgetLabel.Text = $"БЮДЖЕТ ДЕПАРТАМЕНТА: {state.Budget} Эдди";
+        DepositButton.Text = $"ВНЕСТИ ({state.InsertedCash} Эдди)";
+        DepositButton.Disabled = state.InsertedCash <= 0;
 
-        // Обновляем логи
+        // Обновляем Аудит Штрафов (Вкладка 0)
         LogsContainer.RemoveAllChildren();
+        // Обновляем Финансовые Логи (Вкладка 1)
+        FinancialLogsContainer.RemoveAllChildren();
+
         foreach (var log in state.Logs)
         {
             var logVbox = new BoxContainer
@@ -71,55 +64,33 @@ public sealed partial class NcpdCaptainConsoleWindow : DefaultWindow
                 Margin = new Thickness(0, 5)
             };
 
-            logVbox.AddChild(new Label 
-            { 
-                Text = $"{log.Time:hh\\:mm\\:ss} | {log.OfficerName} | Оштрафовал: {log.TargetName} | Сумма: {log.Amount} | {log.Status}",
-                FontColorOverride = log.Status.Contains("ПРИНУДИТЕЛЬНОЕ") ? Color.OrangeRed : Color.LimeGreen
-            });
-
-            if (!string.IsNullOrWhiteSpace(log.Reason))
+            var logLabel = new Label();
+            if (log.Status.Contains("СНЯТИЕ") || log.Status.Contains("ПОПОЛНЕНИЕ") || log.Status.Contains("ЗАКУПКА"))
             {
-                logVbox.AddChild(new Label
-                {
-                    Text = $"   ПРИЧИНА: {log.Reason}",
-                    FontColorOverride = Color.FromHex("#aaaaaa"),
-                    Margin = new Thickness(20, 0, 0, 0)
-                });
-            }
-
-            LogsContainer.AddChild(logVbox);
-        }
-
-        // Обновляем кадры
-        PersonnelContainer.RemoveAllChildren();
-        foreach (var p in state.Personnel)
-        {
-            var hbox = new BoxContainer
-            {
-                Orientation = BoxContainer.LayoutOrientation.Horizontal,
-                SeparationOverride = 20
-            };
-
-            var nameLabel = new Label 
-            { 
-                Text = $"{p.Job} | {p.Name}", 
-                FontColorOverride = p.IsSuspended ? Color.DimGray : Color.White,
-                HorizontalExpand = true 
-            };
-            hbox.AddChild(nameLabel);
-
-            if (p.IsSuspended)
-            {
-                hbox.AddChild(new Label { Text = "ОТСТРАНЕН", FontColorOverride = Color.Red });
+                // Финансовые операции — во вторую вкладку
+                logLabel.Text = $"{log.Time:hh\\:mm\\:ss} | {log.OfficerName} | {log.Status} | Сумма: {log.Amount}";
+                logLabel.FontColorOverride = log.Status.Contains("СНЯТИЕ") ? Color.Orange : Color.LimeGreen;
+                logVbox.AddChild(logLabel);
+                FinancialLogsContainer.AddChild(logVbox);
             }
             else
             {
-                var revokeBtn = new Button { Text = "АННУЛИРОВАТЬ ДОСТУП", Modulate = Color.Red };
-                revokeBtn.OnPressed += _ => OnRevoke?.Invoke(p.PlayerEntity);
-                hbox.AddChild(revokeBtn);
-            }
+                // Штрафы — в первую вкладку
+                logLabel.Text = $"{log.Time:hh\\:mm\\:ss} | {log.OfficerName} | Оштрафовал: {log.TargetName} | Сумма: {log.Amount} | {log.Status}";
+                logLabel.FontColorOverride = log.Status.Contains("ПРИНУДИТЕЛЬНОЕ") ? Color.OrangeRed : Color.LimeGreen;
+                logVbox.AddChild(logLabel);
 
-            PersonnelContainer.AddChild(hbox);
+                if (!string.IsNullOrWhiteSpace(log.Reason))
+                {
+                    logVbox.AddChild(new Label
+                    {
+                        Text = $"   ПРИЧИНА: {log.Reason}",
+                        FontColorOverride = Color.FromHex("#aaaaaa"),
+                        Margin = new Thickness(20, 0, 0, 0)
+                    });
+                }
+                LogsContainer.AddChild(logVbox);
+            }
         }
     }
 }

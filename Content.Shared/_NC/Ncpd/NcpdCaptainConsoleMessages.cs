@@ -15,12 +15,14 @@ public enum NcpdCaptainConsoleUiKey : byte
 public sealed class NcpdCaptainConsoleBuiState : BoundUserInterfaceState
 {
     public readonly int Budget;
+    public readonly int InsertedCash;
     public readonly List<NcpdLogEntry> Logs;
     public readonly List<NcpdPersonnelData> Personnel;
 
-    public NcpdCaptainConsoleBuiState(int budget, List<NcpdLogEntry> logs, List<NcpdPersonnelData> personnel)
+    public NcpdCaptainConsoleBuiState(int budget, int insertedCash, List<NcpdLogEntry> logs, List<NcpdPersonnelData> personnel)
     {
         Budget = budget;
+        InsertedCash = insertedCash;
         Logs = logs;
         Personnel = personnel;
     }
@@ -71,4 +73,26 @@ public sealed class NcpdRevokeAccessMessage : BoundUserInterfaceMessage
 [Serializable, NetSerializable]
 public sealed class NcpdClearLogsMessage : BoundUserInterfaceMessage
 {
+}
+
+[Serializable, NetSerializable]
+public sealed class NcpdWithdrawBudgetMessage : BoundUserInterfaceMessage
+{
+    public readonly int Amount;
+
+    public NcpdWithdrawBudgetMessage(int amount)
+    {
+        Amount = amount;
+    }
+}
+
+[Serializable, NetSerializable]
+public sealed class NcpdDepositBudgetMessage : BoundUserInterfaceMessage
+{
+    public readonly int Amount;
+
+    public NcpdDepositBudgetMessage(int amount)
+    {
+        Amount = amount;
+    }
 }

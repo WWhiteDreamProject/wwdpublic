@@ -21,19 +21,17 @@
             <BoxContainer Orientation="Vertical" Margin="10" SeparationOverride="15" VerticalExpand="True">
                 <Label Name="BudgetLabel" Text="БЮДЖЕТ ДЕПАРТАМЕНТА: 0 Эдди" FontColorOverride="#ffb700" HorizontalAlignment="Center" />
                 
-                <Label Text="КАТАЛОГ СНАРЯЖЕНИЯ:" FontColorOverride="#aaaaaa" />
+                <!-- Секция операций со средствами -->
+                <BoxContainer Orientation="Horizontal" SeparationOverride="10" HorizontalAlignment="Center">
+                    <Label Text="ОПЕРАЦИИ:" VerticalAlignment="Center" />
+                    <LineEdit Name="WithdrawAmountInput" PlaceHolder="Сумма..." MinWidth="100" />
+                    <Button Name="WithdrawButton" Text="ВЫВЕСТИ" Modulate="Orange" />
+                    <Button Name="DepositButton" Text="ПОПОЛНИТЬ (ИЗ РУК)" Modulate="LimeGreen" />
+                </BoxContainer>
+
+                <Label Text="ФИНАНСОВЫЕ ЛОГИ:" FontColorOverride="#aaaaaa" />
                 <ScrollContainer VerticalExpand="True">
-                    <BoxContainer Name="StoreContainer" Orientation="Vertical" SeparationOverride="10" />
-                </ScrollContainer>
-            </BoxContainer>
-        </Control>
-        
-        <!-- Вкладка В: Управление Кадрами -->
-        <Control>
-            <BoxContainer Orientation="Vertical" Margin="10" SeparationOverride="10" VerticalExpand="True">
-                <Label Text="АКТИВНЫЙ СОСТАВ NCPD:" FontColorOverride="#aaaaaa" />
-                <ScrollContainer VerticalExpand="True">
-                    <BoxContainer Name="PersonnelContainer" Orientation="Vertical" SeparationOverride="5" />
+                    <BoxContainer Name="FinancialLogsContainer" Orientation="Vertical" SeparationOverride="5" />
                 </ScrollContainer>
             </BoxContainer>
         </Control>
