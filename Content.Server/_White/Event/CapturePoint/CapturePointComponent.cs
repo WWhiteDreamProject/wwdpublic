@@ -28,6 +28,9 @@ public sealed partial class CapturePointComponent : Component
     public SoundSpecifier? Sound;
 
     [DataField]
+    public float SoundVolume = -2f;
+
+    [DataField]
     public string CartridgeSlotId = "cartridge_slot";
 
     [DataField]

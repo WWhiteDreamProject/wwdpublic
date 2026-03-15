@@ -35,6 +35,14 @@ public sealed partial class HandTeleporterComponent : Component
     [DataField("clearPortalsSound")]
     public SoundSpecifier ClearPortalsSound = new SoundPathSpecifier("/Audio/Machines/button.ogg");
 
+    // WWDP edit start
+    /// <summary>
+    ///     Whether the do-after should break on movement. Can be overridden per entity.
+    /// </summary>
+    [DataField("breakOnMove")]
+    public bool BreakOnMove = true;
+    // WWDP edit end
+
     /// <summary>
     ///     Delay for creating the portals in seconds.
     /// </summary>
