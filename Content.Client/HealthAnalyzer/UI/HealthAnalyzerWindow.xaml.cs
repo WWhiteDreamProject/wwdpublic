@@ -176,6 +176,10 @@ namespace Content.Client.HealthAnalyzer.UI
 
             DamageLabel.Text = damageable.TotalDamage.ToString();
 
+            // Stuck Bullet
+            StuckBulletText.Visible = msg.HasStuckBullet;
+            StuckBulletLabel.Visible = msg.HasStuckBullet;
+
             // Alerts
 
             var showAlerts = msg.Unrevivable == true || msg.Bleeding == true;

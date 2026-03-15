@@ -1,0 +1,18 @@
+﻿- type: entity
+  id: NcpdForensicsConsole
+  name: Flatline консоль NCPD
+  parent: BaseMachinePowered
+  description: Lists flatline alerts across the station.
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/server.rsi # stub sprite
+    state: server
+  - type: NcpdForensicsConsole
+  - type: ActivatableUI
+    key: enum.NcpdForensicsConsoleUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.NcpdForensicsConsoleUiKey.Key:
+        type: NcpdForensicsConsoleBoundUserInterface
+  - type: AccessReader
+    access: [["Security"]]

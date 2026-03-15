@@ -1,0 +1,50 @@
+- type: entity
+  id: DeformedBullet
+  parent: BaseItem
+  name: деформированная пуля
+  description: Сплющенный кусок свинца, извлеченный из тела. На нем остались уникальные нарезы ствола.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
+    layers:
+    - state: base
+      map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: ForensicsBullet
+
+- type: entity
+  id: StuckBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ForensicsStuckBullet
+
+- type: entity
+  id: BallisticAnalyzer
+  parent: BaseMachinePowered
+  name: баллистический анализатор
+  description: Высокотехнологичная консоль для сличения нарезов на пулях с конкретными стволами оружия.
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/artifact_analyzer.rsi
+    state: analyzer
+  - type: BallisticAnalyzer
+  - type: ActivatableUI
+    key: enum.BallisticAnalyzerUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.BallisticAnalyzerUiKey.Key:
+        type: BallisticAnalyzerBoundUserInterface
+  - type: ItemSlots
+    slots:
+      bullet_slot:
+        name: Улика (Пуля)
+        whitelist:
+          components:
+          - ForensicsBullet
+      weapon_slot:
+        name: Оружие
+        whitelist:
+          components:
+          - Gun
+
+
+

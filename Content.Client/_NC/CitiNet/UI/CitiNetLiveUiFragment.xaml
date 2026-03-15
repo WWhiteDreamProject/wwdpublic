@@ -53,8 +53,46 @@
     </BoxContainer>
 
     <!-- ===== ЭКРАН 3: ЗРИТЕЛЬ (ViewerPanel) ===== -->
-    <BoxContainer Name="ViewerPanel" Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True" Visible="False">
-        <Control Name="CameraViewBox" HorizontalExpand="True" MinHeight="350" Margin="0 0 0 4">
+    <BoxContainer Name="ViewerPanel" Orientation="Horizontal" VerticalExpand="True" HorizontalExpand="True" Visible="False">
+        
+        <!-- Левая часть: Чат и управление -->
+        <BoxContainer Orientation="Vertical" MinWidth="250" Margin="0 0 4 0">
+            <!-- Шапка: ● LIVE + имя стримера + назад -->
+            <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="0 2 0 4">
+                <BoxContainer Orientation="Vertical">
+                    <RichTextLabel Name="ViewerLiveLabel" />
+                    <RichTextLabel Name="ViewerStreamerLabel" />
+                </BoxContainer>
+                <Control HorizontalExpand="True" />
+                <Button Name="BackToListBtn" Text="[BACK]" MinWidth="60" />
+            </BoxContainer>
+
+            <!-- Чат зрителя -->
+            <ScrollContainer VerticalExpand="True" HorizontalExpand="True" Margin="0 4 0 4">
+                <BoxContainer Name="ViewerChatContainer" Orientation="Vertical" HorizontalExpand="True" />
+            </ScrollContainer>
+
+            <!-- Поле ввода + SEND -->
+            <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="0 4 0 0">
+                <LineEdit Name="ViewerChatInput"
+                          HorizontalExpand="True"
+                          PlaceHolder="Chat..." />
+                <Button Name="ViewerSendBtn" Text="SEND" MinWidth="50" Margin="4 0 0 0" />
+            </BoxContainer>
+
+            <!-- Кнопка DONATE -->
+            <Button Name="ViewerDonateBtn" Text="DONATE" HorizontalExpand="True" Margin="0 4 0 0" />
+
+            <!-- Панель доната -->
+            <BoxContainer Name="DonatePanel" Orientation="Vertical" HorizontalExpand="True" Visible="False" Margin="0 4 0 0">
+                <LineEdit Name="DonateAmountInput" PlaceHolder="Amount $" HorizontalExpand="True" />
+                <LineEdit Name="DonateMessageInput" HorizontalExpand="True" PlaceHolder="Message..." Margin="0 4 0 0" />
+                <Button Name="DonateSubmitBtn" Text="SEND $" HorizontalExpand="True" Margin="0 4 0 0" />
+            </BoxContainer>
+        </BoxContainer>
+
+        <!-- Правая часть: Видеопоток -->
+        <Control Name="CameraViewBox" HorizontalExpand="True" VerticalExpand="True">
             <viewport:ScalingViewport Name="CameraView"
                                       HorizontalExpand="True"
                                       VerticalExpand="True" />
@@ -62,35 +100,6 @@
                          HorizontalExpand="True"
                          VerticalExpand="True" />
         </Control>
-
-        <!-- ● LIVE индикатор + имя стримера + назад -->
-        <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="0 2 0 2">
-            <RichTextLabel Name="ViewerLiveLabel" />
-            <RichTextLabel Name="ViewerStreamerLabel" Margin="8 0 0 0" />
-            <Control HorizontalExpand="True" />
-            <Button Name="BackToListBtn" Text="[BACK]" MinWidth="60" />
-        </BoxContainer>
-
-        <!-- Чат зрителя -->
-        <ScrollContainer VerticalExpand="True" HorizontalExpand="True" Margin="0 4 0 4">
-            <BoxContainer Name="ViewerChatContainer" Orientation="Vertical" HorizontalExpand="True" />
-        </ScrollContainer>
-
-        <!-- Поле ввода + DONATE -->
-        <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="0 4 0 0">
-            <LineEdit Name="ViewerChatInput"
-                      HorizontalExpand="True"
-                      PlaceHolder="Enter Message..." />
-            <Button Name="ViewerSendBtn" Text="SEND" MinWidth="50" Margin="4 0 0 0" />
-            <Button Name="ViewerDonateBtn" Text="DONATE" MinWidth="70" Margin="4 0 0 0" />
-        </BoxContainer>
-
-        <!-- Панель доната (скрыта по умолчанию) -->
-        <BoxContainer Name="DonatePanel" Orientation="Horizontal" HorizontalExpand="True" Visible="False" Margin="0 4 0 0">
-            <LineEdit Name="DonateAmountInput" PlaceHolder="$" MinWidth="60" />
-            <LineEdit Name="DonateMessageInput" HorizontalExpand="True" PlaceHolder="Message..." Margin="4 0 0 0" />
-            <Button Name="DonateSubmitBtn" Text="SEND $" MinWidth="60" Margin="4 0 0 0" />
-        </BoxContainer>
     </BoxContainer>
 
 </BoxContainer>

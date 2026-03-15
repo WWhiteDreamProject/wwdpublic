@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseItem
   id: NCCyberdeck
-  name: cyberdeck
-  description: A high-end portable computer used for netrunning. Requires a battery and both hands to operate.
+  name: кибердека
+  description: Высокотехнологичный портативный компьютер, используемый для нетраннинга. Требует батарею и обе руки для работы.
   components:
   - type: Sprite
     sprite: Objects/Devices/pda.rsi # Placeholder, maybe use a laptop sprite if available
@@ -36,19 +36,19 @@
           components:
           - PowerCell
       program_slot_1:
-        name: Program Slot 1
+        name: Слот программ 1
         whitelist:
           tags:
           - NCProgramCartridge
         insertOnInteract: false
       program_slot_2:
-        name: Program Slot 2
+        name: Слот программ 2
         whitelist:
           tags:
           - NCProgramCartridge
         insertOnInteract: false
       program_slot_3:
-        name: Program Slot 3
+        name: Слот программ 3
         whitelist:
           tags:
           - NCProgramCartridge

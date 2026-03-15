@@ -1,0 +1,31 @@
+<DefaultWindow
+    xmlns="https://spacestation14.io"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Баллистический Сканер NCPD"
+    MinSize="400 300">
+
+    <BoxContainer Orientation="Vertical" Margin="10" SeparationOverride="15">
+
+        <BoxContainer Orientation="Horizontal" SeparationOverride="20" HorizontalAlignment="Center">
+            <BoxContainer Orientation="Vertical" SeparationOverride="5" MinWidth="150">
+                <Label Text="УЛИКА (ПУЛЯ)" HorizontalAlignment="Center" FontColorOverride="#aaaaaa" />
+                <Label Name="BulletStatusLabel" Text="ОТСУТСТВУЕТ" HorizontalAlignment="Center" FontColorOverride="Red" />
+            </BoxContainer>
+
+            <BoxContainer Orientation="Vertical" SeparationOverride="5" MinWidth="150">
+                <Label Text="ОРУЖИЕ" HorizontalAlignment="Center" FontColorOverride="#aaaaaa" />
+                <Label Name="WeaponStatusLabel" Text="ОТСУТСТВУЕТ" HorizontalAlignment="Center" FontColorOverride="Red" />
+            </BoxContainer>
+        </BoxContainer>
+
+        <Button Name="AnalyzeButton" Text="ЗАПУСТИТЬ СЛИЧЕНИЕ" Modulate="#ffb700" HorizontalAlignment="Center" MinWidth="200" MinHeight="40" />
+
+        <BoxContainer Name="ResultBox" Orientation="Vertical" HorizontalAlignment="Center" Visible="False">
+            <Label Name="ResultLabel" Text="АНАЛИЗ ЗАВЕРШЕН" HorizontalAlignment="Center" />
+            <Label Name="MatchLabel" Text="СОВПАДЕНИЕ 100%" HorizontalAlignment="Center" />
+        </BoxContainer>
+
+        <Label Name="StatusLabel" Text="Ожидание ввода..." FontColorOverride="#aaaaaa" HorizontalAlignment="Center" />
+
+    </BoxContainer>
+</DefaultWindow>

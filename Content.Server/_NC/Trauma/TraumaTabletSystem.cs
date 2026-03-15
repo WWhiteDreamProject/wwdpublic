@@ -64,7 +64,7 @@ namespace Content.Server._NC.Trauma
 
                 // Звуковое оповещение и печать для планшета
                 _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/alert.ogg"), tabletUid);
-                _popup.PopupEntity($"!!! PLATINUM TRAUMA ALERT !!!\nPatient: {Name(targetPatient)}", tabletUid, PopupType.LargeCaution);
+                _popup.PopupEntity(Loc.GetString("trauma-tablet-alert", ("patient", targetPatient)), tabletUid, PopupType.LargeCaution);
 
                 tabletComp.ActivePatient = GetNetEntity(targetPatient);
                 tabletComp.IsPendingCompletion = false; // Новая миссия — не pending
@@ -180,17 +180,17 @@ namespace Content.Server._NC.Trauma
                     TryComp<MobStateComponent>(patientUid, out var mobState))
                 {
                     var meta = MetaData(patientUid);
-                    string status = _mobState.IsDead(patientUid, mobState) ? "Dead" :
-                                    (_mobState.IsCritical(patientUid, mobState) ? "Critical" : "Alive");
+                    string status = _mobState.IsDead(patientUid, mobState) ? Loc.GetString("trauma-status-dead") :
+                                    (_mobState.IsCritical(patientUid, mobState) ? Loc.GetString("trauma-status-critical") : Loc.GetString("trauma-status-alive"));
 
-                    var damageInfo = "HP: 100%";
+                    var damageInfo = Loc.GetString("trauma-hp-format", ("hp", 100));
                     float brute = 0f;
                     float burn = 0f;
                     float toxin = 0f;
 
                     if (TryComp<DamageableComponent>(patientUid, out var damageable))
                     {
-                        damageInfo = $"Dmg: {damageable.TotalDamage}";
+                        damageInfo = Loc.GetString("trauma-dmg-format", ("damage", damageable.TotalDamage));
                         if (damageable.DamagePerGroup.TryGetValue("Brute", out var bruteVal)) brute = bruteVal.Float();
                         if (damageable.DamagePerGroup.TryGetValue("Burn", out var burnVal)) burn = burnVal.Float();
                         if (damageable.DamagePerGroup.TryGetValue("Toxin", out var toxinVal)) toxin = toxinVal.Float();
@@ -199,7 +199,7 @@ namespace Content.Server._NC.Trauma
                     var xform = Transform(patientUid);
                     var targetCoords = GetNetCoordinates(xform.Coordinates);
 
-                    var jobTitle = "Unknown";
+                    var jobTitle = Loc.GetString("trauma-unknown-job");
                     if (TryComp<MindContainerComponent>(patientUid, out var mindContainer) &&
                         mindContainer.Mind.HasValue &&
                         _jobs.MindTryGetJob(mindContainer.Mind.Value, out var prototype))

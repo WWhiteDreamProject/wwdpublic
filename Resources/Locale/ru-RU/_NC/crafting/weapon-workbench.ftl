@@ -44,3 +44,5 @@ nc-workbench-system-anomaly-alignment = ВНИМАНИЕ: СБОЙ ОПТИКИ!
 nc-workbench-system-anomaly-critical = КРИТИЧЕСКИ: МНОЖЕСТВЕННЫЕ СБОИ!
 nc-workbench-system-failure = КРИТИЧЕСКАЯ ОШИБКА! ПОЛУЧЕН МЕТАЛЛОЛОМ.
 nc-workbench-system-success = ОБРАБОТКА ЗАВЕРШЕНА.
+nc-workbench-no-power = Нет электропитания.
+

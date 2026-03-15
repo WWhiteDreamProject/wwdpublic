@@ -89,7 +89,7 @@ public sealed class HackingSystem : EntitySystem
         // Disconnect timed out sessions
         foreach (var (deck, session) in toDisconnect)
         {
-            ShowPopup(deck, session, "ВРЕМЯ ИСТЕКЛО! Аварийное отключение!", Shared.Popups.PopupType.LargeCaution);
+            ShowPopup(deck, session, Loc.GetString("hacking-session-timeout"), Shared.Popups.PopupType.LargeCaution);
             session.AccumulatedDamage += 15; // Timeout damage
             DisconnectHack(deck, session);
         }
@@ -116,7 +116,7 @@ public sealed class HackingSystem : EntitySystem
             if (deckComp.HackedNetworks.Contains(targetServer))
             {
                 // Already hacked! Open Admin Panel directly.
-                _popup.PopupEntity("СЕРВЕР УЖЕ ВЗЛОМАН: Root доступ получен.", user, user);
+                _popup.PopupEntity(Loc.GetString("hacking-server-already-hacked"), deck, user, Shared.Popups.PopupType.MediumCaution);
                 _ui.OpenUi(targetServer, NetServerUiKey.Key, user);
                 // Also play a success sound to indicate authorized access
                 _audio.PlayPvs("/Audio/Machines/machine_switch.ogg", deck);
@@ -126,7 +126,7 @@ public sealed class HackingSystem : EntitySystem
         }
 
         // Show generic Hacking Popup
-        _popup.PopupEntity("Начинается последовательность взлома...", user, user);
+        _popup.PopupEntity(Loc.GetString("hacking-sequence-start"), deck, user);
 
         // Log
         _adminLog.Add(LogType.Action, LogImpact.Medium, $"{ToPrettyString(user)} started hacking {ToPrettyString(targetDevice)} (Server: {ToPrettyString(targetServer)})");
@@ -171,7 +171,7 @@ public sealed class HackingSystem : EntitySystem
             {
                 // Apply penalty for unsafe disconnect
                 session.AccumulatedDamage += 15;
-                ShowPopup(uid, session, "АВАРИЙНЫЙ РАЗРЫВ!", Shared.Popups.PopupType.LargeCaution);
+                ShowPopup(uid, session, Loc.GetString("hacking-emergency-disconnect"), Shared.Popups.PopupType.LargeCaution);
                 _adminLog.Add(LogType.Action, LogImpact.Medium, $"{ToPrettyString(session.User)} manually disconnected from hacking {ToPrettyString(session.TargetServer)}");
                 DisconnectHack(uid, session);
             }
@@ -208,7 +208,7 @@ public sealed class HackingSystem : EntitySystem
         // Check RAM cost - disconnect with 15 Heat if insufficient
         if (component.CurrentRam < program.RamCost)
         {
-            ShowPopup(uid, session, "КРИТИЧЕСКАЯ ОШИБКА: Недостаточно RAM! Экстренное отключение!", Shared.Popups.PopupType.LargeCaution);
+            ShowPopup(uid, session, Loc.GetString("hacking-critical-error-ram"), Shared.Popups.PopupType.LargeCaution);
             session.AccumulatedDamage += 15; // Fixed 15 Heat for RAM failure
             _adminLog.Add(LogType.Action, LogImpact.Medium, $"{ToPrettyString(session.User)} disconnected from hacking {ToPrettyString(session.TargetServer)} due to insufficient RAM");
             DisconnectHack(uid, session);
@@ -226,7 +226,7 @@ public sealed class HackingSystem : EntitySystem
             if (TryComp<MetaDataComponent>(programEnt, out var meta) &&
                 meta.EntityName.Contains("Backdoor", StringComparison.OrdinalIgnoreCase))
             {
-                ShowPopup(uid, session, "Бэкдор активирован. Безопасное отключение.", Shared.Popups.PopupType.Medium);
+                ShowPopup(uid, session, Loc.GetString("hacking-backdoor-activated"), Shared.Popups.PopupType.Medium);
                 _adminLog.Add(LogType.Action, LogImpact.Medium, $"{ToPrettyString(session.User)} used a backdoor to safely disconnect from hacking {ToPrettyString(session.TargetServer)}");
                 SafeDisconnect(uid, session);
                 return;
@@ -253,7 +253,7 @@ public sealed class HackingSystem : EntitySystem
             {
                 if (ice.IceType != NetIceType.Gate)
                 {
-                    ShowPopup(uid, session, "ОШИБКА: Breach работает только на Gate ЛЁД!", Shared.Popups.PopupType.MediumCaution);
+                    ShowPopup(uid, session, Loc.GetString("hacking-error-breach-gate-only"), Shared.Popups.PopupType.MediumCaution);
                     return;
                 }
             }
@@ -266,12 +266,12 @@ public sealed class HackingSystem : EntitySystem
             ice.CurrentHealth -= damageDealt;
 
             // Visual feedback
-            ShowPopup(uid, session, $"Нанесено {damageDealt} урона");
+            ShowPopup(uid, session, Loc.GetString("hacking-damage-dealt", ("damage", damageDealt)));
             _adminLog.Add(LogType.Action, LogImpact.Medium, $"{ToPrettyString(session.User)} used {ToPrettyString(programEnt)} dealing {damageDealt} damage to {ToPrettyString(iceEnt.Value)} on {ToPrettyString(session.TargetServer)}");
 
             if (ice.CurrentHealth <= 0)
             {
-                ShowPopup(uid, session, "ЛЁД уничтожен!", Shared.Popups.PopupType.Large);
+                ShowPopup(uid, session, Loc.GetString("hacking-ice-destroyed"), Shared.Popups.PopupType.Large);
                 _adminLog.Add(LogType.Action, LogImpact.Medium, $"{ToPrettyString(session.User)} destroyed {ToPrettyString(iceEnt.Value)} on {ToPrettyString(session.TargetServer)}");
                 session.PasswordAttempts = 0;
                 session.CurrentIceSlotIndex++;
@@ -302,7 +302,7 @@ public sealed class HackingSystem : EntitySystem
     /// </summary>
     private void SafeDisconnect(EntityUid deck, HackingSession session)
     {
-        ShowPopup(deck, session, "Соединение безопасно завершено.");
+        ShowPopup(deck, session, Loc.GetString("hacking-safe-disconnect"));
         _sessions.Remove(deck);
         _ui.CloseUi(deck, HackingUiKey.Key, session.User);
     }
@@ -317,12 +317,12 @@ public sealed class HackingSystem : EntitySystem
         if (ramDamage > 0)
         {
             deckComp.CurrentRam = Math.Max(0, deckComp.CurrentRam - ramDamage);
-            ShowPopup(deck, session, $"ICE атакует! -{ramDamage} RAM", Shared.Popups.PopupType.MediumCaution);
+            ShowPopup(deck, session, Loc.GetString("hacking-ice-attack", ("ram", ramDamage)), Shared.Popups.PopupType.MediumCaution);
             _adminLog.Add(LogType.Action, LogImpact.Medium, $"{ToPrettyString(ice.Owner)} dealt {ramDamage} RAM damage to {ToPrettyString(session.User)} on {ToPrettyString(session.TargetServer)}");
         }
         else
         {
-            ShowPopup(deck, session, "Щит заблокировал атаку ICE!");
+            ShowPopup(deck, session, Loc.GetString("hacking-shield-blocked"));
         }
 
         // Accumulate physical damage (applied on disconnect)
@@ -335,7 +335,7 @@ public sealed class HackingSystem : EntitySystem
                 // Sentry has chance to disconnect
                 if (_random.Prob(ice.DisconnectChance))
                 {
-                    ShowPopup(deck, session, "SENTRY ЛОКАУТ! Отключение от сети!", Shared.Popups.PopupType.LargeCaution);
+                    ShowPopup(deck, session, Loc.GetString("hacking-sentry-lockout"), Shared.Popups.PopupType.LargeCaution);
                     _adminLog.Add(LogType.Action, LogImpact.Medium, $"{ToPrettyString(session.User)} disconnected by SENTRY ICE from {ToPrettyString(session.TargetServer)}");
                     DisconnectHack(deck, session);
                     return;
@@ -354,7 +354,7 @@ public sealed class HackingSystem : EntitySystem
         // Check if RAM depleted
         if (deckComp.CurrentRam <= 0)
         {
-            ShowPopup(deck, session, "RAM исчерпан! Соединение потеряно!", Shared.Popups.PopupType.LargeCaution);
+            ShowPopup(deck, session, Loc.GetString("hacking-ram-depleted"), Shared.Popups.PopupType.LargeCaution);
             DisconnectHack(deck, session);
         }
     }
@@ -375,7 +375,7 @@ public sealed class HackingSystem : EntitySystem
             {
                 if (ice.Password == args.Passphrase)
                 {
-                    ShowPopup(uid, session, "Доступ разрешен.", Shared.Popups.PopupType.Medium);
+                    ShowPopup(uid, session, Loc.GetString("hacking-access-granted"), Shared.Popups.PopupType.Medium);
                     session.PasswordAttempts = 0; // Reset for next Gate
                     session.CurrentIceSlotIndex++;
                     var nextIce = GetActiveIce(session);
@@ -392,13 +392,13 @@ public sealed class HackingSystem : EntitySystem
 
                     if (remaining <= 0)
                     {
-                        ShowPopup(uid, session, "ДОСТУП ЗАПРЕЩЕН! Превышено количество попыток. ЛОКАУТ!", Shared.Popups.PopupType.LargeCaution);
+                        ShowPopup(uid, session, Loc.GetString("hacking-access-denied-lockout"), Shared.Popups.PopupType.LargeCaution);
                         DisconnectHack(uid, session);
                         return;
                     }
                     else
                     {
-                        ShowPopup(uid, session, $"Доступ запрещен. Осталось попыток: {remaining}.", Shared.Popups.PopupType.MediumCaution);
+                        ShowPopup(uid, session, Loc.GetString("hacking-access-denied-remaining", ("remaining", remaining)), Shared.Popups.PopupType.MediumCaution);
                     }
                 }
             }
@@ -480,7 +480,7 @@ public sealed class HackingSystem : EntitySystem
 
         var state = new HackingBoundUiState(
             GetNetEntity(session.TargetServer),
-            $"Floor {session.CurrentIceSlotIndex + 1}",
+            Loc.GetString("hacking-ui-floor", ("floor", session.CurrentIceSlotIndex + 1)),
             iceName,
             iceHealth,
             iceMax,
@@ -548,7 +548,7 @@ public sealed class HackingSystem : EntitySystem
 
     private void CompleteHack(EntityUid deck, HackingSession session)
     {
-        _popup.PopupEntity("SYSTEM BYPASSED. ROOT ACCESS GRANTED.", deck, session.User, Shared.Popups.PopupType.Large);
+        ShowPopup(deck, session, Loc.GetString("hacking-system-bypassed"), Shared.Popups.PopupType.Large);
         // No damage on success!
         _sessions.Remove(deck);
         _ui.CloseUi(deck, HackingUiKey.Key, session.User);
@@ -562,7 +562,7 @@ public sealed class HackingSystem : EntitySystem
             if (deckComp.HackedNetworks.Add(session.TargetServer))
             {
                 // New network hacked!
-                _popup.PopupEntity("ROOT ACCESS GRANTED. KEYS SAVED.", deck, session.User, Shared.Popups.PopupType.Large);
+                ShowPopup(deck, session, Loc.GetString("hacking-root-access-saved"), Shared.Popups.PopupType.Large);
             }
 
             Dirty(deck, deckComp);

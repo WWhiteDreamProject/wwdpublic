@@ -5,6 +5,8 @@
   description: Консоль для мониторинга клиентов платиновой подписки.
   components:
   - type: TraumaComputer
+  - type: CitiNetMap
+    visibleGroups: ["Public", "TraumaTeam"]
   - type: ActivatableUI
     key: enum.TraumaComputerUiKey.Key
   - type: UserInterface
@@ -13,10 +15,10 @@
         type: TraumaComputerBoundUserInterface
 
 - type: entity
-  id: NCComputerPalletConsole
   parent: BaseComputerAiAccess
-  name: cargo sale computer x2
-  description: Used to sell goods loaded onto cargo pallets.
+  id: ComputerOverwatch
+  name: диспетчерская консоль Overwatch
+  description: Консоль, используемая сетью Overwatch NCPD; отображает оповещения о выстрелах и взрывах.
   components:
   - type: Sprite
     layers:
@@ -25,33 +27,33 @@
     - map: ["computerLayerKeyboard"]
       state: generic_keyboard
     - map: ["computerLayerScreen"]
-      state: transfer
+      state: security
     - map: ["computerLayerKeys"]
       state: generic_keys
     - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
       state: generic_panel_open
-  - type: Anchorable
-    flags:
-    - Anchorable
-  - type: CargoPalletConsole
-  - type: ActivatableUI
-    key: enum.CargoPalletConsoleUiKey.Sale
-  - type: UserInterface
-    interfaces:
-      enum.CargoPalletConsoleUiKey.Sale:
-        type: CargoPalletConsoleBoundUserInterface
-      enum.WiresUiKey.Key:
-        type: WiresBoundUserInterface
-  - type: Computer
-    board: NCComputerPalletConsoleCircuitboard
   - type: PointLight
     radius: 1.5
     energy: 1.6
-    color: "#b89f25"
-  - type: GuideHelp
-    guides:
-    - Cargo
-  - type: CargoSellModifier
-    multiplier: 2.0
-
-
+    color: "#1f8c28"
+  - type: Computer
+    board: StationRecordsComputerCircuitboard
+  - type: ActivatableUI
+    key: enum.OverwatchConsoleUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.OverwatchConsoleUiKey.Key:
+        type: OverwatchConsoleBoundUserInterface
+      enum.SurveillanceCameraMonitorUiKey.Key:
+        type: SurveillanceCameraMonitorBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  - type: SurveillanceCameraMonitor
+  - type: OverwatchConsole
+  - type: CitiNetMap
+    visibleGroups: ["Public", "NCPD"]
+  - type: AccessReader
+    access:
+      - ["NCPD"]
+  - type: ApcPowerReceiver
+    powerLoad: 1000

@@ -1,0 +1,17 @@
+- type: entity
+  parent: BaseItem
+  id: CitiNetMapCartridge
+  name: CitiNet Map cartridge
+  description: A program for layered tactical map visualization.
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/cartridge.rsi
+    state: cart-nav
+  - type: Cartridge
+    programName: citinet-map-program-name
+    icon:
+      sprite: Interface/Misc/program_icons.rsi
+      state: nano_task # Placeholder icon until we have a proper one
+  - type: UIFragment
+    ui: !type:CitiNetMapUi
+  - type: CitiNetMapCartridge

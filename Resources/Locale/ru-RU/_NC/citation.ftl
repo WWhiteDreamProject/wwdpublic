@@ -1,0 +1,26 @@
+citation-popup-self = Нельзя оштрафовать самого себя
+citation-popup-suspended = УЧЕТНАЯ ЗАПИСЬ ПРИОСТАНОВЛЕНА
+citation-popup-cooldown = ЦЕЛЬ УЖЕ ОШТРАФОВАНА НЕДАВНО. Ждите { $minutes }м { $seconds }с
+citation-ui-unknown = Неизвестный
+citation-ui-unknown-card = Неизвестная карта
+citation-popup-unconscious = Подозреваемый без сознания! Снимите ID-карту
+citation-popup-sent = Запрос отправлен
+citation-popup-refused-cop = ОТКАЗ В ОПЛАТЕ
+citation-popup-refused-target = Вы отказались от штрафа
+citation-popup-owner-not-found = Не удалось установить владельца карты
+citation-popup-owner-not-on-server = Владелец карты не найден на сервере
+citation-popup-pin-cracked = Банковский пин-код взломан
+citation-popup-insufficient-funds-cop = НЕДОСТАТОЧНО СРЕДСТВ
+citation-popup-insufficient-funds-target = Недостаточно средств на счете
+citation-job-officer = Офицер
+citation-log-forced = ПРИНУДИТЕЛЬНОЕ СПИСАНИЕ
+citation-log-share = ДОЛЯ NCPD: +{ $amount } эдди
+citation-popup-success-cop = ОПЛАТА УСПЕШНА: +{ $amount } Эдди комиссии
+citation-popup-success-target = Вы оплатили штраф: { $amount } Эдди
+
+citation-paper-title = --- КВИТАНЦИЯ NCPD ---
+citation-paper-officer = ОФИЦЕР: { $officer }
+citation-paper-suspect = НАРУШИТЕЛЬ: { $suspect }
+citation-paper-amount = СУММА: { $amount } Эдди
+citation-paper-reason = ПРИЧИНА: { $reason }
+citation-paper-status = СТАТУС: ОПЛАЧЕНО

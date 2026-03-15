@@ -12,7 +12,9 @@ using Content.Shared.Roles;
 using Robust.Shared.Prototypes;
 using Content.Shared.Roles.Jobs;
 using Content.Shared.Mind; // Необходим для работы с MindSystem
+using Content.Shared.Ghost;
 using Content.Server.Popups;
+using Robust.Shared.Localization;
 
 namespace Content.Server._NC.Bank
 {
@@ -52,25 +54,35 @@ namespace Content.Server._NC.Bank
 
         private void OnStationBankInit(EntityUid uid, StationBankComponent component, MapInitEvent args)
         {
-            // Инициализируем дефолтные счета, если их нет
-            EnsureAccount(component, SectorBankAccount.CityAdmin);
-            EnsureAccount(component, SectorBankAccount.TraumaTeam);
-            EnsureAccount(component, SectorBankAccount.Militech);
-            EnsureAccount(component, SectorBankAccount.Biotechnica);
+            EnsureDefaultAccounts(component);
         }
 
-        private void EnsureAccount(StationBankComponent component, SectorBankAccount account)
+        public StationBankComponent EnsureStationBank(EntityUid stationUid)
+        {
+            var bank = EnsureComp<StationBankComponent>(stationUid);
+            EnsureDefaultAccounts(bank);
+            return bank;
+        }
+
+        private void EnsureDefaultAccounts(StationBankComponent component)
+        {
+            EnsureAccount(component, SectorBankAccount.CityAdmin, 0, 0);
+            EnsureAccount(component, SectorBankAccount.TraumaTeam, 10000, 5);
+            EnsureAccount(component, SectorBankAccount.Militech, 25000, 8);
+            EnsureAccount(component, SectorBankAccount.Biotechnica, 15000, 6);
+            EnsureAccount(component, SectorBankAccount.Ncpd, 5000, 0);
+        }
+        private void EnsureAccount(StationBankComponent component, SectorBankAccount account, int defaultBalance, int defaultIncrease)
         {
             if (!component.Accounts.ContainsKey(account))
             {
                 component.Accounts[account] = new StationBankAccountInfo
                 {
-                    Balance = 10000, // Стартовый капитал
-                    IncreasePerSecond = 5 // Пассивный доход
+                    Balance = defaultBalance,
+                    IncreasePerSecond = defaultIncrease
                 };
             }
         }
-
         /// <summary>
         /// Выполняется каждый тик. Отсчитывает время до зарплаты и начисляет доход фракциям.
         /// </summary>
@@ -118,7 +130,7 @@ namespace Content.Server._NC.Bank
         {
             if (amount <= 0) return false;
 
-            if (!TryComp<StationBankComponent>(stationUid, out var bank)) return false;
+            var bank = EnsureStationBank(stationUid);
             if (!bank.Accounts.TryGetValue(accountType, out var account)) return false;
 
             if (account.Balance < amount) return false;
@@ -135,35 +147,17 @@ namespace Content.Server._NC.Bank
         {
             if (amount <= 0) return false;
 
-            if (!TryComp<StationBankComponent>(stationUid, out var bank)) return false;
+            var bank = EnsureStationBank(stationUid);
 
-            // Если счета нет - создадим (или вернем false, зависит от логики)
-            // Здесь лучше вернуть false или создать. Допустим, создаем если нет.
-            if (!bank.Accounts.TryGetValue(accountType, out var account))
-            {
-                EnsureAccount(bank, accountType);
-                account = bank.Accounts[accountType];
-            }
+            if (!bank.Accounts.TryGetValue(accountType, out var account)) return false;
 
             account.Balance += amount;
             Dirty(stationUid, bank);
             return true;
         }
 
-        /// <summary>
-        /// Массовая выдача зарплат всем игрокам.
-        /// </summary>
         private void ProcessPayday()
         {
-            // ... (rest of ProcessPayday implementation remains the same, assuming it was correct before)
-            // But I am replacing the whole file content block potentially or just the init/update part.
-            // Wait, I am using ReplaceFileContent targetting the WHOLE file structure logic?
-            // The prompt says "ReplacementContent".
-            // I should be careful not to delete existing methods if I use "ReplaceFileContent" with a range.
-            // Let's replace from Initialize() down to before ProcessPayday and update ProcessPayday inside standard context if needed.
-            // Actually, I can replace Initialize and Update methods specifically.
-
-            // Retaining original ProcessPayday logic...
             _log.Info("PAYDAY: Начало начисления зарплат...");
             int count = 0;
 
@@ -172,13 +166,16 @@ namespace Content.Server._NC.Bank
                 if (session.Status != SessionStatus.InGame || session.AttachedEntity is not { Valid: true } playerUid)
                     continue;
 
+                if (HasComp<GhostComponent>(playerUid))
+                    continue;
+
                 int salary = GetSalaryForPlayer(playerUid);
 
                 if (TryBankDeposit(playerUid, salary))
                 {
                     count++;
 
-                    _popupSystem.PopupEntity($"Зарплата: +{salary} эдди.", playerUid, playerUid);
+                    _popupSystem.PopupEntity(Loc.GetString("bank-payday-message", ("amount", salary)), playerUid, playerUid);
                 }
             }
 
@@ -270,3 +267,8 @@ namespace Content.Server._NC.Bank
         }
     }
 }
+
+
+
+
+

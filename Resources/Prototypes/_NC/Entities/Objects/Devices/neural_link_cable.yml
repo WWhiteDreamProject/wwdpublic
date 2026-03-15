@@ -1,0 +1,12 @@
+﻿- type: entity
+  id: NeuralLinkCable
+  name: Нейро-транслятор
+  parent: BaseItem
+  description: "Нейроинтерфейс, позволяющий подключаться к нейрочипу умершего и получить доступ к его логам. Требует осторожного обращения из-за чувствительности к повреждениям."
+  components:
+  - type: Sprite
+    sprite: Objects/Tools/cable-coil.rsi
+    state: coil
+  - type: Item
+    size: Small
+  - type: NeuralLinkCable

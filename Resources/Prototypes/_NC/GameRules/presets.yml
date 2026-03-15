@@ -2,8 +2,8 @@
   id: City
   alias:
   - aldente
-  name: City Life
-  description: A peaceful mode for roleplay. No antagonists, no random events.
+  name: Путь в никуда
+  description: Режим для ролевой игры. Без антагонистов и случайных событий.
   showInVote: true
   supportedMaps: NCMapPool
   rules:

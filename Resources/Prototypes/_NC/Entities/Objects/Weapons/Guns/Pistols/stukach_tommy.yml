@@ -59,7 +59,7 @@
         ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
         whitelist:
           tags:
-          - MagazinePistol
+          - MagazinePistolStukach
 
   # DualAmmoProvider — два режима: пистолет и дробовик
   - type: DualAmmoProvider

@@ -21,12 +21,12 @@
         Piercing: 55
   - type: Sprite
     layers:
-    - state: magnum
+    - state: piercing
       shader: unshaded
 
 - type: entity
   id: Bullet622mmCaseless
-  name: пуля (6.22мм безгильзовая)
+  name: пуля (6.22мм, безгильзовая)
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -47,8 +47,9 @@
         Piercing: 150
         Structural: 400
   - type: Sprite
+    scale: 1.2, 1.2
     layers:
-    - state: antimat
+    - state: slug
       shader: unshaded
 
 - type: entity
@@ -62,7 +63,7 @@
       types:
         Piercing: 75
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Projectiles/arrows.rsi
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
     layers:
     - state: bolt
       shader: unshaded

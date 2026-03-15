@@ -139,11 +139,11 @@ public sealed class NCWeaponAssemblySystem : EntitySystem
         {
             // Уничтожаем деталь, так как она встроилась в чертеж
             QueueDel(usedUid);
-            _popup.PopupEntity("✔ Деталь установлена.", user);
+            _popup.PopupEntity(Loc.GetString("nc-assembly-popup-part-installed"), user);
         }
         else
         {
-            _popup.PopupEntity("✔ Инструмент применён.", user);
+            _popup.PopupEntity(Loc.GetString("nc-assembly-popup-tool-applied"), user);
         }
 
         blueprint.CurrentStep++;
@@ -151,7 +151,7 @@ public sealed class NCWeaponAssemblySystem : EntitySystem
         // Проверяем, завершена ли сборка
         if (blueprint.CurrentStep >= blueprint.Steps.Count)
         {
-            _popup.PopupEntity("Сборка успешно завершена!", user);
+            _popup.PopupEntity(Loc.GetString("nc-assembly-popup-success"), user);
 
             if (!string.IsNullOrEmpty(blueprint.ResultEntityId))
             {
@@ -165,7 +165,7 @@ public sealed class NCWeaponAssemblySystem : EntitySystem
 
     private void FailAssembly(EntityUid blueprintUid, EntityUid usedUid, EntityUid user, string garbageId)
     {
-        _popup.PopupEntity("☠ ФАТАЛЬНАЯ ОШИБКА СБОРКИ! Запчасти уничтожены!", user);
+        _popup.PopupEntity(Loc.GetString("nc-assembly-popup-failure"), user);
 
         var coords = Transform(user).Coordinates;
 

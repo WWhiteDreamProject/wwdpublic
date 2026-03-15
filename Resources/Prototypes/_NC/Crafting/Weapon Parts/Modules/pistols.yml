@@ -14,7 +14,7 @@
       state: icon
     - type: NCBlueprint
       resultEntity: WeaponPistolHelloCutie
-      garbageEntity: Scrap
+      garbageEntity: Wrench
       steps:
         - part: Frame
           prototype: NCProcessedFrameT1
@@ -42,7 +42,7 @@
       state: icon
     - type: NCBlueprint
       resultEntity: WeaponPistolOverlord
-      garbageEntity: Scrap
+      garbageEntity: Wrench
       steps:
         - part: Frame
           prototype: NCProcessedFrameT1
@@ -70,7 +70,7 @@
       state: icon
     - type: NCBlueprint
       resultEntity: WeaponPistolStukachTommy
-      garbageEntity: Scrap
+      garbageEntity: Wrench
       steps:
         - part: Frame
           prototype: NCProcessedFrameT2
@@ -101,7 +101,7 @@
       state: icon
     - type: NCBlueprint
       resultEntity: WeaponPistolStreetMaster
-      garbageEntity: Scrap
+      garbageEntity: Wrench
       steps:
         - part: Frame
           prototype: NCProcessedFrameT1
@@ -129,7 +129,7 @@
       state: icon
     - type: NCBlueprint
       resultEntity: WeaponPistolAvenger
-      garbageEntity: Scrap
+      garbageEntity: Wrench
       steps:
         - part: Frame
           prototype: NCProcessedFrameT2

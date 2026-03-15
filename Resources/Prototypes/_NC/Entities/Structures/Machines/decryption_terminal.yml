@@ -1,8 +1,8 @@
 - type: entity
   id: NCDecryptionTerminal
   parent: BaseComputer
-  name: Decryption Terminal
-  description: Device for decrypting data disks and removing ICE protections.
+  name: Терминал дешифровки технологий
+  description: Терминал для дешифровки украденных технологий. Вставьте носитель данных, чтобы попытаться расшифровать информацию. Успех не гарантирован, и может повредить носитель данных, но может раскрыть ценную информацию о технологиях, которые можно использовать для создания новых предметов.
   components:
   - type: Sprite
     noRot: true

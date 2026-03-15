@@ -9,4 +9,94 @@
     Sulfur:
       amount: 1
   products:
-    Gunpowder: 3
+    GunpowderNC: 3
+
+- type: reaction
+  id: YeastNC
+  name: Дрожжи
+  reactants:
+    Sugar:
+      amount: 1
+    Water:
+      amount: 1
+    Nutriment:
+      amount: 1
+  products:
+    Yeast: 3
+  minTemp: 329
+
+- type: reaction
+  id: NeuroStimNC
+  name: НейроСтим
+  reactants:
+    TranexamicAcid:
+      amount: 1
+    MindbreakerToxin:
+      amount: 1
+    GreyMatter:
+      amount: 1
+    WhiteMatter:
+      amount: 1
+  products:
+    NeuroStim: 4
+
+- type: reaction
+  id: PrimeTimeNC
+  name: Прайм Тайм
+  reactants:
+    NeuroStim:
+      amount: 1
+    UnstableMutagen:
+      amount: 1
+  products:
+    PrimeTime: 2
+
+- type: reaction
+  id: SixGunNC
+  name: Шестистволка
+  reactants:
+    Potassium:
+      amount: 1
+    Mercury:
+      amount: 1
+    NeuroStim:
+      amount: 1
+  products:
+    SixGun: 3
+
+- type: reaction
+  id: NitroPolymerNC
+  name: Нитро-полимер
+  reactants:
+    SulfuricAcid:
+      amount: 1
+    BioEthanol:
+      amount: 1
+    Plastic:
+      amount: 2
+  products:
+    NitroPolymer: 2
+    SulfuricAcid: 1
+  minTemp: 389
+
+- type: reaction
+  id: BioEthanolCornNC
+  name: Био-этанол (Кукурузный)
+  reactants:
+    Yeast:
+      amount: 1
+    CornSmoothie:
+      amount: 2
+  products:
+    BioEthanol: 1
+
+- type: reaction
+  id: BioEthanolWheatNC
+  name: Био-этанол (Пшеничный)
+  reactants:
+    Yeast:
+      amount: 1
+    WheatSmoothie:
+      amount: 2
+  products:
+    BioEthanol: 1

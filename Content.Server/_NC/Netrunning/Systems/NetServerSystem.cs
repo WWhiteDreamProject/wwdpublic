@@ -209,7 +209,7 @@ public sealed class NetServerSystem : EntitySystem
                 if (!slotName.StartsWith("ice_slot_"))
                     continue;
 
-                string itemName = "Пусто";
+                string itemName = Loc.GetString("net-server-ui-empty-slot");
                 NetIceType iceType = NetIceType.Gate; // Default
                 bool hasIce = false;
                 string password = "";

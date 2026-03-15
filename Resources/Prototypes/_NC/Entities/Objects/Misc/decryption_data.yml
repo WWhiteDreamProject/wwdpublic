@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseItem
   id: NCRawDataBase
-  name: Raw Data Disk
-  description: Unprocessed carrier with encrypted data points.
+  name: Диск с необработанными данными
+  description: "Диск, содержащий необработанные данные, извлеченные из различных источников. Требуется оцифровка для выгрузки в тех-принтере."
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi

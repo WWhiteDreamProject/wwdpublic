@@ -1,0 +1,24 @@
+- type: entity
+  id: NcpdTablet
+  parent: BaseItem
+  name: тактический планшет NCPD
+  description: Планшет для получения оперативных сводок и координации групп NCPD.
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/pda.rsi
+    state: pda-security
+    layers:
+    - state: pda-security
+  - type: Item
+    size: Small
+  - type: NcpdTablet
+  - type: CitiNetMap
+    visibleGroups: ["Public", "NCPD"]
+  - type: ActivatableUI
+    key: enum.NcpdTabletUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.NcpdTabletUiKey.Key:
+        type: NcpdTabletBoundUserInterface
+  - type: AccessReader
+    access: [["NCPD"]]

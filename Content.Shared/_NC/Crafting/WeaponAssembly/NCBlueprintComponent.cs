@@ -71,5 +71,5 @@ public sealed partial class NCBlueprintComponent : Component
     /// Сущность (мусор), которая появится при ошибке сборки.
     /// </summary>
     [DataField("garbageEntity")]
-    public string GarbageEntityId = "Wrench"; // Заглушка, желательно заменить на "Scrap"
+    public string GarbageEntityId = "Wrench";
 }

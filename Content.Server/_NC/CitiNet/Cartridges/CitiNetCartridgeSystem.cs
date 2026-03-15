@@ -316,7 +316,7 @@ public sealed class CitiNetCartridgeSystem : EntitySystem
             ? $"X:{coords.Value.X:F0} Y:{coords.Value.Y:F0}"
             : "[N/A]";
 
-        var sysMsg = new CitiNetCallMessage(_timing.CurTime, "SYSTEM",
+        var sysMsg = new CitiNetCallMessage(_timing.CurTime, Loc.GetString("citinet-sender-system"),
             Loc.GetString("citinet-call-ping-location", ("sender", senderName), ("coords", coordText)), true);
 
         var targetUid = ent.Comp.ActiveChatTarget.Value;
@@ -365,7 +365,7 @@ public sealed class CitiNetCartridgeSystem : EntitySystem
             ? Loc.GetString("citinet-flatline-dead", ("name", ownerName))
             : Loc.GetString("citinet-flatline-critical", ("name", ownerName));
 
-        var flatlineMsg = new CitiNetCallMessage(_timing.CurTime, "FLATLINE", stateText, true);
+        var flatlineMsg = new CitiNetCallMessage(_timing.CurTime, Loc.GetString("citinet-sender-flatline"), stateText, true);
 
         // Добавляем в общую историю группы
         cartridge.Value.Comp.GroupMessages.Add(flatlineMsg);

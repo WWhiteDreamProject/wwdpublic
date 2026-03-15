@@ -29,7 +29,7 @@ citinet-call-incoming = Входящий вызов от {$caller}...
 citinet-call-ringing = Вызов {$target}...
 citinet-call-flatline = FLATLINE — {$name} ликвидирован
 citinet-flatline-dead = FLATLINE — {$name} убит
-citinet-flatline-critical = ⚠ КРИТИЧЕСКОЕ — {$name} при смерти
+citinet-flatline-critical = КРИТИЧЕСКОЕ — {$name} при смерти
 citinet-call-active = Соединение — {$target}
 citinet-call-no-relay = [color=red]Нет сигнала — CitiNet Relay оффлайн[/color]
 citinet-call-ping-location = {$sender} отправил координаты: {$coords}
@@ -60,3 +60,6 @@ citinet-burner-chip-destroyed = Одноразовый чип уничтожен
 # CitiNet Relay
 citinet-relay-name = CitiNet Relay
 citinet-relay-description = Локальный городской узел связи. Маршрутизирует гражданские коммуникации — звонки и BBS-каналы. Требует питания.
+
+citinet-sender-system = СИСТЕМА
+citinet-sender-flatline = FLATLINE

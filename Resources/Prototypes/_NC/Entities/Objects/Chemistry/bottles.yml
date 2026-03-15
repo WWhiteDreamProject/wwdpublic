@@ -1,0 +1,107 @@
+- type: entity
+  parent: BaseChemistryBottleFilled
+  id: YeastChemistryBottle
+  name: мензурка (дрожжи)
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: Yeast
+          Quantity: 30
+
+- type: entity
+  parent: BaseChemistryBottleFilled
+  id: CornSmoothieChemistryBottle
+  name: мензурка (кукурузный смузи)
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: CornSmoothie
+          Quantity: 30
+
+- type: entity
+  parent: BaseChemistryBottleFilled
+  id: WheatSmoothieChemistryBottle
+  name: мензурка (пшеничный смузи)
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: WheatSmoothie
+          Quantity: 30
+
+- type: entity
+  parent: BaseChemistryBottleFilled
+  id: WhiteMatterChemistryBottle
+  name: мензурка (белое вещество)
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: WhiteMatter
+          Quantity: 30
+
+- type: entity
+  parent: BaseChemistryBottleFilled
+  id: NeuroStimChemistryBottle
+  name: мензурка (нейростим)
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: NeuroStim
+          Quantity: 30
+
+- type: entity
+  parent: BaseChemistryBottleFilled
+  id: PrimeTimeChemistryBottle
+  name: мензурка (прайм тайм)
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: PrimeTime
+          Quantity: 30
+
+- type: entity
+  parent: BaseChemistryBottleFilled
+  id: SixGunChemistryBottle
+  name: мензурка (шестистволка)
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: SixGun
+          Quantity: 30
+
+- type: entity
+  parent: BaseChemistryBottleFilled
+  id: NitroPolymerChemistryBottle
+  name: мензурка (нитро-полимер)
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: NitroPolymer
+          Quantity: 30
+
+- type: entity
+  parent: BaseChemistryBottleFilled
+  id: BioEthanolChemistryBottle
+  name: мензурка (био-этанол)
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        reagents:
+        - ReagentId: BioEthanol
+          Quantity: 30

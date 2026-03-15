@@ -1,0 +1,27 @@
+- type: entity
+  id: MapSectorAnchor
+  name: Map Sector Anchor
+  suffix: CitiNet
+  components:
+  - type: Transform
+    anchored: true
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.4"
+        hard: false # So people can walk through it
+  - type: Sprite
+    sprite: Markers/cross.rsi
+    state: cross
+    drawdepth: SmallObjects
+  - type: MapSector
+    name: "New Sector"
+    color: "#ff00ff44"
+    bounds: "-10, -10, 10, 10"
+    visibleInWorld: true

@@ -10,6 +10,7 @@ namespace Content.Shared._NC.Bank
         TraumaTeam = 2,  
         Militech = 3,     
         Biotechnica = 4, 
+        Ncpd = 5,
         // Добавляйте новые по мере необходимости
     }
 }

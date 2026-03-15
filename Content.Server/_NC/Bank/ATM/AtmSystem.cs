@@ -13,6 +13,7 @@ using Robust.Shared.IoC;
 using Robust.Shared.Prototypes;
 using System.Linq;
 using System.Runtime.InteropServices;
+using Robust.Shared.Localization;
 
 namespace Content.Server._NC.Bank.ATM
 {
@@ -69,7 +70,7 @@ namespace Content.Server._NC.Bank.ATM
             // 1. Просто проверяем, что карта есть (как ключ)
             if (!IsIdCardInserted(uid))
             {
-                _popupSystem.PopupEntity("Вставьте карту для авторизации!", uid, player);
+                _popupSystem.PopupEntity(Loc.GetString("atm-popup-insert-card-auth"), uid, player);
                 return;
             }
 
@@ -79,12 +80,12 @@ namespace Content.Server._NC.Bank.ATM
                 var cash = Spawn(CurrencyPrototypeId, Transform(uid).Coordinates);
                 _stackSystem.SetCount(cash, args.Amount);
 
-                _popupSystem.PopupEntity($"Выдано {args.Amount}$", uid, player);
+                _popupSystem.PopupEntity(Loc.GetString("atm-popup-withdraw-success", ("amount", args.Amount)), uid, player);
                 UpdateUi(uid, component);
             }
             else
             {
-                _popupSystem.PopupEntity("Недостаточно средств на счете!", uid, player);
+                _popupSystem.PopupEntity(Loc.GetString("atm-popup-insufficient-funds"), uid, player);
             }
         }
 
@@ -96,7 +97,7 @@ namespace Content.Server._NC.Bank.ATM
             // 1. Проверяем наличие карты
             if (!IsIdCardInserted(uid))
             {
-                _popupSystem.PopupEntity("Вставьте карту!", uid, player);
+                _popupSystem.PopupEntity(Loc.GetString("atm-popup-insert-card"), uid, player);
                 return;
             }
 
@@ -114,7 +115,7 @@ namespace Content.Server._NC.Bank.ATM
 
             if (finalDeposit <= 0)
             {
-                _popupSystem.PopupEntity("Сумма слишком мала.", uid, player);
+                _popupSystem.PopupEntity(Loc.GetString("atm-popup-amount-too-small"), uid, player);
                 return;
             }
 
@@ -123,7 +124,7 @@ namespace Content.Server._NC.Bank.ATM
             {
                 PayTaxToStation(uid, tax);
 
-                _popupSystem.PopupEntity($"Зачислено: {finalDeposit}$ (Налог: {tax}$)", uid, player);
+                _popupSystem.PopupEntity(Loc.GetString("atm-popup-deposit-success", ("amount", finalDeposit), ("tax", tax)), uid, player);
                 QueueDel(item);
                 UpdateUi(uid, component);
             }
@@ -155,7 +156,7 @@ namespace Content.Server._NC.Bank.ATM
 
         private void UpdateUiForUser(EntityUid uid, AtmComponent component, EntityUid user)
         {
-            string accountName = "Нет карты";
+            string accountName = Loc.GetString("atm-ui-no-card");
             int balance = 0;
             bool isCardInserted = false;
             int depositAmount = 0;
