@@ -100,12 +100,17 @@ namespace Content.Server._NC.Dispatch
                     SpawnTicket(uid, alert);
                     break;
                 case OverwatchAlertAction.Archive:
+                    _dispatchSystem.RemoveCallBySource($"overwatch_{msg.AlertId}");
                     comp.ActiveAlerts.Remove(msg.AlertId);
                     break;
                 case OverwatchAlertAction.DispatchToTablet:
+                    if (alert.Dispatched)
+                        break;
+
                     var camUid = EntityManager.GetEntity(alert.CameraUid);
                     var coords = Transform(camUid).Coordinates;
-                    _dispatchSystem.AddCall(alert.Type, alert.Sector, $"Alert from {alert.CameraName}", GetNetCoordinates(coords));
+                    _dispatchSystem.AddCall(alert.Type, alert.Sector, Loc.GetString("nspd-call-desc-camera", ("name", alert.CameraName)), GetNetCoordinates(coords), $"overwatch_{msg.AlertId}");
+                    alert.Dispatched = true;
                     break;
             }
 
@@ -115,7 +120,7 @@ namespace Content.Server._NC.Dispatch
         private void SpawnTicket(EntityUid uid, OverwatchAlertData alert)
         {
             // spawn a physical dispatch ticket and put a description on it
-            var ticket = EntityManager.SpawnEntity("DispatchCallTicket", Transform(uid).Coordinates);
+            var ticket = EntityManager.SpawnEntity("Paper", Transform(uid).Coordinates);
             if (TryComp<PaperComponent>(ticket, out var paper))
             {
                 var content = Loc.GetString("overwatch-ticket-content",

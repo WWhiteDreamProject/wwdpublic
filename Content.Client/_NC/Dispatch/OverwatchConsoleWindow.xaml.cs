@@ -30,6 +30,7 @@ namespace Content.Client._NC.Dispatch
             public Button ConnectBtn = default!;
             public Button PrintBtn = default!;
             public Button ArchiveBtn = default!;
+            public Button DispatchBtn = default!;
             public int AlertId;
         }
 
@@ -97,15 +98,15 @@ namespace Content.Client._NC.Dispatch
             row.ConnectBtn = new Button { Text = "Смотреть", MinWidth = 70 };
             row.PrintBtn = new Button { Text = "Печать", MinWidth = 60 };
             row.ArchiveBtn = new Button { Text = "Архив", MinWidth = 60 };
-            var dispatchBtn = new Button { Text = "В Планшет", MinWidth = 80, Modulate = Color.FromHex("#4DD0E1") };
+            row.DispatchBtn = new Button { Text = "В Планшет", MinWidth = 80, Modulate = Color.FromHex("#4DD0E1") };
 
             row.ConnectBtn.OnPressed += _ => OnAlertAction?.Invoke(id, OverwatchAlertAction.ConnectCamera);
             row.PrintBtn.OnPressed += _ => OnAlertAction?.Invoke(id, OverwatchAlertAction.PrintTicket);
             row.ArchiveBtn.OnPressed += _ => OnAlertAction?.Invoke(id, OverwatchAlertAction.Archive);
-            dispatchBtn.OnPressed += _ => OnAlertAction?.Invoke(id, OverwatchAlertAction.DispatchToTablet);
+            row.DispatchBtn.OnPressed += _ => OnAlertAction?.Invoke(id, OverwatchAlertAction.DispatchToTablet);
 
             actions.AddChild(row.ConnectBtn);
-            actions.AddChild(dispatchBtn);
+            actions.AddChild(row.DispatchBtn);
             actions.AddChild(row.PrintBtn);
             actions.AddChild(row.ArchiveBtn);
 
@@ -121,6 +122,19 @@ namespace Content.Client._NC.Dispatch
             row.TypeLabel.Text = alert.Type;
             row.SectorLabel.Text = alert.Sector;
             row.CameraLabel.Text = alert.CameraName;
+
+            if (alert.Dispatched)
+            {
+                row.DispatchBtn.Disabled = true;
+                row.DispatchBtn.Text = "Отправлено";
+                row.DispatchBtn.Modulate = Color.Gray;
+            }
+            else
+            {
+                row.DispatchBtn.Disabled = false;
+                row.DispatchBtn.Text = "В Планшет";
+                row.DispatchBtn.Modulate = Color.FromHex("#4DD0E1");
+            }
 
             if (row.Panel.Parent != _alertList)
             {

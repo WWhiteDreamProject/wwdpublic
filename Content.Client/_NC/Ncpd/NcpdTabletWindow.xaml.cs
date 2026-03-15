@@ -51,7 +51,7 @@ namespace Content.Client._NC.Ncpd
                 var playerPos = xform.LocalPosition;
                 NavMap.MapBeacons.Add(new CitiNetMapBeaconData(
                     entManager.GetNetEntity(player.Value),
-                    "YOU",
+                    Loc.GetString("nspd-tablet-self-label"),
                     null,
                     Color.FromHex("#00E5FF"),
                     playerPos,

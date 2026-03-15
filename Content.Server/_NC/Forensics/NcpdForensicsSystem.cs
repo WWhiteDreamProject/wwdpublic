@@ -60,15 +60,38 @@ public sealed class NcpdForensicsSystem : EntitySystem
         switch (msg.Action)
         {
             case NcpdForensicsAlertAction.DispatchToTablet:
+                if (alert.Dispatched)
+                    break;
+
                 var mapCoords = new MapCoordinates(alert.X, alert.Y, _transformSystem.GetMapCoordinates(uid).MapId);
                 var netCoords = GetNetCoordinates(_transformSystem.ToCoordinates(mapCoords));
-                _dispatchSystem.AddCall("Flatline Alert", alert.Location, $"Victim: {alert.Victim}", netCoords);
+                _dispatchSystem.AddCall(Loc.GetString("nspd-call-type-flatline"), alert.Location, Loc.GetString("nspd-call-desc-victim", ("name", alert.Victim)), netCoords, $"forensics_{msg.AlertIndex}");
+                
+                alert.Dispatched = true;
+                station.Alerts[msg.AlertIndex] = alert; // Update the struct in list
                 break;
             case NcpdForensicsAlertAction.PrintTicket:
-                var call = new NcpdCallData(0, "Flatline Alert", alert.Location, $"Victim: {alert.Victim}", default, alert.Time);
+                var call = new NcpdCallData(0, Loc.GetString("nspd-call-type-flatline"), alert.Location, Loc.GetString("nspd-call-desc-victim", ("name", alert.Victim)), default, alert.Time);
                 _dispatchSystem.SpawnDispatchTicket(uid, call);
                 break;
         }
+        UpdateConsoleUi(uid); 
+    }
+
+    private void UpdateConsoleUi(EntityUid uid)
+    {
+        var stationUid = _stationSystem.GetOwningStation(uid);
+        if (stationUid == null && _stationSystem.GetStationsSet().Count > 0)
+        {
+            stationUid = _stationSystem.GetStationsSet().First();
+        }
+
+        if (stationUid == null)
+            return;
+
+        var alerts = EnsureComp<NcpdForensicsStationComponent>(stationUid.Value).Alerts;
+        var state = new NcpdForensicsConsoleBuiState(new List<ForensicsAlertData>(alerts));
+        _uiSystem.SetUiState(uid, NcpdForensicsConsoleUiKey.Key, state);
     }
 
     private void OnMobStateChanged(MobStateChangedEvent args)
@@ -115,18 +138,7 @@ public sealed class NcpdForensicsSystem : EntitySystem
 
     private void OnConsoleOpened(EntityUid uid, NcpdForensicsConsoleComponent component, BoundUIOpenedEvent args)
     {
-        var stationUid = _stationSystem.GetOwningStation(uid);
-        if (stationUid == null && _stationSystem.GetStationsSet().Count > 0)
-        {
-            stationUid = _stationSystem.GetStationsSet().First();
-        }
-
-        if (stationUid == null)
-            return;
-
-        var alerts = EnsureComp<NcpdForensicsStationComponent>(stationUid.Value).Alerts;
-        var state = new NcpdForensicsConsoleBuiState(new List<ForensicsAlertData>(alerts));
-        _uiSystem.SetUiState(uid, NcpdForensicsConsoleUiKey.Key, state);
+        UpdateConsoleUi(uid);
     }
 }
 

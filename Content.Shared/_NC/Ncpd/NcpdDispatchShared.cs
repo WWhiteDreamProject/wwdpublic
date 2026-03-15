@@ -19,8 +19,9 @@ namespace Content.Shared._NC.Ncpd
         public string Description;
         public NetCoordinates Coordinates;
         public TimeSpan CreatedTime;
+        public string SourceId;
 
-        public NcpdCallData(int id, string title, string sector, string description, NetCoordinates coordinates, TimeSpan createdTime)
+        public NcpdCallData(int id, string title, string sector, string description, NetCoordinates coordinates, TimeSpan createdTime, string sourceId = "")
         {
             Id = id;
             Title = title;
@@ -28,6 +29,7 @@ namespace Content.Shared._NC.Ncpd
             Description = description;
             Coordinates = coordinates;
             CreatedTime = createdTime;
+            SourceId = sourceId;
         }
     }
 

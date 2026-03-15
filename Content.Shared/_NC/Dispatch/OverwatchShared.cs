@@ -23,10 +23,10 @@ namespace Content.Shared._NC.Dispatch
         public string Sector;
         public string CameraName;
         public string TimeStr;
-
         public NetEntity CameraUid;
+        public bool Dispatched;
 
-        public OverwatchAlertData(int id, string type, string sector, string cameraName, string timeStr, NetEntity cameraUid)
+        public OverwatchAlertData(int id, string type, string sector, string cameraName, string timeStr, NetEntity cameraUid, bool dispatched = false)
         {
             Id = id;
             Type = type;
@@ -34,6 +34,7 @@ namespace Content.Shared._NC.Dispatch
             CameraName = cameraName;
             TimeStr = timeStr;
             CameraUid = cameraUid;
+            Dispatched = dispatched;
         }
     }
 

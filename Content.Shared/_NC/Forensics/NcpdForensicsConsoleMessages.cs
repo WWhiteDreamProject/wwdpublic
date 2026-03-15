@@ -50,4 +50,5 @@ public struct ForensicsAlertData
     public float X;
     public float Y;
     public TimeSpan Time;
+    public bool Dispatched;
 }

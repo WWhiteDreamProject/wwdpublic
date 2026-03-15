@@ -46,22 +46,5 @@
           components:
           - Gun
 
-- type: entity
-  id: DispatchCallTicket
-  parent: BaseItem
-  name: Тикет вызова
-  description: "Бланк для выдачи патрулю. Содержит информацию по тревоге."
-  components:
-  - type: Sprite
-    sprite: Objects/Misc/bureaucracy.rsi
-    layers:
-    - state: paper
-    - state: paper_words
-      map: ["enum.PaperVisualLayers.Writing"]
-      visible: false
-    - state: paper_stamp-generic
-      map: ["enum.PaperVisualLayers.Stamp"]
-      visible: false
-  - type: Paper
-    content: ""
+
 

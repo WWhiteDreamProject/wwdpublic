@@ -42,6 +42,13 @@ public sealed class NcpdForensicsConsoleWindow : DefaultWindow
             var dispatchBtn = new Button { Text = "В Планшет", Modulate = Color.FromHex("#4DD0E1") };
             var printBtn = new Button { Text = "Печать" };
 
+            if (alert.Dispatched)
+            {
+                dispatchBtn.Disabled = true;
+                dispatchBtn.Text = "Отправлено";
+                dispatchBtn.Modulate = Color.Gray;
+            }
+
             dispatchBtn.OnPressed += _ => OnAlertAction?.Invoke(index, NcpdForensicsAlertAction.DispatchToTablet);
             printBtn.OnPressed += _ => OnAlertAction?.Invoke(index, NcpdForensicsAlertAction.PrintTicket);
 

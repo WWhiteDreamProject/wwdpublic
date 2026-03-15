@@ -63,21 +63,35 @@ namespace Content.Server._NC.Ncpd
             UpdateTabletUi(uid, component);
         }
 
-        public void AddCall(string title, string sector, string description, NetCoordinates coordinates)
+        public void AddCall(string title, string sector, string description, NetCoordinates coordinates, string sourceId = "")
         {
+            // If already dispatched, ignore (safety check)
+            if (!string.IsNullOrEmpty(sourceId) && _activeCalls.Any(c => c.SourceId == sourceId))
+                return;
+
             var call = new NcpdCallData(
                 _nextCallId++,
                 title,
                 sector,
                 description,
                 coordinates,
-                _timing.CurTime
+                _timing.CurTime,
+                sourceId
             );
 
             _activeCalls.Add(call);
             if (_activeCalls.Count > 20)
                 _activeCalls.RemoveAt(0);
 
+            UpdateAllTablets();
+        }
+
+        public void RemoveCallBySource(string sourceId)
+        {
+            if (string.IsNullOrEmpty(sourceId))
+                return;
+
+            _activeCalls.RemoveAll(c => c.SourceId == sourceId);
             UpdateAllTablets();
         }
 
@@ -139,18 +153,18 @@ namespace Content.Server._NC.Ncpd
 
         public void SpawnDispatchTicket(EntityUid consoleUid, NcpdCallData call)
         {
-            var ticket = EntityManager.SpawnEntity("DispatchCallTicket", Transform(consoleUid).Coordinates);
+            var ticket = EntityManager.SpawnEntity("Paper", Transform(consoleUid).Coordinates);
             if (TryComp<PaperComponent>(ticket, out var paper))
             {
-                paper.Content = $"NCPD DISPATCH TICKET\n" +
+                paper.Content = $"{Loc.GetString("nspd-dispatch-ticket-title")}\n" +
                                 $"-------------------\n" +
-                                $"CASE ID: #{call.Id}\n" +
-                                $"TYPE: {call.Title}\n" +
-                                $"SECTOR: {call.Sector}\n" +
-                                $"TIME: {call.CreatedTime.ToString(@"hh\:mm\:ss")}\n" +
-                                $"DETAILS: {call.Description}\n" +
+                                $"{Loc.GetString("nspd-dispatch-ticket-case")}{call.Id}\n" +
+                                $"{Loc.GetString("nspd-dispatch-ticket-type")}{call.Title}\n" +
+                                $"{Loc.GetString("nspd-dispatch-ticket-sector")}{call.Sector}\n" +
+                                $"{Loc.GetString("nspd-dispatch-ticket-time")}{call.CreatedTime.ToString(@"hh\:mm\:ss")}\n" +
+                                $"{Loc.GetString("nspd-dispatch-ticket-details")}{call.Description}\n" +
                                 $"-------------------\n" +
-                                $"SIGNED: DISPATCHER";
+                                $"{Loc.GetString("nspd-dispatch-ticket-sign")}";
                 Dirty(ticket, paper);
             }
         }

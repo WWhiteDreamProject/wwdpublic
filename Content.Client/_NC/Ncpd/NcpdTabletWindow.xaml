@@ -4,7 +4,7 @@
                     xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     x:Class="Content.Client._NC.Ncpd.NcpdTabletWindow"
-                    Title="NCPD Tactical Terminal"
+                    Title="{Loc 'nspd-tablet-window-title'}"
                     MinSize="900 650"
                     SetSize="950 700">
     <BoxContainer Orientation="Vertical" Margin="4">
@@ -13,7 +13,7 @@
             <PanelContainer.PanelOverride>
                 <gfx:StyleBoxFlat BackgroundColor="#0a2a2f" BorderColor="#4DD0E1" BorderThickness="1"/>
             </PanelContainer.PanelOverride>
-            <Label Name="TitleLabel" Text="NCPD DISPATCH TERMINAL v4.0" FontColorOverride="#4DD0E1" StyleClasses="LabelBig" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Label Name="TitleLabel" Text="{Loc 'nspd-tablet-header'}" FontColorOverride="#4DD0E1" StyleClasses="LabelBig" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </PanelContainer>
 
         <BoxContainer Orientation="Horizontal" VerticalExpand="True">
@@ -23,7 +23,7 @@
                     <gfx:StyleBoxFlat BackgroundColor="#091316" BorderColor="#14606E" BorderThickness="1"/>
                 </PanelContainer.PanelOverride>
                 <BoxContainer Orientation="Vertical" Margin="8">
-                    <Label Text="ACTIVE DISPATCH CALLS" FontColorOverride="#00E5FF" HorizontalAlignment="Center" Margin="0 0 0 8"/>
+                    <Label Text="{Loc 'nspd-tablet-active-calls'}" FontColorOverride="#00E5FF" HorizontalAlignment="Center" Margin="0 0 0 8"/>
                     <ScrollContainer VerticalExpand="True">
                         <BoxContainer Name="CallListContainer" Orientation="Vertical" HorizontalExpand="True"/>
                     </ScrollContainer>
@@ -39,18 +39,18 @@
                     </PanelContainer.PanelOverride>
                     <BoxContainer Name="CallDetailsContainer" Orientation="Vertical" Margin="8" Visible="False">
                         <BoxContainer Orientation="Horizontal">
-                            <Label Text="CASE: " FontColorOverride="#00E5FF" StyleClasses="LabelHeading"/>
+                            <Label Text="{Loc 'nspd-tablet-case-label'}" FontColorOverride="#00E5FF" StyleClasses="LabelHeading"/>
                             <Label Name="CallTitleLabel" FontColorOverride="#FFFFFF" StyleClasses="LabelHeading"/>
                         </BoxContainer>
                         <BoxContainer Orientation="Horizontal">
-                            <Label Text="SECTOR: " FontColorOverride="#4DD0E1"/>
+                            <Label Text="{Loc 'nspd-tablet-sector-label'}" FontColorOverride="#4DD0E1"/>
                             <Label Name="CallSectorLabel" FontColorOverride="#FFFFFF"/>
                         </BoxContainer>
                         <Label Name="CallDescriptionLabel" VerticalExpand="True" Margin="0 2 0 0" />
-                        <Button Name="ClearCallBtn" Text="CLEAR CASE" Modulate="#FF5252" HorizontalAlignment="Right" Margin="0 4 0 0"/>
+                        <Button Name="ClearCallBtn" Text="{Loc 'nspd-tablet-clear-btn'}" Modulate="#FF5252" HorizontalAlignment="Right" Margin="0 4 0 0"/>
                     </BoxContainer>
                     <BoxContainer Name="NoCallContainer" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <Label Text="SELECT A CALL FROM THE LIST" FontColorOverride="#9E9E9E"/>
+                        <Label Text="{Loc 'nspd-tablet-no-selection'}" FontColorOverride="#9E9E9E"/>
                     </BoxContainer>
                 </PanelContainer>
 
