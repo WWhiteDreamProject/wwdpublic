@@ -13,7 +13,7 @@
     - state: getto_unlit
       shader: unshaded
       map: ["enum.PowerDeviceVisualLayers.Powered"]
-    - state: getto_inserting
+    - state: inserting
       map: ["enum.MaterialStorageVisualLayers.Inserting"]
     - state: getto_panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]

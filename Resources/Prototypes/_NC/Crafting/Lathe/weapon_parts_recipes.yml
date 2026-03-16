@@ -12,6 +12,7 @@
   - NCBlankInternalsEM
   - NCBlankElectronicsCircuit
   - NCBlankElectronicsNeuro
+  - NCBlankDrive
 
 
 # ==========================================
@@ -107,3 +108,11 @@
     Glass: 1000
     Gold: 200
     Plastic: 300
+
+- type: latheRecipe
+  id: NCBlankDrive
+  result: NCBlankDrive
+  comms: true
+  materials:
+    Plasteel: 1500
+    Gold: 500
