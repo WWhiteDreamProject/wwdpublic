@@ -248,11 +248,13 @@
       jobs:
         - Borg
         - MedicalBorg
-    - !type:CharacterSpeciesRequirement
-      inverted: true
-      species:
-        - Felinid
-        - Tajaran
+# WWDP EDIT START
+#    - !type:CharacterSpeciesRequirement
+#      inverted: true
+#      species:
+#        - Felinid
+#        - Tajaran
+# WWDP EDIT END
     - !type:CharacterTraitRequirement
       inverted: true
       traits:
