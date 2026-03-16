@@ -89,3 +89,11 @@ ent-FoodPizzaUranium = острая каменная пицца
 ent-FoodPizzaUraniumSlice = кусок острой каменной пиццы
     .desc = Светящийся кусок острой каменной пиццы.
     .suffix = { "" }
+
+ent-FoodPizzaCotton = хлопковая пицца
+    .desc = Плоское хлопковое тесто с хлопковой начинкой. Невероятно.
+    .suffix = { "" }
+
+ent-FoodPizzaCottonSlice = кусок хлопковой пиццы
+    .desc = Кусок хлопковой пиццы. Хлопок включён в комплект.
+    .suffix = { "" }

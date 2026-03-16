@@ -93,3 +93,19 @@ ent-FoodBakedCannoli = канноли
 ent-FoodBakedGrilledCheeseSandwich = сэндвич с жареным сыром
     .desc = Хлеб и сыр, поджаренные с маслом, идеально подходят для холодного дня в космосе.
     .suffix = { "" }
+
+ent-FoodBakedCroissantCotton = хлопковый круассан
+    .desc = Маслянистый, слоеный, волокнистый вкус.
+    .suffix = { "" }
+
+ent-FoodBakedChevreChaudCotton = горячий хлопковый шевр
+    .desc = Кружок слегка расплавленного козьего сыра на хлопковом тосте, подрумяненный со всех сторон.
+    .suffix = { "" }
+
+ent-FoodBakedMuffinBanana = банановый кекс
+    .desc = Вкусный и воздушный банановый кекс.
+    .suffix = { "" }
+
+ent-FoodBakedMuffinChocolate = шоколадный кекс
+    .desc = Вкусный и воздушный шоколадный кекс.
+    .suffix = { "" }
