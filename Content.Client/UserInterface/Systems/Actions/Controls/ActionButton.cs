@@ -197,7 +197,7 @@ public sealed class ActionButton : Control, IEntityControl
 
         if (_action is { Charges: not null })
         {
-            var charges = FormattedMessage.FromMarkupPermissive(Loc.GetString($"Charges: {_action.Charges.Value.ToString()}/{_action.MaxCharges.ToString()}"));
+            var charges = FormattedMessage.FromMarkupPermissive(Loc.GetString("entity-generator-examine-charges", ("max", $"{_action.MaxCharges}"), ("current", $"{_action.Charges.Value}"))); // WWDP EDIT
             return new ActionAlertTooltip(name, decr, charges: charges);
         }
 
