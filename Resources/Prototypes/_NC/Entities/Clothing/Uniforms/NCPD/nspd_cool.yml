@@ -1,0 +1,10 @@
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase, BaseRestrictedContraband]
+  id: ClothingUniformNSPDCool
+  name: Форма офицера NCPD
+  description: Форма офицера NCPD
+  components:
+  - type: Sprite
+    sprite: _NC/Clothing/Uniforms/Jumpsuits/nspd_cool.rsi
+  - type: Clothing
+    sprite: _NC/Clothing/Uniforms/Jumpsuits/nspd_cool.rsi

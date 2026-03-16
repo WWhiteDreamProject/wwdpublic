@@ -1,0 +1,10 @@
+- type: entity
+  parent: [ClothingUniformBase, ClothingUniformFoldableBase, BaseRestrictedContraband]
+  id: ClothingUniformNSPDNormis
+  name: Форма патрульного NCPD
+  description: Форма патрульного NCPD
+  components:
+  - type: Sprite
+    sprite: _NC/Clothing/Uniforms/Jumpsuits/nspd_normis.rsi
+  - type: Clothing
+    sprite: _NC/Clothing/Uniforms/Jumpsuits/nspd_normis.rsi

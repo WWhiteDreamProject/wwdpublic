@@ -8,13 +8,17 @@
   description: console-compiler-desc
   components:
   - type: Sprite
-    noRot: true
-    sprite: Structures/Machines/tech_disk_printer.rsi
     layers:
     - map: ["computerLayerBody"]
-      state: icon
+      state: computer
+    - map: ["computerLayerKeyboard"]
+      state: generic_keyboard
     - map: ["computerLayerScreen"]
-      state: unshaded
+      state: tank
+    - map: ["computerLayerKeys"]
+      state: atmos_key
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
   - type: ConsoleCompiler
     printBlueprintCost: 400
     printRecipeCost: 100
