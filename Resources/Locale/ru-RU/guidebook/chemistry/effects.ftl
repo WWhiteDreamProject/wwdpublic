@@ -24,8 +24,11 @@ reagent-effect-guidebook-foam-area-reaction-effect = { -create-3rd-person(chance
 reagent-effect-guidebook-smoke-area-reaction-effect = { -create-3rd-person(chance: $chance) } большое количество [color=#A0B8C8]дыма[/color]
 reagent-effect-guidebook-satiate-thirst =
     { -satiate-3rd-person(chance: $chance) } { $relative ->
-        [1] [color=#90D8D0]жажду[/color] средне
-       *[other] [color=#90D8D0]жажду[/color] на { NATURALFIXED($relative, 3) }x от среднего
+        [1] жажду [color=#90D8D0]средне[/color]
+       *[other] жажду { $relative ->
+            [few] [color=#90D8D0]в { NATURALFIXED($relative, 3) } раза[/color]
+           *[other] [color=#90D8D0]в { NATURALFIXED($relative, 3) } раз[/color]
+        } от среднего значения
     }
 reagent-effect-guidebook-satiate-hunger =
     { -satiate-3rd-person(chance: $chance) } { $relative ->
@@ -115,7 +118,7 @@ reagent-effect-guidebook-adjust-reagent-reagent =
                 [1] добавление
                *[-1] удаление
             }
-    } { NATURALFIXED($amount, 2) }ед. [color=#80C8C8]{ $reagent }[/color] { $deltasign ->
+    } { NATURALFIXED($amount, 2) }ед. реагента [color=#80C8C8]«{ $reagent }»[/color] { $deltasign ->
         [1] в раствор
        *[-1] из раствора
     }
@@ -173,8 +176,8 @@ reagent-effect-guidebook-chem-clean-bloodstream =
     } от других химикатов
 reagent-effect-guidebook-cure-disease =
     { $chance ->
-        [1] Излечивает [color=#90D8A0]болезнь[/color]
-       *[other] излечение от [color=#90D8A0]болезни[/color]
+        [1] Исцеляет [color=#90D8A0]болезнь[/color]
+       *[other] исцеление от [color=#90D8A0]болезни[/color]
     }
 reagent-effect-guidebook-cure-eye-damage =
     { $chance ->
@@ -185,7 +188,7 @@ reagent-effect-guidebook-cure-eye-damage =
             } [color=#90C8E0]повреждения глаз[/color]
        *[other]
             { $deltasign ->
-                [1] излечение
+                [1] исцеление
                *[-1] нанесение
             } [color=#90C8E0]повреждений глаз[/color]
     }
@@ -305,8 +308,8 @@ reagent-effect-guidebook-wash-cream-pie-reaction =
     } с лица
 reagent-effect-guidebook-cure-zombie-infection =
     { $chance ->
-        [1] Вылечивает
-       *[other] излечение
+        [1] Исцеляет
+       *[other] исцеление
     } употребившего от [color=#90C890]зомби-инфекции[/color]
 reagent-effect-guidebook-cause-zombie-infection =
     { $chance ->
@@ -315,15 +318,25 @@ reagent-effect-guidebook-cause-zombie-infection =
     } употребившего [color=#90C890]зомби-инфекцией[/color]
 reagent-effect-guidebook-innoculate-zombie-infection =
     { $chance ->
-        [1] Вылечивает
-       *[other] излечение
+        [1] Исцеляет
+       *[other] исцеление
     } употребившего от [color=#90C890]зомби-инфекции[/color] и даёт иммунитет к будущим заражениям
+
+reagent-effect-guidebook-reduce-rotting =
+    { $chance ->
+        [1] Исцеляет
+        *[other] исцеление
+    } {NATURALFIXED($time, 3)} { $time ->
+        [one] секунду
+        [few] секунды
+       *[other] секунд
+    } [color=#A0C8A0]гниения[/color]
 
 reagent-effect-guidebook-plant-attribute =
     { $chance ->
-        [1] Изменяет аттрибут
-       *[other] изменение аттрибута
-    } [color=#A0D0A0]«{$attribute}»[/color] на [color={$colorName}]{$amount}[/color]
+        [1] Изменяет [color=#A0D0A0]{$attribute}[/color]
+       *[other] изменение аттрибута [color=#A0D0A0]«{$attribute}»[/color]
+    } на [color={$colorName}]{$amount}[/color]
 
 reagent-effect-guidebook-plant-cryoxadone =
     { $chance ->
