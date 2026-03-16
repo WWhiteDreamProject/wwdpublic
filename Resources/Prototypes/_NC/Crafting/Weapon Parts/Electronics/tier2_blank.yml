@@ -8,8 +8,8 @@
   parent: BaseItem
   components:
     - type: Sprite
-      sprite: Objects/Tools/wrench.rsi
-      state: icon
+      sprite: Objects/Misc/module.rsi
+      state: card_mod
     - type: NCWeaponBlank
       safeZoneHalf: 0.12
       toleranceTime: 2.2

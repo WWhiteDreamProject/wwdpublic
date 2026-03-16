@@ -6,7 +6,7 @@
   parent: BaseItem
   components:
     - type: Sprite
-      sprite: Objects/Tools/wrench.rsi
-      state: icon
+      sprite: Objects/Misc/stock_parts.rsi
+      state: scan_module
     - type: NCWeaponPart
       partType: Board

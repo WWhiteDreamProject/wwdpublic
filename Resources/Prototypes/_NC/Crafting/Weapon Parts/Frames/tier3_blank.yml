@@ -5,8 +5,8 @@
   parent: BaseItem
   components:
     - type: Sprite
-      sprite: Objects/Tools/wrench.rsi
-      state: icon
+      sprite: Objects/Materials/Sheets/metal.rsi
+      state: plastitanium_3
     - type: NCWeaponBlank
       safeZoneHalf: 0.08
       toleranceTime: 1.7

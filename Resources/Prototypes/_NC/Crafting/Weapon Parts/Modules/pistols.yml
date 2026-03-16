@@ -1,11 +1,11 @@
 # ============================
-# Чертежи Пистолетов (Pistols)
+# Модули Пистолетов (Pistols)
 # ============================
 
 # Hello Cutie (Tier 1)
 - type: entity
   id: NCBlueprintHelloCutie
-  name: чертеж "Hello Cutie"
+  name: модуль "Hello Cutie"
   description: Диск с инструкциями по сборке и физический каркас под детали для пистолета Hello Cutie.
   parent: BaseItem
   components:
@@ -33,7 +33,7 @@
 # Overlord (Tier 1)
 - type: entity
   id: NCBlueprintOverlord
-  name: чертеж "Overlord"
+  name: модуль "Overlord"
   description: Диск с инструкциями по сборке и физический каркас под детали для ручной пушки Overlord.
   parent: BaseItem
   components:
@@ -61,7 +61,7 @@
 # Стукач Томми (Tier 2)
 - type: entity
   id: NCBlueprintStukachTommy
-  name: чертеж "Стукач Томми"
+  name: модуль "Стукач Томми"
   description: Диск с инструкциями по сборке и физический каркас под детали для комбинированного пистолета Стукач Томми.
   parent: BaseItem
   components:
@@ -92,7 +92,7 @@
 # Dai Lung StreetMaster (Tier 1)
 - type: entity
   id: NCBlueprintStreetMaster
-  name: чертеж "Dai Lung StreetMaster"
+  name: модуль "Dai Lung StreetMaster"
   description: Диск с инструкциями по сборке и физический каркас под детали для тяжелого пистолета StreetMaster.
   parent: BaseItem
   components:
@@ -120,7 +120,7 @@
 # Militech Avenger (Tier 2)
 - type: entity
   id: NCBlueprintAvenger
-  name: чертеж "Militech Avenger"
+  name: модуль "Militech Avenger"
   description: Диск с инструкциями по сборке и физический каркас под детали для пистолета Militech Avenger.
   parent: BaseItem
   components:

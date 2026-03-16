@@ -5,7 +5,7 @@
   parent: BaseItem
   components:
     - type: Sprite
-      sprite: Objects/Tools/wrench.rsi
-      state: icon
+      sprite: DeltaV/Objects/Misc/modular_trigger.rsi
+      state: base
     - type: NCWeaponPart
       partType: Internals

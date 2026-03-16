@@ -5,7 +5,7 @@
   parent: BaseItem
   components:
     - type: Sprite
-      sprite: Objects/Tools/wrench.rsi
+      sprite: Objects/Misc/modular_receiver.rsi
       state: icon
     - type: NCWeaponPart
       partType: Barrel

@@ -9,8 +9,8 @@
   parent: BaseItem
   components:
     - type: Sprite
-      sprite: Objects/Tools/wrench.rsi
-      state: icon
+      sprite: Objects/Misc/stock_parts.rsi
+      state: micro_mani
     - type: NCWeaponBlank
       safeZoneHalf: 0.15
       toleranceTime: 1.5

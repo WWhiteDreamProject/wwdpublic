@@ -5,7 +5,7 @@
   parent: BaseItem
   components:
     - type: Sprite
-      sprite: Objects/Tools/wrench.rsi
-      state: icon
+      sprite: DeltaV/Objects/Misc/modular_breech.rsi
+      state: base
     - type: NCWeaponPart
       partType: Frame
