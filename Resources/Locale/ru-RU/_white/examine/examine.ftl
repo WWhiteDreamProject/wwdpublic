@@ -46,7 +46,7 @@ shoes-examine-selfaware = - [bold]{$item}[/bold] на ваших ногах.
 comp-hands-examine-empty-selfaware = Вы ничего не держите.
 comp-hands-examine-selfaware = Вы держите { $items }.
 
-humanoid-appearance-component-examine-selfaware = Вы - { $species } { $age }.
+humanoid-appearance-component-examine-selfaware = Вы - { $species } { $age }, позиционируете себя как «{CAPITALIZE(SUBJECT($ent))}».
 
 # Description examine wrapper
 
@@ -54,5 +54,5 @@ humanoid-appearance-component-examine-selfaware = Вы - { $species } { $age }.
 
 examine-entity-description-wrapper = [font size=11][italic][color=SlateGray]{ $description }[/color][/italic][/font]
 
-examine-handcuffed = [color=orange]{CAPITALIZE(POSS-ADJ($ent))} руки связаны![/color]
-examine-handcuffed-selfaware = [color=orange]Ваши руки связаны![/color]
+examine-handcuffed = [color=#7d91ff]{CAPITALIZE(POSS-ADJ($ent))} руки связаны![/color]
+examine-handcuffed-selfaware = [color=#7d91ff]Ваши руки связаны![/color]
