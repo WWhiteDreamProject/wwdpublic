@@ -10,7 +10,6 @@ using Content.Client.Sprite;
 using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Controls;
 using Content.Client.UserInterface.Systems.Guidebook;
-using Content.Shared._EE.Contractors.Prototypes;
 using Content.Shared._White.CCVar;
 using Content.Shared._White.Humanoid.Prototypes;
 using Content.Shared.CCVar;
@@ -97,11 +96,6 @@ namespace Content.Client.Lobby.UI
 
         private List<SpeciesPrototype> _species = new();
         private List<BodyTypePrototype> _bodyTypes = new(); // WD EDIT
-        // EE - Contractor System Changes Start
-        private List<NationalityPrototype> _nationalies = new();
-        private List<EmployerPrototype> _employers = new();
-        private List<LifepathPrototype> _lifepaths = new();
-        // EE - Contractor System Changes End
 
         private Dictionary<Button, ConfirmationData> _confirmationData = new();
         private List<TraitPreferenceSelector> _traitPreferences = new();
@@ -335,42 +329,6 @@ namespace Content.Client.Lobby.UI
 
             #endregion Species
 
-            #region Contractors
-
-            if(_cfgManager.GetCVar(CCVars.ContractorsEnabled))
-            {
-                Background.Orphan();
-                CTabContainer.AddTab(Background, Loc.GetString("humanoid-profile-editor-background-tab"));
-
-                RefreshNationalities();
-                RefreshEmployers();
-                RefreshLifepaths();
-
-                NationalityButton.OnItemSelected += args =>
-                {
-                    NationalityButton.SelectId(args.Id);
-                    SetNationality(_nationalies[args.Id].ID);
-                };
-
-                EmployerButton.OnItemSelected += args =>
-                {
-                    EmployerButton.SelectId(args.Id);
-                    SetEmployer(_employers[args.Id].ID);
-                };
-
-                LifepathButton.OnItemSelected += args =>
-                {
-                    LifepathButton.SelectId(args.Id);
-                    SetLifepath(_lifepaths[args.Id].ID);
-                };
-            }
-            else
-            {
-                Background.Visible = false;
-            }
-
-            #endregion Contractors
-
             #region Height and Width
 
             var prototype = _species.Find(x => x.ID == Profile?.Species) ?? _species.First();
@@ -571,12 +529,12 @@ namespace Content.Client.Lobby.UI
 
             #endregion Jobs
 
+            /*
             #region Antags
-
             Antags.Orphan();
             CTabContainer.AddTab(Antags, Loc.GetString("humanoid-profile-editor-antags-tab"));
-
             #endregion Antags
+            */
 
             #region Traits
 
@@ -710,191 +668,191 @@ namespace Content.Client.Lobby.UI
                 SetSpecies(SharedHumanoidAppearanceSystem.DefaultSpecies);
         }
 
-                public void RefreshNationalities()
-        {
-            NationalityButton.Clear();
-            _nationalies.Clear();
+        // public void RefreshNationalities()
+        // {
+        //     NationalityButton.Clear();
+        //     _nationalies.Clear();
 
-            _nationalies.AddRange(_prototypeManager.EnumeratePrototypes<NationalityPrototype>()
-                .Where(o => _characterRequirementsSystem.CheckRequirementsValid(o.Requirements,
-                    _controller.GetPreferredJob(Profile ?? HumanoidCharacterProfile.DefaultWithSpecies()),
-                    Profile ?? HumanoidCharacterProfile.DefaultWithSpecies(),
-                    _requirements.GetRawPlayTimeTrackers(),
-                    _requirements.IsWhitelisted(),
-                    o,
-                    _entManager,
-                    _prototypeManager,
-                    _cfgManager, out _)));
+        //     _nationalies.AddRange(_prototypeManager.EnumeratePrototypes<NationalityPrototype>()
+        //         .Where(o => _characterRequirementsSystem.CheckRequirementsValid(o.Requirements,
+        //             _controller.GetPreferredJob(Profile ?? HumanoidCharacterProfile.DefaultWithSpecies()),
+        //             Profile ?? HumanoidCharacterProfile.DefaultWithSpecies(),
+        //             _requirements.GetRawPlayTimeTrackers(),
+        //             _requirements.IsWhitelisted(),
+        //             o,
+        //             _entManager,
+        //             _prototypeManager,
+        //             _cfgManager, out _)));
 
-            var nationalityIds = _nationalies.Select(o => o.ID).ToList();
+        //     var nationalityIds = _nationalies.Select(o => o.ID).ToList();
 
-            for (var i = 0; i < _nationalies.Count; i++)
-            {
-                NationalityButton.AddItem(Loc.GetString(_nationalies[i].NameKey), i);
+        //     for (var i = 0; i < _nationalies.Count; i++)
+        //     {
+        //         NationalityButton.AddItem(Loc.GetString(_nationalies[i].NameKey), i);
 
-                if (Profile?.Nationality == _nationalies[i].ID)
-                    NationalityButton.SelectId(i);
-            }
+        //         if (Profile?.Nationality == _nationalies[i].ID)
+        //             NationalityButton.SelectId(i);
+        //     }
 
-            // If our nationality isn't available, reset it to default
-            if (Profile != null && !nationalityIds.Contains(Profile.Nationality))
-                SetNationality(SharedHumanoidAppearanceSystem.DefaultNationality);
+        //     // If our nationality isn't available, reset it to default
+        //     if (Profile != null && !nationalityIds.Contains(Profile.Nationality))
+        //         SetNationality(SharedHumanoidAppearanceSystem.DefaultNationality);
 
-            if(Profile != null)
-                UpdateNationalityDescription(Profile.Nationality);
-        }
+        //     if(Profile != null)
+        //         UpdateNationalityDescription(Profile.Nationality);
+        // }
 
-        public void RefreshEmployers()
-        {
-            EmployerButton.Clear();
-            _employers.Clear();
+        // public void RefreshEmployers()
+        // {
+        //     EmployerButton.Clear();
+        //     _employers.Clear();
 
-            _employers.AddRange(_prototypeManager.EnumeratePrototypes<EmployerPrototype>()
-                .Where(o => _characterRequirementsSystem.CheckRequirementsValid(o.Requirements,
-                _controller.GetPreferredJob(Profile ?? HumanoidCharacterProfile.DefaultWithSpecies()),
-                Profile ?? HumanoidCharacterProfile.DefaultWithSpecies(),
-                _requirements.GetRawPlayTimeTrackers(),
-                _requirements.IsWhitelisted(),
-                o,
-                _entManager,
-                _prototypeManager,
-                _cfgManager, out _)));
+        //     _employers.AddRange(_prototypeManager.EnumeratePrototypes<EmployerPrototype>()
+        //         .Where(o => _characterRequirementsSystem.CheckRequirementsValid(o.Requirements,
+        //         _controller.GetPreferredJob(Profile ?? HumanoidCharacterProfile.DefaultWithSpecies()),
+        //         Profile ?? HumanoidCharacterProfile.DefaultWithSpecies(),
+        //         _requirements.GetRawPlayTimeTrackers(),
+        //         _requirements.IsWhitelisted(),
+        //         o,
+        //         _entManager,
+        //         _prototypeManager,
+        //         _cfgManager, out _)));
 
-            var employerIds = _employers.Select(o => o.ID).ToList();
+        //     var employerIds = _employers.Select(o => o.ID).ToList();
 
-            for (var i = 0; i < _employers.Count; i++)
-            {
-                EmployerButton.AddItem(Loc.GetString(_employers[i].NameKey), i);
+        //     for (var i = 0; i < _employers.Count; i++)
+        //     {
+        //         EmployerButton.AddItem(Loc.GetString(_employers[i].NameKey), i);
 
-                if (Profile?.Employer == _employers[i].ID)
-                    EmployerButton.SelectId(i);
-            }
+        //         if (Profile?.Employer == _employers[i].ID)
+        //             EmployerButton.SelectId(i);
+        //     }
 
-            // If our employer isn't available, reset it to default
-            if (Profile != null && !employerIds.Contains(Profile.Employer))
-                SetEmployer(SharedHumanoidAppearanceSystem.DefaultEmployer);
+        //     // If our employer isn't available, reset it to default
+        //     if (Profile != null && !employerIds.Contains(Profile.Employer))
+        //         SetEmployer(SharedHumanoidAppearanceSystem.DefaultEmployer);
 
-            if(Profile != null)
-                UpdateEmployerDescription(Profile.Employer);
-        }
+        //     if(Profile != null)
+        //         UpdateEmployerDescription(Profile.Employer);
+        // }
 
-        public void RefreshLifepaths()
-        {
-            LifepathButton.Clear();
-            _lifepaths.Clear();
+        // public void RefreshLifepaths()
+        // {
+        //     LifepathButton.Clear();
+        //     _lifepaths.Clear();
 
-            _lifepaths.AddRange(_prototypeManager.EnumeratePrototypes<LifepathPrototype>()
-                .Where(o => _characterRequirementsSystem.CheckRequirementsValid(o.Requirements,
-                _controller.GetPreferredJob(Profile ?? HumanoidCharacterProfile.DefaultWithSpecies()),
-                Profile ?? HumanoidCharacterProfile.DefaultWithSpecies(),
-                _requirements.GetRawPlayTimeTrackers(),
-                _requirements.IsWhitelisted(),
-                o,
-                _entManager,
-                _prototypeManager,
-                _cfgManager, out _)));
+        //     _lifepaths.AddRange(_prototypeManager.EnumeratePrototypes<LifepathPrototype>()
+        //         .Where(o => _characterRequirementsSystem.CheckRequirementsValid(o.Requirements,
+        //         _controller.GetPreferredJob(Profile ?? HumanoidCharacterProfile.DefaultWithSpecies()),
+        //         Profile ?? HumanoidCharacterProfile.DefaultWithSpecies(),
+        //         _requirements.GetRawPlayTimeTrackers(),
+        //         _requirements.IsWhitelisted(),
+        //         o,
+        //         _entManager,
+        //         _prototypeManager,
+        //         _cfgManager, out _)));
 
-            var lifepathIds = _lifepaths.Select(o => o.ID).ToList();
+        //     var lifepathIds = _lifepaths.Select(o => o.ID).ToList();
 
-            for (var i = 0; i < _lifepaths.Count; i++)
-            {
-                LifepathButton.AddItem(Loc.GetString(_lifepaths[i].NameKey), i);
+        //     for (var i = 0; i < _lifepaths.Count; i++)
+        //     {
+        //         LifepathButton.AddItem(Loc.GetString(_lifepaths[i].NameKey), i);
 
-                if (Profile?.Lifepath == _lifepaths[i].ID)
-                    LifepathButton.SelectId(i);
-            }
+        //         if (Profile?.Lifepath == _lifepaths[i].ID)
+        //             LifepathButton.SelectId(i);
+        //     }
 
-            // If our lifepath isn't available, reset it to default
-            if (Profile != null && !lifepathIds.Contains(Profile.Lifepath))
-                SetLifepath(SharedHumanoidAppearanceSystem.DefaultLifepath);
+        //     // If our lifepath isn't available, reset it to default
+        //     if (Profile != null && !lifepathIds.Contains(Profile.Lifepath))
+        //         SetLifepath(SharedHumanoidAppearanceSystem.DefaultLifepath);
 
-            if(Profile != null)
-                UpdateLifepathDescription(Profile.Lifepath);
-        }
+        //     if(Profile != null)
+        //         UpdateLifepathDescription(Profile.Lifepath);
+        // }
 
-        private void UpdateNationalityDescription(string nationality)
-        {
-            var prototype = _prototypeManager.Index<NationalityPrototype>(nationality);
-            NationalityDescriptionLabel.SetMessage(Loc.GetString(prototype.DescriptionKey));
-        }
+        // private void UpdateNationalityDescription(string nationality)
+        // {
+        //     var prototype = _prototypeManager.Index<NationalityPrototype>(nationality);
+        //     NationalityDescriptionLabel.SetMessage(Loc.GetString(prototype.DescriptionKey));
+        // }
 
-        private void UpdateLifepathDescription(string lifepath)
-        {
-            var prototype = _prototypeManager.Index<LifepathPrototype>(lifepath);
-            LifepathDescriptionLabel.SetMessage(Loc.GetString(prototype.DescriptionKey));
-        }
+        // private void UpdateLifepathDescription(string lifepath)
+        // {
+        //     var prototype = _prototypeManager.Index<LifepathPrototype>(lifepath);
+        //     LifepathDescriptionLabel.SetMessage(Loc.GetString(prototype.DescriptionKey));
+        // }
 
-        private void UpdateEmployerDescription(string employer)
-        {
-            var prototype = _prototypeManager.Index<EmployerPrototype>(employer);
-            EmployerDescriptionLabel.SetMessage(Loc.GetString(prototype.DescriptionKey));
-        }
+        // private void UpdateEmployerDescription(string employer)
+        // {
+        //     var prototype = _prototypeManager.Index<EmployerPrototype>(employer);
+        //     EmployerDescriptionLabel.SetMessage(Loc.GetString(prototype.DescriptionKey));
+        // }
 
-        public void RefreshAntags()
-        {
-            AntagList.DisposeAllChildren();
-            var items = new[]
-            {
-                ("humanoid-profile-editor-antag-preference-yes-button", 0),
-                ("humanoid-profile-editor-antag-preference-no-button", 1)
-            };
-            // Causes a weird error if I just replace AntagList so whatever, have a child
-            var alt = new AlternatingBGContainer { Orientation = LayoutOrientation.Vertical, };
-            AntagList.AddChild(alt);
+        // public void RefreshAntags()
+        // {
+        //     AntagList.DisposeAllChildren();
+        //     var items = new[]
+        //     {
+        //         ("humanoid-profile-editor-antag-preference-yes-button", 0),
+        //         ("humanoid-profile-editor-antag-preference-no-button", 1)
+        //     };
+        //     // Causes a weird error if I just replace AntagList so whatever, have a child
+        //     var alt = new AlternatingBGContainer { Orientation = LayoutOrientation.Vertical, };
+        //     AntagList.AddChild(alt);
 
-            foreach (var antag in _prototypeManager.EnumeratePrototypes<AntagPrototype>().OrderBy(a => Loc.GetString(a.Name)))
-            {
-                if (!antag.SetPreference)
-                    continue;
+        //     foreach (var antag in _prototypeManager.EnumeratePrototypes<AntagPrototype>().OrderBy(a => Loc.GetString(a.Name)))
+        //     {
+        //         if (!antag.SetPreference)
+        //             continue;
 
-                var antagContainer = new BoxContainer()
-                {
-                    Orientation = LayoutOrientation.Horizontal,
-                    HorizontalExpand = true,
-                };
+        //         var antagContainer = new BoxContainer()
+        //         {
+        //             Orientation = LayoutOrientation.Horizontal,
+        //             HorizontalExpand = true,
+        //         };
 
-                var selector = new RequirementsSelector()
-                {
-                    Margin = new(3f, 3f, 3f, 0f),
-                    HorizontalExpand = true,
-                };
-                selector.OnOpenGuidebook += OnOpenGuidebook;
+        //         var selector = new RequirementsSelector()
+        //         {
+        //             Margin = new(3f, 3f, 3f, 0f),
+        //             HorizontalExpand = true,
+        //         };
+        //         selector.OnOpenGuidebook += OnOpenGuidebook;
 
-                var title = Loc.GetString(antag.Name);
-                var description = Loc.GetString(antag.Objective);
-                selector.Setup(items, title, 250, description, guides: antag.Guides);
-                selector.Select(Profile?.AntagPreferences.Contains(antag.ID) == true ? 0 : 1);
+        //         var title = Loc.GetString(antag.Name);
+        //         var description = Loc.GetString(antag.Objective);
+        //         selector.Setup(items, title, 250, description, guides: antag.Guides);
+        //         selector.Select(Profile?.AntagPreferences.Contains(antag.ID) == true ? 0 : 1);
 
-                if (!_characterRequirementsSystem.CheckRequirementsValid(
-                    _roleSystem.GetAntagRequirement(antag) ?? new(),
-                    _controller.GetPreferredJob(Profile ?? HumanoidCharacterProfile.DefaultWithSpecies()),
-                    Profile ?? HumanoidCharacterProfile.DefaultWithSpecies(),
-                    _requirements.GetRawPlayTimeTrackers(),
-                    _requirements.IsWhitelisted(),
-                    antag,
-                    _entManager,
-                    _prototypeManager,
-                    _cfgManager,
-                    out var reasons))
-                {
-                    var reason = _characterRequirementsSystem.GetRequirementsText(reasons);
-                    selector.LockRequirements(reason);
-                    Profile = Profile?.WithAntagPreference(antag.ID, false);
-                    SetDirty();
-                }
-                else
-                    selector.UnlockRequirements();
+        //         if (!_characterRequirementsSystem.CheckRequirementsValid(
+        //             _roleSystem.GetAntagRequirement(antag) ?? new(),
+        //             _controller.GetPreferredJob(Profile ?? HumanoidCharacterProfile.DefaultWithSpecies()),
+        //             Profile ?? HumanoidCharacterProfile.DefaultWithSpecies(),
+        //             _requirements.GetRawPlayTimeTrackers(),
+        //             _requirements.IsWhitelisted(),
+        //             antag,
+        //             _entManager,
+        //             _prototypeManager,
+        //             _cfgManager,
+        //             out var reasons))
+        //         {
+        //             var reason = _characterRequirementsSystem.GetRequirementsText(reasons);
+        //             selector.LockRequirements(reason);
+        //             Profile = Profile?.WithAntagPreference(antag.ID, false);
+        //             SetDirty();
+        //         }
+        //         else
+        //             selector.UnlockRequirements();
 
-                selector.OnSelected += preference =>
-                {
-                    Profile = Profile?.WithAntagPreference(antag.ID, preference == 0);
-                    SetDirty();
-                };
+        //         selector.OnSelected += preference =>
+        //         {
+        //             Profile = Profile?.WithAntagPreference(antag.ID, preference == 0);
+        //             SetDirty();
+        //         };
 
-                antagContainer.AddChild(selector);
-                alt.AddChild(antagContainer);
-            }
-        }
+        //         antagContainer.AddChild(selector);
+        //         alt.AddChild(antagContainer);
+        //     }
+        // }
 
         private void SetDirty()
         {
@@ -995,12 +953,9 @@ namespace Content.Client.Lobby.UI
             UpdateWeight();
             UpdateCharacterRequired();
 
-            RefreshAntags();
+            // RefreshAntags();
             RefreshJobs();
             RefreshSpecies();
-            RefreshNationalities();
-            RefreshEmployers();
-            RefreshLifepaths();
             RefreshFlavorText();
             ReloadPreview();
 
@@ -1430,35 +1385,35 @@ namespace Content.Client.Lobby.UI
             ReloadClothes(); // Species may have job-specific gear, reload the clothes
         }
 
-        private void SetNationality(string newNationality)
-        {
-            Profile = Profile?.WithNationality(newNationality);
-            UpdateCharacterRequired();
-            IsDirty = true;
-            ReloadProfilePreview();
-            ReloadClothes(); // Nationalities may have specific gear, reload the clothes
-            UpdateNationalityDescription(newNationality);
-        }
+        // private void SetNationality(string newNationality)
+        // {
+        //     Profile = Profile?.WithNationality(newNationality);
+        //     UpdateCharacterRequired();
+        //     IsDirty = true;
+        //     ReloadProfilePreview();
+        //     ReloadClothes(); // Nationalities may have specific gear, reload the clothes
+        //     // UpdateNationalityDescription(newNationality);
+        // }
 
-        private void SetEmployer(string newEmployer)
-        {
-            Profile = Profile?.WithEmployer(newEmployer);
-            UpdateCharacterRequired();
-            IsDirty = true;
-            ReloadProfilePreview();
-            ReloadClothes(); // Employers may have specific gear, reload the clothes
-            UpdateEmployerDescription(newEmployer);
-        }
+        // private void SetEmployer(string newEmployer)
+        // {
+        //     Profile = Profile?.WithEmployer(newEmployer);
+        //     UpdateCharacterRequired();
+        //     IsDirty = true;
+        //     ReloadProfilePreview();
+        //     ReloadClothes(); // Employers may have specific gear, reload the clothes
+        //     // UpdateEmployerDescription(newEmployer);
+        // }
 
-        private void SetLifepath(string newLifepath)
-        {
-            Profile = Profile?.WithLifepath(newLifepath);
-            UpdateCharacterRequired();
-            IsDirty = true;
-            ReloadProfilePreview();
-            ReloadClothes(); // Lifepaths may have specific gear, reload the clothes
-            UpdateLifepathDescription(newLifepath);
-        }
+        // private void SetLifepath(string newLifepath)
+        // {
+        //     Profile = Profile?.WithLifepath(newLifepath);
+        //     UpdateCharacterRequired();
+        //     IsDirty = true;
+        //     ReloadProfilePreview();
+        //     ReloadClothes(); // Lifepaths may have specific gear, reload the clothes
+        //     // UpdateLifepathDescription(newLifepath);
+        // }
 
         private void SetName(string newName)
         {
@@ -2415,9 +2370,6 @@ namespace Content.Client.Lobby.UI
 
         private void UpdateCharacterRequired()
         {
-            RefreshNationalities();
-            RefreshEmployers();
-            RefreshLifepaths();
             RefreshJobs();
             UpdateTraits(TraitsShowUnusableButton.Pressed);
         }
