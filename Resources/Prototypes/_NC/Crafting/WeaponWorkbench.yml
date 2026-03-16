@@ -1,6 +1,6 @@
 # Тестовый верстак
 - type: entity
-  name: ЧПУ-станок Найт-Сити
+  name: ЧПУ-станок
   id: NCWeaponWorkbench
   description: Высокотехнологичный станок для вытачивания деталей оружия.
   parent: BaseMachinePowered
