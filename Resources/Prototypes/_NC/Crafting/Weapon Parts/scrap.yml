@@ -1,0 +1,23 @@
+- type: entity
+  parent: BaseItem
+  id: NCWeaponScrap
+  name: бракованная деталь
+  description: Изуродованный кусок металла и пластика. Результат неудачной работы на ЧПУ-станке.
+  suffix: NC
+  components:
+  - type: Sprite
+    sprite: Objects/Materials/Scrap/generic.rsi
+    layers:
+      - state: metal-1
+        map: [ "base" ]
+  - type: RandomSprite
+    available:
+    - base:
+        metal-1: ""
+        metal-2: ""
+        metal-3: ""
+  - type: Item
+    size: Small
+  - type: Tag
+    tags:
+    - Trash

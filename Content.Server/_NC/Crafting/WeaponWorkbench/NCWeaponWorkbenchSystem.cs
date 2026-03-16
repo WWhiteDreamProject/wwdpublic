@@ -38,6 +38,7 @@ public sealed partial class NCWeaponWorkbenchSystem : EntitySystem
 
         SubscribeLocalEvent<NCWeaponWorkbenchComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<NCWeaponWorkbenchComponent, InteractUsingEvent>(OnInteractUsing);
+        SubscribeLocalEvent<NCWeaponWorkbenchComponent, InteractHandEvent>(OnInteractHand);
         SubscribeLocalEvent<NCWeaponWorkbenchComponent, PowerChangedEvent>(OnPowerChanged);
 
         // BUI messages
@@ -73,6 +74,21 @@ public sealed partial class NCWeaponWorkbenchSystem : EntitySystem
                 _uiSystem.TryOpenUi(uid, NCWeaponWorkbenchUiKey.Key, args.User);
                 UpdateUserInterface(uid, component);
             }
+        }
+    }
+
+    private void OnInteractHand(EntityUid uid, NCWeaponWorkbenchComponent component, InteractHandEvent args)
+    {
+        if (component.State != NCWeaponWorkbenchState.Idle)
+            return;
+
+        var materialContainer = (ContainerSlot) _container.GetContainer(uid, NCWeaponWorkbenchComponent.MaterialSlotId);
+
+        if (materialContainer.ContainedEntity != null)
+        {
+            _container.Remove(materialContainer.ContainedEntity.Value, materialContainer);
+            args.Handled = true;
+            UpdateUserInterface(uid, component);
         }
     }
 
@@ -351,7 +367,7 @@ public sealed partial class NCWeaponWorkbenchSystem : EntitySystem
         if (materialContainer.ContainedEntity != null)
             QueueDel(materialContainer.ContainedEntity.Value);
 
-        Spawn("Wrench", Transform(uid).Coordinates); // Заглушка-мусор
+        Spawn("NCWeaponScrap", Transform(uid).Coordinates);
 
         SetState(uid, component, NCWeaponWorkbenchState.Idle);
         UpdateUserInterface(uid, component);
@@ -368,7 +384,7 @@ public sealed partial class NCWeaponWorkbenchSystem : EntitySystem
 
         var resultId = !string.IsNullOrEmpty(component.ResultEntityId)
             ? component.ResultEntityId
-            : "Wrench";
+            : "NCWeaponScrap";
 
         Spawn(resultId, Transform(uid).Coordinates);
 

@@ -275,7 +275,8 @@ public sealed class NCWeaponWorkbenchWindow : DefaultWindow
         _alignmentSensor = new WorkbenchSensorControl(Color.Red, Color.Yellow, Color.LimeGreen, true);
         alignSensorContainer.AddChild(_alignmentSensor);
 
-        _integritySensor = new WorkbenchSensorControl(Color.Brown, Color.Yellow, Color.LimeGreen);
+        // Integrity Sensor - Инвертированные зоны (Красная снизу)
+        _integritySensor = new WorkbenchSensorControl(Color.Brown, Color.Yellow, Color.LimeGreen, false, true);
         integritySensorContainer.AddChild(_integritySensor);
 
         _materialSpriteView = new EntityPrototypeView { Scale = new Vector2(2, 2) };
@@ -415,10 +416,12 @@ public sealed class WorkbenchSensorControl : Control
     private readonly Color _warningColor;
     private readonly Color _safeColor;
     private readonly bool _isHorizontal;
+    private readonly bool _invertZones;
 
-    public WorkbenchSensorControl(Color danger, Color warning, Color safe, bool isHorizontal = false)
+    public WorkbenchSensorControl(Color danger, Color warning, Color safe, bool isHorizontal = false, bool invertZones = false)
     {
         _isHorizontal = isHorizontal;
+        _invertZones = invertZones;
         if (_isHorizontal)
         {
             MinSize = new Vector2(100, 30);
@@ -454,17 +457,33 @@ public sealed class WorkbenchSensorControl : Control
         if (!_isHorizontal)
         {
             // Рисуем рамку и зоны
-            // Опасная зона (верхние 20%, 0.8-1.0)
-            var dangerBox = new UIBox2i(rect.Left, rect.Top, rect.Right - 10, rect.Top + (int) (rect.Height * 0.2f));
-            handle.DrawRect(dangerBox, _dangerColor);
+            if (!_invertZones)
+            {
+                // Стандартное поведение (Красная сверху)
+                // Опасная зона (верхние 20%, 0.8-1.0)
+                var dangerBox = new UIBox2i(rect.Left, rect.Top, rect.Right - 10, rect.Top + (int) (rect.Height * 0.2f));
+                handle.DrawRect(dangerBox, _dangerColor);
 
-            // Зона предупреждения (0.6-0.8)
-            var warnBox = new UIBox2i(rect.Left, dangerBox.Bottom, rect.Right - 10, dangerBox.Bottom + (int) (rect.Height * 0.2f));
-            handle.DrawRect(warnBox, _warningColor);
+                // Зона предупреждения (0.6-0.8)
+                var warnBox = new UIBox2i(rect.Left, dangerBox.Bottom, rect.Right - 10, dangerBox.Bottom + (int) (rect.Height * 0.2f));
+                handle.DrawRect(warnBox, _warningColor);
 
-            // Безопасная зона (низ 0.0-0.6)
-            var safeBox = new UIBox2i(rect.Left, warnBox.Bottom, rect.Right - 10, rect.Bottom);
-            handle.DrawRect(safeBox, _safeColor);
+                // Безопасная зона (низ 0.0-0.6)
+                var safeBox = new UIBox2i(rect.Left, warnBox.Bottom, rect.Right - 10, rect.Bottom);
+                handle.DrawRect(safeBox, _safeColor);
+            }
+            else
+            {
+                // Инвертированное поведение (Красная снизу, нужно для Integrity)
+                var dangerBox = new UIBox2i(rect.Left, rect.Bottom - (int) (rect.Height * 0.2f), rect.Right - 10, rect.Bottom);
+                handle.DrawRect(dangerBox, _dangerColor);
+
+                var warnBox = new UIBox2i(rect.Left, dangerBox.Top - (int) (rect.Height * 0.2f), rect.Right - 10, dangerBox.Top);
+                handle.DrawRect(warnBox, _warningColor);
+
+                var safeBox = new UIBox2i(rect.Left, rect.Top, rect.Right - 10, warnBox.Top);
+                handle.DrawRect(safeBox, _safeColor);
+            }
 
             handle.DrawRect(new UIBox2i(rect.Left, rect.Top, rect.Right - 10, rect.Bottom), Color.White, false);
 
