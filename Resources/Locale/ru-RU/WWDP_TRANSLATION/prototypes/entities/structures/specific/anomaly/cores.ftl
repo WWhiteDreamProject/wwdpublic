@@ -1,6 +1,3 @@
-ent-BaseAnomalyCore = ядро аномалии
-    .desc = Сердцевина уничтоженного непостижимого объекта. Лучше не спрашивать, что это было.
-
 ent-AnomalyCorePyroclastic = { ent-BaseAnomalyCore }
     .desc = { ent-BaseAnomalyCore.desc }
     .suffix = { "" }
