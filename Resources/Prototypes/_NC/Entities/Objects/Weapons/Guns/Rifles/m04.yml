@@ -23,12 +23,25 @@
 
   - type: Gun
     fireRate: 5
+    angleIncrease: 6
+    angleDecay: 10
+    cameraRecoilScalar: 1
+    minAngle: 21
+    maxAngle: 45
+    bonusAngleIncreaseMove: 15
+    bonusAngleIncreaseTurn: 0.4
+    bonusAngleDecay: 40
+    maxBonusAngle: 20
     selectedMode: FullAuto
     availableModes:
     - FullAuto
     - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/batrifle.ogg
+  - type: GunWieldBonus
+    minAngle: -20
+    maxAngle: -30
+    angleDecay: 7
 
   - type: ContainerContainer
     containers:

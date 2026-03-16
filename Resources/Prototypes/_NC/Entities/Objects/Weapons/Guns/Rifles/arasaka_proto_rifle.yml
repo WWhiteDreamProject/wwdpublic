@@ -25,12 +25,25 @@
 
   - type: Gun
     fireRate: 6
+    angleIncrease: 6
+    angleDecay: 10
+    cameraRecoilScalar: 1
+    minAngle: 21
+    maxAngle: 45
+    bonusAngleIncreaseMove: 15
+    bonusAngleIncreaseTurn: 0.4
+    bonusAngleDecay: 40
+    maxBonusAngle: 20
     selectedMode: FullAuto
     availableModes:
     - FullAuto
     - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/batrifle.ogg
+  - type: GunWieldBonus
+    minAngle: -20
+    maxAngle: -30
+    angleDecay: 7
 
   # Двойной магазин (Обычный + Рельсотрон)
   # В оригинале рельсотрон сжигает и патрон и батарею, но для движка пока делаем как переключаемые магазины.
@@ -95,6 +108,7 @@
     - CartridgeArasakaRailgun
   - type: CartridgeAmmo
     proto: BulletLaserHeavy # Используем мощный лазер
+    deleteOnSpawn: true
   - type: Sprite
     sprite: Objects/Power/power_cells.rsi
     state: small
