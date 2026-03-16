@@ -22,20 +22,31 @@ public sealed partial class IconSmoothSystem
         if (!TryComp<SpriteComponent>(uid, out var sprite))
             return;
 
-        // 8-direction offsets
-        var edgeOffsets = new Dictionary<EdgeLayer, Vector2>
-        {
-            { EdgeLayer.South, new Vector2(0, -1f) },
-            { EdgeLayer.East, new Vector2(1f, 0f) },
-            { EdgeLayer.North, new Vector2(0, 1f) },
-            { EdgeLayer.West, new Vector2(-1f, 0f) },
-            { EdgeLayer.SouthEast, new Vector2(1f, -1f) },
-            { EdgeLayer.NorthEast, new Vector2(1f, 1f) },
-            { EdgeLayer.NorthWest, new Vector2(-1f, 1f) },
-            { EdgeLayer.SouthWest, new Vector2(-1f, -1f) }
-        };
+        var baseOffsets = component.DisableBaseOffset
+            ? new Dictionary<EdgeLayer, Vector2>
+            {
+                { EdgeLayer.South, Vector2.Zero },
+                { EdgeLayer.East, Vector2.Zero },
+                { EdgeLayer.North, Vector2.Zero },
+                { EdgeLayer.West, Vector2.Zero },
+                { EdgeLayer.SouthEast, Vector2.Zero },
+                { EdgeLayer.NorthEast, Vector2.Zero },
+                { EdgeLayer.NorthWest, Vector2.Zero },
+                { EdgeLayer.SouthWest, Vector2.Zero }
+            }
+            : new Dictionary<EdgeLayer, Vector2>
+            {
+                { EdgeLayer.South, new Vector2(0, -1f) },
+                { EdgeLayer.East, new Vector2(1f, 0f) },
+                { EdgeLayer.North, new Vector2(0, 1f) },
+                { EdgeLayer.West, new Vector2(-1f, 0f) },
+                { EdgeLayer.SouthEast, new Vector2(1f, -1f) },
+                { EdgeLayer.NorthEast, new Vector2(1f, 1f) },
+                { EdgeLayer.NorthWest, new Vector2(-1f, 1f) },
+                { EdgeLayer.SouthWest, new Vector2(-1f, -1f) }
+            };
 
-        foreach (var (edgeLayer, offset) in edgeOffsets)
+        foreach (var (edgeLayer, offset) in baseOffsets)
         {
             if (sprite.LayerMapTryGet(edgeLayer, out _))
             {

@@ -18,5 +18,8 @@ public sealed partial class SmoothEdgeComponent : Component
     public int? DrawDepth;
 
     [ViewVariables(VVAccess.ReadWrite), DataField("blockAdditionalKeys")]
-    public List<string> BlockAdditionalKeys { get; set; } = new(); // WWDP edit end
+    public List<string> BlockAdditionalKeys { get; set; } = new();
+
+    [ViewVariables(VVAccess.ReadWrite), DataField("disableBaseOffset")]
+    public bool DisableBaseOffset = false;  // WWDP edit end
 }
