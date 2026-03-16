@@ -1,27 +1,60 @@
 # _NC: Упаковщик патронов — крафтит коробки с боеприпасами из пуль, гильз и пороха
 # Переделка Protolathe под станок снаряжения патронов
 
-# ==========================================
-# Рецепт: Коробка 9мм патронов
-# ==========================================
-
 - type: latheRecipe
-  id: NCAmmoBox9mm
-  result: MagazineBoxPistol
+  id: NCAmmoBox114mm
+  result: AmmoBox114mm
   completetime: 5
   materials:
-    NCBulletTipMat: 3000  # 30 наконечников (по 100u каждый)
-    NCCasingMat: 3000     # 30 гильз (по 100u каждый)
-    Gunpowder: 3000       # 30 пороха (по 100u каждый)
+    NCBulletTipMat: 3000
+    NCCasingMat: 3000
+    Gunpowder: 3000
 
-# ==========================================
-# Пак рецептов для упаковщика
-# ==========================================
+- type: latheRecipe
+  id: NCAmmoBox127mm
+  result: AmmoBox127mm
+  completetime: 5
+  materials:
+    NCBulletTipMat: 2000
+    NCCasingMat: 2000
+    Gunpowder: 2000
+
+- type: latheRecipe
+  id: NCAmmoBox622mmCaseless
+  result: AmmoBox622mmCaseless
+  completetime: 5
+  materials:
+    NCBulletTipMat: 3000
+    NCCasingMat: 3000
+    Gunpowder: 3000
+
+- type: latheRecipe
+  id: NCAmmoBox152mm
+  result: AmmoBox152mm
+  completetime: 5
+  materials:
+    NCBulletTipMat: 1000
+    NCCasingMat: 1000
+    Gunpowder: 1000
+
+- type: latheRecipe
+  id: NCAmmoBoxNomadSpike
+  result: AmmoBoxNomadSpike
+  completetime: 5
+  materials:
+    NCBulletTipMat: 1200
+    NCCasingMat: 1200
+    Gunpowder: 1200
 
 - type: latheRecipePack
-  id: NCAmmoPackerStatic
+  id: NCCyberpunkAmmoPack
   recipes:
-  - NCAmmoBox9mm
+  - NCAmmoBox114mm
+  - NCAmmoBox127mm
+  - NCAmmoBox622mmCaseless
+  - NCAmmoBox152mm
+  - NCAmmoBoxNomadSpike
+
 
 # ==========================================
 # Энтити упаковщика
@@ -59,3 +92,4 @@
     unlitRunningState: unlit-building
     staticPacks:
     - NCAmmoPackerStatic
+    - NCCyberpunkAmmoPack
