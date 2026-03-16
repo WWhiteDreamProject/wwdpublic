@@ -217,3 +217,6 @@ ent-FoodMeatSpiderCutletCooked = паучья котлета
 ent-FoodMeatXenoCutletCooked = ксено котлета
     .desc = Котлета из ксеноса, сочащаяся... вкусом?
     .suffix = { "" }
+
+ent-FoodMeatAnomaly = аномальная мясная масса
+    .desc = Невозможно плотный кусок мяса. Просто глядя на него, становится не по себе.

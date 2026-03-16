@@ -47,7 +47,7 @@ reagent-effect-condition-guidebook-body-temperature =
             }
     }
 reagent-effect-condition-guidebook-organ-type =
-    орган метаболизма[/color] цели { $shouldhave ->
+    орган метаболизма цели { $shouldhave ->
         [true] {""}
        *[false] [color=#E7234A]не[/color]{" "}
     }[color=#D0A8B0]{ $name }[/color]
