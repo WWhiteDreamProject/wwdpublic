@@ -25,8 +25,8 @@ ent-ClownHardsuit = вакуумный костюм клоуна
 ent-HardsuitGoliath = голиаф хардсьют
     .desc = Легкий хардсьют, украшенный лоскутным одеялом из толстой хитиновой кожи голиафа.
 
-ent-ClothingOuterHardsuitGoliath = { ent-ClothingOuterHardsuitGoliath }
-    .desc = { ent-ClothingOuterHardsuitGoliath.desc }
+ent-ClothingOuterHardsuitGoliath = { ent-HardsuitGoliath }
+    .desc = { ent-HardsuitGoliath.desc }
 
 ent-MimeHardsuit = вакуумный костюм мима
     .desc = Изготовленный на заказ вакуумный костюм мима. При ближайшем рассмотрении это обычный вакуумный костюм с подтяжками и нанесенной сверху краской.

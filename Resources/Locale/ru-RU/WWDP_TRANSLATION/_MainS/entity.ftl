@@ -11631,24 +11631,32 @@ ent-FieldSurgeryKit = полевой хирургический набор
 ent-BasePassport = паспорт
     .desc = Удостоверяет личность и гражданство владельца.
 
-
 ent-BieselPassport = паспорт Республики Бисель
+    .desc = { ent-BasePassport.desc }
 
-ent-SolPassport = паспорт Соларианского Альянса
+ent-SolPassport = паспорт Солнечного Альянса
+    .desc = { ent-BasePassport.desc }
 
 ent-ElyranPassport = паспорт Республики Элира
+    .desc = { ent-BasePassport.desc }
 
 ent-ValyrianPassport = паспорт Валира-4б
+    .desc = { ent-BasePassport.desc }
 
 ent-NederlandicPassport = паспорт Новых Нидерландов
+    .desc = { ent-BasePassport.desc }
 
 ent-IzweskiPassport = паспорт Гегемонии Извески
+    .desc = { ent-BasePassport.desc }
 
 ent-AdhomaiPassport = паспорт Народной Республики Адхомай
+    .desc = { ent-BasePassport.desc }
 
 ent-GoldenDeepPassport = паспорт Золотой Глубины
+    .desc = { ent-BasePassport.desc }
 
 ent-QiimaeruPassport = паспорт Киимаэру
+    .desc = { ent-BasePassport.desc }
 
 
 ent-BaseClothingRadio = радиокоммуникатор

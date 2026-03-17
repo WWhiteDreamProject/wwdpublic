@@ -1,7 +1,7 @@
 # Chat window radio wrap (prefix and postfix)
 # WWDP EDIT START
 chat-radio-message-wrap = [color={$color}]{$channel} [font size=11][color={$languageColor}][bold]{$language}[/bold][/color][/font][bold]{$name}[/bold] {$verb}: [color={$messageColor}]«[font="{$fontType}" size={$fontSize}]{$message}[/font]»[/color][/color]
-chat-radio-message-wrap-bold = [color={$color}]{$channel} [font size=11][color={$languageColor}][bold]{$language}[/bold][/color][/font][bold]{$name}[/bold] {$verb}: [color={$messageColor}][bold]«[font="{$fontType}" size={$fontSize}]{$message}[/font]»[/bold][/color][/color]
+chat-radio-message-wrap-bold = [color={$color}]{$channel} [font size=11][color={$languageColor}][bold]{$language}[/bold][/color][/font][bold]{$name}[/bold] {$verb}: [color={$messageColor}][bold]«[/bold][font="{$fontType}" size={$fontSize}][bold]{$message}[/bold][/font][bold]»[/bold][/color][/color]
 
 examine-headset-default-channel = Канал, использующийся этой гарнитурой по умолчанию — [color={ $color }]{ $channel }[/color].
 # WWDP EDIT END
