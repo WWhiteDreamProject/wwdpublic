@@ -1,21 +1,10 @@
 # Chat window radio wrap (prefix and postfix)
-chat-radio-message-wrap = [color={$color}]{$channel} [font size=11][color={$languageColor}][bold]{$language}[/bold][/color][/font][bold]{$name}[/bold] {$verb}, [font="{$fontType}" size={$fontSize}][color={$messageColor}]"{$message}"[/color][/font][/color]
-chat-radio-message-wrap-bold = [color={$color}]{$channel} [font size=11][color={$languageColor}][bold]{$language}[/bold][/color][/font][bold]{$name}[/bold] {$verb}, [font="{$fontType}" size={$fontSize}][color={$messageColor}][bold]"{$message}"[/bold][/color][/font][/color]
-# WD edit end
-examine-headset-default-channel =
-    Канал, использующийся этой гарнитурой по умолчанию - [color={ $color }]{ $channel ->
-        [Syndicate] Синдикат
-        [Supply] Снабжение
-        [Command] Командование
-        [CentCom] ЦентКом
-        [Common] Общий
-        [Engineering] Инженерный
-        [Science] Научный
-        [Medical] Медицинский
-        [Security] Безопасность
-        [Service] Сервисный
-       *[other] _
-    }[/color].
+# WWDP EDIT START
+chat-radio-message-wrap = [color={$color}]{$channel} [font size=11][color={$languageColor}][bold]{$language}[/bold][/color][/font][bold]{$name}[/bold] {$verb}: [color={$messageColor}]«[font="{$fontType}" size={$fontSize}]{$message}[/font]»[/color][/color]
+chat-radio-message-wrap-bold = [color={$color}]{$channel} [font size=11][color={$languageColor}][bold]{$language}[/bold][/color][/font][bold]{$name}[/bold] {$verb}: [color={$messageColor}][bold]«[font="{$fontType}" size={$fontSize}]{$message}[/font]»[/bold][/color][/color]
+
+examine-headset-default-channel = Канал, использующийся этой гарнитурой по умолчанию — [color={ $color }]{ $channel }[/color].
+# WWDP EDIT END
 chat-radio-common = Общий
 chat-radio-centcom = ЦентКом
 chat-radio-command = Командование
