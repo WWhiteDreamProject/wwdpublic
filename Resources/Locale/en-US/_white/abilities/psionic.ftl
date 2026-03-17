@@ -16,3 +16,13 @@ action-name-telepathy = Directed Telepathy
 action-description-telepathy = Thrusts your thought directly into the target's mind, forcing them to hear you.
 telepathy-title = Directed Telepathy
 telepathy-message = Message
+
+barokinesis-power-initialization-feedback =
+    My lungs burst from the cold - I fall through the atmospheric layers of a world long dead.
+    Below, there is nothing but emptiness, silence presses in from all sides.
+    Blood boils, I choke, yet my consciousness continues to fall.
+    But then I hear it: the slow breath of the planet, its will envelops me.
+    I sink deeper and find myself in reality. The air stands frozen, awaiting my commands.
+verb-barokinesis-pull = Pull
+verb-barokinesis-push = Push
+verb-barokinesis-dash = Decompression Dash
