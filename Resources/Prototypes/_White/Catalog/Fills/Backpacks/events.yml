@@ -83,10 +83,8 @@
     - id: HandHeldMassScanner
     - id: HandheldGPSBasic
     - id: WeaponGrapplingGun
-    - id: ClothingMaskBreath
     - id: BeaconTeleporter
 
-# Red
 - type: entity
   parent: ClothingBeltChiefEngineerFilled
   id: ClothingBeltChiefEngineerFilledAlmagestEquip
@@ -112,19 +110,14 @@
     - id: trayScanner
     - id: BeaconTeleporter
 
+# Red
 - type: entity
-  parent: ClothingBackpackAlmagestRed
-  id: ClothingBackpackAlmagestRedMarine
-  name: marine backpack
+  parent: ClothingOuterHardsuitERTSecurity
+  id: ClothingOuterHardsuitAlmagestRed
   components:
-  - type: StorageFill
-    contents:
-    - id: ClothingOuterHardsuitERTSecurity
-    - id: ClothingBeltMilitaryWebbingAlmagestEquip
-    - id: ERTLeaderPDA
-    - id: ClothingHeadsetPrison
-    - id: ClothingNeckMantleHOS
+  - type: Unremoveable
 
+# Backpacks
 - type: entity
   parent: ClothingBackpackAlmagestRed
   id: ClothingBackpackAlmagestRedCaptain
@@ -132,50 +125,107 @@
   components:
   - type: StorageFill
     contents:
-    - id: ClothingOuterHardsuitERTSecurity
-    - id: ClothingBeltMilitaryWebbingAlmagestEquip
-    - id: ERTLeaderPDA
-    - id: ClothingHeadsetPrison
     - id: WeaponAntiqueLaser
-    - id: ClothingNeckCloakCap
+
+- type: entity
+  parent: ClothingBackpackAlmagestRed
+  id: ClothingBackpackAlmagestRedMarine
+  name: red marine backpack
 
 - type: entity
   parent: ClothingBackpackAlmagestRed
   id: ClothingBackpackAlmagestRedEngineer
-  name: engineer backpack
+  name: red engineer backpack
   components:
   - type: StorageFill
     contents:
-    - id: ClothingOuterHardsuitERTSecurity
-    - id: ClothingBeltChiefEngineerFilledAlmagestEquip
-    - id: ClothingMaskBreath
-    - id: ERTLeaderPDA
-    - id: ClothingHeadsetPrison
-    - id: ClothingShoesBootsMagAdv
-    - id: ClothingEyesGlassesMeson
     - id: HandHeldMassScanner
     - id: HandheldGPSBasic
-    - id: ClothingHandsGlovesColorYellow
-    - id: ClothingNeckMantleCE
+
+# Equip
+- type: entity
+  name: red captain equipment
+  parent: BaseItem
+  id: AlmagestAutoEquipmentRedCaptain
+  description: "red captain equipment"
+  components:
+  - type: Item
+    size: Ginormous
+  - type: Sprite
+    sprite: Clothing/Back/Backpacks/ertsec.rsi
+    state: icon
+  - type: AutoEquipment
+    forceEquip: true
+    doAfterDelay: 3.0
+    breakOnMove: true
+    equipmentSlots:
+      mask: ClothingMaskBreath
+      id: ERTLeaderPDA
+      belt: ClothingBeltMilitaryWebbingAlmagestEquip
+      neck: ClothingNeckCloakCap # Captain
+      ears: ClothingHeadsetPrison # Red Headset
+      outerClothing: ClothingOuterHardsuitAlmagestRed # Red Hardsuit
+      back: ClothingBackpackAlmagestRedCaptain # Red Captain
 
 - type: entity
-  id: ClothingBackpackAlmagestRedEquipEngineer
-  name: engineer backpack
+  name: red marine equipment
   parent: BaseItem
-  categories: [ HideSpawnMenu ]
-  description: blue equipment
+  id: AlmagestAutoEquipmentRedMarine
+  description: "red marine equipment"
   components:
+  - type: Item
+    size: Ginormous
+  - type: Sprite
+    sprite: Clothing/Back/Backpacks/ertsec.rsi
+    state: icon
+  - type: AutoEquipment
+    forceEquip: true
+    doAfterDelay: 3.0
+    breakOnMove: true
+    equipmentSlots:
+      mask: ClothingMaskBreath
+      id: ERTLeaderPDA
+      belt: ClothingBeltMilitaryWebbingAlmagestEquip
+      neck: ClothingNeckMantleHOS # Marine
+      ears: ClothingHeadsetPrison # Red Headset
+      outerClothing: ClothingOuterHardsuitAlmagestRed # Red Hardsuit
+      back: ClothingBackpackAlmagestRedMarine # Red Marine
+
+- type: entity
+  name: red engineer equipment
+  parent: BaseItem
+  id: AlmagestAutoEquipmentRedEngineer
+  description: "red engineer equipment"
+  components:
+  - type: Item
+    size: Ginormous
   - type: Sprite
     sprite: Clothing/Back/Backpacks/erteng.rsi
     state: icon
-  - type: SpawnItemsOnUse
-    items:
-    - id: ClothingBackpackAlmagestRedEngineer
-      orGroup: BackPack
-    - id: JetpackVoidFilled
-      orGroup: Jetpack
+  - type: AutoEquipment
+    forceEquip: true
+    doAfterDelay: 3.0
+    breakOnMove: true
+    equipmentSlots:
+      mask: ClothingMaskBreath
+      id: ERTLeaderPDA
+      belt: ClothingBeltChiefEngineerFilledAlmagestEquip # Engineer
+      suitstorage: JetpackVoidFilled # Engineer
+      neck: ClothingNeckMantleCE # Engineer
+      gloves: ClothingHandsGlovesColorYellow # Engineer
+      eyes: ClothingEyesGlassesMeson # Engineer
+      shoes: ClothingShoesBootsMagAdv # Engineer
+      ears: ClothingHeadsetPrison # Red Headset
+      outerClothing: ClothingOuterHardsuitAlmagestRed # Red Hardsuit
+      back: ClothingBackpackAlmagestRedEngineer # Red Engineer
 
 # Blue
+- type: entity
+  parent: ClothingOuterHardsuitERTLeader
+  id: ClothingOuterHardsuitAlmagestBlue
+  components:
+  - type: Unremoveable
+
 - type: entity
   parent: ClothingBackpackAlmagestBlue
   id: ClothingBackpackAlmagestBlueMarine
@@ -244,7 +294,7 @@
   name: red equipment
   parent: BaseItem
   id: AlmagestEquipmentBaseRed
-  description: "rede equipment"
+  description: "red equipment"
   components:
   - type: Item
     size: Ginormous
