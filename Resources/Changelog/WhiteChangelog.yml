@@ -5147,3 +5147,10 @@ Entries:
   id: 539
   time: '2026-03-18T04:36:02.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1085
+- author: Sevasstyan
+  changes:
+    - type: Fix
+      message: Бесплатные пистолетные магазины в сб техфабе больше не бесплатные.
+  id: 540
+  time: '2026-03-18T11:49:30.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1087
