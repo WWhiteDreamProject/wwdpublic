@@ -5140,3 +5140,10 @@ Entries:
   id: 538
   time: '2026-03-08T13:24:54.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1080
+- author: Myaflic
+  changes:
+    - type: Tweak
+      message: Фелиниды теперь могут брать трейт «Несокрушимый».
+  id: 539
+  time: '2026-03-18T04:36:02.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1085
