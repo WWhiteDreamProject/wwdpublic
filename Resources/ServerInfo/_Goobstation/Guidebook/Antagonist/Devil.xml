@@ -1,126 +1,126 @@
 <Document>
-  # Devil
+  # Дьявол
 
-  [color=#ac3a0d]A devilish trickster with a silver tongue making deals around the station.[/color]
+  [color=#ac3a0d]Дьявольский хитрец с серебряным языком, заключающий сделки по всей станции.[/color]
 
-  A devil is an entity originating from some ungodly dimension far, far away from our own.
+  Дьявол — это сущность, происходящая из какого-то нечестивого измерения, далёкого-далёкого от нашего собственного.
   <Box>
-    <GuideEntityEmbed Entity="PaperDevilContract" Caption="Contract"/>
-    <GuideEntityEmbed Entity="ClothingUniformJumpsuitDevil" Caption="Devilish Attire"/>
+    <GuideEntityEmbed Entity="PaperDevilContract" Caption="Контракт"/>
+    <GuideEntityEmbed Entity="ClothingUniformJumpsuitDevil" Caption="Дьявольское обличие"/>
   </Box>
 
-  Unlike most depictions in media, a devil isn't easy to find at a glance. There's no fire and brimstone, no pitchfork and screaming. The easiest way to tell is that red glow in their eyes, and sometimes the horns or tail.
-  [bold] Not everyone with a tail or horns is a devil, that's just specist! [/bold]
+  В отличие от большинства изображений в СМИ, дьявола не так-то просто заметить с первого взгляда. Нет ни огня и серы, ни вил и криков. Самый простой способ определить — это красное свечение в глазах, а иногда рога или хвост.
+  [bold] Не каждый с хвостом или рогами — дьявол, это просто дискриминация по внешнему виду! [/bold]
 
-  Despite their usually not-so-good intentions, a Devil is still considered crew!
-  As a Devil, [color=red][bold] you should not interfere with station affairs unless you are directly asked, or you can make a deal out of it. [/bold][/color]
+  Несмотря на их обычно не самые благие намерения, Дьявол всё равно считается членом экипажа!
+  Будучи Дьяволом, [color=red][bold] вы не должны вмешиваться в дела станции, если вас об этом прямо не попросят или если вы не можете заключить сделку на этот счёт. [/bold][/color]
 
-  Under normal circumstances, [color=red][bold] a crew member making a deal with the Devil should be considered a crime [/bold][/color]
+  При нормальных обстоятельствах, [color=red][bold] заключение сделки членом экипажа с Дьяволом должно считаться преступлением [/bold][/color]
 
-  ## Contracts
+  ## Контракты
 
-  The bread and butter of a devil is their [color=darkred]contracts[/color]. When signing a contract, various effects can be applied onto an entity.
+  Основа существования дьявола — его [color=darkred]контракты[/color]. При подписании контракта на сущность могут быть наложены различные эффекты.
 
-  Contracts are indestructible once signed, there's no going back once pen touches parchment.
+  После подписания контракты неразрушимы, пути назад нет, как только перо коснулось пергамента.
 
-  The particular effect of a contract changes depending on which [bold] clauses [/bold] are written on it.
-  Effects can be applied to the Contractor, the Devil, or the Contractee, the signer.
+  Конкретный эффект контракта меняется в зависимости от того, какие [bold] пункты [/bold] в нём прописаны.
+  Эффекты могут применяться к Контрактору (дьяволу) или к Контрактнику (подписывающему).
 
-  Prefixing a [bold]Clause[/bold] with either "Contractee:" or "Contractor:" will dictate who it applies to.
+  Добавление префикса "[bold]Контрактник:[/bold]" или "[bold]Контрактор:[/bold]" перед [bold]Пунктом[/bold] будет определять, к кому он применяется.
 
-  A [bold]Clause[/bold] is a concept or thing that one of the parties is giving up, either to the other party or destroying it entirely.
+  [bold]Пункт[/bold] — это понятие или вещь, которую одна из сторон отдаёт, либо другой стороне, либо уничтожая её полностью.
 
-  Example:
-    Contractee: Weakness
-    Contractee: Soul
+  Пример:
+    Контрактник: Слабость
+    Контрактник: Душа
 
-  In the above contract, the contractee is giving up their weakness and the rights to their soul.
-  Giving up your weakness will grant you massive resistance to all damage types, but giving up your soul could have unforeseen consequences.
+  В приведённом выше контракте контрактник отдаёт свою слабость и права на свою душу.
+  Отказ от слабости дарует вам огромную устойчивость ко всем типам урона, но отказ от души может иметь непредвиденные последствия.
 
-  ## Contract Weight
+  ## Вес Контракта
 
-  Every contract has a weight associated with it, which can be viewed by inspecting it.
-  Contracts with an uneven weight (below zero) cannot be signed.
+  Каждый контракт имеет связанный с ним вес, который можно увидеть, осмотрев его.
+  Контракты с неравномерным весом (ниже нуля) не могут быть подписаны.
 
-  Each clause has its own weight value.
-  As a general rule of thumb, the better the clause is for the contractee the higher the weight will be.
+  Каждый пункт имеет своё собственное значение веса.
+  Как правило, чем лучше пункт для контрактника, тем выше будет вес.
 
-  This effectively means you have to balance good clauses with bad clauses.
-  [italic] It's important to note that there is no limit on how many bad clauses you can put on one contract, always read the fine-print! [/italic]
+  Это фактически означает, что вы должны уравновешивать хорошие пункты плохими.
+  [italic] Важно отметить, что нет ограничений на количество плохих пунктов, которые вы можете включить в один контракт, всегда читайте мелкий шрифт! [/italic]
 
-  ## Selling your soul?
+  ## Продажа души?
 
-  Selling your soul is a fickle thing; and usually what most devils are after.
-  As a devil, your main objective is to collect as many souls as possible. The more souls you gain, the more powerful you become.
+  Продажа души — дело капризное; и обычно это то, к чему стремятся большинство дьяволов.
+  Будучи дьяволом, ваша главная цель — собрать как можно больше душ. Чем больше душ вы получите, тем могущественнее станете.
 
-  As a contractee, selling your soul has consequences.
-  - Without a soul, you will go [bold][color=red]STRAIGHT[/color][/bold] to hell on death. No more second chances.
-  - You cannot make any more deals after selling your soul.
-  - You will be marked as "Condemned", which could have other consequences.
+  Будучи контрактником, продажа души имеет последствия.
+  - Без души вы отправитесь [bold][color=red]ПРЯМИКОМ[/color][/bold] в ад после смерти. Никаких вторых шансов.
+  - Вы не можете заключать больше сделок после продажи души.
+  - Вы будете помечены как "Обречённый", что может иметь другие последствия.
 
-  A Devil may want to be wary of the stations security team after purchasing a soul, [bold] as it can be considered prevention of revival. [/bold]
+  Дьяволу, возможно, следует опасаться службы безопасности станции после покупки души, [bold] так как это может считаться предотвращением возрождения. [/bold]
 
-  ## No such thing as no second chances.
+  ## Никаких "никаких вторых шансов".
 
-  A devil can increase their overall power level by collecting enough souls during the duration of their stay on station.
-  Upon reaching the first level, they unlock the ability to create revival contracts.
+  Дьявол может увеличить свою общую силу, собрав достаточно душ за время своего пребывания на станции.
+  По достижении первого уровня он открывает способность создавать контракты возрождения.
 
-  These contracts can be used on a corpse to offer that ghost a second chance at life.
-  When accepting, they will lose their soul in-exchange for a second chance at life.
+  Эти контракты можно использовать на трупе, чтобы предложить этому призраку второй шанс на жизнь.
+  Принимая его, они потеряют свою душу в обмен на второй шанс на жизнь.
 
-  ## Possession?
+  ## Одержимость?
 
-  A devil unlocks the ability to possess targets at the second level.
-  Possession allows them to temporarily take over a targets body and do practically whatever they want.
+  Дьявол открывает способность вселяться в цели на втором уровне.
+  Одержимость позволяет ему временно захватывать тело цели и делать практически всё, что он захочет.
 
-  However, there are a few things they [italic] cannot [/italic] do:
-  - Harm themselves or others.
-  - Perform actions related to their implants or clothing.
+  Однако есть несколько вещей, которые он [italic] не может [/italic] делать:
+  - Вредить себе или другим.
+  - Выполнять действия, связанные с имплантами или одеждой цели.
 
-  You may only possess targets that are vulnerable to it, such as people who have sold their soul.
+  Вы можете вселяться только в цели, которые уязвимы для этого, например, в людей, продавших свою душу.
 
-  ## Won't you shake a poor sinners hand?
+  ## Не пожмёте руку бедному грешнику?
 
-  As depicted in many different forms of media, a good old-fashioned handshake is practically unbeatable.
-  Shaking hands with a devil will provide you with a quick and easy reward: Full health, and a second life.
+  Как показано во многих различных СМИ, старое доброе рукопожатие практически непобедимо.
+  Рукопожатие с дьяволом даст вам быструю и лёгкую награду: полное здоровье и вторую жизнь.
 
-  The cost? Well, let's just say it varies.
-  You'll lose your soul immediately, and also gain one random negative clause from the list of clauses.
+  Цена? Что ж, скажем так, она варьируется.
+  Вы немедленно потеряете свою душу, а также получите один случайный отрицательный пункт из списка пунктов.
 
-  ## Dealing with the devil.
+  ## Разбирательство с дьяволом.
 
-  Sometimes, in pursuit of finishing their end of a deal, a devil can become quite troublesome for the stations inhabitants.
-  Whether this be through it stealing items, or offering ungodly power to the stations enemies; it's clear to see why someone might want to get rid of one.
+  Иногда, стремясь выполнить свою часть сделки, дьявол может доставить немало хлопот обитателям станции.
+  Будь то кража предметов или предложение нечестивой силы врагам станции; понятно, почему кто-то может захотеть избавиться от него.
 
-  Luckily for them, there's several ways to deal with a devil.
-  - Pronouncing the true name of a devil will stun them.
-  - A bible or holy water will burn a devil to the touch.
-  - Chaplains can utilize bibles to banish a devil.
+  К счастью для них, есть несколько способов разобраться с дьяволом.
+  - Произнесение истинного имени дьявола оглушит его.
+  - Библия или святая вода обжигают дьявола при прикосновении.
+  - Священники могут использовать библии, чтобы изгнать дьявола.
 
-  As one would guess, a chaplain is more effective at facing a devil than most.
-  Chaplains cannot be tricked to give up their soul, as they already pledged it to whatever God(s) they believe in.
+  Как можно догадаться, священник более эффективен в противостоянии дьяволу, чем большинство других.
+  Священника нельзя обманом заставить отдать свою душу, так как он уже пообещал её своему Богу (богам).
 
-  When a chaplain uses a bible on critical or otherwise incapacitated devil, they can temporarily banish them.
-  For the next couple of minutes or so, that devil will be unable to sustain a material form.
+  Когда священник использует библию на критически раненном или иным образом недееспособном дьяволе, он может временно изгнать его.
+  В течение следующих нескольких минут этот дьявол будет неспособен поддерживать материальную форму.
 
-  [bold]When a chaplain speaks a devils true name, it will harm them [color=red]significantly![/bold][/color]
+  [bold]Когда священник произносит истинное имя дьявола, это наносит ему [color=red]значительный[/color] урон![/bold]
 
-  ## True or fake name?
+  ## Настоящее или фальшивое имя?
 
-  When a devil arrives at a station they take the form of a random crew member.
-  Whether they are possessed, shape-shifted, or perhaps just a coincidental twin, they'll replace someone on station.
+  Когда дьявол прибывает на станцию, он принимает облик случайного члена экипажа.
+  Будь то одержимость, изменение облика или, возможно, просто совпадение двойников, он заменяет кого-то на станции.
 
-  What's important is that devil's [bold]cannot replace command staff or security members. [/bold]
+  Важно то, что дьяволы [bold]не могут заменять командный состав или сотрудников службы безопасности. [/bold]
 
-  In all manners but one, a devil will appear with their false name.
-  The only way to view a devils true name is to read a contract they have signed, or ask them directly.
+  Во всех отношениях, кроме одного, дьявол будет представлен своим фальшивым именем.
+  Единственный способ увидеть истинное имя дьявола — это прочитать контракт, который он подписал, или спросить его напрямую.
 
-  ## Trickery goes both ways!
+  ## Хитрость работает в обе стороны!
 
-  The contractee is not the only person that can be tricked.
-  Contract weight is applied [bold] no matter who the effect applies to [/bold]
+  Контрактник — не единственный, кого можно обмануть.
+  Вес контракта применяется [bold] независимо от того, на кого распространяется эффект [/bold]
 
-  This means if you can trick a devil to sign a paper negatively affecting them, you can get some positive clauses for free!
+  Это означает, что если вы можете обманом заставить дьявола подписать бумагу, отрицательно влияющую на него, вы можете получить несколько положительных пунктов бесплатно!
 
-  [textlink="Learn more about each clause." link="DevilClauses"]
+  [textlink="Узнайте больше о каждом пункте." link="DevilClauses"]
 </Document>

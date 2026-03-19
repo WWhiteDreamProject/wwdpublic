@@ -1,8 +1,8 @@
 ﻿<Document>
-  # Wire Panels
-  Some station devices like airlocks, vending machines, and arcade consoles have wire panels, which control certain aspects of their functionality.
+  # Панели с проводами
+  Некоторые станционные устройства, такие как шлюзы, торговые автоматы и аркадные консоли, имеют панели с проводами, которые управляют определенными аспектами их функциональности.
 
-  These panels can be opened using a screwdriver to access the wiring inside.
+  Эти панели можно открыть с помощью отвертки, чтобы получить доступ к внутренней проводке.
 
   <Box>
     <GuideEntityEmbed Entity="Wirecutter"/>
@@ -10,20 +10,20 @@
     <GuideEntityEmbed Entity="Multitool"/>
   </Box>
 
-  From here, you can use wirecutters and a multitool to interact with the wiring. Note that interacting with the wiring often requires insulated gloves, as if the wire is live, you can get shocked.
+  Отсюда вы можете использовать кусачки и мультитул для взаимодействия с проводкой. Обратите внимание, что взаимодействие с проводкой часто требует изолированных перчаток, так как если провод под напряжением, вас может ударить током.
 
   <Box>
     <GuideEntityEmbed Entity="ClothingHandsGlovesColorYellow"/>
   </Box>
 
-  You can cut and mend wires using the wirecutters, and pulse wires using the multitool.
+  Вы можете перерезать и восстанавливать провода с помощью кусачек и подавать импульсы на провода с помощью мультитула.
 
-  Cutting wires often completely disables or restores functionality to a device.
-  It may also trigger unintended functionality, like shocking people, dropping door bolts, or exploding.
+  Перерезание проводов часто полностью отключает или восстанавливает функциональность устройства.
+  Это также может вызвать непреднамеренные последствия, такие как удар током, опускание дверных болтов или взрыв.
 
-  Pulsing wires can have a variety of effects, but oftentimes it either temporarily disables or enables functionality.
+  Подача импульсов на провода может иметь различные эффекты, но часто это либо временное отключение, либо включение функциональности.
 
-  You can't pulse wires if the wire you're trying to pulse is cut. You have to mend the wire first.
+  Вы не можете подавать импульс на провод, если он перерезан. Сначала нужно восстановить провод.
 
 
 </Document>

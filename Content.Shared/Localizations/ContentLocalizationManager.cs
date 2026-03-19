@@ -139,8 +139,8 @@ namespace Content.Shared.Localizations
             {
                 <= 0 => string.Empty,
                 1 => list[0],
-                2 => $"{list[0]} and {list[1]}",
-                _ => $"{string.Join(", ", list.GetRange(0, list.Count - 1))}, and {list[^1]}"
+                2 => Loc.GetString("zzzz-fmt-list-and-two", ("first", list[0]), ("second", list[1])), // WWDP EDIT
+                _ => Loc.GetString("zzzz-fmt-list-and-many", ("list", string.Join(", ", list.GetRange(0, list.Count - 1))), ("last", list[^1])) // WWDP EDIT
             };
         }
 
@@ -153,8 +153,8 @@ namespace Content.Shared.Localizations
             {
                 <= 0 => string.Empty,
                 1 => list[0],
-                2 => $"{list[0]} or {list[1]}",
-                _ => $"{string.Join(" or ", list)}"
+                2 => Loc.GetString("zzzz-fmt-list-or-two", ("first", list[0]), ("second", list[1])), // WWDP EDIT
+                _ => Loc.GetString("zzzz-fmt-list-or-many", ("list", string.Join(", ", list.GetRange(0, list.Count - 1))), ("last", list[^1])) // WWDP EDIT
             };
         }
 

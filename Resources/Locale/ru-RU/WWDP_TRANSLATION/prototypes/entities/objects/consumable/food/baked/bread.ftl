@@ -83,7 +83,7 @@ ent-FoodBreadMoldySlice = заплесневелый кусок хлеба
     .suffix = { "" }
 
 ent-FoodBreadBaguette = багет
-    .desc = Bon appétit!
+    .desc = «Bon appétit!»
     .suffix = { "" }
 
 ent-FoodBreadGarlicSlice = чесночный хлеб
@@ -93,3 +93,20 @@ ent-FoodBreadGarlicSlice = чесночный хлеб
 ent-FoodBreadButteredToast = тост с маслом
     .desc = Хрустящий.
     .suffix = { "" }
+
+ent-FoodBreadBaguetteCotton = хлопковый багет
+    .desc = «Bon azzétit!»
+    .suffix = { "" }
+
+ent-FoodBreadCotton = хлопковый хлеб
+    .desc = Хлеб, но только для молек.
+    .suffix = { "" }
+
+ent-FoodBreadCottonSlice = ломтик хлопкового хлеба
+    .desc = Кусочек (возможно) вкусного хлопкового хлеба.
+    .suffix = { "" }
+
+ent-FoodBreadBaguetteCottonSlice = хлопковый кростини
+    .desc = «Bon az-zetite!»
+    .suffix = { "" }
+
