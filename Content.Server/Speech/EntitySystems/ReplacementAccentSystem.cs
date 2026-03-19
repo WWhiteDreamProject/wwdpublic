@@ -91,7 +91,8 @@ namespace Content.Server.Speech.EntitySystems
                     f = f[1..];
                     prefix = "";
                 }
-                bool suffixMode = f.EndsWith('~'); // specific "ending" symbol
+                bool suffixMode = f.EndsWith('~'); // specific "ending" symbol for ending save
+                bool transferSuffix = suffixMode && r.EndsWith('~'); // specific "ending" symbol for ending remove
                 if (suffixMode)
                 {
                     f = f[..^1];
@@ -108,7 +109,7 @@ namespace Content.Server.Speech.EntitySystems
                 {
                     // fetch the match again as the character indices may have changed
                     Match match = Regex.Match(maskMessage, pattern, RegexOptions.IgnoreCase);
-                    var suffix = suffixMode && match.Groups.Count > 1 ? match.Groups[1].Value : "";
+                    var suffix = transferSuffix && match.Groups.Count > 1 ? match.Groups[1].Value : "";
                     var replacement = r + suffix;
             // WWDP EDIT END
 

@@ -6,22 +6,44 @@
   id: mobster
   wordReplacements:
     accent-mobster-words-1: accent-mobster-words-replace-1
+    accent-mobster-words-1-2: accent-mobster-words-replace-1 # WWDP EDIT
     accent-mobster-words-2: accent-mobster-words-replace-2
     accent-mobster-words-3: accent-mobster-words-replace-3
     accent-mobster-words-4: accent-mobster-words-replace-4
     accent-mobster-words-5: accent-mobster-words-replace-5
     accent-mobster-words-6: accent-mobster-words-replace-6
     accent-mobster-words-7: accent-mobster-words-replace-7
+    accent-mobster-words-7-2: accent-mobster-words-replace-7 # WWDP EDIT
     accent-mobster-words-8: accent-mobster-words-replace-8
     accent-mobster-words-9: accent-mobster-words-replace-9
+    accent-mobster-words-9-2: accent-mobster-words-replace-9 # WWDP EDIT
     accent-mobster-words-10: accent-mobster-words-replace-10
     accent-mobster-words-11: accent-mobster-words-replace-11
     accent-mobster-words-12: accent-mobster-words-replace-12
     accent-mobster-words-13: accent-mobster-words-replace-13
     accent-mobster-words-14: accent-mobster-words-replace-14
+    accent-mobster-words-15-exception-1: accent-mobster-words-replace-15-exception-1 # WWDP EDIT
+    accent-mobster-words-15-exception-1-2: accent-mobster-words-replace-15-exception-1 # WWDP EDIT
     accent-mobster-words-15: accent-mobster-words-replace-15
     accent-mobster-words-16: accent-mobster-words-replace-16
     accent-mobster-words-17: accent-mobster-words-replace-17
+    # WWDP EDIT START
+    accent-mobster-words-17-2: accent-mobster-words-replace-17
+    accent-mobster-words-18: accent-mobster-words-replace-18
+    accent-mobster-words-18-2: accent-mobster-words-replace-18
+    accent-mobster-words-19: accent-mobster-words-replace-19
+    accent-mobster-words-19-2: accent-mobster-words-replace-19
+    accent-mobster-words-20: accent-mobster-words-replace-20
+    accent-mobster-words-20-2: accent-mobster-words-replace-20
+    accent-mobster-words-21: accent-mobster-words-replace-21
+    accent-mobster-words-22: accent-mobster-words-replace-22
+    accent-mobster-words-22-2: accent-mobster-words-replace-22
+    accent-mobster-words-23: accent-mobster-words-replace-23
+    accent-mobster-words-23-2: accent-mobster-words-replace-23
+    accent-mobster-words-24: accent-mobster-words-replace-24
+    accent-mobster-words-24-2: accent-mobster-words-replace-24
+    accent-mobster-words-24-3: accent-mobster-words-replace-24
+    # WWDP EDIT END
 
 - type: accent
   id: italian
