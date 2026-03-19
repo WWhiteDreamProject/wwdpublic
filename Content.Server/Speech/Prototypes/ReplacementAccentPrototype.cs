@@ -22,6 +22,13 @@ public sealed partial class ReplacementAccentPrototype : IPrototype
     /// </summary>
     [DataField]
     public Dictionary<string, string>? WordReplacements;
+    // WWDP EDIT START
+    /// <summary>
+    ///     Bidirectional word replacements: each pair is applied in both directions (A↔B).
+    /// </summary>
+    [DataField]
+    public Dictionary<string, string>? BidirectionalWordReplacements;
+    // WWDP EDIT END
 
     /// <summary>
     /// Allows you to substitute words, not always, but with some chance

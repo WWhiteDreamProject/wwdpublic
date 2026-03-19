@@ -452,27 +452,62 @@
 - type: accent
   id: liar
   replacementChance: 0.15
-  wordReplacements:
+  # WWDP EDIT START
+  bidirectionalWordReplacements:
     liar-word-1: liar-word-replacement-1
+    liar-word-1-2: liar-word-replacement-1
     liar-word-2: liar-word-replacement-2
     liar-word-3: liar-word-replacement-3
+    liar-word-3-2: liar-word-replacement-3
     liar-word-4: liar-word-replacement-4
     liar-word-5: liar-word-replacement-5
     liar-word-6: liar-word-replacement-6
+    liar-word-6-2: liar-word-replacement-6
+    liar-word-6-3: liar-word-replacement-6
+    liar-word-6-4: liar-word-replacement-6
     liar-word-7: liar-word-replacement-7
+    liar-word-7-2: liar-word-replacement-7
+    liar-word-7-3: liar-word-replacement-7
     liar-word-8: liar-word-replacement-8
     liar-word-9: liar-word-replacement-9
+    liar-word-10-exception-1: liar-word-replacement-10-exception-1
+    liar-word-10-exception-2: liar-word-replacement-10-exception-2
+    liar-word-10-exception-2-2: liar-word-replacement-10-exception-2
+    liar-word-10-exception-3: liar-word-replacement-10-exception-3
     liar-word-10: liar-word-replacement-10
+    liar-word-10-2: liar-word-replacement-10
     liar-word-11: liar-word-replacement-11
     liar-word-12: liar-word-replacement-12
+    liar-word-13-exception-1: liar-word-replacement-13-exception-1
+    liar-word-13-exception-2: liar-word-replacement-13-exception-2
+    liar-word-13-exception-3: liar-word-replacement-13-exception-3
     liar-word-13: liar-word-replacement-13
     liar-word-14: liar-word-replacement-14
     liar-word-15: liar-word-replacement-15
+    liar-word-16-exception-1: liar-word-replacement-16-exception-1
+    liar-word-16-exception-1-2: liar-word-replacement-16-exception-1
+    liar-word-16-exception-2: liar-word-replacement-16-exception-2
+    liar-word-16-exception-2-2: liar-word-replacement-16-exception-2
+    liar-word-16-exception-3: liar-word-replacement-16-exception-3
+    liar-word-16-exception-3-2: liar-word-replacement-16-exception-3
+    liar-word-16-exception-4: liar-word-replacement-16-exception-4
+    liar-word-16-exception-4-2: liar-word-replacement-16-exception-4
     liar-word-16: liar-word-replacement-16
+    liar-word-16-2: liar-word-replacement-16
+    liar-word-16-3: liar-word-replacement-16
+    liar-word-17-exception-1: liar-word-replacement-17-exception-1
     liar-word-17: liar-word-replacement-17
+    liar-word-18-exception-1: liar-word-replacement-18-exception-1
+    liar-word-18-exception-1-2: liar-word-replacement-18-exception-1
     liar-word-18: liar-word-replacement-18
+    liar-word-18-2: liar-word-replacement-18
+    liar-word-19-exception-1: liar-word-replacement-19-exception-1
     liar-word-19: liar-word-replacement-19
+    liar-word-20-exception-1: liar-word-replacement-20-exception-1
+    liar-word-20-exception-2: liar-word-replacement-20-exception-2
+    liar-word-20-exception-3: liar-word-replacement-20-exception-3
     liar-word-20: liar-word-replacement-20
+    liar-word-21-exception-1: liar-word-replacement-21-exception-1
     liar-word-21: liar-word-replacement-21
     liar-word-22: liar-word-replacement-22
     liar-word-23: liar-word-replacement-23
@@ -481,21 +516,69 @@
     liar-word-26: liar-word-replacement-26
     liar-word-27: liar-word-replacement-27
     liar-word-28: liar-word-replacement-28
+    liar-word-28-2: liar-word-replacement-28
+    liar-word-28-3: liar-word-replacement-28
+    liar-word-28-4: liar-word-replacement-28
     liar-word-29: liar-word-replacement-29
     liar-word-30: liar-word-replacement-30
     liar-word-31: liar-word-replacement-31
+    liar-word-32-exception-1: liar-word-replacement-32-exception-1
     liar-word-32: liar-word-replacement-32
+    liar-word-33-exception-1: liar-word-replacement-33-exception-1
     liar-word-33: liar-word-replacement-33
     liar-word-34: liar-word-replacement-34
     liar-word-34-2: liar-word-replacement-34
     liar-word-35: liar-word-replacement-35
     liar-word-36: liar-word-replacement-36
+    liar-word-36-2: liar-word-replacement-36
+    liar-word-37-exception-1: liar-word-replacement-37-exception-1
     liar-word-37: liar-word-replacement-37
+    liar-word-38-exception-1: liar-word-replacement-38-exception-1
     liar-word-38: liar-word-replacement-38
     liar-word-39: liar-word-replacement-39
     liar-word-40: liar-word-replacement-40
     liar-word-41: liar-word-replacement-41
+    liar-word-41-2: liar-word-replacement-41
+    liar-word-41-3: liar-word-replacement-41
+    liar-word-41-4: liar-word-replacement-41
+    liar-word-41-5: liar-word-replacement-41
+    liar-word-41-6: liar-word-replacement-41
+    liar-word-41-7: liar-word-replacement-41
+    liar-word-41-8: liar-word-replacement-41
+    liar-word-41-9: liar-word-replacement-41
+    liar-word-41-10: liar-word-replacement-41
+    liar-word-41-11: liar-word-replacement-41
+    liar-word-41-12: liar-word-replacement-41
     liar-word-42: liar-word-replacement-42
+    liar-word-42-2: liar-word-replacement-42
+    liar-word-43-exception-1: liar-word-replacement-43-exception-1
+    liar-word-43: liar-word-replacement-43
+    liar-word-44: liar-word-replacement-44
+    liar-word-45-exception-1: liar-word-replacement-45-exception-1
+    liar-word-45: liar-word-replacement-45
+    liar-word-46-exception-1: liar-word-replacement-46-exception-1
+    liar-word-46: liar-word-replacement-46
+    liar-word-47-exception-1: liar-word-replacement-47-exception-1
+    liar-word-47-exception-2: liar-word-replacement-47-exception-2
+    liar-word-47-exception-3: liar-word-replacement-47-exception-3
+    liar-word-47-exception-4: liar-word-replacement-47-exception-4
+    liar-word-47-exception-4-2: liar-word-replacement-47-exception-4
+    liar-word-47-exception-5: liar-word-replacement-47-exception-5
+    liar-word-47: liar-word-replacement-47
+    liar-word-48-exception-1: liar-word-replacement-48-exception-1
+    liar-word-48-exception-2: liar-word-replacement-48-exception-2
+    liar-word-48-exception-3: liar-word-replacement-48-exception-3
+    liar-word-48: liar-word-replacement-48
+    liar-word-49: liar-word-replacement-49
+  wordReplacements:
+    liar-word-replacement-33-2: liar-word-33
+    liar-word-replacement-36-2: liar-word-36
+    liar-word-replacement-41-2: liar-word-41
+    liar-word-replacement-47-exception-3-2: liar-word-47-exception-3
+    liar-word-replacement-49-2: liar-word-49-2
+    liar-word-50: liar-word-replacement-50
+    liar-word-51: liar-word-replacement-51
+    # WWDP EDIT END
 
 - type: accent
   id: german
