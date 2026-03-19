@@ -82,7 +82,7 @@
         - Biological
         - Inorganic
         - Silicon
-        - SiliconUnshielded
+#        - SiliconUnshielded # WWDP EDIT
     - type: PointLight
       color: "#FFDF00"
     - type: SealableClothingVisuals
