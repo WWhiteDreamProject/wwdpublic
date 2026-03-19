@@ -5154,3 +5154,14 @@ Entries:
   id: 540
   time: '2026-03-18T11:49:30.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1087
+- author: SentryPrimies
+  changes:
+    - type: Add
+      message: >-
+        Добавлены новые спрайты Инженерному, Продвинотому Инженерному, и
+        Атмосферному хардсьюту.
+    - type: Remove
+      message: 'Удалены старые спрайты вышеприведённых скафандров '
+  id: 541
+  time: '2026-03-19T18:36:24.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1089
