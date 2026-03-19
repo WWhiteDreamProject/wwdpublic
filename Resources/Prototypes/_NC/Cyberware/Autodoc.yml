@@ -1,0 +1,49 @@
+- type: entity
+  id: AutodocConsole
+  parent: BaseMachine
+  name: "Терминал Автодока"
+  description: "Медицинская машина для безопасной интеграции киберимплантов. Требует пристегнутого пациента."
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: Structures/cryostorage.rsi
+    layers:
+    - state: sleeper_0
+      map: ["base"]
+  - type: GenericVisualizer
+    visuals:
+      enum.CryostorageVisuals.Full:
+        base:
+          True: { state: sleeper_1 }
+          False: { state: sleeper_0 }
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MidImpassable
+        - BulletImpassable
+  - type: Climbable
+  - type: ContainerContainer
+    containers:
+      autodoc-body:
+        !type:ContainerSlot
+        showEnts: true
+  - type: UserInterface
+    interfaces:
+      enum.CyberwareAutodocUiKey.Key:
+        type: CyberwareAutodocBoundUserInterface
+  - type: CyberwareAutodoc
+    installTime: 5
+    removeTime: 8
+  - type: ActivatableUI
+    key: enum.CyberwareAutodocUiKey.Key
+    inHandsOnly: false
+  # В будущем здесь можно добавить AccessReaderComponent для проверки ID-карты рипердока

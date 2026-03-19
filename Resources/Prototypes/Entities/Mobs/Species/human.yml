@@ -5,6 +5,13 @@
   name: Urist McHands
   abstract: true
   components:
+  # NC EDIT START
+  - type: Humanity
+    currentHumanity: 100
+    maxHumanity: 100
+    baseHumanity: 100
+  - type: Cyberware
+  # NC EDIT END
   - type: Hunger
   - type: Icon # It will not have an icon in the adminspawn menu without this. Body parts seem fine for whatever reason.
     sprite: Mobs/Species/Human/parts.rsi

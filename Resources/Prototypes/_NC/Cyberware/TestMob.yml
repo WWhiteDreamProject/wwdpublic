@@ -1,0 +1,12 @@
+- type: entity
+  parent: MobHuman
+  id: MobHumanCyberwareTest
+  name: "Подопытный для киберимплантов"
+  suffix: "Cyberware Test"
+  components:
+  - type: Humanity
+    currentHumanity: 100
+    maxHumanity: 100
+    baseHumanity: 100
+  - type: Cyberware
+  - type: RandomHumanoidAppearance
