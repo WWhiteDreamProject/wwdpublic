@@ -178,3 +178,171 @@
       gloves: ClothingHandsGlovesNitrile # Medic
       outerClothing: ClothingOuterHardsuitAlmagestRed # Red Hardsuit
       back: ClothingBackpackAlmagestRedMedic # Red Medic
+
+# Equip Blue
+- type: entity
+  name: blue equipment
+  parent: BaseItem
+  id: AlmagestEquipmentBaseBlue
+  description: "blue equipment"
+  components:
+  - type: Item
+    size: Ginormous
+  - type: Sprite
+    sprite: Clothing/Back/Backpacks/ertleader.rsi
+    state: icon
+  - type: RadialEntityMorph
+    entries:
+    - prototype: AlmagestAutoEquipmentBlueEngineer
+    - prototype: AlmagestAutoEquipmentBlueMarine
+    - prototype: AlmagestAutoEquipmentBlueDemoman
+    - prototype: AlmagestAutoEquipmentBlueMedic
+  - type: UserInterface
+    interfaces:
+      enum.RadialSelectorUiKey.Key:
+        type: TrackedRadialSelectorMenuBUI
+  - type: ActivatableUI
+    key: enum.RadialSelectorUiKey.Key
+    inHandsOnly: true
+
+- type: entity
+  name: blue captain equipment
+  parent: BaseItem
+  id: AlmagestAutoEquipmentBlueCaptain
+  description: "blue captain equipment"
+  components:
+  - type: Item
+    size: Ginormous
+  - type: Sprite
+    sprite: Clothing/Back/Backpacks/ertleader.rsi
+    state: icon
+  - type: AutoEquipment
+    forceEquip: true
+    doAfterDelay: 3.0
+    breakOnMove: true
+    clearAllEquipment: true
+    equipmentSlots:
+      jumpsuit: ClothingUniformJumpsuitCaptain # Captain
+      shoes: ClothingShoesBootsCombatFilled
+      mask: ClothingMaskBreath
+      id: ERTLeaderPDA
+      belt: ClothingBeltMilitaryWebbingAlmagestEquip
+      neck: ClothingNeckCloakCap # Captain
+      eyes: ClothingEyesGlassesSunglasses # Captain
+      ears: ClothingHeadsetMedical # Blue Headset
+      outerClothing: ClothingOuterHardsuitAlmagestBlue # Blue Hardsuit
+      back: ClothingBackpackAlmagestBlueCaptain # Blue Captain
+
+- type: entity
+  name: blue marine equipment
+  parent: BaseItem
+  id: AlmagestAutoEquipmentBlueMarine
+  description: "blue marine equipment"
+  components:
+  - type: Item
+    size: Ginormous
+  - type: Sprite
+    sprite: Clothing/Back/Backpacks/ertsec.rsi
+    state: icon
+  - type: AutoEquipment
+    forceEquip: true
+    doAfterDelay: 3.0
+    breakOnMove: true
+    clearAllEquipment: true
+    equipmentSlots:
+      jumpsuit: ClothingUniformJumpsuitSec # Marine
+      shoes: ClothingShoesBootsCombatFilled
+      mask: ClothingMaskBreath
+      id: ERTLeaderPDA
+      belt: ClothingBeltMilitaryWebbingAlmagestEquip
+      neck: ClothingNeckMantleHOS # Marine
+      ears: ClothingHeadsetMedical # Blue Headset
+      outerClothing: ClothingOuterHardsuitAlmagestBlue # Blue Hardsuit
+      back: ClothingBackpackAlmagestBlueMarine # Blue Marine
+
+- type: entity
+  name: blue engineer equipment
+  parent: BaseItem
+  id: AlmagestAutoEquipmentBlueEngineer
+  description: "blue engineer equipment"
+  components:
+  - type: Item
+    size: Ginormous
+  - type: Sprite
+    sprite: Clothing/Back/Backpacks/erteng.rsi
+    state: icon
+  - type: AutoEquipment
+    forceEquip: true
+    doAfterDelay: 3.0
+    breakOnMove: true
+    clearAllEquipment: true
+    equipmentSlots:
+      jumpsuit: ClothingUniformJumpsuitEngineering # Engineer
+      mask: ClothingMaskBreath
+      id: ERTLeaderPDA
+      belt: ClothingBeltChiefEngineerFilledAlmagestEquip # Engineer
+      suitstorage: JetpackVoidFilled # Engineer
+      neck: ClothingNeckMantleCE # Engineer
+      gloves: ClothingHandsGlovesColorYellow # Engineer
+      eyes: ClothingEyesGlassesMeson # Engineer
+      shoes: ClothingShoesBootsMagAdv # Engineer
+      ears: ClothingHeadsetMedical # Blue Headset
+      outerClothing: ClothingOuterHardsuitAlmagestBlue # Blue Hardsuit
+      back: ClothingBackpackAlmagestBlueEngineer # Blue Engineer
+
+- type: entity
+  name: blue demoman equipment
+  parent: BaseItem
+  id: AlmagestAutoEquipmentBlueDemoman
+  description: "blue demoman equipment"
+  components:
+  - type: Item
+    size: Ginormous
+  - type: Sprite
+    sprite: Clothing/Back/Backpacks/ertjanitor.rsi
+    state: icon
+  - type: AutoEquipment
+    forceEquip: true
+    doAfterDelay: 3.0
+    breakOnMove: true
+    clearAllEquipment: true
+    equipmentSlots:
+      jumpsuit: ClothingUniformJumpsuitTacticool # Demoman
+      shoes: ClothingShoesBootsCombatFilled
+      mask: ClothingMaskBreath
+      id: ERTLeaderPDA
+      belt: ClothingBeltMilitaryWebbingAlmagestEquip
+      neck: ClothingNeckMantleRD # Demoman
+      eyes: ClothingEyesEyepatchHudBeer # Demoman
+      ears: ClothingHeadsetMedical # Blue Headset
+      outerClothing: ClothingOuterHardsuitAlmagestBlue # Blue Hardsuit
+      back: ClothingBackpackAlmagestBlueDemoman # Blue Demoman
+
+- type: entity
+  name: blue medic equipment
+  parent: BaseItem
+  id: AlmagestAutoEquipmentBlueMedic
+  description: "blue medic equipment"
+  components:
+  - type: Item
+    size: Ginormous
+  - type: Sprite
+    sprite: Clothing/Back/Backpacks/ertmed.rsi
+    state: icon
+  - type: AutoEquipment
+    forceEquip: true
+    doAfterDelay: 3.0
+    breakOnMove: true
+    clearAllEquipment: true
+    equipmentSlots:
+      jumpsuit: ClothingUniformJumpsuitParamedicUniform # Medic
+      shoes: ClothingShoesBootsCombatFilled
+      mask: ClothingMaskBreathMedical # Medic
+      id: ERTLeaderPDA
+      belt: ClothingBeltMedicalEMTFilled # Medic
+      neck: ClothingNeckMantleCMO # Medic
+      eyes: ClothingEyesHudMedical # Medic
+      gloves: ClothingHandsGlovesNitrile # Medic
+      ears: ClothingHeadsetMedical # Blue Headset
+      outerClothing: ClothingOuterHardsuitAlmagestBlue # Blue Hardsuit
+      back: ClothingBackpackAlmagestBlueMedic # Blue Medic

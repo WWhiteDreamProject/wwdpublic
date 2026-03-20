@@ -111,10 +111,11 @@
     - id: BeaconTeleporter
 
 # Backpacks
+# Red
 - type: entity
   parent: ClothingBackpackAlmagestRed
   id: ClothingBackpackAlmagestRedCaptain
-  name: captain backpack
+  name: red captain backpack
   components:
   - type: StorageFill
     contents:
@@ -183,86 +184,69 @@
 # Blue
 - type: entity
   parent: ClothingBackpackAlmagestBlue
-  id: ClothingBackpackAlmagestBlueMarine
-  name: marine backpack
+  id: ClothingBackpackAlmagestBlueCaptain
+  name: blue captain backpack
   components:
   - type: StorageFill
     contents:
-    - id: ClothingOuterHardsuitERTLeader
-    - id: ClothingBeltMilitaryWebbingAlmagestEquip
-    - id: ERTLeaderPDA
-    - id: ClothingHeadsetMedical
-    - id: ClothingNeckMantleHOS
+    - id: WeaponAntiqueLaser
+    - id: SciFlash
 
 - type: entity
   parent: ClothingBackpackAlmagestBlue
-  id: ClothingBackpackAlmagestBlueCaptain
-  name: captain backpack
+  id: ClothingBackpackAlmagestBlueMarine
+  name: blue marine backpack
   components:
   - type: StorageFill
     contents:
-    - id: ClothingOuterHardsuitERTLeader
-    - id: ClothingBeltMilitaryWebbingAlmagestEquip
-    - id: ERTLeaderPDA
-    - id: ClothingHeadsetMedical
-    - id: WeaponAntiqueLaser
-    - id: ClothingNeckCloakCap
+    - id: GrenadeShrapnel
+    - id: GrenadeDummy
+    - id: GrenadeBarrier
+      amount: 3
 
 - type: entity
   parent: ClothingBackpackAlmagestBlue
   id: ClothingBackpackAlmagestBlueEngineer
-  name: engineer backpack
+  name: blue engineer backpack
   components:
   - type: StorageFill
     contents:
-    - id: ClothingOuterHardsuitERTLeader
-    - id: ClothingBeltChiefEngineerFilledAlmagestEquip
-    - id: ClothingMaskBreath
-    - id: ERTLeaderPDA
-    - id: ClothingHeadsetMedical
-    - id: ClothingShoesBootsMagAdv
-    - id: ClothingEyesGlassesMeson
     - id: HandHeldMassScanner
     - id: HandheldGPSBasic
-    - id: ClothingHandsGlovesColorYellow
-    - id: ClothingNeckMantleCE
 
 - type: entity
-  id: ClothingBackpackAlmagestBlueEquipEngineer
-  name: engineer backpack
-  parent: BaseItem
-  categories: [ HideSpawnMenu ]
-  description: blue equipment
+  parent: ClothingBackpackAlmagestBlue
+  id: ClothingBackpackAlmagestBlueDemoman
+  name: blue demoman backpack
   components:
-  - type: Sprite
-    sprite: Clothing/Back/Backpacks/erteng.rsi
-    state: icon
-  - type: SpawnItemsOnUse
-    items:
-    - id: ClothingBackpackAlmagestBlueEngineer
-      orGroup: BackPack
-    - id: JetpackVoidFilled
-      orGroup: Jetpack
+  - type: StorageFill
+    contents:
+    - id: DrinkBeerBottleFull
+      amount: 2
+    - id: GrenadeShrapnel
+      amount: 2
+    - id: GrenadeIncendiary
+    - id: RemoteSignaller
+    - id: Multitool
+    - id: C4
+      amount: 4
+    - id: SyndicateBombFlatpack
 
 - type: entity
-  name: blue equipment
-  parent: BaseItem
-  id: AlmagestEquipmentBaseBlue
-  description: "blue equipment"
+  parent: ClothingBackpackAlmagestBlue
+  id: ClothingBackpackAlmagestBlueMedic
+  name: blue medic backpack
   components:
-  - type: Item
-    size: Ginormous
-  - type: Sprite
-    sprite: Clothing/Back/Backpacks/ertleader.rsi
-    state: icon
-  - type: RadialEntityMorph
-    entries:
-    - prototype: ClothingBackpackAlmagestBlueEquipEngineer
-    - prototype: ClothingBackpackAlmagestBlueMarine
-  - type: UserInterface
-    interfaces:
-      enum.RadialSelectorUiKey.Key:
-        type: TrackedRadialSelectorMenuBUI
-  - type: ActivatableUI
-    key: enum.RadialSelectorUiKey.Key
-    inHandsOnly: true
+  - type: StorageFill
+    contents:
+    - id: BodyBagBluespaceFolded
+    - id: OmnizineChemistryBottle
+      amount: 2
+    - id: EpinephrineChemistryBottle
+      amount: 2
+    - id: Hypospray
+    - id: Crowbar
+    - id: HandHeldMassScanner
+    - id: HandheldGPSBasic
+    - id: WeaponGrapplingGun
+    - id: BeaconTeleporter
