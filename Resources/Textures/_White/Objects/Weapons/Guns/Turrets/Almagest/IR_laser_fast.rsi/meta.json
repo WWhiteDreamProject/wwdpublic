@@ -16,6 +16,7 @@
     { "name": "dollymix7" },
     { "name": "dollymix8" },
     { "name": "dollymix9" },
+    { "name": "dollymix9-unshaded", "delays":[[0.5, 0.5, 0.5, 0.5, 0.5, 0.5]] },
     { "name": "icon" }
   ]
 }
