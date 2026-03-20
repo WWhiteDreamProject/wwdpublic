@@ -386,13 +386,13 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
     public NavInterfaceState GetNavState(Entity<RadarConsoleComponent?, TransformComponent?> entity, Dictionary<NetEntity, List<DockingPortState>> docks)
     {
         if (!Resolve(entity, ref entity.Comp1, ref entity.Comp2))
-            return new NavInterfaceState(SharedRadarConsoleSystem.DefaultMaxRange, null, null, docks, Shared._NF.Shuttles.Events.InertiaDampeningMode.Dampened, MathF.Tau); // Frontier: add inertia dampening // wwdp edit
+            return new NavInterfaceState(SharedRadarConsoleSystem.DefaultMaxRange, null, null, docks, Shared._NF.Shuttles.Events.InertiaDampeningMode.Dampened, MathF.Tau);  // Frontier: add inertia dampening // wwdp edit
 
         return GetNavState(
             entity,
             docks,
             entity.Comp2.Coordinates,
-            entity.Comp2.LocalRotation);
+            entity.Comp2.LocalRotation + entity.Comp1.DisplayRotation);
     }
 
     public NavInterfaceState GetNavState(
@@ -402,15 +402,17 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
         Angle angle)
     {
         if (!Resolve(entity, ref entity.Comp1, ref entity.Comp2))
-            return new NavInterfaceState(SharedRadarConsoleSystem.DefaultMaxRange, GetNetCoordinates(coordinates), angle, docks, InertiaDampeningMode.Dampened, MathF.Tau); // Frontier: add inertial dampening // wwdp edit
+            return new NavInterfaceState(SharedRadarConsoleSystem.DefaultMaxRange, GetNetCoordinates(coordinates), angle, docks, InertiaDampeningMode.Dampened, MathF.Tau);  // Frontier: add inertial dampening // wwdp edit
+
+        var adjustedAngle = angle + entity.Comp1.DisplayRotation;
 
         return new NavInterfaceState(
             entity.Comp1.MaxRange,
             GetNetCoordinates(coordinates),
-            angle,
+            adjustedAngle,
             docks,
-            _shuttle.NfGetInertiaDampeningMode(entity), // Frontier: inertia dampening
-            entity.Comp1.FieldOfView); // WWDP EDIT
+            _shuttle.NfGetInertiaDampeningMode(entity),  // Frontier: inertia dampening
+            entity.Comp1.FieldOfView);  // WWDP EDIT
     }
 
     /// <summary>

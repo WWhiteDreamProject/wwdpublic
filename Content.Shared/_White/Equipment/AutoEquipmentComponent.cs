@@ -14,7 +14,13 @@ public sealed partial class AutoEquipmentComponent : Component
 
     [DataField]
     public float DoAfterDelay = 0f;
-    
+
     [DataField]
     public bool BreakOnMove = false;
+
+    [DataField]
+    public bool DeleteOldItems = false;
+
+    [DataField]
+    public bool ClearAllEquipment = false;
 }

@@ -88,19 +88,25 @@ public sealed class AutoEquipmentSystem : EntitySystem
         if (_netManager.IsClient && component.DoAfterDelay > 0)
             return;
 
-        EquipItems(user, component, equipmentUid);
+        EquipItems(user, component);
 
         if (_netManager.IsClient)
             return;
         QueueDel(equipmentUid);
     }
 
-    public void EquipItems(EntityUid user, AutoEquipmentComponent component, EntityUid? equipmentUid = null)
+    public void EquipItems(EntityUid user, AutoEquipmentComponent component)
     {
         if (!TryComp<InventoryComponent>(user, out var inventory))
             return;
 
         var userCoords = _transform.GetMapCoordinates(user);
+
+        if (component.ClearAllEquipment)
+        {
+            ClearAllEquipment(user, inventory);
+        }
+
         var spawnedItems = new HashSet<EntityUid>();
 
         var slotOrder = new Dictionary<string, int>
@@ -125,7 +131,8 @@ public sealed class AutoEquipmentSystem : EntitySystem
         };
 
         var orderedSlots = component.EquipmentSlots
-            .OrderBy(x => slotOrder.GetValueOrDefault(x.Key, 999))
+            .Where(x => slotOrder.ContainsKey(x.Key))
+            .OrderBy(x => slotOrder[x.Key])
             .ToList();
 
         foreach (var (slotName, itemProto) in orderedSlots)
@@ -133,24 +140,16 @@ public sealed class AutoEquipmentSystem : EntitySystem
             if (!_inventory.HasSlot(user, slotName, inventory))
                 continue;
 
-            // Проверяем зависимости слота
-            if (TryComp<InventoryComponent>(user, out var invComp))
-            {
-                foreach (var slot in invComp.Slots)
-                {
-                    if (slot.Name == slotName && slot.DependsOn != null)
-                    {
-                        if (!_inventory.TryGetSlotEntity(user, slot.DependsOn, out _, invComp))
-                        {
-                            continue; // Пропускаем слот если зависимость не удовлетворена
-                        }
-                    }
-                }
-            }
-
             if (component.ForceEquip && _inventory.TryGetSlotEntity(user, slotName, out var existingItem, inventory))
             {
-                _inventory.TryUnequip(user, slotName, silent: true, force: true, inventory: inventory);
+                if (component.DeleteOldItems)
+                {
+                    DeleteSlotWithDependencies(user, slotName, existingItem.Value, inventory);
+                }
+                else
+                {
+                    _inventory.TryUnequip(user, slotName, silent: true, force: true, inventory: inventory);
+                }
             }
 
             var newItem = EntityManager.SpawnEntity(itemProto, userCoords);
@@ -163,10 +162,71 @@ public sealed class AutoEquipmentSystem : EntitySystem
                 QueueDel(newItem);
             }
         }
+    }
 
-        if (_netManager.IsClient && equipmentUid != null)
+    private void ClearAllEquipment(EntityUid user, InventoryComponent inventory)
+    {
+        var slotsToRemove = new List<string>();
+
+        var slotOrder = new Dictionary<string, int>
         {
-            _predictedItems[equipmentUid.Value] = spawnedItems;
+            { "pocket4", 0 }, { "pocket3", 1 }, { "pocket2", 2 }, { "pocket1", 3 },
+            { "id", 4 }, { "belt", 5 }, { "gloves", 6 }, { "neck", 7 },
+            { "ears", 8 }, { "eyes", 9 }, { "mask", 10 }, { "head", 11 },
+            { "back", 12 }, { "shoes", 13 }, { "suitstorage", 14 },
+            { "outerClothing", 15 }, { "jumpsuit", 16 }
+        };
+
+        foreach (var slot in inventory.Slots)
+        {
+            if (_inventory.TryGetSlotEntity(user, slot.Name, out _, inventory))
+            {
+                slotsToRemove.Add(slot.Name);
+            }
         }
+
+        var orderedSlots = slotsToRemove
+            .Where(x => slotOrder.ContainsKey(x))
+            .OrderByDescending(x => slotOrder[x])
+            .ToList();
+
+        foreach (var slotName in orderedSlots)
+        {
+            if (_inventory.TryGetSlotEntity(user, slotName, out var item, inventory))
+            {
+                DeleteSlotWithDependencies(user, slotName, item.Value, inventory);
+            }
+        }
+    }
+
+    private void DeleteSlotWithDependencies(EntityUid user, string slotName, EntityUid item, InventoryComponent inventory)
+    {
+        if (slotName == "outerClothing")
+        {
+            var dependentSlots = new[] { "suitstorage" };
+            foreach (var dependentSlot in dependentSlots)
+            {
+                if (_inventory.TryGetSlotEntity(user, dependentSlot, out var dependentItem, inventory))
+                {
+                    _inventory.TryUnequip(user, dependentSlot, silent: true, force: true, inventory: inventory);
+                    QueueDel(dependentItem.Value);
+                }
+            }
+        }
+        else if (slotName == "jumpsuit")
+        {
+            var dependentSlots = new[] { "pocket1", "pocket2", "id" };
+            foreach (var dependentSlot in dependentSlots)
+            {
+                if (_inventory.TryGetSlotEntity(user, dependentSlot, out var dependentItem, inventory))
+                {
+                    _inventory.TryUnequip(user, dependentSlot, silent: true, force: true, inventory: inventory);
+                    QueueDel(dependentItem.Value);
+                }
+            }
+        }
+
+        _inventory.TryUnequip(user, slotName, silent: true, force: true, inventory: inventory);
+        QueueDel(item);
     }
 }

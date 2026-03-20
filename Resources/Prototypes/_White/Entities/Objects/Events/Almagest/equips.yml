@@ -1,0 +1,180 @@
+# Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitERTSecurity
+  id: ClothingOuterHardsuitAlmagestRed
+  components:
+  - type: Unremoveable
+
+- type: entity
+  parent: ClothingOuterHardsuitERTLeader
+  id: ClothingOuterHardsuitAlmagestBlue
+  components:
+  - type: Unremoveable
+
+# Equip Red
+- type: entity
+  name: red equipment
+  parent: BaseItem
+  id: AlmagestEquipmentBaseRed
+  description: "red equipment"
+  components:
+  - type: Item
+    size: Ginormous
+  - type: Sprite
+    sprite: Clothing/Back/Backpacks/ertsec.rsi
+    state: icon
+  - type: RadialEntityMorph
+    entries:
+    - prototype: AlmagestAutoEquipmentRedEngineer
+    - prototype: AlmagestAutoEquipmentRedMarine
+    - prototype: AlmagestAutoEquipmentRedDemoman
+    - prototype: AlmagestAutoEquipmentRedMedic
+  - type: UserInterface
+    interfaces:
+      enum.RadialSelectorUiKey.Key:
+        type: TrackedRadialSelectorMenuBUI
+  - type: ActivatableUI
+    key: enum.RadialSelectorUiKey.Key
+    inHandsOnly: true
+
+- type: entity
+  name: red captain equipment
+  parent: BaseItem
+  id: AlmagestAutoEquipmentRedCaptain
+  description: "red captain equipment"
+  components:
+  - type: Item
+    size: Ginormous
+  - type: Sprite
+    sprite: Clothing/Back/Backpacks/ertsec.rsi
+    state: icon
+  - type: AutoEquipment
+    forceEquip: true
+    doAfterDelay: 3.0
+    breakOnMove: true
+    clearAllEquipment: true
+    equipmentSlots:
+      jumpsuit: ClothingUniformJumpsuitCaptain # Captain
+      shoes: ClothingShoesBootsCombatFilled
+      mask: ClothingMaskBreath
+      id: ERTLeaderPDA
+      belt: ClothingBeltMilitaryWebbingAlmagestEquip
+      neck: ClothingNeckCloakCap # Captain
+      eyes: ClothingEyesGlassesSunglasses # Captain
+      ears: ClothingHeadsetPrison # Red Headset
+      outerClothing: ClothingOuterHardsuitAlmagestRed # Red Hardsuit
+      back: ClothingBackpackAlmagestRedCaptain # Red Captain
+
+- type: entity
+  name: red marine equipment
+  parent: BaseItem
+  id: AlmagestAutoEquipmentRedMarine
+  description: "red marine equipment"
+  components:
+  - type: Item
+    size: Ginormous
+  - type: Sprite
+    sprite: Clothing/Back/Backpacks/ertsec.rsi
+    state: icon
+  - type: AutoEquipment
+    forceEquip: true
+    doAfterDelay: 3.0
+    breakOnMove: true
+    clearAllEquipment: true
+    equipmentSlots:
+      jumpsuit: ClothingUniformJumpsuitSec # Marine
+      shoes: ClothingShoesBootsCombatFilled
+      mask: ClothingMaskBreath
+      id: ERTLeaderPDA
+      belt: ClothingBeltMilitaryWebbingAlmagestEquip
+      neck: ClothingNeckMantleHOS # Marine
+      ears: ClothingHeadsetPrison # Red Headset
+      outerClothing: ClothingOuterHardsuitAlmagestRed # Red Hardsuit
+      back: ClothingBackpackAlmagestRedMarine # Red Marine
+
+- type: entity
+  name: red engineer equipment
+  parent: BaseItem
+  id: AlmagestAutoEquipmentRedEngineer
+  description: "red engineer equipment"
+  components:
+  - type: Item
+    size: Ginormous
+  - type: Sprite
+    sprite: Clothing/Back/Backpacks/erteng.rsi
+    state: icon
+  - type: AutoEquipment
+    forceEquip: true
+    doAfterDelay: 3.0
+    breakOnMove: true
+    clearAllEquipment: true
+    equipmentSlots:
+      jumpsuit: ClothingUniformJumpsuitEngineering # Engineer
+      mask: ClothingMaskBreath
+      id: ERTLeaderPDA
+      belt: ClothingBeltChiefEngineerFilledAlmagestEquip # Engineer
+      suitstorage: JetpackVoidFilled # Engineer
+      neck: ClothingNeckMantleCE # Engineer
+      gloves: ClothingHandsGlovesColorYellow # Engineer
+      eyes: ClothingEyesGlassesMeson # Engineer
+      shoes: ClothingShoesBootsMagAdv # Engineer
+      ears: ClothingHeadsetPrison # Red Headset
+      outerClothing: ClothingOuterHardsuitAlmagestRed # Red Hardsuit
+      back: ClothingBackpackAlmagestRedEngineer # Red Engineer
+
+- type: entity
+  name: red demoman equipment
+  parent: BaseItem
+  id: AlmagestAutoEquipmentRedDemoman
+  description: "red demoman equipment"
+  components:
+  - type: Item
+    size: Ginormous
+  - type: Sprite
+    sprite: Clothing/Back/Backpacks/ertjanitor.rsi
+    state: icon
+  - type: AutoEquipment
+    forceEquip: true
+    doAfterDelay: 3.0
+    breakOnMove: true
+    clearAllEquipment: true
+    equipmentSlots:
+      jumpsuit: ClothingUniformJumpsuitTacticool # Demoman
+      shoes: ClothingShoesBootsCombatFilled
+      mask: ClothingMaskBreath
+      id: ERTLeaderPDA
+      belt: ClothingBeltMilitaryWebbingAlmagestEquip
+      neck: ClothingNeckMantleRD # Demoman
+      ears: ClothingHeadsetPrison # Red Headset
+      eyes: ClothingEyesEyepatchHudBeer # Demoman
+      outerClothing: ClothingOuterHardsuitAlmagestRed # Red Hardsuit
+      back: ClothingBackpackAlmagestRedDemoman # Red Demoman
+
+- type: entity
+  name: red medic equipment
+  parent: BaseItem
+  id: AlmagestAutoEquipmentRedMedic
+  description: "red medic equipment"
+  components:
+  - type: Item
+    size: Ginormous
+  - type: Sprite
+    sprite: Clothing/Back/Backpacks/ertmed.rsi
+    state: icon
+  - type: AutoEquipment
+    forceEquip: true
+    doAfterDelay: 3.0
+    breakOnMove: true
+    clearAllEquipment: true
+    equipmentSlots:
+      jumpsuit: ClothingUniformJumpsuitParamedicUniform # Medic
+      shoes: ClothingShoesBootsCombatFilled
+      mask: ClothingMaskBreathMedical # Medic
+      id: ERTLeaderPDA
+      belt: ClothingBeltMedicalEMTFilled # Medic
+      neck: ClothingNeckMantleCMO # Medic
+      ears: ClothingHeadsetPrison # Red Headset
+      eyes: ClothingEyesHudMedical # Medic
+      gloves: ClothingHandsGlovesNitrile # Medic
+      outerClothing: ClothingOuterHardsuitAlmagestRed # Red Hardsuit
+      back: ClothingBackpackAlmagestRedMedic # Red Medic

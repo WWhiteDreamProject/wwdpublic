@@ -1,0 +1,12 @@
+# Demoman
+- type: entity
+  parent: BaseFlatpack
+  id: SyndicateBombFlatpack
+  name: syndicate bomb flatpack
+  description: A flatpack used for constructing a syndicate bomb.
+  components:
+  - type: Sprite
+    layers:
+    - state: ame-part
+  - type: Flatpack
+    entity: SyndicateBomb
