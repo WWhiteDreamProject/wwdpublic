@@ -9,31 +9,48 @@ public enum CyberwareAutodocUiKey : byte
 }
 
 /// <summary>
-///     Сетевое состояние, отправляемое с сервера на клиент Автодока (Рипердоку), 
-///     чтобы отобразить лежащего пациента и его доступные/занятые слоты.
+///     Данные доступного импланта для отображения в UI.
 /// </summary>
 [Serializable, NetSerializable]
-public sealed class AutodocBoundUserInterfaceState : BoundUserInterfaceState
+public sealed class AvailableImplantData
 {
-    /// <summary>
-    ///     Uid пациента, лежащего внутри капсулы (для SpriteView).
-    /// </summary>
-    public NetEntity? Patient;
+    public NetEntity Entity;
+    public string Name;
+    public CyberwareCategory Category;
+    public float HumanityCost;
 
-    /// <summary>
-    ///     Словарь установленных имплантов (Слот -> Uid и Имя импланта).
-    /// </summary>
-    public Dictionary<CyberwareSlot, NetEntity> InstalledImplants;
-
-    public AutodocBoundUserInterfaceState(NetEntity? patient, Dictionary<CyberwareSlot, NetEntity> installedImplants)
+    public AvailableImplantData(NetEntity entity, string name, CyberwareCategory category, float humanityCost)
     {
-        Patient = patient;
-        InstalledImplants = installedImplants;
+        Entity = entity;
+        Name = name;
+        Category = category;
+        HumanityCost = humanityCost;
     }
 }
 
 /// <summary>
-///     Сообщение от клиента (BUI) к серверу с командой: "Интегрировать имплант".
+///     Сетевое состояние Автодока: пациент, установленные импланты, доступные импланты рядом.
+/// </summary>
+[Serializable, NetSerializable]
+public sealed class AutodocBoundUserInterfaceState : BoundUserInterfaceState
+{
+    public NetEntity? Patient;
+    public Dictionary<CyberwareSlot, NetEntity> InstalledImplants;
+    public List<AvailableImplantData> AvailableImplants;
+
+    public AutodocBoundUserInterfaceState(
+        NetEntity? patient,
+        Dictionary<CyberwareSlot, NetEntity> installedImplants,
+        List<AvailableImplantData> availableImplants)
+    {
+        Patient = patient;
+        InstalledImplants = installedImplants;
+        AvailableImplants = availableImplants;
+    }
+}
+
+/// <summary>
+///     Сообщение: "Интегрировать имплант в указанный слот".
 /// </summary>
 [Serializable, NetSerializable]
 public sealed class AutodocInstallBuiMsg : BoundUserInterfaceMessage
@@ -49,7 +66,7 @@ public sealed class AutodocInstallBuiMsg : BoundUserInterfaceMessage
 }
 
 /// <summary>
-///     Сообщение от клиента (BUI) к серверу с командой: "Извлечь имплант".
+///     Сообщение: "Извлечь имплант из указанного слота".
 /// </summary>
 [Serializable, NetSerializable]
 public sealed class AutodocRemoveBuiMsg : BoundUserInterfaceMessage

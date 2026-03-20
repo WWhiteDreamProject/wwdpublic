@@ -13,8 +13,8 @@ using Content.Shared.Verbs;
 namespace Content.Server._NC.Cyberware.Systems;
 
 /// <summary>
-///     Серверная система Автодока. 
-///     Связывает UI с логикой установки имплантов через систему DoAfter.
+///     Серверная система Автодока.
+///     Сканирует импланты рядом, управляет UI и запускает DoAfter для установки/извлечения.
 /// </summary>
 public sealed class AutodocSystem : EntitySystem
 {
@@ -23,11 +23,15 @@ public sealed class AutodocSystem : EntitySystem
     [Dependency] private readonly CyberwareSystem _cyberware = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly StandingStateSystem _standing = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
+
+    /// <summary>Радиус сканирования имплантов вокруг автодока (в тайлах).</summary>
+    private const float ScanRange = 2f;
 
     public override void Initialize()
     {
         base.Initialize();
-        
+
         SubscribeLocalEvent<CyberwareAutodocComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<CyberwareAutodocComponent, CanDropTargetEvent>(OnCanDrop);
         SubscribeLocalEvent<CyberwareAutodocComponent, DragDropTargetEvent>(OnDragDrop);
@@ -36,7 +40,7 @@ public sealed class AutodocSystem : EntitySystem
         SubscribeLocalEvent<CyberwareAutodocComponent, BoundUIOpenedEvent>(OnUIOpened);
         SubscribeLocalEvent<CyberwareAutodocComponent, AutodocInstallBuiMsg>(OnInstallMessage);
         SubscribeLocalEvent<CyberwareAutodocComponent, AutodocRemoveBuiMsg>(OnRemoveMessage);
-        
+
         SubscribeLocalEvent<CyberwareAutodocComponent, AutodocInstallDoAfterEvent>(OnInstallDoAfter);
         SubscribeLocalEvent<CyberwareAutodocComponent, AutodocRemoveDoAfterEvent>(OnRemoveDoAfter);
     }
@@ -62,7 +66,7 @@ public sealed class AutodocSystem : EntitySystem
 
         if (_container.Insert(args.Dragged, component.BodyContainer))
         {
-            _standing.Stand(args.Dragged, force: true); // Force stand to match sprite overlay correctly
+            _standing.Stand(args.Dragged, force: true);
             args.Handled = true;
             UpdateUI(uid);
         }
@@ -78,7 +82,7 @@ public sealed class AutodocSystem : EntitySystem
             Text = "Извлечь пациента",
             Category = VerbCategory.Eject,
             Priority = 1,
-            Act = () => 
+            Act = () =>
             {
                 var patient = component.BodyContainer.ContainedEntity;
                 if (patient != null)
@@ -96,39 +100,49 @@ public sealed class AutodocSystem : EntitySystem
         UpdateUI(uid);
     }
 
-    /// <summary>
-    ///     Находит пациента. (Проверяет, кто лежит внутри).
-    /// </summary>
     private EntityUid? GetPatient(EntityUid autodoc)
     {
         if (TryComp<CyberwareAutodocComponent>(autodoc, out var component))
-        {
             return component.BodyContainer.ContainedEntity;
-        }
         return null;
     }
 
     /// <summary>
-    ///     Обновляет состояние BUI для всех открытых окон.
+    ///     Обновляет BUI: установленные импланты + сканирует доступные рядом.
     /// </summary>
     public void UpdateUI(EntityUid uid)
     {
         var patient = GetPatient(uid);
         var installedNet = new Dictionary<CyberwareSlot, NetEntity>();
-        
+        var available = new List<AvailableImplantData>();
+
+        // Собираем установленные импланты пациента
         if (patient != null && TryComp<CyberwareComponent>(patient.Value, out var cyberware))
         {
             foreach (var (slot, implantUid) in cyberware.InstalledImplants)
-            {
                 installedNet[slot] = GetNetEntity(implantUid);
-            }
+        }
+
+        // Сканируем импланты в радиусе ScanRange от автодока
+        var coords = Transform(uid).Coordinates;
+        foreach (var nearby in _lookup.GetEntitiesInRange(coords, ScanRange, LookupFlags.Dynamic | LookupFlags.Sundries))
+        {
+            if (!TryComp<CyberwareImplantComponent>(nearby, out var impComp))
+                continue;
+
+            if (impComp.Category == CyberwareCategory.None)
+                continue;
+
+            var name = MetaData(nearby).EntityName;
+            available.Add(new AvailableImplantData(
+                GetNetEntity(nearby), name, impComp.Category, impComp.HumanityCost));
         }
 
         var state = new AutodocBoundUserInterfaceState(
             patient != null ? GetNetEntity(patient.Value) : null,
-            installedNet
-        );
-        
+            installedNet,
+            available);
+
         _ui.SetUiState(uid, CyberwareAutodocUiKey.Key, state);
     }
 
@@ -136,15 +150,21 @@ public sealed class AutodocSystem : EntitySystem
     {
         var patient = GetPatient(uid);
         if (patient == null) return;
-        
-        var user = args.Actor;
 
+        var user = args.Actor;
         var implantUid = GetEntity(args.ImplantEntity);
 
-        var doAfterArgs = new DoAfterArgs(EntityManager, user, TimeSpan.FromSeconds(component.InstallTime), new AutodocInstallDoAfterEvent(args.ImplantEntity, args.Slot), uid, target: patient.Value, used: implantUid)
+        // Проверяем что имплант существует
+        if (!TryComp<CyberwareImplantComponent>(implantUid, out _))
+            return;
+
+        var doAfterArgs = new DoAfterArgs(EntityManager, user,
+            TimeSpan.FromSeconds(component.InstallTime),
+            new AutodocInstallDoAfterEvent(args.ImplantEntity, args.Slot),
+            uid, target: patient.Value, used: implantUid)
         {
             BreakOnMove = true,
-            NeedHand = true
+            NeedHand = false, // Имплант берётся из окружения, не из рук
         };
 
         _doAfter.TryStartDoAfter(doAfterArgs);
@@ -154,13 +174,16 @@ public sealed class AutodocSystem : EntitySystem
     {
         var patient = GetPatient(uid);
         if (patient == null) return;
-        
+
         var user = args.Actor;
 
-        var doAfterArgs = new DoAfterArgs(EntityManager, user, TimeSpan.FromSeconds(component.RemoveTime), new AutodocRemoveDoAfterEvent(args.Slot), uid, target: patient.Value)
+        var doAfterArgs = new DoAfterArgs(EntityManager, user,
+            TimeSpan.FromSeconds(component.RemoveTime),
+            new AutodocRemoveDoAfterEvent(args.Slot),
+            uid, target: patient.Value)
         {
             BreakOnMove = true,
-            NeedHand = true
+            NeedHand = false,
         };
 
         _doAfter.TryStartDoAfter(doAfterArgs);
@@ -175,9 +198,8 @@ public sealed class AutodocSystem : EntitySystem
         var implant = args.Args.Used.Value;
 
         if (_cyberware.TryInstallImplant(patient, implant))
-        {
             UpdateUI(uid);
-        }
+
         args.Handled = true;
     }
 
@@ -189,9 +211,8 @@ public sealed class AutodocSystem : EntitySystem
         var patient = args.Args.Target.Value;
 
         if (_cyberware.TryRemoveImplant(patient, args.Slot))
-        {
             UpdateUI(uid);
-        }
+
         args.Handled = true;
     }
 }

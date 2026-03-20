@@ -35,11 +35,11 @@
             <BoxContainer Orientation="Horizontal" VerticalExpand="True" HorizontalExpand="True" SeparationOverride="8">
 
                 <!-- ЛЕВАЯ КОЛОНКА: слоты головы и левой стороны -->
-                <BoxContainer Name="LeftSlotsContainer" Orientation="Vertical" MinWidth="260"
+                <BoxContainer Name="LeftSlotsContainer" Orientation="Vertical" HorizontalExpand="True"
                               SeparationOverride="4" VerticalExpand="True"/>
 
                 <!-- ЦЕНТРАЛЬНАЯ КОЛОНКА: спрайт пациента из Автодока -->
-                <PanelContainer HorizontalExpand="True" VerticalExpand="True">
+                <PanelContainer MinWidth="300" VerticalExpand="True">
                     <PanelContainer.PanelOverride>
                         <gfx:StyleBoxFlat BackgroundColor="#060a06" BorderColor="#1a3a1a" BorderThickness="1"/>
                     </PanelContainer.PanelOverride>
@@ -55,7 +55,7 @@
                 </PanelContainer>
 
                 <!-- ПРАВАЯ КОЛОНКА: слоты конечностей и внешних имплантов -->
-                <BoxContainer Name="RightSlotsContainer" Orientation="Vertical" MinWidth="260"
+                <BoxContainer Name="RightSlotsContainer" Orientation="Vertical" HorizontalExpand="True"
                               SeparationOverride="4" VerticalExpand="True"/>
 
             </BoxContainer>

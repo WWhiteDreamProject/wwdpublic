@@ -6,59 +6,71 @@ using Robust.Client.Graphics;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Client.GameObjects;
+using System.Linq;
 
 namespace Content.Client._NC.Cyberware.UI;
 
 /// <summary>
-///     Окно терминала Автодока в стиле Cyberpunk.
-///     Отрисовывает спрайт пациента в центре, слоты кибервари по бокам.
+///     Окно терминала Автодока. Категории с подслотами, выпадающие списки имплантов, кнопка ИНТЕГРИРОВАТЬ.
 /// </summary>
 public sealed partial class CyberwareAutodocWindow : FancyWindow
 {
     private readonly IEntityManager _entManager;
 
-    // События для BUI (сигнатуры совместимы с CyberwareAutodocBoundUserInterface)
+    // События для BUI
     public event Action<CyberwareSlot, NetEntity?>? OnInstallPressed;
     public event Action<CyberwareSlot>? OnRemovePressed;
 
-    // UI-элементы слотов, генерируемые программно в BuildSlotPanel
-    private readonly Dictionary<CyberwareSlot, Label> _slotImplantLabels = new();
-    private readonly Dictionary<CyberwareSlot, Button> _slotActionButtons = new();
+    // UI-элементы для каждого подслота (видны только при установленном импланте)
+    private readonly Dictionary<CyberwareSlot, BoxContainer> _slotRows = new();
+    private readonly Dictionary<CyberwareSlot, Label> _slotLabels = new();
+    private readonly Dictionary<CyberwareSlot, Button> _slotRemoveButtons = new();
 
-    // Текущее состояние от сервера
+    // UI-элементы для каждой категории (dropdown + кнопка ИНТЕГРИРОВАТЬ)
+    private readonly Dictionary<CyberwareCategory, OptionButton> _categoryDropdowns = new();
+    private readonly Dictionary<CyberwareCategory, Button> _categoryInstallButtons = new();
+    private readonly Dictionary<CyberwareCategory, BoxContainer> _categoryInstallRows = new();
+
+    // Маппинг OptionButton ItemId → NetEntity импланта
+    private readonly Dictionary<CyberwareCategory, List<NetEntity>> _dropdownEntities = new();
+
     private NetEntity? _currentPatient;
     private Dictionary<CyberwareSlot, NetEntity> _installed = new();
+
+    private static readonly CyberwareCategory[] LeftCategories =
+    {
+        CyberwareCategory.Neuroport, CyberwareCategory.Optics, CyberwareCategory.Audio,
+        CyberwareCategory.Style, CyberwareCategory.Internal,
+    };
+
+    private static readonly CyberwareCategory[] RightCategories =
+    {
+        CyberwareCategory.RightArm, CyberwareCategory.LeftArm,
+        CyberwareCategory.RightLeg, CyberwareCategory.LeftLeg, CyberwareCategory.External,
+    };
 
     public CyberwareAutodocWindow()
     {
         RobustXamlLoader.Load(this);
         _entManager = IoCManager.Resolve<IEntityManager>();
 
-        // Получаем контейнеры из XAML
         var leftContainer = FindControl<BoxContainer>("LeftSlotsContainer");
         var rightContainer = FindControl<BoxContainer>("RightSlotsContainer");
 
-        // Левая колонка: Голова + Левая сторона тела
-        BuildSlotPanel(leftContainer, CyberwareSlot.Neuroport, "НЕЙРОПОРТ");
-        BuildSlotPanel(leftContainer, CyberwareSlot.Optics,    "КИБЕРОПТИКА");
-        BuildSlotPanel(leftContainer, CyberwareSlot.Audio,     "АУДИОИМПЛАНТ");
-        BuildSlotPanel(leftContainer, CyberwareSlot.Style,     "СТИЛЕВЫЕ");
-        BuildSlotPanel(leftContainer, CyberwareSlot.Internal,  "ВНУТРЕННИЕ");
-
-        // Правая колонка: Конечности + Внешние импланты
-        BuildSlotPanel(rightContainer, CyberwareSlot.RightArm, "ПРАВАЯ РУКА");
-        BuildSlotPanel(rightContainer, CyberwareSlot.LeftArm,  "ЛЕВАЯ РУКА");
-        BuildSlotPanel(rightContainer, CyberwareSlot.RightLeg, "ПРАВАЯ НОГА");
-        BuildSlotPanel(rightContainer, CyberwareSlot.LeftLeg,  "ЛЕВАЯ НОГА");
-        BuildSlotPanel(rightContainer, CyberwareSlot.External, "ВНЕШНИЕ");
+        foreach (var cat in LeftCategories)
+            BuildCategoryPanel(leftContainer, cat);
+        foreach (var cat in RightCategories)
+            BuildCategoryPanel(rightContainer, cat);
     }
 
     /// <summary>
-    ///     Создаёт UI-панель для одного слота кибервари в стиле терминала.
+    ///     Строит панель категории: заголовок, подслоты (скрытые по умолчанию), dropdown + кнопка.
     /// </summary>
-    private void BuildSlotPanel(BoxContainer parent, CyberwareSlot slot, string displayName)
+    private void BuildCategoryPanel(BoxContainer parent, CyberwareCategory category)
     {
-        // Панель с бордером в стиле терминала
+        var slots = CyberwareSlotHelper.GetSlots(category);
+        var displayName = CyberwareSlotHelper.GetCategoryDisplayName(category);
+
         var panel = new PanelContainer
         {
             HorizontalExpand = true,
@@ -67,10 +79,8 @@ public sealed partial class CyberwareAutodocWindow : FancyWindow
                 BackgroundColor = Color.FromHex("#0d150d"),
                 BorderColor = Color.FromHex("#2a5a2a"),
                 BorderThickness = new Thickness(1),
-                ContentMarginLeftOverride = 8,
-                ContentMarginRightOverride = 8,
-                ContentMarginTopOverride = 4,
-                ContentMarginBottomOverride = 4,
+                ContentMarginLeftOverride = 6, ContentMarginRightOverride = 6,
+                ContentMarginTopOverride = 3, ContentMarginBottomOverride = 3,
             },
         };
 
@@ -80,68 +90,124 @@ public sealed partial class CyberwareAutodocWindow : FancyWindow
             HorizontalExpand = true,
         };
 
-        // Заголовок слота (янтарный цвет как на референсе)
-        var header = new Label
+        // Заголовок категории
+        vbox.AddChild(new Label
         {
-            Text = $"▸ {displayName}",
+            Text = $"▸ {displayName} ({slots.Length})",
             FontColorOverride = Color.FromHex("#ffaa00"),
-        };
+        });
 
-        // Статус установленного импланта
-        var implantLabel = new Label
+        // Подслоты — каждый скрыт по умолчанию, показывается при установке
+        foreach (var slot in slots)
         {
-            Text = "[ПУСТО]",
-            FontColorOverride = Color.FromHex("#556655"),
-            Margin = new Thickness(8, 2, 0, 0),
-        };
+            var idx = CyberwareSlotHelper.GetSlotIndex(slot);
+            var row = new BoxContainer
+            {
+                Orientation = BoxContainer.LayoutOrientation.Horizontal,
+                HorizontalExpand = true,
+                Margin = new Thickness(4, 1, 0, 1),
+                Visible = false, // Скрыт пока пуст
+            };
 
-        // Кнопка извлечения (активна только при установленном импланте)
-        var actionBtn = new Button
+            var label = new Label
+            {
+                Text = $"S{idx}: [ПУСТО]",
+                FontColorOverride = Color.FromHex("#556655"),
+                HorizontalExpand = true,
+            };
+
+            var removeBtn = new Button
+            {
+                Text = "×",
+                MinWidth = 28, MinHeight = 22,
+                Disabled = true,
+            };
+
+            removeBtn.OnPressed += _ =>
+            {
+                if (_installed.ContainsKey(slot))
+                    OnRemovePressed?.Invoke(slot);
+            };
+
+            row.AddChild(label);
+            row.AddChild(removeBtn);
+            vbox.AddChild(row);
+
+            _slotRows[slot] = row;
+            _slotLabels[slot] = label;
+            _slotRemoveButtons[slot] = removeBtn;
+        }
+
+        // Строка установки: Dropdown + кнопка ИНТЕГРИРОВАТЬ
+        var installRow = new BoxContainer
         {
-            Text = "ИЗВЛЕЧЬ",
-            Disabled = true,
+            Orientation = BoxContainer.LayoutOrientation.Horizontal,
             HorizontalExpand = true,
-            MinHeight = 26,
-            Margin = new Thickness(0, 4, 0, 0),
+            Margin = new Thickness(0, 3, 0, 0),
+            SeparationOverride = 0,
+            Visible = false, // Скрыт если нет доступных имплантов
         };
 
-        // Обработчик нажатия — вызывает событие для BUI
-        actionBtn.OnPressed += _ =>
+        var dropdown = new OptionButton
         {
-            if (_installed.ContainsKey(slot))
-                OnRemovePressed?.Invoke(slot);
+            HorizontalExpand = true,
+            StyleClasses = { "OpenRight" },
         };
 
-        vbox.AddChild(header);
-        vbox.AddChild(implantLabel);
-        vbox.AddChild(actionBtn);
+        var installBtn = new Button
+        {
+            Text = "ИНТЕГР.",
+            MinWidth = 70, MinHeight = 26,
+            StyleClasses = { "OpenLeft" },
+        };
+
+        // Обработчик нажатия ИНТЕГРИРОВАТЬ
+        installBtn.OnPressed += _ =>
+        {
+            var selectedId = dropdown.SelectedId;
+            if (!_dropdownEntities.TryGetValue(category, out var entities))
+                return;
+            if (selectedId < 0 || selectedId >= entities.Count)
+                return;
+
+            var implantNet = entities[selectedId];
+
+            // Находим первый свободный слот в категории
+            var freeSlot = CyberwareSlotHelper.GetSlots(category)
+                .FirstOrDefault(s => !_installed.ContainsKey(s));
+
+            if (freeSlot != CyberwareSlot.None)
+                OnInstallPressed?.Invoke(freeSlot, implantNet);
+        };
+
+        installRow.AddChild(dropdown);
+        installRow.AddChild(installBtn);
+        vbox.AddChild(installRow);
+
+        _categoryDropdowns[category] = dropdown;
+        _categoryInstallButtons[category] = installBtn;
+        _categoryInstallRows[category] = installRow;
+        _dropdownEntities[category] = new List<NetEntity>();
+
         panel.AddChild(vbox);
         parent.AddChild(panel);
-
-        // Сохраняем ссылки для обновления в UpdateState
-        _slotImplantLabels[slot] = implantLabel;
-        _slotActionButtons[slot] = actionBtn;
     }
 
-    /// <summary>
-    ///     Обновляет состояние окна данными от сервера (вызывается из BUI).
-    /// </summary>
     public void UpdateState(AutodocBoundUserInterfaceState state)
     {
         _currentPatient = state.Patient;
         _installed = state.InstalledImplants ?? new Dictionary<CyberwareSlot, NetEntity>();
+        var available = state.AvailableImplants ?? new List<AvailableImplantData>();
 
-        // Получаем XAML-элементы центральной колонки
+        // === Обновляем спрайт пациента ===
         var patientSprite = FindControl<SpriteView>("PatientSprite");
         var patientNameLabel = FindControl<Label>("PatientNameLabel");
         var patientStatusLabel = FindControl<Label>("PatientStatusLabel");
         var spriteLabel = FindControl<Label>("PatientSpriteLabel");
 
-        // Отрисовываем спрайт пациента, лежащего в автодоке
         if (_currentPatient != null && _entManager.TryGetEntity(_currentPatient.Value, out var patientUid))
         {
             patientSprite.SetEntity(patientUid.Value);
-
             var name = _entManager.GetComponentOrNull<MetaDataComponent>(patientUid.Value)?.EntityName ?? "Неизвестный";
             patientNameLabel.Text = name;
             patientStatusLabel.Text = "В АВТОДОКЕ";
@@ -159,33 +225,59 @@ public sealed partial class CyberwareAutodocWindow : FancyWindow
             spriteLabel.FontColorOverride = Color.FromHex("#556655");
         }
 
-        // Обновляем каждый слот кибервари
-        foreach (var (slot, implantLabel) in _slotImplantLabels)
+        // === Обновляем подслоты: скрыть пустые, показать заполненные ===
+        foreach (var (slot, label) in _slotLabels)
         {
-            var actionBtn = _slotActionButtons[slot];
+            var row = _slotRows[slot];
+            var removeBtn = _slotRemoveButtons[slot];
+            var idx = CyberwareSlotHelper.GetSlotIndex(slot);
 
             if (_installed.TryGetValue(slot, out var installedNet))
             {
-                // Имплант установлен — показываем его название
                 var entity = _entManager.GetEntity(installedNet);
                 var implantName = _entManager.GetComponentOrNull<MetaDataComponent>(entity)?.EntityName ?? "???";
-
-                implantLabel.Text = $"{implantName} [УСТАНОВЛЕНО]";
-                implantLabel.FontColorOverride = Color.FromHex("#00ff88");
-
-                actionBtn.Text = "ИЗВЛЕЧЬ";
-                actionBtn.ModulateSelfOverride = Color.FromHex("#ff3333");
-                actionBtn.Disabled = false;
+                label.Text = $"S{idx}: {implantName}";
+                label.FontColorOverride = Color.FromHex("#00ff88");
+                removeBtn.Disabled = false;
+                removeBtn.ModulateSelfOverride = Color.FromHex("#ff3333");
+                row.Visible = true;
             }
             else
             {
-                // Слот пуст
-                implantLabel.Text = "[ПУСТО]";
-                implantLabel.FontColorOverride = Color.FromHex("#556655");
+                row.Visible = false; // Пустые слоты скрыты
+            }
+        }
 
-                actionBtn.Text = "ИЗВЛЕЧЬ";
-                actionBtn.ModulateSelfOverride = null;
-                actionBtn.Disabled = true;
+        // === Обновляем dropdown для каждой категории ===
+        foreach (var category in LeftCategories.Concat(RightCategories))
+        {
+            var dropdown = _categoryDropdowns[category];
+            var installRow = _categoryInstallRows[category];
+            var entityList = _dropdownEntities[category];
+
+            dropdown.Clear();
+            entityList.Clear();
+
+            // Фильтруем доступные импланты по категории
+            var categoryImplants = available.Where(a => a.Category == category).ToList();
+
+            // Есть ли свободные слоты?
+            var freeSlots = CyberwareSlotHelper.GetSlots(category).Count(s => !_installed.ContainsKey(s));
+
+            if (categoryImplants.Count > 0 && freeSlots > 0)
+            {
+                for (var i = 0; i < categoryImplants.Count; i++)
+                {
+                    var imp = categoryImplants[i];
+                    dropdown.AddItem($"{imp.Name} (−{imp.HumanityCost:F0})", i);
+                    entityList.Add(imp.Entity);
+                }
+                dropdown.SelectId(0);
+                installRow.Visible = true;
+            }
+            else
+            {
+                installRow.Visible = false;
             }
         }
     }

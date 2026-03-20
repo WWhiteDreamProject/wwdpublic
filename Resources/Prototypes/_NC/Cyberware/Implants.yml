@@ -11,7 +11,7 @@
     - state: datadisk_base
     - state: datadisk_label
   - type: CyberwareImplant
-    slot: None
+    category: None
     humanityCost: 0
     refundPercentage: 0.5
 
@@ -22,7 +22,7 @@
   description: "Оптический имплант базового уровня. Улучшает зрение и интегрируется с нейроинтерфейсом."
   components:
   - type: CyberwareImplant
-    slot: Optics
+    category: Optics
     humanityCost: 14
 
 - type: entity
@@ -32,7 +32,7 @@
   description: "Усиленный мышечный каркас для правой руки. Позволяет поднимать тяжести."
   components:
   - type: CyberwareImplant
-    slot: RightArm
+    category: RightArm
     humanityCost: 20
 
 - type: entity
@@ -42,7 +42,7 @@
   description: "Амортизирующие суставы для бесшумного передвижения."
   components:
   - type: CyberwareImplant
-    slot: LeftLeg
+    category: LeftLeg
     humanityCost: 16
 
 - type: entity
@@ -52,5 +52,5 @@
   description: "Нейронный ускоритель рефлексов. Мечта любого эджраннера."
   components:
   - type: CyberwareImplant
-    slot: Neuroport
+    category: Neuroport
     humanityCost: 25

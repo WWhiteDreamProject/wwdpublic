@@ -21,7 +21,7 @@ public sealed class CyberwareSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        
+
         SubscribeLocalEvent<CyberwareComponent, ComponentInit>(OnCyberwareInit);
     }
 
@@ -32,36 +32,41 @@ public sealed class CyberwareSystem : EntitySystem
     }
 
     /// <summary>
-    ///     Прямая установка импланта в цель (обычно вызывается после завершения DoAfter из Автодока).
+    ///     Установка импланта в цель. Автоматически находит свободный слот по категории.
     /// </summary>
     public bool TryInstallImplant(EntityUid target, EntityUid implant, CyberwareComponent? cyberware = null, CyberwareImplantComponent? implantComp = null)
     {
         if (!Resolve(target, ref cyberware, false) || !Resolve(implant, ref implantComp, false))
             return false;
 
-        var slot = implantComp.Slot;
+        // Находим первый свободный слот в категории импланта
+        var category = implantComp.Category;
+        var freeSlot = CyberwareSlotHelper.FindFreeSlot(category, cyberware.InstalledImplants.Keys);
 
-        // Проверяем, свободен ли слот
-        if (cyberware.InstalledImplants.ContainsKey(slot))
+        if (freeSlot == null)
+        {
+            _popup.PopupEntity($"Все слоты категории {CyberwareSlotHelper.GetCategoryDisplayName(category)} заняты!", target, PopupType.MediumCaution);
             return false;
+        }
 
         var container = _container.GetContainer(target, CyberwareComponent.ContainerName);
         if (!_container.Insert(implant, container))
             return false;
 
-        cyberware.InstalledImplants[slot] = implant;
+        cyberware.InstalledImplants[freeSlot.Value] = implant;
         Dirty(target, cyberware);
 
         // Списываем человечность
         _humanitySystem.DeductHumanity(target, implantComp.HumanityCost);
-        
-        _popup.PopupEntity($"Имплант успешно интегрирован в слот {slot}.", target, PopupType.Medium);
+
+        var slotIndex = CyberwareSlotHelper.GetSlotIndex(freeSlot.Value);
+        _popup.PopupEntity($"Имплант интегрирован: {CyberwareSlotHelper.GetCategoryDisplayName(category)} S{slotIndex}.", target, PopupType.Medium);
 
         return true;
     }
 
     /// <summary>
-    ///     Извлечение импланта из цели.
+    ///     Извлечение импланта из конкретного слота.
     /// </summary>
     public bool TryRemoveImplant(EntityUid target, CyberwareSlot slot, CyberwareComponent? cyberware = null)
     {
@@ -88,7 +93,9 @@ public sealed class CyberwareSystem : EntitySystem
             _humanitySystem.RestoreHumanity(target, refund);
         }
 
-        _popup.PopupEntity($"Имплант успешно извлечен из слота {slot}.", target, PopupType.LargeCaution);
+        var category = CyberwareSlotHelper.GetCategory(slot);
+        var slotIndex = CyberwareSlotHelper.GetSlotIndex(slot);
+        _popup.PopupEntity($"Имплант извлечён из {CyberwareSlotHelper.GetCategoryDisplayName(category)} S{slotIndex}.", target, PopupType.LargeCaution);
 
         return true;
     }

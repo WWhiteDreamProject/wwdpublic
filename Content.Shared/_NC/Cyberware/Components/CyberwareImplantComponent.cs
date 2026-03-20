@@ -9,11 +9,12 @@ namespace Content.Shared._NC.Cyberware.Components;
 public sealed partial class CyberwareImplantComponent : Component
 {
     /// <summary>
-    ///     Требуемый слот в анатомии пациента для установки этого импланта.
+    ///     Категория анатомической зоны, куда устанавливается имплант.
+    ///     Конкретный слот в категории определяется автоматически при установке.
     /// </summary>
-    [DataField("slot", required: true), ViewVariables(VVAccess.ReadWrite)]
+    [DataField("category", required: true), ViewVariables(VVAccess.ReadWrite)]
     [AutoNetworkedField]
-    public CyberwareSlot Slot = CyberwareSlot.None;
+    public CyberwareCategory Category = CyberwareCategory.None;
 
     /// <summary>
     ///     Количество очков человечности, которое спишется при установке импланта.
