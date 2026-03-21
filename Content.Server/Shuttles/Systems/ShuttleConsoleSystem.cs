@@ -392,7 +392,7 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
             entity,
             docks,
             entity.Comp2.Coordinates,
-            entity.Comp2.LocalRotation + entity.Comp1.DisplayRotation);
+            entity.Comp2.LocalRotation + entity.Comp1.DisplayRotation); // WD EDIT
     }
 
     public NavInterfaceState GetNavState(
@@ -404,12 +404,10 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
         if (!Resolve(entity, ref entity.Comp1, ref entity.Comp2))
             return new NavInterfaceState(SharedRadarConsoleSystem.DefaultMaxRange, GetNetCoordinates(coordinates), angle, docks, InertiaDampeningMode.Dampened, MathF.Tau);  // Frontier: add inertial dampening // wwdp edit
 
-        var adjustedAngle = angle + entity.Comp1.DisplayRotation;
-
         return new NavInterfaceState(
             entity.Comp1.MaxRange,
             GetNetCoordinates(coordinates),
-            adjustedAngle,
+            angle + entity.Comp1.DisplayRotation, // WD EDIT
             docks,
             _shuttle.NfGetInertiaDampeningMode(entity),  // Frontier: inertia dampening
             entity.Comp1.FieldOfView);  // WWDP EDIT
