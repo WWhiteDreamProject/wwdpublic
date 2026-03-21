@@ -57,3 +57,6 @@
 
 - type: Tag
   id: HideFromGhostWarps
+
+- type: Tag
+  id: DeleteOnGamerule

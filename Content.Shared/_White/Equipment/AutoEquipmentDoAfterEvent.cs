@@ -4,6 +4,4 @@ using Robust.Shared.Serialization;
 namespace Content.Shared.Equipment.Events;
 
 [Serializable, NetSerializable]
-public sealed partial class AutoEquipmentDoAfterEvent : SimpleDoAfterEvent
-{
-}
+public sealed partial class AutoEquipmentDoAfterEvent : SimpleDoAfterEvent { }

@@ -1,5 +1,7 @@
 using Content.Shared.Equipment.Components;
 using Content.Shared.Inventory;
+using Content.Shared.Station;
+using Content.Shared.Roles;
 using Robust.Shared.Prototypes;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Equipment.Events;
@@ -14,6 +16,7 @@ public sealed class AutoEquipmentSystem : EntitySystem
 {
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private readonly SharedStationSpawningSystem _stationSpawning = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly INetManager _netManager = default!;
@@ -88,27 +91,40 @@ public sealed class AutoEquipmentSystem : EntitySystem
         if (_netManager.IsClient && component.DoAfterDelay > 0)
             return;
 
-        EquipItems(user, component);
+        EquipStartingGears(user, component);
 
         if (_netManager.IsClient)
             return;
         QueueDel(equipmentUid);
     }
 
-    public void EquipItems(EntityUid user, AutoEquipmentComponent component)
+    public void EquipStartingGears(EntityUid user, AutoEquipmentComponent component)
     {
         if (!TryComp<InventoryComponent>(user, out var inventory))
             return;
-
-        var userCoords = _transform.GetMapCoordinates(user);
 
         if (component.ClearAllEquipment)
         {
             ClearAllEquipment(user, inventory);
         }
 
-        var spawnedItems = new HashSet<EntityUid>();
+        // Собираем все предметы из starting gears
+        var allEquipment = new Dictionary<string, string>();
 
+        for (int i = component.StartingGears.Count - 1; i >= 0; i--)
+        {
+            var startingGearId = component.StartingGears[i];
+            if (_prototype.TryIndex(startingGearId, out var startingGear))
+            {
+                foreach (var (slot, item) in startingGear.Equipment)
+                {
+                    if (!allEquipment.ContainsKey(slot))
+                        allEquipment[slot] = item;
+                }
+            }
+        }
+
+        // Используем правильный порядок слотов
         var slotOrder = new Dictionary<string, int>
         {
             { "jumpsuit", 0 },
@@ -130,36 +146,47 @@ public sealed class AutoEquipmentSystem : EntitySystem
             { "pocket4", 16 }
         };
 
-        var orderedSlots = component.EquipmentSlots
-            .Where(x => slotOrder.ContainsKey(x.Key))
-            .OrderBy(x => slotOrder[x.Key])
+        var sortedSlots = allEquipment.Keys
+            .Where(slot => slotOrder.ContainsKey(slot))
+            .OrderBy(slot => slotOrder[slot])
             .ToList();
 
-        foreach (var (slotName, itemProto) in orderedSlots)
+        var userCoords = Transform(user).MapPosition;
+        foreach (var slot in sortedSlots)
         {
-            if (!_inventory.HasSlot(user, slotName, inventory))
-                continue;
+            var itemProto = allEquipment[slot];
+            var newItem = Spawn(itemProto, userCoords);
 
-            if (component.ForceEquip && _inventory.TryGetSlotEntity(user, slotName, out var existingItem, inventory))
+            if (_inventory.TryGetSlotEntity(user, slot, out var existingItem, inventory))
             {
+                // Слот занят
                 if (component.DeleteOldItems)
                 {
-                    DeleteSlotWithDependencies(user, slotName, existingItem.Value, inventory);
+                    _inventory.TryUnequip(user, slot, silent: true, force: true, inventory: inventory);
+                    QueueDel(existingItem.Value);
+                    _inventory.TryEquip(user, newItem, slot, silent: true, force: true, inventory: inventory);
+                }
+                else if (component.ForceEquip || component.ClearAllEquipment)
+                {
+                    _inventory.TryUnequip(user, slot, silent: true, force: true, inventory: inventory);
+                    _inventory.TryEquip(user, newItem, slot, silent: true, force: true, inventory: inventory);
                 }
                 else
                 {
-                    _inventory.TryUnequip(user, slotName, silent: true, force: true, inventory: inventory);
+                    // forceEquip: false - предмет выпадает на пол
                 }
             }
-
-            var newItem = EntityManager.SpawnEntity(itemProto, userCoords);
-            spawnedItems.Add(newItem);
-
-            var equipResult = _inventory.TryEquip(user, newItem, slotName, silent: true, force: component.ForceEquip, inventory: inventory);
-
-            if (!equipResult)
+            else
             {
-                QueueDel(newItem);
+                // Слот свободен
+                if (component.ForceEquip || component.ClearAllEquipment || component.DeleteOldItems)
+                {
+                    _inventory.TryEquip(user, newItem, slot, silent: true, force: true, inventory: inventory);
+                }
+                else
+                {
+                    _inventory.TryEquip(user, newItem, slot, silent: true, force: false, inventory: inventory);
+                }
             }
         }
     }

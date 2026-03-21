@@ -11,6 +11,84 @@
   components:
   - type: Unremoveable
 
+# Starting Gear Base
+
+- type: startingGear
+  id: AlmagestRedBaseGear
+  equipment:
+    outerClothing: ClothingOuterHardsuitAlmagestRed
+    mask: ClothingMaskBreath
+    belt: ClothingBeltMilitaryWebbingAlmagestEquip
+    shoes: ClothingShoesBootsCombatFilled
+    ears: ClothingHeadsetPrison
+
+- type: startingGear
+  id: AlmagestBlueBaseGear
+  equipment:
+    outerClothing: ClothingOuterHardsuitAlmagestBlue
+    mask: ClothingMaskBreath
+    belt: ClothingBeltMilitaryWebbingAlmagestEquip
+    shoes: ClothingShoesBootsCombatFilled
+    ears: ClothingHeadsetMedical
+
+# Starting Gear Class
+
+# Captain
+- type: startingGear
+  id: AlmagestCaptainGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCaptain
+    id: ERTLeaderPDA
+    neck: ClothingNeckCloakCap
+    eyes: ClothingEyesGlassesSunglasses
+    back: ClothingBackpackAlmagestRedCaptain
+
+# Marine
+- type: startingGear
+  id: AlmagestMarineGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSec
+    id: ERTLeaderPDA
+    neck: ClothingNeckMantleHOS
+    back: ClothingBackpackAlmagestRedMarine
+
+# Engineer
+- type: startingGear
+  id: AlmagestEngineerGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitEngineering
+    id: ERTLeaderPDA
+    belt: ClothingBeltChiefEngineerFilledAlmagestEquip
+    suitstorage: JetpackVoidFilled
+    neck: ClothingNeckMantleCE
+    gloves: ClothingHandsGlovesColorYellow
+    eyes: ClothingEyesGlassesMeson
+    shoes: ClothingShoesBootsMagAdv
+    back: ClothingBackpackAlmagestRedEngineer
+
+# Demoman
+- type: startingGear
+  id: AlmagestDemomanGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitTacticool
+    id: ERTLeaderPDA
+    neck: ClothingNeckMantleRD
+    eyes: ClothingEyesEyepatchHudBeer
+    back: ClothingBackpackAlmagestRedDemoman
+
+# Medic
+- type: startingGear
+  id: AlmagestMedicGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitParamedicUniform
+    id: ERTLeaderPDA
+    belt: ClothingBeltMedicalEMTFilled
+    neck: ClothingNeckMantleCMO
+    eyes: ClothingEyesHudMedical
+    gloves: ClothingHandsGlovesNitrile
+    mask: ClothingMaskBreathMedical
+    back: ClothingBackpackAlmagestRedMedic
+
 # Equip Red
 - type: entity
   name: red equipment
@@ -53,17 +131,9 @@
     doAfterDelay: 3.0
     breakOnMove: true
     clearAllEquipment: true
-    equipmentSlots:
-      jumpsuit: ClothingUniformJumpsuitCaptain # Captain
-      shoes: ClothingShoesBootsCombatFilled
-      mask: ClothingMaskBreath
-      id: ERTLeaderPDA
-      belt: ClothingBeltMilitaryWebbingAlmagestEquip
-      neck: ClothingNeckCloakCap # Captain
-      eyes: ClothingEyesGlassesSunglasses # Captain
-      ears: ClothingHeadsetPrison # Red Headset
-      outerClothing: ClothingOuterHardsuitAlmagestRed # Red Hardsuit
-      back: ClothingBackpackAlmagestRedCaptain # Red Captain
+    startingGears:
+    - AlmagestRedBaseGear
+    - AlmagestCaptainGear
 
 - type: entity
   name: red marine equipment
@@ -81,16 +151,9 @@
     doAfterDelay: 3.0
     breakOnMove: true
     clearAllEquipment: true
-    equipmentSlots:
-      jumpsuit: ClothingUniformJumpsuitSec # Marine
-      shoes: ClothingShoesBootsCombatFilled
-      mask: ClothingMaskBreath
-      id: ERTLeaderPDA
-      belt: ClothingBeltMilitaryWebbingAlmagestEquip
-      neck: ClothingNeckMantleHOS # Marine
-      ears: ClothingHeadsetPrison # Red Headset
-      outerClothing: ClothingOuterHardsuitAlmagestRed # Red Hardsuit
-      back: ClothingBackpackAlmagestRedMarine # Red Marine
+    startingGears:
+    - AlmagestRedBaseGear
+    - AlmagestMarineGear
 
 - type: entity
   name: red engineer equipment
@@ -104,23 +167,12 @@
     sprite: Clothing/Back/Backpacks/erteng.rsi
     state: icon
   - type: AutoEquipment
-    forceEquip: true
     doAfterDelay: 3.0
     breakOnMove: true
     clearAllEquipment: true
-    equipmentSlots:
-      jumpsuit: ClothingUniformJumpsuitEngineering # Engineer
-      mask: ClothingMaskBreath
-      id: ERTLeaderPDA
-      belt: ClothingBeltChiefEngineerFilledAlmagestEquip # Engineer
-      suitstorage: JetpackVoidFilled # Engineer
-      neck: ClothingNeckMantleCE # Engineer
-      gloves: ClothingHandsGlovesColorYellow # Engineer
-      eyes: ClothingEyesGlassesMeson # Engineer
-      shoes: ClothingShoesBootsMagAdv # Engineer
-      ears: ClothingHeadsetPrison # Red Headset
-      outerClothing: ClothingOuterHardsuitAlmagestRed # Red Hardsuit
-      back: ClothingBackpackAlmagestRedEngineer # Red Engineer
+    startingGears:
+    - AlmagestRedBaseGear
+    - AlmagestEngineerGear
 
 - type: entity
   name: red demoman equipment
@@ -138,17 +190,9 @@
     doAfterDelay: 3.0
     breakOnMove: true
     clearAllEquipment: true
-    equipmentSlots:
-      jumpsuit: ClothingUniformJumpsuitTacticool # Demoman
-      shoes: ClothingShoesBootsCombatFilled
-      mask: ClothingMaskBreath
-      id: ERTLeaderPDA
-      belt: ClothingBeltMilitaryWebbingAlmagestEquip
-      neck: ClothingNeckMantleRD # Demoman
-      ears: ClothingHeadsetPrison # Red Headset
-      eyes: ClothingEyesEyepatchHudBeer # Demoman
-      outerClothing: ClothingOuterHardsuitAlmagestRed # Red Hardsuit
-      back: ClothingBackpackAlmagestRedDemoman # Red Demoman
+    startingGears:
+    - AlmagestRedBaseGear
+    - AlmagestDemomanGear
 
 - type: entity
   name: red medic equipment
@@ -166,18 +210,9 @@
     doAfterDelay: 3.0
     breakOnMove: true
     clearAllEquipment: true
-    equipmentSlots:
-      jumpsuit: ClothingUniformJumpsuitParamedicUniform # Medic
-      shoes: ClothingShoesBootsCombatFilled
-      mask: ClothingMaskBreathMedical # Medic
-      id: ERTLeaderPDA
-      belt: ClothingBeltMedicalEMTFilled # Medic
-      neck: ClothingNeckMantleCMO # Medic
-      ears: ClothingHeadsetPrison # Red Headset
-      eyes: ClothingEyesHudMedical # Medic
-      gloves: ClothingHandsGlovesNitrile # Medic
-      outerClothing: ClothingOuterHardsuitAlmagestRed # Red Hardsuit
-      back: ClothingBackpackAlmagestRedMedic # Red Medic
+    startingGears:
+    - AlmagestRedBaseGear
+    - AlmagestMedicGear
 
 # Equip Blue
 - type: entity
@@ -221,17 +256,9 @@
     doAfterDelay: 3.0
     breakOnMove: true
     clearAllEquipment: true
-    equipmentSlots:
-      jumpsuit: ClothingUniformJumpsuitCaptain # Captain
-      shoes: ClothingShoesBootsCombatFilled
-      mask: ClothingMaskBreath
-      id: ERTLeaderPDA
-      belt: ClothingBeltMilitaryWebbingAlmagestEquip
-      neck: ClothingNeckCloakCap # Captain
-      eyes: ClothingEyesGlassesSunglasses # Captain
-      ears: ClothingHeadsetMedical # Blue Headset
-      outerClothing: ClothingOuterHardsuitAlmagestBlue # Blue Hardsuit
-      back: ClothingBackpackAlmagestBlueCaptain # Blue Captain
+    startingGears:
+    - AlmagestBlueBaseGear
+    - AlmagestCaptainGear
 
 - type: entity
   name: blue marine equipment
@@ -249,16 +276,9 @@
     doAfterDelay: 3.0
     breakOnMove: true
     clearAllEquipment: true
-    equipmentSlots:
-      jumpsuit: ClothingUniformJumpsuitSec # Marine
-      shoes: ClothingShoesBootsCombatFilled
-      mask: ClothingMaskBreath
-      id: ERTLeaderPDA
-      belt: ClothingBeltMilitaryWebbingAlmagestEquip
-      neck: ClothingNeckMantleHOS # Marine
-      ears: ClothingHeadsetMedical # Blue Headset
-      outerClothing: ClothingOuterHardsuitAlmagestBlue # Blue Hardsuit
-      back: ClothingBackpackAlmagestBlueMarine # Blue Marine
+    startingGears:
+    - AlmagestBlueBaseGear
+    - AlmagestMarineGear
 
 - type: entity
   name: blue engineer equipment
@@ -276,19 +296,9 @@
     doAfterDelay: 3.0
     breakOnMove: true
     clearAllEquipment: true
-    equipmentSlots:
-      jumpsuit: ClothingUniformJumpsuitEngineering # Engineer
-      mask: ClothingMaskBreath
-      id: ERTLeaderPDA
-      belt: ClothingBeltChiefEngineerFilledAlmagestEquip # Engineer
-      suitstorage: JetpackVoidFilled # Engineer
-      neck: ClothingNeckMantleCE # Engineer
-      gloves: ClothingHandsGlovesColorYellow # Engineer
-      eyes: ClothingEyesGlassesMeson # Engineer
-      shoes: ClothingShoesBootsMagAdv # Engineer
-      ears: ClothingHeadsetMedical # Blue Headset
-      outerClothing: ClothingOuterHardsuitAlmagestBlue # Blue Hardsuit
-      back: ClothingBackpackAlmagestBlueEngineer # Blue Engineer
+    startingGears:
+    - AlmagestBlueBaseGear
+    - AlmagestEngineerGear
 
 - type: entity
   name: blue demoman equipment
@@ -306,17 +316,9 @@
     doAfterDelay: 3.0
     breakOnMove: true
     clearAllEquipment: true
-    equipmentSlots:
-      jumpsuit: ClothingUniformJumpsuitTacticool # Demoman
-      shoes: ClothingShoesBootsCombatFilled
-      mask: ClothingMaskBreath
-      id: ERTLeaderPDA
-      belt: ClothingBeltMilitaryWebbingAlmagestEquip
-      neck: ClothingNeckMantleRD # Demoman
-      eyes: ClothingEyesEyepatchHudBeer # Demoman
-      ears: ClothingHeadsetMedical # Blue Headset
-      outerClothing: ClothingOuterHardsuitAlmagestBlue # Blue Hardsuit
-      back: ClothingBackpackAlmagestBlueDemoman # Blue Demoman
+    startingGears:
+    - AlmagestBlueBaseGear
+    - AlmagestDemomanGear
 
 - type: entity
   name: blue medic equipment
@@ -334,15 +336,6 @@
     doAfterDelay: 3.0
     breakOnMove: true
     clearAllEquipment: true
-    equipmentSlots:
-      jumpsuit: ClothingUniformJumpsuitParamedicUniform # Medic
-      shoes: ClothingShoesBootsCombatFilled
-      mask: ClothingMaskBreathMedical # Medic
-      id: ERTLeaderPDA
-      belt: ClothingBeltMedicalEMTFilled # Medic
-      neck: ClothingNeckMantleCMO # Medic
-      eyes: ClothingEyesHudMedical # Medic
-      gloves: ClothingHandsGlovesNitrile # Medic
-      ears: ClothingHeadsetMedical # Blue Headset
-      outerClothing: ClothingOuterHardsuitAlmagestBlue # Blue Hardsuit
-      back: ClothingBackpackAlmagestBlueMedic # Blue Medic
+    startingGears:
+    - AlmagestBlueBaseGear
+    - AlmagestMedicGear

@@ -10,3 +10,38 @@
     - state: ame-part
   - type: Flatpack
     entity: SyndicateBomb
+
+- type: entity
+  id: AlmagestEquipmentSpawner
+  parent: MarkerBase
+  name: equipment spawner marker
+  components:
+  - type: SpawnOnGamerule
+    spawnPrototype: ToolboxMechanical
+  - type: Sprite
+    sprite: Clothing/Back/Backpacks/ertleader.rsi
+    state: icon
+
+- type: entity
+  id: WallSolidDSonG
+  parent: WallSolid
+  components:
+  - type: Tag
+    tags:
+    - DeleteOnGamerule
+
+- type: entity
+  parent: BaseGameRule
+  id: DeleteSpawnOnGamerule
+  components:
+  - type: StationEvent
+    weight: 1
+    duration: 1
+    startAnnouncement: false
+  - type: DeleteSpawnOnGamerule
+    tilesToRemove:
+    - PlatingDSonG
+    entityTagsToRemove:
+    - DeleteOnGamerule
+    markersToActivate:
+    - AlmagestEquipmentSpawner
