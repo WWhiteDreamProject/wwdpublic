@@ -45,12 +45,48 @@
     category: LeftLeg
     humanityCost: 16
 
+# --- SANDEVISTAN TIER 1 ---
 - type: entity
-  id: CyberwareNeuroSandevistan
+  id: CyberwareNeuroSandevistanMk1
   parent: BaseCyberwareImplant
-  name: "Сандевистан 'Ускоритель'"
-  description: "Нейронный ускоритель рефлексов. Мечта любого эджраннера."
+  name: "Zetatech Sandevistan Mk.1"
+  description: "Нейронный ускоритель базового уровня. Умеренно ускоряет, но быстро сжигает стамину."
   components:
   - type: CyberwareImplant
     category: Neuroport
-    humanityCost: 25
+    humanityCost: 20
+  - type: Sandevistan
+    speedMultiplier: 1.4
+    attackSpeedMultiplier: 1.5
+    maxDuration: 4.0
+    activationHumanityCost: 5.0
+    staminaDrainPerSecond: 10.0
+    humanityLossPerInterval: 1.0
+    overloadStunDuration: 3.0
+    overloadDamage:
+      types:
+        Toxin: 10
+        Blunt: 5
+
+# --- SANDEVISTAN TIER 3 (APOGEE) ---
+- type: entity
+  id: CyberwareNeuroSandevistanApogee
+  parent: BaseCyberwareImplant
+  name: "Militech 'Apogee' Sandevistan"
+  description: "Легендарный ускоритель. Позволяет двигаться быстрее молнии ценой колоссальной нагрузки на разум."
+  components:
+  - type: CyberwareImplant
+    category: Neuroport
+    humanityCost: 45
+  - type: Sandevistan
+    speedMultiplier: 2.5
+    attackSpeedMultiplier: 2.5
+    maxDuration: 8.0
+    activationHumanityCost: 15.0
+    staminaDrainPerSecond: 20.0
+    humanityLossPerInterval: 3.0
+    overloadStunDuration: 6.0
+    overloadDamage:
+      types:
+        Toxin: 30
+        Blunt: 20

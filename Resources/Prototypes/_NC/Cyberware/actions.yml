@@ -1,0 +1,10 @@
+- type: entity
+  id: ActionToggleSandevistan
+  name: action-name-sandevistan
+  description: action-desc-sandevistan
+  components:
+  - type: InstantAction
+    icon: { sprite: _NC/Objects/Cyberware/sande.rsi, state: icon }
+    event: !type:SandevistanToggleActionEvent
+    checkCanInteract: false
+    useDelay: 1.0
