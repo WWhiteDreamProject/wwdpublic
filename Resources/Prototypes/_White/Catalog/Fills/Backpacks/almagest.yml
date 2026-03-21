@@ -119,6 +119,7 @@
   components:
   - type: StorageFill
     contents:
+    - id: AlmagestEquipmentWeaponBaseSelect
     - id: WeaponAntiqueLaser
     - id: SciFlash
 
@@ -129,6 +130,7 @@
   components:
   - type: StorageFill
     contents:
+    - id: AlmagestEquipmentWeaponBaseSelect
     - id: GrenadeShrapnel
     - id: GrenadeDummy
     - id: GrenadeBarrier
@@ -141,6 +143,7 @@
   components:
   - type: StorageFill
     contents:
+    - id: AlmagestEquipmentWeaponBaseSelect
     - id: HandHeldMassScanner
     - id: HandheldGPSBasic
 
@@ -151,6 +154,7 @@
   components:
   - type: StorageFill
     contents:
+    - id: AlmagestEquipmentWeaponBaseSelect
     - id: DrinkBeerBottleFull
       amount: 2
     - id: GrenadeShrapnel
@@ -169,6 +173,7 @@
   components:
   - type: StorageFill
     contents:
+    - id: AlmagestEquipmentWeaponBaseSelect
     - id: BodyBagBluespaceFolded
     - id: OmnizineChemistryBottle
       amount: 2
@@ -189,6 +194,7 @@
   components:
   - type: StorageFill
     contents:
+    - id: AlmagestEquipmentWeaponBaseSelect
     - id: WeaponAntiqueLaser
     - id: SciFlash
 
@@ -199,6 +205,7 @@
   components:
   - type: StorageFill
     contents:
+    - id: AlmagestEquipmentWeaponBaseSelect
     - id: GrenadeShrapnel
     - id: GrenadeDummy
     - id: GrenadeBarrier
@@ -211,6 +218,7 @@
   components:
   - type: StorageFill
     contents:
+    - id: AlmagestEquipmentWeaponBaseSelect
     - id: HandHeldMassScanner
     - id: HandheldGPSBasic
 
@@ -221,6 +229,7 @@
   components:
   - type: StorageFill
     contents:
+    - id: AlmagestEquipmentWeaponBaseSelect
     - id: DrinkBeerBottleFull
       amount: 2
     - id: GrenadeShrapnel
@@ -239,6 +248,7 @@
   components:
   - type: StorageFill
     contents:
+    - id: AlmagestEquipmentWeaponBaseSelect
     - id: BodyBagBluespaceFolded
     - id: OmnizineChemistryBottle
       amount: 2

@@ -108,7 +108,6 @@ public sealed class AutoEquipmentSystem : EntitySystem
             ClearAllEquipment(user, inventory);
         }
 
-        // Собираем все предметы из starting gears
         var allEquipment = new Dictionary<string, string>();
 
         for (int i = component.StartingGears.Count - 1; i >= 0; i--)
@@ -124,7 +123,6 @@ public sealed class AutoEquipmentSystem : EntitySystem
             }
         }
 
-        // Используем правильный порядок слотов
         var slotOrder = new Dictionary<string, int>
         {
             { "jumpsuit", 0 },
@@ -159,7 +157,6 @@ public sealed class AutoEquipmentSystem : EntitySystem
 
             if (_inventory.TryGetSlotEntity(user, slot, out var existingItem, inventory))
             {
-                // Слот занят
                 if (component.DeleteOldItems)
                 {
                     _inventory.TryUnequip(user, slot, silent: true, force: true, inventory: inventory);
@@ -172,13 +169,10 @@ public sealed class AutoEquipmentSystem : EntitySystem
                     _inventory.TryEquip(user, newItem, slot, silent: true, force: true, inventory: inventory);
                 }
                 else
-                {
-                    // forceEquip: false - предмет выпадает на пол
-                }
+                { }
             }
             else
             {
-                // Слот свободен
                 if (component.ForceEquip || component.ClearAllEquipment || component.DeleteOldItems)
                 {
                     _inventory.TryEquip(user, newItem, slot, silent: true, force: true, inventory: inventory);

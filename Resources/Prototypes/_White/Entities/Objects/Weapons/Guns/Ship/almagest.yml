@@ -1,8 +1,33 @@
+# Base
+- type: entity
+  name: select ship weapon equipment
+  parent: BaseItem
+  id: AlmagestEquipmentWeaponShipSelect
+  description: "select ship weapon equipment"
+  components:
+  - type: Item
+    size: Ginormous
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/Turrets/Almagest/equipment.rsi
+    state: base
+  - type: RadialEntityMorph
+    entries:
+    - prototype: AlmagestEquipmentWeaponShipIRLaser
+    - prototype: AlmagestEquipmentWeaponShipAnnihilator
+    - prototype: AlmagestEquipmentWeaponShipRam
+  - type: UserInterface
+    interfaces:
+      enum.RadialSelectorUiKey.Key:
+        type: TrackedRadialSelectorMenuBUI
+  - type: ActivatableUI
+    key: enum.RadialSelectorUiKey.Key
+    inHandsOnly: true
+
 # IR
 - type: entity
   name: IR laser equipment
   parent: BaseItem
-  id: AlmagestEquipmentWeaponIRLaser
+  id: AlmagestEquipmentWeaponShipIRLaser
   description: "IR laser equipment"
   components:
   - type: Item
@@ -25,13 +50,17 @@
 # IR Heavy
 - type: entity
   name : heavy laser bolt
-  id: BoltHeavyIRLaser
+  id: BoltIRLaserHeavy
   parent: [BulletLaser, BulletRocket]
   categories: [ HideSpawnMenu ]
   components:
   - type: Explosive
     totalIntensity: 20
   - type: Projectile
+    radarRange: 512
+    radarColor: "#cf2da6"
+    radarSize: 5
+    radarThickness: 2
     damage:
       types:
         Heat: 120
@@ -60,7 +89,7 @@
       params:
         volume: -5
   - type: ProjectileContainerBatteryAmmoProvider
-    proto: BoltHeavyIRLaser
+    proto: BoltIRLaserHeavy
     fireCost: 3000
   - type: ModularTurretWeapon
     dollyMixSprite: _White/Objects/Weapons/Guns/Turrets/Almagest/IR_laser_heavy.rsi
@@ -68,11 +97,15 @@
 # IR Fast
 - type: entity
   name : fast laser bolt
-  id: BoltFastIRLaser
+  id: BoltIRLaserFast
   parent: BulletLaser
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
+    radarRange: 512
+    radarColor: "#cf482d"
+    radarSize: 3
+    radarThickness: 1
     damage:
       types:
         Heat: 20
@@ -103,7 +136,7 @@
       params:
         volume: -5
   - type: ProjectileContainerBatteryAmmoProvider
-    proto: BoltFastIRLaser
+    proto: BoltIRLaserFast
     fireCost: 350
   - type: ModularTurretWeapon
     dollyMixSprite: _White/Objects/Weapons/Guns/Turrets/Almagest/IR_laser_fast.rsi
@@ -112,7 +145,7 @@
 - type: entity
   name: annihilator equipment
   parent: BaseItem
-  id: AlmagestEquipmentWeaponAnnihilator
+  id: AlmagestEquipmentWeaponShipAnnihilator
   description: "annihilator equipment"
   components:
   - type: Item
@@ -135,7 +168,7 @@
 
 # Annihilator Heavy
 - type: entity
-  id: RocketHeavyAnnihilator
+  id: RocketAnnihilatorHeavy
   name: heavy annihilator rocket
   parent: BulletRocket
   categories: [ HideSpawnMenu ]
@@ -143,6 +176,10 @@
   - type: Explosive
     totalIntensity: 100
   - type: Projectile
+    radarRange: 512
+    radarColor: "#4ba0d1"
+    radarSize: 5
+    radarThickness: 2
     damage:
       types:
         Heat: 80
@@ -173,7 +210,7 @@
       params:
         volume: -5
   - type: ProjectileContainerBatteryAmmoProvider
-    proto: RocketHeavyAnnihilator
+    proto: RocketAnnihilatorHeavy
     fireCost: 3000
   - type: ModularTurretWeapon
     dollyMixSprite: _White/Objects/Weapons/Guns/Turrets/Almagest/annihilator_heavy.rsi
@@ -188,6 +225,10 @@
   - type: Explosive
     totalIntensity: 5
   - type: Projectile
+    radarRange: 512
+    radarColor: "#4dd1e8"
+    radarSize: 3
+    radarThickness: 1
     damage:
       types:
         Heat: 5
@@ -233,6 +274,10 @@
   - type: Explosive
     totalIntensity: 5
   - type: Projectile
+    radarRange: 512
+    radarColor: "#69a6c7"
+    radarSize: 3
+    radarThickness: 2
     damage:
       types:
         Heat: 10
@@ -272,7 +317,7 @@
 - type: entity
   name: ram equipment
   parent: BaseItem
-  id: AlmagestEquipmentWeaponRam
+  id: AlmagestEquipmentWeaponShipRam
   description: "ram equipment"
   components:
   - type: Item
@@ -297,6 +342,7 @@
 - type: entity
   id: BulletBlastRamPenetrator
   parent: BaseMeteor
+  name: blast ram penetrator
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -324,6 +370,10 @@
   - type: TimedDespawn
     lifetime: 0.25
   - type: Projectile
+    radarRange: 256
+    radarColor: "#e8274b"
+    radarSize: 12
+    radarThickness: 6
     damage:
       types:
         Structural: 1000
@@ -346,9 +396,9 @@
     burstCooldown: 30
     shotsPerBurst: 5
     minAngle: 15
-    maxAngle: 160
-    angleIncrease: 40
-    angleDecay: 3
+    maxAngle: 120
+    angleIncrease: 30
+    angleDecay: 5
     soundGunshot:
       path: /Audio/Effects/Grenades/Supermatter/supermatter_start.ogg
       params:
@@ -363,6 +413,7 @@
 - type: entity
   id: BulletBlastRamMine
   parent: BaseMeteor
+  name: blast ram mine
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -391,7 +442,7 @@
     lifetime: 60
   - type: Projectile
     radarRange: 128
-    radarColor: "#75228f"
+    radarColor: "#83599c"
     radarSize: 6
     radarThickness: 6
     damage:
@@ -407,6 +458,9 @@
   - type: SingularityDistortion
     falloffPower: 2.529822
     intensity: 3645
+  - type: PointLight
+    enabled: true
+    radius: 10
 
 - type: entity
   parent: BaseWeaponShipLightEnergy
@@ -442,6 +496,7 @@
 - type: entity
   id: BulletBlastRamWalker
   parent: BaseMeteor
+  name: blast ram walker
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -488,6 +543,9 @@
   - type: SingularityDistortion
     falloffPower: 2.529822
     intensity: 3645
+  - type: PointLight
+    enabled: true
+    radius: 10
 
 - type: entity
   parent: BaseWeaponShipLightEnergy

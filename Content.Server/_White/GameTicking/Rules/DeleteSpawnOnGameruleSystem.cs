@@ -28,18 +28,24 @@ public sealed class DeleteSpawnOnGameruleSystem : GameRuleSystem<DeleteSpawnOnGa
     private void RemoveTiles(List<string> tilePrototypes)
     {
         var tileDefManager = IoCManager.Resolve<ITileDefinitionManager>();
-        var query = EntityQueryEnumerator<MapGridComponent>();
+        var tilesToRemove = new List<(EntityUid gridUid, MapGridComponent grid, Vector2i indices)>();
 
-        while (query.MoveNext(out var gridUid, out var grid))
+        var gridQuery = EntityQueryEnumerator<MapGridComponent>();
+        while (gridQuery.MoveNext(out var gridUid, out var grid))
         {
             foreach (var tileRef in grid.GetAllTiles())
             {
                 var tileDef = (ContentTileDefinition)tileDefManager[tileRef.Tile.TypeId];
                 if (tilePrototypes.Contains(tileDef.ID))
                 {
-                    _mapSystem.SetTile(gridUid, grid, tileRef.GridIndices, Tile.Empty);
+                    tilesToRemove.Add((gridUid, grid, tileRef.GridIndices));
                 }
             }
+        }
+
+        foreach (var (gridUid, grid, indices) in tilesToRemove)
+        {
+            _mapSystem.SetTile(gridUid, grid, indices, Tile.Empty);
         }
     }
 
