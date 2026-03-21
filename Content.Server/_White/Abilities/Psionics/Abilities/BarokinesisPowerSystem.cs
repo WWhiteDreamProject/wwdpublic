@@ -41,7 +41,7 @@ public sealed class BarokinesisPowerSystem : SharedBarokinesisPowerSystem
             {
                 Act = () =>
                 {
-                    base.Pull(victim, uid, force, throwSpeed, physics);
+                    base.Pull(victim, uid, force, throwSpeed, physics, component);
                 },
                 Text = Loc.GetString("verb-barokinesis-pull"),
                 Priority = 1,
@@ -52,7 +52,7 @@ public sealed class BarokinesisPowerSystem : SharedBarokinesisPowerSystem
             {
                 Act = () =>
                 {
-                    base.Push(victim, uid, force, throwSpeed, physics);
+                    base.Push(victim, uid, force, throwSpeed, physics, component);
                 },
                 Text = Loc.GetString("verb-barokinesis-push"),
                 Priority = 2,
@@ -67,7 +67,7 @@ public sealed class BarokinesisPowerSystem : SharedBarokinesisPowerSystem
             {
                 Act = () =>
                 {
-                    base.Dash(uid, force, throwSpeed);
+                    base.Dash(uid, force, throwSpeed, component);
                 },
                 Text = Loc.GetString("verb-barokinesis-dash"),
                 Priority = 1
