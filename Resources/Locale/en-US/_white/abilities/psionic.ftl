@@ -23,6 +23,7 @@ barokinesis-power-initialization-feedback =
     Blood boils, I choke, yet my consciousness continues to fall.
     But then I hear it: the slow breath of the planet, its will envelops me.
     I sink deeper and find myself in reality. The air stands frozen, awaiting my commands.
+barokinesis-verb = Barokinesis
 verb-barokinesis-pull = Pull
 verb-barokinesis-push = Push
 verb-barokinesis-dash = Decompression Dash
