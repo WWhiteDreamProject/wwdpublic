@@ -17,6 +17,8 @@ team-green = [color=#00FF00]Зелёная[/color]
 team-purple = [color=#FF00FF]Фиолетовая[/color]
 
 capture-point-sender-start-timer = [color=#14fffb]Almagest[/color]
-capture-point-start-message-start-timer = Таймер подготовки к бою запущен! У вас есть 10 минут!
+capture-point-start-message-start-timer5 = Таймер подготовки к бою запущен! У вас есть 5 минут!
+capture-point-start-message-start-timer10 = Таймер подготовки к бою запущен! У вас есть 10 минут!
+capture-point-start-message-start-timer15 = Таймер подготовки к бою запущен! У вас есть 15 минут!
 capture-point-end-message-start-timer = Таймер подготовки к бою истек! Покиньте стартовые доки и готовьтесь к бою!
 capture-point-cancel-message-start-timer = Таймер подготовки к бою прерван. Причины неизвестны.

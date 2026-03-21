@@ -17,6 +17,8 @@ team-green = [color=#00FF00]Green[/color]
 team-purple = [color=#FF00FF]Purple[/color]
 
 capture-point-sender-start-timer = [color=#14fffb]Almagest[/color]
-capture-point-start-message-start-timer = The battle preparation timer has started! You have 10 minutes!
+capture-point-start-message-start-timer5 = The battle preparation timer has started! You have 5 minutes!
+capture-point-start-message-start-timer10 = The battle preparation timer has started! You have 10 minutes!
+capture-point-start-message-start-timer15 = The battle preparation timer has started! You have 15 minutes!
 capture-point-end-message-start-timer = The battle preparation timer has expired! Leave the starting docks and prepare for battle!
 capture-point-cancel-message-start-timer = The battle preparation timer has been interrupted. Reasons unknown.
