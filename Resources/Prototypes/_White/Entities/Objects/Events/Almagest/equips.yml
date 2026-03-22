@@ -50,6 +50,7 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitSec
     neck: ClothingNeckMantleHOS
+    shoes: ClothingShoesBootsMagEng
     back: ClothingBackpackAlmagestRedMarine
 
 # Engineer
