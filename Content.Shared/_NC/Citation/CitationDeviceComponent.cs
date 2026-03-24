@@ -51,6 +51,12 @@ public sealed partial class CitationDeviceComponent : Component
     public int DetectiveLimit = 1500;
     
     /// <summary>
+    /// Максимальный лимит для капитана.
+    /// </summary>
+    [DataField("captainLimit")]
+    public int CaptainLimit = 1000;
+
+    /// <summary>
     /// Процент комиссии (легализованная взятка), который идет офицеру. (Например, 0.3f = 30%)
     /// </summary>
     [DataField("commissionRate")]

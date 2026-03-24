@@ -10,6 +10,9 @@
   - type: Item
     size: Small
   - type: CitationDevice
+    captainLimit: 1000
+    detectiveLimit: 1000
+    patrolLimit: 1000
   - type: ActivatableUI
     key: enum.CitationDeviceUiKey.Key
   - type: UserInterface

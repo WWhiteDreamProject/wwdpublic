@@ -1,0 +1,17 @@
+- type: entity
+  id: BaseCyberwareImplant
+  parent: BaseItem
+  name: "Базовый киберимплант"
+  description: "Кусок высокотехнологичного хрома. Требуется Автодок для установки."
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    layers:
+    - state: datadisk_base
+    - state: datadisk_label
+  - type: CyberwareImplant
+    category: None
+    humanityCost: 0
+    refundPercentage: 0.5
+

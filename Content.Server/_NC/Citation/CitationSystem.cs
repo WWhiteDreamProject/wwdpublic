@@ -135,7 +135,7 @@ public sealed class CitationSystem : EntitySystem
 
         return (jobId?.Id ?? "Unknown") switch
         {
-            "Captain" => 99999,
+            "Captain" => component.CaptainLimit,
             "HoS" => component.DetectiveLimit,
             "Warden" => component.DetectiveLimit,
             "Detective" => component.DetectiveLimit,
