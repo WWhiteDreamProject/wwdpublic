@@ -13,17 +13,17 @@ public sealed partial class BarokinesisPowerComponent : Component
     public bool CheckPsionics = true;
 
     [DataField]
-    public float CurrentWeakness = 1f; //1 weakness its all power, 0.1 weakness its small power
+    public float MaximumWeakness = 1f; //full power
 
     [DataField]
-    public float MaximumWeakness = 1f;
+    public float MinimumWeakness = 0.01f; //low power
 
     [DataField]
-    public float MinimumWeakness = 0.01f;
+    public float MaximumRecovery = 10f; //in seconds
 
     [DataField]
-    public float DecayWeakness = 0.3f; //decay per usage
+    public float MinimumRecovery = 0.05f;
 
     [DataField]
-    public float RecoveryWeakness = 0.03f; //recovery per sometimes
+    public TimeSpan LastUsedTime;
 }
