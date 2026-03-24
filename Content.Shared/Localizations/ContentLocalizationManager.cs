@@ -72,6 +72,14 @@ namespace Content.Shared.Localizations
             _loc.AddFunction(cultureEn, "MAKEPLURAL", FormatMakePlural);
             _loc.AddFunction(cultureEn, "MANY", FormatMany);
             // White Dream End
+            // WWDP EDIT START
+            /*
+            * The following language functions are specific to the russian localization.
+            */
+            var cultureRu = new CultureInfo("ru-RU");
+
+            _loc.AddFunction(cultureRu, "RU-PLURAL", FormatRuPlural);
+            // WWDP EDIT END
         }
 
         private ILocValue FormatMany(LocArgs args)
@@ -274,5 +282,30 @@ namespace Content.Shared.Localizations
             }
             return new LocValueString(FormatPlaytime(time));
         }
+        // WWDP EDIT START
+        /// <summary>
+        /// Russian plural form selector based on count.
+        /// Usage in .ftl: {RU-PLURAL($count, "яблоко", "яблока", "яблок")}
+        /// Args: count, form for 1 (nominative singular), form for 2-4 (genitive singular), form for 5+ (genitive plural)
+        /// Rules: 1,21,31.. -> form1; 2-4,22-24.. -> form2; 5-20,25-30.. -> form5; 11-19 -> form5
+        private static ILocValue FormatRuPlural(LocArgs args)
+        {
+            var count = (int) ((LocValueNumber) args.Args[0]).Value;
+            var form1 = ((LocValueString) args.Args[1]).Value;
+            var form2 = ((LocValueString) args.Args[2]).Value;
+            var form5 = ((LocValueString) args.Args[3]).Value;
+
+            var absCount = Math.Abs(count) % 100;
+            var lastDigit = absCount % 10;
+
+            if (absCount >= 11 && absCount <= 19)
+                return new LocValueString(form5);
+            if (lastDigit == 1)
+                return new LocValueString(form1);
+            if (lastDigit >= 2 && lastDigit <= 4)
+                return new LocValueString(form2);
+            return new LocValueString(form5);
+        }
+        // WWDP EDIT END
     }
 }
