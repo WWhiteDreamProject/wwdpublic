@@ -38,8 +38,10 @@ air-alarm-ui-mode-none = Нет
 ### General
 
 air-alarm-ui-widget-enable = Включено
-air-alarm-ui-widget-copy = Copy settings to similar devices
-air-alarm-ui-widget-copy-tooltip = Copies the settings of this device to all devices in this air alarm tab.
+# WWDP EDIT START
+air-alarm-ui-widget-copy = Копировать настройки на похожие устройства
+air-alarm-ui-widget-copy-tooltip = Копирует настройки этого устройства на все устройства на этой вкладке воздушной тревоги.
+# WWDP EDIT END
 air-alarm-ui-widget-ignore = Игнорировать
 air-alarm-ui-atmos-net-device-label = Адрес: { $address }
 

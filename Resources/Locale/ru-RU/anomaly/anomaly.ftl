@@ -85,7 +85,8 @@ anomaly-generator-generate = Создать Аномалию
 anomaly-generator-charges =
     { $charges ->
         [one] { $charges } заряд
-       *[other] { $charges } заряды
+        [few] { $charges } заряда
+       *[other] { $charges } зарядов
     }
 
 anomaly-generator-announcement = Была сгенерирована аномалия!

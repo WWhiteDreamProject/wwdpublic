@@ -5,8 +5,10 @@ barsign-component-name = вывеска бара
 
 ## The Harmbaton
 
-barsign-ui-menu = Bar Sign Configuration
-barsign-ui-set-label = Set Sign:
+# WWDP EDIT START
+barsign-ui-menu = Конфигурация Вывески Бара
+barsign-ui-set-label = Выбрать из доступных:
+# WWDP EDIT END
 
 # Bar signs prototypes
 
@@ -146,8 +148,10 @@ barsign-prototype-description-emprah = Нравится и фанатикам, �
 barsign-prototype-name-spacebucks = Космобаксы
 barsign-prototype-description-spacebucks = Вы не сможете убежать от них, даже в космосе.
 ## Maltroach
-barsign-prototype-name-maltroach = Maltroach
-barsign-prototype-description-maltroach = Squeak!
+# WWDP EDIT START
+barsign-prototype-name-maltroach = Бухломоль
+barsign-prototype-description-maltroach = Сквик!
+# WWDP EDIT START
 
 ## EmpBarSign
 barsign-prototype-description-empbarsign = Что-то пошло совсем не так.
