@@ -1,25 +1,14 @@
 
-verb-trigger-timer-set = { $time } секунд
-verb-trigger-timer-set-current = { $time } секунд (сейчас)
+# WWDP EDIT START
+verb-trigger-timer-set = { $time } {RU-PLURAL($time, "секунда", "секунды", "секунд")}
+verb-trigger-timer-set-current = { $time } {RU-PLURAL($time, "секунда", "секунды", "секунд")} (сейчас)
+# WWDP EDIT END
 verb-trigger-timer-cycle = Циклическое переключение задержки
 
-examine-trigger-timer =
-    { $time ->
-    [1] Таймер установлен на { $time } секунду.
-    [2] Таймер установлен на { $time } секунды.
-    [3] Таймер установлен на { $time } секунды.
-    [4] Таймер установлен на { $time } секунды.
-    *[other] Таймер установлен на { $time } секунд.
-    }
-
-popup-trigger-timer-set =
-    { $time ->
-    [1] Таймер установлен на { $time } секунду.
-    [2] Таймер установлен на { $time } секунды.
-    [3] Таймер установлен на { $time } секунды.
-    [4] Таймер установлен на { $time } секунды.
-    *[other] Таймер установлен на { $time } секунд.
-    }
+# WWDP EDIT START
+examine-trigger-timer = Таймер установлен на { $time } {RU-PLURAL($time, "секунду", "секунды", "секунд")}.
+popup-trigger-timer-set = Таймер установлен на { $time } {RU-PLURAL($time, "секунду", "секунды", "секунд")}.
+# WWDP EDIT END
 
 verb-start-detonation = Активировать
 
@@ -29,11 +18,6 @@ popup-start-on-stick-on = Устройство будет автоматичес
 
 trigger-activated = Вы активируете {$device}.
 
-trigger-activated-when-shot =
-    { $reduction ->
-    [1] При выстреле этим, таймер будет короче на { $reduction } секунду.
-    [2] При выстреле этим, таймер будет короче на { $reduction } секунды.
-    [3] При выстреле этим, таймер будет короче на { $reduction } секунды.
-    [4] При выстреле этим, таймер будет короче на { $reduction } секунды.
-    *[other] При выстреле этим, таймер будет короче на { $reduction } секунд.
-    }
+# WWDP EDIT START
+trigger-activated-when-shot = При выстреле этим, таймер будет короче на { $reduction } {RU-PLURAL($reduction, "секунду", "секунды", "секунд")}.
+# WWDP EDIT END
