@@ -35,13 +35,13 @@ public sealed partial class QuickPhrasePrototype : IPrototype, IInheritingProtot
     /// Determines how the phrase is sorted in the UI.
     /// </summary>
     [DataField]
-    public string Group = string.Empty;
+    public LocId Group = string.Empty; // WWDP EDIT
 
     /// <summary>
     /// The tab in the UI that this phrase falls under.
     /// </summary>
     [DataField]
-    public string Tab = string.Empty;
+    public LocId Tab = string.Empty; // WWDP EDIT
 
     /// <summary>
     /// Color of button in UI.
