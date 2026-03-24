@@ -35,14 +35,16 @@
   - Heat
   - Shock
 
-- type: damageContainer
-  id: SiliconUnshielded
-  supportedGroups:
-  - Brute
-  supportedTypes:
-  - Heat
-  - Shock
-  - Radiation
+# WWDP EDIT START
+#- type: damageContainer
+#  id: SiliconUnshielded
+#  supportedGroups:
+#  - Brute
+#  supportedTypes:
+#  - Heat
+#  - Shock
+#  - Radiation
+# WWDP EDIT STOP
 
 - type: damageContainer
   id: Shield
