@@ -5165,3 +5165,10 @@ Entries:
   id: 541
   time: '2026-03-19T18:36:24.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1089
+- author: SentryPrimies
+  changes:
+    - type: Add
+      message: Добавлены новые спрайты старым инженерным комбинезонам
+  id: 542
+  time: '2026-03-24T16:57:18.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1091
