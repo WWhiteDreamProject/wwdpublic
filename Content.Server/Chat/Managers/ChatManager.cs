@@ -13,6 +13,7 @@ using Content.Shared.Chat;
 using Content.Shared.Database;
 using Content.Shared.Mind;
 using Content.Shared.Players.RateLimiting;
+using Robust.Shared;
 using Robust.Shared.Configuration;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
@@ -248,7 +249,20 @@ internal sealed partial class ChatManager : IChatManager
         }
 
         Color? colorOverride = null;
-        var wrappedMessage = Loc.GetString("chat-manager-send-ooc-wrap-message", ("playerName",player.Name), ("message", FormattedMessage.EscapeText(message)));
+
+        // WD EDDIT START
+        var authServer = player.AuthType == LoginType.LoggedIn
+            ? AuthServer.FromStringList(_configurationManager.GetCVar(CVars.AuthServers))
+                .FirstOrDefault(x => x.AuthUrl.ToString() == player.Channel.UserData.AuthServer)
+                ?.Id ?? "Unknown"
+            : "Unknown";
+        var wrappedMessage = Loc.GetString(
+            "chat-manager-send-ooc-wrap-message",
+            ("playerName", $"{player.Name}"),
+            ("authServer", authServer),
+            ("message", FormattedMessage.EscapeText(message)));
+        // WD EDIT END
+
         if (_adminManager.HasAdminFlag(player, AdminFlags.Admin))
         {
             var prefs = _preferencesManager.GetPreferences(player.UserId);
@@ -256,7 +270,14 @@ internal sealed partial class ChatManager : IChatManager
         }
         if (  _netConfigManager.GetClientCVar(player.Channel, CCVars.ShowOocPatronColor) && player.Channel.UserData.PatronTier is { } patron && PatronOocColors.TryGetValue(patron, out var patronColor))
         {
-            wrappedMessage = Loc.GetString("chat-manager-send-ooc-patron-wrap-message", ("patronColor", patronColor),("playerName", player.Name), ("message", FormattedMessage.EscapeText(message)));
+            // WD EDIT START
+            wrappedMessage = Loc.GetString(
+                "chat-manager-send-ooc-patron-wrap-message",
+                ("patronColor", patronColor),
+                ("playerName", player.Name),
+                ("authServer", authServer),
+                ("message", FormattedMessage.EscapeText(message)));
+            // WD EDIT END
         }
 
         //TODO: player.Name color, this will need to change the structure of the MsgChatMessage
