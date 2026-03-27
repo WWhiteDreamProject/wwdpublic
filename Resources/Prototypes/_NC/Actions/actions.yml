@@ -4,7 +4,7 @@
   description: action-desc-sandevistan
   components:
   - type: InstantAction
-    icon: { sprite: _NC/Objects/Cyberware/sande.rsi, state: icon }
+    icon: { sprite: _NC/Objects/Cyberware/sandevistan.rsi, state: icon }
     event: !type:SandevistanToggleActionEvent
     checkCanInteract: false
     useDelay: 1.0

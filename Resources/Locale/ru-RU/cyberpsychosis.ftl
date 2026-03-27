@@ -1,0 +1,12 @@
+accent-cyberpsycho-1 = УБИТЬ... УБИТЬ ВСЕХ...
+accent-cyberpsycho-2 = ВЫ ВСЕ ПРОСТО МЯСО!
+accent-cyberpsycho-3 = МОИ НЕЙРОНЫ ИСКРЯТ КРОВЬЮ!
+accent-cyberpsycho-4 = ХРОМ ТРЕБУЕТ ЖЕРТВ!
+accent-cyberpsycho-5 = СМЕРТЬ ОРГАНИКЕ!
+accent-cyberpsycho-6 = Я ВИЖУ ВАШИ СЛАБЫЕ МЕСТА...
+accent-cyberpsycho-7 = ...мясо.
+accent-cyberpsycho-8 = ...куски плоти.
+accent-cyberpsycho-9 = ...слабаки.
+accent-cyberpsycho-10 = ...хлам.
+accent-cyberpsycho-11 = ...всего лишь ресурс.
+accent-cyberpsycho-12 = ...органический мусор.

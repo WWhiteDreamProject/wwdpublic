@@ -194,7 +194,7 @@ namespace Content.Server._NC.Dispatch
             }
         }
 
-        private void AddAlert(EntityUid cameraUid, string type, string sector, bool playSound)
+        public void AddAlert(EntityUid cameraUid, string type, string sector, bool playSound)
         {
             var timeStr = _gameTicker.RoundDuration().ToString(@"hh\:mm\:ss");
             var transform = Transform(cameraUid);

@@ -44,9 +44,11 @@ public sealed class ServerSandevistanSystem : SharedSandevistanSystem
     {
         _actions.AddAction(uid, ref component.ActionEntity, component.ActionId);
         
-        var parent = Transform(uid).ParentUid;
-        if (parent.IsValid() && component.ActionEntity != null)
-            _actions.AddAction(parent, component.ActionEntity.Value, uid);
+        var xform = Transform(uid);
+        if (xform.ParentUid.IsValid() && HasComp<CyberwareComponent>(xform.ParentUid))
+        {
+            _actions.AddAction(xform.ParentUid, component.ActionEntity!.Value, uid);
+        }
     }
 
     private void OnParentChanged(EntityUid uid, SandevistanComponent component, ref EntParentChangedMessage args)
@@ -54,16 +56,17 @@ public sealed class ServerSandevistanSystem : SharedSandevistanSystem
         if (component.ActionEntity == null)
             return;
 
+        // Удаляем экшен у старого владельца
         if (args.OldParent != null && args.OldParent.Value.IsValid())
-            _actions.RemoveAction(args.OldParent.Value, component.ActionEntity.Value);
-
-        var newParent = args.Transform.ParentUid;
-        if (newParent.IsValid())
         {
-            if (HasComp<ActionsComponent>(newParent))
-            {
-                _actions.AddAction(newParent, ref component.ActionEntity, component.ActionId, uid);
-            }
+            _actions.RemoveAction(args.OldParent.Value, component.ActionEntity.Value);
+        }
+
+        // Добавляем экшен НОВОМУ владельцу только если это установка (CyberwareComponent)
+        var newParent = args.Transform.ParentUid;
+        if (newParent.IsValid() && HasComp<CyberwareComponent>(newParent))
+        {
+            _actions.AddAction(newParent, component.ActionEntity.Value, uid);
         }
     }
 
@@ -149,7 +152,6 @@ public sealed class ServerSandevistanSystem : SharedSandevistanSystem
         {
             if (sande.ActionEntity != null)
             {
-                // УБРАНО: Кулдаун больше не ставится
                 _actions.SetToggled(sande.ActionEntity.Value, false);
             }
 
