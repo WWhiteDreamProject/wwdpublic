@@ -1,0 +1,72 @@
+uniform sampler2D emissiveTexture;
+uniform highp vec4 emissiveUV = vec4(0.0);
+
+uniform highp float height = 1;
+uniform highp float shadowFactor = 0;
+uniform highp int layers = 41;
+
+highp float insideBox(highp vec2 v, highp vec2 bottomLeft, highp vec2 topRight) {
+    highp vec2 s = step(bottomLeft, v) - step(topRight, v);
+    return s.x * s.y;   
+}
+
+varying highp vec2 eUV;
+
+void vertex() {
+	eUV = emissiveUV == vec4(0.0, 0.0, 0.0, 1.0) ? vec2(0.0) : mix(emissiveUV.xy, emissiveUV.zw, tCoord2);
+}
+
+void fragment() {
+	highp vec4 col_orig = zTexture(UV);
+	highp vec4 col;
+	highp float angle;
+	highp vec2 ps = TEXTURE_PIXEL_SIZE;
+	highp vec4 t = gl_FragCoord;
+
+	highp vec2 offset = normalize(vec2(dFdy(UV.x/ps.x), dFdy(UV.y/ps.y))) * height;
+	highp vec2 step = offset / (layers == 0 ? 1 : layers); // ternary prevents div by zero
+	highp vec4 col_last = vec4(0.0);
+
+	// these two are used to prevent emissive voxels from affecting lightmap if they're obscured by regular voxels
+	bool hit = false;
+	bool glow = false;
+
+	highp float new_a = 0.0;
+
+	// used to determine shade effect on the bottom of the 3d effect
+	int firstHitSample = 0; 
+
+	// col is the resulting color of the fragment and gets written to COLOR
+	// (unless bleedover condition is true, in which case col_orig will be used)
+	//
+	// we're sampling color at even intervals, starting at UV and moving towards the top of the screen
+	// whatever color we hit, it replaces the current col color depending on col's alpha
+	//
+	// this unreadable bullshit results in duplication of the sprite, moving downwards in screenspace
+	// and being visually "underneath" the original (and actual) sprite.
+	for(int i = 0; i <= layers; i++){
+		highp vec4 col_tex = zTexture(UV + (step*i)*ps); // regular texture
+		highp vec4 col_emissive = texture2D(emissiveTexture, eUV + (step*i)*ps); // emissive texture
+		firstHitSample = !hit ? i : firstHitSample;
+
+		// if the first voxel we hit is emissive, we'll set the lightmap to fullbright
+		// as well as overlaying the color from emissive texture on top of col_tex
+		glow = hit ? glow : col_emissive.a > 0.001; 
+		hit = hit ? hit : col_tex.a > 0.001; 		
+		col_tex = mix(col_tex, col_emissive, glow ? col_emissive.a : 0.0);
+		lightSample = mix(lightSample, vec3(1.0), glow ? col_emissive.a : 0.0);
+
+		// this is used to track when we hit different colors
+		// so we can properly mix transparent pixels that have their 3d part overlapping
+		// only if they have some space between them
+		bool hitNewColor = col_tex != col_last && col_tex != vec4(0.0);
+
+		new_a = hitNewColor ? mix(new_a, 1.0, col_tex.a) : new_a;
+		col = hitNewColor ? vec4(mix(col_tex.rgb, col.rgb, col.a), new_a) : col;
+
+		col_last = col_tex;
+	}
+
+	col = mix(col, vec4(vec3(0.0), col.a), float(firstHitSample) / layers * shadowFactor); // apply a shade towards the bottom of the 3D effect
+	COLOR = insideBox(UV2 + offset/32, vec2(0,0), vec2(1,1)) > 0.5 ? col : col_orig;
+}
