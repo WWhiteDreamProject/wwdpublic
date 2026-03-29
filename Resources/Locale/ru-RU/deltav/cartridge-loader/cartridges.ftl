@@ -3,7 +3,7 @@
 # General
 stock-trading-program-name = StockTrading
 stock-trading-title = Межгалактическая Фондовая Биржа
-stock-trading-balance = Баланс: {$balance} кредитов
+stock-trading-balance = Баланс: {$balance} спесо
 stock-trading-no-entries = Нет записей
 stock-trading-owned-shares = Во владении: {$shares}
 stock-trading-buy-button = Купить
@@ -20,7 +20,7 @@ stock-trading-price-history = История цен
 # General
 nano-chat-program-name = NanoChat
 nano-chat-title = NanoChat
-nano-chat-new-chat = Новый Чат 
+nano-chat-new-chat = Новый Чат
 nano-chat-contacts = КОНТАКТЫ
 nano-chat-no-chats = Нет активных чатов
 nano-chat-select-chat = Выберите чат
