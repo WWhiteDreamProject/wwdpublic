@@ -1,8 +1,5 @@
 ﻿# Examine text
-comp-ghost-examine-time-minutes = Умер [color=yellow]{ $minutes } минут(ы) назад.[/color]
-comp-ghost-examine-time-seconds =
-    Умер [color=yellow]{ $seconds } { $seconds ->
-        [one] секунду
-        [few] секунды
-       *[other] секунд
-    } назад. [/color]
+# WWDP EDIT START
+comp-ghost-examine-time-minutes = Умер [color=yellow]{ $minutes } {RU-PLURAL($minutes, "минуту", "минуты", "минут")} назад.[/color]
+comp-ghost-examine-time-seconds = Умер [color=yellow]{ $seconds } {RU-PLURAL($seconds, "секунду", "секунды", "секунд")} назад. [/color]
+# WWDP EDIT END
