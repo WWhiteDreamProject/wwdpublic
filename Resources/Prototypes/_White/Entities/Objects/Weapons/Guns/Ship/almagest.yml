@@ -50,17 +50,13 @@
 # IR Heavy
 - type: entity
   name : heavy laser bolt
-  id: BoltIRLaserHeavy
-  parent: [BulletLaser, BulletRocket]
+  id: BoltIRLaserHeavy # TODO ADD RADAR ICON
+  parent: [ BulletLaser, BulletRocket, RadarIconPlaceholder ]
   categories: [ HideSpawnMenu ]
   components:
   - type: Explosive
     totalIntensity: 20
   - type: Projectile
-    radarRange: 512
-    radarColor: "#cf2da6"
-    radarSize: 5
-    radarThickness: 2
     damage:
       types:
         Heat: 120
@@ -97,15 +93,11 @@
 # IR Fast
 - type: entity
   name : fast laser bolt
-  id: BoltIRLaserFast
-  parent: BulletLaser
+  id: BoltIRLaserFast # TODO ADD RADAR ICON
+  parent: [ BulletLaser, RadarIconPlaceholder ]
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
-    radarRange: 512
-    radarColor: "#cf482d"
-    radarSize: 3
-    radarThickness: 1
     damage:
       types:
         Heat: 20
@@ -168,18 +160,14 @@
 
 # Annihilator Heavy
 - type: entity
-  id: RocketAnnihilatorHeavy
+  id: RocketAnnihilatorHeavy # TODO ADD RADAR ICON
   name: heavy annihilator rocket
-  parent: BulletRocket
+  parent: [ BulletRocket, RadarIconPlaceholder]
   categories: [ HideSpawnMenu ]
   components:
   - type: Explosive
     totalIntensity: 100
   - type: Projectile
-    radarRange: 512
-    radarColor: "#4ba0d1"
-    radarSize: 5
-    radarThickness: 2
     damage:
       types:
         Heat: 80
@@ -217,18 +205,14 @@
 
 # Annihilator Fast
 - type: entity
-  id: RocketAnnihilatorFast
+  id: RocketAnnihilatorFast # TODO ADD RADAR ICON
   name: fast annihilator rocket
-  parent: BulletRocket
+  parent: [ BulletRocket, RadarIconPlaceholder ]
   categories: [ HideSpawnMenu ]
   components:
   - type: Explosive
     totalIntensity: 5
   - type: Projectile
-    radarRange: 512
-    radarColor: "#4dd1e8"
-    radarSize: 3
-    radarThickness: 1
     damage:
       types:
         Heat: 5
@@ -266,18 +250,14 @@
 
 # Annihilator Shotgun
 - type: entity
-  id: RocketAnnihilatorShotgun
+  id: RocketAnnihilatorShotgun # TODO ADD RADAR ICON
   name: shotgun annihilator rocket
-  parent: BulletRocket
+  parent: [ BulletRocket, RadarIconPlaceholder }
   categories: [ HideSpawnMenu ]
   components:
   - type: Explosive
     totalIntensity: 5
   - type: Projectile
-    radarRange: 512
-    radarColor: "#69a6c7"
-    radarSize: 3
-    radarThickness: 2
     damage:
       types:
         Heat: 10
@@ -340,8 +320,8 @@
 
 # Ram Penetrator
 - type: entity
-  id: BulletBlastRamPenetrator
-  parent: BaseMeteor
+  id: BulletBlastRamPenetrator # TODO ADD RADAR ICON
+  parent: [ BaseMeteor, RadarIconPlaceholder ] 
   name: blast ram penetrator
   categories: [ HideSpawnMenu ]
   components:
@@ -370,10 +350,6 @@
   - type: TimedDespawn
     lifetime: 0.25
   - type: Projectile
-    radarRange: 256
-    radarColor: "#e8274b"
-    radarSize: 12
-    radarThickness: 6
     damage:
       types:
         Structural: 1000
@@ -411,8 +387,8 @@
 
 # Ram Mine
 - type: entity
-  id: BulletBlastRamMine
-  parent: BaseMeteor
+  id: BulletBlastRamMine # TODO ADD RADAR ICON
+  parent: [ BaseMeteor, RadarIconPlaceholder ]
   name: blast ram mine
   categories: [ HideSpawnMenu ]
   components:
@@ -441,10 +417,6 @@
   - type: TimedDespawn
     lifetime: 60
   - type: Projectile
-    radarRange: 128
-    radarColor: "#83599c"
-    radarSize: 6
-    radarThickness: 6
     damage:
       types:
         Structural: 1000
@@ -494,8 +466,8 @@
 
 # Ram Walker
 - type: entity
-  id: BulletBlastRamWalker
-  parent: BaseMeteor
+  id: BulletBlastRamWalker # TODO ADD RADAR ICON
+  parent: [ BaseMeteor, RadarIconPlaceholder ]
   name: blast ram walker
   categories: [ HideSpawnMenu ]
   components:
@@ -524,10 +496,6 @@
   - type: TimedDespawn
     lifetime: 120
   - type: Projectile
-    radarRange: 1024
-    radarColor: "#25a0b3"
-    radarSize: 6
-    radarThickness: 4
     damage:
       types:
         Structural: 1000

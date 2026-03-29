@@ -1,0 +1,86 @@
+# search for "# TODO ADD RADAR ICON" for projectiles that lost their icons
+
+
+- type: entity
+  id: RadarIconPlaceholder
+  abstract: true
+  components:
+  - type: RadarIcon
+    color: Silver
+    scale: 2
+    angle: 0
+    #lines: # lines that rotate along with the entity
+    linesNoRot: # lines that always stay upright on the console
+    - [
+      "1, 1",
+      "-1, -1"
+    ]
+    - [
+      "1, -1",
+      "-1, 1"
+    ]
+
+- type: entity
+  id: RadarIconCircledArrow
+  abstract: true
+  components:
+  - type: RadarIcon
+    color: Silver
+    scale: 1.5
+    angle: 0
+    lines:
+    - [
+      "0, -1",
+      "0, 1"
+    ]
+    - [
+      "0.25, -0.75",
+      "0, -1",
+      "-0.25, -0.75"
+    ]
+    linesNoRot: # generated via python, code below for reference purposes
+    - [         # print(",\n".join([f"\"{math.sin(a*math.tau/10)*1.2}, {math.cos(a*math.tau/10)*1.2}\"" for a in range(0,11)])) #can be immediately copied into yaml without alterations
+      "0.0, 1.2",
+      "0.7053423027509678, 0.9708203932499369",
+      "1.141267819554184, 0.37082039324993693",
+      "1.1412678195541843, -0.3708203932499368",
+      "0.7053423027509679, -0.9708203932499367",
+      "1.4695761589768238e-16, -1.2",
+      "-0.7053423027509677, -0.9708203932499371",
+      "-1.141267819554184, -0.37082039324993704",
+      "-1.1412678195541843, 0.37082039324993665",
+      "-0.705342302750968, 0.9708203932499367",
+      "-2.9391523179536476e-16, 1.2"
+    ]
+
+# shapes that are any more complicated *will* look ugly and warped
+# due to lack of pixel alignment inside navconsole's UI.
+- type: entity
+  id: RadarIconWarning
+  abstract: true
+  components:
+  - type: RadarIcon
+    color: Yellow
+    scale: 1.5
+    angle: 0
+    linesNoRot:
+    - [ # triangle
+      "-2, 0",
+      "2,0",
+      "0, 3.464102",
+      "-2, 0"
+    ]   # exclamation mark's point
+    - [
+      "0.25, 0.25",
+      "0.25, 0.5",
+      "-0.25, 0.5",
+      "-0.25, 0.25",
+      "0.25, 0.25"
+    ]  # exclamation mark's line
+    - [
+      "0.25, 0.75",
+      "0.25, 2.75",
+      "-0.25, 2.75",
+      "-0.25, 0.75",
+      "0.25, 0.75"
+    ]

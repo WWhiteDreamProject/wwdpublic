@@ -120,19 +120,4 @@ public sealed partial class ProjectileComponent : Component
     [NonSerialized]
     public List<EntityUid> IgnoredEntities = new();
     // Goobstation end
-
-    // WWDP edit start
-
-    [DataField]
-    public float RadarRange = 256f;
-
-    [DataField]
-    public Color RadarColor = Color.Silver;
-
-    [DataField]
-    public float RadarSize = 4f;
-
-    [DataField]
-    public float RadarThickness = 0f;
-    // WWDP edit end
 }
