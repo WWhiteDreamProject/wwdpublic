@@ -1,5 +1,6 @@
 uniform sampler2D emissiveTexture;
-uniform highp vec4 emissiveUV = vec4(0.0);
+uniform highp vec4 emissiveUV;
+uniform highp vec4 assblast;
 
 uniform highp float height = 1;
 uniform highp float shadowFactor = 0;
@@ -13,7 +14,7 @@ highp float insideBox(highp vec2 v, highp vec2 bottomLeft, highp vec2 topRight) 
 varying highp vec2 eUV;
 
 void vertex() {
-	eUV = emissiveUV == vec4(0.0, 0.0, 0.0, 1.0) ? vec2(0.0) : mix(emissiveUV.xy, emissiveUV.zw, tCoord2);
+	eUV = mix(emissiveUV.xy, emissiveUV.zw, tCoord2);
 }
 
 void fragment() {
@@ -21,7 +22,6 @@ void fragment() {
 	highp vec4 col;
 	highp float angle;
 	highp vec2 ps = TEXTURE_PIXEL_SIZE;
-	highp vec4 t = gl_FragCoord;
 
 	highp vec2 offset = normalize(vec2(dFdy(UV.x/ps.x), dFdy(UV.y/ps.y))) * height;
 	highp vec2 step = offset / (layers == 0 ? 1 : layers); // ternary prevents div by zero
@@ -47,15 +47,18 @@ void fragment() {
 	for(int i = 0; i <= layers; i++){
 		highp vec4 col_tex = zTexture(UV + (step*i)*ps); // regular texture
 		highp vec4 col_emissive = texture2D(emissiveTexture, eUV + (step*i)*ps); // emissive texture
+		//highp vec4 col_emissive = vec4(0.0);
 		firstHitSample = !hit ? i : firstHitSample;
 
 		// if the first voxel we hit is emissive, we'll set the lightmap to fullbright
 		// as well as overlaying the color from emissive texture on top of col_tex
 		glow = hit ? glow : col_emissive.a > 0.001; 
 		hit = hit ? hit : col_tex.a > 0.001; 		
-		col_tex = mix(col_tex, col_emissive, glow ? col_emissive.a : 0.0);
-		lightSample = mix(lightSample, vec3(1.0), glow ? col_emissive.a : 0.0);
 
+		highp float emissive_mix_a = mix(col_tex.a, 1.0, col_emissive.a);
+		//col_tex = mix(col_tex, col_emissive, glow ? col_emissive.a : 0.0);
+		col_tex = vec4(mix(col_tex.rgb, col_emissive.rgb, col_emissive.a), emissive_mix_a);
+		lightSample = mix(lightSample, vec3(1.0), glow ? col_emissive.a : 0.0);
 		// this is used to track when we hit different colors
 		// so we can properly mix transparent pixels that have their 3d part overlapping
 		// only if they have some space between them
