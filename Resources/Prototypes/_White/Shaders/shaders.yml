@@ -32,7 +32,7 @@
   kind: source
   path: "/Textures/Shaders/voxel_simple.swsl"
   params:
-    height: 1.0
+    height: 0.75
     shadowFactor: 0.0
 
 - type: shader
@@ -40,7 +40,7 @@
   kind: source
   path: "/Textures/Shaders/voxel_emissive.swsl"
   params:
-    height: 1.0
+    height: 0.75
     shadowFactor: 0.0
 
 - type: shader
@@ -48,7 +48,7 @@
   kind: source
   path: "/Textures/Shaders/voxel_simple.swsl"
   params:
-    height: 1.0
+    height: 0.75
     shadowFactor: 0.7692307
 
 - type: shader
@@ -56,7 +56,7 @@
   kind: source
   path: "/Textures/Shaders/voxel_emissive.swsl"
   params:
-    height: 1.0
+    height: 0.75
     shadowFactor: 0.7692307
 
 - type: shader
