@@ -252,7 +252,7 @@
 - type: entity
   id: RocketAnnihilatorShotgun # TODO ADD RADAR ICON
   name: shotgun annihilator rocket
-  parent: [ BulletRocket, RadarIconPlaceholder }
+  parent: [ BulletRocket, RadarIconPlaceholder ]
   categories: [ HideSpawnMenu ]
   components:
   - type: Explosive

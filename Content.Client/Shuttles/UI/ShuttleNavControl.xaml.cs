@@ -352,7 +352,7 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
                 !entity.Comp.ShowOnGrid)
                 continue;
 
-            if (entity.Comp.Lines.Count == 0 && entity.Comp.LinesNoRot.Count == 0 || entity.Comp.Scale == 0)
+            if (entity.Comp.Lines.Count == 0 || entity.Comp.Scale == Vector2.Zero)
                 continue;
 
             var entityPosition = _transform.GetWorldPosition(entity);
@@ -361,42 +361,27 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
 
             var pos = ScalePosition(Vector2.Transform(entityPosition, multiply));
 
-            var verts = projectileVertsByColor.GetOrNew(entity.Comp.Color);
-
             var iconAngle = entity.Comp.Angle;
+            var iconAngleRotated = iconAngle + ourEntRot - _transform.GetWorldRotation(entity);
 
-            var cos = (float) Math.Cos(iconAngle);
-            var sin = (float) Math.Sin(iconAngle);
             var scale = entity.Comp.Scale;
 
-            foreach (var line in entity.Comp.LinesNoRot)
-            {
-                DebugTools.Assert(line.Count >= 2, "A line in RadarIcon must have at least two points");
-                for(int i = 0; i < line.Count; i++)
-                {
-                    var point = line[i];
-                    var transformed = new Vector2(point.X * cos * scale - point.Y * sin * scale,
-                                                  point.X * sin * scale + point.Y * cos * scale);
-                    verts.Add(pos + transformed);
-                    if(i > 0 && i < line.Count - 1)     // add the same vert again to simulate LineList drawing mode without actually switching to it
-                        verts.Add(pos + transformed);   // this lets us draw all same-coloured lines in a single batch
-                }
-            }
-
-            iconAngle += ourEntRot - _transform.GetWorldRotation(entity);
-            cos = (float) Math.Cos(iconAngle);
-            sin = (float) Math.Sin(iconAngle);
             foreach (var line in entity.Comp.Lines)
             {
-                DebugTools.Assert(line.Count >= 2, "A line in RadarIcon must have at least two points");
-                for(int i = 0; i < line.Count; i++)
+                DebugTools.Assert(line.Points.Count >= 2, "A line in RadarIcon must have at least two points");
+                var verts = projectileVertsByColor.GetOrNew(line.Color ?? entity.Comp.Color);
+                
+                for(int i = 0; i < line.Points.Count; i++)
                 {
-                    var point = line[i];
-                    var transformed = new Vector2(point.X * cos * scale - point.Y * sin * scale,
-                                                  point.X * sin * scale + point.Y * cos * scale);
-                    verts.Add(pos + transformed);
-                    if(i > 0 && i < line.Count - 1)     // add the same vert again to simulate LineList drawing mode without actually switching to it
-                        verts.Add(pos + transformed);   // this lets us draw all same-coloured lines in a single batch
+                    var point = line.Points[i];
+                    point += entity.Comp.Offset + line.Offset;
+                    point *= entity.Comp.Scale * line.Scale;
+                    point.Y *= -1;
+                    var angle = (line.NoRot ? iconAngle : iconAngleRotated) + line.Angle;
+                    point = angle.RotateVec(point);
+                    verts.Add(pos + point);
+                    if(i > 0 && i < line.Points.Count - 1)     // add the same vert again to simulate LineList drawing mode without actually switching to it
+                        verts.Add(pos + point);   // this lets us draw all same-coloured lines in a single batch
                 }
             }
         }
