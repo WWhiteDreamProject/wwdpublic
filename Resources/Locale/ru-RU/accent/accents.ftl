@@ -129,8 +129,11 @@ accent-words-nymph-2 = Чуррр...
 accent-words-nymph-3 = Чиип?
 accent-words-nymph-4 = Чуррп!
 # TomatoKiller
-accent-words-tomato-1 = Totato!
-accent-words-tomato-2 = Trotect
-accent-words-tomato-3 = Mastet?
-accent-words-tomato-4 = Reaty!
-accent-words-tomato-5 = Water...
+# TomatoKiller
+# WWDP EDIT START
+accent-words-tomato-1 = Тотато!
+accent-words-tomato-2 = Тотест
+accent-words-tomato-3 = Матет?
+accent-words-tomato-4 = Матест!
+accent-words-tomato-5 = Вота...
+# WWDP EDIT END
