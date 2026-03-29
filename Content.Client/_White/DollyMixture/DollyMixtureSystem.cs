@@ -198,7 +198,8 @@ public sealed class DollyMixtureSystem : SharedDollyMixtureSystem
                 sprite.LayerMapSet(unshadedLayerMap, unshadedLayerIndex);
                 comp.LayerMappings.Add(unshadedLayerMap);
 
-                DebugTools.Assert(sprite.TryGetLayer(unshadedLayerIndex, out var unshadedLayer));
+                sprite.TryGetLayer(unshadedLayerIndex, out var unshadedLayer);
+                DebugTools.Assert(unshadedLayer is not null);
 
                 SpriteComponent.CopyToShaderParameters ctsp = new(layerMap);
                 ctsp.ParameterTexture = "emissiveTexture";
