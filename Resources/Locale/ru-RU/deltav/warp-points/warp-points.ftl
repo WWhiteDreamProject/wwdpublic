@@ -1,41 +1,41 @@
-warp-point-evacshuttle = Evac Shuttle
-warp-point-shuttle = Shuttle
-warp-point-debris = Space Debris
-warp-point-ruin = Space Ruin
+warp-point-evacshuttle = Эвакуационный шаттл
+warp-point-shuttle = Шаттл
+warp-point-debris = Космические обломки
+warp-point-ruin = Космические руины
 
-warp-point-bridge = Bridge
-warp-point-vault = Vault
+warp-point-bridge = Мостик
+warp-point-vault = Хранилище
 
-warp-point-sec = Security
-warp-point-perma = Perma
-warp-point-detective = Detective
-warp-point-court = Courtroom
+warp-point-sec = Бриг
+warp-point-perma = Пермобриг
+warp-point-detective = Детектив
+warp-point-court = Зал суда
 
-warp-point-medical = Medical
-warp-point-morgue = Morgue
+warp-point-medical = Медбей
+warp-point-morgue = Морг
 
-warp-point-epistemics = Epistemics
+warp-point-epistemics = РнД
 
-warp-point-logistics = Logistics
-warp-point-salvage = Salvage
+warp-point-logistics = Карго
+warp-point-salvage = Утилизаторы
 
-warp-point-engineering = Engineering
-warp-point-singularity = Singularity
-warp-point-atmospherics = Atmos
+warp-point-engineering = Инженерный
+warp-point-singularity = Сингулярность
+warp-point-atmospherics = Атмос
 
-warp-point-hop = HoP
-warp-point-kitchen = Kitchen
-warp-point-bar = Bar
-warp-point-botany = Botany
-warp-point-janitor = Janitor
-warp-point-reporter = Reporter
-warp-point-lawyer = Lawyer
+warp-point-hop = ХоП
+warp-point-kitchen = Кухня
+warp-point-bar = Бар
+warp-point-botany = Ботаника
+warp-point-janitor = Уборщик
+warp-point-reporter = Репортёр
+warp-point-lawyer = Юрист
 
-warp-point-ai = AI
-warp-point-arrivals = Arrivals
-warp-point-evac = Evac
-warp-point-cryo = Cryo
-warp-point-chapel = Chapel
-warp-point-library = Library
-warp-point-dorms = Dorms
-warp-point-disposals = Disposals
+warp-point-ai = ИИ
+warp-point-arrivals = Прибытие
+warp-point-evac = Эвакуация
+warp-point-cryo = Криосон
+warp-point-chapel = Церковь
+warp-point-library = Библиотека
+warp-point-dorms = Дормы
+warp-point-disposals = Мусорка
