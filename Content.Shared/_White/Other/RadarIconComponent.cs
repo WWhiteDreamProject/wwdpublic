@@ -15,27 +15,9 @@ namespace Content.Shared._White.Other;
 public sealed partial class RadarIconComponent : Component
 {
 
-        /// <summary>
-    /// List of lines that will rotate along with the entity.
-    /// Format:
-    /// - type: radarIcon
-    ///   lines:
-    ///   - [ # first line
-    ///     "0, 0",
-    ///     "0, 1",
-    ///     # ...
-    ///     "1, 0"
-    ///   ]
-    ///   - [  # second line
-    ///     # ...
-    ///   ]
-    ///   # ...
+    /// <summary>
+    /// List of lines. See <see cref="RadarIconLineDefinition"/>
     /// </summary>
-    /// <remarks>
-    /// Each line must have at least two points, and can have more.
-    /// </remarks>
-    /// <remarks>
-    /// </remarks>
     [DataField, AutoNetworkedField]
     public List<RadarIconLineDefinition> Lines = new();
 
@@ -47,7 +29,7 @@ public sealed partial class RadarIconComponent : Component
     public double RadarRange { get; set; } = 0;
     
     /// <summary>
-    /// Icon color.
+    /// Icon color. Used if a line doesn't have it's own color specified.
     /// </summary>
     [DataField, AutoNetworkedField, Animatable]
     public Color Color { get; set; } = Color.Silver;
@@ -64,7 +46,6 @@ public sealed partial class RadarIconComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField, Animatable]
     public Vector2 Offset { get; set; } = Vector2.Zero;
-
 
     /// <summary>
     /// Icon scale.
@@ -108,13 +89,13 @@ public sealed partial class RadarIconLineDefinition
     public Vector2 Scale { get; set; } = Vector2.One;
 
     /// <summary>
-    /// If false, follows the entity rotations.
+    /// If false, the line will follow the entity rotation.
     /// </summary>
     [DataField, Animatable]
     public bool NoRot { get; set; } = false;
 
     /// <summary>
-    /// Line color. If null, value from component is used.
+    /// Line color. If null, will use the component color.
     /// </summary>
     [DataField, Animatable]
     public Color? Color { get; set; } = null;
