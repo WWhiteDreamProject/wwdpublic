@@ -1,7 +1,7 @@
 ## Entity
 
 chem-master-component-activate-no-hands = У вас нет рук.
-chem-master-component-cannot-put-entity-message = Вы не можете поместить это в Мастер реагентов!
+chem-master-component-cannot-put-entity-message = Вы не можете поместить это в ХимМастер!
 
 ## Bound UI
 
@@ -27,8 +27,8 @@ chem-master-window-pill-buffer-text = Буфер таблеток
 chem-master-window-pill-buffer-label = буфер таблеток:
 chem-master-window-pill-buffer-empty-text = Буфер таблеток пуст.
 chem-master-window-pill-buffer-low-text = Недостаточно раствора в буфере таблеток
-chem-master-window-save-as-frequent-label = Save as Frequent
-chem-master-window-set-amount-label = Set Amount
+chem-master-window-save-as-frequent-label = Сохраните как частоиспользуемое
+chem-master-window-set-amount-label = Установить значение
 chem-master-window-transfer-button = Перенести
 chem-master-window-sort-method-tooltip = Выберите метод сортировки буфера.
 chem-master-window-sort-method-Time-text = Последние добавленные
@@ -47,3 +47,10 @@ chem-master-window-dose-label = Дозировка (ед.):
 chem-master-window-create-button = Создать
 chem-master-window-bottles-label = Бутылочки:
 chem-master-window-unknown-reagent-text = Неизвестный реагент
+# WWDP EDIT START
+chem-master-window-sort-type-none = Сотрировка: Сначала старые
+chem-master-window-sort-type-alphabetical = Сотрировка: По алфавиту
+chem-master-window-sort-type-quantity = Сотрировка: По количеству
+chem-master-window-sort-type-latest = Сортировка: Сначала новые
+chem-master-window-transferring-tip = Обе вышеперечисленные кнопки используют текстовое поле
+# WWDP EDIT END

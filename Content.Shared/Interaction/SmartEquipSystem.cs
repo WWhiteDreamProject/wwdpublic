@@ -49,27 +49,27 @@ public sealed class SmartEquipSystem : EntitySystem
 
     private void HandleSmartEquipBackpack(ICommonSession? session)
     {
-        HandleSmartEquip(session, "back");
+        HandleSmartEquip(session, Loc.GetString("smart-equip-slot-back")); // WWDP EDIT
     }
 
     private void HandleSmartEquipBelt(ICommonSession? session)
     {
-        HandleSmartEquip(session, "belt");
+        HandleSmartEquip(session, Loc.GetString("smart-equip-slot-belt")); // WWDP EDIT
     }
 
     private void HandleSmartEquipPocket1(ICommonSession? session)
     {
-        HandleSmartEquip(session, "pocket1");
+        HandleSmartEquip(session, Loc.GetString("smart-equip-slot-pocket1")); // WWDP EDIT
     }
 
     private void HandleSmartEquipPocket2(ICommonSession? session)
     {
-        HandleSmartEquip(session, "pocket2");
+        HandleSmartEquip(session, Loc.GetString("smart-equip-slot-pocket2")); // WWDP EDIT
     }
 
     private void HandleSmartEquipSuitStorage(ICommonSession? session)
     {
-        HandleSmartEquip(session, "suitstorage");
+        HandleSmartEquip(session, Loc.GetString("smart-equip-slot-suitstorage")); // WWDP EDIT
     }
 
     private void HandleSmartEquip(ICommonSession? session, string equipmentSlot)
