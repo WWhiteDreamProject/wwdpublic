@@ -30,21 +30,21 @@ event-item-dispenser-limit-reached = Лимит достигнут!
     *[many] are
 }
 
-event-item-dispenser-item-name = Выдаёт нечто под названием "[color=violet]{ $itemName }[/color]" 
+event-item-dispenser-item-name = Выдаёт нечто под названием «[color=violet]{ $itemName }[/color]»
 
-event-item-dispenser-examine-infinite = Я могу взять {$noLimit -> 
+event-item-dispenser-examine-infinite = Я могу взять {$noLimit ->
     [true]   { -event-item-dispenser-unlimited }!
     *[other] { -event-item-dispenser-infinite-count(r: $remaining, l: $limit) }.
 }
 
 
-event-item-dispenser-examine-infinite-autodispose = {$noLimit -> 
+event-item-dispenser-examine-infinite-autodispose = {$noLimit ->
     [true]   Я могу взять { -event-item-dispenser-unlimited }!
     *[other] Я могу взять { -event-item-dispenser-infinite-count(r: $remaining, l: $limit) }, прежде чем самый старый предмет пропадёт.
 }
 
 
-event-item-dispenser-examine-infinite-autodispose-manualdispose = {$noLimit -> 
+event-item-dispenser-examine-infinite-autodispose-manualdispose = {$noLimit ->
     [true]   Я могу взять { -event-item-dispenser-unlimited }! Если что, я могу вернуть их здесь.
     *[other] Я могу взять { -event-item-dispenser-infinite-count(r: $remaining, l: $limit) }, прежде чем самый старый предмет пропадёт. Если что, я могу вернуть их здесь, чтобы получить новые.
 }
@@ -86,7 +86,7 @@ event-item-dispenser-examine-infinite-manualdispose-single = {$remaining ->
 
 # For some reason, after the {-item-plural()} fluent fails to insert {$l}, despite it being passed, but successfully inserts {$limit}, even though
 # it is "global" and should fail the same way it fails to insert {$remaining}.
--event-item-dispenser-finite-count = [color=yellow]{$r}[/color] { -item-plural(count: $remaining)} (из [color=yellow]{$limit}[/color])
+-event-item-dispenser-finite-count = [color=yellow]{$r}[/color] { -item-plural(count: $r)} (из [color=yellow]{$limit}[/color])
 
 
 
@@ -96,9 +96,9 @@ event-item-dispenser-examine-finite = {$noLimit ->
 }
 
 
-event-item-dispenser-examine-finite-manualdispose = Внутри {-item-plural-remain(count: $remaining)} {$noLimit ->
+event-item-dispenser-examine-finite-manualdispose = {$noLimit ->
     [true]   Я могу взять { -event-item-dispenser-unlimited }! Если что, я могу их вернуть.
-    *[false] Внутри {-item-plural-remain(count: $remaining)} { -event-item-dispenser-finite-count(r:$remaining, l:$limit) } Если что, я могу их вернуть, чтобы получить новые.
+    *[false] Внутри {-item-plural-remain(count: $remaining)} { -event-item-dispenser-finite-count(r:$remaining, l:$limit) }. Если что, я могу их вернуть, чтобы получить новые.
 }
 
 
@@ -125,7 +125,7 @@ eventitemdispenser-configwindow-replacedisposeditems-tooltip = При автом
 eventitemdispenser-configwindow-disposedreplacement-tooltip = Прототип предмета, на который будет заменён удаляемый лишний предмет. Рекомендуется указать либо прототип какого-нибудь мусора, либо прототип эффекта. Не имеет эффекта на раздатчиках без автоудаления излишка!
 eventitemdispenser-configwindow-autocleanup-tooltip = Если да, то все предметы, выданные этим раздатчиком, будут удалены вместе с этим раздатчиком. (На самом деле вместе с компонентом EventItemDispenser раздатчика)
 
-eventitemdispenser-configwindow-title = Erectin' a dispenser
+eventitemdispenser-configwindow-title = Установка раздатчика
 eventitemdispenser-configwindow-dispensingprototype = Прототип предмета
 eventitemdispenser-configwindow-autodispose = Автоматически удалять излишек?
 eventitemdispenser-configwindow-canmanuallydispose = Можно ли вручную удалить предмет?

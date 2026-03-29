@@ -1,17 +1,20 @@
+# WWDP EDIT START
+
 # Types
-mixing-verb-default-mix = mix
-mixing-verb-default-grind = grind
-mixing-verb-default-juice = juice
-mixing-verb-default-condense = condense
-mixing-verb-centrifuge = centrifugation
-mixing-verb-electrolysis = electrolyze
-mixing-verb-holy = bless
-mixing-verb-stir = stir
-mixing-verb-shake = shake
+mixing-verb-default-mix = смешать
+mixing-verb-default-grind = растолочь
+mixing-verb-default-juice = выжать
+mixing-verb-default-condense = сконденсировать
+mixing-verb-centrifuge = центрифугировать
+mixing-verb-electrolysis = электролизовать
+mixing-verb-holy = благословить
+mixing-verb-stir = размешать
+mixing-verb-shake = потрясти
 
 ## Entity
 
-default-mixing-success = Вы смешиваете { $mixed } при помощи { $mixer }
-bible-mixing-success = Вы благословляете { $mixed } при помощи { $mixer }
-spoon-mixing-success = You stir the {$mixed} with the {$mixer}
+default-mixing-success = {CAPITALIZE($mixed)} смешивается, {$mixer} используется как инструмент
+bible-mixing-success = {CAPITALIZE($mixed)} благословляется, {$mixer} используется как инструмент
+spoon-mixing-success = {CAPITALIZE($mixed)} перемешивается, {$mixer} используется как инструмент
 
+# WWDP EDIT END
