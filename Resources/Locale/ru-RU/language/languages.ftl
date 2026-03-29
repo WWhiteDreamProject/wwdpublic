@@ -1,8 +1,8 @@
 language-Universal-name = Универсальный
 language-Universal-description = Что ты такое?
 
-language-Psychomantic-name = Psychomantic
-language-Psychomantic-description = Pure meaning, free from the tyranny of primative words and gestures.
+language-Psychomantic-name = Психомантичный
+language-Psychomantic-description = Чистое значение, свободное от тирании примитивных слов и жестов.
 
 language-Bubblish-name = Пузырчатый
 language-Bubblish-description = Язык слаймов. Поскольку он представляет собой смесь булькающих звуков и хлопков, людям очень трудно говорить на нем без использования механических приспособлений.
@@ -88,10 +88,10 @@ language-Chittin-description =
 
 # Animal Languages
 
-language-Xeeplian-name = Xeeplian
+language-Xeeplian-name = Ксееплиан
 language-Xeeplian-description =
-    Our language is highly advanced, efficient and to the point.
-    We have taken a liking to mimic some of the inferior lifeforms' babbling in the further pursuit of Our goals.
+    Наш язык высокоразвитый, эффективный и по существу.
+    Мы привыкли подражать бормотанию некоторых низших форм жизни в дальнейшем стремлении к Нашим целям.
 
 # Animal Languages
 
@@ -108,7 +108,7 @@ language-Xeno-name = Ксеноязык
 language-Xeno-description = Сссс!
 
 language-Monkey-name = Обезьяний
-language-Monkey-description = Уууу!
+language-Monkey-description = Уук ук!
 
 language-Mouse-name = Мышиный
 language-Mouse-description = Писк!
@@ -135,10 +135,10 @@ language-Crab-name = Крабовый
 language-Crab-description = Щелк!
 
 language-Kobold-name = Кобольдий
-language-Kobold-description = Шип!
+language-Kobold-description = Шшр!
 
 language-Hissing-name = Шипение
-language-Hissing-description = Шип!
+language-Hissing-description = Шшш!
 
 language-Eldritch-name = Древний
 language-Eldritch-description =
@@ -147,5 +147,6 @@ language-Eldritch-description =
 
 language-Penguin-name = Пингвиний
 language-Penguin-description = Бвап!
-language-DroneTalk-name = Drone
-language-DroneTalk-description = Incomprehensible to most non-drones!
+
+language-DroneTalk-name = Электронный
+language-DroneTalk-description = Непонятно для большинства не-дронов!

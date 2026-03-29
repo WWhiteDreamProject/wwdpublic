@@ -17,7 +17,7 @@ interaction-Pet-success-target-popup = {$user} погладил вас по {POS
 interaction-Pet-success-others-popup = {$user} поглаживает {$target}.
 
 interaction-PetAnimal-name = {interaction-Pet-name}
-interaction-PetAnimal-description = Pet an animal.
+interaction-PetAnimal-description = Погладьте животное.
 interaction-PetAnimal-success-self-popup = {interaction-Pet-success-self-popup}
 interaction-PetAnimal-success-target-popup = {interaction-Pet-success-target-popup}
 interaction-PetAnimal-success-others-popup = {interaction-Pet-success-others-popup}
@@ -38,14 +38,14 @@ interaction-Rattle-success-others-popup = {$user} гремит {$target}.
 interaction-WaveAt-name = Помахать рукой
 interaction-WaveAt-description = Помахать рукой в сторону цели. Если вы держите в руках предмет, вы помашете им.
 interaction-WaveAt-success-self-popup = Вы помахали {$hasUsed ->
-    [false] {$target}.
-    *[true] {$used} {$target}.
+    [false] рукой --> {$target}.
+    *[true] предметом ({$used}) в руке --> {$target}.
 }
 interaction-WaveAt-success-target-popup = {$user} машет {$hasUsed ->
-    [false] вам.
-    *[true] {POSS-PRONOUN($user)} {$used} вам.
+    [false] вам рукой.
+    *[true] вам предметом ({$used}) в руке.
 }
 interaction-WaveAt-success-others-popup = {$user} машет {$hasUsed ->
-    [false] {$target}.
-    *[true] {POSS-PRONOUN($user)} {$used} {$target}.
+    [false] своей рукой {$target}.
+    *[true] предметом ({$used}) в руке {$target}.
 }

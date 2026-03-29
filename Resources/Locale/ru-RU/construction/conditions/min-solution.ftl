@@ -1,2 +1,2 @@
-construction-examine-condition-min-solution = Сначала, добавьте {$quantity} ед {$reagent}.
-construction-guide-condition-min-solution = Добавьте {$quantity} ед {$reagent}
+construction-examine-condition-min-solution = Сначала, требуется {$reagent} в количестве {$quantity}ед.
+construction-guide-condition-min-solution = Требуется {$reagent} в количестве {$quantity}ед.
