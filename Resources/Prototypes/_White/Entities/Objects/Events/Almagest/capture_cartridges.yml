@@ -7,7 +7,7 @@
   description: Insert the cartridge into the capture point to capture the nearby area.
   components:
   - type: Sprite
-    sprite: _White/Structures/Misc/AmalgestShit/cartridges.rsi
+    sprite: _White/Structures/Misc/AlmagestShit/cartridges.rsi
     layers:
     - state: base
     - state: grey

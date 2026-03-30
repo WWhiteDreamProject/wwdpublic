@@ -1,0 +1,578 @@
+# Base
+- type: entity
+  name: select ship weapon equipment
+  parent: BaseItem
+  id: AlmagestEquipmentWeaponShipSelect
+  description: "select ship weapon equipment"
+  components:
+  - type: Item
+    size: Ginormous
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/Turrets/Almagest/equipment.rsi
+    state: base
+  - type: RadialEntityMorph
+    entries:
+    - prototype: AlmagestEquipmentWeaponShipIRLaser
+    - prototype: AlmagestEquipmentWeaponShipAnnihilator
+    - prototype: AlmagestEquipmentWeaponShipRam
+  - type: UserInterface
+    interfaces:
+      enum.RadialSelectorUiKey.Key:
+        type: TrackedRadialSelectorMenuBUI
+  - type: ActivatableUI
+    key: enum.RadialSelectorUiKey.Key
+    inHandsOnly: true
+
+# IR
+- type: entity
+  name: IR laser equipment
+  parent: BaseItem
+  id: AlmagestEquipmentWeaponShipIRLaser
+  description: "IR laser equipment"
+  components:
+  - type: Item
+    size: Ginormous
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/Turrets/Almagest/equipment.rsi
+    state: irlaser
+  - type: RadialEntityMorph
+    entries:
+    - prototype: WeaponShipIRHeavy
+    - prototype: WeaponShipIRFast
+  - type: UserInterface
+    interfaces:
+      enum.RadialSelectorUiKey.Key:
+        type: TrackedRadialSelectorMenuBUI
+  - type: ActivatableUI
+    key: enum.RadialSelectorUiKey.Key
+    inHandsOnly: true
+
+# IR Heavy
+- type: entity
+  name : heavy laser bolt
+  id: BoltIRLaserHeavy
+  parent: [BulletLaser, BulletRocket]
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Explosive
+    totalIntensity: 20
+  - type: Projectile
+    radarRange: 512
+    radarColor: "#cf2da6"
+    radarSize: 5
+    radarThickness: 2
+    damage:
+      types:
+        Heat: 120
+        Structural: 80
+  - type: Sprite
+    layers:
+    - state: heavylaser
+      shader: unshaded
+
+- type: entity
+  parent: WeaponShipLightIR
+  id: WeaponShipIRHeavy
+  name: Heavy IR Pulse Laser
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/Turrets/Almagest/IR_laser_heavy.rsi
+    state: icon
+  - type: Gun
+    fireRate: 0.5
+    selectedMode: FullAuto
+    projectileSpeed: 40
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
+      params:
+        volume: -5
+  - type: ProjectileContainerBatteryAmmoProvider
+    proto: BoltIRLaserHeavy
+    fireCost: 3000
+  - type: ModularTurretWeapon
+    dollyMixSprite: _White/Objects/Weapons/Guns/Turrets/Almagest/IR_laser_heavy.rsi
+
+# IR Fast
+- type: entity
+  name : fast laser bolt
+  id: BoltIRLaserFast
+  parent: BulletLaser
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    radarRange: 512
+    radarColor: "#cf482d"
+    radarSize: 3
+    radarThickness: 1
+    damage:
+      types:
+        Heat: 20
+        Structural: 80
+  - type: TimedDespawn
+    lifetime: 5
+  - type: Sprite
+    layers:
+    - state: heavylaser
+      shader: unshaded
+
+- type: entity
+  parent: WeaponShipLightIR
+  id: WeaponShipIRFast
+  name: Fast IR Pulse Laser
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/Turrets/Almagest/IR_laser_fast.rsi
+    state: icon
+  - type: Gun
+    fireRate: 5
+    selectedMode: FullAuto
+    projectileSpeed: 90
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
+      params:
+        volume: -5
+  - type: ProjectileContainerBatteryAmmoProvider
+    proto: BoltIRLaserFast
+    fireCost: 350
+  - type: ModularTurretWeapon
+    dollyMixSprite: _White/Objects/Weapons/Guns/Turrets/Almagest/IR_laser_fast.rsi
+
+# Annihilator
+- type: entity
+  name: annihilator equipment
+  parent: BaseItem
+  id: AlmagestEquipmentWeaponShipAnnihilator
+  description: "annihilator equipment"
+  components:
+  - type: Item
+    size: Ginormous
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/Turrets/Almagest/equipment.rsi
+    state: annihilator
+  - type: RadialEntityMorph
+    entries:
+    - prototype: WeaponShipAnnihilatorHeavy
+    - prototype: WeaponShipAnnihilatorFast
+    - prototype: WeaponShipAnnihilatorShotgun
+  - type: UserInterface
+    interfaces:
+      enum.RadialSelectorUiKey.Key:
+        type: TrackedRadialSelectorMenuBUI
+  - type: ActivatableUI
+    key: enum.RadialSelectorUiKey.Key
+    inHandsOnly: true
+
+# Annihilator Heavy
+- type: entity
+  id: RocketAnnihilatorHeavy
+  name: heavy annihilator rocket
+  parent: BulletRocket
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Explosive
+    totalIntensity: 100
+  - type: Projectile
+    radarRange: 512
+    radarColor: "#4ba0d1"
+    radarSize: 5
+    radarThickness: 2
+    damage:
+      types:
+        Heat: 80
+        Structural: 100
+  - type: TimedDespawn
+    lifetime: 25
+
+- type: entity
+  parent: WeaponShipLightAnnihilator
+  id: WeaponShipAnnihilatorHeavy
+  name: Heavy Annihilator Rocket Launcher
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/Turrets/Almagest/annihilator_heavy.rsi
+    state: icon
+  - type: Gun
+    selectedMode: Burst
+    projectileSpeed: 30
+    availableModes:
+    - Burst
+    burstFireRate: 3
+    burstCooldown: 7
+    shotsPerBurst: 3
+    minAngle: 25
+    maxAngle: 25
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/rpgfire.ogg
+      params:
+        volume: -5
+  - type: ProjectileContainerBatteryAmmoProvider
+    proto: RocketAnnihilatorHeavy
+    fireCost: 3000
+  - type: ModularTurretWeapon
+    dollyMixSprite: _White/Objects/Weapons/Guns/Turrets/Almagest/annihilator_heavy.rsi
+
+# Annihilator Fast
+- type: entity
+  id: RocketAnnihilatorFast
+  name: fast annihilator rocket
+  parent: BulletRocket
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Explosive
+    totalIntensity: 5
+  - type: Projectile
+    radarRange: 512
+    radarColor: "#4dd1e8"
+    radarSize: 3
+    radarThickness: 1
+    damage:
+      types:
+        Heat: 5
+        Structural: 20
+  - type: TimedDespawn
+    lifetime: 10
+
+- type: entity
+  parent: WeaponShipLightAnnihilator
+  id: WeaponShipAnnihilatorFast
+  name: Fast Annihilator Rocket Launcher
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/Turrets/Almagest/annihilator_fast.rsi
+    state: icon
+  - type: Gun
+    selectedMode: Burst
+    projectileSpeed: 80
+    availableModes:
+    - Burst
+    burstFireRate: 12
+    burstCooldown: 5
+    shotsPerBurst: 30
+    minAngle: 15
+    maxAngle: 15
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/rpgfire.ogg
+      params:
+        volume: -5
+  - type: ProjectileContainerBatteryAmmoProvider
+    proto: RocketAnnihilatorFast
+    fireCost: 275
+  - type: ModularTurretWeapon
+    dollyMixSprite: _White/Objects/Weapons/Guns/Turrets/Almagest/annihilator_fast.rsi
+
+# Annihilator Shotgun
+- type: entity
+  id: RocketAnnihilatorShotgun
+  name: shotgun annihilator rocket
+  parent: BulletRocket
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Explosive
+    totalIntensity: 5
+  - type: Projectile
+    radarRange: 512
+    radarColor: "#69a6c7"
+    radarSize: 3
+    radarThickness: 2
+    damage:
+      types:
+        Heat: 10
+        Structural: 50
+  - type: TimedDespawn
+    lifetime: 2
+
+- type: entity
+  parent: WeaponShipLightAnnihilator
+  id: WeaponShipAnnihilatorShotgun
+  name: Shotgun Annihilator Rocket Launcher
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/Turrets/Almagest/annihilator_shotgun.rsi
+    state: icon
+  - type: Gun
+    selectedMode: Burst
+    projectileSpeed: 50
+    availableModes:
+    - Burst
+    burstFireRate: 30
+    burstCooldown: 7
+    shotsPerBurst: 20
+    minAngle: 35
+    maxAngle: 35
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/rpgfire.ogg
+      params:
+        volume: -5
+  - type: ProjectileContainerBatteryAmmoProvider
+    proto: RocketAnnihilatorShotgun
+    fireCost: 375
+  - type: ModularTurretWeapon
+    dollyMixSprite: _White/Objects/Weapons/Guns/Turrets/Almagest/annihilator_shotgun.rsi
+
+# Ram
+- type: entity
+  name: ram equipment
+  parent: BaseItem
+  id: AlmagestEquipmentWeaponShipRam
+  description: "ram equipment"
+  components:
+  - type: Item
+    size: Ginormous
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/Turrets/Almagest/equipment.rsi
+    state: ram
+  - type: RadialEntityMorph
+    entries:
+    - prototype: WeaponShipRamPenetrator
+    - prototype: WeaponShipRamMine
+    - prototype: WeaponShipRamWalker
+  - type: UserInterface
+    interfaces:
+      enum.RadialSelectorUiKey.Key:
+        type: TrackedRadialSelectorMenuBUI
+  - type: ActivatableUI
+    key: enum.RadialSelectorUiKey.Key
+    inHandsOnly: true
+
+# Ram Penetrator
+- type: entity
+  id: BulletBlastRamPenetrator
+  parent: BaseMeteor
+  name: blast ram penetrator
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    layers:
+    - state: impact_laser_greyscale
+      color: "#ebbe1c"
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:ExplodeBehavior
+  - type: Explosive
+    explosionType: Default
+    intensitySlope: 5
+    maxIntensity: 100
+    totalIntensity: 150
+  - type: TimedDespawn
+    lifetime: 0.25
+  - type: Projectile
+    radarRange: 256
+    radarColor: "#e8274b"
+    radarSize: 12
+    radarThickness: 6
+    damage:
+      types:
+        Structural: 1000
+    deleteOnCollide: false
+
+- type: entity
+  parent: BaseWeaponShipLightEnergy
+  id: WeaponShipRamPenetrator
+  name: Penetrator Ram Blaset Launcher
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/Turrets/Almagest/ram_penetrator.rsi
+    state: icon
+  - type: Gun
+    selectedMode: Burst
+    projectileSpeed: 100
+    availableModes:
+    - Burst
+    burstFireRate: 0.85
+    burstCooldown: 30
+    shotsPerBurst: 5
+    minAngle: 15
+    maxAngle: 120
+    angleIncrease: 30
+    angleDecay: 5
+    soundGunshot:
+      path: /Audio/Effects/Grenades/Supermatter/supermatter_start.ogg
+      params:
+        volume: 30
+  - type: ProjectileContainerBatteryAmmoProvider
+    proto: BulletBlastRamPenetrator
+    fireCost: 2200
+  - type: ModularTurretWeapon
+    dollyMixSprite: _White/Objects/Weapons/Guns/Turrets/Almagest/ram_penetrator.rsi
+
+# Ram Mine
+- type: entity
+  id: BulletBlastRamMine
+  parent: BaseMeteor
+  name: blast ram mine
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    layers:
+    - state: impact_laser_greyscale
+      color: "#ebbe1c"
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:ExplodeBehavior
+  - type: Explosive
+    explosionType: Default
+    intensitySlope: 5
+    maxIntensity: 100
+    totalIntensity: 150
+  - type: TimedDespawn
+    lifetime: 60
+  - type: Projectile
+    radarRange: 128
+    radarColor: "#83599c"
+    radarSize: 6
+    radarThickness: 6
+    damage:
+      types:
+        Structural: 1000
+    deleteOnCollide: false
+  - type: RandomWalk
+    minSpeed: 3
+    maxSpeed: 5
+  - type: GravityWell
+    baseRadialAcceleration: 25
+    maxRange: 20
+  - type: SingularityDistortion
+    falloffPower: 2.529822
+    intensity: 3645
+  - type: PointLight
+    enabled: true
+    radius: 10
+
+- type: entity
+  parent: BaseWeaponShipLightEnergy
+  id: WeaponShipRamMine
+  name: Mine Ram Blaset Launcher
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/Turrets/Almagest/ram_mine.rsi
+    state: icon
+  - type: Gun
+    selectedMode: Burst
+    projectileSpeed: 3
+    availableModes:
+    - Burst
+    burstFireRate: 0.5
+    burstCooldown: 30
+    shotsPerBurst: 5
+    minAngle: 15
+    maxAngle: 90
+    angleIncrease: 25
+    angleDecay: 3
+    soundGunshot:
+      path: /Audio/Effects/Grenades/Supermatter/supermatter_start.ogg
+      params:
+        volume: 30
+  - type: ProjectileContainerBatteryAmmoProvider
+    proto: BulletBlastRamMine
+    fireCost: 2200
+  - type: ModularTurretWeapon
+    dollyMixSprite: _White/Objects/Weapons/Guns/Turrets/Almagest/ram_mine.rsi
+
+# Ram Walker
+- type: entity
+  id: BulletBlastRamWalker
+  parent: BaseMeteor
+  name: blast ram walker
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    layers:
+    - state: impact_laser_greyscale
+      color: "#ebbe1c"
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 2000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:ExplodeBehavior
+  - type: Explosive
+    explosionType: Default
+    intensitySlope: 5
+    maxIntensity: 100
+    totalIntensity: 200
+  - type: TimedDespawn
+    lifetime: 120
+  - type: Projectile
+    radarRange: 1024
+    radarColor: "#25a0b3"
+    radarSize: 6
+    radarThickness: 4
+    damage:
+      types:
+        Structural: 1000
+    deleteOnCollide: false
+  - type: RandomWalk
+    minSpeed: 20
+    maxSpeed: 50
+    minStepCooldown: 3
+    maxStepCooldown: 5
+  - type: GravityWell
+    baseRadialAcceleration: 20
+    maxRange: 10
+  - type: SingularityDistortion
+    falloffPower: 2.529822
+    intensity: 3645
+  - type: PointLight
+    enabled: true
+    radius: 10
+
+- type: entity
+  parent: BaseWeaponShipLightEnergy
+  id: WeaponShipRamWalker
+  name: Walker Ram Blaset Launcher
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/Turrets/Almagest/ram_walker.rsi
+    state: icon
+  - type: Gun
+    selectedMode: Burst
+    projectileSpeed: 3
+    availableModes:
+    - Burst
+    burstFireRate: 0.5
+    burstCooldown: 30
+    shotsPerBurst: 5
+    minAngle: 15
+    maxAngle: 90
+    angleIncrease: 25
+    angleDecay: 3
+    soundGunshot:
+      path: /Audio/Effects/Grenades/Supermatter/supermatter_start.ogg
+      params:
+        volume: 30
+  - type: ProjectileContainerBatteryAmmoProvider
+    proto: BulletBlastRamWalker
+    fireCost: 2200
+  - type: ModularTurretWeapon
+    dollyMixSprite: _White/Objects/Weapons/Guns/Turrets/Almagest/ram_walker.rsi

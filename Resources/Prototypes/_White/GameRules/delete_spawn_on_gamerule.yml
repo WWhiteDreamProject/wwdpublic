@@ -1,0 +1,14 @@
+- type: entity
+  parent: BaseGameRule
+  id: DeleteSpawnOnGamerule
+  components:
+  - type: StationEvent
+    weight: 1
+    duration: 1
+    startAnnouncement: false
+  - type: DeleteSpawnOnGamerule
+    tilesToRemove:
+    - PlatingDSonG
+    entityTagsToRemove:
+    - DeleteOnGamerule
+    #markersToActivate:

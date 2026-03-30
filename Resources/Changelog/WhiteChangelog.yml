@@ -5140,3 +5140,42 @@ Entries:
   id: 538
   time: '2026-03-08T13:24:54.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1080
+- author: Myaflic
+  changes:
+    - type: Tweak
+      message: Фелиниды теперь могут брать трейт «Несокрушимый».
+  id: 539
+  time: '2026-03-18T04:36:02.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1085
+- author: Sevasstyan
+  changes:
+    - type: Fix
+      message: Бесплатные пистолетные магазины в сб техфабе больше не бесплатные.
+  id: 540
+  time: '2026-03-18T11:49:30.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1087
+- author: SentryPrimies
+  changes:
+    - type: Add
+      message: >-
+        Добавлены новые спрайты Инженерному, Продвинотому Инженерному, и
+        Атмосферному хардсьюту.
+    - type: Remove
+      message: 'Удалены старые спрайты вышеприведённых скафандров '
+  id: 541
+  time: '2026-03-19T18:36:24.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1089
+- author: SentryPrimies
+  changes:
+    - type: Add
+      message: Добавлены новые спрайты старым инженерным комбинезонам
+  id: 542
+  time: '2026-03-24T16:57:18.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1091
+- author: SentryPrimies
+  changes:
+    - type: Add
+      message: Добавлены новые спрайты хранилищам скафандров
+  id: 543
+  time: '2026-03-24T16:57:47.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1092

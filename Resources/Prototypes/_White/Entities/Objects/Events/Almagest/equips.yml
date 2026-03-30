@@ -1,0 +1,339 @@
+# Hardsuit
+- type: entity
+  parent: ClothingOuterHardsuitERTSecurity
+  id: ClothingOuterHardsuitAlmagestRed
+  components:
+  - type: Unremoveable
+
+- type: entity
+  parent: ClothingOuterHardsuitERTLeader
+  id: ClothingOuterHardsuitAlmagestBlue
+  components:
+  - type: Unremoveable
+
+# Starting Gear Base
+
+- type: startingGear
+  id: AlmagestRedBaseGear
+  equipment:
+    outerClothing: ClothingOuterHardsuitAlmagestRed
+    id: ERTLeaderPDA
+    mask: ClothingMaskBreath
+    belt: ClothingBeltMilitaryWebbingAlmagestEquip
+    shoes: ClothingShoesBootsCombatFilled
+    ears: ClothingHeadsetPrison
+
+- type: startingGear
+  id: AlmagestBlueBaseGear
+  equipment:
+    outerClothing: ClothingOuterHardsuitAlmagestBlue
+    id: ERTLeaderPDA
+    mask: ClothingMaskBreath
+    belt: ClothingBeltMilitaryWebbingAlmagestEquip
+    shoes: ClothingShoesBootsCombatFilled
+    ears: ClothingHeadsetMedical
+
+# Starting Gear Class
+
+# Captain
+- type: startingGear
+  id: AlmagestCaptainGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitCaptain
+    neck: ClothingNeckCloakCap
+    eyes: ClothingEyesGlassesSunglasses
+    back: ClothingBackpackAlmagestRedCaptain
+
+# Marine
+- type: startingGear
+  id: AlmagestMarineGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSec
+    neck: ClothingNeckMantleHOS
+    shoes: ClothingShoesBootsMagEng
+    back: ClothingBackpackAlmagestRedMarine
+
+# Engineer
+- type: startingGear
+  id: AlmagestEngineerGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitEngineering
+    belt: ClothingBeltChiefEngineerFilledAlmagestEquip
+    suitstorage: JetpackVoidFilled
+    neck: ClothingNeckMantleCE
+    gloves: ClothingHandsGlovesColorYellow
+    eyes: ClothingEyesGlassesMeson
+    shoes: ClothingShoesBootsMagAdv
+    back: ClothingBackpackAlmagestRedEngineer
+
+# Demoman
+- type: startingGear
+  id: AlmagestDemomanGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitTacticool
+    neck: ClothingNeckMantleRD
+    eyes: ClothingEyesEyepatchHudBeer
+    back: ClothingBackpackAlmagestRedDemoman
+
+# Medic
+- type: startingGear
+  id: AlmagestMedicGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitParamedicUniform
+    belt: ClothingBeltMedicalEMTFilled
+    neck: ClothingNeckMantleCMO
+    eyes: ClothingEyesHudMedical
+    gloves: ClothingHandsGlovesNitrile
+    mask: ClothingMaskBreathMedical
+    back: ClothingBackpackAlmagestRedMedic
+
+# Equip Red
+- type: entity
+  name: red equipment
+  parent: BaseItem
+  id: AlmagestEquipmentBaseRed
+  description: "red equipment"
+  components:
+  - type: Item
+    size: Ginormous
+  - type: Sprite
+    sprite: Clothing/Back/Backpacks/ertsec.rsi
+    state: icon
+  - type: RadialEntityMorph
+    entries:
+    - prototype: AlmagestAutoEquipmentRedEngineer
+    - prototype: AlmagestAutoEquipmentRedMarine
+    - prototype: AlmagestAutoEquipmentRedDemoman
+    - prototype: AlmagestAutoEquipmentRedMedic
+  - type: UserInterface
+    interfaces:
+      enum.RadialSelectorUiKey.Key:
+        type: TrackedRadialSelectorMenuBUI
+  - type: ActivatableUI
+    key: enum.RadialSelectorUiKey.Key
+    inHandsOnly: true
+
+- type: entity
+  name: red captain equipment
+  parent: BaseItem
+  id: AlmagestAutoEquipmentRedCaptain
+  description: "red captain equipment"
+  components:
+  - type: Item
+    size: Ginormous
+  - type: Sprite
+    sprite: Clothing/Back/Backpacks/ertsec.rsi
+    state: icon
+  - type: AutoEquipment
+    forceEquip: true
+    doAfterDelay: 3.0
+    breakOnMove: true
+    clearAllEquipment: true
+    startingGears:
+    - AlmagestRedBaseGear
+    - AlmagestCaptainGear
+
+- type: entity
+  name: red marine equipment
+  parent: BaseItem
+  id: AlmagestAutoEquipmentRedMarine
+  description: "red marine equipment"
+  components:
+  - type: Item
+    size: Ginormous
+  - type: Sprite
+    sprite: Clothing/Back/Backpacks/ertsec.rsi
+    state: icon
+  - type: AutoEquipment
+    forceEquip: true
+    doAfterDelay: 3.0
+    breakOnMove: true
+    clearAllEquipment: true
+    startingGears:
+    - AlmagestRedBaseGear
+    - AlmagestMarineGear
+
+- type: entity
+  name: red engineer equipment
+  parent: BaseItem
+  id: AlmagestAutoEquipmentRedEngineer
+  description: "red engineer equipment"
+  components:
+  - type: Item
+    size: Ginormous
+  - type: Sprite
+    sprite: Clothing/Back/Backpacks/erteng.rsi
+    state: icon
+  - type: AutoEquipment
+    doAfterDelay: 3.0
+    breakOnMove: true
+    clearAllEquipment: true
+    startingGears:
+    - AlmagestRedBaseGear
+    - AlmagestEngineerGear
+
+- type: entity
+  name: red demoman equipment
+  parent: BaseItem
+  id: AlmagestAutoEquipmentRedDemoman
+  description: "red demoman equipment"
+  components:
+  - type: Item
+    size: Ginormous
+  - type: Sprite
+    sprite: Clothing/Back/Backpacks/ertjanitor.rsi
+    state: icon
+  - type: AutoEquipment
+    forceEquip: true
+    doAfterDelay: 3.0
+    breakOnMove: true
+    clearAllEquipment: true
+    startingGears:
+    - AlmagestRedBaseGear
+    - AlmagestDemomanGear
+
+- type: entity
+  name: red medic equipment
+  parent: BaseItem
+  id: AlmagestAutoEquipmentRedMedic
+  description: "red medic equipment"
+  components:
+  - type: Item
+    size: Ginormous
+  - type: Sprite
+    sprite: Clothing/Back/Backpacks/ertmed.rsi
+    state: icon
+  - type: AutoEquipment
+    forceEquip: true
+    doAfterDelay: 3.0
+    breakOnMove: true
+    clearAllEquipment: true
+    startingGears:
+    - AlmagestRedBaseGear
+    - AlmagestMedicGear
+
+# Equip Blue
+- type: entity
+  name: blue equipment
+  parent: BaseItem
+  id: AlmagestEquipmentBaseBlue
+  description: "blue equipment"
+  components:
+  - type: Item
+    size: Ginormous
+  - type: Sprite
+    sprite: Clothing/Back/Backpacks/ertleader.rsi
+    state: icon
+  - type: RadialEntityMorph
+    entries:
+    - prototype: AlmagestAutoEquipmentBlueEngineer
+    - prototype: AlmagestAutoEquipmentBlueMarine
+    - prototype: AlmagestAutoEquipmentBlueDemoman
+    - prototype: AlmagestAutoEquipmentBlueMedic
+  - type: UserInterface
+    interfaces:
+      enum.RadialSelectorUiKey.Key:
+        type: TrackedRadialSelectorMenuBUI
+  - type: ActivatableUI
+    key: enum.RadialSelectorUiKey.Key
+    inHandsOnly: true
+
+- type: entity
+  name: blue captain equipment
+  parent: BaseItem
+  id: AlmagestAutoEquipmentBlueCaptain
+  description: "blue captain equipment"
+  components:
+  - type: Item
+    size: Ginormous
+  - type: Sprite
+    sprite: Clothing/Back/Backpacks/ertleader.rsi
+    state: icon
+  - type: AutoEquipment
+    forceEquip: true
+    doAfterDelay: 3.0
+    breakOnMove: true
+    clearAllEquipment: true
+    startingGears:
+    - AlmagestBlueBaseGear
+    - AlmagestCaptainGear
+
+- type: entity
+  name: blue marine equipment
+  parent: BaseItem
+  id: AlmagestAutoEquipmentBlueMarine
+  description: "blue marine equipment"
+  components:
+  - type: Item
+    size: Ginormous
+  - type: Sprite
+    sprite: Clothing/Back/Backpacks/ertsec.rsi
+    state: icon
+  - type: AutoEquipment
+    forceEquip: true
+    doAfterDelay: 3.0
+    breakOnMove: true
+    clearAllEquipment: true
+    startingGears:
+    - AlmagestBlueBaseGear
+    - AlmagestMarineGear
+
+- type: entity
+  name: blue engineer equipment
+  parent: BaseItem
+  id: AlmagestAutoEquipmentBlueEngineer
+  description: "blue engineer equipment"
+  components:
+  - type: Item
+    size: Ginormous
+  - type: Sprite
+    sprite: Clothing/Back/Backpacks/erteng.rsi
+    state: icon
+  - type: AutoEquipment
+    forceEquip: true
+    doAfterDelay: 3.0
+    breakOnMove: true
+    clearAllEquipment: true
+    startingGears:
+    - AlmagestBlueBaseGear
+    - AlmagestEngineerGear
+
+- type: entity
+  name: blue demoman equipment
+  parent: BaseItem
+  id: AlmagestAutoEquipmentBlueDemoman
+  description: "blue demoman equipment"
+  components:
+  - type: Item
+    size: Ginormous
+  - type: Sprite
+    sprite: Clothing/Back/Backpacks/ertjanitor.rsi
+    state: icon
+  - type: AutoEquipment
+    forceEquip: true
+    doAfterDelay: 3.0
+    breakOnMove: true
+    clearAllEquipment: true
+    startingGears:
+    - AlmagestBlueBaseGear
+    - AlmagestDemomanGear
+
+- type: entity
+  name: blue medic equipment
+  parent: BaseItem
+  id: AlmagestAutoEquipmentBlueMedic
+  description: "blue medic equipment"
+  components:
+  - type: Item
+    size: Ginormous
+  - type: Sprite
+    sprite: Clothing/Back/Backpacks/ertmed.rsi
+    state: icon
+  - type: AutoEquipment
+    forceEquip: true
+    doAfterDelay: 3.0
+    breakOnMove: true
+    clearAllEquipment: true
+    startingGears:
+    - AlmagestBlueBaseGear
+    - AlmagestMedicGear

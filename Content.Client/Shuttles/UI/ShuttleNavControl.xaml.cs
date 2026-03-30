@@ -166,7 +166,8 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
         var mapPos = _transform.ToMapCoordinates(_coordinates.Value);
         var posMatrix = Matrix3Helpers.CreateTransform(_coordinates.Value.Position, _rotation.Value);
         var ourEntRot = RotateWithEntity ? _transform.GetWorldRotation(xform) : _rotation.Value;
-        var ourEntMatrix = Matrix3Helpers.CreateTransform(_transform.GetWorldPosition(xform), ourEntRot);
+        var worldPosition = _transform.GetWorldPosition(xform); // WD EDIT
+        var ourEntMatrix = Matrix3Helpers.CreateTransform(worldPosition, ourEntRot);
         var shuttleToWorld = Matrix3x2.Multiply(posMatrix, ourEntMatrix);
         Matrix3x2.Invert(shuttleToWorld, out var worldToShuttle);
         var shuttleToView = Matrix3x2.CreateScale(new Vector2(MinimapScale, -MinimapScale)) * Matrix3x2.CreateTranslation(MidPointVector);
@@ -340,41 +341,92 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
         }
 
         // WD EDIT START
-        var multiply = Matrix3x2.Multiply(worldToShuttle, Matrix3x2.CreateScale(new Vector2(1,-1)));
-        var projectiles = _lookup.GetEntitiesInRange<ProjectileComponent>(_coordinates.Value, 256f);
-        var verts = new Vector2[projectiles.Count*4];
+        var multiply = Matrix3x2.Multiply(worldToShuttle, Matrix3x2.CreateScale(new Vector2(1, -1))); // WWDP edit
+        var projectiles = _lookup.GetEntitiesInRange<ProjectileComponent>(_coordinates.Value, MaxRadarRange);
+        var projectileVertsByColor = new Dictionary<Color, List<Vector2>>();
 
-        var i = 0;
-        foreach (var proj in projectiles)
+        foreach (var projectile in projectiles)
         {
-            if (EntManager.TryGetComponent<MapGridComponent>(_transform.GetParentUid(proj), out _))
+            if (EntManager.TryGetComponent<MapGridComponent>(_transform.GetParentUid(projectile), out _))
                 continue;
 
-            var pos = ScalePosition(Vector2.Transform(_transform.GetWorldPosition(proj), multiply));
-            verts[i * 4] = pos + new Vector2(2, 2);
-            verts[i * 4+1] = pos + new Vector2(-2, -2);
-            verts[i * 4+2] = pos + new Vector2(2, -2);
-            verts[i * 4+3] = pos + new Vector2(-2, 2);
-            i++;
+            var projectilePosition = _transform.GetWorldPosition(projectile);
+            if (projectile.Comp.RadarRange > 0 && (projectilePosition - worldPosition).Length() > projectile.Comp.RadarRange)
+                continue;
+
+            var pos = ScalePosition(Vector2.Transform(projectilePosition, multiply));
+
+            if (!projectileVertsByColor.TryGetValue(projectile.Comp.RadarColor, out var verts))
+            {
+                verts = new List<Vector2>();
+                projectileVertsByColor[projectile.Comp.RadarColor] = verts;
+            }
+
+            var angle = MathF.PI / 4;
+            var cos = MathF.Cos(angle);
+            var sin = MathF.Sin(angle);
+
+            var rectSize = new Vector2(projectile.Comp.RadarThickness, projectile.Comp.RadarSize * 2);
+            var rectPos = pos - rectSize / 2;
+            var verts1 = new Vector2[]
+            {
+                RotatePoint(rectPos, pos, cos, sin),
+                RotatePoint(rectPos + rectSize with { Y = 0 }, pos, cos, sin),
+                RotatePoint(rectPos + rectSize, pos, cos, sin),
+                RotatePoint(rectPos + rectSize with { X = 0 }, pos, cos, sin),
+            };
+
+            rectSize = new Vector2(projectile.Comp.RadarSize * 2, projectile.Comp.RadarThickness);
+            rectPos = pos - rectSize / 2;
+            var verts2 = new Vector2[]
+            {
+                RotatePoint(rectPos, pos, cos, sin),
+                RotatePoint(rectPos + rectSize with { Y = 0 }, pos, cos, sin),
+                RotatePoint(rectPos + rectSize, pos, cos, sin),
+                RotatePoint(rectPos + rectSize with { X = 0 }, pos, cos, sin)
+            };
+
+            verts.AddRange(new Vector2[]
+            {
+                verts1[0], verts1[1], verts1[1], verts1[2], verts1[2], verts1[3], verts1[3], verts1[0],
+                verts2[0], verts2[1], verts2[1], verts2[2], verts2[2], verts2[3], verts2[3], verts2[0]
+            });
         }
-        handle.DrawPrimitives(DrawPrimitiveTopology.LineList, verts, Color.Silver);
 
         if (FieldOfView < MathF.Tau)
         {
             const int segments = 5;
             var hidesey = new Vector2[segments + 2];
             hidesey[0] = MidPointVector;
-            for (i = 0; i < segments + 1; i++)
+            for (int i = 0; i < segments + 1; i++)
             {
                 var angle = i / (float) segments * (MathHelper.TwoPi - FieldOfView) + FieldOfView / 2;
                 var pos = new Vector2(MathF.Sin(angle), -MathF.Cos(angle));
-
                 hidesey[i + 1] = MidPointVector + pos * 1024;
             }
             handle.DrawPrimitives(DrawPrimitiveTopology.TriangleFan, hidesey, new Color(0.08f, 0.02f, 0.08f));
         }
+
+        foreach (var (color, verts) in projectileVertsByColor)
+        {
+            if (verts.Count == 0)
+                continue;
+
+            handle.DrawPrimitives(DrawPrimitiveTopology.LineList, verts, color);
+        }
         // WD EDIT END
     }
+
+    // WD EDIT START
+    private static Vector2 RotatePoint(Vector2 point, Vector2 center, float cos, float sin)
+    {
+        var translated = point - center;
+        return new Vector2(
+            translated.X * cos - translated.Y * sin + center.X,
+            translated.X * sin + translated.Y * cos + center.Y
+        );
+    }
+    // WD EDIT END
 
     private void DrawDocks(DrawingHandleScreen handle, EntityUid uid, Matrix3x2 gridToView)
     {
