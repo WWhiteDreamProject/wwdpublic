@@ -414,7 +414,7 @@ public sealed class SurveillanceCameraSystem : EntitySystem
         if (string.IsNullOrEmpty(key))
             return cameraId;
 
-        var locKey = $"surveillance-camera-id-{key}";
+        var locKey = $"surveillance-monitor-title-{key}";
         return Loc.TryGetString(locKey, out var localized) ? localized : cameraId;
     }
     // WWDP EDIT END
