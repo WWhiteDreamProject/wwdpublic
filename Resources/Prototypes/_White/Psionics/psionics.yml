@@ -50,3 +50,24 @@
       components:
         - type: PolymorphPower
     - !type:RemovePsionicStatSources
+
+- type: psionicPower
+  id: BarokinesisPower
+  name: Barokinesis
+  powerCategories:
+    - Kinetic
+  initializeFunctions:
+    - !type:AddPsionicPowerComponents
+      components:
+        - type: BarokinesisPower
+    - !type:PsionicFeedbackPopup
+    - !type:PsionicFeedbackSelfChat
+      feedbackMessage: barokinesis-power-initialization-feedback
+    - !type:AddPsionicStatSources
+      amplificationModifier: 1
+      dampeningModifier: 1
+  removalFunctions:
+    - !type:RemovePsionicPowerComponents
+      components:
+        - type: BarokinesisPower
+    - !type:RemovePsionicStatSources
