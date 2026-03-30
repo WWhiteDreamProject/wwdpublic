@@ -251,7 +251,7 @@
     - !type:CharacterSpeciesRequirement
       inverted: true
       species:
-        - Felinid
+#        - Felinid # WWDP EDIT
         - Tajaran
     - !type:CharacterTraitRequirement
       inverted: true

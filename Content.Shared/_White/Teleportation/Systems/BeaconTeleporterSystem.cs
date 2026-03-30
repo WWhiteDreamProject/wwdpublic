@@ -60,7 +60,7 @@ public sealed class BeaconTeleporterSystem : EntitySystem
         var doAfterArgs = new DoAfterArgs(EntityManager, args.User, ent.Comp.PortalCreationDelay, doAfterEvent, ent, used: ent)
         {
             BreakOnDamage = true,
-            BreakOnMove = true,
+            BreakOnMove = ent.Comp.BreakOnMove,
             MovementThreshold = 0.5f
         };
 
@@ -90,7 +90,7 @@ public sealed class BeaconTeleporterSystem : EntitySystem
         var doAfterArgs = new DoAfterArgs(EntityManager, args.User, ent.Comp.PortalCreationDelay, doAfterEvent, ent, used: ent)
         {
             BreakOnDamage = true,
-            BreakOnMove = true,
+            BreakOnMove = ent.Comp.BreakOnMove,
             MovementThreshold = 0.5f
         };
 

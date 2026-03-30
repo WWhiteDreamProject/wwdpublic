@@ -9,5 +9,10 @@
     layers:
     - state: icon
   - type: BeaconTeleporter
+    breakOnMove: false
+    portalCreationDelay: 3
+  - type: HeldSpeedModifier
+    walkModifier: 0.1
+    sprintModifier: 0.1
   - type: UseDelay
     delay: 180

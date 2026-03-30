@@ -5,7 +5,7 @@
   description: Insert the cartridge to begin capturing the nearby area.
   components:
   - type: Sprite
-    sprite: _White/Structures/Misc/AmalgestShit/capture_points.rsi
+    sprite: _White/Structures/Misc/AlmagestShit/capture_points.rsi
     layers:
     - state: base
     - state: grey
@@ -67,3 +67,37 @@
   components:
   - type: CapturePoint
     sender: "capture-point-sender-E"
+
+- type: entity
+  id: CapturePointStartTimer5
+  parent: CapturePoint
+  name: start timer 5 min
+  components:
+  - type: CapturePoint
+    sender: "capture-point-sender-start-timer"
+    startMessage: "capture-point-start-message-start-timer5"
+    endMessage: "capture-point-end-message-start-timer"
+    cancelMessage: "capture-point-cancel-message-start-timer"
+    delay: 300
+    sound:
+      path: /Audio/_White/Announcements/crashing.ogg
+      params:
+        volume: 5
+
+- type: entity
+  id: CapturePointStartTimer10
+  parent: CapturePointStartTimer5
+  name: start timer 10 min
+  components:
+  - type: CapturePoint
+    startMessage: "capture-point-start-message-start-timer10"
+    delay: 600
+
+- type: entity
+  id: CapturePointStartTimer15
+  parent: CapturePointStartTimer5
+  name: start timer 15 min
+  components:
+  - type: CapturePoint
+    startMessage: "capture-point-start-message-start-timer15"
+    delay: 900

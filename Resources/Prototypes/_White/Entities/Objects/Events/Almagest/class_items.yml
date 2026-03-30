@@ -1,0 +1,40 @@
+# Base
+- type: entity
+  name: select base weapon equipment
+  parent: BaseItem
+  id: AlmagestEquipmentWeaponBaseSelect
+  description: "select base weapon equipment"
+  components:
+  - type: Item
+    size: Huge
+    shape:
+      - 0,0,3,1
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/SMGs/golden_wt550.rsi
+    state: icon
+  - type: RadialEntityMorph
+    entries:
+    - prototype: WeaponSubMachineGunWt550
+    - prototype: WeaponRifleLecter
+    - prototype: WeaponShotgunEnforcer
+    - prototype: WeaponLaserCarbine
+  - type: UserInterface
+    interfaces:
+      enum.RadialSelectorUiKey.Key:
+        type: TrackedRadialSelectorMenuBUI
+  - type: ActivatableUI
+    key: enum.RadialSelectorUiKey.Key
+    inHandsOnly: true
+
+# Demoman
+- type: entity
+  parent: BaseFlatpack
+  id: SyndicateBombFlatpack
+  name: syndicate bomb flatpack
+  description: A flatpack used for constructing a syndicate bomb.
+  components:
+  - type: Sprite
+    layers:
+    - state: ame-part
+  - type: Flatpack
+    entity: SyndicateBomb

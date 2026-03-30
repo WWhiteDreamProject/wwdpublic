@@ -59,6 +59,9 @@
   id: HideFromGhostWarps
 
 - type: Tag
+  id: DeleteOnGamerule
+
+- type: Tag
   id: SlimeEmotes
 
 - type: Tag
