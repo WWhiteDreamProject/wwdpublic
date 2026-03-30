@@ -69,3 +69,7 @@
 - type: Tag
   id: MagazinePistolMarkIII
   name: MagazinePistolMarkIII
+
+- type: Tag
+  id: NCBiomonitor
+  name: NCBiomonitor

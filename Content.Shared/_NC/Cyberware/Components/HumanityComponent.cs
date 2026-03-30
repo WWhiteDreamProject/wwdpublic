@@ -30,4 +30,22 @@ public sealed partial class HumanityComponent : Component
     [DataField("baseHumanity"), ViewVariables(VVAccess.ReadWrite)]
     [AutoNetworkedField]
     public float BaseHumanity = 100f;
+
+    /// <summary>
+    ///     Список слов, которые лечат пациента в текущем сеансе.
+    /// </summary>
+    [DataField("targetHealingWords"), ViewVariables(VVAccess.ReadWrite)]
+    public List<string> TargetHealingWords = new();
+
+    /// <summary>
+    ///     Слова, которые вызывают болевую реакцию.
+    /// </summary>
+    [DataField("targetTraumaWords"), ViewVariables(VVAccess.ReadWrite)]
+    public List<string> TargetTraumaWords = new();
+
+    /// <summary>
+    ///     Активный биомонитор, подключённый к пациенту.
+    /// </summary>
+    [DataField("activeBiomonitor"), ViewVariables(VVAccess.ReadWrite)]
+    public EntityUid? ActiveBiomonitor;
 }

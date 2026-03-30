@@ -17,6 +17,7 @@ public sealed class CyberwareSystem : EntitySystem
     [Dependency] private readonly HumanitySystem _humanitySystem = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly NeuroTherapySystem _neuroTherapy = default!;
 
     public override void Initialize()
     {
@@ -58,6 +59,7 @@ public sealed class CyberwareSystem : EntitySystem
 
         // Списываем человечность
         _humanitySystem.DeductHumanity(target, implantComp.HumanityCost);
+        _neuroTherapy.AssignWords(target, 2, 1);
 
         var slotIndex = CyberwareSlotHelper.GetSlotIndex(freeSlot.Value);
         _popup.PopupEntity($"Имплант интегрирован: {CyberwareSlotHelper.GetCategoryDisplayName(category)} S{slotIndex}.", target, PopupType.Medium);

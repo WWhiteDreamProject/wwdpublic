@@ -1,0 +1,28 @@
+- type: entity
+  id: NCBiomonitor
+  parent: BaseItem
+  name: биомонитор
+  description: Ручной нейро-сканер. Подключается к пациенту и слушает его окружение для терапии киберпсихоза.
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Medical/healthanalyzer.rsi
+    state: icon
+  - type: Item
+    storedRotation: -90
+  - type: ActivatableUI
+    key: enum.BiomonitorUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.BiomonitorUiKey.Key:
+        type: BiomonitorBoundUserInterface
+  - type: Biomonitor
+    listenRange: 4
+    successSound: !type:SoundPathSpecifier
+      path: /Audio/Effects/alert.ogg
+    pingSound: !type:SoundPathSpecifier
+      path: /Audio/Effects/empulse.ogg
+    traumaSound: !type:SoundPathSpecifier
+      path: /Audio/Effects/Arcade/error.ogg
+  - type: Tag
+    tags:
+    - NCBiomonitor
