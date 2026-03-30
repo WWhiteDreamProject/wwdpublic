@@ -25,7 +25,10 @@ reagent-effect-condition-guidebook-reagent-threshold =
                 [0] оно имеет не более [color=#80C8C8]{ NATURALFIXED($max, 2) }ед.[/color]
                *[other] оно имеет между [color=#80C8C8]{ NATURALFIXED($min, 2) }ед.[/color] и [color=#80C8C8]{ NATURALFIXED($max, 2) }ед.[/color]
             }
-    } реагента [color=#80C8C8]«{ $reagent }»[/color]
+    } реагента { $isThisReagent ->
+        [true] [color=#80C8C8]«{ $reagent }» (текущий реагент)[/color]
+       *[false] [color=#80C8C8]«{ $reagent }»[/color]
+    }
 reagent-effect-condition-guidebook-mob-state-condition = пациент в состоянии [color=#CCA0CC]«{ $state }»[/color]
 reagent-effect-condition-guidebook-job-condition = должность пациента — [color=#D0B890]{ $job }[/color]
 reagent-effect-condition-guidebook-solution-temperature =
@@ -64,6 +67,9 @@ reagent-effect-condition-guidebook-blood-reagent-threshold =
                 [0] в [color=#D0A0A0]крови[/color] не более [color=#80C8C8]{ NATURALFIXED($max, 2) }ед.[/color]
                *[other] в [color=#D0A0A0]крови[/color] от [color=#80C8C8]{ NATURALFIXED($min, 2) }ед.[/color] до [color=#80C8C8]{ NATURALFIXED($max, 2) }ед.[/color]
             }
-    } реагента [color=#80C8C8]«{ $reagent }»[/color]
+    } реагента { $isThisReagent ->
+        [true] [color=#80C8C8]«{ $reagent }» (текущий реагент)[/color]
+       *[false] [color=#80C8C8]«{ $reagent }»[/color]
+    }
 
-reagent-effect-condition-guidebook-this-reagent = [color=#B4B4B4]текущий реагент[/color]
+reagent-effect-condition-guidebook-this-reagent = текущий реагент

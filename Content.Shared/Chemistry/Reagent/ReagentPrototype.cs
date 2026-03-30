@@ -202,7 +202,7 @@ namespace Content.Shared.Chemistry.Reagent
         {
             ReagentPrototype = proto.ID;
             GuideEntries = proto.Metabolisms?
-                .Select(x => (x.Key, x.Value.MakeGuideEntry(prototype, entSys)))
+                .Select(x => (x.Key, x.Value.MakeGuideEntry(prototype, entSys, proto.LocalizedName))) // WWDP EDIT
                 .ToDictionary(x => x.Key, x => x.Item2);
             if (proto.PlantMetabolisms.Count > 0)
             {
@@ -233,11 +233,11 @@ namespace Content.Shared.Chemistry.Reagent
         [DataField("effects", required: true)]
         public EntityEffect[] Effects = default!;
 
-        public ReagentEffectsGuideEntry MakeGuideEntry(IPrototypeManager prototype, IEntitySystemManager entSys)
+        public ReagentEffectsGuideEntry MakeGuideEntry(IPrototypeManager prototype, IEntitySystemManager entSys, string? reagentName = null) // WWDP EDIT
         {
             return new ReagentEffectsGuideEntry(MetabolismRate,
                 Effects
-                    .Select(x => x.GuidebookEffectDescription(prototype, entSys)) // hate.
+                    .Select(x => x.GuidebookEffectDescription(prototype, entSys, reagentName)) // WWDP EDIT
                     .Where(x => x is not null)
                     .Select(x => x!)
                     .ToArray());

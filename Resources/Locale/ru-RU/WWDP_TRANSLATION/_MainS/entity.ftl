@@ -11537,7 +11537,8 @@ ent-YukonTurtleSkirt = форма повстанца с Юкона
 
 ent-ClothingHeadHatSeniorTrooper = фуражка старшего бойца
     .desc = Парадная фуражка бойцов NanoTrasen. К ней шёл кейс… который вы, конечно же, потеряли.
-
+ent-ClothingHeadHatSecurityTrooper = фуражка бойца
+    .desc = Парадная фуражка бойцов NanoTrasen. К ней шёл кейс… который вы, конечно же, потеряли.
 
 ent-ClothingUniformJumpsuitSeniorTrooper = форма старшего бойца
     .desc = Официальная форма бойцов NanoTrasen. Обычно выдают с машиной.
