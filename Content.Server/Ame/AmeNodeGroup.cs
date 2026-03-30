@@ -173,7 +173,7 @@ public sealed class AmeNodeGroup : BaseNodeGroup
         
         // The adjustment for cores make it so that a 1 core AME at 2 injections is better than a 2 core AME at 2 injections.
         // However, for the relative amounts for each (1 core at 2 and 2 core at 4), more cores has more output.
-        return 252500f * MathF.Log10(1 + fuel * MathF.Pow(cores, -0.4f));
+        return MathF.Max(200000f * MathF.Log10(2 * fuel * MathF.Pow(cores, (float)-0.5)), 0);
     }
 
     public int GetTotalStability()
