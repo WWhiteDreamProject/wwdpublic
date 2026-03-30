@@ -35,39 +35,7 @@ public sealed class ServerSandevistanSystem : SharedSandevistanSystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<SandevistanComponent, ComponentStartup>(OnSandevistanStartup);
-        SubscribeLocalEvent<SandevistanComponent, EntParentChangedMessage>(OnParentChanged);
         SubscribeLocalEvent<SandevistanToggleActionEvent>(OnToggleAction);
-    }
-
-    private void OnSandevistanStartup(EntityUid uid, SandevistanComponent component, ComponentStartup args)
-    {
-        _actions.AddAction(uid, ref component.ActionEntity, component.ActionId);
-        
-        var xform = Transform(uid);
-        if (xform.ParentUid.IsValid() && HasComp<CyberwareComponent>(xform.ParentUid))
-        {
-            _actions.AddAction(xform.ParentUid, component.ActionEntity!.Value, uid);
-        }
-    }
-
-    private void OnParentChanged(EntityUid uid, SandevistanComponent component, ref EntParentChangedMessage args)
-    {
-        if (component.ActionEntity == null)
-            return;
-
-        // Удаляем экшен у старого владельца
-        if (args.OldParent != null && args.OldParent.Value.IsValid())
-        {
-            _actions.RemoveAction(args.OldParent.Value, component.ActionEntity.Value);
-        }
-
-        // Добавляем экшен НОВОМУ владельцу только если это установка (CyberwareComponent)
-        var newParent = args.Transform.ParentUid;
-        if (newParent.IsValid() && HasComp<CyberwareComponent>(newParent))
-        {
-            _actions.AddAction(newParent, component.ActionEntity.Value, uid);
-        }
     }
 
     private void OnToggleAction(SandevistanToggleActionEvent args)
@@ -133,8 +101,8 @@ public sealed class ServerSandevistanSystem : SharedSandevistanSystem
 
         MovementSpeedModifier.RefreshMovementSpeedModifiers(user);
         
-        if (sande.ActionEntity != null)
-            _actions.SetToggled(sande.ActionEntity.Value, true);
+        if (TryComp<CyberwareActionComponent>(implant, out var actionComp) && actionComp.ActionEntity != null)
+            _actions.SetToggled(actionComp.ActionEntity.Value, true);
     }
 
     private void Deactivate(EntityUid user, bool overload = false)
@@ -150,9 +118,9 @@ public sealed class ServerSandevistanSystem : SharedSandevistanSystem
 
         if (TryComp<SandevistanComponent>(active.ImplantEntity, out var sande))
         {
-            if (sande.ActionEntity != null)
+            if (TryComp<CyberwareActionComponent>(active.ImplantEntity, out var actionComp) && actionComp.ActionEntity != null)
             {
-                _actions.SetToggled(sande.ActionEntity.Value, false);
+                _actions.SetToggled(actionComp.ActionEntity.Value, false);
             }
 
             if (overload)

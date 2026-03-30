@@ -9,6 +9,8 @@
   - type: CyberwareImplant
     category: Neuroport
     humanityCost: 20
+  - type: CyberwareAction
+    actionId: ActionToggleSandevistan
   - type: Sandevistan
     speedMultiplier: 1.4
     attackSpeedMultiplier: 1.5
@@ -32,6 +34,8 @@
   - type: CyberwareImplant
     category: Neuroport
     humanityCost: 45
+  - type: CyberwareAction
+    actionId: ActionToggleSandevistan
   - type: Sandevistan
     speedMultiplier: 2.5
     attackSpeedMultiplier: 2.5

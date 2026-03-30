@@ -14,4 +14,9 @@
     category: None
     humanityCost: 0
     refundPercentage: 0.5
+  - type: ActionsContainer
+  - type: ContainerContainer
+    containers:
+      actions: !type:Container
+        ents: []
 

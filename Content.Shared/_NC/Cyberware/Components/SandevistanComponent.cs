@@ -50,12 +50,6 @@ public sealed partial class SandevistanComponent : Component
 
     [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public float TrailLifetime = 0.3f;
-
-    [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
-    public EntProtoId ActionId = "ActionToggleSandevistan";
-
-    [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
-    public EntityUid? ActionEntity;
 }
 
 /// <summary>
