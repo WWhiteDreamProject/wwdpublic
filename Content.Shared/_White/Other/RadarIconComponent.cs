@@ -14,7 +14,6 @@ namespace Content.Shared._White.Other;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class RadarIconComponent : Component
 {
-
     /// <summary>
     /// List of lines. See <see cref="RadarIconLineDefinition"/>
     /// </summary>
@@ -99,5 +98,4 @@ public sealed partial class RadarIconLineDefinition
     /// </summary>
     [DataField, Animatable]
     public Color? Color { get; set; } = null;
-
 }

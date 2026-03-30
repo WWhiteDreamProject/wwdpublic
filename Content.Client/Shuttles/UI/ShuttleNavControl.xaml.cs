@@ -342,7 +342,7 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
         }
 
         // WD EDIT START
-        var multiply = Matrix3x2.Multiply(worldToShuttle, Matrix3x2.CreateScale(new Vector2(1, -1))); // WWDP edit
+        var multiply = Matrix3x2.Multiply(worldToShuttle, Matrix3x2.CreateScale(new Vector2(1, -1)));
         var entities = _lookup.GetEntitiesInRange<RadarIconComponent>(_coordinates.Value, MaxRadarRange);
         var projectileVertsByColor = new Dictionary<Color, List<Vector2>>();
 
