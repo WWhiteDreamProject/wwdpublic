@@ -8,3 +8,12 @@
     event: !type:SandevistanToggleActionEvent
     checkCanInteract: false
     useDelay: 1.0
+
+- type: entity
+  id: ActionToggleInfraredVision
+  name: action-name-infrared-vision
+  description: action-desc-infrared-vision
+  components:
+  - type: CyberwareAction
+    icon: { sprite: Clothing/Eyes/Goggles/nightvision.rsi, state: icon }
+    actionId: !type:ToggleNightVisionEvent

@@ -1,0 +1,52 @@
+- type: entity
+  id: CyberwareImplantAntiglare
+  parent: BaseCyberwareImplant
+  name: antiglare
+  description: Reduces glare from sudden flashes, protecting vision without additional effects.
+  abstract: true
+  components:
+  - type: CyberwareImplant
+    category: Optics
+    humanityCost: 2
+  - type: FlashImmunity
+
+- type: entity
+  id: CyberwareImplantInfraredVision
+  parent: BaseCyberwareImplant
+  name: infrared vision implant
+  description: Cybernetic implant that provides infrared vision, allowing you to see in complete darkness. Can be toggled on and off.
+  components:
+  - type: CyberwareImplant
+    category: Optics
+    humanityCost: 3
+  - type: NightVision
+    isEquipment: false
+    toggleAction: ActionToggleInfraredVision
+
+- type: entity
+  id: CyberwareImplantMicroVideo
+  parent: [ SurveillanceWirelessCameraBase, BaseCyberwareImplant ]
+  name: microvideo implant
+  description: A camera embedded in the eye. Records video and audio, useful for reporters and streamers.
+  components:
+  - type: CyberwareImplant
+    category: Optics
+    humanityCost: 2
+  - type: SurveillanceCamera
+    id: "cyber_eye_camera"
+  - type: SurveillanceCameraMicrophone
+    enabled: true
+    range: 10
+
+- type: entity
+  id: CyberwareImplantMicroOptics
+  parent: BaseCyberwareImplant
+  name: microoptics implant
+  description: Cybernetic implant with optical zoom capability. Allows you to zoom in on distant objects.
+  components:
+  - type: CyberwareImplant
+    category: Optics
+    humanityCost: 2
+  - type: EyeCursorOffset
+    maxOffset: 3
+    pvsIncrease: 0.3
