@@ -1,0 +1,77 @@
+# --- KERENZIKOV TIER 1 ---
+- type: entity
+  id: CyberwareNeuroKerenzikovMk1
+  parent: BaseCyberwareImplant
+  name: "Moore Tech Kerenzikov"
+  description: "Basic reflex booster. Slightly increases movement speed."
+  components:
+  - type: CyberwareImplant
+    category: Neuroport
+    humanityCost: 3
+  - type: MovementSpeed
+    speedMultiplier: 1.1
+
+# --- KERENZIKOV TIER 2 ---
+- type: entity
+  id: CyberwareNeuroKerenzikovMk2
+  parent: BaseCyberwareImplant
+  name: "Zetatech Kerenzikov"
+  description: "Advanced reflex booster. Increases movement speed and improves evasion."
+  components:
+  - type: CyberwareImplant
+    category: Neuroport
+    humanityCost: 3
+  - type: MovementSpeed
+    speedMultiplier: 1.15
+
+# --- KERENZIKOV TIER 3 ---
+- type: entity
+  id: CyberwareNeuroKerenzikovMk3
+  parent: BaseCyberwareImplant
+  name: "Militech Kerenzikov"
+  description: "Legendary reflex booster. Maximum movement speed and superior evasion."
+  components:
+  - type: CyberwareImplant
+    category: Neuroport
+    humanityCost: 3
+  - type: MovementSpeed
+    speedMultiplier: 1.25
+
+# --- BIO-INHIBITOR TIER 1 ---
+- type: entity
+  id: CyberwareNeuroBioInhibitorStoic
+  parent: BaseCyberwareImplant
+  name: "Biotechnica Stoic"
+  description: "Biotechnica specializes in biology and chemistry. Their pain suppressor is not just wires, but hardware embedded in the spinal cord that constantly injects a cocktail of synthetic endorphins and adrenaline into the bloodstream upon taking damage."
+  components:
+  - type: CyberwareImplant
+    category: Neuroport
+    humanityCost: 7
+  - type: StaminaDamageResistance
+    coefficient: 0.6
+
+# --- NEURO-BLOCKER TIER 2 ---
+- type: entity
+  id: CyberwareNeuroBlockerAegis
+  parent: BaseCyberwareImplant
+  name: "Trauma Team Aegis"
+  description: "Expensive medical standard. Trauma Team installs these on their paramedics so they can extract clients from crossfire even if they themselves get hit by a stray bullet."
+  components:
+  - type: CyberwareImplant
+    category: Neuroport
+    humanityCost: 10
+  - type: SpeedModifierImmunity
+
+# --- TACTICAL SUPPRESSOR TIER 3 ---
+- type: entity
+  id: CyberwareNeuroTacticalSpartan
+  parent: BaseCyberwareImplant
+  name: "Militech Spartan"
+  description: "Strict army standard. Designed for corporate wars. It literally severs neural connections responsible for transmitting pain signals to the brain, leaving only dry information about damage."
+  components:
+  - type: CyberwareImplant
+    category: Neuroport
+    humanityCost: 14
+  - type: FlashImmunity
+  - type: CritModifier
+    critThresholdModifier: 9999

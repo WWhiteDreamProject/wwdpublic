@@ -28,3 +28,25 @@ action-desc-sandevistan = Активировать нейронный ускор
 
 action-name-infrared-vision = ИК-зрение
 action-desc-infrared-vision = Включить/выключить инфракрасное зрение
+
+# Керезников
+ent-CyberwareNeuroKerenzikovMk1 = Moore Tech «Керезников»
+ent-CyberwareNeuroKerenzikovMk1-desc = Базовый ускоритель рефлексов. Незначительно повышает скорость передвижения.
+
+ent-CyberwareNeuroKerenzikovMk2 = Zetatech «Керезников»
+ent-CyberwareNeuroKerenzikovMk2-desc = Продвинутый ускоритель рефлексов. Повышает скорость передвижения и улучшает уклонение.
+
+ent-CyberwareNeuroKerenzikovMk3 = Militech «Керезников»
+ent-CyberwareNeuroKerenzikovMk3-desc = Легендарный ускоритель рефлексов. Максимальная скорость передвижения и превосходное уклонение.
+
+# Био-ингибитор
+ent-CyberwareNeuroBioInhibitorStoic = Biotechnica «Стоик»
+ent-CyberwareNeuroBioInhibitorStoic-desc = Biotechnica специализируется на биологии и химии. Их подавитель боли — это не просто провода, а железа, вшитая в спинной мозг, которая постоянно впрыскивает в кровь коктейль из синтетического эндорфина и адреналина при получении урона.
+
+# Нейро-блокатор
+ent-CyberwareNeuroBlockerAegis = Trauma Team «Эгида»
+ent-CyberwareNeuroBlockerAegis-desc = Дорогой медицинский стандарт. Траума Тим ставит такие своим парамедикам, чтобы те могли вытаскивать клиентов из-под перекрестного огня, даже если в них самих попадет шальная пуля.
+
+# Тактический подавитель
+ent-CyberwareNeuroTacticalSpartan = Militech «Спартанец»
+ent-CyberwareNeuroTacticalSpartan-desc = Строгий армейский стандарт. Создан для корпоративных войн. Он буквально отрубает нейронные связи, отвечающие за передачу болевых сигналов в мозг, оставляя только сухую информацию о повреждениях.
