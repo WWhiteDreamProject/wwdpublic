@@ -1,5 +1,5 @@
 # Bank System
-bank-payday-message = Зарплата: +{ $amount } эдди.
+bank-payday-message = Зарплата: +{ $amount } евродолларов.
 
 # ATM
 atm-ui-no-card = Нет карты

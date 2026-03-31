@@ -14,13 +14,13 @@ citation-popup-insufficient-funds-cop = НЕДОСТАТОЧНО СРЕДСТВ
 citation-popup-insufficient-funds-target = Недостаточно средств на счете
 citation-job-officer = Офицер
 citation-log-forced = ПРИНУДИТЕЛЬНОЕ СПИСАНИЕ
-citation-log-share = ДОЛЯ NCPD: +{ $amount } эдди
-citation-popup-success-cop = ОПЛАТА УСПЕШНА: +{ $amount } Эдди комиссии
-citation-popup-success-target = Вы оплатили штраф: { $amount } Эдди
+citation-log-share = ДОЛЯ NCPD: +{ $amount } евродолларов
+citation-popup-success-cop = ОПЛАТА УСПЕШНА: +{ $amount } евродолларов комиссии
+citation-popup-success-target = Вы оплатили штраф: { $amount } евродолларов
 
 citation-paper-title = --- КВИТАНЦИЯ NCPD ---
 citation-paper-officer = ОФИЦЕР: { $officer }
 citation-paper-suspect = НАРУШИТЕЛЬ: { $suspect }
-citation-paper-amount = СУММА: { $amount } Эдди
+citation-paper-amount = СУММА: { $amount } евродолларов
 citation-paper-reason = ПРИЧИНА: { $reason }
 citation-paper-status = СТАТУС: ОПЛАЧЕНО
