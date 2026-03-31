@@ -1,0 +1,103 @@
+# --- VAMPIRE FANGS TIER 3 ---
+- type: entity
+  id: CyberwareInternalVampireFangs
+  parent: BaseCyberwareImplant
+  name: "Vampire Fangs Implant"
+  description: "Dental implant that functions like a combat mode. Activates via action button to bite and drain blood."
+  components:
+  - type: CyberwareImplant
+    category: Internal
+    humanityCost: 14
+  #TODO: Придумать нахуя этот имплант
+
+# --- VAMPIRE FANGS BASIC TIER 1 ---
+- type: entity
+  id: CyberwareInternalVampireFangsBasic
+  parent: BaseCyberwareImplant
+  name: "Basic Vampire Fangs"
+  description: "Simple dental implant for biting. No toxin injection capability."
+  components:
+  - type: CyberwareImplant
+    category: Internal
+    humanityCost: 6
+  #TODO: Придумать нахуя этот имплант
+
+# --- POLYMER SKELETON TIER 1 ---
+- type: entity
+  id: CyberwareInternalPolymerSkeleton
+  parent: BaseCyberwareImplant
+  name: "Dynalar 'Frame'"
+  description: "Budget bone reinforcement with impact-resistant plastic. Originally developed for miners and orbital station workers to minimize injuries from falling beams."
+  components:
+  - type: CyberwareImplant
+    category: Internal
+    humanityCost: 10
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.2
+
+# --- TITANIUM REINFORCEMENT TIER 2 ---
+- type: entity
+  id: CyberwareInternalTitaniumReinforcement
+  parent: BaseCyberwareImplant
+  name: "Kiroshi 'Phalanx'"
+  description: "Police riot control standard. Bones are coated with a layer of titanium, significantly increasing the owner's body mass."
+  components:
+  - type: CyberwareImplant
+    category: Internal
+    humanityCost: 14
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.4
+  - type: NoSlip
+
+# --- ARMY ENDOSKELETON TIER 3 ---
+- type: entity
+  id: CyberwareInternalArmyEndoskeleton
+  parent: BaseCyberwareImplant
+  name: "Militech 'Monolith'"
+  description: "Extreme modification level. Natural bones are almost completely replaced with carbon-titanium alloys. The owner weighs one and a half times more than a normal human."
+  components:
+  - type: CyberwareImplant
+    category: Internal
+    humanityCost: 28
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.4
+        Piercing: 0.4
+  - type: CritModifier
+    critThresholdModifier: 50
+  - type: NoSlip
+
+# --- NASAL FILTERS TIER 1 ---
+- type: entity
+  id: CyberwareInternalNasalFilters
+  parent: BaseCyberwareImplant
+  name: "Nasal Filters"
+  description: "Implanted filtration system that provides immunity to airborne gases and toxins."
+  components:
+  - type: CyberwareImplant
+    category: Internal
+    humanityCost: 2
+  - type: BreathingImmunity
+
+# --- ENHANCED ANTIBODIES TIER 2 ---
+- type: entity
+  id: CyberwareInternalEnhancedAntibodies
+  parent: BaseCyberwareImplant
+  name: "Enhanced Antibodies"
+  description: "Genetically enhanced immune system that accelerates natural regeneration processes."
+  components:
+  - type: CyberwareImplant
+    category: Internal
+    humanityCost: 7
+  - type: SolutionRegeneration
+    solution: blood
+    generated:
+      reagents:
+      - ReagentId: Omnizine
+        Quantity: 0.1

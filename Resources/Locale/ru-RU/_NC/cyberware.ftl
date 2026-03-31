@@ -50,3 +50,30 @@ ent-CyberwareNeuroBlockerAegis-desc = Дорогой медицинский ст
 # Тактический подавитель
 ent-CyberwareNeuroTacticalSpartan = Militech «Спартанец»
 ent-CyberwareNeuroTacticalSpartan-desc = Строгий армейский стандарт. Создан для корпоративных войн. Он буквально отрубает нейронные связи, отвечающие за передачу болевых сигналов в мозг, оставляя только сухую информацию о повреждениях.
+
+# Вампирские клыки
+ent-CyberwareInternalVampireFangs = Вампирские клыки
+ent-CyberwareInternalVampireFangs-desc = Зубной имплант, работающий как боевой режим. Активируется кнопкой действия для укуса и высасывания крови.
+
+ent-CyberwareInternalVampireFangsBasic = Базовые вампирские клыки
+ent-CyberwareInternalVampireFangsBasic-desc = Простой зубной имплант для укусов. Без возможности впрыска токсинов.
+
+# Полимерный скелет
+ent-CyberwareInternalPolymerSkeleton = Dynalar «Остов»
+ent-CyberwareInternalPolymerSkeleton-desc = Бюджетная заливка костей ударопрочным пластиком. Изначально разрабатывалась для шахтёров и строителей орбитальных станций, чтобы минимизировать производственные травмы от падающих балок.
+
+# Титановое армирование
+ent-CyberwareInternalTitaniumReinforcement = Kiroshi «Фаланга»
+ent-CyberwareInternalTitaniumReinforcement-desc = Полицейский стандарт для подавления бунтов. Кости покрываются слоем титана, значительно увеличивая массу тела владельца.
+
+# Армейский эндоскелет
+ent-CyberwareInternalArmyEndoskeleton = Militech «Монолит»
+ent-CyberwareInternalArmyEndoskeleton-desc = Крайняя степень модификации. Родные кости практически полностью заменяются углеродно-титановыми сплавами. Владелец весит в полтора раза больше обычного человека.
+
+# Назальные фильтры
+ent-CyberwareInternalNasalFilters = Назальные фильтры
+ent-CyberwareInternalNasalFilters-desc = Имплантированная система фильтрации, обеспечивающая иммунитет к газам и токсинам в воздухе.
+
+# Усиленные антитела
+ent-CyberwareInternalEnhancedAntibodies = Усиленные антитела
+ent-CyberwareInternalEnhancedAntibodies-desc = Генетически улучшенная иммунная система, ускоряющая естественные процессы регенерации.
