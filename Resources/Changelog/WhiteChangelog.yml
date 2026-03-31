@@ -5186,3 +5186,12 @@ Entries:
   id: 544
   time: '2026-03-30T19:51:59.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1086
+- author: RedFoxIV
+  changes:
+    - type: Tweak
+      message: >-
+        Более красивые иконки для корабельных снарядов, засветившихся на радаре.
+        В первую очередь будет заметно на ивентах с корабликами.
+  id: 545
+  time: '2026-03-31T09:53:17.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1094
