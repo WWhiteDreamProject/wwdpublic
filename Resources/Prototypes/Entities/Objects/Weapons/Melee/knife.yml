@@ -260,6 +260,7 @@
     angle: 200
   - type: Item
     sprite: Objects/Weapons/Melee/shiv.rsi
+    storedRotation: -24 #WWDP
   - type: DisarmMalus
     malus: 0.5 # WD EDIT: 0.225 -> 0.5
 
