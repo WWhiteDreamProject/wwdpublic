@@ -14,6 +14,7 @@
     entries:
     - prototype: AlmagestEquipmentWeaponShipIRLaser
     - prototype: AlmagestEquipmentWeaponShipAnnihilator
+    - prototype: AlmagestEquipmentWeaponShipHMG
     - prototype: AlmagestEquipmentWeaponShipRam
   - type: UserInterface
     interfaces:
@@ -51,20 +52,26 @@
 - type: entity
   name : heavy laser bolt
   id: BoltIRLaserHeavy
-  parent: [BulletLaser, BulletRocket]
+  parent: BulletLaser
   categories: [ HideSpawnMenu ]
   components:
-  - type: Explosive
-    totalIntensity: 20
+  - type: Reflective
+    reflective:
+    - Energy
   - type: Projectile
+    penetrate: true
+    noPenetrateMask: 0
+    penetrationChance: 0.66
+    maxPenetrations: 2
     radarRange: 512
     radarColor: "#cf2da6"
     radarSize: 5
     radarThickness: 2
     damage:
       types:
-        Heat: 120
-        Structural: 80
+        Heat: 80
+        Structural: 20
+        Shock: 200
   - type: Sprite
     layers:
     - state: heavylaser
@@ -79,9 +86,9 @@
     sprite: _White/Objects/Weapons/Guns/Turrets/Almagest/IR_laser_heavy.rsi
     state: icon
   - type: Gun
-    fireRate: 0.5
+    fireRate: 1
     selectedMode: FullAuto
-    projectileSpeed: 40
+    projectileSpeed: 75
     availableModes:
     - FullAuto
     soundGunshot:
@@ -90,7 +97,7 @@
         volume: -5
   - type: ProjectileContainerBatteryAmmoProvider
     proto: BoltIRLaserHeavy
-    fireCost: 3000
+    fireCost: 1000
   - type: ModularTurretWeapon
     dollyMixSprite: _White/Objects/Weapons/Guns/Turrets/Almagest/IR_laser_heavy.rsi
 
@@ -108,8 +115,8 @@
     radarThickness: 1
     damage:
       types:
-        Heat: 20
-        Structural: 80
+        Heat: 30
+        Structural: 5
   - type: TimedDespawn
     lifetime: 5
   - type: Sprite
@@ -129,6 +136,9 @@
     fireRate: 5
     selectedMode: FullAuto
     projectileSpeed: 90
+    angleDecay: -20
+    angleIncrease: -10
+    maxAngle: 30
     availableModes:
     - FullAuto
     soundGunshot:
@@ -174,16 +184,20 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Explosive
-    totalIntensity: 100
+    totalIntensity: 120
   - type: Projectile
+    penetrate: true
+    noPenetrateMask: 0
+    penetrationChance: 0.66
+    maxPenetrations: 1
     radarRange: 512
     radarColor: "#4ba0d1"
     radarSize: 5
     radarThickness: 2
     damage:
       types:
-        Heat: 80
-        Structural: 100
+        Heat: 50
+        Structural: 1000
   - type: TimedDespawn
     lifetime: 25
 
@@ -197,12 +211,12 @@
     state: icon
   - type: Gun
     selectedMode: Burst
-    projectileSpeed: 30
+    projectileSpeed: 60
     availableModes:
     - Burst
     burstFireRate: 3
     burstCooldown: 7
-    shotsPerBurst: 3
+    shotsPerBurst: 5
     minAngle: 25
     maxAngle: 25
     soundGunshot:
@@ -211,7 +225,7 @@
         volume: -5
   - type: ProjectileContainerBatteryAmmoProvider
     proto: RocketAnnihilatorHeavy
-    fireCost: 3000
+    fireCost: 2000
   - type: ModularTurretWeapon
     dollyMixSprite: _White/Objects/Weapons/Guns/Turrets/Almagest/annihilator_heavy.rsi
 
@@ -232,7 +246,7 @@
     damage:
       types:
         Heat: 5
-        Structural: 20
+        Structural: 50
   - type: TimedDespawn
     lifetime: 10
 
@@ -281,9 +295,9 @@
     damage:
       types:
         Heat: 10
-        Structural: 50
+        Structural: 100
   - type: TimedDespawn
-    lifetime: 2
+    lifetime: 3
 
 - type: entity
   parent: WeaponShipLightAnnihilator
@@ -295,7 +309,7 @@
     state: icon
   - type: Gun
     selectedMode: Burst
-    projectileSpeed: 50
+    projectileSpeed: 80
     availableModes:
     - Burst
     burstFireRate: 30
@@ -312,6 +326,128 @@
     fireCost: 375
   - type: ModularTurretWeapon
     dollyMixSprite: _White/Objects/Weapons/Guns/Turrets/Almagest/annihilator_shotgun.rsi
+
+# HMG
+- type: entity
+  name: hmg equipment
+  parent: BaseItem
+  id: AlmagestEquipmentWeaponShipHMG
+  description: "hmg equipment"
+  components:
+  - type: Item
+    size: Ginormous
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/Turrets/Almagest/equipment.rsi
+    state: hmg
+  - type: RadialEntityMorph
+    entries:
+    - prototype: WeaponShipHMGHeavy
+    - prototype: WeaponShipHMGFast
+  - type: UserInterface
+    interfaces:
+      enum.RadialSelectorUiKey.Key:
+        type: TrackedRadialSelectorMenuBUI
+  - type: ActivatableUI
+    key: enum.RadialSelectorUiKey.Key
+    inHandsOnly: true
+
+# HMG Heavy
+- type: entity
+  id: BulletHMGHeavy
+  name: heavy hmg bullet
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Reflective
+    reflective:
+    - AlmagestBullet
+  - type: Projectile
+    penetrate: true
+    noPenetrateMask: 0
+    penetrationChance: 0.5
+    maxPenetrations: 2
+    damage:
+      types:
+        Piercing: 100
+        Structural: 35
+  - type: TimedDespawn
+    lifetime: 15
+
+- type: entity
+  parent: WeaponShipLightHMG
+  id: WeaponShipHMGHeavy
+  name: Heavy HMG Machine Gun
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/Turrets/Almagest/hmg_heavy.rsi
+    state: icon
+  - type: Gun
+    fireRate: 5
+    angleDecay: -20
+    angleIncrease: -8
+    maxAngle: 45
+    projectileSpeed: 75
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/lmg.ogg
+      params:
+        volume: 0
+  - type: ProjectileContainerBatteryAmmoProvider
+    proto: BulletHMGHeavy
+    fireCost: 300
+  - type: ModularTurretWeapon
+    dollyMixSprite: _White/Objects/Weapons/Guns/Turrets/Almagest/hmg_heavy.rsi
+
+# HMG Fast
+- type: entity
+  id: BulletHMGFast
+  name: fast hmg bullet
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Reflective
+    reflective:
+    - AlmagestBullet
+  - type: Projectile
+    penetrate: true
+    noPenetrateMask: 0
+    penetrationChance: 0.5
+    maxPenetrations: 1
+    damage:
+      types:
+        Piercing: 40
+        Structural: 25
+  - type: TimedDespawn
+    lifetime: 15
+
+- type: entity
+  parent: WeaponShipLightHMG
+  id: WeaponShipHMGFast
+  name: Fast HMG Machine Gun
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/Turrets/Almagest/hmg_fast.rsi
+    state: icon
+  - type: Gun
+    fireRate: 8
+    angleDecay: -25
+    angleIncrease: -5
+    maxAngle: 45
+    projectileSpeed: 60
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/lmg.ogg
+      params:
+        volume: 0
+  - type: ProjectileContainerBatteryAmmoProvider
+    proto: BulletHMGFast
+    fireCost: 125
+  - type: ModularTurretWeapon
+    dollyMixSprite: _White/Objects/Weapons/Guns/Turrets/Almagest/hmg_fast.rsi
 
 # Ram
 - type: entity

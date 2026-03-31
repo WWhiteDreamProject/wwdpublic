@@ -1,0 +1,168 @@
+#  Damage Modifier Sets
+- type: damageModifierSet
+  id: AlmagestWallStructural
+  coefficients:
+    Blunt: 0.4
+    Slash: 0.4
+    Piercing: 2
+    Structural: 0.25
+    Heat: 0.75
+    Shock: 2
+  flatReductions:
+    Blunt: 5
+    Heat: 5
+
+- type: damageModifierSet
+  id: AlmagestWallLaser
+  coefficients:
+    Blunt: 0.9
+    Slash: 0.9
+    Piercing: 2
+    Structural: 1.5
+    Heat: 0.25
+    Shock: 0.25
+  flatReductions:
+    Blunt: 5
+    Heat: 5
+
+- type: damageModifierSet
+  id: AlmagestWallPiercing
+  coefficients:
+    Blunt: 0.8
+    Slash: 0.8
+    Piercing: 0.25
+    Structural: 0.8
+    Heat: 2
+    Shock: 2
+  flatReductions:
+    Blunt: 5
+    Heat: 5
+
+# Walls
+- type: entity
+  parent: BaseWall
+  id: WallAlmagestBase
+  abstract: true
+  components:
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: AlmagestWallStructural
+  - type: RadiationBlocker
+    resistance: 6
+  - type: IconSmooth
+    key: walls
+  - type: Appearance
+
+- type: entity
+  parent: WallAlmagestBase
+  id: WallAlmagestStructuralResistant
+  name: structural-resistant wall
+  components:
+  - type: Damageable
+    damageModifierSet: AlmagestWallStructural
+  - type: ExplosionResistance
+    damageCoefficient: 0.2
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 2500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Sprite
+    sprite: Structures/Walls/plastitanium.rsi
+  - type: Icon
+    sprite: Structures/Walls/plastitanium.rsi
+  - type: IconSmooth
+    base: plastitanium
+
+- type: entity
+  parent: WallAlmagestBase
+  id: WallAlmagestLaserResistant
+  name: laser-resistant wall
+  components:
+  - type: Damageable
+    damageModifierSet: AlmagestWallLaser
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Reflect
+    reflectProb: 0.75
+    reflects:
+    - Energy
+    spread: 5
+    soundOnReflect: /Audio/Weapons/Guns/Hits/laser_sear_wall.ogg
+  - type: Sprite
+    sprite: Structures/Walls/shuttle.rsi
+  - type: Icon
+    sprite: Structures/Walls/shuttle.rsi
+    state: full
+  - type: IconSmooth
+    base: state
+
+- type: entity
+  parent: WallAlmagestBase
+  id: WallAlmagestPiercingResistant
+  name: piercing-resistant wall
+  components:
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: AlmagestWallPiercing
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 2000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Reflect
+    reflectProb: 0.5
+    reflects:
+    - AlmagestBullet
+    spread: 5
+  - type: Sprite
+    sprite: Structures/Walls/riveted.rsi
+  - type: Icon
+    sprite: Structures/Walls/riveted.rsi
+    state: full
+  - type: IconSmooth
+    base: riveted
+
+# Red
+- type: entity
+  parent: WallAlmagestStructuralResistant
+  id: WallAlmagestStructuralResistantRed
+  suffix: Red
+
+- type: entity
+  parent: WallAlmagestLaserResistant
+  id: WallAlmagestLaserResistantRed
+  suffix: Red
+
+- type: entity
+  parent: WallAlmagestPiercingResistant
+  id: WallAlmagestPiercingResistantRed
+  suffix: Red
+
+# Blue
+- type: entity
+  parent: WallAlmagestStructuralResistant
+  id: WallAlmagestStructuralResistantBlue
+  suffix: Blue
+
+- type: entity
+  parent: WallAlmagestLaserResistant
+  id: WallAlmagestLaserResistantBlue
+  suffix: Blue
+
+- type: entity
+  parent: WallAlmagestPiercingResistant
+  id: WallAlmagestPiercingResistantBlue
+  suffix: Blue

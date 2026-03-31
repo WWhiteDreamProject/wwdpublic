@@ -32,6 +32,18 @@ public sealed partial class RadarConsoleComponent : Component
     public Angle FieldOfView = MathF.Tau;
 
     [DataField]
+    public float FieldOfViewOffsetX = 0f;
+
+    [DataField]
+    public float FieldOfViewOffsetY = 0f;
+
+    [DataField]
+    public float FieldOfViewOffsetZoomMultiplier = 1f;
+
+    [DataField]
+    public float FieldOfViewAngleMultiplier = 1f;
+
+    [DataField]
     public Angle DisplayRotation = Angle.Zero;
 
     [DataField]

@@ -14,6 +14,7 @@ using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
+using Robust.Shared.Random; // WWDP edit
 
 namespace Content.Server.Projectiles;
 
@@ -26,6 +27,8 @@ public sealed class ProjectileSystem : SharedProjectileSystem
     [Dependency] private readonly GunSystem _guns = default!;
     [Dependency] private readonly SharedCameraRecoilSystem _sharedCameraRecoil = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    private readonly Dictionary<EntityUid, int> _currentPenetrations = new(); // WWDP edit
+    [Dependency] private readonly IRobustRandom _random = default!; // WWDP edit
 
     public override void Initialize()
     {
@@ -115,11 +118,32 @@ public sealed class ProjectileSystem : SharedProjectileSystem
         }
         else
         {
-            // Goobstation start
+            // Goobstation start - Enhanced penetration with limits
             if (component.Penetrate)
-                component.IgnoredEntities.Add(target);
+            {
+                // Проверка шанса пенетрации
+                if (component.PenetrationChance >= 1.0f || _random.NextFloat() <= component.PenetrationChance)
+                {
+                    // WWDP edit start - Check penetration limit
+                    if (component.MaxPenetrations > 0 && component.IgnoredEntities.Count >= component.MaxPenetrations)
+                    {
+                        component.ProjectileSpent = true;
+                    }
+                    else
+                    {
+                        component.IgnoredEntities.Add(target);
+                    }
+                    // WWDP edit end
+                }
+                else
+                {
+                    component.ProjectileSpent = true;
+                }
+            }
             else
+            {
                 component.ProjectileSpent = true;
+            }
             // Goobstation end
         }
 

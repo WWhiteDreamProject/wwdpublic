@@ -1,0 +1,111 @@
+#Medic
+- type: entity
+  id: AlmagestGrenadeMedic1
+  name: "40mm blast grenade"
+  parent: BaseItem
+  components:
+    - type: Tag
+      tags:
+        - MortarGrenade
+    - type: CartridgeAmmo
+      proto: BulletAlmagestGrenadeMedic
+      deleteOnSpawn: true
+    - type: Item
+      size: Small
+    - type: Sprite
+      sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+      layers:
+        - state: blast
+          map: ["enum.AmmoVisualLayers.Base"]
+    - type: Appearance
+    - type: SpentAmmoVisuals
+      state: blast
+      suffix: false
+
+- type: entity
+  id: MagazineGrenadeMortarMedic
+  name: mortar medic grenade cartridge
+  parent: BaseMagazineGrenade
+  components:
+    - type: BallisticAmmoProvider
+      proto: AlmagestGrenadeMedic1
+
+- type: entity
+  parent: BaseMeteor
+  id: BulletAlmagestGrenadeMedic
+  components:
+    - type: Sprite
+      sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+      layers:
+        - state: blast
+    - type: Projectile
+      penetrate: true
+      noPenetrateMask: 0
+      maxPenetrations: 5
+      radarRange: 512
+      radarColor: "#4ba0d1"
+      radarSize: 5
+      radarThickness: 2
+      damage:
+        types:
+          Blunt: 80
+          Structural: 1000
+    - type: Explosive
+      explosionType: Cryo
+      totalIntensity: 50
+      intensitySlope: 5
+      maxIntensity: 10
+    - type: SmokeOnTrigger
+      duration: 10
+      spreadAmount: 50
+    - type: Destructible
+      thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 4500
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+          - !type:PlaySoundBehavior
+            sound:
+              collection: MetalBreak
+          - !type:TriggerBehavior
+          - !type:ExplodeBehavior
+          - !type:WeightedSpawnEntityBehavior
+            weightedEntityTable: "AlmagestGrenadeMedicTable"
+            spawnOffset: 5
+            minSpawn: 60
+            maxSpawn: 75
+            spawnAfter: 0.5
+
+- type: entity
+  name: random altar spawner
+  id: AlmagestGrenadeMedicSpawner
+  parent: MarkerBase
+  components:
+  - type: EntityTableSpawner
+    offset: 0.2
+    table: !type:NestedSelector
+      tableId: AlmagestGrenadeMedicSpawnerTable
+
+- type: entityTable
+  id: AlmagestGrenadeMedicSpawnerTable
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - id: MobSpiderSpace
+    - !type:GroupSelector
+      weight: 1
+      children:
+      - id: MobCarpHolo
+    - !type:GroupSelector
+      weight: 15
+      children:
+      - id: SpiderWeb
+
+- type: weightedRandomEntity
+  id: AlmagestGrenadeMedicTable
+  weights:
+    AlmagestGrenadeMedicSpawner: 1
