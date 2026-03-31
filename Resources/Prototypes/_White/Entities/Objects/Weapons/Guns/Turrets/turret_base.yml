@@ -91,4 +91,4 @@
     sprite: Objects/Weapons/Guns/Turrets/turrets.rsi
     statePrefix: dm
     repeatLayers: 3
-    layerOffset: 0,0.75
+    layerHeight: 0.75
