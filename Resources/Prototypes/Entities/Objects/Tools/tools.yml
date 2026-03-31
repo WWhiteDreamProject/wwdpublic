@@ -843,6 +843,7 @@
     state: icon
   - type: Item
     sprite: Objects/Tools/rolling_pin.rsi
+    storedRotation: -45 #WWDP
     size: Small
   - type: Clothing
     sprite: Objects/Tools/rolling_pin.rsi

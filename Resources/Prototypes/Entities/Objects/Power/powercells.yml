@@ -4,6 +4,7 @@
   parent: BaseItem
   components:
   - type: Item
+    size: Tiny #WWDP
     storedRotation: -90
   - type: Battery
     pricePerJoule: 0.15
