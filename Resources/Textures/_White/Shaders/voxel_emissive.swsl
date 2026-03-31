@@ -1,10 +1,9 @@
 uniform sampler2D emissiveTexture;
 uniform highp vec4 emissiveUV;
-uniform highp vec4 assblast;
 
 uniform highp float height = 1;
 uniform highp float shadowFactor = 0;
-uniform highp int layers = 41;
+uniform highp int layers = 5;
 
 highp float insideBox(highp vec2 v, highp vec2 bottomLeft, highp vec2 topRight) {
     highp vec2 s = step(bottomLeft, v) - step(topRight, v);

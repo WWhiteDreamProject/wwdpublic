@@ -1,6 +1,6 @@
 uniform highp float height = 1;
 uniform highp float shadowFactor = 0.0;
-uniform highp int layers = 100;
+uniform highp int layers = 5;
 
 highp float insideBox(highp vec2 v, highp vec2 bottomLeft, highp vec2 topRight) {
     highp vec2 s = step(bottomLeft, v) - step(topRight, v);
