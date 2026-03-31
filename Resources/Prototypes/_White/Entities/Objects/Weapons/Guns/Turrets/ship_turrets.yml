@@ -164,12 +164,9 @@
       enum.RadarConsoleUiKey.Key:
         type: RadarConsoleBoundUserInterface
   - type: RadarConsole
-    fieldOfView: 190
-    fieldOfViewOffsetY: -50
-    fieldOfViewOffsetZoomMultiplier: 2.5
-    fieldOfViewAngleMultiplier: 1.7
+    fieldOfView: 180
     displayRotation: 180
-    maxRange: 512
+    maxRange: 448
     followEntity: true
   - type: ContentEye
     targetZoom: 2, 2

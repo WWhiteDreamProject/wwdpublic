@@ -397,44 +397,12 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
         {
             const int segments = 5;
             var hidesey = new Vector2[segments + 2];
-
-            // Проверка на null
-            if (!EntManager.TryGetComponent<RadarConsoleComponent>(_coordinates.Value.EntityId, out var radarComp))
-            {
-                radarComp = new RadarConsoleComponent();
-            }
-
-            var baseRange = 256f;
-            var baseZoom = baseRange / WorldRange;
-
-            // Модификатор для смещения
-            var offsetZoomMultiplier = radarComp.FieldOfViewOffsetZoomMultiplier;
-            var modifiedOffsetZoom = offsetZoomMultiplier == 1f
-                ? baseZoom
-                : MathF.Pow(baseZoom, offsetZoomMultiplier);
-
-            // Модификатор для угла
-            var angleZoomMultiplier = radarComp.FieldOfViewAngleMultiplier;
-            var modifiedAngle = angleZoomMultiplier == 1f
-                ? FieldOfView
-                : FieldOfView * MathF.Pow(baseZoom, angleZoomMultiplier - 1f);
-
-            // Ограничиваем угол
-            modifiedAngle = Math.Clamp(modifiedAngle, 0.1f, MathF.Tau);
-
-            var coneOffset = new Vector2(
-                radarComp.FieldOfViewOffsetX * modifiedOffsetZoom,
-                -radarComp.FieldOfViewOffsetY * modifiedOffsetZoom
-            );
-
-            var coneCenter = MidPointVector + coneOffset;
-            hidesey[0] = coneCenter;
-
+            hidesey[0] = MidPointVector;
             for (int i = 0; i < segments + 1; i++)
             {
-                var angle = i / (float) segments * (MathHelper.TwoPi - modifiedAngle) + modifiedAngle / 2;
+                var angle = i / (float) segments * (MathHelper.TwoPi - FieldOfView) + FieldOfView / 2;
                 var pos = new Vector2(MathF.Sin(angle), -MathF.Cos(angle));
-                hidesey[i + 1] = coneCenter + pos * 1024;
+                hidesey[i + 1] = MidPointVector + pos * 1024;
             }
             handle.DrawPrimitives(DrawPrimitiveTopology.TriangleFan, hidesey, new Color(0.08f, 0.02f, 0.08f));
         }
