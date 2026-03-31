@@ -607,6 +607,7 @@
   wordReplacements:
     accent-german-words-1: accent-german-words-replace-1
     accent-german-words-1-2: accent-german-words-replace-1
+    accent-german-words-1-3: accent-german-words-replace-1 # WWDP EDIT
     accent-german-words-2: accent-german-words-replace-2
     accent-german-words-3: accent-german-words-replace-3
     accent-german-words-4: accent-german-words-replace-4
@@ -635,6 +636,7 @@
     accent-german-words-25: accent-german-words-replace-25
     accent-german-words-26: accent-german-words-replace-26
     accent-german-words-27: accent-german-words-replace-27
+    accent-german-words-27-2: accent-german-words-replace-27 # WWDP EDIT
     accent-german-words-28: accent-german-words-replace-28
     accent-german-words-29: accent-german-words-replace-29
     accent-german-words-30: accent-german-words-replace-30
@@ -667,6 +669,7 @@
     accent-german-words-53-2: accent-german-words-replace-53
     accent-german-words-54: accent-german-words-replace-54
     accent-german-words-55: accent-german-words-replace-55
+    accent-german-words-55-2: accent-german-words-replace-55 # WWDP EDIT
     accent-german-words-56: accent-german-words-replace-56
     accent-german-words-56-2: accent-german-words-replace-56
     accent-german-words-56-3: accent-german-words-replace-56
