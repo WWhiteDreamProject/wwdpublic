@@ -389,15 +389,17 @@
     accent-cowboy-words-98: accent-cowboy-replacement-98
     accent-cowboy-words-99: accent-cowboy-replacement-99
 
-- type: accent
-  id: southern
-  wordReplacements:
-    accent-southern-words-1: accent-southern-words-replace-1
-    accent-southern-words-2: accent-southern-words-replace-2
-    accent-southern-words-3: accent-southern-words-replace-3
-    accent-southern-words-4: accent-southern-words-replace-4
-    accent-southern-words-5: accent-southern-words-replace-5
-    accent-southern-words-6: accent-southern-words-replace-6
+# WWDP EDIT START
+# - type: accent
+#   id: southern
+#   wordReplacements:
+#     accent-southern-words-1: accent-southern-words-replace-1
+#     accent-southern-words-2: accent-southern-words-replace-2
+#     accent-southern-words-3: accent-southern-words-replace-3
+#     accent-southern-words-4: accent-southern-words-replace-4
+#     accent-southern-words-5: accent-southern-words-replace-5
+#     accent-southern-words-6: accent-southern-words-replace-6
+# WWDP EDIT END
 
 # For the chat sanitization system
 - type: accent
@@ -684,14 +686,16 @@
     accent-german-words-61-4: accent-german-words-replace-61
     accent-german-words-62: accent-german-words-replace-62
 
-- type: accent
-  id: russian
-  wordReplacements:
-    accent-russian-words-1: accent-russian-words-replace-1
-    accent-russian-words-2: accent-russian-words-replace-2
-    accent-russian-words-3: accent-russian-words-replace-3
-    accent-russian-words-3-2: accent-russian-words-replace-3
-    accent-russian-words-3-3: accent-russian-words-replace-3
-    accent-russian-words-4: accent-russian-words-replace-4
-    accent-russian-words-5: accent-russian-words-replace-5
-    accent-russian-words-6: accent-russian-words-replace-6
+# WWDP EDIT START
+# - type: accent
+#   id: russian
+#   wordReplacements:
+#     accent-russian-words-1: accent-russian-words-replace-1
+#     accent-russian-words-2: accent-russian-words-replace-2
+#     accent-russian-words-3: accent-russian-words-replace-3
+#     accent-russian-words-3-2: accent-russian-words-replace-3
+#     accent-russian-words-3-3: accent-russian-words-replace-3
+#     accent-russian-words-4: accent-russian-words-replace-4
+#     accent-russian-words-5: accent-russian-words-replace-5
+#     accent-russian-words-6: accent-russian-words-replace-6
+# WWDP EDIT END

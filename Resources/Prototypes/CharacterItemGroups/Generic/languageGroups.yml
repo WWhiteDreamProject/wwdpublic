@@ -41,16 +41,16 @@
       id: PirateAccent
     - type: trait
       id: Accentless
-    - type: trait
-      id: Southern
+    # - type: trait # WWDP EDIT
+    #   id: Southern # WWDP EDIT
     - type: trait
       id: ScottishAccent
     - type: trait
       id: SkeletonAccent
     - type: trait
       id: GermanAccent
-    - type: trait
-      id: RussianAccent
+    # - type: trait # WWDP EDIT
+    #   id: RussianAccent # WWDP EDIT
     - type: trait
       id: FrenchAccent
     - type: trait
