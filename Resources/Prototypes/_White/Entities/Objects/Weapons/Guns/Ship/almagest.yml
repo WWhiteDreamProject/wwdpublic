@@ -360,7 +360,7 @@
   components:
   - type: Reflective
     reflective:
-    - AlmagestBullet
+    - NonEnergy
   - type: Projectile
     penetrate: true
     noPenetrateMask: 0
@@ -409,7 +409,7 @@
   components:
   - type: Reflective
     reflective:
-    - AlmagestBullet
+    - NonEnergy
   - type: Projectile
     penetrate: true
     noPenetrateMask: 0

@@ -125,7 +125,7 @@
   - type: Reflect
     reflectProb: 0.5
     reflects:
-    - AlmagestBullet
+    - NonEnergy
     spread: 5
   - type: Sprite
     sprite: Structures/Walls/riveted.rsi
