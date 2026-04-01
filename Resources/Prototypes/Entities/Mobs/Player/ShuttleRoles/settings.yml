@@ -777,10 +777,10 @@
   id: Cossack
   parent: EventHumanoid
   components:
-    - type: RussianAccent
+#    - type: RussianAccent # WWDP EDIT
     - type: ScrambledAccent
     - type: SlurredAccent
-    - type: SouthernAccent
+#    - type: SouthernAccent # WWDP EDIT
     - type: GhostRole
       name: ghost-role-information-cossack-name
       description: ghost-role-information-cossack-description
