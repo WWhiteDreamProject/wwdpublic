@@ -34,7 +34,7 @@
     size: Large
      # WD EDIT START
     shape:
-    - 0,0,2,0
+    - 0,0,3,0
     storedRotation: 44
     # WD EDIT END
     sprite: Objects/Specific/Janitorial/mop.rsi
@@ -93,6 +93,11 @@
         Blunt: 5
   - type: Item
     size: Large
+     # WD EDIT START
+    shape:
+    - 0,0,3,0
+    storedRotation: 44
+    # WD EDIT END
     sprite: Objects/Specific/Janitorial/advmop.rsi
   - type: Absorbent
     pickupAmount: 100
