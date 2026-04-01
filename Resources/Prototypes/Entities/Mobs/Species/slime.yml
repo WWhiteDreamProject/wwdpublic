@@ -98,7 +98,7 @@
         scaleByQuantity: true
         damage:
           types:
-            Heat: 0.1
+            Heat: 0.7 #WWDP
       - !type:PopupMessage
         type: Local
         visualType: Large
