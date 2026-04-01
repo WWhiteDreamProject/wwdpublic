@@ -1,5 +1,6 @@
 using System.Numerics;
 using Content.Client.Weapons.Ranged.Systems;
+using Content.Shared._White.Other;
 using Content.Shared.Projectiles;
 using Content.Shared.Shuttles.BUIStates;
 using Content.Shared.Shuttles.Components;
@@ -341,56 +342,54 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
         }
 
         // WD EDIT START
-        var multiply = Matrix3x2.Multiply(worldToShuttle, Matrix3x2.CreateScale(new Vector2(1, -1))); // WWDP edit
-        var projectiles = _lookup.GetEntitiesInRange<ProjectileComponent>(_coordinates.Value, MaxRadarRange);
+        var multiply = Matrix3x2.Multiply(worldToShuttle, Matrix3x2.CreateScale(new Vector2(1, -1)));
+        var entities = _lookup.GetEntitiesInRange<RadarIconComponent>(_coordinates.Value, MaxRadarRange);
         var projectileVertsByColor = new Dictionary<Color, List<Vector2>>();
 
-        foreach (var projectile in projectiles)
+        foreach (var entity in entities)
         {
-            if (EntManager.TryGetComponent<MapGridComponent>(_transform.GetParentUid(projectile), out _))
+            if (EntManager.HasComponent<MapGridComponent>(_transform.GetParentUid(entity)) &&
+                !entity.Comp.ShowOnGrid)
                 continue;
 
-            var projectilePosition = _transform.GetWorldPosition(projectile);
-            if (projectile.Comp.RadarRange > 0 && (projectilePosition - worldPosition).Length() > projectile.Comp.RadarRange)
+            if (entity.Comp.Lines.Count == 0 || entity.Comp.Scale == Vector2.Zero)
                 continue;
 
-            var pos = ScalePosition(Vector2.Transform(projectilePosition, multiply));
+            var entityPosition = _transform.GetWorldPosition(entity);
+            if (entity.Comp.RadarRange > 0 && (entityPosition - worldPosition).Length() > entity.Comp.RadarRange)
+                continue;
 
-            if (!projectileVertsByColor.TryGetValue(projectile.Comp.RadarColor, out var verts))
+            var pos = ScalePosition(Vector2.Transform(entityPosition, multiply));
+
+            var iconAngle = entity.Comp.Angle;
+            var iconAngleRotated = iconAngle + ourEntRot - _transform.GetWorldRotation(entity);
+
+            var scale = entity.Comp.Scale;
+
+            foreach (var line in entity.Comp.Lines)
             {
-                verts = new List<Vector2>();
-                projectileVertsByColor[projectile.Comp.RadarColor] = verts;
+                DebugTools.Assert(line.Points.Count >= 2, "A line in RadarIcon must have at least two points");
+                var verts = projectileVertsByColor.GetOrNew(line.Color ?? entity.Comp.Color);
+                
+                for(int i = 0; i < line.Points.Count; i++)
+                {
+                    var point = line.Points[i];
+                    point += entity.Comp.Offset + line.Offset;
+                    point *= entity.Comp.Scale * line.Scale;
+                    point.Y *= -1;
+                    var angle = (line.NoRot ? iconAngle : iconAngleRotated) + line.Angle;
+                    point = angle.RotateVec(point);
+                    verts.Add(pos + point);
+                    if(i > 0 && i < line.Points.Count - 1)     // add the same vert again to simulate LineList drawing mode without actually switching to it
+                        verts.Add(pos + point);   // this lets us draw all same-coloured lines in a single batch
+                }
             }
+        }
 
-            var angle = MathF.PI / 4;
-            var cos = MathF.Cos(angle);
-            var sin = MathF.Sin(angle);
-
-            var rectSize = new Vector2(projectile.Comp.RadarThickness, projectile.Comp.RadarSize * 2);
-            var rectPos = pos - rectSize / 2;
-            var verts1 = new Vector2[]
-            {
-                RotatePoint(rectPos, pos, cos, sin),
-                RotatePoint(rectPos + rectSize with { Y = 0 }, pos, cos, sin),
-                RotatePoint(rectPos + rectSize, pos, cos, sin),
-                RotatePoint(rectPos + rectSize with { X = 0 }, pos, cos, sin),
-            };
-
-            rectSize = new Vector2(projectile.Comp.RadarSize * 2, projectile.Comp.RadarThickness);
-            rectPos = pos - rectSize / 2;
-            var verts2 = new Vector2[]
-            {
-                RotatePoint(rectPos, pos, cos, sin),
-                RotatePoint(rectPos + rectSize with { Y = 0 }, pos, cos, sin),
-                RotatePoint(rectPos + rectSize, pos, cos, sin),
-                RotatePoint(rectPos + rectSize with { X = 0 }, pos, cos, sin)
-            };
-
-            verts.AddRange(new Vector2[]
-            {
-                verts1[0], verts1[1], verts1[1], verts1[2], verts1[2], verts1[3], verts1[3], verts1[0],
-                verts2[0], verts2[1], verts2[1], verts2[2], verts2[2], verts2[3], verts2[3], verts2[0]
-            });
+        foreach (var (color, verts) in projectileVertsByColor)
+        {
+            DebugTools.Assert(verts.Count > 0);
+            handle.DrawPrimitives(DrawPrimitiveTopology.LineList, verts, color);
         }
 
         if (FieldOfView < MathF.Tau)
@@ -406,27 +405,8 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
             }
             handle.DrawPrimitives(DrawPrimitiveTopology.TriangleFan, hidesey, new Color(0.08f, 0.02f, 0.08f));
         }
-
-        foreach (var (color, verts) in projectileVertsByColor)
-        {
-            if (verts.Count == 0)
-                continue;
-
-            handle.DrawPrimitives(DrawPrimitiveTopology.LineList, verts, color);
-        }
         // WD EDIT END
     }
-
-    // WD EDIT START
-    private static Vector2 RotatePoint(Vector2 point, Vector2 center, float cos, float sin)
-    {
-        var translated = point - center;
-        return new Vector2(
-            translated.X * cos - translated.Y * sin + center.X,
-            translated.X * sin + translated.Y * cos + center.Y
-        );
-    }
-    // WD EDIT END
 
     private void DrawDocks(DrawingHandleScreen handle, EntityUid uid, Matrix3x2 gridToView)
     {

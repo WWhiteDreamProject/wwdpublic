@@ -1,0 +1,54 @@
+uniform highp float height = 1;
+uniform highp float shadowFactor = 0.0;
+uniform highp int layers = 5;
+
+highp float insideBox(highp vec2 v, highp vec2 bottomLeft, highp vec2 topRight) {
+    highp vec2 s = step(bottomLeft, v) - step(topRight, v);
+    return s.x * s.y;   
+}
+
+void fragment() {
+	highp vec4 col_orig = zTexture(UV);
+	highp vec4 col;
+	highp float angle;
+	highp vec2 ps = TEXTURE_PIXEL_SIZE;
+	highp vec4 t = gl_FragCoord;
+	angle = atan(dFdy(UV.x/ps.x), dFdy(UV.y/ps.y));
+
+
+	highp vec2 offset = normalize(vec2(dFdy(UV.x/ps.x), dFdy(UV.y/ps.y))) * height;
+	highp vec2 step = offset / (layers == 0 ? 1 : layers); // ternary prevents div by zero
+	highp vec4 col_last = vec4(0.0);
+	
+	// these two are used to prevent emissive voxels from affecting lightmap if they're obscured by regular voxels
+	bool hit = false;
+	bool glow = false;
+	
+	highp float new_a = 0.0;
+	int firstHitSample = 0; // used to determine shade effect on the bottom of the 3d effect
+	// col is the resulting color of the fragment (unless bleedover condition is true, in which case col_orig will be used)
+	//
+	// we're sampling color at even intervals, starting at UV and moving towards the top of the screen,
+	// remembering the first non-transparent color we've hit (while also mixing transparent ones)
+	//
+	// this results in duplication of the sprite, moving downwards in screenspace
+	// and being visually "underneath" the original (and actual) sprite.  
+	for(int i = 0; i <= layers; i++){
+		highp vec4 col_tex = zTexture(UV + (step*i)*ps);
+		firstHitSample = !hit ? i : firstHitSample;	
+		hit = hit ? hit : col_tex.a > 0.001;
+
+		// this is used to track when we hit different colors
+		// so we can properly mix transparent pixels that have their 3d part overlapping
+		// only if they have some space between them
+		bool hitNewColor = col_tex != col_last && col_tex != vec4(0.0);
+
+		new_a = hitNewColor ? mix(new_a, 1.0, col_tex.a) : new_a;
+		col = hitNewColor ? vec4(mix(col_tex.rgb, col.rgb, col.a), new_a) : col;
+		
+		col_last = col_tex;
+	}
+	col = mix(col, vec4(vec3(0.0), col.a), float(firstHitSample) / layers * shadowFactor); // apply a shade towards the bottom of the 3D effect
+	COLOR = insideBox(UV2 + offset/32, vec2(0,0), vec2(1,1)) > 0.5 ? col : col_orig;
+	//COLOR = insideBox(UV2 + offset/32, vec2(0,0), vec2(1,1)) > 0.5 ? vec4(1.0) : vec4(1.0, 0.0, 0.0, 1.0);
+}

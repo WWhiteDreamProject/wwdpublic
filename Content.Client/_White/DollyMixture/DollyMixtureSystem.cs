@@ -2,7 +2,9 @@ using Content.Shared._White.DollyMixture;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 using System.Numerics;
 
 namespace Content.Client._White.DollyMixture;
@@ -12,14 +14,30 @@ public sealed class DollyMixtureSystem : SharedDollyMixtureSystem
     [Dependency] private readonly IResourceCache _res = default!;
     [Dependency] private readonly IEyeManager _eye = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
+    private ShaderPrototype _voxelProto = default!;
+    private ShaderPrototype _voxelProtoEmissive = default!;
+
+    private ShaderInstance _voxelDefaultShader = default!;
+    private ShaderInstance _voxelEmissiveDefaultShader = default!;
+
+    private const float DefaultHeight = 0.75f;
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<DollyMixtureComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<DollyMixtureComponent, ComponentRemove>(OnRemove);
         SubscribeLocalEvent<DollyMixtureComponent, AfterAutoHandleStateEvent>(OnAutoState);
+
+        _voxelProto = _proto.Index<ShaderPrototype>("Voxel");
+        _voxelProtoEmissive = _proto.Index<ShaderPrototype>("VoxelEmissive");
+
+        _voxelDefaultShader = _voxelProto.InstanceUnique();
+        _voxelDefaultShader.SetParameter("height", DefaultHeight);
+        _voxelEmissiveDefaultShader = _voxelProtoEmissive.InstanceUnique();
+        _voxelEmissiveDefaultShader.SetParameter("height", DefaultHeight);
     }
 
     public override void FrameUpdate(float frameTime)
@@ -46,7 +64,7 @@ public sealed class DollyMixtureSystem : SharedDollyMixtureSystem
         UpdateDollyMixture(uid, comp);
     }
 
-    private void UpdateDollyMixture(EntityUid uid, DollyMixtureComponent comp)
+    public void UpdateDollyMixture(EntityUid uid, DollyMixtureComponent comp)
     {
         if (comp.CurrentRSIPath == comp.RSIPath)
             return;
@@ -61,6 +79,7 @@ public sealed class DollyMixtureSystem : SharedDollyMixtureSystem
             RemoveLayers(uid, comp);
 
         BuildLayers(uid, comp);
+        comp.CurrentRSIPath = comp.RSIPath;
     }
 
     private void OnRemove(EntityUid uid, DollyMixtureComponent comp, ComponentRemove args)
@@ -73,9 +92,6 @@ public sealed class DollyMixtureSystem : SharedDollyMixtureSystem
 
     private void OnInit(EntityUid uid, DollyMixtureComponent comp, ComponentInit args)
     {
-        if (!_timing.IsFirstTimePredicted)
-            return;
-
         if (!TryComp<SpriteComponent>(uid, out var sprite)) // unlike OnRemove() and RemoveLayers(), this doesn't get executed when placing a prototype
         {                                                   // i cry
             Log.Error($"Failed to get SpriteComponent for {ToPrettyString(uid)}. Removing DollyMixtureComponent.");
@@ -83,37 +99,37 @@ public sealed class DollyMixtureSystem : SharedDollyMixtureSystem
             return;
         }
 
-        var xform = Transform(uid);
         sprite.NoRotation = true;
-
-        if (comp.RSIPath is not null)
-            BuildLayers(uid, comp, sprite);
-    }
-
-    public override void Apply3D(EntityUid uid, string RsiPath, string? statePrefix = null, Vector2? layerOffset = null, DollyMixtureComponent? comp = null)
-    {
-        comp ??= EnsureComp<DollyMixtureComponent>(uid);
-
-        base.Apply3D(uid, RsiPath, statePrefix, layerOffset, comp);
         UpdateDollyMixture(uid, comp);
     }
 
-    public override void Remove3D(EntityUid uid, DollyMixtureComponent? comp = null)
+    public override void Apply3D(Entity<DollyMixtureComponent?> entity, string rsiPath, string? statePrefix = null, Vector2? layerOffset = null)
     {
-        if (!Resolve(uid, ref comp))
+        entity.Comp ??= EnsureComp<DollyMixtureComponent>(entity);
+        base.Apply3D(entity, rsiPath, statePrefix, layerOffset);
+        UpdateDollyMixture(entity, entity.Comp);
+    }
+
+    public override void Remove3D(Entity<DollyMixtureComponent?> entity)
+    {
+        if (!Resolve(entity, ref entity.Comp))
             return;
 
-        base.Remove3D(uid, comp);
-        UpdateDollyMixture(uid, comp);
+        base.Remove3D(entity);
+        UpdateDollyMixture(entity, entity.Comp);
     }
 
     private void RemoveLayers(EntityUid uid, DollyMixtureComponent comp)
     {
-        SpriteComponent? sprite = null;
-        if (!Resolve(uid, ref sprite, false)) // this gets executed after simply placing a prototype with this comp
-            return;                           // i assume it is some prediction-related bullshit
+        //SpriteComponent? sprite = null;
+        //if (!Resolve(uid, ref sprite, false)) // this gets executed after simply placing a prototype with this comp
+        //    return;                           // i assume it is some prediction-related bullshit
+        if(!TryComp<SpriteComponent>(uid, out var sprite))
+            return;
+
         foreach (var layerMapping in comp.LayerMappings)
             sprite.RemoveLayer(layerMapping);
+
         comp.CurrentRSIPath = null;
         comp.LayerMappings.Clear();
     }
@@ -138,43 +154,67 @@ public sealed class DollyMixtureSystem : SharedDollyMixtureSystem
 
         var RSI = RSIres.RSI;
 
+        ShaderInstance voxelShader;
+        ShaderInstance voxelEmissiveShader;
+
+        // caching shaders would probably make more sense
+        // i don't want to bother with that, since 95% of models
+        // will use default spacing
+        // TODO: consider removing the ability to specify layer height altogether
+        if(comp.LayerHeight != DefaultHeight)
+        {
+            voxelShader = _voxelProto.InstanceUnique();
+            voxelShader.SetParameter("height", comp.LayerHeight);
+            voxelEmissiveShader = _voxelProtoEmissive.InstanceUnique();
+            voxelEmissiveShader.SetParameter("height", comp.LayerHeight);
+        }
+        else
+        {
+            voxelShader = _voxelDefaultShader;
+            voxelEmissiveShader = _voxelEmissiveDefaultShader;
+        }
+
         int i = 1;
         while (RSI.TryGetState($"{comp.StatePrefix}{i}", out var state))
         {
-            for (int repeat = 0; repeat <= comp.RepeatLayers; repeat++)
+            Vector2 layerOffset = comp.Offset / EyeManager.PixelsPerMeter + new Vector2(0, comp.LayerHeight) / EyeManager.PixelsPerMeter * (i - 1);
+
+            int layerIndex = sprite.AddBlankLayer();
+            sprite.LayerSetRSI(layerIndex, RSI);
+            sprite.LayerSetState(layerIndex, state.StateId);
+            sprite.LayerSetOffset(layerIndex, layerOffset);
+            sprite.LayerSetRotation(layerIndex, xform.LocalRotation + _eye.CurrentEye.Rotation);
+            string layerMap = $"dollymix-{comp.StatePrefix}{i}";
+            DebugTools.Assert(!sprite.LayerExists(layerMap), "Dollymix layer already present when building layers; improper cleanup?");
+            sprite.LayerMapSet(layerMap, layerIndex);
+            comp.LayerMappings.Add(layerMap);
+
+            if (RSI.TryGetState($"{comp.StatePrefix}{i}-unshaded", out var unshadedState))
             {
-                float fraction = comp.RepeatLayers > 0 ? (float) repeat / comp.RepeatLayers : 0f;
+                int unshadedLayerIndex = sprite.AddBlankLayer();
+                sprite.LayerSetRSI(unshadedLayerIndex, RSI);
+                sprite.LayerSetState(unshadedLayerIndex, unshadedState.StateId);
+                string unshadedLayerMap = $"{layerMap}-u";
+                sprite.LayerMapSet(unshadedLayerMap, unshadedLayerIndex);
+                comp.LayerMappings.Add(unshadedLayerMap);
 
-                Vector2 layerOffset = comp.Offset / EyeManager.PixelsPerMeter + comp.LayerOffset / EyeManager.PixelsPerMeter * (i - 1 + fraction);
+                sprite.TryGetLayer(unshadedLayerIndex, out var unshadedLayer);
+                DebugTools.Assert(unshadedLayer is not null);
 
-                int layerIndex = sprite.AddBlankLayer();
-                sprite.LayerSetRSI(layerIndex, RSI);
-                sprite.LayerSetState(layerIndex, state.StateId);
-                sprite.LayerSetOffset(layerIndex, layerOffset);
-                sprite.LayerSetRotation(layerIndex, xform.LocalRotation + _eye.CurrentEye.Rotation);
-                if (comp.DefaultShader is string defaultshader)
-                    sprite.LayerSetShader(layerIndex, defaultshader); // crutch for customghosts
-                string layerMap = $"dmm-{comp.StatePrefix}{i}({repeat}/{comp.RepeatLayers})";
-                if (!sprite.LayerExists(layerMap))
-                    sprite.LayerMapSet(layerMap, layerIndex);
-                comp.LayerMappings.Add(layerMap);
+                SpriteComponent.CopyToShaderParameters ctsp = new(layerMap);
+                ctsp.ParameterTexture = "emissiveTexture";
+                ctsp.ParameterUV = "emissiveUV";
+                unshadedLayer.CopyToShaderParameters = ctsp;
 
-                if (RSI.TryGetState($"{comp.StatePrefix}{i}-unshaded", out var unshadedState))
-                {
-                    layerIndex = sprite.AddBlankLayer();
-                    sprite.LayerSetRSI(layerIndex, RSI);
-                    sprite.LayerSetState(layerIndex, unshadedState.StateId);
-                    sprite.LayerSetOffset(layerIndex, layerOffset);
-                    sprite.LayerSetRotation(layerIndex, xform.LocalRotation + _eye.CurrentEye.Rotation);
-                    sprite.LayerSetShader(layerIndex, "unshaded");
-                    layerMap = $"{layerMap}u";
-                    sprite.LayerMapSet(layerMap, layerIndex);
-                    comp.LayerMappings.Add(layerMap);
-                }
+                sprite.LayerSetShader(layerIndex, voxelEmissiveShader);
+
+            }
+            else
+            {
+                sprite.LayerSetShader(layerIndex, voxelShader);
             }
             i++;
         }
-        comp.CurrentRSIPath = comp.RSIPath;
     }
 }
 
