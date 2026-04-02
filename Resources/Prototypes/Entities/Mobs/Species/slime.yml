@@ -100,10 +100,12 @@
           types:
             Heat: 0.7 #WWDP
         conditions:
+        #WWDP EDIT START
         - !type:HasComponentOnEquipmentCondition
           invert: true
           components:
           - type: PressureProtection
+        #WWDP EDIT END
       - !type:PopupMessage
         type: Local
         visualType: Large
