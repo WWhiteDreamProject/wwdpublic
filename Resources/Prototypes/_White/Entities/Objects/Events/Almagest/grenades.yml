@@ -42,10 +42,6 @@
       penetrate: true
       noPenetrateMask: 0
       maxPenetrations: 5
-      radarRange: 512
-      radarColor: "#4ba0d1"
-      radarSize: 5
-      radarThickness: 2
       damage:
         types:
           Blunt: 80

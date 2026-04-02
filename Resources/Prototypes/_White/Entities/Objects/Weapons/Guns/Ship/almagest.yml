@@ -52,9 +52,12 @@
 - type: entity
   name : heavy laser bolt
   id: BoltIRLaserHeavy
-  parent: BulletLaser
+  parent: [BulletLaser, RadarIconBoltIRLaser]
   categories: [ HideSpawnMenu ]
   components:
+  - type: RadarIcon
+    color: "#fc03ba"
+    scale: 3, 3
   - type: Reflective
     reflective:
     - Energy
@@ -63,10 +66,6 @@
     noPenetrateMask: 0
     penetrationChance: 0.66
     maxPenetrations: 2
-    radarRange: 512
-    radarColor: "#cf2da6"
-    radarSize: 5
-    radarThickness: 2
     damage:
       types:
         Heat: 80
@@ -105,20 +104,16 @@
 - type: entity
   name : fast laser bolt
   id: BoltIRLaserFast
-  parent: BulletLaser
+  parent: [BulletLaser, RadarIconBoltIRLaser]
   categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
-    radarRange: 512
-    radarColor: "#cf482d"
-    radarSize: 3
-    radarThickness: 1
     damage:
       types:
         Heat: 30
         Structural: 5
   - type: TimedDespawn
-    lifetime: 5
+    lifetime: 50
   - type: Sprite
     layers:
     - state: heavylaser
@@ -180,9 +175,12 @@
 - type: entity
   id: RocketAnnihilatorHeavy
   name: heavy annihilator rocket
-  parent: BulletRocket
+  parent: [BulletRocket, RadarIconRocketAnnihilator]
   categories: [ HideSpawnMenu ]
   components:
+  - type: RadarIcon
+    color: "#fcc603"
+    scale: 3.5, 3.5
   - type: Explosive
     totalIntensity: 120
   - type: Projectile
@@ -190,10 +188,6 @@
     noPenetrateMask: 0
     penetrationChance: 0.66
     maxPenetrations: 1
-    radarRange: 512
-    radarColor: "#4ba0d1"
-    radarSize: 5
-    radarThickness: 2
     damage:
       types:
         Heat: 50
@@ -233,16 +227,12 @@
 - type: entity
   id: RocketAnnihilatorFast
   name: fast annihilator rocket
-  parent: BulletRocket
+  parent: [BulletRocket, RadarIconRocketAnnihilator]
   categories: [ HideSpawnMenu ]
   components:
   - type: Explosive
     totalIntensity: 5
   - type: Projectile
-    radarRange: 512
-    radarColor: "#4dd1e8"
-    radarSize: 3
-    radarThickness: 1
     damage:
       types:
         Heat: 5
@@ -282,16 +272,15 @@
 - type: entity
   id: RocketAnnihilatorShotgun
   name: shotgun annihilator rocket
-  parent: BulletRocket
+  parent: [BulletRocket, RadarIconRocketAnnihilator]
   categories: [ HideSpawnMenu ]
   components:
+  - type: RadarIcon
+    color: "#c5cc47"
+    scale: 1.5, 1.5
   - type: Explosive
     totalIntensity: 5
   - type: Projectile
-    radarRange: 512
-    radarColor: "#69a6c7"
-    radarSize: 3
-    radarThickness: 2
     damage:
       types:
         Heat: 10
@@ -355,7 +344,7 @@
 - type: entity
   id: BulletHMGHeavy
   name: heavy hmg bullet
-  parent: BaseBullet
+  parent: [BaseBullet, RadarIconBulletHMG]
   categories: [ HideSpawnMenu ]
   components:
   - type: Reflective
@@ -404,9 +393,12 @@
 - type: entity
   id: BulletHMGFast
   name: fast hmg bullet
-  parent: BaseBullet
+  parent: [BaseBullet, RadarIconBulletHMG]
   categories: [ HideSpawnMenu ]
   components:
+  - type: RadarIcon
+    color: "#3c8ade"
+    scale: 1, 1
   - type: Reflective
     reflective:
     - NonEnergy
@@ -477,10 +469,13 @@
 # Ram Penetrator
 - type: entity
   id: BulletBlastRamPenetrator
-  parent: BaseMeteor
+  parent: [BaseMeteor, RadarIconBulletHMG]
   name: blast ram penetrator
   categories: [ HideSpawnMenu ]
   components:
+  - type: RadarIcon
+    color: Red
+    scale: 5, 5
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
     layers:
@@ -490,7 +485,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 1000
+        damage: 4500
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -503,17 +498,35 @@
     intensitySlope: 5
     maxIntensity: 100
     totalIntensity: 150
+  - type: SpawnOnDespawn
+    prototype: BlastRamPenetratorExplosion
   - type: TimedDespawn
     lifetime: 0.25
   - type: Projectile
-    radarRange: 256
-    radarColor: "#e8274b"
-    radarSize: 12
-    radarThickness: 6
+    penetrate: true
+    noPenetrateMask: 0
+    penetrationChance: 0.8
+    maxPenetrations: 5
     damage:
       types:
-        Structural: 1000
+        Piercing: 400
+        Structural: 400
+        Heat: 400
+        Shock: 400
     deleteOnCollide: false
+
+- type: entity
+  parent: AdminInstantEffectBase
+  id: BlastRamPenetratorExplosion
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    intensitySlope: 5
+    maxIntensity: 100
+    totalIntensity: 150
+    canCreateVacuum: false
 
 - type: entity
   parent: BaseWeaponShipLightEnergy
@@ -548,10 +561,13 @@
 # Ram Mine
 - type: entity
   id: BulletBlastRamMine
-  parent: BaseMeteor
+  parent: [BaseMeteor, RadarIconBlastRam]
   name: blast ram mine
   categories: [ HideSpawnMenu ]
   components:
+  - type: RadarIcon
+    radarRange: 96
+    color: "#752d96"
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
     layers:
@@ -561,7 +577,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 5000
+        damage: 20000
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -577,13 +593,12 @@
   - type: TimedDespawn
     lifetime: 60
   - type: Projectile
-    radarRange: 128
-    radarColor: "#83599c"
-    radarSize: 6
-    radarThickness: 6
     damage:
       types:
-        Structural: 1000
+        Piercing: 400
+        Structural: 400
+        Heat: 400
+        Shock: 400
     deleteOnCollide: false
   - type: RandomWalk
     minSpeed: 3
@@ -631,10 +646,13 @@
 # Ram Walker
 - type: entity
   id: BulletBlastRamWalker
-  parent: BaseMeteor
+  parent: [BaseMeteor, RadarIconBlastRam]
   name: blast ram walker
   categories: [ HideSpawnMenu ]
   components:
+  - type: RadarIcon
+    radarRange: 1024
+    color: "#25a0b3"
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
     layers:
@@ -644,7 +662,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 2000
+        damage: 30000
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -660,13 +678,12 @@
   - type: TimedDespawn
     lifetime: 120
   - type: Projectile
-    radarRange: 1024
-    radarColor: "#25a0b3"
-    radarSize: 6
-    radarThickness: 4
     damage:
       types:
-        Structural: 1000
+        Piercing: 400
+        Structural: 400
+        Heat: 400
+        Shock: 400
     deleteOnCollide: false
   - type: RandomWalk
     minSpeed: 20

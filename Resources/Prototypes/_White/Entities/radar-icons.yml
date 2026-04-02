@@ -5,7 +5,9 @@
   id: RadarIconPlaceholder
   abstract: true
   components:
+  - type: PVSIgnore
   - type: RadarIcon
+    radarRange: 256
     color: Silver
     scale: 2, 2 # such small size leads to considerable distortions even on very simple shapes, like this cross
     angle: 0
@@ -31,7 +33,9 @@
   id: RadarIconCircledArrow
   abstract: true
   components:
+  - type: PVSIgnore
   - type: RadarIcon
+    radarRange: 256
     color: Orange # default color will be used by every line that doesn't have their own color specified
     scale: 5,5
     angle: 0
@@ -41,9 +45,9 @@
       - 0, 0.75
       color: Red # color override will be used on this line instead of the component's color
     - points:
-      - -0.35, 0.25
-      - 0, 0.75
-      - 0.35, 0.25
+      - -0.35, -0.25
+      - 0, -0.75
+      - 0.35, -0.25
       color: Red
                 # generated via python, code below for reference purposes
     - points:   # print(",\n".join([f"\"{math.sin(a*math.tau/10)*1.2}, {math.cos(a*math.tau/10)*1.2}\"" for a in range(0,11)])) #can be immediately copied into yaml without alterations
@@ -58,8 +62,8 @@
       - -1.1412678195541843, 0.37082039324993665
       - -0.705342302750968, 0.9708203932499367
       - -2.9391523179536476e-16, 1.2
-      noRot: true # to avoid distortions on the circle piece when rotating 
-    
+      noRot: true # to avoid distortions on the circle piece when rotating
+
 
 # shapes that are any more complicated *will* look ugly and warped
 # due to lack of pixel alignment inside navconsole's UI.
@@ -67,7 +71,9 @@
   id: RadarIconWarning
   abstract: true
   components:
+  - type: PVSIgnore
   - type: RadarIcon
+    radarRange: 256
     color: Yellow
     scale: 5, 5
     angle: 0
@@ -98,3 +104,114 @@
       - 0, 3
       - -0.5, 2.5
       offset: 0, 1.1547
+
+# Almagest
+
+- type: entity
+  id: RadarIconBoltIRLaser
+  abstract: true
+  components:
+  - type: PVSIgnore
+  - type: RadarIcon
+    radarRange: 512
+    color: Red
+    scale: 2, 2
+    angle: 0
+    lines:
+    - points:
+      - -1, 0
+      - 0, 3
+      - 1, 0
+      - 0, -0.5
+      - -1, 0
+
+- type: entity
+  id: RadarIconRocketAnnihilator
+  abstract: true
+  components:
+  - type: PVSIgnore
+  - type: RadarIcon
+    radarRange: 512
+    color: Orange
+    scale: 2, 2
+    angle: 0
+    lines:
+    - points:
+      - -1, 0
+      - 0, 1
+      - 1, 0
+      - 0.6, -2
+      - -0.6, -2
+      - -1, 0
+    - points:
+      - 0.6, -2
+      - 1.5, -2.5
+      - 0.88, -0.6
+      - 0.6, -2
+    - points:
+      - -0.6, -2
+      - -1.5, -2.5
+      - -0.88, -0.6
+      - -0.6, -2
+
+- type: entity
+  id: RadarIconBulletHMG
+  abstract: true
+  components:
+  - type: PVSIgnore
+  - type: RadarIcon
+    radarRange: 512
+    color: "#3ca8de"
+    scale: 2.3, 2.3
+    noRot: true
+    lines:
+    - points:
+      - 0.0, 1.2
+      - 0.7053423027509678, 0.9708203932499369
+      - 1.141267819554184, 0.37082039324993693
+      - 1.1412678195541843, -0.3708203932499368
+      - 0.7053423027509679, -0.9708203932499367
+      - 1.4695761589768238e-16, -1.2
+      - -0.7053423027509677, -0.9708203932499371
+      - -1.141267819554184, -0.37082039324993704
+      - -1.1412678195541843, 0.37082039324993665
+      - -0.705342302750968, 0.9708203932499367
+      - -2.9391523179536476e-16, 1.2
+
+- type: entity
+  id: RadarIconBlastRam
+  abstract: true
+  components:
+  - type: PVSIgnore
+  - type: RadarIcon
+    radarRange: 512
+    color: Red
+    scale: 5, 5
+    angle: 0
+    offset: 0, -1.1547
+    lines:
+    - points:
+      - -2, 0
+      - 2,0
+      - 0, 3.464102
+      - -2, 0
+      noRot: true
+    - points:
+      - 0.25, 0.25
+      - 0.25, 0.5
+      - -0.25, 0.5
+      - -0.25, 0.25
+      - 0.25, 0.25
+      noRot: true
+    - points:
+      - 0.25, 0.75
+      - 0.25, 2.75
+      - -0.25, 2.75
+      - -0.25, 0.75
+      - 0.25, 0.75
+      noRot: true
+    #- points:
+      #- 0.5, 2.5
+      #- 0, 3
+      #- -0.5, 2.5
+      #offset: 0, 1.1547

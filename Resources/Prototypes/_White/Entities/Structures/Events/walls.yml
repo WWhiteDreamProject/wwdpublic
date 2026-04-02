@@ -38,6 +38,45 @@
     Blunt: 5
     Heat: 5
 
+# Girder
+- type: entity
+  id: AlmagestGirder
+  parent: Girder
+  name: almagest girder
+  description: "This girder can be used to make 3 types of wall: structural-resistant wall - 1 plasteel, laser-resistant wall - 1 glass, piercing-resistant wall - 1 steel."
+  components:
+  - type: Sprite
+    sprite: Structures/Walls/solid.rsi
+    state: reinforced_wall_girder
+  - type: Construction
+    graph: AlmagestGirder
+    node: almagestGirder
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 2
+            max: 2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+
 # Walls
 - type: entity
   parent: BaseWall
@@ -62,6 +101,9 @@
     damageModifierSet: AlmagestWallStructural
   - type: ExplosionResistance
     damageCoefficient: 0.2
+  - type: Construction
+    graph: AlmagestGirder
+    node: wallAlmagestStructural
   - type: Destructible
     thresholds:
     - trigger:
@@ -84,6 +126,9 @@
   components:
   - type: Damageable
     damageModifierSet: AlmagestWallLaser
+  - type: Construction
+    graph: AlmagestGirder
+    node: wallAlmagestLaser
   - type: Destructible
     thresholds:
     - trigger:
@@ -114,6 +159,9 @@
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: AlmagestWallPiercing
+  - type: Construction
+    graph: AlmagestGirder
+    node: wallAlmagestPiercing
   - type: Destructible
     thresholds:
     - trigger:
@@ -133,36 +181,5 @@
     sprite: Structures/Walls/riveted.rsi
     state: full
   - type: IconSmooth
+    key: walls
     base: riveted
-
-# Red
-- type: entity
-  parent: WallAlmagestStructuralResistant
-  id: WallAlmagestStructuralResistantRed
-  suffix: Red
-
-- type: entity
-  parent: WallAlmagestLaserResistant
-  id: WallAlmagestLaserResistantRed
-  suffix: Red
-
-- type: entity
-  parent: WallAlmagestPiercingResistant
-  id: WallAlmagestPiercingResistantRed
-  suffix: Red
-
-# Blue
-- type: entity
-  parent: WallAlmagestStructuralResistant
-  id: WallAlmagestStructuralResistantBlue
-  suffix: Blue
-
-- type: entity
-  parent: WallAlmagestLaserResistant
-  id: WallAlmagestLaserResistantBlue
-  suffix: Blue
-
-- type: entity
-  parent: WallAlmagestPiercingResistant
-  id: WallAlmagestPiercingResistantBlue
-  suffix: Blue

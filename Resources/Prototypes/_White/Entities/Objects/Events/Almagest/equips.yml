@@ -42,7 +42,16 @@
     jumpsuit: ClothingUniformJumpsuitCaptain
     neck: ClothingNeckCloakCap
     eyes: ClothingEyesGlassesSunglasses
+
+- type: startingGear
+  id: AlmagestCaptainGearRed
+  equipment:
     back: ClothingBackpackAlmagestRedCaptain
+
+- type: startingGear
+  id: AlmagestCaptainGearBlue
+  equipment:
+    back: ClothingBackpackAlmagestBlueCaptain
 
 # Marine
 - type: startingGear
@@ -51,7 +60,16 @@
     jumpsuit: ClothingUniformJumpsuitSec
     neck: ClothingNeckMantleHOS
     shoes: ClothingShoesBootsMagEng
+
+- type: startingGear
+  id: AlmagestMarineGearRed
+  equipment:
     back: ClothingBackpackAlmagestRedMarine
+
+- type: startingGear
+  id: AlmagestMarineGearBlue
+  equipment:
+    back: ClothingBackpackAlmagestBlueMarine
 
 # Engineer
 - type: startingGear
@@ -64,7 +82,16 @@
     gloves: ClothingHandsGlovesColorYellow
     eyes: ClothingEyesGlassesMeson
     shoes: ClothingShoesBootsMagAdv
+
+- type: startingGear
+  id: AlmagestEngineerGearRed
+  equipment:
     back: ClothingBackpackAlmagestRedEngineer
+
+- type: startingGear
+  id: AlmagestEngineerGearBlue
+  equipment:
+    back: ClothingBackpackAlmagestBlueEngineer
 
 # Demoman
 - type: startingGear
@@ -73,7 +100,16 @@
     jumpsuit: ClothingUniformJumpsuitTacticool
     neck: ClothingNeckMantleRD
     eyes: ClothingEyesEyepatchHudBeer
+
+- type: startingGear
+  id: AlmagestDemomanGearRed
+  equipment:
     back: ClothingBackpackAlmagestRedDemoman
+
+- type: startingGear
+  id: AlmagestDemomanGearBlue
+  equipment:
+    back: ClothingBackpackAlmagestBlueDemoman
 
 # Medic
 - type: startingGear
@@ -85,7 +121,16 @@
     eyes: ClothingEyesHudMedical
     gloves: ClothingHandsGlovesNitrile
     mask: ClothingMaskBreathMedical
+
+- type: startingGear
+  id: AlmagestMedicGearRed
+  equipment:
     back: ClothingBackpackAlmagestRedMedic
+
+- type: startingGear
+  id: AlmagestMedicGearBlue
+  equipment:
+    back: ClothingBackpackAlmagestBlueMedic
 
 # Equip Red
 - type: entity
@@ -132,6 +177,7 @@
     startingGears:
     - AlmagestRedBaseGear
     - AlmagestCaptainGear
+    - AlmagestCaptainGearRed
 
 - type: entity
   name: red marine equipment
@@ -152,6 +198,7 @@
     startingGears:
     - AlmagestRedBaseGear
     - AlmagestMarineGear
+    - AlmagestMarineGearRed
 
 - type: entity
   name: red engineer equipment
@@ -171,6 +218,7 @@
     startingGears:
     - AlmagestRedBaseGear
     - AlmagestEngineerGear
+    - AlmagestEngineerGearRed
 
 - type: entity
   name: red demoman equipment
@@ -191,6 +239,7 @@
     startingGears:
     - AlmagestRedBaseGear
     - AlmagestDemomanGear
+    - AlmagestDemomanGearRed
 
 - type: entity
   name: red medic equipment
@@ -211,6 +260,7 @@
     startingGears:
     - AlmagestRedBaseGear
     - AlmagestMedicGear
+    - AlmagestMedicGearRed
 
 # Equip Blue
 - type: entity
@@ -257,6 +307,7 @@
     startingGears:
     - AlmagestBlueBaseGear
     - AlmagestCaptainGear
+    - AlmagestCaptainGearBlue
 
 - type: entity
   name: blue marine equipment
@@ -277,6 +328,7 @@
     startingGears:
     - AlmagestBlueBaseGear
     - AlmagestMarineGear
+    - AlmagestMarineGearBlue
 
 - type: entity
   name: blue engineer equipment
@@ -297,6 +349,7 @@
     startingGears:
     - AlmagestBlueBaseGear
     - AlmagestEngineerGear
+    - AlmagestEngineerGearBlue
 
 - type: entity
   name: blue demoman equipment
@@ -317,6 +370,7 @@
     startingGears:
     - AlmagestBlueBaseGear
     - AlmagestDemomanGear
+    - AlmagestDemomanGearBlue
 
 - type: entity
   name: blue medic equipment
@@ -337,3 +391,4 @@
     startingGears:
     - AlmagestBlueBaseGear
     - AlmagestMedicGear
+    - AlmagestMedicGearBlue
