@@ -69,7 +69,7 @@
   - type: Perishable
   - type: TemperatureProtection # WWDP
     heatingCoefficient: 1
-    coolingCoefficient: 0.001
+    coolingCoefficient: 0.85
 
 - type: entity
   parent:
