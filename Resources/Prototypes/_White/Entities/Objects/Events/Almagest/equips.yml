@@ -42,6 +42,7 @@
     jumpsuit: ClothingUniformJumpsuitCaptain
     neck: ClothingNeckCloakCap
     eyes: ClothingEyesGlassesSunglasses
+    pocket1: AlmagestGrenadeCaptain
 
 - type: startingGear
   id: AlmagestCaptainGearRed
@@ -60,6 +61,7 @@
     jumpsuit: ClothingUniformJumpsuitSec
     neck: ClothingNeckMantleHOS
     shoes: ClothingShoesBootsMagEng
+    pocket1: AlmagestGrenadeMarine
 
 - type: startingGear
   id: AlmagestMarineGearRed
@@ -82,6 +84,7 @@
     gloves: ClothingHandsGlovesColorYellow
     eyes: ClothingEyesGlassesMeson
     shoes: ClothingShoesBootsMagAdv
+    pocket1: AlmagestGrenadeEngineer
 
 - type: startingGear
   id: AlmagestEngineerGearRed
@@ -100,6 +103,7 @@
     jumpsuit: ClothingUniformJumpsuitTacticool
     neck: ClothingNeckMantleRD
     eyes: ClothingEyesEyepatchHudBeer
+    pocket1: AlmagestGrenadeDemoman
 
 - type: startingGear
   id: AlmagestDemomanGearRed
@@ -121,6 +125,7 @@
     eyes: ClothingEyesHudMedical
     gloves: ClothingHandsGlovesNitrile
     mask: ClothingMaskBreathMedical
+    pocket1: AlmagestGrenadeMedic
 
 - type: startingGear
   id: AlmagestMedicGearRed

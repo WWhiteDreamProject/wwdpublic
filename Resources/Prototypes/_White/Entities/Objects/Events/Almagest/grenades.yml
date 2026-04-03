@@ -1,7 +1,491 @@
-#Medic
+# Captain
 - type: entity
-  id: AlmagestGrenadeMedic1
-  name: "40mm blast grenade"
+  id: AlmagestGrenadeCaptain
+  name: captain grenade
+  parent: BaseItem
+  components:
+  - type: Tag
+    tags:
+    - MortarGrenade
+  - type: CartridgeAmmo
+    proto: BulletAlmagestGrenadeCaptain
+    deleteOnSpawn: true
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+    color: "#3c74cf"
+    layers:
+    - state: blast
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+    state: blast
+    suffix: false
+
+- type: entity
+  parent: [BaseMeteor, RadarIconWarning]
+  id: BulletAlmagestGrenadeCaptain
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RadarIcon
+    radarRange: 512
+    color: "#668fd1"
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+    layers:
+    - state: blast
+  - type: Projectile
+    penetrate: true
+    noPenetrateMask: 0
+    maxPenetrations: 5
+    damage:
+      types:
+        Piercing: 400
+        Structural: 400
+        Heat: 400
+        Shock: 800
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 150
+    intensitySlope: 5
+    maxIntensity: 10
+  - type: ProjectileGrenade
+    fillPrototype: PelletAlmagestGrenadeCaptain
+    capacity: 5
+    minVelocity: 3
+    maxVelocity: 15
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 2550
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:ExplodeBehavior
+      - !type:TriggerBehavior
+
+- type: entity
+  parent: [BaseBullet, RadarIconWarning]
+  id: PelletAlmagestGrenadeCaptain
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    penetrate: true
+    noPenetrateMask: 0
+    damage:
+      types:
+        Piercing: 0
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/singularitygrenade.rsi
+    layers:
+    - state: primed
+      shader: unshaded
+  - type: ActiveTimerTrigger
+    timeRemaining: 0.3
+  - type: TimerTriggerVisuals
+    primingSound:
+      path: /Audio/Effects/Grenades/Supermatter/smbeep.ogg
+      params:
+        volume: -5
+  - type: SoundOnTrigger
+    removeOnTrigger: true
+    sound:
+      path: /Audio/Effects/Grenades/Supermatter/supermatter_start.ogg
+      volume: 5
+  - type: AnchorOnTrigger
+    removeOnTrigger: true
+  - type: TwoStageTrigger
+    triggerDelay: 10
+    components:
+    - type: TimedDespawn
+      lifetime: 11
+    - type: AmbientSound
+      enabled: true
+      volume: -5
+      range: 14
+      sound:
+        path: /Audio/Effects/Grenades/Supermatter/supermatter_loop.ogg
+    - type: EmpOnTrigger
+      range: 5
+      energyConsumption: 500
+      disableDuration: 10
+    - type: ProjectileGrenade
+      fillPrototype: PelletAlmagestGrenadeMarine
+      capacity: 15
+      minVelocity: 10
+      maxVelocity: 15
+    - type: GravityWell
+      maxRange: 8
+      baseRadialAcceleration: 6
+      baseTangentialAcceleration: 4
+      gravPulsePeriod: 0.03
+    - type: SingularityDistortion
+      intensity: 150
+      falloffPower: 1.5
+    - type: PointLight
+      enabled: true
+      color: "#ffaa44"
+      energy: 8
+      radius: 6
+      softness: 1
+      offset: "0, 0"
+    - type: SoundOnTrigger
+      sound:
+        path: /Audio/Effects/Grenades/Supermatter/supermatter_end.ogg
+        params:
+          volume: 5
+    - type: DeleteOnTrigger
+
+# Marine
+- type: entity
+  id: AlmagestGrenadeMarine
+  name: marine grenade
+  parent: BaseItem
+  components:
+  - type: Tag
+    tags:
+    - MortarGrenade
+  - type: CartridgeAmmo
+    proto: BulletAlmagestGrenadeMarine
+    deleteOnSpawn: true
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+    color: Orange
+    layers:
+    - state: blast
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+    state: blast
+    suffix: false
+
+- type: entity
+  parent: [BaseMeteor, RadarIconWarning]
+  id: BulletAlmagestGrenadeMarine
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RadarIcon
+    radarRange: 512
+    color: Red
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+    layers:
+    - state: blast
+  - type: Projectile
+    penetrate: true
+    noPenetrateMask: 0
+    maxPenetrations: 5
+    damage:
+      types:
+        Piercing: 400
+        Structural: 400
+        Heat: 400
+        Shock: 800
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 150
+    intensitySlope: 5
+    maxIntensity: 10
+  - type: ProjectileGrenade
+    fillPrototype: PelletAlmagestGrenadeMarine
+    capacity: 35
+    minVelocity: 7
+    maxVelocity: 15
+  - type: EmpOnTrigger
+    range: 5
+    energyConsumption: 200
+    disableDuration: 5
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 2550
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:ExplodeBehavior
+      - !type:TriggerBehavior
+
+- type: entity
+  id: PelletAlmagestGrenadeMarine
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Reflective
+    reflective:
+    - NonEnergy
+  - type: Projectile
+    penetrate: true
+    noPenetrateMask: 0
+    damage:
+      types:
+        Piercing: 10
+        Structural: -15
+        Poison: 30
+  - type: TimedDespawn
+    lifetime: 10
+
+# Engineer
+- type: entity
+  id: AlmagestGrenadeEngineer
+  name: engineer grenade
+  parent: BaseItem
+  components:
+  - type: Tag
+    tags:
+    - MortarGrenade
+  - type: CartridgeAmmo
+    proto: BulletAlmagestGrenadeEngineer
+    deleteOnSpawn: true
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+    color: Yellow
+    layers:
+    - state: blast
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+    state: blast
+    suffix: false
+
+- type: entity
+  parent: [BaseMeteor, RadarIconWarning]
+  id: BulletAlmagestGrenadeEngineer
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RadarIcon
+    radarRange: 512
+    color: Yellow
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+    layers:
+    - state: blast
+  - type: Projectile
+    penetrate: true
+    noPenetrateMask: 0
+    maxPenetrations: 5
+    damage:
+      types:
+        Piercing: 400
+        Structural: 400
+        Heat: 400
+        Shock: 800
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 150
+    intensitySlope: 5
+    maxIntensity: 10
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 2550
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:ExplodeBehavior
+      - !type:WeightedSpawnEntityBehavior
+        weightedEntityTable: "AlmagestGrenadeEngineerTable"
+        spawnOffset: 3
+        minSpawn: 7
+        maxSpawn: 10
+        spawnAfter: 0.5
+
+- type: entity
+  id: AlmagestGrenadeEngineerSpawner
+  parent: MarkerBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: AlmagestGrenadeEngineerSpawnerTable
+
+- type: entityTable
+  id: AlmagestGrenadeEngineerSpawnerTable
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector
+      weight: 2
+      children:
+      - id: WeaponTurretSyndicateBroken
+    - !type:GroupSelector
+      weight: 1
+      children:
+      - id: WeaponTurretShipLight
+    - !type:GroupSelector
+      weight: 8
+      children:
+      - id: WeaponTurretHostile
+
+- type: weightedRandomEntity
+  id: AlmagestGrenadeEngineerTable
+  weights:
+    AlmagestGrenadeEngineerSpawner: 1
+
+# Demoman
+- type: entity
+  id: AlmagestGrenadeDemoman
+  name: demoman grenade
+  parent: BaseItem
+  components:
+  - type: Tag
+    tags:
+    - MortarGrenade
+  - type: CartridgeAmmo
+    proto: BulletAlmagestGrenadeDemoman
+    deleteOnSpawn: true
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+    color: "#bd59d9"
+    layers:
+    - state: blast
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+    state: blast
+    suffix: false
+
+- type: entity
+  parent: [BaseMeteor, RadarIconWarning]
+  id: BulletAlmagestGrenadeDemoman
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RadarIcon
+    radarRange: 512
+    color: "#bd59d9"
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+    layers:
+    - state: blast
+  - type: Projectile
+    penetrate: true
+    noPenetrateMask: 0
+    maxPenetrations: 5
+    damage:
+      types:
+        Piercing: 400
+        Structural: 400
+        Heat: 400
+        Shock: 800
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 150
+    intensitySlope: 5
+    maxIntensity: 10
+  - type: ProjectileGrenade
+    fillPrototype: PelletAlmagestGrenadeDemoman
+    capacity: 3
+    minVelocity: 1
+    maxVelocity: 3
+  - type: EmpOnTrigger
+    range: 5
+    energyConsumption: 200
+    disableDuration: 5
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 2550
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:ExplodeBehavior
+      - !type:TriggerBehavior
+
+- type: entity
+  parent: [BaseBullet, RadarIconWarning]
+  id: PelletAlmagestGrenadeDemoman
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    penetrate: true
+    noPenetrateMask: 0
+    damage:
+      types:
+        Piercing: 0
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/singularitygrenade.rsi
+    layers:
+    - state: primed
+      shader: unshaded
+  - type: ActiveTimerTrigger
+    timeRemaining: 0.3
+  - type: TimerTriggerVisuals
+    primingSound:
+      path: /Audio/Effects/Grenades/Supermatter/smbeep.ogg
+      params:
+        volume: -5
+  - type: SoundOnTrigger
+    removeOnTrigger: true
+    sound:
+      path: /Audio/Effects/Grenades/Supermatter/supermatter_start.ogg
+      volume: 5
+  - type: AnchorOnTrigger
+    removeOnTrigger: true
+  - type: TwoStageTrigger
+    triggerDelay: 10
+    components:
+    - type: TimedDespawn
+      lifetime: 11
+    - type: AmbientSound
+      enabled: true
+      volume: -5
+      range: 14
+      sound:
+        path: /Audio/Effects/Grenades/Supermatter/supermatter_loop.ogg
+    - type: EmpOnTrigger
+      range: 5
+      energyConsumption: 300
+      disableDuration: 5
+    - type: GravityWell
+      maxRange: 12
+      baseRadialAcceleration: 12
+      baseTangentialAcceleration: 4
+      gravPulsePeriod: 0.03
+    - type: RadiationSource
+      intensity: 40
+      slope: 10
+    - type: SingularityDistortion
+      intensity: 150
+      falloffPower: 1.5
+    - type: PointLight
+      enabled: true
+      color: "#ffaa44"
+      energy: 8
+      radius: 6
+      softness: 1
+      offset: "0, 0"
+    - type: SoundOnTrigger
+      sound:
+        path: /Audio/Effects/Grenades/Supermatter/supermatter_end.ogg
+        params:
+          volume: 5
+    - type: DeleteOnTrigger
+
+# Medic
+- type: entity
+  id: AlmagestGrenadeMedic
+  name: medic grenade
   parent: BaseItem
   components:
     - type: Tag
@@ -14,6 +498,7 @@
       size: Small
     - type: Sprite
       sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
+      color: Cyan
       layers:
         - state: blast
           map: ["enum.AmmoVisualLayers.Base"]
@@ -23,17 +508,13 @@
       suffix: false
 
 - type: entity
-  id: MagazineGrenadeMortarMedic
-  name: mortar medic grenade cartridge
-  parent: BaseMagazineGrenade
-  components:
-    - type: BallisticAmmoProvider
-      proto: AlmagestGrenadeMedic1
-
-- type: entity
-  parent: BaseMeteor
+  parent: [BaseMeteor, RadarIconWarning]
   id: BulletAlmagestGrenadeMedic
+  categories: [ HideSpawnMenu ]
   components:
+    - type: RadarIcon
+      radarRange: 512
+      color: Cyan
     - type: Sprite
       sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
       layers:
@@ -44,8 +525,10 @@
       maxPenetrations: 5
       damage:
         types:
-          Blunt: 80
-          Structural: 1000
+          Piercing: 400
+          Structural: 400
+          Heat: 400
+          Shock: 800
     - type: Explosive
       explosionType: Cryo
       totalIntensity: 50
@@ -58,7 +541,7 @@
       thresholds:
       - trigger:
           !type:DamageTrigger
-          damage: 4500
+          damage: 2550
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
@@ -70,14 +553,14 @@
           - !type:WeightedSpawnEntityBehavior
             weightedEntityTable: "AlmagestGrenadeMedicTable"
             spawnOffset: 5
-            minSpawn: 60
+            minSpawn: 50
             maxSpawn: 75
             spawnAfter: 0.5
 
 - type: entity
-  name: random altar spawner
   id: AlmagestGrenadeMedicSpawner
   parent: MarkerBase
+  categories: [ HideSpawnMenu ]
   components:
   - type: EntityTableSpawner
     offset: 0.2

@@ -141,7 +141,7 @@
     reflectProb: 0.75
     reflects:
     - Energy
-    spread: 5
+    spread: 35
     soundOnReflect: /Audio/Weapons/Guns/Hits/laser_sear_wall.ogg
   - type: Sprite
     sprite: Structures/Walls/shuttle.rsi
@@ -174,7 +174,7 @@
     reflectProb: 0.5
     reflects:
     - NonEnergy
-    spread: 5
+    spread: 35
   - type: Sprite
     sprite: Structures/Walls/riveted.rsi
   - type: Icon

@@ -59,7 +59,6 @@
 - type: stack
   id: AlmagestGirderFlatpack
   name: almagest girder flatpack
-  icon: { sprite: Objects/Misc/solar_assembly.rsi, state: solar-assembly-part }
   spawn: AlmagestGirderFlatpack
   maxCount: 30
 
@@ -145,21 +144,18 @@
 - type: stack
   id: WallAlmagestStructuralResistantFlatpack
   name: almagest girder flatpack
-  icon: { sprite: Objects/Misc/solar_assembly.rsi, state: grounding-rod }
   spawn: WallAlmagestStructuralResistantFlatpack
   maxCount: 30
 
 - type: stack
   id: WallAlmagestLaserResistantFlatpack
   name: almagest girder flatpack
-  icon: { sprite: Objects/Misc/solar_assembly.rsi, state: tesla-coil }
   spawn: WallAlmagestLaserResistantFlatpack
   maxCount: 30
 
 - type: stack
   id: WallAlmagestPiercingResistantFlatpack
   name: almagest girder flatpack
-  icon: { sprite: Objects/Misc/solar_assembly.rsi, state: tesla-generator }
   spawn: WallAlmagestPiercingResistantFlatpack
   maxCount: 30
 
