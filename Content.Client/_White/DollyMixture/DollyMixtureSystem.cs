@@ -155,23 +155,15 @@ public sealed class DollyMixtureSystem : SharedDollyMixtureSystem
         var RSI = RSIres.RSI;
 
         ShaderInstance voxelShader;
-        ShaderInstance voxelEmissiveShader;
 
-        // caching shaders would probably make more sense
-        // i don't want to bother with that, since 95% of models
-        // will use default spacing
-        // TODO: consider removing the ability to specify layer height altogether
         if(comp.LayerHeight != DefaultHeight)
         {
             voxelShader = _voxelProto.InstanceUnique();
             voxelShader.SetParameter("height", comp.LayerHeight);
-            voxelEmissiveShader = _voxelProtoEmissive.InstanceUnique();
-            voxelEmissiveShader.SetParameter("height", comp.LayerHeight);
         }
         else
         {
             voxelShader = _voxelDefaultShader;
-            voxelEmissiveShader = _voxelEmissiveDefaultShader;
         }
 
         int i = 1;
@@ -191,6 +183,9 @@ public sealed class DollyMixtureSystem : SharedDollyMixtureSystem
 
             if (RSI.TryGetState($"{comp.StatePrefix}{i}-unshaded", out var unshadedState))
             {
+                var voxelEmissiveShader = _voxelProtoEmissive.InstanceUnique();
+                voxelEmissiveShader.SetParameter("height", comp.LayerHeight);
+
                 int unshadedLayerIndex = sprite.AddBlankLayer();
                 sprite.LayerSetRSI(unshadedLayerIndex, RSI);
                 sprite.LayerSetState(unshadedLayerIndex, unshadedState.StateId);
