@@ -69,7 +69,7 @@
   - type: Perishable
   - type: TemperatureProtection # WWDP
     heatingCoefficient: 1
-    coolingCoefficient: 0.85
+    coolingCoefficient: 0 # WWDP EDIT
 
 - type: entity
   parent:
@@ -117,3 +117,8 @@
     price: 150
   - type: FloatingVisuals
   - type: Speech
+  # WWDP EDIT START
+  - type: TemperatureProtection # WWDP
+    heatingCoefficient: 1
+    coolingCoefficient: 0.85 # WWDP EDIT
+  # WWDP EDIT END
