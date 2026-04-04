@@ -275,7 +275,7 @@ namespace Content.Server.Chemistry.EntitySystems
             // WD EDIT START
             var possibleContainer = _itemSlotsSystem.GetItemOrNull(chemMaster, SharedChemMaster.OutputSlotName);
 
-            if (container == EntityUid.Invalid || !_solutionContainerSystem.TryGetSolution(container, SharedChemMaster.BottleSolutionName, out var soln, out var solution))
+            if (possibleContainer is not { Valid: true } container || !_solutionContainerSystem.TryGetSolution(container, SharedChemMaster.BottleSolutionName, out var soln, out var solution))
             {
                 _popupSystem.PopupCursor(Loc.GetString("chem-master-window-buffer-empty-text"), user);
                 return; // output can't fit reagents
