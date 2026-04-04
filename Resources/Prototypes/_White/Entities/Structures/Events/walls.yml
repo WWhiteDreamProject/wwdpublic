@@ -91,6 +91,8 @@
   - type: IconSmooth
     key: walls
   - type: Appearance
+  - type: StaticPrice
+    price: 250
 
 - type: entity
   parent: WallAlmagestBase
