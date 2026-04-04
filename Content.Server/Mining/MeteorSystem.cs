@@ -1,6 +1,6 @@
 using Content.Server.Administration.Logs;
 using Content.Server.Destructible;
-using Content.Server.Projectiles; // WWDP edit
+using Content.Server.Projectiles;
 using Content.Shared.Damage;
 using Content.Shared.Database;
 using Content.Shared.FixedPoint;
