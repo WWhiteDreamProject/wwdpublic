@@ -45,9 +45,9 @@
       - 0, 0.75
       color: Red # color override will be used on this line instead of the component's color
     - points:
-      - -0.35, -0.25
-      - 0, -0.75
-      - 0.35, -0.25
+      - -0.35, 0.25 # Fix this shitsystem of guns. All projectiles fly backwards
+      - 0, 0.75
+      - 0.35, 0.25
       color: Red
                 # generated via python, code below for reference purposes
     - points:   # print(",\n".join([f"\"{math.sin(a*math.tau/10)*1.2}, {math.cos(a*math.tau/10)*1.2}\"" for a in range(0,11)])) #can be immediately copied into yaml without alterations
