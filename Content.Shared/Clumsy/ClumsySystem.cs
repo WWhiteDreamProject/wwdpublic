@@ -84,8 +84,10 @@ public sealed class ClumsySystem : EntitySystem
 
     private void OnBeforeClimbEvent(Entity<ClumsyComponent> ent, ref SelfBeforeClimbEvent args)
     {
+        // WD EDIT START
         if (_mobState.IsDead(ent.Owner))
             return;
+        // WD EDIT END
 
         // This event is called in shared, thats why it has all the extra prediction stuff.
         var rand = new System.Random((int)_timing.CurTick.Value);
