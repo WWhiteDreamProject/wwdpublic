@@ -94,8 +94,6 @@
       right:
       - state: syn_inhand-right
     size: Normal
-  # - type: Prying # WWDP EDIT
-  #   speedModifier: 3.0 # WWDP EDIT 
   - type: MultipleTool
     entries:
       - behavior: Prying
