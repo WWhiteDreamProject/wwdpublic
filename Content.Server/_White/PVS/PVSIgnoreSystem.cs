@@ -9,6 +9,7 @@ public sealed class PVSIgnoreSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
+
         SubscribeLocalEvent<PVSIgnoreComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<PVSIgnoreComponent, ComponentShutdown>(OnShutdown);
     }
