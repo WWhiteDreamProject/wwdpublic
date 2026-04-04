@@ -122,28 +122,8 @@ public sealed class ProjectileSystem : SharedProjectileSystem
                 && component.IgnoredEntities.Count < component.MaxPenetrations
                 && (component.PenetrationChance >= 1.0f
                     || _random.Prob(component.PenetrationChance)))
-            {
-                // Проверка шанса пенетрации
-                if (component.PenetrationChance >= 1.0f || _random.NextFloat() <= component.PenetrationChance)
-                {
-                    // WWDP edit start - Check penetration limit
-                    if (component.MaxPenetrations > 0 && component.IgnoredEntities.Count >= component.MaxPenetrations)
-                    {
-                        component.ProjectileSpent = true;
-                    }
-                    else
-                    {
-                        component.IgnoredEntities.Add(target);
-                    }
-                    // WWDP edit end
-                }
-                else
-                {
-                    component.ProjectileSpent = true;
-                }
-            }
-            else
-            {
+                component.IgnoredEntities.Add(target);
+else
                 component.ProjectileSpent = true;
             }
             // Goobstation end
