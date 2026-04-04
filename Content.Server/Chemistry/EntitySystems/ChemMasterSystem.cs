@@ -302,7 +302,6 @@ namespace Content.Server.Chemistry.EntitySystems
 
             UpdateUiState(chemMaster);
             ClickSound(chemMaster);
-            //_audioSystem.PlayPvs(new SoundPathSpecifier("/Audio/Effects/pill_insert.ogg"), chemMaster, AudioParams.Default.WithVolume(-2f));
         }
 
         private bool WithdrawFromBuffer(
