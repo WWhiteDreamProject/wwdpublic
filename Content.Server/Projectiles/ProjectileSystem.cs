@@ -14,7 +14,7 @@ using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
-using Robust.Shared.Random; // WWDP edit
+using Robust.Shared.Random;
 
 namespace Content.Server.Projectiles;
 
