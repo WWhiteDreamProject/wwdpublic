@@ -272,7 +272,7 @@ namespace Content.Server.Chemistry.EntitySystems
         private void OnOutputToBottleMessage(Entity<ChemMasterComponent> chemMaster, ref ChemMasterOutputToBottleMessage message)
         {
             var user = message.Actor;
-            // WWDP EDIT START
+            // WD EDIT START
             var container = _itemSlotsSystem.GetItemOrNull(chemMaster, SharedChemMaster.OutputSlotName) ?? EntityUid.Invalid;
 
             if (container == EntityUid.Invalid || !_solutionContainerSystem.TryGetSolution(container, SharedChemMaster.BottleSolutionName, out var soln, out var solution))
