@@ -23,9 +23,9 @@ public sealed class ClumsySystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
+[Dependency] private readonly IGameTiming _timing = default!;
+[Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!; // WD EDIT
 
     public override void Initialize()
     {
