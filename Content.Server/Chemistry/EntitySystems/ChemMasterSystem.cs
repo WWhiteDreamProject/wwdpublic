@@ -273,7 +273,7 @@ namespace Content.Server.Chemistry.EntitySystems
         {
             var user = message.Actor;
             // WD EDIT START
-            var container = _itemSlotsSystem.GetItemOrNull(chemMaster, SharedChemMaster.OutputSlotName) ?? EntityUid.Invalid;
+            var possibleContainer = _itemSlotsSystem.GetItemOrNull(chemMaster, SharedChemMaster.OutputSlotName);
 
             if (container == EntityUid.Invalid || !_solutionContainerSystem.TryGetSolution(container, SharedChemMaster.BottleSolutionName, out var soln, out var solution))
             {
