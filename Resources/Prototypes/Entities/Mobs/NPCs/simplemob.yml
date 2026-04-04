@@ -117,8 +117,8 @@
     price: 150
   - type: FloatingVisuals
   - type: Speech
-  # WWDP EDIT START
-  - type: TemperatureProtection # WWDP
+  # WD EDIT START
+  - type: TemperatureProtection
     heatingCoefficient: 1
-    coolingCoefficient: 0.85 # WWDP EDIT
-  # WWDP EDIT END
+    coolingCoefficient: 0.85
+  # WD EDIT END
