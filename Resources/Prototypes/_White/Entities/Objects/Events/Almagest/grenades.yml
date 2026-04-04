@@ -122,9 +122,9 @@
       capacity: 15
       minVelocity: 10
       maxVelocity: 15
-  - type: ContainerContainer
-    containers:
-      cluster-payload: !type:Container
+    - type: ContainerContainer
+      containers:
+        cluster-payload: !type:Container
     - type: GravityWell
       maxRange: 8
       baseRadialAcceleration: 6
