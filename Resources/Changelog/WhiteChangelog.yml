@@ -5202,3 +5202,12 @@ Entries:
   id: 546
   time: '2026-03-31T09:57:50.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1096
+- author: Pedro-233
+  changes:
+    - type: Add
+      message: Добавлены старые текстуры в радиалах РЦД
+    - type: Remove
+      message: Удалены старые текстуры в радиалах РЦД
+  id: 547
+  time: '2026-04-04T12:50:03.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1098
