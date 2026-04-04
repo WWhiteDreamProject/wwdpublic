@@ -35,7 +35,6 @@ public sealed partial class RadarIconComponent : Component
 
     /// <summary>
     /// Rotates the entire icon clockwise.
-    /// The part that rotates with the entity *also* gets rotated, keep it in mind.
     /// </summary>
     [DataField, AutoNetworkedField, Animatable]
     public Angle Angle { get; set; } = Angle.Zero;
@@ -47,7 +46,7 @@ public sealed partial class RadarIconComponent : Component
     public Vector2 Offset { get; set; } = Vector2.Zero;
 
     /// <summary>
-    /// Icon scale.
+    /// Scales the entire icon.
     /// </summary>
     [DataField, AutoNetworkedField, Animatable]
     public Vector2 Scale { get; set; } = Vector2.One;
@@ -57,6 +56,13 @@ public sealed partial class RadarIconComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField, Animatable]
     public bool ShowOnGrid { get; set; } = false;
+
+    /// <summary>
+    /// If true, the icon size will be affected by radar zoom. If false, the icon will stay constant size. 
+    /// </summary>
+
+    [DataField, Animatable]
+    public bool RealScale { get; set; } = false;
 
 }
 
@@ -70,19 +76,19 @@ public sealed partial class RadarIconLineDefinition
     public List<Vector2> Points = new();
 
     /// <summary>
-    /// Translation applied to all points before rotation.
+    /// Offset that is applied to this line.
     /// </summary>
     [DataField, Animatable]
     public Vector2 Offset { get; set; } = Vector2.Zero;
 
     /// <summary>
-    /// Rotation applied to all points after translation.
+    /// Rotation applied to this line.
     /// </summary>
     [DataField, Animatable]
     public Angle Angle { get; set; } = Angle.Zero;
 
     /// <summary>
-    /// All points are multiplied by this in as well as the component scale value.
+    /// Scaling applied to this line (before this line's offset)
     /// </summary>
     [DataField, Animatable]
     public Vector2 Scale { get; set; } = Vector2.One;
@@ -90,12 +96,65 @@ public sealed partial class RadarIconLineDefinition
     /// <summary>
     /// If false, the line will follow the entity rotation.
     /// </summary>
-    [DataField, Animatable]
-    public bool NoRot { get; set; } = false;
+    [DataField("noRot"), Animatable]
+    public bool NoRotation { get; set; } = false;
 
     /// <summary>
     /// Line color. If null, will use the component color.
     /// </summary>
     [DataField, Animatable]
     public Color? Color { get; set; } = null;
+
+    /// <summary>
+    /// How the points will be drawn.
+    /// Default is LineStrip.
+    /// </summary>
+    [DataField]
+    public DrawModeEnum DrawMode = DrawModeEnum.LineStrip;
+
+
+    /// <summary>
+    /// These match DrawPrimitiveTopology enum from Robust.Client.Graphics, which, in turn, match OpenGL primitive rendering modes.
+    /// See  https://wikis.khronos.org/opengl/Primitive or <see href="https://www.khronos.org/registry/vulkan/specs/1.2-extensions/html/vkspec.html#drawing-point-lists">Vulkan's documentation</see>
+    /// Relevant citations from the first page page are also provided in each value summary.
+    /// </summary>
+    public enum DrawModeEnum : byte
+    {
+        /// <summary>
+        /// Doesn't seem to be relevant in context of SS14.
+        /// </summary>
+        PointList,
+        /// <summary>
+        /// Vertices 0, 1, and 2 form a triangle. Vertices 3, 4, and 5 form a triangle. And so on.
+        /// </summary>
+        TriangleList,
+        /// <summary>
+        /// The first vertex is always held fixed. From there on, every group of 2 adjacent vertices
+        /// form a triangle with the first. So with a vertex stream, you get a list of triangles
+        /// like so: (0, 1, 2) (0, 2, 3), (0, 3, 4), etc. A vertex stream of n length will generate n-2 triangles.
+        /// </summary>
+        TriangleFan,
+        /// <summary>
+        /// Every group of 3 adjacent vertices forms a triangle.
+        /// A vertex stream of n length will generate n-2 triangles.
+        /// </summary>
+        TriangleStrip,
+        /// <summary>
+        /// Vertices 0 and 1 are considered a line. Vertices 2 and 3 are considered a line. And so on.
+        /// If the user specifies a non-even number of vertices, then the extra vertex is ignored.
+        /// </summary>
+        LineList,
+        /// <summary>
+        /// The adjacent vertices are considered lines. Thus, if you pass n vertices, you will get n-1 lines.
+        /// If the user only specifies 1 vertex, the drawing command is ignored.
+        /// </summary>
+        LineStrip,
+        /// <summary>
+        /// As line strips, except that the first and last vertices are also used as a line.
+        /// Thus, you get n lines for n input vertices. If the user only specifies 1 vertex,
+        /// the drawing command is ignored. The line between the first and last vertices happens
+        /// after all of the previous lines in the sequence.
+        /// </summary>
+        LineLoop
+    }
 }

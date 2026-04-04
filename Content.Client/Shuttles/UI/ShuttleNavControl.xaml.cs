@@ -172,6 +172,7 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
         var shuttleToWorld = Matrix3x2.Multiply(posMatrix, ourEntMatrix);
         Matrix3x2.Invert(shuttleToWorld, out var worldToShuttle);
         var shuttleToView = Matrix3x2.CreateScale(new Vector2(MinimapScale, -MinimapScale)) * Matrix3x2.CreateTranslation(MidPointVector);
+        var worldToView = worldToShuttle * shuttleToView; // WWDP EDIT
 
         // Draw our grid in detail
         var ourGridId = xform.GridUid;
@@ -344,7 +345,7 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
         // WD EDIT START
         var multiply = Matrix3x2.Multiply(worldToShuttle, Matrix3x2.CreateScale(new Vector2(1, -1)));
         var entities = _lookup.GetEntitiesInRange<RadarIconComponent>(_coordinates.Value, MaxRadarRange);
-        var projectileVertsByColor = new Dictionary<Color, List<Vector2>>();
+        var primitives = new Dictionary<(RadarIconLineDefinition.DrawModeEnum, Color), List<List<Vector2>>>();
 
         foreach (var entity in entities)
         {
@@ -358,38 +359,52 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
             var entityPosition = _transform.GetWorldPosition(entity);
             if (entity.Comp.RadarRange > 0 && (entityPosition - worldPosition).Length() > entity.Comp.RadarRange)
                 continue;
-
-            var pos = ScalePosition(Vector2.Transform(entityPosition, multiply));
-
-            var iconAngle = entity.Comp.Angle;
-            var iconAngleRotated = iconAngle + ourEntRot - _transform.GetWorldRotation(entity);
-
-            var scale = entity.Comp.Scale;
-
+            
+            var curEntToWorld = _transform.GetWorldMatrix(entity);
+            var curEntToWorldNoRot = Matrix3Helpers.CreateTranslation(entityPosition);
+            var curEntToView = curEntToWorld * worldToView;
+            var curEntToViewNoRot = curEntToWorldNoRot * worldToView;
             foreach (var line in entity.Comp.Lines)
             {
-                DebugTools.Assert(line.Points.Count >= 2, "A line in RadarIcon must have at least two points");
-                var verts = projectileVertsByColor.GetOrNew(line.Color ?? entity.Comp.Color);
-                
+                //DebugTools.Assert(line.Points.Count >= 2, "A line in RadarIcon must have at least two points");
+                var lineColor = line.Color ?? entity.Comp.Color;
+                var primitiveList = primitives.GetOrNew((line.DrawMode, lineColor));
+                var verts = new List<Vector2>();
+
                 for(int i = 0; i < line.Points.Count; i++)
                 {
                     var point = line.Points[i];
-                    point += entity.Comp.Offset + line.Offset;
-                    point *= entity.Comp.Scale * line.Scale;
+                    point *= line.Scale;
+                    point += line.Offset;
+                    point *= entity.Comp.Scale;
+                    point += entity.Comp.Offset;
                     point.Y *= -1;
-                    var angle = (line.NoRot ? iconAngle : iconAngleRotated) + line.Angle;
-                    point = angle.RotateVec(point);
-                    verts.Add(pos + point);
-                    if(i > 0 && i < line.Points.Count - 1)     // add the same vert again to simulate LineList drawing mode without actually switching to it
-                        verts.Add(pos + point);   // this lets us draw all same-coloured lines in a single batch
+                    if (!entity.Comp.RealScale)
+                        point /= MinimapScale; // will decrease/increase icon size when zooming in/out respectively
+                    var toViewMatrix = line.NoRotation ? curEntToViewNoRot : curEntToView;
+                    point = Vector2.Transform(point, toViewMatrix);
+                    point = Vector2.Round(point * MinimapScale) / MinimapScale;
+                    verts.Add(point);
                 }
+                primitiveList.Add(verts);
             }
         }
 
-        foreach (var (color, verts) in projectileVertsByColor)
+        foreach (var ((drawMode, color), primitiveList) in primitives)
         {
-            DebugTools.Assert(verts.Count > 0);
-            handle.DrawPrimitives(DrawPrimitiveTopology.LineList, verts, color);
+            var topology = drawMode switch
+            {
+                RadarIconLineDefinition.DrawModeEnum.PointList => DrawPrimitiveTopology.PointList,
+                RadarIconLineDefinition.DrawModeEnum.TriangleList => DrawPrimitiveTopology.TriangleList,
+                RadarIconLineDefinition.DrawModeEnum.TriangleFan => DrawPrimitiveTopology.TriangleFan,
+                RadarIconLineDefinition.DrawModeEnum.TriangleStrip => DrawPrimitiveTopology.TriangleStrip,
+                RadarIconLineDefinition.DrawModeEnum.LineList => DrawPrimitiveTopology.LineList,
+                RadarIconLineDefinition.DrawModeEnum.LineStrip => DrawPrimitiveTopology.LineStrip,
+                RadarIconLineDefinition.DrawModeEnum.LineLoop => DrawPrimitiveTopology.LineLoop,
+                _ => throw new InvalidOperationException()
+            };
+            foreach(var verts in primitiveList)
+                handle.DrawPrimitives(topology, verts, color);
         }
 
         if (FieldOfView < MathF.Tau)
