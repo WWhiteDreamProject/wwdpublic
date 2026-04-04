@@ -21,9 +21,7 @@ public sealed class MeteorSystem : EntitySystem
     /// <inheritdoc/>
     public override void Initialize()
     {
-        // WWDP edit start
-        SubscribeLocalEvent<MeteorComponent, StartCollideEvent>(OnCollide, after: [typeof(ProjectileSystem)]);
-        // WWDP edit end
+        SubscribeLocalEvent<MeteorComponent, StartCollideEvent>(OnCollide, after: [typeof(ProjectileSystem)]); // WD EDIT
     }
 
     private void OnCollide(EntityUid uid, MeteorComponent component, ref StartCollideEvent args)
