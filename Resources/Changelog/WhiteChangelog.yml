@@ -5211,3 +5211,10 @@ Entries:
   id: 547
   time: '2026-04-04T12:50:03.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1098
+- author: Gersoon458
+  changes:
+    - type: Add
+      message: Обнова на Альмагест. Стены, пушки, смехуечки
+  id: 548
+  time: '2026-04-04T16:12:16.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1104
