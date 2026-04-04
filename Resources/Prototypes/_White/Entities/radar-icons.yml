@@ -163,7 +163,6 @@
     radarRange: 512
     color: "#3ca8de"
     scale: 2.3, 2.3
-    noRot: true
     lines:
     - points:
       - 0.0, 1.2
@@ -177,6 +176,7 @@
       - -1.1412678195541843, 0.37082039324993665
       - -0.705342302750968, 0.9708203932499367
       - -2.9391523179536476e-16, 1.2
+      noRot: true
 
 - type: entity
   id: RadarIconBlastRam

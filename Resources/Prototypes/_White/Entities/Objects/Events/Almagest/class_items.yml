@@ -110,7 +110,7 @@
     layers:
     - state: tesla-generator
   - type: Stack
-    stackType: AlmagestGirderFlatpack
+    stackType: WallAlmagestPiercingResistantFlatpack
     count: 1
   - type: Flatpack
     entity: WallAlmagestPiercingResistant
@@ -143,19 +143,19 @@
 
 - type: stack
   id: WallAlmagestStructuralResistantFlatpack
-  name: almagest girder flatpack
+  name: structural-resistant wall flatpack
   spawn: WallAlmagestStructuralResistantFlatpack
   maxCount: 30
 
 - type: stack
   id: WallAlmagestLaserResistantFlatpack
-  name: almagest girder flatpack
+  name: laser-resistant wall flatpack
   spawn: WallAlmagestLaserResistantFlatpack
   maxCount: 30
 
 - type: stack
   id: WallAlmagestPiercingResistantFlatpack
-  name: almagest girder flatpack
+  name: piercing-resistant wall flatpack
   spawn: WallAlmagestPiercingResistantFlatpack
   maxCount: 30
 
