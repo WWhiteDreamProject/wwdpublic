@@ -24,7 +24,7 @@
       - Prying
     useSound: /Audio/Items/jaws_pry.ogg
   - type: Prying
-    speedModifier: 2.0 # WWDP EDIT 
+    speedModifier: 2.0 # WD EDIT: 1.5 -> 2.0
     pryPowered: true
     useSound: /Audio/Items/jaws_pry.ogg
   - type: MultipleTool
