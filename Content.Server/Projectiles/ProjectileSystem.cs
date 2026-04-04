@@ -125,7 +125,6 @@ public sealed class ProjectileSystem : SharedProjectileSystem
                 component.IgnoredEntities.Add(target);
 else
                 component.ProjectileSpent = true;
-            }
             // Goobstation end
         }
 
