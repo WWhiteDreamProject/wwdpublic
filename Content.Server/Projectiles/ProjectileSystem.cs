@@ -118,7 +118,10 @@ public sealed class ProjectileSystem : SharedProjectileSystem
         else
         {
             // Goobstation start - Enhanced penetration with limits
-            if (component.Penetrate)
+            if (component.Penetrate
+                && component.IgnoredEntities.Count < component.MaxPenetrations
+                && (component.PenetrationChance >= 1.0f
+                    || _random.Prob(component.PenetrationChance)))
             {
                 // Проверка шанса пенетрации
                 if (component.PenetrationChance >= 1.0f || _random.NextFloat() <= component.PenetrationChance)
