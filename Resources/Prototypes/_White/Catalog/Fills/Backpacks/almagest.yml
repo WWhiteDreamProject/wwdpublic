@@ -230,7 +230,6 @@
     - id: WallAlmagestLaserResistantFlatpack15
     - id: WallAlmagestPiercingResistantFlatpack15
 
-
 - type: entity
   parent: ClothingBackpackAlmagestBlue
   id: ClothingBackpackAlmagestBlueDemoman
