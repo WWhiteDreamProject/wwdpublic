@@ -210,7 +210,7 @@ namespace Content.Server.Chemistry.EntitySystems
         private void OnCreatePillsMessage(Entity<ChemMasterComponent> chemMaster, ref ChemMasterCreatePillsMessage message)
         {
             var user = message.Actor;
-            // WWDP EDIT START
+            // WD EDIT START
             var container = _itemSlotsSystem.GetItemOrNull(chemMaster, SharedChemMaster.OutputSlotName) ?? EntityUid.Invalid;
 
             if (container == EntityUid.Invalid || !TryComp(container, out StorageComponent? storage))
