@@ -55,6 +55,9 @@
     capacity: 5
     minVelocity: 3
     maxVelocity: 15
+  - type: ContainerContainer
+    containers:
+      cluster-payload: !type:Container
   - type: Destructible
     thresholds:
     - trigger:
@@ -119,6 +122,9 @@
       capacity: 15
       minVelocity: 10
       maxVelocity: 15
+  - type: ContainerContainer
+    containers:
+      cluster-payload: !type:Container
     - type: GravityWell
       maxRange: 8
       baseRadialAcceleration: 6
@@ -198,6 +204,9 @@
     capacity: 35
     minVelocity: 7
     maxVelocity: 15
+  - type: ContainerContainer
+    containers:
+      cluster-payload: !type:Container
   - type: EmpOnTrigger
     range: 5
     energyConsumption: 200
@@ -394,6 +403,9 @@
     capacity: 3
     minVelocity: 1
     maxVelocity: 3
+  - type: ContainerContainer
+    containers:
+      cluster-payload: !type:Container
   - type: EmpOnTrigger
     range: 5
     energyConsumption: 200
@@ -551,7 +563,7 @@
           - !type:TriggerBehavior
           - !type:ExplodeBehavior
           - !type:WeightedSpawnEntityBehavior
-            weightedEntityTable: "AlmagestGrenadeMedicTable"
+            weightedEntityTable: AlmagestGrenadeMedicTable
             spawnOffset: 5
             minSpawn: 50
             maxSpawn: 75
