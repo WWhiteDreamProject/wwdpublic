@@ -106,6 +106,7 @@
   - type: Construction
     graph: AlmagestGirder
     node: wallAlmagestStructural
+    deconstructionNode: almagestGirder
   - type: Destructible
     thresholds:
     - trigger:
@@ -131,6 +132,7 @@
   - type: Construction
     graph: AlmagestGirder
     node: wallAlmagestLaser
+    deconstructionNode: almagestGirder
   - type: Destructible
     thresholds:
     - trigger:
@@ -164,6 +166,7 @@
   - type: Construction
     graph: AlmagestGirder
     node: wallAlmagestPiercing
+    deconstructionNode: almagestGirder
   - type: Destructible
     thresholds:
     - trigger:
