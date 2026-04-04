@@ -213,7 +213,7 @@ namespace Content.Server.Chemistry.EntitySystems
             // WD EDIT START
             var possibleContainer = _itemSlotsSystem.GetItemOrNull(chemMaster, SharedChemMaster.OutputSlotName);
 
-            if (container == EntityUid.Invalid || !TryComp(container, out StorageComponent? storage))
+            if (possibleContainer is not { Valid: true } container || !TryComp(container, out StorageComponent? storage))
             {
                 _popupSystem.PopupCursor(Loc.GetString("chem-master-window-buffer-empty-text"), user);
                 return; // output can't fit pills
