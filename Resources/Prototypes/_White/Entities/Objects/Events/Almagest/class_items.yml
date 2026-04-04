@@ -47,6 +47,8 @@
     prototype: AlmagestGirderFlatpack
     doAfter: 0.1
     removeOnInteract: true
+  - type: StaticPrice
+    price: 0
 
 - type: entity
   parent: AlmagestGirderFlatpack
@@ -80,6 +82,8 @@
     entity: WallAlmagestStructuralResistant
   - type: SpawnAfterInteract
     prototype: WallAlmagestStructuralResistantFlatpack
+  - type: StaticPrice
+    price: 0
 
 - type: entity
   parent: AlmagestGirderFlatpack
@@ -98,6 +102,8 @@
     entity: WallAlmagestLaserResistant
   - type: SpawnAfterInteract
     prototype: WallAlmagestLaserResistantFlatpack
+  - type: StaticPrice
+    price: 0
 
 - type: entity
   parent: AlmagestGirderFlatpack
@@ -116,6 +122,8 @@
     entity: WallAlmagestPiercingResistant
   - type: SpawnAfterInteract
     prototype: WallAlmagestPiercingResistantFlatpack
+  - type: StaticPrice
+    price: 0
 
 - type: entity
   parent: WallAlmagestStructuralResistantFlatpack

@@ -737,9 +737,12 @@
 - type: entity
   id: BulletGrenadeBlast
   name: blast grenade
-  parent: BaseBulletTrigger
+  parent: [BaseBulletTrigger, RadarIconCircledArrow]
   categories: [ HideSpawnMenu ]
   components:
+  - type: RadarIcon # WWDP edit start
+    radarRange: 512
+    color: "#d49961" # WWDP edit end
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
     layers:
@@ -779,9 +782,12 @@
 - type: entity
   id: BulletGrenadeFrag
   name: frag grenade
-  parent: BaseBulletTrigger
+  parent: [BaseBulletTrigger, RadarIconCircledArrow]
   categories: [ HideSpawnMenu ]
   components:
+  - type: RadarIcon # WWDP edit start
+    radarRange: 512
+    color: "#acd678" # WWDP edit end
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
     layers:
@@ -994,7 +1000,11 @@
   id: GrapplingHook
   name: grappling hook
   categories: [ HideSpawnMenu ]
+  parent: RadarIconPlaceholder
   components:
+    - type: RadarIcon # WWDP edit start
+      radarRange: 64
+      scale: 5, 5 # WWDP edit end
     - type: EmbeddableProjectile
       deleteOnRemove: true
     - type: Clickable
