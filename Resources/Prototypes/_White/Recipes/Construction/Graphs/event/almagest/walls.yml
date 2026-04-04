@@ -61,6 +61,9 @@
       - tool: Welding
         doAfter: 5
 
+  - node: flatpack
+    entity: AlmagestGirderFlatpack
+
   - node: wallAlmagestStructural
     entity: WallAlmagestStructuralResistant
     edges:

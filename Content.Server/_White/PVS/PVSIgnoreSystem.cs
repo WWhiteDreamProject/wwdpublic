@@ -1,5 +1,6 @@
 using Robust.Server.GameStates;
 
+namespace Content.Server.GameStates;
 public sealed class PVSIgnoreSystem : EntitySystem
 {
     [Dependency] private readonly PvsOverrideSystem _pvsOverride = default!;

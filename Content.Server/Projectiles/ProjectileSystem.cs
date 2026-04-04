@@ -27,7 +27,6 @@ public sealed class ProjectileSystem : SharedProjectileSystem
     [Dependency] private readonly GunSystem _guns = default!;
     [Dependency] private readonly SharedCameraRecoilSystem _sharedCameraRecoil = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    private readonly Dictionary<EntityUid, int> _currentPenetrations = new(); // WWDP edit
     [Dependency] private readonly IRobustRandom _random = default!; // WWDP edit
 
     public override void Initialize()
