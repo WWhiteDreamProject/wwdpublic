@@ -276,6 +276,11 @@ public abstract partial class SharedProjectileSystem : EntitySystem
     {
         if (component.IgnoreShooter && (args.OtherEntity == component.Shooter || args.OtherEntity == component.Weapon))
             args.Cancelled = true;
+
+        // WWDP edit start
+        if (component.Penetrate && component.IgnoredEntities.Contains(args.OtherEntity))
+            args.Cancelled = true;
+        // WWDP edit end
     }
 
     public void SetShooter(EntityUid id, ProjectileComponent component, EntityUid shooterId)

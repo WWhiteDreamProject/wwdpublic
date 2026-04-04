@@ -60,3 +60,6 @@
 
 - type: Tag
   id: DeleteOnGamerule
+
+- type: Tag
+  id: MortarGrenade
