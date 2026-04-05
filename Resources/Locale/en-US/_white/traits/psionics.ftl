@@ -17,8 +17,8 @@ trait-description-Infernal =
 
 trait-name-Telekineticist = Telekineticist
 trait-description-Telekineticist =
-    Telekineticist are one of the oldest branches of psychics, known even in ancient treatises as "Scribes of Pure Will."
-    KTelekineticist manipulate the fundamental forces of pressure, inertia, and vector.
+    Telekineticists are one of the oldest branches of psychics, known even in ancient treatises as "Scribes of Pure Will."
+    Telekineticist manipulate the fundamental forces of pressure, inertia, and vector.
     Their abilities range from chaotic waves of energy to precise manipulations of space.
 
     - All your abilities belong exclusively to the "Kinesis" class.
