@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Numerics;
 using Content.Client.Weapons.Ranged.Systems;
 using Content.Shared._White.Other;
@@ -359,18 +360,20 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
             var entityPosition = _transform.GetWorldPosition(entity);
             if (entity.Comp.RadarRange > 0 && (entityPosition - worldPosition).Length() > entity.Comp.RadarRange)
                 continue;
-            
+
             var curEntToWorld = _transform.GetWorldMatrix(entity);
             var curEntToWorldNoRot = Matrix3Helpers.CreateTranslation(entityPosition);
             var curEntToView = curEntToWorld * worldToView;
             var curEntToViewNoRot = curEntToWorldNoRot * worldToView;
+            // rounding translation comp of matrixes to minimize vertex shaking similiar to sprite parkinsons
+            curEntToView.Translation = Vector2.Round(curEntToView.Translation);
+            curEntToViewNoRot.Translation = Vector2.Round(curEntToViewNoRot.Translation);
+
             foreach (var line in entity.Comp.Lines)
             {
-                //DebugTools.Assert(line.Points.Count >= 2, "A line in RadarIcon must have at least two points");
                 var lineColor = line.Color ?? entity.Comp.Color;
                 var primitiveList = primitives.GetOrNew((line.DrawMode, lineColor));
                 var verts = new List<Vector2>();
-
                 for(int i = 0; i < line.Points.Count; i++)
                 {
                     var point = line.Points[i];
@@ -379,14 +382,41 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
                     point *= entity.Comp.Scale;
                     point += entity.Comp.Offset;
                     point.Y *= -1;
-                    if (!entity.Comp.RealScale)
+                    if (entity.Comp.ConstantSize)
                         point /= MinimapScale; // will decrease/increase icon size when zooming in/out respectively
                     var toViewMatrix = line.NoRotation ? curEntToViewNoRot : curEntToView;
                     point = Vector2.Transform(point, toViewMatrix);
-                    point = Vector2.Round(point * MinimapScale) / MinimapScale;
+                    point = Vector2.Round(point);
                     verts.Add(point);
                 }
-                primitiveList.Add(verts);
+                switch (line.DrawMode)
+                {
+                    // coalescing triangle/line/point lists into a single vertex list
+                    // requires validating the vertex count since they'll be drawn in a single pass
+                    case RadarIconLineDefinition.DrawModeEnum.TriangleList:
+                        CutList(ref verts, 3);
+                        goto case RadarIconLineDefinition.DrawModeEnum.PointList;
+                    case RadarIconLineDefinition.DrawModeEnum.LineList:
+                        CutList(ref verts, 2);
+                        goto case RadarIconLineDefinition.DrawModeEnum.PointList; // N % 1 is always zero, duh 
+                    case RadarIconLineDefinition.DrawModeEnum.PointList:
+                        if (primitiveList.Count != 0) // a vertex list already exists, just add to it
+                            primitiveList[0].AddRange(verts);
+                        else
+                            primitiveList.Add(verts);
+                        break;
+                    // the other drawmodes can deal with miscounted vertices themselves
+                    default:
+                        primitiveList.Add(verts);
+                        break;
+                }
+                void CutList<T>(ref List<T> list, int multiple)
+                {
+                    var excess = list.Count % multiple;
+                    if (excess == 0) return;
+                    list.RemoveRange(list.Count - excess, excess);
+                    DebugTools.Assert(list.Count % multiple == 0);
+                }
             }
         }
 

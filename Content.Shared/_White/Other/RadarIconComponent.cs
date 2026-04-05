@@ -62,7 +62,7 @@ public sealed partial class RadarIconComponent : Component
     /// </summary>
 
     [DataField, Animatable]
-    public bool RealScale { get; set; } = false;
+    public bool ConstantSize { get; set; } = true;
 
 }
 
