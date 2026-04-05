@@ -12,3 +12,13 @@
     entityTagsToRemove:
     - DeleteOnGamerule
     #markersToActivate:
+
+
+- type: entity
+  id: WallPlastitaniumIndestructibleDSonG
+  parent: WallPlastitaniumIndestructible
+  components:
+  - type: Tag
+    tags:
+    - DeleteOnGamerule
+    - Wall
