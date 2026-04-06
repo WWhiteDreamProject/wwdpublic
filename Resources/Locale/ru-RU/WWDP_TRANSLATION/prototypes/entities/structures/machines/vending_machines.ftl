@@ -38,7 +38,7 @@ ent-VendingMachineCoffee = Лучшие горячие напитки Солне
     .desc = Подаются кипящими, чтобы оставались горячими всю смену!
     .suffix = { "" }
 
-ent-VendingMachineMagivend = МагМазин
+ent-VendingMachineMagivend = МагАзин
     .desc = Магический торговый автомат.
     .suffix = { "" }
 

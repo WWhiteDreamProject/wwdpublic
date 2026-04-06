@@ -5,7 +5,7 @@ id-card-console-window-save-button = Сохранить
 id-card-console-window-job-title-label = Должность:
 id-card-console-window-eject-button = Извлечь
 id-card-console-window-insert-button = Вставить
-id-card-console-window-job-selection-label = Job presets (sets department and job icon):
+id-card-console-window-job-selection-label = Предварительные настройки работы (устанавливает значок отдела и работы):
 
 access-id-card-console-component-no-hands-error = У вас нет рук.
 id-card-console-privileged-id = Основной ID

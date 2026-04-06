@@ -5199,7 +5199,7 @@ ent-MobSnail = улитка
 
 ent-MobSnailMoth = мулитка
 
-ent-MobWeldbot = сварбот
+ent-MobWeldbot = сваркобот
     .desc = Конечно, не инженер, но хоть что-то.
 
 
