@@ -12,11 +12,11 @@ accent-german-words-replace-3 = унзер
 accent-german-words-4 = дерьмо
 accent-german-words-replace-4 = шайссе
 
-accent-german-words-5 = колбаса
-accent-german-words-replace-5 = вурст
+accent-german-words-5 = сука
+accent-german-words-replace-5 = швайнхунтс
 
-accent-german-words-6 = колбасы
-accent-german-words-replace-6 = вюрсте
+accent-german-words-6 = мясо
+accent-german-words-replace-6 = фляйш
 
 accent-german-words-7 = мужчина
 accent-german-words-replace-7 = mann
