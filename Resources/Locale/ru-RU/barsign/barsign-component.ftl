@@ -50,7 +50,7 @@ barsign-prototype-description-coderbus = Очень противоречивый
 
 ## Robusta Cafe
 barsign-prototype-name-robusta-cafe = Кафе Робуста
-barsign-prototype-description-robusta-cafe = Неоспоримый обладатель рекорда "Самые смертоносные бои" уже 5 лет.
+barsign-prototype-description-robusta-cafe = Неоспоримый обладатель рекорда «Самые смертоносные бои» уже 5 лет.
 
 ## Emergency Rum Party
 

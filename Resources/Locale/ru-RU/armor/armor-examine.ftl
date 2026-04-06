@@ -25,7 +25,7 @@ armor-reduction-value =
         [Shock] Электрический
         [Radiation] Радиационный
         [Caustic] Кислотный
-    }[/color] урон снижается на [color=lightblue]{ $value }[/color].
+    }[/color] урон снижается на [color=lightblue]{ $value }[/color] пунктов.
 armor-damage-type-blunt = Тупые
 armor-damage-type-slash = Режущие
 armor-damage-type-piercing = Колющие

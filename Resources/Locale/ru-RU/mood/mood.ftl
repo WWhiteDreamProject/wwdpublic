@@ -243,7 +243,7 @@ mood-effect-NicotineWithdrawal =
     }
 
 # Хирургия
-mood-effect-MorphineBenefit = Морфий помогает забыть о заботах.
+mood-effect-MorphineBenefit = Морфин помогает забыть о заботах.
 
 mood-effect-MorphineWithdrawal =
     { GENDER($entity) ->

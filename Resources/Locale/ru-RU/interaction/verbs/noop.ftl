@@ -1,8 +1,16 @@
 interaction-LookAt-name = Смотреть на
 interaction-LookAt-description = Взглянуть в пустоту и ощутить её взгляд на себе.
-interaction-LookAt-success-self-popup = Вы смотрите на {$target}.
+interaction-LookAt-success-self-popup =
+    Вы смотрите на { $selfTarget ->
+        [true] себя
+       *[false] {$target}
+    }.
 interaction-LookAt-success-target-popup = Вы чувствуете, что  {$user} смотрит на вас...
-interaction-LookAt-success-others-popup = {$user} смотрит на {$target}.
+interaction-LookAt-success-others-popup =
+    {$user} смотрит на { $selfTarget ->
+        [true] себя
+       *[false] {$target}
+    }.
 
 interaction-Hug-name = Обнять
 interaction-Hug-description = Объятия в день избавляют от непостижимых психологических ужасов.
