@@ -63,3 +63,40 @@
       shader: unshaded
     - type: Clothing
       sprite: _White/Objects/Weapons/Guns/Launchers/M80-Heracles.rsi
+
+- type: entity
+  name: cool gun
+  parent: BaseItem
+  id: WeaponPsionicHook
+  components:
+  - type: AmmoCounter
+  - type: Gun
+    soundGunshot: /Audio/Weapons/Guns/Gunshots/harpoon.ogg
+    fireRate: 0.5
+    clumsyProof: true
+  - type: BasicEntityAmmoProvider
+    proto: PsionicHookProjectile
+    capacity: 1
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Launchers/grappling_gun.rsi
+    layers:
+    - state: base
+    - state: base-unshaded
+      map: [ "unshaded" ]
+      visible: true
+  - type: UseDelay
+    delay: 1.5
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.TetherVisualsStatus.Key:
+        unshaded:
+          True: { state: base-unshaded }
+          False: { state: base-unshaded-off }
+  - type: PacifismAllowedGun
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,0
+    - 0,1,0,1
+  - type: PsionicHook
