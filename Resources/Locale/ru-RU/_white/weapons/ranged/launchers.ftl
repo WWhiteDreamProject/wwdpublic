@@ -1,2 +1,2 @@
-ent-WeaponPsionicHook = Огромное щупальце
+ent-WeaponPsionicHook = огромное щупальце
     .desc = Бьётся в ритм сердца.
