@@ -93,7 +93,7 @@ public sealed class HookSystem : EntitySystem
 
         var transform = Transform(args.Target);
 
-        if (_tags.HasTag(args.Target, "Wall"))
+        if (_tags.HasTag(args.Target, "Wall") || transform.Achorned)
         {
             var direction = (targetPos - shooterPos).Normalized();
             _throw.TryThrow(shooter, direction * power * 2, hookComp.BasePower, shooter);

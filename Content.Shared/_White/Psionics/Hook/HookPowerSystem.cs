@@ -90,6 +90,9 @@ public sealed class SpawnImplantSystem : EntitySystem
 
         if (!TryComp<CuffableComponent>(uid, out var cuffs))
             return;
+        
+        if (cuffs.CuffedHandCount == 0)
+            return;
 
         var lastAddedCuffs = cuffs.LastAddedCuffs;
         _cuffs.Uncuff(uid, uid, lastAddedCuffs);
