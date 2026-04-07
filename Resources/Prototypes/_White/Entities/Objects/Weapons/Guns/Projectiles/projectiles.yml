@@ -20,16 +20,15 @@
 
 - type: entity
   id: PsionicHookProjectile
-  name: grappling hook
+  name: psionic hook projectile
   categories: [ HideSpawnMenu ]
   components:
     - type: Clickable
     - type: InteractionOutline
     - type: Sprite
       noRot: false
-      sprite: Objects/Weapons/Guns/Launchers/grappling_gun.rsi
-      layers:
-      - state: hook
+      sprite: _White/Objects/Weapons/Guns/Launchers/psionic_hook_launcher.rsi
+      state: projectile
     - type: Physics
       bodyType: Dynamic
       linearDamping: 0

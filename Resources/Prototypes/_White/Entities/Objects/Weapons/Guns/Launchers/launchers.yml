@@ -65,34 +65,25 @@
       sprite: _White/Objects/Weapons/Guns/Launchers/M80-Heracles.rsi
 
 - type: entity
-  name: cool gun
+  name: psionic hook
   parent: BaseItem
   id: WeaponPsionicHook
+  description: hook
   components:
   - type: AmmoCounter
   - type: Gun
-    soundGunshot: /Audio/Weapons/Guns/Gunshots/harpoon.ogg
+    soundGunshot: /Audio/Effects/gib1.ogg
     fireRate: 0.5
     clumsyProof: true
   - type: BasicEntityAmmoProvider
     proto: PsionicHookProjectile
     capacity: 1
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Launchers/grappling_gun.rsi
-    layers:
-    - state: base
-    - state: base-unshaded
-      map: [ "unshaded" ]
-      visible: true
+    sprite: _White/Objects/Weapons/Guns/Launchers/psionic_hook_launcher.rsi
+    state: icon
   - type: UseDelay
     delay: 1.5
   - type: Appearance
-  - type: GenericVisualizer
-    visuals:
-      enum.TetherVisualsStatus.Key:
-        unshaded:
-          True: { state: base-unshaded }
-          False: { state: base-unshaded-off }
   - type: PacifismAllowedGun
   - type: Item
     size: Small

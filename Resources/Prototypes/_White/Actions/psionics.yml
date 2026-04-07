@@ -97,7 +97,9 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: InstantAction
-      icon: Interface/VerbIcons/mind_swap_return.png
+      icon: 
+        sprite: _White/Interface/Actions/psionic_hook.rsi
+        state: icon
       useDelay: 3
       checkCanInteract: false
       event: !type:PsionicHookPowerActionEvent

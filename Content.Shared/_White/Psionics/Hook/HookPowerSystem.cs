@@ -36,7 +36,7 @@ public sealed class SpawnImplantSystem : EntitySystem
             Del(component.Hook);
             component.Hook = null;
 
-            _audio.PlayPvs(component.SoundOnSpawn, uid);
+            _audio.PlayPvs(component.SoundOnDespawn, uid);
 
             args.Handled = true;
             return;
@@ -55,6 +55,7 @@ public sealed class SpawnImplantSystem : EntitySystem
 
         if (_hands.TryPickupAnyHand(uid, hook))
         {
+            component.Hook = hook;
             _audio.PlayPvs(component.SoundOnSpawn, hook);
             args.Handled = true;
             return;
@@ -78,7 +79,7 @@ public sealed class SpawnImplantSystem : EntitySystem
             DistanceThreshold = 1f
         };
 
-        _popup.PopupEntity(Loc.GetString(component.UncuffPopup), uid, PopupType.SmallCaution);
+        _popup.PopupEntity(Loc.GetString(component.UncuffPopup), uid, uid, PopupType.SmallCaution);
         _doAfter.TryStartDoAfter(args);
     }
 

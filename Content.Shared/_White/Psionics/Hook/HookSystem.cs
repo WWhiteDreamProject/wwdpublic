@@ -56,7 +56,6 @@ public sealed class HookSystem : EntitySystem
             Dirty(shotUid.Value, visuals);
         }
 
-        _appearance.SetData(uid, SharedTetherGunSystem.TetherVisualsStatus.Key, false);
         Dirty(uid, component);
     }
 
@@ -94,9 +93,7 @@ public sealed class HookSystem : EntitySystem
 
         var transform = Transform(args.Target);
 
-        if (_tags.HasTag(args.Target, "Structure") ||
-            _tags.HasTag(args.Target, "Wall") &&
-            transform.Anchored)
+        if (_tags.HasTag(args.Target, "Wall"))
         {
             var direction = (targetPos - shooterPos).Normalized();
             _throw.TryThrow(shooter, direction * power * 2, hookComp.BasePower, shooter);
@@ -136,8 +133,6 @@ public sealed class HookSystem : EntitySystem
         }
 
         _gun.ChangeBasicEntityAmmoCount(gun, 1);
-
-        _appearance.SetData(gun, SharedTetherGunSystem.TetherVisualsStatus.Key, true);
 
         QueueDel(uid);
     }

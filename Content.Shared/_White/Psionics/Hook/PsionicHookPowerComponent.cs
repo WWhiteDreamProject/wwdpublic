@@ -14,7 +14,10 @@ public sealed partial class PsionicHookPowerComponent : Component
     public EntProtoId HookPrototype = "WeaponPsionicHook";
 
     [DataField]
-    public SoundSpecifier SoundOnSpawn = new SoundPathSpecifier("/Audio/Weapons/ebladeon.ogg");
+    public SoundSpecifier SoundOnSpawn = new SoundPathSpecifier("/Audio/Effects/Gib2.ogg");
+
+    [DataField]
+    public SoundSpecifier SoundOnDespawn = new SoundPathSpecifier("/Audio/Effects/Gib3.ogg");
 
     [DataField]
     public TimeSpan BreakoutTime = TimeSpan.FromSeconds(8f);
