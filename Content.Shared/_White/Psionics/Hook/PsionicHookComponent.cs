@@ -1,10 +1,7 @@
-using Content.Shared.Humanoid;
-using Content.Shared.Preferences;
-using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Utility;
 
-namespace Content.Shared._White.Psionics.Abilities;
+namespace Content.Shared._White.Psionics;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class PsionicHookComponent : Component
@@ -13,7 +10,7 @@ public sealed partial class PsionicHookComponent : Component
     public EntityUid? Projectile;
 
     [DataField, ViewVariables]
-    public SpriteSpecifier RopeSprite =
+    public SpriteSpecifier HookJointSpite =
         new SpriteSpecifier.Rsi(new ResPath("Objects/Weapons/Guns/Launchers/grappling_gun.rsi"), "rope");
 }
 

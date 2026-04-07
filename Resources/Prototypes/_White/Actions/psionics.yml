@@ -89,3 +89,15 @@
         state: revert
       useDelay: 5
       event: !type:PolymorphPowerRevertActionEvent
+
+- type: entity
+  id: ActionSummonPsionicHook
+  name: action-name-summon-hook
+  description: action-description-summon-hook
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: InstantAction
+      icon: Interface/VerbIcons/mind_swap_return.png
+      useDelay: 3
+      checkCanInteract: false
+      event: !type:PsionicHookPowerActionEvent

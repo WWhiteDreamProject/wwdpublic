@@ -1,4 +1,4 @@
-using Content.Shared._White.Psionics.Abilities;
+using Content.Shared._White.Psionics;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Physics;
@@ -8,6 +8,7 @@ using Content.Shared.Tag;
 using Content.Shared.Throwing;
 using Content.Shared.Weapons.Misc;
 using Content.Shared.Weapons.Ranged.Systems;
+using MathNet.Numerics.Providers.LinearAlgebra;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
@@ -49,7 +50,7 @@ public sealed class HookSystem : EntitySystem
             Dirty(uid, component);
 
             var visuals = EnsureComp<JointVisualsComponent>(shotUid.Value);
-            visuals.Sprite = component.RopeSprite;
+            visuals.Sprite = component.HookJointSpite;
             visuals.OffsetA = new Vector2(0f, 0.5f);
             visuals.Target = GetNetEntity(uid);
             Dirty(shotUid.Value, visuals);
@@ -91,21 +92,22 @@ public sealed class HookSystem : EntitySystem
         var shooterPos = _transform.GetWorldPosition(shooter);
         var targetPos = _transform.GetWorldPosition(args.Target);
 
-        if (HasComp<MobStateComponent>(args.Target)) // if we shot mob
-        {
-            var direction = (shooterPos - targetPos).Normalized();
-            var force = direction * power;
-            _layingDown.TryLieDown(args.Target);
-            _throw.TryThrow(args.Target, force, hookComp.BasePower, shooter);
-            StartReturnToGun(ent, ent);
-        }
-        else if (_tags.HasTag(args.Target, "Wall")) // if we shot wall
+        var transform = Transform(args.Target);
+
+        if (_tags.HasTag(args.Target, "Structure") ||
+            _tags.HasTag(args.Target, "Wall") &&
+            transform.Anchored)
         {
             var direction = (targetPos - shooterPos).Normalized();
-            var force = direction * power;
-            _throw.TryThrow(shooter, force, hookComp.BasePower, shooter);
-            StartReturnToGun(ent, ent);
+            _throw.TryThrow(shooter, direction * power * 2, hookComp.BasePower, shooter);
         }
+        else
+        {
+            var direction = (shooterPos - targetPos).Normalized();
+            _layingDown.TryLieDown(args.Target);
+            _throw.TryThrow(args.Target, direction * power, hookComp.BasePower, shooter);
+        }
+        StartReturnToGun(ent, ent);
     }
 
     private void StartReturnToGun(EntityUid projectile, ProjectilePsionicHookComponent component)
@@ -135,7 +137,7 @@ public sealed class HookSystem : EntitySystem
 
         _gun.ChangeBasicEntityAmmoCount(gun, 1);
 
-        _appearance.SetData(uid, SharedTetherGunSystem.TetherVisualsStatus.Key, true);
+        _appearance.SetData(gun, SharedTetherGunSystem.TetherVisualsStatus.Key, true);
 
         QueueDel(uid);
     }
@@ -163,7 +165,7 @@ public sealed class HookSystem : EntitySystem
             var direction = sourcePos - projectilePos;
             var distance = direction.Length();
 
-            if (distance < 0.3f)
+            if (distance < 0.7f)
             {
                 if (_netManager.IsServer)
                     GimmeHookBack(uid, hookComp);

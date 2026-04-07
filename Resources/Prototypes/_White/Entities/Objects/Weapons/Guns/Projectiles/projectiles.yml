@@ -39,6 +39,8 @@
       damage:
         types:
           Blunt: 0
+    - type: TimedDespawn
+      lifetime: 15
     - type: Fixtures
       fixtures:
         projectile:
@@ -50,5 +52,5 @@
           - Impassable
           - BulletImpassable
     - type: ProjectilePsionicHook
-      basePower: 15
-      returnSpeed: 13
+      basePower: 10
+      returnSpeed: 7
