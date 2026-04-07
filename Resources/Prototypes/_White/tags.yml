@@ -60,3 +60,9 @@
 
 - type: Tag
   id: DeleteOnGamerule
+
+- type: Tag
+  id: WeaponMechToolbox
+
+- type: Tag
+  id: WeaponMechLaserGun

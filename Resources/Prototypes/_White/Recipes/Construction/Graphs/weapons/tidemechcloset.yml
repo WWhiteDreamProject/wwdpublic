@@ -1,0 +1,110 @@
+- type: constructionGraph
+  id: TideMechGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: TideMechBattery
+      steps:
+      - material: Steel
+        amount: 4
+        doAfter: 5
+      - tag: PortableGeneratorJrPacmanMachineCircuitboard
+        icon:
+          sprite: Objects/Misc/module.rsi
+          state: engineering
+        name: Circuitboard J.R.P.A.C.M.A.N. 
+      - material: Cable
+        amount: 10
+      - tag: PowerSensor
+        icon:
+          sprite: Objects/Devices/gates.rsi
+          state: power_sensor
+        name: power sensor
+      - tag: ProximitySensor
+        icon:
+          sprite: Objects/Misc/proximity_sensor.rsi
+          state: icon
+        name: proximity sensor
+      - tag: Pipe
+        icon:
+          sprite: Structures/Piping/Atmospherics/pipe.rsi
+          state: pipeStraight
+        name: pipe
+      - material: CableMV
+        amount: 5
+  - node: TideMechBattery
+    entity: TideMechBattery
+
+
+- type: constructionGraph
+  id: WeaponMechLaserGunGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: WeaponMechLaserGun
+      steps:
+      - tag: Igniter
+        icon:
+          sprite: Objects/Devices/igniter.rsi
+          state: icon
+        name: igniter
+      - tag: Pipe
+        icon:
+          sprite: Structures/Piping/Atmospherics/pipe.rsi
+          state: pipeStraight
+        name: pipe
+      - material: Steel
+        amount: 2
+      - tag: LightBulb
+        icon:
+          sprite: Objects/Power/light_bulb.rsi
+          state: normal
+        name: light bulb
+      - tag: PowerCell
+        icon:
+          sprite: Objects/Power/power_cells.rsi
+          state: medium
+        name: powercell
+      - tag: CapacitorStockPart
+        icon:
+          sprite: Objects/Misc/stock_parts.rsi
+          state: capacitor
+        name: capacitor
+      - material: Cable
+        amount: 5
+      - material: CableHV
+        amount: 5
+      - material: CableMV
+        amount: 5
+        doAfter: 16
+  - node: WeaponMechLaserGun
+    entity: WeaponMechLaserGun
+
+
+- type: constructionGraph
+  id: WeaponMechToolboxGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: WeaponMechWelded
+      steps:
+      - tag: Toolbox
+        icon:
+          sprite: Objects/Tools/Toolboxes/toolbox_red.rsi
+          state: icon
+        name: Toolbox red
+      - material: Steel
+        amount: 20
+        doAfter: 7
+  - node: WeaponMechWelded
+    entity: WeaponMechWelded
+    edges:
+     - to: WeaponMechToolbox
+       steps:
+       - tool: Welding
+         doAfter: 8
+  - node: WeaponMechToolbox
+    entity: WeaponMechToolbox 

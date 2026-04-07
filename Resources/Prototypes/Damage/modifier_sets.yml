@@ -458,3 +458,9 @@
     Holy: 1.5
   flatReductions:
     Cold: 3
+  #WD EDIT START 
+- type: damageModifierSet
+  id: TideMechArmor
+  coefficients:
+    Heat: 1.5
+  #WD EDIT END

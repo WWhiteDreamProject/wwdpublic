@@ -1,0 +1,10 @@
+- type: construction
+  id: TideMechCraft
+  name: Шкафомех
+  graph: TideMechGraph
+  startNode: start
+  targetNode: TideMechBattery
+  category: construction-category-weapons
+  description: Мех, но для бедных.
+  icon: { sprite: _White/Objects/Specific/Mech/tidemech.rsi, state: closetmech }
+  objectType: Structure

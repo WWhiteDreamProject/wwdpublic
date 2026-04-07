@@ -1,0 +1,62 @@
+- type: entity
+  id: TideMech
+  parent: [ BaseMech, SpecialMech ] 
+  name: Шкафомех
+  description: Ассистент собрал мех из говна и палок не выходя из технических помещений!
+  components:
+  - type: Damageable
+    damageModifierSet: TideMechArmor
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 450
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: start
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Sprite
+    drawdepth: Mobs
+    noRot: true
+    sprite: _White/Objects/Specific/Mech/tidemech.rsi
+    layers:
+    - state: closetmech
+      map: [ "enum.MechVisualLayers.Base" ]
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/Weapons/grille_hit.ogg
+  - type: Mech
+    baseState: closetmech
+    openState: closetmech-open
+    brokenState: closetmech-broken
+    mechToPilotDamageMultiplier: 0.85
+    pilotWhitelist:
+      components:
+        - HumanoidAppearance
+  - type: MeleeWeapon
+    canHeavyAttack: false
+    hidden: true
+    attackRate: 1
+    damage:
+      types:
+        Blunt: 12
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 3.45
+
+- type: entity
+  id: TideMechBattery
+  parent: TideMech
+  suffix: Battery
+  components:
+  - type: Construction
+    graph: TideMechGraph
+    node: TideMechBattery
+  - type: ContainerFill
+    containers:
+      mech-battery-slot:
+      - PowerCellMedium

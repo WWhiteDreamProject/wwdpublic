@@ -1,0 +1,31 @@
+- type: entity
+  id: WeaponMechLaserGun
+  name: огромный самодельный лазер
+  description: Самодельная лазерная пушка, можно поместить в мех как модуль.
+  suffix: Mech Weapon, Gun, Combat, Laser
+  parent: [ BaseMechWeaponRange, SpecialMechEquipment ]
+  components:
+  - type: Tag
+    tags:
+    - WeaponMechLaserGun
+  - type: Construction
+    graph: WeaponMechLaserGunGraph
+    node: WeaponMechLaserGun
+  - type: Sprite
+    state: tidemechlaser
+    sprite: _White/Objects/Specific/Mech/MechWeapon.rsi
+  - type: Gun
+    fireRate: 0.5
+    selectedMode: SemiAuto
+    availableModes:
+      - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+    damage:
+      types:
+        Heat: 25
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletLaserHeavy
+    fireCost: 65
+  - type: Appearance
+  - type: AmmoCounter
