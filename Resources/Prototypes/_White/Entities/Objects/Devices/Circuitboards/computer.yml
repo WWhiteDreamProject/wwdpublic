@@ -15,3 +15,13 @@
     state: cpu_supply
   - type: ComputerBoard
     prototype: ComputerRadarWide
+
+- type: entity
+  parent: ShuttleConsoleCircuitboard
+  id: ShuttleWideConsoleCircuitboard
+  name: wide radar console computer board
+  components:
+  - type: Sprite
+    state: cpu_supply
+  - type: ComputerBoard
+    prototype: ComputerShuttleWide

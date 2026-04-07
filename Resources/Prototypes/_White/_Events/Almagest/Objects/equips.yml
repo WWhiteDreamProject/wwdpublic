@@ -2,14 +2,27 @@
 - type: entity
   parent: ClothingOuterHardsuitERTSecurity
   id: ClothingOuterHardsuitAlmagestRed
+  name: red hardsuit
   components:
   - type: Unremoveable
+  - type: ClothingGrantComponent
+    component:
+    - type: SurgeryIgnoreClothing
+    - type: SurgerySpeedModifier
+      speedModifier: 3
 
 - type: entity
   parent: ClothingOuterHardsuitERTLeader
   id: ClothingOuterHardsuitAlmagestBlue
+  name: blue hardsuit
   components:
   - type: Unremoveable
+  - type: SurgeryIgnoreClothing
+  - type: ClothingGrantComponent
+    component:
+    - type: SurgeryIgnoreClothing
+    - type: SurgerySpeedModifier
+      speedModifier: 3
 
 # Starting Gear Base
 
@@ -17,7 +30,7 @@
   id: AlmagestRedBaseGear
   equipment:
     outerClothing: ClothingOuterHardsuitAlmagestRed
-    id: ERTLeaderPDA
+    id: AlmagestPDARed
     mask: ClothingMaskBreath
     belt: ClothingBeltMilitaryWebbingAlmagestEquip
     shoes: ClothingShoesBootsCombatFilled
@@ -27,7 +40,7 @@
   id: AlmagestBlueBaseGear
   equipment:
     outerClothing: ClothingOuterHardsuitAlmagestBlue
-    id: ERTLeaderPDA
+    id: AlmagestPDABlue
     mask: ClothingMaskBreath
     belt: ClothingBeltMilitaryWebbingAlmagestEquip
     shoes: ClothingShoesBootsCombatFilled

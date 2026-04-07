@@ -1,0 +1,167 @@
+- type: entity
+  parent: BaseHandheldComputer
+  id: DebugAlmagestCommsHandheld
+  name: Almagest Debug Communicator
+  description: A handheld device for making announcements.
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/tablets.rsi
+    layers:
+    - state: tablet
+    - state: generic
+      shader: unshaded
+  - type: CommunicationsConsole
+    title: "[color=#14fffb]Almagest[/color]"
+    color: "#ffffff"
+    sound: /Audio/_White/Announcements/crashing.ogg
+    delay: 0
+    initialDelay: 0
+    global: true
+    canShuttle: false
+  - type: ActivatableUI
+    key: enum.CommunicationsConsoleUiKey.Key
+    inHandsOnly: true
+    singleUser: true
+  - type: UserInterface
+    interfaces:
+      enum.CommunicationsConsoleUiKey.Key:
+        type: CommunicationsConsoleBoundUserInterface
+
+- type: entity
+  name: Almagest Debug Gun
+  parent: BaseItem
+  id: AlmagestDebugGun
+  components:
+  - type: Item
+    size: Large
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/Turrets/Almagest/equipment.rsi
+    layers:
+    - state: base
+  - type: Gun
+    fireRate: 12
+    selectedMode: FullAuto
+    projectileSpeed: 60
+    availableModes:
+    - Burst
+    - FullAuto
+    shotsPerBurst: 5
+    burstFireRate: 8
+    burstCooldown: 0.5
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
+      params:
+        volume: -5
+  - type: BasicEntityAmmoProvider
+    proto: BoltIRLaserHeavy
+  - type: AmmoSelector
+    prototypes:
+    - AlmagestIRLaserHeavy
+    - AlmagestIRLaserFast
+    - AlmagestAnnihilatorHeavy
+    - AlmagestAnnihilatorFast
+    - AlmagestAnnihilatorShotgun
+    - AlmagestHMGHeavy
+    - AlmagestHMGFast
+    - AlmagestRamPenetrator
+    - AlmagestRamMine
+    - AlmagestRamWalker
+  - type: UserInterface
+    interfaces:
+      enum.AmmoSelectorUiKey.Key:
+        type: AmmoSelectorMenuBoundUserInterface
+  - type: ActivatableUI
+    altVerb: true
+    verbOnly: true
+    verbText: mode-select-verb-text
+    key: enum.AmmoSelectorUiKey.Key
+
+- type: selectableAmmo
+  id: AlmagestIRLaserHeavy
+  name: Heavy IR Laser
+  desc: Heavy IR Pulse Laser
+  icon:
+    sprite: _White/Objects/Weapons/Guns/Turrets/Almagest/IR_laser_heavy.rsi
+    state: icon
+  protoId: BoltIRLaserHeavy
+
+- type: selectableAmmo
+  id: AlmagestIRLaserFast
+  name: Fast IR Laser
+  desc: Fast IR Pulse Laser
+  icon:
+    sprite: _White/Objects/Weapons/Guns/Turrets/Almagest/IR_laser_fast.rsi
+    state: icon
+  protoId: BoltIRLaserFast
+
+- type: selectableAmmo
+  id: AlmagestAnnihilatorHeavy
+  name: Heavy Annihilator
+  desc: Heavy Annihilator Rocket Launcher
+  icon:
+    sprite: _White/Objects/Weapons/Guns/Turrets/Almagest/annihilator_heavy.rsi
+    state: icon
+  protoId: RocketAnnihilatorHeavy
+
+- type: selectableAmmo
+  id: AlmagestAnnihilatorFast
+  name: Fast Annihilator
+  desc: Fast Annihilator Rocket Launcher
+  icon:
+    sprite: _White/Objects/Weapons/Guns/Turrets/Almagest/annihilator_fast.rsi
+    state: icon
+  protoId: RocketAnnihilatorFast
+
+- type: selectableAmmo
+  id: AlmagestAnnihilatorShotgun
+  name: Shotgun Annihilator
+  desc: Shotgun Annihilator Rocket Launcher
+  icon:
+    sprite: _White/Objects/Weapons/Guns/Turrets/Almagest/annihilator_shotgun.rsi
+    state: icon
+  protoId: RocketAnnihilatorShotgun
+
+- type: selectableAmmo
+  id: AlmagestHMGHeavy
+  name: Heavy HMG
+  desc: Heavy HMG Machine Gun
+  icon:
+    sprite: _White/Objects/Weapons/Guns/Turrets/Almagest/hmg_heavy.rsi
+    state: icon
+  protoId: BulletHMGHeavy
+
+- type: selectableAmmo
+  id: AlmagestHMGFast
+  name: Fast HMG
+  desc: Fast HMG Machine Gun
+  icon:
+    sprite: _White/Objects/Weapons/Guns/Turrets/Almagest/hmg_fast.rsi
+    state: icon
+  protoId: BulletHMGFast
+
+- type: selectableAmmo
+  id: AlmagestRamPenetrator
+  name: Ram Penetrator
+  desc: Penetrator Ram Blast Launcher
+  icon:
+    sprite: _White/Objects/Weapons/Guns/Turrets/Almagest/ram_penetrator.rsi
+    state: icon
+  protoId: BulletBlastRamPenetrator
+
+- type: selectableAmmo
+  id: AlmagestRamMine
+  name: Ram Mine
+  desc: Mine Ram Blast Launcher
+  icon:
+    sprite: _White/Objects/Weapons/Guns/Turrets/Almagest/ram_mine.rsi
+    state: icon
+  protoId: BulletBlastRamMine
+
+- type: selectableAmmo
+  id: AlmagestRamWalker
+  name: Ram Walker
+  desc: Walker Ram Blast Launcher
+  icon:
+    sprite: _White/Objects/Weapons/Guns/Turrets/Almagest/ram_walker.rsi
+    state: icon
+  protoId: BulletBlastRamWalker

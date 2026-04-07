@@ -26,6 +26,196 @@
     key: enum.RadialSelectorUiKey.Key
     inHandsOnly: true
 
+    # ID
+- type: entity
+  name: Almagest ID card
+  parent: IDCardStandard
+  id: AlmagestIDCardBase
+  abstract: true
+  components:
+  - type: Sprite
+    layers:
+    - state: black
+    - state: department
+      color: "#333333"
+    - state: subdepartment
+      color: "#878787"
+    - state: death
+  - type: PresetIdCard
+    job: ERTLeader
+  - type: AgentIDCard
+  - type: ActivatableUI
+    key: enum.AgentIDCardUiKey.Key
+    inHandsOnly: true
+  - type: UserInterface
+    interfaces:
+      enum.AgentIDCardUiKey.Key:
+        type: AgentIDCardBoundUserInterface
+  - type: NanoChatCard
+    listNumber: false
+
+- type: entity
+  name: red Almagest ID card
+  parent: AlmagestIDCardBase
+  id: AlmagestIDCardRed
+  suffix: Almagest
+  components:
+  - type: Sprite
+    layers:
+    - state: black
+    - state: department
+      color: "#333333"
+    - state: subdepartment
+      color: "#f55f78"
+    - state: death
+      color: "#f55f78"
+
+- type: entity
+  name: blue Almagest ID card
+  parent: AlmagestIDCardBase
+  id: AlmagestIDCardBlue
+  suffix: Almagest
+  components:
+  - type: Sprite
+    layers:
+    - state: black
+    - state: department
+      color: "#333333"
+    - state: subdepartment
+      color: "#5fa5f5"
+    - state: death
+      color: "#5fa5f5"
+
+    # PDA
+- type: entity
+  parent: ERTLeaderPDA
+  id: AlmagestPDARed
+  name: red almagest PDA
+  suffix: Almagest, Red
+  components:
+  - type: Pda
+    id: AlmagestIDCardRed
+    penSlot:
+      startingItem: EnergyDagger
+
+- type: entity
+  parent: ERTLeaderPDA
+  id: AlmagestPDABlue
+  name: blue almagest PDA
+  suffix: Almagest, Blue
+  components:
+  - type: Pda
+    id: AlmagestIDCardBlue
+    penSlot:
+      startingItem: EnergyDagger
+
+    # Grenades
+- type: entity
+  parent: BaseItem
+  id: PackageGrenadeShrapnel
+  name: shrapnel grenade package
+  description: A small package containing a shrapnel grenade. Packaging disintegrates when opened.
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/shrapnelgrenade.rsi
+    layers:
+    - state: paper_2
+      sprite: Objects/Materials/Sheets/other.rsi
+    - state: icon
+      offset: 0.03125, 0.09375
+  - type: SpawnItemsOnUse
+    items:
+    - id: GrenadeShrapnel
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: BaseItem
+  id: PackageGrenadeIncendiary
+  name: incendiary grenade package
+  description: A small package containing an incendiary grenade. Packaging disintegrates when opened.
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/pyrogrenade.rsi
+    layers:
+    - state: paper_2
+      sprite: Objects/Materials/Sheets/other.rsi
+    - state: icon
+      offset: 0.03125, 0.09375
+  - type: SpawnItemsOnUse
+    items:
+    - id: GrenadeIncendiary
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: BaseItem
+  id: PackageGrenadeDummy
+  name: trick grenade package
+  description: A small package containing a trick grenade. Packaging disintegrates when opened.
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/grenade.rsi
+    layers:
+    - state: paper_2
+      sprite: Objects/Materials/Sheets/other.rsi
+    - state: icon
+      offset: 0.03125, 0.09375
+  - type: SpawnItemsOnUse
+    items:
+    - id: GrenadeDummy
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: BaseItem
+  id: PackageGrenadeBarrier
+  name: barrier grenade package
+  description: A small package containing a barrier grenade. Packaging disintegrates when opened.
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Grenades/barrier.rsi
+    layers:
+    - state: paper_2
+      sprite: Objects/Materials/Sheets/other.rsi
+    - state: icon
+      offset: 0.03125, 0.09375
+  - type: SpawnItemsOnUse
+    items:
+    - id: GrenadeBarrier
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: BaseItem
+  id: PackageGrenadeC4
+  name: C-4 package
+  description: A small package containing C-4 explosive. Packaging disintegrates when opened.
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: Objects/Weapons/Bombs/c4.rsi
+    layers:
+    - state: paper_2
+      sprite: Objects/Materials/Sheets/other.rsi
+    - state: icon
+      offset: 0.09375, 0.09375
+  - type: SpawnItemsOnUse
+    items:
+    - id: C4
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+    # AlmagestGirderFlatpack
 - type: entity
   parent: BaseFlatpack
   id: AlmagestGirderFlatpack
@@ -179,3 +369,34 @@
     - state: ame-part
   - type: Flatpack
     entity: SyndicateBomb
+
+# Medic
+- type: entity
+  name: omnizine cryostasis beaker
+  description: A cryostasis beaker filled with omnizine.
+  parent: CryostasisBeaker
+  id: OmnizineCryostasisBeaker
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 60
+        canReact: false
+        reagents:
+        - ReagentId: Omnizine
+          Quantity: 60
+
+- type: entity
+  name: epinephrine cryostasis beaker
+  description: A cryostasis beaker filled with epinephrine.
+  parent: CryostasisBeaker
+  id: EpinephrineCryostasisBeaker
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 60
+        canReact: false
+        reagents:
+        - ReagentId: Epinephrine
+          Quantity: 60

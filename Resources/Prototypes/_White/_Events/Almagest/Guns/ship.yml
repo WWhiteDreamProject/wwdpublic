@@ -1,3 +1,77 @@
+# Mount
+- type: entity
+  parent: WeaponTurretShipLight
+  id: WeaponTurretShipAlmagest
+  suffix: Remote Controlled, Almagest
+  components:
+  - type: Machine
+    board: WeaponTurretShipAlmagestCircuitBoard
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          WeaponTurretShipAlmagestBroken:
+            min: 1
+            max: 1
+
+- type: entity
+  id: WeaponTurretShipAlmagestCircuitBoard
+  parent: WeaponTurretShipLightCircuitBoard
+  description: Circuitboard for a Almagest ship weapon mount.
+  components:
+  - type: Sprite
+    state: security
+  - type: MachineBoard
+    prototype: WeaponTurretShipAlmagest
+    machinePartRequirements:
+      MatterBin: 1
+      Manipulator: 2
+      Capacitor: 3
+    stackRequirements:
+      Cable: 5
+      Steel: 10
+
+- type: entity
+  parent: BaseStructure
+  id: WeaponTurretShipAlmagestBroken
+  name: broken small weapon mount
+  description: A remotely-operated weapon mount designed to accept light anti-ship and anti-infantry weaponry. But now it's broken.
+  components:
+  - type: Construction
+    graph: AlmagestTurretRepair
+    node: broken
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Turrets/turrets.rsi
+    drawdepth: Mobs
+    layers:
+    - state: syndie_broken
+  - type: Damageable
+    damageContainer: StructuralInorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalGlassBreak
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 2
+            max: 4
+
 # Base
 - type: entity
   name: select ship weapon equipment
@@ -591,7 +665,7 @@
     maxIntensity: 100
     totalIntensity: 150
   - type: TimedDespawn
-    lifetime: 60
+    lifetime: 120
   - type: Projectile
     damage:
       types:

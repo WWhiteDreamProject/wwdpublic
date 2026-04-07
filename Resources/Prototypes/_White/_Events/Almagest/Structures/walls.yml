@@ -5,7 +5,7 @@
     Blunt: 0.4
     Slash: 0.4
     Piercing: 2
-    Structural: 0.25
+    Structural: 0.1
     Heat: 0.75
     Shock: 2
   flatReductions:
@@ -102,7 +102,7 @@
   - type: Damageable
     damageModifierSet: AlmagestWallStructural
   - type: ExplosionResistance
-    damageCoefficient: 0.2
+    damageCoefficient: 0.05
   - type: Construction
     graph: AlmagestGirder
     node: wallAlmagestStructural
@@ -140,7 +140,7 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Reflect
-    reflectProb: 0.75
+    reflectProb: 0.9
     reflects:
     - Energy
     spread: 35
@@ -173,7 +173,7 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Reflect
-    reflectProb: 0.5
+    reflectProb: 0.8
     reflects:
     - NonEnergy
     spread: 35

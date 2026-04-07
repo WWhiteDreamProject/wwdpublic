@@ -34,6 +34,12 @@
     - id: ClothingMaskGas
     - id: BoxCaptureCartridgeRed
     - id: ClothingHeadsetPrison
+  - type: EntityGenerator
+    prototypeId: AlmagestFlareSelectRed
+    rechargeDuration: 100
+    maxCharges: 2
+    charges: 2
+    onlyFullRecharge: true
 
 - type: entity
   parent: ClothingBackpackERTLeader
@@ -46,6 +52,12 @@
     - id: ClothingMaskGas
     - id: BoxCaptureCartridgeBlue
     - id: ClothingHeadsetMedical
+  - type: EntityGenerator
+    prototypeId: AlmagestFlareSelectBlue
+    rechargeDuration: 100
+    maxCharges: 2
+    charges: 2
+    onlyFullRecharge: true
 
 - type: entity
   parent: ClothingBackpackERTClown
@@ -131,9 +143,9 @@
   - type: StorageFill
     contents:
     - id: AlmagestEquipmentWeaponBaseSelect
-    - id: GrenadeShrapnel
-    - id: GrenadeDummy
-    - id: GrenadeBarrier
+    - id: PackageGrenadeShrapnel
+    - id: PackageGrenadeDummy
+    - id: PackageGrenadeBarrier
       amount: 3
 
 - type: entity
@@ -159,14 +171,13 @@
   - type: StorageFill
     contents:
     - id: AlmagestEquipmentWeaponBaseSelect
-    - id: DrinkBeerBottleFull
+    - id: DrinkPremiumWhiskeyBottleFull
+    - id: PackageGrenadeShrapnel
       amount: 2
-    - id: GrenadeShrapnel
-      amount: 2
-    - id: GrenadeIncendiary
+    - id: PackageGrenadeIncendiary
     - id: RemoteSignaller
     - id: Multitool
-    - id: C4
+    - id: PackageGrenadeC4
       amount: 4
     - id: SyndicateBombFlatpack
 
@@ -179,16 +190,15 @@
     contents:
     - id: AlmagestEquipmentWeaponBaseSelect
     - id: BodyBagBluespaceFolded
-    - id: OmnizineChemistryBottle
-      amount: 2
-    - id: EpinephrineChemistryBottle
-      amount: 2
+    - id: OmnizineCryostasisBeaker
+    - id: EpinephrineCryostasisBeaker
     - id: Hypospray
     - id: Crowbar
     - id: HandHeldMassScanner
     - id: HandheldGPSBasic
     - id: WeaponGrapplingGun
     - id: BeaconTeleporter
+    - id: DefibrillatorCompact
 
 # Blue
 - type: entity
@@ -210,9 +220,9 @@
   - type: StorageFill
     contents:
     - id: AlmagestEquipmentWeaponBaseSelect
-    - id: GrenadeShrapnel
-    - id: GrenadeDummy
-    - id: GrenadeBarrier
+    - id: PackageGrenadeShrapnel
+    - id: PackageGrenadeDummy
+    - id: PackageGrenadeBarrier
       amount: 3
 
 - type: entity
@@ -238,14 +248,13 @@
   - type: StorageFill
     contents:
     - id: AlmagestEquipmentWeaponBaseSelect
-    - id: DrinkBeerBottleFull
+    - id: DrinkPremiumWhiskeyBottleFull
+    - id: PackageGrenadeShrapnel
       amount: 2
-    - id: GrenadeShrapnel
-      amount: 2
-    - id: GrenadeIncendiary
+    - id: PackageGrenadeIncendiary
     - id: RemoteSignaller
     - id: Multitool
-    - id: C4
+    - id: PackageGrenadeC4
       amount: 4
     - id: SyndicateBombFlatpack
 
@@ -258,13 +267,12 @@
     contents:
     - id: AlmagestEquipmentWeaponBaseSelect
     - id: BodyBagBluespaceFolded
-    - id: OmnizineChemistryBottle
-      amount: 2
-    - id: EpinephrineChemistryBottle
-      amount: 2
+    - id: OmnizineCryostasisBeaker
+    - id: EpinephrineCryostasisBeaker
     - id: Hypospray
     - id: Crowbar
     - id: HandHeldMassScanner
     - id: HandheldGPSBasic
     - id: WeaponGrapplingGun
     - id: BeaconTeleporter
+    - id: DefibrillatorCompact
