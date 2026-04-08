@@ -98,14 +98,14 @@
         scaleByQuantity: true
         damage:
           types:
-            Heat: 0.7 #WWDP
+            Heat: 0.7 #WD EDIT: 0.1 -> 0.7
         conditions:
-        #WWDP EDIT START
+        #WD EDIT START
         - !type:HasComponentOnEquipmentCondition
           invert: true
           components:
           - type: PressureProtection
-        #WWDP EDIT END
+        #WD EDIT END
       - !type:PopupMessage
         type: Local
         visualType: Large
