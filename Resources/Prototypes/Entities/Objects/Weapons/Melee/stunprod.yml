@@ -46,11 +46,11 @@
   - type: Item
     heldPrefix: off
     size: Normal
-    # WWDP EDIT START
+    # WD EDIT START
     shape:
     - 0,0,2,0
     storedRotation: 44
-    # WWDP EDIT END
+    # WD EDIT END
   - type: DisarmMalus
     malus: 0.8 # WWDP
   - type: Appearance

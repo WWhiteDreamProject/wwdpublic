@@ -5,8 +5,10 @@
   description: Medical patch filled with chemicals
   abstract: true
   components:
+  #WD EDIT START
   - type: Item
-    size: Tiny #WWDP
+    size: Tiny
+  #WD EDIT END
   - type: Sprite
     sprite: _Goobstation/Objects/Medical/medical_patch.rsi
     layers:

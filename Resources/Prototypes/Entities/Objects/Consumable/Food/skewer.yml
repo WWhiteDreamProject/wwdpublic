@@ -7,12 +7,12 @@
   id: FoodKebabSkewer
   description: A thin rod of metal used to skewer just about anything and cook it.
   components:
-    #WWDP EDIT START
+    #WD EDIT START
   - type: Item
     shape:
     - 0,0,2,0
     storedRotation: 25
-    #WWDP EDIT END
+    #WD EDIT END
   - type: Sprite
     sprite: Objects/Consumable/Food/skewer.rsi
     state: 

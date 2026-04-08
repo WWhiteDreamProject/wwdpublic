@@ -63,8 +63,10 @@
   parent: GasTankBase
   id: GasTankRoundBase
   components:
+  #WD EDIT START
   - type: Item
     storedRotation: -45
+  #WD EDIT END
   - type: Tool
     qualities:
     - Rolling
