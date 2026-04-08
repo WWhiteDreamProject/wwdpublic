@@ -462,5 +462,5 @@
 - type: damageModifierSet
   id: TideMechArmor
   coefficients:
-    Heat: 1.5
+    Heat: 1.2
   #WD EDIT END
