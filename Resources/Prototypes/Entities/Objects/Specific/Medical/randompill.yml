@@ -1,12 +1,12 @@
 - type: weightedRandomFillSolution
   id: RandomFillStrangePill
   fills:
-  #WWDP EDIT START
-  - quantity: 5
+  #WD EDIT START
+  - quantity: 3
     weight: 0.458
     reagents:
     - Romerol
-  #WWDP EDIT END
+  #WD EDIT END
   - quantity: 20
     weight: 1
     reagents:
