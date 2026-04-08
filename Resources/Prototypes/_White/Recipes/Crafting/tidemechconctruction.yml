@@ -1,11 +1,11 @@
 - type: construction
   id: TideMechCraft
-  name: Шкафомех
+  name: Closetmech
   graph: TideMechGraph
   startNode: start
   targetNode: TideMechBattery
   category: construction-category-weapons
-  description: Мех, но для бедных.
+  description: Mech, but for the beggars.
   icon: { sprite: _White/Objects/Specific/Mech/tidemech.rsi, state: closetmech }
   objectType: Structure
 
@@ -17,7 +17,7 @@
   startNode: start
   targetNode: WeaponMechLaserGun
   category: construction-category-weapons
-  description: Самодельный лазерный пистолет, но побольше.
+  description: A makeshift laser pistol, but bigger.
   icon: { sprite: _White/Objects/Specific/Mech/MechWeapon.rsi, state: tidemechlaser }
   objectType: Item
 
@@ -29,6 +29,6 @@
   startNode: start
   targetNode: WeaponMechToolbox
   category: construction-category-weapons
-  description: Более стальной ящик для инструментов.
+  description: More steel toolbox.
   icon: { sprite: _White/Objects/Specific/Mech/MechWeapon.rsi, state: tidemechtoolbox }
   objectType: Item

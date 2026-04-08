@@ -1,8 +1,8 @@
 - type: entity
   id: TideMech
   parent: [ BaseMech, SpecialMech ] 
-  name: Шкафомех
-  description: Ассистент собрал мех из говна и палок не выходя из технических помещений!
+  name: Closetmech
+  description: The tider collected fur from shit and sticks without leaving the technical rooms!
   components:
   - type: Damageable
     damageModifierSet: TideMechArmor

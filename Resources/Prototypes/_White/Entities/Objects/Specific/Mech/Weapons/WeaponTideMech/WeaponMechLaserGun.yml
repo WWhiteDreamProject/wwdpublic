@@ -1,7 +1,7 @@
 - type: entity
   id: WeaponMechLaserGun
-  name: огромный самодельный лазер
-  description: Самодельная лазерная пушка, можно поместить в мех как модуль.
+  name: huge makeshift laser gun
+  description: Makeshift laser gun, can be placed in the mech as a module.
   suffix: Mech Weapon, Gun, Combat, Laser
   parent: [ BaseMechWeaponRange, SpecialMechEquipment ]
   components:

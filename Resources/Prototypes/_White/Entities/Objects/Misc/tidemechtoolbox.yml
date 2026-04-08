@@ -1,8 +1,8 @@
 - type: entity
-  name: укреплённый ящик
+  name: reinforced toolbox
   parent: BaseItem
   id: WeaponMechWelded
-  description: Укреплённый сталью ящик, облепленный сталью со всех сторон.  
+  description: A steel-reinforced box, covered with steel on all sides.  
   components:
   - type: Construction
     graph: WeaponMechToolboxGraph

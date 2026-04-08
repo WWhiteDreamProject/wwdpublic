@@ -1,9 +1,9 @@
 - type: entity
   id: WeaponMechToolbox
   parent: [ BaseMechWeaponMelee, SpecialMechEquipment ]
-  name: заваренный утяжелённый ящик
+  name: welded reinforced toolbox
   suffix: Mech Weapon, Melee, Combat
-  description: Тулбокс, но очень тяжёлый, можно поместить в мех как модуль.
+  description: The toolbox, although very heavy, can be placed in the mech as a module.
   components:
   - type: Tag
     tags:
