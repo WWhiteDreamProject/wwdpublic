@@ -1,14 +1,10 @@
-using Content.Shared._White.Psionics;
 using Content.Shared.Abilities.Psionics;
-using Content.Shared.Mobs.Components;
 using Content.Shared.Physics;
 using Content.Shared.Projectiles;
 using Content.Shared.Standing;
 using Content.Shared.Tag;
 using Content.Shared.Throwing;
-using Content.Shared.Weapons.Misc;
 using Content.Shared.Weapons.Ranged.Systems;
-using MathNet.Numerics.Providers.LinearAlgebra;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
@@ -93,7 +89,7 @@ public sealed class HookSystem : EntitySystem
 
         var transform = Transform(args.Target);
 
-        if (_tags.HasTag(args.Target, "Wall") || transform.Achorned)
+        if (_tags.HasTag(args.Target, "Wall") || transform.Anchored)
         {
             var direction = (targetPos - shooterPos).Normalized();
             _throw.TryThrow(shooter, direction * power * 2, hookComp.BasePower, shooter);

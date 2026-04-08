@@ -27,3 +27,11 @@ barokinesis-verb = Barokinesis
 verb-barokinesis-pull = Pull
 verb-barokinesis-push = Push
 verb-barokinesis-dash = Decompression Dash
+
+action-name-summon-hook = Reactive mutation
+action-description-summon-hook = Replace your useless arm with a tentacle whose end can be launched forward.
+hook-power-initialization-feedback =
+    My mind is dying
+    Thousands of hell's fiends occupy my body
+    It turned out I was one of them.
+psionic-uncuff-popup = We start to remove the handcuffs

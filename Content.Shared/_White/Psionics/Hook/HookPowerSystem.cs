@@ -7,7 +7,6 @@ using Content.Shared.DoAfter;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Player;
 
 namespace Content.Server._White.Psionics.Abilities;
 
