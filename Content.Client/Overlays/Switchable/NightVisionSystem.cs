@@ -1,7 +1,7 @@
-using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Overlays.Switchable;
 using Robust.Client.Graphics;
+using Robust.Shared.Timing;
 
 namespace Content.Client.Overlays.Switchable;
 
@@ -9,8 +9,9 @@ public sealed class NightVisionSystem : EquipmentHudSystem<NightVisionComponent>
 {
     [Dependency] private readonly IOverlayManager _overlayMan = default!;
     [Dependency] private readonly ILightManager _lightManager = default!;
+    [Dependency] private readonly IGameTiming _gameTiming = default!;
 
-    private BaseSwitchableOverlay<NightVisionComponent> _overlay = default!;
+    private NightVisionOverlay _overlay = default!;
 
     public override void Initialize()
     {
@@ -18,40 +19,30 @@ public sealed class NightVisionSystem : EquipmentHudSystem<NightVisionComponent>
 
         SubscribeLocalEvent<NightVisionComponent, SwitchableOverlayToggledEvent>(OnToggle);
 
-        _overlay = new BaseSwitchableOverlay<NightVisionComponent>();
+        _overlay = new()
+        {
+            IsActive = false
+        };
+        _overlayMan.AddOverlay(_overlay);
     }
 
-    protected override void OnRefreshComponentHud(
-        Entity<NightVisionComponent> ent,
-        ref RefreshEquipmentHudEvent<NightVisionComponent> args
-        )
+    public override void Shutdown()
     {
-        if (ent.Comp.IsEquipment)
-            return;
-
-        base.OnRefreshComponentHud(ent, ref args);
-    }
-
-    protected override void OnRefreshEquipmentHud(
-        Entity<NightVisionComponent> ent,
-        ref InventoryRelayedEvent<RefreshEquipmentHudEvent<NightVisionComponent>> args
-        )
-    {
-        if (!ent.Comp.IsEquipment)
-            return;
-
-        base.OnRefreshEquipmentHud(ent, ref args);
+        base.Shutdown();
+        _overlayMan.RemoveOverlay(_overlay);
     }
 
     private void OnToggle(Entity<NightVisionComponent> ent, ref SwitchableOverlayToggledEvent args)
     {
+        if (!_gameTiming.IsFirstTimePredicted)
+            return;
+
+        _overlay.SetParams(ent.Comp.Tint, ent.Comp.Strength, ent.Comp.Noise, ent.Comp.Color, ent.Comp.PulseTime);
         RefreshOverlay();
     }
 
     protected override void UpdateInternal(RefreshEquipmentHudEvent<NightVisionComponent> args)
     {
-        base.UpdateInternal(args);
-
         var active = false;
         NightVisionComponent? nvComp = null;
         foreach (var comp in args.Components)
@@ -60,6 +51,7 @@ public sealed class NightVisionSystem : EquipmentHudSystem<NightVisionComponent>
                 active = true;
             else
                 continue;
+
             if (comp.DrawOverlay)
             {
                 if (nvComp == null)
@@ -73,37 +65,13 @@ public sealed class NightVisionSystem : EquipmentHudSystem<NightVisionComponent>
         }
 
         UpdateNightVision(active);
-        UpdateOverlay(nvComp);
     }
 
-    protected override void DeactivateInternal()
-    {
-        base.DeactivateInternal();
-
-        UpdateNightVision(false);
-        UpdateOverlay(null);
-    }
+    protected override void DeactivateInternal() => UpdateNightVision(false);
 
     private void UpdateNightVision(bool active)
     {
         _lightManager.DrawLighting = !active;
-    }
-
-    private void UpdateOverlay(NightVisionComponent? nvComp)
-    {
-        _overlay.Comp = nvComp;
-
-        switch (nvComp)
-        {
-            case not null when !_overlayMan.HasOverlay<BaseSwitchableOverlay<NightVisionComponent>>():
-                _overlayMan.AddOverlay(_overlay);
-                break;
-            case null:
-                _overlayMan.RemoveOverlay(_overlay);
-                break;
-        }
-
-        if (_overlayMan.TryGetOverlay<BaseSwitchableOverlay<ThermalVisionComponent>>(out var overlay))
-            overlay.IsActive = nvComp == null;
+        _overlay.IsActive = active;
     }
 }
