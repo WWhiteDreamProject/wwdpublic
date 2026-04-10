@@ -11,8 +11,9 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Prototypes;
 
 // ReSharper disable InconsistentNaming
+// White Dream Code but moved to general folder for consistency
 
-namespace Content.Client._White.RadialSelector;
+namespace Content.Client.RadialSelector;
 
 public abstract class BasedRadialSelectorMenuBUI : BoundUserInterface
 {

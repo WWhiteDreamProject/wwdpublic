@@ -3,8 +3,9 @@ using Content.Shared._White.RadialSelector;
 using JetBrains.Annotations;
 
 // ReSharper disable InconsistentNaming
+// White Dream Code but moved to general folder for consistency
 
-namespace Content.Client._White.RadialSelector;
+namespace Content.Client.RadialSelector;
 
 [UsedImplicitly]
 public sealed class TrackedRadialSelectorMenuBUI(EntityUid owner, Enum uiKey) : BasedRadialSelectorMenuBUI(owner, uiKey)
