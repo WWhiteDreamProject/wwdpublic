@@ -128,7 +128,7 @@
     Telecrystal: 2
   productEntity: EnergySword
   cost:
-    Telecrystal: 8
+    Telecrystal: 7 # WD EDIT: 8 -> 7
   # WD EDIT END
   categories:
   - UplinkWeaponry
@@ -1763,9 +1763,9 @@
   icon: { sprite: Interface/Actions/actions_fakemindshield.rsi, state: icon-on }
   productEntity: FakeMindShieldImplanter
   discountDownTo:
-    Telecrystal: 10
+    Telecrystal: 2 # WD EDIT: 10 -> 2
   cost:
-    Telecrystal: 20
+    Telecrystal: 4 # WD EDIT: 20 -> 4
   categories:
   - UplinkImplants
 
