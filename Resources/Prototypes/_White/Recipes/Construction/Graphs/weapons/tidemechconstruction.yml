@@ -107,4 +107,4 @@
        - tool: Welding
          doAfter: 8
   - node: WeaponMechToolbox
-    entity: WeaponMechToolbox 
+    entity: WeaponMechToolbox

@@ -5,9 +5,6 @@
   suffix: Mech Weapon, Melee, Combat
   description: The toolbox, although very heavy, can be placed in the mech as a module.
   components:
-  - type: Tag
-    tags:
-    - WeaponMechToolbox
   - type: Construction
     graph: WeaponMechToolboxGraph
     node: WeaponMechToolbox

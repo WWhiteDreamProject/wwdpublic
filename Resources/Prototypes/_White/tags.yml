@@ -62,11 +62,4 @@
   id: DeleteOnGamerule
 
 - type: Tag
-  id: WeaponMechToolbox
-
-- type: Tag
-  id: WeaponMechLaserGun
-
-- type: Tag
   id: MortarGrenade
-

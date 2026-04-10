@@ -2,12 +2,9 @@
   id: WeaponMechLaserGun
   name: huge makeshift laser gun
   description: Makeshift laser gun, can be placed in the mech as a module.
-  suffix: Mech Weapon, Gun, Combat, Laser
+  suffix: Mech Weapon, Gun, Special, Laser
   parent: [ BaseMechWeaponRange, SpecialMechEquipment ]
   components:
-  - type: Tag
-    tags:
-    - WeaponMechLaserGun
   - type: Construction
     graph: WeaponMechLaserGunGraph
     node: WeaponMechLaserGun
@@ -21,11 +18,8 @@
       - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-    damage:
-      types:
-        Heat: 25
   - type: ProjectileBatteryAmmoProvider
-    proto: BulletLaserHeavy
+    proto: BulletLaser
     fireCost: 65
   - type: Appearance
   - type: AmmoCounter
