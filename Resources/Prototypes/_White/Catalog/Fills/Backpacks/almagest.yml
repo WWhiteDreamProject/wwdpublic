@@ -146,6 +146,10 @@
     - id: AlmagestEquipmentWeaponBaseSelect
     - id: HandHeldMassScanner
     - id: HandheldGPSBasic
+    - id: AlmagestGirderFlatpack30
+    - id: WallAlmagestStructuralResistantFlatpack15
+    - id: WallAlmagestLaserResistantFlatpack15
+    - id: WallAlmagestPiercingResistantFlatpack15
 
 - type: entity
   parent: ClothingBackpackAlmagestRed
@@ -221,6 +225,10 @@
     - id: AlmagestEquipmentWeaponBaseSelect
     - id: HandHeldMassScanner
     - id: HandheldGPSBasic
+    - id: AlmagestGirderFlatpack30
+    - id: WallAlmagestStructuralResistantFlatpack15
+    - id: WallAlmagestLaserResistantFlatpack15
+    - id: WallAlmagestPiercingResistantFlatpack15
 
 - type: entity
   parent: ClothingBackpackAlmagestBlue

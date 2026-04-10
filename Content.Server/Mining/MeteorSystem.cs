@@ -1,9 +1,11 @@
 using Content.Server.Administration.Logs;
 using Content.Server.Destructible;
+using Content.Server.Projectiles;
 using Content.Shared.Damage;
 using Content.Shared.Database;
 using Content.Shared.FixedPoint;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Projectiles;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Player;
 
@@ -19,7 +21,7 @@ public sealed class MeteorSystem : EntitySystem
     /// <inheritdoc/>
     public override void Initialize()
     {
-        SubscribeLocalEvent<MeteorComponent, StartCollideEvent>(OnCollide);
+        SubscribeLocalEvent<MeteorComponent, StartCollideEvent>(OnCollide, after: [typeof(ProjectileSystem)]); // WD EDIT
     }
 
     private void OnCollide(EntityUid uid, MeteorComponent component, ref StartCollideEvent args)
@@ -29,6 +31,22 @@ public sealed class MeteorSystem : EntitySystem
 
         if (component.HitList.Contains(args.OtherEntity))
             return;
+
+        // WWDP edit start
+        // If the meteor has a penetrating projectile with remaining penetrations,
+        // skip all meteor collision logic (including self-damage) to let penetration work first.
+        // When penetrations are exhausted (ProjectileSpent), meteor behavior resumes
+        // and self-damage triggers Destructible normally.
+        if (TryComp<ProjectileComponent>(uid, out var projectile)
+            && projectile.Penetrate
+            && projectile.MaxPenetrations > 0
+            && !projectile.ProjectileSpent)
+        {
+            if (!TerminatingOrDeleted(args.OtherEntity))
+                component.HitList.Add(args.OtherEntity);
+            return;
+        }
+        // WWDP edit end
 
         FixedPoint2 threshold;
         if (_mobThreshold.TryGetDeadThreshold(args.OtherEntity, out var mobThreshold))
