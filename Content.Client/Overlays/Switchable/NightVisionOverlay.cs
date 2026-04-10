@@ -16,7 +16,7 @@ public sealed class NightVisionOverlay : Overlay
 
     public bool IsActive = true;
 
-    private readonly ProtoId<ShaderPrototype> _shaderProto = "NightVision";
+    private readonly ProtoId<ShaderPrototype> _shaderProto = new("NightVision");
     private readonly ShaderInstance _shader;
 
     private Vector3 _tint = Vector3.One * 0.5f;
@@ -61,8 +61,9 @@ public sealed class NightVisionOverlay : Overlay
 
         var worldHandle = args.WorldHandle;
 
-        var accumulator = Math.Clamp(_timeAccumulator, 0f, _pulseTime);
-        var alpha = _pulseTime <= 0f ? 1f : float.Lerp(1f, 0f, accumulator / _pulseTime);
+        var alpha = _pulseTime <= 0f
+            ? 1f
+            : float.Lerp(1f, 0f, _timeAccumulator / _pulseTime);
 
         worldHandle.SetTransform(Matrix3x2.Identity);
         worldHandle.UseShader(_shader);

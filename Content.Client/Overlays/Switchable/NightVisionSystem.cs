@@ -54,9 +54,7 @@ public sealed class NightVisionSystem : EquipmentHudSystem<NightVisionComponent>
 
             if (comp.DrawOverlay)
             {
-                if (nvComp == null)
-                    nvComp = comp;
-                else if (nvComp.PulseTime > 0f && comp.PulseTime <= 0f)
+                if (nvComp == null || nvComp.PulseTime > 0f && comp.PulseTime <= 0f)
                     nvComp = comp;
             }
 
