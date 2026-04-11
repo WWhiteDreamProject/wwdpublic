@@ -1,7 +1,9 @@
 - type: constructionGraph
   id: AlmagestTurretRepair
-  start: broken
+  start: start
   graph:
+  - node: start
+
   - node: broken
     entity: WeaponTurretShipAlmagestBroken
     edges:
