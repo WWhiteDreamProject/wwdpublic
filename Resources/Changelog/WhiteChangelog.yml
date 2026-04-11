@@ -5225,3 +5225,10 @@ Entries:
   id: 549
   time: '2026-04-11T14:40:02.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1097
+- author: Pedro-233
+  changes:
+    - type: Tweak
+      message: Изменен урон от воды у слаймов
+  id: 550
+  time: '2026-04-11T14:40:56.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1100
