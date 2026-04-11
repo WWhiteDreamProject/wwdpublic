@@ -38,6 +38,6 @@ timed-announcer-almagest-timer-start-timer5 = Таймер подготовки 
 timed-announcer-almagest-timer-start-timer10 = Таймер подготовки к бою запущен! У вас есть 10 минут!
 timed-announcer-almagest-timer-start-timer15 = Таймер подготовки к бою запущен! У вас есть 15 минут!
 timed-announcer-almagest-timer-1-minute-left = Осталась [color=#14fffb]1 минута[/color] до начала боя!
-timed-announcer-almagest-timer-5-minute-left = Осталась [color=#14fffb]5 минут[/color] до начала боя!
-timed-announcer-almagest-timer-10-minute-left =Осталась [color=#14fffb]10 минут[/color] до начала боя!
+timed-announcer-almagest-timer-5-minute-left = Осталось [color=#14fffb]5 минут[/color] до начала боя!
+timed-announcer-almagest-timer-10-minute-left = Осталось [color=#14fffb]10 минут[/color] до начала боя!
 timed-announcer-almagest-timer-end = Таймер подготовки к бою истек! Покиньте стартовые доки и готовьтесь к бою!

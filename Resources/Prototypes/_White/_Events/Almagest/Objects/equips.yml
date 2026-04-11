@@ -6,7 +6,7 @@
   components:
   - type: Unremoveable
   - type: ToggleableClothing
-    clothingPrototype: ClothingHeadHelmetHardsuitERTSecurity
+    clothingPrototype: ClothingHeadHelmetHardsuitAlmagestRed
   - type: ClothingGrantComponent
     component:
     - type: SurgeryIgnoreClothing
