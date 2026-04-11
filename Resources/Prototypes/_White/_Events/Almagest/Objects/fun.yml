@@ -112,6 +112,37 @@
     - delay: 600
       announcement: timed-announcer-vergessenheit-600
 
+# Turret
+- type: entity
+  id: WeaponTurretAlmagestVergessenheit
+  parent: WeaponTurretHostile
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 600
+
+- type: entity
+  name: Hostile Turret Spawner
+  id: WeaponTurretAlmagestVergessenheitTimedSpawner
+  parent: MarkerBase
+  #categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Objects/Weapons/Guns/Turrets/turrets.rsi
+      state: syndie_base
+  - type: ConditionalSpawner
+    prototypes:
+    - WeaponTurretAlmagestVergessenheit
+  - type: TimedSpawner
+    prototypes:
+    - WeaponTurretAlmagestVergessenheit
+    intervalSeconds: 600
+    chance: 1.0
+
+# Admeme
+
 - type: entity
   name: Almagest Admeme Gun
   parent: BaseItem

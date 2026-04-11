@@ -9,7 +9,7 @@
     - DeleteOnGamerule
     markersToActivate:
     - SpawnOnGameruleWeaponTurretShipAlmagestRiftLance
-    - SpawnOnGameruleWeaponTurretHostile
+    - SpawnOnGameruleWeaponTurretAlmagestVergessenheit
     - SpawnOnGameruleTimedAnnouncerVergessenheit
 
 - type: entity
@@ -36,8 +36,8 @@
     spawnPrototype: WeaponTurretShipAlmagestRiftLance
 
 - type: entity
-  name: Almagest Rift Lance Spawner
-  id: SpawnOnGameruleWeaponTurretHostile
+  name: turret timed spawner spawner
+  id: SpawnOnGameruleWeaponTurretAlmagestVergessenheit
   parent: MarkerBase
   components:
   - type: Sprite
@@ -46,10 +46,10 @@
     - sprite: Objects/Weapons/Guns/Turrets/turrets.rsi
       state: syndie_lethal
   - type: SpawnOnGamerule
-    spawnPrototype: WeaponTurretHostile
+    spawnPrototype: WeaponTurretAlmagestVergessenheitTimedSpawner
 
 - type: entity
-  name: Almagest Rift Lance Spawner
+  name: time announcer vergessenheit
   id: SpawnOnGameruleTimedAnnouncerVergessenheit
   parent: MarkerBase
   components:
