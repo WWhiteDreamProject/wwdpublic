@@ -21,5 +21,8 @@ public sealed partial class RattleComponent : Component
     [DataField("deathMessage")]
     public LocId DeathMessage = "deathrattle-implant-dead-message";
 
-
+    # WD EDIT START
+    [DataField]
+    public LocId ReviveMessage = "deathrattle-implant-revive-message";
+    # WD EDIT END
 }

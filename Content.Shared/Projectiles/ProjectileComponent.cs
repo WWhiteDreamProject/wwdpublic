@@ -117,7 +117,7 @@ public sealed partial class ProjectileComponent : Component
 
     // Goobstation start
     [DataField]
-    public bool Penetrate = false; // WWDP edit
+    public bool Penetrate;
 
     /// <summary>
     ///     Collision mask of what not to penetrate if <see cref="Penetrate"/> is true.
