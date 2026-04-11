@@ -116,7 +116,7 @@
 - type: entity
   id: WeaponTurretAlmagestVergessenheit
   parent: WeaponTurretHostile
-  categories: [ HideSpawnMenu ]
+  #categories: [ HideSpawnMenu ]
   components:
   - type: TimedDespawn
     lifetime: 600
@@ -226,7 +226,6 @@
 
 - type: selectableAmmo
   id: AlmagestAnnihilatorShotgun
-  name: Shotgun Annihilator
   desc: Shotgun Annihilator Rocket Launcher
   icon:
     sprite: _White/Objects/Weapons/Guns/Turrets/Almagest/annihilator_shotgun.rsi
