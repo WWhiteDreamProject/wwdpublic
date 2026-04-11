@@ -308,6 +308,7 @@
     - id: ClothingShoesBootsCombatFilled
     - id: WeaponPistolMPR10Xyphos 
     - id: MagazinePistol
+    - id: EnergyShield
 
 - type: entity
   parent: BoxSyndicateKit
