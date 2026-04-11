@@ -93,7 +93,7 @@
         Blunt: 5
   - type: Item
     size: Large
-     # WD EDIT START
+    # WD EDIT START
     shape:
     - 0,0,3,0
     storedRotation: 44

@@ -26,7 +26,7 @@
     state: cautery
   - type: Item
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/cautery.rsi
-    storedRotation: -45 #WWDP
+    storedRotation: -45 # WD EDIT:  90 -> -45
   - type: MeleeWeapon
     damage:
       types:
@@ -268,7 +268,7 @@
   - type: Item
     heldPrefix: hemostat
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/hemostat.rsi # Shitmed Change
-    storedRotation: -45 #WWDP
+    storedRotation: 45 # WD EDIT: 90 -> -45
   - type: MeleeWeapon
     wideAnimationRotation: 90
     attackRate: 1.1
@@ -639,7 +639,7 @@
       - state: on-inhand-left
       right:
       - state: on-inhand-right
-    storedRotation: 90 #WWDP 
+    storedRotation: 90 # WD EDIT
   - type: SurgeryTool
     startSound:
       path: /Audio/_Shitmed/Medical/Surgery/retractor1.ogg
