@@ -41,7 +41,7 @@
           - !type:HasBudgetCondition
           - !type:MaxRuleOccurenceCondition
           - !type:PlayerCountCondition
-            min: 20
+            min: 15 # WD edit: 20 > 15  
         # WD edit start
         - id: Changeling
           weight: 15
@@ -118,7 +118,7 @@
           - !type:RoundDurationCondition
             min: 900 # 15 minutes
           - !type:PlayerCountCondition # WD edit
-            min: 29
+            min: 20 # WD edit: 29 > 20
         - id: NinjaSpawn
           weight: 20
           conditions:
@@ -127,7 +127,7 @@
           - !type:RoundDurationCondition
             min: 900 # 15 minutes
           - !type:PlayerCountCondition # WD edit
-            min: 30
+            min: 15 # WD edit: 30 > 15
         - id: ParadoxAnomalySpawn # WD edit
           weight: 25
           conditions:
@@ -151,7 +151,7 @@
           - !type:HasBudgetCondition
           - !type:MaxRuleOccurenceCondition
           - !type:PlayerCountCondition
-            min: 20
+            min: 15 # WD edit: 20 > 15  
           - !type:RoundDurationCondition
             min: 2100 # 35 minutes
         # WD edit start
