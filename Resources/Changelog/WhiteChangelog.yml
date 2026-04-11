@@ -5232,3 +5232,10 @@ Entries:
   id: 550
   time: '2026-04-11T14:40:56.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1100
+- author: Pedro-233
+  changes:
+    - type: Fix
+      message: Исправлен бесконечный стамина крит
+  id: 551
+  time: '2026-04-11T14:42:11.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1102
