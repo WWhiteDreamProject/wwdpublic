@@ -233,6 +233,7 @@ namespace Content.Server.Explosion.EntitySystems
             {
                 var channel = _prototypeManager.Index<RadioChannelPrototype>(channelId);
 
+
                 if (mobstate.CurrentState == MobState.Alive)
                     _radioSystem.SendRadioMessage(uid, reviveMessage, channel, uid);
                 if (mobstate.CurrentState == MobState.Critical)
