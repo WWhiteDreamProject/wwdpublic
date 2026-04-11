@@ -135,6 +135,7 @@
   - type: ConditionalSpawner
     prototypes:
     - WeaponTurretAlmagestVergessenheit
+  - type: Timer
   - type: TimedSpawner
     prototypes:
     - WeaponTurretAlmagestVergessenheit
