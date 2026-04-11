@@ -11,6 +11,7 @@
       map: [ "enum.TelescopicBatonVisuals.Layer" ]
   - type: Item
     size: Small
+    storedRotation: -45 #WD EDIT
   - type: ItemToggle
     soundActivate:
       path: /Audio/Weapons/telescopicon.ogg
@@ -36,6 +37,10 @@
   - type: ItemToggleDamageOtherOnHit
   - type: ItemToggleSize
     activatedSize: Normal
+    #WD EDIT START
+    activatedShape:
+    - 0,0,0,3
+    #WD EDIT END
   - type: UseDelay
     delay: 2
   - type: TelescopicBaton

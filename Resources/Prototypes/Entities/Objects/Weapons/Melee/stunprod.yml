@@ -48,7 +48,8 @@
     size: Normal
     # WD EDIT START
     shape:
-    - 0,0,1,1
+    - 0,0,2,0
+    storedRotation: 44
     # WD EDIT END
   - type: DisarmMalus
     malus: 0.8 # WWDP
