@@ -5239,3 +5239,10 @@ Entries:
   id: 551
   time: '2026-04-11T14:42:11.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1102
+- author: kekoven1
+  changes:
+    - type: Add
+      message: добавлены псикасты Жрец и Телекинетик
+  id: 552
+  time: '2026-04-11T14:45:50.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1106
