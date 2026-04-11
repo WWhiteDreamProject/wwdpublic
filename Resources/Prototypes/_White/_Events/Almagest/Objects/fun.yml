@@ -194,7 +194,6 @@
 
 - type: selectableAmmo
   id: AlmagestIRLaserHeavy
-  name: Heavy IR Laser
   desc: Heavy IR Pulse Laser
   icon:
     sprite: _White/Objects/Weapons/Guns/Turrets/Almagest/IR_laser_heavy.rsi
@@ -203,7 +202,6 @@
 
 - type: selectableAmmo
   id: AlmagestIRLaserFast
-  name: Fast IR Laser
   desc: Fast IR Pulse Laser
   icon:
     sprite: _White/Objects/Weapons/Guns/Turrets/Almagest/IR_laser_fast.rsi
@@ -212,7 +210,6 @@
 
 - type: selectableAmmo
   id: AlmagestAnnihilatorHeavy
-  name: Heavy Annihilator
   desc: Heavy Annihilator Rocket Launcher
   icon:
     sprite: _White/Objects/Weapons/Guns/Turrets/Almagest/annihilator_heavy.rsi
@@ -221,7 +218,6 @@
 
 - type: selectableAmmo
   id: AlmagestAnnihilatorFast
-  name: Fast Annihilator
   desc: Fast Annihilator Rocket Launcher
   icon:
     sprite: _White/Objects/Weapons/Guns/Turrets/Almagest/annihilator_fast.rsi
@@ -239,7 +235,6 @@
 
 - type: selectableAmmo
   id: AlmagestHMGHeavy
-  name: Heavy HMG
   desc: Heavy HMG Machine Gun
   icon:
     sprite: _White/Objects/Weapons/Guns/Turrets/Almagest/hmg_heavy.rsi
@@ -248,7 +243,6 @@
 
 - type: selectableAmmo
   id: AlmagestHMGFast
-  name: Fast HMG
   desc: Fast HMG Machine Gun
   icon:
     sprite: _White/Objects/Weapons/Guns/Turrets/Almagest/hmg_fast.rsi
@@ -257,7 +251,6 @@
 
 - type: selectableAmmo
   id: AlmagestRamPenetrator
-  name: Ram Penetrator
   desc: Penetrator Ram Blast Launcher
   icon:
     sprite: _White/Objects/Weapons/Guns/Turrets/Almagest/ram_penetrator.rsi
@@ -266,7 +259,6 @@
 
 - type: selectableAmmo
   id: AlmagestRamMine
-  name: Ram Mine
   desc: Mine Ram Blast Launcher
   icon:
     sprite: _White/Objects/Weapons/Guns/Turrets/Almagest/ram_mine.rsi
@@ -275,7 +267,6 @@
 
 - type: selectableAmmo
   id: AlmagestRamWalker
-  name: Ram Walker
   desc: Walker Ram Blast Launcher
   icon:
     sprite: _White/Objects/Weapons/Guns/Turrets/Almagest/ram_walker.rsi
