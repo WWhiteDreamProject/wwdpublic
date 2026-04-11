@@ -1,7 +1,7 @@
 using Content.Server._White.GameTicking.Components;
 using Content.Server.GameTicking.Rules;
-using Content.Shared._White.SpawnOnGamerule.Components;
-using Content.Shared._White.SpawnOnGamerule.Events;
+using Content.Server._White.Spawners.Components;
+using Content.Server._White.Spawners.Events;
 using Content.Shared.Tag;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Maps;
@@ -20,32 +20,43 @@ public sealed class DeleteSpawnOnGameruleSystem : GameRuleSystem<DeleteSpawnOnGa
     protected override void Started(EntityUid uid, DeleteSpawnOnGameruleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
         base.Started(uid, component, gameRule, args);
-        RemoveTiles(component.TilesToRemove);
-        RemoveEntitiesByTags(component.EntityTagsToRemove);
         SpawnOnGamerule(component.MarkersToActivate);
+        RemoveEntitiesByTags(component.EntityTagsToRemove);
+        RemoveTiles(component.TilesToRemove);
     }
 
     private void RemoveTiles(List<string> tilePrototypes)
     {
         var tileDefManager = IoCManager.Resolve<ITileDefinitionManager>();
-        var tilesToRemove = new List<(EntityUid gridUid, MapGridComponent grid, Vector2i indices)>();
+        var maxIterations = 5;
+        var iteration = 0;
 
-        var gridQuery = EntityQueryEnumerator<MapGridComponent>();
-        while (gridQuery.MoveNext(out var gridUid, out var grid))
+        while (iteration < maxIterations)
         {
-            foreach (var tileRef in grid.GetAllTiles())
+            var tilesToRemove = new List<(EntityUid gridUid, MapGridComponent grid, Vector2i indices)>();
+            var gridQuery = EntityQueryEnumerator<MapGridComponent>();
+
+            while (gridQuery.MoveNext(out var gridUid, out var grid))
             {
-                var tileDef = (ContentTileDefinition)tileDefManager[tileRef.Tile.TypeId];
-                if (tilePrototypes.Contains(tileDef.ID))
+                foreach (var tileRef in grid.GetAllTiles())
                 {
-                    tilesToRemove.Add((gridUid, grid, tileRef.GridIndices));
+                    var tileDef = (ContentTileDefinition)tileDefManager[tileRef.Tile.TypeId];
+                    if (tilePrototypes.Contains(tileDef.ID))
+                    {
+                        tilesToRemove.Add((gridUid, grid, tileRef.GridIndices));
+                    }
                 }
             }
-        }
 
-        foreach (var (gridUid, grid, indices) in tilesToRemove)
-        {
-            _mapSystem.SetTile(gridUid, grid, indices, Tile.Empty);
+            if (tilesToRemove.Count == 0)
+                break;
+
+            foreach (var (gridUid, grid, indices) in tilesToRemove)
+            {
+                _mapSystem.SetTile(gridUid, grid, indices, Tile.Empty);
+            }
+
+            iteration++;
         }
     }
 

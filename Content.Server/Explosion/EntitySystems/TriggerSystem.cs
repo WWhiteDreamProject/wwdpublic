@@ -220,6 +220,7 @@ namespace Content.Server.Explosion.EntitySystems
 
             // Gets location of the implant
             var posText = FormattedMessage.RemoveMarkupOrThrow(_navMap.GetNearestBeaconString(uid));
+            var reviveMessage = Loc.GetString(component.ReviveMessage, ("user", implanted.ImplantedEntity.Value), ("position", posText));
             var critMessage = Loc.GetString(component.CritMessage, ("user", implanted.ImplantedEntity.Value), ("position", posText));
             var deathMessage = Loc.GetString(component.DeathMessage, ("user", implanted.ImplantedEntity.Value), ("position", posText));
 
@@ -227,10 +228,16 @@ namespace Content.Server.Explosion.EntitySystems
                 return;
 
             // Sends a message to the radio channel specified by the implant
-            if (mobstate.CurrentState == MobState.Critical)
-                _radioSystem.SendRadioMessage(uid, critMessage, _prototypeManager.Index<RadioChannelPrototype>(component.RadioChannel), uid);
-            if (mobstate.CurrentState == MobState.Dead)
-                _radioSystem.SendRadioMessage(uid, deathMessage, _prototypeManager.Index<RadioChannelPrototype>(component.RadioChannel), uid);
+            foreach (var channelId in component.RadioChannel) // WWDP edit start
+            {
+                var channel = _prototypeManager.Index<RadioChannelPrototype>(channelId);
+                if (mobstate.CurrentState == MobState.Alive)
+                    _radioSystem.SendRadioMessage(uid, reviveMessage, channel, uid);
+                if (mobstate.CurrentState == MobState.Critical)
+                    _radioSystem.SendRadioMessage(uid, critMessage, channel, uid);
+                if (mobstate.CurrentState == MobState.Dead)
+                    _radioSystem.SendRadioMessage(uid, deathMessage, channel, uid);
+            } // WWDP edit end
 
             args.Handled = true;
         }

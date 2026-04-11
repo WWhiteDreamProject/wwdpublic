@@ -5,11 +5,11 @@
   name: red hardsuit
   components:
   - type: Unremoveable
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitERTSecurity
   - type: ClothingGrantComponent
     component:
     - type: SurgeryIgnoreClothing
-    - type: SurgerySpeedModifier
-      speedModifier: 3
 
 - type: entity
   parent: ClothingOuterHardsuitERTLeader
@@ -17,12 +17,25 @@
   name: blue hardsuit
   components:
   - type: Unremoveable
-  - type: SurgeryIgnoreClothing
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitAlmagestBlue
   - type: ClothingGrantComponent
     component:
     - type: SurgeryIgnoreClothing
-    - type: SurgerySpeedModifier
-      speedModifier: 3
+
+- type: entity
+  parent: ClothingHeadHelmetHardsuitERTSecurity
+  id: ClothingHeadHelmetHardsuitAlmagestRed
+  name: blue hardsuit helmet
+  components:
+  - type: ShowJobIcons
+
+- type: entity
+  parent: ClothingHeadHelmetHardsuitERTLeader
+  id: ClothingHeadHelmetHardsuitAlmagestBlue
+  name: blue hardsuit helmet
+  components:
+  - type: ShowJobIcons
 
 # Starting Gear Base
 
@@ -196,6 +209,9 @@
     - AlmagestRedBaseGear
     - AlmagestCaptainGear
     - AlmagestCaptainGearRed
+    implants:
+    - AlmagestDeathRattleImplantCaptainRed
+    - AlmagestDeathRattleImplantCaptainRedToTeam
 
 - type: entity
   name: red marine equipment
@@ -279,6 +295,8 @@
     - AlmagestRedBaseGear
     - AlmagestMedicGear
     - AlmagestMedicGearRed
+    implants:
+    - AlmagestImplantMedic
 
 # Equip Blue
 - type: entity
@@ -326,6 +344,9 @@
     - AlmagestBlueBaseGear
     - AlmagestCaptainGear
     - AlmagestCaptainGearBlue
+    implants:
+    - AlmagestDeathRattleImplantCaptainBlue
+    - AlmagestDeathRattleImplantCaptainBlueToTeam
 
 - type: entity
   name: blue marine equipment
@@ -410,3 +431,5 @@
     - AlmagestBlueBaseGear
     - AlmagestMedicGear
     - AlmagestMedicGearBlue
+    implants:
+    - AlmagestImplantMedic

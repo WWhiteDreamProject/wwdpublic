@@ -97,6 +97,9 @@
     id: AlmagestIDCardRed
     penSlot:
       startingItem: EnergyDagger
+      whitelist:
+        tags:
+        - Write
 
 - type: entity
   parent: ERTLeaderPDA
@@ -108,6 +111,9 @@
     id: AlmagestIDCardBlue
     penSlot:
       startingItem: EnergyDagger
+      whitelist:
+        tags:
+        - Write
 
     # Grenades
 - type: entity
@@ -215,6 +221,16 @@
     sound:
       path: /Audio/Effects/unwrap.ogg
 
+    # Cap Pinpointer
+- type: entity
+  name: pinpointer
+  id: AlmagestPinpointerRedCaptain
+  parent: PinpointerBase
+  components:
+  - type: Pinpointer
+    component: NukeDisk
+    targetName: nuclear authentication disk
+
     # AlmagestGirderFlatpack
 - type: entity
   parent: BaseFlatpack
@@ -235,7 +251,6 @@
     size: Normal
   - type: SpawnAfterInteract
     prototype: AlmagestGirderFlatpack
-    doAfter: 0.1
     removeOnInteract: true
   - type: StaticPrice
     price: 0
@@ -253,6 +268,21 @@
   name: almagest girder flatpack
   spawn: AlmagestGirderFlatpack
   maxCount: 30
+
+# Captain
+- type: entity
+  parent: BaseFlatpack
+  id: WeaponTurretShipAlmagestFlatpack
+  name: almagest weapon mount flatpack
+  description: A flatpack used for constructing a almagest weapon mount.
+  components:
+  - type: Sprite
+    layers:
+    - state: fax-machine
+  - type: Flatpack
+    entity: WeaponTurretShipAlmagest
+  - type: Item
+    size: Normal
 
 # Engineer
 - type: entity
@@ -316,6 +346,26 @@
     price: 0
 
 - type: entity
+  parent: AlmagestGirderFlatpack
+  id: WallAlmagestUniversalResistantFlatpack
+  name: universal-resistant wall flatpack
+  suffix: 1, alma flatpack
+  description: A flatpack used for constructing a universal-resistant wall. Can be placed on the floor.
+  components:
+  - type: Sprite
+    layers:
+    - state: singularity-generator
+  - type: Stack
+    stackType: WallAlmagestUniversalResistantFlatpack
+    count: 1
+  - type: Flatpack
+    entity: WallAlmagestUniversalResistant
+  - type: SpawnAfterInteract
+    prototype: WallAlmagestUniversalResistantFlatpack
+  - type: StaticPrice
+    price: 0
+
+- type: entity
   parent: WallAlmagestStructuralResistantFlatpack
   id: WallAlmagestStructuralResistantFlatpack15
   suffix: 15, alma flatpack
@@ -339,6 +389,14 @@
   - type: Stack
     count: 15
 
+- type: entity
+  parent: WallAlmagestUniversalResistantFlatpack
+  id: WallAlmagestUniversalResistantFlatpack15
+  suffix: 15, alma flatpack
+  components:
+  - type: Stack
+    count: 15
+
 - type: stack
   id: WallAlmagestStructuralResistantFlatpack
   name: structural-resistant wall flatpack
@@ -355,6 +413,12 @@
   id: WallAlmagestPiercingResistantFlatpack
   name: piercing-resistant wall flatpack
   spawn: WallAlmagestPiercingResistantFlatpack
+  maxCount: 30
+
+- type: stack
+  id: WallAlmagestUniversalResistantFlatpack
+  name: universal-resistant wall flatpack
+  spawn: WallAlmagestUniversalResistantFlatpack
   maxCount: 30
 
 # Demoman

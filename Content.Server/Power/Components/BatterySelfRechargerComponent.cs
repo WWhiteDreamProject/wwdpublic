@@ -32,5 +32,22 @@ namespace Content.Server.Power.Components
         /// Do not auto recharge if this timestamp has yet to happen, set for the auto recharge pause system.
         /// </summary>
         [DataField] public TimeSpan NextAutoRecharge = TimeSpan.FromSeconds(0f);
+
+        // WWDP edit start
+        /// <summary>
+        /// Interval in seconds for cyclic recharge. 0 = disabled (normal operation)
+        /// </summary>
+        [DataField] public float CyclicRechargeInterval = 0f;
+
+        /// <summary>
+        /// Amount of charge to add during each cyclic recharge
+        /// </summary>
+        [DataField] public float CyclicRechargeAmount = 0f;
+
+        /// <summary>
+        /// Next time to perform cyclic recharge
+        /// </summary>
+        [DataField] public TimeSpan NextCyclicRecharge = TimeSpan.FromSeconds(0f);
+        // WWDP edit end
     }
 }

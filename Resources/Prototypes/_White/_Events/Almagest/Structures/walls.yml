@@ -38,6 +38,32 @@
     Blunt: 5
     Heat: 5
 
+- type: damageModifierSet
+  id: AlmagestWallUniversal
+  coefficients:
+    Blunt: 0.8
+    Slash: 0.8
+    Piercing: 0.9
+    Structural: 0.6
+    Heat: 0.8
+    Shock: 0.9
+  flatReductions:
+    Blunt: 5
+    Heat: 5
+
+- type: damageModifierSet
+  id: AlmagestWallAncient
+  coefficients:
+    Blunt: 0.33
+    Slash: 0.33
+    Piercing: 0.33
+    Structural: 0.33
+    Heat: 0.33
+    Shock: 0.33
+  flatReductions:
+    Blunt: 5
+    Heat: 5
+
 # Girder
 - type: entity
   id: AlmagestGirder
@@ -86,6 +112,8 @@
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: AlmagestWallStructural
+  - type: ExplosionResistance
+    damageCoefficient: 0.7
   - type: RadiationBlocker
     resistance: 6
   - type: IconSmooth
@@ -102,7 +130,7 @@
   - type: Damageable
     damageModifierSet: AlmagestWallStructural
   - type: ExplosionResistance
-    damageCoefficient: 0.05
+    damageCoefficient: 0.025
   - type: Construction
     graph: AlmagestGirder
     node: wallAlmagestStructural
@@ -185,3 +213,72 @@
   - type: IconSmooth
     key: walls
     base: riveted
+
+- type: entity
+  parent: WallAlmagestBase
+  id: WallAlmagestUniversalResistant
+  name: universal-resistant wall
+  components:
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: AlmagestWallUniversal
+  - type: Construction
+    graph: AlmagestGirder
+    node: wallAlmagestUniversal
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 3500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Reflect
+    reflectProb: 0.1
+    reflects:
+    - NonEnergy
+    - Energy
+    spread: 35
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
+  - type: Sprite
+    sprite: Structures/Walls/mining.rsi
+  - type: Icon
+    sprite: Structures/Walls/mining.rsi
+    state: full
+  - type: IconSmooth
+    key: walls
+    base: mining
+
+- type: entity
+  parent: WallAlmagestBase
+  id: WallAlmagestAncientResistant
+  name: ancient wall
+  components:
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: AlmagestWallAncient
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 35000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Reflect
+    reflectProb: 0.25
+    reflects:
+    - NonEnergy
+    - Energy
+    spread: 35
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
+  - type: Sprite
+    sprite: _Shitmed/Structures/Walls/abductor.rsi
+  - type: Icon
+    sprite: _Shitmed/Structures/Walls/abductor.rsi
+    state: full
+  - type: IconSmooth
+    key: walls
+    base: state

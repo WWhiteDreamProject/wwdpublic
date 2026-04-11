@@ -184,10 +184,11 @@
   - type: Projectile
     damage:
       types:
-        Heat: 30
+        Heat: 20
+        Shock: 40
         Structural: 5
   - type: TimedDespawn
-    lifetime: 50
+    lifetime: 20
   - type: Sprite
     layers:
     - state: heavylaser
@@ -202,7 +203,7 @@
     sprite: _White/Objects/Weapons/Guns/Turrets/Almagest/IR_laser_fast.rsi
     state: icon
   - type: Gun
-    fireRate: 5
+    fireRate: 8
     selectedMode: FullAuto
     projectileSpeed: 90
     angleDecay: -20
@@ -216,7 +217,7 @@
         volume: -5
   - type: ProjectileContainerBatteryAmmoProvider
     proto: BoltIRLaserFast
-    fireCost: 350
+    fireCost: 300
   - type: ModularTurretWeapon
     dollyMixSprite: _White/Objects/Weapons/Guns/Turrets/Almagest/IR_laser_fast.rsi
 
@@ -283,7 +284,7 @@
     availableModes:
     - Burst
     burstFireRate: 3
-    burstCooldown: 7
+    burstCooldown: 8
     shotsPerBurst: 5
     minAngle: 25
     maxAngle: 25
@@ -305,8 +306,12 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Explosive
-    totalIntensity: 5
+    totalIntensity: 10
   - type: Projectile
+    penetrate: true
+    noPenetrateMask: 0
+    penetrationChance: 0.66
+    maxPenetrations: 1
     damage:
       types:
         Heat: 5
@@ -327,9 +332,9 @@
     projectileSpeed: 80
     availableModes:
     - Burst
-    burstFireRate: 12
+    burstFireRate: 20
     burstCooldown: 5
-    shotsPerBurst: 30
+    shotsPerBurst: 40
     minAngle: 15
     maxAngle: 15
     soundGunshot:
@@ -338,7 +343,7 @@
         volume: -5
   - type: ProjectileContainerBatteryAmmoProvider
     proto: RocketAnnihilatorFast
-    fireCost: 275
+    fireCost: 220
   - type: ModularTurretWeapon
     dollyMixSprite: _White/Objects/Weapons/Guns/Turrets/Almagest/annihilator_fast.rsi
 
@@ -427,8 +432,8 @@
   - type: Projectile
     penetrate: true
     noPenetrateMask: 0
-    penetrationChance: 0.5
-    maxPenetrations: 2
+    #penetrationChance: 0.5
+    #maxPenetrations: 2
     damage:
       types:
         Piercing: 100
@@ -497,11 +502,11 @@
     sprite: _White/Objects/Weapons/Guns/Turrets/Almagest/hmg_fast.rsi
     state: icon
   - type: Gun
-    fireRate: 8
+    fireRate: 15
     angleDecay: -25
     angleIncrease: -5
     maxAngle: 45
-    projectileSpeed: 60
+    projectileSpeed: 80
     selectedMode: FullAuto
     availableModes:
     - FullAuto
@@ -511,7 +516,7 @@
         volume: 0
   - type: ProjectileContainerBatteryAmmoProvider
     proto: BulletHMGFast
-    fireCost: 125
+    fireCost: 100
   - type: ModularTurretWeapon
     dollyMixSprite: _White/Objects/Weapons/Guns/Turrets/Almagest/hmg_fast.rsi
 
@@ -803,3 +808,135 @@
     fireCost: 2200
   - type: ModularTurretWeapon
     dollyMixSprite: _White/Objects/Weapons/Guns/Turrets/Almagest/ram_walker.rsi
+
+# Rift lance
+- type: entity
+  parent: WeaponTurretShipAlmagest
+  id: WeaponTurretShipAlmagestRiftLance
+  suffix: Remote Controlled, Almagest, Rift Lance
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Battery
+    maxCharge: 10001
+  - type: UpgradeBattery
+    baseMaxCharge: 10001
+  - type: BatterySelfRecharger
+    autoRecharge: True
+    autoRechargeRate: 10
+    cyclicRechargeInterval: 600
+    cyclicRechargeAmount: 10001
+  - type: Godmode
+
+- type: entity
+  parent: WeaponShipLightRiftLance
+  id: WeaponShipRiftLanceMid
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/Turrets/rift_lance.rsi
+    state: icon
+  - type: Gun
+    selectedMode: Burst
+    availableModes:
+    - Burst
+    burstFireRate: 0.66
+    burstCooldown: 60
+    shotsPerBurst: 8
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/mateba.ogg
+  - type: HitscanContainerBatteryAmmoProvider
+    proto: RiftLanceMidBeam
+    fireCost: 1250
+  - type: ModularTurretWeapon
+    dollyMixSprite: _White/Objects/Weapons/Guns/Turrets/rift_lance.rsi
+
+- type: hitscan
+  id: RiftLanceMidBeam
+  maxLength: 2048
+  reflective: None
+  damage:
+    types:
+      Piercing: 2000
+      Structural: 2000
+      Heat: 2000
+      Shock: 2000
+  spawnAtImpact: OmegaBlastPierceMid
+  muzzleFlash:
+    sprite: _White/Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: muzzle_fast
+  travelFlash:
+    sprite: _White/Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: fast
+  impactFlash:
+    sprite: _White/Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: impact_fast
+
+- type: entity
+  id: OmegaBlastPierceMid
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TriggerOnSpawn
+  - type: SpawnOnTrigger
+    proto: OmegaBlastPierceMidExplode
+    offsets:
+    - 0,0
+    - 0,1.5
+    - 0,3
+  - type: TimedDespawn
+    lifetime: 1
+
+- type: entity
+  id: OmegaBlastPierceMidExplode
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TriggerOnSpawn
+  - type: SpawnOnTrigger
+    proto: OmegaBlastPierceMidExplodePellet
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 50
+    intensitySlope: 5
+    maxIntensity: 10
+  - type: ProjectileGrenade
+    fillPrototype: PelletAlmagestGrenadeMarine
+    capacity: 10
+    minVelocity: 7
+    maxVelocity: 15
+  - type: ContainerContainer
+    containers:
+      cluster-payload: !type:Container
+
+- type: entity
+  id: OmegaBlastPierceMidExplodePellet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TriggerOnSpawn
+  - type: ExplodeOnTrigger
+  - type: ProjectileGrenade
+    fillPrototype: PelletOmegaBlastPierceMid
+    capacity: 15
+    minVelocity: 7
+    maxVelocity: 15
+  - type: ContainerContainer
+    containers:
+      cluster-payload: !type:Container
+
+- type: entity
+  id: PelletOmegaBlastPierceMid
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Reflective
+    reflective: None
+  - type: Projectile
+    penetrate: true
+    noPenetrateMask: 0
+    maxPenetrations: 2
+    damage:
+      types:
+        Piercing: 150
+        Structural: 150
+        Heat: 150
+        Shock: 200
+  - type: TimedDespawn
+    lifetime: 0.05

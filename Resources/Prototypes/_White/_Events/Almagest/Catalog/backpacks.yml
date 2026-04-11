@@ -134,6 +134,8 @@
     - id: AlmagestEquipmentWeaponBaseSelect
     - id: WeaponAntiqueLaser
     - id: SciFlash
+    - id: WeaponTurretShipAlmagestFlatpack
+      amount: 3
 
 - type: entity
   parent: ClothingBackpackAlmagestRed
@@ -162,6 +164,7 @@
     - id: WallAlmagestStructuralResistantFlatpack15
     - id: WallAlmagestLaserResistantFlatpack15
     - id: WallAlmagestPiercingResistantFlatpack15
+    - id: WallAlmagestUniversalResistantFlatpack15
 
 - type: entity
   parent: ClothingBackpackAlmagestRed
@@ -211,6 +214,8 @@
     - id: AlmagestEquipmentWeaponBaseSelect
     - id: WeaponAntiqueLaser
     - id: SciFlash
+    - id: WeaponTurretShipAlmagestFlatpack
+      amount: 3
 
 - type: entity
   parent: ClothingBackpackAlmagestBlue
@@ -239,6 +244,7 @@
     - id: WallAlmagestStructuralResistantFlatpack15
     - id: WallAlmagestLaserResistantFlatpack15
     - id: WallAlmagestPiercingResistantFlatpack15
+    - id: WallAlmagestUniversalResistantFlatpack15
 
 - type: entity
   parent: ClothingBackpackAlmagestBlue

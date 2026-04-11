@@ -109,7 +109,7 @@ public sealed partial class ProjectileComponent : Component
 
     // WWDP edit start
     [DataField]
-    public int MaxPenetrations = 0;
+    public int MaxPenetrations = -1;
 
     [DataField]
     public float PenetrationChance = 1.0f;
@@ -117,7 +117,7 @@ public sealed partial class ProjectileComponent : Component
 
     // Goobstation start
     [DataField]
-    public bool Penetrate;
+    public bool Penetrate = false; // WWDP edit
 
     /// <summary>
     ///     Collision mask of what not to penetrate if <see cref="Penetrate"/> is true.
