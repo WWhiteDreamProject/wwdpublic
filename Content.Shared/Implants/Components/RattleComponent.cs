@@ -1,7 +1,7 @@
 using Content.Shared.Radio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List; //WWDP edit
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class RattleComponent : Component
