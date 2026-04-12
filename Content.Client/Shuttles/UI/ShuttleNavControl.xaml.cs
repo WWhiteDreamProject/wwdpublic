@@ -17,6 +17,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
 namespace Content.Client.Shuttles.UI;
@@ -164,16 +165,20 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
         {
             return;
         }
-
         var mapPos = _transform.ToMapCoordinates(_coordinates.Value);
-        var posMatrix = Matrix3Helpers.CreateTransform(_coordinates.Value.Position, _rotation.Value);
-        var ourEntRot = RotateWithEntity ? _transform.GetWorldRotation(xform) : _rotation.Value;
-        var worldPosition = _transform.GetWorldPosition(xform); // WD EDIT
+        var posMatrix = Matrix3Helpers.CreateTranslation(_coordinates.Value.Position); // WWDP EDIT
+        var ourEntRot = RotateWithEntity ? _transform.GetWorldRotation(xform) + _rotation.Value : _rotation.Value; // WWDP EDIT
+        var worldPosition = _transform.GetWorldPosition(xform); // WWDP EDIT
         var ourEntMatrix = Matrix3Helpers.CreateTransform(worldPosition, ourEntRot);
         var shuttleToWorld = Matrix3x2.Multiply(posMatrix, ourEntMatrix);
         Matrix3x2.Invert(shuttleToWorld, out var worldToShuttle);
         var shuttleToView = Matrix3x2.CreateScale(new Vector2(MinimapScale, -MinimapScale)) * Matrix3x2.CreateTranslation(MidPointVector);
         var worldToView = worldToShuttle * shuttleToView; // WWDP EDIT
+        var gunPresent = _gun.TryGetGun(_coordinates.Value.EntityId, out var ourGunEnt, out var ourGunComp); // WWDP EDIT
+
+        // these will be drawn last (but before the FoV)
+        var leadingPipLinePrimitives = new Dictionary<Color, List<Vector2>>();
+        var leadingPipCirclePrimitives = new Dictionary<Color, List<Vector2>>();
 
         // Draw our grid in detail
         var ourGridId = xform.GridUid;
@@ -222,7 +227,7 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
                 continue;
 
             var curGridToWorld = _transform.GetWorldMatrix(gUid);
-            var curGridToView = curGridToWorld * worldToShuttle * shuttleToView;
+            var curGridToView = curGridToWorld * worldToView; // WWDP EDIT
 
             var labelColor = _shuttles.GetIFFColor(grid, self: false, iff);
             var coordColor = new Color(labelColor.R * 0.8f, labelColor.G * 0.8f, labelColor.B * 0.8f, 0.5f);
@@ -232,10 +237,11 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
             // Hostile default: Color.Firebrick
             var labelName = _shuttles.GetIFFLabel(grid, self: false, iff);
 
-            // WD EDIT START
-            var gridCentre = Vector2.Transform(gridBody.LocalCenter, curGridToView);
-            var gridInCone = Vector2.Normalize(gridCentre).Y >= MathF.Cos(FieldOfView / 2) || FieldOfView >= MathF.Tau;
-            // WD EDITN END
+            // WWDP EDIT START
+            var gridCenterWorld = Vector2.Transform(gridBody.LocalCenter, curGridToWorld);
+            var gridCenterView = Vector2.Transform(gridCenterWorld, worldToView);
+            var gridInCone = Vector2.Normalize(gridCenterView).Y >= MathF.Cos(FieldOfView / 2) || FieldOfView >= MathF.Tau;
+            // WWDP EDIT END
 
             if (ShowIFF && labelName != null && gridInCone) // WD EDIT
             {
@@ -256,7 +262,7 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
                 var yOffset = Math.Max(gridBounds.Height, gridBounds.Width) * MinimapScale / 1.8f;
 
                 // The actual position in the UI.
-                var gridScaledPosition = gridCentre - new Vector2(0, -yOffset);
+                var gridScaledPosition = gridCenterView - new Vector2(0, -yOffset);
 
                 // Normalize the grid position if it exceeds the viewport bounds
                 // normalizing it instead of clamping it preserves the direction of the vector and prevents corner-hugging
@@ -297,37 +303,22 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
             DrawGrid(handle, curGridToView, grid, labelColor);
             DrawDocks(handle, gUid, curGridToView);
 
-            // WD EDIT START
-            _gun.TryGetGun(_coordinates.Value.EntityId, out _, out var ourGunComp);
+            // WWDP EDIT START
             // Leading pip
-            if (ourGunComp is not { } gun || !gridInCone)
+            if(!gunPresent || !gridInCone)
                 continue;
 
-            // This entire fucking draw method was written by a schizophrenic, i hate it here
-            var gridCenterWorld = Vector2.Transform(gridBody.LocalCenter, curGridToWorld);
-            // https://math.stackexchange.com/a/1346509
-            var u1 = gridBody.LinearVelocity.Length();
-            var u2 = gun.ProjectileSpeedModified;
-
-            var dirToGrid = (float)Angle.FromWorldVec(gridCenterWorld - ourEntMatrix.Translation).Theta;
-            var sinBeta = u1 / u2 * (float) Math.Sin(-Angle.FromWorldVec(-gridBody.LinearVelocity) + dirToGrid);
-            if (!(sinBeta > -1) || !(sinBeta < 1))
+            if(!Crutches.FindInterceptionPoint(gridCenterWorld,
+                gridBody.LinearVelocity,
+                _transform.GetWorldPosition(_coordinates.Value.EntityId),
+                ourGunComp!.ProjectileSpeedModified,
+                out var interceptPointWorld))
                 continue;
 
-            var beta = MathF.Asin(sinBeta) + dirToGrid;
-            var shootDir = new Vector2(MathF.Sin(beta), MathF.Cos(beta));
+            var interceptPointView = Vector2.Transform(interceptPointWorld, worldToView);
 
-            var t = (gridCenterWorld - ourEntMatrix.Translation).Length() / (-gridBody.LinearVelocity + shootDir * gun.ProjectileSpeedModified).Length();
-            if (!(gridBody.LinearVelocity.Length() * t <= 250)) // arbitrary
-                continue;
-
-            var leadPosWorld = gridCenterWorld + gridBody.LinearVelocity * t;
-
-            var leadPos = Vector2.Transform(leadPosWorld, worldToShuttle);
-            var scaledLeadPos = ScalePositionFlipY(leadPos);
-            handle.DrawDottedLine(ScalePosition(gridCentre), scaledLeadPos, labelColor, 0, 2, 8);
-            handle.DrawCircle(scaledLeadPos, 4, labelColor, false);
-            // WD EDIT END
+            BuildLeadingPip(gridCenterView, interceptPointView, labelColor);
+            // WWDP EDIT END
         }
 
         // If we've set the controlling console, and it's on a different grid
@@ -344,10 +335,8 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
         }
 
         // WD EDIT START
-        var multiply = Matrix3x2.Multiply(worldToShuttle, Matrix3x2.CreateScale(new Vector2(1, -1)));
         var entities = _lookup.GetEntitiesInRange<RadarIconComponent>(_coordinates.Value, MaxRadarRange);
-        var primitives = new Dictionary<(RadarIconLineDefinition.DrawModeEnum, Color), List<List<Vector2>>>();
-
+        var primitives = new List<(RadarIconLineDefinition.DrawModeEnum, Color, List<Vector2>)>();
         foreach (var entity in entities)
         {
             if (EntManager.HasComponent<MapGridComponent>(_transform.GetParentUid(entity)) &&
@@ -357,70 +346,74 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
             if (entity.Comp.Lines.Count == 0 || entity.Comp.Scale == Vector2.Zero)
                 continue;
 
-            var entityPosition = _transform.GetWorldPosition(entity);
-            if (entity.Comp.RadarRange > 0 && (entityPosition - worldPosition).Length() > entity.Comp.RadarRange)
+            var entityWorldPosition = _transform.GetWorldPosition(entity);
+            if (entity.Comp.RadarRange > 0 && (entityWorldPosition - worldPosition).Length() > entity.Comp.RadarRange)
                 continue;
+            var icon = entity.Comp;
 
-            var curEntToWorld = _transform.GetWorldMatrix(entity);
-            var curEntToWorldNoRot = Matrix3Helpers.CreateTranslation(entityPosition);
-            var curEntToView = curEntToWorld * worldToView;
-            var curEntToViewNoRot = curEntToWorldNoRot * worldToView;
-            // rounding translation comp of matrixes to minimize vertex shaking similiar to sprite parkinsons
-            curEntToView.Translation = Vector2.Round(curEntToView.Translation);
-            curEntToViewNoRot.Translation = Vector2.Round(curEntToViewNoRot.Translation);
+            // rounding to minimize vertex shaking similiar to sprite parkinsons
+            var entityViewPosition = Vector2.Transform(entityWorldPosition, worldToView);
+            if (entity.Comp.PositionSmoothing)
+                entityViewPosition = Vector2.Round(entityViewPosition);
 
+            var entityWorldRotation = _transform.GetWorldRotation(entity);
             foreach (var line in entity.Comp.Lines)
             {
                 var lineColor = line.Color ?? entity.Comp.Color;
-                var primitiveList = primitives.GetOrNew((line.DrawMode, lineColor));
                 var verts = new List<Vector2>();
-                for(int i = 0; i < line.Points.Count; i++)
+                for (int i = 0; i < line.Points.Count; i++)
                 {
                     var point = line.Points[i];
-                    point *= line.Scale;
-                    point += line.Offset;
-                    point *= entity.Comp.Scale;
-                    point += entity.Comp.Offset;
                     point.Y *= -1;
+                    if (!line.NoRotation)
+                        point = (MathF.PI + ourEntRot - entityWorldRotation).RotateVec(point); // 0 degrees in viewspace is upwards; 0 degrees in worldspace is south (i.e. downwards), hence, the added pi.
+                    point *= line.Scale;
+                    point -= line.Offset;
+                    point *= entity.Comp.Scale;
+                    point -= entity.Comp.Offset;
+                    point = entity.Comp.Angle.RotateVec(point);
                     if (entity.Comp.ConstantSize)
-                        point /= MinimapScale; // will decrease/increase icon size when zooming in/out respectively
-                    var toViewMatrix = line.NoRotation ? curEntToViewNoRot : curEntToView;
-                    point = Vector2.Transform(point, toViewMatrix);
-                    point = Vector2.Round(point);
+                        point *= MinimapScale;
+                    point += entityViewPosition;
                     verts.Add(point);
                 }
-                switch (line.DrawMode)
-                {
-                    // coalescing triangle/line/point lists into a single vertex list
-                    // requires validating the vertex count since they'll be drawn in a single pass
-                    case RadarIconLineDefinition.DrawModeEnum.TriangleList:
-                        CutList(ref verts, 3);
-                        goto case RadarIconLineDefinition.DrawModeEnum.PointList;
-                    case RadarIconLineDefinition.DrawModeEnum.LineList:
-                        CutList(ref verts, 2);
-                        goto case RadarIconLineDefinition.DrawModeEnum.PointList; // N % 1 is always zero, duh 
-                    case RadarIconLineDefinition.DrawModeEnum.PointList:
-                        if (primitiveList.Count != 0) // a vertex list already exists, just add to it
-                            primitiveList[0].AddRange(verts);
-                        else
-                            primitiveList.Add(verts);
-                        break;
-                    // the other drawmodes can deal with miscounted vertices themselves
-                    default:
-                        primitiveList.Add(verts);
-                        break;
-                }
-                void CutList<T>(ref List<T> list, int multiple)
-                {
-                    var excess = list.Count % multiple;
-                    if (excess == 0) return;
-                    list.RemoveRange(list.Count - excess, excess);
-                    DebugTools.Assert(list.Count % multiple == 0);
-                }
+                primitives.Add((line.DrawMode, lineColor, verts));
             }
+            // now onto drawing a leading pip
+            if (!gunPresent ||
+                !entity.Comp.DrawLeadingPip ||
+                !EntManager.TryGetComponent<PhysicsComponent>(entity, out var entityBody))
+                continue;
+
+            if (!Crutches.FindInterceptionPoint(entityWorldPosition,
+                                               entityBody.LinearVelocity,
+                                               worldPosition,
+                                               ourGunComp!.ProjectileSpeedModified,
+                                               out var interceptPointWorld))
+                continue;
+
+            var interceptPointView = Vector2.Transform(interceptPointWorld, worldToView);
+
+            var leadingPipWorldDistance = (interceptPointWorld - entityWorldPosition).Length();
+
+            var pipColor = entity.Comp.LeadingPipColor ?? entity.Comp.Color;
+            var fadeInStart = entity.Comp.LeadingPipMinimalDistance.X;
+            var fadeInEnd = entity.Comp.LeadingPipMinimalDistance.Y;
+            float newAlpha;
+            if(fadeInStart == fadeInEnd)
+                newAlpha = leadingPipWorldDistance > fadeInStart ? 1 : 0;
+            else
+                newAlpha = MathF.Max(0, MathF.Min(1, (leadingPipWorldDistance - fadeInStart) / (fadeInEnd - fadeInStart)));
+
+            if(newAlpha == 0)
+                continue;
+
+            pipColor.A *= newAlpha;
+
+            BuildLeadingPip(entityViewPosition, interceptPointView, pipColor);
         }
 
-        foreach (var ((drawMode, color), primitiveList) in primitives)
+        foreach (var (drawMode, color, verts) in primitives)
         {
             var topology = drawMode switch
             {
@@ -433,9 +426,12 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
                 RadarIconLineDefinition.DrawModeEnum.LineLoop => DrawPrimitiveTopology.LineLoop,
                 _ => throw new InvalidOperationException()
             };
-            foreach(var verts in primitiveList)
-                handle.DrawPrimitives(topology, verts, color);
+            handle.DrawPrimitives(topology, verts, color);
         }
+        foreach (var (color, verts) in leadingPipLinePrimitives)
+            handle.DrawPrimitives(DrawPrimitiveTopology.PointList, verts, color);
+        foreach (var (color, verts) in leadingPipCirclePrimitives)
+            handle.DrawPrimitives(DrawPrimitiveTopology.LineList, verts, color);
 
         if (FieldOfView < MathF.Tau)
         {
@@ -449,6 +445,41 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
                 hidesey[i + 1] = MidPointVector + pos * 1024;
             }
             handle.DrawPrimitives(DrawPrimitiveTopology.TriangleFan, hidesey, new Color(0.08f, 0.02f, 0.08f));
+        }
+
+        void BuildLeadingPip(Vector2 startingViewPos, Vector2 endingViewPos, Color color)
+        {
+            DebugTools.Assert(gunPresent); // should not be called if it's false
+            startingViewPos = Vector2.Round(startingViewPos);
+            endingViewPos = Vector2.Round(endingViewPos);
+            var leadingPipLineVerts = leadingPipLinePrimitives.GetOrNew(color.WithAlpha(color.A * 0.5f));
+            var leadingPipLineLength = (endingViewPos - startingViewPos).Length();
+            var leadingPipLineNormalized = (endingViewPos - startingViewPos).Normalized();
+            const float lineVertSpacing = 3f;
+
+            for (float i = 0; i < leadingPipLineLength; i += lineVertSpacing)
+                leadingPipLineVerts.Add(startingViewPos + leadingPipLineNormalized * i);
+            leadingPipLineVerts.Add(endingViewPos);
+
+            var leadingPipCircleVerts = leadingPipCirclePrimitives.GetOrNew(color);
+
+            const int segments = 8;
+            const float radius = 3.51f;
+
+            leadingPipCircleVerts.Add(endingViewPos + new Vector2(0, 1) * radius);
+
+            // TODO: The resulting circle is often skewed one pixel to the side.
+            //       I assume it is due to some weird rounding bullshit when
+            //       drawing to a non-integer position
+            for (var i = 1; i < segments; i++)
+            {
+                var angle = i / (float) segments * MathHelper.TwoPi;
+                var pos = new Vector2(MathF.Sin(angle), MathF.Cos(angle)) * radius;
+
+                leadingPipCircleVerts.Add(endingViewPos + pos);
+                leadingPipCircleVerts.Add(endingViewPos + pos);
+            }
+            leadingPipCircleVerts.Add(endingViewPos + new Vector2(0, 1) * radius);
         }
         // WD EDIT END
     }

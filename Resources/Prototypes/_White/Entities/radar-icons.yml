@@ -57,7 +57,7 @@
       - -1.141267819554184, -0.37082039324993704
       - -1.1412678195541843, 0.37082039324993665
       - -0.705342302750968, 0.9708203932499367
-      - -2.9391523179536476e-16, 1.2
+      drawMode: pointList # looks kinda cool
       noRot: true # to avoid distortions on the circle piece when rotating 
     
 
@@ -72,6 +72,7 @@
     scale: 5, 5
     angle: 0
     offset: 0, -1.1547
+    constantSize: true
     lines:
     - points:  # triangle
       - -2, 0
