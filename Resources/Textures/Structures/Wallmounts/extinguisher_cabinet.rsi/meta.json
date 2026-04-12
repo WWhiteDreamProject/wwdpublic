@@ -1,38 +1,47 @@
 {
   "version": 1,
-  "license": "CC-BY-SA-4.0",
-  "copyright": "Taken from Skyrat",
+  "license": "CC-BY-NC-SA-4.0",
+  "copyright": "Valentyi (randomm.ua) for WWhiteDreamProject, 06.04.2026",
   "size": {
-    "x": 32,
-    "y": 32
+    "x": 48,
+    "y": 48
   },
   "states": [
     {
-      "name": "extinguisher_closed"
+      "name": "extinguisher_closed",
+      "directions": 4
     },
     {
-      "name": "extinguisher_empty"
+      "name": "extinguisher_empty",
+      "directions": 4
     },
     {
-      "name": "extinguisher_full"
+      "name": "extinguisher_full",
+      "directions": 4
     },
     {
-      "name": "extinguisher_mini"
+      "name": "extinguisher_mini",
+      "directions": 4
     },
     {
-      "name": "closed"
+      "name": "closed",
+      "directions": 4
     },
     {
-      "name": "extinguisher"
+      "name": "extinguisher",
+      "directions": 4
     },
     {
-      "name": "extinguisher-mini"
+      "name": "extinguisher-mini",
+      "directions": 4
     },
     {
-      "name": "frame"
+      "name": "frame",
+      "directions": 4
     },
     {
-      "name": "open"
+      "name": "open",
+      "directions": 4
     }
   ]
 }
