@@ -26,6 +26,147 @@
     key: enum.RadialSelectorUiKey.Key
     inHandsOnly: true
 
+- type: entity
+  parent: BaseFlatpack
+  id: AlmagestGirderFlatpack
+  name: almagest girder flatpack
+  suffix: 1, alma flatpack
+  description: A flatpack used for constructing a almagest girder. Can be placed on the floor.
+  components:
+  - type: Sprite
+    layers:
+    - state: solar-assembly-part
+  - type: Flatpack
+    entity: AlmagestGirder
+  - type: Stack
+    stackType: AlmagestGirderFlatpack
+    count: 1
+  - type: Item
+    size: Normal
+  - type: SpawnAfterInteract
+    prototype: AlmagestGirderFlatpack
+    doAfter: 0.1
+    removeOnInteract: true
+  - type: StaticPrice
+    price: 0
+
+- type: entity
+  parent: AlmagestGirderFlatpack
+  id: AlmagestGirderFlatpack30
+  suffix: 30, alma flatpack
+  components:
+  - type: Stack
+    count: 30
+
+- type: stack
+  id: AlmagestGirderFlatpack
+  name: almagest girder flatpack
+  spawn: AlmagestGirderFlatpack
+  maxCount: 30
+
+# Engineer
+- type: entity
+  parent: AlmagestGirderFlatpack
+  id: WallAlmagestStructuralResistantFlatpack
+  name: structural-resistant wall flatpack
+  suffix: 1, alma flatpack
+  description: A flatpack used for constructing a structural-resistant wall. Can be placed on the floor.
+  components:
+  - type: Sprite
+    layers:
+    - state: grounding-rod
+  - type: Stack
+    stackType: WallAlmagestStructuralResistantFlatpack
+    count: 1
+  - type: Flatpack
+    entity: WallAlmagestStructuralResistant
+  - type: SpawnAfterInteract
+    prototype: WallAlmagestStructuralResistantFlatpack
+  - type: StaticPrice
+    price: 0
+
+- type: entity
+  parent: AlmagestGirderFlatpack
+  id: WallAlmagestLaserResistantFlatpack
+  name: laser-resistant wall flatpack
+  suffix: 1, alma flatpack
+  description: A flatpack used for constructing a laser-resistant wall. Can be placed on the floor.
+  components:
+  - type: Sprite
+    layers:
+    - state: tesla-coil
+  - type: Stack
+    stackType: WallAlmagestLaserResistantFlatpack
+    count: 1
+  - type: Flatpack
+    entity: WallAlmagestLaserResistant
+  - type: SpawnAfterInteract
+    prototype: WallAlmagestLaserResistantFlatpack
+  - type: StaticPrice
+    price: 0
+
+- type: entity
+  parent: AlmagestGirderFlatpack
+  id: WallAlmagestPiercingResistantFlatpack
+  name: piercing-resistant wall flatpack
+  suffix: 1, alma flatpack
+  description: A flatpack used for constructing a piercing-resistant wall. Can be placed on the floor.
+  components:
+  - type: Sprite
+    layers:
+    - state: tesla-generator
+  - type: Stack
+    stackType: WallAlmagestPiercingResistantFlatpack
+    count: 1
+  - type: Flatpack
+    entity: WallAlmagestPiercingResistant
+  - type: SpawnAfterInteract
+    prototype: WallAlmagestPiercingResistantFlatpack
+  - type: StaticPrice
+    price: 0
+
+- type: entity
+  parent: WallAlmagestStructuralResistantFlatpack
+  id: WallAlmagestStructuralResistantFlatpack15
+  suffix: 15, alma flatpack
+  components:
+  - type: Stack
+    count: 15
+
+- type: entity
+  parent: WallAlmagestLaserResistantFlatpack
+  id: WallAlmagestLaserResistantFlatpack15
+  suffix: 15, alma flatpack
+  components:
+  - type: Stack
+    count: 15
+
+- type: entity
+  parent: WallAlmagestPiercingResistantFlatpack
+  id: WallAlmagestPiercingResistantFlatpack15
+  suffix: 15, alma flatpack
+  components:
+  - type: Stack
+    count: 15
+
+- type: stack
+  id: WallAlmagestStructuralResistantFlatpack
+  name: structural-resistant wall flatpack
+  spawn: WallAlmagestStructuralResistantFlatpack
+  maxCount: 30
+
+- type: stack
+  id: WallAlmagestLaserResistantFlatpack
+  name: laser-resistant wall flatpack
+  spawn: WallAlmagestLaserResistantFlatpack
+  maxCount: 30
+
+- type: stack
+  id: WallAlmagestPiercingResistantFlatpack
+  name: piercing-resistant wall flatpack
+  spawn: WallAlmagestPiercingResistantFlatpack
+  maxCount: 30
+
 # Demoman
 - type: entity
   parent: BaseFlatpack

@@ -19,3 +19,17 @@
   id: ShadowkinPowerPool
   weights:
     ShadeskipPower: 1
+
+- type: weightedRandom
+  id: TelekineticistPowerPool
+  weights:
+    TelekineticPulsePower: 1
+    AnoigoPower: 1
+    BarokinesisPower: 1
+
+- type: weightedRandom
+  id: PriestPowerPool
+  weights:
+    HealingWordPower: 1
+    RevivifyPower: 1
+    PsionicRegenerationPower: 1

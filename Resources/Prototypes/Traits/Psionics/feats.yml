@@ -11,6 +11,8 @@
             - PsychoHistorian
             - Infernal #wwdp edit
             - Shadowkin #wwdp edit
+            - Telekineticist #wwdp edit
+            - Priest #wwdp edit
         - !type:CharacterJobRequirement
           jobs:
             - ResearchDirector
@@ -50,6 +52,8 @@
             - PsychoHistorian
             - Infernal #wwdp edit
             - Shadowkin #wwdp edit
+            - Telekineticist #wwdp edit
+            - Priest #wwdp edit
         - !type:CharacterJobRequirement
           jobs:
             - ResearchDirector

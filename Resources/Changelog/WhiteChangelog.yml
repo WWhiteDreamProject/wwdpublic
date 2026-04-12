@@ -5202,3 +5202,47 @@ Entries:
   id: 546
   time: '2026-03-31T09:57:50.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1096
+- author: Pedro-233
+  changes:
+    - type: Add
+      message: Добавлены старые текстуры в радиалах РЦД
+    - type: Remove
+      message: Удалены старые текстуры в радиалах РЦД
+  id: 547
+  time: '2026-04-04T12:50:03.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1098
+- author: Gersoon458
+  changes:
+    - type: Add
+      message: Обнова на Альмагест. Стены, пушки, смехуечки
+  id: 548
+  time: '2026-04-04T16:12:16.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1104
+- author: Pedro-233
+  changes:
+    - type: Tweak
+      message: Изменено то как лежат некоторые предметы
+  id: 549
+  time: '2026-04-11T14:40:02.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1097
+- author: Pedro-233
+  changes:
+    - type: Tweak
+      message: Изменен урон от воды у слаймов
+  id: 550
+  time: '2026-04-11T14:40:56.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1100
+- author: Pedro-233
+  changes:
+    - type: Fix
+      message: Исправлен бесконечный стамина крит
+  id: 551
+  time: '2026-04-11T14:42:11.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1102
+- author: kekoven1
+  changes:
+    - type: Add
+      message: добавлены псикасты Жрец и Телекинетик
+  id: 552
+  time: '2026-04-11T14:45:50.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1106
