@@ -49,6 +49,6 @@
   - type: CyberwareImplant
     category: Optics
     humanityCost: 2
-  - type: EyeCursorOffset
+  - type: CyberwareMicroOptics
     maxOffset: 3
     pvsIncrease: 0.3

@@ -1,127 +1,140 @@
 using System.Numerics;
-using Content.Client.Movement.Components;
 using Content.Shared.Camera;
 using Content.Shared.Input;
-using Content.Shared.Inventory;
+using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
+using Content.Shared._NC.Cyberware.Components;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
-using Robust.Shared.Map;
 using Robust.Client.Player;
 using Robust.Shared.Input;
 using Robust.Shared.Input.Binding;
-using Robust.Shared.Player;
-
+using Robust.Shared.Timing;
 
 namespace Content.Client.Movement.Systems;
 
-public partial class EyeCursorOffsetSystem : EntitySystem
+public sealed class EyeCursorOffsetSystem : SharedEyeCursorOffsetSystem
 {
     [Dependency] private readonly IEyeManager _eyeManager = default!;
     [Dependency] private readonly IInputManager _inputManager = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedContentEyeSystem _contentEye = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly IClyde _clyde = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
-    // This value is here to make sure the user doesn't have to move their mouse
-    // all the way out to the edge of the screen to get the full offset.
-    static private float _edgeOffset = 0.9f;
+    private static bool _toggled;
+    private Vector2 _localOffset = Vector2.Zero;
+    
+    private TimeSpan _lastSync = TimeSpan.Zero;
+    private readonly TimeSpan _syncInterval = TimeSpan.FromSeconds(0.1);
 
-    private static bool _toggled; // WD EDIT
+    private const float Deadzone = 0.2f; 
+    private const float DriftSpeed = 15f; 
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<EyeCursorOffsetComponent, GetEyeOffsetEvent>(OnGetEyeOffsetEvent);
+        SubscribeLocalEvent<EyeComponent, GetEyeOffsetEvent>(OnLocalPlayerGetEyeOffset);
 
-        // WD EDIT START
         CommandBinds.Builder
             .Bind(ContentKeyFunctions.LookUp, new EyeOffsetInputCmdHandler())
             .Register<EyeCursorOffsetSystem>();
-        // WD EDIT END
     }
 
-    private void OnGetEyeOffsetEvent(EntityUid uid, EyeCursorOffsetComponent component, ref GetEyeOffsetEvent args)
+    protected override bool IsLocalPlayer(EntityUid uid) => _player.LocalEntity == uid;
+
+    private void OnLocalPlayerGetEyeOffset(EntityUid uid, EyeComponent eye, ref GetEyeOffsetEvent args)
     {
-        var offset = OffsetAfterMouse(uid, component);
-        if (offset == null)
+        if (uid != _player.LocalEntity)
             return;
 
-        args.Offset += offset.Value;
-    }
-
-    public Vector2? OffsetAfterMouse(EntityUid uid, EyeCursorOffsetComponent? component)
-    {
-        // WD EDIT START
-        if (!_toggled)
-            return null;
-        // WD EDIT END
-
-        var localPlayer = _player.LocalPlayer?.ControlledEntity;
-        var mousePos = _inputManager.MouseScreenPosition;
-        var screenSize = _clyde.MainWindow.Size;
-        var minValue = MathF.Min(screenSize.X / 2, screenSize.Y / 2) * _edgeOffset;
-
-        var mouseNormalizedPos = new Vector2(-(mousePos.X - screenSize.X / 2) / minValue, (mousePos.Y - screenSize.Y / 2) / minValue); // X needs to be inverted here for some reason, otherwise it ends up flipped.
-
-        if (localPlayer == null)
-            return null;
-
-        var playerPos = _transform.GetWorldPosition(localPlayer.Value);
-
-        if (component == null)
+        if (!TryComp<EyeCursorOffsetComponent>(uid, out var comp))
         {
-            component = EnsureComp<EyeCursorOffsetComponent>(uid);
-        }
-
-        // Doesn't move the offset if the mouse has left the game window!
-        if (mousePos.Window != WindowId.Invalid)
-        {
-            // The offset must account for the in-world rotation.
-            var eyeRotation = _eyeManager.CurrentEye.Rotation;
-            var mouseActualRelativePos = Vector2.Transform(mouseNormalizedPos, System.Numerics.Quaternion.CreateFromAxisAngle(-System.Numerics.Vector3.UnitZ, (float)(eyeRotation.Opposite().Theta))); // I don't know, it just works.
-
-            // Caps the offset into a circle around the player.
-            mouseActualRelativePos *= component.MaxOffset;
-            if (mouseActualRelativePos.Length() > component.MaxOffset)
+            if (TryComp<CyberwareComponent>(uid, out var cyberware))
             {
-                mouseActualRelativePos = mouseActualRelativePos.Normalized() * component.MaxOffset;
-            }
-
-            component.TargetPosition = mouseActualRelativePos;
-
-            //Makes the view not jump immediately when moving the cursor fast.
-            if (component.CurrentPosition != component.TargetPosition)
-            {
-                Vector2 vectorOffset = component.TargetPosition - component.CurrentPosition;
-                if (vectorOffset.Length() > component.OffsetSpeed)
+                foreach (var implant in cyberware.InstalledImplants.Values)
                 {
-                    vectorOffset = vectorOffset.Normalized() * component.OffsetSpeed;
+                    if (TryComp<CyberwareMicroOpticsComponent>(implant, out var optics))
+                    {
+                        comp = EnsureComp<EyeCursorOffsetComponent>(uid);
+                        comp.MaxOffset = optics.MaxOffset;
+                        comp.PvsIncrease = optics.PvsIncrease;
+                        break;
+                    }
                 }
-                component.CurrentPosition += vectorOffset;
             }
         }
-        return component.CurrentPosition;
+
+        if (comp == null)
+            return;
+
+        UpdateDrift(uid, comp);
+        args.Offset += _localOffset;
     }
 
-    // WD EDIT START
+    private void UpdateDrift(EntityUid uid, EyeCursorOffsetComponent component)
+    {
+        var frameTime = (float)_timing.FrameTime.TotalSeconds;
+
+        bool active = _toggled;
+        if (TryComp<Content.Shared.CombatMode.CombatModeComponent>(uid, out var combatMode))
+            active &= combatMode.IsInCombatMode;
+
+        if (!active)
+        {
+            if (_localOffset != Vector2.Zero)
+            {
+                var step = DriftSpeed * 2 * frameTime; 
+                if (_localOffset.Length() <= step)
+                    _localOffset = Vector2.Zero;
+                else
+                    _localOffset -= _localOffset.Normalized() * step;
+
+                SyncOffset(_localOffset);
+            }
+            return;
+        }
+
+        var mousePos = _inputManager.MouseScreenPosition;
+        if (mousePos.Window == Robust.Shared.Map.WindowId.Invalid)
+            return;
+
+        var screenSize = _clyde.MainWindow.Size;
+        var center = new Vector2(screenSize.X / 2f, screenSize.Y / 2f);
+        var mouseVec = new Vector2(mousePos.X - center.X, mousePos.Y - center.Y);
+        var maxDim = MathF.Min(center.X, center.Y);
+        var normalizedMouse = mouseVec / maxDim;
+
+        if (normalizedMouse.Length() > Deadzone)
+        {
+            var eyeRotation = _eyeManager.CurrentEye.Rotation;
+            var driftDir = Vector2.Transform(normalizedMouse, System.Numerics.Quaternion.CreateFromAxisAngle(-System.Numerics.Vector3.UnitZ, (float)eyeRotation.Opposite().Theta));
+            driftDir.X = -driftDir.X; 
+
+            _localOffset += driftDir.Normalized() * DriftSpeed * frameTime;
+
+            if (_localOffset.Length() > component.MaxOffset)
+                _localOffset = _localOffset.Normalized() * component.MaxOffset;
+
+            if (_timing.CurTime > _lastSync + _syncInterval)
+            {
+                SyncOffset(_localOffset);
+                _lastSync = _timing.CurTime;
+            }
+        }
+    }
+
+    private void SyncOffset(Vector2 offset)
+    {
+        RaiseNetworkEvent(new RequestEyeCursorOffsetEvent(offset));
+    }
+
     private sealed class EyeOffsetInputCmdHandler : InputCmdHandler
     {
-        public override bool HandleCmdMessage(
-            IEntityManager entManager,
-            ICommonSession? session,
-            IFullInputCmdMessage message
-        )
+        public override bool HandleCmdMessage(IEntityManager entManager, Robust.Shared.Player.ICommonSession? session, IFullInputCmdMessage message)
         {
-            if (session?.AttachedEntity == null)
-                return false;
-
             _toggled = message.State == BoundKeyState.Down;
             return false;
         }
     }
-    // WD EDIT END
 }

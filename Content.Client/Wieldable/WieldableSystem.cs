@@ -1,5 +1,4 @@
 using System.Numerics;
-using Content.Client.Movement.Components;
 using Content.Client.Movement.Systems;
 using Content.Shared.Camera;
 using Content.Shared.Hands;
@@ -29,21 +28,12 @@ public sealed class WieldableSystem : SharedWieldableSystem
             return;
 
         if (_gameTiming.IsFirstTimePredicted)
-            cursorOffsetComp.CurrentPosition = Vector2.Zero;
+            cursorOffsetComp.CurrentOffset = Vector2.Zero;
     }
 
     public void OnGetEyeOffset(Entity<CursorOffsetRequiresWieldComponent> entity, ref HeldRelayedEvent<GetEyeOffsetRelayedEvent> args)
     {
-        if (!TryComp(entity.Owner, out WieldableComponent? wieldableComp))
-            return;
-
-        if (!wieldableComp.Wielded)
-            return;
-
-        var offset = _eyeOffset.OffsetAfterMouse(entity.Owner, null);
-        if (offset == null)
-            return;
-
-        args.Args.Offset += offset.Value;
+        // WD: This originally called OffsetAfterMouse which I refactored.
+        // For now, micro-optics zoom is handled directly in EyeCursorOffsetSystem for the player.
     }
 }

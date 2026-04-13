@@ -13,3 +13,13 @@ public sealed partial class CyberwareAntiGlareComponent : Component { }
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class CyberwareIRVisionComponent : Component { }
+
+/// <summary>
+///     Маркер для импланта "Микрооптика".
+/// </summary>
+[RegisterComponent, NetworkedComponent]
+public sealed partial class CyberwareMicroOpticsComponent : Component
+{
+    [DataField] public float MaxOffset = 3f;
+    [DataField] public float PvsIncrease = 0.3f;
+}
