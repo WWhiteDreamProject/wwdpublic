@@ -9,7 +9,7 @@ public sealed partial class NightVisionComponent : SwitchableOverlayComponent
 {
     public override EntProtoId? ToggleAction { get; set; } = new EntProtoId("ToggleNightVision");
 
-    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public override Color Color { get; set; } = Color.FromHex("#98FB98");
 }
 

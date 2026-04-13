@@ -8,4 +8,4 @@ construction-system-cannot-start = You cannot craft this!
 
 ## Rped
 
-rped-container-empty = RPED doesn't have any parts to use.
+rped-container-empty = RPED is empty!
