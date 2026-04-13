@@ -14,6 +14,6 @@
   name: action-name-infrared-vision
   description: action-desc-infrared-vision
   components:
-  - type: CyberwareAction
+  - type: InstantAction
     icon: { sprite: Clothing/Eyes/Goggles/nightvision.rsi, state: icon }
-    actionId: !type:ToggleNightVisionEvent
+    event: !type:ToggleNightVisionEvent

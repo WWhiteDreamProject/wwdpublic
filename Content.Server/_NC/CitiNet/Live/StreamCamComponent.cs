@@ -17,6 +17,10 @@ public sealed partial class StreamCamComponent : Component
     [DataField]
     public string StreamTitle = string.Empty;
 
+    /// <summary>Требуется ли наличие заряженной батареи для работы стрима.</summary>
+    [DataField]
+    public bool RequireBattery = true;
+
     /// <summary>Расход энергии батарейки в единицах за 1 секунду работы.</summary>
     [DataField]
     public float EnergyDrainRate = 5f;

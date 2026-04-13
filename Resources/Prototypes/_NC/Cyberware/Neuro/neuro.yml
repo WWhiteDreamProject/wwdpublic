@@ -8,8 +8,9 @@
   - type: CyberwareImplant
     category: Neuroport
     humanityCost: 3
-  - type: MovementSpeed
-    speedMultiplier: 1.1
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 1.1
+    baseSprintSpeed: 2
 
 # --- KERENZIKOV TIER 2 ---
 - type: entity
@@ -21,8 +22,9 @@
   - type: CyberwareImplant
     category: Neuroport
     humanityCost: 3
-  - type: MovementSpeed
-    speedMultiplier: 1.15
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 1.15
+    baseSprintSpeed: 2.3
 
 # --- KERENZIKOV TIER 3 ---
 - type: entity
@@ -34,8 +36,9 @@
   - type: CyberwareImplant
     category: Neuroport
     humanityCost: 3
-  - type: MovementSpeed
-    speedMultiplier: 1.25
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 1.25
+    baseSprintSpeed: 2.5
 
 # --- BIO-INHIBITOR TIER 1 ---
 - type: entity

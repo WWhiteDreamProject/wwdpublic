@@ -4,7 +4,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 namespace Content.Shared._NC.Cyberware.Components;
 
 /// <summary>
-///     Позволяет сущности (MobHuman) получать и хранить киберимпланты.
+///     Позволяет сущности (MobHuman) получать и хранить киберимпланты. 
 ///     Управляет контейнером имплантов и отслеживает занятые слоты.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]

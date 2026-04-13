@@ -10,6 +10,8 @@ using Content.Shared.CartridgeLoader;
 using Content.Shared.Inventory;
 using Robust.Shared.Timing;
 
+using Content.Shared._NC.Cyberware.Components;
+
 namespace Content.Server._NC.CitiNet.Live;
 
 public sealed class CitiNetLiveCartridgeSystem : EntitySystem
@@ -162,7 +164,9 @@ public sealed class CitiNetLiveCartridgeSystem : EntitySystem
                 chatMessages = new List<LiveChatMessage>(camComp.ChatMessages);
 
                 // Процент заряда батареи
-                if (_powerCell.TryGetBatteryFromSlot(cam.Value, out var battery))
+                if (!camComp.RequireBattery)
+                    batteryPercent = 100;
+                else if (_powerCell.TryGetBatteryFromSlot(cam.Value, out var battery))
                     batteryPercent = (int) (battery.CurrentCharge / battery.MaxCharge * 100f);
             }
 
@@ -253,6 +257,16 @@ public sealed class CitiNetLiveCartridgeSystem : EntitySystem
             {
                 if (HasComp<StreamCamComponent>(item))
                     return item;
+            }
+        }
+
+        // Проверяем импланты
+        if (TryComp<CyberwareComponent>(person, out var cyberware))
+        {
+            foreach (var implant in cyberware.InstalledImplants.Values)
+            {
+                if (HasComp<StreamCamComponent>(implant))
+                    return implant;
             }
         }
 

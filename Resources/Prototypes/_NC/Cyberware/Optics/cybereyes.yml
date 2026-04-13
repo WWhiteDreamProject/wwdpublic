@@ -3,12 +3,11 @@
   parent: BaseCyberwareImplant
   name: antiglare
   description: Reduces glare from sudden flashes, protecting vision without additional effects.
-  abstract: true
   components:
   - type: CyberwareImplant
     category: Optics
     humanityCost: 2
-  - type: FlashImmunity
+  - type: CyberwareAntiGlare
 
 - type: entity
   id: CyberwareImplantInfraredVision
@@ -19,9 +18,7 @@
   - type: CyberwareImplant
     category: Optics
     humanityCost: 3
-  - type: NightVision
-    isEquipment: false
-    toggleAction: ActionToggleInfraredVision
+  - type: CyberwareIRVision
 
 - type: entity
   id: CyberwareImplantMicroVideo
@@ -38,6 +35,7 @@
     enabled: true
     range: 10
   - type: StreamCam
+    requireBattery: false
     energyDrainRate: 0
   - type: Eye
     # TODO: Протестировать работу стрима с этим имплантом

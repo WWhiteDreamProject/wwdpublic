@@ -77,7 +77,7 @@ public sealed class CitiNetStreamSystem : EntitySystem
             }
 
             // Дренаж батареи
-            if (!_powerCell.TryUseCharge(uid, comp.EnergyDrainRate))
+            if (comp.RequireBattery && !_powerCell.TryUseCharge(uid, comp.EnergyDrainRate))
                 StopStream(uid, comp, "citinet-live-battery-dead");
         }
     }
@@ -115,7 +115,7 @@ public sealed class CitiNetStreamSystem : EntitySystem
             return false;
         }
 
-        if (!_powerCell.HasCharge(cam, comp.EnergyDrainRate))
+        if (comp.RequireBattery && !_powerCell.HasCharge(cam, comp.EnergyDrainRate))
         {
             errorLocKey = "citinet-live-battery-dead";
             return false;
