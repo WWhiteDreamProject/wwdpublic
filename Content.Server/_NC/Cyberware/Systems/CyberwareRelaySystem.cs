@@ -30,8 +30,6 @@ public sealed class CyberwareRelaySystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        
-        // No specific events to subscribe here yet as most logic is in Update or triggered from CyberwareSystem
     }
 
     public override void Update(float frameTime)
@@ -51,7 +49,6 @@ public sealed class CyberwareRelaySystem : EntitySystem
 
                 regen.NextRegenTime = _timing.CurTime + regen.Duration;
 
-                // We try to add the solution to the HOST (uid), not the implant (implantUid)
                 if (_solutionContainer.TryGetInjectableSolution(uid, out var solution, out _) && solution.HasValue)
                 {
                     var amount = FixedPoint2.Min(solution.Value.Comp.Solution.AvailableVolume, regen.Generated.Volume);
@@ -74,9 +71,6 @@ public sealed class CyberwareRelaySystem : EntitySystem
         }
     }
 
-    /// <summary>
-    ///     Refreshes stats like breathing immunity and crit thresholds when implants change.
-    /// </summary>
     public void RefreshCyberwareStats(EntityUid uid, CyberwareComponent? component = null)
     {
         if (!Resolve(uid, ref component))
@@ -101,21 +95,16 @@ public sealed class CyberwareRelaySystem : EntitySystem
             }
         }
 
-        // Apply breathing immunity
         if (hasBreathingImmunity)
             EnsureComp<BreathingImmunityComponent>(uid);
         else
             RemComp<BreathingImmunityComponent>(uid);
 
-        // Apply crit threshold
-        // Note: This is a bit simplified. In a real system, we'd need to know the BASE threshold.
-        // For now, we update the Critical threshold directly.
         if (TryGetThreshold(uid, MobState.Critical, out var baseCrit))
         {
             _mobThreshold.SetMobStateThreshold(uid, baseCrit + critModifier, MobState.Critical);
         }
 
-        // Apply knockback immunity by switching BodyType to KinematicController
         if (TryComp<PhysicsComponent>(uid, out var physics))
         {
             var sturdyHost = EnsureComp<SturdyComponent>(uid);
