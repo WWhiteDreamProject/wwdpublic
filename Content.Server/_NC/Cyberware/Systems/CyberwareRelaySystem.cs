@@ -7,7 +7,11 @@ using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.FixedPoint;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Physics;
 using Content.Shared.Traits.Assorted.Components;
+using Robust.Shared.Physics;
+using Robust.Shared.Physics.Components;
+using Robust.Shared.Physics.Systems;
 using Robust.Shared.Timing;
 
 namespace Content.Server._NC.Cyberware.Systems;
@@ -21,6 +25,7 @@ public sealed class CyberwareRelaySystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
+    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
 
     public override void Initialize()
     {
@@ -79,6 +84,7 @@ public sealed class CyberwareRelaySystem : EntitySystem
 
         bool hasBreathingImmunity = false;
         int critModifier = 0;
+        bool hasKnockbackImmunity = false;
 
         foreach (var implantUid in component.InstalledImplants.Values)
         {
@@ -87,6 +93,12 @@ public sealed class CyberwareRelaySystem : EntitySystem
 
             if (TryComp<CritModifierComponent>(implantUid, out var crit))
                 critModifier += crit.CritThresholdModifier;
+
+            if (TryComp<SturdyComponent>(implantUid, out var sturdy))
+            {
+                if (sturdy.KnockbackImmunity)
+                    hasKnockbackImmunity = true;
+            }
         }
 
         // Apply breathing immunity
@@ -101,6 +113,28 @@ public sealed class CyberwareRelaySystem : EntitySystem
         if (TryGetThreshold(uid, MobState.Critical, out var baseCrit))
         {
             _mobThreshold.SetMobStateThreshold(uid, baseCrit + critModifier, MobState.Critical);
+        }
+
+        // Apply knockback immunity by switching BodyType to KinematicController
+        if (TryComp<PhysicsComponent>(uid, out var physics))
+        {
+            var sturdyHost = EnsureComp<SturdyComponent>(uid);
+            if (hasKnockbackImmunity)
+            {
+                if (physics.BodyType != BodyType.KinematicController)
+                {
+                    sturdyHost.BaseBodyType = physics.BodyType;
+                    _physics.SetBodyType(uid, BodyType.KinematicController, body: physics);
+                }
+            }
+            else
+            {
+                if (physics.BodyType == BodyType.KinematicController)
+                {
+                    _physics.SetBodyType(uid, sturdyHost.BaseBodyType, body: physics);
+                }
+                RemComp<SturdyComponent>(uid);
+            }
         }
     }
 

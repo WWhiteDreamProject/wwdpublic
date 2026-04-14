@@ -78,6 +78,10 @@
   - type: CritModifier
     critThresholdModifier: 50
   - type: NoSlip
+  - type: Sturdy
+    knockdownImmunity: true
+    stunImmunity: true
+    knockbackImmunity: true
 
 # --- NASAL FILTERS TIER 1 ---
 - type: entity

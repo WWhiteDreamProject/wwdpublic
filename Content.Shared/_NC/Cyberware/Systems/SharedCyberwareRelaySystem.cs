@@ -2,6 +2,7 @@
 using Content.Shared._NC.Cyberware.Components;
 using Content.Shared._Shitmed.Body.Components;
 using Content.Shared.Slippery;
+using Content.Shared.StatusEffect;
 
 namespace Content.Shared._NC.Cyberware.Systems;
 
@@ -17,6 +18,7 @@ public sealed class SharedCyberwareRelaySystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<CyberwareComponent, SlipAttemptEvent>(OnSlipAttempt);
+        SubscribeLocalEvent<CyberwareComponent, BeforeStatusEffectAddedEvent>(OnBeforeStatusEffect);
     }
 
     private void OnSlipAttempt(EntityUid uid, CyberwareComponent component, SlipAttemptEvent args)
@@ -27,6 +29,27 @@ public sealed class SharedCyberwareRelaySystem : EntitySystem
             if (_entManager.HasComponent<NoSlipComponent>(implantUid))
             {
                 args.NoSlip = true;
+                return;
+            }
+        }
+    }
+
+    private void OnBeforeStatusEffect(EntityUid uid, CyberwareComponent component, ref BeforeStatusEffectAddedEvent args)
+    {
+        foreach (var implantUid in component.InstalledImplants.Values)
+        {
+            if (!_entManager.TryGetComponent<SturdyComponent>(implantUid, out var sturdy))
+                continue;
+
+            if (sturdy.KnockdownImmunity && args.Key == "KnockedDown")
+            {
+                args.Cancelled = true;
+                return;
+            }
+
+            if (sturdy.StunImmunity && args.Key == "Stun")
+            {
+                args.Cancelled = true;
                 return;
             }
         }
