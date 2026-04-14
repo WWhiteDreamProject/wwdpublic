@@ -1,4 +1,69 @@
-# D:\projects\night-station\Resources\Prototypes\_NC\Cyberware\Neuro\neuro.yml
+# --- KERENZIKOV TIER 1 ---
+- type: entity
+  id: CyberwareNeuroKerenzikovMk1
+  parent: BaseCyberwareImplant
+  name: "Moore Tech Kerenzikov"
+  description: "Basic reflex booster. Slightly increases movement speed."
+  components:
+  - type: CyberwareImplant
+    category: Neuroport
+    humanityCost: 3
+    cyberFamily: Neuroport
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 1.1
+    baseSprintSpeed: 2
+
+# --- KERENZIKOV TIER 2 ---
+- type: entity
+  id: CyberwareNeuroKerenzikovMk2
+  parent: BaseCyberwareImplant
+  name: "Zetatech Kerenzikov"
+  description: "Advanced reflex booster. Increases movement speed and improves evasion."
+  components:
+  - type: CyberwareImplant
+    category: Neuroport
+    humanityCost: 3
+    cyberFamily: Neuroport
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 1.15
+    baseSprintSpeed: 2.3
+  - type: CyberwareDodge
+    chance: 0.15
+
+# --- KERENZIKOV TIER 3 ---
+- type: entity
+  id: CyberwareNeuroKerenzikovMk3
+  parent: BaseCyberwareImplant
+  name: "Militech Kerenzikov"
+  description: "Legendary reflex booster. Maximum movement speed and superior evasion."
+  components:
+  - type: CyberwareImplant
+    category: Neuroport
+    humanityCost: 3
+    cyberFamily: Neuroport
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 1.25
+    baseSprintSpeed: 2.5
+  - type: CyberwareDodge
+    chance: 0.25
+
+# --- KERENZIKOV TIER MAX-TAC ---
+- type: entity
+  id: CyberwareNeuroKerenzikovMaxTac
+  parent: BaseCyberwareImplant
+  name: "Militech Max-Tac"
+  description: "Legendary reflex booster. Maximum movement speed and superior evasion."
+  components:
+  - type: CyberwareImplant
+    category: Neuroport
+    humanityCost: 3
+    cyberFamily: Neuroport
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 1.5
+    baseSprintSpeed: 3
+  - type: CyberwareDodge
+    chance: 0.80
+
 
 # --- BIO-INHIBITOR TIER 1 ---
 - type: entity

@@ -20,8 +20,7 @@ public sealed class SharedCyberwareRelaySystem : EntitySystem
         SubscribeLocalEvent<CyberwareComponent, SlipAttemptEvent>(OnSlipAttempt);
         SubscribeLocalEvent<CyberwareComponent, BeforeStatusEffectAddedEvent>(OnBeforeStatusEffect);
         
-        // Use VeryLate to run after all other speed modifiers have been applied
-        SubscribeLocalEvent<CyberwareSlowImmunityComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshSpeed, order: EventOrder.VeryLate);
+        SubscribeLocalEvent<CyberwareSlowImmunityComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshSpeed);
     }
 
     private void OnSlipAttempt(EntityUid uid, CyberwareComponent component, SlipAttemptEvent args)
