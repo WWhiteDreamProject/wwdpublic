@@ -40,5 +40,5 @@
     cyberFamily: Neuroport
   - type: CyberwareAntiGlare
   - type: CritModifier
-    critThresholdModifier: 150
-    deadThresholdModifier: 150
+    critThresholdModifier: 100
+    deadThresholdModifier: 0
