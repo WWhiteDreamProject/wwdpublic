@@ -1,5 +1,6 @@
 using Content.Server.Chemistry.Components;
 using Content.Server.Chemistry.EntitySystems;
+using Content.Server.Flash.Components;
 using Content.Shared._NC.Cyberware.Components;
 using Content.Shared._Shitmed.Body.Components;
 using Content.Shared.Chemistry.Components;
@@ -7,7 +8,9 @@ using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.FixedPoint;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Movement.Systems;
 using Content.Shared.Physics;
+using Content.Shared.Stunnable;
 using Content.Shared.Traits.Assorted.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
@@ -26,6 +29,7 @@ public sealed class CyberwareRelaySystem : EntitySystem
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
 
     public override void Initialize()
     {
@@ -76,9 +80,26 @@ public sealed class CyberwareRelaySystem : EntitySystem
         if (!Resolve(uid, ref component))
             return;
 
+        // Capture base stats if not already done
+        var stats = EnsureComp<CyberwareStatsComponent>(uid);
+        if (!stats.Captured)
+        {
+            if (TryGetThreshold(uid, MobState.Critical, out var baseCrit))
+                stats.BaseThresholds[MobState.Critical] = baseCrit;
+            if (TryGetThreshold(uid, MobState.Dead, out var baseDead))
+                stats.BaseThresholds[MobState.Dead] = baseDead;
+            
+            stats.Captured = true;
+            Dirty(uid, stats);
+        }
+
         bool hasBreathingImmunity = false;
-        int critModifier = 0;
         bool hasKnockbackImmunity = false;
+        bool hasSlowImmunity = false;
+        bool hasFlashImmunity = false;
+        float staminaResistance = 1f;
+        int critModifier = 0;
+        int deadModifier = 0;
 
         foreach (var implantUid in component.InstalledImplants.Values)
         {
@@ -86,25 +107,72 @@ public sealed class CyberwareRelaySystem : EntitySystem
                 hasBreathingImmunity = true;
 
             if (TryComp<CritModifierComponent>(implantUid, out var crit))
+            {
                 critModifier += crit.CritThresholdModifier;
+                deadModifier += crit.DeadThresholdModifier;
+            }
 
             if (TryComp<SturdyComponent>(implantUid, out var sturdy))
             {
                 if (sturdy.KnockbackImmunity)
                     hasKnockbackImmunity = true;
             }
+
+            if (HasComp<CyberwareSlowImmunityComponent>(implantUid))
+                hasSlowImmunity = true;
+
+            if (HasComp<FlashImmunityComponent>(implantUid))
+                hasFlashImmunity = true;
+
+            if (TryComp<StaminaDamageResistanceComponent>(implantUid, out var stamina))
+                staminaResistance *= stamina.Coefficient;
         }
 
+        // Apply breathing immunity
         if (hasBreathingImmunity)
             EnsureComp<BreathingImmunityComponent>(uid);
         else
             RemComp<BreathingImmunityComponent>(uid);
 
-        if (TryGetThreshold(uid, MobState.Critical, out var baseCrit))
+        // Apply flash immunity
+        if (hasFlashImmunity)
+            EnsureComp<FlashImmunityComponent>(uid);
+        else
+            RemComp<FlashImmunityComponent>(uid);
+
+        // Apply slow immunity (Custom Cyberware Logic)
+        if (hasSlowImmunity)
+            EnsureComp<CyberwareSlowImmunityComponent>(uid);
+        else
+            RemComp<CyberwareSlowImmunityComponent>(uid);
+
+        // ALWAYS refresh movement speed if we have cyberware
+        _movementSpeed.RefreshMovementSpeedModifiers(uid);
+
+        // Apply stamina resistance
+        if (staminaResistance < 1f)
         {
-            _mobThreshold.SetMobStateThreshold(uid, baseCrit + critModifier, MobState.Critical);
+            var staminaComp = EnsureComp<StaminaDamageResistanceComponent>(uid);
+            staminaComp.Coefficient = staminaResistance;
+            Dirty(uid, staminaComp);
+        }
+        else
+        {
+            RemComp<StaminaDamageResistanceComponent>(uid);
         }
 
+        // Apply health thresholds from BASE
+        if (stats.BaseThresholds.TryGetValue(MobState.Critical, out var baseCritVal))
+        {
+            _mobThreshold.SetMobStateThreshold(uid, baseCritVal + critModifier, MobState.Critical);
+        }
+
+        if (stats.BaseThresholds.TryGetValue(MobState.Dead, out var baseDeadVal))
+        {
+            _mobThreshold.SetMobStateThreshold(uid, baseDeadVal + deadModifier, MobState.Dead);
+        }
+
+        // Apply knockback immunity by switching BodyType to KinematicController
         if (TryComp<PhysicsComponent>(uid, out var physics))
         {
             var sturdyHost = EnsureComp<SturdyComponent>(uid);
@@ -122,7 +190,18 @@ public sealed class CyberwareRelaySystem : EntitySystem
                 {
                     _physics.SetBodyType(uid, sturdyHost.BaseBodyType, body: physics);
                 }
-                RemComp<SturdyComponent>(uid);
+                
+                bool hasAnySturdy = false;
+                foreach (var implantUid in component.InstalledImplants.Values)
+                {
+                    if (HasComp<SturdyComponent>(implantUid))
+                    {
+                        hasAnySturdy = true;
+                        break;
+                    }
+                }
+                if (!hasAnySturdy)
+                    RemComp<SturdyComponent>(uid);
             }
         }
     }
