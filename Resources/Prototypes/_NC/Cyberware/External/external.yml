@@ -1,47 +1,51 @@
+# D:\projects\night-station\Resources\Prototypes\_NC\Cyberware\External\external.yml
 # --- KEVLAR SUBLAYER TIER 1 ---
 - type: entity
   id: CyberwareExternalKevlarSublayer
   parent: BaseCyberwareImplant
   name: "Moore Tech 'Carapace'"
-  description: "The cheapest street protection. Layers of ballistic kevlar are stitched under the skin. Saves from stray bullets of street gangs and shivs, but the skin in implantation areas becomes rough and loses sensitivity, and the body breathes poorly."
+  description: "The cheapest street protection. Layers of ballistic kevlar are implanted under the skin to absorb small caliber impacts."
   components:
   - type: CyberwareImplant
     category: External
-    humanityCost: 7
+    humanityCost: 14
+    cyberFamily: ArmorLayer
   - type: Armor
     modifiers:
       coefficients:
-        Piercing: 0.15
+        Piercing: 0.85
 
 # --- THERMOPLASTIC ARMOR TIER 2 ---
 - type: entity
   id: CyberwareExternalThermoplasticArmor
   parent: BaseCyberwareImplant
-  name: "Raven 'Aegis'"
-  description: "Standard for undercover detectives and mid-level corporate security. This is not just fabric, but a smart polymer that hardens upon sudden kinetic impact, dissipating energy over a large area."
+  name: "Arasaka 'Skinweave'"
+  description: "High-tech thermal protection. Polymer plates react to heat, hardening instantly upon impact."
   components:
   - type: CyberwareImplant
     category: External
-    humanityCost: 10
+    humanityCost: 22
+    cyberFamily: ArmorLayer
   - type: Armor
     modifiers:
       coefficients:
-        Piercing: 0.25
-        Heat: 0.1
+        Piercing: 0.75
+        Heat: 0.9
 
 # --- REACTIVE SUBLAYER TIER 3 ---
 - type: entity
   id: CyberwareExternalReactiveSublayer
   parent: BaseCyberwareImplant
-  name: "Militech 'Dragon Scale'"
-  description: "Elite military development. Microscales of boron carbide and graphene connected by an elastic nano-mesh. The armor is so strong it can stop a round from an assault rifle at point-blank range. Looks human, but feels like a concrete wall."
+  name: "Militech 'Subdermal'"
+  description: "Military-grade subdermal armor. Not quite human, but feels like a concrete wall."
   components:
   - type: CyberwareImplant
     category: External
-    humanityCost: 14
+    humanityCost: 35
+    cyberFamily: ArmorLayer
   - type: Armor
     modifiers:
       coefficients:
-        Piercing: 0.4
-        Slash: 0.3
-        Blunt: 0.2
+        Piercing: 0.6
+        Slash: 0.7
+        Blunt: 0.8

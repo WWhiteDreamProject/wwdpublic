@@ -1,3 +1,4 @@
+# D:\projects\night-station\Resources\Prototypes\_NC\Cyberware\Internal\internal.yml
 # --- VAMPIRE FANGS TIER 3 ---
 - type: entity
   id: CyberwareInternalVampireFangs
@@ -8,6 +9,7 @@
   - type: CyberwareImplant
     category: Internal
     humanityCost: 14
+    cyberFamily: VampireFangs
   #TODO: Придумать нахуя этот имплант
 
 # --- VAMPIRE FANGS BASIC TIER 1 ---
@@ -20,6 +22,7 @@
   - type: CyberwareImplant
     category: Internal
     humanityCost: 6
+    cyberFamily: VampireFangs
   #TODO: Придумать нахуя этот имплант
 
 # --- POLYMER SKELETON TIER 1 ---
@@ -32,6 +35,7 @@
   - type: CyberwareImplant
     category: Internal
     humanityCost: 10
+    cyberFamily: Skeleton
   - type: Armor
     modifiers:
       coefficients:
@@ -47,6 +51,7 @@
   - type: CyberwareImplant
     category: Internal
     humanityCost: 14
+    cyberFamily: Skeleton
   - type: Armor
     modifiers:
       coefficients:
@@ -63,6 +68,7 @@
   - type: CyberwareImplant
     category: Internal
     humanityCost: 28
+    cyberFamily: Skeleton
   - type: Armor
     modifiers:
       coefficients:
@@ -83,6 +89,7 @@
   - type: CyberwareImplant
     category: Internal
     humanityCost: 2
+    cyberFamily: Breathing
   - type: BreathingImmunity
 
 # --- ENHANCED ANTIBODIES TIER 2 ---
@@ -95,9 +102,10 @@
   - type: CyberwareImplant
     category: Internal
     humanityCost: 7
+    cyberFamily: Immune
   - type: SolutionRegeneration
     solution: blood
     generated:
       reagents:
       - ReagentId: Omnizine
-        Quantity: 0.1
+        Quantity: 1

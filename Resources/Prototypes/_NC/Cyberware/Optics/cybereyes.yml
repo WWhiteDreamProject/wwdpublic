@@ -38,7 +38,6 @@
     requireBattery: false
     energyDrainRate: 0
   - type: Eye
-    # TODO: Протестировать работу стрима с этим имплантом
 
 - type: entity
   id: CyberwareImplantMicroOptics

@@ -18,6 +18,7 @@ public sealed class CyberwareSystem : EntitySystem
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly NeuroTherapySystem _neuroTherapy = default!;
+    [Dependency] private readonly CyberwareRelaySystem _cyberwareRelay = default!;
 
     public override void Initialize()
     {
@@ -40,6 +41,20 @@ public sealed class CyberwareSystem : EntitySystem
         if (!Resolve(target, ref cyberware, false) || !Resolve(implant, ref implantComp, false))
             return false;
 
+        // Проверка семейства
+        if (implantComp.CyberFamily != null)
+        {
+            foreach (var installedImplant in cyberware.InstalledImplants.Values)
+            {
+                if (TryComp<CyberwareImplantComponent>(installedImplant, out var installedComp) &&
+                    installedComp.CyberFamily == implantComp.CyberFamily)
+                {
+                    _popup.PopupEntity($"У вас уже установлен имплант типа '{implantComp.CyberFamily}'!", target, PopupType.MediumCaution);
+                    return false;
+                }
+            }
+        }
+
         // Находим первый свободный слот в категории импланта
         var category = implantComp.Category;
         var freeSlot = CyberwareSlotHelper.FindFreeSlot(category, cyberware.InstalledImplants.Keys);
@@ -60,6 +75,9 @@ public sealed class CyberwareSystem : EntitySystem
         // Списываем человечность
         _humanitySystem.DeductHumanity(target, implantComp.HumanityCost);
         _neuroTherapy.AssignWords(target, 2, 1);
+
+        // Обновляем статы носителя
+        _cyberwareRelay.RefreshCyberwareStats(target, cyberware);
 
         var slotIndex = CyberwareSlotHelper.GetSlotIndex(freeSlot.Value);
         _popup.PopupEntity($"Имплант интегрирован: {CyberwareSlotHelper.GetCategoryDisplayName(category)} S{slotIndex}.", target, PopupType.Medium);
@@ -94,6 +112,9 @@ public sealed class CyberwareSystem : EntitySystem
             _humanitySystem.ReduceMaxHumanity(target, trauma);
             _humanitySystem.RestoreHumanity(target, refund);
         }
+
+        // Обновляем статы носителя
+        _cyberwareRelay.RefreshCyberwareStats(target, cyberware);
 
         var category = CyberwareSlotHelper.GetCategory(slot);
         var slotIndex = CyberwareSlotHelper.GetSlotIndex(slot);

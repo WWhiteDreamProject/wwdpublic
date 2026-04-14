@@ -1,4 +1,5 @@
 using Content.Server.Chemistry.EntitySystems;
+using Content.Server._NC.Cyberware.Systems;
 using Content.Shared.Chemistry.Components;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
@@ -8,7 +9,7 @@ namespace Content.Server.Chemistry.Components;
 /// Passively increases a solution's quantity of a reagent.
 /// </summary>
 [RegisterComponent, AutoGenerateComponentPause]
-[Access(typeof(SolutionRegenerationSystem))]
+[Access(typeof(SolutionRegenerationSystem), typeof(CyberwareRelaySystem))]
 public sealed partial class SolutionRegenerationComponent : Component
 {
     /// <summary>

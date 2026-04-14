@@ -30,4 +30,11 @@ public sealed partial class CyberwareImplantComponent : Component
     [DataField("refundPercentage"), ViewVariables(VVAccess.ReadWrite)]
     [AutoNetworkedField]
     public float RefundPercentage = 0.5f;
+
+    /// <summary>
+    ///     Семейство импланта. Не позволяет устанавливать несколько имплантов одного семейства.
+    /// </summary>
+    [DataField("cyberFamily"), ViewVariables(VVAccess.ReadWrite)]
+    [AutoNetworkedField]
+    public string? CyberFamily;
 }
