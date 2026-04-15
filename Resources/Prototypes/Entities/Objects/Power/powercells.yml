@@ -3,7 +3,10 @@
   abstract: true
   parent: BaseItem
   components:
+    #WD EDIT START
   - type: Item
+    size: Tiny
+    #WD EDIT END
     storedRotation: -90
   - type: Battery
     pricePerJoule: 0.15

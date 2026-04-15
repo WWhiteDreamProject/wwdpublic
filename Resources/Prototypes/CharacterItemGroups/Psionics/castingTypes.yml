@@ -12,3 +12,7 @@
       id: Shadowkin #wwdp
     - type: trait
       id: Infernal #wwdp
+    - type: trait
+      id: Telekineticist #wwdp
+    - type: trait
+      id: Priest #wwdp
