@@ -26,18 +26,20 @@ armor-reduction-value =
         [Radiation] Радиационный
         [Caustic] Кислотный
     }[/color] урон снижается на [color=lightblue]{ $value }[/color] пунктов.
-armor-damage-type-blunt = Тупые
-armor-damage-type-slash = Режущие
-armor-damage-type-piercing = Колющие
-armor-damage-type-heat = Ожоги
-armor-damage-type-radiation = Радиация
-armor-damage-type-caustic = Кислотные
-armor-damage-type-bloodloss = Нехватка крови
-armor-damage-type-asphyxiation = Нехватка воздуха
-armor-damage-type-cellular = Клеточные
-armor-damage-type-cold = Обморожение
-armor-damage-type-poison = Яды
-armor-damage-type-shock = Электрические
-armor-damage-type-structural = Структурные
-armor-damage-type-holy = Священные
-armor-examine-stamina = - Урон по [color=cyan]Стамине[/color] снижается на [color=lightblue]{$num}%[/color].
+# ! DO NOT TRANSLATE
+armor-damage-type-blunt = Blunt
+armor-damage-type-slash = Slash
+armor-damage-type-piercing = Piercing
+armor-damage-type-heat = Heat
+armor-damage-type-radiation = Radiation
+armor-damage-type-caustic = Caustic
+armor-damage-type-bloodloss = Bloodloss
+armor-damage-type-asphyxiation = Asphyxiation
+armor-damage-type-cellular = Cellular
+armor-damage-type-cold = Cold
+armor-damage-type-poison = Poison
+armor-damage-type-shock = Shock
+armor-damage-type-structural = Structural
+armor-damage-type-holy = Holy
+# End «do not translate»
+armor-examine-stamina = - [color=cyan]Выносливость[/color] крепче на [color=lightblue]{$num}%[/color].
