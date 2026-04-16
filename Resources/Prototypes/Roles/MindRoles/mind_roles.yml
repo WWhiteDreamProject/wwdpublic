@@ -127,8 +127,6 @@
     roleType: TeamAntagonist
     exclusiveAntag: true
   - type: DragonRole
-  - type: RoleBriefing
-    briefing: dragon-role-briefing
 
 # Ninja
 - type: entity
