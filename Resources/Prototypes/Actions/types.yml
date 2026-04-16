@@ -403,6 +403,7 @@
       sprite: Clothing/Eyes/Goggles/nightvision.rsi
       state: icon
     event: !type:ToggleNightVisionEvent
+    useDelay: 4
 
 - type: entity
   id: ToggleThermalVision
