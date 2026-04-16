@@ -1,15 +1,15 @@
-docking-console-no-shuttle = No Shuttle Detected
-docking-console-ftl = FTL
-docking-console-call = Call shuttle
+docking-console-no-shuttle = Шаттл не обнаружен
+docking-console-ftl = БСС
+docking-console-call = Вызов шаттла
 
-mining-console-window-title = Mining Shuttle Console
+mining-console-window-title = Консоль шахтерского шаттла
 
-shuttle-destination-lavaland = Lavaland
-shuttle-destination-glacier-surface = Glacier Surface
+shuttle-destination-lavaland = Лаваленд
+shuttle-destination-glacier-surface = Поверхность ледника
 
-docking-console-ftl-message-Unknown = Fetching FTL state...
-docking-console-ftl-message-Ready = All systems are ready.
-docking-console-ftl-message-NoSelection = Select one of the destinations.
-docking-console-ftl-message-NoAccess = ERROR: Access denied.
-docking-console-ftl-message-RechargingFtl = WARNING: FTL System is not ready.
-docking-console-ftl-message-InFtl = FTL is launched!
+docking-console-ftl-message-Unknown = Получение состояния БСС...
+docking-console-ftl-message-Ready = Все системы готовы.
+docking-console-ftl-message-NoSelection = Выберите один из пунктов назначения.
+docking-console-ftl-message-NoAccess = ОШИБКА: Доступ запрещен.
+docking-console-ftl-message-RechargingFtl = ПРЕДУПРЕЖДЕНИЕ: Система БСС не готова.
+docking-console-ftl-message-InFtl = БСС запущен!

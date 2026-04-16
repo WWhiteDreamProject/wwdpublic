@@ -83,5 +83,5 @@ laws-owner-station-station = станция
 laws-owner-charge = часть вашей ответственности
 laws-owner-cowboy = часть вашего стада
 laws-owner-players = игроки
-laws-owner-paladin = слабый и заслуживающий защиты
+laws-owner-paladin = слабые и заслуживающие защиты
 laws-owner-people = люди

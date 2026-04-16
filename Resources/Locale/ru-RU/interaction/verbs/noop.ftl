@@ -46,14 +46,14 @@ interaction-Rattle-success-others-popup = {$user} гремит {$target}.
 interaction-WaveAt-name = Помахать рукой
 interaction-WaveAt-description = Помахать рукой в сторону цели. Если вы держите в руках предмет, вы помашете им.
 interaction-WaveAt-success-self-popup = Вы помахали {$hasUsed ->
-    [false] рукой --> {$target}.
-    *[true] предметом ({$used}) в руке --> {$target}.
+    [false] рукой для {$target}.
+    *[true] предметом ({$used}) в руке для {$target}.
 }
 interaction-WaveAt-success-target-popup = {$user} машет {$hasUsed ->
     [false] вам рукой.
     *[true] вам предметом ({$used}) в руке.
 }
 interaction-WaveAt-success-others-popup = {$user} машет {$hasUsed ->
-    [false] своей рукой {$target}.
-    *[true] предметом ({$used}) в руке {$target}.
+    [false] своей рукой для {$target}.
+    *[true] предметом ({$used}) в руке для {$target}.
 }

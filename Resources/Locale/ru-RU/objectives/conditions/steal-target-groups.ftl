@@ -28,7 +28,7 @@ steal-target-groups-lamps = ЛАМПЫ
 # Thief single item
 # Thief single item
 steal-target-groups-forensic-scanner = криминалистический сканер
-steal-target-groups-flippo-engraved-lighter = зажигалка детектива с гравировкой "Флиппо"
+steal-target-groups-flippo-engraved-lighter = гравированная бензиновая зажигалка детектива
 steal-target-groups-ammo-tech-fab-circuitboard = печатная плата техфаба патронов
 steal-target-groups-clothing-head-hat-warden = фуражка смотрителя
 steal-target-groups-clothing-outer-hardsuit-void-paramed = пустотный скафандр парамедика

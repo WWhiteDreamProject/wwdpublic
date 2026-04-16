@@ -2,9 +2,9 @@
 cmd-ban-desc = Банит кого-либо
 cmd-ban-help = Usage: <name or user ID> <reason> [duration in minutes, leave out or 0 for permanent ban] [use True for global ban, otherwise False]
 cmd-ban-player = Не удалось найти игрока с таким именем.
-cmd-ban-invalid-minutes = {$minutes} is not a valid amount of minutes!
-cmd-ban-invalid-severity = {$severity} is not a valid severity!
-cmd-ban-invalid-arguments = Invalid amount of arguments
+cmd-ban-invalid-minutes = {$minutes} — это недопустимое количество минут!
+cmd-ban-invalid-severity = «{$severity}» не является допустимой степенью серьезности!
+cmd-ban-invalid-arguments = Недопустимое количество аргументов
 cmd-ban-hint = <name/user ID>
 cmd-ban-hint-reason = <reason>
 cmd-ban-hint-duration = [duration]
@@ -18,10 +18,10 @@ cmd-ban-hint-duration-5 = 2 недели
 cmd-ban-hint-duration-6 = 1 месяц
 # listbans
 # ban panel
-cmd-banpanel-desc = Opens the ban panel
-cmd-banpanel-help = Usage: banpanel [name or user guid]
-cmd-banpanel-server = This can not be used from the server console
-cmd-banpanel-player-err = The specified player could not be found
+cmd-banpanel-desc = Открывает панель банов
+cmd-banpanel-help = Использование: banpanel [name or user guid]
+cmd-banpanel-server = Это не может быть использовано из консоли сервера
+cmd-banpanel-player-err = Указанный игрок не может быть найден
 
 # listbans
 cmd-banlist-desc = Список активных банов пользователя.
@@ -48,38 +48,38 @@ cmd-ban_exemption_get-arg-player = <игрок>
 
 # Kick on ban
 # Ban panel
-ban-panel-title = Banning panel
-ban-panel-player = Player
+ban-panel-title = Панель бана
+ban-panel-player = Игрок
 ban-panel-ip = IP
 ban-panel-hwid = HWID
-ban-panel-reason = Reason
-ban-panel-last-conn = Use IP and HWID from last connection?
-ban-panel-submit = Ban
-ban-panel-confirm = Are you sure?
-ban-panel-tabs-basic = Basic info
-ban-panel-tabs-reason = Reason
-ban-panel-tabs-players = Player List
-ban-panel-tabs-role = Role ban info
-ban-panel-no-data = You must provide either a user, IP or HWID to ban
-ban-panel-invalid-ip = The IP address could not be parsed. Please try again
-ban-panel-select = Select type
-ban-panel-server = Server ban
-ban-panel-role = Role ban
-ban-panel-minutes = Minutes
-ban-panel-hours = Hours
-ban-panel-days = Days
-ban-panel-weeks = Weeks
-ban-panel-months = Months
-ban-panel-years = Years
-ban-panel-permanent = Permanent
-ban-panel-ip-hwid-tooltip = Leave empty and check the checkbox below to use last connection's details
-ban-panel-severity = Severity:
-ban-panel-erase = Erase chat messages and player from round
+ban-panel-reason = Причина
+ban-panel-last-conn = Использовать IP-адрес и HWID из последнего подключения?
+ban-panel-submit = Бан
+ban-panel-confirm = Вы уверены?
+ban-panel-tabs-basic = Основная информация
+ban-panel-tabs-reason = Причина
+ban-panel-tabs-players = Список игроков
+ban-panel-tabs-role = Информация о джоббане
+ban-panel-no-data = Вы должны указать либо пользователя, IP-адрес, либо HWID для бана
+ban-panel-invalid-ip = Не удалось разобрать IP-адрес. Пожалуйста, попробуйте снова
+ban-panel-select = Выберите тип
+ban-panel-server = Серверный бан
+ban-panel-role = Джоббан
+ban-panel-minutes = Минуты
+ban-panel-hours = Часы
+ban-panel-days = Дни
+ban-panel-weeks = Недели
+ban-panel-months = Месяца
+ban-panel-years = Года
+ban-panel-permanent = Пермач
+ban-panel-ip-hwid-tooltip = Оставьте это поле пустым и установите флажок ниже, чтобы использовать данные последнего подключения
+ban-panel-severity = Строгость:
+ban-panel-erase = Удалить сообщения игрока в чате и его персонажа из раунда с корнем
 
 # Ban string
-server-ban-string = {$admin} created a {$severity} severity server ban that expires {$expires} for [{$name}, {$ip}, {$hwid}], with reason: {$reason}
-server-ban-string-no-pii = {$admin} created a {$severity} severity server ban that expires {$expires} for {$name} with reason: {$reason}
-server-ban-string-never = never
+server-ban-string = {$admin} забанил игрока [{$name}, {$ip}, {$hwid}] со строгостью «{$severity}». Срок действия бана истекает {$expires} и его причина: «{$reason}»
+server-ban-string-no-pii = {$admin} забанил игрока {$name} со строгостью «{$severity}». Срок действия бана истекает {$expires}. Причина: «{$reason}»
+server-ban-string-never = **НИКОГДА**, хонк!
 
 # Kick on ban
 ban-kick-reason = Вы были забанены

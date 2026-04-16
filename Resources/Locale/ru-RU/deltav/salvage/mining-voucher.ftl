@@ -2,35 +2,35 @@ mining-voucher-select-first = Сперва выберите набор!
 mining-voucher-unpowered = {CAPITALIZE($vendor)} не запитан!
 mining-voucher-selected = Выбран {$kit}!
 
-mining-voucher-crusher-name = Crusher Kit
+mining-voucher-crusher-name = набор дробилки
 mining-voucher-crusher-description =
-    Contains a kinetic crusher and a pocket fire extinguisher.
-    The crusher is a versatile melee mining tool capable both of mining and fighting local fauna.
-    However, it is difficult to use effectively for anyone but most skilled and/or suicidal miners.
+    Содержит кинетическую дробилку и карманный огнетушитель.
+    Дробилка — это универсальный инструмент для ближнего боя, который может использоваться как для добычи полезных ископаемых, так и для борьбы с местной фауной.
+    Однако её трудно эффективно использовать никому, кроме самых опытных шахтеров и / или шахтеров-самоубийц.
 
-mining-voucher-extraction-name = Extraction and Rescue Kit
+mining-voucher-extraction-name = набор для фултона
 mining-voucher-extraction-description =
-    Contains a fulton beacon and 20 fultons, which allows you to send minerals,
-    items and dead bodies back home without having to use the mining shuttle.
-    As a bonus, you get 30 marker beacons to help you better mark your path.
+    Содержит маяк Фултона и 20 фултонов, которые позволяют отправлять минералы,
+    предметы и трупы домой, не используя шахтерский шаттл.
+    В качестве бонуса вы получаете 30 маркерных маячков, которые помогут вам лучше отмечать свой путь.
 
-mining-voucher-resonator-name = Resonator Kit
+mining-voucher-resonator-name = набор резонаторов
 mining-voucher-resonator-description =
-    Contains a resonator and a pocket fire extinguisher.
-    The resonator is a handheld device that creates small fields
-    of energy that resonate until they detonate, crushing rock.
-    It does increased damage in low pressure.
+    Содержит резонатор и карманный огнетушитель.
+    Резонатор — это портативное устройство, создающее небольшие поля
+    из энергии, которая резонирует до тех пор, пока не взорвется, сокрушая скалу.
+    При низком давлении он наносит повышенный ущерб.
 
-mining-voucher-survival-name = Survival Capsule and Explorer's Webbing
+mining-voucher-survival-name = спасательный капсуль и пояс утилизатора
 mining-voucher-survival-description =
-    Contains an explorer's webbing, which allows you to carry even more mining equipment, and a spare shelter capsule to go with it.
+    В комплект входит пояс утилизатора, который позволяет перевозить еще больше горного оборудования, и запасная капсула-укрытие в комплекте.
 
-mining-voucher-minebot-name = Minebot Kit
+mining-voucher-minebot-name = набор шахтобота
 mining-voucher-minebot-description =
-    Contains a little minebot companion that helps you in storing ore and hunting wildlife.
-    Also comes with an upgraded industrial welding tool, a welding mask and a KA modkit that allows shots to pass through the minebot.
+    Содержит маленького робота-компаньона «шахтобота», который поможет вам в хранении руды и охоте на диких животных.
+    Также поставляется с усовершенствованным промышленным сварочным инструментом, сварочной маской и комплектом КА modkit, который позволяет выстрелам проходить сквозь робота.
 
-mining-voucher-conscription-name = Mining Conscription Kit
+mining-voucher-conscription-name = стартовый набор утилизатора
 mining-voucher-conscription-description =
-    Contains a whole new mining starter kit for one crewmember, including
-    a proto-kinetic accelerator, mineral scanner and other useful gear.
+    Содержит совершенно новый стартовый набор для добычи полезных ископаемых для одного члена экипажа, включая
+    протокинетический ускоритель, сканер минералов и другое полезное снаряжение.

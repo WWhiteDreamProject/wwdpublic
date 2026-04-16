@@ -4,15 +4,15 @@ reagent-grinder-bound-user-interface-instant-button = МГНОВЕННО
 reagent-grinder-bound-user-interface-cook-time-label = ВРЕМЯ:
 reagent-grinder-component-cannot-put-entity-message = Вы не можете поместить это в измельчитель реагентов!
 
-reagent-grinder-component-upgrade-work-time = Work time
-reagent-grinder-component-upgrade-storage = Storage
+reagent-grinder-component-upgrade-work-time = Время работы
+reagent-grinder-component-upgrade-storage = Хранилище
 
-grinder-menu-title = All-In-One Grinder 3000
+grinder-menu-title = Универсальный измельчитель 3000
 grinder-menu-grind-button = Измельчить
 grinder-menu-juice-button = Выжать
-grinder-menu-auto-label = Auto mode
-grinder-menu-auto-button-off = Off
-grinder-menu-manual-label = Manual mode
+grinder-menu-auto-label = Автоматический режим
+grinder-menu-auto-button-off = Выключено
+grinder-menu-manual-label = Ручной режим
 grinder-menu-chamber-content-box-label = Камера
 grinder-menu-chamber-content-box-button = Извлечь содержимое
 grinder-menu-beaker-content-box-label = Стакан

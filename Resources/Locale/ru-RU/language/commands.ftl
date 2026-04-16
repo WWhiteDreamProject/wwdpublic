@@ -9,8 +9,8 @@ command-language-select-help = Использование: {$command} <language 
 
 command-language-spoken = Говорит на:
 command-language-understood = Понимает:
-command-language-current-entry = {$id}. {$language} - {$name} (текущий)
-command-language-entry = {$id}. {$language} - {$name}
+command-language-current-entry = {$id}. {$language} — {$name} (текущий)
+command-language-entry = {$id}. {$language} — {$name}
 
 command-language-invalid-number = Номер языка должен быть между 0 и {$total}. В качестве альтернативы используйте название языка.
 command-language-invalid-language = Язык «{$id}» не существует или вы не можете на нём говорить.
