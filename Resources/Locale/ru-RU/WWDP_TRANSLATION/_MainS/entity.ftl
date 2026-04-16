@@ -1439,7 +1439,7 @@ ent-MobVulpkaninDummy = Вулпканин (болванка)
     .desc = Болванка вулпканина для настройки персонажа.
 
 
-ent-DrinkDrGibbBloodRedCan = банка Dr. Gibb Blood Red
+ent-DrinkDrGibbBloodRedCan = банка «Доктор Глибб Красная Кровь»
     .desc = Напиток для утоления вашей жажды... крови.
 
 
@@ -5803,7 +5803,7 @@ ent-FoodLemoon = лемуна
     .desc = Луна — не из сыра. Она из молока и лавра. Теперь ты знаешь.
 
 
-ent-FoodExtradimensionalOrange = внезмерный апельсин
+ent-FoodExtradimensionalOrange = трёхмерный апельсин
     .desc = Сложно даже осознать, что ты держишь.
 
 
@@ -8222,7 +8222,7 @@ ent-Lantern = фонарь
     .desc = Святой свет осветит путь... если не сядет батарейка.
 
 
-ent-FlippoEngravedLighter = гравированная зажигалка Flippo
+ent-FlippoEngravedLighter = гравированная бензиновая зажигалка
     .desc = Золотая зажигалка с гравировкой. Тактической пользы — ноль, понтов — максимум.
 
 
@@ -9098,7 +9098,7 @@ ent-SmartFridge = умный холодильник
     .desc = Хранит вещи холодными и свежими. В отличие от вас после 12-часовой смены.
 
 
-ent-VendingMachineDrGibb = Dr. Gibb
+ent-VendingMachineDrGibb = Доктор Глибб
     .desc = Взрыв вкусов в каждой банке. Иногда — буквальный.
 
 
