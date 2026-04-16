@@ -219,7 +219,7 @@ public sealed class IonStormSystem : EntitySystem
         // WWDP EDIT START
         bool is_part = _robustRandom.Prob(0.5f);
         var part = Loc.GetString("ion-storm-part", ("part", is_part));
-        var notpart = Loc.GetString("ion-storm-part" /* but reverse; for better ru loc */, ("notpart", !is_part));
+        var notpart = Loc.GetString("ion-storm-part" /* but reverse; for better ru loc */, ("part", !is_part));
         // WWDP EDIT END
         var harm = _robustRandom.Next(1, 6) switch // WWDP EDIT
         {
