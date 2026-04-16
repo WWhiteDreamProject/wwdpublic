@@ -66,3 +66,6 @@
 
 - type: Tag
   id: MothEmotes
+  
+- type: Tag
+  id: MortarGrenade

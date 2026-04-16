@@ -9,6 +9,7 @@
   "states": [
     { "name": "irlaser" },
     { "name": "annihilator" },
+    { "name": "hmg" },
     { "name": "ram" },
     { "name": "base" }
   ]

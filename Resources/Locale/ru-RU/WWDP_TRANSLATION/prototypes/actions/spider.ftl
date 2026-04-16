@@ -1,4 +1,4 @@
-ent-ActionSpiderWeb = Паутина
+ent-ActionSpiderWeb = Создать паутину
     .desc = Создает паутину, которая замедляет вашу добычу.
 
 ent-ActionSericulture = Ткать шёлк
