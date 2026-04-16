@@ -95,9 +95,9 @@
   # WD EDIT START
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 2
+    Telecrystal: 1 # WD edit: 2 > 1
   cost:
-    Telecrystal: 6
+    Telecrystal: 3 # WD edit: 6 > 3
   # WD EDIT END
   categories:
   - UplinkWeaponry
