@@ -5,7 +5,7 @@ cargo-console-menu-account-name-none-text = Нет
 cargo-console-menu-shuttle-name-label = Название шаттла:{ " " }
 cargo-console-menu-shuttle-name-none-text = Нет
 cargo-console-menu-points-label = Спесо:{ " " }
-cargo-console-menu-points-amount = ${ $amount }
+cargo-console-menu-points-amount = { $amount }$
 cargo-console-menu-shuttle-status-label = Статус шаттла:{ " " }
 cargo-console-menu-shuttle-status-away-text = Отбыл
 cargo-console-menu-order-capacity-label = Объём заказов:{ " " }
@@ -17,7 +17,7 @@ cargo-console-menu-requests-label = Запросы
 cargo-console-menu-orders-label = Заказы
 cargo-console-menu-order-reason-description = Причина: { $reason }
 cargo-console-menu-populate-categories-all-text = Все
-cargo-console-menu-populate-orders-cargo-order-row-product-name-text = { $productName } (x{ $orderAmount }) от { $orderRequester }
+cargo-console-menu-populate-orders-cargo-order-row-product-name-text = { $productName } ({ $orderAmount }шт.) от { $orderRequester }
 cargo-console-menu-cargo-order-row-approve-button = Одобрить
 cargo-console-menu-cargo-order-row-cancel-button = Отменить
 
@@ -31,7 +31,7 @@ cargo-console-snip-snip = Заказ урезан до вместимости
 cargo-console-insufficient-funds = Недостаточно средств (требуется { $cost })
 cargo-console-unfulfilled = Нет места для выполнения заказа
 cargo-console-trade-station = Отправить на { $destination }
-cargo-console-unlock-approved-order-broadcast = [bold]Заказ на { $productName } x{ $orderAmount }[/bold], стоимостью [bold]{ $cost }[/bold], был одобрен [bold]{ $approver }[/bold]
+cargo-console-unlock-approved-order-broadcast = [bold]Заказ на { $productName } в количестве { $orderAmount }шт.[/bold] и общей стоимостью [bold]{ $cost }[/bold] был одобрен [bold]{ $approver }[/bold]
 
 cargo-console-paper-print-name = Заказ #{ $orderNumber }
 cargo-console-paper-print-text =

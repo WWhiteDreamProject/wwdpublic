@@ -20,7 +20,7 @@ stock-trading-price-history = История цен
 # General
 nano-chat-program-name = NanoChat
 nano-chat-title = NanoChat
-nano-chat-new-chat = Новый Чат
+nano-chat-new-chat = Новый чат
 nano-chat-contacts = КОНТАКТЫ
 nano-chat-no-chats = Нет активных чатов
 nano-chat-select-chat = Выберите чат
@@ -38,9 +38,9 @@ nano-chat-toggle-mute = Отключить оповещения
 nano-chat-delivery-failed = Ошибка отправления
 
 # Create chat popup
-nano-chat-look-up-no-server = No valid telecommunications server found
-nano-chat-look-up = Look up numbers
-nano-chat-list-number = List number
+nano-chat-look-up-no-server = Не найден действующий телекоммуникационный сервер
+nano-chat-look-up = Посмотреть на цифры
+nano-chat-list-number = Список номеров
 
 # Create chat popup
 nano-chat-new-title = Создать новый чат

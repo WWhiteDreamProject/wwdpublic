@@ -1,7 +1,7 @@
 names-ai-dataset-1 = 16-20
-names-ai-dataset-2 = 451F
+names-ai-dataset-2 = 451М
 # Ought to be enough for anybody
-names-ai-dataset-3 = 640K
+names-ai-dataset-3 = 640К
 names-ai-dataset-4 = "790"
 names-ai-dataset-5 = Адаптивный Манипулятор
 # Named after the famous soundcard

@@ -10,7 +10,7 @@ admin-smite-remove-hands-self = У вас отваливаются руки!
 admin-smite-remove-hands-other = У { CAPITALIZE($name) } отваливаются руки!
 admin-smite-turned-ash-other = { CAPITALIZE($name) } превращается в кучку пепла!
 admin-smite-stomach-removal-self = Вы ощущаете пустоту в желудке...
-admin-smite-run-walk-swap-prompt = Для бега вы должны нажать Shift!
+admin-smite-run-walk-swap-prompt = Для бега вы должны нажать Shift (по умолчанию)!
 admin-smite-super-speed-prompt = Вы двигаетесь почти со скоростью звука!
 admin-smite-lung-removal-self = Вы не можете вдохнуть!
 
@@ -20,14 +20,14 @@ admin-smite-lung-removal-self = Вы не можете вдохнуть!
 
 admin-smite-explode-name = Взорвать
 admin-smite-chess-dimension-name = Шахматное измерение
-admin-smite-set-alight-name = Поджечь 
-admin-smite-monkeyify-name = Обезьянить 
+admin-smite-set-alight-name = Поджечь
+admin-smite-monkeyify-name = Обезьянить
 admin-smite-garbage-can-name = Мусорный бак
 admin-smite-electrocute-name = Ударить током
 admin-smite-remove-blood-name = Удалить кровь
 admin-smite-remove-hands-name = Удалить руки
 admin-smite-remove-hand-name = Удалить руку
-admin-smite-pinball-name = Пинбол 
+admin-smite-pinball-name = Пинбол
 admin-smite-yeet-name = Уиии
 admin-smite-become-bread-name = Сделать хлебом
 admin-smite-cluwne-name = Клувнифицировать

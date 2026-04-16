@@ -1,6 +1,6 @@
-marking-MothWingsClassicSelene = Wings (Selene, Classic)
+marking-MothWingsClassicSelene = Крылья (Селена, классические)
 
-marking-MothWingsSelene-selene_primary = Primary
-marking-MothWingsSelene-selene_secondary = Secondary
-marking-MothWingsSelene-selene_tertiary = Tertiary
-marking-MothWingsSelene = Wings (Selene)
+marking-MothWingsSelene-selene_primary = Основной
+marking-MothWingsSelene-selene_secondary = Вторичный
+marking-MothWingsSelene-selene_tertiary = Третичный
+marking-MothWingsSelene = Крылья (Селена)

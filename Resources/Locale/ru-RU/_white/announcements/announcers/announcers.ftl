@@ -1,1 +1,1 @@
-announcer-RuOld-name = М.А.Й.А
+announcer-RuOld-name = М.А.И.А.
