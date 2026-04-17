@@ -240,7 +240,8 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
             // WWDP EDIT START
             var gridCenterWorld = Vector2.Transform(gridBody.LocalCenter, curGridToWorld);
             var gridCenterView = Vector2.Transform(gridCenterWorld, worldToView);
-            var gridInCone = Vector2.Normalize(gridCenterView).Y >= MathF.Cos(FieldOfView / 2) || FieldOfView >= MathF.Tau;
+            var gridCenterViewDirection = Vector2.Normalize(gridCenterView - MidPointVector);
+            var gridInCone = gridCenterViewDirection.Y >= MathF.Cos(FieldOfView / 2) || FieldOfView >= MathF.Tau;
             // WWDP EDIT END
 
             if (ShowIFF && labelName != null && gridInCone) // WD EDIT

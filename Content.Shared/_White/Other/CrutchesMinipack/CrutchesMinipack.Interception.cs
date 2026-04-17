@@ -107,18 +107,28 @@ public static partial class Crutches
         var b = 2 * (p.X * v.X + p.Y * v.Y);
         var c = p.X * p.X + p.Y * p.Y;
 
-        var d = b * b - 4 * a * c;
-        if (d < 0) // since shooting into parallel dimensions is prohibited, return false
-            return false;
-
-        // if a is positive, we check the -D root first
-        // if it's negative, we check the +D root first
-        d = MathF.Sqrt(d) * MathF.Sign(a);
-
-        var t = (-b - d) / (2 * a);
-        if (t < 0)
+        float t;
+        if (a != 0)
         {
-            t = (-b + d) / (2 * a);
+            var d = b * b - 4 * a * c;
+            if (d < 0) // since shooting into parallel dimensions is prohibited, return false
+                return false;
+
+            // if a is positive, we check the -D root first
+            // if it's negative, we check the +D root first
+            d = MathF.Sqrt(d) * MathF.Sign(a);
+
+            t = (-b - d) / (2 * a);
+            if (t < 0)
+            {
+                t = (-b + d) / (2 * a);
+                if (t < 0)
+                    return false;
+            }
+        }
+        else // bt + c = 0
+        {
+            t = -c / b;
             if (t < 0)
                 return false;
         }
