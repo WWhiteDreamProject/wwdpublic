@@ -166,19 +166,25 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
             return;
         }
         var mapPos = _transform.ToMapCoordinates(_coordinates.Value);
+        // for some inane reason "_coordinates" is always supposed to be relative to the radar entity,
+        // instead of storing said entity in a separate variable. Why???
+        // This whole method is in a dire need of a rewrite.
         var posMatrix = Matrix3Helpers.CreateTranslation(_coordinates.Value.Position); // WWDP EDIT
-        var ourEntRot = RotateWithEntity ? _transform.GetWorldRotation(xform) + _rotation.Value : _rotation.Value; // WWDP EDIT
+        var ourEntRot = _transform.GetWorldRotation(xform); // WWDP EDIT
+        var viewRotation = RotateWithEntity ? ourEntRot + _rotation.Value : _rotation.Value; // WWDP EDIT
         var worldPosition = _transform.GetWorldPosition(xform); // WWDP EDIT
-        var ourEntMatrix = Matrix3Helpers.CreateTransform(worldPosition, ourEntRot);
+        var ourEntMatrix = Matrix3Helpers.CreateTransform(worldPosition, viewRotation);
         var shuttleToWorld = Matrix3x2.Multiply(posMatrix, ourEntMatrix);
         Matrix3x2.Invert(shuttleToWorld, out var worldToShuttle);
         var shuttleToView = Matrix3x2.CreateScale(new Vector2(MinimapScale, -MinimapScale)) * Matrix3x2.CreateTranslation(MidPointVector);
         var worldToView = worldToShuttle * shuttleToView; // WWDP EDIT
         var gunPresent = _gun.TryGetGun(_coordinates.Value.EntityId, out var ourGunEnt, out var ourGunComp); // WWDP EDIT
 
+        // WWDP EDIT START
         // these will be drawn last (but before the FoV)
         var leadingPipLinePrimitives = new Dictionary<Color, List<Vector2>>();
         var leadingPipCirclePrimitives = new Dictionary<Color, List<Vector2>>();
+        // WWDP EDIT END
 
         // Draw our grid in detail
         var ourGridId = xform.GridUid;
@@ -206,8 +212,7 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
 
         handle.DrawPrimitives(DrawPrimitiveTopology.TriangleFan, radarPosVerts, Color.Lime);
 
-        var rot = ourEntRot + _rotation.Value;
-        var viewBounds = new Box2Rotated(new Box2(-WorldRange, -WorldRange, WorldRange, WorldRange).Translated(mapPos.Position), rot, mapPos.Position);
+        var viewBounds = new Box2Rotated(new Box2(-WorldRange, -WorldRange, WorldRange, WorldRange).Translated(mapPos.Position), viewRotation, mapPos.Position);
         var viewAABB = viewBounds.CalcBoundingBox();
 
         _grids.Clear();
@@ -367,7 +372,7 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
                     var point = line.Points[i];
                     point.Y *= -1;
                     if (!line.NoRotation)
-                        point = (MathF.PI + ourEntRot - entityWorldRotation).RotateVec(point); // 0 degrees in viewspace is upwards; 0 degrees in worldspace is south (i.e. downwards), hence, the added pi.
+                        point = (MathF.PI + viewRotation - entityWorldRotation).RotateVec(point); // 0 degrees in viewspace is upwards; 0 degrees in worldspace is south (i.e. downwards), hence, the added pi.
                     point *= line.Scale;
                     point -= line.Offset;
                     point *= entity.Comp.Scale;
