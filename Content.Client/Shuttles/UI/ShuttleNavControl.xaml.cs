@@ -26,11 +26,14 @@ namespace Content.Client.Shuttles.UI;
 public sealed partial class ShuttleNavControl : BaseShuttleControl
 {
     [Dependency] private readonly IMapManager _mapManager = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
     private readonly SharedShuttleSystem _shuttles;
     private readonly SharedTransformSystem _transform;
     // WD EDIT START
     private readonly EntityLookupSystem _lookup;
     private readonly GunSystem _gun;
+    private const string FovShaderPrototype = "RadarConsoleFov";
+    private readonly ShaderInstance _fovShader;
     // WD EDIT END
 
     /// <summary>
@@ -51,6 +54,8 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
     public bool ShowDocks { get; set; } = true;
     public bool RotateWithEntity { get; set; } = true;
     public float FieldOfView = MathF.Tau; // WD EDIT
+    public float FieldOfViewOffset = 0;
+
 
     /// <summary>
     /// Raised if the user left-clicks on the radar control with the relevant entitycoordinates.
@@ -67,6 +72,7 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
         // WD EDIT START
         _lookup = EntManager.System<EntityLookupSystem>();
         _gun = EntManager.System<GunSystem>();
+        _fovShader = _proto.Index<ShaderPrototype>(FovShaderPrototype).Instance();
         // WD EDIT END
     }
 
@@ -140,6 +146,8 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
 
         FieldOfView = (float) state.FieldOfView.Theta; // WD EDIT
 
+        FieldOfViewOffset = state.FieldOfViewOffset; // WWDP EDIT
+
         NfUpdateState(state); // Frontier Update State
     }
 
@@ -186,31 +194,7 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
         var leadingPipCirclePrimitives = new Dictionary<Color, List<Vector2>>();
         // WWDP EDIT END
 
-        // Draw our grid in detail
         var ourGridId = xform.GridUid;
-        if (EntManager.TryGetComponent<MapGridComponent>(ourGridId, out var ourGrid) &&
-            fixturesQuery.HasComponent(ourGridId.Value))
-        {
-            var ourGridToWorld = _transform.GetWorldMatrix(ourGridId.Value);
-            var ourGridToShuttle = Matrix3x2.Multiply(ourGridToWorld, worldToShuttle);
-            var ourGridToView = ourGridToShuttle * shuttleToView;
-            var color = _shuttles.GetIFFColor(ourGridId.Value, self: true);
-
-            DrawGrid(handle, ourGridToView, (ourGridId.Value, ourGrid), color);
-            DrawDocks(handle, ourGridId.Value, ourGridToView);
-        }
-
-        // Draw radar position on the station
-        const float radarVertRadius = 2f;
-        var radarPosVerts = new Vector2[]
-        {
-            ScalePosition(new Vector2(0f, -radarVertRadius)),
-            ScalePosition(new Vector2(radarVertRadius / 2f, 0f)),
-            ScalePosition(new Vector2(0f, radarVertRadius)),
-            ScalePosition(new Vector2(radarVertRadius / -2f, 0f)),
-        };
-
-        handle.DrawPrimitives(DrawPrimitiveTopology.TriangleFan, radarPosVerts, Color.Lime);
 
         var viewBounds = new Box2Rotated(new Box2(-WorldRange, -WorldRange, WorldRange, WorldRange).Translated(mapPos.Position), viewRotation, mapPos.Position);
         var viewAABB = viewBounds.CalcBoundingBox();
@@ -246,7 +230,7 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
             var gridCenterWorld = Vector2.Transform(gridBody.LocalCenter, curGridToWorld);
             var gridCenterView = Vector2.Transform(gridCenterWorld, worldToView);
             var gridCenterViewDirection = Vector2.Normalize(gridCenterView - MidPointVector);
-            var gridInCone = gridCenterViewDirection.Y >= MathF.Cos(FieldOfView / 2) || FieldOfView >= MathF.Tau;
+            var gridInCone = gridCenterViewDirection.Y <= MathF.Cos(FieldOfView / 2) || FieldOfView >= MathF.Tau;
             // WWDP EDIT END
 
             if (ShowIFF && labelName != null && gridInCone) // WD EDIT
@@ -443,15 +427,44 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
         {
             const int segments = 5;
             var hidesey = new Vector2[segments + 2];
-            hidesey[0] = MidPointVector;
+            var center = Vector2.Transform(new Vector2(0, -FieldOfViewOffset), shuttleToView);
+            hidesey[0] = center;
             for (int i = 0; i < segments + 1; i++)
             {
                 var angle = i / (float) segments * (MathHelper.TwoPi - FieldOfView) + FieldOfView / 2;
                 var pos = new Vector2(MathF.Sin(angle), -MathF.Cos(angle));
-                hidesey[i + 1] = MidPointVector + pos * 1024;
+                hidesey[i + 1] = center + pos * 1024;
             }
-            handle.DrawPrimitives(DrawPrimitiveTopology.TriangleFan, hidesey, new Color(0.08f, 0.02f, 0.08f));
+            var prevShader = handle.GetShader();
+            handle.UseShader(_fovShader);
+            handle.DrawPrimitives(DrawPrimitiveTopology.TriangleFan, hidesey, Color.White);
+            handle.UseShader(prevShader);
         }
+
+        // Draw our grid in detail // Also draw it over the fov effect
+        if (EntManager.TryGetComponent<MapGridComponent>(ourGridId, out var ourGrid) &&
+            fixturesQuery.HasComponent(ourGridId.Value))
+        {
+            var ourGridToWorld = _transform.GetWorldMatrix(ourGridId.Value);
+            var ourGridToShuttle = Matrix3x2.Multiply(ourGridToWorld, worldToShuttle);
+            var ourGridToView = ourGridToShuttle * shuttleToView;
+            var color = _shuttles.GetIFFColor(ourGridId.Value, self: true);
+
+            DrawGrid(handle, ourGridToView, (ourGridId.Value, ourGrid), color);
+            DrawDocks(handle, ourGridId.Value, ourGridToView);
+        }
+
+        // Draw radar position on the station
+        const float radarVertRadius = 2f;
+        var radarPosVerts = new Vector2[]
+        {
+            ScalePosition(new Vector2(0f, -radarVertRadius)),
+            ScalePosition(new Vector2(radarVertRadius / 2f, 0f)),
+            ScalePosition(new Vector2(0f, radarVertRadius)),
+            ScalePosition(new Vector2(radarVertRadius / -2f, 0f)),
+        };
+
+        handle.DrawPrimitives(DrawPrimitiveTopology.TriangleFan, radarPosVerts, Color.Lime);
 
         void BuildLeadingPip(Vector2 startingViewPos, Vector2 endingViewPos, Color color)
         {
