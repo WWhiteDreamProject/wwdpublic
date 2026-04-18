@@ -14,6 +14,10 @@ jobs:
     steps:
       - if: ${{ env.GIT_REMOTE_URL != '' }}
         name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
           
       - if: ${{ env.GIT_REMOTE_URL != '' }}
         name: Configure Git
