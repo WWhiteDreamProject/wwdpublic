@@ -589,7 +589,7 @@ trait-description-IPCBrittleBoneDisease =
 trait-name-Manic = Маниакальность
 trait-description-Manic = Ваше восприятие мира по-разному зависит от того или иного. Всё, что влияет на ваше настроение, будет умножено на числа от [color=white]0,7[/color] до [color=white]1,3[/color].
 
-trait-name-Mercurial = Переменчивое настроение
+trait-name-Mercurial = Биполярное расстройство
 trait-description-Mercurial = Ваше настроение регулярно меняется, из-за чего у вас появляется случайный модификатор настроения, который всегда где-то между [color=red]-10[/color] и [color=green]+10[/color].
 
 trait-name-DeadEmotions = Мёртвые эмоции
