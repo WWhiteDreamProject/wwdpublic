@@ -1,0 +1,10 @@
+- type: soundCollection
+  id: BarkDave
+  files:
+  - /Audio/_White/Voice/Barks/dave/dave1.wav
+
+
+- type: barkVoice
+  id: Dave
+  barkSound:
+    collection: BarkDave
