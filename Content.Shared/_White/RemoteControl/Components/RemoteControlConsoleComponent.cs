@@ -31,3 +31,4 @@ public sealed partial class RemoteControlConsoleComponent : Component
     [ViewVariables]
     public EntityUid? Target;
 }
+

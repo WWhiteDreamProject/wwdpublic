@@ -60,7 +60,32 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
     /// <summary>
     /// Raised if the user left-clicks on the radar control with the relevant entitycoordinates.
     /// </summary>
-    public Action<EntityCoordinates>? OnRadarClick;
+    public Action<EntityCoordinates, bool>? OnRadarClick;
+    public Action<EntityCoordinates, bool>? OnRadarRightClick; // WWDP EDIT
+    public Action<EntityCoordinates>? OnMouseMove; // WWDP EDIT
+
+    // WWDP EDIT START
+    /// <summary>
+    /// Raised after everything else is drawn.
+    /// </summary>
+    public Action<DrawingHandleScreen, Matrix3x2, Matrix3x2>? DrawTop;
+
+    /// <summary>
+    /// Raised after everything is drawn except the owning grid.
+    /// </summary>
+    public Action<DrawingHandleScreen, Matrix3x2, Matrix3x2>? DrawAfterFoV;
+
+    /// <summary>
+    /// Raised after everything is drawn except the owning grid and the FoV effect.
+    /// </summary>
+    public Action<DrawingHandleScreen, Matrix3x2, Matrix3x2>? DrawBeforeFoV;
+
+    /// <summary>
+    /// Raised just after the background is drawn.
+    /// </summary>
+    public Action<DrawingHandleScreen, UIBox2>? DrawAfterBackground;
+
+
 
     private List<Entity<MapGridComponent>> _grids = new();
 
@@ -91,17 +116,50 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
     {
         base.KeyBindUp(args);
 
-        if (_coordinates == null || _rotation == null || args.Function != EngineKeyFunctions.UIClick ||
-            OnRadarClick == null)
+        if (_coordinates == null || _rotation == null)
+            return;
+
+        Action<EntityCoordinates, bool>? ev = null;
+        if (args.Function == EngineKeyFunctions.UIClick)
+            ev = OnRadarClick;
+        else if (args.Function == EngineKeyFunctions.UIRightClick)
+            ev = OnRadarRightClick;
+
+        if(ev is null)
+            return;
+
+        ev?.Invoke(GetMouseCoordinates(args.RelativePosition), false);
+    }
+
+    protected override void KeyBindDown(GUIBoundKeyEventArgs args)
+    {
+        base.KeyBindDown(args);
+
+        if (_coordinates == null || _rotation == null)
+            return;
+
+        Action<EntityCoordinates, bool>? ev = null;
+        if (args.Function == EngineKeyFunctions.UIClick)
+            ev = OnRadarClick;
+        else if (args.Function == EngineKeyFunctions.UIRightClick)
+            ev = OnRadarRightClick;
+
+        if(ev is null)
+            return;
+
+        ev?.Invoke(GetMouseCoordinates(args.RelativePosition), true);
+    }
+
+    protected override void MouseMove(GUIMouseMoveEventArgs args)
+    {
+        base.MouseMove(args);
+
+        if (_coordinates == null || _rotation == null)
         {
             return;
         }
 
-        var a = InverseScalePosition(args.RelativePosition);
-        var relativeWorldPos = new Vector2(a.X, -a.Y);
-        relativeWorldPos = _rotation.Value.RotateVec(relativeWorldPos);
-        var coords = _coordinates.Value.Offset(relativeWorldPos);
-        OnRadarClick?.Invoke(coords);
+        OnMouseMove?.Invoke(GetMouseCoordinates(args.RelativePosition));
     }
 
     /// <summary>
@@ -110,12 +168,18 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
     [PublicAPI]
     public EntityCoordinates GetMouseCoordinates(ScreenCoordinates screen)
     {
+        var pos = screen.Position / UIScale - GlobalPosition;
+
+        return GetMouseCoordinates(pos);
+    }
+
+    [PublicAPI]
+    public EntityCoordinates GetMouseCoordinates(Vector2 pos)
+    {
         if (_coordinates == null || _rotation == null)
         {
             return EntityCoordinates.Invalid;
         }
-
-        var pos = screen.Position / UIScale - GlobalPosition;
 
         var a = InverseScalePosition(pos);
         var relativeWorldPos = new Vector2(a.X, -a.Y);
@@ -154,15 +218,21 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
     protected override void Draw(DrawingHandleScreen handle)
     {
         base.Draw(handle);
-
-        DrawBacking(handle);
-        DrawCircles(handle);
-
         // No data
         if (_coordinates == null || _rotation == null)
         {
+            var prevShader = handle.GetShader();
+            handle.UseShader(_fovShader);
+            handle.DrawRect(PixelSizeBox, Color.White, true);
+            handle.UseShader(prevShader);
+            DrawAfterBackground?.Invoke(handle, PixelSizeBox);
             return;
         }
+
+        DrawBacking(handle);
+        DrawCircles(handle);
+        DrawAfterBackground?.Invoke(handle, PixelSizeBox);
+
 
         var xformQuery = EntManager.GetEntityQuery<TransformComponent>();
         var fixturesQuery = EntManager.GetEntityQuery<FixturesComponent>();
@@ -423,6 +493,7 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
         foreach (var (color, verts) in leadingPipCirclePrimitives)
             handle.DrawPrimitives(DrawPrimitiveTopology.LineList, verts, color);
 
+        DrawBeforeFoV?.Invoke(handle, shuttleToWorld, worldToView);
         if (FieldOfView < MathF.Tau)
         {
             const int segments = 5;
@@ -440,6 +511,8 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
             handle.DrawPrimitives(DrawPrimitiveTopology.TriangleFan, hidesey, Color.White);
             handle.UseShader(prevShader);
         }
+        DrawAfterFoV?.Invoke(handle, shuttleToWorld, worldToView);
+
 
         // Draw our grid in detail // Also draw it over the fov effect
         if (EntManager.TryGetComponent<MapGridComponent>(ourGridId, out var ourGrid) &&
@@ -465,6 +538,7 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
         };
 
         handle.DrawPrimitives(DrawPrimitiveTopology.TriangleFan, radarPosVerts, Color.Lime);
+        DrawTop?.Invoke(handle, shuttleToWorld, worldToView);
 
         void BuildLeadingPip(Vector2 startingViewPos, Vector2 endingViewPos, Color color)
         {
