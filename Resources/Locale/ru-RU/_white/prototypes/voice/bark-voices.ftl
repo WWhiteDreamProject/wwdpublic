@@ -20,3 +20,4 @@ bark-txtsus = Сьюзи
 bark-txttor = Ториель
 bark-txtund = Андайн
 bark-gav = Гав
+bark-dave = Дейв

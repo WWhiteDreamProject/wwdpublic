@@ -47,3 +47,6 @@
       gender: Female
     TxtUnd: []
     Gav: []
+    Dave:
+    - !type:CharacterGenderRequirement
+      gender: Male
