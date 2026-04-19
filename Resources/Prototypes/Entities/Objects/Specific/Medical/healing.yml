@@ -27,6 +27,7 @@
     state: ointment
   - type: Item
     heldPrefix: ointment
+    storedRotation: 45 # WD ADD
   - type: Healing
     damageContainers:
     - Biological
@@ -264,6 +265,10 @@
   id: Gauze
   suffix: Full
   components:
+  # WD EDIT START
+  - type: Item
+    storedRotation: 50
+  # WD EDIT END
   - type: Tag
     tags:
     - Gauze
