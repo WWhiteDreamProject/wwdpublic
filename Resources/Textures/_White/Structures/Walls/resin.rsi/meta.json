@@ -1,11 +1,11 @@
 {
     "version": 1,
-    "license": "CC-BY-SA-3.0",
+    "license": "CC-BY-NC-SA-4.0",
+    "copyright": "T1nV(Valentyi) (randomm.ua) for WWhiteDreamProject, 02.01.2026",
     "size": {
         "x": 32,
         "y": 32
     },
-    "copyright": "Taken from https://github.com/tgstation/tgstation/blob/master/icons/obj/smooth_structures/alien/resin_wall.dmi",
     "states": [
         {
             "name": "full"
