@@ -1,13 +1,13 @@
 uniform sampler2D emissiveTexture;
 uniform highp vec4 emissiveUV;
 
-uniform highp float height = 1;
-uniform highp float shadowFactor = 0;
-uniform highp int layers = 5;
+uniform highp float height;
+uniform highp float shadowFactor;
+uniform highp int layers;
 
 highp float insideBox(highp vec2 v, highp vec2 bottomLeft, highp vec2 topRight) {
     highp vec2 s = step(bottomLeft, v) - step(topRight, v);
-    return s.x * s.y;   
+    return s.x * s.y;
 }
 
 varying highp vec2 eUV;
@@ -23,7 +23,7 @@ void fragment() {
 	highp vec2 ps = TEXTURE_PIXEL_SIZE;
 
 	highp vec2 offset = normalize(vec2(dFdy(UV.x/ps.x), dFdy(UV.y/ps.y))) * height;
-	highp vec2 step = offset / (layers == 0 ? 1 : layers); // ternary prevents div by zero
+	highp vec2 step = offset / float(layers == 0 ? 1 : layers); // ternary prevents div by zero
 	highp vec4 col_last = vec4(0.0);
 
 	// these two are used to prevent emissive voxels from affecting lightmap if they're obscured by regular voxels
@@ -33,7 +33,7 @@ void fragment() {
 	highp float new_a = 0.0;
 
 	// used to determine shade effect on the bottom of the 3d effect
-	int firstHitSample = 0; 
+	int firstHitSample = 0;
 
 	// col is the resulting color of the fragment and gets written to COLOR
 	// (unless bleedover condition is true, in which case col_orig will be used)
@@ -44,15 +44,15 @@ void fragment() {
 	// this unreadable bullshit results in duplication of the sprite, moving downwards in screenspace
 	// and being visually "underneath" the original (and actual) sprite.
 	for(int i = 0; i <= layers; i++){
-		highp vec4 col_tex = zTexture(UV + (step*i)*ps); // regular texture
-		highp vec4 col_emissive = texture2D(emissiveTexture, eUV + (step*i)*ps); // emissive texture
+		highp vec4 col_tex = zTexture(UV + (step*float(i))*ps); // regular texture
+		highp vec4 col_emissive = texture2D(emissiveTexture, eUV + (step*float(i))*ps); // emissive texture
 		//highp vec4 col_emissive = vec4(0.0);
 		firstHitSample = !hit ? i : firstHitSample;
 
 		// if the first voxel we hit is emissive, we'll set the lightmap to fullbright
 		// as well as overlaying the color from emissive texture on top of col_tex
-		glow = hit ? glow : col_emissive.a > 0.001; 
-		hit = hit ? hit : col_tex.a > 0.001; 		
+		glow = hit ? glow : col_emissive.a > 0.001;
+		hit = hit ? hit : col_tex.a > 0.001;
 
 		highp float emissive_mix_a = mix(col_tex.a, 1.0, col_emissive.a);
 		//col_tex = mix(col_tex, col_emissive, glow ? col_emissive.a : 0.0);
@@ -69,6 +69,6 @@ void fragment() {
 		col_last = col_tex;
 	}
 
-	col = mix(col, vec4(vec3(0.0), col.a), float(firstHitSample) / layers * shadowFactor); // apply a shade towards the bottom of the 3D effect
-	COLOR = insideBox(UV2 + offset/32, vec2(0,0), vec2(1,1)) > 0.5 ? col : col_orig;
+	col = mix(col, vec4(vec3(0.0), col.a), float(firstHitSample) / float(layers) * shadowFactor); // apply a shade towards the bottom of the 3D effect
+	COLOR = insideBox(UV2 + offset/32.0, vec2(0,0), vec2(1,1)) > 0.5 ? col : col_orig;
 }
