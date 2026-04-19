@@ -1043,6 +1043,9 @@
   parent: BaseMachineCircuitboard
   name: J.R.P.A.C.M.A.N.-type portable generator machine board
   components:
+  - type: Tag #WWDP
+    tags:
+    - PortableGeneratorJrPacmanMachineCircuitboard
   - type: Sprite
     state: engineering
   - type: MachineBoard
