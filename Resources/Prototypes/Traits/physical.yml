@@ -744,7 +744,7 @@
           damageContainers:
           - Inorganic
           - Silicon
-          - SiliconUnshielded
+#          - SiliconUnshielded # WWDP EDIT
 
 - type: trait
   id: CyberEyesOmni
@@ -786,7 +786,7 @@
           - Biological
           - Inorganic
           - Silicon
-          - SiliconUnshielded
+#          - SiliconUnshielded # WWDP EDIT
 
 - type: trait
   id: RestrictedGear
@@ -1086,7 +1086,7 @@
           damageContainers:
           - Inorganic
           - Silicon
-          - SiliconUnshielded
+#          - SiliconUnshielded # WWDP EDIT
 
 - type: trait
   id: OmniEyesModule
@@ -1131,7 +1131,7 @@
           - Biological
           - Inorganic
           - Silicon
-          - SiliconUnshielded
+#          - SiliconUnshielded # WWDP EDIT
 
 - type: trait
   id: LightAmplificationModule
@@ -1290,6 +1290,7 @@
   id: SuperiorRadiationShielding
   category: Physical
   points: -4
+  enable: false # WD EDIT
   requirements:
     - !type:CharacterSpeciesRequirement
       species:
