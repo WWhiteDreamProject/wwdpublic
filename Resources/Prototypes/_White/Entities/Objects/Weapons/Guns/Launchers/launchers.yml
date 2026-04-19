@@ -63,3 +63,32 @@
       shader: unshaded
     - type: Clothing
       sprite: _White/Objects/Weapons/Guns/Launchers/M80-Heracles.rsi
+
+- type: entity
+  name: psionic hook
+  parent: BaseItem
+  id: WeaponPsionicHook
+  description: hook
+  components:
+  - type: AmmoCounter
+  - type: Gun
+    soundGunshot: /Audio/Effects/gib1.ogg
+    fireRate: 0.5
+    clumsyProof: true
+  - type: BasicEntityAmmoProvider
+    proto: PsionicHookProjectile
+    capacity: 1
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/Launchers/psionic_hook_launcher.rsi
+    state: icon
+  - type: UseDelay
+    delay: 1.5
+  - type: Appearance
+  - type: PacifismAllowedGun
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,0
+    - 0,1,0,1
+  - type: PsionicHook
+  - type: Unremoveable

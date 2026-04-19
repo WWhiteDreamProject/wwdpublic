@@ -17,3 +17,39 @@
   components:
   - type: Explosive
     totalIntensity: 40
+
+- type: entity
+  id: PsionicHookProjectile
+  name: psionic hook projectile
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Clickable
+    - type: InteractionOutline
+    - type: Sprite
+      noRot: false
+      sprite: _White/Objects/Weapons/Guns/Launchers/psionic_hook_launcher.rsi
+      state: projectile
+    - type: Physics
+      bodyType: Dynamic
+      linearDamping: 0
+      angularDamping: 0
+    - type: Projectile
+      deleteOnCollide: false
+      damage:
+        types:
+          Blunt: 0
+    - type: TimedDespawn
+      lifetime: 15
+    - type: Fixtures
+      fixtures:
+        projectile:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.1,-0.1,0.1,0.1"
+          hard: false
+          mask:
+          - Impassable
+          - BulletImpassable
+    - type: ProjectilePsionicHook
+      basePower: 10
+      returnSpeed: 7

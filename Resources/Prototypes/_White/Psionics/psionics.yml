@@ -71,3 +71,28 @@
       components:
         - type: BarokinesisPower
     - !type:RemovePsionicStatSources
+
+- type: psionicPower
+  id: PsionicHookPower
+  name: Hook
+  powerCategories:
+    - Dangerous
+  initializeFunctions:
+    - !type:AddPsionicActions
+      actions:
+      - ActionSummonPsionicHook
+    - !type:AddPsionicPowerComponents
+      components:
+        - type: PsionicHookPower
+    - !type:PsionicFeedbackPopup
+    - !type:PsionicFeedbackSelfChat
+      feedbackMessage: hook-power-initialization-feedback
+    - !type:AddPsionicStatSources
+      amplificationModifier: 1
+      dampeningModifier: 1
+  removalFunctions:
+    - !type:RemovePsionicActions
+    - !type:RemovePsionicPowerComponents
+      components:
+        - type: PsionicHookPower
+    - !type:RemovePsionicStatSources
