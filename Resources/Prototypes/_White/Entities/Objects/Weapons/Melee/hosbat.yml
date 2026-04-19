@@ -7,7 +7,6 @@
       animationRotation: -45
       wideAnimationRotation: -135
       attackRate: 2
-      canHeavyAttack: false
       range: 1.6
       damage:
         types:
@@ -28,7 +27,7 @@
       speed: 10
       distance: 0.05
     - type: AnimateOnHit
-      applyToUser: false
+      applyToUser: true
       whitelist:
         components:
         - MobState

@@ -43,9 +43,6 @@ namespace Content.Server.Chemistry.EntitySystems
         [ValidatePrototypeId<EntityPrototype>]
         private const string PillPrototypeId = "Pill";
 
-        [ValidatePrototypeId<EntityPrototype>]
-        private const string PillCanisterPrototypeId = "PillCanister";
-
         public override void Initialize()
         {
             base.Initialize();
@@ -213,20 +210,15 @@ namespace Content.Server.Chemistry.EntitySystems
         private void OnCreatePillsMessage(Entity<ChemMasterComponent> chemMaster, ref ChemMasterCreatePillsMessage message)
         {
             var user = message.Actor;
-            var maybeContainer = _itemSlotsSystem.GetItemOrNull(chemMaster, SharedChemMaster.OutputSlotName);
+            // WD EDIT START
+            var possibleContainer = _itemSlotsSystem.GetItemOrNull(chemMaster, SharedChemMaster.OutputSlotName);
 
-            if (maybeContainer == null)
+            if (possibleContainer is not { Valid: true } container || !TryComp(container, out StorageComponent? storage))
             {
-                var canister = _entityManager.SpawnEntity(PillCanisterPrototypeId, Transform(chemMaster.Owner).Coordinates);
-                _itemSlotsSystem.TryInsert(chemMaster.Owner, SharedChemMaster.OutputSlotName, canister, null);
-                maybeContainer = canister;
-            }
-
-            if (maybeContainer is not { Valid: true } container
-                || !TryComp(container, out StorageComponent? storage))
-            {
+                _popupSystem.PopupCursor(Loc.GetString("chem-master-window-buffer-empty-text"), user);
                 return; // output can't fit pills
             }
+            // WD EDIT END
 
             // Ensure the number is valid.
             if (message.Number == 0 || !_storageSystem.HasSpace((container, storage)))
@@ -280,18 +272,15 @@ namespace Content.Server.Chemistry.EntitySystems
         private void OnOutputToBottleMessage(Entity<ChemMasterComponent> chemMaster, ref ChemMasterOutputToBottleMessage message)
         {
             var user = message.Actor;
-            var maybeContainer = _itemSlotsSystem.GetItemOrNull(chemMaster, SharedChemMaster.OutputSlotName);
+            // WD EDIT START
+            var possibleContainer = _itemSlotsSystem.GetItemOrNull(chemMaster, SharedChemMaster.OutputSlotName);
 
-            if (maybeContainer == null)
+            if (possibleContainer is not { Valid: true } container || !_solutionContainerSystem.TryGetSolution(container, SharedChemMaster.BottleSolutionName, out var soln, out var solution))
             {
-                var canister = _entityManager.SpawnEntity(PillCanisterPrototypeId, Transform(chemMaster.Owner).Coordinates);
-                _itemSlotsSystem.TryInsert(chemMaster.Owner, SharedChemMaster.OutputSlotName, canister, null);
-                maybeContainer = canister;
-            }
-
-            if (maybeContainer is not { Valid: true } container
-                || !_solutionContainerSystem.TryGetSolution(container, SharedChemMaster.BottleSolutionName, out var soln, out var solution))
+                _popupSystem.PopupCursor(Loc.GetString("chem-master-window-buffer-empty-text"), user);
                 return; // output can't fit reagents
+            }
+            // WD EDIT END
 
             // Ensure the amount is valid.
             if (message.Dosage == 0 || message.Dosage > solution.AvailableVolume)

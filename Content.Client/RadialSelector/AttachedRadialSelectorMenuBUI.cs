@@ -1,5 +1,4 @@
-﻿using Content.Client._White.RadialSelector;
-using Content.Client.UserInterface.Controls;
+﻿using Content.Client.UserInterface.Controls;
 using Content.Shared.RadialSelector;
 using JetBrains.Annotations;
 using Robust.Client.Graphics;

@@ -376,6 +376,11 @@ namespace Content.Server.Administration.Managers
 
         private async void LoginAdminMaybe(ICommonSession session)
         {
+            // Not an admin.
+            // ReSharper disable once ConditionIsAlwaysTrueOrFalseAccordingToNullableAPIContract
+            if (session is null)
+                return;
+
             var adminDat = await LoadAdminData(session);
             if (adminDat == null)
             {
