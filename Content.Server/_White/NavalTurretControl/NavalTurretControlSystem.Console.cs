@@ -22,7 +22,8 @@ public partial class NavalTurretControlSystem
         SubscribeLocalEvent<NavalTurretConsoleComponent, NewLinkEvent>(OnNewLink);
         SubscribeLocalEvent<NavalTurretConsoleComponent, PortDisconnectedEvent>(OnPortDisconnected);
 
-        SubscribeLocalEvent<NavalTurretConsoleComponent, PowerChangedEvent>(OnPowerChanged);
+        SubscribeLocalEvent<NavalTurretConsoleComponent, PowerChangedEvent>(OnConsolePowerChanged);
+        SubscribeLocalEvent<NavalTurretComponent, PowerChangedEvent>(OnTurretPowerChanged);
     }
 
     private void OnConsoleInit(EntityUid uid, NavalTurretConsoleComponent comp, ComponentInit args)
@@ -70,7 +71,8 @@ public partial class NavalTurretControlSystem
         component.LinkedTurret = args.Sink;
         var succ = TryComp<NavalTurretComponent>(args.Sink, out var turretComp);
         DebugTools.Assert(succ);
-        turretComp!.LinkedConsole = uid;
+        if(turretComp is not null)
+            turretComp.LinkedConsole = uid;
         Dirty(uid, component);
         UpdateState(uid, component);
     }
@@ -81,16 +83,27 @@ public partial class NavalTurretControlSystem
             return;
 
         var succ = TryComp<NavalTurretComponent>(component.LinkedTurret, out var turretComp);
-        component.LinkedTurret = null;
         DebugTools.Assert(succ);
-        turretComp!.LinkedConsole = null;
+        component.LinkedTurret = null;
+        if(turretComp is not null)
+            turretComp.LinkedConsole = null;
         Dirty(uid, component);
         UpdateState(uid, component);
     }
 
-    private void OnPowerChanged(EntityUid uid, NavalTurretConsoleComponent component, PowerChangedEvent args)
+    private void OnConsolePowerChanged(EntityUid uid, NavalTurretConsoleComponent component, PowerChangedEvent args)
     {
         UpdateState(uid, component);
+    }
+
+    private void OnTurretPowerChanged(EntityUid uid, NavalTurretComponent component, PowerChangedEvent args)
+    {
+        if(component.LinkedConsole is not EntityUid consoleUid)
+            return;
+
+        var succ = TryComp<NavalTurretConsoleComponent>(consoleUid, out var consoleComp);
+        DebugTools.Assert(succ);
+        UpdateState(consoleUid, consoleComp);
     }
 
 }

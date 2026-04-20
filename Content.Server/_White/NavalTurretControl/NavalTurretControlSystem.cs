@@ -39,8 +39,8 @@ public sealed partial class NavalTurretControlSystem : SharedNavalTurretConsoleS
     [Dependency] private readonly ShuttleConsoleSystem _console = default!;
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
 
-    public static ProtoId<SinkPortPrototype> SinkPortId = "RemoteControlSinkPort";
-    public static ProtoId<SourcePortPrototype> SourcePortId = "RemoteControlSourcePort";
+    public static ProtoId<SinkPortPrototype> SinkPortId = "ShipGunnerControlSinkPort";
+    public static ProtoId<SourcePortPrototype> SourcePortId = "ShipGunnerControlSourcePort";
 
     public override void Initialize()
     {
@@ -58,32 +58,35 @@ public sealed partial class NavalTurretControlSystem : SharedNavalTurretConsoleS
         UpdateState(uid, component);
     }
 
-    // TODO: switch to own BUIState class with additional stirng ErrorState field or something like that
+    private void UpdateState(EntityUid uid, NavalTurretConsoleComponent? comp = null) => UpdateState((uid, null, comp));
+
+
     // TODO: handle multiple attempted console uses (reject everyone until the first user closes the bui) 
-    private void UpdateState(EntityUid uid, NavalTurretConsoleComponent? comp = null)
+    private void UpdateState(Entity<UserInterfaceComponent?, NavalTurretConsoleComponent?> entity)
     {
-        if (!_uiSystem.HasUi(uid, NavalTurretConsoleUiKey.Key) ||
-            !Resolve(uid, ref comp))
+        if (!_uiSystem.HasUi(entity, NavalTurretConsoleUiKey.Key) ||
+            !Resolve(entity, ref entity.Comp1) ||
+            !Resolve(entity, ref entity.Comp2))
             return;
 
-        if (comp.LinkedTurret is not EntityUid turretUid)
+        if (entity.Comp2.LinkedTurret is not EntityUid turretUid)
         {
-            _uiSystem.SetUiState(uid, NavalTurretConsoleUiKey.Key,
+            _uiSystem.SetUiState(entity, NavalTurretConsoleUiKey.Key,
                                  new NavalTurretConsoleBuiState(NavalTurretConsoleError.NotConnected));
             return;
         }
 
-        if(!this.IsPowered(uid, EntityManager))
+        if(!this.IsPowered(entity, EntityManager))
         {
-            _uiSystem.SetUiState(uid, NavalTurretConsoleUiKey.Key,
+            _uiSystem.SetUiState(entity, NavalTurretConsoleUiKey.Key,
                                  new NavalTurretConsoleBuiState(NavalTurretConsoleError.NotConnected));
             return;
         }
 
-        if(TryComp<MobStateComponent>(uid, out var stateComp) && stateComp.CurrentState != Shared.Mobs.MobState.Alive ||
+        if(TryComp<MobStateComponent>(entity, out var stateComp) && stateComp.CurrentState != Shared.Mobs.MobState.Alive ||
            TerminatingOrDeleted(turretUid))
         {
-            _uiSystem.SetUiState(uid, NavalTurretConsoleUiKey.Key,
+            _uiSystem.SetUiState(entity, NavalTurretConsoleUiKey.Key,
                                  new NavalTurretConsoleBuiState(NavalTurretConsoleError.TurretDestroyed));
             return;
         }
@@ -91,14 +94,14 @@ public sealed partial class NavalTurretControlSystem : SharedNavalTurretConsoleS
 
         if(!this.IsPowered(turretUid, EntityManager))
         {
-            _uiSystem.SetUiState(uid, NavalTurretConsoleUiKey.Key,
+            _uiSystem.SetUiState(entity, NavalTurretConsoleUiKey.Key,
                                  new NavalTurretConsoleBuiState(NavalTurretConsoleError.NoPowerTurret));
             return;
         }
 
 
         var state = _console.GetNavState(turretUid, new(), new(turretUid, new Vector2(0,0)), 0);
-        _uiSystem.SetUiState(uid, NavalTurretConsoleUiKey.Key, new NavalTurretConsoleBuiState(state));
+        _uiSystem.SetUiState(entity, NavalTurretConsoleUiKey.Key, new NavalTurretConsoleBuiState(state));
     }
 
 
