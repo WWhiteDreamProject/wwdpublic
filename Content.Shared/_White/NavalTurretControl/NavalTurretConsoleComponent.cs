@@ -20,6 +20,21 @@ public sealed partial class NavalTurretComponent : Component
 {
     [DataField, AutoNetworkedField]
     public EntityUid? LinkedConsole;
+
+    [DataField, AutoNetworkedField]
+    public Angle AngleTolerance = Math.PI / 360; // 0.5 degrees
+
+    [DataField, AutoNetworkedField]
+    public Angle RotationSpeed = Math.PI / 3;
+
+    [DataField, AutoNetworkedField]
+    public float AimpointTolerane = 0.5f;
+
+    /// <summary>
+    /// Relative to self.
+    /// </summary>
+    [AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
+    public Vector2? CurrentAimpoint;
 }
 
 [NetSerializable, Serializable]
@@ -44,10 +59,10 @@ public sealed class RequestNavalTurretStopShootEvent : EntityEventArgs
 
 
 [Serializable, NetSerializable]
-public sealed class RequestNavalTurretRotationEvent(Angle angle) : EntityEventArgs
+public sealed class RequestNavalTurretRotationEvent(Vector2 aimpoint, NetEntity console) : EntityEventArgs
 {
-    public Angle Angle = angle;
-    public NetEntity Console;
+    public Vector2 RelativeAimpoint = aimpoint;
+    public NetEntity Console = console;
 }
 
 

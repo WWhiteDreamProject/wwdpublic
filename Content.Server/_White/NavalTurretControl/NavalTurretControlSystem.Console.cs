@@ -41,8 +41,8 @@ public partial class NavalTurretControlSystem
             return;
 
         if (!TryComp<NavalTurretComponent>(args.Sink, out var turretComp) ||
-            component.LinkedTurret != null ||
-            turretComp.LinkedConsole != null ||
+            !TerminatingOrDeleted(component.LinkedTurret) ||
+            !TerminatingOrDeleted(turretComp.LinkedConsole) ||
             args.Source != uid ||
             args.SourcePort != SourcePortId ||
             args.SinkPort != SinkPortId)
@@ -55,8 +55,8 @@ public partial class NavalTurretControlSystem
             return;
 
         if (!TryComp<NavalTurretConsoleComponent>(args.Sink, out var consoleComp) ||
-            component.LinkedConsole != null ||
-            consoleComp.LinkedTurret != null ||
+            !TerminatingOrDeleted(component.LinkedConsole) ||
+            !TerminatingOrDeleted(consoleComp.LinkedTurret) ||
             args.Source != uid ||
             args.SourcePort != SourcePortId ||
             args.SinkPort != SinkPortId)
@@ -80,8 +80,8 @@ public partial class NavalTurretControlSystem
         if (args.Port != SourcePortId)
             return;
 
-        component.LinkedTurret = null;
         var succ = TryComp<NavalTurretComponent>(component.LinkedTurret, out var turretComp);
+        component.LinkedTurret = null;
         DebugTools.Assert(succ);
         turretComp!.LinkedConsole = null;
         Dirty(uid, component);

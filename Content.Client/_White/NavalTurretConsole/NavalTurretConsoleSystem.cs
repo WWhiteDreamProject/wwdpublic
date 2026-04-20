@@ -1,5 +1,7 @@
+using System.Numerics;
 using Content.Client.Shuttles.BUI;
 using Content.Shared._White.NavalTurretControl;
+using Content.Shared.Coordinates;
 using Content.Shared.DeviceLinking;
 using Content.Shared.MouseRotator;
 using Content.Shared.Weapons.Ranged.Systems;
@@ -22,58 +24,52 @@ public sealed partial class NavalTurretControlSystem : SharedNavalTurretConsoleS
 
     public override void Update(float frameTime)
     {
-        if (_player.LocalEntity is not EntityUid playerEntity ||
-            !_timing.IsFirstTimePredicted)
+        if (_player.LocalEntity is not EntityUid playerEntity)
             return;
-
-        var consoles = EntityQueryEnumerator<NavalTurretConsoleComponent, UserInterfaceComponent>();
-        while (consoles.MoveNext(out var consoleUid, out var consoleComp, out var uiComp))
+        
+        if(!_timing.IsFirstTimePredicted)
+        {
+            base.Update(frameTime);
+            return;
+        }
+        var consoles = EntityQueryEnumerator<NavalTurretConsoleComponent, UserInterfaceComponent, TransformComponent>();
+        while (consoles.MoveNext(out var consoleUid, out var consoleComp, out var uiComp, out var xform))
         {
             if (consoleComp.LinkedTurret is not EntityUid turretUid ||
                TerminatingOrDeleted(turretUid) ||
-               !HasComp<NavalTurretComponent>(turretUid))
+               !TryComp<NavalTurretComponent>(turretUid, out var turret))
                continue;
 
             if (!_ui.TryGetOpenUi<NavalTurretConsoleBoundUserInterface>((consoleUid, uiComp), NavalTurretConsoleUiKey.Key, out var bui))
                 continue;
 
-            if (!bui.Shooting || bui.Aimpoint == EntityCoordinates.Invalid)
-                continue;
+            var aimpoint = bui.Aimpoint;
 
-            DebugTools.Assert(bui.Aimpoint.EntityId == turretUid); // if aimpoint is not relative to the turret, something went wrong
-
-            Request(consoleUid, turretUid, bui.Aimpoint, bui.Shooting);
-
-            if(!TryComp<MouseRotatorComponent>(turretUid, out var rotator))
-                return;
-
-            var angle = (_transform.ToMapCoordinates(bui.Aimpoint).Position - _transform.GetWorldPosition(turretUid)).ToWorldAngle();
-            var diff = Angle.ShortestDistance(angle, _transform.GetWorldRotation(turretUid));
-            if (Math.Abs(diff.Theta) < rotator.AngleTolerance.Theta)
-                return;
-
-            if (rotator.GoalRotation != null)
+            // handle turning input first
+            if (turret.CurrentAimpoint is not Vector2 curAimpoint ||
+               (aimpoint - curAimpoint).Length() > turret.AimpointTolerane)
             {
-                var goalDiff = Angle.ShortestDistance(angle, rotator.GoalRotation.Value);
-                if (Math.Abs(goalDiff.Theta) < rotator.AngleTolerance.Theta)
-                    return;
+                RaisePredictiveEvent(new RequestNavalTurretRotationEvent(aimpoint, GetNetEntity(consoleUid)));
             }
-            RaisePredictiveEvent(new RequestNavalTurretRotationEvent(angle));
+
+            // and finally, handle shooting input
+            // actual shooting will be handled on server
+            if (bui.Shooting)
+                Request(consoleUid, turretUid, aimpoint, bui.Shooting);
         }
+        base.Update(frameTime);
     }
 
-    private void Request(EntityUid consoleUid, EntityUid turretUid, EntityCoordinates aimpoint, bool holdingFire)
+    private void Request(EntityUid consoleUid, EntityUid turretUid, Vector2 aimpoint, bool holdingFire)
     {
         if (!_timing.IsFirstTimePredicted)
             return;
 
-        if (_player.LocalEntity is not EntityUid playerEntity)
+        if (_player.LocalEntity is null)
             return;
 
-        if (!_gun.TryGetGun(turretUid, out var gunUid, out var gun))
-        {
+        if (!_gun.TryGetGun(turretUid, out var _, out var gun))
             return;
-        }
 
         if (!holdingFire && !gun.BurstActivated)
         {
@@ -100,7 +96,7 @@ public sealed partial class NavalTurretControlSystem : SharedNavalTurretConsoleS
         EntityManager.RaisePredictiveEvent(new RequestNavalTurretShootEvent
         {
             Console = GetNetEntity(consoleUid),
-            Coordinates = GetNetCoordinates(aimpoint),
+            Coordinates = GetNetCoordinates(new(turretUid, aimpoint)),
         });
     }
 

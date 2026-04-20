@@ -1,16 +1,22 @@
 
 
 
+using System.Numerics;
 using Content.Shared._White.NavalTurretControl;
+using Content.Shared.Interaction;
 using Content.Shared.MouseRotator;
 using Content.Shared.Weapons.Ranged.Systems;
+using Robust.Shared.Map;
+using Robust.Shared.Utility;
 
 namespace Content.Shared._White.NavalTurretControl;
 
 public abstract class SharedNavalTurretConsoleSystem : EntitySystem
 {
     [Dependency] private readonly SharedGunSystem _gun = default!;
+    [Dependency] private readonly RotateToFaceSystem _rotate = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {
@@ -18,7 +24,39 @@ public abstract class SharedNavalTurretConsoleSystem : EntitySystem
         SubscribeAllEvent<RequestNavalTurretStopShootEvent>(OnTurretShootStopRequest);
         SubscribeAllEvent<RequestNavalTurretRotationEvent>(OnTurretRotationRequest);
     }
+    public override void Update(float frameTime)
+    {
+        var query = EntityQueryEnumerator<NavalTurretComponent, TransformComponent>();
+        while (query.MoveNext(out var uid, out var turret, out var xform))
+        {
+            HandleRotation(uid, turret, xform, frameTime);
+        }
+    }
 
+    protected void HandleRotation(EntityUid uid, NavalTurretComponent turret, TransformComponent? xform, float frameTime)
+    {
+        DebugTools.AssertOwner(uid, turret);
+        DebugTools.AssertOwner(uid, xform);
+
+        if (!Resolve(uid, ref xform))
+            return;
+
+        if (turret.CurrentAimpoint is not Vector2 aimpoint)
+            return;
+
+        if (_rotate.TryRotateToCoordinates(
+                uid,
+                _transform.GetWorldPosition(xform) + aimpoint,
+                frameTime,
+                turret.AngleTolerance,
+                turret.RotationSpeed,
+                xform))
+        {
+            // Stop rotating if we finished
+            turret.CurrentAimpoint = null;
+            Dirty(uid, turret);
+        }
+    }
 
     private void OnTurretShootRequest(RequestNavalTurretShootEvent msg, EntitySessionEventArgs args)
     {
@@ -110,7 +148,10 @@ public abstract class SharedNavalTurretConsoleSystem : EntitySystem
             return;
         }
 
-        if(TryComp<MouseRotatorComponent>(turretUid, out var rotator))
-            rotator.GoalRotation = msg.Angle;
+        if(!TryComp<NavalTurretComponent>(turretUid, out var turret))
+            return; // fuck it, just fail silently at this point
+
+        turret.CurrentAimpoint = msg.RelativeAimpoint;
+        Dirty(turretUid, turret);
     }
 }

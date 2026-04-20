@@ -26,6 +26,7 @@ namespace Content.Client.Shuttles.UI;
 public sealed partial class ShuttleNavControl : BaseShuttleControl
 {
     [Dependency] private readonly IMapManager _mapManager = default!;
+    [Dependency] private readonly IEyeManager _eye = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     private readonly SharedShuttleSystem _shuttles;
     private readonly SharedTransformSystem _transform;
@@ -51,6 +52,7 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
     private Dictionary<NetEntity, List<DockingPortState>> _docks = new();
 
     public bool ShowIFF { get; set; } = true;
+    public bool ForceSkip { get; set; } = false; // WWDP EDIT
     public bool ShowDocks { get; set; } = true;
     public bool RotateWithEntity { get; set; } = true;
     public float FieldOfView = MathF.Tau; // WD EDIT
@@ -68,23 +70,25 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
     /// <summary>
     /// Raised after everything else is drawn.
     /// </summary>
-    public Action<DrawingHandleScreen, Matrix3x2, Matrix3x2>? DrawTop;
+    public Action<DrawingHandleScreen, UIBox2, Matrix3x2, Matrix3x2, Matrix3x2>? DrawTop;
+
 
     /// <summary>
     /// Raised after everything is drawn except the owning grid.
     /// </summary>
-    public Action<DrawingHandleScreen, Matrix3x2, Matrix3x2>? DrawAfterFoV;
+    public Action<DrawingHandleScreen, UIBox2, Matrix3x2, Matrix3x2, Matrix3x2>? DrawAfterFoV;
+
 
     /// <summary>
     /// Raised after everything is drawn except the owning grid and the FoV effect.
     /// </summary>
-    public Action<DrawingHandleScreen, Matrix3x2, Matrix3x2>? DrawBeforeFoV;
+    public Action<DrawingHandleScreen, UIBox2, Matrix3x2, Matrix3x2, Matrix3x2>? DrawBeforeFoV;
+
 
     /// <summary>
     /// Raised just after the background is drawn.
     /// </summary>
-    public Action<DrawingHandleScreen, UIBox2>? DrawAfterBackground;
-
+    public Action<DrawingHandleScreen, UIBox2, bool>? DrawAfterBackground;
 
 
     private List<Entity<MapGridComponent>> _grids = new();
@@ -182,9 +186,15 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
         }
 
         var a = InverseScalePosition(pos);
-        var relativeWorldPos = new Vector2(a.X, -a.Y);
-        relativeWorldPos = _rotation.Value.RotateVec(relativeWorldPos);
-        var coords = _coordinates.Value.Offset(relativeWorldPos);
+        var localPos = new Vector2(a.X, -a.Y);
+        //var rot = _rotation.Value + (RotateWithEntity ? _transform.GetWorldRotation(_coordinates.Value.EntityId) : -_eye.CurrentEye.Rotation);
+
+        var rot = MathF.PI + _rotation.Value + (RotateWithEntity ? _transform.GetWorldRotation(_coordinates.Value.EntityId) : -_eye.CurrentEye.Rotation);
+        localPos = rot.RotateVec(localPos);
+        //if (!RotateWithEntity)
+        //    rot += _transform.GetWorldRotation(_coordinates.Value.EntityId);// + _eye.CurrentEye.Rotation;
+        //localPos = (-rot).RotateVec(localPos);
+        var coords = _coordinates.Value.Offset(localPos);
         return coords;
     }
 
@@ -219,19 +229,19 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
     {
         base.Draw(handle);
         // No data
-        if (_coordinates == null || _rotation == null)
+        if (_coordinates == null || _rotation == null || ForceSkip)
         {
             var prevShader = handle.GetShader();
             handle.UseShader(_fovShader);
             handle.DrawRect(PixelSizeBox, Color.White, true);
             handle.UseShader(prevShader);
-            DrawAfterBackground?.Invoke(handle, PixelSizeBox);
+            DrawAfterBackground?.Invoke(handle, PixelSizeBox, true);
             return;
         }
 
         DrawBacking(handle);
         DrawCircles(handle);
-        DrawAfterBackground?.Invoke(handle, PixelSizeBox);
+        DrawAfterBackground?.Invoke(handle, PixelSizeBox, false);
 
 
         var xformQuery = EntManager.GetEntityQuery<TransformComponent>();
@@ -244,15 +254,21 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
             return;
         }
         var mapPos = _transform.ToMapCoordinates(_coordinates.Value);
+        // WWDP EDIT START
         // for some inane reason "_coordinates" is always supposed to be relative to the radar entity,
         // instead of storing said entity in a separate variable. Why???
         // This whole method is in a dire need of a rewrite.
-        var posMatrix = Matrix3Helpers.CreateTranslation(_coordinates.Value.Position); // WWDP EDIT
+        var posMatrix = Matrix3Helpers.CreateTranslation(_coordinates.Value.Position);
         var ourEntRot = _transform.GetWorldRotation(xform); // WWDP EDIT
-        var viewRotation = RotateWithEntity ? ourEntRot + _rotation.Value : _rotation.Value; // WWDP EDIT
-        var worldPosition = _transform.GetWorldPosition(xform); // WWDP EDIT
-        var ourEntMatrix = Matrix3Helpers.CreateTransform(worldPosition, viewRotation);
-        var shuttleToWorld = Matrix3x2.Multiply(posMatrix, ourEntMatrix);
+        var viewRotation = _rotation.Value + (RotateWithEntity ? ourEntRot : -_eye.CurrentEye.Rotation);
+        // OurEntRot == 0 means the entity is facing south, yet the radar will draw the north upwards.
+        // This means we need to unconditionally apply pi rotation for this to make sense.
+        //viewRotation += MathF.PI;
+        var worldPosition = _transform.GetWorldPosition(xform);
+        var ourEntToWorld = _transform.GetWorldMatrix(xform);
+        var ourEntToWorldViewAligned = Matrix3Helpers.CreateTransform(worldPosition, viewRotation);
+        var shuttleToWorld = Matrix3x2.Multiply(posMatrix, ourEntToWorldViewAligned);
+        // WWDP EDIT END
         Matrix3x2.Invert(shuttleToWorld, out var worldToShuttle);
         var shuttleToView = Matrix3x2.CreateScale(new Vector2(MinimapScale, -MinimapScale)) * Matrix3x2.CreateTranslation(MidPointVector);
         var worldToView = worldToShuttle * shuttleToView; // WWDP EDIT
@@ -381,18 +397,6 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
             // WWDP EDIT END
         }
 
-        // If we've set the controlling console, and it's on a different grid
-        // to the shuttle itself, then draw an additional marker to help the
-        // player determine where they are relative to the shuttle.
-        if (_consoleEntity != null && xformQuery.TryGetComponent(_consoleEntity, out var consoleXform))
-        {
-            if (consoleXform.ParentUid != _coordinates.Value.EntityId)
-            {
-                var consolePositionWorld = _transform.GetWorldPosition((EntityUid)_consoleEntity);
-                var p = Vector2.Transform(consolePositionWorld, worldToShuttle * shuttleToView);
-                handle.DrawCircle(p, 5, Color.ToSrgb(Color.Cyan), true);
-            }
-        }
 
         // WD EDIT START
         var entities = _lookup.GetEntitiesInRange<RadarIconComponent>(_coordinates.Value, MaxRadarRange);
@@ -493,7 +497,8 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
         foreach (var (color, verts) in leadingPipCirclePrimitives)
             handle.DrawPrimitives(DrawPrimitiveTopology.LineList, verts, color);
 
-        DrawBeforeFoV?.Invoke(handle, shuttleToWorld, worldToView);
+        DrawBeforeFoV?.Invoke(handle, PixelSizeBox, ourEntToWorld, shuttleToWorld, worldToView);
+        var startingAngle = (float)(RotateWithEntity ? 0 : ourEntRot + _eye.CurrentEye.Rotation);
         if (FieldOfView < MathF.Tau)
         {
             const int segments = 5;
@@ -502,8 +507,8 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
             hidesey[0] = center;
             for (int i = 0; i < segments + 1; i++)
             {
-                var angle = i / (float) segments * (MathHelper.TwoPi - FieldOfView) + FieldOfView / 2;
-                var pos = new Vector2(MathF.Sin(angle), -MathF.Cos(angle));
+                var angle = startingAngle + i / (float) segments * (MathF.Tau - FieldOfView) + FieldOfView / 2;
+                var pos = new Vector2(MathF.Sin(angle), MathF.Cos(angle));
                 hidesey[i + 1] = center + pos * 1024;
             }
             var prevShader = handle.GetShader();
@@ -511,7 +516,7 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
             handle.DrawPrimitives(DrawPrimitiveTopology.TriangleFan, hidesey, Color.White);
             handle.UseShader(prevShader);
         }
-        DrawAfterFoV?.Invoke(handle, shuttleToWorld, worldToView);
+        DrawAfterFoV?.Invoke(handle, PixelSizeBox, ourEntToWorld, shuttleToWorld, worldToView);
 
 
         // Draw our grid in detail // Also draw it over the fov effect
@@ -527,6 +532,19 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
             DrawDocks(handle, ourGridId.Value, ourGridToView);
         }
 
+        // If we've set the controlling console, and it's on a different grid
+        // to the shuttle itself, then draw an additional marker to help the
+        // player determine where they are relative to the shuttle.
+        if (_consoleEntity != null && xformQuery.TryGetComponent(_consoleEntity, out var consoleXform))
+        {
+            if (consoleXform.ParentUid != _coordinates.Value.EntityId)
+            {
+                var consolePositionWorld = _transform.GetWorldPosition((EntityUid)_consoleEntity);
+                var p = Vector2.Transform(consolePositionWorld, worldToShuttle * shuttleToView);
+                handle.DrawCircle(p, 5, Color.ToSrgb(Color.Cyan), true);
+            }
+        }
+
         // Draw radar position on the station
         const float radarVertRadius = 2f;
         var radarPosVerts = new Vector2[]
@@ -538,7 +556,7 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
         };
 
         handle.DrawPrimitives(DrawPrimitiveTopology.TriangleFan, radarPosVerts, Color.Lime);
-        DrawTop?.Invoke(handle, shuttleToWorld, worldToView);
+        DrawTop?.Invoke(handle, PixelSizeBox, ourEntToWorld, shuttleToWorld, worldToView);
 
         void BuildLeadingPip(Vector2 startingViewPos, Vector2 endingViewPos, Color color)
         {

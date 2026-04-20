@@ -8,6 +8,7 @@ using Content.Server.Popups;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Shuttles.Systems;
 using Content.Shared._White.NavalTurretControl;
+using Content.Shared._White.NavalTurretControl.BUIStates;
 using Content.Shared._White.Overlays;
 using Content.Shared._White.RemoteControl.Components;
 using Content.Shared.ActionBlocker;
@@ -65,24 +66,42 @@ public sealed partial class NavalTurretControlSystem : SharedNavalTurretConsoleS
             !Resolve(uid, ref comp))
             return;
 
-        if (comp.LinkedTurret is not EntityUid linkedEntity ||
-            TerminatingOrDeleted(linkedEntity) ||
-            !this.IsPowered(uid, EntityManager) ||
-            TryComp<MobStateComponent>(uid, out var stateComp) && stateComp.CurrentState != Shared.Mobs.MobState.Alive
-            )
+        if (comp.LinkedTurret is not EntityUid turretUid)
         {
-            // bogus data because no ctor for (or static instance of) invalid state
-            var invalidState = new NavInterfaceState(0, null, null, new(), Shared._NF.Shuttles.Events.InertiaDampeningMode.Off, 0, 0);
-            _uiSystem.SetUiState(uid, NavalTurretConsoleUiKey.Key, new NavBoundUserInterfaceState(invalidState));
+            _uiSystem.SetUiState(uid, NavalTurretConsoleUiKey.Key,
+                                 new NavalTurretConsoleBuiState(NavalTurretConsoleError.NotConnected));
             return;
         }
-        //var xform = Transform(uid);
-        //var onGrid = xform.ParentUid == xform.GridUid;
-        //Angle? angle = onGrid ? xform.LocalRotation : null;
-        //var docks = _console.GetAllDocks();
-        var state = _console.GetNavState(linkedEntity, new(), new(linkedEntity, new Vector2(0,0)), 0);
-        _uiSystem.SetUiState(uid, NavalTurretConsoleUiKey.Key, new NavBoundUserInterfaceState(state));
+
+        if(!this.IsPowered(uid, EntityManager))
+        {
+            _uiSystem.SetUiState(uid, NavalTurretConsoleUiKey.Key,
+                                 new NavalTurretConsoleBuiState(NavalTurretConsoleError.NotConnected));
+            return;
+        }
+
+        if(TryComp<MobStateComponent>(uid, out var stateComp) && stateComp.CurrentState != Shared.Mobs.MobState.Alive ||
+           TerminatingOrDeleted(turretUid))
+        {
+            _uiSystem.SetUiState(uid, NavalTurretConsoleUiKey.Key,
+                                 new NavalTurretConsoleBuiState(NavalTurretConsoleError.TurretDestroyed));
+            return;
+        }
+
+
+        if(!this.IsPowered(turretUid, EntityManager))
+        {
+            _uiSystem.SetUiState(uid, NavalTurretConsoleUiKey.Key,
+                                 new NavalTurretConsoleBuiState(NavalTurretConsoleError.NoPowerTurret));
+            return;
+        }
+
+
+        var state = _console.GetNavState(turretUid, new(), new(turretUid, new Vector2(0,0)), 0);
+        _uiSystem.SetUiState(uid, NavalTurretConsoleUiKey.Key, new NavalTurretConsoleBuiState(state));
     }
+
+
 }
 
 

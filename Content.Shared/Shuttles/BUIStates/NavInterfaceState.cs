@@ -1,3 +1,4 @@
+using System.Collections.Frozen;
 using Content.Shared._NF.Shuttles.Events;
 using Robust.Shared.Map;
 using Robust.Shared.Serialization;
@@ -21,7 +22,7 @@ public sealed class NavInterfaceState
 
     public Dictionary<NetEntity, List<DockingPortState>> Docks;
 
-    public bool RotateWithEntity = true;
+    public bool RotateWithEntity;
 
     /// <summary>
     /// Frontier - the state of the shuttle's inertial dampeners
@@ -34,6 +35,8 @@ public sealed class NavInterfaceState
     /// </summary>
     public Angle FieldOfView;
     public float FieldOfViewOffset;
+
+    public static NavInterfaceState Invalid { get; } = new(0, null, null, new(), InertiaDampeningMode.Dampened, 0, 0, false);
     // WWDP EDIT END
 
     public NavInterfaceState(
@@ -43,7 +46,8 @@ public sealed class NavInterfaceState
         Dictionary<NetEntity, List<DockingPortState>> docks,
         InertiaDampeningMode dampeningMode, // Frontier: add dampeningMode
         Angle fieldOfView, // WWDP EDIT
-        float fieldOfViewOffset) // WWDP EDIT
+        float fieldOfViewOffset, // WWDP EDIT
+        bool rotateWithEntity) // WWDP EDIT
     {
         MaxRange = maxRange;
         Coordinates = coordinates;
@@ -52,6 +56,7 @@ public sealed class NavInterfaceState
         DampeningMode = dampeningMode; // Frontier
         FieldOfView = fieldOfView; // WWDP EDIT
         FieldOfViewOffset = fieldOfViewOffset; // WWDP EDIT
+        RotateWithEntity = rotateWithEntity; // WWDP EDIT
     }
 }
 
