@@ -125,6 +125,13 @@ namespace Content.Server.GameTicking
                     if (mind != null)
                     {
                         _pvsOverride.ClearOverride(GetNetEntity(mindId!.Value));
+                        // WWDP EDIT START
+                        if ((mind.CurrentEntity != null && !Deleted(mind.CurrentEntity))
+                        && (TryComp<UserInterfaceUserComponent>(mind.CurrentEntity, out var userUi)))
+                            foreach (var (targetEntity, keys) in userUi.OpenInterfaces.ToArray())
+                                foreach (var key in keys.ToArray())
+                                    _ui.CloseUi(targetEntity, key, mind.CurrentEntity.Value);
+                        // WWDP EDIT END
                         mind.Session = null;
                     }
 
