@@ -12,6 +12,7 @@ using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
+using Content.Shared.Popups; // WWDP EDIT
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
 using Content.Shared.Roles.Jobs;
@@ -39,6 +40,7 @@ public sealed class ParadoxAnomalySystem : EntitySystem
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly StationSpawningSystem _stationSpawning = default!;
     [Dependency] private readonly LoadoutSystem _loadout = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!; // WWDP EDIT
 
     public override void Initialize()
     {
@@ -51,7 +53,10 @@ public sealed class ParadoxAnomalySystem : EntitySystem
     {
         Log.Info($"Using paradox anomaly spawner {ent}");
         if (!TrySpawnParadoxAnomaly(ent.Comp.Rule, out var twin))
+        { // WWDP EDIT
+            _popup.PopupCursor(Loc.GetString("paradox-anomaly-create-false"), args.Player); // WWDP EDIT
             return;
+        } // WWDP EDIT
 
         Log.Info($"Created paradox anomaly {ToPrettyString(twin):twin}");
         var role = Comp<GhostRoleComponent>(ent);
@@ -79,8 +84,8 @@ public sealed class ParadoxAnomalySystem : EntitySystem
 
             if (_mind.GetMind(uid, mindContainer) is not {} mindId
                 // WD EDIT START
-                || ! _role.MindHasRole<JobRoleComponent>(mindId, out var jobRole)
-                || !jobRole.Value.Comp2.Prototype.HasValue)
+                || !_role.MindHasRole<JobRoleComponent>(mindId, out var jobRole)
+                || !jobRole.Value.Comp1.JobPrototype.HasValue)
                 // WD EDIT END
                 continue;
 
@@ -88,7 +93,7 @@ public sealed class ParadoxAnomalySystem : EntitySystem
                 continue;
 
             // TODO: when metempsychosis real skip whoever has Karma
-            candidates.Add((uid, mindId, species, profile, jobRole.Value.Comp2.Prototype.Value)); // WD EDIT
+            candidates.Add((uid, mindId, species, profile, jobRole.Value.Comp1.JobPrototype.Value)); // WD EDIT
         }
 
         twin = SpawnParadoxAnomaly(candidates, rule);
