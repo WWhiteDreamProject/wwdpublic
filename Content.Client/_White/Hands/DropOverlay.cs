@@ -61,9 +61,19 @@ public sealed class DropOverlay : Overlay
         var finalScreenPos = _eye.MapToScreen(new MapCoordinates(finalMapPos, mouseMapPos.MapId)).Position;
 
         var adjustedAngle = dropcomp.Angle;
+        var neededSize = (int)(128 / Math.Min(1f, _eye.CurrentEye.Zoom.X));
+        if (_renderBackbuffer.Size.X < neededSize || _renderBackbuffer.Size.Y < neededSize)
+        {
+            _renderBackbuffer.Dispose();
+            _renderBackbuffer = _clyde.CreateRenderTarget(
+                (neededSize, neededSize),
+                new RenderTargetFormatParameters(RenderTargetColorFormat.Rgba8Srgb, true),
+                new TextureSampleParameters { Filter = true },
+                nameof(ShowHandItemOverlay));
+        }
         handle.RenderInRenderTarget(_renderBackbuffer, () =>
         {
-            handle.DrawEntity(held, _renderBackbuffer.Size / 2, new Vector2(2), adjustedAngle);
+            handle.DrawEntity(held, _renderBackbuffer.Size / 2, new Vector2(2.1f) / _eye.CurrentEye.Zoom, adjustedAngle);
         }, Color.Transparent);
 
         handle.DrawTexture(_renderBackbuffer.Texture, finalScreenPos - _renderBackbuffer.Size / 2, Color.GreenYellow.WithAlpha(0.75f));
