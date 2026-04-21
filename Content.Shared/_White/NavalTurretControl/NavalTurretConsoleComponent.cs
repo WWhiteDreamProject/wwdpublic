@@ -37,35 +37,6 @@ public sealed partial class NavalTurretComponent : Component
     public Vector2? CurrentAimpoint;
 }
 
-[NetSerializable, Serializable]
-public sealed partial class NavalTurretAimpointBoundUserInterfaceMessage(NetCoordinates aimpoint) : BoundUserInterfaceMessage
-{
-    public NetCoordinates Aimpoint = aimpoint;
-}
-
-
-[Serializable, NetSerializable]
-public sealed class RequestNavalTurretShootEvent : EntityEventArgs
-{
-    public NetEntity Console;
-    public NetCoordinates Coordinates;
-}
-
-[Serializable, NetSerializable]
-public sealed class RequestNavalTurretStopShootEvent : EntityEventArgs
-{
-    public NetEntity Console;
-}
-
-
-[Serializable, NetSerializable]
-public sealed class RequestNavalTurretRotationEvent(Vector2 aimpoint, NetEntity console) : EntityEventArgs
-{
-    public Vector2 RelativeAimpoint = aimpoint;
-    public NetEntity Console = console;
-}
-
-
 [Serializable, NetSerializable]
 public enum NavalTurretConsoleUiKey : byte
 {

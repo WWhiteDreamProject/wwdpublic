@@ -1,12 +1,16 @@
 
 
 
+using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 using Content.Shared._White.NavalTurretControl;
+using Content.Shared._White.NavalTurretControl.BUIStates;
+using Content.Shared.ActionBlocker;
 using Content.Shared.Interaction;
 using Content.Shared.MouseRotator;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Map;
+using Robust.Shared.Player;
 using Robust.Shared.Utility;
 
 namespace Content.Shared._White.NavalTurretControl;
@@ -14,15 +18,17 @@ namespace Content.Shared._White.NavalTurretControl;
 public abstract class SharedNavalTurretConsoleSystem : EntitySystem
 {
     [Dependency] private readonly SharedGunSystem _gun = default!;
+    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
     [Dependency] private readonly RotateToFaceSystem _rotate = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly ActorSystem _actor = default!;
 
     public override void Initialize()
     {
-        SubscribeAllEvent<RequestNavalTurretShootEvent>(OnTurretShootRequest);
-        SubscribeAllEvent<RequestNavalTurretStopShootEvent>(OnTurretShootStopRequest);
-        SubscribeAllEvent<RequestNavalTurretRotationEvent>(OnTurretRotationRequest);
+        SubscribeLocalEvent<NavalTurretConsoleComponent, RequestNavalTurretShootBuiMessage>(OnTurretShootBuiMessage);
+        SubscribeLocalEvent<NavalTurretConsoleComponent, RequestNavalTurretStopShootBuiMessage>(OnTurretShootStopBuiMessage);
+        SubscribeLocalEvent<NavalTurretConsoleComponent, RequestNavalTurretUpdateAimpointBuiMessage>(OnTurretUpdateAimpointBuiMessage);
     }
     public override void Update(float frameTime)
     {
@@ -58,100 +64,69 @@ public abstract class SharedNavalTurretConsoleSystem : EntitySystem
         }
     }
 
-    private void OnTurretShootRequest(RequestNavalTurretShootEvent msg, EntitySessionEventArgs args)
+    private void OnTurretShootBuiMessage(EntityUid uid, NavalTurretConsoleComponent comp, RequestNavalTurretShootBuiMessage args)
     {
-        if (args.SenderSession.AttachedEntity is not EntityUid user)
+        var user = args.Actor;
+        var session = _actor.GetSession(user);
+
+        var consoleUid = GetEntity(args.Console);
+
+        if (!GetTurret((uid, comp), session, out var turretEnt))
             return;
 
-        var consoleUid = GetEntity(msg.Console);
-
-        if (!_ui.IsUiOpen(consoleUid, NavalTurretConsoleUiKey.Key, user))
-        {
-            // could be attributed to network fuckery?
-            // Log.Error($"Client {args.SenderSession} requested shot from turret entity without opening the linked console's UI. ({ToPrettyString(consoleUid)} is not linked to {ToPrettyString(turretUid)})");
-            return;
-        }
-
-        if (!TryComp<NavalTurretConsoleComponent>(consoleUid, out var console))
-        {
-            Log.Error($"Client {args.SenderSession} attempted to use {ToPrettyString(consoleUid)} as gunnery console despite it having no required component.");
-            return;
-        }
-
-        if (console.LinkedTurret is not EntityUid turretUid)
-        {
-            Log.Error($"Client {args.SenderSession} attempted to use {ToPrettyString(consoleUid)} as gunnery console despite it not being connected to a turret.");
-            return;
-        }
-
-        if (!_gun.TryGetGun(turretUid, out var gunUid, out var gun))
+        if (!_gun.TryGetGun(turretEnt.Value, out var gunUid, out var gun))
             return;
 
-        _gun.AttemptShoot(turretUid, gunUid, gun, GetCoordinates(msg.Coordinates), false);
+        // the aimpoint we receive is relative to the turret entity as if it had
+        // LocalRotation of zero. Therefore, we cannot pass it to AttemptShoot()
+        // without transforming it into proper EntityCoordinates.
+        var rot = -Transform(turretEnt.Value).LocalRotation;
+        _gun.AttemptShoot(turretEnt.Value, gunUid, gun, new(consoleUid, rot.RotateVec(args.RelativeAimpoint)), false);
     }
 
-    private void OnTurretShootStopRequest(RequestNavalTurretStopShootEvent msg, EntitySessionEventArgs args)
+    private void OnTurretShootStopBuiMessage(EntityUid uid, NavalTurretConsoleComponent comp, RequestNavalTurretStopShootBuiMessage args)
     {
-        if (args.SenderSession.AttachedEntity is not EntityUid user)
+        var user = args.Actor;
+        var session = _actor.GetSession(user);
+
+        if (!GetTurret((uid, comp), session, out var turretEnt))
             return;
 
-        var consoleUid = GetEntity(msg.Console);
-
-        if (!_ui.IsUiOpen(consoleUid, NavalTurretConsoleUiKey.Key, user))
-        {
-            // could be attributed to network fuckery?
-            // Log.Error($"Client {args.SenderSession} requested shot from turret entity without opening the linked console's UI. ({ToPrettyString(consoleUid)} is not linked to {ToPrettyString(turretUid)})");
-            return;
-        }
-
-        if (!TryComp<NavalTurretConsoleComponent>(consoleUid, out var console))
-        {
-            Log.Error($"Client {args.SenderSession} attempted to use {ToPrettyString(consoleUid)} as gunnery console despite it having no required component.");
-            return;
-        }
-
-        if (console.LinkedTurret is not EntityUid turretUid)
-        {
-            Log.Error($"Client {args.SenderSession} attempted to use {ToPrettyString(consoleUid)} as gunnery console despite it not being connected to a turret.");
-            return;
-        }
-
-        if (!_gun.TryGetGun(turretUid, out var gunUid, out var gun))
+        if (!_gun.TryGetGun(turretEnt.Value, out var gunUid, out var gun))
             return;
 
         _gun.StopShooting(gunUid, gun);
     }
 
-    private void OnTurretRotationRequest(RequestNavalTurretRotationEvent msg, EntitySessionEventArgs args)
+    private void OnTurretUpdateAimpointBuiMessage(EntityUid uid, NavalTurretConsoleComponent comp, RequestNavalTurretUpdateAimpointBuiMessage args)
     {
-        if (args.SenderSession.AttachedEntity is not EntityUid user)
+        var user = args.Actor;
+        var session = _actor.GetSession(user);
+
+        if (!GetTurret((uid, comp), session, out var turretEnt))
             return;
 
-        var consoleUid = GetEntity(msg.Console);
+        turretEnt.Value.Comp.CurrentAimpoint = args.RelativeAimpoint;
+        Dirty(turretEnt.Value);
+    }
 
-        if (!_ui.IsUiOpen(consoleUid, NavalTurretConsoleUiKey.Key, user))
-        {
-            // could be attributed to network fuckery?
-            // Log.Error($"Client {args.SenderSession} requested shot from turret entity without opening the linked console's UI. ({ToPrettyString(consoleUid)} is not linked to {ToPrettyString(turretUid)})");
-            return;
-        }
-
-        if (!TryComp<NavalTurretConsoleComponent>(consoleUid, out var console))
-        {
-            Log.Error($"Client {args.SenderSession} attempted to use {ToPrettyString(consoleUid)} as gunnery console despite it having no required component.");
-            return;
-        }
-
+    private bool GetTurret(Entity<NavalTurretConsoleComponent> consoleEnt, ICommonSession? session, [NotNullWhen(true)] out Entity<NavalTurretComponent>? entity)
+    {
+        var console = consoleEnt.Comp;
         if (console.LinkedTurret is not EntityUid turretUid)
         {
-            Log.Error($"Client {args.SenderSession} attempted to use {ToPrettyString(consoleUid)} as gunnery console despite it not being connected to a turret.");
-            return;
+            Log.Error($"Client {session?.ToString() ?? "[unknown]" } attempted to use {ToPrettyString(consoleEnt)} as gunnery console despite it not being connected to a turret.");
+            entity = null;
+            return false;
         }
 
-        if(!TryComp<NavalTurretComponent>(turretUid, out var turret))
-            return; // fuck it, just fail silently at this point
-
-        turret.CurrentAimpoint = msg.RelativeAimpoint;
-        Dirty(turretUid, turret);
+        if (!TryComp<NavalTurretComponent>(turretUid, out var turret))
+        {
+            Log.Error($"Client {session?.ToString() ?? "[unknown]"} attempted to use {ToPrettyString(consoleEnt)} as gunnery console while it was connected to a non-turret entity.");
+            entity = null;
+            return false;
+        }
+        entity = (turretUid, turret);
+        return true;
     }
 }

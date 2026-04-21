@@ -1,6 +1,8 @@
 using System.Numerics;
 using Content.Client.Shuttles.BUI;
 using Content.Shared._White.NavalTurretControl;
+using Content.Shared._White.NavalTurretControl.BUIStates;
+using Content.Shared.ActionBlocker;
 using Content.Shared.Coordinates;
 using Content.Shared.DeviceLinking;
 using Content.Shared.MouseRotator;
@@ -17,6 +19,7 @@ namespace Content.Client._White.NavalTurretControl;
 public sealed partial class NavalTurretControlSystem : SharedNavalTurretConsoleSystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly SharedGunSystem _gun = default!;
@@ -26,12 +29,14 @@ public sealed partial class NavalTurretControlSystem : SharedNavalTurretConsoleS
     {
         if (_player.LocalEntity is not EntityUid playerEntity)
             return;
-        
+
+        // do not handle user input if the current tick is being re-predicted
         if(!_timing.IsFirstTimePredicted)
         {
             base.Update(frameTime);
             return;
         }
+
         var consoles = EntityQueryEnumerator<NavalTurretConsoleComponent, UserInterfaceComponent, TransformComponent>();
         while (consoles.MoveNext(out var consoleUid, out var consoleComp, out var uiComp, out var xform))
         {
@@ -43,24 +48,23 @@ public sealed partial class NavalTurretControlSystem : SharedNavalTurretConsoleS
             if (!_ui.TryGetOpenUi<NavalTurretConsoleBoundUserInterface>((consoleUid, uiComp), NavalTurretConsoleUiKey.Key, out var bui))
                 continue;
 
-            var aimpoint = bui.Aimpoint;
+            var newAimpoint = bui.Aimpoint;
 
             // handle turning input first
             if (turret.CurrentAimpoint is not Vector2 curAimpoint ||
-               (aimpoint - curAimpoint).Length() > turret.AimpointTolerane)
+               (newAimpoint - curAimpoint).Length() > turret.AimpointTolerane)
             {
-                RaisePredictiveEvent(new RequestNavalTurretRotationEvent(aimpoint, GetNetEntity(consoleUid)));
+                _ui.SendPredictedUiMessage(bui, new RequestNavalTurretUpdateAimpointBuiMessage(newAimpoint, GetNetEntity(consoleUid)));
             }
 
-            // and finally, handle shooting input
-            // actual shooting will be handled on server
+            // now handle shooting input
             if (bui.Shooting)
-                Request(consoleUid, turretUid, aimpoint, bui.Shooting);
+                Request(consoleUid, turretUid, newAimpoint, bui, bui.Shooting); // the shoot requests will still get send if you go into crit while holding fire, but who cares? those requests will be discarded by the server anyways.
         }
         base.Update(frameTime);
     }
 
-    private void Request(EntityUid consoleUid, EntityUid turretUid, Vector2 aimpoint, bool holdingFire)
+    private void Request(EntityUid consoleUid, EntityUid turretUid, Vector2 aimpoint, BoundUserInterface bui, bool holdingFire)
     {
         if (!_timing.IsFirstTimePredicted)
             return;
@@ -74,10 +78,7 @@ public sealed partial class NavalTurretControlSystem : SharedNavalTurretConsoleS
         if (!holdingFire && !gun.BurstActivated)
         {
             if (gun.ShotCounter != 0)
-                EntityManager.RaisePredictiveEvent(new RequestNavalTurretStopShootEvent
-                {
-                    Console = GetNetEntity(consoleUid)
-                });
+                _ui.SendPredictedUiMessage(bui, new RequestNavalTurretStopShootBuiMessage(GetNetEntity(consoleUid)));
             return;
         }
 
@@ -93,11 +94,8 @@ public sealed partial class NavalTurretControlSystem : SharedNavalTurretConsoleS
 
         Log.Debug($"Sending naval turret shoot request tick {_timing.CurTick} / {_timing.CurTime}");
 
-        EntityManager.RaisePredictiveEvent(new RequestNavalTurretShootEvent
-        {
-            Console = GetNetEntity(consoleUid),
-            Coordinates = GetNetCoordinates(new(turretUid, aimpoint)),
-        });
+        _ui.SendPredictedUiMessage(bui, new RequestNavalTurretShootBuiMessage(aimpoint, GetNetEntity(consoleUid)));
+
     }
 
 }

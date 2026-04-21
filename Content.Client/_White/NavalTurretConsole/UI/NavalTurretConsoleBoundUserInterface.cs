@@ -3,10 +3,12 @@ using Content.Client._White.NavalTurretConsole.UI;
 using Content.Client.Shuttles.UI;
 using Content.Shared._White.NavalTurretControl;
 using Content.Shared._White.NavalTurretControl.BUIStates;
+using Content.Shared.ActionBlocker;
 using Content.Shared.Shuttles.BUIStates;
 using JetBrains.Annotations;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
+using Robust.Client.Player;
 using Robust.Client.UserInterface;
 using Robust.Shared.Map;
 using RadarConsoleWindow = Content.Client.Shuttles.UI.RadarConsoleWindow;
@@ -16,10 +18,12 @@ namespace Content.Client.Shuttles.BUI;
 [UsedImplicitly]
 public sealed class NavalTurretConsoleBoundUserInterface : BoundUserInterface
 {
+    [Dependency] private readonly IPlayerManager _player = default!;
+    private SharedTransformSystem _transform = default!;
+    private ActionBlockerSystem _actionBlocker = default!;
+
     [ViewVariables]
     private NavalTurretConsoleWindow? _window;
-
-    private SharedTransformSystem _transform = default!;
 
     private bool _shooting = false;
     public bool Shooting { get => _shooting;
@@ -52,17 +56,40 @@ public sealed class NavalTurretConsoleBoundUserInterface : BoundUserInterface
         _window.RadarScreen.DrawAfterFoV += DrawTurretIndicator;
         _window.RadarScreen.DrawAfterFoV += DrawAimpoint;
         _window.RadarScreen.SetConsole(Owner);
+        _actionBlocker = EntMan.System<ActionBlockerSystem>();
     }
+
+    private bool CanInteract(EntityUid? user) => user is EntityUid && _actionBlocker.CanInteract(user.Value, Owner);
 
     private void OnMouseMove(EntityCoordinates coordinates)
     {
+        if(!CanInteract(_player.LocalEntity))
+            return;
         var angle = EntMan.GetComponent<TransformComponent>(Owner).LocalRotation + MathF.PI;
         var aimpointAdjusted = (-angle).RotateVec(coordinates.Position);
         Aimpoint = aimpointAdjusted;
     }
 
+    // TODO: invoke clientside bui messages on mouseclick and move
+    //       i.e:
+    //       NavalConsoleMouseMoveBuiMessage - raised and handled by the client
+    //                                         will implicitly cut off any interaction that is not supposed to happen
+    //                                         (such as user issuing firing commands while being unconscious)
+    //          raised in OnMouseMove with entitycoords or pseudolocal coords
+    //
+    //      Handle this message in the very next method that would have the current OnMouseMove logic
+    //      if it gets called, it means that whatever requirements set by UISystem for the user
+    //      to be able to interact with us are (still being) met
+    //      
+    //      And then do the same with OnMouseClick.
+    //      And the same with OnTurretSelection (if implemented)
     private void OnMouseClick(EntityCoordinates coordinates, bool down)
     {
+        if(!CanInteract(_player.LocalEntity))
+        {
+            Shooting = false;
+            return;
+        }
         Shooting = down;
         var angle = EntMan.GetComponent<TransformComponent>(Owner).LocalRotation + MathF.PI;
         var aimpointAdjusted = (-angle).RotateVec(coordinates.Position);
