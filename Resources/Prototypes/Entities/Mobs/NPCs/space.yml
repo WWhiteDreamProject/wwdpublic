@@ -486,6 +486,8 @@
     - Meat
   - type: CombatMode
     # combatToggleAction: ActionCombatModeToggleOff - WD EDIT
+  - type: MeleeWeapon # WWDP EDIT
+    altDisarm: false # WWDP EDIT — no disarm for snale and mouse!
   - type: Bloodstream
     bloodMaxVolume: 30
     bloodReagent: Cryoxadone
