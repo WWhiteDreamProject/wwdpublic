@@ -5,6 +5,7 @@ using Content.Server.CombatMode.Disarm;
 using Content.Server.Movement.Systems;
 using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared._White.CCVar;
+using Content.Shared._White.Shove; // WWDP EDIT
 using Content.Shared.Actions.Events;
 using Content.Shared.Administration.Components;
 using Content.Shared.Chat;
@@ -17,6 +18,7 @@ using Content.Shared.Damage.Systems;
 using Content.Shared.Database;
 using Content.Shared.Effects;
 using Content.Shared.Hands.Components;
+using Content.Shared.Physics; // WWDP EDIT
 using Content.Shared.IdentityManagement;
 using Content.Shared.Item;
 using Content.Shared.Mobs.Systems;
@@ -31,6 +33,7 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Map;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
+using Robust.Shared.Physics.Systems; // WWDP EDIT
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
@@ -51,6 +54,7 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly INetConfigurationManager _config = default!;
     [Dependency] private readonly StaminaSystem _stamina = default!;
+    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     // WD EDIT END
 
     public override void Initialize()
@@ -230,6 +234,36 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         var targetPos = target.ToCoordinates().ToMapPos(EntityManager, TransformSystem);
         var pushVector = (targetPos - userPos).Normalized() * force;
 
+        // WWDP EDIT START — Raycast check. Prevent shoving through walls. Shitcode, but it's works.
+        // TODO: do it better
+        var throwSpeed = force * shovespeed;
+        var originalSpeed = throwSpeed;
+
+        var pushLength = pushVector.Length();
+        if (pushLength > 0.01f)
+        {
+            var pushDir = pushVector.Normalized();
+            var results = _physics.IntersectRay(
+                Transform(target).MapID,
+                new CollisionRay(targetPos, pushDir, (int) CollisionGroup.Impassable),
+                pushLength,
+                target,
+                returnOnFirstHit: true);
+
+            foreach (var result in results)
+            {
+                var wallDist = result.Distance;
+                throwSpeed = MathF.Min(throwSpeed, wallDist * 30f);
+                pushVector = pushDir * wallDist;
+
+                if (originalSpeed > throwSpeed)
+                {
+                    EnsureComp<ShoveImpactComponent>(target).OriginalSpeed = originalSpeed;
+                }
+                break;
+            }
+        }
+        // WWDP EDIT END
         _throwing.TryThrow(target, pushVector, force * shovespeed, user, animated: animated, throwInAir: throwInAir);
     }
 

@@ -1,10 +1,15 @@
 using System.Linq;
+using System.Numerics;
 using Content.Shared._White.Teleportation.Components;
+using Content.Shared.Damage;
+using Content.Shared.Stunnable;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
+using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Dynamics;
 using Robust.Shared.Physics.Events;
+using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
@@ -18,6 +23,9 @@ public sealed class WhitePortalSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly SharedStunSystem _stun = default!;
 
     private EntityQuery<WhitePortalComponent> _portalQuery;
 
@@ -50,7 +58,32 @@ public sealed class WhitePortalSystem : EntitySystem
 
         if (ent.Comp.Coordinates.HasValue)
         {
+            var oldMapVelocity = Vector2.Zero;
+            PhysicsComponent? body = null;
+            if (TryComp<PhysicsComponent>(args.OtherEntity, out body))
+                oldMapVelocity = _physics.GetMapLinearVelocity(args.OtherEntity, body);
+
             _transform.SetCoordinates(args.OtherEntity, transform, ent.Comp.Coordinates.Value);
+
+            if (body != null)
+            {
+                var newXform = Transform(args.OtherEntity);
+                var newGridVelocity = Vector2.Zero;
+                if (newXform.GridUid != null && TryComp<PhysicsComponent>(newXform.GridUid.Value, out var gridBody))
+                    newGridVelocity = gridBody.LinearVelocity;
+
+                var relativeSpeed = (oldMapVelocity - newGridVelocity).Length();
+                if (relativeSpeed >= 20f && HasComp<DamageableComponent>(args.OtherEntity))
+                {
+                    var damage = new DamageSpecifier();
+                    damage.DamageDict.Add("Blunt", 5f * (relativeSpeed / 20f));
+                    _damageable.TryChangeDamage(args.OtherEntity, damage);
+
+                    if (relativeSpeed >= 40f)
+                        _stun.TryStun(args.OtherEntity, TimeSpan.FromSeconds(2), true);
+                }
+                _physics.SetLinearVelocity(args.OtherEntity, Vector2.Zero, body: body);
+            }
             return;
         }
 

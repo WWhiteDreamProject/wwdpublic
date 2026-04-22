@@ -1,17 +1,23 @@
 using System.Linq;
+using System.Numerics; // WWDP EDIT
+using Content.Shared.Damage; // WWDP EDIT
+using Content.Shared.Damage.Components; // WWDP EDIT
 using Content.Shared.Ghost;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
+using Content.Shared.Stunnable; // WWDP EDIT
 using Content.Shared.Teleportation.Components;
 using Content.Shared.Verbs;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
+using Robust.Shared.Physics.Components; // WWDP EDIT
 using Robust.Shared.Physics.Dynamics;
 using Robust.Shared.Physics.Events;
+using Robust.Shared.Physics.Systems; // WWDP EDIT
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
@@ -30,6 +36,11 @@ public abstract class SharedPortalSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly PullingSystem _pulling = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
+    // WWDP EDIT START
+    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly SharedStunSystem _stun = default!;
+    // WWDP EDIT END
 
     private const string PortalFixture = "portalFixture";
     private const string ProjectileFixture = "projectile";
@@ -210,7 +221,35 @@ public abstract class SharedPortalSystem : EntitySystem
 
         LogTeleport(portal, subject, Transform(subject).Coordinates, target);
 
+        // WWDP EDIT START
+        var oldMapVelocity = Vector2.Zero;
+        PhysicsComponent? body = null;
+        if (TryComp<PhysicsComponent>(subject, out body))
+            oldMapVelocity = _physics.GetMapLinearVelocity(subject, body);
+        // WWDP EDIT END
         _transform.SetCoordinates(subject, target);
+        // WWDP EDIT START
+        if (body != null)
+        {
+            var newXform = Transform(subject);
+            var newGridVelocity = Vector2.Zero;
+            if (newXform.GridUid != null && TryComp<PhysicsComponent>(newXform.GridUid.Value, out var gridBody))
+                newGridVelocity = gridBody.LinearVelocity;
+
+            var relativeSpeed = (oldMapVelocity - newGridVelocity).Length();
+            if (relativeSpeed >= 20f && HasComp<DamageableComponent>(subject))
+            {
+                var damage = new DamageSpecifier();
+                damage.DamageDict.Add("Blunt", 5f * (2f * relativeSpeed / 20f));
+                _damageable.TryChangeDamage(subject, damage);
+
+                if (relativeSpeed >= 40f)
+                    _stun.TryStun(subject, TimeSpan.FromSeconds(2), true);
+            }
+
+            _physics.SetLinearVelocity(subject, Vector2.Zero, body: body);
+        }
+        // WWDP EDIT END
 
         if (!playSound)
             return;

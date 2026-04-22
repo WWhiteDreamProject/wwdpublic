@@ -871,11 +871,11 @@ namespace Content.Shared.Interaction
             // WWDP EDIT START
             else if (!_itemQuery.HasComp(target) && _physicsQuery.TryComp(target, out var physics2) && physics2.CanCollide)
             {
-                // If the target is a non-item entity (e.g., anchored structure) with a physics body,  
-                // ignore other entities physically overlapping with it on the same position.  
-                // This prevents multiple anchored entities on the same tile from mutually blocking  
-                // each other during InRangeUnobstructed checks (e.g., multiple FleshBlockers spawned  
-                // by a flesh anomaly, or rock blocks from a rock anomaly).  
+                // If the target is a non-item entity (e.g., anchored structure) with a physics body,
+                // ignore other entities physically overlapping with it on the same position.
+                // This prevents multiple anchored entities on the same tile from mutually blocking
+                // each other during InRangeUnobstructed checks (e.g., multiple FleshBlockers spawned
+                // by a flesh anomaly, or rock blocks from a rock anomaly).
                 ignored.UnionWith(_broadphase.GetEntitiesIntersectingBody(target, (int) collisionMask, false, physics2));
             }
             // WWDP EDIT END
