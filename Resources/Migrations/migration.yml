@@ -491,9 +491,11 @@ SoapHomemadeBanana: Soap
 
 BoxAgrichem: null
 portableChemicalMixer: null
-
 WallRockBasaltBSCrystal: WallRockBasaltBluespace
 AirlockHydroponics: AirlockHydroponicsLocked
 Biogenerator: null
 FloraGreyStalagmite: null
 FelinidCube: TajaranCube
+
+# 2025-06-21
+ClothingNeckHeadphones: ClothingMultipleHeadphones

@@ -19548,7 +19548,7 @@ entities:
     missingComponents:
     - Item
     - Pullable
-- proto: ClothingNeckHeadphones
+- proto: ClothingMultipleHeadphones
   entities:
   - uid: 8036
     components:
