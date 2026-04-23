@@ -75,7 +75,7 @@ public sealed class WhitePortalSystem : EntitySystem
                     newGridVelocity = gridBody.LinearVelocity;
 
                 var relativeSpeed = (oldMapVelocity - newGridVelocity).Length();
-                if (relativeSpeed >= 20f && HasComp<DamageableComponent>(args.OtherEntity))
+                if (_net.IsServer && relativeSpeed >= 20f && HasComp<DamageableComponent>(args.OtherEntity))
                 {
                     var damage = new DamageSpecifier();
                     damage.DamageDict.Add("Blunt", 5f * (relativeSpeed / 10f));

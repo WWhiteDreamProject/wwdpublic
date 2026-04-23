@@ -7,7 +7,6 @@ using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
-using Content.Shared.Projectiles; // WWDP EDIT
 using Content.Shared.Stunnable; // WWDP EDIT
 using Content.Shared.Throwing; // WWDP EDIT
 using Content.Shared.Teleportation.Components;
@@ -239,7 +238,7 @@ public abstract class SharedPortalSystem : EntitySystem
                 newGridVelocity = gridBody.LinearVelocity;
 
             var relativeSpeed = (oldMapVelocity - newGridVelocity).Length();
-            if (relativeSpeed >= 20f && HasComp<DamageableComponent>(subject))
+            if (_netMan.IsServer && relativeSpeed >= 20f && HasComp<DamageableComponent>(subject))
             {
                 var damage = new DamageSpecifier();
                 damage.DamageDict.Add("Blunt", 5f * (relativeSpeed / 10f));
