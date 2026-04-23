@@ -6,9 +6,7 @@
   components:
   - type: Sprite
     sprite: Clothing/Multiple/headphones.rsi
-    layers:
-    - state: icon
-      map: [ "enum.ToggleVisuals.Layer" ]
+    state: icon
   - type: Clothing
     equippedPrefix: off
     sprite: Clothing/Multiple/headphones.rsi
@@ -16,25 +14,21 @@
     - HEAD
     - EARS
     - NECK
-  - type: ToggleableLightVisuals
-    spriteLayer: enum.ToggleVisuals.Layer
-    clothingVisuals:
-      head:
-      - state: on-equipped-HELMET
-      ears:
-      - state: on-equipped-EARS
-      neck:
-      - state: on-equipped-NECK
+  - type: ItemSwitch
+    state: "off"
+    states:
+      off: !type:ItemSwitchState
+        verb: item-toggle-deactivate
+        sprite:
+          sprite: Clothing/Multiple/headphones.rsi
+          state: icon
+        soundStateActivate:
+          path: /Audio/Items/flashlight_off.ogg
+      on: !type:ItemSwitchState
+        verb: item-toggle-activate
+        sprite:
+          sprite: Clothing/Multiple/headphones.rsi
+          state: icon-on
+        soundStateActivate:
+          path: /Audio/Items/flashlight_on.ogg
   - type: Appearance
-  - type: GenericVisualizer
-    visuals:
-      enum.ToggleVisuals.Toggled:
-        enum.ToggleVisuals.Layer:
-          True: {state: icon-on}
-          False: {state: icon}
-  - type: ItemToggle
-    predictable: false
-    soundActivate:
-      path: /Audio/Items/flashlight_on.ogg
-    soundDeactivate:
-      path: /Audio/Items/flashlight_off.ogg
