@@ -1,2 +1,2 @@
 
-paradox-anomaly-create-false = No candidats to create the paradox anomaly.
+paradox-anomaly-create-false = No candidates available or specifity points to create the paradox anomaly.

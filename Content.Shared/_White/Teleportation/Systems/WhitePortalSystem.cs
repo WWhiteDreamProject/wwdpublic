@@ -2,7 +2,9 @@ using System.Linq;
 using System.Numerics;
 using Content.Shared._White.Teleportation.Components;
 using Content.Shared.Damage;
+using Content.Shared.Projectiles;
 using Content.Shared.Stunnable;
+using Content.Shared.Throwing;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
@@ -76,13 +78,14 @@ public sealed class WhitePortalSystem : EntitySystem
                 if (relativeSpeed >= 20f && HasComp<DamageableComponent>(args.OtherEntity))
                 {
                     var damage = new DamageSpecifier();
-                    damage.DamageDict.Add("Blunt", 5f * (relativeSpeed / 20f));
+                    damage.DamageDict.Add("Blunt", 5f * (relativeSpeed / 10f));
                     _damageable.TryChangeDamage(args.OtherEntity, damage);
-
-                    if (relativeSpeed >= 40f)
-                        _stun.TryStun(args.OtherEntity, TimeSpan.FromSeconds(2), true);
+                    _stun.TryParalyze(args.OtherEntity, TimeSpan.FromSeconds(2), true);
                 }
-                _physics.SetLinearVelocity(args.OtherEntity, Vector2.Zero, body: body);
+                var currentVelocity = body.LinearVelocity;
+                const float maxSafeSpeed = 15f; // TODO: MB add in CVars (2)
+                if (currentVelocity.Length() > maxSafeSpeed)
+                    _physics.SetLinearVelocity(args.OtherEntity, currentVelocity.Normalized() * maxSafeSpeed, body: body);
             }
             return;
         }

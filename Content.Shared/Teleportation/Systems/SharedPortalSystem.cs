@@ -7,7 +7,9 @@ using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
+using Content.Shared.Projectiles; // WWDP EDIT
 using Content.Shared.Stunnable; // WWDP EDIT
+using Content.Shared.Throwing; // WWDP EDIT
 using Content.Shared.Teleportation.Components;
 using Content.Shared.Verbs;
 using Robust.Shared.Audio;
@@ -240,14 +242,14 @@ public abstract class SharedPortalSystem : EntitySystem
             if (relativeSpeed >= 20f && HasComp<DamageableComponent>(subject))
             {
                 var damage = new DamageSpecifier();
-                damage.DamageDict.Add("Blunt", 5f * (2f * relativeSpeed / 20f));
+                damage.DamageDict.Add("Blunt", 5f * (relativeSpeed / 10f));
                 _damageable.TryChangeDamage(subject, damage);
-
-                if (relativeSpeed >= 40f)
-                    _stun.TryStun(subject, TimeSpan.FromSeconds(2), true);
+                _stun.TryParalyze(subject, TimeSpan.FromSeconds(2), true);
             }
-
-            _physics.SetLinearVelocity(subject, Vector2.Zero, body: body);
+            var currentVelocity = body.LinearVelocity;
+            const float maxSafeSpeed = 15f; // TODO: MB add in CVars (3)
+            if (currentVelocity.Length() > maxSafeSpeed)
+                _physics.SetLinearVelocity(subject, currentVelocity.Normalized() * maxSafeSpeed, body: body);
         }
         // WWDP EDIT END
 

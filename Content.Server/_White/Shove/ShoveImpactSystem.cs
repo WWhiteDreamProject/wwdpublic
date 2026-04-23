@@ -1,7 +1,9 @@
 using Content.Shared._White.Shove;
 using Content.Shared.Damage;
-using Content.Shared.Stunnable;
+using Content.Shared.Physics;
 using Robust.Shared.Physics.Events;
+
+namespace Content.Server._White.Shove;
 
 public sealed class ShoveImpactSystem : EntitySystem
 {
@@ -15,16 +17,15 @@ public sealed class ShoveImpactSystem : EntitySystem
 
     private void OnCollide(EntityUid uid, ShoveImpactComponent component, ref StartCollideEvent args)
     {
-        if (!args.OtherFixture.Hard)
+        if ((args.OtherFixture.CollisionLayer & (int) CollisionGroup.Impassable) == 0)
             return;
 
-        var originalSpeed = component.OriginalSpeed;
-        var effectiveSpeed = MathF.Max(originalSpeed, args.OurBody.LinearVelocity.Length());
+        var speed = args.OurBody.LinearVelocity.Length();
 
-        if (effectiveSpeed >= 20f)
+        if (speed >= 20f)
         {
             var damage = new DamageSpecifier();
-            damage.DamageDict.Add("Blunt", 5 * (0.5f * effectiveSpeed / 20f));
+            damage.DamageDict.Add("Blunt", 5 * (speed / 20f));
             _damageable.TryChangeDamage(uid, damage);
         }
 

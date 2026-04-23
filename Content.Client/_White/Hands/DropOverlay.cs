@@ -61,8 +61,11 @@ public sealed class DropOverlay : Overlay
         var finalScreenPos = _eye.MapToScreen(new MapCoordinates(finalMapPos, mouseMapPos.MapId)).Position;
 
         var adjustedAngle = dropcomp.Angle;
-        var neededSize = (int)(128 / Math.Min(1f, _eye.CurrentEye.Zoom.X));
-        if (_renderBackbuffer.Size.X < neededSize || _renderBackbuffer.Size.Y < neededSize)
+        var neededSize = (int)(128 / Math.Min(1f, Math.Max(0.01f, Math.Min(_eye.CurrentEye.Zoom.X, _eye.CurrentEye.Zoom.Y))));
+        if (_renderBackbuffer.Size.X < neededSize ||
+            _renderBackbuffer.Size.Y < neededSize ||
+            _renderBackbuffer.Size.X > neededSize * 2 ||
+            _renderBackbuffer.Size.Y > neededSize * 2)
         {
             _renderBackbuffer.Dispose();
             _renderBackbuffer = _clyde.CreateRenderTarget(
