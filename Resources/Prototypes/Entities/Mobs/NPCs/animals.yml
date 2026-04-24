@@ -2066,7 +2066,8 @@
     animation: WeaponArcBite
     damage:
       types:
-        Piercing: 0
+        Piercing: 2 # WD EDIT: 0 > 2
+        Blunt: 1 # WD ADD
   - type: Bloodstream
     bloodMaxVolume: 50
   - type: CanEscapeInventory
