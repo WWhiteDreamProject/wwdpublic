@@ -1,5 +1,6 @@
 using Content.Server.Power.EntitySystems;
 using Content.Shared._White.NavalTurretControl;
+using Content.Shared._White.NavalTurretControl.BUIStates;
 using Content.Shared._White.RemoteControl;
 using Content.Shared._White.RemoteControl.Components;
 using Content.Shared.DeviceLinking.Events;
@@ -18,12 +19,11 @@ public partial class NavalTurretControlSystem
         SubscribeLocalEvent<NavalTurretConsoleComponent, ComponentInit>(OnConsoleInit);
 
         SubscribeLocalEvent<NavalTurretConsoleComponent, LinkAttemptEvent>(OnNewLinkToConsoleAttempt);
-        SubscribeLocalEvent<NavalTurretComponent, LinkAttemptEvent>(OnNewLinkToTurretAttempt);
         SubscribeLocalEvent<NavalTurretConsoleComponent, NewLinkEvent>(OnNewLink);
         SubscribeLocalEvent<NavalTurretConsoleComponent, PortDisconnectedEvent>(OnPortDisconnected);
 
-        SubscribeLocalEvent<NavalTurretConsoleComponent, PowerChangedEvent>(OnConsolePowerChanged);
-        SubscribeLocalEvent<NavalTurretComponent, PowerChangedEvent>(OnTurretPowerChanged);
+        SubscribeLocalEvent<NavalTurretConsoleComponent, NavalTurretConsoleTurretSelectedBuiMessage>(OnTurretSelection);
+
     }
 
     private void OnConsoleInit(EntityUid uid, NavalTurretConsoleComponent comp, ComponentInit args)
@@ -42,38 +42,27 @@ public partial class NavalTurretControlSystem
             return;
 
         if (!TryComp<NavalTurretComponent>(args.Sink, out var turretComp) ||
-            !TerminatingOrDeleted(component.LinkedTurret) ||
-            !TerminatingOrDeleted(turretComp.LinkedConsole) ||
             args.Source != uid ||
             args.SourcePort != SourcePortId ||
             args.SinkPort != SinkPortId)
             args.Cancel();
     }
 
-    private void OnNewLinkToTurretAttempt(EntityUid uid, NavalTurretComponent component, LinkAttemptEvent args)
-    {
-        if (args.Source != uid || args.SourcePort != SourcePortId)
-            return;
-
-        if (!TryComp<NavalTurretConsoleComponent>(args.Sink, out var consoleComp) ||
-            !TerminatingOrDeleted(component.LinkedConsole) ||
-            !TerminatingOrDeleted(consoleComp.LinkedTurret) ||
-            args.Source != uid ||
-            args.SourcePort != SourcePortId ||
-            args.SinkPort != SinkPortId)
-            args.Cancel();
-    }
     private void OnNewLink(EntityUid uid, NavalTurretConsoleComponent component, NewLinkEvent args)
     {
         if (args.Source != uid || args.SourcePort != SourcePortId)
             return;
+        var turretUid = args.Sink;
 
-        component.LinkedTurret = args.Sink;
-        var succ = TryComp<NavalTurretComponent>(args.Sink, out var turretComp);
-        DebugTools.Assert(succ);
-        if(turretComp is not null)
-            turretComp.LinkedConsole = uid;
-        Dirty(uid, component);
+        if (!TryComp<NavalTurretComponent>(turretUid, out var turretComp))
+        {
+            Log.Error($"{ToPrettyString(uid)} was connected to {ToPrettyString(args.Sink)}, which lacks {nameof(NavalTurretComponent)}. This should not be possible.");
+            DebugTools.Assert(false);
+            return;
+        }
+
+        component.LinkedTurrets.Add(turretUid);
+        turretComp.LinkedConsoles.Add(uid);
         UpdateState(uid, component);
     }
 
@@ -82,28 +71,57 @@ public partial class NavalTurretControlSystem
         if (args.Port != SourcePortId)
             return;
 
-        var succ = TryComp<NavalTurretComponent>(component.LinkedTurret, out var turretComp);
-        DebugTools.Assert(succ);
-        component.LinkedTurret = null;
-        if(turretComp is not null)
-            turretComp.LinkedConsole = null;
-        Dirty(uid, component);
+        var turretUid = args.RemovedPortUid;
+
+        var succ = component.LinkedTurrets.Remove(turretUid);
+        DebugTools.Assert(succ, $"Attempted to disconnect a turret that was not tracked in console's LinkedTurrets in the first place.");
+
+        if(TryComp<NavalTurretComponent>(turretUid, out var turret)) // no assert because the entity might have been disconnected due to deletion
+        {
+            var succ2 = turret.LinkedConsoles.Remove(uid);
+            DebugTools.Assert(succ2, $"Attempted to disconnect a console that was not tracked in turret's LinkedConsoles in the first place.");
+        }
         UpdateState(uid, component);
     }
 
-    private void OnConsolePowerChanged(EntityUid uid, NavalTurretConsoleComponent component, PowerChangedEvent args)
+    private void OnTurretSelection(EntityUid uid, NavalTurretConsoleComponent comp, NavalTurretConsoleTurretSelectedBuiMessage args)
     {
-        UpdateState(uid, component);
+        Switch(uid, comp, GetEntity(args.Turret));
     }
 
-    private void OnTurretPowerChanged(EntityUid uid, NavalTurretComponent component, PowerChangedEvent args)
+    private bool Switch(EntityUid consoleUid, NavalTurretConsoleComponent consoleComp, EntityUid? turretUid)
     {
-        if(component.LinkedConsole is not EntityUid consoleUid)
-            return;
+        TryComp<NavalTurretComponent>(consoleComp.CurrentTurret, out var currentTurretComp);
 
-        var succ = TryComp<NavalTurretConsoleComponent>(consoleUid, out var consoleComp);
-        DebugTools.Assert(succ);
-        UpdateState(consoleUid, consoleComp);
+        if (turretUid is null)
+        {
+            if (currentTurretComp is not null)
+            {
+                currentTurretComp.CurrentConsole = null;
+                UpdateAllStates(currentTurretComp);
+            }
+            consoleComp.CurrentTurret = null;
+            return true;
+        }
+
+        if (!consoleComp.LinkedTurrets.Contains(turretUid.Value))
+            return false;
+
+        if (!TryComp<NavalTurretComponent>(turretUid, out var turret))
+            return false;
+
+        if (turret.CurrentConsole is not null)
+            return false;
+
+        if(currentTurretComp is not null)
+        {
+            currentTurretComp.CurrentConsole = null;
+            UpdateAllStates(currentTurretComp);
+        }
+
+        consoleComp.CurrentTurret = turretUid;
+        turret.CurrentConsole = consoleUid;
+        UpdateAllStates(turret);
+        return true;
     }
-
 }

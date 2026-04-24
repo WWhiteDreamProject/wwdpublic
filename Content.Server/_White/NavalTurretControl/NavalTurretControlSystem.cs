@@ -58,53 +58,66 @@ public sealed partial class NavalTurretControlSystem : SharedNavalTurretConsoleS
         UpdateState(uid, component);
     }
 
+    private void SetUiState(Entity<UserInterfaceComponent?> ent, NavInterfaceState radarState, List<NetEntity> turretList) =>
+                    _uiSystem.SetUiState(ent, NavalTurretConsoleUiKey.Key,
+                                 new NavalTurretConsoleBuiState(radarState, turretList));
+    private void SetUiState(Entity<UserInterfaceComponent?> ent, NavalTurretConsoleError error, List<NetEntity> turretList) =>
+                    _uiSystem.SetUiState(ent, NavalTurretConsoleUiKey.Key,
+                                 new NavalTurretConsoleBuiState(error, turretList));
+
     private void UpdateState(EntityUid uid, NavalTurretConsoleComponent? comp = null) => UpdateState((uid, null, comp));
-
-
     // TODO: handle multiple attempted console uses (reject everyone until the first user closes the bui) 
-    private void UpdateState(Entity<UserInterfaceComponent?, NavalTurretConsoleComponent?> entity)
+    private void UpdateState(Entity<UserInterfaceComponent?, NavalTurretConsoleComponent?> consoleEnt)
     {
-        if (!_uiSystem.HasUi(entity, NavalTurretConsoleUiKey.Key) ||
-            !Resolve(entity, ref entity.Comp1) ||
-            !Resolve(entity, ref entity.Comp2))
+        if (!_uiSystem.HasUi(consoleEnt, NavalTurretConsoleUiKey.Key) ||
+            !Resolve(consoleEnt, ref consoleEnt.Comp1) ||
+            !Resolve(consoleEnt, ref consoleEnt.Comp2))
             return;
 
-        if (entity.Comp2.LinkedTurret is not EntityUid turretUid)
+        var consoleComp = consoleEnt.Comp2;
+        var turrets = ToNetEntList(consoleComp.LinkedTurrets);
+
+        if (consoleComp.CurrentTurret is not EntityUid currentTurretUid ||
+            !consoleComp.LinkedTurrets.Contains(currentTurretUid))
         {
-            _uiSystem.SetUiState(entity, NavalTurretConsoleUiKey.Key,
-                                 new NavalTurretConsoleBuiState(NavalTurretConsoleError.NotConnected));
+            SetUiState(consoleEnt, NavalTurretConsoleError.NotConnected, turrets);
             return;
         }
 
-        if(!this.IsPowered(entity, EntityManager))
+        if(TryComp<MobStateComponent>(consoleEnt, out var stateComp) && stateComp.CurrentState != Shared.Mobs.MobState.Alive ||
+           TerminatingOrDeleted(currentTurretUid))
         {
-            _uiSystem.SetUiState(entity, NavalTurretConsoleUiKey.Key,
-                                 new NavalTurretConsoleBuiState(NavalTurretConsoleError.NotConnected));
+            SetUiState(consoleEnt, NavalTurretConsoleError.TurretDestroyed, turrets);
             return;
         }
 
-        if(TryComp<MobStateComponent>(entity, out var stateComp) && stateComp.CurrentState != Shared.Mobs.MobState.Alive ||
-           TerminatingOrDeleted(turretUid))
+        if(!this.IsPowered(currentTurretUid, EntityManager))
         {
-            _uiSystem.SetUiState(entity, NavalTurretConsoleUiKey.Key,
-                                 new NavalTurretConsoleBuiState(NavalTurretConsoleError.TurretDestroyed));
+            SetUiState(consoleEnt, NavalTurretConsoleError.NoPowerTurret, turrets);
             return;
         }
 
-
-        if(!this.IsPowered(turretUid, EntityManager))
-        {
-            _uiSystem.SetUiState(entity, NavalTurretConsoleUiKey.Key,
-                                 new NavalTurretConsoleBuiState(NavalTurretConsoleError.NoPowerTurret));
-            return;
-        }
-
-
-        var state = _console.GetNavState(turretUid, new(), new(turretUid, new Vector2(0,0)), 0);
-        _uiSystem.SetUiState(entity, NavalTurretConsoleUiKey.Key, new NavalTurretConsoleBuiState(state));
+        var state = _console.GetNavState(currentTurretUid, new(), new(currentTurretUid, new Vector2(0,0)), 0);
+        SetUiState(consoleEnt, state, turrets);
     }
 
+    private List<NetEntity> ToNetEntList(List<EntityUid> list)
+    {
+        var ret = new List<NetEntity>();
+        foreach (var ent in list)
+            ret.Add(GetNetEntity(ent));
+        return ret;
+    }
 
+    private void UpdateAllStates(NavalTurretComponent component)
+    {
+        foreach (var consoleUid in component.LinkedConsoles)
+        {
+            var succ = TryComp<NavalTurretConsoleComponent>(consoleUid, out var consoleComp);
+            DebugTools.Assert(succ);
+            UpdateState(consoleUid, consoleComp);
+        }
+    }
 }
 
 

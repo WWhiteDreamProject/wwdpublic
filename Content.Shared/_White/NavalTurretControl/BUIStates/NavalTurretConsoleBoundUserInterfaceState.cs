@@ -9,44 +9,51 @@ namespace Content.Shared._White.NavalTurretControl.BUIStates;
 public sealed class NavalTurretConsoleBuiState : BoundUserInterfaceState
 {
     // for the radar screen control
-    public NavInterfaceState State;
+    public NavInterfaceState RadarState;
+    
+    // this bullshit is due to me builidng around the radar system.
+    // When it is refactored, this should be changed to something sane aswell.
+    public NetEntity? CurrentTurret => RadarState.Coordinates?.NetEntity;
+
+    // should mirror LinkedTurrets in the turret component.
+    public List<NetEntity> LinkedTurrets;
 
     public NavalTurretConsoleError Error = NavalTurretConsoleError.None;
 
-    public NavalTurretConsoleBuiState(NavInterfaceState state)
+    public NavalTurretConsoleBuiState(NavInterfaceState state, List<NetEntity> turrets)
     {
-        State = state;
+        RadarState = state;
+        LinkedTurrets = turrets;
     }
 
-    public NavalTurretConsoleBuiState(NavalTurretConsoleError error)
+    public NavalTurretConsoleBuiState(NavalTurretConsoleError error, List<NetEntity> turrets)
     {
-        State = NavInterfaceState.Invalid;
+        RadarState = NavInterfaceState.Invalid;
+        LinkedTurrets = turrets;
         Error = error;
     }
-
 }
 
 
 [Serializable, NetSerializable]
-public sealed class RequestNavalTurretShootBuiMessage(Vector2 aimpoint, NetEntity console) : BoundUserInterfaceMessage
+public sealed class NavalTurretConsoleUpdateAimpointMessage(Vector2 newAimpoint) : BoundUserInterfaceMessage
 {
-    public Vector2 RelativeAimpoint = aimpoint;
-    public NetEntity Console = console;
+    public Vector2 NewAimpoint = newAimpoint;
 }
 
 [Serializable, NetSerializable]
-public sealed class RequestNavalTurretStopShootBuiMessage(NetEntity console) : BoundUserInterfaceMessage
+public sealed class NavalTurretConsoleMouseClickMessage(NetCoordinates mousePos, bool down) : BoundUserInterfaceMessage
 {
-    public NetEntity Console = console;
+    public NetCoordinates MousePos = mousePos;
+    public bool Down = down;
 }
-
 
 [Serializable, NetSerializable]
-public sealed class RequestNavalTurretUpdateAimpointBuiMessage(Vector2 aimpoint, NetEntity console) : BoundUserInterfaceMessage
+public sealed class NavalTurretConsoleTurretSelectedBuiMessage(NetEntity? turret) : BoundUserInterfaceMessage
 {
-    public Vector2 RelativeAimpoint = aimpoint;
-    public NetEntity Console = console;
+    public NetEntity? Turret = turret;
 }
+
 
 public enum NavalTurretConsoleError
 {

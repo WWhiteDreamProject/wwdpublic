@@ -35,6 +35,9 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
     private readonly GunSystem _gun;
     private const string FovShaderPrototype = "RadarConsoleFov";
     private readonly ShaderInstance _fovShader;
+    private EntityQuery<TransformComponent> _xformQuery;
+    private EntityQuery<FixturesComponent> _fixturesQuery;
+    private EntityQuery<PhysicsComponent> _bodyQuery;
     // WD EDIT END
 
     /// <summary>
@@ -102,6 +105,9 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
         _lookup = EntManager.System<EntityLookupSystem>();
         _gun = EntManager.System<GunSystem>();
         _fovShader = _proto.Index<ShaderPrototype>(FovShaderPrototype).Instance();
+        _xformQuery = EntManager.GetEntityQuery<TransformComponent>();
+        _fixturesQuery = EntManager.GetEntityQuery<FixturesComponent>();
+        _bodyQuery = EntManager.GetEntityQuery<PhysicsComponent>();
         // WD EDIT END
     }
 
@@ -129,7 +135,7 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
         else if (args.Function == EngineKeyFunctions.UIRightClick)
             ev = OnRadarRightClick;
 
-        if(ev is null)
+        if (ev is null)
             return;
 
         ev?.Invoke(GetMouseCoordinates(args.RelativePosition), false);
@@ -148,7 +154,7 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
         else if (args.Function == EngineKeyFunctions.UIRightClick)
             ev = OnRadarRightClick;
 
-        if(ev is null)
+        if (ev is null)
             return;
 
         ev?.Invoke(GetMouseCoordinates(args.RelativePosition), true);
@@ -189,8 +195,11 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
         var localPos = new Vector2(a.X, -a.Y);
         //var rot = _rotation.Value + (RotateWithEntity ? _transform.GetWorldRotation(_coordinates.Value.EntityId) : -_eye.CurrentEye.Rotation);
 
-        var rot = MathF.PI + _rotation.Value + (RotateWithEntity ? _transform.GetWorldRotation(_coordinates.Value.EntityId) : -_eye.CurrentEye.Rotation);
-        localPos = rot.RotateVec(localPos);
+        //var rot = MathF.PI + _rotation.Value + (RotateWithEntity ? 0 : _transform.GetWorldRotation(_coordinates.Value.EntityId) -_eye.CurrentEye.Rotation);
+        var rot = _rotation.Value + MathF.PI; //_rotation.Value + MathF.PI;
+        if (!RotateWithEntity)
+            rot += -_eye.CurrentEye.Rotation - _transform.GetWorldRotation(_coordinates.Value.EntityId);
+        localPos = (rot).RotateVec(localPos);
         //if (!RotateWithEntity)
         //    rot += _transform.GetWorldRotation(_coordinates.Value.EntityId);// + _eye.CurrentEye.Rotation;
         //localPos = (-rot).RotateVec(localPos);
@@ -229,7 +238,11 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
     {
         base.Draw(handle);
         // No data
-        if (_coordinates == null || _rotation == null || ForceSkip)
+        // WWDP EDIT START
+        if (_coordinates == null || _rotation == null ||
+           !_xformQuery.TryGetComponent(_coordinates.Value.EntityId, out var xform) ||  
+            xform.MapID == MapId.Nullspace ||  
+            ForceSkip)
         {
             var prevShader = handle.GetShader();
             handle.UseShader(_fovShader);
@@ -238,21 +251,13 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
             DrawAfterBackground?.Invoke(handle, PixelSizeBox, true);
             return;
         }
+        // WWDP EDIT END
 
         DrawBacking(handle);
         DrawCircles(handle);
-        DrawAfterBackground?.Invoke(handle, PixelSizeBox, false);
+        DrawAfterBackground?.Invoke(handle, PixelSizeBox, false); // WWDP EDIT
 
 
-        var xformQuery = EntManager.GetEntityQuery<TransformComponent>();
-        var fixturesQuery = EntManager.GetEntityQuery<FixturesComponent>();
-        var bodyQuery = EntManager.GetEntityQuery<PhysicsComponent>();
-
-        if (!xformQuery.TryGetComponent(_coordinates.Value.EntityId, out var xform)
-            || xform.MapID == MapId.Nullspace)
-        {
-            return;
-        }
         var mapPos = _transform.ToMapCoordinates(_coordinates.Value);
         // WWDP EDIT START
         // for some inane reason "_coordinates" is always supposed to be relative to the radar entity,
@@ -292,10 +297,10 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
         foreach (var grid in _grids)
         {
             var gUid = grid.Owner;
-            if (gUid == ourGridId || !fixturesQuery.HasComponent(gUid))
+            if (gUid == ourGridId || !_fixturesQuery.HasComponent(gUid))
                 continue;
 
-            var gridBody = bodyQuery.GetComponent(gUid);
+            var gridBody = _bodyQuery.GetComponent(gUid);
             EntManager.TryGetComponent<IFFComponent>(gUid, out var iff);
 
             if (!_shuttles.CanDraw(gUid, gridBody, iff))
@@ -521,7 +526,7 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
 
         // Draw our grid in detail // Also draw it over the fov effect
         if (EntManager.TryGetComponent<MapGridComponent>(ourGridId, out var ourGrid) &&
-            fixturesQuery.HasComponent(ourGridId.Value))
+            _fixturesQuery.HasComponent(ourGridId.Value))
         {
             var ourGridToWorld = _transform.GetWorldMatrix(ourGridId.Value);
             var ourGridToShuttle = Matrix3x2.Multiply(ourGridToWorld, worldToShuttle);
@@ -535,7 +540,7 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
         // If we've set the controlling console, and it's on a different grid
         // to the shuttle itself, then draw an additional marker to help the
         // player determine where they are relative to the shuttle.
-        if (_consoleEntity != null && xformQuery.TryGetComponent(_consoleEntity, out var consoleXform))
+        if (_consoleEntity != null && _xformQuery.TryGetComponent(_consoleEntity, out var consoleXform))
         {
             if (consoleXform.ParentUid != _coordinates.Value.EntityId)
             {

@@ -11,15 +11,29 @@ namespace Content.Shared._White.NavalTurretControl;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class NavalTurretConsoleComponent : Component
 {
-    [DataField, AutoNetworkedField]
-    public EntityUid? LinkedTurret;
+    // [AutoNetworkedField]
+
+    [AutoNetworkedField]
+    public EntityUid? CurrentTurret;
+
+    [AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
+    public bool Shooting;
+
+    /// <summary>
+    /// Local to entity as if its LocalRotation is zero.
+    /// </summary>
+    [AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
+    public Vector2? CurrentAimpoint;
+
+    // not used on client
+    public List<EntityUid> LinkedTurrets = new();
 }
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class NavalTurretComponent : Component
 {
     [DataField, AutoNetworkedField]
-    public EntityUid? LinkedConsole;
+    public string Name = "Turret";
 
     [DataField, AutoNetworkedField]
     public Angle AngleTolerance = Math.PI / 360; // 0.5 degrees
@@ -30,11 +44,9 @@ public sealed partial class NavalTurretComponent : Component
     [DataField, AutoNetworkedField]
     public float AimpointTolerane = 0.5f;
 
-    /// <summary>
-    /// Relative to self.
-    /// </summary>
-    [AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
-    public Vector2? CurrentAimpoint;
+    public List<EntityUid> LinkedConsoles = new();
+    public EntityUid? CurrentConsole;
+
 }
 
 [Serializable, NetSerializable]

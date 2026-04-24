@@ -9,11 +9,13 @@ using JetBrains.Annotations;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
+using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface;
+using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Map;
 using RadarConsoleWindow = Content.Client.Shuttles.UI.RadarConsoleWindow;
 
-namespace Content.Client.Shuttles.BUI;
+namespace Content.Client._White.NavalTurretConsole.UI;
 
 [UsedImplicitly]
 public sealed class NavalTurretConsoleBoundUserInterface : BoundUserInterface
@@ -24,22 +26,13 @@ public sealed class NavalTurretConsoleBoundUserInterface : BoundUserInterface
 
     [ViewVariables]
     private NavalTurretConsoleWindow? _window;
+    private Font _font = default!;
+    private Entity<TransformComponent>? _currentTurret;
 
-    private bool _shooting = false;
-    public bool Shooting { get => _shooting;
-    set
-        {
-            _shooting = value; if (_window is not null) _window.Button1.Text = value.ToString();
-        }
-    }
-    private Vector2 _aimpoint = Vector2.Zero;
-    public Vector2 Aimpoint { get => _aimpoint;
-    set
-        {
-            _aimpoint = value; if (_window is not null) _window.Button2.Text = value.ToString();
-        }
-    }
-
+    public bool Shooting = false;
+    public int Shitass = 0;
+    public Vector2 Aimpoint = Vector2.Zero;
+    
     public NavalTurretConsoleBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
     }
@@ -47,7 +40,9 @@ public sealed class NavalTurretConsoleBoundUserInterface : BoundUserInterface
     protected override void Open()
     {
         base.Open();
+        _font = new VectorFont(IoCManager.Resolve<IResourceCache>().GetResource<FontResource>("/Fonts/_White/LCD14/LCD14.otf"), 16);
 
+        _actionBlocker = EntMan.System<ActionBlockerSystem>();
         _window = this.CreateWindow<NavalTurretConsoleWindow>();
         _transform = EntMan.System<SharedTransformSystem>();
         _window.RadarScreen.OnMouseMove += OnMouseMove;
@@ -56,18 +51,20 @@ public sealed class NavalTurretConsoleBoundUserInterface : BoundUserInterface
         _window.RadarScreen.DrawAfterFoV += DrawTurretIndicator;
         _window.RadarScreen.DrawAfterFoV += DrawAimpoint;
         _window.RadarScreen.SetConsole(Owner);
-        _actionBlocker = EntMan.System<ActionBlockerSystem>();
+        _window.RadarScreen.DrawTop += DrawShitass;
     }
 
-    private bool CanInteract(EntityUid? user) => user is EntityUid && _actionBlocker.CanInteract(user.Value, Owner);
 
+    private void DrawShitass(DrawingHandleScreen handle, UIBox2 whatever, Matrix3x2 ass, Matrix3x2 blast, Matrix3x2 usa)
+    {
+        handle.DrawString(_font, Vector2.Zero, $"Shitass: \"{Shitass}\"\n{Aimpoint}", Color.Green);
+    }
     private void OnMouseMove(EntityCoordinates coordinates)
     {
-        if(!CanInteract(_player.LocalEntity))
-            return;
-        var angle = EntMan.GetComponent<TransformComponent>(Owner).LocalRotation + MathF.PI;
-        var aimpointAdjusted = (-angle).RotateVec(coordinates.Position);
-        Aimpoint = aimpointAdjusted;
+        var angle = EntMan.GetComponent<TransformComponent>(coordinates.EntityId).LocalRotation + MathF.PI;
+        //var angle = MathF.PI;
+        var aimpoint = angle.RotateVec(coordinates.Position);
+        Aimpoint = aimpoint;
     }
 
     // TODO: invoke clientside bui messages on mouseclick and move
@@ -85,25 +82,41 @@ public sealed class NavalTurretConsoleBoundUserInterface : BoundUserInterface
     //      And the same with OnTurretSelection (if implemented)
     private void OnMouseClick(EntityCoordinates coordinates, bool down)
     {
-        if(!CanInteract(_player.LocalEntity))
-        {
-            Shooting = false;
-            return;
-        }
-        Shooting = down;
-        var angle = EntMan.GetComponent<TransformComponent>(Owner).LocalRotation + MathF.PI;
-        var aimpointAdjusted = (-angle).RotateVec(coordinates.Position);
-        Aimpoint = aimpointAdjusted;
+        SendPredictedMessage(new NavalTurretConsoleMouseClickMessage(EntMan.GetNetCoordinates(coordinates), down));
     }
 
-    protected override void UpdateState(BoundUserInterfaceState state)
+    protected override void UpdateState(BoundUserInterfaceState _state)
     {
-        base.UpdateState(state);
-        if (state is not NavalTurretConsoleBuiState cState)
+        base.UpdateState(_state);
+        if (_state is not NavalTurretConsoleBuiState state)
             return;
 
-        _window?.SetError(cState.Error);
-        _window?.UpdateState(cState.State);
+        var turret = EntMan.GetEntity(state.CurrentTurret);
+        RebuildTurretSelection(state.LinkedTurrets, turret);
+        _currentTurret = turret is null ? null : (turret, EntMan.GetComponent<TransformComponent>(turret));
+        //_window?.SetError(cState.Error);
+        _window?.UpdateState(state.RadarState);
+
+    }
+
+    private void RebuildTurretSelection(List<NetEntity> netEnts, EntityUid? currentEnt)
+    {
+        _window!.TurretSelection.DisposeAllChildren();
+        foreach (var netUid in netEnts)
+        {
+            var uid = EntMan.GetEntity(netUid);
+            var button = new Button();
+            if(EntMan.TryGetComponent<NavalTurretComponent>(uid, out var turret))
+                button.Text = turret.Name;
+            else
+                button.Text = $"??? ({uid})";
+            button.OnPressed += (_) =>
+            {
+                SendMessage(new NavalTurretConsoleTurretSelectedBuiMessage(uid == currentEnt ? null : netUid));
+                //SendPredictedMessage(new NavalTurretConsoleTurretSelectedBuiMessage(netEnt));
+            };
+            _window!.TurretSelection.AddChild(button);
+        }
     }
 
 
@@ -128,7 +141,9 @@ public sealed class NavalTurretConsoleBoundUserInterface : BoundUserInterface
 
     private void DrawAimpoint(DrawingHandleScreen handle, UIBox2 controlSize, Matrix3x2 ourEntToWorld, Matrix3x2 shuttleToWorld, Matrix3x2 worldToView)
     {
-        var aimpointWorld = ourEntToWorld.Translation + Aimpoint;
-        handle.DrawCircle(Vector2.Transform(aimpointWorld, worldToView), 4, Color.OrangeRed, false);
+        if(_currentTurret is not {} curTurret)
+            return;
+
+        handle.DrawCircle(curTurret.Comp.LocalPosition, 4, Color.OrangeRed, false);
     }
 }
