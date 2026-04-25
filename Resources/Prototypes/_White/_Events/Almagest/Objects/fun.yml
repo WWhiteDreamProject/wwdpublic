@@ -1,6 +1,6 @@
 #- type: entity
 #  parent: BaseHandheldComputer
-#  id: AlmagestCommsHandheld
+#  id: AlmagestCommsHandheld # rofles
 #  name: Almagest Admeme Communicator
 #  description: A handheld device for making announcements.
 #  components:
