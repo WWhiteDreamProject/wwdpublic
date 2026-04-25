@@ -18,31 +18,35 @@
       languagesUnderstood:
         - Sign
 
-# WD EDIT START
-#- type: trait
-#  id: SolCommon
-#  category: TraitsSpeechLanguages
-#  points: 0
-  # slots: 1
+- type: trait
+  id: SolCommon
+  category: TraitsSpeechLanguages
+  points: 2 # WD EDIT: 0 > 2
+  slots: 1 # WD EDIT: commented > slots 1
   # itemGroupSlots: 0
-#  requirements:
-  # - !type:CharacterItemGroupRequirement
-  #   group: TraitsLanguagesBasic
-#    - !type:CharacterSpeciesRequirement
-#      inverted: true
-#      species:
-#        - Human
-#    - !type:CharacterNationalityRequirement
-#      inverted: true
-#      nationalities:
-#        - Solarian
-#  functions:
-#    - !type:TraitModifyLanguages
-#      languagesSpoken:
-#        - SolCommon
-#      languagesUnderstood:
-#        - SolCommon
-# WD EDIT END: disabled so that non-humans cannot use it
+  requirements:
+    # - !type:CharacterItemGroupRequirement
+    #   group: TraitsLanguagesBasic
+    - !type:CharacterSpeciesRequirement
+      inverted: true
+      species:
+        - Human
+    # WD EDIT START
+    - !type:CharacterSpeciesRequirement
+      species:
+        - Dwarf
+        - Felinid
+    # WD EDIT START: add
+    - !type:CharacterNationalityRequirement
+      inverted: true
+      nationalities:
+        - Solarian
+  functions:
+    - !type:TraitModifyLanguages
+      languagesSpoken:
+        - SolCommon
+      languagesUnderstood:
+        - SolCommon
 
 - type: trait
   id: Tradeband
