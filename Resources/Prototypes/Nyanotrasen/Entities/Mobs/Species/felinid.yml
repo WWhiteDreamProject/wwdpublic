@@ -65,6 +65,9 @@
       Unsexed: MaleFelinid
   - type: Felinid
   - type: NoShoesSilentFootsteps
+  - type: FootstepVolumeModifier # WWDP EDIT
+    sprintVolumeModifier: -10 # WWDP EDIT
+    walkVolumeModifier: -10 # WWDP EDIT
   - type: LanguageKnowledge
     speaks:
     - TauCetiBasic
