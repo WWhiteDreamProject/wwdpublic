@@ -21,8 +21,8 @@
 - type: trait
   id: SolCommon
   category: TraitsSpeechLanguages
-  points: 0
-  # slots: 1
+  points: 2 # WD EDIT: 0 > 2
+  slots: 1 # WD EDIT: commented > slots 1
   # itemGroupSlots: 0
   requirements:
     # - !type:CharacterItemGroupRequirement
@@ -31,6 +31,12 @@
       inverted: true
       species:
         - Human
+    # WD EDIT START
+    - !type:CharacterSpeciesRequirement
+      species:
+        - Dwarf
+        - Felinid
+    # WD EDIT START: add
     - !type:CharacterNationalityRequirement
       inverted: true
       nationalities:
