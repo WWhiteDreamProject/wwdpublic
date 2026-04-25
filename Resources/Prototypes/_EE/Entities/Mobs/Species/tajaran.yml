@@ -78,6 +78,9 @@
       Unsexed: MaleFelinid
   - type: Felinid # real
   - type: NoShoesSilentFootsteps
+  - type: FootstepVolumeModifier # WWDP EDIT
+    sprintVolumeModifier: -10 # WWDP EDIT
+    walkVolumeModifier: -10 # WWDP EDIT
   - type: ProtectedFromStepTriggers
     whitelist:
       types:
