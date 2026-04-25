@@ -37,3 +37,16 @@
     board: RadarWideConsoleCircuitboard
   - type: RadarConsole
     maxRange: 2048
+
+- type: entity
+  parent: ComputerShuttle
+  id: ComputerShuttleWide
+  name: wide shuttle console
+  description: Used to pilot a shuttle with wide mass scanner.
+  components:
+  - type: Computer
+    board: ShuttleWideConsoleCircuitboard
+  - type: RadarConsole
+    maxRange: 768
+  - type: WorldLoader
+    radius: 768

@@ -1,0 +1,274 @@
+#- type: entity
+#  parent: BaseHandheldComputer
+#  id: AlmagestCommsHandheld # rofles
+#  name: Almagest Admeme Communicator
+#  description: A handheld device for making announcements.
+#  components:
+#  - type: Sprite
+#    sprite: Objects/Devices/tablets.rsi
+#    layers:
+#    - state: tablet
+#    - state: generic
+#      shader: unshaded
+#  - type: CommunicationsConsole
+#    title: "[color=#14fffb]Almagest[/color]"
+#    color: "#ffffff"
+#    sound: /Audio/_White/Announcements/crashing.ogg
+#    delay: 0
+#    initialDelay: 0
+#    global: true
+#    canShuttle: false
+#  - type: ActivatableUI
+#    key: enum.CommunicationsConsoleUiKey.Key
+#    inHandsOnly: true
+#    singleUser: true
+#  - type: UserInterface
+#    interfaces:
+#      enum.CommunicationsConsoleUiKey.Key:
+#        type: CommunicationsConsoleBoundUserInterface
+
+- type: entity
+  parent: [WallPlastitaniumIndestructible, RadarIconFlare]
+  id: WallAlmaRadar
+  suffix: almagest, radar, dont spawn
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RadarIcon
+    color: "#00FCF4FF"
+    scale: 7, 7
+    showOnGrid: true
+    radarRange: 512
+
+# TimedAnnouncer
+- type: entity
+  id: TimedAnnouncerAlmagestTimer5
+  parent: TimerTrigger
+  name: timed announcer almagest 5
+  description: ""
+  components:
+  - type: TimedAnnouncement
+    sender: "[color=#14fffb]Almagest[/color]"
+    sound:
+      path: /Audio/_White/Announcements/crashing.ogg
+    messageColor: White
+    announcements:
+    - delay: 1
+      announcement: timed-announcer-almagest-timer-start-timer5
+    - delay: 240
+      announcement: timed-announcer-almagest-timer-1-minute-left
+    - delay: 300
+      announcement: timed-announcer-almagest-timer-end
+
+- type: entity
+  id: TimedAnnouncerAlmagestTimer10
+  parent: TimedAnnouncerAlmagestTimer5
+  name: timed announcer almagest 10
+  description: ""
+  components:
+  - type: TimedAnnouncement
+    announcements:
+    - delay: 1
+      announcement: timed-announcer-almagest-timer-start-timer10
+    - delay: 300
+      announcement: timed-announcer-almagest-timer-5-minute-left
+    - delay: 540
+      announcement: timed-announcer-almagest-timer-1-minute-left
+    - delay: 600
+      announcement: timed-announcer-almagest-timer-end
+
+- type: entity
+  id: TimedAnnouncerAlmagestTimer15
+  parent: TimedAnnouncerAlmagestTimer5
+  name: timed announcer almagest 15
+  description: ""
+  components:
+  - type: TimedAnnouncement
+    announcements:
+    - delay: 1
+      announcement: timed-announcer-almagest-timer-start-timer15
+    - delay: 300
+      announcement: timed-announcer-almagest-timer-10-minute-left
+    - delay: 600
+      announcement: timed-announcer-almagest-timer-5-minute-left
+    - delay: 840
+      announcement: timed-announcer-almagest-timer-1-minute-left
+    - delay: 900
+      announcement: timed-announcer-almagest-timer-end
+
+- type: entity
+  id: TimedAnnouncerVergessenheit
+  parent: TimedAnnouncerAlmagestTimer5
+  name: timed announcer vergessenheit
+  description: ""
+  components:
+  - type: TimedAnnouncement
+    cycle: 600
+    repeat: 99
+    announcements:
+    - delay: 300
+      announcement: timed-announcer-vergessenheit-300
+    - delay: 510
+      announcement: timed-announcer-vergessenheit-510
+    - delay: 600
+      announcement: timed-announcer-vergessenheit-600
+
+# Turret
+- type: entity
+  id: WeaponTurretAlmagestVergessenheit
+  parent: WeaponTurretHostile
+  #categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 600
+
+- type: entity
+  name: Hostile Turret Spawner
+  id: WeaponTurretAlmagestVergessenheitTimedSpawner
+  parent: MarkerBase
+  #categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: Objects/Weapons/Guns/Turrets/turrets.rsi
+      state: syndie_base
+  - type: ConditionalSpawner
+    prototypes:
+    - WeaponTurretAlmagestVergessenheit
+  - type: Timer
+  - type: TimedSpawner
+    prototypes:
+    - WeaponTurretAlmagestVergessenheit
+    intervalSeconds: 600
+    chance: 1.0
+
+# Admeme
+
+- type: entity
+  name: Almagest Admeme Gun
+  parent: BaseItem
+  id: AlmagestAdmemeGun
+  components:
+  - type: Item
+    size: Large
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/Turrets/Almagest/equipment.rsi
+    layers:
+    - state: base
+  - type: Gun
+    fireRate: 12
+    selectedMode: FullAuto
+    projectileSpeed: 60
+    availableModes:
+    - Burst
+    - FullAuto
+    shotsPerBurst: 5
+    burstFireRate: 8
+    burstCooldown: 0.5
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
+      params:
+        volume: -5
+  - type: BasicEntityAmmoProvider
+    proto: BoltIRLaserHeavy
+  - type: AmmoSelector
+    prototypes:
+    - AlmagestIRLaserHeavy
+    - AlmagestIRLaserFast
+    - AlmagestAnnihilatorHeavy
+    - AlmagestAnnihilatorFast
+    - AlmagestAnnihilatorShotgun
+    - AlmagestHMGHeavy
+    - AlmagestHMGFast
+    - AlmagestRamPenetrator
+    - AlmagestRamMine
+    - AlmagestRamWalker
+  - type: UserInterface
+    interfaces:
+      enum.AmmoSelectorUiKey.Key:
+        type: AmmoSelectorMenuBoundUserInterface
+  - type: ActivatableUI
+    altVerb: true
+    verbOnly: true
+    verbText: mode-select-verb-text
+    key: enum.AmmoSelectorUiKey.Key
+
+- type: selectableAmmo
+  id: AlmagestIRLaserHeavy
+  desc: Heavy IR Pulse Laser
+  icon:
+    sprite: _White/Objects/Weapons/Guns/Turrets/Almagest/IR_laser_heavy.rsi
+    state: icon
+  protoId: BoltIRLaserHeavy
+
+- type: selectableAmmo
+  id: AlmagestIRLaserFast
+  desc: Fast IR Pulse Laser
+  icon:
+    sprite: _White/Objects/Weapons/Guns/Turrets/Almagest/IR_laser_fast.rsi
+    state: icon
+  protoId: BoltIRLaserFast
+
+- type: selectableAmmo
+  id: AlmagestAnnihilatorHeavy
+  desc: Heavy Annihilator Rocket Launcher
+  icon:
+    sprite: _White/Objects/Weapons/Guns/Turrets/Almagest/annihilator_heavy.rsi
+    state: icon
+  protoId: RocketAnnihilatorHeavy
+
+- type: selectableAmmo
+  id: AlmagestAnnihilatorFast
+  desc: Fast Annihilator Rocket Launcher
+  icon:
+    sprite: _White/Objects/Weapons/Guns/Turrets/Almagest/annihilator_fast.rsi
+    state: icon
+  protoId: RocketAnnihilatorFast
+
+- type: selectableAmmo
+  id: AlmagestAnnihilatorShotgun
+  desc: Shotgun Annihilator Rocket Launcher
+  icon:
+    sprite: _White/Objects/Weapons/Guns/Turrets/Almagest/annihilator_shotgun.rsi
+    state: icon
+  protoId: RocketAnnihilatorShotgun
+
+- type: selectableAmmo
+  id: AlmagestHMGHeavy
+  desc: Heavy HMG Machine Gun
+  icon:
+    sprite: _White/Objects/Weapons/Guns/Turrets/Almagest/hmg_heavy.rsi
+    state: icon
+  protoId: BulletHMGHeavy
+
+- type: selectableAmmo
+  id: AlmagestHMGFast
+  desc: Fast HMG Machine Gun
+  icon:
+    sprite: _White/Objects/Weapons/Guns/Turrets/Almagest/hmg_fast.rsi
+    state: icon
+  protoId: BulletHMGFast
+
+- type: selectableAmmo
+  id: AlmagestRamPenetrator
+  desc: Penetrator Ram Blast Launcher
+  icon:
+    sprite: _White/Objects/Weapons/Guns/Turrets/Almagest/ram_penetrator.rsi
+    state: icon
+  protoId: BulletBlastRamPenetrator
+
+- type: selectableAmmo
+  id: AlmagestRamMine
+  desc: Mine Ram Blast Launcher
+  icon:
+    sprite: _White/Objects/Weapons/Guns/Turrets/Almagest/ram_mine.rsi
+    state: icon
+  protoId: BulletBlastRamMine
+
+- type: selectableAmmo
+  id: AlmagestRamWalker
+  desc: Walker Ram Blast Launcher
+  icon:
+    sprite: _White/Objects/Weapons/Guns/Turrets/Almagest/ram_walker.rsi
+    state: icon
+  protoId: BulletBlastRamWalker

@@ -1,4 +1,3 @@
-namespace Content.Shared._White.SpawnOnGamerule.Events;
+namespace Content.Server._White.Spawners.Events;
 
-public sealed class ActivateMarkerEvent : EntityEventArgs
-{ }
+public sealed class ActivateMarkerEvent : EntityEventArgs;

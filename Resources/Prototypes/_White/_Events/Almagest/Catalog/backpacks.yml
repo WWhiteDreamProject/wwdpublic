@@ -1,0 +1,284 @@
+# Base colors
+- type: entity
+  parent: ClothingBackpackERTMedical
+  id: ClothingBackpackAlmagestWhite
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingOuterHardsuitERTMedical
+    - id: Crowbar
+    - id: ClothingMaskGas
+    - id: BoxCaptureCartridgeWhite
+    - id: ClothingHeadsetCargo
+
+- type: entity
+  parent: ClothingBackpackERTEngineer
+  id: ClothingBackpackAlmagestYellow
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingOuterHardsuitERTEngineer
+    - id: Crowbar
+    - id: ClothingMaskGas
+    - id: BoxCaptureCartridgeYellow
+    - id: ClothingHeadsetEngineering
+
+- type: entity
+  parent: ClothingBackpackERTSecurity
+  id: ClothingBackpackAlmagestRed
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingOuterHardsuitERTSecurity
+    - id: Crowbar
+    - id: ClothingMaskGas
+    - id: BoxCaptureCartridgeRed
+    - id: ClothingHeadsetPrison
+  - type: EntityGenerator
+    prototypeId: AlmagestFlareSelectRed
+    rechargeDuration: 100
+    maxCharges: 2
+    charges: 2
+    onlyFullRecharge: true
+
+- type: entity
+  parent: ClothingBackpackERTLeader
+  id: ClothingBackpackAlmagestBlue
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingOuterHardsuitERTLeader
+    - id: Crowbar
+    - id: ClothingMaskGas
+    - id: BoxCaptureCartridgeBlue
+    - id: ClothingHeadsetMedical
+  - type: EntityGenerator
+    prototypeId: AlmagestFlareSelectBlue
+    rechargeDuration: 100
+    maxCharges: 2
+    charges: 2
+    onlyFullRecharge: true
+
+- type: entity
+  parent: ClothingBackpackERTClown
+  id: ClothingBackpackAlmagestGreen
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingOuterHardsuitERTCentcomm
+    - id: Crowbar
+    - id: ClothingMaskGas
+    - id: BoxCaptureCartridgeGreen
+    - id: ClothingHeadsetService
+
+- type: entity
+  parent: ClothingBackpackERTJanitor
+  id: ClothingBackpackAlmagestPurple
+  components:
+  - type: StorageFill
+    contents:
+    - id: ClothingOuterHardsuitERTJanitor
+    - id: Crowbar
+    - id: ClothingMaskGas
+    - id: BoxCaptureCartridgePurple
+    - id: ClothingHeadsetScience
+
+# Amalga v3
+- type: entity
+  parent: ClothingBeltMilitaryWebbing
+  id: ClothingBeltMilitaryWebbingAlmagestEquip
+  suffix: Almagest, DONT SPAWN
+  components:
+  - type: StorageFill
+    contents:
+    - id: Crowbar
+    - id: HandHeldMassScanner
+    - id: HandheldGPSBasic
+    - id: WeaponGrapplingGun
+    - id: BeaconTeleporter
+
+- type: entity
+  parent: ClothingBeltChiefEngineerFilled
+  id: ClothingBeltChiefEngineerFilledAlmagestEquip
+  suffix: Almagest, DONT SPAWN
+  components:
+  - type: Storage
+    grid:
+    - 0,0,1,3
+    - 3,0,4,3
+    - 6,0,7,3
+    - 9,0,9,1
+  - type: StorageFill
+    contents:
+    - id: RCD
+    - id: RCDAmmo
+      amount: 2
+    - id: PowerDrill
+    - id: JawsOfLife
+    - id: WelderExperimental
+    - id: Multitool
+    - id: HolofanProjector
+    - id: GasAnalyzer
+    - id: trayScanner
+    - id: BeaconTeleporter
+
+# Backpacks
+# Red
+- type: entity
+  parent: ClothingBackpackAlmagestRed
+  id: ClothingBackpackAlmagestRedCaptain
+  name: red captain backpack
+  components:
+  - type: StorageFill
+    contents:
+    - id: AlmagestEquipmentWeaponBaseSelect
+    - id: WeaponAntiqueLaser
+    - id: SciFlash
+    - id: WeaponTurretShipAlmagestFlatpack
+      amount: 3
+
+- type: entity
+  parent: ClothingBackpackAlmagestRed
+  id: ClothingBackpackAlmagestRedMarine
+  name: red marine backpack
+  components:
+  - type: StorageFill
+    contents:
+    - id: AlmagestEquipmentWeaponBaseSelect
+    - id: PackageGrenadeShrapnel
+    - id: PackageGrenadeDummy
+    - id: PackageGrenadeBarrier
+      amount: 3
+
+- type: entity
+  parent: ClothingBackpackAlmagestRed
+  id: ClothingBackpackAlmagestRedEngineer
+  name: red engineer backpack
+  components:
+  - type: StorageFill
+    contents:
+    - id: AlmagestEquipmentWeaponBaseSelect
+    - id: HandHeldMassScanner
+    - id: HandheldGPSBasic
+    - id: AlmagestGirderFlatpack30
+    - id: WallAlmagestStructuralResistantFlatpack15
+    - id: WallAlmagestLaserResistantFlatpack15
+    - id: WallAlmagestPiercingResistantFlatpack15
+    - id: WallAlmagestUniversalResistantFlatpack15
+
+- type: entity
+  parent: ClothingBackpackAlmagestRed
+  id: ClothingBackpackAlmagestRedDemoman
+  name: red demoman backpack
+  components:
+  - type: StorageFill
+    contents:
+    - id: AlmagestEquipmentWeaponBaseSelect
+    - id: DrinkPremiumWhiskeyBottleFull
+    - id: PackageGrenadeShrapnel
+      amount: 2
+    - id: PackageGrenadeIncendiary
+    - id: RemoteSignaller
+    - id: Multitool
+    - id: PackageGrenadeC4
+      amount: 4
+    - id: SyndicateBombFlatpack
+
+- type: entity
+  parent: ClothingBackpackAlmagestRed
+  id: ClothingBackpackAlmagestRedMedic
+  name: red medic backpack
+  components:
+  - type: StorageFill
+    contents:
+    - id: AlmagestEquipmentWeaponBaseSelect
+    - id: BodyBagBluespaceFolded
+    - id: OmnizineCryostasisBeaker
+    - id: EpinephrineCryostasisBeaker
+    - id: Hypospray
+    - id: Crowbar
+    - id: HandHeldMassScanner
+    - id: HandheldGPSBasic
+    - id: WeaponGrapplingGun
+    - id: BeaconTeleporter
+    - id: DefibrillatorCompact
+
+# Blue
+- type: entity
+  parent: ClothingBackpackAlmagestBlue
+  id: ClothingBackpackAlmagestBlueCaptain
+  name: blue captain backpack
+  components:
+  - type: StorageFill
+    contents:
+    - id: AlmagestEquipmentWeaponBaseSelect
+    - id: WeaponAntiqueLaser
+    - id: SciFlash
+    - id: WeaponTurretShipAlmagestFlatpack
+      amount: 3
+
+- type: entity
+  parent: ClothingBackpackAlmagestBlue
+  id: ClothingBackpackAlmagestBlueMarine
+  name: blue marine backpack
+  components:
+  - type: StorageFill
+    contents:
+    - id: AlmagestEquipmentWeaponBaseSelect
+    - id: PackageGrenadeShrapnel
+    - id: PackageGrenadeDummy
+    - id: PackageGrenadeBarrier
+      amount: 3
+
+- type: entity
+  parent: ClothingBackpackAlmagestBlue
+  id: ClothingBackpackAlmagestBlueEngineer
+  name: blue engineer backpack
+  components:
+  - type: StorageFill
+    contents:
+    - id: AlmagestEquipmentWeaponBaseSelect
+    - id: HandHeldMassScanner
+    - id: HandheldGPSBasic
+    - id: AlmagestGirderFlatpack30
+    - id: WallAlmagestStructuralResistantFlatpack15
+    - id: WallAlmagestLaserResistantFlatpack15
+    - id: WallAlmagestPiercingResistantFlatpack15
+    - id: WallAlmagestUniversalResistantFlatpack15
+
+- type: entity
+  parent: ClothingBackpackAlmagestBlue
+  id: ClothingBackpackAlmagestBlueDemoman
+  name: blue demoman backpack
+  components:
+  - type: StorageFill
+    contents:
+    - id: AlmagestEquipmentWeaponBaseSelect
+    - id: DrinkPremiumWhiskeyBottleFull
+    - id: PackageGrenadeShrapnel
+      amount: 2
+    - id: PackageGrenadeIncendiary
+    - id: RemoteSignaller
+    - id: Multitool
+    - id: PackageGrenadeC4
+      amount: 4
+    - id: SyndicateBombFlatpack
+
+- type: entity
+  parent: ClothingBackpackAlmagestBlue
+  id: ClothingBackpackAlmagestBlueMedic
+  name: blue medic backpack
+  components:
+  - type: StorageFill
+    contents:
+    - id: AlmagestEquipmentWeaponBaseSelect
+    - id: BodyBagBluespaceFolded
+    - id: OmnizineCryostasisBeaker
+    - id: EpinephrineCryostasisBeaker
+    - id: Hypospray
+    - id: Crowbar
+    - id: HandHeldMassScanner
+    - id: HandheldGPSBasic
+    - id: WeaponGrapplingGun
+    - id: BeaconTeleporter
+    - id: DefibrillatorCompact

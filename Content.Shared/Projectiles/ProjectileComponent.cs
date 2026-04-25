@@ -109,7 +109,7 @@ public sealed partial class ProjectileComponent : Component
 
     // WWDP edit start
     [DataField]
-    public int MaxPenetrations = 0;
+    public int MaxPenetrations = -1;
 
     [DataField]
     public float PenetrationChance = 1.0f;
