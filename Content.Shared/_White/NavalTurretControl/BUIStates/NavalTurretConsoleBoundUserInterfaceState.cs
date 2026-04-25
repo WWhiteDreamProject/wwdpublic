@@ -36,9 +36,9 @@ public sealed class NavalTurretConsoleBuiState : BoundUserInterfaceState
 
 
 [Serializable, NetSerializable]
-public sealed class NavalTurretConsoleUpdateAimpointMessage(Vector2 newAimpoint) : BoundUserInterfaceMessage
+public sealed class NavalTurretConsoleUpdateAimDirectionMessage(Angle? newAimDir) : BoundUserInterfaceMessage
 {
-    public Vector2 NewAimpoint = newAimpoint;
+    public Angle? NewAimDirection = newAimDir;
 }
 
 [Serializable, NetSerializable]

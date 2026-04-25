@@ -65,11 +65,11 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
     /// <summary>
     /// Raised if the user left-clicks on the radar control with the relevant entitycoordinates.
     /// </summary>
-    public Action<EntityCoordinates, bool>? OnRadarClick;
-    public Action<EntityCoordinates, bool>? OnRadarRightClick; // WWDP EDIT
-    public Action<EntityCoordinates>? OnMouseMove; // WWDP EDIT
-
     // WWDP EDIT START
+    public Action<EntityCoordinates, bool>? OnRadarLeftClick;
+    public Action<EntityCoordinates, bool>? OnRadarRightClick;
+    public Action<Vector2, EntityCoordinates>? OnMouseMove;
+
     /// <summary>
     /// Raised after everything else is drawn.
     /// </summary>
@@ -131,7 +131,7 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
 
         Action<EntityCoordinates, bool>? ev = null;
         if (args.Function == EngineKeyFunctions.UIClick)
-            ev = OnRadarClick;
+            ev = OnRadarLeftClick;
         else if (args.Function == EngineKeyFunctions.UIRightClick)
             ev = OnRadarRightClick;
 
@@ -150,7 +150,7 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
 
         Action<EntityCoordinates, bool>? ev = null;
         if (args.Function == EngineKeyFunctions.UIClick)
-            ev = OnRadarClick;
+            ev = OnRadarLeftClick;
         else if (args.Function == EngineKeyFunctions.UIRightClick)
             ev = OnRadarRightClick;
 
@@ -169,7 +169,7 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
             return;
         }
 
-        OnMouseMove?.Invoke(GetMouseCoordinates(args.RelativePosition));
+        OnMouseMove?.Invoke(args.RelativePosition, GetMouseCoordinates(args.RelativePosition));
     }
 
     /// <summary>

@@ -38,19 +38,25 @@ public sealed partial class NavalTurretControlSystem : SharedNavalTurretConsoleS
 
     public override void Update(float frameTime)
     {
-        var query = EntityQueryEnumerator<NavalTurretConsoleComponent, UserInterfaceComponent, TransformComponent>();
-        while (query.MoveNext(out var consoleUid, out var consoleComp, out var uiComp, out var xform))
+        var query = EntityQueryEnumerator<NavalTurretConsoleComponent, UserInterfaceComponent>();
+        while (query.MoveNext(out var consoleUid, out var consoleComp, out var uiComp))
         {
-            if(_timing.IsFirstTimePredicted &&
-               _player.LocalEntity is EntityUid player &&
-               _ui.TryGetOpenUi<NavalTurretConsoleBoundUserInterface>((consoleUid, uiComp), NavalTurretConsoleUiKey.Key, out var bui) &&
-               bui.Aimpoint != consoleComp.CurrentAimpoint)
-            {
-                bui.Shitass++;
-                _ui.SendPredictedUiMessage(bui, new NavalTurretConsoleUpdateAimpointMessage(bui.Aimpoint));
-            }
-
-            ProcessConsole(consoleComp, xform, frameTime);
+            ProcessInput(consoleUid, consoleComp, uiComp);
+            ProcessConsole(consoleComp, frameTime);
         }
+    }
+
+    private void ProcessInput(EntityUid consoleUid, NavalTurretConsoleComponent consoleComp, UserInterfaceComponent uiComp)
+    {
+        if (!_timing.IsFirstTimePredicted)
+            return;
+
+        if (!_ui.TryGetOpenUi<NavalTurretConsoleBoundUserInterface>((consoleUid, uiComp), NavalTurretConsoleUiKey.Key, out var bui))
+            return;
+
+        if (bui.AimDirection  == consoleComp.CurrentAimDirection)
+            return;
+
+        _ui.SendPredictedUiMessage(bui, new NavalTurretConsoleUpdateAimDirectionMessage(bui.AimDirection));
     }
 }

@@ -27,38 +27,41 @@ public abstract class SharedNavalTurretConsoleSystem : EntitySystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<NavalTurretConsoleComponent, NavalTurretConsoleUpdateAimpointMessage>(OnConsoleMouseMoveBuiMessage);
+        SubscribeLocalEvent<NavalTurretConsoleComponent, NavalTurretConsoleUpdateAimDirectionMessage>(OnConsoleMouseMoveBuiMessage);
         SubscribeLocalEvent<NavalTurretConsoleComponent, NavalTurretConsoleMouseClickMessage>(OnConsoleMouseClickBuiMessage);
     }
     public override void Update(float frameTime)
     {
-        var query = EntityQueryEnumerator<NavalTurretConsoleComponent, TransformComponent>();
-        while (query.MoveNext(out var consoleComp, out var xform))
+        var query = EntityQueryEnumerator<NavalTurretConsoleComponent>();
+        while (query.MoveNext(out var consoleComp))
         {
-            ProcessConsole(consoleComp, xform, frameTime);
+            ProcessConsole(consoleComp, frameTime);
         }
     }
 
-    protected void ProcessConsole(NavalTurretConsoleComponent console, TransformComponent xform, float frameTime)
+    protected void ProcessConsole(NavalTurretConsoleComponent console, float frameTime)
     {
-        // if aimpoint is null, we haven't even touched the mouse yet
+        // if aimdir is null, we haven't even touched the mouse yet
         // no need to handle rotation or shooting
-        if (console.CurrentAimpoint is not Vector2 aimpoint ||
+        if (console.CurrentAimDirection is not Angle aimdir ||
             console.CurrentTurret is not EntityUid turretUid)
             return;
 
         if (!TryComp<NavalTurretComponent>(turretUid, out var turret))
             return;
-
         var turretXform = Transform(turretUid);
-        _rotate.TryRotateToCoordinates(
-            turretUid,
-            new EntityCoordinates(turretXform.ParentUid, turretXform.LocalPosition + aimpoint),
-            frameTime,
-            turret.AngleTolerance,
-            turret.RotationSpeed,
-            turretXform);
 
+        // for some reason this check can fail when an entity is entering player's pvs range.
+        if(TryComp<TransformComponent>(turretXform.ParentUid, out var turretParentXform))
+        {
+            _rotate.TryRotateTo(
+                turretUid,
+                _transform.GetWorldRotation(turretParentXform) + aimdir,
+                frameTime,
+                turret.AngleTolerance,
+                turret.RotationSpeed,
+                turretXform);
+        }
         //if (_rotate.TryRotateToCoordinates(
         //    turretUid,
         //    _transform.GetWorldPosition(turretXform) + aimpoint,
@@ -77,13 +80,15 @@ public abstract class SharedNavalTurretConsoleSystem : EntitySystem
         if (!_gun.TryGetGun(turretUid, out var gunUid, out var gun))
             return;
 
-        var rot = -xform.LocalRotation;
-        _gun.AttemptShoot(turretUid, gunUid, gun, new(turretUid, rot.RotateVec(aimpoint)), false);
+        // null arg instead of proper EntityCoordinates results in the entity shooting only directly forwards.
+        // This is not a problem for turrets, but for something like a remote controlled robot this could result in unwanted behaviour.
+        // TODO: fix
+        _gun.AttemptShoot(turretUid, gunUid, gun, null, false);
     }
 
-    private void OnConsoleMouseMoveBuiMessage(EntityUid uid, NavalTurretConsoleComponent comp, NavalTurretConsoleUpdateAimpointMessage args)
+    private void OnConsoleMouseMoveBuiMessage(EntityUid uid, NavalTurretConsoleComponent comp, NavalTurretConsoleUpdateAimDirectionMessage args)
     {
-        comp.CurrentAimpoint = args.NewAimpoint;
+        comp.CurrentAimDirection = args.NewAimDirection;
         Dirty(uid, comp);
     }
 
