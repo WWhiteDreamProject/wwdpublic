@@ -497,3 +497,8 @@ AirlockHydroponics: AirlockHydroponicsLocked
 Biogenerator: null
 FloraGreyStalagmite: null
 FelinidCube: TajaranCube
+
+# 2026-04-22 Salvage magnet disabled via CVar, removing from maps
+SalvageMagnet: null
+SalvageLocator: null
+SalvageMagnetMachineCircuitboard: null

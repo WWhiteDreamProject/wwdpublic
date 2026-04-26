@@ -2060,6 +2060,8 @@
   # TODO: Remove CombatMode when Prototype Composition is added
   - type: CombatMode
   - type: MeleeWeapon
+    altDisarm: false # WWDP EDIT — no disarm for snale and mouse!
+    canHeavyAttack: false # WWDP EDIT
     soundHit:
       path: /Audio/Effects/bite.ogg
     angle: 0
