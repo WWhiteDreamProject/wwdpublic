@@ -1879,6 +1879,17 @@ namespace Content.Client.Lobby.UI
             {
                 var radius = fixture.Fixtures["fix1"].Shape.Radius;
                 var density = fixture.Fixtures["fix1"].Density;
+                // WWDP EDIT START
+                foreach (var traitId in Profile.TraitPreferences)
+                {
+                    if (!_prototypeManager.TryIndex<TraitPrototype>(traitId, out var trait))
+                        continue;
+                    if (traitId == "Featherweight")
+                        density *= 0.5f;
+                    else if (traitId == "Bodybuilder")
+                        density += 55f;
+                }
+                // WWDP EDIT END
                 var avg = (Profile.Width + Profile.Height) / 2;
                 var weight = MathF.Round(MathF.PI * MathF.Pow(radius * avg, 2) * density);
                 WeightLabel.Text = Loc.GetString("humanoid-profile-editor-weight-label", ("weight", (int) weight));
