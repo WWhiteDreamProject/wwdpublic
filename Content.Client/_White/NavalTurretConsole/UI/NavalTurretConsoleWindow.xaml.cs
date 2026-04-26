@@ -15,8 +15,6 @@ namespace Content.Client._White.NavalTurretConsole.UI;
 [GenerateTypedNameReferences]
 public sealed partial class NavalTurretConsoleWindow : FancyWindow, IComputerWindow<NavInterfaceState>
 {
-    // TODO: this and InitShit() is an attempt at avoiding rude changes.
-    //       If you see this, it means I am a dumbass and forgot to remove them before pushing.
     private IGameTiming _timing = default!;
     private Font _font = default!;
     public NavalTurretConsoleError Error { get; private set; }
@@ -24,12 +22,6 @@ public sealed partial class NavalTurretConsoleWindow : FancyWindow, IComputerWin
     public NavalTurretConsoleWindow()
     {
         RobustXamlLoader.Load(this);
-
-        InitShit();
-    }
-
-    public void InitShit()
-    {
         _font = new VectorFont(IoCManager.Resolve<IResourceCache>().GetResource<FontResource>("/Fonts/_White/LCD14/LCD14.otf"), 16);
         _timing = IoCManager.Resolve<IGameTiming>();
         RadarScreen.DrawAfterBackground += DrawNoSignal;

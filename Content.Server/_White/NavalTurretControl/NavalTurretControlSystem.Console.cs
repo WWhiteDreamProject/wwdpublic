@@ -93,21 +93,23 @@ public partial class NavalTurretControlSystem
 
     private void OnTurretSelection(EntityUid uid, NavalTurretConsoleComponent comp, NavalTurretConsoleTurretSelectedBuiMessage args)
     {
-        Switch(uid, comp, GetEntity(args.Turret), _actor.GetSession(args.Actor));
+        TrySwitch(uid, comp, GetEntity(args.Turret), _actor.GetSession(args.Actor));
     }
 
-    private bool Switch(EntityUid consoleUid, NavalTurretConsoleComponent consoleComp, EntityUid? newTurretUid, ICommonSession? player)
+    private bool TrySwitch(EntityUid consoleUid, NavalTurretConsoleComponent consoleComp, EntityUid? newTurretUid, ICommonSession? player)
     {
         NavalTurretComponent? currentTurretComp;
+        var currentTurretUid = consoleComp.CurrentTurret;
         if (newTurretUid is null)
         {
-            if (TryComp<NavalTurretComponent>(consoleComp.CurrentTurret, out currentTurretComp))
+            consoleComp.CurrentTurret = null;
+            if (TryComp<NavalTurretComponent>(currentTurretUid, out currentTurretComp))
             {
                 RemoveFromPvsOverride(consoleUid, consoleComp.CurrentTurret);
                 currentTurretComp.CurrentConsole = null;
+                Dirty(currentTurretUid.Value, currentTurretComp);
                 UpdateAllStates(currentTurretComp);
             }
-            consoleComp.CurrentTurret = null;
             return true;
         }
 
@@ -123,6 +125,7 @@ public partial class NavalTurretControlSystem
         if (TryComp<NavalTurretComponent>(consoleComp.CurrentTurret, out currentTurretComp))
         {
             currentTurretComp.CurrentConsole = null;
+            Dirty(consoleComp.CurrentTurret.Value, currentTurretComp);
             UpdateAllStates(currentTurretComp);
         }
 
@@ -130,6 +133,7 @@ public partial class NavalTurretControlSystem
         AddToPvsOverride(consoleUid, newTurretUid);
         consoleComp.CurrentTurret = newTurretUid;
         newTurretComp.CurrentConsole = consoleUid;
+        Dirty(newTurretUid.Value, newTurretComp);
         UpdateAllStates(newTurretComp);
         return true;
     }
@@ -153,7 +157,6 @@ public partial class NavalTurretControlSystem
         DebugTools.Assert(session is not null);
         _pvs.RemoveSessionOverride(turret, session);
     }
-
 
     private void RemoveFromPvsOverride(Entity<UserInterfaceComponent?> consoleEntity, EntityUid? obj)
     {

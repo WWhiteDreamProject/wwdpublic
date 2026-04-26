@@ -402,9 +402,10 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
         Angle angle)
     {
         if (!Resolve(entity, ref entity.Comp1, ref entity.Comp2))
-            return new NavInterfaceState(SharedRadarConsoleSystem.DefaultMaxRange, GetNetCoordinates(coordinates), angle, docks, InertiaDampeningMode.Dampened, MathF.Tau, 0, true);  // Frontier: add inertial dampening // wwdp edit
+            return new NavInterfaceState(SharedRadarConsoleSystem.DefaultMinRange, SharedRadarConsoleSystem.DefaultMaxRange, GetNetCoordinates(coordinates), angle, docks, InertiaDampeningMode.Dampened, MathF.Tau, 0, true);  // Frontier: add inertial dampening // wwdp edit
 
         return new NavInterfaceState(
+            entity.Comp1.MinRange, // WWDP EDIT
             entity.Comp1.MaxRange,
             GetNetCoordinates(coordinates),
             angle + entity.Comp1.DisplayRotation, // WD EDIT

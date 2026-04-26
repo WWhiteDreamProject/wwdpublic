@@ -11,7 +11,7 @@ namespace Content.Shared._White.NavalTurretControl;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class NavalTurretConsoleComponent : Component
 {
-    [AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public EntityUid? CurrentTurret;
 
     [AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
@@ -20,7 +20,10 @@ public sealed partial class NavalTurretConsoleComponent : Component
     [AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
     public Angle? CurrentAimDirection;
 
-    // not used on client
+    // not used on client, so no autonetworking
+    // keeping datafieldattrib as a crutch for the connections to be saveable
+    // TODO: improve datalink system so that this double tracking of links is unnecessary
+    [DataField]
     public List<EntityUid> LinkedTurrets = new();
 }
 
@@ -31,7 +34,7 @@ public sealed partial class NavalTurretComponent : Component
     public string? Name;
 
     [DataField, AutoNetworkedField]
-    public Angle AngleTolerance = Math.PI / 360; // 0.5 degrees
+    public Angle AngleTolerance = Math.PI / 720; // 0.25 degrees
 
     [DataField, AutoNetworkedField]
     public Angle RotationSpeed = Math.PI / 3;
@@ -39,8 +42,14 @@ public sealed partial class NavalTurretComponent : Component
     [DataField, AutoNetworkedField]
     public float AimpointTolerane = 0.5f;
 
-    public List<EntityUid> LinkedConsoles = new();
+    [DataField, AutoNetworkedField]
     public EntityUid? CurrentConsole;
+
+    // not used on client, so no autonetworking
+    // keeping datafieldattrib as a crutch for the connections to be saveable
+    // TODO: improve datalink system so that this double tracking of links is unnecessary
+    [DataField]
+    public List<EntityUid> LinkedConsoles = new();
 
 }
 

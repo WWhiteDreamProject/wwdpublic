@@ -36,25 +36,20 @@ public sealed partial class NavalTurretControlSystem : SharedNavalTurretConsoleS
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
 
-    public override void Update(float frameTime)
+    protected override void ProcessConsole(EntityUid consoleUid, NavalTurretConsoleComponent consoleComp, float frameTime)
     {
-        var query = EntityQueryEnumerator<NavalTurretConsoleComponent, UserInterfaceComponent>();
-        while (query.MoveNext(out var consoleUid, out var consoleComp, out var uiComp))
-        {
-            ProcessInput(consoleUid, consoleComp, uiComp);
-            ProcessConsole(consoleComp, frameTime);
-        }
+        ProcessInput(consoleUid, consoleComp);
+        base.ProcessConsole(consoleUid, consoleComp, frameTime);
     }
-
-    private void ProcessInput(EntityUid consoleUid, NavalTurretConsoleComponent consoleComp, UserInterfaceComponent uiComp)
+    private void ProcessInput(EntityUid consoleUid, NavalTurretConsoleComponent consoleComp)
     {
         if (!_timing.IsFirstTimePredicted)
             return;
 
-        if (!_ui.TryGetOpenUi<NavalTurretConsoleBoundUserInterface>((consoleUid, uiComp), NavalTurretConsoleUiKey.Key, out var bui))
+        if (!_ui.TryGetOpenUi<NavalTurretConsoleBoundUserInterface>(consoleUid, NavalTurretConsoleUiKey.Key, out var bui))
             return;
 
-        if (bui.AimDirection  == consoleComp.CurrentAimDirection)
+        if (bui.AimDirection == consoleComp.CurrentAimDirection)
             return;
 
         _ui.SendPredictedUiMessage(bui, new NavalTurretConsoleUpdateAimDirectionMessage(bui.AimDirection));

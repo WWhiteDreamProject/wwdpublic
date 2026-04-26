@@ -1,10 +1,12 @@
 using System.Numerics;
 using Content.Client._White.NavalTurretConsole.UI;
 using Content.Client.Shuttles.UI;
+using Content.Client.Weapons.Ranged.Systems;
 using Content.Shared._White.NavalTurretControl;
 using Content.Shared._White.NavalTurretControl.BUIStates;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Shuttles.BUIStates;
+using Content.Shared.Weapons.Ranged.Components;
 using JetBrains.Annotations;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
@@ -13,6 +15,8 @@ using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Map;
+using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 using RadarConsoleWindow = Content.Client.Shuttles.UI.RadarConsoleWindow;
 
 namespace Content.Client._White.NavalTurretConsole.UI;
@@ -20,16 +24,18 @@ namespace Content.Client._White.NavalTurretConsole.UI;
 [UsedImplicitly]
 public sealed class NavalTurretConsoleBoundUserInterface : BoundUserInterface
 {
+    [Dependency] private readonly IGameTiming _timing = default!;
     private SharedTransformSystem _transform = default!;
     private ActionBlockerSystem _actionBlocker = default!;
+    private GunSystem _gun = default!;
 
     [ViewVariables] private NavalTurretConsoleWindow? _window;
     private Font _font = default!;
 
     public bool Shooting = false;
     public bool Locked = false;
-    public int Shitass = 0;
-    public Angle? AimDirection = null;
+    public Angle? AimDirection { get; private set; } = null;
+    public Entity<NavalTurretComponent>? CurrentTurret { get; private set; }
     public NavalTurretConsoleBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
     }
@@ -40,28 +46,65 @@ public sealed class NavalTurretConsoleBoundUserInterface : BoundUserInterface
         _font = new VectorFont(IoCManager.Resolve<IResourceCache>().GetResource<FontResource>("/Fonts/_White/LCD14/LCD14.otf"), 16);
 
         _actionBlocker = EntMan.System<ActionBlockerSystem>();
-        _window = this.CreateWindow<NavalTurretConsoleWindow>();
         _transform = EntMan.System<SharedTransformSystem>();
+        _gun = EntMan.System<GunSystem>();
+        _window = this.CreateWindow<NavalTurretConsoleWindow>();
         _window.RadarScreen.OnMouseMove += OnMouseMove;
+        _window.RadarScreen.OnMouseExited += OnMouseExited;
         _window.RadarScreen.OnRadarLeftClick += OnRadarLeftClick;
         _window.RadarScreen.OnRadarRightClick += OnRadarRightClick;
         _window.RadarScreen.OnMouseExited += (_) => Shooting = false;
         _window.RadarScreen.DrawAfterFoV += DrawTurretIndicator;
         _window.RadarScreen.DrawAfterFoV += DrawAimDir;
         _window.RadarScreen.SetConsole(Owner);
-        _window.RadarScreen.DrawTop += DrawShitass;
+        _window.RadarScreen.DrawTop += DrawTop;
     }
 
-
-    private void DrawShitass(DrawingHandleScreen handle, UIBox2 whatever, Matrix3x2 ass, Matrix3x2 blast, Matrix3x2 usa)
+    private bool IsTimePeriod(double active, double inactive) => _timing.CurTime.TotalSeconds % (active + inactive) <= active;
+    private void DrawTop(DrawingHandleScreen handle, UIBox2 controlSize, Matrix3x2 ourEntToWorld, Matrix3x2 shuttleToWorld, Matrix3x2 worldToView)
     {
-        handle.DrawString(_font, Vector2.Zero, Locked ? "CONTROLS LOCKED\nPRESS RIGHT TRIGGER TO UNLOCK" : "", Color.Green);
+        if (Locked && IsTimePeriod(0.5, 0.5))
+            handle.DrawString(_font, Vector2.Zero, "CONTROLS LOCKED\nPRESS RIGHT TRIGGER TO UNLOCK", Color.Green);
+
+        if (CurrentTurret is null)
+            return;
+
+        if (!_gun.TryGetGun(CurrentTurret.Value, out var gunUid, out _) ||
+            !_gun.TryGetBatteryCharges(gunUid, out var shots, out var capacity))
+        {
+            var noBatteryString = "BAT: N/A";
+            var noBatteryStringHeight = handle.GetDimensions(_font, noBatteryString, 1f).Y;
+            handle.DrawString(_font, new Vector2(0, controlSize.Height - noBatteryStringHeight), noBatteryString, Color.AntiqueWhite);
+            return;
+        }
+
+        var chargePercent = (float) shots / capacity * 100;
+        var len = (int) MathF.Floor(MathF.Log10(capacity)+1);
+        var shotCounter = $"{shots.ToString($"D{len}")}/{capacity}";
+        var warn = chargePercent < 25 && IsTimePeriod(0.2, 0.2) ? "WARN" : string.Empty;
+        var batteryString = $"BAT:{chargePercent: 00.00}% ({shotCounter}) {warn}";
+        var batteryStringColor = chargePercent switch
+        {
+            >= 75 => Color.Green,
+            >= 50 => Color.Yellow,
+            >= 25 => Color.OrangeRed,
+            >= 0 => Color.Red,
+            _ => Color.Green
+        };
+        var stringHeight = handle.GetDimensions(_font, batteryString, 1f).Y;
+        handle.DrawString(_font, new Vector2(0, controlSize.Height - stringHeight), batteryString, batteryStringColor);
+
     }
-    private void OnMouseMove(Vector2 controlPos, EntityCoordinates coordinates)
+    private void OnMouseMove(EntityCoordinates coordinates)
     {
         if (Locked)
             return;
         UpdateAimDirection(coordinates);
+    }
+
+    private void OnMouseExited(GUIMouseHoverEventArgs args)
+    {
+        AimDirection = null;
     }
 
     private void UpdateAimDirection(EntityCoordinates coordinates)
@@ -103,47 +146,55 @@ public sealed class NavalTurretConsoleBoundUserInterface : BoundUserInterface
 
         Locked = !Locked;
         AimDirection = null;
-        if(!Locked)
+        if (!Locked)
             UpdateAimDirection(coordinates);
     }
 
-    protected override void UpdateState(BoundUserInterfaceState _state)
+    protected override void UpdateState(BoundUserInterfaceState someState)
     {
-        base.UpdateState(_state);
-        if (_state is not NavalTurretConsoleBuiState state)
+        base.UpdateState(someState);
+        if (someState is not NavalTurretConsoleBuiState state)
             return;
 
-        var turret = EntMan.GetEntity(state.CurrentTurret);
-        RebuildTurretSelection(state.LinkedTurrets, turret);
-        //_window?.SetError(cState.Error);
-        _window?.UpdateState(state.RadarState);
+        var turretUid = EntMan.GetEntity(state.CurrentTurret);
+        if (turretUid is not null)
+        {
+            if (!EntMan.TryGetComponent<NavalTurretComponent>(turretUid, out var turretComp))
+            {
+                UiSystem.Log.Error($"For {nameof(NavalTurretConsoleBoundUserInterface)}, the server sent a turret entity that is missing {nameof(NavalTurretComponent)}.");
+                return; // pretend it never happened
+            }
+            CurrentTurret = (turretUid.Value, turretComp);
+        }
+        else
+            CurrentTurret = null;
+
         AimDirection = null;
+        RebuildTurretSelection(state.LinkedTurrets, turretUid);
+        _window?.SetError(state.Error);
+        _window?.UpdateState(state.RadarState);
     }
 
-    private void RebuildTurretSelection(List<NetEntity> netEnts, EntityUid? currentEnt)
+    private void RebuildTurretSelection(List<(NetEntity, bool)> netEnts, EntityUid? currentTurretUid)
     {
         _window!.TurretSelection.DisposeAllChildren();
-        foreach (var netUid in netEnts)
+        foreach (var (turretNetUid, turretAvailable) in netEnts)
         {
-            var uid = EntMan.GetEntity(netUid);
+            var turretUid = EntMan.GetEntity(turretNetUid);
             var button = new Button();
-            if (!EntMan.TryGetComponent<NavalTurretComponent>(uid, out var turret))
+            if (!EntMan.TryGetComponent<NavalTurretComponent>(turretUid, out var turret))
                 continue;
 
-            button.Text = turret.Name ?? $"{EntMan.ToPrettyString(uid)}";
-
-            if (turret.CurrentConsole is EntityUid curConsole)
-            {
-                if (curConsole == Owner)
-                    button.ModulateSelfOverride = Color.Gold;
-                else
-                    button.Disabled = true;
-            }
+            button.Text = turret.Name ?? EntMan.ToPrettyString(turretUid);
+            button.HorizontalAlignment = Control.HAlignment.Stretch;
+            if (turretUid == currentTurretUid)
+                button.ModulateSelfOverride = Color.DarkGoldenrod;
+            else if (!turretAvailable)
+                button.Disabled = true;
 
             button.OnPressed += (_) =>
             {
-                SendMessage(new NavalTurretConsoleTurretSelectedBuiMessage(uid == currentEnt ? null : netUid));
-                //SendPredictedMessage(new NavalTurretConsoleTurretSelectedBuiMessage(netEnt));
+                SendMessage(new NavalTurretConsoleTurretSelectedBuiMessage(turretUid == currentTurretUid ? null : turretNetUid));
             };
 
             _window!.TurretSelection.AddChild(button);

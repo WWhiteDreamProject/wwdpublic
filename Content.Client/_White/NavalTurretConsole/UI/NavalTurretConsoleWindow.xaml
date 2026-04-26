@@ -2,15 +2,20 @@
                       xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
                       xmlns:ui="clr-namespace:Content.Client.Shuttles.UI"
                       Title="{Loc 'radar-console-window-title'}"
-                      SetSize="768 768"
-                      MinSize="256 256">
+                      SetSize="1200, 686"
+                      MinSize="656, 686">
     <BoxContainer Orientation="Horizontal">
         <ui:ShuttleNavControl Name="RadarScreen"
                         Margin="4"
                         HorizontalExpand = "True"
                         VerticalExpand = "True"
-                        Access="Public"/>
-        <BoxContainer Orientation="Vertical" Name="TurretSelection" Access="Public">
-        </BoxContainer>
+                        Access="Public"
+                        HorizontalAlignment="Left"/>
+            <ScrollContainer HScrollEnabled="False"
+                     HorizontalExpand="True"
+                     VerticalExpand="True"
+                     MinHeight="400">
+                <BoxContainer Name="TurretSelection" Orientation="Vertical" Access="Public"/>
+            </ScrollContainer>
     </BoxContainer>
 </controls:FancyWindow>

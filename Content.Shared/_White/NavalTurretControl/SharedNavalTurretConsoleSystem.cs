@@ -33,13 +33,13 @@ public abstract class SharedNavalTurretConsoleSystem : EntitySystem
     public override void Update(float frameTime)
     {
         var query = EntityQueryEnumerator<NavalTurretConsoleComponent>();
-        while (query.MoveNext(out var consoleComp))
+        while (query.MoveNext(out var consoleUid, out var consoleComp))
         {
-            ProcessConsole(consoleComp, frameTime);
+            ProcessConsole(consoleUid, consoleComp, frameTime);
         }
     }
 
-    protected void ProcessConsole(NavalTurretConsoleComponent console, float frameTime)
+    protected virtual void ProcessConsole(EntityUid consoleUid, NavalTurretConsoleComponent console, float frameTime)
     {
         // if aimdir is null, we haven't even touched the mouse yet
         // no need to handle rotation or shooting

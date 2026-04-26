@@ -45,12 +45,11 @@ public sealed partial class NavalTurretControlSystem : SharedNavalTurretConsoleS
     public override void Initialize()
     {
         base.Initialize();
-    
+
         InitializeConsole();
         InitializeTarget();
 
         SubscribeLocalEvent<NavalTurretConsoleComponent, ComponentStartup>(OnConsoleStartup);
-
     }
 
     private void OnConsoleStartup(EntityUid uid, NavalTurretConsoleComponent component, ComponentStartup args)
@@ -58,12 +57,12 @@ public sealed partial class NavalTurretControlSystem : SharedNavalTurretConsoleS
         UpdateState(uid, component);
     }
 
-    private void SetUiState(Entity<UserInterfaceComponent?> ent, NavInterfaceState radarState, List<NetEntity> turretList) =>
+    private void SetUiState(Entity<UserInterfaceComponent?> ent, EntityUid? currentSelectedTurret, NavInterfaceState radarState, List<(NetEntity, bool)> turretList) =>
                     _uiSystem.SetUiState(ent, NavalTurretConsoleUiKey.Key,
-                                 new NavalTurretConsoleBuiState(radarState, turretList));
-    private void SetUiState(Entity<UserInterfaceComponent?> ent, NavalTurretConsoleError error, List<NetEntity> turretList) =>
+                                 new NavalTurretConsoleBuiState(radarState, GetNetEntity(currentSelectedTurret), turretList));
+    private void SetUiState(Entity<UserInterfaceComponent?> ent, EntityUid? currentSelectedTurret, NavalTurretConsoleError error, List<(NetEntity, bool)> turretList) =>
                     _uiSystem.SetUiState(ent, NavalTurretConsoleUiKey.Key,
-                                 new NavalTurretConsoleBuiState(error, turretList));
+                                 new NavalTurretConsoleBuiState(error, GetNetEntity(currentSelectedTurret), turretList));
 
     private void UpdateState(EntityUid uid, NavalTurretConsoleComponent? comp = null) => UpdateState((uid, null, comp));
     // TODO: handle multiple attempted console uses (reject everyone until the first user closes the bui) 
@@ -75,38 +74,35 @@ public sealed partial class NavalTurretControlSystem : SharedNavalTurretConsoleS
             return;
 
         var consoleComp = consoleEnt.Comp2;
-        var turrets = ToNetEntList(consoleComp.LinkedTurrets);
-
+        var turrets = new List<(NetEntity, bool)>();
+        foreach (var uid in consoleComp.LinkedTurrets)
+        {
+            if (!TryComp<NavalTurretComponent>(uid, out var turret))
+                continue;
+            turrets.Add((GetNetEntity(uid), turret.CurrentConsole is null));
+        }
         if (consoleComp.CurrentTurret is not EntityUid currentTurretUid ||
             !consoleComp.LinkedTurrets.Contains(currentTurretUid))
         {
-            SetUiState(consoleEnt, NavalTurretConsoleError.NotConnected, turrets);
+            SetUiState(consoleEnt, null, NavalTurretConsoleError.NotConnected, turrets);
             return;
         }
 
-        if(TryComp<MobStateComponent>(consoleEnt, out var stateComp) && stateComp.CurrentState != Shared.Mobs.MobState.Alive ||
+        if (TryComp<MobStateComponent>(consoleEnt, out var stateComp) && stateComp.CurrentState != Shared.Mobs.MobState.Alive ||
            TerminatingOrDeleted(currentTurretUid))
         {
-            SetUiState(consoleEnt, NavalTurretConsoleError.TurretDestroyed, turrets);
+            SetUiState(consoleEnt, currentTurretUid, NavalTurretConsoleError.TurretDestroyed, turrets);
             return;
         }
 
-        if(!this.IsPowered(currentTurretUid, EntityManager))
+        if (!this.IsPowered(currentTurretUid, EntityManager))
         {
-            SetUiState(consoleEnt, NavalTurretConsoleError.NoPowerTurret, turrets);
+            SetUiState(consoleEnt, currentTurretUid, NavalTurretConsoleError.NoPowerTurret, turrets);
             return;
         }
 
         var state = _console.GetNavState(currentTurretUid, new(), new(currentTurretUid, new Vector2(0,0)), 0);
         SetUiState(consoleEnt, state, turrets);
-    }
-
-    private List<NetEntity> ToNetEntList(List<EntityUid> list)
-    {
-        var ret = new List<NetEntity>();
-        foreach (var ent in list)
-            ret.Add(GetNetEntity(ent));
-        return ret;
     }
 
     private void UpdateAllStates(NavalTurretComponent component)

@@ -68,7 +68,7 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
     // WWDP EDIT START
     public Action<EntityCoordinates, bool>? OnRadarLeftClick;
     public Action<EntityCoordinates, bool>? OnRadarRightClick;
-    public Action<Vector2, EntityCoordinates>? OnMouseMove;
+    public Action<EntityCoordinates>? OnMouseMove;
 
     /// <summary>
     /// Raised after everything else is drawn.
@@ -169,7 +169,7 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
             return;
         }
 
-        OnMouseMove?.Invoke(args.RelativePosition, GetMouseCoordinates(args.RelativePosition));
+        OnMouseMove?.Invoke(GetMouseCoordinates(args.RelativePosition));
     }
 
     /// <summary>
@@ -212,11 +212,8 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
         SetMatrix(EntManager.GetCoordinates(state.Coordinates), state.Angle);
 
         WorldMaxRange = state.MaxRange;
-
-        if (WorldMaxRange < WorldRange)
-        {
-            ActualRadarRange = WorldMaxRange;
-        }
+        WorldMinRange = state.MinRange; // WWDP EDIT
+        DebugTools.Assert(WorldMinRange <= WorldMaxRange); // WWDP EDIT
 
         if (WorldMaxRange < WorldMinRange)
             WorldMinRange = WorldMaxRange;

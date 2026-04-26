@@ -8,6 +8,7 @@ namespace Content.Shared.Shuttles.BUIStates;
 [Serializable, NetSerializable]
 public sealed class NavInterfaceState
 {
+    public float MinRange;
     public float MaxRange;
 
     /// <summary>
@@ -36,10 +37,11 @@ public sealed class NavInterfaceState
     public Angle FieldOfView;
     public float FieldOfViewOffset;
 
-    public static NavInterfaceState Invalid { get; } = new(0, null, null, new(), InertiaDampeningMode.Dampened, 0, 0, false);
+    public static NavInterfaceState Invalid { get; } = new(0, 0, null, null, new(), InertiaDampeningMode.Dampened, 0, 0, false);
     // WWDP EDIT END
 
     public NavInterfaceState(
+        float minRange, // WWPD EDIT // FUCK YOU SLOTH
         float maxRange,
         NetCoordinates? coordinates,
         Angle? angle,
@@ -49,7 +51,8 @@ public sealed class NavInterfaceState
         float fieldOfViewOffset, // WWDP EDIT
         bool rotateWithEntity) // WWDP EDIT
     {
-        MaxRange = maxRange;
+        MinRange = minRange; // WWDP EDIT
+        MaxRange = maxRange; 
         Coordinates = coordinates;
         Angle = angle;
         Docks = docks;
