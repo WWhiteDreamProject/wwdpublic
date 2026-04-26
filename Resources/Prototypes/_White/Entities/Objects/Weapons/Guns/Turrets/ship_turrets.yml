@@ -90,8 +90,9 @@
           components:
           - Gun
           - ModularTurretWeapon
-  - type: RemoteControllable
-  - type: RemoteControlOverlay
+  #- type: RemoteControllable
+  #- type: RemoteControlOverlay
+  - type: NavalTurret
   - type: Lock
     locked: false
     lockTime: 5
@@ -106,7 +107,8 @@
   - type: WiredNetworkConnection
   - type: DeviceLinkSink
     ports:
-    - RemoteControlSinkPort
+    #- RemoteControlSinkPort # goodnight, sweet prince
+    - ShipGunnerControlSinkPort
   - type: Battery
     maxCharge: 2000
     startingCharge: 0
@@ -164,10 +166,10 @@
       enum.RadarConsoleUiKey.Key:
         type: RadarConsoleBoundUserInterface
   - type: RadarConsole
-    fieldOfView: 180
-    displayRotation: 180
+    fieldOfView: 120
     maxRange: 448
     followEntity: true
+    rotateWithEntity: false
   - type: ContentEye
     targetZoom: 2, 2
     maxZoom: 2, 2
