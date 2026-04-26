@@ -23,29 +23,29 @@
   ignoreTile: FloorShuttleOrange
   tags: [ RoomsWonderboxMaintBase1 ]
 # Engine
-- type: dungeonRoom
-  id: RoomsWonderboxEngineBase1_1a
-  size: 30,47
-  atlas: /Maps/_White/Atlases/WonderBoxEngine.yml
-  offset: 1,1
-  ignoreTile: FloorShuttleOrange
-  tags: [ RoomsWonderboxEngineBase1 ]
-
-- type: dungeonRoom
-  id: RoomsWonderboxEngineBase1_1b
-  size: 30,47
-  atlas: /Maps/_White/Atlases/WonderBoxEngine.yml
-  offset: 34,1
-  ignoreTile: FloorShuttleOrange
-  tags: [ RoomsWonderboxEngineBase1 ]
-
-- type: dungeonRoom
-  id: RoomsWonderboxEngineBase1_1c
-  size: 30,47
-  atlas: /Maps/_White/Atlases/WonderBoxEngine.yml
-  offset: 100,1
-  ignoreTile: FloorShuttleOrange
-  tags: [ RoomsWonderboxEngineBase1 ]
+#- type: dungeonRoom
+#  id: RoomsWonderboxEngineBase1_1a
+#  size: 30,47
+#  atlas: /Maps/_White/Atlases/WonderBoxEngine.yml
+#  offset: 1,1
+#  ignoreTile: FloorShuttleOrange
+#  tags: [ RoomsWonderboxEngineBase1 ]
+#
+#- type: dungeonRoom
+#  id: RoomsWonderboxEngineBase1_1b
+#  size: 30,47
+#  atlas: /Maps/_White/Atlases/WonderBoxEngine.yml
+#  offset: 34,1
+#  ignoreTile: FloorShuttleOrange
+#  tags: [ RoomsWonderboxEngineBase1 ]
+#
+#- type: dungeonRoom
+#  id: RoomsWonderboxEngineBase1_1c
+#  size: 30,47
+#  atlas: /Maps/_White/Atlases/WonderBoxEngine.yml
+#  offset: 100,1
+#  ignoreTile: FloorShuttleOrange
+#  tags: [ RoomsWonderboxEngineBase1 ]
 
 - type: dungeonRoom
   id: RoomsWonderboxEngineBase1_1d

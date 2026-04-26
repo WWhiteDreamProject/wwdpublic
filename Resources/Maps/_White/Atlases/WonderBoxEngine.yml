@@ -7405,13 +7405,13 @@ entities:
     - type: Transform
       pos: 145.56506,43.677483
       parent: 1
-#- proto: ClothingShoesBootsMagEng
-#  entities:
-#  - uid: 2740
-#    components:
-#    - type: Transform
-#      pos: 146.49202,43.602406
-#      parent: 1
+- proto: ClothingShoesBootsMagEng
+  entities:
+  - uid: 2740
+    components:
+    - type: Transform
+      pos: 146.49202,43.602406
+      parent: 1
 - proto: ComputerFrame
   entities:
   - uid: 1270

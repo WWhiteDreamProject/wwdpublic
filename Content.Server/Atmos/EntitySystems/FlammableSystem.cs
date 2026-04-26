@@ -321,6 +321,8 @@ namespace Content.Server.Atmos.EntitySystems
             flammable.IgnoreFireProtection = false;
 
             _ignitionSourceSystem.SetIgnited(uid, false);
+            _alertsSystem.ClearAlert(uid, flammable.FireAlert);
+            RaiseLocalEvent(uid, new MoodRemoveEffectEvent("OnFire"));
 
             UpdateAppearance(uid, flammable);
         }
