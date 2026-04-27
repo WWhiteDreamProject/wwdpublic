@@ -75,14 +75,14 @@ public sealed partial class NavalTurretControlSystem : SharedNavalTurretConsoleS
 
         var consoleComp = consoleEnt.Comp2;
         var turrets = new List<(NetEntity, bool)>();
-        foreach (var uid in consoleComp.LinkedTurrets)
+        foreach (var uid in _link.GetConnectedToSource(consoleEnt.Owner, SourcePortId))
         {
             if (!TryComp<NavalTurretComponent>(uid, out var turret))
                 continue;
             turrets.Add((GetNetEntity(uid), turret.CurrentConsole is null));
         }
         if (consoleComp.CurrentTurret is not EntityUid currentTurretUid ||
-            !consoleComp.LinkedTurrets.Contains(currentTurretUid))
+            !_link.IsConnectedToSource(consoleEnt.Owner, SourcePortId, currentTurretUid))
         {
             SetUiState(consoleEnt, null, NavalTurretConsoleError.NotConnected, turrets);
             return;
@@ -105,9 +105,9 @@ public sealed partial class NavalTurretControlSystem : SharedNavalTurretConsoleS
         SetUiState(consoleEnt, currentTurretUid, state, turrets);
     }
 
-    private void UpdateAllStates(NavalTurretComponent component)
+    private void UpdateStateForAllConnected(EntityUid turret)
     {
-        foreach (var consoleUid in component.LinkedConsoles)
+        foreach (var consoleUid in _link.GetConnectedToSink(turret, SinkPortId))
         {
             var succ = TryComp<NavalTurretConsoleComponent>(consoleUid, out var consoleComp);
             DebugTools.Assert(succ);

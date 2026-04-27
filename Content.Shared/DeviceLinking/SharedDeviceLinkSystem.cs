@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
@@ -46,7 +47,10 @@ public abstract class SharedDeviceLinkSystem : EntitySystem
             foreach (var link in links)
             {
                 if (sinkComponent.Ports.Contains(link.Sink) && source.Comp.Ports.Contains(link.Source))
+                {
                     source.Comp.Outputs.GetOrNew(link.Source).Add(sink);
+                    sinkComponent.Inputs.GetOrNew(link.Sink).Add(source); // WWDP EDIT
+                }
                 else
                     invalidLinks.Add(link);
             }
@@ -299,6 +303,7 @@ public abstract class SharedDeviceLinkSystem : EntitySystem
 
             sourceComponent.Outputs.GetOrNew(source).Add(sinkUid);
             sourceComponent.LinkedPorts.GetOrNew(sinkUid).Add((source, sink));
+            sinkComponent.Inputs.GetOrNew(sink).Add(sourceUid); // WWDP EDIT
 
             SendNewLinkEvent(userId, sourceUid, source, sinkUid, sink);
         }
@@ -368,6 +373,46 @@ public abstract class SharedDeviceLinkSystem : EntitySystem
         }
     }
 
+    // WWDP EDIT START
+    public bool IsConnectedToSource(Entity<DeviceLinkSourceComponent?> source, ProtoId<SourcePortPrototype> port, EntityUid ent)
+    {
+        if (!Resolve(source, ref source.Comp, false))
+            return false;
+        return source.Comp.Outputs.TryGetValue(port, out var list) && list.Contains(ent);
+    }
+    public bool IsConnectedToSink(Entity<DeviceLinkSinkComponent?> sink, ProtoId<SinkPortPrototype> port, EntityUid ent)
+    {
+        if (!Resolve(sink, ref sink.Comp, false))
+            return false;
+        return sink.Comp.Inputs.TryGetValue(port, out var list) && list.Contains(ent);
+    }
+    public bool TryGetConnectedToSource(Entity<DeviceLinkSourceComponent?> source, ProtoId<SourcePortPrototype> port, [NotNullWhen(true)] out HashSet<EntityUid>? entities)
+    {
+        if (Resolve(source, ref source.Comp, false) && source.Comp.Outputs.TryGetValue(port, out entities))
+            return true;
+        entities = null;
+        return false;
+    }
+    public bool TryGetConnectedToSink(Entity<DeviceLinkSinkComponent?> sink, ProtoId<SinkPortPrototype> port, [NotNullWhen(true)] out HashSet<EntityUid>? entities)
+    {
+        if (Resolve(sink, ref sink.Comp, false) && sink.Comp.Inputs.TryGetValue(port, out entities))
+            return true;
+        entities = null;
+        return false;
+    }
+    public HashSet<EntityUid> GetConnectedToSource(Entity<DeviceLinkSourceComponent?> source, ProtoId<SourcePortPrototype> port)
+    {
+        if (Resolve(source, ref source.Comp, false) && source.Comp.Outputs.TryGetValue(port, out var entities))
+            return entities;
+        return new HashSet<EntityUid>();
+    }
+    public HashSet<EntityUid> GetConnectedToSink(Entity<DeviceLinkSinkComponent?> sink, ProtoId<SinkPortPrototype> port)
+    {
+        if (Resolve(sink, ref sink.Comp, false) && sink.Comp.Inputs.TryGetValue(port, out var entities))
+            return entities;
+        return new HashSet<EntityUid>();
+    }
+    // WWDP EDIT END
     private void RemoveSinkFromSourceInternal(
         EntityUid sourceUid,
         EntityUid sinkUid,
@@ -391,6 +436,12 @@ public abstract class SharedDeviceLinkSystem : EntitySystem
         {
             outputList.Remove(sinkUid);
         }
+        // WWDP EDIT START
+        foreach (var inputList in sinkComponent.Inputs.Values)
+        {
+            inputList.Remove(sourceUid);
+        }
+        // WWDP EDIT END
     }
 
     /// <summary>
@@ -410,6 +461,7 @@ public abstract class SharedDeviceLinkSystem : EntitySystem
             return false;
 
         var outputs = sourceComponent.Outputs.GetOrNew(source);
+        var inputs = sinkComponent.Inputs.GetOrNew(source);
         var linkedPorts = sourceComponent.LinkedPorts.GetOrNew(sinkUid);
 
         if (linkedPorts.Contains((source, sink)))
@@ -423,6 +475,7 @@ public abstract class SharedDeviceLinkSystem : EntitySystem
             RaiseLocalEvent(sinkUid, new PortDisconnectedEvent(sink, sourceUid));
 
             outputs.Remove(sinkUid);
+            inputs.Remove(sourceUid);
             linkedPorts.Remove((source, sink));
 
             if (linkedPorts.Count != 0)
@@ -441,6 +494,7 @@ public abstract class SharedDeviceLinkSystem : EntitySystem
                 return false;
 
             outputs.Add(sinkUid);
+            inputs.Add(sourceUid);
             linkedPorts.Add((source, sink));
             sinkComponent.LinkedSources.Add(sourceUid);
 

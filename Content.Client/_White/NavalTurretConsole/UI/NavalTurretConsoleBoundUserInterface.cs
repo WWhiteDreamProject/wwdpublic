@@ -209,8 +209,9 @@ public sealed class NavalTurretConsoleBoundUserInterface : BoundUserInterface
             if (!EntMan.TryGetComponent<NavalTurretComponent>(turretUid, out var turret))
                 continue;
 
-            button.Text = turret.Name ?? EntMan.ToPrettyString(turretUid);
+            var button = new Button();
             button.HorizontalAlignment = Control.HAlignment.Stretch;
+            button.Text = !string.IsNullOrWhiteSpace(turret.Name) ? turret.Name : EntMan.ToPrettyString(turretUid); // todo: replace ToPrettyString with something less debug-flavoured
             if (turretUid == currentTurretUid)
                 button.ModulateSelfOverride = Color.DarkGoldenrod;
             else if (!turretAvailable)

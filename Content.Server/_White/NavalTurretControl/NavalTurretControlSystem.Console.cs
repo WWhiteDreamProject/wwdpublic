@@ -110,7 +110,7 @@ public partial class NavalTurretControlSystem
             return true;
         }
 
-        if (!consoleComp.LinkedTurrets.Contains(newTurretUid.Value))
+        if (!_link.IsConnectedToSource(consoleUid, SourcePortId, newTurretUid.Value))
             return false;
 
         if (!TryComp<NavalTurretComponent>(newTurretUid, out var newTurretComp))
@@ -123,7 +123,7 @@ public partial class NavalTurretControlSystem
         {
             currentTurretComp.CurrentConsole = null;
             Dirty(consoleComp.CurrentTurret.Value, currentTurretComp);
-            UpdateAllStates(currentTurretComp);
+            UpdateStateForAllConnected(currentTurretComp);
         }
 
         RemoveFromPvsOverride(consoleUid, consoleComp.CurrentTurret);
@@ -131,7 +131,7 @@ public partial class NavalTurretControlSystem
         consoleComp.CurrentTurret = newTurretUid;
         newTurretComp.CurrentConsole = consoleUid;
         Dirty(newTurretUid.Value, newTurretComp);
-        UpdateAllStates(newTurretComp);
+        UpdateStateForAllConnected(newTurretComp);
         return true;
     }
 

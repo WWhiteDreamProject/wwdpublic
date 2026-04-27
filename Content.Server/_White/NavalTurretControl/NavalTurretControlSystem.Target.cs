@@ -19,29 +19,28 @@ public partial class NavalTurretControlSystem
         SubscribeLocalEvent<NavalTurretComponent, PowerChangedEvent>(OnTurretPowerChanged);
     }
 
-    private void OnTargetShutdown(EntityUid uid, NavalTurretComponent comp, ComponentShutdown args)
+    private void OnTurretShutdown(EntityUid uid, NavalTurretComponent comp, ComponentShutdown args)
     {
-        if (!TryComp<DeviceLinkSinkComponent>(uid, out var sink))
-            return;
-
-        foreach (var console in comp.LinkedConsoles)
-        {
-            // This currently nukes all connections between the turret and the consoles.
-            // This is fine for now, as there are no possible connections between turret and console other than via the control port.
-            // If such is added at some point in the future, DeviceLinkSystem will need a new method to
-            // remove all connections for a specific port only.
-            _link.RemoveSinkFromSource(console, uid, null, sink);
-        }
-        UpdateAllStates(comp);
+        UpdateStateForAllConnected(uid);
     }
 
-    private void OnTargetMobStateChanged(EntityUid uid, NavalTurretComponent comp, MobStateChangedEvent args)
+    private void OnTurretMobStateChanged(EntityUid uid, NavalTurretComponent comp, MobStateChangedEvent args)
     {
-        UpdateAllStates(comp);
+        UpdateStateForAllConnected(uid);
     }
 
     private void OnTurretPowerChanged(EntityUid uid, NavalTurretComponent comp, PowerChangedEvent args)
     {
-        UpdateAllStates(comp);
+        UpdateStateForAllConnected(uid);
+    }
+
+    protected override void OnRenameVerb(ICommonSession player, EntityUid target, NavalTurretComponent comp)
+    {
+        var currentName = comp.Name;
+        _quickDialog.OpenDialog(player, "Change Turret ID", ("Turret ID", currentName), (string newName) =>
+        {
+            comp.Name = newName;
+            Dirty(target, comp);
+        });
     }
 }

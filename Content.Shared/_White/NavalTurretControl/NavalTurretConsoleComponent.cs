@@ -19,12 +19,6 @@ public sealed partial class NavalTurretConsoleComponent : Component
 
     [AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
     public Angle? CurrentAimDirection;
-
-    // not used on client, so no autonetworking
-    // keeping datafieldattrib as a crutch for the connections to be saveable
-    // TODO: improve datalink system so that this double tracking of links is unnecessary
-    [DataField]
-    public List<EntityUid> LinkedTurrets = new();
 }
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
@@ -44,13 +38,6 @@ public sealed partial class NavalTurretComponent : Component
 
     [DataField, AutoNetworkedField]
     public EntityUid? CurrentConsole;
-
-    // not used on client, so no autonetworking
-    // keeping datafieldattrib as a crutch for the connections to be saveable
-    // TODO: improve datalink system so that this double tracking of links is unnecessary
-    [DataField]
-    public List<EntityUid> LinkedConsoles = new();
-
 }
 
 [Serializable, NetSerializable]
