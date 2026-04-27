@@ -28,9 +28,6 @@ public partial class NavalTurretControlSystem
         SubscribeLocalEvent<NavalTurretConsoleComponent, PortDisconnectedEvent>(OnPortDisconnected);
 
         SubscribeLocalEvent<NavalTurretConsoleComponent, NavalTurretConsoleTurretSelectedBuiMessage>(OnTurretSelection);
-        SubscribeLocalEvent<NavalTurretConsoleComponent, BoundUIOpenedEvent>(OnUiOpen);
-        SubscribeLocalEvent<NavalTurretConsoleComponent, BoundUIClosedEvent>(OnUiClosed);
-
     }
 
     private void OnConsoleInit(EntityUid uid, NavalTurretConsoleComponent comp, ComponentInit args)
@@ -138,8 +135,9 @@ public partial class NavalTurretControlSystem
         return true;
     }
 
-    private void OnUiOpen(EntityUid uid, NavalTurretConsoleComponent comp, BoundUIOpenedEvent args)
+    protected override void OnUiOpen(EntityUid uid, NavalTurretConsoleComponent comp, BoundUIOpenedEvent args)
     {
+        base.OnUiOpen(uid, comp, args);
         if (comp.CurrentTurret is not EntityUid turret)
             return;
 
@@ -148,8 +146,9 @@ public partial class NavalTurretControlSystem
         _pvs.AddSessionOverride(turret, session);
     }
 
-    private void OnUiClosed(EntityUid uid, NavalTurretConsoleComponent comp, BoundUIClosedEvent args)
+    protected override void OnUiClosed(EntityUid uid, NavalTurretConsoleComponent comp, BoundUIClosedEvent args)
     {
+        base.OnUiClosed(uid, comp, args);
         if (comp.CurrentTurret is not EntityUid turret)
             return;
 

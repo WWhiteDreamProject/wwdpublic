@@ -325,7 +325,7 @@ public sealed partial class ShuttleNavControl : BaseShuttleControl
             {
                 var gridBounds = grid.Comp.LocalAABB;
 
-                var distance = (gridBody.LocalCenter - xform.LocalPosition).Length(); // WD EDIT
+                var distance = (gridCenterWorld - worldPosition).Length(); // WD EDIT
                 var labelText = Loc.GetString("shuttle-console-iff-label", ("name", labelName),
                     ("distance", $"{distance:0.0}"));
 

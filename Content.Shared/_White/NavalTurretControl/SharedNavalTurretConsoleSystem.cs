@@ -9,6 +9,7 @@ using Content.Shared._White.NavalTurretControl.BUIStates;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Interaction;
 using Content.Shared.MouseRotator;
+using Content.Shared.Verbs;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Player;
@@ -29,6 +30,11 @@ public abstract class SharedNavalTurretConsoleSystem : EntitySystem
     {
         SubscribeLocalEvent<NavalTurretConsoleComponent, NavalTurretConsoleUpdateAimDirectionMessage>(OnConsoleMouseMoveBuiMessage);
         SubscribeLocalEvent<NavalTurretConsoleComponent, NavalTurretConsoleMouseClickMessage>(OnConsoleMouseClickBuiMessage);
+        SubscribeLocalEvent<NavalTurretConsoleComponent, BoundUIOpenedEvent>(OnUiOpen);
+        SubscribeLocalEvent<NavalTurretConsoleComponent, BoundUIClosedEvent>(OnUiClosed);
+
+        SubscribeLocalEvent<NavalTurretComponent, GetVerbsEvent<AlternativeVerb>>(OnTurretGetAltVerbs);
+
     }
     public override void Update(float frameTime)
     {
@@ -98,26 +104,17 @@ public abstract class SharedNavalTurretConsoleSystem : EntitySystem
         Dirty(uid, comp);
     }
 
+    protected virtual void OnUiOpen(EntityUid uid, NavalTurretConsoleComponent comp, BoundUIOpenedEvent args) { }
 
-//    private bool GetTurret(Entity<NavalTurretConsoleComponent> consoleEnt, ICommonSession? session, [NotNullWhen(true)] out Entity<NavalTurretComponent>? entity)
-//    {
-//        var console = consoleEnt.Comp;
-//        if (console.CurrentTurret is not EntityUid turretUid)
-//        {
-//            Log.Error($"Client {session?.ToString() ?? "[unknown]"} attempted to use {ToPrettyString(consoleEnt)} as gunnery console despite it not being connected to a turret.");
-//            DebugTools.Assert(false);
-//            entity = null;
-//            return false;
-//        }
-//
-//        if (!TryComp<NavalTurretComponent>(turretUid, out var turret))
-//        {
-//            Log.Error($"Client {session?.ToString() ?? "[unknown]"} attempted to use {ToPrettyString(consoleEnt)} as gunnery console while it had a non-turret entity selected.");
-//            DebugTools.Assert(false);
-//            entity = null;
-//            return false;
-//        }
-//        entity = (turretUid, turret);
-//        return true;
-//    }
+    protected virtual void OnUiClosed(EntityUid uid, NavalTurretConsoleComponent comp, BoundUIClosedEvent args)
+    {
+        comp.CurrentAimDirection = null;
+        comp.Shooting = false;
+        Dirty(uid, comp);
+    }
+
+    private void OnTurretGetAltVerbs(EntityUid uid, NavalTurretComponent comp, GetVerbsEvent<AlternativeVerb> args)
+    {
+        
+    }
 }

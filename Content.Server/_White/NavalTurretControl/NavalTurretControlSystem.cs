@@ -102,7 +102,7 @@ public sealed partial class NavalTurretControlSystem : SharedNavalTurretConsoleS
         }
 
         var state = _console.GetNavState(currentTurretUid, new(), new(currentTurretUid, new Vector2(0,0)), 0);
-        SetUiState(consoleEnt, state, turrets);
+        SetUiState(consoleEnt, currentTurretUid, state, turrets);
     }
 
     private void UpdateAllStates(NavalTurretComponent component)

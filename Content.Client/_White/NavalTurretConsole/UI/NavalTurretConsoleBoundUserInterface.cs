@@ -2,6 +2,7 @@ using System.Numerics;
 using Content.Client._White.NavalTurretConsole.UI;
 using Content.Client.Shuttles.UI;
 using Content.Client.Weapons.Ranged.Systems;
+using Content.Shared._White.Guns.ModularTurret;
 using Content.Shared._White.NavalTurretControl;
 using Content.Shared._White.NavalTurretControl.BUIStates;
 using Content.Shared.ActionBlocker;
@@ -63,14 +64,48 @@ public sealed class NavalTurretConsoleBoundUserInterface : BoundUserInterface
     private bool IsTimePeriod(double active, double inactive) => _timing.CurTime.TotalSeconds % (active + inactive) <= active;
     private void DrawTop(DrawingHandleScreen handle, UIBox2 controlSize, Matrix3x2 ourEntToWorld, Matrix3x2 shuttleToWorld, Matrix3x2 worldToView)
     {
-        if (Locked && IsTimePeriod(0.5, 0.5))
-            handle.DrawString(_font, Vector2.Zero, "CONTROLS LOCKED\nPRESS RIGHT TRIGGER TO UNLOCK", Color.Green);
+        //if (Locked && IsTimePeriod(0.5, 0.5))
+        //    handle.DrawString(_font, Vector2.Zero, "CONTROLS LOCKED\nPRESS RIGHT TRIGGER TO UNLOCK", Color.Green);
 
         if (CurrentTurret is null)
             return;
 
-        if (!_gun.TryGetGun(CurrentTurret.Value, out var gunUid, out _) ||
-            !_gun.TryGetBatteryCharges(gunUid, out var shots, out var capacity))
+        if (!_gun.TryGetGun(CurrentTurret.Value, out var gunUid, out var gunComp))
+            return;
+
+        DrawWeaponName(handle, gunUid);
+        DrawCooldown(handle, controlSize, gunComp);
+        DrawAmmoCounter(handle, controlSize, gunUid);
+
+    }
+
+    private void DrawWeaponName(DrawingHandleScreen handle, EntityUid gunUid)
+    {
+        if (!EntMan.TryGetComponent<ModularTurretWeaponComponent>(gunUid, out var modComp))
+            return;
+        var name = modComp.Name;
+        if (name is null)
+            name = "UNKNOWN";
+        // TODO: uncomment after merging the lobby vanity text from EE, it has a funny RANDOM() func for localization
+        //else if (Loc.TryGetString(name, out var newName))
+        //    name = newName;
+
+        handle.DrawString(_font, Vector2.Zero, $"WEP: {name}", Color.AntiqueWhite);
+    }
+
+    private void DrawCooldown(DrawingHandleScreen handle, UIBox2 controlSize, GunComponent gunComp)
+    {
+        string cooldownString;
+        if (gunComp.NextFire >= _timing.CurTime)
+            cooldownString = $"{(gunComp.NextFire - _timing.CurTime).TotalSeconds: 0.00}s";
+        else
+            cooldownString = "RDY";
+        handle.DrawString(_font, controlSize.Size - handle.GetDimensions(_font, cooldownString, 1f), cooldownString, gunComp.NextFire >= _timing.CurTime ? Color.Yellow : Color.Green);
+    }
+
+    private void DrawAmmoCounter(DrawingHandleScreen handle, UIBox2 controlSize, EntityUid gunUid)
+    {
+        if (!_gun.TryGetBatteryCharges(gunUid, out var shots, out var capacity))
         {
             var noBatteryString = "BAT: N/A";
             var noBatteryStringHeight = handle.GetDimensions(_font, noBatteryString, 1f).Y;
@@ -79,10 +114,10 @@ public sealed class NavalTurretConsoleBoundUserInterface : BoundUserInterface
         }
 
         var chargePercent = (float) shots / capacity * 100;
-        var len = (int) MathF.Floor(MathF.Log10(capacity)+1);
+        var len = (int) MathF.Floor(MathF.Log10(capacity) + 1);
         var shotCounter = $"{shots.ToString($"D{len}")}/{capacity}";
         var warn = chargePercent < 25 && IsTimePeriod(0.2, 0.2) ? "WARN" : string.Empty;
-        var batteryString = $"BAT:{chargePercent: 00.00}% ({shotCounter}) {warn}";
+        var batteryString = $"BAT:{(chargePercent < 100 ? " " : "")}{chargePercent: 00.00}% ({shotCounter}) {warn}";
         var batteryStringColor = chargePercent switch
         {
             >= 75 => Color.Green,
@@ -91,10 +126,10 @@ public sealed class NavalTurretConsoleBoundUserInterface : BoundUserInterface
             >= 0 => Color.Red,
             _ => Color.Green
         };
-        var stringHeight = handle.GetDimensions(_font, batteryString, 1f).Y;
-        handle.DrawString(_font, new Vector2(0, controlSize.Height - stringHeight), batteryString, batteryStringColor);
-
+        var batteryStringHeight = handle.GetDimensions(_font, batteryString, 1f).Y;
+        handle.DrawString(_font, new Vector2(0, controlSize.Height - batteryStringHeight), batteryString, batteryStringColor);
     }
+
     private void OnMouseMove(EntityCoordinates coordinates)
     {
         if (Locked)
@@ -118,19 +153,6 @@ public sealed class NavalTurretConsoleBoundUserInterface : BoundUserInterface
         AimDirection = AimDirection.Value.Reduced();
     }
 
-    // TODO: invoke clientside bui messages on mouseclick and move
-    //       i.e:
-    //       NavalConsoleMouseMoveBuiMessage - raised and handled by the client
-    //                                         will implicitly cut off any interaction that is not supposed to happen
-    //                                         (such as user issuing firing commands while being unconscious)
-    //          raised in OnMouseMove with entitycoords or pseudolocal coords
-    //
-    //      Handle this message in the very next method that would have the current OnMouseMove logic
-    //      if it gets called, it means that whatever requirements set by UISystem for the user
-    //      to be able to interact with us are (still being) met
-    //      
-    //      And then do the same with OnMouseClick.
-    //      And the same with OnTurretSelection (if implemented)
     private void OnRadarLeftClick(EntityCoordinates coordinates, bool down)
     {
         if (Locked)
@@ -144,10 +166,12 @@ public sealed class NavalTurretConsoleBoundUserInterface : BoundUserInterface
         if (!down)
             return;
 
-        Locked = !Locked;
-        AimDirection = null;
-        if (!Locked)
-            UpdateAimDirection(coordinates);
+        // looks kinda cool, but i could not find a good use for this
+        // when you can just move the cursor off the UI window.
+        //Locked = !Locked;
+        //AimDirection = null;
+        //if (!Locked)
+        //    UpdateAimDirection(coordinates);
     }
 
     protected override void UpdateState(BoundUserInterfaceState someState)

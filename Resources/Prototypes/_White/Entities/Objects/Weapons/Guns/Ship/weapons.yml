@@ -62,6 +62,7 @@
     proto: BulletLaser
     fireCost: 75
   - type: ModularTurretWeapon
+    name: IRLSR
     dollyMixSprite: _White/Objects/Weapons/Guns/Turrets/IR_laser.rsi
 
 
@@ -91,6 +92,7 @@
     proto: BulletMediumRocket
     fireCost: 1000
   - type: ModularTurretWeapon
+    name: ANHLT
     dollyMixSprite: _White/Objects/Weapons/Guns/Turrets/annihilator.rsi
 
 - type: entity
@@ -118,6 +120,7 @@
     proto: RedMiningLaser
     fireCost: 500
   - type: ModularTurretWeapon
+    name: CUTTR
     dollyMixSprite: _White/Objects/Weapons/Guns/Turrets/mining_laser.rsi
 
 # I'll put the mining beam prototype right after the mining laser itself to
@@ -159,6 +162,7 @@
     proto: RiftLanceBeam
     fireCost: 8000
   - type: ModularTurretWeapon
+    name: SOMETHING BEAUTIFUL
     dollyMixSprite: _White/Objects/Weapons/Guns/Turrets/rift_lance.rsi
 
 # I'll put the rift lance beam prototype right after the rift lance itself to
@@ -247,6 +251,7 @@
     proto: BulletHotspot
     fireCost: 250
   - type: ModularTurretWeapon
+    name: STCWS
     dollyMixSprite: _White/Objects/Weapons/Guns/Turrets/hotspot.rsi
 
 - type: entity
@@ -300,6 +305,7 @@
     proto: BulletHighCaliberWeak
     fireCost: 1000
   - type: ModularTurretWeapon
+    name: HTCWS
     dollyMixSprite: _White/Objects/Weapons/Guns/Turrets/hmg.rsi
 
 
@@ -345,6 +351,7 @@
     proto: BulletMiningBlast
     fireCost: 4000
   - type: ModularTurretWeapon
+    name: MBSTR
     dollyMixSprite: _White/Objects/Weapons/Guns/Turrets/blaster.rsi
 
 

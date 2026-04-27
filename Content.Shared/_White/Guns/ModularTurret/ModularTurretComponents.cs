@@ -8,6 +8,9 @@ public sealed partial class ModularTurretWeaponComponent : Component
     public List<string> WeaponClass = new();
 
     [DataField]
+    public string? Name;
+
+    [DataField]
     public bool OnlyUsableByTurret = true;
 
     [DataField]
