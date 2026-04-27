@@ -1,7 +1,7 @@
 using System.Numerics;
-using Content.Client._White.NavalTurretConsole.UI;
-using Content.Shared._White.NavalTurretControl;
-using Content.Shared._White.NavalTurretControl.BUIStates;
+using Content.Client._White.RemoteControlConsole.UI;
+using Content.Shared._White.RemoteControl;
+using Content.Shared._White.RemoteControl.BUIStates;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Coordinates;
 using Content.Shared.DeviceLinking;
@@ -14,7 +14,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
-namespace Content.Client._White.NavalTurretControl;
+namespace Content.Client._White.RemoteControl;
 
 // TODO: Consider moving this functionality to a separate entitysystem
 //       that is generalized to be used by any UI
@@ -30,28 +30,28 @@ namespace Content.Client._White.NavalTurretControl;
 //          _cachedMsg.Clear();
 //       }
 
-public sealed partial class NavalTurretControlSystem : SharedNavalTurretConsoleSystem
+public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
 {
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
 
-    protected override void ProcessConsole(EntityUid consoleUid, NavalTurretConsoleComponent consoleComp, float frameTime)
+    protected override void ProcessConsole(EntityUid consoleUid, RemoteControlConsoleComponent consoleComp, float frameTime)
     {
         ProcessInput(consoleUid, consoleComp);
         base.ProcessConsole(consoleUid, consoleComp, frameTime);
     }
-    private void ProcessInput(EntityUid consoleUid, NavalTurretConsoleComponent consoleComp)
+    private void ProcessInput(EntityUid consoleUid, RemoteControlConsoleComponent consoleComp)
     {
         if (!_timing.IsFirstTimePredicted)
             return;
 
-        if (!_ui.TryGetOpenUi<NavalTurretConsoleBoundUserInterface>(consoleUid, NavalTurretConsoleUiKey.Key, out var bui))
+        if (!_ui.TryGetOpenUi<RemoteControlConsoleBoundUserInterface>(consoleUid, RemoteControlConsoleUiKey.Key, out var bui))
             return;
 
         if (bui.AimDirection == consoleComp.CurrentAimDirection)
             return;
 
-        _ui.SendPredictedUiMessage(bui, new NavalTurretConsoleUpdateAimDirectionMessage(bui.AimDirection));
+        _ui.SendPredictedUiMessage(bui, new RemoteControlConsoleUpdateAimDirectionMessage(bui.AimDirection));
     }
 }

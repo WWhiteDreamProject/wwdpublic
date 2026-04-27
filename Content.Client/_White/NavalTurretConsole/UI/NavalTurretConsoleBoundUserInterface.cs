@@ -1,10 +1,10 @@
 using System.Numerics;
-using Content.Client._White.NavalTurretConsole.UI;
+using Content.Client._White.RemoteControlConsole.UI;
 using Content.Client.Shuttles.UI;
 using Content.Client.Weapons.Ranged.Systems;
 using Content.Shared._White.Guns.ModularTurret;
-using Content.Shared._White.NavalTurretControl;
-using Content.Shared._White.NavalTurretControl.BUIStates;
+using Content.Shared._White.RemoteControl;
+using Content.Shared._White.RemoteControl.BUIStates;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Shuttles.BUIStates;
 using Content.Shared.Weapons.Ranged.Components;
@@ -20,24 +20,24 @@ using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using RadarConsoleWindow = Content.Client.Shuttles.UI.RadarConsoleWindow;
 
-namespace Content.Client._White.NavalTurretConsole.UI;
+namespace Content.Client._White.RemoteControlConsole.UI;
 
 [UsedImplicitly]
-public sealed class NavalTurretConsoleBoundUserInterface : BoundUserInterface
+public sealed class RemoteControlConsoleBoundUserInterface : BoundUserInterface
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     private SharedTransformSystem _transform = default!;
     private ActionBlockerSystem _actionBlocker = default!;
     private GunSystem _gun = default!;
 
-    [ViewVariables] private NavalTurretConsoleWindow? _window;
+    [ViewVariables] private RemoteControlConsoleWindow? _window;
     private Font _font = default!;
 
     public bool Shooting = false;
     public bool Locked = false;
     public Angle? AimDirection { get; private set; } = null;
-    public Entity<NavalTurretComponent>? CurrentTurret { get; private set; }
-    public NavalTurretConsoleBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
+    public Entity<RemoteControllableComponent>? CurrentTurret { get; private set; }
+    public RemoteControlConsoleBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
     }
 
@@ -49,7 +49,7 @@ public sealed class NavalTurretConsoleBoundUserInterface : BoundUserInterface
         _actionBlocker = EntMan.System<ActionBlockerSystem>();
         _transform = EntMan.System<SharedTransformSystem>();
         _gun = EntMan.System<GunSystem>();
-        _window = this.CreateWindow<NavalTurretConsoleWindow>();
+        _window = this.CreateWindow<RemoteControlConsoleWindow>();
         _window.RadarScreen.OnMouseMove += OnMouseMove;
         _window.RadarScreen.OnMouseExited += OnMouseExited;
         _window.RadarScreen.OnRadarLeftClick += OnRadarLeftClick;
@@ -158,7 +158,7 @@ public sealed class NavalTurretConsoleBoundUserInterface : BoundUserInterface
         if (Locked)
             return;
         UpdateAimDirection(coordinates);
-        SendPredictedMessage(new NavalTurretConsoleMouseClickMessage(EntMan.GetNetCoordinates(coordinates), down));
+        SendPredictedMessage(new RemoteControlConsoleMouseClickMessage(EntMan.GetNetCoordinates(coordinates), down));
     }
 
     private void OnRadarRightClick(EntityCoordinates coordinates, bool down)
@@ -177,15 +177,15 @@ public sealed class NavalTurretConsoleBoundUserInterface : BoundUserInterface
     protected override void UpdateState(BoundUserInterfaceState someState)
     {
         base.UpdateState(someState);
-        if (someState is not NavalTurretConsoleBuiState state)
+        if (someState is not RemoteControlConsoleBuiState state)
             return;
 
         var turretUid = EntMan.GetEntity(state.CurrentTurret);
         if (turretUid is not null)
         {
-            if (!EntMan.TryGetComponent<NavalTurretComponent>(turretUid, out var turretComp))
+            if (!EntMan.TryGetComponent<RemoteControllableComponent>(turretUid, out var turretComp))
             {
-                UiSystem.Log.Error($"For {nameof(NavalTurretConsoleBoundUserInterface)}, the server sent a turret entity that is missing {nameof(NavalTurretComponent)}.");
+                UiSystem.Log.Error($"For {nameof(RemoteControlConsoleBoundUserInterface)}, the server sent a turret entity that is missing {nameof(RemoteControllableComponent)}.");
                 return; // pretend it never happened
             }
             CurrentTurret = (turretUid.Value, turretComp);
@@ -205,8 +205,7 @@ public sealed class NavalTurretConsoleBoundUserInterface : BoundUserInterface
         foreach (var (turretNetUid, turretAvailable) in netEnts)
         {
             var turretUid = EntMan.GetEntity(turretNetUid);
-            var button = new Button();
-            if (!EntMan.TryGetComponent<NavalTurretComponent>(turretUid, out var turret))
+            if (!EntMan.TryGetComponent<RemoteControllableComponent>(turretUid, out var turret))
                 continue;
 
             var button = new Button();
@@ -219,7 +218,7 @@ public sealed class NavalTurretConsoleBoundUserInterface : BoundUserInterface
 
             button.OnPressed += (_) =>
             {
-                SendMessage(new NavalTurretConsoleTurretSelectedBuiMessage(turretUid == currentTurretUid ? null : turretNetUid));
+                SendMessage(new RemoteControlConsoleTurretSelectedBuiMessage(turretUid == currentTurretUid ? null : turretNetUid));
             };
 
             _window!.TurretSelection.AddChild(button);

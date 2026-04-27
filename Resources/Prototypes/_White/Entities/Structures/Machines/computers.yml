@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseComputerAiAccess
   id: ComputerRemoteControl
-  name: remote control console
-  description: A computer equipped with a joystick. Has a faint cheetos smell around it.
+  name: ship gunner console
+  description: A computer console for aiming and firing ship weaponry. Light them up!
   components:
   - type: Sprite
     layers:
@@ -26,6 +26,14 @@
   - type: DeviceLinkSource
     ports:
     - RemoteControlSourcePort
+  - type: ActivatableUI
+    key: enum.NavalTurretConsoleUiKey.Key
+    singleUser: true
+    blockSpectators: true
+  - type: UserInterface
+    interfaces:
+      enum.NavalTurretConsoleUiKey.Key:
+        type: NavalTurretConsoleBoundUserInterface
 
 - type: entity
   parent: ComputerRadar
@@ -37,48 +45,3 @@
     board: RadarWideConsoleCircuitboard
   - type: RadarConsole
     maxRange: 2048
-
-- type: entity
-  parent: BaseComputerAiAccess
-  id: ComputerShipGunner
-  name: ship gunner console
-  description: A computer console for aiming and firing ship weaponry. Light them up!
-  components:
-  - type: Sprite
-    layers:
-    - map: ["computerLayerBody"]
-      state: computer
-    - map: ["computerLayerKeyboard"]
-      state: generic_keyboard
-    - map: ["computerLayerScreen"]
-      state: solar_screen
-    - map: ["computerLayerKeys"]
-      state: generic_keys
-    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
-      state: generic_panel_open
-  - type: Computer
-    board: RemoteControlConsoleCircuitboard
-  - type: PointLight
-    radius: 1.5
-    energy: 1.6
-    color: "#e6e227"
-  - type: NavalTurretConsole
-  - type: DeviceLinkSource
-    ports:
-    - ShipGunnerControlSourcePort
-  - type: ActivatableUI
-    key: enum.NavalTurretConsoleUiKey.Key
-    singleUser: true
-    blockSpectators: true
-  - type: UserInterface
-    interfaces:
-      enum.NavalTurretConsoleUiKey.Key:
-        type: NavalTurretConsoleBoundUserInterface
-
-- type: entity
-  parent: BaseComputerCircuitboard
-  id: ShipGunnerConsoleCircuitboard
-  name: gunner console computer boardсука
-  components:
-  - type: ComputerBoard
-    prototype: ComputerShipGunner

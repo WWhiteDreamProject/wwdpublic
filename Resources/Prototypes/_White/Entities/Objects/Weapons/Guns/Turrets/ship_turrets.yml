@@ -90,9 +90,7 @@
           components:
           - Gun
           - ModularTurretWeapon
-  #- type: RemoteControllable
-  #- type: RemoteControlOverlay
-  - type: NavalTurret
+  - type: RemoteControllable
   - type: Lock
     locked: false
     lockTime: 5
@@ -108,7 +106,7 @@
   - type: DeviceLinkSink
     ports:
     #- RemoteControlSinkPort # goodnight, sweet prince
-    - ShipGunnerControlSinkPort
+    - RemoteControlSinkPort
   - type: Battery
     maxCharge: 2000
     startingCharge: 0

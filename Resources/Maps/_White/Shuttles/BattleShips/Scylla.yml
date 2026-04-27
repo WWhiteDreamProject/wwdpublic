@@ -3522,10 +3522,6 @@ entities:
       pos: 4.5,7.5
       parent: 1
     - type: RemoteControlConsole
-      linkedEntities:
-      - 1369
-      - 1370
-      - 1371
     - type: DeviceLinkSource
       linkedPorts:
         1369:
@@ -3544,10 +3540,6 @@ entities:
       pos: 8.5,7.5
       parent: 1
     - type: RemoteControlConsole
-      linkedEntities:
-      - 1374
-      - 1373
-      - 1372
     - type: DeviceLinkSource
       linkedPorts:
         1374:
