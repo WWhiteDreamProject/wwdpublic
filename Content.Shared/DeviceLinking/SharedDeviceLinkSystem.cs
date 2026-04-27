@@ -461,7 +461,7 @@ public abstract class SharedDeviceLinkSystem : EntitySystem
             return false;
 
         var outputs = sourceComponent.Outputs.GetOrNew(source);
-        var inputs = sinkComponent.Inputs.GetOrNew(source);
+        var inputs = sinkComponent.Inputs.GetOrNew(sink);
         var linkedPorts = sourceComponent.LinkedPorts.GetOrNew(sinkUid);
 
         if (linkedPorts.Contains((source, sink)))
