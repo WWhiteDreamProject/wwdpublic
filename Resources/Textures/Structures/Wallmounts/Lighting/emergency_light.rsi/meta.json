@@ -1,11 +1,11 @@
 {
-    "version": 1,
-    "size": {
-        "x": 32,
-        "y": 32
+"version": 1,
+"license": "CC-BY-NC-SA-4.0",
+"copyright": "Valentyi (randomm.ua) for WWhiteDreamProject, 06.04.2026",
+"size": {
+"x": 64,
+"y": 64
     },
-    "license": "CC-BY-SA-3.0",
-    "copyright": "juliang, modified by mirrorcult",
     "states": [
         {
             "name": "base",
@@ -37,6 +37,10 @@
                     0.3,
                     0.3,
                     0.3,
+                    0.3
+                ],
+                [
+                    0.3,
                     0.3,
                     0.3,
                     0.3
@@ -45,21 +49,9 @@
                     0.3,
                     0.3,
                     0.3,
-                    0.3,
-                    0.3,
                     0.3
                 ],
                 [
-                    0.3,
-                    0.3,
-                    0.3,
-                    0.3,
-                    0.3,
-                    0.3
-                ],
-                [
-                    0.3,
-                    0.3,
                     0.3,
                     0.3,
                     0.3,
