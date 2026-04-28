@@ -27,13 +27,13 @@
     ports:
     - RemoteControlSourcePort
   - type: ActivatableUI
-    key: enum.NavalTurretConsoleUiKey.Key
+    key: enum.RemoteControlConsoleUiKey.Key
     singleUser: true
     blockSpectators: true
   - type: UserInterface
     interfaces:
-      enum.NavalTurretConsoleUiKey.Key:
-        type: NavalTurretConsoleBoundUserInterface
+      enum.RemoteControlConsoleUiKey.Key:
+        type: RemoteControlConsoleBoundUserInterface
 
 - type: entity
   parent: ComputerRadar

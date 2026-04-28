@@ -25,3 +25,9 @@ public sealed partial class RemoteControllableComponent : Component
     [DataField, AutoNetworkedField]
     public EntityUid? CurrentConsole;
 }
+
+[Serializable, NetSerializable]
+public enum RemoteControlConsoleUiKey : byte
+{
+    Key
+}

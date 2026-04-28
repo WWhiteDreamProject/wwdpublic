@@ -54,7 +54,6 @@ public sealed class RemoteControlConsoleTurretSelectedBuiMessage(NetEntity? turr
     public NetEntity? Turret = turret;
 }
 
-
 public enum RemoteControlConsoleError
 {
     None,
