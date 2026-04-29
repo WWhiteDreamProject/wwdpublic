@@ -23,6 +23,7 @@
                                     SetSize="648 648"
                                     Margin="4"
                                     Visible="False"
+                                    Access="Public"
                                     MouseFilter="Ignore">
         </viewport:ScalingViewport>
         <TextureRect MinSize="648 648" Name="StaticBackground" Margin="4">

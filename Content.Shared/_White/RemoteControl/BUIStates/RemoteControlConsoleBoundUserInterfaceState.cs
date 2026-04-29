@@ -36,9 +36,11 @@ public sealed class RemoteControlConsoleBuiState : BoundUserInterfaceState
 
 
 [Serializable, NetSerializable]
-public sealed class RemoteControlConsoleUpdateAimDirectionMessage(Angle? newAimDir) : BoundUserInterfaceMessage
+public sealed class RemoteControlConsoleUpdateAimDirectionMessage(Angle? newAimDir, NetEntity? aimtarget) : BoundUserInterfaceMessage
 {
     public Angle? NewAimDirection = newAimDir;
+    public NetEntity? AimTarget = aimtarget;
+    
 }
 
 [Serializable, NetSerializable]

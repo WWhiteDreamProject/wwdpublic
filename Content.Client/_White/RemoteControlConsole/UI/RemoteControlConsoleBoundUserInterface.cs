@@ -23,12 +23,19 @@ using RadarConsoleWindow = Content.Client.Shuttles.UI.RadarConsoleWindow;
 
 namespace Content.Client._White.RemoteControlConsole.UI;
 
+
+/// <summary>
+/// This can be best described as several unrelated things cobbled together and
+/// held in place with copious amounts of high-quality, industrial-strength toilet paper.
+/// 
+/// </summary>
 [UsedImplicitly]
 public sealed class RemoteControlConsoleBoundUserInterface : BoundUserInterface
 {
     [Dependency] private readonly IEyeManager _eye = default!;
     private SharedTransformSystem _transform = default!;
     private ActionBlockerSystem _actionBlocker = default!;
+
     private GunSystem _gun = default!;
 
     [ViewVariables] private RemoteControlConsoleWindow? _window;
@@ -37,6 +44,7 @@ public sealed class RemoteControlConsoleBoundUserInterface : BoundUserInterface
     public bool Shooting = false;
     public bool Locked = false;
     public Angle? AimDirection { get; private set; } = null;
+    public MapCoordinates? CameraAimpoint { get; private set; } = null;
     public Entity<RemoteControllableComponent>? CurrentTurret { get; private set; }
     public RemoteControlConsoleBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
@@ -59,18 +67,21 @@ public sealed class RemoteControlConsoleBoundUserInterface : BoundUserInterface
         _window.RadarScreen.SetConsole(Owner);
     }
 
-    private void OnMouseMove(Vector2? pos)
+    private void OnMouseMove(Vector2? ControlLocalPos)
     {
         if (Locked)
             return;
-        if (pos is null)
+        if (ControlLocalPos is not Vector2 position)
         {
             OnMouseExited();
             return;
         }
-        var dir = pos.Value / _window!.HUDHolder.Size - new Vector2(0.5f, 0.5f);
+        var dir = position / _window!.HUDHolder.Size - new Vector2(0.5f, 0.5f);
         dir.Y *= -1;
         UpdateAimDirection(dir);
+
+        if (_window!.CameraScreen.Visible)
+            CameraAimpoint = _window!.CameraScreen.PixelToMap(_window!.CameraScreen.GlobalPixelPosition + position);
     }
 
     private void OnMouseExited()

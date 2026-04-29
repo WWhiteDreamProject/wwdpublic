@@ -36,12 +36,17 @@ public sealed partial class RemoteControlConsoleWindow : FancyWindow, IComputerW
     private RemoteControlConsoleError _error;
 
     public EntityUid? CurrentTurret;
+    // Viewports do not have zoom on scrollwheel functionality, so
+    // we'll have to implement it ourselves.
+    // I could make it a separate control, but i don't want to bother until it's needed elsewhere.
+    public float CameraScale = 1f;
 
-    
     public RemoteControlConsoleWindow()
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
+        _gun = _entMan.System<GunSystem>();
+
         _font = new VectorFont(_resourceCache.GetResource<FontResource>("/Fonts/_White/LCD14/LCD14.otf"), 16);
         //RadarScreen.DrawAfterBackground += DrawNoSignal;
 
@@ -52,14 +57,18 @@ public sealed partial class RemoteControlConsoleWindow : FancyWindow, IComputerW
         StaticBackground.Texture = texture;
         StaticBackground.ShaderOverride = shader;
         ToggleCameraButton.OnToggled += (_) => UpdateControlVisibility();
+        Shit();
 
-        CameraScreen.ViewportSize = new Vector2i(500, 500);
         ErrorLabel.FontOverride = _font;
         ErrorLabel.FontColorOverride = Color.Green;
 
         WeaponIDHUDLabel.FontOverride = _font;
         AmmoCountHUDLabel.FontOverride = _font;
         WeaponCooldownHUDLabel.FontOverride = _font;
+    }
+    private void Shit()
+    {
+        HUDHolder.OnMouseWheel += (delta) => CameraScale = Math.Clamp(CameraScale + delta/4f, 1f, 3f);
     }
 
     //public Angle? GetAimDirection()
@@ -74,9 +83,21 @@ public sealed partial class RemoteControlConsoleWindow : FancyWindow, IComputerW
 
     protected override void PreRenderChildren(ref ControlRenderArguments args)
     {
-        _gun = _entMan.System<GunSystem>();
+        if (CameraScreen.ViewportSize != CameraScreen.PixelSize)
+            CameraScreen.ViewportSize = CameraScreen.PixelSize;
+
         if (_turretEye is not null)
+        {
             _turretEye.Rotation = _eye.CurrentEye.Rotation;
+
+            // stolen from MapGridControl for the purpose of visual parity with radar screen control
+            var currentScale = _turretEye.Scale.X;
+            var diff =  CameraScale - currentScale;
+            const float lerpRate = 10f;
+
+            var newScale = currentScale + (float) Math.Clamp(diff, -lerpRate * MathF.Abs(diff) * _timing.FrameTime.TotalSeconds, lerpRate * MathF.Abs(diff) * _timing.FrameTime.TotalSeconds);
+            _turretEye.Scale = new Vector2(newScale);
+        }
 
         if (CurrentTurret is null ||
             !_gun.TryGetGun(CurrentTurret.Value, out var gunUid, out var gunComp))
@@ -247,6 +268,7 @@ public sealed class MouseTracker : Control
     public event Action<bool>? OnMouseLeftClick;
     public event Action<bool>? OnMouseRightClick;
     public event Action<Vector2?>? OnMouseMove;
+    public event Action<int>? OnMouseWheel;
     protected override void MouseMove(GUIMouseMoveEventArgs args)
     {
         base.MouseMove(args);
@@ -279,6 +301,11 @@ public sealed class MouseTracker : Control
         }
     }
 
+    protected override void MouseWheel(GUIMouseWheelEventArgs args)
+    {
+        base.MouseWheel(args);
+        OnMouseWheel?.Invoke((int) MathF.Ceiling(args.Delta.Y));
+    }
     protected override void KeyBindDown(GUIBoundKeyEventArgs args)
     {
         base.KeyBindDown(args);

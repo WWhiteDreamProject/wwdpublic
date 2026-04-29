@@ -18,4 +18,7 @@ public sealed partial class RemoteControlConsoleComponent : Component
 
     [AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
     public Angle? CurrentAimDirection;
+
+    [AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
+    public EntityUid? CurrentAimTarget;
 }

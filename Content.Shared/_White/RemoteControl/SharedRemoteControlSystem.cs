@@ -47,12 +47,12 @@ public abstract class SharedRemoteControlSystem : EntitySystem
         }
     }
 
-    protected virtual void ProcessConsole(EntityUid consoleUid, RemoteControlConsoleComponent console, float frameTime)
+    protected virtual void ProcessConsole(EntityUid consoleUid, RemoteControlConsoleComponent consoleComp, float frameTime)
     {
         // if aimdir is null, we haven't even touched the mouse yet
         // no need to handle rotation or shooting
-        if (console.CurrentAimDirection is not Angle aimdir ||
-            console.CurrentTurret is not EntityUid turretUid)
+        if (consoleComp.CurrentAimDirection is not Angle aimdir ||
+            consoleComp.CurrentTurret is not EntityUid turretUid)
             return;
 
         if (!TryComp<RemoteControllableComponent>(turretUid, out var turret))
@@ -82,22 +82,25 @@ public abstract class SharedRemoteControlSystem : EntitySystem
         //    Dirty(uid, turret);
         //}
 
-        if (!console.Shooting)
+        if (!consoleComp.Shooting)
             return;
 
-        if (!_gun.TryGetGun(turretUid, out var gunUid, out var gun))
+        if (!_gun.TryGetGun(turretUid, out var gunUid, out var gunComp))
             return;
 
+        gunComp.Target = consoleComp.CurrentAimTarget;
         // null arg instead of proper EntityCoordinates results in the entity shooting only directly forwards.
         // This is not a problem for turrets, but for something like a remote controlled robot this could result in unwanted behaviour.
         // TODO: fix
-        _gun.AttemptShoot(turretUid, gunUid, gun, null, false);
+        _gun.AttemptShoot(turretUid, gunUid, gunComp, null, false);
     }
 
     private void OnConsoleMouseMoveBuiMessage(EntityUid uid, RemoteControlConsoleComponent comp, RemoteControlConsoleUpdateAimDirectionMessage args)
     {
         comp.CurrentAimDirection = args.NewAimDirection;
         Dirty(uid, comp);
+
+        comp.CurrentAimTarget = GetEntity(args.AimTarget);
     }
 
     private void OnConsoleMouseClickBuiMessage(EntityUid uid, RemoteControlConsoleComponent comp, RemoteControlConsoleMouseClickMessage args)

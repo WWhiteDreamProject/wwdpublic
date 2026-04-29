@@ -1,5 +1,6 @@
 using System.Numerics;
 using Content.Client._White.RemoteControlConsole.UI;
+using Content.Client.Gameplay;
 using Content.Shared._White.RemoteControl;
 using Content.Shared._White.RemoteControl.BUIStates;
 using Content.Shared.ActionBlocker;
@@ -9,6 +10,7 @@ using Content.Shared.MouseRotator;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Client.GameObjects;
 using Robust.Client.Player;
+using Robust.Client.State;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
@@ -34,6 +36,7 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
 {
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly IStateManager _state = default!;
 
     protected override void ProcessConsole(EntityUid consoleUid, RemoteControlConsoleComponent consoleComp, float frameTime)
     {
@@ -51,6 +54,16 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
         if (bui.AimDirection == consoleComp.CurrentAimDirection)
             return;
 
-        _ui.SendPredictedUiMessage(bui, new RemoteControlConsoleUpdateAimDirectionMessage(bui.AimDirection));
+
+        NetEntity? target = null;
+        if(bui.CameraAimpoint is MapCoordinates aimpoint &&
+            _state.CurrentState is GameplayState state)
+        {
+            if(!TryComp<EyeComponent>(consoleComp.CurrentTurret, out var eyeComp))
+                DebugTools.Assert("Bui passed an aimpoint without an eye component on active turret. Possible invalid/broken state?");
+            target = GetNetEntity(state.GetClickedEntity(aimpoint, eyeComp.Eye));
+        }
+
+        _ui.SendPredictedUiMessage(bui, new RemoteControlConsoleUpdateAimDirectionMessage(bui.AimDirection, target));
     }
 }
