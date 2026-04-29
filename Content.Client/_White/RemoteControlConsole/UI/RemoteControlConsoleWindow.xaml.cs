@@ -18,6 +18,7 @@ using Robust.Shared.Input;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+using SixLabors.ImageSharp.PixelFormats;
 
 namespace Content.Client._White.RemoteControlConsole.UI;
 
@@ -29,17 +30,20 @@ public sealed partial class RemoteControlConsoleWindow : FancyWindow, IComputerW
     [Dependency] private readonly IEntityManager _entMan = default!;
     [Dependency] private readonly IEyeManager _eye = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly IClyde _clyde = default!;
     private GunSystem _gun = default!;
 
     private Font _font = default!;
     private IEye? _turretEye;
     private RemoteControlConsoleError _error;
+    private static ICursor? _aimingCursor;
 
     public EntityUid? CurrentTurret;
     // Viewports do not have zoom on scrollwheel functionality, so
     // we'll have to implement it ourselves.
     // I could make it a separate control, but i don't want to bother until it's needed elsewhere.
     public float CameraScale = 1f;
+    public VisualMode AllowedModes;
 
     public RemoteControlConsoleWindow()
     {
@@ -56,8 +60,22 @@ public sealed partial class RemoteControlConsoleWindow : FancyWindow, IComputerW
         StaticBackground.Stretch = TextureRect.StretchMode.Scale;
         StaticBackground.Texture = texture;
         StaticBackground.ShaderOverride = shader;
-        ToggleCameraButton.OnToggled += (_) => UpdateControlVisibility();
-        Shit();
+
+        EnableRadarButton.Pressed = true;
+        EnableRadarButton.OnToggled += (_) => { UpdateControlVisibility(); };
+        EnableCameraButton.OnToggled += (_) => { UpdateControlVisibility(); };
+        var group = new ButtonGroup(false);
+        EnableRadarButton.Group = group;
+        EnableCameraButton.Group = group;
+
+#if DEBUG
+        _aimingCursor = CreateCursor();
+#else
+        _aimingCursor ??= CreateCursor();
+#endif
+
+        HUDHolder.CustomCursorShape = _aimingCursor;
+        HUDHolder.OnMouseWheel += (delta) => CameraScale = Math.Clamp(CameraScale + delta / 4f, 1f, 3f); // arbitrary // TODO: move to comp
 
         ErrorLabel.FontOverride = _font;
         ErrorLabel.FontColorOverride = Color.Green;
@@ -65,10 +83,6 @@ public sealed partial class RemoteControlConsoleWindow : FancyWindow, IComputerW
         WeaponIDHUDLabel.FontOverride = _font;
         AmmoCountHUDLabel.FontOverride = _font;
         WeaponCooldownHUDLabel.FontOverride = _font;
-    }
-    private void Shit()
-    {
-        HUDHolder.OnMouseWheel += (delta) => CameraScale = Math.Clamp(CameraScale + delta/4f, 1f, 3f);
     }
 
     //public Angle? GetAimDirection()
@@ -191,7 +205,7 @@ public sealed partial class RemoteControlConsoleWindow : FancyWindow, IComputerW
     public void SetError(RemoteControlConsoleError error)
     {
         _error = error;
-        RadarScreen.ForceSkip = _error != RemoteControlConsoleError.None;
+        //RadarScreen.ForceSkip = _error != RemoteControlConsoleError.None;
         UpdateControlVisibility();
     }
 
@@ -202,56 +216,92 @@ public sealed partial class RemoteControlConsoleWindow : FancyWindow, IComputerW
         UpdateControlVisibility();
     }
 
+    public enum VisualMode
+    {
+        Radar, Camera, Both
+    }
+    public void SetVisualModes(VisualMode modes)
+    {
+        
+    }
+
     private void UpdateControlVisibility()
     {
         if (_error != RemoteControlConsoleError.None)
         {
-            ErrorLabel.Text = _error switch
+            var error = _error switch
             {
                 RemoteControlConsoleError.NotConnected => "NO SIGNAL",
                 RemoteControlConsoleError.NoPowerTurret => "NO POWER",
                 RemoteControlConsoleError.TurretDestroyed => "SIGNAL LOST",
                 _ => "UNKNOWN ERROR\nCONTACT SYSTEM ADMINISTRATOR",
             };
-            RadarScreen.Visible = false;
-            CameraScreen.Visible = false;
-            StaticBackground.Visible = true;
+            ShowError(error);
             return;
         }
 
-
-        if (ToggleCameraButton.Pressed)
+        switch (AllowedModes)
         {
-            if (_turretEye is null)
+            case VisualMode.Radar:
+                UseRadar();
+                EnableRadarButton.Disabled = true;
+                EnableCameraButton.Disabled = true;
+                return;
+            case VisualMode.Camera:
+                UseCamera();
+                EnableRadarButton.Disabled = true;
+                EnableCameraButton.Disabled = true;
+                return;
+        }
+
+        EnableRadarButton.Disabled = false;
+        EnableCameraButton.Disabled = false;
+
+        if (EnableCameraButton.Pressed)
+        {
+            if (_turretEye is null) // still handling invalid settings just in case
             {
-                ErrorLabel.Text = "NO CAMERA";
-                RadarScreen.Visible = false;
-                CameraScreen.Visible = false;
-                StaticBackground.Visible = true;
+                ShowError("NO CAMERA");
                 return;
             }
 
-            StaticBackground.Visible = false;
-            RadarScreen.Visible = false;
-            CameraScreen.Visible = true;
-            if (RadarScreen.Children.Contains(HUDHolder))
-            {
-                RadarScreen.RemoveChild(HUDHolder);
-                CameraScreen.AddChild(HUDHolder);
-            }
+            UseCamera();
         }
         else
-        {
-            StaticBackground.Visible = false;
-            RadarScreen.Visible = true;
-            CameraScreen.Visible = false;
-            if (CameraScreen.Children.Contains(HUDHolder))
-            {
-                CameraScreen.RemoveChild(HUDHolder);
-                RadarScreen.AddChild(HUDHolder);
-            }
-        }
+            UseRadar();
 
+    }
+
+    private void ShowError(string err)
+    {
+        ErrorLabel.Text = err;
+        RadarScreen.Visible = false;
+        CameraScreen.Visible = false;
+        StaticBackground.Visible = true;
+    }
+
+    private void UseCamera()
+    {
+        StaticBackground.Visible = false;
+        RadarScreen.Visible = false;
+        CameraScreen.Visible = true;
+        if (RadarScreen.Children.Contains(HUDHolder))
+        {
+            RadarScreen.RemoveChild(HUDHolder);
+            CameraScreen.AddChild(HUDHolder);
+        }
+    }
+
+    private void UseRadar()
+    {
+        StaticBackground.Visible = false;
+        RadarScreen.Visible = true;
+        CameraScreen.Visible = false;
+        if (CameraScreen.Children.Contains(HUDHolder))
+        {
+            CameraScreen.RemoveChild(HUDHolder);
+            RadarScreen.AddChild(HUDHolder);
+        }
     }
 
     public void UpdateState(NavInterfaceState scc)
