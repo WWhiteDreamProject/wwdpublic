@@ -42,9 +42,8 @@ public sealed class RemoteControlConsoleUpdateAimDirectionMessage(Angle? newAimD
 }
 
 [Serializable, NetSerializable]
-public sealed class RemoteControlConsoleMouseClickMessage(NetCoordinates mousePos, bool down) : BoundUserInterfaceMessage
+public sealed class RemoteControlConsoleMouseClickMessage(bool down) : BoundUserInterfaceMessage
 {
-    public NetCoordinates MousePos = mousePos;
     public bool Down = down;
 }
 

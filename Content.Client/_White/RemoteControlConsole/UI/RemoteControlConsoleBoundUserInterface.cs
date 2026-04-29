@@ -9,6 +9,7 @@ using Content.Shared.ActionBlocker;
 using Content.Shared.Shuttles.BUIStates;
 using Content.Shared.Weapons.Ranged.Components;
 using JetBrains.Annotations;
+using Microsoft.CodeAnalysis;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
@@ -25,7 +26,7 @@ namespace Content.Client._White.RemoteControlConsole.UI;
 [UsedImplicitly]
 public sealed class RemoteControlConsoleBoundUserInterface : BoundUserInterface
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly IEyeManager _eye = default!;
     private SharedTransformSystem _transform = default!;
     private ActionBlockerSystem _actionBlocker = default!;
     private GunSystem _gun = default!;
@@ -50,129 +51,66 @@ public sealed class RemoteControlConsoleBoundUserInterface : BoundUserInterface
         _transform = EntMan.System<SharedTransformSystem>();
         _gun = EntMan.System<GunSystem>();
         _window = this.CreateWindow<RemoteControlConsoleWindow>();
-        _window.RadarScreen.OnMouseMove += OnMouseMove;
-        _window.RadarScreen.OnMouseExited += OnMouseExited;
-        _window.RadarScreen.OnRadarLeftClick += OnRadarLeftClick;
-        _window.RadarScreen.OnRadarRightClick += OnRadarRightClick;
-        _window.RadarScreen.OnMouseExited += (_) => Shooting = false;
+        _window.HUDHolder.OnMouseMove += OnMouseMove;
+        _window.HUDHolder.OnMouseLeftClick += OnLeftClick;
+        //_window.RadarScreen.OnRadarRightClick += OnRadarRightClick;
         _window.RadarScreen.DrawAfterFoV += DrawTurretIndicator;
         _window.RadarScreen.DrawAfterFoV += DrawAimDir;
         _window.RadarScreen.SetConsole(Owner);
-        _window.RadarScreen.DrawTop += DrawTop;
     }
 
-    private bool IsTimePeriod(double active, double inactive) => _timing.CurTime.TotalSeconds % (active + inactive) <= active;
-    private void DrawTop(DrawingHandleScreen handle, UIBox2 controlSize, Matrix3x2 ourEntToWorld, Matrix3x2 shuttleToWorld, Matrix3x2 worldToView)
-    {
-        //if (Locked && IsTimePeriod(0.5, 0.5))
-        //    handle.DrawString(_font, Vector2.Zero, "CONTROLS LOCKED\nPRESS RIGHT TRIGGER TO UNLOCK", Color.Green);
-
-        if (CurrentTurret is null)
-            return;
-
-        if (!_gun.TryGetGun(CurrentTurret.Value, out var gunUid, out var gunComp))
-            return;
-
-        DrawWeaponName(handle, gunUid);
-        DrawCooldown(handle, controlSize, gunComp);
-        DrawAmmoCounter(handle, controlSize, gunUid);
-
-    }
-
-    private void DrawWeaponName(DrawingHandleScreen handle, EntityUid gunUid)
-    {
-        if (!EntMan.TryGetComponent<ModularTurretWeaponComponent>(gunUid, out var modComp))
-            return;
-        var name = modComp.Name;
-        if (name is null)
-            name = "UNKNOWN";
-        // TODO: uncomment after merging the lobby vanity text from EE, it has a funny RANDOM() func for localization
-        //else if (Loc.TryGetString(name, out var newName))
-        //    name = newName;
-
-        handle.DrawString(_font, Vector2.Zero, $"WEP: {name}", Color.AntiqueWhite);
-    }
-
-    private void DrawCooldown(DrawingHandleScreen handle, UIBox2 controlSize, GunComponent gunComp)
-    {
-        string cooldownString;
-        if (gunComp.NextFire >= _timing.CurTime)
-            cooldownString = $"{(gunComp.NextFire - _timing.CurTime).TotalSeconds: 0.00}s";
-        else
-            cooldownString = "RDY";
-        handle.DrawString(_font, controlSize.Size - handle.GetDimensions(_font, cooldownString, 1f), cooldownString, gunComp.NextFire >= _timing.CurTime ? Color.Yellow : Color.Green);
-    }
-
-    private void DrawAmmoCounter(DrawingHandleScreen handle, UIBox2 controlSize, EntityUid gunUid)
-    {
-        if (!_gun.TryGetBatteryCharges(gunUid, out var shots, out var capacity))
-        {
-            var noBatteryString = "BAT: N/A";
-            var noBatteryStringHeight = handle.GetDimensions(_font, noBatteryString, 1f).Y;
-            handle.DrawString(_font, new Vector2(0, controlSize.Height - noBatteryStringHeight), noBatteryString, Color.AntiqueWhite);
-            return;
-        }
-
-        var chargePercent = (float) shots / capacity * 100;
-        var len = (int) MathF.Floor(MathF.Log10(capacity) + 1);
-        var shotCounter = $"{shots.ToString($"D{len}")}/{capacity}";
-        var warn = chargePercent < 25 && IsTimePeriod(0.2, 0.2) ? "WARN" : string.Empty;
-        var batteryString = $"BAT:{(chargePercent < 100 ? " " : "")}{chargePercent: 00.00}% ({shotCounter}) {warn}";
-        var batteryStringColor = chargePercent switch
-        {
-            >= 75 => Color.Green,
-            >= 50 => Color.Yellow,
-            >= 25 => Color.OrangeRed,
-            >= 0 => Color.Red,
-            _ => Color.Green
-        };
-        var batteryStringHeight = handle.GetDimensions(_font, batteryString, 1f).Y;
-        handle.DrawString(_font, new Vector2(0, controlSize.Height - batteryStringHeight), batteryString, batteryStringColor);
-    }
-
-    private void OnMouseMove(EntityCoordinates coordinates)
+    private void OnMouseMove(Vector2? pos)
     {
         if (Locked)
             return;
-        UpdateAimDirection(coordinates);
+        if (pos is null)
+        {
+            OnMouseExited();
+            return;
+        }
+        var dir = pos.Value / _window!.HUDHolder.Size - new Vector2(0.5f, 0.5f);
+        dir.Y *= -1;
+        UpdateAimDirection(dir);
     }
 
-    private void OnMouseExited(GUIMouseHoverEventArgs args)
+    private void OnMouseExited()
     {
         AimDirection = null;
+        Shooting = false;
     }
 
-    private void UpdateAimDirection(EntityCoordinates coordinates)
+    private void UpdateAimDirection(Vector2 dir)
     {
-        var angle = EntMan.GetComponent<TransformComponent>(coordinates.EntityId).LocalRotation + MathF.PI;
+        DebugTools.Assert(CurrentTurret is not null);
+        var xform = EntMan.GetComponent<TransformComponent>(CurrentTurret.Value);
+        var locrot = _transform.GetWorldRotation(xform) - xform.LocalRotation;
 
-        var unrotatedPos = angle.RotateVec(coordinates.Position);
+        var angle = dir.ToWorldAngle();
 
-        //var angle = MathF.PI;
-        AimDirection = Angle.FromWorldVec(unrotatedPos);
+        AimDirection = angle - locrot - _eye.CurrentEye.Rotation;
         AimDirection = AimDirection.Value.Reduced();
     }
 
-    private void OnRadarLeftClick(EntityCoordinates coordinates, bool down)
+    private void OnLeftClick(bool down)
     {
         if (Locked)
             return;
-        UpdateAimDirection(coordinates);
-        SendPredictedMessage(new RemoteControlConsoleMouseClickMessage(EntMan.GetNetCoordinates(coordinates), down));
+        SendPredictedMessage(new RemoteControlConsoleMouseClickMessage(down));
     }
 
-    private void OnRadarRightClick(EntityCoordinates coordinates, bool down)
-    {
-        if (!down)
-            return;
-
-        // looks kinda cool, but i could not find a good use for this
-        // when you can just move the cursor off the UI window.
-        //Locked = !Locked;
-        //AimDirection = null;
-        //if (!Locked)
-        //    UpdateAimDirection(coordinates);
-    }
+    // looks kinda cool, but i could not find a good use for this
+    // when you can just move the cursor off the UI window.
+    // TODO: uncomment when i come up with a better use for rmb (maybe target painting?)
+    //private void OnRadarRightClick(EntityCoordinates coordinates, bool down)
+    //{
+    //    if (!down)
+    //        return;
+    //
+    //    Locked = !Locked;
+    //    AimDirection = null;
+    //    if (!Locked)
+    //        UpdateAimDirection(coordinates);
+    //}
 
     protected override void UpdateState(BoundUserInterfaceState someState)
     {
@@ -180,22 +118,25 @@ public sealed class RemoteControlConsoleBoundUserInterface : BoundUserInterface
         if (someState is not RemoteControlConsoleBuiState state)
             return;
 
-        var turretUid = EntMan.GetEntity(state.CurrentTurret);
-        if (turretUid is not null)
+        var currentTurretUid = EntMan.GetEntity(state.CurrentTurret);
+        if (currentTurretUid is not null)
         {
-            if (!EntMan.TryGetComponent<RemoteControllableComponent>(turretUid, out var turretComp))
+            if (!EntMan.TryGetComponent<RemoteControllableComponent>(currentTurretUid, out var turretComp))
             {
                 UiSystem.Log.Error($"For {nameof(RemoteControlConsoleBoundUserInterface)}, the server sent a turret entity that is missing {nameof(RemoteControllableComponent)}.");
                 return; // pretend it never happened
             }
-            CurrentTurret = (turretUid.Value, turretComp);
+            CurrentTurret = (currentTurretUid.Value, turretComp);
         }
         else
             CurrentTurret = null;
 
+        _window!.CurrentTurret = CurrentTurret;
+
         AimDirection = null;
-        RebuildTurretSelection(state.LinkedTurrets, turretUid);
+        RebuildTurretSelection(state.LinkedTurrets, currentTurretUid);
         _window?.SetError(state.Error);
+        _window?.SetEye(EntMan.GetComponentOrNull<EyeComponent>(currentTurretUid));
         _window?.UpdateState(state.RadarState);
     }
 
@@ -210,7 +151,7 @@ public sealed class RemoteControlConsoleBoundUserInterface : BoundUserInterface
 
             var button = new Button();
             button.HorizontalAlignment = Control.HAlignment.Stretch;
-            button.Text = !string.IsNullOrWhiteSpace(turret.Name) ? turret.Name : EntMan.ToPrettyString(turretUid); // todo: replace ToPrettyString with something less debug-flavoured
+            button.Text = !string.IsNullOrWhiteSpace(turret.Name) ? turret.Name : GetPlaceholderName(turretUid, turretNetUid); // todo: replace ToPrettyString with something less debug-flavoured
             if (turretUid == currentTurretUid)
                 button.ModulateSelfOverride = Color.DarkGoldenrod;
             else if (!turretAvailable)
@@ -223,6 +164,8 @@ public sealed class RemoteControlConsoleBoundUserInterface : BoundUserInterface
 
             _window!.TurretSelection.AddChild(button);
         }
+
+        string GetPlaceholderName(EntityUid uid, NetEntity netUid) => $"{EntMan.GetComponent<MetaDataComponent>(uid).EntityName} {netUid}";
     }
 
 

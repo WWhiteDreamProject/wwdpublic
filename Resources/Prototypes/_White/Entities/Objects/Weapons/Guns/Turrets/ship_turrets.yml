@@ -9,6 +9,7 @@
   - type: Clickable
   - type: InteractionOutline
   - type: Actions
+  - type: Eye
   - type: Fixtures
     fixtures:
       fix1:

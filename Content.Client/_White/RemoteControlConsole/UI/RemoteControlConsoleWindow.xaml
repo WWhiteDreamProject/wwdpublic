@@ -1,6 +1,8 @@
 <controls:FancyWindow xmlns="https://spacestation14.io"
                       xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+                      xmlns:viewport="clr-namespace:Content.Client.Viewport"
                       xmlns:ui="clr-namespace:Content.Client.Shuttles.UI"
+                      xmlns:mt="clr-namespace:Content.Client._White.RemoteControlConsole.UI"
                       Title="{Loc 'radar-console-window-title'}"
                       SetSize="900, 686"
                       MinSize="656, 686">
@@ -10,12 +12,30 @@
                         HorizontalExpand = "True"
                         VerticalExpand = "True"
                         Access="Public"
-                        HorizontalAlignment="Left"/>
+                        HorizontalAlignment="Left">
+            <mt:MouseTracker Access="Public" Name="HUDHolder" MouseFilter="Stop" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <Label Name ="WeaponIDHUDLabel" Align="Right" VerticalAlignment="Top"/>
+                <Label Name ="AmmoCountHUDLabel" Align="Left" VerticalAlignment="Bottom"/>
+                <Label Name ="WeaponCooldownHUDLabel" Align="Right" VerticalAlignment="Bottom"/>
+            </mt:MouseTracker>
+        </ui:ShuttleNavControl>
+        <viewport:ScalingViewport Name="CameraScreen"
+                                    SetSize="648 648"
+                                    Margin="4"
+                                    Visible="False"
+                                    MouseFilter="Ignore">
+        </viewport:ScalingViewport>
+        <TextureRect MinSize="648 648" Name="StaticBackground" Margin="4">
+            <Label Name ="ErrorLabel" Align="Center" VAlign="Center"/>
+        </TextureRect>
+        <BoxContainer Orientation="Vertical" HorizontalExpand="True">
             <ScrollContainer HScrollEnabled="False"
-                     HorizontalExpand="True"
-                     VerticalExpand="True"
-                     MinHeight="400">
+                        HorizontalExpand="True"
+                        VerticalExpand="True"
+                        MinHeight="400">
                 <BoxContainer Name="TurretSelection" Orientation="Vertical" Access="Public"/>
             </ScrollContainer>
+            <Button Name="ToggleCameraButton" Text="Use Camera" ToggleMode="True"/>
+        </BoxContainer>
     </BoxContainer>
 </controls:FancyWindow>
