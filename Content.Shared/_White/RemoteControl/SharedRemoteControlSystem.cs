@@ -128,7 +128,7 @@ public abstract class SharedRemoteControlSystem : EntitySystem
 
         args.Verbs.Add(new()
         {
-            Text = "Change Turret ID",
+            Text = Loc.GetString("ship-turret-change-id-verb"),
             //Category = VerbCategory.Tricks,
             Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/AdminActions/rename.png")),
             Act = () =>
@@ -140,7 +140,7 @@ public abstract class SharedRemoteControlSystem : EntitySystem
                     return;
                 OnRenameVerb(player, uid, comp);
             },
-            Message = Loc.GetString("ship-turret-change-id-verb"),
+            Message = Loc.GetString("ship-turret-change-id-verb-description"),
             //Priority = (int) TricksVerbPriorities.Rename,
         });
     }
