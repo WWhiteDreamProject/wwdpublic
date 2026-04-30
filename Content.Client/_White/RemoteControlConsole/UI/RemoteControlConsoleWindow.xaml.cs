@@ -4,6 +4,7 @@ using Content.Client.Resources;
 using Content.Client.UserInterface.Controls;
 using Content.Client.Weapons.Ranged.Systems;
 using Content.Shared._White.Guns.ModularTurret;
+using Content.Shared._White.RemoteControl;
 using Content.Shared._White.RemoteControl.BUIStates;
 using Content.Shared.Shuttles.BUIStates;
 using Content.Shared.Weapons.Ranged.Components;
@@ -44,7 +45,7 @@ public sealed partial class RemoteControlConsoleWindow : FancyWindow, IComputerW
     // we'll have to implement it ourselves.
     // I could make it a separate control, but i don't want to bother until it's needed elsewhere.
     public float CameraScale = 1f;
-    public VisualMode AllowedModes;
+    public RemoteControlVisualMode AllowedModes;
 
     public RemoteControlConsoleWindow()
     {
@@ -87,7 +88,9 @@ public sealed partial class RemoteControlConsoleWindow : FancyWindow, IComputerW
         WeaponIDHUDLabel.FontOverride = _font;
         AmmoCountHUDLabel.FontOverride = _font;
         WeaponCooldownHUDLabel.FontOverride = _font;
+        DisplayTypeHUDLabel.FontOverride = _font;
     }
+    // TODO: radar/camera selection broke
 
     //public Angle? GetAimDirection()
     //{
@@ -206,29 +209,6 @@ public sealed partial class RemoteControlConsoleWindow : FancyWindow, IComputerW
         }
     }
 
-    public void SetError(RemoteControlConsoleError error)
-    {
-        _error = error;
-        //RadarScreen.ForceSkip = _error != RemoteControlConsoleError.None;
-        UpdateControlVisibility();
-    }
-
-    public void SetEye(EyeComponent? eyeComp)
-    {
-        _turretEye = eyeComp?.Eye;
-        CameraScreen.Eye = _turretEye;
-        UpdateControlVisibility();
-    }
-
-    public enum VisualMode
-    {
-        Radar, Camera, Both
-    }
-    public void SetVisualModes(VisualMode modes)
-    {
-        
-    }
-
     private void UpdateControlVisibility()
     {
         if (_error != RemoteControlConsoleError.None)
@@ -246,13 +226,22 @@ public sealed partial class RemoteControlConsoleWindow : FancyWindow, IComputerW
 
         switch (AllowedModes)
         {
-            case VisualMode.Radar:
-                UseRadar();
+            case RemoteControlVisualMode.None:
+                ShowError("SENSORS FAILURE\nCONTACT SYSTEM ADMINISTRATOR");
                 EnableRadarButton.Disabled = true;
                 EnableCameraButton.Disabled = true;
                 return;
-            case VisualMode.Camera:
+            case RemoteControlVisualMode.Radar:
+                UseRadar();
+                DisplayTypeHUDLabel.Text = "RADAR ONLY";
+                DisplayTypeHUDLabel.FontColorOverride = Color.Yellow;
+                EnableRadarButton.Disabled = true;
+                EnableCameraButton.Disabled = true;
+                return;
+            case RemoteControlVisualMode.Camera:
                 UseCamera();
+                DisplayTypeHUDLabel.Text = "VISUAL ONLY";
+                DisplayTypeHUDLabel.FontColorOverride = Color.Yellow;
                 EnableRadarButton.Disabled = true;
                 EnableCameraButton.Disabled = true;
                 return;
@@ -270,10 +259,15 @@ public sealed partial class RemoteControlConsoleWindow : FancyWindow, IComputerW
             }
 
             UseCamera();
+            DisplayTypeHUDLabel.Text = "RADAR";
+            DisplayTypeHUDLabel.FontColorOverride = Color.AntiqueWhite;
         }
         else
+        {
             UseRadar();
-
+            DisplayTypeHUDLabel.Text = "VISUAL";
+            DisplayTypeHUDLabel.FontColorOverride = Color.AntiqueWhite;
+        }
     }
 
     private void ShowError(string err)
@@ -308,9 +302,14 @@ public sealed partial class RemoteControlConsoleWindow : FancyWindow, IComputerW
         }
     }
 
-    public void UpdateState(NavInterfaceState scc)
+    public void UpdateState(NavInterfaceState scc, IEye? eye, RemoteControlVisualMode mode, RemoteControlConsoleError error)
     {
         RadarScreen.UpdateState(scc);
+        _turretEye = eye;
+        CameraScreen.Eye = _turretEye;
+        _error = error;
+        AllowedModes = mode;
+        UpdateControlVisibility();
     }
 }
 

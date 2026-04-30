@@ -14,9 +14,10 @@
                         Access="Public"
                         HorizontalAlignment="Left">
             <mt:MouseTracker Access="Public" Name="HUDHolder" MouseFilter="Stop" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                <Label Name ="WeaponIDHUDLabel" Align="Right" VerticalAlignment="Top"/>
+                <Label Name ="WeaponIDHUDLabel" Align="Left" VerticalAlignment="Top"/>
                 <Label Name ="AmmoCountHUDLabel" Align="Left" VerticalAlignment="Bottom"/>
                 <Label Name ="WeaponCooldownHUDLabel" Align="Right" VerticalAlignment="Bottom"/>
+                <Label Name ="DisplayTypeHUDLabel" Align="Right" VerticalAlignment="Top"/>
             </mt:MouseTracker>
         </ui:ShuttleNavControl>
         <viewport:ScalingViewport Name="CameraScreen"
@@ -30,16 +31,16 @@
             <Label Name ="ErrorLabel" Align="Center" VAlign="Center"/>
         </TextureRect>
         <BoxContainer Orientation="Vertical" HorizontalExpand="True">
+            <BoxContainer Align="Center">
+                <Button Name="EnableRadarButton" Text="RADAR" ToggleMode="True" Disabled="True"/>
+                <Button Name="EnableCameraButton" Text="VISUAL" ToggleMode="True" Disabled="True"/>
+            </BoxContainer>
             <ScrollContainer HScrollEnabled="False"
                         HorizontalExpand="True"
                         VerticalExpand="True"
                         MinHeight="400">
                 <BoxContainer Name="TurretSelection" Orientation="Vertical" Access="Public"/>
             </ScrollContainer>
-            <BoxContainer>
-                <Button Name="EnableRadarButton" Text="RADAR" ToggleMode="True"/>
-                <Button Name="EnableCameraButton" Text="VISUAL" ToggleMode="True"/>
-            </BoxContainer>
         </BoxContainer>
     </BoxContainer>
 </controls:FancyWindow>

@@ -57,12 +57,22 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
         UpdateState(uid, component);
     }
 
-    private void SetUiState(Entity<UserInterfaceComponent?> ent, EntityUid? currentSelectedTurret, NavInterfaceState radarState, List<(NetEntity, bool)> turretList) =>
+    private void SetUiState(
+        Entity<UserInterfaceComponent?> ent,
+        EntityUid? currentSelectedTurret,
+        RemoteControlVisualMode displayMode,
+        NavInterfaceState radarState,
+        List<(NetEntity, bool)> turretList) =>
                     _uiSystem.SetUiState(ent, RemoteControlConsoleUiKey.Key,
-                                 new RemoteControlConsoleBuiState(radarState, GetNetEntity(currentSelectedTurret), turretList));
-    private void SetUiState(Entity<UserInterfaceComponent?> ent, EntityUid? currentSelectedTurret, RemoteControlConsoleError error, List<(NetEntity, bool)> turretList) =>
+                                 new RemoteControlConsoleBuiState(radarState, GetNetEntity(currentSelectedTurret), displayMode, turretList));
+    private void SetUiState(
+        Entity<UserInterfaceComponent?> ent,
+        EntityUid? currentSelectedTurret,
+        RemoteControlVisualMode displayMode,
+        RemoteControlConsoleError error,
+        List<(NetEntity, bool)> turretList) =>
                     _uiSystem.SetUiState(ent, RemoteControlConsoleUiKey.Key,
-                                 new RemoteControlConsoleBuiState(error, GetNetEntity(currentSelectedTurret), turretList));
+                                 new RemoteControlConsoleBuiState(error, GetNetEntity(currentSelectedTurret), displayMode, turretList));
 
     private void UpdateState(EntityUid uid, RemoteControlConsoleComponent? comp = null) => UpdateState((uid, null, comp));
     // TODO: handle multiple attempted console uses (reject everyone until the first user closes the bui) 
@@ -82,27 +92,28 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
             turrets.Add((GetNetEntity(uid), turret.CurrentConsole is null));
         }
         if (consoleComp.CurrentTurret is not EntityUid currentTurretUid ||
+            !TryComp<RemoteControllableComponent>(currentTurretUid, out var currentTurretComp) ||
             !_link.IsConnectedToSource(consoleEnt.Owner, SourcePortId, currentTurretUid))
         {
-            SetUiState(consoleEnt, null, RemoteControlConsoleError.NotConnected, turrets);
+            SetUiState(consoleEnt, null, RemoteControlVisualMode.None, RemoteControlConsoleError.NotConnected, turrets);
             return;
         }
 
         if (TryComp<MobStateComponent>(consoleEnt, out var stateComp) && stateComp.CurrentState != Shared.Mobs.MobState.Alive ||
            TerminatingOrDeleted(currentTurretUid))
         {
-            SetUiState(consoleEnt, currentTurretUid, RemoteControlConsoleError.TurretDestroyed, turrets);
+            SetUiState(consoleEnt, currentTurretUid, currentTurretComp.Display, RemoteControlConsoleError.TurretDestroyed, turrets);
             return;
         }
 
         if (!this.IsPowered(currentTurretUid, EntityManager))
         {
-            SetUiState(consoleEnt, currentTurretUid, RemoteControlConsoleError.NoPowerTurret, turrets);
+            SetUiState(consoleEnt, currentTurretUid, currentTurretComp.Display, RemoteControlConsoleError.NoPowerTurret, turrets);
             return;
         }
 
         var state = _console.GetNavState(currentTurretUid, new(), new(currentTurretUid, new Vector2(0,0)), 0);
-        SetUiState(consoleEnt, currentTurretUid, state, turrets);
+        SetUiState(consoleEnt, currentTurretUid, currentTurretComp.Display, state, turrets);
     }
 
     private void UpdateStateForAllConnected(EntityUid turret)

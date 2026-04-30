@@ -79,10 +79,10 @@ public partial class RemoteControlSystem
 
     private void OnTurretSelection(EntityUid uid, RemoteControlConsoleComponent comp, RemoteControlConsoleTurretSelectedBuiMessage args)
     {
-        TrySwitch(uid, comp, GetEntity(args.Turret), _actor.GetSession(args.Actor));
+        TrySwitch(uid, comp, GetEntity(args.Turret));
     }
 
-    private bool TrySwitch(EntityUid consoleUid, RemoteControlConsoleComponent consoleComp, EntityUid? newTurretUid, ICommonSession? player)
+    private bool TrySwitch(EntityUid consoleUid, RemoteControlConsoleComponent consoleComp, EntityUid? newTurretUid)
     {
         RemoteControllableComponent? currentTurretComp;
         var currentTurretUid = consoleComp.CurrentTurret;
@@ -144,6 +144,7 @@ public partial class RemoteControlSystem
         var session = _actor.GetSession(args.Actor);
         DebugTools.Assert(session is not null);
         _pvs.RemoveSessionOverride(turret, session);
+        TrySwitch(uid, comp, null);
     }
 
     private void RemoveFromPvsOverride(Entity<UserInterfaceComponent?> consoleEntity, EntityUid obj)

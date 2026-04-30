@@ -12,23 +12,27 @@ public sealed class RemoteControlConsoleBuiState : BoundUserInterfaceState
     public NavInterfaceState RadarState;
 
     public NetEntity? CurrentTurret;
+    
+    public RemoteControlVisualMode VisualMode;
 
     // should mirror LinkedTurrets in the turret component.
     public List<(NetEntity, bool)> LinkedTurrets;
 
     public RemoteControlConsoleError Error = RemoteControlConsoleError.None;
 
-    public RemoteControlConsoleBuiState(NavInterfaceState state, NetEntity? currentTurret, List<(NetEntity, bool)> turrets)
+    public RemoteControlConsoleBuiState(NavInterfaceState state, NetEntity? currentTurret, RemoteControlVisualMode visMode, List<(NetEntity, bool)> turrets)
     {
         RadarState = state;
         CurrentTurret = currentTurret;
+        VisualMode = visMode;
         LinkedTurrets = turrets;
     }
 
-    public RemoteControlConsoleBuiState(RemoteControlConsoleError error, NetEntity? currentTurret, List<(NetEntity, bool)> turrets)
+    public RemoteControlConsoleBuiState(RemoteControlConsoleError error, NetEntity? currentTurret, RemoteControlVisualMode visMode, List<(NetEntity, bool)> turrets)
     {
         RadarState = NavInterfaceState.Invalid;
         CurrentTurret = currentTurret;
+        VisualMode = visMode;
         LinkedTurrets = turrets;
         Error = error;
     }

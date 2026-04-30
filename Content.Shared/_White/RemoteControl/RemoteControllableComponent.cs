@@ -24,6 +24,15 @@ public sealed partial class RemoteControllableComponent : Component
 
     [DataField, AutoNetworkedField]
     public EntityUid? CurrentConsole;
+
+    [DataField, AutoNetworkedField]
+    public RemoteControlVisualMode Display = RemoteControlVisualMode.Radar;
+
+}
+
+public enum RemoteControlVisualMode
+{
+    None, Radar, Camera, Both
 }
 
 [Serializable, NetSerializable]
@@ -31,3 +40,4 @@ public enum RemoteControlConsoleUiKey : byte
 {
     Key
 }
+

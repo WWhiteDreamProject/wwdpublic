@@ -146,9 +146,8 @@ public sealed class RemoteControlConsoleBoundUserInterface : BoundUserInterface
 
         AimDirection = null;
         RebuildTurretSelection(state.LinkedTurrets, currentTurretUid);
-        _window?.SetError(state.Error);
-        _window?.SetEye(EntMan.GetComponentOrNull<EyeComponent>(currentTurretUid));
-        _window?.UpdateState(state.RadarState);
+        var eyeComp = EntMan.GetComponentOrNull<EyeComponent>(currentTurretUid);
+        _window?.UpdateState(state.RadarState, eyeComp?.Eye, state.VisualMode, state.Error);
     }
 
     private void RebuildTurretSelection(List<(NetEntity, bool)> netEnts, EntityUid? currentTurretUid)
