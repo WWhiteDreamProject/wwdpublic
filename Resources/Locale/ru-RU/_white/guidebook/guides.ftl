@@ -1,3 +1,8 @@
+
+# Сервис
+
+guide-entry-botany-base = Основы ботаники
+
 # Инженерное дело
 
 guide-entry-expandingrepairingstation = Расширение и ремонт станций
