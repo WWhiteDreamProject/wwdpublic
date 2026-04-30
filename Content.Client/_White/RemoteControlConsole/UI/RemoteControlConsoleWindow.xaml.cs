@@ -37,6 +37,7 @@ public sealed partial class RemoteControlConsoleWindow : FancyWindow, IComputerW
     private IEye? _turretEye;
     private RemoteControlConsoleError _error;
     private static ICursor? _aimingCursor;
+    private static ICursor? _firingCursor;
 
     public EntityUid? CurrentTurret;
     // Viewports do not have zoom on scrollwheel functionality, so
@@ -69,10 +70,13 @@ public sealed partial class RemoteControlConsoleWindow : FancyWindow, IComputerW
         EnableCameraButton.Group = group;
 
 #if DEBUG
-        _aimingCursor = CreateCursor();
+        _aimingCursor = BuildCursor();
+        _firingCursor = BuildCursorFiring();
 #else
-        _aimingCursor ??= CreateCursor();
+        _aimingCursor ??= BuildCursor();
+        _firingCursor ??= BuildCursorFiring();
 #endif
+        HUDHolder.OnMouseLeftClick += (down) => HUDHolder.CustomCursorShape = down ? _firingCursor : _aimingCursor;
 
         HUDHolder.CustomCursorShape = _aimingCursor;
         HUDHolder.OnMouseWheel += (delta) => CameraScale = Math.Clamp(CameraScale + delta / 4f, 1f, 3f); // arbitrary // TODO: move to comp
