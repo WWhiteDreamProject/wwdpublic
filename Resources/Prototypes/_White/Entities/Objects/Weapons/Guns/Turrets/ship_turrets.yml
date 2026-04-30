@@ -156,22 +156,24 @@
   - type: UpgradeBattery
     maxChargeMultiplier: 3
     baseMaxCharge: 10000
-  - type: IntrinsicUI
-    uis:
-      enum.RadarConsoleUiKey.Key:
-        toggleAction: ActionAGhostShowRadar
-  - type: UserInterface
-    interfaces:
-      enum.RadarConsoleUiKey.Key:
-        type: RadarConsoleBoundUserInterface
   - type: RadarConsole
     fieldOfView: 120
     maxRange: 448
     followEntity: true
     rotateWithEntity: false
-  - type: ContentEye
-    targetZoom: 2, 2
-    maxZoom: 2, 2
-  - type: EyeCursorOffset
-    maxOffset: 15
-    pvsIncrease: 1.5
+  - type: RemoteControllable
+    acceptedWeaponClasses:
+    - LightBallistic
+    - LightEnergy
+    - Interior
+
+- type: entity
+  parent: BaseWeaponTurretShip
+  id: WeaponTurretShipInterior
+  suffix: Naval, Remote Controlled
+  name: interior weapon mount
+  description: A remotely-operated weapon mount designed to repel boarding parties.
+  components:
+  - type: RemoteControllable
+    acceptedWeaponClasses:
+    - Interior
