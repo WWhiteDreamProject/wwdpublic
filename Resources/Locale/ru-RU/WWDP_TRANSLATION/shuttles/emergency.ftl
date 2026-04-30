@@ -1,11 +1,11 @@
 emergency_shuttle_meteor_available = Установлена связь с эвакуационным шаттлом. Он может быть вызван.
 
 emergency_shuttle-announce-toggle =
-    "Внимание! { $admin } { $value ->
+    «Внимание! { $admin } { $value ->
         [True] включил
         [False] выключил
        *[other] _
-    } вызов шаттла!"
+    } вызов шаттла!»
 
 emergency_shuttle-call-enable = Включить вызов шаттла
 

@@ -46,7 +46,7 @@ steal-target-lamps = ЛАМПЫ
 
 steal-target-forensic-scanner = криминалистический сканер
 
-steal-target-lighter = detective's Flippo engraved lighter
+steal-target-lighter = гравированная бензиновая зажигалка детектива
 
 steal-target-ammo-techfab = печатная плата техфаба патронов
 

@@ -1,4 +1,4 @@
-hand-labeler-ui-header = Hand Labeler
+hand-labeler-ui-header = Ручной маркировщик
 
 # The content of the label in the UI above the text entry input.
 hand-labeler-current-text-label = Этикетка:
@@ -10,7 +10,7 @@ hand-labeler-successfully-applied = Этикетка успешно наклее
 hand-labeler-successfully-removed = Этикетка успешно удалена
 # Appended to the description of an object with a label on input
 # Appended to the description of an object with a label on input
-hand-labeler-has-label = На объекте имеется этикетка "{ $label }"
+hand-labeler-has-label = На объекте имеется этикетка: «{ $label }»
 # Verb text
 # Verb text
 hand-labeler-remove-label-text = Удалить этикетку

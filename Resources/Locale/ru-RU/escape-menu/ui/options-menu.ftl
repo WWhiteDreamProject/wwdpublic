@@ -1,6 +1,8 @@
 ## General stuff
 
 ui-options-title = Игровые настройки
+ui-options-tab-accessibility = Доступность
+ui-options-tab-admin = Админ
 ui-options-tab-graphics = Графика
 ui-options-tab-controls = Управление
 ui-options-tab-audio = Аудио
@@ -24,10 +26,10 @@ ui-options-general-storage = Инвентарь
 ui-options-general-other = Другое
 ui-options-general-accessibility = Доступность
 ui-options-chatstack = Автоматическое объединение одинаковых сообщения в чате
-ui-options-chatstack-off = Выключено
-ui-options-chatstack-single = Только последнее сообщение
-ui-options-chatstack-double = Два последних сообщения
-ui-options-chatstack-triple = Три последних сообщения
+ui-options-chatstack-0 = Выключено
+ui-options-chatstack-1 = Только последнее сообщение
+ui-options-chatstack-2 = Два последних сообщения
+ui-options-chatstack-3 = Три последних сообщения
 
 ## Audio menu
 
@@ -47,12 +49,18 @@ ui-options-event-music = Музыка событий
 ui-options-announcer-disable-multiple-sounds = Наложенные объявления
 ui-options-announcer-disable-multiple-sounds-tooltip = Some announcements will not sound right, this setting isn't recommended
 ui-options-admin-sounds = Музыка админов
+ui-options-bwoink-sound = Звук уведомления от AHelp
 ui-options-volume-label = Громкость
 ui-options-volume-percent = { TOSTRING($volume, "P0") }
 
 ## Graphics menu
 
 ## Graphics menu
+
+ui-options-display-label = Дисплей
+ui-options-quality-label = Качество
+ui-options-interface-label = Интерфейс
+ui-options-misc-label = Другое
 
 ui-options-show-held-item = Показать удерживаемый элемент рядом с курсором?
 ui-options-show-combat-mode-indicators = Показать индикатор боевого режима рядом с курсором
@@ -64,7 +72,7 @@ ui-options-fancy-speech = Показывать имена в облачках с
 ui-options-fancy-name-background = Добавить фон облачкам с текстом
 ui-options-enable-color-name = Окрашивать имена в чате
 ui-options-colorblind-friendly = Режим для дальтоников
-ui-options-no-filters = Disable species vision filters
+ui-options-no-filters = Отключить визуальные фильтры рас
 ui-options-reduced-motion = Снижение интенсивности визуальных эффектов
 ui-options-chat-window-opacity = Полупрозрачность окна чата
 ui-options-chat-window-opacity-percent = { TOSTRING($opacity, "P0") }
@@ -93,6 +101,8 @@ ui-options-hud-theme-clockwork = Механизм
 ui-options-hud-theme-retro = Ретро
 ui-options-hud-theme-minimalist = Минимализм
 ui-options-hud-theme-ashen = Пепел
+ui-options-hud-layout-overlay = Обычный
+ui-options-hud-layout-separated = Разделённый
 ui-options-vp-stretch = Растянуть изображение для соответствия окну игры
 ui-options-vp-scale = Фиксированный масштаб окна игры: x{ $scale }
 ui-options-vp-integer-scaling = Предпочитать целочисленное масштабирование (может привести к появлению черных полос / отсечению)
@@ -117,7 +127,7 @@ ui-options-hud-layout = Тип HUD:
 
 ui-options-binds-reset-all = Сбросить ВСЕ привязки
 ui-options-binds-explanation = ЛКМ — изменить кнопку, ПКМ — убрать кнопку
-ui-options-binds-search = Search
+ui-options-binds-search = Поиск
 ui-options-unbound = Пусто
 ui-options-bind-reset = Сбросить
 ui-options-key-prompt = Нажмите кнопку...
@@ -134,6 +144,11 @@ ui-options-header-shuttle = Шаттл
 ui-options-header-map-editor = Редактор карт
 ui-options-header-dev = Разработка
 ui-options-header-general = Основное
+ui-options-header-text-cursor = Текстовый курсор
+ui-options-header-text-cursor-select = Выделение текста
+ui-options-header-text-edit = Редактирование текста
+ui-options-header-text-chat = Чат
+ui-options-header-text-other = Прочее (текст)
 
 ui-options-hotkey-keymap = Использовать клавиши QWERTY (США)
 ui-options-hotkey-toggle-walk = Переключать шаг\бег
@@ -182,6 +197,10 @@ ui-options-function-try-pull-object = Тянуть объект
 ui-options-function-move-pulled-object = Тянуть объект в сторону
 ui-options-function-release-pulled-object = Перестать тянуть объект
 ui-options-function-point = Указать на что-либо
+ui-options-function-rotate-object-clockwise = Повернуть по часовой стрелке
+ui-options-function-rotate-object-counterclockwise = Повернуть против часовой стрелке
+ui-options-function-flip-object = Отразить
+
 
 ui-options-function-target-head = Нацелиться на голову
 ui-options-function-target-torso = Нацелиться на туловище
@@ -268,6 +287,42 @@ ui-options-function-shuttle-rotate-left = Поворот налево
 ui-options-function-shuttle-rotate-right = Поворот направо
 ui-options-function-shuttle-brake = Торможение
 
+ui-options-function-text-cursor-left = Переместить курсор влево
+ui-options-function-text-cursor-right = Переместить курсор вправо
+ui-options-function-text-cursor-up = Переместить курсор вверх
+ui-options-function-text-cursor-down = Переместить курсор вниз
+ui-options-function-text-cursor-word-left = Переместить курсор на слово назад
+ui-options-function-text-cursor-word-right = Переместить курсор на слово вперёд
+ui-options-function-text-cursor-begin = Переместить курсор в начало
+ui-options-function-text-cursor-end = Переместить курсор в конец
+ui-options-function-text-cursor-select = Выделить текст
+ui-options-function-text-cursor-select-left = Расширить выделение влево
+ui-options-function-text-cursor-select-right = Расширить выделение вправо
+ui-options-function-text-cursor-select-up = Расширить выделение вверх
+ui-options-function-text-cursor-select-down = Расширить выделение вниз
+ui-options-function-text-cursor-select-word-left = Расширить выделение на слово назад
+ui-options-function-text-cursor-select-word-right = Расширить выделение на слово вперёд
+ui-options-function-text-cursor-select-begin = Расширить выделение до начала
+ui-options-function-text-cursor-select-end = Расширить выделение до конца
+ui-options-function-text-backspace = Клавиша «Backspace»
+ui-options-function-text-delete = Клавиша «Delete»
+ui-options-function-text-word-backspace = Удалить слово слева (Backspace)
+ui-options-function-text-word-delete = Удалить слово справа (Delete)
+ui-options-function-text-newline = Новая строка
+ui-options-function-text-submit = Отправить
+ui-options-function-multiline-text-submit = Отправить многострочный текст
+ui-options-function-text-select-all = Выделить всё
+ui-options-function-text-copy = Копировать
+ui-options-function-text-cut = Вырезать
+ui-options-function-text-paste = Вставить
+ui-options-function-text-history-prev = Предыдущее из истории
+ui-options-function-text-history-next = Следующее из истории
+ui-options-function-text-release-focus = Снять фокус
+ui-options-function-text-scroll-to-bottom = Прокрутить в самый низ
+ui-options-function-text-tab-complete = Автозаполнение (Tab)
+ui-options-function-text-complete-next = Следующий вариант автозаполнения
+ui-options-function-text-complete-prev = Предыдущий вариант автозаполнения
+
 ## Network menu
 
 ## Network menu
@@ -291,20 +346,20 @@ ui-options-net-predict-tick-bias-tooltip =
 ui-options-net-pvs-spawn = Лимит появление PVS сущностей
 ui-options-net-pvs-spawn-tooltip =
     Ограничение частоты отправки новых появившихся сущностей сервером на клиент.
-    Снижение этого параметра может помочь уменьшить "захлебывания",
+    Снижение этого параметра может помочь уменьшить «захлебывания»,
     вызываемые спавном сущностей, но может привести к их резкому появлению.
 
 ui-options-net-pvs-entry = Лимит PVS сущностей
 ui-options-net-pvs-entry-tooltip =
     Ограничение частоты отправки новых видимых сущностей сервером на клиент.
-    Снижение этого параметра может помочь уменьшить "захлебывания",
+    Снижение этого параметра может помочь уменьшить «захлебывания»,
     вызываемые спавном сущностей, но может привести к их резкому появлению.
 
 ui-options-net-pvs-leave = Частота удаления PVS
 ui-options-net-pvs-leave-tooltip =
     Ограничение частоты, с которой клиент будет удалять
     сущности вне поля зрения. Снижение этого параметра может помочь
-    уменьшить "захлебывания" при ходьбе, но иногда может
+    уменьшить «захлебывания» при ходьбе, но иногда может
     привести к неправильным предугадываниям и другим проблемам.
 
 ## Toggle window console command
@@ -315,3 +370,18 @@ cmd-options-help = Использование: options [tab]
 ## Combat Options
 
 ui-options-function-auto-get-up = Автоматически вставать при падении
+
+ui-options-censor-nudity = Цензура обнаженных персонажей
+
+## Accessibility menu
+
+ui-options-accessability-header-visuals = Визуал
+ui-options-accessability-header-content = Контент
+
+ui-options-speech-bubble-text-opacity = Непрозрачность текста речевого пузыря
+ui-options-speech-bubble-speaker-opacity = Непрозрачность имени речевого пузыря
+ui-options-speech-bubble-background-opacity = Непрозрачность фона речевого пузыря
+
+## Admin menu
+
+ui-options-enable-classic-overlay = Вернуть оверлей антагониста в классический режим

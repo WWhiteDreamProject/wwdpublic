@@ -44,7 +44,7 @@ ent-BaseBoardEntity = доска
    .desc = Пустая доска.
 
 ent-BaseBoardTabletop = плинтус
-   .desc = ""
+   .desc = { "" }
 
 ent-BaseBattlemap = боевая карта
    .desc = Боевая карта для вашего эпического исследования подземелья, части не включены!

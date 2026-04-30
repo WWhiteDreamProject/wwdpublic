@@ -1,12 +1,13 @@
-ghost-role-information-nukie-mouse-name = Nuclear Operative Mouse
-ghost-role-information-nukie-mouse-description = A Nuclear Operative reinforcement for the Syndicate.
-ghost-role-information-nukie-mouse-rules = Normal syndicate antagonist rules apply. Work with whoever called you in, and don't harm them.
-                                           The crew is allowed to kill you without warning.
-                                           You are allowed to attack the crew and destroy the station without provocation.
-ghost-role-information-listeningop-name = Listening Post Operative
-ghost-role-information-listeningop-description = You are a Listening Post operative. Get into range, observe the station, intercept communications and assist any operatives in the area!
-ghost-role-information-listeningop-rules =	You are a Syndicate Operative tasked with the continuous reporting and monitoring of the station and its activities, as well as assisting any fellow operatives who may be aboard the station. As an antagonist, do whatever is required for you to complete this task. Make sure your station doesn't fall into enemy hands and DO NOT abandon your station! Hide your existence at any cost!
 
-ghost-role-information-paradox-anomaly-name = Paradox Anomaly
-ghost-role-information-paradox-anomaly-description = Replace your double, or befriend them.
-ghost-role-information-paradox-anomaly-rules = Try and replace your twin with this funny roleplay antag rather than plasma flooding the station or something. You can also just befriend them.
+ghost-role-information-nukie-mouse-name = Мышь Ядерных Оперативников
+ghost-role-information-nukie-mouse-description = Подкрепление в виде Ядерного Оперативника Синдиката.
+ghost-role-information-nukie-mouse-rules = Действуют обычные правила для противников синдиката. Работайте с теми, кто вас вызвал, и не причиняйте им вреда.
+                                           Экипажу разрешается убивать вас без предупреждения.
+                                           Вам разрешается нападать на экипаж и уничтожать станцию без провокации.
+ghost-role-information-listeningop-name = Оператор прослушки Синдиката
+ghost-role-information-listeningop-description = Вы — оперативный сотрудник службы прослушивания Синдиката. Войдите в зону действия, наблюдайте за станцией, перехватывайте сообщения и помогайте любым оперативникам в этом районе!
+ghost-role-information-listeningop-rules =	Вы — оперативник Синдиката, которому поручено постоянно отчитываться и контролировать станцию и ее деятельность, а также помогать любым коллегам-оперативникам, которые могут находиться на борту станции. Как антагонист, делайте все, что от вас требуется для выполнения этой задачи. Следите за тем, чтобы ваша станция не попала в руки врага, и НЕ покидайте ее! Скрывайте свое существование любой ценой!
+ghost-role-information-paradox-anomaly-name = Парадоксальная аномалия
+ghost-role-information-paradox-anomaly-description = Замените своего двойника или подружитесь с ним.
+ghost-role-information-paradox-anomaly-rules = Попробуйте заменить своего близнеца забавной ролевой игрой, а не плазмой, затопляющей станцию, или чем-то в этом роде. Вы также можете просто подружиться с ним.
+

@@ -6,22 +6,44 @@
   id: mobster
   wordReplacements:
     accent-mobster-words-1: accent-mobster-words-replace-1
+    accent-mobster-words-1-2: accent-mobster-words-replace-1 # WWDP EDIT
     accent-mobster-words-2: accent-mobster-words-replace-2
     accent-mobster-words-3: accent-mobster-words-replace-3
     accent-mobster-words-4: accent-mobster-words-replace-4
     accent-mobster-words-5: accent-mobster-words-replace-5
     accent-mobster-words-6: accent-mobster-words-replace-6
     accent-mobster-words-7: accent-mobster-words-replace-7
+    accent-mobster-words-7-2: accent-mobster-words-replace-7 # WWDP EDIT
     accent-mobster-words-8: accent-mobster-words-replace-8
     accent-mobster-words-9: accent-mobster-words-replace-9
+    accent-mobster-words-9-2: accent-mobster-words-replace-9 # WWDP EDIT
     accent-mobster-words-10: accent-mobster-words-replace-10
     accent-mobster-words-11: accent-mobster-words-replace-11
     accent-mobster-words-12: accent-mobster-words-replace-12
     accent-mobster-words-13: accent-mobster-words-replace-13
     accent-mobster-words-14: accent-mobster-words-replace-14
+    accent-mobster-words-15-exception-1: accent-mobster-words-replace-15-exception-1 # WWDP EDIT
+    accent-mobster-words-15-exception-1-2: accent-mobster-words-replace-15-exception-1 # WWDP EDIT
     accent-mobster-words-15: accent-mobster-words-replace-15
     accent-mobster-words-16: accent-mobster-words-replace-16
     accent-mobster-words-17: accent-mobster-words-replace-17
+    # WWDP EDIT START
+    accent-mobster-words-17-2: accent-mobster-words-replace-17
+    accent-mobster-words-18: accent-mobster-words-replace-18
+    accent-mobster-words-18-2: accent-mobster-words-replace-18
+    accent-mobster-words-19: accent-mobster-words-replace-19
+    accent-mobster-words-19-2: accent-mobster-words-replace-19
+    accent-mobster-words-20: accent-mobster-words-replace-20
+    accent-mobster-words-20-2: accent-mobster-words-replace-20
+    accent-mobster-words-21: accent-mobster-words-replace-21
+    accent-mobster-words-22: accent-mobster-words-replace-22
+    accent-mobster-words-22-2: accent-mobster-words-replace-22
+    accent-mobster-words-23: accent-mobster-words-replace-23
+    accent-mobster-words-23-2: accent-mobster-words-replace-23
+    accent-mobster-words-24: accent-mobster-words-replace-24
+    accent-mobster-words-24-2: accent-mobster-words-replace-24
+    accent-mobster-words-24-3: accent-mobster-words-replace-24
+    # WWDP EDIT END
 
 - type: accent
   id: italian
@@ -245,6 +267,7 @@
     accent-pirate-replaced-12: accent-pirate-replacement-12
     accent-pirate-replaced-13: accent-pirate-replacement-13
     accent-pirate-replaced-14: accent-pirate-replacement-14
+    accent-pirate-replaced-14-2: accent-pirate-replacement-14 # WWDP EDIT
     accent-pirate-replaced-15: accent-pirate-replacement-15
     accent-pirate-replaced-16: accent-pirate-replacement-16
     accent-pirate-replaced-17: accent-pirate-replacement-17
@@ -252,17 +275,28 @@
     accent-pirate-replaced-19: accent-pirate-replacement-19
     accent-pirate-replaced-20: accent-pirate-replacement-20
     accent-pirate-replaced-21: accent-pirate-replacement-21
+    accent-pirate-replaced-21-2: accent-pirate-replacement-21 # WWDP EDIT
     accent-pirate-replaced-22: accent-pirate-replacement-22
     accent-pirate-replaced-23: accent-pirate-replacement-23
+    accent-pirate-replaced-23-2: accent-pirate-replacement-23 # WWDP EDIT
     accent-pirate-replaced-24: accent-pirate-replacement-24
     accent-pirate-replaced-25: accent-pirate-replacement-25
+    accent-pirate-replaced-25-2: accent-pirate-replacement-25 # WWDP EDIT
     accent-pirate-replaced-26: accent-pirate-replacement-26
     accent-pirate-replaced-27: accent-pirate-replacement-27
+    accent-pirate-replaced-27-2: accent-pirate-replacement-27 # WWDP EDIT
     accent-pirate-replaced-28: accent-pirate-replacement-28
     accent-pirate-replaced-29: accent-pirate-replacement-29
     accent-pirate-replaced-30: accent-pirate-replacement-30
     accent-pirate-replaced-31: accent-pirate-replacement-31
     accent-pirate-replaced-32: accent-pirate-replacement-32
+    # WWDP EDIT START
+    accent-pirate-replaced-33: accent-pirate-replacement-33
+    accent-pirate-replaced-34: accent-pirate-replacement-34
+    accent-pirate-replaced-34-2: accent-pirate-replacement-34
+    accent-pirate-replaced-34-3: accent-pirate-replacement-34
+    accent-pirate-replaced-34-4: accent-pirate-replacement-34
+    # WWDP EDIT END
 
 - type: accent
   id: cowboy
@@ -367,15 +401,17 @@
     accent-cowboy-words-98: accent-cowboy-replacement-98
     accent-cowboy-words-99: accent-cowboy-replacement-99
 
-- type: accent
-  id: southern
-  wordReplacements:
-    accent-southern-words-1: accent-southern-words-replace-1
-    accent-southern-words-2: accent-southern-words-replace-2
-    accent-southern-words-3: accent-southern-words-replace-3
-    accent-southern-words-4: accent-southern-words-replace-4
-    accent-southern-words-5: accent-southern-words-replace-5
-    accent-southern-words-6: accent-southern-words-replace-6
+# WWDP EDIT START
+# - type: accent
+#   id: southern
+#   wordReplacements:
+#     accent-southern-words-1: accent-southern-words-replace-1
+#     accent-southern-words-2: accent-southern-words-replace-2
+#     accent-southern-words-3: accent-southern-words-replace-3
+#     accent-southern-words-4: accent-southern-words-replace-4
+#     accent-southern-words-5: accent-southern-words-replace-5
+#     accent-southern-words-6: accent-southern-words-replace-6
+# WWDP EDIT END
 
 # For the chat sanitization system
 - type: accent
@@ -452,27 +488,62 @@
 - type: accent
   id: liar
   replacementChance: 0.15
-  wordReplacements:
+  # WWDP EDIT START
+  bidirectionalWordReplacements:
     liar-word-1: liar-word-replacement-1
+    liar-word-1-2: liar-word-replacement-1
     liar-word-2: liar-word-replacement-2
     liar-word-3: liar-word-replacement-3
+    liar-word-3-2: liar-word-replacement-3
     liar-word-4: liar-word-replacement-4
     liar-word-5: liar-word-replacement-5
     liar-word-6: liar-word-replacement-6
+    liar-word-6-2: liar-word-replacement-6
+    liar-word-6-3: liar-word-replacement-6
+    liar-word-6-4: liar-word-replacement-6
     liar-word-7: liar-word-replacement-7
+    liar-word-7-2: liar-word-replacement-7
+    liar-word-7-3: liar-word-replacement-7
     liar-word-8: liar-word-replacement-8
     liar-word-9: liar-word-replacement-9
+    liar-word-10-exception-1: liar-word-replacement-10-exception-1
+    liar-word-10-exception-2: liar-word-replacement-10-exception-2
+    liar-word-10-exception-2-2: liar-word-replacement-10-exception-2
+    liar-word-10-exception-3: liar-word-replacement-10-exception-3
     liar-word-10: liar-word-replacement-10
+    liar-word-10-2: liar-word-replacement-10
     liar-word-11: liar-word-replacement-11
     liar-word-12: liar-word-replacement-12
+    liar-word-13-exception-1: liar-word-replacement-13-exception-1
+    liar-word-13-exception-2: liar-word-replacement-13-exception-2
+    liar-word-13-exception-3: liar-word-replacement-13-exception-3
     liar-word-13: liar-word-replacement-13
     liar-word-14: liar-word-replacement-14
     liar-word-15: liar-word-replacement-15
+    liar-word-16-exception-1: liar-word-replacement-16-exception-1
+    liar-word-16-exception-1-2: liar-word-replacement-16-exception-1
+    liar-word-16-exception-2: liar-word-replacement-16-exception-2
+    liar-word-16-exception-2-2: liar-word-replacement-16-exception-2
+    liar-word-16-exception-3: liar-word-replacement-16-exception-3
+    liar-word-16-exception-3-2: liar-word-replacement-16-exception-3
+    liar-word-16-exception-4: liar-word-replacement-16-exception-4
+    liar-word-16-exception-4-2: liar-word-replacement-16-exception-4
     liar-word-16: liar-word-replacement-16
+    liar-word-16-2: liar-word-replacement-16
+    liar-word-16-3: liar-word-replacement-16
+    liar-word-17-exception-1: liar-word-replacement-17-exception-1
     liar-word-17: liar-word-replacement-17
+    liar-word-18-exception-1: liar-word-replacement-18-exception-1
+    liar-word-18-exception-1-2: liar-word-replacement-18-exception-1
     liar-word-18: liar-word-replacement-18
+    liar-word-18-2: liar-word-replacement-18
+    liar-word-19-exception-1: liar-word-replacement-19-exception-1
     liar-word-19: liar-word-replacement-19
+    liar-word-20-exception-1: liar-word-replacement-20-exception-1
+    liar-word-20-exception-2: liar-word-replacement-20-exception-2
+    liar-word-20-exception-3: liar-word-replacement-20-exception-3
     liar-word-20: liar-word-replacement-20
+    liar-word-21-exception-1: liar-word-replacement-21-exception-1
     liar-word-21: liar-word-replacement-21
     liar-word-22: liar-word-replacement-22
     liar-word-23: liar-word-replacement-23
@@ -481,27 +552,76 @@
     liar-word-26: liar-word-replacement-26
     liar-word-27: liar-word-replacement-27
     liar-word-28: liar-word-replacement-28
+    liar-word-28-2: liar-word-replacement-28
+    liar-word-28-3: liar-word-replacement-28
+    liar-word-28-4: liar-word-replacement-28
     liar-word-29: liar-word-replacement-29
     liar-word-30: liar-word-replacement-30
     liar-word-31: liar-word-replacement-31
+    liar-word-32-exception-1: liar-word-replacement-32-exception-1
     liar-word-32: liar-word-replacement-32
+    liar-word-33-exception-1: liar-word-replacement-33-exception-1
     liar-word-33: liar-word-replacement-33
     liar-word-34: liar-word-replacement-34
     liar-word-34-2: liar-word-replacement-34
     liar-word-35: liar-word-replacement-35
     liar-word-36: liar-word-replacement-36
+    liar-word-36-2: liar-word-replacement-36
+    liar-word-37-exception-1: liar-word-replacement-37-exception-1
     liar-word-37: liar-word-replacement-37
+    liar-word-38-exception-1: liar-word-replacement-38-exception-1
     liar-word-38: liar-word-replacement-38
     liar-word-39: liar-word-replacement-39
     liar-word-40: liar-word-replacement-40
     liar-word-41: liar-word-replacement-41
+    liar-word-41-2: liar-word-replacement-41
+    liar-word-41-3: liar-word-replacement-41
+    liar-word-41-4: liar-word-replacement-41
+    liar-word-41-5: liar-word-replacement-41
+    liar-word-41-6: liar-word-replacement-41
+    liar-word-41-7: liar-word-replacement-41
+    liar-word-41-8: liar-word-replacement-41
+    liar-word-41-9: liar-word-replacement-41
+    liar-word-41-10: liar-word-replacement-41
+    liar-word-41-11: liar-word-replacement-41
+    liar-word-41-12: liar-word-replacement-41
     liar-word-42: liar-word-replacement-42
+    liar-word-42-2: liar-word-replacement-42
+    liar-word-43-exception-1: liar-word-replacement-43-exception-1
+    liar-word-43: liar-word-replacement-43
+    liar-word-44: liar-word-replacement-44
+    liar-word-45-exception-1: liar-word-replacement-45-exception-1
+    liar-word-45: liar-word-replacement-45
+    liar-word-46-exception-1: liar-word-replacement-46-exception-1
+    liar-word-46: liar-word-replacement-46
+    liar-word-47-exception-1: liar-word-replacement-47-exception-1
+    liar-word-47-exception-2: liar-word-replacement-47-exception-2
+    liar-word-47-exception-3: liar-word-replacement-47-exception-3
+    liar-word-47-exception-4: liar-word-replacement-47-exception-4
+    liar-word-47-exception-4-2: liar-word-replacement-47-exception-4
+    liar-word-47-exception-5: liar-word-replacement-47-exception-5
+    liar-word-47: liar-word-replacement-47
+    liar-word-48-exception-1: liar-word-replacement-48-exception-1
+    liar-word-48-exception-2: liar-word-replacement-48-exception-2
+    liar-word-48-exception-3: liar-word-replacement-48-exception-3
+    liar-word-48: liar-word-replacement-48
+    liar-word-49: liar-word-replacement-49
+  wordReplacements:
+    liar-word-replacement-33-2: liar-word-33
+    liar-word-replacement-36-2: liar-word-36
+    liar-word-replacement-41-2: liar-word-41
+    liar-word-replacement-47-exception-3-2: liar-word-47-exception-3
+    liar-word-replacement-49-2: liar-word-49-2
+    liar-word-50: liar-word-replacement-50
+    liar-word-51: liar-word-replacement-51
+    # WWDP EDIT END
 
 - type: accent
   id: german
   wordReplacements:
     accent-german-words-1: accent-german-words-replace-1
     accent-german-words-1-2: accent-german-words-replace-1
+    accent-german-words-1-3: accent-german-words-replace-1 # WWDP EDIT
     accent-german-words-2: accent-german-words-replace-2
     accent-german-words-3: accent-german-words-replace-3
     accent-german-words-4: accent-german-words-replace-4
@@ -530,6 +650,7 @@
     accent-german-words-25: accent-german-words-replace-25
     accent-german-words-26: accent-german-words-replace-26
     accent-german-words-27: accent-german-words-replace-27
+    accent-german-words-27-2: accent-german-words-replace-27 # WWDP EDIT
     accent-german-words-28: accent-german-words-replace-28
     accent-german-words-29: accent-german-words-replace-29
     accent-german-words-30: accent-german-words-replace-30
@@ -562,6 +683,7 @@
     accent-german-words-53-2: accent-german-words-replace-53
     accent-german-words-54: accent-german-words-replace-54
     accent-german-words-55: accent-german-words-replace-55
+    accent-german-words-55-2: accent-german-words-replace-55 # WWDP EDIT
     accent-german-words-56: accent-german-words-replace-56
     accent-german-words-56-2: accent-german-words-replace-56
     accent-german-words-56-3: accent-german-words-replace-56
@@ -576,14 +698,16 @@
     accent-german-words-61-4: accent-german-words-replace-61
     accent-german-words-62: accent-german-words-replace-62
 
-- type: accent
-  id: russian
-  wordReplacements:
-    accent-russian-words-1: accent-russian-words-replace-1
-    accent-russian-words-2: accent-russian-words-replace-2
-    accent-russian-words-3: accent-russian-words-replace-3
-    accent-russian-words-3-2: accent-russian-words-replace-3
-    accent-russian-words-3-3: accent-russian-words-replace-3
-    accent-russian-words-4: accent-russian-words-replace-4
-    accent-russian-words-5: accent-russian-words-replace-5
-    accent-russian-words-6: accent-russian-words-replace-6
+# WWDP EDIT START
+# - type: accent
+#   id: russian
+#   wordReplacements:
+#     accent-russian-words-1: accent-russian-words-replace-1
+#     accent-russian-words-2: accent-russian-words-replace-2
+#     accent-russian-words-3: accent-russian-words-replace-3
+#     accent-russian-words-3-2: accent-russian-words-replace-3
+#     accent-russian-words-3-3: accent-russian-words-replace-3
+#     accent-russian-words-4: accent-russian-words-replace-4
+#     accent-russian-words-5: accent-russian-words-replace-5
+#     accent-russian-words-6: accent-russian-words-replace-6
+# WWDP EDIT END

@@ -10,9 +10,9 @@
     allowMovement: true
     allowSpeech: false
     makeSentient: true
-    name: salvage snake
-    description: You are a salvage snake hunting for a meal.
-    rules: You are an antagonist, kill!
+    name: ghost-role-information-salvage-snake-name
+    description: ghost-role-information-salvage-snake-description
+    rules: ghost-role-information-salvage-snake-rules
   - type: SalvageMobRestrictions
 
 - type: entity
@@ -24,9 +24,9 @@
     allowMovement: true
     allowSpeech: false
     makeSentient: true
-    name: salvage snake
-    description: You are a salvage snake hunting for a meal.
-    rules: You are an antagonist, kill!
+    name: ghost-role-information-salvage-snake-name
+    description: ghost-role-information-salvage-snake-description
+    rules: ghost-role-information-salvage-snake-rules
   - type: SalvageMobRestrictions
 
 # Delta V variants of Xenos to allow ghost takeover again

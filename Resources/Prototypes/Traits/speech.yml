@@ -21,18 +21,20 @@
       - type: ReplacementAccent
         accent: dwarf
 
-- type: trait
-  id: SouthernAccent
-  # slots: 0
-  # itemGroupSlots: 0
-  category: TraitsSpeechAccents
-  requirements:
-  - !type:CharacterItemGroupRequirement
-    group: TraitsAccents
-  functions:
-  - !type:TraitAddComponent
-    components:
-    - type: SouthernAccent
+# WWDP EDIT START
+# - type: trait
+#   id: SouthernAccent
+#   # slots: 0
+#   # itemGroupSlots: 0
+#   category: TraitsSpeechAccents
+#   requirements:
+#   - !type:CharacterItemGroupRequirement
+#     group: TraitsAccents
+#   functions:
+#   - !type:TraitAddComponent
+#     components:
+#     - type: SouthernAccent
+# WWDP EDIT END
 
 - type: trait
   id: PirateAccent
@@ -169,18 +171,20 @@
     components:
     - type: GermanAccent
 
-- type: trait
-  id: RussianAccent
-  # slots: 0
-  # itemGroupSlots: 0
-  category: TraitsSpeechAccents
-  requirements:
-  - !type:CharacterItemGroupRequirement
-    group: TraitsAccents
-  functions:
-  - !type:TraitAddComponent
-    components:
-    - type: RussianAccent
+# WWDP EDIT START
+#- type: trait
+#  id: RussianAccent
+#  # slots: 0
+#  # itemGroupSlots: 0
+#  category: TraitsSpeechAccents
+#  requirements:
+#  - !type:CharacterItemGroupRequirement
+#    group: TraitsAccents
+#  functions:
+#  - !type:TraitAddComponent
+#    components:
+#    - type: RussianAccent
+# WWDP EDIT END
 
 - type: trait
   id: FrenchAccent

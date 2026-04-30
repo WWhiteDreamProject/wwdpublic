@@ -1,7 +1,7 @@
 - type: quickPhrase
   id: BaseQuestionPhrase
   parent: BaseCommonPhrase
-  group: Question
+  group: aac-group-question
   abstract: true
 
 - type: quickPhrase

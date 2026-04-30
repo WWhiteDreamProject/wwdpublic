@@ -1,5 +1,5 @@
-ent-CrateVendingMachineRestockPrideFilled = Pride-O-Mat restock crate
-    .desc = Contains a restock box for the Pride-O-Mat.
+ent-CrateVendingMachineRestockPrideFilled = набор пополнения Прайд-о-мата
+    .desc = Содержит коробку для пополнения запасов Прайд-о-мата.
 
-ent-CrateVendingMachineRestockSustenanceFilled = Sustenance vendor restock crate
-    .desc = Contains a restock box for the sustenance vendor.
+ent-CrateVendingMachineRestockSustenanceFilled = набор пополнения поставщика продуктов питания
+    .desc = Содержит коробку для пополнения запасов для поставщика продуктов питания.

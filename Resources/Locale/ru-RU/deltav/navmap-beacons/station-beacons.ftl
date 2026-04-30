@@ -1,37 +1,37 @@
-station-beacon-epistemics = Epistemics
-station-beacon-mystagogue = Mystagogue
+station-beacon-epistemics = Научный отдел
+station-beacon-mystagogue = Мистагог
 
-station-beacon-logistics = Logistics
-station-beacon-logistics-reception = Logistics
-station-beacon-lo = LO
+station-beacon-logistics = Карго
+station-beacon-logistics-reception = Стойка карго
+station-beacon-lo = Каюта квартирмейстера
 
-station-beacon-conference-room = Conference Room
+station-beacon-conference-room = Конференц-зал
 
-station-beacon-virology = Virology
-station-beacon-metempsychosis = Metempsychosis
-station-beacon-exam = Exam
-station-beacon-med-outpost = Med Outpost
-station-beacon-psych = Psych
+station-beacon-virology = Вирусология
+station-beacon-metempsychosis = Псионик
+station-beacon-exam = Смотровая
+station-beacon-med-outpost = Стойка у медбея
+station-beacon-psych = Психолог
 
-station-beacon-glimmer-prober = Prober
-station-beacon-forensic-mantis = Mantis
+station-beacon-glimmer-prober = Пробер
+station-beacon-forensic-mantis = Псионический мантис
 
-station-beacon-mailroom = Mail
+station-beacon-mailroom = Почта
 
-station-beacon-engi-outpost = Engi Outpost
+station-beacon-engi-outpost = Стойка инженерного
 
-station-beacon-janitor-office = Jani Office
-station-beacon-janitor-closet = Jani Closet
-station-beacon-reporter = Reporter
+station-beacon-janitor-office = Каморка уборщика
+station-beacon-janitor-closet = Кладовая уборщика
+station-beacon-reporter = Репортёр
 
-station-beacon-camera-servers = Cameras
+station-beacon-camera-servers = Камеры
 
-station-beacon-boxing-ring = Boxing
-station-beacon-park = Park
+station-beacon-boxing-ring = Боксёрский ринг
+station-beacon-park = Парк
 
-station-beacon-corpsman = Corpsman
+station-beacon-corpsman = Бригмедик
 
-station-beacon-justice = Justice
-station-beacon-chiefjustice = Chief Justice
-station-beacon-prosecutor = Prosecutor
-station-beacon-clerk = Clerk
+station-beacon-justice = Юстиция
+station-beacon-chiefjustice = Судья
+station-beacon-prosecutor = Прокурор
+station-beacon-clerk = Клерк

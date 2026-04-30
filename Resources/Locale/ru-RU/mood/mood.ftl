@@ -1,159 +1,482 @@
-mood-effect-HungerOverfed = Я так много съел, что чувствую, будто вот-вот лопну!
-mood-effect-HungerOkay = Я сыт.
+
+mood-effect-HungerOverfed =
+    { GENDER($entity) ->
+       *[male]    Я так много съел, что чувствую, будто вот-вот лопну!
+        [female]  Я так много съела, что чувствую, будто вот-вот лопну!
+        [epicene] Мы так много съели, что чувствуем, будто вот-вот лопнем!
+        [neuter]  {CAPITALIZE($entity)} так много съело, что чувствует, будто оно вот-вот лопнет!
+    }
+mood-effect-HungerOkay =
+    { GENDER($entity) ->
+       *[male]    Я сыт.
+        [female]  Я сыта.
+        [epicene] Мы сыты.
+        [neuter]  {CAPITALIZE($entity)} сыто.
+    }
 mood-effect-HungerPeckish = Сейчас бы перекусить.
-mood-effect-HungerStarving = МНЕ НУЖНА ЕДА!
+mood-effect-HungerStarving =
+    { GENDER($entity) ->
+        [epicene] НАМ НУЖНА ЕДА!
+        [neuter]  ЖЕЛУДКУ НУЖНА ЕДА!
+       *[other]   МНЕ НУЖНА ЕДА!
+    }
 
-mood-effect-ThirstOverHydrated = Я напился воды вдоволь.
-mood-effect-ThirstOkay = Я чувствую себя бодрым.
+mood-effect-ThirstOverHydrated =
+    { GENDER($entity) ->
+       *[male]    Я напился воды вдоволь.
+        [female]  Я напилась воды вдоволь.
+        [epicene] Мы напились воды вдоволь.
+        [neuter]  {CAPITALIZE($entity)} напилось воды вдоволь.
+    }
+mood-effect-ThirstOkay =
+    { GENDER($entity) ->
+       *[male]    Я чувствую себя освежённым.
+        [female]  Я чувствую себя освежённой.
+        [epicene] Мы чувствуем себя освежёнными.
+        [neuter]  {CAPITALIZE($entity)} чувствует себя освежённо.
+    }
 mood-effect-ThirstThirsty = Губы немного пересохли.
-mood-effect-ThirstParched = МНЕ НУЖНА ВОДА!
+mood-effect-ThirstParched =
+    { GENDER($entity) ->
+        [epicene] НАМ НУЖНА ВОДА!
+        [neuter]  {CAPITALIZE($entity)} НУЖНА ВОДА!
+       *[other]   МНЕ НУЖНА ВОДА!
+    }
 
-mood-effect-HealthNoDamage = Мне не больно.
+mood-effect-HealthNoDamage =
+    { GENDER($entity) ->
+        [epicene] Нам не больно.
+        [neuter]  {CAPITALIZE($entity)} не больно.
+       *[other]   Мне не больно.
+    }
 mood-effect-HealthLightDamage = Это всего лишь царапина, но всё равно болит.
 mood-effect-HealthSevereDamage = Боль почти невыносима!
-mood-effect-HealthHeavyDamage = Агония разгрызает мою душу!
+mood-effect-HealthHeavyDamage =
+    { GENDER($entity) ->
+        [epicene] Агония разгрызает наши души!
+        [neuter]  Агония разгрызает душу {$entity}!
+       *[other]   Агония разгрызает мою душу!
+    }
 
-mood-effect-Handcuffed = Меня держат в плену.
+mood-effect-Handcuffed =
+    { GENDER($entity) ->
+        [epicene] Нас держат в плену.
+        [neuter]  {CAPITALIZE($entity)} держат в плену.
+       *[other]   Меня держат в плену.
+    }
 
-mood-effect-Suffocating = Я... не... могу... дышать...
+mood-effect-Suffocating =
+    { GENDER($entity) ->
+        [epicene] Мы... не... можем... дышать...
+        [neuter]  {CAPITALIZE($entity)}... не... может... дышать...
+       *[other]   Я... не... могу... дышать...
+    }
 
-mood-effect-OnFire = ГОРЮ!!!
+mood-effect-OnFire =
+    { GENDER($entity) ->
+        [epicene] МЫ ГОРИМ!!!
+        [neuter]  {CAPITALIZE($entity)} ГОРИТ!!!
+       *[other]   Я ГОРЮ!!!
+    }
 
-mood-effect-Creampied = Меня окремили. На вкус как пирог.
+mood-effect-Creampied =
+    { GENDER($entity) ->
+        [epicene] Нас о[bold]КРЕМ[/bold]или. На вкус как пирог.
+        [neuter]  {CAPITALIZE($entity)} о[bold]КРЕМ[/bold]или. На вкус как пирог.
+       *[other]   Меня о[bold]КРЕМ[/bold]или. На вкус как пирог.
+    }
 
-mood-effect-MobSlipped = Я подскользнулся! В следующий раз буду осторожнее.
+mood-effect-MobSlipped =
+    { GENDER($entity) ->
+       *[male]    Я подскользнулся! В следующий раз буду осторожнее.
+        [female]  Я подскользнулась! В следующий раз буду осторожнее.
+        [epicene] Мы подскользнулись! В следующий раз будем осторожнее.
+        [neuter]  {CAPITALIZE($entity)} подскользнулось! В следующий раз оно будет осторожнее.
+    }
 
-mood-effect-MobVomit = Моя еда ужасно на вкус, когда выходит обратно.
+mood-effect-MobVomit =
+    { GENDER($entity) ->
+        [epicene] Наша еда ужасна на вкус, когда выходит обратно.
+        [neuter]  Еда из желудка ужасна на вкус, когда выходит обратно.
+       *[other]   Моя еда ужасна на вкус, когда выходит обратно.
+    }
 
-mood-effect-MobLowPressure = Кажется, всё моё тело вот-вот лопнет!
+mood-effect-MobLowPressure =
+    { GENDER($entity) ->
+        [epicene] Кажется, наши {$entity} вот-вот лопнут!
+        [neuter]  Кажется, всё {$entity} вот-вот лопнет!
+       *[other]   Кажется, всё моё {$entity} вот-вот лопнет!
+    }
 
-mood-effect-MobHighPressure = Я чувствую, будто меня со всех сторон давят!
+mood-effect-MobHighPressure =
+    { GENDER($entity) ->
+        [epicene] Мы чувствуем, будто нас со всех сторон давят!
+        [neuter]  {CAPITALIZE($entity)} чувствует, будто его со всех сторон давят!
+       *[other]   Я чувствую, будто меня со всех сторон давят!
+    }
 
-mood-effect-TraitSaturnine = Всё просто отстой. Я ненавижу эту работу.
+mood-effect-TraitSaturnine =
+    { GENDER($entity) ->
+        [epicene] Всё просто отстой. Мы ненавидим эту работу.
+        [neuter]  Всё просто отстой. {CAPITALIZE($entity)} ненавидит эту работу.
+       *[other]   Всё просто отстой. Я ненавижу эту работу.
+    }
 
 mood-effect-Dead = Вы мертвы.
 
-mood-effect-BeingHugged = Обнимашки - это здорово.
+mood-effect-BeingHugged = Обнимашки — это здорово.
 
-mood-effect-BeingPet = Кто-то меня погладил!
+mood-effect-BeingPet =
+    { GENDER($entity) ->
+        [epicene] Кто-то нас погладил!
+        [neuter]  Кто-то погладил {$entity}!
+       *[other]   Кто-то меня погладил!
+    }
 
-mood-effect-ArcadePlay = Мне было весело играть в интересную аркадную игру.
+mood-effect-ArcadePlay =
+    { GENDER($entity) ->
+        [epicene] Нам было весело играть в интересную аркадную игру.
+        [neuter]  {CAPITALIZE($entity)} было весело играть в интересную аркадную игру.
+       *[other]   Мне было весело играть в интересную аркадную игру.
+    }
 
-mood-effect-GotBlessed = Меня благословили.
+mood-effect-GotBlessed =
+    { GENDER($entity) ->
+        [epicene] Нас благословили.
+        [neuter]  {CAPITALIZE($entity)} благословили.
+       *[other]   Меня благословили.
+    }
 
-mood-effect-PetAnimal = Животные такие милые, я не могу перестать их гладить!
+mood-effect-PetAnimal =
+    { GENDER($entity) ->
+        [epicene] Животные такие милые, мы не можем перестать их гладить!
+        [neuter]  Животные такие милые, {$entity} не может перестать их гладить!
+       *[other]   Животные такие милые, я не могу перестать их гладить!
+    }
 
 mood-effect-SavedLife = Как здорово спасти кому-то жизнь!
 
-mood-effect-TraitorFocused = У меня есть цель, и я добьюсь её несмотря ни на что.
+mood-effect-TraitorFocused =
+    { GENDER($entity) ->
+        [epicene] У нас есть цель, и мы добьёмся её несмотря ни на что.
+        [neuter]  У {$entity} есть цель, и оно добьётся её, несмотря ни на что.
+       *[other]   У меня есть цель, и я добьюсь её несмотря ни на что.
+    }
 
 mood-effect-RevolutionFocused = ДА ЗДРАВСТВУЕТ РЕВОЛЮЦИЯ!!!
 
-mood-effect-CultFocused = Тёмные боги, дайте мне силы!
+mood-effect-CultFocused =
+    { GENDER($entity) ->
+        [epicene] Тёмные боги, дайте нам силы!
+        [neuter]  Тёмные боги, дайте {$entity} силы!
+       *[other]   Тёмные боги, дайте мне силы!
+    }
 
-mood-effect-TraitSanguine = Мне нечего бояться. Уверена, в конце концов всё будет хорошо!
+mood-effect-TraitSanguine =
+    { GENDER($entity) ->
+       *[male]    Мне нечего бояться. Уверен — в конце концов всё будет хорошо!
+        [female]  Мне нечего бояться. Уверена — в конце концов всё будет хорошо!
+        [epicene] Нам нечего бояться. Мы уверены — в конце концов всё будет хорошо!
+        [neuter]  {CAPITALIZE($entity)} нечего бояться. Оно уверено — в конце концов всё будет хорошо!
+    }
 
-mood-effect-HeirloomSecure = Моя реликвия в безопасности, а с ней и воспоминания о тех, кто был до меня.
-mood-effect-HeirloomLost = Я не могу найти свою реликвию, как же теперь прошлое будет в безопасности?
+mood-effect-HeirloomSecure =
+    { GENDER($entity) ->
+        [epicene] Наша реликвия в безопасности, а с ней и воспоминания о тех, кто был до нас.
+        [neuter]  Реликвия {$entity} в безопасности, а с ней и воспоминания о тех, кто был до нас.
+       *[other]   Моя реликвия в безопасности, а с ней и воспоминания о тех, кто был до меня.
+    }
+
+mood-effect-HeirloomLost =
+    { GENDER($entity) ->
+        [epicene] Мы не можем найти свою реликвию, как же теперь прошлое будет в безопасности?
+        [neuter]  {CAPITALIZE($entity)} не может найти свою реликвию, как же теперь прошлое будет в безопасности?
+       *[other]   Я не могу найти свою реликвию, как же теперь прошлое будет в безопасности?
+    }
 
 # Зависимости
 # Addictions
 mood-effect-LotoTranscendence =
-    Я ВИЖУ ВСЁ, ЧТО ЕСТЬ, ВСЁ, ЧТО БУДЕТ, И ВСЁ, ЧТО БЫЛО. ВСЁ ТВОРЕНИЕ ОТКРЫЛОСЬ МОЕМУ УМУ!
-    Я ДОЛЖЕН ВСЁ ИМЕТЬ. Я ДОЛЖЕН ВСЁ ЗНАТЬ. ВСЁ. НАВСЕГДА!
+    { GENDER($entity) ->
+       *[male]
+        Я ВИЖУ ВСЁ, ЧТО ЕСТЬ, ВСЁ, ЧТО БУДЕТ, И ВСЁ, ЧТО БЫЛО. ВСЁ ТВОРЕНИЕ ОТКРЫЛОСЬ МОЕМУ РАЗУМУ!
+        Я ДОЛЖЕН ВСЁ ИМЕТЬ. Я ДОЛЖЕН ВСЁ ЗНАТЬ. ВСЁ. ВСЕГДА!
+        [female]
+        Я ВИЖУ ВСЁ, ЧТО ЕСТЬ, ВСЁ, ЧТО БУДЕТ, И ВСЁ, ЧТО БЫЛО. ВСЁ ТВОРЕНИЕ ОТКРЫЛОСЬ МОЕМУ РАЗУМУ!
+        Я ДОЛЖНА ВСЁ ИМЕТЬ. Я ДОЛЖНА ВСЁ ЗНАТЬ. ВСЁ. ВСЕГДА!
+        [epicene]
+        МЫ ВИДИМ ВСЁ, ЧТО ЕСТЬ, ВСЁ, ЧТО БУДЕТ, И ВСЁ, ЧТО БЫЛО. ВСЁ ТВОРЕНИЕ ОТКРЫЛОСЬ НАШЕМУ РАЗУМУ!
+        МЫ ДОЛЖНЫ ВСЁ ИМЕТЬ. МЫ ДОЛЖНЫ ВСЁ ЗНАТЬ. ВСЁ. ВСЕГДА!
+        [neuter]
+        {CAPITALIZE($entity)} ВИДИТ ВСЁ, ЧТО ЕСТЬ, ВСЁ, ЧТО БУДЕТ, И ВСЁ, ЧТО БЫЛО. ВСЁ ТВОРЕНИЕ ОТКРЫЛОСЬ РАЗУМУ {CAPITALIZE($entity)}!
+        {CAPITALIZE($entity)} ДОЛЖНО ВСЁ ИМЕТЬ. {CAPITALIZE($entity)} ДОЛЖНО ВСЁ ЗНАТЬ. ВСЁ. ВСЕГДА!
+    }
+
 mood-effect-LotoEnthrallment =
-    Это исчезло от меня... Сердце всего творения ушло из моей души, оставив пустоту, которую я не могу вынести.
-    Я боюсь, что я превращусь в ничто, если не смогу снова напиться из чаши знания.
+    { GENDER($entity) ->
+        [epicene]
+        Оно ушло от нас... Сердце всего творения ушло из наших душ, оставив пустоту, которую мы не можем вынести.
+        Мы боимся, что мы превратимся в ничто, если не сможем снова напиться из чаши знания.
+        [neuter]
+        Оно ушло от {$entity}... Сердце всего творения ушло из души {$entity}, оставив пустоту, которую {$entity} не может вынести.
+        {CAPITALIZE($entity)} боится, что оно превратится в ничто, если оно не сможет снова напиться из чаши знания.
+       *[other]
+        Оно ушло от меня... Сердце всего творения ушло из моей души, оставив пустоту, которую я не могу вынести.
+        Я боюсь, что я превращусь в ничто, если не смогу снова напиться из чаши знания.
+    }
 
 mood-effect-NicotineBenefit =
-    Я чувствую, будто всю жизнь стоял, а теперь сел.
+    { GENDER($entity) ->
+       *[male]    Я чувствую, будто всю жизнь стоял, а теперь сел.
+        [female]  Я чувствую, будто всю жизнь стояла, а теперь села.
+        [epicene] Мы чувствуем, будто всю жизнь стояли, а теперь сели.
+        [neuter]  {CAPITALIZE($entity)} чувствует, будто всю жизнь оно стояло, а теперь село.
+    }
+
 mood-effect-NicotineWithdrawal =
-    Прямо сейчас я бы с удовольствием покурил.
+    { GENDER($entity) ->
+       *[male]    Прямо сейчас я бы с удовольствием покурил.
+        [female]  Прямо сейчас я бы с удовольствием покурила.
+        [epicene] Прямо сейчас мы бы с удовольствием покурили.
+        [neuter]  Прямо сейчас {$entity} бы с удовольствием покурило.
+    }
 
 # Хирургия
-mood-effect-MorphineBenefit =
-    The morphine helps me forget my worries.
+mood-effect-MorphineBenefit = Морфин помогает забыть о заботах.
+
 mood-effect-MorphineWithdrawal =
-    Everything is too loud, too bright. I need something to take the edge off...
+    { GENDER($entity) ->
+        [epicene] Всё слишком громко, слишком ярко. Нам нужно что-то, чтобы смягчить это...
+        [neuter]  Всё слишком громко, слишком ярко. {CAPITALIZE($entity)} нужно что-то, чтобы смягчить это...
+       *[other]   Всё слишком громко, слишком ярко. Мне нужно что-то, чтобы смягчить это...
+    }
 
 # Surgery
 mood-effect-SurgeryPain = Надрез болит.
 # Наркотики
 # Drugs
 mood-effect-EthanolBenefit =
-    Я так расслабился от выпивки.
+    { GENDER($entity) ->
+       *[male]    Я расслабился от выпивки.
+        [female]  Я расслабилась от выпивки.
+        [epicene] Мы расслабились от выпивки.
+        [neuter]  Моё {$entity} расслабилось от выпивки.
+    }
+
 mood-effect-SpaceDrugsBenefit =
-    Ух ты, такие красивые цвета, чувак. Кажется, я слышу цвета и ощущаю на вкус звуки, чувак.
+    { GENDER($entity) ->
+        [epicene] Ух ты, такие красивые цвета, чувааак. Кажется, мы слышим цвета и ощущаем на вкус звуки, чуваак.
+        [neuter]  Ух ты, такие красивые цвета, чувааак. Кажется, {$entity} слышит цвета и ощущает на вкус звуки, чуваак.
+       *[other]   Ух ты, такие красивые цвета, чувааак. Кажется, я слышу цвета и ощущаю на вкус звуки, чуваак.
+    }
 
 # Плазмочеловек
 # Plasmaman
 mood-effect-PlasmamanIngestPlasma =
-    Моё тело омолодилось от свежей плазмы, текущей по моему телу.
+    { GENDER($entity) ->
+        [epicene] Наши части {$entity} омолодились от свежей плазмы, текущей по ним.
+        [neuter]  {CAPITALIZE($entity)} омолодилось от свежей плазмы, текущей по нему.
+       *[other]   Моё {$entity} омолодилось от свежей плазмы, текущей по нему.
+    }
 
 mood-effect-PlasmamanIngestMilk =
-    Я чувствую, как кальций из молока восстанавливает мои кости. Это просто восхитительно!
+    { GENDER($entity) ->
+        [epicene] Мы чувствуем, как кальций из молока восстанавливает наши кости. Это просто восхити{$entity}но!
+        [neuter]  {CAPITALIZE($entity)} чувствует, как кальций из молока восстанавливает его кости. Это просто восхити{$entity}но!
+       *[other]   Я чувствую, как кальций из молока восстанавливает мои кости. Это просто восхити{$entity}но!
+    }
+
 # Floor Juice
 mood-effect-DrankBlood =
-    I've just drank salty, lukewarm blood. That's disgusting!
-mood-effect-DrankBloodVampiric =
-    Oh what sweet nectar is this, like a fine vintage.
+    { GENDER($entity) ->
+       *[male]    Я только что выпил солёную тёплую кровь... Это отврати{$entity}но!
+        [female]  Я только что выпила солёную тёплую кровь... Это отврати{$entity}но!
+        [epicene] Мы только что выпили солёную тёплую кровь... Это отврати{$entity}но!
+        [neuter]  {CAPITALIZE($entity)} только что выпило солёную тёплую кровь... Это отврати{$entity}но!
+    }
+
+mood-effect-DrankBloodVampiric = Мм, какая сладкая кровь... Словно изысканное вино.
+
 mood-effect-DrankInsectBlood =
-    I've just drank slimy insect goop. That's disgusting!
+    { GENDER($entity) ->
+       *[male]    Я только что выпил слизкое насекомое месиво... Это отврати{$entity}но!
+        [female]  Я только что выпила слизкое насекомое месиво... Это отврати{$entity}но!
+        [epicene] Мы только что выпили слизкое насекомое месиво... Это отврати{$entity}но!
+        [neuter]  {CAPITALIZE($entity)} только что выпило слизкое насекомое месиво... Это отврати{$entity}но!
+    }
+
 mood-effect-DrankVomit =
-    Why did I just drink that vomit? It tastes like vomit!
+    { GENDER($entity) ->
+       *[male]    Зачем я выпил эту рвоту? На вкус как... ну, рвота!
+        [female]  Зачем я выпила эту рвоту? На вкус как... ну, рвота!
+        [epicene] Зачем мы выпили эту рвоту? На вкус как... ну, рвота!
+        [neuter]  Зачем {$entity} выпило эту рвоту? На вкус как... ну, рвота!
+    }
+
 mood-effect-DrankZombieBlood =
-    THAT TASTED VILE, LIKE DEATH IN LIQUID FORM!
+    { GENDER($entity) ->
+       *[male]    ЭТО БЫЛО ОТВРАТИ{CAPITALIZE($entity)}НО, СЛОВНО Я ВЫПИЛ СМЕРТЬ В ЖИДКОЙ ФОРМЕ!
+        [female]  ЭТО БЫЛО ОТВРАТИ{CAPITALIZE($entity)}НО, СЛОВНО Я ВЫПИЛА СМЕРТЬ В ЖИДКОЙ ФОРМЕ!
+        [epicene] ЭТО БЫЛО ОТВРАТИ{CAPITALIZE($entity)}НО, СЛОВНО МЫ ВЫПИЛИ СМЕРТЬ В ЖИДКОЙ ФОРМЕ!
+        [neuter]  ЭТО БЫЛО ОТВРАТИ{CAPITALIZE($entity)}НО, СЛОВНО {CAPITALIZE($entity)} ВЫПИЛО СМЕРТЬ В ЖИДКОЙ ФОРМЕ!
+    }
 
 # Medicines
 mood-effect-EpinephrineEffect =
-    My blood feels like it has been set on fire!
+    { GENDER($entity) ->
+        [epicene] Наша кровь будто воспламенилась!
+        [neuter]  Кровь {$entity} будто воспламенилась!
+       *[other]   Моя кровь будто воспламенилась!
+    }
+
 mood-effect-PsicodineEffect =
-    I feel completely at peace.
-mood-effect-StrongStimulant =
-    LET'S FUCKING GO!!!
+    { GENDER($entity) ->
+        [epicene] Мы чувствуем полное спокойствие.
+        [neuter]  {CAPITALIZE($entity)} чувствует полное спокойствие.
+       *[other]   Я чувствую полное спокойствие.
+    }
+
+mood-effect-StrongStimulant = ПОГНАЛИ!!!
+
 mood-effect-MildPaincauser =
-    My body feels sore.
+    { GENDER($entity) ->
+        [epicene] Наши части {$entity} ноют.
+        [neuter]  {CAPITALIZE($entity)} ноет.
+       *[other]   Моё {$entity} ноет.
+    }
+
 mood-effect-StrongPaincauser =
-    Agony gnaws at my soul.
+    { GENDER($entity) ->
+        [epicene] Агония разгрызает наши души.
+        [neuter]  Агония разгрызает душу {$entity}.
+       *[other]   Агония разгрызает мою душу.
+
+    }
+
 mood-effect-MildPainkiller =
-    My aches and pains are just a little better.
+    { GENDER($entity) ->
+        [epicene] Наши боли и ломота стали чуть слабее.
+        [neuter]  Боль и ломота в {$entity} стала чуть слабее.
+       *[other]   Моя боль и ломота стала чуть слабее.
+    }
+
 mood-effect-StrongPainkiller =
-    I can barely feel anything, all of my pains are washed out and faded.
+    { GENDER($entity) ->
+        [epicene] Мы почти ничего не чувствуем, все боли смыты и вылечены.
+        [neuter]  {CAPITALIZE($entity)} почти ничего не чувствует, вся боль смыта и вылечена.
+       *[other]   Я почти ничего не чувствую, вся боль смыта и вылечена.
+    }
 
 # Poisons
 mood-effect-LacerinolEffect =
-    BILLIONS OF TINY KNIVES ARE INSIDE ME, GET THEM OUT!
+    { GENDER($entity) ->
+        [epicene] МИЛЛИАРДЫ МАЛЕНЬКИХ НОЖЕЙ ПРОНЗАЮТ НАС. ВЫТАЩИТЕ ИХ!
+        [neuter]  МИЛЛИАРДЫ МАЛЕНЬКИХ НОЖЕЙ ПРОНЗАЮТ {CAPITALIZE($entity)}. ВЫТАЩИТЕ ИХ!
+       *[other]   МИЛЛИАРДЫ МАЛЕНЬКИХ НОЖЕЙ ПРОНЗАЮТ МЕНЯ. ВЫТАЩИТЕ ИХ!
+    }
+
 mood-effect-PuncturaseEffect =
-    MY BODY IS FULL OF NEEDLES, GET THEM OUT!
+    { GENDER($entity) ->
+        [epicene] НАШЕ {CAPITALIZE($entity)} ПОЛНО ИГОЛ. ВЫТАЩИТЕ ИХ!
+        [neuter]  {CAPITALIZE($entity)} ПОЛНО ИГОЛ. ВЫТАЩИТЕ ИХ!
+       *[other]   МОЁ {CAPITALIZE($entity)} ПОЛНО ИГОЛ. ВЫТАЩИТЕ ИХ!
+    }
+
 mood-effect-BruizineEffect =
-    I FEEL LIKE I'M BEING CRUSHED BY A THOUSAND TON SPACE SHIP!
+    { GENDER($entity) ->
+        [epicene] МЫ ЧУВСТВУЕМ, БУДТО НАС РАЗДАВЛИВАЕТ ТЫСЯЧЕТОННЫЙ КОСМИЧЕСКИЙ КОРАБЛЬ!
+        [neuter]  {CAPITALIZE($entity)} ЧУВСТВУЕТ, БУДТО ЕГО РАЗДАВЛИВАЕТ ТЫСЯЧЕТОННЫЙ КОСМИЧЕСКИЙ КОРАБЛЬ!
+       *[other]   Я ЧУВСТВУЮ, БУДТО МЕНЯ РАЗДАВЛИВАЕТ ТЫСЯЧЕТОННЫЙ КОСМИЧЕСКИЙ КОРАБЛЬ!
+    }
+
 mood-effect-TearGasEffect =
-    MY EYES ARE BURNING, IT HURTS SO MUCH!
+    { GENDER($entity) ->
+        [epicene] НАШИ ГЛАЗА ГОРЯТ. ЭТО ТАК БОЛЬНО!
+        [neuter]  ГЛАЗА {CAPITALIZE($entity)} ГОРЯТ. ЭТО ТАК БОЛЬНО!
+       *[other]   МОИ ГЛАЗА ГОРЯТ. ЭТО ТАК БОЛЬНО!
+    }
+
 mood-effect-BuzzochloricBeesEffect =
-    OH NO NOT THE BEES! NOT THE BEES! NOT THE BEES AGHHHHHHHHHHHH! THEY'RE IN MY EYES!
+    { GENDER($entity) ->
+        [epicene] О НЕТ, ТОЛЬКО НЕ ПЧЁЛЫ! НЕ ПЧЁЛЫ! НЕ ПЧЁЛЫ ААААААААААА! ОНИ В НАШИХ ГЛАЗАХ!
+        [neuter]  О НЕТ, ТОЛЬКО НЕ ПЧЁЛЫ! НЕ ПЧЁЛЫ! НЕ ПЧЁЛЫ ААААААААААА! ОНИ В ГЛАЗАХ {CAPITALIZE($entity)}!
+       *[other]   О НЕТ, ТОЛЬКО НЕ ПЧЁЛЫ! НЕ ПЧЁЛЫ! НЕ ПЧЁЛЫ ААААААААААА! ОНИ В МОИХ ГЛАЗАХ!
+    }
+
 mood-effect-RomerolEffect =
-    I THINK I AM GOING TO DIE. I AM BUT A CORPSE AWAITING ITS GRAVE.
+    { GENDER($entity) ->
+        [epicene] МЫ ДУМАЕМ, ЧТО УМРЁМ. МЫ ВСЕГО ЛИШЬ ТРУП, ОЖИДАЮЩИЙ СВОЕЙ МОГИЛЫ.
+        [neuter]  {CAPITALIZE($entity)} ДУМАЕТ, ЧТО УМРЁТ. {CAPITALIZE($entity)} ВСЕГО ЛИШЬ ТРУП, ОЖИДАЮЩИЙ СВОЕЙ МОГИЛЫ.
+       *[other]   Я ДУМАЮ, ЧТО УМРУ. Я ВСЕГО ЛИШЬ ТРУП, ОЖИДАЮЩИЙ СВОЕЙ МОГИЛЫ.
+    }
+
 mood-effect-PaxEffect =
-    Woah...
+    { GENDER($entity) ->
+        [epicene] Вау... Все вокруг такие милые... Не хотим им навредить...
+        [neuter]  Вау... Все вокруг такие милые... Не хочется им навредить...
+       *[other]   Вау... Все вокруг такие милые... Не хочу им навредить...
+    }
 
 # Food
-mood-effect-SweetenerEffect =
-    That tasted really sweet.
-mood-effect-SpicyEffect =
-    That tasted spicy, hot in a good way.
+mood-effect-SweetenerEffect = Это было очень сладко.
+
+mood-effect-SpicyEffect = Это было остро, приятно горячо.
+
 mood-effect-OilyEffect =
-    I ate something cooked with sweet oil.
+    { GENDER($entity) ->
+       *[male]    Я съел что-то, приготовленное на вкусном масле.
+        [female]  Я съела что-то, приготовленное на вкусном масле.
+        [epicene] Мы съели что-то, приготовленное на вкусном масле.
+        [neuter]  {CAPITALIZE($entity)} съело что-то, приготовленное на вкусном масле.
+    }
+
 mood-effect-SaltyEffect =
-    I ate something salty, it tasted great!
+    { GENDER($entity) ->
+       *[male]    Я съел что-то солёное. Это было великолепно!
+        [female]  Я съела что-то солёное. Это было великолепно!
+        [epicene] Мы съели что-то солёное. Это было великолепно!
+        [neuter]  {CAPITALIZE($entity)} съело что-то солёное. Это было великолепно!
+    }
+
 mood-effect-MintyEffect =
-    I ate something minty, it was cool and refreshing.
+    { GENDER($entity) ->
+       *[male]    Я съел что-то мятное. Это было прохладно и освежающе.
+        [female]  Я съела что-то мятное. Это было прохладно и освежающе.
+        [epicene] Мы съели что-то мятное. Это было прохладно и освежающе.
+        [neuter]  {CAPITALIZE($entity)} съело что-то мятное. Это было прохладно и освежающе.
+    }
+
 mood-effect-PepperEffect =
-    I ate something peppery, it tasted great!
+    { GENDER($entity) ->
+       *[male]    Я съел что-то с перцем. Это было великолепно!
+        [female]  Я съела что-то с перцем. Это было великолепно!
+        [epicene] Мы съели что-то с перцем. Это было великолепно!
+        [neuter]  {CAPITALIZE($entity)} съело что-то с перцем. Это было великолепно!
+    }
+
 mood-effect-ChocolateEffect =
-    I ate something with chocolate, it was so good!
+    { GENDER($entity) ->
+       *[male]    Я съел что-то с шоколадом. Это было так вкусно!
+        [female]  Я съела что-то с шоколадом. Это было так вкусно!
+        [epicene] Мы съели что-то с шоколадом. Это было так вкусно!
+        [neuter]  {CAPITALIZE($entity)} съело что-то с шоколадом. Это было так вкусно!
+    }
+
 mood-effect-ButterEffect =
-    I ate a buttery treat, I could eat this all day.
+    { GENDER($entity) ->
+       *[male]    Я съел маслянистое лакомство и мог бы продолжать есть это целый день.
+        [female]  Я съела маслянистое лакомство и могла бы продолжать есть это целый день.
+        [epicene] Мы съели маслянистое лакомство и могли бы продолжать есть это целый день.
+        [neuter]  {CAPITALIZE($entity)} съело маслянистое лакомство и могло бы продолжать есть это целый день.
+    }
+
 mood-effect-DeepFriedEffect =
-    I ate something deep fried! It was the tastiest thing I've ever had in my life!
-mood-effect-TastyEffect =
-    That was really tasty!
+    { GENDER($entity) ->
+       *[male]    Я съел что-то жареное во фритюре! Это было самое вкусное, что я когда-либо пробовал в жизни!
+        [female]  Я съела что-то жареное во фритюре! Это было самое вкусное, что я когда-либо пробовала в жизни!
+        [epicene] Мы съели что-то жареное во фритюре! Это было самое вкусное, что мы когда-либо пробовали в жизни!
+        [neuter]  {CAPITALIZE($entity)} съело что-то жареное во фритюре! Это было самое вкусное, что оно когда-либо пробовало в жизни!
+    }
+
+mood-effect-TastyEffect = Это было действи{$entity}но вкусно!
+

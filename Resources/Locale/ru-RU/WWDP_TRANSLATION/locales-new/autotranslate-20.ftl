@@ -1,5 +1,5 @@
 ent-FatExtractorMachineCircuitboard = машинная плата для извлечения липидов
-   .desc = ""
+   .desc = { "" }
 
 ent-CargoTelepadMachineCircuitboard = машинная плата грузового телепада
    .desc = Машинная печатная плата для грузового телепада.

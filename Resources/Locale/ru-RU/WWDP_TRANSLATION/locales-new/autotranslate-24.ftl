@@ -11,31 +11,31 @@ ent-ShipBattlemap = боевая карта корабля
    .desc = Боевая карта для вашего эпического исследования космоса, части не включены!
 
 ent-GrassBoardTabletop = травяная боевая карта
-   .desc = ""
+   .desc = { "" }
 
 ent-MoonBoardTabletop = лунная боевая карта
-   .desc = ""
+   .desc = { "" }
 
 ent-SandBoardTabletop = песчаная боевая карта
-   .desc = ""
+   .desc = { "" }
 
 ent-SnowBoardTabletop = снежная боевая карта
-   .desc = ""
+   .desc = { "" }
 
 ent-ShipBoardTabletop = боевая карта корабля
-   .desc = ""
+   .desc = { "" }
 
 ent-MaterialCardboard = картон
-   .desc = ""
+   .desc = { "" }
 
 ent-MaterialCardboard1 = { ent-MaterialCardboard }
    .desc = { ent-MaterialCardboard.desc }
 
 ent-MaterialSheetMeat = мясной лист
-   .desc = ""
+   .desc = { "" }
 
 ent-MaterialSheetMeat1 = { ent-MaterialSheetMeat }
-   .desc = ""
+   .desc = { "" }
 
 ent-BookNarsieLegend = Легенда о Нар'си
    .desc = Книга представляет собой старый том в кожаном переплете с замысловатой гравировкой на обложке. Страницы пожелтевшие и хрупкие от времени, чернила текста местами выцвели. Похоже, его хорошо читали и любили, с потрепанными страницами и нацарапанными на полях полями. Несмотря на состарившийся вид, книга по-прежнему источает ощущение мистической силы и чуда, намекая на тайны и знания, содержащиеся на ее страницах.

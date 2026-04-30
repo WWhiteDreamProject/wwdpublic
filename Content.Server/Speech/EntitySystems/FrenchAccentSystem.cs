@@ -13,6 +13,10 @@ public sealed class FrenchAccentSystem : EntitySystem
     private static readonly Regex RegexTh = new(@"th", RegexOptions.IgnoreCase);
     private static readonly Regex RegexStartH = new(@"(?<!\w)h", RegexOptions.IgnoreCase);
     private static readonly Regex RegexSpacePunctuation = new(@"(?<=\w\w)[!?;:](?!\w)", RegexOptions.IgnoreCase);
+    // WWDP EDIT START
+    private static readonly Regex RegexLowerR_Ru = new("р");
+    private static readonly Regex RegexUpperR_Ru = new("Р");
+    // WWDP EDIT END
 
     public override void Initialize()
     {
@@ -35,6 +39,12 @@ public sealed class FrenchAccentSystem : EntitySystem
 
         // spaces out ! ? : and ;.
         msg = RegexSpacePunctuation.Replace(msg, " $&");
+
+        // WWDP EDIT START
+        // replaces «р» with «гх».
+        msg = RegexLowerR_Ru.Replace(msg, "гх");
+        msg = RegexUpperR_Ru.Replace(msg, "Гх");
+        // WWDP EDIT END
 
         return msg;
     }

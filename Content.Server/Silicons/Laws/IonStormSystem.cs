@@ -169,7 +169,11 @@ public sealed class IonStormSystem : EntitySystem
         var objects = Pick(Objects);
         var crew1 = Pick(Crew);
         var crew2 = Pick(Crew);
-        var adjective = Pick(Adjectives);
+        // WWDP EDIT START
+        var adjForms = PickForms(Adjectives);
+        var adjective = adjForms[0]; //singular
+        var adjectivePlural = Form(adjForms, 1); //plural
+        // WWDP EDIT END
         var verb = Pick(Verbs);
         var number = Pick(NumberBase) + " " + Pick(NumberMod);
         var area = Pick(Areas);
@@ -212,13 +216,17 @@ public sealed class IonStormSystem : EntitySystem
             1 => Loc.GetString("ion-storm-clowns"),
             _ => Loc.GetString("ion-storm-heads")
         };
-        var part = Loc.GetString("ion-storm-part", ("part", _robustRandom.Prob(0.5f)));
-        var harm = _robustRandom.Next(0, 6) switch
+        // WWDP EDIT START
+        bool is_part = _robustRandom.Prob(0.5f);
+        var part = Loc.GetString("ion-storm-part", ("part", is_part));
+        var notpart = Loc.GetString("ion-storm-part" /* but reverse; for better ru loc */, ("part", !is_part));
+        // WWDP EDIT END
+        var harm = _robustRandom.Next(1, 6) switch // WWDP EDIT
         {
-            0 => concept,
+            //0 => concept, // Incompatible with the Russian language // WWDP EDIT
             1 => $"{adjective} {threats}",
             2 => $"{adjective} {objects}",
-            3 => Loc.GetString("ion-storm-adjective-things", ("adjective", adjective)),
+            3 => Loc.GetString("ion-storm-adjective-things", ("adjective", adjectivePlural)), // WWDP EDIT
             4 => crew1,
             _ => Loc.GetString("ion-storm-x-and-y", ("x", crew1), ("y", crew2))
         };
@@ -230,41 +238,41 @@ public sealed class IonStormSystem : EntitySystem
         // message logic!!!
         return _robustRandom.Next(0, 35) switch
         {
-            0  => Loc.GetString("ion-storm-law-on-station", ("joined", joined), ("subjects", triple)),
-            1  => Loc.GetString("ion-storm-law-no-shuttle", ("joined", joined), ("subjects", triple)),
-            2  => Loc.GetString("ion-storm-law-crew-are", ("who", crewAll), ("joined", joined), ("subjects", objectsThreats)),
-            3  => Loc.GetString("ion-storm-law-subjects-harmful", ("adjective", adjective), ("subjects", triple)),
+            0  => Loc.GetString("ion-storm-law-on-station", ("joined", joined), ("subjects", triple), ("number", number), ("adjective", adjectivePlural)), // WWDP EDIT
+            1  => Loc.GetString("ion-storm-law-no-shuttle", ("joined", joined), ("subjects", triple), ("number", number), ("adjective", adjectivePlural)), // WWDP EDIT
+            2  => Loc.GetString("ion-storm-law-crew-are", ("who", crewAll), ("joined", joined), ("subjects", objectsThreats), ("number", number), ("adjective", adjectivePlural)), // WWDP EDIT
+            3  => Loc.GetString("ion-storm-law-subjects-harmful", ("adjective", adjectivePlural), ("subjects", triple)), // WWDP EDIT
             4  => Loc.GetString("ion-storm-law-must-harmful", ("must", must)),
-            5  => Loc.GetString("ion-storm-law-thing-harmful", ("thing", _robustRandom.Prob(0.5f) ? concept : action)),
-            6  => Loc.GetString("ion-storm-law-job-harmful", ("adjective", adjective), ("job", crew1)),
-            7  => Loc.GetString("ion-storm-law-having-harmful", ("adjective", adjective), ("thing", objectsConcept)),
-            8  => Loc.GetString("ion-storm-law-not-having-harmful", ("adjective", adjective), ("thing", objectsConcept)),
-            9  => Loc.GetString("ion-storm-law-requires", ("who", who), ("plural", plural), ("thing", _robustRandom.Prob(0.5f) ? concept : require)),
-            10 => Loc.GetString("ion-storm-law-requires-subjects", ("who", who), ("plural", plural), ("joined", joined), ("subjects", triple)),
+            5  => Loc.GetString("ion-storm-law-thing-harmful", ("thing", _robustRandom.Prob(0.5f) ? concept : action), ("action", action)), // WWDP EDIT
+            6  => Loc.GetString("ion-storm-law-job-harmful", ("adjective", adjectivePlural), ("job", crew1)), // WWDP EDIT
+            7  => Loc.GetString("ion-storm-law-having-harmful", ("adjective", adjectivePlural), ("thing", objectsConcept), ("objects", objects)), // WWDP EDIT
+            8  => Loc.GetString("ion-storm-law-not-having-harmful", ("adjective", adjectivePlural), ("thing", objectsConcept), ("objects", objects)), // WWDP EDIT
+            9  => Loc.GetString("ion-storm-law-requires", ("who", who), ("plural", plural), ("thing", _robustRandom.Prob(0.5f) ? concept : require)), // WWDP EDIT
+            10 => Loc.GetString("ion-storm-law-requires-subjects", ("who", who), ("plural", plural), ("joined", joined), ("subjects", triple), ("number", number), ("adjective", adjectivePlural)), // WWDP EDIT
             11 => Loc.GetString("ion-storm-law-allergic", ("who", who), ("plural", plural), ("severity", allergySeverity), ("allergy", _robustRandom.Prob(0.5f) ? concept : allergy)),
-            12 => Loc.GetString("ion-storm-law-allergic-subjects", ("who", who), ("plural", plural), ("severity", allergySeverity), ("adjective", adjective), ("subjects", _robustRandom.Prob(0.5f) ? objects : crew1)),
-            13 => Loc.GetString("ion-storm-law-feeling", ("who", who), ("feeling", feeling), ("concept", concept)),
-            14 => Loc.GetString("ion-storm-law-feeling-subjects", ("who", who), ("feeling", feeling), ("joined", joined), ("subjects", triple)),
+            12 => Loc.GetString("ion-storm-law-allergic-subjects", ("who", who), ("plural", plural), ("severity", allergySeverity), ("adjective", adjectivePlural), ("subjects", _robustRandom.Prob(0.5f) ? objects : crew1)), // WWDP EDIT
+            13 => Loc.GetString("ion-storm-law-feeling", ("who", who), ("feeling", feeling), ("concept", concept), ("feelingPlural", feelingPlural)), // WWDP EDIT
+            14 => Loc.GetString("ion-storm-law-feeling-subjects", ("who", who), ("feeling", feeling), ("joined", joined), ("subjects", triple), ("number", number), ("adjective", adjectivePlural), ("feelingPlural", feelingPlural)), // WWDP EDIT
             15 => Loc.GetString("ion-storm-law-you-are", ("concept", concept)),
-            16 => Loc.GetString("ion-storm-law-you-are-subjects", ("joined", joined), ("subjects", triple)),
+            16 => Loc.GetString("ion-storm-law-you-are-subjects", ("joined", joined), ("subjects", triple), ("number", number), ("adjective", adjectivePlural)), // WWDP EDIT
             17 => Loc.GetString("ion-storm-law-you-must-always", ("must", must)),
             18 => Loc.GetString("ion-storm-law-you-must-never", ("must", must)),
-            19 => Loc.GetString("ion-storm-law-eat", ("who", crewAll), ("adjective", adjective), ("food", _robustRandom.Prob(0.5f) ? food : triple)),
+            19 => Loc.GetString("ion-storm-law-eat", ("who", crewAll), ("adjective", adjectivePlural), ("food", _robustRandom.Prob(0.5f) ? food : triple)), // WWDP EDIT
             20 => Loc.GetString("ion-storm-law-drink", ("who", crewAll), ("adjective", adjective), ("drink", drink)),
-            21 => Loc.GetString("ion-storm-law-change-job", ("who", crewAll), ("adjective", adjective), ("change", jobChange)),
+            21 => Loc.GetString("ion-storm-law-change-job", ("who", crewAll), ("adjective", adjectivePlural), ("change", jobChange)), // WWDP EDIT
             22 => Loc.GetString("ion-storm-law-highest-rank", ("who", crew1)),
             23 => Loc.GetString("ion-storm-law-lowest-rank", ("who", crew1)),
             24 => Loc.GetString("ion-storm-law-crew-must", ("who", crewAll), ("must", must)),
             25 => Loc.GetString("ion-storm-law-crew-must-go", ("who", crewAll), ("area", area)),
-            26 => Loc.GetString("ion-storm-law-crew-only-1", ("who", crew1), ("part", part)),
-            27 => Loc.GetString("ion-storm-law-crew-only-2", ("who", crew1), ("other", crew2), ("part", part)),
-            28 => Loc.GetString("ion-storm-law-crew-only-subjects", ("adjective", adjective), ("subjects", subjects), ("part", part)),
-            29 => Loc.GetString("ion-storm-law-crew-must-do", ("must", must), ("part", part)),
-            30 => Loc.GetString("ion-storm-law-crew-must-have", ("adjective", adjective), ("objects", objects), ("part", part)),
-            31 => Loc.GetString("ion-storm-law-crew-must-eat", ("who", who), ("adjective", adjective), ("food", food), ("part", part)),
+            26 => Loc.GetString("ion-storm-law-crew-only-1", ("who", crew1), ("part", part), ("notpart", notpart)), // WWDP EDIT
+            27 => Loc.GetString("ion-storm-law-crew-only-2", ("who", crew1), ("other", crew2), ("part", part), ("notpart", notpart)), // WWDP EDIT
+            28 => Loc.GetString("ion-storm-law-crew-only-subjects", ("adjective", adjectivePlural), ("subjects", subjects), ("part", part), ("notpart", notpart)), // WWDP EDIT
+            29 => Loc.GetString("ion-storm-law-crew-must-do", ("must", must), ("part", part), ("notpart", notpart)), // WWDP EDIT
+            30 => Loc.GetString("ion-storm-law-crew-must-have", ("adjective", adjectivePlural), ("objects", objects), ("part", part), ("notpart", notpart)), // WWDP EDIT
+            31 => Loc.GetString("ion-storm-law-crew-must-eat", ("who", who), ("adjective", adjectivePlural), ("food", food), ("part", part), ("notpart", notpart)), // WWDP EDIT
             32 => Loc.GetString("ion-storm-law-harm", ("who", harm)),
             33 => Loc.GetString("ion-storm-law-protect", ("who", harm)),
-            _ => Loc.GetString("ion-storm-law-concept-verb", ("concept", concept), ("verb", verb), ("subjects", triple))
+            _ => Loc.GetString("ion-storm-law-concept-verb", ("concept", concept), ("verb", verb), ("subjects", triple), ("who", crewAll)) // WWDP EDIT
         };
     }
 
@@ -277,4 +285,23 @@ public sealed class IonStormSystem : EntitySystem
         var dataset = _proto.Index<DatasetPrototype>(name);
         return _robustRandom.Pick(dataset.Values);
     }
+    // WWDP EDIT START
+    /// <summary>
+    /// Selects one entry and splits it into forms (singular/plural).
+    /// </summary>
+    private string[] PickForms(string name)
+    {
+        var dataset = _proto.Index<DatasetPrototype>(name);
+        var raw = _robustRandom.Pick(dataset.Values);
+        return raw.Split('|');
+    }
+
+    /// <summary>
+    /// Safely extracts forms by index.
+    /// </summary>
+    private static string Form(string[] forms, int index)
+    {
+        return index < forms.Length ? forms[index] : forms[0];
+    }
+    // WWDP EDIT END
 }

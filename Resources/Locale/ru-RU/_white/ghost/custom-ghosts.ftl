@@ -15,7 +15,7 @@ custom-ghost-green-name = Зелёный призрак
 custom-ghost-green-desc = Да, знаю, надо было поменять спрайт на слона. Но у нас в игре нету слонов, а если буду рисовать с нуля - получится хрень.
 
 custom-ghost-blue-name = Синий призрак
-custom-ghost-blue-desc = Цвет спокойствия, моря и умиротворения. Самое то, когда вас космировали за просто так. 
+custom-ghost-blue-desc = Цвет спокойствия, моря и умиротворения. Самое то, когда вас космировали за просто так.
 
 custom-ghost-violet-name = Фиолетовый призрак
 custom-ghost-violet-desc = Не хватает только пластыря на носу.
@@ -51,7 +51,7 @@ custom-ghost-skeleton-name = Скелет
 custom-ghost-skeleton-desc = Maybe it's the way you're dressed?
 
 custom-ghost-frog-name = Лягушка
-custom-ghost-frog-desc = "Сап космач, есть одна вульпа..."
+custom-ghost-frog-desc = «Сап космач, есть одна вульпа...»
 
 custom-ghost-rooster-name = Петух
 custom-ghost-rooster-desc = Знак отличия.

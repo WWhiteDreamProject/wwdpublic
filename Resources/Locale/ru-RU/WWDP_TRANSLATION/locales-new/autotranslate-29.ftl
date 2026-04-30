@@ -11,8 +11,8 @@ ent-CognizineChemistryBottle = бутылка когнизина
 ent-ToxinChemistryBottle = бутылка с токсином
    .desc = { ent-BaseChemistryEmptyBottle.desc }
 
-ent-BaseBeakerMetallic = ""
-   .desc = ""
+ent-BaseBeakerMetallic = { "" }
+   .desc = { "" }
 
 ent-CryoxadoneBeakerSmall = стакан криоксадона
    .desc = Заполнен реагентом, используемым в криогенных пробирках.
@@ -41,8 +41,8 @@ ent-Plunger = вантуз
 ent-MegaSprayBottle = мега распылитель
    .desc = Огромный распылитель, способный на непревзойденную уборочную мощь.
 
-ent-BigVapor = ""
-   .desc = ""
+ent-BigVapor = { "" }
+   .desc = { "" }
 
 ent-MechEquipmentGrabberSmall = небольшой гидравлический зажим
    .desc = Дает меху возможность хватать предметы и перетаскивать их.

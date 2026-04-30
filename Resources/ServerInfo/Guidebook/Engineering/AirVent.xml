@@ -1,64 +1,64 @@
 ﻿<Document>
-  # Air Vent
-  The air vent is a standard vent, found in all rooms that you want to pressurize with a breathable atmosphere.
-  Its primary job is to transfer gasses into the atmosphere it's exposed to until it reaches a set pressure.
+  # Воздушный клапан
+  Воздушный клапан — это стандартный клапан, встречающийся во всех помещениях, которые вы хотите наполнить дыхательной атмосферой.
+  Его основная задача — перекачивать газы в контактируемую с ним атмосферу до достижения заданного давления.
 
   <Box>
     <GuideEntityEmbed Entity="GasVentPump"/>
   </Box>
 
-  The air vent requires [textlink="power" link="Power"] through a nearby [textlink="LV cable" link="VoltageNetworks"] to function.
+  Для работы воздушного клапана требуется [textlink="питание" link="Power"] через ближайший [textlink="кабель НН" link="VoltageNetworks"].
 
-  The air vent can be welded with any welding tool to stop it from functioning.
+  Воздушный клапан можно заварить любым сварочным инструментом, чтобы остановить его работу.
 
-  ## Default Operation
-  The default behavior of an air vent is to simply output gas to the exposed atmosphere at a pressure of [color=orange][protodata="GasVentPump" comp="GasVentPump" member="DefaultExternalBound"/] kPa[/color].
+  ## Работа по умолчанию
+  Поведение воздушного клапана по умолчанию — просто подавать газ в открытую атмосферу при давлении [color=orange][protodata="GasVentPump" comp="GasVentPump" member="DefaultExternalBound"/] кПа[/color].
 
-  The speed of the air vent scales with the difference between twice the connected [textlink="pipenet's" link="PipeNetworks"] pressure and the pressure of the exposed atmosphere.
-  To put it in a word equation:
+  Скорость воздушного клапана зависит от разницы между удвоенным давлением подключенной [textlink="трубной сети" link="PipeNetworks"] и давлением открытой атмосферы.
+  Если выразить это словесным уравнением:
   <Box>
-    [italic]Speed = 2 × Pipenet Pressure - Exposed Atmosphere Pressure[/italic]
+    [italic]Скорость = 2 × Давление в трубной сети - Давление открытой атмосферы[/italic]
   </Box>
 
-  For example, this means that an air vent will be unable to pump to 101.3 kPa if the gas inside the vent goes below half that.
+  Например, это означает, что воздушный клапан не сможет нагнетать давление до 101,3 кПа, если давление газа внутри клапана упадет ниже половины этого значения.
 
-  ## Pressure Lockout
-  Air vents will enter [color=red]pressure lockout[/color] when the pressure of the atmosphere it's exposed to is below [color=orange][protodata="GasVentPump" comp="GasVentPump" member="UnderPressureLockoutThreshold"/] kPa[/color].
-  This is to prevent wasting useful gasses to space if a room is not sealed.
-  The lights on the air vent will turn [color=yellow]yellow[/color] to highlight this change.
+  ## Блокировка по давлению
+  Воздушные клапаны переходят в режим [color=red]блокировки по давлению[/color], когда давление атмосферы, с которой они контактируют, ниже [color=orange][protodata="GasVentPump" comp="GasVentPump" member="UnderPressureLockoutThreshold"/] кПа[/color].
+  Это сделано для предотвращения потери полезных газов в космосе, если помещение не загерметизировано.
+  Лампочки на воздушном клапане загорятся [color=yellow]желтым[/color], чтобы обозначить это изменение.
 
-  This can be [color=green]overridden[/color] by using a screwdriver on the vent, or setting the mode to Fill on a connected [textlink="air alarm" link="AirAlarms"].
+  Это можно [color=green]отменить[/color], используя отвертку на клапане или установив режим Заполнение на подключенной [textlink="воздушной тревоге" link="AirAlarms"].
 
-  It is important to note that air vents in [color=red]pressure lockout[/color] still very slowly leak out gas.
-  The amount of gas they leak out is relative to the current pressure of the pipenet they're connected to.
+  Важно отметить, что воздушные клапаны в режиме [color=red]блокировки по давлению[/color] все еще очень медленно выпускают газ.
+  Количество выпускаемого газа пропорционально текущему давлению подключенной к ним трубной сети.
 
-  ## Configuration Options
-  When [textlink="linked" link="Networking"] to an [textlink="air alarm" link="AirAlarms"], air vents gain more functionality.
+  ## Параметры конфигурации
+  При [textlink="подключении" link="Networking"] к [textlink="воздушной тревоге" link="AirAlarms"] воздушные клапаны получают дополнительные функции.
 
-  Air vents have two "vent direction" options: Releasing and Siphoning.
-  - Releasing simply releases gasses into the atmosphere from the connected pipenet.
-  - Siphoning sucks the air out of the atmosphere and into the connected pipenet. The lights on the air vent will turn [color=red]red[/color] to highlight this change.
+  Воздушные клапаны имеют два варианта "направления клапана": Подача и Откачка.
+  - Подача просто выпускает газы в атмосферу из подключенной трубной сети.
+  - Откачка высасывает воздух из атмосферы в подключенную трубную сеть. Лампочки на воздушном клапане загорятся [color=red]красным[/color], чтобы обозначить это изменение.
 
-  ## Pressure Bounds
-  Air vents have a pressure bound system, which controls the pressure at which an air vent will pressurize an atmosphere, or draw from a connected pipenet. These limits are taken into account in both releasing and siphoning modes.
+  ## Пределы давления
+  Воздушные клапаны имеют систему пределов давления, которая контролирует давление, при котором воздушный клапан будет заполнять атмосферу или забирать из подключенной трубной сети. Эти ограничения учитываются как в режиме подачи, так и в режиме откачки.
 
-  The "PressureBound" setting has four options:
-  - ExternalBound makes the air vent respect the pressure limits defined in the External bound entry.
-  - InternalBound makes the air vent respect the pressure limits defined in the Internal bound entry.
-  - Both makes the air vent respect the pressure limits defined in both the External and Internal bound entries.
-  - NoBound makes the air vent respect no limit.
+  Параметр "PressureBound" имеет четыре варианта:
+  - ExternalBound заставляет воздушный клапан соблюдать пределы давления, определенные в поле Внешний предел.
+  - InternalBound заставляет воздушный клапан соблюдать пределы давления, определенные в поле Внутренний предел.
+  - Both заставляет воздушный клапан соблюдать пределы давления, определенные как в полях Внешний, так и Внутренний предел.
+  - NoBound заставляет воздушный клапан не соблюдать никаких ограничений.
 
-  When the vent is in releasing mode:
-  - If the External bound pressure is set to 101.3 kPa, the air vent will not pressurize the atmosphere above 101.3 kPa.
-  - If the Internal bound pressure is set to 50 kPa, the air vent will not draw gas from the connected pipe if its pressure is below 50 kPa.
+  Когда клапан находится в режиме подачи:
+  - Если внешний предел давления установлен на 101,3 кПа, воздушный клапан не будет заполнять атмосферу выше 101,3 кПа.
+  - Если внутренний предел давления установлен на 50 кПа, воздушный клапан не будет забирать газ из подключенной трубы, если ее давление ниже 50 кПа.
 
-  When the vent is in siphoning mode:
-  - If the External bound pressure is set to 101.3 kPa, the air vent will siphon gases until the atmosphere reaches 101.3 kPa.
-  - If the Internal bound pressure is set to 50 kPa, the air vent will not push gases into the pipenet if its pressure is above 50 kPa.
+  Когда клапан находится в режиме откачки:
+  - Если внешний предел давления установлен на 101,3 кПа, воздушный клапан будет откачивать газы до тех пор, пока атмосфера не достигнет 101,3 кПа.
+  - Если внутренний предел давления установлен на 50 кПа, воздушный клапан не будет закачивать газы в трубную сеть, если ее давление выше 50 кПа.
 
-  If you're still confused about PressureBounds, here's a simple way to think about it:
-  - You can think of the External bound as the upper limit for the exposed atmosphere. "I will not pressurize the exposed atmosphere past this pressure, or draw from the atmosphere below this pressure."
-  - You can think of the Internal bound as the lower limit for the connected pipenet. "I will not draw from my source below this pressure, or push air into the pipenet above this pressure."
-  - The "Pressure bound" settings simply define which limits to respect or ignore.
+  Если вы все еще запутались в PressureBounds, вот простой способ думать об этом:
+  - Вы можете думать о Внешнем пределе как о верхнем пределе для открытой атмосферы. "Я не буду заполнять открытую атмосферу выше этого давления и не буду забирать из атмосферы ниже этого давления."
+  - Вы можете думать о Внутреннем пределе как о нижнем пределе для подключенной трубной сети. "Я не буду забирать из своего источника ниже этого давления и не буду закачивать воздух в трубную сеть выше этого давления."
+  - Настройки "Pressure bound" просто определяют, какие пределы соблюдать или игнорировать.
 
 </Document>

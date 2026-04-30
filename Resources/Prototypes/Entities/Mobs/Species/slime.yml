@@ -141,6 +141,14 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
+# WWDP EDIT START
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - SlimeEmotes
+# WWDP EDIT END
 
 - type: entity
   parent: MobHumanDummy

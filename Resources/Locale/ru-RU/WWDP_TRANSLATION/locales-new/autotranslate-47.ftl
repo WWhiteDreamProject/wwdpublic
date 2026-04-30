@@ -26,34 +26,34 @@ ent-WorldChunk = Кусок мира
    .desc = Смотреть неприлично. Также немного странно, что вы смотрите на абстрактное представление сетки реальности.
 
 ent-BaseAsteroidDebris = Обломки астероида
-   .desc = ""
+   .desc = { "" }
 
 ent-AsteroidDebrisSmall = Обломки астероида малый
-   .desc = ""
+   .desc = { "" }
 
 ent-AsteroidDebrisMedium = Обломки астероида средний
-   .desc = ""
+   .desc = { "" }
 
 ent-AsteroidDebrisLarge = Обломоки астероида большой
-   .desc = ""
+   .desc = { "" }
 
 ent-AsteroidDebrisLarger = Обломки астероида огромный
-   .desc = ""
+   .desc = { "" }
 
 ent-AsteroidSalvageSmall = Утилизаторский астероид малый
-   .desc = ""
+   .desc = { "" }
 
 ent-AsteroidSalvageMedium = Утилизаторский астероид средний
-   .desc = ""
+   .desc = { "" }
 
 ent-AsteroidSalvageLarge = Утилизаторский астероид большой
-   .desc = ""
+   .desc = { "" }
 
 ent-AsteroidSalvageHuge = Утилизаторский астероид огромный
-   .desc = ""
+   .desc = { "" }
 
 ent-AfterlightBaseAsteroidDebris = Обломки астероида
-   .desc = ""
+   .desc = { "" }
 
 ent-AfterlightAsteroidDebrisSmall = Обломки астероида малый
-   .desc = ""
+   .desc = { "" }

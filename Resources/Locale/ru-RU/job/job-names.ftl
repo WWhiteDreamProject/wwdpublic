@@ -24,7 +24,7 @@ job-name-engineer = Инженер
 job-name-atmostech = Атмосферный Техник
 job-name-hop = Глава Персонала
 job-name-captain = Капитан
-job-name-ntrep = Corporate Liaison
+job-name-ntrep = Корпорат
 job-name-serviceworker = Сервисный Работник
 job-name-centcomoff = Представитель Центрального Коммандования
 job-name-cburn = Агент РХБЗЗ
@@ -66,7 +66,7 @@ job-name-visitor = Посетитель
 # I am keeping them for roleplaying opportunities
 job-name-geneticist = Генетик
 job-name-no-id = Нет ID
-job-name-prisoner = Prisoner
+job-name-prisoner = Заключённый
 job-name-syndicate = Синдикат
 job-name-unknown = Неизвестно
 job-name-virologist = Вирусолог

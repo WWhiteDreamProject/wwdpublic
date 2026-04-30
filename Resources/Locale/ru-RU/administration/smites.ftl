@@ -10,7 +10,7 @@ admin-smite-remove-hands-self = У вас отваливаются руки!
 admin-smite-remove-hands-other = У { CAPITALIZE($name) } отваливаются руки!
 admin-smite-turned-ash-other = { CAPITALIZE($name) } превращается в кучку пепла!
 admin-smite-stomach-removal-self = Вы ощущаете пустоту в желудке...
-admin-smite-run-walk-swap-prompt = Для бега вы должны нажать Shift!
+admin-smite-run-walk-swap-prompt = Для бега вы должны нажать Shift (по умолчанию)!
 admin-smite-super-speed-prompt = Вы двигаетесь почти со скоростью звука!
 admin-smite-lung-removal-self = Вы не можете вдохнуть!
 
@@ -18,46 +18,46 @@ admin-smite-lung-removal-self = Вы не можете вдохнуть!
 
 ## Smite names
 
-admin-smite-explode-name = Explode
-admin-smite-chess-dimension-name = Chess Dimension
-admin-smite-set-alight-name = Set Alight
-admin-smite-monkeyify-name = Monkeyify
-admin-smite-garbage-can-name = Garbage Can
-admin-smite-electrocute-name = Electrocute
-admin-smite-remove-blood-name = Remove blood
-admin-smite-remove-hands-name = Remove hands
-admin-smite-remove-hand-name = Remove hand
-admin-smite-pinball-name = Pinball
-admin-smite-yeet-name = Yeet
-admin-smite-become-bread-name = Become Bread
-admin-smite-cluwne-name = Cluwne
-admin-smite-anger-pointing-arrows-name = Anger Pointing Arrows
-admin-smite-dust-name = Dust
-admin-smite-buffering-name = Buffering
-admin-smite-become-instrument-name = Become Instrument
-admin-smite-remove-gravity-name = Remove Gravity
-admin-smite-reptilian-species-swap-name = Become Reptilian
-admin-smite-locker-stuff-name = Locker Stuff
-admin-smite-headstand-name = Headstand
-admin-smite-become-mouse-name = Become Mouse
-admin-smite-maid-name = Cat Maid
-admin-smite-zoom-in-name = Zoom In
-admin-smite-flip-eye-name = Flip Eye
-admin-smite-run-walk-swap-name = Run Walk Swap
-admin-smite-super-speed-name = Run Up
-admin-smite-stomach-removal-name = Stomach Removal
-admin-smite-speak-backwards-name = Speak Backwards
-admin-smite-lung-removal-name = Lungs Removal
-admin-smite-disarm-prone-name = Disarm Prone
-admin-smite-super-bonk-name = Super Bonk
-admin-smite-super-bonk-lite-name = Super Bonk Lite
-admin-smite-terminate-name = Terminate
-admin-smite-super-slip-name = Super Slip
-admin-smite-creampie-name = Cream
-admin-smite-vomit-organs-name = Vomit Organs
-admin-smite-ghostkick-name = Ghost Kick
-admin-smite-nyanify-name = Cat Ears
-admin-smite-kill-sign-name = Kill Sign
+admin-smite-explode-name = Взорвать
+admin-smite-chess-dimension-name = Шахматное измерение
+admin-smite-set-alight-name = Поджечь
+admin-smite-monkeyify-name = Обезьянить
+admin-smite-garbage-can-name = Мусорный бак
+admin-smite-electrocute-name = Ударить током
+admin-smite-remove-blood-name = Удалить кровь
+admin-smite-remove-hands-name = Удалить руки
+admin-smite-remove-hand-name = Удалить руку
+admin-smite-pinball-name = Пинбол
+admin-smite-yeet-name = Уиии
+admin-smite-become-bread-name = Сделать хлебом
+admin-smite-cluwne-name = Клувнифицировать
+admin-smite-anger-pointing-arrows-name = Гнев указывающих стрелок
+admin-smite-dust-name = Щелчок таноса
+admin-smite-buffering-name = Насёр в буфер
+admin-smite-become-instrument-name = Сделать инструментом
+admin-smite-remove-gravity-name = Убрать гравитацию
+admin-smite-reptilian-species-swap-name = Сделать ящером
+admin-smite-locker-stuff-name = Заварить в ящике
+admin-smite-headstand-name = Вверх тормашками
+admin-smite-become-mouse-name = Сделать мышью
+admin-smite-maid-name = Фелиблядь
+admin-smite-zoom-in-name = Приблизить
+admin-smite-flip-eye-name = Перевернуть экран
+admin-smite-run-walk-swap-name = Бег на ходьбу
+admin-smite-super-speed-name = Ускорить
+admin-smite-stomach-removal-name = Удалить желудок
+admin-smite-speak-backwards-name = Говор задом наперёд
+admin-smite-lung-removal-name = Удалить лёгкие
+admin-smite-disarm-prone-name = Весёлое разоружение
+admin-smite-super-bonk-name = Супер бонк
+admin-smite-super-bonk-lite-name = Супер бонк лайт
+admin-smite-terminate-name = Устранить IC
+admin-smite-super-slip-name = Супер-скользь
+admin-smite-creampie-name = Кремировать
+admin-smite-vomit-organs-name = Стошнить органами
+admin-smite-ghostkick-name = Тихий кик
+admin-smite-nyanify-name = Кошачьи ушки
+admin-smite-kill-sign-name = Знак «Убить»
 
 ## Smite descriptions
 
@@ -102,8 +102,8 @@ admin-smite-super-bonk-lite-description = Бьет их о каждый стол
 
 ## Tricks descriptions
 
-admin-smite-terminate-description = Creates a Terminator ghost role with the sole objective of killing them.
-admin-smite-super-slip-description = Slips them really, really hard.
+admin-smite-terminate-description = Создает роль призрака Терминатора с единственной целью — убить данную цель.
+admin-smite-super-slip-description = Делает цель очень, очень скользкой.
 
 ## Tricks descriptions
 

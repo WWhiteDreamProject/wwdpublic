@@ -40,7 +40,7 @@ loadout-name-LoadoutItemBoxHug = коробка обнимашек (клоуна
 
 loadout-name-LoadoutItemLighter = зажигалка (раскрашиваемое)
 loadout-name-LoadoutItemLighterCheap = дешевая зажигалка (раскрашиваемое)
-loadout-name-LoadoutItemLighterFlippo = зажигалка flippo (раскрашиваемое)
+loadout-name-LoadoutItemLighterFlippo = бензиновая зажигалка (раскрашиваемое)
 loadout-name-LoadoutItemDrinkShinyFlask = блестящая фляжка (раскрашиваемое)
 loadout-name-LoadoutItemDrinkLithiumFlask = литиевая фляжка (раскрашиваемое)
 loadout-name-LoadoutItemDrinkVacuumFlask = вакуумная фляжка (раскрашиваемое)

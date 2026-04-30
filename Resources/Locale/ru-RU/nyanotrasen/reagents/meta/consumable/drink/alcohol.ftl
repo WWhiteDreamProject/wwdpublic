@@ -1,5 +1,5 @@
-reagent-name-sake = sake
-reagent-desc-sake = Alcoholic beverage made by fermenting rice that has been polished.
+reagent-name-sake = Сакэ
+reagent-desc-sake = Алкогольный напиток, приготовленный путем ферментации отшлифованного риса.
 
 reagent-name-soju = соджу
 reagent-desc-soju =  Алкогольный напиток, изготовленный путем дистилляции шлифованного риса.
@@ -13,7 +13,7 @@ reagent-desc-silverjack = Напоминает о семье.
 reagent-name-brainbomb = мозговая бомба
 reagent-desc-brainbomb = Ядовитый для всего живого, особенно для вашей печени.
 
-reagent-name-clownblood = Кровь клоуна
+reagent-name-clownblood = кровь клоуна
 reagent-desc-clownblood = Любимый напиток офицеров безопасности после долгого дня.
 
 reagent-name-circusjuice = цирковой сок

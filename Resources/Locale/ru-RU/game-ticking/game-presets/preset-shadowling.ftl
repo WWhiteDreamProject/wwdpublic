@@ -8,7 +8,7 @@ shadowling-role-greeting =
     Ознакомься с руководством, чтобы узнать больше.
 
 shadowling-role-greeting-short =
-    Ты — тенелинг, пробудившийся в теле {$name}.
+    Ты — тенелинг, пробудившийся в теле существа с именем «{$name}».
 
 thrall-role-greeting =
     Ты — порабощённый.

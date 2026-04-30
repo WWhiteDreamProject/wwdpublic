@@ -1,59 +1,59 @@
 ent-AfterlightAsteroidDebrisMedium = Обломки астероида средний
-   .desc = ""
+   .desc = { "" }
 
 ent-AfterlightAsteroidDebrisLarge = Обломоки астероида большой
-   .desc = ""
+   .desc = { "" }
 
 ent-AfterlightAsteroidDebrisLarger = Обломки астероида огромный
-   .desc = ""
+   .desc = { "" }
 
-ent-BaseDebris = ""
-   .desc = ""
+ent-BaseDebris = { "" }
+   .desc = { "" }
 
 ent-BaseScrapDebris = Дебри обломков
-   .desc = ""
+   .desc = { "" }
 
 ent-ScrapDebrisSmall = Дебри обломков маленький
-   .desc = ""
+   .desc = { "" }
 
 ent-ScrapDebrisMedium = Дебри обломков средний
-   .desc = ""
+   .desc = { "" }
 
 ent-ScrapDebrisLarge = Дебри обломков большой
-   .desc = ""
+   .desc = { "" }
 
 ent-CombatRimBaseScrapDebris = Дебри обломков
-   .desc = ""
+   .desc = { "" }
 
 ent-CombatRimScrapDebrisSmall = Дебри обломков маленький
-   .desc = ""
+   .desc = { "" }
 
 ent-CombatRimScrapDebrisMedium = Дебри обломков средний
-   .desc = ""
+   .desc = { "" }
 
 ent-CombatRimScrapDebrisLarge = Дебри обломков большой
-   .desc = ""
+   .desc = { "" }
 
-ent-D1 = ""
-   .desc = ""
+ent-D1 = { "" }
+   .desc = { "" }
 
-ent-D2 = ""
-   .desc = ""
+ent-D2 = { "" }
+   .desc = { "" }
 
-ent-D4 = ""
-   .desc = ""
+ent-D4 = { "" }
+   .desc = { "" }
 
-ent-D5 = ""
-   .desc = ""
+ent-D5 = { "" }
+   .desc = { "" }
 
-ent-D6 = ""
-   .desc = ""
+ent-D6 = { "" }
+   .desc = { "" }
 
-ent-D7 = ""
-   .desc = ""
+ent-D7 = { "" }
+   .desc = { "" }
 
-ent-D8 = ""
-   .desc = ""
+ent-D8 = { "" }
+   .desc = { "" }
 
-ent-D10 = ""
-   .desc = ""
+ent-D10 = { "" }
+   .desc = { "" }

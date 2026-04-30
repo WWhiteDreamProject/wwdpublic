@@ -23,3 +23,5 @@ chat-emote-trigger-meows-4 = мурмяукает
 chat-emote-trigger-mews-1 = мявкает
 chat-emote-trigger-growls-1 = рычит
 chat-emote-trigger-purrs-1 = мурлычет
+chat-emote-trigger-purrs-2 = мурчит
+chat-emote-trigger-purrs-3 = мурлыкает

@@ -591,8 +591,8 @@
   - type: Clothing
     sprite: Clothing/Head/Hats/ushanka.rsi
   - type: Appearance
-  - type: AddAccentClothing
-    accent: RussianAccent
+#  - type: AddAccentClothing # WWDP EDIT
+#    accent: RussianAccent # WWDP EDIT
   - type: Foldable
     canFoldInsideContainer: true
   - type: FoldableClothing

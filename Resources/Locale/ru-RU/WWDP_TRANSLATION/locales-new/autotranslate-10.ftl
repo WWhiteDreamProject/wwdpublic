@@ -1,59 +1,59 @@
 ent-SpawnPointSeniorResearcher = точка спавна ведущего исследователя
-   .desc = ""
+   .desc = { "" }
 
 ent-SpawnPointSeniorOfficer = точка спавна ветерана СБ
-   .desc = ""
+   .desc = { "" }
 
 ent-SpawnPointBrigmedic = точка спавна бригмедика
-   .desc = ""
+   .desc = { "" }
 
 ent-SpawnMechRipley = спавнер рипли
-   .desc = ""
+   .desc = { "" }
 
 ent-SpawnMechHonker = спавнер Х.О.Н.К'а
-   .desc = ""
+   .desc = { "" }
 
 ent-SpawnMobCatBingus = спавнер бингуса
-   .desc = ""
+   .desc = { "" }
 
 ent-SpawnMobCatSpace = спавнер космической кошки
-   .desc = ""
+   .desc = { "" }
 
 ent-SpawnMobShiva = спавнер Шивы
-   .desc = ""
+   .desc = { "" }
 
 ent-SpawnMobKangarooWillow = спавнер Уиллоуа
-   .desc = ""
+   .desc = { "" }
 
 ent-SpawnMobKangaroo = спавнер космического кенгуру
-   .desc = ""
+   .desc = { "" }
 
 ent-SpawnMobBoxingKangaroo = спавнер боксёрского кенгуру
-   .desc = ""
+   .desc = { "" }
 
 ent-SpawnMobSpaceSpider = спавнер космического паука
-   .desc = ""
+   .desc = { "" }
 
 ent-SpawnMobAdultSlimesBlue = спавнер синего слайма
-   .desc = ""
+   .desc = { "" }
 
 ent-SpawnMobAdultSlimesBlueAngry = спавнер злого синего слайма
-   .desc = ""
+   .desc = { "" }
 
 ent-SpawnMobAdultSlimesGreen = спавнер зеленого слайма
-   .desc = ""
+   .desc = { "" }
 
 ent-SpawnMobAdultSlimesGreenAngry = спавнер злого зеленого слайма
-   .desc = ""
+   .desc = { "" }
 
 ent-SpawnMobAdultSlimesYellow = спавнер жёлтого слайма
-   .desc = ""
+   .desc = { "" }
 
 ent-SpawnMobAdultSlimesYellowAngry = спавнер злого желтого слайма
-   .desc = ""
+   .desc = { "" }
 
 ent-SpawnMobSmile = спавнер слайма Улыбкин
-   .desc = ""
+   .desc = { "" }
 
 ent-SpawnMobMonkeyPunpun = спавнер Пун Пун
-   .desc = ""
+   .desc = { "" }

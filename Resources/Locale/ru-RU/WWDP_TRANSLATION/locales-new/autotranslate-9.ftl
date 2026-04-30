@@ -11,52 +11,52 @@ ent-Puddle = лужа
    .desc = Лужа жидкости.
 
 ent-SalvageHumanCorpseSpawner = спавнер тела человека
-   .desc = ""
+   .desc = { "" }
 
 ent-RandomServiceCorpseSpawner = спавнер случайного сервисного сотрудника
-   .desc = ""
+   .desc = { "" }
 
 ent-RandomEngineerCorpseSpawner = спавнер случайного тела инженера
-   .desc = ""
+   .desc = { "" }
 
 ent-RandomCargoCorpseSpawner = спавнер случайного тела карго
-   .desc = ""
+   .desc = { "" }
 
 ent-RandomMedicCorpseSpawner = спавнер случайного тела медика
-   .desc = ""
+   .desc = { "" }
 
 ent-RandomScienceCorpseSpawner = спавнер случайного тела учёного
-   .desc = ""
+   .desc = { "" }
 
 ent-RandomSecurityCorpseSpawner = спавнер случайного тела СБ
-   .desc = ""
+   .desc = { "" }
 
 ent-RandomCommandCorpseSpawner = спавнер случайного тела коммандного
-   .desc = ""
+   .desc = { "" }
 
 ent-SpawnMobHuman = спавнер Уриста
-   .desc = ""
+   .desc = { "" }
 
 ent-SpawnPointLoneNukeOperative = точка спавна одинокого нюки
-   .desc = ""
+   .desc = { "" }
 
 ent-SpawnPointGhostDragon = точка спавна дракона
-   .desc = ""
+   .desc = { "" }
 
 ent-SpawnPointResearchAssistant = точка спавна научного ассистента
-   .desc = ""
+   .desc = { "" }
 
 ent-SpawnPointBoxer = точка спавна боксёра
-   .desc = ""
+   .desc = { "" }
 
 ent-SpawnPointSeniorEngineer = точка спавна бригадира
-   .desc = ""
+   .desc = { "" }
 
 ent-SpawnPointSeniorPhysician = точка спавна медицинского офицера
-   .desc = ""
+   .desc = { "" }
 
 ent-SpawnPointSeniorSalvageSpecialist = точка спавна охотника карго
-   .desc = ""
+   .desc = { "" }
 
 ent-SpawnPointParamedic = точка спавна парамедика
-   .desc = ""
+   .desc = { "" }

@@ -1,13 +1,13 @@
 game-ticker-restart-round = Перезапуск раунда...
 game-ticker-start-round = Раунд начинается...
-game-ticker-start-round-cannot-start-game-mode-fallback = Не удалось запустить режим { $failedGameMode }! Запускаем { $fallbackMode }...
-game-ticker-start-round-cannot-start-game-mode-restart = Не удалось запустить режим { $failedGameMode }! Перезапуск раунда...
-game-ticker-start-round-invalid-map = Selected map {$map} is inelligible for gamemode {$mode}. Gamemode may not function as intended...
+game-ticker-start-round-cannot-start-game-mode-fallback = Не удалось запустить режим «{ $failedGameMode }»! Запускаем «{ $fallbackMode }»...
+game-ticker-start-round-cannot-start-game-mode-restart = Не удалось запустить режим «{ $failedGameMode }»! Перезапуск раунда...
+game-ticker-start-round-invalid-map = Выбранная карта «{$map}» недоступна для игрового режима «{$mode}». Игровой режим может работать неправильно...
 game-ticker-unknown-role = Неизвестный
-game-ticker-delay-start = Начало раунда было отложено на { $seconds } секунд.
+game-ticker-delay-start = Начало раунда было отложено на {$seconds} {RU-PLURAL($seconds, "секунду", "секунды", "секунд")}.
 game-ticker-pause-start = Начало раунда было приостановлено.
 game-ticker-pause-start-resumed = Отсчет начала раунда возобновлен.
-game-ticker-player-join-game-message = Добро пожаловать на Космическую Станцию 14! Если вы играете впервые, обязательно нажмите ESC на клавиатуре и прочитайте правила игры, а также не бойтесь просить помощи в "Админ помощь".
+game-ticker-player-join-game-message = Добро пожаловать на Космическую Станцию 14! Если вы играете впервые, обязательно нажмите ESC на клавиатуре и прочитайте правила игры, а также не бойтесь просить помощи в «АХелп» (Админ Помощь).
 game-ticker-get-info-text =
     Текущий раунд: [color=blue]#{ $roundId }[/color]
     Текущее количество игроков: [color=blue]{ $playerCount }[/color]
@@ -16,10 +16,7 @@ game-ticker-get-info-text =
 
 game-ticker-get-info-preround-text =
     Текущий раунд: [color=blue]#{ $roundId }[/color]
-    Текущее количество игроков: [color=blue]{ $playerCount }[/color] ([color=blue]{ $readyCount }[/color] { $readyCount ->
-        [one] готов
-       *[other] готовы
-    })
+    Текущее количество игроков: [color=blue]{ $playerCount }[/color] ([color=blue]{ $readyCount }[/color] {RU-PLURAL($readyCount, "готов", "готовы", "готовы")})
     Текущая карта: [color=blue]{ $mapName }[/color]
     Текущий режим игры: [color=blue]{ $gmTitle }[/color]
 
@@ -27,31 +24,32 @@ game-ticker-no-map-selected = [color=red]Карта ещё не выбрана![
 game-ticker-player-no-jobs-available-when-joining = При попытке присоединиться к игре ни одной роли не было доступно.
 
 # Displayed in chat to admins when a player joins
-game-ticker-welcome-to-the-station = Welcome to the station crew, enjoy your stay!
+game-ticker-welcome-to-the-station = Добро пожаловать на станцию! Приятного вам пребывания!
 
 # Displayed in chat to admins when a player joins
-player-join-message = Игрок { $name } зашёл!
-player-first-join-message = Игрок { $name } зашёл на сервер впервые.
+player-join-message = Игрок «{ $name }» зашёл.
+player-first-join-message = Игрок «{ $name }» зашёл на сервер впервые!
 
 # Displayed in chat to admins when a player leaves
 # Displayed in chat to admins when a player leaves
-player-leave-message = Игрок { $name } вышел!
+player-leave-message = Игрок «{ $name }» вышел.
 
 latejoin-arrival-announcement =
-    { $character } ({ $job }) { $gender ->
+    { $job } { $character } { $gender ->
         [male] прибыл
         [female] прибыла
-       *[other] прибыл
+        [epicene] прибыли
+       *[neuter] прибыло
     } на станцию!
-latejoin-arrival-announcement-special = {$job} {$character} on deck!
+latejoin-arrival-announcement-special = {$job} {$character} на станции!
 latejoin-arrival-sender = Станция
 latejoin-arrivals-direction = Вскоре прибудет шаттл, который доставит вас на вашу станцию.
 latejoin-arrivals-direction-time = Шаттл, который доставит вас на станцию, прибудет через { $time }.
 latejoin-arrivals-dumped-from-shuttle = Таинственная сила не позволяет вам улететь на шаттле прибытия.
 latejoin-arrivals-teleport-to-spawn = Таинственная сила телепортирует вас с шаттла прибытия. Удачной смены!
 
-preset-not-enough-ready-players = Не удалось запустить пресет { $presetName }. Требуется { $minimumPlayers } игроков, но готовы только { $readyPlayersCount }.
-preset-no-one-ready = Не удалось запустить режим { $presetName }. Нет готовых игроков.
-game-run-level-PreRoundLobby = Pre-round lobby
-game-run-level-InRound = In round
-game-run-level-PostRound = Post round
+preset-not-enough-ready-players = Не удалось запустить пресет «{ $presetName }». Требуется { $minimumPlayers } {RU-PLURAL($minimumPlayers, "игрок", "игрока", "игроков")}, но {RU-PLURAL($readyPlayersCount, "готов", "готовы", "готовы")} только { $readyPlayersCount }.
+preset-no-one-ready = Не удалось запустить режим «{ $presetName }». Нет готовых игроков.
+game-run-level-PreRoundLobby = Лобби
+game-run-level-InRound = Раунд
+game-run-level-PostRound = Конец раунда

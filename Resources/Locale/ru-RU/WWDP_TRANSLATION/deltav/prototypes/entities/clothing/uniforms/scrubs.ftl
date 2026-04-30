@@ -14,4 +14,4 @@ ent-UniformScrubsColorWhite = белая роба
     .desc = { ent-UniformScrubsColorBlack.desc }
 
 ent-UniformScrubsColorCybersun = роба киберсан
-    .desc = Официальная униформа биотехнологического подразделения Киберсан
+    .desc = Официальная униформа биотехнологического подразделения КиберСан

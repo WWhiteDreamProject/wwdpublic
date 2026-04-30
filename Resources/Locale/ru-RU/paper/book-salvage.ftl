@@ -1,18 +1,18 @@
 book-text-demonomicon1 =
     Как вызвать демона
     - Дж.Дж. Уизджеральд
-    
+
     1. Задача - закончить написание руководства по вызову демона
 book-text-demonomicon2 =
     Как вызвать лемона
     - Дж.Дж. Уизджеральд
-    
+
     1. Завершить написание руководства по призыву демона
     2. Подождите. Опечатка. О черт. Извините, ребята
 book-text-demonomicon3 =
     Классные имена Демонов, которые я нашел
     - мисс Моссрок
-    
+
     Максолох
     Скитухер
     Пандон
@@ -29,8 +29,8 @@ book-text-chemistry-insane =
     РАЗДЕЛ: МУДРЫЕ СЛОВА ИГОРЯ ХИМИКА
     МОЙ СОВЕТ НОМЕР ОДИН. ЭТО ВСЕГДА ПОЛУЧАТЬ УДОВОЛЬСТВИЕ. НИКОГДА НЕ ЗНАЕШЬ, КОГДА ВСЕ ЭТО ЗАКОНЧИТСЯ.
     ТАК ЧТО ПРОСТО ПРОДОЛЖАЙТЕ В ТОМ ЖЕ ДУХЕ!!
-    МОЙ СОВЕТ НОМЕР ДВА. Я ПРОСТО НЕ МОГУ ПЕРЕСТАТЬ, ЧЕРТ ВОЗЬМИ, СТИРАТЬ КОМБИНЕЗОНЫ. МОИ "КОЛЛЕГИ" (агенты) ПРОДОЛЖАЮТ КРИЧАТЬ НА МЕНЯ
-    ОСТАНОВИТЬСЯ И СКАЗАТЬ, ЧТО "это будет вычтено из наших зарплат", НО МАТЕРИАЛ ТАКОЙ ХОРОШИЙ. Я КАК БЫ ГЕНИЙ В ОБЛАСТИ ОФОРМЛЕНИЯ ИНТЕРЬЕРА.
+    МОЙ СОВЕТ НОМЕР ДВА. Я ПРОСТО НЕ МОГУ ПЕРЕСТАТЬ, ЧЕРТ ВОЗЬМИ, СТИРАТЬ КОМБИНЕЗОНЫ. МОИ «КОЛЛЕГИ» (агенты) ПРОДОЛЖАЮТ КРИЧАТЬ НА МЕНЯ
+    ОСТАНОВИТЬСЯ И СКАЗАТЬ, ЧТО «это будет вычтено из наших зарплат», НО МАТЕРИАЛ ТАКОЙ ХОРОШИЙ. Я КАК БЫ ГЕНИЙ В ОБЛАСТИ ОФОРМЛЕНИЯ ИНТЕРЬЕРА.
     САКСОФОНЫ И БАТАРЕЙКИ ОТВЛЕКАЮТ МЕНЯ ОТ ЭТОГО, НО Я ВСЕГДА ВОЗВРАЩАЮСЬ К КОМБИНЕЗОНАМ. ХУ-УИ.
     МОЙ СОВЕТ НОМЕР ТРИ. СПАСИБО ВАМ ЗА ЧТЕНИЕ!! ИГОРЬ ХИМИК
     ЗАКЛЮЧЕНИЕ: ИГОРЬ ХИМИК
@@ -55,42 +55,50 @@ book-text-fishing =
     Когда я вырасту, я хочу стать одним из сборщиков урожая в космическом море!
     Я думаю, что до конца своих дней я хочу поймать легендарную космическую рыбу!
     Я как маленькая крыса, плывущая по морям сыра! Эти ублюдки пришли прикончить меня, но я хитер, как кошка, и так же удачлив, как и они!
-    Нажмите кнопки <Л ТРИГГЕР> и <П ТРИГГЕР>, чтобы активировать мини-игру "Рыбалка".
+    Нажмите кнопки <Л ТРИГГЕР> и <П ТРИГГЕР>, чтобы активировать мини-игру «Рыбалка».
     - Сержант. Джон Бейкер Аклополия
-book-text-fishops = FISHOPS ADVANCED USER MANUAL FIRST EDITION
+book-text-fishops ={"[color=white].[/color]"}
+    {""}
+    {""}
+    {""}
+    {""}
+    {""}
+    {""}[head=1]
+    ФИШОПС: РУКОВОДСТВО ДЛЯ ПРОДВИНУТЫХ ПОЛЬЗОВАТЕЛЕЙ, ПЕРВОЕ ИЗДАНИЕ
+    {""}[/head][/p]{"[color=white].[/color]"}
+    {""}
+    {""}
+    {""}
+     фишопс (гл.)
+       Призыв множества карпов на кого‑либо.
+       «Меня зафишопсили!» (сказано после возрождения, когда субъект умер)
+     фишопс (сущ.)
+       Акт войны, при котором бóльшая часть бюджета ядерной оперативной группы тратится на фишопсинг станции.
+       Также может относиться к оперативникам, выполняющим фишопс.
+       «Мы проводим фишопс.»
+       «Это ужасный фишопс!»
 
-     -----------------------------------------------------------------------------
+     Это руководство научит вас механике обоих видов фишопса.[/p][head=2]
 
-     fishops (v.)
-       Summoning many carp on someone.
-       "I got fishopsed!" (said post revival as the subject died)
-     fishops (n.)
-       The act of war in which the majority of a nuclear task force's budget is put towards fishopsing the station.
-       Alternatively it can be used to refer to the operatives doing fishops.
-       "We are doing fishops."
-       "It's the dreaded fishops!"
+     ГЛАВА 1: Старик и рыба[/head]
+     Что такое карп? Карп — это космическое существо, у которого есть только одно желание: атаковать врага. Найдя подходящую цель, оно устремляется к ней и яростно атакует. Способ его атаки довольно прост: оно приближается, кусает цель, затем отступает. Это называется кайтингом.
+     Поэтому с одним карпом трудно сражаться, не говоря уже о группе. Карпу не нужны еда или вода, он атакует исключительно ради удовольствия. К сожалению, он не будет атаковать цель, перешедшую в критическое состояние; одиночный карп отказывается добивать цель. Однако множество карпов это сделает, около 20 мгновенно убьют практически кого угодно.[/p][head=2]
 
-     This manual will teach you the mechanics of both kinds of fishops.
+     ГЛАВА 2: Под водой[/head]
+     Знать, что такое карп, конечно, хорошо, но как призвать карпа по команде? Обезвоженный космический карп, редко встречающийся на обломках в космосе или поставляемый синдикатом своим агентам и оперативникам. Всё просто: как только на него брызгают или льют воду, он превращается в настоящего космического карпа. Поскользнувшись в луже воды, вы мгновенно увлажните всех обезвоженных карпов в своём инвентаре, что может быть выгодно для мгновенного «фишбомбинга».[/p][head=2]
 
-     CHAPTER 1: The Old Man and the Fish
-     What is a carp? A carp is a space creature that only has one desire: to attack the enemy. Once it finds a suitable target, it will home in and viciously attack. The manner in which it attacks is fairly simple: it will move in, bite the target, then move back out. This is referred to as kiting.
-     This makes a single fish challenging to fight, let alone a group of them. A carp does not need food or water, it attacks for pleasure alone. Unfortunately it will not attack past critical condition, a single carp will refuse to finish off a target. Many carp however will, around 20 will instantly kill just about anything.
+     ГЛАВА 3: Лучшие друзья навсегда[/head]
+     Призывать карпа, который атакует вас, редко бывает полезно, поэтому есть способ сделать их дружелюбными к вам. Перед увлажнением вы гладите обезвоженного карпа по голове, как кошку. После увлажнения он никогда не нападёт на вас. Это работает для любого количества людей, которые это сделают, так что можно иметь целую группу людей, к которым карпы будут дружелюбны. До того, как это стало возможным, оперативники дистанционно подрывали настоящие карповые бомбы: шкафчик с карпами, взрывчатку C4, чтобы вскрыть шкафчик, и водно‑пенную гранату для увлажнения карпов. Оказавшись на безопасном расстоянии, они активировали C4 и гранату, чтобы выпустить карпов.[/p][head=2]
 
-     CHAPTER 2: Under the Sea
-     Knowing what a carp is good and all, but how does one summon a carp on command? The dehydrated space carp, found rarely on wreckages in space or supplied by the syndicate to its agents and operatives. It is a simple thing: once water is sprayed or poured on it, it will turn into a real space carp. Slipping in a puddle of water will instantly hydrate all the dehydrated carp in your inventory, which can be lucrative for instant "fishbombing".
+     ГЛАВА 4: Конвейер поглаживания рыб[/head]
+     Без оптимального конвейера не каждый в команде идеально погладит всех рыб. Для этого и нужен конвейер поглаживания рыб. Каждому члену команды разрешено гладить рыб только в своём конвейере. После того как все купили карпов, их складывают в одну большую кучу. Первый участник начинает гладить, складывая поглаженных рыб во вторую кучу. Это повторяется, пока на конце не окажется куча, которую в какой‑то момент погладили все. Затем эту кучу можно упаковать в сумки для использования.[/p][head=2]
 
-     CHAPTER 3: Best Friends Forever
-     Summoning a carp that attacks you is rarely useful, so there is a way to make them friendly to you. Before hydration, you stroke the dehydrated carp's head like petting a cat. Once hydrated, it will never attack you. This applies to any number of people that do it, so you can have a whole group of people that the carps are friendly towards. Before this was a thing operatives would remotely detonate literal carp bombs: a locker containing carp, a c4 to blow the locker open and a water foam grenade to hydrate the carp. Once at a safe distance, the c4 and grenade are triggered to unleash the carp.
+     ГЛАВА 5: Развёртывание[/head]
+     Фишбомбы, подскальзывания и другие методы мощны, но требуют долгой подготовки. Гораздо более простой способ увлажнить их — иметь бутылку воды. Любая бутылка вмещает 100 единиц жидкости, так что просто опустошите её и наполните из раковины. Как только вы видите кого‑то, кого нужно атаковать, или находитесь в зоне, которую нужно обезопасить от врага, просто вылейте одну единицу воды на каждого карпа. Одной бутылки хватит на 100 карпов, так что вы даже можете сделать глоток, если захотите пить.
+     Каждый член отряда фишопса должен носить с собой бутылку и немного рыбы, потому что её будет гораздо больше, чем может унести один человек.[/p][head=2]
 
-     CHAPTER 4: Fish Petting Pipeline
-     Without an optimal pipeline, not everyone on a team will pet all the fish perfectly. This is where a fish petting pipeline comes in. Each member of the team is only allowed to pet fish in their own pipeline. After everyone has purchased carp, they are put in one large pile. The first member starts petting, putting the petted fish in a second pile. This repeats until there is a pile at the end which everyone has pet at some point. This pile can then be bagged for use.
-
-     CHAPTER 5: Deployment
-     Fishbombs, slipping and other methods are powerful but require large setup. A much easier way to hydrate them is to have a bottle of water. Any bottle stores 100u of liquids so simply empty it and fill it from a sink. Once you see someone that should be attacked, or are in an area that should be secured from the enemy, simply pour a single unit of water onto each carp. A single bottle will have enough for 100 carp, so you can even take a drink if you get thirsty.
-     Each member in a fishops squad should carry a bottle and some fish, as there will be far more than just one member can carry.
-
-     CHAPTER 6: Fish War
-     In the event of fish war there will be double the fish, more than could possibly be carried. A reinforcement or two will be required to carry the surplus fish. A fish war has never happened in recorded history, so it is currently purely theoretical. Its destructive power would rival several neutronium bombs.
+     ГЛАВА 6: Рыбная война[/head]
+     В случае рыбной войны рыбы будет вдвое больше, чем возможно унести. Потребуется одно или два подкрепления, чтобы нести излишек рыбы. Рыбная война никогда не происходила в известной истории, поэтому в настоящее время она чисто теоретическая. Её разрушительная мощь могла бы соперничать с несколькими нейтрониевыми бомбами.
 
 
 book-text-detective =

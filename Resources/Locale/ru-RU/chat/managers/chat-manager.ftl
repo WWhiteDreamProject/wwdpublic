@@ -21,17 +21,17 @@ chat-manager-whisper-headset-on-message = Вы не можете шептать 
 chat-manager-language-prefix = ({ $language }){" "}
 
 chat-manager-server-wrap-message = СЕРВЕР: { $message }
-chat-manager-sender-announcement = Central Command
-chat-manager-sender-announcement-wrap-message = [font size=14][bold]Объявление {$sender}:[/font][font size=12]
+chat-manager-sender-announcement = Центральное Командование
+chat-manager-sender-announcement-wrap-message = [font size=14][bold]{$sender} объявляет:[/font][font size=12]
                                                 {$message}[/bold][/font]
 
 # For the message in double quotes, the font/color/bold/italic elements are repeated twice, outside the double quotes and inside.
 # The outside elements are for formatting the double quotes, and the inside elements are for formatting the text in speech bubbles ([BubbleContent]).
-chat-manager-entity-say-wrap-message = [bold][BubbleHeader][Name][font size=11][color={$color}][bold]{$language}[/bold][/color][/font]{$entityName}[/Name][/BubbleHeader][/bold] [italic]{$verb}[/italic], [font="{$fontType}" size={$fontSize}]"[BubbleContent]{$message}[/BubbleContent]"[/font]
-chat-manager-entity-say-bold-wrap-message = [bold][BubbleHeader][Name][font size=11][color={$color}][bold]{$language}[/bold][/color][/font]{$entityName}[/Name][/BubbleHeader][/bold] {$verb}, [font="{$fontType}" size={$fontSize}]"[bold][BubbleContent]{$message}[/BubbleContent][/bold]"[/font]
+chat-manager-entity-say-wrap-message = [bold][BubbleHeader][Name][font size=11][color={$color}][bold]{$language}[/bold][/color][/font]{$entityName}[/Name][/BubbleHeader][/bold] [italic]{$verb}[/italic]: «[font="{$fontType}" size={$fontSize}][BubbleContent]{$message}[/BubbleContent][/font]»
+chat-manager-entity-say-bold-wrap-message = [bold][BubbleHeader][Name][font size=11][color={$color}][bold]{$language}[/bold][/color][/font]{$entityName}[/Name][/BubbleHeader][/bold] {$verb}: [bold]«[/bold][font="{$fontType}" size={$fontSize}][bold][BubbleContent]{$message}[/BubbleContent][/bold][/font][bold]»[/bold]
 
-chat-manager-entity-whisper-wrap-message = [font size=11][italic][BubbleHeader][Name][font size=10][color={$color}][bold]{$language}[/bold][/color][/font]{$entityName}[/Name][/BubbleHeader] шепчет,"[BubbleContent]{$message}[/BubbleContent]"[/italic][/font]
-chat-manager-entity-whisper-unknown-wrap-message = [font size=11][italic][BubbleHeader][font size=10][color={$color}][bold]{$language}[/bold][/color][/font]Некто[/BubbleHeader] шепчет, "[BubbleContent]{$message}[/BubbleContent]"[/italic][/font]
+chat-manager-entity-whisper-wrap-message = [font size=11][italic][BubbleHeader][Name][font size=10][color={$color}][bold]{$language}[/bold][/color][/font]{$entityName}[/Name][/BubbleHeader] шепчет: «[BubbleContent]{$message}[/BubbleContent]»[/italic][/font]
+chat-manager-entity-whisper-unknown-wrap-message = [font size=11][italic][BubbleHeader][font size=10][color={$color}][bold]{$language}[/bold][/color][/font]Некто[/BubbleHeader] шепчет: «[BubbleContent]{$message}[/BubbleContent]»[/italic][/font]
 
 # THE() is not used here because the entity and its name can technically be disconnected if a nameOverride is passed...
 chat-manager-entity-me-wrap-message = { $entityName } { $message }
@@ -57,7 +57,7 @@ chat-manager-rate-limit-admin-announcement = Игрок { $player } превыс
 chat-manager-send-empathy-chat-wrap-message = {$source}: {$message}
 
 chat-manager-send-cult-chat-wrap-message = [bold]\[{ $channelName }\] [BubbleHeader]{ $player }[/BubbleHeader]:[/bold] [BubbleContent]{ $message }[/BubbleContent]
-chat-manager-cult-channel-name = Blood Cult
+chat-manager-cult-channel-name = Кровавый Культ
 
 ## Speech verbs for chat
 
@@ -67,47 +67,46 @@ chat-speech-verb-suffix-question = ?
 chat-speech-verb-suffix-stutter = -
 chat-speech-verb-suffix-mumble = ..
 
-chat-speech-verb-name-none = None
-chat-speech-verb-name-default = Default
+chat-speech-verb-name-none = Нет (отсутствие фильтра)
+chat-speech-verb-name-default = Обычный
 chat-speech-verb-default = говорит
-chat-speech-verb-name-exclamation = Exclaiming
+chat-speech-verb-name-exclamation = Восклицание
 chat-speech-verb-exclamation = восклицает
-chat-speech-verb-name-exclamation-strong = Yelling
+chat-speech-verb-name-exclamation-strong = Крик
 chat-speech-verb-exclamation-strong = кричит
-chat-speech-verb-name-question = Asking
+chat-speech-verb-name-question = Спрашивание
 chat-speech-verb-question = спрашивает
-chat-speech-verb-name-stutter = Stuttering
+chat-speech-verb-name-stutter = Заикание
 chat-speech-verb-stutter = заикается
-chat-speech-verb-name-mumble = Mumbling
+chat-speech-verb-name-mumble = Бормотание
 chat-speech-verb-mumble = бормочет
 
-chat-speech-verb-name-arachnid = Arachnid
+chat-speech-verb-name-arachnid = Арахнид
 chat-speech-verb-insect-1 = стрекочет
 chat-speech-verb-insect-2 = чирикает
 chat-speech-verb-insect-3 = щелкает
 
-chat-speech-verb-name-moth = Moth
+chat-speech-verb-name-moth = Моль
 chat-speech-verb-winged-1 = трепещет
 chat-speech-verb-winged-2 = жужжит
 chat-speech-verb-winged-3 = похлопывает
 
-chat-speech-verb-name-slime = Slime
+chat-speech-verb-name-slime = Слайм
 chat-speech-verb-slime-1 = бормочет
 chat-speech-verb-slime-2 = булькает
 chat-speech-verb-slime-3 = хлюпает
 
-chat-speech-verb-name-plant = Diona
+chat-speech-verb-name-plant = Диона
 chat-speech-verb-plant-1 = шуршит
 chat-speech-verb-plant-2 = скрипит
 chat-speech-verb-plant-3 = трещит
 
-chat-speech-verb-name-robotic = Robotic
+chat-speech-verb-name-robotic = Робот
 chat-speech-verb-robotic-1 = утверждает
 chat-speech-verb-robotic-2 = бипает
+chat-speech-verb-robotic-3 = бупает
 
-chat-speech-verb-robotic-3 = boops
-
-chat-speech-verb-name-reptilian = Reptilian
+chat-speech-verb-name-reptilian = Унатх
 chat-speech-verb-reptilian-1 = шипит
 chat-speech-verb-reptilian-2 = фыркает
 chat-speech-verb-reptilian-3 = пыхтит
@@ -119,64 +118,68 @@ chat-speech-verb-skeleton-3 = костями
 chat-speech-verb-skeleton-4 = стучит
 chat-speech-verb-skeleton-5 = трещит
 
-chat-speech-verb-name-vox = Vox
-chat-speech-verb-vox-1 = screeches
-chat-speech-verb-vox-2 = shrieks
-chat-speech-verb-vox-3 = croaks
+chat-speech-verb-name-vox = Вокс
+chat-speech-verb-vox-1 = пронзительно кричит
+chat-speech-verb-vox-2 = визгает
+chat-speech-verb-vox-3 = квакает
 
-chat-speech-verb-name-oni = Oni
-chat-speech-verb-oni-1 = grunts
-chat-speech-verb-oni-2 = bellows
-chat-speech-verb-oni-3 = blares
-chat-speech-verb-oni-4 = rumbles
+chat-speech-verb-name-oni = Они
+chat-speech-verb-oni-1 = ворчит
+chat-speech-verb-oni-2 = ревёт
+chat-speech-verb-oni-3 = рявкает
+chat-speech-verb-oni-4 = грохочет
 
-chat-speech-verb-name-canine = Canine
+chat-speech-verb-name-canine = Собака
 chat-speech-verb-canine-1 = гавкает
 chat-speech-verb-canine-2 = лает
 chat-speech-verb-canine-3 = воет
 
-chat-speech-verb-name-small-mob = Mouse
+chat-speech-verb-name-goat = Козёл
+chat-speech-verb-goat-1 = блеет
+chat-speech-verb-goat-2 = ворчит
+chat-speech-verb-goat-3 = плачет
+
+chat-speech-verb-name-small-mob = Мышь
 chat-speech-verb-small-mob-1 = пищит
+chat-speech-verb-small-mob-2 = пискает
 
-chat-speech-verb-small-mob-2 = pieps
-
-chat-speech-verb-name-large-mob = Carp
+chat-speech-verb-name-large-mob = Карп
 chat-speech-verb-large-mob-1 = рычит
 chat-speech-verb-large-mob-2 = урчит
 
-chat-speech-verb-name-monkey = Monkey
+chat-speech-verb-name-monkey = Обезьяна
 chat-speech-verb-monkey-1 = кричит
 chat-speech-verb-monkey-2 = визжит
 
-chat-speech-verb-name-cluwne = Cluwne
+chat-speech-verb-name-cluwne = Клувн
 
-chat-speech-verb-name-parrot = Parrot
-chat-speech-verb-parrot-1 = squawks
-chat-speech-verb-parrot-2 = tweets
-chat-speech-verb-parrot-3 = chirps
+chat-speech-verb-name-parrot = Попугай
+chat-speech-verb-parrot-1 = крякает
+chat-speech-verb-parrot-2 = щебечет
+chat-speech-verb-parrot-3 = чирикает
 
 chat-speech-verb-cluwne-1 = хихикает
 chat-speech-verb-cluwne-2 = гогочет
 chat-speech-verb-cluwne-3 = смеется
 
-chat-speech-verb-name-ghost = Ghost
+chat-speech-verb-name-ghost = Призрак
 chat-speech-verb-ghost-1 = жалуется
 chat-speech-verb-ghost-2 = дышит
 chat-speech-verb-ghost-3 = мычит
 chat-speech-verb-ghost-4 = бормочет
 
-chat-speech-verb-name-electricity = Electricity
+chat-speech-verb-name-electricity = Электрический
 chat-speech-verb-electricity-1 = потрескивает
 chat-speech-verb-electricity-2 = гудит
 chat-speech-verb-electricity-3 = скрипит
 
-chat-speech-verb-marish = Mars
+chat-speech-verb-marish = Марс
 
-chat-speech-verb-name-supermatter = Supermatter
-chat-speech-verb-supermatter = states
+chat-speech-verb-name-supermatter = Суперматерия
+chat-speech-verb-supermatter = обозначает
 
 
-chat-speech-verb-Psychomantic-1 = resonates
-chat-speech-verb-Psychomantic-2 = projects
-chat-speech-verb-Psychomantic-3 = impresses
-chat-speech-verb-Psychomantic-4 = radiates
+chat-speech-verb-Psychomantic-1 = резонирует
+chat-speech-verb-Psychomantic-2 = проицирует
+chat-speech-verb-Psychomantic-3 = внушает
+chat-speech-verb-Psychomantic-4 = излучает

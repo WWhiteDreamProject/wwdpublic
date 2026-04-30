@@ -62,7 +62,7 @@ public sealed class MoodSystem : EntitySystem
                 continue;
 
             var color = proto.MoodChange > 0 ? "#008000" : "#BA0000";
-            msg += $"[font size=10][color={color}]{proto.Description}[/color][/font]\n";
+            msg += $"[font size=10][color={color}]{proto.Description(uid)}[/color][/font]\n"; // WWDP EDIT
         }
 
         foreach (var (protoId, _) in component.UncategorisedEffects)
@@ -72,7 +72,7 @@ public sealed class MoodSystem : EntitySystem
                 continue;
 
             var color = proto.MoodChange > 0 ? "#008000" : "#BA0000";
-            msg += $"[font size=10][color={color}]{proto.Description}[/color][/font]\n";
+            msg += $"[font size=10][color={color}]{proto.Description(uid)}[/color][/font]\n"; // WWDP EDIT
         }
 
         _сhatManager.ChatMessageToOne(
@@ -194,7 +194,7 @@ public sealed class MoodSystem : EntitySystem
         if (prototype.Hidden)
             return;
 
-        _popup.PopupEntity(prototype.Description, uid, uid, (prototype.MoodChange > 0) ? PopupType.Medium : PopupType.MediumCaution);
+        _popup.PopupEntity(prototype.Description(uid), uid, uid, (prototype.MoodChange > 0) ? PopupType.Medium : PopupType.MediumCaution); // WWDP EDIT
     }
 
     private void RemoveTimedOutEffect(EntityUid uid, string prototypeId, string? category = null)

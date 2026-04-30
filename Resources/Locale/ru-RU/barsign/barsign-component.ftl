@@ -5,8 +5,8 @@ barsign-component-name = вывеска бара
 
 ## The Harmbaton
 
-barsign-ui-menu = Bar Sign Configuration
-barsign-ui-set-label = Set Sign:
+barsign-ui-menu = Конфигурация Вывески Бара
+barsign-ui-set-label = Выбрать из доступных:
 
 # Bar signs prototypes
 
@@ -48,7 +48,7 @@ barsign-prototype-description-coderbus = Очень противоречивый
 
 ## Robusta Cafe
 barsign-prototype-name-robusta-cafe = Кафе Робуста
-barsign-prototype-description-robusta-cafe = Неоспоримый обладатель рекорда "Самые смертоносные бои" уже 5 лет.
+barsign-prototype-description-robusta-cafe = Неоспоримый обладатель рекорда «Самые смертоносные бои» уже 5 лет.
 
 ## Emergency Rum Party
 
@@ -146,8 +146,8 @@ barsign-prototype-description-emprah = Нравится и фанатикам, �
 barsign-prototype-name-spacebucks = Космобаксы
 barsign-prototype-description-spacebucks = Вы не сможете убежать от них, даже в космосе.
 ## Maltroach
-barsign-prototype-name-maltroach = Maltroach
-barsign-prototype-description-maltroach = Squeak!
+barsign-prototype-name-maltroach = Бухломоль
+barsign-prototype-description-maltroach = Сквик!
 
 ## EmpBarSign
 barsign-prototype-description-empbarsign = Что-то пошло совсем не так.

@@ -43,3 +43,4 @@ chem-master-window-sort-type-none = Sort by: Oldest First
 chem-master-window-sort-type-alphabetical = Sort by: Alphabetical
 chem-master-window-sort-type-quantity = Sort by: Quantity
 chem-master-window-sort-type-latest = Sort by: Recent First
+chem-master-window-transferring-tip = Both of the above buttons use the textbox

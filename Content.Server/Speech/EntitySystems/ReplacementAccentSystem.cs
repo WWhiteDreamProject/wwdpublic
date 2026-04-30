@@ -47,7 +47,7 @@ namespace Content.Server.Speech.EntitySystems
                 return prototype.FullReplacements.Length != 0 ? Loc.GetString(_random.Pick(prototype.FullReplacements)) : "";
             }
 
-            if (prototype.WordReplacements == null)
+            if (prototype.WordReplacements == null && prototype.BidirectionalWordReplacements == null) // WWDP EDIT
                 return message;
 
             // Prohibition of repeated word replacements.
@@ -56,18 +56,62 @@ namespace Content.Server.Speech.EntitySystems
             // ensuring that the replaced words cannot be replaced again.
             var maskMessage = message;
 
-            foreach (var (first, replace) in prototype.WordReplacements)
+            // WWDP EDIT START
+            var pairs = new List<(string first, string replace)>();
+
+            if (prototype.WordReplacements != null)
+            {
+                foreach (var (first, replace) in prototype.WordReplacements)
+                    pairs.Add((first, replace));
+            }
+
+            if (prototype.BidirectionalWordReplacements != null)
+            {
+                foreach (var (first, replace) in prototype.BidirectionalWordReplacements)
+                {
+                    pairs.Add((first, replace));
+                    pairs.Add((replace, first));
+                }
+            }
+
+            foreach (var (first, replace) in pairs)
             {
                 var f = _loc.GetString(first);
                 var r = _loc.GetString(replace);
+                // this pattern needed for full delete words in Russian or some other language
+                var prefix = f.Length > 0 && !char.IsLetterOrDigit(f[0]) ? "" : @"(?<!\w)";
+                var postfix = f.Length > 0 && !char.IsLetterOrDigit(f[^1]) ? "" : @"(?!\w)";
+                if (f.EndsWith('*')) // specific "postfix" symbol
+                {
+                    f = f[..^1];
+                    postfix = "";
+                }
+                if (f.StartsWith('*')) // specific "prefix" symbol
+                {
+                    f = f[1..];
+                    prefix = "";
+                }
+                bool suffixMode = f.EndsWith('~'); // specific "ending" symbol for ending save
+                bool transferSuffix = suffixMode && r.EndsWith('~'); // specific "ending" symbol for ending remove
+                if (suffixMode)
+                {
+                    f = f[..^1];
+                    if (r.EndsWith('~'))
+                        r = r[..^1];
+                }
+                var pattern = suffixMode
+                    ? $@"{prefix}{Regex.Escape(f)}(\w{{0,4}})(?!\w)"
+                    : $@"{prefix}{Regex.Escape(f)}{postfix}";
                 // this is kind of slow but its not that bad
                 // essentially: go over all matches, try to match capitalization where possible, then replace
                 // rather than using regex.replace
-                for (int i = Regex.Count(maskMessage, $@"(?<!\w){f}(?!\w)", RegexOptions.IgnoreCase); i > 0; i--)
+                for (int i = Regex.Count(maskMessage, pattern, RegexOptions.IgnoreCase); i > 0; i--)
                 {
                     // fetch the match again as the character indices may have changed
-                    Match match = Regex.Match(maskMessage, $@"(?<!\w){f}(?!\w)", RegexOptions.IgnoreCase);
-                    var replacement = r;
+                    Match match = Regex.Match(maskMessage, pattern, RegexOptions.IgnoreCase);
+                    var suffix = transferSuffix && match.Groups.Count > 1 ? match.Groups[1].Value : "";
+                    var replacement = r + suffix;
+            // WWDP EDIT END
 
                     // Intelligently replace capitalization
                     // two cases where we will do so:
