@@ -34,7 +34,7 @@ flavor-complex-drgibbbloodred = как грубая халатность
 ## Delta-V additional drink flavors
 ## Delta-V additional drink flavors
 flavor-complex-deadrum = как неудачное убийство
-flavor-complex-n-t-cahors = пятьсот спесо — слишком дорого
+flavor-complex-n-t-cahors = пятьсот спессо — слишком дорого
 flavor-complex-poison-wine = как темный бархат
 flavor-complex-doctors-delight = как медицинское чудо
 flavor-complex-irish-cream = как виски со сливками

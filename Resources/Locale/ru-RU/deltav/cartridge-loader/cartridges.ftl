@@ -3,7 +3,7 @@
 # General
 stock-trading-program-name = StockTrading
 stock-trading-title = Межгалактическая Фондовая Биржа
-stock-trading-balance = Баланс: {$balance} спесо
+stock-trading-balance = Баланс: {$balance} спессо
 stock-trading-no-entries = Нет записей
 stock-trading-owned-shares = Во владении: {$shares}
 stock-trading-buy-button = Купить

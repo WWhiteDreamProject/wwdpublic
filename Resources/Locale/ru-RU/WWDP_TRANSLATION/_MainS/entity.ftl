@@ -9741,8 +9741,8 @@ ent-CleanerDispenser = диспенсер чистящего средства
 
 ent-FuelDispenser = топливный диспенсер
 
-ent-BarSignSpacebucks = Спейсбакс
-    .desc = Даже в космосе от них не скрыться. Теперь мы зовём их «спесосы».
+ent-BarSignSpacebucks = космобаксы
+    .desc = Даже в космосе от них не скрыться. Теперь мы зовём их «спессо».
 
 
 ent-BarSignMaltroach = Мальтроач

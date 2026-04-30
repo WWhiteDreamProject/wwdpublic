@@ -8,7 +8,7 @@ delivery-recipient-no-job = Неизвестно
 
 delivery-unlocked = Вы разблокировали {$delivery} отпечатком пальца.
 delivery-opened = Вы открыли {$delivery}.
-delivery-penalty = БАНКОВСКИЙ СЧЁТ КАРГО ОШТРАФОВАН НА {$credits} СПЕСО.
+delivery-penalty = БАНКОВСКИЙ СЧЁТ КАРГО ОШТРАФОВАН НА {$credits} СПЕССО.
 
 delivery-unlock-verb = Разблокировать
 delivery-open-verb = Открыть
