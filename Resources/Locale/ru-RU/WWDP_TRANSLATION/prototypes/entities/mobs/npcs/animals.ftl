@@ -111,7 +111,7 @@ ent-MobGiantSpiderAngry = тарантул
     .suffix = { "" }
 
 ent-MobPossum = поссум
-    .desc = "О поссум! Мой поссум!" -- Уолт Уитмен, 1865
+    .desc = «О поссум! Мой поссум!» -- Уолт Уитмен, 1865
     .suffix = { "" }
 
 ent-MobRaccoon = енот

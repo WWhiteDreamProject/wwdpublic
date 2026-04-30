@@ -31,7 +31,7 @@ ent-ClothingHeadHatSurgcapCyan = { ent-ClothingHeadHatSurgcapBlack }
     .suffix = { "" }
 
 ent-ClothingHeadHatSurgcapCybersun = { ent-ClothingHeadHatSurgcapBlack }
-    .desc = Хирургическая шапочка, которую носят сотрудники биотехнологического подразделения Киберсан.
+    .desc = Хирургическая шапочка, которую носят сотрудники биотехнологического подразделения КиберСан.
     .suffix = { "" }
 
 ent-ClothingHeadHatSurgcapPink = { ent-ClothingHeadHatSurgcapBlack }

@@ -1,59 +1,59 @@
 ent-SpawnMobBehonker = спавнер Бонкера
-   .desc = ""
+   .desc = { "" }
 
 ent-SpawnMobMonkey = спавнер обезьяны
-   .desc = ""
+   .desc = { "" }
 
 ent-SpawnMobPurpleSnake = спавнер фиолетовой змеи
-   .desc = ""
+   .desc = { "" }
 
 ent-SpawnMobSmallPurpleSnake = спавнер маленькой фиолетовой змеи
-   .desc = ""
+   .desc = { "" }
 
 ent-SpawnMobSlug = спавнер слизня
-   .desc = ""
+   .desc = { "" }
 
 ent-SpawnMobLizard = спавнер ящерицы
-   .desc = ""
+   .desc = { "" }
 
 ent-SpawnMobCrab = спавнер краба
-   .desc = ""
+   .desc = { "" }
 
 ent-SpawnMobGoat = спавнер козы
-   .desc = ""
+   .desc = { "" }
 
 ent-SpawnMobFrog = спавнер лягушки
-   .desc = ""
+   .desc = { "" }
 
 ent-SpawnMobBee = спавнер пчелы
-   .desc = ""
+   .desc = { "" }
 
 ent-SpawnMobParrot = спавнер попугая
-   .desc = ""
+   .desc = { "" }
 
 ent-SpawnMobButterfly = спавнер бабочки
-   .desc = ""
+   .desc = { "" }
 
 ent-SpawnMobCow = спавнер коровы
-   .desc = ""
+   .desc = { "" }
 
 ent-SpawnMobGorilla = спавнер гориллы
-   .desc = ""
+   .desc = { "" }
 
 ent-SpawnMobPenguin = спавнер пингвина
-   .desc = ""
+   .desc = { "" }
 
 ent-SpawnVehicleMotobike = спавнер мотобайка
-   .desc = ""
+   .desc = { "" }
 
 ent-EngiLootSpawner = спавнер инженерного лута
-   .desc = ""
+   .desc = { "" }
 
 ent-CommonLootSpawner = спавнер общего лута
-   .desc = ""
+   .desc = { "" }
 
 ent-SecLootSpawner = спавнер СБ лута
-   .desc = ""
+   .desc = { "" }
 
 ent-MedLootSpawner = спавнер медицинского лута
-   .desc = ""
+   .desc = { "" }

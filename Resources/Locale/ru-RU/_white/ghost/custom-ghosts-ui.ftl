@@ -8,12 +8,12 @@ custom-ghost-fail-job-insufficient-playtime = Отыграть {$requiredHours} 
   *[one] час
   [few] часа
   [many] часов
-} на должности "{$job}". У вас наиграно {$playtimeHours} ч. {$playtimeMinutes} мин.
+} на должности «{$job}». У вас наиграно {$playtimeHours} ч. {$playtimeMinutes} мин.
 custom-ghost-fail-department-insufficient-playtime = Отыграть {$requiredHours} {$requiredHours ->
   *[one] час
   [few] часа
   [many] часов
-} в отделе "{$department}". У вас наиграно {$playtimeHours} ч. {$playtimeMinutes} мин.
+} в отделе «{$department}». У вас наиграно {$playtimeHours} ч. {$playtimeMinutes} мин.
 
 custom-ghosts-window-title = Выбор призрака
 custom-ghosts-window-show-all-checkbox = Показать всех

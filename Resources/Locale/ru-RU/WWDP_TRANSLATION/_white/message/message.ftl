@@ -2,7 +2,7 @@ chat-manager-send-message-chat-wrap-message = [bold]\[{ $channelName }\]:[/bold]
 
 chat-manager-message-channel-name = [color=lightblue]Cеть[/color]
 
-chat-manager-send-message = Сообщение от { $sender } к { $receiver }. Текст сообщения: "{ $message }"
+chat-manager-send-message = Сообщение от { $sender } к { $receiver }. Текст сообщения: «{ $message }»
 
 hud-chatbox-select-channel-Servers = Cеть
 

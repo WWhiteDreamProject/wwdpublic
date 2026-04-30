@@ -1,15 +1,15 @@
 ## EntitySpawnWindow
 
 entity-spawn-window-title = Панель спавна сущностей
-entity-spawn-window-search-bar-placeholder = поиск
+entity-spawn-window-search-bar-placeholder = Поиск
 entity-spawn-window-clear-button = Очистить
 entity-spawn-window-replace-button-text = Заменить
 entity-spawn-window-override-menu-tooltip = Переопределить размещение
 
 ## TileSpawnWindow
 
-tile-spawn-window-title = Спавн тайтлов
-tile-spawn-window-mirror-button-text = Зеркальный тайтл
+tile-spawn-window-title = Спавн тайлов
+tile-spawn-window-mirror-button-text = Зеркальный тайл
 
 ## Console
 

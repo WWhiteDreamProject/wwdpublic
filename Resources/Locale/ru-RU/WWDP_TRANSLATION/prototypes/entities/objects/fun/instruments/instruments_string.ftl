@@ -11,7 +11,7 @@ ent-RockGuitarInstrument = рок-гитара
     .suffix = { "" }
 
 ent-AcousticGuitarInstrument = акустическая гитара
-    .desc = Короче, сыграем "Wonderwall".
+    .desc = Короче, сыграем «Wonderwall».
     .suffix = { "" }
 
 ent-GuitarlessFretsInstrument = безгитарные лады

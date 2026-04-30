@@ -83,7 +83,7 @@ thaven-mood-new-job-name = Профобморок
 thaven-mood-new-job-desc = Текущая работа отвратительна. Вам нужно срочно найти другую.
 
 thaven-mood-no-department-title-name = Персонализм
-thaven-mood-no-department-title-desc = Кричать "ВРАЧ!" — это грубо. Лучше звать по имени. Уважайте личности.
+thaven-mood-no-department-title-desc = Кричать «ВРАЧ!» — это грубо. Лучше звать по имени. Уважайте личности.
 
 thaven-mood-shoes-bad-name = Босоногий путь
 thaven-mood-shoes-bad-desc = Земля — свята. Обувь — кощунство.

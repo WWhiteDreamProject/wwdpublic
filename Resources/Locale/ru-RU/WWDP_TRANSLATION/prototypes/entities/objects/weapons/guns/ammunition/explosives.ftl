@@ -1,7 +1,7 @@
 ent-CartridgeRocket = выстрел ПГ-7ВЛ
     .desc = Выстрел для гранатомёта РПГ-7. Имеет форму трубы.
 
-ent-CartridgeRocketSlow = выстрел ПГ-7ВЛ "Улитка"
+ent-CartridgeRocketSlow = выстрел ПГ-7ВЛ «Улитка»
     .desc = Выстрел для гранатомёта РПГ-7. Необычайно медленная.
 
 ent-BaseGrenade = базовая граната

@@ -34,7 +34,7 @@ ent-FoodSnackPopcorn = попкорн
     .desc = Выращен на неизвестной планете, неизвестным фермером, нагрет каким-то придурком на космической станции.
     .suffix = { "" }
 
-ent-FoodSnackRaisins = изюм "4no raisins"
+ent-FoodSnackRaisins = изюм «4no raisins»
     .desc = Лучший изюм во вселенной. Не знаю почему.
     .suffix = { "" }
 
@@ -106,7 +106,7 @@ ent-FoodPacketPopcornTrash = коробка от попкорна
     .desc = { ent-FoodPacketTrash.desc }
     .suffix = { "" }
 
-ent-FoodPacketRaisinsTrash = изюм "4no raisins"
+ent-FoodPacketRaisinsTrash = изюм «4no raisins»
     .desc = { ent-FoodPacketTrash.desc }
     .suffix = { "" }
 

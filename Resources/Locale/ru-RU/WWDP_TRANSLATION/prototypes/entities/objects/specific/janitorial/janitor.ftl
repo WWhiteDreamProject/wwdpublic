@@ -6,7 +6,7 @@ ent-MopBucket = ведро для швабры
     .desc = Содержит воду и слезы уборщика.
     .suffix = Полное
 
-ent-WetFloorSign = знак "мокрый пол"
+ent-WetFloorSign = знак «мокрый пол»
     .desc = Осторожно! Мокрый пол!
     .suffix = { "" }
 

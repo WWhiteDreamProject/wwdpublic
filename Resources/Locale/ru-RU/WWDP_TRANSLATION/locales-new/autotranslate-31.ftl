@@ -2,28 +2,28 @@ ent-MechEquipmentHorn = механический гудок
    .desc = Усовершенствованный велосипедный гудок, воспроизводящий множество веселых звуков для удовольствия экипажа. ХОНК!
 
 ent-MechHonker = Х.О.Н.К.
-   .desc = Этот экзокостюм производства "Тирания Хонка, КОРП" спроектирован как тяжелая клоунская поддержка. Используется для распространения веселья и радости жизни. ХОНК!
+   .desc = Этот экзокостюм производства «Тирания Хонка, КОРП» спроектирован как тяжелая клоунская поддержка. Используется для распространения веселья и радости жизни. ХОНК!
 
-ent-MechHonkerBattery = ""
-   .desc = ""
+ent-MechHonkerBattery = { "" }
+   .desc = { "" }
 
 ent-MechHamtr = ХОМЯК
    .desc = Экспериментальный мех, который использует интерфейс мозг-компьютер для прямого подключения к мозгу хомяка.
 
-ent-MechHamtrBattery = ""
-   .desc = ""
+ent-MechHamtrBattery = { "" }
+   .desc = { "" }
 
-ent-BaseRipleyPart = ""
-   .desc = ""
+ent-BaseRipleyPart = { "" }
+   .desc = { "" }
 
-ent-BaseRipleyPartItem = ""
-   .desc = ""
+ent-BaseRipleyPartItem = { "" }
+   .desc = { "" }
 
-ent-BaseHonkerPart = ""
-   .desc = ""
+ent-BaseHonkerPart = { "" }
+   .desc = { "" }
 
-ent-BaseHonkerPartItem = ""
-   .desc = ""
+ent-BaseHonkerPartItem = { "" }
+   .desc = { "" }
 
 ent-HonkerHarness = ядро Х.О.Н.К.
    .desc = Ядро H.O.N.K. мех
@@ -43,11 +43,11 @@ ent-HonkerRArm = правая рука Х.О.Н.К.
 ent-HonkerChassis = рама Х.О.Н.К.
    .desc = Незавершенное строительство Х.О.Н.К. меха. Содержит блок смеха, банановое ядро и системы поддержки гудков.
 
-ent-BaseHamtrPart = ""
-   .desc = ""
+ent-BaseHamtrPart = { "" }
+   .desc = { "" }
 
-ent-BaseHamtrPartItem = ""
-   .desc = ""
+ent-BaseHamtrPartItem = { "" }
+   .desc = { "" }
 
 ent-HamtrHarness = ядро ХОМЯК
    .desc = Ядро ХОМЯК.
