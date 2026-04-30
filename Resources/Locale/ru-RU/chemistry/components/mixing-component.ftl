@@ -1,4 +1,3 @@
-# WWDP EDIT START
 
 # Types
 mixing-verb-default-mix = смешать
@@ -17,4 +16,3 @@ default-mixing-success = {CAPITALIZE($mixed)} смешивается, {$mixer} �
 bible-mixing-success = {CAPITALIZE($mixed)} благословляется, {$mixer} используется как инструмент
 spoon-mixing-success = {CAPITALIZE($mixed)} перемешивается, {$mixer} используется как инструмент
 
-# WWDP EDIT END

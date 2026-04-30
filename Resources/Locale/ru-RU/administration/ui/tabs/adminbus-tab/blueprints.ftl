@@ -1,4 +1,3 @@
-# WWDP EDIT START
 
 admin-ui-blueprint-map = Карта
 admin-ui-blueprint-path = Путь
@@ -10,4 +9,3 @@ admin-ui-blueprint-teleport = Телепортироваться к
 admin-ui-blueprint-reset = Сбросить до дефолтных
 admin-ui-blueprint-load = Загрузить чертёж
 
-# WWDP EDIT END

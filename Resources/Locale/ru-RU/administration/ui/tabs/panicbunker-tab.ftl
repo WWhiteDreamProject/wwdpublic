@@ -16,7 +16,6 @@ admin-ui-panic-bunker-show-reason = Показать причину
 admin-ui-panic-bunker-show-reason-tooltip = Показывать причину почему игроку был заблокирован доступ на сервер.
 
 admin-ui-panic-bunker-min-account-age = Мин. возраст аккаунта
-# WWDP EDIT DOWN
 admin-ui-panic-bunker-min-overall-minutes = Мин. общее время
 
 admin-ui-panic-bunker-is-enabled = Бункер сейчас включен.

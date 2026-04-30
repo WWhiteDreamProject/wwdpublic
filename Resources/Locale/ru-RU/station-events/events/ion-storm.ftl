@@ -1,4 +1,3 @@
-# WWDP EDIT START
 
 station-event-ion-storm-announcement = Обнаружена ионная буря возле станции. Пожалуйста, проверьте все оборудование, управляемое искуственным интелектом, на наличие ошибок в законах.
 
@@ -135,4 +134,3 @@ ion-storm-law-concept-verb = {$who} {$verb} {$subjects}.
 # leaving out renaming since its annoying for players to keep track of
 # опускается переименование, так как игрокам неудобно следить за этим
 
-# WWDP EDIT END

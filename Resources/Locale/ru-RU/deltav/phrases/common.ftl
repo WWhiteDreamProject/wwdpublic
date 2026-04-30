@@ -1,4 +1,3 @@
-# WWDP EDIT START
 
 phrase-where = Где
 phrase-who = Кто
@@ -106,4 +105,3 @@ phrase-this = Это
 phrase-actiondrink = Пить
 phrase-know = Знаю
 
-# WWDP EDIT END

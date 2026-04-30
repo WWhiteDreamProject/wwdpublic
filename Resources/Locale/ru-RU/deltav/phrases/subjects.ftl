@@ -1,4 +1,3 @@
-# WWDP EDIT START
 
 phrase-pen = ручка
 phrase-paper = бумага
@@ -261,4 +260,3 @@ phrase-aloe = алоэ
 phrase-poppy = мак
 phrase-galaxythistle = галактический чертополох
 
-# WWDP EDIT END

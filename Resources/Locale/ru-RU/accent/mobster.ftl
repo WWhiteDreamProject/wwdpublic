@@ -1,4 +1,3 @@
-# WWDP EDIT START
 
 accent-mobster-suffix-boss-1 = , понял, мля?
 accent-mobster-suffix-boss-2 = , мля.
@@ -95,4 +94,3 @@ accent-mobster-words-24-2 = обман
 accent-mobster-words-24-3 = неправда
 accent-mobster-words-replace-24 = лажа
 
-# WWDP EDIT

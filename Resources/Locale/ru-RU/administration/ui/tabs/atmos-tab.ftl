@@ -1,4 +1,3 @@
-# WWDP EDIT START
 
 admin-ui-atmos-add = Добавить атмосферу
 admin-ui-atmos-add-gas = Добавить газ
@@ -13,4 +12,3 @@ admin-ui-atmos-gas = Газ
 admin-ui-atmos-gas-amount = Количество
 admin-ui-atmos-temperature = Температура
 
-# WWDP EDIT END

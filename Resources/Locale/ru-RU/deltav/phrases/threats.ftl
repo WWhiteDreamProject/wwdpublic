@@ -1,4 +1,3 @@
-# WWDP EDIT START
 
 phrase-hazard-space = разгерметизация
 phrase-hazard-low-presure = низкое давление
@@ -58,4 +57,3 @@ phrase-hazard-burning = горит
 phrase-hazard-bad-temperature = плохая температура
 phrase-hazard-darkness = темнота
 
-# WWDP EDIT END

@@ -1,4 +1,3 @@
-# WWDP EDIT START
 
 phrase-location-ats = АТС
 phrase-location-shipyard = Верфь
@@ -26,4 +25,3 @@ phrase-location-southeast = юго-восток
 phrase-location-southwest = юго-запад
 phrase-location-northwest = северо-запад
 
-# WWDP EDIT END

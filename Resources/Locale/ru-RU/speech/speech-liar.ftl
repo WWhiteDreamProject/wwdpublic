@@ -1,4 +1,3 @@
-# WWDP EDIT START
 
 # liar-word-1 --(changed to)--> liar-word-replacement-1
 # (It works both ways.)
@@ -275,4 +274,3 @@ liar-word-replacement-50 = {""}
 liar-word-51 = не*
 liar-word-replacement-51 = {""}
 
-# WWDP EDIT END

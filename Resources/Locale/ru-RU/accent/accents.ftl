@@ -130,10 +130,8 @@ accent-words-nymph-3 = Чиип?
 accent-words-nymph-4 = Чуррп!
 # TomatoKiller
 # TomatoKiller
-# WWDP EDIT START
 accent-words-tomato-1 = Тотато!
 accent-words-tomato-2 = Тотест
 accent-words-tomato-3 = Матет?
 accent-words-tomato-4 = Матест!
 accent-words-tomato-5 = Вота...
-# WWDP EDIT END

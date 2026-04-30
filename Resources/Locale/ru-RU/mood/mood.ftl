@@ -1,4 +1,3 @@
-# WWDP EDIT START
 
 mood-effect-HungerOverfed =
     { GENDER($entity) ->
@@ -481,4 +480,3 @@ mood-effect-DeepFriedEffect =
 
 mood-effect-TastyEffect = Это было действительно вкусно!
 
-# WWDP EDIT END

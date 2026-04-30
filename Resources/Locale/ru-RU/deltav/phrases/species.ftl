@@ -1,4 +1,3 @@
-# WWDP EDIT START
 
 phrase-species-dog = собака
 phrase-species-cat = кот
@@ -43,4 +42,3 @@ phrase-species-insect = насекомое
 phrase-species-pet = питомец
 phrase-species-chicken = курица
 
-# WWDP EDIT END

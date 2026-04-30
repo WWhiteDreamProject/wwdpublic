@@ -47,10 +47,8 @@ chem-master-window-dose-label = Дозировка (ед.):
 chem-master-window-create-button = Создать
 chem-master-window-bottles-label = Бутылочки:
 chem-master-window-unknown-reagent-text = Неизвестный реагент
-# WWDP EDIT START
 chem-master-window-sort-type-none = Сотрировка: Сначала старые
 chem-master-window-sort-type-alphabetical = Сотрировка: По алфавиту
 chem-master-window-sort-type-quantity = Сотрировка: По количеству
 chem-master-window-sort-type-latest = Сортировка: Сначала новые
 chem-master-window-transferring-tip = Обе вышеперечисленные кнопки используют текстовое поле
-# WWDP EDIT END
