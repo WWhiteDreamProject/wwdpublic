@@ -1,6 +1,6 @@
 - type: entity
   id: ActionLegSweep
-  name: Leg Sweep
+  name: leg-sweep # WWDP EDIT (loc)
   description: Sweeps the legs out from under a target to knock them down for a few seconds.
   categories: [ HideSpawnMenu ]
   components:
@@ -13,11 +13,11 @@
   - type: KravMagaAction
     configuration: LegSweep
     staminaDamage: 40 # WWDP
-    name: Leg Sweep
+    name: leg-sweep # WWDP EDIT (loc)
 
 - type: entity
   id: ActionNeckChop
-  name: Neck Chop
+  name: neck-chop # WWDP EDIT (loc)
   description: A hard swing with the side of your hand deals some damage and disables the target's ability to speak for twenty seconds
   categories: [ HideSpawnMenu ]
   components:
@@ -29,12 +29,12 @@
     event: !type:KravMagaActionEvent { }
   - type: KravMagaAction
     configuration: NeckChop
-    name: Neck Chop
+    name: neck-chop # WWDP EDIT (loc)
     effectTime: 20
 
 - type: entity
   id: ActionLungPunch
-  name: Lung Punch
+  name: lung-punch # WWDP EDIT (loc)
   description: Deals 30 stamina damage and prevents breathing for ten seconds. Four of those will incapacitate a target less-than-lethally, but beware of the loss of breath you cause.
   categories: [ HideSpawnMenu ]
   components:
@@ -46,6 +46,6 @@
     event: !type:KravMagaActionEvent { }
   - type: KravMagaAction
     configuration: LungPunch
-    name: Lung Punch
+    name: lung-punch # WWDP EDIT (loc)
     staminaDamage: 40
     effectTime: 10
