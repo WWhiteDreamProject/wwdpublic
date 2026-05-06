@@ -16,9 +16,10 @@
       <ProjectReference Include="..\RobustToolbox\Robust.Server\Robust.Server.csproj" />
       <ProjectReference Include="..\RobustToolbox\Robust.Shared.Maths\Robust.Shared.Maths.csproj" />
       <ProjectReference Include="..\RobustToolbox\Robust.Shared\Robust.Shared.csproj" />
-
+      <!-- WWDP EDIT START -->
       <ProjectReference Include="..\StyleSheetify\Content.StyleSheetify.Client\Content.StyleSheetify.Client.csproj" />
       <ProjectReference Include="..\StyleSheetify\Content.StyleSheetify.Shared\Content.StyleSheetify.Shared.csproj" />
+      <!-- WWDP EDIT END -->
     </ItemGroup>
 
   <ItemGroup>
