@@ -1,6 +1,6 @@
 #nullable enable
-using System.Linq;
 using System.Collections.Generic;
+using System.Linq;
 using Content.Server.Body.Components;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Presets;
@@ -240,7 +240,8 @@ public sealed class NukeOpsTest
             for (var i = 0; i < nukies.Length - 1; i++)
             {
                 entMan.DeleteEntity(nukies[i]);
-                Assert.That(roundEndSys.IsRoundEndRequested, Is.False,
+                Assert.That(roundEndSys.IsRoundEndRequested,
+                    Is.False,
                     $"The round ended, but {nukies.Length - i - 1} nukies are still alive!");
             }
             // Delete the last nukie and make sure the round ends.

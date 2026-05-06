@@ -1,9 +1,9 @@
 #nullable enable
 using Content.Server.GameTicking;
-using Content.Shared.GameTicking.Components;
 using Content.Server.GameTicking.Presets;
 using Content.Shared.CCVar;
 using Content.Shared.GameTicking;
+using Content.Shared.GameTicking.Components;
 using Robust.Shared.GameObjects;
 
 namespace Content.IntegrationTests.Tests.GameRules;
@@ -36,7 +36,7 @@ public sealed class FailAndStartPresetTest
 - type: entity
   id: TestRule
   parent: BaseGameRule
-  categories: [ HideSpawnMenu ]
+  categories: [ GameRules ]
   components:
   - type: GameRule
     minPlayers: 0
@@ -45,7 +45,7 @@ public sealed class FailAndStartPresetTest
 - type: entity
   id: TestRuleTenPlayers
   parent: BaseGameRule
-  categories: [ HideSpawnMenu ]
+  categories: [ GameRules ]
   components:
   - type: GameRule
     minPlayers: 10
@@ -61,7 +61,7 @@ public sealed class FailAndStartPresetTest
         await using var pair = await PoolManager.GetServerClient(new PoolSettings
         {
             Dirty = true,
-           DummyTicker = false,
+            DummyTicker = false,
             Connected = true,
             InLobby = true
         });
@@ -110,13 +110,13 @@ public sealed class FailAndStartPresetTest
         player = pair.Player!.AttachedEntity!.Value;
         Assert.That(entMan.EntityExists(player));
 
-       ticker.SetGamePreset((GamePresetPrototype?) null);
-       server.CfgMan.SetCVar(CCVars.GridFill, false);
-       server.CfgMan.SetCVar(CCVars.GameLobbyFallbackEnabled, true);
-       server.CfgMan.SetCVar(CCVars.GameLobbyDefaultPreset, "secret");
-       server.System<TestRuleSystem>().Run = false;
-       await pair.CleanReturnAsync();
-   }
+        ticker.SetGamePreset((GamePresetPrototype?) null);
+        server.CfgMan.SetCVar(CCVars.GridFill, false);
+        server.CfgMan.SetCVar(CCVars.GameLobbyFallbackEnabled, true);
+        server.CfgMan.SetCVar(CCVars.GameLobbyDefaultPreset, "secret");
+        server.System<TestRuleSystem>().Run = false;
+        await pair.CleanReturnAsync();
+    }
 }
 
 public sealed class TestRuleSystem : EntitySystem

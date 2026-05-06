@@ -56,3 +56,4 @@ public sealed class MachineConstruction : InteractionTest
         AssertPrototype("Autolathe");
     }
 }
+
