@@ -12,7 +12,7 @@ namespace Content.Tests.Shared;
 [TestOf(typeof(LocalizedDatasetPrototype))]
 public sealed class LocalizedDatasetPrototypeTest : ContentUnitTest
 {
-    private const string TestDatasetId = "Test";
+    private const string TestDatasetId = "Test"; // WWDP EDIT
 
     private IPrototypeManager _prototypeManager;
 
@@ -26,6 +26,7 @@ public sealed class LocalizedDatasetPrototypeTest : ContentUnitTest
         _prototypeManager.ResolveResults();
     }
 
+    // WWDP EDIT START
     private const string TestPrototypes = $@"
 - type: localizedDataset
   id: {TestDatasetId}
@@ -33,11 +34,12 @@ public sealed class LocalizedDatasetPrototypeTest : ContentUnitTest
     prefix: test-dataset-
     count: 4
 ";
+    // WWDP EDIT END
 
     [Test]
     public void LocalizedDatasetTest()
     {
-        var testPrototype = _prototypeManager.Index<LocalizedDatasetPrototype>(TestDatasetId);
+        var testPrototype = _prototypeManager.Index<LocalizedDatasetPrototype>(TestDatasetId); // WWDP EDIT
         var values = new ValueList<string>();
         foreach (var value in testPrototype.Values)
         {
@@ -48,14 +50,16 @@ public sealed class LocalizedDatasetPrototypeTest : ContentUnitTest
         Assert.That(values, Has.Count.EqualTo(4));
 
         // Make sure indexing works as expected
+        // WWDP EDIT START
         Assert.That(testPrototype.Values[0], Is.EqualTo("test-dataset-1"));
         Assert.That(testPrototype.Values[1], Is.EqualTo("test-dataset-2"));
         Assert.That(testPrototype.Values[2], Is.EqualTo("test-dataset-3"));
         Assert.That(testPrototype.Values[3], Is.EqualTo("test-dataset-4"));
         Assert.Throws<IndexOutOfRangeException>(() => { var x = testPrototype.Values[4]; });
         Assert.Throws<IndexOutOfRangeException>(() => { var x = testPrototype.Values[-1]; });
+        // WWDP EDIT END
 
         // Make sure that the enumerator gets all of the values
-        Assert.That(testPrototype.Values[^1], Is.EqualTo("test-dataset-4"));
+        Assert.That(testPrototype.Values[^1], Is.EqualTo("test-dataset-4")); // WWDP EDIT
     }
 }
