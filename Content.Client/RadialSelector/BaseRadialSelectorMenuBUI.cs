@@ -70,10 +70,10 @@ public abstract class BasedRadialSelectorMenuBUI : BoundUserInterface
     private string GetName(string proto)
     {
         if (ProtoManager.TryIndex(proto, out var prototype))
-            return prototype.Name;
+            return Loc.TryGetString($"ent-{proto}", out var name) ? name : prototype.Name;
 
         if (ProtoManager.TryIndex(proto, out ConstructionPrototype? constructionPrototype))
-            return constructionPrototype.Name;
+            return Loc.TryGetString($"ent-{proto}", out var name) ? name : constructionPrototype.Name;
 
         return proto;
     }
@@ -107,7 +107,7 @@ public abstract class BasedRadialSelectorMenuBUI : BoundUserInterface
     {
         var button = new RadialMenuTextureButton
         {
-            ToolTip = Loc.GetString(name),
+            ToolTip = Loc.GetString($"radial-menu-button-{name.ToString().ToLower()}"),
             StyleClasses = { "RadialMenuButton" },
             SetSize = ItemSize
         };
