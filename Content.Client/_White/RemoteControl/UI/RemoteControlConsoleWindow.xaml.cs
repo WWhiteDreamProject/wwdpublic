@@ -22,7 +22,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using SixLabors.ImageSharp.PixelFormats;
 
-namespace Content.Client._White.RemoteControlConsole.UI;
+namespace Content.Client._White.RemoteControl.UI;
 
 [GenerateTypedNameReferences]
 public sealed partial class RemoteControlConsoleWindow : FancyWindow, IComputerWindow<NavInterfaceState>
@@ -48,8 +48,8 @@ public sealed partial class RemoteControlConsoleWindow : FancyWindow, IComputerW
     // This also leads to both viewport and ShuttleNavControl handling the mouse wheel separately.
     // Yes, this sucks. No, fixing it is not worth it. At least not now. 
     public float CameraScale = 1f;
-    public float MinCameraScale = 1f; // arbitrary
-    public float MaxCameraScale = 3f; // todo: make this adjustable from a component
+    public float MinCameraScale;
+    public float MaxCameraScale;
     public RemoteControlVisualMode AllowedModes;
 
     public RemoteControlConsoleWindow()

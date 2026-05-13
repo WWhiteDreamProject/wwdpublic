@@ -20,7 +20,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using SixLabors.ImageSharp.PixelFormats;
 
-namespace Content.Client._White.RemoteControlConsole.UI;
+namespace Content.Client._White.RemoteControl.UI;
 
 // consider this a hate crime aimed at the developers of robust toolbox
 public sealed partial class RemoteControlConsoleWindow

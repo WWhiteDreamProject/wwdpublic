@@ -1,5 +1,5 @@
 using System.Numerics;
-using Content.Client._White.RemoteControlConsole.UI;
+using Content.Client._White.RemoteControl.UI;
 using Content.Client.Gameplay;
 using Content.Shared._White.RemoteControl;
 using Content.Shared._White.RemoteControl.BUIStates;

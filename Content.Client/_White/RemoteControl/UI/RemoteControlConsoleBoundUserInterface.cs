@@ -1,5 +1,5 @@
 using System.Numerics;
-using Content.Client._White.RemoteControlConsole.UI;
+using Content.Client._White.RemoteControl.UI;
 using Content.Client.Shuttles.UI;
 using Content.Client.Weapons.Ranged.Systems;
 using Content.Shared._White.Guns.ModularTurret;
@@ -22,7 +22,7 @@ using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using RadarConsoleWindow = Content.Client.Shuttles.UI.RadarConsoleWindow;
 
-namespace Content.Client._White.RemoteControlConsole.UI;
+namespace Content.Client._White.RemoteControl.UI;
 
 
 /// <summary>
@@ -147,13 +147,8 @@ public sealed class RemoteControlConsoleBoundUserInterface : BoundUserInterface
         AimDirection = null;
         RebuildTurretSelection(state.LinkedTurrets, currentTurretUid);
 
-        var minScale = 1f;
-        var maxScale = 3f;
-        if (EntMan.TryGetComponent<ContentEyeComponent>(currentTurretUid, out var contentEye))
-        {
-            var avgZoom = (contentEye.MaxZoom.X + contentEye.MaxZoom.Y) / 2;
-            maxScale = 1 / avgZoom;
-        }
+        var minScale = 1f; // arbitrary
+        var maxScale = 3f; // todo: make this adjustable from a component
         var eyeComp = EntMan.GetComponentOrNull<EyeComponent>(currentTurretUid);
         _window?.UpdateState(state.RadarState, eyeComp?.Eye, minScale, maxScale, state.VisualMode, state.Error);
     }
