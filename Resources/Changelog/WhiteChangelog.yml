@@ -5282,3 +5282,10 @@ Entries:
   id: 554
   time: '2026-04-16T07:54:15.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1101
+- author: DEADISKO
+  changes:
+    - type: Fix
+      message: Алерт "В ОГНЕ"
+  id: 555
+  time: '2026-05-13T07:31:29.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1131
