@@ -56,7 +56,7 @@ public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
 
 
         NetEntity? target = null;
-        if(bui.CameraAimpoint is MapCoordinates aimpoint &&
+        if (bui.CameraAimpoint is MapCoordinates aimpoint &&
             _state.CurrentState is GameplayState state)
         {
             if(!TryComp<EyeComponent>(consoleComp.CurrentTurret, out var eyeComp))

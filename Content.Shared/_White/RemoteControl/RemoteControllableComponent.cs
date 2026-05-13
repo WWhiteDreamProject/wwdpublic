@@ -25,6 +25,16 @@ public sealed partial class RemoteControllableComponent : Component
     [DataField, AutoNetworkedField]
     public EntityUid? CurrentConsole;
 
+    // TODO: move the camera display to a separate component, similiar
+    //       to RadarConsoleComp. This would let us separate variables
+    //       that are only relevant to camera display into another component, while
+    //       allowing us to ditch this variable. Otherwise we'll have radar related
+    //       variables in RadarConsoleComponent and camera related vars in this component,
+    //       which doesn't make much sense.
+    //
+    //       This would require making this new component work with CCTV cameras system,
+    //       since it would make even less sense to make some "RemoteCameraComponent"
+    //       that would not be used for actual cameras.
     [DataField, AutoNetworkedField]
     public RemoteControlVisualMode Display = RemoteControlVisualMode.Radar;
 

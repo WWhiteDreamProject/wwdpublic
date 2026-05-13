@@ -6,6 +6,7 @@ using Content.Shared._White.Guns.ModularTurret;
 using Content.Shared._White.RemoteControl;
 using Content.Shared._White.RemoteControl.BUIStates;
 using Content.Shared.ActionBlocker;
+using Content.Shared.Movement.Components;
 using Content.Shared.Shuttles.BUIStates;
 using Content.Shared.Weapons.Ranged.Components;
 using JetBrains.Annotations;
@@ -61,7 +62,6 @@ public sealed class RemoteControlConsoleBoundUserInterface : BoundUserInterface
         _window = this.CreateWindow<RemoteControlConsoleWindow>();
         _window.HUDHolder.OnMouseMove += OnMouseMove;
         _window.HUDHolder.OnMouseLeftClick += OnLeftClick;
-        //_window.RadarScreen.OnRadarRightClick += OnRadarRightClick;
         _window.RadarScreen.DrawAfterFoV += DrawTurretIndicator;
         _window.RadarScreen.DrawAfterFoV += DrawAimDir;
         _window.RadarScreen.SetConsole(Owner);
@@ -146,8 +146,16 @@ public sealed class RemoteControlConsoleBoundUserInterface : BoundUserInterface
 
         AimDirection = null;
         RebuildTurretSelection(state.LinkedTurrets, currentTurretUid);
+
+        var minScale = 1f;
+        var maxScale = 3f;
+        if (EntMan.TryGetComponent<ContentEyeComponent>(currentTurretUid, out var contentEye))
+        {
+            var avgZoom = (contentEye.MaxZoom.X + contentEye.MaxZoom.Y) / 2;
+            maxScale = 1 / avgZoom;
+        }
         var eyeComp = EntMan.GetComponentOrNull<EyeComponent>(currentTurretUid);
-        _window?.UpdateState(state.RadarState, eyeComp?.Eye, state.VisualMode, state.Error);
+        _window?.UpdateState(state.RadarState, eyeComp?.Eye, minScale, maxScale, state.VisualMode, state.Error);
     }
 
     private void RebuildTurretSelection(List<(NetEntity, bool)> netEnts, EntityUid? currentTurretUid)
@@ -161,7 +169,7 @@ public sealed class RemoteControlConsoleBoundUserInterface : BoundUserInterface
 
             var button = new Button();
             button.HorizontalAlignment = Control.HAlignment.Stretch;
-            button.Text = !string.IsNullOrWhiteSpace(turret.Name) ? turret.Name : GetPlaceholderName(turretUid, turretNetUid); // todo: replace ToPrettyString with something less debug-flavoured
+            button.Text = !string.IsNullOrWhiteSpace(turret.Name) ? turret.Name : GetPlaceholderName(turretUid, turretNetUid);
             if (turretUid == currentTurretUid)
                 button.ModulateSelfOverride = Color.DarkGoldenrod;
             else if (!turretAvailable)
