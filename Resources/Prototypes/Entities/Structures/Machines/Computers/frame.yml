@@ -1,7 +1,7 @@
 - type: entity
   id: BaseStructureComputer
   parent: BaseStructure
-  abstract: true
+  #abstract: true
   components:
   - type: Physics
     bodyType: Static
@@ -24,6 +24,16 @@
     node: frameUnsecured
   - type: Sprite
     drawdepth: Objects
+    sprite: Structures/Machines/computers.rsi # WWDP edit start
+    layers:
+    - map: [ "computerLayerBody" ]
+      state: computer
+    - map: [ "enum.EdgeLayer.East" ]
+      state: east
+      sprite: _White/Structures/Machines/Computers/connectors.rsi
+    - map: [ "enum.EdgeLayer.West" ]
+      state: west
+      sprite: _White/Structures/Machines/Computers/connectors.rsi # WWDP edit end
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Electronic
@@ -43,6 +53,11 @@
   - type: InteractionVerbs
     allowedVerbs:
     - KnockOn
+  - type: IconSmooth # WWDP edit start
+    key: computer
+    mode: NoSprite
+    #edgeMatchKeys:
+    #- computer # WWDP edit end
 
 - type: entity
   id: ComputerFrame

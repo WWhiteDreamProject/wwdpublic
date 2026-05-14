@@ -51,7 +51,6 @@
   - type: RadiationBlocker
     resistance: 2
   - type: BlockWeather
-  - type: SunShadowCast
 
 - type: entity
   parent: BaseWall
@@ -81,7 +80,7 @@
         acts: [ "Destruction" ]
 
   - type: IconSmooth
-    key: walls
+    key: bricks
     base: brick
 
 - type: entity
@@ -997,6 +996,10 @@
         acts: ["Destruction"]
   - type: IconSmooth
     key: walls
+    matchKeys: # WWDP edit start
+    - walls
+    - airlocks
+    - shutters # WWDP edit end
     base: solid
 
 - type: entity

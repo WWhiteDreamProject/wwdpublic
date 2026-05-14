@@ -16,9 +16,16 @@
   - type: CanBuildWindowOnTop
   - type: Sprite
     drawdepth: Walls
-    sprite: Structures/Walls/grille.rsi
+    sprite: Structures/Walls/grille.rsi # WWDP edit start
     layers:
-    - state: grille
+    - map: [ "enum.EdgeLayer.South" ]
+      state: grille_south
+    - map: [ "enum.EdgeLayer.East" ]
+      state: grille_east
+    - map: [ "enum.EdgeLayer.North" ]
+      state: grille_north
+    - map: [ "enum.EdgeLayer.West" ]
+      state: grille_west # WWDP edit end
     - state: electrified
       sprite: Effects/electricity.rsi
       map: ["enum.ElectrifiedLayers.Sparks"]
@@ -26,7 +33,7 @@
       visible: false
   - type: Icon
     sprite: Structures/Walls/grille.rsi
-    state: grille
+    state: full
   - type: Construction
     graph: Grille
     node: grille
@@ -89,6 +96,19 @@
           False: { visible: False }
   - type: AnimationPlayer
   - type: RequireProjectileTarget # White Dream
+  - type: IconSmooth # WWDP edit start
+    key: grille
+    matchKeys:
+    - grille
+    - airlocks
+    - walls
+    - shutters
+    base: grille
+    showEdgeIfMatching: true
+    blockAdditionalKeys:
+    - shutters
+    edgeMatchKeys:
+    - walls # WWDP edit end
 
 - type: entity
   id: ClockworkGrille
@@ -109,6 +129,10 @@
     graph: ClockGrille
     node: clockGrille
     deconstructionTarget: start
+  - type: IconSmooth # WWDP edit start
+    mode: NoSprite
+  - type: SmoothEdge
+    requireMatchingKey: false # WWDP edit end
 
 - type: entity
   id: GrilleBroken
@@ -207,6 +231,10 @@
   - type: Construction
     graph: GrilleDiagonal
     node: grilleDiagonal
+  - type: IconSmooth # WWDP edit start
+    mode: NoSprite
+  - type: SmoothEdge
+    requireMatchingKey: false # WWDP edit end
 
 - type: entity
   id: ClockworkGrilleDiagonal

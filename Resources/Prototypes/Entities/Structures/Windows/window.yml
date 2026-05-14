@@ -22,6 +22,15 @@
   - type: Sprite
     drawdepth: WallTops
     sprite: Structures/Windows/window.rsi
+    layers: # WWDP edit start
+    - map: [ "enum.EdgeLayer.South" ]
+      state: window_south
+    - map: [ "enum.EdgeLayer.East" ]
+      state: window_east
+    - map: [ "enum.EdgeLayer.North" ]
+      state: window_north
+    - map: [ "enum.EdgeLayer.West" ]
+      state: window_west # WWDP edit end
   - type: Icon
     sprite: Structures/Windows/window.rsi
     state: full
@@ -73,8 +82,17 @@
         acts: [ "Destruction" ]
   - type: Airtight
   - type: IconSmooth
-    key: walls
     base: window
+    key: windows
+    matchKeys: # WWDP edit start
+    - windows
+    - walls
+    - airlocks
+    edgeMatchKeys:
+    - walls
+    showEdgeIfMatching: true
+    blockAdditionalKeys:  
+    - shutters # WWDP edit end
   - type: Construction
     graph: Window
     node: window
