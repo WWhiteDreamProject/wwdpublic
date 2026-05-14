@@ -98,16 +98,16 @@
   - type: RequireProjectileTarget # White Dream
   - type: IconSmooth # WWDP edit start
     key: grille
-    additionalKeys:
+    matchKeys:
+    - grille
     - airlocks
     - walls
     - shutters
     base: grille
-  - type: SmoothEdge
-    requireMatchingKey: true
+    showEdgeIfMatching: true
     blockAdditionalKeys:
     - shutters
-    edgeAdditionalKeys:
+    edgeMatchKeys:
     - walls # WWDP edit end
 
 - type: entity

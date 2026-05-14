@@ -56,11 +56,8 @@
   - type: IconSmooth # WWDP edit start
     key: computer
     mode: NoSprite
-  - type: SmoothEdge
-    requireMatchingKey: true
-    disableBaseOffset: true
-    edgeAdditionalKeys:
-    - computer # WWDP edit end
+    #edgeMatchKeys:
+    #- computer # WWDP edit end
 
 - type: entity
   id: ComputerFrame

@@ -82,11 +82,17 @@
         acts: [ "Destruction" ]
   - type: Airtight
   - type: IconSmooth
-    key: windows
-    additionalKeys: # WWDP edit start
-    - walls
-    - airlocks # WWDP edit end
     base: window
+    key: windows
+    matchKeys: # WWDP edit start
+    - windows
+    - walls
+    - airlocks
+    edgeMatchKeys:
+    - walls
+    showEdgeIfMatching: true
+    blockAdditionalKeys:  
+    - shutters # WWDP edit end
   - type: Construction
     graph: Window
     node: window
@@ -103,12 +109,6 @@
   - type: InteractionVerbs
     allowedVerbs:
     - KnockOn
-  - type: SmoothEdge # WWDP edit start
-    requireMatchingKey: true
-    blockAdditionalKeys:
-    - shutters
-    edgeAdditionalKeys:
-    - walls # WWDP edit end
 
 - type: entity
   parent: Window
