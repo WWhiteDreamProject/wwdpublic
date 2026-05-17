@@ -13396,6 +13396,7 @@ ent-MechRipley2 = мех «рипли АПЛУ MK-II»
     .desc = Версия MK-II оснащена герметичной кабиной для работы в космосе. Правда, тяжесть замедлила движение.
 
 ent-MechRipley2Battery = мех Рипли МК-II
+    .desc = { ent-MechRipley2.desc }
     .suffix = С батарейкой
 
 ent-MechClarke = мех «Кларк»
