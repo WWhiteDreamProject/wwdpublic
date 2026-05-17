@@ -1,5 +1,4 @@
 using Content.Server._White.Body.Bloodstream.Systems;
-using Content.Server._White.Body.Organs.Stomach;
 using Content.Server._White.Body.Systems;
 using Content.Shared.Verbs;
 using Content.Shared.Damage;
@@ -31,7 +30,6 @@ namespace Content.Server.Vampiric
         [Dependency] private readonly PopupSystem _popups = default!;
         [Dependency] private readonly DoAfterSystem _doAfter = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-        [Dependency] private readonly StomachSystem _stomachSystem = default!;
         [Dependency] private readonly DamageableSystem _damageableSystem = default!;
         [Dependency] private readonly InventorySystem _inventorySystem = default!;
         [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
@@ -188,7 +186,6 @@ namespace Content.Server.Vampiric
                 return false;
 
             var temp = _solutionSystem.SplitSolution(bloodstream.Solution.Value, bloodsuckerComp.UnitsToSucc);
-            _stomachSystem.TryTransferSolution((stomachList[0].Owner, stomachList[0].Comp2), temp); // WD EDIT
 
             // Add a little pierce
             DamageSpecifier damage = new();

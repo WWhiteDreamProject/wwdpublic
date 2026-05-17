@@ -20,9 +20,8 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using System.Linq;
-using Content.Server._White.Body.Bloodstream.Systems;
-using Content.Server.Nutrition.Components;
-using Content.Shared._White.Body.Bloodstream.Components;
+using Content.Server._White.Bloodstream.Systems;
+using Content.Shared._White.Bloodstream.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Nutrition.Components;
 using TimedDespawnComponent = Robust.Shared.Spawners.TimedDespawnComponent;
@@ -268,7 +267,7 @@ public sealed class SmokeSystem : EntitySystem
         if (!TryComp<BloodstreamComponent>(entity, out var bloodstream))
             return;
 
-        if (!_solutionContainerSystem.ResolveSolution(entity, bloodstream.BloodSolutionName, ref bloodstream.BloodSolution, out var chemSolution) || chemSolution.AvailableVolume <= 0) // WD EDIT
+        if (!_solutionContainerSystem.ResolveSolution(entity, bloodstream.SolutionName, ref bloodstream.Solution, out var chemSolution) || chemSolution.AvailableVolume <= 0) // WD EDIT
             return;
 
         var blockIngestion = _internals.AreInternalsWorking(entity);

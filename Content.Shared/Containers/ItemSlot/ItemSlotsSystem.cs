@@ -1,5 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Content.Shared._White.Lathe;
+using Content.Shared._White.Nutrition.Systems;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
@@ -58,6 +60,8 @@ namespace Content.Shared.Containers.ItemSlots
             SubscribeLocalEvent<ItemSlotsComponent, ComponentHandleState>(HandleItemSlotsState);
 
             SubscribeLocalEvent<ItemSlotsComponent, ItemSlotButtonPressedEvent>(HandleButtonPressed);
+
+            SubscribeLocalEvent<ItemSlotsComponent, AttemptGotIngestedEvent>(OnAttemptGotIngested); // WD EDIT
         }
 
         #region ComponentManagement
@@ -829,5 +833,19 @@ namespace Content.Shared.Containers.ItemSlots
         {
             args.State = new ItemSlotsComponentState(component.Slots);
         }
+
+        // WD EDIT START
+        private void OnAttemptGotIngested(Entity<ItemSlotsComponent> ent, ref AttemptGotIngestedEvent args)
+        {
+            if (args.Cancelled)
+                return;
+
+            if (!ent.Comp.Slots.Any(slot => slot.Value.HasItem))
+                return;
+
+            args.Cancelled = true;
+            args.Popup = Loc.GetString("ingestion-has-used-storage", ("food", ent), ("verb", Loc.GetString(args.Ingestible.Verb)));
+        }
+        // WD EDIT END
     }
 }

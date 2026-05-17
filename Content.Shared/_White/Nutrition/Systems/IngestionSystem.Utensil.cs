@@ -9,38 +9,49 @@ public sealed partial class IngestionSystem
     private void InitializeUtensil()
     {
         SubscribeLocalEvent<UtensilComponent, AfterInteractEvent>(OnAfterInteract, after: new[] { typeof(ToolOpenableSystem) });
+        SubscribeLocalEvent<UtensilComponent, GetUtensilsEvent>(OnGetUtensils);
     }
 
     #region Event Handling
 
-    private void OnAfterInteract(Entity<UtensilComponent> ent, ref AfterInteractEvent ev)
+    private void OnAfterInteract(Entity<UtensilComponent> ent, ref AfterInteractEvent args)
     {
-        if (ev.Handled || ev.Target == null || !ev.CanReach)
+        if (args.Handled || args.Target == null || !args.CanReach)
             return;
 
-        ev.Handled = TryUseUtensil(ent, ev.Target.Value, ev.User);
+        args.Handled = TryUseUtensil(ent, args.Target.Value, args.User);
+    }
+
+    private void OnGetUtensils(Entity<UtensilComponent> ent, ref GetUtensilsEvent args)
+    {
+        if (!args.Type.HasFlag(ent.Comp.Types))
+            return;
+
+        args.Utensils.Add(ent);
+        args.UtensilType |= ent.Comp.Types;
     }
 
     #endregion
 
     #region Public API
 
-    private bool TryUseUtensil(Entity<UtensilComponent> ent, Entity<IngestibleComponent?> target, EntityUid user)
+    private bool TryUseUtensil(Entity<UtensilComponent> ent, Entity<IngestibleComponent?> ingestible, EntityUid user)
     {
-        var ev = new GetUtensilsEvent();
-        RaiseLocalEvent(target, ref ev);
+        if (!_ingestibleQuery.Resolve(ingestible, ref ingestible.Comp))
+            return false;
 
-        //Prevents food usage with a wrong utensil
-        if (ev.Types != UtensilType.None && (ev.Types & utensil.Comp.Types) == 0)
+        if (!ent.Comp.Types.HasFlag(ingestible.Comp.Utensil))
         {
-            _popup.PopupClient(Loc.GetString("ingestion-try-use-wrong-utensil", ("verb", GetEdibleVerb(target)), ("food", target), ("utensil", utensil.Owner)), user, user);
-            return true;
+            var message = Loc.GetString(
+                "ingestion-try-use-wrong-utensil",
+                ("verb", Loc.GetString(ingestible.Comp.Verb)),
+                ("food", ingestible),
+                ("utensil", ent));
+            _popup.PopupClient(message, user, user);
+            return false;
         }
 
-        if (!_interactionSystem.InRangeUnobstructed(user, target, popup: true))
-            return true;
-
-        return TryIngest(user, user, target);
+        return TryIngest(ingestible, user, user);
     }
 
     #endregion

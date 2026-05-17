@@ -1,3 +1,4 @@
+using Content.Shared._White.Nutrition.Systems;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Examine;
 using Content.Shared.Lock;
@@ -38,6 +39,7 @@ public sealed partial class OpenableSystem : EntitySystem
         SubscribeLocalEvent<OpenableComponent, AttemptShakeEvent>(OnAttemptShake);
         SubscribeLocalEvent<OpenableComponent, AttemptAddFizzinessEvent>(OnAttemptAddFizziness);
         SubscribeLocalEvent<OpenableComponent, LockToggleAttemptEvent>(OnLockToggleAttempt);
+        SubscribeLocalEvent<OpenableComponent, AttemptGotIngestedEvent>(OnAttemptGotIngested); // WD EDIT
 
 #if DEBUG
         SubscribeLocalEvent<OpenableComponent, MapInitEvent>(OnMapInit);
@@ -148,6 +150,19 @@ public sealed partial class OpenableSystem : EntitySystem
         if (ent.Comp.Opened)
             args.Cancelled = true;
     }
+
+    // WD EDIT START
+    private void OnAttemptGotIngested(Entity<OpenableComponent> ent, ref AttemptGotIngestedEvent args)
+    {
+        if (args.Cancelled)
+            return;
+
+        if (!IsClosed(ent, args.User, ent.Comp))
+            return;
+
+        args.Cancelled = true;
+    }
+    // WD EDIT END
 
     /// <summary>
     /// Returns true if the entity either does not have OpenableComponent or it is opened.

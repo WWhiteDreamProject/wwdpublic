@@ -5,6 +5,7 @@ using Content.Shared.FixedPoint;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 
 namespace Content.Shared._White.Nutrition.Components;
 
@@ -47,6 +48,36 @@ public sealed partial class IngestibleComponent : Component
     public List<EntProtoId> Trashes = new();
 
     /// <summary>
+    /// The localization identifier for the ingestion message.
+    /// </summary>
+    [DataField]
+    public LocId Message;
+
+    /// <summary>
+    /// The localization identifier for an observer's or "others'" ingestion message.
+    /// </summary>
+    [DataField]
+    public LocId OtherMessage;
+
+    /// <summary>
+    /// What type of food are we, currently used for determining verbs and some checks?
+    /// </summary>
+    [DataField]
+    public LocId Name;
+
+    /// <summary>
+    /// Localization noun used when consuming this item.
+    /// </summary>
+    [DataField]
+    public LocId Noun;
+
+    /// <summary>
+    /// Localization verb used when consuming this item.
+    /// </summary>
+    [DataField]
+    public LocId Verb;
+
+    /// <summary>
     /// Verb, icon, and sound data for our edible.
     /// </summary>
     [DataField]
@@ -72,11 +103,16 @@ public sealed partial class IngestibleComponent : Component
     public string SolutionName = "food";
 
     /// <summary>
-    /// An optional override for the sound made when consuming this item.
-    /// Useful for if an edible type doesn't justify a new prototype, like with plushies.
+    /// The sound we make when eaten.
     /// </summary>
     [DataField]
-    public SoundSpecifier? Sound;
+    public SoundSpecifier Sound = new SoundCollectionSpecifier("eating");
+
+    /// <summary>
+    /// An icon used to represent an ingesting verb.
+    /// </summary>
+    [DataField]
+    public SpriteSpecifier? Icon;
 
     /// <summary>
     /// Acceptable utensils to use.

@@ -29,11 +29,11 @@ public sealed class GibbingSystem : EntitySystem
     /// <returns>The set of giblets for this entity, if any.</returns>
     public HashSet<EntityUid> Gib(EntityUid ent, bool dropGiblets = true, EntityUid? user = null)
     {
-        _destructible.DestroyEntity(ent);
+        var giblets = new HashSet<EntityUid>();
+        if (!_destructible.DestroyEntity(ent))
+            return giblets;
 
         _audio.PlayPvs(GibSound, ent);
-
-        var giblets = new HashSet<EntityUid>();
 
         var beingGibbedEv = new BeingGibbedEvent(giblets);
         RaiseLocalEvent(ent, ref beingGibbedEv);
