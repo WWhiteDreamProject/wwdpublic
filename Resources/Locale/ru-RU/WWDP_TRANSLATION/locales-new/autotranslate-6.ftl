@@ -19,7 +19,7 @@ ent-ClothingOuterCoatLabSeniorPhysician = лабораторный халат м
 ent-ClothingOuterHospitalGown = Больничный халат
    .desc = Изготовлен из шерсти забитых ягнят. Жестокость делает его мягче.
 
-ent-ClothingOuterHardsuitAncientEVA = скафандр NTSRA
+ent-ClothingOuterHardsuitAncientEVA = скафандр НТСРА
    .desc = Древний космический скафандр, разработанный филиалом NTSRA в ЦК. Он очень тонко изготовлен, что обеспечивает большую мобильность.
 
 ent-ClothingOuterWinterSyndieCap = зимнее пальто синдиката

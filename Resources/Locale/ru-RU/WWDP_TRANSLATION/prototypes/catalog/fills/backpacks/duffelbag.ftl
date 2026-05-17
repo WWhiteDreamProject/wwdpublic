@@ -39,7 +39,7 @@ ent-ClothingBackpackDuffelSyndicateCarpSuit = вещмешок костюма к
 ent-ClothingBackpackDuffelSyndicatePyjamaBundle = вещмешок пижам синдиката
     .desc = Содержит 3 пижамы синдиката и 3 плюшевые игрушки для самой лучшей ночёвки.
 
-ent-ClothingBackpackDuffelSyndicateC4tBundle = набор C-4 синдиката
+ent-ClothingBackpackDuffelSyndicateC4tBundle = набор C4 синдиката
     .desc = Содержит много зарядов взрывчатки С-4.
 
 ent-ClothingBackpackChameleonFill = { ent-ClothingBackpackChameleon }

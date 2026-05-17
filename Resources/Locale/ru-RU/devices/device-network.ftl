@@ -25,23 +25,23 @@ device-frequency-prototype-name-surveillance-camera-medical = Камеры (Ме
 device-frequency-prototype-name-surveillance-camera-general = Камеры (Общие)
 device-frequency-prototype-name-surveillance-camera-entertainment = Камеры (Развлечения)
 # prefixes for randomly generated device addresses
-device-address-prefix-vent = Вент-
-device-address-prefix-scrubber = Скр-
-device-address-prefix-sensor = Сенс-
+device-address-prefix-vent = VNT-
+device-address-prefix-scrubber = SCR-
+device-address-prefix-sensor = SSR-
 # Damn bet you couldn't see this one coming.
-device-address-prefix-teg = ТЭГ-
-device-address-prefix-heater = Обгр-
-device-address-prefix-freezer = Охл-
-device-address-prefix-volume-pump = Нсс-
-device-address-prefix-smes = СМС-
-device-address-prefix-turret = Трл-
+device-address-prefix-teg = TEG-
+device-address-prefix-heater = HTR-
+device-address-prefix-freezer = FZR-
+device-address-prefix-volume-pump = VPP-
+device-address-prefix-smes = SMS-
+device-address-prefix-turret = TRL-
 
 # PDAs and terminals
-device-address-prefix-console = Конс-
-device-address-prefix-fire-alarm = Пож-
+device-address-prefix-console = CNS-
+device-address-prefix-fire-alarm = FIR-
 # PDAs and terminals
-device-address-prefix-air-alarm = Возд-
-device-address-prefix-sensor-monitor = Мон-
+device-address-prefix-air-alarm = ALR-
+device-address-prefix-sensor-monitor = MON-
 
 device-address-examine-message = Адрес устройства: { $address }.
 # Device net ID names
