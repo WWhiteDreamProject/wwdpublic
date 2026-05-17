@@ -98,8 +98,8 @@ ent-PosterContrabandRebelsUnite = Мятежники объединяйтесь
     .desc = Плакат, призывающий читателя восстать против Nanotrasen.
     .suffix = { "" }
 
-ent-PosterContrabandC20r = C-20r
-    .desc = Плакат, рекламирующий C-20r от Scarborough Arms.
+ent-PosterContrabandC20r = «C-20r»!
+    .desc = Плакат, рекламирующий «C-20r» от Scarborough Arms.
     .suffix = { "" }
 
 ent-PosterContrabandHaveaPuff = Пыхни

@@ -1,6 +1,7 @@
 ent-WeaponWandPolymorphBase = { ent-WeaponWandBase }
     .desc = { ent-WeaponWandBase.desc }
 
+
 ent-WeaponWandPolymorphCarp = волшебная палочка полиморфа карпа
     .desc = На случай, когда вам срочно нужно филе карпа, а клоун выглядит уж очень аппетитно.
 
@@ -21,3 +22,6 @@ ent-WeaponWandCluwne = волшебная палочка полиморфа кл
 
 ent-WeaponWandPolymorphBread = волшебная палочка полиморфа хлеба
     .desc = Превратите в хлеб всех своих друзей! Вашего босса! Ваших врагов! Вашу собаку! Превратите всё в хлеб!
+
+ent-WeaponWandLocker = волшебная палочка шкафа
+    .desc = Держите ботанов на расстоянии!

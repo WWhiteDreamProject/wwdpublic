@@ -10,6 +10,13 @@ ent-VendingMachineBooze = АлкоМат
     .desc = Чудо технологической мысли, по замыслу способное смешать именно ту смесь, которую вы хотите выпить, стоит вам только попросить.
     .suffix = { "" }
 
+ent-VendingMachineBoozeUnlocked = { ent-VendingMachineBooze }
+    .desc = { ent-VendingMachineBooze.desc }
+    .suffix = Без доступов
+
+ent-VendingMachineBoozeSyndicate = АминоМат
+    .desc = Обновленный АлкоМат для поднятия боевого духа. С одной стороны виден отпечаток кроваво-красного костюма, а с другой стороны кажется, что краска подгорела.
+
 ent-VendingBarDrobe = БарДероб
     .desc = Стильный автомат для раздачи самой стильной барной униформы!
     .suffix = { "" }

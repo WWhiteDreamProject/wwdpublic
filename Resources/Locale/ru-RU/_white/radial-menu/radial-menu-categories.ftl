@@ -28,11 +28,7 @@ radial-menu-button-colored-light-tubes = Разноцветные трубки
 
 radial-menu-button-tables = Столы
 radial-menu-button-chairs = Стулья
-# radial-menu-button-furniture #* in Steel
 radial-menu-button-structural = Структуры
-# radial-menu-button-fences #* in Metal Rod
-# radial-menu-button-tiles #* in Steel
-# radial-menu-button-weapons #* in Steel
 
 ## Cloth
 
