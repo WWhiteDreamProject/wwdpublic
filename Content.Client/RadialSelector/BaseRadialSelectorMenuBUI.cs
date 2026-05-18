@@ -9,6 +9,7 @@ using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Utility; // WWDP EDIT
 
 // ReSharper disable InconsistentNaming
 // White Dream Code but moved to general folder for consistency
@@ -127,6 +128,9 @@ public abstract class BasedRadialSelectorMenuBUI : BoundUserInterface
 
     private RadialMenuTextureButton CreateButton(string name, List<Texture> icons)
     {
+        if (icons.Count == 0) // WWDP EDIT
+            return CreateButton(name, _spriteSystem.Frame0(new SpriteSpecifier.Texture(new ResPath("Textures/error.rsi/error.png")))); // WWDP EDIT
+
         var button = new RadialMenuTextureButton
         {
             ToolTip = Loc.GetString(name),
