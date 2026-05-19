@@ -1,6 +1,6 @@
-lathe-category-mechs-vim = Вин
+lathe-category-mechs-vim = Вим
 lathe-category-mechs-honker = Х.О.Н.К.
-lathe-category-mechs-hamptr = H.A.M.P.T.R.
+lathe-category-mechs-hamptr = Х.О.М.Я.К.
 lathe-category-mechs-ripley = Рипли
 lathe-category-mechs-ripleymkii = Рипли МК-II
 lathe-category-mechs-clarke = Кларк
