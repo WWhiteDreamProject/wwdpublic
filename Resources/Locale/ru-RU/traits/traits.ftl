@@ -371,7 +371,7 @@ trait-description-HighAmplification = Ваши псионические спос
 
 trait-name-PowerOverwhelming = Подавляющая мощь
 trait-description-PowerOverwhelming =
-    [color=red]«СТАНЬТЕ СВИДЕТЕЛЯМИ МОЕЙ НЕНАВИСТИ, СМЕРТНЫЕ! ПРЕКЛОНИТЕСЬ ПЕРЕД МОЕЙ ПСИОНИЧЕСКОЙ МОЩЬЮ! РЕАЛЬНОСТЬ ТАКОВА, КАКОЙ Я ЕЕ СЧИТАЮ.»[/color]
+    {""}[color=red]«СТАНЬТЕ СВИДЕТЕЛЯМИ МОЕЙ НЕНАВИСТИ, СМЕРТНЫЕ! ПРЕКЛОНИТЕСЬ ПЕРЕД МОЕЙ ПСИОНИЧЕСКОЙ МОЩЬЮ! РЕАЛЬНОСТЬ ТАКОВА, КАКОЙ Я ЕЕ СЧИТАЮ.»[/color]
 
 trait-name-LowDampening = Дефицит kδ
 trait-description-LowDampening =
