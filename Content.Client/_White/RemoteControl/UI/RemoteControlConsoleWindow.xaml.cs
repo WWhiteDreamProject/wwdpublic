@@ -75,13 +75,7 @@ public sealed partial class RemoteControlConsoleWindow : FancyWindow, IComputerW
         EnableRadarButton.Group = group;
         EnableCameraButton.Group = group;
 
-#if DEBUG
-        _aimingCursor = BuildCursor();
-        _firingCursor = BuildCursorFiring();
-#else
-        _aimingCursor ??= BuildCursor();
-        _firingCursor ??= BuildCursorFiring();
-#endif
+        BuildCursor();
         HUDHolder.OnMouseLeftClick += (down) => HUDHolder.CustomCursorShape = down ? _firingCursor : _aimingCursor;
 
         HUDHolder.CustomCursorShape = _aimingCursor;
