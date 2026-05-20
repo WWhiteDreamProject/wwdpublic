@@ -71,7 +71,7 @@ ent-PosterContrabandPower = Сила
     .suffix = { "" }
 
 ent-PosterContrabandSpaceCube = Космический куб
-    .desc = Не подчиняющийся законам природы, шестигранный Космический Куб. Космонавты глупы, приручённая сингулярность — глупа и зла.
+    .desc = Не подчиняющийся законам природы, шестигранный Космический Куб. Космонавты глупы, приручённая сингулярность - глупа и зла.
     .suffix = { "" }
 
 ent-PosterContrabandCommunistState = Коммунистическое государство
@@ -107,7 +107,7 @@ ent-PosterContrabandHaveaPuff = Пыхни
     .suffix = { "" }
 
 ent-PosterContrabandRevolver = Револьвер
-    .desc = Потому что семь выстрелов — это все, что вам нужно.
+    .desc = Потому что семь выстрелов - это все, что вам нужно.
     .suffix = { "" }
 
 ent-PosterContrabandDDayPromo = Реклама D-Day
@@ -271,7 +271,7 @@ ent-PosterLegitStateLaws = Соблюдайте законы
     .suffix = { "" }
 
 ent-PosterLegitLoveIan = Любовь к Иану
-    .desc = Иан — любовь, Иан — это жизнь.
+    .desc = Иан - любовь, Иан - это жизнь.
     .suffix = { "" }
 
 ent-PosterLegitSpaceCops = Космические копы

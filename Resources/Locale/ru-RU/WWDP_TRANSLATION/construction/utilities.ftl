@@ -35,7 +35,7 @@ ent-WallmountGenerator = { ent-BaseGeneratorWallmount }
     .desc = { ent-BaseGeneratorWallmount.desc }
 
 ent-WallmountGeneratorAPU = ВСУ шаттла
-    .desc = Вспомогательная силовая установка для шаттла — 6кВт.
+    .desc = Вспомогательная силовая установка для шаттла - 6кВт.
 
 ent-WallmountSubstation = настенная подстанция
     .desc = Подстанция, предназначенная для компактных шаттлов и помещений.

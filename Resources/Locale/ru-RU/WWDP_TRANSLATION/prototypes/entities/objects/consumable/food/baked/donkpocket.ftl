@@ -39,7 +39,7 @@ ent-FoodDonkpocketPizza = пицца-покет
     .suffix = { "" }
 
 ent-FoodDonkpocketPizzaWarm = теплый пицца-покет
-    .desc = Теплый сырный наполнитель — очень вкусный.
+    .desc = Теплый сырный наполнитель - очень вкусный.
     .suffix = { "" }
 
 ent-FoodDonkpocketHonk = хонк-покет
