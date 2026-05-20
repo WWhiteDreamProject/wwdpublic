@@ -59,7 +59,7 @@ ent-FoodPieXenoSlice = кусок ксено-пирога
     .suffix = { "" }
 
 ent-FoodPieFrosty = морозный пирог
-    .desc = На вкус - синий и холодный.
+    .desc = На вкус — синий и холодный.
     .suffix = { "" }
 
 ent-FoodPieFrostySlice = кусок морозного пирога

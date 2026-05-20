@@ -19,7 +19,7 @@ ent-GeneratorWallmountBasic = { ent-BaseGeneratorWallmount }
     .desc = { ent-BaseGeneratorWallmount.desc }
 
 ent-GeneratorWallmountAPU = ВСУ шаттла
-    .desc = Вспомогательная силовая установка для шаттла - 6кВт.
+    .desc = Вспомогательная силовая установка для шаттла — 6кВт.
     .suffix = ВСУ, 6кВт
 
 ent-GeneratorRTG = РИТЭГ

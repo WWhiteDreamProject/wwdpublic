@@ -1,4 +1,4 @@
-admin-solutions-window-title = Редактирование реагентов - { $targetName }
+admin-solutions-window-title = Редактирование реагентов — { $targetName }
 admin-solutions-window-solution-label = Контейнер с реагентами:
 admin-solutions-window-add-new-button = Добавить новый реагент
 admin-solutions-window-volume-label = Объем { $currentVolume }/{ $maxVolume } ед.
