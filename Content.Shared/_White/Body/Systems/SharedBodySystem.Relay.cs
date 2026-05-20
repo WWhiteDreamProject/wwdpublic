@@ -1,5 +1,6 @@
 using Content.Shared._White.Bloodstream.Systems;
 using Content.Shared._White.Body.Components;
+using Content.Shared._White.Nutrition.Systems;
 using Content.Shared._White.Pain.Systems;
 using Content.Shared._White.Wounds.Systems;
 
@@ -14,6 +15,7 @@ public abstract partial class SharedBodySystem
         SubscribeLocalEvent<BodyComponent, GetWoundableDamageEvent>(RelayEvent);
         SubscribeLocalEvent<BodyComponent, MetabolicRateChangedEvent>(RelayEvent);
         SubscribeLocalEvent<BodyComponent, PainChangedEvent>(RelayEvent);
+        SubscribeLocalEvent<BodyComponent, TryIngestEvent>(RelayEvent);
 
         SubscribeLocalEvent<BodyProviderComponent, GetWoundableDamageEvent>(RelayEvent);
         SubscribeLocalEvent<BodyProviderComponent, WoundableDamageChangedEvent>(RelayEvent);

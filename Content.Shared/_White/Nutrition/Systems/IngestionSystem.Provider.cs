@@ -15,22 +15,27 @@ public sealed partial class IngestionSystem
 {
     private void InitializeProvider()
     {
-        SubscribeLocalEvent<IngestionProviderComponent, BodyRelayedEvent<IngestEvent>>(OnIngest);
+        SubscribeLocalEvent<IngestionProviderComponent, BodyRelayedEvent<TryIngestEvent>>(OnTryIngest);
         SubscribeLocalEvent<IngestionProviderComponent, IngestingDoAfterEvent>(OnIngestingDoAfter);
     }
 
     #region Event Handling
 
-    private void OnIngest(Entity<IngestionProviderComponent> ent, ref BodyRelayedEvent<IngestEvent> args)
+    private void OnTryIngest(Entity<IngestionProviderComponent> ent, ref BodyRelayedEvent<TryIngestEvent> args)
     {
         if (args.Args.Handled)
             return;
 
-        if (!CanConsume(args.Args.Ingestible, args.Args.User, args.Args.Target, out _))
+        if (!_solutionContainer.ResolveSolution(ent.Owner, ent.Comp.SolutionName, ref ent.Comp.Solution, out var solution))
+            return;
+
+        if (args.Args.Min > solution.AvailableVolume)
             return;
 
         var forceFeed = args.Args.User != args.Args.Target;
-        var doAfterArgs = new DoAfterArgs(EntityManager, args.Args.User, args.Args.Ingestible.Comp.Delay, new IngestingDoAfterEvent(), ent, args.Args.Target, args.Args.Ingestible)
+
+        var doAfterEv = new IngestingDoAfterEvent();
+        var doAfterArgs = new DoAfterArgs(EntityManager, args.Args.User, args.Args.Ingestible.Comp.Delay, doAfterEv, ent, args.Args.Target, args.Args.Ingestible)
         {
             BreakOnHandChange = false,
             BreakOnMove = forceFeed,
@@ -44,9 +49,6 @@ public sealed partial class IngestionSystem
             return;
 
         args.Args = args.Args with { Handled = true };
-
-        if (!_solutionContainer.ResolveSolution(ent.Owner, ent.Comp.SolutionName, ref ent.Comp.Solution, out var solution))
-            return;
 
         if (!forceFeed)
         {
@@ -68,10 +70,10 @@ public sealed partial class IngestionSystem
         if (!_ingestibleQuery.TryComp(used, out var ingestibleComp))
             return;
 
-        if (!_solutionContainer.ResolveSolution(ent.Owner, ent.Comp.SolutionName, ref ent.Comp.Solution))
+        if (!_solutionContainer.ResolveSolution(ent.Owner, ent.Comp.SolutionName, ref ent.Comp.Solution, out var providerSolution))
             return;
 
-        if (!_solutionContainer.ResolveSolution(used, ingestibleComp.SolutionName, ref ingestibleComp.Solution, out var solution))
+        if (!_solutionContainer.ResolveSolution(used, ingestibleComp.SolutionName, ref ingestibleComp.Solution, out var ingestibleSolution))
             return;
 
         if (!CanConsume((used, ingestibleComp), args.Args.User, target, out var utensils))
@@ -80,8 +82,7 @@ public sealed partial class IngestionSystem
         var forceFeed = args.Target != args.User;
         var verb = Loc.GetString(ingestibleComp.Verb);
 
-        var transfer = ingestibleComp.TransferAmount != null ? FixedPoint2.Min(ingestibleComp.TransferAmount.Value, solution.Volume) : solution.Volume;
-        if (transfer == FixedPoint2.Zero)
+        if (args.Min > providerSolution.AvailableVolume)
         {
             _popup.PopupClient(Loc.GetString("ingestion-cannot-ingest-more", ("verb", verb)), target, target);
             if (!forceFeed)
@@ -91,13 +92,17 @@ public sealed partial class IngestionSystem
             return;
         }
 
+        var transfer = FixedPoint2.Clamp(ingestibleComp.TransferAmount ?? ingestibleSolution.Volume, args.Min, providerSolution.AvailableVolume);
         var split = _solutionContainer.SplitSolution(ingestibleComp.Solution.Value, transfer);
 
-        _reactive.DoEntityReaction(args.Target.Value, solution, ReactionMethod.Ingestion);
-        _solutionContainer.TryAddSolution(ent.Comp.Solution.Value, solution);
+        if (args.Refresh)
+            _solutionContainer.TryAddSolution(ingestibleComp.Solution.Value, split);
+
+        _reactive.DoEntityReaction(args.Target.Value, ingestibleSolution, ReactionMethod.Ingestion);
+        _solutionContainer.TryAddSolution(ent.Comp.Solution.Value, ingestibleSolution);
 
         var flavors = _flavorProfile.GetLocalizedFlavorsMessage(used, target, split);
-        var satiated = transfer >= solution.Volume;
+        var satiated = transfer >= ingestibleSolution.Volume;
 
         if (forceFeed)
         {
@@ -128,7 +133,10 @@ public sealed partial class IngestionSystem
             PredictedDel(utensil.Owner);
         }
 
-        if (solution.Volume == FixedPoint2.Zero)
+        var ingestedEv = new IngestedEvent();
+        RaiseLocalEvent(used, ref ingestedEv);
+
+        if (ingestibleSolution.Volume == FixedPoint2.Zero)
         {
             DeleteAndSpawnTrash((used, ingestibleComp), args.User);
             return;

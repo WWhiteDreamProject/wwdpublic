@@ -4,6 +4,7 @@ using Content.Shared._White.Nutrition.Components;
 using Content.Shared._White.Random;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Chemistry;
+using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Destructible;
 using Content.Shared.DoAfter;
@@ -130,7 +131,7 @@ public sealed partial class IngestionSystem : EntitySystem
         if (args.Handled)
             return;
 
-        args.Handled = TryIngest(ent.AsNullable(), args.User);
+        args.Handled = TryIngest(ent.AsNullable(), args.User, args.User);
     }
 
     #endregion
@@ -138,14 +139,45 @@ public sealed partial class IngestionSystem : EntitySystem
     #region Public API
 
     /// <summary>
-    /// Checks if we can feed an edible solution from an entity to a target.
+    /// Initiates the process of ingesting an entity.
     /// </summary>
-    /// <param name="ent">The entity that is trying to be ingested.</param>
-    /// <param name="user">The entity who is ingesting.</param>
+    /// <param name="ent">The entity being ingested.</param>
+    /// <param name="user">The entity performing the ingestion (e.g., a player feeding another).</param>
     /// <param name="target">The entity who is being made to ingest something.</param>
-    /// <param name="utensils">The utensils needed to ingest the ingestible item.</param>
-    /// <returns>Returns true if the user can feed the target with the ingested entity</returns>
-    public bool CanConsume(Entity<IngestibleComponent> ent, EntityUid user, EntityUid target, out List<Entity<UtensilComponent>> utensils)
+    /// <returns>True if the ingestion process was initiated (not necessarily completed), false otherwise.</returns>
+    public bool TryIngest(Entity<IngestibleComponent?> ent, EntityUid user, EntityUid target)
+    {
+        if (!_ingestibleQuery.Resolve(ent, ref ent.Comp))
+            return false;
+
+        if (!CanConsume((ent, ent.Comp), user, target, out _))
+            return false;
+
+        if (!_solutionContainer.ResolveSolution(ent.Owner, ent.Comp.SolutionName, ref ent.Comp.Solution, out var solution))
+            return false;
+
+        var beforeIngestedEv = new BeforeTryIngestEvent(solution);
+        RaiseLocalEvent(ent, ref beforeIngestedEv);
+
+        var ingestEv = new TryIngestEvent((ent, ent.Comp), user, target, beforeIngestedEv.Min, beforeIngestedEv.Refresh);
+        RaiseLocalEvent(target, ref ingestEv);
+
+        return ingestEv.Handled;
+    }
+
+    #endregion
+
+    #region Private API
+
+    /// <summary>
+    /// Checks if a target entity can consume an ingestible entity.
+    /// </summary>
+    /// <param name="ent">The ingestible entity being checked.</param>
+    /// <param name="user">The entity performing the action (e.g., attempting to feed another). May be the same as target.</param>
+    /// <param name="target">The entity that will be consuming the item.</param>
+    /// <param name="utensils">Outputs a list of required utensils if any are found.</param>
+    /// <returns>True if consumption is possible, false otherwise.</returns>
+    private bool CanConsume(Entity<IngestibleComponent> ent, EntityUid user, EntityUid target, out List<Entity<UtensilComponent>> utensils)
     {
         utensils = new List<Entity<UtensilComponent>>();
         if (!_interaction.InRangeUnobstructed(user, ent.Owner, popup: true))
@@ -200,48 +232,20 @@ public sealed partial class IngestionSystem : EntitySystem
     }
 
     /// <summary>
-    /// An entity is trying to ingest another entity.
+    /// Checks if an ingestible item is empty.
     /// </summary>
-    /// <param name="ent">The entity that is trying to be ingested.</param>
-    /// <param name="user">The entity who is ingesting.</param>
-    /// <returns>Returns true if we are now ingesting the item.</returns>
-    public bool TryIngest(Entity<IngestibleComponent?> ent, EntityUid user)
-    {
-        return TryIngest(ent, user, user);
-    }
-
-    /// <summary>
-    /// Overload of TryIngest for if an entity is trying to make another entity ingest an entity.
-    /// </summary>
-    /// <param name="ent">The entity that is trying to be ingested.</param>
-    /// <param name="user">The entity who is trying to make this happen.</param>
-    /// <param name="target">The entity who is being made to ingest something.</param>
-    public bool TryIngest(Entity<IngestibleComponent?> ent, EntityUid user, EntityUid target)
-    {
-        if (!_ingestibleQuery.Resolve(ent, ref ent.Comp))
-            return false;
-
-        var ingestibleEv = new IngestibleEvent();
-        RaiseLocalEvent(ent, ref ingestibleEv);
-
-        if (ingestibleEv.Cancelled)
-            return false;
-
-        var ingestEv = new IngestEvent((ent, ent.Comp), user, target);
-        RaiseLocalEvent(target, ref ingestEv);
-
-        return ingestEv.Handled;
-    }
-
-    #endregion
-
-    #region Private API
-
+    /// <param name="ent">The ingestible entity.</param>
+    /// <returns>True if the item is empty, false otherwise.</returns>
     private bool IsEmpty(Entity<IngestibleComponent> ent)
     {
         return GetVolume(ent) == FixedPoint2.Zero;
     }
 
+    /// <summary>
+    /// Gets the current volume of the solution within an ingestible item.
+    /// </summary>
+    /// <param name="ent">The ingestible entity.</param>
+    /// <returns>The volume of the solution.</returns>
     private FixedPoint2 GetVolume(Entity<IngestibleComponent> ent)
     {
         if (!_solutionContainer.ResolveSolution(ent.Owner, ent.Comp.SolutionName, ref ent.Comp.Solution, out var solution))
@@ -250,6 +254,11 @@ public sealed partial class IngestionSystem : EntitySystem
         return solution.Volume;
     }
 
+    /// <summary>
+    /// Destroys the ingestible item and spawns any specified trash items at its location.
+    /// </summary>
+    /// <param name="ent">The ingestible entity.</param>
+    /// <param name="user">The entity that was interacting with the ingestible item.</param>
     private void DeleteAndSpawnTrash(Entity<IngestibleComponent> ent, EntityUid? user = null)
     {
         var position = _transform.GetMapCoordinates(ent);
@@ -272,6 +281,10 @@ public sealed partial class IngestionSystem : EntitySystem
         }
     }
 
+    /// <summary>
+    /// Updates the visual appearance of the ingestible item.
+    /// </summary>
+    /// <param name="ent">The ingestible entity to update.</param>
     private void UpdateAppearance(Entity<IngestibleComponent> ent)
     {
         var volume = GetVolume(ent);
@@ -281,55 +294,128 @@ public sealed partial class IngestionSystem : EntitySystem
     #endregion
 }
 
+/// <summary>
+/// An event raised on the target entity when an attempt is made to ingest it.
+/// </summary>
+/// <param name="User">The entity performing the ingestion action.</param>
+/// <param name="Ingestible">The component of the entity being ingested.</param>
+/// <param name="Cancelled">A flag indicating if the ingestion has been cancelled.</param>
 [ByRefEvent]
 public record struct AttemptGotIngestedEvent(EntityUid User, IngestibleComponent Ingestible, bool Cancelled = false)
 {
+    /// <summary>
+    /// A string to be displayed as a popup if the ingestion is cancelled.
+    /// </summary>
     public string? Popup = null;
 }
 
 /// <summary>
-/// Event raised on an entity that is consuming another entity to see if there is anything attached to the entity
-/// that is preventing it from doing the consumption.
+/// An event raised on the entity that is about to be ingested.
 /// </summary>
+/// <param name="Cancelled">A flag indicating if the ingestion has been cancelled.</param>
 [ByRefEvent]
 public record struct AttemptIngestedEvent(bool Cancelled = false) : IInventoryRelayEvent
 {
+    /// <summary>
+    /// The inventory slots to check for blocking conditions.
+    /// Defaults to HEAD and MASK, which are commonly associated with consumption blocking.
+    /// </summary>
     public SlotFlags TargetSlots { get; } = IngestionSystem.DefaultFlags;
 
+    /// <summary>
+    /// A string to be displayed as a popup if the ingestion is cancelled.
+    /// </summary>
     public string? Popup = null;
 }
 
+/// <summary>
+/// Event raised just before an ingestible solution is trying transferred to a target.
+/// </summary>
+/// <param name="Solution">The solution being transferred.</param>
 [ByRefEvent]
-public record struct GetUtensilsEvent(UtensilType Type, UtensilType UtensilType = UtensilType.None)
+public record struct BeforeTryIngestEvent(Solution Solution)
 {
+    /// <summary>
+    /// Determines if the original solution should be removed or if it should be replaced with a new one.
+    /// </summary>
+    public bool Refresh;
+
+    /// <summary>
+    /// The minimum amount of the solution that must be transferred.
+    /// </summary>
+    public FixedPoint2 Min;
+}
+
+/// <summary>
+/// Event raised when an entity needs to find out what utensils are available and suitable for ingestion.
+/// </summary>
+/// <param name="Type">The required utensil type defined by the ingestible item.</param>
+[ByRefEvent]
+public record struct GetUtensilsEvent(UtensilType Type)
+{
+    /// <summary>
+    /// The list to which found compatible utensils will be added.
+    /// </summary>
     public List<Entity<UtensilComponent>> Utensils;
+
+    /// <summary>
+    /// The utensil type of <see cref="Utensils"/>>
+    /// </summary>
+    public UtensilType Result = UtensilType.None;
 }
 
 /// <summary>
 /// Event raised when an entity is trying to ingest an entity.
 /// </summary>
-/// <param name="Ingestible">What are we trying to ingest?</param>
-/// <param name="User">The entity that is trying to feed and therefore raising the event</param>
-/// <param name="Target">Who is doing the ingesting?</param>
+/// <param name="Ingestible">The ingestible item being consumed.</param>
+/// <param name="User">The entity initiating the ingestion action.</param>
+/// <param name="Target">The entity performing the ingestion.</param>
+/// <param name="Min">The minimum amount of the solution that must be transferred.</param>
+/// <param name="Refresh">Determines if the original solution should be removed or if it should be replaced with a new one.</param>
 [ByRefEvent]
-public record struct IngestEvent(Entity<IngestibleComponent> Ingestible, EntityUid User, EntityUid Target) : IBodyRelayEvent
+public record struct TryIngestEvent(Entity<IngestibleComponent> Ingestible, EntityUid User, EntityUid Target, FixedPoint2 Min, bool Refresh) : IBodyRelayEvent
 {
+    /// <summary>
+    /// The type of body provider to relay this event to.
+    /// </summary>
     public BodyProviderType Type { get; } = BodyProviderType.All;
 
     /// <summary>
-    /// Did a system successfully ingest this item?
+    /// Indicates whether this ingestion event has been successfully handled.
     /// </summary>
     public bool Handled;
 }
 
 /// <summary>
-/// Event raised on an entity that is trying to be ingested to see if it has universal blockers preventing it from being ingested.
+/// Event raised when an entity is ingested.
 /// </summary>
 [ByRefEvent]
-public record struct IngestibleEvent(bool Cancelled = false);
+public record struct IngestedEvent;
 
 /// <summary>
-/// Do After Event for trying to put an ingestible solution into stomach entity.
+/// Do After Event raise when an entity is trying to ingest an entity.
 /// </summary>
 [Serializable, NetSerializable]
-public sealed partial class IngestingDoAfterEvent : SimpleDoAfterEvent;
+public sealed partial class IngestingDoAfterEvent : DoAfterEvent
+{
+    /// <summary>
+    /// Determines if the original solution should be removed or if it should be replaced with a new one.
+    /// </summary>
+    public bool Refresh;
+
+    /// <summary>
+    /// The minimum amount of the solution that must be transferred
+    /// </summary>
+    public FixedPoint2 Min;
+
+    public IngestingDoAfterEvent(bool refresh, FixedPoint2 min)
+    {
+        Refresh = refresh;
+        Min = min;
+    }
+
+    public override DoAfterEvent Clone()
+    {
+        return this;
+    }
+}
