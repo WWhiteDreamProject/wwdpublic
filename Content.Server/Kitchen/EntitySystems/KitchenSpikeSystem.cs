@@ -2,7 +2,7 @@ using Content.Server.Administration.Logs;
 using Content.Server.Kitchen.Components;
 using Content.Server.Popups;
 using Content.Shared._White.Damage.Components;
-using Content.Shared._White.Gibbing;
+using Content.Shared._White.Gibbable.Systems;
 using Content.Shared.Chat;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
@@ -37,7 +37,7 @@ namespace Content.Server.Kitchen.EntitySystems
         [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly MetaDataSystem _metaData = default!;
         [Dependency] private readonly SharedSuicideSystem _suicide = default!;
-        [Dependency] private readonly GibbingSystem _gibbing = default!; // WD EDIT
+        [Dependency] private readonly GibbableSystem _gibbable = default!; // WD EDIT
 
         public override void Initialize()
         {
@@ -160,7 +160,7 @@ namespace Content.Server.Kitchen.EntitySystems
             _transform.SetCoordinates(victimUid, Transform(uid).Coordinates);
             // THE WHAT?
             // TODO: Need to be able to leave them on the spike to do DoT, see ss13.
-            _gibbing.Gib(victimUid); // WD EDIT
+            _gibbable.Gib(victimUid); // WD EDIT
 
             _audio.PlayPvs(component.SpikeSound, uid);
         }

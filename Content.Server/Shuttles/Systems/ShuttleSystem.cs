@@ -6,7 +6,7 @@ using Content.Server.Shuttles.Components;
 using Content.Server.Station.Systems;
 using Content.Server.Stunnable;
 using Content.Shared._White.Damage.Systems;
-using Content.Shared._White.Gibbing;
+using Content.Shared._White.Gibbable.Systems;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Salvage;
@@ -62,7 +62,7 @@ public sealed partial class ShuttleSystem : SharedShuttleSystem
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly ThrusterSystem _thruster = default!;
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
-    [Dependency] private readonly GibbingSystem _gibbing = default!; // WD EDIT
+    [Dependency] private readonly GibbableSystem _gibbable = default!; // WD EDIT
 
     private EntityQuery<BuckleComponent> _buckleQuery;
     private EntityQuery<MapGridComponent> _gridQuery;

@@ -12,32 +12,34 @@ public sealed partial class WoundableSystem
     #region Public API
 
     /// <summary>
-    /// Creates a wound on this body provider.
+    /// Creates a new wound on woundable provider.
     /// </summary>
-    public bool TryCreateWound(
+    /// <param name="ent">The woundable provider where the wound should be created.</param>
+    /// <param name="woundId">The prototype ID of the wound to be created.</param>
+    /// <param name="damage">The initial amount of damage the wound inflicts.</param>
+    /// <param name="origin">The entity that caused the wound.</param>
+    /// <returns>Wound entity, or null if creation failed.</returns>
+    public Entity<WoundComponent>? CreateWound(
         Entity<WoundableProviderComponent?> ent,
         EntProtoId woundId,
         FixedPoint2 damage,
-        [NotNullWhen(true)] out Entity<WoundComponent>? wound,
         EntityUid? origin = null
     )
     {
-        wound = null;
-
         if (!_providerQuery.Resolve(ent, ref ent.Comp))
-            return false;
+            return null;
 
         if (!TrySpawnInContainer(woundId, ent, WoundsContainerId, out var woundUid))
         {
             _sawmill.Error($"Couldn't insert wound '{woundId}' to {ent}");
-            return false;
+            return null;
         }
 
         if (!_woundQuery.TryComp(woundUid, out var woundComponent))
         {
             _sawmill.Error($"Wound {ToPrettyString(woundUid)} does not have {typeof(WoundComponent)}");
             Del(woundUid);
-            return false;
+            return null;
         }
 
         woundComponent.Body = ent.Comp.Body;
@@ -57,9 +59,28 @@ public sealed partial class WoundableSystem
             Dirty(ent.Comp.Body.Value, woundableComp);
         }
 
-        wound = (woundUid.Value, woundComponent);
+        return (woundUid.Value, woundComponent);
+    }
 
-        return true;
+    /// <summary>
+    /// Attempts to create a wound on woundable provider.
+    /// </summary>
+    /// <param name="ent">The woundable provider where the wound should be created.</param>
+    /// <param name="woundId">The prototype ID of the wound to be created.</param>
+    /// <param name="damage">The initial amount of damage the wound inflicts.</param>
+    /// <param name="origin">The entity that caused the wound.</param>
+    /// <param name="wound">Outputs the created wound entity.</param>
+    /// <returns>True if the wound was successfully created, false otherwise.</returns>
+    public bool TryCreateWound(
+        Entity<WoundableProviderComponent?> ent,
+        EntProtoId woundId,
+        FixedPoint2 damage,
+        [NotNullWhen(true)] out Entity<WoundComponent>? wound,
+        EntityUid? origin = null
+    )
+    {
+        wound = CreateWound(ent, woundId, damage, origin);
+        return wound.HasValue;
     }
 
     #region TryGetWound
@@ -276,11 +297,11 @@ public sealed partial class WoundableSystem
     private void UpdateWoundSeverity(Entity<WoundComponent> ent)
     {
         var severity = ent.Comp.Thresholds.HighestMatch(ent.Comp.Damage) ?? WoundSeverity.Healthy;
-        if (severity == ent.Comp.WoundSeverity)
+        if (severity == ent.Comp.Severity)
             return;
 
-        ent.Comp.WoundSeverity = severity;
-        DirtyField(ent, ent.Comp, nameof(WoundComponent.WoundSeverity));
+        ent.Comp.Severity = severity;
+        DirtyField(ent, ent.Comp, nameof(WoundComponent.Severity));
 
         RaiseLocalEvent(ent, new WoundSeverityChangedEvent(severity));
     }

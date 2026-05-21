@@ -2,7 +2,7 @@ using System.Linq;
 using System.Numerics;
 using Content.Server.Charges.Systems;
 using Content.Server.Standing;
-using Content.Shared._White.Gibbing;
+using Content.Shared._White.Gibbable.Systems;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Maps;
@@ -24,7 +24,7 @@ public sealed class ExperimentalTeleporterSystem : EntitySystem
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly ChargesSystem _charges = default!;
     [Dependency] private readonly ContainerSystem _containerSystem = default!;
-    [Dependency] private readonly GibbingSystem _gibbing = default!;
+    [Dependency] private readonly GibbableSystem _gibbable = default!;
     [Dependency] private readonly LayingDownSystem _layingDown = default!;
     [Dependency] private readonly MapSystem _mapSystem = default!;
     [Dependency] private readonly TagSystem _tag = default!;
@@ -58,7 +58,7 @@ public sealed class ExperimentalTeleporterSystem : EntitySystem
             || EmergencyTeleportation(args.User, uid, component, xform, oldCoords, newOffset))
             return;
 
-        _gibbing.Gib(args.User);
+        _gibbable.Gib(args.User);
     }
 
     private bool EmergencyTeleportation(EntityUid uid, EntityUid teleporterUid, ExperimentalTeleporterComponent component, TransformComponent xform, EntityCoordinates oldCoords, Vector2 offset)

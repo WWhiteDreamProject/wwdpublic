@@ -23,7 +23,7 @@ public sealed partial class WoundableSystem
     {
         args.Handled = true;
 
-        if (!TryChangeDamage(ent.AsNullable(), args.Damage, out var result, args.IgnoreResistances, args.InterruptsDoAfters, args.Origin))
+        if (!TryChangeDamage((ent, ent.Comp, null), args.Damage, out var result, args.IgnoreResistances, args.InterruptsDoAfters, args.Origin))
             return;
 
         args.Result = result;
@@ -31,7 +31,7 @@ public sealed partial class WoundableSystem
 
     private void OnGetWoundableDamage(Entity<WoundableAccumulatorComponent> ent, ref BodyRelayedEvent<GetWoundableDamageEvent> args)
     {
-        ChangeDamage(ent.AsNullable(), args.Args.Damage, args.Args.IgnoreResistances, origin: args.Args.Origin);
+        ChangeDamage((ent, ent.Comp, null), args.Args.Damage, args.Args.IgnoreResistances, origin: args.Args.Origin);
     }
 
     private void OnWoundableDamageChanged(Entity<WoundableAccumulatorComponent> ent, ref BodyRelayedEvent<WoundableDamageChangedEvent> args)
@@ -42,7 +42,7 @@ public sealed partial class WoundableSystem
         var damage = new DamageSpecifier(args.Args.Damage);
         damage.MakePositive();
 
-        TryChangeDamage(ent.AsNullable(), damage, origin: args.Args.Origin);
+        TryChangeDamage((ent, ent.Comp, null), damage, origin: args.Args.Origin);
     }
 
     #endregion
@@ -156,11 +156,11 @@ public sealed partial class WoundableSystem
     public void UpdateWoundSeverity(Entity<WoundableAccumulatorComponent> ent)
     {
         var severity = ent.Comp.Thresholds.HighestMatch(ent.Comp.Health) ?? WoundSeverity.Healthy;
-        if (ent.Comp.WoundSeverity == severity)
+        if (ent.Comp.Severity == severity)
             return;
 
-        ent.Comp.WoundSeverity = severity;
-        DirtyField(ent, ent.Comp, nameof(WoundableProviderComponent.WoundSeverity));
+        ent.Comp.Severity = severity;
+        DirtyField(ent, ent.Comp, nameof(WoundableProviderComponent.Severity));
 
         RaiseLocalEvent(ent, new WoundableSeverityChangedEvent(severity));
     }

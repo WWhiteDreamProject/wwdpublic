@@ -1,7 +1,7 @@
 ﻿using Content.Server.Kitchen.Components;
 using Content.Server.Nutrition.EntitySystems;
 using Content.Shared._White.Body.Components;
-using Content.Shared._White.Gibbing;
+using Content.Shared._White.Gibbable.Systems;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Interaction;
@@ -31,7 +31,7 @@ public sealed class SharpSystem : EntitySystem
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly GibbingSystem _gibbing = default!; // WD EDIT
+    [Dependency] private readonly GibbableSystem _gibbable = default!; // WD EDIT
 
     public override void Initialize()
     {
@@ -121,7 +121,7 @@ public sealed class SharpSystem : EntitySystem
         _popupSystem.PopupEntity(Loc.GetString("butcherable-knife-butchered-success", ("target", args.Args.Target.Value), ("knife", uid)),
             popupEnt, args.Args.User, popupType);
 
-        _gibbing.Gib(args.Args.Target.Value); // WD EDIT
+        _gibbable.Gib(args.Args.Target.Value); // WD EDIT
         _destructibleSystem.DestroyEntity(args.Args.Target.Value);
 
         args.Handled = true;

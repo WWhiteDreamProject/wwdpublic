@@ -7,7 +7,7 @@ using Content.Server.Popups;
 using Content.Server.Repairable;
 using Content.Server.Stack;
 using Content.Server.Wires;
-using Content.Shared._White.Gibbing;
+using Content.Shared._White.Gibbable.Systems;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
@@ -42,7 +42,7 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
     [Dependency] private readonly StackSystem _stack = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly GibbingSystem _gibbing = default!; // WD EDIT
+    [Dependency] private readonly GibbableSystem _gibbable = default!; // WD EDIT
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -125,7 +125,7 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
             Filter.PvsExcept(victim, entityManager: EntityManager),
             true);
 
-        _gibbing.Gib(victim); // WD EDIT
+        _gibbable.Gib(victim); // WD EDIT
         _appearance.SetData(entity.Owner, RecyclerVisuals.Bloody, true);
         args.Handled = true;
     }
@@ -203,7 +203,7 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
         {
             _adminLogger.Add(LogType.Gib, LogImpact.Extreme, $"{ToPrettyString(item):victim} was gibbed by {ToPrettyString(uid):entity} ");
             SpawnChemicalsFromComposition(uid, item, completion, false, component, xform);
-            _gibbing.Gib(item); // WD EDIT
+            _gibbable.Gib(item); // WD EDIT
             _appearance.SetData(uid, RecyclerVisuals.Bloody, true);
         }
         else

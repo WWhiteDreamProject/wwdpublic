@@ -264,6 +264,7 @@ public sealed class WoundableDamageChangedEvent(EntityUid? origin, DamageSpecifi
 /// <summary>
 /// Event raised on woundable entity after changing his severity.
 /// </summary>
+/// <param name="Severity">The new severity level.</param>
 public record struct WoundableSeverityChangedEvent(WoundSeverity Severity);
 
 /// <summary>
@@ -290,4 +291,5 @@ public sealed class WoundDamageChangedEvent(EntityUid? origin, FixedPoint2 damag
 /// <summary>
 /// Event raised on a wound after changing his severity.
 /// </summary>
+/// <param name="Severity">The new severity level.</param>
 public record struct WoundSeverityChangedEvent(WoundSeverity Severity);

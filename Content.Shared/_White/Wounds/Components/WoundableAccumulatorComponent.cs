@@ -32,5 +32,5 @@ public sealed partial class WoundableAccumulatorComponent : Component
     /// The current severity of wounds to this accumulator.
     /// </summary>
     [ViewVariables, AutoNetworkedField]
-    public WoundSeverity WoundSeverity;
+    public WoundSeverity Severity = WoundSeverity.Healthy;
 }

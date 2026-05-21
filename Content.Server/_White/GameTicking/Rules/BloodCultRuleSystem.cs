@@ -20,7 +20,7 @@ using Content.Shared._White.BloodCult.BloodCultist;
 using Content.Shared._White.BloodCult.Components;
 using Content.Shared._White.BloodCult.CultItem;
 using Content.Shared._White.BloodCult.Spells;
-using Content.Shared._White.Gibbing;
+using Content.Shared._White.Gibbable.Systems;
 using Content.Shared.Cloning;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.GameTicking.Components;
@@ -50,7 +50,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
     [Dependency] private readonly AntagSelectionSystem _antagSelection = default!;
     [Dependency] private readonly BloodSpearSystem _bloodSpear = default!;
     [Dependency] private readonly ContainerSystem _container = default!;
-    [Dependency] private readonly GibbingSystem _gibbing = default!;
+    [Dependency] private readonly GibbableSystem _gibbable = default!;
     [Dependency] private readonly HandsSystem _hands = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly LanguageSystem _language = default!;
@@ -175,7 +175,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 
                 var harvester = Spawn(cult.HarvesterPrototype, Transform(ent.Owner).Coordinates);
                 _mind.TransferTo(mindContainer.Mind.Value, harvester);
-                _gibbing.Gib(ent.Owner);
+                _gibbable.Gib(ent.Owner);
             }
 
             return;

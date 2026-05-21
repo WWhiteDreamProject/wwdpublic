@@ -22,7 +22,7 @@ using Content.Server.Tabletop.Components;
 using Content.Shared._White.Bloodstream.Components;
 using Content.Shared._White.Body.Components;
 using Content.Shared._White.Damage.Components;
-using Content.Shared._White.Gibbing;
+using Content.Shared._White.Gibbable.Systems;
 using Content.Shared.Administration;
 using Content.Shared.Administration.Components;
 using Content.Shared.Clumsy;
@@ -81,7 +81,7 @@ public sealed partial class AdminVerbSystem
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
     [Dependency] private readonly SuperBonkSystem _superBonkSystem = default!;
     [Dependency] private readonly SlipperySystem _slipperySystem = default!;
-    [Dependency] private readonly GibbingSystem _gibbing = default!; // WD EDIT
+    [Dependency] private readonly GibbableSystem _gibbable = default!; // WD EDIT
 
     // All smite verbs have names so invokeverb works.
     private void AddSmiteVerbs(GetVerbsEvent<Verb> args)
@@ -112,7 +112,7 @@ public sealed partial class AdminVerbSystem
                         4, 1, 2, args.Target, maxTileBreak: 0), // it gibs, damage doesn't need to be high.
                     CancellationToken.None);
 
-                _gibbing.Gib(args.Target); // WD EDIT
+                _gibbable.Gib(args.Target); // WD EDIT
             },
             Impact = LogImpact.Extreme,
             Message = string.Join(": ", explodeName, Loc.GetString("admin-smite-explode-description")) // we do this so the description tells admins the Text to run it via console.

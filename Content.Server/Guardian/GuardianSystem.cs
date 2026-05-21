@@ -1,6 +1,6 @@
 using Content.Server.Popups;
 using Content.Shared._White.Damage.Systems;
-using Content.Shared._White.Gibbing;
+using Content.Shared._White.Gibbable.Systems;
 using Content.Shared.Actions;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
@@ -32,7 +32,7 @@ namespace Content.Server.Guardian
         [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly SharedContainerSystem _container = default!;
         [Dependency] private readonly SharedTransformSystem _transform = default!;
-        [Dependency] private readonly GibbingSystem _gibbing = default!;
+        [Dependency] private readonly GibbableSystem _gibbable = default!;
 
         public override void Initialize()
         {
@@ -122,7 +122,7 @@ namespace Content.Server.Guardian
 
             // Ensure held items are dropped before deleting guardian.
             if (HasComp<HandsComponent>(guardian))
-                _gibbing.Gib(component.HostedGuardian.Value); // WD EDIT
+                _gibbable.Gib(component.HostedGuardian.Value); // WD EDIT
 
             QueueDel(guardian);
             QueueDel(component.ActionEntity);

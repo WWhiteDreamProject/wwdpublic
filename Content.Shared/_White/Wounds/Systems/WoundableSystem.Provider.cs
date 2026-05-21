@@ -28,7 +28,7 @@ public sealed partial class WoundableSystem
     {
         args.Handled = true;
 
-        if (!TryChangeDamage(ent.AsNullable(), args.Damage, out var result, args.IgnoreResistances, args.InterruptsDoAfters, args.Origin))
+        if (!TryChangeDamage((ent, ent.Comp, null), args.Damage, out var result, args.IgnoreResistances, args.InterruptsDoAfters, args.Origin))
             return;
 
         if (ent.Comp.Body is { } body)
@@ -100,7 +100,7 @@ public sealed partial class WoundableSystem
 
     private void OnGetWoundableDamage(Entity<WoundableProviderComponent> ent, ref BodyRelayedEvent<GetWoundableDamageEvent> args)
     {
-        if (!TryChangeDamage(ent.AsNullable(), args.Args.Damage, out var result, args.Args.IgnoreResistances, origin: args.Args.Origin))
+        if (!TryChangeDamage((ent, ent.Comp, null), args.Args.Damage, out var result, args.Args.IgnoreResistances, origin: args.Args.Origin))
             return;
 
         foreach (var (type, damage) in result.DamageDict)
@@ -228,11 +228,11 @@ public sealed partial class WoundableSystem
     public void UpdateWoundSeverity(Entity<WoundableProviderComponent, DamageableComponent> ent)
     {
         var severity = ent.Comp1.Thresholds.HighestMatch(ent.Comp2.TotalDamage) ?? WoundSeverity.Healthy;
-        if (ent.Comp1.WoundSeverity == severity)
+        if (ent.Comp1.Severity == severity)
             return;
 
-        ent.Comp1.WoundSeverity = severity;
-        DirtyField(ent, ent.Comp1, nameof(WoundableProviderComponent.WoundSeverity));
+        ent.Comp1.Severity = severity;
+        DirtyField(ent, ent.Comp1, nameof(WoundableProviderComponent.Severity));
 
         RaiseLocalEvent(ent, new WoundableSeverityChangedEvent(severity));
     }

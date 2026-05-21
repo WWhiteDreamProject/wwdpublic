@@ -1,4 +1,4 @@
-using Content.Shared._White.Gibbing;
+using Content.Shared._White.Gibbable.Systems;
 using Robust.Shared.GameObjects;
 
 namespace Content.IntegrationTests.Tests._White.Gibbing;
@@ -22,7 +22,7 @@ public sealed class GibTest
         var nuid = pair.ToClientUid(target);
         Assert.That(client.EntMan.EntityExists(nuid));
 
-        await server.WaitAssertion(() => server.System<GibbingSystem>().Gib(target));
+        await server.WaitAssertion(() => server.System<GibbableSystem>().Gib(target));
 
         await pair.RunTicksSync(5);
         await pair.WaitCommand("dirty");

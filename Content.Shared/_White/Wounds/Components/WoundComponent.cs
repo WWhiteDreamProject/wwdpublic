@@ -69,5 +69,5 @@ public sealed partial class WoundComponent : Component
     /// The current severity of the wound.
     /// </summary>
     [ViewVariables, AutoNetworkedField]
-    public WoundSeverity WoundSeverity;
+    public WoundSeverity Severity = WoundSeverity.Healthy;
 }

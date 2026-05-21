@@ -2,7 +2,7 @@ using Content.Server.Polymorph.Components;
 using Content.Server.Popups;
 using Content.Shared._White.Body.Components;
 using Content.Shared._White.Damage.Systems;
-using Content.Shared._White.Gibbing;
+using Content.Shared._White.Gibbable.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
@@ -25,7 +25,7 @@ public sealed class ImmovableRodSystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly GibbingSystem _gibbing = default!; // WD EDIT
+    [Dependency] private readonly GibbableSystem _gibbable = default!; // WD EDIT
 
     public override void Update(float frameTime)
     {
@@ -123,7 +123,7 @@ public sealed class ImmovableRodSystem : EntitySystem
                 return;
             }
 
-            _gibbing.Gib(ent); // WD EDIT
+            _gibbable.Gib(ent); // WD EDIT
             return;
         }
 

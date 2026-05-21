@@ -1,4 +1,4 @@
-using Content.Shared._White.Gibbing;
+using Content.Shared._White.Gibbable.Systems;
 using Robust.Shared.Timing;
 using Content.Shared.Changeling;
 using Content.Shared.Mind;
@@ -11,7 +11,7 @@ public sealed class ChangelingEggSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly ChangelingSystem _changeling = default!;
-    [Dependency] private readonly GibbingSystem _gibbing = default!; // WD EDIT
+    [Dependency] private readonly GibbableSystem _gibbable = default!; // WD EDIT
 
     public override void Update(float frameTime)
     {
@@ -39,7 +39,7 @@ public sealed class ChangelingEggSystem : EntitySystem
 
         if (TerminatingOrDeleted(comp.LingMind))
         {
-            _gibbing.Gib(uid); // WD EDIT
+            _gibbable.Gib(uid); // WD EDIT
             return;
         }
 
@@ -55,6 +55,6 @@ public sealed class ChangelingEggSystem : EntitySystem
         if (comp.AugmentedEyesightPurchased)
             _changeling.InitializeAugmentedEyesight(newUid);
 
-        _gibbing.Gib(uid); // WD EDIT
+        _gibbable.Gib(uid); // WD EDIT
     }
 }

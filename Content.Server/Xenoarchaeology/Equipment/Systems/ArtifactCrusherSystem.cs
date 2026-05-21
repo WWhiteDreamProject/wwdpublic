@@ -4,7 +4,7 @@ using Content.Server.Stack;
 using Content.Server.Storage.Components;
 using Content.Server.Xenoarchaeology.XenoArtifacts;
 using Content.Shared._White.Damage.Systems;
-using Content.Shared._White.Gibbing;
+using Content.Shared._White.Gibbable.Systems;
 using Content.Shared.Power;
 using Content.Shared.Verbs;
 using Content.Shared.Whitelist;
@@ -25,7 +25,7 @@ public sealed class ArtifactCrusherSystem : SharedArtifactCrusherSystem
     [Dependency] private readonly StackSystem _stack = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
-    [Dependency] private readonly GibbingSystem _gibbing = default!; // WD EDIT
+    [Dependency] private readonly GibbableSystem _gibbable = default!; // WD EDIT
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -104,7 +104,7 @@ public sealed class ArtifactCrusherSystem : SharedArtifactCrusherSystem
                 _artifact.ForceActivateArtifact(contained);
             }
 
-            var gibs = _gibbing.Gib(contained); // WD EDIT
+            var gibs = _gibbable.Gib(contained); // WD EDIT
 
             foreach (var gib in gibs)
             {

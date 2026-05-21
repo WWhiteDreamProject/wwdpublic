@@ -7,7 +7,7 @@ using Content.Server.Stunnable;
 using Content.Shared._White.BloodCult.BloodCultist;
 using Content.Shared._White.BloodCult.Runes.Components;
 using Content.Shared._White.Damage.Systems;
-using Content.Shared._White.Gibbing;
+using Content.Shared._White.Gibbable.Systems;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.Mobs.Systems;
@@ -21,7 +21,7 @@ public sealed class CultRuneOfferingSystem : EntitySystem
     [Dependency] private readonly BloodCultRuneSystem _bloodCultRune = default!;
     [Dependency] private readonly CuffableSystem _cuffable = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly GibbingSystem _gibbing = default!;
+    [Dependency] private readonly GibbableSystem _gibbable = default!;
     [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
@@ -103,7 +103,7 @@ public sealed class CultRuneOfferingSystem : EntitySystem
             _mind.UnVisit(mindId);
         }
 
-        _gibbing.Gib(target);
+        _gibbable.Gib(target);
     }
 
     private void Convert(Entity<CultRuneOfferingComponent> rune, EntityUid target, EntityUid user)

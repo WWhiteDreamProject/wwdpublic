@@ -34,7 +34,7 @@ public abstract partial class SharedBodySystem
             var parentEv = new BodyProviderInsertedIntoEvent(ent);
             RaiseLocalEvent(parent, ref parentEv);
 
-            var providerEv = new BodyProviderGotInsertedIntoParentEvent(parent);
+            var providerEv = new BodyProviderGotInsertedIntoParentEvent(parent, ent.Comp);
             RaiseLocalEvent(ent, ref providerEv);
 
             if (!parentProviderComp.Body.HasValue || !Resolve(parentProviderComp.Body.Value, ref bodyComp))
@@ -66,10 +66,10 @@ public abstract partial class SharedBodySystem
             ent.Comp.Parent = null;
             DirtyField(ent, ent.Comp, nameof(BodyProviderComponent.Parent));
 
-            var parentEv = new BodyProviderGotRemovedEvent(ent);
+            var parentEv = new BodyProviderGotRemovedEvent(ent, ent.Comp);
             RaiseLocalEvent(parent, ref parentEv);
 
-            var providerEv = new BodyProviderGotRemovedFromParentEvent(parent);
+            var providerEv = new BodyProviderGotRemovedFromParentEvent(parent, ent.Comp);
             RaiseLocalEvent(ent, ref providerEv);
 
             if (!parentProviderComp.Body.HasValue || !Resolve(parentProviderComp.Body.Value, ref bodyComp))
@@ -93,7 +93,7 @@ public abstract partial class SharedBodySystem
         var bodyEv = new BodyProviderInsertedIntoEvent(ent);
         RaiseLocalEvent(body, ref bodyEv);
 
-        var providerEv = new BodyProviderGotInsertedEvent(body);
+        var providerEv = new BodyProviderGotInsertedEvent(body, ent.Comp);
         RaiseLocalEvent(ent, ref providerEv);
 
         foreach (var (childProviderId, childProviderSlot) in ent.Comp.Providers)
@@ -117,7 +117,7 @@ public abstract partial class SharedBodySystem
         var bodyEv = new BodyProviderRemovedFromEvent(ent);
         RaiseLocalEvent(body, ref bodyEv);
 
-        var providerEv = new BodyProviderGotRemovedEvent(body);
+        var providerEv = new BodyProviderGotRemovedEvent(body, ent.Comp);
         RaiseLocalEvent(ent, ref providerEv);
 
         foreach (var (childProviderId, childProviderSlot) in ent.Comp.Providers)

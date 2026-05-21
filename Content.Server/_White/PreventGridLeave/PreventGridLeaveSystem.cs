@@ -1,7 +1,7 @@
 using Content.Server.Explosion.Components;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Popups;
-using Content.Shared._White.Gibbing;
+using Content.Shared._White.Gibbable.Systems;
 using Content.Shared.Implants.Components;
 using Content.Shared.Popups;
 using Robust.Server.GameObjects;
@@ -13,7 +13,7 @@ public sealed class PreventGridLeaveSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
 
-    [Dependency] private readonly GibbingSystem _gibbing = default!;
+    [Dependency] private readonly GibbableSystem _gibbable = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly TriggerSystem _trigger = default!;
@@ -76,6 +76,6 @@ public sealed class PreventGridLeaveSystem : EntitySystem
         }
 
         // In case there is no implant, gib or delete
-        _gibbing.Gib(uid);
+        _gibbable.Gib(uid);
     }
 }

@@ -82,25 +82,25 @@ public abstract partial class SharedBodySystem : EntitySystem
 /// Event raised on body provider entity, when it is inserted into a body.
 /// </summary>
 [ByRefEvent]
-public readonly record struct BodyProviderGotInsertedEvent(EntityUid Body);
+public readonly record struct BodyProviderGotInsertedEvent(EntityUid Body, BodyProviderComponent Type);
 
 /// <summary>
 /// Event raised on body provider entity, when it is inserted into a parent.
 /// </summary>
 [ByRefEvent]
-public readonly record struct BodyProviderGotInsertedIntoParentEvent(EntityUid Parent);
+public readonly record struct BodyProviderGotInsertedIntoParentEvent(EntityUid Parent, BodyProviderComponent Type);
 
 /// <summary>
 /// Event raised on body provider entity, when it is removed from a body.
 /// </summary>
 [ByRefEvent]
-public readonly record struct BodyProviderGotRemovedEvent(EntityUid Body);
+public readonly record struct BodyProviderGotRemovedEvent(EntityUid Body, BodyProviderComponent Type);
 
 /// <summary>
 /// Event raised on body provider entity, when it is removed from a parent.
 /// </summary>
 [ByRefEvent]
-public readonly record struct BodyProviderGotRemovedFromParentEvent(EntityUid Parent);
+public readonly record struct BodyProviderGotRemovedFromParentEvent(EntityUid Parent, BodyProviderComponent Type);
 
 /// <summary>
 /// Event raised on body entity, when a body provider is inserted into it.

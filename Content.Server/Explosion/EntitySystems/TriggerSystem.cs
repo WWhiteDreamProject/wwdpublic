@@ -7,7 +7,7 @@ using Content.Server.Pinpointer;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Flash.Components;
 using Content.Server.Radio.EntitySystems;
-using Content.Shared._White.Gibbing;
+using Content.Shared._White.Gibbable.Systems;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Database;
@@ -79,7 +79,7 @@ namespace Content.Server.Explosion.EntitySystems
         [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
         [Dependency] private readonly InventorySystem _inventory = default!;
         [Dependency] private readonly ElectrocutionSystem _electrocution = default!;
-        [Dependency] private readonly GibbingSystem _gibbing = default!; // WD EDIT
+        [Dependency] private readonly GibbableSystem _gibbable = default!; // WD EDIT
 
         public override void Initialize()
         {
@@ -207,7 +207,7 @@ namespace Content.Server.Explosion.EntitySystems
                     Del(item);
                 }
             }
-            _gibbing.Gib(uid, user: args.User); // WD EDIT
+            _gibbable.Gib(uid, user: args.User); // WD EDIT
             args.Handled = true;
         }
 

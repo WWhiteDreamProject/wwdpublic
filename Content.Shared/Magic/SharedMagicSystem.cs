@@ -1,6 +1,6 @@
 using System.Numerics;
 using Content.Shared._Goobstation.Religion;
-using Content.Shared._White.Gibbing;
+using Content.Shared._White.Gibbable.Systems;
 using Content.Shared.Actions;
 using Content.Shared.Charges.Components;
 using Content.Shared.Charges.Systems;
@@ -68,7 +68,7 @@ public abstract class SharedMagicSystem : EntitySystem
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
     [Dependency] private readonly SharedChargesSystem _charges = default!;
-    [Dependency] private readonly GibbingSystem _gibbing = default!; // WD EDIT
+    [Dependency] private readonly GibbableSystem _gibbable = default!; // WD EDIT
 
     private static readonly ProtoId<TagPrototype> InvalidForGlobalSpawnSpellTag = "InvalidForGlobalSpawnSpell";
 
@@ -412,7 +412,7 @@ public abstract class SharedMagicSystem : EntitySystem
 
         _physics.ApplyLinearImpulse(ev.Target, impulseVector);
 
-        _gibbing.Gib(ev.Target); // WD EDIT
+        _gibbable.Gib(ev.Target); // WD EDIT
     }
 
     // End Touch Spells

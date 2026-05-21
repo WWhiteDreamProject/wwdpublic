@@ -21,7 +21,7 @@ using System.Linq;
 using Content.Server._White.Body.Systems;
 using Content.Server.Construction.Completions;
 using Content.Shared._White.Damage.Systems;
-using Content.Shared._White.Gibbing;
+using Content.Shared._White.Gibbable.Systems;
 using Content.Shared.Projectiles;
 using Content.Shared.Throwing;
 
@@ -48,7 +48,7 @@ namespace Content.Server.Destructible
         [Dependency] public readonly IAdminLogManager AdminLogger = default!;
         [Dependency] private readonly ThrowingSystem _throwing = default!;
         [Dependency] private readonly SharedProjectileSystem _projectile = default!;
-        [Dependency] public readonly GibbingSystem Gibbing = default!; // WD EDIT
+        [Dependency] public readonly GibbableSystem Gibbable = default!; // WD EDIT
 
         public override void Initialize()
         {

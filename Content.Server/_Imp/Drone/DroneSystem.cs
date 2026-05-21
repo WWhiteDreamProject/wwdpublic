@@ -3,7 +3,7 @@ using Content.Server.Popups;
 using Content.Server.Tools.Innate;
 using Content.Shared.UserInterface;
 using Content.Shared._Imp.Drone;
-using Content.Shared._White.Gibbing;
+using Content.Shared._White.Gibbable.Systems;
 using Content.Shared.Emoting;
 using Content.Shared.Examine;
 using Content.Shared.Ghost;
@@ -31,7 +31,7 @@ namespace Content.Server._Imp.Drone
         [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
         [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-        [Dependency] private readonly GibbingSystem _gibbing = default!; // WD EDIT
+        [Dependency] private readonly GibbableSystem _gibbable = default!; // WD EDIT
 
         public override void Initialize()
         {
@@ -109,7 +109,7 @@ namespace Content.Server._Imp.Drone
                 if (TryComp<InnateToolComponent>(uid, out var innate))
                     _innateToolSystem.Cleanup(uid, innate);
 
-                _gibbing.Gib(uid); // WD EDIT
+                _gibbable.Gib(uid); // WD EDIT
                 QueueDel(uid);
             }
         }
