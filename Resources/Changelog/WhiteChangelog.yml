@@ -5289,3 +5289,10 @@ Entries:
   id: 555
   time: '2026-05-13T07:31:29.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1131
+- author: Pedro-233
+  changes:
+    - type: Tweak
+      message: Урон мышей увеличен
+  id: 556
+  time: '2026-05-22T04:09:08.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1125
