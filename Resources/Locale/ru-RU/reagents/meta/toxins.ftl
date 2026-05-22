@@ -86,7 +86,7 @@ reagent-name-soulbreaker-toxin = токсин соулбрейкер
 reagent-desc-soulbreaker-toxin = Или же токсин, разрушающий душу. Анти-псионческое вещевство примерно в 4 раза сильнее токсина, разрушающего разум (майндбрейкера).
 
 reagent-name-lotophagoi-oil = масло лотофагов
-reagent-desc-lotophagoi-oil = A super potent drug that is much better at inducing psionics than normal hallucinogens, but with worse side effects.
+reagent-desc-lotophagoi-oil = Сверхмощный препарат, который даёт возможность получить псионические способности гораздо проще, чем при употреблении обычных галлюциногенов, но имеет худшие побочные эффекты из возможных.
 
 reagent-name-ectoplasm = эктоплазма
 reagent-desc-ectoplasm = Физическая составляющая наполовину материальных духов.
