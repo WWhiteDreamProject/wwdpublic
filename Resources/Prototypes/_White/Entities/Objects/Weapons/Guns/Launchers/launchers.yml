@@ -72,7 +72,8 @@
   components:
   - type: AmmoCounter
   - type: Gun
-    soundGunshot: /Audio/Effects/gib1.ogg
+    soundGunshot: 
+      path: /Audio/Effects/gib1.ogg
     fireRate: 0.5
     clumsyProof: true
   - type: BasicEntityAmmoProvider
