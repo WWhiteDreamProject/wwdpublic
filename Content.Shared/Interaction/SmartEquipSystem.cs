@@ -49,27 +49,27 @@ public sealed class SmartEquipSystem : EntitySystem
 
     private void HandleSmartEquipBackpack(ICommonSession? session)
     {
-        HandleSmartEquip(session, Loc.GetString("smart-equip-slot-back")); // WWDP EDIT
+        HandleSmartEquip(session, "back");
     }
 
     private void HandleSmartEquipBelt(ICommonSession? session)
     {
-        HandleSmartEquip(session, Loc.GetString("smart-equip-slot-belt")); // WWDP EDIT
+        HandleSmartEquip(session, "belt");
     }
 
     private void HandleSmartEquipPocket1(ICommonSession? session)
     {
-        HandleSmartEquip(session, Loc.GetString("smart-equip-slot-pocket1")); // WWDP EDIT
+        HandleSmartEquip(session, "pocket1");
     }
 
     private void HandleSmartEquipPocket2(ICommonSession? session)
     {
-        HandleSmartEquip(session, Loc.GetString("smart-equip-slot-pocket2")); // WWDP EDIT
+        HandleSmartEquip(session, "pocket2");
     }
 
     private void HandleSmartEquipSuitStorage(ICommonSession? session)
     {
-        HandleSmartEquip(session, Loc.GetString("smart-equip-slot-suitstorage")); // WWDP EDIT
+        HandleSmartEquip(session, "suitstorage");
     }
 
     private void HandleSmartEquip(ICommonSession? session, string equipmentSlot)
@@ -92,7 +92,7 @@ public sealed class SmartEquipSystem : EntitySystem
 
         if (!TryComp<InventoryComponent>(uid, out var inventory) || !_inventory.HasSlot(uid, equipmentSlot, inventory))
         {
-            _popup.PopupClient(Loc.GetString("smart-equip-missing-equipment-slot", ("slotName", equipmentSlot)), uid, uid);
+            _popup.PopupClient(Loc.GetString("smart-equip-missing-equipment-slot", ("slotName", Loc.GetString($"smart-equip-slot-{equipmentSlot}"))), uid, uid); // WWDP EDIT (loc)
             return;
         }
 
@@ -130,7 +130,7 @@ public sealed class SmartEquipSystem : EntitySystem
             return;
         }
         // WD EDIT END
-        var emptyEquipmentSlotString = Loc.GetString("smart-equip-empty-equipment-slot", ("slotName", equipmentSlot));
+        var emptyEquipmentSlotString = Loc.GetString("smart-equip-empty-equipment-slot", ("slotName", Loc.GetString($"smart-equip-slot-{equipmentSlot}"))); // WWDP EDIT (loc)
 
         // case 1 (no slot item):
         if (slotEntity is not { } slotItem)
