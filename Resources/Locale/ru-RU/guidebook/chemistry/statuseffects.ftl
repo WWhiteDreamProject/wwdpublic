@@ -13,5 +13,5 @@ reagent-effect-status-effect-StaminaModifier = изменение выносли
 reagent-effect-status-effect-RadiationProtection = защиту от радиации
 reagent-effect-status-effect-Drowsiness = сонливость
 reagent-effect-status-effect-Adrenaline = адреналин
-reagent-effect-status-effect-NoScream = анальгезия
+reagent-effect-status-effect-NoScream = анальгезию
 reagent-effect-status-effect-DisableAccent = удаление акцентов
