@@ -130,7 +130,7 @@ public sealed class SmartEquipSystem : EntitySystem
             return;
         }
         // WD EDIT END
-        var emptyEquipmentSlotString = Loc.GetString("smart-equip-empty-equipment-slot", ("slotName", equipmentSlot));
+        var emptyEquipmentSlotString = Loc.GetString("smart-equip-empty-equipment-slot", ("slotName", Loc.GetString($"smart-equip-slot-{equipmentSlot}"))); // WWDP EDIT (loc)
 
         // case 1 (no slot item):
         if (slotEntity is not { } slotItem)
