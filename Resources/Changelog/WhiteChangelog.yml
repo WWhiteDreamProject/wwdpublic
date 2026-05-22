@@ -5321,3 +5321,10 @@ Entries:
   id: 559
   time: '2026-05-22T06:23:14.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1082
+- author: Lachklen
+  changes:
+    - type: Fix
+      message: Фикс переводов.
+  id: 560
+  time: '2026-05-22T12:35:15.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1135
