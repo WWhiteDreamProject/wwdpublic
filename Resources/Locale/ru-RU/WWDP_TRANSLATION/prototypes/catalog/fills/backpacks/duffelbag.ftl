@@ -1,29 +1,29 @@
 ent-ClothingBackpackDuffelSurgeryFilled = хирургический вещмешок
-    .desc = Большой вещевой мешок для хранения дополнительного медицинского снаряжения - похоже, этот мешок предназначен для хранения хирургических инструментов.
+    .desc = Большой вещевой мешок для хранения дополнительного медицинского снаряжения — похоже, этот мешок предназначен для хранения хирургических инструментов.
 
 ent-ClothingBackpackDuffelSyndicateFilledMedical = хирургический вещмешок синдиката
     .desc = Большой вещевой мешок с полным набором хирургических инструментов.
 
-ent-ClothingBackpackDuffelSyndicateFilledShotgun = набор "Бульдог"
+ent-ClothingBackpackDuffelSyndicateFilledShotgun = набор «Бульдог»
     .desc = Простой и надежный: Содержит популярный дробовик Бульдог, барабан пуль и 3 барабана дроби.
 
-ent-ClothingBackpackDuffelSyndicateFilledSMG = набор "C-20r"
-    .desc = Старый добрый: Классический пистолет-пулемет C-20r в комплекте с тремя магазинами.
+ent-ClothingBackpackDuffelSyndicateFilledSMG = набор «C-20r»
+    .desc = Старый добрый: Классический пистолет-пулемет «C-20r» в комплекте с тремя магазинами.
 
-ent-ClothingBackpackDuffelSyndicateFilledRevolver = набор "Питон"
+ent-ClothingBackpackDuffelSyndicateFilledRevolver = набор «Питон»
     .desc = Выступите громко и гордо с заряженным Магнум Питон и двумя спидлоадерами.
 
-ent-ClothingBackpackDuffelSyndicateFilledLMG = "L6 Saw"
+ent-ClothingBackpackDuffelSyndicateFilledLMG = «L6 Saw»
     .desc = Еще больше дакки: культовый лёгкий пулемет L6 в комплекте с 2 коробами патронов.
 
-ent-ClothingBackpackDuffelSyndicateFilledGrenadeLauncher = набор "Крайт"
+ent-ClothingBackpackDuffelSyndicateFilledGrenadeLauncher = набор «Крайт»
     .desc = Старый гранатомет Крайт, снабженный 11 гранатами различной поражающей способности.
 
-ent-ClothingBackpackDuffelSyndicateFilledCarbine = набор "М-90gl"
+ent-ClothingBackpackDuffelSyndicateFilledCarbine = набор «М-90gl»
     .desc = Универсальная боевая винтовка с подствольным гранатометом, в комплекте с 3 магазинами и 6 гранатами различной мощности.
 
 ent-ClothingBackpackDuffelSyndicateAmmoFilled = набор боеприпасов
-    .desc = Перезаряжаю! Содержит 4 магазина для C-20r, 4 барабана для Бульдога и 2 короба патронов для L6 SAW.
+    .desc = Перезаряжаю! Содержит 4 магазина для «C-20r», 4 барабана для Бульдога и 2 короба патронов для L6 SAW.
 
 ent-ClothingBackpackDuffelSyndicateCostumeCentcom = вещмешок с костюмом представителя Центкома
     .desc = Содержит полный комплект униформы представителя Центкома, гарнитуру и планшет. Гарнитура поставляется без ключа шифрования.
@@ -39,7 +39,7 @@ ent-ClothingBackpackDuffelSyndicateCarpSuit = вещмешок костюма к
 ent-ClothingBackpackDuffelSyndicatePyjamaBundle = вещмешок пижам синдиката
     .desc = Содержит 3 пижамы синдиката и 3 плюшевые игрушки для самой лучшей ночёвки.
 
-ent-ClothingBackpackDuffelSyndicateC4tBundle = набор C-4 синдиката
+ent-ClothingBackpackDuffelSyndicateC4tBundle = набор C4 синдиката
     .desc = Содержит много зарядов взрывчатки С-4.
 
 ent-ClothingBackpackChameleonFill = { ent-ClothingBackpackChameleon }

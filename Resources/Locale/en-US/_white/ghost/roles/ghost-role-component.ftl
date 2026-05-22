@@ -31,3 +31,7 @@ ghost-role-information-xenomorph-sentinel-name = xenomorph sentinel
 ghost-role-information-xenomorph-sentinel-description = You're a xenomorph sentinel. Help the praetorian defend the hive and attack the humanoids if necessary.
 
 ghost-role-information-rules-default-team-antagonist = You are a team antagonist. Work together with fellow antagonists to achieve a common goal.
+
+ghost-role-information-salvage-snake-name = salvage snake
+ghost-role-information-salvage-snake-description = You are a salvage snake hunting for a meal.
+ghost-role-information-salvage-snake-rules = You are an antagonist, kill!

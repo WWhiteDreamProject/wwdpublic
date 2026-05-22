@@ -1,4 +1,4 @@
-advertisement-block-game-1 = Юридически не "Тетрис"!
+advertisement-block-game-1 = Юридически не «Тетрис»!
 advertisement-block-game-2 = Что за чертов T-спин?!
 advertisement-block-game-3 = Эти блоки сами себя не расчистят!
 advertisement-block-game-4 = Бип-буп! БВУУУП!

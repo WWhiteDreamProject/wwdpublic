@@ -1,4 +1,6 @@
-- type: guideEntry
-  id: Thaven
-  name: Thaven
-  text: "/ServerInfo/_Impstation/Guidebook/Mobs/Thaven.xml"
+# WWDP EDIT START
+#- type: guideEntry
+#  id: Thaven
+#  name: Thaven
+#  text: "/ServerInfo/_Impstation/Guidebook/Mobs/Thaven.xml"
+# WWDP EDIT END

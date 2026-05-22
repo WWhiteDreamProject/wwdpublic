@@ -1,29 +1,35 @@
 ent-MechEquipmentHorn = механический гудок
    .desc = Усовершенствованный велосипедный гудок, воспроизводящий множество веселых звуков для удовольствия экипажа. ХОНК!
 
-ent-MechHonker = Х.О.Н.К.
-   .desc = Этот экзокостюм производства "Тирания Хонка, КОРП" спроектирован как тяжелая клоунская поддержка. Используется для распространения веселья и радости жизни. ХОНК!
+ent-MechHonker = мех «Х.О.Н.К.»
+   .desc = Этот экзокостюм производства «Тирания Хонка, КОРП» спроектирован как тяжелая клоунская поддержка. Используется для распространения веселья и радости жизни. ХОНК!
 
-ent-MechHonkerBattery = ""
-   .desc = ""
+ent-MechHonkerBattery = { ent-MechHonker }
+   .desc = { ent-MechHonker.desc }
+   .suffix = С батарейкой
 
-ent-MechHamtr = ХОМЯК
+ent-MechHonkerFilled = { ent-MechHonker }
+   .desc = { ent-MechHonker.desc }
+   .suffix = Полный
+
+ent-MechHamtr = мех «Х.О.М.Я.К.»
    .desc = Экспериментальный мех, который использует интерфейс мозг-компьютер для прямого подключения к мозгу хомяка.
 
-ent-MechHamtrBattery = ""
-   .desc = ""
+ent-MechHamtrBattery = { ent-MechHamtr }
+   .desc = { ent-MechHamtr.desc }
+   .suffix = С батарейкой
 
-ent-BaseRipleyPart = ""
-   .desc = ""
+ent-BaseRipleyPart = часть меха «Рипли»
+   .desc = { "" }
 
-ent-BaseRipleyPartItem = ""
-   .desc = ""
+ent-BaseRipleyPartItem = часть меха «Рипли»
+   .desc = { "" }
 
-ent-BaseHonkerPart = ""
-   .desc = ""
+ent-BaseHonkerPart = часть меха «Х.О.Н.К.»
+   .desc = { "" }
 
-ent-BaseHonkerPartItem = ""
-   .desc = ""
+ent-BaseHonkerPartItem = часть меха «Х.О.Н.К.»
+   .desc = { "" }
 
 ent-HonkerHarness = ядро Х.О.Н.К.
    .desc = Ядро H.O.N.K. мех
@@ -43,17 +49,17 @@ ent-HonkerRArm = правая рука Х.О.Н.К.
 ent-HonkerChassis = рама Х.О.Н.К.
    .desc = Незавершенное строительство Х.О.Н.К. меха. Содержит блок смеха, банановое ядро и системы поддержки гудков.
 
-ent-BaseHamtrPart = ""
-   .desc = ""
+ent-BaseHamtrPart = { "" }
+   .desc = { "" }
 
-ent-BaseHamtrPartItem = ""
-   .desc = ""
+ent-BaseHamtrPartItem = { "" }
+   .desc = { "" }
 
-ent-HamtrHarness = ядро ХОМЯК
-   .desc = Ядро ХОМЯК.
+ent-HamtrHarness = ядро Х.О.М.Я.К.
+   .desc = Ядро Х.О.М.Я.К.
 
-ent-HamtrLArm = левая рука ХОМЯК
-   .desc = Левая рука ХОМЯК. Она крепится на раму меха.
+ent-HamtrLArm = левая рука Х.О.М.Я.К.
+   .desc = Левая рука Х.О.М.Я.К. Она крепится на раму меха.
 
-ent-HamtrLLeg = левая нога ХОМЯК
-   .desc = Левая нога ХОМЯК. Она крепится на раму меха.
+ent-HamtrLLeg = левая нога Х.О.М.Я.К.
+   .desc = Левая нога Х.О.М.Я.К. Она крепится на раму меха.

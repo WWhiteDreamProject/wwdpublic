@@ -1,14 +1,14 @@
 ent-GasMinerOxygenStation = Добытчик газа O2
-   .desc = ""
+   .desc = { "" }
 
 ent-GasMinerOxygenStationLarge = Добытчик газа O2
-   .desc = ""
+   .desc = { "" }
 
 ent-GasMinerNitrogenStation = Добытчик газа N2
-   .desc = ""
+   .desc = { "" }
 
 ent-GasMinerNitrogenStationLarge = Добытчик газа N2
-   .desc = ""
+   .desc = { "" }
 
 ent-GasThermoMachineFreezerEnabled = { ent-GasThermoMachineFreezer }
    .desc = { ent-BaseGasThermoMachine.desc }
@@ -29,11 +29,11 @@ ent-GeneratorBasic15kW = { ent-BaseGenerator }
    .desc = { ent-BaseGenerator.desc }
    .suffix = Базовый, 15кВт
 
-ent-ParticleAcceleratorFinishedPart = ""
-   .desc = ""
+ent-ParticleAcceleratorFinishedPart = { "" }
+   .desc = { "" }
 
-ent-ParticleAcceleratorUnfinishedBase = ""
-   .desc = ""
+ent-ParticleAcceleratorUnfinishedBase = { "" }
+   .desc = { "" }
 
 ent-ParticleAcceleratorEmitterPort = правый эмиттер УЧ
    .desc = Это запускает альфа-частицы, возможно, они не захотят стоять рядом с этим концом.

@@ -1,7 +1,7 @@
 - type: quickPhrase
   id: BaseMannerPhrase
   parent: BaseCommonPhrase
-  group: Manners
+  group: aac-group-manners
   abstract: true
 
 - type: quickPhrase

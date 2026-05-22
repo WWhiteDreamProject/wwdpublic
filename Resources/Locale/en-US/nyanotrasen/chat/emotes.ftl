@@ -21,3 +21,5 @@ chat-emote-trigger-meows-4 = mraows
 chat-emote-trigger-mews-1 = mews
 chat-emote-trigger-growls-1 = growls
 chat-emote-trigger-purrs-1 = purrs
+chat-emote-trigger-purrs-2 = mrrows
+chat-emote-trigger-purrs-3 = mrows

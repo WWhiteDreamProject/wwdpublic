@@ -7,7 +7,7 @@ ent-BaseMagazinePistolHighCapacity = автопистолетный магази
 ent-BaseMagazinePistolSubMachineGun = магазин ПП (.35 авто)
     .desc = { ent-BaseItem.desc }
 
-ent-MagazinePistolSubMachineGunTopMounted = магазин WT550 (.35 авто, надствольный)
+ent-MagazinePistolSubMachineGunTopMounted = магазин «WT550» (.35 авто, надствольный)
     .desc = { ent-BaseItem.desc }
 
 ent-MagazinePistol = пистолетный магазин (.35 авто)
