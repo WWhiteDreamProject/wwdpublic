@@ -5303,3 +5303,10 @@ Entries:
   id: 557
   time: '2026-05-22T04:14:50.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1124
+- author: Pedro-233
+  changes:
+    - type: Tweak
+      message: Изменены требования динамика к онлайну насчёт мидраунд ивентов
+  id: 558
+  time: '2026-05-22T06:12:40.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1113
