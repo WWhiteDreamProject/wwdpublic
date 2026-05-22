@@ -81903,7 +81903,7 @@ entities:
     - type: Transform
       pos: 5.4949827,-12.34338
       parent: 2
-- proto: ClothingNeckHeadphones
+- proto: ClothingMultipleHeadphones
   entities:
   - uid: 11461
     components:
