@@ -1870,6 +1870,7 @@ namespace Content.Client.Lobby.UI
 
             UpdateWeight();
             ReloadProfilePreview(); // WWDP EDIT
+            IsDirty = true; // WWDP EDIT
         }
 
         private void UpdateWeight()
