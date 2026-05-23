@@ -95,7 +95,7 @@ thaven-mood-nonsmoker-name = Не курю и вам не советую
 thaven-mood-nonsmoker-desc = Пасcивное курение смертельно опасно. Держитесь подальше от курящих.
 
 thaven-mood-word-bad-name = Табу
-thaven-mood-word-bad-desc = Слова "{$word1}", "{$word2}" и "{$word3}" глубоко оскорбительны.
+thaven-mood-word-bad-desc = Слова «{$word1}», «{$word2}» и «{$word3}» глубоко оскорбительны.
 
 thaven-mood-crawler-name = Поклон в ниц
 thaven-mood-crawler-desc = Перед разговором необходимо склониться ниц — иначе это неприлично.

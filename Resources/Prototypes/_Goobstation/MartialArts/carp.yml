@@ -31,7 +31,7 @@
 
 - type: combo
   id: SleepingCarpGnashingTeeth
-  name: Gnashing Teeth
+  name: gnashing-teeth # WWDP EDIT (loc)
   martialArtsForm: SleepingCarp
   attacks:
   - Harm
@@ -42,7 +42,7 @@
 
 - type: combo
   id: SleepingCarpKneeHaul
-  name: Knee Haul
+  name: knee-haul # WWDP EDIT (loc)
   martialArtsForm: SleepingCarp
   attacks:
   - Harm
@@ -54,7 +54,7 @@
 
 - type: combo
   id: SleepingCarpCrashingWaves
-  name: Crashing Waves
+  name: crashing-waves # WWDP EDIT (loc)
   martialArtsForm: SleepingCarp
   attacks:
   - Harm

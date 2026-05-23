@@ -7,16 +7,30 @@
 
 Ты можешь использовать следующие теги:
 
-- [color=tan]\[color=color\]\[\/color\][/color] — чтобы изменить цвет текста
-- [color=tan]\[head=n\]\[\/head\][/color] — где [italic]n[/italic] — уровень заголовка (от 1 до 3)
-- [color=tan]\[bullet\/\][/color] — чтобы вставить маркированный пункт списка
-- [color=tan][bold]\[bold\]\[\/bold\][/bold][/color], [color=tan][italic]\[italic\]\[\/italic\][/italic][/color] — для выделения текста
+- [color=tan]«\[color=color\]\[\/color\]»[/color] — чтобы изменить цвет текста
+- [color=tan]«\[head=n\]\[\/head\]»[/color] — где [italic]n[/italic] — уровень заголовка (от 1 до 3)
+- [color=tan]«\[bullet\/\]»[/color] — чтобы вставить маркированный пункт списка
+- [color=tan][bold]«\[bold\]\[\/bold\]»[/bold][/color], [color=tan][italic]«\[italic\]\[\/italic\]»[/italic][/color], [color=tan][bolditalic]«\[bolditalic]\[/bolditalic]»[/bolditalic][/color], [color=tan][mono]«\[mono]\[/mono]»[/mono][/color] — для выделения текста
 
-Можно также комбинировать [bold][italic]жирный курсив[/italic][/bold], либо использовать сокращённый вариант [color=tan][bolditalic]\[bolditalic\][/bolditalic][/color].
+Можно также комбинировать теги, например: [color=tan]\[bold]\[italic]\[color=yellow][/color][bold][italic][color=yellow]жирный, курсив и жёлтый цвет[/color][/italic][/bold][color=tan]\[/color]\[/italic]\[/bold][/color]
+
+Для облегчения и сокращения писанины есть короткие обозначения:
+
+- [color=tan][b]«\[b]\[/b]»[/b][/color] — сокращение тега для жирного текста
+- [color=tan][i]«\[i]\[/i]»[/i][/color] — сокращение тега для курсива
+- [color=tan][bi]«\[bi]\[/bi]»[/bi][/color] — сокращение тега жирного+курсив
+
+Также есть теги, помимо выделения меняющие шрифт:
+
+- [color=tan][cb]«\[cb]\[/cb]»[/cb][/color] и [color=tan][cbold]«\[cbold]\[/cbold]»[/cbold][/color] — жирный в шрифте чата
+- [color=tan][ci]«\[ci]\[/ci]»[/ci][/color] и [color=tan][citalic]«\[citalic]\[/citalic]»[/citalic][/color] — курсив в шрифте чата
+- [color=tan][cbi]«\[cbi]\[/cbi]»[/cbi][/color] и [color=tan][cbolditalic]«\[cbolditalic]\[/cbolditalic]»[/cbolditalic][/color] — жирный+курсив в шрифте чата
 
 В параметре цвета можно использовать как шестнадцатеричный код, так и название цвета по HTML. Например:
 
-- [color=#ff0000]\[color=#ff0000\]\[\/color\][/color]
-- [color=red]\[color=red\]\[\/color\][/color]
+- Синий в HEX коде: [color=#0000ff]«\[color=#0000ff\]\[\/color\]»[/color]
+- Синий по HTML имени: [color=blue]«\[color=blue\]\[\/color\]»[/color]
+
+Для того, чтобы написать похожий гайд, чтобы парсер не пытался преобразовать ваши теги в форматирование, нужно всего лишь написать перед таким тегом символ обратного слеша: [color=tan]«\\\\»[/color] (чтобы написать один символ обратного слеша на бумаге как текстовый символ, а не как оператор, понадобится два обратных слеша)
 
 </Document>

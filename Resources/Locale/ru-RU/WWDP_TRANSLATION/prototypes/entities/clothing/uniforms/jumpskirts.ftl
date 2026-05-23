@@ -187,7 +187,7 @@ ent-ClothingUniformJumpskirtOperative = юбка-комбинезон опера
     .suffix = { "" }
 
 ent-ClothingUniformJumpskirtAtmos = юбка-комбинезон атмосферного техника
-    .desc = Я на работе. Я не могу бросить работу. Работа - это дыхание. Я проверяю качество воздуха.
+    .desc = Я на работе. Я не могу бросить работу. Работа — это дыхание. Я проверяю качество воздуха.
     .suffix = { "" }
 
 ent-ClothingUniformJumpskirtJanimaid = форма горничной

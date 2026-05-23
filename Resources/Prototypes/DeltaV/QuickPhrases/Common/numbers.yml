@@ -1,7 +1,7 @@
 - type: quickPhrase
   id: BaseNumberPhrase
   parent: BaseCommonPhrase
-  group: Numbers and Units
+  group: aac-group-numbers-and-units
   abstract: true
 
 - type: quickPhrase

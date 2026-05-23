@@ -11,5 +11,5 @@ changelog-version-tag = { $fork }/{ $version }
 changelog-button = Обновления
 changelog-button-new-entries = Обновления (новые!)
 
-changelog-tab-title-Changelog = Changelog
-changelog-tab-title-Admin = Admin
+changelog-tab-title-Changelog = Журнал изменений
+changelog-tab-title-Admin = Админ

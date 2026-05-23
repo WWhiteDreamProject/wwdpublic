@@ -77,7 +77,7 @@ public sealed partial class AACWindow : FancyWindow
 
         foreach (var group in groups)
         {
-            var header = CreateHeaderForGroup(group.Key);
+            var header = CreateHeaderForGroup(Loc.GetString(group.Key));  // WWDP EDIT
             var buttonContainer = CreateButtonContainerForGroup(group.Value);
             boxContainer.AddChild(header);
             boxContainer.AddChild(buttonContainer);

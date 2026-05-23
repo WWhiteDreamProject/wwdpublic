@@ -1359,7 +1359,7 @@ entities:
     - type: Transform
       pos: -3.5208335,-6.9696307
       parent: 576
-- proto: ClothingNeckHeadphones
+- proto: ClothingMultipleHeadphones
   entities:
   - uid: 200
     components:

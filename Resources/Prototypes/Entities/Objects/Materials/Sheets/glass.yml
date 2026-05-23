@@ -115,7 +115,7 @@
     - prototype: SheetClockworkGlass # WWDP
       closeUiOnSelect: false
     - category: # WWDP added category
-        name: Colored Light Tubes
+        name: Colored-Light-Tubes
         icon:
           sprite: Objects/Power/light_tube.rsi
           state: normal

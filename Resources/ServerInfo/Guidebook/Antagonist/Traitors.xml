@@ -2,7 +2,7 @@
   # Предатели
 
   <Box>
-    [color=#999999][italic]"ВИСКИ. ЭХО. ВИСКИ. ЛИМА. АЛЬФА. ДЕЛЬТА. АГЕНТ, ВЫ АКТИВИРОВАНЫ."[/italic][/color]
+    [color=#999999][italic]„ВИСКИ. ЭХО. ВИСКИ. ЛИМА. АЛЬФА. ДЕЛЬТА. АГЕНТ, ВЫ АКТИВИРОВАНЫ.“[/italic][/color]
   </Box>
   <Box>
     <GuideEntityEmbed Entity="PosterContrabandSyndicateRecruitment" Caption=""/>

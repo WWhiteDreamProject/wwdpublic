@@ -1,64 +1,64 @@
-dynamic-roundend-totalthreat = Total threat points: {$points}.
-dynamic-roundend-points-roundstart = Roundstart budget: {$points}.
-dynamic-roundend-points-midround = Midround budget: {$points}.
+dynamic-roundend-totalthreat = Всего очков угроз: {$points}.
+dynamic-roundend-points-roundstart = Бюджет начала раунда: {$points}.
+dynamic-roundend-points-midround = Бюджет середины раунда: {$points}.
 
-dynamic-roundend-gamerules-title = Executed Gamerules:
+dynamic-roundend-gamerules-title = Выполненные правила игры:
 
-dynamic-gamerule-unknown-title = Unknown Gamerule
-dynamic-gamerule-traitor-title = [color=crimson]Traitors[/color]
-dynamic-gamerule-changeling-title = [color=yellow]Changelings[/color]
-dynamic-gamerule-heretic-title = [color=purple]Heretics[/color]
-dynamic-gamerule-thief-title = [color=gray]Thieves[/color]
-dynamic-gamerule-revolutionary-title = [color=cyan]Revolutionaries[/color]
-dynamic-gamerule-zombies-title = [color=pink]Initial Infected[/color]
-dynamic-gamerule-nukeops-title = [color=red]Nuclear Emergency[/color]
+dynamic-gamerule-unknown-title = Неизвестное правило игры
+dynamic-gamerule-traitor-title = [color=crimson]Предатели[/color]
+dynamic-gamerule-changeling-title = [color=yellow]Генокрады[/color]
+dynamic-gamerule-heretic-title = [color=purple]Еретики[/color]
+dynamic-gamerule-thief-title = [color=gray]Воры[/color]
+dynamic-gamerule-revolutionary-title = [color=cyan]Революционеры[/color]
+dynamic-gamerule-zombies-title = [color=pink]Нулевые заражённые[/color]
+dynamic-gamerule-nukeops-title = [color=red]Ядерные оперативники[/color]
 
-dynamic-gamerule-threat-perrule = {$num} threat.
+dynamic-gamerule-threat-perrule = {$num} {RU-PLURAL($num, "угроза", "угрозы", "угроз")}.
 
-dynamic-gamerule-skeleton-title = Closet Skeleton Spawn
-dynamic-gamerule-ninja-title = Space Ninja Spawn
-dynamic-gamerule-loneop-title = Lone Operative Spawn
-dynamic-gamerule-dragon-title = Space Dragon Spawn
-dynamic-gamerule-spiders-title = Spider Infestation
-dynamic-gamerule-xenos-title = Xenobiology Outbreak
-dynamic-gamerule-revenant-title = Revenant Spawn
-dynamic-gamerule-ratking-title = Rat Migration
+dynamic-gamerule-skeleton-title = Спавн скелета в шкафу
+dynamic-gamerule-ninja-title = Спавн космического ниндзи
+dynamic-gamerule-loneop-title = Спавн лон-опера
+dynamic-gamerule-dragon-title = Спавн космического дракона
+dynamic-gamerule-spiders-title = Заражение пауками
+dynamic-gamerule-xenos-title = Ксенобиологическая вспышка
+dynamic-gamerule-revenant-title = Спавн ревенанта
+dynamic-gamerule-ratking-title = Миграция крыс
 
-dynamic-gamerule-midround-traitor-title = Sleeper Agents (Traitors)
-dynamic-gamerule-midround-changeling-title = Genome Awakening (Changelings)
-dynamic-gamerule-midround-heretic-title = Sudden Englightment (Heretics)
-dynamic-gamerule-midround-revolutionary-title = Provocateurs (Revolutionaries)
-dynamic-gamerule-midround-zombies-title = Romerol Outbreak (Zombies)
-dynamic-gamerule-midround-blob-title = Blob Spawn (Blob)
+dynamic-gamerule-midround-traitor-title = Спящие агенты (предатели)
+dynamic-gamerule-midround-changeling-title = Пробуждение генома (генокрады)
+dynamic-gamerule-midround-heretic-title = Внезапное просветление (еретики)
+dynamic-gamerule-midround-revolutionary-title = Провокаторы (революционеры)
+dynamic-gamerule-midround-zombies-title = Вспышка ромерола (зомби)
+dynamic-gamerule-midround-blob-title = Появление блоба (блоб)
 
 dynamic-fax-threat-none =
-    Your station orbits within reliably mundane, secure space.
-    Although Nanotrasen has a firm grip on security in your region, the valuable resources and strategic position aboard your station make it a potential target for infiltrations.
-    Monitor crew for non-loyal behavior, but expect a relatively tame shift free of large-scale destruction.
-    We expect great things from your station.
+    Ваша станция вращается на орбите в надежном, безопасном космосе.
+    Хотя НаноТрейзен твердо контролирует безопасность в вашем регионе, ценные ресурсы и стратегическое положение на борту вашей станции делают ее потенциальной целью для проникновения.
+    Следите за нелояльным поведением экипажа, но ожидайте относительно спокойной смены без крупномасштабных разрушений.
+    Мы ожидаем многого от вашей станции.
 
 dynamic-fax-threat-low =
-    Although your station lies within what is generally considered Nanotrasen-controlled space,
-    the course of its orbit has caused it to cross unusually close to exogeological features with anomalous readings.
-    Although these features offer opportunities for our research department,
-    it is known that these little understood readings are often correlated with increased activity from competing interstellar organizations and individuals,
-    among them the Wizard Federation and Cult of the Geometer of Blood - all known competitors for Anomaly Type B sites.
-    Exercise elevated caution.
+    Хотя ваша станция находится в пределах того, что обычно считается пространством, контролируемым НаноТрейзен,
+    курс его орбиты заставил его пересечь необычно близко к экзогеологическим объектам с аномальными показаниями.
+    Хотя удалённые проверки показали, что это открывает возможности для нашего исследовательского отдела,
+    известно, что эти малопонятные показания часто коррелируют с повышенной активностью конкурирующих межзвездных организаций и отдельных лиц,
+    среди них Федерация Волшебников и Культ Геометра Крови — известные конкуренты секторов Аномалии Типа B.
+    Соблюдайте повышенную осторожность.
 
 dynamic-fax-threat-mid =
-    Congratulations and thank you for participating in the NT 'Frontier' space program!
-    Your station is actively orbiting a high value system far from the nearest support stations.
-    Little is known about your region of space, and the opportunity to encounter the unknown invites greater glory.
-    You are encouraged to elevate security as necessary to protect Nanotrasen assets.
+    Поздравляем и благодарим за участие в космической программе НТ «Фронтир»!
+    Ваша станция активно вращается вокруг важной системы вдали от ближайших станций поддержки.
+    О вашем регионе космоса мало что известно, а возможность встретиться с неизведанным приносит еще большую славу.
+    Вам рекомендуется повысить уровень безопасности по мере необходимости для защиты активов НаноТрейзен.
 
 dynamic-fax-threat-high =
-    As part of a mandatory security protocol, we are required to inform you that as a result of your orbital pattern directly behind an astrological body (oriented from our nearest observatory), your station will be under decreased monitoring and support.
-    It is anticipated that your extreme location and decreased surveillance could pose security risks.
-    Avoid unnecessary risks and attempt to keep your station in one piece.
+    В рамках обязательного протокола безопасности мы обязаны сообщить вам, что из-за того, что ваша орбита находится непосредственно за астрологическим телом (ориентированным из нашей ближайшей обсерватории), ваша станция будет находиться под ограниченным наблюдением и поддержкой.
+    Предполагается, что ваше экстремальное местоположение и ослабленное наблюдение могут представлять угрозу безопасности.
+    Избегайте ненужных рисков и старайтесь сохранить свою станцию ​​в целости и сохранности.
 
 dynamic-fax-threat-max =
-    Your station is somehow in the middle of hostile territory, in clear view of any enemy of the corporation.
-    Your likelihood to survive is low, and station destruction is expected and almost inevitable.
-    Secure any sensitive material and neutralize any enemy you will come across.
-    It is important that you at least try to maintain the station
-    Good Luck.
+    Ваша станция каким-то образом находится посреди враждебной территории, на виду у любого врага корпорации.
+    Ваши шансы выжить низки, а разрушение станции ожидаемо и почти неизбежно.
+    Обезопасьте любой секретный материал и нейтрализуйте любого врага, с которым вы столкнетесь.
+    Важно, чтобы вы хотя бы попытались обслуживать станцию.
+    Удачи.

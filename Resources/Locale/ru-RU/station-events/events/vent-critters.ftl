@@ -12,9 +12,9 @@ station-event-light-vents-announcement = Подтверждено наличие
 station-event-carp-vents-announcement = Подтверждено наличие на станции враждебной чужеродной фауны. Персоналу рекомендуется вооружиться, забаррикадировать двери и защищаться в случае необходимости. Службе безопасности следует как можно скорее ликвидировать угрозу.
 station-event-space-vents-announcement = Подтверждено наличие на станции враждебной фауны. Персоналу рекомендуется вооружиться, забаррикадировать двери и защищаться в случае необходимости. Службе безопасности следует как можно скорее ликвидировать угрозу.
 # Weak
-station-event-carp-spawn-announcement = Attention. A large influx of unknown life forms have been detected residing within the station's ventilation systems. Please be rid of these creatures before it begins to affect productivity.
-station-event-king-rat-migration-announcement = Attention. A large influx of unknown life forms have been detected residing within the station's ventilation systems. Please be rid of these creatures before it begins to affect productivity.
-station-event-snake-spawn-announcement = Attention. A large influx of unknown life forms have been detected residing within the station's ventilation systems. Please be rid of these creatures before it begins to affect productivity.
+station-event-carp-spawn-announcement = Внимание. В вентиляционных системах станции обнаружен наплыв неизвестных форм жизни. Необходимо избавиться от этих существ, пока они не начали влиять на эффективность работы станции.
+station-event-king-rat-migration-announcement = Внимание. В вентиляционных системах станции обнаружен наплыв неизвестных форм жизни. Необходимо избавиться от этих существ, пока они не начали влиять на эффективность работы станции.
+station-event-snake-spawn-announcement = Внимание. В вентиляционных системах станции обнаружен наплыв неизвестных форм жизни. Необходимо избавиться от этих существ, пока они не начали влиять на эффективность работы станции.
 # Weak
 station-event-slimes-spawn-weak-announcement = Внимание. В вентиляционных системах станции обнаружен наплыв неизвестных форм жизни. Необходимо избавиться от этих существ, пока они не начали влиять на эффективность работы станции.
 station-event-spider-spawn-weak-announcement = Внимание. В вентиляционных системах станции обнаружен наплыв неизвестных форм жизни. Необходимо избавиться от этих существ, пока они не начали влиять на эффективность работы станции.

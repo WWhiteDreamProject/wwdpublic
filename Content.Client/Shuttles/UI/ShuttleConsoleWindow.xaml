@@ -15,20 +15,20 @@
                     ToggleMode="True"
                     HorizontalExpand="True"
                     VerticalExpand="True"
-                    Text="NAV"
-                    Margin="5"/>
+                    Text="{Loc 'shuttle-console-lbl-nav'}"
+                    Margin="5"/> <!-- WWDP EDIT (loc) -->
             <Button Name="MapModeButton"
                     ToggleMode="True"
                     HorizontalExpand="True"
                     VerticalExpand="True"
-                    Text="MAP"
-                    Margin="5"/>
+                    Text="{Loc 'shuttle-console-lbl-map'}"
+                    Margin="5"/> <!-- WWDP EDIT (loc) -->
             <Button Name="DockModeButton"
                     ToggleMode="True"
                     HorizontalExpand="True"
                     VerticalExpand="True"
-                    Text="DOCK"
-                    Margin="5"/>
+                    Text="{Loc 'shuttle-console-lbl-dock'}"
+                    Margin="5"/> <!-- WWDP EDIT (loc) -->
         </BoxContainer>
         <!-- Contents box -->
         <BoxContainer Name="Contents"

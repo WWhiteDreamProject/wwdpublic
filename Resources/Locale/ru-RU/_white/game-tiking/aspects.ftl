@@ -2,7 +2,7 @@
 
 aspect-traitored-briefing = Внимание, коммуникации синдиката перехвачены, вы раскрыты!
 aspect-traitored-announce = Внимание, станция! Служба контрразведки Нанотрейзен рассекретила секретную передачу Синдиката и узнала имена агентов, внедрившихся на вашу станцию. Агенты имеют следующие имена:
-aspect-traitored-announce-name = { $name } - УБЕЙТЕ ЕГО!
+aspect-traitored-announce-name = { $name } — УБЕЙТЕ ЕГО!
 aspect-traitored-announce-sender = Мяукиман Крыса
 
 # Traitor Rich
