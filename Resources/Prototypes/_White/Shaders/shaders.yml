@@ -34,6 +34,7 @@
   params:
     height: 0.75
     shadowFactor: 0.0
+    layers: 5
 
 - type: shader
   id: VoxelEmissive
@@ -42,6 +43,7 @@
   params:
     height: 0.75
     shadowFactor: 0.0
+    layers: 5
 
 - type: shader
   id: VoxelItem
@@ -50,6 +52,7 @@
   params:
     height: 0.75
     shadowFactor: 0.7692307
+    layers: 5
 
 - type: shader
   id: VoxelItemEmissive
@@ -58,6 +61,7 @@
   params:
     height: 0.75
     shadowFactor: 0.7692307
+    layers: 5
 
 - type: shader
   id: RemoteControl
