@@ -5335,3 +5335,10 @@ Entries:
   id: 561
   time: '2026-05-23T10:23:43.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1133
+- author: Spatison
+  changes:
+    - type: Fix
+      message: Режим совместимости вновь работает
+  id: 562
+  time: '2026-05-29T17:46:14.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1116
