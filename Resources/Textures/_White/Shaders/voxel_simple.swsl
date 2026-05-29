@@ -48,6 +48,6 @@ void fragment() {
 
 		col_last = col_tex;
 	}
-	col = mix(col, vec4(vec3(0.0), col.a), float(firstHitSample) / float(layers) * shadowFactor); // apply a shade towards the bottom of the 3D effect
+	col = mix(col, vec4(vec3(0.0), col.a), float(firstHitSample) / float(layers == 0 ? 1 : layers) * shadowFactor); // apply a shade towards the bottom of the 3D effect
 	COLOR = insideBox(UV2 + offset/32.0, vec2(0,0), vec2(1,1)) > 0.5 ? col : col_orig;
 }
