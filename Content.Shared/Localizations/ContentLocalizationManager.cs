@@ -72,14 +72,6 @@ namespace Content.Shared.Localizations
             _loc.AddFunction(cultureEn, "MAKEPLURAL", FormatMakePlural);
             _loc.AddFunction(cultureEn, "MANY", FormatMany);
             // White Dream End
-            // WWDP EDIT START
-            /*
-            * The following language functions are specific to the russian localization.
-            */
-            var cultureRu = new CultureInfo("ru-RU");
-
-            _loc.AddFunction(cultureRu, "RU-PLURAL", FormatRuPlural);
-            // WWDP EDIT END
         }
 
         private ILocValue FormatMany(LocArgs args)
