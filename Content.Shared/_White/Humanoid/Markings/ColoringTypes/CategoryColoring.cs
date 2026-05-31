@@ -1,17 +1,35 @@
-using System.Linq;
+using Content.Shared._White.Humanoid.Markings.Prototypes;
+using Content.Shared._White.Humanoid.Prototypes;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared._White.Humanoid.Markings.ColoringTypes;
 
 /// <summary>
-/// Colors marking in color of first defined marking from specified category (in e.x. from Hair category)
+/// A strategy for determining a marking's color based on specific marking category.
 /// </summary>
-public sealed partial class CategoryColoring : LayerColoringType
+[DataDefinition]
+[Serializable, NetSerializable]
+public sealed partial class CategoryColoring : IMarkingColoringStrategy
 {
-    [DataField(required: true)]
-    public Enum Category;
+    [Dependency] private readonly IPrototypeManager _prototype = default!;
 
-    public override Color? GetCleanColor(Color? skin, Color? eyes, List<Marking> otherMarkings)
+    [DataField(required: true)]
+    public ProtoId<MarkingCategoryPrototype> Category;
+
+    public Color? GetColor(Dictionary<ProtoId<BodyColorationPrototype>, Color> colors, List<Marking> markings)
     {
-        return otherMarkings.Count > 0 ? otherMarkings[0].MarkingColors.FirstOrDefault() : null;
+        foreach (var marking in markings)
+        {
+            if (!_prototype.TryIndex(marking.Id, out var markingPrototype))
+                continue;
+
+            if (markingPrototype.Category != Category)
+                continue;
+
+            return marking.Color;
+        }
+
+        return null;
     }
 }

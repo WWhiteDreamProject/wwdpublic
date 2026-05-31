@@ -1,7 +1,5 @@
 using Content.Server._White.Body.Systems;
 using Content.Shared._White.Body.Components;
-using Content.Shared._White.Body.Organs.Metabolizer;
-
 
 namespace Content.Server.Traits.Assorted;
 
@@ -17,7 +15,8 @@ public sealed class LiquorLifelineSystem : EntitySystem
 
     private void OnSpawn(Entity<LiquorLifelineComponent> entity, ref ComponentInit args)
     {
-        if (!TryComp<BodyComponent>(entity, out var body))
+        // TODO
+        /*if (!TryComp<BodyComponent>(entity, out var body))
             return;
 
         if (!_bodySystem.TryGetOrgans<MetabolizerComponent>((entity, body), out var metabolizers, OrganType.Liver)) // WD EDIT
@@ -31,6 +30,6 @@ public sealed class LiquorLifelineSystem : EntitySystem
                 if (metabolismGroup.Key == "Absorption") // WD EDIT
                     metabolizer.Comp2.Types.Add("LiquorLifeline"); // WD EDIT
             }
-        }
+        }*/
     }
 }

@@ -4,7 +4,8 @@ using Content.Server.Construction;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Materials;
 using Content.Server.Power.Components;
-using Content.Shared._White.Body.Bloodstream.Components;
+using Content.Shared._White.Bloodstream.Components;
+using Content.Shared._White.Humanoid.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Audio;
 using Content.Shared.CCVar;
@@ -220,7 +221,7 @@ namespace Content.Server.Medical.BiomassReclaimer
             AddComp<ActiveBiomassReclaimerComponent>(ent);
 
             if (TryComp<BloodstreamComponent>(toProcess, out var stream))
-                component.BloodReagent = stream.BloodReagent;
+                component.BloodReagent = stream.Reagent;
             if (TryComp<ButcherableComponent>(toProcess, out var butcherableComponent))
                 component.SpawnedEntities = butcherableComponent.SpawnedEntities;
 
@@ -245,7 +246,7 @@ namespace Content.Server.Medical.BiomassReclaimer
                 return false;
 
             if (_configManager.GetCVar(CCVars.CloningReclaimSouledBodies)
-                && HasComp<HumanoidAppearanceComponent>(dragged)
+                && HasComp<HumanoidProfileComponent>(dragged)
                 && _minds.TryGetMind(dragged, out _, out var mind)
                 && mind.UserId != null
                 && _playerManager.TryGetSessionById(mind.UserId.Value, out _))

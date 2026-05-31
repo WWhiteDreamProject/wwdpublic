@@ -162,7 +162,7 @@ public abstract partial class SharedHandsSystem
             return false;
         }
 
-        item = hand.HeldEntity;
+        item = hand.Value.HeldEntity;
         return item != null;
     }
 
@@ -201,7 +201,7 @@ public abstract partial class SharedHandsSystem
             yield break;
 
         if (handsComp.ActiveHand != null)
-            yield return handsComp.ActiveHand;
+            yield return handsComp.ActiveHand.Value;
 
         foreach (var name in handsComp.SortedHands)
         {
@@ -244,10 +244,16 @@ public abstract partial class SharedHandsSystem
         if (name == handComp.ActiveHand?.Name)
             return false;
 
-        Hand? hand = null;
-        if (name != null && !handComp.Hands.TryGetValue(name, out hand))
-            return false;
-        return SetActiveHand(uid, hand, handComp);
+        Hand? possibleHand = null;
+        if (name != null)
+        {
+            if (!handComp.Hands.TryGetValue(name, out var hand))
+                return false;
+
+            possibleHand = hand;
+        }
+
+        return SetActiveHand(uid, possibleHand, handComp);
     }
 
     /// <summary>
@@ -275,8 +281,8 @@ public abstract partial class SharedHandsSystem
         handComp.ActiveHand = hand;
         OnHandSetActive?.Invoke((uid, handComp));
 
-        if (hand.HeldEntity != null)
-            RaiseLocalEvent(hand.HeldEntity.Value, new HandSelectedEvent(uid));
+        if (hand.Value.HeldEntity != null)
+            RaiseLocalEvent(hand.Value.HeldEntity.Value, new HandSelectedEvent(uid));
 
         Dirty(uid, handComp);
         return true;
@@ -316,7 +322,13 @@ public abstract partial class SharedHandsSystem
         if (!Resolve(handsUid, ref hands))
             return false;
 
-        return hands.Hands.TryGetValue(handId, out hand);
+        if (hands.Hands.TryGetValue(handId, out var possibleHand))
+        {
+            hand = possibleHand;
+            return true;
+        }
+
+        return false;
     }
 
     public int CountFreeableHands(Entity<HandsComponent> hands)

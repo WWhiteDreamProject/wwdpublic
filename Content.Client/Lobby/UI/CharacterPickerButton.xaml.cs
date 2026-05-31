@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Client.Humanoid;
+using Content.Shared._White.Preferences;
 using Content.Shared.Clothing;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
@@ -29,37 +30,29 @@ public sealed partial class CharacterPickerButton : ContainerButton
         IEntityManager entityManager,
         IPrototypeManager prototypeManager,
         ButtonGroup group,
-        ICharacterProfile profile,
+        HumanoidCharacterProfile profile,
         bool isSelected)
     {
         RobustXamlLoader.Load(this);
-        _entManager = entityManager;
         AddStyleClass(StyleClassButton);
+        _entManager = entityManager;
         ToggleMode = true;
         Group = group;
         var description = profile.Name;
 
-        if (profile is not HumanoidCharacterProfile humanoid)
-        {
-            _previewDummy = entityManager.SpawnEntity(prototypeManager.Index<SpeciesPrototype>(SharedHumanoidAppearanceSystem.DefaultSpecies).DollPrototype, MapCoordinates.Nullspace);
-        }
-        else
-        {
-            _previewDummy = UserInterfaceManager.GetUIController<LobbyUIController>()
-                .LoadProfileEntity(humanoid, null, true, true);
+        _previewDummy = UserInterfaceManager.GetUIController<LobbyUIController>()
+            .LoadProfileEntity(profile, null, true, true);
 
-            var highPriorityJob = humanoid.JobPriorities.SingleOrDefault(p => p.Value == JobPriority.High).Key;
-            if (highPriorityJob != default)
-            {
-                var jobName = prototypeManager.Index(highPriorityJob).LocalizedName;
-                description = $"{description}\n{jobName}";
-            }
+        var highPriorityJob = profile.JobPriorities.SingleOrDefault(p => p.Value == JobPriority.High).Key;
+        if (highPriorityJob != default)
+        {
+            var jobName = prototypeManager.Index(highPriorityJob).LocalizedName;
+            description = $"{description}\n{jobName}";
         }
 
         Pressed = isSelected;
         DeleteButton.Visible = !isSelected;
 
-        View.SetEntity(_previewDummy);
         DescriptionLabel.Text = description;
 
         ConfirmDeleteButton.OnPressed += _ =>

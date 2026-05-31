@@ -1,12 +1,12 @@
 using System.Linq;
+using Content.Client._White.Preferences.Managers;
 using Content.Client.Eui;
-using Content.Client.Lobby;
 using Content.Client.Players.PlayTimeTracking;
+using Content.Shared._White.Preferences;
 using Content.Shared.Clothing.Loadouts.Prototypes;
 using Content.Shared.Customization.Systems;
 using Content.Shared.Eui;
 using Content.Shared.Ghost.Roles;
-using Content.Shared.Preferences;
 using JetBrains.Annotations;
 using Robust.Client.GameObjects;
 using Robust.Shared.Configuration;
@@ -116,7 +116,7 @@ namespace Content.Client.UserInterface.Systems.Ghost.Controls.Roles
                 if (!characterReqs.CheckRequirementsValid(
                     group.Key.Requirements ?? new(),
                     new(),
-                    (HumanoidCharacterProfile) (prefs.Preferences?.SelectedCharacter ?? HumanoidCharacterProfile.DefaultWithSpecies()),
+                    prefs.Preferences?.SelectedCharacter ?? new HumanoidCharacterProfile(),
                     requirementsManager.GetRawPlayTimeTrackers(),
                     requirementsManager.IsWhitelisted(),
                     new LoadoutPrototype(), // idk

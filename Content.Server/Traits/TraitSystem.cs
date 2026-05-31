@@ -10,6 +10,8 @@ using Content.Shared.GameTicking;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Server.Players.PlayTimeTracking;
+using Content.Shared._White.Humanoid.Prototypes;
+using Content.Shared._White.Preferences;
 using Content.Shared.Players;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
@@ -69,7 +71,7 @@ public sealed class TraitSystem : EntitySystem
             return;
 
         if (_prototype.TryIndex<SpeciesPrototype>(profile.Species, out var speciesProto))
-            pointsTotal += speciesProto.BonusTraitPoints;
+            pointsTotal += speciesProto.TraitPoints;
 
         var jobPrototypeToUse = _prototype.Index(jobId ?? _prototype.EnumeratePrototypes<JobPrototype>().First().ID);
         var sortedTraits = new List<TraitPrototype>();
@@ -91,7 +93,7 @@ public sealed class TraitSystem : EntitySystem
         var traitsToAdd = new List<TraitPrototype>();
         foreach (var traitPrototype in sortedTraits)
         {
-            if (!traitPrototype.Enable || // WD EDIT
+            if (!traitPrototype.SetPreference || // WD EDIT
                 !_characterRequirements.CheckRequirementsValid(
                 traitPrototype.Requirements,
                 jobPrototypeToUse,

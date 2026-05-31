@@ -1,15 +1,12 @@
-using Content.Server._White.Body.Bloodstream.Systems;
+using Content.Server._White.Bloodstream.Systems;
 using Content.Server.Abilities.Chitinid;
-using Content.Server.Body.Components;
-using Content.Server.Body.Systems;
 using Content.Server.Chat.Managers;
-using Content.Shared._White.Body.Bloodstream.Components;
+using Content.Shared._White.Bloodstream.Components;
 using Content.Shared.Chat;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
-using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
 using Content.Shared.FixedPoint;
@@ -72,9 +69,9 @@ public sealed class FillableOneTimeInjectorSystem : SharedFillableOneTimeInjecto
         {
             // Draw from a bloodstream, if the target has that
             if (TryComp<BloodstreamComponent>(target, out var stream) &&
-                SolutionContainers.ResolveSolution(target, stream.BloodSolutionName, ref stream.BloodSolution))
+                SolutionContainers.ResolveSolution(target, stream.SolutionName, ref stream.Solution))
             {
-                TryDraw(injector, (target, stream), stream.BloodSolution.Value, user);
+                TryDraw(injector, (target, stream), stream.Solution.Value, user);
                 return;
             }
 
@@ -251,8 +248,8 @@ public sealed class FillableOneTimeInjectorSystem : SharedFillableOneTimeInjecto
         EntityUid user)
     {
         // Get transfer amount. May be smaller than _transferAmount if not enough room
-        if (!SolutionContainers.ResolveSolution(target.Owner, target.Comp.BloodSolutionName, // WD EDIT
-                ref target.Comp.BloodSolution, out var bloodSolution) || injector.Comp.ToggleState != FillableOneTimeInjectorToggleMode.Inject) // WD EDIT
+        if (!SolutionContainers.ResolveSolution(target.Owner, target.Comp.SolutionName, // WD EDIT
+                ref target.Comp.Solution, out var bloodSolution) || injector.Comp.ToggleState != FillableOneTimeInjectorToggleMode.Inject) // WD EDIT
         {
             Popup.PopupEntity(
                 Loc.GetString("injector-component-cannot-inject-message",
@@ -274,7 +271,7 @@ public sealed class FillableOneTimeInjectorSystem : SharedFillableOneTimeInjecto
         }
 
         // Move units from attackSolution to targetSolution
-        var removedSolution = SolutionContainers.SplitSolution(target.Comp.BloodSolution.Value, realTransferAmount); // WD EDIT
+        var removedSolution = SolutionContainers.SplitSolution(target.Comp.Solution.Value, realTransferAmount); // WD EDIT
 
         _blood.TryAddToBloodstream((target, target.Comp), removedSolution); // WD EDIT
 
@@ -415,18 +412,18 @@ public sealed class FillableOneTimeInjectorSystem : SharedFillableOneTimeInjecto
     {
         var drawAmount = (float) transferAmount;
 
-        if (SolutionContainers.ResolveSolution(target.Owner, target.Comp.BloodSolutionName, // WD EDIT
-                ref target.Comp.BloodSolution)) // WD EDIT
+        if (SolutionContainers.ResolveSolution(target.Owner, target.Comp.SolutionName, // WD EDIT
+                ref target.Comp.Solution)) // WD EDIT
         {
-            var chemTemp = SolutionContainers.SplitSolution(target.Comp.BloodSolution.Value, drawAmount * 0.15f); // WD EDIT
+            var chemTemp = SolutionContainers.SplitSolution(target.Comp.Solution.Value, drawAmount * 0.15f); // WD EDIT
             SolutionContainers.TryAddSolution(injectorSolution, chemTemp);
             drawAmount -= (float) chemTemp.Volume;
         }
 
-        if (SolutionContainers.ResolveSolution(target.Owner, target.Comp.BloodSolutionName,
-                ref target.Comp.BloodSolution))
+        if (SolutionContainers.ResolveSolution(target.Owner, target.Comp.SolutionName,
+                ref target.Comp.Solution))
         {
-            var bloodTemp = SolutionContainers.SplitSolution(target.Comp.BloodSolution.Value, drawAmount);
+            var bloodTemp = SolutionContainers.SplitSolution(target.Comp.Solution.Value, drawAmount);
             SolutionContainers.TryAddSolution(injectorSolution, bloodTemp);
         }
 

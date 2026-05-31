@@ -4,6 +4,7 @@ using Content.Server.Stunnable;
 using Content.Shared._EE.Shadowling;
 using Content.Shared._White.Damage.Components;
 using Content.Shared._White.Damage.Systems;
+using Content.Shared._White.Humanoid.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Content.Shared.Silicon.Components;
@@ -69,7 +70,7 @@ public sealed class ShadowlingSonicScreechSystem : EntitySystem
                 continue;
             }
 
-            if (HasComp<HumanoidAppearanceComponent>(entity))
+            if (HasComp<HumanoidProfileComponent>(entity))
                 EntityManager.SpawnAtPosition(component.ProtoFlash, Transform(entity).Coordinates);
         }
     }

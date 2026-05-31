@@ -25,6 +25,8 @@ using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 using Content.Server.Announcements.Systems;
+using Content.Shared._White.Preferences;
+
 
 namespace Content.Server.GameTicking
 {
@@ -390,7 +392,7 @@ namespace Content.Server.GameTicking
 
                 readyPlayers.Add(session);
                 HumanoidCharacterProfile profile;
-                if (_prefsManager.TryGetCachedPreferences(userId, out var preferences))
+                if (_prefsManager.TryGetPreferences(userId, out var preferences))
                 {
                     profile = (HumanoidCharacterProfile) preferences.SelectedCharacter;
                 }

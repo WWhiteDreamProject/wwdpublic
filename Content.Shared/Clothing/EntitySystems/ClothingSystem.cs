@@ -1,7 +1,8 @@
+using Content.Shared._White.Layer.Components;
+using Content.Shared._White.Layer.Systems;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
-using Content.Shared.Humanoid;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
@@ -16,9 +17,9 @@ public abstract class ClothingSystem : EntitySystem
 {
     [Dependency] private readonly SharedItemSystem _itemSys = default!;
     [Dependency] private readonly SharedContainerSystem _containerSys = default!;
-    [Dependency] private readonly SharedHumanoidAppearanceSystem _humanoidSystem = default!;
     [Dependency] private readonly InventorySystem _invSystem = default!;
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
+    [Dependency] private readonly SharedHideableLayersSystem _hideableLayers = default!; // WD EDIT
 
     public override void Initialize()
     {
@@ -101,6 +102,7 @@ public abstract class ClothingSystem : EntitySystem
             InventorySystem.InventorySlotEnumerator enumerator = _invSystem.GetSlotEnumerator(equipee);
 
             bool shouldLayerShow = true;
+            var inSlot = SlotFlags.NONE;
             while (enumerator.NextItem(out EntityUid item, out SlotDefinition? slot))
             {
                 if (TryComp(item, out HideLayerClothingComponent? comp))
@@ -114,12 +116,14 @@ public abstract class ClothingSystem : EntitySystem
                             {
                                 if (clothing.EquippedPrefix != mask.EquippedPrefix)
                                 {
+                                    inSlot = clothing.Slots;
                                     shouldLayerShow = false;
                                     break;
                                 }
                             }
                             else
                             {
+                                inSlot = clothing.Slots;
                                 shouldLayerShow = false;
                                 break;
                             }
@@ -127,7 +131,7 @@ public abstract class ClothingSystem : EntitySystem
                     }
                 }
             }
-            _humanoidSystem.SetLayerVisibility(equipee, layer, shouldLayerShow);
+            _hideableLayers.SetLayerOcclusion(equipee, layer, shouldLayerShow, inSlot);
         }
     }
 
@@ -220,7 +224,7 @@ public abstract class ClothingSystem : EntitySystem
 
     private void CheckEquipmentForLayerHide(EntityUid equipment, EntityUid equipee)
     {
-        if (TryComp(equipment, out HideLayerClothingComponent? clothesComp) && TryComp(equipee, out HumanoidAppearanceComponent? appearanceComp))
+        if (TryComp(equipment, out HideLayerClothingComponent? clothesComp) && TryComp(equipee, out HideableLayersComponent? appearanceComp))
             ToggleVisualLayers(equipee, clothesComp.Slots, appearanceComp.HideLayersOnEquip, clothesComp.Force);
     }
 

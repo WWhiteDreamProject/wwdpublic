@@ -391,8 +391,7 @@ namespace Content.Server.Database
         public int Id { get; set; }
         public int Slot { get; set; }
         [Column("char_name")] public string CharacterName { get; set; } = null!;
-        public string FlavorText { get; set; } = null!;
-        public string CustomSpecieName { get; set; } = null!;
+        public string Flavor { get; set; } = null!;
         public string Nationality { get; set; } = null!;
         public string Employer { get; set; } = null!;
         public string Lifepath { get; set; } = null!;
@@ -400,7 +399,7 @@ namespace Content.Server.Database
         public string Sex { get; set; } = null!;
         public string BodyType { get; set; } = null!; // WD EDIT
         public string Voice { get; set; } = null!; // WD EDIT
-        public string BarkVoice { get; set; } = null!; // WD EDIT
+        public string Bark { get; set; } = null!; // WD EDIT
 
         public byte BarkPause { get; set; } = byte.MaxValue / 2; // WD EDIT
         public byte BarkVolume { get; set; } = byte.MaxValue / 2; // WD EDIT
@@ -408,26 +407,17 @@ namespace Content.Server.Database
         public byte BarkPitchVariance { get; set; } = byte.MaxValue / 2; // WD EDIT
 
         public string Gender { get; set; } = null!;
-        public string? DisplayPronouns { get; set; }
-        public string? StationAiName { get; set; }
-        public string? CyborgName { get; set; }
-        public string? ClownName { get; set; } // WD EDIT
-        public string? MimeName { get; set; } // WD EDIT
         public string Species { get; set; } = null!;
         public float Height { get; set; } = 1f;
         public float Width { get; set; } = 1f;
         [Column(TypeName = "jsonb")] public JsonDocument? Markings { get; set; } = null!;
-        public string HairName { get; set; } = null!;
-        public string HairColor { get; set; } = null!;
-        public string FacialHairName { get; set; } = null!;
-        public string FacialHairColor { get; set; } = null!;
-        public string EyeColor { get; set; } = null!;
-        public string SkinColor { get; set; } = null!;
+        [Column(TypeName = "jsonb")] public JsonDocument? BodyProviders { get; set; } = null!;
         public int SpawnPriority { get; set; } = 0;
         public List<Job> Jobs { get; } = new();
         public List<Antag> Antags { get; } = new();
         public List<Trait> Traits { get; } = new();
         public List<LoadoutItem> Loadouts { get; } = new();
+        public List<BodyColoration> BodyColoration { get; } = new(); // WD EDIT
 
         [Column("pref_unavailable")] public DbPreferenceUnavailableMode PreferenceUnavailable { get; set; }
 
@@ -444,6 +434,18 @@ namespace Content.Server.Database
         public string JobName { get; set; } = null!;
         public DbJobPriority Priority { get; set; }
     }
+
+    // WD EDIT START
+    public class BodyColoration
+    {
+        public int Id { get; set; }
+        public Profile Profile { get; set; } = null!;
+        public int ProfileId { get; set; }
+
+        public string Coloration { get; set; } = null!;
+        public string Color { get; set; } = null!;
+    }
+    // WD EDIT END
 
     public enum DbJobPriority
     {

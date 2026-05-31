@@ -1,4 +1,3 @@
-using Content.Shared._White.Nutrition.Prototypes;
 using Content.Shared._White.Nutrition.Systems;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.FixedPoint;
@@ -14,7 +13,7 @@ namespace Content.Shared._White.Nutrition.Components;
 /// reagents consumed directly.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
-[Access(typeof(IngestionSystem))]
+[Access(typeof(SharedIngestionSystem))]
 public sealed partial class IngestibleComponent : Component
 {
     /// <summary>
@@ -45,6 +44,7 @@ public sealed partial class IngestibleComponent : Component
     /// Trash we spawn when eaten will not spawn if the item isn't deleted when empty.
     /// </summary>
     [DataField]
+    [Access(typeof(SharedIngestionSystem), Other = AccessPermissions.ReadWriteExecute)] // TODO: FIXME
     public List<EntProtoId> Trashes = new();
 
     /// <summary>
@@ -76,12 +76,6 @@ public sealed partial class IngestibleComponent : Component
     /// </summary>
     [DataField]
     public LocId Verb;
-
-    /// <summary>
-    /// Verb, icon, and sound data for our edible.
-    /// </summary>
-    [DataField]
-    public ProtoId<IngestiblePrototype> Edible = "Food";
 
     /// <summary>
     /// How long it takes to eat the food personally.

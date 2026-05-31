@@ -1,7 +1,7 @@
 using Content.Client.Gameplay;
 using Content.Client._White.TargetDoll;
 using Content.Client._White.UserInterface.Systems.TargetDoll.Widgets;
-using Content.Shared._White.Body.Components;
+using Content.Shared._White.Body;
 using Content.Shared._White.TargetDoll;
 using Robust.Client.UserInterface.Controllers;
 

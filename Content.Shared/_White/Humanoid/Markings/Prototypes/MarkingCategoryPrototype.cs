@@ -1,3 +1,4 @@
+using Content.Shared._White.Body;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._White.Humanoid.Markings.Prototypes;
@@ -8,7 +9,12 @@ namespace Content.Shared._White.Humanoid.Markings.Prototypes;
 [Prototype]
 public sealed partial class MarkingCategoryPrototype : IPrototype
 {
-    /// <inheritdoc/>
     [IdDataField]
     public string ID { get; } = default!;
+
+    /// <summary>
+    /// The type of body provider to which the marking category is attached.
+    /// </summary>
+    [DataField]
+    public BodyProviderType Type { get; }
 }

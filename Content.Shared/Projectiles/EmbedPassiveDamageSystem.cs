@@ -128,7 +128,7 @@ public sealed class EmbedPassiveDamageSystem : EntitySystem
                 continue;
 
             ent.NextDamage = curTime + TimeSpan.FromSeconds(1f);
-            _damageable.ChangeDamage(ent.Embedded.Value, ent.Damage, false, false, ent.EmbeddedDamageable); // WD EDIT
+            _damageable.ChangeDamage((ent.Embedded.Value, ent.EmbeddedDamageable), ent.Damage, false, false); // WD EDIT
         }
     }
 }

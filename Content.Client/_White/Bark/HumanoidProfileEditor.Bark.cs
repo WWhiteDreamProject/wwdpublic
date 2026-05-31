@@ -1,5 +1,6 @@
 using Content.Client._White.Bark;
 using Content.Shared._White.Bark;
+using Content.Shared._White.Humanoid.Systems;
 using Content.Shared.Humanoid;
 using Robust.Client.UserInterface.Controls;
 using Range = Robust.Client.UserInterface.Controls.Range;
@@ -38,7 +39,7 @@ public partial class HumanoidProfileEditor
         _barkList = _entManager.System<BarkSystem>().GetVoiceList(Profile);
         if (_barkList.Count == 0)
         {
-            SetBark(SharedHumanoidAppearanceSystem.DefaultBarkVoice, Profile.BarkSettings);
+            SetBark(HumanoidProfileSystem.DefaultBark, Profile.BarkSettings);
             return;
         }
 
@@ -47,7 +48,7 @@ public partial class HumanoidProfileEditor
         for (var i = 0; i < _barkList.Count; i++)
         {
             var voice = _barkList[i];
-            if (voice.ID == Profile.BarkVoice)
+            if (voice.ID == Profile.Bark)
                 selectedId = i;
 
             var name = Loc.GetString($"bark-{voice.ID.ToLower()}");
@@ -64,8 +65,9 @@ public partial class HumanoidProfileEditor
         UpdateSliderValues();
     }
 
-    private void SetBark(string proto, BarkPercentageApplyData settings){
-        Profile = Profile?.WithBarkVoice(proto, settings);
+    private void SetBark(string proto, BarkPercentageApplyData settings)
+    {
+        Profile = Profile?.WithBark(proto).WithBarkSettings(settings);
         IsDirty = true;
         VoiceBarkPlayButtonPressed(default!);
     }
@@ -76,7 +78,7 @@ public partial class HumanoidProfileEditor
             return;
 
         _entManager.System<BarkPreviewSystem>()
-            .PlayGlobal(Profile.BarkVoice, "Привет мир!", Profile.BarkSettings);
+            .PlayGlobal(Profile.Bark, "Привет мир!", Profile.BarkSettings);
     }
 
     private void VoiceBarkButtonItemSelected(OptionButton.ItemSelectedEventArgs selected)
@@ -104,7 +106,7 @@ public partial class HumanoidProfileEditor
             return;
 
         SetBark(
-            Profile.BarkVoice,
+            Profile.Bark,
             new()
         {
             Pause = (byte)range.Value,
@@ -120,7 +122,7 @@ public partial class HumanoidProfileEditor
             return;
 
         SetBark(
-            Profile.BarkVoice,
+            Profile.Bark,
             new()
             {
                 Pause = Profile.BarkSettings.Pause,
@@ -136,7 +138,7 @@ public partial class HumanoidProfileEditor
             return;
 
         SetBark(
-            Profile.BarkVoice,
+            Profile.Bark,
             new()
             {
                 Pause = Profile.BarkSettings.Pause,

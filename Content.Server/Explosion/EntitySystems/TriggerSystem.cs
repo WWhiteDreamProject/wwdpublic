@@ -207,7 +207,7 @@ namespace Content.Server.Explosion.EntitySystems
                     Del(item);
                 }
             }
-            _gibbable.Gib(uid, user: args.User); // WD EDIT
+            _gibbable.Gib(uid); // WD EDIT
             args.Handled = true;
         }
 

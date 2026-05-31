@@ -1,3 +1,4 @@
+using Content.Server._White.Preferences.Managers;
 using Content.Server._White.TTS;
 using Content.Server.Acz;
 using Content.Server.Administration;
@@ -17,12 +18,9 @@ using Content.Server.IoC;
 using Content.Server.JoinQueue;
 using Content.Server.Maps;
 using Content.Server.NodeContainer.NodeGroups;
-using Content.Server.Objectives;
-using Content.Server.Players;
 using Content.Server.Players.JobWhitelist;
 using Content.Server.Players.PlayTimeTracking;
 using Content.Server.Players.RateLimiting;
-using Content.Server.Preferences.Managers;
 using Content.Server.ServerInfo;
 using Content.Server.ServerUpdates;
 using Content.Server.Voting.Managers;
@@ -107,7 +105,7 @@ namespace Content.Server.Entry
                 IoCManager.Resolve<IAdminLogManager>().Initialize();
                 IoCManager.Resolve<IConnectionManager>().Initialize();
                 _dbManager.Init();
-                IoCManager.Resolve<IServerPreferencesManager>().Init();
+                IoCManager.Resolve<IServerPreferencesManager>().Initialize();
                 IoCManager.Resolve<INodeGroupFactory>().Initialize();
                 IoCManager.Resolve<ContentNetworkResourceManager>().Initialize();
                 IoCManager.Resolve<GhostKickManager>().Initialize();

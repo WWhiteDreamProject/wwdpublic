@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Shared.Clothing.Loadouts.Systems;
 
 
@@ -19,7 +20,7 @@ public sealed partial class HumanoidProfileEditor
         var highJob = _controller.GetPreferredJob(Profile);
 
         Loadouts.SetData(
-            Profile.LoadoutPreferencesList,
+            Profile.Loadouts.Values,
             new(
                 highJob,
                 Profile,
@@ -41,7 +42,7 @@ public sealed partial class HumanoidProfileEditor
         if (Profile is null)
             return;
 
-        Profile = Profile.WithLoadoutPreference(loadouts);
+        Profile = Profile.WithLoadout(loadouts.ToDictionary(x => x.LoadoutName));
         ReloadProfilePreview();
         ReloadClothes();
         UpdateLoadouts();

@@ -27,6 +27,8 @@ using Robust.Shared.Utility;
 using Robust.Shared.Physics.Components;
 using Content.Server.Ghost;
 using Content.Shared._White.Damage.Components;
+using Content.Shared._White.Nutrition.Components;
+
 
 namespace Content.Server.Changeling;
 
@@ -354,7 +356,7 @@ public sealed partial class ChangelingSystem
         if (!TryUseAbility(uid, comp, args))
             return;
 
-        if (!TryComp<FoodComponent>(target, out var food))
+        if (!TryComp<IngestibleComponent>(target, out var food))
             return;
 
         if (!TryComp<SolutionContainerManagerComponent>(target, out var solMan))
@@ -365,7 +367,7 @@ public sealed partial class ChangelingSystem
             foreach (var proto in BiomassAbsorbedChemicals)
                 totalFood += sol.Comp.Solution.GetTotalPrototypeQuantity(proto);
 
-        if (food.RequiresSpecialDigestion || totalFood == 0) // no eating winter coats or food that won't give you anything
+        if (totalFood == 0) // no eating winter coats or food that won't give you anything
         {
             var popup = Loc.GetString("changeling-absorbbiomatter-bad-food");
             _popup.PopupEntity(popup, uid, uid);

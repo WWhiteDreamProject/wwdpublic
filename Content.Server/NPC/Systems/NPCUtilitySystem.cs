@@ -5,7 +5,6 @@ using Content.Server.NPC.Queries.Considerations;
 using Content.Server.NPC.Queries.Curves;
 using Content.Server.NPC.Queries.Queries;
 using Content.Server.Nutrition.Components;
-using Content.Server.Nutrition.EntitySystems;
 using Content.Server.Storage.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Examine;
@@ -28,6 +27,7 @@ using Robust.Server.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using System.Linq;
+using Content.Server._White.Nutrition.Systems;
 using Content.Shared._White.Damage.Components;
 
 namespace Content.Server.NPC.Systems;
@@ -39,9 +39,7 @@ public sealed class NPCUtilitySystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly ContainerSystem _container = default!;
-    [Dependency] private readonly DrinkSystem _drink = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly FoodSystem _food = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
@@ -54,6 +52,7 @@ public sealed class NPCUtilitySystem : EntitySystem
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly MobThresholdSystem _thresholdSystem = default!;
     [Dependency] private readonly TurretTargetSettingsSystem _turretTargetSettings = default!;
+    [Dependency] private readonly IngestionSystem _ingestion = default!;
 
     private EntityQuery<PuddleComponent> _puddleQuery;
     private EntityQuery<TransformComponent> _xformQuery;
@@ -170,14 +169,11 @@ public sealed class NPCUtilitySystem : EntitySystem
         {
             case FoodValueCon:
             {
-                if (!TryComp<FoodComponent>(targetUid, out var food))
+                if (!_ingestion.CanConsume(targetUid, owner, owner))
                     return 0f;
 
                 // mice can't eat unpeeled bananas, need monkey's help
                 if (_openable.IsClosed(targetUid))
-                    return 0f;
-
-                if (!_food.IsDigestibleBy(owner, targetUid, food))
                     return 0f;
 
                 var avoidBadFood = !HasComp<IgnoreBadFoodComponent>(owner);
@@ -190,11 +186,15 @@ public sealed class NPCUtilitySystem : EntitySystem
                 if (avoidBadFood && HasComp<BadFoodComponent>(targetUid))
                     return 0f;
 
+                var nutrition = _ingestion.TotalNutrition(targetUid);
+                if (nutrition == 0.0f)
+                    return 0f;
+
                 return 1f;
             }
             case DrinkValueCon:
             {
-                if (!TryComp<DrinkComponent>(targetUid, out var drink))
+                if (!_ingestion.CanConsume(targetUid, owner, owner))
                     return 0f;
 
                 // can't drink closed drinks
@@ -210,7 +210,7 @@ public sealed class NPCUtilitySystem : EntitySystem
                     return 0f;
 
                 // needs to have something that will satiate thirst, mice wont try to drink 100% pure mutagen.
-                var hydration = _drink.TotalHydration(targetUid, drink);
+                var hydration = _ingestion.TotalHydration(targetUid);
                 if (hydration <= 1.0f)
                     return 0f;
 
@@ -252,7 +252,7 @@ public sealed class NPCUtilitySystem : EntitySystem
             case TargetAmmoMatchesCon:
             {
                 if (!blackboard.TryGetValue(NPCBlackboard.ActiveHand, out Hand? activeHand, EntityManager) ||
-                    !TryComp<BallisticAmmoProviderComponent>(activeHand.HeldEntity, out var heldGun))
+                    !TryComp<BallisticAmmoProviderComponent>(activeHand.Value.HeldEntity, out var heldGun))
                 {
                     return 0f;
                 }

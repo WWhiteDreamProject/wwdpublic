@@ -1,4 +1,4 @@
-﻿using Content.Server._White.Body.Respirator.Systems;
+﻿using Content.Server._White.Respirator.Systems;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Disposal.Unit.Components;
 
@@ -10,8 +10,8 @@ public sealed class BeingDisposedSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<BeingDisposedComponent, InhaleLocationEvent>(OnInhaleLocation);
-        SubscribeLocalEvent<BeingDisposedComponent, ExhaleLocationEvent>(OnExhaleLocation);
+        SubscribeLocalEvent<BeingDisposedComponent, GetInhaleLocationEvent>(OnInhaleLocation);
+        SubscribeLocalEvent<BeingDisposedComponent, GetExhaleLocationEvent>(OnExhaleLocation);
         SubscribeLocalEvent<BeingDisposedComponent, AtmosExposedGetAirEvent>(OnGetAir);
     }
 
@@ -24,7 +24,7 @@ public sealed class BeingDisposedSystem : EntitySystem
         }
     }
 
-    private void OnInhaleLocation(EntityUid uid, BeingDisposedComponent component, InhaleLocationEvent args)
+    private void OnInhaleLocation(EntityUid uid, BeingDisposedComponent component, GetInhaleLocationEvent args)
     {
         if (TryComp<DisposalHolderComponent>(component.Holder, out var holder))
         {
@@ -32,7 +32,7 @@ public sealed class BeingDisposedSystem : EntitySystem
         }
     }
 
-    private void OnExhaleLocation(EntityUid uid, BeingDisposedComponent component, ExhaleLocationEvent args)
+    private void OnExhaleLocation(EntityUid uid, BeingDisposedComponent component, GetExhaleLocationEvent args)
     {
         if (TryComp<DisposalHolderComponent>(component.Holder, out var holder))
         {

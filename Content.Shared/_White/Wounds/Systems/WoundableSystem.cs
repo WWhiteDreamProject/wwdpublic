@@ -39,7 +39,7 @@ public sealed partial class WoundableSystem : EntitySystem
 
         _sawmill = Logger.GetSawmill("woundable");
 
-        SubscribeLocalEvent<WoundableComponent, AttemptHandleDamageEvent>(OnAttemptHandleDamage);
+        SubscribeLocalEvent<WoundableComponent, BeforeHandleDamageEvent>(OnAttemptHandleDamage);
         SubscribeLocalEvent<WoundableComponent, RejuvenateEvent>(OnRejuvenate);
 
         InitializeAccumulator();
@@ -56,7 +56,7 @@ public sealed partial class WoundableSystem : EntitySystem
 
     #region Event Handling
 
-    private void OnAttemptHandleDamage(Entity<WoundableComponent> ent, ref AttemptHandleDamageEvent args)
+    private void OnAttemptHandleDamage(Entity<WoundableComponent> ent, ref BeforeHandleDamageEvent args)
     {
         args.Handled = true;
 

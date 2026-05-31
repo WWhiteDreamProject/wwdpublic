@@ -51,7 +51,7 @@ using Content.Server.Stunnable;
 using Content.Shared.Jittering;
 using Content.Server.Explosion.EntitySystems;
 using System.Linq;
-using Content.Server._White.Body.Bloodstream.Systems;
+using Content.Server._White.Bloodstream.Systems;
 using Content.Server.Flash.Components;
 using Content.Server.Radio.Components;
 // using Content.Shared.Heretic;
@@ -59,6 +59,7 @@ using Content.Shared._Goobstation.Actions;
 using Content.Shared._Goobstation.Weapons.AmmoSelector;
 using Content.Shared._White.Damage.Systems;
 using Content.Shared._White.Gibbable.Systems;
+using Content.Shared._White.Humanoid.Components;
 using Content.Shared.Chat;
 using Content.Shared.Projectiles;
 // using Content.Shared._White.Overlays;
@@ -89,7 +90,6 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     [Dependency] private readonly BloodstreamSystem _blood = default!;
     [Dependency] private readonly ISerializationManager _serialization = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
-    [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly FlashSystem _flash = default!;
@@ -449,7 +449,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
     public bool TryStealDNA(EntityUid uid, EntityUid target, ChangelingComponent comp, bool countObjective = false)
     {
-        if (!TryComp<HumanoidAppearanceComponent>(target, out var appearance)
+        if (!TryComp<HumanoidProfileComponent>(target, out var appearance)
         || !TryComp<MetaDataComponent>(target, out var metadata)
         || !TryComp<DnaComponent>(target, out var dna)
         || !TryComp<FingerprintComponent>(target, out var fingerprint))
@@ -548,7 +548,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         {
             Comp<FingerprintComponent>(newEnt).Fingerprint = data.Fingerprint;
             Comp<DnaComponent>(newEnt).DNA = data.DNA;
-            _humanoid.CloneAppearance(data.Appearance.Owner, newEnt);
+            // _humanoid.CloneAppearance(data.Appearance.Owner, newEnt); TODO
             _metaData.SetEntityName(newEnt, data.Name);
             var message = Loc.GetString("changeling-transform-finish", ("target", data.Name));
             _popup.PopupEntity(message, newEnt, newEnt);

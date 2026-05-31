@@ -5,7 +5,7 @@ using Robust.Shared.GameStates;
 namespace Content.Shared._White.Nutrition.Components;
 
 [RegisterComponent, NetworkedComponent]
-[Access(typeof(IngestionSystem))]
+[Access(typeof(SharedIngestionSystem))]
 public sealed partial class UtensilComponent : Component
 {
     /// <summary>

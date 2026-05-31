@@ -46,6 +46,7 @@ public sealed partial class RespiratorProviderComponent : Component
     /// Represents the current mixture of gases present within the provider.
     /// </summary>
     [DataField]
+    [Access(typeof(RespiratorSystem), Other = AccessPermissions.ReadExecute)] // TODO: FIXME Friends
     public GasMixture Air = new()
     {
         Volume = 10,

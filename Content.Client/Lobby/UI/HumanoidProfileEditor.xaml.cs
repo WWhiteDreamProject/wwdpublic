@@ -1,8 +1,11 @@
 using System.IO;
 using System.Linq;
+using Content.Client._White.Appearance.Systems;
 using Content.Client._White.Body.Systems;
+using Content.Client._White.Humanoid;
+using Content.Client._White.Humanoid.Markings.Systems;
+using Content.Client._White.Preferences.Managers;
 using Content.Client.Administration.UI;
-using Content.Client.Humanoid;
 using Content.Client.Players.PlayTimeTracking;
 using Content.Client.Roles;
 using Content.Client.Sprite;
@@ -10,17 +13,22 @@ using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Controls;
 using Content.Client.UserInterface.Systems.Guidebook;
 using Content.Shared._EE.Contractors.Prototypes;
+using Content.Shared._White.Appearance;
+using Content.Shared._White.Body;
+using Content.Shared._White.Body.Components;
 using Content.Shared._White.CCVar;
+using Content.Shared._White.Humanoid.Coloration;
 using Content.Shared._White.Humanoid.Markings;
+using Content.Shared._White.Humanoid.Markings.Managers;
 using Content.Shared._White.Humanoid.Prototypes;
-using Content.Shared._White.Humanoid.SkinColoration;
+using Content.Shared._White.Humanoid.Systems;
+using Content.Shared._White.Preferences;
 using Content.Shared.CCVar;
 using Content.Shared.Customization.Systems;
 using Content.Shared.Dataset;
 using Content.Shared.GameTicking;
 using Content.Shared.Guidebook;
 using Content.Shared.Humanoid;
-using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
 using Content.Shared.Traits;
@@ -56,7 +64,10 @@ namespace Content.Client.Lobby.UI
         private readonly LobbyUIController _controller;
         private readonly CharacterRequirementsSystem _characterRequirementsSystem;
         private readonly RoleSystem _roleSystem;
+        private readonly NamingSystem _namingSystem; // WD EDIT
+        private readonly MarkingsSystem _markingsSystem; // WD EDIT
         private readonly BodySystem _bodySystem; // WD EDIT
+        private readonly IComponentFactory _componentFactory; // WD EDIT
 
         private FlavorText.FlavorText? _flavorText;
         private TextEdit? _flavorTextEdit;
@@ -101,12 +112,6 @@ namespace Content.Client.Lobby.UI
         private List<TraitPreferenceSelector> _traitPreferences = new();
         private int _traitCount;
 
-        private bool _customizePronouns;
-        private bool _customizeStationAiName;
-        private bool _customizeBorgName;
-        private bool _customizeClownName; // WD EDIT
-        private bool _customizeMimeName; // WD EDIT
-
         private List<(string, RequirementsSelector)> _jobPriorities = new();
 
         private readonly Dictionary<string, BoxContainer> _jobCategories;
@@ -124,20 +129,10 @@ namespace Content.Client.Lobby.UI
 
         private ISawmill _sawmill;
 
-        [ValidatePrototypeId<LocalizedDatasetPrototype>]
-        private const string StationAiNames = "NamesAI";
-
-        [ValidatePrototypeId<DatasetPrototype>]
-        private const string CyborgNames = "names_borg";
+        private const string Uncategorized = "Uncategorized";
 
         // WD EDIT START
-        [ValidatePrototypeId<LocalizedDatasetPrototype>]
-        private const string ClownNames = "ClownNames";
-
-        [ValidatePrototypeId<LocalizedDatasetPrototype>]
-        private const string MimeNames = "MimeNames";
-
-        private const string Uncategorized = "Uncategorized";
+        private MarkingsViewModel _markingsModel = new();
 
         public SpriteView? CharacterSpriteView;
         // WD EDIT END
@@ -168,9 +163,13 @@ namespace Content.Client.Lobby.UI
             _resManager = resManager;
             _requirements = requirements;
             _random = random;
+            _componentFactory = IoCManager.Resolve<IComponentFactory>();
 
             _roleSystem = _entManager.System<RoleSystem>();
-            _bodySystem = _entManager.System<BodySystem>(); // WD EDIT
+            _namingSystem = _entManager.System<NamingSystem>();
+            _markingsSystem = _entManager.System<MarkingsSystem>();
+            _bodySystem = _entManager.System<BodySystem>();
+
             _characterRequirementsSystem = _entManager.System<CharacterRequirementsSystem>();
             _controller = UserInterfaceManager.GetUIController<LobbyUIController>();
 
@@ -183,7 +182,7 @@ namespace Content.Client.Lobby.UI
             ResetButton.OnPressed += args =>
             {
                 SetProfile(
-                    (HumanoidCharacterProfile?) _preferencesManager.Preferences?.SelectedCharacter,
+                     _preferencesManager.Preferences?.SelectedCharacter,
                     _preferencesManager.Preferences?.SelectedCharacterIndex);
             };
 
@@ -198,12 +197,6 @@ namespace Content.Client.Lobby.UI
             RandomizeEverything.OnPressed += _ => { RandomizeProfile(); };
 
             #endregion Name
-
-            #region Custom Species Name
-
-            CCustomSpecieNameEdit.OnTextChanged += args => { SetCustomSpecieName(args.Text); };
-
-            #endregion Custom Species Name
 
             #region Appearance
 
@@ -262,57 +255,9 @@ namespace Content.Client.Lobby.UI
             {
                 PronounsButton.SelectId(args.Id);
                 SetGender((Gender) args.Id);
-
-                if (Profile?.DisplayPronouns == null)
-                    UpdateDisplayPronounsControls();
             };
 
             #endregion Gender
-
-            #region Cosmetic Pronouns
-
-            _customizePronouns = _cfgManager.GetCVar(CCVars.AllowCosmeticPronouns);
-            _cfgManager.OnValueChanged(CCVars.AllowCosmeticPronouns, OnCosmeticPronounsValueChanged);
-
-            CosmeticPronounsNameEdit.OnTextChanged += args => { SetDisplayPronouns(args.Text); };
-
-            if (CosmeticPronousContainer.Visible != _customizePronouns)
-                CosmeticPronousContainer.Visible = _customizePronouns;
-
-            #endregion Cosmetic Pronouns
-
-            #region Custom Names
-
-            _customizeStationAiName = _cfgManager.GetCVar(CCVars.AllowCustomStationAiName);
-            _customizeBorgName = _cfgManager.GetCVar(CCVars.AllowCustomCyborgName);
-            _customizeClownName = _cfgManager.GetCVar(WhiteCVars.AllowCustomClownName); // WD EDIT
-            _customizeMimeName = _cfgManager.GetCVar(WhiteCVars.AllowCustomMimeName); // WD EDIT
-
-            _cfgManager.OnValueChanged(CCVars.AllowCustomStationAiName, OnChangedStationAiNameCustomizationValue);
-            _cfgManager.OnValueChanged(CCVars.AllowCustomCyborgName, OnChangedCyborgNameCustomizationValue);
-            _cfgManager.OnValueChanged(WhiteCVars.AllowCustomClownName, OnChangedClownNameCustomizationValue); // WD EDIT
-            _cfgManager.OnValueChanged(WhiteCVars.AllowCustomMimeName, OnChangedMimeNameCustomizationValue); // WD EDIT
-
-            StationAINameEdit.OnTextChanged += args => { SetStationAiName(args.Text); };
-            CyborgNameEdit.OnTextChanged += args => { SetCyborgName(args.Text); };
-            ClownNameEdit.OnTextChanged += args => { SetClownName(args.Text); }; // WD EDIT
-            MimeNameEdit.OnTextChanged += args => { SetMimeName(args.Text); }; // WD EDIT
-
-            if (StationAiNameContainer.Visible != _customizeStationAiName)
-                StationAiNameContainer.Visible = _customizeStationAiName;
-
-            if (CyborgNameContainer.Visible != _customizeBorgName)
-                CyborgNameContainer.Visible = _customizeBorgName;
-
-            // WD EDIT START
-            if (ClownNameContainer.Visible != _customizeClownName)
-                ClownNameContainer.Visible = _customizeClownName;
-
-            if (MimeNameContainer.Visible != _customizeMimeName)
-                MimeNameContainer.Visible = _customizeMimeName;
-            // WD EDIT END
-
-            #endregion
 
             #region Species
 
@@ -322,9 +267,7 @@ namespace Content.Client.Lobby.UI
             {
                 SpeciesButton.SelectId(args.Id);
                 SetSpecies(_species[args.Id].ID);
-                UpdateHairPickers();
                 OnSkinColorOnValueChanged();
-                UpdateCustomSpecieNameEdit();
                 UpdateHeightWidthSliders();
             };
 
@@ -397,142 +340,27 @@ namespace Content.Client.Lobby.UI
 
             #endregion
 
-            #region Hair
-
-            HairStylePicker.OnMarkingSelect += newStyle =>
-            {
-                if (Profile is null)
-                    return;
-                Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithHairStyleName(newStyle.id));
-                IsDirty = true;
-                ReloadProfilePreview();
-            };
-
-            HairStylePicker.OnColorChanged += newColor =>
-            {
-                if (Profile is null)
-                    return;
-                Profile = Profile.WithCharacterAppearance(
-                    Profile.Appearance.WithHairColor(newColor.marking.MarkingColors[0]));
-                UpdateCMarkingsHair();
-                IsDirty = true;
-                ReloadProfilePreview();
-            };
-
-            FacialHairPicker.OnMarkingSelect += newStyle =>
-            {
-                if (Profile is null)
-                    return;
-                Profile = Profile.WithCharacterAppearance(
-                    Profile.Appearance.WithFacialHairStyleName(newStyle.id));
-                IsDirty = true;
-                ReloadProfilePreview();
-            };
-
-            FacialHairPicker.OnColorChanged += newColor =>
-            {
-                if (Profile is null)
-                    return;
-                Profile = Profile.WithCharacterAppearance(
-                    Profile.Appearance.WithFacialHairColor(newColor.marking.MarkingColors[0]));
-                UpdateCMarkingsFacialHair();
-                IsDirty = true;
-                ReloadProfilePreview();
-            };
-
-            HairStylePicker.OnSlotRemove += _ =>
-            {
-                if (Profile is null)
-                    return;
-                Profile = Profile.WithCharacterAppearance(
-                    Profile.Appearance.WithHairStyleName(HairStyles.DefaultHairStyle)
-                );
-                UpdateHairPickers();
-                UpdateCMarkingsHair();
-                IsDirty = true;
-                ReloadProfilePreview();
-            };
-
-            FacialHairPicker.OnSlotRemove += _ =>
-            {
-                if (Profile is null)
-                    return;
-                Profile = Profile.WithCharacterAppearance(
-                    Profile.Appearance.WithFacialHairStyleName(HairStyles.DefaultFacialHairStyle)
-                );
-                UpdateHairPickers();
-                UpdateCMarkingsFacialHair();
-                IsDirty = true;
-                ReloadProfilePreview();
-            };
-
-            HairStylePicker.OnSlotAdd += delegate()
-            {
-                if (Profile is null)
-                    return;
-
-                var hair = _markingManager.MarkingsByCategoryAndSpecies(MarkingCategories.Hair, Profile.Species).Keys
-                    .FirstOrDefault();
-
-                if (string.IsNullOrEmpty(hair))
-                    return;
-
-                Profile = Profile.WithCharacterAppearance(
-                    Profile.Appearance.WithHairStyleName(hair)
-                );
-
-                UpdateHairPickers();
-                UpdateCMarkingsHair();
-                IsDirty = true;
-                ReloadProfilePreview();
-            };
-
-            FacialHairPicker.OnSlotAdd += delegate()
-            {
-                if (Profile is null)
-                    return;
-
-                var hair = _markingManager.MarkingsByCategoryAndSpecies(MarkingCategories.FacialHair, Profile.Species).Keys
-                    .FirstOrDefault();
-
-                if (string.IsNullOrEmpty(hair))
-                    return;
-
-                Profile = Profile.WithCharacterAppearance(
-                    Profile.Appearance.WithFacialHairStyleName(hair)
-                );
-
-                UpdateHairPickers();
-                UpdateCMarkingsFacialHair();
-                IsDirty = true;
-                ReloadProfilePreview();
-            };
-
-            #endregion Hair
-
             #region SpawnPriority
 
-            foreach (var value in Enum.GetValues<SpawnPriorityPreference>())
+            foreach (var value in Enum.GetValues<SpawnPriority>())
                 SpawnPriorityButton.AddItem(Loc.GetString($"humanoid-profile-editor-preference-spawn-priority-{value.ToString().ToLower()}"), (int) value);
 
             SpawnPriorityButton.OnItemSelected += args =>
             {
                 SpawnPriorityButton.SelectId(args.Id);
-                SetSpawnPriority((SpawnPriorityPreference) args.Id);
+                SetSpawnPriority((SpawnPriority) args.Id);
             };
 
             #endregion SpawnPriority
 
             #region Eyes
 
-            EyeColorPicker.OnEyeColorPicked += newColor =>
+            EyeColorPicker.OnEyeColorPicked += color =>
             {
                 if (Profile is null)
                     return;
-                Profile = Profile.WithCharacterAppearance(
-                    Profile.Appearance.WithEyeColor(newColor));
-                Markings.CurrentEyeColor = Profile.Appearance.EyeColor;
-                IsDirty = true;
+                Profile = Profile.WithColor("Eye", color);
+                _markingsModel.SetColor("Eye", color);
                 ReloadProfilePreview();
             };
 
@@ -595,10 +423,7 @@ namespace Content.Client.Lobby.UI
 
             #region Markings
 
-            Markings.OnMarkingAdded += OnMarkingAdded; // WD EDIT
-            Markings.OnMarkingRemoved += OnMarkingRemoved; // WD EDIT
-            Markings.OnMarkingColorChange += OnMarkingUpdate; // WD EDIT
-            Markings.OnMarkingRankChange += OnMarkingChange;
+            Markings.SetModel(_markingsModel);
 
             #endregion Markings
 
@@ -648,39 +473,6 @@ namespace Content.Client.Lobby.UI
             }
         }
 
-
-        private void OnCosmeticPronounsValueChanged(bool newValue)
-        {
-            _customizePronouns = newValue;
-            CosmeticPronousContainer.Visible = newValue;
-        }
-
-        private void OnChangedStationAiNameCustomizationValue(bool newValue)
-        {
-            _customizeStationAiName = newValue;
-            StationAiNameContainer.Visible = newValue;
-        }
-
-        private void OnChangedCyborgNameCustomizationValue(bool newValue)
-        {
-            _customizeBorgName = newValue;
-            CyborgNameContainer.Visible = newValue;
-        }
-
-        // WD EDIT START
-        private void OnChangedClownNameCustomizationValue(bool newValue)
-        {
-            _customizeClownName = newValue;
-            UpdateClownControls();
-        }
-
-        private void OnChangedMimeNameCustomizationValue(bool newValue)
-        {
-            _customizeMimeName = newValue;
-            UpdateMimeControls();
-        }
-        // WD EDIT END
-
         /// <summary>
         /// Refreshes the species selector.
         /// </summary>
@@ -689,7 +481,7 @@ namespace Content.Client.Lobby.UI
             SpeciesButton.Clear();
             _species.Clear();
 
-            _species.AddRange(_prototypeManager.EnumeratePrototypes<SpeciesPrototype>().Where(o => o.RoundStart));
+            _species.AddRange(_prototypeManager.EnumeratePrototypes<SpeciesPrototype>().Where(o => o.SetPreference));
             var speciesIds = _species.Select(o => o.ID).ToList();
 
             for (var i = 0; i < _species.Count; i++)
@@ -702,7 +494,7 @@ namespace Content.Client.Lobby.UI
 
             // If our species isn't available then reset it to default.
             if (Profile != null && !speciesIds.Contains(Profile.Species))
-                SetSpecies(SharedHumanoidAppearanceSystem.DefaultSpecies);
+                SetSpecies(HumanoidProfileSystem.DefaultSpecies);
         }
 
                 public void RefreshNationalities()
@@ -712,8 +504,8 @@ namespace Content.Client.Lobby.UI
 
             _nationalies.AddRange(_prototypeManager.EnumeratePrototypes<NationalityPrototype>()
                 .Where(o => _characterRequirementsSystem.CheckRequirementsValid(o.Requirements,
-                    _controller.GetPreferredJob(Profile ?? HumanoidCharacterProfile.DefaultWithSpecies()),
-                    Profile ?? HumanoidCharacterProfile.DefaultWithSpecies(),
+                    _controller.GetPreferredJob(Profile ?? new HumanoidCharacterProfile()),
+                    Profile ?? new HumanoidCharacterProfile(),
                     _requirements.GetRawPlayTimeTrackers(),
                     _requirements.IsWhitelisted(),
                     o,
@@ -733,7 +525,7 @@ namespace Content.Client.Lobby.UI
 
             // If our nationality isn't available, reset it to default
             if (Profile != null && !nationalityIds.Contains(Profile.Nationality))
-                SetNationality(SharedHumanoidAppearanceSystem.DefaultNationality);
+                SetNationality(HumanoidProfileSystem.DefaultNationality);
 
             if(Profile != null)
                 UpdateNationalityDescription(Profile.Nationality);
@@ -746,8 +538,8 @@ namespace Content.Client.Lobby.UI
 
             _employers.AddRange(_prototypeManager.EnumeratePrototypes<EmployerPrototype>()
                 .Where(o => _characterRequirementsSystem.CheckRequirementsValid(o.Requirements,
-                _controller.GetPreferredJob(Profile ?? HumanoidCharacterProfile.DefaultWithSpecies()),
-                Profile ?? HumanoidCharacterProfile.DefaultWithSpecies(),
+                _controller.GetPreferredJob(Profile ?? new()),
+                Profile ?? new(),
                 _requirements.GetRawPlayTimeTrackers(),
                 _requirements.IsWhitelisted(),
                 o,
@@ -767,7 +559,7 @@ namespace Content.Client.Lobby.UI
 
             // If our employer isn't available, reset it to default
             if (Profile != null && !employerIds.Contains(Profile.Employer))
-                SetEmployer(SharedHumanoidAppearanceSystem.DefaultEmployer);
+                SetEmployer(HumanoidProfileSystem.DefaultEmployer);
 
             if(Profile != null)
                 UpdateEmployerDescription(Profile.Employer);
@@ -780,8 +572,8 @@ namespace Content.Client.Lobby.UI
 
             _lifepaths.AddRange(_prototypeManager.EnumeratePrototypes<LifepathPrototype>()
                 .Where(o => _characterRequirementsSystem.CheckRequirementsValid(o.Requirements,
-                _controller.GetPreferredJob(Profile ?? HumanoidCharacterProfile.DefaultWithSpecies()),
-                Profile ?? HumanoidCharacterProfile.DefaultWithSpecies(),
+                _controller.GetPreferredJob(Profile ?? new()),
+                Profile ?? new(),
                 _requirements.GetRawPlayTimeTrackers(),
                 _requirements.IsWhitelisted(),
                 o,
@@ -801,7 +593,7 @@ namespace Content.Client.Lobby.UI
 
             // If our lifepath isn't available, reset it to default
             if (Profile != null && !lifepathIds.Contains(Profile.Lifepath))
-                SetLifepath(SharedHumanoidAppearanceSystem.DefaultLifepath);
+                SetLifepath(HumanoidProfileSystem.DefaultLifepath);
 
             if(Profile != null)
                 UpdateLifepathDescription(Profile.Lifepath);
@@ -862,8 +654,8 @@ namespace Content.Client.Lobby.UI
 
                 if (!_characterRequirementsSystem.CheckRequirementsValid(
                     _roleSystem.GetAntagRequirement(antag) ?? new(),
-                    _controller.GetPreferredJob(Profile ?? HumanoidCharacterProfile.DefaultWithSpecies()),
-                    Profile ?? HumanoidCharacterProfile.DefaultWithSpecies(),
+                    _controller.GetPreferredJob(Profile ?? new()),
+                    Profile ?? new(),
                     _requirements.GetRawPlayTimeTrackers(),
                     _requirements.IsWhitelisted(),
                     antag,
@@ -894,7 +686,7 @@ namespace Content.Client.Lobby.UI
         private void SetDirty()
         {
             // If it equals default then reset the button.
-            if (Profile == null || _preferencesManager.Preferences?.SelectedCharacter.MemberwiseEquals(Profile) == true)
+            if (Profile == null || _preferencesManager.Preferences?.SelectedCharacter.Equals(Profile) == true)
             {
                 IsDirty = false;
                 return;
@@ -968,24 +760,15 @@ namespace Content.Client.Lobby.UI
             UpdateBarksControl(); // WD EDIT
             UpdateBodyTypes(); // WD EDIT
             UpdateGenderControls();
-            UpdateDisplayPronounsControls();
-            UpdateStationAiControls();
-            UpdateCyborgControls();
-            UpdateClownControls(); // WD EDIT
-            UpdateMimeControls(); // WD EDIT
             UpdateSkinColor();
             UpdateSpawnPriorityControls();
             UpdateFlavorTextEdit();
-            UpdateCustomSpecieNameEdit();
             UpdateAgeEdit();
             UpdateEyePickers();
             UpdateSaveButton();
             UpdateMarkings();
             UpdateLoadouts(); // WD EDIT
             CheckpointLoadouts(); // WD EDIT
-            UpdateHairPickers();
-            UpdateCMarkingsHair();
-            UpdateCMarkingsFacialHair();
             UpdateHeightWidthSliders();
             UpdateWeight();
             UpdateCharacterRequired();
@@ -1012,16 +795,7 @@ namespace Content.Client.Lobby.UI
             if (Profile == null || !_entManager.EntityExists(PreviewDummy))
                 return;
 
-            if (_entManager.TryGetComponent<HumanoidAppearanceComponent>(PreviewDummy, out var humanoid))
-            {
-                var hiddenLayers = humanoid.HiddenLayers;
-                var appearanceSystem = _entManager.System<HumanoidAppearanceSystem>();
-                appearanceSystem.LoadProfile(PreviewDummy, Profile, humanoid, false, false);
-                // Reapply the hidden layers set from clothing
-                appearanceSystem.SetLayersVisibility(PreviewDummy, hiddenLayers, false, humanoid: humanoid);
-            }
-
-            TraitsTabs.UpdateTabMerging();
+            _entManager.System<BodyAppearanceSystem>().ApplyProfile(PreviewDummy, Profile);
 
             // Check and set the dirty flag to enable the save/reset buttons as appropriate.
             SetDirty();
@@ -1040,7 +814,7 @@ namespace Content.Client.Lobby.UI
             // I.e., do what jobs/antags do.
 
             var guidebookController = UserInterfaceManager.GetUIController<GuidebookUIController>();
-            var species = Profile?.Species ?? SharedHumanoidAppearanceSystem.DefaultSpecies;
+            var species = Profile?.Species ?? HumanoidProfileSystem.DefaultSpecies;
             var page = DefaultSpeciesGuidebook;
             if (_prototypeManager.HasIndex<GuideEntryPrototype>(species))
                 page = species;
@@ -1140,7 +914,7 @@ namespace Content.Client.Lobby.UI
                     else if (!_characterRequirementsSystem.CheckRequirementsValid(
                         _roleSystem.GetJobRequirement(job) ?? new(),
                         job,
-                        Profile ?? HumanoidCharacterProfile.DefaultWithSpecies(),
+                        Profile ?? new(),
                         _requirements.GetRawPlayTimeTrackers(),
                         _requirements.IsWhitelisted(),
                         job,
@@ -1195,50 +969,19 @@ namespace Content.Client.Lobby.UI
             if (Profile is null)
                 return;
 
-            Profile = Profile.WithFlavorText(content);
+            Profile = Profile.WithFlavor(content);
             IsDirty = true;
         }
 
-        private void OnMarkingChange(MarkingSet markings)
+        private void OnMarkingChange()
         {
             if (Profile is null)
                 return;
 
-            Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithMarkings(markings.GetForwardEnumerator().ToList()));
+            Profile = Profile.WithMarkings(_markingsModel.Markings);
             ReloadProfilePreview();
-        }
-
-        // WD EDIT START
-        private void OnMarkingAdded(MarkingSet markings, Marking marking)
-        {
-            if (Profile is null)
-                return;
-
-            Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithMarkings(markings.GetForwardEnumerator().ToList()));
-            _bodySystem.AddMarking(PreviewDummy, marking);
             SetDirty();
         }
-
-        private void OnMarkingRemoved(MarkingSet markings, Marking marking)
-        {
-            if (Profile is null)
-                return;
-
-            Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithMarkings(markings.GetForwardEnumerator().ToList()));
-            _bodySystem.RemoveMarking(PreviewDummy, marking);
-            SetDirty();
-        }
-
-        private void OnMarkingUpdate(MarkingSet markings, Marking marking)
-        {
-            if (Profile is null)
-                return;
-
-            Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithMarkings(markings.GetForwardEnumerator().ToList()));
-            _bodySystem.UpdateMarking(PreviewDummy, marking);
-            SetDirty();
-        }
-        // WD EDIT END
 
         private void OnSkinColorOnValueChanged()
         {
@@ -1246,14 +989,14 @@ namespace Content.Client.Lobby.UI
                 return;
 
             // WD EDIT START
-            var skin = _prototypeManager.Index(Profile.Species).SkinColoration;
+            var skin = _prototypeManager.Index(Profile.Species).Coloration["Skin"];
             var strategy = _prototypeManager.Index(skin).Strategy;
 
             var color = Color.White;
 
             switch (strategy.InputType)
             {
-                case SkinColorationStrategyInput.Unary:
+                case ColorationStrategyInput.Unary:
                 {
                     if (!Skin.Visible)
                     {
@@ -1265,7 +1008,7 @@ namespace Content.Client.Lobby.UI
 
                     break;
                 }
-                case SkinColorationStrategyInput.Color:
+                case ColorationStrategyInput.Color:
                 {
                     if (!RgbSkinColorContainer.Visible)
                     {
@@ -1273,14 +1016,13 @@ namespace Content.Client.Lobby.UI
                         RgbSkinColorContainer.Visible = true;
                     }
 
-                    color = strategy.ClosestSkinColor(_rgbSkinColorSelector.Color);
+                    color = strategy.ClosestColor(_rgbSkinColorSelector.Color);
 
                     break;
                 }
             }
-
-            Markings.CurrentSkinColor = color;
-            Profile = Profile.WithCharacterAppearance(Profile.Appearance.WithSkinColor(color));
+            _markingsModel.SetColor("Skin", color);
+            Profile = Profile.WithColor("Skin", color);
             // WD EDIT END
 
             ReloadProfilePreview();
@@ -1322,7 +1064,7 @@ namespace Content.Client.Lobby.UI
             }
 
             UpdateGenderControls();
-            Markings.SetSex(newSex);
+            _markingsModel.SetSex(newSex);
             UpdateTTSVoicesControls(); // WD EDIT
             UpdateBodyTypes(); // WD EDIT
             UpdateBarksControl(); // WD EDIT
@@ -1350,60 +1092,12 @@ namespace Content.Client.Lobby.UI
             ReloadPreview();
         }
 
-        private void SetDisplayPronouns(string? displayPronouns)
-        {
-            if (displayPronouns == GetFormattedPronounsFromGender())
-                displayPronouns = null;
-
-            Profile = Profile?.WithDisplayPronouns(displayPronouns);
-            ReloadPreview();
-            IsDirty = true;
-        }
-
-        private void SetStationAiName(string? stationAiName)
-        {
-            Profile = Profile?.WithStationAiName(stationAiName);
-            ReloadPreview();
-            IsDirty = true;
-        }
-
-        private void SetCyborgName(string? cyborgName)
-        {
-            Profile = Profile?.WithCyborgName(cyborgName);
-            ReloadPreview();
-            IsDirty = true;
-        }
-
-        // WD EDIT START
-        private void SetClownName(string? clownName)
-        {
-            Profile = Profile?.WithClownName(clownName);
-            ReloadPreview();
-            IsDirty = true;
-        }
-
-        private void SetMimeName(string? mimeName)
-        {
-            Profile = Profile?.WithMimeName(mimeName);
-            IsDirty = true;
-        }
-        // WD EDIT END
-
-        private string GetFormattedPronounsFromGender()
-        {
-            if (Profile == null)
-                return "they/them";
-
-            var genderName = Enum.GetName(typeof(Gender), Profile.Gender) ?? "Epicene";
-            var label = Loc.GetString($"humanoid-profile-editor-pronouns-{genderName.ToLower()}-text");
-            return label.Replace(" ", string.Empty).ToLower();
-        }
-
         private void SetSpecies(string newSpecies)
         {
             Profile = Profile?.WithSpecies(newSpecies);
             OnSkinColorOnValueChanged(); // Species may have special color prefs, make sure to update it.
-            Markings.SetSpecies(newSpecies); // Repopulate the markings tab as well.
+            _markingsModel.MarkingsData = _markingsSystem.GetMarkingData(newSpecies);
+            _markingsModel.ValidateMarkings();
             UpdateSexControls(); // Update sex for new species
             UpdateCharacterRequired();
             // Changing species provides inaccurate sliders without these
@@ -1452,15 +1146,9 @@ namespace Content.Client.Lobby.UI
             _entManager.System<MetaDataSystem>().SetEntityName(PreviewDummy, newName);
         }
 
-        private void SetCustomSpecieName(string customname)
+        private void SetSpawnPriority(SpawnPriority newSpawnPriority)
         {
-            Profile = Profile?.WithCustomSpeciesName(customname);
-            IsDirty = true;
-        }
-
-        private void SetSpawnPriority(SpawnPriorityPreference newSpawnPriority)
-        {
-            Profile = Profile?.WithSpawnPriorityPreference(newSpawnPriority);
+            Profile = Profile?.WithSpawnPriority(newSpawnPriority);
             IsDirty = true;
         }
 
@@ -1496,17 +1184,10 @@ namespace Content.Client.Lobby.UI
             NameEdit.Text = Profile?.Name ?? "";
         }
 
-        private void UpdateCustomSpecieNameEdit()
-        {
-            var species = _species.Find(x => x.ID == Profile?.Species) ?? _species.First();
-            CCustomSpecieNameEdit.Text = string.IsNullOrEmpty(Profile?.Customspeciename) ? Loc.GetString(species.Name) : Profile.Customspeciename;
-            CCustomSpecieName.Visible = species.CustomName;
-        }
-
         private void UpdateFlavorTextEdit()
         {
             if (_flavorTextEdit != null)
-                _flavorTextEdit.TextRope = new Rope.Leaf(Profile?.FlavorText ?? "");
+                _flavorTextEdit.TextRope = new Rope.Leaf(Profile?.Flavor ?? "");
         }
 
         private void UpdateAgeEdit()
@@ -1521,10 +1202,10 @@ namespace Content.Client.Lobby.UI
                 return;
 
             CBodyTypesButton.Clear();
-            var species = _prototypeManager.Index<SpeciesPrototype>(Profile.Species);
+            var species = _prototypeManager.Index(Profile.Species);
             var sex = Profile.Sex;
-            _bodyTypes = species.BodyTypes.Select(protoId => _prototypeManager.Index<BodyTypePrototype>(protoId))
-                .Where(proto => !proto.SexRestrictions.Contains(sex.ToString()))
+            _bodyTypes = species.BodyTypes.Select(protoId => _prototypeManager.Index(protoId))
+                .Where(proto => !proto.SexRestrictions.Contains(sex))
                 .ToList();
 
             for (var i = 0; i < _bodyTypes.Count; i++)
@@ -1588,12 +1269,12 @@ namespace Content.Client.Lobby.UI
                 return;
 
             // WD EDIT START
-            var skin = _prototypeManager.Index(Profile.Species).SkinColoration;
+            var skin = _prototypeManager.Index(Profile.Species).Coloration["Skin"];
             var strategy = _prototypeManager.Index(skin).Strategy;
 
             switch (strategy.InputType)
             {
-                case SkinColorationStrategyInput.Unary:
+                case ColorationStrategyInput.Unary:
                 {
                     if (!Skin.Visible)
                     {
@@ -1601,11 +1282,11 @@ namespace Content.Client.Lobby.UI
                         RgbSkinColorContainer.Visible = false;
                     }
 
-                    Skin.Value = strategy.ToUnary(Profile.Appearance.SkinColor);
+                    Skin.Value = strategy.ToUnary(Profile.BodyColoration["Skin"]);
 
                     break;
                 }
-                case SkinColorationStrategyInput.Color:
+                case ColorationStrategyInput.Color:
                 {
                     if (!RgbSkinColorContainer.Visible)
                     {
@@ -1613,7 +1294,7 @@ namespace Content.Client.Lobby.UI
                         RgbSkinColorContainer.Visible = true;
                     }
 
-                    _rgbSkinColorSelector.Color = strategy.ClosestSkinColor(Profile.Appearance.SkinColor);
+                    _rgbSkinColorSelector.Color = strategy.ClosestColor(Profile.BodyColoration["Skin"]);
 
                     break;
                 }
@@ -1640,8 +1321,32 @@ namespace Content.Client.Lobby.UI
             if (Profile == null)
                 return;
 
-            Markings.SetData(Profile.Appearance.Markings, Profile.Species, Profile.Sex, Profile.Appearance.SkinColor,
-                Profile.Appearance.EyeColor);
+            var appearanceData = new Dictionary<BodyProviderType, BodyAppearanceData>();
+            var speciesPrototype = _prototypeManager.Index(Profile.Species);
+            var dollPrototype = _prototypeManager.Index(speciesPrototype.DollPrototype);
+
+            if (dollPrototype.TryGetComponent<BodyComponent>(out var body, _componentFactory))
+            {
+                foreach (var prototype in _bodySystem.GetProviders(body))
+                {
+                    if (!_markingsSystem.TryGetData(prototype, out var data))
+                        continue;
+
+                    if (!_prototypeManager.TryIndex(data.Value.Category, out var categoryPrototype))
+                        continue;
+
+                    appearanceData[categoryPrototype.Type] = new()
+                    {
+                        BodyColoration = Profile.BodyColoration.ToDictionary(),
+                        BodyType = Profile.BodyType,
+                        Sex = Profile.Sex,
+                    };
+                }
+            }
+
+            _markingsModel.AppearanceData = appearanceData;
+            _markingsModel.Markings = Profile.Markings.ToDictionary();
+            _markingsModel.MarkingsData = _markingsSystem.GetMarkingData(Profile.Species);
         }
 
         private void UpdateGenderControls()
@@ -1652,82 +1357,6 @@ namespace Content.Client.Lobby.UI
             PronounsButton.SelectId((int) Profile.Gender);
         }
 
-        private void UpdateDisplayPronounsControls()
-        {
-            if (Profile == null)
-                return;
-
-            var label = GetFormattedPronounsFromGender();
-            CosmeticPronounsNameEdit.PlaceHolder = label;
-
-            if (Profile.DisplayPronouns == null)
-                CosmeticPronounsNameEdit.Text = string.Empty;
-            else
-                CosmeticPronounsNameEdit.Text = Profile.DisplayPronouns;
-        }
-
-        private void UpdateStationAiControls()
-        {
-            if (Profile == null)
-                return;
-
-            StationAINameEdit.Text = Profile.StationAiName ?? string.Empty;
-
-            if (StationAINameEdit.Text != string.Empty)
-                return;
-
-            var stationAiNames = _prototypeManager.Index<LocalizedDatasetPrototype>(StationAiNames);
-            var randomName = _random.Pick(stationAiNames.Values);
-            StationAINameEdit.PlaceHolder = Loc.GetString(randomName);
-        }
-
-        private void UpdateCyborgControls()
-        {
-            if (Profile == null)
-                return;
-
-            CyborgNameEdit.Text = Profile.CyborgName ?? string.Empty;
-
-            if (CyborgNameEdit.Text != string.Empty)
-                return;
-
-            var borgNames = _prototypeManager.Index<DatasetPrototype>(CyborgNames);
-            var randomName = _random.Pick(borgNames.Values);
-            CyborgNameEdit.PlaceHolder = Loc.GetString(randomName);
-        }
-
-        // WD EDIT START
-        private void UpdateClownControls()
-        {
-            if (Profile == null)
-                return;
-
-            ClownNameEdit.Text = Profile.ClownName ?? string.Empty;
-
-            if (ClownNameEdit.Text != string.Empty)
-                return;
-
-            var clownNames = _prototypeManager.Index<LocalizedDatasetPrototype>(ClownNames);
-            var randomName = _random.Pick(clownNames.Values);
-            ClownNameEdit.PlaceHolder = Loc.GetString(randomName);
-        }
-
-        private void UpdateMimeControls()
-        {
-            if (Profile == null)
-                return;
-
-            MimeNameEdit.Text = Profile.MimeName ?? string.Empty;
-
-            if (MimeNameEdit.Text != string.Empty)
-                return;
-
-            var mimeNames = _prototypeManager.Index<LocalizedDatasetPrototype>(MimeNames);
-            var randomName = _random.Pick(mimeNames.Values);
-            MimeNameEdit.PlaceHolder = Loc.GetString(randomName);
-        }
-        // WD EDIT END
-
         private void UpdateSpawnPriorityControls()
         {
             if (Profile == null)
@@ -1736,7 +1365,7 @@ namespace Content.Client.Lobby.UI
             SpawnPriorityButton.SelectId((int) Profile.SpawnPriority);
         }
 
-                private void UpdateHeightWidthSliders()
+        private void UpdateHeightWidthSliders()
         {
             if (Profile is null)
                 return;
@@ -1827,88 +1456,13 @@ namespace Content.Client.Lobby.UI
             CharacterSpriteView?.InvalidateMeasure();
         }
 
-        private void UpdateHairPickers()
-        {
-            if (Profile == null)
-                return;
-
-            var hairMarking = Profile.Appearance.HairStyleId switch
-            {
-                HairStyles.DefaultHairStyle => new List<Marking>(),
-                _ => new() { new(Profile.Appearance.HairStyleId, new List<Color>() { Profile.Appearance.HairColor }) },
-            };
-
-            var facialHairMarking = Profile.Appearance.FacialHairStyleId switch
-            {
-                HairStyles.DefaultFacialHairStyle => new List<Marking>(),
-                _ => new() { new(Profile.Appearance.FacialHairStyleId, new List<Color>() { Profile.Appearance.FacialHairColor }) },
-            };
-
-            HairStylePicker.UpdateData(
-                hairMarking,
-                Profile.Species,
-                1);
-            FacialHairPicker.UpdateData(
-                facialHairMarking,
-                Profile.Species,
-                1);
-        }
-
-        private void UpdateCMarkingsHair()
-        {
-            if (Profile == null)
-                return;
-
-            // hair color
-            Color? hairColor = null;
-            if ( Profile.Appearance.HairStyleId != HairStyles.DefaultHairStyle &&
-                _markingManager.Markings.TryGetValue(Profile.Appearance.HairStyleId, out var hairProto))
-            {
-                if (_markingManager.CanBeApplied(Profile.Species, Profile.Sex, hairProto, _prototypeManager))
-                {
-                    hairColor = _markingManager.MustMatchSkin(Profile.Species, MarkingCategories.Hair, out _, _prototypeManager) // WD EDIT
-                        ? Profile.Appearance.SkinColor
-                        : Profile.Appearance.HairColor;
-                }
-            }
-
-            if (hairColor != null)
-                Markings.HairMarking = new(Profile.Appearance.HairStyleId, new List<Color> { hairColor.Value });
-            else
-                Markings.HairMarking = null;
-        }
-
-        private void UpdateCMarkingsFacialHair()
-        {
-            if (Profile == null)
-                return;
-
-            // Facial hair color
-            Color? facialHairColor = null;
-            if ( Profile.Appearance.FacialHairStyleId != HairStyles.DefaultFacialHairStyle &&
-                _markingManager.Markings.TryGetValue(Profile.Appearance.FacialHairStyleId, out var facialHairProto))
-            {
-                if (_markingManager.CanBeApplied(Profile.Species, Profile.Sex, facialHairProto, _prototypeManager))
-                {
-                    facialHairColor = _markingManager.MustMatchSkin(Profile.Species, MarkingCategories.Hair, out _, _prototypeManager) // WD EDIT
-                        ? Profile.Appearance.SkinColor
-                        : Profile.Appearance.FacialHairColor;
-                }
-            }
-
-            if (facialHairColor != null)
-                Markings.FacialHairMarking = new(Profile.Appearance.FacialHairStyleId, new List<Color> { facialHairColor.Value });
-            else
-                Markings.FacialHairMarking = null;
-        }
-
         private void UpdateEyePickers()
         {
             if (Profile == null)
                 return;
 
-            Markings.CurrentEyeColor = Profile.Appearance.EyeColor;
-            EyeColorPicker.SetData(Profile.Appearance.EyeColor);
+            _markingsModel.SetColor("Eye", Profile.BodyColoration["Eye"]);
+            EyeColorPicker.SetData(Profile.BodyColoration["Eye"]);
         }
 
         private void UpdateSaveButton()
@@ -1929,7 +1483,7 @@ namespace Content.Client.Lobby.UI
             if (Profile == null)
                 return;
 
-            var name = HumanoidCharacterProfile.GetName(Profile.Species, Profile.Gender);
+            var name = _namingSystem.GenerateName(Profile.Species, Profile.Gender);
             SetName(name);
             UpdateNameEdit();
         }
@@ -1951,7 +1505,7 @@ namespace Content.Client.Lobby.UI
                 return;
 
             StartExport();
-            await using var file = await _dialogManager.OpenFile(new FileDialogFilters(new FileDialogFilters.Group("yml")));
+            await using var file = await _dialogManager.OpenFile(new (new FileDialogFilters.Group("yml")));
 
             if (file == null)
             {
@@ -1961,11 +1515,11 @@ namespace Content.Client.Lobby.UI
 
             try
             {
-                var profile = _entManager.System<HumanoidAppearanceSystem>().FromStream(file, _playerManager.LocalSession!);
+                var profile = HumanoidCharacterProfile.FromStream(file);
                 var oldProfile = Profile;
                 SetProfile(profile, CharacterSlot);
 
-                IsDirty = !profile.MemberwiseEquals(oldProfile);
+                IsDirty = !profile.Equals(oldProfile);
             }
             catch (Exception exc)
             {
@@ -1993,7 +1547,7 @@ namespace Content.Client.Lobby.UI
 
             try
             {
-                var dataNode = _entManager.System<HumanoidAppearanceSystem>().ToDataNode(Profile);
+                var dataNode = Profile.ToDataNode();
                 await using var writer = new StreamWriter(file.Value.fileStream);
                 dataNode.Write(writer);
             }
@@ -2031,7 +1585,7 @@ namespace Content.Client.Lobby.UI
             var points = _cfgManager.GetCVar(CCVars.GameTraitsDefaultPoints);
             var maxTraits = _cfgManager.GetCVar(CCVars.GameTraitsMax);
             if (Profile is not null && _prototypeManager.TryIndex<SpeciesPrototype>(Profile.Species, out var speciesPrototype))
-                points += speciesPrototype.BonusTraitPoints;
+                points += speciesPrototype.TraitPoints;
 
             _traitCount = 0;
 
@@ -2089,16 +1643,16 @@ namespace Content.Client.Lobby.UI
 
 
             // Get the highest priority job to use for trait filtering
-            var highJob = _controller.GetPreferredJob(Profile ?? HumanoidCharacterProfile.DefaultWithSpecies());
+            var highJob = _controller.GetPreferredJob(Profile ?? new());
 
             _traits.Clear();
             foreach (var trait in _prototypeManager.EnumeratePrototypes<TraitPrototype>())
             {
-                var usable = trait.Enable && // WD EDIT
+                var usable = trait.SetPreference && // WD EDIT
                     _characterRequirementsSystem.CheckRequirementsValid(
                     trait.Requirements,
                     highJob,
-                    Profile ?? HumanoidCharacterProfile.DefaultWithSpecies(),
+                    Profile ?? new(),
                     _requirements.GetRawPlayTimeTrackers(),
                     _requirements.IsWhitelisted(),
                     trait,
@@ -2186,7 +1740,7 @@ namespace Content.Client.Lobby.UI
                 }
 
                 var selector = new TraitPreferenceSelector(
-                    trait, highJob, Profile ?? HumanoidCharacterProfile.DefaultWithSpecies(),
+                    trait, highJob, Profile ?? new HumanoidCharacterProfile(),
                     _entManager, _prototypeManager, _cfgManager, _characterRequirementsSystem, _requirements);
                 selector.Valid = usable;
                 selector.ShowUnusable = showUnusable.Value;

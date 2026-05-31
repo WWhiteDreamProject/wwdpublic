@@ -12,6 +12,7 @@ using Content.Shared._EE.Shadowling.Components;
 using Content.Shared._Goobstation.Flashbang;
 using Content.Shared._White.Damage.Components;
 using Content.Shared._White.Damage.Systems;
+using Content.Shared._White.Humanoid.Components;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.Actions;
 using Content.Shared.DoAfter;
@@ -53,8 +54,8 @@ public sealed partial class ShadowlingSystem : SharedShadowlingSystem
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly LanguageSystem _language = default!;
-    [Dependency] private  readonly HumanoidAppearanceSystem _appearance = default!;
+    [Dependency] private readonly LanguageSystem _language = default!;/*
+    [Dependency] private  readonly HumanoidAppearanceSystem _appearance = default!;*/
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly StunSystem _stun = default!;
@@ -106,7 +107,7 @@ public sealed partial class ShadowlingSystem : SharedShadowlingSystem
         foreach (var (key,_) in args.Damage.DamageDict)
         {
             if (key == "Heat")
-                args.Damage += component.HeatDamageProjectileModifier;
+                args.Result += component.HeatDamageProjectileModifier;
         }
     }
     private void OnFlashBanged(EntityUid uid, ShadowlingComponent component, GetFlashbangedEvent args)
@@ -213,8 +214,9 @@ public sealed partial class ShadowlingSystem : SharedShadowlingSystem
 
             EnsureComp<SlowedDownComponent>(uid);
 
+            /* TODO
             _appearance.AddMarking(uid, "AbominationTorso");
-            _appearance.AddMarking(uid, "AbominationHorns");
+            _appearance.AddMarking(uid, "AbominationHorns");*/
         }
     }
 
@@ -285,7 +287,7 @@ public sealed partial class ShadowlingSystem : SharedShadowlingSystem
             return false;
         }
 
-        if (!HasComp<HumanoidAppearanceComponent>(target))
+        if (!HasComp<HumanoidProfileComponent>(target))
         {
             _popup.PopupEntity(Loc.GetString("shadowling-enthrall-non-humanoid"), uid, uid, PopupType.SmallCaution);
             return false;

@@ -22,8 +22,8 @@ public sealed class XenomorphInfectionSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<XenomorphInfectionComponent, ComponentShutdown>(OnShutdown);
-        SubscribeLocalEvent<XenomorphInfectionComponent, OrganAddedEvent>(OnOrganAdded);
-        SubscribeLocalEvent<XenomorphInfectionComponent, OrganRemovedEvent>(OnOrganRemoved);
+        SubscribeLocalEvent<XenomorphInfectionComponent, BodyProviderGotInsertedEvent>(OnOrganAdded);
+        SubscribeLocalEvent<XenomorphInfectionComponent, BodyProviderGotRemovedEvent>(OnOrganRemoved);
     }
 
     private void OnShutdown(EntityUid uid, XenomorphInfectionComponent component, ComponentShutdown args)
@@ -32,25 +32,19 @@ public sealed class XenomorphInfectionSystem : EntitySystem
             RemComp<XenomorphInfectedComponent>(component.Infected.Value);
     }
 
-    private void OnOrganAdded(EntityUid uid, XenomorphInfectionComponent component, OrganAddedEvent args)
+    private void OnOrganAdded(EntityUid uid, XenomorphInfectionComponent component, BodyProviderGotInsertedEvent args)
     {
-        if (args.Body is not {} body)
-            return;
-
-        var xenomorphInfected = EnsureComp<XenomorphInfectedComponent>(body);
+        var xenomorphInfected = EnsureComp<XenomorphInfectedComponent>(args.Body);
         xenomorphInfected.Infection = uid;
         xenomorphInfected.InfectedIcons = component.InfectedIcons;
-        Dirty(body, xenomorphInfected);
+        Dirty(args.Body, xenomorphInfected);
 
         component.Infected = args.Body;
     }
 
-    private void OnOrganRemoved(EntityUid uid, XenomorphInfectionComponent component, OrganRemovedEvent args)
+    private void OnOrganRemoved(EntityUid uid, XenomorphInfectionComponent component, BodyProviderGotRemovedEvent args)
     {
-        if (args.Body is not {} body)
-            return;
-
-        RemComp<XenomorphInfectedComponent>(body);
+        RemComp<XenomorphInfectedComponent>(args.Body);
         component.Infected = null;
     }
 

@@ -1,4 +1,4 @@
-using Content.Server._White.Body.Organs.Lung;
+using Content.Server._White.Respirator.Components;
 using Content.Shared.Atmos;
 using Content.Shared.EntityEffects;
 using Robust.Shared.Prototypes;
@@ -17,19 +17,19 @@ public sealed partial class ModifyLungGas : EntityEffect
     public override void Effect(EntityEffectBaseArgs args)
     {
 
-        LungComponent? lung;
+        RespiratorProviderComponent? lung;
         float amount = 1f;
 
         if (args is EntityEffectReagentArgs reagentArgs)
         {
-            if (!args.EntityManager.TryGetComponent<LungComponent>(reagentArgs.OrganEntity, out var organLung))
+            if (!args.EntityManager.TryGetComponent<RespiratorProviderComponent>(reagentArgs.OrganEntity, out var organLung))
                 return;
             lung = organLung;
             amount = reagentArgs.Quantity.Float();
         }
         else
         {
-            if (!args.EntityManager.TryGetComponent<LungComponent>(args.TargetEntity, out var organLung)) //Likely needs to be modified to ensure it works correctly
+            if (!args.EntityManager.TryGetComponent<RespiratorProviderComponent>(args.TargetEntity, out var organLung)) //Likely needs to be modified to ensure it works correctly
                 return;
             lung = organLung;
         }

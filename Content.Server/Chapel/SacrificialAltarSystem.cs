@@ -1,5 +1,6 @@
 using Content.Server.Bible.Components;
 using Content.Shared._White.Gibbable.Systems;
+using Content.Shared._White.Humanoid.Components;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
@@ -57,7 +58,7 @@ public sealed class SacrificialAltarSystem : SharedSacrificialAltarSystem
         // TODO GOLEMS: create a soul crystal and transfer mind into it
 
         // finally gib the targets old body
-        _gibbable.Gib(target, user: args.User); // WD EDIT
+        _gibbable.Gib(target); // WD EDIT
     }
 
     protected override void AttemptSacrifice(Entity<SacrificialAltarComponent> ent, EntityUid user, EntityUid target)
@@ -80,7 +81,7 @@ public sealed class SacrificialAltarSystem : SharedSacrificialAltarSystem
         }
 
         // and no golems or familiars or whatever should be sacrificing
-        if (!HasComp<HumanoidAppearanceComponent>(user))
+        if (!HasComp<HumanoidProfileComponent>(user))
         {
             _popup.PopupEntity(Loc.GetString("altar-failure-reason-user-humanoid"), ent, user, PopupType.SmallCaution);
             return;
@@ -101,7 +102,7 @@ public sealed class SacrificialAltarSystem : SharedSacrificialAltarSystem
             return;
         }
 
-        if (!HasComp<HumanoidAppearanceComponent>(target))
+        if (!HasComp<HumanoidProfileComponent>(target))
         {
             _popup.PopupEntity(Loc.GetString("altar-failure-reason-target-humanoid", ("target", target)), ent, user, PopupType.SmallCaution);
             return;

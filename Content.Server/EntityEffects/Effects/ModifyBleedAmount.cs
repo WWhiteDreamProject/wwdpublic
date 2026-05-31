@@ -1,5 +1,5 @@
-using Content.Server._White.Body.Bloodstream.Systems;
-using Content.Shared._White.Body.Bloodstream.Components;
+using Content.Server._White.Bloodstream.Systems;
+using Content.Shared._White.Bloodstream.Components;
 using Content.Shared.EntityEffects;
 using Robust.Shared.Prototypes;
 
@@ -29,7 +29,7 @@ public sealed partial class ModifyBleedAmount : EntityEffect
                 amt *= reagentArgs.Scale.Float();
             }
 
-            sys.TryModifyBleedAmount((args.TargetEntity, blood), amt); // WD EDIT
+            /*sys.TryModifyBleedAmount((args.TargetEntity, blood), amt); TODO// WD EDIT*/
         }
     }
 }

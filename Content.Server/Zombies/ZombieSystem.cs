@@ -1,5 +1,5 @@
 using System.Linq;
-using Content.Server._White.Body.Bloodstream.Systems;
+using Content.Server._White.Bloodstream.Systems;
 using Content.Server.Actions;
 using Content.Server.Chat;
 using Content.Server.Chat.Systems;
@@ -8,6 +8,7 @@ using Content.Server.Speech.EntitySystems;
 using Content.Shared._White.Blocking;
 using Content.Shared._White.Damage.Components;
 using Content.Shared._White.Damage.Systems;
+using Content.Shared._White.Humanoid.Components;
 using Content.Shared.Anomaly.Components;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Cloning;
@@ -284,12 +285,7 @@ namespace Content.Server.Zombies
         {
             if (!Resolve(source, ref zombiecomp))
                 return false;
-
-            if (TryComp<HumanoidAppearanceComponent>(target, out var appcomp))
-            {
-                _humanoidAppearance.SetEyeColor(target, zombiecomp.BeforeZombifiedEyeColor, false, appcomp); // WD EDIT
-            }
-            _humanoidAppearance.SetSkinColor(target, zombiecomp.BeforeZombifiedSkinColor, false);
+            _bodyAppearance.ApplyAppearanceData(target, zombiecomp.BeforeZombifiedAppearance);
             _bloodstream.ChangeBloodReagent(target, zombiecomp.BeforeZombifiedBloodReagent);
 
             _nameMod.RefreshNameModifiers(target);

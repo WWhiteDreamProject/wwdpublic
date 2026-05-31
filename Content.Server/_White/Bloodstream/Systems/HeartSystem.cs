@@ -39,13 +39,13 @@ public sealed class HeartSystem : EntitySystem
     private void OnGotInserted(Entity<HeartComponent> ent, ref BodyProviderGotInsertedEvent args)
     {
         ent.Comp.Body = args.Body;
-        _metabolizer.UpdateMetabolicRate(args.Body);
+        _metabolizer.UpdateMetabolicRate(args.Body.Owner);
     }
 
     private void OnGotRemoved(Entity<HeartComponent> ent, ref BodyProviderGotRemovedEvent args)
     {
         ent.Comp.Body = null;
-        _metabolizer.UpdateMetabolicRate(args.Body);
+        _metabolizer.UpdateMetabolicRate(args.Body.Owner);
     }
 
     private void OnBloodAmountChanged(Entity<HeartComponent> ent, ref BodyRelayedEvent<BloodAmountChangedEvent> args)

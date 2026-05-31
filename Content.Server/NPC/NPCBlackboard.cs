@@ -189,7 +189,7 @@ public sealed partial class NPCBlackboard : IEnumerable<KeyValuePair<string, obj
                     return false;
                 }
 
-                value = hands.ActiveHand.IsEmpty;
+                value = hands.ActiveHand.Value.IsEmpty;
                 return true;
             }
             case CanMove:

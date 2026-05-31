@@ -90,8 +90,8 @@ public sealed class SharedTailLashSystem : EntitySystem
         _interaction.DoContactInteraction(uid, uid);
 
         var hitEntities = results.Where(result => _interaction.InRangeUnobstructed(uid, result, range: range)).ToList();
-        var bodyPartType = _targetDoll.GetSelectedBodyPart(uid);
-        var hitEvent = new MeleeHitEvent(hitEntities, uid, uid, component.TailDamage, null, bodyPartType);
+        var providerType = _targetDoll.GetSelectedProvider(uid);
+        var hitEvent = new MeleeHitEvent(hitEntities, uid, uid, component.TailDamage, null, providerType);
         RaiseLocalEvent(uid, hitEvent);
 
         foreach (var hit in hitEntities)
@@ -102,7 +102,7 @@ public sealed class SharedTailLashSystem : EntitySystem
             RaiseLocalEvent(hit, attackedEv);
 
             var modifiedDamage = DamageSpecifier.ApplyModifierSets(component.TailDamage + hitEvent.BonusDamage + attackedEv.BonusDamage, hitEvent.ModifiersList);
-            _damageable.TryChangeDamage(hit, modifiedDamage, origin:uid, bodyPartType: bodyPartType);
+            _damageable.TryChangeDamage(hit, modifiedDamage, origin:uid, providerType: providerType);
 
             if (component.Inject == null || !_solutionContainer.TryGetInjectableSolution(hit, out var solutionEnt, out _))
                 continue;

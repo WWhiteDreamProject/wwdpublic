@@ -1,4 +1,5 @@
 using Content.Server.Thief.Components;
+using Content.Shared._White.Humanoid.Components;
 using Content.Shared.Customization.Systems;
 using Content.Shared.Humanoid;
 using Content.Shared.Roles;
@@ -76,13 +77,13 @@ public sealed class ThiefUndeterminedBackpackSystem : EntitySystem
         {
             var set = _proto.Index(component.PossibleSets[i]);
 
-            if (set.Requirements.Count != 0 &&
-                TryComp<HumanoidAppearanceComponent>(user, out var appearance) &&
+            /*if (set.Requirements.Count != 0 && TODO
+                TryComp<HumanoidProfileComponent>(user, out var appearance) &&
                 appearance.LastProfileLoaded != null &&
                 !_characterRequirements.CheckRequirementsValid(
-                    set.Requirements, new JobPrototype() /* not gonna bother with jobs */,
+                    set.Requirements, new JobPrototype() /* not gonna bother with jobs #1#,
                     appearance.LastProfileLoaded, new Dictionary<string, TimeSpan>(), false, set, EntityManager, _proto, _config, out _))
-                continue;
+                continue;*/
 
             var selected = component.SelectedSets.Contains(i);
             var info = new ThiefBackpackSetInfo(

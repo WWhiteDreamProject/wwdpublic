@@ -3,6 +3,7 @@ using System.Linq;
 using System.Numerics;
 using Content.Client.DisplacementMap;
 using Content.Client.Inventory;
+using Content.Shared._White.Humanoid.Components;
 using Content.Shared._White.Humanoid.Prototypes;
 using Content.Shared.Clothing;
 using Content.Shared.Clothing.Components;
@@ -116,7 +117,7 @@ public sealed class ClientClothingSystem : ClothingSystem
 
         // WD EDIT START
         // body type specific
-        if (TryComp(args.Equipee, out HumanoidAppearanceComponent? humanoid))
+        if (TryComp(args.Equipee, out HumanoidProfileComponent? humanoid))
         {
             if (item.ClothingVisuals.TryGetValue($"{slot}-{humanoid.Sex}", out layers))
                 slot = $"{slot}-{humanoid.Sex}";
@@ -192,7 +193,7 @@ public sealed class ClientClothingSystem : ClothingSystem
 
         // WD EDIT START
         // body type specific
-        if (TryComp(target, out HumanoidAppearanceComponent? humanoid))
+        if (TryComp(target, out HumanoidProfileComponent? humanoid))
         {
             if (rsi.TryGetState($"{state}-{humanoid.Sex}", out _))
                 state = $"{state}-{humanoid.Sex}";
@@ -314,7 +315,7 @@ public sealed class ClientClothingSystem : ClothingSystem
         // WD EDIT START
         string? bodyTypeName = null;
         var sex = Sex.Unsexed;
-        if (TryComp(equipee, out HumanoidAppearanceComponent? humanoid))
+        if (TryComp(equipee, out HumanoidProfileComponent? humanoid))
         {
             bodyTypeName = _prototype.Index(humanoid.BodyType).Name;
             sex = humanoid.Sex;

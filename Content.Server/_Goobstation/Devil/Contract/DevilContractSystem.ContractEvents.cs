@@ -9,6 +9,7 @@
 using System.Linq;
 using Content.Shared._Goobstation.Devil;
 using Content.Server.Body.Components;
+using Content.Shared._White.Body;
 using Content.Shared._White.Body.Components;
 using Content.Shared.Random.Helpers;
 using Robust.Shared.Random;
@@ -57,7 +58,7 @@ public sealed partial class DevilContractSystem
         // QueueDel(pick.Id);
 
         var baseXform = Transform(args.Target);
-        foreach (var part in _bodySystem.GetBodyParts((args.Target, body), BodyPartType.Hand)) // WD EDIT
+        foreach (var part in _bodySystem.GetProviders((args.Target, body), BodyProviderType.Hand)) // WD EDIT
         {
             _transform.AttachToGridOrMap(part.Owner); // WD EDIT
             break;
@@ -86,7 +87,7 @@ public sealed partial class DevilContractSystem
         // _sawmill.Debug($"Removed part {ToPrettyString(pick.Id)} from {ToPrettyString(args.Target)}");
         // QueueDel(pick.Id);
         var baseXform = Transform(args.Target);
-        foreach (var part in _bodySystem.GetBodyParts((args.Target, body), BodyPartType.Leg)) // WD EDIT
+        foreach (var part in _bodySystem.GetProviders((args.Target, body), BodyProviderType.Leg)) // WD EDIT
         {
             _transform.AttachToGridOrMap(part.Owner);
             break;
@@ -100,7 +101,7 @@ public sealed partial class DevilContractSystem
             return;
 
         // don't remove the brain, as funny as that is.
-        var eligibleOrgans = _bodySystem.GetOrgans((args.Target, body))
+        var eligibleOrgans = _bodySystem.GetProviders((args.Target, body))
             .Where(o => !HasComp<BrainComponent>(o.Owner))
             .ToList();
         // WD EDIT END

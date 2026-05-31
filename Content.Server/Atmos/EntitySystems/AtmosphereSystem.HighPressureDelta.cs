@@ -11,6 +11,8 @@ using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
 using System.Numerics;
+using Content.Shared._White.Humanoid.Components;
+
 
 namespace Content.Server.Atmos.EntitySystems;
 
@@ -158,7 +160,7 @@ public sealed partial class AtmosphereSystem
         var coefficientOfFriction = partialFrictionComposition * physics.Mass;
         coefficientOfFriction *= _standingSystem.IsDown(uid) ? 3 : 1;
 
-        if (TryComp(ent.Owner, out HumanoidAppearanceComponent? humanoidAppearance))
+        if (TryComp(ent.Owner, out HumanoidProfileComponent? humanoidAppearance))
         {
             pressureVector *= HumanoidThrowMultiplier;
 

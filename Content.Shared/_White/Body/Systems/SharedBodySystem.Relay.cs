@@ -57,7 +57,7 @@ public record struct BodyRelayedEvent<TEvent>(TEvent Args)
     /// <summary>
     /// This is the component to which the event was relayed.
     /// </summary>
-    public BodyProviderComponent Provider;
+    public BodyProviderComponent Provider = default!;
 }
 
 /// <summary>

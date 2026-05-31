@@ -1,5 +1,5 @@
-using Content.Server._White.Body.Respirator.Components;
-using Content.Server._White.Body.Respirator.Systems;
+using Content.Server._White.Respirator.Components;
+using Content.Server._White.Respirator.Systems;
 using Content.Shared.EntityEffects;
 using Robust.Shared.Prototypes;
 

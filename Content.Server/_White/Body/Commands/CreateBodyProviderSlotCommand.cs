@@ -1,7 +1,7 @@
 using Content.Server._White.Body.Systems;
 using Content.Server._White.Commands;
 using Content.Server.Administration;
-using Content.Shared._White.Body.Components;
+using Content.Shared._White.Body;
 using Content.Shared.Administration;
 using Robust.Shared.Console;
 

@@ -17,6 +17,8 @@ public sealed class HideableLayersSystem : SharedHideableLayersSystem
         SubscribeLocalEvent<HideableLayersComponent, AfterAutoHandleStateEvent>(OnHandleState);
     }
 
+    #region Event Handling
+
     private void OnComponentInit(Entity<HideableLayersComponent> ent, ref ComponentInit args)
     {
         UpdateSprite(ent);
@@ -27,18 +29,22 @@ public sealed class HideableLayersSystem : SharedHideableLayersSystem
         UpdateSprite(ent);
     }
 
-    public override void SetLayerOcclusion(
-        Entity<HideableLayersComponent?> ent,
-        Enum layer,
-        bool visible,
-        SlotFlags source
-        )
-    {
-        base.SetLayerOcclusion(ent, layer, visible, source);
+    #endregion
 
-        if (Resolve(ent, ref ent.Comp))
-            UpdateSprite((ent, ent.Comp));
+    #region Public API
+
+    public override void SetLayerOcclusion(Entity<HideableLayersComponent?> ent, Enum layer, bool visible, SlotFlags source)
+    {
+        if (!HideableLayersQuery.Resolve(ent, ref ent.Comp))
+            return;
+
+        base.SetLayerOcclusion(ent, layer, visible, source);
+        UpdateSprite((ent, ent.Comp));
     }
+
+    #endregion
+
+    #region Private API
 
     private void UpdateSprite(Entity<HideableLayersComponent> ent)
     {
@@ -47,7 +53,7 @@ public sealed class HideableLayersSystem : SharedHideableLayersSystem
             if (ent.Comp.HiddenLayers.ContainsKey(item))
                 continue;
 
-            var ev = new LayerVisibilityChangedEvent(item, true);
+            var ev = new HideableLayerVisibilityChangedEvent(item, true);
             RaiseLocalEvent(ent, ref ev);
 
             if (!_sprite.LayerMapTryGet(ent.Owner, item, out var index, true))
@@ -61,7 +67,7 @@ public sealed class HideableLayersSystem : SharedHideableLayersSystem
             if (ent.Comp.LastHiddenLayers.Contains(item))
                 continue;
 
-            var ev = new LayerVisibilityChangedEvent(item, false);
+            var ev = new HideableLayerVisibilityChangedEvent(item, false);
             RaiseLocalEvent(ent, ref ev);
 
             if (!_sprite.LayerMapTryGet(ent.Owner, item, out var index, true))
@@ -73,4 +79,6 @@ public sealed class HideableLayersSystem : SharedHideableLayersSystem
         ent.Comp.LastHiddenLayers.Clear();
         ent.Comp.LastHiddenLayers.UnionWith(ent.Comp.HiddenLayers.Keys);
     }
+
+    #endregion
 }

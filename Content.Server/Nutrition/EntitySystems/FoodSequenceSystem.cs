@@ -1,6 +1,7 @@
 using System.Numerics;
 using System.Text;
 using Content.Server.Nutrition.Components;
+using Content.Shared._White.Nutrition.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs.Systems;
@@ -110,7 +111,7 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
     private bool TryAddFoodElement(Entity<FoodSequenceStartPointComponent> start, Entity<FoodSequenceElementComponent> element, EntityUid? user = null)
     {
         // we can't add a live mouse to a burger.
-        if (!TryComp<FoodComponent>(element, out var elementFood))
+        if (!TryComp<IngestibleComponent>(element, out var elementFood))
             return false;
         if (elementFood.RequireDead && _mobState.IsAlive(element))
             return false;
@@ -207,20 +208,20 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
 
     private void MergeFoodSolutions(EntityUid start, EntityUid element)
     {
-        if (!TryComp<FoodComponent>(start, out var startFood))
+        if (!TryComp<IngestibleComponent>(start, out var startFood))
             return;
 
-        if (!TryComp<FoodComponent>(element, out var elementFood))
+        if (!TryComp<IngestibleComponent>(element, out var elementFood))
             return;
 
-        if (!_solutionContainer.TryGetSolution(start, startFood.Solution, out var startSolutionEntity, out var startSolution))
+        if (!_solutionContainer.ResolveSolution(start, startFood.SolutionName, ref startFood.Solution, out var startSolution))
             return;
 
-        if (!_solutionContainer.TryGetSolution(element, elementFood.Solution, out _, out var elementSolution))
+        if (!_solutionContainer.ResolveSolution(element, elementFood.SolutionName, ref elementFood.Solution, out var elementSolution))
             return;
 
         startSolution.MaxVolume += elementSolution.MaxVolume;
-        _solutionContainer.TryAddSolution(startSolutionEntity.Value, elementSolution);
+        _solutionContainer.TryAddSolution(startFood.Solution.Value, elementSolution);
     }
 
     private void MergeFlavorProfiles(EntityUid start, EntityUid element)
@@ -240,15 +241,15 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
 
     private void MergeTrash(EntityUid start, EntityUid element)
     {
-        if (!TryComp<FoodComponent>(start, out var startFood))
+        if (!TryComp<IngestibleComponent>(start, out var startFood))
             return;
 
-        if (!TryComp<FoodComponent>(element, out var elementFood))
+        if (!TryComp<IngestibleComponent>(element, out var elementFood))
             return;
 
-        foreach (var trash in elementFood.Trash)
+        foreach (var trash in elementFood.Trashes)
         {
-            startFood.Trash.Add(trash);
+            startFood.Trashes.Add(trash);
         }
     }
 

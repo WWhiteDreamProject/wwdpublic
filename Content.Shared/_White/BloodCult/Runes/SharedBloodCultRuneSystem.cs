@@ -1,5 +1,6 @@
 using Content.Shared._White.BloodCult.BloodCultist;
 using Content.Shared._White.BloodCult.Runes.Components;
+using Content.Shared._White.Humanoid.Components;
 using Content.Shared.Examine;
 using Content.Shared.Ghost;
 using Content.Shared.Interaction;
@@ -57,14 +58,14 @@ public abstract class SharedBloodCultRuneSystem : EntitySystem
     /// <param name="rune">The rune itself.</param>
     /// <param name="range">Radius for a lookup.</param>
     /// <param name="exlude">Filter to exlude from return.</param>
-    public HashSet<Entity<HumanoidAppearanceComponent>> GetTargetsNearRune(
+    public HashSet<Entity<HumanoidProfileComponent>> GetTargetsNearRune(
         EntityUid rune,
         float range,
-        Predicate<Entity<HumanoidAppearanceComponent>>? exlude = null
+        Predicate<Entity<HumanoidProfileComponent>>? exlude = null
     )
     {
         var runeTransform = Transform(rune);
-        var possibleTargets = _entityLookup.GetEntitiesInRange<HumanoidAppearanceComponent>(runeTransform.Coordinates, range);
+        var possibleTargets = _entityLookup.GetEntitiesInRange<HumanoidProfileComponent>(runeTransform.Coordinates, range);
         if (exlude != null)
             possibleTargets.RemoveWhere(exlude);
 

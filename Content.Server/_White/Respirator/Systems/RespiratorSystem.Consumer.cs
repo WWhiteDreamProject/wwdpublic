@@ -20,12 +20,12 @@ public sealed partial class RespiratorSystem
 
     private void OnGotInserted(Entity<RespiratorСonsumerComponent> ent, ref BodyProviderGotInsertedEvent args)
     {
-        UpdateConsumption(args.Body);
+        UpdateConsumption(args.Body.Owner);
     }
 
     private void OnGotRemoved(Entity<RespiratorСonsumerComponent> ent, ref BodyProviderGotRemovedEvent args)
     {
-        UpdateConsumption(args.Body);
+        UpdateConsumption(args.Body.Owner);
     }
 
     private void OnBloodAmountChanged(Entity<RespiratorСonsumerComponent> ent, ref BodyRelayedEvent<BloodAmountChangedEvent> args)

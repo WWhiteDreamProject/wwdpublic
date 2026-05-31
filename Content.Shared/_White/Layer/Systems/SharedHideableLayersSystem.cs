@@ -7,21 +7,27 @@ namespace Content.Shared._White.Layer.Systems;
 
 public abstract class SharedHideableLayersSystem : EntitySystem
 {
+    protected EntityQuery<HideableLayersComponent> HideableLayersQuery;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        HideableLayersQuery = GetEntityQuery<HideableLayersComponent>();
+    }
+
+    #region Public API
+
     /// <summary>
     /// Toggles a sprite layer visibility.
     /// </summary>
-    /// <param name="ent">Entity</param>
-    /// <param name="layer">Layer to toggle visibility for</param>
-    /// <param name="hidden">Whether to hide (true) or show (false) the layer. If more than once piece of clothing is hiding the layer, it may remain hidden.</param>
+    /// <param name="ent">The hideable layers entity</param>
+    /// <param name="layer">The Layer to toggle visibility for.</param>
+    /// <param name="hidden">Whether to hide or show the layer. If more than once piece of clothing is hiding the layer, it may remain hidden.</param>
     /// <param name="slot">Equipment slot that has the clothing that is (or was) hiding the layer.</param>
-    public virtual void SetLayerOcclusion(
-        Entity<HideableLayersComponent?> ent,
-        Enum layer,
-        bool hidden,
-        SlotFlags slot
-        )
+    public virtual void SetLayerOcclusion(Entity<HideableLayersComponent?> ent, Enum layer, bool hidden, SlotFlags slot)
     {
-        if (!Resolve(ent, ref ent.Comp))
+        if (!HideableLayersQuery.Resolve(ent, ref ent.Comp))
             return;
 
         #if DEBUG
@@ -40,8 +46,6 @@ public abstract class SharedHideableLayersSystem : EntitySystem
         }
         else if (ent.Comp.HiddenLayers.TryGetValue(layer, out var oldSlots))
         {
-            // This layer might be getting hidden by more than one piece of equipped clothing.
-            // Remove slot flag from the set of slots hiding this layer, then check if there are any left.
             ent.Comp.HiddenLayers[layer] = ~slot & oldSlots;
             if (ent.Comp.HiddenLayers[layer] == SlotFlags.NONE)
                 ent.Comp.HiddenLayers.Remove(layer);
@@ -54,13 +58,15 @@ public abstract class SharedHideableLayersSystem : EntitySystem
 
         Dirty(ent);
 
-        var ev = new LayerVisibilityChangedEvent(layer, ent.Comp.HiddenLayers.ContainsKey(layer));
+        var ev = new HideableLayerVisibilityChangedEvent(layer, ent.Comp.HiddenLayers.ContainsKey(layer));
         RaiseLocalEvent(ent, ref ev);
     }
+
+    #endregion
 }
 
 /// <summary>
-/// Raised on an entity when one of its layers changes its visibility.
+/// Event raised on a hideable layers entity when one of its layers changes its visibility.
 /// </summary>
 [ByRefEvent]
-public readonly record struct LayerVisibilityChangedEvent(Enum Layer, bool Visible);
+public readonly record struct HideableLayerVisibilityChangedEvent(Enum Layer, bool Visible);

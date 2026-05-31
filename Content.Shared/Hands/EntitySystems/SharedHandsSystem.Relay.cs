@@ -14,7 +14,7 @@ public abstract partial class SharedHandsSystem
         SubscribeLocalEvent<HandsComponent, GetEyePvsScaleRelayedEvent>(RelayEvent);
         SubscribeLocalEvent<HandsComponent, RefreshMovementSpeedModifiersEvent>(RelayEvent);
         // WD EDIT START
-        SubscribeLocalEvent<HandsComponent, GetUtensilEvent>(RelayEvent);
+        SubscribeLocalEvent<HandsComponent, GetUtensilsEvent>(RelayEvent);
         SubscribeLocalEvent<HandsComponent, MoveEventProxy>(RelayEvent);
         // WD EDIT END
     }

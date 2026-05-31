@@ -50,7 +50,7 @@ public record struct WoundRelayedEvent<TEvent>(TEvent Args)
     /// <summary>
     /// This is the component to which the event was relayed.
     /// </summary>
-    public WoundComponent Wound;
+    public WoundComponent Wound = default!;
 }
 
 /// <summary>

@@ -18,6 +18,10 @@ using Content.Shared.Roles.Jobs;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Diagnostics.CodeAnalysis;
+using Content.Shared._White.Humanoid.Components;
+using Content.Shared._White.Humanoid.Prototypes;
+using Content.Shared._White.Preferences;
+
 
 namespace Content.Server.DeltaV.ParadoxAnomaly.Systems;
 
@@ -33,7 +37,6 @@ public sealed class ParadoxAnomalySystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly PsionicsSystem _psionics = default!;
-    [Dependency] private readonly SharedHumanoidAppearanceSystem _humanoid = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedRoleSystem _role = default!;
     [Dependency] private readonly StationSystem _station = default!;
@@ -68,10 +71,11 @@ public sealed class ParadoxAnomalySystem : EntitySystem
 
         // Get a list of potential candidates
         var candidates = new List<(EntityUid, EntityUid, SpeciesPrototype, HumanoidCharacterProfile, ProtoId<JobPrototype>)>(); // WD EDIT
-        var query = EntityQueryEnumerator<MindContainerComponent, HumanoidAppearanceComponent>();
+        var query = EntityQueryEnumerator<MindContainerComponent, HumanoidProfileComponent>();
         while (query.MoveNext(out var uid, out var mindContainer, out var humanoid))
         {
-            if (humanoid.LastProfileLoaded is not {} profile)
+            // TODO
+            /*if (humanoid.LastProfileLoaded is not {} profile)
                 continue;
 
             if (!_proto.TryIndex<SpeciesPrototype>(humanoid.Species, out var species))
@@ -88,7 +92,7 @@ public sealed class ParadoxAnomalySystem : EntitySystem
                 continue;
 
             // TODO: when metempsychosis real skip whoever has Karma
-            candidates.Add((uid, mindId, species, profile, jobRole.Value.Comp2.Prototype.Value)); // WD EDIT
+            candidates.Add((uid, mindId, species, profile, jobRole.Value.Comp2.Prototype.Value)); // WD EDIT*/
         }
 
         twin = SpawnParadoxAnomaly(candidates, rule);
@@ -135,11 +139,12 @@ public sealed class ParadoxAnomalySystem : EntitySystem
         //////////////////////////
 
         // Copy the details.
-        _humanoid.LoadProfile(
+        // TODO
+        /*_humanoid.LoadProfile(
             spawned,
             profile,
             loadExtensions: true, //Yes it's absolutely intended that they should straight up be EXACTLY the same character
-            generateLoadouts: true); //That means loadouts too. Have fun with there potentially being a 2nd HoS Gun for traitors to want to steal.
+            generateLoadouts: true); //That means loadouts too. Have fun with there potentially being a 2nd HoS Gun for traitors to want to steal.*/
         _metaData.SetEntityName(spawned, Name(uid));
 
         if (TryComp<DetailExaminableComponent>(uid, out var detail))

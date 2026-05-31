@@ -22,6 +22,7 @@ using Robust.Shared.Timing;
 using System.Linq;
 using Content.Server._White.Bloodstream.Systems;
 using Content.Shared._White.Bloodstream.Components;
+using Content.Shared._White.Nutrition.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Nutrition.Components;
 using TimedDespawnComponent = Robust.Shared.Spawners.TimedDespawnComponent;
@@ -274,7 +275,7 @@ public sealed class SmokeSystem : EntitySystem
 
         if (_inventory.TryGetSlotEntity(entity, "mask", out var maskUid) &&
             EntityManager.TryGetComponent<IngestionBlockerComponent>(maskUid, out var blocker) &&
-            blocker is { Enabled: true, BlockSmokeIngestion: true }) // Goobstation
+            blocker is { Enabled: true, }) // Goobstation
         {
             blockIngestion = true;
         }

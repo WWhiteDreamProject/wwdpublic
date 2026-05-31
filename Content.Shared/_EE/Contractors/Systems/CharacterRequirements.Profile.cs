@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Shared._EE.Contractors.Prototypes;
+using Content.Shared._White.Preferences;
 using Content.Shared.CCVar;
 using Content.Shared.Clothing.Loadouts.Prototypes;
 using Content.Shared.Humanoid;

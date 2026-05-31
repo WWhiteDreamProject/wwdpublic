@@ -1,4 +1,4 @@
-using Content.Shared._White.Body.Components;
+using Content.Shared._White.Body;
 using Content.Shared._White.Damage.Systems;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Buckle.Components;

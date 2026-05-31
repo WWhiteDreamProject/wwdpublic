@@ -1,5 +1,6 @@
 using Content.Server.DoAfter;
 using Content.Server.Nutrition.Components;
+using Content.Shared._White.Nutrition.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Nutrition;
 using Content.Shared.Nutrition.Components;
@@ -68,14 +69,14 @@ public sealed class SliceableFoodSystem : EntitySystem
         EntityUid user,
         EntityUid? usedItem,
         SliceableFoodComponent? component = null,
-        FoodComponent? food = null,
+        IngestibleComponent? food = null,
         TransformComponent? transform = null)
     {
         if (!Resolve(uid, ref component, ref food, ref transform) ||
             string.IsNullOrEmpty(component.Slice))
             return false;
 
-        if (!_solutionContainer.TryGetSolution(uid, food.Solution, out var soln, out var solution))
+        if (!_solutionContainer.ResolveSolution(uid, food.SolutionName, ref food.Solution, out var solution))
             return false;
 
         if (!TryComp<UtensilComponent>(usedItem, out var utensil) || (utensil.Types & UtensilType.Knife) == 0)
@@ -87,7 +88,7 @@ public sealed class SliceableFoodSystem : EntitySystem
             var sliceUid = Slice(uid, user, component, transform);
 
             var lostSolution =
-                _solutionContainer.SplitSolution(soln.Value, sliceVolume);
+                _solutionContainer.SplitSolution(food.Solution.Value, sliceVolume);
 
             // Fill new slice
             FillSlice(sliceUid, lostSolution);
@@ -135,7 +136,7 @@ public sealed class SliceableFoodSystem : EntitySystem
         return sliceUid;
     }
 
-    private void DeleteFood(EntityUid uid, EntityUid user, FoodComponent foodComp)
+    private void DeleteFood(EntityUid uid, EntityUid user, IngestibleComponent foodComp)
     {
         var ev = new BeforeFullySlicedEvent
         {
@@ -146,7 +147,7 @@ public sealed class SliceableFoodSystem : EntitySystem
             return;
 
         // Locate the sliced food and spawn its trash
-        foreach (var trash in foodComp.Trash)
+        foreach (var trash in foodComp.Trashes)
         {
             var trashUid = Spawn(trash, _transform.GetMapCoordinates(uid));
 
@@ -161,19 +162,19 @@ public sealed class SliceableFoodSystem : EntitySystem
     private void FillSlice(EntityUid sliceUid, Solution solution)
     {
         // Replace all reagents on prototype not just copying poisons (example: slices of eaten pizza should have less nutrition)
-        if (TryComp<FoodComponent>(sliceUid, out var sliceFoodComp) &&
-            _solutionContainer.TryGetSolution(sliceUid, sliceFoodComp.Solution, out var itsSoln, out var itsSolution))
+        if (TryComp<IngestibleComponent>(sliceUid, out var sliceFoodComp) &&
+            _solutionContainer.ResolveSolution(sliceUid, sliceFoodComp.SolutionName, ref sliceFoodComp.Solution, out var itsSolution))
         {
-            _solutionContainer.RemoveAllSolution(itsSoln.Value);
+            _solutionContainer.RemoveAllSolution(sliceFoodComp.Solution.Value);
 
             var lostSolutionPart = solution.SplitSolution(itsSolution.AvailableVolume);
-            _solutionContainer.TryAddSolution(itsSoln.Value, lostSolutionPart);
+            _solutionContainer.TryAddSolution(sliceFoodComp.Solution.Value, lostSolutionPart);
         }
     }
 
     private void OnComponentStartup(Entity<SliceableFoodComponent> entity, ref ComponentStartup args)
     {
-        var foodComp = EnsureComp<FoodComponent>(entity);
-        _solutionContainer.EnsureSolution(entity.Owner, foodComp.Solution, out _);
+        var foodComp = EnsureComp<IngestibleComponent>(entity);
+        _solutionContainer.EnsureSolution(entity.Owner, foodComp.SolutionName, out _);
     }
 }

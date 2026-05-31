@@ -21,7 +21,7 @@ public sealed partial class BodyComponent : Component
     /// Body providers attached to this body.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public Dictionary<(string, NetEntity), BodyProviderSlot> Providers = new();
+    public Dictionary<(string Id, NetEntity Parent), BodyProviderSlot> Providers = new();
 
     /// <summary>
     /// Root body provider id. Usually we want it to be chest.

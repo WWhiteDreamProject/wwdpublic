@@ -1,6 +1,9 @@
 using System.Linq;
 using Content.Server.Humanoid.Components;
 using Content.Server.RandomMetadata;
+using Content.Shared._White.Humanoid.Prototypes;
+using Content.Shared._White.Humanoid.Systems;
+using Content.Shared._White.Preferences;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Preferences;
 using Robust.Shared.Map;
@@ -18,7 +21,7 @@ public sealed class RandomHumanoidSystem : EntitySystem
     [Dependency] private readonly ISerializationManager _serialization = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
 
-    [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
+    [Dependency] private readonly HumanoidProfileSystem _humanoid = default!;
 
     private HashSet<string> _notRoundStartSpecies = new();
     private HashSet<string> _allSpecies = new(); // WWDP
@@ -40,7 +43,7 @@ public sealed class RandomHumanoidSystem : EntitySystem
         }
 
         var speciesList = _prototypeManager.EnumeratePrototypes<SpeciesPrototype>()
-            .Where(x => !x.RoundStart)
+            .Where(x => !x.SetPreference)
             .Select(x => x.ID)
             .ToHashSet();
         var allSpeciesList = _prototypeManager.EnumeratePrototypes<SpeciesPrototype>()
@@ -73,14 +76,14 @@ public sealed class RandomHumanoidSystem : EntitySystem
         else
             ignoredspecies = _notRoundStartSpecies;
 
-        var profile = HumanoidCharacterProfile.Random(ignoredspecies);
+        var profile = HumanoidCharacterProfile.Random(/*TODO ignoredspecies*/);
         // WWDP edit end
         var speciesProto = _prototypeManager.Index<SpeciesPrototype>(profile.Species);
         var humanoid = EntityManager.CreateEntityUninitialized(speciesProto.Prototype, coordinates);
 
         _metaData.SetEntityName(humanoid, prototype.RandomizeName ? profile.Name : name);
 
-        _humanoid.LoadProfile(humanoid, profile);
+        _humanoid.ApplyProfile(humanoid, profile);
 
         if (prototype.Components != null)
         {

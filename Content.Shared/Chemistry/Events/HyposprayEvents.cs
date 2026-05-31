@@ -3,8 +3,8 @@ using Content.Shared.Inventory;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Chemistry.Hypospray.Events;
-IInventoryRelayEvent
-public abstract partial class BeforeHyposprayInjectsTargetEvent : CancellableEntityEventArgs,
+
+public abstract partial class BeforeHyposprayInjectsTargetEvent : CancellableEntityEventArgs, IInventoryRelayEvent
 {
     public SlotFlags TargetSlots { get; } = SlotFlags.WITHOUT_POCKET;
     public EntityUid EntityUsingHypospray;

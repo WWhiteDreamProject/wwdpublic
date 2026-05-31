@@ -525,7 +525,7 @@ public abstract partial class SharedGunSystem : EntitySystem
 
         var projectile = EnsureComp<ProjectileComponent>(uid);
         Projectiles.SetShooter(uid, projectile, user ?? gunUid);
-        Projectiles.SetBodyPartType((uid, projectile), _targetDoll.GetSelectedBodyPart(user ?? gunUid)); // WD EDIT
+        Projectiles.SetBodyPartType((uid, projectile), _targetDoll.GetSelectedProvider(user ?? gunUid)); // WD EDIT
         projectile.Weapon = gunUid;
 
         TransformSystem.SetWorldRotation(uid, direction.ToWorldAngle() + projectile.Angle);

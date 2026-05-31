@@ -1,4 +1,5 @@
-using Content.Server._White.Body.Bloodstream.Systems;
+/* TODO
+using Content.Server._White.Bloodstream.Systems;
 using Content.Server._White.Body.Systems;
 using Content.Shared.Verbs;
 using Content.Shared.Damage;
@@ -15,6 +16,7 @@ using Content.Server.Popups;
 using Content.Server.DoAfter;
 using Content.Shared._White.Bloodstream.Components;
 using Content.Shared._White.Damage.Systems;
+using Content.Shared._White.Nutrition.Components;
 using Content.Shared.HealthExaminable;
 using Content.Shared.Nutrition.Components;
 using Robust.Shared.Prototypes;
@@ -202,3 +204,4 @@ namespace Content.Server.Vampiric
         }
     }
 }
+*/

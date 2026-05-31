@@ -1,4 +1,4 @@
-using Content.Shared._White.Body.Components;
+using Content.Shared._White.Body;
 using Content.Shared._White.TargetDoll;
 using Robust.Client.Player;
 using Robust.Shared.Player;

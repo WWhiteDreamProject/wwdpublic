@@ -1,5 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Shared._White.Humanoid.Components;
+using Content.Shared._White.Preferences;
 using Content.Shared.Dataset;
 using Content.Shared.Customization.Systems;
 using Content.Shared.Hands.Components;
@@ -114,7 +116,7 @@ public abstract class SharedStationSpawningSystem : EntitySystem
 
                 if (_handsSystem.TryGetEmptyHand(entity, out var emptyHand, handsComponent))
                 {
-                    _handsSystem.TryPickup(entity, inhandEntity, emptyHand, checkActionBlocker: false,
+                    _handsSystem.TryPickup(entity, inhandEntity, emptyHand.Value, checkActionBlocker: false,
                         handsComp: handsComponent);
                 }
             }
@@ -158,19 +160,20 @@ public abstract class SharedStationSpawningSystem : EntitySystem
 
     public bool GetProfile(EntityUid? uid, [NotNullWhen(true)] out HumanoidCharacterProfile? profile)
     {
-        if (!TryComp(uid, out HumanoidAppearanceComponent? appearance))
+        if (!TryComp(uid, out HumanoidProfileComponent? appearance))
         {
             profile = null;
             return false;
         }
 
-        if (appearance.LastProfileLoaded is { } lastProfileLoaded)
+        // TODO: shitcode
+        /*if (appearance.LastProfileLoaded is { } lastProfileLoaded)
         {
             profile = lastProfileLoaded;
             return true;
-        }
+        }*/
 
-        profile = HumanoidCharacterProfile.DefaultWithSpecies(appearance.Species);
+        profile = new HumanoidCharacterProfile().WithSpecies(appearance.Species);
         return true;
     }
 

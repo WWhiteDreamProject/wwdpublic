@@ -98,7 +98,7 @@ public sealed class PricingSystem : EntitySystem
         }
 
         // TODO: Better handling of missing.
-        var partList = _bodySystem.GetBodyParts((uid, body)).ToList(); // WD EDIT
+        var partList = _bodySystem.GetProviders((uid, body)); // WD EDIT
         var totalPartsPresent = partList.Sum(_ => 1);
         var totalParts = partList.Count;
 

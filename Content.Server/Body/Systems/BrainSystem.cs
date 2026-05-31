@@ -16,8 +16,8 @@ namespace Content.Server.Body.Systems
         {
             base.Initialize();
 
-            SubscribeLocalEvent<BrainComponent, OrganAddedEvent>((uid, _, args) => HandleMind(args.Body, uid)); // WD EDIT
-            SubscribeLocalEvent<BrainComponent, OrganRemovedEvent>((uid, _, args) => HandleMind(uid, args.Body)); // WD EDIT
+            SubscribeLocalEvent<BrainComponent, BodyProviderGotInsertedEvent>((uid, _, args) => HandleMind(args.Body, uid)); // WD EDIT
+            SubscribeLocalEvent<BrainComponent, BodyProviderGotRemovedEvent>((uid, _, args) => HandleMind(uid, args.Body)); // WD EDIT
             SubscribeLocalEvent<BrainComponent, PointAttemptEvent>(OnPointAttempt);
         }
 

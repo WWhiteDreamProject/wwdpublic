@@ -6,6 +6,8 @@ using Robust.Shared.Player;
 using Content.Shared.Humanoid;
 using Content.Shared.Abilities.Psionics;
 using Content.Client.Overlays;
+using Content.Shared._White.Appearance.Components;
+
 
 namespace Content.Client.Shadowkin;
 
@@ -52,7 +54,7 @@ public sealed partial class ShadowkinSystem : EntitySystem
     {
         if (_cfg.GetCVar(CCVars.NoVisionFilters))
             return;
-            
+
         _overlayMan.AddOverlay(_overlay);
     }
 
@@ -79,7 +81,7 @@ public sealed partial class ShadowkinSystem : EntitySystem
         var uid = _playerMan.LocalEntity;
         if (uid == null
             || !TryComp<ShadowkinComponent>(uid, out var comp)
-            || !TryComp<HumanoidAppearanceComponent>(uid, out var humanoid))
+            || !TryComp<BodyAppearanceComponent>(uid, out var humanoid))
             return;
 
         // 1/3 = 0.333...
@@ -88,7 +90,7 @@ public sealed partial class ShadowkinSystem : EntitySystem
         // intensity = clamp intensity min, max
 
         var tintIntensity = 0.65f;
-        UpdateShader(new Vector3(humanoid.EyeColor.R, humanoid.EyeColor.G, humanoid.EyeColor.B), tintIntensity);
+        /*UpdateShader(new Vector3(humanoid.EyeColor.R, humanoid.EyeColor.G, humanoid.EyeColor.B), tintIntensity); TODO*/
     }
 
     private void UpdateShader(Vector3? color, float? intensity)

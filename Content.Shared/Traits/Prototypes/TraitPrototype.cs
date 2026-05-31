@@ -47,6 +47,14 @@ public sealed partial class TraitPrototype : IPrototype, IComparable
     [DataField(serverOnly: true)]
     public TraitFunction[] Functions { get; private set; } = Array.Empty<TraitFunction>();
 
+    // WD EDIT START
+    /// <summary>
+    /// Whether or not the player can set the trait in trait preferences.
+    /// </summary>
+    [DataField]
+    public bool SetPreference { get; }
+    // WD EDIT END
+
     /// <summary>
     ///     Should this trait be loaded earlier/later than other traits?
     /// </summary>
@@ -59,11 +67,6 @@ public sealed partial class TraitPrototype : IPrototype, IComparable
 
         return Priority.CompareTo(other.Priority); // No need for total ordering, only care about things that want to be loaded earlier or later.
     }
-
-    // WD EDIT START
-    [DataField]
-    public bool Enable = true;
-    // WD EDIT END
 }
 
 /// This serves as a hook for trait functions to modify a player character upon spawning in.

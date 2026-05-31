@@ -1,7 +1,8 @@
 using System.Linq;
+using Content.Shared._White.Humanoid.Prototypes;
+using Content.Shared._White.Preferences;
 using Content.Shared.Clothing.Loadouts.Prototypes;
 using Content.Shared.Humanoid;
-using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Mind;
 using Content.Shared.Preferences;
 using Content.Shared.Prototypes;
@@ -373,7 +374,7 @@ public sealed partial class CharacterLoadoutRequirement : CharacterRequirement
             ("loadouts", $"[color={color}]{string.Join($"[/color], [color={color}]",
                 Loadouts.Select(l => Loc.GetString($"loadout-name-{l}")))}[/color]"));
 
-        return Loadouts.Any(l => profile.LoadoutPreferences.ContainsKey(l.ToString())); // WWDP EDIT
+        return Loadouts.Any(l => profile.Loadouts.ContainsKey(l.ToString())); // WWDP EDIT
     }
 }
 

@@ -150,9 +150,9 @@ namespace Content.Shared.Throwing
                     $"{ToPrettyString(thrown):thrown} thrown by {ToPrettyString(component.Thrower.Value):thrower} hit {ToPrettyString(target):target}.");
 
             // WD EDIT START
-            var bodyPartType = component.Thrower.HasValue ? _targetDoll.GetSelectedBodyPart(component.Thrower.Value) : _targetDoll.GetRandomValidBodyPart(target);
-            RaiseLocalEvent(target, new ThrowHitByEvent(component.Thrower, thrown, target, component, bodyPartType), true);
-            RaiseLocalEvent(thrown, new ThrowDoHitEvent(thrown, target, component, bodyPartType), true);
+            var providerType = component.Thrower.HasValue ? _targetDoll.GetSelectedProvider(component.Thrower.Value) : _targetDoll.GetRandomProvider(target);
+            RaiseLocalEvent(target, new ThrowHitByEvent(component.Thrower, thrown, target, component, providerType), true);
+            RaiseLocalEvent(thrown, new ThrowDoHitEvent(thrown, target, component, providerType), true);
             // WD EDIT END
         }
 

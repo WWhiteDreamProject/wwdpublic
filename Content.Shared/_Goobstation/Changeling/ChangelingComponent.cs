@@ -1,8 +1,6 @@
+using Content.Shared._White.Humanoid.Components;
 using Content.Shared.Chemistry.Reagent;
-using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
-using Content.Shared.FixedPoint;
-using Content.Shared.Humanoid;
 using Content.Shared.Popups;
 using Content.Shared.StatusIcon;
 using Robust.Shared.Audio;
@@ -188,5 +186,5 @@ public sealed partial class TransformData
     ///     Entity's humanoid appearance component.
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly), NonSerialized]
-    public HumanoidAppearanceComponent Appearance;
+    public HumanoidProfileComponent Appearance;
 }

@@ -84,7 +84,7 @@ public sealed class SmartEquipSystem : EntitySystem
         if (!TryComp<HandsComponent>(uid, out var hands) || hands.ActiveHand == null)
             return;
 
-        var handItem = hands.ActiveHand.HeldEntity;
+        var handItem = hands.ActiveHand.Value.HeldEntity;
 
         // can the user interact, and is the item interactable? e.g. virtual items
         if (!_actionBlocker.CanInteract(uid, handItem))
@@ -97,7 +97,7 @@ public sealed class SmartEquipSystem : EntitySystem
         }
 
         // early out if we have an item and cant drop it at all
-        if (handItem != null && !_hands.CanDropHeld(uid, hands.ActiveHand))
+        if (handItem != null && !_hands.CanDropHeld(uid, hands.ActiveHand.Value))
         {
             _popup.PopupClient(Loc.GetString("smart-equip-cant-drop"), uid, uid);
             return;
@@ -147,7 +147,7 @@ public sealed class SmartEquipSystem : EntitySystem
                 return;
             }
 
-            _hands.TryDrop(uid, hands.ActiveHand, handsComp: hands);
+            _hands.TryDrop(uid, hands.ActiveHand.Value, handsComp: hands);
             _inventory.TryEquip(uid, handItem.Value, equipmentSlot, predicted: true, checkDoafter:true);
             return;
         }
@@ -180,7 +180,7 @@ public sealed class SmartEquipSystem : EntitySystem
                 return;
             }
 
-            _hands.TryDrop(uid, hands.ActiveHand, handsComp: hands);
+            _hands.TryDrop(uid, hands.ActiveHand.Value, handsComp: hands);
             _storage.Insert(slotItem, handItem.Value, out var stacked, out _);
 
             if (stacked != null)

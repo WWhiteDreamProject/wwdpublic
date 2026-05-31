@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Server._White.Preferences.Managers;
 using Content.Server.Administration;
 using Content.Server.Administration.Managers;
 using Content.Server.Afk;
@@ -7,7 +8,6 @@ using Content.Server.GameTicking;
 using Content.Server.GameTicking.Events;
 using Content.Server.Mind;
 using Content.Server.Station.Events;
-using Content.Server.Preferences.Managers;
 using Content.Shared.CCVar;
 using Content.Shared.Customization.Systems;
 using Content.Shared.GameTicking;
@@ -212,7 +212,7 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
         return _characterRequirements.CheckRequirementsValid(
             requirements,
             job,
-            (HumanoidCharacterProfile) _prefs.GetPreferences(player.UserId).SelectedCharacter,
+            _prefs.GetPreferences(player.UserId).SelectedCharacter,
             playTimes,
             isWhitelisted,
             job,
@@ -243,7 +243,7 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
                 || _characterRequirements.CheckRequirementsValid(
                 requirements,
                 job,
-                (HumanoidCharacterProfile) _prefs.GetPreferences(player.UserId).SelectedCharacter,
+                _prefs.GetPreferences(player.UserId).SelectedCharacter,
                 playTimes,
                 isWhitelisted,
                 job,
@@ -287,7 +287,7 @@ public sealed class PlayTimeTrackingSystem : EntitySystem
                 _characterRequirements.CheckRequirementsValid(
                 requirements,
                 jobber,
-                (HumanoidCharacterProfile) _prefs.GetPreferences(userId).SelectedCharacter,
+                _prefs.GetPreferences(userId).SelectedCharacter,
                 _tracking.GetPlayTimes(_playerManager.GetSessionById(userId)),
                 _playerManager.GetSessionById(userId).ContentData()?.Whitelisted ?? false,
                 jobber,

@@ -141,7 +141,7 @@ public abstract class SharedVirtualItemSystem : EntitySystem
             || !TrySpawnVirtualItem(blockingEnt, user, out virtualItem))
             return false;
 
-        _handsSystem.DoPickup(user, empty, virtualItem.Value);
+        _handsSystem.DoPickup(user, empty.Value, virtualItem.Value);
         return true;
     }
 

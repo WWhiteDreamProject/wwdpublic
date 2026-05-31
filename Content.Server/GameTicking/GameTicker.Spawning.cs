@@ -8,6 +8,7 @@ using Content.Server.RandomMetadata;
 using Content.Server.Spawners.Components;
 using Content.Server.Speech.Components;
 using Content.Server.Station.Components;
+using Content.Shared._White.Preferences;
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
 using Content.Shared.Database;
@@ -265,33 +266,34 @@ namespace Content.Server.GameTicking
 
             if (jobPrototype.NameDataset == AiNamesDataset)
             {
-                if (character.StationAiName != null)
+                /*if (character.StationAiName != null) TODO
                     _metaData.SetEntityName(mob, character.StationAiName);
                 else
+                    */
                     _stationSpawning.EquipJobName(mob, jobPrototype);
             }
 
-            if (jobPrototype.ID == CyborgJobPrototypeName
+            /*if (jobPrototype.ID == CyborgJobPrototypeName TODO
                 && character.CyborgName != null)
             {
                 EnsureComp<RandomMetadataExcludedComponent>(mob);
                 _metaData.SetEntityName(mob, character.CyborgName);
-            }
+            }*/
 
             // WD EDIT START
             // Setting the clown nickname if player chooses the clown profession
-            if (jobPrototype.ID == ClownJobPrototypeName && character.ClownName != null)
+            /*if (jobPrototype.ID == ClownJobPrototypeName && character.ClownName != null) TODO
             {
                 // Simply set the nickname as the clown's name
                 EnsureComp<RandomMetadataExcludedComponent>(mob);
                 _metaData.SetEntityName(mob, character.ClownName);
-            }
+            }*/
 
-            if (jobPrototype.ID == MimeJobPrototypeName && character.MimeName != null)
+            /*if (jobPrototype.ID == MimeJobPrototypeName && character.MimeName != null) TODO
             {
                 EnsureComp<RandomMetadataExcludedComponent>(mob);
                 _metaData.SetEntityName(mob, character.MimeName);
-            }
+            }*/
             // WD EDIT END
 
             _mind.TransferTo(newMind, mob);

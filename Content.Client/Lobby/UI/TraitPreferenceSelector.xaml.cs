@@ -2,6 +2,7 @@ using System.Linq;
 using System.Text;
 using Content.Client.Players.PlayTimeTracking;
 using Content.Client.Stylesheets;
+using Content.Shared._White.Preferences;
 using Content.Shared.Customization.Systems;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
@@ -113,7 +114,7 @@ public sealed partial class TraitPreferenceSelector : Control
                         entityManager, prototypeManager, configManager, out var reason);
 
                     // WD EDIT START
-                    if (!trait.Enable)
+                    if (!trait.SetPreference)
                         reason = Loc.GetString("trait-disable");
                     // WD EDIT END
 
@@ -139,7 +140,7 @@ public sealed partial class TraitPreferenceSelector : Control
                         entityManager, prototypeManager, configManager, out var reason);
 
                     // WD EDIT START
-                    if (!trait.Enable)
+                    if (!trait.SetPreference)
                         reason = Loc.GetString("trait-disable");
                     // WD EDIT END
 

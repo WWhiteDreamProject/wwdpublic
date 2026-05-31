@@ -30,13 +30,13 @@ public sealed partial class RespiratorSystem
     private void OnGotInserted(Entity<RespiratorProviderComponent> ent, ref BodyProviderGotInsertedEvent args)
     {
         ent.Comp.Body = args.Body;
-        UpdateVolume(args.Body);
+        UpdateVolume(args.Body.Owner);
     }
 
     private void OnGotRemoved(Entity<RespiratorProviderComponent> ent, ref BodyProviderGotRemovedEvent args)
     {
         ent.Comp.Body = null;
-        UpdateVolume(args.Body);
+        UpdateVolume(args.Body.Owner);
     }
 
     // TODO: This shit from Wizden, need refactor in future.

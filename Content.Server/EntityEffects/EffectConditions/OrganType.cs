@@ -1,4 +1,4 @@
-using Content.Shared._White.Body.Organs.Metabolizer;
+using Content.Shared._White.Bloodstream.Components;
 using Content.Shared._White.Body.Prototypes;
 using Content.Shared.EntityEffects;
 using Robust.Shared.Prototypes;

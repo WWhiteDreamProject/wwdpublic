@@ -1,12 +1,10 @@
 using Content.Server.Administration.Logs;
 using Content.Server.Administration.Managers;
-using Content.Shared._White.Bark;
 using Content.Shared._White.CustomGhostSystem;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Clothing.Loadouts.Systems;
 using Content.Shared.Database;
 using Content.Shared.Humanoid;
-using Content.Shared.Humanoid.Markings;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
 using Content.Shared.Traits;
@@ -23,48 +21,46 @@ using System.Runtime.CompilerServices;
 using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
+using Content.Server._White.Serialization;
+using Content.Shared._White.Humanoid.Markings;
+using Content.Shared._White.Humanoid.Markings.Prototypes;
+using Content.Shared._White.Preferences;
+using Robust.Shared.Serialization.Manager;
 
 namespace Content.Server.Database
 {
     public abstract class ServerDbBase
     {
         private readonly ISawmill _opsLog;
+        private readonly ISerializationManager _serialization;
 
         public event Action<DatabaseNotification>? OnNotificationReceived;
 
         /// <param name="opsLog">Sawmill to trace log database operations to.</param>
-        public ServerDbBase(ISawmill opsLog)
+        public ServerDbBase(ISawmill opsLog, ISerializationManager serialization)
         {
             _opsLog = opsLog;
+            _serialization = serialization;
         }
 
         #region Preferences
-        public async Task<PlayerPreferences?> GetPlayerPreferencesAsync(
+
+        public async Task<Preference?> GetPlayerPreferencesAsync(
             NetUserId userId,
-            CancellationToken cancel = default)
+            CancellationToken cancel = default
+            )
         {
             await using var db = await GetDb(cancel);
 
-            var prefs = await db.DbContext
+            return await db.DbContext
                 .Preference
                 .Include(p => p.Profiles).ThenInclude(h => h.Jobs)
                 .Include(p => p.Profiles).ThenInclude(h => h.Antags)
                 .Include(p => p.Profiles).ThenInclude(h => h.Traits)
                 .Include(p => p.Profiles).ThenInclude(h => h.Loadouts)
-                .AsSingleQuery()
+                .Include(p => p.Profiles).ThenInclude(h => h.Loadouts)
+                .AsSplitQuery()
                 .SingleOrDefaultAsync(p => p.UserId == userId.UserId, cancel);
-
-            if (prefs is null)
-                return null;
-
-            var maxSlot = prefs.Profiles.Max(p => p.Slot) + 1;
-            var profiles = new Dictionary<int, ICharacterProfile>(maxSlot);
-            foreach (var profile in prefs.Profiles)
-            {
-                profiles[profile.Slot] = ConvertProfiles(profile);
-            }
-
-            return new PlayerPreferences(profiles, prefs.SelectedCharacterSlot, Color.FromHex(prefs.AdminOOCColor), prefs.GhostId); // WWDP EDIT
         }
 
         public async Task SaveSelectedCharacterIndexAsync(NetUserId userId, int index)
@@ -76,7 +72,7 @@ namespace Content.Server.Database
             await db.DbContext.SaveChangesAsync();
         }
 
-        public async Task SaveCharacterSlotAsync(NetUserId userId, ICharacterProfile? profile, int slot)
+        public async Task SaveCharacterSlotAsync(NetUserId userId, HumanoidCharacterProfile? profile, int slot)
         {
             await using var db = await GetDb();
 
@@ -85,12 +81,6 @@ namespace Content.Server.Database
                 await DeleteCharacterSlot(db.DbContext, userId, slot);
                 await db.DbContext.SaveChangesAsync();
                 return;
-            }
-
-            if (profile is not HumanoidCharacterProfile humanoid)
-            {
-                // TODO: Handle other ICharacterProfile implementations properly
-                throw new NotImplementedException();
             }
 
             var oldProfile = db.DbContext.Profile
@@ -103,7 +93,7 @@ namespace Content.Server.Database
                 .AsSplitQuery()
                 .SingleOrDefault(h => h.Slot == slot);
 
-            var newProfile = ConvertProfiles(humanoid, slot, oldProfile);
+            var newProfile = ConvertProfiles(profile, slot, oldProfile);
             if (oldProfile == null)
             {
                 var prefs = await db.DbContext
@@ -131,7 +121,7 @@ namespace Content.Server.Database
             db.Profile.Remove(profile);
         }
 
-        public async Task<PlayerPreferences> InitPrefsAsync(NetUserId userId, ICharacterProfile defaultProfile)
+        public async Task<Preference> InitPrefsAsync(NetUserId userId, HumanoidCharacterProfile defaultProfile)
         {
             await using var db = await GetDb();
 
@@ -150,7 +140,7 @@ namespace Content.Server.Database
 
             await db.DbContext.SaveChangesAsync();
 
-            return new PlayerPreferences(new[] { new KeyValuePair<int, ICharacterProfile>(0, defaultProfile) }, 0, Color.FromHex(prefs.AdminOOCColor), "default");
+            return prefs;
         }
 
         public async Task DeleteSlotAndSetSelectedIndex(NetUserId userId, int deleteSlot, int newSlot)
@@ -196,148 +186,38 @@ namespace Content.Server.Database
             prefs.SelectedCharacterSlot = newSlot;
         }
 
-        private static HumanoidCharacterProfile ConvertProfiles(Profile profile)
-        {
-            var jobs = profile.Jobs.ToDictionary(j => new ProtoId<JobPrototype>(j.JobName), j => (JobPriority) j.Priority);
-            var antags = profile.Antags.Select(a => new ProtoId<AntagPrototype>(a.AntagName));
-            var traits = profile.Traits.Select(t => new ProtoId<TraitPrototype>(t.TraitName));
-            // WWDP EDIT START
-            var loadouts = profile.Loadouts.Select(l =>
-                new Loadout(
-                    l.LoadoutName,
-                    l.CustomName,
-                    l.CustomDescription,
-                    l.CustomContent,
-                    l.CustomColorTint,
-                    l.CustomHeirloom
-                    ));
-            // WWDP EDIT END
-
-            var sex = Sex.Male;
-            if (Enum.TryParse<Sex>(profile.Sex, true, out var sexVal))
-                sex = sexVal;
-
-            var spawnPriority = (SpawnPriorityPreference) profile.SpawnPriority;
-
-            var gender = sex == Sex.Male ? Gender.Male : Gender.Female;
-            if (Enum.TryParse<Gender>(profile.Gender, true, out var genderVal))
-                gender = genderVal;
-
-            // WD EDIT START
-            var voice = profile.Voice;
-            if (voice == string.Empty)
-                voice = SharedHumanoidAppearanceSystem.DefaultSexVoice[sex];
-
-            var bodyType = profile.BodyType;
-            if (bodyType == string.Empty)
-                bodyType = profile.Species + "Normal";
-            // WD EDIT END
-
-            // ReSharper disable once ConditionalAccessQualifierIsNonNullableAccordingToAPIContract
-            var markingsRaw = profile.Markings?.Deserialize<List<string>>();
-
-            List<Marking> markings = new();
-            if (markingsRaw != null)
-            {
-                foreach (var marking in markingsRaw)
-                {
-                    var parsed = Marking.ParseFromDbString(marking);
-
-                    if (parsed is null) continue;
-
-                    markings.Add(parsed);
-                }
-            }
-
-            return new HumanoidCharacterProfile(
-                profile.CharacterName,
-                profile.FlavorText,
-                profile.Species,
-                profile.CustomSpecieName,
-                profile.Nationality,
-                profile.Employer,
-                profile.Lifepath,
-                profile.Height,
-                profile.Width,
-                profile.Age,
-                sex,
-                voice, // WD EDIT
-                profile.BarkVoice, // WD EDIT
-                                   // WD EDIT START
-                new BarkPercentageApplyData()
-                {
-                    Pause = profile.BarkPause,
-                    Pitch = profile.BarkPitch,
-                    PitchVariance = profile.BarkPitchVariance,
-                    Volume = profile.BarkVolume,
-                },
-                // WD EDIT END
-                bodyType, // WD EDIT
-                gender,
-                profile.DisplayPronouns,
-                profile.StationAiName,
-                profile.CyborgName,
-                profile.ClownName, // WD EDIT
-                profile.MimeName, // WD EDIT
-                new HumanoidCharacterAppearance(
-                    profile.HairName,
-                    Color.FromHex(profile.HairColor),
-                    profile.FacialHairName,
-                    Color.FromHex(profile.FacialHairColor),
-                    Color.FromHex(profile.EyeColor),
-                    Color.FromHex(profile.SkinColor),
-                    markings
-                ),
-                spawnPriority,
-                jobs,
-                (PreferenceUnavailableMode) profile.PreferenceUnavailable,
-                antags.ToHashSet(),
-                traits.ToHashSet(),
-                loadouts.ToDictionary(p => p.LoadoutName) // WWDP EDIT
-            );
-        }
-
-        private static Profile ConvertProfiles(HumanoidCharacterProfile humanoid, int slot, Profile? profile = null)
+        private Profile ConvertProfiles(HumanoidCharacterProfile humanoid, int slot, Profile? profile = null)
         {
             profile ??= new Profile();
-            var appearance = (HumanoidCharacterAppearance) humanoid.CharacterAppearance;
-            List<string> markingStrings = new();
-            foreach (var marking in appearance.Markings)
-            {
-                markingStrings.Add(marking.ToString());
-            }
-            var markings = JsonSerializer.SerializeToDocument(markingStrings);
 
+            profile.Slot = slot;
             profile.CharacterName = humanoid.Name;
-            profile.FlavorText = humanoid.FlavorText;
+            profile.Flavor = humanoid.Flavor;
             profile.Species = humanoid.Species;
-            profile.CustomSpecieName = humanoid.Customspeciename;
             profile.Nationality = humanoid.Nationality;
             profile.Employer = humanoid.Employer;
             profile.Lifepath = humanoid.Lifepath;
             profile.Age = humanoid.Age;
             profile.Sex = humanoid.Sex.ToString();
-            profile.Voice = humanoid.Voice; // WD EDIT
-            profile.BarkVoice = humanoid.BarkVoice; // WD EDIT
-            profile.BodyType = humanoid.BodyType; // WD EDIT
+            profile.BodyType = humanoid.BodyType;
+            profile.Voice = humanoid.Voice;
+            profile.Bark = humanoid.Bark;
+            profile.BarkPause = humanoid.BarkSettings.Pause;
+            profile.BarkVolume = humanoid.BarkSettings.Volume;
+            profile.BarkPitch = humanoid.BarkSettings.Pitch;
+            profile.BarkPitchVariance = humanoid.BarkSettings.PitchVariance;
             profile.Gender = humanoid.Gender.ToString();
-            profile.DisplayPronouns = humanoid.DisplayPronouns;
-            profile.StationAiName = humanoid.StationAiName;
-            profile.CyborgName = humanoid.CyborgName;
-            profile.ClownName = humanoid.ClownName; // WD EDIT
-            profile.MimeName = humanoid.MimeName; // WD EDIT
+            profile.Species = humanoid.Species;
             profile.Height = humanoid.Height;
             profile.Width = humanoid.Width;
-            profile.HairName = appearance.HairStyleId;
-            profile.HairColor = appearance.HairColor.ToHex();
-            profile.FacialHairName = appearance.FacialHairStyleId;
-            profile.FacialHairColor = appearance.FacialHairColor.ToHex();
-            profile.EyeColor = appearance.EyeColor.ToHex();
-            profile.SkinColor = appearance.SkinColor.ToHex();
+
+            var markingsDataNode = _serialization.WriteValue(humanoid.Markings, alwaysWrite: true, notNullableOverride: true);
+            profile.Markings = JsonSerializer.SerializeToDocument(markingsDataNode.ToJsonNode());
+
+            var bodyProvidersDataNode = _serialization.WriteValue(humanoid.BodyProviders, alwaysWrite: true, notNullableOverride: true);
+            profile.BodyProviders = JsonSerializer.SerializeToDocument(bodyProvidersDataNode.ToJsonNode());
+
             profile.SpawnPriority = (int) humanoid.SpawnPriority;
-            profile.Markings = markings;
-            profile.Slot = slot;
-            profile.PreferenceUnavailable = (DbPreferenceUnavailableMode) humanoid.PreferenceUnavailable;
 
             profile.Jobs.Clear();
             profile.Jobs.AddRange(
@@ -359,15 +239,17 @@ namespace Content.Server.Database
             );
 
             profile.Loadouts.Clear();
-            profile.Loadouts.AddRange(humanoid.LoadoutPreferencesList
-                .Select(l => new LoadoutItem(l.LoadoutName, l.CustomName, l.CustomDescription, l.CustomContent, l.CustomColorTint, l.CustomHeirloom))); // WD EDIT
+            profile.Loadouts.AddRange(
+                humanoid.Loadouts.Values
+                .Select(l => new LoadoutItem(l.LoadoutName, l.CustomName, l.CustomDescription, l.CustomContent, l.CustomColorTint, l.CustomHeirloom)));
 
-            // WWDP EDIT START
-            profile.BarkPause = humanoid.BarkSettings.Pause;
-            profile.BarkPitch = humanoid.BarkSettings.Pitch;
-            profile.BarkPitchVariance = humanoid.BarkSettings.PitchVariance;
-            profile.BarkVolume = humanoid.BarkSettings.Volume;
-            // WWDP EDIT END
+            profile.BodyColoration.Clear();
+            profile.BodyColoration.AddRange(
+                humanoid.BodyColoration
+                    .Select(x => new BodyColoration { Coloration = x.Key, Color = x.Value.ToHex() })
+            );
+
+            profile.PreferenceUnavailable = (DbPreferenceUnavailableMode) humanoid.PreferenceUnavailable;
 
             return profile;
         }

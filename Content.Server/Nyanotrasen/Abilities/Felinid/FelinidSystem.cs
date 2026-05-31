@@ -12,7 +12,8 @@ using Content.Shared.Nutrition.EntitySystems;
 using Content.Server.Medical;
 using Content.Server.Nutrition.Components;
 using Content.Server.Popups;
-using Content.Shared._White.Body.Bloodstream.Components;
+using Content.Shared._White.Bloodstream.Components;
+using Content.Shared._White.Nutrition.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Random;
@@ -167,9 +168,9 @@ public sealed partial class FelinidSystem : EntitySystem
         var hairball = EntityManager.SpawnEntity(component.HairballPrototype, Transform(uid).Coordinates);
         var hairballComp = Comp<HairballComponent>(hairball);
 
-        if (TryComp<BloodstreamComponent>(uid, out var bloodstream) && bloodstream.BloodSolution.HasValue) // WD EDIT
+        if (TryComp<BloodstreamComponent>(uid, out var bloodstream) && bloodstream.Solution.HasValue) // WD EDIT
         {
-            var temp = _solutionSystem.SplitSolutionWithout(bloodstream.BloodSolution.Value, 20, bloodstream.BloodReagent); // WD EDIT
+            var temp = _solutionSystem.SplitSolutionWithout(bloodstream.Solution.Value, 20, bloodstream.Reagent); // WD EDIT
 
             if (_solutionSystem.TryGetSolution(hairball, hairballComp.SolutionName, out var hairballSolution))
             {

@@ -1,4 +1,4 @@
-﻿using Content.Shared._White.Body.Prototypes;
+﻿using Content.Shared._White.Humanoid.Prototypes;
 using Content.Shared.Anomaly.Effects;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
@@ -62,7 +62,7 @@ public sealed partial class InnerBodyAnomalyComponent : Component
     /// Ability to use unique sprites for different body types
     /// </summary>
     [DataField, AutoNetworkedField]
-    public Dictionary<ProtoId<BodyPrototype>, SpriteSpecifier> SpeciesSprites = new();
+    public Dictionary<ProtoId<SpeciesPrototype>, SpriteSpecifier> SpeciesSprites = new();
 
     /// <summary>
     /// The key of the entity layer into which the sprite will be inserted

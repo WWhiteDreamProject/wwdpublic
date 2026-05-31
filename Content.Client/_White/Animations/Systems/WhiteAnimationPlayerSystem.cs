@@ -78,7 +78,7 @@ public sealed class WhiteAnimationPlayerSystem : SharedWhiteAnimationPlayerSyste
                     AnimationTrackComponentPropertyData componentPropertyData => GetComponentProperty(componentPropertyData),
                     AnimationTrackPlaySoundData playSoundData => GetPlaySound(playSoundData),
                     AnimationTrackSpriteFlickData spriteFlickData => GetSpriteFlick(spriteFlickData),
-                    _ => null
+                    _ => null,
                 };
 
                 if (animationTrack == null)

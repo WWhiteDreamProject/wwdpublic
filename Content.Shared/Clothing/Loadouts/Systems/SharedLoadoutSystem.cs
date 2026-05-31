@@ -1,5 +1,7 @@
 using System.Linq;
 using Content.Shared._White.Body.Systems;
+using Content.Shared._White.Humanoid.Components;
+using Content.Shared._White.Preferences;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Clothing.Loadouts.Prototypes;
 using Content.Shared.Customization.Systems;
@@ -67,7 +69,7 @@ public sealed class SharedLoadoutSystem : EntitySystem
     }
 
     /// <summary>
-    ///     Equips entities from a <see cref="HumanoidCharacterProfile"/>'s loadout preferences to a given entity
+    ///     Equips entities from a <see cref="HumanoidProfileComponent"/>'s loadout preferences to a given entity
     /// </summary>
     /// <param name="uid">The entity to give the loadout items to</param>
     /// <param name="job">The job to use for loadout whitelist/blacklist (should be the job of the entity)</param>
@@ -90,7 +92,7 @@ public sealed class SharedLoadoutSystem : EntitySystem
         if (!job.SpawnLoadout)
             return (failedLoadouts, allLoadouts);
 
-        foreach (var loadout in profile.LoadoutPreferencesList) // WWDP EDIT
+        foreach (var loadout in profile.Loadouts.Values) // WWDP EDIT
         {
             var slot = "";
 

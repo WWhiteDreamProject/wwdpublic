@@ -7,12 +7,13 @@ using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.Administration.Logs;
 using Content.Server.IP;
-using Content.Server.Preferences.Managers;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Microsoft.EntityFrameworkCore;
+using Robust.Shared.Asynchronous;
 using Robust.Shared.Configuration;
 using Robust.Shared.Network;
+using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Utility;
 
 namespace Content.Server.Database
@@ -36,8 +37,10 @@ namespace Content.Server.Database
             bool inMemory,
             IConfigurationManager cfg,
             bool synchronous,
-            ISawmill opsLog)
-            : base(opsLog)
+            ISawmill opsLog,
+            ISerializationManager serialization
+            )
+            : base(opsLog, serialization)
         {
             _options = options;
 

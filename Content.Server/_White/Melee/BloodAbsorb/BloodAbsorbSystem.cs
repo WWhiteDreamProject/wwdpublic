@@ -1,4 +1,4 @@
-using Content.Server._White.Body.Bloodstream.Systems;
+using Content.Server._White.Bloodstream.Systems;
 using Content.Server._White.Melee.Crit;
 using Content.Server._White.Other.BloodLust;
 using Content.Shared._White.Bloodstream.Components;
@@ -67,6 +67,6 @@ public sealed class BloodAbsorbSystem : EntitySystem
             return;
 
         EnsureComp<BloodLustComponent>(args.User);
-        _bloodstream.TryModifyBleedAmount((args.User, bloodstream), bloodstream.MaxBleeding);
+        /*_bloodstream.TryModifyBleedAmount((args.User, bloodstream), bloodstream.MaxBleeding); TODO*/
     }
 }

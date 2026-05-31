@@ -1,26 +1,20 @@
 using Content.Shared._White.Body.Components;
 using Content.Shared._White.Body.Systems;
 using Robust.Client.GameObjects;
-using Robust.Client.ResourceManagement;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 
 namespace Content.Client._White.Body.Systems;
 
-public sealed partial class BodySystem : SharedBodySystem
+public sealed  class BodySystem : SharedBodySystem
 {
-    [Dependency] private readonly IResourceCache _resourceCache = default!;
-
     [Dependency] private readonly ContainerSystem _container = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<BodyComponent, ComponentHandleState>(OnHandleState);
-
-        InitializeAppearance();
     }
 
     #region Event Handling

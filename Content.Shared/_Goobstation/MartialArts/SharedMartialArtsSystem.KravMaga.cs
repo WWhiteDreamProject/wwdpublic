@@ -68,7 +68,7 @@ public abstract partial class SharedMartialArtsSystem
             // WWDP edit end
             case ComboAttackType.Harm:
                 if (!_hands.TryGetActiveHand(ent.Owner, out var hand)
-                    || !hand.IsEmpty)
+                    || !hand.Value.IsEmpty)
                     return;
                 DoDamage(ent, args.Target, "Blunt", ent.Comp.BaseDamage, out _);
                 if (!TryComp<RequireProjectileTargetComponent>(args.Target, out var standing)

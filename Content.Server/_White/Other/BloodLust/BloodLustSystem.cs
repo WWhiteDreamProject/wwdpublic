@@ -1,5 +1,5 @@
-using Content.Shared._White.Body.Bloodstream.Components;
-using Content.Shared._White.Body.Bloodstream.Systems;
+/* TODO
+using Content.Shared._White.Bloodstream.Systems;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Weapons.Melee.Events;
 
@@ -11,12 +11,12 @@ public sealed class BloodLustSystem : EntitySystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<BloodLustComponent, AfterBleedingChangedEvent>(OnAfterBleedingChanged);
+        SubscribeLocalEvent<BloodLustComponent, BleedingChangedEvent>(OnBleedingChanged);
         SubscribeLocalEvent<BloodLustComponent, GetMeleeAttackRateEvent>(OnGetMeleeAttackRate);
         SubscribeLocalEvent<BloodLustComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovementSpeedModifiers);
     }
 
-    private void OnAfterBleedingChanged(EntityUid uid, BloodLustComponent component, AfterBleedingChangedEvent args)
+    private void OnBleedingChanged(EntityUid uid, BloodLustComponent component, BleedingChangedEvent args)
     {
         if (args.Bleeding == 0f)
             RemComp<BloodLustComponent>(uid);
@@ -52,3 +52,4 @@ public sealed class BloodLustSystem : EntitySystem
         return float.Lerp(1f, multiplier, modifier);
     }
 }
+*/

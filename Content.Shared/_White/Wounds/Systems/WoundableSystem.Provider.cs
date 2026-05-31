@@ -14,7 +14,7 @@ public sealed partial class WoundableSystem
 {
     private void InitializeProvider()
     {
-        SubscribeLocalEvent<WoundableProviderComponent, AttemptHandleDamageEvent>(OnAttemptHandleDamage);
+        SubscribeLocalEvent<WoundableProviderComponent, BeforeHandleDamageEvent>(OnAttemptHandleDamage);
         SubscribeLocalEvent<WoundableProviderComponent, BodyProviderGotInsertedEvent>(OnGotInserted);
         SubscribeLocalEvent<WoundableProviderComponent, BodyProviderGotRemovedEvent>(OnGotRemoved);
         SubscribeLocalEvent<WoundableProviderComponent, BodyRelayedEvent<GetHealingTargetEvent>>(OnGetHealingTarget);
@@ -24,7 +24,7 @@ public sealed partial class WoundableSystem
 
     #region Event Handling
 
-    private void OnAttemptHandleDamage(Entity<WoundableProviderComponent> ent, ref AttemptHandleDamageEvent args)
+    private void OnAttemptHandleDamage(Entity<WoundableProviderComponent> ent, ref BeforeHandleDamageEvent args)
     {
         args.Handled = true;
 
@@ -54,7 +54,7 @@ public sealed partial class WoundableSystem
         if (!_damageableQuery.TryComp(ent, out var damageableComp))
             return;
 
-        _damageable.ApplyDamage(args.Body, damageableComp.Damage, false);
+        _damageable.ApplyDamage(args.Body.Owner, damageableComp.Damage, false);
     }
 
     private void OnGotRemoved(Entity<WoundableProviderComponent> ent, ref BodyProviderGotRemovedEvent args)
@@ -74,7 +74,7 @@ public sealed partial class WoundableSystem
         if (!_damageableQuery.TryComp(ent, out var damageableComp))
             return;
 
-        _damageable.ApplyDamage(args.Body, -damageableComp.Damage, false);
+        _damageable.ApplyDamage(args.Body.Owner, -damageableComp.Damage, false);
     }
 
     private void OnGetHealingTarget(Entity<WoundableProviderComponent> ent, ref BodyRelayedEvent<GetHealingTargetEvent> args)

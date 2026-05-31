@@ -7,7 +7,7 @@ using Content.Server.Popups;
 using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared._White.BloodCult.BloodCultist;
 using Content.Shared._White.BloodCult.Runes.Components;
-using Content.Shared._White.Body.Bloodstream.Components;
+using Content.Shared._White.Bloodstream.Components;
 using Content.Shared.Projectiles;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;

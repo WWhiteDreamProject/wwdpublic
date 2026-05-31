@@ -1,12 +1,13 @@
 ﻿using System.Text;
-using Content.Server._White.Body.Respirator.Components;
+using Content.Server._White.Respirator.Components;
 using Content.Server.Atmos.Components;
 using Content.Server.Body.Components;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Kitchen.Components;
 using Content.Server.Nutrition.Components;
 using Content.Server.Nyanotrasen.Kitchen.Components;
-using Content.Shared._White.Body.Bloodstream.Components;
+using Content.Shared._White.Bloodstream.Components;
+using Content.Shared._White.Nutrition.Components;
 using Content.Shared.Atmos.Rotting;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Chemistry.Components;
@@ -55,10 +56,10 @@ public sealed partial class DeepFryerSystem
             RemComp<RottingComponent>(mob);
 
             // Ensure it's Food here, so it passes the whitelist.
-            var mobFoodComponent = EnsureComp<FoodComponent>(mob);
-            _solutionContainerSystem.EnsureSolution(mob, mobFoodComponent.Solution, out var alreadyHadFood, out _);
+            var mobFoodComponent = EnsureComp<IngestibleComponent>(mob);
+            _solutionContainerSystem.EnsureSolution(mob, mobFoodComponent.SolutionName, out var alreadyHadFood, out _);
 
-            if (!_solutionContainerSystem.TryGetSolution(mob, mobFoodComponent.Solution, out var mobFoodSolution))
+            if (!_solutionContainerSystem.TryGetSolution(mob, mobFoodComponent.SolutionName, out var mobFoodSolution))
                 return false;
 
             // This line here is mainly for mice, because they have a food
@@ -67,10 +68,10 @@ public sealed partial class DeepFryerSystem
             if (alreadyHadFood)
                 _solutionContainerSystem.RemoveAllSolution(mobFoodSolution.Value);
 
-            if (TryComp<BloodstreamComponent>(mob, out var bloodstreamComponent) && bloodstreamComponent.BloodSolution != null) // WD EDIT
+            if (TryComp<BloodstreamComponent>(mob, out var bloodstreamComponent) && bloodstreamComponent.Solution != null) // WD EDIT
             {
                 // Fry off any blood into protein.
-                var bloodSolution = bloodstreamComponent.BloodSolution;
+                var bloodSolution = bloodstreamComponent.Solution;
                 var solPresent = bloodSolution!.Value.Comp.Solution.Volume;
                 _solutionContainerSystem.RemoveReagent(bloodSolution.Value, "Blood", FixedPoint2.MaxValue);
                 var bloodRemoved = solPresent - bloodSolution.Value.Comp.Solution.Volume;
@@ -85,9 +86,9 @@ public sealed partial class DeepFryerSystem
 
                 // Bring in whatever chemicals they had in them too.
                 mobFoodSolution.Value.Comp.Solution.MaxVolume +=
-                    bloodstreamComponent.BloodSolution.Value.Comp.Solution.Volume; // WD EDIT
+                    bloodstreamComponent.Solution.Value.Comp.Solution.Volume; // WD EDIT
                 _solutionContainerSystem.AddSolution(mobFoodSolution.Value,
-                    bloodstreamComponent.BloodSolution.Value.Comp.Solution); // WD EDIT
+                    bloodstreamComponent.Solution.Value.Comp.Solution); // WD EDIT
             }
 
             return true;
@@ -127,14 +128,18 @@ public sealed partial class DeepFryerSystem
             paperComponent.Content = stringBuilder.ToString();
         }
 
-        var foodComponent = EnsureComp<FoodComponent>(item);
+        var foodComponent = EnsureComp<IngestibleComponent>(item);
         var extraSolution = new Solution();
         if (TryComp(item, out FlavorProfileComponent? flavorProfileComponent))
         {
-            HashSet<string> goodFlavors = new(flavorProfileComponent.Flavors);
+            HashSet<string> goodFlavors = new HashSet<string>();
+            foreach (var flavor in flavorProfileComponent.Flavors)
+                goodFlavors.Add(flavor);
             goodFlavors.IntersectWith(component.GoodFlavors);
 
-            HashSet<string> badFlavors = new(flavorProfileComponent.Flavors);
+            HashSet<string> badFlavors = new HashSet<string>();
+            foreach (var flavor in flavorProfileComponent.Flavors)
+                badFlavors.Add(flavor);
             badFlavors.IntersectWith(component.BadFlavors);
 
             deepFriedComponent.PriceCoefficient = Math.Max(0.01f,
@@ -149,7 +154,7 @@ public sealed partial class DeepFryerSystem
                     extraSolution.AddReagent(reagent.Reagent.ToString(), reagent.Quantity * goodFlavors.Count);
 
                     // Mask the taste of "medicine."
-                    flavorProfileComponent.IgnoreReagents.Add(reagent.Reagent.ToString());
+                    flavorProfileComponent.Ignored.Add(reagent.Reagent.ToString());
                 }
             }
 
@@ -168,8 +173,8 @@ public sealed partial class DeepFryerSystem
         }
 
         // Make sure there's enough room for the fryer solution.
-        if (!_solutionContainerSystem.EnsureSolution(item, foodComponent.Solution, out var foodSolution)
-            || !_solutionContainerSystem.EnsureSolutionEntity(item, foodComponent.Solution, out var foodContainer))
+        if (!_solutionContainerSystem.EnsureSolution(item, foodComponent.SolutionName, out var foodSolution)
+            || !_solutionContainerSystem.EnsureSolutionEntity(item, foodComponent.SolutionName, out var foodContainer))
             return;
 
         // The solution quantity is used to give the fried food an extra

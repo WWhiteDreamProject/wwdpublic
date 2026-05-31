@@ -3,9 +3,9 @@
     xmlns:humanoid="clr-namespace:Content.Client.Humanoid"
     xmlns:prefUi="clr-namespace:Content.Client.Lobby.UI"
     xmlns:ui="clr-namespace:Content.Client.UserInterface.Controls"
-    xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
     xmlns:controls="clr-namespace:Content.Client._White.UserInterface.Controls"
     xmlns:loadouts="clr-namespace:Content.Client._White.Loadouts"
+    xmlns:whiteHumanoid="clr-namespace:Content.Client._White.Humanoid.UserInterface"
     HorizontalExpand="True">
     <!-- Left side -->
     <BoxContainer Orientation="Vertical" Margin="10 10 10 10" HorizontalExpand="True">
@@ -109,12 +109,6 @@
                                     </BoxContainer>
                                 </BoxContainer>
                                 <!--WD EDIT END-->
-                                <!-- Customizable, cosmetic pronouns -->
-                                <BoxContainer Name="CosmeticPronousContainer" HorizontalExpand="True">
-                                    <Label Text="{Loc 'humanoid-profile-editor-display-pronouns-label'}" />
-                                    <Control HorizontalExpand="True"/>
-                                    <LineEdit Name="CosmeticPronounsNameEdit" MinSize="270 0" HorizontalAlignment="Right" />
-                                </BoxContainer>
                                 <!-- Move these when you rename the tabs, this isn't appearance technically, but it's convenient there -->
                                 <!-- Name -->
                                 <BoxContainer HorizontalExpand="True">
@@ -123,32 +117,6 @@
                                     <Button Name="NameRandomize" Text="{Loc 'humanoid-profile-editor-name-random-button'}" StyleClasses="OpenRight" />
                                     <LineEdit Name="NameEdit" MinSize="270 0" HorizontalAlignment="Right" />
                                 </BoxContainer>
-                                <!-- Station AI name -->
-                                <BoxContainer Name="StationAiNameContainer" HorizontalExpand="True">
-                                    <Label Text="{Loc 'humanoid-profile-editor-station-ai-name-label'}" />
-                                    <Control HorizontalExpand="True"/>
-                                    <LineEdit Name="StationAINameEdit" MinSize="270 0" HorizontalAlignment="Right" />
-                                </BoxContainer>
-                                <!-- Cyborg name -->
-                                <BoxContainer Name="CyborgNameContainer" HorizontalExpand="True">
-                                    <Label Text="{Loc 'humanoid-profile-editor-cyborg-name-label'}" />
-                                    <Control HorizontalExpand="True"/>
-                                    <LineEdit Name="CyborgNameEdit" MinSize="270 0" HorizontalAlignment="Right" />
-                                </BoxContainer>
-                                <!-- WD EDIT START -->
-                                <!-- Clown name -->
-                                <BoxContainer Name="ClownNameContainer" HorizontalExpand="True">
-                                    <Label Text="{Loc 'humanoid-profile-editor-clown-name-label'}" />
-                                    <Control HorizontalExpand="True"/>
-                                    <LineEdit Name="ClownNameEdit" MinSize="270 0" HorizontalAlignment="Right" />
-                                </BoxContainer>
-                                <!-- Mime name -->
-                                <BoxContainer Name="MimeNameContainer" HorizontalExpand="True">
-                                    <Label Text="{Loc 'humanoid-profile-editor-mime-name-label'}" />
-                                    <Control HorizontalExpand="True"/>
-                                    <LineEdit Name="MimeNameEdit" MinSize="270 0" HorizontalAlignment="Right" />
-                                </BoxContainer>
-                                <!-- WD EDIT END -->
                                 <!-- Show clothing -->
                                 <BoxContainer HorizontalExpand="True">
                                     <Label Text="{Loc 'humanoid-profile-editor-clothing'}" />
@@ -190,7 +158,7 @@
                                 <BoxContainer HorizontalExpand="True" Orientation="Vertical">
                                     <Label Text="{Loc 'humanoid-profile-editor-markings-tab'}" />
                                     <Control Margin="5"/>
-                                    <humanoid:MarkingPicker Name="Markings" HorizontalExpand="True" HorizontalAlignment="Stretch" Access="Public"/>
+                                    <whiteHumanoid:MarkingPicker Name="Markings" HorizontalExpand="True" HorizontalAlignment="Stretch" Access="Public"/>
                                 </BoxContainer>
                                 <BoxContainer HorizontalExpand="True" Orientation="Vertical">
                                     <Label Text="{Loc 'humanoid-profile-editor-loadouts-tab'}" />
@@ -205,11 +173,6 @@
                                 <Label Text="{Loc 'humanoid-profile-editor-skin-color-label'}" />
                                 <Slider HorizontalExpand="True" Name="Skin" MinValue="0" MaxValue="100" Value="20" />
                                 <BoxContainer Name="RgbSkinColorContainer" Visible="False" Orientation="Vertical" HorizontalExpand="True"></BoxContainer>
-                            </BoxContainer>
-                            <!-- Hair -->
-                            <BoxContainer Margin="0 4 0 4" Orientation="Horizontal">
-                                <humanoid:SingleMarkingPicker Name="HairStylePicker" Category="Hair" />
-                                <humanoid:SingleMarkingPicker Name="FacialHairPicker" Category="FacialHair" />
                             </BoxContainer>
                             <!-- Eyes -->
                             <BoxContainer Margin="0 4 0 4" Orientation="Vertical">

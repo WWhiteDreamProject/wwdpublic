@@ -1,3 +1,4 @@
+using Content.Server._White.Appearance.Systems;
 using Content.Server.Access.Systems;
 using Content.Server.DetailExaminable;
 using Content.Server.Humanoid;
@@ -9,6 +10,10 @@ using Content.Server.Silicon.IPC;
 using Content.Server.Spawners.EntitySystems;
 using Content.Server.Spawners.Components;
 using Content.Server.Station.Components;
+using Content.Shared._White.Body.Systems;
+using Content.Shared._White.Humanoid.Prototypes;
+using Content.Shared._White.Humanoid.Systems;
+using Content.Shared._White.Preferences;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
 using Content.Shared.CCVar;
@@ -41,13 +46,14 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IConfigurationManager _configurationManager = default!;
-    [Dependency] private readonly HumanoidAppearanceSystem _humanoidSystem = default!;
     [Dependency] private readonly IdCardSystem _cardSystem = default!;
     [Dependency] private readonly PdaSystem _pdaSystem = default!;
     [Dependency] private readonly SharedAccessSystem _accessSystem = default!;
     [Dependency] private readonly IdentitySystem _identity = default!;
     [Dependency] private readonly MetaDataSystem _metaSystem = default!;
     [Dependency] private readonly InternalEncryptionKeySpawner _internalEncryption = default!;
+    [Dependency] private readonly HumanoidProfileSystem _humanoidProfile = default!; // WD EDIT
+    [Dependency] private readonly BodyAppearanceSystem _bodyAppearance = default!; // WD EDIT
 
     private bool _randomizeCharacters;
 
@@ -127,7 +133,7 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
         else if (profile != null)
             speciesId = profile.Species;
         else
-            speciesId = SharedHumanoidAppearanceSystem.DefaultSpecies;
+            speciesId = HumanoidProfileSystem.DefaultSpecies;
 
         if (!_prototypeManager.TryIndex<SpeciesPrototype>(speciesId, out var species))
             throw new ArgumentException($"Invalid species prototype was used: {speciesId}");
@@ -135,7 +141,7 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
         entity ??= Spawn(species.Prototype, coordinates);
 
         if (_randomizeCharacters)
-            profile = HumanoidCharacterProfile.RandomWithSpecies(speciesId);
+            profile = HumanoidCharacterProfile.Random(speciesId);
 
         if (prototype?.StartingGear != null)
         {
@@ -155,10 +161,11 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
             if (prototype != null)
                 SetPdaAndIdCardData(entity.Value, profile.Name, prototype, station);
 
-            _humanoidSystem.LoadProfile(entity.Value, profile, loadExtensions: false, generateLoadouts: false);
+            _bodyAppearance.ApplyProfile(entity.Value, profile);
+            _humanoidProfile.ApplyProfile(entity.Value, profile);
             _metaSystem.SetEntityName(entity.Value, profile.Name);
-            if (profile.FlavorText != "" && _configurationManager.GetCVar(CCVars.FlavorText))
-                EnsureComp<DetailExaminableComponent>(entity.Value).Content = profile.FlavorText;
+            if (profile.Flavor != "" && _configurationManager.GetCVar(CCVars.FlavorText))
+                EnsureComp<DetailExaminableComponent>(entity.Value).Content = profile.Flavor;
         }
 
         DoJobSpecials(job, entity.Value);

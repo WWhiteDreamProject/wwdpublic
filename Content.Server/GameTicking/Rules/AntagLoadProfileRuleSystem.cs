@@ -1,17 +1,16 @@
+using Content.Server._White.Preferences.Managers;
 using Content.Server.Antag;
 using Content.Server.GameTicking.Rules.Components;
-using Content.Server.Humanoid;
-using Content.Server.Preferences.Managers;
-using Content.Shared.Humanoid;
-using Content.Shared.Humanoid.Prototypes;
-using Content.Shared.Preferences;
+using Content.Shared._White.Humanoid.Prototypes;
+using Content.Shared._White.Humanoid.Systems;
+using Content.Shared._White.Preferences;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.GameTicking.Rules;
 
 public sealed class AntagLoadProfileRuleSystem : GameRuleSystem<AntagLoadProfileRuleComponent>
 {
-    [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
+    [Dependency] private readonly HumanoidProfileSystem _humanoid = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IServerPreferencesManager _prefs = default!;
 
@@ -28,12 +27,12 @@ public sealed class AntagLoadProfileRuleSystem : GameRuleSystem<AntagLoadProfile
             return;
 
         var profile = args.Session != null
-            ? _prefs.GetPreferences(args.Session.UserId).SelectedCharacter as HumanoidCharacterProfile
-            : HumanoidCharacterProfile.RandomWithSpecies();
+            ? _prefs.GetPreferences(args.Session.UserId).SelectedCharacter
+            : HumanoidCharacterProfile.Random();
 
 
         if (profile?.Species is not { } speciesId || !_proto.TryIndex(speciesId, out var species))
-            species = _proto.Index<SpeciesPrototype>(SharedHumanoidAppearanceSystem.DefaultSpecies);
+            species = _proto.Index<SpeciesPrototype>(HumanoidProfileSystem.DefaultSpecies);
 
         if (ent.Comp.SpeciesOverride != null
             && (ent.Comp.AlwaysUseSpeciesOverride
@@ -41,9 +40,6 @@ public sealed class AntagLoadProfileRuleSystem : GameRuleSystem<AntagLoadProfile
             species = _proto.Index(ent.Comp.SpeciesOverride.Value);
 
         args.Entity = Spawn(species.Prototype);
-        _humanoid.LoadProfile(args.Entity.Value,
-            profile?.WithSpecies(species.ID),
-            loadExtensions: ent.Comp.AllowProfileExtensions,
-            generateLoadouts: ent.Comp.AllowAntagLoadouts);
+        _humanoid.ApplyProfile(args.Entity.Value, profile!.WithSpecies(species.ID));
     }
 }

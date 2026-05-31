@@ -3,7 +3,7 @@ using Content.Server.Bed.Components;
 using Content.Server.Construction;
 using Content.Server.Power.EntitySystems;
 using Content.Shared._White.Bed.Components;
-using Content.Shared._White.Body.Organs.Metabolizer;
+using Content.Shared._White.Bloodstream.Systems;
 using Content.Shared._White.Damage.Systems;
 using Content.Shared.Bed;
 using Content.Shared.Bed.Sleep;
@@ -101,7 +101,7 @@ namespace Content.Server.Bed
         {
             // WD EDIT START
             EnsureComp<StasisBedBuckledComponent>(args.Buckle);
-            _metabolizer.UpdateMetabolicRate(args.Buckle);
+            _metabolizer.UpdateMetabolicRate(args.Buckle.Owner);
             // WD EDIT END
         }
 
@@ -109,7 +109,7 @@ namespace Content.Server.Bed
         {
             // WD EDIT START
             RemComp<StasisBedBuckledComponent>(args.Buckle);
-            _metabolizer.UpdateMetabolicRate(args.Buckle);
+            _metabolizer.UpdateMetabolicRate(args.Buckle.Owner);
             // WD EDIT END
         }
 

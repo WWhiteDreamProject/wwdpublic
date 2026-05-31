@@ -26,6 +26,7 @@ using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
 using System.Linq;
 using Content.Shared._White.Damage.Components;
+using Content.Shared._White.Humanoid.Components;
 using Robust.Shared.Utility;
 using Robust.Shared.GameStates;
 
@@ -877,16 +878,16 @@ public sealed partial class TraitAddTrait : TraitFunction
     {
         var traitSystem = entityManager.System<TraitSystem>();
         var protoMan = IoCManager.Resolve<IPrototypeManager>();
-        if (!entityManager.TryGetComponent(uid, out HumanoidAppearanceComponent? humanoid))
+        if (!entityManager.TryGetComponent(uid, out HumanoidProfileComponent? humanoid))
             return;
 
         var traitsToAdd = new List<TraitPrototype>();
 
-        foreach (var trait in Traits)
+        /*foreach (var trait in Traits) TODO
             if (humanoid.LastProfileLoaded is not null
                 && !humanoid.LastProfileLoaded.TraitPreferences.Contains(trait)
                 && protoMan.TryIndex(trait, out var traitPrototype))
-                traitsToAdd.Add(traitPrototype);
+                traitsToAdd.Add(traitPrototype);*/
 
         foreach (var trait in traitsToAdd)
             traitSystem.AddTrait(uid, trait);

@@ -1,4 +1,4 @@
-using Content.Shared._White.Body.Bloodstream.Systems;
+using Content.Shared._White.Bloodstream.Systems;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Traits;
 using JetBrains.Annotations;

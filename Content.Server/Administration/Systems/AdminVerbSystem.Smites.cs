@@ -1,5 +1,5 @@
 using System.Threading;
-using Content.Server._White.Body.Bloodstream.Systems;
+using Content.Server._White.Bloodstream.Systems;
 using Content.Server._White.Body.Systems;
 using Content.Server.Administration.Commands;
 using Content.Server.Administration.Components;
@@ -20,6 +20,7 @@ using Content.Server.Storage.EntitySystems;
 using Content.Server.Tabletop;
 using Content.Server.Tabletop.Components;
 using Content.Shared._White.Bloodstream.Components;
+using Content.Shared._White.Body;
 using Content.Shared._White.Body.Components;
 using Content.Shared._White.Damage.Components;
 using Content.Shared._White.Gibbable.Systems;
@@ -301,7 +302,7 @@ public sealed partial class AdminVerbSystem
                 Act = () =>
                 {
                     _vomitSystem.Vomit(args.Target, -1000, -1000); // You feel hollow!
-                    var organs = _bodySystem.GetOrgans((args.Target, body)); // WD EDIT
+                    var organs = _bodySystem.GetProviders((args.Target, body)); // WD EDIT
                     var baseXform = Transform(args.Target);
                     foreach (var organ in organs)
                     {
@@ -330,7 +331,7 @@ public sealed partial class AdminVerbSystem
                 Act = () =>
                 {
                     var baseXform = Transform(args.Target);
-                    foreach (var part in _bodySystem.GetBodyParts(args.Target, BodyPartType.Hand)) // WD EDIT
+                    foreach (var part in _bodySystem.GetProviders(args.Target, BodyProviderType.Hand)) // WD EDIT
                     {
                         _transformSystem.AttachToGridOrMap(part.Owner); // WD EDIT
                     }
@@ -353,7 +354,7 @@ public sealed partial class AdminVerbSystem
                 Act = () =>
                 {
                     var baseXform = Transform(args.Target);
-                    foreach (var part in _bodySystem.GetBodyParts((args.Target, body), BodyPartType.Hand)) // WD EDIT
+                    foreach (var part in _bodySystem.GetProviders((args.Target, body), BodyProviderType.Hand)) // WD EDIT
                     {
                         _transformSystem.AttachToGridOrMap(part.Owner); // WD EDIT
                         break;
@@ -376,7 +377,7 @@ public sealed partial class AdminVerbSystem
                 Icon = new SpriteSpecifier.Rsi(new ("/Textures/Mobs/Species/Human/organs.rsi"), "stomach"),
                 Act = () =>
                 {
-                    foreach (var entity in _bodySystem.GetOrgans((args.Target, body), OrganType.Stomach)) // WD EDIT
+                    foreach (var entity in _bodySystem.GetProviders((args.Target, body), BodyProviderType.Stomach)) // WD EDIT
                     {
                         QueueDel(entity.Owner);
                     }
@@ -397,7 +398,7 @@ public sealed partial class AdminVerbSystem
                 Icon = new SpriteSpecifier.Rsi(new ("/Textures/Mobs/Species/Human/organs.rsi"), "lung-r"),
                 Act = () =>
                 {
-                    foreach (var entity in _bodySystem.GetOrgans((args.Target, body), OrganType.Lungs)) // WD EDIT
+                    foreach (var entity in _bodySystem.GetProviders((args.Target, body), BodyProviderType.Lungs)) // WD EDIT
                     {
                         QueueDel(entity.Owner);
                     }

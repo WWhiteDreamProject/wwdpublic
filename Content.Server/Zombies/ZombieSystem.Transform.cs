@@ -1,11 +1,10 @@
-using Content.Server._White.Body.Respirator.Components;
+using Content.Server._White.Appearance.Systems;
+using Content.Server._White.Respirator.Components;
 using Content.Server.Abilities.Psionics;
 using Content.Server.Atmos.Components;
-using Content.Server.Body.Components;
 using Content.Server.Chat;
 using Content.Server.Chat.Managers;
 using Content.Server.Ghost.Roles.Components;
-using Content.Server.Humanoid;
 using Content.Server.IdentityManagement;
 using Content.Server.Inventory;
 using Content.Server.Mind;
@@ -17,6 +16,7 @@ using Content.Server.Speech.Components;
 using Content.Server.Temperature.Components;
 using Content.Shared._White.Bloodstream.Components;
 using Content.Shared._White.Damage.Components;
+using Content.Shared._White.Humanoid.Components;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.CombatMode;
 using Content.Shared.CombatMode.Pacification;
@@ -55,7 +55,6 @@ public sealed partial class ZombieSystem
     [Dependency] private readonly ServerInventorySystem _inventory = default!;
     [Dependency] private readonly NpcFactionSystem _faction = default!;
     [Dependency] private readonly NPCSystem _npc = default!;
-    [Dependency] private readonly HumanoidAppearanceSystem _humanoidAppearance = default!;
     [Dependency] private readonly IdentitySystem _identity = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
     [Dependency] private readonly SharedCombatModeSystem _combat = default!;
@@ -65,6 +64,7 @@ public sealed partial class ZombieSystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly PsionicAbilitiesSystem _psionic = default!;
     [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private readonly BodyAppearanceSystem _bodyAppearance = default!;
 
     /// <summary>
     /// Handles an entity turning into a zombie when they die or go into crit
@@ -153,19 +153,21 @@ public sealed partial class ZombieSystem
             _autoEmote.AddEmote(target, "ZombieGroan");
         }
 
+        if (_bodyAppearance.TryGetData(target, out var appearanceData))
+        {
+            zombiecomp.BeforeZombifiedAppearance = appearanceData;
+
+            /*var zombifiedAppearanceData = appearanceData.ToDictionary(pair => pair.Key,
+                pair => pair.Value with { EyeColor = zombiecomp.EyeColor, SkinColor = zombiecomp.SkinColor });
+            _bodyAppearance.ApplyAppearanceData(target, zombifiedAppearanceData);*/
+        }
+
         //We have specific stuff for humanoid zombies because they matter more
-        if (TryComp<HumanoidAppearanceComponent>(target, out var huApComp)) //huapcomp
+        if (TryComp<HumanoidProfileComponent>(target, out var huApComp)) //huapcomp
         {
             //store some values before changing them in case the humanoid get cloned later
-            zombiecomp.BeforeZombifiedSkinColor = huApComp.SkinColor;
-            zombiecomp.BeforeZombifiedEyeColor = huApComp.EyeColor;
             if (TryComp<BloodstreamComponent>(target, out var stream))
                 zombiecomp.BeforeZombifiedBloodReagent = stream.Reagent;
-
-            _humanoidAppearance.SetSkinColor(target, zombiecomp.SkinColor, verify: false, humanoid: huApComp);
-
-            // Messing with the eye layer made it vanish upon cloning, and also it didn't even appear right
-            _humanoidAppearance.SetEyeColor(target, zombiecomp.EyeColor, humanoid: huApComp); // WD EDIT
 
             //This is done here because non-humanoids shouldn't get baller damage
             //lord forgive me for the hardcoded damage

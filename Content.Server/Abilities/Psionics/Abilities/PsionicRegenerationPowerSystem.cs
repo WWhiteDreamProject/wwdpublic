@@ -1,8 +1,8 @@
-using Content.Server._White.Body.Bloodstream.Systems;
+using Content.Server._White.Bloodstream.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
 using Content.Server.DoAfter;
-using Content.Shared._White.Body.Bloodstream.Components;
+using Content.Shared._White.Bloodstream.Components;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.DoAfter;

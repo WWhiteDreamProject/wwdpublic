@@ -19,15 +19,15 @@ public sealed partial class NymphSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<NymphComponent, OrganRemovedEvent>(OnRemovedFromPart); // WD EDIT
+        SubscribeLocalEvent<NymphComponent, BodyProviderGotRemovedEvent>(OnRemovedFromPart); // WD EDIT
     }
 
-    private void OnRemovedFromPart(EntityUid uid, NymphComponent comp, ref OrganRemovedEvent args) // WD EDIT
+    private void OnRemovedFromPart(EntityUid uid, NymphComponent comp, ref BodyProviderGotRemovedEvent args) // WD EDIT
     {
         if (!_timing.IsFirstTimePredicted)
             return;
 
-        if (!args.Body.HasValue || TerminatingOrDeleted(uid) || TerminatingOrDeleted(args.Body)) // WD EDIT
+        if (TerminatingOrDeleted(uid) || TerminatingOrDeleted(args.Body)) // WD EDIT
             return;
 
         if (!_protoManager.TryIndex<EntityPrototype>(comp.EntityPrototype, out var entityProto))
@@ -41,7 +41,7 @@ public sealed partial class NymphSystem : EntitySystem
             _zombie.ZombifyEntity(nymph);
 
         // Move the mind if there is one and it's supposed to be transferred
-        if (comp.TransferMind == true && _mindSystem.TryGetMind(args.Body.Value, out var mindId, out var mind)) // WD EDIT
+        if (comp.TransferMind == true && _mindSystem.TryGetMind(args.Body, out var mindId, out var mind)) // WD EDIT
             _mindSystem.TransferTo(mindId, nymph, mind: mind);
 
         // Delete the old organ

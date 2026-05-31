@@ -16,6 +16,7 @@ using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
 using Content.Shared._White.Damage.Components;
 using Content.Shared._White.Damage.Systems;
+using Content.Shared._White.Nutrition.Components;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
@@ -237,7 +238,7 @@ public sealed partial class DeepFryerSystem : SharedDeepfryerSystem
         }
 
         // Damage non-food items and mobs.
-        if ((!HasComp<FoodComponent>(item) || HasComp<MobStateComponent>(item)) &&
+        if ((!HasComp<IngestibleComponent>(item) || HasComp<MobStateComponent>(item)) &&
             TryComp<DamageableComponent>(item, out var damageableComponent))
         {
             var damage = new DamageSpecifier(_prototypeManager.Index<DamageTypePrototype>(CookingDamageType),
@@ -256,7 +257,7 @@ public sealed partial class DeepFryerSystem : SharedDeepfryerSystem
     /// </summary>
     private void BurnItem(EntityUid uid, DeepFryerComponent component, EntityUid item)
     {
-        if (HasComp<FoodComponent>(item) &&
+        if (HasComp<IngestibleComponent>(item) &&
             !HasComp<MobStateComponent>(item) &&
             MetaData(item).EntityPrototype?.ID != component.CharredPrototype)
         {
@@ -354,8 +355,9 @@ public sealed partial class DeepFryerSystem : SharedDeepfryerSystem
 
         MakeCrispy(item);
 
-        if (TryComp(item, out FoodComponent? foodComp))
-            foodComp.MoodletsOnEat.Add(component.DeepFriedMoodletPrototype);
+        /* TODO
+        if (TryComp(item, out IngestibleComponent? foodComp))
+            foodComp.MoodletsOnEat.Add(component.DeepFriedMoodletPrototype);*/
 
         var oilToUse = 0;
 
@@ -770,7 +772,7 @@ public sealed partial class DeepFryerSystem : SharedDeepfryerSystem
             TryComp<FlavorProfileComponent>(args.Slice, out var sliceFlavorProfileComponent))
         {
             sliceFlavorProfileComponent.Flavors.UnionWith(sourceFlavorProfileComponent.Flavors);
-            sliceFlavorProfileComponent.IgnoreReagents.UnionWith(sourceFlavorProfileComponent.IgnoreReagents);
+            sliceFlavorProfileComponent.Ignored.UnionWith(sourceFlavorProfileComponent.Ignored);
         }
     }
 }

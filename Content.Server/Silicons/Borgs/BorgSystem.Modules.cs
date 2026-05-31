@@ -334,8 +334,8 @@ public sealed partial class BorgSystem
             _hands.TryGetHand(chassis, handId, out var hand, hands);
             if (hand?.HeldEntity != null)
             {
-                RemComp<UnremoveableComponent>(hand.HeldEntity.Value);
-                _container.Insert(hand.HeldEntity.Value, component.ProvidedContainer);
+                RemComp<UnremoveableComponent>(hand.Value.HeldEntity.Value);
+                _container.Insert(hand.Value.HeldEntity.Value, component.ProvidedContainer);
             }
 
             _hands.RemoveHand(chassis, handId, hands);

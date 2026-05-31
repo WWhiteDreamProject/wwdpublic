@@ -1,4 +1,4 @@
-using Content.Server._White.Body.Respirator.Systems;
+using Content.Server._White.Respirator.Systems;
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Components;
@@ -34,7 +34,7 @@ public sealed class InternalsSystem : EntitySystem
 
         _internalsQuery = GetEntityQuery<InternalsComponent>();
 
-        SubscribeLocalEvent<InternalsComponent, InhaleLocationEvent>(OnInhaleLocation);
+        SubscribeLocalEvent<InternalsComponent, GetInhaleLocationEvent>(OnInhaleLocation);
         SubscribeLocalEvent<InternalsComponent, ComponentStartup>(OnInternalsStartup);
         SubscribeLocalEvent<InternalsComponent, ComponentShutdown>(OnInternalsShutdown);
         SubscribeLocalEvent<InternalsComponent, GetVerbsEvent<InteractionVerb>>(OnGetInteractionVerbs);
@@ -181,7 +181,7 @@ public sealed class InternalsSystem : EntitySystem
         _alerts.ClearAlert(ent, ent.Comp.InternalsAlert);
     }
 
-    private void OnInhaleLocation(Entity<InternalsComponent> ent, ref InhaleLocationEvent args)
+    private void OnInhaleLocation(Entity<InternalsComponent> ent, ref GetInhaleLocationEvent args)
     {
         if (AreInternalsWorking(ent))
         {

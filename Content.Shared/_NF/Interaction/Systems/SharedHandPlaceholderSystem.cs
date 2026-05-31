@@ -105,7 +105,7 @@ public sealed partial class HandPlaceholderSystem : EntitySystem
         if (_net.IsServer)
             Del(ent);
 
-        _hands.DoPickup(user, hand, target); // Force pickup - empty hands are not okay
+        _hands.DoPickup(user, hand.Value, target); // Force pickup - empty hands are not okay
         var placeComp = EnsureComp<HandPlaceholderRemoveableComponent>(target);
         placeComp.Whitelist = whitelist;
         placeComp.Prototype = prototype;

@@ -1,7 +1,7 @@
-using Content.Server._White.Body.Organs.Metabolizer;
+using Content.Server._White.Bloodstream.Systems;
 using Content.Server._White.Body.Systems;
-using Content.Shared._White.Body.Components;
-using Content.Shared._White.Body.Organs.Metabolizer;
+using Content.Shared._White.Bloodstream.Components;
+using Content.Shared._White.Body;
 using Content.Shared._White.Body.Prototypes;
 using Content.Shared.Traits;
 using JetBrains.Annotations;
@@ -17,7 +17,7 @@ public sealed partial class TraitAddMetabolizerTypes : TraitFunction
     public HashSet<ProtoId<MetabolizerTypePrototype>> MetabolizerTypes;
 
     [DataField, AlwaysPushInheritance]
-    public OrganType OrganType = OrganType.None;
+    public BodyProviderType BodyProviderType = BodyProviderType.None;
 
     public override void OnPlayerSpawn(
         EntityUid uid,
@@ -29,7 +29,12 @@ public sealed partial class TraitAddMetabolizerTypes : TraitFunction
         var bodySystem = entityManager.System<BodySystem>();
         var metabolizerSystem = entityManager.System<MetabolizerSystem>();
 
-        foreach (var metabolizer in bodySystem.GetOrgans<MetabolizerComponent>(uid, OrganType))
-            metabolizerSystem.AddMetabolizerTypes((metabolizer, metabolizer), MetabolizerTypes);
+        foreach (var metabolizer in bodySystem.GetProviders(uid, BodyProviderType))
+        {
+            if (!entityManager.TryGetComponent<MetabolizerComponent>(metabolizer, out var metabolizerComp))
+                continue;
+
+            metabolizerSystem.AddMetabolizerTypes((metabolizer, metabolizerComp), MetabolizerTypes);
+        }
     }
 }

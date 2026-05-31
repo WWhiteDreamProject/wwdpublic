@@ -1,16 +1,16 @@
-using Content.Server._White.Body.Organs.Stomach;
 using Content.Server.Limbus.Traits.Components;
 using Content.Server.Vampiric;
-using Content.Shared._White.Body.Components;
-using Content.Shared._White.Body.Organs.Metabolizer;
+using Content.Shared._White.Bloodstream.Components;
 using Content.Shared._White.Body.Systems;
+using Content.Shared._White.Nutrition.Components;
+using Content.Shared._White.Nutrition.Systems;
 
 namespace Content.Server.Limbus.Traits;
 
 public sealed class VampirismSystem : EntitySystem
 {
     [Dependency] private readonly SharedBodySystem _body = default!;
-    [Dependency] private readonly StomachSystem _stomach = default!;
+    [Dependency] private readonly SharedIngestionSystem _stomach = default!;
 
     public override void Initialize()
     {
@@ -19,20 +19,23 @@ public sealed class VampirismSystem : EntitySystem
 
     private void OnInitVampire(Entity<VampirismComponent> ent, ref MapInitEvent args)
     {
-        EnsureBloodSucker(ent);
+        // TODO
+        /*EnsureBloodSucker(ent);
 
-        if (!_body.TryGetOrgans<MetabolizerComponent>(ent.Owner, out var organs, OrganType.Stomach)) // WD EDIT
+        if (!_body.TryGetProviders(ent.Owner, out var organs)) // WD EDIT
             return;
 
         foreach (var organ in organs) // WD EDIT
         {
-            if (!TryComp<StomachComponent>(organ.Owner, out var stomach)) // WD EDIT
+            if (!TryComp<IngestionProviderComponent>(organ.Owner, out var stomach)) // WD EDIT
+                continue
+            if (!TryComp<MetabolizerComponent>(organ.Owner, out var metabolizer)) // WD EDIT
                 continue;
 
-            organ.Comp2.Types = ent.Comp.MetabolizerPrototypes; // WD EDIT
+            metabolizer.Types = ent.Comp.MetabolizerPrototypes; // WD EDIT
 
             _stomach.SetSpecialDigestible((organ.Owner, stomach), ent.Comp.SpecialDigestible); // WD EDIT
-        }
+        }*/
     }
 
     private void EnsureBloodSucker(Entity<VampirismComponent> uid)

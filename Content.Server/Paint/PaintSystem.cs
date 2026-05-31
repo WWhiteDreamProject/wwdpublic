@@ -1,3 +1,4 @@
+using Content.Shared._White.Humanoid.Components;
 using Content.Shared.Popups;
 using Content.Shared.Paint;
 using Content.Shared.Sprite;
@@ -110,7 +111,7 @@ public sealed class PaintSystem : SharedPaintSystem
 
         if (_whitelist.IsWhitelistFail(entity.Comp.Whitelist, target)
             || _whitelist.IsBlacklistPass(entity.Comp.Blacklist, target)
-            || HasComp<HumanoidAppearanceComponent>(target) || HasComp<SubFloorHideComponent>(target))
+            || HasComp<HumanoidProfileComponent>(target) || HasComp<SubFloorHideComponent>(target))
         {
             _popup.PopupEntity(Loc.GetString("paint-failure", ("target", target)), user, user, PopupType.Medium);
             return;
@@ -136,7 +137,7 @@ public sealed class PaintSystem : SharedPaintSystem
                         || _whitelist.IsWhitelistFail(entity.Comp.Whitelist, slotEnt.Value)
                         || _whitelist.IsBlacklistPass(entity.Comp.Blacklist, slotEnt.Value)
                         || HasComp<RandomSpriteComponent>(slotEnt.Value)
-                        || HasComp<HumanoidAppearanceComponent>(slotEnt.Value))
+                        || HasComp<HumanoidProfileComponent>(slotEnt.Value))
                         continue;
 
                     EnsureComp<PaintedComponent>(slotEnt.Value, out var slotToPaint);
@@ -194,7 +195,7 @@ public sealed class PaintSystem : SharedPaintSystem
 
     private bool CanPaint(Entity<PaintComponent> reagent, EntityUid target)
     {
-        if (HasComp<HumanoidAppearanceComponent>(target)
+        if (HasComp<HumanoidProfileComponent>(target)
             || HasComp<SubFloorHideComponent>(target)
             || !_solutionContainer.TryGetSolution(reagent.Owner, reagent.Comp.Solution, out _, out var solution))
             return false;

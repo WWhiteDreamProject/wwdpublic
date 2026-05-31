@@ -16,7 +16,7 @@ public sealed class ShowMechanismsCommand : LocalizedCommands
 
     public override void Execute(IConsoleShell shell, string argStr, string[] args)
     {
-        var query = _entManager.AllEntityQueryEnumerator<OrganComponent, SpriteComponent>();
+        var query = _entManager.AllEntityQueryEnumerator<BodyProviderComponent, SpriteComponent>();
 
         while (query.MoveNext(out _, out var sprite))
         {

@@ -37,6 +37,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Content.Shared.Stacks;
 using Content.Server.Construction.Components;
+using Content.Shared._White.Body;
 using Content.Shared._White.Body.Components;
 using Content.Shared._White.Damage.Components;
 using Content.Shared.Chat;
@@ -262,7 +263,7 @@ namespace Content.Server.Kitchen.EntitySystems
 
             if (TryComp<BodyComponent>(victim, out var body))
             {
-                var headSlots = _bodySystem.GetBodyParts((victim, body), BodyPartType.Head); // WD EDIT
+                var headSlots = _bodySystem.GetProviders((victim, body), BodyProviderType.Head); // WD EDIT
 
                 foreach (var part in headSlots)
                 {

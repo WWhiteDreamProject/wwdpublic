@@ -4,6 +4,8 @@ using Content.Client.Message;
 using Content.Shared.Atmos;
 using Content.Client.UserInterface.Controls;
 using Content.Shared._White.Damage.Components;
+using Content.Shared._White.Humanoid.Components;
+using Content.Shared._White.Humanoid.Prototypes;
 using Content.Shared.Alert;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
@@ -83,7 +85,7 @@ namespace Content.Client.HealthAnalyzer.UI
             NameLabel.SetMessage(name);
 
             SpeciesLabel.Text =
-                _entityManager.TryGetComponent<HumanoidAppearanceComponent>(target.Value,
+                _entityManager.TryGetComponent<HumanoidProfileComponent>(target.Value,
                     out var humanoidAppearanceComponent)
                     ? Loc.GetString(_prototypes.Index<SpeciesPrototype>(humanoidAppearanceComponent.Species).Name)
                     : Loc.GetString("health-analyzer-window-entity-unknown-species-text");

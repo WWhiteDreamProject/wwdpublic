@@ -11,8 +11,10 @@ using Content.Server.IP;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Microsoft.EntityFrameworkCore;
+using Robust.Shared.Asynchronous;
 using Robust.Shared.Configuration;
 using Robust.Shared.Network;
+using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Utility;
 
 namespace Content.Server.Database
@@ -26,12 +28,15 @@ namespace Content.Server.Database
 
         private int _msLag;
 
-        public ServerDbPostgres(DbContextOptions<PostgresServerDbContext> options,
+        public ServerDbPostgres(
+            DbContextOptions<PostgresServerDbContext> options,
             string connectionString,
             IConfigurationManager cfg,
             ISawmill opsLog,
-            ISawmill notifyLog)
-            : base(opsLog)
+            ISawmill notifyLog,
+            ISerializationManager serialization
+            )
+            : base(opsLog, serialization)
         {
             var concurrency = cfg.GetCVar(CCVars.DatabasePgConcurrency);
 

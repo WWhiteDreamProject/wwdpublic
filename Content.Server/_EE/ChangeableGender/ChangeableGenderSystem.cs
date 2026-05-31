@@ -1,3 +1,4 @@
+using Content.Shared._White.Humanoid.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
@@ -7,7 +8,7 @@ namespace Content.Server._EE.ChangeableGender;
 
 public sealed class ChangeableGenderSystem : EntitySystem
 {
-    [Dependency] private readonly SharedHumanoidAppearanceSystem _appearance = default!;
+    /*[Dependency] private readonly SharedHumanoidAppearanceSystem _appearance = default!;*/
     [Dependency] private readonly SharedPopupSystem _popup = default!;
 
     public override void Initialize()
@@ -22,7 +23,7 @@ public sealed class ChangeableGenderSystem : EntitySystem
         if (!args.CanInteract || !args.CanAccess)
             return;
 
-        if (!TryComp<HumanoidAppearanceComponent>(uid, out var app))
+        if (!TryComp<HumanoidProfileComponent>(uid, out var app))
             return;
 
         var priority = 0;
@@ -35,7 +36,7 @@ public sealed class ChangeableGenderSystem : EntitySystem
                 Priority = priority,
                 Act = () =>
                 {
-                    _appearance.SetGender(uid, entry.Value, app);
+                    /*_appearance.SetGender(uid, entry.Value, app);*/
                     _popup.PopupEntity(Loc.GetString("changeable-gender-component-gender-set", ("pronouns", entry.Key)),
                         args.User, args.User);
                     if (component.SingleUse)

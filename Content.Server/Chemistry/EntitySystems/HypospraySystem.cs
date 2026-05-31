@@ -19,7 +19,7 @@ using Robust.Server.Audio;
 using Content.Server.Atmos.EntitySystems;
 using Content.Shared.DoAfter;
 using Content.Shared._Goobstation.Chemistry.Hypospray;
-using Content.Shared._White.Body.Bloodstream.Components;
+using Content.Shared._White.Bloodstream.Components;
 
 
 namespace Content.Server.Chemistry.EntitySystems;

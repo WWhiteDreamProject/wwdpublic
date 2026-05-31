@@ -1,4 +1,4 @@
-﻿using Content.Server._White.Body.Respirator.Systems;
+﻿using Content.Server._White.Respirator.Systems;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Medical.Components;
 using Content.Shared.Medical.Cryogenics;
@@ -11,8 +11,8 @@ namespace Content.Server.Medical
         {
             base.InitializeInsideCryoPod();
             // Atmos overrides
-            SubscribeLocalEvent<InsideCryoPodComponent, InhaleLocationEvent>(OnInhaleLocation);
-            SubscribeLocalEvent<InsideCryoPodComponent, ExhaleLocationEvent>(OnExhaleLocation);
+            SubscribeLocalEvent<InsideCryoPodComponent, GetInhaleLocationEvent>(OnInhaleLocation);
+            SubscribeLocalEvent<InsideCryoPodComponent, GetExhaleLocationEvent>(OnExhaleLocation);
             SubscribeLocalEvent<InsideCryoPodComponent, AtmosExposedGetAirEvent>(OnGetAir);
         }
 
@@ -27,7 +27,7 @@ namespace Content.Server.Medical
             }
         }
 
-        private void OnInhaleLocation(EntityUid uid, InsideCryoPodComponent component, InhaleLocationEvent args)
+        private void OnInhaleLocation(EntityUid uid, InsideCryoPodComponent component, GetInhaleLocationEvent args)
         {
             if (TryComp<CryoPodAirComponent>(Transform(uid).ParentUid, out var cryoPodAir))
             {
@@ -35,7 +35,7 @@ namespace Content.Server.Medical
             }
         }
 
-        private void OnExhaleLocation(EntityUid uid, InsideCryoPodComponent component, ExhaleLocationEvent args)
+        private void OnExhaleLocation(EntityUid uid, InsideCryoPodComponent component, GetExhaleLocationEvent args)
         {
             if (TryComp<CryoPodAirComponent>(Transform(uid).ParentUid, out var cryoPodAir))
             {

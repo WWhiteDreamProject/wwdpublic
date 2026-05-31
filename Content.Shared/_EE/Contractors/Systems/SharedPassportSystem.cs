@@ -1,5 +1,7 @@
 using Content.Shared._EE.Contractors.Components;
 using Content.Shared._EE.Contractors.Prototypes;
+using Content.Shared._White.Humanoid.Prototypes;
+using Content.Shared._White.Preferences;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Clothing.Loadouts.Systems;
 using Content.Shared.Database;
@@ -64,7 +66,7 @@ public class SharedPassportSystem : EntitySystem
             + component.OwnerProfile.Height
             + component.OwnerProfile.Age
             + component.OwnerProfile.Height
-            + component.OwnerProfile.FlavorText)}",
+            + component.OwnerProfile.Flavor)}",
             45);
     }
 

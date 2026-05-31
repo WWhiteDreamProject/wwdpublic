@@ -158,6 +158,7 @@ namespace Content.Client.Stylesheets
         public const string StyleClassBackgroundBaseDark = "PanelBackgroundBaseDark";
         public const string StyleClassLobbyBackground = "LobbyBackground"; // WD EDIT
         public const string StyleClassPanelBackground = "PanelBackground"; // WD EDIT
+        public const string StyleClassPanelDropTarget = "PanelDropTarget"; // WD EDIT
 
         //Buttons
         public const string StyleClassCrossButtonRed = "CrossButtonRed";
@@ -523,6 +524,12 @@ namespace Content.Client.Stylesheets
             };
 
             // WD EDIT START
+            var boxDropTarget = new StyleBoxFlat
+            {
+                BackgroundColor = Color.FromHex("#252525").WithAlpha(0.5f),
+                BorderThickness = new(2),
+            };
+
             var lobbyBackgroundTex = resCache.GetTexture("/Textures/_White/Interface/Nano/lobby.png");
             var lobbyBackground = new StyleBoxTexture
             {
@@ -797,6 +804,12 @@ namespace Content.Client.Stylesheets
                     new[]
                     {
                         new StyleProperty(PanelContainer.StylePropertyPanel, panelBackground),
+                    }),
+                new StyleRule(
+                    new SelectorElement(null, new[] {StyleClassPanelDropTarget}, null, null),
+                    new[]
+                    {
+                        new StyleProperty(PanelContainer.StylePropertyPanel, boxDropTarget),
                     }),
                 // WD EDIT END
 

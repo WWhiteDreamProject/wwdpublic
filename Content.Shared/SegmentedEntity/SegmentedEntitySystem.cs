@@ -13,6 +13,7 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
 using System.Numerics;
 using Content.Shared._White.Damage.Systems;
+using Content.Shared._White.Humanoid.Components;
 using Robust.Shared.Network;
 
 namespace Content.Shared.SegmentedEntity;
@@ -69,7 +70,7 @@ public sealed partial class LamiaSystem : EntitySystem
 
             // This is currently HERE and not somewhere more sane like OnInit because HumanoidAppearanceComponent is for whatever
             // ungodly reason not initialized when ComponentStartup is called. Kill me.
-            var humanoidFactor = TryComp<HumanoidAppearanceComponent>(segment.segment.Lamia, out var humanoid) ? (humanoid.Height + humanoid.Width) / 2 : 1;
+            var humanoidFactor = TryComp<HumanoidProfileComponent>(segment.segment.Lamia, out var humanoid) ? (humanoid.Height + humanoid.Width) / 2 : 1;
 
             var ev = new SegmentSpawnedEvent(segment.lamia);
             RaiseLocalEvent(segmentUid, ev, false);

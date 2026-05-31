@@ -1,4 +1,4 @@
-using Content.Shared._White.Body.Components;
+using Content.Shared._White.Body;
 using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Audio;

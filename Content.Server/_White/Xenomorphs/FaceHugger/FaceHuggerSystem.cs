@@ -2,6 +2,7 @@ using Content.Server._White.Body.Systems;
 using Content.Server.Popups;
 using Content.Server.Stunnable;
 using Content.Shared._White.Damage.Systems;
+using Content.Shared._White.Nutrition.Components;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Hands;
 using Content.Shared.IdentityManagement;
@@ -115,20 +116,20 @@ public sealed class FaceHuggerSystem : EntitySystem
 
     private void Infect(EntityUid uid, FaceHuggerComponent component)
     {
-        if (!component.InfectionPrototype.HasValue
+        /*if (!component.InfectionPrototype.HasValue
             || !TryComp<ClothingComponent>(uid, out var clothing)
             || clothing.InSlot != component.Slot
             || !_container.TryGetContainingContainer((uid, null, null), out var target)
             || _body.GetBodyParts(target.Owner, component.BodyPartType).FirstOrNull() is not {} bodyPart)
             return;
-
+        TODO
         var organ = Spawn(component.InfectionPrototype);
         if (!TryComp<OrganComponent>(organ, out var organComponent)
             || !_body.TryCreateOrganSlotAndAttachOrgan(bodyPart.AsNullable(), (organ, organComponent), component.InfectionSlotId, organComponent.Type))
         {
             QueueDel(organ);
             return;
-        }
+        }*/
 
         _damageable.ChangeDamage(uid, component.DamageOnInfect, true);
     }

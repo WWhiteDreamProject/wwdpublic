@@ -64,13 +64,28 @@ public struct BloodGroup
         return $"{rhesusFactor}{type}";
     }
 
-    public bool Equals(BloodGroup other) => other.Type == Type && other.RhesusFactor == RhesusFactor;
+    public bool Equals(BloodGroup other)
+    {
+        return other.Type == Type && other.RhesusFactor == RhesusFactor;
+    }
 
-    public override bool Equals(object? obj) => obj is BloodGroup other && Equals(other);
+    public override bool Equals(object? obj)
+    {
+        return obj is BloodGroup other && Equals(other);
+    }
 
-    public override int GetHashCode() => HashCode.Combine(Type, RhesusFactor);
+    public override int GetHashCode()
+    {
+        return HashCode.Combine(Type, RhesusFactor);
+    }
 
-    public static bool operator ==(BloodGroup left, BloodGroup right) => left.Equals(right);
+    public static bool operator ==(BloodGroup left, BloodGroup right)
+    {
+        return left.Equals(right);
+    }
 
-    public static bool operator !=(BloodGroup left, BloodGroup right) => !(left == right);
+    public static bool operator !=(BloodGroup left, BloodGroup right)
+    {
+        return !(left == right);
+    }
 }

@@ -412,10 +412,10 @@ public sealed class WiresSystem : SharedWiresSystem
         if (activeHand == null)
             return;
 
-        if (activeHand.HeldEntity == null)
+        if (activeHand.Value.HeldEntity == null)
             return;
 
-        var activeHandEntity = activeHand.HeldEntity.Value;
+        var activeHandEntity = activeHand.Value.HeldEntity.Value;
         if (!EntityManager.TryGetComponent(activeHandEntity, out ToolComponent? tool))
             return;
 

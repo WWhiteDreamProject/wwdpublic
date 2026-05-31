@@ -1,5 +1,6 @@
 using Content.Shared._White.Inventory.Components;
 using Content.Shared._White.Jump;
+using Content.Shared._White.Nutrition.Components;
 using Content.Shared.Hands;
 using Content.Shared.Inventory;
 using Content.Shared.Mobs.Systems;

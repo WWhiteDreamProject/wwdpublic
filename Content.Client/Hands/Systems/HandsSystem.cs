@@ -135,7 +135,7 @@ namespace Content.Client.Hands.Systems
             if (component.ActiveHand == null && state.ActiveHand == null)
                 return; //edge case
 
-            if (component.ActiveHand != null && state.ActiveHand != component.ActiveHand.Name)
+            if (component.ActiveHand != null && state.ActiveHand != component.ActiveHand.Value.Name)
             {
                 SetActiveHand(uid, component.Hands[state.ActiveHand!], component);
             }
@@ -204,7 +204,7 @@ namespace Content.Client.Hands.Systems
                 return;
 
             var pressedEntity = pressedHand.HeldEntity;
-            var activeEntity = hands.ActiveHand.HeldEntity;
+            var activeEntity = hands.ActiveHand.Value.HeldEntity;
 
             if (pressedHand == hands.ActiveHand && activeEntity != null)
             {
@@ -479,7 +479,7 @@ namespace Content.Client.Hands.Systems
                 return;
             }
 
-            OnPlayerSetActiveHand?.Invoke(hand.Comp.ActiveHand.Name);
+            OnPlayerSetActiveHand?.Invoke(hand.Comp.ActiveHand.Value.Name);
         }
     }
 }

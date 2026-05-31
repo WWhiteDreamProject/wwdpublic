@@ -370,7 +370,7 @@ public sealed partial class ShuttleSystem
                     damageSpec.DamageDict["Blunt"] = scaledDamage;
                     damageSpec.DamageDict["Structural"] = scaledDamage * _structuralDamage;
 
-                    _damageSys.TryChangeDamage(localEnt, damageSpec, damageable: damageable);
+                    _damageSys.TryChangeDamage((localEnt, damageable), damageSpec);
                 }
                 // might've been destroyed
                 if (TerminatingOrDeleted(localEnt) || EntityManager.IsQueuedForDeletion(localEnt))

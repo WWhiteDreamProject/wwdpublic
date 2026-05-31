@@ -1,4 +1,4 @@
-using Content.Shared._White.Body.Components;
+using Content.Shared._White.Body;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface.Controls;
 

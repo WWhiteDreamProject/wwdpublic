@@ -1,3 +1,4 @@
+using Content.Shared._White.Body;
 using Content.Shared._White.Body.Components;
 
 
@@ -17,13 +18,15 @@ namespace Content.Shared.Throwing
         public readonly EntityUid Thrown;
         public readonly EntityUid Target;
         public ThrownItemComponent Component;
+        public BodyProviderType BodyProviderType;
 
-        public ThrowEvent(EntityUid? user, EntityUid thrown, EntityUid target, ThrownItemComponent component)
+        public ThrowEvent(EntityUid? user, EntityUid thrown, EntityUid target, ThrownItemComponent component, BodyProviderType bodyProviderType)
         {
             User = user; //Nyano - Summary: User added.
             Thrown = thrown;
             Target = target;
             Component = component;
+            BodyProviderType = bodyProviderType;
         }
     }
 
@@ -32,7 +35,7 @@ namespace Content.Shared.Throwing
     /// </summary>
     public sealed class ThrowHitByEvent : ThrowEvent
     {
-        public ThrowHitByEvent(EntityUid? user, EntityUid thrown, EntityUid target, ThrownItemComponent component) : base(user, thrown, target, component)
+        public ThrowHitByEvent(EntityUid? user, EntityUid thrown, EntityUid target, ThrownItemComponent component, BodyProviderType bodyProviderType) : base(user, thrown, target, component, bodyProviderType)
         {
         }
     }
@@ -42,7 +45,7 @@ namespace Content.Shared.Throwing
     /// </summary>
     public sealed class ThrowDoHitEvent : ThrowEvent
     {
-        public ThrowDoHitEvent(EntityUid thrown, EntityUid target, ThrownItemComponent component) : base(null, thrown, target, component)
+        public ThrowDoHitEvent(EntityUid thrown, EntityUid target, ThrownItemComponent component, BodyProviderType bodyProviderType) : base(null, thrown, target, component, bodyProviderType)
         {
         }
     }

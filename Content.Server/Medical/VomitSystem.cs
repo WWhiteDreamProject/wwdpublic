@@ -1,12 +1,11 @@
-using Content.Server._White.Body.Bloodstream.Systems;
-using Content.Server._White.Body.Organs.Stomach;
+using Content.Server._White.Bloodstream.Systems;
 using Content.Server._White.Body.Systems;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Forensics;
 using Content.Server.Popups;
 using Content.Server.Stunnable;
-using Content.Shared._White.Body.Bloodstream.Components;
-using Content.Shared._White.Body.Components;
+using Content.Shared._White.Bloodstream.Components;
+using Content.Shared._White.Nutrition.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
@@ -41,7 +40,7 @@ namespace Content.Server.Medical
         public void Vomit(EntityUid uid, float thirstAdded = -40f, float hungerAdded = -40f)
         {
             // Main requirement: You have a stomach
-            var stomachList = _body.GetOrgans<StomachComponent>(uid, OrganType.Stomach); // WD EDIT
+            var stomachList = _body.GetProviders(uid); // WD EDIT
             if (stomachList.Count == 0)
                 return;
 
@@ -64,11 +63,14 @@ namespace Content.Server.Medical
             // Empty the stomach out into it
             foreach (var stomach in stomachList)
             {
-                if (_solutionContainer.ResolveSolution(stomach.Owner, stomach.Comp2.SolutionName, ref stomach.Comp2.Solution, out var sol)) // WD EDIT
+                if (!TryComp<IngestionProviderComponent>(stomach, out var stomachComp))
+                    return;
+
+                if (_solutionContainer.ResolveSolution(stomach.Owner, stomachComp.SolutionName, ref stomachComp.Solution, out var sol)) // WD EDIT
                 {
                     solution.AddSolution(sol, _proto);
                     sol.RemoveAllSolution();
-                    _solutionContainer.UpdateChemicals(stomach.Comp2.Solution.Value); // WD EDIT
+                    _solutionContainer.UpdateChemicals(stomachComp.Solution.Value); // WD EDIT
                 }
             }
             // Adds a tiny amount of the chem stream from earlier along with vomit

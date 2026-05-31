@@ -55,7 +55,7 @@ public sealed partial class FillLinkedMachineOperator : HTNOperator
 
         var heldItem = _sharedHandsSystem.GetActiveItem(owner);
 
-        if (heldItem == null || _entManager.HasComponent<BodyPartComponent>(heldItem))
+        if (heldItem == null || _entManager.HasComponent<BodyProviderComponent>(heldItem))
         {
             _sharedHandsSystem.TryDrop(owner);
             return HTNOperatorStatus.Failed;

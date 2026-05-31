@@ -1,7 +1,5 @@
-
-
 using System.Linq;
-using Content.Server._White.Body.Respirator.Systems;
+using Content.Server._White.Respirator.Systems;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Mech.Components;
 using Content.Server.Power.Components;
@@ -63,8 +61,8 @@ public sealed partial class MechSystem : SharedMechSystem
 
 
         SubscribeLocalEvent<MechPilotComponent, ToolUserAttemptUseEvent>(OnToolUseAttempt);
-        SubscribeLocalEvent<MechPilotComponent, InhaleLocationEvent>(OnInhale);
-        SubscribeLocalEvent<MechPilotComponent, ExhaleLocationEvent>(OnExhale);
+        SubscribeLocalEvent<MechPilotComponent, GetInhaleLocationEvent>(OnInhale);
+        SubscribeLocalEvent<MechPilotComponent, GetExhaleLocationEvent>(OnExhale);
         SubscribeLocalEvent<MechPilotComponent, AtmosExposedGetAirEvent>(OnExpose);
 
         SubscribeLocalEvent<MechAirComponent, GetFilterAirEvent>(OnGetFilterAir);
@@ -380,7 +378,7 @@ public sealed partial class MechSystem : SharedMechSystem
     }
 
     #region Atmos Handling
-    private void OnInhale(EntityUid uid, MechPilotComponent component, InhaleLocationEvent args)
+    private void OnInhale(EntityUid uid, MechPilotComponent component, GetInhaleLocationEvent args)
     {
         if (!TryComp<MechComponent>(component.Mech, out var mech) ||
             !TryComp<MechAirComponent>(component.Mech, out var mechAir))
@@ -392,7 +390,7 @@ public sealed partial class MechSystem : SharedMechSystem
             args.Gas = mechAir.Air;
     }
 
-    private void OnExhale(EntityUid uid, MechPilotComponent component, ExhaleLocationEvent args)
+    private void OnExhale(EntityUid uid, MechPilotComponent component, GetExhaleLocationEvent args)
     {
         if (!TryComp<MechComponent>(component.Mech, out var mech) ||
             !TryComp<MechAirComponent>(component.Mech, out var mechAir))

@@ -18,7 +18,7 @@ public sealed class HideMechanismsCommand : LocalizedCommands
     public override void Execute(IConsoleShell shell, string argStr, string[] args)
     {
         var containerSys = _entityManager.System<SharedContainerSystem>();
-        var query = _entityManager.AllEntityQueryEnumerator<OrganComponent>();
+        var query = _entityManager.AllEntityQueryEnumerator<BodyProviderComponent>();
 
         while (query.MoveNext(out var uid, out _))
         {

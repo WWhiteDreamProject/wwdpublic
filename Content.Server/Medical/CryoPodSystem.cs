@@ -1,4 +1,4 @@
-using Content.Server._White.Body.Bloodstream.Systems;
+using Content.Server._White.Bloodstream.Systems;
 using Content.Server.Administration.Logs;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Atmos.Piping.Components;
@@ -8,7 +8,7 @@ using Content.Server.NodeContainer.EntitySystems;
 using Content.Server.NodeContainer.NodeGroups;
 using Content.Server.NodeContainer.Nodes;
 using Content.Server.Temperature.Components;
-using Content.Shared._White.Body.Bloodstream.Components;
+using Content.Shared._White.Bloodstream.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Atmos;
 using Content.Shared.UserInterface;
@@ -197,7 +197,7 @@ public sealed partial class CryoPodSystem : SharedCryoPodSystem
             new HealthAnalyzerScannedUserMessage(GetNetEntity(entity.Comp.BodyContainer.ContainedEntity),
             temp?.CurrentTemperature ?? 0,
             (bloodstream != null && _solutionContainerSystem.ResolveSolution(entity.Comp.BodyContainer.ContainedEntity.Value,
-                bloodstream.BloodSolutionName, ref bloodstream.BloodSolution, out var bloodSolution))
+                bloodstream.SolutionName, ref bloodstream.Solution, out var bloodSolution))
                 ? bloodSolution.FillFraction
                 : 0,
             null,

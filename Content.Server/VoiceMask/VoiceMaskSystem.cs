@@ -1,4 +1,5 @@
 using Content.Server._White.TTS;
+using Content.Shared._White.Humanoid.Systems;
 using Content.Shared._White.TTS;
 using Content.Shared.Actions;
 using Content.Shared.Administration.Logs;
@@ -7,7 +8,6 @@ using Content.Shared.Clothing;
 using Content.Shared.Database;
 using Content.Shared.Inventory;
 using Content.Shared.Popups;
-using Content.Shared.Preferences;
 using Content.Shared.Speech;
 using Content.Shared.VoiceMask;
 using Robust.Shared.Prototypes;
@@ -60,7 +60,7 @@ public sealed partial class VoiceMaskSystem : EntitySystem
 
     private void OnChangeName(Entity<VoiceMaskComponent> entity, ref VoiceMaskChangeNameMessage message)
     {
-        if (message.Name.Length > HumanoidCharacterProfile.MaxNameLength || message.Name.Length <= 0)
+        if (message.Name.Length > HumanoidProfileSystem.MaxNameLength || message.Name.Length <= 0)
         {
             _popupSystem.PopupEntity(Loc.GetString("voice-mask-popup-failure"), entity, message.Actor, PopupType.SmallCaution);
             return;

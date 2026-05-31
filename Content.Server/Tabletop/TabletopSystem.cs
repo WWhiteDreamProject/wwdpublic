@@ -82,10 +82,10 @@ namespace Content.Server.Tabletop
             if (hands.ActiveHand == null)
                 return;
 
-            if (hands.ActiveHand.HeldEntity == null)
+            if (hands.ActiveHand.Value.HeldEntity == null)
                 return;
 
-            var handEnt = hands.ActiveHand.HeldEntity.Value;
+            var handEnt = hands.ActiveHand.Value.HeldEntity.Value;
 
             if (!TryComp<ItemComponent>(handEnt, out var item))
                 return;

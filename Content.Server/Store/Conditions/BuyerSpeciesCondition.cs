@@ -1,3 +1,5 @@
+using Content.Shared._White.Humanoid.Components;
+using Content.Shared._White.Humanoid.Prototypes;
 using Content.Shared.Humanoid;
 using Content.Shared.Store;
 using Content.Shared.Humanoid.Prototypes;
@@ -27,7 +29,7 @@ public sealed partial class BuyerSpeciesCondition : ListingCondition
     {
         var ent = args.EntityManager;
 
-        if (!ent.TryGetComponent<HumanoidAppearanceComponent>(args.Buyer, out var appearance))
+        if (!ent.TryGetComponent<HumanoidProfileComponent>(args.Buyer, out var appearance))
             return true; // inanimate or non-humanoid entities should be handled elsewhere, main example being surplus crates
 
         if (Blacklist != null)

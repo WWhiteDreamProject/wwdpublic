@@ -1,10 +1,9 @@
-﻿using Content.Server.Administration.Commands;
+﻿using Content.Server._White.Preferences.Managers;
+using Content.Server.Administration.Commands;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Ghost.Roles.Events;
-using Content.Server.Preferences.Managers;
 using Content.Server.Station.Systems;
 using Content.Shared.Mind.Components;
-using Content.Shared.Preferences;
 using Content.Shared.Roles;
 using Robust.Shared.Prototypes;
 
@@ -26,7 +25,7 @@ namespace Content.Server.Ghost.Roles
                 return;
             }
 
-            var character = (HumanoidCharacterProfile) _prefs.GetPreferences(args.Player.UserId).SelectedCharacter;
+            var character = _prefs.GetPreferences(args.Player.UserId).SelectedCharacter;
 
             var mob = _entityManager.System<StationSpawningSystem>()
                 .SpawnPlayerMob(Transform(uid).Coordinates, null, character, null);

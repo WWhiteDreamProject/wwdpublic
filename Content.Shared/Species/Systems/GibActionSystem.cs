@@ -52,7 +52,7 @@ public sealed partial class GibActionSystem : EntitySystem
     {
         // When they use the action, gib them.
         _popupSystem.PopupClient(Loc.GetString(comp.PopupText, ("name", uid)), uid, uid);
-        _gibbable.Gib(uid, user: args.Performer); // WD EDIT
+        _gibbable.Gib(uid); // WD EDIT
     }
 
 

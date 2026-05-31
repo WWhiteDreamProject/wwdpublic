@@ -1,4 +1,4 @@
-using Content.Shared._White.Body.Components;
+using Content.Shared._White.Body;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared._White.TargetDoll;

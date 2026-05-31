@@ -10,11 +10,11 @@ using Content.Server.RoundEnd;
 using Content.Server.Shuttles.Systems;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
+using Content.Shared._White.Humanoid.Components;
 using Content.Shared._White.Xenomorphs;
 using Content.Shared._White.Xenomorphs.Caste;
 using Content.Shared._White.Xenomorphs.Xenomorph;
 using Content.Shared.GameTicking.Components;
-using Content.Shared.Humanoid;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Robust.Shared.Player;
@@ -310,7 +310,7 @@ public sealed class XenomorphsRuleSystem : GameRuleSystem<XenomorphsRuleComponen
         var humans = new List<EntityUid>();
         stationGrids ??= GetStationGrids();
 
-        var players = AllEntityQuery<HumanoidAppearanceComponent, ActorComponent, MobStateComponent, TransformComponent>();
+        var players = AllEntityQuery<HumanoidProfileComponent, ActorComponent, MobStateComponent, TransformComponent>();
         while (players.MoveNext(out var uid, out _, out _, out var mobStateComponent, out var xform))
         {
             if (_mobState.IsDead(uid, mobStateComponent)

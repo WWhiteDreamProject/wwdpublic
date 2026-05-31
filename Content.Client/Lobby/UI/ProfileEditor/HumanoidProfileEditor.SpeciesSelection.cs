@@ -1,4 +1,5 @@
 using Content.Client._White.UserInterface.Windows;
+using Content.Shared._White.Humanoid.Prototypes;
 using Content.Shared.Humanoid.Prototypes;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Prototypes;
@@ -32,9 +33,7 @@ public sealed partial class HumanoidProfileEditor
     private void OnSpeciesSelected(ProtoId<SpeciesPrototype> proto)
     {
         SetSpecies(proto);
-        UpdateHairPickers();
         OnSkinColorOnValueChanged();
-        UpdateCustomSpecieNameEdit();
         UpdateHeightWidthSliders();
         _currentWindow?.Close();
     }

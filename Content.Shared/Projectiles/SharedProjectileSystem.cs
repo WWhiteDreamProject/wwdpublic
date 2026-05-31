@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Numerics;
+using Content.Shared._White.Body;
 using Content.Shared._White.Body.Components;
 using Content.Shared._White.Penetrated;
 using Content.Shared._White.Projectile;
@@ -130,12 +131,12 @@ public abstract partial class SharedProjectileSystem : EntitySystem
             || HasComp<ThrownItemImmuneComponent>(args.Target)) // I hate it. TODO: Use before event unstead HasComp<ImuneShitComponent>. By Spatison
             return;
 
-        EmbedAttach(embeddable, args.Target, null, embeddable.Comp, args.BodyPartType); // WD EDIT
+        EmbedAttach(embeddable, args.Target, null, embeddable.Comp, args.BodyProviderType); // WD EDIT
     }
 
     private void OnEmbedProjectileHit(Entity<EmbeddableProjectileComponent> embeddable, ref ProjectileHitEvent args)
     {
-        EmbedAttach(embeddable, args.Target, args.Shooter, embeddable.Comp, args.BodyPartType); // WD EDIT
+        EmbedAttach(embeddable, args.Target, args.Shooter, embeddable.Comp, args.BodyProviderType); // WD EDIT
 
         // Raise a specific event for projectiles.
         if (TryComp(embeddable, out ProjectileComponent? projectile))
@@ -145,7 +146,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         }
     }
 
-    public void EmbedAttach(EntityUid uid, EntityUid target, EntityUid? user, EmbeddableProjectileComponent component, BodyPartType bodyPartType = BodyPartType.None) // WD EDIT
+    public void EmbedAttach(EntityUid uid, EntityUid target, EntityUid? user, EmbeddableProjectileComponent component, BodyProviderType bodyProviderType = BodyProviderType.None) // WD EDIT
     {
         // WD EDIT START
         if (!TryComp<PhysicsComponent>(uid, out var physics)
@@ -182,7 +183,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         _audio.PlayPredicted(component.Sound, uid, null);
 
         component.EmbeddedIntoUid = target;
-        var ev = new EmbedEvent(user, target, bodyPartType); // WD EDIT
+        var ev = new EmbedEvent(user, target, bodyProviderType); // WD EDIT
         RaiseLocalEvent(uid, ref ev);
 
         if (component.AutoRemoveDuration != 0)
@@ -286,12 +287,12 @@ public abstract partial class SharedProjectileSystem : EntitySystem
     }
 
     // WD EDIT START
-    public void SetBodyPartType(Entity<ProjectileComponent> projectile, BodyPartType bodyPartType)
+    public void SetBodyPartType(Entity<ProjectileComponent> projectile, BodyProviderType bodyProviderType)
     {
-        if (projectile.Comp.BodyPartType == bodyPartType)
+        if (projectile.Comp.BodyProviderType == bodyProviderType)
             return;
 
-        projectile.Comp.BodyPartType = bodyPartType;
+        projectile.Comp.BodyProviderType = bodyProviderType;
         Dirty(projectile);
     }
     // WD EDIT END

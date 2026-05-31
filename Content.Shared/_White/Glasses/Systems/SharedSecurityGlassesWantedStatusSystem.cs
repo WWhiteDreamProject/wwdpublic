@@ -1,4 +1,5 @@
 using Content.Shared._White.Glasses.Components;
+using Content.Shared._White.Humanoid.Components;
 using Content.Shared.Verbs;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Network;
@@ -14,28 +15,28 @@ namespace Content.Shared._White.Glasses.Systems;
 public abstract class SharedSecurityGlassesWantedStatusSystem : EntitySystem
 {
     [Dependency] private readonly InventorySystem _inventory = default!;
-    
+
     private const string VerbIconPath = "/Textures/Interface/VerbIcons/refresh.svg.192dpi.png";
     private const int VerbPriority = 10;
-    
+
     public override void Initialize()
     {
         base.Initialize();
-        
+
         SubscribeLocalEvent<GetVerbsEvent<AlternativeVerb>>(AddChangeStatusVerb);
     }
 
     private void AddChangeStatusVerb(GetVerbsEvent<AlternativeVerb> args)
     {
-        if (!HasComp<HumanoidAppearanceComponent>(args.Target))
+        if (!HasComp<HumanoidProfileComponent>(args.Target))
             return;
-            
+
         if (!_inventory.TryGetSlotEntity(args.User, "eyes", out var glassesUid))
             return;
-            
+
         if (!HasComp<SecurityGlassesWantedStatusComponent>(glassesUid))
             return;
-            
+
         if (!HasComp<ActorComponent>(args.User))
             return;
 
@@ -46,10 +47,10 @@ public abstract class SharedSecurityGlassesWantedStatusSystem : EntitySystem
             Act = () => TryOpenUi(args.User, args.Target),
             Priority = VerbPriority
         };
-        
+
         args.Verbs.Add(verb);
     }
-    
+
     protected virtual void TryOpenUi(EntityUid user, EntityUid target)
     {
     }
@@ -65,7 +66,7 @@ public sealed class SecurityGlassesWantedStatusOpenEvent : EntityEventArgs
 {
     public NetEntity Target { get; init; }
     public NetEntity User { get; init; }
-    
+
     public SecurityGlassesWantedStatusOpenEvent(NetEntity target, NetEntity user)
     {
         Target = target;
@@ -80,7 +81,7 @@ public sealed class SecurityGlassesChangeStatusEvent : EntityEventArgs
     public NetEntity User { get; init; }
     public int Status { get; init; }
     public string? Reason { get; init; }
-    
+
     public SecurityGlassesChangeStatusEvent(NetEntity target, NetEntity user, int status, string? reason)
     {
         Target = target;
@@ -88,4 +89,4 @@ public sealed class SecurityGlassesChangeStatusEvent : EntityEventArgs
         Status = status;
         Reason = reason;
     }
-} 
+}

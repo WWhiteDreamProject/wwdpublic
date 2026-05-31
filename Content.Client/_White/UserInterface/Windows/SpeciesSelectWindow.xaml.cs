@@ -1,7 +1,10 @@
 using System.Linq;
+using Content.Client._White.Appearance.Systems;
 using Content.Client._White.UserInterface.Controls;
 using Content.Client.Guidebook;
 using Content.Client.Humanoid;
+using Content.Shared._White.Humanoid.Prototypes;
+using Content.Shared._White.Preferences;
 using Content.Shared._White.SpeciesDictionary;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
@@ -59,19 +62,13 @@ public sealed partial class SpeciesSelectWindow : DefaultWindow
             {
                 _dummyProfile = _dummyProfile.WithSpecies(_selectedSpecies.Value);
 
-                _dummyProfile.EnsureValid(_playerManager.LocalSession, IoCManager.Instance!);
+                _dummyProfile.EnsureValid();
             }
 
             _dummyUid = _entityManager.SpawnEntity(prototype.DollPrototype, MapCoordinates.Nullspace);
 
-            if (_entityManager.TryGetComponent<HumanoidAppearanceComponent>(_dummyUid, out var humanoid))
-            {
-                var hiddenLayers = humanoid.HiddenLayers;
-                var appearanceSystem = _entityManager.System<HumanoidAppearanceSystem>();
-                appearanceSystem.LoadProfile(_dummyUid, _dummyProfile, humanoid, false, false);
-                // Reapply the hidden layers set from clothing
-                appearanceSystem.SetLayersVisibility(_dummyUid, hiddenLayers, false, humanoid: humanoid);
-            }
+            if (_dummyProfile != null)
+                _entityManager.System<BodyAppearanceSystem>().ApplyProfile(_dummyUid, _dummyProfile);
 
             EntityFrontView.SetEntity(_dummyUid);
             EntityRightView.SetEntity(_dummyUid);

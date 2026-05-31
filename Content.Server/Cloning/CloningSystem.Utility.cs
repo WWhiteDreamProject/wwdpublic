@@ -23,6 +23,8 @@ using Content.Shared.Chat;
 using Content.Server.Language;
 using Content.Shared._White.Bloodstream.Components;
 using Content.Shared._White.Damage.Components;
+using Content.Shared._White.Humanoid.Components;
+using Content.Shared._White.Preferences;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.Language.Components;
 using Content.Shared.Nutrition.Components;
@@ -286,23 +288,23 @@ public sealed partial class CloningSystem
     private void UpdateCloneAppearance(
         EntityUid mob,
         HumanoidCharacterProfile pref,
-        HumanoidAppearanceComponent humanoid,
-        List<Sex> sexes,
+        HumanoidProfileComponent humanoid,
+        HashSet<Sex> sexes,
         Gender oldGender,
         bool switchingSpecies,
         bool forceOldProfile,
         out Gender gender)
     {
         gender = oldGender;
-        if (!TryComp<HumanoidAppearanceComponent>(mob, out var newHumanoid))
+        if (!TryComp<HumanoidProfileComponent>(mob, out var newHumanoid))
             return;
 
         if (switchingSpecies && !forceOldProfile)
         {
-            var flavorText = _serialization.CreateCopy(pref.FlavorText, null, false, true);
+            var flavorText = _serialization.CreateCopy(pref.Flavor, null, false, true);
             var oldName = _serialization.CreateCopy(pref.Name, null, false, true);
 
-            pref = HumanoidCharacterProfile.RandomWithSpecies(newHumanoid.Species);
+            pref = HumanoidCharacterProfile.Random(newHumanoid.Species);
 
             if (sexes.Contains(humanoid.Sex)
                 && _config.GetCVar(CCVars.CloningPreserveSex))
@@ -325,12 +327,9 @@ public sealed partial class CloningSystem
                 pref = pref.WithName(oldName);
 
             if (_config.GetCVar(CCVars.CloningPreserveFlavorText))
-                pref = pref.WithFlavorText(flavorText);
-
-            _humanoidSystem.LoadProfile(mob, pref, loadExtensions: true, generateLoadouts: false);
-            return;
+                pref = pref.WithFlavor(flavorText);
         }
-        _humanoidSystem.LoadProfile(mob, pref, loadExtensions: true, generateLoadouts: false);
+        _humanoidProfile.ApplyProfile(mob, pref);
     }
 
     /// <summary>

@@ -39,7 +39,6 @@ public sealed partial class PolymorphSystem : EntitySystem
     [Dependency] private readonly SharedBuckleSystem _buckle = default!;
     [Dependency] private readonly ContainerSystem _container = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
     [Dependency] private readonly ServerInventorySystem _inventory = default!;
@@ -271,10 +270,10 @@ public sealed partial class PolymorphSystem : EntitySystem
         if (configuration.TransferName && TryComp(uid, out MetaDataComponent? targetMeta))
             _metaData.SetEntityName(child, targetMeta.EntityName);
 
-        if (configuration.TransferHumanoidAppearance)
-        {
+        /*if (configuration.TransferHumanoidAppearance)
+        { TODO
             _humanoid.CloneAppearance(uid, child);
-        }
+        }*/
 
         if (_mindSystem.TryGetMind(uid, out var mindId, out var mind))
             _mindSystem.TransferTo(mindId, child, mind: mind);

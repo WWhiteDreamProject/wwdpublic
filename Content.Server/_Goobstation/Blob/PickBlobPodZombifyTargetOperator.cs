@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Content.Server.NPC;
 using Content.Server.NPC.HTN.PrimitiveTasks;
 using Content.Server.NPC.Pathfinding;
+using Content.Shared._White.Humanoid.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC.Systems;
@@ -50,7 +51,7 @@ public sealed partial class PickBlobPodZombifyTargetOperator : HTNOperator
         if (!blackboard.TryGetValue<float>(RangeKey, out var range, _entManager))
             return (false, null);
 
-        var huAppQuery = _entManager.GetEntityQuery<HumanoidAppearanceComponent>();
+        var huAppQuery = _entManager.GetEntityQuery<HumanoidProfileComponent>();
         var xformQuery = _entManager.GetEntityQuery<TransformComponent>();
 
         var targets = new List<EntityUid>();

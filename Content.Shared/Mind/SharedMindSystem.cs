@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Shared._White.Humanoid.Components;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Examine;
@@ -537,7 +538,7 @@ public abstract class SharedMindSystem : EntitySystem
     {
         var allHumans = new HashSet<Entity<MindComponent>>();
         // HumanoidAppearanceComponent is used to prevent mice, pAIs, etc from being chosen
-        var query = EntityQueryEnumerator<MobStateComponent, HumanoidAppearanceComponent>();
+        var query = EntityQueryEnumerator<MobStateComponent, HumanoidProfileComponent>();
         while (query.MoveNext(out var uid, out var mobState, out _))
         {
             // the player needs to have a mind and not be the excluded one +

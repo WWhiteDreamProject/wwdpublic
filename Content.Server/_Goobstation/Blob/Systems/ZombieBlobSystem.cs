@@ -1,4 +1,4 @@
-﻿using Content.Server._White.Body.Respirator.Systems;
+﻿using Content.Server._White.Respirator.Systems;
 using Content.Server.Atmos.Components;
 using Content.Server.Chat.Managers;
 using Content.Server.Explosion.EntitySystems;
@@ -61,13 +61,13 @@ public sealed class ZombieBlobSystem : SharedZombieBlobSystem
         SubscribeLocalEvent<ZombieBlobComponent, MobStateChangedEvent>(OnMobStateChanged);
         SubscribeLocalEvent<ZombieBlobComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<ZombieBlobComponent, ComponentShutdown>(OnShutdown);
-        SubscribeLocalEvent<ZombieBlobComponent, InhaleLocationEvent>(OnInhale);
-        SubscribeLocalEvent<ZombieBlobComponent, ExhaleLocationEvent>(OnExhale);
+        SubscribeLocalEvent<ZombieBlobComponent, GetInhaleLocationEvent>(OnInhale);
+        SubscribeLocalEvent<ZombieBlobComponent, GetExhaleLocationEvent>(OnExhale);
 
     }
 
-    private void OnInhale(Entity<ZombieBlobComponent> ent, ref InhaleLocationEvent args) => args.Gas = _normalAtmos;
-    private void OnExhale(Entity<ZombieBlobComponent> ent, ref ExhaleLocationEvent args) => args.Gas = GasMixture.SpaceGas;
+    private void OnInhale(Entity<ZombieBlobComponent> ent, ref GetInhaleLocationEvent args) => args.Gas = _normalAtmos;
+    private void OnExhale(Entity<ZombieBlobComponent> ent, ref GetExhaleLocationEvent args) => args.Gas = GasMixture.SpaceGas;
 
     /// <summary>
     /// Replaces the current fixtures with non-climbing collidable versions so that climb end can be detected

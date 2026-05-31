@@ -1,4 +1,4 @@
-﻿using Content.Server._White.Body.Bloodstream.Systems;
+﻿using Content.Server._White.Bloodstream.Systems;
 using Content.Server.DoAfter;
 using Content.Server.Popups;
 using Content.Shared._White.BloodCult.BloodCultist;
@@ -181,7 +181,7 @@ public sealed class BloodRitesSystem : SharedBloodRitesSystem
             bloodCost = user.Comp.StoredBloodAmount;
         }
 
-        _bloodstream.TryModifyBleedAmount(target.Owner, -3);
+        /*_bloodstream.TryModifyBleedAmount(target.Owner, -3); TODO*/
         _bloodstream.TryModifyBloodLevel(target.Owner, bloodCost / rites.Comp.BloodRegenerationRatio);
 
         user.Comp.StoredBloodAmount -= bloodCost;

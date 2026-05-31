@@ -1,5 +1,5 @@
-using System.Linq;
 using Content.Shared._White.Humanoid.Markings.Prototypes;
+using Content.Shared._White.Humanoid.Prototypes;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
@@ -7,99 +7,100 @@ using Robust.Shared.Utility;
 namespace Content.Shared._White.Humanoid.Markings;
 
 /// <summary>
-/// Represents a marking ID and its colors
+/// Represents a marking ID and its colors.
 /// </summary>
 [DataDefinition, Serializable, NetSerializable]
 public partial record struct Marking
 {
     /// <summary>
+    /// The color of this marking.
+    /// </summary>
+    [DataField]
+    public Color Color { get; private set; } = Color.White;
+
+    /// <summary>
+    /// The layer of this marking.
+    /// </summary>
+    [DataField(required: true)]
+    public Enum Layer { get; private set; }
+
+    /// <summary>
     /// The <see cref="MarkingPrototype"/> referred to by this marking.
     /// </summary>
     [DataField(required: true)]
-    public ProtoId<MarkingPrototype> MarkingId;
+    public ProtoId<MarkingPrototype> Id { get; private set; }
 
     /// <summary>
-    /// The colors taken on by the marking
+    /// The sprite of this marking.
     /// </summary>
-    [DataField]
-    public List<Color> MarkingColors { get; private set; } = new();
+    [DataField(required: true)]
+    public SpriteSpecifier Sprite { get; private set; }
 
     /// <summary>
-    /// Whether the marking is forced regardless of points
+    /// Whether the marking is forced regardless of points.
     /// </summary>
     public bool Forced;
 
-    public Marking(ProtoId<MarkingPrototype> markingId, List<Color> colors)
+    public Marking(Enum layer, ProtoId<MarkingPrototype> id, SpriteSpecifier sprite, Color? color = null)
     {
-        MarkingId = markingId;
-        MarkingColors = colors;
+        Color = color ?? Color.White;
+        Layer = layer;
+        Id = id;
+        Sprite = sprite;
     }
-
-    public Marking(ProtoId<MarkingPrototype> markingId, int colorsCount) : this(
-        markingId,
-        Enumerable.Repeat(Color.White, colorsCount).ToList()) { }
 
     public bool Equals(Marking other)
     {
-        return MarkingId.Equals(other.MarkingId)
-            && MarkingColors.SequenceEqual(other.MarkingColors)
+        return Color.Equals(other.Color)
+            && Layer.Equals(other.Layer)
+            && Id.Equals(other.Id)
+            && Sprite.Equals(other.Sprite)
             && Forced.Equals(other.Forced);
-    }
-
-    public override int GetHashCode()
-    {
-        return HashCode.Combine(MarkingId, MarkingColors, Forced);
     }
 
     public Marking WithColor(Color color)
     {
-        return this with { MarkingColors = Enumerable.Repeat(color, MarkingColors.Count).ToList(), };
+        return this with { Color = color };
     }
 
-    public Marking WithColorAt(int index, Color color)
+    public override int GetHashCode()
     {
-        var newColors = MarkingColors.ShallowClone();
-        newColors[index] = color;
-        return this with { MarkingColors = newColors, };
+        return HashCode.Combine(Color, Layer, Id, Sprite, Forced);
     }
 
     /// <summary>
     /// Returns list of colors for marking layers
     /// </summary>
-    public static List<Color> GetMarkingLayerColors(MarkingPrototype prototype, Color? skinColor, Color? eyeColor, List<Marking> otherMarkings)
+    public static List<Color> GetMarkingColors(MarkingPrototype prototype, Dictionary<ProtoId<BodyColorationPrototype>, Color> bodyColors, List<Marking> otherMarkings)
     {
         var colors = new List<Color>();
 
-        // Coloring from default properties
-        var defaultColor = prototype.Coloring.Default.GetColor(skinColor, eyeColor, otherMarkings);
+        var defaultColor = prototype.Coloring.Default.GetColor(bodyColors, otherMarkings);
 
         if (prototype.Coloring.Layers == null)
         {
-            // If layers is not specified, then every layer must be default
             for (var i = 0; i < prototype.Markings.Count; i++)
                 colors.Add(defaultColor);
 
             return colors;
         }
 
-        // If some layers are specified.
         foreach (var marking in prototype.Markings)
         {
-            // Getting layer name
             var name = marking.Sprite switch
             {
                 SpriteSpecifier.Rsi rsi => rsi.RsiState,
                 SpriteSpecifier.Texture texture => texture.TexturePath.Filename,
-                _ => null
+                _ => string.Empty,
             };
 
-            if (name == null || !prototype.Coloring.Layers.TryGetValue(name, out var layerColoring))
+            if (!prototype.Coloring.Layers.TryGetValue(name, out var layerColoring))
             {
                 colors.Add(defaultColor);
                 continue;
             }
 
-            var markingColor = layerColoring.GetColor(skinColor, eyeColor, otherMarkings);
+            var markingColor = layerColoring.GetColor(bodyColors, otherMarkings);
             colors.Add(markingColor);
         }
 

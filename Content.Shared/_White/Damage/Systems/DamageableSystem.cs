@@ -230,7 +230,7 @@ public sealed class DamageableSystem : EntitySystem
         if (beforeEv.Cancelled)
             return new ();
 
-        var attemptHandleEv = new AttemptHandleDamageEvent(providerType, ignoreResistances, interruptsDoAfters, ent.Comp, damage, origin);
+        var attemptHandleEv = new BeforeHandleDamageEvent(providerType, ignoreResistances, interruptsDoAfters, ent.Comp, damage, origin);
         RaiseLocalEvent(ent, attemptHandleEv);
 
         if (attemptHandleEv.Handled)
@@ -449,7 +449,7 @@ public record struct BeforeDamageChangedEvent(DamageSpecifier Damage, EntityUid?
 /// <summary>
 /// Event raised before damage is a handle.
 /// </summary>
-public sealed class AttemptHandleDamageEvent(BodyProviderType providerType, bool ignoreResistances, bool interruptsDoAfters, DamageableComponent damageable, DamageSpecifier damage, EntityUid? origin) : HandledEntityEventArgs
+public sealed class BeforeHandleDamageEvent(BodyProviderType providerType, bool ignoreResistances, bool interruptsDoAfters, DamageableComponent damageable, DamageSpecifier damage, EntityUid? origin) : HandledEntityEventArgs
 {
     /// <summary>
     /// Contains damage after processing.

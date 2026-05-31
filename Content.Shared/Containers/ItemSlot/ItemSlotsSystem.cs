@@ -340,7 +340,7 @@ namespace Content.Shared.Containers.ItemSlots
                 return false;
 
             // hands.Drop(item) checks CanDrop action blocker
-            if (!_handsSystem.TryDrop(user, hands.ActiveHand))
+            if (!_handsSystem.TryDrop(user, hands.ActiveHand.Value))
                 return false;
 
             Insert(uid, slot, held, user, excludeUserAudio: excludeUserAudio);

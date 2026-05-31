@@ -50,9 +50,6 @@ namespace Content.Server.Hands.Systems
             SubscribeLocalEvent<HandsComponent, PullStartedMessage>(HandlePullStarted);
             SubscribeLocalEvent<HandsComponent, PullStoppedMessage>(HandlePullStopped);
 
-            SubscribeLocalEvent<HandsComponent, BodyPartAddedEvent>(HandleBodyPartAdded);
-            SubscribeLocalEvent<HandsComponent, BodyPartRemovedEvent>(HandleBodyPartRemoved);
-
             SubscribeLocalEvent<HandsComponent, ComponentGetState>(GetComponentState);
 
             SubscribeLocalEvent<HandsComponent, BeforeExplodeEvent>(OnExploded);
@@ -130,35 +127,6 @@ namespace Content.Server.Hands.Systems
                 return;
 
             args.Handled = true; // Successful disarm.
-        }
-
-        private void HandleBodyPartAdded(EntityUid uid, HandsComponent component, ref BodyPartAddedEvent args)
-        {
-            if (!args.Part.Comp.Type.HasFlag(BodyPartType.Hand)) // WD EDIT
-                return;
-
-            // If this annoys you, which it should.
-            // Ping Smugleaf.
-            // WD EDIT START
-            var location = args.Part.Comp.Type switch
-            {
-                BodyPartType.Hand => HandLocation.Middle,
-                BodyPartType.MiddleHand => HandLocation.Middle,
-                BodyPartType.LeftHand => HandLocation.Left,
-                BodyPartType.RightHand => HandLocation.Right,
-                _ => throw new ArgumentOutOfRangeException(nameof(args.Part.Comp.Type))
-            };
-            // WD EDIT END
-
-            AddHand(uid, _body.GetBodyPartSlotId(args.SlotId), location); // WD EDIT
-        }
-
-        private void HandleBodyPartRemoved(EntityUid uid, HandsComponent component, ref BodyPartRemovedEvent args)
-        {
-            if (!args.Part.Comp.Type.HasFlag(BodyPartType.Hand)) // WD EDIT
-                return;
-
-            RemoveHand(uid, _body.GetBodyPartSlotId(args.SlotId)); // WD EDIT
         }
 
         #region pulling

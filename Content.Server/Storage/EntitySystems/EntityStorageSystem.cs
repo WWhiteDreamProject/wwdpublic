@@ -1,5 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
-using Content.Server._White.Body.Respirator.Systems;
+using Content.Server._White.Respirator.Systems;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Construction;
 using Content.Server.Construction.Components;
@@ -51,8 +51,8 @@ public sealed class EntityStorageSystem : SharedEntityStorageSystem
         SubscribeLocalEvent<EntityStorageComponent, WeldableAttemptEvent>(OnWeldableAttempt);
         SubscribeLocalEvent<EntityStorageComponent, BeforeExplodeEvent>(OnExploded);
 
-        SubscribeLocalEvent<InsideEntityStorageComponent, InhaleLocationEvent>(OnInsideInhale);
-        SubscribeLocalEvent<InsideEntityStorageComponent, ExhaleLocationEvent>(OnInsideExhale);
+        SubscribeLocalEvent<InsideEntityStorageComponent, GetInhaleLocationEvent>(OnInsideInhale);
+        SubscribeLocalEvent<InsideEntityStorageComponent, GetExhaleLocationEvent>(OnInsideExhale);
         SubscribeLocalEvent<InsideEntityStorageComponent, AtmosExposedGetAirEvent>(OnInsideExposed);
 
         SubscribeLocalEvent<InsideEntityStorageComponent, EntGotRemovedFromContainerMessage>(OnRemoved);
@@ -158,7 +158,7 @@ public sealed class EntityStorageSystem : SharedEntityStorageSystem
 
     #region Gas mix event handlers
 
-    private void OnInsideInhale(EntityUid uid, InsideEntityStorageComponent component, InhaleLocationEvent args)
+    private void OnInsideInhale(EntityUid uid, InsideEntityStorageComponent component, GetInhaleLocationEvent args)
     {
         if (TryComp<EntityStorageComponent>(component.Storage, out var storage) && storage.Airtight)
         {
@@ -166,7 +166,7 @@ public sealed class EntityStorageSystem : SharedEntityStorageSystem
         }
     }
 
-    private void OnInsideExhale(EntityUid uid, InsideEntityStorageComponent component, ExhaleLocationEvent args)
+    private void OnInsideExhale(EntityUid uid, InsideEntityStorageComponent component, GetExhaleLocationEvent args)
     {
         if (TryComp<EntityStorageComponent>(component.Storage, out var storage) && storage.Airtight)
         {

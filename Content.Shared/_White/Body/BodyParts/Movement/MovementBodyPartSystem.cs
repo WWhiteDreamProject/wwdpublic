@@ -12,26 +12,24 @@ public sealed class MovementBodyPartSystem : EntitySystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<MovementBodyPartComponent, BodyPartAddedEvent>(OnBodyPartAdded);
-        SubscribeLocalEvent<MovementBodyPartComponent, BodyPartRemovedEvent>(OnBodyPartRemoved);
+        SubscribeLocalEvent<MovementBodyPartComponent, BodyProviderGotInsertedEvent>(OnGotInserted);
+        SubscribeLocalEvent<MovementBodyPartComponent, BodyProviderGotRemovedEvent>(OnGotRemoved);
     }
 
     #region Event Handling
 
-    private void OnBodyPartAdded(Entity<MovementBodyPartComponent> movementBodyPart, ref BodyPartAddedEvent args)
+    private void OnGotInserted(Entity<MovementBodyPartComponent> ent, ref BodyProviderGotInsertedEvent args)
     {
-        if (!args.Body.HasValue)
-            return;
-
         //TODO
     }
 
-    private void OnBodyPartRemoved(Entity<MovementBodyPartComponent> movementBodyPart, ref BodyPartRemovedEvent args)
+    private void OnGotRemoved(Entity<MovementBodyPartComponent> ent, ref BodyProviderGotRemovedEvent args)
     {
-        if (!args.Body.HasValue || _buckle.IsBuckled(args.Body.Value))
+        //TODO
+        if (_buckle.IsBuckled(args.Body))
             return;
 
-        _standingState.Down(args.Body.Value);
+        _standingState.Down(args.Body);
     }
 
     #endregion

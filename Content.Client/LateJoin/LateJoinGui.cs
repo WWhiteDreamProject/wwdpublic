@@ -1,11 +1,13 @@
 using System.Linq;
 using System.Numerics;
+using Content.Client._White.Preferences.Managers;
 using Content.Client.CrewManifest;
 using Content.Client.GameTicking.Managers;
 using Content.Client.Lobby;
 using Content.Client.UserInterface.Controls;
 using Content.Client.Players.PlayTimeTracking;
 using Content.Client.Roles;
+using Content.Shared._White.Preferences;
 using Content.Shared.CCVar;
 using Content.Shared.Customization.Systems;
 using Content.Shared.Preferences;
@@ -285,7 +287,7 @@ namespace Content.Client.LateJoin
                                 _roleSystem.GetJobRequirement(prototype) ?? new(),
                                 prototype,
                                 (HumanoidCharacterProfile) (_prefs.Preferences?.SelectedCharacter
-                                                            ?? HumanoidCharacterProfile.DefaultWithSpecies()),
+                                                            ?? new()),
                                 _jobRequirements.GetRawPlayTimeTrackers(),
                                 _jobRequirements.IsWhitelisted(),
                                 prototype,

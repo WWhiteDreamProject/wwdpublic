@@ -98,7 +98,7 @@ public sealed class CryostorageSystem : SharedCryostorageSystem
         if (args.Type == CryostorageRemoveItemBuiMessage.RemovalType.Hand)
         {
             if (_hands.TryGetHand(cryoContained, args.Key, out var hand))
-                entity = hand.HeldEntity;
+                entity = hand.Value.HeldEntity;
         }
         else
         {

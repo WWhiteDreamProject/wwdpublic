@@ -12,7 +12,6 @@ using Content.Shared.Rounding;
 using Content.Shared.Actions;
 using Robust.Shared.Prototypes;
 using Content.Server.Abilities.Psionics;
-using Content.Server.Humanoid;
 
 namespace Content.Server.Shadowkin;
 
@@ -23,7 +22,6 @@ public sealed class ShadowkinSystem : EntitySystem
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly HumanoidAppearanceSystem _humanoidAppearance = default!; // WD EDIT
 
     public const string ShadowkinSleepActionId = "ShadowkinActionSleep";
     public override void Initialize()
@@ -42,12 +40,13 @@ public sealed class ShadowkinSystem : EntitySystem
 
     private void OnEyeColorChange(EntityUid uid, ShadowkinComponent component, EyeColorInitEvent args)
     {
-        if (!TryComp<HumanoidAppearanceComponent>(uid, out var humanoid)
+        // TODO
+        /*if (!TryComp<HumanoidProfileComponent>(uid, out var humanoid)
             || humanoid.EyeColor == component.OldEyeColor)
             return;
 
         component.OldEyeColor = humanoid.EyeColor;
-        Dirty(uid, humanoid);
+        Dirty(uid, humanoid);*/
     }
 
     private void OnMindbreak(EntityUid uid, ShadowkinComponent component, ref OnMindbreakEvent args)
@@ -55,11 +54,11 @@ public sealed class ShadowkinSystem : EntitySystem
         if (TryComp<MindbrokenComponent>(uid, out var mindbreak))
             mindbreak.MindbrokenExaminationText = "examine-mindbroken-shadowkin-message";
 
-        if (TryComp<HumanoidAppearanceComponent>(uid, out var humanoid))
-        {
+        /*if (TryComp<HumanoidAppearanceComponent>(uid, out var humanoid))
+        { TODO
             component.OldEyeColor = humanoid.EyeColor;
             _humanoidAppearance.SetEyeColor(uid, component.BlackEyeColor, humanoid: humanoid); // WD EDIT
-        }
+        }*/
 
         if (TryComp<StaminaComponent>(uid, out var stamina))
             _stamina.TakeStaminaDamage(uid, stamina.CritThreshold, stamina, uid);
@@ -72,7 +71,7 @@ public sealed class ShadowkinSystem : EntitySystem
 
         RemComp<MindbrokenComponent>(uid);
 
-        _humanoidAppearance.SetEyeColor(uid, component.OldEyeColor); // WD EDIT
+        /* TODO _humanoidAppearance.SetEyeColor(uid, component.OldEyeColor);*/
 
         EnsureComp<PsionicComponent>(uid, out _);
         if (_prototypeManager.TryIndex<PsionicPowerPrototype>("ShadowkinPowers", out var shadowkinPowers))

@@ -25,18 +25,18 @@ public sealed class IgniteFromGasSystem : EntitySystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<FlammableComponent, BodyPartAddedEvent>(OnBodyPartAdded);
+        SubscribeLocalEvent<FlammableComponent, BodyProviderGotInsertedEvent>(OnBodyPartAdded);
 
-        SubscribeLocalEvent<IgniteFromGasComponent, BodyPartRemovedEvent>(OnBodyPartRemoved);
+        SubscribeLocalEvent<IgniteFromGasComponent, BodyProviderGotRemovedEvent>(OnBodyPartRemoved);
 
         SubscribeLocalEvent<IgniteFromGasImmunityComponent, GotEquippedEvent>(OnIgniteFromGasImmunityEquipped);
         SubscribeLocalEvent<IgniteFromGasImmunityComponent, GotUnequippedEvent>(OnIgniteFromGasImmunityUnequipped);
     }
 
     // WD EDIT START
-    private void OnBodyPartAdded(Entity<FlammableComponent> ent, ref BodyPartAddedEvent args)
+    private void OnBodyPartAdded(Entity<FlammableComponent> ent, ref BodyProviderGotInsertedEvent args)
     {
-        if (!TryComp<IgniteFromGasPartComponent>(args.Part, out var ignitePart))
+        if (!TryComp<IgniteFromGasPartComponent>(args.Provider, out var ignitePart))
             return;
 
         if (!TryComp<IgniteFromGasComponent>(ent, out var ignite))
@@ -45,17 +45,17 @@ public sealed class IgniteFromGasSystem : EntitySystem
             ignite.Gas = ignitePart.Gas;
         }
 
-        ignite.IgnitableBodyParts[args.Part.Comp.Type] = ignitePart.FireStacks;
+        ignite.IgnitableBodyParts[args.Provider.Comp.Type] = ignitePart.FireStacks;
 
         UpdateIgniteImmunity((ent, ignite));
     }
 
-    private void OnBodyPartRemoved(Entity<IgniteFromGasComponent> ent, ref BodyPartRemovedEvent args)
+    private void OnBodyPartRemoved(Entity<IgniteFromGasComponent> ent, ref BodyProviderGotRemovedEvent args)
     {
-        if (!HasComp<IgniteFromGasPartComponent>(args.Part))
+        if (!HasComp<IgniteFromGasPartComponent>(args.Provider))
             return;
 
-        ent.Comp.IgnitableBodyParts.Remove(args.Part.Comp.Type);
+        ent.Comp.IgnitableBodyParts.Remove(args.Provider.Comp.Type);
 
         if (ent.Comp.IgnitableBodyParts.Count == 0)
         {
@@ -77,7 +77,7 @@ public sealed class IgniteFromGasSystem : EntitySystem
         if (!Resolve(ent, ref ent.Comp1, ref ent.Comp2, false))
             return;
 
-        var exposedBodyParts = new Dictionary<BodyPartType, float>(ent.Comp1.IgnitableBodyParts); // WD EDIT
+        var exposedBodyParts = new Dictionary<BodyProviderType, float>(ent.Comp1.IgnitableBodyParts); // WD EDIT
 
         var containerSlotEnumerator = _inventory.GetSlotEnumerator((ent, ent.Comp2));
         while (containerSlotEnumerator.NextItem(out var item, out _))

@@ -35,7 +35,7 @@ public sealed class ShadowlingBlackRecuperationSystem : EntitySystem
     [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
     [Dependency] private readonly TransformSystem _transformSystem = default!;
     [Dependency] private readonly PolymorphSystem _polymorph = default!;
-    [Dependency] private  readonly HumanoidAppearanceSystem _humanoidAppearance = default!;
+    /*[Dependency] private  readonly HumanoidAppearanceSystem _humanoidAppearance = default!;*/
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly LightDetectionDamageModifierSystem _modifierLight = default!;
@@ -133,8 +133,8 @@ public sealed class ShadowlingBlackRecuperationSystem : EntitySystem
 
             EnsureComp<LesserShadowlingComponent>(newUid.Value);
 
-            if (TryComp<HumanoidAppearanceComponent>(newUid.Value, out var human))
-                _humanoidAppearance.AddMarking(newUid.Value, component.LesserShadowlingEyes, Color.Red, true, true, human);
+            /*if (TryComp<HumanoidAppearanceComponent>(newUid.Value, out var human)) TODO
+                _humanoidAppearance.AddMarking(newUid.Value, component.LesserShadowlingEyes, Color.Red, true, true, human);*/
 
 
             var effectEnt = Spawn(component.BlackRecuperationEffect, _transformSystem.GetMapCoordinates(newUid.Value));

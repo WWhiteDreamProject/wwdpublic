@@ -1,3 +1,4 @@
+using Content.Shared._White.Preferences;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Content.Shared.GameTicking;
@@ -180,8 +181,8 @@ namespace Content.Server.GameTicking
         public HumanoidCharacterProfile GetPlayerProfile(ICommonSession p)
         {
             // White Dream Start
-            var profile = (HumanoidCharacterProfile) _prefsManager.GetPreferences(p.UserId).SelectedCharacter;
-            profile.EnsureValid(p, IoCManager.Instance!);
+            var profile = _prefsManager.GetPreferences(p.UserId).SelectedCharacter;
+            profile.EnsureValid();
             return profile;
             // White Dream End
         }

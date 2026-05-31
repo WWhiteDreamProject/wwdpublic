@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared._White.Humanoid.Systems;
 using Content.Shared.UserInterface;
 using Content.Shared.Database;
 using Content.Shared.NameIdentifier;
@@ -53,7 +54,7 @@ public sealed partial class BorgSystem
 
     private void OnSetNameBuiMessage(EntityUid uid, BorgChassisComponent component, BorgSetNameBuiMessage args)
     {
-        if (args.Name.Length > HumanoidCharacterProfile.MaxNameLength ||
+        if (args.Name.Length > HumanoidProfileSystem.MaxNameLength ||
             args.Name.Length == 0 ||
             string.IsNullOrWhiteSpace(args.Name) ||
             string.IsNullOrEmpty(args.Name))

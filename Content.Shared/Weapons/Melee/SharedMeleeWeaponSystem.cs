@@ -2,6 +2,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
 using Content.Shared._Goobstation.MartialArts.Events;
+using Content.Shared._White.Body;
 using Content.Shared._White.Body.Components;
 using Content.Shared._White.Damage.Components;
 using Content.Shared._White.Damage.Systems;
@@ -391,7 +392,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             return false;
         }
 
-        var bodyPartType = _targetDoll.GetSelectedBodyPart(user); // WD EDIT
+        var bodyPartType = _targetDoll.GetSelectedProvider(user); // WD EDIT
 
         // Attack confirmed
         for (var i = 0; i < swings; i++)

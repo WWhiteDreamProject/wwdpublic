@@ -12,14 +12,14 @@ public sealed partial class WoundableSystem
 {
     private void InitializeAccumulator()
     {
-        SubscribeLocalEvent<WoundableAccumulatorComponent, AttemptHandleDamageEvent>(OnAttemptHandleDamage);
+        SubscribeLocalEvent<WoundableAccumulatorComponent, BeforeHandleDamageEvent>(OnAttemptHandleDamage);
         SubscribeLocalEvent<WoundableAccumulatorComponent, BodyRelayedEvent<GetWoundableDamageEvent>>(OnGetWoundableDamage);
         SubscribeLocalEvent<WoundableAccumulatorComponent, BodyRelayedEvent<WoundableDamageChangedEvent>>(OnWoundableDamageChanged);
     }
 
     #region Event Handling
 
-    private void OnAttemptHandleDamage(Entity<WoundableAccumulatorComponent> ent, ref AttemptHandleDamageEvent args)
+    private void OnAttemptHandleDamage(Entity<WoundableAccumulatorComponent> ent, ref BeforeHandleDamageEvent args)
     {
         args.Handled = true;
 

@@ -1,5 +1,4 @@
-using Content.Server.Body.Components;
-using Content.Shared._White.Body.Bloodstream.Components;
+using Content.Shared._White.Bloodstream.Components;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.EntityEffects;
 using Content.Shared.FixedPoint;
@@ -38,8 +37,8 @@ public sealed partial class BloodReagentThreshold : EntityEffectCondition
             if (!args.EntityManager.System<SharedSolutionContainerSystem>().ResolveSolution(
                     args.TargetEntity,
                     // WD EDIT START
-                    blood.BloodSolutionName,
-                    ref blood.BloodSolution,
+                    blood.SolutionName,
+                    ref blood.Solution,
                     out var bloodSolution))
                     // WD EDIT END
             {
