@@ -19,11 +19,9 @@ jobs:
 
     steps:
     - name: Checkout Master
-      uses: actions/checkout@v3.6.0
-
-    - name: Setup Submodule
-      run: |
-        git submodule update --init --recursive
+      uses: actions/checkout@v4
+      with:
+        submodules: recursive
 
     - name: Pull engine updates
       uses: space-wizards/submodule-dependency@v0.1.5
