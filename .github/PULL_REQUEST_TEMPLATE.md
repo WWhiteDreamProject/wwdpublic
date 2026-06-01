@@ -1,24 +1,23 @@
+<!-- Text between the arrows are comments and will not be visible in your PR. -->
 
-<!-- Текст между стрелками - это комментарии - они не будут видны в вашем PR. -->
-
-# Описание PR
+# PR Description
 
 <!--
-Описание пулл реквеста. Что он изменяет? На что он может повлиять? Почему было решено сделать эти изменения?
+Describe the pull request here. What does it change? What could it affect? Why were these changes made?
 -->
 
-Описание.
+Description.
 
 ---
 
-# Медиа
+# Media
 
 <!--
-Сюда можно вставить различные видео или скриншоты, необходимые для демонстрации работоспособности пулл реквеста.
-Если в этом нет необходимости, то весь пункт можно просто удалить.
+You can insert screenshots or videos here to demonstrate the functionality of the pull request.
+If none are needed, you can simply remove this entire section.
 -->
 
-<details><summary>Список</summary>
+<details><summary>List</summary>
 <p>
 
 ![Example Media Embed](https://example.com/thisimageisntreal.png)
@@ -28,17 +27,24 @@
 
 ---
 
-# Изменения
+# Changes
 
 <!--
-Здесь вы можете написать список изменений, который будет автоматически добавлен в игру, когда ваш PR будет принят
-Для записей в списке изменений есть 4 значка: add, remove, tweak, fix. Думаю, вы сможете разобраться с остальным.
-Вы можете поставить свое имя после символа :cl:, чтобы изменить имя, которое будет отображаться в журнале изменений (в противном случае будет использоваться ваше имя пользователя GitHub)
-Например: ":cl: DVOniksWyvern".
+Here you can write a changelog that will automatically be added to the game when your PR is merged.
+
+There are four changelog entry types:
+add, remove, tweak, fix.
+
+You can put your name after the :cl: tag to change the name shown in the changelog
+(otherwise your GitHub username will be used).
+
+For example:
+":cl: YourName"
 -->
 
 :cl:
-- add: Добавлено веселье :D
-- tweak: Изменено веселье~
-- fix: Исправлено веселье!
-- remove: Удалено веселье :(
+
+* add: Added fun :D
+* tweak: Modified fun~
+* fix: Fixed fun!
+* remove: Removed fun
