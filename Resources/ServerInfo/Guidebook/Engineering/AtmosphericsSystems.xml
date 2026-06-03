@@ -1,58 +1,47 @@
-﻿<Document>
-  # Atmospherics Systems
-  Atmos has a wide variety of devices catered to moving, managing, and otherwise manipulating gas.
-  These devices often work together to maintain a safe, breathable atmosphere for the crew, or to achieve a common task.
-
-  This section delves into the various systems that Atmos has at their disposal, how they interconnect, and how they are ideally used.
-
+﻿﻿<Document>
+  # Монитор атмосферных сетей
+  Монитор атмосферных сетей — это компьютер, который отображает информацию о контролируемых [textlink="трубных сетях" link="PipeNetworks"] по всей станции.
 
   <Box>
-    <GuideEntityEmbed Entity="GasPipeStraight" Caption=""/>
-    <GuideEntityEmbed Entity="GasPipeHalf" Caption=""/>
-    <GuideEntityEmbed Entity="GasPipeBend" Caption=""/>
-    <GuideEntityEmbed Entity="GasPipeTJunction" Caption=""/>
-    <GuideEntityEmbed Entity="GasPipeFourway" Caption=""/>
-    <GuideEntityEmbed Entity="GasPressurePump" Caption=""/>
-    <GuideEntityEmbed Entity="GasVolumePump" Caption=""/>
-  </Box>
-  <Box>
-    ## Pipe Networks
-  </Box>
-  <Box>
-    [color=#999999][italic]Interconnected pipes with a common task — commonly called Pipenets[italic][/color]
+    <GuideEntityEmbed Entity="ComputerAtmosMonitoring"/>
   </Box>
 
-  <Box>
-    <GuideEntityEmbed Entity="ComputerAlert" Caption=""/>
-    <GuideEntityEmbed Entity="AirAlarm" Caption=""/>
-  </Box>
-  <Box>
-    ## Device Monitoring and Control
-  </Box>
-  <Box>
-    [color=#999999][italic]Monitoring and control over devices that manage a local atmosphere[italic][/color]
-  </Box>
+  Это полезный инструмент для быстрой оценки температуры, давления и газового состава [textlink="трубных сетей" link="PipeNetworks"] станции, а также того, как они распределяются по станции.
+
+  ## Перечисленные сети
+  Монитор атмосферных сетей отображает список всех контролируемых [textlink="трубных сетей" link="PipeNetworks"] на станции.
+
+  Каждая сеть имеет цветовую маркировку и названа в соответствии с названием и цветом Газового трубного датчика, который ее контролирует.
+  Чтобы изменить имя или цвет сети, вы можете переименовать ее с помощью этикетировщика или изменить цвет с помощью краскопульта.
+
+  Нажатие на сеть покажет подробную информацию о сети, а также выделит сеть на карте станции.
+
+  Эта информация включает молярное количество газа во всей сети, а также состав газа в сети.
+  Это может быть чрезвычайно полезно для контроля важных сетей, таких как сеть Дистрибьюции, которая не может правильно функционировать при давлении ниже определенного.
+
+  ## Карта станции
+  Монитор атмосферных сетей отображает местоположение всех [textlink="трубных сетей" link="PipeNetworks"] на карте станции, а также любых устройств на основе труб.
+  Обратите внимание, что для отображения на карте трубной сети не обязательно иметь подключенный газовый трубный датчик.
+
+  Эти устройства окрашены на карте в соответствии с их цветом на станции, что может помочь идентифицировать отдельные [textlink="трубные сети" link="PipeNetworks"] и подключенные к ним устройства.
+
+  Устройства на основе труб сгруппированы на легенде карты в зависимости от их функции:
+  - [bold]Отверстие сети[/bold] — это устройство, которое соединяет трубную сеть с атмосферой станции. Это [textlink="Воздушные клапаны" link="AirVents"], [textlink="Пассивные клапаны" link="PassiveVent"] и [textlink="Воздушные инжекторы" link="AirInjector"].
+  - [bold]Воздушный скруббер[/bold] — это просто [textlink="Воздушный скруббер" link="AirScrubber"].
+  - [bold]Регулятор потока[/bold] — это устройство, которое контролирует поток газа через трубную сеть. Это [textlink="Газовые насосы" link="Pumps"], [textlink="Газовые клапаны" link="Valves"] и [textlink="Газовые смесители/фильтры" link="MixingAndFiltering"]. Стрелка на устройстве указывает направление потока газа. Это также часто определяет, где трубная сеть разделена или разветвлена.
+  - [bold]Терморегулятор[/bold] — это любое устройство, которое что-то делает с температурой газа в трубной сети. Это [textlink="Термомашины" link="Thermomachines"], [textlink="Радиаторы" link="Radiators"] и даже медицинские криокапсулы.
+
+  ## Газовые трубные датчики
+  Мониторы атмосферных сетей собирают данные о [textlink="трубных сетях" link="PipeNetworks"] через Газовые трубные датчики.
 
   <Box>
-    <GuideEntityEmbed Entity="Firelock" Caption=""/>
-    <GuideEntityEmbed Entity="FireAlarm" Caption=""/>
-  </Box>
-  <Box>
-    ## Fire and Gas Control
-  </Box>
-  <Box>
-    [color=#999999][italic]Devices to control and prevent gas leaks and fires[italic][/color]
+    <GuideEntityEmbed Entity="GasPipeSensor"/>
   </Box>
 
-  <Box>
-    <GuideEntityEmbed Entity="GasMinerOxygenStation" Caption=""/>
-    <GuideEntityEmbed Entity="AirCanister" Caption=""/>
-  </Box>
-  <Box>
-    ## Gas Mining and Storage
-  </Box>
-  <Box>
-    [color=#999999][italic] Devices to mine new gas for the station to use, and store it for later[italic][/color]
-  </Box>
+  По умолчанию на станции должны быть газовые трубные датчики на всех основных [textlink="трубных сетях" link="PipeNetworks"]. Примеры включают сети Дистрибьюции и Отходов.
+
+  Если вы хотите контролировать новую сеть, вы можете сконструировать газовый трубный датчик, и он автоматически станет видимым на Мониторе атмосферных сетей.
+  Убедитесь, что вы конструируете датчик на той трубной сети, которую хотите контролировать.
+  [textlink="Трубные сети" link="PipeNetworks"] могут быть легко разделены простым газовым насосом или клапаном, что может привести к тому, что датчик будет сообщать данные о совершенно другой сети.
 
 </Document>

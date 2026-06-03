@@ -124,7 +124,7 @@ public abstract partial class SharedMartialArtsSystem
         if (!TryComp<KravMagaActionComponent>(actionEnt, out var kravActionComp))
             return;
 
-        _popupSystem.PopupClient(Loc.GetString("krav-maga-ready", ("action", kravActionComp.Name)), ent, ent);
+        _popupSystem.PopupClient(Loc.GetString("krav-maga-ready", ("action", $"krav-maga-action-{kravActionComp.Name}")), ent, ent); // WWDP EDIT (loc)
         ent.Comp.SelectedMove = kravActionComp.Configuration;
         ent.Comp.SelectedMoveComp = kravActionComp;
     }

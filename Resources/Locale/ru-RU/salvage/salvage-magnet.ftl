@@ -33,7 +33,7 @@ salvage-magnet-resources-count = {$count ->
 # Asteroids
 
 # Debris
-salvage-magnet-debris-ChunkDebris = Space debris
+salvage-magnet-debris-ChunkDebris = Космические обломки
 
 # Asteroids
 dungeon-config-proto-BlobAsteroid = Астероидный массив
@@ -43,8 +43,8 @@ dungeon-config-proto-SwissCheeseAsteroid = Фрагменты астероидо
 
 # Wrecks
 # Wrecks
-salvage-map-wreck = Salvage wreck
-salvage-map-wreck-desc-size = Size:
-salvage-map-wreck-size-small = [color=lime]Small[/color]
-salvage-map-wreck-size-medium = [color=cornflowerblue]Medium[/color]
-salvage-map-wreck-size-large = [color=orchid]Large[/color]
+salvage-map-wreck = Спасательное судно
+salvage-map-wreck-desc-size = Размер:
+salvage-map-wreck-size-small = [color=lime]Малый[/color]
+salvage-map-wreck-size-medium = [color=cornflowerblue]Средний[/color]
+salvage-map-wreck-size-large = [color=orchid]Большой[/color]

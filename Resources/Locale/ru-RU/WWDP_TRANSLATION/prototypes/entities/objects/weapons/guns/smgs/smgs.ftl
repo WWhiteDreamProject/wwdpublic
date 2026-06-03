@@ -1,42 +1,48 @@
-ent-BaseWeaponSubMachineGun = BaseSMG
+ent-BaseWeaponSubMachineGun = Пистолет-Пулемёт
     .desc = Дерзай — налетай, целься и стреляй.
+    .suffix = debug
 
-ent-WeaponSubMachineGunAtreides = Атрейдес
+
+ent-WeaponSubMachineGunAtreides = «Атрейдес»
     .desc = Бррррр! Использует патроны калибра .35 авто.
     .suffix = Пистолет-пулемёт
 
-ent-WeaponSubMachineGunC20r = C-20r
+ent-WeaponSubMachineGunC20r = «C-20r»
     .desc = Пистолет-пулемёт производства Cybersun Armaments, часто используемое легендарными ядерными оперативниками. Использует патроны калибра .35 авто.
     .suffix = Пистолет-пулемёт
 
-ent-WeaponSubMachineGunDrozd = Дрозд
+ent-WeaponSubMachineGunDrozd = «Дрозд»
     .desc = Превосходный, полностью автоматический, тяжелый пистолет-пулемёт. Использует патроны калибра .35 авто.
     .suffix = Пистолет-пулемёт
 
-ent-WeaponSubMachineGunVector = Вектор
+ent-WeaponSubMachineGunVector = «Вектор»
     .desc = Превосходный тяжелый пистолет-пулемёт. Использует патроны калибра .45 магнум.
     .suffix = Неактуален, используйте Дрозд
 
-ent-WeaponSubMachineGunWt550 = WT550
+ent-WeaponSubMachineGunWt550 = «WT550»
     .desc = Отличный пистолет-пулемёт производства NanoTrasen's Small Arms Division. Использует патроны калибра .35 авто.
     .suffix = Пистолет-пулемёт
 
-ent-WeaponSubMachineGunC20rEmpty = C-20r
+ent-WeaponSubMachineGunC20rEmpty = «C-20r»
     .desc = Пистолет-пулемёт производства Cybersun Armaments, часто используемый легендарными ядерными оперативниками. Использует патроны калибра .35 авто.
     .suffix = Пистолет-пулемёт, Пустой
 
-ent-WeaponSubMachineGunC20rHoS = трофейный C-20r
+ent-WeaponSubMachineGunC20rHoS = трофейный «C-20r»
     .desc = Пистолет-пулемёт производства Cybersun Armaments, добытый в бою с легендарными ядерными оперативниками. Использует патроны калибра .35 авто.
     .suffix = Пистолет-пулемёт
 
-ent-WeaponSubMachineGunFPA90 = FPA-90
+ent-WeaponSubMachineGunFPA90 = «FPA-90»
     .desc = Дешёвый пластиковый пистолет-пулемёт с чёрного рынка. Не блещет качеством, зато складывается и оснащён встроенным глушителем. Использует патроны калибра .25 безгильзовый.
     .suffix = Пистолет-пулемёт
 
-ent-WeaponSubMachineGunFPA90Empty = FPA-90
+ent-WeaponSubMachineGunFPA90Empty = «FPA-90»
     .desc = Дешёвый пластиковый пистолет-пулемёт с чёрного рынка. Не блещет качеством, зато складывается и оснащён встроенным глушителем. Использует патроны калибра .25 безгильзовый.
     .suffix = Пистолет-пулемёт, Пустой
 
-ent-WeaponSubMachineGunTypewriter = Томпсон
+ent-WeaponSubMachineGunTypewriter = «Томпсон»
     .desc = Печатная машинка гангстеров всех времён. Использует патроны калибра .35 авто.
+    .suffix = Пистолет-пулемёт
+
+ent-WeaponSubMachineGunCR12Moros = «CR-12 „Морос“»
+    .desc = Основное огнестрельное оружие любого оперативника Синдиката. В нем используются производственные технологии, незнакомые корпорации. Поэтому неизвестно, является ли это копией старых моделей оружия, существовавших до корпорации, или чем-то совершенно новым. Он невероятно компактен для своей смертоносности, прост в использовании и прост в обслуживании.
     .suffix = Пистолет-пулемёт

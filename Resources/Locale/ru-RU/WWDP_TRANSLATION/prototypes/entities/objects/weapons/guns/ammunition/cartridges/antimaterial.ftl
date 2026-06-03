@@ -1,2 +1,2 @@
-ent-CartridgeAntiMateriel = патрон (.60 бронебойный)
+ent-CartridgeAntiMateriel = патрон (.60 антиматериальный)
     .desc = { ent-BaseCartridge.desc }

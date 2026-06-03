@@ -55,8 +55,8 @@ public sealed partial class MiscTab : Control
             WhiteCVars.EmotesMenuStyle,
             DropDownEmotesMenuType,
             [
-            new (EmotesMenuType.Window, nameof(EmotesMenuType.Window)),
-            new (EmotesMenuType.Radial, nameof(EmotesMenuType.Window))
+            new (EmotesMenuType.Window, Loc.GetString("ui-options-emotes-menu-window")),
+            new (EmotesMenuType.Radial, Loc.GetString("ui-options-emotes-menu-radial"))
         ]);
         // WD EDIT END
 

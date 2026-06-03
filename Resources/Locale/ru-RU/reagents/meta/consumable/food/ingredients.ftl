@@ -25,4 +25,4 @@ reagent-desc-oil-olive = Вязкое и ароматное.
 reagent-name-oil = масло
 reagent-desc-oil = Используется поварами для приготовления пищи.
 reagent-name-capsaicin-oil = капсаициновое масло
-reagent-desc-capsaicin-oil = Капсаициновое масло - это ингредиент, содержащийся в различных сортах острого перца.
+reagent-desc-capsaicin-oil = Капсаициновое масло — это ингредиент, содержащийся в различных сортах острого перца.

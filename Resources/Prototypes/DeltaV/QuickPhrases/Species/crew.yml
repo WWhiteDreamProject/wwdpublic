@@ -1,7 +1,7 @@
 - type: quickPhrase
   id: BaseCrewSpeciesPhrase
   parent: BaseSpeciesPhrase
-  group: Crew
+  group: aac-group-crew
   abstract: true
 
 - type: quickPhrase

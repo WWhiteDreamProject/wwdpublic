@@ -1,9 +1,11 @@
-ent-BaseWeaponLightMachineGun = BaseWeaponLightMachineGun
+ent-BaseWeaponLightMachineGun = Пулемёт
     .desc = Дерзай — налетай, целься и стреляй.
+    .suffix = debug
 
-ent-WeaponLightMachineGunL6 = L6 SAW
+ent-WeaponLightMachineGunL6 = «L6 SAW»
     .desc = Весьма традиционный легкий пулемет с удобной лакированной деревянной пистолетной рукоятью. Использует патроны калибра .30 винтовочный.
+    .suffix = Пулемёт
 
-ent-WeaponLightMachineGunL6C = L6C ROW
+ent-WeaponLightMachineGunL6C = «L6C ROW»
     .desc = L6 SAW для киборгов. На ходу создаёт патроны калибра .30 винтовочный из встроенного самозарядного фабрикатора боеприпасов.
     .suffix = Пулемёт

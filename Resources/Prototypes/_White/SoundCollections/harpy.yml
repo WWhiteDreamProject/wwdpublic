@@ -1,0 +1,7 @@
+- type: soundCollection
+  id: HarpySnores
+  files:
+    - /Audio/Voice/Human/snore1.ogg
+    - /Audio/Voice/Human/snore2.ogg
+    - /Audio/Voice/Human/snore3.ogg
+    - /Audio/Voice/Misc/silly_snore.ogg

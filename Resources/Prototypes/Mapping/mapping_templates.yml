@@ -2983,7 +2983,7 @@
         - !type:MappingTemplatePrototype
           id: CrateTrainingBombs # WWDP edit
         - !type:MappingTemplatePrototype
-          id: ClothingNeckHeadphones # WWDP edit
+          id: ClothingMultipleHeadphones # WWDP edit
 # WWDP edit start
 - type: mappingTemplate
   id: Justice

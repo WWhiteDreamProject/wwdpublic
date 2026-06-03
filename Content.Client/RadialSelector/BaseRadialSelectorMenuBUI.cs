@@ -9,6 +9,7 @@ using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Utility; // WWDP EDIT
 
 // ReSharper disable InconsistentNaming
 // White Dream Code but moved to general folder for consistency
@@ -70,10 +71,10 @@ public abstract class BasedRadialSelectorMenuBUI : BoundUserInterface
     private string GetName(string proto)
     {
         if (ProtoManager.TryIndex(proto, out var prototype))
-            return prototype.Name;
+            return Loc.TryGetString($"ent-{proto}", out var name) ? name : prototype.Name;
 
         if (ProtoManager.TryIndex(proto, out ConstructionPrototype? constructionPrototype))
-            return constructionPrototype.Name;
+            return Loc.TryGetString($"ent-{proto}", out var name) ? name : constructionPrototype.Name;
 
         return proto;
     }
@@ -107,7 +108,7 @@ public abstract class BasedRadialSelectorMenuBUI : BoundUserInterface
     {
         var button = new RadialMenuTextureButton
         {
-            ToolTip = Loc.GetString(name),
+            ToolTip = Loc.GetString($"radial-menu-button-{name.ToString().ToLower()}"),
             StyleClasses = { "RadialMenuButton" },
             SetSize = ItemSize
         };
@@ -127,6 +128,9 @@ public abstract class BasedRadialSelectorMenuBUI : BoundUserInterface
 
     private RadialMenuTextureButton CreateButton(string name, List<Texture> icons)
     {
+        if (icons.Count == 0) // WWDP EDIT
+            return CreateButton(name, _spriteSystem.Frame0(new SpriteSpecifier.Texture(new ResPath("Textures/error.rsi/error.png")))); // WWDP EDIT
+
         var button = new RadialMenuTextureButton
         {
             ToolTip = Loc.GetString(name),

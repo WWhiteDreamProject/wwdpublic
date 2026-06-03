@@ -118,18 +118,25 @@ public sealed class ClientClothingSystem : ClothingSystem
         // body type specific
         if (TryComp(args.Equipee, out HumanoidAppearanceComponent? humanoid))
         {
-            if (item.ClothingVisuals.TryGetValue($"{slot}-{humanoid.Sex}", out layers))
+            if (item.ClothingVisuals.TryGetValue($"{slot}-{humanoid.Sex}", out var sexLayers))
+            {
+                layers = sexLayers;
                 slot = $"{slot}-{humanoid.Sex}";
+            }
 
             var bodyTypeName = _prototype.Index(humanoid.BodyType).Name;
-            if (item.ClothingVisuals.TryGetValue($"{slot}-{bodyTypeName}", out layers))
+            if (item.ClothingVisuals.TryGetValue($"{slot}-{bodyTypeName}", out var bodyTypeLayers))
+            {
+                layers = bodyTypeLayers;
                 slot = $"{slot}-{bodyTypeName}";
+            }
+        }
+
+        if (!string.IsNullOrEmpty(inventory.SpeciesId) && item.ClothingVisuals.TryGetValue($"{slot}-{inventory.SpeciesId}", out var speciesLayers))
+        {
+            layers = speciesLayers;
         }
         // WD EDIT END
-
-        // first attempt to get species specific data.
-        if (inventory.SpeciesId != null)
-            item.ClothingVisuals.TryGetValue($"{slot}-{inventory.SpeciesId}", out layers); // WD EDIT
 
         // if that returned nothing, attempt to find generic data
         if (layers == null && !item.ClothingVisuals.TryGetValue(args.Slot, out layers))

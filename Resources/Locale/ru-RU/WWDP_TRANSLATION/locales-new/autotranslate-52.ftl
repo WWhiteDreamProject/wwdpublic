@@ -1,57 +1,57 @@
-ent-EffectEmpPulse = ""
-   .desc = ""
+ent-EffectEmpPulse = { "" }
+   .desc = { "" }
 
-ent-EffectEmpDisabled = ""
-   .desc = ""
+ent-EffectEmpDisabled = { "" }
+   .desc = { "" }
 
 ent-SpawnMobFlesh = спавнер плоти
-   .desc = ""
+   .desc = { "" }
 
 ent-SpawnMobGiantSpider = спавнер гигантского паука
-   .desc = ""
+   .desc = { "" }
 
 ent-SpawnMobXenos = спавнер ксено
-   .desc = ""
+   .desc = { "" }
 
 ent-SpawnMobXenoPraetorian = спавнер ксено преторианца
-   .desc = ""
+   .desc = { "" }
 
 ent-SpawnMobXenoDrone = спавнер ксено дрона
-   .desc = ""
+   .desc = { "" }
 
 ent-SpawnMobXenoQueen = спавнер ксено королевы
-   .desc = ""
+   .desc = { "" }
 
 ent-SpawnMobXenoRavager = спавнер ксено разрушителя
-   .desc = ""
+   .desc = { "" }
 
 ent-SpawnMobXenoRunner = спавнер ксено бегуна
-   .desc = ""
+   .desc = { "" }
 
 ent-SpawnMobXenoRouny = спавнер ксено руни
-   .desc = ""
+   .desc = { "" }
 
 ent-SpawnMobXenoSpitter = спавнер ксено плевальщика
-   .desc = ""
+   .desc = { "" }
 
 ent-SpawnMobXenoTurret = спавнер ксено турели
-   .desc = ""
+   .desc = { "" }
 
 ent-SpawnMobXenoTower = спавнер ксено башни
-   .desc = ""
+   .desc = { "" }
 
 ent-MobRandomServiceCorpse = неизвестный лакей
-   .desc = "Его дни сочтены. По униформе похож на обслугу."
-   .suffix = "Мертвый"
+   .desc = Его дни сочтены. По униформе похож на обслугу.
+   .suffix = Мертвый
 
 ent-MobRandomEngineerCorpse = неизвестный инженер
-   .desc = "Его рука больше не может держать лом."
-   .suffix = "Мертвый"
+   .desc = Его рука больше не может держать лом.
+   .suffix = Мертвый
 
 ent-MobRandomCargoCorpse = неизвестный грузчик
-   .desc = "Они же не могут восстать из мертвых, да?"
-   .suffix = "Мертвый"
+   .desc = Они же не могут восстать из мертвых, да?
+   .suffix = Мертвый
 
 ent-MobRandomMedicCorpse = неизвестный врач
-   .desc = "Мазь и бинты здесь уже не помогут."
-   .suffix = "Мертвый"
+   .desc = Мазь и бинты здесь уже не помогут.
+   .suffix = Мертвый

@@ -21,28 +21,28 @@ id-card-access-level-medical = Медицинский
 id-card-access-level-chemistry = Химия
 id-card-access-level-paramedic = Парамедик
 
-id-card-access-level-psychologist = Psychologist
+id-card-access-level-psychologist = Психолог
 
 id-card-access-level-quartermaster = Квартирмейстер
 id-card-access-level-cargo = Карго
 id-card-access-level-salvage = Утилизаторы
 
 id-card-access-level-bar = Бар
-id-card-access-level-boxer = Boxer
-id-card-access-level-clown = Clown
+id-card-access-level-boxer = Боксёр
+id-card-access-level-clown = Клоун
 id-card-access-level-kitchen = Кухня
 id-card-access-level-hydroponics = Гидропоника
 id-card-access-level-service = Сервис
 id-card-access-level-janitor = Уборщик
-id-card-access-level-library = Library
-id-card-access-level-mime = Mime
-id-card-access-level-musician = Musician
+id-card-access-level-library = Библиотека
+id-card-access-level-mime = Мим
+id-card-access-level-musician = Музыкант
 id-card-access-level-theatre = Театр
 id-card-access-level-chapel = Церковь
 id-card-access-level-lawyer = Юрист
 
-id-card-access-level-reporter = Reporter
-id-card-access-level-zookeeper = Zookeeper
+id-card-access-level-reporter = Репортёр
+id-card-access-level-zookeeper = Зоолог
 
 id-card-access-level-maintenance = Техобслуживание
 
@@ -52,11 +52,11 @@ id-card-access-level-nuclear-operative = Ядерные оперативники
 
 id-card-access-level-syndicate-agent = Агенты Синдиката
 
-id-card-access-level-unused = You shouldn't see this
+id-card-access-level-unused = Вы не должны это видеть
 
 id-card-access-level-central-command = Центральное Коммандование
-id-card-access-level-wizard = Wizard
+id-card-access-level-wizard = Маг
 
-id-card-access-level-station-ai = Artifical Intelligence
-id-card-access-level-borg = Cyborg
-id-card-access-level-basic-silicon = Robot
+id-card-access-level-station-ai = Исскуственный интеллект
+id-card-access-level-borg = Борг
+id-card-access-level-basic-silicon = Робот

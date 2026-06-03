@@ -50,7 +50,7 @@ public sealed partial class PriceHistoryTable : BoxContainer
 
             var priceLabel = new Label
             {
-                Text = $"${price:F2}",
+                Text = Loc.GetString("cargo-console-menu-points-amount", ("amount", $"{price:F2}")), // WWDP EDIT (loc)
                 HorizontalAlignment = HAlignment.Center,
             };
 
