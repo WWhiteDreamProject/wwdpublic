@@ -217,4 +217,4 @@
       property: Energy
       isLooped: true
   - type: Tag
-    tags: ""
+    tags: []

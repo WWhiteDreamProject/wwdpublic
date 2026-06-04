@@ -9,22 +9,22 @@ namespace Content.Shared.Announcements.Components;
 [Serializable]
 public sealed partial class TimedAnnouncementComponent : Component
 {
-    [DataField("sender")]
+    [DataField]
     public string Sender { get; set; } = "chat-manager-sender-announcement";
 
-    [DataField("sound")]
+    [DataField]
     public SoundSpecifier? Sound { get; set; }
 
-    [DataField("messageColor")]
+    [DataField]
     public Color MessageColor { get; set; } = Color.White;
 
-    [DataField("announcements")]
+    [DataField]
     public List<TimedAnnouncementData> Announcements { get; set; } = new();
 
-    [DataField("cycle")]
+    [DataField]
     public float Cycle { get; set; } = 0f;
 
-    [DataField("repeat")]
+    [DataField]
     public int Repeat { get; set; } = 1;
 }
 
@@ -32,18 +32,18 @@ public sealed partial class TimedAnnouncementComponent : Component
 [DataDefinition]
 public sealed partial class TimedAnnouncementData
 {
-    [DataField("delay")]
+    [DataField]
     public float Delay { get; set; }
 
-    [DataField("announcement")]
+    [DataField]
     public string Announcement { get; set; } = string.Empty;
 
-    [DataField("sender")]
+    [DataField]
     public string? Sender { get; set; }
 
-    [DataField("sound")]
+    [DataField]
     public SoundSpecifier? Sound { get; set; }
 
-    [DataField("messageColor")]
+    [DataField]
     public Color? MessageColor { get; set; }
 }

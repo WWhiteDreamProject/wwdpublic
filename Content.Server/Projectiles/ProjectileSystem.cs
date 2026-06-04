@@ -117,13 +117,17 @@ public sealed class ProjectileSystem : SharedProjectileSystem
         }
         else
         {
+            // WD EDIT START
+            // WD EDIT START
             if (component.Penetrate
-                && (component.MaxPenetrations == -1 || component.IgnoredEntities.Count < component.MaxPenetrations) // WWDP edit
+                && (component.MaxPenetrations == -1 || component.IgnoredEntities.Count < component.MaxPenetrations)
                 && (component.PenetrationChance >= 1.0f
                     || _random.Prob(component.PenetrationChance)))
                 component.IgnoredEntities.Add(target);
             else
                 component.ProjectileSpent = true;
+            // WD EDIT END
+            // WD EDIT END
         }
 
         if (!deleted)

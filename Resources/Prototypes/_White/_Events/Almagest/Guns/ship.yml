@@ -432,8 +432,8 @@
   - type: Projectile
     penetrate: true
     noPenetrateMask: 0
-    #penetrationChance: 0.5
-    #maxPenetrations: 2
+    penetrationChance: 0.5
+    maxPenetrations: 2
     damage:
       types:
         Piercing: 100
