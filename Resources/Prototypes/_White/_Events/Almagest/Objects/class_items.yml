@@ -1,0 +1,466 @@
+# Base
+- type: entity
+  name: select base weapon equipment
+  parent: BaseItem
+  id: AlmagestEquipmentWeaponBaseSelect
+  description: "select base weapon equipment"
+  components:
+  - type: Item
+    size: Huge
+    shape:
+      - 0,0,3,1
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/SMGs/golden_wt550.rsi
+    state: icon
+  - type: RadialEntityMorph
+    entries:
+    - prototype: WeaponSubMachineGunWt550
+    - prototype: WeaponRifleLecter
+    - prototype: WeaponShotgunEnforcer
+    - prototype: WeaponLaserCarbine
+  - type: UserInterface
+    interfaces:
+      enum.RadialSelectorUiKey.Key:
+        type: TrackedRadialSelectorMenuBUI
+  - type: ActivatableUI
+    key: enum.RadialSelectorUiKey.Key
+    inHandsOnly: true
+
+    # ID
+- type: entity
+  name: Almagest ID card
+  parent: IDCardStandard
+  id: AlmagestIDCardBase
+  abstract: true
+  components:
+  - type: Sprite
+    layers:
+    - state: black
+    - state: department
+      color: "#333333"
+    - state: subdepartment
+      color: "#878787"
+    - state: death
+  - type: PresetIdCard
+    job: ERTLeader
+  - type: AgentIDCard
+  - type: ActivatableUI
+    key: enum.AgentIDCardUiKey.Key
+    inHandsOnly: true
+  - type: UserInterface
+    interfaces:
+      enum.AgentIDCardUiKey.Key:
+        type: AgentIDCardBoundUserInterface
+  - type: NanoChatCard
+    listNumber: false
+
+- type: entity
+  name: red Almagest ID card
+  parent: AlmagestIDCardBase
+  id: AlmagestIDCardRed
+  suffix: Almagest
+  components:
+  - type: Sprite
+    layers:
+    - state: black
+    - state: department
+      color: "#333333"
+    - state: subdepartment
+      color: "#f55f78"
+    - state: death
+      color: "#f55f78"
+
+- type: entity
+  name: blue Almagest ID card
+  parent: AlmagestIDCardBase
+  id: AlmagestIDCardBlue
+  suffix: Almagest
+  components:
+  - type: Sprite
+    layers:
+    - state: black
+    - state: department
+      color: "#333333"
+    - state: subdepartment
+      color: "#5fa5f5"
+    - state: death
+      color: "#5fa5f5"
+
+    # PDA
+- type: entity
+  parent: ERTLeaderPDA
+  id: AlmagestPDARed
+  name: red almagest PDA
+  suffix: Almagest, Red
+  components:
+  - type: Pda
+    id: AlmagestIDCardRed
+    penSlot:
+      startingItem: EnergyDagger
+      whitelist:
+        tags:
+        - Write
+
+- type: entity
+  parent: ERTLeaderPDA
+  id: AlmagestPDABlue
+  name: blue almagest PDA
+  suffix: Almagest, Blue
+  components:
+  - type: Pda
+    id: AlmagestIDCardBlue
+    penSlot:
+      startingItem: EnergyDagger
+      whitelist:
+        tags:
+        - Write
+
+    # Grenades
+- type: entity
+  parent: BaseItem
+  id: PackageGrenadeShrapnel
+  name: shrapnel grenade package
+  description: A small package containing a shrapnel grenade. Packaging disintegrates when opened.
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/shrapnelgrenade.rsi
+    layers:
+    - state: paper_2
+      sprite: Objects/Materials/Sheets/other.rsi
+    - state: icon
+      offset: 0.03125, 0.09375
+  - type: SpawnItemsOnUse
+    items:
+    - id: GrenadeShrapnel
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: BaseItem
+  id: PackageGrenadeIncendiary
+  name: incendiary grenade package
+  description: A small package containing an incendiary grenade. Packaging disintegrates when opened.
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/pyrogrenade.rsi
+    layers:
+    - state: paper_2
+      sprite: Objects/Materials/Sheets/other.rsi
+    - state: icon
+      offset: 0.03125, 0.09375
+  - type: SpawnItemsOnUse
+    items:
+    - id: GrenadeIncendiary
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: BaseItem
+  id: PackageGrenadeDummy
+  name: trick grenade package
+  description: A small package containing a trick grenade. Packaging disintegrates when opened.
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: Objects/Weapons/Grenades/grenade.rsi
+    layers:
+    - state: paper_2
+      sprite: Objects/Materials/Sheets/other.rsi
+    - state: icon
+      offset: 0.03125, 0.09375
+  - type: SpawnItemsOnUse
+    items:
+    - id: GrenadeDummy
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: BaseItem
+  id: PackageGrenadeBarrier
+  name: barrier grenade package
+  description: A small package containing a barrier grenade. Packaging disintegrates when opened.
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Grenades/barrier.rsi
+    layers:
+    - state: paper_2
+      sprite: Objects/Materials/Sheets/other.rsi
+    - state: icon
+      offset: 0.03125, 0.09375
+  - type: SpawnItemsOnUse
+    items:
+    - id: GrenadeBarrier
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: BaseItem
+  id: PackageGrenadeC4
+  name: C-4 package
+  description: A small package containing C-4 explosive. Packaging disintegrates when opened.
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: Objects/Weapons/Bombs/c4.rsi
+    layers:
+    - state: paper_2
+      sprite: Objects/Materials/Sheets/other.rsi
+    - state: icon
+      offset: 0.09375, 0.09375
+  - type: SpawnItemsOnUse
+    items:
+    - id: C4
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+    # Cap Pinpointer
+- type: entity
+  name: pinpointer
+  id: AlmagestPinpointerRedCaptain
+  parent: PinpointerBase
+  components:
+  - type: Pinpointer
+    component: NukeDisk
+    targetName: nuclear authentication disk
+
+    # AlmagestGirderFlatpack
+- type: entity
+  parent: BaseFlatpack
+  id: AlmagestGirderFlatpack
+  name: almagest girder flatpack
+  suffix: 1, alma flatpack
+  description: A flatpack used for constructing a almagest girder. Can be placed on the floor.
+  components:
+  - type: Sprite
+    layers:
+    - state: solar-assembly-part
+  - type: Flatpack
+    entity: AlmagestGirder
+  - type: Stack
+    stackType: AlmagestGirderFlatpack
+    count: 1
+  - type: Item
+    size: Normal
+  - type: SpawnAfterInteract
+    prototype: AlmagestGirderFlatpack
+    removeOnInteract: true
+  - type: StaticPrice
+    price: 0
+
+- type: entity
+  parent: AlmagestGirderFlatpack
+  id: AlmagestGirderFlatpack30
+  suffix: 30, alma flatpack
+  components:
+  - type: Stack
+    count: 30
+
+- type: stack
+  id: AlmagestGirderFlatpack
+  name: almagest girder flatpack
+  spawn: AlmagestGirderFlatpack
+  maxCount: 30
+
+# Captain
+- type: entity
+  parent: BaseFlatpack
+  id: WeaponTurretShipAlmagestFlatpack
+  name: almagest weapon mount flatpack
+  description: A flatpack used for constructing a almagest weapon mount.
+  components:
+  - type: Sprite
+    layers:
+    - state: fax-machine
+  - type: Flatpack
+    entity: WeaponTurretShipAlmagest
+  - type: Item
+    size: Normal
+
+# Engineer
+- type: entity
+  parent: AlmagestGirderFlatpack
+  id: WallAlmagestStructuralResistantFlatpack
+  name: structural-resistant wall flatpack
+  suffix: 1, alma flatpack
+  description: A flatpack used for constructing a structural-resistant wall. Can be placed on the floor.
+  components:
+  - type: Sprite
+    layers:
+    - state: grounding-rod
+  - type: Stack
+    stackType: WallAlmagestStructuralResistantFlatpack
+    count: 1
+  - type: Flatpack
+    entity: WallAlmagestStructuralResistant
+  - type: SpawnAfterInteract
+    prototype: WallAlmagestStructuralResistantFlatpack
+  - type: StaticPrice
+    price: 0
+
+- type: entity
+  parent: AlmagestGirderFlatpack
+  id: WallAlmagestLaserResistantFlatpack
+  name: laser-resistant wall flatpack
+  suffix: 1, alma flatpack
+  description: A flatpack used for constructing a laser-resistant wall. Can be placed on the floor.
+  components:
+  - type: Sprite
+    layers:
+    - state: tesla-coil
+  - type: Stack
+    stackType: WallAlmagestLaserResistantFlatpack
+    count: 1
+  - type: Flatpack
+    entity: WallAlmagestLaserResistant
+  - type: SpawnAfterInteract
+    prototype: WallAlmagestLaserResistantFlatpack
+  - type: StaticPrice
+    price: 0
+
+- type: entity
+  parent: AlmagestGirderFlatpack
+  id: WallAlmagestPiercingResistantFlatpack
+  name: piercing-resistant wall flatpack
+  suffix: 1, alma flatpack
+  description: A flatpack used for constructing a piercing-resistant wall. Can be placed on the floor.
+  components:
+  - type: Sprite
+    layers:
+    - state: tesla-generator
+  - type: Stack
+    stackType: WallAlmagestPiercingResistantFlatpack
+    count: 1
+  - type: Flatpack
+    entity: WallAlmagestPiercingResistant
+  - type: SpawnAfterInteract
+    prototype: WallAlmagestPiercingResistantFlatpack
+  - type: StaticPrice
+    price: 0
+
+- type: entity
+  parent: AlmagestGirderFlatpack
+  id: WallAlmagestUniversalResistantFlatpack
+  name: universal-resistant wall flatpack
+  suffix: 1, alma flatpack
+  description: A flatpack used for constructing a universal-resistant wall. Can be placed on the floor.
+  components:
+  - type: Sprite
+    layers:
+    - state: singularity-generator
+  - type: Stack
+    stackType: WallAlmagestUniversalResistantFlatpack
+    count: 1
+  - type: Flatpack
+    entity: WallAlmagestUniversalResistant
+  - type: SpawnAfterInteract
+    prototype: WallAlmagestUniversalResistantFlatpack
+  - type: StaticPrice
+    price: 0
+
+- type: entity
+  parent: WallAlmagestStructuralResistantFlatpack
+  id: WallAlmagestStructuralResistantFlatpack15
+  suffix: 15, alma flatpack
+  components:
+  - type: Stack
+    count: 15
+
+- type: entity
+  parent: WallAlmagestLaserResistantFlatpack
+  id: WallAlmagestLaserResistantFlatpack15
+  suffix: 15, alma flatpack
+  components:
+  - type: Stack
+    count: 15
+
+- type: entity
+  parent: WallAlmagestPiercingResistantFlatpack
+  id: WallAlmagestPiercingResistantFlatpack15
+  suffix: 15, alma flatpack
+  components:
+  - type: Stack
+    count: 15
+
+- type: entity
+  parent: WallAlmagestUniversalResistantFlatpack
+  id: WallAlmagestUniversalResistantFlatpack15
+  suffix: 15, alma flatpack
+  components:
+  - type: Stack
+    count: 15
+
+- type: stack
+  id: WallAlmagestStructuralResistantFlatpack
+  name: structural-resistant wall flatpack
+  spawn: WallAlmagestStructuralResistantFlatpack
+  maxCount: 30
+
+- type: stack
+  id: WallAlmagestLaserResistantFlatpack
+  name: laser-resistant wall flatpack
+  spawn: WallAlmagestLaserResistantFlatpack
+  maxCount: 30
+
+- type: stack
+  id: WallAlmagestPiercingResistantFlatpack
+  name: piercing-resistant wall flatpack
+  spawn: WallAlmagestPiercingResistantFlatpack
+  maxCount: 30
+
+- type: stack
+  id: WallAlmagestUniversalResistantFlatpack
+  name: universal-resistant wall flatpack
+  spawn: WallAlmagestUniversalResistantFlatpack
+  maxCount: 30
+
+# Demoman
+- type: entity
+  parent: BaseFlatpack
+  id: SyndicateBombFlatpack
+  name: syndicate bomb flatpack
+  description: A flatpack used for constructing a syndicate bomb.
+  components:
+  - type: Sprite
+    layers:
+    - state: ame-part
+  - type: Flatpack
+    entity: SyndicateBomb
+
+# Medic
+- type: entity
+  name: omnizine cryostasis beaker
+  description: A cryostasis beaker filled with omnizine.
+  parent: CryostasisBeaker
+  id: OmnizineCryostasisBeaker
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 60
+        canReact: false
+        reagents:
+        - ReagentId: Omnizine
+          Quantity: 60
+
+- type: entity
+  name: epinephrine cryostasis beaker
+  description: A cryostasis beaker filled with epinephrine.
+  parent: CryostasisBeaker
+  id: EpinephrineCryostasisBeaker
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 60
+        canReact: false
+        reagents:
+        - ReagentId: Epinephrine
+          Quantity: 60

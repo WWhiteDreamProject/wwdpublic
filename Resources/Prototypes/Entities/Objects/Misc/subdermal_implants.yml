@@ -101,7 +101,8 @@
       mobState:
       - Critical
     - type: Rattle
-      radioChannel: "Security"
+      radioChannel:
+        - "Security"
 
 #Traitor implants
 

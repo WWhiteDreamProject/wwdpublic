@@ -1,0 +1,83 @@
+# Captain
+- type: entity
+  parent: BaseSubdermalImplant
+  id: AlmagestDeathRattleImplantCaptainRed
+  name: Almagest
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: SubdermalImplant
+      permanent: true
+      whitelist:
+        components:
+        - MobState
+    - type: TriggerOnMobstateChange
+      mobState:
+      - Alive
+      - Dead
+    - type: Rattle
+      reviveMessage: deathrattle-implant-revive-message-red-captain
+      deathMessage: deathrattle-implant-dead-message-red-captain
+      radioChannel:
+        - "Common"
+
+- type: entity
+  parent: AlmagestDeathRattleImplantCaptainRed
+  id: AlmagestDeathRattleImplantCaptainRedToTeam
+  name: Almagest
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TriggerOnMobstateChange
+    mobState:
+    - Critical
+  - type: Rattle
+    critMessage: deathrattle-implant-critical-message-red-captain
+    radioChannel:
+    - "Prison"
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: AlmagestDeathRattleImplantCaptainBlue
+  name: Almagest
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+    permanent: true
+    whitelist:
+      components:
+      - MobState
+  - type: TriggerOnMobstateChange
+    mobState:
+    - Alive
+    - Dead
+  - type: Rattle
+    reviveMessage: deathrattle-implant-revive-message-blue-captain
+    deathMessage: deathrattle-implant-dead-message-blue-captain
+    radioChannel:
+    - "Common"
+
+- type: entity
+  parent: AlmagestDeathRattleImplantCaptainBlue
+  id: AlmagestDeathRattleImplantCaptainBlueToTeam
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TriggerOnMobstateChange
+    mobState:
+    - Critical
+  - type: Rattle
+    critMessage: deathrattle-implant-critical-message-blue-captain
+    radioChannel:
+    - "Medical"
+
+# Medical
+- type: entity
+  parent: BaseSubdermalImplant
+  id: AlmagestImplantMedic
+  name: Almagest
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+    permanent: true
+  - type: AddComponentsImplant
+    componentsToAdd:
+    - type: SurgerySpeedModifier
+      speedModifier: 3
