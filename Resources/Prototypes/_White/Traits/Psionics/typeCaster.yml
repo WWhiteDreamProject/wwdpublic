@@ -10,6 +10,8 @@
           nextPowerCost: 0
           removable: false
           powerPool: ShadowkinPowerPool
+        - type: CustomPsionicPoolComponent
+          pool: ShadowkinPowerPool
   requirements:
     - !type:CharacterItemGroupRequirement
       group: TraitsCasterType
@@ -43,6 +45,8 @@
         - type: Psionic
           removable: false
           powerPool: InfernalPowerPool
+        - type: CustomPsionicPoolComponent
+          pool: InfernalPowerPool
   requirements:
     - !type:CharacterItemGroupRequirement
       group: TraitsCasterType
@@ -76,6 +80,8 @@
         - type: Psionic
           removable: false
           powerPool: TelekineticistPowerPool
+        - type: CustomPsionicPoolComponent
+          pool: TelekineticistPowerPool
   requirements:
     - !type:CharacterItemGroupRequirement
       group: TraitsCasterType
@@ -110,6 +116,8 @@
           removable: false
           powerPool: PriestPowerPool
           nextPowerCost: 0
+        - type: CustomPsionicPoolComponent
+          pool: PriestPowerPool
   requirements:
     - !type:CharacterItemGroupRequirement
       group: TraitsCasterType
