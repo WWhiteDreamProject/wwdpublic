@@ -72,7 +72,7 @@
           nextPowerCost: 75
           removable: false
           powerPool: PsychoHistorianPowerPool
-        - type: CustomPsionicPoolComponent
+        - type: CustomPsionicPool
           pool: PsychoHistorianPowerPool
     - !type:TraitAddPsionics
       psionicPowers:
