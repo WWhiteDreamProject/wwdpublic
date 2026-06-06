@@ -472,7 +472,10 @@ public sealed partial class PsionicChangePowerPool : PsionicPowerFunction
         PsionicComponent psionicComponent,
         PsionicPowerPrototype proto)
     {
-        psionicComponent.PowerPool = PowerPool;
+        if (string.IsNullOrEmpty(psionicComponent.PowerPool) || psionicComponent.PowerPool == "RandomPsionicPowerPool") //WWDP EDIT
+        {
+            psionicComponent.PowerPool = PowerPool;
+        }
     }
 }
 
