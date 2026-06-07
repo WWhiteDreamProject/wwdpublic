@@ -83,7 +83,7 @@ public sealed class WhitePortalSystem : EntitySystem
                     _stun.TryParalyze(args.OtherEntity, TimeSpan.FromSeconds(2), true);
                 }
                 var currentVelocity = body.LinearVelocity;
-                const float maxSafeSpeed = 15f; // TODO: MB add in CVars (2)
+                const float maxSafeSpeed = 15f;
                 if (currentVelocity.Length() > maxSafeSpeed)
                     _physics.SetLinearVelocity(args.OtherEntity, currentVelocity.Normalized() * maxSafeSpeed, body: body);
             }

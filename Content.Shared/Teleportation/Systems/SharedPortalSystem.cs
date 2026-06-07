@@ -246,7 +246,7 @@ public abstract class SharedPortalSystem : EntitySystem
                 _stun.TryParalyze(subject, TimeSpan.FromSeconds(2), true);
             }
             var currentVelocity = body.LinearVelocity;
-            const float maxSafeSpeed = 15f; // TODO: MB add in CVars (3)
+            const float maxSafeSpeed = 15f;
             if (currentVelocity.Length() > maxSafeSpeed)
                 _physics.SetLinearVelocity(subject, currentVelocity.Normalized() * maxSafeSpeed, body: body);
         }

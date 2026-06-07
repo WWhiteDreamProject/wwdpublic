@@ -127,7 +127,7 @@ public sealed class SlipperySystem : EntitySystem
         {
             // WWDP EDIT START
             var newVelocity = physics.LinearVelocity * component.LaunchForwardsMultiplier;
-            const float maxSlipSpeed = 15f; // TODO: MB add in CVars
+            const float maxSlipSpeed = 15f;
             if (newVelocity.Length() > maxSlipSpeed)
                 newVelocity = newVelocity.Normalized() * maxSlipSpeed;
 

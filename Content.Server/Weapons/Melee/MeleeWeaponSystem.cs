@@ -234,8 +234,7 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         var targetPos = target.ToCoordinates().ToMapPos(EntityManager, TransformSystem);
         var pushVector = (targetPos - userPos).Normalized() * force;
 
-        // WWDP EDIT START — Raycast check. Prevent shoving through walls. Shitcode, but it's works.
-        // TODO: do it better
+        // WWDP EDIT START — Raycast check. Prevent shoving through walls.
         var throwSpeed = force * shovespeed;
         var originalSpeed = throwSpeed;
 
