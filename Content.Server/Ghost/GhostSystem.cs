@@ -246,8 +246,8 @@ namespace Content.Server.Ghost
         {
             var timeSinceDeath = _gameTiming.CurTime.Subtract(component.TimeOfDeath);
             var deathTimeInfo = timeSinceDeath.Minutes > 0
-                ? Loc.GetString("comp-ghost-examine-time-minutes", ("minutes", timeSinceDeath.Minutes))
-                : Loc.GetString("comp-ghost-examine-time-seconds", ("seconds", timeSinceDeath.Seconds));
+                ? Loc.GetString("comp-ghost-examine-time-minutes", ("minutes", timeSinceDeath.Minutes), ("ent", uid)) // WWDP EDIT (loc)
+                : Loc.GetString("comp-ghost-examine-time-seconds", ("seconds", timeSinceDeath.Seconds), ("ent", uid)); // WWDP EDIT
 
             args.PushMarkup(deathTimeInfo);
         }

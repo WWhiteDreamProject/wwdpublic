@@ -1,5 +1,5 @@
 ﻿- type: entity
-  id: MagazineLightRifleAK220
+  id: MagazineLightRifleAR31Hydra
   name: increased magazine .30
   parent: MagazineLightRifle
   components:

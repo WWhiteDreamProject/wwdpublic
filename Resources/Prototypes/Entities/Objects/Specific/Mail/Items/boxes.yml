@@ -16,20 +16,21 @@
       amount: 1
     - id: SoapDeluxe
       amount: 1
-  - type: Storage
-    maxItemSize: Normal
-    grid:
-    - 0,0,3,1
-    whitelist:
-      tags:
-      - Soap
   - type: Sprite
     layers:
-    - state: box
+    - state: box_card_base # WWDP edit start
+    - state: bg
+      map: [ paper ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: soap
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_card
+      map: [ top ] # WWDP edit
 
 - type: entity
   name: scented soap sampler pack
-  parent: BoxCardboard
+  parent: BoxSoapsAssorted
   id: BoxSoapsAssortedOmega
   description: A box of various scented soaps. Ooh, bluespace.
   components:
@@ -43,16 +44,6 @@
       amount: 1
     - id: SoapDeluxe
       amount: 1
-  - type: Storage
-    maxItemSize: Normal
-    grid:
-    - 0,0,3,1
-    whitelist:
-      tags:
-      - Soap
-  - type: Sprite
-    layers:
-    - state: box
 
 - type: entity
   name: Build-a-Buddy kit

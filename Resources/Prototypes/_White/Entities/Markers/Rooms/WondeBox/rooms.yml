@@ -47,13 +47,13 @@
   ignoreTile: FloorShuttleOrange
   tags: [ RoomsWonderboxEngineBase1 ]
 
-#- type: dungeonRoom
-#  id: RoomsWonderboxEngineBase1_1d
-#  size: 30,47
-#  atlas: /Maps/_White/Atlases/WonderBoxEngine.yml
-#  offset: 133,1
-#  ignoreTile: FloorShuttleOrange
-#  tags: [ RoomsWonderboxEngineBase1 ]
+- type: dungeonRoom
+  id: RoomsWonderboxEngineBase1_1d
+  size: 30,47
+  atlas: /Maps/_White/Atlases/WonderBoxEngine.yml
+  offset: 133,1
+  ignoreTile: FloorShuttleOrange
+  tags: [ RoomsWonderboxEngineBase1 ]
 # Solar
 #N
 - type: dungeonRoom

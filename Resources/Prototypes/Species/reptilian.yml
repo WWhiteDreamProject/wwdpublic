@@ -5,8 +5,8 @@
   prototype: MobReptilian
   # WD EDIT START
   bodyTypes:
-    - ReptilianNormal
-    - ReptilianSlim
+  - ReptilianNormal
+  - ReptilianSlim
   # WD EDIT END
   defaultSkinTone: "#34a223"
   markingLimits: MobReptilianMarkingLimits
@@ -26,13 +26,13 @@
 - type: bodyType
   id: ReptilianNormal
   name: body-normal
-# WD EDIT END
+  # WD EDIT END
   sprites:
     Head: MobReptilianHead
     Face: MobHumanoidAnyMarking
     Snout: MobHumanoidAnyMarking
-    Underwear: MobHumanoidAnyMarking
-    Undershirt: MobHumanoidAnyMarking
+    UndergarmentTop: MobHumanoidAnyMarking
+    UndergarmentBottom: MobHumanoidAnyMarking
     Chest: MobReptilianTorso
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
@@ -73,14 +73,14 @@
     HeadSide:
       points: 6
       required: false
+    UndergarmentTop:
+      points: 1
+      required: false
+    UndergarmentBottom:
+      points: 1
+      required: false
     Chest:
       points: 6
-      required: false
-    Underwear:
-      points: 1
-      required: false
-    Undershirt:
-      points: 1
       required: false
     RightLeg:
       points: 6

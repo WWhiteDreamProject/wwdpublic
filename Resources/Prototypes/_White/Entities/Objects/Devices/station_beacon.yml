@@ -1,0 +1,6 @@
+- type: entity
+  parent: DefaultStationBeacon
+  id: DefaultStationTeleportBeacon
+  suffix: Teleport
+  components:
+  - type: TeleportBeacon

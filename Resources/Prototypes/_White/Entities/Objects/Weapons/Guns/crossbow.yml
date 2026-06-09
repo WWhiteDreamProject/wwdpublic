@@ -16,7 +16,10 @@
     - Back
     - SuitStorage
   - type: Item
-    size: Huge
+    size: Normal
+    shape:
+    - 0,0,3,1
+    storedRotation: -51
     sprite: _White/Objects/Weapons/Guns/crossbow.rsi
   - type: Gun
     fireRate: 0.5

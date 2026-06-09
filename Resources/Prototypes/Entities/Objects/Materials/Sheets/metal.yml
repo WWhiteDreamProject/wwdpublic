@@ -53,12 +53,14 @@
     - steel_2
     - steel_3
   - type: Sprite
+    sprite: Objects/Materials/Sheets/metal.rsi
     state: steel_3
     layers:
     - state: steel_3
       map: ["base"]
   - type: Item
     heldPrefix: steel
+    sprite: Objects/Materials/Sheets/metal.rsi
   - type: Appearance
   - type: FloorTile
     outputs:
@@ -318,11 +320,13 @@
     - brass_2
     - brass_3
   - type: Sprite
+    sprite: Objects/Materials/Sheets/metal.rsi
     state: brass_3
     layers:
     - state: brass_3
       map: ["base"]
   - type: Item
+    sprite: Objects/Materials/Sheets/metal.rsi
     heldPrefix: brass
   - type: Appearance
   - type: FloorTile
@@ -404,11 +408,13 @@
     - plasteel_2
     - plasteel_3
   - type: Sprite
+    sprite: Objects/Materials/Sheets/metal.rsi
     state: plasteel_3
     layers:
     - state: plasteel_3
       map: ["base"]
   - type: Item
+    sprite: Objects/Materials/Sheets/metal.rsi
     heldPrefix: plasteel
   - type: Appearance
   - type: Extractable

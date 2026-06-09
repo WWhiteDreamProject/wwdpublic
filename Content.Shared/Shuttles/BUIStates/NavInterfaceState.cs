@@ -21,6 +21,8 @@ public sealed class NavInterfaceState
 
     public Dictionary<NetEntity, List<DockingPortState>> Docks;
 
+    public bool RotateWithEntity = true;
+
     /// <summary>
     /// Frontier - the state of the shuttle's inertial dampeners
     /// </summary>
@@ -30,7 +32,7 @@ public sealed class NavInterfaceState
     /// <summary>
     /// Limits radar FOV.
     /// </summary>
-    public float FieldOfView;
+    public Angle FieldOfView;
     // WWDP EDIT END
 
     public NavInterfaceState(
@@ -39,7 +41,7 @@ public sealed class NavInterfaceState
         Angle? angle,
         Dictionary<NetEntity, List<DockingPortState>> docks,
         InertiaDampeningMode dampeningMode, // Frontier: add dampeningMode
-        float visibilityConeAngle) // WWDP EDIT
+        Angle visibilityConeAngle) // WWDP EDIT
     {
         MaxRange = maxRange;
         Coordinates = coordinates;

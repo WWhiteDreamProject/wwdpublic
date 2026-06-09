@@ -61,6 +61,7 @@
       amount: 2
     - id: RemoteSignaller
       amount: 2
+    - id: Binoculars
     - id: BoxPDAPrisoner
     - id: ClothingShoesBootsWinterWarden
     - id: BoxEncryptionKeyPrisoner
@@ -223,16 +224,13 @@
     contents:
     - id: ClothingHeadHelmetBombSuit
     - id: ClothingOuterSuitBomb
-    # NT is cheap, what can you do...
     - id: Wirecutter
-      prob: 0.9
     - id: Screwdriver
-      prob: 0.9
     - id: Multitool
       prob: 0.5
 
 - type: entity
-  parent: [GunSafeBaseSecure, BaseRestrictedContraband]
+  parent: [GunSafeBaseSecure, BaseSecurityContraband]
   id: GunSafeDisabler
   name: disabler safe
   components:
@@ -242,7 +240,7 @@
       amount: 5
 
 - type: entity
-  parent: [GunSafeBaseSecure, BaseRestrictedContraband]
+  parent: [GunSafeBaseSecure, BaseSecurityContraband]
   id: GunSafePistolMk58
   name: mk58 safe
   components:
@@ -254,7 +252,7 @@
       amount: 8
 
 - type: entity
-  parent: [GunSafeBaseSecure, BaseRestrictedContraband, AlertLevelLock] # WD EDIT: AlertLevelLock
+  parent: [GunSafeBaseSecure, BaseSecurityContraband, AlertLevelLock] # WD EDIT: AlertLevelLock
   id: GunSafeRifleLecter
   name: lecter safe
   suffix: Alert Level Lock # WWDP
@@ -267,7 +265,7 @@
       amount: 4
 
 - type: entity
-  parent: [GunSafeBaseSecure, BaseRestrictedContraband, AlertLevelLock] # WD EDIT: AlertLevelLock
+  parent: [GunSafeBaseSecure, BaseSecurityContraband, AlertLevelLock] # WD EDIT: AlertLevelLock
   id: GunSafeSubMachineGunDrozd
   name: drozd safe
   suffix: Alert Level Lock # WWDP
@@ -280,7 +278,7 @@
       amount: 4
 
 - type: entity
-  parent: [GunSafeBaseSecure, BaseRestrictedContraband, AlertLevelLock] # WD EDIT: AlertLevelLock
+  parent: [GunSafeBaseSecure, BaseSecurityContraband, AlertLevelLock] # WD EDIT: AlertLevelLock
   id: GunSafeShotgunEnforcer
   name: enforcer safe
   suffix: Alert Level Lock # WWDP
@@ -289,11 +287,11 @@
     contents:
     - id: WeaponShotgunEnforcer
       amount: 2
-    - id: MagazineShotgun
+    - id: BoxLethalshot
       amount: 4
 
 - type: entity
-  parent: [GunSafeBaseSecure, BaseRestrictedContraband, AlertLevelLock] # WD EDIT: AlertLevelLock
+  parent: [GunSafeBaseSecure, BaseSecurityContraband, AlertLevelLock] # WD EDIT: AlertLevelLock
   id: GunSafeShotgunKammerer
   name: kammerer safe
   suffix: Alert Level Lock # WWDP
@@ -302,13 +300,13 @@
     contents:
     - id: WeaponShotgunKammerer
       amount: 2
-    - id: MagazineShotgun
-      amount: 4
+    - id: BoxLethalshot
+      amount: 2
 
 - type: entity
   id: GunSafeSubMachineGunWt550
   suffix: Wt550, Alert Level Lock # WWDP
-  parent: [GunSafeBaseSecure, BaseRestrictedContraband, AlertLevelLock] # WD EDIT: AlertLevelLock
+  parent: [GunSafeBaseSecure, BaseSecurityContraband, AlertLevelLock] # WD EDIT: AlertLevelLock
   name: wt550 safe
   components:
   - type: StorageFill
@@ -319,7 +317,7 @@
       amount: 4
 
 - type: entity
-  parent: [GunSafeBaseSecure, AlertLevelLock] # WD EDIT: AlertLevelLock
+  parent: [GunSafeBaseSecure, BaseSecurityContraband, AlertLevelLock] # WD EDIT: AlertLevelLock
   id: GunSafeLaserCarbine
   name: laser safe
   suffix: Alert Level Lock # WWDP

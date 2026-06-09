@@ -4,6 +4,7 @@
   # itemGroupSlots: 0
   category: TraitsSpeechAccents
   points: 0
+  enable: false # WWDP EDIT
   requirements:
     - !type:CharacterItemGroupRequirement
       group: TraitsAccents

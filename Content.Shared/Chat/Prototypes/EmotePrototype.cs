@@ -1,3 +1,4 @@
+using Content.Shared._White.Animations.Prototypes;
 using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -69,9 +70,13 @@ public sealed partial class EmotePrototype : IPrototype
     [DataField]
     public HashSet<string> ChatTriggers = new();
 
-    // goob edit - animations
+    // WD EDIT START
+    /// <summary>
+    ///     The animation that will play when the emote is used.
+    /// </summary>
     [DataField]
-    public object? Event = null;
+    public ProtoId<AnimationPrototype>? Animation;
+    // WD EDIT END
 }
 
 /// <summary>

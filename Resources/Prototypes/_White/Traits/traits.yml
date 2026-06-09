@@ -33,3 +33,21 @@
       - type: DeleteOnTrigger
       - type: SpawnOnTrigger
         proto: giber
+
+- type: trait
+  id: BlueBlood
+  category: Physical
+  points: 0
+  slots: 0
+  requirements:
+  - !type:CharacterSpeciesRequirement
+    inverted: true
+    species:
+      - IPC
+      - Arachnid
+      - SlimePerson
+      - Shadowkin
+  functions:
+    - !type:TraitAddComponent
+      components:
+        - type: BlueBloodTrait

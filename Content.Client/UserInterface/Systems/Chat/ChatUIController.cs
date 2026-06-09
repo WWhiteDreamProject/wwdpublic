@@ -18,9 +18,8 @@ using Content.Client.UserInterface.Systems.Gameplay;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Content.Shared.Chat;
-using Content.Shared.Decals;
 using Content.Shared.Damage.ForceSay;
-using Content.Shared.Examine;
+using Content.Shared.Decals;
 using Content.Shared.Input;
 using Content.Shared.Radio;
 using Content.Shared.Roles.RoleCodeword;
@@ -460,8 +459,9 @@ public sealed class ChatUIController : UIController
 
         if (existing.Count > SpeechBubbleCap)
         {
-            // Get the oldest to start fading fast.
-            var last = existing[0];
+            // Get the next speech bubble to fade
+            // Any speech bubbles before it are already fading
+            var last = existing[^(SpeechBubbleCap + 1)];
             last.FadeNow();
         }
     }
@@ -632,7 +632,7 @@ public sealed class ChatUIController : UIController
         var predicate = static (EntityUid uid, (EntityUid compOwner, EntityUid? attachedEntity) data)
             => uid == data.compOwner || uid == data.attachedEntity;
         var playerPos = player != null
-            ? _transform?.GetMapCoordinates(player.Value) ?? MapCoordinates.Nullspace
+            ? _eye.CurrentEye.Position
             : MapCoordinates.Nullspace;
 
         var occluded = player != null && _examine.IsOccluded(player.Value);

@@ -1,6 +1,7 @@
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using Content.Server._White.Animations.Systems;
 using Content.Server._White.Hearing;
 using Content.Server._White.TTS;
 using Content.Server.Administration.Logs;
@@ -78,6 +79,7 @@ public sealed partial class ChatSystem : SharedChatSystem
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly ExamineSystemShared _examineSystem = default!;
     [Dependency] private readonly HearingSystem _hearing = default!; // WD EDIT
+    [Dependency] private readonly WhiteAnimationPlayerSystem _whiteAnimationPlayer = default!; // WD EDIT
 
     public const int VoiceRange = 10; // how far voice goes in world units
     public const int WhisperClearRange = 2; // how far whisper goes while still being understandable, in world units

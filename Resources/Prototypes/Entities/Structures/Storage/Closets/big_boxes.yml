@@ -41,6 +41,12 @@
       layers:
       - state: cardboard
         map: ["enum.StorageVisualLayers.Base"]
+      - sprite: _White/Structures/Storage/closet.rsi # WWDP edit start
+        map: [ "defect" ]
+        state: null
+      - sprite: _White/Structures/Storage/closet.rsi
+        map: ["mark"]
+        state: null # WWDP edit end
       - state: cardboard_open
         map: ["enum.StorageVisualLayers.Door"]
     - type: Appearance
@@ -55,6 +61,32 @@
       node: basebigbox
       containers:
         - entity_storage
+    - type: RandomSprite # WWDP edit start
+      available:
+        - defect:
+            null: ""
+            def_1: ""
+            def_2: ""
+            def_3: ""
+          mark:
+            null: ""
+            mark_1: ""
+            mark_2: ""
+            mark_3: ""
+            mark_4: ""
+            mark_5: ""
+            mark_6: ""
+            mark_7: ""
+            mark_8: ""
+            #mark_9: ""
+            #mark_10: ""
+            mark_11: ""
+            mark_12: ""
+            mark_13: ""
+            mark_14: ""
+            mark_15: ""
+            mark_16: ""
+            mark_17: "" # WWDP edit end
 
 - type: entity
   id: StealthBox

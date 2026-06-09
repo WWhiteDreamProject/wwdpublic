@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Robust.Client.Graphics;
-using Robust.Client.ResourceManagement;
 using Robust.Shared.ContentPack;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
@@ -18,10 +17,10 @@ namespace Content.MapRenderer.Painters
     public sealed class TilePainter
     {
         public const int TileImageSize = EyeManager.PixelsPerMeter;
-
         private readonly ITileDefinitionManager _sTileDefinitionManager;
         private readonly SharedMapSystem _sMapSystem;
         private readonly IResourceManager _resManager;
+        private readonly Dictionary<string, List<Image>> _tileImages;
 
         public TilePainter(ClientIntegrationInstance client, ServerIntegrationInstance server)
         {
@@ -29,6 +28,15 @@ namespace Content.MapRenderer.Painters
             _resManager = client.ResolveDependency<IResourceManager>();
             var esm = server.ResolveDependency<IEntitySystemManager>();
             _sMapSystem = esm.GetEntitySystem<SharedMapSystem>();
+            _tileImages = GetTileImages(_sTileDefinitionManager, _resManager, TileImageSize);
+
+            foreach (var tileImage in _tileImages.Values)
+            {
+                foreach (var image in tileImage)
+                {
+                    image.Mutate(o => o.Flip(FlipMode.Vertical));
+                }
+            }
         }
 
         public void Run(Image gridCanvas, EntityUid gridUid, MapGridComponent grid)
@@ -40,8 +48,6 @@ namespace Content.MapRenderer.Painters
             var xOffset = -bounds.Left;
             var yOffset = -bounds.Bottom;
             var tileSize = grid.TileSize * TileImageSize;
-
-            var images = GetTileImages(_sTileDefinitionManager, _resManager, tileSize);
             var i = 0;
 
             _sMapSystem.GetAllTiles(gridUid, grid).AsParallel().ForAll(tile =>
@@ -53,7 +59,7 @@ namespace Content.MapRenderer.Painters
 
                 var x = (int) (tile.X + xOffset);
                 var y = (int) (tile.Y + yOffset);
-                var image = images[path][tile.Tile.Variant];
+                var image = _tileImages[path][tile.Tile.Variant];
 
                 gridCanvas.Mutate(o => o.DrawImage(image, new Point(x * tileSize, y * tileSize), 1));
 

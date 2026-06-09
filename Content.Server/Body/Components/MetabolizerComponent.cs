@@ -5,6 +5,7 @@ using Content.Shared.FixedPoint;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 using Content.Server.Limbus.Traits;
+using Content.Server._White.Traits; //wwdp blue blood trait
 
 namespace Content.Server.Body.Components
 {
@@ -46,7 +47,7 @@ namespace Content.Server.Body.Components
         ///     List of metabolizer types that this organ is. ex. Human, Slime, Felinid, w/e.
         /// </summary>
         [DataField]
-        [Access(typeof(MetabolizerSystem), typeof(LiquorLifelineSystem), typeof(VampirismSystem), Other = AccessPermissions.ReadExecute)] // FIXME Friends
+        [Access(typeof(MetabolizerSystem), typeof(LiquorLifelineSystem), typeof(VampirismSystem), typeof(BlueBloodTraitSystem), Other = AccessPermissions.ReadExecute)] // FIXME Friends //wwdp blue blood trait
         public HashSet<ProtoId<MetabolizerTypePrototype>>? MetabolizerTypes = null;
 
         /// <summary>

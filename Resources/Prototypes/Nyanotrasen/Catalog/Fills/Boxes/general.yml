@@ -1,56 +1,32 @@
 - type: entity
   name: colored lighttube box
-  parent: BoxCardboard
+  parent: BoxLighttube # WWDP edit
   id: BoxColoredLighttube
-  description: This box is shaped on the inside so that only light tubes and bulbs fit.
   components:
   - type: StorageFill
     contents:
       - id: ColoredLightTubeRed
-        amount: 4
+        amount: 2 # WWDP edit
       - id: ColoredLightTubeFrostyBlue
-        amount: 4
+        amount: 2 # WWDP edit
       - id: ColoredLightTubeBlackLight
-        amount: 4
-  - type: Sprite
-    layers:
-      - state: box
-      - state: lighttube
-  - type: Storage
-    maxItemSize: Small
-    grid:
-      - 0,0,4,4
-    whitelist:
-      components:
-      - LightBulb
+        amount: 2 # WWDP edit
 
 - type: entity
   name: maintenance lightbulb box
-  parent: BoxCardboard
+  parent: BoxLightbulb # WWDP edit
   id: BoxMaintenanceLightbulb
-  description: This box is shaped on the inside so that only light tubes and bulbs fit.
   components:
   - type: StorageFill
     contents:
       - id: LightBulbMaintenance
-        amount: 6
+        amount: 4 # WWDP edit
       - id: LightBulbMaintenanceRed
-        amount: 6
-  - type: Sprite
-    layers:
-      - state: box
-      - state: light
-  - type: Storage
-    maxItemSize: Small
-    grid:
-      - 0,0,4,4
-    whitelist:
-      components:
-      - LightBulb
+        amount: 4 # WWDP edit
 
 - type: entity
   name: holy water kit
-  parent: BoxCardboard
+  parent: BoxPlastic # WWDP edit
   id: BoxHolyWater
   description: This box is filled with everything you need to make homemade holy water. Water not included.
   components:
@@ -64,6 +40,18 @@
         amount: 2
   - type: Sprite
     layers:
-      - state: box_science
-      - sprite: Nyanotrasen/Objects/Storage/boxes.rsi
-        state: holywater
+    - state: box_plastic_base # WWDP edit start
+    - state: bg
+      map: [ paper ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: holy
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_plastic_sci
+      map: [ top ]
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        top:
+          True: { state: box_plastic_sci_open }
+          False: { state: box_plastic_sci } # WWDP end

@@ -1,11 +1,9 @@
 using Content.Shared.Actions;
-using Content.Shared.CCVar;
 using Content.Shared.Gravity;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Events;
 using Content.Shared.Popups;
-using Robust.Shared.Configuration;
 using Robust.Shared.Containers;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
@@ -22,7 +20,6 @@ public abstract class SharedJetpackSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
-    [Dependency] private readonly IConfigurationManager _config = default!;
 
     public override void Initialize()
     {
@@ -128,11 +125,7 @@ public abstract class SharedJetpackSystem : EntitySystem
 
     private bool CanEnableOnGrid(EntityUid? gridUid)
     {
-        return _config.GetCVar(CCVars.JetpackEnableAnywhere)
-            || gridUid == null
-            || _config.GetCVar(CCVars.JetpackEnableInNoGravity)
-            && TryComp<GravityComponent>(gridUid, out var comp)
-            && comp.Enabled;
+        return gridUid == null || !TryComp<GravityComponent>(gridUid, out var gravity) || !gravity.Enabled; // WD EDIT
     }
 
     private void OnJetpackGetAction(EntityUid uid, JetpackComponent component, GetItemActionsEvent args)

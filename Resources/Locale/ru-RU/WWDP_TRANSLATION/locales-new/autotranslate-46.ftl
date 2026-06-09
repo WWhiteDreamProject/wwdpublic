@@ -14,7 +14,7 @@ ent-WallRockArtifactFragment = { ent-WallRock }
    .desc = Каменная стена. Что это торчит из него?
 
 ent-WallRockBasalt = { ent-WallRock }
-   .desc = ""
+   .desc = { "" }
 
 ent-WallRockBasaltGold = { ent-WallRock }
    .desc = Рудная жила, богатая золотом.
@@ -41,7 +41,7 @@ ent-WallRockBasaltArtifactFragment = { ent-WallRock }
    .desc = Каменная стена. Что это торчит из него?
 
 ent-WallRockSnow = { ent-WallRock }
-   .desc = ""
+   .desc = { "" }
 
 ent-WallRockSnowGold = { ent-WallRock }
    .desc = Рудная жила, богатая золотом.

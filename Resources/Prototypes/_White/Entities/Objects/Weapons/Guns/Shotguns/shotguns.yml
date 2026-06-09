@@ -10,3 +10,14 @@
     graph: ImprovisedShotgunGraph
     node: shotgunsawn
     deconstructionTarget: null
+
+- type: entity
+  name: AD-11 Cerberus
+  parent: WeaponShotgunBulldog
+  id: WeaponShotgunAD11Cerberus
+  description: An automatic shotgun with a drum magazine. Reclassified as a ‘weapon of mass destruction’ after dozens of ‘labor-cides,’ after which they ceased to be supplied to security departments at Corporation stations. In an unknown manner, large surpluses of this weapon fell into widespread use by the Syndicate.
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/Shotguns/Cerberus.rsi
+  - type: Clothing
+    sprite: _White/Objects/Weapons/Guns/Shotguns/Cerberus.rsi

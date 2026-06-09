@@ -1,28 +1,25 @@
 <Document>
   # Расы
 
-  В корпорации Nanotrasen трудятся представители множества разумных рас, каждая из которых обладает своими уникальными способностями, культурой и биологией.
+  В корпорации NanoTrasen трудятся представители множества разумных рас, каждая из которых обладает своими уникальными способностями, культурой и биологией.
 
   <Box>
-  <GuideEntityEmbed Entity="MobArachnid" Caption="Арахнид"/>
-  <GuideEntityEmbed Entity="MobDiona" Caption="Диона"/>
-  <GuideEntityEmbed Entity="MobHuman" Caption="Человек"/>
+    <GuideEntityEmbed Entity="MobArachnid" Caption="Арахнид (Паук)"/>
+    <GuideEntityEmbed Entity="MobDiona" Caption="Диона (Дерево)"/>
+    <GuideEntityEmbed Entity="MobHuman" Caption="Человек (Макака)"/>
+    <GuideEntityEmbed Entity="MobFelinid" Caption="Фелинид (Кот)"/>
   </Box>
   <Box>
-  <GuideEntityEmbed Entity="MobMoth" Caption="Мотыльковидный"/>
-  <GuideEntityEmbed Entity="MobOni" Caption="Они"/>
-  <GuideEntityEmbed Entity="MobReptilian" Caption="Рептилоид"/>
-  <GuideEntityEmbed Entity="MobSlimePerson" Caption="Слизнечеловек"/>
-  <GuideEntityEmbed Entity="MobShadowkinDummy" Caption="Тенькины"/>
-  <GuideEntityEmbed Entity="MobThaven" Caption="Тавен"/>
+    <GuideEntityEmbed Entity="MobMoth" Caption="Ниан (Мотылёк)"/>
+    <GuideEntityEmbed Entity="MobReptilian" Caption="Унатх (Ящер)"/>
+    <GuideEntityEmbed Entity="MobSlimePerson" Caption="Слаймолюд (Слайм)"/>
+    <GuideEntityEmbed Entity="MobVulpkanin" Caption="Вульпа (Собака)"/>
   </Box>
   <Box>
-  <GuideEntityEmbed Entity="MobXelthia" Caption="Кселтия"/>
+    <GuideEntityEmbed Entity="MobHarpy" Caption="Гарпия (Птичка)"/>
+    <GuideEntityEmbed Entity="MobPlasmaman" Caption="Плазмамен (Плазмочеловек)"/>
   </Box>
-
-  # Уникальные расы Parkstation
-
   <Box>
-  <GuideEntityEmbed Entity="MobIPCDummy" Caption="I.P.C. (Интеллектуальное Пластинчатое Сознание)"/>
+    <GuideEntityEmbed Entity="MobIPCDummy" Caption="КПБ (Комплексный Позитронный Блок)"/>
   </Box>
 </Document>

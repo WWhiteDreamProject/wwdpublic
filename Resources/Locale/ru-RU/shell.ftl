@@ -25,12 +25,12 @@ shell-wrong-arguments-number-need-specific =
        *[other] аргументов
     }.
 shell-argument-must-be-number = Аргумент должен быть числом.
-shell-argument-must-be-boolean = Аргумент должен быть boolean.
+shell-argument-must-be-boolean = Аргумент должен быть булевым значением.
 shell-wrong-arguments-number = Неправильное количество аргументов.
 shell-need-between-arguments = Нужно от { $lower } до { $upper } аргументов!
 
-shell-need-minimum-arguments = Need at least {$minimum} arguments!
-shell-need-minimum-one-argument = Need at least one argument!
+shell-need-minimum-arguments = Нужно хотя бы {$minimum} {PU-PLURAL($minimum, "аргумент", "аргумента", "аргументов")}!
+shell-need-minimum-one-argument = Нужен хотя бы один аргумент!
 
 shell-argument-uid = EntityUid
 
@@ -42,21 +42,21 @@ shell-entity-is-not-mob = Целевая сущность не является 
 shell-invalid-entity-id = Недопустимый ID сущности.
 shell-invalid-grid-id = Недопустимый ID сетки.
 shell-invalid-map-id = Недопустимый ID карты.
-shell-invalid-entity-uid = { $uid } не является допустимым идентификатором uid.
-shell-invalid-bool = Неверный boolean.
+shell-invalid-entity-uid = «{ $uid }» не является допустимым идентификатором uid.
+shell-invalid-bool = Неверное булевое значение.
 shell-entity-uid-must-be-number = EntityUid должен быть числом.
-shell-could-not-find-entity = Не удалось найти сущность { $entity }.
+shell-could-not-find-entity = Не удалось найти сущность «{ $entity }».
 shell-could-not-find-entity-with-uid = Не удалось найти сущность с uid { $uid }.
-shell-entity-with-uid-lacks-component = Сущность с uid { $uid } не имеет компонента { $componentName }.
+shell-entity-with-uid-lacks-component = Сущность с uid «{ $uid }» не имеет компонента «{ $componentName }».
 shell-invalid-color-hex = Недопустимый HEX-цвет!
 shell-target-player-does-not-exist = Целевой игрок не существует!
 shell-target-entity-does-not-have-message = Целевая сущность не имеет { $missing }!
-shell-timespan-minutes-must-be-correct = { $span } не является допустимым промежутком времени в минутах.
-shell-argument-must-be-prototype = Аргумент { $index } должен быть ${ prototypeName }!
-shell-argument-number-must-be-between = Аргумент { $index } должен быть числом от { $lower } до { $upper }!
-shell-argument-station-id-invalid = Аргумент { $index } должен быть валидным station id!
-shell-argument-map-id-invalid = Аргумент { $index } должен быть валидным map id!
-shell-argument-number-invalid = Аргумент { $index } должен быть валидным числом!
+shell-timespan-minutes-must-be-correct = «{ $span }» не является допустимым промежутком времени в минутах.
+shell-argument-must-be-prototype = Аргумент «{ $index }» должен быть { prototypeName }¢!
+shell-argument-number-must-be-between = Аргумент «{ $index }» должен быть числом от { $lower } до { $upper }!
+shell-argument-station-id-invalid = Аргумент «{ $index }» должен быть валидным id станции!
+shell-argument-map-id-invalid = Аргумент «{ $index }» должен быть валидным id карты!
+shell-argument-number-invalid = Аргумент «{ $index }» должен быть валидным числом!
 
 # Hints
 # Hints

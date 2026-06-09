@@ -119,8 +119,8 @@ namespace Content.Client.Ghost
             if (args.Handled)
                 return;
 
-            Popup.PopupEntity(Loc.GetString("ghost-gui-toggle-ghost-visibility-popup"), args.Performer);
-
+            var locId = GhostVisibility ? "ghost-gui-toggle-ghost-visibility-popup-off" : "ghost-gui-toggle-ghost-visibility-popup-on";
+            Popup.PopupEntity(Loc.GetString(locId), args.Performer);
             if (uid == _playerManager.LocalEntity)
                 ToggleGhostVisibility();
 
@@ -150,7 +150,7 @@ namespace Content.Client.Ghost
         private void OnGhostState(EntityUid uid, GhostComponent component, ref AfterAutoHandleStateEvent args)
         {
             if (TryComp<SpriteComponent>(uid, out var sprite))
-                sprite.LayerSetColor(0, component.color);
+                sprite.LayerSetColor(0, component.Color);
 
             if (uid != _playerManager.LocalEntity)
                 return;

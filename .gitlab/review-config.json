@@ -1,0 +1,22 @@
+{
+    "gemini": {
+      "temperature": 0.3,
+      "responseLanguage": "ru"
+    },
+    "analysis": {
+      "includePatterns": ["**/*.cs", "**/*.yaml"],
+      "excludePatterns": ["**/bin/**"],
+      "cliCommands": [
+        {
+          "name": "dotnet-build",
+          "command": "dotnet build --nologo -v q --property:WarningLevel=0 /clp:ErrorsOnly /clp:NoSummary",
+          "enabled": true
+        }
+      ]
+    },
+    "review": {
+      "enableInlineComments": true,
+      "enableSummaryComment": true,
+      "maxCommentsPerFile": 10
+    }
+  }

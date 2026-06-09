@@ -9,6 +9,10 @@
           traits:
             - LatentPsychic
             - PsychoHistorian
+            - Infernal #wwdp edit
+            - Shadowkin #wwdp edit
+            - Telekineticist #wwdp edit
+            - Priest #wwdp edit
         - !type:CharacterJobRequirement
           jobs:
             - ResearchDirector
@@ -46,6 +50,10 @@
           traits:
             - LatentPsychic
             - PsychoHistorian
+            - Infernal #wwdp edit
+            - Shadowkin #wwdp edit
+            - Telekineticist #wwdp edit
+            - Priest #wwdp edit
         - !type:CharacterJobRequirement
           jobs:
             - ResearchDirector

@@ -156,20 +156,20 @@
 
 - type: entity
   name: Hristov
-  parent: [BaseWeaponSniper, BaseSyndicateContraband] # WD EDIT: BaseGunWieldable
+  parent: [BaseWeaponSniper, BaseSecurityContraband] # WD EDIT: BaseGunWieldable, BaseSecurityContraband
   id: WeaponSniperHristov
   description: A portable anti-materiel rifle. Fires armor piercing 14.5mm shells. Uses .60 anti-materiel ammo.
   components:
   # WD EDIT START
   - type: Sprite
-    sprite: _White/Objects/Weapons/Guns/Snipers/hristov-icons.rsi
+    sprite: _White/Objects/Weapons/Guns/Snipers/hristov.rsi # WWDP edit
     layers:
     - state: base
       map: [ "enum.GunVisualLayers.Base" ]
     - state: mag-0
       map: [ "enum.GunVisualLayers.Mag" ]
   - type: Clothing
-    sprite: _White/Objects/Weapons/Guns/Snipers/hristov-inhands.rsi
+    sprite: _White/Objects/Weapons/Guns/Snipers/hristov.rsi # WWDP edit
   - type: Gun
     angleDecay: 1
     bonusAngleDecay: 10
@@ -184,7 +184,7 @@
     size: Huge
     shape:
     - 0,0,6,1 # needs to fit in a briefcase, collapsible stock or something
-    sprite: _White/Objects/Weapons/Guns/Snipers/hristov-inhands.rsi
+    sprite: _White/Objects/Weapons/Guns/Snipers/hristov.rsi # WWDP edit
   - type: BallisticAmmoProvider
     soundRack:
       path: /Audio/Weapons/Guns/Cock/batrifle_cock.ogg
