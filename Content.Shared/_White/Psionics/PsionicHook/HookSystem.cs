@@ -13,7 +13,7 @@ using System.Numerics;
 
 namespace Content.Shared._White.Psionics;
 
-public sealed class HookSystem : EntitySystem
+public sealed class PsionicHookSystem : EntitySystem
 {
     [Dependency] protected readonly IGameTiming Timing = default!;
     [Dependency] private readonly ThrowingSystem _throw = default!;
