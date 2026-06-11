@@ -10,7 +10,7 @@ using Robust.Shared.Audio.Systems;
 
 namespace Content.Server._White.Psionics.Abilities;
 
-public sealed class SpawnImplantSystem : EntitySystem
+public sealed class HookPowerSystem : EntitySystem
 {
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
