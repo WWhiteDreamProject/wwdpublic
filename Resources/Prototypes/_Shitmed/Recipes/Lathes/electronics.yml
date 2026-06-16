@@ -1,7 +1,8 @@
 - type: latheRecipe
   id: AutodocCircuitboard
   result: AutodocCircuitboard
-  category: Circuitry
+  categories:
+  - Circuitry
   completetime: 4
   materials:
      Steel: 100
@@ -11,7 +12,8 @@
 # - type: latheRecipe
 #   id: OperatingTableCircuitboard
 #   result: OperatingTableCircuitboard
-#   category: Circuitry
+#   categories:
+#   - Circuitry
 #   completetime: 4
 #   materials:
 #      Steel: 100

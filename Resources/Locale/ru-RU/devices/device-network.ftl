@@ -6,12 +6,12 @@ device-frequency-prototype-name-lights = Умное освещение
 device-frequency-prototype-name-mailing-units = Почтовый блок
 device-frequency-prototype-name-pdas = ПДА
 # prefixes for randomly generated device addresses
-device-frequency-prototype-name-fax = Fax
+device-frequency-prototype-name-fax = Факс
 device-frequency-prototype-name-basic-device = Простые устройства
-device-frequency-prototype-name-cyborg-control = Cyborg Control
-device-frequency-prototype-name-robotics-console = Robotics Console
-device-frequency-prototype-name-turret = Sentry Turret
-device-frequency-prototype-name-turret-control = Sentry Turret Control
+device-frequency-prototype-name-cyborg-control = Контроль борга
+device-frequency-prototype-name-robotics-console = Консоль робототехники
+device-frequency-prototype-name-turret = Сторожевая турель
+device-frequency-prototype-name-turret-control = Управление сторожевой турелью
 
 ## camera frequencies
 device-frequency-prototype-name-surveillance-camera-test = Тест подсети
@@ -25,22 +25,22 @@ device-frequency-prototype-name-surveillance-camera-medical = Камеры (Ме
 device-frequency-prototype-name-surveillance-camera-general = Камеры (Общие)
 device-frequency-prototype-name-surveillance-camera-entertainment = Камеры (Развлечения)
 # prefixes for randomly generated device addresses
-device-address-prefix-vent = Вент-
-device-address-prefix-scrubber = Скр-
-device-address-prefix-sensor = Сенс-
+device-address-prefix-vent = VNT-
+device-address-prefix-scrubber = SCR-
+device-address-prefix-sensor = SSR-
 # Damn bet you couldn't see this one coming.
 device-address-prefix-teg = TEG-
 device-address-prefix-heater = HTR-
 device-address-prefix-freezer = FZR-
 device-address-prefix-volume-pump = VPP-
 device-address-prefix-smes = SMS-
-device-address-prefix-turret = TRT-
+device-address-prefix-turret = TRL-
 
 # PDAs and terminals
-device-address-prefix-console = Конс-
-device-address-prefix-fire-alarm = Пож-
+device-address-prefix-console = CNS-
+device-address-prefix-fire-alarm = FIR-
 # PDAs and terminals
-device-address-prefix-air-alarm = Возд-
+device-address-prefix-air-alarm = ALR-
 device-address-prefix-sensor-monitor = MON-
 
 device-address-examine-message = Адрес устройства: { $address }.

@@ -1,0 +1,76 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-4.0",
+  "copyright": "Gersoon (@gersoon458) for WWhiteDreamProject, 20.12.2025 - 11.01.2026",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+    "states": [
+    {
+      "name": "banana"
+    },
+    {
+      "name": "banana-box"
+    },
+    {
+      "name": "berry"
+    },
+    {
+      "name": "berry-box"
+    },
+    {
+      "name": "dank"
+    },
+    {
+      "name": "pizza"
+    },
+    {
+      "name": "pizza-box"
+    },
+    {
+      "name": "plain"
+    },
+    {
+      "name": "box"
+    },
+    {
+      "name": "spicy"
+    },
+    {
+      "name": "spicy-box"
+    },
+    {
+      "name": "teriyaki"
+    },
+    {
+      "name": "teriyaki-box"
+    },
+    {
+      "name": "dink-box"
+    },
+    {
+      "name": "dink"
+    },
+    {
+      "name": "stonk-box"
+    },
+    {
+      "name": "stonk"
+    },
+    {
+      "name": "carp-box"
+    },
+    {
+      "name": "carp"
+    },
+    {
+      "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4
+    }
+  ]
+}

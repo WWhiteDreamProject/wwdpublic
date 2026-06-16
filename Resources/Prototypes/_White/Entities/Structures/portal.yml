@@ -1,0 +1,33 @@
+﻿- type: entity
+  id: Portal
+  name: portal
+  description: Transports you to a linked destination!
+  components:
+  - type: Sprite
+    sprite: Effects/portal.rsi
+    state: portal-blue
+  - type: Clickable
+  - type: InteractionOutline
+  - type: PointLight
+    color: SkyBlue
+    radius: 3
+    energy: 1
+    netsync: false
+  - type: Physics
+    bodyType: Static
+  - type: Transform
+    anchored: True
+  - type: Fixtures
+    fixtures:
+      portalFixture:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.48,0.25,0.48"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        hard: false
+  - type: WhitePortal
+  - type: TimedDespawn
+    lifetime: 10

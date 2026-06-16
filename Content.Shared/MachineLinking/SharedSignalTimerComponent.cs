@@ -21,7 +21,6 @@ public sealed class SignalTimerBoundUserInterfaceState : BoundUserInterfaceState
     public TimeSpan TriggerTime;
     public bool TimerStarted;
     public bool HasAccess;
-    public bool CanEditDelay; // WWDP edit
 
     public SignalTimerBoundUserInterfaceState(string currentText,
         string currentDelayMinutes,
@@ -29,8 +28,7 @@ public sealed class SignalTimerBoundUserInterfaceState : BoundUserInterfaceState
         bool showText,
         TimeSpan triggerTime,
         bool timerStarted,
-        bool hasAccess,
-        bool canEditDelay) // WWDP edit
+        bool hasAccess)
     {
         CurrentText = currentText;
         CurrentDelayMinutes = currentDelayMinutes;
@@ -39,7 +37,6 @@ public sealed class SignalTimerBoundUserInterfaceState : BoundUserInterfaceState
         TriggerTime = triggerTime;
         TimerStarted = timerStarted;
         HasAccess = hasAccess;
-        CanEditDelay = canEditDelay; // WWDP edit
     }
 }
 

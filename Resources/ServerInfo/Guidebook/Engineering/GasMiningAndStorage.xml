@@ -1,33 +1,33 @@
-﻿<Document>
-  # Gas Mining and Storage
-  Gasses are often permanently used. Whether they are lost to [textlink="space" link="Spacing"] or used in a burn chamber, the station needs to be able to produce more gas to replace what is lost.
-  It also needs to store this gas in a safe and efficient manner.
+﻿﻿<Document>
+  # Добыча и хранение газа
+  Газы часто расходуются безвозвратно. Будь то потеря в [textlink="космосе" link="Spacing"] или использование в камере сгорания, станции необходимо иметь возможность производить больше газа для замены потерянного.
+  Также необходимо хранить этот газ безопасным и эффективным способом.
 
-  ## Gas Miners
-  Gas miners are used to replenish the station's gas supply. They are found in the gas storage tanks in Atmospherics.
+  ## Газодобытчики
+  Газодобытчики используются для пополнения запасов газа на станции. Они находятся в резервуарах для хранения газа в Атмосферике.
 
   <Box>
     <GuideEntityEmbed Entity="GasMinerOxygenStation"/>
     <GuideEntityEmbed Entity="GasMinerNitrogenStation"/>
   </Box>
 
-  Gas miners constantly produce room temperature gas and push it into the exposed atmosphere. They require no power to function, and never stop working unless they have reached the defined [bold]cutoff pressure[/bold].
+  Газодобытчики постоянно производят газ комнатной температуры и выталкивают его в открытую атмосферу. Для работы им не требуется питание, и они никогда не прекращают работу, если только не достигнут определенного [bold]предельного давления[/bold].
 
-  You can see more information about the gas miners by inspecting them using [color=yellow][bold][keybind="ExamineEntity"][/bold][/color].
-  Try inspecting the gas miners presented above.
+  Вы можете увидеть больше информации о газодобытчиках, осмотрев их с помощью [color=yellow][bold][keybind="ExamineEntity"][/bold][/color].
+  Попробуйте осмотреть представленные выше газодобытчики.
 
-  Gas miners come in tiers, with the larger versions having a higher pressure cutoff than the smaller versions.
+  Газодобытчики бывают разных уровней, причем более крупные версии имеют более высокий предел давления, чем меньшие версии.
 
   <Box>
-    <GuideEntityEmbed Entity="GasMinerNitrogen" Caption="300 kPa"/>
-    <GuideEntityEmbed Entity="GasMinerNitrogenStation" Caption="1000 kPa"/>
-    <GuideEntityEmbed Entity="GasMinerNitrogenStationLarge" Caption="4500 kPa"/>
+    <GuideEntityEmbed Entity="GasMinerNitrogen" Caption="300 кПа"/>
+    <GuideEntityEmbed Entity="GasMinerNitrogenStation" Caption="1000 кПа"/>
+    <GuideEntityEmbed Entity="GasMinerNitrogenStationLarge" Caption="4500 кПа"/>
   </Box>
 
-  If gas miners are ever unanchored from the station, they can be reanchored using a regular wrench.
+  Если газодобытчики когда-либо будут откреплены от станции, их можно снова закрепить с помощью обычного гаечного ключа.
 
-  ## Gas Storage
-  Gas storage tanks are used to store gas produced by the gas miners, and to make it available to other processes. They are found in Atmospherics.
+  ## Хранение газа
+  Резервуары для хранения газа используются для хранения газа, производимого газодобытчиками, и для его предоставления другим процессам. Они находятся в Атмосферике.
 
   <Box>
     <GuideEntityEmbed Entity="WallReinforced" Rotation="0" Caption="" Margin="0"/>
@@ -52,15 +52,15 @@
   </Box>
 
   <Box>
-    [color=#999999][italic]An example of a small gas holding tank[italic][/color]
+    [color=#999999][italic]Пример небольшого газгольдера[italic][/color]
   </Box>
 
-  Various atmos processes insert and remove gasses from the gas storage tanks.
-  For example:
-  - The gas miner provides fresh gasses to the gas storage tanks, if there is room.
-  - The recyclernet injects reclaimed gasses into the gas storage tanks for reuse.
-  - Setups like the distronet and burn chamber remove gasses from the gas storage tanks.
+  Различные процессы атмосферики вставляют и удаляют газы из резервуаров для хранения газа.
+  Например:
+  - Газодобытчик подает свежие газы в резервуары для хранения газа, если есть место.
+  - Сеть рециклинга впрыскивает восстановленные газы обратно в резервуары для повторного использования.
+  - Такие установки, как сеть дистрибьюции и камера сгорания, удаляют газы из резервуаров для хранения.
 
-  Gas storage tanks are designed to be able to be measured using a [textlink="Gas Analyzer" link="AtmosTools"].
-  Because the outflow vent is a [textlink="passive vent" link="PassiveVent"], you can use a [textlink="gas analyzer" link="AtmosTools"] to measure the gas content of the [textlink="pump's" link="Pumps"] input, which is drawing from the gas storage tank.
+  Резервуары для хранения газа спроектированы так, чтобы их можно было измерять с помощью [textlink="Газоанализатора" link="AtmosTools"].
+  Поскольку выходной клапан является [textlink="пассивным клапаном" link="PassiveVent"], вы можете использовать [textlink="газоанализатор" link="AtmosTools"] для измерения содержания газа на входе [textlink="насоса" link="Pumps"], который забирает газ из резервуара для хранения.
 </Document>

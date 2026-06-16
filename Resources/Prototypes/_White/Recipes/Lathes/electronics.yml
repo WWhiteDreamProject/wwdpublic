@@ -1,7 +1,9 @@
 ﻿- type: latheRecipe
   id: StationAICoreCircuitboard
   result: StationAICoreCircuitboard
-  category: AI
+  categories:
+  - AI
+  - Circuitry
   completetime: 5
   materials:
     Glass: 50
@@ -9,7 +11,8 @@
 - type: latheRecipe
   id: Intellicard
   result: Intellicard
-  category: AI
+  categories:
+  - AI
   completetime: 5
   materials:
     Glass: 50
@@ -18,7 +21,9 @@
 - type: latheRecipe
   id: StationAiUploadCircuitboard
   result: StationAiUploadCircuitboard
-  category: Circuitry
+  categories:
+  - AI
+  - Circuitry
   completetime: 5
   materials:
     Glass: 50
@@ -29,7 +34,8 @@
 - type: latheRecipe
   id: AsimovCircuitBoard
   result: AsimovCircuitBoard
-  category: AI
+  categories:
+  - AI
   completetime: 5
   materials:
     Glass: 50
@@ -69,7 +75,8 @@
 - type: latheRecipe
   id: QuarantineCircuitBoard
   result: QuarantineCircuitBoard
-  category: AI
+  categories:
+  - AI
   completetime: 5
   materials:
     Glass: 50
@@ -79,7 +86,9 @@
 - type: latheRecipe
   id: AiRemoteBrain
   result: AiRemoteBrain
-  category: AI
+  categories:
+  - AI
+  - Robotics
   completetime: 4
   materials:
     Steel: 300

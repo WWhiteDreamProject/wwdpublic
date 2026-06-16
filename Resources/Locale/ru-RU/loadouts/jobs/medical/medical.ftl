@@ -1,19 +1,19 @@
-loadout-description-LoadoutMedicalUniformJumpskirtSenior = A skirt fit for the best of the best.
-loadout-description-LoadoutMedicalUniformJumpsuitSenior = A suit fit for the best of the best.
-loadout-description-LoadoutMedicalHeadBeretSeniorPhysician = A beret fit for the best of the best.
+loadout-description-LoadoutMedicalUniformJumpskirtSenior = Юбка, подходящая для лучших из лучших.
+loadout-description-LoadoutMedicalUniformJumpsuitSenior = Костюм, подходящий для лучших из лучших.
+loadout-description-LoadoutMedicalHeadBeretSeniorPhysician = Берет, подходящий для лучших из лучших.
 
-loadout-name-LoadoutMedicalDoctorBeltMedical = medical belt (empty)
-loadout-name-LoadoutMedicalDoctorBeltMedicalFilled = medical belt (filled)
-loadout-name-LoadoutMedicalDoctorBeltMedicalAdvancedFilled = medical belt (filled, advanced)
+loadout-name-LoadoutMedicalDoctorBeltMedical = медицинский пояс (пустой)
+loadout-name-LoadoutMedicalDoctorBeltMedicalFilled = медицинский пояс (заполненный)
+loadout-name-LoadoutMedicalDoctorBeltMedicalAdvancedFilled = медицинский пояс (заполненный, улучшенный)
 loadout-description-LoadoutMedicalDoctorBeltMedicalAdvancedFilled =
-    The standard alotment of topical medicines in this pouch have been replaced with their advanced varieties, such as medicated sutures and regenerative mesh.
+    Стандартный набор местных лекарственных средств в этой сумке был заменен их усовершенствованными разновидностями, такими как лечебные швы и регенерирующая сетка.
 
-loadout-name-LoadoutChiefMedicalOfficerBeltMedical = medical belt (empty)
-loadout-name-LoadoutChiefMedicalOfficerBeltMedicalAdvancedFilled = medical belt (filled, advanced)
+loadout-name-LoadoutChiefMedicalOfficerBeltMedical = медицинский пояс (пустой)
+loadout-name-LoadoutChiefMedicalOfficerBeltMedicalAdvancedFilled = медицинский пояс (заполненный, улучшенный)
 loadout-description-LoadoutChiefMedicalOfficerBeltMedicalAdvancedFilled =
-    The standard alotment of topical medicines in this pouch have been replaced with their advanced varieties, such as medicated sutures and regenerative mesh.
+    Стандартный набор местных лекарственных средств в этой сумке был заменен их усовершенствованными разновидностями, такими как лечебные швы и регенерирующая сетка.
 
-loadout-name-LoadoutSeniorPhysicianBeltMedical = medical belt (empty)
-loadout-name-LoadoutSeniorPhysicianBeltMedicalAdvancedFilled = medical belt (filled, advanced)
+loadout-name-LoadoutSeniorPhysicianBeltMedical = медицинский пояс (пустой)
+loadout-name-LoadoutSeniorPhysicianBeltMedicalAdvancedFilled = медицинский пояс (заполненный, улучшенный)
 loadout-description-LoadoutSeniorPhysicianBeltMedicalAdvancedFilled =
-    The standard alotment of topical medicines in this pouch have been replaced with their advanced varieties, such as medicated sutures and regenerative mesh.
+    Стандартный набор местных лекарственных средств в этой сумке был заменен их усовершенствованными разновидностями, такими как лечебные швы и регенерирующая сетка.

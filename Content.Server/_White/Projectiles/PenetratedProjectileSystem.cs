@@ -77,6 +77,6 @@ public sealed class PenetratedProjectileSystem : EntitySystem
         _penetrated.FreePenetrated(penetratedUid);
 
         if (TryComp<EmbeddableProjectileComponent>(uid, out var embeddable))
-            _projectile.TryEmbed(uid, penetratedUid, null, embeddable, null, false);
+            _projectile.EmbedDetach(uid, embeddable);
     }
 }

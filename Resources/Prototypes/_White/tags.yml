@@ -44,4 +44,28 @@
   id: EvacPod
 
 - type: Tag
+  id: BoxMaterial
+
+- type: Tag
+  id: BoxCardboard
+
+- type: Tag
+  id: BoxPlastic
+
+- type: Tag
+  id: BoxSteel
+
+- type: Tag
   id: HideFromGhostWarps
+
+- type: Tag
+  id: DeleteOnGamerule
+
+- type: Tag
+  id: SlimeEmotes
+
+- type: Tag
+  id: MothEmotes
+  
+- type: Tag
+  id: MortarGrenade

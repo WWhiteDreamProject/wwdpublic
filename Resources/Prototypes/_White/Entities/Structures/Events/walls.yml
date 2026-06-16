@@ -1,0 +1,187 @@
+#  Damage Modifier Sets
+- type: damageModifierSet
+  id: AlmagestWallStructural
+  coefficients:
+    Blunt: 0.4
+    Slash: 0.4
+    Piercing: 2
+    Structural: 0.25
+    Heat: 0.75
+    Shock: 2
+  flatReductions:
+    Blunt: 5
+    Heat: 5
+
+- type: damageModifierSet
+  id: AlmagestWallLaser
+  coefficients:
+    Blunt: 0.9
+    Slash: 0.9
+    Piercing: 2
+    Structural: 1.5
+    Heat: 0.25
+    Shock: 0.25
+  flatReductions:
+    Blunt: 5
+    Heat: 5
+
+- type: damageModifierSet
+  id: AlmagestWallPiercing
+  coefficients:
+    Blunt: 0.8
+    Slash: 0.8
+    Piercing: 0.25
+    Structural: 0.8
+    Heat: 2
+    Shock: 2
+  flatReductions:
+    Blunt: 5
+    Heat: 5
+
+# Girder
+- type: entity
+  id: AlmagestGirder
+  parent: Girder
+  name: almagest girder
+  description: "This girder can be used to make 3 types of wall: structural-resistant wall - 1 plasteel, laser-resistant wall - 1 glass, piercing-resistant wall - 1 steel."
+  components:
+  - type: Sprite
+    sprite: Structures/Walls/solid.rsi
+    state: reinforced_wall_girder
+  - type: Construction
+    graph: AlmagestGirder
+    node: almagestGirder
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          SheetSteel1:
+            min: 2
+            max: 2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+
+# Walls
+- type: entity
+  parent: BaseWall
+  id: WallAlmagestBase
+  abstract: true
+  components:
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: AlmagestWallStructural
+  - type: RadiationBlocker
+    resistance: 6
+  - type: IconSmooth
+    key: walls
+  - type: Appearance
+  - type: StaticPrice
+    price: 250
+
+- type: entity
+  parent: WallAlmagestBase
+  id: WallAlmagestStructuralResistant
+  name: structural-resistant wall
+  components:
+  - type: Damageable
+    damageModifierSet: AlmagestWallStructural
+  - type: ExplosionResistance
+    damageCoefficient: 0.2
+  - type: Construction
+    graph: AlmagestGirder
+    node: wallAlmagestStructural
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 2500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Sprite
+    sprite: Structures/Walls/plastitanium.rsi
+  - type: Icon
+    sprite: Structures/Walls/plastitanium.rsi
+  - type: IconSmooth
+    base: plastitanium
+
+- type: entity
+  parent: WallAlmagestBase
+  id: WallAlmagestLaserResistant
+  name: laser-resistant wall
+  components:
+  - type: Damageable
+    damageModifierSet: AlmagestWallLaser
+  - type: Construction
+    graph: AlmagestGirder
+    node: wallAlmagestLaser
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Reflect
+    reflectProb: 0.75
+    reflects:
+    - Energy
+    spread: 35
+    soundOnReflect: /Audio/Weapons/Guns/Hits/laser_sear_wall.ogg
+  - type: Sprite
+    sprite: Structures/Walls/shuttle.rsi
+  - type: Icon
+    sprite: Structures/Walls/shuttle.rsi
+    state: full
+  - type: IconSmooth
+    base: state
+
+- type: entity
+  parent: WallAlmagestBase
+  id: WallAlmagestPiercingResistant
+  name: piercing-resistant wall
+  components:
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: AlmagestWallPiercing
+  - type: Construction
+    graph: AlmagestGirder
+    node: wallAlmagestPiercing
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 2000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Reflect
+    reflectProb: 0.5
+    reflects:
+    - NonEnergy
+    spread: 35
+  - type: Sprite
+    sprite: Structures/Walls/riveted.rsi
+  - type: Icon
+    sprite: Structures/Walls/riveted.rsi
+    state: full
+  - type: IconSmooth
+    key: walls
+    base: riveted

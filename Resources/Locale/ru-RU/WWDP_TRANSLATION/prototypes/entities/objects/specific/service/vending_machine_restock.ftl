@@ -63,7 +63,7 @@ ent-VendingMachineRestockRobustSoftdrinks = набор пополнения Пр
     .suffix = { "" }
 
 ent-VendingMachineRestockSecTech = набор пополнения СБТех
-    .desc = Коммунисты берегитесь: подкрепление прибыло! На этикетке написано "ТОЛЬКО ДЛЯ СОТРУДНИКОВ СЛУЖБЫ БЕЗОПАСНОСТИ".
+    .desc = Коммунисты берегитесь: подкрепление прибыло! На этикетке написано «ТОЛЬКО ДЛЯ СОТРУДНИКОВ СЛУЖБЫ БЕЗОПАСНОСТИ».
     .suffix = { "" }
 
 ent-VendingMachineRestockSalvageEquipment = набор пополнения Утильмаг

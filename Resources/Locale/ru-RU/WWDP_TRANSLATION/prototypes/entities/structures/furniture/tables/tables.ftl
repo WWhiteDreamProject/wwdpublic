@@ -43,7 +43,7 @@ ent-TableStone = каменный стол
     .suffix = { "" }
 
 ent-TableDebug = table
-    .desc = PUT ON THEM CODERSOCKS!!
+    .desc = РУКИ НА СТОЛ!!
     .suffix = DEBUG
 
 ent-TableCounterWood = деревянная стойка

@@ -375,9 +375,7 @@ public sealed partial class ShuttleSystem
         var uid = entity.Owner;
         var comp = entity.Comp1;
         var xform = _xformQuery.GetComponent(entity);
-
-        if (entity.Comp2.DoTheDinosaur)
-            DoTheDinosaur(xform);
+        DoTheDinosaur(xform);
 
         comp.State = FTLState.Travelling;
         var fromMapUid = xform.MapUid;
@@ -554,7 +552,7 @@ public sealed partial class ShuttleSystem
         comp.StateTime = StartEndTime.FromCurTime(_gameTiming, FTLCooldown);
         _console.RefreshShuttleConsoles(uid);
         _mapManager.SetMapPaused(mapId, false);
-        Smimsh(uid, xform: xform, smimshDistance: entity.Comp2.SmimshDistance);
+        Smimsh(uid, xform: xform);
 
         var ftlEvent = new FTLCompletedEvent(uid, _mapSystem.GetMap(mapId));
         RaiseLocalEvent(uid, ref ftlEvent, true);
@@ -956,7 +954,7 @@ public sealed partial class ShuttleSystem
     /// <summary>
     /// Flattens / deletes everything under the grid upon FTL.
     /// </summary>
-    private void Smimsh(EntityUid uid, FixturesComponent? manager = null, MapGridComponent? grid = null, TransformComponent? xform = null, float smimshDistance = 0.2f)
+    private void Smimsh(EntityUid uid, FixturesComponent? manager = null, MapGridComponent? grid = null, TransformComponent? xform = null)
     {
         if (!Resolve(uid, ref manager, ref grid, ref xform) || xform.MapUid == null)
             return;
@@ -978,7 +976,7 @@ public sealed partial class ShuttleSystem
 
             // Shift it slightly
             // Create a small border around it.
-            aabb = aabb.Enlarged(smimshDistance);
+            aabb = aabb.Enlarged(0.2f);
             aabbs.Add(aabb);
 
             // Handle clearing biome stuff as relevant.

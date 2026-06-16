@@ -7,7 +7,7 @@
   chatMessages: ["chat-emote-msg-flip"]
   chatTriggers:
   - "chat-emote-trigger-flip-1" # WD EDIT
-  event: !type:AnimationFlipEmoteEvent
+  animation: Flip # WD EDIT
 
 - type: emote
   id: Spin
@@ -18,7 +18,7 @@
   chatMessages: ["chat-emote-msg-spin"]
   chatTriggers:
   - "chat-emote-trigger-spin-1" # WD EDIT
-  event: !type:AnimationSpinEmoteEvent
+  animation: Spin # WD EDIT
 
 - type: emote
   id: Jump
@@ -32,4 +32,4 @@
   - "chat-emote-trigger-jump-1"
   - "chat-emote-trigger-jump-2"
   # WD EDIT END
-  event: !type:AnimationJumpEmoteEvent
+  animation: Jump # WD EDIT

@@ -61,6 +61,21 @@ public sealed partial class LoadoutEntry : Control, IComparable<LoadoutEntry>
         private set => LoadoutNameLabel.Text = value;
     }
 
+    private bool _showUnusable;
+    public bool ShowUnusable
+    {
+        get => _showUnusable;
+        set
+        {
+            _showUnusable = value;
+            Visible = CanWear || _showUnusable;
+
+            PreferenceButton.RemoveStyleClass(StyleBase.ButtonDanger);
+            if (!CanWear)
+                PreferenceButton.AddStyleClass(StyleBase.ButtonDanger);
+        }
+    }
+
     public string LoadoutDescription { get; private set; } = string.Empty;
 
     private Tooltip _reasonTooltip = new();
@@ -73,6 +88,7 @@ public sealed partial class LoadoutEntry : Control, IComparable<LoadoutEntry>
         HeadingButton.OnPressed += HeadingButtonPressed;
         PreferenceButton.OnPressed += PreferenceButtonPressed;
         TooltipSupplier = OnTooltipSupplierRequired;
+        IoCManager.InjectDependencies(this);
     }
 
     private Control? OnTooltipSupplierRequired(Control sender) => CanWear ? null : _reasonTooltip;
@@ -104,16 +120,26 @@ public sealed partial class LoadoutEntry : Control, IComparable<LoadoutEntry>
 
         PreferenceButton.AddStyleClass(StyleBase.ButtonDanger);
         CanWear = false;
-        PreferenceButton.Disabled = true;
+
+        if (Selected)
+        {
+            PreferenceButton.Disabled = false;
+            PreferenceButton.MouseFilter = MouseFilterMode.Pass;
+        }
+        else
+        {
+            PreferenceButton.Disabled = true;
+            PreferenceButton.MouseFilter = MouseFilterMode.Ignore;
+        }
+
         HeirloomButton.Visible = false;
         HeadingButton.Visible = false;
-        PreferenceButton.MouseFilter = MouseFilterMode.Ignore;
         _reasonTooltip.SetMessage(FormattedMessage.FromMarkupPermissive(reason));
 
         return false;
     }
 
-    public bool CheckIsWearable(CharacterRequirementsArgs characterRequirementsArgs, int loadoutPoint,[NotNullWhen(false)] out string? reason)
+    public bool CheckIsWearable(CharacterRequirementsArgs characterRequirementsArgs, int loadoutPoint, [NotNullWhen(false)] out string? reason)
     {
         ProtoId<LoadoutPrototype> loadoutPrototype = Loadout.LoadoutName;
         reason = null;
@@ -124,7 +150,7 @@ public sealed partial class LoadoutEntry : Control, IComparable<LoadoutEntry>
             return false;
         }
 
-        if(prototype.Cost > loadoutPoint)
+        if (!Selected && prototype.Cost > loadoutPoint)
         {
             reason = Loc.GetString("loadout-error-too-expensive");
             return false;
@@ -149,7 +175,7 @@ public sealed partial class LoadoutEntry : Control, IComparable<LoadoutEntry>
         var loadoutProto = _prototypeManager.Index<LoadoutPrototype>(loadout.LoadoutName);
         var firstItem = loadoutProto.Items.FirstOrDefault();
         if (firstItem == default)
-           throw new InvalidOperationException($"Loadout {loadout.LoadoutName} has no items");
+            throw new InvalidOperationException($"Loadout {loadout.LoadoutName} has no items");
 
         _loadoutUid = _entityManager.SpawnEntity(firstItem, MapCoordinates.Nullspace);
         Cost = loadoutProto.Cost;
@@ -193,7 +219,7 @@ public sealed partial class LoadoutEntry : Control, IComparable<LoadoutEntry>
             return 1;
 
         var canWearCompare = other.CanWear.CompareTo(CanWear);
-        if(canWearCompare != 0)
+        if (canWearCompare != 0)
             return canWearCompare;
 
         return string.Compare(Loadout.LoadoutName, other.Loadout.LoadoutName, StringComparison.CurrentCulture);

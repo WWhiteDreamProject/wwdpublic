@@ -1,11 +1,15 @@
-ent-BaseWeaponLauncher = BaseWeaponLauncher
+ent-BaseWeaponLauncher = Пусковая Установка
     .desc = Дерзай — налетай, целься и стреляй.
+    .suffix = debug
 
-ent-WeaponLauncherChinaLake = China Lake
+
+ent-WeaponLauncherChinaLake = «Чайна Лейк»
     .desc = БЛУП
+    .suffix = Гранатомёт
 
-ent-WeaponLauncherRocket = РПГ-7
+ent-WeaponLauncherRocket = «RPG-7»
     .desc = Древний ручной реактивный гранатомёт.
+    .suffix = Гранатомёт
 
 ent-WeaponLauncherMultipleRocket = система залпового пуска
     .desc = Модифицированный древний ручной реактивный гранатомёт.

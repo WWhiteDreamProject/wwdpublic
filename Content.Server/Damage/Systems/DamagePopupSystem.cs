@@ -48,7 +48,7 @@ public sealed class DamagePopupSystem : EntitySystem
             {
                 component.Type = (DamagePopupType) (int) component.Type + 1;
             }
-            _popupSystem.PopupEntity("Target set to type: " + component.Type.ToString(), uid);
+            _popupSystem.PopupEntity("damage-system-target-set-to-type" + component.Type.ToString(), uid); // WWDP EDIT (loc)
         }
     }
 }

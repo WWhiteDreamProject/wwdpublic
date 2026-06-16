@@ -37,10 +37,6 @@ public sealed class SignalTimerBoundUserInterface : BoundUserInterface
     {
         if (_window == null)
             return;
-        // WWDP edit start
-        if (!_window.CanEditDelay)
-            return;
-        // WWDP edit end
         SendMessage(new SignalTimerDelayChangedMessage(_window.GetDelay()));
     }
 

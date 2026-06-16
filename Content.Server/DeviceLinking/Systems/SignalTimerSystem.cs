@@ -56,8 +56,7 @@ public sealed class SignalTimerSystem : EntitySystem
                 component.CanEditLabel,
                 time,
                 active != null,
-                _accessReader.IsAllowed(args.User, uid),
-                component.CanEditDelay)); // WWDP edit
+                _accessReader.IsAllowed(args.User, uid)));
         }
     }
 
@@ -71,11 +70,6 @@ public sealed class SignalTimerSystem : EntitySystem
         _audio.PlayPvs(signalTimer.DoneSound, uid);
         _signalSystem.InvokePort(uid, signalTimer.TriggerPort);
 
-        // WWDP edit start
-        var triggerEv = new SignalTimerTriggeredEvent();
-        RaiseLocalEvent(uid, ref triggerEv);
-        // WWDP edit end
-
         if (_ui.HasUi(uid, SignalTimerUiKey.Key))
         {
             _ui.SetUiState(uid, SignalTimerUiKey.Key, new SignalTimerBoundUserInterfaceState(signalTimer.Label,
@@ -84,8 +78,7 @@ public sealed class SignalTimerSystem : EntitySystem
                 signalTimer.CanEditLabel,
                 TimeSpan.Zero,
                 false,
-                true,
-                signalTimer.CanEditDelay)); // WWDP edit
+                true));
         }
     }
 
@@ -158,10 +151,6 @@ public sealed class SignalTimerSystem : EntitySystem
     {
         if (!IsMessageValid(uid, args))
             return;
-        // WWDP edit start
-        if (!component.CanEditDelay)
-            return;
-        // WWDP edit end
 
         component.Delay = args.Delay.TotalSeconds;
         _appearanceSystem.SetData(uid, TextScreenVisuals.TargetTime, component.Delay);
@@ -180,27 +169,7 @@ public sealed class SignalTimerSystem : EntitySystem
         if (HasComp<ActiveSignalTimerComponent>(uid))
         {
             _appearanceSystem.SetData(uid, TextScreenVisuals.TargetTime, _gameTiming.CurTime);
-
-            // WWDP edit start
-            var cancelEv = new SignalTimerCancelledEvent();
-            RaiseLocalEvent(uid, ref cancelEv);
-
-            RemComp<ActiveSignalTimerComponent>(uid);
-            _audio.PlayPvs(component.DoneSound, uid);
-            _signalSystem.InvokePort(uid, component.TriggerPort);
-
-            if (_ui.HasUi(uid, SignalTimerUiKey.Key))
-            {
-                _ui.SetUiState(uid, SignalTimerUiKey.Key, new SignalTimerBoundUserInterfaceState(component.Label,
-                    TimeSpan.FromSeconds(component.Delay).Minutes.ToString("D2"),
-                    TimeSpan.FromSeconds(component.Delay).Seconds.ToString("D2"),
-                    component.CanEditLabel,
-                    TimeSpan.Zero,
-                    false,
-                    true,
-                    component.CanEditDelay));
-                // WWDP edit end
-            }
+            Trigger(uid, component);
         }
         else
             OnStartTimer(uid, component);
@@ -227,10 +196,5 @@ public sealed class SignalTimerSystem : EntitySystem
         }
 
         _signalSystem.InvokePort(uid, component.StartPort);
-
-        // WWDP edit start
-        var startEv = new SignalTimerStartedEvent();
-        RaiseLocalEvent(uid, ref startEv);
-        // WWDP edit end
     }
 }

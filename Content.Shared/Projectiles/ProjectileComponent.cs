@@ -107,6 +107,14 @@ public sealed partial class ProjectileComponent : Component
     [DataField]
     public FixedPoint2 PenetrationAmount = FixedPoint2.Zero;
 
+    // WWDP edit start
+    [DataField]
+    public int MaxPenetrations = 0;
+
+    [DataField]
+    public float PenetrationChance = 1.0f;
+    // WWDP edit end
+
     // Goobstation start
     [DataField]
     public bool Penetrate;

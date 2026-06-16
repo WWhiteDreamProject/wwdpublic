@@ -800,6 +800,18 @@ namespace Content.Client.Stylesheets
                     }),
                 // WD EDIT END
 
+                // ItemStatus for hands
+                Element()
+                    .Class(StyleClassItemStatusNotHeld)
+                    .Prop("font", notoSansItalic10)
+                    .Prop("font-color", ItemStatusNotHeldColor)
+                    .Prop(nameof(Control.Margin), new Thickness(4, 0, 0, 2)),
+
+                Element()
+                    .Class(StyleClassItemStatus)
+                    .Prop(nameof(RichTextLabel.LineHeightScale), 0.7f)
+                    .Prop(nameof(Control.Margin), new Thickness(4, 0, 0, 2)),
+
                 // Context Menu window
                 Element<PanelContainer>().Class(ContextMenuPopup.StyleClassContextMenuPopup)
                     .Prop(PanelContainer.StylePropertyPanel, contextMenuBackground),
@@ -1484,6 +1496,9 @@ namespace Content.Client.Stylesheets
                 {
                     new StyleProperty(Label.StylePropertyAlignMode, Label.AlignMode.Center),
                 }),
+
+                Element<PanelContainer>().Class(OptionButton.StyleClassOptionsBackground)
+                    .Prop(PanelContainer.StylePropertyPanel, new StyleBoxFlat(Color.FromHex("#25252A"))),
 
                 new StyleRule(new SelectorElement(typeof(PanelContainer), new []{ ClassHighDivider}, null, null), new []
                 {

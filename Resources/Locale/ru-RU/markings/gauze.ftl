@@ -1,14 +1,14 @@
 marking-GauzeLefteyePatch-gauze_lefteye_2 = Бинт, Перевязь глаза (Левый)
 marking-GauzeLefteyePatch = Бинт, Перевязь глаза (Левый)
 
-marking-GauzeLefteyePad-gauze_lefteye_1 = Gauze eyepad (Left)
-marking-GauzeLefteyePad = Gauze eyepad (Left)
+marking-GauzeLefteyePad-gauze_lefteye_1 = Марлевая повязка для глаз (Cлева)
+marking-GauzeLefteyePad = Марлевая повязка для глаз (Cлева)
 
 marking-GauzeRighteyePatch-gauze_righteye_2 = Бинт, Перевязь глаза (Правый)
 marking-GauzeRighteyePatch = Бинт, Перевязь глаза (Правый)
 
-marking-GauzeRighteyePad-gauze_righteye_1 = Gauze eyepad (Right)
-marking-GauzeRighteyePad = Gauze eyepad (Right)
+marking-GauzeRighteyePad-gauze_righteye_1 = Марлевая повязка для глаз (Справа)
+marking-GauzeRighteyePad = Марлевая повязка для глаз (Справа)
 
 marking-GauzeShoulder-gauze_shoulder = Бинт, Плечо
 marking-GauzeShoulder = Бинт, Плечо
@@ -49,56 +49,56 @@ marking-GauzeBlindfold = Бинт, Повязка на глаза
 marking-GauzeHead-gauze_head = Повязка на голову из марли
 marking-GauzeHead = Повязка на голову из марли
 
-marking-GauzeLizardBlindfold-gauze_lizard_blindfold = Gauze Blindfold
+marking-GauzeLizardBlindfold-gauze_lizard_blindfold = Марлевая повязка на оба глаза
 marking-GauzeLizardBlindfold = Бинт, Повязка на глаза
 
-marking-GauzeLizardFootRight-gauze_lizard_foot_r = Gauze Foot Wrap (Right)
+marking-GauzeLizardFootRight-gauze_lizard_foot_r = Марлевая повязка для ног (Справа)
 marking-GauzeLizardFootRight = Бинт, Перевязь ступни (Правый)
 
-marking-GauzeLizardFootLeft-gauze_lizard_foot_l = Gauze Foot Wrap (Left)
+marking-GauzeLizardFootLeft-gauze_lizard_foot_l = Марлевая повязка для ног (Слева)
 marking-GauzeLizardFootLeft = Бинт, Перевязь ступни (Левый)
 
-marking-GauzeLizardLefteyePatch-gauze_lizard_lefteye = Reptilian Gauze eyepatch (Left)
+marking-GauzeLizardLefteyePatch-gauze_lizard_lefteye = Марлевая повязка для рептилии на глаз (Слева)
 marking-GauzeLizardLefteyePatch = Коррект. бинт, Перевязь глаза (Левый)
 
-marking-GauzeLizardRighteyePatch-gauze_lizard_righteye = Reptilian Gauze eyepatch (Right)
+marking-GauzeLizardRighteyePatch-gauze_lizard_righteye = Марлевая повязка для рептилии на глаз (Справа)
 marking-GauzeLizardRighteyePatch = Коррект. бинт, Перевязь глаза (Правый)
-marking-GauzeMothStomach-gauze_moth_abdomen = Insectoid Stomach Wrap
-marking-GauzeMothStomach = Insectoid Stomach Wrap
+marking-GauzeMothStomach-gauze_moth_abdomen = Обертывание желудка
+marking-GauzeMothStomach = Обертывание желудка
 
-marking-GauzeMothShoulder-gauze_moth_shoulder = Insectoid Shoulder Sling
-marking-GauzeMothShoulder = Insectoid Shoulder Sling
+marking-GauzeMothShoulder-gauze_moth_shoulder = Наплечная повязка для насекомых
+marking-GauzeMothShoulder = Наплечная повязка для насекомых
 
-marking-GauzeMothBlindfold-gauze_moth_blindfold = Insectoid Blindfold
-marking-GauzeMothBlindfold = Insectoid Blindfold
+marking-GauzeMothBlindfold-gauze_moth_blindfold = Повязка на глаза для насекомых
+marking-GauzeMothBlindfold = Повязка на глаза для насекомых
 
-marking-GauzeMothLeftEyePatch-gauze_moth_lefteye_2 = Insectoid Gauze eyepatch (Left)
-marking-GauzeMothLeftEyePatch = Insectoid Gauze eyepatch (Left)
+marking-GauzeMothLeftEyePatch-gauze_moth_lefteye_2 = Марлевая повязка на глаз для насекомых (Слева)
+marking-GauzeMothLeftEyePatch = Марлевая повязка на глаз для насекомых (Слева)
 
-marking-GauzeMothLeftEyePad-gauze_moth_lefteye_1 = Insectoid Gauze eyepad (Left)
-marking-GauzeMothLeftEyePad = Insectoid Gauze eyepad (Left)
+marking-GauzeMothLeftEyePad-gauze_moth_lefteye_1 = Марлевая повязка для глаз для насекомых (Слева)
+marking-GauzeMothLeftEyePad = Марлевая повязка для глаз для насекомых (Слева)
 
-marking-GauzeMothRightEyePatch-gauze_moth_righteye_2 = Insectoid Gauze eyepatch (Right)
-marking-GauzeMothRightEyePatch = Insectoid Gauze eyepatch (Right)
+marking-GauzeMothRightEyePatch-gauze_moth_righteye_2 = Марлевая повязка на глаз для насекомых (Справа)
+marking-GauzeMothRightEyePatch = Марлевая повязка на глаз для насекомых (Справа)
 
-marking-GauzeMothRightEyePad-gauze_moth_righteye_1 = Insectoid Gauze eyepad (Right)
-marking-GauzeMothRightEyePad = Insectoid Gauze eyepad (Right)
+marking-GauzeMothRightEyePad-gauze_moth_righteye_1 = Марлевая повязка для глаз для насекомых (Справа)
+marking-GauzeMothRightEyePad = Марлевая повязка для глаз для насекомых (Справа)
 
-marking-GauzeMothUpperArmRight-gauze_moth_upperarm_r = Insectoid Gauze Forearm Wrap (Right)
-marking-GauzeMothUpperArmRight = Insectoid Gauze Forearm Wrap (Right)
+marking-GauzeMothUpperArmRight-gauze_moth_upperarm_r = Инсектоидная марлевая повязка для предплечья (Справа)
+marking-GauzeMothUpperArmRight = Инсектоидная марлевая повязка для предплечья (Справа)
 
-marking-GauzeMothUpperArmLeft-gauze_moth_upperarm_l = Insectoid Gauze Forearm Wrap (Left)
-marking-GauzeMothUpperArmLeft = Insectoid Gauze Forearm Wrap (Left)
+marking-GauzeMothUpperArmLeft-gauze_moth_upperarm_l = Инсектоидная марлевая повязка для предплечья (Слева)
+marking-GauzeMothUpperArmLeft = Инсектоидная марлевая повязка для предплечья (Слева)
 
-marking-GauzeMothUpperLegRight-gauze_moth_upperleg_r = Insectoid Gauze Thigh Wrap (Right)
-marking-GauzeMothUpperLegRight = Insectoid Insectoid Gauze Thigh Wrap (Right)
+marking-GauzeMothUpperLegRight-gauze_moth_upperleg_r = Марлевое обертывание бедер для насекомых (Справа)
+marking-GauzeMothUpperLegRight = Марлевое обертывание бедер для насекомых (Справа)
 
-marking-GauzeMothUpperLegLeft-gauze_moth_upperleg_l = Insectoid Gauze Thigh Wrap (Left)
-marking-GauzeMothUpperLegLeft = Insectoid Gauze Thigh Wrap (Left)
+marking-GauzeMothUpperLegLeft-gauze_moth_upperleg_l = Марлевое обертывание бедер для насекомых (Слева)
+marking-GauzeMothUpperLegLeft = Марлевое обертывание бедер для насекомых (Слева)
 
-marking-GauzeMothLowerLegRight-gauze_moth_lowerleg_r = Insectoid Gauze Shin Wrap (Right)
-marking-GauzeMothLowerLegRight = Insectoid Gauze Shin Wrap (Right)
+marking-GauzeMothLowerLegRight-gauze_moth_lowerleg_r = Инсектоидная марлевая повязка для голени (Справа)
+marking-GauzeMothLowerLegRight = Инсектоидная марлевая повязка для голени (Справа)
 
-marking-GauzeMothLowerLegLeft-gauze_moth_lowerleg_l = Insectoid Gauze Shin Wrap (Left)
-marking-GauzeMothLowerLegLeft = Insectoid Gauze Shin Wrap (Left)
+marking-GauzeMothLowerLegLeft-gauze_moth_lowerleg_l = Инсектоидная марлевая повязка для голени (Слева)
+marking-GauzeMothLowerLegLeft = Инсектоидная марлевая повязка для голени (Слева)
 

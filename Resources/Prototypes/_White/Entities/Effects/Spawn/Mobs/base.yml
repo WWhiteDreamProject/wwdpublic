@@ -1,7 +1,0 @@
-- type: entity
-  id: BaseSpawnMobEffect
-  parent: BaseSpawnEffect
-  abstract: true
-  components:
-  - type: Sprite
-    drawdepth: Mobs

@@ -1,0 +1,47 @@
+- type: animation
+  id: MobSpawnConstruct
+  length: 1
+  animationTracksData:
+  - !type:AnimationTrackSpriteFlickData
+    layerKey: enum.ConstructLayer.Base
+    keyFrames:
+    - !type:KeyFrameSpriteFlickData
+      state: spawn_construct
+      keyframe: 0
+    - !type:KeyFrameSpriteFlickData
+      state: construct
+      keyframe: 1
+  - !type:AnimationTrackSpriteFlickData
+    layerKey: enum.ConstructLayer.Unshaded
+    keyFrames:
+    - !type:KeyFrameSpriteFlickData
+      state: spawn_glow_cult
+      keyframe: 0
+    - !type:KeyFrameSpriteFlickData
+      state: glow_cult
+      keyframe: 1
+  key: mob_spawn
+
+- type: animation
+  id: MobSpawnConstructHoly
+  length: 1
+  animationTracksData:
+  - !type:AnimationTrackSpriteFlickData
+    layerKey: enum.ConstructLayer.Base
+    keyFrames:
+    - !type:KeyFrameSpriteFlickData
+      state: spawn_construct
+      keyframe: 0
+    - !type:KeyFrameSpriteFlickData
+      state: construct
+      keyframe: 1
+  - !type:AnimationTrackSpriteFlickData
+    layerKey: enum.ConstructLayer.Unshaded
+    keyFrames:
+    - !type:KeyFrameSpriteFlickData
+      state: spawn_glow_holy
+      keyframe: 0
+    - !type:KeyFrameSpriteFlickData
+      state: glow_holy
+      keyframe: 1
+  key: mob_spawn

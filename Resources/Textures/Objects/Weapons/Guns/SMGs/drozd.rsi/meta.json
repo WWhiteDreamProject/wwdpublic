@@ -1,11 +1,11 @@
 {
-	"version": 1,
-	"license": "CC-BY-SA-3.0",
-	"copyright": "Taken/modified from cev-eris at https://github.com/discordia-space/CEV-Eris/raw/56cbafd6ad8c013ccd5472d6c4a0db790f7f872a/icons/obj/guns/projectile/drozd.dmi, sprite modification by Jaсkal 298/TaralGit, backpack sling sprite edited by Boaz1111, wield sprites by RiceMar1244",
-	"size": {
-		"x": 32,
-		"y": 32
-	},
+  "version": 1,
+  "license": "CC-BY-NC-SA-4.0",
+  "copyright": "Swebit (@bonquai) for WWhiteDreamProject, 18.01.2026",
+  "size": {
+    "x": 48,
+    "y": 32
+  },
     "states": [
         {
             "name": "icon"
@@ -14,10 +14,16 @@
             "name": "base"
         },
         {
+            "name": "base-unshaded"
+        },
+        {
             "name": "bolt-open"
         },
         {
             "name": "mag-0"
+        },
+        {
+            "name": "mag-unshaded-0"
         },
         {
             "name": "suppressor"

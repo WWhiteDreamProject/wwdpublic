@@ -340,7 +340,7 @@
 
 #Security Hardsuit
 - type: entity
-  parent: [ClothingOuterHardsuitBaseMedium, BaseEngineeringContraband]
+  parent: [ClothingOuterHardsuitBaseMedium, BaseSecurityContraband]
   id: ClothingOuterHardsuitSecurity
   name: security hardsuit
   description: A special suit that protects against hazardous, low pressure environments. Has an additional layer of armor.
@@ -373,7 +373,7 @@
 
 #Brigmedic Hardsuit
 - type: entity
-  parent: [ClothingOuterHardsuitBaseMedium, BaseRestrictedContraband]
+  parent: [ClothingOuterHardsuitBaseMedium, BaseSecurityContraband]
   id: ClothingOuterHardsuitBrigmedic
   name: corpsman hardsuit # DeltaV - rename brigmedic to corpsman
   description: Special hardsuit of the guardian angel of the brig. It is the medical version of the security hardsuit. # I will fix the rest of this entry later when I resprite sec suits
@@ -405,7 +405,7 @@
 
 #Warden's Hardsuit
 - type: entity
-  parent: [ClothingOuterHardsuitBaseHeavy, BaseRestrictedContraband]
+  parent: [ClothingOuterHardsuitBaseHeavy, BaseSecurityContraband]
   id: ClothingOuterHardsuitWarden
   name: warden's hardsuit
   description: A specialized riot suit geared to combat low pressure environments.

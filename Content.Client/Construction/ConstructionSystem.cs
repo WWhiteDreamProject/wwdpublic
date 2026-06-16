@@ -95,7 +95,7 @@ namespace Content.Client.Construction
             {
                 args.PushMarkup(Loc.GetString(
                     "construction-ghost-examine-message",
-                    ("name", component.Prototype.Name)));
+                    ("name", Loc.TryGetString($"ent-{component.Prototype.ID}", out var name) ? name : component.Prototype.Name))); // WWDP EDIT
 
                 if (!_prototypeManager.TryIndex(component.Prototype.Graph, out ConstructionGraphPrototype? graph))
                     return;

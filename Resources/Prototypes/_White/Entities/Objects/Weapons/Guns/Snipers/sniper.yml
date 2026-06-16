@@ -1,0 +1,54 @@
+- type: entity
+  name: DMR-51 Cyclops
+  parent: [BaseWeaponSniper, BaseSyndicateContraband]
+  id: WeaponSniperDMR51Cyclops
+  description: Modification of the AR31 ‘Hydra’ into a marksman rifle. Highly accurate, long-range, and fairly compact. The widespread use of this modification and its effect on middle management forced the Corporation to move its bureaucratic functions into space.
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/Snipers/dmr-51-cyclops.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: unshaded-0
+      shader: unshaded
+    - state: mag-0
+      map: [ "enum.GunVisualLayers.Mag" ]
+  - type: Clothing
+    sprite: _White/Objects/Weapons/Guns/Snipers/dmr-51-cyclops.rsi
+  - type: Gun
+    angleDecay: 1
+    bonusAngleDecay: 10
+    bonusAngleIncreaseTurn: 1
+    fireRate: 0.4
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/sniper.ogg
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,6,1
+    sprite: _White/Objects/Weapons/Guns/Snipers/dmr-51-cyclops.rsi
+  - type: BallisticAmmoProvider
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/batrifle_cock.ogg
+    soundInsert: /Audio/_White/Guns/insert.ogg
+    whitelist:
+      tags:
+      - CartridgeAntiMateriel
+    capacity: 5
+    proto: CartridgeAntiMateriel
+  - type: SpeedModifiedOnWield
+    walkModifier: 0.25
+    sprintModifier: 0.25
+  - type: Wieldable
+  - type: CursorOffsetRequiresWield
+  - type: EyeCursorOffset
+    maxOffset: 3
+    pvsIncrease: 0.3
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance

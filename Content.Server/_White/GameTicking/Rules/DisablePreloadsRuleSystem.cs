@@ -1,10 +1,12 @@
-using Content.Server.GameTicking.Rules.Components;
+using Content.Server._White.GameTicking.Rules.Components;
+using Content.Server.GameTicking;
+using Content.Server.GameTicking.Rules;
 using Content.Shared.CCVar;
 using Content.Shared._White.CCVar;
 using Content.Shared.GameTicking.Components;
 using Robust.Shared.Configuration;
 
-namespace Content.Server.GameTicking.Rules;
+namespace Content.Server._White.GameTicking.Rules;
 
 public sealed class DisablePreloadsRuleSystem : GameRuleSystem<DisablePreloadsRuleComponent>
 {
@@ -13,6 +15,7 @@ public sealed class DisablePreloadsRuleSystem : GameRuleSystem<DisablePreloadsRu
     public override void Initialize()
     {
         base.Initialize();
+
         SubscribeLocalEvent<RoundStartedEvent>(OnRoundStarted);
     }
 
@@ -57,8 +60,6 @@ public sealed class DisablePreloadsRuleSystem : GameRuleSystem<DisablePreloadsRu
         _cfg.SetCVar(WhiteCVars.IsAspectsEnabled, false);
     }
 
-    protected override void Ended(EntityUid uid, DisablePreloadsRuleComponent comp, GameRuleComponent rule, GameRuleEndedEvent args)
-    {
+    protected override void Ended(EntityUid uid, DisablePreloadsRuleComponent comp, GameRuleComponent rule, GameRuleEndedEvent args) =>
         base.Ended(uid, comp, rule, args);
-    }
 }

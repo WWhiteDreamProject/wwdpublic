@@ -1,12 +1,13 @@
 using Content.Shared.Actions;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Overlays.Switchable;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class ThermalVisionComponent : SwitchableOverlayComponent
 {
-    public override string? ToggleAction { get; set; } = "ToggleThermalVision";
+    public override EntProtoId? ToggleAction { get; set; } = new("ToggleThermalVision");
 
     public override Color Color { get; set; } = Color.FromHex("#F84742");
 

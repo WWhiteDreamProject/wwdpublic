@@ -3,7 +3,7 @@ custom-ghost-personal-desc = Доступен только вам.
 
 custom-ghost-personal-placeholder-name = А где?
 custom-ghost-personal-placeholder-desc = Кастумный призрак, которым вы пользовались ранее, был сочтён чрезмерно большим или вырвиглазным, и был удалён.
-        Вы всё ещё можете получить нового кастумного призрака - для этого обратитесь к кодербасу, либо сами откройте PR в репозитории проекта.
+        Вы всё ещё можете получить нового кастумного призрака — для этого обратитесь к кодербасу, либо сами откройте PR в репозитории проекта.
 
 custom-ghost-default-name = Белый призрак
 custom-ghost-default-desc = Без всяких свистелок и перделок. Красота в простоте.
@@ -12,10 +12,10 @@ custom-ghost-red-name = Красный призрак
 custom-ghost-red-desc = Цвет любви, ярости, страсти или разлитой на полу крови. Зависит от ваших предпочтений.
 
 custom-ghost-green-name = Зелёный призрак
-custom-ghost-green-desc = Да, знаю, надо было поменять спрайт на слона. Но у нас в игре нету слонов, а если буду рисовать с нуля - получится хрень.
+custom-ghost-green-desc = Да, знаю, надо было поменять спрайт на слона. Но у нас в игре нету слонов, а если буду рисовать с нуля — получится хрень.
 
 custom-ghost-blue-name = Синий призрак
-custom-ghost-blue-desc = Цвет спокойствия, моря и умиротворения. Самое то, когда вас космировали за просто так. 
+custom-ghost-blue-desc = Цвет спокойствия, моря и умиротворения. Самое то, когда вас космировали за просто так.
 
 custom-ghost-violet-name = Фиолетовый призрак
 custom-ghost-violet-desc = Не хватает только пластыря на носу.
@@ -51,7 +51,7 @@ custom-ghost-skeleton-name = Скелет
 custom-ghost-skeleton-desc = Maybe it's the way you're dressed?
 
 custom-ghost-frog-name = Лягушка
-custom-ghost-frog-desc = "Сап космач, есть одна вульпа..."
+custom-ghost-frog-desc = «Сап космач, есть одна вульпа...»
 
 custom-ghost-rooster-name = Петух
 custom-ghost-rooster-desc = Знак отличия.

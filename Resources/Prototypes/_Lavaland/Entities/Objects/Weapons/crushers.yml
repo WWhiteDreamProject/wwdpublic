@@ -118,7 +118,8 @@
   - type: MeleeThrowOnHit
     speed: 5
     distance: 0.5
- #- type: FlipOnHit
+  - type: AnimateOnHit
+    animation: Flip
   - type: GunRequiresWield
   - type: Wieldable
   - type: MeleeRequiresWield

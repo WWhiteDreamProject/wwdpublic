@@ -1,15 +1,26 @@
-using Robust.Shared.GameObjects;
-
-namespace Content.Server.GameTicking.Rules.Components;
+namespace Content.Server._White.GameTicking.Rules.Components;
 
 [RegisterComponent]
 public sealed partial class DisablePreloadsRuleComponent : Component
 {
-    [DataField] public bool OriginalArrivalsShuttles { get; set; }
-    [DataField] public bool OriginalAsteroidFieldEnabled { get; set; }
-    [DataField] public bool OriginalProcgenPreload { get; set; }
-    [DataField] public bool OriginalGridFill { get; set; }
-    [DataField] public bool OriginalPreloadGrids { get; set; }
-    [DataField] public bool OriginalLavalandEnabled { get; set; }
-    [DataField] public bool OriginalIsAspectsEnabled { get; set; }
+    [ViewVariables]
+    public bool OriginalArrivalsShuttles;
+
+    [ViewVariables]
+    public bool OriginalAsteroidFieldEnabled;
+
+    [ViewVariables]
+    public bool OriginalProcgenPreload;
+
+    [ViewVariables]
+    public bool OriginalGridFill;
+
+    [ViewVariables]
+    public bool OriginalPreloadGrids;
+
+    [ViewVariables]
+    public bool OriginalLavalandEnabled;
+
+    [ViewVariables]
+    public bool OriginalIsAspectsEnabled;
 }

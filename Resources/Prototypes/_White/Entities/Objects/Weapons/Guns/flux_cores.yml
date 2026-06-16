@@ -123,7 +123,7 @@
 #boxes
 - type: entity
   name: flux core box
-  parent: BoxCardboard
+  parent: BoxSteel
   id: BoxBasicFluxCore
   description: The saviour of incompetent security officers sector-wide. Holds 8 spare flux cores.
   components:
@@ -133,17 +133,27 @@
         amount: 4
       - id: SmallBasicFluxCore
         amount: 4
-  - type: Storage
-    grid:
-    - 0,0,3,3
-    whitelist:
-      tags:
-      - FluxCore
-      - FluxCoreSmall
+  - type: Sprite
+    layers:
+    - state: box_steel_rib_base
+    - state: bg
+      map: [ paper ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: flux
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_steel_sec
+      map: [ top ]
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        top:
+          True: { state: box_steel_sec_open }
+          False: { state: box_steel_sec }
 
 - type: entity
   name: big flux core box
-  parent: BoxCardboard
+  parent: BoxSteelWide
   id: BoxBasicFluxCoreBig
   description: The saviour of incompetent security officers sector-wide. Holds 12 spare flux cores.
   components:
@@ -153,10 +163,20 @@
         amount: 6
       - id: SmallBasicFluxCore
         amount: 6
-  - type: Storage
-    grid:
-    - 0,0,5,3
-    whitelist:
-      tags:
-      - FluxCore
-      - FluxCoreSmall
+  - type: Sprite
+    layers:
+    - state: box_steel_wide_rib_base
+    - state: bg
+      map: [ paper ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: flux
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_steel_wide_sec
+      map: [ top ]
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        top:
+          True: { state: box_steel_wide_sec_open }
+          False: { state: box_steel_wide_sec }

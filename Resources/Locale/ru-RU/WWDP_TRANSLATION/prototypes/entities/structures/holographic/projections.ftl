@@ -1,4 +1,4 @@
-ent-HolosignWetFloor = знак "мокрый пол"
+ent-HolosignWetFloor = знак «мокрый пол»
     .desc = Слова мерцают, как будто ничего не значат.
     .suffix = { "" }
 

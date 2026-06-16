@@ -53,11 +53,13 @@ public class SharedPassportSystem : EntitySystem
 
         var species = _prototypeManager.Index<SpeciesPrototype>(component.OwnerProfile.Species);
 
-        args.PushMarkup($"Registered to: {component.OwnerProfile.Name}", 50);
-        args.PushMarkup($"Species: {Loc.GetString(species.Name)}", 49);
-        args.PushMarkup($"Sex: {component.OwnerProfile.Gender}", 48);
-        args.PushMarkup($"Height: {MathF.Round(component.OwnerProfile.Height * species.AverageHeight)} cm", 47);
-        args.PushMarkup($"Year of Birth: {CurrentYear - component.OwnerProfile.Age}", 46);
+        // WWDP EDIT START
+        args.PushMarkup(Loc.GetString("contracts-passport-registered-to", ("name", component.OwnerProfile.Name), ("gender", component.OwnerProfile.Gender)), 50);
+        args.PushMarkup(Loc.GetString("contracts-passport-species", ("species", Loc.GetString(species.Name))), 49);
+        args.PushMarkup(Loc.GetString("contracts-passport-sex", ("sex", component.OwnerProfile.Sex)), 48);
+        args.PushMarkup(Loc.GetString("contracts-passport-height", ("height", MathF.Round(component.OwnerProfile.Height * species.AverageHeight))), 47);
+        args.PushMarkup(Loc.GetString("contracts-passport-year-of-birth", ("year", CurrentYear - component.OwnerProfile.Age)), 46);
+        // WWDP EDIT END
 
         args.PushMarkup(
             $"PID: {GenerateIdentityString(component.OwnerProfile.Name
