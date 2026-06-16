@@ -5342,3 +5342,10 @@ Entries:
   id: 562
   time: '2026-05-29T17:46:14.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1116
+- author: Kai518
+  changes:
+    - type: Fix
+      message: Фикс динамика
+  id: 563
+  time: '2026-06-16T18:45:31.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1148
