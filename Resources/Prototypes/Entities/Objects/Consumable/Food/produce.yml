@@ -370,6 +370,7 @@
     sprite: Objects/Specific/Hydroponics/banana.rsi
     heldPrefix: peel
   - type: Slippery
+    paralyzeTime: 0.65 # WD ADD
     launchForwardsMultiplier: 1.5
   - type: StepTrigger
     intersectRatio: 0.2
@@ -464,7 +465,7 @@
     sprite: Objects/Materials/materials.rsi
     heldPrefix: peel
   - type: Slippery
-    paralyzeTime: 4
+    paralyzeTime: 2 # WD EDIT: 4 > 2
     launchForwardsMultiplier: 2
 
 - type: entity
