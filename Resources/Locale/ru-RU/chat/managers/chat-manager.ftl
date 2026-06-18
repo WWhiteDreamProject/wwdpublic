@@ -20,7 +20,7 @@ chat-manager-whisper-headset-on-message = Вы не можете шептать 
 
 chat-manager-language-prefix = ({ $language }){" "}
 
-chat-manager-server-wrap-message = СЕРВЕР: { $message }
+chat-manager-server-wrap-message = { $message }
 chat-manager-sender-announcement = Центральное Командование
 chat-manager-sender-announcement-wrap-message = [font size=14][bold]{$sender} объявляет:[/font][font size=12]
                                                 {$message}[/bold][/font]
