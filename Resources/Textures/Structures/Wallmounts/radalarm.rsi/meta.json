@@ -1,11 +1,11 @@
 {
-    "version": 1,
-    "size": {
-        "x": 32,
-        "y": 32
-    },
-    "license": "CC-BY-SA-3.0",
-    "copyright": "Made by @dootythefrooty (Discord)",
+"version": 1,
+"license": "CC-BY-NC-SA-4.0",
+"copyright": "Valentyi (randomm.ua) for WWhiteDreamProject, 06.04.2026",
+"size": {
+    "x": 48,
+    "y": 48
+        },
     "states": [
         {
             "name": "geiger_base",
@@ -29,7 +29,13 @@
         },
         {
             "name": "geiger_on_ext",
-            "directions": 4
+            "directions": 4,
+            "delays": [
+        [0.2, 0.2],
+        [0.2, 0.2],
+        [0.2, 0.2],
+        [0.2, 0.2]
+            ]
         }
     ]
 }
