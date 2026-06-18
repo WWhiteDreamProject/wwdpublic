@@ -112,7 +112,7 @@ namespace Content.Client.Administration.UI.Tabs.AdminbusTab
             if (MapPath.Text.Length == 0) return;
 
             IoCManager.Resolve<IClientConsoleHost>().ExecuteCommand(
-                $"loadbp {new MapId(MapOptions.SelectedId)} \"{MapPath.Text}\" {XCoordinate.Value} {YCoordinate.Value} {RotationSpin.Value}");
+                $"loadgrid {new MapId(MapOptions.SelectedId)} \"{MapPath.Text}\" {XCoordinate.Value} {YCoordinate.Value} {RotationSpin.Value}"); // WWDP EDIT (loadbp --> loadgrid)
         }
     }
 }

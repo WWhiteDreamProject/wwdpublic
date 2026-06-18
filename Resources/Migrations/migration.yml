@@ -499,3 +499,8 @@ FelinidCube: TajaranCube
 
 # 2025-06-21
 ClothingNeckHeadphones: ClothingMultipleHeadphones
+
+# 2026-04-22 Salvage magnet disabled via CVar, removing from maps
+SalvageMagnet: null
+SalvageLocator: null
+SalvageMagnetMachineCircuitboard: null

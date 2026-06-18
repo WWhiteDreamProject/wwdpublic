@@ -1803,14 +1803,19 @@ namespace Content.Client.Lobby.UI
                 return;
 
             var species = _species.Find(x => x.ID == Profile?.Species) ?? _species.First();
+            HeightSlider.SetValueWithoutEvent(Profile?.Height ?? species.DefaultHeight); // WWDP EDIT
+            WidthSlider.SetValueWithoutEvent(Profile?.Width ?? species.DefaultWidth); // WWDP EDIT
 
             HeightSlider.MinValue = species.MinHeight;
             HeightSlider.MaxValue = species.MaxHeight;
-            HeightSlider.SetValueWithoutEvent(Profile?.Height ?? species.DefaultHeight);
+            // HeightSlider.SetValueWithoutEvent(Profile?.Height ?? species.DefaultHeight); // WWDP EDIT
 
             WidthSlider.MinValue = species.MinWidth;
             WidthSlider.MaxValue = species.MaxWidth;
-            WidthSlider.SetValueWithoutEvent(Profile?.Width ?? species.DefaultWidth);
+            // WidthSlider.SetValueWithoutEvent(Profile?.Width ?? species.DefaultWidth); // WWDP EDIT
+
+            HeightSlider.SetValueWithoutEvent(Math.Clamp(Profile?.Height ?? species.DefaultHeight, species.MinHeight, species.MaxHeight)); // WWDP EDIT
+            WidthSlider.SetValueWithoutEvent(Math.Clamp(Profile?.Width ?? species.DefaultWidth, species.MinWidth, species.MaxWidth)); // WWDP EDIT
 
             var height = MathF.Round(species.AverageHeight * (Profile?.Height ?? species.DefaultHeight)); // WWDP EDIT
             HeightLabel.Text = Loc.GetString("humanoid-profile-editor-height-label", ("height", (int) height));
@@ -1865,6 +1870,7 @@ namespace Content.Client.Lobby.UI
 
             UpdateWeight();
             ReloadProfilePreview(); // WWDP EDIT
+            IsDirty = true; // WWDP EDIT
         }
 
         private void UpdateWeight()
@@ -1879,6 +1885,17 @@ namespace Content.Client.Lobby.UI
             {
                 var radius = fixture.Fixtures["fix1"].Shape.Radius;
                 var density = fixture.Fixtures["fix1"].Density;
+                // WWDP EDIT START
+                foreach (var traitId in Profile.TraitPreferences)
+                {
+                    if (!_prototypeManager.TryIndex<TraitPrototype>(traitId, out var trait))
+                        continue;
+                    if (traitId == "Featherweight")
+                        density *= 0.5f;
+                    else if (traitId == "Bodybuilder")
+                        density += 55f;
+                }
+                // WWDP EDIT END
                 var avg = (Profile.Width + Profile.Height) / 2;
                 var weight = MathF.Round(MathF.PI * MathF.Pow(radius * avg, 2) * density);
                 WeightLabel.Text = Loc.GetString("humanoid-profile-editor-weight-label", ("weight", (int) weight));

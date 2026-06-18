@@ -57,6 +57,11 @@ public abstract class SharedAnomalySystem : EntitySystem
 
     private void OnLand(Entity<AnomalyComponent> ent, ref LandEvent args)
     {
+        // WWDP EDIT START
+        // if anomaly in body
+        if (HasComp<InnerBodyAnomalyComponent>(ent))
+            return;
+        // WWDP EDIT END
         // revert back to static
         _physics.SetBodyType(ent, BodyType.Static);
     }
