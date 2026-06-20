@@ -7,7 +7,6 @@
   - type: AccessReader
   - type: Sprite
     sprite: Structures/Doors/Shutters/blastdoor.rsi
-    noRot: true # WWDP edit
     layers:
     - state: closed
       map: ["enum.DoorVisualLayers.Base"]

@@ -10,7 +10,6 @@
   - type: StationAiWhitelist
   - type: Sprite
     sprite: Structures/Doors/Shutters/shutters.rsi
-    noRot: true # WWDP edit
     drawdepth: BlastDoors
     layers:
     - state: closed

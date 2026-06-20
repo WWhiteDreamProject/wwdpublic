@@ -91,7 +91,7 @@
     edgeMatchKeys:
     - walls
     showEdgeIfMatching: true
-    blockAdditionalKeys:  
+    blockAdditionalKeys:
     - shutters # WWDP edit end
   - type: Construction
     graph: Window
