@@ -21,7 +21,7 @@
     sprite: Objects/Specific/Janitorial/soap.rsi
     storedRotation: -90
   - type: Slippery
-    paralyzeTime: 0.65 # WD EDIT: 2 > 0.65
+    paralyzeTime: 1 # WD EDIT: 2 > 1
     launchForwardsMultiplier: 1.5
   - type: StepTrigger
     triggerGroups:
@@ -203,7 +203,7 @@
   - type: SolutionContainerVisuals
     fillBaseName: gibs-
   - type: Slippery
-    paralyzeTime: 0.65 # WD EDIT: 2 > 0.65
+    paralyzeTime: 1 # WD EDIT: 2 > 1
   - type: StepTrigger
     triggerGroups:
       types:
@@ -231,7 +231,7 @@
   - type: SolutionContainerVisuals
     fillBaseName: omega-
   - type: Slippery
-    paralyzeTime: 4 # WD EDIT: 7 > 4
+    paralyzeTime: 5 # WD EDIT: 7 > 5
     launchForwardsMultiplier: 3
   - type: Item
     heldPrefix: omega

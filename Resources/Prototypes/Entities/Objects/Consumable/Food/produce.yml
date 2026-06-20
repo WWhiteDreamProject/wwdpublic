@@ -370,7 +370,7 @@
     sprite: Objects/Specific/Hydroponics/banana.rsi
     heldPrefix: peel
   - type: Slippery
-    paralyzeTime: 0.65 # WD ADD
+    paralyzeTime: 1 # WD ADD
     launchForwardsMultiplier: 1.5
   - type: StepTrigger
     intersectRatio: 0.2
