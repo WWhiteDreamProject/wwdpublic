@@ -618,6 +618,10 @@
         acts: ["Destruction"]
   - type: IconSmooth
     key: walls
+    matchKeys: # WWDP edit start
+    - walls
+    - airlocks
+    - shutters # WWDP edit end
     base: reinf_over
   - type: Appearance
   - type: GenericVisualizer

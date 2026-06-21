@@ -125,7 +125,8 @@
   - type: Sprite
     drawdepth: WallTops
     sprite: Structures/Windows/uranium_window_diagonal.rsi
-    state: state0
+    layers: # WWDP edit
+    - state: state0
   - type: Tag
     tags:
     - Diagonal

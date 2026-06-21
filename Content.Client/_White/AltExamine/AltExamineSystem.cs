@@ -10,6 +10,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Configuration;
 using Content.Shared._White.RenderOrderSystem;
+using Robust.Shared.GameObjects;
 using System.Numerics;
 using Direction = Robust.Shared.Maths.Direction;
 using DrawDepth = Content.Shared.DrawDepth.DrawDepth;
@@ -24,6 +25,7 @@ namespace Content.Client._White.AltExamine
         [Dependency] private readonly IConfigurationManager _cfg = default!;
         [Dependency] private readonly SharedRenderOrderSystem _renderOrder = default!;
         [Dependency] private readonly SharedTransformSystem _transform = default!;
+        [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
 
         private ISawmill _sawmill = default!;
         private float _holdTimer = 0f;
@@ -168,24 +170,123 @@ namespace Content.Client._White.AltExamine
 
             sprite.DrawDepth = (int)DrawDepth.Overlays;
             _renderOrder.MoveToTop(uid, nameof(AltExamineSystem));
+
+            if (TryComp(uid, out AppearanceComponent? appearance))
+            {
+                _appearance.SetData(uid, AltExamineVisuals.Active, true, appearance);
+            }
         }
 
         private void RestoreEffects()
         {
-            foreach (var (uid, orig) in _originalValues)
+            foreach (var (uid, (scale, dir, enableOverride, offset, postShader, color, alpha, drawDepth)) in _originalValues)
             {
                 if (!TryComp(uid, out SpriteComponent? sprite))
                     continue;
 
-                sprite.Scale = orig.scale;
-                sprite.DirectionOverride = orig.dir;
-                sprite.EnableDirectionOverride = orig.enableOverride;
-                sprite.Offset = orig.offset;
-                sprite.Color = orig.color;
-                sprite.Color = sprite.Color.WithAlpha(orig.alpha);
-                sprite.PostShader = null;
-                sprite.DrawDepth = orig.drawDepth;
+                // Scale
+                if (TryComp(uid, out AltExamineComponent? comp))
+                {
+                    if (comp.ForceScale.HasValue)
+                        sprite.Scale = comp.ForceScale.Value;
+                    else
+                        sprite.Scale = scale;
+                }
+                else
+                {
+                    sprite.Scale = scale;
+                }
+
+                // DirectionOverride
+                if (TryComp(uid, out comp))
+                {
+                    if (comp.ForceEnableOverride.HasValue)
+                    {
+                        sprite.EnableDirectionOverride = comp.ForceEnableOverride.Value;
+                        if (comp.ForceEnableOverride.Value)
+                            sprite.DirectionOverride = comp.OverrideDirection;
+                    }
+                    else
+                    {
+                        sprite.DirectionOverride = dir;
+                        sprite.EnableDirectionOverride = enableOverride;
+                    }
+                }
+                else
+                {
+                    sprite.DirectionOverride = dir;
+                    sprite.EnableDirectionOverride = enableOverride;
+                }
+
+                // Offset
+                if (TryComp(uid, out comp))
+                {
+                    if (comp.ForceOffset.HasValue)
+                        sprite.Offset = comp.ForceOffset.Value;
+                    else
+                        sprite.Offset = offset;
+                }
+                else
+                {
+                    sprite.Offset = offset;
+                }
+
+                // Color
+                if (TryComp(uid, out comp))
+                {
+                    if (comp.ForceColor.HasValue)
+                        sprite.Color = comp.ForceColor.Value;
+                    else
+                        sprite.Color = color;
+                }
+                else
+                {
+                    sprite.Color = color;
+                }
+
+                // Alpha
+                if (TryComp(uid, out comp))
+                {
+                    if (comp.ForceAlpha.HasValue)
+                        sprite.Color = sprite.Color.WithAlpha(comp.ForceAlpha.Value);
+                    else
+                        sprite.Color = sprite.Color.WithAlpha(alpha);
+                }
+                else
+                {
+                    sprite.Color = sprite.Color.WithAlpha(alpha);
+                }
+
+                // Shader
+                if (TryComp(uid, out comp) && comp.ForceShader != null)
+                {
+                    if (_protoMan.TryIndex<ShaderPrototype>(comp.ForceShader, out var forceShaderProto))
+                    {
+                        var forceShader = forceShaderProto.InstanceUnique();
+                        sprite.PostShader = forceShader;
+                    }
+                }
+                else
+                {
+                    sprite.PostShader = null;
+                }
+
+                // DrawDepth
+                if (TryComp(uid, out comp) && comp.ForceDrawDepth.HasValue)
+                {
+                    sprite.DrawDepth = comp.ForceDrawDepth.Value;
+                }
+                else
+                {
+                    sprite.DrawDepth = drawDepth;
+                }
+
                 _renderOrder.UnsetRenderOrder(uid, nameof(AltExamineSystem));
+
+                if (TryComp(uid, out AppearanceComponent? appearance))
+                {
+                    _appearance.SetData(uid, AltExamineVisuals.Active, false, appearance);
+                }
             }
             _originalValues.Clear();
         }
@@ -205,5 +306,15 @@ namespace Content.Client._White.AltExamine
             RestoreEffects();
             base.Shutdown();
         }
+    }
+
+    public enum AltExamineVisuals
+    {
+        Active
+    }
+
+    public enum AltExamineVisualLayers : byte
+    {
+        Overlay
     }
 }

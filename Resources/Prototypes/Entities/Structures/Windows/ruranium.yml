@@ -130,7 +130,8 @@
   - type: Sprite
     drawdepth: WallTops
     sprite: Structures/Windows/reinforced_uranium_diagonal.rsi
-    state: state0
+    layers: # WWDP edit
+    - state: state0
   - type: Tag
     tags:
     - Diagonal
