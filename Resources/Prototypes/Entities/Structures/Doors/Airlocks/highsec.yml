@@ -57,6 +57,8 @@
     containers:
       board: !type:Container
   - type: Door
+    closeTimeTwo: 0.81
+    openTimeTwo: 0.81
     crushDamage:
       types:
         Blunt: 50
