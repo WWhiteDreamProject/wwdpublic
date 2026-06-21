@@ -13,10 +13,12 @@
   guidePrototype: SlimePerson
   groupPrototype: Humanoid
 
-- type: speciesDictionary
-  id: Oni
-  guidePrototype: Oni
-  groupPrototype: Other
+# WWDP EDIT START
+# - type: speciesDictionary
+#   id: Oni
+#   guidePrototype: Oni
+#   groupPrototype: Other
+# WWDP EDIT END
 
 - type: speciesDictionary
   id: Felinid
@@ -33,20 +35,22 @@
   guidePrototype: Diona
   groupPrototype: Other
 
-- type: speciesDictionary
-  id: Shadowkin
-  guidePrototype: Shadowkin
-  groupPrototype: Other
+# WWDP EDIT START
+# - type: speciesDictionary
+#   id: Shadowkin
+#   guidePrototype: Shadowkin
+#   groupPrototype: Other
 
-- type: speciesDictionary
-  id: Tajaran
-  guidePrototype: Tajaran
-  groupPrototype: Other
+# - type: speciesDictionary
+#   id: Tajaran
+#   guidePrototype: Tajaran
+#   groupPrototype: Other
 
-- type: speciesDictionary
-  id: Xelthia
-  guidePrototype: Xelthia
-  groupPrototype: Other
+# - type: speciesDictionary
+#   id: Xelthia
+#   guidePrototype: Xelthia
+#   groupPrototype: Other
+# WWDP EDIT END
 
 - type: speciesDictionary
   id: Arachnid
@@ -73,7 +77,9 @@
   guidePrototype: Plasmaman
   groupPrototype: Other
 
-- type: speciesDictionary
-  id: Thaven
-  guidePrototype: Thaven
-  groupPrototype: Other
+# WWDP EDIT START
+# - type: speciesDictionary
+#   id: Thaven
+#   guidePrototype: Thaven
+#   groupPrototype: Other
+# WWDP EDIT END

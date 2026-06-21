@@ -51135,7 +51135,7 @@ entities:
 
             - [color=yellow]Проникающий[/color] урон снижается на [color=lightblue]30%[/color].
 
-            - [color=aqua]Stamina[/color] damage reduced by [color=lightblue]25%[/color].
+            - [color=aqua]Выносливость[/color] крепче на [color=lightblue]25%[/color].
           priority: 0
           component: Armor
         title: null
@@ -51306,7 +51306,7 @@ entities:
 
             - [color=yellow]Тепловой[/color] урон снижается на [color=lightblue]35%[/color].
 
-            - [color=aqua]Stamina[/color] damage reduced by [color=lightblue]35.000003814697266%[/color].
+            - [color=aqua]Выносливость[/color] крепче на [color=lightblue]35%[/color].
 
             - [color=orange]Взрывной[/color] урон снижен благодаря [color=lightblue]60%[/color].
           priority: 0

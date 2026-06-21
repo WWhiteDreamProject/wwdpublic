@@ -119,7 +119,7 @@ public class GunSpreadOverlay : Overlay
 
         if (_guns.IsRestrictedFire(gunUid, player.Value))
             direction = new Angle(_transform.GetWorldRotation(gunUid) - direction.ToWorldAngle()).RotateVec(direction);
-            
+
 
         DrawSpread(worldHandle, gun, from, direction, timeSinceLastFire, maxBonusSpread, bonusSpread, maxSpread, minSpread, currentAngle);
     }

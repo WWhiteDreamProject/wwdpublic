@@ -1,11 +1,11 @@
-ent-StandardNanotrasenStation = ""
-   .desc = ""
+ent-StandardNanotrasenStation = { "" }
+   .desc = { "" }
 
-ent-NanotrasenCentralCommand = ""
-   .desc = ""
+ent-NanotrasenCentralCommand = { "" }
+   .desc = { "" }
 
-ent-BaseLogicItem = ""
-   .desc = ""
+ent-BaseLogicItem = { "" }
+   .desc = { "" }
 
 ent-LogicGate = логический вентиль
    .desc = Логический элемент с двумя входами и одним выходом. Техники могут изменить его режим работы с помощью отвертки.

@@ -92,7 +92,7 @@ public sealed class SmartEquipSystem : EntitySystem
 
         if (!TryComp<InventoryComponent>(uid, out var inventory) || !_inventory.HasSlot(uid, equipmentSlot, inventory))
         {
-            _popup.PopupClient(Loc.GetString("smart-equip-missing-equipment-slot", ("slotName", equipmentSlot)), uid, uid);
+            _popup.PopupClient(Loc.GetString("smart-equip-missing-equipment-slot", ("slotName", Loc.GetString($"smart-equip-slot-{equipmentSlot}"))), uid, uid); // WWDP EDIT (loc)
             return;
         }
 
@@ -130,7 +130,7 @@ public sealed class SmartEquipSystem : EntitySystem
             return;
         }
         // WD EDIT END
-        var emptyEquipmentSlotString = Loc.GetString("smart-equip-empty-equipment-slot", ("slotName", equipmentSlot));
+        var emptyEquipmentSlotString = Loc.GetString("smart-equip-empty-equipment-slot", ("slotName", Loc.GetString($"smart-equip-slot-{equipmentSlot}"))); // WWDP EDIT (loc)
 
         // case 1 (no slot item):
         if (slotEntity is not { } slotItem)

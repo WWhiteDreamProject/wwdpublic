@@ -6,7 +6,7 @@ namespace Content.Shared.Overlays.Switchable;
 
 public abstract partial class SwitchableOverlayComponent : BaseOverlayComponent
 {
-    [DataField, AutoNetworkedField]
+    [DataField]
     public virtual bool IsActive { get; set; }
 
     [DataField]
@@ -39,7 +39,7 @@ public abstract partial class SwitchableOverlayComponent : BaseOverlayComponent
         new SoundPathSpecifier("/Audio/Items/Goggles/deactivate.ogg");
 
     [DataField]
-    public virtual string? ToggleAction { get; set; }
+    public virtual EntProtoId? ToggleAction { get; set; }
 
     [ViewVariables]
     public EntityUid? ToggleActionEntity;

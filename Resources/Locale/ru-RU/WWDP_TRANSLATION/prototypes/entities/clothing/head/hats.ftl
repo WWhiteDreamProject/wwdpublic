@@ -115,7 +115,7 @@ ent-ClothingHeadHatVioletwizard = фиолетовая волшебная шля
     .suffix = { "" }
 
 ent-ClothingHeadHatWarden = фуражка смотрителя
-    .desc = Фуражка офицера полиции. Эта фуражка подчеркивает, что вы - ЗАКОН.
+    .desc = Фуражка офицера полиции. Эта фуражка подчеркивает, что вы — ЗАКОН.
     .suffix = { "" }
 
 ent-ClothingHeadHatWitch = ведьмина шляпа

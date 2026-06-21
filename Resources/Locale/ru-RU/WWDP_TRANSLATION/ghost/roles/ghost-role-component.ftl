@@ -1,15 +1,15 @@
 ghost-role-information-Shiva-name = Шива
 
-ghost-role-information-Shiva-description = Вы - паук-защитник. Защищайте же станцию до самого конца!
+ghost-role-information-Shiva-description = Вы — паук-защитник. Защищайте же станцию до самого конца!
 
 
-ghost-role-information-revenant-rules = Вы - антагонист, собираете урожай, оскверняете и сводите команду с ума.
+ghost-role-information-revenant-rules = Вы — антагонист, собираете урожай, оскверняете и сводите команду с ума.
 
 
-ghost-role-information-rat-king-rules = Вы - антагонист, собирайте мусор, атакуйте и увеличивайте свои запасы!
+ghost-role-information-rat-king-rules = Вы — антагонист, собирайте мусор, атакуйте и увеличивайте свои запасы!
 
 
-ghost-role-information-rat-servant-rules = Вы - антагонист, собирайте мусор, атакуйте и служите своему королю!
+ghost-role-information-rat-servant-rules = Вы — антагонист, собирайте мусор, атакуйте и служите своему королю!
 
 
 ghost-role-information-salvage-shark-name = Космическая карпоакула на обломке
@@ -74,28 +74,28 @@ ghost-role-information-salvage-flesh-description = Защищайте сокро
 
 ghost-role-information-onestar-mecha-name = Меха Звёздочка
 
-ghost-role-information-onestar-mecha-description = Вы - экспериментальный механизм, созданный неизвестно кем, все, что вы знаете, это то, что у вас есть оружие и вы обнаруживаете поблизости мясистые движущиеся цели...
+ghost-role-information-onestar-mecha-description = Вы — экспериментальный механизм, созданный неизвестно кем, все, что вы знаете, это то, что у вас есть оружие и вы обнаруживаете поблизости мясистые движущиеся цели...
 
-ghost-role-information-onestar-mecha-rules = Используйте свое оружие, чтобы сеять хаос. Вы - антагонист.
-
-
-ghost-role-information-remilia-rules = Вы - умная фруктовая летучая мышь. Следуйте за священником повсюду. Не создавайте никаких проблем, если только священник не прикажет вам это сделать.
+ghost-role-information-onestar-mecha-rules = Используйте свое оружие, чтобы сеять хаос. Вы — антагонист.
 
 
-ghost-role-information-cerberus-rules = Вы - умная демоническая собака. Постарайтесь помочь священнику и любому из его паствы. Как антагонист, вы не сдержаны ни в чем.
+ghost-role-information-remilia-rules = Вы — умная фруктовая летучая мышь. Следуйте за священником повсюду. Не создавайте никаких проблем, если только священник не прикажет вам это сделать.
 
 
-ghost-role-information-Cak-rules = Вы - живой съедобный сладкий кот. Ваша задача - найти своё место в этом мире, где всё хочет вас съесть.
+ghost-role-information-cerberus-rules = Вы — умная демоническая собака. Постарайтесь помочь священнику и любому из его паствы. Как антагонист, вы не сдержаны ни в чем.
 
 
-ghost-role-information-BreadDog-rules = Вы - съедобная собака, сделанная из хлеба. Ваша задача - найти своё место в этом мире, где всё хочет вас съесть.
+ghost-role-information-Cak-rules = Вы — живой съедобный сладкий кот. Ваша задача — найти своё место в этом мире, где всё хочет вас съесть.
+
+
+ghost-role-information-BreadDog-rules = Вы — съедобная собака, сделанная из хлеба. Ваша задача — найти своё место в этом мире, где всё хочет вас съесть.
 
 
 ghost-role-information-exterminator-name = Экстерминатор
 
 ghost-role-information-exterminator-description = Вас отправили в прошлое, чтобы уничтожить цель, имеющую огромную важность для будущего.
 
-ghost-role-information-exterminator-rules = Вы - антагонист и можете убивать всех, кто пытается вам помешать, но убийство цели - всегда ваш наивысший приоритет.
+ghost-role-information-exterminator-rules = Вы — антагонист и можете убивать всех, кто пытается вам помешать, но убийство цели — всегда ваш наивысший приоритет.
 
 
 ghost-role-information-space-ninja-rules = Вы элитный наёмник Клана Пауков. От вас не требуется следовать поставленным целям, но ваша ЧЕСТЬ НИНДЗЯ требует хотя бы попытаться.
@@ -104,3 +104,7 @@ ghost-role-information-space-ninja-rules = Вы элитный наёмник К
 host-role-information-syndicate-reinforcement-name = Агент Синдиката
 
 ghost-role-information-syndicate-monkey-reinforcement-rules = Действуют обычные правила антагонистов Синдиката. Работайте с тем, кто вас вызвал, и не причиняйте ему вреда.
+
+ghost-role-information-salvage-snake-name = Змея с экспедиции
+ghost-role-information-salvage-snake-description = Вы — змея с экспедиции, охотящаяся за едой.
+ghost-role-information-salvage-snake-rules = Вы — антагонист. Убивайте!

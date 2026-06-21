@@ -59,13 +59,13 @@
   id: HideFromGhostWarps
 
 - type: Tag
-  id: ForceDirectionFixRotations
+  id: DeleteOnGamerule
 
 - type: Tag
-  id: ForceNoDirectionFixRotations
+  id: SlimeEmotes
 
 - type: Tag
-  id: Marker
-
+  id: MothEmotes
+  
 - type: Tag
-  id: Table
+  id: MortarGrenade

@@ -1,2 +1,2 @@
-greenshift-title = Гриншифт
+greenshift-title = Спокойная Смена (Гриншифт)
 greenshift-description = Пресет без событий, чтобы мероприятия админов проходили без помех.

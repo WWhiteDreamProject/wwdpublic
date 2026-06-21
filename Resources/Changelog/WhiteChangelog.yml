@@ -945,8 +945,8 @@ Entries:
     - type: Add
       message: >-
         Добавлена барьерная граната, которая развёртывает закреплённый барьер на
-        месте своего падения. Можно заказать в карго за 2000 кредитов, или взять
-        в автомате со снаряжением СБ.
+        месте своего падения. Можно заказать в карго за 2000 спесо, или взять в
+        автомате со снаряжением СБ.
   id: 101
   time: '2024-12-16T18:15:52.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/167
@@ -956,7 +956,7 @@ Entries:
       message: >-
         All /tg/gases have been added. Good luck stopping atmos tech on nitrium
         and healium. / Добавлены все /tg/ газы. Желаю удачи остановить атмоса
-        под нитриумом и хилиумом. / 
+        под нитриумом и хилиумом. /
   id: 102
   time: '2024-12-17T07:08:35.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/147
@@ -1253,7 +1253,7 @@ Entries:
     - type: Tweak
       message: >-
         Время До возможности переродится теперь может показывать секунды, если
-        осталось меньше минуты 
+        осталось меньше минуты
     - type: Fix
       message: Время смерти призрака при осмотре теперь показывается правильно
     - type: Fix
@@ -2528,7 +2528,7 @@ Entries:
     - type: Tweak
       message: >-
         Теперь если в яму бинглов закинуть любой контейнер - очки будут
-        прибавляться за каждую сущность, содержащуюся в этом контейнере. 
+        прибавляться за каждую сущность, содержащуюся в этом контейнере.
     - type: Tweak
       message: >-
         Теперь если в яме бинглов окажется стак чего-либо, то количество
@@ -3151,7 +3151,7 @@ Entries:
     - type: Add
       message: >-
         Модульная турель, использующая обычное ручное оружие. Глупая, поэтому
-        для наведения требуется помощь человека, в той или иной форме. 
+        для наведения требуется помощь человека, в той или иной форме.
   id: 342
   time: '2025-06-11T08:04:48.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/551
@@ -3778,7 +3778,7 @@ Entries:
     - type: Tweak
       message: >-
         Космонавтик после лечения больше  не будет автоматически вставать и
-        слазать с кроватей. 
+        слазать с кроватей.
   id: 399
   time: '2025-07-12T02:28:45.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/669
@@ -3986,9 +3986,7 @@ Entries:
 - author: Kutos
   changes:
     - type: Fix
-      message: >-
-        Пофикшена невозможность собрать машину  + корректно получает
-        локализацию 
+      message: Пофикшена невозможность собрать машину  + корректно получает локализацию
   id: 425
   time: '2025-08-02T06:36:31.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/733
@@ -4792,7 +4790,7 @@ Entries:
     - type: Add
       message: >-
         Инерция. При беге персонаж теперь чуть медленнее разгоняется с места и
-        при резких разворотах. 
+        при резких разворотах.
   id: 505
   time: '2025-12-29T14:27:55.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/979
@@ -5087,3 +5085,267 @@ Entries:
   id: 534
   time: '2026-02-17T16:41:55.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1044
+- author: kekoven1
+  changes:
+    - type: Add
+      message: >-
+        добавлены Инфернал и Шадовкин как варианты типа псикастера в чертах
+        персонажа
+  id: 535
+  time: '2026-02-21T20:26:28.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1072
+- author: Spatison
+  changes:
+    - type: Add
+      message: Добавлен ручной телепортер, создающий портал к маячку.
+    - type: Tweak
+      message: Джетпаки теперь работают без гравитации
+    - type: Tweak
+      message: 'Дальность полета снаряда стационарного ракетомёта увеличена: 20 -> 120'
+    - type: Tweak
+      message: >-
+        Скорость полета снарядов стационарного орудия (за исключением
+        ракетомётов) увеличена: 25 -> 60
+  id: 536
+  time: '2026-03-06T10:13:42.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1076
+- author: Myaflic
+  changes:
+    - type: Fix
+      message: >-
+        Исправлены некоторые части UI в редакторе персонажей ||(старых
+        персонажей можно импортировать; поиск по всем лоадаутам . . . +1)||.
+    - type: Add
+      message: >-
+        Переводы редактора персонажей и всего меню лобби ||(кроме руководства и
+        панели администратора)|| и полезные фичи ||(скрытие недоступных
+        категорий; переключатель скрытия недоступных категорий; поле с пределом
+        максимального количества символов во флаворе для удобства написания
+        описания персонажа . . . +1)||.
+  id: 537
+  time: '2026-03-07T21:22:20.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1056
+- author: Spatison
+  changes:
+    - type: Tweak
+      message: >-
+        Корабельные турели удаленного контроля теперь имеют расширенный обзор и
+        способность прицеливаться
+    - type: Fix
+      message: Исправлен интерфейс сканера масс
+    - type: Fix
+      message: Псевдо 3д текстуры теперь не ломают реплеи
+  id: 538
+  time: '2026-03-08T13:24:54.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1080
+- author: Myaflic
+  changes:
+    - type: Tweak
+      message: Фелиниды теперь могут брать трейт «Несокрушимый».
+  id: 539
+  time: '2026-03-18T04:36:02.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1085
+- author: Sevasstyan
+  changes:
+    - type: Fix
+      message: Бесплатные пистолетные магазины в сб техфабе больше не бесплатные.
+  id: 540
+  time: '2026-03-18T11:49:30.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1087
+- author: SentryPrimies
+  changes:
+    - type: Add
+      message: >-
+        Добавлены новые спрайты Инженерному, Продвинотому Инженерному, и
+        Атмосферному хардсьюту.
+    - type: Remove
+      message: 'Удалены старые спрайты вышеприведённых скафандров '
+  id: 541
+  time: '2026-03-19T18:36:24.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1089
+- author: SentryPrimies
+  changes:
+    - type: Add
+      message: Добавлены новые спрайты старым инженерным комбинезонам
+  id: 542
+  time: '2026-03-24T16:57:18.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1091
+- author: SentryPrimies
+  changes:
+    - type: Add
+      message: Добавлены новые спрайты хранилищам скафандров
+  id: 543
+  time: '2026-03-24T16:57:47.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1092
+- author: kekoven1
+  changes:
+    - type: Add
+      message: добавлена псионная мощь "6аpокинeз"
+  id: 544
+  time: '2026-03-30T19:51:59.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1086
+- author: RedFoxIV
+  changes:
+    - type: Tweak
+      message: >-
+        Более красивые иконки для корабельных снарядов, засветившихся на радаре.
+        В первую очередь будет заметно на ивентах с корабликами.
+  id: 545
+  time: '2026-03-31T09:53:17.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1094
+- author: DDDecard
+  changes:
+    - type: Fix
+      message: Исправлен расчет выработки энергии ДАМа
+  id: 546
+  time: '2026-03-31T09:57:50.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1096
+- author: Pedro-233
+  changes:
+    - type: Add
+      message: Добавлены старые текстуры в радиалах РЦД
+    - type: Remove
+      message: Удалены старые текстуры в радиалах РЦД
+  id: 547
+  time: '2026-04-04T12:50:03.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1098
+- author: Gersoon458
+  changes:
+    - type: Add
+      message: Обнова на Альмагест. Стены, пушки, смехуечки
+  id: 548
+  time: '2026-04-04T16:12:16.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1104
+- author: Pedro-233
+  changes:
+    - type: Tweak
+      message: Изменено то как лежат некоторые предметы
+  id: 549
+  time: '2026-04-11T14:40:02.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1097
+- author: Pedro-233
+  changes:
+    - type: Tweak
+      message: Изменен урон от воды у слаймов
+  id: 550
+  time: '2026-04-11T14:40:56.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1100
+- author: Pedro-233
+  changes:
+    - type: Fix
+      message: Исправлен бесконечный стамина крит
+  id: 551
+  time: '2026-04-11T14:42:11.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1102
+- author: kekoven1
+  changes:
+    - type: Add
+      message: добавлены псикасты Жрец и Телекинетик
+  id: 552
+  time: '2026-04-11T14:45:50.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1106
+- author: Remuchi
+  changes:
+    - type: Add
+      message: >-
+        Бита для надирания задов (бита Хоса) теперь имеет широкий замах. И
+        крутит тебя, а не врага. Да, именно тебя.
+    - type: Fix
+      message: Термалы и ПВН теперь снова работают.
+    - type: Fix
+      message: >-
+        Подготовка заклинаний кровавого культа теперь снова закрывают меню
+        Осмотра при выборе.
+    - type: Fix
+      message: >-
+        Перила (а так же некоторые другие конструкции) больше не смотрят на юг
+        автоматически при создании.
+    - type: Fix
+      message: >-
+        Сгоревшие аварийные флаера больше не могут быть использованы как патрон
+        для сигнальной ракетницы.
+    - type: Fix
+      message: РПЗД теперь должен заменять детали без ошибок.
+    - type: Fix
+      message: Крафтовые станции культа теперь правильно работают с таймером.
+    - type: Fix
+      message: Крафтовые станции культа теперь могут открывать только культисты.
+  id: 553
+  time: '2026-04-16T07:53:08.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1110
+- author: Pedro-233
+  changes:
+    - type: Add
+      message: Добавлено веселье в странных таблетках :D
+  id: 554
+  time: '2026-04-16T07:54:15.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1101
+- author: DEADISKO
+  changes:
+    - type: Fix
+      message: Алерт "В ОГНЕ"
+  id: 555
+  time: '2026-05-13T07:31:29.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1131
+- author: Pedro-233
+  changes:
+    - type: Tweak
+      message: Урон мышей увеличен
+  id: 556
+  time: '2026-05-22T04:09:08.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1125
+- author: Myaflic
+  changes:
+    - type: Fix
+      message: ~~Drunk Masters~~ НаноТрейзен починили свои наушники!!
+  id: 557
+  time: '2026-05-22T04:14:50.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1124
+- author: Pedro-233
+  changes:
+    - type: Tweak
+      message: Изменены требования динамика к онлайну насчёт мидраунд ивентов
+  id: 558
+  time: '2026-05-22T06:12:40.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1113
+- author: Myaflic
+  changes:
+    - type: Add
+      message: Переводы, переводы, переводы...
+    - type: Tweak
+      message: >-
+        Все ||не все|| хреново локализированные строки локализированы правильно,
+        либо хотя-бы стараются быть локализированными нормально.
+    - type: Add
+      message: Описание расам фелинидов и вульпканинов
+  id: 559
+  time: '2026-05-22T06:23:14.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1082
+- author: Lachklen
+  changes:
+    - type: Fix
+      message: Фикс переводов.
+  id: 560
+  time: '2026-05-22T12:35:15.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1135
+- author: SentryPrimies
+  changes:
+    - type: Add
+      message: Добавлены новые спрайты хардсьютам охранников
+  id: 561
+  time: '2026-05-23T10:23:43.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1133
+- author: Spatison
+  changes:
+    - type: Fix
+      message: Режим совместимости вновь работает
+  id: 562
+  time: '2026-05-29T17:46:14.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1116
+- author: Kai518
+  changes:
+    - type: Fix
+      message: Фикс динамика
+  id: 563
+  time: '2026-06-16T18:45:31.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1148

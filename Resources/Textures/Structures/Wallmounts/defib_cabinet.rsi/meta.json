@@ -1,23 +1,27 @@
 {
   "version": 1,
-  "license": "CC-BY-SA-4.0",
-  "copyright": "Made by Gersoon based on sprite from Skyrat",
+  "license": "CC-BY-NC-SA-4.0",
+  "copyright": "Valentyi (randomm.ua) for WWhiteDreamProject, 06.04.2026",
   "size": {
-    "x": 32,
-    "y": 32
+    "x": 48,
+    "y": 48
   },
   "states": [
     {
-      "name": "closed"
+      "name": "closed",
+      "directions": 4
     },
     {
-      "name": "fill"
+      "name": "fill",
+      "directions": 4
     },
     {
-      "name": "frame"
+      "name": "frame",
+      "directions": 4
     },
     {
-      "name": "open"
+      "name": "open",
+      "directions": 4
     }
   ]
 }

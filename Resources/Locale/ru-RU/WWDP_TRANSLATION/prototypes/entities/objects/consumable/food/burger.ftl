@@ -23,7 +23,7 @@ ent-FoodBurgerTofu = тофу бургер
     .suffix = { "" }
 
 ent-FoodBurgerRobot = робобургер
-    .desc = Салат-латук - единственный органический компонент. Бип.
+    .desc = Салат-латук — единственный органический компонент. Бип.
     .suffix = { "" }
 
 ent-FoodBurgerXeno = ксенобургер
@@ -59,7 +59,7 @@ ent-FoodBurgerSpell = заколдованный бургер
     .suffix = { "" }
 
 ent-FoodBurgerBig = большой бургер
-    .desc = Забудьте о Биг Маке. ЭТО - будущее!
+    .desc = Забудьте о Биг Маке. ЭТО — будущее!
     .suffix = { "" }
 
 ent-FoodBurgerSuper = мегабургер

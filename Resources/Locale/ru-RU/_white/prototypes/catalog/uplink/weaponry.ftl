@@ -1,10 +1,10 @@
-uplink-gun-case-viper-name = Гадюка
+uplink-gun-case-viper-name = «Гадюка»
 uplink-gun-case-viper-desc = Легко скрываемый пистолет с переключаемым автоматическим режимом. Поставляется в кейсе с двумя магазинами (.35 авто).
 
-uplink-gun-case-cobra-name = Кобра
+uplink-gun-case-cobra-name = «Кобра»
 uplink-gun-case-cobra-desc = Безотказный пистолет со встроенным глушителем. Поставляется в кейсе с двумя магазинами (.25 безгильзовые).
 
-uplink-gun-case-dualetta-name = Дуэт
+uplink-gun-case-dualetta-name = «Дуэт»
 uplink-gun-case-dualetta-desc = Два пистолета марки «Дуэт» по выгодной цене. Поставляются в кейсе с двумя магазинами.
 
 uplink-blood-dagger-name = Кровавый кинжал
@@ -18,44 +18,44 @@ uplink-betrayal-dagger-desc = Предательский кинжал позво
 uplink-fire-axe-name = Пожарный топор
 uplink-fire-axe-desc = Не тушит, а разжигает пожары, поджигая цель при ударе.
 
-uplink-gun-case-fpa-90-name = FPA-90
+uplink-gun-case-fpa-90-name = «FPA-90»
 uplink-gun-case-fpa-90-desc = Дешевый пистолет-пулемет со встроенным глушителем. Поставляется в комплекте с двумя дополнительными магазинами безгильзовых патронов (.25).
 
-uplink-gun-case-m90-name = M-90
+uplink-gun-case-m90-name = «M-90»
 uplink-gun-case-m90-desc = Боевая винтовка M-90 в комплекте с двумя дополнительными магазинами (.30).
 
 uplink-energy-crossbow-name = Маленький энергетический арбалет
 uplink-energy-crossbow-desc = Довольно тихое оружие, которое автоматически перезаряжается. При попадании оглушает и затуманивает зрение противника. Хорошо сочетается с другими видами оружия.
 
-uplink-gun-case-c20r-name = C-20r
-uplink-gun-case-c20r-desc = Старый добрый: классический пистолет-пулемет C-20r в комплекте с двумя дополнительными магазинами (.35).
+uplink-gun-case-c20r-name = «C-20r»
+uplink-gun-case-c20r-desc = Старый добрый: классический пистолет-пулемет «C-20r» в комплекте с двумя дополнительными магазинами (.35).
 
-uplink-gun-case-ar31hydra-name = АР-31 "Гидра"
-uplink-gun-case-ar31hydra-desc = В прошлом, основная штурмовая винтовка Синдиката, теперь - напоминание Корпорации о том, что не все производственные мощности находятся под их контролем.
+uplink-gun-case-ar31hydra-name = «AR-31 „Гидра“»
+uplink-gun-case-ar31hydra-desc = В прошлом, основная штурмовая винтовка Синдиката, теперь — напоминание Корпорации о том, что не все производственные мощности находятся под их контролем.
 
-uplink-gun-case-wspr-name = WSPR
+uplink-gun-case-wspr-name = «WSPR»
 uplink-gun-case-wspr-desc = Элегантная дозвуковая винтовка со встроенным глушителем. Если вы её слышите, значит, вы уже мертвы. В комплекте — два дополнительных магазина дозвуковых патронов .30.
 
-uplink-gun-case-bulldog-name = Бульдог
+uplink-gun-case-bulldog-name = «Бульдог»
 uplink-gun-case-bulldog-desc = Простое и эффективное: популярное ружье дробовик Бульдог в комплекте с двумя дополнительными барабанами с 12-калиберной кортечи.
 
-uplink-gun-case-china-lake-name = China-Lake
+uplink-gun-case-china-lake-name = «Чайна-Лейк»
 uplink-gun-case-china-lake-desc = Старый гранатомёт China Lake, снабжённый 11 гранатами различной поражающей способностью.
 
-uplink-gun-case-l6-saw-name = L6 Saw
+uplink-gun-case-l6-saw-name = «L6 Saw»
 uplink-gun-case-l6-saw-desc = Культовый легкий ручной пулемет L6 в комплекте с двумя дополнительными коробчатыми магазинами (.30).
 
-uplink-gun-case-mpr10xyphos-name = MPr-10 Xyphos
+uplink-gun-case-mpr10xyphos-name = «MPr-10 „Ксифос“»
 uplink-gun-case-mpr10xyphos-desc = Модификация пистолета-пулемёта в оружие для ближнего боя. (.35 авто).
 
-uplink-gun-case-cr12moros-name = CR-12 Moros
+uplink-gun-case-cr12moros-name = «CR-12 „Морос“»
 uplink-gun-case-cr12moros-desc = Основное огнестрельное оружие любого оперативника Синдиката.  (.35).
 
-uplink-gun-case-ad11cerberus-name = AD-11 Cerberus
+uplink-gun-case-ad11cerberus-name = «AD-11 „Цербер“»
 uplink-gun-case-ad11cerberus-desc = Автоматический дробовик с барабанным магазином.
 
-uplink-gun-case-m80heracles-name = M80 Heracles
+uplink-gun-case-m80heracles-name = «M80 „Геракл“»
 uplink-gun-case-m80heracles-desc = Старинное оружие массового поражения, которое используется штурмовыми отрядами наёмников.
 
-uplink-gun-case-l9centaur-name = L9 Centaur
+uplink-gun-case-l9centaur-name = «L9 „Кентавр“»
 uplink-gun-case-l9centaur-desc = Легкий пулемёт, широко распространенный во всём обитаемом космосе.

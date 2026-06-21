@@ -1,20 +1,20 @@
 ﻿<Document>
-  # Airlocks
-  Airlocks are used to control access to different areas of the station.
+  # Шлюзы
+  Шлюзы используются для контроля доступа в различные зоны станции.
 
   <Box>
     <GuideEntityEmbed Entity="Airlock" Caption=""/>
     <GuideEntityEmbed Entity="AirlockGlass" Caption=""/>
   </Box>
 
-  Airlocks can be opened using either [color=yellow][bold][keybind="Use"][/bold][/color] with an empty hand, [color=yellow][bold][keybind="ActivateItemInWorld"][/bold][/color] if hands are full, or by colliding with the airlock.
+  Шлюзы можно открыть, используя [color=yellow][bold][keybind="Use"][/bold][/color] пустой рукой, [color=yellow][bold][keybind="ActivateItemInWorld"][/bold][/color], если руки заняты, или столкнувшись со шлюзом.
 
-  Airlocks will only open if you have an ID card with the correct access level.
-  The ID card must be in your hand or in your ID slot.
-  In the case of having multiple IDs, the airlock will check them all when you try to open it.
-  This behavior is also the same for IDs in a PDA.
+  Шлюзы откроются только в том случае, если у вас есть ID-карта с соответствующим уровнем доступа.
+  ID-карта должна быть в вашей руке или в слоте ID.
+  Если у вас несколько ID, шлюз проверит их все, когда вы попытаетесь его открыть.
+  Это поведение также применимо к ID в КПК.
 
-  The access level required to open the door can be modified using an Access Configurator, or by using a Multitool on the door electronics for the airlock (which requires deconstruction).
+  Требуемый для открытия двери уровень доступа можно изменить с помощью Конфигуратора доступа или с помощью мультитула на электронике двери шлюза (для этого требуется демонтаж).
 
   <Box>
     <GuideEntityEmbed Entity="AccessConfigurator" Caption=""/>
@@ -22,21 +22,21 @@
     <GuideEntityEmbed Entity="DoorElectronics" Caption=""/>
   </Box>
 
-  Airlocks block gas flow, so they can be used to seal off areas in case of a [textlink="hull breach" link="Spacing"] or a [textlink="fire." link="Fires"]
-  They also store gas on their tile, even when closed, so be careful when opening them during or after a gas leak.
+  Шлюзы блокируют поток газа, поэтому их можно использовать для изоляции зон в случае [textlink="разгерметизации корпуса" link="Spacing"] или [textlink="пожара." link="Fires"]
+  Они также сохраняют газ на своей клетке, даже когда закрыты, поэтому будьте осторожны при открытии во время или после утечки газа.
 
-  ## Bolting and Emergency Access
-  Airlocks can be bolted to prevent them from being opened or pried open by hand. When this occurs, the airlock will display red lights on the top of the door.
+  ## Блокировка и аварийный доступ
+  Шлюзы могут быть заблокированы (заболтированы), чтобы предотвратить их открытие или взлом вручную. Когда это происходит, на шлюзе загораются красные огни в верхней части двери.
 
-  Airlocks can also be set to emergency access. In this mode, anyone can open the airlock, regardless of access level. When this occurs, the airlock will display flashing yellow lights on the top of the door.
+  Шлюзы также можно перевести в режим аварийного доступа. В этом режиме любой может открыть шлюз, независимо от уровня доступа. Когда это происходит, на шлюзе мигают желтые огни в верхней части двери.
 
-  ## Remote Control
-  Airlocks can be controlled remotely, either by the station AI or by using a Door Remote.
+  ## Дистанционное управление
+  Шлюзами можно управлять дистанционно, либо с помощью ИИ станции, либо с помощью дверного пульта.
   <Box>
     <GuideEntityEmbed Entity="PlayerStationAiEmpty" Caption=""/>
   </Box>
   <Box>
-    [color=#999999][italic]The Station AI, which has remote control over all airlocks[italic][/color]
+    [color=#999999][italic]ИИ станции, имеющий удаленный доступ ко всем шлюзам[italic][/color]
   </Box>
 
   <Box>
@@ -48,20 +48,19 @@
     <GuideEntityEmbed Entity="DoorRemoteResearch" Caption=""/>
   </Box>
   <Box>
-    [color=#999999][italic]Precious door remotes. With unlimited power...[italic][/color]
+    [color=#999999][italic]Драгоценные дверные пульты. С безграничной мощью...[italic][/color]
   </Box>
 
+  Главы отделов обычно получают дверные пульты для своих соответствующих отделов.
 
-  Department heads usually get door remotes for their respective department.
+  С помощью этих пультов они могут открывать, закрывать, блокировать и устанавливать аварийный доступ.
 
-  They can open, close, bolt, and set to emergency access using these remotes.
+  ## Подключение
+  Шлюзы можно подключать с помощью [textlink="связи" link="Networking"] к другим устройствам.
+  Это позволяет создавать правильные шлюзы в космос или связывать несколько шлюзов вместе.
 
-  ## Linking
-  Airlocks can be linked using the [textlink="Link" link="Networking"] system to other devices.
-  This allows for proper station airlocks to space, or to link multiple airlocks together.
-
-  ## Styling
-  Airlocks can come in different styles to match station departments. The department style commonly reflects the required access level.
+  ## Стили
+  Шлюзы могут быть разных стилей, соответствующих отделам станции. Стиль отдела часто отражает требуемый уровень доступа.
 
   <Box>
     <GuideEntityEmbed Entity="Airlock" Caption=""/>
@@ -82,56 +81,56 @@
     <GuideEntityEmbed Entity="AirlockSecurityGlass" Caption=""/>
   </Box>
 
-  Airlocks can be repainted using a spray painter.
+  Шлюзы можно перекрашивать с помощью краскопульта.
   <Box>
     <GuideEntityEmbed Entity="SprayPainter" Caption=""/>
   </Box>
 
-  ## Wiring
-  Airlocks have internal wiring under their maintenance panel, which can be opened using a screwdriver.
-  Each wire controls some aspect of the airlock's functionality.
-  When you either pulse, cut, or mend the wire, it will affect the airlock in different ways.
+  ## Проводка
+  Шлюзы имеют внутреннюю проводку под сервисной панелью, которую можно открыть с помощью отвертки.
+  Каждый провод управляет некоторым аспектом функциональности шлюза.
+  Когда вы подаете импульс, перерезаете или восстанавливаете провод, это влияет на шлюз по-разному.
 
-  The lights next to the wires will indicate the status of the wire:
-  - A steady light indicates that the system is functioning as normal.
-  - A flashing light indicates that the system is malfunctioning. It is either not working or is behaving not as intended.
-  - No light indicates that the system is not powered.
+  Лампочки рядом с проводами указывают на статус провода:
+  - Постоянно горящий свет указывает на то, что система функционирует нормально.
+  - Мигающий свет указывает на то, что система неисправна. Она либо не работает, либо ведет себя не так, как задумано.
+  - Отсутствие света указывает на то, что система обесточена.
 
-  Below is a list of the wires and their functions:
+  Ниже приведен список проводов и их функций:
 
-  [color=#a4885c]Bolt Wire (BOLT)[/color]
-  - [color=yellow]Pulse the wire[/color]: Bolts or unbolts the door.
-  - [color=red]Cut the wire[/color]: Bolts the door.
-  - [color=green]Mend the wire[/color]: Does nothing.
+  [color=#a4885c]Провод болтов (BOLT)[/color]
+  - [color=yellow]Подать импульс[/color]: Блокирует или разблокирует дверь.
+  - [color=red]Перерезать провод[/color]: Блокирует дверь.
+  - [color=green]Восстановить провод[/color]: Ничего не делает.
 
-  [color=#a4885c]Power Wire (POWR)[/color]
-  - [color=yellow]Pulse the wire[/color]: Cuts power to the door for a short time.
-  - [color=red]Cut the wire[/color]: Either cuts power to the door if both power wires are cut, or causes a short circuit if only one is cut, shocking people without insulated gloves.
-  - [color=green]Mend the wire[/color]: Either restores power to the door if both power wires are cut, or stops the short circuit if only one is cut.
+  [color=#a4885c]Провод питания (POWR)[/color]
+  - [color=yellow]Подать импульс[/color]: Отключает питание двери на короткое время.
+  - [color=red]Перерезать провод[/color]: Либо отключает питание двери, если перерезаны оба провода питания, либо вызывает короткое замыкание, если перерезан только один, поражая током людей без изолированных перчаток.
+  - [color=green]Восстановить провод[/color]: Либо восстанавливает питание двери, если оба провода питания были перерезаны, либо прекращает короткое замыкание, если был перерезан только один.
 
-  [color=#a4885c]Log Wire (LOG)[/color]
-  - [color=yellow]Pulse the wire[/color]: Temporary disables door logging.
-  - [color=red]Cut the wire[/color]: Disables door logging.
-  - [color=green]Mend the wire[/color]: Re-enables door logging.
+  [color=#a4885c]Провод журнала (LOG)[/color]
+  - [color=yellow]Подать импульс[/color]: Временно отключает ведение журнала двери.
+  - [color=red]Перерезать провод[/color]: Отключает ведение журнала двери.
+  - [color=green]Восстановить провод[/color]: Включает ведение журнала двери.
 
-  [color=#a4885c]Bolt Light (BLIT)[/color]
-  - [color=yellow]Pulse the wire[/color]: Turns the system off temporarily, or turns it back on.
-  - [color=red]Cut the wire[/color]: Prevents the bolt light from turning on, which communicates if the door is bolted or not.
-  - [color=green]Mend the wire[/color]: Turns the system back on.
+  [color=#a4885c]Лампа болтов (BLIT)[/color]
+  - [color=yellow]Подать импульс[/color]: Временно отключает систему или включает ее обратно.
+  - [color=red]Перерезать провод[/color]: Предотвращает включение лампы болтов, которая сигнализирует, заблокирована дверь или нет.
+  - [color=green]Восстановить провод[/color]: Включает систему обратно.
 
-  [color=#a4885c]Timer Light (TIMR)[/color]
-  - [color=yellow]Pulse the wire[/color]: Reduces the door timer temporarily.
-  - [color=red]Cut the wire[/color]: Disables the timer. The door will close as soon as it is safe to do so.
-  - [color=green]Mend the wire[/color]: Re-enables the timer.
+  [color=#a4885c]Лампа таймера (TIMR)[/color]
+  - [color=yellow]Подать импульс[/color]: Временно сокращает таймер двери.
+  - [color=red]Перерезать провод[/color]: Отключает таймер. Дверь закроется, как только это станет безопасно.
+  - [color=green]Восстановить провод[/color]: Включает таймер.
 
-  [color=#a4885c]Safety Light (SAFE)[/color]
-  - [color=yellow]Pulse the wire[/color]: Disables the safety system temporarily.
-  - [color=red]Cut the wire[/color]: Disables the safety system. The door will close even if there is an obstruction.
-  - [color=green]Mend the wire[/color]: Re-enables the safety system.
+  [color=#a4885c]Лампа безопасности (SAFE)[/color]
+  - [color=yellow]Подать импульс[/color]: Временно отключает систему безопасности.
+  - [color=red]Перерезать провод[/color]: Отключает систему безопасности. Дверь будет закрываться, даже если есть препятствие.
+  - [color=green]Восстановить провод[/color]: Включает систему безопасности.
 
-  [color=#a4885c]AI Access Light (AIA)[/color]
-  - [color=yellow]Pulse the wire[/color]: Does nothing.
-  - [color=red]Cut the wire[/color]: Disables AI access. The AI can no longer control the door.
-  - [color=green]Mend the wire[/color]: Re-enables AI access.
+  [color=#a4885c]Лампа доступа ИИ (AIA)[/color]
+  - [color=yellow]Подать импульс[/color]: Ничего не делает.
+  - [color=red]Перерезать провод[/color]: Отключает доступ ИИ. ИИ больше не может управлять дверью.
+  - [color=green]Восстановить провод[/color]: Включает доступ ИИ.
 
 </Document>

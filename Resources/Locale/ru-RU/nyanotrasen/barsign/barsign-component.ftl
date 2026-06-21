@@ -1,6 +1,6 @@
 ## Whiskey Echoes
 barsign-prototype-name-whiskeyecho = Отголоски Виски
-barsign-prototype-description-whiskeyecho = Ух ты, парень! Садись и выпей! Независимо от твоей принадлежности, лозунг здесь - «Смерть трезвости!».
+barsign-prototype-description-whiskeyecho = Ух ты, парень! Садись и выпей! Независимо от твоей принадлежности, лозунг здесь: «Смерть трезвости!»
 
 ## Klub Skub
 ## Klub Skub

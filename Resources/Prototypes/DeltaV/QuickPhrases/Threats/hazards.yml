@@ -1,7 +1,7 @@
 - type: quickPhrase
   id: BaseHazardThreatPhrase
   parent: BaseThreatPhrase
-  group: Hazards
+  group: aac-group-hazards
   styleClass: EngineeringButton
   abstract: true
 

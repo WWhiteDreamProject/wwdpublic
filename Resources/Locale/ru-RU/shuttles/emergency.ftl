@@ -16,7 +16,7 @@ emergency-shuttle-command-launch-desc = Досрочно запускает эв
 
 # Emergency shuttle
 # Emergency shuttle
-emergency-shuttle-left = Эвакуационный шаттл покинул станцию. Расчетное время прибытия шаттла на станцию ЦентКома - { $transitTime } секунд.
+emergency-shuttle-left = Эвакуационный шаттл покинул станцию. Расчетное время прибытия шаттла на станцию ЦентКома — { $transitTime } секунд.
 emergency-shuttle-launch-time = Эвакуационный шаттл будет запущен через { $consoleAccumulator } секунд.
 emergency-shuttle-docked =
     Эвакуационный шаттл пристыковался на { $direction }е станции, {$location}. Он покинет станцию через {$time} секунд.{$extended}

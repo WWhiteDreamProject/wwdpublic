@@ -1,16 +1,3 @@
-﻿- type: trait
-  id: PirateAccent
-  # slots: 0
-  # itemGroupSlots: 0
-  category: TraitsSpeechAccents
-  requirements:
-  - !type:CharacterItemGroupRequirement
-    group: TraitsAccents
-  functions:
-  - !type:TraitAddComponent
-    components:
-    - type: PirateAccent
-
 - type: trait
   id: Accentless
   category: TraitsSpeechAccents
@@ -34,21 +21,23 @@
       - type: ReplacementAccent
         accent: dwarf
 
-- type: trait
-  id: Southern
-  # slots: 0
-  # itemGroupSlots: 0
-  category: TraitsSpeechAccents
-  requirements:
-  - !type:CharacterItemGroupRequirement
-    group: TraitsAccents
-  functions:
-  - !type:TraitAddComponent
-    components:
-    - type: SouthernAccent
+# WWDP EDIT START
+# - type: trait
+#   id: SouthernAccent
+#   # slots: 0
+#   # itemGroupSlots: 0
+#   category: TraitsSpeechAccents
+#   requirements:
+#   - !type:CharacterItemGroupRequirement
+#     group: TraitsAccents
+#   functions:
+#   - !type:TraitAddComponent
+#     components:
+#     - type: SouthernAccent
+# WWDP EDIT END
 
 - type: trait
-  id: GermanAccent
+  id: PirateAccent
   # slots: 0
   # itemGroupSlots: 0
   category: TraitsSpeechAccents
@@ -58,10 +47,10 @@
   functions:
   - !type:TraitAddComponent
     components:
-    - type: GermanAccent
+    - type: PirateAccent
 
 - type: trait
-  id: RussianAccent
+  id: CowboyAccent
   # slots: 0
   # itemGroupSlots: 0
   category: TraitsSpeechAccents
@@ -71,20 +60,8 @@
   functions:
   - !type:TraitAddComponent
     components:
-    - type: RussianAccent
-
-- type: trait
-  id: FrenchAccent
-  # slots: 0
-  # itemGroupSlots: 0
-  category: TraitsSpeechAccents
-  requirements:
-  - !type:CharacterItemGroupRequirement
-    group: TraitsAccents
-  functions:
-  - !type:TraitAddComponent
-    components:
-    - type: FrenchAccent
+    - type: ReplacementAccent
+      accent: cowboy
 
 - type: trait
   id: ItalianAccent
@@ -98,6 +75,59 @@
   - !type:TraitAddComponent
     components:
     - type: MobsterAccent
+
+- type: trait
+  id: Liar
+  category: Mental
+  functions:
+  - !type:TraitAddComponent
+    components:
+    - type: ReplacementAccent
+      accent: liar
+
+- type: trait
+  id: Stutter
+  # slots: 0
+  # itemGroupSlots: 0
+  category: TraitsSpeechAccents
+  requirements:
+  - !type:CharacterJobRequirement
+    inverted: true
+    jobs:
+    - Borg
+    - MedicalBorg
+  - !type:CharacterItemGroupRequirement
+    group: TraitsAccents
+  functions:
+  - !type:TraitAddComponent
+    components:
+    - type: StutteringAccent
+      matchRandomProb: 0.1
+      fourRandomProb: 0
+      threeRandomProb: 0
+      cutRandomProb: 0
+
+- type: trait
+  id: FrontalLisp
+  # slots: 0
+  # itemGroupSlots: 0
+  category: TraitsSpeechAccents
+  requirements:
+  - !type:CharacterJobRequirement
+    inverted: true
+    jobs:
+    - Borg
+    - MedicalBorg
+  - !type:CharacterSpeciesRequirement
+    inverted: true
+    species:
+    - IPC
+  - !type:CharacterItemGroupRequirement
+    group: TraitsAccents
+  functions:
+  - !type:TraitAddComponent
+    components:
+    - type: FrontalLisp
 
 - type: trait
   id: SpanishAccent
@@ -129,133 +159,42 @@
     - type: SkeletonAccent
 
 - type: trait
-  id: NormalVision
-  category: Visual
+  id: GermanAccent
+  # slots: 0
+  # itemGroupSlots: 0
+  category: TraitsSpeechAccents
   requirements:
-  - !type:CharacterSpeciesRequirement
-    species:
-    - Harpy
-    - Vulpkanin
-  functions:
-  - !type:TraitRemoveComponent
-    components:
-    - type: UltraVision
-    - type: DogVision
-
-- type: trait
-  id: Saturnine
-  category: Mental
-  points: 2
-  requirements:
-  - !type:CharacterJobRequirement
-    inverted: true
-    jobs:
-    - Borg
-    - MedicalBorg
-  - !type:CharacterTraitRequirement
-    inverted: true
-    traits:
-    - Sanguine
-  functions:
-  - !type:TraitAddMoodlets
-    moodEffects:
-    - TraitSaturnine
-
-- type: trait
-  id: Sanguine
-  category: Mental
-  points: -2
-  requirements:
-  - !type:CharacterJobRequirement
-    inverted: true
-    jobs:
-    - Borg
-    - MedicalBorg
-  - !type:CharacterTraitRequirement
-    inverted: true
-    traits:
-    - Saturnine
-  functions:
-  - !type:TraitAddMoodlets
-    moodEffects:
-    - TraitSanguine
-
-- type: trait
-  id: AddictionNicotine
-  category: Mental
-  points: 1
-  requirements:
-  - !type:CharacterJobRequirement
-    inverted: true
-    jobs:
-    - Borg
-    - MedicalBorg
-  - !type:CharacterSpeciesRequirement
-    inverted: true
-    species:
-    - IPC
-  functions:
-  - !type:TraitAddMoodlets
-    moodEffects:
-    - NicotineWithdrawal
-
-- type: trait
-  id: Liar
-  category: Mental
+  - !type:CharacterItemGroupRequirement
+    group: TraitsAccents
   functions:
   - !type:TraitAddComponent
     components:
-    - type: ReplacementAccent
-      accent: liar
+    - type: GermanAccent
+
+# WWDP EDIT START
+#- type: trait
+#  id: RussianAccent
+#  # slots: 0
+#  # itemGroupSlots: 0
+#  category: TraitsSpeechAccents
+#  requirements:
+#  - !type:CharacterItemGroupRequirement
+#    group: TraitsAccents
+#  functions:
+#  - !type:TraitAddComponent
+#    components:
+#    - type: RussianAccent
+# WWDP EDIT END
 
 - type: trait
-  id: Manic
-  category: Mental
-  points: 0
+  id: FrenchAccent
+  # slots: 0
+  # itemGroupSlots: 0
+  category: TraitsSpeechAccents
   requirements:
-  - !type:CharacterJobRequirement
-    inverted: true
-    jobs:
-    - Borg
-    - StationAi
+  - !type:CharacterItemGroupRequirement
+    group: TraitsAccents
   functions:
   - !type:TraitAddComponent
     components:
-    - type: Manic
-
-- type: trait
-  id: Mercurial
-  category: Mental
-  points: 0
-  requirements:
-  - !type:CharacterJobRequirement
-    inverted: true
-    jobs:
-    - Borg
-    - StationAi
-  functions:
-  - !type:TraitAddComponent
-    components:
-    - type: Mercurial
-
-- type: trait
-  id: DeadEmotions
-  category: Mental
-  points: -5
-  requirements:
-  - !type:CharacterJobRequirement
-    inverted: true
-    jobs:
-    - Borg
-    - StationAi
-  - !type:CharacterTraitRequirement
-    inverted: true
-    traits:
-    - Sanguine
-    - Saturnine
-    - Manic
-    - Mercurial
-  functions:
-  - !type:TraitRemoveComponent
-    components:
-    - type: Mood
+    - type: FrenchAccent
