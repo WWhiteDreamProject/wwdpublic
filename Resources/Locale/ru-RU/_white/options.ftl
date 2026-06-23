@@ -2,3 +2,4 @@ ui-options-pixel-snap-camera-experimental = [Experimental] Pixel-Perfect кам�
 ui-options-function-precise-drop = Аккуратно положить предмет
 ui-options-enable-color-in-bubble-chat = Цветной текст в облачках
 ui-options-enable-chat-fancy-font = Красивый шрифт в чате
+ui-options-function-alt-examine = Показать развернутые сущности

@@ -1,14 +1,14 @@
 {
-  "version": 1,
-  "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from https://github.com/tgstation/tgstation at commit  17c603f1d037f22081d446b9a3f3ae8d41f52e86",
-  "size": {
-    "x": 32,
-    "y": 32
-  },
-  "states": [
+   "version":1,
+   "size":{
+      "x":32,
+      "y":32
+   },
+   "license":"CC-BY-NC-SA-4.0",
+   "copyright":"Gersoon(gersoon458) for WWhiteDreamProject, 03.03.2025",
+   "states":[
     {
-      "name": "grille"
+      "name": "full"
     },
     {
       "name": "grille_diagonal"
@@ -17,16 +17,52 @@
       "name": "grille_broken"
     },
     {
-      "name": "grille_damaged_0"
+      "name": "grille0",
+      "directions": 4
     },
     {
-      "name": "grille_damaged_1"
+      "name": "grille1",
+      "directions": 4
     },
     {
-      "name": "grille_damaged_2"
+      "name": "grille2",
+      "directions": 4
     },
     {
-      "name": "grille_damaged_3"
+      "name": "grille3",
+      "directions": 4
+    },
+    {
+      "name": "grille4",
+      "directions": 4
+    },
+    {
+      "name": "grille5",
+      "directions": 4
+    },
+    {
+      "name": "grille6",
+      "directions": 4
+    },
+    {
+      "name": "grille7",
+      "directions": 4
+    },
+    {
+      "name": "grille_south",
+      "directions": 4
+    },
+    {
+      "name": "grille_west",
+      "directions": 4
+    },
+    {
+      "name": "grille_north",
+      "directions": 4
+    },
+    {
+      "name": "grille_east",
+      "directions": 4
     }
   ]
 }

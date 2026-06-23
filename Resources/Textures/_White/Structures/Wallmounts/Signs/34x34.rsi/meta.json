@@ -1,0 +1,347 @@
+{
+   "version":1,
+   "size":{
+      "x":34,
+      "y":34
+   },
+   "license":"CC-BY-NC-SA-4.0",
+   "copyright":"Gersoon(gersoon458) for WWhiteDreamProject, 19.02.2025",
+   "states":[
+      {
+         "name": "ai",
+         "directions":4
+      },
+      {
+         "name": "ai_upload",
+         "directions":4
+      },
+      {
+         "name": "ame",
+         "directions":4
+      },
+      {
+         "name": "anchor",
+         "directions":4
+      },
+      {
+         "name": "anomaly",
+         "directions":4
+      },
+      {
+         "name": "arcade",
+         "directions":4
+      },
+      {
+         "name": "armory",
+         "directions":4
+      },
+      {
+         "name": "arrivals",
+         "directions":4
+      },
+      {
+         "name": "tool",
+         "directions":4
+      },
+      {
+         "name": "atmos",
+         "directions":4
+      },
+      {
+         "name": "bar",
+         "directions":4
+      },
+      {
+         "name": "barbershop",
+         "directions":4
+      },
+      {
+         "name": "bath",
+         "directions":4
+      },
+      {
+         "name": "biblio",
+         "directions":4
+      },
+      {
+         "name": "boxing",
+         "directions":4
+      },
+      {
+         "name": "bridge",
+         "directions":4
+      },
+      {
+         "name": "brig",
+         "directions":4
+      },
+      {
+         "name": "cans",
+         "directions":4
+      },
+      {
+         "name": "cans_sci",
+         "directions":4
+      },
+      {
+         "name": "captain",
+         "directions":4
+      },
+      {
+         "name": "cargo",
+         "directions":4
+      },
+      {
+         "name": "cargo_dock",
+         "directions":4
+      },
+      {
+         "name": "chapel",
+         "directions":4
+      },
+      {
+         "name": "check",
+         "directions":4
+      },
+      {
+         "name": "chem",
+         "directions":4
+      },
+      {
+         "name": "cloning",
+         "directions":4
+      },
+      {
+         "name": "commander",
+         "directions":4
+      },
+      {
+         "name": "conference_room",
+         "directions":4
+      },
+      {
+         "name": "court",
+         "directions":4
+      },
+      {
+         "name": "cryo",
+         "directions":4
+      },
+      {
+         "name": "data",
+         "directions":4
+      },
+      {
+         "name": "deathsposal",
+         "directions":4
+      },
+      {
+         "name": "dock",
+         "directions":4
+      },
+      {
+         "name": "doors",
+         "directions":4
+      },
+      {
+         "name": "dorms",
+         "directions":4
+      },
+      {
+         "name": "drones",
+         "directions":4
+      },
+      {
+         "name": "eng",
+         "directions":4
+      },
+      {
+         "name": "engine",
+         "directions":4
+      },
+      {
+         "name": "equip",
+         "directions":4
+      },
+      {
+         "name": "eva",
+         "directions":4
+      },
+      {
+         "name": "evac",
+         "directions":4
+      },
+      {
+         "name": "examroom",
+         "directions":4
+      },
+      {
+         "name": "gate",
+         "directions":4
+      },
+      {
+         "name": "genetics",
+         "directions":4
+      },
+      {
+         "name": "gravi",
+         "directions":4
+      },
+      {
+         "name": "hop",
+         "directions":4
+      },
+      {
+         "name": "hydro",
+         "directions":4
+      },
+      {
+         "name": "interrogation",
+         "directions":4
+      },
+      {
+         "name": "janitor",
+         "directions":4
+      },
+      {
+         "name": "kitchen",
+         "directions":4
+      },
+      {
+         "name": "laundromat",
+         "directions":4
+      },
+      {
+         "name": "law",
+         "directions":4
+      },
+      {
+         "name": "mail",
+         "directions":4
+      },
+      {
+         "name": "mats",
+         "directions":4
+      },
+      {
+         "name": "medbay",
+         "directions":4
+      },
+      {
+         "name": "miner_dock",
+         "directions":4
+      },
+      {
+         "name": "morgue",
+         "directions":4
+      },
+      {
+         "name": "news",
+         "directions":4
+      },
+      {
+         "name": "nukevault",
+         "directions":4
+      },
+      {
+         "name": "pa",
+         "directions":4
+      },
+      {
+         "name": "pods",
+         "directions":4
+      },
+      {
+         "name": "prison",
+         "directions":4
+      },
+      {
+         "name": "psychology",
+         "directions":4
+      },
+      {
+         "name": "reception",
+         "directions":4
+      },
+      {
+         "name": "rnd",
+         "directions":4
+      },
+      {
+         "name": "robo",
+         "directions":4
+      },
+      {
+         "name": "salvage",
+         "directions":4
+      },
+      {
+         "name": "sci",
+         "directions":4
+      },
+      {
+         "name": "security",
+         "directions":4
+      },
+      {
+         "name": "shield",
+         "directions":4
+      },
+      {
+         "name": "smes",
+         "directions":4
+      },
+      {
+         "name": "solar",
+         "directions":4
+      },
+      {
+         "name": "space",
+         "directions":4
+      },
+      {
+         "name": "storage",
+         "directions":4
+      },
+      {
+         "name": "surgery",
+         "directions":4
+      },
+      {
+         "name": "telecoms",
+         "directions":4
+      },
+      {
+         "name": "theatre",
+         "directions":4
+      },
+      {
+         "name": "toilet",
+         "directions":4
+      },
+      {
+         "name": "toxins",
+         "directions":4
+      },
+      {
+         "name": "toxins2",
+         "directions":4
+      },
+      {
+         "name": "virology",
+         "directions":4
+      },
+      {
+         "name": "xenoarch",
+         "directions":4
+      },
+      {
+         "name": "xenolab",
+         "directions":4
+      },
+      {
+         "name": "zomlab",
+         "directions":4
+      }
+   ]
+}

@@ -6,6 +6,15 @@
   - type: Sprite
     drawdepth: WallTops
     sprite: Structures/Windows/reinforced_uranium_window.rsi
+    layers: # WWDP edit start
+    - map: [ "enum.EdgeLayer.South" ]
+      state: ruwindow_south
+    - map: [ "enum.EdgeLayer.East" ]
+      state: ruwindow_east
+    - map: [ "enum.EdgeLayer.North" ]
+      state: ruwindow_north
+    - map: [ "enum.EdgeLayer.West" ]
+      state: ruwindow_west # WWDP edit end
   - type: Icon
     sprite: Structures/Windows/reinforced_uranium_window.rsi
   - type: Damageable
@@ -121,7 +130,8 @@
   - type: Sprite
     drawdepth: WallTops
     sprite: Structures/Windows/reinforced_uranium_diagonal.rsi
-    state: state0
+    layers: # WWDP edit
+    - state: state0
   - type: Tag
     tags:
     - Diagonal

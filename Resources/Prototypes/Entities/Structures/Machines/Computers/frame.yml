@@ -1,7 +1,7 @@
 - type: entity
   id: BaseStructureComputer
   parent: BaseStructure
-  abstract: true
+  #abstract: true
   components:
   - type: Physics
     bodyType: Static
@@ -24,6 +24,10 @@
     node: frameUnsecured
   - type: Sprite
     drawdepth: Objects
+    sprite: Structures/Machines/computers.rsi
+    layers:
+    - map: [ "computerLayerBody" ]
+      state: computer
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Electronic

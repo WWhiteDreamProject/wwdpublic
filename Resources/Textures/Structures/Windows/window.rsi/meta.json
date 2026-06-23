@@ -41,6 +41,22 @@
     {
       "name": "window7",
       "directions": 4
+    },
+    {
+      "name": "window_south",
+      "directions": 4
+    },
+    {
+      "name": "window_north",
+      "directions": 4
+    },
+    {
+      "name": "window_east",
+      "directions": 4
+    },
+    {
+      "name": "window_west",
+      "directions": 4
     }
   ]
 }

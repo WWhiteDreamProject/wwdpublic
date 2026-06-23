@@ -6,6 +6,9 @@
   - type: Sprite
     drawdepth: WallTops
     sprite: Structures/Windows/shuttle_window.rsi
+    layers: # WWDP edit
+    - state: full
+      color: "#00000000" # There is no resprite yet, it is needed to trim off excess layers
   - type: Icon
     sprite: Structures/Windows/shuttle_window.rsi
   - type: Repairable
@@ -71,7 +74,8 @@
   - type: Sprite
     drawdepth: WallTops
     sprite: Structures/Windows/shuttle_window_diagonal.rsi
-    state: state0
+    layers: # WWDP edit
+    - state: state0
   - type: Tag
     tags:
     - Diagonal

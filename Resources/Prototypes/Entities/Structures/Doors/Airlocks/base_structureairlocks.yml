@@ -13,8 +13,6 @@
   - type: InteractionOutline
   - type: Sprite
     sprite: Structures/Doors/Airlocks/Standard/basic.rsi
-    snapCardinals: true
-    noRot: true # WWDP edit
     layers:
     - state: closed
       map: ["enum.DoorVisualLayers.Base"]
@@ -64,6 +62,8 @@
   - type: AccessReader
     containerAccessProvider: board
   - type: Door
+    openDrawDepth: FloorObjects # WWDP edit
+    closedDrawDepth: WallTops # WWDP edit
     crushDamage:
       types:
         Blunt: 15
@@ -169,6 +169,7 @@
   - type: Tag
     tags:
     - Airlock
+    - ForceDirectionFixRotations # WWDP edit
     # This tag is used to nagivate the Airlock construction graph. It's needed because the construction graph is shared between Airlock, AirlockGlass, and HighSecDoor
   - type: PryUnpowered
   - type: BlockWeather
@@ -184,6 +185,9 @@
   - type: TwistedConstructionTarget
     replacementProto: BloodCultDoor
     doAfterDelay: 10
+  - type: IconSmooth
+    key: airlocks
+    mode: NoSprite
   # WD EDIT END
   placement:
     mode: SnapgridCenter
@@ -237,3 +241,5 @@
     tags:
     - GlassAirlock
     # This tag is used to nagivate the Airlock construction graph. It's needed because the construction graph is shared between Airlock, AirlockGlass, and HighSecDoor
+    - ForceFixRotations # WWDP edit for FixDirectionFixRotationsCommand.cs
+    - ForceDirectionFixRotations # WWDP edit

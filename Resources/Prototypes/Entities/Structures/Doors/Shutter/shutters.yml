@@ -10,6 +10,7 @@
   - type: StationAiWhitelist
   - type: Sprite
     sprite: Structures/Doors/Shutters/shutters.rsi
+    noRot: true # WWDP edit
     drawdepth: BlastDoors
     layers:
     - state: closed
@@ -37,6 +38,7 @@
   - type: Tag
     tags:
     - ForceNoFixRotations # Don't want the fixrotations command to target these
+    - ForceDirectionFixRotations # WWDP edit
   - type: Door
     performCollisionCheck: false
     canCrush: false
@@ -98,6 +100,16 @@
   - type: InteractionVerbs
     allowedVerbs:
     - KnockOn
+  - type: AltExamine # WWDP edit start
+    alpha: 0.5
+    offsetDistance: 0
+    enableOverride: false
+    outlineColor: "#00000000"
+    forceAlpha: 1
+  - type: IconSmooth
+    key: shutters
+    mode: NoSprite
+  - type: SpriteFade # WWDP edit end
 
 
 - type: entity

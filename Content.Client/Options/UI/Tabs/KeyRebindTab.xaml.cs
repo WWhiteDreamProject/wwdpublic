@@ -286,6 +286,7 @@ namespace Content.Client.Options.UI.Tabs
             AddButton(ContentKeyFunctions.AltActivateItemInWorld);
             AddButton(ContentKeyFunctions.Drop);
             AddButton(ContentKeyFunctions.PreciseDrop); // WWDP
+            AddButton(ContentKeyFunctions.AltExamine); // WWDP
             AddButton(ContentKeyFunctions.ExamineEntity);
             AddButton(ContentKeyFunctions.SwapHands);
             AddButton(ContentKeyFunctions.MoveStoredItem);

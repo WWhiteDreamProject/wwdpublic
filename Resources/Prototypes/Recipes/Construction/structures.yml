@@ -299,7 +299,7 @@
       failIfSpace: false
   icon:
     sprite: Structures/Walls/grille.rsi
-    state: grille
+    state: full # WWDP edit
   objectType: Structure
   placementMode: SnapgridCenter
   canRotate: false

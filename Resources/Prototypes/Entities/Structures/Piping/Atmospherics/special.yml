@@ -12,6 +12,7 @@
     bodyType: Static
   - type: Sprite
     sprite: Structures/Piping/Atmospherics/tinyfan.rsi
+    drawdepth: HighFloorObjects # WD EDIT
     state: icon
     noRot: True # WD EDIT
   - type: Fixtures
