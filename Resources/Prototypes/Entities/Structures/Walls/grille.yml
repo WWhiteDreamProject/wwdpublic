@@ -131,8 +131,6 @@
     deconstructionTarget: start
   - type: IconSmooth # WWDP edit start
     mode: NoSprite
-  - type: SmoothEdge
-    requireMatchingKey: false # WWDP edit end
 
 - type: entity
   id: GrilleBroken
@@ -233,8 +231,6 @@
     node: grilleDiagonal
   - type: IconSmooth # WWDP edit start
     mode: NoSprite
-  - type: SmoothEdge
-    requireMatchingKey: false # WWDP edit end
 
 - type: entity
   id: ClockworkGrilleDiagonal
