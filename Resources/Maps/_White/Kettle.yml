@@ -4,8 +4,8 @@ meta:
   engineVersion: 260.2.0
   forkId: ""
   forkVersion: ""
-  time: 01/04/2026 17:37:44
-  entityCount: 26819
+  time: 06/18/2026 14:10:32
+  entityCount: 26799
 maps:
 - 84
 grids:
@@ -15559,7 +15559,7 @@ entities:
       pos: 16.5,-3.5
       parent: 82
     - type: Door
-      secondsUntilStateChange: -80902.734
+      secondsUntilStateChange: -81246.555
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -18434,6 +18434,11 @@ entities:
     - type: Transform
       pos: -12.5,2.5
       parent: 82
+  - uid: 2605
+    components:
+    - type: Transform
+      pos: 28.5,63.5
+      parent: 82
   - uid: 2661
     components:
     - type: Transform
@@ -18568,11 +18573,6 @@ entities:
     components:
     - type: Transform
       pos: 47.5,12.5
-      parent: 82
-  - uid: 25688
-    components:
-    - type: Transform
-      pos: 29.5,63.5
       parent: 82
 - proto: BedsheetBlack
   entities:
@@ -18769,10 +18769,10 @@ entities:
       parent: 82
 - proto: BedsheetRD
   entities:
-  - uid: 25616
+  - uid: 8247
     components:
     - type: Transform
-      pos: 29.5,63.5
+      pos: 28.5,63.5
       parent: 82
 - proto: BedsheetSpawner
   entities:
@@ -63409,18 +63409,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -18.5,10.5
       parent: 82
-  - uid: 6458
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -8.5,35.5
-      parent: 82
-  - uid: 6459
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -8.5,34.5
-      parent: 82
   - uid: 10378
     components:
     - type: Transform
@@ -67673,6 +67661,13 @@ entities:
     - type: Transform
       pos: 15.708742,58.597015
       parent: 82
+- proto: ClothingMaskBlushingMime
+  entities:
+  - uid: 7066
+    components:
+    - type: Transform
+      pos: -9.277243,-53.417923
+      parent: 82
 - proto: ClothingMaskBreathMedical
   entities:
   - uid: 16966
@@ -67743,20 +67738,6 @@ entities:
     - type: Transform
       pos: -9.445427,-53.308548
       parent: 82
-- proto: ClothingMaskSexyMime
-  entities:
-  - uid: 7066
-    components:
-    - type: Transform
-      pos: -9.277243,-53.417923
-      parent: 82
-- proto: ClothingNeckAsexualPin
-  entities:
-  - uid: 7133
-    components:
-    - type: Transform
-      pos: -0.7473192,-39.581512
-      parent: 82
 - proto: ClothingNeckBling
   entities:
   - uid: 12187
@@ -67784,13 +67765,6 @@ entities:
     components:
     - type: Transform
       pos: -11.35714,-6.7504005
-      parent: 82
-- proto: ClothingNeckPansexualPin
-  entities:
-  - uid: 7253
-    components:
-    - type: Transform
-      pos: 24.309896,47.73986
       parent: 82
 - proto: ClothingNeckScarfStripedGreen
   entities:
@@ -70177,10 +70151,10 @@ entities:
       parent: 82
 - proto: CurtainsWhiteOpen
   entities:
-  - uid: 8073
+  - uid: 2541
     components:
     - type: Transform
-      pos: 29.5,63.5
+      pos: 28.5,63.5
       parent: 82
 - proto: d20Dice
   entities:
@@ -78419,10 +78393,10 @@ entities:
       parent: 82
 - proto: DresserResearchDirectorFilled
   entities:
-  - uid: 6836
+  - uid: 6454
     components:
     - type: Transform
-      pos: 29.5,64.5
+      pos: 29.5,63.5
       parent: 82
 - proto: DresserWardenFilled
   entities:
@@ -78460,13 +78434,6 @@ entities:
     components:
     - type: Transform
       pos: -40.54229,14.452413
-      parent: 82
-- proto: DrinkDoctorsDelightGlass
-  entities:
-  - uid: 2758
-    components:
-    - type: Transform
-      pos: -43.297024,-37.272022
       parent: 82
 - proto: DrinkFlask
   entities:
@@ -82769,7 +82736,7 @@ entities:
       pos: -11.5,29.5
       parent: 82
     - type: Door
-      secondsUntilStateChange: -496.93127
+      secondsUntilStateChange: -840.74896
       state: Closing
     - type: Firelock
       emergencyCloseCooldown: 1823.4981785
@@ -83412,8 +83379,12 @@ entities:
   - uid: 21812
     components:
     - type: Transform
-      pos: -7.704537,35.50071
+      pos: -9.706274,34.39698
       parent: 82
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
+    - type: RenderOrder
 - proto: FoodPieBananaCream
   entities:
   - uid: 21505
@@ -119395,7 +119366,6 @@ entities:
           - 21503
           - 21502
           - 21505
-          - 21815
           - 21748
           - 16929
           - 22980
@@ -121759,23 +121729,6 @@ entities:
     - type: Transform
       pos: -16.538208,47.724583
       parent: 82
-- proto: MysteryFigureBox
-  entities:
-  - uid: 10817
-    components:
-    - type: Transform
-      pos: 29.648754,-30.117496
-      parent: 82
-  - uid: 10819
-    components:
-    - type: Transform
-      pos: 29.581186,-30.46853
-      parent: 82
-  - uid: 14355
-    components:
-    - type: Transform
-      pos: 29.351456,-30.266012
-      parent: 82
 - proto: N14ChairArmchair
   entities:
   - uid: 14116
@@ -121877,6 +121830,12 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -30.5,-25.5
+      parent: 82
+  - uid: 5520
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -8.54562,35.23658
       parent: 82
   - uid: 9336
     components:
@@ -122148,8 +122107,12 @@ entities:
   - uid: 21806
     components:
     - type: Transform
-      pos: -7.3622956,35.61104
+      pos: -9.331274,34.537605
       parent: 82
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
+    - type: RenderOrder
 - proto: NitrogenCanister
   entities:
   - uid: 417
@@ -123014,11 +122977,6 @@ entities:
     - type: RenderOrder
 - proto: PersonalAI
   entities:
-  - uid: 2541
-    components:
-    - type: Transform
-      pos: -43.703274,-37.428272
-      parent: 82
   - uid: 9661
     components:
     - type: Transform
@@ -123227,20 +123185,6 @@ entities:
     - type: Transform
       pos: 20.5,-102.5
       parent: 82
-- proto: PlushieAtmosian
-  entities:
-  - uid: 26270
-    components:
-    - type: Transform
-      pos: 27.437817,6.556802
-      parent: 82
-- proto: PlushieDiona
-  entities:
-  - uid: 8247
-    components:
-    - type: Transform
-      pos: -28.50794,-1.482933
-      parent: 82
 - proto: PlushieGhost
   entities:
   - uid: 26594
@@ -123250,78 +123194,12 @@ entities:
     - type: Transform
       pos: -9.407837,33.592533
       parent: 82
-- proto: PlushieLizard
-  entities:
-  - uid: 22884
-    components:
-    - type: Transform
-      pos: 36.582268,60.613327
-      parent: 82
 - proto: PlushieNar
   entities:
   - uid: 20174
     components:
     - type: Transform
       pos: 5.0451555,-51.956177
-      parent: 82
-- proto: PlushieRGBee
-  entities:
-  - uid: 22298
-    components:
-    - type: Transform
-      pos: -8.464796,-19.504696
-      parent: 82
-- proto: PlushieRouny
-  entities:
-  - uid: 18943
-    components:
-    - type: Transform
-      pos: -45.516483,4.660022
-      parent: 82
-- proto: PlushieSharkBlue
-  entities:
-  - uid: 25588
-    components:
-    - type: Transform
-      pos: 49.497215,26.415047
-      parent: 82
-- proto: PlushieSharkPink
-  entities:
-  - uid: 2605
-    components:
-    - type: Transform
-      pos: -16.395447,-43.417328
-      parent: 82
-- proto: PlushieSlime
-  entities:
-  - uid: 11931
-    components:
-    - type: Transform
-      pos: -0.38992095,-43.43959
-      parent: 82
-  - uid: 21650
-    components:
-    - type: Transform
-      pos: -7.595076,16.45195
-      parent: 82
-- proto: PlushieSpaceLizard
-  entities:
-  - uid: 12717
-    components:
-    - type: Transform
-      pos: 16.561422,-13.472472
-      parent: 82
-  - uid: 22338
-    components:
-    - type: Transform
-      pos: -2.4641614,-0.5040889
-      parent: 82
-- proto: PlushieVox
-  entities:
-  - uid: 22344
-    components:
-    - type: Transform
-      pos: 79.54016,12.36062
       parent: 82
 - proto: PortableGeneratorJrPacman
   entities:
@@ -123801,10 +123679,10 @@ entities:
       parent: 82
 - proto: PottedPlantRD
   entities:
-  - uid: 16954
+  - uid: 10818
     components:
     - type: Transform
-      pos: 28.5,66.5
+      pos: 29.5,64.5
       parent: 82
 - proto: PowerCellHigh
   entities:
@@ -127582,15 +127460,76 @@ entities:
       parent: 82
 - proto: PrinterDoc
   entities:
+  - uid: 2758
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -14.5,38.5
+      parent: 82
+  - uid: 6459
+    components:
+    - type: Transform
+      pos: -24.5,-34.5
+      parent: 82
+  - uid: 6836
+    components:
+    - type: Transform
+      pos: -43.5,-37.5
+      parent: 82
+  - uid: 7133
+    components:
+    - type: Transform
+      pos: 24.5,58.5
+      parent: 82
+  - uid: 7253
+    components:
+    - type: Transform
+      pos: 28.5,66.5
+      parent: 82
+  - uid: 8073
+    components:
+    - type: Transform
+      pos: -7.5,35.5
+      parent: 82
   - uid: 10509
     components:
     - type: Transform
       pos: 38.5,-12.5
       parent: 82
+  - uid: 10817
+    components:
+    - type: Transform
+      pos: 46.5,12.5
+      parent: 82
+  - uid: 10819
+    components:
+    - type: Transform
+      pos: 60.5,-9.5
+      parent: 82
   - uid: 11478
     components:
     - type: Transform
       pos: 9.5,-12.5
+      parent: 82
+  - uid: 11931
+    components:
+    - type: Transform
+      pos: 37.5,-5.5
+      parent: 82
+  - uid: 12717
+    components:
+    - type: Transform
+      pos: 33.5,-20.5
+      parent: 82
+  - uid: 14355
+    components:
+    - type: Transform
+      pos: 13.5,-15.5
+      parent: 82
+  - uid: 16954
+    components:
+    - type: Transform
+      pos: -6.5,3.5
       parent: 82
   - uid: 22686
     components:
@@ -138607,14 +138546,6 @@ entities:
     components:
     - type: Transform
       pos: 40.42406,29.448788
-      parent: 82
-- proto: SalvageMagnet
-  entities:
-  - uid: 26720
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 53.5,38.5
       parent: 82
 - proto: ScalpelShiv
   entities:
@@ -150328,16 +150259,6 @@ entities:
     - type: Transform
       pos: 13.5,-14.5
       parent: 82
-  - uid: 5520
-    components:
-    - type: Transform
-      pos: 28.5,66.5
-      parent: 82
-  - uid: 6454
-    components:
-    - type: Transform
-      pos: -7.5,35.5
-      parent: 82
   - uid: 6456
     components:
     - type: Transform
@@ -150347,6 +150268,11 @@ entities:
     components:
     - type: Transform
       pos: -9.5,34.5
+      parent: 82
+  - uid: 6458
+    components:
+    - type: Transform
+      pos: 29.5,64.5
       parent: 82
   - uid: 7997
     components:
@@ -151131,92 +151057,12 @@ entities:
     - type: Transform
       pos: 23.523388,-39.506203
       parent: 82
-- proto: ToyAi
-  entities:
-  - uid: 10818
-    components:
-    - type: Transform
-      pos: 20.50183,-93.41702
-      parent: 82
 - proto: ToyAmongPequeno
   entities:
   - uid: 25673
     components:
     - type: Transform
       pos: 49.5287,41.612507
-      parent: 82
-- proto: ToyFigurineChaplain
-  entities:
-  - uid: 26593
-    components:
-    - type: MetaData
-      desc: Фигурка, изображающая священника, молящегося о богоугодных вещах. Валейфар.
-    - type: Transform
-      pos: -15.631889,8.744456
-      parent: 82
-- proto: ToyFigurineChiefEngineer
-  entities:
-  - uid: 20478
-    components:
-    - type: Transform
-      pos: -9.296597,35.22798
-      parent: 82
-- proto: ToyFigurineClown
-  entities:
-  - uid: 21815
-    components:
-    - type: Transform
-      parent: 21611
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 26592
-    components:
-    - type: MetaData
-      desc: Фигурка, изображающая клоуна. Вы с содроганием думаете о том, что же, возможно, люди уже успели сделать с этой фигуркой. Дудлз.
-    - type: Transform
-      pos: -15.277721,8.661123
-      parent: 82
-- proto: ToyFigurineLawyer
-  entities:
-  - uid: 26596
-    components:
-    - type: MetaData
-      desc: Фигурка, изображающая юриста в свежепошитом костюме. Рэйчел Синклер.
-    - type: Transform
-      pos: 60.70382,-16.352417
-      parent: 82
-- proto: ToyFigurineMedicalDoctor
-  entities:
-  - uid: 26597
-    components:
-    - type: MetaData
-      desc: Фигурка, изображающая врача, в халате и со шприцем. Кор Кардэн
-    - type: Transform
-      pos: -49.706615,-26.172882
-      parent: 82
-  - uid: 26598
-    components:
-    - type: MetaData
-      desc: Фигурка, изображающая врача, в халате и со шприцем. Вета Игрит.
-    - type: Transform
-      pos: -49.52953,-26.329132
-      parent: 82
-- proto: ToyFigurineResearchDirector
-  entities:
-  - uid: 26595
-    components:
-    - type: MetaData
-      desc: Фигурка, изображающая прославленного главу научного отдела. Александр Милоухов.
-    - type: Transform
-      pos: 29.518936,63.57479
-      parent: 82
-- proto: ToyFigurineScientist
-  entities:
-  - uid: 26341
-    components:
-    - type: Transform
-      pos: 27.027948,73.57623
       parent: 82
 - proto: ToyRubberDuck
   entities:
