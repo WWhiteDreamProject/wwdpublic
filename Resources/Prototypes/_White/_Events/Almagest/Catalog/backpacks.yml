@@ -10,6 +10,8 @@
     - id: ClothingMaskGas
     - id: BoxCaptureCartridgeWhite
     - id: ClothingHeadsetCargo
+  - type: ExplosionResistance
+    damageCoefficient: 0.0
 
 - type: entity
   parent: ClothingBackpackERTEngineer
@@ -22,6 +24,8 @@
     - id: ClothingMaskGas
     - id: BoxCaptureCartridgeYellow
     - id: ClothingHeadsetEngineering
+  - type: ExplosionResistance
+    damageCoefficient: 0.0
 
 - type: entity
   parent: ClothingBackpackERTSecurity
@@ -40,6 +44,8 @@
     maxCharges: 2
     charges: 2
     onlyFullRecharge: true
+  - type: ExplosionResistance
+    damageCoefficient: 0.0
 
 - type: entity
   parent: ClothingBackpackERTLeader
@@ -58,6 +64,8 @@
     maxCharges: 2
     charges: 2
     onlyFullRecharge: true
+  - type: ExplosionResistance
+    damageCoefficient: 0.0
 
 - type: entity
   parent: ClothingBackpackERTClown
@@ -70,6 +78,8 @@
     - id: ClothingMaskGas
     - id: BoxCaptureCartridgeGreen
     - id: ClothingHeadsetService
+  - type: ExplosionResistance
+    damageCoefficient: 0.0
 
 - type: entity
   parent: ClothingBackpackERTJanitor
@@ -82,6 +92,8 @@
     - id: ClothingMaskGas
     - id: BoxCaptureCartridgePurple
     - id: ClothingHeadsetScience
+  - type: ExplosionResistance
+    damageCoefficient: 0.0
 
 # Amalga v3
 - type: entity
@@ -96,6 +108,8 @@
     - id: HandheldGPSBasic
     - id: WeaponGrapplingGun
     - id: BeaconTeleporter
+  - type: ExplosionResistance
+    damageCoefficient: 0.0
 
 - type: entity
   parent: ClothingBeltChiefEngineerFilled
@@ -121,6 +135,8 @@
     - id: GasAnalyzer
     - id: trayScanner
     - id: BeaconTeleporter
+  - type: ExplosionResistance
+    damageCoefficient: 0.0
 
 # Backpacks
 # Red
@@ -145,9 +161,9 @@
   - type: StorageFill
     contents:
     - id: AlmagestEquipmentWeaponBaseSelect
-    - id: PackageGrenadeShrapnel
-    - id: PackageGrenadeDummy
-    - id: PackageGrenadeBarrier
+    - id: GrenadeShrapnel
+    - id: GrenadeDummy
+    - id: GrenadeBarrier
       amount: 3
 
 - type: entity
@@ -175,12 +191,12 @@
     contents:
     - id: AlmagestEquipmentWeaponBaseSelect
     - id: DrinkPremiumWhiskeyBottleFull
-    - id: PackageGrenadeShrapnel
+    - id: GrenadeShrapnel
       amount: 2
-    - id: PackageGrenadeIncendiary
+    - id: GrenadeIncendiary
     - id: RemoteSignaller
     - id: Multitool
-    - id: PackageGrenadeC4
+    - id: C4
       amount: 4
     - id: SyndicateBombFlatpack
 
@@ -225,9 +241,9 @@
   - type: StorageFill
     contents:
     - id: AlmagestEquipmentWeaponBaseSelect
-    - id: PackageGrenadeShrapnel
-    - id: PackageGrenadeDummy
-    - id: PackageGrenadeBarrier
+    - id: GrenadeShrapnel
+    - id: GrenadeDummy
+    - id: GrenadeBarrier
       amount: 3
 
 - type: entity
@@ -255,12 +271,12 @@
     contents:
     - id: AlmagestEquipmentWeaponBaseSelect
     - id: DrinkPremiumWhiskeyBottleFull
-    - id: PackageGrenadeShrapnel
+    - id: GrenadeShrapnel
       amount: 2
-    - id: PackageGrenadeIncendiary
+    - id: GrenadeIncendiary
     - id: RemoteSignaller
     - id: Multitool
-    - id: PackageGrenadeC4
+    - id: C4
       amount: 4
     - id: SyndicateBombFlatpack
 

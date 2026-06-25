@@ -1,3 +1,92 @@
+# Fun
+- type: entity
+  parent: [BaseSimpleMob, MobCombat]
+  id: MobFunPetuch
+  name: popetuchen
+  description: Cheats - ban, camping - ban, insults - ban, insulting the administration - execution then ban.
+  components:
+  - type: Sprite
+    sprite: _White/Fun/petuch.rsi
+    drawdepth: Effects
+    layers:
+    - state: petuch
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 5
+    baseSprintSpeed: 5
+  - type: AmbientSound
+    range: 10
+    volume: -5
+    sound:
+      path: /Audio/_White/Misc/Fun/petuch.ogg
+  - type: Access
+    tags:
+    - AllAccess
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - InstantDoAfters
+  - type: Prying
+    pryPowered: true
+    speedModifier: 0.5
+    force: true
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Effects/explosion_small2.ogg
+    angle: 0
+    volume: 10
+    range: 4
+    attackRate: 0.1
+    animation: WeaponArcSmash
+    damage:
+      types:
+        Blunt: 9999
+        Shock: 9999
+        Structural: 9999
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 50
+        mask:
+        - SmallMobMask
+        layer:
+        - MobLayer
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: Godmode
+  - type: GuideHelp
+    openOnActivation: true
+    guides:
+    - Medical
+
+- type: entity
+  id: AlmagestGuidebookEntity1
+  name: click on me
+  components:
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _White/Fun/petuch.rsi
+    drawdepth: FloorObjects
+    scale: 0.145455,0.262295
+    layers:
+    - state: petuch
+  - type: GuideHelp
+    openOnActivation: true
+    guides:
+    - Almagest
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/_White/Misc/Fun/petuch.ogg
+      params:
+        maxDistance: 1
+
 #- type: entity
 #  parent: BaseHandheldComputer
 #  id: AlmagestCommsHandheld

@@ -115,121 +115,15 @@
         tags:
         - Write
 
-    # Grenades
-- type: entity
-  parent: BaseItem
-  id: PackageGrenadeShrapnel
-  name: shrapnel grenade package
-  description: A small package containing a shrapnel grenade. Packaging disintegrates when opened.
-  components:
-  - type: Item
-    size: Small
-  - type: Sprite
-    sprite: Objects/Weapons/Grenades/shrapnelgrenade.rsi
-    layers:
-    - state: paper_2
-      sprite: Objects/Materials/Sheets/other.rsi
-    - state: icon
-      offset: 0.03125, 0.09375
-  - type: SpawnItemsOnUse
-    items:
-    - id: GrenadeShrapnel
-    sound:
-      path: /Audio/Effects/unwrap.ogg
-
-- type: entity
-  parent: BaseItem
-  id: PackageGrenadeIncendiary
-  name: incendiary grenade package
-  description: A small package containing an incendiary grenade. Packaging disintegrates when opened.
-  components:
-  - type: Item
-    size: Small
-  - type: Sprite
-    sprite: Objects/Weapons/Grenades/pyrogrenade.rsi
-    layers:
-    - state: paper_2
-      sprite: Objects/Materials/Sheets/other.rsi
-    - state: icon
-      offset: 0.03125, 0.09375
-  - type: SpawnItemsOnUse
-    items:
-    - id: GrenadeIncendiary
-    sound:
-      path: /Audio/Effects/unwrap.ogg
-
-- type: entity
-  parent: BaseItem
-  id: PackageGrenadeDummy
-  name: trick grenade package
-  description: A small package containing a trick grenade. Packaging disintegrates when opened.
-  components:
-  - type: Item
-    size: Small
-  - type: Sprite
-    sprite: Objects/Weapons/Grenades/grenade.rsi
-    layers:
-    - state: paper_2
-      sprite: Objects/Materials/Sheets/other.rsi
-    - state: icon
-      offset: 0.03125, 0.09375
-  - type: SpawnItemsOnUse
-    items:
-    - id: GrenadeDummy
-    sound:
-      path: /Audio/Effects/unwrap.ogg
-
-- type: entity
-  parent: BaseItem
-  id: PackageGrenadeBarrier
-  name: barrier grenade package
-  description: A small package containing a barrier grenade. Packaging disintegrates when opened.
-  components:
-  - type: Item
-    size: Small
-  - type: Sprite
-    sprite: _White/Objects/Weapons/Grenades/barrier.rsi
-    layers:
-    - state: paper_2
-      sprite: Objects/Materials/Sheets/other.rsi
-    - state: icon
-      offset: 0.03125, 0.09375
-  - type: SpawnItemsOnUse
-    items:
-    - id: GrenadeBarrier
-    sound:
-      path: /Audio/Effects/unwrap.ogg
-
-- type: entity
-  parent: BaseItem
-  id: PackageGrenadeC4
-  name: C-4 package
-  description: A small package containing C-4 explosive. Packaging disintegrates when opened.
-  components:
-  - type: Item
-    size: Small
-  - type: Sprite
-    sprite: Objects/Weapons/Bombs/c4.rsi
-    layers:
-    - state: paper_2
-      sprite: Objects/Materials/Sheets/other.rsi
-    - state: icon
-      offset: 0.09375, 0.09375
-  - type: SpawnItemsOnUse
-    items:
-    - id: C4
-    sound:
-      path: /Audio/Effects/unwrap.ogg
-
     # Cap Pinpointer
-- type: entity
-  name: pinpointer
-  id: AlmagestPinpointerRedCaptain
-  parent: PinpointerBase
-  components:
-  - type: Pinpointer
-    component: NukeDisk
-    targetName: nuclear authentication disk
+#- type: entity
+#  name: pinpointer
+#  id: AlmagestPinpointerRedCaptain
+#  parent: PinpointerBase
+#  components:
+#  - type: Pinpointer
+#    component: NukeDisk
+#    targetName: nuclear authentication disk
 
     # AlmagestGirderFlatpack
 - type: entity

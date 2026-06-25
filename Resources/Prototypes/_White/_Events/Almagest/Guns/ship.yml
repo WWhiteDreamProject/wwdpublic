@@ -610,7 +610,7 @@
 - type: entity
   parent: BaseWeaponShipLightEnergy
   id: WeaponShipRamPenetrator
-  name: Penetrator Ram Blaset Launcher
+  name: Penetrator Ram Blast Launcher
   components:
   - type: Sprite
     sprite: _White/Objects/Weapons/Guns/Turrets/Almagest/ram_penetrator.rsi
@@ -695,7 +695,7 @@
 - type: entity
   parent: BaseWeaponShipLightEnergy
   id: WeaponShipRamMine
-  name: Mine Ram Blaset Launcher
+  name: Mine Ram Blast Launcher
   components:
   - type: Sprite
     sprite: _White/Objects/Weapons/Guns/Turrets/Almagest/ram_mine.rsi
@@ -782,7 +782,7 @@
 - type: entity
   parent: BaseWeaponShipLightEnergy
   id: WeaponShipRamWalker
-  name: Walker Ram Blaset Launcher
+  name: Walker Ram Blast Launcher
   components:
   - type: Sprite
     sprite: _White/Objects/Weapons/Guns/Turrets/Almagest/ram_walker.rsi
