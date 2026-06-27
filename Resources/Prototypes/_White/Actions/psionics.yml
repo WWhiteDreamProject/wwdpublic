@@ -12,6 +12,20 @@
       event: !type:ClonePowerActionEvent
 
 - type: entity
+  id: ActionInvokerWex
+  name: action-name-clonewex
+  description: action-description-clonewex
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: InstantAction
+      icon:
+        sprite: _White/Interface/Actions/psionic_clone.rsi
+        state: create
+      useDelay: 1
+      event: !type:InvokerOrbActionEvent
+        orb: wex
+
+- type: entity
   id: ActionCloneSwitch
   name: action-name-clone-switch
   description: action-description-clone-switch
