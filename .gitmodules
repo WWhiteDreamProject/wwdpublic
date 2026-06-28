@@ -1,7 +1,7 @@
 [submodule "RobustToolbox"]
 	path = RobustToolbox
-	url = https://github.com/space-wizards/RobustToolbox.git
-	branch = master
+	url = https://github.com/WWhiteDreamProject/RobustToolbox.git
+	branch = hotfix
 [submodule "StyleSheetify"]
 	path = StyleSheetify
 	url = https://github.com/Cinkafox/StyleSheetify
