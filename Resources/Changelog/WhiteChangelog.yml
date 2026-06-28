@@ -5423,3 +5423,12 @@ Entries:
   id: 565
   time: '2026-06-23T13:10:30.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1159
+- author: Cinkafox
+  changes:
+    - type: Tweak
+      message: upadte Lidgren.Network
+    - type: Add
+      message: network filtering
+  id: 566
+  time: '2026-06-28T13:23:28.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1166
