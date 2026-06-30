@@ -8,13 +8,10 @@
   },
   "states": [
     {
-      "name": "wex"
+      "name": "coldsnap"
     },
     {
-      "name": "exort"
-    },
-    {
-      "name": "quas"
+      "name": "lightningbolt"
     }
   ]
 }

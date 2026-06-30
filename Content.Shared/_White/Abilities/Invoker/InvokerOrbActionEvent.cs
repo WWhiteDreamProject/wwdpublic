@@ -4,5 +4,8 @@ namespace Content.Shared._White.Abilities.Invoker;
 
 public sealed partial class InvokerOrbActionEvent : InstantActionEvent
 {
-    public OrbType Orb { get; set; } = OrbType.Quas;
+    [DataField]
+    public OrbType Orb { get; set; } = OrbType.None;
 }
+
+public sealed partial class InvokerInvokeActionEvent : InstantActionEvent;

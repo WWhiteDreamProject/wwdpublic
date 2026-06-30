@@ -1,0 +1,93 @@
+- type: invokerSpellPool
+  id: DefaultInvokerSpellPool
+  spells: 
+    - repulse
+    - forceWall
+    - fireball
+    - jaunt
+    - blink
+    - smoke
+    - rod
+    - coldSnap
+    - voidApplause
+    - lightningBolt
+
+- type: invokerSpell
+  id: repulse
+  combination: 
+    - Wex
+    - Wex
+    - Wex
+  action: ActionRepulseIII
+
+- type: invokerSpell
+  id: coldSnap
+  combination: 
+    - Quas
+    - Quas
+    - Quas
+  action: ActionColdSnap
+
+- type: invokerSpell
+  id: forceWall
+  combination: 
+    - Wex
+    - Quas
+    - Exort
+  action: ActionForceWall
+
+- type: invokerSpell
+  id: fireball
+  combination: 
+    - Exort
+    - Exort
+    - Exort
+  action: ActionFireball
+
+- type: invokerSpell
+  id: jaunt
+  combination: 
+    - Wex
+    - Quas
+    - Quas
+  action: ActionPolymorphJaunt
+
+- type: invokerSpell
+  id: blink
+  combination: 
+    - Quas
+    - Wex
+    - Wex
+  action: ActionBlink
+
+- type: invokerSpell
+  id: smoke
+  combination: 
+    - Quas
+    - Quas
+    - Exort
+  action: ActionSmoke
+
+- type: invokerSpell
+  id: rod
+  combination: 
+    - Quas
+    - Exort
+    - Exort
+  action: ActionPolymorphWizardRod
+
+- type: invokerSpell
+  id: voidApplause
+  combination: 
+    - Wex
+    - Wex
+    - Exort
+  action: ActionVoidApplause
+
+- type: invokerSpell
+  id: lightningBolt
+  combination: 
+    - Wex
+    - Exort
+    - Exort
+  action: ActionLightningBolt

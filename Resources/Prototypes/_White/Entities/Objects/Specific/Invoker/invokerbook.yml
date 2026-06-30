@@ -1,0 +1,10 @@
+- type: entity
+  id: InvokerBook
+  parent: BaseItem
+  name: Invoker Book
+  components:
+  - type: InvokerBook
+  - type: Sprite
+    sprite: Objects/Magic/magicactions.rsi
+    layers:
+    - state: spell_default

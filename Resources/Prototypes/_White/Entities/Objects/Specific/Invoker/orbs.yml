@@ -1,0 +1,37 @@
+- type: entity
+  id: InvokerOrbBase
+  abstract: true
+  components:
+  - type: Transform
+    anchored: false
+  - type: Sprite
+    sprite: Objects/Fun/toys.rsi
+    state: orb
+    shader: unshaded
+
+- type: entity
+  id: InvokerOrbQuas
+  parent: InvokerOrbBase
+  name: quas
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Specific/invokerorbs.rsi
+    state: quas
+
+- type: entity
+  id: InvokerOrbWex
+  parent: InvokerOrbBase
+  name: wex
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Specific/invokerorbs.rsi
+    state: wex
+
+- type: entity
+  id: InvokerOrbExort
+  parent: InvokerOrbBase
+  name: exort
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Specific/invokerorbs.rsi
+    state: exort

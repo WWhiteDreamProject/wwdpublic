@@ -1,0 +1,79 @@
+- type: entity
+  id: ActionInvokerWex
+  name: Wex
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: InstantAction
+      icon:
+        sprite: _White/Interface/Actions/invoker_orbs.rsi
+        state: wex
+      useDelay: 0
+      event: !type:InvokerOrbActionEvent
+        orb: Wex
+
+- type: entity
+  id: ActionInvokerQuas
+  name: Quas
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: InstantAction
+      icon:
+        sprite: _White/Interface/Actions/invoker_orbs.rsi
+        state: quas
+      useDelay: 0
+      event: !type:InvokerOrbActionEvent
+        orb: Quas
+
+- type: entity
+  id: ActionInvokerExort
+  name: Exort
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: InstantAction
+      icon:
+        sprite: _White/Interface/Actions/invoker_orbs.rsi
+        state: exort
+      useDelay: 0
+      event: !type:InvokerOrbActionEvent
+        orb: Exort
+
+- type: entity
+  id: ActionInvokerInvoke
+  name: Invoke
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: InstantAction
+      icon:
+        sprite: _White/Interface/Actions/invoker_orbs.rsi
+        state: invoke
+      useDelay: 0
+      event: !type:InvokerInvokeActionEvent
+
+- type: entity
+  id: ActionColdSnap
+  name: Cold Snap
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: EntityTargetAction
+      sound: /Audio/Magic/blink.ogg
+      itemIconStyle: BigAction
+      canTargetSelf: false
+      checkCanAccess: false
+      range: 15
+      icon:
+        sprite: _White/Interface/Actions/invoker_spells.rsi
+        state: coldsnap
+      useDelay: 20
+      event: !type:ColdSnapActionEvent
+
+- type: entity
+  id: ActionLightningBolt
+  name: Lightning Bolt
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: InstantAction
+      icon:
+        sprite: _White/Interface/Actions/invoker_spells.rsi
+        state: lightningbolt
+      useDelay: 20
+      event: !type:LightningBoltActionEvent

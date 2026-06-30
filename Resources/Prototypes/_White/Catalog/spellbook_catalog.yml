@@ -1,0 +1,12 @@
+- type: listing
+  id: SpellbookInvokerBook
+  name: spellbook-invoker-book-name
+  description: spellbook-invoker-book-description
+  productEntity: InvokerBook
+  cost:
+    WizCoin: 10
+  categories:
+  - SpellbookEquipment
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
