@@ -1,0 +1,25 @@
+- type: entity
+  id: WeaponMechLaserGun
+  name: huge makeshift laser gun
+  description: Makeshift laser gun, can be placed in the mech as a module.
+  suffix: Mech Weapon, Gun, Special, Laser
+  parent: [ BaseMechWeaponRange, SpecialMechEquipment ]
+  components:
+  - type: Construction
+    graph: WeaponMechLaserGunGraph
+    node: WeaponMechLaserGun
+  - type: Sprite
+    state: tidemechlaser
+    sprite: _White/Objects/Specific/Mech/MechWeapon.rsi
+  - type: Gun
+    fireRate: 0.5
+    selectedMode: SemiAuto
+    availableModes:
+      - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletLaser
+    fireCost: 65
+  - type: Appearance
+  - type: AmmoCounter

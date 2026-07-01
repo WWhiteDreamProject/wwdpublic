@@ -146,6 +146,9 @@
   name: power sensor
   description: Generates signals in response to powernet changes. Can be cycled between cable voltages.
   components:
+  - type: Tag  #WWDP
+    tags:
+    - PowerSensor
   - type: Sprite
     state: power_sensor
   - type: PowerSensor

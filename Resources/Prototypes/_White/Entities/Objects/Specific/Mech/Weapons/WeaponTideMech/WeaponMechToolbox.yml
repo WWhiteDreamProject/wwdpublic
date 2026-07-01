@@ -1,0 +1,32 @@
+- type: entity
+  id: WeaponMechToolbox
+  parent: [ BaseMechWeaponMelee, SpecialMechEquipment ]
+  name: welded reinforced toolbox
+  suffix: Mech Weapon, Melee, Combat
+  description: The toolbox, although very heavy, can be placed in the mech as a module.
+  components:
+  - type: Construction
+    graph: WeaponMechToolboxGraph
+    node: WeaponMechToolbox
+  - type: Sprite
+    state: tidemechtoolbox
+    sprite: _White/Objects/Specific/Mech/MechWeapon.rsi
+  - type: MeleeWeapon
+    canHeavyAttack: false
+    autoAttack: true
+    angle: 0
+    soundHit:
+      path: "/Audio/Weapons/smash.ogg"
+    attackRate: 1.65
+    damage:
+      types:
+        Structural: 25
+        Blunt: 20
+  - type: MeleeThrowOnHit
+    speed: 4
+    distance: 0.4
+  - type: KnockdownOnHit 
+    delay: 0
+    knockdownTime: 0
+    jitterTime: 1
+    stutterTime: 1

@@ -1,0 +1,34 @@
+- type: construction
+  id: TideMechCraft
+  name: Closetmech
+  graph: TideMechGraph
+  startNode: start
+  targetNode: TideMechBattery
+  category: construction-category-weapons
+  description: Mech, but for the beggars.
+  icon: { sprite: _White/Objects/Specific/Mech/tidemech.rsi, state: closetmech }
+  objectType: Structure
+
+
+- type: construction
+  id: WeaponMechLaserGun
+  name: WeaponMechLaserGun
+  graph: WeaponMechLaserGunGraph
+  startNode: start
+  targetNode: WeaponMechLaserGun
+  category: construction-category-weapons
+  description: A makeshift laser pistol, but bigger.
+  icon: { sprite: _White/Objects/Specific/Mech/MechWeapon.rsi, state: tidemechlaser }
+  objectType: Item
+
+
+- type: construction
+  id: WeaponMechToolbox
+  name: WeaponMechToolbox
+  graph: WeaponMechToolboxGraph
+  startNode: start
+  targetNode: WeaponMechToolbox
+  category: construction-category-weapons
+  description: More steel toolbox.
+  icon: { sprite: _White/Objects/Specific/Mech/MechWeapon.rsi, state: tidemechtoolbox }
+  objectType: Item
