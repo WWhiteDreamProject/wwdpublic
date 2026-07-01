@@ -5448,3 +5448,10 @@ Entries:
   id: 568
   time: '2026-07-01T11:01:04.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1121
+- author: Pedro-233
+  changes:
+    - type: Remove
+      message: Удалена приписка "Сервер:" к сообщениям
+  id: 569
+  time: '2026-07-01T11:06:24.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1156
