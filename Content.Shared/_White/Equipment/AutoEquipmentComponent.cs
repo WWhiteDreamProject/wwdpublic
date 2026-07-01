@@ -11,6 +11,9 @@ public sealed partial class AutoEquipmentComponent : Component
     public List<ProtoId<StartingGearPrototype>> StartingGears = new();
 
     [DataField]
+    public List<ProtoId<EntityPrototype>> Implants = new();
+
+    [DataField]
     public bool ForceEquip = false;
 
     [DataField]

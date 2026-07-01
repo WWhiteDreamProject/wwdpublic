@@ -1,0 +1,31 @@
+<Document>
+# Капитан (Captain)
+
+Командир флота и ключевая фигура команды. Гибель капитана является одним из обязательных условий поражения команды, поэтому его защита имеет первостепенное значение.
+
+### Классовый бонус
+Оповещение о состоянии капитана. Оповещение о переходе в критическое состояние отправляется в рацию команды. Оповещения о смерти и воскрешении отправляются в общую рацию.
+
+## Снаряжение
+  <Box>
+    <GuideEntityEmbed Entity="ClothingNeckCloakCap"/>
+    <GuideEntityEmbed Entity="ClothingEyesGlassesSunglasses"/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="ClothingBeltMilitaryWebbingAlmagestEquip" Caption="РПС Альмагеста"/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="AlmagestGrenadeCaptain"/>
+    <GuideEntityEmbed Entity="WeaponAntiqueLaser"/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="SciFlash" Caption="вспышка на 2 использования"/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="WeaponTurretShipAlmagestFlatpack" Caption="3 флетпака оружейной платформы"/>
+  </Box>
+
+## Роль
+
+Координация действий экипажа, определение приоритетных целей и управление стратегией команды.
+</Document>

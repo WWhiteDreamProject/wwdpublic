@@ -1,0 +1,31 @@
+<Document>
+## Десантник (Marine)
+  <Box>
+    <GuideEntityEmbed Entity="AlmagestAutoEquipmentRedMarine" Caption=""/>
+  </Box>
+
+Основная ударная сила флота. Выполняет разведывательные операции, захват астероидов и штурмовые действия против противника.
+
+### Снаряжение
+  <Box>
+    <GuideEntityEmbed Entity="ClothingNeckMantleHOS"/>
+    <GuideEntityEmbed Entity="ClothingShoesBootsMagEng"/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="AlmagestGrenadeMarine"/>
+    <GuideEntityEmbed Entity="ClothingBeltMilitaryWebbingAlmagestEquip" Caption="РПС Альмагеста"/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="GrenadeShrapnel" Caption="осколочная граната"/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="GrenadeDummy" Caption="граната-обманка"/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="GrenadeBarrier" Caption="3 барьерные гранаты"/>
+  </Box>
+
+### Роль
+
+Ведение боевых действий, сопровождение капитана и проведение абордажных операций.
+</Document>
