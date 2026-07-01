@@ -1,31 +1,32 @@
-using Content.Shared.Abilities.Psionics;
-using Content.Shared.StatusEffect;
-using Content.Shared.Psionics;
-using Content.Shared.Psionics.Glimmer;
-using Content.Shared.Random;
-using Content.Shared.Weapons.Melee.Events;
-using Content.Shared.Damage.Events;
-using Content.Shared.CCVar;
 using Content.Server.Abilities.Psionics;
+using Content.Server.Chat.Managers;
 using Content.Server.Electrocution;
 using Content.Server.NPC.Components;
 using Content.Server.NPC.Systems;
-using Robust.Shared.Audio.Systems;
-using Robust.Shared.Configuration;
-using Robust.Shared.Random;
-using Content.Shared.Popups;
-using Content.Shared.Chat;
-using Robust.Server.Player;
-using Content.Server.Chat.Managers;
-using Robust.Shared.Prototypes;
-using Content.Shared.Mobs;
-using Content.Shared.Damage;
-using Content.Shared.Interaction.Events;
-using Timer = Robust.Shared.Timing.Timer;
+using Content.Shared._White.Psionics; //wwdp edit
+using Content.Shared.Abilities.Psionics;
 using Content.Shared.Alert;
+using Content.Shared.CCVar;
+using Content.Shared.Chat;
+using Content.Shared.Damage;
+using Content.Shared.Damage.Events;
+using Content.Shared.Interaction.Events;
+using Content.Shared.Mobs;
 using Content.Shared.NPC.Components;
 using Content.Shared.NPC.Systems;
+using Content.Shared.Popups;
+using Content.Shared.Psionics;
+using Content.Shared.Psionics.Glimmer;
+using Content.Shared.Random;
 using Content.Shared.Rounding;
+using Content.Shared.StatusEffect;
+using Content.Shared.Weapons.Melee.Events;
+using Robust.Server.Player;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Configuration;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
+using Timer = Robust.Shared.Timing.Timer;
 
 namespace Content.Server.Psionics;
 
@@ -105,6 +106,11 @@ public sealed class PsionicsSystem : EntitySystem
         if (!Exists(uid)
             || !TryComp(uid, out PsionicComponent? component))
             return;
+
+        if (TryComp<CustomPsionicPoolComponent>(uid, out var customPoolComp)) //wwdp edit start
+        {
+            component.PowerPool = customPoolComp.Pool;
+        } //wwdp edit end
 
         CheckPowerCost(uid, component);
         GenerateAvailablePowers(component);

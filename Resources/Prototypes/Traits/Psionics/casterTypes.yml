@@ -72,6 +72,8 @@
           nextPowerCost: 75
           removable: false
           powerPool: PsychoHistorianPowerPool
+        - type: CustomPsionicPool
+          pool: PsychoHistorianPowerPool
     - !type:TraitAddPsionics
       psionicPowers:
         - TelepathyPower
