@@ -9,5 +9,5 @@ public sealed partial class PsionicCloneComponent : Component
     public EntityUid? OriginalUid;
 
     [DataField]
-    public ProtoId<EntityPrototype> SpawnOnDeathPrototype { get; set; } = "Ectoplasm";
+    public ProtoId<EntityPrototype> SpawnOnDeathPrototype { get; set; } = "Ash";
 }
