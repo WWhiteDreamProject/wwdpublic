@@ -5432,3 +5432,12 @@ Entries:
   id: 566
   time: '2026-06-28T13:23:28.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1166
+- author: Pedro-233
+  changes:
+    - type: Add
+      message: Добавлен энергощит в набор Raider
+    - type: Tweak
+      message: Гадюки в наборах синдиката изменены на новый аналог MPR-10 Xyphos
+  id: 567
+  time: '2026-07-01T10:57:19.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1112
