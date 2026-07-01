@@ -5441,3 +5441,10 @@ Entries:
   id: 567
   time: '2026-07-01T10:57:19.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1112
+- author: Pedro-233
+  changes:
+    - type: Tweak
+      message: Изменены углы, формы того как лежат некоторые предметы в хранилищах
+  id: 568
+  time: '2026-07-01T11:01:04.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1121
