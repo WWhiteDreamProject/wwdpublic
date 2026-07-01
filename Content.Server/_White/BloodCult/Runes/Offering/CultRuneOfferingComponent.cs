@@ -1,4 +1,4 @@
-﻿using Content.Shared.Damage;
+using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Prototypes;
 
@@ -30,6 +30,9 @@ public sealed partial class CultRuneOfferingComponent : Component
     /// </summary>
     [DataField]
     public int ReviveChargesPerOffering = 1;
+
+    [DataField]
+    public TimeSpan SacrificeDelay = TimeSpan.FromSeconds(5);
 
     [DataField]
     public EntProtoId SoulShardProto = "SoulShard";
