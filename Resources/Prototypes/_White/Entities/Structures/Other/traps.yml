@@ -23,6 +23,13 @@
     intersectRatio: 0.2
     requiredTriggeredSpeed: 0
   - type: TriggerOnStepTrigger
+  - type: ItemSlots
+    slots:
+      grenade_slot:
+        name: triggered
+  - type: TriggerItemSlot
+    slots:
+      - grenade_slot
 
 - type: entity
   id: GrenadeTrapGrenade
@@ -38,13 +45,6 @@
   - type: Construction
     graph: GrenadeTrapGraph
     node: trap_grenade
-  - type: ExplodeOnTrigger
-  - type: Explosive
-    explosionType: Default
-    maxIntensity: 10
-    intensitySlope: 3
-    totalIntensity: 120
-    canCreateVacuum: false
 
 
 - type: entity
@@ -84,4 +84,3 @@
       behaviors:
       - !type:DoActsBehavior
         acts: Destruction
-      - !type:ExplodeBehavior
