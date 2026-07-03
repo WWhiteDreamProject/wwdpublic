@@ -5455,3 +5455,10 @@ Entries:
   id: 569
   time: '2026-07-01T11:06:24.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1156
+- author: SentryPrimies
+  changes:
+    - type: Add
+      message: Добавлены новые  Спрайты для цветных комбинезонов и Людей
+  id: 570
+  time: '2026-07-03T18:21:57.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1136
