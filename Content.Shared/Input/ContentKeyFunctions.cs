@@ -13,6 +13,7 @@ namespace Content.Shared.Input
         public static readonly BoundKeyFunction PreciseDrop = "PreciseDrop";		// WWDP
         public static readonly BoundKeyFunction MouseWheelUp = "MouseWheelUp";		// WWDP
         public static readonly BoundKeyFunction MouseWheelDown = "MouseWheelDown";	// WWDP
+        public static readonly BoundKeyFunction AltExamine = "AltExamine";	// WWDP
         public static readonly BoundKeyFunction ExamineEntity = "ExamineEntity";
         public static readonly BoundKeyFunction FocusChat = "FocusChatInputWindow";
         public static readonly BoundKeyFunction FocusLocalChat = "FocusLocalChatWindow";

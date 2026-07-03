@@ -36,3 +36,4 @@
     noRot: true
   - type: StaticPrice
     price: 20
+  - type: AltExamine # WWDP edit

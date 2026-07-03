@@ -144,6 +144,8 @@
     guides:
     - VoltageNetworks
     - Power
+  - type: AltExamine # WWDP edit
+    useAltCalc: true # WWDP edit
 
 # APC under construction
 - type: entity

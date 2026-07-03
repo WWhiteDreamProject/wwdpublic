@@ -251,6 +251,7 @@
   description: A sign, indicating an AI is present.
   components:
   - type: Sprite
+    sprite: _White/Structures/Wallmounts/Signs/34x34.rsi # WWDP edit
     state: ai
 
 - type: entity
@@ -260,6 +261,7 @@
   description: A sign, indicating an AI is present.
   components:
     - type: Sprite
+      sprite: _White/Structures/Wallmounts/Signs/34x34.rsi # WWDP edit
       state: ai_upload
 
 - type: entity
@@ -269,6 +271,7 @@
   description: A sign indicating the arcade.
   components:
   - type: Sprite
+    sprite: _White/Structures/Wallmounts/Signs/34x34.rsi # WWDP edit
     state: arcade
 
 - type: entity
@@ -278,6 +281,7 @@
   description: A sign indicating the armory.
   components:
   - type: Sprite
+    sprite: _White/Structures/Wallmounts/Signs/34x34.rsi # WWDP edit
     state: armory
 
 - type: entity
@@ -287,7 +291,8 @@
   description: A sign indicating the tool storage room.
   components:
   - type: Sprite
-    state: ass
+    sprite: _White/Structures/Wallmounts/Signs/34x34.rsi # WWDP edit
+    state: tool # WWDP edit
 
 - type: entity
   parent: BaseSign
@@ -296,6 +301,7 @@
   description: A sign indicating the xenoarchaeology lab.
   components:
   - type: Sprite
+    sprite: _White/Structures/Wallmounts/Signs/34x34.rsi # WWDP edit
     state: xenoarch
 
 - type: entity
@@ -305,6 +311,7 @@
   description: A sign indicating the anomalous research lab.
   components:
   - type: Sprite
+    sprite: _White/Structures/Wallmounts/Signs/34x34.rsi # WWDP edit
     state: anomaly
 
 - type: entity
@@ -314,6 +321,7 @@
   description: A sign indicating the atmospherics area.
   components:
   - type: Sprite
+    sprite: _White/Structures/Wallmounts/Signs/34x34.rsi # WWDP edit
     state: atmos
 
 - type: entity
@@ -323,6 +331,7 @@
   description: A sign indicating the bar.
   components:
   - type: Sprite
+    sprite: _White/Structures/Wallmounts/Signs/34x34.rsi # WWDP edit
     state: bar
 
 - type: entity
@@ -332,6 +341,7 @@
   description: A sign indicating the bathroom.
   components:
   - type: Sprite
+    sprite: _White/Structures/Wallmounts/Signs/34x34.rsi # WWDP edit
     state: bath
 
 - type: entity
@@ -341,6 +351,7 @@
   description: The heart of the home. And disease.
   components:
   - type: Sprite
+    sprite: _White/Structures/Wallmounts/Signs/34x34.rsi # WWDP edit
     state: kitchen
 
 - type: entity
@@ -367,6 +378,7 @@
   description: A sign indicating the barbershop.
   components:
   - type: Sprite
+    sprite: _White/Structures/Wallmounts/Signs/34x34.rsi # WWDP edit
     state: barbershop
 
 - type: entity
@@ -394,6 +406,7 @@
   description: A sign indicating the bridge.
   components:
   - type: Sprite
+    sprite: _White/Structures/Wallmounts/Signs/34x34.rsi # WWDP edit
     state: bridge
 
 - type: entity
@@ -403,7 +416,8 @@
   description: A sign warning the viewer about pressurised canisters.
   components:
   - type: Sprite
-    state: canisters
+    sprite: _White/Structures/Wallmounts/Signs/34x34.rsi # WWDP edit
+    state: cans
 
 - type: entity
   parent: BaseSign
@@ -412,6 +426,7 @@
   description: A sign indicating the logistics area. # DeltaV - Logistics Department replacing Cargo
   components:
   - type: Sprite
+    sprite: _White/Structures/Wallmounts/Signs/34x34.rsi # WWDP edit
     state: cargo
 
 - type: entity
@@ -421,6 +436,7 @@
   description: A sign indicating a cargo dock.
   components:
   - type: Sprite
+    sprite: _White/Structures/Wallmounts/Signs/34x34.rsi # WWDP edit
     state: cargo_dock
 
 - type: entity
@@ -430,7 +446,7 @@
   description: A sign indicating the chapel.
   components:
   - type: Sprite
-    sprite: Structures/Wallmounts/signs.rsi # WWDP edit
+    sprite: _White/Structures/Wallmounts/Signs/34x34.rsi # WWDP edit
     state: chapel
 
 - type: entity
@@ -440,6 +456,7 @@
   description: A sign indicating the chemistry lab.
   components:
   - type: Sprite
+    sprite: _White/Structures/Wallmounts/Signs/34x34.rsi # WWDP edit
     state: chem
 
 - type: entity
@@ -449,6 +466,7 @@
   description: A sign indicating the cloning lab.
   components:
   - type: Sprite
+    sprite: _White/Structures/Wallmounts/Signs/34x34.rsi # WWDP edit
     state: cloning
 
 - type: entity
@@ -458,6 +476,7 @@
   description: Where work happens.
   components:
   - type: Sprite
+    sprite: _White/Structures/Wallmounts/Signs/34x34.rsi # WWDP edit
     state: conference_room
 
 - type: entity
@@ -467,6 +486,7 @@
   description: Just like that? You're gonna chicken out?
   components:
   - type: Sprite
+    sprite: _White/Structures/Wallmounts/Signs/34x34.rsi # WWDP edit
     state: cryo
 
 
@@ -477,6 +497,7 @@
   description: A sign indicating a disposal area.
   components:
   - type: Sprite
+    sprite: _White/Structures/Wallmounts/Signs/34x34.rsi # WWDP edit
     state: deathsposal
 
 - type: entity
@@ -486,6 +507,7 @@
   description: A sign indicating doors.
   components:
   - type: Sprite
+    sprite: _White/Structures/Wallmounts/Signs/34x34.rsi # WWDP edit
     state: doors
 
 - type: entity
@@ -504,6 +526,7 @@
   description: An omen to the juicy vault of steel, glass, and plastic that lays before you.
   components:
   - type: Sprite
+    sprite: _White/Structures/Wallmounts/Signs/34x34.rsi # WWDP edit
     state: mats
 
 - type: entity
@@ -513,6 +536,7 @@
   description: Where the powa happens.
   components:
   - type: Sprite
+    sprite: _White/Structures/Wallmounts/Signs/34x34.rsi # WWDP edit
     state: engine
 
 - type: entity
@@ -522,6 +546,7 @@
   description: A sign indicating the engineering area.
   components:
   - type: Sprite
+    sprite: _White/Structures/Wallmounts/Signs/34x34.rsi # WWDP edit
     state: eng
 
 - type: entity
@@ -531,9 +556,8 @@
   description: A sign indicating the escape pods.
   components:
   - type: Sprite
-    sprite: Structures/Wallmounts/signs.rsi # WWDP edit
+    sprite: _White/Structures/Wallmounts/Signs/34x34.rsi # WWDP edit
     state: pods
-    snapCardinals: false
 
 - type: entity
   parent: BaseSign
@@ -542,6 +566,7 @@
   description: A sign indicating an EVA area. EVA equipment may be required beyond this point.
   components:
   - type: Sprite
+    sprite: _White/Structures/Wallmounts/Signs/34x34.rsi # WWDP edit
     state: eva
 
 - type: entity
@@ -560,6 +585,7 @@
   description: A sign indicating a medical examination room.
   components:
   - type: Sprite
+    sprite: _White/Structures/Wallmounts/Signs/34x34.rsi # WWDP edit
     state: examroom
 
 - type: entity
@@ -578,6 +604,7 @@
   description: A sign indicating the gravity generator.
   components:
   - type: Sprite
+    sprite: _White/Structures/Wallmounts/Signs/34x34.rsi # WWDP edit
     state: gravi
 
 - type: entity
@@ -587,6 +614,7 @@
   description: An official sign indicating the dwellings of a Nanotrasen-certified head of department.
   components:
   - type: Sprite
+    sprite: _White/Structures/Wallmounts/Signs/34x34.rsi # WWDP edit
     state: commander
 
 - type: entity
@@ -596,6 +624,7 @@
   description: A sign indicating a hydroponics area.
   components:
   - type: Sprite
+    sprite: _White/Structures/Wallmounts/Signs/34x34.rsi # WWDP edit
     state: hydro
 
 - type: entity
@@ -605,6 +634,7 @@
   description: A sign indicating an interrogation room.
   components:
   - type: Sprite
+    sprite: _White/Structures/Wallmounts/Signs/34x34.rsi # WWDP edit
     state: interrogation
 
 - type: entity
@@ -614,6 +644,7 @@
   description: A sign labelling an area where the janitor works.
   components:
   - type: Sprite
+    sprite: _White/Structures/Wallmounts/Signs/34x34.rsi # WWDP edit
     state: janitor
 
 - type: entity
@@ -623,6 +654,7 @@
   description: A sign indicating the laundromat.
   components:
   - type: Sprite
+    sprite: _White/Structures/Wallmounts/Signs/34x34.rsi # WWDP edit
     state: laundromat
 
 - type: entity
@@ -632,6 +664,7 @@
   description: A sign indicating the presence of the (typically absent) rule of law.
   components:
   - type: Sprite
+    sprite: _White/Structures/Wallmounts/Signs/34x34.rsi # WWDP edit
     state: law
 
 - type: entity
@@ -641,6 +674,7 @@
   description: A sign indicating the library.
   components:
   - type: Sprite
+    sprite: _White/Structures/Wallmounts/Signs/34x34.rsi # WWDP edit
     state: biblio
 
 - type: entity
@@ -650,6 +684,7 @@
   description: A sign indicating mail.
   components:
   - type: Sprite
+    sprite: _White/Structures/Wallmounts/Signs/34x34.rsi # WWDP edit
     state: mail
 
 - type: entity
@@ -659,6 +694,7 @@
   description: A sign indicating the medical bay.
   components:
   - type: Sprite
+    sprite: _White/Structures/Wallmounts/Signs/34x34.rsi # WWDP edit
     state: medbay
 
 - type: entity
@@ -668,6 +704,7 @@
   description: A sign indicating the morgue.
   components:
   - type: Sprite
+    sprite: _White/Structures/Wallmounts/Signs/34x34.rsi # WWDP edit
     state: morgue
 
 - type: entity
@@ -677,6 +714,7 @@
   description: A sign indicating where the Reporter works.
   components:
   - type: Sprite
+    sprite: _White/Structures/Wallmounts/Signs/34x34.rsi # WWDP edit
     state: news
 
 - type: entity
@@ -695,6 +733,7 @@
   description: A sign indicating the prison.
   components:
   - type: Sprite
+    sprite: _White/Structures/Wallmounts/Signs/34x34.rsi # WWDP edit
     state: prison
 
 - type: entity
@@ -704,6 +743,7 @@
   description: A sign labelling an area where the Psychologist works.
   components:
   - type: Sprite
+    sprite: _White/Structures/Wallmounts/Signs/34x34.rsi # WWDP edit
     state: psychology
 
 - type: entity
@@ -713,6 +753,7 @@
   description: A sign indicating the reception.
   components:
   - type: Sprite
+    sprite: _White/Structures/Wallmounts/Signs/34x34.rsi # WWDP edit
     state: reception
 
 - type: entity
@@ -722,6 +763,7 @@
   description: A sign indicating the research and development lab.
   components:
   - type: Sprite
+    sprite: _White/Structures/Wallmounts/Signs/34x34.rsi # WWDP edit
     state: rnd
 
 - type: entity
@@ -731,6 +773,7 @@
   description: A sign indicating the robotics lab.
   components:
   - type: Sprite
+    sprite: _White/Structures/Wallmounts/Signs/34x34.rsi # WWDP edit
     state: robo
 
 - type: entity
@@ -740,6 +783,7 @@
   description: A sign indicating the salvage area.
   components:
   - type: Sprite
+    sprite: _White/Structures/Wallmounts/Signs/34x34.rsi # WWDP edit
     state: salvage
 
 - type: entity
@@ -749,6 +793,7 @@
   description: A sign indicating the science area.
   components:
   - type: Sprite
+    sprite: _White/Structures/Wallmounts/Signs/34x34.rsi # WWDP edit
     state: sci
 
 - type: entity
@@ -758,6 +803,7 @@
   description: Ever heard of Big Data? This is it, chump. The biggest.
   components:
   - type: Sprite
+    sprite: _White/Structures/Wallmounts/Signs/34x34.rsi # WWDP edit
     state: data
 
 - type: entity
@@ -767,7 +813,8 @@
   description: A sign indicating the auspicious presence of gas canisters.
   components:
   - type: Sprite
-    state: cans
+    sprite: _White/Structures/Wallmounts/Signs/34x34.rsi # WWDP edit
+    state: cans_sci
 
 - type: entity
   parent: SignCans
@@ -784,6 +831,7 @@
   description: A sign indicating the where the evac shuttle will (likely) arrive.
   components:
   - type: Sprite
+    sprite: _White/Structures/Wallmounts/Signs/34x34.rsi # WWDP edit
     state: dock
 
 - type: entity
@@ -793,9 +841,8 @@
   description: A sign warning that the area ahead is nothing but cold, empty space.
   components:
   - type: Sprite
-    sprite: Structures/Wallmounts/signs.rsi # WWDP edit
+    sprite: _White/Structures/Wallmounts/Signs/34x34.rsi # WWDP edit
     state: space
-    snapCardinals: false
 
 - type: entity
   parent: BaseSign
@@ -804,6 +851,7 @@
   description: A sign indicating the operating theater.
   components:
   - type: Sprite
+    sprite: _White/Structures/Wallmounts/Signs/34x34.rsi # WWDP edit
     state: surgery
 
 - type: entity
@@ -813,6 +861,7 @@
   description: A sign indicating the telecommunications room.
   components:
   - type: Sprite
+    sprite: _White/Structures/Wallmounts/Signs/34x34.rsi # WWDP edit
     state: telecoms
 
 - type: entity
@@ -822,6 +871,7 @@
   description: A sign indicating the toxin lab.
   components:
   - type: Sprite
+    sprite: _White/Structures/Wallmounts/Signs/34x34.rsi # WWDP edit
     state: toxins
 
 - type: entity
@@ -840,6 +890,7 @@
   description: A sign indicating the virology lab.
   components:
   - type: Sprite
+    sprite: _White/Structures/Wallmounts/Signs/34x34.rsi # WWDP edit
     state: virology
 
 - type: entity
@@ -985,6 +1036,7 @@
   description: The final remains of a shut-down Nanotrasen research project that aimed to harness the powers of Romerol. I wonder how that went...
   components:
   - type: Sprite
+    sprite: _White/Structures/Wallmounts/Signs/34x34.rsi # WWDP edit
     state: zomlab
 
 - type: entity

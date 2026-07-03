@@ -182,6 +182,9 @@ binds:
   type: State
   key: Q
   mod1: Shift
+- function: AltExamine
+  type: State
+  key: Alt
 # WD EDIT END
 - function: ActivateItemInHand
   type: State

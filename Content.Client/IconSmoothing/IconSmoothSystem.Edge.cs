@@ -1,88 +1,73 @@
 using System.Numerics;
 using Content.Shared.IconSmoothing;
 using Robust.Client.GameObjects;
+using Robust.Shared.Map.Components;
 
 namespace Content.Client.IconSmoothing;
 
 public sealed partial class IconSmoothSystem
 {
-    // Handles drawing edge sprites on the non-smoothed edges.
+//    private void OnEdgeShutdown(EntityUid uid, SmoothEdgeComponent component, ComponentShutdown args)
+//    {
+//        if (!TryComp<SpriteComponent>(uid, out var sprite))
+//            return;
+//
+//        sprite.LayerMapRemove(EdgeLayer.South);
+//        sprite.LayerMapRemove(EdgeLayer.East);
+//        sprite.LayerMapRemove(EdgeLayer.North);
+//        sprite.LayerMapRemove(EdgeLayer.West);
+//    }
 
-    private void InitializeEdge()
+    private void CalculateEdge(EntityUid uid, SpriteComponent? sprite = null, IconSmoothComponent? smooth = null)
     {
-        SubscribeLocalEvent<SmoothEdgeComponent, ComponentStartup>(OnEdgeStartup);
-        SubscribeLocalEvent<SmoothEdgeComponent, ComponentShutdown>(OnEdgeShutdown);
-    }
-
-    private void OnEdgeStartup(EntityUid uid, SmoothEdgeComponent component, ComponentStartup args)
-    {
-        if (!TryComp<SpriteComponent>(uid, out var sprite))
+        if (!Resolve(uid, ref sprite, ref smooth, false))
             return;
 
-        sprite.LayerSetOffset(EdgeLayer.South, new Vector2(0, -1f));
-        sprite.LayerSetOffset(EdgeLayer.East, new Vector2(1f, 0f));
-        sprite.LayerSetOffset(EdgeLayer.North, new Vector2(0, 1f));
-        sprite.LayerSetOffset(EdgeLayer.West, new Vector2(-1f, 0f));
-
-        sprite.LayerSetVisible(EdgeLayer.South, false);
-        sprite.LayerSetVisible(EdgeLayer.East, false);
-        sprite.LayerSetVisible(EdgeLayer.North, false);
-        sprite.LayerSetVisible(EdgeLayer.West, false);
-    }
-
-    private void OnEdgeShutdown(EntityUid uid, SmoothEdgeComponent component, ComponentShutdown args)
-    {
-        if (!TryComp<SpriteComponent>(uid, out var sprite))
+        if (smooth.SmoothEdgeLayers.Length == 0)
             return;
 
-        sprite.LayerMapRemove(EdgeLayer.South);
-        sprite.LayerMapRemove(EdgeLayer.East);
-        sprite.LayerMapRemove(EdgeLayer.North);
-        sprite.LayerMapRemove(EdgeLayer.West);
-    }
+        var xform = Transform(uid);
 
-    private void CalculateEdge(EntityUid uid, DirectionFlag directions, SpriteComponent? sprite = null, SmoothEdgeComponent? component = null)
-    {
-        if (!Resolve(uid, ref sprite, ref component, false))
-            return;
+        var directions = EdgeLayer.None;
 
-        for (var i = 0; i < 4; i++)
+        if (xform.GridUid is EntityUid gridUid && TryComp<MapGridComponent>(gridUid, out var grid))
         {
-            var dir = (DirectionFlag) Math.Pow(2, i);
-            var edge = GetEdge(dir);
+            var pos = _map.TileIndicesFor(gridUid, grid, xform.Coordinates);
 
-            if ((dir & directions) != 0x0)
-            {
-                sprite.LayerSetVisible(edge, false);
-                continue;
-            }
-
-            sprite.LayerSetVisible(edge, true);
+            if (MatchingEntity(smooth, grid, pos, Direction.North, xform.LocalRotation, null, true))
+                directions |= EdgeLayer.North;
+            if (MatchingEntity(smooth, grid, pos, Direction.South, xform.LocalRotation, null, true))
+                directions |= EdgeLayer.South;
+            if (MatchingEntity(smooth, grid, pos, Direction.East, xform.LocalRotation, null, true))
+                directions |= EdgeLayer.East;
+            if (MatchingEntity(smooth, grid, pos, Direction.West, xform.LocalRotation, null, true))
+                directions |= EdgeLayer.West;
+            if (MatchingEntity(smooth, grid, pos, Direction.NorthEast, xform.LocalRotation, null, true))
+                directions |= EdgeLayer.NorthEast;
+            if (MatchingEntity(smooth, grid, pos, Direction.NorthWest, xform.LocalRotation, null, true))
+                directions |= EdgeLayer.NorthWest;
+            if (MatchingEntity(smooth, grid, pos, Direction.SouthEast, xform.LocalRotation, null, true))
+                directions |= EdgeLayer.SouthEast;
+            if (MatchingEntity(smooth, grid, pos, Direction.SouthWest, xform.LocalRotation, null, true))
+                directions |= EdgeLayer.SouthWest;
         }
+
+        UpdateEdge(uid, directions, sprite, smooth);
     }
 
-    private EdgeLayer GetEdge(DirectionFlag direction)
+    private void UpdateEdge(EntityUid uid, EdgeLayer directions, SpriteComponent? sprite = null, IconSmoothComponent? smooth = null)
     {
-        switch (direction)
+        if (!Resolve(uid, ref sprite, ref smooth, false))
+            return;
+
+        if (smooth.SmoothEdgeLayers.Length == 0)
+            return;
+
+        foreach (var edge in smooth.SmoothEdgeLayers)
         {
-            case DirectionFlag.South:
-                return EdgeLayer.South;
-            case DirectionFlag.East:
-                return EdgeLayer.East;
-            case DirectionFlag.North:
-                return EdgeLayer.North;
-            case DirectionFlag.West:
-                return EdgeLayer.West;
-            default:
-                throw new ArgumentOutOfRangeException();
-        }
-    }
+            var visible = (edge & directions) == 0x0;
 
-    private enum EdgeLayer : byte
-    {
-        South,
-        East,
-        North,
-        West
+            _sprite.LayerSetVisible((uid, sprite), edge, visible ^ smooth.ShowEdgeIfMatching);
+        }
     }
 }
