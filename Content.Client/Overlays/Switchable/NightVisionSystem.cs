@@ -1,3 +1,4 @@
+using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Overlays.Switchable;
 using Robust.Client.Graphics;
@@ -39,6 +40,18 @@ public sealed class NightVisionSystem : EquipmentHudSystem<NightVisionComponent>
 
         _overlay.SetParams(ent.Comp.Tint, ent.Comp.Strength, ent.Comp.Noise, ent.Comp.Color, ent.Comp.PulseTime);
         RefreshOverlay();
+    }
+
+    protected override void OnRefreshEquipmentHud(
+        Entity<NightVisionComponent> ent,
+        ref InventoryRelayedEvent<RefreshEquipmentHudEvent<NightVisionComponent>> args)
+    {
+        // WD EDIT START - only equipment night vision should work from inventory.
+        if (!ent.Comp.IsEquipment)
+            return;
+        // WD EDIT END
+
+        base.OnRefreshEquipmentHud(ent, ref args);
     }
 
     protected override void UpdateInternal(RefreshEquipmentHudEvent<NightVisionComponent> args)
