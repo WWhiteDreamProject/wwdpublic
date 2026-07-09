@@ -41,5 +41,5 @@ armor-damage-type-poison = Poison
 armor-damage-type-shock = Shock
 armor-damage-type-structural = Structural
 armor-damage-type-holy = Holy
-# End «do not translate»
+# End "do not translate"
 armor-examine-stamina = - [color=cyan]Выносливость[/color] крепче на [color=lightblue]{$num}%[/color].

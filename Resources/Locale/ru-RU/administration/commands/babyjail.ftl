@@ -15,5 +15,5 @@ babyjail-command-max-account-age-set = Установлен максимальн
 
 cmd-babyjail_max_overall_minutes-desc = Получает или задает максимальное общее время игры в минутах, в течение которого учетной записи может быть разрешено подключение с включенным детсадом.
 cmd-babyjail_max_overall_minutes-help = Использование: babyjail_max_overall_minutes <minutes>
-babyjail-command-max-overall-minutes-is = Максимальное общее время игры в ССку — {$minutes} {RU-PLURAL($minutes, "минута", "минуты", "минут")}.
+babyjail-command-max-overall-minutes-is = Максимальное общее время игры в ССку - {$minutes} {RU-PLURAL($minutes, "минута", "минуты", "минут")}.
 babyjail-command-max-overall-minutes-set = Установите максимальное общее время игры в ССку на {$minutes} {RU-PLURAL($minutes, "минута", "минуты", "минут")}.

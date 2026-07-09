@@ -1832,9 +1832,8 @@ ent-WeaponRevolverFitzSecurity = «Фитц Специальный»
     .suffix = Револьвер, Офицера
 
 
-ent-WeaponRevolverLucky = «Счастливчик 37»
-    .desc = Удача всегда важнее мастерства, сопляк. Использует патроны .38 специальный.
-    .suffix = Револьвер
+ent-WeaponRevolverLucky = Счастливчик 37
+    .desc = Удача всегда важнее мастерства, сопляк. Использует патроны .38 special.
 
 
 ent-WeaponRevolverFaith = «Вера»

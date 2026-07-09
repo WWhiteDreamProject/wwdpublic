@@ -304,8 +304,8 @@ ui-options-function-text-cursor-select-word-left = Расширить выдел
 ui-options-function-text-cursor-select-word-right = Расширить выделение на слово вперёд
 ui-options-function-text-cursor-select-begin = Расширить выделение до начала
 ui-options-function-text-cursor-select-end = Расширить выделение до конца
-ui-options-function-text-backspace = Клавиша «Backspace»
-ui-options-function-text-delete = Клавиша «Delete»
+ui-options-function-text-backspace = Клавиша "Backspace"
+ui-options-function-text-delete = Клавиша "Delete"
 ui-options-function-text-word-backspace = Удалить слово слева (Backspace)
 ui-options-function-text-word-delete = Удалить слово справа (Delete)
 ui-options-function-text-newline = Новая строка
@@ -346,20 +346,20 @@ ui-options-net-predict-tick-bias-tooltip =
 ui-options-net-pvs-spawn = Лимит появление PVS сущностей
 ui-options-net-pvs-spawn-tooltip =
     Ограничение частоты отправки новых появившихся сущностей сервером на клиент.
-    Снижение этого параметра может помочь уменьшить «захлебывания»,
+    Снижение этого параметра может помочь уменьшить "захлебывания",
     вызываемые спавном сущностей, но может привести к их резкому появлению.
 
 ui-options-net-pvs-entry = Лимит PVS сущностей
 ui-options-net-pvs-entry-tooltip =
     Ограничение частоты отправки новых видимых сущностей сервером на клиент.
-    Снижение этого параметра может помочь уменьшить «захлебывания»,
+    Снижение этого параметра может помочь уменьшить "захлебывания",
     вызываемые спавном сущностей, но может привести к их резкому появлению.
 
 ui-options-net-pvs-leave = Частота удаления PVS
 ui-options-net-pvs-leave-tooltip =
     Ограничение частоты, с которой клиент будет удалять
     сущности вне поля зрения. Снижение этого параметра может помочь
-    уменьшить «захлебывания» при ходьбе, но иногда может
+    уменьшить "захлебывания" при ходьбе, но иногда может
     привести к неправильным предугадываниям и другим проблемам.
 
 ## Toggle window console command

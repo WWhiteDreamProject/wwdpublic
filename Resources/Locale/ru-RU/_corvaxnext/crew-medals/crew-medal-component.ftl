@@ -1,6 +1,6 @@
 # interaction
-comp-crew-medal-inspection-text = Награждён(а) {$recipient} за то, что {$reason}.
-comp-crew-medal-award-text = {$recipient} получает медаль «{$medal}».
+comp-crew-medal-inspection-text = Награждён(а) {$recipient} за {$reason}.
+comp-crew-medal-award-text = {$recipient} получает медаль "{$medal}".
 
 # round end screen
 # round end screen
@@ -10,7 +10,7 @@ comp-crew-medal-round-end-result = {$count ->
 }
 
 comp-crew-medal-round-end-list =
-    - [color=white]{$recipient}[/color] получил(а) [color=white]{$medal}[/color] за то, что
+    - [color=white]{$recipient}[/color] получил(а) [color=white]{$medal}[/color] за
     {"  "}{$reason}
 
 # UI

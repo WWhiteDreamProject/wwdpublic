@@ -30,6 +30,6 @@ pda-bound-user-interface-music-button-description = Слушайте музык�
 comp-pda-ui-unknown = Неизвестно
 comp-pda-ui-unassigned = Не назначено
 pda-notification-message =
-    {"["}font size=12]У Вас одно новое сообщение!
-    {"["}bold]ПДА[/bold] { $header }: [/font]
-    «{ $message }»
+    {"["}font size=10]У Вас одно новое сообщение![/font]
+    {"["}font size=12][bold]{ $header }:[/bold][/font]
+    "{ $message }"

@@ -1,6 +1,6 @@
 ame-controller-component-fuel-slot-fail-whitelist = Вы не можете положить это в контроллер...
 ame-controller-component-fuel-slot-fail-locked = Выключите ДАМ перед манипуляциями с топливом.
-ame-controller-component-fuel-slot-success-insert = Вы вставляете  в топливный слот.
+ame-controller-component-fuel-slot-success-insert = Вы вставляете бак в топливный слот.
 
 ## UI
 

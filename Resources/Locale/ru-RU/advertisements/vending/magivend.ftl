@@ -1,5 +1,5 @@
-advertisement-magivend-1 = Произносите заклинания правильным способом с МагАзином!
-advertisement-magivend-2 = Станьте Гудини сами! Используйте МагАзин!
+advertisement-magivend-1 = Произносите заклинания правильным способом с МагМазином!
+advertisement-magivend-2 = Станьте Гудини сами! Используйте МагМазин!
 advertisement-magivend-3 = АОЛДАОЫВ
 advertisement-magivend-4 = ФОЛАДИОФЛД
 advertisement-magivend-5 = ЮЬАЦ
