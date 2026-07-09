@@ -24,7 +24,7 @@ holodpad-logistics-mailroom = Снабжение - Почта
 holodpad-logistics-mailfront = Снабжение - Стойка почты
 holopad-logistics-salvage-bay = Снабжение - Утилизаторы
 holopad-logistics-breakroom  = Снабжение - Комната отдыха
-holopad-logistics-ats = Снабжение - АТС (Трейд)
+holopad-logistics-ats = Снабжение - Автоматическая торговая станция
 holopad-logistics-shuttle = Снабжение - Шаттл
 
 # Юстиция
