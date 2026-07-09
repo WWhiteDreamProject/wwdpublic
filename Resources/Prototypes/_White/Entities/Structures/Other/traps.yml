@@ -32,7 +32,7 @@
       - grenade_slot
   - type: ContainerContainer
     containers:
-      slots: !type:Container
+      grenade_slot: !type:ContainerSlot 
 
 #- type: entity
   #id: GrenadeTrapGrenade
