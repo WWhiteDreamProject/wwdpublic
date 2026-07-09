@@ -1,6 +1,6 @@
 ﻿- type: entity
   id: GrenadeTrap
-  parent: GrenadeTrapGrenade
+  parent: GrenadeTrapPoles
   name: booby trap
   description: An explosive surprise.
   components:
