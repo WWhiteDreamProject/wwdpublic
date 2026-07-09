@@ -34,10 +34,7 @@ public sealed class TriggerItemSlotSystem : EntitySystem
 
             if (slot.Item is EntityUid containedItem)
             {
-                if (!_itemSlots.TryEjectToHands(uid, slot, null))
-                {
-                    _xform.AttachToGridOrMap(containedItem);
-                }
+                _xform.AttachToGridOrMap(containedItem);
 
                 _trigger.Trigger(containedItem, args.User);
             }
