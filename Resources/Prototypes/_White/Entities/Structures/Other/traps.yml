@@ -34,20 +34,20 @@
     containers:
       slots: !type:Container
 
-- type: entity
-  id: GrenadeTrapGrenade
-  parent: GrenadeTrapPoles
-  name: booby trap
-  categories: [ HideSpawnMenu ]
-  description: An explosive surprise.
-  components:
-  - type: Sprite
-    sprite: _White/Structures/Other/grenadetrap.rsi
-    layers:
-    - state: trap_grenade
-  - type: Construction
-    graph: GrenadeTrapGraph
-    node: trap_grenade
+#- type: entity
+  #id: GrenadeTrapGrenade
+  #parent: GrenadeTrapPoles
+  #name: booby trap
+  #categories: [ HideSpawnMenu ]
+  #description: An explosive surprise.
+  #components:
+  #- type: Sprite
+  #  sprite: _White/Structures/Other/grenadetrap.rsi
+  #  layers:
+  #  - state: trap_grenade
+  #- type: Construction
+  #  graph: GrenadeTrapGraph
+  #  node: trap_grenade
 
 
 - type: entity
