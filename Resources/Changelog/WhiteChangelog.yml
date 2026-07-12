@@ -5462,3 +5462,10 @@ Entries:
   id: 570
   time: '2026-07-03T18:21:57.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1136
+- author: DEADISKO
+  changes:
+    - type: Fix
+      message: Мышь на голове больше не даёт ночное зрение.
+  id: 571
+  time: '2026-07-12T18:48:31.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1173
