@@ -72,3 +72,9 @@
   id: LightingOverlay
   kind: source
   path: "/Textures/_White/Effects/Shaders/light.swsl"
+
+# used by radar consoles for drawing FoV effect
+- type: shader
+  id: RadarConsoleFov
+  kind: source
+  path: "/Textures/Shaders/camera_static.swsl"

@@ -37,8 +37,6 @@
     mapping:
       weapon_slot: weapon_layer
   - type: RemoteControllable
-    manualControl: true
-  - type: RemoteControlOverlay
   - type: Machine
     board: WeaponTurretUniversalCircuitboard
   - type: Lock
