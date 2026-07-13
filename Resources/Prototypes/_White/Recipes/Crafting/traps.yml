@@ -40,24 +40,6 @@
       steps:
       - tool: Cutting
         doAfter: 5
-    - to: trap_grenade
-      steps:
-      - tag: GrenadeTrapPart
-        doAfter: 5
-        name: "explosive grenade"
-        icon:
-          sprite: Objects/Weapons/Grenades/grenade.rsi
-          state: icon
-  - node: trap_grenade
-    entity: GrenadeTrapGrenade
-    edges:
-    - to: trap_poles
-      completed:
-      - !type:SpawnPrototype
-        prototype: ExGrenade
-      steps:
-      - tool: Cutting
-        doAfter: 5
     - to: trap_full
       steps:
       - material: Cloth
@@ -65,8 +47,9 @@
         doAfter: 5
   - node: trap_full
     edges:
-    - to: trap_grenade
+    - to: trap_poles
       steps:
       - tool: Cutting
         doAfter: 5
     entity: GrenadeTrap
+

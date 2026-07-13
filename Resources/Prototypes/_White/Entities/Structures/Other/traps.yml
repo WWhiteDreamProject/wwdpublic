@@ -1,6 +1,6 @@
 ﻿- type: entity
   id: GrenadeTrap
-  parent: GrenadeTrapGrenade
+  parent: GrenadeTrapPoles
   name: booby trap
   description: An explosive surprise.
   components:
@@ -23,28 +23,31 @@
     intersectRatio: 0.2
     requiredTriggeredSpeed: 0
   - type: TriggerOnStepTrigger
+  - type: ItemSlots
+    slots:
+      grenade_slot:
+        name: triggered
+  - type: TriggerItemSlot
+    slots:
+      - grenade_slot
+  - type: ContainerContainer
+    containers:
+      grenade_slot: !type:ContainerSlot 
 
-- type: entity
-  id: GrenadeTrapGrenade
-  parent: GrenadeTrapPoles
-  name: booby trap
-  categories: [ HideSpawnMenu ]
-  description: An explosive surprise.
-  components:
-  - type: Sprite
-    sprite: _White/Structures/Other/grenadetrap.rsi
-    layers:
-    - state: trap_grenade
-  - type: Construction
-    graph: GrenadeTrapGraph
-    node: trap_grenade
-  - type: ExplodeOnTrigger
-  - type: Explosive
-    explosionType: Default
-    maxIntensity: 10
-    intensitySlope: 3
-    totalIntensity: 120
-    canCreateVacuum: false
+#- type: entity
+  #id: GrenadeTrapGrenade
+  #parent: GrenadeTrapPoles
+  #name: booby trap
+  #categories: [ HideSpawnMenu ]
+  #description: An explosive surprise.
+  #components:
+  #- type: Sprite
+  #  sprite: _White/Structures/Other/grenadetrap.rsi
+  #  layers:
+  #  - state: trap_grenade
+  #- type: Construction
+  #  graph: GrenadeTrapGraph
+  #  node: trap_grenade
 
 
 - type: entity
@@ -84,4 +87,3 @@
       behaviors:
       - !type:DoActsBehavior
         acts: Destruction
-      - !type:ExplodeBehavior
