@@ -1531,3 +1531,9 @@
   id: WriteIgnoreStamps
 
 # ALPHABETICAL
+
+- type: Tag #WWDP
+  id: PowerSensor 
+
+- type: Tag #WWDP
+  id: PortableGeneratorJrPacmanMachineCircuitboard
