@@ -80,6 +80,16 @@
       enum.RevivalContractUiKey.Key: # Goobstation - Devil
         type: RevivalContractBoundUserInterface
         requireInputValidation: false
+      enum.RadarConsoleUiKey.Key: # WWDP edit start
+        type: RadarConsoleBoundUserInterface
+  - type: IntrinsicUI
+    uis:
+      enum.RadarConsoleUiKey.Key:
+        toggleAction: ActionGhostShowRadar
+  - type: RadarConsole
+    maxRange: 2048
+    followEntity: true
+    rotateWithEntity: false # WWDP edit end
 
 
 # proto for player ghosts specifically
@@ -149,6 +159,16 @@
       state: icon
     iconOn: Interface/Actions/ghostHearingToggled.png
     event: !type:ToggleGhostHearingActionEvent
+
+- type: entity # WWDP add start
+  id: ActionGhostShowRadar
+  name: Mass Scanner Interface
+  description: View a Mass Scanner Interface.
+  components:
+  - type: InstantAction
+    icon: { sprite: _White/Interface/Actions/consoles.rsi, state: radar }
+    checkCanInteract: false
+    event: !type:ToggleIntrinsicUIEvent { key: enum.RadarConsoleUiKey.Key } # WWDP add end
 
 - type: entity
   parent:
