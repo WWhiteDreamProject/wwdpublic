@@ -75,3 +75,33 @@
       - MindRoleXenomorph
   - type: DynamicRuleCost # WD edit
     cost: 24
+
+- type: entityTable
+  id: BasicNoosphereEventsTable
+  table: !type:AllSelector
+    children:
+    - id: NoosphericZap
+    - id: NoosphericStorm
+    - id: MundaneDischarge
+    - id: NoosphericFry
+    - id: PsionicCatGotYourTongue
+    - id: MassMindSwap
+    - id: GlimmerWispSpawn
+    - id: GlimmerRandomSentience
+    - id: FreeProber
+    - id: GlimmerRevenantSpawn
+    - id: GlimmerMiteSpawn
+
+
+- type: entity
+  parent: BaseGameRule
+  id: NoosphereEventsScheduler
+  components:
+  - type: GameRule
+  - type: BasicStationEventScheduler
+    minimumTimeUntilFirstEvent: 300
+    minMaxEventTiming:
+      min: 400
+      max: 600
+    scheduledGameRules: !type:NestedSelector
+      tableId: BasicNoosphereEventsTable

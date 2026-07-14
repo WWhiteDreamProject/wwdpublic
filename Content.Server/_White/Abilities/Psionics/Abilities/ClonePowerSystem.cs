@@ -150,7 +150,7 @@ public sealed class ClonePowerSystem : EntitySystem
         StripCloneEquipment(uid);
 
         QueueDel(uid);
-        Spawn("Ectoplasm", Transform(uid).Coordinates);
+        Spawn(component.SpawnOnDeathPrototype, Transform(uid).Coordinates);
 
         _popup.PopupCoordinates(Loc.GetString("psionic-burns-up", ("item", uid)), Transform(uid).Coordinates, Filter.Pvs(uid), true, Shared.Popups.PopupType.MediumCaution);
         _audio.PlayEntity("/Audio/Effects/lightburn.ogg", Filter.Pvs(uid), uid, true);
