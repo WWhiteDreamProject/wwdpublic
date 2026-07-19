@@ -8,7 +8,7 @@ ghost-role-information-nonantagonist-rules = Вы - [color=green][bold]не ан
                                              Вы не помните ничего из своей прошлой жизни, и Вы не помните ничего, чему научились, будучи призраком.
                                              Вам разрешается запоминать информацию об игре в целом, например, как готовить, как использовать предметы и т.д.
                                              Вам категорически [color=red]ЗАПРЕЩЕНО[/color] запоминать, скажем, имя, внешность и т.д. Вашего предыдущего персонажа.
-ghost-role-information-freeagent-rules = Вы - [color=yellow][bold]свободный агент[/bold][/color]. Вы вольны действовать как в качестве антагониста, так и в качестве мирного.
+ghost-role-information-freeagent-rules = Вы - [color=yellow][bold]вольный антагонист[/bold][/color]. Вы вольны действовать как в качестве антагониста, так и в качестве мирного.
                                          Вы не помните ничего из своей прошлой жизни, и Вы не помните ничего, чему научились, будучи призраком.
                                          Вам разрешается запоминать информацию об игре в целом, например, как готовить, как использовать предметы и т.д.
                                          Вам категорически [color=red]ЗАПРЕЩЕНО[/color] запоминать, скажем, имя, внешность и т.д. Вашего предыдущего персонажа.
@@ -38,8 +38,8 @@ ghost-role-information-mouse-description = Голодная и озорная м
 ghost-role-information-mothroach-name = Таракамоль
 ghost-role-information-mothroach-description = Милая озорная таракамоль.
 
-ghost-role-information-squackroach-name = Мольтаран
-ghost-role-information-squackroach-description = Дьявольский, но почти безвредный таракан.
+ghost-role-information-squackroach-name = Квакн
+ghost-role-information-squackroach-description = Дьявольский, но почти безвредный таракан-птица.
 
 ghost-role-information-snail-name = Улитка
 ghost-role-information-snail-description = Маленькая улитка, которая не против немного побыть на свободе. Только не убегай за пределы клетки!

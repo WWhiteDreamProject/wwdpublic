@@ -1,7 +1,7 @@
 ﻿
 ### Announcement
 
-earlyleave-cryo-job-unknown = Неизвестен
+earlyleave-cryo-job-unknown = без айди
 earlyleave-cryo-announcement = {$character}, {$job}, { GENDER($entity) ->
     [male] отправился
     [female] отправилась

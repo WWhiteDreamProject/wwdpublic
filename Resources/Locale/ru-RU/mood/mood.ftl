@@ -68,9 +68,9 @@ mood-effect-HealthLightDamage =
 mood-effect-HealthSevereDamage = Боль почти невыносима!
 mood-effect-HealthHeavyDamage =
     { GENDER($entity) ->
-        [epicene] Агония разгрызает наши души!
-        [neuter]  Агония разгрызает душу тела!
-       *[other]   Агония разгрызает мою душу!
+        [epicene] Агония разрывает наши души!
+        [neuter]  Агония разрывает душу тела!
+       *[other]   Агония разрывает мою душу!
     }
 
 mood-effect-Handcuffed =
@@ -365,9 +365,9 @@ mood-effect-MildPaincauser =
 
 mood-effect-StrongPaincauser =
     { GENDER($entity) ->
-        [epicene] Агония разгрызает наши души.
-        [neuter]  Агония разгрызает душу тела.
-       *[other]   Агония разгрызает мою душу.
+        [epicene] Все наши части тела невыносимо ломит.
+        [neuter]  Всё тело невыносимо ломит.
+       *[other]   Всё моё тело невыносимо ломит.
 
     }
 
