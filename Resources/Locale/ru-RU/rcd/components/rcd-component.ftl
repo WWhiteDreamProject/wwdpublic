@@ -1,7 +1,7 @@
 
 ### UI
 
-rcd-component-examine-mode-details = Текущий режим: «{$mode}».
+rcd-component-examine-mode-details = Текущий режим: '{$mode}'.
 rcd-component-examine-build-details = Текущий режим строительства: {$name}.
 
 
@@ -11,7 +11,7 @@ rcd-component-examine-build-details = Текущий режим строител
 ### Interaction Messages
 
 # Mode change
-rcd-component-change-mode = РЦД переключён в режим «{$mode}».
+rcd-component-change-mode = РЦД переключён в режим '{$mode}'.
 rcd-component-change-build-mode = РЦД переключён в режим строительства {$name}.
 
 # Ammo count

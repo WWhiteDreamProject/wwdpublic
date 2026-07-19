@@ -1,7 +1,7 @@
 ## UI
 
-hypospray-all-mode-text = Только вводит
-hypospray-mobs-only-mode-text = Черпает и вводит
+hypospray-all-mode-text = Ввод
+hypospray-mobs-only-mode-text = Забор
 hypospray-invalid-text = Недействительный
 hypospray-volume-label =
     Объем: [color=white]{$currentVolume}/{$totalVolume}ед[/color]
