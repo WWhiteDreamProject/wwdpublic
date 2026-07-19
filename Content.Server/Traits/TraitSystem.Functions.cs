@@ -25,6 +25,7 @@ using Content.Shared.Tag;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
 using System.Linq;
+using Content.Shared._White.Damage;
 using Content.Shared._White.Damage.Components;
 using Content.Shared._White.Humanoid.Components;
 using Robust.Shared.Utility;

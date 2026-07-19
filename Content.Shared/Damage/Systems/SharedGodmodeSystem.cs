@@ -1,3 +1,4 @@
+using Content.Shared._White.Damage;
 using Content.Shared._White.Damage.Components;
 using Content.Shared._White.Damage.Systems;
 using Content.Shared.Damage.Components;

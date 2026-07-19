@@ -64,7 +64,7 @@ public sealed partial class TelepathicChatSystem
 
     private void DescribeDamage(EntityUid uid, DamageableComponent component, GetPsychognomicDescriptorEvent ev)
     {
-        if (component.DamageContainer == "CorporealSpirit")
+        if (component.Container == "CorporealSpirit")
         {
             ev.Descriptors.Add(Loc.GetString("p-descriptor-liminal"));
             if (!HasComp<HumanoidProfileComponent>(uid))

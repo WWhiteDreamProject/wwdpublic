@@ -1,8 +1,7 @@
 using System.Collections.Frozen;
 using Content.Shared._White.Body;
 using Content.Shared._White.Damage.Components;
-using Content.Shared.Damage;
-using Content.Shared.Damage.Prototypes;
+using Content.Shared._White.Damage.Prototypes;
 using Content.Shared.FixedPoint;
 using Content.Shared.Inventory;
 using Content.Shared.Radiation.Events;
@@ -16,7 +15,8 @@ public sealed class DamageableSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _prototype = default!;
 
-    private FrozenDictionary<ProtoId<DamageContainerPrototype>, HashSet<ProtoId<DamageTypePrototype>>> _supportedTypesByContainer = default!;
+    private FrozenDictionary<ProtoId<DamageContainerPrototype>, HashSet<ProtoId<DamageTypePrototype>>> _typesByContainer = default!;
+    private FrozenDictionary<ProtoId<DamageGroupPrototype>, HashSet<ProtoId<DamageTypePrototype>>> _typesByGroup = default!;
 
     private EntityQuery<DamageableComponent> _damageableQuery;
 
@@ -30,6 +30,9 @@ public sealed class DamageableSystem : EntitySystem
         SubscribeLocalEvent<DamageableComponent, OnIrradiatedEvent>(OnIrradiated);
         SubscribeLocalEvent<DamageableComponent, RejuvenateEvent>(OnRejuvenate);
 
+        CacheGroupPrototypes();
+        CacheContainerPrototypes();
+
         _damageableQuery = GetEntityQuery<DamageableComponent>();
     }
 
@@ -37,10 +40,11 @@ public sealed class DamageableSystem : EntitySystem
 
     private void OnPrototypesReloaded(PrototypesReloadedEventArgs ev)
     {
-        if (!ev.WasModified<DamageContainerPrototype>() && !ev.WasModified<DamageGroupPrototype>())
-            return;
+        if (ev.WasModified<DamageGroupPrototype>())
+            CacheGroupPrototypes();
 
-        CachePrototypes();
+        if (ev.WasModified<DamageContainerPrototype>())
+            CacheContainerPrototypes();
     }
 
     private void OnGetState(Entity<DamageableComponent> ent, ref ComponentGetState args)
@@ -53,8 +57,8 @@ public sealed class DamageableSystem : EntitySystem
         if (args.Current is not DamageableComponentState state)
             return;
 
-        ent.Comp.DamageContainer = state.DamageContainer;
-        ent.Comp.DamageModifierSet = state.DamageModifierSet;
+        ent.Comp.Container = state.Container;
+        ent.Comp.ModifierSet = state.ModifierSet;
 
         // Has the damage actually changed?
         var delta = state.Damage - ent.Comp.Damage;
@@ -70,22 +74,21 @@ public sealed class DamageableSystem : EntitySystem
 
     private void OnInit(Entity<DamageableComponent> ent, ref ComponentInit args)
     {
-        ent.Comp.Damage.GetDamagePerGroup(_prototype, ent.Comp.DamagePerGroup);
+        ent.Comp.DamagePerGroup = ent.Comp.Damage.GetDamagePerGroup(this, _prototype);
         ent.Comp.TotalDamage = ent.Comp.Damage.GetTotal();
     }
 
     private void OnIrradiated(Entity<DamageableComponent> ent, ref OnIrradiatedEvent args)
     {
-        var damageValue = FixedPoint2.New(args.TotalRads);
+        var damage = FixedPoint2.New(args.TotalRads);
 
-        // Radiation should really just be a damage group instead of a list of types.
-        DamageSpecifier damage = new();
+        DamageSpecifier specifier = new();
         foreach (var type in ent.Comp.RadiationDamageTypes)
         {
-            damage.DamageDict.Add(type, damageValue);
+            specifier.Add(type, damage);
         }
 
-        ChangeDamage(ent.Owner, damage, interruptsDoAfters: false);
+        ChangeDamage(ent.Owner, specifier, interruptsDoAfters: false);
     }
 
     private void OnRejuvenate(Entity<DamageableComponent> ent, ref RejuvenateEvent args)
@@ -101,16 +104,16 @@ public sealed class DamageableSystem : EntitySystem
     /// Checks if the entity has any damage that overlaps with the specified damage types.
     /// </summary>
     /// <param name="ent">The entity to check for damage.</param>
-    /// <param name="damage">The damage specifier to compare against.</param>
+    /// <param name="specifier">The damage specifier to compare against.</param>
     /// <returns>True if the entity has at least one overlapping damage type, false otherwise.</returns>
-    public bool HasDamage(Entity<DamageableComponent?> ent, DamageSpecifier damage)
+    public bool HasDamage(Entity<DamageableComponent?> ent, DamageSpecifier specifier)
     {
         if (!_damageableQuery.Resolve(ent, ref ent.Comp))
             return false;
 
-        foreach (var type in ent.Comp.Damage.DamageDict.Keys)
+        foreach (var type in ent.Comp.Damage.Keys)
         {
-            if (!damage.DamageDict.ContainsKey(type))
+            if (!specifier.ContainsKey(type))
                 continue;
 
             return true;
@@ -132,7 +135,7 @@ public sealed class DamageableSystem : EntitySystem
     /// </returns>
     public bool TryChangeDamage(
         Entity<DamageableComponent?> ent,
-        DamageSpecifier damage,
+        DamageSpecifier specifier,
         out DamageSpecifier newDamage,
         bool ignoreResistances = false,
         bool interruptsDoAfters = true,
@@ -140,35 +143,32 @@ public sealed class DamageableSystem : EntitySystem
         BodyProviderType providerType = BodyProviderType.AllParts
     )
     {
-        newDamage = ChangeDamage(ent, damage, ignoreResistances, interruptsDoAfters, origin, providerType);
+        newDamage = ChangeDamage(ent, specifier, ignoreResistances, interruptsDoAfters, origin, providerType);
         return !newDamage.Empty;
     }
 
     /// <inheritdoc cref="TryChangeDamage(Entity{DamageableComponent?}, DamageSpecifier, out DamageSpecifier, bool, bool, EntityUid?, BodyProviderType)"/>
     public bool TryChangeDamage(
         Entity<DamageableComponent?> ent,
-        DamageSpecifier damage,
+        DamageSpecifier specifier,
         bool ignoreResistances = false,
         bool interruptsDoAfters = true,
         EntityUid? origin = null,
         BodyProviderType providerType = BodyProviderType.AllParts
     )
     {
-        return TryChangeDamage(ent, damage, out _, ignoreResistances, interruptsDoAfters, origin, providerType);
+        return TryChangeDamage(ent, specifier, out _, ignoreResistances, interruptsDoAfters, origin, providerType);
     }
 
     /// <summary>
     /// Applies damage specified via a <see cref="DamageSpecifier"/>.
     /// </summary>
-    /// <remarks>
-    /// This function just applies damage. No more, no less.
-    /// </remarks>
     /// <returns>
-    /// The actual amount of damage taken, as a DamageSpecifier.
+    /// The actual amount of damage taken, as a <see cref="DamageSpecifier"/>.
     /// </returns>
     public DamageSpecifier ApplyDamage(
         Entity<DamageableComponent?> ent,
-        DamageSpecifier damage,
+        DamageSpecifier specifier,
         bool interruptsDoAfters = true,
         EntityUid? origin = null
         )
@@ -178,21 +178,18 @@ public sealed class DamageableSystem : EntitySystem
         if (!_damageableQuery.Resolve(ent, ref ent.Comp, false))
             return result;
 
-        result.DamageDict.EnsureCapacity(damage.DamageDict.Count);
-
-        var dict = ent.Comp.Damage.DamageDict;
-        foreach (var (type, value) in damage.DamageDict)
+        foreach (var (type, damage) in specifier)
         {
-            if (!SupportsType(ent.Comp.DamageContainer, type))
+            if (!SupportsType(ent.Comp.Container, type))
                 continue;
 
-            var oldValue = dict.GetValueOrDefault(type);
-            var newValue = FixedPoint2.Max(FixedPoint2.Zero, oldValue + value);
-            if (newValue == oldValue)
+            var oldDamage = ent.Comp.Damage.GetValueOrDefault(type);
+            var newDamage = FixedPoint2.Max(FixedPoint2.Zero, oldDamage + damage);
+            if (newDamage == oldDamage)
                 continue;
 
-            dict[type] = newValue;
-            result.DamageDict[type] = newValue - oldValue;
+            ent.Comp.Damage[type] = newDamage;
+            result[type] = newDamage - oldDamage;
         }
 
         if (!result.Empty)
@@ -214,23 +211,23 @@ public sealed class DamageableSystem : EntitySystem
     /// </returns>
     public DamageSpecifier ChangeDamage(
         Entity<DamageableComponent?> ent,
-        DamageSpecifier damage,
+        DamageSpecifier specifier,
         bool ignoreResistances = false,
         bool interruptsDoAfters = true,
         EntityUid? origin = null,
         BodyProviderType providerType = BodyProviderType.AllParts
     )
     {
-        if (damage.Empty || !_damageableQuery.Resolve(ent, ref ent.Comp, false))
+        if (specifier.Empty || !_damageableQuery.Resolve(ent, ref ent.Comp, false))
             return new ();
 
-        var beforeEv = new BeforeDamageChangedEvent(damage, origin);
+        var beforeEv = new BeforeDamageChangedEvent(specifier, origin);
         RaiseLocalEvent(ent, ref beforeEv);
 
         if (beforeEv.Cancelled)
             return new ();
 
-        var attemptHandleEv = new BeforeHandleDamageEvent(providerType, ignoreResistances, interruptsDoAfters, ent.Comp, damage, origin);
+        var attemptHandleEv = new BeforeHandleDamageEvent(providerType, ignoreResistances, interruptsDoAfters, ent.Comp, specifier, origin);
         RaiseLocalEvent(ent, attemptHandleEv);
 
         if (attemptHandleEv.Handled)
@@ -238,18 +235,18 @@ public sealed class DamageableSystem : EntitySystem
 
         if (!ignoreResistances)
         {
-            if (ent.Comp.DamageModifierSet != null && _prototype.TryIndex(ent.Comp.DamageModifierSet, out var modifierSet))
-                damage = DamageSpecifier.ApplyModifierSet(damage, modifierSet);
+            if (ent.Comp.ModifierSet != null && _prototype.TryIndex(ent.Comp.ModifierSet, out var modifierSet))
+                specifier = DamageSpecifier.ApplyModifierSet(specifier, modifierSet);
 
-            var ev = new DamageModifyEvent(damage, origin);
+            var ev = new DamageModifyEvent(specifier, origin);
             RaiseLocalEvent(ent, ev);
-            damage = ev.Damage;
+            specifier = ev.Damage;
 
-            if (damage.Empty)
+            if (specifier.Empty)
                 return new ();
         }
 
-        return ApplyDamage(ent, damage, interruptsDoAfters, origin);
+        return ApplyDamage(ent, specifier, interruptsDoAfters, origin);
     }
 
     /// <summary>
@@ -258,64 +255,86 @@ public sealed class DamageableSystem : EntitySystem
     /// <param name="ent">entity with damage</param>
     public DamageSpecifier GetDamage(Entity<DamageableComponent?> ent)
     {
-        var damage = new DamageSpecifier();
+        var specifier = new DamageSpecifier();
         if (!_damageableQuery.Resolve(ent, ref ent.Comp, false))
-            return damage;
+            return specifier;
 
-        damage.DamageDict.EnsureCapacity(ent.Comp.Damage.DamageDict.Count);
-
-        foreach (var (damageId, value) in ent.Comp.Damage.DamageDict)
+        foreach (var (type, damage) in ent.Comp.Damage)
         {
-            if (value > FixedPoint2.Zero)
-                damage.DamageDict.Add(damageId, value);
+            if (damage <= FixedPoint2.Zero)
+                continue;
+
+            specifier.Add(type, damage);
         }
 
-        return damage;
+        return specifier;
+    }
+
+    /// <summary>
+    /// Returns a set of <see cref="DamageTypePrototype"/> asociated with <see cref="DamageContainerPrototype"/>.
+    /// </summary>
+    public HashSet<ProtoId<DamageTypePrototype>> GetTypes(ProtoId<DamageContainerPrototype> container)
+    {
+        if (!_typesByContainer.TryGetValue(container, out var types))
+            return new();
+
+        return types;
+    }
+
+    /// <summary>
+    /// Returns a set of <see cref="DamageTypePrototype"/> asociated with <see cref="DamageGroupPrototype"/>.
+    /// </summary>
+    public HashSet<ProtoId<DamageTypePrototype>> GetTypes(ProtoId<DamageGroupPrototype> group)
+    {
+        if (!_typesByGroup.TryGetValue(group, out var types))
+            return new();
+
+        return types;
     }
 
     /// <summary>
     /// Changes all damage types supported by a <see cref="DamageableComponent"/> by the specified value.
     /// </summary>
-    public void ChangeAllDamage(Entity<DamageableComponent?> ent, FixedPoint2 value)
+    public void ChangeAllDamage(Entity<DamageableComponent?> ent, FixedPoint2 damage)
     {
         if (!_damageableQuery.Resolve(ent, ref ent.Comp, false))
             return;
 
         var result = new DamageSpecifier();
-        foreach (var (type, oldValue) in ent.Comp.Damage.DamageDict)
+        foreach (var (type, oldDamage) in ent.Comp.Damage)
         {
-            var newValue = FixedPoint2.Max(FixedPoint2.Zero, oldValue + value);
-            if (newValue == oldValue)
+            var newDamage = FixedPoint2.Max(FixedPoint2.Zero, oldDamage + damage);
+            if (newDamage == oldDamage)
                 continue;
 
-            ent.Comp.Damage.DamageDict[type] = newValue;
-            result.DamageDict[type] = newValue - oldValue;
+            ent.Comp.Damage[type] = newDamage;
+            result[type] = newDamage - oldDamage;
         }
 
         OnDamageChanged((ent, ent.Comp), result);
     }
 
     /// <summary>
-    /// Sets all damage types supported by a <see cref="Components.DamageableComponent"/> to the specified value.
+    /// Sets all damage types supported by a <see cref="DamageableComponent"/> to the specified value.
     /// </summary>
     /// <remarks>
     /// Does nothing If the given damage value is negative.
     /// </remarks>
     public void SetAllDamage(
         Entity<DamageableComponent?> ent,
-        FixedPoint2 newValue,
+        FixedPoint2 damage,
         bool interruptsDoAfters = true,
         EntityUid? origin = null
         )
     {
-        if (!_damageableQuery.Resolve(ent, ref ent.Comp, false) || newValue < 0)
+        if (!_damageableQuery.Resolve(ent, ref ent.Comp, false) || damage < 0)
             return;
 
         var result = new DamageSpecifier();
-        foreach (var (type, oldValue) in ent.Comp.Damage.DamageDict)
+        foreach (var (type, oldDamage) in ent.Comp.Damage)
         {
-            ent.Comp.Damage.DamageDict[type] = newValue;
-            result.DamageDict[type] = newValue - oldValue;
+            ent.Comp.Damage[type] = damage;
+            result[type] = damage - oldDamage;
         }
 
         OnDamageChanged((ent, ent.Comp), result, interruptsDoAfters, origin);
@@ -324,39 +343,39 @@ public sealed class DamageableSystem : EntitySystem
     /// <summary>
     /// Directly sets the damage in a damageable component.
     /// This method keeps the damage types supported by the DamageContainerPrototype in the component.
-    /// If a type is given in <paramref name="damage"/>, but not supported then it will not be set.
-    /// If a type is supported but not given in <paramref name="damage"/> then it will be set to 0.
+    /// If a type is given in <paramref name="specifier"/>, but not supported then it will not be set.
+    /// If a type is supported but not given in <paramref name="specifier"/> then it will be set to 0.
     /// </summary>
     /// <remarks>
     /// Useful for some unfriendly folk. Also ensures that cached values are updated and that damage changed
     /// event is raised.
     /// </remarks>
-    public void SetDamage(Entity<DamageableComponent?> ent, DamageSpecifier damage)
+    public void SetDamage(Entity<DamageableComponent?> ent, DamageSpecifier specifier)
     {
         if (!_damageableQuery.Resolve(ent, ref ent.Comp, false))
             return;
 
         var result = new DamageSpecifier();
 
-        foreach (var (type, value) in ent.Comp.Damage.DamageDict)
+        foreach (var (type, damage) in ent.Comp.Damage)
         {
-            if (damage.DamageDict.ContainsKey(type))
+            if (specifier.ContainsKey(type))
                 continue;
 
-            if (value > 0)
-                result.DamageDict[type] = -value;
+            if (damage > 0)
+                result[type] = -damage;
 
-            ent.Comp.Damage.DamageDict[type] = FixedPoint2.Zero;
+            ent.Comp.Damage[type] = FixedPoint2.Zero;
         }
 
-        foreach (var (type, value) in damage.DamageDict)
+        foreach (var (type, damage) in specifier)
         {
-            if (!SupportsType(ent.Comp.DamageContainer, type))
+            if (!SupportsType(ent.Comp.Container, type))
                 continue;
 
-            var oldValue = ent.Comp.Damage.DamageDict.GetValueOrDefault(type);
-            result.DamageDict[type] = value - oldValue;
-            ent.Comp.Damage.DamageDict[type] = value;
+            var oldDamage = ent.Comp.Damage.GetValueOrDefault(type);
+            result[type] = damage - oldDamage;
+            ent.Comp.Damage[type] = damage;
         }
 
         OnDamageChanged((ent, ent.Comp), result);
@@ -366,13 +385,13 @@ public sealed class DamageableSystem : EntitySystem
     /// Set's the damage modifier set prototype for this entity.
     /// </summary>
     /// <param name="ent">The entity we're setting the modifier set of.</param>
-    /// <param name="damageModifierSet">The prototype we're setting.</param>
-    public void SetDamageModifierSet(Entity<DamageableComponent?> ent, ProtoId<DamageModifierSetPrototype>? damageModifierSet)
+    /// <param name="modifierSet">The prototype we're setting.</param>
+    public void SetModifierSet(Entity<DamageableComponent?> ent, ProtoId<DamageModifierSetPrototype>? modifierSet)
     {
         if (!_damageableQuery.Resolve(ent, ref ent.Comp, false))
             return;
 
-        ent.Comp.DamageModifierSet = damageModifierSet;
+        ent.Comp.ModifierSet = modifierSet;
         Dirty(ent);
     }
 
@@ -386,34 +405,48 @@ public sealed class DamageableSystem : EntitySystem
         if (container is null)
             return true;
 
-        return _supportedTypesByContainer[container.Value].Contains(type);
+        return _typesByContainer[container.Value].Contains(type);
     }
 
-    private void CachePrototypes()
+    private void CacheContainerPrototypes()
     {
         var types = new Dictionary<ProtoId<DamageContainerPrototype>, HashSet<ProtoId<DamageTypePrototype>>>();
 
-        foreach (var proto in _prototype.EnumeratePrototypes<DamageContainerPrototype>())
+        foreach (var container in _prototype.EnumeratePrototypes<DamageContainerPrototype>())
         {
-            var set = new HashSet<ProtoId<DamageTypePrototype>>();
-            types[proto.ID] = set;
+            var set = types.GetValueOrDefault(container) ?? [];
 
-            foreach (var type in proto.SupportedTypes)
+            foreach (var type in container.Types)
             {
                 set.Add(type);
             }
 
-            foreach (var groupId in proto.SupportedGroups)
+            foreach (var group in container.Groups)
             {
-                var group = _prototype.Index<DamageGroupPrototype>(groupId);
-                foreach (var type in group.DamageTypes)
+                foreach (var type in _typesByGroup[group])
                 {
                     set.Add(type);
                 }
             }
+
+            types[container] = set;
         }
 
-        _supportedTypesByContainer = types.ToFrozenDictionary();
+        _typesByContainer = types.ToFrozenDictionary();
+    }
+
+    private void CacheGroupPrototypes()
+    {
+        var types = new Dictionary<ProtoId<DamageGroupPrototype>, HashSet<ProtoId<DamageTypePrototype>>>();
+
+        foreach (var type in _prototype.EnumeratePrototypes<DamageTypePrototype>())
+        {
+            var set = types.GetValueOrDefault(type.Group) ?? [];
+            set.Add(type);
+            types[type.Group] = set;
+        }
+
+        _typesByGroup = types.ToFrozenDictionary();
     }
 
     /// <summary>
@@ -425,16 +458,16 @@ public sealed class DamageableSystem : EntitySystem
     /// </remarks>
     private void OnDamageChanged(
         Entity<DamageableComponent> ent,
-        DamageSpecifier damage,
+        DamageSpecifier specifier,
         bool interruptsDoAfters = true,
         EntityUid? origin = null
     )
     {
-        ent.Comp.Damage.GetDamagePerGroup(_prototype, ent.Comp.DamagePerGroup);
+        ent.Comp.DamagePerGroup = ent.Comp.Damage.GetDamagePerGroup(this, _prototype);
         ent.Comp.TotalDamage = ent.Comp.Damage.GetTotal();
         Dirty(ent);
 
-        RaiseLocalEvent(ent, new DamageChangedEvent(ent.Comp, damage, interruptsDoAfters, origin));
+        RaiseLocalEvent(ent, new DamageChangedEvent(ent.Comp, specifier, interruptsDoAfters, origin));
     }
 
     #endregion
@@ -537,7 +570,7 @@ public sealed class DamageChangedEvent : EntityEventArgs
         Damage = damage;
         Origin = origin;
 
-        foreach (var damageChange in Damage.DamageDict.Values)
+        foreach (var damageChange in Damage.Values)
         {
             if (damageChange <= 0)
                 continue;

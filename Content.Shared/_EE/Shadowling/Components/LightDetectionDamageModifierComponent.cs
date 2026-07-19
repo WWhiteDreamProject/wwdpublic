@@ -1,9 +1,7 @@
+using Content.Shared._White.Damage;
 using Content.Shared.Alert;
-using Content.Shared.Damage;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization;
-
 
 namespace Content.Shared._EE.Shadowling.Components;
 
@@ -87,27 +85,21 @@ public sealed partial class LightDetectionDamageModifierComponent : Component
     [DataField]
     public DamageSpecifier DamageToDeal = new()
     {
-        DamageDict = new()
-        {
-            ["Heat"] = 15,
-        }
+        ["Heat"] = 15,
     };
 
     [DataField]
     public DamageSpecifier DamageToHeal = new()
     {
-        DamageDict = new()
-        {
-            ["Blunt"] = -15,
-            ["Slash"] = -15,
-            ["Piercing"] = -15,
-            ["Heat"] = -15,
-            ["Cold"] = -15,
-            ["Shock"] = -15,
-            ["Asphyxiation"] = -15,
-            ["Bloodloss"] = -15,
-            ["Poison"] = -15,
-        }
+        ["Blunt"] = -15,
+        ["Slash"] = -15,
+        ["Piercing"] = -15,
+        ["Heat"] = -15,
+        ["Cold"] = -15,
+        ["Shock"] = -15,
+        ["Asphyxiation"] = -15,
+        ["Bloodloss"] = -15,
+        ["Poison"] = -15,
     };
 
     [DataField]

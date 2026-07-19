@@ -1,4 +1,4 @@
-using Content.Shared.Damage;
+using Content.Shared._White.Damage;
 using Content.Shared.Stacks;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio;

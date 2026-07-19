@@ -1,5 +1,5 @@
+using Content.Shared._White.Damage;
 using Content.Shared._White.Damage.Components;
-using Content.Shared.Damage;
 using Content.Shared.Mobs.Components;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 using Robust.Shared.GameStates;

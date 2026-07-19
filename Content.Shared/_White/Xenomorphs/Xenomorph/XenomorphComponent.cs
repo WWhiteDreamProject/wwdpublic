@@ -1,5 +1,5 @@
+using Content.Shared._White.Damage;
 using Content.Shared._White.Xenomorphs.Caste;
-using Content.Shared.Damage;
 using Content.Shared.Language;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;

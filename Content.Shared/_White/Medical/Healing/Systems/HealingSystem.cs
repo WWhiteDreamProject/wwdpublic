@@ -65,8 +65,8 @@ public sealed class HealingSystem : EntitySystem
         var healing = new Entity<HealingComponent>(args.Used.Value, healingComp);
 
         if (healing.Comp.DamageContainers is not null
-            && ent.Comp.DamageContainer is not null
-            && !healing.Comp.DamageContainers.Contains(ent.Comp.DamageContainer.Value))
+            && ent.Comp.Container is not null
+            && !healing.Comp.DamageContainers.Contains(ent.Comp.Container.Value))
             return;
 
         if (!_damageable.TryChangeDamage(ent.AsNullable(), healing.Comp.Damage, out var healed, true, false, args.User))
@@ -144,8 +144,8 @@ public sealed class HealingSystem : EntitySystem
             return false;
 
         if (healing.Comp.DamageContainers is not null
-            && ent.Comp.DamageContainer is not null
-            && !healing.Comp.DamageContainers.Contains(ent.Comp.DamageContainer.Value))
+            && ent.Comp.Container is not null
+            && !healing.Comp.DamageContainers.Contains(ent.Comp.Container.Value))
             return false;
 
         var getHealingTargetEv = new GetHealingTargetEvent(_targetDoll.GetSelectedProvider(user), healing);

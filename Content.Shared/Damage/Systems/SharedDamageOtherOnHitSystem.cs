@@ -1,3 +1,4 @@
+using Content.Shared._White.Damage;
 using Content.Shared._White.Damage.Systems;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Camera;
@@ -10,16 +11,13 @@ using Content.Shared.Effects;
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Projectiles;
-using Content.Shared.Popups;
 using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee;
-using Robust.Shared.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Utility;
 using Content.Shared.Standing;
 
 namespace Content.Shared.Damage.Systems
@@ -111,7 +109,7 @@ namespace Content.Shared.Damage.Systems
                 if (HasComp<MobStateComponent>(args.Target))
                     _adminLogger.Add(LogType.ThrowHit, $"{ToPrettyString(args.Target):target} received {modifiedDamage.GetTotal():damage} damage from collision");
 
-                _meleeSound.PlayHitSound(args.Target, null, SharedMeleeWeaponSystem.GetHighestDamageSound(modifiedDamage, _protoManager), null,
+                _meleeSound.PlayHitSound(args.Target, null, SharedMeleeWeaponSystem.GetHighestDamageSound(modifiedDamage, _damageable, _protoManager), null,
                     component.SoundHit, component.SoundNoDamage);
             }
 

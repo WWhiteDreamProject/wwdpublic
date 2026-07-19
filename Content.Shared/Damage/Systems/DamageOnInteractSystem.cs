@@ -1,3 +1,4 @@
+using Content.Shared._White.Damage;
 using Content.Shared._White.Damage.Systems;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Damage.Components;
@@ -7,8 +8,6 @@ using Content.Shared.Inventory;
 using Content.Shared.Popups;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Network;
-using Robust.Shared.Timing;
 
 namespace Content.Shared.Damage.Systems;
 

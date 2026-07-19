@@ -1,6 +1,6 @@
 using Content.Shared._White.Damage.Components;
+using Content.Shared._White.Damage.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
-using Content.Shared.Damage.Prototypes;
 
 namespace Content.Server.Destructible.Thresholds.Triggers
 {

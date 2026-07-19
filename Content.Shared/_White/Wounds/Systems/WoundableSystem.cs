@@ -1,9 +1,9 @@
 using Content.Shared._White.Body;
 using Content.Shared._White.Body.Systems;
+using Content.Shared._White.Damage;
 using Content.Shared._White.Damage.Components;
 using Content.Shared._White.Damage.Systems;
 using Content.Shared._White.Wounds.Components;
-using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
 using Content.Shared.Rejuvenate;
 using Robust.Shared.Containers;
@@ -97,17 +97,17 @@ public sealed partial class WoundableSystem : EntitySystem
     /// </returns>
     public DamageSpecifier ChangeDamage(
         Entity<DamageableComponent?> ent,
-        DamageSpecifier damage,
+        DamageSpecifier specifier,
         bool ignoreResistances = false,
         bool interruptsDoAfters = true,
         EntityUid? origin = null
     )
     {
         if (_accumulatorQuery.TryComp(ent, out var accumulatorComp))
-            return ChangeDamage((ent, accumulatorComp, ent.Comp), damage, ignoreResistances, interruptsDoAfters, origin);
+            return ChangeDamage((ent, accumulatorComp, ent.Comp), specifier, ignoreResistances, interruptsDoAfters, origin);
 
         if (_providerQuery.TryComp(ent, out var provideComp))
-            return ChangeDamage((ent, provideComp, ent.Comp), damage, ignoreResistances, interruptsDoAfters, origin);
+            return ChangeDamage((ent, provideComp, ent.Comp), specifier, ignoreResistances, interruptsDoAfters, origin);
 
         return new DamageSpecifier();
     }
@@ -115,17 +115,17 @@ public sealed partial class WoundableSystem : EntitySystem
     /// <inheritdoc cref="ChangeDamage(Entity{DamageableComponent?}, DamageSpecifier, bool, bool, EntityUid?)"/>
     public DamageSpecifier ChangeDamage(
         EntityUid uid,
-        DamageSpecifier damage,
+        DamageSpecifier specifier,
         bool ignoreResistances = false,
         bool interruptsDoAfters = true,
         EntityUid? origin = null
     )
     {
         if (_accumulatorQuery.TryComp(uid, out var accumulatorComp))
-            return ChangeDamage((uid, accumulatorComp, null), damage, ignoreResistances, interruptsDoAfters, origin);
+            return ChangeDamage((uid, accumulatorComp, null), specifier, ignoreResistances, interruptsDoAfters, origin);
 
         if (_providerQuery.TryComp(uid, out var provideComp))
-            return ChangeDamage((uid, provideComp, null), damage, ignoreResistances, interruptsDoAfters, origin);
+            return ChangeDamage((uid, provideComp, null), specifier, ignoreResistances, interruptsDoAfters, origin);
 
         return new DamageSpecifier();
     }
@@ -141,53 +141,53 @@ public sealed partial class WoundableSystem : EntitySystem
     /// </returns>
     public bool TryChangeDamage(
         Entity<DamageableComponent?> ent,
-        DamageSpecifier damage,
+        DamageSpecifier specifier,
         out DamageSpecifier result,
         bool ignoreResistances = false,
         bool interruptsDoAfters = true,
         EntityUid? origin = null
     )
     {
-        result = ChangeDamage(ent, damage, ignoreResistances, interruptsDoAfters, origin);
+        result = ChangeDamage(ent, specifier, ignoreResistances, interruptsDoAfters, origin);
         return !result.Empty;
     }
 
     /// <inheritdoc cref="TryChangeDamage(Entity{DamageableComponent?}, DamageSpecifier, out DamageSpecifier, bool, bool, EntityUid?)"/>
     public bool TryChangeDamage(
         EntityUid uid,
-        DamageSpecifier damage,
+        DamageSpecifier specifier,
         out DamageSpecifier result,
         bool ignoreResistances = false,
         bool interruptsDoAfters = true,
         EntityUid? origin = null
     )
     {
-        result = ChangeDamage(uid, damage, ignoreResistances, interruptsDoAfters, origin);
+        result = ChangeDamage(uid, specifier, ignoreResistances, interruptsDoAfters, origin);
         return !result.Empty;
     }
 
     /// <inheritdoc cref="TryChangeDamage(Entity{DamageableComponent?}, DamageSpecifier, out DamageSpecifier, bool, bool, EntityUid?)"/>
     public bool TryChangeDamage(
         Entity<DamageableComponent?> ent,
-        DamageSpecifier damage,
+        DamageSpecifier specifier,
         bool ignoreResistances = false,
         bool interruptsDoAfters = true,
         EntityUid? origin = null
     )
     {
-        return TryChangeDamage(ent, damage, out _, ignoreResistances, interruptsDoAfters, origin);
+        return TryChangeDamage(ent, specifier, out _, ignoreResistances, interruptsDoAfters, origin);
     }
 
     /// <inheritdoc cref="TryChangeDamage(EntityUid, DamageSpecifier, out DamageSpecifier, bool, bool, EntityUid?)"/>
     public bool TryChangeDamage(
         EntityUid uid,
-        DamageSpecifier damage,
+        DamageSpecifier specifier,
         bool ignoreResistances = false,
         bool interruptsDoAfters = true,
         EntityUid? origin = null
     )
     {
-        return TryChangeDamage(uid, damage, out _, ignoreResistances, interruptsDoAfters, origin);
+        return TryChangeDamage(uid, specifier, out _, ignoreResistances, interruptsDoAfters, origin);
     }
 
     #endregion

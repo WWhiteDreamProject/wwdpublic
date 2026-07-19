@@ -1,4 +1,4 @@
-using Content.Shared.Damage;
+using Content.Shared._White.Damage;
 using Content.Shared.Polymorph;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
@@ -39,10 +39,7 @@ public sealed partial class ShadowlingBlackRecuperationComponent : Component
     [DataField]
     public DamageSpecifier DamageToDeal = new()
     {
-        DamageDict = new()
-        {
-            ["Cellular"] = 5,
-        }
+        ["Cellular"] = 5,
     };
 
     [DataField]

@@ -215,7 +215,7 @@ public sealed partial class DeliverySystem
 
         // It might be made of non-reinforced glass.
         if (TryComp<DamageableComponent>(uid, out var damageableComponent)
-            && damageableComponent.DamageModifierSet == "Glass")
+            && damageableComponent.ModifierSet == "Glass")
             return true;
 
         // Fallback: It breaks or is destroyed in less than a damage

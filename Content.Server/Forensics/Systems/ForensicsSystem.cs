@@ -133,9 +133,9 @@ namespace Content.Server.Forensics
             if (args.Handled) // WD EDIT
                 return;
 
-            if ((args.BaseDamage.DamageDict.TryGetValue("Blunt", out var bluntDamage) && bluntDamage.Value > 0) ||
-                (args.BaseDamage.DamageDict.TryGetValue("Slash", out var slashDamage) && slashDamage.Value > 0) ||
-                (args.BaseDamage.DamageDict.TryGetValue("Piercing", out var pierceDamage) && pierceDamage.Value > 0))
+            if ((args.BaseDamage.TryGetValue("Blunt", out var bluntDamage) && bluntDamage.Value > 0) ||
+                (args.BaseDamage.TryGetValue("Slash", out var slashDamage) && slashDamage.Value > 0) ||
+                (args.BaseDamage.TryGetValue("Piercing", out var pierceDamage) && pierceDamage.Value > 0))
             {
                 foreach (EntityUid hitEntity in args.HitEntities)
                 {

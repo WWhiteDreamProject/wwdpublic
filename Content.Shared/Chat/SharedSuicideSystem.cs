@@ -1,8 +1,8 @@
 using System.Linq;
+using Content.Shared._White.Damage;
 using Content.Shared._White.Damage.Components;
+using Content.Shared._White.Damage.Prototypes;
 using Content.Shared._White.Damage.Systems;
-using Content.Shared.Damage;
-using Content.Shared.Damage.Prototypes;
 using Content.Shared.Mobs.Components;
 using Robust.Shared.Prototypes;
 
@@ -32,11 +32,11 @@ public sealed class SharedSuicideSystem : EntitySystem
 
         // Removing structural because it causes issues against entities that cannot take structural damage,
         // then getting the total to use in calculations for spreading out damage.
-        appliedDamageSpecifier.DamageDict.Remove("Structural");
+        appliedDamageSpecifier.Remove("Structural");
 
         // Split the total amount of damage needed to kill the target by every damage type in the DamageSpecifier
-        foreach (var (key, value) in appliedDamageSpecifier.DamageDict)
-            appliedDamageSpecifier.DamageDict[key] = Math.Ceiling((double) (value * lethalAmountOfDamage / totalDamage));
+        foreach (var (key, value) in appliedDamageSpecifier)
+            appliedDamageSpecifier[key] = Math.Ceiling((double) (value * lethalAmountOfDamage / totalDamage));
 
         _damageableSystem.ChangeDamage(target.AsNullable(), appliedDamageSpecifier, true, origin: target); // WD EDIT
     }

@@ -1,6 +1,4 @@
-using Content.Shared.Damage;
-using Content.Shared.Damage.Prototypes;
-using Content.Shared.FixedPoint;
+using Content.Shared._White.Damage;
 using Robust.Shared.Audio;
 
 namespace Content.Shared._Goobstation.Bible // Death to serverside components. Glory to Goobistan
@@ -45,7 +43,7 @@ namespace Content.Shared._Goobstation.Bible // Death to serverside components. G
         /// How much damage to deal to the entity being smitten - Goob
         /// </summary>
         [DataField]
-        public DamageSpecifier SmiteDamage = new() {DamageDict = new Dictionary<string, FixedPoint2>() {{ "Holy", 25 }}}; // Ungodly
+        public DamageSpecifier SmiteDamage = new() {{ "Holy", 25 }}; // Ungodly
 
         /// <summary>
         /// How long to stun the entity being smitten - Goob

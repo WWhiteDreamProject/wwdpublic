@@ -236,9 +236,9 @@ namespace Content.Server.Atmos.EntitySystems
             while (enumerator.MoveNext(out var uid, out var barotrauma, out var damageable))
             {
                 var totalDamage = FixedPoint2.Zero;
-                foreach (var (barotraumaDamageType, _) in barotrauma.Damage.DamageDict)
+                foreach (var (barotraumaDamageType, _) in barotrauma.Damage)
                 {
-                    if (!_damageableSystem.GetDamage((uid, damageable)).DamageDict.TryGetValue(barotraumaDamageType, out var damage))
+                    if (!_damageableSystem.GetDamage((uid, damageable)).TryGetValue(barotraumaDamageType, out var damage))
                         continue;
                     totalDamage += damage;
                 }

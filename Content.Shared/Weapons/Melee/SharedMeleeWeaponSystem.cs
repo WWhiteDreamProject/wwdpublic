@@ -3,7 +3,7 @@ using System.Linq;
 using System.Numerics;
 using Content.Shared._Goobstation.MartialArts.Events;
 using Content.Shared._White.Body;
-using Content.Shared._White.Body.Components;
+using Content.Shared._White.Damage;
 using Content.Shared._White.Damage.Components;
 using Content.Shared._White.Damage.Systems;
 using Content.Shared._White.TargetDoll;
@@ -11,7 +11,6 @@ using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
 using Content.Shared.CombatMode;
 using Content.Shared.Contests;
-using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Database;
@@ -518,7 +517,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         if (damageResult is { Empty: false })
         {
             // If the target has stamina and is taking blunt damage, they should also take stamina damage based on their blunt to stamina factor
-            if (damageResult.DamageDict.TryGetValue("Blunt", out var bluntDamage))
+            if (damageResult.TryGetValue("Blunt", out var bluntDamage))
             {
                 _stamina.TakeStaminaDamage(target.Value, (bluntDamage * component.BluntStaminaDamageFactor).Float(), visual: false, source: user, with: meleeUid == user ? null : meleeUid);
             }
@@ -538,7 +537,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
         }
 
-        _meleeSound.PlayHitSound(target.Value, user, GetHighestDamageSound(modifiedDamage, _protoManager), hitEvent.HitSoundOverride, component.SoundHit, component.SoundNoDamage);
+        _meleeSound.PlayHitSound(target.Value, user, GetHighestDamageSound(modifiedDamage, Damageable, _protoManager), hitEvent.HitSoundOverride, component.SoundHit, component.SoundNoDamage);
 
         if (damageResult?.GetTotal() > FixedPoint2.Zero)
         {
@@ -687,7 +686,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
             if (damageResult != null && damageResult.GetTotal() > FixedPoint2.Zero)
             {
                 // If the target has stamina and is taking blunt damage, they should also take stamina damage based on their blunt to stamina factor
-                if (damageResult.DamageDict.TryGetValue("Blunt", out var bluntDamage))
+                if (damageResult.TryGetValue("Blunt", out var bluntDamage))
                 {
                     _stamina.TakeStaminaDamage(entity, (bluntDamage * component.BluntStaminaDamageFactor).Float(), visual: false, source: user, with: meleeUid == user ? null : meleeUid);
                 }
@@ -712,7 +711,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         if (entities.Count != 0)
         {
             var target = entities.First();
-            _meleeSound.PlayHitSound(target, user, GetHighestDamageSound(appliedDamage, _protoManager), hitEvent.HitSoundOverride, component.SoundHit, component.SoundNoDamage);
+            _meleeSound.PlayHitSound(target, user, GetHighestDamageSound(appliedDamage, Damageable, _protoManager), hitEvent.HitSoundOverride, component.SoundHit, component.SoundNoDamage);
         }
 
         if (appliedDamage.GetTotal() > FixedPoint2.Zero)
@@ -774,9 +773,9 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
     }
 
 
-    public static string? GetHighestDamageSound(DamageSpecifier modifiedDamage, IPrototypeManager protoManager)
+    public static string? GetHighestDamageSound(DamageSpecifier modifiedDamage, DamageableSystem damageableSystem, IPrototypeManager protoManager)
     {
-        var groups = modifiedDamage.GetDamagePerGroup(protoManager);
+        var groups = modifiedDamage.GetDamagePerGroup(damageableSystem, protoManager);
 
         // Use group if it's exclusive, otherwise fall back to type.
         if (groups.Count == 1)
@@ -787,7 +786,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         var highestDamage = FixedPoint2.Zero;
         string? highestDamageType = null;
 
-        foreach (var (type, damage) in modifiedDamage.DamageDict)
+        foreach (var (type, damage) in modifiedDamage)
         {
             if (damage <= highestDamage)
                 continue;

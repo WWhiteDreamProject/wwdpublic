@@ -1,11 +1,8 @@
-using System.Numerics;
-using Content.Shared.Damage;
+using Content.Shared._White.Damage;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
-
 namespace Content.Shared._EE.Shadowling;
-
 
 /// <summary>
 /// This is used for the Sonic Screech ability.
@@ -25,10 +22,7 @@ public sealed partial class ShadowlingSonicScreechComponent : Component
     [DataField]
     public DamageSpecifier WindowDamage = new()
     {
-        DamageDict = new()
-        {
-            { "Structural", 50 }
-        }
+        { "Structural", 50 }
     };
 
     [DataField]

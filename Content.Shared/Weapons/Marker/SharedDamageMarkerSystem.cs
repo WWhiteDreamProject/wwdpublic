@@ -1,5 +1,6 @@
 using Content.Shared._Lavaland.Mobs;
 using Content.Shared._Lavaland.Weapons.Marker;
+using Content.Shared._White.Damage;
 using Content.Shared._White.Damage.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Projectiles;

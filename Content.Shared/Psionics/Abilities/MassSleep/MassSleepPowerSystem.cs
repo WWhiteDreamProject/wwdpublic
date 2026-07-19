@@ -26,7 +26,7 @@ namespace Content.Shared.Abilities.Psionics
             {
                 if (HasComp<MobStateComponent>(entity) && entity != uid && !HasComp<PsionicInsulationComponent>(entity))
                 {
-                    if (TryComp<DamageableComponent>(entity, out var damageable) && damageable.DamageContainer == "Biological")
+                    if (TryComp<DamageableComponent>(entity, out var damageable) && damageable.Container == "Biological")
                         EnsureComp<SleepingComponent>(entity);
                 }
             }

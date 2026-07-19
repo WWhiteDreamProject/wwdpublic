@@ -5,6 +5,7 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared._White.Damage;
 using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
 using Robust.Shared.GameStates;
@@ -39,5 +40,5 @@ public sealed partial class WeakToHolyComponent : Component
     /// How much the entity is healed by each tick.
     /// </summary>
     [DataField]
-    public DamageSpecifier HealAmount = new() {DamageDict = new Dictionary<string, FixedPoint2> {{ "Holy", -4 }}};
+    public DamageSpecifier HealAmount = new() {{ "Holy", -4 }};
 }

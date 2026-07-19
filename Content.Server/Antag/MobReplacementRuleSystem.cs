@@ -1,7 +1,6 @@
 using System.Numerics;
 using Content.Server.Antag.Mimic;
 using Content.Server.GameTicking.Rules;
-using Content.Server.GameTicking.Rules.Components;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.VendingMachines;
 using Robust.Shared.Map;
@@ -12,7 +11,6 @@ using Robust.Shared.Physics.Systems;
 using System.Linq;
 using Robust.Shared.Physics;
 using Content.Shared.Movement.Components;
-using Content.Shared.Damage;
 using Content.Server.NPC.HTN;
 using Content.Server.NPC;
 using Content.Shared.Weapons.Melee;
@@ -24,8 +22,8 @@ using Content.Server.Station.Systems;
 using Content.Server.GameTicking;
 using Content.Server.Chat.Systems;
 using Content.Server.NPC.Systems;
+using Content.Shared._White.Damage;
 using Content.Shared.NPC.Systems;
-
 
 namespace Content.Server.Antag;
 
@@ -140,10 +138,7 @@ public sealed class MobReplacementRuleSystem : GameRuleSystem<MobReplacementRule
         melee.Angle = 0;
         DamageSpecifier dspec = new()
         {
-            DamageDict = new()
-            {
-                { "Blunt", component.MimicMeleeDamage }
-            }
+            { "Blunt", component.MimicMeleeDamage }
         };
         melee.Damage = dspec;
 

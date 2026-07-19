@@ -1,4 +1,4 @@
-using Content.Shared.Damage.Prototypes;
+using Content.Shared._White.Damage.Prototypes;
 using Content.Shared.StatusIcon;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -17,7 +17,7 @@ public sealed partial class ShowHealthBarsComponent : Component
     [DataField]
     public List<ProtoId<DamageContainerPrototype>> DamageContainers = new()
     {
-        "Biological"
+        "Biological",
     };
 
     [DataField]

@@ -10,9 +10,7 @@ using Robust.Server.Audio;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
 
-
 namespace Content.Server._EE.Shadowling;
-
 
 /// <summary>
 /// This handles the Nox Imperii system.
@@ -62,8 +60,8 @@ public sealed class ShadowlingNoxImperiiSystem : EntitySystem
 
         _actions.RemoveAction(uid, args.Args.Used);
         // Reduce heat damage from other sources
-        sling.HeatDamage.DamageDict["Heat"] = 10;
-        sling.HeatDamageProjectileModifier.DamageDict["Heat"] = 4;
+        sling.HeatDamage["Heat"] = 10;
+        sling.HeatDamageProjectileModifier["Heat"] = 4;
 
         _alerts.ClearAlert(uid, sling.AlertProto);
 

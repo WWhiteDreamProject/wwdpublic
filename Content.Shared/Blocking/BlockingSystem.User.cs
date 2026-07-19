@@ -1,4 +1,5 @@
 using Content.Shared._White.Blocking;
+using Content.Shared._White.Damage;
 using Content.Shared._White.Damage.Components;
 using Content.Shared._White.Damage.Systems;
 using Content.Shared.Damage;
@@ -91,7 +92,7 @@ public sealed partial class BlockingSystem
         _damageable.ChangeDamage(component.BlockingItem.Value, blockFraction * args.Damage); // WD EDIT
 
         var modify = new DamageModifierSet();
-        foreach (var key in dmgComp.Damage.DamageDict.Keys)
+        foreach (var key in dmgComp.Damage.Keys)
             modify.Coefficients.TryAdd(key, 1 - blockFraction);
 
         args.Result = DamageSpecifier.ApplyModifierSet(args.Damage, modify); // WD EDIT

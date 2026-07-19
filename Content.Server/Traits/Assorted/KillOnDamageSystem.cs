@@ -23,7 +23,7 @@ public sealed class KillOnDamageSystem : EntitySystem
         if (!TryComp<MobStateComponent>(uid, out var mobState))
             return;
 
-        if (!_mob.IsDead(uid) && args.Damage.DamageDict.TryGetValue(component.DamageType, out FixedPoint2 value) && value >= component.Threshold) // WD EDIT
+        if (!_mob.IsDead(uid) && args.Damage.TryGetValue(component.DamageType, out FixedPoint2 value) && value >= component.Threshold) // WD EDIT
         {
             var popup = Loc.GetString(component.Popup, ("name", Identity.Name(uid, EntityManager)));
             _popup.PopupEntity(popup, uid, PopupType.LargeCaution);

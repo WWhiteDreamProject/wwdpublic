@@ -18,8 +18,8 @@ public partial record struct BodyAppearanceData
     /// <summary>
     /// The body type associated with this appearance data.
     /// </summary>
-    [DataField(required: true)]
-    public ProtoId<BodyTypePrototype> BodyType;
+    [DataField]
+    public ProtoId<BodyTypePrototype> BodyType = "Normal";
 
     /// <summary>
     /// The sex associated with this appearance data.

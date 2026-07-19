@@ -130,7 +130,7 @@ namespace Content.Server.Medical.Stethoscope
             if (!TryComp<DamageableComponent>(target, out var damage))
                 return;
             // these should probably get loc'd at some point before a non-english fork accidentally breaks a bunch of stuff that does this
-            if (!damage.Damage.DamageDict.TryGetValue("Asphyxiation", out var value))
+            if (!damage.Damage.TryGetValue("Asphyxiation", out var value))
                 return;
 
             var message = GetDamageMessage(value);

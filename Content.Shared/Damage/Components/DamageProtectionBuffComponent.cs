@@ -1,4 +1,4 @@
-﻿using Content.Shared.Damage.Prototypes;
+﻿using Content.Shared._White.Damage.Prototypes;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Damage.Components;

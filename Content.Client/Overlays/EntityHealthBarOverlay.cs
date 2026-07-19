@@ -73,7 +73,7 @@ public sealed class EntityHealthBarOverlay : Overlay
                 xform.MapID != args.MapId)
                 continue;
 
-            if (damageableComponent.DamageContainer == null || !DamageContainers.Contains(damageableComponent.DamageContainer))
+            if (damageableComponent.Container == null || !DamageContainers.Contains(damageableComponent.Container))
                 continue;
 
             // we use the status icon component bounds if specified otherwise use sprite

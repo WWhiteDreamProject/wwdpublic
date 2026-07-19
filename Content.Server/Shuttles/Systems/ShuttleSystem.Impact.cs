@@ -1,5 +1,6 @@
 using System.Numerics;
 using Content.Server.Shuttles.Components;
+using Content.Shared._White.Damage;
 using Content.Shared._White.Damage.Components;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Audio;
@@ -339,7 +340,8 @@ public sealed partial class ShuttleSystem
         // here so we don't have to `new` it every iteration
         var damageSpec = new DamageSpecifier()
         {
-            DamageDict = { ["Blunt"] = 0, ["Structural"] = 0 }
+            ["Blunt"] = 0,
+            ["Structural"] = 0,
         };
 
         var entitiesOnTile = new HashSet<Entity<TransformComponent>>();
@@ -367,8 +369,8 @@ public sealed partial class ShuttleSystem
                 {
                     // Apply damage scaled by distance but capped to prevent gibbing
                     var scaledDamage = tileData.Energy * _damageMultiplier;
-                    damageSpec.DamageDict["Blunt"] = scaledDamage;
-                    damageSpec.DamageDict["Structural"] = scaledDamage * _structuralDamage;
+                    damageSpec["Blunt"] = scaledDamage;
+                    damageSpec["Structural"] = scaledDamage * _structuralDamage;
 
                     _damageSys.TryChangeDamage((localEnt, damageable), damageSpec);
                 }

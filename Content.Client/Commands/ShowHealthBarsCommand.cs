@@ -1,9 +1,9 @@
-using Content.Shared.Damage.Prototypes;
 using Content.Shared.Overlays;
 using Robust.Client.Player;
 using Robust.Shared.Console;
 using Robust.Shared.Prototypes;
 using System.Linq;
+using Content.Shared._White.Damage.Prototypes;
 
 namespace Content.Client.Commands;
 

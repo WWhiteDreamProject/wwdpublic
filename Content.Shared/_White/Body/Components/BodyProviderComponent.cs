@@ -46,7 +46,7 @@ public sealed partial class BodyProviderSlot
 
     public BodyProviderSlot(BodyProviderSlot other)
     {
-        CopyFrom(other);
+        Copy(other);
     }
 
     public BodyProviderSlot(BodyProviderType type, Dictionary<string, BodyProviderSlot> providers, EntProtoId? startingProvider)
@@ -72,7 +72,7 @@ public sealed partial class BodyProviderSlot
     public bool HasProvider => ContainerSlot?.ContainedEntity != null;
     public EntityUid? ProviderUid => ContainerSlot?.ContainedEntity;
 
-    public void CopyFrom(BodyProviderSlot other)
+    public void Copy(BodyProviderSlot other)
     {
         Type = other.Type;
         Providers = other.Providers.ToDictionary(x => x.Key, x => new BodyProviderSlot(x.Value));

@@ -1,4 +1,5 @@
 using Content.Server.Disposal.Unit.EntitySystems;
+using Content.Shared._White.Damage;
 using Content.Shared.Damage;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
@@ -30,9 +31,6 @@ public sealed partial class DisposalTubeComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public DamageSpecifier DamageOnTurn = new()
     {
-        DamageDict = new()
-        {
-            { "Blunt", 0.0 },
-        }
+        { "Blunt", 0.0 },
     };
 }

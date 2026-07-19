@@ -8,13 +8,16 @@
 using Content.Shared._Goobstation.Bible;
 using Content.Shared._Goobstation.Religion.Nullrod;
 using Content.Server.Bible.Components;
+using Content.Shared._White.Damage;
 using Content.Shared._White.Damage.Components;
+using Content.Shared._White.Damage.Prototypes;
 using Content.Shared._White.Damage.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Content.Shared.Timing;
 using Robust.Shared.Physics.Events;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Shared._Goobstation.Religion;
@@ -68,7 +71,7 @@ public sealed class WeakToHolySystem : EntitySystem
 
         DamageModifierSet modifierSet = new()
         {
-            Coefficients = new Dictionary<string, float>
+            Coefficients = new Dictionary<ProtoId<DamageTypePrototype>, float>
             {
                 { "Holy", holyCoefficient },
             },

@@ -31,8 +31,8 @@ public sealed class WeldingHealableSystem : SharedWeldingHealableSystem
         if (args.Cancelled || args.Used == null
             || !TryComp<DamageableComponent>(args.Target, out var damageable)
             || !TryComp<WeldingHealingComponent>(args.Used, out var component)
-            || damageable.DamageContainer is null // WD EDIT
-            || !component.DamageContainers.Contains(damageable.DamageContainer) // WD EDIT
+            || damageable.Container is null // WD EDIT
+            || !component.DamageContainers.Contains(damageable.Container) // WD EDIT
             || !HasDamage((args.Target.Value, damageable), component, args.User)
             || !TryComp<WelderComponent>(args.Used, out var welder)
             || !TryComp<SolutionContainerManagerComponent>(args.Used, out var solutionContainer))
@@ -70,8 +70,8 @@ public sealed class WeldingHealableSystem : SharedWeldingHealableSystem
         if (args.Handled
             || !EntityManager.TryGetComponent(args.Used, out WeldingHealingComponent? component)
             || !EntityManager.TryGetComponent(args.Target, out DamageableComponent? damageable)
-            || damageable.DamageContainer is null // WD EDIT
-            || !component.DamageContainers.Contains(damageable.DamageContainer) // WD EDIT
+            || damageable.Container is null // WD EDIT
+            || !component.DamageContainers.Contains(damageable.Container) // WD EDIT
             || !HasDamage((args.Target, damageable), component, args.User)
             || !_toolSystem.HasQuality(args.Used, component.QualityNeeded)
             || args.User == args.Target && !component.AllowSelfHeal)
@@ -96,11 +96,8 @@ public sealed class WeldingHealableSystem : SharedWeldingHealableSystem
 
     private bool HasDamage(Entity<DamageableComponent> damageable, WeldingHealingComponent healable, EntityUid user)
     {
-        if (healable.Damage.DamageDict is null)
-            return false;
-
-        foreach (var type in healable.Damage.DamageDict)
-            if (damageable.Comp.Damage.DamageDict[type.Key].Value > 0)
+        foreach (var type in healable.Damage)
+            if (damageable.Comp.Damage[type.Key].Value > 0)
                 return true;
 
         return false;

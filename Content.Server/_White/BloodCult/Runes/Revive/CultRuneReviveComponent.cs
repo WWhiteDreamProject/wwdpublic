@@ -1,5 +1,4 @@
-using Content.Shared.Damage;
-using Content.Shared.FixedPoint;
+using Content.Shared._White.Damage;
 
 namespace Content.Server._White.BloodCult.Runes.Revive;
 
@@ -12,18 +11,15 @@ public sealed partial class CultRuneReviveComponent : Component
     [DataField]
     public DamageSpecifier Healing = new()
     {
-        DamageDict = new Dictionary<string, FixedPoint2>
-        {
-            ["Blunt"] = -33,
-            ["Slash"] = -33,
-            ["Piercing"] = -33,
-            ["Heat"] = -33,
-            ["Cold"] = -33,
-            ["Shock"] = -33,
-            ["Asphyxiation"] = -100,
-            ["Bloodloss"] = -100,
-            ["Poison"] = -50,
-            ["Cellular"] = -50
-        }
+        ["Blunt"] = -33,
+        ["Slash"] = -33,
+        ["Piercing"] = -33,
+        ["Heat"] = -33,
+        ["Cold"] = -33,
+        ["Shock"] = -33,
+        ["Asphyxiation"] = -100,
+        ["Bloodloss"] = -100,
+        ["Poison"] = -50,
+        ["Cellular"] = -50
     };
 }

@@ -1,10 +1,10 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server.Administration;
+using Content.Shared._White.Damage;
+using Content.Shared._White.Damage.Prototypes;
 using Content.Shared._White.Damage.Systems;
 using Content.Shared.Administration;
-using Content.Shared.Damage;
-using Content.Shared.Damage.Prototypes;
 using Robust.Shared.Console;
 using Robust.Shared.Prototypes;
 
@@ -72,7 +72,7 @@ namespace Content.Server.Damage.Commands
             {
                 func = (entity, ignoreResistances) =>
                 {
-                    var damage = new DamageSpecifier(damageGroup, amount);
+                    var damage = new DamageSpecifier(damageGroup, amount, _entManager.System<DamageableSystem>());
                     _entManager.System<DamageableSystem>().TryChangeDamage(entity, damage, ignoreResistances);
                 };
 

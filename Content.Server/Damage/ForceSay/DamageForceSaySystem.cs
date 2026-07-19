@@ -19,6 +19,7 @@ public sealed class DamageForceSaySystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!;
 
     public override void Initialize()
     {
@@ -104,7 +105,7 @@ public sealed class DamageForceSaySystem : EntitySystem
         if (component.ValidDamageGroups != null)
         {
             var totalApplicableDamage = FixedPoint2.Zero;
-            foreach (var (group, value) in args.Damage.GetDamagePerGroup(_prototype))
+            foreach (var (group, value) in args.Damage.GetDamagePerGroup(_damageable, _prototype))
             {
                 if (!component.ValidDamageGroups.Contains(group))
                     continue;

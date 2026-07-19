@@ -5,6 +5,8 @@ using Content.Server.Cargo.Systems;
 using Content.Shared.Contests;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Weapons.Ranged.Components;
+using Content.Shared._White.Damage;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Database;
@@ -44,6 +46,7 @@ public sealed partial class GunSystem : SharedGunSystem
     [Dependency] private readonly ContestsSystem _contests = default!;
     [Dependency] private readonly PvsOverrideSystem _pvsOverride = default!;
     [Dependency] private readonly TargetDollSystem _targetDoll = default!; // WD EDIT
+    [Dependency] private readonly DamageableSystem _damageable = default!; // WD EDIT
 
     private const float DamagePitchVariation = 0.05f;
 
@@ -445,7 +448,7 @@ public sealed partial class GunSystem : SharedGunSystem
 
         if (!forceWeaponSound && modifiedDamage != null && modifiedDamage.GetTotal() > 0 && TryComp<RangedDamageSoundComponent>(otherEntity, out var rangedSound))
         {
-            var type = SharedMeleeWeaponSystem.GetHighestDamageSound(modifiedDamage, ProtoManager);
+            var type = SharedMeleeWeaponSystem.GetHighestDamageSound(modifiedDamage, _damageable, ProtoManager);
 
             if (type != null && rangedSound.SoundTypes?.TryGetValue(type, out var damageSoundType) == true)
             {

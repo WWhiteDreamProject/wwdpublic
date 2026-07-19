@@ -1,5 +1,4 @@
-using Content.Shared.Damage;
-using Content.Shared.Damage.Prototypes;
+using Content.Shared._White.Damage;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
@@ -24,10 +23,7 @@ public sealed partial class ChitinidComponent : Component
     [DataField]
     public DamageSpecifier Healing = new()
     {
-        DamageDict = new()
-        {
-            { "Radiation", -0.5 },
-        }
+        { "Radiation", -0.5 },
     };
 
     [DataField]

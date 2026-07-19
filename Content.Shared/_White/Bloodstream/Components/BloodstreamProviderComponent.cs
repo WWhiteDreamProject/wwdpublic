@@ -10,7 +10,7 @@ namespace Content.Shared._White.Bloodstream.Components;
 public sealed partial class BloodstreamProviderComponent : Component
 {
     /// <summary>
-    /// The specific body location this pain bloodstream is associated with.
+    /// The specific body location this bloodstream is associated with.
     /// Used to categorize or apply bleeding to a particular area.
     /// </summary>
     [DataField]

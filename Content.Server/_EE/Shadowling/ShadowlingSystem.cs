@@ -104,7 +104,7 @@ public sealed partial class ShadowlingSystem : SharedShadowlingSystem
 
     private void OnDamageModify(EntityUid uid, ShadowlingComponent component, DamageModifyEvent args)
     {
-        foreach (var (key,_) in args.Damage.DamageDict)
+        foreach (var (key,_) in args.Damage)
         {
             if (key == "Heat")
                 args.Result += component.HeatDamageProjectileModifier;

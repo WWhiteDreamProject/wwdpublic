@@ -119,7 +119,7 @@ public sealed partial class DevilSystem : EntitySystem
 
         // Change damage modifier
         if (TryComp<DamageableComponent>(devil, out var damageableComp))
-            _damageable.SetDamageModifierSet((devil, damageableComp), devil.Comp.DevilDamageModifierSet); // WD EDIT
+            _damageable.SetModifierSet((devil, damageableComp), devil.Comp.DevilDamageModifierSet); // WD EDIT
 
         // Add base actions
         foreach (var actionId in devil.Comp.BaseDevilActions)

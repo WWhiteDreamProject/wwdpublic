@@ -1,4 +1,4 @@
-using Content.Shared.Damage;
+using Content.Shared._White.Damage;
 
 namespace Content.Shared.Climbing.Components;
 

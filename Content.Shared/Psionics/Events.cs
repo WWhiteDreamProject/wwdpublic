@@ -1,3 +1,4 @@
+using Content.Shared._White.Damage;
 using Robust.Shared.Serialization;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;

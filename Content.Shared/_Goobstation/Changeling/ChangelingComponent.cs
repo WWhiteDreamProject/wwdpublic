@@ -1,6 +1,6 @@
+using Content.Shared._White.Damage.Prototypes;
 using Content.Shared._White.Humanoid.Components;
 using Content.Shared.Chemistry.Reagent;
-using Content.Shared.Damage.Prototypes;
 using Content.Shared.Popups;
 using Content.Shared.StatusIcon;
 using Robust.Shared.Audio;

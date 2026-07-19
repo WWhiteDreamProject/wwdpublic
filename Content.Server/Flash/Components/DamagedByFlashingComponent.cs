@@ -1,5 +1,4 @@
-using Content.Shared.Damage;
-using Robust.Shared.Prototypes;
+using Content.Shared._White.Damage;
 
 namespace Content.Server.Flash.Components;
 

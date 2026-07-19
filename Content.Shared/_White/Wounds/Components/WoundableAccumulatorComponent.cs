@@ -25,8 +25,15 @@ public sealed partial class WoundableAccumulatorComponent : Component
     /// <summary>
     /// Threshold values for determining the severity of wounds to a given accumulator in relation to the damage received.
     /// </summary>
-    [DataField(required: true)]
-    public SortedDictionary<FixedPoint2, WoundSeverity> Thresholds;
+    [DataField]
+    public SortedDictionary<FixedPoint2, WoundSeverity> Thresholds = new()
+    {
+        {90, WoundSeverity.Healthy},
+        {70, WoundSeverity.Minor},
+        {50, WoundSeverity.Moderate},
+        {25, WoundSeverity.Severe},
+        {0, WoundSeverity.Critical},
+    };
 
     /// <summary>
     /// The current severity of wounds to this accumulator.

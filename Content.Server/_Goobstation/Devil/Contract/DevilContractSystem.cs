@@ -345,7 +345,7 @@ public sealed partial class DevilContractSystem : EntitySystem
         if (clause.DamageModifierSet == null)
             return;
 
-        _damageable.SetDamageModifierSet(target, clause.DamageModifierSet); // WD EDIT: todo - refactor this shit to use a comp, because modifiers suck bad
+        _damageable.SetModifierSet(target, clause.DamageModifierSet); // WD EDIT: todo - refactor this shit to use a comp, because modifiers suck bad
         _sawmill.Debug($"Changed {ToPrettyString(target)} modifier set to {clause.DamageModifierSet}");
     }
 

@@ -1,13 +1,12 @@
 using Content.Shared._EE.Shadowling;
+using Content.Shared._White.Damage;
 using Content.Shared._White.Damage.Systems;
-using Content.Shared.Damage;
 using Content.Shared.EntityEffects;
 using Content.Shared.FixedPoint;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._EE.EntityEffects;
-
 
 /// <summary>
 /// HealthChange but unique to Shadowlings and Thralls

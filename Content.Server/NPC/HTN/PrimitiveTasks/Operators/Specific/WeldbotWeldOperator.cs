@@ -1,5 +1,7 @@
 using Content.Server.Chat.Systems;
+using Content.Shared._White.Damage;
 using Content.Shared._White.Damage.Components;
+using Content.Shared._White.Damage.Prototypes;
 using Content.Shared._White.Damage.Systems;
 using Content.Shared.Chat;
 using Content.Shared.Damage;
@@ -90,7 +92,7 @@ public sealed partial class WeldbotWeldOperator : HTNOperator
             if (!_prototypeManager.TryIndex<DamageGroupPrototype>("Burn", out var prototype) || weldableIsStructure)
                 return HTNOperatorStatus.Failed;
 
-            _damageableSystem.TryChangeDamage((target, damage), new DamageSpecifier(prototype, EmaggedBurnDamage), true, false);
+            _damageableSystem.TryChangeDamage((target, damage), new DamageSpecifier(prototype, EmaggedBurnDamage, _damageableSystem), true, false);
         }
         else
         {
@@ -99,7 +101,7 @@ public sealed partial class WeldbotWeldOperator : HTNOperator
                 if (!_prototypeManager.TryIndex<DamageGroupPrototype>("Brute", out var prototype))
                     return HTNOperatorStatus.Failed;
 
-                _damageableSystem.TryChangeDamage((target, damage), new DamageSpecifier(prototype, -SiliconRepairAmount), true, false);
+                _damageableSystem.TryChangeDamage((target, damage), new DamageSpecifier(prototype, -SiliconRepairAmount, _damageableSystem), true, false);
             }
             else if (weldableIsStructure)
             {

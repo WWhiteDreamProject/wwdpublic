@@ -50,7 +50,7 @@ public sealed partial class GibbableSystem
     private void OnWoundableDamageChanged(Entity<GibbableProviderComponent> ent, ref WoundableDamageChangedEvent args)
     {
         var damage = FixedPoint2.Zero;
-        foreach (var (type, value) in args.Damage.DamageDict)
+        foreach (var (type, value) in args.Damage)
         {
             if (!ent.Comp.SupportedDamage.TryGetValue(type, out var modify))
                 continue;

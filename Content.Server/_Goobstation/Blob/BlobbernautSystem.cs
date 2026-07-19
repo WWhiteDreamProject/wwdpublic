@@ -4,6 +4,7 @@ using Content.Server.Emp;
 using Content.Server.Explosion.EntitySystems;
 using Content.Shared._Goobstation.Blob;
 using Content.Shared._Goobstation.Blob.Components;
+using Content.Shared._White.Damage;
 using Content.Shared._White.Damage.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Mobs;

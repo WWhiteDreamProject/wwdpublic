@@ -19,7 +19,7 @@ public sealed class ArtifactDamageTriggerSystem : EntitySystem
         if (!args.DamageIncreased)
             return;
 
-        foreach (var (type, amount) in args.Damage.DamageDict) // WD EDIT
+        foreach (var (type, amount) in args.Damage) // WD EDIT
         {
             if (component.DamageTypes != null && !component.DamageTypes.Contains(type))
                 continue;

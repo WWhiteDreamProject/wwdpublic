@@ -1,4 +1,5 @@
 using Content.Shared._Goobstation.MartialArts.Components;
+using Content.Shared._White.Damage;
 using Content.Shared._White.Damage.Systems;
 using Content.Shared._White.Grab;
 using Content.Shared.Actions;
@@ -111,7 +112,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
 
         var randomDamage = _random.Next(martialArtsPrototype.MinRandomDamageModifier, martialArtsPrototype.MaxRandomDamageModifier);
         var bonusDamageSpec = new DamageSpecifier();
-        bonusDamageSpec.DamageDict.Add("Blunt", randomDamage);
+        bonusDamageSpec.Add("Blunt", randomDamage);
         args.BonusDamage += bonusDamageSpec;
     }
 
@@ -211,7 +212,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
             if (TryComp<MeleeWeaponComponent>(user, out var meleeWeaponComponent))
             {
                 var newDamage = new DamageSpecifier();
-                newDamage.DamageDict.Add("Blunt", martialArtsPrototype.BaseDamageModifier);
+                newDamage.Add("Blunt", martialArtsPrototype.BaseDamageModifier);
                 meleeWeaponComponent.Damage += newDamage;
             }
             Dirty(user, canPerformComboComponent);
@@ -250,7 +251,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
             if (TryComp<MeleeWeaponComponent>(user, out var meleeWeaponComponent))
             {
                 var newDamage = new DamageSpecifier();
-                newDamage.DamageDict.Add("Blunt", martialArtsPrototype.BaseDamageModifier);
+                newDamage.Add("Blunt", martialArtsPrototype.BaseDamageModifier);
                 meleeWeaponComponent.Damage -= newDamage;
             }
             RemComp<MartialArtsKnowledgeComponent>(user);
@@ -313,7 +314,7 @@ public abstract partial class SharedMartialArtsSystem : EntitySystem
         out DamageSpecifier damage)
     {
         damage = new DamageSpecifier();
-        damage.DamageDict.Add(damageType, damageAmount);
+        damage.Add(damageType, damageAmount);
         _damageable.TryChangeDamage(target, damage, origin: ent);
     }
 

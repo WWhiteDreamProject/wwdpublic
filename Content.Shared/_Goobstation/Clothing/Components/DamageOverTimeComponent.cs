@@ -1,5 +1,5 @@
+using Content.Shared._White.Damage;
 using Robust.Shared.GameStates;
-using Content.Shared.Damage;
 
 namespace Content.Shared._Goobstation.Clothing.Components;
 

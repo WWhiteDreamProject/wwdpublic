@@ -1,12 +1,11 @@
+using Content.Shared._White.Damage;
 using Content.Shared.Alert;
-using Content.Shared.Damage;
 using Content.Shared.Language;
 using Content.Shared.Polymorph;
 using Content.Shared.StatusIcon;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
-
 
 namespace Content.Shared._EE.Shadowling;
 
@@ -90,29 +89,20 @@ public sealed partial class ShadowlingComponent : Component
     [DataField]
     public DamageSpecifier HeatDamage = new()
     {
-        DamageDict = new()
-        {
-            ["Heat"] = 20,
-        }
+        ["Heat"] = 20,
     };
 
     [DataField]
     public DamageSpecifier HeatDamageProjectileModifier = new()
     {
-        DamageDict = new()
-        {
-            ["Heat"] = 10,
-        }
+        ["Heat"] = 10,
     };
 
     [DataField]
     public DamageSpecifier GunShootFailDamage = new()
     {
-        DamageDict = new()
-        {
-            ["Blunt"] = 5,
-            ["Piercing"] = 4,
-        }
+        ["Blunt"] = 5,
+        ["Piercing"] = 4,
     };
 
     [DataField]

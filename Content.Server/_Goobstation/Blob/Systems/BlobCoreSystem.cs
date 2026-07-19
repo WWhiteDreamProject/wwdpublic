@@ -14,6 +14,7 @@ using Content.Shared.Actions;
 using Content.Shared.Alert;
 using Content.Shared._Goobstation.Blob;
 using Content.Shared._Goobstation.Blob.Components;
+using Content.Shared._White.Damage;
 using Content.Shared._White.Damage.Components;
 using Content.Shared._White.Damage.Systems;
 using Content.Shared.Damage;
@@ -255,9 +256,9 @@ public sealed class BlobCoreSystem : EntitySystem
             if (TryComp<MeleeWeaponComponent>(blobFactoryComponent.Blobbernaut, out var meleeWeaponComponent))
             {
                 var blobbernautDamage = new DamageSpecifier();
-                foreach (var keyValuePair in component.ChemDamageDict[component.CurrentChem].DamageDict)
+                foreach (var keyValuePair in component.ChemDamageDict[component.CurrentChem])
                 {
-                    blobbernautDamage.DamageDict.Add(keyValuePair.Key, keyValuePair.Value * 0.8f);
+                    blobbernautDamage.Add(keyValuePair.Key, keyValuePair.Value * 0.8f);
                 }
                 meleeWeaponComponent.Damage = blobbernautDamage;
             }

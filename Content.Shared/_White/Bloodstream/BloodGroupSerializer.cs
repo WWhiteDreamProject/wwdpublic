@@ -10,10 +10,32 @@ namespace Content.Shared._White.Bloodstream;
 [TypeSerializer]
 public sealed class BloodGroupSerializer : ITypeReader<BloodGroup, MappingDataNode>, ITypeCopier<BloodGroup>
 {
-    public ValidationNode Validate(
-        ISerializationManager serializationManager,
+    public BloodGroup Read(
+        ISerializationManager serialization,
         MappingDataNode node,
-        IDependencyCollection dependencies,
+        IDependencyCollection dependency,
+        SerializationHookContext hookContext,
+        ISerializationContext? context = null,
+        ISerializationManager.InstantiationDelegate<BloodGroup>? instantiationDelegate = null
+    )
+    {
+        var bloodGroup = new BloodGroup();
+
+        if (node.TryGet("type", out ValueDataNode? type)
+            && Enum.TryParse(type.Value, out BloodType bloodType))
+            bloodGroup.Type = bloodType;
+
+        if (node.TryGet("rhesusFactor", out ValueDataNode? rhesusFactor)
+            && Enum.TryParse(rhesusFactor.Value, out BloodRhesusFactor bloodRhesusFactor))
+            bloodGroup.RhesusFactor = bloodRhesusFactor;
+
+        return bloodGroup;
+    }
+
+    public ValidationNode Validate(
+        ISerializationManager serialization,
+        MappingDataNode node,
+        IDependencyCollection dependency,
         ISerializationContext? context = null
         )
     {
@@ -30,34 +52,12 @@ public sealed class BloodGroupSerializer : ITypeReader<BloodGroup, MappingDataNo
         return new ValidatedSequenceNode(nodes);
     }
 
-    public BloodGroup Read(
-        ISerializationManager serializationManager,
-        MappingDataNode node,
-        IDependencyCollection dependencies,
-        SerializationHookContext hookCtx,
-        ISerializationContext? context = null,
-        ISerializationManager.InstantiationDelegate<BloodGroup>? instanceProvider = null
-        )
-    {
-        var bloodGroup = new BloodGroup();
-
-        if (node.TryGet("type", out ValueDataNode? type)
-            && Enum.TryParse(type.Value, out BloodType bloodType))
-            bloodGroup.Type = bloodType;
-
-        if (node.TryGet("rhesusFactor", out ValueDataNode? rhesusFactor)
-            && Enum.TryParse(rhesusFactor.Value, out BloodRhesusFactor bloodRhesusFactor))
-            bloodGroup.RhesusFactor = bloodRhesusFactor;
-
-        return bloodGroup;
-    }
-
     public void CopyTo(
-        ISerializationManager serializationManager,
+        ISerializationManager serialization,
         BloodGroup source,
         ref BloodGroup target,
-        IDependencyCollection dependencies,
-        SerializationHookContext hookCtx,
+        IDependencyCollection dependency,
+        SerializationHookContext hookContext,
         ISerializationContext? context = null
         )
     {

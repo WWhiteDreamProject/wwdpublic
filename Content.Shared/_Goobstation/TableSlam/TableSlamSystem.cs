@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared._White.Damage;
 using Content.Shared._White.Damage.Systems;
 using Content.Shared.Contests;
 using Content.Shared.Climbing.Components;
@@ -77,7 +78,7 @@ public sealed class TableSlamSystem : EntitySystem
             _damageableSystem.TryChangeDamage(ent.Owner, // WD EDIT
                 new DamageSpecifier()
                 {
-                    DamageDict = new Dictionary<string, FixedPoint2> { { "Blunt", ent.Comp.TabledDamage } },
+                    { "Blunt", ent.Comp.TabledDamage },
                 });
         }
         _staminaSystem.TakeStaminaDamage(ent, ent.Comp.TabledStaminaDamage);

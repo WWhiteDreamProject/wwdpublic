@@ -1,5 +1,5 @@
 using System.Numerics;
-using Content.Shared.Damage;
+using Content.Shared._White.Damage;
 using Content.Shared.Weapons.Reflect;
 
 namespace Content.Shared.Weapons.Ranged.Events;

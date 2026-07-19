@@ -4,6 +4,8 @@ using Content.Server.Chat.Systems;
 using Content.Server.Emoting.Systems;
 using Content.Server.Popups;
 using Content.Server.Speech.EntitySystems;
+using Content.Shared._White.Damage;
+using Content.Shared._White.Damage.Prototypes;
 using Content.Shared._White.Damage.Systems;
 using Content.Shared.Chat;
 using Content.Shared.Chat.Prototypes;
@@ -54,7 +56,7 @@ public sealed class CluwneSystem : EntitySystem
             RemComp<CluwneComponent>(uid);
             RemComp<ClumsyComponent>(uid);
             RemComp<AutoEmoteComponent>(uid);
-            var damageSpec = new DamageSpecifier(_prototypeManager.Index<DamageGroupPrototype>("Genetic"), 300);
+            var damageSpec = new DamageSpecifier(_prototypeManager.Index<DamageGroupPrototype>("Genetic"), 300, _damageableSystem);
             _damageableSystem.TryChangeDamage(uid, damageSpec);
         }
     }

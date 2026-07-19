@@ -27,6 +27,7 @@ public sealed class SingerSystem : SharedSingerSystem
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly InstrumentSystem _instrument = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!;
 
     public override void Initialize()
     {
@@ -116,7 +117,7 @@ public sealed class SingerSystem : SharedSingerSystem
             return;
 
         var totalApplicableDamage = FixedPoint2.Zero;
-        foreach (var (group, value) in args.Damage.GetDamagePerGroup(ProtoMan))
+        foreach (var (group, value) in args.Damage.GetDamagePerGroup(_damageable, ProtoMan))
         {
             if (!component.ValidDamageGroups.Contains(group))
                 continue;

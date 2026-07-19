@@ -1,5 +1,5 @@
-using Content.Shared.Damage;
-using Content.Shared.Damage.Prototypes;
+using Content.Shared._White.Damage;
+using Content.Shared._White.Damage.Prototypes;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Interaction.Events;

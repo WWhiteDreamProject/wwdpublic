@@ -2,6 +2,8 @@ using Content.Server._White.Bloodstream.Systems;
 using Content.Server._White.Melee.Crit;
 using Content.Server._White.Other.BloodLust;
 using Content.Shared._White.Bloodstream.Components;
+using Content.Shared._White.Damage;
+using Content.Shared._White.Damage.Prototypes;
 using Content.Shared._White.Damage.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
@@ -52,9 +54,9 @@ public sealed class BloodAbsorbSystem : EntitySystem
 
             absorbed = Math.Min(absorbed, bloodLevel);
             _bloodstream.TryModifyBloodLevel(args.User, absorbed);
-            _damageable.TryChangeDamage(args.User, new DamageSpecifier(_prototype.Index<DamageGroupPrototype>("Brute"), -absorbed));
-            _damageable.TryChangeDamage(args.User, new DamageSpecifier(_prototype.Index<DamageGroupPrototype>("Burn"), -absorbed));
-            _damageable.TryChangeDamage(args.User, new DamageSpecifier(_prototype.Index<DamageGroupPrototype>("Airloss"), -absorbed));
+            _damageable.TryChangeDamage(args.User, new DamageSpecifier(_prototype.Index<DamageGroupPrototype>("Brute"), -absorbed, _damageable));
+            _damageable.TryChangeDamage(args.User, new DamageSpecifier(_prototype.Index<DamageGroupPrototype>("Burn"), -absorbed, _damageable));
+            _damageable.TryChangeDamage(args.User, new DamageSpecifier(_prototype.Index<DamageGroupPrototype>("Airloss"), -absorbed, _damageable));
         }
     }
 

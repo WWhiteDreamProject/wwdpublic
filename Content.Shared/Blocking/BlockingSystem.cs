@@ -1,6 +1,6 @@
 ﻿using System.Linq;
+using Content.Shared._White.Damage;
 using Content.Shared.Actions;
-using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
@@ -19,7 +19,6 @@ using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 

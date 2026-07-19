@@ -1,5 +1,4 @@
-﻿using Content.Shared.Damage;
-using Content.Shared.FixedPoint;
+﻿using Content.Shared._White.Damage;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._White.BloodCult.Runes.Offering;
@@ -40,10 +39,7 @@ public sealed partial class CultRuneOfferingComponent : Component
     [DataField]
     public DamageSpecifier ConvertHealing = new()
     {
-        DamageDict = new()
-        {
-            ["Brute"] = -40,
-            ["Burn"] = -40
-        }
+        ["Brute"] = -40,
+        ["Burn"] = -40,
     };
 }

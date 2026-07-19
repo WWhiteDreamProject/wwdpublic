@@ -1,4 +1,4 @@
-﻿using Content.Shared.Damage.Prototypes;
+﻿using Content.Shared._White.Damage.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
 
 namespace Content.Server.Xenoarchaeology.XenoArtifacts.Triggers.Components;

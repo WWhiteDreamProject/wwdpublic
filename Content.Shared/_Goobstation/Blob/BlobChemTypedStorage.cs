@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Diagnostics.Contracts;
 using Content.Shared._Goobstation.Blob.Components;
-using Content.Shared.Damage;
+using Content.Shared._White.Damage;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._Goobstation.Blob;

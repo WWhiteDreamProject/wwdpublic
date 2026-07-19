@@ -5,6 +5,7 @@ using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Psionics.Glimmer;
 using Content.Server.StationEvents.Components;
+using Content.Shared._White.Damage;
 using Content.Shared._White.Damage.Systems;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.Construction.EntitySystems;
@@ -75,8 +76,8 @@ internal sealed class NoosphericFryRule : StationEventSystem<NoosphericFryRuleCo
             }
 
             DamageSpecifier damage = new();
-            damage.DamageDict.Add("Heat", 2.5);
-            damage.DamageDict.Add("Shock", 2.5);
+            damage.Add("Heat", 2.5);
+            damage.Add("Shock", 2.5);
 
             if (_glimmerSystem.GlimmerOutput > component.FryHeadgearMinorThreshold && _glimmerSystem.GlimmerOutput < component.FryHeadgearMajorThreshold)
             {

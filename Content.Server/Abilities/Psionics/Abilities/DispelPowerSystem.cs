@@ -1,10 +1,10 @@
 using Content.Shared.StatusEffect;
 using Content.Shared.Abilities.Psionics;
-using Content.Shared.Damage;
 using Content.Shared.Revenant.Components;
 using Content.Server.Guardian;
 using Content.Server.Bible.Components;
 using Content.Server.Popups;
+using Content.Shared._White.Damage;
 using Content.Shared._White.Damage.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
@@ -106,7 +106,7 @@ namespace Content.Server.Abilities.Psionics
             if (damage == null)
             {
                 damage = new();
-                damage.DamageDict.Add("Blunt", 100);
+                damage.Add("Blunt", 100);
             }
             _damageableSystem.TryChangeDamage(uid, damage, true, true);
         }

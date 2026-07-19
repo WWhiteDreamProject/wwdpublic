@@ -26,7 +26,9 @@ using Content.Shared.Overlays.Switchable;
 using Robust.Shared.Utility;
 using Robust.Shared.Physics.Components;
 using Content.Server.Ghost;
+using Content.Shared._White.Damage;
 using Content.Shared._White.Damage.Components;
+using Content.Shared._White.Damage.Prototypes;
 using Content.Shared._White.Nutrition.Components;
 
 

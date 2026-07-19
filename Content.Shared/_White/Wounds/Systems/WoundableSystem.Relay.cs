@@ -1,7 +1,7 @@
 using Content.Shared._White.Bloodstream.Systems;
+using Content.Shared._White.Damage.Prototypes;
 using Content.Shared._White.Pain.Systems;
 using Content.Shared._White.Wounds.Components;
-using Content.Shared.Damage.Prototypes;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._White.Wounds.Systems;
@@ -59,7 +59,7 @@ public record struct WoundRelayedEvent<TEvent>(TEvent Args)
 public interface IWoundRelayEvent
 {
     /// <summary>
-    /// What wound should this event be relayed to.
+    /// What wound should this event be relayed to?
     /// </summary>
     public ProtoId<DamageTypePrototype>? Type { get; }
 }

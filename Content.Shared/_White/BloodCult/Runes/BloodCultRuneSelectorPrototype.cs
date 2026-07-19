@@ -1,4 +1,4 @@
-﻿using Content.Shared.Damage;
+﻿using Content.Shared._White.Damage;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._White.BloodCult.Runes;
@@ -25,5 +25,5 @@ public sealed class BloodCultRunePrototype : IPrototype
     ///     Damage dealt on the rune drawing.
     /// </summary>
     [DataField]
-    public DamageSpecifier DrawDamage = new() { DamageDict = new() { ["Slash"] = 15, }, };
+    public DamageSpecifier DrawDamage = new() {  ["Slash"] = 15, };
 }

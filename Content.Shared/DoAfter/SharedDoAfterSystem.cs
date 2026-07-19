@@ -66,7 +66,7 @@ public abstract partial class SharedDoAfterSystem : EntitySystem
         // If we're applying state then let the server state handle the do_after prediction.
         // This is to avoid scenarios where a do_after is erroneously cancelled on the final tick.
         if (!args.InterruptsDoAfters || !args.DamageIncreased|| GameTiming.ApplyingState
-            || args.Damage.DamageDict.ContainsKey("Radiation")) //Sanity check so people can crowbar doors open to flee from Lord Singuloth
+            || args.Damage.ContainsKey("Radiation")) //Sanity check so people can crowbar doors open to flee from Lord Singuloth
             return;
 
         var delta = args.Damage.GetTotal();

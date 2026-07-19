@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Server._Lavaland.Tendril.Components;
+using Content.Shared._White.Damage;
 using Content.Shared._White.Damage.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Destructible;
@@ -78,7 +79,7 @@ public sealed class TendrilSystem : EntitySystem
         if (comp.DefeatedMobs >= comp.MobsToDefeat)
         {
             comp.DestroyedWithMobs = true;
-            _damage.TryChangeDamage(uid, new DamageSpecifier { DamageDict = new Dictionary<string, FixedPoint2> {{ "Blunt", 1000 }} });
+            _damage.TryChangeDamage(uid, new DamageSpecifier { { "Blunt", 1000 } });
         }
     }
 

@@ -1,5 +1,5 @@
 using System.Numerics;
-using Content.Shared.Damage;
+using Content.Shared._White.Damage;
 using Robust.Shared.Audio;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 using Robust.Shared.GameStates;

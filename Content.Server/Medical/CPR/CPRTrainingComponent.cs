@@ -1,4 +1,4 @@
-using Content.Shared.Damage;
+using Content.Shared._White.Damage;
 using Robust.Shared.Audio;
 
 namespace Content.Server.Medical.CPR;
@@ -14,10 +14,7 @@ public sealed partial class CPRTrainingComponent : Component
 
     [DataField] public DamageSpecifier CPRHealing = new()
     {
-        DamageDict =
-        {
-            ["Asphyxiation"] = -6
-        }
+        ["Asphyxiation"] = -6
     };
 
     [DataField] public float CrackRibsModifier = 1f;

@@ -13,8 +13,8 @@ public sealed partial class BodyAppearanceProviderComponent : Component
     /// <summary>
     /// Stores the specific data and appearance characteristics for this provider's layer.
     /// </summary>
-    [DataField(required: true), AlwaysPushInheritance]
-    public BodyAppearanceData Appearance;
+    [DataField, AlwaysPushInheritance]
+    public BodyAppearanceData Appearance = new();
 
     /// <summary>
     /// The specific layer that this provider is responsible for visualizing.

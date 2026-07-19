@@ -1,10 +1,9 @@
 using System.Linq;
 using System.Numerics;
 using Content.Shared._White.Body;
-using Content.Shared._White.Body.Components;
+using Content.Shared._White.Damage;
 using Content.Shared._White.Penetrated;
 using Content.Shared._White.Projectile;
-using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.Hands.EntitySystems;

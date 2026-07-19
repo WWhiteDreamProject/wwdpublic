@@ -1,5 +1,5 @@
 using Content.Server._White.Respirator.Systems;
-using Content.Shared.Damage;
+using Content.Shared._White.Damage;
 
 namespace Content.Server._White.Respirator.Components;
 

@@ -1,5 +1,4 @@
-﻿using Content.Shared.Damage;
-using Content.Shared.FixedPoint;
+﻿using Content.Shared._White.Damage;
 using Content.Shared.Weather;
 using Robust.Shared.Prototypes;
 
@@ -33,5 +32,5 @@ public sealed class LavalandWeatherPrototype : IPrototype
     public float TemperatureChange = 30000f;
 
     [DataField]
-    public DamageSpecifier Damage = new() {DamageDict = new Dictionary<string, FixedPoint2>() {{ "Heat", 4 }}};
+    public DamageSpecifier Damage = new() {{ "Heat", 4 }};
 }

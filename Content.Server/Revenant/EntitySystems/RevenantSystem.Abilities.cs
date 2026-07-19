@@ -15,6 +15,7 @@ using Content.Shared.Bed.Sleep;
 using System.Linq;
 using System.Numerics;
 using Content.Server.Revenant.Components;
+using Content.Shared._White.Damage;
 using Content.Shared._White.Humanoid.Components;
 using Content.Shared.Physics;
 using Content.Shared.DoAfter;
@@ -208,7 +209,7 @@ public sealed partial class RevenantSystem
         if (!_mobThresholdSystem.TryGetThresholdForState(args.Args.Target.Value, MobState.Dead, out var damage))
             return;
         DamageSpecifier dspec = new();
-        dspec.DamageDict.Add("Cold", damage.Value);
+        dspec.Add("Cold", damage.Value);
         _damage.TryChangeDamage(args.Args.Target.Value, dspec, true, origin: uid);
 
         args.Handled = true;
@@ -258,7 +259,7 @@ public sealed partial class RevenantSystem
             {
                 //hardcoded damage specifiers til i die.
                 var dspec = new DamageSpecifier();
-                dspec.DamageDict.Add("Structural", 60);
+                dspec.Add("Structural", 60);
                 _damage.TryChangeDamage(ent, dspec, origin: uid);
             }
 

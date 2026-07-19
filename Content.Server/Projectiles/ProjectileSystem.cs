@@ -88,7 +88,7 @@ public sealed class ProjectileSystem : SharedProjectileSystem
                 var stopPenetration = false;
                 foreach (var requiredDamageType in component.PenetrationDamageTypeRequirement)
                 {
-                    if (!modifiedDamage.DamageDict.Keys.Contains(requiredDamageType))
+                    if (!modifiedDamage.Keys.Contains(requiredDamageType))
                     {
                         stopPenetration = true;
                         break;

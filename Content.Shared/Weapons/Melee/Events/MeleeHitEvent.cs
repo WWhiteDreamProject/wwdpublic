@@ -1,6 +1,6 @@
 using System.Numerics;
 using Content.Shared._White.Body;
-using Content.Shared.Damage;
+using Content.Shared._White.Damage;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Audio;
 

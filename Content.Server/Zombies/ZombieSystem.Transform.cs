@@ -15,6 +15,7 @@ using Content.Server.NPC.Systems;
 using Content.Server.Speech.Components;
 using Content.Server.Temperature.Components;
 using Content.Shared._White.Bloodstream.Components;
+using Content.Shared._White.Damage;
 using Content.Shared._White.Damage.Components;
 using Content.Shared._White.Humanoid.Components;
 using Content.Shared.Abilities.Psionics;
@@ -173,12 +174,9 @@ public sealed partial class ZombieSystem
             //lord forgive me for the hardcoded damage
             DamageSpecifier dspec = new()
             {
-                DamageDict = new()
-                {
-                    { "Slash", 13 },
-                    { "Piercing", 7 },
-                    { "Structural", 10 }
-                }
+                { "Slash", 13 },
+                { "Piercing", 7 },
+                { "Structural", 10 },
             };
             melee.Damage = dspec;
 
@@ -194,7 +192,7 @@ public sealed partial class ZombieSystem
         Dirty(target, melee);
 
         //The zombie gets the assigned damage weaknesses and strengths
-        _damageable.SetDamageModifierSet(target, "Zombie"); // WD EDIT
+        _damageable.SetModifierSet(target, "Zombie"); // WD EDIT
 
         //Give them zombie blood
         _bloodstream.ChangeBloodReagent(target, zombiecomp.NewBloodReagent);

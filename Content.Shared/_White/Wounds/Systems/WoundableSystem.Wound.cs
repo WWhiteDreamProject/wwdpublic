@@ -1,7 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
+using Content.Shared._White.Damage.Prototypes;
 using Content.Shared._White.Threshold;
 using Content.Shared._White.Wounds.Components;
-using Content.Shared.Damage.Prototypes;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Prototypes;
 

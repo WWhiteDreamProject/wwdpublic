@@ -1,7 +1,7 @@
 using System.Numerics;
 using Content.Server.Shuttles.Systems;
+using Content.Shared._White.Damage;
 using Content.Shared.Construction.Prototypes;
-using Content.Shared.Damage;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;

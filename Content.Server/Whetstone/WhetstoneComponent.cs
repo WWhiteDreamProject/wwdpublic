@@ -1,5 +1,4 @@
-﻿using Content.Shared.Damage;
-using Content.Shared.FixedPoint;
+﻿using Content.Shared._White.Damage;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 
@@ -14,10 +13,7 @@ public sealed partial class WhetstoneComponent : Component
     [DataField]
     public DamageSpecifier DamageIncrease = new()
     {
-        DamageDict = new Dictionary<string, FixedPoint2>
-        {
-            ["Slash"] = 4
-        }
+        ["Slash"] = 4,
     };
 
     [DataField]

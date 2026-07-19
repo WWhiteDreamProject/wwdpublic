@@ -2,6 +2,7 @@ using Content.Server.Explosion.EntitySystems;
 using Content.Server.Flash;
 using Content.Server.Stunnable;
 using Content.Shared._Lavaland.Weapons.Ranged.Events;
+using Content.Shared._White.Damage;
 using Content.Shared._White.Damage.Systems;
 using Content.Shared._White.Guns;
 using Content.Shared.Damage;
@@ -52,7 +53,7 @@ public sealed class GunFluxSystem : SharedGunFluxSystem
     protected override void ApplyOverheatDamage(EntityUid shooter, float damage, string type)
     {
         base.ApplyOverheatDamage(shooter, damage, type);
-        DamageSpecifier damagespec = new DamageSpecifier() { DamageDict = new() { { type, damage } } };
+        DamageSpecifier damagespec = new DamageSpecifier() {{ type, damage } };
         _damage.TryChangeDamage(shooter, damagespec);
     }
 

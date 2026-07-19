@@ -10,17 +10,18 @@ public enum BodyProviderType
 
     #region Types
 
-    Part = 1 << 0,
+    Bone = 1 << 0,
     Organ = 1 << 1,
-    Bone = 1 << 2,
+    Part = 1 << 2,
+    Specific = 1 << 3,
 
     #endregion Types
 
     #region Sides
 
-    Left = 1 << 3,
-    Middle = 1 << 4,
-    Right = 1 << 5,
+    Left = 1 << 4,
+    Middle = 1 << 5,
+    Right = 1 << 6,
 
     #region Combined
 
@@ -30,165 +31,153 @@ public enum BodyProviderType
 
     #endregion Sides
 
-    #region Body parts
-
-    Head = Part | (1 << 6),
-    Chest = Part | (1 << 7),
-    Groin = Part | (1 << 8),
-    Arm = Part | (1 << 9),
-    Hand = Part | (1 << 10),
-    Leg = Part | (1 << 11),
-    Foot = Part | (1 << 12),
-    Tail = Part | (1 << 13),
-    Wings = Part | (1 << 14),
-    Mouth = Part | (1 << 15),
-
-    #region Combined
-
-    #region Arms
-
-    LeftArm = Left | Arm,
-    MiddleArm = Middle | Arm,
-    RightArm = Right | Arm,
-    Arms = Arm | AllSides,
-
-    #endregion Arms
-
-    #region Hands
-
-    LeftHand = Left | Hand,
-    MiddleHand = Middle | Hand,
-    RightHand = Right | Hand,
-    Hands = Hand | AllSides,
-
-    #endregion Hands
-
-    #region Legs
-
-    LeftLeg = Left | Leg,
-    MiddleLeg = Middle | Leg,
-    RightLeg = Right | Leg,
-    Legs = Leg | AllSides,
-
-    #endregion Legs
-
-    #region Foots
-
-    LeftFoot = Left | Foot,
-    MiddleFoot = Middle | Foot,
-    RightFoot = Right | Foot,
-    Foots = Foot | AllSides,
-
-    #endregion Foots
-
-    #region Other
-
-    Torso = Chest | Groin,
-    FullLeftArm  = LeftArm | LeftHand,
-    FullRightArm  = RightArm | RightHand,
-    FullLeftLeg  = LeftLeg | LeftFoot,
-    FullRightLeg  = RightLeg | RightFoot,
-    FullArms  = Arms | Hands,
-    FullLegs  = Legs | Foots,
-    Limbs = FullArms | FullLegs | Tail,
-    AllParts = Head | Torso | Limbs,
-
-    #endregion Other
-
-    #endregion Combined
-
-    #endregion Body parts
-
-    #region Organs
-
-    Brain = Organ | (1 << 6),
-    Heart = Organ | (1 << 7),
-    Eyes = Organ | (1 << 8),
-    Tongue = Organ | (1 << 9),
-    Appendix = Organ | (1 << 10),
-    Ears = Organ | (1 << 11),
-    Lungs = Organ | (1 << 12),
-    Stomach = Organ | (1 << 13),
-    Liver = Organ | (1 << 14),
-    Kidneys = Organ | (1 << 15),
-    Gland = Organ | (1 << 16),
-    Specific = Organ | (1 << 17),
-
-    #region Combined
-
-    #region Other
-
-    Core = Brain | Heart | Stomach | Liver | Kidneys,
-    AllOrgans = Core | Eyes | Tongue | Appendix | Ears | Lungs | Gland | Specific,
-
-    #endregion Other
-
-    #endregion Combined
-
-    #endregion Organs
-
     #region Bones
 
-    Сranium = Bone | (1 << 6),
-    Thorax = Bone | (1 << 7),
+    Antebrachium = Bone | (1 << 7),
     Coxae = Bone | (1 << 8),
-    Antebrachium = Bone | (1 << 9),
-    Manus = Bone | (1 << 10),
-    Crus = Bone | (1 << 11),
+    Сranium = Bone | (1 << 9),
+    Crus = Bone | (1 << 10),
+    Manus = Bone | (1 << 11),
     Pedis = Bone | (1 << 12),
+    Thorax = Bone | (1 << 13),
 
     #region Combined
 
     #region Antebrachium
 
+    Antebrachia = Antebrachium | AllSides,
     LeftAntebrachium = Left | Antebrachium,
     MiddleAntebrachium = Middle | Antebrachium,
     RightAntebrachium = Right | Antebrachium,
 
     #endregion Antebrachium
 
-    #region Manus
-
-    LeftManus = Left | Manus,
-    MiddleManus = Middle | Manus,
-    RightManus = Right | Manus,
-
-    #endregion Manus
-
     #region Crus
 
-    LeftCrus = Left | Crus,
-    MiddleCrus = Middle | Crus,
-    RightCrus = Right | Crus,
+    Сrura = Crus | AllSides,
+    LeftCrus = Crus | Left,
+    MiddleCrus = Crus | Middle,
+    RightCrus = Crus | Right,
 
     #endregion Crus
 
+    #region Manus
+
+    Manuum = Manus | AllSides,
+    LeftManus = Manus | Left,
+    MiddleManus = Manus | Middle,
+    RightManus = Manus | Right,
+
+    #endregion Manus
+
     #region Pedis
 
-    LeftPedis = Left | Pedis,
-    MiddlePedis = Middle | Pedis,
-    RightPedis = Right | Pedis,
+    Pedum = Pedis | AllSides,
+    LeftPedis = Pedis | Left,
+    MiddlePedis = Pedis | Middle,
+    RightPedis = Pedis | Right,
 
     #endregion Pedis
 
-    #region Other
-
-    AllBones = Сranium | Thorax | Coxae | Antebrachium | Manus | Crus | Pedis | AllSides,
-
-    #endregion Other
+    AllBones = Antebrachia | Coxae | Сranium | Сrura | Manuum | Pedum | Thorax,
 
     #endregion Combined
 
     #endregion Bones
 
-    #region Specific
+    #region Organs
+
+    Appendix = Organ | (1 << 7),
+    Brain = Organ | (1 << 8),
+    Ears = Organ | (1 << 9),
+    Eyes = Organ | (1 << 10),
+    Gland = Organ | (1 << 11),
+    Heart = Organ | (1 << 12),
+    Kidneys = Organ | (1 << 13),
+    Liver = Organ | (1 << 14),
+    Lungs = Organ | (1 << 15),
+    SpecificOrgan = Organ | (1 << 16),
+    Stomach = Organ | (1 << 17),
+    Tongue = Organ | (1 << 18),
 
     #region Combined
 
-    Face = Head | Eyes | Mouth,
-    All = ~None,
+    Core = Brain | Heart | Kidneys | Liver | Stomach,
+    AllOrgans = Appendix | Ears | Eyes | Gland | Lungs | Tongue,
 
     #endregion Combined
 
-    #endregion Specific
+    #endregion Organs
+
+    #region Parts
+
+    Arm = Part | (1 << 7),
+    Chest = Part | (1 << 8),
+    Foot = Part | (1 << 9),
+    Groin = Part | (1 << 10),
+    Hand = Part | (1 << 11),
+    Head = Part | (1 << 12),
+    Leg = Part | (1 << 13),
+    Mouth = Part | (1 << 14),
+    Tail = Part | (1 << 15),
+    Wings = Part | (1 << 16),
+
+    #region Combined
+
+    #region Arms
+
+    Arms = Arm | AllSides,
+    LeftArm = Arm | Left,
+    MiddleArm = Arm | Middle,
+    RightArm = Arm | Right,
+
+    #endregion Arms
+
+    #region Foots
+
+    Foots = Foot | AllSides,
+    LeftFoot = Foot | Left,
+    MiddleFoot = Foot | Middle,
+    RightFoot = Foot | Right,
+
+    #endregion Foots
+
+    #region Hands
+
+    Hands = Hand | AllSides,
+    LeftHand = Hand | Left,
+    MiddleHand = Hand | Middle,
+    RightHand = Hand | Right,
+
+    #endregion Hands
+
+    #region Legs
+
+    Legs = Leg | AllSides,
+    LeftLeg = Leg | Left,
+    MiddleLeg = Leg | Middle,
+    RightLeg = Leg | Right,
+
+    #endregion Legs
+
+    AllParts = Head | Torso | Limbs,
+    FullArms  = Arms | Hands,
+    FullLeftArm  = LeftArm | LeftHand,
+    FullLeftLeg  = LeftLeg | LeftFoot,
+    FullLegs  = Legs | Foots,
+    FullRightArm  = RightArm | RightHand,
+    FullRightLeg  = RightLeg | RightFoot,
+    Limbs = FullArms | FullLegs | Tail,
+    Torso = Chest | Groin,
+
+    #endregion Combined
+
+    #endregion Body parts
+
+    #region Combined
+
+    All = ~None,
+    Face = Head | Eyes | Mouth,
+
+    #endregion Combined
 }

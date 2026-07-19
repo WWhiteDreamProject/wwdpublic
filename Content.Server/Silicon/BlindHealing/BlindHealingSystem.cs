@@ -70,7 +70,7 @@ public sealed class BlindHealingSystem : SharedBlindHealingSystem
 
         if (args.Handled
             || !TryComp<DamageableComponent>(args.User, out var damageable)
-            || damageable.DamageContainer != null && !component.DamageContainers.Contains(damageable.DamageContainer) // WD EDIT
+            || damageable.Container != null && !component.DamageContainers.Contains(damageable.Container) // WD EDIT
             || !TryComp<BlindableComponent>(args.User, out var blindcomp)
             || blindcomp.EyeDamage == 0
             || args.User == args.Target && !component.AllowSelfHeal)
@@ -86,7 +86,7 @@ public sealed class BlindHealingSystem : SharedBlindHealingSystem
     {
         if (args.Handled
             || !TryComp<DamageableComponent>(args.User, out var damageable)
-            || damageable.DamageContainer != null && !component.DamageContainers.Contains(damageable.DamageContainer) // WD EDIT
+            || damageable.Container != null && !component.DamageContainers.Contains(damageable.Container) // WD EDIT
             || !TryComp<BlindableComponent>(args.User, out var blindcomp)
             || blindcomp.EyeDamage == 0
             || !component.AllowSelfHeal)

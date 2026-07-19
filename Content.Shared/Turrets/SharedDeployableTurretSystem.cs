@@ -137,7 +137,7 @@ public abstract partial class SharedDeployableTurretSystem : EntitySystem
         {
             var damageSetID = ent.Comp.Enabled ? ent.Comp.DeployedDamageModifierSetId : ent.Comp.RetractedDamageModifierSetId;
             if (damageSetID.HasValue)
-                _damageable.SetDamageModifierSet((ent, damageable), damageSetID); // WD EDIT
+                _damageable.SetModifierSet((ent, damageable), damageSetID); // WD EDIT
         }
 
         // Change the turret's fixtures

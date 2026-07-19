@@ -1,6 +1,6 @@
+using Content.Shared._White.Damage;
 using Content.Shared._White.Damage.Systems;
 using Content.Shared.Construction;
-using Content.Shared.Damage;
 
 namespace Content.Server.Construction.Completions;
 

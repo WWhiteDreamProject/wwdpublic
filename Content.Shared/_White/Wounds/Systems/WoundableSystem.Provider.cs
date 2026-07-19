@@ -1,10 +1,10 @@
 using Content.Shared._White.Body.Systems;
+using Content.Shared._White.Damage;
 using Content.Shared._White.Damage.Components;
 using Content.Shared._White.Damage.Systems;
 using Content.Shared._White.Medical.Healing.Systems;
 using Content.Shared._White.Threshold;
 using Content.Shared._White.Wounds.Components;
-using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Containers;
 
@@ -85,8 +85,8 @@ public sealed partial class WoundableSystem
             return;
 
         if (args.Args.Healing.Comp.DamageContainers is not null &&
-            damageableComp.DamageContainer is not null &&
-            !args.Args.Healing.Comp.DamageContainers.Contains(damageableComp.DamageContainer.Value))
+            damageableComp.Container is not null &&
+            !args.Args.Healing.Comp.DamageContainers.Contains(damageableComp.Container.Value))
             return;
 
         if (!_damageable.HasDamage((ent, damageableComp), args.Args.Healing.Comp.Damage))
@@ -103,12 +103,12 @@ public sealed partial class WoundableSystem
         if (!TryChangeDamage((ent, ent.Comp, null), args.Args.Damage, out var result, args.Args.IgnoreResistances, origin: args.Args.Origin))
             return;
 
-        foreach (var (type, damage) in result.DamageDict)
+        foreach (var (type, damage) in result)
         {
-            if (args.Args.Result.DamageDict.TryAdd(type, damage))
+            if (args.Args.Result.TryAdd(type, damage))
                 continue;
 
-            args.Args.Result.DamageDict[type] += damage;
+            args.Args.Result[type] += damage;
         }
     }
 
@@ -129,27 +129,27 @@ public sealed partial class WoundableSystem
     /// </returns>
     public bool TryChangeDamage(
         Entity<WoundableProviderComponent?, DamageableComponent?> ent,
-        DamageSpecifier damage,
+        DamageSpecifier specifier,
         out DamageSpecifier result,
         bool ignoreResistances = false,
         bool interruptsDoAfters = true,
         EntityUid? origin = null
     )
     {
-        result = ChangeDamage(ent, damage, ignoreResistances, interruptsDoAfters, origin);
+        result = ChangeDamage(ent, specifier, ignoreResistances, interruptsDoAfters, origin);
         return !result.Empty;
     }
 
     /// <inheritdoc cref="TryChangeDamage(Entity{WoundableProviderComponent?, DamageableComponent?}, DamageSpecifier, out DamageSpecifier?, bool, bool, EntityUid?)"/>
     public bool TryChangeDamage(
         Entity<WoundableProviderComponent?, DamageableComponent?> ent,
-        DamageSpecifier damage,
+        DamageSpecifier specifier,
         bool ignoreResistances = false,
         bool interruptsDoAfters = true,
         EntityUid? origin = null
     )
     {
-        return TryChangeDamage(ent, damage, out _, ignoreResistances, interruptsDoAfters, origin);
+        return TryChangeDamage(ent, specifier, out _, ignoreResistances, interruptsDoAfters, origin);
     }
 
     /// <summary>
@@ -160,7 +160,7 @@ public sealed partial class WoundableSystem
     /// </returns>
     public DamageSpecifier ChangeDamage(
         Entity<WoundableProviderComponent?, DamageableComponent?> ent,
-        DamageSpecifier damage,
+        DamageSpecifier specifier,
         bool ignoreResistances = false,
         bool interruptsDoAfters = true,
         EntityUid? origin = null
@@ -168,7 +168,7 @@ public sealed partial class WoundableSystem
     {
         var result = new DamageSpecifier();
 
-        if (damage.Empty)
+        if (specifier.Empty)
             return result;
 
         if (!_providerQuery.Resolve(ent, ref ent.Comp1) || !_damageableQuery.Resolve(ent, ref ent.Comp2))
@@ -176,37 +176,34 @@ public sealed partial class WoundableSystem
 
         if (!ignoreResistances)
         {
-            var getResistanceEv = new GetWoundableResistanceEvent(damage, origin);
+            var getResistanceEv = new GetWoundableResistanceEvent(specifier, origin);
             RaiseLocalEvent(ent, getResistanceEv);
 
-            damage = getResistanceEv.Damage;
+            specifier = getResistanceEv.Damage;
         }
 
-        if (damage.Empty)
+        if (specifier.Empty)
             return result;
 
-        foreach (var (type, value) in damage.DamageDict)
+        foreach (var (type, damage) in specifier)
         {
-            if (value == 0 || !ent.Comp2.Damage.DamageDict.ContainsKey(type))
+            if (damage == 0 || !ent.Comp2.Damage.ContainsKey(type))
                 continue;
 
-            var processed = value;
-            if (!ignoreResistances && _prototype.TryIndex(ent.Comp2.DamageModifierSet, out var modifierSet))
+            var processedDamage = damage;
+            if (!ignoreResistances && _prototype.TryIndex(ent.Comp2.ModifierSet, out var modifierSet))
             {
-                var floatDamage = value.Float();
                 if (modifierSet.FlatReduction.TryGetValue(type, out var reduction))
-                    floatDamage = Math.Max(0f, floatDamage - reduction);
+                    processedDamage = FixedPoint2.Max(0f, processedDamage - reduction);
 
                 if (modifierSet.Coefficients.TryGetValue(type, out var coefficient))
-                    floatDamage *= coefficient;
-
-                processed = FixedPoint2.New(floatDamage);
+                    processedDamage *= coefficient;
             }
 
-            if (!TryProcessWound(ent.AsNullable(), type, processed, origin, out processed))
+            if (!TryProcessWound(ent.AsNullable(), type, processedDamage, origin, out processedDamage))
                 continue;
 
-            result.DamageDict.Add(type, processed);
+            result.Add(type, processedDamage);
         }
 
         if (result.Empty)

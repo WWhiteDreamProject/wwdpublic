@@ -1,7 +1,7 @@
 using Content.Server.Damage.Components;
 using Content.Server.Explosion.EntitySystems;
+using Content.Shared._White.Damage;
 using Content.Shared._White.Damage.Systems;
-using Content.Shared.Damage;
 
 namespace Content.Server.Damage.Systems;
 

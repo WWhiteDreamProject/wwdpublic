@@ -1,5 +1,5 @@
+using Content.Shared._White.Damage;
 using Content.Shared.Alert;
-using Content.Shared.Damage;
 using Robust.Shared.Physics.Collision.Shapes;
 using Robust.Shared.Prototypes;
 

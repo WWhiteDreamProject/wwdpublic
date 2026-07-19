@@ -1,7 +1,7 @@
 using System.Numerics;
+using Content.Shared._White.Damage;
 using Content.Shared._White.Damage.Components;
 using Content.Shared._White.Damage.Systems;
-using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Effects;
 using Content.Shared.Standing;
@@ -56,7 +56,7 @@ public sealed class GrabThrownSystem : EntitySystem
         var mass = physicsComponent.Mass;
         var kineticEnergy = 0.5f * mass * velocitySquared;
         var kineticEnergyDamage = new DamageSpecifier();
-        kineticEnergyDamage.DamageDict.Add("Blunt", 1);
+        kineticEnergyDamage.Add("Blunt", 1);
         var modNumber = Math.Floor(kineticEnergy / 100);
         kineticEnergyDamage *= Math.Floor(modNumber / 3);
 

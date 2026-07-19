@@ -1,4 +1,4 @@
-using Content.Shared.Damage;
+using Content.Shared._White.Damage;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._White.Xenomorphs.Acid.Components;

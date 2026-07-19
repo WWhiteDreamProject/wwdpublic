@@ -5,6 +5,7 @@ using Robust.Shared.IoC;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.Manager;
 using System.Collections.Generic;
+using Content.Shared._White.Damage.Prototypes;
 using Content.Shared.FixedPoint;
 
 namespace Content.Tests.Shared

@@ -63,7 +63,7 @@ public sealed class AmputatableSystem : EntitySystem
     private void OnWoundableDamageChanged(Entity<AmputatableProviderComponent> ent, ref WoundableDamageChangedEvent args)
     {
         var damage = FixedPoint2.Zero;
-        foreach (var (type, value) in args.Damage.DamageDict)
+        foreach (var (type, value) in args.Damage)
         {
             if (!ent.Comp.SupportedDamage.TryGetValue(type, out var modify))
                 continue;

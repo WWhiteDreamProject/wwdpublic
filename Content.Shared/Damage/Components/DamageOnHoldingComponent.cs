@@ -1,3 +1,4 @@
+using Content.Shared._White.Damage;
 using Content.Shared.Damage.Systems;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;

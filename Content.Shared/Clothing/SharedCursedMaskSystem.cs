@@ -1,3 +1,4 @@
+using Content.Shared._White.Damage;
 using Content.Shared._White.Damage.Systems;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Damage;

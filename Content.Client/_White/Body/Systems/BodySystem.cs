@@ -40,7 +40,7 @@ public sealed  class BodySystem : SharedBodySystem
 
             if (ent.Comp.Providers.TryGetValue((key, owner), out var originSlot))
             {
-                originSlot.CopyFrom(slot);
+                originSlot.Copy(slot);
                 originSlot.ContainerSlot = _container.EnsureContainer<ContainerSlot>(uid, GetProviderSlotContainerId(key));
                 continue;
             }

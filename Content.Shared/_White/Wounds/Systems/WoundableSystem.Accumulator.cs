@@ -1,9 +1,9 @@
 using Content.Shared._White.Body.Systems;
+using Content.Shared._White.Damage;
 using Content.Shared._White.Damage.Components;
 using Content.Shared._White.Damage.Systems;
 using Content.Shared._White.Threshold;
 using Content.Shared._White.Wounds.Components;
-using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
 
 namespace Content.Shared._White.Wounds.Systems;
@@ -40,7 +40,7 @@ public sealed partial class WoundableSystem
             return;
 
         var damage = new DamageSpecifier(args.Args.Damage);
-        damage.MakePositive();
+        damage.RemoveNegative();
 
         TryChangeDamage((ent, ent.Comp, null), damage, origin: args.Args.Origin);
     }
@@ -57,27 +57,27 @@ public sealed partial class WoundableSystem
     /// </returns>
     public bool TryChangeDamage(
         Entity<WoundableAccumulatorComponent?, DamageableComponent?> ent,
-        DamageSpecifier damage,
+        DamageSpecifier specifier,
         out DamageSpecifier result,
         bool ignoreResistances = false,
         bool interruptsDoAfters = true,
         EntityUid? origin = null
     )
     {
-        result = ChangeDamage(ent, damage, ignoreResistances, interruptsDoAfters, origin);
+        result = ChangeDamage(ent, specifier, ignoreResistances, interruptsDoAfters, origin);
         return !result.Empty;
     }
 
     /// <inheritdoc cref="TryChangeDamage(Entity{WoundableProviderComponent?, DamageableComponent?}, DamageSpecifier, out DamageSpecifier, bool, bool, EntityUid?)"/>
     public bool TryChangeDamage(
         Entity<WoundableAccumulatorComponent?, DamageableComponent?> ent,
-        DamageSpecifier damage,
+        DamageSpecifier specifier,
         bool ignoreResistances = false,
         bool interruptsDoAfters = true,
         EntityUid? origin = null
     )
     {
-        return TryChangeDamage(ent, damage, out _, ignoreResistances, interruptsDoAfters, origin);
+        return TryChangeDamage(ent, specifier, out _, ignoreResistances, interruptsDoAfters, origin);
     }
 
     /// <summary>
@@ -88,7 +88,7 @@ public sealed partial class WoundableSystem
     /// </returns>
     public DamageSpecifier ChangeDamage(
         Entity<WoundableAccumulatorComponent?, DamageableComponent?> ent,
-        DamageSpecifier damage,
+        DamageSpecifier specifier,
         bool ignoreResistances = false,
         bool interruptsDoAfters = true,
         EntityUid? origin = null
@@ -96,7 +96,7 @@ public sealed partial class WoundableSystem
     {
         var result = new DamageSpecifier();
 
-        if (damage.Empty)
+        if (specifier.Empty)
             return result;
 
         if (!_accumulatorQuery.Resolve(ent, ref ent.Comp1) || !_damageableQuery.Resolve(ent, ref ent.Comp2))
@@ -104,34 +104,35 @@ public sealed partial class WoundableSystem
 
         if (!ignoreResistances)
         {
-            var getResistanceEv = new GetWoundableResistanceEvent(damage, origin);
+            var getResistanceEv = new GetWoundableResistanceEvent(specifier, origin);
             RaiseLocalEvent(ent, getResistanceEv);
 
-            damage = getResistanceEv.Damage;
+            specifier = getResistanceEv.Damage;
         }
 
-        if (damage.Empty)
+        if (specifier.Empty)
             return result;
 
-        foreach (var (type, value) in damage.DamageDict)
+        foreach (var (type, damage) in specifier)
         {
-            if (value == 0 || !ent.Comp2.Damage.DamageDict.ContainsKey(type))
+            if (damage == 0 || !ent.Comp2.Damage.ContainsKey(type))
                 continue;
 
-            var processed = value;
-            if (!ignoreResistances && _prototype.TryIndex(ent.Comp2.DamageModifierSet, out var modifierSet))
+            if (ignoreResistances || !_prototype.TryIndex(ent.Comp2.ModifierSet, out var modifierSet))
             {
-                var floatDamage = value.Float();
-                if (modifierSet.FlatReduction.TryGetValue(type, out var reduction))
-                    floatDamage = Math.Max(0f, floatDamage - reduction);
-
-                if (modifierSet.Coefficients.TryGetValue(type, out var coefficient))
-                    floatDamage *= coefficient;
-
-                processed = FixedPoint2.New(floatDamage);
+                result.Add(type, damage);
+                continue;
             }
 
-            result.DamageDict.Add(type, processed);
+            var processedDamage = damage;
+
+            if (modifierSet.FlatReduction.TryGetValue(type, out var reduction))
+                processedDamage = FixedPoint2.Max(0f, processedDamage - reduction);
+
+            if (modifierSet.Coefficients.TryGetValue(type, out var coefficient))
+                processedDamage *= coefficient;
+
+            result.Add(type, processedDamage);
         }
 
         if (result.Empty)

@@ -3,7 +3,6 @@ using Content.Shared.Atmos;
 using Content.Shared.CCVar;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Cloning;
-using Content.Shared.Damage;
 using Content.Shared.Emag.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Mind;
@@ -11,7 +10,6 @@ using Content.Shared.Mind.Components;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Random;
 using Content.Shared.Speech;
-using Content.Shared.Preferences;
 using Content.Shared.Emoting;
 using Content.Server.Speech.Components;
 using Content.Server.StationEvents.Components;
@@ -22,6 +20,7 @@ using Content.Shared.Damage.ForceSay;
 using Content.Shared.Chat;
 using Content.Server.Language;
 using Content.Shared._White.Bloodstream.Components;
+using Content.Shared._White.Damage;
 using Content.Shared._White.Damage.Components;
 using Content.Shared._White.Humanoid.Components;
 using Content.Shared._White.Preferences;
@@ -118,7 +117,7 @@ public sealed partial class CloningSystem
             return false;
 
         if (TryComp<DamageableComponent>(bodyToClone, out var damageable)
-            && damageable.Damage.DamageDict.TryGetValue("Cellular", out var cellularDmg)
+            && damageable.Damage.TryGetValue("Cellular", out var cellularDmg)
             && clonePod.ConnectedConsole is not null)
         {
             geneticDamage += (float) cellularDmg;
@@ -357,7 +356,7 @@ public sealed partial class CloningSystem
             || !_thresholds.TryGetThresholdForState(mob, Shared.Mobs.MobState.Critical, out var threshold))
             return;
         DamageSpecifier damage = new();
-        damage.DamageDict.Add("Cellular", (int) threshold + 1 + geneticDamage);
+        damage.Add("Cellular", (int) threshold + 1 + geneticDamage);
         _damageable.TryChangeDamage(mob, damage, true);
     }
 }

@@ -1,11 +1,9 @@
-using Content.Shared.Damage;
-using Content.Shared.Damage.Prototypes;
+using Content.Shared._White.Damage.Prototypes;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.FixedPoint;
 using Robust.Shared.GameStates;
-using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
-using DamageableSystem = Content.Shared._White.Damage.Systems.DamageableSystem;
 
 namespace Content.Shared._White.Damage.Components;
 
@@ -21,7 +19,7 @@ namespace Content.Shared._White.Damage.Components;
 public sealed partial class DamageableComponent : Component
 {
     /// <summary>
-    /// All the damage information is stored in this <see cref="Shared.Damage.DamageSpecifier"/>.
+    /// All the damage information is stored in this <see cref="DamageSpecifier"/>.
     /// </summary>
     /// <remarks>
     /// If this data-field is specified, this allows damageable components to be initialized with non-zero damage.
@@ -34,10 +32,10 @@ public sealed partial class DamageableComponent : Component
     /// If null, all damage types will be supported.
     /// </summary>
     [DataField]
-    public ProtoId<DamageContainerPrototype>? DamageContainer;
+    public ProtoId<DamageContainerPrototype>? Container;
 
     /// <summary>
-    /// This <see cref="DamageModifierSetPrototype"/> will be applied to any damage that is dealt to this container,
+    /// This <see cref="DamageModifierSetPrototype"/> will be applied to any damage dealt to this container,
     /// unless the damage explicitly ignores resistances.
     /// </summary>
     /// <remarks>
@@ -45,7 +43,7 @@ public sealed partial class DamageableComponent : Component
     /// to reduce duplication.
     /// </remarks>
     [DataField]
-    public ProtoId<DamageModifierSetPrototype>? DamageModifierSet;
+    public ProtoId<DamageModifierSetPrototype>? ModifierSet;
 
     /// <summary>
     /// Damage, indexed by <see cref="DamageGroupPrototype"/> ID keys.
@@ -55,7 +53,7 @@ public sealed partial class DamageableComponent : Component
     /// dictionary.
     /// </remarks>
     [ViewVariables]
-    public Dictionary<string, FixedPoint2> DamagePerGroup = new();
+    public Dictionary<ProtoId<DamageGroupPrototype>, FixedPoint2> DamagePerGroup = new();
 
     /// <summary>
     /// The sum of all damages in the DamageableComponent.
@@ -71,6 +69,6 @@ public sealed partial class DamageableComponent : Component
 public sealed class DamageableComponentState(DamageableComponent component) : ComponentState
 {
     public readonly DamageSpecifier Damage = new (component.Damage);
-    public readonly ProtoId<DamageContainerPrototype>? DamageContainer = component.DamageContainer;
-    public readonly ProtoId<DamageModifierSetPrototype>? DamageModifierSet = component.DamageModifierSet;
+    public readonly ProtoId<DamageContainerPrototype>? Container = component.Container;
+    public readonly ProtoId<DamageModifierSetPrototype>? ModifierSet = component.ModifierSet;
 }

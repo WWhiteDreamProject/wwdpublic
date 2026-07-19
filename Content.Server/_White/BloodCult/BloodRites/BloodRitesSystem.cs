@@ -139,7 +139,7 @@ public sealed class BloodRitesSystem : SharedBloodRitesSystem
 
         var healingLeft = rites.Comp.TotalHealing;
 
-        foreach (var (type, value) in target.Comp.Damage.DamageDict)
+        foreach (var (type, value) in target.Comp.Damage)
         {
             var toHeal = value;
             if (toHeal > healingLeft)

@@ -14,16 +14,16 @@ public sealed partial class WoundableSystem
 
     private void OnGetWoundableResistance(Entity<WoundableResistComponent> ent, ref GetWoundableResistanceEvent args)
     {
-        args.Damage *= ent.Comp.CurrentResistance;
+        args.Damage *= ent.Comp.Resistance;
     }
 
     private void OnWoundableSeverityChanged(Entity<WoundableResistComponent> ent, ref WoundableSeverityChangedEvent args)
     {
         var resistance = ent.Comp.Thresholds.GetValueOrDefault(args.Severity);
-        if (ent.Comp.CurrentResistance == resistance)
+        if (ent.Comp.Resistance == resistance)
             return;
 
-        ent.Comp.CurrentResistance = resistance;
+        ent.Comp.Resistance = resistance;
         Dirty(ent);
     }
 
