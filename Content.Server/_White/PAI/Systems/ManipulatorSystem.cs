@@ -1,5 +1,6 @@
 using Content.Shared._White.PAI.Components;
 using Content.Shared._White.PAI.Events;
+using Content.Shared.Interaction;
 using Content.Shared.Item;
 using Content.Shared.Physics;
 using Robust.Shared.Containers;
@@ -15,6 +16,7 @@ public sealed class ManipulatorSystem : EntitySystem
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly SharedInteractionSystem _interact = default!;
 
     public override void Initialize()
     {
@@ -23,6 +25,7 @@ public sealed class ManipulatorSystem : EntitySystem
         SubscribeLocalEvent<ManipulatorComponent, ManipulatorToggleActionEvent>(OnToggle);
         SubscribeLocalEvent<ManipulatorComponent, ManipulatorGrabToggleActionEvent>(OnGrab);
         SubscribeLocalEvent<ManipulatorComponent, ManipulatorMoveActionEvent>(OnMove);
+        SubscribeLocalEvent<ManipulatorComponent, ManipulatorInteractActionEvent>(OnInteract);
     }
 
     private void OnToggle(EntityUid uid, ManipulatorComponent comp, ManipulatorToggleActionEvent args)
@@ -79,8 +82,8 @@ public sealed class ManipulatorSystem : EntitySystem
             if (entity == uid || entity == comp.Manipulator)
                 continue;
 
-            if (!TryComp<TransformComponent>(entity, out var xform)) //he really wants to grab something without transform
-                continue;
+            if (!EntityManager.EntityExists(entity))
+                return;
 
             if (!HasComp<ItemComponent>(entity))
                 continue;
@@ -95,7 +98,7 @@ public sealed class ManipulatorSystem : EntitySystem
                 continue;
 
             comp.GrabbedEntity = entity;
-            _transform.SetParent(entity, xform, comp.Manipulator.Value);
+            _transform.SetParent(entity, comp.Manipulator.Value);
 
             comp.IsGrabbin = true;
             break;
@@ -112,18 +115,28 @@ public sealed class ManipulatorSystem : EntitySystem
         args.Handled = true;
     }
 
+    private void OnInteract(EntityUid uid, ManipulatorComponent comp, ManipulatorInteractActionEvent args)
+    {
+        var ent = comp.GrabbedEntity;
+
+        if (ent == null)
+            return;
+
+        _interact.UseInHandInteraction(uid, ent.Value, false, false, true);
+
+    }
     private void Detach(ManipulatorComponent comp)
     {
         if (comp.Manipulator == null)
             return;
 
-        if (comp.GrabbedEntity == null)
-            return;
+        if (comp.GrabbedEntity != null && EntityManager.EntityExists(comp.GrabbedEntity))
+        {
+            var manipulatorCoords = _transform.GetMoverCoordinates(comp.Manipulator.Value);
 
-        var manipulatorCoords = _transform.GetMoverCoordinates(comp.Manipulator.Value);
-
-        _transform.AttachToGridOrMap(comp.GrabbedEntity.Value, Transform(comp.GrabbedEntity.Value));
-        _transform.SetCoordinates(comp.GrabbedEntity.Value, manipulatorCoords);
+            _transform.AttachToGridOrMap(comp.GrabbedEntity.Value, Transform(comp.GrabbedEntity.Value));
+            _transform.SetCoordinates(comp.GrabbedEntity.Value, manipulatorCoords);
+        }
 
         comp.GrabbedEntity = null;
         comp.IsGrabbin = false;

@@ -1,6 +1,6 @@
 - type: entity
   id: ActionPAIManipulatorToggle
-  name: action-name-pai-manipulator-toggle
+  name: Manipulator toggle
   categories: [ HideSpawnMenu ]
   components:
     - type: InstantAction
@@ -14,7 +14,7 @@
 
 - type: entity
   id: ActionPAIManipulatorGrabToggle
-  name: action-name-pai-manipulator-grab-toggle
+  name: Manipulator grab toggle
   categories: [ HideSpawnMenu ]
   components:
     - type: InstantAction
@@ -27,8 +27,22 @@
       event: !type:ManipulatorGrabToggleActionEvent
 
 - type: entity
+  id: ActionPAIManipulatorInteract
+  name: Use item in manipulator
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: InstantAction
+      checkCanInteract: false
+      checkConsciousness: false
+      icon:
+        sprite: _White/Interface/Actions/psionic_clone.rsi
+        state: create
+      useDelay: 1
+      event: !type:ManipulatorInteractActionEvent
+
+- type: entity
   id: ActionPAIManipulatorMove
-  name: action-name-pai-manipulator-move
+  name: Move manipulator
   categories: [ HideSpawnMenu ]
   components:
     - type: WorldTargetAction

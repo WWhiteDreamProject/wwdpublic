@@ -7,4 +7,6 @@ public sealed partial class ManipulatorToggleActionEvent : InstantActionEvent;
 
 public sealed partial class ManipulatorGrabToggleActionEvent : InstantActionEvent;
 
+public sealed partial class ManipulatorInteractActionEvent : InstantActionEvent;
+
 public sealed partial class ManipulatorMoveActionEvent : WorldTargetActionEvent;

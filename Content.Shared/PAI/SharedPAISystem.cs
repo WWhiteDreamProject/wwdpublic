@@ -31,6 +31,7 @@ namespace Content.Shared.PAI
             _actionsSystem.AddAction(uid, ref component.ManipulatorGrabToggleAction, component.ManipulatorGrabToggleActionId);
             _actionsSystem.AddAction(uid, ref component.ManipulatorToggleAction, component.ManipulatorToggleActionId);
             _actionsSystem.AddAction(uid, ref component.ManipulatorMoveAction, component.ManipulatorMoveActionId);
+            _actionsSystem.AddAction(uid, ref component.ManipulatorInteractAction, component.ManipulatorInteractActionId);
             //wwdp edit end
         }
 
@@ -42,6 +43,7 @@ namespace Content.Shared.PAI
             _actionsSystem.RemoveAction(uid, component.ManipulatorGrabToggleAction);
             _actionsSystem.RemoveAction(uid, component.ManipulatorToggleAction);
             _actionsSystem.RemoveAction(uid, component.ManipulatorMoveAction);
+            _actionsSystem.RemoveAction(uid, component.ManipulatorInteractAction);
             //wwdp edt end
         }
     }

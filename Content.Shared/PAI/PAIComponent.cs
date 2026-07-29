@@ -71,4 +71,11 @@ public sealed partial class PAIComponent : Component
 
     [DataField, AutoNetworkedField]
     public EntityUid? ManipulatorMoveAction;
+
+    [DataField]
+    public EntProtoId ManipulatorInteractActionId = "ActionPAIManipulatorInteract";
+
+    [DataField, AutoNetworkedField]
+    public EntityUid? ManipulatorInteractAction;
+    //wwdp edit end
 }
