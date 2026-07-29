@@ -7,8 +7,8 @@
       checkCanInteract: false
       checkConsciousness: false
       icon:
-        sprite: _White/Interface/Actions/psionic_clone.rsi
-        state: create
+        sprite: _White/Interface/Actions/pai.rsi
+        state: toggle
       useDelay: 1
       event: !type:ManipulatorToggleActionEvent
 
@@ -21,8 +21,8 @@
       checkCanInteract: false
       checkConsciousness: false
       icon:
-        sprite: _White/Interface/Actions/psionic_clone.rsi
-        state: create
+        sprite: _White/Interface/Actions/pai.rsi
+        state: grab
       useDelay: 1
       event: !type:ManipulatorGrabToggleActionEvent
 
@@ -35,8 +35,8 @@
       checkCanInteract: false
       checkConsciousness: false
       icon:
-        sprite: _White/Interface/Actions/psionic_clone.rsi
-        state: create
+        sprite: _White/Interface/Actions/pai.rsi
+        state: interact
       useDelay: 1
       event: !type:ManipulatorInteractActionEvent
 
@@ -53,6 +53,6 @@
       checkCanAccess: false
       repeat: false
       icon:
-        sprite: _Goobstation/Wizard/actions.rsi
-        state: blink
+        sprite: _White/Interface/Actions/pai.rsi
+        state: move
       event: !type:ManipulatorMoveActionEvent
