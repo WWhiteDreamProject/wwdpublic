@@ -26,6 +26,7 @@ public sealed class ManipulatorSystem : EntitySystem
         SubscribeLocalEvent<ManipulatorComponent, ManipulatorGrabToggleActionEvent>(OnGrab);
         SubscribeLocalEvent<ManipulatorComponent, ManipulatorMoveActionEvent>(OnMove);
         SubscribeLocalEvent<ManipulatorComponent, ManipulatorInteractActionEvent>(OnInteract);
+        SubscribeLocalEvent<UsedByManipulatorComponent, EntParentChangedMessage>(OnParentChanged);
     }
 
     private void OnToggle(EntityUid uid, ManipulatorComponent comp, ManipulatorToggleActionEvent args)
@@ -100,6 +101,9 @@ public sealed class ManipulatorSystem : EntitySystem
             comp.GrabbedEntity = entity;
             _transform.SetParent(entity, comp.Manipulator.Value);
 
+            var marker = EnsureComp<UsedByManipulatorComponent>(entity);
+            marker.ManipulatorOwner = uid;
+
             comp.IsGrabbin = true;
             break;
         }
@@ -130,17 +134,37 @@ public sealed class ManipulatorSystem : EntitySystem
         if (comp.Manipulator == null)
             return;
 
-        if (comp.GrabbedEntity != null && EntityManager.EntityExists(comp.GrabbedEntity))
+        if (comp.GrabbedEntity != null && EntityManager.EntityExists(comp.GrabbedEntity.Value))
         {
             var manipulatorCoords = _transform.GetMoverCoordinates(comp.Manipulator.Value);
 
             _transform.AttachToGridOrMap(comp.GrabbedEntity.Value, Transform(comp.GrabbedEntity.Value));
             _transform.SetCoordinates(comp.GrabbedEntity.Value, manipulatorCoords);
+
+            RemComp<UsedByManipulatorComponent>(comp.GrabbedEntity.Value);
+        }
+        else
+        {
+            comp.GrabbedEntity = null;
         }
 
-        comp.GrabbedEntity = null;
         comp.IsGrabbin = false;
     }
+
+    private void OnParentChanged(EntityUid uid, UsedByManipulatorComponent comp, ref EntParentChangedMessage args)
+    {
+        if (TryComp<ManipulatorComponent>(comp.ManipulatorOwner, out var man))
+        {
+            if (args.Transform.ParentUid == man.Manipulator)
+                return;
+
+            man.GrabbedEntity = null;
+            man.IsGrabbin = false;
+        }
+
+        RemComp<UsedByManipulatorComponent>(uid);
+    }
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
