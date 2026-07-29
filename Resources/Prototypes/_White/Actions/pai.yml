@@ -1,0 +1,44 @@
+- type: entity
+  id: ActionPAIManipulatorToggle
+  name: action-name-pai-manipulator-toggle
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: InstantAction
+      checkCanInteract: false
+      checkConsciousness: false
+      icon:
+        sprite: _White/Interface/Actions/psionic_clone.rsi
+        state: create
+      useDelay: 1
+      event: !type:ManipulatorToggleActionEvent
+
+- type: entity
+  id: ActionPAIManipulatorGrabToggle
+  name: action-name-pai-manipulator-grab-toggle
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: InstantAction
+      checkCanInteract: false
+      checkConsciousness: false
+      icon:
+        sprite: _White/Interface/Actions/psionic_clone.rsi
+        state: create
+      useDelay: 1
+      event: !type:ManipulatorGrabToggleActionEvent
+
+- type: entity
+  id: ActionPAIManipulatorMove
+  name: action-name-pai-manipulator-move
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: WorldTargetAction
+      checkCanInteract: false
+      checkConsciousness: false
+      useDelay: 1
+      range: 16
+      checkCanAccess: false
+      repeat: false
+      icon:
+        sprite: _Goobstation/Wizard/actions.rsi
+        state: blink
+      event: !type:ManipulatorMoveActionEvent

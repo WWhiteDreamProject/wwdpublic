@@ -1,0 +1,18 @@
+- type: entity
+  id: PAImanipulator
+  name: manipulator
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Specific/pai_manipulator.rsi
+    layers:
+      - state: icon
+  - type: Physics
+    bodyType: Dynamic
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        mask:
+          - Impassable

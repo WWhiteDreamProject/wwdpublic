@@ -1,6 +1,5 @@
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Shared.PAI;
 
@@ -53,4 +52,23 @@ public sealed partial class PAIComponent : Component
     /// </summary>
     [DataField]
     public string ScramblePopup = "pai-system-scramble-popup";
+
+    //wwdp edit start
+    [DataField]
+    public EntProtoId ManipulatorToggleActionId = "ActionPAIManipulatorToggle";
+
+    [DataField, AutoNetworkedField]
+    public EntityUid? ManipulatorToggleAction;
+
+    [DataField]
+    public EntProtoId ManipulatorGrabToggleActionId = "ActionPAIManipulatorGrabToggle";
+
+    [DataField, AutoNetworkedField]
+    public EntityUid? ManipulatorGrabToggleAction;
+
+    [DataField]
+    public EntProtoId ManipulatorMoveActionId = "ActionPAIManipulatorMove";
+
+    [DataField, AutoNetworkedField]
+    public EntityUid? ManipulatorMoveAction;
 }
