@@ -26,6 +26,7 @@ public sealed class ManipulatorSystem : EntitySystem
         SubscribeLocalEvent<ManipulatorComponent, ManipulatorGrabToggleActionEvent>(OnGrab);
         SubscribeLocalEvent<ManipulatorComponent, ManipulatorMoveActionEvent>(OnMove);
         SubscribeLocalEvent<ManipulatorComponent, ManipulatorInteractActionEvent>(OnInteract);
+        SubscribeLocalEvent<ManipulatorComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<UsedByManipulatorComponent, EntParentChangedMessage>(OnParentChanged);
     }
 
@@ -40,23 +41,20 @@ public sealed class ManipulatorSystem : EntitySystem
             comp.TargetWorldPos = _transform.GetMapCoordinates(uid);
             args.Handled = true;
         }
-        else
-        {
-            if (comp.IsReturning)
-                return;
+        if (comp.IsReturning)
+            return;
 
-            comp.Manipulator = SpawnAtPosition(comp.ManipulatorProto, Transform(uid).Coordinates);
-            var man = comp.Manipulator;
-            var visuals = EnsureComp<JointVisualsComponent>(man.Value);
+        comp.Manipulator = SpawnAtPosition(comp.ManipulatorProto, Transform(uid).Coordinates);
+        var man = comp.Manipulator;
+        var visuals = EnsureComp<JointVisualsComponent>(man.Value);
 
-            visuals.Sprite = comp.JointSpite;
-            visuals.OffsetA = new Vector2(0f, 0f);
-            visuals.Target = GetNetEntity(uid);
-            Dirty(man.Value, visuals);
+        visuals.Sprite = comp.JointSpite;
+        visuals.OffsetA = new Vector2(0f, 0f);
+        visuals.Target = GetNetEntity(uid);
+        Dirty(man.Value, visuals);
 
-            comp.IsActive = true;
-            args.Handled = true;
-        }
+        comp.IsActive = true;
+        args.Handled = true;
     }
 
     private void OnGrab(EntityUid uid, ManipulatorComponent comp, ManipulatorGrabToggleActionEvent args)
@@ -67,7 +65,7 @@ public sealed class ManipulatorSystem : EntitySystem
         if (comp.Manipulator == null)
             return;
 
-        if (comp.IsGrabbin)
+        if (comp.IsGrabbing)
         {
             Detach(comp);
             args.Handled = true;
@@ -84,7 +82,7 @@ public sealed class ManipulatorSystem : EntitySystem
                 continue;
 
             if (!EntityManager.EntityExists(entity))
-                return;
+                continue;
 
             if (!HasComp<ItemComponent>(entity))
                 continue;
@@ -104,7 +102,7 @@ public sealed class ManipulatorSystem : EntitySystem
             var marker = EnsureComp<UsedByManipulatorComponent>(entity);
             marker.ManipulatorOwner = uid;
 
-            comp.IsGrabbin = true;
+            comp.IsGrabbing = true;
             break;
         }
         args.Handled = true;
@@ -128,27 +126,26 @@ public sealed class ManipulatorSystem : EntitySystem
 
         _interact.UseInHandInteraction(uid, ent.Value, false, false, true);
 
+        args.Handled = true;
+
     }
     private void Detach(ManipulatorComponent comp)
     {
         if (comp.Manipulator == null)
             return;
 
-        if (comp.GrabbedEntity != null && EntityManager.EntityExists(comp.GrabbedEntity.Value))
+        if (comp.GrabbedEntity != null && EntityManager.EntityExists(comp.GrabbedEntity))
         {
+            var ent = comp.GrabbedEntity.Value;
             var manipulatorCoords = _transform.GetMoverCoordinates(comp.Manipulator.Value);
 
-            _transform.AttachToGridOrMap(comp.GrabbedEntity.Value, Transform(comp.GrabbedEntity.Value));
-            _transform.SetCoordinates(comp.GrabbedEntity.Value, manipulatorCoords);
+            _transform.AttachToGridOrMap(ent, Transform(ent));
+            _transform.SetCoordinates(ent, manipulatorCoords);
 
-            RemComp<UsedByManipulatorComponent>(comp.GrabbedEntity.Value);
-        }
-        else
-        {
-            comp.GrabbedEntity = null;
+            RemComp<UsedByManipulatorComponent>(ent);
         }
 
-        comp.IsGrabbin = false;
+        comp.GrabbedEntity = null;
     }
 
     private void OnParentChanged(EntityUid uid, UsedByManipulatorComponent comp, ref EntParentChangedMessage args)
@@ -159,10 +156,16 @@ public sealed class ManipulatorSystem : EntitySystem
                 return;
 
             man.GrabbedEntity = null;
-            man.IsGrabbin = false;
+            man.IsGrabbing = false;
         }
 
         RemComp<UsedByManipulatorComponent>(uid);
+    }
+
+    private void OnShutdown(EntityUid uid, ManipulatorComponent comp, ComponentShutdown args)
+    {
+        Detach(comp);
+        QueueDel(comp.Manipulator);
     }
 
     public override void Update(float frameTime)

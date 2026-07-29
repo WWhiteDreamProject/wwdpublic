@@ -12,18 +12,18 @@ public sealed partial class ManipulatorComponent : Component
     public bool IsActive = false;
 
     [DataField, ViewVariables(VVAccess.ReadOnly)]
-    public bool IsGrabbin = false;
+    public bool IsGrabbing = false;
 
-    [DataField, ViewVariables]
+    [DataField]
     public EntProtoId ManipulatorProto = "PAImanipulator";
 
-    [DataField, ViewVariables]
+    [DataField]
     public EntityUid? Manipulator;
 
-    [DataField, ViewVariables]
+    [DataField]
     public EntityUid? GrabbedEntity;
 
-    [DataField, ViewVariables]
+    [DataField]
     public float ManipulatorSpeed = 5f;
 
     [DataField]
