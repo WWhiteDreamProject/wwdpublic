@@ -8,7 +8,7 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using System.Numerics;
 
-namespace Content.Server._White.PAI.Systems;
+namespace Content.Shared._White.PAI.Systems;
 
 public sealed class ManipulatorSystem : EntitySystem
 {
@@ -218,3 +218,4 @@ public sealed class ManipulatorSystem : EntitySystem
         }
     }
 }
+
