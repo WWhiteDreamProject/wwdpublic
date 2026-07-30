@@ -1,7 +1,9 @@
 using Content.Shared._White.PAI.Components;
 using Content.Shared._White.PAI.Events;
 using Content.Shared.Interaction;
+using Content.Shared.Item;
 using Content.Shared.Physics;
+using Robust.Shared.Containers;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
@@ -15,6 +17,7 @@ public sealed class ManipulatorSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedInteractionSystem _interact = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
 
     public override void Initialize()
     {
@@ -75,6 +78,24 @@ public sealed class ManipulatorSystem : EntitySystem
 
         var target = GetEntity(msg.Ent);
 
+        if (target == ent || target == man.Manipulator)
+            return;
+
+        if (!EntityManager.EntityExists(target))
+            return;
+
+        if (!HasComp<ItemComponent>(target))
+            return;
+
+        if (!TryComp<PhysicsComponent>(target, out var phys))
+            return;
+
+        if (phys.BodyStatus != BodyStatus.OnGround)
+            return;
+
+        if (_container.IsEntityInContainer(target))
+            return;
+
         _transform.SetParent(target, man.Manipulator.Value);
 
         man.GrabbedEntity = target;
@@ -91,6 +112,9 @@ public sealed class ManipulatorSystem : EntitySystem
             return;
 
         if (!man.IsActive || man.Manipulator == null || man.IsReturning)
+            return;
+
+        if (msg.Coords.MapId != Transform(ent).MapID)
             return;
 
         man.TargetWorldPos = msg.Coords;
