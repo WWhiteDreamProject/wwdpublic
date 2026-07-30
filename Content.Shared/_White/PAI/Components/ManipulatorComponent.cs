@@ -1,32 +1,32 @@
+using Robust.Shared.GameStates;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
-using System.Numerics;
 
 namespace Content.Shared._White.PAI.Components;
 
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class ManipulatorComponent : Component
 {
-    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    [DataField, AutoNetworkedField, ViewVariables(VVAccess.ReadOnly)]
     public bool IsActive = false;
 
-    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    [DataField, AutoNetworkedField, ViewVariables(VVAccess.ReadOnly)]
     public bool IsGrabbing = false;
 
     [DataField]
     public EntProtoId ManipulatorProto = "PAImanipulator";
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public EntityUid? Manipulator;
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public EntityUid? GrabbedEntity;
 
     [DataField]
     public float ManipulatorSpeed = 5f;
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public bool IsReturning = false;
 
     [DataField]

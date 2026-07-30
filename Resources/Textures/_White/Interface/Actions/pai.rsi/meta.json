@@ -6,15 +6,6 @@
   "states": [
     {
       "name": "toggle"
-    },
-    {
-      "name": "move"
-    },
-    {
-      "name": "interact"
-    },
-    {
-      "name": "grab"
     }
   ]
 }

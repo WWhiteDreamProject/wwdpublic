@@ -59,23 +59,5 @@ public sealed partial class PAIComponent : Component
 
     [DataField, AutoNetworkedField]
     public EntityUid? ManipulatorToggleAction;
-
-    [DataField]
-    public EntProtoId ManipulatorGrabToggleActionId = "ActionPAIManipulatorGrabToggle";
-
-    [DataField, AutoNetworkedField]
-    public EntityUid? ManipulatorGrabToggleAction;
-
-    [DataField]
-    public EntProtoId ManipulatorMoveActionId = "ActionPAIManipulatorMove";
-
-    [DataField, AutoNetworkedField]
-    public EntityUid? ManipulatorMoveAction;
-
-    [DataField]
-    public EntProtoId ManipulatorInteractActionId = "ActionPAIManipulatorInteract";
-
-    [DataField, AutoNetworkedField]
-    public EntityUid? ManipulatorInteractAction;
     //wwdp edit end
 }
