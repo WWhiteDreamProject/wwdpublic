@@ -101,6 +101,7 @@
       types:
         Blunt: 3
   - type: Manipulator #wwdp edit
+    manipulatorSpeed: 5
 
 - type: entity
   parent: [ PersonalAI, BaseSyndicateContraband]
@@ -166,6 +167,8 @@
   - type: Construction
     graph: PowerCellPotato # WD EDIT
     node: potatoai
+  - type: Manipulator #wwdp edit
+    manipulatorSpeed: 1
 
 - type: entity
   id: ActionPAIPlayMidi
