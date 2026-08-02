@@ -32,5 +32,7 @@ namespace Content.Shared.Nutrition.Components
         public string LitPrefix = "lit";
         [DataField("unlitPrefix")]
         public string UnlitPrefix = "unlit";
+
+        public bool IsExtinguishedOnSomeone = false; //wwdp edit
     }
 }
