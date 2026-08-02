@@ -86,8 +86,8 @@ public sealed class EntityHealthBarOverlay : Overlay
             if (CalcProgress(uid, mobStateComponent, damageableComponent, mobThresholdsComponent) is not { } deathProgress)
                 continue;
 
-            if (deathProgress is (1, false))
-                continue;
+            if (deathProgress is (1, false)) //WD EDIT
+                continue;                    //WD EDIT
 
             // Including sprite offsets to support pixel-perfect eye filter
             var worldPosition = _transform.GetWorldPosition(xform) + Vector2.Transform(spriteComponent.Offset, rotationMatrix); // WWDP EDIT
@@ -168,4 +168,3 @@ public sealed class EntityHealthBarOverlay : Overlay
         return _progressColor.GetProgressColor(progress);
     }
 }
-
