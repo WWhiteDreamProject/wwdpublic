@@ -37,7 +37,7 @@ public sealed class ExtinguishingCigaretteButtsOnPeopleSystem : EntitySystem
             return;
 
         var dmg = new DamageSpecifier();
-        dmg.DamageDict.Add("Heat", 1);
+        dmg.DamageDict.Add("Heat", 10);
 
         var targetParts = new[] { TargetBodyPart.Arms, TargetBodyPart.Hands };
         _damage.TryChangeDamage(target, dmg, true, targetPart: Random.Shared.Pick<TargetBodyPart>(targetParts));
