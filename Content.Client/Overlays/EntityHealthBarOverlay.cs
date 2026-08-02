@@ -82,6 +82,11 @@ public sealed class EntityHealthBarOverlay : Overlay
             if (!bounds.Translated(worldPos).Intersects(args.WorldAABB))
                 continue;
 
+            // WD EDIT START
+            if (CalcProgress(uid, mobStateComponent, damageableComponent, mobThresholdsComponent) is (1, false))
+                return;
+            // WD EDIT END
+
             // we are all progressing towards death every day
             if (CalcProgress(uid, mobStateComponent, damageableComponent, mobThresholdsComponent) is not { } deathProgress)
                 continue;
