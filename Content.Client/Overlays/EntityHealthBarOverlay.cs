@@ -86,41 +86,41 @@ public sealed class EntityHealthBarOverlay : Overlay
             if (CalcProgress(uid, mobStateComponent, damageableComponent, mobThresholdsComponent) is not { } deathProgress)
                 continue;
 
-            if (deathProgress is not (1, false)) // WD EDIT
-            {
-                // Including sprite offsets to support pixel-perfect eye filter
-                var worldPosition = _transform.GetWorldPosition(xform) + Vector2.Transform(spriteComponent.Offset, rotationMatrix); // WWDP EDIT
-                var worldMatrix = Matrix3Helpers.CreateTranslation(worldPosition);
+            if (deathProgress is (1, false))
+                continue;
 
-                var scaledWorld = Matrix3x2.Multiply(scaleMatrix, worldMatrix);
-                var matty = Matrix3x2.Multiply(rotationMatrix, scaledWorld);
+            // Including sprite offsets to support pixel-perfect eye filter
+            var worldPosition = _transform.GetWorldPosition(xform) + Vector2.Transform(spriteComponent.Offset, rotationMatrix); // WWDP EDIT
+            var worldMatrix = Matrix3Helpers.CreateTranslation(worldPosition);
 
-                handle.SetTransform(matty);
+            var scaledWorld = Matrix3x2.Multiply(scaleMatrix, worldMatrix);
+            var matty = Matrix3x2.Multiply(rotationMatrix, scaledWorld);
 
-                var yOffset = bounds.Height * EyeManager.PixelsPerMeter / 2 - 3f;
-                var widthOfMob = bounds.Width * EyeManager.PixelsPerMeter;
+            handle.SetTransform(matty);
 
-                var position = new Vector2(-widthOfMob / EyeManager.PixelsPerMeter / 2, yOffset / EyeManager.PixelsPerMeter);
-                var color = GetProgressColor(deathProgress.ratio, deathProgress.inCrit);
+            var yOffset = bounds.Height * EyeManager.PixelsPerMeter / 2 - 3f;
+            var widthOfMob = bounds.Width * EyeManager.PixelsPerMeter;
 
-                // Hardcoded width of the progress bar because it doesn't match the texture.
-                const float startX = 8f;
-                var endX = widthOfMob - 8f;
+            var position = new Vector2(-widthOfMob / EyeManager.PixelsPerMeter / 2, yOffset / EyeManager.PixelsPerMeter);
+            var color = GetProgressColor(deathProgress.ratio, deathProgress.inCrit);
 
-                var xProgress = (endX - startX) * deathProgress.ratio + startX;
+            // Hardcoded width of the progress bar because it doesn't match the texture.
+            const float startX = 8f;
+            var endX = widthOfMob - 8f;
 
-                var boxBackground = new Box2(new Vector2(startX, 0f) / EyeManager.PixelsPerMeter, new Vector2(endX, 3f) / EyeManager.PixelsPerMeter);
-                boxBackground = boxBackground.Translated(position);
-                handle.DrawRect(boxBackground, Black.WithAlpha(192));
+            var xProgress = (endX - startX) * deathProgress.ratio + startX;
 
-                var boxMain = new Box2(new Vector2(startX, 0f) / EyeManager.PixelsPerMeter, new Vector2(xProgress, 3f) / EyeManager.PixelsPerMeter);
-                boxMain = boxMain.Translated(position);
-                handle.DrawRect(boxMain, color);
+            var boxBackground = new Box2(new Vector2(startX, 0f) / EyeManager.PixelsPerMeter, new Vector2(endX, 3f) / EyeManager.PixelsPerMeter);
+            boxBackground = boxBackground.Translated(position);
+            handle.DrawRect(boxBackground, Black.WithAlpha(192));
 
-                var pixelDarken = new Box2(new Vector2(startX, 2f) / EyeManager.PixelsPerMeter, new Vector2(xProgress, 3f) / EyeManager.PixelsPerMeter);
-                pixelDarken = pixelDarken.Translated(position);
-                handle.DrawRect(pixelDarken, Black.WithAlpha(128));
-            }
+            var boxMain = new Box2(new Vector2(startX, 0f) / EyeManager.PixelsPerMeter, new Vector2(xProgress, 3f) / EyeManager.PixelsPerMeter);
+            boxMain = boxMain.Translated(position);
+            handle.DrawRect(boxMain, color);
+
+            var pixelDarken = new Box2(new Vector2(startX, 2f) / EyeManager.PixelsPerMeter, new Vector2(xProgress, 3f) / EyeManager.PixelsPerMeter);
+            pixelDarken = pixelDarken.Translated(position);
+            handle.DrawRect(pixelDarken, Black.WithAlpha(128));
         }
 
         handle.SetTransform(Matrix3x2.Identity);
