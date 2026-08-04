@@ -153,6 +153,13 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
             var agentSummary = new StringBuilder();
             agentSummary.AppendLine(Loc.GetString("objectives-with-objectives", ("custody", custody), ("title", title), ("agent", agent)));
 
+            // WD EDIT START - let White features add lines immediately below the antagonist heading.
+            var additionalInfo = new ObjectivesTextGetAdditionalInfoEvent(new List<string>());
+            RaiseLocalEvent(mindId, ref additionalInfo);
+            foreach (var line in additionalInfo.Lines)
+                agentSummary.AppendLine(line);
+            // WD EDIT END
+
             foreach (var objectiveGroup in objectives.GroupBy(o => Comp<ObjectiveComponent>(o).LocIssuer))
             {
                 //TO DO:
@@ -317,3 +324,11 @@ public record struct ObjectivesTextGetInfoEvent(List<(EntityUid, string)> Minds,
 /// </summary>
 [ByRefEvent]
 public record struct ObjectivesTextPrependEvent(string Text);
+
+// WD EDIT START - event extension point for White round-end details.
+/// <summary>
+/// Raised on a mind to collect additional lines displayed immediately below its antagonist heading.
+/// </summary>
+[ByRefEvent]
+public record struct ObjectivesTextGetAdditionalInfoEvent(List<string> Lines);
+// WD EDIT END
