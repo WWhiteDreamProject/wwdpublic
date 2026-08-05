@@ -39,12 +39,10 @@ public sealed class AntagPurchaseHistorySystem : EntitySystem
         }
 
         var listing = args.PurchasedItem;
-        var displayName = ListingLocalisationHelpers.GetLocalisedNameOrEntityName(listing, _prototypes);
         var history = EnsureComp<AntagPurchaseHistoryComponent>(mindUid);
 
         history.Purchases.Add(new AntagPurchaseRecord(
             listing.ID,
-            string.IsNullOrWhiteSpace(displayName) ? null : displayName,
             listing.Cost.ToDictionary(pair => pair.Key, pair => pair.Value),
             listing.OriginalCost.ToDictionary(pair => pair.Key, pair => pair.Value),
             args.StoreUid));

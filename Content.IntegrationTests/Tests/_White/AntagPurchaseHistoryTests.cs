@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
 using Content.Server._White.AntagPurchaseHistory;
+using Content.Server.GameTicking;
+using Content.Server.GameTicking.Rules;
 using Content.Server.Objectives;
 using Content.Shared._White.AntagPurchaseHistory;
 using Content.Shared.FixedPoint;
@@ -49,6 +51,14 @@ public sealed class AntagPurchaseHistoryTests
     WizCoin: 4
   categories:
   - UplinkWeaponry
+
+- type: entity
+  id: AntagPurchaseHistoryTestRule
+  parent: BaseGameRule
+  components:
+  - type: GenericAntagRule
+    agentName: traitor-round-end-agent-name
+    objectives: []
 ";
 
     [Test]
@@ -76,6 +86,11 @@ public sealed class AntagPurchaseHistoryTests
             mindSystem.TransferTo(antagMind, antagBuyer, mind: antagMind.Comp);
             roleSystem.MindAddRole(antagMind, "MindRoleTraitor", mind: antagMind.Comp);
             Assert.That(roleSystem.MindIsAntagonist(antagMind));
+            Assert.That(entManager.System<GenericAntagRuleSystem>().StartRule(
+                "AntagPurchaseHistoryTestRule",
+                antagMind,
+                out _,
+                out _));
 
             storeUid = entManager.SpawnEntity("AntagPurchaseHistoryTestStore", testMap.GridCoords);
             var store = entManager.GetComponent<StoreComponent>(storeUid);
@@ -103,7 +118,6 @@ public sealed class AntagPurchaseHistoryTests
             Assert.Multiple(() =>
             {
                 Assert.That(purchase.ListingId.Id, Is.EqualTo("AntagPurchaseHistoryTestListing"));
-                Assert.That(purchase.DisplayName, Is.Not.Null.And.Not.Empty);
                 Assert.That(purchase.FinalCost["Telecrystal"], Is.EqualTo((FixedPoint2) 7));
                 Assert.That(purchase.FinalCost["WizCoin"], Is.EqualTo((FixedPoint2) 3));
                 Assert.That(purchase.OriginalCost["Telecrystal"], Is.EqualTo((FixedPoint2) 10));
@@ -126,6 +140,8 @@ public sealed class AntagPurchaseHistoryTests
             roundEndMarkup = entManager.System<AntagPurchaseHistorySystem>().GetRoundEndMarkup(antagMind);
             var additionalInfo = new ObjectivesTextGetAdditionalInfoEvent(new List<string>());
             entManager.EventBus.RaiseLocalEvent(antagMind, ref additionalInfo);
+            var roundEnd = new RoundEndTextAppendEvent();
+            entManager.EventBus.RaiseEvent(EventSource.Local, roundEnd);
             var parsed = FormattedMessage.FromMarkupOrThrow(roundEndMarkup);
             var iconNodes = parsed.Nodes
                 .Where(node => node is { Closing: false, Name: AntagPurchaseMarkup.TagName })
@@ -137,6 +153,8 @@ public sealed class AntagPurchaseHistoryTests
                 Assert.That(parsed.ToString(), Does.Contain(", 10"));
                 Assert.That(parsed.ToString(), Does.EndWith("[2x ], []"));
                 Assert.That(additionalInfo.Lines, Is.EqualTo(new[] { roundEndMarkup }));
+                Assert.That(antagMind.Comp.Objectives, Is.Empty);
+                Assert.That(roundEnd.Text, Does.Contain(roundEndMarkup));
                 Assert.That(parsed.Nodes.Any(node => node.Name == "font"), Is.False);
                 Assert.That(iconNodes, Has.Length.EqualTo(2));
                 Assert.That(iconNodes[0].Value.StringValue, Is.EqualTo("AntagPurchaseHistoryTestListing"));

@@ -23,9 +23,6 @@ public sealed class AntagPurchaseRecord
     public ProtoId<ListingPrototype> ListingId { get; }
 
     [ViewVariables(VVAccess.ReadOnly)]
-    public string? DisplayName { get; }
-
-    [ViewVariables(VVAccess.ReadOnly)]
     public Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> FinalCost { get; }
 
     [ViewVariables(VVAccess.ReadOnly)]
@@ -39,13 +36,11 @@ public sealed class AntagPurchaseRecord
 
     public AntagPurchaseRecord(
         ProtoId<ListingPrototype> listingId,
-        string? displayName,
         Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> finalCost,
         Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> originalCost,
         EntityUid storeUid)
     {
         ListingId = listingId;
-        DisplayName = displayName;
         FinalCost = finalCost;
         OriginalCost = originalCost;
         StoreUid = storeUid;
