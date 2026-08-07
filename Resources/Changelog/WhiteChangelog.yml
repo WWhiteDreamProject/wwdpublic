@@ -5476,3 +5476,10 @@ Entries:
   id: 572
   time: '2026-08-04T16:19:01.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1163
+- author: Cinkafox
+  changes:
+    - type: Fix
+      message: Исправлены некотрые аспекты со стороны кода для нетворкинга
+  id: 573
+  time: '2026-08-07T17:07:07.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1185
