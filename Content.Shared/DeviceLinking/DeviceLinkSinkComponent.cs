@@ -21,6 +21,14 @@ public sealed partial class DeviceLinkSinkComponent : Component
     [ViewVariables]
     public HashSet<EntityUid> LinkedSources = new();
 
+    // WWDP EDIT START
+    /// <summary>
+    /// Dictionary mapping each port to a set of linked source entities.
+    /// </summary>
+    [ViewVariables] // This is not serialized as it can be constructed from connected sources' LinkedPorts
+    public Dictionary<ProtoId<SinkPortPrototype>, HashSet<EntityUid>> Inputs = new();
+    // WWDP EDIT END
+
     /// <summary>
     /// Counts the amount of times a sink has been invoked for severing the link if this counter gets to high
     /// The counter is counted down by one every tick if it's higher than 0

@@ -3,6 +3,8 @@ using Content.Shared.ActionBlocker;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Rotatable;
 using JetBrains.Annotations;
+using Robust.Shared.Map;
+using Robust.Shared.Utility;
 
 namespace Content.Shared.Interaction
 {
@@ -63,6 +65,29 @@ namespace Content.Shared.Interaction
 
             return true;
         }
+
+        // WWDP EDIT START
+        public bool TryRotateToCoordinates(EntityUid user, EntityCoordinates coordinates, float frameTime, Angle tolerance, double rotationSpeed = float.MaxValue, TransformComponent? xform = null)
+        {
+            var mapTargetCoords = _transform.ToMapCoordinates(coordinates);
+            var userMap = _transform.GetMapId(user);
+            DebugTools.Assert(mapTargetCoords.MapId == userMap);
+            return TryRotateToCoordinates(user, mapTargetCoords.Position, frameTime, tolerance, rotationSpeed, xform);
+        }
+        
+        public bool TryRotateToCoordinates(EntityUid user, Vector2 worldCoordinates, float frameTime, Angle tolerance, double rotationSpeed = float.MaxValue, TransformComponent? xform = null)
+        {
+            if (!Resolve(user, ref xform))
+                return false;
+
+            var diff = worldCoordinates - _transform.GetWorldPosition(xform);
+            if (diff.LengthSquared() <= 0.01f)
+                return true;
+
+            var diffAngle = Angle.FromWorldVec(diff);
+            return TryRotateTo(user, diffAngle, frameTime, tolerance, rotationSpeed, xform);
+        }
+        // WWDP EDIT END
 
         public bool TryFaceCoordinates(EntityUid user, Vector2 coordinates, TransformComponent? xform = null)
         {

@@ -53,8 +53,6 @@ public sealed class RadarConsoleSystem : SharedRadarConsoleSystem
                 state = _console.GetNavState(uid, docks);
             }
 
-            state.RotateWithEntity = component.RotateWithEntity; // WD EDIT
-
             _uiSystem.SetUiState(uid, RadarConsoleUiKey.Key, new NavBoundUserInterfaceState(state));
         }
     }

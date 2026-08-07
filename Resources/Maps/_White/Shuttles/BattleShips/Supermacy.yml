@@ -5208,10 +5208,6 @@ entities:
       pos: 6.5,-6.5
       parent: 1
     - type: RemoteControlConsole
-      linkedEntities:
-      - 1798
-      - 1804
-      - 1801
     - type: DeviceLinkSource
       linkedPorts:
         1798:
@@ -5229,10 +5225,6 @@ entities:
       pos: -5.5,-6.5
       parent: 1
     - type: RemoteControlConsole
-      linkedEntities:
-      - 1797
-      - 1803
-      - 1802
     - type: DeviceLinkSource
       linkedPorts:
         1797:
@@ -5250,11 +5242,6 @@ entities:
       pos: -2.5,2.5
       parent: 1
     - type: RemoteControlConsole
-      linkedEntities:
-      - 1799
-      - 1802
-      - 1803
-      - 1797
     - type: DeviceLinkSource
       linkedPorts:
         1799:
@@ -5275,11 +5262,6 @@ entities:
       pos: 3.5,2.5
       parent: 1
     - type: RemoteControlConsole
-      linkedEntities:
-      - 1800
-      - 1801
-      - 1804
-      - 1798
     - type: DeviceLinkSource
       linkedPorts:
         1800:

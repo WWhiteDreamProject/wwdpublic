@@ -72,10 +72,12 @@ public partial class MapGridControl : LayoutContainer
 
     protected Vector2 MidPointVector => new Vector2(MidPoint, MidPoint);
 
-    protected int MidPoint => SizeFull / 2;
-    protected int SizeFull => (int) ((UIDisplayRadius + MinimapMargin) * 2 * UIScale);
-    protected int ScaledMinimapRadius => (int) (UIDisplayRadius * UIScale);
-    protected float MinimapScale => WorldRange != 0 ? ScaledMinimapRadius / WorldRange : 0f;
+    // WWDP EDIT START protected -> public // these are get-only, why were they non public?
+    public int MidPoint => SizeFull / 2;
+    public int SizeFull => (int) ((UIDisplayRadius + MinimapMargin) * 2 * UIScale);
+    public int ScaledMinimapRadius => (int) (UIDisplayRadius * UIScale);
+    public float MinimapScale => WorldRange != 0 ? ScaledMinimapRadius / WorldRange : 0f;
+    // WWDP EDIT END
 
     public event Action<float>? WorldRangeChanged;
 

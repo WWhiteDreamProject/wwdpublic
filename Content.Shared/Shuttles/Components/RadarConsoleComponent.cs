@@ -17,6 +17,9 @@ public sealed partial class RadarConsoleComponent : Component
             .SetRange(Owner, value, this);
     }
 
+    [DataField, AutoNetworkedField] // WWDP EDIT
+    public float MinRange = 64f;   // WWDP EDIT
+
     [DataField, AutoNetworkedField]
     public float MaxRange = 256f;
 
@@ -30,6 +33,9 @@ public sealed partial class RadarConsoleComponent : Component
 
     [DataField, AutoNetworkedField]
     public Angle FieldOfView = MathF.Tau;
+
+    [DataField]
+    public float FieldOfViewOffset = 0;
 
     [DataField]
     public Angle DisplayRotation = Angle.Zero;
