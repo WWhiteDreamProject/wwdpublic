@@ -8,7 +8,6 @@ particle-accelerator-control-menu-alarm-control-1 = [bold][color=red]СИЛА Ч
 particle-accelerator-control-menu-alarm-control-2 = [bold][color=red]НЕИСПРАВНОСТЬ ОГРАНИЧИТЕЛЯ[/bold][/color]
 particle-accelerator-control-menu-scan-parts-button = Сканировать части
 particle-accelerator-control-menu-check-containment-field-warning = Перед началом работы убедитесь, что защитное поле активно
-# ??? ↓
 particle-accelerator-control-menu-foo-bar-baz = FOO-BAR-BAZ
 particle-accelerator-control-menu-status-label = Статус: { $status }
 particle-accelerator-control-menu-status-unknown = [font="Monospace"][color=red]Неизвестный[/color][/bold]

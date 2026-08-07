@@ -1,7 +1,7 @@
 ## UI
-door-remote-open-close-text = Открытие, либо закрытие двери
-door-remote-toggle-bolt-text = Переключение болтов
-door-remote-emergency-access-text = Переключение аварийного доступа
+door-remote-open-close-text = Управление
+door-remote-toggle-bolt-text = Болтирование
+door-remote-emergency-access-text = Аварийный
 door-remote-invalid-text = Недоступен
 door-remote-mode-label = Режим: [color=white]{$modeString}[/color]
 

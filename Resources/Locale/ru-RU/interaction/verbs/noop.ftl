@@ -47,13 +47,13 @@ interaction-WaveAt-name = Помахать рукой
 interaction-WaveAt-description = Помахать рукой в сторону цели. Если вы держите в руках предмет, вы помашете им.
 interaction-WaveAt-success-self-popup = Вы помахали {$hasUsed ->
     [false] рукой для {$target}.
-    *[true] предметом ({$used}) в руке для {$target}.
+    *[true] {$used} в своей руке для {$target}.
 }
 interaction-WaveAt-success-target-popup = {$user} машет {$hasUsed ->
     [false] вам рукой.
-    *[true] вам предметом ({$used}) в руке.
+    *[true] вам {$used} в своей руке.
 }
 interaction-WaveAt-success-others-popup = {$user} машет {$hasUsed ->
     [false] своей рукой для {$target}.
-    *[true] предметом ({$used}) в руке для {$target}.
+    *[true] {$used} в своей руке для {$target}.
 }

@@ -1,4 +1,3 @@
-
 # Types
 mixing-verb-default-mix = смешать
 mixing-verb-default-grind = растолочь
@@ -12,7 +11,7 @@ mixing-verb-shake = потрясти
 
 ## Entity
 
-default-mixing-success = {CAPITALIZE($mixed)} смешивается, {$mixer} используется как инструмент
-bible-mixing-success = {CAPITALIZE($mixed)} благословляется, {$mixer} используется как инструмент
-spoon-mixing-success = {CAPITALIZE($mixed)} перемешивается, {$mixer} используется как инструмент
+default-mixing-success = Вы смешиваете { $mixed } при помощи { $mixer }
+bible-mixing-success = Вы благословляете { $mixed } при помощи { $mixer }
+spoon-mixing-success = Вы перемешиваете {$mixed} при помощи {$mixer}
 

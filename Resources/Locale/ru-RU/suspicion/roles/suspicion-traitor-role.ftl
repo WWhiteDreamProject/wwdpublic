@@ -8,6 +8,6 @@ suspicion-objective = Цель: { $objectiveText }
 suspicion-partners-in-crime =
     { $partnersCount ->
         [zero] Ты сам по себе. Удачи!
-        [one] Ваш соучастник преступления — { $partnerNames }.
+        [one] Ваш соучастник преступления - { $partnerNames }.
        *[other] Вашими соучастниками преступления являются: { $partnerNames }.
     }

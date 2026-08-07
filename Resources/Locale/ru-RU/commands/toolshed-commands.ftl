@@ -11,7 +11,7 @@ command-description-jobs-jobs =
 command-description-jobs-job =
     Возвращает заданное задание на станции.
 command-description-jobs-isinfinite =
-    Возвращает true, если входное задание бесконечно, в противном случае — false.
+    Возвращает true, если входное задание бесконечно, в противном случае - false.
 command-description-jobs-adjust =
     Регулирует количество слотов для данного задания.
 command-description-jobs-set =
@@ -27,7 +27,7 @@ command-description-stations-list =
 command-description-stations-get =
     Возвращает имя активной станции ​​тогда и только тогда, когда она есть только одна.
 command-description-stations-getowningstation =
-    Возвращает имя станции, которой «владеет» данный объект (внутри).
+    Возвращает имя станции, которой "владеет" данный объект (внутри).
 command-description-stations-grids =
     Возвращает все гриды, связанные с входной станцией.
 command-description-stations-config =
