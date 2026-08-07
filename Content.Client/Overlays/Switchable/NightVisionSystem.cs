@@ -62,6 +62,11 @@ public sealed class NightVisionSystem : EquipmentHudSystem<NightVisionComponent>
                 break;
         }
 
+        // WD EDIT START - apply prototype parameters for night vision that starts active.
+        if (nvComp != null)
+            _overlay.SetParams(nvComp.Tint, nvComp.Strength, nvComp.Noise, nvComp.Color, nvComp.PulseTime);
+        // WD EDIT END
+
         UpdateNightVision(active);
     }
 
