@@ -1,6 +1,6 @@
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._White.SpawnOnGamerule.Components;
+namespace Content.Server._White.Spawners.Components;
 
 [RegisterComponent]
 public sealed partial class SpawnOnGameruleComponent : Component

@@ -1,0 +1,220 @@
+- type: entity
+  name: select red flare
+  parent: BaseItem
+  id: AlmagestFlareSelectRed
+  description: Select red flare. If you use it on a second Flare, you can craft an Omni Flare. You'll also need some scrap for crowbar.
+  components:
+  - type: Item
+    sprite: Objects/Misc/flare.rsi
+    heldPrefix: unlit
+    size: Tiny
+  - type: Sprite
+    sprite: Objects/Misc/flare.rsi
+    layers:
+    - state: flare_base
+    - state: flare_unlit
+      color: "#FF8080"
+  - type: RadialEntityMorph
+    entries:
+    - prototype: AlmagestFlareRed
+    - prototype: AlmagestFlareRedWithRadarIcon
+  - type: UserInterface
+    interfaces:
+      enum.RadialSelectorUiKey.Key:
+        type: TrackedRadialSelectorMenuBUI
+  - type: ActivatableUI
+    key: enum.RadialSelectorUiKey.Key
+    inHandsOnly: true
+  - type: Construction
+    deconstructionTarget: null
+    graph: OmniFlareGraph
+    node: flare
+  - type: Tag
+    tags:
+    - AlmagestFlare
+
+- type: entity
+  name: select blue flare
+  parent: AlmagestFlareSelectRed
+  id: AlmagestFlareSelectBlue
+  description: Select blue flare. If you use it on a second Flare, you can craft an Omni Flare. You'll also need some scrap for crowbar.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/flare.rsi
+    layers:
+    - state: flare_base
+    - state: flare_unlit
+      color: "#7eadfc"
+  - type: RadialEntityMorph
+    entries:
+    - prototype: AlmagestFlareBlue
+    - prototype: AlmagestFlareBlueWithRadarIcon
+
+- type: entity
+  name: red flare
+  parent: Flare
+  id: AlmagestFlareRed
+  description: A flare that produces a very bright light for a short while. Point the flame away from yourself. If you use it on a second Flare, you can craft an Omni Flare. You'll also need some scrap for crowbar.
+  components:
+  - type: Sprite
+    layers:
+    - map: [ enum.ExpendableLightVisualLayers.Base ]
+      state: flare_base
+    - map: [ enum.ExpendableLightVisualLayers.Glow ]
+      state: flare_burn
+      visible: false
+      shader: unshaded
+    - map: [ enum.ExpendableLightVisualLayers.Overlay ]
+      state: flare_unlit
+      color: "#FF8080"
+  - type: ExpendableLight
+    glowDuration: 45
+    fadeOutDuration: 15
+  - type: LightBehaviour
+    behaviours:
+    - !type:FadeBehaviour
+      id: turn_on
+      maxDuration: 15.0
+      startValue: 2.5
+      endValue: 10.0
+  - type: TimedDespawn
+    lifetime: 75
+  - type: Construction
+    deconstructionTarget: null
+    graph: OmniFlareGraph
+    node: flare
+  - type: Tag
+    tags:
+    - AlmagestFlare
+
+- type: entity
+  name: red flare with radar icon
+  parent: [AlmagestFlareRed, RadarIconFlare]
+  id: AlmagestFlareRedWithRadarIcon
+  components:
+  - type: RadarIcon
+    color: "#FF8080"
+
+- type: entity
+  name: blue flare
+  parent: AlmagestFlareRed
+  id: AlmagestFlareBlue
+  components:
+  - type: Sprite
+    layers:
+    - map: [ enum.ExpendableLightVisualLayers.Base ]
+      state: flare_base
+    - map: [ enum.ExpendableLightVisualLayers.Glow ]
+      state: flare_burn
+      color: "#7eadfc"
+      visible: false
+      shader: unshaded
+    - map: [ enum.ExpendableLightVisualLayers.Overlay ]
+      state: flare_unlit
+      color: "#7eadfc"
+  - type: PointLight
+    color: "#7eadfc"
+
+- type: entity
+  name: blue flare with radar icon
+  parent: [AlmagestFlareBlue, RadarIconFlare]
+  id: AlmagestFlareBlueWithRadarIcon
+  components:
+  - type: RadarIcon
+    color: "#7eadfc"
+
+- type: entity
+  name: unfinished omni flare
+  parent: [BaseItem, RadarIconFlare]
+  id: AlmagestFlareOmniUnfinished
+  description: This is an unfinished Omni Flayer. You'll need to use a crowbar to complete the assembly.
+  components:
+  - type: Item
+    sprite: Objects/Misc/flare.rsi
+    heldPrefix: unlit
+    size: Tiny
+  - type: Construction
+    deconstructionTarget: null
+    graph: OmniFlareGraph
+    node: unfinished
+  - type: Sprite
+    sprite: Objects/Misc/flare.rsi
+    layers:
+    - map: [ enum.ExpendableLightVisualLayers.Base ]
+      state: flare_base
+    - map: [ enum.ExpendableLightVisualLayers.Glow ]
+      state: flare_burn
+      visible: false
+      shader: unshaded
+    - map: [ enum.ExpendableLightVisualLayers.Overlay ]
+      state: flare_unlit
+      color: "#a8a8a8"
+  - type: PointLight
+    enabled: true
+    color: "#FFFFFF"
+    radius: 1.5
+    energy: 1.2
+    softness: 1
+  - type: RadarIcon
+    color: "#a8a8a8"
+
+- type: entity
+  name: omni flare
+  parent: AlmagestFlareRedWithRadarIcon
+  id: AlmagestFlareOmni
+  components:
+  - type: Sprite
+    layers:
+    - map: [ enum.ExpendableLightVisualLayers.Base ]
+      state: flare_base
+    - map: [ enum.ExpendableLightVisualLayers.Glow ]
+      state: flare_burn
+      visible: false
+      shader: unshaded
+    - map: [ enum.ExpendableLightVisualLayers.Overlay ]
+      state: flare_unlit
+  - type: ExpendableLight
+    glowDuration: 90
+    fadeOutDuration: 15
+  - type: TimedDespawn
+    lifetime: 120
+  - type: PointLight
+    enabled: true
+    color: "#FFFFFF"
+    radius: 1.5
+    energy: 5
+    softness: 7.5
+  - type: RadarIcon
+    color: "#FFFFFF"
+  - type: LightBehaviour
+    behaviours:
+    - !type:FadeBehaviour
+      id: turn_on
+      maxDuration: 15.0
+      startValue: 1.5
+      endValue: 50.0
+    - !type:RandomizeBehaviour
+      id: turn_on
+      interpolate: Nearest
+      minDuration: 0.02
+      maxDuration: 0.06
+      startValue: 11.5
+      endValue: 12
+      property: Energy
+      isLooped: true
+    - !type:FadeBehaviour
+      id: fade_out
+      maxDuration: 15.0
+      startValue: 50.0
+      endValue: 1.0
+    - !type:RandomizeBehaviour
+      id: fade_out
+      interpolate: Nearest
+      minDuration: 0.0001
+      maxDuration: 0.5
+      startValue: 1.1
+      endValue: 4
+      property: Energy
+      isLooped: true
+  - type: Tag
+    tags: []
