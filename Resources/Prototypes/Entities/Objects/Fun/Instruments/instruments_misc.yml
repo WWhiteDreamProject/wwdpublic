@@ -165,7 +165,7 @@
     sound:
        path: /Audio/Items/bikehorn.ogg
   - type: Slippery
-    paralyzeTime: 4
+    paralyzeTime: 2 # WD EDIT: 4 > 2
     launchForwardsMultiplier: 1.5
   - type: StepTrigger
   - type: CollisionWake
