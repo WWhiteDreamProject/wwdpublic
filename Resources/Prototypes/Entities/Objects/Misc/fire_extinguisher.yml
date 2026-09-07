@@ -57,10 +57,8 @@
     bluntStaminaDamageFactor: 2.5
     range: 1.75
     damage:
-      types:
-        Blunt: 8
-    # heavyRateModifier: 1.5 # WWDP
-    # heavyDamageBaseModifier: 2 # WWDP
+      # WD EDIT: Migrated damage format
+      Blunt: 8
     heavyStaminaCost: 5
     maxTargets: 6
     soundHit:
@@ -129,8 +127,8 @@
   - type: MeleeWeapon
     wideAnimationRotation: 180
     damage:
-      types:
-        Blunt: 3 #completely ineffective; your fists are better
+      # WD EDIT: Migrated damage format
+      Blunt: 3
     soundHit:
       path: /Audio/Effects/weak_hit1.ogg
   - type: PhysicalComposition

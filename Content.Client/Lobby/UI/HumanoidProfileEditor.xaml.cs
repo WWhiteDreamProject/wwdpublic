@@ -2,7 +2,7 @@ using System.IO;
 using System.Linq;
 using Content.Client._White.Appearance.Systems;
 using Content.Client._White.Body.Systems;
-using Content.Client._White.Humanoid;
+using Content.Client._White.Humanoid.Markings;
 using Content.Client._White.Humanoid.Markings.Systems;
 using Content.Client._White.Preferences.Managers;
 using Content.Client.Administration.UI;
@@ -14,18 +14,14 @@ using Content.Client.UserInterface.Controls;
 using Content.Client.UserInterface.Systems.Guidebook;
 using Content.Shared._EE.Contractors.Prototypes;
 using Content.Shared._White.Appearance;
-using Content.Shared._White.Body;
 using Content.Shared._White.Body.Components;
-using Content.Shared._White.CCVar;
-using Content.Shared._White.Humanoid.Coloration;
-using Content.Shared._White.Humanoid.Markings;
+using Content.Shared._White.Colors.Strategies;
 using Content.Shared._White.Humanoid.Markings.Managers;
 using Content.Shared._White.Humanoid.Prototypes;
 using Content.Shared._White.Humanoid.Systems;
 using Content.Shared._White.Preferences;
 using Content.Shared.CCVar;
 using Content.Shared.Customization.Systems;
-using Content.Shared.Dataset;
 using Content.Shared.GameTicking;
 using Content.Shared.Guidebook;
 using Content.Shared.Humanoid;
@@ -359,7 +355,7 @@ namespace Content.Client.Lobby.UI
             {
                 if (Profile is null)
                     return;
-                Profile = Profile.WithColor("Eye", color);
+                Profile = Profile.Value.WithColor("Eye", color);
                 _markingsModel.SetColor("Eye", color);
                 ReloadProfilePreview();
             };
@@ -424,6 +420,9 @@ namespace Content.Client.Lobby.UI
             #region Markings
 
             Markings.SetModel(_markingsModel);
+
+            _markingsModel.MarkingsChanged += (_) => OnMarkingChange();
+            _markingsModel.MarkingsReset += OnMarkingChange;
 
             #endregion Markings
 
@@ -493,7 +492,7 @@ namespace Content.Client.Lobby.UI
             }
 
             // If our species isn't available then reset it to default.
-            if (Profile != null && !speciesIds.Contains(Profile.Species))
+            if (Profile != null && !speciesIds.Contains(Profile.Value.Species))
                 SetSpecies(HumanoidProfileSystem.DefaultSpecies);
         }
 
@@ -524,11 +523,11 @@ namespace Content.Client.Lobby.UI
             }
 
             // If our nationality isn't available, reset it to default
-            if (Profile != null && !nationalityIds.Contains(Profile.Nationality))
+            if (Profile != null && !nationalityIds.Contains(Profile.Value.Nationality))
                 SetNationality(HumanoidProfileSystem.DefaultNationality);
 
             if(Profile != null)
-                UpdateNationalityDescription(Profile.Nationality);
+                UpdateNationalityDescription(Profile.Value.Nationality);
         }
 
         public void RefreshEmployers()
@@ -558,11 +557,11 @@ namespace Content.Client.Lobby.UI
             }
 
             // If our employer isn't available, reset it to default
-            if (Profile != null && !employerIds.Contains(Profile.Employer))
+            if (Profile != null && !employerIds.Contains(Profile.Value.Employer))
                 SetEmployer(HumanoidProfileSystem.DefaultEmployer);
 
             if(Profile != null)
-                UpdateEmployerDescription(Profile.Employer);
+                UpdateEmployerDescription(Profile.Value.Employer);
         }
 
         public void RefreshLifepaths()
@@ -592,11 +591,11 @@ namespace Content.Client.Lobby.UI
             }
 
             // If our lifepath isn't available, reset it to default
-            if (Profile != null && !lifepathIds.Contains(Profile.Lifepath))
+            if (Profile != null && !lifepathIds.Contains(Profile.Value.Lifepath))
                 SetLifepath(HumanoidProfileSystem.DefaultLifepath);
 
             if(Profile != null)
-                UpdateLifepathDescription(Profile.Lifepath);
+                UpdateLifepathDescription(Profile.Value.Lifepath);
         }
 
         private void UpdateNationalityDescription(string nationality)
@@ -707,7 +706,7 @@ namespace Content.Client.Lobby.UI
             _entManager.DeleteEntity(PreviewDummy);
             PreviewDummy = EntityUid.Invalid;
 
-            if (Profile == null || !_prototypeManager.HasIndex(Profile.Species))
+            if (Profile == null || !_prototypeManager.HasIndex(Profile.Value.Species))
                 return;
 
             PreviewDummy = _controller.LoadProfileEntity(Profile, null, ShowClothes.Pressed, ShowLoadouts.Pressed);
@@ -726,11 +725,11 @@ namespace Content.Client.Lobby.UI
                 return;
 
             _controller.RemoveDummyClothes(PreviewDummy);
-            var job = _controller.GetPreferredJob(Profile);
+            var job = _controller.GetPreferredJob(Profile.Value);
             if (ShowClothes.Pressed)
-                _controller.GiveDummyJobClothes(PreviewDummy, job, Profile);
+                _controller.GiveDummyJobClothes(PreviewDummy, job, Profile.Value);
             if (ShowLoadouts.Pressed)
-                _controller.GiveDummyLoadout(PreviewDummy, job, Profile);
+                _controller.GiveDummyLoadout(PreviewDummy, job, Profile.Value);
         }
 
         /// <summary>
@@ -748,7 +747,7 @@ namespace Content.Client.Lobby.UI
         /// </summary>
         public void SetProfile(HumanoidCharacterProfile? profile, int? slot)
         {
-            Profile = profile?.Clone();
+            Profile = profile;
             CharacterSlot = slot;
             IsDirty = false;
             JobOverride = null;
@@ -783,7 +782,7 @@ namespace Content.Client.Lobby.UI
             ReloadPreview();
 
             if (Profile != null)
-                PreferenceUnavailableButton.SelectId((int) Profile.PreferenceUnavailable);
+                PreferenceUnavailableButton.SelectId((int) Profile.Value.PreferenceUnavailable);
         }
 
 
@@ -795,7 +794,7 @@ namespace Content.Client.Lobby.UI
             if (Profile == null || !_entManager.EntityExists(PreviewDummy))
                 return;
 
-            _entManager.System<BodyAppearanceSystem>().ApplyProfile(PreviewDummy, Profile);
+            _entManager.System<BodyAppearanceSystem>().ApplyProfile(PreviewDummy, Profile.Value);
 
             // Check and set the dirty flag to enable the save/reset buttons as appropriate.
             SetDirty();
@@ -969,7 +968,7 @@ namespace Content.Client.Lobby.UI
             if (Profile is null)
                 return;
 
-            Profile = Profile.WithFlavor(content);
+            Profile = Profile.Value.WithFlavor(content);
             IsDirty = true;
         }
 
@@ -978,7 +977,8 @@ namespace Content.Client.Lobby.UI
             if (Profile is null)
                 return;
 
-            Profile = Profile.WithMarkings(_markingsModel.Markings);
+            var markings = _markingManager.GetMarkingsByLayer(_markingsModel.Markings);
+            Profile = Profile.Value.WithMarkings(markings);
             ReloadProfilePreview();
             SetDirty();
         }
@@ -989,7 +989,7 @@ namespace Content.Client.Lobby.UI
                 return;
 
             // WD EDIT START
-            var skin = _prototypeManager.Index(Profile.Species).Coloration["Skin"];
+            var skin = _prototypeManager.Index(Profile.Value.Species).Colorations["Skin"];
             var strategy = _prototypeManager.Index(skin).Strategy;
 
             var color = Color.White;
@@ -1022,7 +1022,7 @@ namespace Content.Client.Lobby.UI
                 }
             }
             _markingsModel.SetColor("Skin", color);
-            Profile = Profile.WithColor("Skin", color);
+            Profile = Profile.Value.WithColor("Skin", color);
             // WD EDIT END
 
             ReloadProfilePreview();
@@ -1202,8 +1202,8 @@ namespace Content.Client.Lobby.UI
                 return;
 
             CBodyTypesButton.Clear();
-            var species = _prototypeManager.Index(Profile.Species);
-            var sex = Profile.Sex;
+            var species = _prototypeManager.Index(Profile.Value.Species);
+            var sex = Profile.Value.Sex;
             _bodyTypes = species.BodyTypes.Select(protoId => _prototypeManager.Index(protoId))
                 .Where(proto => !proto.SexRestrictions.Contains(sex))
                 .ToList();
@@ -1212,13 +1212,13 @@ namespace Content.Client.Lobby.UI
                 CBodyTypesButton.AddItem(Loc.GetString(_bodyTypes[i].Name), i);
 
             // If current body type is not valid.
-            if (!_bodyTypes.Select<BodyTypePrototype, ProtoId<BodyTypePrototype>>(proto => proto.ID).Contains(Profile.BodyType))
+            if (!_bodyTypes.Select<BodyTypePrototype, ProtoId<BodyTypePrototype>>(proto => proto.ID).Contains(Profile.Value.BodyType))
             {
                 // Then replace it with a first valid body type.
                 SetBodyType(_bodyTypes.First().ID);
             }
 
-            CBodyTypesButton.Select(_bodyTypes.FindIndex(x => x.ID == Profile.BodyType));
+            CBodyTypesButton.Select(_bodyTypes.FindIndex(x => x.ID == Profile.Value.BodyType));
             IsDirty = true;
         }
         // WD EDIT END
@@ -1245,7 +1245,7 @@ namespace Content.Client.Lobby.UI
             var sexes = new List<Sex>();
 
             // Add species sex options, default to just none if we are in bizzaro world and have no species
-            if (_prototypeManager.TryIndex<SpeciesPrototype>(Profile.Species, out var speciesProto))
+            if (_prototypeManager.TryIndex<SpeciesPrototype>(Profile.Value.Species, out var speciesProto))
             {
                 foreach (var sex in speciesProto.Sexes)
                     sexes.Add(sex);
@@ -1257,8 +1257,8 @@ namespace Content.Client.Lobby.UI
             foreach (var sex in sexes)
                 SexButton.AddItem(Loc.GetString($"humanoid-profile-editor-sex-{sex.ToString().ToLower()}-text"), (int) sex);
 
-            if (sexes.Contains(Profile.Sex))
-                SexButton.SelectId((int) Profile.Sex);
+            if (sexes.Contains(Profile.Value.Sex))
+                SexButton.SelectId((int) Profile.Value.Sex);
             else
                 SexButton.SelectId((int) sexes[0]);
         }
@@ -1269,7 +1269,7 @@ namespace Content.Client.Lobby.UI
                 return;
 
             // WD EDIT START
-            var skin = _prototypeManager.Index(Profile.Species).Coloration["Skin"];
+            var skin = _prototypeManager.Index(Profile.Value.Species).Colorations["Skin"];
             var strategy = _prototypeManager.Index(skin).Strategy;
 
             switch (strategy.InputType)
@@ -1282,7 +1282,7 @@ namespace Content.Client.Lobby.UI
                         RgbSkinColorContainer.Visible = false;
                     }
 
-                    Skin.Value = strategy.ToUnary(Profile.BodyColoration["Skin"]);
+                    Skin.Value = strategy.ToUnary(Profile.Value.Colors["Skin"]);
 
                     break;
                 }
@@ -1294,7 +1294,7 @@ namespace Content.Client.Lobby.UI
                         RgbSkinColorContainer.Visible = true;
                     }
 
-                    _rgbSkinColorSelector.Color = strategy.ClosestColor(Profile.BodyColoration["Skin"]);
+                    _rgbSkinColorSelector.Color = strategy.ClosestColor(Profile.Value.Colors["Skin"]);
 
                     break;
                 }
@@ -1321,9 +1321,9 @@ namespace Content.Client.Lobby.UI
             if (Profile == null)
                 return;
 
-            var appearanceData = new Dictionary<BodyProviderType, BodyAppearanceData>();
-            var speciesPrototype = _prototypeManager.Index(Profile.Species);
-            var dollPrototype = _prototypeManager.Index(speciesPrototype.DollPrototype);
+            var appearanceData = new Dictionary<Enum, BodyAppearanceData>();
+            var speciesPrototype = _prototypeManager.Index(Profile.Value.Species);
+            var dollPrototype = _prototypeManager.Index(speciesPrototype.Doll);
 
             if (dollPrototype.TryGetComponent<BodyComponent>(out var body, _componentFactory))
             {
@@ -1332,21 +1332,21 @@ namespace Content.Client.Lobby.UI
                     if (!_markingsSystem.TryGetData(prototype, out var data))
                         continue;
 
-                    if (!_prototypeManager.TryIndex(data.Value.Category, out var categoryPrototype))
-                        continue;
-
-                    appearanceData[categoryPrototype.Type] = new()
+                    foreach (var layer in data.Value.Layers)
                     {
-                        BodyColoration = Profile.BodyColoration.ToDictionary(),
-                        BodyType = Profile.BodyType,
-                        Sex = Profile.Sex,
-                    };
+                        appearanceData[layer] = new()
+                        {
+                            ColorGroups = Profile.Value.Colors.ToDictionary(),
+                            BodyType = Profile.Value.BodyType,
+                            Sex = Profile.Value.Sex,
+                        };
+                    }
                 }
             }
 
             _markingsModel.AppearanceData = appearanceData;
-            _markingsModel.Markings = Profile.Markings.ToDictionary();
-            _markingsModel.MarkingsData = _markingsSystem.GetMarkingData(Profile.Species);
+            _markingsModel.Markings = _markingManager.GetMarkingsByCategory(Profile.Value.Markings);
+            _markingsModel.MarkingsData = _markingsSystem.GetMarkingData(Profile.Value.Species);
         }
 
         private void UpdateGenderControls()
@@ -1354,7 +1354,7 @@ namespace Content.Client.Lobby.UI
             if (Profile == null)
                 return;
 
-            PronounsButton.SelectId((int) Profile.Gender);
+            PronounsButton.SelectId((int) Profile.Value.Gender);
         }
 
         private void UpdateSpawnPriorityControls()
@@ -1362,7 +1362,7 @@ namespace Content.Client.Lobby.UI
             if (Profile == null)
                 return;
 
-            SpawnPriorityButton.SelectId((int) Profile.SpawnPriority);
+            SpawnPriorityButton.SelectId((int) Profile.Value.SpawnPriority);
         }
 
         private void UpdateHeightWidthSliders()
@@ -1439,14 +1439,14 @@ namespace Content.Client.Lobby.UI
             if (Profile == null)
                 return;
 
-            var species = _species.Find(x => x.ID == Profile.Species) ?? _species.First();
+            var species = _species.Find(x => x.ID == Profile.Value.Species) ?? _species.First();
             _prototypeManager.Index(species.Prototype).TryGetComponent<FixturesComponent>(out var fixture);
 
             if (fixture != null)
             {
                 var radius = fixture.Fixtures["fix1"].Shape.Radius;
                 var density = fixture.Fixtures["fix1"].Density;
-                var avg = (Profile.Width + Profile.Height) / 2;
+                var avg = (Profile.Value.Width + Profile.Value.Height) / 2;
                 var weight = MathF.Round(MathF.PI * MathF.Pow(radius * avg, 2) * density);
                 WeightLabel.Text = Loc.GetString("humanoid-profile-editor-weight-label", ("weight", (int) weight));
             }
@@ -1461,8 +1461,8 @@ namespace Content.Client.Lobby.UI
             if (Profile == null)
                 return;
 
-            _markingsModel.SetColor("Eye", Profile.BodyColoration["Eye"]);
-            EyeColorPicker.SetData(Profile.BodyColoration["Eye"]);
+            _markingsModel.SetColor("Eye", Profile.Value.Colors["Eye"]);
+            EyeColorPicker.SetData(Profile.Value.Colors["Eye"]);
         }
 
         private void UpdateSaveButton()
@@ -1483,7 +1483,7 @@ namespace Content.Client.Lobby.UI
             if (Profile == null)
                 return;
 
-            var name = _namingSystem.GenerateName(Profile.Species, Profile.Gender);
+            var name = _namingSystem.GenerateName(Profile.Value.Species, Profile.Value.Gender);
             SetName(name);
             UpdateNameEdit();
         }
@@ -1547,7 +1547,7 @@ namespace Content.Client.Lobby.UI
 
             try
             {
-                var dataNode = Profile.ToDataNode();
+                var dataNode = Profile.Value.ToDataNode();
                 await using var writer = new StreamWriter(file.Value.fileStream);
                 dataNode.Write(writer);
             }
@@ -1584,7 +1584,7 @@ namespace Content.Client.Lobby.UI
         {
             var points = _cfgManager.GetCVar(CCVars.GameTraitsDefaultPoints);
             var maxTraits = _cfgManager.GetCVar(CCVars.GameTraitsMax);
-            if (Profile is not null && _prototypeManager.TryIndex<SpeciesPrototype>(Profile.Species, out var speciesPrototype))
+            if (Profile is not null && _prototypeManager.TryIndex<SpeciesPrototype>(Profile.Value.Species, out var speciesPrototype))
                 points += speciesPrototype.TraitPoints;
 
             _traitCount = 0;

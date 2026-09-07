@@ -5,38 +5,26 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared._White.Pain.Components;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(fieldDeltas: true)]
+[RegisterComponent, NetworkedComponent]
 [Access(typeof(SharedPainfulSystem))]
 public sealed partial class PainfulComponent : Component
 {
     /// <summary>
     /// The raw, accumulated amount of pain. This is the base value before modifiers.
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField]
     public FixedPoint2 Pain = FixedPoint2.Zero;
-
-    /// <summary>
-    /// The maximum rate at which pain can decrease per second, independent of multiplier.
-    /// </summary>
-    [DataField]
-    public float MaxPainDecreasePerSecond = 12f;
-
-    /// <summary>
-    /// The maximum rate at which pain can increase per second, independent of multiplier.
-    /// </summary>
-    [DataField]
-    public float MaxPainIncreasePerSecond = 36f;
 
     /// <summary>
     /// A multiplier applied to the current raw pain level to determine the effective pain.
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField]
     public float PainMultiplier = 1f;
 
     /// <summary>
     /// A multiplier applied to the base update interval, affecting how frequently pain is recalculated.
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField]
     public float UpdateIntervalMultiplier = 1f;
 
     /// <summary>
@@ -44,6 +32,12 @@ public sealed partial class PainfulComponent : Component
     /// </summary>
     [DataField]
     public TimeSpan UpdateInterval = TimeSpan.FromSeconds(1);
+
+    /// <summary>
+    /// Determines whether the painful entity is dead. If true, the pain is not processed.
+    /// </summary>
+    [ViewVariables]
+    public bool Dead;
 
     /// <summary>
     /// The currently effective pain value, calculated by applying the PainMultiplier to the raw Pain.
@@ -60,14 +54,14 @@ public sealed partial class PainfulComponent : Component
     /// <summary>
     /// The timestamp of the last time the pain was updated.
     /// </summary>
-    [ViewVariables, AutoNetworkedField]
+    [ViewVariables]
     public TimeSpan LastUpdate = TimeSpan.Zero;
 }
-
 
 [Serializable, NetSerializable]
 public sealed class PainfulComponentState(PainfulComponent component) : ComponentState
 {
+    public readonly bool Dead = component.Dead;
     public readonly FixedPoint2 Pain = component.Pain;
     public readonly float PainMultiplier = component.PainMultiplier;
     public readonly float UpdateIntervalMultiplier = component.UpdateIntervalMultiplier;

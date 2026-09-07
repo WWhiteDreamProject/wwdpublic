@@ -10,8 +10,8 @@
   - type: MeleeWeapon
     range: 1.85
     damage:
-      types:
-        Blunt: 2
+      # WD EDIT: Migrated damage format
+      Blunt: 2
     bluntStaminaDamageFactor: 3
     heavyRangeModifier: 1.3
     maxTargets: 7
@@ -20,16 +20,16 @@
       collection: MetalThud
   - type: DamageOtherOnHit
     damage:
-      types:
-        Blunt: 6
+      # WD EDIT: Migrated damage format
+      Blunt: 6
     staminaCost: 8
   - type: Spillable
     solution: absorbed
   - type: Wieldable
   - type: IncreaseDamageOnWield
     damage:
-      types:
-        Blunt: 5
+      # WD EDIT: Migrated damage format
+      Blunt: 5
   - type: Item
     size: Large
     sprite: Objects/Specific/Janitorial/mop.rsi
@@ -66,8 +66,8 @@
   - type: MeleeWeapon
     range: 1.85
     damage:
-      types:
-        Blunt: 2
+      # WD EDIT: Migrated damage format
+      Blunt: 2
     bluntStaminaDamageFactor: 3
     heavyRangeModifier: 1.3
     maxTargets: 7
@@ -76,16 +76,16 @@
       collection: MetalThud
   - type: DamageOtherOnHit
     damage:
-      types:
-        Blunt: 6
+      # WD EDIT: Migrated damage format
+      Blunt: 6
     staminaCost: 8
   - type: Spillable
     solution: absorbed
   - type: Wieldable
   - type: IncreaseDamageOnWield
     damage:
-      types:
-        Blunt: 5
+      # WD EDIT: Migrated damage format
+      Blunt: 5
   - type: Item
     size: Large
     sprite: Objects/Specific/Janitorial/advmop.rsi
@@ -251,8 +251,8 @@
     deleteOnCollide: false
     onlyCollideWhenShot: true
     damage:
-      types:
-        Blunt: 3
+      # WD EDIT: Migrated damage format
+      Blunt: 3
   - type: Plunger
 
 - type: weightedRandomEntity
@@ -279,8 +279,8 @@
     soundNoDamage:
       path: "/Audio/Effects/Fluids/splat.ogg"
     damage:
-      types:
-        Blunt: 0
+      # WD EDIT: Migrated damage format
+      Blunt: 0
   - type: Item
     size: Small
     sprite: Objects/Specific/Janitorial/rag.rsi

@@ -1,0 +1,4 @@
+- type: marking
+  id: BaseDiona
+  abstract: true
+  groups: [Diona]

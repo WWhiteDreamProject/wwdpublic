@@ -80,6 +80,12 @@ public sealed partial class BloodSplatterWoundComponent : Component
     /// </summary>
     [DataField]
     public SplatterType SplatterType = SplatterType.Random;
+
+    /// <summary>
+    /// The body entity containing this provider, if any.
+    /// </summary>
+    [ViewVariables]
+    public EntityUid? Body;
 }
 
 [Serializable]

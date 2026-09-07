@@ -21,8 +21,8 @@
         scaleByQuantity: true
         ignoreResistances: false
         damage:
-          types:
-            Caustic: 0.08
+          # WD EDIT: Migrated damage format
+          Caustic: 0.1
       - !type:Emote
         emote: Scream
         probability: 0.1
@@ -32,8 +32,8 @@
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Caustic: 4
+          # WD EDIT: Migrated damage format
+          Caustic: 4
       - !type:PopupMessage
         type: Local
         visualType: Large

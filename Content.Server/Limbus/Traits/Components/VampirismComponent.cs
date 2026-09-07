@@ -1,4 +1,4 @@
-using Content.Shared._White.Body.Prototypes;
+using Content.Shared._White.Bloodstream.Prototypes;
 using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
 

@@ -1,0 +1,22 @@
+- type: species
+  id: Harpy
+  setPreference: true
+  defaultColors:
+    Eyes: "#E79C4A"
+    Skin: "#C0967F"
+  colorations:
+    Eyes: Simple
+    Skin: HumanTone
+  doll: HumanoidDollHarpy
+  prototype: MobHumanoidHarpy
+  defaultHeight: 0.85
+  defaultWidth: 0.8
+  maxHeight: 1
+  maxWidth: 1
+  minHeight: 0.8
+  minWidth: 0.8
+  bodyTypes:
+  - Normal
+  - Slim
+  name: species-name-harpy
+  naming: Human

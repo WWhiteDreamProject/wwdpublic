@@ -14,7 +14,7 @@
   - type: Item
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible:
         maxVol: 10
         reagents:
         - ReagentId: Sugar
@@ -39,7 +39,7 @@
   - type: Item
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible:
         maxVol: 10
         reagents:
         - ReagentId: Sugar
@@ -60,7 +60,7 @@
   - type: Item
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible:
         maxVol: 10
         reagents:
         - ReagentId: Sugar
@@ -81,7 +81,7 @@
   - type: Item
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible:
         maxVol: 10
         reagents:
         - ReagentId: Sugar
@@ -102,7 +102,7 @@
   - type: Item
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible:
         maxVol: 10
         reagents:
         - ReagentId: Sugar
@@ -123,7 +123,7 @@
   - type: Item
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible:
         maxVol: 10
         reagents:
         - ReagentId: Sugar
@@ -144,7 +144,7 @@
   - type: Item
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible:
         maxVol: 10
         reagents:
         - ReagentId: Sugar
@@ -165,7 +165,7 @@
   - type: Item
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible:
         maxVol: 10
         reagents:
         - ReagentId: Sugar
@@ -186,7 +186,7 @@
   - type: Item
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible:
         maxVol: 10
         reagents:
         - ReagentId: Sugar
@@ -214,7 +214,7 @@
     size: Small
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible:
         maxVol: 30
         reagents:
         - ReagentId: Sugar
@@ -241,7 +241,7 @@
   - type: Item
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible:
         maxVol: 10
         reagents:
         - ReagentId: Sugar
@@ -263,7 +263,7 @@
     size: Normal
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible:
         maxVol: 100
         reagents:
         - ReagentId: Sugar
@@ -284,7 +284,7 @@
   - type: Item
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible:
         maxVol: 10
         reagents:
         - ReagentId: Sugar
@@ -306,7 +306,7 @@
     size: Small
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible:
         maxVol: 30
         reagents:
         - ReagentId: Sugar
@@ -327,7 +327,7 @@
   - type: Item
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible:
         maxVol: 10
         reagents:
         - ReagentId: Sugar
@@ -348,7 +348,7 @@
   - type: Item
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible:
         maxVol: 10
         reagents:
         - ReagentId: Sugar
@@ -369,7 +369,7 @@
   - type: Item
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible:
         maxVol: 10
         reagents:
         - ReagentId: Sugar
@@ -390,7 +390,7 @@
   - type: Item
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible:
         maxVol: 10
         reagents:
         - ReagentId: Sugar
@@ -411,7 +411,7 @@
   - type: Item
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible:
         maxVol: 10
         reagents:
         - ReagentId: Sugar
@@ -450,7 +450,7 @@
   - type: Item
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible:
         maxVol: 10
         reagents:
         - ReagentId: Sugar

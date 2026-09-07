@@ -43,11 +43,10 @@
     damageContainers:
     - SiliconUnshielded
     damage:
-      types: # Circuits are very expensive and hard to obtain. Probably needs to be adjusted after testing.
-        Radiation: -25
-        Heat: -10
-        Shock: -20
-
+      # WD EDIT: Migrated damage format
+      Heat: -10
+      Radiation: -25
+      Shock: -20
 - type: entity
   parent: N14MaterialCircuitry
   id: N14MaterialCircuitry10

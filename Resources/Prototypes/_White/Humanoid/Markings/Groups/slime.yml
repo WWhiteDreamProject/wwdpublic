@@ -1,0 +1,32 @@
+- type: markingGroup
+  id: Slime
+  parent: Undergarments
+  categoriesData:
+    Arms:
+      limit: 2
+    Ears:
+      limit: 1
+    Earrings:
+      limit: 2
+    Eyes:
+      limit: 1
+    FacialHair:
+      layerAlpha: 0.72
+      limit: 1
+      coloring:
+        type: !type:BodyColorGroupColoring
+          group: Skin
+    Hair:
+      layerAlpha: 0.72
+      limit: 1
+      coloring:
+        type: !type:BodyColorGroupColoring
+          group: Skin
+    Head:
+      limit: 2
+    Legs:
+      limit: 2
+    Snout:
+      limit: 1
+    Torso:
+      limit: 1

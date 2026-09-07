@@ -137,7 +137,8 @@ namespace Content.Client.Hands.Systems
 
             if (component.ActiveHand != null && state.ActiveHand != component.ActiveHand.Value.Name)
             {
-                SetActiveHand(uid, component.Hands[state.ActiveHand!], component);
+                component.Hands.TryGetValue(state.ActiveHand!, out var hand);
+                SetActiveHand(uid, hand, component);
             }
         }
         #endregion
@@ -442,13 +443,18 @@ namespace Content.Client.Hands.Systems
 
         public override void AddHand(EntityUid uid, string handName, HandLocation handLocation, HandsComponent? handsComp = null)
         {
+            // WD EDIT START: TODO: Hands refactor
+            if (!Resolve(uid, ref handsComp, false))
+                return;
+
+            if (handsComp.Hands.ContainsKey(handName))
+                return;
+            // WD EDIT END
+
             base.AddHand(uid, handName, handLocation, handsComp);
 
             if (uid == _playerManager.LocalEntity)
                 OnPlayerAddHand?.Invoke(handName, handLocation);
-
-            if (handsComp == null)
-                return;
 
             if (handsComp.ActiveHand == null)
                 SetActiveHand(uid, handsComp.Hands[handName], handsComp);

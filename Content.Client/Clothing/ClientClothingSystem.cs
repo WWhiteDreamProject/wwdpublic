@@ -81,13 +81,6 @@ public sealed class ClientClothingSystem : ClothingSystem
         {
             RenderEquipment(uid, item, slot.Name, component);
         }
-
-        // No clothing equipped -> make sure the layer is hidden, though this should already be handled by on-unequip.
-        if (args.Sprite.LayerMapTryGet(HumanoidVisualLayers.StencilMask, out var layer))
-        {
-            DebugTools.Assert(!args.Sprite[layer].Visible);
-            args.Sprite.LayerSetVisible(layer, false);
-        }
     }
 
     private void OnInventoryTemplateUpdated(Entity<ClothingComponent> ent, ref InventoryTemplateUpdated args)

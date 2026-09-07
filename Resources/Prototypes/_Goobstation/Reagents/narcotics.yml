@@ -63,15 +63,16 @@
         amount: -20
       - !type:HealthChange
         damage:
-          types:
-            Poison: 0.25
-            Asphyxiation: 0.25
+          # WD EDIT: Migrated damage format
+          Asphyxiation: 0.2
+          Poison: 0.2
       - !type:HealthChange # intentionally no yowie conditions
         damage:
-          groups:
-            Brute: -1
-          types:
-            Heat: -0.5
-            Shock: -0.5
-            Cold: -0.5
-            Radiation: -0.5
+          # WD EDIT: Migrated damage format
+          Blunt: -0.3
+          Cold: -0.5
+          Heat: -0.5
+          Piercing: -0.3
+          Radiation: -0.5
+          Shock: -0.5
+          Slash: -0.3

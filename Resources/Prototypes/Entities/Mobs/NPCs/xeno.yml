@@ -81,8 +81,10 @@
       collection: AlienClaw
     animation: WeaponArcBite
     damage:
-      groups:
-        Brute: 6
+      # WD EDIT: Migrated damage format
+      Blunt: 2
+      Piercing: 2
+      Slash: 2
   - type: DamageStateVisuals
     rotate: true
     states:
@@ -201,8 +203,10 @@
       40: 0.7
   - type: MeleeWeapon
     damage:
-      groups:
-        Brute: 6
+      # WD EDIT: Migrated damage format
+      Blunt: 2
+      Piercing: 2
+      Slash: 2
   - type: MovementSpeedModifier
     baseSprintSpeed: 4
   - type: Fixtures
@@ -240,8 +244,10 @@
   - type: MovementSpeedModifier
   - type: MeleeWeapon
     damage:
-      groups:
-        Brute: 12
+      # WD EDIT: Migrated damage format
+      Blunt: 4
+      Piercing: 4
+      Slash: 4
   - type: Fixtures
     fixtures:
       fix1:
@@ -285,8 +291,10 @@
     baseSprintSpeed: 4
   - type: MeleeWeapon
     damage:
-      groups:
-        Brute: 10
+      # WD EDIT: Migrated damage format
+      Blunt: 3.3
+      Piercing: 3.3
+      Slash: 3.3
   - type: SlowOnDamage
     speedModifierThresholds:
       50: 0.7
@@ -318,8 +326,10 @@
     baseSprintSpeed: 6.0
   - type: MeleeWeapon
     damage:
-      groups:
-        Brute: 10
+      # WD EDIT: Migrated damage format
+      Blunt: 3.3
+      Piercing: 3.3
+      Slash: 3.3
   - type: Fixtures
     fixtures:
       fix1:
@@ -435,8 +445,8 @@
     angle: 0
     animation: WeaponArcBite
     damage:
-      types:
-        Piercing: 5
+      # WD EDIT: Migrated damage format
+      Piercing: 5
   - type: SolutionContainerManager
     solutions:
       melee:

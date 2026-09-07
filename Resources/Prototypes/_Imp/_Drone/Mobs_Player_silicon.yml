@@ -11,8 +11,8 @@
     context: "human"
   - type: DamageOnHighSpeedImpact
     damage:
-      types:
-        Blunt: 5
+      # WD EDIT: Migrated damage format
+      Blunt: 5
     soundHit:
       collection: MetalThud
   - type: Clickable
@@ -53,8 +53,6 @@
   - type: Hands
     showInHands: false
   - type: ComplexInteraction
-  - type: Body
-    prototype: Drone
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
     channels:
@@ -160,8 +158,7 @@
     currentTemperature: 310.15
     specificHeat: 42
     heatDamage:
-      types:
-        Heat : 1 #per second, scales with temperature & other constants
+      Heat : 1 #per second, scales with temperature & other constants
   - type: Sprite
     drawdepth: SmallMobs
     layers:

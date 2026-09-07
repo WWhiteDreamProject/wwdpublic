@@ -1,9 +1,8 @@
-using System.Linq;
 using Content.Shared._White.Appearance;
 using Content.Shared._White.Appearance.Components;
 using Content.Shared._White.Appearance.Systems;
-using Content.Shared._White.Body;
 using Content.Shared._White.Humanoid.Markings;
+using Content.Shared._White.Humanoid.Markings.Managers;
 using Content.Shared._White.Humanoid.Markings.Prototypes;
 using Content.Shared._White.Humanoid.Markings.Systems;
 using Content.Shared._White.MagicMirror.Components;
@@ -22,6 +21,8 @@ namespace Content.Shared._White.MagicMirror.Systems;
 
 public sealed class MagicMirrorSystem : EntitySystem
 {
+    [Dependency] private readonly MarkingManager _marking = default!;
+
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedBodyAppearanceSystem _bodyAppearance = default!;
@@ -105,24 +106,16 @@ public sealed class MagicMirrorSystem : EntitySystem
         if (ent.Comp.Target != args.Target)
             return;
 
-        foreach (var (category, markings) in args.Markings)
+        var markings = new List<Marking>();
+        foreach (var (category, categoryMarkings) in args.Markings)
         {
             if (!ent.Comp.Categories.Contains(category))
-            {
-                args.Markings.Remove(category);
                 continue;
-            }
 
-            foreach (var marking in markings.ToList())
-            {
-                if (ent.Comp.Layers.Contains(marking.Layer))
-                    continue;
-
-                markings.Remove(marking);
-            }
+            markings.AddRange(categoryMarkings);
         }
 
-        _markings.ApplyMarkings(args.Target.Value, args.Markings);
+        _markings.ApplyMarkings(args.Target.Value, markings);
     }
 
     private void OnBoundUIClosed(Entity<MagicMirrorComponent> ent, ref BoundUIClosedEvent args)
@@ -220,28 +213,13 @@ public sealed class MagicMirrorSystem : EntitySystem
         if (!_bodyAppearance.TryGetData(target, out var appearanceData))
             return;
 
-        if (!_markings.TryGetData(target, ent.Comp.Layers, out var markingsSets, out var markingsData))
+        if (!_markings.TryGetData(target, out var markingsSet, out var markingsData))
             return;
 
         ent.Comp.Target = target;
 
-        foreach (var markingSet in markingsSets)
-        {
-            if (ent.Comp.Categories.Contains(markingSet.Key))
-                continue;
-
-            markingsSets.Remove(markingSet.Key);
-        }
-
-        foreach (var markingData in markingsData)
-        {
-            if (ent.Comp.Categories.Contains(markingData.Key))
-                continue;
-
-            markingsData.Remove(markingData.Key);
-        }
-
-        var state = new MagicMirrorUiState(appearanceData, markingsSets, markingsData);
+        var markings = _marking.GetMarkingsByCategory(markingsSet);
+        var state = new MagicMirrorUiState(appearanceData, markingsData, markings);
         _userInterface.SetUiState(ent.Owner, MagicMirrorUiKey.Key, state);
 
         Dirty(ent);
@@ -267,16 +245,16 @@ public sealed class MagicMirrorSelectMessage(
 
 [Serializable, NetSerializable]
 public sealed class MagicMirrorUiState(
-    Dictionary<BodyProviderType, BodyAppearanceData> appearanceData,
-    Dictionary<ProtoId<MarkingCategoryPrototype>, List<Marking>> markings,
-    Dictionary<ProtoId<MarkingCategoryPrototype>, MarkingsData> markingsData)
+    Dictionary<Enum, BodyAppearanceData> appearanceData,
+    Dictionary<Enum, MarkingData> markingsData,
+    Dictionary<ProtoId<MarkingCategoryPrototype>, List<Marking>> markings)
     : BoundUserInterfaceState
 {
     public NetEntity Target;
 
-    public Dictionary<BodyProviderType, BodyAppearanceData> AppearanceData { get; } = appearanceData;
+    public Dictionary<Enum, BodyAppearanceData> AppearanceData { get; } = appearanceData;
+    public Dictionary<Enum, MarkingData> MarkingsData { get; } = markingsData;
     public Dictionary<ProtoId<MarkingCategoryPrototype>, List<Marking>> Markings { get; } = markings;
-    public Dictionary<ProtoId<MarkingCategoryPrototype>, MarkingsData> MarkingsData { get; } = markingsData;
 }
 
 [Serializable, NetSerializable]

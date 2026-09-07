@@ -12,10 +12,10 @@
       effects:
         - !type:HealthChange
           damage:
-            types:
-              Poison: -3
-              Cellular: -3
-              Radiation: -3
+            # WD EDIT: Migrated damage format
+            Cellular: -3
+            Poison: -3
+            Radiation: -3
         - !type:PopupMessage
             type: Local
             messages: [ "reagent-popup-panacea" ]
@@ -60,12 +60,12 @@
           amount: -2
         - !type:HealthChange
           damage:
-            types:
-              Blunt: -3
-              Piercing: -3
-              Slash: -3
-              Heat: -3
-              Cold: -3
+            # WD EDIT: Migrated damage format
+            Blunt: -3
+            Cold: -3
+            Heat: -3
+            Piercing: -3
+            Slash: -3
         - !type:PopupMessage
             type: Local
             messages: [ "reagent-popup-fleshmend" ]
@@ -86,8 +86,10 @@
       effects:
       - !type:HealthChange
         damage:
-          groups:
-            Brute: -1.5 # Lower than Bicardine, offloading healing onto mitotrophin
+          # WD EDIT: Migrated damage format
+          Blunt: -0.5
+          Piercing: -0.5
+          Slash: -0.5
       - !type:TakeStaminaDamage
         conditions:
         - !type:ReagentThreshold
@@ -166,9 +168,14 @@
       effects:
       - !type:HealthChange
         damage:
-          groups: # powerful due to abundance of food, but very inconvienient to use
-            Brute: -4
-            Burn: -2
+          # WD EDIT: Migrated damage format
+          Blunt: -1.3
+          Caustic: -0.5
+          Cold: -0.5
+          Heat: -0.5
+          Piercing: -1.3
+          Shock: -0.5
+          Slash: -1.3
       - !type:ModifyBleedAmount
         amount: -0.5
       - !type:ModifyBloodLevel
@@ -191,8 +198,8 @@
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Asphyxiation: -6 # intended to be stronger, but more annoying than inapr
+          # WD EDIT: Migrated damage format
+          Asphyxiation: -6
       - !type:TakeStaminaDamage
         amount: 3 # full syringe doesn't stamcrit (maybe it should?)
         immediate: false
@@ -227,8 +234,8 @@
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Poison: -15
+          # WD EDIT: Migrated damage format
+          Poison: -15
       - !type:AdjustReagent
         reagent: Musiver
         amount: 3
@@ -237,8 +244,8 @@
         - !type:ReagentThreshold
           min: 6
         damage:
-          types:
-            Blunt: 15
+          # WD EDIT: Migrated damage format
+          Blunt: 15
       - !type:ModifyBleedAmount
         amount: 1
         conditions:
@@ -271,22 +278,23 @@
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Poison: -1
+          # WD EDIT: Migrated damage format
+          Poison: -1
       - !type:ChemCleanBloodstream
         cleanseRate: 1
       - !type:HealthChange
         damage:
-          groups:
-            Brute: 0.1
+          # WD EDIT: Migrated damage format
+          Blunt: 0.0
+          Piercing: 0.0
+          Slash: 0.0
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 20
         damage:
-          types:
-            Blunt: 5
-
+          # WD EDIT: Migrated damage format
+          Blunt: 5
 - type: reagent
   id: Ebifin
   name: reagent-name-ebifin
@@ -301,8 +309,11 @@
       effects:
       - !type:HealthChange
         damage:
-          groups:
-            Burn: -48 # in practice it's only 2+4/u per type on an insanely unwieldy chem; shock and caustic are very rare
+          # WD EDIT: Migrated damage format
+          Caustic: -12
+          Cold: -12
+          Heat: -12
+          Shock: -12
       - !type:AdjustReagent
         reagent: Tehifin
         amount: 3
@@ -311,8 +322,8 @@
         - !type:ReagentThreshold
           min: 4
         damage:
-          types:
-            Blunt: 30
+          # WD EDIT: Migrated damage format
+          Blunt: 30
       - !type:ModifyBleedAmount
         amount: 2
         conditions:
@@ -345,20 +356,24 @@
       effects:
       - !type:HealthChange
         damage:
-          groups:
-            Burn: -16
+          # WD EDIT: Migrated damage format
+          Caustic: -4
+          Cold: -4
+          Heat: -4
+          Shock: -4
       - !type:HealthChange
         damage:
-          groups:
-            Brute: 0.1
+          # WD EDIT: Migrated damage format
+          Blunt: 0.0
+          Piercing: 0.0
+          Slash: 0.0
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 10
         damage:
-          types:
-            Blunt: 5
-
+          # WD EDIT: Migrated damage format
+          Blunt: 5
 - type: reagent # in medicine.yml since it's a direct precursor/step
   id: ProcenylLazideSludge
   name: reagent-name-procenyl-lazide-sludge
@@ -382,10 +397,10 @@
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Slash: -8
-            Blunt: -8
-            Piercing: -8
+          # WD EDIT: Migrated damage format
+          Blunt: -8
+          Piercing: -8
+          Slash: -8
       - !type:AdjustReagent
         reagent: Bozaide
         amount: 3
@@ -394,8 +409,8 @@
         - !type:ReagentThreshold
           min: 6
         damage:
-          types:
-            Blunt: 15
+          # WD EDIT: Migrated damage format
+          Blunt: 15
       - !type:ModifyBleedAmount
         amount: 1
         conditions:
@@ -428,22 +443,21 @@
       effects:
       - !type:HealthChange
         damage:
-          groups:
-            Brute: -1 # intentionally slow
+          # WD EDIT: Migrated damage format
+          Blunt: -0.3
+          Piercing: -0.3
+          Slash: -0.3
       - !type:HealthChange
         damage:
-          types:
-            Radiation: 0.05 # very slight side effect
+          # WD EDIT: Migrated damage format
+          Radiation: 0.1
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 20
         damage:
-          types:
-            Radiation: 5
-
-# Poison related meds
-
+          # WD EDIT: Migrated damage format
+          Radiation: 5
 - type: reagent
   id: Multiver
   name: reagent-name-multiver
@@ -464,20 +478,21 @@
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Poison: -1
+          # WD EDIT: Migrated damage format
+          Poison: -1
       - !type:HealthChange
         conditions:
         - !type:UniqueBloodstreamChemThreshold
           min: 2
         damage:
-          types:
-            Poison: -3
+          # WD EDIT: Migrated damage format
+          Poison: -3
       - !type:HealthChange
         damage:
-          groups:
-            Brute: 0.5
-
+          # WD EDIT: Migrated damage format
+          Blunt: 0.2
+          Piercing: 0.2
+          Slash: 0.2
 - type: reagent
   id: Monover
   name: reagent-name-monover
@@ -501,12 +516,14 @@
         - !type:UniqueBloodstreamChemThreshold
           max: 2
         damage:
-          types:
-            Poison: -3 # slightly better than dylo, but the side effect is easy to fall into
+          # WD EDIT: Migrated damage format
+          Poison: -3
       - !type:HealthChange
         damage:
-          groups:
-            Brute: 1
+          # WD EDIT: Migrated damage format
+          Blunt: 0.3
+          Piercing: 0.3
+          Slash: 0.3
         conditions:
         - !type:UniqueBloodstreamChemThreshold
           min: 1 # potential use for checking bloodstream cleanliness?
@@ -534,22 +551,22 @@
         cleanseRate: 4.5 # better than charcoal
       - !type:HealthChange
         damage:
-          types:
-            Poison: -3
+          # WD EDIT: Migrated damage format
+          Poison: -3
         conditions:
         - !type:MobStateCondition
           mobstate: Critical
       - !type:HealthChange
         damage:
-          types:
-            Poison: 3
+          # WD EDIT: Migrated damage format
+          Poison: 3
         conditions:
         - !type:MobStateCondition
           mobstate: Alive
       - !type:HealthChange
         damage:
-          types:
-            Poison: 6
+          # WD EDIT: Migrated damage format
+          Poison: 6
         conditions:
         - !type:ReagentThreshold
           min: 15
@@ -581,63 +598,75 @@
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Poison: 3
+          # WD EDIT: Migrated damage format
+          Poison: 3
         conditions:
         - !type:ReagentThreshold
           min: 10
       - !type:HealthChange
         damage:
-          types:
-            Poison: -3
+          # WD EDIT: Migrated damage format
+          Poison: -3
         conditions:
         - !type:ReagentThreshold
           max: 10
         - !type:TypedDamageThreshold
           damage:
-            groups:
-              Brute: 1
-              Burn: 1
+            # WD EDIT: Migrated damage format
+            Blunt: 0.3
+            Caustic: 0.2
+            Cold: 0.2
+            Heat: 0.2
+            Piercing: 0.3
+            Shock: 0.2
+            Slash: 0.3
           inverse: true
       - !type:HealthChange # Ideally it'd be a slope, but that's TBD together with cryox scaling with temps
         damage:
-          types:
-            Poison: 1
+          # WD EDIT: Migrated damage format
+          Poison: 1
         conditions:
         - !type:TypedDamageThreshold
           damage:
-            groups:
-              Burn: 30
+            # WD EDIT: Migrated damage format
+            Caustic: 7.5
+            Cold: 7.5
+            Heat: 7.5
+            Shock: 7.5
       - !type:HealthChange
         damage:
-          types:
-            Poison: 1
+          # WD EDIT: Migrated damage format
+          Poison: 1
         conditions:
         - !type:TypedDamageThreshold
           damage:
-            groups:
-              Burn: 60
+            # WD EDIT: Migrated damage format
+            Caustic: 15
+            Cold: 15
+            Heat: 15
+            Shock: 15
       - !type:HealthChange
         damage:
-          types:
-            Poison: 2
+          # WD EDIT: Migrated damage format
+          Poison: 2
         conditions:
         - !type:TypedDamageThreshold
           damage:
-            groups:
-              Brute: 30
+            # WD EDIT: Migrated damage format
+            Blunt: 10
+            Piercing: 10
+            Slash: 10
       - !type:HealthChange
         damage:
-          types:
-            Poison: 2
+          # WD EDIT: Migrated damage format
+          Poison: 2
         conditions:
         - !type:TypedDamageThreshold
           damage:
-            groups:
-              Brute: 60
-
-# Low-effect meds
-
+            # WD EDIT: Migrated damage format
+            Blunt: 20
+            Piercing: 20
+            Slash: 20
 - type: reagent
   id: Antihol # Charcoal hog more than anything
   name: reagent-name-antihol
@@ -661,8 +690,8 @@
         - !type:TotalDamage
           min: 50
         damage:
-          types:
-            Poison: -1
+          # WD EDIT: Migrated damage format
+          Poison: -1
       - !type:AdjustReagent
         reagent: Ethanol
         amount: -4
@@ -686,8 +715,10 @@
       effects:
       - !type:HealthChange
         damage:
-          groups:
-            Brute: -1
+          # WD EDIT: Migrated damage format
+          Blunt: -0.3
+          Piercing: -0.3
+          Slash: -0.3
       - !type:GenericStatusEffect
         key: Adrenaline
         component: IgnoreSlowOnDamage
@@ -704,8 +735,8 @@
         amount: -1000
       - !type:HealthChange
         damage:
-          types:
-            Poison: 0.2
+          # WD EDIT: Migrated damage format
+          Poison: 0.2
         conditions:
         - !type:ReagentThreshold
           min: 20
@@ -736,11 +767,11 @@
         scaleByQuantity: true
         ignoreResistances: false
         damage:
-          types:
-            Heat: -1.5
-            Cold: -1.5
-            Shock: -1
-            Caustic: -1
+          # WD EDIT: Migrated damage format
+          Caustic: -1
+          Cold: -1.5
+          Heat: -1.5
+          Shock: -1
         conditions:
         - !type:HasComponentOnEquipmentCondition
           components:
@@ -752,14 +783,13 @@
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Heat: -1
-            Cold: -1
+          # WD EDIT: Migrated damage format
+          Cold: -1
+          Heat: -1
       - !type:HealthChange
         damage:
-          types:
-            Poison: 2
-
+          # WD EDIT: Migrated damage format
+          Poison: 2
 - type: reagent
   id: StypticCrystalCatalyst
   name: reagent-name-styptic-crystal-catalyst
@@ -796,10 +826,10 @@
         scaleByQuantity: true
         ignoreResistances: false
         damage:
-          types:
-            Blunt: -2
-            Piercing: -1 # limits combat effectivness
-            Slash: -2
+          # WD EDIT: Migrated damage format
+          Blunt: -2
+          Piercing: -1
+          Slash: -2
         conditions:
         - !type:HasComponentOnEquipmentCondition
           components:
@@ -818,15 +848,14 @@
       effects:
       - !type:HealthChange
         damage:
-          groups:
-            Brute: -2
+          # WD EDIT: Migrated damage format
+          Blunt: -0.7
+          Piercing: -0.7
+          Slash: -0.7
       - !type:HealthChange
         damage:
-          types:
-            Poison: 2
-
-# Strong general meds
-
+          # WD EDIT: Migrated damage format
+          Poison: 2
 - type: reagent
   id: SalicylicAcid
   name: reagent-name-salicylic-acid
@@ -846,31 +875,41 @@
       effects:
       - !type:HealthChange
         damage:
-          groups:
-            Brute: -9
+          # WD EDIT: Migrated damage format
+          Blunt: -3
+          Piercing: -3
+          Slash: -3
         conditions:
         - !type:TypedDamageThreshold
           damage:
-            groups:
-              Brute: 25
+            # WD EDIT: Migrated damage format
+            Blunt: 8.3
+            Piercing: 8.3
+            Slash: 8.3
         - !type:ReagentThreshold
           max: 25
       - !type:HealthChange
         damage:
-          groups:
-            Brute: -1
+          # WD EDIT: Migrated damage format
+          Blunt: -0.3
+          Piercing: -0.3
+          Slash: -0.3
         conditions:
         - !type:TypedDamageThreshold
           damage:
-            groups:
-              Brute: 25
+            # WD EDIT: Migrated damage format
+            Blunt: 8.3
+            Piercing: 8.3
+            Slash: 8.3
           inverse: true
         - !type:ReagentThreshold
           max: 25
       - !type:HealthChange
         damage:
-          groups:
-            Brute: 3
+          # WD EDIT: Migrated damage format
+          Blunt: 1
+          Piercing: 1
+          Slash: 1
         conditions:
         - !type:ReagentThreshold
           min: 25
@@ -891,34 +930,46 @@
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Heat: -3
-            Shock: -2
-            Cold: -3
-            Caustic: -2
+          # WD EDIT: Migrated damage format
+          Caustic: -2
+          Cold: -3
+          Heat: -3
+          Shock: -2
         conditions:
         - !type:TypedDamageThreshold
           damage:
-            groups:
-              Burn: 25
+            # WD EDIT: Migrated damage format
+            Caustic: 6.2
+            Cold: 6.2
+            Heat: 6.2
+            Shock: 6.2
         - !type:ReagentThreshold
           max: 25
       - !type:HealthChange
         damage:
-          groups:
-            Burn: -2
+          # WD EDIT: Migrated damage format
+          Caustic: -0.5
+          Cold: -0.5
+          Heat: -0.5
+          Shock: -0.5
         conditions:
         - !type:TypedDamageThreshold
           damage:
-            groups:
-              Burn: 25
+            # WD EDIT: Migrated damage format
+            Caustic: 6.2
+            Cold: 6.2
+            Heat: 6.2
+            Shock: 6.2
           inverse: true
         - !type:ReagentThreshold
           max: 25
       - !type:HealthChange
         damage:
-          groups:
-            Burn: 3
+          # WD EDIT: Migrated damage format
+          Caustic: 0.8
+          Cold: 0.8
+          Heat: 0.8
+          Shock: 0.8
         conditions:
         - !type:ReagentThreshold
           min: 25
@@ -943,9 +994,9 @@
       - !type:ChemCleanBloodstream
       - !type:HealthChange
         damage:
-          types:
-            Poison: -1
-            Radiation: -1 # grants 100% protection from rads until higher rad values
+          # WD EDIT: Migrated damage format
+          Poison: -1
+          Radiation: -1
       - !type:GenericStatusEffect
         key: RadiationProtection
         component: RadiationProtection
@@ -972,11 +1023,18 @@
       effects:
       - !type:HealthChange
         damage:
-          groups:
-            Airloss: -4
-            Brute: -2
-            Burn: -2
-            Toxin: -2
+          # WD EDIT: Migrated damage format
+          Asphyxiation: -2
+          Bloodloss: -2
+          Blunt: -0.7
+          Caustic: -0.5
+          Cold: -0.5
+          Heat: -0.5
+          Piercing: -0.7
+          Poison: -1
+          Radiation: -1
+          Shock: -0.5
+          Slash: -0.7
         conditions:
         - !type:MobStateCondition
           mobstate: Critical
@@ -1003,8 +1061,8 @@
         boozePower: 5
       - !type:HealthChange
         damage:
-          types:
-            Poison: 2
+          # WD EDIT: Migrated damage format
+          Poison: 2
         conditions:
         - !type:ReagentThreshold
           min: 35
@@ -1034,14 +1092,14 @@
       effects:
       - !type:HealthChange
         damage:
-          groups:
-            Genetic: -6
+          # WD EDIT: Migrated damage format
+          Cellular: -6
       - !type:HealthChange # this + explosion rounds out to ~90dmg/15u
         damage:
-          types:
-            Heat: 1
-            Blunt: 1
-            Piercing: 1
+          # WD EDIT: Migrated damage format
+          Blunt: 1
+          Heat: 1
+          Piercing: 1
       - !type:ExplosionReactionEffect
         explosionType: Default
         maxIntensity: 0.4
@@ -1074,8 +1132,8 @@
         scaleByQuantity: true
         ignoreResistances: false
         damage:
-          types:
-            Cold: 0.05
+          # WD EDIT: Migrated damage format
+          Cold: 0.1
       - !type:AdjustTemperature
         conditions:
         - !type:Temperature
@@ -1086,17 +1144,17 @@
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Heat: -3
+          # WD EDIT: Migrated damage format
+          Heat: -3
       - !type:HealthChange
         damage:
-          types:
-            Heat: -3
+          # WD EDIT: Migrated damage format
+          Heat: -3
         conditions:
         - !type:TypedDamageThreshold
           damage:
-            types:
-              Heat: 40
+            # WD EDIT: Migrated damage format
+            Heat: 40
       - !type:AdjustTemperature
         conditions:
         - !type:Temperature
@@ -1131,8 +1189,8 @@
         scaleByQuantity: true
         ignoreResistances: false
         damage:
-          types:
-            Heat: 0.05
+          # WD EDIT: Migrated damage format
+          Heat: 0.1
       - !type:AdjustTemperature
         conditions:
         - !type:Temperature
@@ -1143,17 +1201,17 @@
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Cold: -3
+          # WD EDIT: Migrated damage format
+          Cold: -3
       - !type:HealthChange
         damage:
-          types:
-            Cold: -3
+          # WD EDIT: Migrated damage format
+          Cold: -3
         conditions:
         - !type:TypedDamageThreshold
           damage:
-            types:
-              Cold: 40
+            # WD EDIT: Migrated damage format
+            Cold: 40
       - !type:AdjustTemperature
         conditions:
         - !type:Temperature

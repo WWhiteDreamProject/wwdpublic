@@ -1,0 +1,112 @@
+- type: entity
+  id: BaseBodyProviderPartSkeleton
+  parent: BaseBodyProviderPart
+  abstract: true
+  suffix: Skeleton
+  components:
+  - type: BodyAppearanceProvider
+    path: _White/Bodies/Parts/Humanoids/skeleton.rsi
+  - type: Sprite
+    sprite: _White/Bodies/Parts/Humanoids/skeleton.rsi
+
+# Arms
+- type: entity
+  id: BodyProviderLeftArmSkeleton
+  parent: [BaseBodyProviderLeftArm, BaseBodyProviderPartSkeleton]
+  components:
+  - type: BodyAppearanceProvider
+    state: left_arm-in-body # TODO: Ideally, this should be in base.yml, but we don't have icons for each parts. It's sad =(.
+
+- type: entity
+  id: BodyProviderRightArmSkeleton
+  parent: [BaseBodyProviderRightArm, BaseBodyProviderPartSkeleton]
+  components:
+  - type: BodyAppearanceProvider
+    state: right_arm-in-body
+
+# Chest
+- type: entity
+  id: BodyProviderChestSkeleton
+  parent: [BaseBodyProviderChest, BaseBodyProviderPartSkeleton]
+  components:
+  - type: BodyAppearanceProvider
+    state: chest-in-body
+
+# Foots
+- type: entity
+  id: BodyProviderLeftFootSkeleton
+  parent: [BaseBodyProviderLeftFoot, BaseBodyProviderPartSkeleton]
+  components:
+  - type: BodyAppearanceProvider
+    state: left_foot-in-body
+
+- type: entity
+  id: BodyProviderRightFootSkeleton
+  parent: [BaseBodyProviderRightFoot, BaseBodyProviderPartSkeleton]
+  components:
+  - type: BodyAppearanceProvider
+    state: right_foot-in-body
+
+# Groin
+- type: entity
+  id: BodyProviderGroinSkeleton
+  parent: [BaseBodyProviderGroin, BaseBodyProviderPartSkeleton]
+  components:
+  - type: BodyAppearanceProvider
+    state: groin-in-body
+
+# Hands
+- type: entity
+  id: BodyProviderLeftHandSkeleton
+  parent: [BaseBodyProviderLeftHand, BaseBodyProviderPartSkeleton]
+  components:
+  - type: BodyAppearanceProvider
+    state: left_hand-in-body
+
+- type: entity
+  id: BodyProviderRightHandSkeleton
+  parent: [BaseBodyProviderRightHand, BaseBodyProviderPartSkeleton]
+  components:
+  - type: BodyAppearanceProvider
+    state: right_hand-in-body
+
+# Head
+- type: entity
+  id: BodyProviderHeadSkeleton
+  parent: [BaseBodyProviderHead, BaseBodyProviderPartSkeleton]
+  components:
+  - type: BodyAppearanceProvider
+    state: head-in-body
+  - type: Grammar
+    attributes:
+      proper: true
+  - type: Emoting
+  - type: Examiner
+  - type: Input
+    context: "human"
+  - type: MobState
+    allowedStates:
+    - Alive
+  - type: SkeletonAccent
+  - type: Speech
+    speechVerb: Skeleton
+  - type: Vocal
+    sounds:
+      Male: Skeleton
+      Female: Skeleton
+      Unsexed: Skeleton
+
+# Legs
+- type: entity
+  id: BodyProviderLeftLegSkeleton
+  parent: [BaseBodyProviderLeftLeg, BaseBodyProviderPartSkeleton]
+  components:
+  - type: BodyAppearanceProvider
+    state: left_leg-in-body
+
+- type: entity
+  id: BodyProviderRightLegSkeleton
+  parent: [BaseBodyProviderRightLeg, BaseBodyProviderPartSkeleton]
+  components:
+  - type: BodyAppearanceProvider
+    state: right_leg-in-body

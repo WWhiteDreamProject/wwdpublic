@@ -31,7 +31,6 @@
       state: glow
       shader: unshaded
     state: base
-  - type: EtherealLight
   - type: PointLight
     color: "#D2DCF2" # WWDP edit
     energy: 0.8
@@ -135,8 +134,8 @@
       burned: burned
   - type: DamageOnInteract
     damage:
-      types:
-        Heat: 2
+      # WD EDIT: Migrated damage format
+      Heat: 2
     popupText: powered-light-component-burn-hand
 
 - type: entity
@@ -159,8 +158,8 @@
       path: /Audio/Ambience/Objects/light_hum.ogg
   - type: DamageOnInteract
     damage:
-      types:
-        Heat: 2
+      # WD EDIT: Migrated damage format
+      Heat: 2
     popupText: powered-light-component-burn-hand
 
 #LED lights
@@ -179,8 +178,8 @@
     color: "#EEEEFF"
   - type: DamageOnInteract
     damage:
-      types:
-        Heat: 1 # LEDs don't get as hot
+      # WD EDIT: Migrated damage format
+      Heat: 1
     popupText: powered-light-component-burn-hand
 
 - type: entity
@@ -205,8 +204,8 @@
     hasLampOnSpawn: ExteriorLightTube
   - type: DamageOnInteract
     damage:
-      types:
-        Heat: 4 # brighter light gets hotter
+      # WD EDIT: Migrated damage format
+      Heat: 4
     popupText: powered-light-component-burn-hand
 
 - type: entity
@@ -236,8 +235,8 @@
     color: "#FFAF38"
   - type: DamageOnInteract
     damage:
-      types:
-        Heat: 2
+      # WD EDIT: Migrated damage format
+      Heat: 2
     popupText: powered-light-component-burn-hand
 
 - type: entity
@@ -353,8 +352,8 @@
       - Toggle
   - type: DamageOnInteract
     damage:
-      types:
-        Heat: 2
+      # WD EDIT: Migrated damage format
+      Heat: 2
     popupText: powered-light-component-burn-hand
 
 - type: entity
@@ -374,8 +373,8 @@
     hasLampOnSpawn: LedLightBulb
   - type: DamageOnInteract
     damage:
-      types:
-        Heat: 1
+      # WD EDIT: Migrated damage format
+      Heat: 1
     popupText: powered-light-component-burn-hand
 
 - type: entity
@@ -395,8 +394,8 @@
     hasLampOnSpawn: DimLightBulb
   - type: DamageOnInteract
     damage:
-      types:
-        Heat: 1
+      # WD EDIT: Migrated damage format
+      Heat: 1
     popupText: powered-light-component-burn-hand
 
 - type: entity
@@ -416,8 +415,8 @@
     hasLampOnSpawn: WarmLightBulb
   - type: DamageOnInteract
     damage:
-      types:
-        Heat: 2
+      # WD EDIT: Migrated damage format
+      Heat: 2
     popupText: powered-light-component-burn-hand
 
 - type: entity
@@ -433,8 +432,8 @@
     hasLampOnSpawn: LightBulb
   - type: DamageOnInteract
     damage:
-      types:
-        Heat: 2
+      # WD EDIT: Migrated damage format
+      Heat: 2
     popupText: powered-light-component-burn-hand
 
 #Emergency Lights
@@ -526,8 +525,8 @@
     color: "#47f8ff"
   - type: DamageOnInteract
     damage:
-      types:
-        Heat: 2
+      # WD EDIT: Migrated damage format
+      Heat: 2
     popupText: powered-light-component-burn-hand
 
 - type: entity
@@ -555,8 +554,8 @@
     color: "#39a1ff"
   - type: DamageOnInteract
     damage:
-      types:
-        Heat: 2
+      # WD EDIT: Migrated damage format
+      Heat: 2
     popupText: powered-light-component-burn-hand
 
 - type: entity
@@ -584,8 +583,8 @@
     color: "#ff66cc"
   - type: DamageOnInteract
     damage:
-      types:
-        Heat: 2
+      # WD EDIT: Migrated damage format
+      Heat: 2
     popupText: powered-light-component-burn-hand
 
 - type: entity
@@ -613,8 +612,8 @@
     color: "#ff8227"
   - type: DamageOnInteract
     damage:
-      types:
-        Heat: 2
+      # WD EDIT: Migrated damage format
+      Heat: 2
     popupText: powered-light-component-burn-hand
 
 - type: entity
@@ -642,8 +641,8 @@
     color: "#fb4747"
   - type: DamageOnInteract
     damage:
-      types:
-        Heat: 2
+      # WD EDIT: Migrated damage format
+      Heat: 2
     popupText: powered-light-component-burn-hand
 
 - type: entity
@@ -671,8 +670,8 @@
     color: "#52ff39"
   - type: DamageOnInteract
     damage:
-      types:
-        Heat: 2
+      # WD EDIT: Migrated damage format
+      Heat: 2
     popupText: powered-light-component-burn-hand
 
 - type: entity

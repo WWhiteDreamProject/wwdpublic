@@ -1,0 +1,66 @@
+- type: entity
+  id: BaseBodyProviderPartReptilian
+  parent: BaseBodyProviderPartOrganic
+  abstract: true
+  suffix: Reptilian
+  components:
+  - type: BodyAppearanceProvider
+    path: _White/Bodies/Parts/Humanoids/reptilian.rsi
+  - type: Sprite
+    sprite: _White/Bodies/Parts/Humanoids/reptilian.rsi
+
+# Arms
+- type: entity
+  id: BodyProviderLeftArmReptilian
+  parent: [BaseBodyProviderLeftArmOrganic, BaseBodyProviderPartReptilian]
+
+- type: entity
+  id: BodyProviderRightArmReptilian
+  parent: [BaseBodyProviderRightArmOrganic, BaseBodyProviderPartReptilian]
+
+# Chest
+- type: entity
+  id: BodyProviderChestReptilian
+  parent: [BaseBodyProviderChestOrganic, BaseBodyProviderPartReptilian]
+
+# Foots
+- type: entity
+  id: BodyProviderLeftFootReptilian
+  parent: [BaseBodyProviderLeftFootOrganic, BaseBodyProviderPartReptilian]
+
+- type: entity
+  id: BodyProviderRightFootReptilian
+  parent: [BaseBodyProviderRightFootOrganic, BaseBodyProviderPartReptilian]
+
+# Groin
+- type: entity
+  id: BodyProviderGroinReptilian
+  parent: [BaseBodyProviderGroinOrganic, BaseBodyProviderPartReptilian]
+
+# Hands
+- type: entity
+  id: BodyProviderLeftHandReptilian
+  parent: [BaseBodyProviderLeftHandOrganic, BaseBodyProviderPartReptilian]
+
+- type: entity
+  id: BodyProviderRightHandReptilian
+  parent: [BaseBodyProviderRightHandOrganic, BaseBodyProviderPartReptilian]
+
+# Head
+- type: entity
+  id: BodyProviderHeadReptilian
+  parent: [BaseBodyProviderHeadOrganic, BaseBodyProviderPartReptilian]
+
+# Legs
+- type: entity
+  id: BodyProviderLeftLegReptilian
+  parent: [BaseBodyProviderLeftLegOrganic, BaseBodyProviderPartReptilian]
+
+- type: entity
+  id: BodyProviderRightLegReptilian
+  parent: [BaseBodyProviderRightLegOrganic, BaseBodyProviderPartReptilian]
+
+# Tail
+- type: entity
+  id: BodyProviderTailReptilian
+  parent: [BaseBodyProviderTailOrganic, BaseBodyProviderPartReptilian]

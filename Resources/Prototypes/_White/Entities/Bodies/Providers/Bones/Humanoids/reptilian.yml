@@ -1,0 +1,64 @@
+- type: entity
+  id: BaseBodyProviderBoneReptilian
+  parent: BaseBodyProviderBone
+  abstract: true
+  suffix: Reptilian
+  components:
+  - type: Sprite
+    sprite: _White/Bodies/Bones/Humanoids/human.rsi
+
+# Arm Bone / Antebrachium
+- type: entity
+  id: BodyProviderLeftAntebrachiumReptilian
+  parent: [BaseBodyProviderLeftAntebrachium, BaseBodyProviderBoneReptilian]
+
+- type: entity
+  id: BodyProviderRightAntebrachiumReptilian
+  parent: [BaseBodyProviderRightAntebrachium, BaseBodyProviderBoneReptilian]
+
+# Tail Bone / Cauda
+- type: entity
+  id: BodyProviderCaudaReptilian
+  parent: [BaseBodyProviderCauda, BaseBodyProviderBoneReptilian]
+
+# Pelvis / Coxae
+- type: entity
+  id: BodyProviderCoxaeReptilian
+  parent: [BaseBodyProviderCoxae, BaseBodyProviderBoneReptilian]
+
+# Skull / Сranium
+- type: entity
+  id: BodyProviderCraniumReptilian
+  parent: [BaseBodyProviderCranium, BaseBodyProviderBoneReptilian]
+
+# Leg Bone / Crus
+- type: entity
+  id: BodyProviderLeftCrusReptilian
+  parent: [BaseBodyProviderLeftCrus, BaseBodyProviderBoneReptilian]
+
+- type: entity
+  id: BodyProviderRightCrusReptilian
+  parent: [BaseBodyProviderRightCrus, BaseBodyProviderBoneReptilian]
+
+# Hand Bone / Manus
+- type: entity
+  id: BodyProviderLeftManusReptilian
+  parent: [BaseBodyProviderLeftManus, BaseBodyProviderBoneReptilian]
+
+- type: entity
+  id: BodyProviderRightManusReptilian
+  parent: [BaseBodyProviderRightManus, BaseBodyProviderBoneReptilian]
+
+# Foot Bone / Pedis
+- type: entity
+  id: BodyProviderLeftPedisReptilian
+  parent: [BaseBodyProviderLeftPedis, BaseBodyProviderBoneReptilian]
+
+- type: entity
+  id: BodyProviderRightPedisReptilian
+  parent: [BaseBodyProviderRightPedis, BaseBodyProviderBoneReptilian]
+
+# Rib Cage / Thorax
+- type: entity
+  id: BodyProviderThoraxReptilian
+  parent: [BaseBodyProviderThorax, BaseBodyProviderBoneReptilian]

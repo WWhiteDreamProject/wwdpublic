@@ -12,8 +12,8 @@
     fireSpread: true
     alwaysCombustible: true
     damage:
-      types:
-        Heat: 1
+      # WD EDIT: Migrated damage format
+      Heat: 1
   - type: FireVisuals
     sprite: Effects/fire.rsi
     normalState: fire
@@ -32,8 +32,7 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: Food
-    solution: food
+  - type: Ingestible # WD Ingestible
     delay: 7
     forceFeedDelay: 7
   - type: FlavorProfile
@@ -42,7 +41,7 @@
   - type: BadFood
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 1
         reagents:
         - ReagentId: Fiber
@@ -542,9 +541,8 @@
   - type: MeleeWeapon
     wideAnimationRotation: 180
     damage:
-      types:
-        Blunt: 6
-
+      # WD EDIT: Migrated damage format
+      Blunt: 6
 - type: entity
   id: BoxFolderCentComClipboard
   parent: BoxFolderClipboard
@@ -626,8 +624,8 @@
         type: StorageBoundUserInterface
   - type: MeleeWeapon
     damage:
-      types:
-        Blunt: 10
+      # WD EDIT: Migrated damage format
+      Blunt: 10
   - type: Tag
     tags:
     - Folder
@@ -715,8 +713,8 @@
     alwaysCombustible: true
     canExtinguish: true
     damage:
-      types:
-        Heat: 1
+      # WD EDIT: Migrated damage format
+      Heat: 1
   - type: FireVisuals
     sprite: Effects/fire.rsi
     normalState: fire

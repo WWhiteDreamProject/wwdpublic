@@ -31,7 +31,7 @@
           steps:
           - tag: Head
             icon:
-              sprite: Mobs/Species/Human/parts.rsi
+              sprite: _White/Bodies/Parts/Humanoids/human.rsi # WD EDIT
               state: "head" # WD EDIT: head_m -> head
             name: human head
             doAfter: 1

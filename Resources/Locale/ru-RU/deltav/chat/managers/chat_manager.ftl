@@ -1,9 +1,3 @@
-chat-speech-verb-name-vulpkanin = Вулпа
-chat-speech-verb-vulpkanin-1 = рычит
-chat-speech-verb-vulpkanin-2 = лает
-chat-speech-verb-vulpkanin-3 = рычит
-chat-speech-verb-vulpkanin-4 = тявкает
-
 chat-speech-verb-name-felinid = Фелинид
 chat-speech-verb-felinid-1 = мяукает
 chat-speech-verb-felinid-2 = мяукает

@@ -1,0 +1,84 @@
+- type: markingCategory
+  id: Appendages
+  layers:
+  - enum.MarkingVisualLayers.ChestBack
+  - enum.MarkingVisualLayers.GroinBack
+
+- type: markingCategory
+  id: Arms
+  layers:
+  - enum.BodyProviderType.LeftArm
+  - enum.BodyProviderType.LeftHand
+  - enum.BodyProviderType.RightArm
+  - enum.BodyProviderType.RightHand
+
+- type: markingCategory
+  id: Chelicerae
+  layers:
+  - enum.MarkingVisualLayers.HeadBottom
+
+- type: markingCategory
+  id: Ears
+  layers:
+  - enum.MarkingVisualLayers.HeadSide
+  - enum.MarkingVisualLayers.HeadTop
+
+- type: markingCategory
+  id: Eyes
+  layers:
+  - enum.BodyProviderType.Eyes
+  - enum.MarkingVisualLayers.Face
+
+- type: markingCategory
+  id: Face
+  layers:
+  - enum.MarkingVisualLayers.Face
+
+- type: markingCategory
+  id: Head
+  layers:
+  - enum.BodyProviderType.Head
+  - enum.MarkingVisualLayers.HeadBottom
+  - enum.MarkingVisualLayers.HeadSide
+  - enum.MarkingVisualLayers.HeadTop
+  - enum.MarkingVisualLayers.Snout
+
+- type: markingCategory
+  id: Horns
+  layers:
+  - enum.MarkingVisualLayers.HeadTop
+
+- type: markingCategory
+  id: Legs
+  layers:
+  - enum.BodyProviderType.LeftFoot
+  - enum.BodyProviderType.LeftLeg
+  - enum.BodyProviderType.RightFoot
+  - enum.BodyProviderType.RightLeg
+
+- type: markingCategory
+  id: Nose
+  layers:
+  - enum.MarkingVisualLayers.Face
+
+- type: markingCategory
+  id: Snout
+  layers:
+  - enum.MarkingVisualLayers.Snout
+
+- type: markingCategory
+  id: Tail
+  layers:
+  - enum.BodyProviderType.Tail
+
+- type: markingCategory
+  id: Torso
+  layers:
+  - enum.BodyProviderType.Chest
+  - enum.BodyProviderType.Groin
+  - enum.BodyProviderType.Torso
+
+- type: markingCategory
+  id: Wings
+  layers:
+  - enum.BodyProviderType.Wings

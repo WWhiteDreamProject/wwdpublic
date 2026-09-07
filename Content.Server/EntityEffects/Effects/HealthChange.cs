@@ -45,22 +45,19 @@ namespace Content.Server.EntityEffects.Effects
 
             var damageSpec = new DamageSpecifier(Damage);
 
-            var damageableSystem = entSys.GetEntitySystem<DamageableSystem>();
-
             foreach (var group in prototype.EnumeratePrototypes<DamageGroupPrototype>())
             {
-                if (!damageSpec.TryGetDamageInGroup(group, damageableSystem, out var amount))
+                if (!damageSpec.TryGetDamageInGroup(group, out var amount))
                     continue;
 
-                var types = damageableSystem.GetTypes(group);
                 var relevantTypes = damageSpec
-                    .Where(x => x.Value != FixedPoint2.Zero &&types.Contains(x.Key)).ToList();
+                    .Where(x => x.Value != FixedPoint2.Zero && group.Types.Contains(x.Key)).ToList();
 
-                if (relevantTypes.Count != types.Count)
+                if (relevantTypes.Count != group.Types.Count)
                     continue;
 
                 var sum = FixedPoint2.Zero;
-                foreach (var type in types)
+                foreach (var type in group.Types)
                 {
                     sum += damageSpec.GetValueOrDefault(type);
                 }
@@ -79,12 +76,12 @@ namespace Content.Server.EntityEffects.Effects
 
                 damages.Add(
                     Loc.GetString("health-change-display",
-                        ("kind", group.Name),
+                        ("kind", group.LocalizedName),
                         ("amount", MathF.Abs(amount.Float())),
                         ("deltasign", sign)
                     ));
 
-                foreach (var type in types)
+                foreach (var type in group.Types)
                 {
                     damageSpec.Remove(type);
                 }
@@ -101,7 +98,7 @@ namespace Content.Server.EntityEffects.Effects
 
                 damages.Add(
                     Loc.GetString("health-change-display",
-                        ("kind", prototype.Index<DamageTypePrototype>(kind).Name),
+                        ("kind", prototype.Index<DamageTypePrototype>(kind).LocalizedName),
                         ("amount", MathF.Abs(amount.Float())),
                         ("deltasign", sign)
                     ));

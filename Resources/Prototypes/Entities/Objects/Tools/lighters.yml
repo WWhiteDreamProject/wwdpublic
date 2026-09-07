@@ -14,8 +14,7 @@
       collection: lighterOffSounds
   - type: ItemToggleMeleeWeapon
     activatedDamage:
-      types:
-        Heat: 1
+      Heat: 1
     activatedSoundOnHit:
       path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
       params:
@@ -89,8 +88,8 @@
     animationRotation: 180 # WWDP
     wideAnimationRotation: 180
     damage:
-      types:
-        Blunt: 0
+      # WD EDIT: Migrated damage format
+      Blunt: 0
   - type: DamageOtherOnHit
   - type: Welder
     fuelConsumption: 0.01
@@ -177,8 +176,7 @@
         volume: -5
   - type: ItemToggleMeleeWeapon
     activatedDamage:
-      types:
-        Heat: 1
+      Heat: 1
     activatedSoundOnHit:
       path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
       params:
@@ -238,8 +236,8 @@
     animationRotation: 180 # WWDP
     wideAnimationRotation: 180
     damage:
-      types:
-        Blunt: 1 # does a little bit of damage on hit when off
+      # WD EDIT: Migrated damage format
+      Blunt: 1
   - type: DamageOtherOnHit
   - type: PointLight
     enabled: false

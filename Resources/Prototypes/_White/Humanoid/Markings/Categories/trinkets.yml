@@ -1,0 +1,4 @@
+- type: markingCategory
+  id: Earrings
+  layers:
+  - enum.MarkingVisualLayers.HeadSide

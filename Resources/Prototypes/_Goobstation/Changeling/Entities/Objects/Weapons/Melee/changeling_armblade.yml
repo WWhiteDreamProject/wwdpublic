@@ -11,9 +11,9 @@
     wideAnimationRotation: 90
     attackRate: 0.8 # WD edit 0.9 -> 0.8
     damage:
-      types:
-        Slash: 25 # WD edit 15 -> 25
-        Structural: 20
+      # WD EDIT: Migrated damage format
+      Slash: 25
+      Structural: 20
     lightRangeModifier: 1.2
     maxTargets: 1
     angle: 10
@@ -41,10 +41,10 @@
   components:
   - type: MeleeWeapon
     damage:
-      types:
-        Blunt: 1
-        Slash: 1
-        Piercing: 1
-        Structural: 1
+      # WD EDIT: Migrated damage format
+      Blunt: 1
+      Piercing: 1
+      Slash: 1
+      Structural: 1
   - type: TimedDespawn
     lifetime: 60

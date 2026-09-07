@@ -1,0 +1,61 @@
+- type: entity
+  id: BaseBodyProviderPartHuman
+  parent: BaseBodyProviderPartOrganic
+  abstract: true
+  suffix: Human
+  components:
+  - type: BodyAppearanceProvider
+    path: _White/Bodies/Parts/Humanoids/human.rsi
+  - type: Sprite
+    sprite: _White/Bodies/Parts/Humanoids/human.rsi
+
+# Arms
+- type: entity
+  id: BodyProviderLeftArmHuman
+  parent: [BaseBodyProviderLeftArmOrganic, BaseBodyProviderPartHuman]
+
+- type: entity
+  id: BodyProviderRightArmHuman
+  parent: [BaseBodyProviderRightArmOrganic, BaseBodyProviderPartHuman]
+
+# Chest
+- type: entity
+  id: BodyProviderChestHuman
+  parent: [BaseBodyProviderChestOrganic, BaseBodyProviderPartHuman]
+
+# Foots
+- type: entity
+  id: BodyProviderLeftFootHuman
+  parent: [BaseBodyProviderLeftFootOrganic, BaseBodyProviderPartHuman]
+
+- type: entity
+  id: BodyProviderRightFootHuman
+  parent: [BaseBodyProviderRightFootOrganic, BaseBodyProviderPartHuman]
+
+# Groin
+- type: entity
+  id: BodyProviderGroinHuman
+  parent: [BaseBodyProviderGroinOrganic, BaseBodyProviderPartHuman]
+
+# Hands
+- type: entity
+  id: BodyProviderLeftHandHuman
+  parent: [BaseBodyProviderLeftHandOrganic, BaseBodyProviderPartHuman]
+
+- type: entity
+  id: BodyProviderRightHandHuman
+  parent: [BaseBodyProviderRightHandOrganic, BaseBodyProviderPartHuman]
+
+# Head
+- type: entity
+  id: BodyProviderHeadHuman
+  parent: [BaseBodyProviderHeadOrganic, BaseBodyProviderPartHuman]
+
+# Legs
+- type: entity
+  id: BodyProviderLeftLegHuman
+  parent: [BaseBodyProviderLeftLegOrganic, BaseBodyProviderPartHuman]
+
+- type: entity
+  id: BodyProviderRightLegHuman
+  parent: [BaseBodyProviderRightLegOrganic, BaseBodyProviderPartHuman]

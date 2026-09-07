@@ -1,0 +1,18 @@
+- type: species
+  id: Plasmaman
+  setPreference: true
+  defaultColors:
+    Eyes: "#ED8CFF"
+    Skin: "#A349E4"
+  colorations:
+    Eyes: Simple
+    Skin: Hues
+  doll: HumanoidDollPlasmaman
+  prototype: MobHumanoidPlasmaman
+  maxAge: 180
+  oldAge: 120
+  youngAge: 60
+  sexes:
+  - Unsexed
+  name: species-name-plasmaman
+  naming: Plasmaman

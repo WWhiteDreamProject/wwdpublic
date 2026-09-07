@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-4.0",
-    "copyright": "Made by WWDP Team, equipped-OUTERCLOTHING-resomi made by Pofitlo. Vox state taken from vgstation13 at https://github.com/vgstation-coders/vgstation13/blob//icons/mob/species/vox/suit.dmi and modified by Flareguy",
+    "copyright": "Made by WWDP Team. Vox state taken from vgstation13 at https://github.com/vgstation-coders/vgstation13/blob//icons/mob/species/vox/suit.dmi and modified by Flareguy",
     "size": {
         "x": 32,
         "y": 32
@@ -12,10 +12,6 @@
         },
         {
             "name": "equipped-OUTERCLOTHING",
-            "directions": 4
-        },
-        {
-            "name": "equipped-OUTERCLOTHING-resomi",
             "directions": 4
         },
         {

@@ -1,397 +1,397 @@
-- type: marking
-  id: FeatheredLegL
-  markingCategory: LeftLeg
-  speciesRestriction: [ Vox ]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: featheredlegl
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.LeftLeg
-    bodyPart: LeftLeg
-    # WD EDIT END
-
-- type: marking
-  id: FeatheredLegR
-  markingCategory: RightLeg
-  speciesRestriction: [ Vox ]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: featheredlegr
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.RightLeg
-    bodyPart: RightLeg
-    # WD EDIT END
-
-- type: marking
-  id: SpotsArmL
-  markingCategory: LeftArm
-  speciesRestriction: [ Vox ]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: spotsarml
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.LeftArm
-    bodyPart: LeftArm
-    # WD EDIT END
-
-- type: marking
-  id: SpotsArmR
-  markingCategory: RightArm
-  speciesRestriction: [ Vox ]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: spotsarmr
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.RightArm
-    bodyPart: RightArm
-    # WD EDIT END
-
-- type: marking
-  id: SpotsChest
-  markingCategory: Chest
-  speciesRestriction: [ Vox ]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: spotschest1
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.Chest
-    bodyPart: Chest
-    # WD EDIT END
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: spotschest2
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.Chest
-    bodyPart: Chest
-    # WD EDIT END
-
-- type: marking
-  id: SpotsTail
-  markingCategory: Overlay
-  speciesRestriction: [ Vox ]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: spotstail
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.Tail
-    bodyPart: Tail
-    # WD EDIT END
-
-- type: marking
-  id: VoxStreamers
-  markingCategory: HeadSide
-  speciesRestriction: [ Vox ]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: streamers1
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadSide
-    bodyPart: Head
-    # WD EDIT END
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: streamers2
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadSide
-    bodyPart: Head
-    # WD EDIT END
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: streamers3
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadSide
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: VChest
-  markingCategory: Chest
-  speciesRestriction: [ Vox ]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: vchest1
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.Chest
-    bodyPart: Chest
-    # WD EDIT END
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: vchest2
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.Chest
-    bodyPart: Chest
-    # WD EDIT END
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: vchest3
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.Chest
-    bodyPart: Chest
-    # WD EDIT END
-
-- type: marking
-  id: VoxBald
-  markingCategory: Hair
-  speciesRestriction: [ Vox ]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: balding
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: LargeWattle
-  markingCategory: HeadSide
-  speciesRestriction: [ Vox ]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: beardlargewattle
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.FacialHair
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: BeardPadovana
-  markingCategory: FacialHair
-  speciesRestriction: [ Vox ]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: beardpadovana
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.FacialHair
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: HairPadovana
-  markingCategory: Hair
-  speciesRestriction: [ Vox ]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: hairpadovana
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: SmallWattle
-  markingCategory: HeadSide
-  speciesRestriction: [ Vox ]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: beardsmallwattle
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.FacialHair
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: VoxEmover
-  markingCategory: Hair
-  speciesRestriction: [ Vox ]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: hairemover
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: VoxPolish
-  markingCategory: Hair
-  speciesRestriction: [ Vox ]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: hairpolish
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: VoxWindswept
-  markingCategory: Hair
-  speciesRestriction: [ Vox ]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: hairwindswept
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: LargeComb
-  markingCategory: HeadSide
-  speciesRestriction: [ Vox ]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: largecomb
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: VoxEarhole
-  markingCategory: Head
-  speciesRestriction: [ Vox ]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: earhole
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: FriendsOfAFeather
-  markingCategory: Overlay
-  speciesRestriction: [ Vox ]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: friendsfeather1
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.Tail
-    bodyPart: Tail
-    # WD EDIT END
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: friendsfeather2
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.Tail
-    bodyPart: Tail
-    # WD EDIT END
-
-- type: marking
-  id: VoxNeckband
-  markingCategory: Head
-  speciesRestriction: [ Vox ]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: neckband
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.Head
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: VoxScarBlasted
-  markingCategory: Head
-  speciesRestriction: [ Vox ]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: scarheadblasted
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.Head
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: VoxScarIncision
-  markingCategory: Chest
-  speciesRestriction: [ Vox ]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: scarincision
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.Chest
-    bodyPart: Chest
-    # WD EDIT END
-
-- type: marking
-  id: VoxScarMangled
-  markingCategory: Chest
-  speciesRestriction: [ Vox ]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: scarmangled
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.Chest
-    bodyPart: Chest
-    # WD EDIT END
-
-- type: marking
-  id: VoxScarSpinal
-  markingCategory: Chest
-  speciesRestriction: [ Vox ]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: scarspinal
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.Chest
-    bodyPart: Chest
-    # WD EDIT END
-
-- type: marking
-  id: SideQuills
-  markingCategory: HeadSide
-  speciesRestriction: [ Vox ]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: sidequills1
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadSide
-    bodyPart: Head
-    # WD EDIT END
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: sidequills2
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadSide
-    bodyPart: Head
-    # WD EDIT END
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: sidequills3
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadSide
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: TailBloom
-  markingCategory: Overlay
-  speciesRestriction: [ Vox ]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: tailbloom1
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.Tail
-    bodyPart: Tail
-    # WD EDIT END
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: tailbloom2
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.Tail
-    bodyPart: Tail
-    # WD EDIT END
-  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
-    state: tailbloom3
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.Tail
-    bodyPart: Tail
-    # WD EDIT END
+#- type: marking
+#  id: FeatheredLegL
+#  markingCategory: LeftLeg
+#  speciesRestriction: [ Vox ]
+#  followSkinColor: false
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
+#    state: featheredlegl
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.LeftLeg
+#    bodyPart: LeftLeg
+#    # WD EDIT END
+#
+#- type: marking
+#  id: FeatheredLegR
+#  markingCategory: RightLeg
+#  speciesRestriction: [ Vox ]
+#  followSkinColor: false
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
+#    state: featheredlegr
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.RightLeg
+#    bodyPart: RightLeg
+#    # WD EDIT END
+#
+#- type: marking
+#  id: SpotsArmL
+#  markingCategory: LeftArm
+#  speciesRestriction: [ Vox ]
+#  followSkinColor: false
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
+#    state: spotsarml
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.LeftArm
+#    bodyPart: LeftArm
+#    # WD EDIT END
+#
+#- type: marking
+#  id: SpotsArmR
+#  markingCategory: RightArm
+#  speciesRestriction: [ Vox ]
+#  followSkinColor: false
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
+#    state: spotsarmr
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.RightArm
+#    bodyPart: RightArm
+#    # WD EDIT END
+#
+#- type: marking
+#  id: SpotsChest
+#  markingCategory: Chest
+#  speciesRestriction: [ Vox ]
+#  followSkinColor: false
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
+#    state: spotschest1
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.Chest
+#    bodyPart: Chest
+#    # WD EDIT END
+#  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
+#    state: spotschest2
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.Chest
+#    bodyPart: Chest
+#    # WD EDIT END
+#
+#- type: marking
+#  id: SpotsTail
+#  markingCategory: Overlay
+#  speciesRestriction: [ Vox ]
+#  followSkinColor: false
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
+#    state: spotstail
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.Tail
+#    bodyPart: Tail
+#    # WD EDIT END
+#
+#- type: marking
+#  id: VoxStreamers
+#  markingCategory: HeadSide
+#  speciesRestriction: [ Vox ]
+#  followSkinColor: false
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
+#    state: streamers1
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadSide
+#    bodyPart: Head
+#    # WD EDIT END
+#  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
+#    state: streamers2
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadSide
+#    bodyPart: Head
+#    # WD EDIT END
+#  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
+#    state: streamers3
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadSide
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: VChest
+#  markingCategory: Chest
+#  speciesRestriction: [ Vox ]
+#  followSkinColor: false
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
+#    state: vchest1
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.Chest
+#    bodyPart: Chest
+#    # WD EDIT END
+#  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
+#    state: vchest2
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.Chest
+#    bodyPart: Chest
+#    # WD EDIT END
+#  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
+#    state: vchest3
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.Chest
+#    bodyPart: Chest
+#    # WD EDIT END
+#
+#- type: marking
+#  id: VoxBald
+#  markingCategory: Hair
+#  speciesRestriction: [ Vox ]
+#  followSkinColor: false
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
+#    state: balding
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: LargeWattle
+#  markingCategory: HeadSide
+#  speciesRestriction: [ Vox ]
+#  followSkinColor: false
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
+#    state: beardlargewattle
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.FacialHair
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: BeardPadovana
+#  markingCategory: FacialHair
+#  speciesRestriction: [ Vox ]
+#  followSkinColor: false
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
+#    state: beardpadovana
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.FacialHair
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: HairPadovana
+#  markingCategory: Hair
+#  speciesRestriction: [ Vox ]
+#  followSkinColor: false
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
+#    state: hairpadovana
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: SmallWattle
+#  markingCategory: HeadSide
+#  speciesRestriction: [ Vox ]
+#  followSkinColor: false
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
+#    state: beardsmallwattle
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.FacialHair
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: VoxEmover
+#  markingCategory: Hair
+#  speciesRestriction: [ Vox ]
+#  followSkinColor: false
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
+#    state: hairemover
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: VoxPolish
+#  markingCategory: Hair
+#  speciesRestriction: [ Vox ]
+#  followSkinColor: false
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
+#    state: hairpolish
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: VoxWindswept
+#  markingCategory: Hair
+#  speciesRestriction: [ Vox ]
+#  followSkinColor: false
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
+#    state: hairwindswept
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: LargeComb
+#  markingCategory: HeadSide
+#  speciesRestriction: [ Vox ]
+#  followSkinColor: false
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
+#    state: largecomb
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: VoxEarhole
+#  markingCategory: Head
+#  speciesRestriction: [ Vox ]
+#  followSkinColor: false
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
+#    state: earhole
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: FriendsOfAFeather
+#  markingCategory: Overlay
+#  speciesRestriction: [ Vox ]
+#  followSkinColor: false
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
+#    state: friendsfeather1
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.Tail
+#    bodyPart: Tail
+#    # WD EDIT END
+#  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
+#    state: friendsfeather2
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.Tail
+#    bodyPart: Tail
+#    # WD EDIT END
+#
+#- type: marking
+#  id: VoxNeckband
+#  markingCategory: Head
+#  speciesRestriction: [ Vox ]
+#  followSkinColor: false
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
+#    state: neckband
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.Head
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: VoxScarBlasted
+#  markingCategory: Head
+#  speciesRestriction: [ Vox ]
+#  followSkinColor: false
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
+#    state: scarheadblasted
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.Head
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: VoxScarIncision
+#  markingCategory: Chest
+#  speciesRestriction: [ Vox ]
+#  followSkinColor: false
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
+#    state: scarincision
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.Chest
+#    bodyPart: Chest
+#    # WD EDIT END
+#
+#- type: marking
+#  id: VoxScarMangled
+#  markingCategory: Chest
+#  speciesRestriction: [ Vox ]
+#  followSkinColor: false
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
+#    state: scarmangled
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.Chest
+#    bodyPart: Chest
+#    # WD EDIT END
+#
+#- type: marking
+#  id: VoxScarSpinal
+#  markingCategory: Chest
+#  speciesRestriction: [ Vox ]
+#  followSkinColor: false
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
+#    state: scarspinal
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.Chest
+#    bodyPart: Chest
+#    # WD EDIT END
+#
+#- type: marking
+#  id: SideQuills
+#  markingCategory: HeadSide
+#  speciesRestriction: [ Vox ]
+#  followSkinColor: false
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
+#    state: sidequills1
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadSide
+#    bodyPart: Head
+#    # WD EDIT END
+#  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
+#    state: sidequills2
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadSide
+#    bodyPart: Head
+#    # WD EDIT END
+#  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
+#    state: sidequills3
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadSide
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: TailBloom
+#  markingCategory: Overlay
+#  speciesRestriction: [ Vox ]
+#  followSkinColor: false
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
+#    state: tailbloom1
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.Tail
+#    bodyPart: Tail
+#    # WD EDIT END
+#  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
+#    state: tailbloom2
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.Tail
+#    bodyPart: Tail
+#    # WD EDIT END
+#  - sprite: _Impstation/Mobs/Customization/voxbundle1.rsi
+#    state: tailbloom3
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.Tail
+#    bodyPart: Tail
+#    # WD EDIT END

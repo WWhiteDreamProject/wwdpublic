@@ -24,8 +24,8 @@ public sealed partial class RespiratorProviderComponent : Component
     public Dictionary<WoundSeverity, float> VolumeThresholds = new()
     {
         {WoundSeverity.Healthy, 2f},
-        {WoundSeverity.Minor, 1.65f},
-        {WoundSeverity.Moderate, 1.15f},
+        {WoundSeverity.Minor, 1.5f},
+        {WoundSeverity.Moderate, 1f},
         {WoundSeverity.Severe, 0.5f},
         {WoundSeverity.Critical, 0f},
     };
@@ -63,7 +63,7 @@ public sealed partial class RespiratorProviderComponent : Component
     /// The key name used to identify the provider solution.
     /// </summary>
     [DataField]
-    public string SolutionName = "lung";
+    public string SolutionName = "respirator-provider";
 
     /// <summary>
     /// The body entity containing this provider, if any.

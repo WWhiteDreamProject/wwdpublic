@@ -1,0 +1,422 @@
+- type: entity
+  id: BaseBodyProviderOrgan
+  parent: BaseBodyProvider
+  abstract: true
+  name: organ
+  components:
+  - type: BodyProvider
+    providerType: Organ
+  - type: Damageable
+    container: BodyProviderOrgan
+  - type: GibbableProvider
+  - type: WoundableAccumulator
+
+- type: entity
+  id: BaseBodyProviderOrganOrganic
+  parent: BaseBodyProviderOrgan
+  abstract: true
+  components:
+  - type: FlavorProfile
+    flavors:
+    - chicken
+  - type: Ingestible
+  - type: SolutionContainerManager
+    solutions:
+      ingestible:
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 20
+  - type: Tag
+    tags:
+    - Raw
+    - Meat
+
+# Appendix
+- type: entity
+  id: BaseBodyProviderAppendix
+  parent: BaseBodyProviderOrgan
+  abstract: true
+  name: appendix
+  description: The body's ticking time bomb.
+  components:
+  - type: BodyProvider
+    providerType: Appendix
+  - type: Sprite
+    state: appendix
+
+# Brain
+- type: entity
+  id: BaseBodyProviderBrain
+  parent: BaseBodyProviderOrgan
+  abstract: true
+  name: brain
+  description: The source of incredible, unending intelligence. Honk.
+  components:
+  - type: BlockMovement
+  - type: BodyProvider
+    providerType: Brain
+  - type: Brain
+  - type: Examiner
+  - type: Input
+    context: "ghost"
+  - type: InputMover
+  - type: Sprite
+    state:
+
+- type: entity
+  id: BaseBodyProviderBrainOrganic
+  parent: BaseBodyProviderBrainRespiratory
+  abstract: true
+  components:
+  - type: BadFood
+  - type: FoodSequenceElement
+    entries:
+      Burger: Brain
+      Taco: Brain
+  - type: SolutionContainerManager
+    solutions:
+      ingestible:
+        reagents:
+        - ReagentId: GreyMatter
+          Quantity: 10
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 15
+
+- type: entity
+  id: BaseBodyProviderBrainRespiratory
+  parent: BaseBodyProviderBrain
+  abstract: true
+  components:
+  - type: RespiratorConsumer
+    consumption: 0.004
+
+# Central: Brain / Heart
+- type: entity
+  id: BaseBodyProviderCentral
+  parent: [BaseBodyProviderBrain, BaseBodyProviderHeart]
+  abstract: true
+  name: central
+  description: The twin engines of life. One thinks, the other pumps. Together, they make the whole system go. The one who has lost is not only heartless, but also brainless.
+  components:
+  - type: BodyProvider
+    providerType: Central
+  - type: Sprite
+    state: central
+
+- type: entity
+  id: BaseBodyProviderCentralOrganic
+  parent: BaseBodyProviderCentralRespiratory
+  abstract: true
+  components:
+  - type: BadFood
+  - type: SolutionContainerManager
+    solutions:
+      ingestible:
+        reagents:
+        - ReagentId: GreyMatter
+          Quantity: 10
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 15
+
+- type: entity
+  id: BaseBodyProviderCentralRespiratory
+  parent: BaseBodyProviderCentral
+  abstract: true
+  components:
+  - type: RespiratorConsumer
+    consumption: 0.006
+
+# Core: Central / Metabolizer
+- type: entity
+  id: BaseBodyProviderCore
+  parent: [BaseBodyProviderCentral, BaseBodyProviderMetabolizer]
+  abstract: true
+  name: core
+  description: The convergence point of sensation, command, and internal order. The absolute center from which all life emanates.
+  components:
+  - type: BodyProvider
+    providerType: Core
+  - type: Sprite
+    state: core
+
+- type: entity
+  id: BaseBodyProviderCoreOrganic
+  parent: BaseBodyProviderCoreRespiratory
+  abstract: true
+  components:
+  - type: BadFood
+  - type: SolutionContainerManager
+    solutions:
+      ingestible:
+        reagents:
+        - ReagentId: GreyMatter
+          Quantity: 10
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 15
+
+- type: entity
+  id: BaseBodyProviderCoreRespiratory
+  parent: BaseBodyProviderCore
+  abstract: true
+  components:
+  - type: RespiratorConsumer
+    consumption: 0.009
+
+# Ears
+- type: entity
+  id: BaseBodyProviderEars
+  parent: BaseBodyProviderOrgan
+  abstract: true
+  name: ears
+  description: There are three parts to the ear. Inner, middle and outer. Only one of these parts should normally be visible.
+  components:
+  - type: BodyProvider
+    providerType: Ears
+  - type: Sprite
+    state: ears
+
+# Eyes
+- type: entity
+  id: BaseBodyProviderEyes
+  parent: BaseBodyProviderOrgan
+  abstract: true
+  name: eyes
+  description: Still looking, even though the rest of me is nowhere to be found. Don't worry, they're not judging. Much.
+  components:
+  - type: BodyAppearanceProvider
+    layer: enum.BodyProviderType.Eyes
+    group: Eyes
+    state: eyes_in-body
+  - type: BodyProvider
+    providerType: Eyes
+  - type: Sprite
+    state: eyes
+
+# Gland
+- type: entity
+  id: BaseBodyProviderGland
+  parent: BaseBodyProviderOrgan
+  abstract: true
+  name: gland
+  description: The body's internal spice rack. Adds just enough "chemicals" to keep the system from spontaneously collapsing.
+  components:
+  - type: BodyProvider
+    providerType: Gland
+  - type: Sprite
+    state: gland
+
+# Heart
+- type: entity
+  id: BaseBodyProviderHeart
+  parent: BaseBodyProviderOrgan
+  abstract: true
+  name: heart
+  description: I feel bad for the heartless bastard who lost this.
+  components:
+  - type: BodyProvider
+    providerType: Heart
+  - type: Heart
+  - type: Sprite
+    state: heart
+  - type: WoundableAccumulator
+    health: 120
+    maximumHealth: 120
+    thresholds:
+      110: Healthy
+      80: Minor
+      55: Moderate
+      30: Severe
+      0: Critical
+
+- type: entity
+  id: BaseBodyProviderHeartRespiratory
+  parent: BaseBodyProviderHeart
+  abstract: true
+  components:
+  - type: RespiratorConsumer
+    consumption: 0.002
+    damage:
+      Asphyxiation: 0.2
+
+# Infection
+- type: entity
+  id: BaseBodyProviderInfection
+  parent: BaseBodyProviderOrgan
+  abstract: true
+  name: infection
+  description: Congratulations, you've been chosen as a host. Please try to enjoy your final transformation.
+  components:
+  - type: BodyProvider
+    providerType: Infection
+  - type: Sprite
+    state: infection
+
+# Kidneys
+- type: entity
+  id: BaseBodyProviderKidneys
+  parent: BaseBodyProviderOrgan
+  abstract: true
+  name: kidneys
+  description: The body's tireless garbage disposal. Looks like it's taking a vacation.
+  components:
+  - type: BodyProvider
+    providerType: Kidneys
+  - type: Metabolizer
+    maxReagents: 5
+    stages:
+      Excretion:
+        solutionName: bloodstream
+  - type: Sprite
+    state: kidneys
+
+- type: entity
+  id: BaseBodyProviderKidneysRespiratory
+  parent: BaseBodyProviderKidneys
+  abstract: true
+  components:
+  - type: RespiratorConsumer
+    consumption: 0.001
+
+# Liver
+- type: entity
+  id: BaseBodyProviderLiver
+  parent: BaseBodyProviderOrgan
+  abstract: true
+  name: liver
+  description: Marinated in a lifetime of space-whiskey. Cook on medium heat until tender.
+  components:
+  - type: BodyProvider
+    providerType: Liver
+  - type: Metabolizer
+    maxReagents: 10
+    stages:
+      Absorption:
+        solutionName: bloodstream
+  - type: Sprite
+    state: liver
+
+- type: entity
+  id: BaseBodyProviderLiverRespiratory
+  parent: BaseBodyProviderLiver
+  abstract: true
+  components:
+  - type: RespiratorConsumer
+    consumption: 0.001
+
+# Lungs
+- type: entity
+  id: BaseBodyProviderLungs
+  parent: BaseBodyProviderOrgan
+  abstract: true
+  name: lungs
+  description: They took in the air of life. Now, all they release is a faint scent of decay.
+  components:
+  - type: BodyProvider
+    providerType: Lungs
+  - type: Metabolizer
+    updateInterval: 0
+    stages:
+      Respiration:
+        solutionName: respirator-provider
+        solutionOnBody: false
+        metabolizeAll: true
+  - type: RespiratorProvider
+  - type: SolutionContainerManager
+  - type: Sprite
+    state: lungs
+
+- type: entity
+  id: BaseBodyProviderLungsRespiratory
+  parent: BaseBodyProviderLungs
+  abstract: true
+  components:
+  - type: RespiratorConsumer
+    consumption: 0.001
+
+# Metabolizer: Kidneys / Liver / Stomach
+- type: entity
+  id: BaseBodyProviderMetabolizer
+  parent: [BaseBodyProviderKidneys, BaseBodyProviderLiver, BaseBodyProviderStomach]
+  abstract: true
+  name: metabolizer
+  description: Master of transformation, turning the unpalatable into the essential. Now he's just... unpalatable.
+  components:
+  - type: BodyProvider
+    providerType: Metabolizer
+  - type: Metabolizer
+    maxReagents: 15
+    stages:
+      Absorption:
+        solutionName: bloodstream
+      Digestion:
+        solutionName: ingestion-provider
+        solutionOnBody: false
+        transferEfficacy: 0.5
+      Excretion:
+        solutionName: bloodstream
+  - type: Sprite
+    state: metabolizer
+
+- type: entity
+  id: BaseBodyProviderMetabolizerRespiratory
+  parent: BaseBodyProviderMetabolizer
+  abstract: true
+  components:
+  - type: RespiratorConsumer
+    consumption: 0.003
+
+# Specific
+- type: entity
+  id: BaseBodyProviderSpecificOrgan
+  parent: BaseBodyProviderOrgan
+  abstract: true
+  name: specific organ
+  description: Someone forgot to do their homework.
+  components:
+  - type: BodyProvider
+    providerType: SpecificOrgan
+  - type: Sprite
+    state: specific
+
+# Stomach
+- type: entity
+  id: BaseBodyProviderStomach
+  parent: BaseBodyProviderOrgan
+  abstract: true
+  name: stomach
+  description: The ultimate tasting menu. Sadly, the chef is gone.
+  components:
+  - type: BodyProvider
+    providerType: Stomach
+  - type: IngestionProvider
+  - type: Metabolizer
+    maxReagents: 3
+    stages:
+      Digestion:
+        solutionName: ingestion-provider
+        solutionOnBody: false
+        transferEfficacy: 0.5
+  - type: SolutionContainerManager
+  - type: Sprite
+    state: stomach
+
+- type: entity
+  id: BaseBodyProviderStomachRespiratory
+  parent: BaseBodyProviderStomach
+  abstract: true
+  components:
+  - type: RespiratorConsumer
+    consumption: 0.001
+
+# Tongue
+- type: entity
+  id: BaseBodyProviderTongue
+  parent: BaseBodyProviderOrgan
+  abstract: true
+  name: tongue
+  description: A moist, fleshy reminder of things best left unspoken. And uneaten.
+  components:
+  - type: BodyProvider
+    providerType: Tongue
+  - type: Sprite
+    state: tongue

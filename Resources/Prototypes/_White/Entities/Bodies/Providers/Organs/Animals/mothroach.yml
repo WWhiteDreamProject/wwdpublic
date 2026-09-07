@@ -1,0 +1,35 @@
+- type: entity
+  id: BaseBodyProviderOrganMothroach
+  parent: BaseBodyProviderOrganOrganic
+  abstract: true
+  suffix: Mothroach
+  components:
+  - type: Sprite
+    sprite: _White/Bodies/Organs/Humanoids/human.rsi
+
+- type: entity
+  id: BaseMetabolizerMothroach
+  abstract: true
+  components:
+  - type: Metabolizer
+    types: [ Animal, BloodIron, Moth, RespirationOxygen ]
+
+# Kidneys
+- type: entity
+  id: BodyProviderKidneysMothroach
+  parent: [BaseBodyProviderKidneysRespiratory, BaseBodyProviderOrganMothroach, BaseMetabolizerMothroach]
+
+# Liver
+- type: entity
+  id: BodyProviderLiverMothroach
+  parent: [BaseBodyProviderLiverRespiratory, BaseBodyProviderOrganMothroach, BaseMetabolizerMothroach]
+
+# Lungs
+- type: entity
+  id: BodyProviderLungsMothroach
+  parent: [BaseBodyProviderLungsRespiratory, BaseBodyProviderOrganMothroach, BaseMetabolizerMothroach]
+
+# Stomach
+- type: entity
+  id: BodyProviderStomachMothroach
+  parent: [BaseBodyProviderStomachRespiratory, BaseBodyProviderOrganMothroach, BaseMetabolizerMothroach]

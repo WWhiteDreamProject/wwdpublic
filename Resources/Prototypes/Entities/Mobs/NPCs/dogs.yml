@@ -11,11 +11,11 @@
     angle: 0
     animation: WeaponArcBite
     damage:
-      types:
-        Slash: 4
-        Piercing: 8
-        Blunt: 1
-        Structural: 4
+      # WD EDIT: Migrated damage format
+      Blunt: 1
+      Piercing: 8
+      Slash: 4
+      Structural: 4
   - type: MobState
   - type: Sprite
     drawdepth: Mobs
@@ -65,7 +65,6 @@
     interactFailureString: petting-failure-pibble
     interactSuccessSound:
       path: /Audio/Animals/small_dog_bark_happy.ogg
-  - type: DogVision
   - type: NpcFactionMember
     factions:
     - Pibble
@@ -82,7 +81,6 @@
     nameSegments: [names_pitbull]
   - type: Speech
     speechVerb: Canine
-    speechSounds: Vulpkanin
   - type: LanguageKnowledge
     speaks:
     - Dog
@@ -104,11 +102,11 @@
     angle: 0
     animation: WeaponArcBite
     damage:
-      types:
-        Slash: 2
-        Piercing: 5
-        Blunt: 0.5
-        Structural: 2
+      # WD EDIT: Migrated damage format
+      Blunt: 0.5
+      Piercing: 5
+      Slash: 2
+      Structural: 2
   - type: Fixtures
     fixtures:
       fix1:

@@ -143,8 +143,8 @@
     component:
     - type: DamageOverTime
       damage:
-        types:
-          Piercing: 0.3
+        # WD EDIT: Migrated damage format
+        Piercing: 0.3
       interval: 1.0
       ignoreResistances: true
   - type: StaminaDamageResistance

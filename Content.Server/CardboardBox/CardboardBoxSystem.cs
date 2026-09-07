@@ -107,7 +107,7 @@ public sealed class CardboardBoxSystem : SharedCardboardBoxSystem
     private void OnDamage(EntityUid uid, CardboardBoxComponent component, DamageChangedEvent args)
     {
         // WD EDIT START
-        if (!component.Mover.HasValue || !args.DamageIncreased)
+        if (!component.Mover.HasValue || !args.Damage.AnyPositive())
             return;
 
         _damageable.TryChangeDamage(component.Mover.Value, args.Damage, origin: args.Origin);

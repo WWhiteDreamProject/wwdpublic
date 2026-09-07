@@ -30,15 +30,14 @@
   components:
   - type: Temperature
     heatDamage:
-      types:
-        Heat: 5
+      Heat: 5
     coldDamage: {}
     coldDamageThreshold: 0
   - type: Flammable
     fireSpread: true
     damage:
-      types:
-        Heat: 1
+      # WD EDIT: Migrated damage format
+      Heat: 1
   - type: BlobTile
     blobTileType: Normal
   - type: BlobUpgradeableTile
@@ -94,15 +93,14 @@
   components:
   - type: Temperature
     heatDamage:
-      types:
-        Heat: 5
+      Heat: 5
     coldDamage: {}
     coldDamageThreshold: 0
   - type: Flammable
     fireSpread: true
     damage:
-      types:
-        Heat: 1
+      # WD EDIT: Migrated damage format
+      Heat: 1
   - type: Destructible
     thresholds:
     - trigger:
@@ -175,15 +173,14 @@
   components:
     - type: Temperature
       heatDamage:
-        types:
-          Heat: 5
+        Heat: 5
       coldDamage: {}
       coldDamageThreshold: 0
     - type: Flammable
       fireSpread: true
       damage:
-        types:
-          Heat: 1
+        # WD EDIT: Migrated damage format
+        Heat: 1
     - type: BlobTile
       blobTileType: Factory
     - type: Destructible
@@ -213,15 +210,14 @@
   components:
     - type: Temperature
       heatDamage:
-        types:
-          Heat: 5
+        Heat: 5
       coldDamage: {}
       coldDamageThreshold: 0
     - type: Flammable
       fireSpread: true
       damage:
-        types:
-          Heat: 1
+        # WD EDIT: Migrated damage format
+        Heat: 1
     - type: BlobTile
       blobTileType: Resource
     - type: Destructible
@@ -253,15 +249,14 @@
   components:
     - type: Temperature
       heatDamage:
-        types:
-          Heat: 5
+        Heat: 5
       coldDamage: {}
       coldDamageThreshold: 0
     - type: Flammable
       fireSpread: true
       damage:
-        types:
-          Heat: 1
+        # WD EDIT: Migrated damage format
+        Heat: 1
     - type: BlobTile
       blobTileType: Node
     - type: Destructible
@@ -293,15 +288,14 @@
   components:
     - type: Temperature
       heatDamage:
-        types:
-          Heat: 5
+        Heat: 5
       coldDamage: {}
       coldDamageThreshold: 0
     - type: Flammable
       fireSpread: true
       damage:
-        types:
-          Heat: 1
+        # WD EDIT: Migrated damage format
+        Heat: 1
     - type: BlobTile
       blobTileType: Storage
     - type: Destructible

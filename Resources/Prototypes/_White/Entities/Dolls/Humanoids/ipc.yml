@@ -1,0 +1,10 @@
+- type: entity
+  id: HumanoidDollIPC
+  parent:
+  - BaseBodyIPC
+  - BaseHumanoidDoll
+  components:
+  - type: HumanoidProfile
+    species: IPC
+  - type: Inventory
+    templateId: ipc

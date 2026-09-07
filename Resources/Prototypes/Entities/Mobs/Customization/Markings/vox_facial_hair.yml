@@ -1,59 +1,59 @@
-- type: marking
-  id: VoxFacialHairBeard
-  markingCategory: FacialHair
-  speciesRestriction: [Vox]
-  sprites:
-    - sprite: Mobs/Customization/vox_facial_hair.rsi
-      state: beard_s
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.FacialHair
-      bodyPart: Head
-      # WD EDIT END
-
-- type: marking
-  id: VoxFacialHairColonel
-  markingCategory: FacialHair
-  speciesRestriction: [Vox]
-  sprites:
-    - sprite: Mobs/Customization/vox_facial_hair.rsi
-      state: colonel_s
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.FacialHair
-      bodyPart: Head
-      # WD EDIT END
-
-- type: marking
-  id: VoxFacialHairFu
-  markingCategory: FacialHair
-  speciesRestriction: [Vox]
-  sprites:
-    - sprite: Mobs/Customization/vox_facial_hair.rsi
-      state: fu_s
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.FacialHair
-      bodyPart: Head
-      # WD EDIT END
-
-- type: marking
-  id: VoxFacialHairMane
-  markingCategory: FacialHair
-  speciesRestriction: [Vox]
-  sprites:
-    - sprite: Mobs/Customization/vox_facial_hair.rsi
-      state: mane_s
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.FacialHair
-      bodyPart: Head
-      # WD EDIT END
-
-- type: marking
-  id: VoxFacialHairNeck
-  markingCategory: FacialHair
-  speciesRestriction: [Vox]
-  sprites:
-    - sprite: Mobs/Customization/vox_facial_hair.rsi
-      state: neck_s
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.FacialHair
-      bodyPart: Head
-      # WD EDIT END
+#- type: marking
+#  id: VoxFacialHairBeard
+#  markingCategory: FacialHair
+#  speciesRestriction: [Vox]
+#  sprites:
+#    - sprite: Mobs/Customization/vox_facial_hair.rsi
+#      state: beard_s
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.FacialHair
+#      bodyPart: Head
+#      # WD EDIT END
+#
+#- type: marking
+#  id: VoxFacialHairColonel
+#  markingCategory: FacialHair
+#  speciesRestriction: [Vox]
+#  sprites:
+#    - sprite: Mobs/Customization/vox_facial_hair.rsi
+#      state: colonel_s
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.FacialHair
+#      bodyPart: Head
+#      # WD EDIT END
+#
+#- type: marking
+#  id: VoxFacialHairFu
+#  markingCategory: FacialHair
+#  speciesRestriction: [Vox]
+#  sprites:
+#    - sprite: Mobs/Customization/vox_facial_hair.rsi
+#      state: fu_s
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.FacialHair
+#      bodyPart: Head
+#      # WD EDIT END
+#
+#- type: marking
+#  id: VoxFacialHairMane
+#  markingCategory: FacialHair
+#  speciesRestriction: [Vox]
+#  sprites:
+#    - sprite: Mobs/Customization/vox_facial_hair.rsi
+#      state: mane_s
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.FacialHair
+#      bodyPart: Head
+#      # WD EDIT END
+#
+#- type: marking
+#  id: VoxFacialHairNeck
+#  markingCategory: FacialHair
+#  speciesRestriction: [Vox]
+#  sprites:
+#    - sprite: Mobs/Customization/vox_facial_hair.rsi
+#      state: neck_s
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.FacialHair
+#      bodyPart: Head
+#      # WD EDIT END

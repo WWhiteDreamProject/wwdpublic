@@ -54,9 +54,9 @@
         acts: [ "Destruction" ]
   - type: HealOnBuckle
     damage:
-      types:
-        Poison: -0.01
-        Blunt: -0.01
+      # WD EDIT: Migrated damage format
+      Blunt: -0.0
+      Poison: -0.0
   - type: Strap
     position: Down
     rotation: -90

@@ -70,9 +70,14 @@
         - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Bloodsucker
         damage:
-          groups:
-            Brute: -3
-            Burn: -1.25
+          # WD EDIT: Migrated damage format
+          Blunt: -1
+          Caustic: -0.3
+          Cold: -0.3
+          Heat: -0.3
+          Piercing: -1
+          Shock: -0.3
+          Slash: -1
   plantMetabolism:
     - !type:PlantAdjustWater
       amount: 0.5
@@ -207,8 +212,8 @@
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Poison: 4
+          # WD EDIT: Migrated damage format
+          Poison: 4
       - !type:ChemVomit
         probability: 0.25
       - !type:CauseZombieInfection
@@ -236,13 +241,17 @@
         amount: 3
       - !type:HealthChange
         damage:
-          groups:
-            Burn: -5
-            Brute: -5
-            Toxin: -2
-          types:
-            Bloodloss: -5
-  # Just in case you REALLY want to water your plants
+          # WD EDIT: Migrated damage format
+          Bloodloss: -5
+          Blunt: -1.7
+          Caustic: -1.2
+          Cold: -1.2
+          Heat: -1.2
+          Piercing: -1.7
+          Poison: -1
+          Radiation: -1
+          Shock: -1.2
+          Slash: -1.7
   plantMetabolism:
   - !type:PlantAdjustWater
     amount: 0.5
@@ -308,9 +317,8 @@
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Cellular: 2
-
+          # WD EDIT: Migrated damage format
+          Cellular: 2
 - type: reagent
   parent: Blood
   id: BlackBlood

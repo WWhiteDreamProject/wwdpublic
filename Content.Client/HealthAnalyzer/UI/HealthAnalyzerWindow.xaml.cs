@@ -5,7 +5,6 @@ using Content.Shared.Atmos;
 using Content.Client.UserInterface.Controls;
 using Content.Shared._White.Damage.Components;
 using Content.Shared._White.Damage.Prototypes;
-using Content.Shared._White.Damage.Systems;
 using Content.Shared._White.Humanoid.Components;
 using Content.Shared._White.Humanoid.Prototypes;
 using Content.Shared.Alert;
@@ -40,7 +39,6 @@ namespace Content.Client.HealthAnalyzer.UI
         private readonly SpriteSystem _spriteSystem;
         private readonly IPrototypeManager _prototypes;
         private readonly IResourceCache _cache;
-        private readonly DamageableSystem _damageable;
 
         public HealthAnalyzerWindow()
         {
@@ -51,7 +49,6 @@ namespace Content.Client.HealthAnalyzer.UI
             _spriteSystem = _entityManager.System<SpriteSystem>();
             _prototypes = dependencies.Resolve<IPrototypeManager>();
             _cache = dependencies.Resolve<IResourceCache>();
-            _damageable = dependencies.Resolve<EntitySystemManager>().GetEntitySystem<DamageableSystem>();
         }
 
         public void Populate(HealthAnalyzerScannedUserMessage msg)
@@ -163,7 +160,7 @@ namespace Content.Client.HealthAnalyzer.UI
 
                 var groupTitleText = $"{Loc.GetString(
                     "health-analyzer-window-damage-group-text",
-                    ("damageGroup", _prototypes.Index<DamageGroupPrototype>(damageGroupId).Name),
+                    ("damageGroup", _prototypes.Index<DamageGroupPrototype>(damageGroupId).LocalizedName),
                     ("amount", damageAmount)
                 )}";
 
@@ -180,14 +177,14 @@ namespace Content.Client.HealthAnalyzer.UI
                 // Show the damage for each type in that group.
                 var group = _prototypes.Index<DamageGroupPrototype>(damageGroupId);
 
-                foreach (var type in _damageable.GetTypes(group))
+                foreach (var type in group.Types)
                 {
                     if (!damageDict.TryGetValue(type, out var typeAmount) || typeAmount <= 0)
                         continue;
 
                     var damageString = Loc.GetString(
                         "health-analyzer-window-damage-type-text",
-                        ("damageType", _prototypes.Index<DamageTypePrototype>(type).Name),
+                        ("damageType", _prototypes.Index<DamageTypePrototype>(type).LocalizedName),
                         ("amount", typeAmount)
                     );
 

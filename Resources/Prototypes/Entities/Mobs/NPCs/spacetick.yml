@@ -64,8 +64,10 @@
     angle: 0
     animation: WeaponArcBite
     damage:
-      groups:
-        Brute: 2
+      # WD EDIT: Migrated damage format
+      Blunt: 0.7
+      Piercing: 0.7
+      Slash: 0.7
   - type: SolutionContainerManager
     solutions:
       melee:

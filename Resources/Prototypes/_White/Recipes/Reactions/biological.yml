@@ -1,20 +1,4 @@
 - type: reaction
-  id: ResomiBloodBreakdown
-  source: true
-  requiredMixerCategories:
-  - Centrifuge
-  reactants:
-    ResomiBlood:
-      amount: 30
-  products:
-    Water: 9
-    Iron: 2
-    Sugar: 1
-    Nitrogen: 4
-    CarbonDioxide: 3
-    Protein: 4
-
-- type: reaction
   id: SugarBreakdown
   source: true
   reactants:

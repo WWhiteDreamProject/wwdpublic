@@ -1,0 +1,120 @@
+- type: entity
+  id: BaseBodyDwarf
+  parent: BaseBody
+  abstract: true
+  components:
+  - type: Body
+    rootProvider:
+      type: Chest
+      providers:
+        groin:
+          type: Groin
+          providers:
+            coxae:
+              type: Coxae
+              providers:
+                appendix:
+                  type: Appendix
+                  startingProvider: BodyProviderAppendixDwarf
+                kidneys:
+                  type: Kidneys
+                  startingProvider: BodyProviderKidneysDwarf
+                liver:
+                  type: Liver
+                  startingProvider: BodyProviderLiverDwarf
+                stomach:
+                  type: Stomach
+                  startingProvider: BodyProviderStomachDwarf
+              startingProvider: BodyProviderCoxaeDwarf
+            left_leg:
+              type: LeftLeg
+              providers:
+                left_crus:
+                  type: LeftCrus
+                  startingProvider: BodyProviderLeftCrusDwarf
+                left_foot:
+                  type: LeftFoot
+                  providers:
+                    left_pedis:
+                      type: LeftPedis
+                      startingProvider: BodyProviderLeftPedisDwarf
+                  startingProvider: BodyProviderLeftFootDwarf
+              startingProvider: BodyProviderLeftLegDwarf
+            right_leg:
+              type: RightLeg
+              providers:
+                right_crus:
+                  type: RightCrus
+                  startingProvider: BodyProviderRightCrusDwarf
+                right_foot:
+                  type: RightFoot
+                  providers:
+                    right_pedis:
+                      type: RightPedis
+                      startingProvider: BodyProviderRightPedisDwarf
+                  startingProvider: BodyProviderRightFootDwarf
+              startingProvider: BodyProviderRightLegDwarf
+            tail:
+              type: Tail
+          startingProvider: BodyProviderGroinDwarf
+        head:
+          type: Head
+          providers:
+            cranium:
+              type: Сranium
+              providers:
+                brain:
+                  type: Brain
+                  startingProvider: BodyProviderBrainDwarf
+                ears:
+                  type: Ears
+                  startingProvider: BodyProviderEarsDwarf
+                eyes:
+                  type: Eyes
+                  startingProvider: BodyProviderEyesDwarf
+                tongue:
+                  type: Tongue
+                  startingProvider: BodyProviderTongueDwarf
+              startingProvider: BodyProviderСraniumDwarf
+          startingProvider: BodyProviderHeadDwarf
+        left_arm:
+          type: LeftArm
+          providers:
+            left_antebrachium:
+              type: LeftAntebrachium
+              startingProvider: BodyProviderLeftAntebrachiumDwarf
+            left_hand:
+              type: LeftHand
+              providers:
+                left_manus:
+                  type: LeftManus
+                  startingProvider: BodyProviderLeftManusDwarf
+              startingProvider: BodyProviderLeftHandDwarf
+          startingProvider: BodyProviderLeftArmDwarf
+        right_arm:
+          type: RightArm
+          providers:
+            right_antebrachium:
+              type: RightAntebrachium
+              startingProvider: BodyProviderRightAntebrachiumDwarf
+            right_hand:
+              type: RightHand
+              providers:
+                right_manus:
+                  type: RightManus
+                  startingProvider: BodyProviderRightManusDwarf
+              startingProvider: BodyProviderRightHandDwarf
+          startingProvider: BodyProviderRightArmDwarf
+        thorax:
+          type: Thorax
+          providers:
+            heart:
+              type: Heart
+              startingProvider: BodyProviderHeartDwarf
+            lungs:
+              type: Lungs
+              startingProvider: BodyProviderLungsDwarf
+          startingProvider: BodyProviderThoraxDwarf
+        wings:
+          type: Wings
+      startingProvider: BodyProviderChestDwarf

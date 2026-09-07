@@ -72,7 +72,7 @@ public sealed partial class ShadowlingSystem : SharedShadowlingSystem
         SubscribeLocalEvent<ShadowlingComponent, MobStateChangedEvent>(OnMobStateChanged);
 
         SubscribeLocalEvent<ShadowlingComponent, GetFlashbangedEvent>(OnFlashBanged);
-        SubscribeLocalEvent<ShadowlingComponent, DamageModifyEvent>(OnDamageModify);
+        SubscribeLocalEvent<ShadowlingComponent, GetModifiedDamageEvent>(OnDamageModify);
 
         SubscribeLocalEvent<ShadowlingComponent, SelfBeforeGunShotEvent>(BeforeGunShot);
 
@@ -102,7 +102,7 @@ public sealed partial class ShadowlingSystem : SharedShadowlingSystem
         }
     }
 
-    private void OnDamageModify(EntityUid uid, ShadowlingComponent component, DamageModifyEvent args)
+    private void OnDamageModify(EntityUid uid, ShadowlingComponent component, GetModifiedDamageEvent args)
     {
         foreach (var (key,_) in args.Damage)
         {

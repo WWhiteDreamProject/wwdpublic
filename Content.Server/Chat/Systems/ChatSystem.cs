@@ -588,7 +588,7 @@ public sealed partial class ChatSystem : SharedChatSystem
             // Wrapped message is the result wrapped in an "x says y" string
             string result, wrappedMessage;
             //If listener is too far and has no line of sight, they can't identify the whisperer's identity
-            if (data.Range <= (TryComp<ChatModifierComponent>(listener, out var modifier) ? modifier.WhisperListeningRange : WhisperClearRange)) // WWDP-Edit
+            if (data.Range <= WhisperClearRange)
             {
                 // Scenario 1: the listener can clearly understand the message
                 result = perceivedMessage;

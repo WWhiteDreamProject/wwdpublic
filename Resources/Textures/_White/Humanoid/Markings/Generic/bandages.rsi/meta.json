@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by KittenColony(github). Head made by DreamlyJack(github). The division of the torso into chest and groin was done by Spatison(github).",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "blindfold",
+      "directions": 4
+    },
+    {
+      "name": "eye_pad_left",
+      "directions": 4
+    },
+    {
+      "name": "eye_pad_right",
+      "directions": 4
+    },
+    {
+      "name": "eye_patch_left",
+      "directions": 4
+    },
+    {
+      "name": "eye_patch_right",
+      "directions": 4
+    },
+    {
+      "name": "head",
+      "directions": 4
+    },
+    {
+      "name": "left_arm",
+      "directions": 4
+    },
+    {
+      "name": "left_hand",
+      "directions": 4
+    },
+    {
+      "name": "left_leg",
+      "directions": 4
+    },
+    {
+      "name": "right_arm",
+      "directions": 4
+    },
+    {
+      "name": "right_foot",
+      "directions": 4
+    },
+    {
+      "name": "right_hand",
+      "directions": 4
+    },
+    {
+      "name": "right_leg",
+      "directions": 4
+    },
+    {
+      "name": "shoulder_chest",
+      "directions": 4
+    },
+    {
+      "name": "shoulder_groin",
+      "directions": 4
+    },
+    {
+      "name": "stomach",
+      "directions": 4
+    }
+  ]
+}

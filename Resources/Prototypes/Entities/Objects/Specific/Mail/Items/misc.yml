@@ -46,7 +46,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 15
         reagents:
         - ReagentId: Cognizine
@@ -59,7 +59,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 15
 #        reagents: # TODO: we don't have that yet. Guess the people will receive an empty syringe instead.
 #        - ReagentId: Opporozidone
@@ -72,7 +72,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: Necrosol

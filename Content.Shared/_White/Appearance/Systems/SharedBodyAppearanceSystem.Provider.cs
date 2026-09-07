@@ -17,12 +17,18 @@ public abstract partial class SharedBodyAppearanceSystem
 
     protected virtual void OnGotInserted(Entity<BodyAppearanceProviderComponent> ent, ref BodyProviderGotInsertedEvent args)
     {
+        if (!BodyQuery.HasComp(args.Body))
+            return;
+
         ent.Comp.Body = args.Body;
         DirtyField(ent, ent.Comp, nameof(BodyAppearanceProviderComponent.Body));
     }
 
     protected virtual void OnGotRemoved(Entity<BodyAppearanceProviderComponent> ent, ref BodyProviderGotRemovedEvent args)
     {
+        if (!BodyQuery.HasComp(args.Body))
+            return;
+
         ent.Comp.Body = null;
         DirtyField(ent, ent.Comp, nameof(BodyAppearanceProviderComponent.Body));
     }
@@ -30,7 +36,7 @@ public abstract partial class SharedBodyAppearanceSystem
     private void OnApplyBodyAppearanceData(Entity<BodyAppearanceProviderComponent> ent, ref BodyRelayedEvent<ApplyBodyAppearanceDataEvent> args)
     {
         var relevantData = args.Args.Data;
-        if (args.Args.SpecifiedData?.TryGetValue(args.Provider.Type, out var specifiedData) == true)
+        if (args.Args.SpecifiedData?.TryGetValue(ent.Comp.Layer, out var specifiedData) == true)
             relevantData = specifiedData;
 
         if (relevantData is not { } data)
@@ -41,7 +47,7 @@ public abstract partial class SharedBodyAppearanceSystem
 
     private void OnGetBodyAppearanceData(Entity<BodyAppearanceProviderComponent> ent, ref BodyRelayedEvent<GetBodyAppearanceDataEvent> args)
     {
-        args.Args.Data.Add(args.Provider.Type, ent.Comp.Appearance);
+        args.Args.Data.Add(ent.Comp.Layer, ent.Comp.Appearance);
     }
 
     #endregion
@@ -56,6 +62,11 @@ public abstract partial class SharedBodyAppearanceSystem
         if (ent.Comp.Appearance == appearance)
             return;
 
+        if (!appearance.ColorGroups.TryGetValue(ent.Comp.Group, out var color))
+            return;
+
+        SetColor(ent, color);
+
         ent.Comp.Appearance = appearance;
         DirtyField(ent, ent.Comp, nameof(BodyAppearanceProviderComponent.Appearance));
     }
@@ -65,23 +76,35 @@ public abstract partial class SharedBodyAppearanceSystem
         if (!ProviderQuery.Resolve(ent, ref ent.Comp))
             return;
 
-        if (ent.Comp.Data.Color == color)
+        if (ent.Comp.Color == color)
             return;
 
-        ent.Comp.Data.Color = color;
-        DirtyField(ent, ent.Comp, nameof(BodyAppearanceProviderComponent.Data));
+        ent.Comp.Color = color;
+        DirtyField(ent, ent.Comp, nameof(BodyAppearanceProviderComponent.Color));
     }
 
-    public virtual void SetLayerData(Entity<BodyAppearanceProviderComponent?> ent, PrototypeLayerData data)
+    public virtual void SetPath(Entity<BodyAppearanceProviderComponent?> ent, string path)
     {
         if (!ProviderQuery.Resolve(ent, ref ent.Comp))
             return;
 
-        if (ent.Comp.Data == data)
+        if (ent.Comp.Path == path)
             return;
 
-        ent.Comp.Data = data;
-        DirtyField(ent, ent.Comp, nameof(BodyAppearanceProviderComponent.Data));
+        ent.Comp.Path = path;
+        DirtyField(ent, ent.Comp, nameof(BodyAppearanceProviderComponent.Path));
+    }
+
+    public virtual void SetState(Entity<BodyAppearanceProviderComponent?> ent, string state)
+    {
+        if (!ProviderQuery.Resolve(ent, ref ent.Comp))
+            return;
+
+        if (ent.Comp.State == state)
+            return;
+
+        ent.Comp.State = state;
+        DirtyField(ent, ent.Comp, nameof(BodyAppearanceProviderComponent.State));
     }
 
     #endregion

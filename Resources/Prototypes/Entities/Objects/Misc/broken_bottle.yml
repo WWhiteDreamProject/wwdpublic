@@ -11,8 +11,8 @@
     attackRate: .7
     range: 1.4
     damage:
-      types:
-        Slash: 6
+      # WD EDIT: Migrated damage format
+      Slash: 6
     heavyRateModifier: 1.35
     heavyRangeModifier: 0.8
     heavyDamageBaseModifier: 1.5
@@ -26,8 +26,8 @@
     state: icon
   - type: DamageOtherOnHit
     damage:
-      types:
-        Slash: 4
+      # WD EDIT: Migrated damage format
+      Slash: 4
   - type: Tag
     tags:
     - Trash

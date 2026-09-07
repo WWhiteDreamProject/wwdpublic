@@ -1,3 +1,4 @@
+using Content.Shared._White.Body;
 using Content.Shared._White.Layer.Systems;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Tag;
@@ -25,8 +26,8 @@ public sealed class HarpyVisualsSystem : EntitySystem
     {
         if (args.Slot == "outerClothing" && _tagSystem.HasTag(args.Equipment, HarpyWingsTag))
         {
-            _hideableLayers.SetLayerOcclusion(uid, HumanoidVisualLayers.RArm, false, args.SlotFlags);
-            _hideableLayers.SetLayerOcclusion(uid, HumanoidVisualLayers.Tail, false, args.SlotFlags);
+            _hideableLayers.SetLayerOcclusion(uid, BodyProviderType.RightArm, false, args.SlotFlags);
+            _hideableLayers.SetLayerOcclusion(uid, BodyProviderType.Tail, false, args.SlotFlags);
         }
     }
 
@@ -34,8 +35,8 @@ public sealed class HarpyVisualsSystem : EntitySystem
     {
         if (args.Slot == "outerClothing" && _tagSystem.HasTag(args.Equipment, HarpyWingsTag))
         {
-            _hideableLayers.SetLayerOcclusion(uid, HumanoidVisualLayers.RArm, true, args.SlotFlags);
-            _hideableLayers.SetLayerOcclusion(uid, HumanoidVisualLayers.Tail, true, args.SlotFlags);
+            _hideableLayers.SetLayerOcclusion(uid, BodyProviderType.RightArm, true, args.SlotFlags);
+            _hideableLayers.SetLayerOcclusion(uid, BodyProviderType.Tail, true, args.SlotFlags);
         }
     }
 }

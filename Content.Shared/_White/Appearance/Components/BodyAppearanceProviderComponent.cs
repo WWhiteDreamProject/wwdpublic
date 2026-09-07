@@ -1,6 +1,7 @@
-using Content.Shared._White.Humanoid.Prototypes;
+using Content.Shared._White.Appearance.Prototypes;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 
 namespace Content.Shared._White.Appearance.Components;
 
@@ -23,16 +24,28 @@ public sealed partial class BodyAppearanceProviderComponent : Component
     public Enum Layer;
 
     /// <summary>
-    /// The specific body coloration. of this provider.
+    /// The specific color group of this provider.
     /// </summary>
     [DataField(required: true)]
-    public ProtoId<BodyColorationPrototype> Coloration;
+    public ProtoId<BodyColorGroupPrototype> Group;
 
     /// <summary>
-    /// Holds specific data associated with the prototype layer.
+    /// The specific color of this provider.
     /// </summary>
-    [DataField(required: true)]
-    public PrototypeLayerData Data;
+    [DataField, AutoNetworkedField]
+    public Color Color = Color.White;
+
+    /// <summary>
+    /// The specific sprite path of this provider.
+    /// </summary>
+    [DataField(required: true), AutoNetworkedField]
+    public string Path;
+
+    /// <summary>
+    /// The specific sprite state of this provider.
+    /// </summary>
+    [DataField(required: true), AutoNetworkedField]
+    public string State;
 
     /// <summary>
     /// The body entity containing this provider, if any.

@@ -22,7 +22,7 @@
     pickupAmount: 15
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: Fiber

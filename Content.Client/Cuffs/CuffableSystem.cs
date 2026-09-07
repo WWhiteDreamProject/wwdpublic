@@ -1,7 +1,7 @@
+using Content.Shared._White.Cuffs;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Cuffs;
 using Content.Shared.Cuffs.Components;
-using Content.Shared.Humanoid;
 using Robust.Client.GameObjects;
 using Robust.Shared.GameStates;
 
@@ -22,7 +22,7 @@ public sealed class CuffableSystem : SharedCuffableSystem
     private void OnCuffableShutdown(EntityUid uid, CuffableComponent component, ComponentShutdown args)
     {
         if (TryComp<SpriteComponent>(uid, out var sprite))
-            sprite.LayerSetVisible(HumanoidVisualLayers.Handcuffs, false);
+            sprite.LayerSetVisible(CuffableVisualLayers.Handcuffs, false);
     }
 
     private void OnCuffableHandleState(EntityUid uid, CuffableComponent component, ref ComponentHandleState args)
@@ -39,22 +39,22 @@ public sealed class CuffableSystem : SharedCuffableSystem
         if (!TryComp<SpriteComponent>(uid, out var sprite))
             return;
         var cuffed = cuffState.NumHandsCuffed > 0;
-        sprite.LayerSetVisible(HumanoidVisualLayers.Handcuffs, cuffed);
+        sprite.LayerSetVisible(CuffableVisualLayers.Handcuffs, cuffed);
 
         // if they are not cuffed, that means that we didn't get a valid color,
         // iconstate, or RSI. that also means we don't need to update the sprites.
         if (!cuffed)
             return;
-        sprite.LayerSetColor(HumanoidVisualLayers.Handcuffs, cuffState.Color!.Value);
+        sprite.LayerSetColor(CuffableVisualLayers.Handcuffs, cuffState.Color!.Value);
 
         if (!Equals(component.CurrentRSI, cuffState.RSI) && cuffState.RSI != null) // we don't want to keep loading the same RSI
         {
             component.CurrentRSI = cuffState.RSI;
-            sprite.LayerSetState(HumanoidVisualLayers.Handcuffs, cuffState.IconState, component.CurrentRSI);
+            sprite.LayerSetState(CuffableVisualLayers.Handcuffs, cuffState.IconState, component.CurrentRSI);
         }
         else
         {
-            sprite.LayerSetState(HumanoidVisualLayers.Handcuffs, cuffState.IconState);
+            sprite.LayerSetState(CuffableVisualLayers.Handcuffs, cuffState.IconState);
         }
     }
 }

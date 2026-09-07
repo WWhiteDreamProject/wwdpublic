@@ -1,0 +1,15 @@
+- type: entity
+  id: HumanoidDollSkeleton
+  parent:
+  - BaseBodySkeleton
+  - BaseHumanoidDoll
+  components:
+  - type: HumanoidProfile
+    species: Skeleton
+  - type: Inventory
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female

@@ -56,8 +56,8 @@
     - entity_storage
   - type: DamageOtherOnHit
     damage:
-      types:
-        Blunt: 10
+      # WD EDIT: Migrated damage format
+      Blunt: 10
     staminaCost: 35
 
 - type: entity

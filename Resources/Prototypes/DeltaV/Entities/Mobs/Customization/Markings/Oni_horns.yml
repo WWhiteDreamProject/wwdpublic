@@ -1,25 +1,25 @@
-- type: marking
-  id: OniHornShaved
-  markingCategory: HeadTop
-  forcedColoring: false
-  speciesRestriction: [Oni]
-  sprites:
-  - sprite: DeltaV/Mobs/Customization/Oni/oni_horns.rsi
-    state: shaved
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: OniHornBull
-  markingCategory: HeadTop
-  forcedColoring: false
-  speciesRestriction: [Oni]
-  sprites:
-  - sprite: DeltaV/Mobs/Customization/Oni/oni_horns.rsi
-    state: bull
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
+#- type: marking
+#  id: OniHornShaved
+#  markingCategory: HeadTop
+#  forcedColoring: false
+#  speciesRestriction: [Oni]
+#  sprites:
+#  - sprite: DeltaV/Mobs/Customization/Oni/oni_horns.rsi
+#    state: shaved
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: OniHornBull
+#  markingCategory: HeadTop
+#  forcedColoring: false
+#  speciesRestriction: [Oni]
+#  sprites:
+#  - sprite: DeltaV/Mobs/Customization/Oni/oni_horns.rsi
+#    state: bull
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END

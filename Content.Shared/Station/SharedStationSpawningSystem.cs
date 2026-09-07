@@ -89,7 +89,7 @@ public abstract class SharedStationSpawningSystem : EntitySystem
 
         if (GetProfile(entity, out var profile))
             // Equip any sub-gears of this starting gear.
-            startingGear = ApplySubGear(startingGear, profile);
+            startingGear = ApplySubGear(startingGear, profile.Value);
 
         var xform = _xformQuery.GetComponent(entity);
 

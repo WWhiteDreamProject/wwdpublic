@@ -1,0 +1,12 @@
+- type: markingGroup
+  id: Plasmaman
+  onlyGroupWhitelisted: true
+  categoriesData:
+    Arms:
+      limit: 2
+    Head:
+      limit: 1
+    Legs:
+      limit: 2
+    Torso:
+      limit: 1

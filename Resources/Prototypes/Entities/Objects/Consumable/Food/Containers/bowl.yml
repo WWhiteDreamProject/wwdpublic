@@ -10,7 +10,7 @@
     storedRotation: -90
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 50 # enough to make cheese in.
   - type: Sprite
     sprite: Objects/Consumable/Food/bowl.rsi
@@ -20,15 +20,15 @@
       state: fill-1
       visible: false
   - type: MixableSolution
-    solution: food
+    solution: ingestible # WD Ingestible
   - type: DamageOnLand
     damage:
-      types:
-        Blunt: 5
+      # WD EDIT: Migrated damage format
+      Blunt: 5
   - type: DamageOtherOnHit
     damage:
-      types:
-        Blunt: 5
+      # WD EDIT: Migrated damage format
+      Blunt: 5
   - type: Appearance
   - type: SolutionContainerVisuals
     maxFillLevels: 5

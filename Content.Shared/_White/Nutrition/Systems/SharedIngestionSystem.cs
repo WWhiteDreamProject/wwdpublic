@@ -21,6 +21,7 @@ using Content.Shared.Tools.EntitySystems;
 using Content.Shared.UserInterface;
 using Content.Shared.Verbs;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Network;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 
@@ -32,6 +33,7 @@ namespace Content.Shared._White.Nutrition.Systems;
 public abstract partial class SharedIngestionSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly IPredictedRandom _random = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
 
@@ -59,8 +61,8 @@ public abstract partial class SharedIngestionSystem : EntitySystem
 
         SubscribeLocalEvent<IngestibleComponent, AfterInteractEvent>(OnAfterInteract, after: [typeof(ToolOpenableSystem)]);
         SubscribeLocalEvent<IngestibleComponent, AttemptShakeEvent>(OnAttemptShake);
-        SubscribeLocalEvent<IngestibleComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<IngestibleComponent, GetVerbsEvent<AlternativeVerb>>(OnGetVerbs);
+        SubscribeLocalEvent<IngestibleComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<IngestibleComponent, SolutionContainerChangedEvent>(OnSolutionContainerChanged);
         SubscribeLocalEvent<IngestibleComponent, UseInHandEvent>(OnUseInHand, after: [typeof(OpenableSystem), typeof(InventorySystem), typeof(ActivatableUISystem)]);
 
@@ -89,12 +91,6 @@ public abstract partial class SharedIngestionSystem : EntitySystem
         args.Cancelled = true;
     }
 
-    private void OnInit(Entity<IngestibleComponent> ent, ref ComponentInit args)
-    {
-        _solutionContainer.EnsureSolution(ent.Owner, ent.Comp.SolutionName, out _);
-        UpdateAppearance(ent);
-    }
-
     private void OnGetVerbs(Entity<IngestibleComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
     {
         var user = args.User;
@@ -118,9 +114,18 @@ public abstract partial class SharedIngestionSystem : EntitySystem
         args.Verbs.Add(verb);
     }
 
+    private void OnMapInit(Entity<IngestibleComponent> ent, ref MapInitEvent args)
+    {
+        if (_net.IsClient) // I hate it☹️. TODO: Solution refactor.
+            return;
+
+        _solutionContainer.EnsureSolution(ent.Owner, ent.Comp.SolutionName, out _);
+        UpdateAppearance(ent);
+    }
+
     private void OnSolutionContainerChanged(Entity<IngestibleComponent> ent, ref SolutionContainerChangedEvent args)
     {
-        if (_timing.ApplyingState)
+        if (Terminating(ent) || _timing.ApplyingState)
             return;
 
         UpdateAppearance(ent);
@@ -393,7 +398,7 @@ public record struct TryIngestEvent(Entity<IngestibleComponent> Ingestible, Enti
     /// <summary>
     /// The type of body provider to relay this event to.
     /// </summary>
-    public BodyProviderType Type { get; } = BodyProviderType.All;
+    public BodyProviderType ProviderType { get; } = BodyProviderType.All;
 
     /// <summary>
     /// Indicates whether this ingestion event has been successfully handled.

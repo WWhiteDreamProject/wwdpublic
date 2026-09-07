@@ -52,15 +52,13 @@
         acts: ["Destruction"]
   - type: Temperature
     heatDamage:
-      types:
-        Heat: 5
+      Heat: 5
     coldDamage: {}
     coldDamageThreshold: 0
   - type: Flammable
     fireSpread: true #If you walk into incredibly dense, flaming vines, you can expect to burn.
     damage:
-      types:
-        Heat: 3
+      Heat: 3
   - type: Reactive
     groups:
       Flammable: [Touch]
@@ -72,8 +70,8 @@
       - !type:HealthChange
         scaleByQuantity: true
         damage:
-          types:
-            Heat: 0.5
+          # WD EDIT: Migrated damage format
+          Heat: 0.5
   - type: AtmosExposed
   - type: Kudzu
     growthTickChance: 0.3
@@ -84,7 +82,7 @@
     ignoreWhitelist:
       components:
       - IgnoreKudzu
-  - type: Food
+  - type: Ingestible # WD Ingestible
     requiredStomachs: 2 # ruminants have 4 stomachs but i dont care to give them literally 4 stomachs. 2 is good
     delay: 0.5
   - type: FlavorProfile
@@ -92,7 +90,7 @@
     - fiber
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Nutriment
           Quantity: 2
@@ -196,38 +194,31 @@
         acts: ["Destruction"]
   - type: DamageContacts
     damage:
-      types:
-        Slash: 1.5
-        Piercing: 1.5
+      Piercing: 1.5
+      Slash: 1.5
     ignoreWhitelist:
       tags:
       - Flesh
   - type: Kudzu
     growthTickChance: 0.1
     spreadChance: 0.4
-    # Heals each time it manages to do a growth tick:
     damageRecovery:
-      types:
-        Slash: -0.5
-        Heat: -1.0
-        Cold: -1.0
-        Blunt: -0.5 # Needs to be balanced (approx 3x) with vacuum damage to stall but not kill Kudzu
+      Slash: -0.5
+      Heat: -1.0
+      Cold: -1.0
+      Blunt: -0.5
   - type: Temperature
     heatDamage:
-      types:
-        Heat: 10
+      Heat: 10
     coldDamage:
-      types:
-        Cold: 5 #per second, scales with temperature & other constants
+      Cold: 5 #per second, scales with temperature & other constants
   - type: Barotrauma
     damage:
-      types:
-        Blunt: 0.10 #per second, scales with pressure and other constants.
+      Blunt: 0.1
   - type: Flammable
     fireSpread: true
     damage:
-      types:
-        Heat: 3
+      Heat: 3
   - type: AtmosExposed
   - type: SpeedModifierContacts
     walkSpeedModifier: 0.3
@@ -235,21 +226,19 @@
     ignoreWhitelist:
       tags:
       - Flesh
-  - type: Food # delightfully devilish !
+  - type: Ingestible # delightfully devilish !
     delay: 0.5
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Protein
           Quantity: 2
   - type: Respirator
     damage:
-      types:
-        Asphyxiation: 0.25
+      Asphyxiation: 0.2
     damageRecovery:
-      types:
-        Asphyxiation: -0.25
+      Asphyxiation: -0.25
 
 - type: entity
   name: dark haze
@@ -298,21 +287,6 @@
   components:
   - type: Kudzu
     spreadChance: 0 #appears during pulsation. It shouldnt spreading.
-
-- type: entity
-  name: Shadowkin Haze
-  id: ShadowkinShadow
-  parent: ShadowKudzuWeak
-  components:
-  - type: RandomSpawner
-    deleteSpawnerAfterSpawn: false
-    rareChance: 0
-    offset: 0.2
-    chance: 0.45
-    prototypes:
-    - ShadowBasaltRandom
-  - type: TimedDespawn
-    lifetime: 5
 
 - type: entity
   name: fading haze

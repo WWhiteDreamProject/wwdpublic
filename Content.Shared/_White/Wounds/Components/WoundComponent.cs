@@ -42,13 +42,13 @@ public sealed partial class WoundComponent : Component
     };
 
     /// <summary>
-    /// The body entity containing this provider, if any.
+    /// The body entity containing this wound, if any.
     /// </summary>
     [ViewVariables, AutoNetworkedField]
     public EntityUid? Body;
 
     /// <summary>
-    /// The parent entity containing this provider, if any.
+    /// The parent entity containing this wound, if any.
     /// </summary>
     [ViewVariables, AutoNetworkedField]
     public EntityUid? Parent;

@@ -1,0 +1,59 @@
+- type: entity
+  id: BaseBodyProviderBoneDwarf
+  parent: BaseBodyProviderBone
+  abstract: true
+  suffix: Dwarf
+  components:
+  - type: Sprite
+    sprite: _White/Bodies/Bones/Humanoids/human.rsi
+
+# Arm Bone / Antebrachium
+- type: entity
+  id: BodyProviderLeftAntebrachiumDwarf
+  parent: [BaseBodyProviderLeftAntebrachium, BaseBodyProviderBoneDwarf]
+
+- type: entity
+  id: BodyProviderRightAntebrachiumDwarf
+  parent: [BaseBodyProviderRightAntebrachium, BaseBodyProviderBoneDwarf]
+
+# Pelvis / Coxae
+- type: entity
+  id: BodyProviderCoxaeDwarf
+  parent: [BaseBodyProviderCoxae, BaseBodyProviderBoneDwarf]
+
+# Skull / Сranium
+- type: entity
+  id: BodyProviderCraniumDwarf
+  parent: [BaseBodyProviderCranium, BaseBodyProviderBoneDwarf]
+
+# Leg Bone / Crus
+- type: entity
+  id: BodyProviderLeftCrusDwarf
+  parent: [BaseBodyProviderLeftCrus, BaseBodyProviderBoneDwarf]
+
+- type: entity
+  id: BodyProviderRightCrusDwarf
+  parent: [BaseBodyProviderRightCrus, BaseBodyProviderBoneDwarf]
+
+# Hand Bone / Manus
+- type: entity
+  id: BodyProviderLeftManusDwarf
+  parent: [BaseBodyProviderLeftManus, BaseBodyProviderBoneDwarf]
+
+- type: entity
+  id: BodyProviderRightManusDwarf
+  parent: [BaseBodyProviderRightManus, BaseBodyProviderBoneDwarf]
+
+# Foot Bone / Pedis
+- type: entity
+  id: BodyProviderLeftPedisDwarf
+  parent: [BaseBodyProviderLeftPedis, BaseBodyProviderBoneDwarf]
+
+- type: entity
+  id: BodyProviderRightPedisDwarf
+  parent: [BaseBodyProviderRightPedis, BaseBodyProviderBoneDwarf]
+
+# Rib Cage / Thorax
+- type: entity
+  id: BodyProviderThoraxDwarf
+  parent: [BaseBodyProviderThorax, BaseBodyProviderBoneDwarf]

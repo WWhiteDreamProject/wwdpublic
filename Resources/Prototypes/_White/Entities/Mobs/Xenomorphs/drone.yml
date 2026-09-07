@@ -1,5 +1,5 @@
 - type: entity
-  parent: BaseMobXenomorphAdult
+  parent: [BaseMobXenomorphAdult, BaseBodyXenomorphDrone]
   id: BaseMobXenomorphDrone
   name: xenomorph drone
   description: A specialized individual designed to build and maintain a hive. Less aggressive than other xenomorph forms, but still deadly when approached.
@@ -12,7 +12,7 @@
       state: xenomorph
     - map: [ "pocket1" ]
     - map: [ "pocket2" ]
-    - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+    - map: ["enum.CuffableVisualLayers.Handcuffs"]
       color: "#ffffff"
       sprite: _White/Objects/Misc/handcuffs.rsi
       state: body-overlay-xenomorph

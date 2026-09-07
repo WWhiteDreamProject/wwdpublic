@@ -30,8 +30,8 @@
         friction: 0.2
   - type: DamageOtherOnHit
     damage:
-      types:
-        Piercing: 6
+      # WD EDIT: Migrated damage format
+      Piercing: 6
   - type: ThrowingAngle
     angle: 245
   - type: EmbeddableProjectile
@@ -39,8 +39,8 @@
   - type: MeleeWeapon
     wideAnimationRotation: -120
     damage:
-      types:
-        Piercing: 8
+      # WD EDIT: Migrated damage format
+      Piercing: 8
     angle: 0
     animation: WeaponArcThrust
     soundHit:
@@ -49,12 +49,12 @@
     tags:
     - Trash
     - Skewer
-  - type: Food
+  - type: Ingestible # WD Ingestible
     trash: 
     - FoodKebabSkewer
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Nutriment
           Quantity: 6
@@ -73,7 +73,7 @@
       - state: skewer-rat
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Nutriment
           Quantity: 12
@@ -106,7 +106,7 @@
       - state: skewer-snake
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         canReact: false # Dont want cause reactions inside skewers after merging ingredients
         maxVol: 0
   - type: FoodSequenceStartPoint

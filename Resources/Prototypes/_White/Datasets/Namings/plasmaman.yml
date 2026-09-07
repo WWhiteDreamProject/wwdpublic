@@ -1,0 +1,11 @@
+- type: localizedDataset
+  id: NamingFirstPlasmaman
+  values:
+    prefix: naming-first-plasmaman-
+    count: 311
+
+- type: localizedDataset
+  id: NamingLastPlasmaman
+  values:
+    prefix: naming-last-plasmaman-
+    count: 1000

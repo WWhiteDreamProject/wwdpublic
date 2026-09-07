@@ -12,9 +12,9 @@
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Poison: 2
-            Caustic: 2
+          # WD EDIT: Migrated damage format
+          Caustic: 2
+          Poison: 2
       - !type:PopupMessage
         type: Local
         visualType: MediumCaution

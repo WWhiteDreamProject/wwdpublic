@@ -4,7 +4,7 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared._White.Body.Components;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent]
 [Access(typeof(SharedBodySystem))]
 public sealed partial class BodyComponent : Component
 {
@@ -26,7 +26,7 @@ public sealed partial class BodyComponent : Component
     /// <summary>
     /// Body providers attached to this body.
     /// </summary>
-    [ViewVariables, AutoNetworkedField]
+    [ViewVariables]
     public Dictionary<(string Id, NetEntity Parent), BodyProviderSlot> Providers = new();
 }
 

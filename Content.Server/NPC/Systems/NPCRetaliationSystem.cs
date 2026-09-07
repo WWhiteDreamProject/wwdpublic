@@ -26,7 +26,7 @@ public sealed class NPCRetaliationSystem : EntitySystem
 
     private void OnDamageChanged(Entity<NPCRetaliationComponent> ent, ref DamageChangedEvent args)
     {
-        if (!args.DamageIncreased)
+        if (!args.Damage.AnyPositive())
             return;
 
         if (args.Origin is not {} origin)

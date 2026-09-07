@@ -56,8 +56,8 @@
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Caustic: 0.5
+          # WD EDIT: Migrated damage format
+          Caustic: 0.5
       - !type:Emote
         emote: Cough
         showInChat: true
@@ -81,8 +81,8 @@
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Caustic: 0.5
+          # WD EDIT: Migrated damage format
+          Caustic: 0.5
       - !type:Emote
         emote: Cough
         showInChat: true
@@ -106,8 +106,8 @@
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Caustic: 0.5
+          # WD EDIT: Migrated damage format
+          Caustic: 0.5
       - !type:Emote
         emote: Cough
         showInChat: true

@@ -47,10 +47,10 @@
       params:
         volume: -3
     damage:
-      types:
-        Blunt: 6
-        Piercing: 3
-        Structural: 20
+      # WD EDIT: Migrated damage format
+      Blunt: 6
+      Piercing: 3
+      Structural: 20
     bluntStaminaDamageFactor: 2.0
     heavyDamageBaseModifier: 1.75
     maxTargets: 5

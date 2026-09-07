@@ -1,9 +1,0 @@
-- type: species
-  id: Shadowling
-  name: species-name-shadowling
-  roundStart: false
-  prototype: MobShadowling
-  markingLimits: MobHumanMarkingLimits
-  dollPrototype: MobShadowlingDummy
-  skinColoration: HumanToned
-  defaultSkinTone: "#000000"

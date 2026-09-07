@@ -1,0 +1,16 @@
+- type: markingGroup
+  id: Diona
+  parent: Undergarments
+  onlyGroupWhitelisted: true
+  categoriesData:
+    Hair:
+      limit: 3
+    Earrings:
+      onlyGroupWhitelisted: false
+      limit: 2
+    Overlay:
+      required: true
+      default: [ OverlayDionaVine ]
+      limit: 1
+    Vegetation:
+      limit: 2

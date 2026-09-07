@@ -1,0 +1,66 @@
+- type: entity
+  id: BaseBodyProviderPartMonkey
+  parent: BaseBodyProviderPartOrganic
+  abstract: true
+  suffix: Monkey
+  components:
+  - type: BodyAppearanceProvider
+    path: _White/Bodies/Parts/Animals/monkey.rsi
+  - type: Sprite
+    sprite: _White/Bodies/Parts/Animals/monkey.rsi
+
+# Arms
+- type: entity
+  id: BodyProviderLeftArmMonkey
+  parent: [BaseBodyProviderLeftArm, BaseBodyProviderPartMonkey]
+
+- type: entity
+  id: BodyProviderRightArmMonkey
+  parent: [BaseBodyProviderRightArm, BaseBodyProviderPartMonkey]
+
+# Chest
+- type: entity
+  id: BodyProviderChestMonkey
+  parent: [BaseBodyProviderChest, BaseBodyProviderPartMonkey]
+
+# Foots
+- type: entity
+  id: BodyProviderLeftFootMonkey
+  parent: [BaseBodyProviderLeftFoot, BaseBodyProviderPartMonkey]
+
+- type: entity
+  id: BodyProviderRightFootMonkey
+  parent: [BaseBodyProviderRightFoot, BaseBodyProviderPartMonkey]
+
+# Groin
+- type: entity
+  id: BodyProviderGroinMonkey
+  parent: [BaseBodyProviderGroin, BaseBodyProviderPartMonkey]
+
+# Hands
+- type: entity
+  id: BodyProviderLeftHandMonkey
+  parent: [BaseBodyProviderLeftHand, BaseBodyProviderPartMonkey]
+
+- type: entity
+  id: BodyProviderRightHandMonkey
+  parent: [BaseBodyProviderRightHand, BaseBodyProviderPartMonkey]
+
+# Head
+- type: entity
+  id: BodyProviderHeadMonkey
+  parent: [BaseBodyProviderHead, BaseBodyProviderPartMonkey]
+
+# Legs
+- type: entity
+  id: BodyProviderLeftLegMonkey
+  parent: [BaseBodyProviderLeftLeg, BaseBodyProviderPartMonkey]
+
+- type: entity
+  id: BodyProviderRightLegMonkey
+  parent: [BaseBodyProviderRightLeg, BaseBodyProviderPartMonkey]
+
+# Tail
+- type: entity
+  id: BodyProviderTailMonkey
+  parent: [BaseBodyProviderTail, BaseBodyProviderPartMonkey]

@@ -10,8 +10,8 @@
       canHeavyAttack: false
       range: 1.6
       damage:
-        types:
-          Blunt: 20
+        # WD EDIT: Migrated damage format
+        Blunt: 20
       heavyRateModifier: 2
       angle: 60
       soundHit:
@@ -90,8 +90,8 @@
       radius: 1.5
     - type: MeleeWeapon
       damage:
-        types:
-          Heat: 20
+        # WD EDIT: Migrated damage format
+        Heat: 20
       soundHit:
         path: /Audio/Weapons/eblade1.ogg
 
@@ -108,8 +108,8 @@
       soundHit:
         path: /Audio/SimpleStation14/Weapons/Melee/rapierhit.ogg
       damage:
-        types:
-          Slash: 17
+        # WD EDIT: Migrated damage format
+        Slash: 17
     - type: Sharp
 
 - type: entity
@@ -136,15 +136,15 @@
       soundHit:
         path: /Audio/Nyanotrasen/Weapons/club.ogg
       damage:
-        types:
-          Blunt: 17
-          Structural: 5
+        # WD EDIT: Migrated damage format
+        Blunt: 17
+        Structural: 5
     - type: Wieldable
     - type: IncreaseDamageOnWield
       damage:
-        types:
-          Blunt: 13
-          Structural: 15
+        # WD EDIT: Migrated damage format
+        Blunt: 13
+        Structural: 15
     - type: UseDelay
       delay: 1
 
@@ -182,16 +182,14 @@
       wideAnimationRotation: -135
       range: 1.6
       damage:
-        types:
-          Blunt: 5
+        Blunt: 5
       soundHit:
         collection: MetalThud
     - type: ThrowingAngle
       angle: 225
     - type: DamageOtherOnHit
       damage:
-        types:
-          Blunt: 20
+        Blunt: 20
       staminaCost: 20
     - type: KnockdownOnCollide
       delay: 1
@@ -213,14 +211,12 @@
           acts: [ "Destruction" ]
     - type: DamageOnLand
       damage:
-        types:
-          Blunt: 5
+        Blunt: 5
     - type: TimedDespawn
       lifetime: 6
     - type: WeaponRandom
       damageBonus:
-        types:
-          Blunt: 350
+        Blunt: 350
       randomDamageChance: 0.001
       applyBonusOnThrow: true
       # forcedThrowTargetPart: "Head"

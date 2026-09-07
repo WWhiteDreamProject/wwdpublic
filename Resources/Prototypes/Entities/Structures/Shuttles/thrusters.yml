@@ -30,8 +30,8 @@
       rotateWhileAnchored: true
     - type: Thruster
       damage:
-        types:
-          Heat: 40
+        # WD EDIT: Migrated damage format
+        Heat: 40
     - type: InteractionOutline
     - type: Sprite
     - type: Appearance

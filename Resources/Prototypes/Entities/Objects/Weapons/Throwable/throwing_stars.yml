@@ -34,9 +34,9 @@
   - type: LandAtCursor
   - type: DamageOtherOnHit
     damage:
-      types:
-        Slash: 8
-        Piercing: 10
+      # WD EDIT: Migrated damage format
+      Piercing: 10
+      Slash: 8
   - type: EmbedPassiveDamage
   - type: StaminaDamageOnCollide
     damage: 45

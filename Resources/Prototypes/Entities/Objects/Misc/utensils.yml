@@ -27,9 +27,8 @@
     wideAnimationRotation: 180
     attackRate: .6666
     damage:
-      types:
-        Blunt: 0
-
+      # WD EDIT: Migrated damage format
+      Blunt: 0
 - type: entity
   parent: UtensilBase
   id: Fork
@@ -50,8 +49,8 @@
     wideAnimationRotation: 180
     attackRate: .6666
     damage:
-      types:
-        Piercing: 5
+      # WD EDIT: Migrated damage format
+      Piercing: 5
   - type: DamageOtherOnHit
     staminaCost: 2.5
   - type: EmbeddableProjectile
@@ -94,8 +93,8 @@
     wideAnimationRotation: 180
     attackRate: .6666
     damage:
-      types:
-        Blunt: 1
+      # WD EDIT: Migrated damage format
+      Blunt: 1
   - type: DamageOtherOnHit
   - type: ThrowingAngle
     angle: 180
@@ -171,8 +170,8 @@
     wideAnimationRotation: 180
     attackRate: .5
     damage:
-      types:
-        Blunt: 2
+      # WD EDIT: Migrated damage format
+      Blunt: 2
   - type: DamageOtherOnHit
   - type: ThrowingAngle
     angle: 180

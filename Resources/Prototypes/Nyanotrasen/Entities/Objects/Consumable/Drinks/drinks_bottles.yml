@@ -6,7 +6,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Soju
           Quantity: 100
@@ -21,7 +21,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 100
         reagents:
         - ReagentId: Sake
@@ -37,7 +37,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: HolyWater
           Quantity: 100

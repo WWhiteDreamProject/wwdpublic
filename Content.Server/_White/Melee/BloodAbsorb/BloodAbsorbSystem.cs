@@ -54,9 +54,9 @@ public sealed class BloodAbsorbSystem : EntitySystem
 
             absorbed = Math.Min(absorbed, bloodLevel);
             _bloodstream.TryModifyBloodLevel(args.User, absorbed);
-            _damageable.TryChangeDamage(args.User, new DamageSpecifier(_prototype.Index<DamageGroupPrototype>("Brute"), -absorbed, _damageable));
-            _damageable.TryChangeDamage(args.User, new DamageSpecifier(_prototype.Index<DamageGroupPrototype>("Burn"), -absorbed, _damageable));
-            _damageable.TryChangeDamage(args.User, new DamageSpecifier(_prototype.Index<DamageGroupPrototype>("Airloss"), -absorbed, _damageable));
+            _damageable.TryChangeDamage(args.User, new DamageSpecifier(_prototype.Index<DamageGroupPrototype>("Brute"), -absorbed));
+            _damageable.TryChangeDamage(args.User, new DamageSpecifier(_prototype.Index<DamageGroupPrototype>("Burn"), -absorbed));
+            _damageable.TryChangeDamage(args.User, new DamageSpecifier(_prototype.Index<DamageGroupPrototype>("Airloss"), -absorbed));
         }
     }
 

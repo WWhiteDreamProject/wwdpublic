@@ -56,25 +56,13 @@
             "name": "passport_goldendeep_open"
         },
         {
-            "name": "passport_qiimaeru_closed"
-        },
-        {
-            "name": "passport_qiimaeru_open"
-        },
-        {
             "name": "passport_species_human"
         },
         {
             "name": "passport_species_oni"
         },
         {
-            "name": "passport_species_arachne"
-        },
-        {
             "name": "passport_species_arachnid"
-        },
-        {
-            "name": "passport_species_chitinid"
         },
         {
             "name": "passport_species_diona"
@@ -104,22 +92,7 @@
             "name": "passport_species_reptilian"
         },
         {
-            "name": "passport_species_shadowkin"
-        },
-        {
             "name": "passport_species_slimeperson"
-        },
-        {
-            "name": "passport_species_tajaran"
-        },
-        {
-            "name": "passport_species_vulpkanin"
-        },
-        {
-            "name": "passport_species_xelthia"
-        },
-        {
-            "name": "passport_species_thaven"
         }
     ]
 }

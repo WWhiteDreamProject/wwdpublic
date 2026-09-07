@@ -1,0 +1,91 @@
+- type: entity
+  id: BaseBodyProviderOrganPlasmaman
+  parent: BaseBodyProviderOrganOrganic
+  abstract: true
+  suffix: Plasmaman
+  components:
+  - type: FlavorProfile
+    flavors:
+    - plasma
+  - type: SolutionContainerManager
+    solutions:
+      ingestible:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Plasma
+          Quantity: 10
+  - type: Sprite
+    sprite: _White/Bodies/Organs/Humanoids/plasmaman.rsi
+
+- type: entity
+  id: BaseMetabolizerPlasmaman
+  abstract: true
+  components:
+  - type: Metabolizer
+    types: [ Plasmaman, RespirationPlasma ]
+
+# Brain
+- type: entity
+  id: BodyProviderBrainPlasmaman
+  parent: [BaseBodyProviderBrainOrganic, BaseBodyProviderOrganPlasmaman]
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      ingestible:
+        reagents:
+        - ReagentId: GreyMatter
+          Quantity: 10
+        - ReagentId: Nutriment
+          Quantity: 7.5
+        - ReagentId: Plasma
+          Quantity: 7.5
+
+# Ears
+- type: entity
+  id: BodyProviderEarsPlasmaman
+  parent: [BaseBodyProviderEars, BaseBodyProviderOrganPlasmaman]
+  components:
+  - type: Sprite
+    sprite: _White/Bodies/Organs/Humanoids/human.rsi # TODO: Replace with a unique sprite.
+
+# Eyes
+- type: entity
+  id: BodyProviderEyesPlasmaman
+  parent: [BaseBodyProviderEyes, BaseBodyProviderOrganPlasmaman]
+  components:
+  - type: BodyAppearanceProvider
+    path: _White/Bodies/Organs/Humanoids/human.rsi
+
+# Heart
+- type: entity
+  id: BodyProviderHeartPlasmaman
+  parent: [BaseBodyProviderHeartRespiratory, BaseBodyProviderOrganPlasmaman]
+
+# Kidneys
+- type: entity
+  id: BodyProviderKidneysPlasmaman
+  parent: [BaseBodyProviderKidneysRespiratory, BaseBodyProviderOrganPlasmaman, BaseMetabolizerPlasmaman]
+
+# Liver
+- type: entity
+  id: BodyProviderLiverPlasmaman
+  parent: [BaseBodyProviderLiverRespiratory, BaseBodyProviderOrganPlasmaman, BaseMetabolizerPlasmaman]
+
+# Lungs
+- type: entity
+  id: BodyProviderLungsPlasmaman
+  parent: [BaseBodyProviderLungsRespiratory, BaseBodyProviderOrganPlasmaman, BaseMetabolizerPlasmaman]
+  components:
+  - type: RespiratorProvider
+    alert: LowPlasma
+
+# Stomach
+- type: entity
+  id: BodyProviderStomachPlasmaman
+  parent: [BaseBodyProviderStomachRespiratory, BaseBodyProviderOrganPlasmaman, BaseMetabolizerPlasmaman]
+
+# Tongue
+- type: entity
+  id: BodyProviderTonguePlasmaman
+  parent: [BaseBodyProviderTongue, BaseBodyProviderOrganPlasmaman]

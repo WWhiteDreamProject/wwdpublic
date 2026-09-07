@@ -1,0 +1,63 @@
+- type: entity
+  id: BaseBodyProviderOrganVox
+  parent: BaseBodyProviderOrganOrganic
+  abstract: true
+  suffix: Vox
+  components:
+  - type: Sprite
+    sprite: _White/Bodies/Organs/Humanoids/human.rsi # TODO: Replace with a unique sprite.
+
+- type: entity
+  id: BaseMetabolizerVox
+  abstract: true
+  components:
+  - type: Metabolizer
+    types: [ BloodAmmonia, RespirationNitrogen, Vox ]
+
+# Brain
+- type: entity
+  id: BodyProviderBrainVox
+  parent: [BaseBodyProviderBrainOrganic, BaseBodyProviderOrganVox]
+
+# Ears
+- type: entity
+  id: BodyProviderEarsVox
+  parent: [BaseBodyProviderEars, BaseBodyProviderOrganVox]
+
+# Eyes
+- type: entity
+  id: BodyProviderEyesVox
+  parent: [BaseBodyProviderEyes, BaseBodyProviderOrganVox]
+  components:
+  - type: BodyAppearanceProvider
+    path: _White/Bodies/Organs/Humanoids/vox.rsi
+
+# Heart
+- type: entity
+  id: BodyProviderHeartVox
+  parent: [BaseBodyProviderHeartRespiratory, BaseBodyProviderOrganVox]
+
+# Kidneys
+- type: entity
+  id: BodyProviderKidneysVox
+  parent: [BaseBodyProviderKidneysRespiratory, BaseBodyProviderOrganVox, BaseMetabolizerVox]
+
+# Liver
+- type: entity
+  id: BodyProviderLiverVox
+  parent: [BaseBodyProviderLiverRespiratory, BaseBodyProviderOrganVox, BaseMetabolizerVox]
+
+# Lungs
+- type: entity
+  id: BodyProviderLungsVox
+  parent: [BaseBodyProviderLungsRespiratory, BaseBodyProviderOrganVox, BaseMetabolizerVox]
+
+# Stomach
+- type: entity
+  id: BodyProviderStomachVox
+  parent: [BaseBodyProviderStomachRespiratory, BaseBodyProviderOrganVox, BaseMetabolizerVox]
+
+# Tongue
+- type: entity
+  id: BodyProviderTongueVox
+  parent: [BaseBodyProviderTongue, BaseBodyProviderOrganVox]

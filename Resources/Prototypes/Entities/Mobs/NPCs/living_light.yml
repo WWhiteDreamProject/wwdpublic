@@ -1,6 +1,6 @@
 - type: entity
   id: MobLivingLight
-  parent: [ BaseMob, MobCombat ]
+  parent: [ BaseMob, BaseMobCombat ]
   abstract: true
   name: luminous person
   description: A blinding figure of pure light, seemingly intangible.
@@ -71,8 +71,8 @@
     - Alive
     damageCap: 20
     damage:
-      types:
-        Heat: -0.2
+      # WD EDIT: Migrated damage format
+      Heat: -0.2
   - type: NoSlip
   - type: Pullable
   - type: ZombieImmune
@@ -109,8 +109,8 @@
   components:
   - type: MeleeWeapon
     damage:
-      types:
-        Heat: 10
+      # WD EDIT: Migrated damage format
+      Heat: 10
     animation: WeaponArcFist
   - type: StaminaDamageOnHit
     damage: 16
@@ -139,9 +139,8 @@
         BaseUnshaded: dead_glow
   - type: MeleeWeapon
     damage:
-      types:
-        Heat: 6
-
+      # WD EDIT: Migrated damage format
+      Heat: 6
 - type: entity
   id: MobLuminousEntity
   parent: MobLivingLight
@@ -166,8 +165,8 @@
         BaseUnshaded: dead_glow
   - type: MeleeWeapon
     damage:
-      types:
-        Heat: 5
+      # WD EDIT: Migrated damage format
+      Heat: 5
   - type: ProjectileBatteryAmmoProvider # WWDP
     proto: BulletLaser # WWDP
     fireCost: 140

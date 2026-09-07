@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Linq;
 using Content.Shared._White.Damage.Prototypes;
-using Content.Shared._White.Damage.Systems;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -72,9 +71,9 @@ public sealed partial class DamageSpecifier : IDictionary<ProtoId<DamageTypeProt
     /// <summary>
     /// Constructor that takes another DamageSpecifier instance and copies it.
     /// </summary>
-    public DamageSpecifier(DamageSpecifier damageSpec)
+    public DamageSpecifier(DamageSpecifier specifier)
     {
-        Damage = new(damageSpec.Damage);
+        Damage = new(specifier.Damage);
     }
 
     /// <summary>
@@ -90,14 +89,12 @@ public sealed partial class DamageSpecifier : IDictionary<ProtoId<DamageTypeProt
     /// Constructor that takes a single damage group prototype and a damage value.
     /// The value is divided between members of the damage group.
     /// </summary>
-    public DamageSpecifier(ProtoId<DamageGroupPrototype> group, FixedPoint2 value, DamageableSystem system)
+    public DamageSpecifier(DamageGroupPrototype group, FixedPoint2 value)
     {
-        var types = system.GetTypes(group);
-
-        var remainingTypes = types.Count;
+        var remainingTypes = group.Types.Count;
         var remainingDamage = value;
 
-        foreach (var type in types)
+        foreach (var type in group.Types)
         {
             var damage = remainingDamage / FixedPoint2.New(remainingTypes);
             Damage.Add(type, damage);
@@ -134,11 +131,11 @@ public sealed partial class DamageSpecifier : IDictionary<ProtoId<DamageTypeProt
     /// <summary>
     /// Determines whether the <see cref="Damage"/> contains a specific value.
     /// </summary>
-    /// <param name="keyValue">The key and value to locate in the <see cref="Damage"/>.</param>
+    /// <param name="pair">The key and value to locate in the <see cref="Damage"/>.</param>
     /// <returns>True if item is found in the <see cref="Damage"/>; otherwise, false</returns>
-    public bool Contains(KeyValuePair<ProtoId<DamageTypePrototype>, FixedPoint2> keyValue)
+    public bool Contains(KeyValuePair<ProtoId<DamageTypePrototype>, FixedPoint2> pair)
     {
-        return Damage.Contains(keyValue);
+        return Damage.Contains(pair);
     }
 
     /// <summary>
@@ -188,11 +185,11 @@ public sealed partial class DamageSpecifier : IDictionary<ProtoId<DamageTypeProt
     /// <summary>
     /// Removes the damage with the specified type from the <see cref="Damage"/>.
     /// </summary>
-    /// <param name="keyValue">The type of the damage to remove.</param>
+    /// <param name="pair">The type of the damage to remove.</param>
     /// <returns>True if the damage is successfully removed; otherwise, false.</returns>
-    public bool Remove(KeyValuePair<ProtoId<DamageTypePrototype>, FixedPoint2> keyValue)
+    public bool Remove(KeyValuePair<ProtoId<DamageTypePrototype>, FixedPoint2> pair)
     {
-        return Remove(keyValue.Key);
+        return Remove(pair.Key);
     }
 
     /// <summary>
@@ -209,14 +206,12 @@ public sealed partial class DamageSpecifier : IDictionary<ProtoId<DamageTypeProt
     /// Add up all the damage values for damage types that are members of a given group.
     /// </summary>
     /// <returns>True if members of the group are included in this specifier, false otherwise.</returns>
-    public bool TryGetDamageInGroup(ProtoId<DamageGroupPrototype> group, DamageableSystem system, out FixedPoint2 total)
+    public bool TryGetDamageInGroup(DamageGroupPrototype group, out FixedPoint2 total)
     {
-        var types = system.GetTypes(group);
-
         var contains = false;
         total = FixedPoint2.Zero;
 
-        foreach (var type in types)
+        foreach (var type in group.Types)
         {
             if (!Damage.TryGetValue(type, out var value))
                 continue;
@@ -252,13 +247,13 @@ public sealed partial class DamageSpecifier : IDictionary<ProtoId<DamageTypeProt
     /// Returns a dictionary using <see cref="DamageGroupPrototype.ID"/> keys, with values calculated by adding
     /// up the values for each damage type in that group
     /// </summary>
-    public Dictionary<ProtoId<DamageGroupPrototype>, FixedPoint2> GetDamagePerGroup(DamageableSystem system, IPrototypeManager manager)
+    public Dictionary<ProtoId<DamageGroupPrototype>, FixedPoint2> GetDamagePerGroup(IPrototypeManager manager)
     {
         var dict = new Dictionary<ProtoId<DamageGroupPrototype>, FixedPoint2>();
 
         foreach (var group in manager.EnumeratePrototypes<DamageGroupPrototype>())
         {
-            if (!TryGetDamageInGroup(group, system, out var value))
+            if (!TryGetDamageInGroup(group, out var value))
                 continue;
 
             dict.Add(group.ID, value);
@@ -408,9 +403,9 @@ public sealed partial class DamageSpecifier : IDictionary<ProtoId<DamageTypeProt
     /// <summary>
     /// Adds an item to the <see cref="Damage"/>.
     /// </summary>
-    public void Add(KeyValuePair<ProtoId<DamageTypePrototype>, FixedPoint2> keyValue)
+    public void Add(KeyValuePair<ProtoId<DamageTypePrototype>, FixedPoint2> pair)
     {
-        Damage.Add(keyValue.Key, keyValue.Value);
+        Damage.Add(pair.Key, pair.Value);
     }
 
     /// <summary>

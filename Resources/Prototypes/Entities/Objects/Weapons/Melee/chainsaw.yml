@@ -18,10 +18,9 @@
     wideAnimationRotation: -135
     attackRate: 0.3
     damage:
-      types:
-        Slash: 2
-        Blunt: 2
-        Structural: 4
+      Slash: 2
+      Blunt: 2
+      Structural: 4
     heavyRateModifier: 3
     heavyDamageBaseModifier: 3.0
     heavyStaminaCost: 2.5
@@ -33,9 +32,8 @@
         volume: -3
   - type: IncreaseDamageOnWield
     damage:
-      types:
-        Slash: 4
-        Structural: 4
+      Slash: 4
+      Structural: 4
   - type: Item
     size: Normal
     storedRotation: 45 # WWDP

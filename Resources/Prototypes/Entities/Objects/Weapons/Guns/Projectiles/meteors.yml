@@ -12,8 +12,7 @@
     deleteOnCollide: false
   - type: Meteor
     damageTypes:
-      types:
-        Blunt: 1
+      Blunt: 1
   - type: TimedDespawn
     lifetime: 120
   - type: Clickable

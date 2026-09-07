@@ -484,9 +484,10 @@
   - type: HideLayerClothing
     slots:
     # WD EDIT START
-    - enum.HumanoidVisualLayers.Hair
-    - enum.HumanoidVisualLayers.HeadTop
-    - enum.HumanoidVisualLayers.HeadSide
+    - enum.MarkingVisualLayers.Hair
+    - enum.MarkingVisualLayers.HeadBottom
+    - enum.MarkingVisualLayers.HeadTop
+    - enum.MarkingVisualLayers.HeadSide
     # WD EDIT END
 
 - type: entity
@@ -658,7 +659,7 @@
   - type: HideLayerClothing
     slots:
     # WD EDIT START
-    - enum.HumanoidVisualLayers.Hair
+    - enum.MarkingVisualLayers.Hair
     # WD EDIT END
 
 - type: entity
@@ -1207,8 +1208,8 @@
     alwaysCombustible: true
     canExtinguish: true
     damage:
-      types:
-        Heat: 1
+      # WD EDIT: Migrated damage format
+      Heat: 1
   - type: Damageable
     damageModifierSet: Wood
   - type: Appearance
@@ -1328,7 +1329,7 @@
   - type: HideLayerClothing
     slots:
     # WD EDIT START
-    - enum.HumanoidVisualLayers.Hair
+    - enum.MarkingVisualLayers.Hair
     # WD EDIT END
 
 - type: entity

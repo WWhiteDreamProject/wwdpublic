@@ -239,8 +239,8 @@
   - type: MeleeWeapon
     wideAnimationRotation: 180
     damage:
-      types:
-        Blunt: 6
+      # WD EDIT: Migrated damage format
+      Blunt: 6
   - type: GuideHelp
     openOnActivation: true
     guides:
@@ -394,9 +394,8 @@
     soundHit:
       collection: Punch
     damage:
-      types:
-        Blunt: 1
-
+      # WD EDIT: Migrated damage format
+      Blunt: 1
 - type: entity
   parent: BookBase
   id: BookRandom

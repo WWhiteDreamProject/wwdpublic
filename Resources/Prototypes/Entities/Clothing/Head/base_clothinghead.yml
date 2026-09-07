@@ -11,11 +11,11 @@
   - type: Item
     size: Small
     storedRotation: -90
-  - type: Food
+  - type: Ingestible # WD Ingestible
     requiresSpecialDigestion: true
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 10
         reagents:
         - ReagentId: Fiber
@@ -133,10 +133,11 @@
   - type: HideLayerClothing
     slots:
     # WD EDIT START
-    - enum.HumanoidVisualLayers.Hair
-    - enum.HumanoidVisualLayers.Snout
-    - enum.HumanoidVisualLayers.HeadTop
-    - enum.HumanoidVisualLayers.HeadSide
+    - enum.MarkingVisualLayers.Hair
+    - enum.MarkingVisualLayers.HeadBottom
+    - enum.MarkingVisualLayers.HeadTop
+    - enum.MarkingVisualLayers.HeadSide
+    - enum.MarkingVisualLayers.Snout
     # WD EDIT END
 
 - type: entity
@@ -169,10 +170,11 @@
   - type: HideLayerClothing
     slots:
     # WD EDIT START
-    - enum.HumanoidVisualLayers.Hair
-    - enum.HumanoidVisualLayers.Snout
-    - enum.HumanoidVisualLayers.HeadTop
-    - enum.HumanoidVisualLayers.HeadSide
+    - enum.MarkingVisualLayers.Hair
+    - enum.MarkingVisualLayers.HeadBottom
+    - enum.MarkingVisualLayers.HeadTop
+    - enum.MarkingVisualLayers.HeadSide
+    - enum.MarkingVisualLayers.Snout
     # WD EDIT END
 
 - type: entity
@@ -220,10 +222,11 @@
   - type: HideLayerClothing
     slots:
     # WD EDIT START
-    - enum.HumanoidVisualLayers.Hair
-    - enum.HumanoidVisualLayers.Snout
-    - enum.HumanoidVisualLayers.HeadTop
-    - enum.HumanoidVisualLayers.HeadSide
+    - enum.MarkingVisualLayers.Hair
+    - enum.MarkingVisualLayers.HeadBottom
+    - enum.MarkingVisualLayers.HeadTop
+    - enum.MarkingVisualLayers.HeadSide
+    - enum.MarkingVisualLayers.Snout
     # WD EDIT END
   # WD EDIT START
   #- type: Reflect
@@ -285,8 +288,8 @@
   - type: HideLayerClothing
     slots:
     # WD EDIT START
-    - enum.HumanoidVisualLayers.Hair
-    - enum.HumanoidVisualLayers.Snout
+    - enum.MarkingVisualLayers.Hair
+    - enum.MarkingVisualLayers.Snout
     # WD EDIT END
     clothingSlots:
     - mask
@@ -479,7 +482,8 @@
   - type: HideLayerClothing
     slots:
     # WD EDIT START
-    - enum.HumanoidVisualLayers.Hair
-    - enum.HumanoidVisualLayers.HeadTop
-    - enum.HumanoidVisualLayers.HeadSide
+    - enum.MarkingVisualLayers.Hair
+    - enum.MarkingVisualLayers.HeadBottom
+    - enum.MarkingVisualLayers.HeadTop
+    - enum.MarkingVisualLayers.HeadSide
     # WD EDIT END

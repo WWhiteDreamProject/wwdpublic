@@ -537,7 +537,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
         }
 
-        _meleeSound.PlayHitSound(target.Value, user, GetHighestDamageSound(modifiedDamage, Damageable, _protoManager), hitEvent.HitSoundOverride, component.SoundHit, component.SoundNoDamage);
+        _meleeSound.PlayHitSound(target.Value, user, GetHighestDamageSound(modifiedDamage, _protoManager), hitEvent.HitSoundOverride, component.SoundHit, component.SoundNoDamage);
 
         if (damageResult?.GetTotal() > FixedPoint2.Zero)
         {
@@ -711,7 +711,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         if (entities.Count != 0)
         {
             var target = entities.First();
-            _meleeSound.PlayHitSound(target, user, GetHighestDamageSound(appliedDamage, Damageable, _protoManager), hitEvent.HitSoundOverride, component.SoundHit, component.SoundNoDamage);
+            _meleeSound.PlayHitSound(target, user, GetHighestDamageSound(appliedDamage, _protoManager), hitEvent.HitSoundOverride, component.SoundHit, component.SoundNoDamage);
         }
 
         if (appliedDamage.GetTotal() > FixedPoint2.Zero)
@@ -773,9 +773,9 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
     }
 
 
-    public static string? GetHighestDamageSound(DamageSpecifier modifiedDamage, DamageableSystem damageableSystem, IPrototypeManager protoManager)
+    public static string? GetHighestDamageSound(DamageSpecifier modifiedDamage, IPrototypeManager protoManager)
     {
-        var groups = modifiedDamage.GetDamagePerGroup(damageableSystem, protoManager);
+        var groups = modifiedDamage.GetDamagePerGroup(protoManager);
 
         // Use group if it's exclusive, otherwise fall back to type.
         if (groups.Count == 1)

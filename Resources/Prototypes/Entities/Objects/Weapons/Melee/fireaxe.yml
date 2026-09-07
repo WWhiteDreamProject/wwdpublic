@@ -22,11 +22,9 @@
     swingLeft: true
     attackRate: 1.25
     damage:
-      types:
-        # axes are kinda like sharp hammers, you know?
-        Blunt: 4
-        Slash: 6
-        Structural: 10
+      Blunt: 4
+      Slash: 6
+      Structural: 10
     heavyDamageBaseModifier: 1.0
     heavyStaminaCost: 2.5
     angle: 100
@@ -40,10 +38,9 @@
   - type: Wieldable
   - type: IncreaseDamageOnWield
     damage:
-      types:
-        Blunt: 2.5 # WD EDIT
-        Slash: 7.5 # WD EDIT
-        Structural: 40
+      Blunt: 2.5 # WD EDIT
+      Slash: 7.5 # WD EDIT
+      Structural: 40
   - type: Item
     size: Ginormous
   - type: Clothing

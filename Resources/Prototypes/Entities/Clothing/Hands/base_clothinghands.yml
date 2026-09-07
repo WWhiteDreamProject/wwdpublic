@@ -7,14 +7,14 @@
     state: icon
   - type: Clothing
     slots: [gloves]
-  - type: Food
+  - type: Ingestible # WD Ingestible
     requiresSpecialDigestion: true
   - type: Item
     size: Small
     storedRotation: -90
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 10
         reagents:
         - ReagentId: Fiber

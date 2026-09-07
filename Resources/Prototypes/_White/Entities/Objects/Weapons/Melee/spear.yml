@@ -8,22 +8,22 @@
     sprite: _White/Objects/Weapons/Melee/Spear/hardlight_spear.rsi
   - type: MeleeWeapon
     damage:
-      types:
-        Piercing: 18
-        Heat: 18
+      # WD EDIT: Migrated damage format
+      Heat: 18
+      Piercing: 18
     soundHit:
       path: /Audio/Weapons/smash.ogg
   - type: DamageOtherOnHit
     damage:
-      types:
-        Piercing: 20
-        Heat: 20
+      # WD EDIT: Migrated damage format
+      Heat: 20
+      Piercing: 20
   - type: Wieldable
   - type: IncreaseDamageOnWield
     damage:
-      types:
-        Piercing: 4
-        Heat: 4
+      # WD EDIT: Migrated damage format
+      Heat: 4
+      Piercing: 4
   - type: Destructible
     thresholds:
     - trigger:
@@ -72,8 +72,8 @@
     - 0,0,5,0
   - type: MeleeWeapon
     damage:
-      types:
-        Piercing: 26
+      # WD EDIT: Migrated damage format
+      Piercing: 26
     angle: 0
     animation: WeaponArcThrust
     soundHit:
@@ -83,13 +83,13 @@
   - type: ThrowingItemModifier
   - type: DamageOtherOnHit
     damage:
-      types:
-        Piercing: 40
+      # WD EDIT: Migrated damage format
+      Piercing: 40
     staminaCost: 18
   - type: IncreaseDamageOnWield
     damage:
-      types:
-        Piercing: 10
+      # WD EDIT: Migrated damage format
+      Piercing: 10
   - type: DisarmMalus
     malus: 0.4
     wieldedBonus: 0.4

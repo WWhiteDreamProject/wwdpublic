@@ -1,80 +1,80 @@
-- type: marking
-  id: ZetaEMWhiskers
-  markingCategory: FacialHair
-  sprites:
-  - sprite: _EE/Mobs/Customization/z_human_facial_hair.rsi
-    state: emwhiskers
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.FacialHair
-    bodyPart: Head
-    # WD EDIT END
-- type: marking
-  id: ZetaSpiderWhiskers
-  markingCategory: FacialHair
-  sprites:
-  - sprite: _EE/Mobs/Customization/z_human_facial_hair.rsi
-    state: spiderwhiskers
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.FacialHair
-    bodyPart: Head
-    # WD EDIT END
-- type: marking
-  id: ZetaTwirlable
-  markingCategory: FacialHair
-  sprites:
-  - sprite: _EE/Mobs/Customization/z_human_facial_hair.rsi
-    state: twirlable
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.FacialHair
-    bodyPart: Head
-    # WD EDIT END
-- type: marking
-  id: ZetaVoluminous
-  markingCategory: FacialHair
-  sprites:
-  - sprite: _EE/Mobs/Customization/z_human_facial_hair.rsi
-    state: voluminous
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.FacialHair
-    bodyPart: Head
-    # WD EDIT END
-- type: marking
-  id: ZetaWalrus
-  markingCategory: FacialHair
-  sprites:
-  - sprite: _EE/Mobs/Customization/z_human_facial_hair.rsi
-    state: walrus
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.FacialHair
-    bodyPart: Head
-    # WD EDIT END
-- type: marking
-  id: ZetaWizardous
-  markingCategory: FacialHair
-  sprites:
-  - sprite: _EE/Mobs/Customization/z_human_facial_hair.rsi
-    state: wizardous
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.FacialHair
-    bodyPart: Head
-    # WD EDIT END
-- type: marking
-  id: ZetaWorkinMan
-  markingCategory: FacialHair
-  sprites:
-  - sprite: _EE/Mobs/Customization/z_human_facial_hair.rsi
-    state: workinman
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.FacialHair
-    bodyPart: Head
-    # WD EDIT END
-- type: marking
-  id: ZetaOnTheChin
-  markingCategory: FacialHair
-  sprites:
-  - sprite: _EE/Mobs/Customization/z_human_facial_hair.rsi
-    state: onthechin
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.FacialHair
-    bodyPart: Head
-    # WD EDIT END
+#- type: marking
+#  id: ZetaEMWhiskers
+#  markingCategory: FacialHair
+#  sprites:
+#  - sprite: _EE/Mobs/Customization/z_human_facial_hair.rsi
+#    state: emwhiskers
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.FacialHair
+#    bodyPart: Head
+#    # WD EDIT END
+#- type: marking
+#  id: ZetaSpiderWhiskers
+#  markingCategory: FacialHair
+#  sprites:
+#  - sprite: _EE/Mobs/Customization/z_human_facial_hair.rsi
+#    state: spiderwhiskers
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.FacialHair
+#    bodyPart: Head
+#    # WD EDIT END
+#- type: marking
+#  id: ZetaTwirlable
+#  markingCategory: FacialHair
+#  sprites:
+#  - sprite: _EE/Mobs/Customization/z_human_facial_hair.rsi
+#    state: twirlable
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.FacialHair
+#    bodyPart: Head
+#    # WD EDIT END
+#- type: marking
+#  id: ZetaVoluminous
+#  markingCategory: FacialHair
+#  sprites:
+#  - sprite: _EE/Mobs/Customization/z_human_facial_hair.rsi
+#    state: voluminous
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.FacialHair
+#    bodyPart: Head
+#    # WD EDIT END
+#- type: marking
+#  id: ZetaWalrus
+#  markingCategory: FacialHair
+#  sprites:
+#  - sprite: _EE/Mobs/Customization/z_human_facial_hair.rsi
+#    state: walrus
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.FacialHair
+#    bodyPart: Head
+#    # WD EDIT END
+#- type: marking
+#  id: ZetaWizardous
+#  markingCategory: FacialHair
+#  sprites:
+#  - sprite: _EE/Mobs/Customization/z_human_facial_hair.rsi
+#    state: wizardous
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.FacialHair
+#    bodyPart: Head
+#    # WD EDIT END
+#- type: marking
+#  id: ZetaWorkinMan
+#  markingCategory: FacialHair
+#  sprites:
+#  - sprite: _EE/Mobs/Customization/z_human_facial_hair.rsi
+#    state: workinman
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.FacialHair
+#    bodyPart: Head
+#    # WD EDIT END
+#- type: marking
+#  id: ZetaOnTheChin
+#  markingCategory: FacialHair
+#  sprites:
+#  - sprite: _EE/Mobs/Customization/z_human_facial_hair.rsi
+#    state: onthechin
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.FacialHair
+#    bodyPart: Head
+#    # WD EDIT END

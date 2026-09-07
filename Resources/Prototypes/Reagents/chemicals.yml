@@ -22,10 +22,9 @@
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Caustic: 1
-            Poison: 2 # Phenol is definitely not safe
-
+          # WD EDIT: Migrated damage format
+          Caustic: 1
+          Poison: 2
 - type: reagent
   id: Charcoal
   name: reagent-name-charcoal
@@ -39,8 +38,8 @@
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Poison: -1
+          # WD EDIT: Migrated damage format
+          Poison: -1
       - !type:ChemCleanBloodstream
         cleanseRate: 3
 
@@ -70,8 +69,8 @@
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Caustic: 2
+          # WD EDIT: Migrated damage format
+          Caustic: 2
   reactiveEffects:
     Acidic:
       methods: [ Touch ]
@@ -94,9 +93,8 @@
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Cellular: 1 #it's a carcinogen, reckon this is fine
-
+          # WD EDIT: Migrated damage format
+          Cellular: 1
 - type: reagent
   id: Hydroxide
   name: reagent-name-hydroxide
@@ -119,8 +117,8 @@
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Heat: 1.5
+          # WD EDIT: Migrated damage format
+          Heat: 1.5
       - !type:ChemVomit
         conditions:
         - !type:ReagentThreshold
@@ -178,8 +176,10 @@
       effects:
       - !type:HealthChange
         damage:
-          groups:
-            Brute: -4
+          # WD EDIT: Migrated damage format
+          Blunt: -1.3
+          Piercing: -1.3
+          Slash: -1.3
       - !type:GenericStatusEffect
         key: Adrenaline
         component: IgnoreSlowOnDamage

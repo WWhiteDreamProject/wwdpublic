@@ -1,0 +1,68 @@
+- type: entity
+  id: BaseBodyProviderOrganDwarf
+  parent: BaseBodyProviderOrganOrganic
+  abstract: true
+  suffix: Dwarf
+  components:
+  - type: Sprite
+    sprite: _White/Bodies/Organs/Humanoids/human.rsi
+
+- type: entity
+  id: BaseMetabolizerDwarf
+  abstract: true
+  components:
+  - type: Metabolizer
+    types: [ BloodIron, Dwarf, RespirationOxygen ]
+
+# Appendix
+- type: entity
+  id: BodyProviderAppendixDwarf
+  parent: [BaseBodyProviderAppendix, BaseBodyProviderOrganDwarf]
+
+# Brain
+- type: entity
+  id: BodyProviderBrainDwarf
+  parent: [BaseBodyProviderBrainOrganic, BaseBodyProviderOrganDwarf]
+
+# Ears
+- type: entity
+  id: BodyProviderEarsDwarf
+  parent: [BaseBodyProviderEars, BaseBodyProviderOrganDwarf]
+
+# Eyes
+- type: entity
+  id: BodyProviderEyesDwarf
+  parent: [BaseBodyProviderEyes, BaseBodyProviderOrganDwarf]
+  components:
+  - type: BodyAppearanceProvider
+    path: _White/Bodies/Organs/Humanoids/human.rsi
+
+# Heart
+- type: entity
+  id: BodyProviderHeartDwarf
+  parent: [BaseBodyProviderHeartRespiratory, BaseBodyProviderOrganDwarf]
+
+# Kidneys
+- type: entity
+  id: BodyProviderKidneysDwarf
+  parent: [BaseBodyProviderKidneysRespiratory, BaseBodyProviderOrganDwarf, BaseMetabolizerDwarf]
+
+# Liver
+- type: entity
+  id: BodyProviderLiverDwarf
+  parent: [BaseBodyProviderLiverRespiratory, BaseBodyProviderOrganDwarf, BaseMetabolizerDwarf]
+
+# Lungs
+- type: entity
+  id: BodyProviderLungsDwarf
+  parent: [BaseBodyProviderLungsRespiratory, BaseBodyProviderOrganDwarf, BaseMetabolizerDwarf]
+
+# Stomach
+- type: entity
+  id: BodyProviderStomachDwarf
+  parent: [BaseBodyProviderStomachRespiratory, BaseBodyProviderOrganDwarf, BaseMetabolizerDwarf]
+
+# Tongue
+- type: entity
+  id: BodyProviderTongueDwarf
+  parent: [BaseBodyProviderTongue, BaseBodyProviderOrganDwarf]

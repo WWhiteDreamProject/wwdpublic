@@ -1,0 +1,409 @@
+# TODO: Add descriptions
+
+- type: entity
+  id: BaseBodyProviderBone
+  parent: BaseBodyProvider
+  abstract: true
+  name: bone
+  components:
+  - type: BodyProvider
+    providerType: Bone
+  - type: Damageable
+    container: BodyProviderBone
+  - type: WoundableAccumulator
+  - type: WoundableResist
+
+# Wings Bones / Alis
+- type: entity
+  id: BaseBodyProviderAlis
+  parent: BaseBodyProviderBone
+  abstract: true
+  name: wings bones
+  components:
+  - type: BodyProvider
+    providerType: Alis
+  - type: Sprite
+    state: left_antebrachium # TODO: Replace with a unique sprite.
+  - type: WoundableAccumulator
+    health: 30
+    maximumHealth: 30
+    thresholds:
+      30: Healthy
+      24: Minor
+      18: Moderate
+      12: Severe
+      6: Critical
+  - type: WoundableResist
+    resistance: 5
+    thresholds:
+      Healthy: 5
+      Minor: 3.75
+      Moderate: 2.5
+      Severe: 1.25
+      Critical: 0
+
+# Arm Bone / Antebrachium
+- type: entity
+  id: BaseBodyProviderAntebrachium
+  parent: BaseBodyProviderBone
+  abstract: true
+  name: arm bone
+  components:
+  - type: BodyProvider
+    providerType: Antebrachium
+  - type: Sprite
+    state: antebrachium
+  - type: WoundableAccumulator
+    health: 45
+    maximumHealth: 45
+    thresholds:
+      45: Healthy
+      36: Minor
+      27: Moderate
+      18: Severe
+      9: Critical
+  - type: WoundableResist
+    resistance: 10
+    thresholds:
+      Healthy: 10
+      Minor: 7.5
+      Moderate: 5
+      Severe: 2.5
+      Critical: 0
+
+- type: entity
+  id: BaseBodyProviderLeftAntebrachium
+  parent: BaseBodyProviderAntebrachium
+  abstract: true
+  name: left arm bone
+  components:
+  - type: BodyProvider
+    providerType: LeftAntebrachium
+  - type: Sprite
+    state: left_antebrachium
+
+- type: entity
+  id: BaseBodyProviderMiddleAntebrachium
+  parent: BaseBodyProviderAntebrachium
+  abstract: true
+  name: middle arm bone
+  components:
+  - type: BodyProvider
+    providerType: MiddleAntebrachium
+  - type: Sprite
+    state: middle_antebrachium
+
+- type: entity
+  id: BaseBodyProviderRightAntebrachium
+  parent: BaseBodyProviderAntebrachium
+  abstract: true
+  name: right arm bone
+  components:
+  - type: BodyProvider
+    providerType: RightAntebrachium
+  - type: Sprite
+    state: right_antebrachium
+
+# Tail Bone / Cauda
+- type: entity
+  id: BaseBodyProviderCauda
+  parent: BaseBodyProviderBone
+  abstract: true
+  name: tail bone
+  components:
+  - type: BodyProvider
+    providerType: Cauda
+  - type: Sprite
+    state: left_antebrachium # TODO: Replace with a unique sprite.
+  - type: WoundableAccumulator
+    health: 45
+    maximumHealth: 45
+    thresholds:
+      45: Healthy
+      36: Minor
+      27: Moderate
+      18: Severe
+      9: Critical
+  - type: WoundableResist
+    resistance: 10
+    thresholds:
+      Healthy: 10
+      Minor: 7.5
+      Moderate: 5
+      Severe: 2.5
+      Critical: 0
+
+# Pelvis / Coxae
+- type: entity
+  id: BaseBodyProviderCoxae
+  parent: BaseBodyProviderBone
+  abstract: true
+  name: pelvis
+  components:
+  - type: BloodstreamAccumulator
+  - type: BodyProvider
+    providerType: Coxae
+  - type: Sprite
+    state: coxae
+  - type: WoundableAccumulator
+    health: 60
+    maximumHealth: 60
+    thresholds:
+      60: Healthy
+      48: Minor
+      36: Moderate
+      24: Severe
+      12: Critical
+  - type: WoundableResist
+    resistance: 15
+    thresholds:
+      Healthy: 15
+      Minor: 11.25
+      Moderate: 7.5
+      Severe: 3.75
+      Critical: 0
+
+# Skull / Сranium
+- type: entity
+  id: BaseBodyProviderCranium
+  parent: BaseBodyProviderBone
+  abstract: true
+  name: skull
+  components:
+  - type: BodyProvider
+    providerType: Сranium
+  - type: Sprite
+    state: cranium
+  - type: WoundableAccumulator
+    health: 125
+    maximumHealth: 125
+    thresholds:
+      125: Healthy
+      100: Minor
+      75: Moderate
+      50: Severe
+      25: Critical
+  - type: WoundableResist
+    resistance: 10
+    thresholds:
+      Healthy: 10
+      Minor: 7.5
+      Moderate: 5
+      Severe: 2.5
+      Critical: 0
+
+# Leg Bone / Crus
+- type: entity
+  id: BaseBodyProviderCrus
+  parent: BaseBodyProviderBone
+  abstract: true
+  name: leg bone
+  components:
+  - type: BloodstreamAccumulator
+  - type: BodyProvider
+    providerType: Crus
+  - type: Sprite
+    state: crus
+  - type: WoundableAccumulator
+    health: 45
+    maximumHealth: 45
+    thresholds:
+      45: Healthy
+      36: Minor
+      27: Moderate
+      18: Severe
+      9: Critical
+  - type: WoundableResist
+    resistance: 10
+    thresholds:
+      Healthy: 10
+      Minor: 7.5
+      Moderate: 5
+      Severe: 2.5
+      Critical: 0
+
+- type: entity
+  id: BaseBodyProviderLeftCrus
+  parent: BaseBodyProviderCrus
+  abstract: true
+  name: left leg bone
+  components:
+  - type: BodyProvider
+    providerType: LeftCrus
+  - type: Sprite
+    state: left_crus
+
+- type: entity
+  id: BaseBodyProviderMiddleCrus
+  parent: BaseBodyProviderCrus
+  abstract: true
+  name: middle leg bone
+  components:
+  - type: BodyProvider
+    providerType: MiddleCrus
+  - type: Sprite
+    state: middle_crus
+
+- type: entity
+  id: BaseBodyProviderRightCrus
+  parent: BaseBodyProviderCrus
+  abstract: true
+  name: right leg bone
+  components:
+  - type: BodyProvider
+    providerType: RightCrus
+  - type: Sprite
+    state: right_crus
+
+# Hand Bone / Manus
+- type: entity
+  id: BaseBodyProviderManus
+  parent: BaseBodyProviderBone
+  abstract: true
+  name: hand bone
+  components:
+  - type: BodyProvider
+    providerType: Manus
+  - type: Sprite
+    state: manus
+  - type: WoundableAccumulator
+    health: 30
+    maximumHealth: 30
+    thresholds:
+      30: Healthy
+      24: Minor
+      18: Moderate
+      12: Severe
+      6: Critical
+  - type: WoundableResist
+    resistance: 5
+    thresholds:
+      Healthy: 5
+      Minor: 3.75
+      Moderate: 2.5
+      Severe: 1.25
+      Critical: 0
+
+- type: entity
+  id: BaseBodyProviderLeftManus
+  parent: BaseBodyProviderManus
+  abstract: true
+  name: left hand bone
+  components:
+  - type: BodyProvider
+    providerType: LeftManus
+  - type: Sprite
+    state: left_manus
+
+- type: entity
+  id: BaseBodyProviderMiddleManus
+  parent: BaseBodyProviderManus
+  abstract: true
+  name: middle hand bone
+  components:
+  - type: BodyProvider
+    providerType: MiddleManus
+  - type: Sprite
+    state: middle_manus
+
+- type: entity
+  id: BaseBodyProviderRightManus
+  parent: BaseBodyProviderManus
+  abstract: true
+  name: right hand bone
+  components:
+  - type: BodyProvider
+    providerType: RightManus
+  - type: Sprite
+    state: right_manus
+
+# Foot Bone / Pedis
+- type: entity
+  id: BaseBodyProviderPedis
+  parent: BaseBodyProviderBone
+  abstract: true
+  name: foot bone
+  components:
+  - type: BodyProvider
+    providerType: Pedis
+  - type: Sprite
+    state: pedis
+  - type: WoundableAccumulator
+    health: 30
+    maximumHealth: 30
+    thresholds:
+      30: Healthy
+      24: Minor
+      18: Moderate
+      12: Severe
+      6: Critical
+  - type: WoundableResist
+    resistance: 5
+    thresholds:
+      Healthy: 5
+      Minor: 3.75
+      Moderate: 2.5
+      Severe: 1.25
+      Critical: 0
+
+- type: entity
+  id: BaseBodyProviderLeftPedis
+  parent: BaseBodyProviderPedis
+  abstract: true
+  name: left foot bone
+  components:
+  - type: BodyProvider
+    providerType: LeftPedis
+  - type: Sprite
+    state: left_pedis
+
+- type: entity
+  id: BaseBodyProviderMiddlePedis
+  parent: BaseBodyProviderPedis
+  abstract: true
+  name: middle foot bone
+  components:
+  - type: BodyProvider
+    providerType: MiddlePedis
+  - type: Sprite
+    state: middle_pedis
+
+- type: entity
+  id: BaseBodyProviderRightPedis
+  parent: BaseBodyProviderPedis
+  abstract: true
+  name: right foot bone
+  components:
+  - type: BodyProvider
+    providerType: RightPedis
+  - type: Sprite
+    state: right_pedis
+
+# Rib Cage / Thorax
+- type: entity
+  id: BaseBodyProviderThorax
+  parent: BaseBodyProviderBone
+  abstract: true
+  name: rib cage
+  components:
+  - type: BodyProvider
+    providerType: Thorax
+  - type: Sprite
+    state: thorax
+  - type: WoundableAccumulator
+    health: 70
+    maximumHealth: 70
+    thresholds:
+      70: Healthy
+      56: Minor
+      42: Moderate
+      28: Severe
+      14: Critical
+  - type: WoundableResist
+    resistance: 15
+    thresholds:
+      Healthy: 15
+      Minor: 11.25
+      Moderate: 7.5
+      Severe: 3.75
+      Critical: 0

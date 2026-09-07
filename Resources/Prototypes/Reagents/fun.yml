@@ -128,9 +128,9 @@
           reagent: Fiber
       - !type:HealthChange
         damage:
-          types:
-            Poison: 2
-            Piercing: 2
+          # WD EDIT: Migrated damage format
+          Piercing: 2
+          Poison: 2
         conditions:
         - !type:HasTag
           invert: true
@@ -185,8 +185,7 @@
         scaleByQuantity: true
         ignoreResistances: false
         damage:
-          types:
-            Slash: 0.5
+          Slash: 0.5
       - !type:Emote
         emote: Scream
         probability: 0.7
@@ -196,8 +195,7 @@
       effects:
       - !type:HealthChange
         damage:
-          types:
-             Slash : 9
+          Slash : 9
       - !type:PopupMessage
         type: Local
         visualType: LargeCaution
@@ -234,8 +232,8 @@
         scaleByQuantity: true
         ignoreResistances: false
         damage:
-          types:
-            Cold: 0.05
+          # WD EDIT: Migrated damage format
+          Cold: 0.1
       - !type:AdjustTemperature
         conditions:
         - !type:Temperature
@@ -251,9 +249,9 @@
       effects:
       - !type:HealthChange
         damage:
-          types:
-             Cold: 0.01 # slightly nips directly, other cold damage comes from the temp change
-             Heat: -3 # ghetto burn chem. i don't think anyone would use this intentionally but it's funny
+          # WD EDIT: Migrated damage format
+          Cold: 0.0
+          Heat: -3
       - !type:PopupMessage
         conditions:
         - !type:ReagentThreshold

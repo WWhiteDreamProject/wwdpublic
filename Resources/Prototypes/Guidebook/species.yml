@@ -13,14 +13,7 @@
     - SlimePerson
     - IPC
     - Harpy
-    - Shadowkin
     - Plasmaman
-#    - Chitinid
-    - Tajaran
-    - Vulpkanin # WWDP EDIT
-    - Xelthia
-    # ImpStation additions
-    - Thaven
 
 - type: guideEntry
   id: Arachnid
@@ -68,24 +61,9 @@
   text: "/ServerInfo/Guidebook/Mobs/Harpy.xml"
 
 - type: guideEntry
-  id: Shadowkin
-  name: species-name-shadowkin
-  text: "/ServerInfo/Guidebook/Mobs/Shadowkin.xml"
-
-- type: guideEntry
-  id: Tajaran
-  name: species-name-tajaran
-  text: "/ServerInfo/Guidebook/Mobs/Tajaran.xml"
-
-- type: guideEntry
   id: Plasmaman
   name: species-name-plasmaman
   text: "/ServerInfo/Guidebook/Mobs/Plasmaman.xml"
-
-- type: guideEntry
-  id: Xelthia
-  name: species-name-xelthia
-  text: "/ServerInfo/_EE/Guidebook/Mobs/Xelthia.xml"
 
 # WWDP EDIT START
 
@@ -93,10 +71,5 @@
   id: Felinid
   name: species-name-felinid
   text: "/ServerInfo/Guidebook/Mobs/Felinid.xml"
-
-- type: guideEntry
-  id: Vulpkanin
-  name: species-name-vulpkanin
-  text: "/ServerInfo/Guidebook/Mobs/Vulpkanin.xml"
 
 # WWDP EDIT END

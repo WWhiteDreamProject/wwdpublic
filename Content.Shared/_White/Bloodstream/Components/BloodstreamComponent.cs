@@ -1,5 +1,5 @@
+using Content.Shared._White.Bloodstream.Prototypes;
 using Content.Shared._White.Bloodstream.Systems;
-using Content.Shared._White.Body.Prototypes;
 using Content.Shared.Alert;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
@@ -16,8 +16,8 @@ public sealed partial class BloodstreamComponent : Component
     /// <summary>
     /// The specific blood type (e.g., A+, O-) that flows in this entity's bloodstream.
     /// </summary>
-    [DataField(customTypeSerializer: typeof(BloodGroupSerializer)), AutoNetworkedField]
-    public BloodGroup Group = new BloodGroup();
+    [DataField, AutoNetworkedField]
+    public BloodGroup Group = new();
 
     /// <summary>
     /// Defines the <see cref="AlertPrototype"/> IDs to be displayed for different bleeding levels.
@@ -105,7 +105,7 @@ public sealed partial class BloodstreamComponent : Component
     /// <summary>
     /// The current metabolic rate.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public float MetabolicRate = 1f;
 
     /// <summary>

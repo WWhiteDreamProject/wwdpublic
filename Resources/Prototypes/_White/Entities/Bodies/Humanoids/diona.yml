@@ -1,0 +1,65 @@
+- type: entity
+  id: BaseBodyDiona
+  parent: BaseBody
+  abstract: true
+  components:
+  - type: Body
+    rootProvider:
+      type: Chest
+      providers:
+        central:
+          type: Central
+          startingProvider: BodyProviderCentralDionaNymph
+        groin:
+          type: Groin
+          providers:
+            left_leg:
+              type: LeftLeg
+              providers:
+                left_foot:
+                  type: LeftFoot
+                  startingProvider: BodyProviderLeftFootDiona
+              startingProvider: BodyProviderLeftLegDiona
+            metabolizer:
+              type: Metabolizer
+              startingProvider: BodyProviderMetabolizerDionaNymph
+            right_leg:
+              type: RightLeg
+              providers:
+                right_foot:
+                  type: RightFoot
+                  startingProvider: BodyProviderRightFootDiona
+              startingProvider: BodyProviderRightLegDiona
+            tail:
+              type: Tail
+          startingProvider: BodyProviderGroinDiona
+        head:
+          type: Head
+          providers:
+            ears:
+              type: Ears
+              startingProvider: BodyProviderEarsDiona
+            eyes:
+              type: Eyes
+              startingProvider: BodyProviderEyesDiona
+          startingProvider: BodyProviderHeadDiona
+        left_arm:
+          type: LeftArm
+          providers:
+            left_hand:
+              type: LeftHand
+              startingProvider: BodyProviderLeftHandDiona
+          startingProvider: BodyProviderLeftArmDiona
+        lungs:
+          type: Lungs
+          startingProvider: BodyProviderLungsDionaNymph
+        right_arm:
+          type: RightArm
+          providers:
+            right_hand:
+              type: RightHand
+              startingProvider: BodyProviderRightHandDiona
+          startingProvider: BodyProviderRightArmDiona
+        wings:
+          type: Wings
+      startingProvider: BodyProviderChestDiona

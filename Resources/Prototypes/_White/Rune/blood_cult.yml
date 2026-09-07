@@ -33,8 +33,7 @@
   requiredTotalCultists: 10
   drawTime: 40
   drawDamage:
-    types:
-      Slash: 20
+    Slash: 20
 
 - type: bloodCultRune
   id: BloodCultRuneDimensionalRending
@@ -43,5 +42,4 @@
   requiredTotalCultists: 10
   drawTime: 40
   drawDamage:
-    types:
-      Slash: 50
+    Slash: 50

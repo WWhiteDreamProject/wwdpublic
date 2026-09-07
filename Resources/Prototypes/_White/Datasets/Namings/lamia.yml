@@ -1,0 +1,17 @@
+- type: localizedDataset
+  id: NamingFirstLamia
+  values:
+    prefix: naming-first-lamia-
+    count: 19
+
+- type: localizedDataset
+  id: NamingFirstLamiaFemale
+  values:
+    prefix: naming-first-lamia-female-
+    count: 38
+
+- type: localizedDataset
+  id: NamingLastLamia
+  values:
+    prefix: naming-last-lamia-
+    count: 37

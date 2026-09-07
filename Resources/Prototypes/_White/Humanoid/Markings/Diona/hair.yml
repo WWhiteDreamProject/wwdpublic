@@ -1,0 +1,231 @@
+- type: marking
+  id: BaseHairDiona
+  parents: [BaseHair, BaseDiona]
+  abstract: true
+  forcedColoring: true
+
+- type: marking
+  id: HairDionaBloom
+  parents: BaseHairDiona
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: bloom
+
+- type: marking
+  id: HairDionaBracket
+  parents: BaseHairDiona
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: bracket
+
+- type: marking
+  id: HairDionaBrush
+  parents: BaseHairDiona
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: brush
+
+- type: marking
+  id: HairDionaCornflower
+  parents: BaseHairDiona
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: cornflower
+
+- type: marking
+  id: HairDionaFicus
+  parents: BaseHairDiona
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: ficus
+
+- type: marking
+  id: HairDionaFlowers
+  parents: BaseHairDiona
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: flowers
+
+- type: marking
+  id: HairDionaGarland
+  parents: BaseHairDiona
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: garland
+
+- type: marking
+  id: HairDionaKing
+  parents: BaseHairDiona
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: king
+
+- type: marking
+  id: HairDionaLaurel
+  parents: BaseHairDiona
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: laurel
+
+- type: marking
+  id: HairDionaLeafy
+  parents: BaseHairDiona
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: leafy
+
+- type: marking
+  id: HairDionaLotus
+  parents: BaseHairDiona
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: lotus
+
+- type: marking
+  id: HairDionaMeadow
+  parents: BaseHairDiona
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: meadow
+
+- type: marking
+  id: HairDionaOak
+  parents: BaseHairDiona
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: oak
+
+- type: marking
+  id: HairDionaPalm
+  parents: BaseHairDiona
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: palm
+
+- type: marking
+  id: HairDionaRoot
+  parents: BaseHairDiona
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: root
+
+- type: marking
+  id: HairDionaRose
+  parents: BaseHairDiona
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: rose
+
+- type: marking
+  id: HairDionaRosey
+  parents: BaseHairDiona
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: rosey
+
+- type: marking
+  id: HairDionaShrub
+  parents: BaseHairDiona
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: shrub
+
+- type: marking
+  id: HairDionaSpinner
+  parents: BaseHairDiona
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: spinner
+
+- type: marking
+  id: HairDionaSprout
+  parents: BaseHairDiona
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: sprout
+
+- type: marking
+  id: HairDionaThorns
+  parents: BaseHairDiona
+  forcedColoring: false
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: thorns
+
+- type: marking
+  id: HairDionaVine
+  parents: BaseHairDiona
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: vine
+
+- type: marking
+  id: HairDionaVineLong
+  parents: BaseHairDiona
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: vine_long
+
+- type: marking
+  id: HairDionaVines
+  parents: BaseHairDiona
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: vines
+
+- type: marking
+  id: HairDionaWildflower
+  parents: BaseHairDiona
+  definitions:
+  - layer: enum.MarkingVisualLayers.Hair
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/hair.rsi
+      state: wildflower

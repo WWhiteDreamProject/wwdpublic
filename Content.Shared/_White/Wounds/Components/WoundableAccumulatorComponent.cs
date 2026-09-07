@@ -1,8 +1,7 @@
+using Content.Shared._White.Body;
 using Content.Shared._White.Wounds.Systems;
-using Content.Shared.Damage.Prototypes;
 using Content.Shared.FixedPoint;
 using Robust.Shared.GameStates;
-using Robust.Shared.Prototypes;
 
 namespace Content.Shared._White.Wounds.Components;
 
@@ -10,6 +9,12 @@ namespace Content.Shared._White.Wounds.Components;
 [Access(typeof(WoundableSystem))]
 public sealed partial class WoundableAccumulatorComponent : Component
 {
+    /// <summary>
+    /// Determines which children body provider should inherit the damage change.
+    /// </summary>
+    [DataField]
+    public BodyProviderType Heir = ~BodyProviderType.Part;
+
     /// <summary>
     /// Accumulator health.
     /// </summary>

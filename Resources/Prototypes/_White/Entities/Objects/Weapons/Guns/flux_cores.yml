@@ -18,8 +18,8 @@
     underflowDamageMultiplier: 0.1
   - type: DamageOtherOnHit
     damage:
-      types:
-        Blunt: 4
+      # WD EDIT: Migrated damage format
+      Blunt: 4
   - type: Appearance
   - type: Tag
     tags:

@@ -13,43 +13,43 @@
     size: Normal
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 100
   - type: SolutionTransfer
     canChangeTransferAmount: true
     maxTransferAmount: 5
-  - type: Drink
+  - type: Ingestible # WD Ingestible
   - type: MeleeWeapon
     canBeBlocked: false # WD EDIT
     soundNoDamage:
       path: "/Audio/Effects/Fluids/splat.ogg"
     damage:
-      types:
-        Blunt: 0
+      # WD EDIT: Migrated damage format
+      Blunt: 0
   - type: MixableSolution
-    solution: drink
+    solution: ingestible # WD Ingestible
   - type: Spillable
-    solution: drink
+    solution: ingestible # WD Ingestible
   - type: FitsInDispenser
-    solution: drink
+    solution: ingestible # WD Ingestible
   - type: DrawableSolution
-    solution: drink
+    solution: ingestible # WD Ingestible
   - type: RefillableSolution
-    solution: drink
+    solution: ingestible # WD Ingestible
   - type: DrainableSolution
-    solution: drink
+    solution: ingestible # WD Ingestible
   - type: UserInterface
     interfaces:
       enum.TransferAmountUiKey.Key:
         type: TransferAmountBoundUserInterface
   - type: DamageOnLand
     damage:
-      types:
-        Blunt: 5
+      # WD EDIT: Migrated damage format
+      Blunt: 5
   - type: DamageOtherOnHit
     damage:
-      types:
-        Blunt: 4
+      # WD EDIT: Migrated damage format
+      Blunt: 4
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
@@ -89,7 +89,7 @@
     size: Small
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 50
 
 - type: entity
@@ -104,24 +104,24 @@
     state: icon
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 50
   - type: MixableSolution
-    solution: drink
+    solution: ingestible # WD Ingestible
   - type: SolutionTransfer
     canChangeTransferAmount: true
     maxTransferAmount: 5
-  - type: Drink
+  - type: Ingestible # WD Ingestible
   - type: Spillable
-    solution: drink
+    solution: ingestible # WD Ingestible
   - type: FitsInDispenser
-    solution: drink
+    solution: ingestible # WD Ingestible
   - type: DrawableSolution
-    solution: drink
+    solution: ingestible # WD Ingestible
   - type: RefillableSolution
-    solution: drink
+    solution: ingestible # WD Ingestible
   - type: DrainableSolution
-    solution: drink
+    solution: ingestible # WD Ingestible
   - type: UserInterface
     interfaces:
       enum.TransferAmountUiKey.Key:
@@ -161,7 +161,7 @@
     size: Normal
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 100
 
 # Containers
@@ -362,7 +362,7 @@
     sprite: Objects/Consumable/Drinks/milk.rsi
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 100
 
 - type: entity

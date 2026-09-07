@@ -299,7 +299,7 @@ namespace Content.Server.Light.EntitySystems
         public void HandleLightDamaged(EntityUid uid, PoweredLightComponent component, DamageChangedEvent args)
         {
             // Was it being repaired, or did it take damage?
-            if (args.DamageIncreased)
+            if (args.Damage.AnyPositive())
             {
                 // Eventually, this logic should all be done by this (or some other) system, not a component.
                 TryDestroyBulb(uid, component);

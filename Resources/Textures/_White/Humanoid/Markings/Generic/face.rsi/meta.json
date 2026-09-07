@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from Aurorastation at commit https://github.com/Aurorastation/Aurora.3/commit/639227c952a8012a88288257140166ca7419385d, edited by angelofallars(github). Lips made by angelofallars(github). Iron_jaw made by nope_ingeneer(github).",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "bindi",
+      "directions": 4
+    },
+    {
+      "name": "blush_left",
+      "directions": 4
+    },
+    {
+      "name": "blush_right",
+      "directions": 4
+    },
+    {
+      "name": "cheek_spot_basic_left",
+      "directions": 4
+    },
+    {
+      "name": "cheek_spot_basic_right",
+      "directions": 4
+    },
+    {
+      "name": "cheek_spot_lower_left",
+      "directions": 4
+    },
+    {
+      "name": "cheek_spot_lower_right",
+      "directions": 4
+    },
+    {
+      "name": "cheshire_grin",
+      "directions": 4
+    },
+    {
+      "name": "iron_jaw",
+      "directions": 4
+    },
+    {
+      "name": "lips",
+      "directions": 4
+    },
+    {
+      "name": "lips_corners_left",
+      "directions": 4
+    },
+    {
+      "name": "lips_corners_right",
+      "directions": 4
+    }
+  ]
+}

@@ -2,12 +2,16 @@ using System.Diagnostics.CodeAnalysis;
 using Content.Shared._White.Body.Components;
 using Content.Shared.DragDrop;
 using Robust.Shared.Containers;
+using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 
 namespace Content.Shared._White.Body.Systems;
 
 public abstract partial class SharedBodySystem : EntitySystem
 {
+    [Dependency] private readonly IGameTiming _gameTiming = default!;
+
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
@@ -28,6 +32,8 @@ public abstract partial class SharedBodySystem : EntitySystem
         _sawmill = Logger.GetSawmill("body");
 
         SubscribeLocalEvent<BodyComponent, CanDragEvent>(OnCanDrag);
+        SubscribeLocalEvent<BodyComponent, ComponentGetState>(OnGetState);
+        SubscribeLocalEvent<BodyComponent, ComponentHandleState>(OnHandleState);
         SubscribeLocalEvent<BodyComponent, MapInitEvent>(OnMapInit);
 
         InitializeProvider();
@@ -44,9 +50,49 @@ public abstract partial class SharedBodySystem : EntitySystem
         args.Handled = true;
     }
 
+    private void OnGetState(Entity<BodyComponent> ent, ref ComponentGetState args)
+    {
+        args.State = new BodyComponentState(ent.Comp);
+    }
+
+    private void OnHandleState(Entity<BodyComponent> ent, ref ComponentHandleState args)
+    {
+        if (args.Current is not BodyComponentState state)
+            return;
+
+        foreach (var (key, slot) in ent.Comp.Providers)
+        {
+            if (state.Providers.ContainsKey(key) || slot.ContainerSlot == null)
+                continue;
+
+            _container.ShutdownContainer(slot.ContainerSlot);
+            ent.Comp.Providers.Remove(key);
+        }
+
+        foreach (var ((key, owner), slot) in state.Providers)
+        {
+            if (EnsureEntity<BodyComponent>(owner, ent.Owner) is not { Valid: true } uid)
+                continue;
+
+            if (ent.Comp.Providers.TryGetValue((key, owner), out var originSlot))
+            {
+                originSlot.Copy(slot);
+                originSlot.ContainerSlot = _container.EnsureContainer<ContainerSlot>(uid, GetProviderSlotContainerId(key));
+                continue;
+            }
+
+            originSlot = new (slot)
+            {
+                ContainerSlot = _container.EnsureContainer<ContainerSlot>(uid, GetProviderSlotContainerId(key)),
+            };
+            ent.Comp.Providers[(key, owner)] = originSlot;
+        }
+    }
+
     private void OnMapInit(Entity<BodyComponent> ent, ref MapInitEvent args)
     {
         SetupProvider(ent.Comp.RootProvider, ent, ent, ent.Comp.RootProviderId);
+        Dirty(ent);
     }
 
     #endregion
@@ -54,7 +100,25 @@ public abstract partial class SharedBodySystem : EntitySystem
     #region Public API
 
     /// <summary>
-    /// Attempts to attach a body provider to this body.
+    /// Attempts to attach a body provider to given entity.
+    /// </summary>
+    /// <param name="uid">The entity to which the provider should be attached.</param>
+    /// <param name="provider">The entity to attach.</param>
+    /// <param name="id">ID to search for a specific slot. If null, any suitable slot will be found.</param>
+    /// <returns>True if the provider was successfully attached, false otherwise.</returns>
+    public bool TryAttachProvider(EntityUid uid, Entity<BodyProviderComponent?> provider, string? id = null)
+    {
+        if (_bodyQuery.TryComp(uid, out var bodyComp))
+            return TryAttachProvider((uid, bodyComp), provider, id);
+
+        if (_providerQuery.TryComp(uid, out var providerComp))
+            return TryAttachProvider((uid, providerComp), provider, id);
+
+        return false;
+    }
+
+    /// <summary>
+    /// Attempts to attach a body provider to given body.
     /// </summary>
     /// <param name="ent">The entity to which the provider should be attached.</param>
     /// <param name="provider">The entity to attach.</param>
@@ -78,25 +142,25 @@ public abstract partial class SharedBodySystem : EntitySystem
     }
 
     /// <summary>
-    /// Attempts to attach a body provider to this entity.
+    /// Attempts to create a new body provider slot within given entity.
     /// </summary>
-    /// <param name="uid">The entity to which the provider should be attached.</param>
-    /// <param name="provider">The entity to attach.</param>
-    /// <param name="id">ID to search for a specific slot. If null, any suitable slot will be found.</param>
-    /// <returns>True if the provider was successfully attached, false otherwise.</returns>
-    public bool TryAttachProvider(EntityUid uid, Entity<BodyProviderComponent?> provider, string? id = null)
+    /// <param name="uid">The entity in which to create the slot.</param>
+    /// <param name="id">The unique ID for the new slot.</param>
+    /// <param name="type">The type of provider that can be placed in this slot.</param>
+    /// <returns>True if the slot was successfully created, false otherwise.</returns>
+    public bool TryCreateProviderSlot(EntityUid uid, string id, BodyProviderType type)
     {
         if (_bodyQuery.TryComp(uid, out var bodyComp))
-            return TryAttachProvider((uid, bodyComp), provider, id);
+            return TryCreateProviderSlot((uid, bodyComp), id, type);
 
         if (_providerQuery.TryComp(uid, out var providerComp))
-            return TryAttachProvider((uid, providerComp), provider, id);
+            return TryCreateProviderSlot((uid, providerComp), id, type);
 
         return false;
     }
 
     /// <summary>
-    /// Attempts to create a new body provider slot within this body.
+    /// Attempts to create a new body provider slot within given body.
     /// </summary>
     /// <param name="ent">The entity in which to create the slot.</param>
     /// <param name="id">The unique ID for the new slot.</param>
@@ -121,25 +185,27 @@ public abstract partial class SharedBodySystem : EntitySystem
     }
 
     /// <summary>
-    /// Attempts to create a new body provider slot within this entity.
+    /// Attempts to find an empty body provider slot within given entity.
     /// </summary>
-    /// <param name="uid">The entity in which to create the slot.</param>
-    /// <param name="id">The unique ID for the new slot.</param>
-    /// <param name="type">The type of provider that can be placed in this slot.</param>
-    /// <returns>True if the slot was successfully created, false otherwise.</returns>
-    public bool TryCreateProviderSlot(EntityUid uid, string id, BodyProviderType type)
+    /// <param name="uid">The entity to search within.</param>
+    /// <param name="slot">The found empty slot. Will be null if no slot is found.</param>
+    /// <param name="type">The type of provider the slot should match.</param>
+    /// <param name="id">If specified, only a slot with this exact ID will be searched.</param>
+    /// <returns>True if an empty slot was found, false otherwise.</returns>
+    public bool TryGetEmptyProviderSlot(EntityUid uid, [NotNullWhen(true)] out BodyProviderSlot? slot, BodyProviderType type = BodyProviderType.All, string? id = null)
     {
         if (_bodyQuery.TryComp(uid, out var bodyComp))
-            return TryCreateProviderSlot((uid, bodyComp), id, type);
+            return TryGetEmptyProviderSlot((uid, bodyComp), out slot, type, id);
 
         if (_providerQuery.TryComp(uid, out var providerComp))
-            return TryCreateProviderSlot((uid, providerComp), id, type);
+            return TryGetEmptyProviderSlot((uid, providerComp), out slot, type, id);
 
+        slot = null;
         return false;
     }
 
     /// <summary>
-    /// Attempts to find an empty body provider slot within this body.
+    /// Attempts to find an empty body provider slot within given body.
     /// </summary>
     /// <param name="ent">The entity to search within.</param>
     /// <param name="slot">The found empty slot. Will be null if no slot is found.</param>
@@ -165,27 +231,7 @@ public abstract partial class SharedBodySystem : EntitySystem
     }
 
     /// <summary>
-    /// Attempts to find an empty body provider slot within this entity.
-    /// </summary>
-    /// <param name="uid">The entity to search within.</param>
-    /// <param name="slot">The found empty slot. Will be null if no slot is found.</param>
-    /// <param name="type">The type of provider the slot should match.</param>
-    /// <param name="id">If specified, only a slot with this exact ID will be searched.</param>
-    /// <returns>True if an empty slot was found, false otherwise.</returns>
-    public bool TryGetEmptyProviderSlot(EntityUid uid, [NotNullWhen(true)] out BodyProviderSlot? slot, BodyProviderType type = BodyProviderType.All, string? id = null)
-    {
-        if (_bodyQuery.TryComp(uid, out var bodyComp))
-            return TryGetEmptyProviderSlot((uid, bodyComp), out slot, type, id);
-
-        if (_providerQuery.TryComp(uid, out var providerComp))
-            return TryGetEmptyProviderSlot((uid, providerComp), out slot, type, id);
-
-        slot = null;
-        return false;
-    }
-
-    /// <summary>
-    /// Attempts to get a list of all body provider associated with this body,
+    /// Attempts to get a list of all body provider associated with given body,
     /// </summary>
     /// <param name="ent">The entity to search within.</param>
     /// <param name="providers">A list of found providers.</param>
@@ -198,7 +244,7 @@ public abstract partial class SharedBodySystem : EntitySystem
     }
 
     /// <summary>
-    /// Attempts to get a list of all body provider associated with this entity,
+    /// Attempts to get a list of all body provider associated with given entity,
     /// </summary>
     /// <param name="uid">The entity to search within.</param>
     /// <param name="providers">A list of found providers.</param>
@@ -211,10 +257,10 @@ public abstract partial class SharedBodySystem : EntitySystem
     }
 
     /// <summary>
-    /// Attempts to get the root body provider for this body.
+    /// Attempts to get the root body provider for given body.
     /// </summary>
     /// <param name="ent">The entity to search within.</param>
-    /// <param name="provider">The root body provider</param>
+    /// <param name="provider">The found root body provider.</param>
     /// <returns>True if the root provider was successfully retrieved, false otherwise.</returns>
     public bool TryGetRootProvider(Entity<BodyComponent?> ent, [NotNullWhen(true)] out Entity<BodyProviderComponent>? provider)
     {
@@ -231,7 +277,7 @@ public abstract partial class SharedBodySystem : EntitySystem
     }
 
     /// <summary>
-    /// Retrieves all body provider slots associated with this body.
+    /// Retrieves all body provider slots associated with given body.
     /// </summary>
     /// <param name="comp">The <see cref="BodyComponent"/> to search within.</param>
     /// <returns>A dictionary of found slots.</returns>
@@ -265,7 +311,25 @@ public abstract partial class SharedBodySystem : EntitySystem
     }
 
     /// <summary>
-    /// Retrieves all body provider slots associated with this body.
+    /// Retrieves all body provider slots associated with given entity.
+    /// </summary>
+    /// <param name="uid">The entity to search within.</param>
+    /// <param name="type">Filter by provider type.</param>
+    /// <param name="id">Slot ID for exact matching.</param>
+    /// <returns>A dictionary of found slots.</returns>
+    public Dictionary<string, BodyProviderSlot> GetProviderSlots(EntityUid uid, BodyProviderType type = BodyProviderType.All, string? id = null)
+    {
+        if (_bodyQuery.TryComp(uid, out var bodyComp))
+            return GetProviderSlots((uid, bodyComp), type, id);
+
+        if (_providerQuery.TryComp(uid, out var providerComp))
+            return GetProviderSlots((uid, providerComp), type, id);
+
+        return new Dictionary<string, BodyProviderSlot>();
+    }
+
+    /// <summary>
+    /// Retrieves all body provider slots associated with given body.
     /// </summary>
     /// <param name="ent">The entity to search within.</param>
     /// <param name="type">Filter by provider type.</param>
@@ -289,25 +353,24 @@ public abstract partial class SharedBodySystem : EntitySystem
     }
 
     /// <summary>
-    /// Retrieves all body provider slots associated with this entity.
+    /// Retrieves all body providers associated with given entity.
     /// </summary>
     /// <param name="uid">The entity to search within.</param>
     /// <param name="type">Filter by provider type.</param>
-    /// <param name="id">Slot ID for exact matching.</param>
-    /// <returns>A dictionary of found slots.</returns>
-    public Dictionary<string, BodyProviderSlot> GetProviderSlots(EntityUid uid, BodyProviderType type = BodyProviderType.All, string? id = null)
+    /// <returns>A list of found providers.</returns>
+    public List<Entity<BodyProviderComponent>> GetProviders(EntityUid uid, BodyProviderType type = BodyProviderType.All)
     {
         if (_bodyQuery.TryComp(uid, out var bodyComp))
-            return GetProviderSlots((uid, bodyComp), type, id);
+            return GetProviders((uid, bodyComp), type);
 
         if (_providerQuery.TryComp(uid, out var providerComp))
-            return GetProviderSlots((uid, providerComp), type, id);
+            return GetProviders((uid, providerComp), type);
 
-        return new Dictionary<string, BodyProviderSlot>();
+        return new List<Entity<BodyProviderComponent>>();
     }
 
     /// <summary>
-    /// Retrieves all body providers associated with this body.
+    /// Retrieves all body providers associated with given body.
     /// </summary>
     /// <param name="ent">The entity to search within.</param>
     /// <param name="type">Filter by provider type.</param>
@@ -331,24 +394,7 @@ public abstract partial class SharedBodySystem : EntitySystem
     }
 
     /// <summary>
-    /// Retrieves all body providers associated with this entity.
-    /// </summary>
-    /// <param name="uid">The entity to search within.</param>
-    /// <param name="type">Filter by provider type.</param>
-    /// <returns>A list of found providers.</returns>
-    public List<Entity<BodyProviderComponent>> GetProviders(EntityUid uid, BodyProviderType type = BodyProviderType.All)
-    {
-        if (_bodyQuery.TryComp(uid, out var bodyComp))
-            return GetProviders((uid, bodyComp), type);
-
-        if (_providerQuery.TryComp(uid, out var providerComp))
-            return GetProviders((uid, providerComp), type);
-
-        return new List<Entity<BodyProviderComponent>>();
-    }
-
-    /// <summary>
-    /// Retrieves all body provider prototype associated with this body.
+    /// Retrieves all body provider prototype associated with given body.
     /// </summary>
     /// <param name="comp">The <see cref="BodyComponent"/> to search within.</param>
     /// <returns>A list of found providers.</returns>

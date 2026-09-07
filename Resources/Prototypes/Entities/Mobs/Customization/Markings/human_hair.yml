@@ -1,1980 +1,1980 @@
-- type: marking
-  id: HumanHairAfro
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: afro
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairAfro2
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: afro2
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairBigafro
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: bigafro
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairAntenna
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: antenna
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairBalding
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: e
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairBedhead
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: bedhead
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairBedheadv2
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: bedheadv2
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairBedheadv3
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: bedheadv3
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairPulato
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: pulato
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairLongBedhead
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: long_bedhead
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairLongBedhead2
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: long_bedhead2
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairFloorlengthBedhead
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: floorlength_bedhead
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairBeehive
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: beehive
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairBeehivev2
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: beehivev2
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairBob
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: bob
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairBob2
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: bob2
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairBobcut
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: bobcut
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairBob4
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: bob4
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairBob5
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: bob5
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairBobcurl
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: bobcurl
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairBoddicker
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: boddicker
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairBowlcut
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: bowlcut
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairBowlcut2
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: bowlcut2
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairBraid
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: braid
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairBraided
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: braided
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairBraidfront
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: braidfront
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairBraid2
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: braid2
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairHbraid
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: hbraid
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairShortbraid
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: shortbraid
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairBraidtail
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: braidtail
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairBun
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: bun
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairBunhead2
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: bunhead2
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairBun3
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: bun3
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairLargebun
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: largebun
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairManbun
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: manbun
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairTightbun
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: tightbun
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairBusiness
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: business
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairBusiness2
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: business2
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairBusiness3
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: business3
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairBusiness4
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: business4
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairBuzzcut
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: buzzcut
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairCia
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: cia
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairClassicAfro
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: classicafro
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairClassicBigAfro
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: classicbigafro
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairClassicBusiness
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: classicbusiness
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairClassicCia
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: classiccia
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairClassicCornrows2
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: classiccornrows2
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairClassicFloorlengthBedhead
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: classicfloorlength_bedhead
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairClassicModern
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: classicmodern
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairClassicMulder
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: classicmulder
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairClassicWisp
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: classicwisp
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairCoffeehouse
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: coffeehouse
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairCombover
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: combover
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairCornrows
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: cornrows
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairCornrows2
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: cornrows2
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairCornrowbun
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: cornrowbun
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairCornrowbraid
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: cornrowbraid
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairCornrowtail
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: cornrowtail
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairCrewcut
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: crewcut
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairCrewcut2
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: crewcut2
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairCurls
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: curls
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairC
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: c
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairDandypompadour
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: dandypompadour
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairDevilock
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: devilock
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairDoublebun
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: doublebun
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairDoublebunLong
-  markingCategory: Hair
-  sprites:
-  - sprite: Mobs/Customization/human_hair.rsi
-    state: doublebun_long
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-    # WD EDIT END
-- type: marking
-  id: HumanHairDreads
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: dreads
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairDrillruru
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: drillruru
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairDrillhairextended
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: drillhairextended
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairEmo
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: emo
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairEmofringe
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: emofringe
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairNofade
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: nofade
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairHighfade
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: highfade
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairMedfade
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: medfade
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairLowfade
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: lowfade
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairBaldfade
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: baldfade
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairFeather
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: feather
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairFather
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: father
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairSargeant
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: sargeant
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairFlair
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: flair
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairBigflattop
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: bigflattop
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairFlow
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: f
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairGelled
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: gelled
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairGentle
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: gentle
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairHalfbang
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: halfbang
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairHalfbang2
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: halfbang2
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairHalfshaved
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: halfshaved
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairHedgehog
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: hedgehog
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairHimecut
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: himecut
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairHimecut2
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: himecut2
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairShorthime
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: shorthime
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairHimeup
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: himeup
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairHitop
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: hitop
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairJade
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: jade
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairJensen
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: jensen
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairJoestar
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: joestar
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairKeanu
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: keanu
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairKusanagi
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: kusanagi
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairLong
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: long
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairLong2
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: long2
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairLong3
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: long3
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairLongWithBundles
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: longbundled
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairLongovereye
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: longovereye
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairLbangs
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: lbangs
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairLongemo
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: longemo
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairLongfringe
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: longfringe
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairLongsidepart
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: longsidepart
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairMegaeyebrows
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: megaeyebrows
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairMessy
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: messy
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairModern
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: modern
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairMohawk
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: d
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairNitori
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: nitori
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairReversemohawk
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: reversemohawk
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairUnshavenMohawk
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: unshaven_mohawk
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairMulder
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: mulder
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairOdango
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: odango
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairOmbre
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: ombre
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairOneshoulder
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: oneshoulder
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairShortovereye
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: shortovereye
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairOxton
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: oxton
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairParted
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: parted
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairPart
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: part
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairKagami
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: kagami
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairPigtails
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: pigtails
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairPigtails2
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: pigtails2
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairPixie
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: pixie
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairPompadour
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: pompadour
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairBigpompadour
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: bigpompadour
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairPonytail
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: ponytail
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairPonytail2
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: ponytail2
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairPonytail3
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: ponytail3
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairPonytail4
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: ponytail4
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairPonytail5
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: ponytail5
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairPonytail6
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: ponytail6
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairPonytail7
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: ponytail7
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairHighponytail
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: highponytail
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairStail
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: stail
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairLongstraightponytail
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: longstraightponytail
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairCountry
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: country
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairFringetail
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: fringetail
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairSidetail
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: sidetail
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairSidetail2
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: sidetail2
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairSidetail3
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: sidetail3
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairSidetail4
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: sidetail4
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairSpikyponytail
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: spikyponytail
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairPoofy
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: poofy
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairQuiff
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: quiff
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairRonin
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: ronin
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairShaved
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: shaved
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairShavedpart
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: shavedpart
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairShortbangs
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: shortbangs
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairA
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: a
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairShorthair2
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: shorthair2
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairShorthair3
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: shorthair3
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairD
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: d
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairE
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: e
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairF
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: f
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairShorthairg
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: shorthairg
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHair80s
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: 80s
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairRosa
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: rosa
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairB
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: b
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairSidecut
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: sidecut
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairSkinhead
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: skinhead
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairProtagonist
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: protagonist
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairSpikey
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: spikey
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairSpiky
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: spiky
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairSpiky2
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: spiky2
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairSpookyLong
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: spookylong
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairSwept
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: swept
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairSwept2
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: swept2
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairShoulderLengthOverEye
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: shoulderlengthovereye
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairThinning
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: thinning
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairThinningfront
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: thinningfront
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairThinningrear
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: thinningrear
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairTopknot
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: topknot
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairTressshoulder
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: tressshoulder
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairTrimmed
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: trimmed
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairTrimflat
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: trimflat
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairTwintail
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: twintail
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairTwoStrands
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: twostrands
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairUndercut
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: undercut
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairUndercutleft
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: undercutleft
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairUndercutright
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: undercutright
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairUnkept
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: unkept
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairUpdo
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: updo
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairVlong
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: vlong
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairLongest
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: longest
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairLongest2
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: longest2
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairVeryshortovereyealternate
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: veryshortovereyealternate
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairVlongfringe
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: vlongfringe
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairVolaju
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: volaju
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairWisp
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: wisp
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairUneven
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: uneven
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairTailed
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: tailed
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairClassicLong2
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: classiclong2
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairClassicLong3
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: classiclong3
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairShaped
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: shaped
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-- type: marking
-  id: HumanHairLongBow
-  markingCategory: Hair
-  sprites:
-    - sprite: Mobs/Customization/human_hair.rsi
-      state: longbow
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
+#- type: marking
+#  id: HumanHairAfro
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: afro
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairAfro2
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: afro2
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairBigafro
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: bigafro
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairAntenna
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: antenna
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairBalding
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: e
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairBedhead
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: bedhead
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairBedheadv2
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: bedheadv2
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairBedheadv3
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: bedheadv3
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairPulato
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: pulato
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairLongBedhead
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: long_bedhead
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairLongBedhead2
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: long_bedhead2
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairFloorlengthBedhead
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: floorlength_bedhead
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairBeehive
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: beehive
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairBeehivev2
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: beehivev2
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairBob
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: bob
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairBob2
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: bob2
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairBobcut
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: bobcut
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairBob4
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: bob4
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairBob5
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: bob5
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairBobcurl
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: bobcurl
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairBoddicker
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: boddicker
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairBowlcut
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: bowlcut
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairBowlcut2
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: bowlcut2
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairBraid
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: braid
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairBraided
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: braided
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairBraidfront
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: braidfront
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairBraid2
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: braid2
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairHbraid
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: hbraid
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairShortbraid
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: shortbraid
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairBraidtail
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: braidtail
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairBun
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: bun
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairBunhead2
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: bunhead2
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairBun3
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: bun3
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairLargebun
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: largebun
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairManbun
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: manbun
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairTightbun
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: tightbun
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairBusiness
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: business
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairBusiness2
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: business2
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairBusiness3
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: business3
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairBusiness4
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: business4
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairBuzzcut
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: buzzcut
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairCia
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: cia
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairClassicAfro
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: classicafro
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairClassicBigAfro
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: classicbigafro
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairClassicBusiness
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: classicbusiness
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairClassicCia
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: classiccia
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairClassicCornrows2
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: classiccornrows2
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairClassicFloorlengthBedhead
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: classicfloorlength_bedhead
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairClassicModern
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: classicmodern
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairClassicMulder
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: classicmulder
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairClassicWisp
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: classicwisp
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairCoffeehouse
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: coffeehouse
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairCombover
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: combover
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairCornrows
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: cornrows
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairCornrows2
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: cornrows2
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairCornrowbun
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: cornrowbun
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairCornrowbraid
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: cornrowbraid
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairCornrowtail
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: cornrowtail
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairCrewcut
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: crewcut
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairCrewcut2
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: crewcut2
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairCurls
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: curls
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairC
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: c
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairDandypompadour
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: dandypompadour
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairDevilock
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: devilock
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairDoublebun
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: doublebun
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairDoublebunLong
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: Mobs/Customization/human_hair.rsi
+#    state: doublebun_long
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#    # WD EDIT END
+#- type: marking
+#  id: HumanHairDreads
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: dreads
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairDrillruru
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: drillruru
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairDrillhairextended
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: drillhairextended
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairEmo
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: emo
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairEmofringe
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: emofringe
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairNofade
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: nofade
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairHighfade
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: highfade
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairMedfade
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: medfade
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairLowfade
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: lowfade
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairBaldfade
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: baldfade
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairFeather
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: feather
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairFather
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: father
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairSargeant
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: sargeant
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairFlair
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: flair
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairBigflattop
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: bigflattop
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairFlow
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: f
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairGelled
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: gelled
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairGentle
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: gentle
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairHalfbang
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: halfbang
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairHalfbang2
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: halfbang2
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairHalfshaved
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: halfshaved
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairHedgehog
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: hedgehog
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairHimecut
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: himecut
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairHimecut2
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: himecut2
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairShorthime
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: shorthime
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairHimeup
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: himeup
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairHitop
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: hitop
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairJade
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: jade
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairJensen
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: jensen
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairJoestar
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: joestar
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairKeanu
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: keanu
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairKusanagi
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: kusanagi
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairLong
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: long
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairLong2
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: long2
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairLong3
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: long3
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairLongWithBundles
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: longbundled
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairLongovereye
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: longovereye
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairLbangs
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: lbangs
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairLongemo
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: longemo
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairLongfringe
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: longfringe
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairLongsidepart
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: longsidepart
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairMegaeyebrows
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: megaeyebrows
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairMessy
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: messy
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairModern
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: modern
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairMohawk
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: d
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairNitori
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: nitori
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairReversemohawk
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: reversemohawk
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairUnshavenMohawk
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: unshaven_mohawk
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairMulder
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: mulder
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairOdango
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: odango
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairOmbre
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: ombre
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairOneshoulder
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: oneshoulder
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairShortovereye
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: shortovereye
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairOxton
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: oxton
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairParted
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: parted
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairPart
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: part
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairKagami
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: kagami
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairPigtails
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: pigtails
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairPigtails2
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: pigtails2
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairPixie
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: pixie
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairPompadour
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: pompadour
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairBigpompadour
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: bigpompadour
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairPonytail
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: ponytail
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairPonytail2
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: ponytail2
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairPonytail3
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: ponytail3
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairPonytail4
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: ponytail4
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairPonytail5
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: ponytail5
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairPonytail6
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: ponytail6
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairPonytail7
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: ponytail7
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairHighponytail
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: highponytail
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairStail
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: stail
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairLongstraightponytail
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: longstraightponytail
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairCountry
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: country
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairFringetail
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: fringetail
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairSidetail
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: sidetail
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairSidetail2
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: sidetail2
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairSidetail3
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: sidetail3
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairSidetail4
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: sidetail4
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairSpikyponytail
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: spikyponytail
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairPoofy
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: poofy
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairQuiff
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: quiff
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairRonin
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: ronin
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairShaved
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: shaved
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairShavedpart
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: shavedpart
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairShortbangs
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: shortbangs
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairA
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: a
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairShorthair2
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: shorthair2
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairShorthair3
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: shorthair3
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairD
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: d
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairE
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: e
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairF
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: f
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairShorthairg
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: shorthairg
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHair80s
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: 80s
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairRosa
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: rosa
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairB
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: b
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairSidecut
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: sidecut
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairSkinhead
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: skinhead
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairProtagonist
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: protagonist
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairSpikey
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: spikey
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairSpiky
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: spiky
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairSpiky2
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: spiky2
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairSpookyLong
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: spookylong
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairSwept
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: swept
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairSwept2
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: swept2
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairShoulderLengthOverEye
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: shoulderlengthovereye
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairThinning
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: thinning
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairThinningfront
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: thinningfront
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairThinningrear
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: thinningrear
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairTopknot
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: topknot
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairTressshoulder
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: tressshoulder
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairTrimmed
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: trimmed
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairTrimflat
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: trimflat
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairTwintail
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: twintail
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairTwoStrands
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: twostrands
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairUndercut
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: undercut
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairUndercutleft
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: undercutleft
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairUndercutright
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: undercutright
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairUnkept
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: unkept
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairUpdo
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: updo
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairVlong
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: vlong
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairLongest
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: longest
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairLongest2
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: longest2
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairVeryshortovereyealternate
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: veryshortovereyealternate
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairVlongfringe
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: vlongfringe
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairVolaju
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: volaju
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairWisp
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: wisp
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairUneven
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: uneven
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairTailed
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: tailed
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairClassicLong2
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: classiclong2
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairClassicLong3
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: classiclong3
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairShaped
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: shaped
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#- type: marking
+#  id: HumanHairLongBow
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: Mobs/Customization/human_hair.rsi
+#      state: longbow
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END

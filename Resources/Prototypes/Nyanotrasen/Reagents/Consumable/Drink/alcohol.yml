@@ -112,8 +112,8 @@
         - !type:ReagentThreshold
           min: 5
         damage:
-          types:
-            Caustic: 0.25
+          # WD EDIT: Migrated damage format
+          Caustic: 0.2
       - !type:SatiateThirst
         factor: 2
       - !type:AdjustReagent

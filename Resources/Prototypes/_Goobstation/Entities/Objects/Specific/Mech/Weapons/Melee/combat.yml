@@ -15,6 +15,6 @@
       path: "/Audio/Weapons/chainsaw.ogg"
     attackRate: 0.3
     damage:
-      types:
-        Structural: 35
-        Piercing: 15
+      # WD EDIT: Migrated damage format
+      Piercing: 15
+      Structural: 35

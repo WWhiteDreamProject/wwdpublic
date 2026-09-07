@@ -1,0 +1,120 @@
+﻿- type: entity
+  id: BaseBodyHuman
+  parent: BaseBody
+  abstract: true
+  components:
+  - type: Body
+    rootProvider:
+      type: Chest
+      providers:
+        groin:
+          type: Groin
+          providers:
+            coxae:
+              type: Coxae
+              providers:
+                appendix:
+                  type: Appendix
+                  startingProvider: BodyProviderAppendixHuman
+                kidneys:
+                  type: Kidneys
+                  startingProvider: BodyProviderKidneysHuman
+                liver:
+                  type: Liver
+                  startingProvider: BodyProviderLiverHuman
+                stomach:
+                  type: Stomach
+                  startingProvider: BodyProviderStomachHuman
+              startingProvider: BodyProviderCoxaeHuman
+            left_leg:
+              type: LeftLeg
+              providers:
+                left_crus:
+                  type: LeftCrus
+                  startingProvider: BodyProviderLeftCrusHuman
+                left_foot:
+                  type: LeftFoot
+                  providers:
+                    left_pedis:
+                      type: LeftPedis
+                      startingProvider: BodyProviderLeftPedisHuman
+                  startingProvider: BodyProviderLeftFootHuman
+              startingProvider: BodyProviderLeftLegHuman
+            right_leg:
+              type: RightLeg
+              providers:
+                right_crus:
+                  type: RightCrus
+                  startingProvider: BodyProviderRightCrusHuman
+                right_foot:
+                  type: RightFoot
+                  providers:
+                    right_pedis:
+                      type: RightPedis
+                      startingProvider: BodyProviderRightPedisHuman
+                  startingProvider: BodyProviderRightFootHuman
+              startingProvider: BodyProviderRightLegHuman
+            tail:
+              type: Tail
+          startingProvider: BodyProviderGroinHuman
+        head:
+          type: Head
+          providers:
+            cranium:
+              type: Сranium
+              providers:
+                brain:
+                  type: Brain
+                  startingProvider: BodyProviderBrainHuman
+                ears:
+                  type: Ears
+                  startingProvider: BodyProviderEarsHuman
+                eyes:
+                  type: Eyes
+                  startingProvider: BodyProviderEyesHuman
+                tongue:
+                  type: Tongue
+                  startingProvider: BodyProviderTongueHuman
+              startingProvider: BodyProviderCraniumHuman
+          startingProvider: BodyProviderHeadHuman
+        left_arm:
+          type: LeftArm
+          providers:
+            left_antebrachium:
+              type: LeftAntebrachium
+              startingProvider: BodyProviderLeftAntebrachiumHuman
+            left_hand:
+              type: LeftHand
+              providers:
+                left_manus:
+                  type: LeftManus
+                  startingProvider: BodyProviderLeftManusHuman
+              startingProvider: BodyProviderLeftHandHuman
+          startingProvider: BodyProviderLeftArmHuman
+        right_arm:
+          type: RightArm
+          providers:
+            right_antebrachium:
+              type: RightAntebrachium
+              startingProvider: BodyProviderRightAntebrachiumHuman
+            right_hand:
+              type: RightHand
+              providers:
+                right_manus:
+                  type: RightManus
+                  startingProvider: BodyProviderRightManusHuman
+              startingProvider: BodyProviderRightHandHuman
+          startingProvider: BodyProviderRightArmHuman
+        thorax:
+          type: Thorax
+          providers:
+            heart:
+              type: Heart
+              startingProvider: BodyProviderHeartHuman
+            lungs:
+              type: Lungs
+              startingProvider: BodyProviderLungsHuman
+          startingProvider: BodyProviderThoraxHuman
+        wings:
+          type: Wings
+      startingProvider: BodyProviderChestHuman

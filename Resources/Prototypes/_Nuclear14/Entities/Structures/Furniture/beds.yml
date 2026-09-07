@@ -51,9 +51,9 @@
   components:
     - type: HealOnBuckle
       damage:
-        types:
-          Poison: -0.05
-          Blunt: -0.05
+        # WD EDIT: Migrated damage format
+        Blunt: -0.1
+        Poison: -0.1
     - type: Sprite
       sprite: _Nuclear14/Structures/Furniture/bedsandchairs.rsi
       noRot: true

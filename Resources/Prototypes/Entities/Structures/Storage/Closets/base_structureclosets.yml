@@ -38,8 +38,8 @@
   - type: ItemSlots
   - type: DamageOnHighSpeedImpact
     damage:
-      types:
-        Blunt: 5
+      # WD EDIT: Migrated damage format
+      Blunt: 5
     soundHit:
       collection: MetalThud
   - type: InteractionOutline
@@ -123,8 +123,8 @@
     price: 75
   - type: DamageOtherOnHit
     damage:
-      types:
-        Blunt: 10
+      # WD EDIT: Migrated damage format
+      Blunt: 10
     staminaCost: 35
 
 # steel closet base (that can be constructed/deconstructed)
@@ -139,8 +139,8 @@
     - entity_storage
   - type: DamageOtherOnHit
     damage:
-      types:
-        Blunt: 15
+      # WD EDIT: Migrated damage format
+      Blunt: 15
     staminaCost: 50
 
 #Wall Closet
@@ -275,8 +275,8 @@
   - type: MovedByPressure
   - type: DamageOnHighSpeedImpact
     damage:
-      types:
-        Blunt: 5
+      # WD EDIT: Migrated damage format
+      Blunt: 5
     soundHit:
       collection: MetalThud
   - type: InteractionOutline

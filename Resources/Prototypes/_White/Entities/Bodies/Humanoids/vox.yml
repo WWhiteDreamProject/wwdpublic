@@ -1,0 +1,120 @@
+- type: entity
+  id: BaseBodyVox
+  parent: BaseBody
+  abstract: true
+  components:
+  - type: Body
+    rootProvider:
+      type: Chest
+      providers:
+        groin:
+          type: Groin
+          providers:
+            coxae:
+              type: Coxae
+              providers:
+                kidneys:
+                  type: Kidneys
+                  startingProvider: BodyProviderKidneysVox
+                liver:
+                  type: Liver
+                  startingProvider: BodyProviderLiverVox
+                stomach:
+                  type: Stomach
+                  startingProvider: BodyProviderStomachVox
+              startingProvider: BodyProviderCoxaeVox
+            left_leg:
+              type: LeftLeg
+              providers:
+                left_crus:
+                  type: LeftCrus
+                  startingProvider: BodyProviderLeftCrusVox
+                left_foot:
+                  type: LeftFoot
+                  providers:
+                    left_pedis:
+                      type: LeftPedis
+                      startingProvider: BodyProviderLeftPedisVox
+                  startingProvider: BodyProviderLeftFootVox
+              startingProvider: BodyProviderLeftLegVox
+            right_leg:
+              type: RightLeg
+              providers:
+                right_crus:
+                  type: RightCrus
+                  startingProvider: BodyProviderRightCrusVox
+                right_foot:
+                  type: RightFoot
+                  providers:
+                    right_pedis:
+                      type: RightPedis
+                      startingProvider: BodyProviderRightPedisVox
+                  startingProvider: BodyProviderRightFootVox
+              startingProvider: BodyProviderRightLegVox
+            tail:
+              type: Tail
+              providers:
+                cauda:
+                  type: Cauda
+                  startingProvider: BodyProviderCaudaVox
+              startingProvider: BodyProviderPartTailVox
+          startingProvider: BodyProviderGroinVox
+        head:
+          type: Head
+          providers:
+            cranium:
+              type: Сranium
+              providers:
+                brain:
+                  type: Brain
+                  startingProvider: BodyProviderBrainVox
+                ears:
+                  type: Ears
+                  startingProvider: BodyProviderEarsVox
+                eyes:
+                  type: Eyes
+                  startingProvider: BodyProviderEyesVox
+                tongue:
+                  type: Tongue
+                  startingProvider: BodyProviderTongueVox
+              startingProvider: BodyProviderСraniumVox
+          startingProvider: BodyProviderHeadVox
+        left_arm:
+          type: LeftArm
+          providers:
+            left_antebrachium:
+              type: LeftAntebrachium
+              startingProvider: BodyProviderLeftAntebrachiumVox
+            left_hand:
+              type: LeftHand
+              providers:
+                left_manus:
+                  type: LeftManus
+                  startingProvider: BodyProviderLeftManusVox
+              startingProvider: BodyProviderLeftHandVox
+          startingProvider: BodyProviderLeftArmVox
+        right_arm:
+          type: RightArm
+          providers:
+            right_antebrachium:
+              type: RightAntebrachium
+              startingProvider: BodyProviderRightAntebrachiumVox
+            right_hand:
+              type: RightHand
+              providers:
+                right_manus:
+                  type: RightManus
+                  startingProvider: BodyProviderRightManusVox
+              startingProvider: BodyProviderRightHandVox
+          startingProvider: BodyProviderRightArmVox
+        thorax:
+          type: Thorax
+          providers:
+            heart:
+              type: Heart
+              startingProvider: BodyProviderHeartVox
+            lungs:
+              type: Lungs
+              startingProvider: BodyProviderLungsVox
+          startingProvider: BodyProviderThoraxVox
+      startingProvider: BodyProviderChestVox

@@ -16,7 +16,7 @@ public sealed class ArtifactDamageTriggerSystem : EntitySystem
 
     private void OnDamageChanged(EntityUid uid, ArtifactDamageTriggerComponent component, DamageChangedEvent args)
     {
-        if (!args.DamageIncreased)
+        if (!args.Damage.AnyPositive())
             return;
 
         foreach (var (type, amount) in args.Damage) // WD EDIT

@@ -1,3 +1,5 @@
+using Content.Shared._White.Appearance.Prototypes;
+using Content.Shared._White.Colors.Prototypes;
 using Content.Shared.Humanoid;
 using Robust.Shared.Prototypes;
 
@@ -20,40 +22,40 @@ public sealed class SpeciesPrototype : IPrototype
     public bool SetPreference { get; }
 
     /// <summary>
-    /// Defaults tone for this species.
+    /// Defaults colors for this species.
     /// </summary>
     [DataField]
-    public Dictionary<ProtoId<BodyColorationPrototype>, Color> DefaultTone { get; } = new()
+    public Dictionary<ProtoId<BodyColorGroupPrototype>, Color> DefaultColors { get; } = new()
     {
+        {"Eyes", Color.Black},
         {"Skin", Color.White},
-        {"Eye", Color.Black},
     };
 
     /// <summary>
-    /// Defaults unary tone for this species.
+    /// Defaults unary colors for this species.
     /// </summary>
     [DataField]
-    public Dictionary<ProtoId<BodyColorationPrototype>, int> DefaultUnaryTone { get; } = new()
+    public Dictionary<ProtoId<BodyColorGroupPrototype>, int> DefaultUnaryColors { get; } = new()
     {
+        {"Eyes", 20},
         {"Skin", 20},
-        {"Eye", 20},
     };
 
     /// <summary>
-    /// Prototype IDs for the coloration method used by this species.
+    /// Prototype IDs for the coloration strategies used by this species.
     /// </summary>
     [DataField]
-    public Dictionary<ProtoId<BodyColorationPrototype>, ProtoId<ColorationPrototype>> Coloration { get; } = new()
+    public Dictionary<ProtoId<BodyColorGroupPrototype>, ProtoId<ColorationStrategyPrototype>> Colorations { get; } = new()
     {
-        {"Skin", "HumanToned"},
-        {"Eye", "All"},
+        {"Eyes", "Simple"},
+        {"Skin", "Simple"},
     };
 
     /// <summary>
     /// Entity prototype ID for the dress-up doll used by this species.
     /// </summary>
     [DataField(required: true)]
-    public EntProtoId DollPrototype { get; }
+    public EntProtoId Doll { get; }
 
     /// <summary>
     /// Entity prototype ID for the humanoid variant of this species.

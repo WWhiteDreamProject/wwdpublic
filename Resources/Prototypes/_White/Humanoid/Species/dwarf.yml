@@ -1,0 +1,22 @@
+- type: species
+  id: Dwarf
+  setPreference: true
+  defaultColors:
+    Eyes: "#634E34"
+    Skin: "#C0967F"
+  colorations:
+    Eyes: Simple
+    Skin: HumanTone
+  doll: HumanoidDollDwarf
+  prototype: MobHumanoidDwarf
+  defaultHeight: 0.8
+  defaultWidth: 0.8
+  maxHeight: 0.9
+  maxWidth: 0.9
+  minHeight: 0.7
+  minWidth: 0.7
+  bodyTypes:
+  - Normal
+  - Slim
+  name: species-name-dwarf
+  naming: Human

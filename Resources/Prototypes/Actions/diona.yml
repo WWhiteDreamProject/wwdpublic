@@ -5,8 +5,10 @@
   components:
   - type: InstantAction
     icon:
-      sprite: Mobs/Species/Diona/organs.rsi
-      state: brain
+      # WD EDIT START
+      sprite: _White/Bodies/Organs/Humanoids/diona.rsi
+      state: central
+      # WD EDIT END
     event: !type:GibActionEvent {}
     checkCanInteract: false
     checkConsciousness: false
@@ -18,7 +20,7 @@
   components:
   - type: InstantAction
     icon:
-      sprite: Mobs/Species/Diona/parts.rsi
+      sprite: _White/Bodies/Parts/Humanoids/diona.rsi # WD EDIT
       state: full
     event: !type:ReformEvent {}
     useDelay: 600 # Once every 10 minutes. Keep them dead for a fair bit before reforming

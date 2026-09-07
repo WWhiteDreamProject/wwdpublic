@@ -77,10 +77,10 @@
     - Silicon
     - SiliconUnshielded
     damage:
-      types: # these are all split across multiple types. IPCs can still take cold damage, they just heavily resist it.
-        Heat: -8
-        Shock: -8
-        Cold: -2
+      # WD EDIT: Migrated damage format
+      Cold: -2
+      Heat: -8
+      Shock: -8
   - type: Fixtures
     fixtures:
       fix1:
@@ -163,10 +163,10 @@
     - Silicon
     - SiliconUnshielded
     damage:
-      types: # these are all split across multiple types. IPCs can still take cold damage, they just heavily resist it.
-        Heat: -4
-        Shock: -4
-        Cold: -1
+      # WD EDIT: Migrated damage format
+      Cold: -1
+      Heat: -4
+      Shock: -4
   - type: Fixtures
     fixtures:
       fix1:
@@ -248,10 +248,10 @@
     - Silicon
     - SiliconUnshielded
     damage:
-      types: # these are all split across multiple types. IPCs can still take cold damage, they just heavily resist it.
-        Heat: -2
-        Shock: -2
-        Cold: -0.5
+      # WD EDIT: Migrated damage format
+      Cold: -0.5
+      Heat: -2
+      Shock: -2
   - type: Fixtures
     fixtures:
       fix1:

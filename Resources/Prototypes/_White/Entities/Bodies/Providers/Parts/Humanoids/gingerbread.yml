@@ -1,0 +1,61 @@
+- type: entity
+  id: BaseBodyProviderPartGingerbread
+  parent: BaseBodyProviderPartOrganic
+  abstract: true
+  suffix: Gingerbread
+  components:
+  - type: BodyAppearanceProvider
+    path: _White/Bodies/Parts/Humanoids/gingerbread.rsi
+  - type: Sprite
+    sprite: _White/Bodies/Parts/Humanoids/gingerbread.rsi
+
+# Arms
+- type: entity
+  id: BodyProviderLeftArmGingerbread
+  parent: [BaseBodyProviderLeftArmOrganic, BaseBodyProviderPartGingerbread]
+
+- type: entity
+  id: BodyProviderRightArmGingerbread
+  parent: [BaseBodyProviderRightArmOrganic, BaseBodyProviderPartGingerbread]
+
+# Chest
+- type: entity
+  id: BodyProviderChestGingerbread
+  parent: [BaseBodyProviderChestOrganic, BaseBodyProviderPartGingerbread]
+
+# Foots
+- type: entity
+  id: BodyProviderLeftFootGingerbread
+  parent: [BaseBodyProviderLeftFootOrganic, BaseBodyProviderPartGingerbread]
+
+- type: entity
+  id: BodyProviderRightFootGingerbread
+  parent: [BaseBodyProviderRightFootOrganic, BaseBodyProviderPartGingerbread]
+
+# Groin
+- type: entity
+  id: BodyProviderGroinGingerbread
+  parent: [BaseBodyProviderGroinOrganic, BaseBodyProviderPartGingerbread]
+
+# Hands
+- type: entity
+  id: BodyProviderLeftHandGingerbread
+  parent: [BaseBodyProviderLeftHandOrganic, BaseBodyProviderPartGingerbread]
+
+- type: entity
+  id: BodyProviderRightHandGingerbread
+  parent: [BaseBodyProviderRightHandOrganic, BaseBodyProviderPartGingerbread]
+
+# Head
+- type: entity
+  id: BodyProviderHeadGingerbread
+  parent: [BaseBodyProviderHeadOrganic, BaseBodyProviderPartGingerbread]
+
+# Legs
+- type: entity
+  id: BodyProviderLeftLegGingerbread
+  parent: [BaseBodyProviderLeftLegOrganic, BaseBodyProviderPartGingerbread]
+
+- type: entity
+  id: BodyProviderRightLegGingerbread
+  parent: [BaseBodyProviderRightLegOrganic, BaseBodyProviderPartGingerbread]

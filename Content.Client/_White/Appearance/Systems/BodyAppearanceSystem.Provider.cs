@@ -27,14 +27,22 @@ public sealed partial class BodyAppearanceSystem
 
     protected override void OnGotInserted(Entity<BodyAppearanceProviderComponent> ent, ref BodyProviderGotInsertedEvent args)
     {
-        base.OnGotInserted(ent, ref args);
+        if (!BodyQuery.HasComp(args.Body))
+            return;
+
+        ent.Comp.Body = args.Body;
+        DirtyField(ent, ent.Comp, nameof(BodyAppearanceProviderComponent.Body));
 
         ApplyAppearance(ent, args.Body.Owner);
     }
 
     protected override void OnGotRemoved(Entity<BodyAppearanceProviderComponent> ent, ref BodyProviderGotRemovedEvent args)
     {
-        base.OnGotRemoved(ent, ref args);
+        if (!BodyQuery.HasComp(args.Body))
+            return;
+
+        ent.Comp.Body = null;
+        DirtyField(ent, ent.Comp, nameof(BodyAppearanceProviderComponent.Body));
 
         RemoveAppearance(ent, args.Body.Owner);
     }
@@ -69,12 +77,25 @@ public sealed partial class BodyAppearanceSystem
         ApplyAppearance((ent, ent.Comp), body);
     }
 
-    public override void SetLayerData(Entity<BodyAppearanceProviderComponent?> ent, PrototypeLayerData data)
+    public override void SetPath(Entity<BodyAppearanceProviderComponent?> ent, string path)
     {
         if (!ProviderQuery.Resolve(ent, ref ent.Comp))
             return;
 
-        base.SetLayerData(ent, data);
+        base.SetPath(ent, path);
+
+        if (ent.Comp.Body is not {} body)
+            return;
+
+        ApplyAppearance((ent, ent.Comp), body);
+    }
+
+    public override void SetState(Entity<BodyAppearanceProviderComponent?> ent, string state)
+    {
+        if (!ProviderQuery.Resolve(ent, ref ent.Comp))
+            return;
+
+        base.SetState(ent, state);
 
         if (ent.Comp.Body is not {} body)
             return;
@@ -88,23 +109,23 @@ public sealed partial class BodyAppearanceSystem
 
     private void ApplyAppearance(Entity<BodyAppearanceProviderComponent> ent, Entity<SpriteComponent?> target)
     {
-        if (string.IsNullOrEmpty(ent.Comp.Data.RsiPath))
-            return;
+        var rsi = _resourceCache.GetResource<RSIResource>(SpriteSpecifierSerializer.TextureRoot / ent.Comp.Path).RSI;
+        var state = ent.Comp.State;
 
-        var rsi = _resourceCache.GetResource<RSIResource>(SpriteSpecifierSerializer.TextureRoot / ent.Comp.Data.RsiPath).RSI;
-
-        var bodyTypeState = $"{ent.Comp.Data.State}_{ent.Comp.Appearance.BodyType.Id.ToLower()}";
+        var bodyTypeState = $"{state}_{ent.Comp.Appearance.BodyType.Id.ToLower()}";
         if (rsi.TryGetState(bodyTypeState, out _))
-            ent.Comp.Data.State = bodyTypeState;
+            state = bodyTypeState;
 
-        var sexState = $"{ent.Comp.Data.State}_{ent.Comp.Appearance.Sex.ToString().ToLower()}";
+        var sexState = $"{state}_{ent.Comp.Appearance.Sex.ToString().ToLower()}";
         if (rsi.TryGetState(sexState, out _))
-            ent.Comp.Data.State = sexState;
+            state = sexState;
 
         if (!_sprite.LayerMapTryGet(target, ent.Comp.Layer, out var index, true))
             return;
 
-        _sprite.LayerSetData(target, index, ent.Comp.Data);
+        _sprite.LayerSetRsi(target, index, rsi);
+        _sprite.LayerSetRsiState(target, index, state);
+        _sprite.LayerSetColor(target, index, ent.Comp.Color);
     }
 
     private void RemoveAppearance(Entity<BodyAppearanceProviderComponent> ent, Entity<SpriteComponent?> target)

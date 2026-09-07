@@ -34,14 +34,12 @@ public sealed partial class TypedDamageThreshold : EntityEffectCondition
         if (args.EntityManager.TryGetComponent<DamageableComponent>(args.TargetEntity, out var damage))
         {
             var protoManager = IoCManager.Resolve<IPrototypeManager>();
-            var damageableSystem = IoCManager.Resolve<EntitySystemManager>().GetEntitySystem<DamageableSystem>();
             var comparison = new DamageSpecifier(Damage);
             foreach (var group in protoManager.EnumeratePrototypes<DamageGroupPrototype>())
             {
                 // Greedily revert the split and check; Quickly skip when not relevant
                 var lowestDamage = FixedPoint2.MaxValue;
-                var types = damageableSystem.GetTypes(group);
-                foreach (var damageType in types)
+                foreach (var damageType in group.Types)
                 {
                     if (comparison.TryGetValue(damageType, out var value))
                         lowestDamage = value < lowestDamage ? value : lowestDamage;
@@ -53,13 +51,13 @@ public sealed partial class TypedDamageThreshold : EntityEffectCondition
                 }
                 if (lowestDamage == FixedPoint2.MaxValue || lowestDamage == FixedPoint2.Zero)
                     continue;
-                var groupDamage = lowestDamage * types.Count;
+                var groupDamage = lowestDamage * group.Types.Count;
                 if (MathF.Abs(groupDamage.Float() - MathF.Round(groupDamage.Float())) < 0.02)
                     groupDamage = MathF.Round(groupDamage.Float()); // otherwise brutes split unevenly
-                if (damage.Damage.TryGetDamageInGroup(group, damageableSystem, out var total) && total > groupDamage)
+                if (damage.Damage.TryGetDamageInGroup(group, out var total) && total > groupDamage)
                     return !Inverse;
                 // we finished comparing this group, remove future interferences
-                foreach (var damageType in types)
+                foreach (var damageType in group.Types)
                 {
                     comparison[damageType] -= lowestDamage;
                     // not a fan, but it's needed
@@ -80,14 +78,12 @@ public sealed partial class TypedDamageThreshold : EntityEffectCondition
 
     public override string GuidebookExplanation(IPrototypeManager prototype)
     {
-        var damageableSystem = IoCManager.Resolve<EntitySystemManager>().GetEntitySystem<DamageableSystem>();
         var damages = new List<string>();
         var comparison = new DamageSpecifier(Damage);
         foreach (var group in prototype.EnumeratePrototypes<DamageGroupPrototype>())
         {
             var lowestDamage = FixedPoint2.MaxValue;
-            var types = damageableSystem.GetTypes(group);
-            foreach (var damageType in types)
+            foreach (var damageType in group.Types)
             {
                 if (comparison.TryGetValue(damageType, out var value))
                     lowestDamage = value < lowestDamage ? value : lowestDamage;
@@ -99,17 +95,17 @@ public sealed partial class TypedDamageThreshold : EntityEffectCondition
             }
             if (lowestDamage == FixedPoint2.MaxValue || lowestDamage == FixedPoint2.Zero)
                 continue;
-            var groupDamage = lowestDamage * types.Count;
+            var groupDamage = lowestDamage * group.Types.Count;
             if (MathF.Abs(groupDamage.Float() - MathF.Round(groupDamage.Float())) < 0.02)
                 groupDamage = MathF.Round(groupDamage.Float());
             if (groupDamage > 0)
                 damages.Add(
                 Loc.GetString("health-change-display",
-                    ("kind", group.Name),
+                    ("kind", group.LocalizedName),
                     ("amount", MathF.Abs(groupDamage.Float())),
                     ("deltasign", 1))
                 );
-            foreach (var damageType in types)
+            foreach (var damageType in group.Types)
             {
                 comparison[damageType] -= lowestDamage;
                 if (MathF.Abs(comparison[damageType].Float()
@@ -125,7 +121,7 @@ public sealed partial class TypedDamageThreshold : EntityEffectCondition
         {
             damages.Add(
                 Loc.GetString("health-change-display",
-                    ("kind", prototype.Index<DamageTypePrototype>(kind).Name),
+                    ("kind", prototype.Index<DamageTypePrototype>(kind).LocalizedName),
                     ("amount", MathF.Abs(amount.Float())),
                     ("deltasign", 1))
                 );

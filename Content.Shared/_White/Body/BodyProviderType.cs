@@ -33,13 +33,15 @@ public enum BodyProviderType
 
     #region Bones
 
-    Antebrachium = Bone | (1 << 7),
-    Coxae = Bone | (1 << 8),
-    Сranium = Bone | (1 << 9),
-    Crus = Bone | (1 << 10),
-    Manus = Bone | (1 << 11),
-    Pedis = Bone | (1 << 12),
-    Thorax = Bone | (1 << 13),
+    Alis = Bone | (1 << 7),
+    Antebrachium = Bone | (1 << 8),
+    Cauda = Bone | (1 << 9),
+    Coxae = Bone | (1 << 10),
+    Сranium = Bone | (1 << 11),
+    Crus = Bone | (1 << 12),
+    Manus = Bone | (1 << 13),
+    Pedis = Bone | (1 << 14),
+    Thorax = Bone | (1 << 15),
 
     #region Combined
 
@@ -79,7 +81,7 @@ public enum BodyProviderType
 
     #endregion Pedis
 
-    AllBones = Antebrachia | Coxae | Сranium | Сrura | Manuum | Pedum | Thorax,
+    AllBones = Antebrachia | Cauda | Coxae | Сranium | Сrura | Manuum | Pedum | Thorax,
 
     #endregion Combined
 
@@ -93,17 +95,20 @@ public enum BodyProviderType
     Eyes = Organ | (1 << 10),
     Gland = Organ | (1 << 11),
     Heart = Organ | (1 << 12),
-    Kidneys = Organ | (1 << 13),
-    Liver = Organ | (1 << 14),
-    Lungs = Organ | (1 << 15),
-    SpecificOrgan = Organ | (1 << 16),
-    Stomach = Organ | (1 << 17),
-    Tongue = Organ | (1 << 18),
+    Infection = Organ | (1 << 13),
+    Kidneys = Organ | (1 << 14),
+    Liver = Organ | (1 << 15),
+    Lungs = Organ | (1 << 16),
+    SpecificOrgan = Organ | (1 << 17),
+    Stomach = Organ | (1 << 18),
+    Tongue = Organ | (1 << 19),
 
     #region Combined
 
-    Core = Brain | Heart | Kidneys | Liver | Stomach,
-    AllOrgans = Appendix | Ears | Eyes | Gland | Lungs | Tongue,
+    AllOrgans = Appendix | Core | Ears | Eyes | Gland | Lungs | SpecificOrgan | Tongue,
+    Central = Brain | Heart,
+    Core = Central | Metabolizer,
+    Metabolizer = Kidneys | Liver | Stomach,
 
     #endregion Combined
 

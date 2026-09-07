@@ -40,10 +40,10 @@
   - type: MixableSolution
     solution: particle
   - type: BadDrink
-  - type: Drink
+  - type: Ingestible
     delay: 3
     transferAmount: 1
-    solution: particle
+    solutionName: particle
     examinable: false
   - type: IgnoresFingerprints
   - type: FootstepModifier

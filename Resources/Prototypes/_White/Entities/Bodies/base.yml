@@ -1,0 +1,5 @@
+- type: entity
+  id: BaseBody
+  abstract: true
+  components:
+  - type: Body

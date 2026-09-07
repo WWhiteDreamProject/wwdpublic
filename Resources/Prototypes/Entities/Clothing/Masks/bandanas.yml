@@ -14,7 +14,7 @@
     foldedHideLayers: []
     unfoldedHideLayers:
     # WD EDIT START
-    - enum.HumanoidVisualLayers.Snout
+    - enum.MarkingVisualLayers.Snout
     # WD EDIT END
   - type: Mask
   - type: IngestionBlocker
@@ -33,7 +33,7 @@
   - type: HideLayerClothing
     slots:
     # WD EDIT START
-    - enum.HumanoidVisualLayers.Snout
+    - enum.MarkingVisualLayers.Snout
     # WD EDIT END
     hideOnToggle: true
 

@@ -1,0 +1,48 @@
+- type: marking
+  id: BaseVegetationDiona
+  parents: [BaseVegetation, BaseDiona]
+  abstract: true
+
+- type: marking
+  id: VegetationDionaFlowers
+  parents: BaseVegetationDiona
+  forcedColoring: true
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/vegetation.rsi
+      state: flowers_chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/vegetation.rsi
+      state: flowers_groin
+
+- type: marking
+  id: VegetationDionaLeafCover
+  parents: BaseVegetationDiona
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/vegetation.rsi
+      state: leaf_cover_chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/vegetation.rsi
+      state: leaf_cover_groin
+  coloring:
+    default:
+      type: !type:BodyColorGroupColoring
+        group: Skin
+
+- type: marking
+  id: VegetationDionaThorns
+  parents: BaseVegetationDiona
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/vegetation.rsi
+      state: thorns_chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/vegetation.rsi
+      state: thorns_groin

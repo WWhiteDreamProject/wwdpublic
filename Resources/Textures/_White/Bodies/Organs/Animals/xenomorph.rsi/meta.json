@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Edited by PuroSlavKing",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "brain"
+    },
+    {
+      "name": "egg_sack"
+    },
+    {
+      "name": "gland_acid"
+    },
+    {
+      "name": "gland_neurotoxin"
+    },
+    {
+      "name": "heart"
+    },
+    {
+      "name": "hive_node"
+    },
+    {
+      "name": "infection"
+    },
+    {
+      "name": "liver"
+    },
+    {
+      "name": "lungs"
+    },
+    {
+      "name": "lungs_large"
+    },
+    {
+      "name": "lungs_small"
+    },
+    {
+      "name": "lungs_tiny"
+    },
+    {
+      "name": "resin_spinner"
+    },
+    {
+      "name": "stomach"
+    },
+    {
+      "name": "tongue"
+    }
+  ]
+}
+

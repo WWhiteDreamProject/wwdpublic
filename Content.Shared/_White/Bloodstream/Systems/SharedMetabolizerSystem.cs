@@ -2,7 +2,6 @@ using Content.Shared._White.Bloodstream.Components;
 using Content.Shared._White.Body;
 using Content.Shared._White.Body.Systems;
 
-
 namespace Content.Shared._White.Bloodstream.Systems;
 
 public abstract class SharedMetabolizerSystem : EntitySystem
@@ -64,7 +63,7 @@ public record struct GetMetabolicMultiplierEvent(float Multiplier = 1f);
 [ByRefEvent]
 public record struct GetMetabolicRateEvent(float Rate = 0f) : IBodyRelayEvent
 {
-    public BodyProviderType Type { get; } = BodyProviderType.All;
+    public BodyProviderType ProviderType { get; } = BodyProviderType.All;
 }
 
 /// <summary>
@@ -75,5 +74,5 @@ public record struct GetMetabolicRateEvent(float Rate = 0f) : IBodyRelayEvent
 [ByRefEvent]
 public readonly record struct MetabolicRateChangedEvent(float Rate) : IBodyRelayEvent
 {
-    public BodyProviderType Type { get; } = BodyProviderType.All;
+    public BodyProviderType ProviderType { get; } = BodyProviderType.All;
 }

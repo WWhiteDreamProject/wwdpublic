@@ -60,9 +60,8 @@
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Poison: 0.5
-
+          # WD EDIT: Migrated damage format
+          Poison: 0.5
 - type: reagent
   id: LemonDrop
   name: reagent-name-lemondrop
@@ -156,8 +155,8 @@
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Heat: 2
+          # WD EDIT: Migrated damage format
+          Heat: 2
       - !type:FlammableReaction
         multiplier: 0.5
       - !type:Ignite

@@ -3,10 +3,11 @@ using Content.Server._White.Respirator.Components;
 using Content.Server.Administration.Logs;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Chat.Systems;
+using Content.Shared._White.Bloodstream.Prototypes;
 using Content.Shared._White.Bloodstream.Systems;
 using Content.Shared._White.Body;
-using Content.Shared._White.Body.Prototypes;
 using Content.Shared._White.Body.Systems;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared._White.Wounds.Systems;
 using Content.Shared.Alert;
 using Content.Shared.Atmos;
@@ -30,10 +31,10 @@ public sealed partial class RespiratorSystem : EntitySystem
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly MetabolizerSystem _metabolizer = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
-    [Dependency] private readonly WoundableSystem _woundable = default!;
 
     private EntityQuery<RespiratorComponent> _respiratorQuery;
 
@@ -77,7 +78,7 @@ public sealed partial class RespiratorSystem : EntitySystem
             UpdateRespirator((uid, respirator));
         }
 
-        var consumerQuery = EntityQueryEnumerator<RespiratorСonsumerComponent>();
+        var consumerQuery = EntityQueryEnumerator<RespiratorConsumerComponent>();
         while (consumerQuery.MoveNext(out var uid, out var consumer))
         {
             if (_gameTiming.CurTime < consumer.NextUpdate)
@@ -290,7 +291,7 @@ public sealed partial class RespiratorSystem : EntitySystem
 [ByRefEvent]
 public record struct CanMetabolizeGasEvent(GasMixture Gas, bool Toxic = false, float Saturation = 0f) : IBodyRelayEvent
 {
-    public BodyProviderType Type { get; } = BodyProviderType.All;
+    public BodyProviderType ProviderType { get; } = BodyProviderType.All;
 }
 
 /// <summary>
@@ -300,7 +301,7 @@ public record struct CanMetabolizeGasEvent(GasMixture Gas, bool Toxic = false, f
 [ByRefEvent]
 public record struct ExhaleEvent(GasMixture Gas) : IBodyRelayEvent
 {
-    public BodyProviderType Type { get; } = BodyProviderType.All;
+    public BodyProviderType ProviderType { get; } = BodyProviderType.All;
 }
 
 /// <summary>
@@ -310,7 +311,7 @@ public record struct ExhaleEvent(GasMixture Gas) : IBodyRelayEvent
 [ByRefEvent]
 public record struct GetBreathVolumeEvent(float Volume = 0f) : IBodyRelayEvent
 {
-    public BodyProviderType Type { get; } = BodyProviderType.All;
+    public BodyProviderType ProviderType { get; } = BodyProviderType.All;
 }
 
 /// <summary>
@@ -335,7 +336,7 @@ public record struct GetInhaleLocationEvent(RespiratorComponent Respirator, GasM
 [ByRefEvent]
 public record struct GetSaturationConsumption(float Consumption = 0f) : IBodyRelayEvent
 {
-    public BodyProviderType Type { get; } = BodyProviderType.All;
+    public BodyProviderType ProviderType { get; } = BodyProviderType.All;
 }
 
 /// <summary>
@@ -346,7 +347,7 @@ public record struct GetSaturationConsumption(float Consumption = 0f) : IBodyRel
 [ByRefEvent]
 public record struct InhaleEvent(GasMixture Gas, bool Succeeded = false) : IBodyRelayEvent
 {
-    public BodyProviderType Type { get; } = BodyProviderType.All;
+    public BodyProviderType ProviderType { get; } = BodyProviderType.All;
 }
 
 /// <summary>
@@ -354,7 +355,7 @@ public record struct InhaleEvent(GasMixture Gas, bool Succeeded = false) : IBody
 /// </summary>
 public record struct SaturationLevelChangedEvent(float Level) : IBodyRelayEvent
 {
-    public BodyProviderType Type { get; } = BodyProviderType.All;
+    public BodyProviderType ProviderType { get; } = BodyProviderType.All;
 }
 
 /// <summary>
@@ -362,5 +363,5 @@ public record struct SaturationLevelChangedEvent(float Level) : IBodyRelayEvent
 /// </summary>
 public record struct SuffocationChangedEvent(int Suffocation) : IBodyRelayEvent
 {
-    public BodyProviderType Type { get; } = BodyProviderType.All;
+    public BodyProviderType ProviderType { get; } = BodyProviderType.All;
 }

@@ -1,0 +1,63 @@
+- type: entity
+  id: BaseBodyProviderOrganReptilian
+  parent: BaseBodyProviderOrganOrganic
+  abstract: true
+  suffix: Reptilian
+  components:
+  - type: Sprite
+    sprite: _White/Bodies/Organs/Humanoids/human.rsi # TODO: Replace with a unique sprite.
+
+- type: entity
+  id: BaseMetabolizerReptilian
+  abstract: true
+  components:
+  - type: Metabolizer
+    types: [ BloodIron, Reptilian, RespirationOxygen ]
+
+# Brain
+- type: entity
+  id: BodyProviderBrainReptilian
+  parent: [BaseBodyProviderBrainOrganic, BaseBodyProviderOrganReptilian]
+
+# Ears
+- type: entity
+  id: BodyProviderEarsReptilian
+  parent: [BaseBodyProviderEars, BaseBodyProviderOrganReptilian]
+
+# Eyes
+- type: entity
+  id: BodyProviderEyesReptilian
+  parent: [BaseBodyProviderEyes, BaseBodyProviderOrganReptilian]
+  components:
+  - type: BodyAppearanceProvider
+    path: _White/Bodies/Organs/Humanoids/human.rsi
+
+# Heart
+- type: entity
+  id: BodyProviderHeartReptilian
+  parent: [BaseBodyProviderHeartRespiratory, BaseBodyProviderOrganReptilian]
+
+# Kidneys
+- type: entity
+  id: BodyProviderKidneysReptilian
+  parent: [BaseBodyProviderKidneysRespiratory, BaseBodyProviderOrganReptilian, BaseMetabolizerReptilian]
+
+# Liver
+- type: entity
+  id: BodyProviderLiverReptilian
+  parent: [BaseBodyProviderLiverRespiratory, BaseBodyProviderOrganReptilian, BaseMetabolizerReptilian]
+
+# Lungs
+- type: entity
+  id: BodyProviderLungsReptilian
+  parent: [BaseBodyProviderLungsRespiratory, BaseBodyProviderOrganReptilian, BaseMetabolizerReptilian]
+
+# Stomach
+- type: entity
+  id: BodyProviderStomachReptilian
+  parent: [BaseBodyProviderStomachRespiratory, BaseBodyProviderOrganReptilian, BaseMetabolizerReptilian]
+
+# Tongue
+- type: entity
+  id: BodyProviderTongueReptilian
+  parent: [BaseBodyProviderTongue, BaseBodyProviderOrganReptilian]

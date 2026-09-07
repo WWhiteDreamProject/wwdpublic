@@ -124,7 +124,6 @@
     - !type:CharacterSpeciesRequirement
       inverted: true
       species:
-        - Vulpkanin
         - IPC
 
 - type: trait
@@ -169,7 +168,6 @@
       inverted: true
       species:
         - Felinid
-        - Tajaran
 
 - type: trait
   id: Singer
@@ -229,7 +227,6 @@
       inverted: true
       species:
         - Felinid
-        - Tajaran
         - Harpy
 
 - type: trait

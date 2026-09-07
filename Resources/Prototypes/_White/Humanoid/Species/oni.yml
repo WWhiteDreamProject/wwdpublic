@@ -1,0 +1,21 @@
+- type: species
+  id: Oni
+  defaultColors:
+    Eyes: "#1C7847"
+    Skin: "#AB5150"
+  colorations:
+    Eyes: Simple
+    Skin: Hues
+  doll: HumanoidDollOni
+  prototype: MobHumanoidOni
+  defaultHeight: 1.2
+  defaultWidth: 1.2
+  maxHeight: 1.3
+  maxWidth: 1.35
+  minHeight: 0.9
+  minWidth: 0.85
+  bodyTypes:
+  - Normal
+  - Slim
+  name: species-name-oni
+  naming: Oni

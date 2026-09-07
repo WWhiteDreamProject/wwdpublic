@@ -1,243 +1,243 @@
-- type: marking
-  id: BunnyTail
-  markingCategory: Tail
-  speciesRestriction: [Human, IPC]
-  coloring:
-    default:
-      type:
-        !type:CategoryColoring
-          category: Hair
-      fallbackTypes:
-        - !type:CategoryColoring
-          category: FacialHair
-        - !type:SkinColoring
-  sprites:
-  - sprite: Mobs/Customization/kemonomimi-tails.rsi
-    state: bunnytail
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.Tail
-    bodyPart: Tail
-    replacementBodyPart: BodyPartTailFelinid
-    # WD EDIT END
-
-- type: marking
-  id: BunnyTailAlt
-  markingCategory: Tail
-  speciesRestriction: [Human, IPC]
-  coloring:
-    default:
-      type:
-        !type:CategoryColoring
-          category: Hair
-      fallbackTypes:
-        - !type:CategoryColoring
-          category: FacialHair
-        - !type:SkinColoring
-  sprites:
-  - sprite: Mobs/Customization/kemonomimi-tails.rsi
-    state: bunnytailalt
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.Tail
-    bodyPart: Tail
-    replacementBodyPart: BodyPartTailFelinid
-    # WD EDIT END
-
-- type: marking
-  id: DobleFur
-  markingCategory: Tail
-  speciesRestriction: [Human, IPC]
-  coloring:
-    default:
-      type:
-        !type:CategoryColoring
-          category: Hair
-      fallbackTypes:
-        - !type:CategoryColoring
-          category: FacialHair
-        - !type:SkinColoring
-  sprites:
-  - sprite: Mobs/Customization/kemonomimi-tails.rsi
-    state: doblefurtailtone1
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.Tail
-    bodyPart: Tail
-    replacementBodyPart: BodyPartTailFelinid
-    # WD EDIT END
-  - sprite: Mobs/Customization/kemonomimi-tails.rsi
-    state: doblefurtailtone2
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.Tail
-    bodyPart: Tail
-    # WD EDIT END
-
-- type: marking
-  id: FluffyTail
-  markingCategory: Tail
-  speciesRestriction: [Human, IPC]
-  coloring:
-    default:
-      type:
-        !type:CategoryColoring
-          category: Hair
-      fallbackTypes:
-        - !type:CategoryColoring
-          category: FacialHair
-        - !type:SkinColoring
-  sprites:
-  - sprite: Mobs/Customization/kemonomimi-tails.rsi
-    state: fluffytail
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.Tail
-    bodyPart: Tail
-    replacementBodyPart: BodyPartTailFelinid
-    # WD EDIT END
-
-- type: marking
-  id: FoxNineTails
-  markingCategory: Tail
-  speciesRestriction: [Human, IPC]
-  coloring:
-    default:
-      type:
-        !type:CategoryColoring
-          category: Hair
-      fallbackTypes:
-        - !type:CategoryColoring
-          category: FacialHair
-        - !type:SkinColoring
-  sprites:
-  - sprite: Mobs/Customization/kemonomimi-tails.rsi
-    state: foxninetailstone1
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.Tail
-    bodyPart: Tail
-    replacementBodyPart: BodyPartTailFelinid
-    # WD EDIT END`
-  - sprite: Mobs/Customization/kemonomimi-tails.rsi
-    state: foxninetailstone2
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.Tail
-    bodyPart: Tail
-    # WD EDIT END
-
-- type: marking
-  id: FoxThreeTails
-  markingCategory: Tail
-  speciesRestriction: [Human, IPC]
-  coloring:
-    default:
-      type:
-        !type:CategoryColoring
-          category: Hair
-      fallbackTypes:
-        - !type:CategoryColoring
-          category: FacialHair
-        - !type:SkinColoring
-  sprites:
-  - sprite: Mobs/Customization/kemonomimi-tails.rsi
-    state: foxthreetailstone1
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.Tail
-    bodyPart: Tail
-    replacementBodyPart: BodyPartTailFelinid
-    # WD EDIT END
-  - sprite: Mobs/Customization/kemonomimi-tails.rsi
-    state: foxthreetailstone2
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.Tail
-    bodyPart: Tail
-    # WD EDIT END
-
-- type: marking
-  id: HorseTailCulty
-  markingCategory: Tail
-  speciesRestriction: [Human, IPC]
-  coloring:
-    default:
-      type:
-        !type:CategoryColoring
-          category: Hair
-      fallbackTypes:
-        - !type:CategoryColoring
-          category: FacialHair
-        - !type:SkinColoring
-  sprites:
-  - sprite: Mobs/Customization/kemonomimi-tails.rsi
-    state: horsetailculty
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.Tail
-    bodyPart: Tail
-    replacementBodyPart: BodyPartTailFelinid
-    # WD EDIT END
-
-- type: marking
-  id: HorseTailLong
-  markingCategory: Tail
-  speciesRestriction: [Human, IPC]
-  coloring:
-    default:
-      type:
-        !type:CategoryColoring
-          category: Hair
-      fallbackTypes:
-        - !type:CategoryColoring
-          category: FacialHair
-        - !type:SkinColoring
-  sprites:
-  - sprite: Mobs/Customization/kemonomimi-tails.rsi
-    state: horsetaillong
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.Tail
-    bodyPart: Tail
-    replacementBodyPart: BodyPartTailFelinid
-    # WD EDIT END
-
-- type: marking
-  id: SharkTail
-  markingCategory: Tail
-  speciesRestriction: [Human, IPC]
-  coloring:
-    default:
-      type:
-        !type:CategoryColoring
-          category: Hair
-      fallbackTypes:
-        - !type:CategoryColoring
-          category: FacialHair
-        - !type:SkinColoring
-  sprites:
-  - sprite: Mobs/Customization/kemonomimi-tails.rsi
-    state: sharktail
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.Tail
-    bodyPart: Tail
-    replacementBodyPart: BodyPartTailFelinid
-    # WD EDIT END
-
-- type: marking
-  id: TasselTail
-  markingCategory: Tail
-  speciesRestriction: [Human, IPC]
-  coloring:
-    default:
-      type:
-        !type:CategoryColoring
-          category: Hair
-      fallbackTypes:
-        - !type:CategoryColoring
-          category: FacialHair
-        - !type:SkinColoring
-  sprites:
-  - sprite: Mobs/Customization/kemonomimi-tails.rsi
-    state: tasseltailtone1
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.Tail
-    bodyPart: Tail
-    replacementBodyPart: BodyPartTailFelinid
-    # WD EDIT END
-  - sprite: Mobs/Customization/kemonomimi-tails.rsi
-    state: tasseltailtone2
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.Tail
-    bodyPart: Tail
-    # WD EDIT END
+#- type: marking
+#  id: BunnyTail
+#  markingCategory: Tail
+#  speciesRestriction: [Human, IPC]
+#  coloring:
+#    default:
+#      type:
+#        !type:CategoryColoring
+#          category: Hair
+#      fallbackTypes:
+#        - !type:CategoryColoring
+#          category: FacialHair
+#        - !type:SkinColoring
+#  sprites:
+#  - sprite: Mobs/Customization/kemonomimi-tails.rsi
+#    state: bunnytail
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.Tail
+#    bodyPart: Tail
+#    replacementBodyPart: BodyPartTailFelinid
+#    # WD EDIT END
+#
+#- type: marking
+#  id: BunnyTailAlt
+#  markingCategory: Tail
+#  speciesRestriction: [Human, IPC]
+#  coloring:
+#    default:
+#      type:
+#        !type:CategoryColoring
+#          category: Hair
+#      fallbackTypes:
+#        - !type:CategoryColoring
+#          category: FacialHair
+#        - !type:SkinColoring
+#  sprites:
+#  - sprite: Mobs/Customization/kemonomimi-tails.rsi
+#    state: bunnytailalt
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.Tail
+#    bodyPart: Tail
+#    replacementBodyPart: BodyPartTailFelinid
+#    # WD EDIT END
+#
+#- type: marking
+#  id: DobleFur
+#  markingCategory: Tail
+#  speciesRestriction: [Human, IPC]
+#  coloring:
+#    default:
+#      type:
+#        !type:CategoryColoring
+#          category: Hair
+#      fallbackTypes:
+#        - !type:CategoryColoring
+#          category: FacialHair
+#        - !type:SkinColoring
+#  sprites:
+#  - sprite: Mobs/Customization/kemonomimi-tails.rsi
+#    state: doblefurtailtone1
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.Tail
+#    bodyPart: Tail
+#    replacementBodyPart: BodyPartTailFelinid
+#    # WD EDIT END
+#  - sprite: Mobs/Customization/kemonomimi-tails.rsi
+#    state: doblefurtailtone2
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.Tail
+#    bodyPart: Tail
+#    # WD EDIT END
+#
+#- type: marking
+#  id: FluffyTail
+#  markingCategory: Tail
+#  speciesRestriction: [Human, IPC]
+#  coloring:
+#    default:
+#      type:
+#        !type:CategoryColoring
+#          category: Hair
+#      fallbackTypes:
+#        - !type:CategoryColoring
+#          category: FacialHair
+#        - !type:SkinColoring
+#  sprites:
+#  - sprite: Mobs/Customization/kemonomimi-tails.rsi
+#    state: fluffytail
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.Tail
+#    bodyPart: Tail
+#    replacementBodyPart: BodyPartTailFelinid
+#    # WD EDIT END
+#
+#- type: marking
+#  id: FoxNineTails
+#  markingCategory: Tail
+#  speciesRestriction: [Human, IPC]
+#  coloring:
+#    default:
+#      type:
+#        !type:CategoryColoring
+#          category: Hair
+#      fallbackTypes:
+#        - !type:CategoryColoring
+#          category: FacialHair
+#        - !type:SkinColoring
+#  sprites:
+#  - sprite: Mobs/Customization/kemonomimi-tails.rsi
+#    state: foxninetailstone1
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.Tail
+#    bodyPart: Tail
+#    replacementBodyPart: BodyPartTailFelinid
+#    # WD EDIT END`
+#  - sprite: Mobs/Customization/kemonomimi-tails.rsi
+#    state: foxninetailstone2
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.Tail
+#    bodyPart: Tail
+#    # WD EDIT END
+#
+#- type: marking
+#  id: FoxThreeTails
+#  markingCategory: Tail
+#  speciesRestriction: [Human, IPC]
+#  coloring:
+#    default:
+#      type:
+#        !type:CategoryColoring
+#          category: Hair
+#      fallbackTypes:
+#        - !type:CategoryColoring
+#          category: FacialHair
+#        - !type:SkinColoring
+#  sprites:
+#  - sprite: Mobs/Customization/kemonomimi-tails.rsi
+#    state: foxthreetailstone1
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.Tail
+#    bodyPart: Tail
+#    replacementBodyPart: BodyPartTailFelinid
+#    # WD EDIT END
+#  - sprite: Mobs/Customization/kemonomimi-tails.rsi
+#    state: foxthreetailstone2
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.Tail
+#    bodyPart: Tail
+#    # WD EDIT END
+#
+#- type: marking
+#  id: HorseTailCulty
+#  markingCategory: Tail
+#  speciesRestriction: [Human, IPC]
+#  coloring:
+#    default:
+#      type:
+#        !type:CategoryColoring
+#          category: Hair
+#      fallbackTypes:
+#        - !type:CategoryColoring
+#          category: FacialHair
+#        - !type:SkinColoring
+#  sprites:
+#  - sprite: Mobs/Customization/kemonomimi-tails.rsi
+#    state: horsetailculty
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.Tail
+#    bodyPart: Tail
+#    replacementBodyPart: BodyPartTailFelinid
+#    # WD EDIT END
+#
+#- type: marking
+#  id: HorseTailLong
+#  markingCategory: Tail
+#  speciesRestriction: [Human, IPC]
+#  coloring:
+#    default:
+#      type:
+#        !type:CategoryColoring
+#          category: Hair
+#      fallbackTypes:
+#        - !type:CategoryColoring
+#          category: FacialHair
+#        - !type:SkinColoring
+#  sprites:
+#  - sprite: Mobs/Customization/kemonomimi-tails.rsi
+#    state: horsetaillong
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.Tail
+#    bodyPart: Tail
+#    replacementBodyPart: BodyPartTailFelinid
+#    # WD EDIT END
+#
+#- type: marking
+#  id: SharkTail
+#  markingCategory: Tail
+#  speciesRestriction: [Human, IPC]
+#  coloring:
+#    default:
+#      type:
+#        !type:CategoryColoring
+#          category: Hair
+#      fallbackTypes:
+#        - !type:CategoryColoring
+#          category: FacialHair
+#        - !type:SkinColoring
+#  sprites:
+#  - sprite: Mobs/Customization/kemonomimi-tails.rsi
+#    state: sharktail
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.Tail
+#    bodyPart: Tail
+#    replacementBodyPart: BodyPartTailFelinid
+#    # WD EDIT END
+#
+#- type: marking
+#  id: TasselTail
+#  markingCategory: Tail
+#  speciesRestriction: [Human, IPC]
+#  coloring:
+#    default:
+#      type:
+#        !type:CategoryColoring
+#          category: Hair
+#      fallbackTypes:
+#        - !type:CategoryColoring
+#          category: FacialHair
+#        - !type:SkinColoring
+#  sprites:
+#  - sprite: Mobs/Customization/kemonomimi-tails.rsi
+#    state: tasseltailtone1
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.Tail
+#    bodyPart: Tail
+#    replacementBodyPart: BodyPartTailFelinid
+#    # WD EDIT END
+#  - sprite: Mobs/Customization/kemonomimi-tails.rsi
+#    state: tasseltailtone2
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.Tail
+#    bodyPart: Tail
+#    # WD EDIT END

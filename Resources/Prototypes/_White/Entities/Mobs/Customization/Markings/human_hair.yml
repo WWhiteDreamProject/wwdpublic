@@ -1,611 +1,611 @@
-- type: marking
-  id: HumanHairAfropuffdouble
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: afropuffdouble
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairAfropuffleft
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: afropuffleft
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairAfropuffright
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: afropuffright
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairAmazon
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: amazon
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairAstolfo
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: astolfo
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairBaum
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: baum
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairBeachwave
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: beachwave
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairBluntbangs
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: bluntbangs
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairBluntbangsAlt
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: bluntbangs_alt
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairBobcutAlt
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: bobcutalt
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairBunhead4
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: bunhead4
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairCombed
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: combed
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairCombedbob
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: combedbob
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairCotton
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: cotton
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairCurly
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: curly
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairDave
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: dave
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairDiagonalBangs
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: diagonal_bangs
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairEmoshort
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: emoshort
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairFingerwave
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: fingerwave
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairFluffyShort
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: fluffy_short
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairFortuneteller
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: fortuneteller
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairFortunetellerAlt
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: fortuneteller_alt
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairFroofylong
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: froofylong
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairGeisha
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: geisha
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairGentle21
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: gentle21
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairGlammetal
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: glammetal
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairGloomyLong
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: gloomy_long
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairGloomyMedium
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: gloomy_medium
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairGrande
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: grande
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairHalfshave
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: halfshave
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairHalfshaveglamorous
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: halfshave_glamorous
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairHalfshaveLong
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: halfshave_long
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairHalfshaveMessy
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: halfshave_messy
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairHalfshaveMessyLong
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: halfshave_messylong
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairHalfshaveSnout
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: halfshave_snout
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairHyenamane
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: hyenamane
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairJessica
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: jessica
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairLong5
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: long5
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairLongdtails
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: longdtails
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairLongerAlt
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: longeralt
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairLongovereyeAlt
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: longovereye_alt
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairLongsidepartstraight
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: longsidepartstraight
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairLooseSlicked
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: loose_slicked
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairMediumbraid
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: mediumbraid
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairNewyou
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: newyou
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairPonytailAlt
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: ponytailalt
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairPonytailF
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: ponytailf
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairPoofy2
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: poofy2
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairQuadcurls
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: quadcurls
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairSabitsuki
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: sabitsuki
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairScully
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: scully
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairShorthair4
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: shorthair4
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairShy
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: shy
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairSimplePonytail
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: simple_ponytail
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairSleaze
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: sleaze
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairSlightlyMessy
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: slightlymessy
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairSlimedroplet
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: slimedroplet
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairSlimedropletAlt
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: slimedroplet_alt
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairSlimespikes
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: slimespikes
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairSlimetendrils
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: slimetendrils
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairSlimetendrilsAlt
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: slimetendrils_alt
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairSpicy
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: spicy
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairTwintailFloor
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: twintail_floor
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairVeryshortovereye
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: veryshortovereye
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairVictory
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: victory
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairViper
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: viper
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairWife
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: wife
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
-
-- type: marking
-  id: HumanHairZiegler
-  markingCategory: Hair
-  sprites:
-  - sprite: _White/Mobs/Customization/human_hair.rsi
-    state: ziegler
-    layer: enum.HumanoidVisualLayers.Hair
-    bodyPart: Head
+#- type: marking
+#  id: HumanHairAfropuffdouble
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: afropuffdouble
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairAfropuffleft
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: afropuffleft
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairAfropuffright
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: afropuffright
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairAmazon
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: amazon
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairAstolfo
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: astolfo
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairBaum
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: baum
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairBeachwave
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: beachwave
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairBluntbangs
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: bluntbangs
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairBluntbangsAlt
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: bluntbangs_alt
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairBobcutAlt
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: bobcutalt
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairBunhead4
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: bunhead4
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairCombed
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: combed
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairCombedbob
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: combedbob
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairCotton
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: cotton
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairCurly
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: curly
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairDave
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: dave
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairDiagonalBangs
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: diagonal_bangs
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairEmoshort
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: emoshort
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairFingerwave
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: fingerwave
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairFluffyShort
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: fluffy_short
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairFortuneteller
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: fortuneteller
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairFortunetellerAlt
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: fortuneteller_alt
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairFroofylong
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: froofylong
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairGeisha
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: geisha
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairGentle21
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: gentle21
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairGlammetal
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: glammetal
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairGloomyLong
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: gloomy_long
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairGloomyMedium
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: gloomy_medium
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairGrande
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: grande
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairHalfshave
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: halfshave
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairHalfshaveglamorous
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: halfshave_glamorous
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairHalfshaveLong
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: halfshave_long
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairHalfshaveMessy
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: halfshave_messy
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairHalfshaveMessyLong
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: halfshave_messylong
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairHalfshaveSnout
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: halfshave_snout
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairHyenamane
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: hyenamane
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairJessica
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: jessica
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairLong5
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: long5
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairLongdtails
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: longdtails
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairLongerAlt
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: longeralt
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairLongovereyeAlt
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: longovereye_alt
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairLongsidepartstraight
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: longsidepartstraight
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairLooseSlicked
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: loose_slicked
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairMediumbraid
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: mediumbraid
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairNewyou
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: newyou
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairPonytailAlt
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: ponytailalt
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairPonytailF
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: ponytailf
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairPoofy2
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: poofy2
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairQuadcurls
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: quadcurls
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairSabitsuki
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: sabitsuki
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairScully
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: scully
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairShorthair4
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: shorthair4
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairShy
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: shy
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairSimplePonytail
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: simple_ponytail
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairSleaze
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: sleaze
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairSlightlyMessy
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: slightlymessy
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairSlimedroplet
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: slimedroplet
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairSlimedropletAlt
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: slimedroplet_alt
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairSlimespikes
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: slimespikes
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairSlimetendrils
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: slimetendrils
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairSlimetendrilsAlt
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: slimetendrils_alt
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairSpicy
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: spicy
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairTwintailFloor
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: twintail_floor
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairVeryshortovereye
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: veryshortovereye
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairVictory
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: victory
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairViper
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: viper
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairWife
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: wife
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head
+#
+#- type: marking
+#  id: HumanHairZiegler
+#  markingCategory: Hair
+#  sprites:
+#  - sprite: _White/Mobs/Customization/human_hair.rsi
+#    state: ziegler
+#    layer: enum.HumanoidVisualLayers.Hair
+#    bodyPart: Head

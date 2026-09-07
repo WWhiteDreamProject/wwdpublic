@@ -1,20 +1,20 @@
-- type: marking
-  id: OniTwoToedFeet
-  markingCategory: RightFoot
-  speciesRestriction: [Oni]
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#454545"
-  sprites:
-  - sprite: Mobs/Customization/oni_feet.rsi
-  # WD EDIT START
-    state: two_toes_r_foot
-    layer: enum.BodyAppearanceLayer.RightFoot
-    bodyPart: RightFoot
-  - sprite: Mobs/Customization/oni_feet.rsi
-    state: two_toes_l_foot
-    layer: enum.BodyAppearanceLayer.LeftFoot
-    bodyPart: LeftFoot
-  # WD EDIT END
+#- type: marking
+#  id: OniTwoToedFeet
+#  markingCategory: RightFoot
+#  speciesRestriction: [Oni]
+#  coloring:
+#    default:
+#      type:
+#        !type:SimpleColoring
+#          color: "#454545"
+#  sprites:
+#  - sprite: Mobs/Customization/oni_feet.rsi
+#  # WD EDIT START
+#    state: two_toes_r_foot
+#    layer: enum.BodyAppearanceLayer.RightFoot
+#    bodyPart: RightFoot
+#  - sprite: Mobs/Customization/oni_feet.rsi
+#    state: two_toes_l_foot
+#    layer: enum.BodyAppearanceLayer.LeftFoot
+#    bodyPart: LeftFoot
+#  # WD EDIT END

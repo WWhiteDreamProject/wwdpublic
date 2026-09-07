@@ -1,5 +1,6 @@
 using Content.Shared._White.Amputatable.Components;
 using Content.Shared._White.Body.Systems;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared._White.Gibbable.Systems;
 using Content.Shared._White.Random;
 using Content.Shared._White.Skeleton.Systems;
@@ -28,8 +29,8 @@ public sealed class AmputatableSystem : EntitySystem
         SubscribeLocalEvent<AmputatableProviderComponent, BodyProviderGotInsertedIntoParentEvent>(OnGotInsertedIntoParent);
         SubscribeLocalEvent<AmputatableProviderComponent, BodyProviderGotRemovedFromParentEvent>(OnGotRemovedFromParent);
         SubscribeLocalEvent<AmputatableProviderComponent, BodyRelayedEvent<BeingGibbedEvent>>(OnBeingGibbed);
+        SubscribeLocalEvent<AmputatableProviderComponent, DamageChangedEvent>(OnDamageChangedEvent);
         SubscribeLocalEvent<AmputatableProviderComponent, SkeletonSeverityChangedEvent>(OnSkeletonSeverityChanged);
-        SubscribeLocalEvent<AmputatableProviderComponent, WoundableDamageChangedEvent>(OnWoundableDamageChanged);
     }
 
     #region Event Handling
@@ -51,16 +52,7 @@ public sealed class AmputatableSystem : EntitySystem
         args.Args.Giblets.Add(ent);
     }
 
-    private void OnSkeletonSeverityChanged(Entity<AmputatableProviderComponent> ent, ref SkeletonSeverityChangedEvent args)
-    {
-        if (!ent.Comp.SkeletonThresholds.TryGetValue(args.Severity, out var skeletonMultiplier))
-            return;
-
-        ent.Comp.SkeletonMultiplier = skeletonMultiplier;
-        DirtyField(ent, ent.Comp, nameof(AmputatableProviderComponent.SkeletonMultiplier));
-    }
-
-    private void OnWoundableDamageChanged(Entity<AmputatableProviderComponent> ent, ref WoundableDamageChangedEvent args)
+    private void OnDamageChangedEvent(Entity<AmputatableProviderComponent> ent, ref DamageChangedEvent args)
     {
         var damage = FixedPoint2.Zero;
         foreach (var (type, value) in args.Damage)
@@ -94,7 +86,16 @@ public sealed class AmputatableSystem : EntitySystem
         if (ent.Comp.Wound is not {} wound || ent.Comp.Parent is not {} parent)
             return;
 
-        _woundable.CreateWound(parent, wound, ent.Comp.Damage, args.Origin);
+        _woundable.CreateWound(parent, wound, ent.Comp.Damage, false, args.InterruptsDoAfters, args.Origin);
+    }
+
+    private void OnSkeletonSeverityChanged(Entity<AmputatableProviderComponent> ent, ref SkeletonSeverityChangedEvent args)
+    {
+        if (!ent.Comp.SkeletonThresholds.TryGetValue(args.Severity, out var skeletonMultiplier))
+            return;
+
+        ent.Comp.SkeletonMultiplier = skeletonMultiplier;
+        DirtyField(ent, ent.Comp, nameof(AmputatableProviderComponent.SkeletonMultiplier));
     }
 
     #endregion

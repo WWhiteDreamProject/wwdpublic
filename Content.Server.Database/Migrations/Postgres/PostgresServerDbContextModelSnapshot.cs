@@ -578,6 +578,37 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.ToTable("blacklist", (string)null);
                 });
 
+            modelBuilder.Entity("Content.Server.Database.BodyColor", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer")
+                        .HasColumnName("body_color_id");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Color")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("color");
+
+                    b.Property<string>("Group")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("group");
+
+                    b.Property<int>("ProfileId")
+                        .HasColumnType("integer")
+                        .HasColumnName("profile_id");
+
+                    b.HasKey("Id")
+                        .HasName("PK_body_color");
+
+                    b.HasIndex("ProfileId");
+
+                    b.ToTable("body_color", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.ConnectionLog", b =>
                 {
                     b.Property<int>("Id")
@@ -700,7 +731,7 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.ToTable("job", (string)null);
                 });
 
-            modelBuilder.Entity("Content.Server.Database.Loadout", b =>
+            modelBuilder.Entity("Content.Server.Database.LoadoutItem", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -879,6 +910,11 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnType("integer")
                         .HasColumnName("age");
 
+                    b.Property<string>("Bark")
+                        .IsRequired()
+                        .HasColumnType("text")
+                        .HasColumnName("bark");
+
                     b.Property<byte>("BarkPause")
                         .HasColumnType("smallint")
                         .HasColumnName("bark_pause");
@@ -891,14 +927,13 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnType("smallint")
                         .HasColumnName("bark_pitch_variance");
 
-                    b.Property<string>("BarkVoice")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("bark_voice");
-
                     b.Property<byte>("BarkVolume")
                         .HasColumnType("smallint")
                         .HasColumnName("bark_volume");
+
+                    b.Property<JsonDocument>("BodyProviders")
+                        .HasColumnType("jsonb")
+                        .HasColumnName("body_providers");
 
                     b.Property<string>("BodyType")
                         .IsRequired()
@@ -910,62 +945,20 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnType("text")
                         .HasColumnName("char_name");
 
-                    b.Property<string>("ClownName")
-                        .HasColumnType("text")
-                        .HasColumnName("clown_name");
-
-                    b.Property<string>("CustomSpecieName")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("custom_specie_name");
-
-                    b.Property<string>("CyborgName")
-                        .HasColumnType("text")
-                        .HasColumnName("cyborg_name");
-
-                    b.Property<string>("DisplayPronouns")
-                        .HasColumnType("text")
-                        .HasColumnName("display_pronouns");
-
                     b.Property<string>("Employer")
                         .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("employer");
 
-                    b.Property<string>("EyeColor")
+                    b.Property<string>("Flavor")
                         .IsRequired()
                         .HasColumnType("text")
-                        .HasColumnName("eye_color");
-
-                    b.Property<string>("FacialHairColor")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("facial_hair_color");
-
-                    b.Property<string>("FacialHairName")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("facial_hair_name");
-
-                    b.Property<string>("FlavorText")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("flavor_text");
+                        .HasColumnName("flavor");
 
                     b.Property<string>("Gender")
                         .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("gender");
-
-                    b.Property<string>("HairColor")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("hair_color");
-
-                    b.Property<string>("HairName")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("hair_name");
 
                     b.Property<float>("Height")
                         .HasColumnType("real")
@@ -979,10 +972,6 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.Property<JsonDocument>("Markings")
                         .HasColumnType("jsonb")
                         .HasColumnName("markings");
-
-                    b.Property<string>("MimeName")
-                        .HasColumnType("text")
-                        .HasColumnName("mime_name");
 
                     b.Property<string>("Nationality")
                         .IsRequired()
@@ -1002,11 +991,6 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnType("text")
                         .HasColumnName("sex");
 
-                    b.Property<string>("SkinColor")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("skin_color");
-
                     b.Property<int>("Slot")
                         .HasColumnType("integer")
                         .HasColumnName("slot");
@@ -1019,10 +1003,6 @@ namespace Content.Server.Database.Migrations.Postgres
                         .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("species");
-
-                    b.Property<string>("StationAiName")
-                        .HasColumnType("text")
-                        .HasColumnName("station_ai_name");
 
                     b.Property<string>("Voice")
                         .IsRequired()
@@ -1704,6 +1684,18 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.Navigation("Profile");
                 });
 
+            modelBuilder.Entity("Content.Server.Database.BodyColor", b =>
+                {
+                    b.HasOne("Content.Server.Database.Profile", "Profile")
+                        .WithMany("BodyColor")
+                        .HasForeignKey("ProfileId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_body_color_profile_profile_id");
+
+                    b.Navigation("Profile");
+                });
+
             modelBuilder.Entity("Content.Server.Database.ConnectionLog", b =>
                 {
                     b.HasOne("Content.Server.Database.Server", "Server")
@@ -1756,7 +1748,7 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.Navigation("Profile");
                 });
 
-            modelBuilder.Entity("Content.Server.Database.Loadout", b =>
+            modelBuilder.Entity("Content.Server.Database.LoadoutItem", b =>
                 {
                     b.HasOne("Content.Server.Database.Profile", "Profile")
                         .WithMany("Loadouts")
@@ -2091,6 +2083,8 @@ namespace Content.Server.Database.Migrations.Postgres
             modelBuilder.Entity("Content.Server.Database.Profile", b =>
                 {
                     b.Navigation("Antags");
+
+                    b.Navigation("BodyColor");
 
                     b.Navigation("Jobs");
 

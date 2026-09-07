@@ -11,12 +11,12 @@
       effects: # considering vomiting and re-add the metabolism rate works out to ~2.5/s
       - !type:HealthChange # ~20/20 damage per 15u, inconsistent
         damage:
-          types:
-            Blunt: 4
+          # WD EDIT: Migrated damage format
+          Blunt: 4
       - !type:HealthChange
         damage:
-          types:
-            Poison: 4
+          # WD EDIT: Migrated damage format
+          Poison: 4
       - !type:AdjustReagent
         reagent: Triclor
         amount: 0.5 # Counteracts some loss from vomiting, makes effects more linear
@@ -57,9 +57,9 @@
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Poison: 0.75 # 37.5 per 5u but pretty slow
-            Asphyxiation: 0.25
+          # WD EDIT: Migrated damage format
+          Asphyxiation: 0.2
+          Poison: 0.8
       - !type:Paralyze
         probability: 0.05
         paralyzeTime: 2
@@ -78,9 +78,8 @@
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Poison: 0.2 # this works out to 20 per 5u
-
+          # WD EDIT: Migrated damage format
+          Poison: 0.2
 - type: reagent
   id: Pendetide
   name: reagent-name-pendetide
@@ -94,13 +93,13 @@
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Radiation: 2
+          # WD EDIT: Migrated damage format
+          Radiation: 2
         conditions:
         - !type:TypedDamageThreshold
           damage:
-            types:
-              Radiation: 2 # kinda arbitrary, it'll trigger after some rads
+            # WD EDIT: Migrated damage format
+            Radiation: 2
       - !type:GenericStatusEffect
         key: Stutter
         component: StutteringAccent
@@ -123,8 +122,8 @@
         - !type:ReagentThreshold
           min: 6
         damage:
-          types:
-            Blunt: 10
+          # WD EDIT: Migrated damage format
+          Blunt: 10
       - !type:AdjustReagent
         amount: -25
         reagent: Syriniver

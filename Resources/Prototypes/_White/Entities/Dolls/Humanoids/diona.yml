@@ -1,0 +1,11 @@
+- type: entity
+  id: HumanoidDollDiona
+  parent:
+  - BaseBodyDiona
+  - BaseHumanoidDoll
+  components:
+  - type: HumanoidProfile
+    species: Diona
+  - type: Inventory
+    templateId: Diona
+    speciesId: Diona

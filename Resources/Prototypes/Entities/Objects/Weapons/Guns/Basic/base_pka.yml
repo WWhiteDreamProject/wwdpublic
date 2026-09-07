@@ -71,8 +71,8 @@
     angle: 0
     range: 1.1
     damage:
-      types:
-        Blunt: 5
+      # WD EDIT: Migrated damage format
+      Blunt: 5
     swapKeys: true
     disableHeavy: true
     animation: WeaponArcThrust
@@ -80,7 +80,7 @@
       collection: MetalThud
   - type: IncreaseDamageOnWield
     damage:
-      types:
-        Blunt: 2.5
+      # WD EDIT: Migrated damage format
+      Blunt: 2.5
   - type: DamageOtherOnHit
     staminaCost: 8

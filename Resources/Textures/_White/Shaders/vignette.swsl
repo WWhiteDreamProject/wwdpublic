@@ -1,0 +1,34 @@
+light_mode unshaded;
+
+uniform highp float innerAlpha = 0.0;
+uniform highp float innerMax = 800.0;
+uniform highp float innerMin = 700.0;
+uniform highp float outerAlpha = 1.0;
+uniform highp float outerMax = 1000.0;
+uniform highp float outerMin = 900.0;
+uniform highp float rate = 1.0;
+uniform highp vec3 color;
+
+void fragment()
+{
+	highp float distance = length(FRAGCOORD.xy - vec2(1.0 / SCREEN_PIXEL_SIZE.x, 1.0 / SCREEN_PIXEL_SIZE.y) * 0.5);
+    highp float pulse = max(0.0, sin(TIME * rate));
+	highp float innerRadius = innerMin + pulse * (innerMax - innerMin);
+	highp float outerRadius = outerMin + pulse * (outerMax - outerMin);
+
+	if (distance > outerRadius)
+	{
+		COLOR = vec4(color.x, color.y, color.z, outerAlpha);
+	}
+	else if (distance < innerRadius)
+	{
+		COLOR = vec4(0.0, 0.0, 0.0, innerAlpha);
+	}
+	else
+	{
+        highp float ratio = (distance - innerRadius) / (outerRadius - innerRadius);
+		highp float alpha = innerAlpha + (outerAlpha - innerAlpha) * ratio;
+
+		COLOR = vec4(color.x, color.y, color.z, alpha);
+	}
+}

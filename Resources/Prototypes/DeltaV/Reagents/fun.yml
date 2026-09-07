@@ -15,8 +15,7 @@
         scaleByQuantity: true
         ignoreResistances: false
         damage:
-          types:
-            Slash: 0.2
+          Slash: 0.2
       - !type:Emote
         emote: Scream
         probability: 0.7
@@ -26,8 +25,7 @@
       effects:
       - !type:HealthChange
         damage:
-          types:
-             Slash : 3
+          Slash: 3
       - !type:PopupMessage
         type: Local
         visualType: LargeCaution

@@ -1,0 +1,7 @@
+- type: damageType
+  id: Poison
+  name: damage-type-poison
+
+- type: damageType
+  id: Radiation
+  name: damage-type-radiation

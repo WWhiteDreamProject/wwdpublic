@@ -1,0 +1,9 @@
+- type: naming
+  id: Plasmaman
+  preset: naming-preset-first-last
+  first:
+    Neuter: NamingFirstPlasmaman
+    Epicene: NamingFirstPlasmaman
+    Female: NamingFirstPlasmaman
+    Male: NamingFirstPlasmaman
+  last: NamingLastPlasmaman

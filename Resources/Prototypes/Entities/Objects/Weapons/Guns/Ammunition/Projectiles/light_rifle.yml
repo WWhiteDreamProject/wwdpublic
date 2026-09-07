@@ -6,9 +6,8 @@
   components:
   - type: Projectile
     damage:
-      types:
-        Piercing: 19
-
+      # WD EDIT: Migrated damage format
+      Piercing: 19
 - type: entity
   id: BulletLightRiflePractice
   name: bullet (.20 rifle practice)
@@ -17,9 +16,8 @@
   components:
   - type: Projectile
     damage:
-      types:
-        Blunt: 2
-
+      # WD EDIT: Migrated damage format
+      Blunt: 2
 - type: entity
   id: BulletLightRifleIncendiary
   parent: BaseBulletIncendiary
@@ -28,10 +26,9 @@
   components:
   - type: Projectile
     damage:
-      types:
-        Blunt: 3
-        Heat: 16
-
+      # WD EDIT: Migrated damage format
+      Blunt: 3
+      Heat: 16
 - type: entity
   id: BulletLightRifleUranium
   parent: BaseBulletUranium
@@ -40,10 +37,9 @@
   components:
   - type: Projectile
     damage:
-      types:
-        Radiation: 9
-        Piercing: 10
-
+      # WD EDIT: Migrated damage format
+      Piercing: 10
+      Radiation: 9
 - type: entity
   id: BulletLightRifleShrapnel
   name: bullet (.20 rifle shrapnel)
@@ -52,8 +48,8 @@
   components:
   - type: Projectile
     damage:
-      types:
-        Piercing: 5.525
+      # WD EDIT: Migrated damage format
+      Piercing: 5.5
   - type: Sprite
     scale: 0.5, 0.5
 

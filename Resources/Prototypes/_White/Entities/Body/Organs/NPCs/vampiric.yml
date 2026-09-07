@@ -1,6 +1,0 @@
-- type: entity
-  id: OrganStomachVampiric
-  parent: OrganStomachAnimal
-  components:
-  - type: Metabolizer
-    types: [Vampiric]

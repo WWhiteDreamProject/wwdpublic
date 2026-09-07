@@ -93,7 +93,6 @@ FloorTileItemBlue: FloorTileItemSteelBlue
 
 # Plushieslop 23.12.25
 PlushieMothRandom: null
-PlushieShadowkin: null
 PlushieMothMusician: null
 PlushieMothBartender: null
 PlushieBee: null
@@ -115,7 +114,6 @@ PlushieVox: null
 PlushieAtmosian: null
 PlushiePenguin: null
 PlushieHuman: null
-PlushieArachne: null
 PlushieGnome: null
 PlushieLoveable: null
 PlushieDeer: null
@@ -130,7 +128,6 @@ PlushieCrimsonFox: null
 PlushieCoffeeFox: null
 PlushieBlueFox: null
 PlushieBlackFox: null
-PlushieVulp: null
 PlushieCorgi: null
 PlushieGirlyCorgi: null
 PlushieRobotCorgi: null

@@ -1,0 +1,11 @@
+- type: localizedDataset
+  id: NamingFirstIPC
+  values:
+    prefix: naming-first-ipc-
+    count: 100
+
+- type: localizedDataset
+  id: NamingLastIPC
+  values:
+    prefix: naming-last-ipc-
+    count: 1000

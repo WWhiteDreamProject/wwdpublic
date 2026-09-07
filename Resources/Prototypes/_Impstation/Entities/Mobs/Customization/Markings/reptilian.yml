@@ -1,101 +1,101 @@
-- type: marking
-  id: Fangs
-  markingCategory: Overlay
-  speciesRestriction: [Reptilian]
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/reptilian_parts.rsi
-    state: fangs
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.Snout
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: LizardBeard
-  markingCategory: Overlay
-  speciesRestriction: [Reptilian]
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/reptilian_parts.rsi
-    state: beard
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.Snout
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: LizardSnoutTall
-  forcedColoring: true
-  markingCategory: Snout
-  speciesRestriction: [Reptilian]
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/reptilian_parts.rsi
-    state: snout_tall
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.Snout
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: LizardHornsKoboldEarspiercings
-  markingCategory: HeadTop
-  speciesRestriction: [Reptilian]
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/reptilian_parts.rsi
-    state: horns_kobold_ears
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-  - sprite: _Impstation/Mobs/Customization/reptilian_parts.rsi
-    state: horns_kobold_ears_piercings
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: LizardHornsNubby
-  markingCategory: HeadTop
-  speciesRestriction: [Reptilian]
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/reptilian_parts.rsi
-    state: horns_nubby
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: LizardSnoutpiercings
-  markingCategory: Overlay
-  forcedColoring: true
-  speciesRestriction: [Reptilian]
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#FFFFFF"
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/reptilian_parts.rsi
-    state: piercings1
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.Snout
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: LizardHeadFlat
-  markingCategory: HeadTop
-  speciesRestriction: [Reptilian]
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/reptilian_parts.rsi
-    state: head_flat
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
+#- type: marking
+#  id: Fangs
+#  markingCategory: Overlay
+#  speciesRestriction: [Reptilian]
+#  coloring:
+#    default:
+#      type:
+#        !type:SimpleColoring
+#          color: "#FFFFFF"
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/reptilian_parts.rsi
+#    state: fangs
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.Snout
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: LizardBeard
+#  markingCategory: Overlay
+#  speciesRestriction: [Reptilian]
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/reptilian_parts.rsi
+#    state: beard
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.Snout
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: LizardSnoutTall
+#  forcedColoring: true
+#  markingCategory: Snout
+#  speciesRestriction: [Reptilian]
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/reptilian_parts.rsi
+#    state: snout_tall
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.Snout
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: LizardHornsKoboldEarspiercings
+#  markingCategory: HeadTop
+#  speciesRestriction: [Reptilian]
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/reptilian_parts.rsi
+#    state: horns_kobold_ears
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#  - sprite: _Impstation/Mobs/Customization/reptilian_parts.rsi
+#    state: horns_kobold_ears_piercings
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: LizardHornsNubby
+#  markingCategory: HeadTop
+#  speciesRestriction: [Reptilian]
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/reptilian_parts.rsi
+#    state: horns_nubby
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: LizardSnoutpiercings
+#  markingCategory: Overlay
+#  forcedColoring: true
+#  speciesRestriction: [Reptilian]
+#  coloring:
+#    default:
+#      type:
+#        !type:SimpleColoring
+#          color: "#FFFFFF"
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/reptilian_parts.rsi
+#    state: piercings1
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.Snout
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: LizardHeadFlat
+#  markingCategory: HeadTop
+#  speciesRestriction: [Reptilian]
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/reptilian_parts.rsi
+#    state: head_flat
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END

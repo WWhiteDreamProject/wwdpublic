@@ -1,0 +1,13 @@
+- type: species
+  id: Diona
+  setPreference: true
+  defaultColors:
+    Eyes: "#337A2C"
+    Skin: "#CDB369"
+  colorations:
+    Eyes: Simple
+    Skin: Hues
+  doll: HumanoidDollDiona
+  prototype: MobHumanoidDiona
+  name: species-name-diona
+  naming: Diona

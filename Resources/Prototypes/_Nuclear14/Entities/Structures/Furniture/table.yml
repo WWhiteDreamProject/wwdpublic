@@ -44,8 +44,7 @@
   - type: Climbable
   - type: Bonkable
     bonkDamage:
-      types:
-        Blunt: 4
+      Blunt: 4
   - type: Clickable
   - type: RequireProjectileTarget # WWDP
 

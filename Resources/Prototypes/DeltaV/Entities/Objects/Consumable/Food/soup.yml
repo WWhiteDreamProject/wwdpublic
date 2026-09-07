@@ -15,7 +15,7 @@
       - state: scrambled-eggs
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 10
         reagents:
         - ReagentId: Nutriment
@@ -41,7 +41,7 @@
     - state: blue-tomato
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 12
         reagents:
         - ReagentId: Nutriment
@@ -72,7 +72,7 @@
     - state: purple-tomato
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 12
         reagents:
         - ReagentId: Nutriment

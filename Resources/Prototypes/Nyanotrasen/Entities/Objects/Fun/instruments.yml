@@ -28,8 +28,8 @@
     soundHit:
       path: /Audio/Nyanotrasen/Weapons/electricguitarhit.ogg
     damage:
-      types:
-        Blunt: 7
+      # WD EDIT: Migrated damage format
+      Blunt: 7
     bluntStaminaDamageFactor: 1.50 #13.5 stamina damage
 
 - type: entity
@@ -46,12 +46,12 @@
     attackRate: .8
     range: 1.85
     damage:
-      types:
-        Blunt: 7
+      # WD EDIT: Migrated damage format
+      Blunt: 7
   - type: DamageOtherOnHit
   - type: Wieldable
   - type: IncreaseDamageOnWield
     damage:
-      types:
-        Blunt: 7
-        Shock: 2
+      # WD EDIT: Migrated damage format
+      Blunt: 7
+      Shock: 2

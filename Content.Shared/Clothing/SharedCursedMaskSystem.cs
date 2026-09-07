@@ -29,7 +29,7 @@ public abstract class SharedCursedMaskSystem : EntitySystem
         SubscribeLocalEvent<CursedMaskComponent, ExaminedEvent>(OnExamine);
 
         SubscribeLocalEvent<CursedMaskComponent, InventoryRelayedEvent<RefreshMovementSpeedModifiersEvent>>(OnMovementSpeedModifier);
-        SubscribeLocalEvent<CursedMaskComponent, InventoryRelayedEvent<DamageModifyEvent>>(OnModifyDamage);
+        SubscribeLocalEvent<CursedMaskComponent, InventoryRelayedEvent<GetModifiedDamageEvent>>(OnModifyDamage);
     }
 
     private void OnClothingEquip(Entity<CursedMaskComponent> ent, ref ClothingGotEquippedEvent args)
@@ -54,7 +54,7 @@ public abstract class SharedCursedMaskSystem : EntitySystem
             args.Args.ModifySpeed(ent.Comp.JoySpeedModifier);
     }
 
-    private void OnModifyDamage(Entity<CursedMaskComponent> ent, ref InventoryRelayedEvent<DamageModifyEvent> args)
+    private void OnModifyDamage(Entity<CursedMaskComponent> ent, ref InventoryRelayedEvent<GetModifiedDamageEvent> args)
     {
         if (ent.Comp.CurrentState == CursedMaskExpression.Despair)
             args.Args.Result = DamageSpecifier.ApplyModifierSet(args.Args.Damage, ent.Comp.DespairDamageModifier); // WD EDIT

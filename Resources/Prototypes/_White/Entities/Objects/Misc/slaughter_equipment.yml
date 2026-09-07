@@ -292,14 +292,12 @@
   components:
   - type: WeaponRandom
     damageBonus:
-      types:
-        Blunt: 1000
+      Blunt: 1000
     randomDamageChance: 0.075
   - type: MeleeWeapon
     damage:
-      types:
-        Blunt: 5
-# Mime
+      Blunt: 5
+
 - type: entity
   parent: ClothingBackpackMime
   id: SlaughterEquipmentMime
@@ -419,8 +417,8 @@
     range: 1.6
     attackRate: 2
     damage:
-      types:
-        Blunt: 10
+      # WD EDIT: Migrated damage format
+      Blunt: 10
     bluntStaminaDamageFactor: 1
     soundHit:
       collection: MetalThud

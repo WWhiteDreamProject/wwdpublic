@@ -68,8 +68,8 @@
       angle: 0
       animation: WeaponArcSmash
       damage:
-        types:
-          Piercing: 5
+        # WD EDIT: Migrated damage format
+        Piercing: 5
     - type: DamageStateVisuals
       states:
         Alive:
@@ -170,9 +170,9 @@
       angle: 0
       animation: WeaponArcSmash
       damage:
-        types:
-          Blunt: 15
-          Structural: 50
+        # WD EDIT: Migrated damage format
+        Blunt: 15
+        Structural: 50
     - type: DamageStateVisuals
       states:
         Alive:

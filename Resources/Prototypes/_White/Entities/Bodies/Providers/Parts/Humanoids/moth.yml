@@ -1,0 +1,66 @@
+- type: entity
+  id: BaseBodyProviderPartMoth
+  parent: BaseBodyProviderPartOrganic
+  abstract: true
+  suffix: Moth
+  components:
+  - type: BodyAppearanceProvider
+    path: _White/Bodies/Parts/Humanoids/moth.rsi
+  - type: Sprite
+    sprite: _White/Bodies/Parts/Humanoids/moth.rsi
+
+# Arms
+- type: entity
+  id: BodyProviderLeftArmMoth
+  parent: [BaseBodyProviderLeftArmOrganic, BaseBodyProviderPartMoth]
+
+- type: entity
+  id: BodyProviderRightArmMoth
+  parent: [BaseBodyProviderRightArmOrganic, BaseBodyProviderPartMoth]
+
+# Chest
+- type: entity
+  id: BodyProviderChestMoth
+  parent: [BaseBodyProviderChestOrganic, BaseBodyProviderPartMoth]
+
+# Foots
+- type: entity
+  id: BodyProviderLeftFootMoth
+  parent: [BaseBodyProviderLeftFootOrganic, BaseBodyProviderPartMoth]
+
+- type: entity
+  id: BodyProviderRightFootMoth
+  parent: [BaseBodyProviderRightFootOrganic, BaseBodyProviderPartMoth]
+
+# Groin
+- type: entity
+  id: BodyProviderGroinMoth
+  parent: [BaseBodyProviderGroinOrganic, BaseBodyProviderPartMoth]
+
+# Hands
+- type: entity
+  id: BodyProviderLeftHandMoth
+  parent: [BaseBodyProviderLeftHandOrganic, BaseBodyProviderPartMoth]
+
+- type: entity
+  id: BodyProviderRightHandMoth
+  parent: [BaseBodyProviderRightHandOrganic, BaseBodyProviderPartMoth]
+
+# Head
+- type: entity
+  id: BodyProviderHeadMoth
+  parent: [BaseBodyProviderHeadOrganic, BaseBodyProviderPartMoth]
+
+# Legs
+- type: entity
+  id: BodyProviderLeftLegMoth
+  parent: [BaseBodyProviderLeftLegOrganic, BaseBodyProviderPartMoth]
+
+- type: entity
+  id: BodyProviderRightLegMoth
+  parent: [BaseBodyProviderRightLegOrganic, BaseBodyProviderPartMoth]
+
+# Wings
+- type: entity
+  id: BodyProviderWingsMoth
+  parent: [BaseBodyProviderWingsOrganic, BaseBodyProviderPartMoth]

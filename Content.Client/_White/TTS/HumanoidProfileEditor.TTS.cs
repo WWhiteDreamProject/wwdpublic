@@ -50,7 +50,7 @@ public sealed partial class HumanoidProfileEditor
                 firstVoiceChoiceId = i;
         }
 
-        var voiceChoiceId = _voiceList.FindIndex(x => x.ID == Profile.Voice);
+        var voiceChoiceId = _voiceList.FindIndex(x => x.ID == Profile.Value.Voice);
         if (!VoiceButton.TrySelectId(voiceChoiceId) &&
             VoiceButton.TrySelectId(firstVoiceChoiceId))
         {
@@ -63,6 +63,6 @@ public sealed partial class HumanoidProfileEditor
         if (Profile is null)
             return;
 
-        _entManager.System<TTSSystem>().RequestGlobalTTS(VoiceRequestType.Preview,Profile.Voice);
+        _entManager.System<TTSSystem>().RequestGlobalTTS(VoiceRequestType.Preview,Profile.Value.Voice);
     }
 }

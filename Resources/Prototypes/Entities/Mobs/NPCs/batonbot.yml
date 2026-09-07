@@ -30,8 +30,8 @@
     angle: 0
     animation: WeaponArcPunch
     damage:
-      types:
-        Shock: 4
+      # WD EDIT: Migrated damage format
+      Shock: 4
   - type: StaminaDamageOnHit
     damage: 20
     sound: /Audio/Weapons/egloves.ogg

@@ -2,30 +2,21 @@ using Content.Shared._White.Body.Components;
 using Content.Shared._White.Body.Systems;
 using Content.Shared._White.Humanoid.Markings.Components;
 using Content.Shared._White.Humanoid.Markings.Managers;
-using Content.Shared._White.Humanoid.Markings.Prototypes;
 using Content.Shared._White.Humanoid.Prototypes;
-using Content.Shared.CCVar;
-using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._White.Humanoid.Markings.Systems;
 
 public abstract partial class SharedMarkingsSystem : EntitySystem
 {
+    [Dependency] protected new readonly IPrototypeManager Prototype = default!;
     [Dependency] protected readonly MarkingManager Marking = default!;
 
     [Dependency] private readonly IComponentFactory _componentFactory = default!;
-    [Dependency] private readonly IConfigurationManager _configuration = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
 
     [Dependency] private readonly SharedBodySystem _body = default!;
 
     protected EntityQuery<MarkingsProviderComponent> ProviderQuery;
-
-    private bool _clientCensorNudity;
-    private bool _serverCensorNudity;
-
-    public bool CensorNudity => _clientCensorNudity || _serverCensorNudity;
 
     public override void Initialize()
     {
@@ -34,9 +25,6 @@ public abstract partial class SharedMarkingsSystem : EntitySystem
         InitializeProvider();
 
         ProviderQuery = GetEntityQuery<MarkingsProviderComponent>();
-
-        Subs.CVar(_configuration, CCVars.AccessibilityClientCensorNudity, value => _clientCensorNudity = value, true);
-        Subs.CVar(_configuration, CCVars.AccessibilityServerCensorNudity, value => _serverCensorNudity = value, true);
     }
 
     #region Public API
@@ -45,36 +33,35 @@ public abstract partial class SharedMarkingsSystem : EntitySystem
     /// Gathers all the markings-relevant data from this entity.
     /// </summary>
     /// <param name="uid">The entity to sample.</param>
-    /// <param name="filter">If set, only returns data concerning the given layers.</param>
-    /// <param name="set">The markings that are applied to the entity.</param>
+    /// <param name="markings">The markings that are applied to the entity.</param>
     /// <param name="data">The marking data of providers.</param>
+    /// <returns>True if the markings data is successfully returned, false otherwise.</returns>
     public bool TryGetData(
         EntityUid uid,
-        HashSet<Enum>? filter,
-        out Dictionary<ProtoId<MarkingCategoryPrototype>, List<Marking>> set,
-        out Dictionary<ProtoId<MarkingCategoryPrototype>, MarkingsData> data
+        out Dictionary<Enum, List<Marking>> markings,
+        out Dictionary<Enum, MarkingData> data
     )
     {
-        var ev = new GetMarkingsDataEvent(filter);
+        var ev = new GetMarkingsDataEvent();
         RaiseLocalEvent(uid, ref ev);
 
-        set = ev.Set;
+        markings = ev.Markings;
         data = ev.Data;
 
-        return set.Count > 0 || data.Count > 0;
+        return markings.Count > 0 || data.Count > 0;
     }
 
     /// <summary>
-    /// Looks up the expected set of <see cref="MarkingsData" /> for the species to have.
+    /// Looks up the expected set of <see cref="MarkingData" /> for the species to have.
     /// </summary>
     /// <param name="species">The species to look up the usual markings of.</param>
     /// <returns>A dictionary of marking categories to their usual marking data within a species.</returns>
-    public Dictionary<ProtoId<MarkingCategoryPrototype>, MarkingsData> GetMarkingData(ProtoId<SpeciesPrototype> species)
+    public Dictionary<Enum, MarkingData> GetMarkingData(ProtoId<SpeciesPrototype> species)
     {
-        var markingsData = new Dictionary<ProtoId<MarkingCategoryPrototype>, MarkingsData>();
+        var markingsData = new Dictionary<Enum, MarkingData>();
 
-        var speciesPrototype = _prototype.Index(species);
-        var dollPrototype = _prototype.Index(speciesPrototype.DollPrototype);
+        var speciesPrototype = Prototype.Index(species);
+        var dollPrototype = Prototype.Index(speciesPrototype.Doll);
 
         if (!dollPrototype.TryGetComponent<BodyComponent>(out var body, _componentFactory))
             return markingsData;
@@ -84,7 +71,10 @@ public abstract partial class SharedMarkingsSystem : EntitySystem
             if (!TryGetData(prototype, out var data))
                 continue;
 
-            markingsData[data.Value.Category] = data.Value;
+            foreach (var layer in data.Value.Layers)
+            {
+                markingsData[layer] = data.Value;
+            }
         }
 
         return markingsData;
@@ -94,10 +84,10 @@ public abstract partial class SharedMarkingsSystem : EntitySystem
     /// Applies the given set of markings to the entity.
     /// </summary>
     /// <param name="uid">The entity whose apply markings.</param>
-    /// <param name="markingsSet">A dictionary of marking categories to markings.</param>
-    public void ApplyMarkings(EntityUid uid, Dictionary<ProtoId<MarkingCategoryPrototype>, List<Marking>> markingsSet)
+    /// <param name="markings">A list of markings.</param>
+    public void ApplyMarkings(EntityUid uid, List<Marking> markings)
     {
-        var ev = new ApplyMarkingsEvent(markingsSet);
+        var ev = new ApplyMarkingsEvent(markings);
         RaiseLocalEvent(uid, ref ev);
     }
 
@@ -108,21 +98,21 @@ public abstract partial class SharedMarkingsSystem : EntitySystem
 /// Event raised on body entity when a profile is being applied to it.
 /// </summary>
 [ByRefEvent]
-public readonly record struct ApplyMarkingsEvent(Dictionary<ProtoId<MarkingCategoryPrototype>, List<Marking>> MarkingsSet);
+public readonly record struct ApplyMarkingsEvent(List<Marking> Markings);
 
 /// <summary>
 /// Event raised on an entity to get the markings on its provider.
 /// </summary>
 [ByRefEvent]
-public readonly record struct GetMarkingsDataEvent(HashSet<Enum>? Filter)
+public readonly record struct GetMarkingsDataEvent()
 {
     /// <summary>
-    /// A result contained the marking sets.
+    /// A result contained the markings.
     /// </summary>
-    public readonly Dictionary<ProtoId<MarkingCategoryPrototype>, List<Marking>> Set = new();
+    public readonly Dictionary<Enum, List<Marking>> Markings = new();
 
     /// <summary>
     /// A result contained the marking data.
     /// </summary>
-    public readonly Dictionary<ProtoId<MarkingCategoryPrototype>, MarkingsData> Data = new();
+    public readonly Dictionary<Enum, MarkingData> Data = new();
 }

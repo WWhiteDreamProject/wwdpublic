@@ -2,9 +2,8 @@
   save: false
   parent:
   - BaseMob
-  - MobDamageable
-  - MobPolymorphable
-  - MobAtmosExposed
+  - BaseMobDamageable
+  - BaseMobAtmos
   id: BaseSimpleMob
   suffix: AI
   abstract: true
@@ -40,9 +39,10 @@
   abstract: true
   parent:
   - BaseSimpleMob
-  - MobCombat
-  - MobBloodstream
-  - MobFlammable
+  - BaseMobCombat
+  - BaseMobBloodstream
+  - BaseMobFlammable
+  - BaseBodyAnimal # WD EDIT
   id: SimpleSpaceMobBase # Mob without barotrauma, freezing and asphyxiation (for space carps!?)
   suffix: AI
   components:
@@ -55,8 +55,6 @@
   - type: MeleeWeapon
     angle: 0
     animation: WeaponArcBite
-  - type: Body
-    prototype: Animal
   - type: Climbing
   - type: NameIdentifier
     group: GenericNumber
@@ -73,8 +71,8 @@
 
 - type: entity
   parent:
-  - MobRespirator
-  - MobAtmosStandard
+  - BaseMobRespirator
+  - BaseMobAtmosStandard
   - SimpleSpaceMobBase
   id: SimpleMobBase # for air breathers
   suffix: AI

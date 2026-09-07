@@ -1,0 +1,9 @@
+- type: naming
+  id: Oni
+  preset: naming-preset-first-no-last
+  first:
+    Neuter: NamingFirstOni
+    Epicene: NamingFirstOni
+    Female: NamingFirstOniFemale
+    Male: NamingFirstOni
+  last: NamingLastOni

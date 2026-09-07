@@ -1,4 +1,0 @@
-- type: skinColoration
-  id: Hues
-  strategy: !type:ClampedHsvColoration
-    value: [0.175, 1]

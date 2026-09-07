@@ -1,0 +1,155 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by PixelTheKermit(github) for SS14. The division of the torso into chest and groin was done by Spatison(github).",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "chipped_chest_primary",
+      "directions": 4
+    },
+    {
+      "name": "chipped_chest_secondary",
+      "directions": 4
+    },
+    {
+      "name": "chipped_groin_primary",
+      "directions": 4
+    },
+    {
+      "name": "chipped_groin_secondary",
+      "directions": 4
+    },
+    {
+      "name": "curled_chest_primary",
+      "directions": 4
+    },
+    {
+      "name": "curled_chest_secondary",
+      "directions": 4
+    },
+    {
+      "name": "curled_groin_primary",
+      "directions": 4
+    },
+    {
+      "name": "curled_groin_secondary",
+      "directions": 4
+    },
+    {
+      "name": "freaky_chest_primary",
+      "directions": 4
+    },
+    {
+      "name": "freaky_chest_secondary",
+      "directions": 4
+    },
+    {
+      "name": "freaky_groin_primary",
+      "directions": 4
+    },
+    {
+      "name": "freaky_groin_secondary",
+      "directions": 4
+    },
+    {
+      "name": "harvest_chest_primary",
+      "directions": 4
+    },
+    {
+      "name": "harvest_chest_secondary",
+      "directions": 4
+    },
+    {
+      "name": "harvest_groin_primary",
+      "directions": 4
+    },
+    {
+      "name": "harvest_groin_secondary",
+      "directions": 4
+    },
+    {
+      "name": "long_chest_primary",
+      "directions": 4
+    },
+    {
+      "name": "long_chest_secondary",
+      "directions": 4
+    },
+    {
+      "name": "long_groin_primary",
+      "directions": 4
+    },
+    {
+      "name": "long_groin_secondary",
+      "directions": 4
+    },
+    {
+      "name": "sharp_chest_primary",
+      "directions": 4
+    },
+    {
+      "name": "sharp_chest_secondary",
+      "directions": 4
+    },
+    {
+      "name": "sharp_groin_primary",
+      "directions": 4
+    },
+    {
+      "name": "sharp_groin_secondary",
+      "directions": 4
+    },
+    {
+      "name": "short_chest_primary",
+      "directions": 4
+    },
+    {
+      "name": "short_chest_secondary",
+      "directions": 4
+    },
+    {
+      "name": "short_groin_primary",
+      "directions": 4
+    },
+    {
+      "name": "short_groin_secondary",
+      "directions": 4
+    },
+    {
+      "name": "stingers_chest_primary",
+      "directions": 4
+    },
+    {
+      "name": "stingers_chest_secondary",
+      "directions": 4
+    },
+    {
+      "name": "stingers_groin_primary",
+      "directions": 4
+    },
+    {
+      "name": "stingers_groin_secondary",
+      "directions": 4
+    },
+    {
+      "name": "zig_zag_chest_primary",
+      "directions": 4
+    },
+    {
+      "name": "zig_zag_chest_secondary",
+      "directions": 4
+    },
+    {
+      "name": "zig_zag_groin_primary",
+      "directions": 4
+    },
+    {
+      "name": "zig_zag_groin_secondary",
+      "directions": 4
+    }
+  ]
+}

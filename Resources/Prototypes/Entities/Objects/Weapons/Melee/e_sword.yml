@@ -38,18 +38,16 @@
       params:
         variation: 0.125
     activatedDamage:
-      types:
-        Slash: 15
-        Heat: 15
-        Structural: 45 # its a damn laser sword, let people star wars their way through walls
+      Slash: 15
+      Heat: 15
+      Structural: 45 # its a damn laser sword, let people star wars their way through walls
   - type: MeleeWeapon
     animationRotation: -45 # WWDP
     wideAnimationRotation: -135
     attackRate: .8
     range: 1.6
     damage:
-      types:
-        Blunt: 2.5
+      Blunt: 2.5
   - type: ItemToggleDamageOtherOnHit
     activatedStaminaCost: 6
   - type: DamageOtherOnHit
@@ -157,9 +155,8 @@
         volume: -3
         variation: 0.250
     activatedDamage:
-        types:
-            Slash: 10
-            Heat: 10
+      Slash: 10
+      Heat: 10
     deactivatedSecret: true
   - type: ItemToggleActiveSound
     activeSound:
@@ -188,12 +185,11 @@
     attackRate: 1
     hidden: true
     damage:
-      types:
-        Blunt: 1
+      # WD EDIT: Migrated damage format
+      Blunt: 1
   - type: DamageOtherOnHit
     damage:
-      types:
-        Piercing: 3
+      Piercing: 3
     staminaCost: 3.5
   - type: EmbeddableProjectile
     offset: 0.3,0.0
@@ -201,8 +197,7 @@
     embedOnThrow: true
   - type: EmbedPassiveDamage
     damage:
-      types:
-        Blunt: 0
+      Blunt: 0
   - type: Item
     size: Tiny
     sprite: Objects/Weapons/Melee/e_dagger_loud.rsi
@@ -250,9 +245,8 @@
         volume: -3
         variation: 0.250
     activatedDamage:
-      types:
-        Slash: 10
-        Heat: 10
+      Slash: 10
+      Heat: 10
   - type: ComponentToggler
     components:
     - type: Sharp
@@ -285,8 +279,7 @@
     attackRate: 1
     hidden: true
     damage:
-      types:
-        Blunt: 1
+      Blunt: 1
   - type: Tag
     tags:
     - Write
@@ -322,9 +315,8 @@
   components:
   - type: ItemToggleMeleeWeapon
     activatedDamage:
-        types:
-            Slash: 10
-            Heat: 12
+      Slash: 10
+      Heat: 12
     deactivatedSecret: true
   - type: Sprite
     sprite: DeltaV/Objects/Weapons/Melee/e_cutlass.rsi
@@ -340,8 +332,7 @@
     soundHit:
       path: /Audio/Weapons/eblade1.ogg
     damage:
-      types:
-        Blunt: 6
+      Blunt: 6
   - type: Item
     sprite: DeltaV/Objects/Weapons/Melee/e_cutlass.rsi
 
@@ -356,10 +347,9 @@
     attackRate: 1.25
   - type: ItemToggleMeleeWeapon
     activatedDamage:
-      types:
-        Slash: 5
-        Heat: 12
-        Structural: 20 # "expertly contained to cut through nearly any material" yet it had no structural damage
+      Slash: 5
+      Heat: 12
+      Structural: 20 # "expertly contained to cut through nearly any material" yet it had no structural damage
   - type: GuideHelp
     guides: [ SecurityWeapons ]
 
@@ -388,10 +378,9 @@
         volume: 3
         variation: 0.250
     activatedDamage:
-        types:
-            Slash: 15 # WD EDIT: 12 -> 15
-            Heat: 15
-            Structural: 30
+      Slash: 15 # WD EDIT: 12 -> 15
+      Heat: 15
+      Structural: 30
   - type: ItemToggleActiveSound
     activeSound:
       path: /Audio/Weapons/ebladehum.ogg
@@ -411,8 +400,7 @@
     attackRate: .6666
     angle: 100
     damage:
-      types:
-        Blunt: 4.5
+      Blunt: 4.5
   - type: Sprite
     sprite: Objects/Weapons/Melee/e_sword_double.rsi
     layers:
@@ -455,8 +443,7 @@
     angle: 100
     range: 2.0
     damage:
-      types:
-        Blunt: 4.5
+      Blunt: 4.5
   - type: ItemToggleMeleeWeapon
     activatedSoundOnSwing:
       path: /Audio/Weapons/eblademiss.ogg
@@ -464,10 +451,9 @@
         volume: -3
         variation: 0.250
     activatedDamage:
-      types:
-        Slash: 20
-        Heat: 20
-        Structural: 20
+      Slash: 20
+      Heat: 20
+      Structural: 20
   - type: MeleeRequiresWield
   - type: HeldSpeedModifier #slowdown is what balances this compared to a dsword
     walkModifier: 0.6

@@ -261,9 +261,8 @@
           type: Slime
           shouldHave: false
         damage:
-          types:
-            Poison: 1
-
+          # WD EDIT: Migrated damage format
+          Poison: 1
 - type: reagent
   id: ShamblersJuice
   name: reagent-name-shamblers-juice

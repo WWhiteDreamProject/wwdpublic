@@ -1,7 +1,7 @@
 - type: entity
   name: rat king
   id: MobRatKing
-  parent: [ SimpleMobBase, MobCombat ]
+  parent: [ SimpleMobBase, BaseMobCombat, BaseBodyRat ] # WD EDIT: BaseBodyRat
   description: He's da rat. He make da roolz.
   components:
   - type: CombatMode
@@ -53,11 +53,9 @@
     angle: 0
     animation: WeaponArcClaw
     damage:
-      types:
-        Slash: 12
-        Piercing: 8
-  - type: Body
-    prototype: Rat
+      # WD EDIT: Migrated damage format
+      Piercing: 8
+      Slash: 12
   - type: Hunger # probably should be prototyped
     thresholds:
       Overfed: 200
@@ -161,8 +159,8 @@
     attackRate: 0.75
     animation: WeaponArcFist
     damage:
-      types:
-        Blunt: 66 #oof ouch owie my bones
+      # WD EDIT: Migrated damage format
+      Blunt: 66
   - type: SlowOnDamage
     speedModifierThresholds:
       200: 0.7
@@ -175,7 +173,7 @@
 - type: entity
   name: rat servant
   id: MobRatServant
-  parent: [ SimpleMobBase, MobCombat ]
+  parent: [ SimpleMobBase, BaseMobCombat, BaseBodyRat ] # WD EDIT: BaseBodyRat
   description: He's da mini rat. He don't make da roolz.
   categories: [ HideSpawnMenu ] #Must be configured to a King or the AI breaks.
   components:
@@ -247,11 +245,9 @@
     angle: 0
     animation: WeaponArcClaw
     damage:
-      types:
-        Slash: 5
-        Piercing: 3
-  - type: Body
-    prototype: Rat
+      # WD EDIT: Migrated damage format
+      Piercing: 3
+      Slash: 5
   - type: Hunger # probably should be prototyped
     thresholds:
       Overfed: 200
@@ -302,7 +298,7 @@
     guides:
     - MinorAntagonists
   - type: FelinidFood # Nyanotrasen - Felinid, ability to eat rat, see Content.Server/Nyanotrasen/Abilities/Felinid/FelinidSystem.cs
-  - type: Food
+  - type: Ingestible # WD Ingestible
   - type: Item
     size: Tiny # Delta V - Make them eatable and pickable.
   - type: LanguageKnowledge

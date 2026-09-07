@@ -68710,13 +68710,6 @@ entities:
     - type: Transform
       pos: 26.5,16.5
       parent: 1
-- proto: PlushieArachne
-  entities:
-  - uid: 16381
-    components:
-    - type: Transform
-      pos: -8.600338,-36.450893
-      parent: 1
 - proto: PlushieCarp
   entities:
   - uid: 1204

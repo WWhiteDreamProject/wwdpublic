@@ -712,9 +712,9 @@
     soundHit:
       path: /Audio/Effects/bite.ogg
     damage:
-      types:
-        Piercing: 8
-        Poison: 2 # Sleep poison instead of die poison
+      # WD EDIT: Migrated damage format
+      Piercing: 8
+      Poison: 2
   - type: Grammar
     attributes:
       proper: true
@@ -826,8 +826,8 @@
     needsHands: false
   - type: MeleeWeapon
     damage:
-      types:
-        Blunt: 0
+      # WD EDIT: Migrated damage format
+      Blunt: 0
   - type: SolutionContainerManager
     solutions:
       melee:

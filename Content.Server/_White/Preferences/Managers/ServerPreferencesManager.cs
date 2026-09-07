@@ -4,9 +4,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using Content.Server._White.Serialization;
 using Content.Server.Database;
+using Content.Shared._White.Appearance.Prototypes;
 using Content.Shared._White.Humanoid.Markings;
-using Content.Shared._White.Humanoid.Markings.Prototypes;
-using Content.Shared._White.Humanoid.Prototypes;
 using Content.Shared._White.Preferences;
 using Content.Shared.CCVar;
 using Content.Shared.Clothing.Loadouts.Systems;
@@ -28,7 +27,7 @@ namespace Content.Server._White.Preferences.Managers;
 /// <summary>
 /// Manages player preferences and character data on the server.
 /// </summary>
-public sealed partial class ServerPreferencesManager : IServerPreferencesManager, IPostInjectInit
+public sealed class ServerPreferencesManager : IServerPreferencesManager, IPostInjectInit
 {
     [Dependency] private readonly IConfigurationManager _configuration = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
@@ -82,8 +81,17 @@ public sealed partial class ServerPreferencesManager : IServerPreferencesManager
         var nextSlot = preferences.SelectedCharacterIndex;
         if (preferences.SelectedCharacterIndex == msg.Slot)
         {
-            (nextSlot, var profile) = preferences.Characters.FirstOrDefault(p => p.Key != msg.Slot);
-            if (profile == null)
+            nextSlot = -1;
+            foreach (var slot in preferences.Characters.Keys)
+            {
+                if (slot == nextSlot)
+                    continue;
+
+                nextSlot = slot;
+                break;
+            }
+
+            if (nextSlot == -1)
                 return;
         }
 
@@ -157,7 +165,7 @@ public sealed partial class ServerPreferencesManager : IServerPreferencesManager
                 l.CustomColorTint,
                 l.CustomHeirloom
                 ));
-        var bodyColoration = profile.BodyColoration.ToDictionary(x => new ProtoId<BodyColorationPrototype>(x.Coloration), x => Color.FromHex(x.Color));
+        var bodyColor = profile.BodyColors.ToDictionary(x => new ProtoId<BodyColorGroupPrototype>(x.Group), x => Color.FromHex(x.Color));
 
         var sex = Sex.Male;
         if (Enum.TryParse<Sex>(profile.Sex, true, out var sexVal))
@@ -167,12 +175,12 @@ public sealed partial class ServerPreferencesManager : IServerPreferencesManager
         if (Enum.TryParse<Gender>(profile.Gender, true, out var genderVal))
             gender = genderVal;
 
-        var markings = new Dictionary<ProtoId<MarkingCategoryPrototype>, List<Marking>>();
+        var markings = new Dictionary<Enum, List<Marking>>();
         if (profile.Markings?.RootElement is { } markingsElement)
         {
             var data = markingsElement.ToDataNode();
             markings = _serialization
-                .Read<Dictionary<ProtoId<MarkingCategoryPrototype>, List<Marking>>>(
+                .Read<Dictionary<Enum, List<Marking>>>(
                     data,
                     notNullableOverride: true);
         }
@@ -184,10 +192,10 @@ public sealed partial class ServerPreferencesManager : IServerPreferencesManager
             bodyProviders = _serialization.Read<Dictionary<string, EntProtoId?>>(data, notNullableOverride: true);
         }
 
-        return new HumanoidCharacterProfile(
-            jobs,
-            bodyColoration,
+        return new(
             markings,
+            jobs,
+            bodyColor,
             bodyProviders,
             loadouts.ToDictionary(p => p.LoadoutName),
             antags.ToHashSet(),

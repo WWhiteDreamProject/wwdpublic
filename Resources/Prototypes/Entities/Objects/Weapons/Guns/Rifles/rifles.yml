@@ -65,8 +65,8 @@
   - type: MeleeWeapon
     attackRate: 1.3333
     damage:
-      types:
-        Blunt: 8.5
+      # WD EDIT: Migrated damage format
+      Blunt: 8.5
     bluntStaminaDamageFactor: 1.25
     swapKeys: true
     disableHeavy: true
@@ -76,8 +76,8 @@
       collection: MetalThud
   - type: IncreaseDamageOnWield
     damage:
-      types:
-        Blunt: 2.5
+      # WD EDIT: Migrated damage format
+      Blunt: 2.5
   - type: DamageOtherOnHit
     staminaCost: 7.5
 
@@ -269,13 +269,13 @@
   - type: PacifismAllowedGun
   - type: MeleeWeapon
     damage:
-      types:
-        Blunt: 0 # Krillions must bubble-wrap the foam rifle
+      # WD EDIT: Migrated damage format
+      Blunt: 0
     soundHit:
       collection: ToySqueak
   - type: IncreaseDamageOnWield
     damage:
-      types:
-        Blunt: 0
+      # WD EDIT: Migrated damage format
+      Blunt: 0
   - type: DamageOtherOnHit
     staminaCost: 3.5

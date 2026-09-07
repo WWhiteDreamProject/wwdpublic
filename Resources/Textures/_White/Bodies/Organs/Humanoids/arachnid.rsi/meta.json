@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by PixelTheKermit(github)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "eyes"
+    },
+    {
+      "name": "eyes_in-body",
+      "directions": 4
+    },
+    {
+      "name": "gland_web"
+    },
+    {
+      "name": "heart"
+    },
+    {
+      "name": "lungs"
+    },
+    {
+      "name": "stomach"
+    },
+    {
+      "name": "tongue"
+    }
+  ]
+}

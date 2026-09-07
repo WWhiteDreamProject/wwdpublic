@@ -19,8 +19,8 @@
   - type: DamageOtherOnHit
     ignoreResistances: true
     damage:
-      types:
-        Slash: 5
-        Piercing: 10
+      # WD EDIT: Migrated damage format
+      Piercing: 10
+      Slash: 5
   - type: ThrowingAngle
     angularVelocity: true # spins

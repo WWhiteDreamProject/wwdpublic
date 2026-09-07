@@ -12,8 +12,8 @@
   - type: Projectile
     impactEffect: null
     damage:
-      types:
-        Poison: 15
+      # WD EDIT: Migrated damage format
+      Poison: 15
   - type: Reflective
     reflective:
     - Energy
@@ -38,9 +38,8 @@
   components:
   - type: Projectile
     damage:
-      types:
-        Heat: 1
-
+      # WD EDIT: Migrated damage format
+      Heat: 1
 - type: entity
   name: pulse bolt
   id: BulletPulse
@@ -54,8 +53,8 @@
   - type: Projectile
     impactEffect: BulletImpactEffectLaserBlue
     damage:
-      types:
-        Heat: 35
+      # WD EDIT: Migrated damage format
+      Heat: 35
   - type: PointLight
     color: blue
 
@@ -74,8 +73,8 @@
     deleteOnCollide: false
     impactEffect: null
     damage:
-      types:
-        Radiation: 25
+      # WD EDIT: Migrated damage format
+      Radiation: 25
   - type: PointLight
     color: green
 
@@ -92,8 +91,8 @@
   - type: Projectile
     impactEffect: BulletImpactEffectLaserBlue
     damage:
-      types:
-        Cold: 8
-        Shock: 8
+      # WD EDIT: Migrated damage format
+      Cold: 8
+      Shock: 8
   - type: PointLight
     color: blue

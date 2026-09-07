@@ -15,8 +15,8 @@
     wideAnimationRotation: 90
     attackRate: 0.9
     damage:
-      types:
-        Piercing: 8
+      # WD EDIT: Migrated damage format
+      Piercing: 8
     heavyRateModifier: 1.25
     heavyRangeModifier: 1.15
     heavyDamageBaseModifier: 1.25

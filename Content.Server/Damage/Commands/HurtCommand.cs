@@ -72,7 +72,7 @@ namespace Content.Server.Damage.Commands
             {
                 func = (entity, ignoreResistances) =>
                 {
-                    var damage = new DamageSpecifier(damageGroup, amount, _entManager.System<DamageableSystem>());
+                    var damage = new DamageSpecifier(damageGroup, amount);
                     _entManager.System<DamageableSystem>().TryChangeDamage(entity, damage, ignoreResistances);
                 };
 

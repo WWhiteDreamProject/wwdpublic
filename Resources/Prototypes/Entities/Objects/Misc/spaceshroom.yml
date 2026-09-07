@@ -64,7 +64,7 @@
         Quantity: 10
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 20
         reagents:
         - ReagentId: Nutriment
@@ -72,7 +72,7 @@
         - ReagentId: Vitamin
           Quantity: 2
   - type: RandomFillSolution
-    solution: food
+    solution: ingestible # WD Ingestible
     weightedRandomId: RandomFillSpaceshroom
   - type: StaticPrice
     price: 20
@@ -135,7 +135,7 @@
       - spaceshroomcooked
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 15
         reagents:
         - ReagentId: Nutriment

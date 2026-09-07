@@ -2,9 +2,10 @@
   id: BaseMobAsteroid
   parent:
   - BaseMob
-  - MobDamageable
-  - MobAtmosExposed
-  - MobCombat
+  - BaseMobDamageable
+  - BaseMobAtmos
+  - BaseMobCombat
+  - BaseBodyAnimal # WD EDIT
   abstract: true
   components:
   - type: Reactive
@@ -12,8 +13,6 @@
       Flammable: [Touch]
       Extinguish: [Touch]
       Acidic: [Touch, Ingestion]
-  - type: Body
-    prototype: Animal
   - type: Climbing
   - type: NameIdentifier
     group: GenericNumber
@@ -63,9 +62,9 @@
     attackRate: 1.3333
     animation: WeaponArcPunch
     damage:
-      types:
-        Slash: 10
-        Piercing: 10
+      # WD EDIT: Migrated damage format
+      Piercing: 10
+      Slash: 10
   - type: NpcFactionMember
     factions:
     - SimpleHostile
@@ -210,8 +209,8 @@
       75: Dead
   - type: MeleeWeapon
     damage:
-      types:
-        Blunt: 0
+      # WD EDIT: Migrated damage format
+      Blunt: 0
   - type: Gun
     fireRate: 0.66
     selectedMode: SemiAuto
@@ -267,8 +266,8 @@
     range: 0.75
     animation: WeaponArcPunch
     damage:
-      types:
-        Slash: 7
+      # WD EDIT: Migrated damage format
+      Slash: 7
   - type: Ammo
     muzzleFlash: null
   - type: Destructible
@@ -301,7 +300,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 5
         reagents:
         - ReagentId: Rororium

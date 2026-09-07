@@ -24,28 +24,8 @@
   groupPrototype: Humanoid
 
 - type: speciesDictionary
-  id: Vulpkanin
-  guidePrototype: Vulpkanin
-  groupPrototype: Other
-
-- type: speciesDictionary
   id: Diona
   guidePrototype: Diona
-  groupPrototype: Other
-
-- type: speciesDictionary
-  id: Shadowkin
-  guidePrototype: Shadowkin
-  groupPrototype: Other
-
-- type: speciesDictionary
-  id: Tajaran
-  guidePrototype: Tajaran
-  groupPrototype: Other
-
-- type: speciesDictionary
-  id: Xelthia
-  guidePrototype: Xelthia
   groupPrototype: Other
 
 - type: speciesDictionary
@@ -71,9 +51,4 @@
 - type: speciesDictionary
   id: Plasmaman
   guidePrototype: Plasmaman
-  groupPrototype: Other
-
-- type: speciesDictionary
-  id: Thaven
-  guidePrototype: Thaven
   groupPrototype: Other

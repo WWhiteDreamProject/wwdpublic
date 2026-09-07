@@ -5,84 +5,79 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototy
 namespace Content.Shared._White.Humanoid.Markings.Prototypes;
 
 /// <summary>
-/// Marker prototype that defines well-known types of markings, e.g. "human", "NT prosthetic", "moth", etc.
+/// Defines a collection of marking constraints and defaults for specific humanoid species or body types.
 /// </summary>
 [Prototype]
 public sealed partial class MarkingGroupPrototype : IPrototype, IInheritingPrototype
 {
     /// <inheritdoc />
     [IdDataField]
-    public string ID { get; private set; } = default!;
+    public string ID { get; } = default!;
 
     /// <inheritdoc />
     [ParentDataField(typeof(AbstractPrototypeIdArraySerializer<MarkingGroupPrototype>))]
-    public string[]? Parents { get; private set; }
+    public string[]? Parents { get; }
 
     /// <inheritdoc />
     [NeverPushInheritance, AbstractDataField]
-    public bool Abstract { get; private set; }
+    public bool Abstract { get; }
 
     /// <summary>
-    /// If only markings that explicitly list the group of this organ are permitted
+    /// If true, only markings that explicitly include this group in their whitelist will be selectable.
     /// </summary>
     [DataField]
-    public bool OnlyGroupWhitelisted;
+    public bool OnlyGroupWhitelisted { get; }
 
+    /// <summary>
+    /// Defines constraints for specific marking categories (e.g., how many tattoos can be applied).
+    /// </summary>
     [DataField, AlwaysPushInheritance]
-    public Dictionary<ProtoId<MarkingCategoryPrototype>, MarkingsLimits> Limits = new();
-
-    [DataField, AlwaysPushInheritance]
-    public Dictionary<ProtoId<MarkingCategoryPrototype>, MarkingsAppearance> Appearances = new();
+    public Dictionary<ProtoId<MarkingCategoryPrototype>, MarkingCategoryData> CategoriesData { get; } = new();
 }
 
 [DataDefinition]
 [Serializable, NetSerializable]
-public sealed partial class MarkingsLimits
+public sealed partial class MarkingCategoryData
 {
     /// <summary>
-    /// How many markings this layer can take
+    /// If true, at least one marking must be selected for a specific category.
     /// </summary>
-    [DataField(required: true)]
-    public int Limit;
-
-    /// <summary>
-    /// Whether or not this layer is required to have a marking
-    /// </summary>
-    [DataField(required: true)]
+    [DataField]
     public bool Required;
 
     /// <summary>
-    /// If only markings that explicitly list the group of this organ are permitted
+    /// If set, overrides the group-level whitelist check for a specific category.
     /// </summary>
     [DataField]
     public bool? OnlyGroupWhitelisted;
 
     /// <summary>
-    /// Default markings for this layer.
-    /// </summary>
-    [DataField]
-    public List<ProtoId<MarkingPrototype>> Default = new();
-
-    /// <summary>
-    /// Nudity markings for this layer that will be ensured if it is being enforced.
-    /// </summary>
-    [DataField]
-    public List<ProtoId<MarkingPrototype>> NudityDefault = new();
-}
-
-[DataDefinition]
-[Serializable, NetSerializable]
-public sealed partial class MarkingsAppearance
-{
-    /// <summary>
-    /// The transparency that marking has.
+    /// The transparency multiplier applied to a specific category.
     /// </summary>
     [DataField]
     public float LayerAlpha = 1f;
 
     /// <summary>
-    /// Whether markings should be forced to match the skin color.
+    /// A set of markings applied by default.
     /// </summary>
     [DataField]
-    public bool MatchSkin;
+    public HashSet<ProtoId<MarkingPrototype>> Default = new();
+
+    /// <summary>
+    /// A set of markings applied automatically if it is being enforced.
+    /// </summary>
+    [DataField]
+    public HashSet<ProtoId<MarkingPrototype>> Nudity = new();
+
+    /// <summary>
+    /// The maximum number of markings allowed for a specific category.
+    /// </summary>
+    [DataField(required: true)]
+    public int Limit;
+
+    /// <summary>
+    /// If set, forces the marking color to sync with the coloring definition.
+    /// </summary>
+    [DataField]
+    public MarkingColoringDefinition? Coloring;
 }

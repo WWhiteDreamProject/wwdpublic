@@ -28,7 +28,6 @@
       inverted: true
       species:
         - Oni
-        - Shadowkin
   functions:
     - !type:TraitReplaceComponent
       components:

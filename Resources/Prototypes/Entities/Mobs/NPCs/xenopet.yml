@@ -156,8 +156,6 @@
     attributes:
       proper: true
       gender: male
-  - type: Body
-    prototype: FriendShaped # WD EDIT: Friendshaped -> FriendShaped
   - type: InteractionPopup
     successChance: 0.5
     interactSuccessString: petting-success-reptile

@@ -18,8 +18,8 @@
   - type: MeleeWeapon
     attackRate: .7
     damage:
-      types:
-        Slash: 8
+      # WD EDIT: Migrated damage format
+      Slash: 8
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
   - type: DamageOtherOnHit

@@ -17,6 +17,7 @@ public abstract partial class SharedIngestionSystem
     {
         SubscribeLocalEvent<IngestionProviderComponent, BodyRelayedEvent<TryIngestEvent>>(OnTryIngest);
         SubscribeLocalEvent<IngestionProviderComponent, IngestingDoAfterEvent>(OnIngestingDoAfter);
+        SubscribeLocalEvent<IngestionProviderComponent, MapInitEvent>(OnMapInit);
     }
 
     #region Event Handling
@@ -151,6 +152,17 @@ public abstract partial class SharedIngestionSystem
         RaiseLocalEvent(target, ref transferDnaEv);
 
         args.Repeat = !forceFeed;
+    }
+
+    private void OnMapInit(Entity<IngestionProviderComponent> ent, ref MapInitEvent args)
+    {
+        if (_net.IsClient) // I hate it☹️. TODO: Solution refactor.
+            return;
+
+        if (!_solutionContainer.EnsureSolution(ent.Owner, ent.Comp.SolutionName, out var solution))
+            return;
+
+        solution.MaxVolume = ent.Comp.SolutionMaxVolume;
     }
 
     #endregion

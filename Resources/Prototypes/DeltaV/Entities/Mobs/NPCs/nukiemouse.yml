@@ -1,6 +1,6 @@
 - type: entity
   name: nuclear operative mouse
-  parent: [ SimpleMobBase, MobCombat ]
+  parent: [ SimpleMobBase, BaseMobCombat, BaseBodyRat ] # WD EDIT: BaseBodyRat
   id: MobNukieMouse
   description: A Nuclear Operative... MOUSE?!
   suffix: syndicate
@@ -78,7 +78,7 @@
         Base: dead
       Dead:
         Base: splat
-  - type: Food
+  - type: Ingestible # WD Ingestible
   - type: Hunger
     baseDecayRate: 0.1
   - type: Extractable
@@ -125,8 +125,7 @@
   - type: Insulated
   - type: Barotrauma
     damage:
-      types:
-        Blunt: 0.1
+      Blunt: 0.1
   - type: Vocal
     sounds:
       Male: Mouse
@@ -140,12 +139,9 @@
     angle: 0
     animation: WeaponArcBite
     damage:
-      types:
-        Slash: 5
-        Piercing: 3
-        Structural: 1.5
-  - type: Body
-    prototype: Rat
+      Slash: 5
+      Piercing: 3
+      Structural: 1.5
   - type: Bloodstream
     bloodMaxVolume: 60
   - type: CanEscapeInventory

@@ -1,0 +1,61 @@
+- type: entity
+  id: BaseBodyProviderPartDiona
+  parent: BaseBodyProviderPartOrganic
+  abstract: true
+  suffix: Diona
+  components:
+  - type: BodyAppearanceProvider
+    path: _White/Bodies/Parts/Humanoids/diona.rsi
+  - type: Sprite
+    sprite: _White/Bodies/Parts/Humanoids/diona.rsi
+
+# Arms
+- type: entity
+  id: BodyProviderLeftArmDiona
+  parent: [BaseBodyProviderLeftArmOrganic, BaseBodyProviderPartDiona]
+
+- type: entity
+  id: BodyProviderRightArmDiona
+  parent: [BaseBodyProviderRightArmOrganic, BaseBodyProviderPartDiona]
+
+# Chest
+- type: entity
+  id: BodyProviderChestDiona
+  parent: [BaseBodyProviderChestOrganic, BaseBodyProviderPartDiona]
+
+# Foots
+- type: entity
+  id: BodyProviderLeftFootDiona
+  parent: [BaseBodyProviderLeftFootOrganic, BaseBodyProviderPartDiona]
+
+- type: entity
+  id: BodyProviderRightFootDiona
+  parent: [BaseBodyProviderRightFootOrganic, BaseBodyProviderPartDiona]
+
+# Groin
+- type: entity
+  id: BodyProviderGroinDiona
+  parent: [BaseBodyProviderGroinOrganic, BaseBodyProviderPartDiona]
+
+# Hands
+- type: entity
+  id: BodyProviderLeftHandDiona
+  parent: [BaseBodyProviderLeftHandOrganic, BaseBodyProviderPartDiona]
+
+- type: entity
+  id: BodyProviderRightHandDiona
+  parent: [BaseBodyProviderRightHandOrganic, BaseBodyProviderPartDiona]
+
+# Head
+- type: entity
+  id: BodyProviderHeadDiona
+  parent: [BaseBodyProviderHeadOrganic, BaseBodyProviderPartDiona]
+
+# Legs
+- type: entity
+  id: BodyProviderLeftLegDiona
+  parent: [BaseBodyProviderLeftLegOrganic, BaseBodyProviderPartDiona]
+
+- type: entity
+  id: BodyProviderRightLegDiona
+  parent: [BaseBodyProviderRightLegOrganic, BaseBodyProviderPartDiona]

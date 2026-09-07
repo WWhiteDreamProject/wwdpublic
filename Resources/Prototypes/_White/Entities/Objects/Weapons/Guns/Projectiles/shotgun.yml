@@ -30,9 +30,9 @@
     state: Bullet
   - type: Projectile
     damage:
-      types:
-        Blunt: 69
-        Structural: 89
+      # WD EDIT: Migrated damage format
+      Blunt: 69
+      Structural: 89
   - type: StunOnCollide
     stunAmount: 1
     knockdownAmount: 4
@@ -48,10 +48,9 @@
     state: Bullet
   - type: Projectile
     damage:
-      types:
-        Blunt: 10
-        Structural: 124
-
+      # WD EDIT: Migrated damage format
+      Blunt: 10
+      Structural: 124
 - type: entity
   name: laser barrage (.50)
   id: PelletShellLaserSpread
@@ -71,5 +70,5 @@
   components:
   - type: Projectile
     damage:
-      types:
-        Heat: 10
+      # WD EDIT: Migrated damage format
+      Heat: 10

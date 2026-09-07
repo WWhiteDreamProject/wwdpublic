@@ -1,0 +1,61 @@
+- type: entity
+  id: BaseBodyProviderPartArachnid
+  parent: BaseBodyProviderPartOrganic
+  abstract: true
+  suffix: Arachnid
+  components:
+  - type: BodyAppearanceProvider
+    path: _White/Bodies/Parts/Humanoids/arachnid.rsi
+  - type: Sprite
+    sprite: _White/Bodies/Parts/Humanoids/arachnid.rsi
+
+# Arms
+- type: entity
+  id: BodyProviderLeftArmArachnid
+  parent: [BaseBodyProviderLeftArmOrganic, BaseBodyProviderPartArachnid]
+
+- type: entity
+  id: BodyProviderRightArmArachnid
+  parent: [BaseBodyProviderRightArmOrganic, BaseBodyProviderPartArachnid]
+
+# Chest
+- type: entity
+  id: BodyProviderChestArachnid
+  parent: [BaseBodyProviderChestOrganic, BaseBodyProviderPartArachnid]
+
+# Foots
+- type: entity
+  id: BodyProviderLeftFootArachnid
+  parent: [BaseBodyProviderLeftFootOrganic, BaseBodyProviderPartArachnid]
+
+- type: entity
+  id: BodyProviderRightFootArachnid
+  parent: [BaseBodyProviderRightFootOrganic, BaseBodyProviderPartArachnid]
+
+# Groin
+- type: entity
+  id: BodyProviderGroinArachnid
+  parent: [BaseBodyProviderGroinOrganic, BaseBodyProviderPartArachnid]
+
+# Hands
+- type: entity
+  id: BodyProviderLeftHandArachnid
+  parent: [BaseBodyProviderLeftHandOrganic, BaseBodyProviderPartArachnid]
+
+- type: entity
+  id: BodyProviderRightHandArachnid
+  parent: [BaseBodyProviderRightHandOrganic, BaseBodyProviderPartArachnid]
+
+# Head
+- type: entity
+  id: BodyProviderHeadArachnid
+  parent: [BaseBodyProviderHeadOrganic, BaseBodyProviderPartArachnid]
+
+# Legs
+- type: entity
+  id: BodyProviderLeftLegArachnid
+  parent: [BaseBodyProviderLeftLegOrganic, BaseBodyProviderPartArachnid]
+
+- type: entity
+  id: BodyProviderRightLegArachnid
+  parent: [BaseBodyProviderRightLegOrganic, BaseBodyProviderPartArachnid]

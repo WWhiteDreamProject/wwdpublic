@@ -1,3 +1,4 @@
+using Content.Shared._White.Appearance.Prototypes;
 using Content.Shared._White.Humanoid.Prototypes;
 using Content.Shared.Humanoid;
 using Robust.Shared.Prototypes;
@@ -10,10 +11,10 @@ namespace Content.Shared._White.Appearance;
 public partial record struct BodyAppearanceData
 {
     /// <summary>
-    /// The body coloration associated with this appearance data.
+    /// The color groups associated with this appearance data.
     /// </summary>
     [DataField]
-    public Dictionary<ProtoId<BodyColorationPrototype>, Color> BodyColoration = new();
+    public Dictionary<ProtoId<BodyColorGroupPrototype>, Color> ColorGroups = new();
 
     /// <summary>
     /// The body type associated with this appearance data.

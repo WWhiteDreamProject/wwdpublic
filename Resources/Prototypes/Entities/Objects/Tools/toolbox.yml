@@ -24,8 +24,8 @@
     attackRate: 1.1
     range: 1.5
     damage:
-      types:
-        Blunt: 9
+      # WD EDIT: Migrated damage format
+      Blunt: 9
     bluntStaminaDamageFactor: 2.0
     heavyRangeModifier: 1.2
     angle: 110
@@ -152,13 +152,12 @@
     - 0,0,7,3
   - type: MeleeWeapon
     damage:
-      types:
-        Blunt: 20 #WWDP edit
+      # WD EDIT: Migrated damage format
+      Blunt: 20
   - type: DamageOtherOnHit
     damage:
-      types:
-        Blunt: 20 #WWDP edit
-
+      # WD EDIT: Migrated damage format
+      Blunt: 20
 - type: entity
   name: golden toolbox
   parent: ToolboxBase
@@ -172,13 +171,12 @@
     sprite: Objects/Tools/Toolboxes/toolbox_gold.rsi
   - type: MeleeWeapon
     damage:
-      types:
-        Blunt: 12
+      # WD EDIT: Migrated damage format
+      Blunt: 12
   - type: DamageOtherOnHit
     damage:
-      types:
-        Blunt: 16
-
+      # WD EDIT: Migrated damage format
+      Blunt: 16
 - type: entity
   id: ToolboxThief
   name: thief undetermined toolbox

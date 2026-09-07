@@ -1,278 +1,278 @@
-- type: marking
-  id: DemonChestCowSpots
-  markingCategory: Overlay
-  speciesRestriction: [Human, IPC, Oni]
-  sprites:
-  - sprite: _ADT/Mobs/Customization/Demon/custom.rsi
-    state: cow_spots
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.LeftLeg
-    bodyPart: LeftLeg
-    # WD EDIT END
-
-- type: marking
-  id: DemonChestGuard
-  markingCategory: Overlay
-  speciesRestriction: [Human, IPC, Oni]
-  sprites:
-  - sprite: _ADT/Mobs/Customization/Demon/custom.rsi
-    state: guards_stripes
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.LeftLeg
-    bodyPart: LeftLeg
-    # WD EDIT END
-
-- type: marking
-  id: DemonChestLinesEmperos
-  markingCategory: Overlay
-  speciesRestriction: [Human, IPC, Oni]
-  sprites:
-  - sprite: _ADT/Mobs/Customization/Demon/custom.rsi
-    state: lines_emperos
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.LeftLeg
-    bodyPart: LeftLeg
-    # WD EDIT END
-
-- type: marking
-  id: DemonChestQueenLines
-  markingCategory: Overlay
-  speciesRestriction: [Human, IPC, Oni]
-  sprites:
-  - sprite: _ADT/Mobs/Customization/Demon/custom.rsi
-    state: queen_lines
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.LeftLeg
-    bodyPart: LeftLeg
-    # WD EDIT END
-
-- type: marking
-  id: DemonChestTreeLines
-  markingCategory: Overlay
-  speciesRestriction: [Human, IPC, Oni]
-  sprites:
-  - sprite: _ADT/Mobs/Customization/Demon/custom.rsi
-    state: tree_lines
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.LeftLeg
-    bodyPart: LeftLeg
-    # WD EDIT END
-
-- type: marking
-  id: DemonChestTrinitySpots
-  markingCategory: Overlay
-  speciesRestriction: [Human, IPC, Oni]
-  sprites:
-  - sprite: _ADT/Mobs/Customization/Demon/custom.rsi
-    state: trinity_spots
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.Chest
-    bodyPart: Chest
-    # WD EDIT END
-
-- type: marking
-  id: DemonCowEars
-  markingCategory: HeadSide
-  speciesRestriction: [Oni, Harpy, Arachne, Lamia, Human, IPC]
-  sprites:
-  - sprite: _ADT/Mobs/Customization/Demon/custom.rsi
-    state: cow_ears
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadSide
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: DemonEars
-  markingCategory: HeadSide
-  speciesRestriction: [Oni, Harpy, Arachne, Lamia, Human, IPC]
-  sprites:
-  - sprite: _ADT/Mobs/Customization/Demon/custom.rsi
-    state: demon_ears
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadSide
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: DemonElfEars
-  markingCategory: HeadSide
-  speciesRestriction: [Oni, Harpy, Arachne, Lamia, Human, IPC]
-  sprites:
-  - sprite: _ADT/Mobs/Customization/Demon/custom.rsi
-    state: ears_elf
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadSide
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: DemonCowHorns
-  markingCategory: HeadTop
-  speciesRestriction: [Human, IPC, Oni]
-  sprites:
-  - sprite: _ADT/Mobs/Customization/Demon/custom.rsi
-    state: cow_horns
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: DemonHornsDeer
-  markingCategory: HeadTop
-  speciesRestriction: [Human, IPC, Oni]
-  sprites:
-  - sprite: _ADT/Mobs/Customization/Demon/custom.rsi
-    state: deer_antlers_horns
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: DemonHornsSmall
-  markingCategory: HeadTop
-  speciesRestriction: [Human, IPC, Oni]
-  sprites:
-  - sprite: _ADT/Mobs/Customization/Demon/custom.rsi
-    state: small_horns
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: DemonHornsBuffalo
-  markingCategory: HeadTop
-  speciesRestriction: [Human, IPC, Oni]
-  sprites:
-  - sprite: _ADT/Mobs/Customization/Demon/custom.rsi
-    state: horns_buffalo
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: DemonHornsCarpicorn
-  markingCategory: HeadTop
-  speciesRestriction: [Human, IPC, Oni]
-  sprites:
-  - sprite: _ADT/Mobs/Customization/Demon/custom.rsi
-    state: horns_capricorn
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: DemonHornsDevil
-  markingCategory: HeadTop
-  speciesRestriction: [Human, IPC, Oni]
-  sprites:
-  - sprite: _ADT/Mobs/Customization/Demon/custom.rsi
-    state: horns_devil
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: DemonHornsDevil2
-  markingCategory: HeadTop
-  speciesRestriction: [Human, IPC, Oni]
-  sprites:
-  - sprite: _ADT/Mobs/Customization/Demon/custom.rsi
-    state: horns_devil2
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: DemonHornsDevil3
-  markingCategory: HeadTop
-  speciesRestriction: [Human, IPC, Oni]
-  sprites:
-  - sprite: _ADT/Mobs/Customization/Demon/custom.rsi
-    state: horns_devil3
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: DemonHornsDevil4
-  markingCategory: HeadTop
-  speciesRestriction: [Human, IPC, Oni]
-  sprites:
-  - sprite: _ADT/Mobs/Customization/Demon/custom.rsi
-    state: horns_devil4
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: DemonHornsRam
-  markingCategory: HeadTop
-  speciesRestriction: [Human, IPC, Oni]
-  sprites:
-  - sprite: _ADT/Mobs/Customization/Demon/custom.rsi
-    state: horns_ram
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: DemonHornsUnicorn
-  markingCategory: HeadTop
-  speciesRestriction: [Human, IPC, Oni]
-  sprites:
-  - sprite: _ADT/Mobs/Customization/Demon/custom.rsi
-    state: horns_unicorn
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: DemomTail1
-  markingCategory: Tail
-  speciesRestriction: [Human, IPC]
-  sprites:
-  - sprite: _ADT/Mobs/Customization/Demon/custom.rsi
-    state: demon_tail
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.Tail
-    bodyPart: Tail
-    replacementBodyPart: BodyPartTailFelinid
-    # WD EDIT END
-
-- type: marking
-  id: DemomTailLong
-  markingCategory: Tail
-  speciesRestriction: [Human, IPC]
-  sprites:
-  - sprite: _ADT/Mobs/Customization/Demon/custom.rsi
-    state: long
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.Tail
-    bodyPart: Tail
-    replacementBodyPart: BodyPartTailFelinid
-    # WD EDIT END
-
-- type: marking
-  id: DemomTailUp
-  markingCategory: Tail
-  speciesRestriction: [Human, IPC]
-  sprites:
-  - sprite: _ADT/Mobs/Customization/Demon/custom.rsi
-    state: up
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.Tail
-    bodyPart: Tail
-    replacementBodyPart: BodyPartTailFelinid
-    # WD EDIT END
+#- type: marking
+#  id: DemonChestCowSpots
+#  markingCategory: Overlay
+#  speciesRestriction: [Human, IPC, Oni]
+#  sprites:
+#  - sprite: _ADT/Mobs/Customization/Demon/custom.rsi
+#    state: cow_spots
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.LeftLeg
+#    bodyPart: LeftLeg
+#    # WD EDIT END
+#
+#- type: marking
+#  id: DemonChestGuard
+#  markingCategory: Overlay
+#  speciesRestriction: [Human, IPC, Oni]
+#  sprites:
+#  - sprite: _ADT/Mobs/Customization/Demon/custom.rsi
+#    state: guards_stripes
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.LeftLeg
+#    bodyPart: LeftLeg
+#    # WD EDIT END
+#
+#- type: marking
+#  id: DemonChestLinesEmperos
+#  markingCategory: Overlay
+#  speciesRestriction: [Human, IPC, Oni]
+#  sprites:
+#  - sprite: _ADT/Mobs/Customization/Demon/custom.rsi
+#    state: lines_emperos
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.LeftLeg
+#    bodyPart: LeftLeg
+#    # WD EDIT END
+#
+#- type: marking
+#  id: DemonChestQueenLines
+#  markingCategory: Overlay
+#  speciesRestriction: [Human, IPC, Oni]
+#  sprites:
+#  - sprite: _ADT/Mobs/Customization/Demon/custom.rsi
+#    state: queen_lines
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.LeftLeg
+#    bodyPart: LeftLeg
+#    # WD EDIT END
+#
+#- type: marking
+#  id: DemonChestTreeLines
+#  markingCategory: Overlay
+#  speciesRestriction: [Human, IPC, Oni]
+#  sprites:
+#  - sprite: _ADT/Mobs/Customization/Demon/custom.rsi
+#    state: tree_lines
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.LeftLeg
+#    bodyPart: LeftLeg
+#    # WD EDIT END
+#
+#- type: marking
+#  id: DemonChestTrinitySpots
+#  markingCategory: Overlay
+#  speciesRestriction: [Human, IPC, Oni]
+#  sprites:
+#  - sprite: _ADT/Mobs/Customization/Demon/custom.rsi
+#    state: trinity_spots
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.Chest
+#    bodyPart: Chest
+#    # WD EDIT END
+#
+#- type: marking
+#  id: DemonCowEars
+#  markingCategory: HeadSide
+#  speciesRestriction: [Oni, Harpy, Lamia, Human, IPC]
+#  sprites:
+#  - sprite: _ADT/Mobs/Customization/Demon/custom.rsi
+#    state: cow_ears
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadSide
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: DemonEars
+#  markingCategory: HeadSide
+#  speciesRestriction: [Oni, Harpy, Lamia, Human, IPC]
+#  sprites:
+#  - sprite: _ADT/Mobs/Customization/Demon/custom.rsi
+#    state: demon_ears
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadSide
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: DemonElfEars
+#  markingCategory: HeadSide
+#  speciesRestriction: [Oni, Harpy, Lamia, Human, IPC]
+#  sprites:
+#  - sprite: _ADT/Mobs/Customization/Demon/custom.rsi
+#    state: ears_elf
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadSide
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: DemonCowHorns
+#  markingCategory: HeadTop
+#  speciesRestriction: [Human, IPC, Oni]
+#  sprites:
+#  - sprite: _ADT/Mobs/Customization/Demon/custom.rsi
+#    state: cow_horns
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: DemonHornsDeer
+#  markingCategory: HeadTop
+#  speciesRestriction: [Human, IPC, Oni]
+#  sprites:
+#  - sprite: _ADT/Mobs/Customization/Demon/custom.rsi
+#    state: deer_antlers_horns
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: DemonHornsSmall
+#  markingCategory: HeadTop
+#  speciesRestriction: [Human, IPC, Oni]
+#  sprites:
+#  - sprite: _ADT/Mobs/Customization/Demon/custom.rsi
+#    state: small_horns
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: DemonHornsBuffalo
+#  markingCategory: HeadTop
+#  speciesRestriction: [Human, IPC, Oni]
+#  sprites:
+#  - sprite: _ADT/Mobs/Customization/Demon/custom.rsi
+#    state: horns_buffalo
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: DemonHornsCarpicorn
+#  markingCategory: HeadTop
+#  speciesRestriction: [Human, IPC, Oni]
+#  sprites:
+#  - sprite: _ADT/Mobs/Customization/Demon/custom.rsi
+#    state: horns_capricorn
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: DemonHornsDevil
+#  markingCategory: HeadTop
+#  speciesRestriction: [Human, IPC, Oni]
+#  sprites:
+#  - sprite: _ADT/Mobs/Customization/Demon/custom.rsi
+#    state: horns_devil
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: DemonHornsDevil2
+#  markingCategory: HeadTop
+#  speciesRestriction: [Human, IPC, Oni]
+#  sprites:
+#  - sprite: _ADT/Mobs/Customization/Demon/custom.rsi
+#    state: horns_devil2
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: DemonHornsDevil3
+#  markingCategory: HeadTop
+#  speciesRestriction: [Human, IPC, Oni]
+#  sprites:
+#  - sprite: _ADT/Mobs/Customization/Demon/custom.rsi
+#    state: horns_devil3
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: DemonHornsDevil4
+#  markingCategory: HeadTop
+#  speciesRestriction: [Human, IPC, Oni]
+#  sprites:
+#  - sprite: _ADT/Mobs/Customization/Demon/custom.rsi
+#    state: horns_devil4
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: DemonHornsRam
+#  markingCategory: HeadTop
+#  speciesRestriction: [Human, IPC, Oni]
+#  sprites:
+#  - sprite: _ADT/Mobs/Customization/Demon/custom.rsi
+#    state: horns_ram
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: DemonHornsUnicorn
+#  markingCategory: HeadTop
+#  speciesRestriction: [Human, IPC, Oni]
+#  sprites:
+#  - sprite: _ADT/Mobs/Customization/Demon/custom.rsi
+#    state: horns_unicorn
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: DemomTail1
+#  markingCategory: Tail
+#  speciesRestriction: [Human, IPC]
+#  sprites:
+#  - sprite: _ADT/Mobs/Customization/Demon/custom.rsi
+#    state: demon_tail
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.Tail
+#    bodyPart: Tail
+#    replacementBodyPart: BodyPartTailFelinid
+#    # WD EDIT END
+#
+#- type: marking
+#  id: DemomTailLong
+#  markingCategory: Tail
+#  speciesRestriction: [Human, IPC]
+#  sprites:
+#  - sprite: _ADT/Mobs/Customization/Demon/custom.rsi
+#    state: long
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.Tail
+#    bodyPart: Tail
+#    replacementBodyPart: BodyPartTailFelinid
+#    # WD EDIT END
+#
+#- type: marking
+#  id: DemomTailUp
+#  markingCategory: Tail
+#  speciesRestriction: [Human, IPC]
+#  sprites:
+#  - sprite: _ADT/Mobs/Customization/Demon/custom.rsi
+#    state: up
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.Tail
+#    bodyPart: Tail
+#    replacementBodyPart: BodyPartTailFelinid
+#    # WD EDIT END

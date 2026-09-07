@@ -11,7 +11,7 @@
     state: plain
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible:
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 9
@@ -43,7 +43,7 @@
     - state: plain-cooked
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible:
         reagents:
         - ReagentId: Nutriment
           Quantity: 5

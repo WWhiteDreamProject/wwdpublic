@@ -11,7 +11,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 20
         reagents:
         - ReagentId: Nutriment
@@ -40,12 +40,12 @@
     size: Tiny
   - type: DamageOnLand
     damage:
-      types:
-        Blunt: 3
+      # WD EDIT: Migrated damage format
+      Blunt: 3
   - type: DamageOtherOnHit
     damage:
-      types:
-        Blunt: 3
+      # WD EDIT: Migrated damage format
+      Blunt: 3
   - type: Damageable
     damageContainer: Inorganic
   - type: StaticPrice
@@ -87,7 +87,7 @@
     flavors:
     - sweet
     - funny
-  - type: Food
+  - type: Ingestible # WD Ingestible
     trash: 
     - FoodTinPeachesTrash
   - type: Tag
@@ -110,7 +110,7 @@
   components:
   - type: Sprite
     sprite: Objects/Consumable/Food/Tins/maint_peaches.rsi
-  - type: Food
+  - type: Ingestible # WD Ingestible
     trash: 
     - FoodTinPeachesMaintTrash
 
@@ -148,7 +148,7 @@
     - savory
     - salty
     - cheap
-  - type: Food
+  - type: Ingestible # WD Ingestible
     trash: 
     - FoodTinBeansTrash
 
@@ -178,7 +178,7 @@
     - meaty
     - salty
     - cheap
-  - type: Food
+  - type: Ingestible # WD Ingestible
     trash: 
     - FoodTinMRETrash
   - type: Tag

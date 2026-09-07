@@ -592,7 +592,7 @@ public record struct BleedingLevelChangedEvent(BleedingLevel Level, BodyProvider
 /// <param name="Level">The current blood level.</param>
 public record struct BloodAmountChangedEvent(FixedPoint2 Amount, float Level) : IBodyRelayEvent
 {
-    public BodyProviderType Type { get; } = BodyProviderType.All;
+    public BodyProviderType ProviderType { get; } = BodyProviderType.All;
 }
 
 /// <summary>
@@ -610,7 +610,7 @@ public record struct BleedModifierEvent(FixedPoint2 Bleeding, FixedPoint2 BleedR
 [ByRefEvent]
 public record struct GetBleedingEvent(FixedPoint2 Bleeding) : IWoundRelayEvent
 {
-    public ProtoId<DamageTypePrototype>? Type { get; } = null;
+    public ProtoId<DamageTypePrototype>? DamageType { get; } = null;
 }
 
 /// <summary>

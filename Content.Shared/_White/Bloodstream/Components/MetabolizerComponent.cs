@@ -1,4 +1,4 @@
-using Content.Shared._White.Body.Prototypes;
+using Content.Shared._White.Bloodstream.Prototypes;
 using Content.Shared._White.Wounds;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.FixedPoint;

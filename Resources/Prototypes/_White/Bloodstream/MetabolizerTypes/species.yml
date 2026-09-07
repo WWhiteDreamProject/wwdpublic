@@ -1,0 +1,47 @@
+- type: metabolizerType
+  id: Arachnid
+  name: metabolizer-type-arachnid
+
+- type: metabolizerType
+  id: Diona
+  name: metabolizer-type-plant
+
+- type: metabolizerType
+  id: Dwarf
+  name: metabolizer-type-dwarf
+
+- type: metabolizerType
+  id: Felinid
+  name: metabolizer-type-felinid
+
+- type: metabolizerType
+  id: Gingerbread
+  name: metabolizer-type-gingerbread
+
+- type: metabolizerType
+  id: Harpy
+  name: metabolizer-type-harpy
+
+- type: metabolizerType
+  id: Human
+  name: metabolizer-type-human
+
+- type: metabolizerType
+  id: Moth
+  name: metabolizer-type-moth
+
+- type: metabolizerType
+  id: Plasmaman
+  name: metabolizer-type-plasmaman
+
+- type: metabolizerType
+  id: Reptilian
+  name: metabolizer-type-slime
+
+- type: metabolizerType
+  id: Slime
+  name: metabolizer-type-slime
+
+- type: metabolizerType
+  id: Vox
+  name: metabolizer-type-vox

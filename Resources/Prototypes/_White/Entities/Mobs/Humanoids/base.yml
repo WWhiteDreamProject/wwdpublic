@@ -1,0 +1,275 @@
+- type: entity
+  id: BaseMobHumanoid
+  parent:
+  - BaseBody
+  - BaseMob
+  - BaseMobCombat
+  - BaseMobWoundable
+  - StripableInventoryBase
+  abstract: true
+  components:
+  - type: AnimationPlayer
+  - type: Appearance
+  - type: BodyAppearance
+  - type: BodyEmotes
+    soundsId: GeneralBodyEmotes
+  - type: Buckle
+  - type: CanEnterCryostorage
+  - type: CanEscapeInventory
+  - type: CanHostGuardian
+  - type: Carriable
+  - type: Climbing
+  - type: CombatMode
+    canDisarm: true
+  - type: ComplexInteraction
+  - type: CreamPied
+  - type: Cuffable
+  - type: Dna
+  - type: Emoting
+  - type: Ensnareable
+    sprite: Objects/Misc/ensnare.rsi
+  - type: ExaminableCharacter
+  - type: Fingerprint
+  - type: Fixtures
+    fixtures: # TODO: This needs a second fixture just for mob collisions.
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 185
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: FloatingVisuals
+    state: icon
+  - type: FloorOcclusion
+  - type: FootPrints
+  - type: GenericVisualizer
+    visuals:
+      enum.CreamPiedVisuals.Creamed:
+        clownedon:
+          True: {visible: true}
+          False: {visible: false}
+  - type: Grammar
+    attributes:
+      proper: true
+  - type: Hands
+  - type: HideableLayers
+  - type: HumanoidProfile
+  - type: Identity
+  - type: IdExaminable
+  - type: InteractionPopup
+    interactSuccessString: hugging-success-generic
+    interactSuccessSound: /Audio/Effects/thudswoosh.ogg
+    messagePerceivedByOthers: hugging-success-generic-others
+  - type: LayingDown
+  - type: LanguageKnowledge
+    speaks:
+    - TauCetiBasic
+    understands:
+    - TauCetiBasic
+  - type: MeleeWeapon
+    heavyRateModifier: 1
+    damage:
+      Blunt: 5
+    heavyDamageBaseModifier: 1
+    angle: 30
+    animation: WeaponArcFist
+    heavyStaminaCost: 0
+    maxTargets: 1
+    soundHit:
+      collection: Punch
+  - type: MindContainer
+    showExamineInfo: true
+  - type: MobPrice
+    price: 1500
+  - type: MobState
+    allowMovementWhileCrit: true
+    allowMovementWhileSoftCrit: true
+  - type: Mood
+  - type: MovedByPressure
+    cutoffTime: 1.0
+  - type: NpcFactionMember
+    factions:
+    - NanoTrasen
+  - type: OfferItem
+  - type: PassiveDamage
+    allowedStates:
+    - Alive
+    damageCap: 20
+    damage:
+      Blunt: -0.07
+      Heat: -0.07
+      Piercing: -0.07
+      Slash: -0.07
+  - type: Perishable
+  - type: Puller
+  - type: RangedDamageSound
+    soundGroups:
+      Brute:
+        collection:
+          MeatBulletImpact
+    soundTypes:
+      Heat:
+        collection:
+          MeatLaserImpact
+  - type: Reactive
+    groups:
+      Flammable: [Touch]
+      Extinguish: [Touch]
+      Acidic: [Touch, Ingestion]
+    reactions:
+    - reagents: [Water, SpaceCleaner]
+      methods: [Touch]
+      effects:
+      - !type:WashCreamPieReaction
+  - type: RotationVisuals
+    defaultRotation: 90
+    horizontalRotation: 90
+  - type: Scent
+  - type: SleepEmitSound
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      60: 0.75
+      80: 0.55
+  - type: Speech
+    speechSounds: Alto
+  - type: Sprite
+    layers:
+    # Torso
+    - map: [ "enum.BodyProviderType.Chest" ]
+    - map: [ "enum.BodyProviderType.Groin" ]
+    # Head
+    - map: [ "enum.BodyProviderType.Head" ]
+    - map: [ "enum.BodyProviderType.Eyes" ]
+    - map: [ "enum.MarkingVisualLayers.Face" ]
+    - map: [ "enum.MarkingVisualLayers.Snout" ]
+    # Limbs
+    - map: [ "enum.BodyProviderType.LeftArm" ]
+    - map: [ "enum.BodyProviderType.RightArm" ]
+    - map: [ "enum.BodyProviderType.LeftLeg" ]
+    - map: [ "enum.BodyProviderType.RightLeg" ]
+    # Underwear & clothing
+    - map: [ "enum.MarkingVisualLayers.UndergarmentBottom" ]
+    - map: [ "enum.MarkingVisualLayers.UndergarmentTop" ]
+    - map: [ "jumpsuit" ]
+    # Extremities
+    - map: [ "enum.BodyProviderType.LeftFoot" ]
+    - map: [ "enum.BodyProviderType.RightFoot" ]
+    - map: [ "enum.BodyProviderType.LeftHand" ]
+    - map: [ "enum.BodyProviderType.RightHand" ]
+    # More equipment
+    - map: [ "gloves" ]
+    - map: [ "shoes" ]
+    - map: [ "ears" ]
+    - map: [ "eyes" ]
+    - map: [ "belt" ]
+    - map: [ "id" ]
+    - map: [ "outerClothing" ]
+    - map: [ "back" ]
+    - map: [ "neck" ]
+    - map: [ "suitstorage" ]
+    # Stuff that goes in front of equipment
+    - map: [ "enum.MarkingVisualLayers.ChestBack" ]
+    - map: [ "enum.MarkingVisualLayers.FacialHair" ]
+    - map: [ "enum.MarkingVisualLayers.GroinBack" ]
+    - map: [ "enum.MarkingVisualLayers.Hair" ]
+    - map: [ "enum.MarkingVisualLayers.HeadBottom" ]
+    - map: [ "enum.MarkingVisualLayers.HeadSide" ]
+    - map: [ "enum.MarkingVisualLayers.HeadTop" ]
+    - map: [ "enum.BodyProviderType.Tail" ]
+    - map: [ "enum.BodyProviderType.Wings" ]
+    # Stuff that goes in front of stuff that goes in front of equipment
+    - map: [ "mask" ]
+    - map: [ "head" ]
+    - map: [ "pocket1" ]
+    - map: [ "pocket2" ]
+    # Extra stuff
+    - map: [ "enum.CuffableVisualLayers.Handcuffs" ]
+      color: "#ffffff"
+      sprite: Objects/Misc/handcuffs.rsi
+      state: body-overlay-2
+      visible: false
+    - map: [ "clownedon" ]
+      sprite: "Effects/creampie.rsi"
+      state: "creampie_human"
+      visible: false
+  - type: SSDIndicator
+  - type: StandingState
+  - type: StatusEffects
+    allowed:
+    - Stun
+    - KnockedDown
+    - SlowedDown
+    - Stutter
+    - DisableAccent
+    - SeeingRainbows
+    - Electrocution
+    - Drunk
+    - SlurredSpeech
+    - RatvarianLanguage
+    - PressureImmunity
+    - Muted
+    - ForcedSleep
+    - TemporaryBlindness
+    - Pacified
+    - StaminaModifier
+    - Flashed
+    - RadiationProtection
+    - Drowsiness
+    - Adrenaline
+    - PsionicsDisabled
+    - PsionicallyInsulated
+  - type: StatusIcon
+    bounds: -0.5,-0.5,0.5,0.5
+  - type: Stripping
+  - type: Tag
+    tags:
+    - AnomalyHost
+    - CanPilot
+    - DoorBumpOpener
+    - FootstepSound
+  - type: TTS
+  - type: UserInterface
+    interfaces:
+      enum.MarkingModifierKey.Key:
+        type: MarkingModifierBoundUserInterface
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+  - type: Vocal
+    sounds:
+      Male: MaleHuman
+      Female: FemaleHuman
+      Unsexed: MaleHuman
+    deathPenalty: 0.01
+
+- type: entity
+  id: BaseMobHumanoidOrganic
+  parent:
+  - BaseMobAtmosStandard
+  - BaseMobBlindable
+  - BaseMobBloodstream
+  - BaseMobFlammable
+  - BaseMobHearing
+  - BaseMobHumanoid
+  - BaseMobPainful
+  - BaseMobRespirator
+  - BaseMobSatiation
+  abstract: true
+  components:
+  - type: Absorbable
+  - type: Barotrauma
+    damage:
+      Blunt: 0.50
+      Heat: 0.1
+  - type: Bloodstream
+    powerMassAdjust: 0.6
+  - type: Butcherable
+    butcheringType: Spike # TODO human.
+    spawned:
+    - id: FoodMeat
+      amount: 5
+  - type: FireVisuals
+    alternateState: Standing

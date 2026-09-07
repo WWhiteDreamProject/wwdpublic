@@ -48,9 +48,10 @@
   - type: HideLayerClothing
     slots:
     # WD EDIT START
-    - enum.HumanoidVisualLayers.Hair
-    - enum.HumanoidVisualLayers.HeadTop
-    - enum.HumanoidVisualLayers.HeadSide
+    - enum.MarkingVisualLayers.Hair
+    - enum.MarkingVisualLayers.HeadBottom
+    - enum.MarkingVisualLayers.HeadTop
+    - enum.MarkingVisualLayers.HeadSide
     # WD EDIT END
   - type: Armor
     modifiers:

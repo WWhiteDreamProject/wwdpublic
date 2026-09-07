@@ -21,7 +21,7 @@ public sealed class KillTrackingSystem : EntitySystem
 
     private void OnDamageChanged(EntityUid uid, KillTrackerComponent component, DamageChangedEvent args)
     {
-        if (!args.DamageIncreased)
+        if (!args.Damage.AnyPositive())
         {
             foreach (var key in component.LifetimeDamage.Keys)
             {

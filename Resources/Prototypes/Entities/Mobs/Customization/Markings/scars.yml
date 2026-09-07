@@ -1,70 +1,70 @@
-- type: marking
-  id: ScarEyeRight
-  markingCategory: Head
-  speciesRestriction: [Human, Dwarf, Felinid, Harpy, Oni, Arachne, Lamia, Tajaran] # Delta V - Felinid, Oni, Harpy; Einstein Engines - Tajaran
-  followSkinColor: true
-  sprites:
-  - sprite: Mobs/Customization/scars.rsi
-    state: scar_eye_right
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.Head
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: ScarEyeLeft
-  markingCategory: Head
-  speciesRestriction: [Human, Dwarf, Felinid, Harpy, Oni, Arachne, Lamia, Tajaran] # Delta V - Felinid, Oni, Harpy; Einstein Engines - Tajaran
-  followSkinColor: true
-  sprites:
-  - sprite: Mobs/Customization/scars.rsi
-    state: scar_eye_left
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.Head
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: ScarTopSurgeryShort
-  markingCategory: Chest
-  speciesRestriction: [Human, Dwarf, Felinid, Oni, Arachne, Lamia, Tajaran] # Einstein Engines - Tajaran
-  sexRestriction: [Male]
-  followSkinColor: true
-  sprites:
-  - sprite: Mobs/Customization/scars.rsi
-    state: scar_top_surgery_short
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.Chest
-    bodyPart: Chest
-    # WD EDIT END
-
-- type: marking
-  id: ScarTopSurgeryLong
-  markingCategory: Chest
-  speciesRestriction: [Human, Dwarf, Felinid,  Oni, Arachne, Lamia, Tajaran] # Einstein Engines - Tajaran
-  sexRestriction: [Male]
-  followSkinColor: true
-  sprites:
-  - sprite: Mobs/Customization/scars.rsi
-    state: scar_top_surgery_long
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.Chest
-    bodyPart: Chest
-    # WD EDIT END
-
-- type: marking
-  id: ScarChest
-  markingCategory: Chest
-  speciesRestriction: [Human, Dwarf, Felinid, Oni, Arachne, Lamia, Tajaran] # Einstein Engines - Tajaran
-  followSkinColor: true
-  sprites:
-  - sprite: Mobs/Customization/scars.rsi
-    state: scar_chest
-  # WD EDIT START
-    layer: enum.BodyAppearanceLayer.Chest
-    bodyPart: Chest
-  - sprite: Mobs/Customization/scars.rsi
-    state: scar_groin
-    layer: enum.BodyAppearanceLayer.Groin
-    bodyPart: Groin
-  # WD EDIT END
+#- type: marking
+#  id: ScarEyeRight
+#  markingCategory: Head
+#  speciesRestriction: [Human, Dwarf, Felinid, Harpy, Oni, Lamia] # Delta V - Felinid, Oni, Harpy
+#  followSkinColor: true
+#  sprites:
+#  - sprite: Mobs/Customization/scars.rsi
+#    state: scar_eye_right
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.Head
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: ScarEyeLeft
+#  markingCategory: Head
+#  speciesRestriction: [Human, Dwarf, Felinid, Harpy, Oni, Lamia] # Delta V - Felinid, Oni, Harpy
+#  followSkinColor: true
+#  sprites:
+#  - sprite: Mobs/Customization/scars.rsi
+#    state: scar_eye_left
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.Head
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: ScarTopSurgeryShort
+#  markingCategory: Chest
+#  speciesRestriction: [Human, Dwarf, Felinid, Oni, Lamia]
+#  sexRestriction: [Male]
+#  followSkinColor: true
+#  sprites:
+#  - sprite: Mobs/Customization/scars.rsi
+#    state: scar_top_surgery_short
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.Chest
+#    bodyPart: Chest
+#    # WD EDIT END
+#
+#- type: marking
+#  id: ScarTopSurgeryLong
+#  markingCategory: Chest
+#  speciesRestriction: [Human, Dwarf, Felinid,  Oni, Lamia]
+#  sexRestriction: [Male]
+#  followSkinColor: true
+#  sprites:
+#  - sprite: Mobs/Customization/scars.rsi
+#    state: scar_top_surgery_long
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.Chest
+#    bodyPart: Chest
+#    # WD EDIT END
+#
+#- type: marking
+#  id: ScarChest
+#  markingCategory: Chest
+#  speciesRestriction: [Human, Dwarf, Felinid, Oni, Lamia]
+#  followSkinColor: true
+#  sprites:
+#  - sprite: Mobs/Customization/scars.rsi
+#    state: scar_chest
+#  # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.Chest
+#    bodyPart: Chest
+#  - sprite: Mobs/Customization/scars.rsi
+#    state: scar_groin
+#    layer: enum.BodyAppearanceLayer.Groin
+#    bodyPart: Groin
+#  # WD EDIT END

@@ -18,7 +18,7 @@
     baseDecayRate: 0.25
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Ectoplasm
           Quantity: 15
@@ -37,8 +37,8 @@
 - type: entity
   parent:
   - BaseMob
-  - MobCombat
-  - MobDamageable
+  - BaseMobCombat
+  - BaseMobDamageable
   id: MobGlimmerWisp
   name: glimmer wisp
   description: A strange orb that moves with intent.
@@ -85,8 +85,8 @@
     - NoosphericZapPower
   - type: LifeDrainer
     damage:
-      types:
-        Asphyxiation: 200
+      # WD EDIT: Migrated damage format
+      Asphyxiation: 200
     whitelist:
       components:
       - Psionic
@@ -123,8 +123,8 @@
     damageModifierSet: CorporealSpirit
   - type: DamageOnDispel
     damage:
-      types:
-        Heat: 100
+      # WD EDIT: Migrated damage format
+      Heat: 100
   - type: SlowOnDamage
     speedModifierThresholds:
       10: 0.8

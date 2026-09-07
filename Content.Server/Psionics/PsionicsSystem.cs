@@ -326,7 +326,7 @@ public sealed class PsionicsSystem : EntitySystem
     private void OnDamageChanged(EntityUid uid, PsionicComponent component, DamageChangedEvent args)
     {
         if (component.Familiars.Count <= 0
-            || !args.DamageIncreased
+            || !args.Damage.AnyPositive()
             || args.Origin is not { } origin
             || origin == uid)
             return;

@@ -1,5 +1,5 @@
 - type: entity
-  parent: BaseMobXenomorph
+  parent: [BaseMobXenomorph, BaseBodyXenomorphLarva]
   id: BaseMobXenomorphLarva
   name: xenomorph larva
   description: An early stage of development characterized by small size, a worm-like body shape, and the absence of distinct limbs.
@@ -24,8 +24,6 @@
   - type: ActionGrant
     actions:
     - ActionTransferPlasma
-  - type: Body
-    prototype: XenomorphLarva
   - type: Fixtures
     fixtures:
       fix1:
@@ -50,13 +48,13 @@
     soundHit:
       path: /Audio/Weapons/Xeno/alien_claw_flesh1.ogg
     damage:
-      types:
-        Blunt: 2
+      # WD EDIT: Migrated damage format
+      Blunt: 2
   - type: Bloodstream
     bloodMaxVolume: 50
   - type: MobPrice
     price: 250
-  - type: Organ
+  - type: BodyProvider
   # - type: GuideHelp
   #   guides:
   #   - XenomorphLarva

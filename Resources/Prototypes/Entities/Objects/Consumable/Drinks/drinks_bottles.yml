@@ -16,7 +16,7 @@
       collection: bottleCloseSounds
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 100
   - type: Sprite
     state: icon
@@ -38,13 +38,13 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: TrashOnSolutionEmpty
-    solution: drink
+    solution: ingestible # WD Ingestible
   - type: PhysicalComposition
     materialComposition:
       Plastic: 100
   - type: DnaSubstanceTrace
   - type: PressurizedSolution
-    solution: drink
+    solution: ingestible # WD Ingestible
   - type: Shakeable
 
 - type: entity
@@ -57,20 +57,20 @@
   - type: MeleeWeapon
     bluntStaminaDamageFactor: 2.0
     damage:
-      types:
-        Blunt: 7.5
+      # WD EDIT: Migrated damage format
+      Blunt: 7.5
     heavyRangeModifier: 1.2
     heavyStaminaCost: 5
     maxTargets: 1
     angle: 25
   - type: DamageOnLand
     damage:
-      types:
-        Blunt: 5
+      # WD EDIT: Migrated damage format
+      Blunt: 5
   - type: DamageOtherOnHit
     damage:
-      types:
-        Blunt: 5
+      # WD EDIT: Migrated damage format
+      Blunt: 5
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
@@ -145,7 +145,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Absinthe
           Quantity: 100
@@ -161,7 +161,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: BlueCuracao
           Quantity: 100
@@ -185,7 +185,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Nothing
           Quantity: 100
@@ -201,7 +201,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Champagne
           Quantity: 100
@@ -218,7 +218,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Cognac
           Quantity: 100
@@ -236,7 +236,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Cola
           Quantity: 100
@@ -254,7 +254,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Grenadine
           Quantity: 100
@@ -274,7 +274,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Gin
           Quantity: 100
@@ -292,7 +292,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Gildlager
           Quantity: 100
@@ -308,7 +308,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: CoffeeLiqueur
           Quantity: 100
@@ -326,7 +326,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: MelonLiquor
           Quantity: 100
@@ -350,7 +350,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Patron
           Quantity: 100
@@ -365,7 +365,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: PoisonWine
           Quantity: 100
@@ -385,7 +385,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Rum
           Quantity: 100
@@ -403,11 +403,11 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: SpaceMountainWind
           Quantity: 100
-  - type: Drink
+  - type: Ingestible # WD Ingestible
   - type: Label
     currentLabel: reagent-name-space-mountain-wind
   - type: Sprite
@@ -422,11 +422,11 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: SpaceUp
           Quantity: 100
-  - type: Drink
+  - type: Ingestible # WD Ingestible
   - type: Label
     currentLabel: reagent-name-space-up
   - type: Sprite
@@ -441,7 +441,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Tequila
           Quantity: 100
@@ -459,7 +459,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Vermouth
           Quantity: 100
@@ -477,7 +477,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Vodka
           Quantity: 100
@@ -495,7 +495,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Whiskey
           Quantity: 100
@@ -522,7 +522,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Wine
           Quantity: 100
@@ -548,7 +548,7 @@
     size: Small
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 50
         reagents:
         - ReagentId: Beer
@@ -570,7 +570,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 150
         reagents:
         - ReagentId: Beer
@@ -596,7 +596,7 @@
     size: Small
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 50
         reagents:
         - ReagentId: Ale
@@ -614,7 +614,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 150
         reagents:
         - ReagentId: Ale
@@ -636,12 +636,12 @@
     size: Small
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: Water
           Quantity: 30
-  - type: Drink
+  - type: Ingestible # WD Ingestible
   - type: Sprite
     sprite: Objects/Consumable/Drinks/waterbottle.rsi
     layers:
@@ -666,7 +666,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 150
         reagents:
         - ReagentId: SodaWater
@@ -682,7 +682,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 150
         reagents:
         - ReagentId: TonicWater
@@ -698,7 +698,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Sake
           Quantity: 100
@@ -718,12 +718,12 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 150
         reagents:
         - ReagentId: JuiceLime
           Quantity: 150
-  - type: Drink
+  - type: Ingestible # WD Ingestible
   - type: Label
     currentLabel: reagent-name-juice-lime
   - type: Sprite
@@ -737,12 +737,12 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 150
         reagents:
         - ReagentId: JuiceOrange
           Quantity: 150
-  - type: Drink
+  - type: Ingestible # WD Ingestible
   - type: Label
     currentLabel: reagent-name-juice-orange
   - type: Sprite
@@ -756,12 +756,12 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 150
         reagents:
         - ReagentId: Cream
           Quantity: 150
-  - type: Drink
+  - type: Ingestible # WD Ingestible
   - type: Label
     currentLabel: reagent-name-cream
   - type: Sprite
@@ -778,12 +778,12 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 300
         reagents:
         - ReagentId: Sugar
           Quantity: 300
-  - type: Drink
+  - type: Ingestible # WD Ingestible
 
 - type: entity
   parent: DrinkBottlePlasticBaseFull
@@ -793,12 +793,12 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 300
         reagents:
         - ReagentId: LemonLime
           Quantity: 300
-  - type: Drink
+  - type: Ingestible # WD Ingestible
   - type: Label
     currentLabel: reagent-name-lemon-lime
 
@@ -810,12 +810,12 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 150
         reagents:
         - ReagentId: Mead
           Quantity: 150
-  - type: Drink
+  - type: Ingestible # WD Ingestible
   - type: Label
     currentLabel: reagent-name-mead
 
@@ -827,12 +827,12 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 300
         reagents:
         - ReagentId: Ice
           Quantity: 300
-  - type: Drink
+  - type: Ingestible # WD Ingestible
   - type: Label
     currentLabel: reagent-name-ice
 
@@ -844,12 +844,12 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 300
         reagents:
         - ReagentId: CoconutWater
           Quantity: 300
-  - type: Drink
+  - type: Ingestible # WD Ingestible
   - type: Label
     currentLabel: reagent-name-coconut-water
 
@@ -861,12 +861,12 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 300
         reagents:
         - ReagentId: Coffee
           Quantity: 300
-  - type: Drink
+  - type: Ingestible # WD Ingestible
   - type: Label
     currentLabel: reagent-name-coffee
 
@@ -878,12 +878,12 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 300
         reagents:
         - ReagentId: Tea
           Quantity: 300
-  - type: Drink
+  - type: Ingestible # WD Ingestible
   - type: Label
     currentLabel: reagent-name-tea
 
@@ -895,12 +895,12 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 300
         reagents:
         - ReagentId: GreenTea
           Quantity: 300
-  - type: Drink
+  - type: Ingestible # WD Ingestible
   - type: Label
     currentLabel: reagent-name-green-tea
 
@@ -912,12 +912,12 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 300
         reagents:
         - ReagentId: IcedTea
           Quantity: 300
-  - type: Drink
+  - type: Ingestible # WD Ingestible
   - type: Label
     currentLabel: reagent-name-iced-tea
 
@@ -929,12 +929,12 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 300
         reagents:
         - ReagentId: DrGibb
           Quantity: 300
-  - type: Drink
+  - type: Ingestible # WD Ingestible
   - type: Label
     currentLabel: reagent-name-dr-gibb
 
@@ -946,12 +946,12 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 300
         reagents:
         - ReagentId: RootBeer
           Quantity: 300
-  - type: Drink
+  - type: Ingestible # WD Ingestible
   - type: Label
     currentLabel: reagent-name-root-beer
 
@@ -963,12 +963,12 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 300
         reagents:
         - ReagentId: JuiceWatermelon
           Quantity: 300
-  - type: Drink
+  - type: Ingestible # WD Ingestible
   - type: Label
     currentLabel: reagent-name-juice-watermelon
 
@@ -980,12 +980,12 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 100
         reagents:
         - ReagentId: EnergyDrink
           Quantity: 100
-  - type: Drink
+  - type: Ingestible # WD Ingestible
   - type: Label
     currentLabel: red bool
 
@@ -997,6 +997,6 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 150
-  - type: Drink
+  - type: Ingestible # WD Ingestible

@@ -1,0 +1,235 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/Aurorastation/Aurora.3/commit/7bc5666e9e12ef31dcfdc9bd4b68831b34811bc6, Edited and expanded by angelofallars (github).",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "bangle_left",
+      "directions": 4
+    },
+    {
+      "name": "bangle_right",
+      "directions": 4
+    },
+    {
+      "name": "crescent_left",
+      "directions": 4
+    },
+    {
+      "name": "crescent_right",
+      "directions": 4
+    },
+    {
+      "name": "cross_basic_left",
+      "directions": 4
+    },
+    {
+      "name": "cross_basic_right",
+      "directions": 4
+    },
+    {
+      "name": "cross_saint_peter_left",
+      "directions": 4
+    },
+    {
+      "name": "cross_saint_peter_right",
+      "directions": 4
+    },
+    {
+      "name": "crystal_basic_left_primary",
+      "directions": 4
+    },
+    {
+      "name": "crystal_basic_left_secondary",
+      "directions": 4
+    },
+    {
+      "name": "crystal_basic_right_primary",
+      "directions": 4
+    },
+    {
+      "name": "crystal_basic_right_secondary",
+      "directions": 4
+    },
+    {
+      "name": "crystal_long_left_primary",
+      "directions": 4
+    },
+    {
+      "name": "crystal_long_left_secondary",
+      "directions": 4
+    },
+    {
+      "name": "crystal_long_right_primary",
+      "directions": 4
+    },
+    {
+      "name": "crystal_long_right_secondary",
+      "directions": 4
+    },
+    {
+      "name": "dangle_basic_left_primary",
+      "directions": 4
+    },
+    {
+      "name": "dangle_basic_left_secondary",
+      "directions": 4
+    },
+    {
+      "name": "dangle_basic_right_primary",
+      "directions": 4
+    },
+    {
+      "name": "dangle_basic_right_secondary",
+      "directions": 4
+    },
+    {
+      "name": "dangle_long_left_primary",
+      "directions": 4
+    },
+    {
+      "name": "dangle_long_left_secondary",
+      "directions": 4
+    },
+    {
+      "name": "dangle_long_right_primary",
+      "directions": 4
+    },
+    {
+      "name": "dangle_long_right_secondary",
+      "directions": 4
+    },
+    {
+      "name": "drop_basic_left_primary",
+      "directions": 4
+    },
+    {
+      "name": "drop_basic_left_secondary",
+      "directions": 4
+    },
+    {
+      "name": "drop_basic_right_primary",
+      "directions": 4
+    },
+    {
+      "name": "drop_basic_right_secondary",
+      "directions": 4
+    },
+    {
+      "name": "drop_long_left_primary",
+      "directions": 4
+    },
+    {
+      "name": "drop_long_left_secondary",
+      "directions": 4
+    },
+    {
+      "name": "drop_long_right_primary",
+      "directions": 4
+    },
+    {
+      "name": "drop_long_right_secondary",
+      "directions": 4
+    },
+    {
+      "name": "eight_left",
+      "directions": 4
+    },
+    {
+      "name": "eight_right",
+      "directions": 4
+    },
+    {
+      "name": "gemstone_basic_left_primary",
+      "directions": 4
+    },
+    {
+      "name": "gemstone_basic_left_secondary",
+      "directions": 4
+    },
+    {
+      "name": "gemstone_basic_right_primary",
+      "directions": 4
+    },
+    {
+      "name": "gemstone_basic_right_secondary",
+      "directions": 4
+    },
+    {
+      "name": "gemstone_double_left_primary",
+      "directions": 4
+    },
+    {
+      "name": "gemstone_double_left_secondary",
+      "directions": 4
+    },
+    {
+      "name": "gemstone_double_left_tertiary",
+      "directions": 4
+    },
+    {
+      "name": "gemstone_double_right_primary",
+      "directions": 4
+    },
+    {
+      "name": "gemstone_double_right_secondary",
+      "directions": 4
+    },
+    {
+      "name": "gemstone_double_right_tertiary",
+      "directions": 4
+    },
+    {
+      "name": "gemstone_long_left_primary",
+      "directions": 4
+    },
+    {
+      "name": "gemstone_long_left_secondary",
+      "directions": 4
+    },
+    {
+      "name": "gemstone_long_right_primary",
+      "directions": 4
+    },
+    {
+      "name": "gemstone_long_right_secondary",
+      "directions": 4
+    },
+    {
+      "name": "heavy_left",
+      "directions": 4
+    },
+    {
+      "name": "heavy_right",
+      "directions": 4
+    },
+    {
+      "name": "hoop_basic_left",
+      "directions": 4
+    },
+    {
+      "name": "hoop_basic_right",
+      "directions": 4
+    },
+    {
+      "name": "hoop_mini_left",
+      "directions": 4
+    },
+    {
+      "name": "hoop_mini_right",
+      "directions": 4
+    },
+    {
+      "name": "stud_left",
+      "directions": 4
+    },
+    {
+      "name": "stud_right",
+      "directions": 4
+    }
+  ]
+}

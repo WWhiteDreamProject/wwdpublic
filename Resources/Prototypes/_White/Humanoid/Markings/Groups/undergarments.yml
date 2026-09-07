@@ -1,0 +1,10 @@
+- type: markingGroup
+  id: Undergarments
+  abstract: true
+  categoriesData:
+    UndergarmentBottom:
+      limit: 1
+      nudity: [ UnderwearDefault ]
+    UndergarmentTop:
+      limit: 1
+      nudity: [ UndershirtDefault ]

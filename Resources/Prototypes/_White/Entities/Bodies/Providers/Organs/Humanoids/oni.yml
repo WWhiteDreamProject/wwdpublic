@@ -1,0 +1,68 @@
+- type: entity
+  id: BaseBodyProviderOrganOni
+  parent: BaseBodyProviderOrganOrganic
+  abstract: true
+  suffix: Oni
+  components:
+  - type: Sprite
+    sprite: _White/Bodies/Organs/Humanoids/human.rsi
+
+- type: entity
+  id: BaseMetabolizerOni
+  abstract: true
+  components:
+  - type: Metabolizer
+    types: [ BloodIron, Oni, RespirationOxygen ]
+
+# Appendix
+- type: entity
+  id: BodyProviderAppendixOni
+  parent: [BaseBodyProviderAppendix, BaseBodyProviderOrganOni]
+
+# Brain
+- type: entity
+  id: BodyProviderBrainOni
+  parent: [BaseBodyProviderBrainOrganic, BaseBodyProviderOrganOni]
+
+# Ears
+- type: entity
+  id: BodyProviderEarsOni
+  parent: [BaseBodyProviderEars, BaseBodyProviderOrganOni]
+
+# Eyes
+- type: entity
+  id: BodyProviderEyesOni
+  parent: [BaseBodyProviderEyes, BaseBodyProviderOrganOni]
+  components:
+  - type: BodyAppearanceProvider
+    path: _White/Bodies/Organs/Humanoids/human.rsi
+
+# Heart
+- type: entity
+  id: BodyProviderHeartOni
+  parent: [BaseBodyProviderHeartRespiratory, BaseBodyProviderOrganOni]
+
+# Kidneys
+- type: entity
+  id: BodyProviderKidneysOni
+  parent: [BaseBodyProviderKidneysRespiratory, BaseBodyProviderOrganOni, BaseMetabolizerOni]
+
+# Liver
+- type: entity
+  id: BodyProviderLiverOni
+  parent: [BaseBodyProviderLiverRespiratory, BaseBodyProviderOrganOni, BaseMetabolizerOni]
+
+# Lungs
+- type: entity
+  id: BodyProviderLungsOni
+  parent: [BaseBodyProviderLungsRespiratory, BaseBodyProviderOrganOni, BaseMetabolizerOni]
+
+# Stomach
+- type: entity
+  id: BodyProviderStomachOni
+  parent: [BaseBodyProviderStomachRespiratory, BaseBodyProviderOrganOni, BaseMetabolizerOni]
+
+# Tongue
+- type: entity
+  id: BodyProviderTongueOni
+  parent: [BaseBodyProviderTongue, BaseBodyProviderOrganOni]

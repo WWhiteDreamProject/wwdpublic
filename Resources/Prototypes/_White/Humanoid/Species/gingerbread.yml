@@ -1,0 +1,12 @@
+- type: species
+  id: Gingerbread
+  defaultColors:
+    Eyes: "#4C7A70"
+    Skin: "#9A7C5A"
+  colorations:
+    Eyes: Simple
+    Skin: HumanTone
+  doll: HumanoidDollGingerbread
+  prototype: MobHumanoidGingerbread
+  name: species-name-gingerbread
+  naming: Human

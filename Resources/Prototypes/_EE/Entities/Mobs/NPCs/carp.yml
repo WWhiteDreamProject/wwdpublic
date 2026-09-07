@@ -68,8 +68,8 @@
           amount: 1
     - type: MeleeWeapon
       damage:
-        types:
-          Piercing: 2
+        # WD EDIT: Migrated damage format
+        Piercing: 2
     - type: NightVision
       toggleAction: ToggleNightVision # let ghost roles turn it off
 

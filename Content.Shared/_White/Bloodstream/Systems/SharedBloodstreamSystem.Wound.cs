@@ -1,4 +1,5 @@
 using Content.Shared._White.Bloodstream.Components;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared._White.Wounds.Systems;
 using Content.Shared.FixedPoint;
 
@@ -8,21 +9,22 @@ public abstract partial class SharedBloodstreamSystem
 {
     private void InitializeWound()
     {
-        SubscribeLocalEvent<BleedingWoundComponent, WoundDamageChangedEvent>(OnDamageChange);
+        SubscribeLocalEvent<BleedingWoundComponent, DamageChangedEvent>(OnDamageChange);
         SubscribeLocalEvent<BleedingWoundComponent, WoundRelayedEvent<GetBleedingEvent>>(OnGetBleeding);
     }
 
     #region Event Handling
 
-    private void OnDamageChange(Entity<BleedingWoundComponent> ent, ref WoundDamageChangedEvent args)
+    private void OnDamageChange(Entity<BleedingWoundComponent> ent, ref DamageChangedEvent args)
     {
-        if (args.Damage <= 0)
+        var damage = args.Damage.GetTotal();
+        if (damage <= 0)
             return;
 
-        if (args.Wound.Damage < ent.Comp.StartsBleedingAbove)
+        if (args.Damageable.TotalDamage < ent.Comp.StartsBleedingAbove)
             return;
 
-        ModifyBleed(ent.AsNullable(), args.Damage * ent.Comp.BleedingCoefficient);
+        ModifyBleed(ent.AsNullable(), damage * ent.Comp.BleedingCoefficient);
     }
 
     private void OnGetBleeding(Entity<BleedingWoundComponent> ent, ref WoundRelayedEvent<GetBleedingEvent> args)

@@ -1,13 +1,4 @@
 - type: damageModifierSet
-  id: Tajaran
-  coefficients:
-    Blunt: 1.15
-    Slash: 1.15
-    Piercing: 1.15
-    Heat: 1.35
-    Cold: 0.65
-
-- type: damageModifierSet
   id: Smile
   coefficients:
     Blunt: 0
@@ -20,10 +11,3 @@
     Poison: 0
     Radiation: 0
     Cellular: 0
-
-- type: damageModifierSet
-  id: Xelthia
-  coefficients:
-    Cold: 1.5
-    Heat: 0.5
-    Caustic: 0

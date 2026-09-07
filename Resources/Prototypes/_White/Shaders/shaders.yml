@@ -37,8 +37,3 @@
   id: LightingOverlay
   kind: source
   path: "/Textures/_White/Effects/Shaders/light.swsl"
-
-- type: shader
-  id: PainBlink
-  kind: source
-  path: "/Textures/_White/Shaders/pain_blink.swsl"

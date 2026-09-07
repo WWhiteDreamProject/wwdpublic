@@ -1,6 +1,7 @@
-using Content.Shared._White.Humanoid.Markings.ColoringTypes;
-using Content.Shared._White.Humanoid.Prototypes;
+using Content.Shared._White.Appearance.Prototypes;
+using Content.Shared._White.Humanoid.Markings.Coloring;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared._White.Humanoid.Markings;
 
@@ -9,7 +10,8 @@ namespace Content.Shared._White.Humanoid.Markings;
 /// Supports a primary coloring method, optional fallbacks, and a default constant color.
 /// </summary>
 [DataDefinition]
-public sealed partial class LayerColoringDefinition
+[Serializable, NetSerializable]
+public sealed partial class MarkingColoringDefinition
 {
     /// <summary>
     /// The primary strategy used to calculate the layer's color.
@@ -35,7 +37,7 @@ public sealed partial class LayerColoringDefinition
     /// <param name="colors">A dictionary mapping coloration prototypes to specific colors.</param>
     /// <param name="markings">A list of existing markings that might influence the color.</param>
     /// <returns>The calculated color.</returns>
-    public Color GetColor(Dictionary<ProtoId<BodyColorationPrototype>, Color> colors, List<Marking> markings)
+    public Color GetColor(Dictionary<ProtoId<BodyColorGroupPrototype>, Color> colors, List<Marking> markings)
     {
         Color? color = null;
 

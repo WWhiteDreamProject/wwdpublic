@@ -177,7 +177,7 @@ public sealed partial class AdminVerbSystem
         {
             Text = monkeyName,
             Category = VerbCategory.Smite,
-            Icon = new SpriteSpecifier.Rsi(new ("/Textures/Mobs/Animals/monkey.rsi"), "monkey"),
+            Icon = new SpriteSpecifier.Rsi(new ("/Textures/_White/Bodies/Parts/Animals/monkey.rsi"), "full"), // WD EDIT
             Act = () =>
             {
                 _polymorphSystem.PolymorphEntity(args.Target, "AdminMonkeySmite");
@@ -374,7 +374,7 @@ public sealed partial class AdminVerbSystem
             {
                 Text = stomachRemovalName,
                 Category = VerbCategory.Smite,
-                Icon = new SpriteSpecifier.Rsi(new ("/Textures/Mobs/Species/Human/organs.rsi"), "stomach"),
+                Icon = new SpriteSpecifier.Rsi(new ("/Textures/_White/Bodies/Organs/Humanoids/human.rsi"), "stomach"), // WD EDIT
                 Act = () =>
                 {
                     foreach (var entity in _bodySystem.GetProviders((args.Target, body), BodyProviderType.Stomach)) // WD EDIT
@@ -395,7 +395,7 @@ public sealed partial class AdminVerbSystem
             {
                 Text = lungRemovalName,
                 Category = VerbCategory.Smite,
-                Icon = new SpriteSpecifier.Rsi(new ("/Textures/Mobs/Species/Human/organs.rsi"), "lung-r"),
+                Icon = new SpriteSpecifier.Rsi(new ("/Textures/_White/Bodies/Organs/Humanoids/human.rsi"), "lungs"), // WD EDIT
                 Act = () =>
                 {
                     foreach (var entity in _bodySystem.GetProviders((args.Target, body), BodyProviderType.Lungs)) // WD EDIT

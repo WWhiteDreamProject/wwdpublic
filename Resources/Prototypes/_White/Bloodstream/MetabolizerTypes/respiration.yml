@@ -1,0 +1,15 @@
+- type: metabolizerType
+  id: RespirationCarbonDioxide
+  name: metabolizer-type-respiration-carbon-dioxide
+
+- type: metabolizerType
+  id: RespirationNitrogen
+  name: metabolizer-type-respiration-nitrogen
+
+- type: metabolizerType
+  id: RespirationOxygen
+  name: metabolizer-type-respiration-oxygen
+
+- type: metabolizerType
+  id: RespirationPlasma
+  name: metabolizer-type-respiration-plasma

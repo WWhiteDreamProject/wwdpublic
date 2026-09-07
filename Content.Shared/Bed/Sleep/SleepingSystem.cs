@@ -214,7 +214,7 @@ public sealed partial class SleepingSystem : EntitySystem
     /// </summary>
     private void OnDamageChanged(Entity<SleepingComponent> ent, ref DamageChangedEvent args)
     {
-        if (!args.DamageIncreased)
+        if (!args.Damage.AnyPositive())
             return;
 
         if (args.Damage.GetTotal() >= ent.Comp.WakeThreshold) // WD EDIT

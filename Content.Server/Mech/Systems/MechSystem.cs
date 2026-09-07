@@ -254,7 +254,7 @@ public sealed partial class MechSystem : SharedMechSystem
         var integrity = component.MaxIntegrity - args.Damageable.TotalDamage;
         SetIntegrity(uid, integrity, component);
 
-        if (args.DamageIncreased &&
+        if (args.Damage.AnyPositive() &&
             component.PilotSlot.ContainedEntity != null)
         {
             var damage = args.Damage * component.MechToPilotDamageMultiplier; // WD EDIT

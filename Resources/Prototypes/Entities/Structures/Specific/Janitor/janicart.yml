@@ -71,8 +71,8 @@
   - type: ReactiveContainer
     solution: bucket
     container: item_slot
-  - type: Drink
-    solution: bucket
+  - type: Ingestible # WD Ingestible
+    solutionName: bucket # WD Ingestible
   - type: Appearance
   - type: SolutionContainerVisuals
     maxFillLevels: 3
@@ -343,8 +343,8 @@
           type: ItemSlotPickerBoundUserInterface
           requireInputValidation: True
           interactionRange: 1.5
-    - type: Drink
-      solution: bucket
+    - type: Ingestible # WD Ingestible
+      solutionName: bucket # WD Ingestible
     - type: ContainerContainer
       containers:
         storagebase: !type:Container

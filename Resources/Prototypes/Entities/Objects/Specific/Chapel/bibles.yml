@@ -8,23 +8,32 @@
     delay: 10.0
   - type: Bible
     damage:
-      groups:
-        Brute: -15
-        Burn: -15
+      Blunt: -5
+      Caustic: -3.8
+      Cold: -3.8
+      Heat: -3.8
+      Piercing: -5
+      Shock: -3.8
+      Slash: -5
     damageOnFail:
-      groups:
-        Brute: 15
-        Airloss: 15
+      Blunt: 5
+      Caustic: 3.8
+      Cold: 3.8
+      Heat: 3.8
+      Piercing: 5
+      Shock: 3.8
+      Slash: 5
     damageOnUntrainedUse: ## What a non-chaplain takes when attempting to heal someone
-      groups:
-        Burn: 10
+      Caustic: 2.5
+      Cold: 2.5
+      Heat: 2.5
+      Shock: 2.5
   - type: MeleeWeapon
     soundHit:
       collection: Punch
     damage:
-      types:
-        Holy: 20
-        Blunt: 1
+      Blunt: 1
+      Holy: 20
     heavyRateModifier: 1.25
     heavyDamageBaseModifier: 1
     heavyStaminaCost: 4
@@ -71,15 +80,15 @@
   components:
   - type: Bible
     damage:
-      types:
-        Caustic: 20 ## ~15 dps
+      Caustic: 20
     damageOnFail:
-      groups:
-        Brute: 15
-        Airloss: 25
+      Asphyxiation: 12.5
+      Bloodloss: 12.5
+      Blunt: 5
+      Piercing: 5
+      Slash: 5
     damageOnUntrainedUse:
-      types:
-        Caustic: 50
+      Caustic: 50
     failChance: 0
     locPrefix: "necro"
     healSound: "/Audio/Effects/lightburn.ogg"

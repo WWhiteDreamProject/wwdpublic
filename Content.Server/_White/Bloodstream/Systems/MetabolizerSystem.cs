@@ -1,8 +1,8 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared._White.Bloodstream.Components;
+using Content.Shared._White.Bloodstream.Prototypes;
 using Content.Shared._White.Bloodstream.Systems;
-using Content.Shared._White.Body.Prototypes;
 using Content.Shared._White.Body.Systems;
 using Content.Shared._White.Wounds.Systems;
 using Content.Shared.Administration.Logs;
@@ -40,7 +40,7 @@ public sealed class MetabolizerSystem : SharedMetabolizerSystem
         SubscribeLocalEvent<MetabolizerComponent, BodyProviderGotRemovedEvent>(OnGotRemoved);
         SubscribeLocalEvent<MetabolizerComponent, BodyRelayedEvent<MetabolicRateChangedEvent>>(OnMetabolicRateChanged);
         SubscribeLocalEvent<MetabolizerComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<MetabolizerComponent, WoundableSeverityChangedEvent>(OnWoundableSeverityChanged);
+        SubscribeLocalEvent<MetabolizerComponent, WoundSeverityChangedEvent>(OnWoundSeverityChanged);
 
         _metabolizerQuery = GetEntityQuery<MetabolizerComponent>();
     }
@@ -110,7 +110,7 @@ public sealed class MetabolizerSystem : SharedMetabolizerSystem
         }
     }
 
-    private void OnWoundableSeverityChanged(Entity<MetabolizerComponent> ent, ref WoundableSeverityChangedEvent args)
+    private void OnWoundSeverityChanged(Entity<MetabolizerComponent> ent, ref WoundSeverityChangedEvent args)
     {
         if (!ent.Comp.UpdateIntervalThresholds.TryGetValue(args.Severity, out var updateInterval))
             return;

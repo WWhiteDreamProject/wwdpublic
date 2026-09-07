@@ -26,6 +26,6 @@
     hasLampOnSpawn: ServiceLightBulb
   - type: DamageOnInteract
     damage:
-      types:
-        Heat: 5
+      # WD EDIT: Migrated damage format
+      Heat: 5
     popupText: powered-light-component-burn-hand

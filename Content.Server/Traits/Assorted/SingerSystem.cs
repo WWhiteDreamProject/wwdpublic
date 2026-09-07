@@ -27,7 +27,6 @@ public sealed class SingerSystem : SharedSingerSystem
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly InstrumentSystem _instrument = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
 
     public override void Initialize()
     {
@@ -111,13 +110,13 @@ public sealed class SingerSystem : SharedSingerSystem
     private void OnDamageChanged(EntityUid uid, SharedInstrumentComponent instrumentComponent, DamageChangedEvent args)
     {
         if (!TryComp<DamageForceSayComponent>(uid, out var component) ||
-            !args.DamageIncreased ||
+            !args.Damage.AnyPositive() ||
             args.Damage.GetTotal() < component.DamageThreshold ||
             component.ValidDamageGroups == null)
             return;
 
         var totalApplicableDamage = FixedPoint2.Zero;
-        foreach (var (group, value) in args.Damage.GetDamagePerGroup(_damageable, ProtoMan))
+        foreach (var (group, value) in args.Damage.GetDamagePerGroup(ProtoMan))
         {
             if (!component.ValidDamageGroups.Contains(group))
                 continue;

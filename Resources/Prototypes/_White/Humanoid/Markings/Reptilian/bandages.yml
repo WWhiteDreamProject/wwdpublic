@@ -1,0 +1,49 @@
+- type: marking
+  id: BaseBandagesReptilian
+  parents: [BaseBandages, BaseReptilian]
+  abstract: true
+
+- type: marking
+  id: BandagesReptilianBlindfold
+  parents: BaseBandagesReptilian
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/bandages.rsi
+      state: blindfold
+
+- type: marking
+  id: BandagesReptilianEyePatchLeft
+  parents: BaseBandagesReptilian
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/bandages.rsi
+      state: eye_patch_left
+
+- type: marking
+  id: BandagesReptilianEyePatchRight
+  parents: BaseBandagesReptilian
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/bandages.rsi
+      state: eye_patch_right
+
+- type: marking
+  id: BandagesReptilianLeftFoot
+  parents: BaseBandagesReptilian
+  definitions:
+  - layer: enum.BodyProviderType.LeftFoot
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/bandages.rsi
+      state: left_foot
+
+- type: marking
+  id: BandagesReptilianRightFoot
+  parents: BaseBandagesReptilian
+  definitions:
+  - layer: enum.BodyProviderType.RightFoot
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/bandages.rsi
+      state: right_foot

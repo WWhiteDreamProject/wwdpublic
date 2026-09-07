@@ -12,7 +12,7 @@
       components:
       - Anchorable
       - Item
-      tags: 
+      tags:
       - Bot # for funny bot moments
     blacklist:
       components:
@@ -28,7 +28,7 @@
   components:
   # this and the name/desc get replaced, this is just placeholder incase something goes wrong
   - type: Sprite
-    sprite: /Textures/Mobs/Species/Human/parts.rsi
+    sprite: /Textures/_White/Bodies/Parts/Humanoids/human.rsi # WD EDIT
     state: full
   - type: Transform
     noRot: true # players rotation and anchor is used instead

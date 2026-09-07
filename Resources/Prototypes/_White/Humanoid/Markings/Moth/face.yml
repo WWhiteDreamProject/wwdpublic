@@ -1,0 +1,36 @@
+- type: marking
+  id: BaseFaceMoth
+  parents: [BaseFace, BaseMoth]
+  abstract: true
+
+- type: marking
+  id: FaceMothBlush
+  parents: BaseFaceMoth
+  definitions:
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/face.rsi
+      state: blush_left
+    index: left
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/face.rsi
+      state: blush_right
+    index: right
+  coloring:
+    default:
+      type: !type:SimpleColoring
+        color: "#E07E7E"
+
+- type: marking
+  id: FaceMothLips
+  parents: BaseFaceMoth
+  definitions:
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/face.rsi
+      state: lips
+  coloring:
+    default:
+      type: !type:SimpleColoring
+        color: "#7E2727"

@@ -125,9 +125,9 @@
   id: RedMiningLaser
   maxLength: 30
   damage:
-    types:
-      Heat: 3
-      Structural: 15
+    # WD EDIT: Migrated damage format
+    Heat: 3
+    Structural: 15
   muzzleFlash:
     sprite: _White/Objects/Weapons/Guns/Projectiles/projectiles.rsi
     state: muzzle_mining_laser
@@ -166,8 +166,8 @@
   id: RiftLanceBeam
   maxLength: 800 # fuck it we ballin'
   damage:
-    types:
-      Blunt: 2000 # oh yeah
+    # WD EDIT: Migrated damage format
+    Blunt: 2000
   spawnAtImpact: OmegaBlastPierce # extra funny
   muzzleFlash:
     sprite: _White/Objects/Weapons/Guns/Projectiles/projectiles.rsi
@@ -255,12 +255,10 @@
   components:
   - type: Projectile
     damage:
-      types:
-        Piercing: 4
-        Blunt: 2
-        Slash: 2
-
-
+      # WD EDIT: Migrated damage format
+      Blunt: 2
+      Piercing: 4
+      Slash: 2
 - type: entity
   id: BulletHotspotSpread
   categories: [ HideSpawnMenu ]
@@ -309,13 +307,9 @@
   components:
   - type: Projectile
     damage:
-      types:
-        Piercing: 25
-        Structural: 25 # weaker compared to other .50 cal bullets
-    
-
-
-
+      # WD EDIT: Migrated damage format
+      Piercing: 25
+      Structural: 25
 - type: entity
   parent: BaseWeaponShipLightEnergy
   id: WeaponShipLightBlaster

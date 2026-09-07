@@ -1,9 +1,9 @@
 using Content.Shared._White.Body.Systems;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared._White.Gibbable.Components;
 using Content.Shared._White.Random;
 using Content.Shared._White.Skeleton.Systems;
 using Content.Shared._White.Threshold;
-using Content.Shared._White.Wounds.Systems;
 using Content.Shared.FixedPoint;
 
 namespace Content.Shared._White.Gibbable.Systems;
@@ -15,8 +15,8 @@ public sealed partial class GibbableSystem
         SubscribeLocalEvent<GibbableProviderComponent, BodyProviderGotInsertedIntoParentEvent>(OnGotInsertedIntoParent);
         SubscribeLocalEvent<GibbableProviderComponent, BodyProviderGotRemovedFromParentEvent>(OnGotRemovedFromParent);
         SubscribeLocalEvent<GibbableProviderComponent, BodyRelayedEvent<BeingGibbedEvent>>(OnBeingGibbed);
+        SubscribeLocalEvent<GibbableProviderComponent, DamageChangedEvent>(OnDamageChanged);
         SubscribeLocalEvent<GibbableProviderComponent, SkeletonSeverityChangedEvent>(OnSkeletonSeverityChanged);
-        SubscribeLocalEvent<GibbableProviderComponent, WoundableDamageChangedEvent>(OnWoundableDamageChanged);
     }
 
     #region Event Handling
@@ -38,16 +38,7 @@ public sealed partial class GibbableSystem
         args.Args.Giblets.Add(ent);
     }
 
-    private void OnSkeletonSeverityChanged(Entity<GibbableProviderComponent> ent, ref SkeletonSeverityChangedEvent args)
-    {
-        if (!ent.Comp.SkeletonThresholds.TryGetValue(args.Severity, out var skeletonMultiplier))
-            return;
-
-        ent.Comp.SkeletonMultiplier = skeletonMultiplier;
-        DirtyField(ent, ent.Comp, nameof(GibbableProviderComponent.SkeletonMultiplier));
-    }
-
-    private void OnWoundableDamageChanged(Entity<GibbableProviderComponent> ent, ref WoundableDamageChangedEvent args)
+    private void OnDamageChanged(Entity<GibbableProviderComponent> ent, ref DamageChangedEvent args)
     {
         var damage = FixedPoint2.Zero;
         foreach (var (type, value) in args.Damage)
@@ -75,7 +66,16 @@ public sealed partial class GibbableSystem
         if (ent.Comp.Wound is not {} wound || ent.Comp.Parent is not {} parent)
             return;
 
-        _woundable.CreateWound(parent, wound, ent.Comp.Damage, args.Origin);
+        _woundable.CreateWound(parent, wound, ent.Comp.Damage, false, args.InterruptsDoAfters, args.Origin);
+    }
+
+    private void OnSkeletonSeverityChanged(Entity<GibbableProviderComponent> ent, ref SkeletonSeverityChangedEvent args)
+    {
+        if (!ent.Comp.SkeletonThresholds.TryGetValue(args.Severity, out var skeletonMultiplier))
+            return;
+
+        ent.Comp.SkeletonMultiplier = skeletonMultiplier;
+        DirtyField(ent, ent.Comp, nameof(GibbableProviderComponent.SkeletonMultiplier));
     }
 
     #endregion

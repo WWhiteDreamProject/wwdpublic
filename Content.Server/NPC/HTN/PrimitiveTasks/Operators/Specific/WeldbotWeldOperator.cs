@@ -92,7 +92,7 @@ public sealed partial class WeldbotWeldOperator : HTNOperator
             if (!_prototypeManager.TryIndex<DamageGroupPrototype>("Burn", out var prototype) || weldableIsStructure)
                 return HTNOperatorStatus.Failed;
 
-            _damageableSystem.TryChangeDamage((target, damage), new DamageSpecifier(prototype, EmaggedBurnDamage, _damageableSystem), true, false);
+            _damageableSystem.TryChangeDamage((target, damage), new DamageSpecifier(prototype, EmaggedBurnDamage), true, false);
         }
         else
         {
@@ -101,7 +101,7 @@ public sealed partial class WeldbotWeldOperator : HTNOperator
                 if (!_prototypeManager.TryIndex<DamageGroupPrototype>("Brute", out var prototype))
                     return HTNOperatorStatus.Failed;
 
-                _damageableSystem.TryChangeDamage((target, damage), new DamageSpecifier(prototype, -SiliconRepairAmount, _damageableSystem), true, false);
+                _damageableSystem.TryChangeDamage((target, damage), new DamageSpecifier(prototype, -SiliconRepairAmount), true, false);
             }
             else if (weldableIsStructure)
             {

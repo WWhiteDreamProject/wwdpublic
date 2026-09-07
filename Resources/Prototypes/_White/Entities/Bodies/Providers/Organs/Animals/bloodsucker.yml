@@ -1,0 +1,35 @@
+- type: entity
+  id: BaseBodyProviderOrganBloodsucker
+  parent: BaseBodyProviderOrganOrganic
+  abstract: true
+  suffix: Bloodsucker
+  components:
+  - type: Sprite
+    sprite: _White/Bodies/Organs/Humanoids/human.rsi
+
+- type: entity
+  id: BaseMetabolizerBloodsucker
+  abstract: true
+  components:
+  - type: Metabolizer
+    types: [ BloodIron, Bloodsucker, RespirationOxygen ]
+
+# Kidneys
+- type: entity
+  id: BodyProviderKidneysBloodsucker
+  parent: [BaseBodyProviderKidneysRespiratory, BaseBodyProviderOrganBloodsucker, BaseMetabolizerBloodsucker]
+
+# Liver
+- type: entity
+  id: BodyProviderLiverBloodsucker
+  parent: [BaseBodyProviderLiverRespiratory, BaseBodyProviderOrganBloodsucker, BaseMetabolizerBloodsucker]
+
+# Lungs
+- type: entity
+  id: BodyProviderLungsBloodsucker
+  parent: [BaseBodyProviderLungsRespiratory, BaseBodyProviderOrganBloodsucker, BaseMetabolizerBloodsucker]
+
+# Stomach
+- type: entity
+  id: BodyProviderStomachBloodsucker
+  parent: [BaseBodyProviderStomachRespiratory, BaseBodyProviderOrganBloodsucker, BaseMetabolizerBloodsucker]

@@ -147,8 +147,8 @@
     understands: [TauCetiBasic, RobotTalk]
   - type: DamageOtherOnHit
     damage:
-      types:
-        Blunt: 4
+      # WD EDIT: Migrated damage format
+      Blunt: 4
   - type: SentienceTarget # sentient PDA = pAI lite
     flavorKind: station-event-random-sentience-flavor-mechanical
     weight: 0.001 # 1,000 PDAs = as likely to be picked as 1 regular animal
@@ -651,8 +651,8 @@
     sprite: _White/Objects/Devices/Pda/captain.rsi # WWDP edit
   - type: DamageOtherOnHit
     damage:
-      types:
-        Blunt: 8
+      # WD EDIT: Migrated damage format
+      Blunt: 8
     staminaCost: 5
     soundHit:
       collection: MetalThud

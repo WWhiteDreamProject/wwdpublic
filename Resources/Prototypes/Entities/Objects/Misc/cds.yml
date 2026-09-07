@@ -14,6 +14,6 @@
     - CoordinatesDisk
   - type: DamageOtherOnHit
     damage:
-      types:
-        Slash: 1
+      # WD EDIT: Migrated damage format
+      Slash: 1
   - type: ShuttleDestinationCoordinates

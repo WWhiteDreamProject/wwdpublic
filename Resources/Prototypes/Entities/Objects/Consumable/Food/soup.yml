@@ -7,13 +7,13 @@
   components:
   - type: Item
     storedRotation: -90
-  - type: Food
+  - type: Ingestible # WD Ingestible
     trash:
     - FoodBowlBig
     utensil: Spoon
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 20
         reagents:
         - ReagentId: Nutriment
@@ -22,22 +22,22 @@
     sprite: Objects/Consumable/Food/bowl.rsi
   - type: DamageOnLand
     damage:
-      types:
-        Blunt: 5
+      # WD EDIT: Migrated damage format
+      Blunt: 5
   - type: DamageOtherOnHit
     damage:
-      types:
-        Blunt: 5
+      # WD EDIT: Migrated damage format
+      Blunt: 5
   - type: Spillable
-    solution: food
+    solution: ingestible # WD Ingestible
   # soup weapon!
   - type: MeleeWeapon
     canBeBlocked: false # WD EDIT
     soundNoDamage:
       path: "/Audio/Effects/Fluids/splat.ogg"
     damage:
-      types:
-        Blunt: 0
+      # WD EDIT: Migrated damage format
+      Blunt: 0
   - type: Damageable
     damageContainer: Inorganic
   - type: Tag
@@ -83,7 +83,7 @@
       color: green
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 20
         reagents:
         - ReagentId: Nutriment
@@ -108,7 +108,7 @@
     - state: aesir
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 25
         reagents:
         - ReagentId: Nutriment
@@ -138,7 +138,7 @@
     - state: herb
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 15
         reagents:
         - ReagentId: Nutriment
@@ -168,7 +168,7 @@
     - state: valid
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 20
         reagents:
         - ReagentId: Nutriment
@@ -200,7 +200,7 @@
     - state: coleslaw
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 15
         reagents:
         - ReagentId: Nutriment
@@ -228,7 +228,7 @@
     - state: caesar
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 15
         reagents:
         - ReagentId: Nutriment
@@ -253,7 +253,7 @@
     - state: kimchi
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 15
         reagents:
         - ReagentId: Nutriment
@@ -278,7 +278,7 @@
     - state: fruit
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 10
         reagents:
         - ReagentId: Nutriment
@@ -306,7 +306,7 @@
     - state: fruit
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 15
         reagents:
         - ReagentId: Nutriment
@@ -334,7 +334,7 @@
     - state: citrusdelight
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 38
         reagents:
         - ReagentId: Nutriment
@@ -362,7 +362,7 @@
     - state: eden
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 25
         reagents:
         - ReagentId: Nutriment
@@ -404,7 +404,7 @@
     - state: rice-egg
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 12
         reagents:
         - ReagentId: Nutriment
@@ -432,7 +432,7 @@
     - state: rice-pork
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 40.5
         reagents:
         - ReagentId: Nutriment
@@ -464,7 +464,7 @@
     - state: rice-pudding
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 25
         reagents:
         - ReagentId: Nutriment
@@ -494,7 +494,7 @@
     - state: gumbo
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 12
         reagents:
         - ReagentId: Nutriment
@@ -526,7 +526,7 @@
     - state: oatmeal
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 20
         reagents:
         - ReagentId: Nutriment
@@ -566,7 +566,7 @@
     state: amanita-jelly
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 15
         reagents:
         - ReagentId: Nutriment
@@ -591,7 +591,7 @@
     - state: meatball
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: Nutriment
@@ -620,7 +620,7 @@
     - state: slime
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 20
         reagents:
         - ReagentId: Nutriment
@@ -646,7 +646,7 @@
     - state: tomato
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 20
         reagents:
         - ReagentId: Nutriment
@@ -676,7 +676,7 @@
     - state: wingfangchu
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: Protein
@@ -701,7 +701,7 @@
     - state: clowntears
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 25
         reagents:
         - ReagentId: Nutriment
@@ -727,7 +727,7 @@
     - state: vegetable
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 25
         reagents:
         - ReagentId: Nutriment
@@ -754,7 +754,7 @@
     - state: nettle
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 30.5
         reagents:
         - ReagentId: Nutriment
@@ -797,7 +797,7 @@
     - state: chili-hot
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 25
         reagents:
           - ReagentId: Nutriment
@@ -829,7 +829,7 @@
     - state: chili-cold
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 20
         reagents:
           - ReagentId: Nutriment
@@ -858,7 +858,7 @@
     - state: chili-clown
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 20
         reagents:
           - ReagentId: Nutriment
@@ -889,7 +889,7 @@
     - state: monkeydelight
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 20
         reagents:
           - ReagentId: Nutriment
@@ -920,7 +920,7 @@
     - state: tomato
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 22
         reagents:
           - ReagentId: Nutriment
@@ -950,7 +950,7 @@
     - state: eyeball
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 12
         reagents:
           - ReagentId: Nutriment
@@ -971,7 +971,7 @@
   - type: FlavorProfile
     flavors:
       - miso
-  - type: Food
+  - type: Ingestible # WD Ingestible
     trash:
     - FoodBowlFancy
   - type: Sprite
@@ -981,7 +981,7 @@
         #rip milo
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
           - ReagentId: Nutriment
@@ -1010,7 +1010,7 @@
     - state: mushroom
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 25
         reagents:
           - ReagentId: Nutriment
@@ -1034,7 +1034,7 @@
     - state: beet
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 25
         reagents:
           - ReagentId: Nutriment
@@ -1057,7 +1057,7 @@
     - state: redbeet
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 15
         reagents:
           - ReagentId: Nutriment
@@ -1083,7 +1083,7 @@
     - state: stew
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 25
         reagents:
           - ReagentId: Nutriment
@@ -1113,7 +1113,7 @@
     - state: sweetpotato
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 12
         reagents:
           - ReagentId: Nutriment
@@ -1137,7 +1137,7 @@
     - state: onion
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 15
         reagents:
           - ReagentId: Nutriment
@@ -1162,7 +1162,7 @@
     - state: bisque
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
           - ReagentId: Nutriment
@@ -1191,7 +1191,7 @@
     - state: electron
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 10
         reagents:
           - ReagentId: Nutriment
@@ -1214,7 +1214,7 @@
     - state: bungo
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 20
         reagents:
           - ReagentId: Nutriment
@@ -1245,7 +1245,7 @@
     - state: escargot
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 20
         reagents:
           - ReagentId: Nutriment
@@ -1266,7 +1266,7 @@
   id: FoodOusianaDustBowl
   description: A combination of diametrically opposed forces,
   components:
-  - type: Food
+  - type: Ingestible # WD Ingestible
     useSound: "/Audio/Effects/Footsteps/snowstep4.ogg"
   - type: FlavorProfile
     flavors:
@@ -1277,7 +1277,7 @@
       - state: ousiana
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 20
         reagents:
           - ReagentId: OusianaDust
@@ -1292,5 +1292,5 @@
     soundNoDamage:
       path: "/Audio/Effects/Footsteps/snowstep4.ogg"
     damage:
-      types:
-        Blunt: 0
+      # WD EDIT: Migrated damage format
+      Blunt: 0

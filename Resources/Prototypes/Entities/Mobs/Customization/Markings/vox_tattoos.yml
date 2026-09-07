@@ -1,75 +1,75 @@
-- type: marking
-  id: TattooVoxHeartLeftArm
-  markingCategory: LeftArm
-  speciesRestriction: [Vox]
-  coloring:
-    default:
-      type:
-        !type:TattooColoring
-      fallbackColor: "#666666"
-  sprites:
-  - sprite: Mobs/Customization/vox_tattoos.rsi
-    state: heart_l_arm
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.LeftArm
-    bodyPart: LeftArm
-    # WD EDIT END
-
-- type: marking
-  id: TattooVoxHeartRightArm
-  markingCategory: RightArm
-  speciesRestriction: [Vox]
-  coloring:
-    default:
-      type:
-        !type:TattooColoring
-      fallbackColor: "#666666"
-  sprites:
-  - sprite: Mobs/Customization/vox_tattoos.rsi
-    state: heart_r_arm
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.RightArm
-    bodyPart: RightArm
-    # WD EDIT END
-
-- type: marking
-  id: TattooVoxHiveChest
-  markingCategory: Chest
-  speciesRestriction: [Vox]
-  coloring:
-    default:
-      type:
-        !type:TattooColoring
-      fallbackColor: "#666666"
-  sprites:
-  - sprite: Mobs/Customization/vox_tattoos.rsi
-  # WD EDIT START
-    state: hive_s_chest
-    layer: enum.BodyAppearanceLayer.Chest
-    bodyPart: Chest
-  - sprite: Mobs/Customization/vox_tattoos.rsi
-    state: hive_s_groin
-    layer: enum.BodyAppearanceLayer.Groin
-    bodyPart: Groin
-  # WD EDIT END
-
-- type: marking
-  id: TattooVoxNightlingChest
-  markingCategory: Chest
-  speciesRestriction: [Vox]
-  coloring:
-    default:
-      type:
-        !type:TattooColoring
-      fallbackColor: "#666666"
-  sprites:
-  - sprite: Mobs/Customization/vox_tattoos.rsi
-  # WD EDIT START
-    state: nightling_s_chest
-    layer: enum.BodyAppearanceLayer.Chest
-    bodyPart: Chest
-  - sprite: Mobs/Customization/vox_tattoos.rsi
-    state: nightling_s_groin
-    layer: enum.BodyAppearanceLayer.Groin
-    bodyPart: Groin
-  # WD EDIT END
+#- type: marking
+#  id: TattooVoxHeartLeftArm
+#  markingCategory: LeftArm
+#  speciesRestriction: [Vox]
+#  coloring:
+#    default:
+#      type:
+#        !type:TattooColoring
+#      fallbackColor: "#666666"
+#  sprites:
+#  - sprite: Mobs/Customization/vox_tattoos.rsi
+#    state: heart_l_arm
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.LeftArm
+#    bodyPart: LeftArm
+#    # WD EDIT END
+#
+#- type: marking
+#  id: TattooVoxHeartRightArm
+#  markingCategory: RightArm
+#  speciesRestriction: [Vox]
+#  coloring:
+#    default:
+#      type:
+#        !type:TattooColoring
+#      fallbackColor: "#666666"
+#  sprites:
+#  - sprite: Mobs/Customization/vox_tattoos.rsi
+#    state: heart_r_arm
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.RightArm
+#    bodyPart: RightArm
+#    # WD EDIT END
+#
+#- type: marking
+#  id: TattooVoxHiveChest
+#  markingCategory: Chest
+#  speciesRestriction: [Vox]
+#  coloring:
+#    default:
+#      type:
+#        !type:TattooColoring
+#      fallbackColor: "#666666"
+#  sprites:
+#  - sprite: Mobs/Customization/vox_tattoos.rsi
+#  # WD EDIT START
+#    state: hive_s_chest
+#    layer: enum.BodyAppearanceLayer.Chest
+#    bodyPart: Chest
+#  - sprite: Mobs/Customization/vox_tattoos.rsi
+#    state: hive_s_groin
+#    layer: enum.BodyAppearanceLayer.Groin
+#    bodyPart: Groin
+#  # WD EDIT END
+#
+#- type: marking
+#  id: TattooVoxNightlingChest
+#  markingCategory: Chest
+#  speciesRestriction: [Vox]
+#  coloring:
+#    default:
+#      type:
+#        !type:TattooColoring
+#      fallbackColor: "#666666"
+#  sprites:
+#  - sprite: Mobs/Customization/vox_tattoos.rsi
+#  # WD EDIT START
+#    state: nightling_s_chest
+#    layer: enum.BodyAppearanceLayer.Chest
+#    bodyPart: Chest
+#  - sprite: Mobs/Customization/vox_tattoos.rsi
+#    state: nightling_s_groin
+#    layer: enum.BodyAppearanceLayer.Groin
+#    bodyPart: Groin
+#  # WD EDIT END

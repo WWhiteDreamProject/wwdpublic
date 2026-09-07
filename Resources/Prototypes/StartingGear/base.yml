@@ -4,9 +4,7 @@
   requirements:
   - !type:CharacterSpeciesRequirement
     species:
-    - Arachne
     - Arachnid
-    - Chitinid
     - Diona
     - Dwarf
     - Felinid
@@ -17,11 +15,6 @@
     - Moth
     - Oni
     - Reptilian
-    - Shadowkin
-    - Tajaran
-    - Thaven
-    - Vulpkanin
-    - Xelthia
 
 - type: startingGear
   id: NitrogenBreather

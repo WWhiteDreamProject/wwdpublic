@@ -36,8 +36,7 @@
     altDisarm: false # No shoving
     angle: 0
     damage:
-      types:
-        Heat: 10
+      Heat: 10
     animation: WeaponArcPunch
   - type: MobState
   - type: MobThresholds
@@ -68,10 +67,10 @@
     - Alive
     damageCap: 120
     damage:
-      types:
-        Cold: -0.07
-      groups:
-        Brute: -0.07
+      Cold: -0.03
+      Blunt: -0.03
+      Slash: -0.03
+      Piercing: -0.03
   - type: Speech
     speechSounds: Bass
   - type: Puller
@@ -80,13 +79,20 @@
     tags:
       - CannotSuicide
       - DoorBumpOpener
-  - type: Body
-    prototype: Human # For two hands.
   - type: InnateTool
     tools:
       - id: WelderIfrit
       - id: WelderIfrit
   - type: Hands
+    # WD EDIT START
+    hands:
+      right_hand:
+        name: right_hand
+        location: Right
+      left_hand:
+        name: left_hand
+        location: Left
+    # WD EDIT END
   - type: ZombieImmune # No zombie servant
   - type: RandomMetadata
     nameSegments: [names_golem]

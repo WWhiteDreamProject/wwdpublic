@@ -109,7 +109,7 @@ namespace Content.Shared.Damage.Systems
                 if (HasComp<MobStateComponent>(args.Target))
                     _adminLogger.Add(LogType.ThrowHit, $"{ToPrettyString(args.Target):target} received {modifiedDamage.GetTotal():damage} damage from collision");
 
-                _meleeSound.PlayHitSound(args.Target, null, SharedMeleeWeaponSystem.GetHighestDamageSound(modifiedDamage, _damageable, _protoManager), null,
+                _meleeSound.PlayHitSound(args.Target, null, SharedMeleeWeaponSystem.GetHighestDamageSound(modifiedDamage, _protoManager), null,
                     component.SoundHit, component.SoundNoDamage);
             }
 

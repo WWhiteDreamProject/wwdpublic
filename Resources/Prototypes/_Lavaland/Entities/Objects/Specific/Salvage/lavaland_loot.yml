@@ -1,6 +1,6 @@
 - type: entity
   id: LavalandCursedHeart
-  parent: BaseOrganHuman # WD EDIT: BaseHumanOrgan -> BaseOrganHuman
+  parent: BaseBodyProviderHeart # WD EDIT: BaseHumanOrgan -> BaseBodyProviderHeart
   name: heart
   description: "I feel bad for the heartless bastard who lost this."
   components:
@@ -24,7 +24,6 @@
     examineText: gun-upgrade-examine-text-vampirism
   - type: GunUpgradeVampirism
     damageOnHit:
-      types:
-        Slash: -1.5
-        Piercing: -1.5
-        Blunt: -1.5
+      Slash: -1.5
+      Piercing: -1.5
+      Blunt: -1.5

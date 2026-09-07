@@ -3,7 +3,7 @@
   name: Syndicate Listener
   components:
     - type: Sprite
-      sprite: Mobs/Species/Human/parts.rsi
+      sprite: _White/Bodies/Parts/Humanoids/human.rsi # WD EDIT
       state: full
     - type: RandomHumanoidSpawner
       settings: SyndicateListener
@@ -12,8 +12,6 @@
   id: SyndicateListener
   speciesWhitelist: # WWDP
   - Human
-  # speciesBlacklist:
-  #   - Shadowkin
   components:
     - type: Loadout
       prototypes: [SyndicateListenerGear]
@@ -41,8 +39,6 @@
   randomizeName: false
   speciesWhitelist: # WWDP
     - Human
-  # speciesBlacklist: # WWDP
-  #   - Shadowkin
   components:
     - type: GhostRole
       name: Mobster
@@ -77,8 +73,6 @@
   randomizeName: false
   speciesWhitelist: # WWDP
   - Human
-  # speciesBlacklist: # WWDP
-  #   - Shadowkin
   components:
     - type: GhostRole
       name: Mobster

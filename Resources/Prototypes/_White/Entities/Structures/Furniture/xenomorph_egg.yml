@@ -52,8 +52,8 @@
   - type: Flammable
     fireSpread: false
     damage:
-      types:
-        Heat: 3
+      # WD EDIT: Migrated damage format
+      Heat: 3
   - type: XenomorphEgg
   - type: RequireProjectileTarget
   - type: Fixtures

@@ -1,11 +1,14 @@
 using Content.Shared._White.Appearance.Components;
+using Content.Shared._White.Humanoid.Markings.Prototypes;
 using Content.Shared.DisplacementMap;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
+
 
 namespace Content.Shared._White.Humanoid.Markings.Components;
 
 /// <summary>
-/// Defines an body provider that applies markings on top of the layer specified in <see cref="BodyAppearanceProviderComponent" />
+/// Defines a body provider that applies markings on top of the layer specified in <see cref="BodyAppearanceProviderComponent" />
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(true, true)]
 public sealed partial class MarkingsProviderComponent : Component
@@ -24,10 +27,10 @@ public sealed partial class MarkingsProviderComponent : Component
     public Dictionary<Enum, HashSet<Enum>> DependentHidingLayers = new();
 
     /// <summary>
-    /// The list of markings this provider is currently providing to the entity.
+    /// The dictionary of layer to markings this provider is currently providing to the entity.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public List<Marking> Markings = new();
+    public Dictionary<Enum, List<Marking>> Markings = new();
 
     /// <summary>
     /// A collection of layers that are eligible to be hidden by this provider's logic.
@@ -39,7 +42,7 @@ public sealed partial class MarkingsProviderComponent : Component
     /// Stores the specific data for this provider's.
     /// </summary>
     [DataField(required: true), AlwaysPushInheritance]
-    public MarkingsData Data;
+    public MarkingData Data;
 
     /// <summary>
     /// The body entity containing this provider, if any.
@@ -48,10 +51,9 @@ public sealed partial class MarkingsProviderComponent : Component
     public EntityUid? Body;
 
     /// <summary>
-    /// Stores the last set of markings that were successfully applied.
+    /// Stores the last markings that were successfully applied.
     /// </summary>
     /// <remarks>Client only</remarks>
     [ViewVariables]
     public List<Marking> Applied = new();
 }
-

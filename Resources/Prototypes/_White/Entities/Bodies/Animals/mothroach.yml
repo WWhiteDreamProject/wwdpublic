@@ -1,0 +1,37 @@
+- type: entity
+  id: BaseBodyMothroach
+  parent: BaseBody
+  abstract: true
+  components:
+  - type: Body
+    rootProvider:
+      type: AllParts
+      providers:
+        brain:
+          type: Brain
+          startingProvider: BodyProviderBrainAnimal
+        ears:
+          type: Ears
+          startingProvider: BodyProviderEarsAnimal
+        eyes:
+          type: Eyes
+          startingProvider: BodyProviderEyesAnimal
+        heart:
+          type: Heart
+          startingProvider: BodyProviderHeartAnimal
+        kidneys:
+          type: Kidneys
+          startingProvider: BodyProviderKidneysMothroach
+        liver:
+          type: Liver
+          startingProvider: BodyProviderLiverMothroach
+        lungs:
+          type: Lungs
+          startingProvider: BodyProviderLungsMothroach
+        stomach:
+          type: Stomach
+          startingProvider: BodyProviderStomachMothroach
+        tongue:
+          type: Tongue
+          startingProvider: BodyProviderTongueAnimal
+      startingProvider: BodyProviderAllPartsAnimal

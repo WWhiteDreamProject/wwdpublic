@@ -17,7 +17,7 @@
       tagRequirements:
         BorgArm:
           amount: 3
-          defaultPrototype: BodyPartLeftArmBorg # WD EDIT: LeftArmBorg -> BodyPartLeftArmBorg
+          defaultPrototype: BodyProviderLeftArmBorg # WD EDIT: LeftArmBorg -> BodyProviderLeftArmBorg
     - type: ReverseEngineering
       difficulty: 3
       recipes:

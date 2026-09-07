@@ -163,8 +163,8 @@
     force: true
     slots:
     # WD EDIT START
-    - enum.BodyAppearanceLayer.LeftFoot
-    - enum.BodyAppearanceLayer.RightFoot
+    - enum.BodyProviderType.LeftFoot
+    - enum.BodyProviderType.RightFoot
     # WD EDIT END
   - type: FootstepModifier
     footstepSoundCollection:
@@ -184,8 +184,8 @@
     force: true
     slots:
     # WD EDIT START
-    - enum.BodyAppearanceLayer.LeftFoot
-    - enum.BodyAppearanceLayer.RightFoot
+    - enum.BodyProviderType.LeftFoot
+    - enum.BodyProviderType.RightFoot
     # WD EDIT END
   - type: FootstepModifier
     footstepSoundCollection:

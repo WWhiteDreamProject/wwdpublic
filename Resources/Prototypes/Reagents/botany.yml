@@ -42,8 +42,8 @@
           type: Plant
       - !type:HealthChange
         damage:
-          types:
-            Poison: 1
+          # WD EDIT: Migrated damage format
+          Poison: 1
         conditions:
         - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Plant
@@ -66,8 +66,8 @@
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Poison: 3
+          # WD EDIT: Migrated damage format
+          Poison: 3
         conditions:
         - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Plant
@@ -94,11 +94,11 @@
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Poison: -4
-            Blunt: 2
-            Slash: 1
-            Piercing: 1
+          # WD EDIT: Migrated damage format
+          Blunt: 2
+          Piercing: 1
+          Poison: -4
+          Slash: 1
         conditions:
         - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Plant
@@ -126,11 +126,11 @@
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Poison: -2
-            Blunt: -3
-            Slash: -3
-            Piercing: -3
+          # WD EDIT: Migrated damage format
+          Blunt: -3
+          Piercing: -3
+          Poison: -2
+          Slash: -3
         conditions:
         - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Plant
@@ -141,10 +141,10 @@
         - !type:ReagentThreshold
           min: 30
         damage:
-          types:
-            Asphyxiation: 1
-            Heat: 2
-            Poison: 1
+          # WD EDIT: Migrated damage format
+          Asphyxiation: 1
+          Heat: 2
+          Poison: 1
       - !type:Polymorph
         prototype: TreeMorph
         conditions:
@@ -187,8 +187,8 @@
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Poison: 4
+          # WD EDIT: Migrated damage format
+          Poison: 4
         conditions:
         - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Plant
@@ -221,8 +221,8 @@
           min: 1
         ignoreResistances: true
         damage:
-          types:
-            Poison: 0.25
+          # WD EDIT: Migrated damage format
+          Poison: 0.2
       - !type:ChemVomit
         probability: 0.12
         conditions:
@@ -254,11 +254,15 @@
         scaleByQuantity: true
         ignoreResistances: true
         damage:
-          groups:
-            Brute: -5
-            Burn: -5
-          types:
-            Bloodloss: -5
+          # WD EDIT: Migrated damage format
+          Bloodloss: -5
+          Blunt: -1.7
+          Caustic: -1.2
+          Cold: -1.2
+          Heat: -1.2
+          Piercing: -1.7
+          Shock: -1.2
+          Slash: -1.7
       - !type:Oxygenate # ammonia displaces nitrogen in vox blood
         conditions:
         - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
@@ -267,11 +271,8 @@
       # WD EDIT START
       - !type:HealthChange
         damage:
-          types:
-            Caustic: 1
-      # WD EDIT END
-
-
+          # WD EDIT: Migrated damage format
+          Caustic: 1
 - type: reagent
   id: Diethylamine
   name: reagent-name-diethylamine
@@ -299,5 +300,5 @@
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Caustic: 1
+          # WD EDIT: Migrated damage format
+          Caustic: 1

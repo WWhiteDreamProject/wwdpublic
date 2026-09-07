@@ -1,0 +1,110 @@
+- type: entity
+  id: BaseBodyProviderOrganArachnid
+  parent: BaseBodyProviderOrganOrganic
+  abstract: true
+  suffix: Arachnid
+  components:
+  - type: Sprite
+    sprite: _White/Bodies/Organs/Humanoids/arachnid.rsi
+
+- type: entity
+  id: BaseMetabolizerArachnid
+  abstract: true
+  components:
+  - type: Metabolizer
+    types: [ Arachnid, BloodCopper, Hemocyanin, RespirationOxygen ]
+
+# Brain
+- type: entity
+  id: BodyProviderBrainArachnid
+  parent: [BaseBodyProviderBrainOrganic, BaseBodyProviderOrganArachnid]
+  components:
+  - type: RespiratorConsumer
+    consumption: 0.006
+    damage:
+      Asphyxiation: 0.15
+  - type: Sprite
+    sprite: _White/Bodies/Organs/Humanoids/Human.rsi # TODO: Replace with a unique sprite.
+
+# Ears
+- type: entity
+  id: BodyProviderEarsArachnid
+  parent: [BaseBodyProviderEars, BaseBodyProviderOrganArachnid]
+  components:
+  - type: Sprite
+    sprite: _White/Bodies/Organs/Humanoids/Human.rsi # TODO: Replace with a unique sprite.
+
+# Eyes
+- type: entity
+  id: BodyProviderEyesArachnid
+  parent: [BaseBodyProviderEyes, BaseBodyProviderOrganArachnid]
+  components:
+  - type: BodyAppearanceProvider
+    path: _White/Bodies/Organs/Humanoids/arachnid.rsi
+
+#Gland
+- type: entity
+  id: BodyProviderGlandWebArachnid
+  parent: [BaseBodyProviderGland, BaseBodyProviderOrganArachnid]
+  components:
+  - type: Sprite
+    state: gland_web
+
+# Heart
+- type: entity
+  id: BodyProviderHeartArachnid
+  parent: [BaseBodyProviderHeartRespiratory, BaseBodyProviderOrganArachnid]
+  components:
+  - type: RespiratorConsumer
+    consumption: 0.003
+    damage:
+      Asphyxiation: 0.3
+
+# Kidneys
+- type: entity
+  id: BodyProviderKidneysArachnid
+  parent: [BaseBodyProviderKidneysRespiratory, BaseBodyProviderOrganArachnid, BaseMetabolizerArachnid]
+  components:
+  - type: RespiratorConsumer
+    consumption: 0.0015
+    damage:
+      Asphyxiation: 0.15
+  - type: Sprite
+    sprite: _White/Bodies/Organs/Humanoids/Human.rsi # TODO: Replace with a unique sprite.
+
+# Liver
+- type: entity
+  id: BodyProviderLiverArachnid
+  parent: [BaseBodyProviderLiverRespiratory, BaseBodyProviderOrganArachnid, BaseMetabolizerArachnid]
+  components:
+  - type: RespiratorConsumer
+    consumption: 0.0015
+    damage:
+      Asphyxiation: 0.15
+  - type: Sprite
+    sprite: _White/Bodies/Organs/Humanoids/Human.rsi # TODO: Replace with a unique sprite.
+
+# Lungs
+- type: entity
+  id: BodyProviderLungsArachnid
+  parent: [BaseBodyProviderLungsRespiratory, BaseBodyProviderOrganArachnid, BaseMetabolizerArachnid]
+  components:
+  - type: RespiratorConsumer
+    consumption: 0.0015
+    damage:
+      Asphyxiation: 0.15
+
+# Stomach
+- type: entity
+  id: BodyProviderStomachArachnid
+  parent: [BaseBodyProviderStomachRespiratory, BaseBodyProviderOrganArachnid, BaseMetabolizerArachnid]
+  components:
+  - type: RespiratorConsumer
+    consumption: 0.0015
+    damage:
+      Asphyxiation: 0.15
+
+# Tongue
+- type: entity
+  id: BodyProviderTongueArachnid
+  parent: [BaseBodyProviderTongue, BaseBodyProviderOrganArachnid]

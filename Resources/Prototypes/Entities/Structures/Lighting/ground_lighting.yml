@@ -111,8 +111,8 @@
       burned: burned
   - type: DamageOnInteract
     damage:
-      types:
-        Heat: 2
+      # WD EDIT: Migrated damage format
+      Heat: 2
     popupText: powered-light-component-burn-hand
 
 - type: entity
@@ -136,8 +136,8 @@
       path: /Audio/Ambience/Objects/light_hum.ogg
   - type: DamageOnInteract
     damage:
-      types:
-        Heat: 2
+      # WD EDIT: Migrated damage format
+      Heat: 2
     popupText: powered-light-component-burn-hand
 
 - type: entity
@@ -165,6 +165,6 @@
       path: /Audio/Ambience/Objects/light_hum.ogg
   - type: DamageOnInteract
     damage:
-      types:
-        Heat: 1
+      # WD EDIT: Migrated damage format
+      Heat: 1
     popupText: powered-light-component-burn-hand

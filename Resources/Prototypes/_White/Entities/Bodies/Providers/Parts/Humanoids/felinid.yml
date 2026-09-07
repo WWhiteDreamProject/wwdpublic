@@ -1,0 +1,71 @@
+- type: entity
+  id: BaseBodyProviderPartFelinid
+  parent: BaseBodyProviderPartOrganic
+  abstract: true
+  suffix: Felinid
+  components:
+  - type: BodyAppearanceProvider
+    path: _White/Bodies/Parts/Humanoids/human.rsi
+  - type: Sprite
+    sprite: _White/Bodies/Parts/Humanoids/human.rsi
+
+# Arms
+- type: entity
+  id: BodyProviderLeftArmFelinid
+  parent: [BaseBodyProviderLeftArmOrganic, BaseBodyProviderPartFelinid]
+
+- type: entity
+  id: BodyProviderRightArmFelinid
+  parent: [BaseBodyProviderRightArmOrganic, BaseBodyProviderPartFelinid]
+
+# Chest
+- type: entity
+  id: BodyProviderChestFelinid
+  parent: [BaseBodyProviderChestOrganic, BaseBodyProviderPartFelinid]
+
+# Foots
+- type: entity
+  id: BodyProviderLeftFootFelinid
+  parent: [BaseBodyProviderLeftFootOrganic, BaseBodyProviderPartFelinid]
+
+- type: entity
+  id: BodyProviderRightFootFelinid
+  parent: [BaseBodyProviderRightFootOrganic, BaseBodyProviderPartFelinid]
+
+# Groin
+- type: entity
+  id: BodyProviderGroinFelinid
+  parent: [BaseBodyProviderGroinOrganic, BaseBodyProviderPartFelinid]
+
+# Hands
+- type: entity
+  id: BodyProviderLeftHandFelinid
+  parent: [BaseBodyProviderLeftHandOrganic, BaseBodyProviderPartFelinid]
+
+- type: entity
+  id: BodyProviderRightHandFelinid
+  parent: [BaseBodyProviderRightHandOrganic, BaseBodyProviderPartFelinid]
+
+# Head
+- type: entity
+  id: BodyProviderHeadFelinid
+  parent: [BaseBodyProviderHeadOrganic, BaseBodyProviderPartFelinid]
+
+# Legs
+- type: entity
+  id: BodyProviderLeftLegFelinid
+  parent: [BaseBodyProviderLeftLegOrganic, BaseBodyProviderPartFelinid]
+
+- type: entity
+  id: BodyProviderRightLegFelinid
+  parent: [BaseBodyProviderRightLegOrganic, BaseBodyProviderPartFelinid]
+
+# Tail
+- type: entity
+  id: BodyProviderTailFelinid
+  parent: [BaseBodyProviderTailOrganic, BaseBodyProviderPartFelinid]
+  components:
+  - type: BodyAppearanceProvider
+    path: _White/Bodies/Parts/Humanoids/felinid.rsi
+  - type: Sprite
+    sprite: _White/Bodies/Parts/Humanoids/felinid.rsi

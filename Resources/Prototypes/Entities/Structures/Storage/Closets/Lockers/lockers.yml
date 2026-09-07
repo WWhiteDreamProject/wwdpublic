@@ -44,8 +44,8 @@
     stateDoorClosed: secure_door
   - type: DamageOtherOnHit
     damage:
-      types:
-        Blunt: 15
+      # WD EDIT: Migrated damage format
+      Blunt: 15
     staminaCost: 50
 
 # Cargo

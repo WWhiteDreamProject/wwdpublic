@@ -13,9 +13,9 @@
     animation: WeaponArcSmash
     attackRate: 1
     damage:
-      types:
-        Structural: 40
-        Blunt: 50
+      # WD EDIT: Migrated damage format
+      Blunt: 50
+      Structural: 40
   - type: MovementSpeedModifier
     baseWalkSpeed: 5
     baseSprintSpeed: 5

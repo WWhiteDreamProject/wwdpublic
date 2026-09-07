@@ -18,7 +18,6 @@ chat-language-Calcic-name = Кальцик
 chat-language-ValyrianStandard-name = Валирийский
 chat-language-Sign-name = Жесты
 chat-language-Marish-name = Маришский
-chat-language-Chittin-name = Хитинидский
 
 # Animal Languages
 

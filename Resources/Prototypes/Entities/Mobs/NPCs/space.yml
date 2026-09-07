@@ -51,9 +51,9 @@
     angle: 0
     animation: WeaponArcClaw
     damage:
-      types:
-        Blunt: 5
-        Slash: 10
+      # WD EDIT: Migrated damage format
+      Blunt: 5
+      Slash: 10
   - type: Tag
     tags:
     - DoorBumpOpener
@@ -140,9 +140,9 @@
     angle: 0
     animation: WeaponArcClaw
     damage:
-      types:
-        Blunt: 9
-        Slash: 2
+      # WD EDIT: Migrated damage format
+      Blunt: 9
+      Slash: 2
   - type: MovementSpeedModifier
     baseWalkSpeed: 3.5
     baseSprintSpeed: 4.5
@@ -234,9 +234,9 @@
     angle: 0
     animation: WeaponArcBite
     damage:
-      types:
-        Piercing: 6
-        Poison: 4
+      # WD EDIT: Migrated damage format
+      Piercing: 6
+      Poison: 4
   - type: SolutionContainerManager
     solutions:
       melee:
@@ -344,9 +344,9 @@
       angle: 0
       animation: WeaponArcBite
       damage:
-        types:
-          Piercing: 6
-          Poison: 4
+        # WD EDIT: Migrated damage format
+        Piercing: 6
+        Poison: 4
     - type: SolutionContainerManager
       solutions:
         melee:
@@ -378,13 +378,11 @@
     - type: SalvageMobRestrictions
 
 - type: entity
-  parent: SimpleSpaceMobBase
+  parent: [SimpleSpaceMobBase, BaseBodyAnimal] # WD EDIT: BaseBodyAnimal
   id: MobSnail
   name: snail
   description: Revolting unless you're french.
   components:
-  - type: Body
-    prototype: Mouse
   - type: GhostRole
     makeSentient: true
     allowSpeech: false
@@ -446,7 +444,7 @@
         Base: dead
       Dead:
         Base: dead
-  - type: Food
+  - type: Ingestible # WD Ingestible
   - type: Thirst
     startingThirst: 25  # spawn with Okay thirst state
     thresholds:
@@ -468,7 +466,7 @@
     grindableSolutionName: food
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 3
@@ -506,8 +504,8 @@
       - !type:HealthChange
         scaleByQuantity: true
         damage:
-          types:
-            Caustic: 1
+          # WD EDIT: Migrated damage format
+          Caustic: 1
       - !type:PopupMessage
         type: Local
         visualType: Large
@@ -558,12 +556,10 @@
   - type: MovementAlwaysTouching
 
 - type: entity
-  parent: MobSnail
+  parent: [MobSnail, BaseBodyMothroach] # WD EDIT: BaseBodyMothroach
   id: MobSnailMoth
   name: Snoth
   components:
-  - type: Body
-    prototype: Mothroach
   - type: GhostRole
     name: ghost-role-information-snoth-name
     description: ghost-role-information-snoth-description

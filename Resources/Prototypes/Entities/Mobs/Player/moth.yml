@@ -1,5 +1,6 @@
-- type: entity
-  save: false
-  name: Urist McFluff
-  parent: BaseMobMoth
-  id: MobMoth
+# TODO
+# - type: entity
+#   save: false
+#   name: Urist McFluff
+#   parent: BaseMobMoth
+#   id: MobMoth

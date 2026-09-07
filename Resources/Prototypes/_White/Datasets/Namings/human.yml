@@ -1,0 +1,17 @@
+- type: localizedDataset
+  id: NamingFirstHuman
+  values:
+    prefix: naming-first-human-
+    count: 666
+
+- type: localizedDataset
+  id: NamingFirstHumanFemale
+  values:
+    prefix: naming-first-human-female-
+    count: 771
+
+- type: localizedDataset
+  id: NamingLastHuman
+  values:
+    prefix: naming-last-human-
+    count: 21

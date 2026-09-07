@@ -1,0 +1,85 @@
+- type: entity
+  id: BaseBodyProviderOrganGingerbread
+  parent: BaseBodyProviderOrganOrganic
+  abstract: true
+  suffix: Gingerbread
+  components:
+  - type: FlavorProfile
+    flavors:
+    - sweet
+  - type: SolutionContainerManager
+    solutions:
+      ingestible:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Sugar
+          Quantity: 10
+  - type: Sprite
+    sprite: _White/Bodies/Organs/Humanoids/human.rsi # TODO: Replace with a unique sprite.
+
+- type: entity
+  id: BaseMetabolizerGingerbread
+  abstract: true
+  components:
+  - type: Metabolizer
+    types: [ BloodSugar, Gingerbread ]
+
+# Brain
+- type: entity
+  id: BodyProviderBrainGingerbread
+  parent: [BaseBodyProviderBrainOrganic, BaseBodyProviderOrganGingerbread]
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      ingestible:
+        reagents:
+        - ReagentId: GreyMatter
+          Quantity: 10
+        - ReagentId: Nutriment
+          Quantity: 7.5
+        - ReagentId: Sugar
+          Quantity: 7.5
+
+# Ears
+- type: entity
+  id: BodyProviderEarsGingerbread
+  parent: [BaseBodyProviderEars, BaseBodyProviderOrganGingerbread]
+
+# Eyes
+- type: entity
+  id: BodyProviderEyesGingerbread
+  parent: [BaseBodyProviderEyes, BaseBodyProviderOrganGingerbread]
+  components:
+  - type: BodyAppearanceProvider
+    path: _White/Bodies/Organs/Humanoids/gingerbread.rsi
+
+# Heart
+- type: entity
+  id: BodyProviderHeartGingerbread
+  parent: [BaseBodyProviderHeartRespiratory, BaseBodyProviderOrganGingerbread]
+
+# Kidneys
+- type: entity
+  id: BodyProviderKidneysGingerbread
+  parent: [BaseBodyProviderKidneysRespiratory, BaseBodyProviderOrganGingerbread, BaseMetabolizerGingerbread]
+
+# Liver
+- type: entity
+  id: BodyProviderLiverGingerbread
+  parent: [BaseBodyProviderLiverRespiratory, BaseBodyProviderOrganGingerbread, BaseMetabolizerGingerbread]
+
+# Lungs
+- type: entity
+  id: BodyProviderLungsGingerbread
+  parent: [BaseBodyProviderLungsRespiratory, BaseBodyProviderOrganGingerbread, BaseMetabolizerGingerbread]
+
+# Stomach
+- type: entity
+  id: BodyProviderStomachGingerbread
+  parent: [BaseBodyProviderStomachRespiratory, BaseBodyProviderOrganGingerbread, BaseMetabolizerGingerbread]
+
+# Tongue
+- type: entity
+  id: BodyProviderTongueGingerbread
+  parent: [BaseBodyProviderTongue, BaseBodyProviderOrganGingerbread]

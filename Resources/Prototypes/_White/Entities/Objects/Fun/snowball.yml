@@ -45,8 +45,8 @@
         acts: ["Destruction"]
   - type: DamageOnLand
     damage:
-      types:
-        Blunt: 3
+      # WD EDIT: Migrated damage format
+      Blunt: 3
   - type: StaminaDamageOnCollide
     damage: 8.1
   - type: Sprite
@@ -66,8 +66,8 @@
     - snow
     ignoreReagents:
     - Water
-  - type: Food
-    solution: snowball
+  - type: Ingestible
+    solutionName: snowball
   - type: MixableSolution
     solution: snowball
   - type: InjectableSolution

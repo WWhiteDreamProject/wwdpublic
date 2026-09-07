@@ -1,0 +1,14 @@
+- type: species
+  id: Vox
+  defaultColors:
+    Eyes: "#634E34"
+    Skin: "#6C741D"
+  colorations:
+    Eyes: Simple
+    Skin: VoxFeathers
+  doll: HumanoidDollVox
+  prototype: MobHumanoidVox
+  sexes:
+  - Unsexed
+  name: species-name-vox
+  naming: Vox

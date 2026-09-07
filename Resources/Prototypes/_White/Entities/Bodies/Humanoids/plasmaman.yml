@@ -1,0 +1,77 @@
+- type: entity
+  id: BaseBodyPlasmaman
+  parent: BaseBody
+  abstract: true
+  components:
+  - type: Body
+    rootProvider:
+      type: Chest
+      providers:
+        groin:
+          type: Groin
+          providers:
+            kidneys:
+              type: Kidneys
+              startingProvider: BodyProviderKidneysPlasmaman
+            left_leg:
+              type: LeftLeg
+              providers:
+                left_foot:
+                  type: LeftFoot
+                  startingProvider: BodyProviderLeftFootPlasmaman
+              startingProvider: BodyProviderLeftLegPlasmaman
+            liver:
+              type: Liver
+              startingProvider: BodyProviderLiverPlasmaman
+            right_leg:
+              type: RightLeg
+              providers:
+                right_foot:
+                  type: RightFoot
+                  startingProvider: BodyProviderRightFootPlasmaman
+              startingProvider: BodyProviderRightLegPlasmaman
+            stomach:
+              type: Stomach
+              startingProvider: BodyProviderStomachPlasmaman
+            tail:
+              type: Tail
+          startingProvider: BodyProviderGroinPlasmaman
+        head:
+          type: Head
+          providers:
+            brain:
+              type: Brain
+              startingProvider: BodyProviderBrainPlasmaman
+            ears:
+              type: Ears
+              startingProvider: BodyProviderEarsPlasmaman
+            eyes:
+              type: Eyes
+              startingProvider: BodyProviderEyesPlasmaman
+            tongue:
+              type: Tongue
+              startingProvider: BodyProviderTonguePlasmaman
+          startingProvider: BodyProviderHeadPlasmaman
+        heart:
+          type: Heart
+          startingProvider: BodyProviderHeartPlasmaman
+        left_arm:
+          type: LeftArm
+          providers:
+            left_hand:
+              type: LeftHand
+              startingProvider: BodyProviderLeftHandPlasmaman
+          startingProvider: BodyProviderLeftArmPlasmaman
+        lungs:
+          type: Lungs
+          startingProvider: BodyProviderLungsPlasmaman
+        right_arm:
+          type: RightArm
+          providers:
+            right_hand:
+              type: RightHand
+              startingProvider: BodyProviderRightHandPlasmaman
+          startingProvider: BodyProviderRightArmPlasmaman
+        wings:
+          type: Wings
+      startingProvider: BodyProviderChestPlasmaman

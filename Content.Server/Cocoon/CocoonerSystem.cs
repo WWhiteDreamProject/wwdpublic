@@ -117,7 +117,7 @@ namespace Content.Server.Cocoon
         private void OnDamageChanged(EntityUid uid, CocoonComponent component, DamageChangedEvent args)
         {
             // WD EDIT START
-            if (!args.DamageIncreased || component.Victim == null)
+            if (!args.Damage.AnyPositive() || component.Victim == null)
                 return;
 
             var damage = args.Damage * component.DamagePassthrough;

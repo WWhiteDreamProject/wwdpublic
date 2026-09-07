@@ -16,9 +16,8 @@
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Poison: 4
-
+          # WD EDIT: Migrated damage format
+          Poison: 4
 - type: reagent
   id: CarpoToxin
   name: reagent-name-carpotoxin
@@ -37,8 +36,8 @@
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Poison: 4
+          # WD EDIT: Migrated damage format
+          Poison: 4
       - !type:PopupMessage
         type: Local
         visualType: MediumCaution
@@ -75,9 +74,8 @@
           reagent: ChloralHydrate
           min: 20
         damage:
-          types:
-            Poison: 1.5
-
+          # WD EDIT: Migrated damage format
+          Poison: 1.5
 - type: reagent
   id: GastroToxin
   name: reagent-name-gastrotoxin
@@ -91,8 +89,8 @@
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Poison: 2
+          # WD EDIT: Migrated damage format
+          Poison: 2
       - !type:ChemVomit
         conditions:
         - !type:ReagentThreshold
@@ -113,9 +111,8 @@
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Poison: 1
-
+          # WD EDIT: Migrated damage format
+          Poison: 1
 - type: reagent
   id: PolytrinicAcid
   name: reagent-name-polytrinic-acid
@@ -141,8 +138,8 @@
         scaleByQuantity: true
         ignoreResistances: false
         damage:
-          types:
-            Caustic: 0.5
+          # WD EDIT: Migrated damage format
+          Caustic: 0.5
       - !type:Emote
         emote: Scream
         probability: 0.3
@@ -152,8 +149,8 @@
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Caustic: 11.0
+          # WD EDIT: Migrated damage format
+          Caustic: 11
       - !type:PopupMessage
         type: Local
         visualType: Large
@@ -181,10 +178,9 @@
         scaleByQuantity: true
         ignoreResistances: true
         damage:
-          types:
-            Heat: 2.5
-            Caustic: 1
-
+          # WD EDIT: Migrated damage format
+          Caustic: 1
+          Heat: 2.5
 - type: reagent
   id: FluorosulfuricAcid
   name: reagent-name-fluorosulfuric-acid
@@ -203,8 +199,8 @@
         scaleByQuantity: true
         ignoreResistances: false
         damage:
-          types:
-            Caustic: 0.3
+          # WD EDIT: Migrated damage format
+          Caustic: 0.3
       - !type:Emote
         emote: Scream
         probability: 0.2
@@ -214,8 +210,8 @@
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Caustic: 8
+          # WD EDIT: Migrated damage format
+          Caustic: 8
       - !type:PopupMessage
         type: Local
         visualType: Large
@@ -251,8 +247,8 @@
         scaleByQuantity: true
         ignoreResistances: false
         damage:
-          types:
-            Caustic: 0.1
+          # WD EDIT: Migrated damage format
+          Caustic: 0.1
       - !type:Emote
         emote: Scream
         probability: 0.1
@@ -262,8 +258,8 @@
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Caustic: 5
+          # WD EDIT: Migrated damage format
+          Caustic: 5
       - !type:PopupMessage
         type: Local
         visualType: Large
@@ -291,9 +287,8 @@
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Radiation: 3
-
+          # WD EDIT: Migrated damage format
+          Radiation: 3
 - type: reagent
   id: HeartbreakerToxin
   name: reagent-name-heartbreaker-toxin
@@ -306,8 +301,8 @@
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Asphyxiation: 5
+          # WD EDIT: Migrated damage format
+          Asphyxiation: 5
   plantMetabolism:
   - !type:PlantAdjustToxins
     amount: 10
@@ -324,9 +319,9 @@
       effects:
       - !type:HealthChange
         damage:
-          groups:
-            Airloss: 10
-
+          # WD EDIT: Migrated damage format
+          Asphyxiation: 5
+          Bloodloss: 5
 - type: reagent
   id: MindbreakerToxin
   name: reagent-name-mindbreaker-toxin
@@ -367,18 +362,23 @@
       - !type:HealthChange
         probability: 0.1
         damage:
-          groups:
-            Brute: 2
-      # todo: cough, sneeze
+          # WD EDIT: Migrated damage format
+          Blunt: 0.7
+          Piercing: 0.7
+          Slash: 0.7
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 45
         damage:
-          groups:
-            Brute: 2
-            Toxin: 2
-            Airloss: 2
+          # WD EDIT: Migrated damage format
+          Asphyxiation: 1
+          Bloodloss: 1
+          Blunt: 0.7
+          Piercing: 0.7
+          Poison: 1
+          Radiation: 1
+          Slash: 0.7
       - !type:PopupMessage
         type: Local
         messages: [ "histamine-effect-light-itchiness" ]
@@ -410,8 +410,8 @@
         - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Animal # Applying damage to the mobs with lower metabolism capabilities
         damage:
-          types:
-            Poison: 0.2 # WD EDIT: 0.4 -> 0.2 - Made smaller to be able to get lower amount of toxins per food/drink
+          # WD EDIT: Migrated damage format
+          Poison: 0.2
       - !type:ChemVomit
         probability: 0.02 # WD EDIT: 0.04 -> 0.02 - Scaled for time, not metabolismrate.
         conditions:
@@ -431,9 +431,8 @@
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Poison: 3
-
+          # WD EDIT: Migrated damage format
+          Poison: 3
 - type: reagent
   id: VentCrud
   name: reagent-name-vent-crud
@@ -447,9 +446,8 @@
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Poison: 2
-
+          # WD EDIT: Migrated damage format
+          Poison: 2
 - type: reagent
   id: Romerol
   name: reagent-name-romerol
@@ -504,19 +502,13 @@
           type: Animal
           shouldHave: false
         damage:
-          types:
-            Poison: 1
+          # WD EDIT: Migrated damage format
+          Poison: 1
       - !type:AdjustReagent
         conditions:
         - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Animal
           shouldHave: true
-        reagent: Protein
-        amount: 0.5
-      - !type:AdjustReagent
-        conditions:
-        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
-          type: Shadowkin
         reagent: Protein
         amount: 0.5
 
@@ -539,9 +531,8 @@
         - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Animal
         damage:
-          types:
-            Poison: 0.06
-
+          # WD EDIT: Migrated damage format
+          Poison: 0.1
 - type: reagent
   id: Pax
   name: reagent-name-pax
@@ -584,10 +575,8 @@
         - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Animal
         damage:
-          types:
-            Poison: 0.06
-
-
+          # WD EDIT: Migrated damage format
+          Poison: 0.1
 - type: reagent
   id: Lead
   name: reagent-name-lead
@@ -601,9 +590,8 @@
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Poison: 0.6 # Makes it 20 damage per unit.
-
+          # WD EDIT: Migrated damage format
+          Poison: 0.6
 - type: reagent
   id: Bungotoxin
   name: reagent-name-bungotoxin
@@ -617,9 +605,8 @@
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Poison: 1.8
-
+          # WD EDIT: Migrated damage format
+          Poison: 1.8
 - type: reagent
   id: Vestine
   name: reagent-name-vestine
@@ -640,9 +627,9 @@
         sprintSpeedModifier: 0.8
       - !type:HealthChange
         damage:
-          groups:
-            Airloss: 2
-
+          # WD EDIT: Migrated damage format
+          Asphyxiation: 1
+          Bloodloss: 1
 - type: reagent
   id: Tazinide
   name: reagent-name-tazinide
@@ -673,8 +660,8 @@
         - !type:Hunger
           max: 50
         damage:
-          types:
-            Poison: 2
+          # WD EDIT: Migrated damage format
+          Poison: 2
       - !type:SatiateHunger
         factor: -6
 
@@ -698,8 +685,8 @@
           type: Arachnid
           shouldHave: false
         damage:
-          types:
-            Poison: 1.6
+          # WD EDIT: Migrated damage format
+          Poison: 1.6
       - !type:MovespeedModifier
         conditions:
         - !type:ReagentThreshold

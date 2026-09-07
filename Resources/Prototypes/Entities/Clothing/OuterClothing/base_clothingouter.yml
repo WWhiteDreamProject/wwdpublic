@@ -205,8 +205,8 @@
     slots: OUTERCLOTHING
   - type: DamageOtherOnHit
     damage:
-      types:
-        Blunt: 19
+      # WD EDIT: Migrated damage format
+      Blunt: 19
     staminaCost: 44
     soundHit:
       collection: MetalThud
@@ -266,8 +266,8 @@
         friction: 0.2
   - type: DamageOtherOnHit
     damage:
-      types:
-        Blunt: 30
+      # WD EDIT: Migrated damage format
+      Blunt: 30
     staminaCost: 60
     soundHit:
       collection: MetalThud
@@ -311,8 +311,8 @@
         friction: 0.2
   - type: DamageOtherOnHit
     damage:
-      types:
-        Blunt: 45
+      # WD EDIT: Migrated damage format
+      Blunt: 45
     staminaCost: 110
     soundHit:
       collection: MetalThud

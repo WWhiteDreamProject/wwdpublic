@@ -12,20 +12,20 @@ public abstract partial class SharedBodySystem
     {
         SubscribeLocalEvent<BodyComponent, BloodAmountChangedEvent>(RelayEvent);
         SubscribeLocalEvent<BodyComponent, GetMetabolicRateEvent>(RelayEvent);
+        SubscribeLocalEvent<BodyComponent, GetPainEvent>(RelayEvent);
         SubscribeLocalEvent<BodyComponent, GetWoundableDamageEvent>(RelayEvent);
         SubscribeLocalEvent<BodyComponent, MetabolicRateChangedEvent>(RelayEvent);
         SubscribeLocalEvent<BodyComponent, PainChangedEvent>(RelayEvent);
         SubscribeLocalEvent<BodyComponent, TryIngestEvent>(RelayEvent);
 
         SubscribeLocalEvent<BodyProviderComponent, GetWoundableDamageEvent>(RelayEvent);
-        SubscribeLocalEvent<BodyProviderComponent, WoundableDamageChangedEvent>(RelayEvent);
     }
 
     protected void RelayEvent<T>(Entity<BodyComponent> ent, ref T args) where T : IBodyRelayEvent
     {
         var ev = new BodyRelayedEvent<T>(args);
 
-        foreach (var provider in GetProviders(ent.AsNullable(), args.Type))
+        foreach (var provider in GetProviders(ent.AsNullable(), args.ProviderType))
         {
             ev.Provider = provider.Comp;
             RaiseLocalEvent(provider, ref ev);
@@ -38,7 +38,7 @@ public abstract partial class SharedBodySystem
     {
         var ev = new BodyRelayedEvent<T>(args);
 
-        foreach (var provider in GetProviders(ent.AsNullable(), args.Type))
+        foreach (var provider in GetProviders(ent.AsNullable(), args.ProviderType))
         {
             ev.Provider = provider.Comp;
             RaiseLocalEvent(provider, ref ev);
@@ -68,5 +68,5 @@ public interface IBodyRelayEvent
     /// <summary>
     /// What body providers should this event be relayed to.
     /// </summary>
-    public BodyProviderType Type { get; }
+    public BodyProviderType ProviderType { get; }
 }

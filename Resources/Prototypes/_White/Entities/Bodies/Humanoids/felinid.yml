@@ -1,0 +1,125 @@
+- type: entity
+  id: BaseBodyFelinid
+  parent: BaseBody
+  abstract: true
+  components:
+  - type: Body
+    rootProvider:
+      type: Chest
+      providers:
+        groin:
+          type: Groin
+          providers:
+            coxae:
+              type: Coxae
+              providers:
+                appendix:
+                  type: Appendix
+                  startingProvider: BodyProviderAppendixFelinid
+                kidneys:
+                  type: Kidneys
+                  startingProvider: BodyProviderKidneysFelinid
+                liver:
+                  type: Liver
+                  startingProvider: BodyProviderLiverFelinid
+                stomach:
+                  type: Stomach
+                  startingProvider: BodyProviderStomachFelinid
+              startingProvider: BodyProviderCoxaeFelinid
+            left_leg:
+              type: LeftLeg
+              providers:
+                left_crus:
+                  type: LeftCrus
+                  startingProvider: BodyProviderLeftCrusFelinid
+                left_foot:
+                  type: LeftFoot
+                  providers:
+                    left_pedis:
+                      type: LeftPedis
+                      startingProvider: BodyProviderLeftPedisFelinid
+                  startingProvider: BodyProviderLeftFootFelinid
+              startingProvider: BodyProviderLeftLegFelinid
+            right_leg:
+              type: RightLeg
+              providers:
+                right_crus:
+                  type: RightCrus
+                  startingProvider: BodyProviderRightCrusFelinid
+                right_foot:
+                  type: RightFoot
+                  providers:
+                    right_pedis:
+                      type: RightPedis
+                      startingProvider: BodyProviderRightPedisFelinid
+                  startingProvider: BodyProviderRightFootFelinid
+              startingProvider: BodyProviderRightLegFelinid
+            tail:
+              type: Tail
+              providers:
+                cauda:
+                  type: Cauda
+                  startingProvider: BodyProviderCaudaFelinid
+              startingProvider: BodyProviderPartTailFelinid
+          startingProvider: BodyProviderGroinFelinid
+        head:
+          type: Head
+          providers:
+            cranium:
+              type: Сranium
+              providers:
+                brain:
+                  type: Brain
+                  startingProvider: BodyProviderBrainFelinid
+                ears:
+                  type: Ears
+                  startingProvider: BodyProviderEarsFelinid
+                eyes:
+                  type: Eyes
+                  startingProvider: BodyProviderEyesFelinid
+                tongue:
+                  type: Tongue
+                  startingProvider: BodyProviderTongueFelinid
+              startingProvider: BodyProviderСraniumFelinid
+          startingProvider: BodyProviderHeadFelinid
+        left_arm:
+          type: LeftArm
+          providers:
+            left_antebrachium:
+              type: LeftAntebrachium
+              startingProvider: BodyProviderLeftAntebrachiumFelinid
+            left_hand:
+              type: LeftHand
+              providers:
+                left_manus:
+                  type: LeftManus
+                  startingProvider: BodyProviderLeftManusFelinid
+              startingProvider: BodyProviderLeftHandFelinid
+          startingProvider: BodyProviderLeftArmFelinid
+        right_arm:
+          type: RightArm
+          providers:
+            right_antebrachium:
+              type: RightAntebrachium
+              startingProvider: BodyProviderRightAntebrachiumFelinid
+            right_hand:
+              type: RightHand
+              providers:
+                right_manus:
+                  type: RightManus
+                  startingProvider: BodyProviderRightManusFelinid
+              startingProvider: BodyProviderRightHandFelinid
+          startingProvider: BodyProviderRightArmFelinid
+        thorax:
+          type: Thorax
+          providers:
+            heart:
+              type: Heart
+              startingProvider: BodyProviderHeartFelinid
+            lungs:
+              type: Lungs
+              startingProvider: BodyProviderLungsFelinid
+          startingProvider: BodyProviderThoraxFelinid
+        wings:
+          type: Wings
+      startingProvider: BodyProviderChestFelinid

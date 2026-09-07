@@ -10,8 +10,8 @@
   - type: Projectile
     deleteOnCollide: false
     damage:
-      types:
-        Blunt: 4
+      # WD EDIT: Migrated damage format
+      Blunt: 4
   - type: StaminaDamageOnCollide
     damage: 55
   - type: TimedDespawn
@@ -35,8 +35,8 @@
   - type: Projectile
     deleteOnCollide: false
     damage:
-      types:
-        Piercing: 45
+      # WD EDIT: Migrated damage format
+      Piercing: 45
   - type: TimedDespawn
     lifetime: 0.25
 
@@ -52,9 +52,9 @@
   - type: Projectile
     deleteOnCollide: false
     damage:
-      types:
-        Blunt: 1
-        Heat: 2
+      # WD EDIT: Migrated damage format
+      Blunt: 1
+      Heat: 2
   - type: IgniteOnCollide
     fireStacks: 1
     count: 10

@@ -31,32 +31,38 @@ public abstract partial class SharedMarkingsSystem
 
     private void OnApplyMarkings(Entity<MarkingsProviderComponent> ent, ref BodyRelayedEvent<ApplyMarkingsEvent> args)
     {
-        if (!args.Args.MarkingsSet.TryGetValue(ent.Comp.Data.Category, out var markingSet))
-            return;
+        var markings = new Dictionary<Enum, List<Marking>>();
+        foreach (var marking in args.Args.Markings)
+        {
+            if (marking.OverrideAppearance)
+                continue;
 
-        SetMarkings(ent.AsNullable(), markingSet);
+            if (!ent.Comp.Data.Layers.Contains(marking.Layer))
+                continue;
+
+            if (markings.TryGetValue(marking.Layer, out var layerMarkings))
+            {
+                layerMarkings.Add(marking);
+                continue;
+            }
+
+            markings.Add(marking.Layer, new() {marking});
+        }
+
+        SetMarkings(ent.AsNullable(), markings);
     }
 
     private void OnGetMarkingsData(Entity<MarkingsProviderComponent> ent, ref BodyRelayedEvent<GetMarkingsDataEvent> args)
     {
-        args.Args.Data.Add(ent.Comp.Data.Category, ent.Comp.Data);
-
-        if (args.Args.Filter is null)
+        foreach (var layer in ent.Comp.Data.Layers)
         {
-            args.Args.Set.TryAdd(ent.Comp.Data.Category, ent.Comp.Markings);
-            return;
-        }
+            args.Args.Data.Add(layer, ent.Comp.Data);
 
-        var markings = new List<Marking>();
-        foreach (var marking in ent.Comp.Markings)
-        {
-            if (!args.Args.Filter.Contains(marking.Layer))
+            if (!ent.Comp.Markings.TryGetValue(layer, out var layerMarkings))
                 continue;
 
-            markings.Add(marking);
+            args.Args.Markings.Add(layer, layerMarkings);
         }
-
-        args.Args.Set.TryAdd(ent.Comp.Data.Category, markings);
     }
 
     #endregion
@@ -64,16 +70,16 @@ public abstract partial class SharedMarkingsSystem
     #region Public API
 
     /// <summary>
-    /// Attempts to retrieve the <see cref="MarkingsData"/> associated with a given body provider prototype ID.
+    /// Attempts to retrieve the <see cref="MarkingData"/> and layers associated with a given body provider prototype ID.
     /// </summary>
     /// <param name="prototype">The <see cref="EntProtoId"/> of the body provider prototype to look up.</param>
     /// <param name="data">The appearance data for the body provider if it exists.</param>
-    /// <returns>True if the provided entity prototype ID corresponded to a valid provider with marking data that could be returned, false otherwise.</returns>
-    public bool TryGetData(EntProtoId prototype, [NotNullWhen(true)] out MarkingsData? data)
+    /// <returns>True if the provided entity prototype ID corresponded to a valid provider with marking data and layers that could be returned, false otherwise.</returns>
+    public bool TryGetData(EntProtoId prototype, [NotNullWhen(true)] out MarkingData? data)
     {
         data = null;
 
-        if (!_prototype.TryIndex(prototype, out var provider))
+        if (!Prototype.TryIndex(prototype, out var provider))
             return false;
 
         if (!provider.TryGetComponent<MarkingsProviderComponent>(out var comp, _componentFactory))
@@ -83,39 +89,7 @@ public abstract partial class SharedMarkingsSystem
         return true;
     }
 
-    public IEnumerable<Marking> GetMarkings(Entity<MarkingsProviderComponent?> ent)
-    {
-        if (!ProviderQuery.Resolve(ent, ref ent.Comp))
-            yield break;
-
-        foreach (var marking in ent.Comp.Markings)
-        {
-            yield return marking;
-        }
-
-        if (!CensorNudity)
-            yield break;
-
-        var group = _prototype.Index(ent.Comp.Data.Group);
-        if (!group.Limits.TryGetValue(ent.Comp.Data.Category, out var limits))
-            yield break;
-
-        if (limits.NudityDefault.Count < 1)
-            yield break;
-
-        foreach (var markingId in limits.NudityDefault)
-        {
-            if (!Marking.TryGetMarking(markingId, out var prototype))
-                continue;
-
-            foreach (var data in prototype.Markings)
-            {
-                yield return new(data.Layer, markingId, data.Sprite);
-            }
-        }
-    }
-
-    public virtual void SetMarkings(Entity<MarkingsProviderComponent?> ent, List<Marking> markings)
+    public virtual void SetMarkings(Entity<MarkingsProviderComponent?> ent, Dictionary<Enum, List<Marking>> markings)
     {
         if (!ProviderQuery.Resolve(ent, ref ent.Comp))
             return;

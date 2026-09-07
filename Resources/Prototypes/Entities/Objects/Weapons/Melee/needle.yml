@@ -11,12 +11,10 @@
     animationRotation: -135 # WWDP
     wideAnimationRotation: -135
     damage:
-      types:
-        Piercing: 1
+      Piercing: 1
   - type: DamageOtherOnHit
     damage:
-      types:
-        Piercing: 1
+      Piercing: 1
   - type: EmbeddableProjectile
     removalTime: 0
   - type: Item

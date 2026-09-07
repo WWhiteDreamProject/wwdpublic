@@ -21,7 +21,8 @@ public abstract partial class SharedPainfulSystem
         ent.Comp.Body = args.Body;
         DirtyField(ent, ent.Comp, nameof(PainfulProviderComponent.Body));
 
-        RaiseLocalEvent(args.Body, new PainLevelChangedEvent(ent.Comp.Level, ent.Comp.Location));
+        var ev = new PainLevelChangedEvent(ent.Comp.Level, ent.Comp.Location);
+        RaiseLocalEvent(args.Body, ref ev);
     }
 
     private void OnGotRemoved(Entity<PainfulProviderComponent> ent, ref BodyProviderGotRemovedEvent args)
@@ -29,17 +30,18 @@ public abstract partial class SharedPainfulSystem
         ent.Comp.Body = null;
         DirtyField(ent, ent.Comp, nameof(PainfulProviderComponent.Body));
 
-        RaiseLocalEvent(args.Body, new PainLevelChangedEvent(PainLevel.None, ent.Comp.Location));
+        var ev = new PainLevelChangedEvent(PainLevel.None, ent.Comp.Location);
+        RaiseLocalEvent(args.Body, ref ev);
     }
 
     private void OnGetPain(Entity<PainfulProviderComponent> ent, ref BodyRelayedEvent<GetPainEvent> args)
     {
-        var getPainEv = new GetPainEvent(FixedPoint2.Zero);
-        RaiseLocalEvent(ent, ref getPainEv);
+        var ev = new GetPainEvent(FixedPoint2.Zero);
+        RaiseLocalEvent(ent, ref ev);
 
-        SetPain(ent.AsNullable(), getPainEv.Pain);
+        SetPain(ent.AsNullable(), ev.Pain);
 
-        args.Args = new (args.Args.Pain + ent.Comp.Pain);
+        args.Args = new(args.Args.Pain + ent.Comp.Pain);
     }
 
     #endregion
@@ -79,7 +81,8 @@ public abstract partial class SharedPainfulSystem
         if (ent.Comp.Body is not { } body)
             return;
 
-        RaiseLocalEvent(body, new PainLevelChangedEvent(painLevel, ent.Comp.Location));
+        var ev = new PainLevelChangedEvent(painLevel, ent.Comp.Location);
+        RaiseLocalEvent(body, ref ev);
     }
 
     #endregion

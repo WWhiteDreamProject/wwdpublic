@@ -17,10 +17,9 @@
     attackRate: 1.17
     range: 1.75
     damage:
-      types:
-        Blunt: 2
-        Slash: 13
-        Structural: 5
+      Blunt: 2
+      Slash: 13
+      Structural: 5
     heavyRateModifier: 1.25
     heavyDamageBaseModifier: 1.2
     heavyStaminaCost: 2.5
@@ -35,10 +34,9 @@
   - type: Wieldable
   - type: IncreaseDamageOnWield
     damage:
-      types:
-        Blunt: 2
-        Slash: 3
-        Structural: 10
+      Blunt: 2
+      Slash: 3
+      Structural: 10
   - type: Item
     size: Ginormous
   - type: Clothing

@@ -353,6 +353,5 @@ flavor-complex-sax = как джаз
 flavor-complex-bottledlightning = как молния в бутылке
 flavor-complex-punishment = как наказание
 flavor-complex-supernova = like a supernova frozen at its apex
-flavor-complex-xelthia = like some exotic kind of sourish calamari
 flavor-weh = like weh
 flavor-hew = like hew

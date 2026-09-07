@@ -1,7 +1,7 @@
 - type: entity
   name: basic slime
   id: BaseMobAdultSlimes
-  parent: [ SimpleMobBase, MobCombat ]
+  parent: [ SimpleMobBase, BaseMobCombat, BaseBodySlime ] # WD EDIT: BaseBodySlime
   abstract: true
   description: It looks so much like jelly. I wonder what it tastes like?
   components:
@@ -46,8 +46,8 @@
       amount: 2
   - type: Respirator
     damage:
-      types:
-        Asphyxiation: 0.2
+      # WD EDIT: Migrated damage format
+      Asphyxiation: 0.2
     damageRecovery:
       types:
         Asphyxiation: -1.0
@@ -67,8 +67,8 @@
           -0.25
   - type: Barotrauma
     damage:
-      types:
-        Blunt: 0.45
+      # WD EDIT: Migrated damage format
+      Blunt: 0.5
   - type: Reactive
     groups:
       Flammable: [ Touch ]
@@ -84,14 +84,12 @@
       - !type:HealthChange
         scaleByQuantity: true
         damage:
-          types:
-            Heat: 0.15
+          # WD EDIT: Migrated damage format
+          Heat: 0.1
       - !type:PopupMessage
         type: Local
         messages: [ "slime-hurt-by-water-popup" ]
         probability: 0.25
-  - type: Body
-    prototype: SimpleSlime # WD EDIT: Slimes -> SimpleSlime
   - type: MeleeWeapon
     altDisarm: false
     soundHit:
@@ -99,10 +97,10 @@
     angle: 0
     animation: WeaponArcPunch
     damage:
-      types:
-        Blunt: 6
-        Structural: 4
-        Caustic: 4
+      # WD EDIT: Migrated damage format
+      Blunt: 6
+      Caustic: 4
+      Structural: 4
   - type: InteractionPopup
     successChance: 0.5
     interactSuccessString: petting-success-slimes
@@ -191,12 +189,11 @@
           Base: green_adult_slime_dead
     - type: MeleeWeapon
       damage:
-        types:
-          Blunt: 6
-          Structural: 4
-          Caustic: 1
-          Poison: 4
-
+        # WD EDIT: Migrated damage format
+        Blunt: 6
+        Caustic: 1
+        Poison: 4
+        Structural: 4
 - type: entity
   name: green slime
   parent: MobAdultSlimesGreen
@@ -231,12 +228,11 @@
           Base: yellow_adult_slime_dead
     - type: MeleeWeapon
       damage:
-        types:
-          Blunt: 6
-          Structural: 4
-          Caustic: 1
-          Cellular: 3
-
+        # WD EDIT: Migrated damage format
+        Blunt: 6
+        Caustic: 1
+        Cellular: 3
+        Structural: 4
 - type: entity
   name: yellow slime
   parent: MobAdultSlimesYellow

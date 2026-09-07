@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ BaseItem, MobCombat ]
+  parent: [ BaseItem, BaseMobCombat ]
   id: MrChips
   name: mr chips
   suffix: Dummy
@@ -28,9 +28,8 @@
     angle: 30
     animation: WeaponArcPunch
     damage:
-      types:
-        Blunt: 2
-
+      # WD EDIT: Migrated damage format
+      Blunt: 2
 - type: entity
   parent: MrChips
   id: MrDips
@@ -76,12 +75,12 @@
   components:
   - type: DamageOnLand
     damage:
-      types:
-        Blunt: 1
+      # WD EDIT: Migrated damage format
+      Blunt: 1
   - type: DamageOtherOnHit
     damage:
-      types:
-        Blunt: 1
+      # WD EDIT: Migrated damage format
+      Blunt: 1
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible

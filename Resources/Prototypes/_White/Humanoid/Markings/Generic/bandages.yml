@@ -1,0 +1,147 @@
+- type: marking
+  id: BandagesBlindfold
+  parents: BaseBandages
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/bandages.rsi
+      state: blindfold
+
+- type: marking
+  id: BandagesEyePadLeft
+  parents: BaseBandages
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/bandages.rsi
+      state: eye_pad_left
+
+- type: marking
+  id: BandagesEyePadRight
+  parents: BaseBandages
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/bandages.rsi
+      state: eye_pad_right
+
+- type: marking
+  id: BandagesEyePatchLeft
+  parents: BaseBandages
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/bandages.rsi
+      state: eye_patch_left
+
+- type: marking
+  id: BandagesEyePatchRight
+  parents: BaseBandages
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/bandages.rsi
+      state: eye_patch_right
+
+- type: marking
+  id: BandagesHead
+  parents: BaseBandages
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/bandages.rsi
+      state: head
+
+- type: marking
+  id: BandagesLeftArm
+  parents: BaseBandages
+  definitions:
+  - layer: enum.BodyProviderType.LeftArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/bandages.rsi
+      state: left_arm
+
+- type: marking
+  id: BandagesLeftFoot
+  parents: BaseBandages
+  definitions:
+  - layer: enum.BodyProviderType.LeftFoot
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/bandages.rsi
+      state: left_foot
+
+- type: marking
+  id: BandagesLeftHand
+  parents: BaseBandages
+  definitions:
+  - layer: enum.BodyProviderType.LeftHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/bandages.rsi
+      state: left_hand
+
+- type: marking
+  id: BandagesLeftLeg
+  parents: BaseBandages
+  definitions:
+  - layer: enum.BodyProviderType.LeftLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/bandages.rsi
+      state: left_leg
+
+- type: marking
+  id: BandagesRightArm
+  parents: BaseBandages
+  definitions:
+  - layer: enum.BodyProviderType.RightArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/bandages.rsi
+      state: right_arm
+
+- type: marking
+  id: BandagesRightFoot
+  parents: BaseBandages
+  definitions:
+  - layer: enum.BodyProviderType.RightLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/bandages.rsi
+      state: right_foot
+
+- type: marking
+  id: BandagesRightHand
+  parents: BaseBandages
+  definitions:
+  - layer: enum.BodyProviderType.RightHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/bandages.rsi
+      state: right_hand
+
+- type: marking
+  id: BandagesRightLeg
+  parents: BaseBandages
+  definitions:
+  - layer: enum.BodyProviderType.RightLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/bandages.rsi
+      state: right_leg
+
+- type: marking
+  id: BandagesShoulder
+  parents: BaseBandages
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/bandages.rsi
+      state: shoulder_chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/bandages.rsi
+      state: shoulder_groin
+
+- type: marking
+  id: BandagesStomach
+  parents: BaseBandages
+  definitions:
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/bandages.rsi
+      state: stomach

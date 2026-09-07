@@ -16,8 +16,8 @@ public sealed partial class BlockingSystem
 
     private void InitializeUser()
     {
-        SubscribeLocalEvent<BlockingUserComponent, DamageModifyEvent>(OnUserDamageModified);
-        SubscribeLocalEvent<BlockingComponent, DamageModifyEvent>(OnDamageModified);
+        SubscribeLocalEvent<BlockingUserComponent, GetModifiedDamageEvent>(OnUserDamageModified);
+        SubscribeLocalEvent<BlockingComponent, GetModifiedDamageEvent>(OnDamageModified);
 
         SubscribeLocalEvent<BlockingUserComponent, EntParentChangedMessage>(OnParentChanged);
         SubscribeLocalEvent<BlockingUserComponent, ContainerGettingInsertedAttemptEvent>(OnInsertAttempt);
@@ -72,7 +72,7 @@ public sealed partial class BlockingSystem
         UserStopBlocking(uid, component);
     }
 
-    private void OnUserDamageModified(EntityUid uid, BlockingUserComponent component, DamageModifyEvent args)
+    private void OnUserDamageModified(EntityUid uid, BlockingUserComponent component, GetModifiedDamageEvent args)
     {
         // A shield should only block damage it can itself absorb. To determine that we need the Damageable component on it.
         if (!TryComp<BlockingComponent>(component.BlockingItem, out var blocking) || args.Damage.GetTotal() <= 0 ||
@@ -100,7 +100,7 @@ public sealed partial class BlockingSystem
             _audio.PlayPvs(blocking.BlockSound, uid);
     }
 
-    private void OnDamageModified(EntityUid uid, BlockingComponent component, DamageModifyEvent args)
+    private void OnDamageModified(EntityUid uid, BlockingComponent component, GetModifiedDamageEvent args)
     {
         var modifier = component.IsBlocking ? component.ActiveBlockDamageModifier : component.PassiveBlockDamageModifer;
         if (modifier == null)

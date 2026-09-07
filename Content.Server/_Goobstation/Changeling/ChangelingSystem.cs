@@ -705,7 +705,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         if (mobState.CurrentState != MobState.Dead)
             return;
 
-        if (!args.DamageIncreased)
+        if (!args.Damage.AnyPositive())
             return;
 
         target.Damage.ClampMax(200); // we never die. UNLESS??

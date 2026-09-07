@@ -45,7 +45,6 @@
     species:
     - Arachnid
     - IPC
-    - Shadowkin
     - SlimePerson
   functions:
   - !type:TraitAddMetabolizerTypes

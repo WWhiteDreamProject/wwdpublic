@@ -31,7 +31,7 @@ public sealed class HeartSystem : EntitySystem
         SubscribeLocalEvent<HeartComponent, BodyRelayedEvent<MetabolicRateChangedEvent>>(OnMetabolicRateChanged);
         SubscribeLocalEvent<HeartComponent, BodyRelayedEvent<PainChangedEvent>>(OnPainChanged);
         SubscribeLocalEvent<HeartComponent, BodyRelayedEvent<SaturationLevelChangedEvent>>(OnSaturationLevelChanged);
-        SubscribeLocalEvent<HeartComponent, WoundableSeverityChangedEvent>(OnWoundableSeverityChanged);
+        SubscribeLocalEvent<HeartComponent, WoundSeverityChangedEvent>(OnWoundSeverityChanged);
     }
 
     #region Event Handling
@@ -78,7 +78,7 @@ public sealed class HeartSystem : EntitySystem
         UpdateStrain(ent);
     }
 
-    private void OnWoundableSeverityChanged(Entity<HeartComponent> ent, ref WoundableSeverityChangedEvent args)
+    private void OnWoundSeverityChanged(Entity<HeartComponent> ent, ref WoundSeverityChangedEvent args)
     {
         if (args.Severity == WoundSeverity.Critical)
             ent.Comp.Beating = false;

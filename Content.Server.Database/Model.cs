@@ -417,7 +417,7 @@ namespace Content.Server.Database
         public List<Antag> Antags { get; } = new();
         public List<Trait> Traits { get; } = new();
         public List<LoadoutItem> Loadouts { get; } = new();
-        public List<BodyColoration> BodyColoration { get; } = new(); // WD EDIT
+        public List<BodyColor> BodyColors { get; } = new(); // WD EDIT
 
         [Column("pref_unavailable")] public DbPreferenceUnavailableMode PreferenceUnavailable { get; set; }
 
@@ -436,13 +436,13 @@ namespace Content.Server.Database
     }
 
     // WD EDIT START
-    public class BodyColoration
+    public class BodyColor
     {
         public int Id { get; set; }
         public Profile Profile { get; set; } = null!;
         public int ProfileId { get; set; }
 
-        public string Coloration { get; set; } = null!;
+        public string Group { get; set; } = null!;
         public string Color { get; set; } = null!;
     }
     // WD EDIT END

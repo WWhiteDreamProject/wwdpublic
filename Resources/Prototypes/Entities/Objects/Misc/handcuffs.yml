@@ -22,8 +22,8 @@
     resetOnHandSelected: false
     # animation: WeaponArcDisarm # WWDP replaced with animation
     damage:
-      types:
-        Blunt: 0
+      # WD EDIT: Migrated damage format
+      Blunt: 0
   - type: GuideHelp
     guides:
     - Security

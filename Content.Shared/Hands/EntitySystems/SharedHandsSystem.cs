@@ -344,18 +344,18 @@ public abstract partial class SharedHandsSystem
     }
 
     // WD EDIT START
-    private void SetupHand(Entity<HandsComponent> entHand, Hand hand)
+    private void SetupHand(Entity<HandsComponent> ent, Hand hand)
     {
-        var container = ContainerSystem.EnsureContainer<ContainerSlot>(entHand, hand.Name);
+        var container = ContainerSystem.EnsureContainer<ContainerSlot>(ent, hand.Name);
         container.OccludesLight = false;
 
-        entHand.Comp.SortedHands.Add(hand.Name);
+        ent.Comp.SortedHands.Add(hand.Name);
         hand.Container = container;
 
-        if (entHand.Comp.ActiveHand == null)
-            SetActiveHand(entHand, hand, entHand.Comp);
+        if (ent.Comp.ActiveHand == null)
+            SetActiveHand(ent, hand, ent.Comp);
 
-        Dirty(entHand);
+        Dirty(ent);
     }
     // WD EDIT END
 }

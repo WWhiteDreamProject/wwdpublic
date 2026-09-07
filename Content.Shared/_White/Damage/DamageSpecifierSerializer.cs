@@ -11,6 +11,7 @@ using Robust.Shared.Serialization.TypeSerializers.Interfaces;
 
 namespace Content.Shared._White.Damage;
 
+[TypeSerializer]
 public sealed class DamageSpecifierSerializer :
     ITypeSerializer<DamageSpecifier, MappingDataNode>,
     ITypeCopier<DamageSpecifier>
@@ -29,7 +30,7 @@ public sealed class DamageSpecifierSerializer :
         foreach (var (typeNode, damageNode) in node.Children)
         {
             var type = serialization.Read<ProtoId<DamageTypePrototype>>(new ValueDataNode(typeNode), hookContext, context);
-            var damage = serialization.Read<FixedPoint2>(damageNode, hookContext, context);
+            var damage = FixedPoint2.New(serialization.Read<float>(damageNode, hookContext, context));
 
             specifier.Add(type, damage);
         }

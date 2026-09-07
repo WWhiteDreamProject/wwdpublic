@@ -9,8 +9,8 @@
     size: Tiny
   - type: DamageOtherOnHit
     damage:
-      types:
-        Blunt: 1
+      # WD EDIT: Migrated damage format
+      Blunt: 1
     staminaCost: 1
 
 - type: entity

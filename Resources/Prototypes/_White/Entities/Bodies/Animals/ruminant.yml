@@ -1,0 +1,37 @@
+- type: entity
+  id: BaseBodyRuminant
+  parent: BaseBody
+  abstract: true
+  components:
+  - type: Body
+    rootProvider:
+      type: AllParts
+      providers:
+        brain:
+          type: Brain
+          startingProvider: BodyProviderBrainAnimal
+        ears:
+          type: Ears
+          startingProvider: BodyProviderEarsAnimal
+        eyes:
+          type: Eyes
+          startingProvider: BodyProviderEyesAnimal
+        heart:
+          type: Heart
+          startingProvider: BodyProviderHeartAnimal
+        kidneys:
+          type: Kidneys
+          startingProvider: BodyProviderKidneysRuminant
+        liver:
+          type: Liver
+          startingProvider: BodyProviderLiverRuminant
+        lungs:
+          type: Lungs
+          startingProvider: BodyProviderLungsRuminant
+        stomach:
+          type: Stomach
+          startingProvider: BodyProviderStomachRuminant
+        tongue:
+          type: Tongue
+          startingProvider: BodyProviderTongueAnimal
+      startingProvider: BodyProviderAllPartsAnimal

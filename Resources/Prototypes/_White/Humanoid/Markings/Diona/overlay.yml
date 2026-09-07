@@ -1,0 +1,57 @@
+- type: marking
+  id: BaseOverlayDiona
+  parents: [BaseOverlay, BaseDiona]
+  abstract: true
+
+- type: marking
+  id: OverlayDionaVine
+  parents: BaseOverlayDiona
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/overlay.rsi
+      state: vine_chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/overlay.rsi
+      state: vine_groin
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/overlay.rsi
+      state: vine_head
+  - layer: enum.BodyProviderType.LeftArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/overlay.rsi
+      state: vine_left_arm
+  - layer: enum.BodyProviderType.LeftFoot
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/overlay.rsi
+      state: vine_left_foot
+  - layer: enum.BodyProviderType.LeftHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/overlay.rsi
+      state: vine_left_hand
+  - layer: enum.BodyProviderType.LeftLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/overlay.rsi
+      state: vine_left_leg
+  - layer: enum.BodyProviderType.RightArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/overlay.rsi
+      state: vine_right_arm
+  - layer: enum.BodyProviderType.RightFoot
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/overlay.rsi
+      state: vine_right_foot
+  - layer: enum.BodyProviderType.RightHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/overlay.rsi
+      state: vine_right_hand
+  - layer: enum.BodyProviderType.RightLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Diona/overlay.rsi
+      state: vine_right_leg
+  coloring:
+    default:
+      type: !type:SimpleColoring
+        color: "#5F7039"

@@ -1,0 +1,98 @@
+- type: entity
+  id: MobHumanoidSlime
+  parent:
+  - BaseBodySlime
+  - BaseMobHumanoidOrganic
+  name: Urist McSlime
+  components:
+  - type: Barotrauma
+    damage:
+      Blunt: 0.5
+      Heat: 0.2
+  - type: Bloodstream
+    reagent: Slime
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatSlime
+      amount: 5
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: FootPrints
+    leftBarePrint: "footprint-left-bare-slime"
+    rightBarePrint: "footprint-right-bare-slime"
+  - type: HumanoidProfile
+    species: Slime
+  - type: Inventory
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female
+  - type: LanguageKnowledge
+    speaks:
+    - TauCetiBasic
+    - Bubblish
+    understands:
+    - TauCetiBasic
+    - Bubblish
+  - type: PassiveDamage
+    damageCap: 65
+    damage:
+      Blunt: -0.14
+      Heat: -0.14
+      Piercing: -0.14
+      Slash: -0.14
+  - type: Reactive
+    groups:
+      Flammable: [ Touch ]
+      Extinguish: [ Touch ]
+    reactions:
+    - reagents: [ Water, SpaceCleaner ]
+      methods: [ Touch ]
+      effects:
+      - !type:WashCreamPieReaction
+    - reagents: [ Water ]
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        scaleByQuantity: true
+        damage:
+          # WD EDIT: Migrated damage format
+          Heat: 0.1
+      - !type:PopupMessage
+        type: Local
+        visualType: Large
+        messages: [ "slime-hurt-by-water-popup" ]
+        probability: 0.25
+  - type: Speech
+    speechVerb: Slime
+    speechSounds: Slime
+    allowedEmotes: ['Squish']
+  - type: Storage
+    clickInsert: false
+    openOnActivate: false
+    grid:
+    - 0,0,1,2
+    maxItemSize: Large
+    storageInsertSound:
+      path: /Audio/Voice/Slime/slime_squish.ogg
+  - type: TypingIndicator
+    proto: slime
+  - type: UseDelay
+    delay: 0.5
+  - type: UserInterface
+    interfaces:
+      enum.MarkingModifierKey.Key:
+        type: MarkingModifierBoundUserInterface
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+  - type: Vocal
+    sounds:
+      Male: MaleSlime
+      Female: FemaleSlime
+      Unsexed: MaleSlime

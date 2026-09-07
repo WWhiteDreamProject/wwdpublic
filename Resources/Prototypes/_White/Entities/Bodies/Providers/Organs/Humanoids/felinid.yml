@@ -1,0 +1,68 @@
+- type: entity
+  id: BaseBodyProviderOrganFelinid
+  parent: BaseBodyProviderOrganOrganic
+  abstract: true
+  suffix: Felinid
+  components:
+  - type: Sprite
+    sprite: _White/Bodies/Organs/Humanoids/human.rsi
+
+- type: entity
+  id: BaseMetabolizerFelinid
+  abstract: true
+  components:
+  - type: Metabolizer
+    types: [ Felinid, BloodIron, RespirationOxygen ]
+
+# Appendix
+- type: entity
+  id: BodyProviderAppendixFelinid
+  parent: [BaseBodyProviderAppendix, BaseBodyProviderOrganFelinid]
+
+# Brain
+- type: entity
+  id: BodyProviderBrainFelinid
+  parent: [BaseBodyProviderBrainOrganic, BaseBodyProviderOrganFelinid]
+
+# Ears
+- type: entity
+  id: BodyProviderEarsFelinid
+  parent: [BaseBodyProviderEars, BaseBodyProviderOrganFelinid]
+
+# Eyes
+- type: entity
+  id: BodyProviderEyesFelinid
+  parent: [BaseBodyProviderEyes, BaseBodyProviderOrganFelinid]
+  components:
+  - type: BodyAppearanceProvider
+    path: _White/Bodies/Organs/Humanoids/human.rsi
+
+# Heart
+- type: entity
+  id: BodyProviderHeartFelinid
+  parent: [BaseBodyProviderHeartRespiratory, BaseBodyProviderOrganFelinid]
+
+# Kidneys
+- type: entity
+  id: BodyProviderKidneysFelinid
+  parent: [BaseBodyProviderKidneysRespiratory, BaseBodyProviderOrganFelinid, BaseMetabolizerFelinid]
+
+# Liver
+- type: entity
+  id: BodyProviderLiverFelinid
+  parent: [BaseBodyProviderLiverRespiratory, BaseBodyProviderOrganFelinid, BaseMetabolizerFelinid]
+
+# Lungs
+- type: entity
+  id: BodyProviderLungsFelinid
+  parent: [BaseBodyProviderLungsRespiratory, BaseBodyProviderOrganFelinid, BaseMetabolizerFelinid]
+
+# Stomach
+- type: entity
+  id: BodyProviderStomachFelinid
+  parent: [BaseBodyProviderStomachRespiratory, BaseBodyProviderOrganFelinid, BaseMetabolizerFelinid]
+
+# Tongue
+- type: entity
+  id: BodyProviderTongueFelinid
+  parent: [BaseBodyProviderTongue, BaseBodyProviderOrganFelinid]

@@ -58,10 +58,8 @@
   # WD EDIT START
   - type: DamageOnLand
     damage:
-      types:
-        Blunt: 5
-  # WD EDIT END
-
+      # WD EDIT: Migrated damage format
+      Blunt: 5
 - type: entity
   id: BolaEnergy
   parent: [ BaseBola, BaseSecurityContraband ]

@@ -20,8 +20,8 @@
     wideAnimationRotation: 45
     range: 1.75
     damage:
-      types:
-        Blunt: 7.5
+      # WD EDIT: Migrated damage format
+      Blunt: 7.5
     bluntStaminaDamageFactor: 2.5
     heavyRateModifier: 1.25
     heavyDamageBaseModifier: 1.5

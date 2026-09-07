@@ -63,7 +63,7 @@ public sealed partial class ZombieComponent : Component
     public string ZombieRoleId = "Zombie";
 
     [DataField]
-    public Dictionary<BodyProviderType, BodyAppearanceData> BeforeZombifiedAppearance;
+    public Dictionary<Enum, BodyAppearanceData> BeforeZombifiedAppearance;
 
     [DataField("emoteId", customTypeSerializer: typeof(PrototypeIdSerializer<EmoteSoundsPrototype>))]
     public string? EmoteSoundsId = "Zombie";

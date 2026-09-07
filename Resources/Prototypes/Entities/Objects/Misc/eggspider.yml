@@ -9,9 +9,9 @@
     state: icon
   - type: MeleeWeapon
     damage:
-      types:
-        Blunt: 6
-        Structural: 2
+      # WD EDIT: Migrated damage format
+      Blunt: 6
+      Structural: 2
     animation: WeaponArcPunch
   - type: Item
     size: Small

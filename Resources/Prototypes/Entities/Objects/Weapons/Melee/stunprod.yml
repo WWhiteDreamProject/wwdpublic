@@ -19,8 +19,7 @@
         variation: 0.250
   - type: ItemToggleMeleeWeapon
     activatedDamage:
-      types:
-        Shock: 5
+      Shock: 5
   - type: ItemToggleDamageOtherOnHit
   - type: Stunbaton
     energyPerUse: 120
@@ -30,8 +29,7 @@
     attackRate: 1.1
     range: 1.6
     damage:
-      types:
-        Blunt: 7.5
+      Blunt: 7.5
     bluntStaminaDamageFactor: 2.0
     canHeavyAttack: false # WD EDIT
   - type: DamageOtherOnHit

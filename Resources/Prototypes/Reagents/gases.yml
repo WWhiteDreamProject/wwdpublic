@@ -45,9 +45,7 @@
         scaleByQuantity: true
         ignoreResistances: true
         damage:
-          types:
-            Poison:
-              7
+          Poison: 7
       - !type:AdjustAlert
         alertType: HighOxygen
         conditions:
@@ -64,9 +62,7 @@
         scaleByQuantity: true
         ignoreResistances: true
         damage:
-          types:
-            Poison:
-              7
+          Poison: 7
       - !type:AdjustAlert
         alertType: HighOxygen
         conditions:
@@ -101,10 +97,7 @@
         scaleByQuantity: true
         ignoreResistances: true
         damage:
-          types:
-            Poison:
-              1
-      # We need a metabolism effect on reagent removal
+          Poison: 1
       - !type:AdjustAlert
         alertType: Toxins
         conditions:
@@ -134,14 +127,15 @@
         - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Plasmaman
         damage:
-          groups:
-            Brute: -2
-          types:
-            Heat: -0.66
-            Shock: -0.66
-            Caustic: -0.66
-            Asphyxiation: -0.66
-            Poison: -0.66
+          # WD EDIT: Migrated damage format
+          Asphyxiation: -0.7
+          Blunt: -0.7
+          Caustic: -0.7
+          Heat: -0.7
+          Piercing: -0.7
+          Poison: -0.7
+          Shock: -0.7
+          Slash: -0.7
       - !type:ChemAddMoodlet
         conditions:
         - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
@@ -157,8 +151,8 @@
           type: Plasmaman
           shouldHave: false
         damage:
-          types:
-            Poison: 3
+          # WD EDIT: Migrated damage format
+          Poison: 3
       - !type:AdjustReagent
         conditions:
         - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
@@ -194,18 +188,15 @@
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Radiation: 3
+          # WD EDIT: Migrated damage format
+          Radiation: 3
     Respiration: # WD EDIT
       effects:
       - !type:HealthChange
         scaleByQuantity: true
         ignoreResistances: true
         damage:
-          types:
-            Radiation:
-              1
-      # We need a metabolism effect on reagent removal
+          Radiation: 1
       - !type:AdjustAlert
         alertType: Toxins
         conditions:
@@ -243,9 +234,7 @@
         scaleByQuantity: true
         ignoreResistances: true
         damage:
-          types:
-            Poison:
-              0.8
+          Poison: 0.8
       - !type:Oxygenate # carbon dioxide displaces oxygen from the bloodstream, causing asphyxiation
         conditions:
         - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
@@ -270,8 +259,8 @@
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Cold: 1 # liquid nitrogen is cold
+          # WD EDIT: Migrated damage format
+          Cold: 1
     Respiration: # WD EDIT
       effects:
       - !type:Oxygenate
@@ -366,9 +355,8 @@
           shouldHave: false
         ignoreResistances: true
         damage:
-          types:
-            Poison: 0.25
-
+          # WD EDIT: Migrated damage format
+          Poison: 0.2
 - type: reagent
   id: Frezon
   name: reagent-name-frezon
@@ -389,8 +377,8 @@
         scaleByQuantity: true
         ignoreResistances: true
         damage:
-          types:
-            Cellular: 0.5
+          # WD EDIT: Migrated damage format
+          Cellular: 0.5
       - !type:GenericStatusEffect
         conditions:
         - !type:ReagentThreshold

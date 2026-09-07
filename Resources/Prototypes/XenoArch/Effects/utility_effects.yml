@@ -105,8 +105,8 @@
     solution: beaker
   - type: SolutionTransfer
     canChangeTransferAmount: true
-  - type: Drink
-    solution: beaker
+  - type: Ingestible # WD Ingestible
+    solutionName: beaker # WD Ingestible
 
 - type: artifactEffect
   id: EffectSpeedUp
@@ -131,9 +131,9 @@
   - type: UseDelay
   - type: MeleeWeapon
     damage:
-      types:
-        Piercing: 18
-        Blunt: 4
+      # WD EDIT: Migrated damage format
+      Blunt: 4
+      Piercing: 18
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: Sharp

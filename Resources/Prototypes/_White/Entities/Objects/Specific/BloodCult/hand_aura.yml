@@ -10,8 +10,8 @@
     size: Ginormous
   - type: MeleeWeapon
     damage:
-      types:
-        Blunt: 0
+      # WD EDIT: Migrated damage format
+      Blunt: 0
     heavyStaminaCost: 0
     maxTargets: 1
     animation: WeaponArcSlash

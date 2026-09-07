@@ -9,7 +9,7 @@
   - type: FlavorProfile
     flavors:
       - bread
-  - type: Food
+  - type: Ingestible # WD Ingestible
   - type: Sprite
     sprite: Objects/Consumable/Food/Baked/bread.rsi
   - type: Tag
@@ -17,7 +17,7 @@
     - Bread
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 26
         reagents:
         - ReagentId: Nutriment
@@ -39,7 +39,7 @@
     - Slice
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 8
         reagents:
         - ReagentId: Nutriment
@@ -53,7 +53,7 @@
   id: FoodBreadVolcanic
   description: A dark loaf. Resembles pumice.
   components:
-  - type: Food
+  - type: Ingestible # WD Ingestible
   - type: Sprite
     layers:
     - state: alpha
@@ -69,7 +69,7 @@
   id: FoodBreadVolcanicSlice
   description: A slice of dark loaf. Resembles pumice.
   components:
-  - type: Food
+  - type: Ingestible # WD Ingestible
   - type: Sprite
     layers:
     - state: alpha-slice
@@ -89,7 +89,7 @@
     flavors:
       - banana
       - bread
-  - type: Food
+  - type: Ingestible # WD Ingestible
   - type: Sprite
     layers:
     - state: banana
@@ -111,7 +111,7 @@
     flavors:
       - banana
       - bread
-  - type: Food
+  - type: Ingestible # WD Ingestible
   - type: Sprite
     layers:
     - state: banana-slice
@@ -131,7 +131,7 @@
     flavors:
     - cotton
     - bread
-  - type: Food
+  - type: Ingestible # WD Ingestible
     requiresSpecialDigestion: true
   - type: Sprite
     layers:
@@ -144,7 +144,7 @@
     - Bread
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 26
         reagents:
         - ReagentId: Nutriment
@@ -162,7 +162,7 @@
     flavors:
     - cotton
     - bread
-  - type: Food
+  - type: Ingestible # WD Ingestible
     requiresSpecialDigestion: true
   - type: Sprite
     layers:
@@ -174,7 +174,7 @@
     - Slice
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 8
         reagents:
         - ReagentId: Nutriment
@@ -192,7 +192,7 @@
     flavors:
       - bread
       - corn
-  - type: Food
+  - type: Ingestible # WD Ingestible
   - type: Sprite
     layers:
     - state: cornbread
@@ -200,7 +200,7 @@
     slice: FoodBreadCornSlice
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 20
         reagents:
         - ReagentId: Nutriment
@@ -217,13 +217,13 @@
     flavors:
       - bread
       - corn
-  - type: Food
+  - type: Ingestible # WD Ingestible
   - type: Sprite
     layers:
     - state: cornbread-slice
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 5
         reagents:
         - ReagentId: Nutriment
@@ -240,7 +240,7 @@
       - cheesy
       - creamy
       - bread
-  - type: Food
+  - type: Ingestible # WD Ingestible
   - type: Sprite
     layers:
     - state: creamcheese
@@ -248,7 +248,7 @@
     slice: FoodBreadCreamcheeseSlice
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 35
         reagents:
         - ReagentId: Nutriment
@@ -268,13 +268,13 @@
       - cheesy
       - creamy
       - bread
-  - type: Food
+  - type: Ingestible # WD Ingestible
   - type: Sprite
     layers:
     - state: creamcheese-slice
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 10
         reagents:
         - ReagentId: Nutriment
@@ -292,7 +292,7 @@
     flavors:
       - meaty
       - bread
-  - type: Food
+  - type: Ingestible # WD Ingestible
   - type: Sprite
     layers:
     - state: meat
@@ -300,7 +300,7 @@
     slice: FoodBreadMeatSlice
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 45
         reagents:
         - ReagentId: Nutriment
@@ -323,13 +323,13 @@
     flavors:
       - meaty
       - bread
-  - type: Food
+  - type: Ingestible # WD Ingestible
   - type: Sprite
     layers:
     - state: meat-slice
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 10
         reagents:
         - ReagentId: Nutriment
@@ -352,7 +352,7 @@
     flavors:
       - nothing
       - bread
-  - type: Food
+  - type: Ingestible # WD Ingestible
   - type: Sprite
     layers:
     - state: mimana
@@ -360,7 +360,7 @@
     slice: FoodBreadMimanaSlice
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 40
         reagents:
         - ReagentId: Nutriment
@@ -383,13 +383,13 @@
     flavors:
       - nothing
       - bread
-  - type: Food
+  - type: Ingestible # WD Ingestible
   - type: Sprite
     layers:
     - state: mimana-slice
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 10
         reagents:
         - ReagentId: Nutriment
@@ -407,7 +407,7 @@
   id: FoodBreadPlain
   description: Some plain old earthen bread.
   components:
-  - type: Food
+  - type: Ingestible # WD Ingestible
   - type: Sprite
     layers:
     - state: plain
@@ -420,7 +420,7 @@
   id: FoodBreadPlainSlice
   description: A slice of home.
   components:
-  - type: Food
+  - type: Ingestible # WD Ingestible
   - type: Sprite
     layers:
     - state: plain-slice
@@ -435,7 +435,7 @@
     flavors:
       - meaty
       - bread
-  - type: Food
+  - type: Ingestible # WD Ingestible
   - type: Sprite
     layers:
     - state: sausage
@@ -443,7 +443,7 @@
     slice: FoodBreadSausageSlice
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 45
         reagents:
         - ReagentId: Nutriment
@@ -467,13 +467,13 @@
     flavors:
       - meaty
       - bread
-  - type: Food
+  - type: Ingestible # WD Ingestible
   - type: Sprite
     layers:
     - state: sausage-slice
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 10
         reagents:
         - ReagentId: Nutriment
@@ -498,7 +498,7 @@
     flavors:
       - cobwebs
       - bread
-  - type: Food
+  - type: Ingestible # WD Ingestible
   - type: Sprite
     layers:
     - state: spidermeat
@@ -506,7 +506,7 @@
     slice: FoodBreadMeatSpiderSlice
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 45
         reagents:
         - ReagentId: Nutriment
@@ -529,13 +529,13 @@
     flavors:
       - cobwebs
       - bread
-  - type: Food
+  - type: Ingestible # WD Ingestible
   - type: Sprite
     layers:
     - state: spidermeat-slice
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 12
         reagents:
         - ReagentId: Nutriment
@@ -558,7 +558,7 @@
     flavors:
       - tofu
       - bread
-  - type: Food
+  - type: Ingestible # WD Ingestible
   - type: Sprite
     layers:
     - state: tofu
@@ -566,7 +566,7 @@
     slice: FoodBreadTofuSlice
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 48
         reagents:
         - ReagentId: Nutriment
@@ -585,13 +585,13 @@
     flavors:
       - tofu
       - bread
-  - type: Food
+  - type: Ingestible # WD Ingestible
   - type: Sprite
     layers:
     - state: tofu-slice
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 10
         reagents:
         - ReagentId: Nutriment
@@ -609,7 +609,7 @@
     flavors:
       - acid
       - bread
-  - type: Food
+  - type: Ingestible # WD Ingestible
   - type: Sprite
     layers:
     - state: xenomeat
@@ -617,7 +617,7 @@
     slice: FoodBreadMeatXenoSlice
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 45
         reagents:
         - ReagentId: Nutriment
@@ -640,13 +640,13 @@
     flavors:
       - acid
       - bread
-  - type: Food
+  - type: Ingestible # WD Ingestible
   - type: Sprite
     layers:
     - state: xenomeat-slice
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 10
         reagents:
         - ReagentId: Nutriment
@@ -674,7 +674,7 @@
     slice: FoodBreadBaguetteSlice
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 15
         reagents:
         - ReagentId: Nutriment
@@ -698,10 +698,8 @@
   - type: MeleeWeapon
     wideAnimationRotation: -120
     damage:
-      types:
-        Blunt: 1 # bonk
-# Tastes like France.
-
+      # WD EDIT: Migrated damage format
+      Blunt: 1
 - type: entity
   name: cotton baguette
   parent: FoodBreadBaguette
@@ -712,7 +710,7 @@
     state: baguette-cotton
   - type: SliceableFood
     slice: FoodBreadBaguetteCottonSlice
-  - type: Food
+  - type: Ingestible # WD Ingestible
     requiresSpecialDigestion: true
   - type: Tag
     tags:
@@ -728,7 +726,7 @@
       - state: baguette-cotton-inhand-right
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 15
         reagents:
         - ReagentId: Nutriment
@@ -752,7 +750,7 @@
     state: crostini
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 2
         reagents:
         - ReagentId: Nutriment
@@ -772,7 +770,7 @@
   components:
   - type: Sprite
     state: crostini-cotton
-  - type: Food
+  - type: Ingestible # WD Ingestible
     requiresSpecialDigestion: true
   - type: Tag
     tags:
@@ -781,7 +779,7 @@
     - ClothMade
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 2
         reagents:
         - ReagentId: Nutriment
@@ -809,7 +807,7 @@
     state: buttered-toast
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 10
         reagents:
         - ReagentId: Nutriment
@@ -832,7 +830,7 @@
     state: french-toast
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 10
         reagents:
         - ReagentId: Nutriment
@@ -856,7 +854,7 @@
     - state: garlic-slice
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 15
         reagents:
         - ReagentId: Nutriment
@@ -880,7 +878,7 @@
     - state: jelly-toast
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 10
         reagents:
         - ReagentId: Nutriment
@@ -903,7 +901,7 @@
     - Trash
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 15
         reagents:
         - ReagentId: Nutriment
@@ -923,7 +921,7 @@
     - state: two-slice
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 15
         reagents:
         - ReagentId: Nutriment
@@ -996,5 +994,7 @@
       path: /Audio/Animals/dog_bark1.ogg
     hidden: true
     damage:
-      groups:
-        Brute: 1
+      # WD EDIT: Migrated damage format
+      Blunt: 0.3
+      Piercing: 0.3
+      Slash: 0.3

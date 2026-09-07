@@ -14,24 +14,18 @@ public sealed partial class NamingPrototype : IPrototype
     /// <summary>
     /// A string specifying a general format string for combining the first and last names.
     /// </summary>
-    [DataField]
+    [DataField(required:true)]
     public LocId Preset = "naming-preset-first";
 
     /// <summary>
     /// A dictionary mapping <see cref="Gender"/> to the dataset containing first names for that gender.
     /// </summary>
-    [DataField]
-    public Dictionary<Gender, ProtoId<LocalizedDatasetPrototype>> First = new()
-    {
-        { Gender.Neuter, "NamingFirst" },
-        { Gender.Epicene, "NamingFirst" },
-        { Gender.Female, "NamingFirstFemale" },
-        { Gender.Male, "NamingFirstMale" },
-    };
+    [DataField(required: true)]
+    public Dictionary<Gender, ProtoId<LocalizedDatasetPrototype>> First = new();
 
     /// <summary>
     /// The dataset containing last names.
     /// </summary>
-    [DataField]
-    public ProtoId<LocalizedDatasetPrototype> Last = "NamingLast";
+    [DataField(required: true)]
+    public ProtoId<LocalizedDatasetPrototype> Last;
 }

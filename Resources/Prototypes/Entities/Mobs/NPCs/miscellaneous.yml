@@ -60,10 +60,10 @@
   id: MobTomatoKiller
   parent:
   - BaseSimpleMob
-  - MobDamageable
-  - MobBloodstream
-  - MobFlammable
-  - MobCombat
+  - BaseMobDamageable
+  - BaseMobBloodstream
+  - BaseMobFlammable
+  - BaseMobCombat
   name: tomato killer
   description: Looks like it's not you eating tomatoes today, it's the tomatoes eating you.
   components:
@@ -90,26 +90,38 @@
       - !type:HealthChange
         scaleByQuantity: true
         damage:
-          groups:
-            Brute: -0.25
+          # WD EDIT: Migrated damage format
+          Blunt: -0.1
+          Piercing: -0.1
+          Slash: -0.1
     - reagents: [ Blood ]
       methods: [ Touch ]
       effects:
       - !type:HealthChange
         scaleByQuantity: true
         damage:
-          groups:
-            Brute: -0.5
-            Burn: -0.5
+          # WD EDIT: Migrated damage format
+          Blunt: -0.2
+          Caustic: -0.1
+          Cold: -0.1
+          Heat: -0.1
+          Piercing: -0.2
+          Shock: -0.1
+          Slash: -0.2
     - reagents: [ RobustHarvest ]
       methods: [ Touch ]
       effects:
       - !type:HealthChange
         scaleByQuantity: true
         damage:
-          groups:
-            Brute: -2
-            Burn: -2
+          # WD EDIT: Migrated damage format
+          Blunt: -0.7
+          Caustic: -0.5
+          Cold: -0.5
+          Heat: -0.5
+          Piercing: -0.7
+          Shock: -0.5
+          Slash: -0.7
   - type: ReplacementAccent
     accent: tomatoKiller
   - type: Item
@@ -178,8 +190,10 @@
   - type: MeleeWeapon
     hidden: true
     damage:
-      groups:
-        Brute: 9
+      # WD EDIT: Migrated damage format
+      Blunt: 3
+      Piercing: 3
+      Slash: 3
     animation: WeaponArcBite
   - type: Climbing
   - type: NameIdentifier
@@ -205,7 +219,7 @@
     - Dead
     damageCap: 50
     damage:
-      types:
-        Blunt: 0.11
+      # WD EDIT: Migrated damage format
+      Blunt: 0.1
   - type: StaticPrice
     price: 400

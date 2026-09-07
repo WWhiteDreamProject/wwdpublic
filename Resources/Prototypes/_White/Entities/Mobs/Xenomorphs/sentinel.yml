@@ -1,5 +1,5 @@
 - type: entity
-  parent: BaseMobXenomorphAdult
+  parent: [BaseMobXenomorphAdult, BaseBodyXenomorphSentinel]
   id: BaseMobXenomorphSentinel
   name: xenomorph sentinel
   description: A specialized specimen designed to hit targets at a distance. Particularly dangerous in narrow corridors and confined spaces.
@@ -12,7 +12,7 @@
       state: xenomorph
     - map: [ "pocket1" ]
     - map: [ "pocket2" ]
-    - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+    - map: ["enum.CuffableVisualLayers.Handcuffs"]
       color: "#ffffff"
       sprite: _White/Objects/Misc/handcuffs.rsi
       state: body-overlay-xenomorph
@@ -24,8 +24,6 @@
     - ActionTransferPlasma
     - ActionSpawnResinWeedNode
   - type: Cuffable
-  - type: Body
-    prototype: XenomorphSentinel
   - type: MobThresholds
     thresholds:
       0: Alive

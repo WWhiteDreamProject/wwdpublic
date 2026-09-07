@@ -1,0 +1,4 @@
+- type: colorationStrategy
+  id: HumanTone
+  strategy: !type:ToneColoration
+    validTone: "#FFEACC"

@@ -1,0 +1,20 @@
+- type: markingGroup
+  id: Arachnid
+  parent: Undergarments
+  onlyGroupWhitelisted: true
+  categoriesData:
+    Appendages:
+      required: true
+      default: [ AppendagesArachnidLong ]
+      limit: 1
+    Chelicerae:
+      required: true
+      default: [ CheliceraeArachnidDownwards ]
+      limit: 1
+    Coloration:
+      limit: 1
+    Earrings:
+      onlyGroupWhitelisted: false
+      limit: 2
+    Overlay:
+      limit: 1

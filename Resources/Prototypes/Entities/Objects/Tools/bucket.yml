@@ -4,8 +4,8 @@
   name: bucket
   description: It's a boring old bucket.
   components:
-  - type: Drink
-    solution: bucket
+  - type: Ingestible # WD Ingestible
+    solutionName: bucket # WD Ingestible
     ignoreEmpty: true
   - type: Clickable
   - type: Sprite
@@ -42,8 +42,8 @@
     soundNoDamage:
       path: "/Audio/Effects/Fluids/splat.ogg"
     damage:
-      types:
-        Blunt: 0
+      # WD EDIT: Migrated damage format
+      Blunt: 0
   - type: Spillable
     solution: bucket
   - type: DrawableSolution

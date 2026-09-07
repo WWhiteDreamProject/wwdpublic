@@ -1,0 +1,66 @@
+- type: entity
+  id: MobHumanoidMoth
+  parent:
+  - BaseBodyMoth
+  - BaseMobHumanoidOrganic
+  name: Urist McMoth
+  components:
+  - type: Bloodstream
+    reagent: InsectBlood # TODO: InsectBlood -> BloodInsect
+  - type: CanMoveInAir
+  - type: Flammable
+    damage:
+      Heat: 2
+  - type: HideableLayers
+    hideLayersOnEquip:
+    - enum.MarkingVisualLayers.HeadTop
+  - type: HumanoidProfile
+    species: Moth
+  - type: Inventory
+    speciesId: moth
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female
+  - type: LanguageKnowledge
+    speaks:
+    - TauCetiBasic
+    - Moffic
+    understands:
+    - TauCetiBasic
+    - Moffic
+  - type: MothAccent
+  - type: MovementSpeedModifier
+    weightlessAcceleration: 2.5
+    weightlessModifier: 1.1
+    weightlessFriction: 2
+  - type: Temperature
+    heatDamageThreshold: 320
+    coldDamageThreshold: 230
+    specificHeat: 46
+    coldDamage:
+      Cold : 0.05
+    heatDamage:
+      Heat : 3
+  - type: TemperatureProtection
+    heatingCoefficient: 0.5
+    coolingCoefficient: 0.5
+  - type: TemperatureSpeed
+    thresholds:
+      289: 0.85
+      275: 0.7
+      250: 0.55
+  - type: TypingIndicator
+    proto: moth
+  - type: Speech
+    speechVerb: Moth
+    allowedEmotes: ['Chitter', 'Squeak']
+  - type: Vocal
+    sounds:
+      Male: UnisexMoth
+      Female: UnisexMoth
+      Unsexed: UnisexMoth
+  - type: ZombieAccentOverride
+    accent: zombieMoth

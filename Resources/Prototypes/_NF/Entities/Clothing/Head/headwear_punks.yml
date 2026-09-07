@@ -17,7 +17,7 @@
   - type: HideLayerClothing
     slots:
     # WD EDIT START
-    - enum.HumanoidVisualLayers.Hair
+    - enum.MarkingVisualLayers.Hair
     # WD EDIT END
 
 - type: entity

@@ -1,10 +1,5 @@
 
 - type: flavor
-  id: xelthia
-  flavorType: Complex
-  description: flavor-complex-xelthia
-
-- type: flavor
   id: sportyyellow
   flavorType: Complex
   description: flavor-complex-sporty-and-yellow

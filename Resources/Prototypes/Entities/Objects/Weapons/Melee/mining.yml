@@ -21,9 +21,8 @@
       params:
         volume: -3
     damage:
-      types:
-        Blunt: 6
-        Piercing: 3
+      Blunt: 6
+      Piercing: 3
     bluntStaminaDamageFactor: 2.0
     heavyDamageBaseModifier: 1.75
     maxTargets: 5
@@ -33,10 +32,9 @@
   - type: Wieldable
   - type: IncreaseDamageOnWield
     damage:
-      groups:
-        Brute: 5
-      types:
-        Structural: 30
+      Blunt: 2
+      Piercing: 3
+      Structural: 30
   - type: Item
     size: Normal
     shape:
@@ -73,15 +71,13 @@
     range: 1.5
     heavyStaminaCost: 0.7
     damage:
-      types:
-        Structural: 15
-        Piercing: 6
+      Structural: 15
+      Piercing: 6
   - type: DamageOtherOnHit
     staminaCost: 9
     damage:
-      types:
-        Structural: 25
-        Piercing: 9
+      Structural: 25
+      Piercing: 9
   - type: ThrowingAngle
     angle: 270
 
@@ -103,14 +99,12 @@
       path: "/Audio/Items/drill_hit.ogg"
     heavyStaminaCost: 0.55 # More efficient so less stamina needed to use
     damage:
-      types:
-        Piercing: 12
-        Structural: 50
+      Piercing: 12
+      Structural: 50
   - type: DamageOtherOnHit
     damage:
-      types:
-        Structural: 40
-        Piercing: 18
+      Structural: 40
+      Piercing: 18
 
 - type: entity
   abstract: true
@@ -159,9 +153,8 @@
     animationRotation: -45 # WWDP
     wideAnimationRotation: -135
     damage:
-      types:
-        Blunt: 13 # Lavaland Change: no damage when unwielded
-        Slash: 7
+      Blunt: 13 # Lavaland Change: no damage when unwielded
+      Slash: 7
     bluntStaminaDamageFactor: 2.0
     angle: 90 # WWDP
     soundHit:
@@ -179,13 +172,11 @@
     fumbleOnAttempt: true
   - type: DamageBoostOnMarker
     boost:
-      types: # Totals to 70 damage when hitting marked targets
-        Blunt: 34
-        Slash: 16
+      Blunt: 34
+      Slash: 16
     backstabBoost: # And 30 extra for a backstab. Adding up to 100
-      types:
-        Blunt: 19
-        Slash: 11
+      Blunt: 19
+      Slash: 11
 
 - type: entity
   parent: [ BaseWeaponCrusher, BaseSecurityCargoContraband]
@@ -203,8 +194,7 @@
     attackRate: 0.8
     range: 1.4
     damage:
-      types:
-        Slash: 9
+      Slash: 9
     heavyRateModifier: 1.4
     heavyDamageBaseModifier: 1.2
     maxTargets: 2
@@ -232,8 +222,9 @@
     delay: 1.9
   - type: LeechOnMarker
     leech:
-      groups:
-        Brute: -21
+      Blunt: -7
+      Piercing: -7
+      Slash: -7
   - type: MeleeWeapon
   - type: EmbeddableProjectile
   - type: EmbedPassiveDamage

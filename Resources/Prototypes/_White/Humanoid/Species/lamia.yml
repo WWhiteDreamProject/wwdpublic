@@ -1,0 +1,13 @@
+# TODO
+# - type: species
+#   id: Lamia
+#   defaultColors:
+#     Eyes: "#634E34"
+#     Skin: "#C0967F"
+#   colorations:
+#     Eyes: Simple
+#     Skin: HumanTone
+#   doll: HumanoidDollLamia
+#   prototype: MobHumanoidLamia
+#   name: species-name-lamia
+#   naming: Lamia

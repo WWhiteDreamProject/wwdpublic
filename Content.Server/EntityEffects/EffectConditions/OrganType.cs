@@ -1,5 +1,5 @@
 using Content.Shared._White.Bloodstream.Components;
-using Content.Shared._White.Body.Prototypes;
+using Content.Shared._White.Bloodstream.Prototypes;
 using Content.Shared.EntityEffects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
@@ -46,7 +46,7 @@ public sealed partial class MetabolizerType : EntityEffectCondition // WD EDIT: 
     public override string GuidebookExplanation(IPrototypeManager prototype)
     {
         return Loc.GetString("reagent-effect-condition-guidebook-organ-type",
-            ("name", prototype.Index<MetabolizerTypePrototype>(Type).LocalizedName),
+            ("name", /*TODO prototype.Index<MetabolizerTypePrototype>(Type).LocalizedName*/Type),
             ("shouldhave", ShouldHave));
     }
 }

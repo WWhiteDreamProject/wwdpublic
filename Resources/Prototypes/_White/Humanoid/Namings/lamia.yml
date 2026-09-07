@@ -1,0 +1,9 @@
+- type: naming
+  id: Lamia
+  preset: naming-preset-first-last
+  first:
+    Neuter: NamingFirstLamia
+    Epicene: NamingFirstLamia
+    Female: NamingFirstLamiaFemale
+    Male: NamingFirstLamia
+  last: NamingLastLamia

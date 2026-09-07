@@ -6,15 +6,15 @@
   abstract: true
   components:
   - type: DrawableSolution
-    solution: food
+    solution: ingestible # WD Ingestible
   - type: DrainableSolution
-    solution: food
+    solution: ingestible # WD Ingestible
   - type: Sprite
     sprite: Objects/Consumable/Food/condiments.rsi
   - type: Icon
     sprite: Objects/Consumable/Food/condiments.rsi
   - type: TrashOnSolutionEmpty
-    solution: food
+    solution: ingestible # WD Ingestible
   - type: SpaceGarbage
   - type: StaticPrice
     price: 0
@@ -30,20 +30,20 @@
   components:
   - type: Item
     size: Tiny
-  - type: Drink
-    solution: food
+  - type: Ingestible # WD Ingestible
+    solution: ingestible # WD Ingestible
   - type: Openable
     sound:
       collection: packetOpenSounds
   # Since this one is closed, the only way to insert liquid is with a syringe.
   - type: InjectableSolution
-    solution: food
+    solution: ingestible # WD Ingestible
   # Note NOT refillable.
   # It be a shame if it turned out ALL drinks were ALWAYS refillable.... ffs.
   # Well its fixed now, but I want to share my pain.
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 10
   - type: SolutionTransfer
     maxTransferAmount: 10
@@ -78,7 +78,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 10
         reagents:
         - ReagentId: Astrotame
@@ -106,7 +106,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 10
         reagents:
         - ReagentId: BbqSauce
@@ -126,7 +126,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 10
         reagents:
         - ReagentId: Cornoil
@@ -146,7 +146,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 10
         reagents:
         - ReagentId: Frostoil
@@ -166,7 +166,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 10
         reagents:
         - ReagentId: HorseradishSauce
@@ -186,7 +186,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 10
         reagents:
         - ReagentId: Hotsauce
@@ -206,7 +206,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Ketchup
           Quantity: 10
@@ -226,7 +226,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Mustard
           Quantity: 10
@@ -245,7 +245,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Blackpepper
           Quantity: 10
@@ -264,7 +264,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: TableSalt
           Quantity: 10
@@ -292,7 +292,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Soysauce
           Quantity: 10
@@ -311,7 +311,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Sugar
           Quantity: 10
@@ -331,20 +331,20 @@
   name: condiment bottle
   description: A thin glass bottle used to store condiments.
   components:
-  - type: Drink
-    solution: food
+  - type: Ingestible # WD Ingestible
+    solution: ingestible # WD Ingestible
   - type: Openable
     sound:
       collection: pop
     closeable: true
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 30
   - type: RefillableSolution
-    solution: food
+    solution: ingestible # WD Ingestible
   - type: Spillable
-    solution: food
+    solution: ingestible # WD Ingestible
   - type: SolutionTransfer
     canChangeTransferAmount: true
     minTransferAmount: 5
@@ -373,7 +373,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Frostoil
           Quantity: 30
@@ -399,7 +399,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Enzyme
           Quantity: 30
@@ -425,7 +425,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Vinegar
           Quantity: 30
@@ -448,7 +448,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Hotsauce
           Quantity: 30
@@ -474,7 +474,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Ketchup
           Quantity: 30
@@ -500,7 +500,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: BbqSauce
           Quantity: 30
@@ -530,11 +530,11 @@
   components:
   - type: Item
     size: Tiny
-  - type: Drink
-    solution: food
+  - type: Ingestible # WD Ingestible
+    solution: ingestible # WD Ingestible
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 20
   - type: SolutionTransfer
     canChangeTransferAmount: true
@@ -561,7 +561,7 @@
   - type: Sprite
     state: shaker-empty
   - type: RefillableSolution
-    solution: food
+    solution: ingestible # WD Ingestible
 
 - type: entity
   parent: BaseFoodShaker
@@ -571,7 +571,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: TableSalt
           Quantity: 20
@@ -591,7 +591,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Blackpepper
           Quantity: 20

@@ -10,10 +10,11 @@
     sprite: _White/Clothing/Head/modsuits/Infiltrator.rsi
   - type: HideLayerClothing
     slots:
-    - enum.HumanoidVisualLayers.Hair
-    - enum.HumanoidVisualLayers.Snout
-    - enum.HumanoidVisualLayers.HeadTop
-    - enum.HumanoidVisualLayers.HeadSide
+    - enum.MarkingVisualLayers.Hair
+    - enum.MarkingVisualLayers.HeadBottom
+    - enum.MarkingVisualLayers.HeadTop
+    - enum.MarkingVisualLayers.HeadSide
+    - enum.MarkingVisualLayers.Snout
   - type: Armor
     modifiers:
       coefficients:

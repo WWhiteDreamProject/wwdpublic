@@ -109,23 +109,6 @@
             - ForensicMantis
 
 - type: trait
-  id: ShadowkinBlackeye
-  category: Mental
-  points: 5
-  functions:
-    - !type:TraitReplaceComponent
-      components:
-        - type: Shadowkin
-          blackeyeSpawn: true
-    - !type:TraitRemoveComponent
-      components:
-        - type: Psionic
-  requirements:
-    - !type:CharacterSpeciesRequirement
-      species:
-        - Shadowkin
-
-- type: trait
   id: MothFlight
   category: Physical
   points: -2
@@ -222,8 +205,8 @@
                 - !type:HealthChange
                   scaleByQuantity: true
                   damage:
-                    types:
-                      Shock: 2.5
+                    # WD EDIT: Migrated damage format
+                    Shock: 2.5
                 - !type:PopupMessage
                   type: Pvs
                   visualType: LargeCaution

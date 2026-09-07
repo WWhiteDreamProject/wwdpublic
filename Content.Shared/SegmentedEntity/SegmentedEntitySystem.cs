@@ -48,7 +48,7 @@ public sealed partial class LamiaSystem : EntitySystem
         SubscribeLocalEvent<SegmentedEntitySegmentComponent, InsertIntoEntityStorageAttemptEvent>(OnSegmentStorageInsertAttempt);
         SubscribeLocalEvent<SegmentedEntitySegmentComponent, GetExplosionResistanceEvent>(OnSnekBoom);
         SubscribeLocalEvent<SegmentedEntitySegmentComponent, DamageChangedEvent>(HandleDamageTransfer);
-        SubscribeLocalEvent<SegmentedEntitySegmentComponent, DamageModifyEvent>(HandleSegmentDamage);
+        SubscribeLocalEvent<SegmentedEntitySegmentComponent, GetModifiedDamageEvent>(HandleSegmentDamage);
     }
     public override void Update(float frameTime)
     {
@@ -227,7 +227,7 @@ public sealed partial class LamiaSystem : EntitySystem
         return segment;
     }
 
-    private void HandleSegmentDamage(EntityUid uid, SegmentedEntitySegmentComponent component, DamageModifyEvent args)
+    private void HandleSegmentDamage(EntityUid uid, SegmentedEntitySegmentComponent component, GetModifiedDamageEvent args)
     {
         if (args.Origin == component.Lamia)
             args.Result *= 0;

@@ -15,7 +15,6 @@
     wideAnimationRotation: -135
     attackRate: 0.8
     damage:
-      types:
-        Blunt: 20
+      Blunt: 20
     soundHit:
       path: "/Audio/Weapons/smash.ogg"

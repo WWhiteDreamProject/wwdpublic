@@ -40,8 +40,8 @@
     attackRate: 1.25
     range: 1.75
     damage:
-      types:
-        Blunt: 8
+      # WD EDIT: Migrated damage format
+      Blunt: 8
     bluntStaminaDamageFactor: 2.5
     heavyRateModifier: 1.5
     heavyDamageBaseModifier: 1.5
@@ -128,8 +128,8 @@
     - suitStorage
   - type: MeleeWeapon
     damage:
-      types:
-        Blunt: 5
+      # WD EDIT: Migrated damage format
+      Blunt: 5
   - type: DamageOtherOnHit
     staminaCost: 3.5
   - type: PhysicalComposition
@@ -246,8 +246,8 @@
   - type: MeleeWeapon
     attackRate: 0.9
     damage:
-      types:
-        Blunt: 7.5
+      # WD EDIT: Migrated damage format
+      Blunt: 7.5
   - type: DamageOtherOnHit
     staminaCost: 5
   - type: Fixtures

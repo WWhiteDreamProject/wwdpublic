@@ -12,14 +12,13 @@ public sealed partial class WoundableSystem
 {
     private void InitializeAccumulator()
     {
-        SubscribeLocalEvent<WoundableAccumulatorComponent, BeforeHandleDamageEvent>(OnAttemptHandleDamage);
+        SubscribeLocalEvent<WoundableAccumulatorComponent, BeforeHandleDamageChangeEvent>(OnBeforeHandleDamageChange);
         SubscribeLocalEvent<WoundableAccumulatorComponent, BodyRelayedEvent<GetWoundableDamageEvent>>(OnGetWoundableDamage);
-        SubscribeLocalEvent<WoundableAccumulatorComponent, BodyRelayedEvent<WoundableDamageChangedEvent>>(OnWoundableDamageChanged);
     }
 
     #region Event Handling
 
-    private void OnAttemptHandleDamage(Entity<WoundableAccumulatorComponent> ent, ref BeforeHandleDamageEvent args)
+    private void OnBeforeHandleDamageChange(Entity<WoundableAccumulatorComponent> ent, ref BeforeHandleDamageChangeEvent args)
     {
         args.Handled = true;
 
@@ -34,27 +33,20 @@ public sealed partial class WoundableSystem
         ChangeDamage((ent, ent.Comp, null), args.Args.Damage, args.Args.IgnoreResistances, origin: args.Args.Origin);
     }
 
-    private void OnWoundableDamageChanged(Entity<WoundableAccumulatorComponent> ent, ref BodyRelayedEvent<WoundableDamageChangedEvent> args)
-    {
-        if (!args.Args.Damage.AnyPositive())
-            return;
-
-        var damage = new DamageSpecifier(args.Args.Damage);
-        damage.RemoveNegative();
-
-        TryChangeDamage((ent, ent.Comp, null), damage, origin: args.Args.Origin);
-    }
-
     #endregion
 
     #region Public API
 
     /// <summary>
-    /// Applies damage to woundable accumulator.
+    /// Attempts to change the damage dealt to given woundable accumulator.
     /// </summary>
-    /// <returns>
-    /// Returns true if damage was successfully applied to the target, otherwise returns false.
-    /// </returns>
+    /// <param name="ent">The entity whose damage we wish to change.</param>
+    /// <param name="specifier">The original amount by which the damage must be changed.</param>
+    /// <param name="result">The returned amount by which the damage has changed.</param>
+    /// <param name="ignoreResistances">Determines whether the damage change should ignore resistances.</param>
+    /// <param name="interruptsDoAfters">Determines whether the damage change interrupts DoAfters.</param>
+    /// <param name="origin">The entity which caused the change in damage, if any.</param>
+    /// <returns>True if the damage was successfully changed, false otherwise.</returns>
     public bool TryChangeDamage(
         Entity<WoundableAccumulatorComponent?, DamageableComponent?> ent,
         DamageSpecifier specifier,
@@ -68,7 +60,15 @@ public sealed partial class WoundableSystem
         return !result.Empty;
     }
 
-    /// <inheritdoc cref="TryChangeDamage(Entity{WoundableProviderComponent?, DamageableComponent?}, DamageSpecifier, out DamageSpecifier, bool, bool, EntityUid?)"/>
+    /// <summary>
+    /// Attempts to change the damage dealt to given woundable accumulator.
+    /// </summary>
+    /// <param name="ent">The entity whose damage we wish to change.</param>
+    /// <param name="specifier">The original amount by which the damage must be changed.</param>
+    /// <param name="ignoreResistances">Determines whether the damage change should ignore resistances.</param>
+    /// <param name="interruptsDoAfters">Determines whether the damage change interrupts DoAfters.</param>
+    /// <param name="origin">The entity which caused the change in damage, if any.</param>
+    /// <returns>True if the damage was successfully changed, false otherwise.</returns>
     public bool TryChangeDamage(
         Entity<WoundableAccumulatorComponent?, DamageableComponent?> ent,
         DamageSpecifier specifier,
@@ -81,11 +81,14 @@ public sealed partial class WoundableSystem
     }
 
     /// <summary>
-    /// Applies damage to woundable accumulator.
+    /// Changes the damage dealt to given woundable accumulator.
     /// </summary>
-    /// <returns>
-    /// The actual amount of damage taken, as a DamageSpecifier.
-    /// </returns>
+    /// <param name="ent">The entity whose damage we wish to change.</param>
+    /// <param name="specifier">The original amount by which the damage must be changed.</param>
+    /// <param name="ignoreResistances">Determines whether the damage change should ignore resistances.</param>
+    /// <param name="interruptsDoAfters">Determines whether the damage change interrupts DoAfters.</param>
+    /// <param name="origin">The entity which caused the change in damage, if any.</param>
+    /// <returns>The amount by which the damage has changed.</returns>
     public DamageSpecifier ChangeDamage(
         Entity<WoundableAccumulatorComponent?, DamageableComponent?> ent,
         DamageSpecifier specifier,
@@ -103,36 +106,17 @@ public sealed partial class WoundableSystem
             return result;
 
         if (!ignoreResistances)
-        {
-            var getResistanceEv = new GetWoundableResistanceEvent(specifier, origin);
-            RaiseLocalEvent(ent, getResistanceEv);
-
-            specifier = getResistanceEv.Damage;
-        }
+            specifier = _damageable.GetModifiedDamage((ent, ent.Comp2), specifier, origin);
 
         if (specifier.Empty)
             return result;
 
         foreach (var (type, damage) in specifier)
         {
-            if (damage == 0 || !ent.Comp2.Damage.ContainsKey(type))
+            if (damage == 0 || !_damageable.SupportsType((ent, ent.Comp2), type))
                 continue;
 
-            if (ignoreResistances || !_prototype.TryIndex(ent.Comp2.ModifierSet, out var modifierSet))
-            {
-                result.Add(type, damage);
-                continue;
-            }
-
-            var processedDamage = damage;
-
-            if (modifierSet.FlatReduction.TryGetValue(type, out var reduction))
-                processedDamage = FixedPoint2.Max(0f, processedDamage - reduction);
-
-            if (modifierSet.Coefficients.TryGetValue(type, out var coefficient))
-                processedDamage *= coefficient;
-
-            result.Add(type, processedDamage);
+            result.Add(type, damage);
         }
 
         if (result.Empty)
@@ -143,9 +127,9 @@ public sealed partial class WoundableSystem
         ent.Comp1.Health = FixedPoint2.Clamp(ent.Comp1.Health - result.GetTotal(), FixedPoint2.Zero, ent.Comp1.MaximumHealth);
         DirtyField(ent, ent.Comp1, nameof(WoundableAccumulatorComponent.Health));
 
-        UpdateWoundSeverity((ent, ent.Comp1));
+        UpdateSeverity((ent, ent.Comp1));
 
-        RaiseLocalEvent(ent, new WoundableDamageChangedEvent(origin, result));
+        RelayPositiveDamage(ent, ent.Comp1.Heir, ignoreResistances, result, origin);
 
         return result;
     }
@@ -154,7 +138,7 @@ public sealed partial class WoundableSystem
 
     #region Private API
 
-    public void UpdateWoundSeverity(Entity<WoundableAccumulatorComponent> ent)
+    public void UpdateSeverity(Entity<WoundableAccumulatorComponent> ent)
     {
         var severity = ent.Comp.Thresholds.HighestMatch(ent.Comp.Health) ?? WoundSeverity.Healthy;
         if (ent.Comp.Severity == severity)
@@ -163,7 +147,8 @@ public sealed partial class WoundableSystem
         ent.Comp.Severity = severity;
         DirtyField(ent, ent.Comp, nameof(WoundableProviderComponent.Severity));
 
-        RaiseLocalEvent(ent, new WoundableSeverityChangedEvent(severity));
+        var ev = new WoundSeverityChangedEvent(severity);
+        RaiseLocalEvent(ent, ref ev);
     }
 
     #endregion

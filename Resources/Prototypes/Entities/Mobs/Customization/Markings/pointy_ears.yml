@@ -1,116 +1,116 @@
-- type: marking
-  id: PointyEarsStandard
-  markingCategory: HeadSide
-  forcedColoring: true
-  speciesRestriction: [Oni, Harpy, Arachne, Lamia, Human, IPC]
-  sprites:
-  - sprite: Mobs/Customization/pointy_ears.rsi
-    state: pointy_ears_standard
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadSide
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: PointyEarsWide
-  markingCategory: HeadSide
-  forcedColoring: true
-  speciesRestriction: [Oni, Harpy, Arachne, Lamia, Human, IPC]
-  sprites:
-  - sprite: Mobs/Customization/pointy_ears.rsi
-    state: pointy_ears_wide
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadSide
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: PointyEarsSmall
-  markingCategory: HeadSide
-  forcedColoring: true
-  speciesRestriction: [Oni, Harpy, Arachne, Lamia, Human, IPC]
-  sprites:
-  - sprite: Mobs/Customization/pointy_ears.rsi
-    state: pointy_ears_small
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadSide
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: PointyEarsUpwards
-  markingCategory: HeadSide
-  forcedColoring: true
-  speciesRestriction: [Oni, Harpy, Arachne, Lamia, Human, IPC]
-  sprites:
-  - sprite: Mobs/Customization/pointy_ears.rsi
-    state: pointy_ears_upwards
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadSide
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: PointyEarsTall
-  markingCategory: HeadSide
-  forcedColoring: true
-  speciesRestriction: [Oni, Harpy, Arachne, Lamia, Human, IPC]
-  sprites:
-  - sprite: Mobs/Customization/pointy_ears.rsi
-    state: pointy_ears_tall
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadSide
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: PointyEarsSlanted
-  markingCategory: HeadSide
-  forcedColoring: true
-  speciesRestriction: [Oni, Harpy, Arachne, Lamia, Human, IPC]
-  sprites:
-  - sprite: Mobs/Customization/pointy_ears.rsi
-    state: pointy_ears_slanted
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadSide
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: PointyEarsThin
-  markingCategory: HeadSide
-  forcedColoring: true
-  speciesRestriction: [Oni, Harpy, Arachne, Lamia, Human, IPC]
-  sprites:
-  - sprite: Mobs/Customization/pointy_ears.rsi
-    state: pointy_ears_thin
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadSide
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: PointyEarsLarge
-  markingCategory: HeadSide
-  forcedColoring: true
-  speciesRestriction: [Oni, Harpy, Arachne, Lamia, Human, IPC]
-  sprites:
-  - sprite: Mobs/Customization/pointy_ears.rsi
-    state: pointy_ears_large
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadSide
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: PointyEarsNone
-  markingCategory: HeadSide
-  forcedColoring: true
-  speciesRestriction: [Oni]
-  sprites:
-  - sprite: Mobs/Customization/pointy_ears.rsi
-    state: pointy_ears_none
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadSide
-    bodyPart: Head
-    # WD EDIT END
+#- type: marking
+#  id: PointyEarsStandard
+#  markingCategory: HeadSide
+#  forcedColoring: true
+#  speciesRestriction: [Oni, Harpy, Lamia, Human, IPC]
+#  sprites:
+#  - sprite: Mobs/Customization/pointy_ears.rsi
+#    state: pointy_ears_standard
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadSide
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: PointyEarsWide
+#  markingCategory: HeadSide
+#  forcedColoring: true
+#  speciesRestriction: [Oni, Harpy, Lamia, Human, IPC]
+#  sprites:
+#  - sprite: Mobs/Customization/pointy_ears.rsi
+#    state: pointy_ears_wide
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadSide
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: PointyEarsSmall
+#  markingCategory: HeadSide
+#  forcedColoring: true
+#  speciesRestriction: [Oni, Harpy, Lamia, Human, IPC]
+#  sprites:
+#  - sprite: Mobs/Customization/pointy_ears.rsi
+#    state: pointy_ears_small
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadSide
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: PointyEarsUpwards
+#  markingCategory: HeadSide
+#  forcedColoring: true
+#  speciesRestriction: [Oni, Harpy, Lamia, Human, IPC]
+#  sprites:
+#  - sprite: Mobs/Customization/pointy_ears.rsi
+#    state: pointy_ears_upwards
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadSide
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: PointyEarsTall
+#  markingCategory: HeadSide
+#  forcedColoring: true
+#  speciesRestriction: [Oni, Harpy, Lamia, Human, IPC]
+#  sprites:
+#  - sprite: Mobs/Customization/pointy_ears.rsi
+#    state: pointy_ears_tall
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadSide
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: PointyEarsSlanted
+#  markingCategory: HeadSide
+#  forcedColoring: true
+#  speciesRestriction: [Oni, Harpy, Lamia, Human, IPC]
+#  sprites:
+#  - sprite: Mobs/Customization/pointy_ears.rsi
+#    state: pointy_ears_slanted
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadSide
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: PointyEarsThin
+#  markingCategory: HeadSide
+#  forcedColoring: true
+#  speciesRestriction: [Oni, Harpy, Lamia, Human, IPC]
+#  sprites:
+#  - sprite: Mobs/Customization/pointy_ears.rsi
+#    state: pointy_ears_thin
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadSide
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: PointyEarsLarge
+#  markingCategory: HeadSide
+#  forcedColoring: true
+#  speciesRestriction: [Oni, Harpy, Lamia, Human, IPC]
+#  sprites:
+#  - sprite: Mobs/Customization/pointy_ears.rsi
+#    state: pointy_ears_large
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadSide
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: PointyEarsNone
+#  markingCategory: HeadSide
+#  forcedColoring: true
+#  speciesRestriction: [Oni]
+#  sprites:
+#  - sprite: Mobs/Customization/pointy_ears.rsi
+#    state: pointy_ears_none
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadSide
+#    bodyPart: Head
+#    # WD EDIT END

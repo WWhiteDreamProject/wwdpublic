@@ -55,10 +55,10 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 20
   - type: RandomFillSolution
-    solution: food
+    solution: ingestible # WD Ingestible
     weightedRandomId: RandomFillStrangePill
   - type: Sprite
     sprite: Objects/Specific/Chemistry/pills.rsi

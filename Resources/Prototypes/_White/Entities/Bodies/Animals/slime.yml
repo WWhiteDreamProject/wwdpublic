@@ -1,0 +1,19 @@
+- type: entity
+  id: BaseBodySimpleSlime
+  parent: BaseBody
+  abstract: true
+  components:
+  - type: Body
+    rootProvider:
+      type: AllParts
+      providers:
+        core:
+          type: Core
+          startingProvider: BodyProviderCoreSlime
+        ears:
+          type: Ears
+          startingProvider: BodyProviderEarsSlime
+        lungs:
+          type: Lungs
+          startingProvider: BodyProviderLungsSlime
+      startingProvider: BodyProviderAllPartsAnimal

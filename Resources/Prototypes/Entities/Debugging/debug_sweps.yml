@@ -70,9 +70,8 @@
       - Debug
   - type: Projectile
     damage:
-      types:
-        Blunt: 20000
-
+      # WD EDIT: Migrated damage format
+      Blunt: 20000
 - type: entity
   id: CartridgeDebug
   name: bang, ded cartridge
@@ -100,8 +99,8 @@
     state: icon
   - type: MeleeWeapon
     damage:
-      types:
-        Blunt: 20000
+      # WD EDIT: Migrated damage format
+      Blunt: 20000
   - type: Item
     size: Tiny
     sprite: Objects/Weapons/Melee/debug.rsi
@@ -117,9 +116,8 @@
       - Debug
   - type: MeleeWeapon
     damage:
-      types:
-        Blunt: 100
-
+      # WD EDIT: Migrated damage format
+      Blunt: 100
 - type: entity
   name: bang stick 200dmg
   parent: MeleeDebugGib
@@ -130,5 +128,5 @@
       - Debug
   - type: MeleeWeapon
     damage:
-      types:
-        Blunt: 200
+      # WD EDIT: Migrated damage format
+      Blunt: 200

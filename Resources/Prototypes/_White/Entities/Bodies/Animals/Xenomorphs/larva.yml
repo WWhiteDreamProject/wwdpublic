@@ -1,0 +1,25 @@
+- type: entity
+  id: BaseBodyXenomorphLarva
+  parent: BaseBody
+  abstract: true
+  components:
+  - type: Body
+    rootProvider:
+      type: AllParts
+      providers:
+        brain:
+          type: Brain
+          startingProvider: BodyProviderBrainXenomorph
+        ears:
+          type: Ears
+          startingProvider: BodyProviderEarsXenomorph
+        heart:
+          type: Heart
+          startingProvider: BodyProviderHeartXenomorph
+        hive_node:
+          type: SpecificOrgan
+          startingProvider: BodyProviderHiveNodeXenomorph
+        lungs:
+          type: Lungs
+          startingProvider: BodyProviderLungsXenomorphTiny
+      startingProvider: BodyProviderAllPartsAnimal

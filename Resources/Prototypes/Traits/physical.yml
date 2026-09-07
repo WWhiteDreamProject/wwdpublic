@@ -141,7 +141,6 @@
       inverted: true
       species:
         - Felinid
-        - Tajaran
   functions:
     - !type:TraitModifyStamina
       staminaModifier: -15
@@ -252,7 +251,6 @@
       inverted: true
       species:
         - Felinid
-        - Tajaran
     - !type:CharacterTraitRequirement
       inverted: true
       traits:
@@ -276,7 +274,6 @@
       inverted: true
       species:
         - Felinid
-        - Tajaran
     - !type:CharacterTraitRequirement
       inverted: true
       traits:
@@ -327,8 +324,7 @@
     - !type:CharacterSpeciesRequirement
       inverted: true
       species:
-        - Felinid # Felinids/Tajaran already have this feature by default.
-        - Tajaran
+        - Felinid # Felinids already have this feature by default.
     - !type:CharacterHeightRequirement
       max: 150
     - !type:CharacterWidthRequirement
@@ -351,7 +347,6 @@
     - !type:CharacterSpeciesRequirement
       inverted: true
       species:
-        - Vulpkanin # This trait functions exactly as-is for the Vulpkanin trait.
         - Plasmaman # Plasmamen have cold immunity so this trait is unnecessary
   functions:
     - !type:TraitReplaceComponent
@@ -373,7 +368,6 @@
       species:
         - Harpy # Harpies already have talons
         - Arachnid # Apparently they have a "piercing" bite
-        - Xelthia # Talons don't make sense on tentacle arms
     - !type:CharacterTraitRequirement
       inverted: true
       traits:
@@ -384,17 +378,14 @@
         collection: AlienClaw
       animation: WeaponArcClaw
       damage:
-        types:
-          Piercing: 5 # No, this isn't "OP", this is literally the worst brute damage type in the game.
-                      # Same deal as Slash, except that a majority of all armor provides Piercing resistance.
+        # WD EDIT: Migrated damage format
+        Piercing: 5
     - !type:TraitRemoveComponent # Plasmamen have self-damage on melee attacks
       components:
         - type: DamageOnHit
           damage:
-            types:
-              Blunt: 0
-
-
+            # WD EDIT: Migrated damage format
+            Blunt: 0
 - type: trait
   id: Claws
   category: Physical
@@ -404,11 +395,7 @@
       inverted: true
       species:
         - Felinid # Felinids already have cat claws.
-        - Tajaran # Tajaran also have cat claws
         - Reptilian # Reptilians also have cat claws.
-        - Shadowkin # Shadowkins also have claws.
-        - Xelthia # Claws don't make sense on tentacle arms
-        # - Vulpkanin # Vulpkanin have "Blunt" claws. One could argue this trait "Sharpens" their claws.
     - !type:CharacterTraitRequirement
       inverted: true
       traits:
@@ -419,16 +406,14 @@
         collection: AlienClaw
       animation: WeaponArcClaw
       damage:
-        types:
-          Slash: 5 # Trade stamina damage on hit for a very minor amount of extra bleed.
-                  # Blunt also deals bleed damage, so this is more of a sidegrade.
+        # WD EDIT: Migrated damage format
+        Slash: 5
     - !type:TraitRemoveComponent
       components:
         - type: DamageOnHit
           damage:
-            types:
-              Blunt: 0
-
+            # WD EDIT: Migrated damage format
+            Blunt: 0
 - type: trait
   id: NaturalWeaponRemoval
   category: Physical
@@ -442,10 +427,8 @@
         - SlimePerson
         - Diona
         - Dwarf
-        - Arachne
         - IPC # Other species could justify getting this trait for Blunt stamina damage,
               # but 6 blunt -> 5 blunt is a straight up downgrade.
-        - Xelthia # Their tentacles aren't really weapons probably
     - !type:CharacterTraitRequirement
       inverted: true
       traits:
@@ -457,15 +440,13 @@
         collection: Punch
       animation: WeaponArcFist
       damage:
-        types:
-          Blunt: 5
+        # WD EDIT: Migrated damage format
+        Blunt: 5
     - !type:TraitRemoveComponent
       components:
         - type: DamageOnHit
           damage:
-            types:
-              Blunt: 0
-
+            Blunt: 0
 - type: trait
   id: StrikingCalluses
   category: Physical
@@ -480,15 +461,10 @@
       traits:
         - Claws
         - Talons
-    - !type:CharacterSpeciesRequirement
-      inverted: true
-      species:
-        - Xelthia # this would fall off
   functions:
     - !type:TraitModifyUnarmed
       flatDamageIncrease:
-        types:
-          Blunt: 2
+        Blunt: 2
 
 - type: trait
   id: Spinarette
@@ -503,10 +479,7 @@
       inverted: true
       species:
         - Arachnid
-        - Arachne
-        - Shadowkin
         - IPC
-        - Xelthia # this would fall off
   functions:
     - !type:TraitAddComponent
       components:
@@ -539,10 +512,6 @@
 #       inverted: true
 #       traits:
 #         - BionicPryArm
-#     - !type:CharacterSpeciesRequirement
-#       inverted: true
-#       species:
-#         - Xelthia # this would fall off
 #   functions:
 #     - !type:TraitCyberneticLimbReplacement
 #       removeBodyPart: Arm
@@ -586,12 +555,19 @@
           - Critical
           damageCap: 400
           damage:
-            groups:
-              Brute: -0.35
-              Burn: -0.35
-              Airloss: -0.25
-              Toxin: -0.35
-              Genetic: -0.35
+            # WD EDIT: Migrated damage format
+            Asphyxiation: -0.1
+            Bloodloss: -0.1
+            Blunt: -0.1
+            Caustic: -0.1
+            Cellular: -0.3
+            Cold: -0.1
+            Heat: -0.1
+            Piercing: -0.1
+            Poison: -0.2
+            Radiation: -0.2
+            Shock: -0.1
+            Slash: -0.1
         - type: BloodDeficiency # Incredibly actually works
           bloodLossPercentage: -0.025
 
@@ -916,86 +892,14 @@
           - Dead
           damageCap: 125
           damage:
-            groups:
-              Brute: -0.5
-              Burn: -0.5
-
-# - type: trait
-#   id: BionicLeg
-#   category: Physical
-#   points: -8
-#   enable: false # WD EDIT
-#   requirements:
-#     - !type:CharacterJobRequirement
-#       inverted: true
-#       jobs:
-#         - Prisoner # Bionics should be "Confiscated" from long term prisoners.
-#   functions:
-#     - !type:TraitPushDescription
-#       descriptionExtensions:
-#         - description: examine-bionic-leg-message
-#           fontSize: 12
-#           requireDetailRange: true
-#     - !type:TraitCyberneticLimbReplacement
-#       removeBodyPart: Leg
-#       partSymmetry: Left
-#       protoId: SpeedLeftLeg
-#       slotId: "left leg"
-#     - !type:TraitCyberneticLimbReplacement
-#       removeBodyPart: Leg
-#       partSymmetry: Right
-#       protoId: SpeedRightLeg
-#       slotId: "right leg"
-
-# - type: trait
-#   id: CyberneticLeftLeg
-#   category: Physical
-#   points: 0
-#  slots: 0
-#   functions:
-#     - !type:TraitCyberneticLimbReplacement
-#       removeBodyPart: Leg
-#       partSymmetry: Left
-#       protoId: LeftLegCybernetic
-#       slotId: "left leg"
-
-# - type: trait
-#   id: CyberneticRightLeg
-#   category: Physical
-#   points: 0
-#   slots: 0
-#   functions:
-#     - !type:TraitCyberneticLimbReplacement
-#       removeBodyPart: Leg
-#       partSymmetry: Right
-#       protoId: RightLegCybernetic
-#       slotId: "right leg"
-
-# - type: trait
-#  id: FlareShieldingModule
-#  category: Physical
-#  points: -4
-#  requirements:
-#    - !type:CharacterJobRequirement
-#      inverted: true
-#      jobs:
-#        - Prisoner # Bionics should be "Confiscated" from long term prisoners.
-#    - !type:CharacterSpeciesRequirement
-#      species:
-#        - IPC
-#    - !type:CharacterTraitRequirement
-#      inverted: true
-#      traits:
-#       - Photophobia
-#        - Blindness
-#        - Nearsighted
-#  functions:
-#    - !type:TraitAddComponent
-#      components:
-#        - type: FlashImmunity
-#        - type: EyeProtection
-
-
+            # WD EDIT: Migrated damage format
+            Blunt: -0.2
+            Caustic: -0.1
+            Cold: -0.1
+            Heat: -0.1
+            Piercing: -0.2
+            Shock: -0.1
+            Slash: -0.2
 - type: trait
   id: SecurityEyesModule
   category: Physical
@@ -1265,10 +1169,6 @@
 #       inverted: true
 #       traits:
 #         - BionicArm
-#     - !type:CharacterSpeciesRequirement
-#       inverted: true
-#       species:
-#         - Xelthia # this would fall off
 #   functions:
 #     - !type:TraitCyberneticLimbReplacement
 #       removeBodyPart: Arm
@@ -1396,18 +1296,5 @@
         - Reptilian
   functions:
     - !type:TraitAddComponent
-      components:
-        - type: ScentTracker
-
-- type: trait
-  id: StuntedSnout
-  category: Physical
-  points: 1
-  requirements:
-    - !type:CharacterSpeciesRequirement
-      species:
-        - Vulpkanin
-  functions:
-    - !type:TraitRemoveComponent
       components:
         - type: ScentTracker

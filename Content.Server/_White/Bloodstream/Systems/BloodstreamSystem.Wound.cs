@@ -1,5 +1,6 @@
 using System.Numerics;
 using Content.Server._White.Bloodstream.Components;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared._White.Wounds.Systems;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.FixedPoint;
@@ -12,24 +13,26 @@ public sealed partial class BloodstreamSystem
 {
     private void InitializeWound()
     {
-        SubscribeLocalEvent<BloodSplatterWoundComponent, WoundDamageChangedEvent>(OnDamageChange);
+        SubscribeLocalEvent<BloodSplatterWoundComponent, DamageChangedEvent>(OnDamageChanged);
+        SubscribeLocalEvent<BloodSplatterWoundComponent, WoundCreatedEvent>(OnWoundCreated);
     }
 
     #region Event Handling
 
-    private void OnDamageChange(Entity<BloodSplatterWoundComponent> ent, ref WoundDamageChangedEvent args)
+    private void OnDamageChanged(Entity<BloodSplatterWoundComponent> ent, ref DamageChangedEvent args)
     {
-        if (args.Wound.Body is not {} body || args.Origin is not {} origin)
+        if (ent.Comp.Body is not {} body || args.Origin is not {} origin)
             return;
 
-        if (ent.Comp.MinDamageThreshold > args.Damage)
+        var damage = args.Damage.GetTotal();
+        if (ent.Comp.MinDamageThreshold > damage)
             return;
 
-        var chance = ((args.Damage - ent.Comp.MinDamageThreshold) / (ent.Comp.MaxDamageThreshold - ent.Comp.MinDamageThreshold)).Float();
-        if (ent.Comp.MaxDamageThreshold > args.Damage && !_random.Prob(chance))
+        var chance = ((damage - ent.Comp.MinDamageThreshold) / (ent.Comp.MaxDamageThreshold - ent.Comp.MinDamageThreshold)).Float();
+        if (ent.Comp.MaxDamageThreshold > damage && !_random.Prob(chance))
             return;
 
-        var bloodQuantity = FixedPoint2.Min(args.Damage * ent.Comp.DamageToVolumeFactor * _random.NextFloat(1 / ent.Comp.EmissionSpreadVolume, ent.Comp.EmissionSpreadVolume), ent.Comp.MaxSplatterVolume * ent.Comp.MaxSplatterCount);
+        var bloodQuantity = FixedPoint2.Min(damage * ent.Comp.DamageToVolumeFactor * _random.NextFloat(1 / ent.Comp.EmissionSpreadVolume, ent.Comp.EmissionSpreadVolume), ent.Comp.MaxSplatterVolume * ent.Comp.MaxSplatterCount);
         if (!TryTakeBlood(body, bloodQuantity, out var solution))
             return;
 
@@ -48,7 +51,7 @@ public sealed partial class BloodstreamSystem
         {
             case SplatterType.Random:
             {
-                SpawnRandomly(ent, args.Damage, coordinates, solution, originalDirection);
+                SpawnRandomly(ent, damage, coordinates, solution, originalDirection);
                 break;
             }
             case SplatterType.Line:
@@ -57,6 +60,11 @@ public sealed partial class BloodstreamSystem
                 break;
             }
         }
+    }
+
+    private void OnWoundCreated(Entity<BloodSplatterWoundComponent> ent, ref WoundCreatedEvent args)
+    {
+        ent.Comp.Body = args.Wound.Body;
     }
 
     #endregion
@@ -100,7 +108,7 @@ public sealed partial class BloodstreamSystem
 
     private void SpawnRandomly(
         Entity<BloodSplatterWoundComponent> ent,
-        FixedPoint2 damageDealt,
+        FixedPoint2 damage,
         MapCoordinates coordinates,
         Solution bloodSolution,
         Vector2 direction
@@ -111,7 +119,7 @@ public sealed partial class BloodstreamSystem
         for (var i = 0; i < splatterCount; i++)
         {
             var finalDirection = GetEmissionSpreadDirection((float)ent.Comp.EmissionSpreadAngle.Theta, direction);
-            var distance = damageDealt.Float() * ent.Comp.DamageToDistanceFactor * _random.NextFloat(1 / ent.Comp.EmissionSpreadDistance, ent.Comp.EmissionSpreadDistance);
+            var distance = damage.Float() * ent.Comp.DamageToDistanceFactor * _random.NextFloat(1 / ent.Comp.EmissionSpreadDistance, ent.Comp.EmissionSpreadDistance);
             var particleSolution = bloodSolution.SplitSolution(bloodSolution.Volume / splatterCount);
 
             _particle.SpawnLiquidParticle(ent.Comp.SplatterPrototype, coordinates, finalDirection, distance, particleSolution);

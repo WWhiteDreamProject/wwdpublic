@@ -89,8 +89,7 @@
       components:
       - Artifact
     crushingDamage:
-      types:
-        Blunt: 10
+      Blunt: 10
   - type: Machine
     board: ArtifactCrusherMachineCircuitboard
   - type: WiresPanel

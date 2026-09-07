@@ -1,0 +1,120 @@
+- type: entity
+  id: BaseBodyOni
+  parent: BaseBody
+  abstract: true
+  components:
+  - type: Body
+    rootProvider:
+      type: Chest
+      providers:
+        groin:
+          type: Groin
+          providers:
+            coxae:
+              type: Coxae
+              providers:
+                appendix:
+                  type: Appendix
+                  startingProvider: BodyProviderAppendixOni
+                kidneys:
+                  type: Kidneys
+                  startingProvider: BodyProviderKidneysOni
+                liver:
+                  type: Liver
+                  startingProvider: BodyProviderLiverOni
+                stomach:
+                  type: Stomach
+                  startingProvider: BodyProviderStomachOni
+              startingProvider: BodyProviderCoxaeOni
+            left_leg:
+              type: LeftLeg
+              providers:
+                left_crus:
+                  type: LeftCrus
+                  startingProvider: BodyProviderLeftCrusOni
+                left_foot:
+                  type: LeftFoot
+                  providers:
+                    left_pedis:
+                      type: LeftPedis
+                      startingProvider: BodyProviderLeftPedisOni
+                  startingProvider: BodyProviderLeftFootOni
+              startingProvider: BodyProviderLeftLegOni
+            right_leg:
+              type: RightLeg
+              providers:
+                right_crus:
+                  type: RightCrus
+                  startingProvider: BodyProviderRightCrusOni
+                right_foot:
+                  type: RightFoot
+                  providers:
+                    right_pedis:
+                      type: RightPedis
+                      startingProvider: BodyProviderRightPedisOni
+                  startingProvider: BodyProviderRightFootOni
+              startingProvider: BodyProviderRightLegOni
+            tail:
+              type: Tail
+          startingProvider: BodyProviderGroinOni
+        head:
+          type: Head
+          providers:
+            cranium:
+              type: Сranium
+              providers:
+                brain:
+                  type: Brain
+                  startingProvider: BodyProviderBrainOni
+                ears:
+                  type: Ears
+                  startingProvider: BodyProviderEarsOni
+                eyes:
+                  type: Eyes
+                  startingProvider: BodyProviderEyesOni
+                tongue:
+                  type: Tongue
+                  startingProvider: BodyProviderTongueOni
+              startingProvider: BodyProviderСraniumOni
+          startingProvider: BodyProviderHeadOni
+        left_arm:
+          type: LeftArm
+          providers:
+            left_antebrachium:
+              type: LeftAntebrachium
+              startingProvider: BodyProviderLeftAntebrachiumOni
+            left_hand:
+              type: LeftHand
+              providers:
+                left_manus:
+                  type: LeftManus
+                  startingProvider: BodyProviderLeftManusOni
+              startingProvider: BodyProviderLeftHandOni
+          startingProvider: BodyProviderLeftArmOni
+        right_arm:
+          type: RightArm
+          providers:
+            right_antebrachium:
+              type: RightAntebrachium
+              startingProvider: BodyProviderRightAntebrachiumOni
+            right_hand:
+              type: RightHand
+              providers:
+                right_manus:
+                  type: RightManus
+                  startingProvider: BodyProviderRightManusOni
+              startingProvider: BodyProviderRightHandOni
+          startingProvider: BodyProviderRightArmOni
+        thorax:
+          type: Thorax
+          providers:
+            heart:
+              type: Heart
+              startingProvider: BodyProviderHeartOni
+            lungs:
+              type: Lungs
+              startingProvider: BodyProviderLungsOni
+          startingProvider: BodyProviderThoraxOni
+        wings:
+          type: Wings
+      startingProvider: BodyProviderChestOni

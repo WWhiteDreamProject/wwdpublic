@@ -1,0 +1,86 @@
+- type: entity
+  id: MobHumanoidOni
+  parent:
+  - BaseBodyOni
+  - BaseMobHumanoidOrganic
+  name: Urist McOni
+  components:
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 220
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: HideableLayers
+    hideLayersOnEquip:
+    - enum.MarkingVisualLayers.Hair
+    - enum.MarkingVisualLayers.Snout
+  - type: HumanoidProfile
+    species: Oni
+  - type: Inventory
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female
+      jumpsuit-body-slim:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Human/displacement.rsi
+            state: jumpsuit
+      shoes-body-slim:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Human/displacement.rsi
+            state: shoes
+      gloves-body-slim:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Human/displacement.rsi
+            state: gloves
+      outerClothing-body-slim:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Human/displacement.rsi
+            state: outer
+      hardsuit-body-slim:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Human/displacement.rsi
+            state: hardsuit
+      suit-body-slim:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Human/displacement.rsi
+            state: suit
+  - type: LanguageKnowledge
+    speaks:
+    - TauCetiBasic
+    - Nekomimetic
+    understands:
+    - TauCetiBasic
+    - Nekomimetic
+  - type: Oni
+    modifiers:
+      coefficients:
+        Blunt: 1.35
+        Slash: 1.25
+        Piercing: 1.25
+        Asphyxiation: 1.35
+  - type: PotentiaModifier
+    potentiaMultiplier: 0.5
+  - type: Speech
+    speechSounds: Baritone
+    speechVerb: Oni
+  - type: Stamina
+    critThreshold: 115
+    decay: 3.45
+  - type: TypingIndicator
+    proto: oni

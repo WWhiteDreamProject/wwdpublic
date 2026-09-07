@@ -1,6 +1,0 @@
-- type: entity
-  id: OrganEyesGingerbread
-  parent: OrganEyesHuman
-  components:
-  - type: OrganAppearance
-    state: no_eyes

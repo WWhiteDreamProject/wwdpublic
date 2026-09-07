@@ -27,13 +27,11 @@
         variation: 0.250
   - type: ItemToggleMeleeWeapon
     activatedDamage:
-      types:
-        Blunt: 0
+      Blunt: 0
   - type: MeleeWeapon
     wideAnimationRotation: -135
     damage:
-      types:
-        Blunt: 7
+      Blunt: 7
     bluntStaminaDamageFactor: 2.0
     # WD EDIT START
     animationRotation: 135
@@ -115,8 +113,8 @@
     wideAnimationRotation: -135
     attackRate: 1.2
     damage:
-      types:
-        Blunt: 12
+      # WD EDIT: Migrated damage format
+      Blunt: 12
     soundHit:
       collection: MetalThud
     bluntStaminaDamageFactor: 3
@@ -165,8 +163,8 @@
     - type: MeleeWeapon
       wideAnimationRotation: 180
       damage:
-        types:
-          Blunt: 0 # melee weapon to allow flashing individual targets
+        # WD EDIT: Migrated damage format
+        Blunt: 0
       angle: 10
       canBeBlocked: false # WD EDIT
     - type: Item

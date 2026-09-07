@@ -8,8 +8,8 @@
     hasLampOnSpawn: BlueLightTube
   - type: DamageOnInteract
     damage:
-      types:
-        Heat: 0.2
+      # WD EDIT: Migrated damage format
+      Heat: 0.2
     popupText: powered-light-component-burn-hand
 
 - type: entity
@@ -34,8 +34,8 @@
     hasLampOnSpawn: LightBulbMaintenance
   - type: DamageOnInteract
     damage:
-      types:
-        Heat: 0.2
+      # WD EDIT: Migrated damage format
+      Heat: 0.2
     popupText: powered-light-component-burn-hand
 
 - type: entity
@@ -62,8 +62,8 @@
     hasLampOnSpawn: ColoredLightTubeRed
   - type: DamageOnInteract
     damage:
-      types:
-        Heat: 0.2
+      # WD EDIT: Migrated damage format
+      Heat: 0.2
     popupText: powered-light-component-burn-hand
 
 - type: entity
@@ -88,8 +88,8 @@
     hasLampOnSpawn: ColoredLightTubeFrostyBlue
   - type: DamageOnInteract
     damage:
-      types:
-        Heat: 0.2
+      # WD EDIT: Migrated damage format
+      Heat: 0.2
     popupText: powered-light-component-burn-hand
 
 - type: entity
@@ -114,8 +114,8 @@
     hasLampOnSpawn: ColoredLightTubeBlackLight
   - type: DamageOnInteract
     damage:
-      types:
-        Heat: 0.2
+      # WD EDIT: Migrated damage format
+      Heat: 0.2
     popupText: powered-light-component-burn-hand
 
 - type: entity
@@ -143,8 +143,8 @@
     hasLampOnSpawn: ColoredLightTubeRed
   - type: DamageOnInteract
     damage:
-      types:
-        Heat: 2
+      # WD EDIT: Migrated damage format
+      Heat: 2
     popupText: powered-light-component-burn-hand
 
 - type: entity
@@ -173,8 +173,8 @@
     hasLampOnSpawn: LightBulbMaintenanceRed
   - type: DamageOnInteract
     damage:
-      types:
-        Heat: 0.2
+      # WD EDIT: Migrated damage format
+      Heat: 0.2
     popupText: powered-light-component-burn-hand
 
 - type: entity

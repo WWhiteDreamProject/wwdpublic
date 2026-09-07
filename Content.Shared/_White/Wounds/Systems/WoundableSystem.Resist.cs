@@ -1,3 +1,4 @@
+using Content.Shared._White.Damage.Systems;
 using Content.Shared._White.Wounds.Components;
 
 namespace Content.Shared._White.Wounds.Systems;
@@ -6,18 +7,18 @@ public sealed partial class WoundableSystem
 {
     private void InitializeResist()
     {
-        SubscribeLocalEvent<WoundableResistComponent, GetWoundableResistanceEvent>(OnGetWoundableResistance);
-        SubscribeLocalEvent<WoundableResistComponent, WoundableSeverityChangedEvent>(OnWoundableSeverityChanged);
+        SubscribeLocalEvent<WoundableResistComponent, GetModifiedDamageEvent>(OnGetModifiedDamage);
+        SubscribeLocalEvent<WoundableResistComponent, WoundSeverityChangedEvent>(OnWoundSeverityChanged);
     }
 
     #region Event Handling
 
-    private void OnGetWoundableResistance(Entity<WoundableResistComponent> ent, ref GetWoundableResistanceEvent args)
+    private void OnGetModifiedDamage(Entity<WoundableResistComponent> ent, ref GetModifiedDamageEvent args)
     {
-        args.Damage *= ent.Comp.Resistance;
+        args.Result *= ent.Comp.Resistance;
     }
 
-    private void OnWoundableSeverityChanged(Entity<WoundableResistComponent> ent, ref WoundableSeverityChangedEvent args)
+    private void OnWoundSeverityChanged(Entity<WoundableResistComponent> ent, ref WoundSeverityChangedEvent args)
     {
         var resistance = ent.Comp.Thresholds.GetValueOrDefault(args.Severity);
         if (ent.Comp.Resistance == resistance)

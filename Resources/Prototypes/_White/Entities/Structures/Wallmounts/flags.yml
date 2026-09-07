@@ -115,13 +115,3 @@
   - type: Sprite
     sprite: _White/Structures/Wallmounts/flags.rsi
     state: tizira
-
-- type: entity
-  parent: BaseFlag
-  id: FlagVulp
-  name: Vulpkanins flag
-  description: Flag of humanoid dog-like organisms from the Vazzend system. Now they live on the Kellun and Dalhstadt, although their original homeland was known as Altam.
-  components:
-  - type: Sprite
-    sprite: _White/Structures/Wallmounts/flags.rsi
-    state: vulp

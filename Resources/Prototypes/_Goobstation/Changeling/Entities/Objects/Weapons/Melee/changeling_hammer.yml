@@ -12,9 +12,9 @@
     wideAnimationRotation: -90
     attackRate: 1.35
     damage:
-      types:
-        Blunt: 20
-        Structural: 50
+      # WD EDIT: Migrated damage format
+      Blunt: 20
+      Structural: 50
     heavyStaminaCost: 10
     heavyRangeModifier: 1.2
     heavyRateModifier: 2.5

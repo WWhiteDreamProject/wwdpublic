@@ -1,0 +1,122 @@
+- type: entity
+  id: BaseBodyReptilian
+  parent: BaseBody
+  abstract: true
+  components:
+  - type: Body
+    rootProvider:
+      type: Chest
+      providers:
+        groin:
+          type: Groin
+          providers:
+            coxae:
+              type: Coxae
+              providers:
+                kidneys:
+                  type: Kidneys
+                  startingProvider: BodyProviderKidneysReptilian
+                liver:
+                  type: Liver
+                  startingProvider: BodyProviderLiverReptilian
+                stomach:
+                  type: Stomach
+                  startingProvider: BodyProviderStomachReptilian
+              startingProvider: BodyProviderCoxaeReptilian
+            left_leg:
+              type: LeftLeg
+              providers:
+                left_crus:
+                  type: LeftCrus
+                  startingProvider: BodyProviderLeftCrusReptilian
+                left_foot:
+                  type: LeftFoot
+                  providers:
+                    left_pedis:
+                      type: LeftPedis
+                      startingProvider: BodyProviderLeftPedisReptilian
+                  startingProvider: BodyProviderLeftFootReptilian
+              startingProvider: BodyProviderLeftLegReptilian
+            right_leg:
+              type: RightLeg
+              providers:
+                right_crus:
+                  type: RightCrus
+                  startingProvider: BodyProviderRightCrusReptilian
+                right_foot:
+                  type: RightFoot
+                  providers:
+                    right_pedis:
+                      type: RightPedis
+                      startingProvider: BodyProviderRightPedisReptilian
+                  startingProvider: BodyProviderRightFootReptilian
+              startingProvider: BodyProviderRightLegReptilian
+            tail:
+              type: Tail
+              providers:
+                cauda:
+                  type: Cauda
+                  startingProvider: BodyProviderCaudaReptilian
+              startingProvider: BodyProviderPartTailReptilian
+          startingProvider: BodyProviderGroinReptilian
+        head:
+          type: Head
+          providers:
+            cranium:
+              type: Сranium
+              providers:
+                brain:
+                  type: Brain
+                  startingProvider: BodyProviderBrainReptilian
+                ears:
+                  type: Ears
+                  startingProvider: BodyProviderEarsReptilian
+                eyes:
+                  type: Eyes
+                  startingProvider: BodyProviderEyesReptilian
+                tongue:
+                  type: Tongue
+                  startingProvider: BodyProviderTongueReptilian
+              startingProvider: BodyProviderСraniumReptilian
+          startingProvider: BodyProviderHeadReptilian
+        left_arm:
+          type: LeftArm
+          providers:
+            left_antebrachium:
+              type: LeftAntebrachium
+              startingProvider: BodyProviderLeftAntebrachiumReptilian
+            left_hand:
+              type: LeftHand
+              providers:
+                left_manus:
+                  type: LeftManus
+                  startingProvider: BodyProviderLeftManusReptilian
+              startingProvider: BodyProviderLeftHandReptilian
+          startingProvider: BodyProviderLeftArmReptilian
+        right_arm:
+          type: RightArm
+          providers:
+            right_antebrachium:
+              type: RightAntebrachium
+              startingProvider: BodyProviderRightAntebrachiumReptilian
+            right_hand:
+              type: RightHand
+              providers:
+                right_manus:
+                  type: RightManus
+                  startingProvider: BodyProviderRightManusReptilian
+              startingProvider: BodyProviderRightHandReptilian
+          startingProvider: BodyProviderRightArmReptilian
+        thorax:
+          type: Thorax
+          providers:
+            heart:
+              type: Heart
+              startingProvider: BodyProviderHeartReptilian
+            lungs:
+              type: Lungs
+              startingProvider: BodyProviderLungsReptilian
+          startingProvider: BodyProviderThoraxReptilian
+        wings:
+          type: Wings
+      startingProvider: BodyProviderChestReptilian

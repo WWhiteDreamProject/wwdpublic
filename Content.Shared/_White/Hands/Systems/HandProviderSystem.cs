@@ -18,15 +18,14 @@ public sealed class HandProviderSystem : EntitySystem
 
     private void OnGotInserted(Entity<HandProviderComponent> ent, ref BodyProviderGotInsertedEvent args)
     {
-        _hands.AddHand(args.Body, ent.Comp.HandId, ent.Comp.HandLocation);
+        _hands.AddHand(args.Body, ent.Comp.Id, ent.Comp.Location);
     }
 
     private void OnGotRemoved(Entity<HandProviderComponent> ent, ref BodyProviderGotRemovedEvent args)
     {
-        // prevent a recursive double-delete bug
-        if (LifeStage(args.Body) >= EntityLifeStage.Terminating)
+        if (TerminatingOrDeleted(args.Body))
             return;
 
-        _hands.RemoveHand(args.Body, ent.Comp.HandId);
+        _hands.RemoveHand(args.Body, ent.Comp.Id);
     }
 }

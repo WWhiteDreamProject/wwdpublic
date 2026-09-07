@@ -44,18 +44,27 @@
             max: 2
   - type: Pylon
     healing:
-      groups:
-        Brute: -20
-        Burn: -20
-        Toxin: -10
-        Genetic: -5
-        Airloss: -20
+      Asphyxiation: -10
+      Bloodloss: -10
+      Blunt: -10
+      Caustic: -10
+      Cellular: -5
+      Cold: -10
+      Heat: -10
+      Piercing: -10
+      Poison: -5
+      Radiation: -5
+      Shock: -10
+      Slash: -10
   - type: DamageOnInteract
     ignoreResistances: true
     popupText : powered-light-component-burn-hand
     damage:
-      groups:
-        Burn: 5
+      # WD EDIT: Migrated damage format
+      Caustic: 1.2
+      Cold: 1.2
+      Heat: 1.2
+      Shock: 1.2
     blacklist:
       components:
       - BloodCultist

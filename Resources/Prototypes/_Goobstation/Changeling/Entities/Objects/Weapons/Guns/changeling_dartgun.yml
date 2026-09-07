@@ -60,9 +60,8 @@
     muzzleFlash: null
   - type: Projectile
     damage:
-      types:
-        Piercing: 3
-
+      # WD EDIT: Migrated damage format
+      Piercing: 3
 - type: entity
   id: ChangelingDartMute
   parent: ChangelingDart

@@ -24,7 +24,7 @@ public sealed partial class HumanoidProfileEditor
 
         OpenSpeciesWindow.Disabled = true;
         _currentWindow = UserInterfaceManager.CreateWindow<SpeciesSelectWindow>();
-        _currentWindow.Initialize(Profile);
+        _currentWindow.Initialize(Profile.Value);
         _currentWindow.OnClose += CurrentWindowClosed;
         _currentWindow.OnSpeciesSelected += OnSpeciesSelected;
         _currentWindow.OpenCentered();

@@ -22,8 +22,7 @@
     actions:
     - !type:ModifyHealthAction
       damage:
-        types: {Blunt: 5}
-    # 45% chance to cause yelp
+        Blunt: 5
     - !type:ConditionalAction
       condition:
         !type:ChanceRequirement

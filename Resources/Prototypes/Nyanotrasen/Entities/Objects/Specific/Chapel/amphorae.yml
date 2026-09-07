@@ -16,8 +16,8 @@
     solutions:
       jar:
         maxVol: 120
-  - type: Drink
-    solution: jar
+  - type: Ingestible # WD Ingestible
+    solutionName: jar # WD Ingestible
   - type: Spillable
     solution: jar
   - type: RefillableSolution
@@ -54,18 +54,17 @@
         acts: [ "Destruction" ]
   - type: DamageOnLand
     damage:
-      types:
-        Blunt: 5
+      # WD EDIT: Migrated damage format
+      Blunt: 5
   - type: DamageOtherOnHit
     damage:
-      types:
-        Blunt: 5
+      # WD EDIT: Migrated damage format
+      Blunt: 5
   - type: DamageOnHighSpeedImpact
     minimumSpeed: 2
     damage:
-      types:
-        Blunt: 5
-
+      # WD EDIT: Migrated damage format
+      Blunt: 5
 - type: entity
   parent: BaseAmphora
   id: Amphora

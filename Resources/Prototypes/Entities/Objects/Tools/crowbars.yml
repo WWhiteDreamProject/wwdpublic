@@ -27,8 +27,8 @@
     wideAnimationRotation: -135
     attackRate: .8
     damage:
-      types:
-        Blunt: 6
+      # WD EDIT: Migrated damage format
+      Blunt: 6
     bluntStaminaDamageFactor: 2
     heavyStaminaCost: 2.5
     soundHit:

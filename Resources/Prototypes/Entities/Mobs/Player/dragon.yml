@@ -96,8 +96,7 @@
       400: 0.5
   # disable taking damage from fire, since its a fire breathing dragon
   - type: Flammable
-    damage:
-      types: {}
+    damage: {}
   - type: StatusEffects # Overwriting basesimplemob to remove flash, getting flashed as dragon just feelsbad
     allowed:
     - SlowedDown
@@ -134,9 +133,8 @@
     soundHit:
       path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
     damage:
-      types:
-        Piercing: 15
-        Slash: 15
+      Piercing: 15
+      Slash: 15
   - type: Devourer
     foodPreference: Humanoid
     shouldStoreDevoured: true
@@ -217,9 +215,9 @@
       amount: 1
   - type: MeleeWeapon
     damage:
-      groups:
-        Brute: 12
-
+      Blunt: 4
+      Piercing: 4
+      Slash: 4
 - type: entity
   id: ActionSpawnRift
   name: Summon Carp Rift

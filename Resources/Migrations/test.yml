@@ -9,15 +9,15 @@ HeadKobold: null
 LeftLegMonkey: null
 OrganAnimalBrain: null
 
-LightHeadBorg: BodyPartHeadBorg
-TorsoBorg: BodyPartTorsoBorg
-LeftArmBorg: BodyPartLeftArmBorg
-RightArmBorg: BodyPartRightArmBorg
-LeftLegBorg: BodyPartLeftLegBorg
-RightLegBorg: BodyPartRightLegBorg
+LightHeadBorg: BodyProviderHeadBorg
+TorsoBorg: BodyProviderTorsoBorg
+LeftArmBorg: BodyProviderLeftArmBorg
+RightArmBorg: BodyProviderRightArmBorg
+LeftLegBorg: BodyProviderLeftLegBorg
+RightLegBorg: BodyProviderRightLegBorg
 
-OrganHumanBrain: OrganBrainHuman
-OrganHumanHeart: OrganHeartHuman
-HeadSkeleton: BodyPartHeadSkeleton
-TorsoSkeleton: BodyPartChestSkeleton
-OrganHumanAppendix: OrganAppendixHuman
+OrganHumanBrain: BodyProviderBrainHuman
+OrganHumanHeart: BodyProviderHeartHuman
+HeadSkeleton: BodyProviderHeadSkeleton
+TorsoSkeleton: BodyProviderChestSkeleton
+OrganHumanAppendix: BodyProviderAppendixHuman

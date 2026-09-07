@@ -26,8 +26,7 @@
       malus: 0.6
   - type: ItemToggleMeleeWeapon
     activatedDamage:
-      types:
-        Blunt: 6 # WWDP EDIT
+      Blunt: 6 # WWDP EDIT
     activatedSoundOnHit: # WWDP
       path: /Audio/Effects/snap.ogg
       params:
@@ -52,8 +51,7 @@
     maxTargets: 1
     canHeavyAttack: false
     damage:
-      types:
-        Blunt: 1
+      Blunt: 1
   - type: DamageOtherOnHit
     staminaCost: 6
   - type: Appearance
@@ -83,5 +81,4 @@
     attackRate: .83
   - type: ItemToggleMeleeWeapon
     activatedDamage:
-      types:
-        Blunt: 20
+      Blunt: 20

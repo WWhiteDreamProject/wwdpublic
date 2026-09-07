@@ -63,8 +63,8 @@
     stealGroup: ClothingShoesBootsMagAdv
   - type: DamageOtherOnHit
     damage:
-      types:
-        Blunt: 13
+      # WD EDIT: Migrated damage format
+      Blunt: 13
     staminaCost: 15
 
 - type: entity
@@ -127,8 +127,8 @@
     price: 500
   - type: DamageOtherOnHit
     damage:
-      types:
-        Blunt: 13
+      # WD EDIT: Migrated damage format
+      Blunt: 13
     staminaCost: 15
 
 - type: entity
@@ -152,8 +152,8 @@
     price: 500
   - type: DamageOtherOnHit
     damage:
-      types:
-        Blunt: 13
+      # WD EDIT: Migrated damage format
+      Blunt: 13
     staminaCost: 15
   - type: ClothingSlowOnDamageModifier
     modifier: 0.8

@@ -22,14 +22,14 @@
         type: CrayonBoundUserInterface
   - type: Crayon
     capacity: 60 # wwdp edit 25 -> 60
-  - type: Food
+  - type: Ingestible # WD Ingestible
   - type: FlavorProfile
     flavors:
     - chewy
     - bitter
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Nutriment
           Quantity: 3

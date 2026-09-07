@@ -318,12 +318,6 @@
   category: Visual
   points: 1
   requirements:
-  - !type:CharacterSpeciesRequirement
-    inverted: true
-    species:
-    - Vulpkanin # This trait functions exactly as-is for the Vulpkanin trait.
-    - Shadowkin
-    - Tajaran
   - !type:CharacterTraitRequirement
     inverted: true
     traits:
@@ -359,11 +353,9 @@
     components:
     - type: Clumsy
       gunShootFailDamage:
-        types:
-          Blunt: 5
-          Piercing: 4
-        groups:
-          Burn: 3
+        Blunt: 5
+        Heat: 3
+        Piercing: 4
 
 - type: trait
   id: NormalVision
@@ -372,12 +364,10 @@
   - !type:CharacterSpeciesRequirement
     species:
     - Harpy
-    - Vulpkanin
   functions:
   - !type:TraitRemoveComponent
     components:
     - type: UltraVision
-    - type: DogVision
 
 - type: trait
   id: Saturnine

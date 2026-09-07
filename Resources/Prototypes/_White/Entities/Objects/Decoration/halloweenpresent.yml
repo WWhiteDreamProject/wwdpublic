@@ -47,13 +47,13 @@
   - type: SpaceGarbage
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible:
         maxVol: 1
         reagents:
         - ReagentId: Sugar
           Quantity: 1
   - type: FlavorProfile
-  - type: Food
+  - type: Ingestible
   - type: TimedDespawn
     lifetime: 25
 

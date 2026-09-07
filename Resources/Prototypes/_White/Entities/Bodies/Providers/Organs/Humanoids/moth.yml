@@ -1,0 +1,63 @@
+- type: entity
+  id: BaseBodyProviderOrganMoth
+  parent: BaseBodyProviderOrganOrganic
+  abstract: true
+  suffix: Moth
+  components:
+  - type: Sprite
+    sprite: _White/Bodies/Organs/Humanoids/human.rsi # TODO: Replace with a unique sprite.
+
+- type: entity
+  id: BaseMetabolizerMoth
+  abstract: true
+  components:
+  - type: Metabolizer
+    types: [ BloodInsect, Moth, RespirationOxygen ]
+
+# Brain
+- type: entity
+  id: BodyProviderBrainMoth
+  parent: [BaseBodyProviderBrainOrganic, BaseBodyProviderOrganMoth]
+
+# Ears
+- type: entity
+  id: BodyProviderEarsMoth
+  parent: [BaseBodyProviderEars, BaseBodyProviderOrganMoth]
+
+# Eyes
+- type: entity
+  id: BodyProviderEyesMoth
+  parent: [BaseBodyProviderEyes, BaseBodyProviderOrganMoth]
+  components:
+  - type: BodyAppearanceProvider
+    path: _White/Bodies/Organs/Humanoids/moth.rsi
+
+# Heart
+- type: entity
+  id: BodyProviderHeartMoth
+  parent: [BaseBodyProviderHeartRespiratory, BaseBodyProviderOrganMoth]
+
+# Kidneys
+- type: entity
+  id: BodyProviderKidneysMoth
+  parent: [BaseBodyProviderKidneysRespiratory, BaseBodyProviderOrganMoth, BaseMetabolizerMoth]
+
+# Liver
+- type: entity
+  id: BodyProviderLiverMoth
+  parent: [BaseBodyProviderLiverRespiratory, BaseBodyProviderOrganMoth, BaseMetabolizerMoth]
+
+# Lungs
+- type: entity
+  id: BodyProviderLungsMoth
+  parent: [BaseBodyProviderLungsRespiratory, BaseBodyProviderOrganMoth, BaseMetabolizerMoth]
+
+# Stomach
+- type: entity
+  id: BodyProviderStomachMoth
+  parent: [BaseBodyProviderStomachRespiratory, BaseBodyProviderOrganMoth, BaseMetabolizerMoth]
+
+# Tongue
+- type: entity
+  id: BodyProviderTongueMoth
+  parent: [BaseBodyProviderTongue, BaseBodyProviderOrganMoth]

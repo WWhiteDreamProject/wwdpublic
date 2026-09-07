@@ -8,10 +8,9 @@
     sprite: Objects/Tools/scissors.rsi
     state: icon
   - type: MagicMirror
-    addSlotTime: 20
-    removeSlotTime: 20
-    selectSlotTime: 20
-    changeSlotTime: 20
+    categories:
+    - Hair
+    - FacialHair
   - type: ActivatableUI
     key: enum.MagicMirrorUiKey.Key
     inHandsOnly: true
@@ -24,8 +23,8 @@
     wideAnimationRotation: -135
     attackRate: 1
     damage:
-      types:
-        Piercing: 6
+      # WD EDIT: Migrated damage format
+      Piercing: 6
     soundHit:
       path: "/Audio/Weapons/bladeslice.ogg"
   - type: DamageOtherOnHit

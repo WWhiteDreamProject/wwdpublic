@@ -36,10 +36,14 @@
       - !type:HealthChange
         probability: 0.5
         damage:
-          groups:
-            Brute: -0.5
-            Burn: -0.5
-      # Helps you stop bleeding to an extent.
+          # WD EDIT: Migrated damage format
+          Blunt: -0.2
+          Caustic: -0.1
+          Cold: -0.1
+          Heat: -0.1
+          Piercing: -0.2
+          Shock: -0.1
+          Slash: -0.2
       - !type:ModifyBleedAmount
         amount: -0.25
     # WD EDIT END
@@ -69,8 +73,10 @@
       - !type:HealthChange
         probability: 0.5
         damage:
-          groups:
-            Brute: -0.4
+          # WD EDIT: Migrated damage format
+          Blunt: -0.1
+          Piercing: -0.1
+          Slash: -0.1
       - !type:ModifyBloodLevel
         amount: 1 # weaker than iron but pretty good all things considered
     # WD EDIT END

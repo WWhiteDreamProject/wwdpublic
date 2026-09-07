@@ -1,0 +1,603 @@
+- type: marking
+  id: EarringsBangleLeft
+  parents: BaseEarrings
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/earrings.rsi
+      state: bangle_left
+  coloring:
+    default:
+      type: !type:SimpleColoring
+        color: "#F3D052"
+
+- type: marking
+  id: EarringsBangleRight
+  parents: BaseEarrings
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/earrings.rsi
+      state: bangle_right
+  coloring:
+    default:
+      type: !type:SimpleColoring
+        color: "#F3D052"
+
+- type: marking
+  id: EarringsCrescentLeft
+  parents: BaseEarrings
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/earrings.rsi
+      state: crescent_left
+  coloring:
+    default:
+      type: !type:SimpleColoring
+        color: "#F4F4F4"
+
+- type: marking
+  id: EarringsCrescentRight
+  parents: BaseEarrings
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/earrings.rsi
+      state: crescent_right
+  coloring:
+    default:
+      type: !type:SimpleColoring
+        color: "#F4F4F4"
+
+- type: marking
+  id: EarringsCrossBasicLeft
+  parents: BaseEarrings
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/earrings.rsi
+      state: cross_basic_left
+  coloring:
+    default:
+      type: !type:SimpleColoring
+        color: "#F3D052"
+
+- type: marking
+  id: EarringsCrossBasicRight
+  parents: BaseEarrings
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/earrings.rsi
+      state: cross_basic_right
+  coloring:
+    default:
+      type: !type:SimpleColoring
+        color: "#F3D052"
+
+- type: marking
+  id: EarringsCrossSaintPeterLeft
+  parents: BaseEarrings
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/earrings.rsi
+      state: cross_saint_peter_left
+  coloring:
+    default:
+      type: !type:SimpleColoring
+        color: "#F3D052"
+
+- type: marking
+  id: EarringsCrossSaintPeterRight
+  parents: BaseEarrings
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/earrings.rsi
+      state: cross_saint_peter_right
+  coloring:
+    default:
+      type: !type:SimpleColoring
+        color: "#F3D052"
+
+- type: marking
+  id: EarringsCrystalBasicLeft
+  parents: BaseEarrings
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/earrings.rsi
+      state: crystal_basic_left_primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/earrings.rsi
+      state: crystal_basic_left_secondary
+    index: secondary
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#9DF4FA"
+
+- type: marking
+  id: EarringsCrystalBasicRight
+  parents: BaseEarrings
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/earrings.rsi
+      state: crystal_basic_right_primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/earrings.rsi
+      state: crystal_basic_right_secondary
+    index: secondary
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#9DF4FA"
+
+- type: marking
+  id: EarringsCrystalLongLeft
+  parents: BaseEarrings
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/earrings.rsi
+      state: crystal_long_left_primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/earrings.rsi
+      state: crystal_long_left_secondary
+    index: secondary
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#9DF4FA"
+
+- type: marking
+  id: EarringsCrystalLongRight
+  parents: BaseEarrings
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/earrings.rsi
+      state: crystal_long_right_primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/earrings.rsi
+      state: crystal_long_right_secondary
+    index: secondary
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#9DF4FA"
+
+- type: marking
+  id: EarringsDangleBasicLeft
+  parents: BaseEarrings
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/earrings.rsi
+      state: dangle_basic_left_primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/earrings.rsi
+      state: dangle_basic_left_secondary
+    index: secondary
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#F3D052"
+
+- type: marking
+  id: EarringsDangleBasicRight
+  parents: BaseEarrings
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/earrings.rsi
+      state: dangle_basic_right_primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/earrings.rsi
+      state: dangle_basic_right_secondary
+    index: secondary
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#F3D052"
+
+- type: marking
+  id: EarringsDangleLongLeft
+  parents: BaseEarrings
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/earrings.rsi
+      state: dangle_long_left_primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/earrings.rsi
+      state: dangle_long_left_secondary
+    index: secondary
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#F3D052"
+
+- type: marking
+  id: EarringsDangleLongRight
+  parents: BaseEarrings
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/earrings.rsi
+      state: dangle_long_right_primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/earrings.rsi
+      state: dangle_long_right_secondary
+    index: secondary
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#F3D052"
+
+- type: marking
+  id: EarringsDropBasicLeft
+  parents: BaseEarrings
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/earrings.rsi
+      state: drop_basic_left_primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/earrings.rsi
+      state: drop_basic_left_secondary
+    index: secondary
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#9DF4FA"
+
+- type: marking
+  id: EarringsDropBasicRight
+  parents: BaseEarrings
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/earrings.rsi
+      state: drop_basic_right_primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/earrings.rsi
+      state: drop_basic_right_secondary
+    index: secondary
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#9DF4FA"
+
+- type: marking
+  id: EarringsDropLongLeft
+  parents: BaseEarrings
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/earrings.rsi
+      state: drop_long_left_primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/earrings.rsi
+      state: drop_long_left_secondary
+    index: secondary
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#F3D052"
+
+- type: marking
+  id: EarringsDropLongRight
+  parents: BaseEarrings
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/earrings.rsi
+      state: drop_long_right_primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/earrings.rsi
+      state: drop_long_right_secondary
+    index: secondary
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#F3D052"
+
+- type: marking
+  id: EarringsEightLeft
+  parents: BaseEarrings
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/earrings.rsi
+      state: eight_left
+  coloring:
+    default:
+      type: !type:SimpleColoring
+        color: "#F4F4F4"
+
+- type: marking
+  id: EarringsEightRight
+  parents: BaseEarrings
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/earrings.rsi
+      state: eight_right
+  coloring:
+    default:
+      type: !type:SimpleColoring
+        color: "#F4F4F4"
+
+- type: marking
+  id: EarringsGemstoneBasicLeft
+  parents: BaseEarrings
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/earrings.rsi
+      state: gemstone_basic_left_primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/earrings.rsi
+      state: gemstone_basic_left_secondary
+    index: secondary
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#F3D052"
+
+- type: marking
+  id: EarringsGemstoneBasicRight
+  parents: BaseEarrings
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/earrings.rsi
+      state: gemstone_basic_right_primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/earrings.rsi
+      state: gemstone_basic_right_secondary
+    index: secondary
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#F3D052"
+
+- type: marking
+  id: EarringsGemstoneDoubleLeft
+  parents: BaseEarrings
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/earrings.rsi
+      state: gemstone_double_left_primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/earrings.rsi
+      state: gemstone_double_left_secondary
+    index: secondary
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/earrings.rsi
+      state: gemstone_double_left_tertiary
+    index: tertiary
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#F3D052"
+
+- type: marking
+  id: EarringsGemstoneDoubleRight
+  parents: BaseEarrings
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/earrings.rsi
+      state: gemstone_double_right_primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/earrings.rsi
+      state: gemstone_double_right_secondary
+    index: secondary
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/earrings.rsi
+      state: gemstone_double_right_tertiary
+    index: tertiary
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#F3D052"
+
+- type: marking
+  id: EarringsGemstoneLongLeft
+  parents: BaseEarrings
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/earrings.rsi
+      state: gemstone_long_left_primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/earrings.rsi
+      state: gemstone_long_left_secondary
+    index: secondary
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#9DF4FA"
+
+- type: marking
+  id: EarringsGemstoneLongRight
+  parents: BaseEarrings
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/earrings.rsi
+      state: gemstone_long_right_primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/earrings.rsi
+      state: gemstone_long_right_secondary
+    index: secondary
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#9DF4FA"
+
+- type: marking
+  id: EarringsHeavyLeft
+  parents: BaseEarrings
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/earrings.rsi
+      state: heavy_left
+  coloring:
+    default:
+      type: !type:SimpleColoring
+        color: "#9DF4FA"
+
+- type: marking
+  id: EarringsHeavyRight
+  parents: BaseEarrings
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/earrings.rsi
+      state: heavy_right
+  coloring:
+    default:
+      type: !type:SimpleColoring
+        color: "#9DF4FA"
+
+- type: marking
+  id: EarringsHoopBasicLeft
+  parents: BaseEarrings
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/earrings.rsi
+      state: hoop_basic_left
+  coloring:
+    default:
+      type: !type:SimpleColoring
+        color: "#F3D052"
+
+- type: marking
+  id: EarringsHoopBasicRight
+  parents: BaseEarrings
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/earrings.rsi
+      state: hoop_basic_right
+  coloring:
+    default:
+      type: !type:SimpleColoring
+        color: "#F3D052"
+
+- type: marking
+  id: EarringsHoopMiniLeft
+  parents: BaseEarrings
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/earrings.rsi
+      state: hoop_mini_left
+  coloring:
+    default:
+      type: !type:SimpleColoring
+        color: "#F3D052"
+
+- type: marking
+  id: EarringsHoopMiniRight
+  parents: BaseEarrings
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/earrings.rsi
+      state: hoop_mini_right
+  coloring:
+    default:
+      type: !type:SimpleColoring
+        color: "#F3D052"
+
+- type: marking
+  id: EarringsStudLeft
+  parents: BaseEarrings
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/earrings.rsi
+      state: stud_left
+  coloring:
+    default:
+      type: !type:SimpleColoring
+        color: "#303030"
+
+- type: marking
+  id: EarringsStudRight
+  parents: BaseEarrings
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/earrings.rsi
+      state: stud_right
+  coloring:
+    default:
+      type: !type:SimpleColoring
+        color: "#303030"

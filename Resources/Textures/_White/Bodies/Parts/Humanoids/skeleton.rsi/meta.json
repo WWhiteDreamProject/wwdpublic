@@ -1,0 +1,89 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by EmoGarbage(github). The division of the torso into chest and groin was done by Spatison(github).",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "chest"
+    },
+    {
+      "name": "chest-in-body",
+      "directions": 4
+    },
+    {
+      "name": "groin"
+    },
+    {
+      "name": "groin-in-body",
+      "directions": 4
+    },
+    {
+      "name": "head"
+    },
+    {
+      "name": "head-in-body",
+      "directions": 4
+    },
+    {
+      "name": "left_arm"
+    },
+    {
+      "name": "left_arm-in-body",
+      "directions": 4
+    },
+    {
+      "name": "left_foot"
+    },
+    {
+      "name": "left_foot-in-body",
+      "directions": 4
+    },
+    {
+      "name": "left_hand"
+    },
+    {
+      "name": "left_hand-in-body",
+      "directions": 4
+    },
+    {
+      "name": "left_leg"
+    },
+    {
+      "name": "left_leg-in-body",
+      "directions": 4
+    },
+    {
+      "name": "right_arm"
+    },
+    {
+      "name": "right_arm-in-body",
+      "directions": 4
+    },
+    {
+      "name": "right_foot"
+    },
+    {
+      "name": "right_foot-in-body",
+      "directions": 4
+    },
+    {
+      "name": "right_hand"
+    },
+    {
+      "name": "right_hand-in-body",
+      "directions": 4
+    },
+    {
+      "name": "right_leg"
+    },
+    {
+      "name": "right_leg-in-body",
+      "directions": 4
+    }
+  ]
+}
+

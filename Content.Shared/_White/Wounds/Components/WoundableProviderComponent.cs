@@ -1,3 +1,4 @@
+using Content.Shared._White.Body;
 using Content.Shared._White.Wounds.Systems;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Containers;
@@ -9,6 +10,12 @@ namespace Content.Shared._White.Wounds.Components;
 [Access(typeof(WoundableSystem))]
 public sealed partial class WoundableProviderComponent : Component
 {
+    /// <summary>
+    /// Determines which children body provider should inherit the damage change.
+    /// </summary>
+    [DataField]
+    public BodyProviderType Heir = ~BodyProviderType.Part;
+
     /// <summary>
     /// Threshold values for determining the severity of wounds to a given provider in relation to the damage received.
     /// </summary>

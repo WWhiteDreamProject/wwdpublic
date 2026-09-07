@@ -1,0 +1,78 @@
+- type: entity
+  id: BaseBodyProviderOrganHarpy
+  parent: BaseBodyProviderOrganOrganic
+  abstract: true
+  suffix: Harpy
+  components:
+  - type: Sprite
+    sprite: _White/Bodies/Organs/Humanoids/human.rsi
+
+- type: entity
+  id: BaseMetabolizerHarpy
+  abstract: true
+  components:
+  - type: Metabolizer
+    types: [ BloodIron, Harpy, RespirationOxygen ]
+
+# Appendix
+- type: entity
+  id: BodyProviderAppendixHarpy
+  parent: [BaseBodyProviderAppendix, BaseBodyProviderOrganHarpy]
+
+# Brain
+- type: entity
+  id: BodyProviderBrainHarpy
+  parent: [BaseBodyProviderBrainOrganic, BaseBodyProviderOrganHarpy]
+
+# Ears
+- type: entity
+  id: BodyProviderEarsHarpy
+  parent: [BaseBodyProviderEars, BaseBodyProviderOrganHarpy]
+
+# Eyes
+- type: entity
+  id: BodyProviderEyesHarpy
+  parent: [BaseBodyProviderEyes, BaseBodyProviderOrganHarpy]
+  components:
+  - type: BodyAppearanceProvider
+    path: _White/Bodies/Organs/Humanoids/human.rsi
+
+# Heart
+- type: entity
+  id: BodyProviderHeartHarpy
+  parent: [BaseBodyProviderHeartRespiratory, BaseBodyProviderOrganHarpy]
+
+# Kidneys
+- type: entity
+  id: BodyProviderKidneysHarpy
+  parent: [BaseBodyProviderKidneysRespiratory, BaseBodyProviderOrganHarpy, BaseMetabolizerHarpy]
+
+# Liver
+- type: entity
+  id: BodyProviderLiverHarpy
+  parent: [BaseBodyProviderLiverRespiratory, BaseBodyProviderOrganHarpy, BaseMetabolizerHarpy]
+
+# Lungs
+- type: entity
+  id: BodyProviderLungsHarpy
+  parent: [BaseBodyProviderLungsRespiratory, BaseBodyProviderOrganHarpy, BaseMetabolizerHarpy]
+  components:
+  - type: RespiratorProvider
+    volumeThresholds:
+      Healthy: 3
+      Minor: 2.25
+      Moderate: 1.5
+      Severe: 0.75
+      Critical: 0
+    solutionMaxVolume: 200
+    volume: 3
+
+# Stomach
+- type: entity
+  id: BodyProviderStomachHarpy
+  parent: [BaseBodyProviderStomachRespiratory, BaseBodyProviderOrganHarpy, BaseMetabolizerHarpy]
+
+# Tongue
+- type: entity
+  id: BodyProviderTongueHarpy
+  parent: [BaseBodyProviderTongue, BaseBodyProviderOrganHarpy]

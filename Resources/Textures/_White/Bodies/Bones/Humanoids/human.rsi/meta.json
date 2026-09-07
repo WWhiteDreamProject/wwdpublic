@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-4.0",
+  "copyright": "Made by Gersoon (@gersoon458) for WWhiteDreamProject, 18.12.2025",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "coxae"
+    },
+    {
+      "name": "cranium"
+    },
+    {
+      "name": "left_antebrachium"
+    },
+    {
+      "name": "left_crus"
+    },
+    {
+      "name": "left_manus"
+    },
+    {
+      "name": "left_pedis"
+    },
+    {
+      "name": "right_antebrachium"
+    },
+    {
+      "name": "right_crus"
+    },
+    {
+      "name": "right_manus"
+    },
+    {
+      "name": "right_pedis"
+    },
+    {
+      "name": "thorax"
+    }
+  ]
+}

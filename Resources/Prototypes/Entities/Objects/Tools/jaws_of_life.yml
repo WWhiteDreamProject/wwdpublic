@@ -47,9 +47,9 @@
     attackRate: 1.2
     range: 1.65
     damage:
-      types:
-        Blunt: 10
-        Slash: 2
+      # WD EDIT: Migrated damage format
+      Blunt: 10
+      Slash: 2
     bluntStaminaDamageFactor: 2.0
     heavyRateModifier: 1.75
     heavyDamageBaseModifier: 1.5
@@ -112,7 +112,7 @@
         changeSound: /Audio/Items/change_jaws.ogg
   - type: MeleeWeapon
     damage:
-      types:
-        Blunt: 12
-        Slash: 2
+      # WD EDIT: Migrated damage format
+      Blunt: 12
+      Slash: 2
   - type: DamageOtherOnHit

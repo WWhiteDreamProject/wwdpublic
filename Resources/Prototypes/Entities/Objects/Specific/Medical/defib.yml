@@ -38,8 +38,7 @@
         path: /Audio/Items/Defib/defib_safety_off.ogg
     - type: Defibrillator
       zapHeal:
-        types:
-          Asphyxiation: -40
+        Asphyxiation: -40
     - type: DoAfter
     - type: UseDelay
     - type: StaticPrice
@@ -49,8 +48,7 @@
       - Medical Doctor
     - type: DamageOtherOnHit
       damage:
-        types:
-          Blunt: 16
+        Blunt: 16
       staminaCost: 22.5
       soundHit:
         path: /Audio/Weapons/smash.ogg
@@ -109,8 +107,7 @@
     useRate: 100
   - type: Defibrillator
     zapHeal:
-      types:
-        Asphyxiation: -40
+      Asphyxiation: -40
     doAfterDuration: 6
   - type: DoAfter
   - type: UseDelay
@@ -134,8 +131,7 @@
         shader: unshaded
   - type: MeleeWeapon
     damage:
-      types:
-        Blunt: 8
+      Blunt: 8
   - type: ItemToggleMeleeWeapon
     activatedSoundOnHit:
       path: /Audio/Items/Defib/defib_zap.ogg
@@ -147,6 +143,5 @@
         variation: 0.250
         volume: -10
     activatedDamage:
-      types:
-        Blunt: 8
-        Shock: 16
+      Blunt: 8
+      Shock: 16

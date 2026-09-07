@@ -27,6 +27,13 @@ public sealed partial class PainThresholdsComponent : Component
     };
 
     /// <summary>
+    /// A dictionary mapping specific <see cref="Level"/> values to a list of <see cref="EntityEffect"/>s that should be applied
+    /// to the entity when its pain reaches or exceeds that level.
+    /// </summary>
+    [DataField(serverOnly: true)] // TODO: Remove serverOnly when we move EntityEffect to shared
+    public Dictionary<PainLevel, List<EntityEffect>> PainEffects = new();
+
+    /// <summary>
     /// The <see cref="AlertCategoryPrototype"/> ID used for grouping health-related alerts.
     /// </summary>
     [DataField]
@@ -45,18 +52,11 @@ public sealed partial class PainThresholdsComponent : Component
     };
 
     /// <summary>
-    /// A dictionary mapping specific <see cref="PainLevel"/> values to a list of <see cref="EntityEffect"/>s that should be applied
-    /// to the entity when its pain reaches or exceeds that level.
-    /// </summary>
-    [DataField(serverOnly: true)] // TODO: Remove serverOnly when we move EntityEffect to shared
-    public Dictionary<PainLevel, List<EntityEffect>> PainEffects = new();
-
-    /// <summary>
-    /// Defines the thresholds for mapping an entity's current pain value to a specific <see cref="PainLevel"/>.
-    /// The highest matching threshold determines the <see cref="PainLevel"/>.
+    /// Defines the thresholds for mapping an entity's current pain value to a specific <see cref="Level"/>.
+    /// The highest matching threshold determines the <see cref="Level"/>.
     /// </summary>
     [DataField]
-    public SortedDictionary<FixedPoint2, PainLevel> PainLevelThresholds = new()
+    public SortedDictionary<FixedPoint2, PainLevel> LevelThresholds = new()
     {
         {0, PainLevel.Zero},
         {25, PainLevel.Mild},
@@ -67,6 +67,12 @@ public sealed partial class PainThresholdsComponent : Component
     };
 
     /// <summary>
+    /// Normalized progress (0.0 to 1.0) from the current mob state threshold to the next state threshold.
+    /// </summary>
+    [ViewVariables, AutoNetworkedField]
+    public float Blend;
+
+    /// <summary>
     /// The <see cref="MobState"/> determined by the highest matching threshold in <see cref="MobStateThresholds"/> based on the entity's current pain.
     /// This is automatically updated when pain changes.
     /// </summary>
@@ -74,9 +80,10 @@ public sealed partial class PainThresholdsComponent : Component
     public MobState MobState = MobState.Alive;
 
     /// <summary>
-    /// The <see cref="PainLevel"/> determined by the highest matching threshold in <see cref="PainLevelThresholds"/> based on the entity's current pain.
+    /// The <see cref="Level"/> determined by the highest matching threshold in <see cref="LevelThresholds"/> based on the entity's current pain.
     /// This is automatically updated when pain changes.
     /// </summary>
     [ViewVariables, AutoNetworkedField]
-    public PainLevel PainLevel = PainLevel.Zero;
+    public PainLevel Level = PainLevel.Zero;
 }
+

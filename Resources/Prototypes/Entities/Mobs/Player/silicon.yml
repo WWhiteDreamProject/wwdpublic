@@ -177,11 +177,12 @@
       name: station-ai-mind-slot
       locked: false
       disableEject: true
-      whitelist:
-        # WD EDiT START
-        components:
-        - BorgBrain
-        # WD EDIT END
+      # TODO
+      # whitelist:
+      #   # WD EDiT START
+      #   components:
+      #   - BorgBrain
+      #   # WD EDIT END
   - type: ContainerContainer
     containers:
       station_ai_mind_slot: !type:ContainerSlot

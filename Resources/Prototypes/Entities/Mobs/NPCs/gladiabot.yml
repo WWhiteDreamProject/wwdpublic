@@ -46,8 +46,8 @@
     angle: 0
     animation: WeaponArcPunch
     damage:
-      types:
-        Slash: 3
+      # WD EDIT: Migrated damage format
+      Slash: 3
   - type: MobThresholds
     thresholds:
       0: Alive

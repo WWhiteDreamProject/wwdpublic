@@ -12,8 +12,8 @@
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Cellular: 5
+          # WD EDIT: Migrated damage format
+          Cellular: 5
       - !type:Jitter
         conditions:
         - !type:ReagentThreshold

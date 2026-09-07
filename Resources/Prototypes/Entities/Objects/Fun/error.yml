@@ -7,10 +7,10 @@
   - type: Sprite
     sprite: error.rsi
     state: error
-  - type: Food
+  - type: Ingestible # WD Ingestible
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 26
         reagents:
         - ReagentId: Nutriment

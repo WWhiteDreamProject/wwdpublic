@@ -1,0 +1,61 @@
+- type: entity
+  id: BaseBodyProviderPartSlime
+  parent: BaseBodyProviderPartOrganic
+  abstract: true
+  suffix: Slime
+  components:
+  - type: BodyAppearanceProvider
+    path: _White/Bodies/Parts/Humanoids/slime.rsi
+  - type: Sprite
+    sprite: _White/Bodies/Parts/Humanoids/slime.rsi
+
+# Arms
+- type: entity
+  id: BodyProviderLeftArmSlime
+  parent: [BaseBodyProviderLeftArmOrganic, BaseBodyProviderPartSlime]
+
+- type: entity
+  id: BodyProviderRightArmSlime
+  parent: [BaseBodyProviderRightArmOrganic, BaseBodyProviderPartSlime]
+
+# Chest
+- type: entity
+  id: BodyProviderChestSlime
+  parent: [BaseBodyProviderChestOrganic, BaseBodyProviderPartSlime]
+
+# Foots
+- type: entity
+  id: BodyProviderLeftFootSlime
+  parent: [BaseBodyProviderLeftFootOrganic, BaseBodyProviderPartSlime]
+
+- type: entity
+  id: BodyProviderRightFootSlime
+  parent: [BaseBodyProviderRightFootOrganic, BaseBodyProviderPartSlime]
+
+# Groin
+- type: entity
+  id: BodyProviderGroinSlime
+  parent: [BaseBodyProviderGroinOrganic, BaseBodyProviderPartSlime]
+
+# Hands
+- type: entity
+  id: BodyProviderLeftHandSlime
+  parent: [BaseBodyProviderLeftHandOrganic, BaseBodyProviderPartSlime]
+
+- type: entity
+  id: BodyProviderRightHandSlime
+  parent: [BaseBodyProviderRightHandOrganic, BaseBodyProviderPartSlime]
+
+# Head
+- type: entity
+  id: BodyProviderHeadSlime
+  parent: [BaseBodyProviderHeadOrganic, BaseBodyProviderPartSlime]
+
+# Legs
+- type: entity
+  id: BodyProviderLeftLegSlime
+  parent: [BaseBodyProviderLeftLegOrganic, BaseBodyProviderPartSlime]
+
+- type: entity
+  id: BodyProviderRightLegSlime
+  parent: [BaseBodyProviderRightLegOrganic, BaseBodyProviderPartSlime]

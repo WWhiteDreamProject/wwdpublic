@@ -57,13 +57,11 @@
     deactivatedSoundOnHitNoDamage:
       collection: MetalThud
     activatedDamage:
-        types:
-            Heat: 7
+      Heat: 7
   - type: ItemToggleDamageOtherOnHit
     activatedDamage:
-      types:
-        Heat: 4
-        Blunt: 3
+      Heat: 4
+      Blunt: 3
   - type: ItemToggleSize
     activatedSize: Large
   - type: ItemToggleHot
@@ -85,8 +83,7 @@
     animationRotation: -90 # WWDP
     wideAnimationRotation: -90
     damage:
-      types:
-        Blunt: 6 #i mean... i GUESS you could use it like that
+      Blunt: 6
     soundHit:
       collection: MetalThud
   - type: DamageOtherOnHit
@@ -124,10 +121,9 @@
       - Silicon
       - SiliconUnshielded
     damage:
-      types:
-        Blunt: -15
-        Piercing: -15
-        Slash: -15
+      Blunt: -15
+      Piercing: -15
+      Slash: -15
   - type: Fixtures
     fixtures:
       fix1:

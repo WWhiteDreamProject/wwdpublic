@@ -1,6 +1,0 @@
-- type: entity
-  id: OrganStomachVulpkanin
-  parent: OrganStomachHuman
-  components:
-  - type: Metabolizer
-    types: [ Animal ]

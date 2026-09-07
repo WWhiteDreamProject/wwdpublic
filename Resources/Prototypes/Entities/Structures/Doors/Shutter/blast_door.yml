@@ -19,8 +19,7 @@
     closingAnimationTime: 1.0
     canPry: false
     crushDamage:
-      types:
-        Blunt: 25 # yowch
+      Blunt: 25 # yowch
   - type: Occluder
   - type: Appearance
   - type: RadiationBlocker

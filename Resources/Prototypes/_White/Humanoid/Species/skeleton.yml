@@ -1,0 +1,12 @@
+- type: species
+  id: Skeleton
+  defaultColors:
+    Eyes: "#000000"
+    Skin: "#FFF9E2"
+  colorations:
+    Eyes: Simple
+    Skin: TintedHues
+  doll: HumanoidDollSkeleton
+  prototype: MobHumanoidSkeleton
+  name: species-name-skeleton
+  naming: Skeleton

@@ -14,27 +14,27 @@
     sprite: Objects/Consumable/Food/ingredients.rsi
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 50
   - type: SolutionTransfer
     # This is potentially badly-handled due to 'drink opening',
     #  but it lets the flour be tampered with, refilled, etc.
   - type: DrawableSolution
-    solution: food
+    solution: ingestible # WD Ingestible
   - type: RefillableSolution
-    solution: food
+    solution: ingestible # WD Ingestible
   - type: DrainableSolution
-    solution: food
-  - type: Drink
-    solution: food
+    solution: ingestible # WD Ingestible
+  - type: Ingestible # WD Ingestible
+    solution: ingestible # WD Ingestible
     useSound:
       collection: eating
   - type: Damageable
     damageContainer: Inorganic
   - type: Spillable
-    solution: food
+    solution: ingestible # WD Ingestible
   - type: TrashOnSolutionEmpty
-    solution: food
+    solution: ingestible # WD Ingestible
   - type: Tag
     tags:
       - Ingredient
@@ -58,7 +58,7 @@
         sound:
           collection: desecration
       - !type:SpillBehavior
-        solution: food
+        solution: ingestible # WD Ingestible
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   # packet contents can be splashed when open
@@ -67,22 +67,20 @@
     soundNoDamage:
       path: "/Audio/Effects/Fluids/splat.ogg"
     damage:
-      types:
-        Blunt: 0
-
+      # WD EDIT: Migrated damage format
+      Blunt: 0
 - type: entity
   abstract: true
   id: ItemHeftyBase
   components:
   - type: DamageOnLand
     damage:
-      types:
-        Blunt: 1
+      # WD EDIT: Migrated damage format
+      Blunt: 1
   - type: DamageOtherOnHit
     damage:
-      types:
-        Blunt: 1
-
+      # WD EDIT: Migrated damage format
+      Blunt: 1
 - type: entity
   parent: [ReagentPacketBase, ItemHeftyBase]
   id: ReagentContainerFlour
@@ -93,7 +91,7 @@
     state: flour-big
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 50
         reagents:
         - ReagentId: Flour
@@ -109,7 +107,7 @@
     state: flour-small
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 20
         reagents:
         - ReagentId: Flour
@@ -125,7 +123,7 @@
     state: cornmeal-big
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Cornmeal
           Quantity: 50
@@ -140,7 +138,7 @@
     state: cornmeal
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 20
         reagents:
         - ReagentId: Cornmeal
@@ -156,7 +154,7 @@
     state: rice-big
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Rice
           Quantity: 50
@@ -171,7 +169,7 @@
     state: rice-small
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 20
         reagents:
         - ReagentId: Rice
@@ -187,7 +185,7 @@
     state: sugar-big
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Sugar
           Quantity: 50
@@ -202,7 +200,7 @@
     state: sugar-small
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 20
         reagents:
         - ReagentId: Sugar
@@ -220,7 +218,7 @@
     state: oliveoil
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 20
         reagents:
         - ReagentId: OilOlive
@@ -236,7 +234,7 @@
     state: mayo
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 50 # you always need more mayo
         reagents:
         - ReagentId: Mayo
@@ -272,7 +270,7 @@
     sprite: Objects/Consumable/Food/ingredients.rsi
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 18
         reagents:
         - ReagentId: Nutriment
@@ -318,7 +316,7 @@
     node: start
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 6
         reagents:
         - ReagentId: Nutriment
@@ -340,7 +338,7 @@
     node: rolled
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 6
         reagents:
         - ReagentId: Nutriment
@@ -453,7 +451,7 @@
     - ClothMade
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 18
         reagents:
         - ReagentId: Nutriment
@@ -481,7 +479,7 @@
     node: start
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 6
         reagents:
         - ReagentId: Nutriment
@@ -506,7 +504,7 @@
     node: rolled
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 6
         reagents:
         - ReagentId: Nutriment
@@ -625,7 +623,7 @@
         - ItemMask
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 18
         reagents:
         - ReagentId: Butter
@@ -644,7 +642,7 @@
     state: butter-slice
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 6
         reagents:
         - ReagentId: Butter
@@ -664,7 +662,7 @@
     color: "#82C36E"
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 100
         reagents:
         - ReagentId: Butter
@@ -704,7 +702,7 @@
     state: cheesewedge
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 6
         reagents:
         - ReagentId: Nutriment
@@ -734,7 +732,7 @@
     slice: FoodChevreSlice
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 6
         reagents:
         - ReagentId: Nutriment
@@ -756,7 +754,7 @@
     state: chevredisk
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 2
         reagents:
         - ReagentId: Nutriment
@@ -780,7 +778,7 @@
     state: tofu
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 18
         reagents:
         - ReagentId: Protein
@@ -804,7 +802,7 @@
     state: tofu-slice
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 6
         reagents:
         - ReagentId: Protein
@@ -828,7 +826,7 @@
     state: badrecipe
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 8
         reagents:
         - ReagentId: Nutriment
@@ -853,7 +851,7 @@
     state: produce-beans
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 14
         reagents:
         - ReagentId: Nutriment
@@ -879,7 +877,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 10
         reagents:
         - ReagentId: Protein
@@ -904,7 +902,7 @@
     state: croissant-raw
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 4
         reagents:
         - ReagentId: Nutriment

@@ -1,0 +1,20 @@
+- type: entity
+  id: BaseBodyProviderPartAnimal
+  parent: BaseBodyProviderPartOrganic
+  abstract: true
+  suffix: Animal
+  components:
+  - type: BodyAppearanceProvider
+    path: _White/Bodies/Parts/Humanoids/human.rsi
+  - type: Sprite
+    sprite: _White/Bodies/Parts/Humanoids/human.rsi
+
+# AllParts
+- type: entity
+  id: BodyProviderAllPartsAnimal
+  parent: [BaseBodyProviderAllParts, BaseBodyProviderPartAnimal]
+  components:
+  - type: BodyAppearanceProvider
+    state: chest
+  - type: Sprite
+    state: chest

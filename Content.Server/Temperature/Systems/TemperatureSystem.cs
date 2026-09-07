@@ -295,7 +295,6 @@ public sealed class TemperatureSystem : EntitySystem
         // https://www.desmos.com/calculator/0vknqtdvq9
         // Based on a logistic curve, which caps out at MaxDamage
         var heatK = 0.005;
-        var a = 1;
         var y = temperature.DamageCap;
         var c = y * 2;
 
@@ -311,7 +310,7 @@ public sealed class TemperatureSystem : EntitySystem
             }
 
             var diff = Math.Abs(temperature.CurrentTemperature - heatDamageThreshold);
-            var tempDamage = c / (1 + a * Math.Pow(Math.E, -heatK * diff)) - y;
+            var tempDamage = c / (1 + Math.Pow(Math.E, -heatK * diff)) - y;
             _damageable.TryChangeDamage(uid, temperature.HeatDamage * tempDamage, ignoreResistances: true, interruptsDoAfters: false);
         }
         else if (temperature.CurrentTemperature <= coldDamageThreshold)
@@ -323,7 +322,7 @@ public sealed class TemperatureSystem : EntitySystem
             }
 
             var diff = Math.Abs(temperature.CurrentTemperature - coldDamageThreshold);
-            var tempDamage = c / (1 + a * Math.Pow(Math.E, -heatK * diff)) - y; // WWDP
+            var tempDamage = c / (1 + Math.Pow(Math.E, -heatK * diff)) - y; // WWDP
             _damageable.TryChangeDamage(uid, temperature.ColdDamage * tempDamage, ignoreResistances: true, interruptsDoAfters: false);
         }
         else if (temperature.TakingDamage)

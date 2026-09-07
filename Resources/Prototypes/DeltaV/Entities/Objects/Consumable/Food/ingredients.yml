@@ -9,13 +9,12 @@
     state: salt-big
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 50
         reagents:
         - ReagentId: TableSalt
           Quantity: 50
-  - type: Drink
-    solution: food
+  - type: Ingestible # WD Ingestible
     useSound:
       path: /Audio/Items/eating_1.ogg
 
@@ -30,7 +29,7 @@
     state: pepper-big
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 50
         reagents:
         - ReagentId: Blackpepper
@@ -47,7 +46,7 @@
     state: cocoa-chip-big
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: CocoaPowder
           Quantity: 50

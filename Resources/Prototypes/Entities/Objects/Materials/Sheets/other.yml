@@ -265,7 +265,7 @@
   suffix: Full
   components:
   - type: Material
-  - type: Food
+  - type: Ingestible # WD Ingestible
     transferAmount: 10
   - type: BadFood
   - type: PhysicalComposition
@@ -290,7 +290,7 @@
     grindableSolutionName: food
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Uranium
           Quantity: 8

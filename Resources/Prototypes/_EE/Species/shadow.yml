@@ -1,8 +1,0 @@
-- type: species
-  id: Shadow
-  name: species-name-Shadow
-  roundStart: false
-  prototype: MobShadow
-  markingLimits: MobHumanMarkingLimits
-  dollPrototype: MobShadowDummy
-  skinColoration: HumanToned

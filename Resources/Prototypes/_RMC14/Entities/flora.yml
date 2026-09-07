@@ -45,14 +45,12 @@
         acts: [ "Destruction" ]
   - type: Temperature
     heatDamage:
-      types:
-        Heat: 5
+      Heat: 5
     coldDamage: {}
   - type: Flammable
     fireSpread: true
     damage:
-      types:
-        Heat: 3
+      Heat: 3
   - type: Reactive
     groups:
       Flammable: [Touch]
@@ -64,9 +62,7 @@
       - !type:HealthChange
         scaleByQuantity: true
         damage:
-          types:
-            Heat: 10
-
+          Heat: 10
 - type: entity
   id: RMCBaseRockIndistructable
   abstract: true

@@ -1,0 +1,12 @@
+- type: marking
+  id: NoseTip
+  parents: BaseNose
+  definitions:
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/nose.rsi
+      state: tip
+  coloring:
+    default:
+      type: !type:SimpleColoring
+        color: "#7E2727"

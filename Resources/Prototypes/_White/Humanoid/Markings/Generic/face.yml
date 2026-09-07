@@ -1,0 +1,128 @@
+- type: marking
+  id: FaceBindi
+  parents: BaseFace
+  definitions:
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/face.rsi
+      state: bindi
+  coloring:
+    default:
+      type: !type:SimpleColoring
+        color: "#A12222"
+
+- type: marking
+  id: FaceBlush
+  parents: BaseFace
+  definitions:
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/face.rsi
+      state: blush_left
+    index: left
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/face.rsi
+      state: blush_right
+    index: right
+  coloring:
+    default:
+      type: !type:SimpleColoring
+        color: "#E07E7E"
+
+- type: marking
+  id: FaceCheekSpotBasicLeft
+  parents: BaseFace
+  definitions:
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/face.rsi
+      state: cheek_spot_basic_left
+  coloring:
+    default:
+      type: !type:SimpleColoring
+        color: "#8B4513"
+
+- type: marking
+  id: FaceCheekSpotBasicRight
+  parents: BaseFace
+  definitions:
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/face.rsi
+      state: cheek_spot_basic_right
+  coloring:
+    default:
+      type: !type:SimpleColoring
+        color: "#8B4513"
+
+- type: marking
+  id: FaceCheekSpotLowerLeft
+  parents: BaseFace
+  definitions:
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/face.rsi
+      state: cheek_spot_lower_left
+  coloring:
+    default:
+      type: !type:SimpleColoring
+        color: "#8B4513"
+
+- type: marking
+  id: FaceCheekSpotLowerRight
+  parents: BaseFace
+  definitions:
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/face.rsi
+      state: cheek_spot_lower_right
+  coloring:
+    default:
+      type: !type:SimpleColoring
+        color: "#8B4513"
+
+- type: marking
+  id: FaceCheshireGrin
+  parents: BaseFace
+  definitions:
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/face.rsi
+      state: cheshire_grin
+  coloring:
+    default:
+      type: !type:SimpleColoring
+        color: "#7E2727"
+
+- type: marking
+  id: FaceLips
+  parents: BaseFace
+  definitions:
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/face.rsi
+      state: lips
+  coloring:
+    default:
+      type: !type:SimpleColoring
+        color: "#7E2727"
+
+- type: marking
+  id: FaceLipsCorners
+  parents: BaseFace
+  definitions:
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/face.rsi
+      state: lips_corners_left
+    index: left
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/face.rsi
+      state: lips_corners_right
+    index: right
+  coloring:
+    default:
+      type: !type:SimpleColoring
+        color: "#7E2727"

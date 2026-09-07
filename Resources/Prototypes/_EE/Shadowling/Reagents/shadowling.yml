@@ -11,13 +11,16 @@
       effects:
       - !type:HealShadowling
         damage:
-          groups:
-            Burn: -9
-            Brute: -9
-          types:
-            Caustic: -9
-            Poison: -9
-            Bloodloss: -9
+          # WD EDIT: Migrated damage format
+          Bloodloss: -9
+          Blunt: -3
+          Caustic: -11.2
+          Cold: -2.2
+          Heat: -2.2
+          Piercing: -3
+          Poison: -9
+          Shock: -2.2
+          Slash: -3
     Narcotic:
       effects:
       - !type:BlindNonShadowling

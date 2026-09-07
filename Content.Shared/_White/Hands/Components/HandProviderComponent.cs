@@ -15,11 +15,11 @@ public sealed partial class HandProviderComponent : Component
     /// The location of the hand of the created hand.
     /// </summary>
     [DataField]
-    public HandLocation HandLocation = HandLocation.Middle;
+    public HandLocation Location = HandLocation.Middle;
 
     /// <summary>
     /// The hand ID used by <see cref="HandsComponent" /> on the body.
     /// </summary>
     [DataField(required: true)]
-    public string HandId;
+    public string Id;
 }

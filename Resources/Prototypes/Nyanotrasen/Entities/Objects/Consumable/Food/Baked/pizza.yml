@@ -14,7 +14,7 @@
     slice: FoodPizzaCorncobSlice
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 100
         reagents:
         - ReagentId: Nutriment
@@ -39,7 +39,7 @@
     state: corncob-slice
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: Nutriment
@@ -69,7 +69,7 @@
     state: firecracker
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 40
         reagents:
         - ReagentId: Nutriment
@@ -102,7 +102,7 @@
     state: firecracker-slice
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 6
         reagents:
         - ReagentId: Nutriment
@@ -179,7 +179,7 @@
     state: pesto
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 40
         reagents:
         - ReagentId: Nutriment
@@ -210,7 +210,7 @@
     state: pesto-slice
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 6
         reagents:
         - ReagentId: Nutriment
@@ -244,7 +244,7 @@
     state: cotton
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 40
         reagents:
         - ReagentId: Nutriment
@@ -274,7 +274,7 @@
     state: cotton-slice
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 6
         reagents:
         - ReagentId: Nutriment

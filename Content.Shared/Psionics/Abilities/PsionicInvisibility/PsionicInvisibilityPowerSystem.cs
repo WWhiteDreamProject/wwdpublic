@@ -102,7 +102,7 @@ public sealed class PsionicInvisibilityPowerSystem : EntitySystem
     private void OnDamageChanged(EntityUid uid, PsionicInvisibilityUsedComponent component, DamageChangedEvent args)
     {
         if (!TryComp<PsionicComponent>(uid, out var psionic)
-            || !args.DamageIncreased && args.Damage.GetTotal() < component.DamageToStun) // WD EDIT
+            || !args.Damage.AnyPositive() && args.Damage.GetTotal() < component.DamageToStun) // WD EDIT
             return;
 
         ToggleInvisibility(uid);

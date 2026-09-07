@@ -21,8 +21,8 @@ public sealed partial class RespiratorSystem
         SubscribeLocalEvent<RespiratorProviderComponent, BodyRelayedEvent<GetBreathVolumeEvent>>(OnGetBreathVolume);
         SubscribeLocalEvent<RespiratorProviderComponent, BodyRelayedEvent<InhaleEvent>>(OnInhale);
         SubscribeLocalEvent<RespiratorProviderComponent, BodyRelayedEvent<SuffocationChangedEvent>>(OnSuffocationChanged);
-        SubscribeLocalEvent<RespiratorProviderComponent, ComponentInit>(OnInit);
-        SubscribeLocalEvent<RespiratorProviderComponent, WoundableSeverityChangedEvent>(OnWoundableSeverityChanged);
+        SubscribeLocalEvent<RespiratorProviderComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<RespiratorProviderComponent, WoundSeverityChangedEvent>(OnWoundSeverityChanged);
     }
 
     #region Event Handling
@@ -123,16 +123,16 @@ public sealed partial class RespiratorSystem
         _alerts.ShowAlert(body, ent.Comp.Alert);
     }
 
-    private void OnInit(Entity<RespiratorProviderComponent> ent, ref ComponentInit args)
+    private void OnMapInit(Entity<RespiratorProviderComponent> ent, ref MapInitEvent args)
     {
         if (!_solutionContainer.EnsureSolution(ent.Owner, ent.Comp.SolutionName, out var solution))
             return;
 
-        solution.MaxVolume = ent.Comp.SolutionMaxVolume;
         solution.CanReact = ent.Comp.SolutionCanReact;
+        solution.MaxVolume = ent.Comp.SolutionMaxVolume;
     }
 
-    private void OnWoundableSeverityChanged(Entity<RespiratorProviderComponent> ent, ref WoundableSeverityChangedEvent args)
+    private void OnWoundSeverityChanged(Entity<RespiratorProviderComponent> ent, ref WoundSeverityChangedEvent args)
     {
         if (!ent.Comp.VolumeThresholds.TryGetValue(args.Severity, out var volume))
             return;

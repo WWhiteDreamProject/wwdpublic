@@ -1,0 +1,123 @@
+- type: entity
+  id: BaseBodyHarpy
+  parent: BaseBody
+  abstract: true
+  components:
+    - type: Body
+      rootProvider:
+        type: Chest
+        providers:
+          groin:
+            type: Groin
+            providers:
+              coxae:
+                type: Coxae
+                providers:
+                  appendix:
+                    type: Appendix
+                    startingProvider: BodyProviderAppendixHarpy
+                  kidneys:
+                    type: Kidneys
+                    startingProvider: BodyProviderKidneysHarpy
+                  liver:
+                    type: Liver
+                    startingProvider: BodyProviderLiverHarpy
+                  stomach:
+                    type: Stomach
+                    startingProvider: BodyProviderStomachHarpy
+                startingProvider: BodyProviderCoxaeHarpy
+              left_leg:
+                type: LeftLeg
+                providers:
+                  left_crus:
+                    type: LeftCrus
+                    startingProvider: BodyProviderLeftCrusHarpy
+                  left_foot:
+                    type: LeftFoot
+                    providers:
+                      left_pedis:
+                        type: LeftPedis
+                        startingProvider: BodyProviderLeftPedisHarpy
+                    startingProvider: BodyProviderLeftFootHarpy
+                startingProvider: BodyProviderLeftLegHarpy
+              right_leg:
+                type: RightLeg
+                providers:
+                  right_crus:
+                    type: RightCrus
+                    startingProvider: BodyProviderRightCrusHarpy
+                  right_foot:
+                    type: RightFoot
+                    providers:
+                      right_pedis:
+                        type: RightPedis
+                        startingProvider: BodyProviderRightPedisHarpy
+                    startingProvider: BodyProviderRightFootHarpy
+                startingProvider: BodyProviderRightLegHarpy
+              tail:
+                type: Tail
+                providers:
+                  cauda:
+                    type: Cauda
+                    startingProvider: BodyProviderCaudaHarpy
+                startingProvider: BodyProviderPartTailHarpy
+            startingProvider: BodyProviderGroinHarpy
+          head:
+            type: Head
+            providers:
+              cranium:
+                type: Сranium
+                providers:
+                  brain:
+                    type: Brain
+                    startingProvider: BodyProviderBrainHarpy
+                  ears:
+                    type: Ears
+                    startingProvider: BodyProviderEarsHarpy
+                  eyes:
+                    type: Eyes
+                    startingProvider: BodyProviderEyesHarpy
+                  tongue:
+                    type: Tongue
+                    startingProvider: BodyProviderTongueHarpy
+                startingProvider: BodyProviderСraniumHarpy
+            startingProvider: BodyProviderHeadHarpy
+          left_arm:
+            type: LeftArm
+            providers:
+              left_antebrachium:
+                type: LeftAntebrachium
+                startingProvider: BodyProviderLeftAntebrachiumHarpy
+              left_hand:
+                type: LeftHand
+                providers:
+                  left_manus:
+                    type: LeftManus
+                    startingProvider: BodyProviderLeftManusHarpy
+                startingProvider: BodyProviderLeftHandHarpy
+            startingProvider: BodyProviderLeftArmHarpy
+          right_arm:
+            type: RightArm
+            providers:
+              right_antebrachium:
+                type: RightAntebrachium
+                startingProvider: BodyProviderRightAntebrachiumHarpy
+              right_hand:
+                type: RightHand
+                providers:
+                  right_manus:
+                    type: RightManus
+                    startingProvider: BodyProviderRightManusHarpy
+                startingProvider: BodyProviderRightHandHarpy
+            startingProvider: BodyProviderRightArmHarpy
+          thorax:
+            type: Thorax
+            providers:
+              heart:
+                type: Heart
+                startingProvider: BodyProviderHeartHarpy
+              lungs:
+                type: Lungs
+                startingProvider: BodyProviderLungsHarpy
+            startingProvider: BodyProviderThoraxHarpy
+        startingProvider: BodyProviderChestHarpy

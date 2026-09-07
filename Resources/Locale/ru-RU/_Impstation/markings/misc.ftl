@@ -226,12 +226,3 @@ marking-VoxTailBalled-voxtailballed = Хвост-кнут
 
 marking-VoxTailSplit = Раздвоенный хвост
 marking-VoxTailSplit-voxtailsplit = Раздвоенный хвост
-
-# chitinid
-# chitinid
-marking-ChitinidBeetleHorn1 = Рог жука (раздвоенный)
-marking-ChitinidBeetleHorn1-chitinidbeetlehorn1 = Рог жука (копьё)
-
-marking-ChitinidBeetleHorn2 = Рог жука (копьё)
-marking-ChitinidBeetleHorn2-chitinidbeetlehorn2 = Рог жука (раздвоенный)
-

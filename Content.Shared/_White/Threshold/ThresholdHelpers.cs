@@ -5,31 +5,6 @@ namespace Content.Shared._White.Threshold;
 
 public static class ThresholdHelpers
 {
-    public static TKey? GetKey<TKey, TValue>(this SortedDictionary<TKey, TValue> dictionary, TValue value) where TKey : IComparable<TKey> where TValue : Enum
-    {
-        foreach (var (threshold, data) in dictionary)
-        {
-            if (data.CompareTo(value) != 0)
-                continue;
-
-            return threshold;
-        }
-
-        return default;
-    }
-
-    public static TValue? GetNextValue<TKey, TValue>(this SortedDictionary<TKey, TValue> dictionary, TValue value) where TKey : IComparable<TKey> where TValue : Enum
-    {
-        foreach (var data in dictionary.Values)
-        {
-            if (data.CompareTo(value) <= 0)
-                continue;
-
-            return data;
-        }
-
-        return default;
-    }
 
     public static TValue? HighestMatch<TKey, TValue>(this SortedDictionary<TKey, TValue> dictionary, TKey key) where TKey : IComparable<TKey> where TValue : struct
     {
@@ -59,13 +34,31 @@ public static class ThresholdHelpers
 
     public static bool TryGetKey<TKey, TValue>(this SortedDictionary<TKey, TValue> dictionary, TValue value, [NotNullWhen(true)] out TKey? key) where TKey : IComparable<TKey> where TValue : Enum
     {
-        key = dictionary.GetKey(value);
-        return key != null;
+        foreach (var (threshold, data) in dictionary)
+        {
+            if (data.CompareTo(value) != 0)
+                continue;
+
+            key = threshold;
+            return true;
+        }
+
+        key = default;
+        return false;
     }
 
     public static bool TryGetNextValue<TKey, TValue>(this SortedDictionary<TKey, TValue> dictionary, TValue value, [NotNullWhen(true)] out TValue? nextValue) where TKey : IComparable<TKey> where TValue : Enum
     {
-        nextValue = dictionary.GetNextValue(value);
-        return nextValue != null;
+        foreach (var data in dictionary.Values)
+        {
+            if (data.CompareTo(value) <= 0)
+                continue;
+
+            nextValue = data;
+            return true;
+        }
+
+        nextValue = default;
+        return false;
     }
 }

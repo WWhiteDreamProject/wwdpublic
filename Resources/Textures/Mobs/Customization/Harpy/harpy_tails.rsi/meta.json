@@ -8,10 +8,6 @@
     },
     "states": [
         {
-            "name": "phoenix_tail",
-            "directions": 4
-        },
-        {
             "name": "rooster_tail",
             "directions": 4
         },

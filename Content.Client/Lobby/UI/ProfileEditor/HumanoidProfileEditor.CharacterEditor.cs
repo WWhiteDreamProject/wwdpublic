@@ -17,13 +17,13 @@ public sealed partial class HumanoidProfileEditor
         if (Profile == null)
             return;
 
-        var highJob = _controller.GetPreferredJob(Profile);
+        var highJob = _controller.GetPreferredJob(Profile.Value);
 
         Loadouts.SetData(
-            Profile.Loadouts.Values,
+            Profile.Value.Loadouts.Values,
             new(
                 highJob,
-                Profile,
+                Profile.Value,
                 _requirements.GetRawPlayTimeTrackers(),
                 _requirements.IsWhitelisted()
                 )
@@ -42,7 +42,7 @@ public sealed partial class HumanoidProfileEditor
         if (Profile is null)
             return;
 
-        Profile = Profile.WithLoadout(loadouts.ToDictionary(x => x.LoadoutName));
+        Profile = Profile.Value.WithLoadout(loadouts.ToDictionary(x => x.LoadoutName));
         ReloadProfilePreview();
         ReloadClothes();
         UpdateLoadouts();

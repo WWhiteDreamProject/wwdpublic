@@ -91,8 +91,8 @@
       charges: 15
     - type: MeleeWeapon
       damage:
-        types:
-          Blunt: 0 # melee weapon to allow flashing individual targets
+        # WD EDIT: Migrated damage format
+        Blunt: 0
     - type: Appearance
     - type: GenericVisualizer
       visuals:

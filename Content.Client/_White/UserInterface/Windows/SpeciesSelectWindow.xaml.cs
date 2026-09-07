@@ -60,15 +60,15 @@ public sealed partial class SpeciesSelectWindow : DefaultWindow
 
             if (_dummyProfile != null)
             {
-                _dummyProfile = _dummyProfile.WithSpecies(_selectedSpecies.Value);
+                _dummyProfile = _dummyProfile.Value.WithSpecies(_selectedSpecies.Value);
 
-                _dummyProfile.EnsureValid();
+                _dummyProfile.Value.EnsureValid();
             }
 
-            _dummyUid = _entityManager.SpawnEntity(prototype.DollPrototype, MapCoordinates.Nullspace);
+            _dummyUid = _entityManager.SpawnEntity(prototype.Doll, MapCoordinates.Nullspace);
 
             if (_dummyProfile != null)
-                _entityManager.System<BodyAppearanceSystem>().ApplyProfile(_dummyUid, _dummyProfile);
+                _entityManager.System<BodyAppearanceSystem>().ApplyProfile(_dummyUid, _dummyProfile.Value);
 
             EntityFrontView.SetEntity(_dummyUid);
             EntityRightView.SetEntity(_dummyUid);
@@ -94,7 +94,7 @@ public sealed partial class SpeciesSelectWindow : DefaultWindow
     public void Initialize(HumanoidCharacterProfile characterProfile)
     {
         DisposeContainers();
-        _dummyProfile = characterProfile.Clone();
+        _dummyProfile = characterProfile;
 
         var groups =
             _prototypeManager.EnumeratePrototypes<SpeciesDictionaryGroupPrototype>().ToList();

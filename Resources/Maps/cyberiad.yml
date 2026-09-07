@@ -145805,13 +145805,6 @@ entities:
     - type: Transform
       pos: -8.5066185,51.492676
       parent: 2
-- proto: PlushieTrystan
-  entities:
-  - uid: 22189
-    components:
-    - type: Transform
-      pos: -35.457195,3.4928346
-      parent: 2
 - proto: PortableFlasher
   entities:
   - uid: 22190

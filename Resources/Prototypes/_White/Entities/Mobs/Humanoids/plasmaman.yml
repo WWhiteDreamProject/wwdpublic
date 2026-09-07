@@ -1,0 +1,94 @@
+- type: entity
+  id: MobHumanoidPlasmaman
+  parent:
+  - BaseBodyPlasmaman
+  - BaseMobAtmosStandard
+  - BaseMobBlindable
+  - BaseMobFlammable
+  - BaseMobHearing
+  - BaseMobHumanoid
+  - BaseMobPainful
+  - BaseMobRespirator
+  - BaseMobSatiation
+  name: Urist McPlasmaman
+  components:
+  - type: Barotrauma
+    damage:
+      Blunt: 0.50
+      Heat: 0.1
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: SheetPlasma1
+      amount: 5
+  - type: DamageOnHit
+    damage:
+      Heat: 1
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 160
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: FireVisuals
+    alternateState: Standing
+  - type: Flammable
+    firestackFade: -0.05
+  - type: HumanoidProfile
+    species: Plasmaman
+  - type: Inventory
+    templateId: plasmaman
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female
+  - type: LanguageKnowledge
+    speaks:
+    - TauCetiBasic
+    - Calcic
+    understands:
+    - TauCetiBasic
+    - Calcic
+  - type: MeleeWeapon
+    animation: WeaponArcPurplePunch
+    soundHit:
+      collection: FirePunch
+    damage:
+      Heat: 5
+      Blunt: 2.25
+  - type: SpawnGasOnGib
+    gasMixture:
+      moles:
+      - 0    #oxygen
+      - 0    #nitrogen
+      - 0    #CO2
+      - 100  #plasma
+  - type: Speech
+    speechVerb: Skeleton
+  - type: Temperature
+    currentTemperature: 270.15
+    heatDamageThreshold: 308
+    coldDamageThreshold: 0
+    specificHeat: 46
+    heatDamage:
+      Heat: 3
+  - type: TemperatureSpeed
+    thresholds:
+      243: 0.8
+  - type: ThermalRegulator
+    normalBodyTemperature: 270.15
+  - type: TypingIndicator
+    proto: plasmaman
+  - type: Vocal
+    sounds:
+      Male: UnisexPlasmaman
+      Female: UnisexPlasmaman
+      Unsexed: UnisexPlasmaman

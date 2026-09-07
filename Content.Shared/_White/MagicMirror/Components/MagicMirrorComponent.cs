@@ -23,10 +23,7 @@ public sealed partial class MagicMirrorComponent : Component
     public float SelfTimeMultiply = 0.3f;
 
     [DataField(required: true)]
-    public HashSet<Enum> Layers = new ();
-
-    [DataField(required: true)]
-    public HashSet<ProtoId<MarkingCategoryPrototype>> Categories = new ();
+    public HashSet<ProtoId<MarkingCategoryPrototype>> Categories = new();
 
     /// <summary>
     /// Sound emitted when slots are changed

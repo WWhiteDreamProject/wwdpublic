@@ -1083,36 +1083,3 @@
 #   requirements:
 #      - !type:CharacterItemGroupRequirement
 #        group: LoadoutPlushie
-#
-# - type: loadout
-#   id: PlushieArachne
-#   category: Items
-#   cost: 1
-#   canBeHeirloom: true
-#   items:
-#     - PlushieArachne
-#   requirements:
-#     - !type:CharacterItemGroupRequirement
-#       group: LoadoutPlushie
-#
-# - type: loadout
-#   id: PlushieVulp
-#   category: Items
-#   cost: 1
-#   canBeHeirloom: true
-#   items:
-#     - PlushieVulp
-#   requirements:
-#     - !type:CharacterItemGroupRequirement
-#       group: LoadoutPlushie
-#
-# - type: loadout
-#   id: PlushieShadowkin
-#   category: Items
-#   cost: 1
-#   canBeHeirloom: true
-#   items:
-#     - PlushieShadowkin
-#   requirements:
-#     - !type:CharacterItemGroupRequirement
-#       group: LoadoutPlushie

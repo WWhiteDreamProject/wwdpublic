@@ -35,8 +35,8 @@
     solutions:
       fountain:
         maxVol: 200
-  - type: Drink
-    solution: fountain
+  - type: Ingestible # WD Ingestible
+    solutionName: fountain # WD Ingestible
   - type: DrawableSolution
     solution: fountain
   - type: DrainableSolution

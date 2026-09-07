@@ -19,10 +19,11 @@
   - type: HideLayerClothing
     slots:
     # WD EDIT START
-    - enum.HumanoidVisualLayers.Hair
-    - enum.HumanoidVisualLayers.Snout
-    - enum.HumanoidVisualLayers.HeadTop
-    - enum.HumanoidVisualLayers.HeadSide
+    - enum.MarkingVisualLayers.Hair
+    - enum.MarkingVisualLayers.HeadBottom
+    - enum.MarkingVisualLayers.HeadTop
+    - enum.MarkingVisualLayers.HeadSide
+    - enum.MarkingVisualLayers.Snout
     # WD EDIT END
 
 #Atmospherics Hardsuit
@@ -495,8 +496,8 @@
   - type: HideLayerClothing
     slots:
     # WD EDIT START
-    - enum.HumanoidVisualLayers.Hair
-    - enum.HumanoidVisualLayers.Snout
+    - enum.MarkingVisualLayers.Hair
+    - enum.MarkingVisualLayers.Snout
     # WD EDIT END
   - type: Armor
     modifiers:
@@ -561,8 +562,8 @@
   - type: HideLayerClothing
     slots:
     # WD EDIT START
-    - enum.HumanoidVisualLayers.Hair
-    - enum.HumanoidVisualLayers.Snout
+    - enum.MarkingVisualLayers.Hair
+    - enum.MarkingVisualLayers.Snout
     # WD EDIT END
   - type: Armor
     modifiers:
@@ -594,8 +595,8 @@
   - type: HideLayerClothing
     slots:
     # WD EDIT START
-    - enum.HumanoidVisualLayers.Hair
-    - enum.HumanoidVisualLayers.Snout
+    - enum.MarkingVisualLayers.Hair
+    - enum.MarkingVisualLayers.Snout
     # WD EDIT END
   - type: TemperatureProtection
     heatingCoefficient: 0.1 # WD EDIT: 0.005 -> 0.1
@@ -661,8 +662,8 @@
   - type: HideLayerClothing
     slots:
     # WD EDIT START
-    - enum.HumanoidVisualLayers.Hair
-    - enum.HumanoidVisualLayers.Snout
+    - enum.MarkingVisualLayers.Hair
+    - enum.MarkingVisualLayers.Snout
     # WD EDIT END
   - type: Armor
     modifiers:
@@ -692,8 +693,8 @@
   - type: HideLayerClothing
     slots:
     # WD EDIT START
-    - enum.HumanoidVisualLayers.Hair
-    - enum.HumanoidVisualLayers.Snout
+    - enum.MarkingVisualLayers.Hair
+    - enum.MarkingVisualLayers.Snout
     # WD EDIT END
   - type: Armor
     modifiers:

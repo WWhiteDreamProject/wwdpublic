@@ -31,11 +31,11 @@
     damageContainers:
     - Biological
     damage:
-      types:
-        Heat: -10
-        Cold: -10
-        Shock: -10
-        Caustic: -5 #Was 5 per type & 1.5 caustic, Buffed due to limb damage changes
+      # WD EDIT: Migrated damage format
+      Caustic: -5
+      Cold: -10
+      Heat: -10
+      Shock: -10
     healingBeginSound:
       path: "/Audio/Items/Medical/ointment_begin.ogg"
     healingEndSound:
@@ -82,11 +82,11 @@
     damageContainers:
     - Biological
     damage:
-      types:
-        Heat: -15
-        Cold: -15
-        Shock: -15
-        Caustic: -15 #Was 10 per type, Buffed due to limb damage changes
+      # WD EDIT: Migrated damage format
+      Caustic: -15
+      Cold: -15
+      Heat: -15
+      Shock: -15
     healingBeginSound:
       path: "/Audio/Items/Medical/ointment_begin.ogg"
     healingEndSound:
@@ -122,8 +122,10 @@
     damageContainers:
     - Biological
     damage:
-      groups:
-        Brute: -30 # was 5 (-15 Brute) for each, Buffed due to limb damage changes
+      # WD EDIT: Migrated damage format
+      Blunt: -10
+      Piercing: -10
+      Slash: -10
     healingBeginSound:
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
     healingEndSound:
@@ -171,8 +173,10 @@
     damageContainers:
     - Biological
     damage:
-      groups:
-        Brute: -45 # was 10 for each, now 20 for each type in the group, Buffed due to Limb Damage Changes
+      # WD EDIT: Migrated damage format
+      Blunt: -15
+      Piercing: -15
+      Slash: -15
     bloodlossModifier: -10 # a suture should stop ongoing bleeding
     healingBeginSound:
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
@@ -209,8 +213,8 @@
     damageContainers:
     - Biological
     damage:
-      types:
-        Bloodloss: -2.5 #lowers bloodloss damage, was .5, buffed due to Limb Damage Changes
+      # WD EDIT: Migrated damage format
+      Bloodloss: -2.5
     ModifyBloodLevel: 30 #used to restore 5% blood per use, now restores about 10% blood per use on standard Buffed due to Limb Damage Changes
     healingBeginSound:
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
@@ -246,10 +250,11 @@
     damageContainers:
     - Biological
     damage:
-      groups:
-        Brute: 5 # Tourniquets HURT!
-      types:
-        Asphyxiation: 5 # Essentially Stopping all blood reaching a part of your body
+      # WD EDIT: Migrated damage format
+      Asphyxiation: 5
+      Blunt: 1.7
+      Piercing: 1.7
+      Slash: 1.7
     bloodlossModifier: -10 # Tourniquets stop bleeding
     delay: 0.5
     healingBeginSound:
@@ -276,9 +281,9 @@
     damageContainers:
     - Biological
     damage:
-      types:
-        Slash: -10 # Was 5
-        Piercing: -15 # Was 10, Buffed due to limb damage changes
+      # WD EDIT: Migrated damage format
+      Piercing: -15
+      Slash: -10
     bloodlossModifier: -10
     healingBeginSound:
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
@@ -334,10 +339,16 @@
     damageContainers:
     - Biological
     damage:
-      groups: # these are all split across multiple types
-        Brute: -150
-        Burn: -150
-        Toxin: -150
+      # WD EDIT: Migrated damage format
+      Blunt: -50
+      Caustic: -37.5
+      Cold: -37.5
+      Heat: -37.5
+      Piercing: -50
+      Poison: -75
+      Radiation: -75
+      Shock: -37.5
+      Slash: -50
     bloodlossModifier: -20
     delay: 1
     selfHealPenaltyMultiplier: 0
@@ -360,7 +371,7 @@
     currentLabel: dexalin 10u
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 20
         reagents:
         - ReagentId: Dexalin
@@ -392,7 +403,7 @@
     currentLabel: dylovene 10u
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 20
         reagents:
         - ReagentId: Dylovene
@@ -423,7 +434,7 @@
     currentLabel: hyronalin 10u
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 20
         reagents:
         - ReagentId: Hyronalin
@@ -454,7 +465,7 @@
     currentLabel: potassium iodide 10u
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 20
         reagents:
         - ReagentId: PotassiumIodide
@@ -485,7 +496,7 @@
     currentLabel: iron 10u
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 20
         reagents:
         - ReagentId: Iron
@@ -504,7 +515,7 @@
     currentLabel: copper 10u
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 20
         reagents:
         - ReagentId: Copper
@@ -547,7 +558,7 @@
     currentLabel: kelotane 10u
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 20
         reagents:
         - ReagentId: Kelotane
@@ -578,7 +589,7 @@
     currentLabel: dermaline 10u
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 20
         reagents:
         - ReagentId: Dermaline
@@ -605,7 +616,7 @@
     currentLabel: space mirage 15u
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 20
         reagents:
         - ReagentId: SpaceDrugs
@@ -636,7 +647,7 @@
     currentLabel: pax 10u
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 20
         reagents:
         - ReagentId: Pax
@@ -668,7 +679,7 @@
     currentLabel: tricordrazine 10u
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 20
         reagents:
         - ReagentId: Tricordrazine
@@ -699,7 +710,7 @@
     currentLabel: bicaridine 10u
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 20
         reagents:
         - ReagentId: Bicaridine
@@ -730,7 +741,7 @@
     currentLabel: charcoal 10u
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 20
         reagents:
         - ReagentId: Charcoal
@@ -757,7 +768,7 @@
     currentLabel: romerol 10u
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 20
         reagents:
         - ReagentId: Romerol
@@ -772,7 +783,7 @@
     currentLabel: ambuzol 10u
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 20
         reagents:
         - ReagentId: Ambuzol
@@ -791,7 +802,7 @@
     currentLabel: ambuzol plus 5u
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 20
         reagents:
         - ReagentId: AmbuzolPlus

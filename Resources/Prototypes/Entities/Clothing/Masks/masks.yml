@@ -19,7 +19,7 @@
   - type: HideLayerClothing
     slots:
     # WD EDIT START
-    - enum.HumanoidVisualLayers.Snout
+    - enum.MarkingVisualLayers.Snout
     # WD EDIT END
     hideOnToggle: true
 
@@ -226,7 +226,7 @@
   - type: HideLayerClothing
     slots:
     # WD EDIT START
-    - enum.HumanoidVisualLayers.Snout
+    - enum.MarkingVisualLayers.Snout
     # WD EDIT END
 
 - type: entity
@@ -241,7 +241,7 @@
   - type: HideLayerClothing
     slots:
   # WD EDIT START
-    - enum.HumanoidVisualLayers.Snout
+    - enum.MarkingVisualLayers.Snout
   - type: Construction
     graph: BananaClownMask
     node: basemask
@@ -293,7 +293,7 @@
   - type: HideLayerClothing
     slots:
     # WD EDIT START
-    - enum.HumanoidVisualLayers.Snout
+    - enum.MarkingVisualLayers.Snout
     # WD EDIT END
   - type: Tag
     tags:
@@ -319,7 +319,7 @@
   - type: HideLayerClothing
     slots:
     # WD EDIT START
-    - enum.HumanoidVisualLayers.Snout
+    - enum.MarkingVisualLayers.Snout
     # WD EDIT END
 
 - type: entity
@@ -378,7 +378,7 @@
   - type: HideLayerClothing
     slots:
     # WD EDIT START
-    - enum.HumanoidVisualLayers.Snout
+    - enum.MarkingVisualLayers.Snout
     # WD EDIT END
     hideOnToggle: true
 
@@ -413,8 +413,8 @@
   - type: HideLayerClothing
     slots:
     # WD EDIT START
-    - enum.HumanoidVisualLayers.Hair
-    - enum.HumanoidVisualLayers.Snout
+    - enum.MarkingVisualLayers.Hair
+    - enum.MarkingVisualLayers.Snout
     # WD EDIT END
     hideOnToggle: true
   - type: Armor
@@ -459,8 +459,8 @@
   - type: HideLayerClothing
     slots:
     # WD EDIT START
-    - enum.HumanoidVisualLayers.Hair
-    - enum.HumanoidVisualLayers.Snout
+    - enum.MarkingVisualLayers.Hair
+    - enum.MarkingVisualLayers.Snout
     # WD EDIT END
     hideOnToggle: true
   - type: FlashImmunity
@@ -510,7 +510,7 @@
   - type: HideLayerClothing
     slots:
     # WD EDIT START
-    - enum.HumanoidVisualLayers.Snout
+    - enum.MarkingVisualLayers.Snout
     # WD EDIT END
   - type: IdentityBlocker
 
@@ -529,7 +529,7 @@
   - type: HideLayerClothing
     slots:
     # WD EDIT START
-    - enum.HumanoidVisualLayers.Snout
+    - enum.MarkingVisualLayers.Snout
     # WD EDIT END
   - type: Tag
     tags:
@@ -550,7 +550,7 @@
   - type: HideLayerClothing
     slots:
     # WD EDIT START
-    - enum.HumanoidVisualLayers.Snout
+    - enum.MarkingVisualLayers.Snout
     # WD EDIT END
   - type: Tag
     tags:
@@ -571,7 +571,7 @@
   - type: HideLayerClothing
     slots:
     # WD EDIT START
-    - enum.HumanoidVisualLayers.Snout
+    - enum.MarkingVisualLayers.Snout
     # WD EDIT END
   - type: Tag
     tags:
@@ -592,7 +592,7 @@
   - type: HideLayerClothing
     slots:
     # WD EDIT START
-    - enum.HumanoidVisualLayers.Snout
+    - enum.MarkingVisualLayers.Snout
     # WD EDIT END
   - type: Tag
     tags:
@@ -613,7 +613,7 @@
   - type: HideLayerClothing
     slots:
     # WD EDIT START
-    - enum.HumanoidVisualLayers.Snout
+    - enum.MarkingVisualLayers.Snout
     # WD EDIT END
   - type: Tag
     tags:
@@ -634,7 +634,7 @@
   - type: HideLayerClothing
     slots:
     # WD EDIT START
-    - enum.HumanoidVisualLayers.Snout
+    - enum.MarkingVisualLayers.Snout
     # WD EDIT END
   - type: Tag
     tags:

@@ -1,0 +1,15 @@
+- type: entity
+  id: HumanoidDollGingerbread
+  parent:
+  - BaseBodyGingerbread
+  - BaseHumanoidDoll
+  components:
+  - type: HumanoidProfile
+    species: Gingerbread
+  - type: Inventory
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female

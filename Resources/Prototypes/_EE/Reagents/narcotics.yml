@@ -39,5 +39,5 @@
           reagent: Morphine
           min: 20
         damage:
-          types:
-            Asphyxiation: 2
+          # WD EDIT: Migrated damage format
+          Asphyxiation: 2

@@ -117,7 +117,7 @@ public sealed class CRTVisionSystem : EntitySystem
             return;
 
         // Check if it was damage and not healing
-        if (args is { DamageIncreased: true })
+        if (args.Damage.AnyPositive())
         {
             var damageAmount = (float) args.Damage.GetTotal();
             TriggerImpactEffect(damageAmount);

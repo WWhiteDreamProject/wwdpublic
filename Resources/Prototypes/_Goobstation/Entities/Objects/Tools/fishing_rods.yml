@@ -17,8 +17,8 @@
     wideAnimationRotation: 45
     attackRate: 1.0
     damage:
-      types:
-        Piercing: 4
+      # WD EDIT: Migrated damage format
+      Piercing: 4
   - type: FishingRod
 
 # Variation of a normal rod
@@ -75,10 +75,8 @@
     wideAnimationRotation: 45
     attackRate: 1.0
     damage:
-      types:
-        Piercing: 10
-
-# Normal fishing lure
+      # WD EDIT: Migrated damage format
+      Piercing: 10
 - type: entity
   id: FishingLure
   parent: BaseItem

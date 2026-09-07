@@ -58,7 +58,7 @@
       animationRotation: -135
       wideAnimationRotation: -135
       damage:
-        types:
-          Slash: 5
+        # WD EDIT: Migrated damage format
+        Slash: 5
       soundHit:
         path: /Audio/Weapons/bladeslice.ogg

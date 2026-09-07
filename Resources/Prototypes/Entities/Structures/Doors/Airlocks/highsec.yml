@@ -58,8 +58,7 @@
       board: !type:Container
   - type: Door
     crushDamage:
-      types:
-        Blunt: 50
+      Blunt: 50
     openSound:
       path: /Audio/Machines/airlock_open.ogg
     closeSound:

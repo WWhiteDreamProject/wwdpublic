@@ -31,10 +31,9 @@
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Heat: 2
-            Poison: 1
-
+          # WD EDIT: Migrated damage format
+          Heat: 2
+          Poison: 1
 - type: reagent
   id: Napalm
   name: reagent-name-napalm
@@ -57,10 +56,10 @@
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Heat: 2
-            Poison: 1
-            Caustic: 0.5 # based off napalm being an irritant
+          # WD EDIT: Migrated damage format
+          Caustic: 0.5
+          Heat: 2
+          Poison: 1
       - !type:FlammableReaction
         multiplier: 0.4
 
@@ -77,9 +76,9 @@
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Heat: 3
-            Poison: 1
+          # WD EDIT: Migrated damage format
+          Heat: 3
+          Poison: 1
       - !type:FlammableReaction
         multiplier: 0.1
       - !type:AdjustTemperature
@@ -107,10 +106,10 @@
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Heat: 2
-            Poison: 1
-            Caustic: 0.5 # CLF3 is corrosive
+          # WD EDIT: Migrated damage format
+          Caustic: 0.5
+          Heat: 2
+          Poison: 1
       - !type:FlammableReaction
         multiplier: 0.2
       - !type:AdjustTemperature
@@ -162,8 +161,8 @@
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Poison: 1
+          # WD EDIT: Migrated damage format
+          Poison: 1
       - !type:FlammableReaction
         multiplier: 0.4
 

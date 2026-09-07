@@ -3,7 +3,9 @@ using Content.Shared._White.Humanoid.Markings;
 using Content.Shared._White.Humanoid.Markings.Components;
 using Content.Shared._White.Humanoid.Markings.Prototypes;
 using Content.Shared._White.Humanoid.Markings.Systems;
+using Content.Shared.CCVar;
 using Robust.Client.GameObjects;
+using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
@@ -14,7 +16,14 @@ public sealed partial class MarkingsSystem : SharedMarkingsSystem
     [Dependency] private readonly DisplacementMapSystem _displacement = default!;
     [Dependency] private readonly SpriteSystem _sprite = default!;
 
+    [Dependency] private readonly IConfigurationManager _configuration = default!;
+
     private EntityQuery<SpriteComponent> _spriteQuery;
+
+    private bool _clientCensorNudity;
+    private bool _serverCensorNudity;
+
+    public bool CensorNudity => _clientCensorNudity || _serverCensorNudity;
 
     public override void Initialize()
     {
@@ -23,6 +32,9 @@ public sealed partial class MarkingsSystem : SharedMarkingsSystem
         InitializeProvider();
 
         _spriteQuery = GetEntityQuery<SpriteComponent>();
+
+        Subs.CVar(_configuration, CCVars.AccessibilityClientCensorNudity, value => _clientCensorNudity = value, true);
+        Subs.CVar(_configuration, CCVars.AccessibilityServerCensorNudity, value => _serverCensorNudity = value, true);
     }
 
     #region Private API

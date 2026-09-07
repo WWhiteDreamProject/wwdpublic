@@ -1,10 +1,12 @@
 using Content.Shared._White.Body;
 using Content.Shared._White.Body.Systems;
 using Content.Shared._White.Damage.Prototypes;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared._White.Pain.Components;
 using Content.Shared._White.Wounds.Systems;
 using Content.Shared.Alert;
 using Content.Shared.FixedPoint;
+using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -14,7 +16,7 @@ namespace Content.Shared._White.Pain.Systems;
 
 public abstract partial class SharedPainfulSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
+    [Dependency] protected readonly IGameTiming GameTiming = default!;
 
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
@@ -26,7 +28,9 @@ public abstract partial class SharedPainfulSystem : EntitySystem
     {
         SubscribeLocalEvent<PainfulComponent, ComponentGetState>(OnGetState);
         SubscribeLocalEvent<PainfulComponent, ComponentHandleState>(OnHandleState);
+        SubscribeLocalEvent<PainfulComponent, DamageChangedEvent>(OnDamageChanged);
         SubscribeLocalEvent<PainfulComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<PainfulComponent, MobStateChangedEvent>(OnMobStateChanged);
 
         InitializeProvider();
         InitializeStatus();
@@ -49,23 +53,41 @@ public abstract partial class SharedPainfulSystem : EntitySystem
         if (args.Current is not PainfulComponentState state)
             return;
 
+        ent.Comp.Dead = state.Dead;
         ent.Comp.PainMultiplier = state.PainMultiplier;
         ent.Comp.UpdateIntervalMultiplier = state.UpdateIntervalMultiplier;
         ent.Comp.LastUpdate = state.LastUpdate;
 
-        var painDelta = state.Pain - ent.Comp.Pain;
+        var delta = state.Pain - ent.Comp.Pain;
 
-        if (painDelta == FixedPoint2.Zero)
+        if (delta == FixedPoint2.Zero)
             return;
 
         ent.Comp.Pain = state.Pain;
 
-        RaiseLocalEvent(ent, new PainChangedEvent(ent, painDelta), true);
+        var ev = new PainChangedEvent(ent, delta);
+        RaiseLocalEvent(ent, ref ev, true);
+    }
+
+    private void OnDamageChanged(Entity<PainfulComponent> ent, ref DamageChangedEvent args)
+    {
+        UpdatePain(ent);
     }
 
     private void OnMapInit(Entity<PainfulComponent> ent, ref MapInitEvent args)
     {
-        ent.Comp.LastUpdate = _gameTiming.CurTime;
+        ent.Comp.LastUpdate = GameTiming.CurTime;
+        Dirty(ent);
+    }
+
+    private void OnMobStateChanged(Entity<PainfulComponent> ent, ref MobStateChangedEvent args)
+    {
+        var dead = args.NewMobState == MobState.Dead;
+
+        if (ent.Comp.Dead == dead)
+            return;
+
+        ent.Comp.Dead = dead;
         Dirty(ent);
     }
 
@@ -76,7 +98,7 @@ public abstract partial class SharedPainfulSystem : EntitySystem
         var query = EntityQueryEnumerator<PainfulComponent>();
         while (query.MoveNext(out var uid, out var painful))
         {
-            if (painful.LastUpdate + painful.CurrentUpdateInterval >= _gameTiming.CurTime)
+            if (painful.LastUpdate + painful.CurrentUpdateInterval >= GameTiming.CurTime)
                 continue;
 
             UpdatePain((uid, painful));
@@ -86,6 +108,40 @@ public abstract partial class SharedPainfulSystem : EntitySystem
     #endregion
 
     #region Public API
+
+    /// <summary>
+    /// Changes the entity's pain by a relative amount.
+    /// </summary>
+    /// <param name="ent">The entity whose pain should be modified.</param>
+    /// <param name="pain">The amount to add to the current pain (can be negative to reduce pain).</param>
+    public void ChangePain(Entity<PainfulComponent?> ent, FixedPoint2 pain)
+    {
+        if (!_painfulQuery.Resolve(ent, ref ent.Comp))
+            return;
+
+        if (pain == FixedPoint2.Zero)
+            return;
+
+        ent.Comp.Pain = FixedPoint2.Max(0, ent.Comp.Pain + pain);
+        Dirty(ent);
+
+        var ev = new PainChangedEvent((ent, ent.Comp), pain);
+        RaiseLocalEvent(ent, ref ev, true);
+    }
+
+    /// <summary>
+    /// Sets the entity's pain to an value.
+    /// Internally calculates the delta and calls <see cref="ChangePain"/>.
+    /// </summary>
+    /// <param name="ent">The entity whose pain should be set.</param>
+    /// <param name="pain">The pain value to set.</param>
+    public void SetPain(Entity<PainfulComponent?> ent, FixedPoint2 pain)
+    {
+        if (!_painfulQuery.Resolve(ent, ref ent.Comp))
+            return;
+
+        ChangePain(ent, pain - ent.Comp.Pain);
+    }
 
     /// <summary>
     /// Retrieves the current pain value of the entity.
@@ -106,40 +162,16 @@ public abstract partial class SharedPainfulSystem : EntitySystem
 
     private void UpdatePain(Entity<PainfulComponent> ent)
     {
-        var timeDelta = _gameTiming.CurTime - ent.Comp.LastUpdate;
-        ent.Comp.LastUpdate = _gameTiming.CurTime;
-        Dirty(ent);
-
-        var getPainEv = new GetPainEvent(FixedPoint2.Zero);
-        RaiseLocalEvent(ent, ref getPainEv);
-
-        if (getPainEv.Pain == ent.Comp.Pain)
+        if (ent.Comp.Dead)
             return;
 
-        var painDelta = FixedPoint2.Zero;
-
-        if (ent.Comp.Pain < getPainEv.Pain)
-        {
-            var maxIncrease = timeDelta.TotalSeconds * ent.Comp.MaxPainIncreasePerSecond;
-            painDelta = FixedPoint2.Min(getPainEv.Pain - ent.Comp.Pain, maxIncrease);
-        }
-
-        if (ent.Comp.Pain > getPainEv.Pain)
-        {
-            var maxDecrease = timeDelta.TotalSeconds * ent.Comp.MaxPainDecreasePerSecond;
-            painDelta = -FixedPoint2.Min(ent.Comp.Pain - getPainEv.Pain, maxDecrease);
-        }
-
-        if (ent.Comp.Pain + painDelta < FixedPoint2.Zero)
-            painDelta = -ent.Comp.Pain;
-
-        if (painDelta == FixedPoint2.Zero)
-            return;
-
-        ent.Comp.Pain += painDelta;
+        ent.Comp.LastUpdate = GameTiming.CurTime;
         Dirty(ent);
 
-        RaiseLocalEvent(ent, new PainChangedEvent(ent, painDelta), true);
+        var ev = new GetPainEvent(FixedPoint2.Zero);
+        RaiseLocalEvent(ent, ref ev);
+
+        SetPain(ent.AsNullable(), ev.Pain);
     }
 
     #endregion
@@ -150,9 +182,10 @@ public abstract partial class SharedPainfulSystem : EntitySystem
 /// </summary>
 /// <param name="Pain">The accumulated pain value from all relevant sources. Initialized to zero and populated by providers.</param>
 [ByRefEvent]
-public record struct GetPainEvent(FixedPoint2 Pain) : IWoundRelayEvent
+public record struct GetPainEvent(FixedPoint2 Pain) : IBodyRelayEvent, IWoundRelayEvent
 {
-    public ProtoId<DamageTypePrototype>? Type { get; } = null;
+    public BodyProviderType ProviderType { get; } = BodyProviderType.All;
+    public ProtoId<DamageTypePrototype>? DamageType { get; } = null;
 }
 
 /// <summary>
@@ -160,9 +193,10 @@ public record struct GetPainEvent(FixedPoint2 Pain) : IWoundRelayEvent
 /// </summary>
 /// <param name="Painful">This is the entity whose pain was changed.</param>
 /// <param name="Pain">The amount by which the pain has changed.</param>
+[ByRefEvent]
 public record struct PainChangedEvent(Entity<PainfulComponent> Painful, FixedPoint2 Pain) : IBodyRelayEvent
 {
-    public BodyProviderType Type { get; } = BodyProviderType.All;
+    public BodyProviderType ProviderType { get; } = BodyProviderType.All;
 }
 
 /// <summary>
@@ -170,4 +204,5 @@ public record struct PainChangedEvent(Entity<PainfulComponent> Painful, FixedPoi
 /// </summary>
 /// <param name="Level">The new pain level.</param>
 /// <param name="Location">The specific body location when pain level changed.</param>
+[ByRefEvent]
 public record struct PainLevelChangedEvent(PainLevel Level, BodyProviderType Location = BodyProviderType.All);

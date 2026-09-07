@@ -9,7 +9,7 @@ public abstract partial class SharedBloodstreamSystem
     private void InitializeAccumulator()
     {
         SubscribeLocalEvent<BloodstreamAccumulatorComponent, BodyRelayedEvent<GetBloodReductionEvent>>(OnGetBloodReduction);
-        SubscribeLocalEvent<BloodstreamAccumulatorComponent, WoundableSeverityChangedEvent>(OnWoundableSeverityChanged);
+        SubscribeLocalEvent<BloodstreamAccumulatorComponent, WoundSeverityChangedEvent>(OnWoundSeverityChanged);
     }
 
     #region Event Handling
@@ -19,7 +19,7 @@ public abstract partial class SharedBloodstreamSystem
         args.Args = new (args.Args.Reduction + ent.Comp.Reduction);
     }
 
-    private void OnWoundableSeverityChanged(Entity<BloodstreamAccumulatorComponent> ent, ref WoundableSeverityChangedEvent args)
+    private void OnWoundSeverityChanged(Entity<BloodstreamAccumulatorComponent> ent, ref WoundSeverityChangedEvent args)
     {
         if (!ent.Comp.ReductionThresholds.TryGetValue(args.Severity, out var reduction))
             return;

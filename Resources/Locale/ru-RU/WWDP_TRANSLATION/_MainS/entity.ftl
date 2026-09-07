@@ -342,29 +342,6 @@ ent-LeftFootPlasmaman = левая ступня плазмамена
 ent-RightFootPlasmaman = правая ступня плазмамена
 
 
-ent-PartShadowkin = часть тела теневика
-
-ent-TorsoShadowkin = торс теневика
-
-ent-HeadShadowkin = голова теневика
-
-ent-LeftArmShadowkin = левая рука теневика
-
-ent-RightArmShadowkin = правая рука теневика
-
-ent-LeftHandShadowkin = левая кисть теневика
-
-ent-RightHandShadowkin = правая кисть теневика
-
-ent-LeftLegShadowkin = левая нога теневика
-
-ent-RightLegShadowkin = правая нога теневика
-
-ent-LeftFootShadowkin = левая ступня теневика
-
-ent-RightFootShadowkin = правая ступня теневика
-
-
 ent-BaseBorgLeftArm = левая рука киборга
 
 ent-BaseBorgRightArm = правая рука киборга
@@ -839,61 +816,8 @@ ent-PaperWrittenCombatBakeryKit = инструкция к боевой пека�
 ent-ActionChitzite = Изрыгнуть хицит
     .desc = Избавьтесь от накопленного излучения, исторгнув из себя токсичную массу вещества.
 
-
-ent-OrganChitinidStomach = желудок
-    .desc = Ужас. С трудом переваривается — в том числе морально.
-
-
-ent-OrganChitinidLiver = печень
-
 ent-OrganHarpyLungs = лёгкие
     .desc = Продвинутые птичьи лёгкие. Фильтруют кислород путём непрерывной циркуляции воздуха через воздушные мешки.
-
-
-ent-PartChitinidBase = часть тела хитинида
-
-ent-TorsoChitinid = торс хитинида
-
-ent-HeadChitinid = голова хитинида
-
-ent-LeftArmChitinid = левая рука хитинида
-
-ent-RightArmChitinid = правая рука хитинида
-
-ent-LeftHandChitinid = левая кисть хитинида
-
-ent-RightHandChitinid = правая кисть хитинида
-
-ent-LeftLegChitinid = левая нога хитинида
-
-ent-RightLegChitinid = правая нога хитинида
-
-ent-LeftFootChitinid = левая стопа хитинида
-
-ent-RightFootChitinid = правая стопа хитинида
-
-
-ent-PartVulpkanin = часть тела вульпканина
-
-ent-TorsoVulpkanin = торс вульпканина
-
-ent-HeadVulpkanin = голова вульпканина
-
-ent-LeftArmVulpkanin = левая рука вульпканина
-
-ent-RightArmVulpkanin = правая рука вульпканина
-
-ent-LeftHandVulpkanin = левая кисть вульпканина
-
-ent-RightHandVulpkanin = правая кисть вульпканина
-
-ent-LeftLegVulpkanin = левая нога вульпканина
-
-ent-RightLegVulpkanin = правая нога вульпканина
-
-ent-LeftFootVulpkanin = левая стопа вульпканина
-
-ent-RightFootVulpkanin = правая стопа вульпканина
 
 
 ent-BoxEncryptionKeyPrisoner = коробка шифровальных ключей заключённого
@@ -1412,18 +1336,10 @@ ent-MobRadioGuard = охранник Синдиката
     .desc = Стерильно промыты и гипнотически перепрограммированы для абсолютной лояльности. Умрут ради задачи.
 
 
-ent-MobChitinid = Юрист МакМуравей
-
-
 ent-MobHumanSyndicateListener = слушатель Синдиката
 
 ent-MobLamia = Юрист МакЛамия
     .desc = Жалкое месиво из чешуи.
-
-
-ent-MobVulpkanin = Юрист МакВулп
-
-ent-BaseMobChitinid = Юрист МакМуравей
 
 ent-MobLamiaBase = ламия
     .desc = Жалкое месиво из чешуи.
@@ -1431,12 +1347,6 @@ ent-MobLamiaBase = ламия
 
 ent-MobLamiaDummy = ламия (болванка)
     .desc = Болванка ламии для настройки персонажа.
-
-
-ent-BaseMobVulpkanin = Юрист МакВулп
-
-ent-MobVulpkaninDummy = Вулпканин (болванка)
-    .desc = Болванка вулпканина для настройки персонажа.
 
 
 ent-DrinkDrGibbBloodRedCan = банка Dr. Gibb Blood Red
@@ -5281,9 +5191,6 @@ ent-ActionAGhostShowStationRecords = Архив станции
     .desc = Просмотр архивных записей станции.
 
 
-ent-MobArachne = Урист МакАрахна
-
-
 ent-MobDionaReformed = переформированная диона
 
 
@@ -5370,9 +5277,6 @@ ent-MobPlasmaman = Урист МакПлазма
 ent-MobRatvarBase = Ратвар
     .desc = Твоё сознание бьётся в агонии, пытаясь постичь его механизмы.
 
-
-ent-MobShadowkin = Урист МакТень
-    .desc = Его широкая грудь поднимается куда медленнее человеческой. Это тревожит.
 
     .desc = Компоненты, вставляемые в ядро ИИ.
 
@@ -5509,12 +5413,6 @@ ent-StationAiHoloLocal = голограмма ИИ
 ent-MobSkeletonCloset = скелет в шкафу
 
 
-ent-MobArachneBase = Урист МакАрахна
-
-ent-MobArachneDummy = Урист МакРуки
-    .desc = Учебный образец арахны для создания персонажа.
-
-
 ent-BaseMobGingerbread = Урист МакПеченька
 
 
@@ -5539,9 +5437,6 @@ ent-ActionToggleFlight = Взлететь
 ent-BaseMobMoth = Урист МакПух
 
 ent-BaseMobPlasmaman = Урист МакПлазма
-
-ent-MobShadowkinBase = Урист МакТень
-    .desc = Учебный образец тенекожего для создания персонажа.
 
 
 ent-DrinkCoconutWaterCarton = кокосовая вода
@@ -6514,11 +6409,6 @@ ent-ValyrianStandardTranslatorImplant = имплант Валирийского 
 ent-AzazibaTranslatorImplant = имплант Азазибы
     .desc = Позволяет понимать и говорить на Азазибе.
 
-
-ent-ChittinTranslatorImplant = имплант Читтина
-    .desc = Позволяет понимать и говорить на Читтине.
-
-
 ent-SiikMaasTranslatorImplant = имплант Сиик'маас
     .desc = Позволяет понимать и говорить на Сиик'маас.
 
@@ -6856,10 +6746,6 @@ ent-PlushieHuman = плюшевый человек
     .desc = Войлок. Голый. Плачет. Орёт. Плюшевая депрессия.
 
 
-ent-PlushieArachne = плюшевая Арахна
-    .desc = Мягкая игрушка в виде полу-человека, полу-паука. Почему она кажется тебе знакомой?..
-
-
 ent-PlushieMoth = плюшевая моль
     .desc = Пушистая и милая моль. Наслаждайся, бз!
 
@@ -6937,14 +6823,6 @@ ent-PlushieBlackFox = плюшевая чёрная лиса
     .desc = Загадочная, как полночь. Эта лиса точно умеет исчезать в тенях.
 
 
-ent-PlushieVulp = плюшевая вульпканин
-    .desc = Плюшевая версия вульпканина — её можно обнять без риска быть покусанным!
-
-
-ent-PlushieTrystan = офисная плюшевая вульпка
-    .desc = Она издаёт "йип!" и требует премию.
-
-
 ent-PlushieCorgi = плюшевый корги
     .desc = Специальное издание в честь Яна. Такой же пушистый, но без груза ответственности.
 
@@ -6989,10 +6867,6 @@ ent-NewtonCradle = маятник Ньютона
 
 ent-ThronglerToy = игрушка Удавителя
     .desc = Зачем ты это сделал?
-
-
-ent-PlushieShadowkin = плюшевый теневик
-    .desc = Очень мягкий и подозрительно пушистый.
 
 
 ent-SyndicateWhistle = окопный свисток
@@ -7405,8 +7279,6 @@ ent-ShadowKudzu = тёмная пелена
 
 ent-ShadowKudzuWeak = пелена
 
-ent-ShadowkinShadow = пелена Теневиков
-
 ent-ShadowKudzuTemp = угасающая пелена
 
 
@@ -7806,10 +7678,6 @@ ent-BoxBuildABuddyReptilian = набор «Собери-друга»
 
 ent-BoxBuildABuddySlime = набор «Собери-друга»
     .desc = Набор для сборки «Стивен — Слайм». Слизи хватит на всех.
-
-
-ent-BoxBuildABuddyVulpkanin = набор «Собери-друга»
-    .desc = Набор для сборки «Валери — Вулпканин». Немного пушистости не повредит.
 
 
 ent-DelayedSmoke = отложенный дым
@@ -11536,14 +11404,8 @@ ent-WeaponSubMachineGunBRDIR25BSO = BRDI R-25
     .desc = Знаменитое оружие Иностранного Легиона Республики Бисель. Перекрашено для офицеров BlueShield.
 
 
-ent-XelthiaRegenerateAction = Отрастить руки
-    .desc = Отращивает утерянные конечности.
-
 
 ent-SpaceWindVisual = вихри космического ветра
-
-
-ent-OrganXelthiaStomach = желудок кселтии
 
 
 ent-HeadDummy = манекен — голова
@@ -11563,53 +11425,6 @@ ent-RightLegDummy = манекен — правая нога
 ent-LeftFootDummy = манекен — левая ступня
 
 ent-RightFootDummy = манекен — правая ступня
-
-
-ent-PartTajaran = часть тела таяры
-
-ent-TorsoTajaran = торс таяры
-
-ent-HeadTajaran = голова таяры
-
-ent-LeftArmTajaran = левая рука таяры
-
-ent-RightArmTajaran = правая рука таяры
-
-ent-LeftHandTajaran = левая кисть таяры
-
-ent-RightHandTajaran = правая кисть таяры
-
-ent-LeftLegTajaran = левая нога таяры
-
-ent-RightLegTajaran = правая нога таяры
-
-ent-LeftFootTajaran = левая ступня таяры
-
-ent-RightFootTajaran = правая ступня таяры
-
-
-ent-PartXelthia = часть тела кселтии
-
-ent-TorsoXelthia = торс кселтии
-
-ent-HeadXelthia = голова кселтии
-
-ent-LeftArmXelthia = левая рука кселтии
-
-ent-RightArmXelthia = правая рука кселтии
-
-ent-LeftHandXelthia = левая кисть кселтии
-
-ent-RightHandXelthia = правая кисть кселтии
-
-ent-LeftLegXelthia = левая нога кселтии
-
-ent-RightLegXelthia = правая нога кселтии
-
-ent-LeftFootXelthia = левая ступня кселтии
-
-ent-RightFootXelthia = правая ступня кселтии
-
 
 ent-BoxCardboardSmall = маленькая картонная коробка
     .desc = Простая коробка из картона. Поместится что-то полезное.
@@ -12097,26 +11912,8 @@ ent-SupermatterLightningSupercharged = сверхзаряженная дуга �
 ent-MobCarpGoldfish = космическая золотая рыбка
     .desc = Домашняя разновидность космического карпа. Размер меньше, агрессии нисколько.
 
-
-ent-MobTajaran = Урист МакТаяран
-
-ent-MobXelthia = Урист МакЩупальца
-
 ent-MobSynthHuman = био-синтетический торс
     .desc = Настраиваемое синтетическое тело — собери себя заново от пяток до макушки.
-
-
-ent-MobTajaranBase = Урист МакТаяран
-
-ent-MobTajaranDummy = Урист МакРуки
-    .desc = Манекен-таяран для тонкой настройки персонажа.
-
-
-ent-BaseMobXelthia = Урист МакЩупальца
-
-ent-MobXelthiaDummy = Урист МакРуки
-    .desc = Манекен-кселтия для создания твоего щупальценосного альтер эго.
-
 
 ent-ClothingModsuitApocryphal = модкостюм «Апокриф»: блок управления
     .desc = Сердце модкостюма «Апокриф». Без него — просто крутая пижама.
@@ -12308,14 +12105,6 @@ ent-DrinkSportsBlueBottleFull = синяя бутылка «Супернэйд»
 
 ent-DrinkSportsRedBottleFull = красная бутылка «Супернэйд»
     .desc = Тягучий алая изотоник, тоже в бане за канцерогены. Говорят, на вкус — «нитро-панч».
-
-
-ent-FoodMeatXelthiaTentacle = щупальце кселтия
-    .desc = Щупальце кселтия. Съедобно… наверное?
-
-
-ent-FoodMeatXelthiaTentacleCooked = кселтийская кальмара
-    .desc = Когда-то это была чья-то рука, а теперь странная кальмара. Владелец, надеемся, не против.
 
 
 ent-SupermatterComputerCircuitboard = плата консоли суперматерии
@@ -12933,11 +12722,6 @@ ent-MobBingleUpgraded = бинглест
     .desc = Больше бингла. Меньше смысла.
 
 
-ent-MobTajaranRandom = Урист МакТаяран
-
-ent-MobVulpkaninRandom = Урист МакВалп
-
-
 ent-BaseLockerTeleporter = телепортатор спецснаряжения
     .desc = Устройство для вызова доставки особого снаряжения. Как посылка, только эпичнее.
 
@@ -13019,11 +12803,6 @@ ent-RubberStampMagistrate = печать магистрата
 
 ent-MiningVoucher = ваучер шахтёра
     .desc = Талон на получение полезной штуки. Вставьте в торговый автомат утилизаторов, чтобы обменять.
-
-
-ent-VulpkaninCube = куб валпканина
-
-ent-TajaranCube = куб таярана
 
 
 ent-ShardCrystalStyptic = осколок кристалла с антисептиком
@@ -13764,42 +13543,6 @@ ent-MobDrone = дрон
 
 ent-ActionViewMoods = Просмотр настроений
     .desc = Посмотри, как ты себя чувствуешь.
-
-
-ent-OrganThavenBrain = мозг Тэйвена
-    .desc = Органический позитронный мозг. Восхитительно и пугающе.
-
-
-ent-PartThaven = часть тела Тэйвена
-
-ent-TorsoThaven = торс Тэйвена
-
-ent-HeadThaven = голова Тэйвена
-
-ent-LeftArmThaven = левая рука Тэйвена
-
-ent-RightArmThaven = правая рука Тэйвена
-
-ent-LeftHandThaven = левая кисть Тэйвена
-
-ent-RightHandThaven = правая кисть Тэйвена
-
-ent-LeftLegThaven = левая нога Тэйвена
-
-ent-RightLegThaven = правая нога Тэйвена
-
-ent-LeftFootThaven = левая ступня Тэйвена
-
-ent-RightFootThaven = правая ступня Тэйвена
-
-
-ent-FoodThavenMeat = сырое филе Тэйвена
-    .desc = Что-то тут не так...
-
-
-ent-MobThaven = Урист МакУши
-
-ent-BaseMobThaven = Урист МакУши
 
 
 ent-LavalandEquipmentExplorerSuit = костюм исследователя
@@ -16299,10 +16042,6 @@ ent-RemoteControlConsoleSwitchToNextAction = Переключиться на с�
     .desc = Переключает тебя на следующую цель.
 
 
-ent-SwitchAgilityAction = Переключить ловкость
-    .desc = Меняет текущую ловкость.
-
-
 ent-ActionAIToggleBolts = Переключить болты пола
     .desc = Активирует или деактивирует напольные болты, фиксирующие объект.
 
@@ -16341,29 +16080,6 @@ ent-MakeshiftRightArm = Протез правой руки
 
 ent-MakeshiftLeftArm = Протез левой руки
     .desc = Простецкий металлический захват. Выглядит как артефакт из прошлого века.
-
-
-ent-PartResomi = часть тела ресоми
-
-ent-TorsoResomi = торс ресоми
-
-ent-HeadResomi = голова ресоми
-
-ent-LeftArmResomi = левая рука ресоми
-
-ent-RightArmResomi = правая рука ресоми
-
-ent-LeftHandResomi = левая кисть ресоми
-
-ent-RightHandResomi = правая кисть ресоми
-
-ent-LeftLegResomi = левая нога ресоми
-
-ent-RightLegResomi = правая нога ресоми
-
-ent-LeftFootResomi = левая ступня ресоми
-
-ent-RightFootResomi = правая ступня ресоми
 
 
 ent-BoxBodyBagBluespace = ящик с блюспейс-мешками для тел
@@ -16719,8 +16435,6 @@ ent-SpawnStraySupplyPodSyndicate = спавнер случайной капсу�
 
 ent-MobGondola = гондола
     .desc = Безрукий, он воплощает даосский принцип "у вэй" (недеяния), а выражение на его улыбающейся морде говорит о полном принятии мира таким, каков он есть.
-
-ent-BaseMobResomi = Юрист МакРаптор
 
 ent-FoodSnackCandySkullChocolate = шоколадный череп
     .desc = Обычная шоколадная конфета в форме черепа. На вкус — как смерть.
@@ -17190,9 +16904,6 @@ ent-HardlightSpear = копьё из твёрдого света
 
 ent-GrenadeBarrier = барьерная граната
     .desc = Мгновенное укрытие.
-
-
-ent-MobResomi = Урист МакРаптор
 
 
 ent-RandomPottedPlantSpawner = рандомный спавнер РАНДОМНОГО горшка с растением

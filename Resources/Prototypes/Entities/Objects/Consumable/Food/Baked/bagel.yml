@@ -15,7 +15,7 @@
     state: bagel
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 7
         reagents:
         - ReagentId: Nutriment
@@ -40,7 +40,7 @@
     state: bagel-poppy
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 12
         reagents:
         - ReagentId: Bicaridine
@@ -60,14 +60,14 @@
     - cotton
   - type: Sprite
     state: bagel-cottondough
-  - type: Food
+  - type: Ingestible # WD Ingestible
     requiresSpecialDigestion: true
   - type: Tag
     tags:
     - ClothMade
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 12
         reagents:
         - ReagentId: Nutriment

@@ -131,7 +131,7 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
             speciesId = weights.Pick(_random);
         }
         else if (profile != null)
-            speciesId = profile.Species;
+            speciesId = profile.Value.Species;
         else
             speciesId = HumanoidProfileSystem.DefaultSpecies;
 
@@ -147,7 +147,7 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
         {
             var startingGear = _prototypeManager.Index<StartingGearPrototype>(prototype.StartingGear);
             if (profile != null)
-                startingGear = ApplySubGear(startingGear, profile, prototype);
+                startingGear = ApplySubGear(startingGear, profile.Value, prototype);
 
             EquipStartingGear(entity.Value, startingGear, raiseEvent: false);
             _internalEncryption.TryInsertEncryptionKey(entity.Value, startingGear, EntityManager);
@@ -159,13 +159,13 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
         if (profile != null)
         {
             if (prototype != null)
-                SetPdaAndIdCardData(entity.Value, profile.Name, prototype, station);
+                SetPdaAndIdCardData(entity.Value, profile.Value.Name, prototype, station);
 
-            _bodyAppearance.ApplyProfile(entity.Value, profile);
-            _humanoidProfile.ApplyProfile(entity.Value, profile);
-            _metaSystem.SetEntityName(entity.Value, profile.Name);
-            if (profile.Flavor != "" && _configurationManager.GetCVar(CCVars.FlavorText))
-                EnsureComp<DetailExaminableComponent>(entity.Value).Content = profile.Flavor;
+            _bodyAppearance.ApplyProfile(entity.Value, profile.Value);
+            _humanoidProfile.ApplyProfile(entity.Value, profile.Value);
+            _metaSystem.SetEntityName(entity.Value, profile.Value.Name);
+            if (profile.Value.Flavor != "" && _configurationManager.GetCVar(CCVars.FlavorText))
+                EnsureComp<DetailExaminableComponent>(entity.Value).Content = profile.Value.Flavor;
         }
 
         DoJobSpecials(job, entity.Value);

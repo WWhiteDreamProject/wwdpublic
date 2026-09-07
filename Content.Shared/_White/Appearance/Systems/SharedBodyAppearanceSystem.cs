@@ -21,6 +21,7 @@ public abstract partial class SharedBodyAppearanceSystem : EntitySystem
 
     [Dependency] private readonly SharedUserInterfaceSystem _userInterface = default!;
 
+    protected EntityQuery<BodyAppearanceComponent> BodyQuery;
     protected EntityQuery<BodyAppearanceProviderComponent> ProviderQuery;
 
     private EntityQuery<HumanoidProfileComponent> _humanoidProfileQuery;
@@ -34,6 +35,7 @@ public abstract partial class SharedBodyAppearanceSystem : EntitySystem
 
         InitializeProvider();
 
+        BodyQuery = GetEntityQuery<BodyAppearanceComponent>();
         ProviderQuery = GetEntityQuery<BodyAppearanceProviderComponent>();
 
         _humanoidProfileQuery = GetEntityQuery<HumanoidProfileComponent>();
@@ -81,7 +83,8 @@ public abstract partial class SharedBodyAppearanceSystem : EntitySystem
     /// </summary>
     /// <param name="uid">The entity to sample.</param>
     /// <param name="data">Returned provider specifier body appearance data.</param>
-    public bool TryGetData(EntityUid uid, out Dictionary<BodyProviderType, BodyAppearanceData> data)
+    /// <returns>True if the appearance data is successfully returned, false otherwise.</returns>
+    public bool TryGetData(EntityUid uid, out Dictionary<Enum, BodyAppearanceData> data)
     {
         var ev = new GetBodyAppearanceDataEvent();
         RaiseLocalEvent(uid, ref ev);
@@ -107,7 +110,7 @@ public abstract partial class SharedBodyAppearanceSystem : EntitySystem
     /// </summary>
     /// <param name="uid">The body to apply the provider appearance to.</param>
     /// <param name="data">The appearance to apply.</param>
-    public void ApplyAppearanceData(EntityUid uid, Dictionary<BodyProviderType, BodyAppearanceData> data)
+    public void ApplyAppearanceData(EntityUid uid, Dictionary<Enum, BodyAppearanceData> data)
     {
         var profileEvt = new ApplyBodyAppearanceDataEvent(null, data);
         RaiseLocalEvent(uid, ref profileEvt);
@@ -122,7 +125,7 @@ public abstract partial class SharedBodyAppearanceSystem : EntitySystem
     {
         var appearanceData = new BodyAppearanceData
         {
-            BodyColoration = new (profile.BodyColoration),
+            ColorGroups = new (profile.Colors),
             BodyType = profile.BodyType,
             Sex = profile.Sex,
         };
@@ -143,7 +146,7 @@ public enum MarkingModifierKey
 /// Event raised on body entity when profiles are being applied to it
 /// </summary>
 [ByRefEvent]
-public readonly record struct ApplyBodyAppearanceDataEvent(BodyAppearanceData? Data, Dictionary<BodyProviderType, BodyAppearanceData>? SpecifiedData);
+public readonly record struct ApplyBodyAppearanceDataEvent(BodyAppearanceData? Data, Dictionary<Enum, BodyAppearanceData>? SpecifiedData);
 
 /// <summary>
 /// Event raised on a body entity, when its appearance is being copied from a body provider.
@@ -161,7 +164,7 @@ public readonly record struct GetBodyAppearanceDataEvent()
     /// <summary>
     /// A result contained the appearance data.
     /// </summary>
-    public readonly Dictionary<BodyProviderType, BodyAppearanceData> Data = new();
+    public readonly Dictionary<Enum, BodyAppearanceData> Data = new();
 }
 
 [Serializable, NetSerializable]
@@ -174,12 +177,12 @@ public sealed class MarkingModifierMarkingSetMessage(
 
 [Serializable, NetSerializable]
 public sealed class MarkingModifierState(
-    Dictionary<BodyProviderType, BodyAppearanceData> appearanceData,
-    Dictionary<ProtoId<MarkingCategoryPrototype>, List<Marking>> markings,
-    Dictionary<ProtoId<MarkingCategoryPrototype>, MarkingsData> markingsData)
+    Dictionary<Enum, BodyAppearanceData> appearanceData,
+    Dictionary<Enum, MarkingData> markingsData,
+    Dictionary<ProtoId<MarkingCategoryPrototype>, List<Marking>> markings)
     : BoundUserInterfaceState
 {
-    public Dictionary<BodyProviderType, BodyAppearanceData> AppearanceData { get; } = appearanceData;
+    public Dictionary<Enum, BodyAppearanceData> AppearanceData { get; } = appearanceData;
+    public Dictionary<Enum, MarkingData> MarkingsData { get; } = markingsData;
     public Dictionary<ProtoId<MarkingCategoryPrototype>, List<Marking>> Markings { get; } = markings;
-    public Dictionary<ProtoId<MarkingCategoryPrototype>, MarkingsData> MarkingsData { get; } = markingsData;
 }

@@ -8,15 +8,19 @@ using Content.Shared.Radiation.Events;
 using Content.Shared.Rejuvenate;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 
 namespace Content.Shared._White.Damage.Systems;
 
 public sealed class DamageableSystem : EntitySystem
 {
+    [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
 
+    private FrozenDictionary<ProtoId<DamageContainerPrototype>, HashSet<ProtoId<DamageGroupPrototype>>> _groupsByContainer = default!;
     private FrozenDictionary<ProtoId<DamageContainerPrototype>, HashSet<ProtoId<DamageTypePrototype>>> _typesByContainer = default!;
     private FrozenDictionary<ProtoId<DamageGroupPrototype>, HashSet<ProtoId<DamageTypePrototype>>> _typesByGroup = default!;
+    private FrozenDictionary<ProtoId<DamageTypePrototype>, HashSet<ProtoId<DamageGroupPrototype>>> _groupsByType = default!;
 
     private EntityQuery<DamageableComponent> _damageableQuery;
 
@@ -74,7 +78,7 @@ public sealed class DamageableSystem : EntitySystem
 
     private void OnInit(Entity<DamageableComponent> ent, ref ComponentInit args)
     {
-        ent.Comp.DamagePerGroup = ent.Comp.Damage.GetDamagePerGroup(this, _prototype);
+        ent.Comp.DamagePerGroup = ent.Comp.Damage.GetDamagePerGroup(_prototype);
         ent.Comp.TotalDamage = ent.Comp.Damage.GetTotal();
     }
 
@@ -123,31 +127,40 @@ public sealed class DamageableSystem : EntitySystem
     }
 
     /// <summary>
-    /// Applies damage specified via a <see cref="DamageSpecifier"/>.
+    /// Attempts to change the damage dealt to given entity.
     /// </summary>
-    /// <remarks>
-    /// <see cref="DamageSpecifier"/> is effectively just a dictionary of damage types and damage values. This
-    /// function just applies the container's resistances (unless otherwise specified) and then changes the
-    /// stored damage data. Division of group damage into types is managed by <see cref="DamageSpecifier"/>.
-    /// </remarks>
-    /// <returns>
-    /// If the attempt was successful or not.
-    /// </returns>
+    /// <param name="ent">The entity whose damage we wish to change.</param>
+    /// <param name="specifier">The original amount by which the damage must be changed.</param>
+    /// <param name="result">The returned amount by which the damage has changed.</param>
+    /// <param name="ignoreResistances">Determines whether the damage change should ignore resistances.</param>
+    /// <param name="interruptsDoAfters">Determines whether the damage change interrupts DoAfters.</param>
+    /// <param name="origin">The entity which caused the change in damage, if any.</param>
+    /// <param name="providerType">The body provider that should take damage.</param>
+    /// <returns>True if the damage was successfully changed, false otherwise.</returns>
     public bool TryChangeDamage(
         Entity<DamageableComponent?> ent,
         DamageSpecifier specifier,
-        out DamageSpecifier newDamage,
+        out DamageSpecifier result,
         bool ignoreResistances = false,
         bool interruptsDoAfters = true,
         EntityUid? origin = null,
         BodyProviderType providerType = BodyProviderType.AllParts
     )
     {
-        newDamage = ChangeDamage(ent, specifier, ignoreResistances, interruptsDoAfters, origin, providerType);
-        return !newDamage.Empty;
+        result = ChangeDamage(ent, specifier, ignoreResistances, interruptsDoAfters, origin, providerType);
+        return !result.Empty;
     }
 
-    /// <inheritdoc cref="TryChangeDamage(Entity{DamageableComponent?}, DamageSpecifier, out DamageSpecifier, bool, bool, EntityUid?, BodyProviderType)"/>
+    /// <summary>
+    /// Attempts to change the damage dealt to given entity.
+    /// </summary>
+    /// <param name="ent">The entity whose damage we wish to change.</param>
+    /// <param name="specifier">The original amount by which the damage must be changed.</param>
+    /// <param name="ignoreResistances">Determines whether the damage change should ignore resistances.</param>
+    /// <param name="interruptsDoAfters">Determines whether the damage change interrupts DoAfters.</param>
+    /// <param name="origin">The entity which caused the change in damage, if any.</param>
+    /// <param name="providerType">The body provider that should take damage.</param>
+    /// <returns>True if the damage was successfully changed, false otherwise.</returns>
     public bool TryChangeDamage(
         Entity<DamageableComponent?> ent,
         DamageSpecifier specifier,
@@ -161,11 +174,70 @@ public sealed class DamageableSystem : EntitySystem
     }
 
     /// <summary>
-    /// Applies damage specified via a <see cref="DamageSpecifier"/>.
+    /// Determines whether the given entity can store a damage group.
     /// </summary>
-    /// <returns>
-    /// The actual amount of damage taken, as a <see cref="DamageSpecifier"/>.
-    /// </returns>
+    /// <param name="ent">The entity whose ability to store the damage group we want to determine.</param>
+    /// <param name="group">The group of damage whose ability to be stored in entity we want to determine.</param>
+    /// <returns>True, if the entity can take the given damage group, false otherwise.</returns>
+    public bool SupportsGroup(Entity<DamageableComponent?> ent, ProtoId<DamageGroupPrototype> group)
+    {
+        if (!_damageableQuery.Resolve(ent, ref ent.Comp, false))
+            return false;
+
+        return SupportsGroup(ent.Comp.Container, group);
+    }
+
+    /// <summary>
+    /// Determines whether the given damage container can store a damage group.
+    /// </summary>
+    /// <param name="container">The damage container whose ability to store the damage group we want to determine.</param>
+    /// <param name="group">The group of damage whose ability to be stored in damage container we want to determine.</param>
+    /// <returns>True, if the damage container can take the given damage group, false otherwise.</returns>
+    public bool SupportsGroup(ProtoId<DamageContainerPrototype>? container, ProtoId<DamageGroupPrototype> group)
+    {
+        if (container is null)
+            return true;
+
+        return _groupsByContainer[container.Value].Contains(group);
+    }
+
+    /// <summary>
+    /// Determines whether the given entity can store a damage type.
+    /// </summary>
+    /// <param name="ent">The entity whose ability to store the damage type we want to determine.</param>
+    /// <param name="type">The type of damage whose ability to be stored in entity we want to determine.</param>
+    /// <returns>True, if the entity can take the given damage type, false otherwise.</returns>
+    public bool SupportsType(Entity<DamageableComponent?> ent, ProtoId<DamageTypePrototype> type)
+    {
+        if (!_damageableQuery.Resolve(ent, ref ent.Comp, false))
+            return false;
+
+        return SupportsType(ent.Comp.Container, type);
+    }
+
+    /// <summary>
+    /// Determines whether the given damage container can store a damage type.
+    /// </summary>
+    /// <param name="container">The damage container whose ability to store the damage type we want to determine.</param>
+    /// <param name="type">The type of damage whose ability to be stored in damage container we want to determine.</param>
+    /// <returns>True, if the damage container can take the given damage type, false otherwise.</returns>
+    public bool SupportsType(ProtoId<DamageContainerPrototype>? container, ProtoId<DamageTypePrototype> type)
+    {
+        if (container is null)
+            return true;
+
+        return _typesByContainer[container.Value].Contains(type);
+    }
+
+    /// <summary>
+    /// Applies damage to the given entity.
+    /// </summary>
+    /// <remarks>Unlike <see cref="ChangeDamage"/>, it is not processed by any external handler.</remarks>
+    /// <param name="ent">The entity whose damage we wish to change.</param>
+    /// <param name="specifier">The original amount by which the damage must be changed.</param>
+    /// <param name="interruptsDoAfters">Determines whether the damage change interrupts DoAfters.</param>
+    /// <param name="origin">The entity which caused the change in damage, if any.</param>
+    /// <returns>The amount by which the damage has changed.</returns>
     public DamageSpecifier ApplyDamage(
         Entity<DamageableComponent?> ent,
         DamageSpecifier specifier,
@@ -174,6 +246,9 @@ public sealed class DamageableSystem : EntitySystem
         )
     {
         var result = new DamageSpecifier();
+
+        if (_gameTiming.ApplyingState || !_gameTiming.IsFirstTimePredicted)
+            return result;
 
         if (!_damageableQuery.Resolve(ent, ref ent.Comp, false))
             return result;
@@ -199,16 +274,15 @@ public sealed class DamageableSystem : EntitySystem
     }
 
     /// <summary>
-    /// Applies damage specified via a <see cref="DamageSpecifier"/>.
+    /// Changes the damage dealt to given entity.
     /// </summary>
-    /// <remarks>
-    /// <see cref="DamageSpecifier"/> is effectively just a dictionary of damage types and damage values. This
-    /// function just applies the container's resistances (unless otherwise specified) and then changes the
-    /// stored damage data. Division of group damage into types is managed by <see cref="DamageSpecifier"/>.
-    /// </remarks>
-    /// <returns>
-    /// The actual amount of damage taken, as a DamageSpecifier.
-    /// </returns>
+    /// <param name="ent">The entity whose damage we wish to change.</param>
+    /// <param name="specifier">The original amount by which the damage must be changed.</param>
+    /// <param name="ignoreResistances">Determines whether the damage change should ignore resistances.</param>
+    /// <param name="interruptsDoAfters">Determines whether the damage change interrupts DoAfters.</param>
+    /// <param name="origin">The entity which caused the change in damage, if any.</param>
+    /// <param name="providerType">The body provider that should take damage.</param>
+    /// <returns>The amount by which the damage has changed.</returns>
     public DamageSpecifier ChangeDamage(
         Entity<DamageableComponent?> ent,
         DamageSpecifier specifier,
@@ -219,40 +293,34 @@ public sealed class DamageableSystem : EntitySystem
     )
     {
         if (specifier.Empty || !_damageableQuery.Resolve(ent, ref ent.Comp, false))
-            return new ();
+            return new();
 
         var beforeEv = new BeforeDamageChangedEvent(specifier, origin);
         RaiseLocalEvent(ent, ref beforeEv);
 
         if (beforeEv.Cancelled)
-            return new ();
+            return new();
 
-        var attemptHandleEv = new BeforeHandleDamageEvent(providerType, ignoreResistances, interruptsDoAfters, ent.Comp, specifier, origin);
-        RaiseLocalEvent(ent, attemptHandleEv);
+        var beforeHandleEv = new BeforeHandleDamageChangeEvent(providerType, ignoreResistances, interruptsDoAfters, ent.Comp, specifier, origin);
+        RaiseLocalEvent(ent, ref beforeHandleEv);
 
-        if (attemptHandleEv.Handled)
-            return attemptHandleEv.Damage;
+        if (beforeHandleEv.Handled)
+            return beforeHandleEv.Result;
 
         if (!ignoreResistances)
-        {
-            if (ent.Comp.ModifierSet != null && _prototype.TryIndex(ent.Comp.ModifierSet, out var modifierSet))
-                specifier = DamageSpecifier.ApplyModifierSet(specifier, modifierSet);
+            specifier = GetModifiedDamage(ent, specifier, origin);
 
-            var ev = new DamageModifyEvent(specifier, origin);
-            RaiseLocalEvent(ent, ev);
-            specifier = ev.Damage;
-
-            if (specifier.Empty)
-                return new ();
-        }
+        if (specifier.Empty)
+            return new();
 
         return ApplyDamage(ent, specifier, interruptsDoAfters, origin);
     }
 
     /// <summary>
-    /// Returns a <see cref="DamageSpecifier"/> with all positive damage to the entity.
+    /// Retrieves damage from the given entity.
     /// </summary>
-    /// <param name="ent">entity with damage</param>
+    /// <param name="ent">The entity whose damage we wish to get.</param>
+    /// <returns>The entity damage.</returns>
     public DamageSpecifier GetDamage(Entity<DamageableComponent?> ent)
     {
         var specifier = new DamageSpecifier();
@@ -271,8 +339,45 @@ public sealed class DamageableSystem : EntitySystem
     }
 
     /// <summary>
-    /// Returns a set of <see cref="DamageTypePrototype"/> asociated with <see cref="DamageContainerPrototype"/>.
+    /// Returns the modified damage for the given entity.
     /// </summary>
+    /// <param name="ent">The entity whose modified damage we wish to get.</param>
+    /// <param name="specifier">The original amount of damage.</param>
+    /// <param name="origin">The entity which caused the change in damage, if any.</param>
+    /// <returns>The modified damage.</returns>
+    public DamageSpecifier GetModifiedDamage(Entity<DamageableComponent?> ent, DamageSpecifier specifier, EntityUid? origin = null)
+    {
+        if (!_damageableQuery.Resolve(ent, ref ent.Comp, false))
+            return specifier;
+
+        if (_prototype.TryIndex(ent.Comp.ModifierSet, out var modifierSet))
+            specifier = DamageSpecifier.ApplyModifierSet(specifier, modifierSet);
+
+        var ev = new GetModifiedDamageEvent(specifier, origin);
+        RaiseLocalEvent(ent, ref ev);
+        specifier = ev.Result;
+
+        return specifier;
+    }
+
+    /// <summary>
+    /// Returns a set of <see cref="DamageGroupPrototype"/> associated with given <see cref="DamageTypePrototype"/>.
+    /// </summary>
+    /// <param name="type">The damage type whose supported groups we want to get.</param>
+    /// <returns>A set of supported groups.</returns>
+    public HashSet<ProtoId<DamageGroupPrototype>> GetGroup(ProtoId<DamageTypePrototype> type)
+    {
+        if (!_groupsByType.TryGetValue(type, out var groups))
+            return new();
+
+        return groups;
+    }
+
+    /// <summary>
+    /// Returns a set of <see cref="DamageTypePrototype"/> associated with given <see cref="DamageContainerPrototype"/>.
+    /// </summary>
+    /// <param name="container">The damage container whose supported types we want to get.</param>
+    /// <returns>A set of supported types.</returns>
     public HashSet<ProtoId<DamageTypePrototype>> GetTypes(ProtoId<DamageContainerPrototype> container)
     {
         if (!_typesByContainer.TryGetValue(container, out var types))
@@ -282,19 +387,10 @@ public sealed class DamageableSystem : EntitySystem
     }
 
     /// <summary>
-    /// Returns a set of <see cref="DamageTypePrototype"/> asociated with <see cref="DamageGroupPrototype"/>.
+    /// Changes all damage types supported by the given entity by the specified value.
     /// </summary>
-    public HashSet<ProtoId<DamageTypePrototype>> GetTypes(ProtoId<DamageGroupPrototype> group)
-    {
-        if (!_typesByGroup.TryGetValue(group, out var types))
-            return new();
-
-        return types;
-    }
-
-    /// <summary>
-    /// Changes all damage types supported by a <see cref="DamageableComponent"/> by the specified value.
-    /// </summary>
+    /// <param name="ent">The entity whose damage we wish to change.</param>
+    /// <param name="damage">Еhe value by which the damage changes.</param>
     public void ChangeAllDamage(Entity<DamageableComponent?> ent, FixedPoint2 damage)
     {
         if (!_damageableQuery.Resolve(ent, ref ent.Comp, false))
@@ -315,11 +411,12 @@ public sealed class DamageableSystem : EntitySystem
     }
 
     /// <summary>
-    /// Sets all damage types supported by a <see cref="DamageableComponent"/> to the specified value.
+    /// Changes all damage types supported by the given entity to the specified value.
     /// </summary>
-    /// <remarks>
-    /// Does nothing If the given damage value is negative.
-    /// </remarks>
+    /// <param name="ent">The entity whose damage we wish to change.</param>
+    /// <param name="damage">Еhe value to which the damage changes.</param>
+    /// <param name="interruptsDoAfters">Determines whether the damage change interrupts DoAfters.</param>
+    /// <param name="origin">The entity which caused the change in damage, if any.</param>
     public void SetAllDamage(
         Entity<DamageableComponent?> ent,
         FixedPoint2 damage,
@@ -341,15 +438,10 @@ public sealed class DamageableSystem : EntitySystem
     }
 
     /// <summary>
-    /// Directly sets the damage in a damageable component.
-    /// This method keeps the damage types supported by the DamageContainerPrototype in the component.
-    /// If a type is given in <paramref name="specifier"/>, but not supported then it will not be set.
-    /// If a type is supported but not given in <paramref name="specifier"/> then it will be set to 0.
+    /// Directly sets the damage dealt to given entity.
     /// </summary>
-    /// <remarks>
-    /// Useful for some unfriendly folk. Also ensures that cached values are updated and that damage changed
-    /// event is raised.
-    /// </remarks>
+    /// <param name="ent">The entity whose damage we wish to set.</param>
+    /// <param name="specifier">The amount to which the damage must be set.</param>
     public void SetDamage(Entity<DamageableComponent?> ent, DamageSpecifier specifier)
     {
         if (!_damageableQuery.Resolve(ent, ref ent.Comp, false))
@@ -382,7 +474,7 @@ public sealed class DamageableSystem : EntitySystem
     }
 
     /// <summary>
-    /// Set's the damage modifier set prototype for this entity.
+    /// Set's the damage modifier set prototype for given entity.
     /// </summary>
     /// <param name="ent">The entity we're setting the modifier set of.</param>
     /// <param name="modifierSet">The prototype we're setting.</param>
@@ -399,54 +491,71 @@ public sealed class DamageableSystem : EntitySystem
 
     #region Private AP
 
-    /// <returns>If the damage container can take the given damage type</returns>
-    private bool SupportsType(ProtoId<DamageContainerPrototype>? container, ProtoId<DamageTypePrototype> type)
-    {
-        if (container is null)
-            return true;
-
-        return _typesByContainer[container.Value].Contains(type);
-    }
-
     private void CacheContainerPrototypes()
     {
-        var types = new Dictionary<ProtoId<DamageContainerPrototype>, HashSet<ProtoId<DamageTypePrototype>>>();
+        var groupsByContainer = new Dictionary<ProtoId<DamageContainerPrototype>, HashSet<ProtoId<DamageGroupPrototype>>>();
+        var typesByContainer = new Dictionary<ProtoId<DamageContainerPrototype>, HashSet<ProtoId<DamageTypePrototype>>>();
 
         foreach (var container in _prototype.EnumeratePrototypes<DamageContainerPrototype>())
         {
-            var set = types.GetValueOrDefault(container) ?? [];
+            var groupsSet = groupsByContainer.GetValueOrDefault(container) ?? [];
+            var typesSet = typesByContainer.GetValueOrDefault(container) ?? [];
+
+            foreach (var (group, groupTypes) in _typesByGroup)
+            {
+                var containGroup = true;
+                foreach (var type in groupTypes)
+                {
+                    if (container.Types.Contains(type))
+                        continue;
+
+                    containGroup = false;
+                    break;
+                }
+
+                if (!containGroup)
+                    continue;
+
+                groupsSet.Add(group);
+            }
 
             foreach (var type in container.Types)
             {
-                set.Add(type);
+                typesSet.Add(type);
             }
 
-            foreach (var group in container.Groups)
-            {
-                foreach (var type in _typesByGroup[group])
-                {
-                    set.Add(type);
-                }
-            }
-
-            types[container] = set;
+            groupsByContainer[container] = groupsSet;
+            typesByContainer[container] = typesSet;
         }
 
-        _typesByContainer = types.ToFrozenDictionary();
+        _groupsByContainer = groupsByContainer.ToFrozenDictionary();
+        _typesByContainer = typesByContainer.ToFrozenDictionary();
     }
 
     private void CacheGroupPrototypes()
     {
-        var types = new Dictionary<ProtoId<DamageGroupPrototype>, HashSet<ProtoId<DamageTypePrototype>>>();
+        var typesByGroup = new Dictionary<ProtoId<DamageGroupPrototype>, HashSet<ProtoId<DamageTypePrototype>>>();
+        var groupsByType = new Dictionary<ProtoId<DamageTypePrototype>, HashSet<ProtoId<DamageGroupPrototype>>>();
 
-        foreach (var type in _prototype.EnumeratePrototypes<DamageTypePrototype>())
+        foreach (var group in _prototype.EnumeratePrototypes<DamageGroupPrototype>())
         {
-            var set = types.GetValueOrDefault(type.Group) ?? [];
-            set.Add(type);
-            types[type.Group] = set;
+            var typesSet = typesByGroup.GetValueOrDefault(group) ?? [];
+
+            foreach (var type in group.Types)
+            {
+                var groupsSet = groupsByType.GetValueOrDefault(type) ?? [];
+
+                typesSet.Add(type);
+                groupsSet.Add(group);
+
+                groupsByType[type] = groupsSet;
+            }
+
+            typesByGroup[group] = typesSet;
         }
 
-        _typesByGroup = types.ToFrozenDictionary();
+        _typesByGroup = typesByGroup.ToFrozenDictionary();
+        _groupsByType = groupsByType.ToFrozenDictionary();
     }
 
     /// <summary>
@@ -463,152 +572,79 @@ public sealed class DamageableSystem : EntitySystem
         EntityUid? origin = null
     )
     {
-        ent.Comp.DamagePerGroup = ent.Comp.Damage.GetDamagePerGroup(this, _prototype);
+        ent.Comp.DamagePerGroup = ent.Comp.Damage.GetDamagePerGroup(_prototype);
         ent.Comp.TotalDamage = ent.Comp.Damage.GetTotal();
         Dirty(ent);
 
-        RaiseLocalEvent(ent, new DamageChangedEvent(ent.Comp, specifier, interruptsDoAfters, origin));
+        var ev = new DamageChangedEvent(interruptsDoAfters && specifier.AnyPositive(), ent.Comp, specifier, origin);
+        RaiseLocalEvent(ent, ref ev);
     }
 
     #endregion
 }
 
 /// <summary>
-/// Event raised before damage is done, so stuff can cancel it if necessary.
+/// Event raised on an entity before damage is changed.
 /// </summary>
+/// <param name="Damage">The amount by which the damage must be changed.</param>
+/// <param name="Origin">The entity which caused the change in damage, if any.</param>
 [ByRefEvent]
-public record struct BeforeDamageChangedEvent(DamageSpecifier Damage, EntityUid? Origin = null, bool Cancelled = false);
-
-/// <summary>
-/// Event raised before damage is a handle.
-/// </summary>
-public sealed class BeforeHandleDamageEvent(BodyProviderType providerType, bool ignoreResistances, bool interruptsDoAfters, DamageableComponent damageable, DamageSpecifier damage, EntityUid? origin) : HandledEntityEventArgs
+public record struct BeforeDamageChangedEvent(DamageSpecifier Damage, EntityUid? Origin)
 {
     /// <summary>
-    /// Contains damage after processing.
+    /// Determines whether a damage change was canceled by an external handler.
+    /// </summary>
+    public bool Cancelled = false;
+}
+
+/// <summary>
+/// Event raised on an entity before damage change is a handle.
+/// </summary>
+/// <param name="ProviderType">The body provider that should take damage.</param>
+/// <param name="IgnoreResistances">Determines whether the damage change should ignore resistances.</param>
+/// <param name="InterruptsDoAfters">Determines whether the damage change interrupts DoAfters.</param>
+/// <param name="Damageable">The component whose damage must be changed.</param>
+/// <param name="Damage">The amount by which the damage must be changed.</param>
+/// <param name="Origin">The entity which caused the change in damage, if any.</param>
+[ByRefEvent]
+public record struct BeforeHandleDamageChangeEvent(BodyProviderType ProviderType, bool IgnoreResistances, bool InterruptsDoAfters, DamageableComponent Damageable, DamageSpecifier Damage, EntityUid? Origin)
+{
+    /// <summary>
+    /// Determines whether damage change was processed by an external damage handler.
+    /// </summary>
+    public bool Handled = false;
+
+    /// <summary>
+    /// The amount by which the damage has changed. Determined by the external damage handler.
     /// </summary>
     public DamageSpecifier Result = new();
-
-    /// <summary>
-    /// What body provider should take damage?
-    /// </summary>
-    public readonly BodyProviderType ProviderType = providerType;
-
-    /// <summary>
-    /// Should we ignore damage resistance?
-    /// </summary>
-    public readonly bool IgnoreResistances = ignoreResistances;
-
-    /// <summary>
-    /// Does this event interrupt DoAfters?
-    /// </summary>
-    public readonly bool InterruptsDoAfters = interruptsDoAfters;
-
-    /// <summary>
-    /// This is the component whose damage must be changed.
-    /// </summary>
-    public readonly DamageableComponent Damageable = damageable;
-
-    /// <summary>
-    /// Damage this entity should receive.
-    /// </summary>
-    public readonly DamageSpecifier Damage = damage;
-
-    /// <summary>
-    /// Contains the entity which caused the change in damage if any was responsible.
-    /// </summary>
-    public readonly EntityUid? Origin = origin;
 }
 
 /// <summary>
-/// Event raised on an entity when damage is about to be dealt,
-/// in case anything else needs to modify it other than the base
-/// damageable component.
+/// Event raised on an entity when damage is changed.
 /// </summary>
-public sealed class DamageChangedEvent : EntityEventArgs
-{
-    /// <summary>
-    /// Was any of the damage change dealing damage, or was it all healing?
-    /// </summary>
-    public readonly bool DamageIncreased;
-
-    /// <summary>
-    /// Does this event interrupt DoAfters?
-    /// Note: As provided in the constructor, this *does not* account for DamageIncreased.
-    /// S written into the event, this *does* account for DamageIncreased.
-    /// </summary>
-    public readonly bool InterruptsDoAfters;
-
-    /// <summary>
-    /// This is the component whose damage was changed.
-    /// </summary>
-    /// <remarks>
-    /// Given that nearly every component that cares about a change in the damage needs to know the
-    /// current damage values, directly passing this information prevents a lot of duplicate
-    /// Owner.TryGetComponent() calls.
-    /// </remarks>
-    public readonly DamageableComponent Damageable;
-
-    /// <summary>
-    /// The amount by which the damage has changed.
-    /// </summary>
-    public readonly DamageSpecifier Damage;
-
-    /// <summary>
-    /// Contains the entity which caused the change in damage if any was responsible.
-    /// </summary>
-    public readonly EntityUid? Origin;
-
-    public DamageChangedEvent(
-        DamageableComponent damageable,
-        DamageSpecifier damage,
-        bool interruptsDoAfters,
-        EntityUid? origin
-    )
-    {
-        Damageable = damageable;
-        Damage = damage;
-        Origin = origin;
-
-        foreach (var damageChange in Damage.Values)
-        {
-            if (damageChange <= 0)
-                continue;
-
-            DamageIncreased = true;
-
-            break;
-        }
-
-        InterruptsDoAfters = interruptsDoAfters && DamageIncreased;
-    }
-}
+/// <param name="InterruptsDoAfters">Determines whether the damage interrupts DoAfters.</param>
+/// <param name="Damageable">The component whose damage was changed.</param>
+/// <param name="Damage">The amount by which the damage has changed.</param>
+/// <param name="Origin">The entity which caused the change in damage, if any.</param>
+[ByRefEvent]
+public record struct DamageChangedEvent(bool InterruptsDoAfters, DamageableComponent Damageable, DamageSpecifier Damage, EntityUid? Origin);
 
 /// <summary>
-/// Event raised on an entity when damage is about to be dealt,
-/// in case anything else needs to modify it other than the base
-/// damageable component.
+/// Event raised on an entity to get the damage with modifiers taken into account.
 /// </summary>
-public sealed class DamageModifyEvent(DamageSpecifier damage, EntityUid? origin = null) : EntityEventArgs, IInventoryRelayEvent
+/// <param name="Damage">The original amount by which the damage must be changed.</param>
+/// <param name="Origin">The entity which caused the change in damage, if any.</param>
+[ByRefEvent]
+public record struct GetModifiedDamageEvent(DamageSpecifier Damage, EntityUid? Origin) : IInventoryRelayEvent
 {
     /// <summary>
-    /// Contains the damage after modifiers have been applied.
-    /// This is the damage that will be inflicted.
+    /// The modified amount by which the damage must be changed.
     /// </summary>
-    public DamageSpecifier Result = damage;
+    public DamageSpecifier Result = Damage;
 
     /// <remarks>
     /// Whenever locational damage is a thing, this should just check only that bit of armor.
     /// </remarks>
     public SlotFlags TargetSlots => ~SlotFlags.POCKET;
-
-    /// <summary>
-    /// Contains the original damage, prior to any modifiers.
-    /// </summary>
-    public readonly DamageSpecifier Damage = damage;
-
-    /// <summary>
-    /// Contains the entity which caused the damage if any was responsible.
-    /// </summary>
-    public readonly EntityUid? Origin = origin;
 }

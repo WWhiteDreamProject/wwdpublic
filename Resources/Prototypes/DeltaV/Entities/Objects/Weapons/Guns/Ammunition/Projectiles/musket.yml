@@ -6,5 +6,5 @@
   components:
   - type: Projectile
     damage:
-      types:
-        Piercing: 60 # WWDP as the founding fathers intended; same dmg total as handmade shotgun ammo
+      # WD EDIT: Migrated damage format
+      Piercing: 60

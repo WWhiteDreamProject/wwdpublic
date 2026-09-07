@@ -23,12 +23,12 @@
 - type: latheRecipePack
   id: BorgLimbsStatic
   recipes:
-  - BodyPartLeftArmBorg # WD EDIT: LeftArmBorg -> BodyPartLeftArmBorg
-  - BodyPartRightArmBorg # WD EDIT: RightArmBorg -> BodyPartRightArmBorg
-  - BodyPartLeftLegBorg # WD EDIT: LeftLegBorg -> BodyPartLeftLegBorg
-  - BodyPartRightLegBorg # WD EDIT: RightLegBorg -> BodyPartRightLegBorg
-  - BodyPartHeadBorg # WD EDIT: LightHeadBorg -> BodyPartHeadBorg
-  - BodyPartTorsoBorg # WD EDIT: TorsoBorg -> BodyPartTorsoBorg
+  - BodyProviderLeftArmBorg # WD EDIT: LeftArmBorg -> BodyProviderLeftArmBorg
+  - BodyProviderRightArmBorg # WD EDIT: RightArmBorg -> BodyProviderRightArmBorg
+  - BodyProviderLeftLegBorg # WD EDIT: LeftLegBorg -> BodyProviderLeftLegBorg
+  - BodyProviderRightLegBorg # WD EDIT: RightLegBorg -> BodyProviderRightLegBorg
+  - BodyProviderHeadBorg # WD EDIT: LightHeadBorg -> BodyProviderHeadBorg
+  - BodyProviderTorsoBorgdBorg # WD EDIT: TorsoBorg -> BodyProviderTorsoBorgdBorg
 
 ## Dynamic
 

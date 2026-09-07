@@ -1,0 +1,64 @@
+- type: entity
+  id: BaseBodyProviderBoneFelinid
+  parent: BaseBodyProviderBone
+  abstract: true
+  suffix: Felinid
+  components:
+  - type: Sprite
+    sprite: _White/Bodies/Bones/Humanoids/human.rsi
+
+# Arm Bone / Antebrachium
+- type: entity
+  id: BodyProviderLeftAntebrachiumFelinid
+  parent: [BaseBodyProviderLeftAntebrachium, BaseBodyProviderBoneFelinid]
+
+- type: entity
+  id: BodyProviderRightAntebrachiumFelinid
+  parent: [BaseBodyProviderRightAntebrachium, BaseBodyProviderBoneFelinid]
+
+# Tail Bone / Cauda
+- type: entity
+  id: BodyProviderCaudaFelinid
+  parent: [BaseBodyProviderCauda, BaseBodyProviderBoneFelinid]
+
+# Pelvis / Coxae
+- type: entity
+  id: BodyProviderCoxaeFelinid
+  parent: [BaseBodyProviderCoxae, BaseBodyProviderBoneFelinid]
+
+# Skull / Сranium
+- type: entity
+  id: BodyProviderCraniumFelinid
+  parent: [BaseBodyProviderCranium, BaseBodyProviderBoneFelinid]
+
+# Leg Bone / Crus
+- type: entity
+  id: BodyProviderLeftCrusFelinid
+  parent: [BaseBodyProviderLeftCrus, BaseBodyProviderBoneFelinid]
+
+- type: entity
+  id: BodyProviderRightCrusFelinid
+  parent: [BaseBodyProviderRightCrus, BaseBodyProviderBoneFelinid]
+
+# Hand Bone / Manus
+- type: entity
+  id: BodyProviderLeftManusFelinid
+  parent: [BaseBodyProviderLeftManus, BaseBodyProviderBoneFelinid]
+
+- type: entity
+  id: BodyProviderRightManusFelinid
+  parent: [BaseBodyProviderRightManus, BaseBodyProviderBoneFelinid]
+
+# Foot Bone / Pedis
+- type: entity
+  id: BodyProviderLeftPedisFelinid
+  parent: [BaseBodyProviderLeftPedis, BaseBodyProviderBoneFelinid]
+
+- type: entity
+  id: BodyProviderRightPedisFelinid
+  parent: [BaseBodyProviderRightPedis, BaseBodyProviderBoneFelinid]
+
+# Rib Cage / Thorax
+- type: entity
+  id: BodyProviderThoraxFelinid
+  parent: [BaseBodyProviderThorax, BaseBodyProviderBoneFelinid]

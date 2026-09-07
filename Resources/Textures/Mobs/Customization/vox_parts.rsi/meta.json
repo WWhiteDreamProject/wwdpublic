@@ -42,14 +42,6 @@
     {
       "name": "r_leg",
       "directions": 4
-    },
-    {
-      "name": "tail",
-      "directions": 4
-    },
-    {
-      "name": "tail_stenciled",
-      "directions": 4
     }
   ]
 }

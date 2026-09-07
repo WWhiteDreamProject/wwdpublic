@@ -1,0 +1,11 @@
+- type: localizedDataset
+  id: NamingFirstDiona
+  values:
+    prefix: naming-first-diona-
+    count: 22
+
+- type: localizedDataset
+  id: NamingLastDiona
+  values:
+    prefix: naming-last-diona-
+    count: 21

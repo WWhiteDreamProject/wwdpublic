@@ -23,13 +23,13 @@
     heldPrefix: spray
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 50
         reagents:
         - ReagentId: SpaceGlue
           Quantity: 50
   - type: TrashOnSolutionEmpty
-    solution: drink
+    solution: ingestible # WD Ingestible
   - type: Sealable
   - type: Openable
     sound:

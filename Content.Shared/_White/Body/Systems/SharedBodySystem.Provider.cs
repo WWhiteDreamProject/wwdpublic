@@ -23,14 +23,14 @@ public abstract partial class SharedBodySystem
         var parent = args.Container.Owner;
         Entity<BodyComponent>? body = null;
 
+        ent.Comp.Parent = parent;
+        DirtyField(ent, ent.Comp, nameof(BodyProviderComponent.Parent));
+
         if (_bodyQuery.TryComp(parent, out var bodyComp))
             body = (parent, bodyComp);
 
         if (_providerQuery.TryComp(parent, out var providerComp))
         {
-            ent.Comp.Parent = parent;
-            DirtyField(ent, ent.Comp, nameof(BodyProviderComponent.Parent));
-
             var parentEv = new BodyProviderInsertedIntoEvent(ent);
             RaiseLocalEvent(parent, ref parentEv);
 
@@ -46,7 +46,8 @@ public abstract partial class SharedBodySystem
         if (!body.HasValue)
             return;
 
-        ProviderInserted(ent, body.Value, parent);
+        ProviderInserted(ent, body.Value);
+        Dirty(body.Value);
     }
 
     private void OnEntGotRemovedFromContainer(Entity<BodyProviderComponent> ent, ref EntGotRemovedFromContainerMessage args)
@@ -55,33 +56,14 @@ public abstract partial class SharedBodySystem
         if (containerSlotId.IndexOf(ProviderSlotContainerIdPrefix, StringComparison.Ordinal) == -1)
             return;
 
-        var parent = args.Container.Owner;
-        Entity<BodyComponent>? body = null;
-
-        if (_bodyQuery.TryComp(parent, out var bodyComp))
-            body = (parent, bodyComp);
-
-        if (_providerQuery.TryComp(parent, out var providerComp))
-        {
-            ent.Comp.Parent = null;
-            DirtyField(ent, ent.Comp, nameof(BodyProviderComponent.Parent));
-
-            var parentEv = new BodyProviderRemovedFromEvent(ent);
-            RaiseLocalEvent(parent, ref parentEv);
-
-            var providerEv = new BodyProviderGotRemovedFromParentEvent((parent, providerComp), ent);
-            RaiseLocalEvent(ent, ref providerEv);
-
-            if (!providerComp.Body.HasValue || !Resolve(providerComp.Body.Value, ref bodyComp))
-                return;
-
-            body = (providerComp.Body.Value, bodyComp);
-        }
-
-        if (!body.HasValue)
+        if (ent.Comp.Body is not {} body)
             return;
 
-        ProviderRemoved(ent, body.Value, parent);
+        if (!_bodyQuery.TryComp(body, out var bodyComp))
+            return;
+
+        ProviderRemoved(ent, (body, bodyComp));
+        Dirty(body, bodyComp);
     }
 
     #endregion
@@ -89,7 +71,7 @@ public abstract partial class SharedBodySystem
     #region Public API
 
     /// <summary>
-    /// Attempts to attach a body provider to this body provider.
+    /// Attempts to attach a body provider to given body provider.
     /// </summary>
     /// <param name="ent">The entity to which the provider should be attached.</param>
     /// <param name="provider">The entity to attach.</param>
@@ -113,7 +95,7 @@ public abstract partial class SharedBodySystem
     }
 
     /// <summary>
-    /// Attempts to create a new body provider slot within this body provider.
+    /// Attempts to create a new body provider slot within given body provider.
     /// </summary>
     /// <param name="ent">The entity in which to create the slot.</param>
     /// <param name="id">The unique ID for the new slot.</param>
@@ -162,7 +144,7 @@ public abstract partial class SharedBodySystem
     }
 
     /// <summary>
-    /// Attempts to find an empty body provider slot within this body provider.
+    /// Attempts to find an empty body provider slot within given body provider.
     /// </summary>
     /// <param name="ent">The entity to search within.</param>
     /// <param name="slot">The found empty slot. Will be null if no slot is found.</param>
@@ -188,7 +170,7 @@ public abstract partial class SharedBodySystem
     }
 
     /// <summary>
-    /// Attempts to get a list of all body provider associated with this body provider,
+    /// Attempts to get a list of all body provider associated with given body provider,
     /// </summary>
     /// <param name="ent">The entity to search within.</param>
     /// <param name="providers">A list of found providers.</param>
@@ -201,7 +183,7 @@ public abstract partial class SharedBodySystem
     }
 
     /// <summary>
-    /// Retrieves all body provider slots associated with this body provider
+    /// Retrieves all body provider slots associated with given body provider
     /// </summary>
     /// <param name="ent">The entity to search within.</param>
     /// <param name="type">Filter by provider type.</param>
@@ -225,7 +207,7 @@ public abstract partial class SharedBodySystem
     }
 
     /// <summary>
-    /// Retrieves all body providers associated with this body provider.
+    /// Retrieves all body providers associated with given body provider.
     /// </summary>
     /// <param name="ent">The entity to search within.</param>
     /// <param name="type">Filter by provider type.</param>
@@ -252,7 +234,7 @@ public abstract partial class SharedBodySystem
 
     #region Private API
 
-    private void ProviderInserted(Entity<BodyProviderComponent> ent, Entity<BodyComponent> body, EntityUid parent)
+    private void ProviderInserted(Entity<BodyProviderComponent> ent, Entity<BodyComponent> body)
     {
         var bodyEv = new BodyProviderInsertedIntoEvent(ent);
         RaiseLocalEvent(body, ref bodyEv);
@@ -260,13 +242,15 @@ public abstract partial class SharedBodySystem
         var providerEv = new BodyProviderGotInsertedEvent(body, ent);
         RaiseLocalEvent(ent, ref providerEv);
 
+        var netEnt = GetNetEntity(ent);
         foreach (var (id, slot) in ent.Comp.Providers)
         {
+            body.Comp.Providers.TryAdd((id, netEnt), slot);
+
             if (slot.ProviderUid is not {} provider || !_providerQuery.TryComp(provider, out var providerComp))
                 continue;
 
-            body.Comp.Providers.Add((id, GetNetEntity(parent)), slot);
-            ProviderInserted((provider, providerComp), body, ent);
+            ProviderInserted((provider, providerComp), body);
         }
 
         if (ent.Comp.Body == body)
@@ -276,7 +260,7 @@ public abstract partial class SharedBodySystem
         DirtyField(ent, ent.Comp, nameof(BodyProviderComponent.Body));
     }
 
-    private void ProviderRemoved(Entity<BodyProviderComponent> ent, Entity<BodyComponent> body, EntityUid parent)
+    private void ProviderRemoved(Entity<BodyProviderComponent> ent, Entity<BodyComponent> body)
     {
         var bodyEv = new BodyProviderRemovedFromEvent(ent);
         RaiseLocalEvent(body, ref bodyEv);
@@ -284,26 +268,30 @@ public abstract partial class SharedBodySystem
         var providerEv = new BodyProviderGotRemovedEvent(body, ent);
         RaiseLocalEvent(ent, ref providerEv);
 
+        var netEnt = GetNetEntity(ent);
         foreach (var (id, slot) in ent.Comp.Providers)
         {
+            body.Comp.Providers.Remove((id, netEnt));
+
             if (slot.ProviderUid is not {} provider || !_providerQuery.TryComp(provider, out var providerComp))
                 continue;
 
-            body.Comp.Providers.Remove((id, GetNetEntity(parent)));
-            ProviderRemoved((provider, providerComp), body, ent);
+            ProviderRemoved((provider, providerComp), body);
         }
 
-        if (ent.Comp.Body == body)
+        ent.Comp.Body = null;
+        DirtyField(ent, ent.Comp, nameof(BodyProviderComponent.Body));
+
+        if (body.Owner != ent.Comp.Parent)
             return;
 
-        ent.Comp.Body = body;
-        DirtyField(ent, ent.Comp, nameof(BodyProviderComponent.Body));
+        ent.Comp.Parent = null;
+        DirtyField(ent, ent.Comp, nameof(BodyProviderComponent.Parent));
     }
 
     private void SetupProvider(BodyProviderSlot slot, Entity<BodyComponent> body, EntityUid parent, string id)
     {
         slot.ContainerSlot ??= _container.EnsureContainer<ContainerSlot>(parent, GetProviderSlotContainerId(id));
-
         body.Comp.Providers.Add((id, GetNetEntity(parent)), slot);
 
         SetupProvider(slot, body, parent);
@@ -332,10 +320,16 @@ public abstract partial class SharedBodySystem
             return;
         }
 
-        foreach (var (childId, childSlot) in providerComp.Providers)
+        if (slot.Providers.Count == 0)
+            return;
+
+        foreach (var (childId, childSlot) in slot.Providers)
         {
             SetupProvider(childSlot, body, provider, childId);
+            providerComp.Providers.Add(childId, childSlot);
         }
+
+        DirtyField(provider, providerComp, nameof(BodyProviderComponent.Providers));
     }
 
     #endregion

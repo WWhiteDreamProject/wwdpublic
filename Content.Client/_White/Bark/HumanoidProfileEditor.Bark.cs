@@ -36,10 +36,10 @@ public partial class HumanoidProfileEditor
         if (Profile is null)
             return;
 
-        _barkList = _entManager.System<BarkSystem>().GetVoiceList(Profile);
+        _barkList = _entManager.System<BarkSystem>().GetVoiceList(Profile.Value);
         if (_barkList.Count == 0)
         {
-            SetBark(HumanoidProfileSystem.DefaultBark, Profile.BarkSettings);
+            SetBark(HumanoidProfileSystem.DefaultBark, Profile.Value.BarkSettings);
             return;
         }
 
@@ -48,7 +48,7 @@ public partial class HumanoidProfileEditor
         for (var i = 0; i < _barkList.Count; i++)
         {
             var voice = _barkList[i];
-            if (voice.ID == Profile.Bark)
+            if (voice.ID == Profile.Value.Bark)
                 selectedId = i;
 
             var name = Loc.GetString($"bark-{voice.ID.ToLower()}");
@@ -58,7 +58,7 @@ public partial class HumanoidProfileEditor
         if (selectedId == -1)
         {
             selectedId = 0;
-            SetBark(_barkList[selectedId].ID, Profile.BarkSettings);
+            SetBark(_barkList[selectedId].ID, Profile.Value.BarkSettings);
         }
 
         VoiceBarkButton.SelectId(selectedId);
@@ -78,7 +78,7 @@ public partial class HumanoidProfileEditor
             return;
 
         _entManager.System<BarkPreviewSystem>()
-            .PlayGlobal(Profile.Bark, "Привет мир!", Profile.BarkSettings);
+            .PlayGlobal(Profile.Value.Bark, "Привет мир!", Profile.Value.BarkSettings);
     }
 
     private void VoiceBarkButtonItemSelected(OptionButton.ItemSelectedEventArgs selected)
@@ -87,7 +87,7 @@ public partial class HumanoidProfileEditor
             return;
 
         VoiceBarkButton.SelectId(selected.Id);
-        SetBark(SelectedVoice.ID, Profile.BarkSettings);
+        SetBark(SelectedVoice.ID, Profile.Value.BarkSettings);
     }
 
     private void UpdateSliderValues()
@@ -95,9 +95,9 @@ public partial class HumanoidProfileEditor
         if(Profile is null)
             return;
 
-        BarkPauseSlider.Value = Profile.BarkSettings.Pause;
-        BarkPitchSlider.Value = Profile.BarkSettings.Pitch;
-        BarkPitchVarianceSlider.Value = Profile.BarkSettings.PitchVariance;
+        BarkPauseSlider.Value = Profile.Value.BarkSettings.Pause;
+        BarkPitchSlider.Value = Profile.Value.BarkSettings.Pitch;
+        BarkPitchVarianceSlider.Value = Profile.Value.BarkSettings.PitchVariance;
     }
 
     private void BarkPauseSliderValueChanged(Range range)
@@ -106,13 +106,13 @@ public partial class HumanoidProfileEditor
             return;
 
         SetBark(
-            Profile.Bark,
+            Profile.Value.Bark,
             new()
         {
             Pause = (byte)range.Value,
-            Pitch = Profile.BarkSettings.Pitch,
-            Volume = Profile.BarkSettings.Volume,
-            PitchVariance = Profile.BarkSettings.PitchVariance
+            Pitch = Profile.Value.BarkSettings.Pitch,
+            Volume = Profile.Value.BarkSettings.Volume,
+            PitchVariance = Profile.Value.BarkSettings.PitchVariance
         });
     }
 
@@ -122,12 +122,12 @@ public partial class HumanoidProfileEditor
             return;
 
         SetBark(
-            Profile.Bark,
+            Profile.Value.Bark,
             new()
             {
-                Pause = Profile.BarkSettings.Pause,
-                Pitch = Profile.BarkSettings.Pitch,
-                Volume = Profile.BarkSettings.Volume,
+                Pause = Profile.Value.BarkSettings.Pause,
+                Pitch = Profile.Value.BarkSettings.Pitch,
+                Volume = Profile.Value.BarkSettings.Volume,
                 PitchVariance = (byte)range.Value
             });
     }
@@ -138,13 +138,13 @@ public partial class HumanoidProfileEditor
             return;
 
         SetBark(
-            Profile.Bark,
+            Profile.Value.Bark,
             new()
             {
-                Pause = Profile.BarkSettings.Pause,
+                Pause = Profile.Value.BarkSettings.Pause,
                 Pitch = (byte)range.Value,
-                Volume = Profile.BarkSettings.Volume,
-                PitchVariance = Profile.BarkSettings.PitchVariance
+                Volume = Profile.Value.BarkSettings.Volume,
+                PitchVariance = Profile.Value.BarkSettings.PitchVariance
             });
     }
 }

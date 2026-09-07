@@ -1,0 +1,88 @@
+- type: marking
+  id: BaseEarsHuman
+  parents: [BaseEars, BaseHuman]
+  abstract: true
+  forcedColoring: true
+  coloring:
+    default:
+      type: !type:BodyColorGroupColoring
+        group: Skin
+
+- type: marking
+  id: EarsHumanCat
+  parents: BaseEarsHuman
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Human/ears.rsi
+      state: cat_inner
+    index: inner
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Human/ears.rsi
+      state: cat_outer
+    index: outer
+  coloring:
+    default:
+      type: !type:SimpleColoring
+    indexes:
+      outer:
+        type: !type:CategoryColoring
+          category: Hair
+        fallbackTypes:
+        - !type:BodyColorGroupColoring
+          group: Skin
+
+- type: marking
+  id: EarsHumanLongSmall
+  parents: BaseEarsHuman
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Human/ears.rsi
+      state: long_small
+
+- type: marking
+  id: EarsHumanLongStandard
+  parents: BaseEarsHuman
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Human/ears.rsi
+      state: long_standard
+
+- type: marking
+  id: EarsHumanLongTall
+  parents: BaseEarsHuman
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Human/ears.rsi
+      state: long_tall
+
+- type: marking
+  id: EarsHumanLongThin
+  parents: BaseEarsHuman
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Human/ears.rsi
+      state: long_thin
+
+- type: marking
+  id: EarsHumanLongUpwards
+  parents: BaseEarsHuman
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Human/ears.rsi
+      state: long_upwards
+
+- type: marking
+  id: EarsHumanLongWide
+  parents: BaseEarsHuman
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadSide
+    sprite:
+      sprite: _White/Humanoid/Markings/Human/ears.rsi
+      state: long_wide

@@ -1,0 +1,59 @@
+- type: entity
+  id: BaseBodyProviderOrganSlime
+  parent: BaseBodyProviderOrganOrganic
+  abstract: true
+  suffix: Slime
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      ingestible:
+        reagents:
+        - ReagentId: Slime
+          Quantity: 20
+  - type: Sprite
+    sprite: _White/Bodies/Organs/Humanoids/slime.rsi
+
+- type: entity
+  id: BaseMetabolizerSlime
+  abstract: true
+  components:
+  - type: Metabolizer
+    types: [ BloodSlime, RespirationNitrogen, Slime ]
+
+# Core: Central / Metabolizer
+- type: entity
+  id: BodyProviderCoreSlime
+  parent: [BaseBodyProviderCoreOrganic, BaseBodyProviderCoreRespiratory, BaseBodyProviderOrganSlime]
+  components:
+  - type: RespiratorConsumer
+    consumption: 0.0045
+    damage:
+      Asphyxiation: 0.075
+  - type: SolutionContainerManager
+    solutions:
+      ingestible:
+        reagents:
+        - ReagentId: GreyMatter
+          Quantity: 10
+        - ReagentId: Slime
+          Quantity: 15
+
+# Ears
+- type: entity
+  id: BodyProviderEarsSlime
+  parent: [BaseBodyProviderEars, BaseBodyProviderOrganSlime]
+  components:
+  - type: Sprite
+    sprite: _White/Bodies/Organs/Humanoids/human.rsi # TODO: Replace with a unique sprite.
+
+# Lungs
+- type: entity
+  id: BodyProviderLungsSlime
+  parent: [BaseBodyProviderLungsRespiratory, BaseBodyProviderOrganSlime]
+  components:
+  - type: RespiratorConsumer
+    consumption: 0.0005
+    damage:
+      Asphyxiation: 0.075
+  - type: RespiratorProvider
+    alert: LowNitrogen

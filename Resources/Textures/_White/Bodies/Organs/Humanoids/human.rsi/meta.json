@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-4.0",
+  "copyright": "Made by thenekron(Discord). Appendix, ears and tongue from https://github.com/tgstation/tgstation/commit/c4b7f3c41b6742aca260fe60cc358a778ba9b8c8.",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "appendix"
+    },
+    {
+      "name": "brain"
+    },
+    {
+      "name": "ears"
+    },
+    {
+      "name": "eyes"
+    },
+    {
+      "name": "eyes-in-body",
+      "directions": 4
+    },
+    {
+      "name": "heart"
+    },
+    {
+      "name": "kidneys"
+    },
+    {
+      "name": "liver"
+    },
+    {
+      "name": "lungs"
+    },
+    {
+      "name": "stomach"
+    },
+    {
+      "name": "tongue"
+    }
+  ]
+}
+

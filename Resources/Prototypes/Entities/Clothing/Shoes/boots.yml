@@ -105,8 +105,8 @@
   components:
   - type: MeleeWeapon
     damage:
-      types:
-        Piercing: 6
+      # WD EDIT: Migrated damage format
+      Piercing: 6
   - type: Sprite
     sprite: Clothing/Shoes/Boots/highheelboots.rsi
   - type: Clothing
@@ -120,8 +120,8 @@
     force: true
     slots:
     # WD EDIT START
-    - enum.BodyAppearanceLayer.LeftFoot
-    - enum.BodyAppearanceLayer.RightFoot
+    - enum.BodyProviderType.LeftFoot
+    - enum.BodyProviderType.RightFoot
     # WD EDIT END
 
 - type: entity
@@ -238,7 +238,7 @@
     - Fiber
   - type: SolutionContainerManager
     solutions: # 6 (3 (fiber count of web) * 2 (to craft)) + 4 (magical crafting bonus)
-      food:
+      ingestible: # WD Ingestible
         maxVol: 10
         reagents:
         - ReagentId: Fiber

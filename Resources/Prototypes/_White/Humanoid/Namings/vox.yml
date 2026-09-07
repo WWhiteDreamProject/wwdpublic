@@ -1,0 +1,9 @@
+- type: naming
+  id: Vox
+  preset: naming-preset-first
+  first:
+    Neuter: NamingFirstVox
+    Epicene: NamingFirstVox
+    Female: NamingFirstVox
+    Male: NamingFirstVox
+  last: NamingLastHuman

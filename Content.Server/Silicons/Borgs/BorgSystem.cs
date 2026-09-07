@@ -76,9 +76,6 @@ public sealed partial class BorgSystem : SharedBorgSystem
         SubscribeLocalEvent<BorgChassisComponent, GetCharactedDeadIcEvent>(OnGetDeadIC);
         SubscribeLocalEvent<BorgChassisComponent, ItemToggledEvent>(OnToggled);
 
-        SubscribeLocalEvent<BorgBrainComponent, MindAddedMessage>(OnBrainMindAdded);
-        SubscribeLocalEvent<BorgBrainComponent, PointAttemptEvent>(OnBrainPointAttempt);
-
         InitializeModules();
         InitializeMMI();
         InitializeUI();
@@ -97,20 +94,19 @@ public sealed partial class BorgSystem : SharedBorgSystem
             return;
 
         var used = args.Used;
-        TryComp<BorgBrainComponent>(used, out var brain);
         TryComp<BorgModuleComponent>(used, out var module);
         TryComp<AiRemoteBrainComponent>(used, out var aiBrain); // WD edit - AiRemoteControl
 
         if (TryComp<WiresPanelComponent>(uid, out var panel) && !panel.Open)
         {
-            if (brain != null || module != null)
+            if (module != null)
             {
                 Popup.PopupEntity(Loc.GetString("borg-panel-not-open"), uid, args.User);
             }
             return;
         }
 
-        if (component.BrainEntity == null && brain != null &&
+        if (component.BrainEntity == null &&
             _whitelistSystem.IsWhitelistPassOrNull(component.BrainWhitelist, used))
         {
             if (_mind.TryGetMind(used, out _, out var mind) && mind.Session != null)
@@ -170,26 +166,9 @@ public sealed partial class BorgSystem : SharedBorgSystem
         _container.Insert(module, ent.Comp.ModuleContainer);
     }
 
-    // todo: consider transferring over the ghost role? managing that might suck.
-    protected override void OnInserted(EntityUid uid, BorgChassisComponent component, EntInsertedIntoContainerMessage args)
-    {
-        base.OnInserted(uid, component, args);
-
-        if (HasComp<BorgBrainComponent>(args.Entity) && _mind.TryGetMind(args.Entity, out var mindId, out var mind))
-        {
-            _mind.TransferTo(mindId, uid, mind: mind);
-        }
-    }
-
     protected override void OnRemoved(EntityUid uid, BorgChassisComponent component, EntRemovedFromContainerMessage args)
     {
         base.OnRemoved(uid, component, args);
-
-        if (HasComp<BorgBrainComponent>(args.Entity) &
-            _mind.TryGetMind(uid, out var mindId, out var mind))
-        {
-            _mind.TransferTo(mindId, args.Entity, mind: mind);
-        }
 
         // WD edit - AiRemoteControl-Start
         if (!HasComp<AiRemoteBrainComponent>(args.Entity))
@@ -263,36 +242,6 @@ public sealed partial class BorgSystem : SharedBorgSystem
         UpdateUI(uid, comp);
 
         _movementSpeedModifier.RefreshMovementSpeedModifiers(uid);
-    }
-
-    private void OnBrainMindAdded(EntityUid uid, BorgBrainComponent component, MindAddedMessage args)
-    {
-        if (!Container.TryGetOuterContainer(uid, Transform(uid), out var container))
-            return;
-
-        var containerEnt = container.Owner;
-
-        if (!TryComp<BorgChassisComponent>(containerEnt, out var chassisComponent) ||
-            container.ID != chassisComponent.BrainContainerId)
-            return;
-
-        if (!_mind.TryGetMind(uid, out var mindId, out var mind) || mind.Session == null)
-            return;
-
-        if (!CanPlayerBeBorged(mind.Session))
-        {
-            Popup.PopupEntity(Loc.GetString("borg-player-not-allowed-eject"), uid);
-            Container.RemoveEntity(containerEnt, uid);
-            _throwing.TryThrow(uid, _random.NextVector2() * 5, 5f);
-            return;
-        }
-
-        _mind.TransferTo(mindId, containerEnt, mind: mind);
-    }
-
-    private void OnBrainPointAttempt(EntityUid uid, BorgBrainComponent component, PointAttemptEvent args)
-    {
-        args.Cancel();
     }
 
     private void UpdateBatteryAlert(Entity<BorgChassisComponent> ent, PowerCellSlotComponent? slotComponent = null)

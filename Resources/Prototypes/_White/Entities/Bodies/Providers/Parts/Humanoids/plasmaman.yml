@@ -1,0 +1,63 @@
+# TODO: Ignite from gas
+
+- type: entity
+  id: BaseBodyProviderPartPlasmaman
+  parent: BaseBodyProviderPart
+  abstract: true
+  suffix: Plasmaman
+  components:
+  - type: BodyAppearanceProvider
+    path: _White/Bodies/Parts/Humanoids/plasmaman.rsi
+  - type: Sprite
+    sprite: _White/Bodies/Parts/Humanoids/plasmaman.rsi
+
+# Arms
+- type: entity
+  id: BodyProviderLeftArmPlasmaman
+  parent: [BaseBodyProviderLeftArm, BaseBodyProviderPartPlasmaman]
+
+- type: entity
+  id: BodyProviderRightArmPlasmaman
+  parent: [BaseBodyProviderRightArm, BaseBodyProviderPartPlasmaman]
+
+# Chest
+- type: entity
+  id: BodyProviderChestPlasmaman
+  parent: [BaseBodyProviderChest, BaseBodyProviderPartPlasmaman]
+
+# Foots
+- type: entity
+  id: BodyProviderLeftFootPlasmaman
+  parent: [BaseBodyProviderLeftFoot, BaseBodyProviderPartPlasmaman]
+
+- type: entity
+  id: BodyProviderRightFootPlasmaman
+  parent: [BaseBodyProviderRightFoot, BaseBodyProviderPartPlasmaman]
+
+# Groin
+- type: entity
+  id: BodyProviderGroinPlasmaman
+  parent: [BaseBodyProviderGroin, BaseBodyProviderPartPlasmaman]
+
+# Hands
+- type: entity
+  id: BodyProviderLeftHandPlasmaman
+  parent: [BaseBodyProviderLeftHand, BaseBodyProviderPartPlasmaman]
+
+- type: entity
+  id: BodyProviderRightHandPlasmaman
+  parent: [BaseBodyProviderRightHand, BaseBodyProviderPartPlasmaman]
+
+# Head
+- type: entity
+  id: BodyProviderHeadPlasmaman
+  parent: [BaseBodyProviderHead, BaseBodyProviderPartPlasmaman]
+
+# Legs
+- type: entity
+  id: BodyProviderLeftLegPlasmaman
+  parent: [BaseBodyProviderLeftLeg, BaseBodyProviderPartPlasmaman]
+
+- type: entity
+  id: BodyProviderRightLegPlasmaman
+  parent: [BaseBodyProviderRightLeg, BaseBodyProviderPartPlasmaman]

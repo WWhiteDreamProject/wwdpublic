@@ -10,10 +10,10 @@ public sealed class DamageProtectionBuffSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<DamageProtectionBuffComponent, DamageModifyEvent>(OnDamageModify);
+        SubscribeLocalEvent<DamageProtectionBuffComponent, GetModifiedDamageEvent>(OnDamageModify);
     }
 
-    private void OnDamageModify(EntityUid uid, DamageProtectionBuffComponent component, DamageModifyEvent args)
+    private void OnDamageModify(EntityUid uid, DamageProtectionBuffComponent component, GetModifiedDamageEvent args)
     {
         foreach (var modifier in component.Modifiers.Values)
             args.Result = DamageSpecifier.ApplyModifierSet(args.Damage, modifier);

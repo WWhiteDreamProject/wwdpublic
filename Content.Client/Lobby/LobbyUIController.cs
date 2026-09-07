@@ -197,7 +197,7 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
         if (selected == null)
             return;
 
-        _preferencesManager.UpdateCharacter(EditedProfile, EditedSlot.Value);
+        _preferencesManager.UpdateCharacter(EditedProfile.Value, EditedSlot.Value);
         ReloadCharacterSetup();
     }
 
@@ -372,7 +372,7 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
         EntProtoId? previewEntity = null;
         if (humanoid != null && jobClothes)
         {
-            job ??= GetPreferredJob(humanoid);
+            job ??= GetPreferredJob(humanoid.Value);
 
             previewEntity = job.JobPreviewEntity ?? (EntProtoId?)job?.JobEntity;
         }
@@ -385,25 +385,25 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
         }
         else if (humanoid is not null)
         {
-            var dummy = _prototypeManager.Index(humanoid.Species).DollPrototype;
+            var dummy = _prototypeManager.Index(humanoid.Value.Species).Doll;
             dummyEnt = EntityManager.SpawnEntity(dummy, MapCoordinates.Nullspace);
-            _bodyAppearance.ApplyProfile(dummyEnt, humanoid);
+            _bodyAppearance.ApplyProfile(dummyEnt, humanoid.Value);
         }
         else
         {
-            dummyEnt = EntityManager.SpawnEntity(_prototypeManager.Index(HumanoidProfileSystem.DefaultSpecies).DollPrototype, MapCoordinates.Nullspace);
+            dummyEnt = EntityManager.SpawnEntity(_prototypeManager.Index(HumanoidProfileSystem.DefaultSpecies).Doll, MapCoordinates.Nullspace);
         }
 
         if (humanoid != null && jobClothes)
         {
             DebugTools.Assert(job != null);
 
-            GiveDummyJobClothes(dummyEnt, job, humanoid);
+            GiveDummyJobClothes(dummyEnt, job, humanoid.Value);
 
             if (jobClothes)
-                GiveDummyJobClothes(dummyEnt, job, humanoid);
+                GiveDummyJobClothes(dummyEnt, job, humanoid.Value);
             if (loadouts)
-                GiveDummyLoadout(dummyEnt, job, humanoid);
+                GiveDummyLoadout(dummyEnt, job, humanoid.Value);
         }
 
         return dummyEnt;

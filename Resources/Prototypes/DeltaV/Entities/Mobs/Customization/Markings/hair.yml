@@ -1,109 +1,109 @@
-- type: marking
-  id: HumanHairShortBedhead
-  markingCategory: Hair
-  sprites:
-    - sprite: DeltaV/Mobs/Customization/hair.rsi
-      state: short_bedhead
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-
-- type: marking
-  id: HumanHairBobClassic
-  markingCategory: Hair
-  sprites:
-    - sprite: DeltaV/Mobs/Customization/hair.rsi
-      state: classic_bob
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-
-- type: marking
-  id: HumanHairMessyClassic
-  markingCategory: Hair
-  sprites:
-    - sprite: DeltaV/Mobs/Customization/hair.rsi
-      state: classic_messy
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-
-- type: marking
-  id: HumanHairClassicNoFade
-  markingCategory: Hair
-  sprites:
-    - sprite: DeltaV/Mobs/Customization/hair.rsi
-      state: classic_nofade
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-
-- type: marking
-  id: HumanHairClassicGentle
-  markingCategory: Hair
-  sprites:
-    - sprite: DeltaV/Mobs/Customization/hair.rsi
-      state: classic_gentle
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-
-- type: marking
-  id: HumanHairClassicLowFade
-  markingCategory: Hair
-  sprites:
-    - sprite: DeltaV/Mobs/Customization/hair.rsi
-      state: classic_lowfade
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-
-- type: marking
-  id: HumanHairClassicMedFade
-  markingCategory: Hair
-  sprites:
-    - sprite: DeltaV/Mobs/Customization/hair.rsi
-      state: classic_medfade
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-
-- type: marking
-  id: HumanHairClassicOmbre
-  markingCategory: Hair
-  sprites:
-    - sprite: DeltaV/Mobs/Customization/hair.rsi
-      state: classic_ombre
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-
-- type: marking
-  id: HumanHairClassicCrewcut
-  markingCategory: Hair
-  sprites:
-    - sprite: DeltaV/Mobs/Customization/hair.rsi
-      state: classic_crewcut
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
-
-- type: marking
-  id: HumanHairClassicLong
-  markingCategory: Hair
-  sprites:
-    - sprite: DeltaV/Mobs/Customization/hair.rsi
-      state: classic_long
-      # WD EDIT START
-      layer: enum.HumanoidVisualLayers.Hair
-      bodyPart: Head
-      # WD EDIT END
+#- type: marking
+#  id: HumanHairShortBedhead
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: DeltaV/Mobs/Customization/hair.rsi
+#      state: short_bedhead
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#
+#- type: marking
+#  id: HumanHairBobClassic
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: DeltaV/Mobs/Customization/hair.rsi
+#      state: classic_bob
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#
+#- type: marking
+#  id: HumanHairMessyClassic
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: DeltaV/Mobs/Customization/hair.rsi
+#      state: classic_messy
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#
+#- type: marking
+#  id: HumanHairClassicNoFade
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: DeltaV/Mobs/Customization/hair.rsi
+#      state: classic_nofade
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#
+#- type: marking
+#  id: HumanHairClassicGentle
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: DeltaV/Mobs/Customization/hair.rsi
+#      state: classic_gentle
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#
+#- type: marking
+#  id: HumanHairClassicLowFade
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: DeltaV/Mobs/Customization/hair.rsi
+#      state: classic_lowfade
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#
+#- type: marking
+#  id: HumanHairClassicMedFade
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: DeltaV/Mobs/Customization/hair.rsi
+#      state: classic_medfade
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#
+#- type: marking
+#  id: HumanHairClassicOmbre
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: DeltaV/Mobs/Customization/hair.rsi
+#      state: classic_ombre
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#
+#- type: marking
+#  id: HumanHairClassicCrewcut
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: DeltaV/Mobs/Customization/hair.rsi
+#      state: classic_crewcut
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END
+#
+#- type: marking
+#  id: HumanHairClassicLong
+#  markingCategory: Hair
+#  sprites:
+#    - sprite: DeltaV/Mobs/Customization/hair.rsi
+#      state: classic_long
+#      # WD EDIT START
+#      layer: enum.HumanoidVisualLayers.Hair
+#      bodyPart: Head
+#      # WD EDIT END

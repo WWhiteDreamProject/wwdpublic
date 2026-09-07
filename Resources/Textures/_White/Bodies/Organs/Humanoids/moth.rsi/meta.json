@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/tgstation/tgstation/commit/1d0eadcb126fc3581eed33490f4be2a88157af58. Modified by PixelTheKermit(github).",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "eyes-in-body",
+      "directions": 4
+    }
+  ]
+}

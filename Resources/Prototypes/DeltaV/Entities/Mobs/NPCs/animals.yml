@@ -54,8 +54,7 @@
   - type: Temperature
     coldDamageThreshold: 210
     coldDamage:
-      types:
-        Cold: 0.1
+      Cold: 0.1
   - type: Grammar
     attributes:
       gender: epicene
@@ -101,7 +100,6 @@
   - type: Speech
     allowedEmotes: ['Bark', 'Snarl', 'Whine', 'Howl', 'Awoo']
     speechVerb: Canine
-    speechSounds: Vulpkanin
   - type: Fixtures
     fixtures:
       fix1:
@@ -128,8 +126,7 @@
     angle: 0
     attackRate: 1
     damage:
-      types:
-        Slash: 10
+      Slash: 10
   - type: SlowOnDamage
     speedModifierThresholds:
       40: 0.70
@@ -161,8 +158,6 @@
     interactSuccessString: petting-success-dog
     interactFailureString: petting-failure-generic
     interactSuccessSpawn: EffectHearts
-    interactSuccessSound:
-      path: /Audio/DeltaV/Voice/Vulpkanin/dog_bark2.ogg
   - type: Grammar
     attributes:
       gender: epicene

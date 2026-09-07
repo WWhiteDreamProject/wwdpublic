@@ -1,0 +1,38 @@
+- type: entity
+  id: BaseBodyProviderPartBorg
+  parent: BaseBodyProviderPart
+  abstract: true
+  suffix: Borg
+  components:
+  - type: BodyAppearanceProvider
+    path: _White/Bodies/Parts/Humanoids/human.rsi # TODO: Replace with a unique sprite.
+  - type: Sprite
+    sprite: _White/Bodies/Parts/borg.rsi
+
+# Arms
+- type: entity
+  id: BodyProviderLeftArmBorg
+  parent: [BaseBodyProviderLeftArm, BaseBodyProviderPartBorg]
+
+- type: entity
+  id: BodyProviderRightArmBorg
+  parent: [BaseBodyProviderRightArm, BaseBodyProviderPartBorg]
+
+# Head
+- type: entity
+  id: BodyProviderHeadBorg
+  parent: [BaseBodyProviderHead, BaseBodyProviderPartBorg]
+
+# Legs
+- type: entity
+  id: BodyProviderLeftLegBorg
+  parent: [BaseBodyProviderLeftLeg, BaseBodyProviderPartBorg]
+
+- type: entity
+  id: BodyProviderRightLegBorg
+  parent: [BaseBodyProviderRightLeg, BaseBodyProviderPartBorg]
+
+# Torso
+- type: entity
+  id: BodyProviderTorsoBorg
+  parent: [BaseBodyProviderTorso, BaseBodyProviderPartBorg]

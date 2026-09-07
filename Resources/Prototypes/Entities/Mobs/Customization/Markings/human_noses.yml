@@ -1,69 +1,69 @@
-- type: marking
-  id: HumanNoseSchnozz
-  markingCategory: Snout
-  followSkinColor: true
-  forcedColoring: true
-  speciesRestriction: [Human, Dwarf, Felinid, Oni, Harpy, Arachne, Lamia]
-  sprites:
-  - sprite: Mobs/Customization/human_noses.rsi
-    state: schnozz
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.Snout
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: HumanNoseNubby
-  markingCategory: Snout
-  followSkinColor: true
-  forcedColoring: true
-  speciesRestriction: [Human, Dwarf, Felinid, Oni, Harpy, Arachne, Lamia]
-  sprites:
-  - sprite: Mobs/Customization/human_noses.rsi
-    state: nubby
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.Snout
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: HumanNoseDroop
-  markingCategory: Snout
-  followSkinColor: true
-  forcedColoring: true
-  speciesRestriction: [Human, Dwarf, Felinid, Oni, Harpy, Arachne, Lamia]
-  sprites:
-  - sprite: Mobs/Customization/human_noses.rsi
-    state: droop
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.Snout
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: HumanNoseBlob
-  markingCategory: Snout
-  followSkinColor: true
-  forcedColoring: true
-  speciesRestriction: [Human, Dwarf, Felinid, Oni, Harpy, Arachne, Lamia]
-  sprites:
-  - sprite: Mobs/Customization/human_noses.rsi
-    state: blob
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.Snout
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: HumanNoseUppie
-  markingCategory: Snout
-  followSkinColor: true
-  forcedColoring: true
-  speciesRestriction: [Human, Dwarf, Felinid, Oni, Harpy, Arachne, Lamia]
-  sprites:
-  - sprite: Mobs/Customization/human_noses.rsi
-    state: uppie
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.Snout
-    bodyPart: Head
-    # WD EDIT END
+#- type: marking
+#  id: HumanNoseSchnozz
+#  markingCategory: Snout
+#  followSkinColor: true
+#  forcedColoring: true
+#  speciesRestriction: [Human, Dwarf, Felinid, Oni, Harpy, Lamia]
+#  sprites:
+#  - sprite: Mobs/Customization/human_noses.rsi
+#    state: schnozz
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.Snout
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: HumanNoseNubby
+#  markingCategory: Snout
+#  followSkinColor: true
+#  forcedColoring: true
+#  speciesRestriction: [Human, Dwarf, Felinid, Oni, Harpy, Lamia]
+#  sprites:
+#  - sprite: Mobs/Customization/human_noses.rsi
+#    state: nubby
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.Snout
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: HumanNoseDroop
+#  markingCategory: Snout
+#  followSkinColor: true
+#  forcedColoring: true
+#  speciesRestriction: [Human, Dwarf, Felinid, Oni, Harpy, Lamia]
+#  sprites:
+#  - sprite: Mobs/Customization/human_noses.rsi
+#    state: droop
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.Snout
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: HumanNoseBlob
+#  markingCategory: Snout
+#  followSkinColor: true
+#  forcedColoring: true
+#  speciesRestriction: [Human, Dwarf, Felinid, Oni, Harpy, Lamia]
+#  sprites:
+#  - sprite: Mobs/Customization/human_noses.rsi
+#    state: blob
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.Snout
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: HumanNoseUppie
+#  markingCategory: Snout
+#  followSkinColor: true
+#  forcedColoring: true
+#  speciesRestriction: [Human, Dwarf, Felinid, Oni, Harpy, Lamia]
+#  sprites:
+#  - sprite: Mobs/Customization/human_noses.rsi
+#    state: uppie
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.Snout
+#    bodyPart: Head
+#    # WD EDIT END

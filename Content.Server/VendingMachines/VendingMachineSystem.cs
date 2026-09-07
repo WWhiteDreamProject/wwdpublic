@@ -93,7 +93,7 @@ namespace Content.Server.VendingMachines
 
         private void OnDamageChanged(EntityUid uid, VendingMachineComponent component, DamageChangedEvent args)
         {
-            if (!args.DamageIncreased && component.Broken)
+            if (!args.Damage.AnyPositive() && component.Broken)
             {
                 component.Broken = false;
                 TryUpdateVisualState((uid, component));
@@ -104,7 +104,7 @@ namespace Content.Server.VendingMachines
                 component.DispenseOnHitChance == null)
                 return;
 
-            if (args.DamageIncreased && args.Damage.GetTotal() >= component.DispenseOnHitThreshold && // WD EDIT
+            if (args.Damage.AnyPositive() && args.Damage.GetTotal() >= component.DispenseOnHitThreshold && // WD EDIT
                 _random.Prob(component.DispenseOnHitChance.Value))
             {
                 if (component.DispenseOnHitCooldown != null)

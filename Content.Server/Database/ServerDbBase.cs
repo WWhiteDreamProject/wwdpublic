@@ -93,7 +93,7 @@ namespace Content.Server.Database
                 .AsSplitQuery()
                 .SingleOrDefault(h => h.Slot == slot);
 
-            var newProfile = ConvertProfiles(profile, slot, oldProfile);
+            var newProfile = ConvertProfiles(profile.Value, slot, oldProfile);
             if (oldProfile == null)
             {
                 var prefs = await db.DbContext
@@ -243,10 +243,10 @@ namespace Content.Server.Database
                 humanoid.Loadouts.Values
                 .Select(l => new LoadoutItem(l.LoadoutName, l.CustomName, l.CustomDescription, l.CustomContent, l.CustomColorTint, l.CustomHeirloom)));
 
-            profile.BodyColoration.Clear();
-            profile.BodyColoration.AddRange(
-                humanoid.BodyColoration
-                    .Select(x => new BodyColoration { Coloration = x.Key, Color = x.Value.ToHex() })
+            profile.BodyColors.Clear();
+            profile.BodyColors.AddRange(
+                humanoid.Colors
+                    .Select(x => new BodyColor { Group = x.Key, Color = x.Value.ToHex() })
             );
 
             profile.PreferenceUnavailable = (DbPreferenceUnavailableMode) humanoid.PreferenceUnavailable;

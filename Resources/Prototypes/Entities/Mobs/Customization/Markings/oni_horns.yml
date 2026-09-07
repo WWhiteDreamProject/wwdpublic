@@ -1,837 +1,837 @@
-- type: marking
-  id: OniHornTallCurved
-  markingCategory: HeadTop
-  forcedColoring: false
-  speciesRestriction: [Oni]
-  sprites:
-  - sprite: Mobs/Customization/Oni/oni_horns48x48.rsi
-    state: tall_curved
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-- type: marking
-  id: OniHornTallCurved3Tone
-  markingCategory: HeadTop
-  forcedColoring: false
-  speciesRestriction: [Oni]
-  sprites:
-  - sprite: Mobs/Customization/Oni/oni_horns48x48.rsi
-    state: tall_curved_3tone_1
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-  - sprite: Mobs/Customization/Oni/oni_horns48x48.rsi
-    state: tall_curved_3tone_2
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-  - sprite: Mobs/Customization/Oni/oni_horns48x48.rsi
-    state: tall_curved_3tone_3
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-- type: marking
-  id: OniHornTallBull
-  markingCategory: HeadTop
-  forcedColoring: false
-  speciesRestriction: [Oni]
-  sprites:
-  - sprite: Mobs/Customization/Oni/oni_horns48x48.rsi
-    state: tall_bull
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-- type: marking
-  id: OniHornTallBull3Tone
-  markingCategory: HeadTop
-  forcedColoring: false
-  speciesRestriction: [Oni]
-  sprites:
-  - sprite: Mobs/Customization/Oni/oni_horns48x48.rsi
-    state: tall_bull_3tone_1
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-  - sprite: Mobs/Customization/Oni/oni_horns48x48.rsi
-    state: tall_bull_3tone_2
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-  - sprite: Mobs/Customization/Oni/oni_horns48x48.rsi
-    state: tall_bull_3tone_3
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-- type: marking
-  id: OniHornCrowned
-  markingCategory: HeadTop
-  forcedColoring: false
-  speciesRestriction: [Oni]
-  sprites:
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: crowned
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: OniHornSerket
-  markingCategory: HeadTop
-  forcedColoring: false
-  speciesRestriction: [Oni]
-  sprites:
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: serket
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: OniHornSerket3Tone
-  markingCategory: HeadTop
-  forcedColoring: false
-  speciesRestriction: [Oni]
-  sprites:
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: serket_3tone_1
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: serket_3tone_2
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: serket_3tone_3
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: OniHornPisces
-  markingCategory: HeadTop
-  forcedColoring: false
-  speciesRestriction: [Oni]
-  sprites:
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: pisces
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: OniHornPisces2Tone
-  markingCategory: HeadTop
-  forcedColoring: false
-  speciesRestriction: [Oni]
-  sprites:
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: pisces_2tone_1
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: pisces_2tone_2
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: OniHornPisces3Tone
-  markingCategory: HeadTop
-  forcedColoring: false
-  speciesRestriction: [Oni]
-  sprites:
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: pisces_3tone_1
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: pisces_3tone_2
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: pisces_3tone_3
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: OniHornVirgo
-  markingCategory: HeadTop
-  forcedColoring: false
-  speciesRestriction: [Oni]
-  sprites:
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: virgo
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: OniHornVirgo3Tone
-  markingCategory: HeadTop
-  forcedColoring: false
-  speciesRestriction: [Oni]
-  sprites:
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: virgo_3tone_1
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: virgo_3tone_2
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: virgo_3tone_3
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: OniHornSagittarius
-  markingCategory: HeadTop
-  forcedColoring: false
-  speciesRestriction: [Oni]
-  sprites:
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: sagittarius
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: OniHornSagittarius3Tone
-  markingCategory: HeadTop
-  forcedColoring: false
-  speciesRestriction: [Oni]
-  sprites:
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: sagittarius_3tone_1
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: sagittarius_3tone_2
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: sagittarius_3tone_3
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: OniHornVantas
-  markingCategory: HeadTop
-  forcedColoring: false
-  speciesRestriction: [Oni]
-  sprites:
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: vantas
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: OniHornVantas3Tone
-  markingCategory: HeadTop
-  forcedColoring: false
-  speciesRestriction: [Oni]
-  sprites:
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: vantas_3tone_1
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: vantas_3tone_2
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: vantas_3tone_3
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: OniHornMakara
-  markingCategory: HeadTop
-  forcedColoring: false
-  speciesRestriction: [Oni]
-  sprites:
-  - sprite: Mobs/Customization/Oni/oni_horns48x48.rsi
-    state: makara
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: OniHornMakara2Tone
-  markingCategory: HeadTop
-  forcedColoring: false
-  speciesRestriction: [Oni]
-  sprites:
-  - sprite: Mobs/Customization/Oni/oni_horns48x48.rsi
-    state: makara_2tone_1
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-  - sprite: Mobs/Customization/Oni/oni_horns48x48.rsi
-    state: makara_2tone_2
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: OniHornMakara3Tone
-  markingCategory: HeadTop
-  forcedColoring: false
-  speciesRestriction: [Oni]
-  sprites:
-  - sprite: Mobs/Customization/Oni/oni_horns48x48.rsi
-    state: makara_3tone_1
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-  - sprite: Mobs/Customization/Oni/oni_horns48x48.rsi
-    state: makara_3tone_2
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-  - sprite: Mobs/Customization/Oni/oni_horns48x48.rsi
-    state: makara_3tone_3
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: OniHornNepeta
-  markingCategory: HeadTop
-  forcedColoring: false
-  speciesRestriction: [Oni]
-  sprites:
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: nepeta
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: OniHornNepeta3Tone
-  markingCategory: HeadTop
-  forcedColoring: false
-  speciesRestriction: [Oni]
-  sprites:
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: nepeta_3tone_1
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: nepeta_3tone_2
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: nepeta_3tone_3
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: OniHornTaurus
-  markingCategory: HeadTop
-  forcedColoring: false
-  speciesRestriction: [Oni]
-  sprites:
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: taurus
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: OniHornTaurus2Tone
-  markingCategory: HeadTop
-  forcedColoring: false
-  speciesRestriction: [Oni]
-  sprites:
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: taurus_2tone_1
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: taurus_2tone_2
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: OniHornTaurus3Tone
-  markingCategory: HeadTop
-  forcedColoring: false
-  speciesRestriction: [Oni]
-  sprites:
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: taurus_3tone_1
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: taurus_3tone_2
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: taurus_3tone_3
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: OniHornAries
-  markingCategory: HeadTop
-  forcedColoring: false
-  speciesRestriction: [Oni]
-  sprites:
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: aries
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: OniHornAries3Tone
-  markingCategory: HeadTop
-  forcedColoring: false
-  speciesRestriction: [Oni]
-  sprites:
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: aries_3tone_1
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: aries_3tone_2
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: aries_3tone_3
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: OniHornTavris
-  markingCategory: HeadTop
-  forcedColoring: false
-  speciesRestriction: [Oni]
-  sprites:
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: tavris
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: OniHornTavris3Tone
-  markingCategory: HeadTop
-  forcedColoring: false
-  speciesRestriction: [Oni]
-  sprites:
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: tavris_3tone_1
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: tavris_3tone_2
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: tavris_3tone_3
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: OniHornInclined
-  markingCategory: HeadTop
-  forcedColoring: false
-  speciesRestriction: [Oni]
-  sprites:
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: inclined
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: OniHornInclined3Tone
-  markingCategory: HeadTop
-  forcedColoring: false
-  speciesRestriction: [Oni]
-  sprites:
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: inclined_3tone_1
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: inclined_3tone_2
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: inclined_3tone_3
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: OniHornWavy
-  markingCategory: HeadTop
-  forcedColoring: false
-  speciesRestriction: [Oni]
-  sprites:
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: wavy
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: OniHornWavy2Tone
-  markingCategory: HeadTop
-  forcedColoring: false
-  speciesRestriction: [Oni]
-  sprites:
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: wavy_2tone_1
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: wavy_2tone_2
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: OniHornWavy3Tone
-  markingCategory: HeadTop
-  forcedColoring: false
-  speciesRestriction: [Oni]
-  sprites:
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: wavy_3tone_1
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: wavy_3tone_2
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: wavy_3tone_3
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: OniHornAntlers
-  markingCategory: HeadTop
-  forcedColoring: false
-  speciesRestriction: [Oni]
-  sprites:
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: antlers_2tone_1
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: antlers_2tone_2
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: OniHornAntlers3Tone
-  markingCategory: HeadTop
-  forcedColoring: false
-  speciesRestriction: [Oni]
-  sprites:
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: antlers_3tone_1
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: antlers_3tone_2
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: antlers_3tone_3
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: OniHornUnicorn
-  markingCategory: HeadTop
-  forcedColoring: false
-  speciesRestriction: [Oni]
-  sprites:
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: unicorn
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: OniHornErebia
-  markingCategory: HeadTop
-  forcedColoring: false
-  speciesRestriction: [Oni]
-  sprites:
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: erebia
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: OniHornErebia3Tone
-  markingCategory: HeadTop
-  forcedColoring: false
-  speciesRestriction: [Oni]
-  sprites:
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: erebia_3tone_1
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: erebia_3tone_2
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: erebia_3tone_3
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: OniHornErebiaRings
-  markingCategory: HeadTop
-  forcedColoring: false
-  speciesRestriction: [Oni]
-  sprites:
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: erebia
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: erebia_rings
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: OniHornDoubleThick
-  markingCategory: HeadTop
-  forcedColoring: false
-  speciesRestriction: [Oni]
-  sprites:
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: double_thick
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: OniHornDoubleThick2Tone
-  markingCategory: HeadTop
-  forcedColoring: false
-  speciesRestriction: [Oni]
-  sprites:
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: double_thick_2tone_1
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: double_thick_2tone_2
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: OniHornDoubleThick3Tone
-  markingCategory: HeadTop
-  forcedColoring: false
-  speciesRestriction: [Oni]
-  sprites:
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: double_thick_3tone_1
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: double_thick_3tone_2
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: double_thick_3tone_3
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: OniHornDoubleCurved3Tone
-  markingCategory: HeadTop
-  forcedColoring: false
-  speciesRestriction: [Oni]
-  sprites:
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: double_curved_3tone_1
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: double_curved_3tone_2
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: double_curved_3tone_3
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: OniHornDoubleCurvedOutwards3Tone
-  markingCategory: HeadTop
-  forcedColoring: false
-  speciesRestriction: [Oni]
-  sprites:
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: double_curved_outwards_3tone_1
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: double_curved_outwards_3tone_2
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
-  - sprite: Mobs/Customization/Oni/oni_horns.rsi
-    state: double_curved_outwards_3tone_3
-    # WD EDIT START
-    layer: enum.HumanoidVisualLayers.HeadTop
-    bodyPart: Head
-    # WD EDIT END
+#- type: marking
+#  id: OniHornTallCurved
+#  markingCategory: HeadTop
+#  forcedColoring: false
+#  speciesRestriction: [Oni]
+#  sprites:
+#  - sprite: Mobs/Customization/Oni/oni_horns48x48.rsi
+#    state: tall_curved
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#- type: marking
+#  id: OniHornTallCurved3Tone
+#  markingCategory: HeadTop
+#  forcedColoring: false
+#  speciesRestriction: [Oni]
+#  sprites:
+#  - sprite: Mobs/Customization/Oni/oni_horns48x48.rsi
+#    state: tall_curved_3tone_1
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#  - sprite: Mobs/Customization/Oni/oni_horns48x48.rsi
+#    state: tall_curved_3tone_2
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#  - sprite: Mobs/Customization/Oni/oni_horns48x48.rsi
+#    state: tall_curved_3tone_3
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#- type: marking
+#  id: OniHornTallBull
+#  markingCategory: HeadTop
+#  forcedColoring: false
+#  speciesRestriction: [Oni]
+#  sprites:
+#  - sprite: Mobs/Customization/Oni/oni_horns48x48.rsi
+#    state: tall_bull
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#- type: marking
+#  id: OniHornTallBull3Tone
+#  markingCategory: HeadTop
+#  forcedColoring: false
+#  speciesRestriction: [Oni]
+#  sprites:
+#  - sprite: Mobs/Customization/Oni/oni_horns48x48.rsi
+#    state: tall_bull_3tone_1
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#  - sprite: Mobs/Customization/Oni/oni_horns48x48.rsi
+#    state: tall_bull_3tone_2
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#  - sprite: Mobs/Customization/Oni/oni_horns48x48.rsi
+#    state: tall_bull_3tone_3
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#- type: marking
+#  id: OniHornCrowned
+#  markingCategory: HeadTop
+#  forcedColoring: false
+#  speciesRestriction: [Oni]
+#  sprites:
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: crowned
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: OniHornSerket
+#  markingCategory: HeadTop
+#  forcedColoring: false
+#  speciesRestriction: [Oni]
+#  sprites:
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: serket
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: OniHornSerket3Tone
+#  markingCategory: HeadTop
+#  forcedColoring: false
+#  speciesRestriction: [Oni]
+#  sprites:
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: serket_3tone_1
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: serket_3tone_2
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: serket_3tone_3
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: OniHornPisces
+#  markingCategory: HeadTop
+#  forcedColoring: false
+#  speciesRestriction: [Oni]
+#  sprites:
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: pisces
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: OniHornPisces2Tone
+#  markingCategory: HeadTop
+#  forcedColoring: false
+#  speciesRestriction: [Oni]
+#  sprites:
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: pisces_2tone_1
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: pisces_2tone_2
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: OniHornPisces3Tone
+#  markingCategory: HeadTop
+#  forcedColoring: false
+#  speciesRestriction: [Oni]
+#  sprites:
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: pisces_3tone_1
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: pisces_3tone_2
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: pisces_3tone_3
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: OniHornVirgo
+#  markingCategory: HeadTop
+#  forcedColoring: false
+#  speciesRestriction: [Oni]
+#  sprites:
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: virgo
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: OniHornVirgo3Tone
+#  markingCategory: HeadTop
+#  forcedColoring: false
+#  speciesRestriction: [Oni]
+#  sprites:
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: virgo_3tone_1
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: virgo_3tone_2
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: virgo_3tone_3
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: OniHornSagittarius
+#  markingCategory: HeadTop
+#  forcedColoring: false
+#  speciesRestriction: [Oni]
+#  sprites:
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: sagittarius
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: OniHornSagittarius3Tone
+#  markingCategory: HeadTop
+#  forcedColoring: false
+#  speciesRestriction: [Oni]
+#  sprites:
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: sagittarius_3tone_1
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: sagittarius_3tone_2
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: sagittarius_3tone_3
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: OniHornVantas
+#  markingCategory: HeadTop
+#  forcedColoring: false
+#  speciesRestriction: [Oni]
+#  sprites:
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: vantas
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: OniHornVantas3Tone
+#  markingCategory: HeadTop
+#  forcedColoring: false
+#  speciesRestriction: [Oni]
+#  sprites:
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: vantas_3tone_1
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: vantas_3tone_2
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: vantas_3tone_3
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: OniHornMakara
+#  markingCategory: HeadTop
+#  forcedColoring: false
+#  speciesRestriction: [Oni]
+#  sprites:
+#  - sprite: Mobs/Customization/Oni/oni_horns48x48.rsi
+#    state: makara
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: OniHornMakara2Tone
+#  markingCategory: HeadTop
+#  forcedColoring: false
+#  speciesRestriction: [Oni]
+#  sprites:
+#  - sprite: Mobs/Customization/Oni/oni_horns48x48.rsi
+#    state: makara_2tone_1
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#  - sprite: Mobs/Customization/Oni/oni_horns48x48.rsi
+#    state: makara_2tone_2
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: OniHornMakara3Tone
+#  markingCategory: HeadTop
+#  forcedColoring: false
+#  speciesRestriction: [Oni]
+#  sprites:
+#  - sprite: Mobs/Customization/Oni/oni_horns48x48.rsi
+#    state: makara_3tone_1
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#  - sprite: Mobs/Customization/Oni/oni_horns48x48.rsi
+#    state: makara_3tone_2
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#  - sprite: Mobs/Customization/Oni/oni_horns48x48.rsi
+#    state: makara_3tone_3
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: OniHornNepeta
+#  markingCategory: HeadTop
+#  forcedColoring: false
+#  speciesRestriction: [Oni]
+#  sprites:
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: nepeta
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: OniHornNepeta3Tone
+#  markingCategory: HeadTop
+#  forcedColoring: false
+#  speciesRestriction: [Oni]
+#  sprites:
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: nepeta_3tone_1
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: nepeta_3tone_2
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: nepeta_3tone_3
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: OniHornTaurus
+#  markingCategory: HeadTop
+#  forcedColoring: false
+#  speciesRestriction: [Oni]
+#  sprites:
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: taurus
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: OniHornTaurus2Tone
+#  markingCategory: HeadTop
+#  forcedColoring: false
+#  speciesRestriction: [Oni]
+#  sprites:
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: taurus_2tone_1
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: taurus_2tone_2
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: OniHornTaurus3Tone
+#  markingCategory: HeadTop
+#  forcedColoring: false
+#  speciesRestriction: [Oni]
+#  sprites:
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: taurus_3tone_1
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: taurus_3tone_2
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: taurus_3tone_3
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: OniHornAries
+#  markingCategory: HeadTop
+#  forcedColoring: false
+#  speciesRestriction: [Oni]
+#  sprites:
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: aries
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: OniHornAries3Tone
+#  markingCategory: HeadTop
+#  forcedColoring: false
+#  speciesRestriction: [Oni]
+#  sprites:
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: aries_3tone_1
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: aries_3tone_2
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: aries_3tone_3
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: OniHornTavris
+#  markingCategory: HeadTop
+#  forcedColoring: false
+#  speciesRestriction: [Oni]
+#  sprites:
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: tavris
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: OniHornTavris3Tone
+#  markingCategory: HeadTop
+#  forcedColoring: false
+#  speciesRestriction: [Oni]
+#  sprites:
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: tavris_3tone_1
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: tavris_3tone_2
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: tavris_3tone_3
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: OniHornInclined
+#  markingCategory: HeadTop
+#  forcedColoring: false
+#  speciesRestriction: [Oni]
+#  sprites:
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: inclined
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: OniHornInclined3Tone
+#  markingCategory: HeadTop
+#  forcedColoring: false
+#  speciesRestriction: [Oni]
+#  sprites:
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: inclined_3tone_1
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: inclined_3tone_2
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: inclined_3tone_3
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: OniHornWavy
+#  markingCategory: HeadTop
+#  forcedColoring: false
+#  speciesRestriction: [Oni]
+#  sprites:
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: wavy
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: OniHornWavy2Tone
+#  markingCategory: HeadTop
+#  forcedColoring: false
+#  speciesRestriction: [Oni]
+#  sprites:
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: wavy_2tone_1
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: wavy_2tone_2
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: OniHornWavy3Tone
+#  markingCategory: HeadTop
+#  forcedColoring: false
+#  speciesRestriction: [Oni]
+#  sprites:
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: wavy_3tone_1
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: wavy_3tone_2
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: wavy_3tone_3
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: OniHornAntlers
+#  markingCategory: HeadTop
+#  forcedColoring: false
+#  speciesRestriction: [Oni]
+#  sprites:
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: antlers_2tone_1
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: antlers_2tone_2
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: OniHornAntlers3Tone
+#  markingCategory: HeadTop
+#  forcedColoring: false
+#  speciesRestriction: [Oni]
+#  sprites:
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: antlers_3tone_1
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: antlers_3tone_2
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: antlers_3tone_3
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: OniHornUnicorn
+#  markingCategory: HeadTop
+#  forcedColoring: false
+#  speciesRestriction: [Oni]
+#  sprites:
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: unicorn
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: OniHornErebia
+#  markingCategory: HeadTop
+#  forcedColoring: false
+#  speciesRestriction: [Oni]
+#  sprites:
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: erebia
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: OniHornErebia3Tone
+#  markingCategory: HeadTop
+#  forcedColoring: false
+#  speciesRestriction: [Oni]
+#  sprites:
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: erebia_3tone_1
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: erebia_3tone_2
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: erebia_3tone_3
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: OniHornErebiaRings
+#  markingCategory: HeadTop
+#  forcedColoring: false
+#  speciesRestriction: [Oni]
+#  sprites:
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: erebia
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: erebia_rings
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: OniHornDoubleThick
+#  markingCategory: HeadTop
+#  forcedColoring: false
+#  speciesRestriction: [Oni]
+#  sprites:
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: double_thick
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: OniHornDoubleThick2Tone
+#  markingCategory: HeadTop
+#  forcedColoring: false
+#  speciesRestriction: [Oni]
+#  sprites:
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: double_thick_2tone_1
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: double_thick_2tone_2
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: OniHornDoubleThick3Tone
+#  markingCategory: HeadTop
+#  forcedColoring: false
+#  speciesRestriction: [Oni]
+#  sprites:
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: double_thick_3tone_1
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: double_thick_3tone_2
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: double_thick_3tone_3
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: OniHornDoubleCurved3Tone
+#  markingCategory: HeadTop
+#  forcedColoring: false
+#  speciesRestriction: [Oni]
+#  sprites:
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: double_curved_3tone_1
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: double_curved_3tone_2
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: double_curved_3tone_3
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: OniHornDoubleCurvedOutwards3Tone
+#  markingCategory: HeadTop
+#  forcedColoring: false
+#  speciesRestriction: [Oni]
+#  sprites:
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: double_curved_outwards_3tone_1
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: double_curved_outwards_3tone_2
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END
+#  - sprite: Mobs/Customization/Oni/oni_horns.rsi
+#    state: double_curved_outwards_3tone_3
+#    # WD EDIT START
+#    layer: enum.HumanoidVisualLayers.HeadTop
+#    bodyPart: Head
+#    # WD EDIT END

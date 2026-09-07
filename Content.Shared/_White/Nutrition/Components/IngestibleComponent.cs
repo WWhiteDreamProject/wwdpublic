@@ -94,7 +94,7 @@ public sealed partial class IngestibleComponent : Component
     /// The key name of the solution that stores the consumable reagents.
     /// </summary>
     [DataField]
-    public string SolutionName = "food";
+    public string SolutionName = "ingestible";
 
     /// <summary>
     /// The sound we make when eaten.

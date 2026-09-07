@@ -71,8 +71,8 @@
     hidden: true
     attackRate: 1
     damage:
-      types:
-        Blunt: 20
+      # WD EDIT: Migrated damage format
+      Blunt: 20
   - type: MovementSpeedModifier
     baseWalkSpeed: 1
     baseSprintSpeed: 2
@@ -129,8 +129,8 @@
     hidden: true
     attackRate: 1
     damage:
-      types:
-        Blunt: 26
+      # WD EDIT: Migrated damage format
+      Blunt: 26
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.5
     baseSprintSpeed: 4.5
@@ -200,9 +200,9 @@
     hidden: true
     attackRate: 1
     damage:
-      types:
-        Blunt: 25
-        Structural: 180
+      # WD EDIT: Migrated damage format
+      Blunt: 25
+      Structural: 180
   - type: CanMoveInAir
   - type: MovementAlwaysTouching        
   - type: MovementSpeedModifier
@@ -260,9 +260,9 @@
     hidden: true
     attackRate: 1
     damage:
-      types:
-        Blunt: 40
-        Structural: 220
+      # WD EDIT: Migrated damage format
+      Blunt: 40
+      Structural: 220
   - type: MovementSpeedModifier
     baseWalkSpeed: 1.5
     baseSprintSpeed: 2
@@ -328,9 +328,9 @@
     hidden: true
     attackRate: 1
     damage:
-      types:
-        Blunt: 40
-        Structural: 200
+      # WD EDIT: Migrated damage format
+      Blunt: 40
+      Structural: 200
   - type: MovementSpeedModifier
     baseWalkSpeed: 1
     baseSprintSpeed: 1.5
@@ -401,9 +401,9 @@
     hidden: true
     attackRate: 1
     damage:
-      types:
-        Blunt: 60
-        Structural: 400
+      # WD EDIT: Migrated damage format
+      Blunt: 60
+      Structural: 400
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.2
     baseSprintSpeed: 3.7
@@ -477,9 +477,9 @@
     hidden: true
     attackRate: 1
     damage:
-      types:
-        Blunt: 30
-        Structural: 200
+      # WD EDIT: Migrated damage format
+      Blunt: 30
+      Structural: 200
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.2
     baseSprintSpeed: 3.7
@@ -550,9 +550,9 @@
     hidden: true
     attackRate: 1
     damage:
-      types:
-        Blunt: 50
-        Structural: 400
+      # WD EDIT: Migrated damage format
+      Blunt: 50
+      Structural: 400
   - type: MovementSpeedModifier
     baseWalkSpeed: 1
     baseSprintSpeed: 1.5

@@ -1,0 +1,17 @@
+- type: localizedDataset
+  id: NamingFirstMoth
+  values:
+    prefix: naming-first-moth-
+    count: 39
+
+- type: localizedDataset
+  id: NamingFirstMothFemale
+  values:
+    prefix: naming-first-moth-female-
+    count: 38
+
+- type: localizedDataset
+  id: NamingLastMoth
+  values:
+    prefix: naming-last-moth-
+    count: 28

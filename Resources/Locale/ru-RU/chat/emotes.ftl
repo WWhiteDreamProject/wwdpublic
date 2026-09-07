@@ -32,12 +32,9 @@ chat-emote-name-chime = Звон
 chat-emote-name-buzztwo = Двойное жужжание
 chat-emote-name-ping = Пинг
 chat-emote-name-robotbeep = Robot
-# Shadowkin
-chat-emote-name-mars = Марс
-chat-emote-name-wurble = Воркотание
 # Vulp
 chat-emote-name-tailwag = Вилять хвостом
-# Felinid / Tajaran
+# Felinid
 chat-emote-name-meow = Мяукать
 chat-emote-name-mew = Мявкать
 chat-emote-name-purr = Мурлыкать

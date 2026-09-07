@@ -1,8 +1,8 @@
 using Content.Server._White.Bloodstream.Systems;
 using Content.Server._White.Body.Systems;
 using Content.Shared._White.Bloodstream.Components;
+using Content.Shared._White.Bloodstream.Prototypes;
 using Content.Shared._White.Body;
-using Content.Shared._White.Body.Prototypes;
 using Content.Shared.Traits;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;

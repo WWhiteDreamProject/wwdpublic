@@ -2,13 +2,12 @@ using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 using Content.Shared._EE.Contractors.Prototypes;
+using Content.Shared._White.Appearance.Prototypes;
 using Content.Shared._White.Bark;
 using Content.Shared._White.Body.Components;
 using Content.Shared._White.Body.Systems;
-using Content.Shared._White.Humanoid;
 using Content.Shared._White.Humanoid.Markings;
 using Content.Shared._White.Humanoid.Markings.Managers;
-using Content.Shared._White.Humanoid.Markings.Prototypes;
 using Content.Shared._White.Humanoid.Markings.Systems;
 using Content.Shared._White.Humanoid.Prototypes;
 using Content.Shared._White.Humanoid.Systems;
@@ -38,10 +37,16 @@ namespace Content.Shared._White.Preferences;
 /// </summary>
 [DataDefinition]
 [Serializable, NetSerializable]
-public sealed partial class HumanoidCharacterProfile
+public partial record struct HumanoidCharacterProfile
 {
     private static readonly Regex RestrictedNameRegex = new(@"[^A-Za-z0-9 '\-]");
     private static readonly Regex ICNameCaseRegex = new(@"^(?<word>\w)|\b(?<word>\w)(?=\w*$)");
+
+    /// <summary>
+    /// Dictionary storing character markings by marking category.
+    /// </summary>
+    [DataField("markings")]
+    private Dictionary<Enum, List<Marking>> _markings = new();
 
     /// <summary>
     /// Dictionary mapping job prototypes to their priority for initial spawn.
@@ -58,17 +63,11 @@ public sealed partial class HumanoidCharacterProfile
     /// Dictionary storing character colors.
     /// </summary>
     [DataField("colors")]
-    private Dictionary<ProtoId<BodyColorationPrototype>, Color> _bodyColoration = new()
+    private Dictionary<ProtoId<BodyColorGroupPrototype>, Color> _colors = new()
     {
         {"Skin", Color.White},
-        {"Eye", Color.Black},
+        {"Eyes", Color.Black},
     };
-
-    /// <summary>
-    /// Dictionary storing character markings by marking category.
-    /// </summary>
-    [DataField("markings")]
-    private Dictionary<ProtoId<MarkingCategoryPrototype>, List<Marking>> _markings = new();
 
     /// <summary>
     /// Dictionary mapping body provider slot IDs to their corresponding entity prototype IDs.
@@ -98,7 +97,7 @@ public sealed partial class HumanoidCharacterProfile
     /// Data for applying bark percentage settings.
     /// </summary>
     [DataField]
-    public BarkPercentageApplyData BarkSettings { get; set; } = BarkPercentageApplyData.Default;
+    public BarkPercentageApplyData BarkSettings { get; private set; } = BarkPercentageApplyData.Default;
 
     /// <summary>
     /// The character's height.
@@ -122,16 +121,16 @@ public sealed partial class HumanoidCharacterProfile
     /// The character's age.
     /// </summary>
     [DataField]
-    public int Age { get; set; } = 18;
+    public int Age { get; private set; } = 18;
 
     /// <inheritdoc cref="_jobPriorities"/>
     public IReadOnlyDictionary<ProtoId<JobPrototype>, JobPriority> JobPriorities => _jobPriorities;
 
-    /// <inheritdoc cref="_bodyColoration"/>
-    public IReadOnlyDictionary<ProtoId<BodyColorationPrototype>, Color> BodyColoration => _bodyColoration;
+    /// <inheritdoc cref="_colors"/>
+    public IReadOnlyDictionary<ProtoId<BodyColorGroupPrototype>, Color> Colors => _colors;
 
     /// <inheritdoc cref="_markings"/>
-    public IReadOnlyDictionary<ProtoId<MarkingCategoryPrototype>, List<Marking>> Markings => _markings;
+    public IReadOnlyDictionary<Enum, List<Marking>> Markings => _markings;
 
     /// <inheritdoc cref="_bodyProviders"/>
     public IReadOnlyDictionary<string, EntProtoId?> BodyProviders => _bodyProviders;
@@ -155,7 +154,7 @@ public sealed partial class HumanoidCharacterProfile
     /// The preferred bark voice for the character.
     /// </summary>
     [DataField]
-    public ProtoId<BarkVoicePrototype> Bark { get; set; } = HumanoidProfileSystem.DefaultBark;
+    public ProtoId<BarkVoicePrototype> Bark { get; private set; } = HumanoidProfileSystem.DefaultBark;
 
     /// <summary>
     /// The character's body type.
@@ -191,7 +190,7 @@ public sealed partial class HumanoidCharacterProfile
     /// The character's voice.
     /// </summary>
     [DataField]
-    public ProtoId<TTSVoicePrototype> Voice { get; set; } = HumanoidProfileSystem.DefaultVoice;
+    public ProtoId<TTSVoicePrototype> Voice { get; private set; } = HumanoidProfileSystem.DefaultVoice;
 
     /// <summary>
     /// The character's sex.
@@ -229,10 +228,34 @@ public sealed partial class HumanoidCharacterProfile
     /// <summary>
     /// Initializes a new instance with specified properties.
     /// </summary>
+    /// <param name="markings">The character's markings, keyed by marking category.</param>
+    /// <param name="jobPriorities">The character's job priorities.</param>
+    /// <param name="colors">The character's colors, keyed by body color group.</param>
+    /// <param name="bodyProviders">The character's body provider slots.</param>
+    /// <param name="loadouts">The character's loadouts.</param>
+    /// <param name="antagPreferences">The antag prototypes the character has opted into.</param>
+    /// <param name="traitPreferences">The trait prototypes enabled for the character.</param>
+    /// <param name="barkSettings">The character's bark percentage settings.</param>
+    /// <param name="height">The character's height.</param>
+    /// <param name="width">The character's width.</param>
+    /// <param name="gender">The character's gender.</param>
+    /// <param name="age">The character's age.</param>
+    /// <param name="preferenceUnavailable">The behavior when a preferred job is unavailable.</param>
+    /// <param name="bark">The character's preferred bark voice.</param>
+    /// <param name="bodyType">The character's body type.</param>
+    /// <param name="employer">The character's employer.</param>
+    /// <param name="lifepath">The character's lifepath.</param>
+    /// <param name="nationality">The character's nationality.</param>
+    /// <param name="species">The character's species.</param>
+    /// <param name="voice">The character's voice.</param>
+    /// <param name="sex">The character's sex.</param>
+    /// <param name="spawnPriority">The character's preferred spot to spawn into a round.</param>
+    /// <param name="flavor">The character's flavor text.</param>
+    /// <param name="name">The character's name.</param>
     public HumanoidCharacterProfile(
+        Dictionary<Enum, List<Marking>> markings,
         Dictionary<ProtoId<JobPrototype>, JobPriority> jobPriorities,
-        Dictionary<ProtoId<BodyColorationPrototype>, Color> bodyColoration,
-        Dictionary<ProtoId<MarkingCategoryPrototype>, List<Marking>> markings,
+        Dictionary<ProtoId<BodyColorGroupPrototype>, Color> colors,
         Dictionary<string, EntProtoId?> bodyProviders,
         Dictionary<string, Loadout> loadouts,
         HashSet<ProtoId<AntagPrototype>> antagPreferences,
@@ -256,9 +279,9 @@ public sealed partial class HumanoidCharacterProfile
         string name
         )
     {
-        _jobPriorities = jobPriorities;
-        _bodyColoration = bodyColoration;
         _markings = markings;
+        _jobPriorities = jobPriorities;
+        _colors = colors;
         _bodyProviders = bodyProviders;
         _loadouts = loadouts;
         _antagPreferences = antagPreferences;
@@ -291,7 +314,7 @@ public sealed partial class HumanoidCharacterProfile
     public HumanoidCharacterProfile(HumanoidCharacterProfile other)
     {
         _jobPriorities = new(other.JobPriorities);
-        _bodyColoration = new(other.BodyColoration);
+        _colors = new(other.Colors);
         _markings = new(other.Markings);
         _bodyProviders = new(other.BodyProviders);
         _loadouts = new(other.Loadouts);
@@ -321,16 +344,12 @@ public sealed partial class HumanoidCharacterProfile
     /// </summary>
     public HumanoidCharacterProfile() { }
 
-    public override bool Equals(object? obj)
-    {
-        return obj is HumanoidCharacterProfile other && Equals(other);
-    }
-
+    /// <inheritdoc />
     public override int GetHashCode()
     {
         var hashCode = new HashCode();
         hashCode.Add(_jobPriorities);
-        hashCode.Add(_bodyColoration);
+        hashCode.Add(_colors);
         hashCode.Add(_markings);
         hashCode.Add(_bodyProviders);
         hashCode.Add(_loadouts);
@@ -356,28 +375,17 @@ public sealed partial class HumanoidCharacterProfile
         return hashCode.ToHashCode();
     }
 
-    public static bool operator ==(HumanoidCharacterProfile? left, HumanoidCharacterProfile? right)
-    {
-        if (left == null)
-            return right == null;
-
-        if (right == null)
-            return false;
-
-        return left.Equals(right);
-    }
-
-    public static bool operator !=(HumanoidCharacterProfile? left, HumanoidCharacterProfile? right)
-    {
-        return !(left == right);
-    }
-
+    /// <summary>
+    /// Determines whether this profile is equal to another, comparing all fields and properties.
+    /// </summary>
+    /// <param name="other">The profile to compare against.</param>
+    /// <returns><c>true</c> if the profiles are equal; otherwise, <c>false</c>.</returns>
     public bool Equals(HumanoidCharacterProfile other)
     {
         if (!_jobPriorities.SequenceEqual(other._jobPriorities))
             return false;
 
-        if (!_bodyColoration.SequenceEqual(other._bodyColoration))
+        if (!_colors.SequenceEqual(other._colors))
             return false;
 
         if (!_markings.SequenceEqual(other._markings))
@@ -449,12 +457,18 @@ public sealed partial class HumanoidCharacterProfile
         return true;
     }
 
+    /// <summary>
+    /// Serializes this profile into a <see cref="DataNode"/> for storage or transmission.
+    /// </summary>
+    /// <param name="serialization">The serialization manager to use.</param>
+    /// <param name="configuration">The configuration manager to usу.</param>
+    /// <returns>A <see cref="DataNode"/> representing this profile.</returns>
     public DataNode ToDataNode(ISerializationManager? serialization = null, IConfigurationManager? configuration = null)
     {
         IoCManager.Resolve(ref serialization);
         IoCManager.Resolve(ref configuration);
 
-        var export = new HumanoidProfileExport()
+        var export = new HumanoidCharacterProfileExport
         {
             ForkId = configuration.GetCVar(CVars.BuildForkId),
             Profile = this,
@@ -538,15 +552,15 @@ public sealed partial class HumanoidCharacterProfile
     /// <summary>
     /// Returns a new charter with new color.
     /// </summary>
-    /// <param name="coloration">The body coloration whose color needs to be changed.</param>
+    /// <param name="group">The body color group whose color needs to be changed.</param>
     /// <param name="color">The color to use for the profile.</param>
     /// <returns>A new charter with the specified color.</returns>
-    public HumanoidCharacterProfile WithColor(ProtoId<BodyColorationPrototype> coloration, Color color)
+    public HumanoidCharacterProfile WithColor(ProtoId<BodyColorGroupPrototype> group, Color color)
     {
-        var bodyColoration = _bodyColoration.ShallowClone();
-        bodyColoration[coloration] = color;
+        var colors = _colors.ShallowClone();
+        colors[group] = color;
 
-        return new(this) { _bodyColoration = ValidateBodyColoration(bodyColoration) };
+        return new(this) { _colors = ValidateColors(colors) };
     }
 
     /// <summary>
@@ -655,7 +669,7 @@ public sealed partial class HumanoidCharacterProfile
     /// </summary>
     /// <param name="markings">The markings to use for the profile.</param>
     /// <returns>A new charter with the specified markings.</returns>
-    public HumanoidCharacterProfile WithMarkings(Dictionary<ProtoId<MarkingCategoryPrototype>, List<Marking>> markings)
+    public HumanoidCharacterProfile WithMarkings(Dictionary<Enum, List<Marking>> markings)
     {
         return new(this) { _markings = ValidateMarkings(markings), };
     }
@@ -732,7 +746,7 @@ public sealed partial class HumanoidCharacterProfile
         charter.Age = charter.ValidateAge(Age);
         charter.BodyType = charter.ValidateBodyType(BodyType);
         charter.Voice = charter.ValidateVoice(Voice);
-        charter._bodyColoration = charter.ValidateBodyColoration(_bodyColoration);
+        charter._colors = charter.ValidateColors(_colors);
         charter._markings = charter.ValidateMarkings(_markings);
 
         return charter;
@@ -789,6 +803,12 @@ public sealed partial class HumanoidCharacterProfile
         return new(this) { Width = width };
     }
 
+    /// <summary>
+    /// Deserializes a <see cref="HumanoidCharacterProfile"/> from a YAML stream.
+    /// </summary>
+    /// <param name="stream">The stream containing the serialized profile.</param>
+    /// <param name="serialization">The serialization manager to use.</param>
+    /// <returns>The deserialized and validated profile.</returns>
     public static HumanoidCharacterProfile FromStream(Stream stream, ISerializationManager? serialization = null)
     {
         IoCManager.Resolve(ref serialization);
@@ -801,7 +821,7 @@ public sealed partial class HumanoidCharacterProfile
         HumanoidCharacterProfile profile;
         if (root["version"].Equals(new YamlScalarNode("1")))
         {
-            var export = serialization.Read<HumanoidProfileExport>(root.ToDataNode(), notNullableOverride: true);
+            var export = serialization.Read<HumanoidCharacterProfileExport>(root.ToDataNode(), notNullableOverride: true);
             profile = export.Profile;
         }
         else
@@ -813,6 +833,11 @@ public sealed partial class HumanoidCharacterProfile
         return profile;
     }
 
+    /// <summary>
+    /// Generates a random profile using a randomly chosen valid species.
+    /// </summary>
+    /// <param name="ignoredSpecies">Species that should not be considered when picking a random species.</param>
+    /// <returns>A new randomly generated profile, or a default profile if no valid species is available.</returns>
     public static HumanoidCharacterProfile Random(HashSet<ProtoId<SpeciesPrototype>>? ignoredSpecies = null)
     {
         var prototypeManager = IoCManager.Resolve<IPrototypeManager>();
@@ -836,6 +861,11 @@ public sealed partial class HumanoidCharacterProfile
         return Random(random.Pick(possibleSpecies));
     }
 
+    /// <summary>
+    /// Generates a random profile for the given species.
+    /// </summary>
+    /// <param name="species">The species to generate the profile for.</param>
+    /// <returns>A new randomly generated profile.</returns>
     public static HumanoidCharacterProfile Random(ProtoId<SpeciesPrototype> species)
     {
         var charter = new HumanoidCharacterProfile();
@@ -883,12 +913,12 @@ public sealed partial class HumanoidCharacterProfile
 
         _antagPreferences = ValidateAntagPreferences(_antagPreferences);
         _bodyProviders = ValidateBodyProviders(_bodyProviders);
-        _bodyColoration = ValidateBodyColoration(_bodyColoration);
+        _colors = ValidateColors(_colors);
         _jobPriorities = ValidateJobPriorities(_jobPriorities);
         _markings = ValidateMarkings(_markings);
         _traitPreferences = ValidateTraitPreferences(_traitPreferences);
 
-        // TODO loadouts, bark, height and width validate.
+        // TODO loadouts, barks, height and width validate.
     }
 
     /// <summary>
@@ -901,11 +931,12 @@ public sealed partial class HumanoidCharacterProfile
         return charter;
     }
 
-    public HumanoidCharacterProfile Clone()
-    {
-        return new (this);
-    }
-
+    /// <summary>
+    /// Removes job priorities for jobs that no longer exist or don't allow preferences, removes entries set to
+    /// <see cref="JobPriority.Never"/>, and ensures only one job is set to <see cref="JobPriority.High"/>.
+    /// </summary>
+    /// <param name="jobPriorities">The job priorities to validate.</param>
+    /// <returns>The validated job priorities.</returns>
     private Dictionary<ProtoId<JobPrototype>, JobPriority> ValidateJobPriorities(Dictionary<ProtoId<JobPrototype>, JobPriority> jobPriorities)
     {
         var prototypeManager = IoCManager.Resolve<IPrototypeManager>();
@@ -935,26 +966,39 @@ public sealed partial class HumanoidCharacterProfile
         return validJobPriorities;
     }
 
-    private Dictionary<ProtoId<BodyColorationPrototype>, Color> ValidateBodyColoration(Dictionary<ProtoId<BodyColorationPrototype>, Color> colors)
+    /// <summary>
+    /// Clamps each color to the valid range defined by its coloration strategy, if the character's
+    /// species defines one for that body color group.
+    /// </summary>
+    /// <param name="colors">The colors to validate.</param>
+    /// <returns>The validated colors.</returns>
+    private Dictionary<ProtoId<BodyColorGroupPrototype>, Color> ValidateColors(Dictionary<ProtoId<BodyColorGroupPrototype>, Color> colors)
     {
         var prototypeManager = IoCManager.Resolve<IPrototypeManager>();
 
         var speciesPrototype = prototypeManager.Index(Species);
 
         var validColors = colors.ShallowClone();
-        foreach (var (bodyColoration, color) in colors)
+        foreach (var (group, color) in colors)
         {
-            if (!speciesPrototype.Coloration.TryGetValue(bodyColoration, out var coloration))
+            if (!speciesPrototype.Colorations.TryGetValue(group, out var coloration))
                 continue;
 
             var colorationStrategy = prototypeManager.Index(coloration).Strategy;
-            validColors[bodyColoration] = colorationStrategy.EnsureVerified(color);
+            validColors[group] = colorationStrategy.EnsureVerified(color);
         }
 
         return validColors;
     }
 
-    private Dictionary<ProtoId<MarkingCategoryPrototype>, List<Marking>> ValidateMarkings(Dictionary<ProtoId<MarkingCategoryPrototype>, List<Marking>> markingsSet)
+    /// <summary>
+    /// Filters and adjusts markings so that only markings valid for the character's current body
+    /// (based on species and body providers) remain, with colors, group/sex, and limits enforced
+    /// per marking layer.
+    /// </summary>
+    /// <param name="markingsSet">The markings to validate, keyed by marking category.</param>
+    /// <returns>The validated markings, or an empty set if the species has no valid body.</returns>
+    private Dictionary<Enum, List<Marking>> ValidateMarkings(Dictionary<Enum, List<Marking>> markingsSet)
     {
         var entitySystemManager = IoCManager.Resolve<IEntitySystemManager>();
         var componentFactory = IoCManager.Resolve<IComponentFactory>();
@@ -965,7 +1009,7 @@ public sealed partial class HumanoidCharacterProfile
         var markingsSystem = entitySystemManager.GetEntitySystem<SharedMarkingsSystem>();
 
         var speciesPrototype = prototypeManager.Index(Species);
-        var dollPrototype = prototypeManager.Index(speciesPrototype.DollPrototype);
+        var dollPrototype = prototypeManager.Index(speciesPrototype.Doll);
 
         if (!dollPrototype.TryGetComponent<BodyComponent>(out var body, componentFactory))
             return new();
@@ -990,25 +1034,34 @@ public sealed partial class HumanoidCharacterProfile
             bodyProviders.Add(startingProvider);
         }
 
-        var validMarkings = markingsSet.ShallowClone();
+        var validMarkingsSet = markingsSet.ShallowClone();
 
         foreach (var bodyProvider in bodyProviders)
         {
             if (!markingsSystem.TryGetData(bodyProvider, out var markingData))
                 continue;
 
-            var markings = markingsSet.GetValueOrDefault(markingData.Value.Category)?.ShallowClone() ?? [];
+            foreach (var layer in markingData.Value.Layers)
+            {
+                var markings = markingsSet.GetValueOrDefault(layer)?.ShallowClone() ?? [];
 
-            markingManager.EnsureValidColors(markings, markingData.Value.Group, _bodyColoration);
-            markingManager.EnsureValidGroupAndSex(markings, markingData.Value.Group, Sex);
-            markingManager.EnsureValidLimits(markings, markingData.Value.Group, _bodyColoration);
+                markingManager.EnsureValidColors(markings, markingData.Value.Group, _colors);
+                markingManager.EnsureValidGroupAndSex(markings, markingData.Value.Group, Sex);
+                markingManager.EnsureValidLimits(markings, markingData.Value.Group, _colors);
 
-            validMarkings[markingData.Value.Category] = markings;
+                validMarkingsSet[layer] = markings;
+            }
         }
 
-        return validMarkings;
+        return validMarkingsSet;
     }
 
+    /// <summary>
+    /// Removes body providers that no longer correspond to a valid slot on the character's species,
+    /// or whose entity prototype no longer exists.
+    /// </summary>
+    /// <param name="bodyProviders">The body providers to validate, keyed by slot id.</param>
+    /// <returns>The validated body providers, or an empty set if the species has no valid body.</returns>
     private Dictionary<string, EntProtoId?> ValidateBodyProviders(Dictionary<string, EntProtoId?> bodyProviders)
     {
         var entitySystemManager = IoCManager.Resolve<IEntitySystemManager>();
@@ -1018,7 +1071,7 @@ public sealed partial class HumanoidCharacterProfile
         var bodySystem = entitySystemManager.GetEntitySystem<SharedBodySystem>();
 
         var speciesPrototype = prototypeManager.Index(Species);
-        var dollPrototype = prototypeManager.Index(speciesPrototype.DollPrototype);
+        var dollPrototype = prototypeManager.Index(speciesPrototype.Doll);
 
         if (!dollPrototype.TryGetComponent<BodyComponent>(out var body, componentFactory))
             return new();
@@ -1037,6 +1090,12 @@ public sealed partial class HumanoidCharacterProfile
         return validBodyProviders;
     }
 
+    /// <summary>
+    /// Removes antag preferences for antag prototypes that no longer exist or don't allow
+    /// preferences to be set.
+    /// </summary>
+    /// <param name="antagPreferences">The antag preferences to validate.</param>
+    /// <returns>The validated antag preferences.</returns>
     private HashSet<ProtoId<AntagPrototype>> ValidateAntagPreferences(HashSet<ProtoId<AntagPrototype>> antagPreferences)
     {
         var prototypeManager = IoCManager.Resolve<IPrototypeManager>();
@@ -1053,6 +1112,12 @@ public sealed partial class HumanoidCharacterProfile
         return validAntagPreferences;
     }
 
+    /// <summary>
+    /// Removes trait preferences for trait prototypes that no longer exist or don't allow
+    /// preferences to be set.
+    /// </summary>
+    /// <param name="traitPreferences">The trait preferences to validate.</param>
+    /// <returns>The validated trait preferences.</returns>
     private HashSet<ProtoId<TraitPrototype>> ValidateTraitPreferences(HashSet<ProtoId<TraitPrototype>> traitPreferences)
     {
         var prototypeManager = IoCManager.Resolve<IPrototypeManager>();
@@ -1069,6 +1134,11 @@ public sealed partial class HumanoidCharacterProfile
         return validTraitPreferences;
     }
 
+    /// <summary>
+    /// Clamps the age to the valid range defined by the character's species.
+    /// </summary>
+    /// <param name="age">The age to validate.</param>
+    /// <returns>The validated age.</returns>
     private int ValidateAge(int age)
     {
         var prototypeManager = IoCManager.Resolve<IPrototypeManager>();
@@ -1078,6 +1148,12 @@ public sealed partial class HumanoidCharacterProfile
         return Math.Clamp(age, speciesPrototype.MinAge, speciesPrototype.MaxAge);
     }
 
+    /// <summary>
+    /// Ensures the body type is one of the character's species' available body types, falling
+    /// back to the species' first body type otherwise.
+    /// </summary>
+    /// <param name="bodyType">The body type to validate.</param>
+    /// <returns>The validated body type.</returns>
     private ProtoId<BodyTypePrototype> ValidateBodyType(ProtoId<BodyTypePrototype> bodyType)
     {
         var prototypeManager = IoCManager.Resolve<IPrototypeManager>();
@@ -1090,6 +1166,11 @@ public sealed partial class HumanoidCharacterProfile
         return speciesPrototype.BodyTypes.FirstOrDefault();
     }
 
+    /// <summary>
+    /// Ensures the species allows player selection, falling back to the default species otherwise.
+    /// </summary>
+    /// <param name="species">The species to validate.</param>
+    /// <returns>The validated species.</returns>
     private ProtoId<SpeciesPrototype> ValidateSpecies(ProtoId<SpeciesPrototype> species)
     {
         var prototypeManager = IoCManager.Resolve<IPrototypeManager>();
@@ -1102,6 +1183,12 @@ public sealed partial class HumanoidCharacterProfile
         return species;
     }
 
+    /// <summary>
+    /// Ensures the voice matches the character's sex (unless the voice is unsexed), falling back
+    /// to the default voice for the character's sex otherwise.
+    /// </summary>
+    /// <param name="voice">The voice to validate.</param>
+    /// <returns>The validated voice.</returns>
     private ProtoId<TTSVoicePrototype> ValidateVoice(ProtoId<TTSVoicePrototype> voice)
     {
         var prototypeManager = IoCManager.Resolve<IPrototypeManager>();
@@ -1116,6 +1203,12 @@ public sealed partial class HumanoidCharacterProfile
         return HumanoidProfileSystem.DefaultSexVoice[Sex];
     }
 
+    /// <summary>
+    /// Ensures the sex is one of the character's species' available sexes, falling back to the
+    /// species' first sex otherwise.
+    /// </summary>
+    /// <param name="sex">The sex to validate.</param>
+    /// <returns>The validated sex.</returns>
     private Sex ValidateSex(Sex sex)
     {
         var prototypeManager = IoCManager.Resolve<IPrototypeManager>();
@@ -1128,10 +1221,13 @@ public sealed partial class HumanoidCharacterProfile
         return speciesPrototype.Sexes.FirstOrDefault();
     }
 
+    /// <summary>
+    /// Strips markup and truncates the flavor text to the maximum allowed length.
+    /// </summary>
+    /// <param name="flavor">The flavor text to validate.</param>
+    /// <returns>The validated flavor text.</returns>
     private string ValidateFlavor(string flavor)
     {
-        var entitySystemManager = IoCManager.Resolve<IEntitySystemManager>();
-
         flavor = FormattedMessage.RemoveMarkupOrThrow(flavor);
         if (flavor.Length > HumanoidProfileSystem.MaxFlavorLength)
             flavor = Flavor[..HumanoidProfileSystem.MaxFlavorLength];
@@ -1139,6 +1235,12 @@ public sealed partial class HumanoidCharacterProfile
         return flavor;
     }
 
+    /// <summary>
+    /// Trims, sanitizes (restricted names, IC name case), and truncates the name according to
+    /// server settings, generating a new name for the character's species if the result is empty.
+    /// </summary>
+    /// <param name="name">The name to validate.</param>
+    /// <returns>The validated name.</returns>
     private string ValidateName(string name)
     {
         var configurationManager = IoCManager.Resolve<IConfigurationManager>();

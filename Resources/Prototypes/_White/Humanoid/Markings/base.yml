@@ -1,0 +1,71 @@
+- type: marking
+  id: BaseAppendages
+  abstract: true
+  category: Appendages
+  coloring:
+    default:
+      type: !type:BodyColorGroupColoring
+        group: Skin
+
+- type: marking
+  id: BaseBandages
+  abstract: true
+  category: Bandages
+
+- type: marking
+  id: BaseChelicerae
+  abstract: true
+  category: Chelicerae
+  coloring:
+    default:
+      type: !type:BodyColorGroupColoring
+        group: Skin
+
+- type: marking
+  id: BaseColoration
+  abstract: true
+  category: Coloration
+
+- type: marking
+  id: BaseEars
+  abstract: true
+  category: Ears
+
+- type: marking
+  id: BaseEarrings
+  abstract: true
+  category: Earrings
+
+- type: marking
+  id: BaseEyes
+  abstract: true
+  category: Eyes
+
+- type: marking
+  id: BaseFace
+  abstract: true
+  category: Face
+
+- type: marking
+  id: BaseHair
+  abstract: true
+  category: Hair
+
+- type: marking
+  id: BaseNose
+  abstract: true
+  category: Nose
+  coloring:
+    default:
+      type: !type:BodyColorGroupColoring
+        group: Skin
+
+- type: marking
+  id: BaseOverlay
+  abstract: true
+  category: Overlay
+
+- type: marking
+  id: BaseVegetation
+  abstract: true
+  category: Vegetation

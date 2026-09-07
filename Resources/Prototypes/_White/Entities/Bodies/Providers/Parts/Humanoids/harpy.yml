@@ -1,0 +1,69 @@
+- type: entity
+  id: BaseBodyProviderPartHarpy
+  parent: BaseBodyProviderPartOrganic
+  abstract: true
+  suffix: Harpy
+  components:
+  - type: BodyAppearanceProvider
+    path: _White/Bodies/Parts/Humanoids/harpy.rsi
+  - type: Sprite
+    sprite: _White/Bodies/Parts/Humanoids/harpy.rsi
+
+# Arms
+- type: entity
+  id: BodyProviderLeftArmHarpy
+  parent: [BaseBodyProviderLeftArmOrganic, BaseBodyProviderPartHarpy]
+
+- type: entity
+  id: BodyProviderRightArmHarpy
+  parent: [BaseBodyProviderRightArmOrganic, BaseBodyProviderPartHarpy]
+
+# Chest
+- type: entity
+  id: BodyProviderChestHarpy
+  parent: [BaseBodyProviderChestOrganic, BaseBodyProviderPartHarpy]
+
+# Foots
+- type: entity
+  id: BodyProviderLeftFootHarpy
+  parent: [BaseBodyProviderLeftFootOrganic, BaseBodyProviderPartHarpy]
+
+- type: entity
+  id: BodyProviderRightFootHarpy
+  parent: [BaseBodyProviderRightFootOrganic, BaseBodyProviderPartHarpy]
+
+# Groin
+- type: entity
+  id: BodyProviderGroinHarpy
+  parent: [BaseBodyProviderGroinOrganic, BaseBodyProviderPartHarpy]
+
+# Hands
+- type: entity
+  id: BodyProviderLeftHandHarpy
+  parent: [BaseBodyProviderLeftHandOrganic, BaseBodyProviderPartHarpy]
+
+- type: entity
+  id: BodyProviderRightHandHarpy
+  parent: [BaseBodyProviderRightHandOrganic, BaseBodyProviderPartHarpy]
+
+# Head
+- type: entity
+  id: BodyProviderHeadHarpy
+  parent: [BaseBodyProviderHeadOrganic, BaseBodyProviderPartHarpy]
+
+# Legs
+- type: entity
+  id: BodyProviderLeftLegHarpy
+  parent: [BaseBodyProviderLeftLegOrganic, BaseBodyProviderPartHarpy]
+
+- type: entity
+  id: BodyProviderRightLegHarpy
+  parent: [BaseBodyProviderRightLegOrganic, BaseBodyProviderPartHarpy]
+
+# Tail
+- type: entity
+  id: BodyProviderTailHarpy
+  parent: [BaseBodyProviderTailOrganic, BaseBodyProviderPartHarpy]
+  components:
+  - type: BodyAppearanceProvider
+    group: Feathers

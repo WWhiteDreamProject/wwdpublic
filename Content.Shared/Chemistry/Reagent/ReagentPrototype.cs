@@ -1,7 +1,7 @@
 using System.Collections.Frozen;
 using System.Linq;
 using System.Text.Json.Serialization;
-using Content.Shared._White.Body.Prototypes;
+using Content.Shared._White.Bloodstream.Prototypes;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reaction;

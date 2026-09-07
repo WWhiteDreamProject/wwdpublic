@@ -1,569 +1,569 @@
-
-
-- type: marking
-  id: MothBodyClaw
-  markingCategory: Chest
-  speciesRestriction: [Moth]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/moth.rsi
-    state: moth_body_claw
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.Chest
-    bodyPart: Chest
-    # WD EDIT END
-
-- type: marking
-  id: MothBurnLeft
-  markingCategory: Head
-  speciesRestriction: [Moth, Chitinid]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/moth.rsi
-    state: moth_burn_l
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.Head
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: MothBurnRight
-  markingCategory: Head
-  speciesRestriction: [Moth, Chitinid]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/moth.rsi
-    state: moth_burn_r
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.Head
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: MothFaceClaw
-  markingCategory: Head
-  speciesRestriction: [Moth, Chitinid]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/moth.rsi
-    state: moth_face_claw
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.Head
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: MothSlashLeft
-  markingCategory: Head
-  speciesRestriction: [Moth, Chitinid]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/moth.rsi
-    state: moth_slash_l
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.Head
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: ChimeraArmLeftMoth
-  markingCategory: LeftArm
-  speciesRestriction: [Moth]
-  followSkinColor: false
-  coloring:
-    default:
-      type:
-        !type:SkinColoring
-          negative: true
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/moth.rsi
-    state: arm_l_chimera_moth
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.LeftArm
-    bodyPart: LeftArm
-    # WD EDIT END
-
-- type: marking
-  id: ProstheticArmLeftMoth
-  markingCategory: LeftArm
-  speciesRestriction: [Moth]
-  followSkinColor: false
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#E4E4E4"
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/moth.rsi
-    state: arm_l_prosthetic_moth
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.LeftArm
-    bodyPart: LeftArm
-    # WD EDIT END
-
-- type: marking
-  id: TwistingArmLeftMoth
-  markingCategory: LeftArm
-  speciesRestriction: [Moth]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/moth.rsi
-    state: arm_l_twisting_moth
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.LeftArm
-    bodyPart: LeftArm
-    # WD EDIT END
-
-- type: marking
-  id: ProstheticArmRightMoth
-  markingCategory: RightArm
-  speciesRestriction: [Moth]
-  followSkinColor: false
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#E4E4E4"
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/moth.rsi
-    state: arm_r_prosthetic_moth
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.RightArm
-    bodyPart: RightArm
-    # WD EDIT END
-
-- type: marking
-  id: TwistingArmRightMoth
-  markingCategory: RightArm
-  speciesRestriction: [Moth]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/moth.rsi
-    state: arm_r_twisting_moth
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.RightArm
-    bodyPart: RightArm
-    # WD EDIT END
-
-- type: marking
-  id: WingsBackstabbed
-  markingCategory: Tail
-  speciesRestriction: [Moth]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/moth.rsi
-    state: wings_backstabbed
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.Tail
-    bodyPart: Tail
-    replacementBodyPart: BodyPartWingsMoth
-    # WD EDIT END
-
-- type: marking
-  id: ChestChimeraFemaleMoth
-  markingCategory: Chest
-  speciesRestriction: [Moth]
-  sexRestriction: [Female]
-  followSkinColor: false
-  coloring:
-    default:
-      type:
-        !type:SkinColoring
-          negative: true
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/moth.rsi
-    state: chest_chimera_f_moth
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.Chest
-    bodyPart: Chest
-    # WD EDIT END
-
-- type: marking
-  id: ChestChimeraMaleMoth
-  markingCategory: Chest
-  speciesRestriction: [Moth]
-  sexRestriction: [Male]
-  followSkinColor: false
-  coloring:
-    default:
-      type:
-        !type:SkinColoring
-          negative: true
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/moth.rsi
-    state: chest_chimera_m_moth
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.Chest
-    bodyPart: Chest
-    # WD EDIT END
-
-- type: marking
-  id: ChestTwistingLeftFemaleMoth
-  markingCategory: Chest
-  speciesRestriction: [Moth]
-  sexRestriction: [Female]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/moth.rsi
-    state: chest_l_twisting_f_moth
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.Chest
-    bodyPart: Chest
-    # WD EDIT END
-
-- type: marking
-  id: ChestTwistingLeftMaleMoth
-  markingCategory: Chest
-  speciesRestriction: [Moth]
-  sexRestriction: [Male]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/moth.rsi
-    state: chest_l_twisting_m_moth
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.Chest
-    bodyPart: Chest
-    # WD EDIT END
-
-- type: marking
-  id: ChestTwistingRightFemaleMoth
-  markingCategory: Chest
-  speciesRestriction: [Moth]
-  sexRestriction: [Female]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/moth.rsi
-    state: chest_r_twisting_f_moth
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.Chest
-    bodyPart: Chest
-    # WD EDIT END
-
-- type: marking
-  id: ChestTwistingRightMaleMoth
-  markingCategory: Chest
-  speciesRestriction: [Moth]
-  sexRestriction: [Male]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/moth.rsi
-    state: chest_r_twisting_m_moth
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.Chest
-    bodyPart: Chest
-    # WD EDIT END
-
-- type: marking
-  id: ChestStarMoth
-  markingCategory: Chest
-  speciesRestriction: [Moth]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/moth.rsi
-    state: chest_star_moth
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.Chest
-    bodyPart: Chest
-    # WD EDIT END
-
-- type: marking
-  id: HeterochromiaMoth
-  markingCategory: Head
-  speciesRestriction: [Moth, Chitinid]
-  followSkinColor: false
-  coloring:
-    default:
-      type:
-        !type:EyeColoring
-          negative: true
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/moth.rsi
-    state: eyes_heterochromia_moth
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.Eyes
-    organ: Eyes
-    # WD EDIT END
-
-- type: marking
-  id: FootChimeraLeftMoth
-  markingCategory: LeftLeg
-  speciesRestriction: [Moth]
-  followSkinColor: false
-  coloring:
-    default:
-      type:
-        !type:SkinColoring
-          negative: true
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/moth.rsi
-    state: foot_l_chimera_moth
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.LeftLeg
-    bodyPart: LeftLeg
-    # WD EDIT END
-
-- type: marking
-  id: FootProstheticLeftMoth
-  markingCategory: LeftFoot
-  speciesRestriction: [Moth]
-  followSkinColor: false
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#E4E4E4"
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/moth.rsi
-    state: foot_l_prosthetic_moth
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.LeftFoot
-    bodyPart: LeftFoot
-    # WD EDIT END
-
-- type: marking
-  id: FootProstheticRightMoth
-  markingCategory: RightFoot
-  speciesRestriction: [Moth]
-  followSkinColor: false
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#E4E4E4"
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/moth.rsi
-    state: foot_r_prosthetic_moth
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.RightFoot
-    bodyPart: RightFoot
-    # WD EDIT END
-
-- type: marking
-  id: HandChimeraLeftMoth
-  markingCategory: LeftHand
-  speciesRestriction: [Moth]
-  followSkinColor: false
-  coloring:
-    default:
-      type:
-        !type:SkinColoring
-          negative: true
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/moth.rsi
-    state: hand_l_chimera_moth
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.LeftHand
-    bodyPart: LeftHand
-    # WD EDIT END
-
-- type: marking
-  id: HandProstheticLeftMoth
-  markingCategory: LeftHand
-  speciesRestriction: [Moth]
-  followSkinColor: false
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#E4E4E4"
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/moth.rsi
-    state: hand_l_prosthetic_moth
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.LeftHand
-    bodyPart: LeftHand
-    # WD EDIT END
-
-- type: marking
-  id: HandTwistingLeftMoth
-  markingCategory: LeftHand
-  speciesRestriction: [Moth]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/moth.rsi
-    state: hand_l_twisting_moth
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.LeftHand
-    bodyPart: LeftHand
-    # WD EDIT END
-
-- type: marking
-  id: HandProstheticRightMoth
-  markingCategory: RightHand
-  speciesRestriction: [Moth]
-  followSkinColor: false
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#E4E4E4"
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/moth.rsi
-    state: hand_r_prosthetic_moth
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.RightHand
-    bodyPart: RightHand
-    # WD EDIT END
-
-- type: marking
-  id: HandTwistingRightMoth
-  markingCategory: RightHand
-  speciesRestriction: [Moth]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/moth.rsi
-    state: hand_r_twisting_moth
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.RightHand
-    bodyPart: RightHand
-    # WD EDIT END
-
-- type: marking
-  id: BadmoltMoth
-  markingCategory: Head
-  speciesRestriction: [Moth]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/moth.rsi
-    state: head_badmolt_moth
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.Head
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: HeadChimeraMoth
-  markingCategory: Head
-  speciesRestriction: [Moth]
-  followSkinColor: false
-  coloring:
-    default:
-      type:
-        !type:SkinColoring
-          negative: true
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/moth.rsi
-    state: head_chimera_moth
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.Head
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: EyebagsMoth
-  markingCategory: Head
-  speciesRestriction: [Moth, Chitinid]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/moth.rsi
-    state: head_eyebags_moth
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.Head
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: HeadTwistingMoth
-  markingCategory: Head
-  speciesRestriction: [Moth, Chitinid]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/moth.rsi
-    state: head_twisting_moth
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.Head
-    bodyPart: Head
-    # WD EDIT END
-
-- type: marking
-  id: LegChimeraLeftMoth
-  markingCategory: LeftLeg
-  speciesRestriction: [Moth]
-  followSkinColor: false
-  coloring:
-    default:
-      type:
-        !type:SkinColoring
-          negative: true
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/moth.rsi
-    state: leg_l_chimera_moth
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.LeftLeg
-    bodyPart: LeftLeg
-    # WD EDIT END
-
-- type: marking
-  id: LegProstheticLeftMoth
-  markingCategory: LeftLeg
-  speciesRestriction: [Moth]
-  followSkinColor: false
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#E4E4E4"
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/moth.rsi
-    state: leg_l_prosthetic_moth
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.LeftLeg
-    bodyPart: LeftLeg
-    # WD EDIT END
-
-- type: marking
-  id: LegTwistingLeftMoth
-  markingCategory: LeftLeg
-  speciesRestriction: [Moth]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/moth.rsi
-    state: leg_l_twisting_moth
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.LeftLeg
-    bodyPart: LeftLeg
-    # WD EDIT END
-
-- type: marking
-  id: LegProstheticRightMoth
-  markingCategory: RightLeg
-  speciesRestriction: [Moth]
-  followSkinColor: false
-  coloring:
-    default:
-      type:
-        !type:SimpleColoring
-          color: "#E4E4E4"
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/moth.rsi
-    state: leg_r_prosthetic_moth
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.RightLeg
-    bodyPart: RightLeg
-    # WD EDIT END
-
-- type: marking
-  id: LegTwistingRightMoth
-  markingCategory: RightLeg
-  speciesRestriction: [Moth]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/moth.rsi
-    state: leg_r_twisting_moth
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.RightLeg
-    bodyPart: RightLeg
-    # WD EDIT END
-
-- type: marking
-  id: TorsoIncisionMoth
-  markingCategory: Chest
-  speciesRestriction: [Moth, Chitinid]
-  followSkinColor: false
-  sprites:
-  - sprite: _Impstation/Mobs/Customization/moth.rsi
-    state: torso_incision_moth
-    # WD EDIT START
-    layer: enum.BodyAppearanceLayer.Chest
-    bodyPart: Chest
-    # WD EDIT END
+#
+#
+#- type: marking
+#  id: MothBodyClaw
+#  markingCategory: Chest
+#  speciesRestriction: [Moth]
+#  followSkinColor: false
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/moth.rsi
+#    state: moth_body_claw
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.Chest
+#    bodyPart: Chest
+#    # WD EDIT END
+#
+#- type: marking
+#  id: MothBurnLeft
+#  markingCategory: Head
+#  speciesRestriction: [Moth]
+#  followSkinColor: false
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/moth.rsi
+#    state: moth_burn_l
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.Head
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: MothBurnRight
+#  markingCategory: Head
+#  speciesRestriction: [Moth]
+#  followSkinColor: false
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/moth.rsi
+#    state: moth_burn_r
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.Head
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: MothFaceClaw
+#  markingCategory: Head
+#  speciesRestriction: [Moth]
+#  followSkinColor: false
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/moth.rsi
+#    state: moth_face_claw
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.Head
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: MothSlashLeft
+#  markingCategory: Head
+#  speciesRestriction: [Moth]
+#  followSkinColor: false
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/moth.rsi
+#    state: moth_slash_l
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.Head
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: ChimeraArmLeftMoth
+#  markingCategory: LeftArm
+#  speciesRestriction: [Moth]
+#  followSkinColor: false
+#  coloring:
+#    default:
+#      type:
+#        !type:SkinColoring
+#          negative: true
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/moth.rsi
+#    state: arm_l_chimera_moth
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.LeftArm
+#    bodyPart: LeftArm
+#    # WD EDIT END
+#
+#- type: marking
+#  id: ProstheticArmLeftMoth
+#  markingCategory: LeftArm
+#  speciesRestriction: [Moth]
+#  followSkinColor: false
+#  coloring:
+#    default:
+#      type:
+#        !type:SimpleColoring
+#          color: "#E4E4E4"
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/moth.rsi
+#    state: arm_l_prosthetic_moth
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.LeftArm
+#    bodyPart: LeftArm
+#    # WD EDIT END
+#
+#- type: marking
+#  id: TwistingArmLeftMoth
+#  markingCategory: LeftArm
+#  speciesRestriction: [Moth]
+#  followSkinColor: false
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/moth.rsi
+#    state: arm_l_twisting_moth
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.LeftArm
+#    bodyPart: LeftArm
+#    # WD EDIT END
+#
+#- type: marking
+#  id: ProstheticArmRightMoth
+#  markingCategory: RightArm
+#  speciesRestriction: [Moth]
+#  followSkinColor: false
+#  coloring:
+#    default:
+#      type:
+#        !type:SimpleColoring
+#          color: "#E4E4E4"
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/moth.rsi
+#    state: arm_r_prosthetic_moth
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.RightArm
+#    bodyPart: RightArm
+#    # WD EDIT END
+#
+#- type: marking
+#  id: TwistingArmRightMoth
+#  markingCategory: RightArm
+#  speciesRestriction: [Moth]
+#  followSkinColor: false
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/moth.rsi
+#    state: arm_r_twisting_moth
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.RightArm
+#    bodyPart: RightArm
+#    # WD EDIT END
+#
+#- type: marking
+#  id: WingsBackstabbed
+#  markingCategory: Tail
+#  speciesRestriction: [Moth]
+#  followSkinColor: false
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/moth.rsi
+#    state: wings_backstabbed
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.Tail
+#    bodyPart: Tail
+#    replacementBodyPart: BodyPartWingsMoth
+#    # WD EDIT END
+#
+#- type: marking
+#  id: ChestChimeraFemaleMoth
+#  markingCategory: Chest
+#  speciesRestriction: [Moth]
+#  sexRestriction: [Female]
+#  followSkinColor: false
+#  coloring:
+#    default:
+#      type:
+#        !type:SkinColoring
+#          negative: true
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/moth.rsi
+#    state: chest_chimera_f_moth
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.Chest
+#    bodyPart: Chest
+#    # WD EDIT END
+#
+#- type: marking
+#  id: ChestChimeraMaleMoth
+#  markingCategory: Chest
+#  speciesRestriction: [Moth]
+#  sexRestriction: [Male]
+#  followSkinColor: false
+#  coloring:
+#    default:
+#      type:
+#        !type:SkinColoring
+#          negative: true
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/moth.rsi
+#    state: chest_chimera_m_moth
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.Chest
+#    bodyPart: Chest
+#    # WD EDIT END
+#
+#- type: marking
+#  id: ChestTwistingLeftFemaleMoth
+#  markingCategory: Chest
+#  speciesRestriction: [Moth]
+#  sexRestriction: [Female]
+#  followSkinColor: false
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/moth.rsi
+#    state: chest_l_twisting_f_moth
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.Chest
+#    bodyPart: Chest
+#    # WD EDIT END
+#
+#- type: marking
+#  id: ChestTwistingLeftMaleMoth
+#  markingCategory: Chest
+#  speciesRestriction: [Moth]
+#  sexRestriction: [Male]
+#  followSkinColor: false
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/moth.rsi
+#    state: chest_l_twisting_m_moth
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.Chest
+#    bodyPart: Chest
+#    # WD EDIT END
+#
+#- type: marking
+#  id: ChestTwistingRightFemaleMoth
+#  markingCategory: Chest
+#  speciesRestriction: [Moth]
+#  sexRestriction: [Female]
+#  followSkinColor: false
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/moth.rsi
+#    state: chest_r_twisting_f_moth
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.Chest
+#    bodyPart: Chest
+#    # WD EDIT END
+#
+#- type: marking
+#  id: ChestTwistingRightMaleMoth
+#  markingCategory: Chest
+#  speciesRestriction: [Moth]
+#  sexRestriction: [Male]
+#  followSkinColor: false
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/moth.rsi
+#    state: chest_r_twisting_m_moth
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.Chest
+#    bodyPart: Chest
+#    # WD EDIT END
+#
+#- type: marking
+#  id: ChestStarMoth
+#  markingCategory: Chest
+#  speciesRestriction: [Moth]
+#  followSkinColor: false
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/moth.rsi
+#    state: chest_star_moth
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.Chest
+#    bodyPart: Chest
+#    # WD EDIT END
+#
+#- type: marking
+#  id: HeterochromiaMoth
+#  markingCategory: Head
+#  speciesRestriction: [Moth]
+#  followSkinColor: false
+#  coloring:
+#    default:
+#      type:
+#        !type:EyeColoring
+#          negative: true
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/moth.rsi
+#    state: eyes_heterochromia_moth
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.Eyes
+#    organ: Eyes
+#    # WD EDIT END
+#
+#- type: marking
+#  id: FootChimeraLeftMoth
+#  markingCategory: LeftLeg
+#  speciesRestriction: [Moth]
+#  followSkinColor: false
+#  coloring:
+#    default:
+#      type:
+#        !type:SkinColoring
+#          negative: true
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/moth.rsi
+#    state: foot_l_chimera_moth
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.LeftLeg
+#    bodyPart: LeftLeg
+#    # WD EDIT END
+#
+#- type: marking
+#  id: FootProstheticLeftMoth
+#  markingCategory: LeftFoot
+#  speciesRestriction: [Moth]
+#  followSkinColor: false
+#  coloring:
+#    default:
+#      type:
+#        !type:SimpleColoring
+#          color: "#E4E4E4"
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/moth.rsi
+#    state: foot_l_prosthetic_moth
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.LeftFoot
+#    bodyPart: LeftFoot
+#    # WD EDIT END
+#
+#- type: marking
+#  id: FootProstheticRightMoth
+#  markingCategory: RightFoot
+#  speciesRestriction: [Moth]
+#  followSkinColor: false
+#  coloring:
+#    default:
+#      type:
+#        !type:SimpleColoring
+#          color: "#E4E4E4"
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/moth.rsi
+#    state: foot_r_prosthetic_moth
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.RightFoot
+#    bodyPart: RightFoot
+#    # WD EDIT END
+#
+#- type: marking
+#  id: HandChimeraLeftMoth
+#  markingCategory: LeftHand
+#  speciesRestriction: [Moth]
+#  followSkinColor: false
+#  coloring:
+#    default:
+#      type:
+#        !type:SkinColoring
+#          negative: true
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/moth.rsi
+#    state: hand_l_chimera_moth
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.LeftHand
+#    bodyPart: LeftHand
+#    # WD EDIT END
+#
+#- type: marking
+#  id: HandProstheticLeftMoth
+#  markingCategory: LeftHand
+#  speciesRestriction: [Moth]
+#  followSkinColor: false
+#  coloring:
+#    default:
+#      type:
+#        !type:SimpleColoring
+#          color: "#E4E4E4"
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/moth.rsi
+#    state: hand_l_prosthetic_moth
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.LeftHand
+#    bodyPart: LeftHand
+#    # WD EDIT END
+#
+#- type: marking
+#  id: HandTwistingLeftMoth
+#  markingCategory: LeftHand
+#  speciesRestriction: [Moth]
+#  followSkinColor: false
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/moth.rsi
+#    state: hand_l_twisting_moth
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.LeftHand
+#    bodyPart: LeftHand
+#    # WD EDIT END
+#
+#- type: marking
+#  id: HandProstheticRightMoth
+#  markingCategory: RightHand
+#  speciesRestriction: [Moth]
+#  followSkinColor: false
+#  coloring:
+#    default:
+#      type:
+#        !type:SimpleColoring
+#          color: "#E4E4E4"
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/moth.rsi
+#    state: hand_r_prosthetic_moth
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.RightHand
+#    bodyPart: RightHand
+#    # WD EDIT END
+#
+#- type: marking
+#  id: HandTwistingRightMoth
+#  markingCategory: RightHand
+#  speciesRestriction: [Moth]
+#  followSkinColor: false
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/moth.rsi
+#    state: hand_r_twisting_moth
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.RightHand
+#    bodyPart: RightHand
+#    # WD EDIT END
+#
+#- type: marking
+#  id: BadmoltMoth
+#  markingCategory: Head
+#  speciesRestriction: [Moth]
+#  followSkinColor: false
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/moth.rsi
+#    state: head_badmolt_moth
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.Head
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: HeadChimeraMoth
+#  markingCategory: Head
+#  speciesRestriction: [Moth]
+#  followSkinColor: false
+#  coloring:
+#    default:
+#      type:
+#        !type:SkinColoring
+#          negative: true
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/moth.rsi
+#    state: head_chimera_moth
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.Head
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: EyebagsMoth
+#  markingCategory: Head
+#  speciesRestriction: [Moth]
+#  followSkinColor: false
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/moth.rsi
+#    state: head_eyebags_moth
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.Head
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: HeadTwistingMoth
+#  markingCategory: Head
+#  speciesRestriction: [Moth]
+#  followSkinColor: false
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/moth.rsi
+#    state: head_twisting_moth
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.Head
+#    bodyPart: Head
+#    # WD EDIT END
+#
+#- type: marking
+#  id: LegChimeraLeftMoth
+#  markingCategory: LeftLeg
+#  speciesRestriction: [Moth]
+#  followSkinColor: false
+#  coloring:
+#    default:
+#      type:
+#        !type:SkinColoring
+#          negative: true
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/moth.rsi
+#    state: leg_l_chimera_moth
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.LeftLeg
+#    bodyPart: LeftLeg
+#    # WD EDIT END
+#
+#- type: marking
+#  id: LegProstheticLeftMoth
+#  markingCategory: LeftLeg
+#  speciesRestriction: [Moth]
+#  followSkinColor: false
+#  coloring:
+#    default:
+#      type:
+#        !type:SimpleColoring
+#          color: "#E4E4E4"
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/moth.rsi
+#    state: leg_l_prosthetic_moth
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.LeftLeg
+#    bodyPart: LeftLeg
+#    # WD EDIT END
+#
+#- type: marking
+#  id: LegTwistingLeftMoth
+#  markingCategory: LeftLeg
+#  speciesRestriction: [Moth]
+#  followSkinColor: false
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/moth.rsi
+#    state: leg_l_twisting_moth
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.LeftLeg
+#    bodyPart: LeftLeg
+#    # WD EDIT END
+#
+#- type: marking
+#  id: LegProstheticRightMoth
+#  markingCategory: RightLeg
+#  speciesRestriction: [Moth]
+#  followSkinColor: false
+#  coloring:
+#    default:
+#      type:
+#        !type:SimpleColoring
+#          color: "#E4E4E4"
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/moth.rsi
+#    state: leg_r_prosthetic_moth
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.RightLeg
+#    bodyPart: RightLeg
+#    # WD EDIT END
+#
+#- type: marking
+#  id: LegTwistingRightMoth
+#  markingCategory: RightLeg
+#  speciesRestriction: [Moth]
+#  followSkinColor: false
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/moth.rsi
+#    state: leg_r_twisting_moth
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.RightLeg
+#    bodyPart: RightLeg
+#    # WD EDIT END
+#
+#- type: marking
+#  id: TorsoIncisionMoth
+#  markingCategory: Chest
+#  speciesRestriction: [Moth]
+#  followSkinColor: false
+#  sprites:
+#  - sprite: _Impstation/Mobs/Customization/moth.rsi
+#    state: torso_incision_moth
+#    # WD EDIT START
+#    layer: enum.BodyAppearanceLayer.Chest
+#    bodyPart: Chest
+#    # WD EDIT END

@@ -1,0 +1,61 @@
+- type: entity
+  id: BaseBodyProviderPartDwarf
+  parent: BaseBodyProviderPartOrganic
+  abstract: true
+  suffix: Dwarf
+  components:
+  - type: BodyAppearanceProvider
+    path: _White/Bodies/Parts/Humanoids/human.rsi
+  - type: Sprite
+    sprite: _White/Bodies/Parts/Humanoids/human.rsi
+
+# Arms
+- type: entity
+  id: BodyProviderLeftArmDwarf
+  parent: [BaseBodyProviderLeftArmOrganic, BaseBodyProviderPartDwarf]
+
+- type: entity
+  id: BodyProviderRightArmDwarf
+  parent: [BaseBodyProviderRightArmOrganic, BaseBodyProviderPartDwarf]
+
+# Chest
+- type: entity
+  id: BodyProviderChestDwarf
+  parent: [BaseBodyProviderChestOrganic, BaseBodyProviderPartDwarf]
+
+# Foots
+- type: entity
+  id: BodyProviderLeftFootDwarf
+  parent: [BaseBodyProviderLeftFootOrganic, BaseBodyProviderPartDwarf]
+
+- type: entity
+  id: BodyProviderRightFootDwarf
+  parent: [BaseBodyProviderRightFootOrganic, BaseBodyProviderPartDwarf]
+
+# Groin
+- type: entity
+  id: BodyProviderGroinDwarf
+  parent: [BaseBodyProviderGroinOrganic, BaseBodyProviderPartDwarf]
+
+# Hands
+- type: entity
+  id: BodyProviderLeftHandDwarf
+  parent: [BaseBodyProviderLeftHandOrganic, BaseBodyProviderPartDwarf]
+
+- type: entity
+  id: BodyProviderRightHandDwarf
+  parent: [BaseBodyProviderRightHandOrganic, BaseBodyProviderPartDwarf]
+
+# Head
+- type: entity
+  id: BodyProviderHeadDwarf
+  parent: [BaseBodyProviderHeadOrganic, BaseBodyProviderPartDwarf]
+
+# Legs
+- type: entity
+  id: BodyProviderLeftLegDwarf
+  parent: [BaseBodyProviderLeftLegOrganic, BaseBodyProviderPartDwarf]
+
+- type: entity
+  id: BodyProviderRightLegDwarf
+  parent: [BaseBodyProviderRightLegOrganic, BaseBodyProviderPartDwarf]

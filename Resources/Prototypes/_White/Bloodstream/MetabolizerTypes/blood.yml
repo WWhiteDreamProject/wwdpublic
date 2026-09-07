@@ -1,0 +1,31 @@
+- type: metabolizerType
+  id: BloodAcid
+  name: metabolizer-type-blood-acid
+
+- type: metabolizerType
+  id: BloodAmmonia
+  name: metabolizer-type-blood-ammonia
+
+- type: metabolizerType
+  id: BloodCopper
+  name: metabolizer-type-blood-copper
+
+- type: metabolizerType
+  id: BloodInsect
+  name: metabolizer-type-blood-Insect
+
+- type: metabolizerType
+  id: BloodIron
+  name: metabolizer-type-blood-iron
+
+- type: metabolizerType
+  id: BloodSap
+  name: metabolizer-type-blood-sap
+
+- type: metabolizerType
+  id: BloodSlime
+  name: metabolizer-type-blood-slime
+
+- type: metabolizerType
+  id: BloodSugar
+  name: metabolizer-type-blood-sugar

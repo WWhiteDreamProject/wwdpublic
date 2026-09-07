@@ -16,8 +16,8 @@
     resistance: 2.5
   - type: DamageOtherOnHit
     damage:
-      types:
-        Blunt: 16
+      # WD EDIT: Migrated damage format
+      Blunt: 16
     staminaCost: 45
 
 - type: entity
@@ -38,8 +38,8 @@
     price: 100
   - type: DamageOtherOnHit
     damage:
-      types:
-        Blunt: 10
+      # WD EDIT: Migrated damage format
+      Blunt: 10
     staminaCost: 30
 
 - type: entity

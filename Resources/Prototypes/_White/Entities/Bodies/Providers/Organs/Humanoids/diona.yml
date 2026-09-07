@@ -1,0 +1,90 @@
+- type: entity
+  id: BaseBodyProviderOrganDiona
+  parent: BaseBodyProviderOrganOrganic
+  abstract: true
+  suffix: Diona
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      ingestible:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 15
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+  - type: Sprite
+    sprite: _White/Bodies/Organs/Humanoids/diona.rsi
+
+- type: entity
+  id: BaseMetabolizerDiona
+  abstract: true
+  components:
+  - type: Metabolizer
+    types: [ BloodSap, Diona, RespirationCarbonDioxide, RespirationOxygen ]
+
+# Central: Brain / Heart
+- type: entity
+  id: BodyProviderCentralDiona
+  parent: [BaseBodyProviderCentralOrganic, BaseMetabolizerDiona]
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      ingestible:
+        reagents:
+        - ReagentId: GreyMatter
+          Quantity: 10
+        - ReagentId: Nutriment
+          Quantity: 7.5
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 7.5
+
+- type: entity
+  id: BodyProviderCentralDionaNymph
+  parent: BodyProviderCentralDiona
+  suffix: Diona, Nymph
+  components:
+  - type: ProgenitorProvider
+    transferMind: true
+    prototype: MobDionaNymphCentral
+
+# Ears
+- type: entity
+  id: BodyProviderEarsDiona
+  parent: [BaseBodyProviderEars, BaseBodyProviderOrganDiona]
+
+# Eyes
+- type: entity
+  id: BodyProviderEyesDiona
+  parent: [BaseBodyProviderEyes, BaseBodyProviderOrganDiona]
+  components:
+  - type: BodyAppearanceProvider
+    path: _White/Bodies/Organs/Humanoids/diona.rsi
+
+# Lungs
+- type: entity
+  id: BodyProviderLungsDiona
+  parent: [BaseBodyProviderLungsRespiratory, BaseBodyProviderOrganDiona, BaseMetabolizerDiona]
+  components:
+  - type: Sprite
+    sprite: _White/Bodies/Organs/Humanoids/human.rsi # TODO: Replace with a unique sprite.
+
+- type: entity
+  id: BodyProviderLungsDionaNymph
+  parent: BodyProviderLungsDiona
+  suffix: Diona, Nymph
+  components:
+  - type: ProgenitorProvider
+    prototype: MobDionaNymphLungs
+
+# Metabolizer: Kidneys / Liver / Stomach
+- type: entity
+  id: BodyProviderMetabolizerDiona
+  parent: [BaseBodyProviderMetabolizerRespiratory, BaseBodyProviderOrganDiona, BaseMetabolizerDiona]
+
+- type: entity
+  id: BodyProviderMetabolizerDionaNymph
+  parent: BodyProviderMetabolizerDiona
+  suffix: Diona, Nymph
+  components:
+  - type: ProgenitorProvider
+    prototype: MobDionaNymphMetabolizer

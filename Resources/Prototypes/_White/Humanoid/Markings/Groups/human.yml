@@ -1,0 +1,30 @@
+- type: markingGroup
+  id: Human
+  parent: Undergarments
+  categoriesData:
+    Arms:
+      limit: 2
+    Ears:
+      limit: 1
+    Earrings:
+      limit: 2
+    Eyes:
+      limit: 1
+    FacialHair:
+      limit: 1
+    Hair:
+      limit: 1
+    Head:
+      limit: 2
+    Legs:
+      limit: 2
+    Scars:
+      limit: 4
+    Snout:
+      limit: 1
+    Tattoos:
+      limit: 4
+    Torso:
+      limit: 1
+    Trinkets:
+      limit: 4

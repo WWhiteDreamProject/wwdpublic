@@ -1,0 +1,13 @@
+# TODO
+# - type: species
+#   id: Shadow
+#   defaultColors:
+#     Eyes: "#000000"
+#     Skin: "#C0967F"
+#   colorations:
+#     Eyes: Simple
+#     Skin: HumanTone
+#   doll: HumanoidDollShadow
+#   prototype: MobHumanoidShadow
+#   name: species-name-shadow
+#   naming: Human

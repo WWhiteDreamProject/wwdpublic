@@ -18,8 +18,8 @@
     attackRate: 0.9
     range: 1.75
     damage:
-      types:
-        Blunt: 7
+      # WD EDIT: Migrated damage format
+      Blunt: 7
   - type: DamageOtherOnHit
     staminaCost: 10
   - type: Storage
@@ -45,8 +45,8 @@
     attackRate: 1.2
     range: 1.25
     damage:
-      types:
-        Blunt: 4
+      # WD EDIT: Migrated damage format
+      Blunt: 4
   - type: DamageOtherOnHit
     staminaCost: 5
   - type: Storage

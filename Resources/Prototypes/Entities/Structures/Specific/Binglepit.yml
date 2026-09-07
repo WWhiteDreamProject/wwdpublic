@@ -59,10 +59,11 @@
     unitsDestroyedPerSecond: 10
   - type: PassiveDamage #passive Healing
     damage:
-      types:
-        Heat: -1
-        Shock: -1
-        Structural: -1
-      groups:
-        Brute: -1
+      # WD EDIT: Migrated damage format
+      Blunt: -0.3
+      Heat: -1
+      Piercing: -0.3
+      Shock: -1
+      Slash: -0.3
+      Structural: -1
   - type: AntiRottingContainer

@@ -148,14 +148,14 @@ trait-description-LowPainTolerance =
 trait-name-Steadfast = Несокрушимый
 trait-description-Steadfast =
     Когда другие бы пали под тяжестью ваших ран, вы всё ещё неустанно движетесь вперёд.
-    Для большинства видов [color=gray](за исключением ИИ/Теневиков)[/color], эта черта изменяет:
+    Для большинства видов [color=gray](за исключением КПБ)[/color], эта черта изменяет:
     - [color=yellow]25%[/color] замедление движения при [color=red]60[/color] уроне ➔ [color=yellow]17%[/color] замедление движения при [color=red]70[/color] уроне
     - [color=yellow]45%[/color] замедление движения при [color=red]80[/color] уроне ➔ [color=yellow]30%[/color] замедление движения при [color=red]90[/color] уроне
 
 trait-name-Feeble = Слабый
 trait-description-Feeble =
     Ваше тело плохо реагирует на травмы, что приводит к более сильному влиянию урона на вашу подвижность.
-    Для большинства видов [color=gray](за исключением ИИ/Теневиков)[/color], эта черта изменяет:
+    Для большинства видов [color=gray](за исключением КПБ)[/color], эта черта изменяет:
     - [color=yellow]25%[/color] замедление движения при [color=red]60[/color] уроне ➔ [color=yellow]30%[/color] замедление движения при [color=red]45[/color] уроне
     - [color=yellow]45%[/color] замедление движения при [color=red]80[/color] уроне ➔ [color=yellow]54%[/color] замедление движения при [color=red]65[/color] уроне
 
@@ -298,7 +298,7 @@ trait-description-Clumsy =
 trait-name-Small = Маленький
 trait-description-Small =
     Вы гораздо меньше обычного человека и можете забираться в такие места, куда другие обычно не могут пролезть, например, в вещевые мешки.
-    Эта черта никак не изменяет размер вашего персонажа, она просто требует, чтобы ваш персонаж был размером не больше стандартной таяры.
+    Эта черта никак не изменяет размер вашего персонажа, она просто требует, чтобы ваш персонаж был размером не больше стандартного феленида.
 
 trait-name-TemperatureTolerance = Толерантность К Температуре
 trait-description-TemperatureTolerance =
@@ -480,10 +480,6 @@ trait-description-ThermographicVision =
     Ваши киберглаза были улучшены с помощью тепловизора. При включении он делает снимок окружающего пространства, выделяя все
     биологические формы жизни. Он также способен обнаруживать людей сквозь стены станции.
 
-trait-name-ShadowkinBlackeye = Черный глаз
-trait-description-ShadowkinBlackeye =
-    Вы теряете свои особые способности тенерожденного и уважение среди сверстников, взамен получая несколько очков. По сути, вы являетесь тенерожденным только по названию, а не на практике.
-
 trait-name-LyreBird = Птица-лира
 trait-description-LyreBird =
     Ваш природный талант к мимикрии значительно превосходит других гарпий.
@@ -565,11 +561,7 @@ trait-description-BionicPryArm =
 
 trait-name-Moffic = Моффский
 trait-description-Moffic =
-    Язык молей почти невозможно различить. Доступен только расам с совместимыми речевыми аппаратами (КПБ, гарпии, хитиниды).
-
-trait-name-Chittin = Хитиновый
-trait-description-Chittin =
-    Язык щелчков и жужжания. Без антенн или синтезатора речи звучит как шум.
+    Язык молей почти невозможно различить. Доступен только расам с совместимыми речевыми аппаратами (КПБ, гарпии).
 
 trait-name-IPCInefficientCogitator = Устаревший Процессор
 trait-description-IPCInefficientCogitator =
@@ -635,7 +627,3 @@ trait-description-Kobold =
 trait-name-ForkedTongue = Forked Tongue
 trait-description-ForkedTongue =
     You have a more developed forked tongue that allows you to track and distinguish objects by their scent.
-
-trait-name-StuntedSnout = Stunted Snout
-trait-description-StuntedSnout =
-    Your sense of smell is stunted for one reason or another. You lack the ability to pick up scents.

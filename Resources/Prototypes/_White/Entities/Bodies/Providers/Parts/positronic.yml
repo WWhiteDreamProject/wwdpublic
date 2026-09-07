@@ -1,0 +1,61 @@
+- type: entity
+  id: BaseBodyProviderPartPositronic
+  parent: BaseBodyProviderPart
+  abstract: true
+  suffix: Positronic
+  components:
+  - type: BodyAppearanceProvider
+    path: _White/Bodies/Parts/positronic.rsi
+  - type: Sprite
+    sprite: _White/Bodies/Parts/positronic.rsi
+
+# Arms
+- type: entity
+  id: BodyProviderLeftArmPositronic
+  parent: [BaseBodyProviderLeftArm, BaseBodyProviderPartPositronic]
+
+- type: entity
+  id: BodyProviderRightArmPositronic
+  parent: [BaseBodyProviderRightArm, BaseBodyProviderPartPositronic]
+
+# Chest
+- type: entity
+  id: BodyProviderChestPositronic
+  parent: [BaseBodyProviderChest, BaseBodyProviderPartPositronic]
+
+# Foots
+- type: entity
+  id: BodyProviderLeftFootPositronic
+  parent: [BaseBodyProviderLeftFoot, BaseBodyProviderPartPositronic]
+
+- type: entity
+  id: BodyProviderRightFootPositronic
+  parent: [BaseBodyProviderRightFoot, BaseBodyProviderPartPositronic]
+
+# Groin
+- type: entity
+  id: BodyProviderGroinPositronic
+  parent: [BaseBodyProviderGroin, BaseBodyProviderPartPositronic]
+
+# Hands
+- type: entity
+  id: BodyProviderLeftHandPositronic
+  parent: [BaseBodyProviderLeftHand, BaseBodyProviderPartPositronic]
+
+- type: entity
+  id: BodyProviderRightHandPositronic
+  parent: [BaseBodyProviderRightHand, BaseBodyProviderPartPositronic]
+
+# Head
+- type: entity
+  id: BodyProviderHeadPositronic
+  parent: [BaseBodyProviderHead, BaseBodyProviderPartPositronic]
+
+# Legs
+- type: entity
+  id: BodyProviderLeftLegPositronic
+  parent: [BaseBodyProviderLeftLeg, BaseBodyProviderPartPositronic]
+
+- type: entity
+  id: BodyProviderRightLegPositronic
+  parent: [BaseBodyProviderRightLeg, BaseBodyProviderPartPositronic]

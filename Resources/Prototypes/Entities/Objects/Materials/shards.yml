@@ -21,8 +21,8 @@
   - type: MeleeWeapon
     attackRate: 1
     damage:
-      types:
-        Slash: 3.5
+      # WD EDIT: Migrated damage format
+      Slash: 3.5
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg # WWDP fix
   - type: Item
@@ -81,8 +81,8 @@
   - type: TriggerOnStepTrigger
   - type: DamageUserOnTrigger
     damage:
-      types:
-        Piercing: 5
+      # WD EDIT: Migrated damage format
+      Piercing: 5
   - type: DeleteOnTrigger
   - type: StaticPrice
     price: 0
@@ -100,8 +100,8 @@
     - id: SheetGlass1
   - type: DamageUserOnTrigger
     damage:
-      types:
-        Piercing: 4.5
+      # WD EDIT: Migrated damage format
+      Piercing: 4.5
   - type: Tag
     tags:
       - GlassShard
@@ -128,16 +128,16 @@
     color: "#96cdef"
   - type: MeleeWeapon
     damage:
-      types:
-        Slash: 4.5
+      # WD EDIT: Migrated damage format
+      Slash: 4.5
   - type: ToolRefinable
     refineResult:
     - id: SheetGlass1
     - id: PartRodMetal1
   - type: DamageUserOnTrigger
     damage:
-      types:
-        Piercing: 5.5
+      # WD EDIT: Migrated damage format
+      Piercing: 5.5
   - type: Tag
     tags:
       - ReinforcedGlassShard
@@ -164,20 +164,20 @@
     color: "#FF72E7"
   - type: MeleeWeapon
     damage:
-      types:
-        Slash: 5.5
+      # WD EDIT: Migrated damage format
+      Slash: 5.5
   - type: ToolRefinable
     refineResult:
       - id: SheetGlass1
       - id: SheetPlasma1
   - type: EmbedPassiveDamage
     damage:
-      types:
-        Slash: 0.15
+      # WD EDIT: Migrated damage format
+      Slash: 0.1
   - type: DamageUserOnTrigger
     damage:
-      types:
-        Piercing: 6.5
+      # WD EDIT: Migrated damage format
+      Piercing: 6.5
   - type: Tag
     tags:
       - PlasmaGlassShard
@@ -206,18 +206,18 @@
     color: "#8eff7a"
   - type: MeleeWeapon
     damage:
-      types:
-        Slash: 4.5
-        Radiation: 2
+      # WD EDIT: Migrated damage format
+      Radiation: 2
+      Slash: 4.5
   - type: ToolRefinable
     refineResult:
     - id: SheetGlass1
     - id: SheetUranium1
   - type: DamageUserOnTrigger
     damage:
-      types:
-        Piercing: 5
-        Radiation: 2.5
+      # WD EDIT: Migrated damage format
+      Piercing: 5
+      Radiation: 2.5
   - type: Tag
     tags:
       - UraniumGlassShard
@@ -250,8 +250,8 @@
     - id: SheetBrass1
   - type: DamageUserOnTrigger
     damage:
-      types:
-        Piercing: 5
+      # WD EDIT: Migrated damage format
+      Piercing: 5
   - type: Tag
     tags:
       - ClockworkGlassShard

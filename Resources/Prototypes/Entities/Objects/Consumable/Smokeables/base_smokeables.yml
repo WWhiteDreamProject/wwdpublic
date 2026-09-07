@@ -70,8 +70,11 @@
   components:
   - type: Vape
     damage:
-      groups:
-        Burn: 2
+      # WD EDIT: Migrated damage format
+      Caustic: 0.5
+      Cold: 0.5
+      Heat: 0.5
+      Shock: 0.5
   - type: SolutionContainerManager
     solutions:
       smokable:

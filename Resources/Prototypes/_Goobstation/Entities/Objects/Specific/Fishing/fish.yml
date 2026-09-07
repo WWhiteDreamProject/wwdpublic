@@ -786,8 +786,8 @@
   - type: MeleeWeapon
     wideAnimationRotation: 180
     damage:
-      types:
-        Heat: 6
+      # WD EDIT: Migrated damage format
+      Heat: 6
   - type: DamageOtherOnHit
   - type: PointLight
     enabled: true
@@ -841,8 +841,8 @@
   - type: MeleeWeapon
     wideAnimationRotation: 180
     damage:
-      types:
-        Heat: 6
+      # WD EDIT: Migrated damage format
+      Heat: 6
   - type: DamageOtherOnHit
   - type: PointLight
     enabled: true
@@ -898,8 +898,8 @@
   - type: MeleeWeapon
     wideAnimationRotation: 180
     damage:
-      types:
-        Poison: 8
+      # WD EDIT: Migrated damage format
+      Poison: 8
   - type: DamageOtherOnHit
   - type: PointLight
     enabled: true
@@ -921,8 +921,8 @@
   - type: MeleeWeapon
     wideAnimationRotation: 180
     damage:
-      types:
-        Heat: 10
+      # WD EDIT: Migrated damage format
+      Heat: 10
   - type: DamageOtherOnHit
   - type: PointLight
     enabled: true

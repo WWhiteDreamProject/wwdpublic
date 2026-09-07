@@ -7,13 +7,13 @@
   description: alerts-blocked-desc
 
 - type: alert
-  id: BodyStatus
+  id: PainStatus
   icons:
   - sprite: /Textures/_White/Interface/Alerts/body_status.rsi
     state: chest_zero
   alertViewEntity: AlertBodyStatusSpriteView
-  name: alerts-body-status-name
-  description: alerts-body-status-desc
+  name: alerts-pain-status-name
+  description: alerts-pain-status-desc
 
 - type: entity
   id: AlertBodyStatusSpriteView
@@ -23,14 +23,14 @@
     sprite: /Textures/_White/Interface/Alerts/body_status.rsi
     layers:
     - map: [ "enum.AlertVisualLayers.Base" ]
-    - map: [ "enum.BodyStatusVisualLayers.Head" ]
-    - map: [ "enum.BodyStatusVisualLayers.Chest" ]
-    - map: [ "enum.BodyStatusVisualLayers.Groin" ]
-    - map: [ "enum.BodyStatusVisualLayers.LeftArm" ]
-    - map: [ "enum.BodyStatusVisualLayers.LeftHand" ]
-    - map: [ "enum.BodyStatusVisualLayers.RightArm" ]
-    - map: [ "enum.BodyStatusVisualLayers.RightHand" ]
-    - map: [ "enum.BodyStatusVisualLayers.LeftLeg" ]
-    - map: [ "enum.BodyStatusVisualLayers.LeftFoot" ]
-    - map: [ "enum.BodyStatusVisualLayers.RightLeg" ]
-    - map: [ "enum.BodyStatusVisualLayers.RightFoot" ]
+    - map: [ "enum.PainStatusVisualLayers.Head" ]
+    - map: [ "enum.PainStatusVisualLayers.Chest" ]
+    - map: [ "enum.PainStatusVisualLayers.Groin" ]
+    - map: [ "enum.PainStatusVisualLayers.LeftArm" ]
+    - map: [ "enum.PainStatusVisualLayers.LeftHand" ]
+    - map: [ "enum.PainStatusVisualLayers.RightArm" ]
+    - map: [ "enum.PainStatusVisualLayers.RightHand" ]
+    - map: [ "enum.PainStatusVisualLayers.LeftLeg" ]
+    - map: [ "enum.PainStatusVisualLayers.LeftFoot" ]
+    - map: [ "enum.PainStatusVisualLayers.RightLeg" ]
+    - map: [ "enum.PainStatusVisualLayers.RightFoot" ]

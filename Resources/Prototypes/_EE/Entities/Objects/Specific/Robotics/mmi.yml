@@ -19,7 +19,7 @@
           whitelist:
             components:
             - PAI
-    - type: Organ
+    - type: BodyProvider
     - type: Tag
       tags:
       - Posibrain
@@ -48,4 +48,4 @@
           whitelist:
             tags:
             - Posibrain
-    - type: Organ
+    - type: BodyProvider

@@ -1,0 +1,19 @@
+- type: entity
+  id: HumanoidDollMoth
+  parent:
+  - BaseBodyMoth
+  - BaseHumanoidDoll
+  components:
+  - type: HideableLayers
+    hideLayersOnEquip:
+    - enum.MarkingVisualLayers.HeadTop
+  - type: HumanoidProfile
+    species: Moth
+  - type: Inventory
+    speciesId: moth
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female

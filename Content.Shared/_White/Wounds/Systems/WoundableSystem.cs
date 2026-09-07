@@ -1,10 +1,11 @@
+using System.Diagnostics.CodeAnalysis;
 using Content.Shared._White.Body;
 using Content.Shared._White.Body.Systems;
 using Content.Shared._White.Damage;
 using Content.Shared._White.Damage.Components;
+using Content.Shared._White.Damage.Prototypes;
 using Content.Shared._White.Damage.Systems;
 using Content.Shared._White.Wounds.Components;
-using Content.Shared.FixedPoint;
 using Content.Shared.Rejuvenate;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
@@ -39,13 +40,14 @@ public sealed partial class WoundableSystem : EntitySystem
 
         _sawmill = Logger.GetSawmill("woundable");
 
-        SubscribeLocalEvent<WoundableComponent, BeforeHandleDamageEvent>(OnAttemptHandleDamage);
+        SubscribeLocalEvent<WoundableComponent, BeforeHandleDamageChangeEvent>(OnBeforeHandleDamageChange);
         SubscribeLocalEvent<WoundableComponent, RejuvenateEvent>(OnRejuvenate);
 
         InitializeAccumulator();
         InitializeProvider();
         InitializeRelay();
         InitializeResist();
+        InitializeWound();
 
         _damageableQuery = GetEntityQuery<DamageableComponent>();
         _accumulatorQuery = GetEntityQuery<WoundableAccumulatorComponent>();
@@ -56,19 +58,19 @@ public sealed partial class WoundableSystem : EntitySystem
 
     #region Event Handling
 
-    private void OnAttemptHandleDamage(Entity<WoundableComponent> ent, ref BeforeHandleDamageEvent args)
+    private void OnBeforeHandleDamageChange(Entity<WoundableComponent> ent, ref BeforeHandleDamageChangeEvent args)
     {
         args.Handled = true;
 
-        var getDamageEv = new GetWoundableDamageEvent(args.ProviderType, args.IgnoreResistances, args.Damage, args.Origin);
-        RaiseLocalEvent(ent, getDamageEv);
+        var ev = new GetWoundableDamageEvent(args.ProviderType, args.IgnoreResistances, args.Damage, args.Origin);
+        RaiseLocalEvent(ent, ref ev);
 
-        if (getDamageEv.Result.Empty)
+        if (ev.Result.Empty)
             return;
 
-        _damageable.ApplyDamage((ent, args.Damageable), getDamageEv.Result, args.InterruptsDoAfters, args.Origin);
+        _damageable.ApplyDamage((ent, args.Damageable), ev.Result, args.InterruptsDoAfters, args.Origin);
 
-        args.Result = getDamageEv.Result;
+        args.Result = ev.Result;
     }
 
     private void OnRejuvenate(Entity<WoundableComponent> ent, ref RejuvenateEvent args)
@@ -87,58 +89,15 @@ public sealed partial class WoundableSystem : EntitySystem
     #region Public API
 
     /// <summary>
-    /// Applies damage to woundable entity, like <see cref="WoundableAccumulatorComponent"/> or <see cref="WoundableProviderComponent"/>.
+    /// Attempts to change the damage dealt to given entity.
     /// </summary>
-    /// <remarks>
-    /// If you need change <see cref="WoundableComponent"/> damage use <see cref="DamageableSystem"/>
-    /// </remarks>
-    /// <returns>
-    /// The actual amount of damage taken, as a DamageSpecifier.
-    /// </returns>
-    public DamageSpecifier ChangeDamage(
-        Entity<DamageableComponent?> ent,
-        DamageSpecifier specifier,
-        bool ignoreResistances = false,
-        bool interruptsDoAfters = true,
-        EntityUid? origin = null
-    )
-    {
-        if (_accumulatorQuery.TryComp(ent, out var accumulatorComp))
-            return ChangeDamage((ent, accumulatorComp, ent.Comp), specifier, ignoreResistances, interruptsDoAfters, origin);
-
-        if (_providerQuery.TryComp(ent, out var provideComp))
-            return ChangeDamage((ent, provideComp, ent.Comp), specifier, ignoreResistances, interruptsDoAfters, origin);
-
-        return new DamageSpecifier();
-    }
-
-    /// <inheritdoc cref="ChangeDamage(Entity{DamageableComponent?}, DamageSpecifier, bool, bool, EntityUid?)"/>
-    public DamageSpecifier ChangeDamage(
-        EntityUid uid,
-        DamageSpecifier specifier,
-        bool ignoreResistances = false,
-        bool interruptsDoAfters = true,
-        EntityUid? origin = null
-    )
-    {
-        if (_accumulatorQuery.TryComp(uid, out var accumulatorComp))
-            return ChangeDamage((uid, accumulatorComp, null), specifier, ignoreResistances, interruptsDoAfters, origin);
-
-        if (_providerQuery.TryComp(uid, out var provideComp))
-            return ChangeDamage((uid, provideComp, null), specifier, ignoreResistances, interruptsDoAfters, origin);
-
-        return new DamageSpecifier();
-    }
-
-    /// <summary>
-    /// Applies damage to woundable entity, like <see cref="WoundableAccumulatorComponent"/> or <see cref="WoundableProviderComponent"/>.
-    /// </summary>
-    /// <remarks>
-    /// If you need change <see cref="WoundableComponent"/> damage use <see cref="DamageableSystem"/>
-    /// </remarks>
-    /// <returns>
-    /// Returns true if damage was successfully applied to the target, otherwise returns false.
-    /// </returns>
+    /// <param name="ent">The entity whose damage we wish to change.</param>
+    /// <param name="specifier">The original amount by which the damage must be changed.</param>
+    /// <param name="result">The returned amount by which the damage has changed.</param>
+    /// <param name="ignoreResistances">Determines whether the damage change should ignore resistances.</param>
+    /// <param name="interruptsDoAfters">Determines whether the damage change interrupts DoAfters.</param>
+    /// <param name="origin">The entity which caused the change in damage, if any.</param>
+    /// <returns>True if the damage was successfully changed, false otherwise.</returns>
     public bool TryChangeDamage(
         Entity<DamageableComponent?> ent,
         DamageSpecifier specifier,
@@ -150,6 +109,26 @@ public sealed partial class WoundableSystem : EntitySystem
     {
         result = ChangeDamage(ent, specifier, ignoreResistances, interruptsDoAfters, origin);
         return !result.Empty;
+    }
+
+    /// <summary>
+    /// Attempts to change the damage dealt to given entity.
+    /// </summary>
+    /// <param name="ent">The entity whose damage we wish to change.</param>
+    /// <param name="specifier">The original amount by which the damage must be changed.</param>
+    /// <param name="ignoreResistances">Determines whether the damage change should ignore resistances.</param>
+    /// <param name="interruptsDoAfters">Determines whether the damage change interrupts DoAfters.</param>
+    /// <param name="origin">The entity which caused the change in damage, if any.</param>
+    /// <returns>True if the damage was successfully changed, false otherwise.</returns>
+    public bool TryChangeDamage(
+        Entity<DamageableComponent?> ent,
+        DamageSpecifier specifier,
+        bool ignoreResistances = false,
+        bool interruptsDoAfters = true,
+        EntityUid? origin = null
+    )
+    {
+        return TryChangeDamage(ent, specifier, out _, ignoreResistances, interruptsDoAfters, origin);
     }
 
     /// <inheritdoc cref="TryChangeDamage(Entity{DamageableComponent?}, DamageSpecifier, out DamageSpecifier, bool, bool, EntityUid?)"/>
@@ -166,18 +145,6 @@ public sealed partial class WoundableSystem : EntitySystem
         return !result.Empty;
     }
 
-    /// <inheritdoc cref="TryChangeDamage(Entity{DamageableComponent?}, DamageSpecifier, out DamageSpecifier, bool, bool, EntityUid?)"/>
-    public bool TryChangeDamage(
-        Entity<DamageableComponent?> ent,
-        DamageSpecifier specifier,
-        bool ignoreResistances = false,
-        bool interruptsDoAfters = true,
-        EntityUid? origin = null
-    )
-    {
-        return TryChangeDamage(ent, specifier, out _, ignoreResistances, interruptsDoAfters, origin);
-    }
-
     /// <inheritdoc cref="TryChangeDamage(EntityUid, DamageSpecifier, out DamageSpecifier, bool, bool, EntityUid?)"/>
     public bool TryChangeDamage(
         EntityUid uid,
@@ -190,106 +157,196 @@ public sealed partial class WoundableSystem : EntitySystem
         return TryChangeDamage(uid, specifier, out _, ignoreResistances, interruptsDoAfters, origin);
     }
 
+    /// <summary>
+    /// Attempts to get the wound for given entity.
+    /// </summary>
+    /// <param name="uid">The entity to search within.</param>
+    /// <param name="wound">The found wound.</param>
+    /// <param name="type">Filter by damage type.</param>
+    /// <returns>True if the wound was successfully retrieved, false otherwise.</returns>
+    public bool TryGetWound(
+        EntityUid uid,
+        [NotNullWhen(true)] out Entity<WoundComponent>? wound,
+        ProtoId<DamageTypePrototype>? type = null
+    )
+    {
+        if (_woundableQuery.TryComp(uid, out var woundableComp))
+            return TryGetWound((uid, woundableComp), out wound, type);
+
+        if (_providerQuery.TryComp(uid, out var providerComp))
+            return TryGetWound((uid, providerComp), out wound, type);
+
+        wound = null;
+        return false;
+    }
+
+    /// <summary>
+    /// Attempts to get the wound for given woundable entity.
+    /// </summary>
+    /// <param name="ent">The woundable entity to search within.</param>
+    /// <param name="wound">The found wound.</param>
+    /// <param name="type">Filter by damage type.</param>
+    /// <returns>True if the wound was successfully retrieved, false otherwise.</returns>
+    public bool TryGetWound(
+        Entity<WoundableComponent?> ent,
+        [NotNullWhen(true)] out Entity<WoundComponent>? wound,
+        ProtoId<DamageTypePrototype>? type = null
+    )
+    {
+        wound = null;
+
+        if (!_woundableQuery.Resolve(ent, ref ent.Comp))
+            return false;
+
+        foreach (var providerWound in ent.Comp.Wounds)
+        {
+            if (!_woundQuery.TryComp(providerWound, out var woundComp)
+                || !string.IsNullOrEmpty(type) && woundComp.Type != type)
+                continue;
+
+            wound = (providerWound, woundComp);
+            return true;
+        }
+
+        return false;
+    }
+
+    /// <summary>
+    /// Changes the damage dealt to given entity.
+    /// </summary>
+    /// <param name="ent">The entity whose damage we wish to change.</param>
+    /// <param name="specifier">The original amount by which the damage must be changed.</param>
+    /// <param name="ignoreResistances">Determines whether the damage change should ignore resistances.</param>
+    /// <param name="interruptsDoAfters">Determines whether the damage change interrupts DoAfters.</param>
+    /// <param name="origin">The entity which caused the change in damage, if any.</param>
+    /// <returns>The amount by which the damage has changed.</returns>
+    public DamageSpecifier ChangeDamage(
+        Entity<DamageableComponent?> ent,
+        DamageSpecifier specifier,
+        bool ignoreResistances = false,
+        bool interruptsDoAfters = true,
+        EntityUid? origin = null
+    )
+    {
+        if (_accumulatorQuery.TryComp(ent, out var accumulatorComp))
+            return ChangeDamage((ent, accumulatorComp, ent.Comp), specifier, ignoreResistances, interruptsDoAfters, origin);
+
+        if (_providerQuery.TryComp(ent, out var provideComp))
+            return ChangeDamage((ent, provideComp, ent.Comp), specifier, ignoreResistances, interruptsDoAfters, origin);
+
+        return new();
+    }
+
+    /// <inheritdoc cref="ChangeDamage(Entity{DamageableComponent?}, DamageSpecifier, bool, bool, EntityUid?)"/>
+    public DamageSpecifier ChangeDamage(
+        EntityUid uid,
+        DamageSpecifier specifier,
+        bool ignoreResistances = false,
+        bool interruptsDoAfters = true,
+        EntityUid? origin = null
+    )
+    {
+        if (!_damageableQuery.TryComp(uid, out var damageableComp))
+            return new();
+
+        return ChangeDamage((uid, damageableComp), specifier, ignoreResistances, interruptsDoAfters, origin);
+    }
+
+    /// <summary>
+    /// Retrieves all wounds associated with given entity.
+    /// </summary>
+    /// <param name="uid">The entity to search within.</param>
+    /// <param name="type">Filter by damage type.</param>
+    /// <returns>A list of found wounds.</returns>
+    public List<Entity<WoundComponent>> GetWounds(EntityUid uid, ProtoId<DamageTypePrototype>? type = null)
+    {
+        if (_woundableQuery.TryComp(uid, out var woundableComp))
+            return GetWounds((uid, woundableComp), type);
+
+        if (_providerQuery.TryComp(uid, out var providerComp))
+            return GetWounds((uid, providerComp), type);
+
+        return new();
+    }
+
+    /// <summary>
+    /// Retrieves all wounds associated with given woundable entity.
+    /// </summary>
+    /// <param name="ent">The woundable entity to search within.</param>
+    /// <param name="type">Filter by damage type.</param>
+    /// <returns>A list of found wounds.</returns>
+    public List<Entity<WoundComponent>> GetWounds(
+        Entity<WoundableComponent?> ent,
+        ProtoId<DamageTypePrototype>? type = null
+    )
+    {
+        var wounds = new List<Entity<WoundComponent>>();
+
+        if (!_woundableQuery.Resolve(ent, ref ent.Comp))
+            return wounds;
+
+        foreach (var wound in ent.Comp.Wounds)
+        {
+            if (!_woundQuery.TryComp(wound, out var woundComp)
+                || !string.IsNullOrEmpty(type) && woundComp.Type != type)
+                continue;
+
+            wounds.Add((wound, woundComp));
+        }
+
+        return wounds;
+    }
+
+    #endregion
+
+    #region Private API
+
+    private void RelayPositiveDamage(EntityUid uid, BodyProviderType providerType, bool ignoreResistances, DamageSpecifier damage, EntityUid? origin)
+    {
+        var positiveDamage = new DamageSpecifier(damage);
+        positiveDamage.RemoveNegative();
+
+        if (positiveDamage.Empty)
+            return;
+
+        var ev = new GetWoundableDamageEvent(providerType, ignoreResistances, positiveDamage, origin);
+        RaiseLocalEvent(uid, ref ev);
+    }
+
     #endregion
 }
 
 /// <summary>
-/// Event raised on an entity to get the damage on its woundable provider.
+/// Event raised on an entity to get the damage change on its woundable provider.
 /// </summary>
-public sealed class GetWoundableDamageEvent(BodyProviderType type, bool ignoreResistances, DamageSpecifier damage, EntityUid? origin) : IBodyRelayEvent
+/// <param name="ProviderType">The body provider that should take damage.</param>
+/// <param name="IgnoreResistances">Determines whether the damage change should ignore resistances.</param>
+/// <param name="Damage">The amount by which the damage must be changed.</param>
+/// <param name="Origin">The entity which caused the change in damage, if any.</param>
+[ByRefEvent]
+public record struct GetWoundableDamageEvent(BodyProviderType ProviderType, bool IgnoreResistances, DamageSpecifier Damage, EntityUid? Origin) : IBodyRelayEvent
 {
     /// <summary>
     /// The body provider that is supposed to cause damage.
     /// </summary>
-    public BodyProviderType Type { get; } = type;
+    public BodyProviderType ProviderType { get; } = ProviderType;
 
     /// <summary>
-    /// A result showing how much damage the body has received.
+    /// The amount by which the damage has changed.
     /// </summary>
     public DamageSpecifier Result = new();
-
-    /// <summary>
-    /// Should we ignore damage resistance?
-    /// </summary>
-    public readonly bool IgnoreResistances = ignoreResistances;
-
-    /// <summary>
-    /// Damage this entity should receive.
-    /// </summary>
-    public readonly DamageSpecifier Damage = damage;
-
-    /// <summary>
-    /// Contains the entity which caused the change in damage if any was responsible.
-    /// </summary>
-    public readonly EntityUid? Origin = origin;
 }
 
 /// <summary>
-/// Event raised on an entity to get the damage with resistance taken into account.
-/// </summary>
-public sealed class GetWoundableResistanceEvent(DamageSpecifier damage, EntityUid? origin)
-{
-    /// <summary>
-    /// Damage this entity should receive.
-    /// </summary>
-    public DamageSpecifier Damage = damage;
-
-    /// <summary>
-    /// Contains the entity which caused the change in damage if any was responsible.
-    /// </summary>
-    public readonly EntityUid? Origin = origin;
-}
-
-/// <summary>
-/// Event raised on woundable entity after changing his damage.
-/// </summary>
-/// <remarks>
-/// Used to record damage to downstream providers. If you need to record damage changes, it's better to use <see cref="DamageChangedEvent"/>.
-/// </remarks>
-public sealed class WoundableDamageChangedEvent(EntityUid? origin, DamageSpecifier damage) : IBodyRelayEvent
-{
-    public BodyProviderType Type { get; } = ~BodyProviderType.Part;
-
-    /// <summary>
-    /// Contains the entity which caused the change in damage if any was responsible.
-    /// </summary>
-    public readonly EntityUid? Origin = origin;
-
-    /// <summary>
-    /// The amount by which the damage has changed.
-    /// </summary>
-    public readonly DamageSpecifier Damage = damage;
-}
-
-/// <summary>
-/// Event raised on woundable entity after changing his severity.
+/// Event raised on an entity after changing his wound severity.
 /// </summary>
 /// <param name="Severity">The new severity level.</param>
-public record struct WoundableSeverityChangedEvent(WoundSeverity Severity);
-
-/// <summary>
-/// Event raised on a wound after changing his damage.
-/// </summary>
-public sealed class WoundDamageChangedEvent(EntityUid? origin, FixedPoint2 damage, WoundComponent wound)
-{
-    /// <summary>
-    /// Contains the entity which caused the change in damage if any was responsible.
-    /// </summary>
-    public readonly EntityUid? Origin = origin;
-
-    /// <summary>
-    /// The amount by which the damage has changed.
-    /// </summary>
-    public readonly FixedPoint2 Damage = damage;
-
-    /// <summary>
-    /// This is the component whose damage was changed.
-    /// </summary>
-    public readonly WoundComponent Wound = wound;
-}
-
-/// <summary>
-/// Event raised on a wound after changing his severity.
-/// </summary>
-/// <param name="Severity">The new severity level.</param>
+[ByRefEvent]
 public record struct WoundSeverityChangedEvent(WoundSeverity Severity);
+
+/// <summary>
+/// Event raised on a wound after it's created.
+/// </summary>
+/// <param name="Wound">The component whose was created.</param>
+[ByRefEvent]
+public record struct WoundCreatedEvent(WoundComponent Wound);
