@@ -5483,3 +5483,10 @@ Entries:
   id: 573
   time: '2026-08-07T17:07:07.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1185
+- author: Cinkafox
+  changes:
+    - type: Fix
+      message: Исправление в движке
+  id: 574
+  time: '2026-09-09T16:23:15.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1192
