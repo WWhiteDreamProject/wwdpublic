@@ -5490,3 +5490,10 @@ Entries:
   id: 574
   time: '2026-09-09T16:23:15.0000000+00:00'
   url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1192
+- author: Cinkafox
+  changes:
+    - type: Remove
+      message: 'Оверлей чат '
+  id: 575
+  time: '2026-09-09T17:14:33.0000000+00:00'
+  url: https://github.com/WWhiteDreamProject/wwdpublic/pull/1193
