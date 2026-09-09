@@ -32,6 +32,9 @@
     canInteract: true
   - type: GhostHearing
   - type: Hands
+  # WD EDIT START
+  - type: AdminObserverHands
+  # WD EDIT END
   - type: ComplexInteraction
   - type: Puller
     needsHands: false # Tail Drag
