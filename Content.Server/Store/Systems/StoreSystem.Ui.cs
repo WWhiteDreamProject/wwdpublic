@@ -370,6 +370,12 @@ public sealed partial class StoreSystem
         // Reset store back to its original state
         RefreshAllListings(component);
         component.BalanceSpent = new();
+
+        // WD EDIT START - notify White purchase history only after the aggregate refund succeeds.
+        var refundFinished = new StoreRefundFinishedEvent(buyer, uid);
+        RaiseLocalEvent(ref refundFinished);
+        // WD EDIT END
+
         UpdateUserInterface(buyer, uid, component);
     }
 
