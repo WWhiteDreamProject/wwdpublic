@@ -34,3 +34,4 @@ scramble-implant-activated-popup = Your appearance shifts and changes!
 
 deathrattle-implant-dead-message = {$user} has died {$position}.
 deathrattle-implant-critical-message = {$user} life signs critical, immediate assistance required {$position}.
+deathrattle-implant-revive-message = { $user } has been cured, currently located at { $position }.

@@ -1,0 +1,56 @@
+<Document>
+# Структуры
+  Тут будут описаны все структуры, которые были сделаны специально для ивента.
+
+  ## Консоль широкого управления шаттлом
+  <Box>
+    <GuideEntityEmbed Entity="ComputerShuttleWide"/>
+    <GuideEntityEmbed Entity="ShuttleWideConsoleCircuitboard"/>
+  </Box>
+  Функционально это полная копия обычной консоли управления шаттлом. Однако эта консоль имеет больший радиус обзора на радаре, а конкретно 768. Для смены масштаба нужно покрутить колесико мышки. Можно собрать с помощью одноименной платы
+
+  ## Консоль широкого сканера масс
+  <Box>
+    <GuideEntityEmbed Entity="ComputerRadarWide"/>
+    <GuideEntityEmbed Entity="RadarWideConsoleCircuitboard"/>
+  </Box>
+  Функционально это полная копия обычного сканера масс. Однако эта консоль имеет больший радиус обзора на радаре, а конкретно 2048. Для смены масштаба нужно покрутить колесико мышки. Можно собрать с помощью одноименной платы. Находится на мостике и в оружейной материнского корабля.
+
+  ## Консоль дистанционного управления
+  <Box>
+    <GuideEntityEmbed Entity="ComputerRemoteControl"/>
+    <GuideEntityEmbed Entity="RemoteControlConsoleCircuitboard"/>
+  </Box>
+  Эта консоль нужна для управления корабельным оружием. Для управления необходимо предварительно привязать платформу для корабельного оружия мультитулом. Можно подключать несколько платформ.
+
+  ## Платформа для корабельного оружия
+  <Box>
+    <GuideEntityEmbed Entity="WeaponTurretShipAlmagest"/>
+    <GuideEntityEmbed Entity="WeaponTurretShipAlmagestBroken"/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="WeaponTurretShipAlmagestFlatpack"/>
+    <GuideEntityEmbed Entity="WeaponTurretShipAlmagestCircuitBoard"/>
+  </Box>
+
+  ВНИМАНИЕ! Имеет отличия от стандартной версии.
+
+  На эту платформу можно установить крабельное оружие держа его в руках и кликнув по платформе ЛКМ`ом. Необходимо подключить к консоли дистанционного управления.
+
+  Может быть заблокирована, что усложнит попытку диверсии через ручную разборку турели.
+
+  <Box>
+    <GuideEntityEmbed Entity="WeaponTurretShipAlmagestBroken" Caption=""/>
+    <GuideEntityEmbed Entity="SheetSteel" Caption=""/>
+    <GuideEntityEmbed Entity="Welder" Caption=""/>
+    <GuideEntityEmbed Entity="CableApcStack" Caption=""/>
+    <GuideEntityEmbed Entity="Screwdriver" Caption=""/>
+    <GuideEntityEmbed Entity="WeaponTurretShipAlmagest" Caption=""/>
+  </Box>
+  Уже сломанную платформу можно починить с помощью:
+  - 5 стали
+  - сварки
+  - 3 НВ проводов
+  - отвёртки
+
+</Document>
