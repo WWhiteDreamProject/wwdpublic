@@ -5732,12 +5732,6 @@ entities:
       pos: -1.5,-1.5
       parent: 1
     - type: RemoteControlConsole
-      linkedEntities:
-      - 2293
-      - 2294
-      - 2300
-      - 2299
-      - 2298
     - type: DeviceLinkSource
       linkedPorts:
         2294:
@@ -5762,12 +5756,6 @@ entities:
       pos: 2.5,-1.5
       parent: 1
     - type: RemoteControlConsole
-      linkedEntities:
-      - 2295
-      - 2296
-      - 2302
-      - 2301
-      - 2297
     - type: DeviceLinkSource
       linkedPorts:
         2295:
@@ -5791,15 +5779,6 @@ entities:
       pos: 4.5,14.5
       parent: 1
     - type: RemoteControlConsole
-      linkedEntities:
-      - 2296
-      - 2295
-      - 2293
-      - 2294
-      - 2300
-      - 2302
-      - 2301
-      - 2299
     - type: DeviceLinkSource
       linkedPorts:
         2296:

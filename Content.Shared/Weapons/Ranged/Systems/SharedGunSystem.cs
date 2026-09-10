@@ -275,7 +275,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         return false;
     }
 
-    private void StopShooting(EntityUid uid, GunComponent gun)
+    public void StopShooting(EntityUid uid, GunComponent gun) // WWDP EDIT private --> public
     {
         if (gun.ShotCounter == 0)
             return;
@@ -289,11 +289,12 @@ public abstract partial class SharedGunSystem : EntitySystem
     /// <summary>
     /// Attempts to shoot at the target coordinates. Resets the shot counter after every shot.
     /// </summary>
-    public void AttemptShoot(EntityUid user, EntityUid gunUid, GunComponent gun, EntityCoordinates? toCoordinates = null) // WWDP EDIT
+    public void AttemptShoot(EntityUid user, EntityUid gunUid, GunComponent gun, EntityCoordinates? toCoordinates = null, bool forceResetCounter = true) // WWDP EDIT
     {
         gun.ShootCoordinates = toCoordinates ?? new EntityCoordinates(gunUid, gun.DefaultDirection);
         AttemptShoot(user, gunUid, gun);
-        gun.ShotCounter = 0;
+        if (forceResetCounter) // WWDP EDIT
+            gun.ShotCounter = 0;
     }
 
     /// <summary>

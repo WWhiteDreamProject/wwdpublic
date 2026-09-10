@@ -609,9 +609,6 @@ entities:
       pos: 0.5,-5.5
       parent: 1
     - type: RemoteControlConsole
-      linkedEntities:
-      - 28
-      - 66
     - type: DeviceLinkSource
       linkedPorts:
         66:

@@ -480,7 +480,8 @@ public sealed partial class AdminVerbSystem
             Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/AdminActions/rename.png")),
             Act = () =>
             {
-                _quickDialog.OpenDialog(player, "Rename", "Name", (string newName) =>
+                var currentName = MetaData(args.Target).EntityName; // WWDP EDIT
+                _quickDialog.OpenDialog(player, "Rename", ("Name", currentName), (string newName) => // WWDP EDIT
                 {
                     _metaSystem.SetEntityName(args.Target, newName);
                 });

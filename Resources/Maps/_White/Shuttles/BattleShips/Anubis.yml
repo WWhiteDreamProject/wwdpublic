@@ -4308,11 +4308,6 @@ entities:
       pos: -4.5,15.5
       parent: 1
     - type: RemoteControlConsole
-      linkedEntities:
-      - 1590
-      - 1592
-      - 1593
-      - 1638
     - type: DeviceLinkSource
       linkedPorts:
         1590:
@@ -4333,11 +4328,6 @@ entities:
       pos: 5.5,15.5
       parent: 1
     - type: RemoteControlConsole
-      linkedEntities:
-      - 1591
-      - 1595
-      - 1594
-      - 1639
     - type: DeviceLinkSource
       linkedPorts:
         1591:
@@ -4358,18 +4348,6 @@ entities:
       pos: 1.5,-2.5
       parent: 1
     - type: RemoteControlConsole
-      linkedEntities:
-      - 1597
-      - 1596
-      - 1587
-      - 1593
-      - 1592
-      - 1590
-      - 1591
-      - 1595
-      - 1594
-      - 1638
-      - 1639
     - type: DeviceLinkSource
       linkedPorts:
         1597:
