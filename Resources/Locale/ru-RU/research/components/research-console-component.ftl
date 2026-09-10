@@ -1,6 +1,6 @@
 ## UI
 
-research-console-menu-title = Консоль РнД
+research-console-menu-title = Консоль R&D
 research-console-menu-research-points-text = Очки исследований: { $points }
 research-console-menu-main-discipline = Основная дисциплина: [color={ $color }]{ $name }[/color]
 research-console-menu-softcap-amount-text = Текущий множитель стоимости: [color=#ff8c00]{ $softcap }[/color]

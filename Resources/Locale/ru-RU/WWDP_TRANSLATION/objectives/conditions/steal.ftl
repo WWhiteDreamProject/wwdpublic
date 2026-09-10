@@ -8,7 +8,7 @@ steal-target-hand-teleporter = ручной телепорт
 
 steal-target-advanced-magboots = продвинутые магнитные сапоги
 
-steal-target-requisition-digi-board = портативная доска заказов
+steal-target-requisition-digi-board = { ent-BoxFolderQmClipboard }
 
 steal-target-prime-cut-corgi-meat = первосортное мясо корги
 
