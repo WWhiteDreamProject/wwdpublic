@@ -32,12 +32,12 @@ public sealed class TimedFactorySystem : EntitySystem
         while (factoryQuery.MoveNext(out var uid, out var factory))
         {
             if (factory.Active)
-                return;
+                continue;
 
             factory.CooldownRemain -= frameTime;
             Dirty(uid, factory);
             if (factory.CooldownRemain > 0)
-                return;
+                continue;
 
             factory.Active = true;
             _appearance.SetData(uid, GenericCultVisuals.State, true);
