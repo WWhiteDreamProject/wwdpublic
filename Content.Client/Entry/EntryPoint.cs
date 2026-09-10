@@ -42,6 +42,7 @@ using Robust.Shared.ContentPack;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Replays;
 using Robust.Shared.Timing;
+using Content.Shared._White.Other; // huehuehuehue
 
 namespace Content.Client.Entry
 {
@@ -93,6 +94,7 @@ namespace Content.Client.Entry
 
             IoCManager.BuildGraph();
             IoCManager.InjectDependencies(this);
+            Crutches.InitDependencies(); // WWDP EDIT // because it's funny
 
             _contentLoc.Initialize();
             _componentFactory.DoAutoRegistrations();
