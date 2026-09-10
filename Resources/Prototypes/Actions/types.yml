@@ -123,8 +123,8 @@
   components:
   - type: InstantAction
     checkCanInteract: false
-    charges: 3
-    useDelay: 5
+    # charges: 3 WWDP
+    useDelay: 45 # WD EDIT: 5 -> 45
     itemIconStyle: BigAction
     priority: -20
     icon:

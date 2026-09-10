@@ -3,11 +3,11 @@
   name: uplink-magazine-light-rifle-ar31hydra-name
   description: uplink-magazine-light-rifle-ar31hydra-desc
   productEntity: MagazineLightRifleAR31Hydra
-  discountCategory: usualDiscounts
-  discountDownTo:
-    Telecrystal: 1
+# discountCategory: usualDiscounts
+# discountDownTo:
+#   Telecrystal: 1
   cost:
-    Telecrystal: 2
+    Telecrystal: 1 #EDIT 2 > 1
   categories:
   - UplinkAmmo
 
