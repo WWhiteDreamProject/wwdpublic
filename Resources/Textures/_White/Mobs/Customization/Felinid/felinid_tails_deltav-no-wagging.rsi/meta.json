@@ -1,0 +1,19 @@
+{
+    "version": 2,
+    "copyright": "Made by Adrian16199, modified by Myaflic for WWDP",
+    "license": "CC-BY-SA-4.0",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "felinid_fluffy_tail_rings_stopped",
+            "directions": 4
+        },
+        {
+            "name": "Felinid_fluffy_tail_full_stopped",
+            "directions": 4
+        }
+    ]
+}
