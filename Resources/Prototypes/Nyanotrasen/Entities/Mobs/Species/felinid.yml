@@ -64,6 +64,7 @@
       Female: FemaleFelinid
       Unsexed: MaleFelinid
   - type: Felinid
+  - type: Wagging # WWDP EDIT
   - type: NoShoesSilentFootsteps
   - type: LanguageKnowledge
     speaks:
