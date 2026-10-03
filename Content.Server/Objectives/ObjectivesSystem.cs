@@ -142,16 +142,38 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
             var custody = IsInCustody(mindId, mind) ? Loc.GetString("objectives-in-custody") : string.Empty;
 
             var objectives = mind.Objectives;
+
+            // WD EDIT START - let White features add lines below the antagonist heading, even without objectives.
+            var additionalInfo = new ObjectivesTextGetAdditionalInfoEvent(new List<string>());
+            RaiseLocalEvent(mindId, ref additionalInfo);
+
             if (objectives.Count == 0)
             {
-                agentSummaries.Add((Loc.GetString("objectives-no-objectives", ("custody", custody), ("title", title), ("agent", agent)), 0f, 0));
+                var noObjectivesSummary = new StringBuilder(Loc.GetString(
+                    "objectives-no-objectives",
+                    ("custody", custody),
+                    ("title", title),
+                    ("agent", agent)));
+                foreach (var line in additionalInfo.Lines)
+                {
+                    noObjectivesSummary.AppendLine();
+                    noObjectivesSummary.Append(line);
+                }
+
+                agentSummaries.Add((noObjectivesSummary.ToString(), 0f, 0));
                 continue;
             }
+            // WD EDIT END
 
             var completedObjectives = 0;
             var totalObjectives = 0;
             var agentSummary = new StringBuilder();
             agentSummary.AppendLine(Loc.GetString("objectives-with-objectives", ("custody", custody), ("title", title), ("agent", agent)));
+
+            // WD EDIT START - append the collected White round-end details.
+            foreach (var line in additionalInfo.Lines)
+                agentSummary.AppendLine(line);
+            // WD EDIT END
 
             foreach (var objectiveGroup in objectives.GroupBy(o => Comp<ObjectiveComponent>(o).LocIssuer))
             {
@@ -317,3 +339,11 @@ public record struct ObjectivesTextGetInfoEvent(List<(EntityUid, string)> Minds,
 /// </summary>
 [ByRefEvent]
 public record struct ObjectivesTextPrependEvent(string Text);
+
+// WD EDIT START - event extension point for White round-end details.
+/// <summary>
+/// Raised on a mind to collect additional lines displayed immediately below its antagonist heading.
+/// </summary>
+[ByRefEvent]
+public record struct ObjectivesTextGetAdditionalInfoEvent(List<string> Lines);
+// WD EDIT END
