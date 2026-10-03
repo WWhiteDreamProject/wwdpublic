@@ -20,7 +20,7 @@ public sealed partial class XenomorphEggComponent : Component
     public TimeSpan CheckInRangeDelay = TimeSpan.FromSeconds(1);
 
     [DataField]
-    public TimeSpan BurstingDelay = TimeSpan.FromSeconds(1.5f);
+    public TimeSpan BurstingDelay = TimeSpan.FromSeconds(0.8f);
 
     [DataField]
     public TimeSpan MaxGrowthTime = TimeSpan.FromSeconds(150);
