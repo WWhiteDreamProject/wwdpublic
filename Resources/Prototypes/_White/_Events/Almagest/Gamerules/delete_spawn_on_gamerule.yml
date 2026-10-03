@@ -1,0 +1,62 @@
+- type: entity
+  parent: BaseGameRule
+  id: DeleteSpawnOnGamerule
+  components:
+  - type: DeleteSpawnOnGamerule
+    tilesToRemove:
+    - PlatingDSonG
+    entityTagsToRemove:
+    - DeleteOnGamerule
+    markersToActivate:
+    - SpawnOnGameruleWeaponTurretShipAlmagestRiftLance
+    - SpawnOnGameruleWeaponTurretAlmagestVergessenheit
+    - SpawnOnGameruleTimedAnnouncerVergessenheit
+
+- type: entity
+  id: WallPlastitaniumIndestructibleDSonG
+  parent: WallPlastitaniumIndestructible
+  components:
+  - type: Tag
+    tags:
+    - DeleteOnGamerule
+    - Wall
+
+- type: entity
+  name: Almagest Rift Lance Spawner
+  id: SpawnOnGameruleWeaponTurretShipAlmagestRiftLance
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: _White/Objects/Weapons/Guns/Turrets/rift_lance.rsi
+      state: icon
+      scale: 0.5, 0.5
+  - type: SpawnOnGamerule
+    spawnPrototype: WeaponTurretShipAlmagestRiftLance
+
+- type: entity
+  name: turret timed spawner spawner
+  id: SpawnOnGameruleWeaponTurretAlmagestVergessenheit
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Objects/Weapons/Guns/Turrets/turrets.rsi
+      state: syndie_lethal
+  - type: SpawnOnGamerule
+    spawnPrototype: WeaponTurretAlmagestVergessenheitTimedSpawner
+
+- type: entity
+  name: time announcer vergessenheit
+  id: SpawnOnGameruleTimedAnnouncerVergessenheit
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Objects/Devices/timer.rsi
+      state: timer
+  - type: SpawnOnGamerule
+    spawnPrototype: TimedAnnouncerVergessenheit

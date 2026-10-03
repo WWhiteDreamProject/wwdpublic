@@ -69,3 +69,6 @@
   
 - type: Tag
   id: MortarGrenade
+
+- type: Tag
+  id: AlmagestFlare

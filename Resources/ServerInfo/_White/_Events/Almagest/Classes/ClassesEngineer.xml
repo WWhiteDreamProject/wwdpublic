@@ -1,0 +1,49 @@
+<Document>
+  ## Инженер (Engineer)
+  <Box>
+    <GuideEntityEmbed Entity="AlmagestAutoEquipmentRedEngineer" Caption=""/>
+  </Box>
+
+  Специалист по ремонту и строительству. Отвечает за поддержание корабля в рабочем состоянии и возведение оборонительных сооружений.
+
+  ### Снаряжение
+  <Box>
+    <GuideEntityEmbed Entity="ClothingNeckMantleCE"/>
+    <GuideEntityEmbed Entity="ClothingShoesBootsMagAdv"/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="ClothingEyesGlassesMeson"/>
+    <GuideEntityEmbed Entity="ClothingHandsGlovesColorYellow"/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="JetpackVoidFilled"/>
+    <GuideEntityEmbed Entity="ClothingBeltChiefEngineerFilledAlmagestEquip" Caption="пояс старшего Альмагеста"/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="AlmagestGrenadeEngineer"/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="AlmagestGirderFlatpack30"/>
+    <GuideEntityEmbed Entity="AlmagestGirder" Caption=""/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="WallAlmagestUniversalResistantFlatpack15"/>
+    <GuideEntityEmbed Entity="WallAlmagestUniversalResistant" Caption=""/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="WallAlmagestLaserResistantFlatpack15"/>
+    <GuideEntityEmbed Entity="WallAlmagestLaserResistant" Caption=""/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="WallAlmagestStructuralResistantFlatpack15"/>
+    <GuideEntityEmbed Entity="WallAlmagestStructuralResistant" Caption=""/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="WallAlmagestPiercingResistantFlatpack15"/>
+    <GuideEntityEmbed Entity="WallAlmagestPiercingResistant" Caption=""/>
+  </Box>
+
+  ### Роль
+
+  Устранение повреждений, строительство укреплений, обслуживание инфраструктуры флота.
+</Document>

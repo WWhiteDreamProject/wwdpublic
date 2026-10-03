@@ -1,0 +1,173 @@
+<Document>
+  # Оружие
+
+  Тут будет описано всё новое или доступное во время ивента игроку оружие.
+
+  ## Структура
+
+  [color=#91fbff] 1. Обычное оружие\n[/color]
+  [color=#91fbff]2. Мортиры\n[/color]
+  [color=#91fbff]3. Мортирные снаряды\n[/color]
+  [color=#91fbff]4. Корабельное оружие\n[/color]
+
+  ## Обычное оружие
+
+  <Box>
+    <GuideEntityEmbed Entity="AlmagestEquipmentWeaponBaseSelect"/>
+  </Box>
+
+  У каждого класса в рюкзаке есть своё радиальне энтити, которое выглядит как золотоая WT550. При использовании в руках вам откроется меню выбора оружия. На данный момент на выбор есть: ВТ550, лазерная винтовка, лектер и силовик. На матерсинком корабле есть запасные золотые ВТшки на случай потери своего оружия.
+
+  <Box>
+    <GuideEntityEmbed Entity="WeaponSubMachineGunWt550" Caption=""/>
+    <GuideEntityEmbed Entity="CheckerPieceBlack" Caption=""/>
+    <GuideEntityEmbed Entity="WeaponLaserCarbine" Caption=""/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="CheckerPieceBlack" Caption=""/>
+    <GuideEntityEmbed Entity="AlmagestEquipmentWeaponBaseSelect" Caption=""/>
+    <GuideEntityEmbed Entity="CheckerPieceBlack" Caption=""/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="WeaponRifleLecter" Caption=""/>
+    <GuideEntityEmbed Entity="CheckerPieceBlack" Caption=""/>
+    <GuideEntityEmbed Entity="WeaponShotgunEnforcer" Caption=""/>
+  </Box>
+
+  ## Мортиры
+
+  На материнском шттле и истребителях стоят мортиры ЭКСП-2100г «Дастер», у Авроры для них есть отдельные комнаты, а у СТ-16 стоит 1 мортира на мостике.
+
+  <Box>
+    <GuideEntityEmbed Entity="ShuttleGunDuster"/>
+  </Box>
+
+  Снаряды для мортир лежат недалеко от самого оружия. Ещё их можно найти на астероидах с лутом.
+
+  Вдобавок около каждой мортиры есть пустой картридж, он нужен для удобства использования своих классовых мортирных снарядов, которые есть у каждого класса и на астероидах.
+
+  На сканере масс стандартные мортирные снаряды обозначаются коричневым или зеленым кругом со стрелкой в середине.
+
+  ## Мортирные снаряды
+
+  <Box>
+    <GuideEntityEmbed Entity="AlmagestGrenadeCaptain"/>
+    <GuideEntityEmbed Entity="AlmagestGrenadeMarine"/>
+    <GuideEntityEmbed Entity="AlmagestGrenadeEngineer"/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="AlmagestGrenadeMedic"/>
+    <GuideEntityEmbed Entity="AlmagestGrenadeDemoman"/>
+  </Box>
+
+  У каждого класса в кармане лежит свой собственный мортирный снаряд. Классовые снаряды отличаются от обычных своей огромной пробивной способностью на уровне снарядов пушек типа RAM. Однако помимо этого у каждого снаряда есть собственный эффект
+
+  На радаре классовые мортирные снаряды обозначаются знаком опасности со стрелкой.
+
+  ### Капитан
+  <Box>
+    <GuideEntityEmbed Entity="AlmagestGrenadeCaptain"/>
+  </Box>
+
+  Поскольку капитан на команду всего 1, он имеет при себе самый опасный снаряд. После окончания прочности снаряда он взрывается и выпускает 5 осколков, которые через мгновение фиксируются и начинают работать как граната сингулярности, то есть притягивать всё к себе. По окончанию действия этих осколков они снова взрываются с эффектом ЭМИ и множеством пуль с неприрывным пролетом через всё и вся. Каждая пуля наносит 10 пробивающего и 30 урона ядом, однако чинит структурным уроном на 10.
+
+  ### Десантник
+  <Box>
+    <GuideEntityEmbed Entity="AlmagestGrenadeMarine"/>
+  </Box>
+
+  Снаряд десантника не отличается опасностью эффекта. По окончанию прочности взрывается с эффектом ЭМИ и множеством пуль. Каждая пуля наносит 10 пробивающего и 30 урона ядом, однако чинит структурным уроном на 10.
+
+  ### Инженер
+  <Box>
+    <GuideEntityEmbed Entity="AlmagestGrenadeEngineer"/>
+  </Box>
+
+  Снаряд инженера по окончанию собственной прочности спавнит некоторое количество враждебных ко всем турелей. Есть небльшой шанс спавна сломанной турели или платформы корабельного оружия. Технология экспериментальная, поэтому иногда турели могут застрять в стенах.
+
+  ### Медик
+  <Box>
+    <GuideEntityEmbed Entity="AlmagestGrenadeMedic"/>
+  </Box>
+
+  Снаряд медика это биологическое оружие. По окончанию прочности в некотром радиусе покрывает пол паутиной, спавнит голокарпов и космических пауков, вдобавок покрывая небольшую область дымовой завесой.
+
+  ### Подрывник
+  <Box>
+    <GuideEntityEmbed Entity="AlmagestGrenadeDemoman"/>
+  </Box>
+
+  Снаряд подрывника по окончанию прочности разрывается на 3 осколка, которые по функциональной сути являются гранатами сингулярности, то есть притягивают всё к себе. По окончанию действия этих осколков они снова взрываются с эффектом ЭМИ и множеством пуль с неприрывным пролетом через всё и вся. Каждая пуля наносит 10 пробивающего и 30 урона ядом, однако чинит структурным уроном на 10.
+
+  ## Корабельное оружие
+
+  <Box>
+    <GuideEntityEmbed Entity="AlmagestEquipmentWeaponShipAnnihilator" Caption=""/>
+    <GuideEntityEmbed Entity="AlmagestEquipmentWeaponShipIRLaser" Caption=""/>
+    <GuideEntityEmbed Entity="AlmagestEquipmentWeaponShipSelect" Caption=""/>
+    <GuideEntityEmbed Entity="AlmagestEquipmentWeaponShipHMG" Caption=""/>
+    <GuideEntityEmbed Entity="AlmagestEquipmentWeaponShipRam" Caption=""/>
+  </Box>
+
+  Корабельное оружие это главная огневая мощь шаттлов. Каждый шаттл по внешнему периметру имеет платформы для установки корабельного оружия, которые изначально пдключены мультитулом к консоли дистанционного управления.
+  <Box>
+    <GuideEntityEmbed Entity="WeaponTurretShipLight"/>
+    <GuideEntityEmbed Entity="ComputerRemoteControl"/>
+  </Box>
+
+  На эту платформу можно установить крабельное оружие держа его в руках и кликнув по платформе ЛКМ`ом.
+
+  [color=#91fbff]Всё корабельное оружие на данный момент использует электричество корабля в качестве боезапаса. Нуждается в нахождении запитанных НВ проводов поблизости для зарядки.[/color]
+
+  На данный момент есть 4 класса корабельного оружия, для которых есть отдельные страницы в этом гайдбуке.
+
+  <GuideEntityEmbed Entity="AlmagestEquipmentWeaponShipAnnihilator" Caption="Аннигилятор имеет 3 подкласса.\nСтреляет очередью из ракет.\nНаносит взрывной и структурный урон."/>
+  <GuideEntityEmbed Entity="AlmagestEquipmentWeaponShipIRLaser" Caption="ИР Лазер имеет 2 подкласса.\nСтреляет лазерными зарядами в автоматическом режиме.\nНаносит тепловой и шоковый урон."/>
+  <GuideEntityEmbed Entity="AlmagestEquipmentWeaponShipHMG" Caption="ХМГ имеет 2 подкласса.\nСтреляет пулями в автоматическом режиме.\nНаносит проникающий урон и имеет шанс на пробитие."/>
+  <GuideEntityEmbed Entity="AlmagestEquipmentWeaponShipRam" Caption="Таран имеет 3 подкласса.\nЭкспериментальное и крайне опасное оружие.\nИмеет долгую перезарядку и большое потребление энергии."/>
+
+  [color=#91fbff]Стены и оружие были специально сделаны так, чтобы получалась некая игра в камень-ножницы-бумагу. Ниже будет таблица "иммунитета" стен к определнному типу урона и оружию. Это необходимо учитывать при стрельбе.[/color]
+
+  <Box>
+    <GuideEntityEmbed Entity="CarpetBlue" Caption="Хорошая защита"/>
+    <GuideEntityEmbed Entity="CarpetGreen" Caption="Средняя защита"/>
+    <GuideEntityEmbed Entity="Carpet" Caption="Плохая защита"/>
+  </Box>
+
+  <Box>
+    <GuideEntityEmbed Entity="CarpetBlack" Caption=""/>
+    <GuideEntityEmbed Entity="AlmagestEquipmentWeaponShipAnnihilator" Caption=""/>
+    <GuideEntityEmbed Entity="AlmagestEquipmentWeaponShipIRLaser" Caption=""/>
+    <GuideEntityEmbed Entity="AlmagestEquipmentWeaponShipHMG" Caption=""/>
+    <GuideEntityEmbed Entity="AlmagestEquipmentWeaponShipRam" Caption=""/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="WallAlmagestUniversalResistant" Caption=""/>
+    <GuideEntityEmbed Entity="CarpetGreen" Caption=""/>
+    <GuideEntityEmbed Entity="CarpetGreen" Caption=""/>
+    <GuideEntityEmbed Entity="CarpetGreen" Caption=""/>
+    <GuideEntityEmbed Entity="CarpetGreen" Caption=""/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="WallAlmagestLaserResistant" Caption=""/>
+    <GuideEntityEmbed Entity="Carpet" Caption=""/>
+    <GuideEntityEmbed Entity="CarpetBlue" Caption=""/>
+    <GuideEntityEmbed Entity="Carpet" Caption=""/>
+    <GuideEntityEmbed Entity="Carpet" Caption=""/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="WallAlmagestStructuralResistant" Caption=""/>
+    <GuideEntityEmbed Entity="CarpetBlue" Caption=""/>
+    <GuideEntityEmbed Entity="Carpet" Caption=""/>
+    <GuideEntityEmbed Entity="Carpet" Caption=""/>
+    <GuideEntityEmbed Entity="Carpet" Caption=""/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="WallAlmagestPiercingResistant" Caption=""/>
+    <GuideEntityEmbed Entity="Carpet" Caption=""/>
+    <GuideEntityEmbed Entity="Carpet" Caption=""/>
+    <GuideEntityEmbed Entity="CarpetBlue" Caption=""/>
+    <GuideEntityEmbed Entity="Carpet" Caption=""/>
+  </Box>
+
+</Document>
