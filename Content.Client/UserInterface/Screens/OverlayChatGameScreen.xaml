@@ -12,6 +12,7 @@
     xmlns:targeting="clr-namespace:Content.Client._Shitmed.UserInterface.Systems.Targeting.Widgets"
     xmlns:combatMode="clr-namespace:Content.Client._White.UserInterface.Systems.CombatMode.Widgets"
     xmlns:movement="clr-namespace:Content.Client._White.UserInterface.Systems.Movement.Widgets"
+    xmlns:adminObserver="clr-namespace:Content.Client._White.UserInterface.Systems.AdminObserver.Widgets"
     Name="DefaultHud"
     VerticalExpand="False"
     VerticalAlignment="Bottom"
@@ -40,4 +41,7 @@
     <!-- WD EDIT END -->
     <chat:ResizableChatBox Name="Chat" Access="Protected" />
     <alerts:AlertsUI Name="Alerts" Access="Protected" />
+    <!-- WD EDIT START -->
+    <adminObserver:AdminObserverHandsGui Name="AdminObserverHands" Access="Protected"/>
+    <!-- WD EDIT END -->
 </screens:OverlayChatGameScreen>
