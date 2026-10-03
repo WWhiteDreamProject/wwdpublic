@@ -1,4 +1,4 @@
-﻿using Content.Server.Carrying;
+using Content.Server.Carrying;
 using Content.Server.DoAfter;
 using Content.Server.Item;
 using Content.Server.Popups;
@@ -61,15 +61,20 @@ public sealed class PseudoItemSystem : SharedPseudoItemSystem
 
     protected override void OnGettingPickedUpAttempt(EntityUid uid, PseudoItemComponent component, GettingPickedUpAttemptEvent args)
     {
-        // Try to pick the entity up instead first
-        if (args.User != args.Item && _carrying.TryCarry(args.User, uid))
-        {
-            args.Cancel();
-            return;
-        }
+        // WWDP EDIT START
+        // args.Cancel();
+        // return;
 
-        // If could not pick up, just take it out onto the ground as per default
-        base.OnGettingPickedUpAttempt(uid, component, args);
+        // // Try to pick the entity up instead first
+        // if (args.User != args.Item && _carrying.TryCarry(args.User, uid))
+        // {
+        args.Cancel();
+        //     return;
+        // }
+
+        // // If could not pick up, just take it out onto the ground as per default
+        // base.OnGettingPickedUpAttempt(uid, component, args);
+        // WWDP EDIT END
     }
 
     // Show a popup when a pseudo-item falls asleep inside a bag.
