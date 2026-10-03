@@ -34,7 +34,11 @@
                 <actions:ActionsBar Name="Actions" Access="Protected" />
                 <BoxContainer Name="VoteMenu" Access="Public" Orientation="Vertical"/>
             </BoxContainer>
-            <alerts:AlertsUI Name="Alerts" Access="Protected" />
+            <!-- WD EDIT START -->
+            <BoxContainer Name="TopRightContainer" Orientation="Vertical">
+                <alerts:AlertsUI Name="Alerts" Access="Protected" />
+            </BoxContainer>
+            <!-- WD EDIT END -->
         </LayoutContainer>
         <PanelContainer Name="SeparatedChatPanel" HorizontalExpand="True" MinWidth="300" StyleClasses="ChatMainPanel">
             <BoxContainer Orientation="Vertical" HorizontalExpand="True" SeparationOverride="10" Margin="10">
