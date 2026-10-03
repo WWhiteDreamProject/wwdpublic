@@ -1,8 +1,8 @@
 - type: entity
   parent: BaseComputerAiAccess
   id: ComputerRemoteControl
-  name: remote control console
-  description: A computer equipped with a joystick. Has a faint cheetos smell around it.
+  name: ship gunner console
+  description: A computer console for aiming and firing ship weaponry. Light them up!
   components:
   - type: Sprite
     layers:
@@ -26,6 +26,14 @@
   - type: DeviceLinkSource
     ports:
     - RemoteControlSourcePort
+  - type: ActivatableUI
+    key: enum.RemoteControlConsoleUiKey.Key
+    singleUser: true
+    blockSpectators: true
+  - type: UserInterface
+    interfaces:
+      enum.RemoteControlConsoleUiKey.Key:
+        type: RemoteControlConsoleBoundUserInterface
 
 - type: entity
   parent: ComputerRadar

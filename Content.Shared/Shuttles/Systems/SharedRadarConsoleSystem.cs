@@ -4,6 +4,7 @@ namespace Content.Shared.Shuttles.Systems;
 
 public abstract class SharedRadarConsoleSystem : EntitySystem
 {
+    public const float DefaultMinRange = 64f; // WWDP EDIT
     public const float DefaultMaxRange = 256f;
 
     protected virtual void UpdateState(EntityUid uid, RadarConsoleComponent component)

@@ -6959,11 +6959,6 @@ entities:
       pos: -0.5,-0.5
       parent: 1
     - type: RemoteControlConsole
-      linkedEntities:
-      - 2634
-      - 2625
-      - 2637
-      - 2636
     - type: DeviceLinkSource
       linkedPorts:
         2634:
@@ -6985,11 +6980,6 @@ entities:
       pos: 1.5,-0.5
       parent: 1
     - type: RemoteControlConsole
-      linkedEntities:
-      - 2632
-      - 2635
-      - 2626
-      - 2633
     - type: DeviceLinkSource
       linkedPorts:
         2632:
@@ -7011,13 +7001,6 @@ entities:
       pos: 0.5,1.5
       parent: 1
     - type: RemoteControlConsole
-      linkedEntities:
-      - 2638
-      - 2630
-      - 2629
-      - 2631
-      - 2627
-      - 2628
     - type: DeviceLinkSource
       linkedPorts:
         2630:

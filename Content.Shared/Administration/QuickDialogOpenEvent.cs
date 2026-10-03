@@ -86,7 +86,12 @@ public sealed class QuickDialogEntry
     /// The prompt to show the user.
     /// </summary>
     public string Prompt;
-
+    // WWDP EDIT START
+    /// <summary>
+    /// Initial value of the entry field.
+    /// </summary>
+    public string Initial;
+    // WWDP EDIT END
     /// <summary>
     /// String to replace the type-specific placeholder with.
     /// </summary>
@@ -97,6 +102,15 @@ public sealed class QuickDialogEntry
         FieldId = fieldId;
         Type = type;
         Prompt = prompt;
+        Initial = string.Empty;
+        Placeholder = placeholder;
+    }
+    public QuickDialogEntry(string fieldId, QuickDialogEntryType type, (string prompt, string initial) prompt, string? placeholder = null)
+    {
+        FieldId = fieldId;
+        Type = type;
+        Prompt = prompt.prompt;
+        Initial = prompt.initial;
         Placeholder = placeholder;
     }
 }

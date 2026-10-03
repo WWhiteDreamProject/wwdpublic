@@ -1,0 +1,180 @@
+using System.Numerics;
+using Content.Server.Actions;
+using Content.Server.Chat.Systems;
+using Content.Server.DeviceLinking.Systems;
+using Content.Server.Interaction;
+using Content.Server.Mind;
+using Content.Server.Popups;
+using Content.Server.Power.EntitySystems;
+using Content.Server.Shuttles.Systems;
+using Content.Shared._White.RemoteControl;
+using Content.Shared._White.RemoteControl.BUIStates;
+using Content.Shared._White.Overlays;
+using Content.Shared._White.MindProjection.Components;
+using Content.Shared.ActionBlocker;
+using Content.Shared.DeviceLinking;
+using Content.Shared.Lock;
+using Content.Shared.Mind.Components;
+using Content.Shared.Mobs.Components;
+using Content.Shared.Shuttles.BUIStates;
+using Content.Shared.Whitelist;
+using Robust.Server.GameObjects;
+using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
+
+namespace Content.Server._White.RemoteControl;
+
+public sealed partial class RemoteControlSystem : SharedRemoteControlSystem
+{
+    [Dependency] private readonly DeviceLinkSystem _link = default!;
+    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
+    [Dependency] private readonly ActionsSystem _action = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private readonly InteractionSystem _interactionSystem = default!;
+    [Dependency] private readonly LockSystem _lock = default!;
+    [Dependency] private readonly MindSystem _mind = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private readonly ShuttleConsoleSystem _console = default!;
+    [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
+
+    public static ProtoId<SinkPortPrototype> SinkPortId = "RemoteControlSinkPort";
+    public static ProtoId<SourcePortPrototype> SourcePortId = "RemoteControlSourcePort";
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        InitializeConsole();
+        InitializeTarget();
+
+        SubscribeLocalEvent<RemoteControlConsoleComponent, ComponentStartup>(OnConsoleStartup);
+    }
+
+    private void OnConsoleStartup(EntityUid uid, RemoteControlConsoleComponent component, ComponentStartup args)
+    {
+        UpdateState(uid, component);
+    }
+
+    private void SetUiState(
+        Entity<UserInterfaceComponent?> ent,
+        EntityUid? currentSelectedTurret,
+        RemoteControlVisualMode displayMode,
+        NavInterfaceState radarState,
+        List<(NetEntity, bool)> turretList) =>
+                    _uiSystem.SetUiState(ent, RemoteControlConsoleUiKey.Key,
+                                 new RemoteControlConsoleBuiState(radarState, GetNetEntity(currentSelectedTurret), displayMode, turretList));
+    private void SetUiState(
+        Entity<UserInterfaceComponent?> ent,
+        EntityUid? currentSelectedTurret,
+        RemoteControlVisualMode displayMode,
+        RemoteControlConsoleError error,
+        List<(NetEntity, bool)> turretList) =>
+                    _uiSystem.SetUiState(ent, RemoteControlConsoleUiKey.Key,
+                                 new RemoteControlConsoleBuiState(error, GetNetEntity(currentSelectedTurret), displayMode, turretList));
+
+    private void UpdateState(EntityUid uid, RemoteControlConsoleComponent? comp = null) => UpdateState((uid, null, comp));
+    // TODO: handle multiple attempted console uses (reject everyone until the first user closes the bui) 
+    private void UpdateState(Entity<UserInterfaceComponent?, RemoteControlConsoleComponent?> consoleEnt)
+    {
+        if (!_uiSystem.HasUi(consoleEnt, RemoteControlConsoleUiKey.Key) ||
+            !Resolve(consoleEnt, ref consoleEnt.Comp1) ||
+            !Resolve(consoleEnt, ref consoleEnt.Comp2))
+            return;
+
+        var consoleComp = consoleEnt.Comp2;
+        var turrets = new List<(NetEntity, bool)>();
+        foreach (var uid in _link.GetConnectedToSource(consoleEnt.Owner, SourcePortId))
+        {
+            if (!TryComp<RemoteControllableComponent>(uid, out var turret))
+                continue;
+            turrets.Add((GetNetEntity(uid), turret.CurrentConsole is null));
+        }
+        if (consoleComp.CurrentTurret is not EntityUid currentTurretUid ||
+            !TryComp<RemoteControllableComponent>(currentTurretUid, out var currentTurretComp) ||
+            !_link.IsConnectedToSource(consoleEnt.Owner, SourcePortId, currentTurretUid))
+        {
+            SetUiState(consoleEnt, null, RemoteControlVisualMode.None, RemoteControlConsoleError.NotConnected, turrets);
+            return;
+        }
+
+        if (TryComp<MobStateComponent>(consoleEnt, out var stateComp) && stateComp.CurrentState != Shared.Mobs.MobState.Alive ||
+           TerminatingOrDeleted(currentTurretUid))
+        {
+            SetUiState(consoleEnt, currentTurretUid, currentTurretComp.Display, RemoteControlConsoleError.TurretDestroyed, turrets);
+            return;
+        }
+
+        if (!this.IsPowered(currentTurretUid, EntityManager))
+        {
+            SetUiState(consoleEnt, currentTurretUid, currentTurretComp.Display, RemoteControlConsoleError.NoPowerTurret, turrets);
+            return;
+        }
+
+        var state = _console.GetNavState(currentTurretUid, new(), new(currentTurretUid, new Vector2(0,0)), 0);
+        SetUiState(consoleEnt, currentTurretUid, currentTurretComp.Display, state, turrets);
+    }
+
+    private void UpdateStateForAllConnected(EntityUid turret)
+    {
+        foreach (var consoleUid in _link.GetConnectedToSink(turret, SinkPortId))
+        {
+            var succ = TryComp<RemoteControlConsoleComponent>(consoleUid, out var consoleComp);
+            DebugTools.Assert(succ);
+            UpdateState(consoleUid, consoleComp);
+        }
+    }
+}
+
+
+
+//public sealed class RadarConsoleSystem : EntitySystem
+//{
+//    [Dependency] private readonly ShuttleConsoleSystem _console = default!;
+//    [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
+//
+//    public override void Initialize()
+//    {
+//        base.Initialize();
+//        SubscribeLocalEvent<RadarConsoleComponent, ComponentStartup>(OnRadarStartup);
+//    }
+//
+//    private void OnRadarStartup(EntityUid uid, RadarConsoleComponent component, ComponentStartup args)
+//    {
+//        UpdateState(uid, component);
+//    }
+//
+//    protected override void UpdateState(EntityUid uid, RadarConsoleComponent component)
+//    {
+//        var xform = Transform(uid);
+//        var onGrid = xform.ParentUid == xform.GridUid;
+//        EntityCoordinates? coordinates = onGrid ? xform.Coordinates : null;
+//        Angle? angle = onGrid ? xform.LocalRotation : null;
+//
+//        if (component.FollowEntity)
+//        {
+//            coordinates = new EntityCoordinates(uid, Vector2.Zero);
+//            angle = 0;
+//        }
+//
+//        if (_uiSystem.HasUi(uid, RadarConsoleUiKey.Key))
+//        {
+//            NavInterfaceState state;
+//            var docks = _console.GetAllDocks();
+//
+//            if (coordinates != null && angle != null)
+//            {
+//                state = _console.GetNavState(uid, docks, coordinates.Value, angle.Value);
+//            }
+//            else
+//            {
+//                state = _console.GetNavState(uid, docks);
+//            }
+//
+//            state.RotateWithEntity = component.RotateWithEntity; // WD EDIT
+//
+//            _uiSystem.SetUiState(uid, RadarConsoleUiKey.Key, new NavBoundUserInterfaceState(state));
+//        }
+//    }
+//}

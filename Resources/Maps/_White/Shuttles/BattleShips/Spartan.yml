@@ -4633,11 +4633,6 @@ entities:
       pos: 5.5,8.5
       parent: 1
     - type: RemoteControlConsole
-      linkedEntities:
-      - 1692
-      - 1693
-      - 1695
-      - 1698
     - type: DeviceLinkSource
       linkedPorts:
         1692:
@@ -4658,13 +4653,6 @@ entities:
       pos: 4.5,-7.5
       parent: 1
     - type: RemoteControlConsole
-      linkedEntities:
-      - 1694
-      - 1695
-      - 1696
-      - 1697
-      - 1688
-      - 1689
     - type: DeviceLinkSource
       linkedPorts:
         1694:
@@ -4691,11 +4679,6 @@ entities:
       pos: -4.5,8.5
       parent: 1
     - type: RemoteControlConsole
-      linkedEntities:
-      - 1690
-      - 1691
-      - 1694
-      - 1698
     - type: DeviceLinkSource
       linkedPorts:
         1690:
