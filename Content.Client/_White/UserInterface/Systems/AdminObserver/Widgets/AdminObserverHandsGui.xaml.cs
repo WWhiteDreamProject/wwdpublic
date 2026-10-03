@@ -13,6 +13,7 @@ public sealed partial class AdminObserverHandsGui : UIWidget
         var controller = UserInterfaceManager.GetUIController<AdminObserverHandsUIController>();
 
         HandsButton.OnToggled += _ => controller.ToggleHands();
+        OnHandsUpdated(true);
     }
 
     public void OnHandsUpdated(bool handsEnabled)
@@ -21,5 +22,6 @@ public sealed partial class AdminObserverHandsGui : UIWidget
             ? "/Textures/_White/Interface/AdminObserver/hands_on.png"
             : "/Textures/_White/Interface/AdminObserver/hands_off.png";
         HandsButton.Pressed = handsEnabled;
+        HandsButton.ToolTip = Loc.GetString("admin-observer-hands-tooltip");
     }
 }
