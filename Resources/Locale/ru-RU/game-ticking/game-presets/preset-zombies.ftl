@@ -4,7 +4,7 @@ zombieteors-description = Нежить была выпущена на станц
 
 zombie-not-enough-ready-players = Недостаточно игроков готовы к игре! { $readyPlayersCount } игроков из необходимых { $minimumPlayers } готовы. Нельзя начать Зомби.
 zombie-no-one-ready = Нет готовых игроков! Нельзя начать Зомби.
-zombie-patientzero-role-greeting = Вы — нулевой пациент. Скрывайте свою инфекцию, добывайте припасы, и будьте готовы обратиться после смерти.
+zombie-patientzero-role-greeting = Вы - нулевой пациент. Скрывайте свою инфекцию, добывайте припасы, и будьте готовы обратиться после смерти.
 zombie-healing = Вы чувствуете шевеление в своей плоти
 zombie-infection-warning = Вы чувствуете, как зомби-вирус захватывает власть
 zombie-infection-underway = Ваша кровь начинает густеть

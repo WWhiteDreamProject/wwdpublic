@@ -2,8 +2,8 @@
 cmd-ban-desc = Банит кого-либо
 cmd-ban-help = Usage: <name or user ID> <reason> [duration in minutes, leave out or 0 for permanent ban] [use True for global ban, otherwise False]
 cmd-ban-player = Не удалось найти игрока с таким именем.
-cmd-ban-invalid-minutes = {$minutes} — это недопустимое количество минут!
-cmd-ban-invalid-severity = «{$severity}» не является допустимой степенью серьезности!
+cmd-ban-invalid-minutes = {$minutes} - это недопустимое количество минут!
+cmd-ban-invalid-severity = "{$severity}" не является допустимой степенью серьезности!
 cmd-ban-invalid-arguments = Недопустимое количество аргументов
 cmd-ban-hint = <name/user ID>
 cmd-ban-hint-reason = <reason>
@@ -32,7 +32,7 @@ cmd-ban_exemption_update-desc = Установите исключение для
 cmd-ban_exemption_update-help =
     Использование: ban_exemption_update <игрок> <флаг> [<флаг> [...]]
     Укажите несколько флагов, чтобы предоставить игроку несколько флагов освобождения от бана.
-    Чтобы удалить все исключения, запустите эту команду и укажите «None» в качестве единственного флага.
+    Чтобы удалить все исключения, запустите эту команду и укажите "None" в качестве единственного флага.
 cmd-ban_exemption_update-nargs = Ожидалось по крайней мере 2 аргумента
 cmd-ban_exemption_update-locate = Не удается найти игрока '{ $player }'.
 cmd-ban_exemption_update-invalid-flag = Недопустимый флаг '{ $flag }'.
@@ -77,8 +77,8 @@ ban-panel-severity = Строгость:
 ban-panel-erase = Удалить сообщения игрока в чате и его персонажа из раунда с корнем
 
 # Ban string
-server-ban-string = {$admin} забанил игрока [{$name}, {$ip}, {$hwid}] со строгостью «{$severity}». Срок действия бана истекает {$expires} и его причина: «{$reason}»
-server-ban-string-no-pii = {$admin} забанил игрока {$name} со строгостью «{$severity}». Срок действия бана истекает {$expires}. Причина: «{$reason}»
+server-ban-string = {$admin} забанил игрока [{$name}, {$ip}, {$hwid}] со строгостью "{$severity}". Срок действия бана истекает {$expires} и его причина: "{$reason}".
+server-ban-string-no-pii = {$admin} забанил игрока {$name} со строгостью "{$severity}". Срок действия бана истекает {$expires}. Причина: "{$reason}".
 server-ban-string-never = **НИКОГДА**, хонк!
 
 # Kick on ban

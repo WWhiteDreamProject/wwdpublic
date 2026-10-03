@@ -1,2 +1,2 @@
 
-cargo-console-menu-points-zero = 0¢
+cargo-console-menu-points-zero = 0$

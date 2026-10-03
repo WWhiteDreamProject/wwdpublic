@@ -1,3 +1,3 @@
-ent-MobSkrell = Урист МакХэндсСкрелл
+ent-MobSkrell = Урист МакСкрелл
     .desc = { ent-BaseMobSkrell.desc }
     .suffix = { "" }

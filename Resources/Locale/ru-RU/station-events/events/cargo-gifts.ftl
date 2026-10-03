@@ -1,4 +1,4 @@
-cargo-gifts-event-announcement = Поздравления! { $sender } решило отправить { $description } для { $dest }. Ищите его на трейдпосте, либо в следующем грузовом отправлении.
+cargo-gifts-event-announcement = Поздравления! { $sender } решило отправить { $description } для { $dest }. Ищите его на торговом посте, либо в следующем грузовом отправлении.
 cargo-gift-default-description = набор подарков
 cargo-gift-default-sender = НаноТрейзен
 cargo-gift-default-dest = грузового отдела

@@ -1,4 +1,3 @@
-
 # liar-word-1 --(changed to)--> liar-word-replacement-1
 # (It works both ways.)
 # liar-word-replacement-1 --(changed to)--> liar-word-1

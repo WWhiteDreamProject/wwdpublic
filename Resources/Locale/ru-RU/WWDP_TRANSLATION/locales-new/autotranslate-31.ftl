@@ -1,8 +1,8 @@
 ent-MechEquipmentHorn = механический гудок
    .desc = Усовершенствованный велосипедный гудок, воспроизводящий множество веселых звуков для удовольствия экипажа. ХОНК!
 
-ent-MechHonker = мех «Х.О.Н.К.»
-   .desc = Этот экзокостюм производства «Тирания Хонка, КОРП» спроектирован как тяжелая клоунская поддержка. Используется для распространения веселья и радости жизни. ХОНК!
+ent-MechHonker = мех "Х.О.Н.К."
+   .desc = Этот экзокостюм производства "Тирания Хонка, INC" спроектирован как тяжелая клоунская поддержка. Используется для распространения веселья и радости жизни. ХОНК!
 
 ent-MechHonkerBattery = { ent-MechHonker }
    .desc = { ent-MechHonker.desc }
@@ -12,27 +12,27 @@ ent-MechHonkerFilled = { ent-MechHonker }
    .desc = { ent-MechHonker.desc }
    .suffix = Полный
 
-ent-MechHamtr = мех «Х.О.М.Я.К.»
+ent-MechHamtr = мех "Х.О.М.Я.К."
    .desc = Экспериментальный мех, который использует интерфейс мозг-компьютер для прямого подключения к мозгу хомяка.
 
 ent-MechHamtrBattery = { ent-MechHamtr }
    .desc = { ent-MechHamtr.desc }
    .suffix = С батарейкой
 
-ent-BaseRipleyPart = часть меха «Рипли»
+ent-BaseRipleyPart = часть меха "Рипли"
    .desc = { "" }
 
-ent-BaseRipleyPartItem = часть меха «Рипли»
+ent-BaseRipleyPartItem = часть меха "Рипли"
    .desc = { "" }
 
-ent-BaseHonkerPart = часть меха «Х.О.Н.К.»
+ent-BaseHonkerPart = часть меха "Х.О.Н.К."
    .desc = { "" }
 
-ent-BaseHonkerPartItem = часть меха «Х.О.Н.К.»
+ent-BaseHonkerPartItem = часть меха "Х.О.Н.К."
    .desc = { "" }
 
 ent-HonkerHarness = ядро Х.О.Н.К.
-   .desc = Ядро H.O.N.K. мех
+   .desc = Ядро меха Х.О.Н.К.
 
 ent-HonkerLArm = левая рука Х.О.Н.К.
    .desc = Левая рука Х.О.Н.К. с уникальными гнездами для необычного оружия, разработанного учеными-клоунами.

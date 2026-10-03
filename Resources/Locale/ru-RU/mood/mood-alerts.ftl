@@ -1,8 +1,8 @@
 alerts-mood-dead-name = Мёртв
 alerts-mood-dead-desc = Вечная пустота окутала меня, и мир больше не имеет власти над моей душой.
 alerts-mood-insane-desc = В моей душе тлеют мрак и безнадежность, мир обречен на абсолютное зло.
-alerts-mood-horrible-name = Печально
-alerts-mood-horrible-desc = Я борюсь с болями и страхами, моя судьба — череда мучений и страданий.
+alerts-mood-horrible-name = Ужасающе
+alerts-mood-horrible-desc = Я борюсь с болями и страхами, моя судьба - череда мучений и страданий.
 alerts-mood-terrible-name = Очень плохо
 alerts-mood-terrible-desc = Моя жизнь иссякла, как кровь из раны, и вокруг лишь мрак и отчаяние.
 alerts-mood-bad-name = Плохо
