@@ -25,7 +25,7 @@ namespace Content.Shared.Slippery
         /// </summary>
         [DataField, AutoNetworkedField]
         [Access(Other = AccessPermissions.ReadWrite)]
-        public float ParalyzeTime = 3f;
+        public float ParalyzeTime = 1f; // WD EDIT: 3 > 1
 
         /// <summary>
         /// The entity's speed will be multiplied by this to slip it forwards.

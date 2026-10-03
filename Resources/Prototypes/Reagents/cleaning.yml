@@ -77,7 +77,7 @@
   meltingPoint: 18.2
   tileReactions:
     - !type:SpillTileReaction
-      paralyzeTime: 3
+      paralyzeTime: 1.5 # WD EDIT: 3 > 1.5
       launchForwardsMultiplier: 2
       requiredSlipSpeed: 1
       superSlippery: true
