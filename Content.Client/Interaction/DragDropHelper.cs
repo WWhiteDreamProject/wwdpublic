@@ -97,9 +97,9 @@ public sealed class DragDropHelper<T>
     /// </summary>
     public void EndDrag()
     {
-        Dragged = default;
         _state = DragState.NotDragging;
         _onEndDrag.Invoke();
+        Dragged = default;
     }
 
     private void StartDragging()

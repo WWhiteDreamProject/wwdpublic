@@ -4,7 +4,6 @@ using Content.Shared.DisplacementMap;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-
 namespace Content.Shared._White.Humanoid.Markings.Components;
 
 /// <summary>
@@ -27,16 +26,16 @@ public sealed partial class MarkingsProviderComponent : Component
     public Dictionary<Enum, HashSet<Enum>> DependentHidingLayers = new();
 
     /// <summary>
-    /// The dictionary of layer to markings this provider is currently providing to the entity.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public Dictionary<Enum, List<Marking>> Markings = new();
-
-    /// <summary>
     /// A collection of layers that are eligible to be hidden by this provider's logic.
     /// </summary>
     [DataField, AutoNetworkedField]
     public HashSet<Enum> HideableLayers = new();
+
+    /// <summary>
+    /// A set of markings applied by default.
+    /// </summary>
+    [DataField]
+    public HashSet<ProtoId<MarkingPrototype>> Default = new();
 
     /// <summary>
     /// Stores the specific data for this provider's.
@@ -45,10 +44,22 @@ public sealed partial class MarkingsProviderComponent : Component
     public MarkingData Data;
 
     /// <summary>
+    /// The dictionary of layer to markings this provider is currently providing to the entity.
+    /// </summary>
+    [ViewVariables, AutoNetworkedField]
+    public Dictionary<Enum, List<Marking>> Markings = new();
+
+    /// <summary>
     /// The body entity containing this provider, if any.
     /// </summary>
     [ViewVariables, AutoNetworkedField]
     public EntityUid? Body;
+
+    /// <summary>
+    /// The entities containing this provider.
+    /// </summary>
+    [ViewVariables, AutoNetworkedField]
+    public HashSet<EntityUid> Entities = new();
 
     /// <summary>
     /// Stores the last markings that were successfully applied.

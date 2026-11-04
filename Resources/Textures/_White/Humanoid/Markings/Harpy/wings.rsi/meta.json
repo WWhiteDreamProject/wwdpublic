@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by stillxicarus(discord). Clasic taken from https://github.com/SPLURT-Station/S.P.L.U.R.T-Station-13/commit/285f6f86ac41a6246f250993486effeab8581c2c, edired by raistlin_jag(discord). Bat made by kilath(discord).",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "classic-left_arm",
+      "directions": 4
+    },
+    {
+      "name": "classic-right_arm",
+      "directions": 4
+    },
+    {
+      "name": "default_whitescale-left_arm",
+      "directions": 4
+    },
+    {
+      "name": "default_whitescale-right_arm",
+      "directions": 4
+    }
+  ]
+}

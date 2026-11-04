@@ -1,6 +1,6 @@
 - type: marking
   id: EarringsBangleLeft
-  parents: BaseEarrings
+  parent: BaseEarrings
   definitions:
   - layer: enum.MarkingVisualLayers.HeadSide
     sprite:
@@ -13,7 +13,7 @@
 
 - type: marking
   id: EarringsBangleRight
-  parents: BaseEarrings
+  parent: BaseEarrings
   definitions:
   - layer: enum.MarkingVisualLayers.HeadSide
     sprite:
@@ -26,7 +26,7 @@
 
 - type: marking
   id: EarringsCrescentLeft
-  parents: BaseEarrings
+  parent: BaseEarrings
   definitions:
   - layer: enum.MarkingVisualLayers.HeadSide
     sprite:
@@ -39,7 +39,7 @@
 
 - type: marking
   id: EarringsCrescentRight
-  parents: BaseEarrings
+  parent: BaseEarrings
   definitions:
   - layer: enum.MarkingVisualLayers.HeadSide
     sprite:
@@ -52,7 +52,7 @@
 
 - type: marking
   id: EarringsCrossBasicLeft
-  parents: BaseEarrings
+  parent: BaseEarrings
   definitions:
   - layer: enum.MarkingVisualLayers.HeadSide
     sprite:
@@ -65,7 +65,7 @@
 
 - type: marking
   id: EarringsCrossBasicRight
-  parents: BaseEarrings
+  parent: BaseEarrings
   definitions:
   - layer: enum.MarkingVisualLayers.HeadSide
     sprite:
@@ -78,7 +78,7 @@
 
 - type: marking
   id: EarringsCrossSaintPeterLeft
-  parents: BaseEarrings
+  parent: BaseEarrings
   definitions:
   - layer: enum.MarkingVisualLayers.HeadSide
     sprite:
@@ -91,7 +91,7 @@
 
 - type: marking
   id: EarringsCrossSaintPeterRight
-  parents: BaseEarrings
+  parent: BaseEarrings
   definitions:
   - layer: enum.MarkingVisualLayers.HeadSide
     sprite:
@@ -104,17 +104,17 @@
 
 - type: marking
   id: EarringsCrystalBasicLeft
-  parents: BaseEarrings
+  parent: BaseEarrings
   definitions:
   - layer: enum.MarkingVisualLayers.HeadSide
     sprite:
       sprite: _White/Humanoid/Markings/Generic/earrings.rsi
-      state: crystal_basic_left_primary
+      state: crystal_basic_left-primary
     index: primary
   - layer: enum.MarkingVisualLayers.HeadSide
     sprite:
       sprite: _White/Humanoid/Markings/Generic/earrings.rsi
-      state: crystal_basic_left_secondary
+      state: crystal_basic_left-secondary
     index: secondary
   coloring:
     default:
@@ -124,17 +124,17 @@
 
 - type: marking
   id: EarringsCrystalBasicRight
-  parents: BaseEarrings
+  parent: BaseEarrings
   definitions:
   - layer: enum.MarkingVisualLayers.HeadSide
     sprite:
       sprite: _White/Humanoid/Markings/Generic/earrings.rsi
-      state: crystal_basic_right_primary
+      state: crystal_basic_right-primary
     index: primary
   - layer: enum.MarkingVisualLayers.HeadSide
     sprite:
       sprite: _White/Humanoid/Markings/Generic/earrings.rsi
-      state: crystal_basic_right_secondary
+      state: crystal_basic_right-secondary
     index: secondary
   coloring:
     default:
@@ -144,17 +144,17 @@
 
 - type: marking
   id: EarringsCrystalLongLeft
-  parents: BaseEarrings
+  parent: BaseEarrings
   definitions:
   - layer: enum.MarkingVisualLayers.HeadSide
     sprite:
       sprite: _White/Humanoid/Markings/Generic/earrings.rsi
-      state: crystal_long_left_primary
+      state: crystal_long_left-primary
     index: primary
   - layer: enum.MarkingVisualLayers.HeadSide
     sprite:
       sprite: _White/Humanoid/Markings/Generic/earrings.rsi
-      state: crystal_long_left_secondary
+      state: crystal_long_left-secondary
     index: secondary
   coloring:
     default:
@@ -164,17 +164,17 @@
 
 - type: marking
   id: EarringsCrystalLongRight
-  parents: BaseEarrings
+  parent: BaseEarrings
   definitions:
   - layer: enum.MarkingVisualLayers.HeadSide
     sprite:
       sprite: _White/Humanoid/Markings/Generic/earrings.rsi
-      state: crystal_long_right_primary
+      state: crystal_long_right-primary
     index: primary
   - layer: enum.MarkingVisualLayers.HeadSide
     sprite:
       sprite: _White/Humanoid/Markings/Generic/earrings.rsi
-      state: crystal_long_right_secondary
+      state: crystal_long_right-secondary
     index: secondary
   coloring:
     default:
@@ -184,17 +184,17 @@
 
 - type: marking
   id: EarringsDangleBasicLeft
-  parents: BaseEarrings
+  parent: BaseEarrings
   definitions:
   - layer: enum.MarkingVisualLayers.HeadSide
     sprite:
       sprite: _White/Humanoid/Markings/Generic/earrings.rsi
-      state: dangle_basic_left_primary
+      state: dangle_basic_left-primary
     index: primary
   - layer: enum.MarkingVisualLayers.HeadSide
     sprite:
       sprite: _White/Humanoid/Markings/Generic/earrings.rsi
-      state: dangle_basic_left_secondary
+      state: dangle_basic_left-secondary
     index: secondary
   coloring:
     default:
@@ -204,17 +204,17 @@
 
 - type: marking
   id: EarringsDangleBasicRight
-  parents: BaseEarrings
+  parent: BaseEarrings
   definitions:
   - layer: enum.MarkingVisualLayers.HeadSide
     sprite:
       sprite: _White/Humanoid/Markings/Generic/earrings.rsi
-      state: dangle_basic_right_primary
+      state: dangle_basic_right-primary
     index: primary
   - layer: enum.MarkingVisualLayers.HeadSide
     sprite:
       sprite: _White/Humanoid/Markings/Generic/earrings.rsi
-      state: dangle_basic_right_secondary
+      state: dangle_basic_right-secondary
     index: secondary
   coloring:
     default:
@@ -224,17 +224,17 @@
 
 - type: marking
   id: EarringsDangleLongLeft
-  parents: BaseEarrings
+  parent: BaseEarrings
   definitions:
   - layer: enum.MarkingVisualLayers.HeadSide
     sprite:
       sprite: _White/Humanoid/Markings/Generic/earrings.rsi
-      state: dangle_long_left_primary
+      state: dangle_long_left-primary
     index: primary
   - layer: enum.MarkingVisualLayers.HeadSide
     sprite:
       sprite: _White/Humanoid/Markings/Generic/earrings.rsi
-      state: dangle_long_left_secondary
+      state: dangle_long_left-secondary
     index: secondary
   coloring:
     default:
@@ -244,17 +244,17 @@
 
 - type: marking
   id: EarringsDangleLongRight
-  parents: BaseEarrings
+  parent: BaseEarrings
   definitions:
   - layer: enum.MarkingVisualLayers.HeadSide
     sprite:
       sprite: _White/Humanoid/Markings/Generic/earrings.rsi
-      state: dangle_long_right_primary
+      state: dangle_long_right-primary
     index: primary
   - layer: enum.MarkingVisualLayers.HeadSide
     sprite:
       sprite: _White/Humanoid/Markings/Generic/earrings.rsi
-      state: dangle_long_right_secondary
+      state: dangle_long_right-secondary
     index: secondary
   coloring:
     default:
@@ -264,17 +264,17 @@
 
 - type: marking
   id: EarringsDropBasicLeft
-  parents: BaseEarrings
+  parent: BaseEarrings
   definitions:
   - layer: enum.MarkingVisualLayers.HeadSide
     sprite:
       sprite: _White/Humanoid/Markings/Generic/earrings.rsi
-      state: drop_basic_left_primary
+      state: drop_basic_left-primary
     index: primary
   - layer: enum.MarkingVisualLayers.HeadSide
     sprite:
       sprite: _White/Humanoid/Markings/Generic/earrings.rsi
-      state: drop_basic_left_secondary
+      state: drop_basic_left-secondary
     index: secondary
   coloring:
     default:
@@ -284,17 +284,17 @@
 
 - type: marking
   id: EarringsDropBasicRight
-  parents: BaseEarrings
+  parent: BaseEarrings
   definitions:
   - layer: enum.MarkingVisualLayers.HeadSide
     sprite:
       sprite: _White/Humanoid/Markings/Generic/earrings.rsi
-      state: drop_basic_right_primary
+      state: drop_basic_right-primary
     index: primary
   - layer: enum.MarkingVisualLayers.HeadSide
     sprite:
       sprite: _White/Humanoid/Markings/Generic/earrings.rsi
-      state: drop_basic_right_secondary
+      state: drop_basic_right-secondary
     index: secondary
   coloring:
     default:
@@ -304,17 +304,17 @@
 
 - type: marking
   id: EarringsDropLongLeft
-  parents: BaseEarrings
+  parent: BaseEarrings
   definitions:
   - layer: enum.MarkingVisualLayers.HeadSide
     sprite:
       sprite: _White/Humanoid/Markings/Generic/earrings.rsi
-      state: drop_long_left_primary
+      state: drop_long_left-primary
     index: primary
   - layer: enum.MarkingVisualLayers.HeadSide
     sprite:
       sprite: _White/Humanoid/Markings/Generic/earrings.rsi
-      state: drop_long_left_secondary
+      state: drop_long_left-secondary
     index: secondary
   coloring:
     default:
@@ -324,17 +324,17 @@
 
 - type: marking
   id: EarringsDropLongRight
-  parents: BaseEarrings
+  parent: BaseEarrings
   definitions:
   - layer: enum.MarkingVisualLayers.HeadSide
     sprite:
       sprite: _White/Humanoid/Markings/Generic/earrings.rsi
-      state: drop_long_right_primary
+      state: drop_long_right-primary
     index: primary
   - layer: enum.MarkingVisualLayers.HeadSide
     sprite:
       sprite: _White/Humanoid/Markings/Generic/earrings.rsi
-      state: drop_long_right_secondary
+      state: drop_long_right-secondary
     index: secondary
   coloring:
     default:
@@ -344,7 +344,7 @@
 
 - type: marking
   id: EarringsEightLeft
-  parents: BaseEarrings
+  parent: BaseEarrings
   definitions:
   - layer: enum.MarkingVisualLayers.HeadSide
     sprite:
@@ -357,7 +357,7 @@
 
 - type: marking
   id: EarringsEightRight
-  parents: BaseEarrings
+  parent: BaseEarrings
   definitions:
   - layer: enum.MarkingVisualLayers.HeadSide
     sprite:
@@ -370,17 +370,17 @@
 
 - type: marking
   id: EarringsGemstoneBasicLeft
-  parents: BaseEarrings
+  parent: BaseEarrings
   definitions:
   - layer: enum.MarkingVisualLayers.HeadSide
     sprite:
       sprite: _White/Humanoid/Markings/Generic/earrings.rsi
-      state: gemstone_basic_left_primary
+      state: gemstone_basic_left-primary
     index: primary
   - layer: enum.MarkingVisualLayers.HeadSide
     sprite:
       sprite: _White/Humanoid/Markings/Generic/earrings.rsi
-      state: gemstone_basic_left_secondary
+      state: gemstone_basic_left-secondary
     index: secondary
   coloring:
     default:
@@ -390,17 +390,17 @@
 
 - type: marking
   id: EarringsGemstoneBasicRight
-  parents: BaseEarrings
+  parent: BaseEarrings
   definitions:
   - layer: enum.MarkingVisualLayers.HeadSide
     sprite:
       sprite: _White/Humanoid/Markings/Generic/earrings.rsi
-      state: gemstone_basic_right_primary
+      state: gemstone_basic_right-primary
     index: primary
   - layer: enum.MarkingVisualLayers.HeadSide
     sprite:
       sprite: _White/Humanoid/Markings/Generic/earrings.rsi
-      state: gemstone_basic_right_secondary
+      state: gemstone_basic_right-secondary
     index: secondary
   coloring:
     default:
@@ -410,22 +410,22 @@
 
 - type: marking
   id: EarringsGemstoneDoubleLeft
-  parents: BaseEarrings
+  parent: BaseEarrings
   definitions:
   - layer: enum.MarkingVisualLayers.HeadSide
     sprite:
       sprite: _White/Humanoid/Markings/Generic/earrings.rsi
-      state: gemstone_double_left_primary
+      state: gemstone_double_left-primary
     index: primary
   - layer: enum.MarkingVisualLayers.HeadSide
     sprite:
       sprite: _White/Humanoid/Markings/Generic/earrings.rsi
-      state: gemstone_double_left_secondary
+      state: gemstone_double_left-secondary
     index: secondary
   - layer: enum.MarkingVisualLayers.HeadSide
     sprite:
       sprite: _White/Humanoid/Markings/Generic/earrings.rsi
-      state: gemstone_double_left_tertiary
+      state: gemstone_double_left-tertiary
     index: tertiary
   coloring:
     default:
@@ -435,22 +435,22 @@
 
 - type: marking
   id: EarringsGemstoneDoubleRight
-  parents: BaseEarrings
+  parent: BaseEarrings
   definitions:
   - layer: enum.MarkingVisualLayers.HeadSide
     sprite:
       sprite: _White/Humanoid/Markings/Generic/earrings.rsi
-      state: gemstone_double_right_primary
+      state: gemstone_double_right-primary
     index: primary
   - layer: enum.MarkingVisualLayers.HeadSide
     sprite:
       sprite: _White/Humanoid/Markings/Generic/earrings.rsi
-      state: gemstone_double_right_secondary
+      state: gemstone_double_right-secondary
     index: secondary
   - layer: enum.MarkingVisualLayers.HeadSide
     sprite:
       sprite: _White/Humanoid/Markings/Generic/earrings.rsi
-      state: gemstone_double_right_tertiary
+      state: gemstone_double_right-tertiary
     index: tertiary
   coloring:
     default:
@@ -460,17 +460,17 @@
 
 - type: marking
   id: EarringsGemstoneLongLeft
-  parents: BaseEarrings
+  parent: BaseEarrings
   definitions:
   - layer: enum.MarkingVisualLayers.HeadSide
     sprite:
       sprite: _White/Humanoid/Markings/Generic/earrings.rsi
-      state: gemstone_long_left_primary
+      state: gemstone_long_left-primary
     index: primary
   - layer: enum.MarkingVisualLayers.HeadSide
     sprite:
       sprite: _White/Humanoid/Markings/Generic/earrings.rsi
-      state: gemstone_long_left_secondary
+      state: gemstone_long_left-secondary
     index: secondary
   coloring:
     default:
@@ -480,17 +480,17 @@
 
 - type: marking
   id: EarringsGemstoneLongRight
-  parents: BaseEarrings
+  parent: BaseEarrings
   definitions:
   - layer: enum.MarkingVisualLayers.HeadSide
     sprite:
       sprite: _White/Humanoid/Markings/Generic/earrings.rsi
-      state: gemstone_long_right_primary
+      state: gemstone_long_right-primary
     index: primary
   - layer: enum.MarkingVisualLayers.HeadSide
     sprite:
       sprite: _White/Humanoid/Markings/Generic/earrings.rsi
-      state: gemstone_long_right_secondary
+      state: gemstone_long_right-secondary
     index: secondary
   coloring:
     default:
@@ -500,7 +500,7 @@
 
 - type: marking
   id: EarringsHeavyLeft
-  parents: BaseEarrings
+  parent: BaseEarrings
   definitions:
   - layer: enum.MarkingVisualLayers.HeadSide
     sprite:
@@ -513,7 +513,7 @@
 
 - type: marking
   id: EarringsHeavyRight
-  parents: BaseEarrings
+  parent: BaseEarrings
   definitions:
   - layer: enum.MarkingVisualLayers.HeadSide
     sprite:
@@ -526,7 +526,7 @@
 
 - type: marking
   id: EarringsHoopBasicLeft
-  parents: BaseEarrings
+  parent: BaseEarrings
   definitions:
   - layer: enum.MarkingVisualLayers.HeadSide
     sprite:
@@ -539,7 +539,7 @@
 
 - type: marking
   id: EarringsHoopBasicRight
-  parents: BaseEarrings
+  parent: BaseEarrings
   definitions:
   - layer: enum.MarkingVisualLayers.HeadSide
     sprite:
@@ -552,7 +552,7 @@
 
 - type: marking
   id: EarringsHoopMiniLeft
-  parents: BaseEarrings
+  parent: BaseEarrings
   definitions:
   - layer: enum.MarkingVisualLayers.HeadSide
     sprite:
@@ -565,7 +565,7 @@
 
 - type: marking
   id: EarringsHoopMiniRight
-  parents: BaseEarrings
+  parent: BaseEarrings
   definitions:
   - layer: enum.MarkingVisualLayers.HeadSide
     sprite:
@@ -578,7 +578,7 @@
 
 - type: marking
   id: EarringsStudLeft
-  parents: BaseEarrings
+  parent: BaseEarrings
   definitions:
   - layer: enum.MarkingVisualLayers.HeadSide
     sprite:
@@ -591,7 +591,7 @@
 
 - type: marking
   id: EarringsStudRight
-  parents: BaseEarrings
+  parent: BaseEarrings
   definitions:
   - layer: enum.MarkingVisualLayers.HeadSide
     sprite:

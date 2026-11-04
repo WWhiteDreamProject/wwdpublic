@@ -1,6 +1,6 @@
 - type: marking
   id: FaceBindi
-  parents: BaseFace
+  parent: BaseFace
   definitions:
   - layer: enum.MarkingVisualLayers.Face
     sprite:
@@ -13,17 +13,17 @@
 
 - type: marking
   id: FaceBlush
-  parents: BaseFace
+  parent: BaseFace
   definitions:
   - layer: enum.MarkingVisualLayers.Face
     sprite:
       sprite: _White/Humanoid/Markings/Generic/face.rsi
-      state: blush_left
+      state: blush-left
     index: left
   - layer: enum.MarkingVisualLayers.Face
     sprite:
       sprite: _White/Humanoid/Markings/Generic/face.rsi
-      state: blush_right
+      state: blush-right
     index: right
   coloring:
     default:
@@ -32,7 +32,7 @@
 
 - type: marking
   id: FaceCheekSpotBasicLeft
-  parents: BaseFace
+  parent: BaseFace
   definitions:
   - layer: enum.MarkingVisualLayers.Face
     sprite:
@@ -45,7 +45,7 @@
 
 - type: marking
   id: FaceCheekSpotBasicRight
-  parents: BaseFace
+  parent: BaseFace
   definitions:
   - layer: enum.MarkingVisualLayers.Face
     sprite:
@@ -58,7 +58,7 @@
 
 - type: marking
   id: FaceCheekSpotLowerLeft
-  parents: BaseFace
+  parent: BaseFace
   definitions:
   - layer: enum.MarkingVisualLayers.Face
     sprite:
@@ -71,7 +71,7 @@
 
 - type: marking
   id: FaceCheekSpotLowerRight
-  parents: BaseFace
+  parent: BaseFace
   definitions:
   - layer: enum.MarkingVisualLayers.Face
     sprite:
@@ -84,7 +84,7 @@
 
 - type: marking
   id: FaceCheshireGrin
-  parents: BaseFace
+  parent: BaseFace
   definitions:
   - layer: enum.MarkingVisualLayers.Face
     sprite:
@@ -97,7 +97,7 @@
 
 - type: marking
   id: FaceLips
-  parents: BaseFace
+  parent: BaseFace
   definitions:
   - layer: enum.MarkingVisualLayers.Face
     sprite:
@@ -110,17 +110,17 @@
 
 - type: marking
   id: FaceLipsCorners
-  parents: BaseFace
+  parent: BaseFace
   definitions:
   - layer: enum.MarkingVisualLayers.Face
     sprite:
       sprite: _White/Humanoid/Markings/Generic/face.rsi
-      state: lips_corners_left
+      state: lips_corners-left
     index: left
   - layer: enum.MarkingVisualLayers.Face
     sprite:
       sprite: _White/Humanoid/Markings/Generic/face.rsi
-      state: lips_corners_right
+      state: lips_corners-right
     index: right
   coloring:
     default:

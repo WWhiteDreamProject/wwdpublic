@@ -1,7 +1,9 @@
 using Content.Shared._White.Body.Systems;
 using Content.Shared._White.Humanoid.Markings;
 using Content.Shared._White.Humanoid.Markings.Components;
+using Content.Shared._White.Humanoid.Markings.Prototypes;
 using Content.Shared._White.Layer.Systems;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
 namespace Content.Client._White.Humanoid.Markings.Systems;
@@ -10,23 +12,10 @@ public sealed partial class MarkingsSystem
 {
     private void InitializeProvider()
     {
-        SubscribeLocalEvent<MarkingsProviderComponent, AfterAutoHandleStateEvent>(OnAfterAutoHandleState);
         SubscribeLocalEvent<MarkingsProviderComponent, BodyRelayedEvent<HideableLayerVisibilityChangedEvent>>(OnHideableLayerVisibilityChanged);
     }
 
     #region Event Handling
-
-    private void OnAfterAutoHandleState(Entity<MarkingsProviderComponent> ent, ref AfterAutoHandleStateEvent args)
-    {
-        if (ent.Comp.Body is not {} body)
-            return;
-
-        if (_spriteQuery.TryComp(body, out var spriteComp))
-            return;
-
-        RemoveMarkings((body, spriteComp), ent);
-        ApplyMarkings((body, spriteComp), ent);
-    }
 
     private void OnHideableLayerVisibilityChanged(Entity<MarkingsProviderComponent> ent, ref BodyRelayedEvent<HideableLayerVisibilityChangedEvent> args)
     {
@@ -58,95 +47,133 @@ public sealed partial class MarkingsSystem
         }
     }
 
-    protected override void OnGotInserted(Entity<MarkingsProviderComponent> ent, ref BodyProviderGotInsertedEvent args)
-    {
-        base.OnGotInserted(ent, ref args);
-
-        ApplyMarkings(args.Body.Owner, ent);
-    }
-
-    protected override void OnGotRemoved(Entity<MarkingsProviderComponent> ent, ref BodyProviderGotRemovedEvent args)
-    {
-        base.OnGotRemoved(ent, ref args);
-
-        RemoveMarkings(args.Body.Owner, ent);
-    }
-
-    #endregion
-
-    #region Public API
-
-    public override void SetMarkings(Entity<MarkingsProviderComponent?> ent, Dictionary<Enum, List<Marking>> markings)
-    {
-        if (!ProviderQuery.Resolve(ent, ref ent.Comp))
-            return;
-
-        base.SetMarkings(ent, markings);
-
-        if (ent.Comp.Body is not {} body)
-            return;
-
-        if (_spriteQuery.TryComp(body, out var spriteComp))
-            return;
-
-        RemoveMarkings((body, spriteComp), (ent, ent.Comp));
-        ApplyMarkings((body, spriteComp), (ent, ent.Comp));
-    }
-
     #endregion
 
     #region Private API
 
-    private IEnumerable<Marking> GetMarkings(Entity<MarkingsProviderComponent?> ent)
+    protected override void ApplyMarkings(Entity<MarkingsProviderComponent> ent, EntityUid target)
     {
-        if (!ProviderQuery.Resolve(ent, ref ent.Comp))
-            yield break;
+        if (!_spriteQuery.TryComp(target, out var spriteComp))
+            return;
 
+        var counter = new Dictionary<ProtoId<MarkingPrototype>, int>();
+
+        foreach (var marking in ent.Comp.Applied)
+        {
+            if (!Marking.TryGetMarking(marking, out var prototype))
+                continue;
+
+            if (prototype.Appearance)
+                continue;
+
+            if (!_sprite.LayerMapTryGet((target, spriteComp), marking.Layer, out var index, true))
+                continue;
+
+            ent.Comp.Displacement.TryGetValue(marking.Layer, out var displacement);
+
+            if (marking.Sprite is not SpriteSpecifier.Rsi rsi)
+                continue;
+
+            var layerId = $"{marking.Id}-{rsi.RsiState}";
+
+            var markingIndex = counter.GetValueOrDefault(marking.Id);
+            counter[marking.Id] = markingIndex + 1;
+
+            if (!_sprite.LayerMapTryGet((target, spriteComp), layerId, out var layerIndex, false))
+            {
+                layerIndex = _sprite.AddLayer((target, spriteComp), marking.Sprite, index + markingIndex + 1);
+                _sprite.LayerMapSet((target, spriteComp), layerId, layerIndex);
+                _sprite.LayerSetSprite((target, spriteComp), layerIndex, rsi);
+            }
+
+            _sprite.LayerSetColor((target, spriteComp), layerIndex, marking.Color);
+
+            if (!prototype.CanBeDisplaced || displacement == null)
+                continue;
+
+            _displacement.TryAddDisplacement(displacement, spriteComp, index + markingIndex + 1, layerId, new());
+        }
+    }
+
+    protected override void RemoveMarkings(Entity<MarkingsProviderComponent> ent, EntityUid target)
+    {
+        if (!_spriteQuery.TryComp(target, out var spriteComp))
+            return;
+
+        foreach (var marking in ent.Comp.Applied)
+        {
+            if (marking.Sprite is not SpriteSpecifier.Rsi rsi)
+                continue;
+
+            var layerId = $"{marking.Id}-{rsi.RsiState}";
+
+            if (!_sprite.LayerMapTryGet((target, spriteComp), layerId, out var index, false))
+                continue;
+
+            _sprite.LayerMapRemove((target, spriteComp), layerId);
+            _sprite.RemoveLayer((target, spriteComp), index);
+        }
+    }
+
+    protected override void UpdateMarkings(Entity<MarkingsProviderComponent> ent)
+    {
+        foreach (var entity in ent.Comp.Entities)
+        {
+            RemoveMarkings(ent, entity);
+        }
+
+        ent.Comp.Applied.Clear();
         foreach (var markings in ent.Comp.Markings.Values)
         {
-            foreach (var marking in markings)
+            ent.Comp.Applied.AddRange(markings);
+        }
+
+        if (CensorNudity && Prototype.TryIndex(ent.Comp.Data.Group, out var group))
+        {
+            var categories = Marking.GetCategories(ent.Comp.Data.Layers);
+            foreach (var category in categories)
             {
-                yield return marking;
+                if (!group.Data.TryGetValue(category, out var data))
+                    continue;
+
+                if (data.Nudity.Count < 1)
+                    continue;
+
+                var contains = false;
+                foreach (var layer in Marking.GetLayers(category))
+                {
+                    if (!ent.Comp.Markings.ContainsKey(layer))
+                        continue;
+
+                    contains = true;
+                }
+
+                if (contains)
+                    continue;
+
+                foreach (var markingId in data.Nudity)
+                {
+                    if (!Marking.TryGetMarking(markingId, out var prototype))
+                        continue;
+
+                    foreach (var definition in prototype.Definitions)
+                    {
+                        var marking = new Marking(
+                            Color.White,
+                            definition.Layer,
+                            prototype.Category,
+                            markingId,
+                            definition.Sprite,
+                            definition.Index);
+                        ent.Comp.Applied.Add(marking);
+                    }
+                }
             }
         }
 
-        if (!CensorNudity)
-            yield break;
-
-        if (!Prototype.TryIndex(ent.Comp.Data.Group, out var group))
-            yield break;
-
-        var categories = Marking.GetCategories(ent.Comp.Data.Layers);
-        foreach (var category in categories)
+        foreach (var entity in ent.Comp.Entities)
         {
-            if (!group.CategoriesData.TryGetValue(category, out var categoryData))
-                continue;
-
-            if (categoryData.Nudity.Count < 1)
-                continue;
-
-            var contains = false;
-            foreach (var layer in Marking.GetLayers(category))
-            {
-                if (ent.Comp.Markings.ContainsKey(layer))
-                    continue;
-
-                contains = true;
-            }
-
-            if (!contains)
-                continue;
-
-            foreach (var marking in categoryData.Nudity)
-            {
-                if (!Marking.TryGetMarking(marking, out var prototype))
-                    continue;
-
-                foreach (var definition in prototype.Definitions)
-                {
-                    yield return new(definition.OverrideAppearance, definition.Layer, prototype.Category, marking, definition.Sprite, definition.Index);
-                }
-            }
+            ApplyMarkings(ent, entity);
         }
     }
 

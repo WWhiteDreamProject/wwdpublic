@@ -8,11 +8,11 @@
   },
   "states": [
     {
-      "name": "blush_left",
+      "name": "blush-left",
       "directions": 4
     },
     {
-      "name": "blush_right",
+      "name": "blush-right",
       "directions": 4
     },
     {

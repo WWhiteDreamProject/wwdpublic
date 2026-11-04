@@ -60,13 +60,13 @@
                   cauda:
                     type: Cauda
                     startingProvider: BodyProviderCaudaHarpy
-                startingProvider: BodyProviderPartTailHarpy
+                startingProvider: BodyProviderTailHarpy
             startingProvider: BodyProviderGroinHarpy
           head:
             type: Head
             providers:
               cranium:
-                type: Сranium
+                type: Cranium
                 providers:
                   brain:
                     type: Brain
@@ -80,7 +80,7 @@
                   tongue:
                     type: Tongue
                     startingProvider: BodyProviderTongueHarpy
-                startingProvider: BodyProviderСraniumHarpy
+                startingProvider: BodyProviderCraniumHarpy
             startingProvider: BodyProviderHeadHarpy
           left_arm:
             type: LeftArm

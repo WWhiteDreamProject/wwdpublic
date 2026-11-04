@@ -1,5 +1,12 @@
+using System.Diagnostics.CodeAnalysis;
 using Content.Shared._White.Appearance.Components;
+using Content.Shared._White.Appearance.Prototypes;
 using Content.Shared._White.Body.Systems;
+using Content.Shared._White.Humanoid.Markings.Coloring;
+using Content.Shared._White.Humanoid.Markings.Systems;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
+
 
 namespace Content.Shared._White.Appearance.Systems;
 
@@ -7,30 +14,95 @@ public abstract partial class SharedBodyAppearanceSystem
 {
     private void InitializeProvider()
     {
+        SubscribeLocalEvent<BodyAppearanceProviderComponent, AfterAutoHandleStateEvent>(OnAfterAutoHandleState);
         SubscribeLocalEvent<BodyAppearanceProviderComponent, BodyProviderGotInsertedEvent>(OnGotInserted);
+        SubscribeLocalEvent<BodyAppearanceProviderComponent, BodyProviderGotInsertedIntoAncestorsEvent>(OnGotInsertedIntoAncestors);
+        SubscribeLocalEvent<BodyAppearanceProviderComponent, BodyProviderGotInsertedIntoParentEvent>(OnGotInsertedIntoParent);
         SubscribeLocalEvent<BodyAppearanceProviderComponent, BodyProviderGotRemovedEvent>(OnGotRemoved);
+        SubscribeLocalEvent<BodyAppearanceProviderComponent, BodyProviderGotRemovedFromAncestorsEvent>(OnGotRemovedFromAncestors);
+        SubscribeLocalEvent<BodyAppearanceProviderComponent, BodyProviderGotRemovedFromParentEvent>(OnGotRemovedFromParent);
         SubscribeLocalEvent<BodyAppearanceProviderComponent, BodyRelayedEvent<ApplyBodyAppearanceDataEvent>>(OnApplyBodyAppearanceData);
+        SubscribeLocalEvent<BodyAppearanceProviderComponent, BodyRelayedEvent<ApplyMarkingsEvent>>(OnApplyMarkings);
         SubscribeLocalEvent<BodyAppearanceProviderComponent, BodyRelayedEvent<GetBodyAppearanceDataEvent>>(OnGetBodyAppearanceData);
     }
 
     #region Event Handling
 
-    protected virtual void OnGotInserted(Entity<BodyAppearanceProviderComponent> ent, ref BodyProviderGotInsertedEvent args)
+    private void OnAfterAutoHandleState(Entity<BodyAppearanceProviderComponent> ent, ref AfterAutoHandleStateEvent args)
     {
-        if (!BodyQuery.HasComp(args.Body))
-            return;
-
-        ent.Comp.Body = args.Body;
-        DirtyField(ent, ent.Comp, nameof(BodyAppearanceProviderComponent.Body));
+        UpdateAppearance(ent);
     }
 
-    protected virtual void OnGotRemoved(Entity<BodyAppearanceProviderComponent> ent, ref BodyProviderGotRemovedEvent args)
+    private void OnGotInserted(Entity<BodyAppearanceProviderComponent> ent, ref BodyProviderGotInsertedEvent args)
     {
         if (!BodyQuery.HasComp(args.Body))
             return;
 
-        ent.Comp.Body = null;
-        DirtyField(ent, ent.Comp, nameof(BodyAppearanceProviderComponent.Body));
+        ent.Comp.Entities.Add(args.Body.Owner);
+        DirtyField(ent, ent.Comp, nameof(BodyAppearanceProviderComponent.Entities));
+
+        ApplyAppearance(ent, args.Body.Owner);
+    }
+
+    private void OnGotInsertedIntoAncestors(Entity<BodyAppearanceProviderComponent> ent, ref BodyProviderGotInsertedIntoAncestorsEvent args)
+    {
+        foreach (var ancestor in args.Ancestors)
+        {
+            if (!ProviderQuery.HasComp(ancestor))
+                continue;
+
+            ent.Comp.Entities.Add(ancestor);
+            ApplyAppearance(ent, ancestor);
+        }
+
+        DirtyField(ent, ent.Comp, nameof(BodyAppearanceProviderComponent.Entities));
+    }
+
+    private void OnGotInsertedIntoParent(Entity<BodyAppearanceProviderComponent> ent, ref BodyProviderGotInsertedIntoParentEvent args)
+    {
+        if (!ProviderQuery.HasComp(args.Parent))
+            return;
+
+        ent.Comp.Entities.Add(args.Parent.Owner);
+        DirtyField(ent, ent.Comp, nameof(BodyAppearanceProviderComponent.Entities));
+
+        ApplyAppearance(ent, args.Parent.Owner);
+    }
+
+    private void OnGotRemoved(Entity<BodyAppearanceProviderComponent> ent, ref BodyProviderGotRemovedEvent args)
+    {
+        if (!BodyQuery.HasComp(args.Body))
+            return;
+
+        ent.Comp.Entities.Remove(args.Body.Owner);
+        DirtyField(ent, ent.Comp, nameof(BodyAppearanceProviderComponent.Entities));
+
+        RemoveAppearance(ent, args.Body.Owner);
+    }
+
+    private void OnGotRemovedFromAncestors(Entity<BodyAppearanceProviderComponent> ent, ref BodyProviderGotRemovedFromAncestorsEvent args)
+    {
+        foreach (var ancestor in args.Ancestors)
+        {
+            if (!ProviderQuery.HasComp(ancestor))
+                continue;
+
+            ent.Comp.Entities.Remove(ancestor);
+            RemoveAppearance(ent, ancestor);
+        }
+
+        DirtyField(ent, ent.Comp, nameof(BodyAppearanceProviderComponent.Entities));
+    }
+
+    private void OnGotRemovedFromParent(Entity<BodyAppearanceProviderComponent> ent, ref BodyProviderGotRemovedFromParentEvent args)
+    {
+        if (!ProviderQuery.HasComp(args.Parent))
+            return;
+
+        ent.Comp.Entities.Remove(args.Parent.Owner);
+        DirtyField(ent, ent.Comp, nameof(BodyAppearanceProviderComponent.Entities));
+
+        RemoveAppearance(ent, args.Parent.Owner);
     }
 
     private void OnApplyBodyAppearanceData(Entity<BodyAppearanceProviderComponent> ent, ref BodyRelayedEvent<ApplyBodyAppearanceDataEvent> args)
@@ -42,19 +114,87 @@ public abstract partial class SharedBodyAppearanceSystem
         if (relevantData is not { } data)
             return;
 
-        SetAppearanceData(ent.AsNullable(), data);
+        SetAppearance(ent.AsNullable(), data);
+    }
+
+    private void OnApplyMarkings(Entity<BodyAppearanceProviderComponent> ent, ref BodyRelayedEvent<ApplyMarkingsEvent> args)
+    {
+        var entries = new List<BodyAppearanceProviderEntry>();
+        foreach (var marking in args.Args.Markings)
+        {
+            if (!_marking.TryGetMarking(marking, out var prototype))
+                continue;
+
+            if (!prototype.Appearance)
+                continue;
+
+            if (!Equals(marking.Layer, ent.Comp.Layer))
+                continue;
+
+            if (marking.Sprite is not SpriteSpecifier.Rsi specifier)
+                continue;
+
+            var group = new ProtoId<BodyColorGroupPrototype>("None");
+            var coloring = _marking.GetMarkingColoring(prototype, marking.Index);
+            if (coloring.Type is BodyColorGroupColoring groupColoring)
+                group = groupColoring.Group;
+
+            var entry = new BodyAppearanceProviderEntry
+            {
+                Group = group,
+                Color = marking.Color,
+                Index = marking.Index,
+                Path = specifier.RsiPath.ToString(),
+                State = specifier.RsiState,
+            };
+            entries.Add(entry);
+        }
+
+        if (entries.Count == 0)
+            return;
+
+        ent.Comp.Entries = entries;
+        DirtyField(ent, ent.Comp, nameof(BodyAppearanceProviderComponent.Entries));
     }
 
     private void OnGetBodyAppearanceData(Entity<BodyAppearanceProviderComponent> ent, ref BodyRelayedEvent<GetBodyAppearanceDataEvent> args)
     {
-        args.Args.Data.Add(ent.Comp.Layer, ent.Comp.Appearance);
+        var ev = new GetBodyAppearanceLayersEvent();
+        ev.Layers.Add(ent.Comp.Layer);
+        RaiseLocalEvent(ent, ref ev);
+
+        foreach (var layer in ev.Layers)
+        {
+            args.Args.Data.Add(layer, ent.Comp.Appearance);
+        }
     }
 
     #endregion
 
     #region Public API
 
-    public virtual void SetAppearanceData(Entity<BodyAppearanceProviderComponent?> ent, BodyAppearanceData appearance)
+    /// <summary>
+    /// Gathers the body appearance data from this entity.
+    /// </summary>
+    /// <param name="ent">The entity to sample.</param>
+    /// <param name="appearance">Returned body appearance data.</param>
+    /// <returns>True if the appearance data is successfully returned, false otherwise.</returns>
+    public bool TryGetProviderAppearance(Entity<BodyAppearanceProviderComponent?> ent, [NotNullWhen(true)] out BodyAppearanceData? appearance)
+    {
+        appearance = null;
+        if (!ProviderQuery.Resolve(ent, ref ent.Comp))
+            return false;
+
+        appearance = ent.Comp.Appearance;
+        return true;
+    }
+
+    /// <summary>
+    /// Sets the appearance data for a body appearance provider and updates all entries with corresponding color groups.
+    /// </summary>
+    /// <param name="ent">The entity whose appearance data should be updated.</param>
+    /// <param name="appearance">The appearance data containing color groups and other visual characteristics.</param>
+    public void SetAppearance(Entity<BodyAppearanceProviderComponent?> ent, BodyAppearanceData appearance)
     {
         if (!ProviderQuery.Resolve(ent, ref ent.Comp))
             return;
@@ -62,50 +202,86 @@ public abstract partial class SharedBodyAppearanceSystem
         if (ent.Comp.Appearance == appearance)
             return;
 
-        if (!appearance.ColorGroups.TryGetValue(ent.Comp.Group, out var color))
-            return;
+        for (var i = 0; i < ent.Comp.Entries.Count; i++)
+        {
+            var entry = ent.Comp.Entries[i];
+            if (!appearance.Colors.TryGetValue(entry.Group, out var color))
+                continue;
 
-        SetColor(ent, color);
+            SetColor(ent, i, color);
+        }
 
         ent.Comp.Appearance = appearance;
         DirtyField(ent, ent.Comp, nameof(BodyAppearanceProviderComponent.Appearance));
+
+        UpdateAppearance((ent, ent.Comp));
     }
 
-    public virtual void SetColor(Entity<BodyAppearanceProviderComponent?> ent, Color color)
+    /// <summary>
+    /// Sets the color for a specific provider entry at given index.
+    /// </summary>
+    /// <param name="ent">The entity whose entry color should be updated.</param>
+    /// <param name="index">The index of the entry.</param>
+    /// <param name="color">The new color to apply.</param>
+    public void SetColor(Entity<BodyAppearanceProviderComponent?> ent, int index, Color color)
     {
         if (!ProviderQuery.Resolve(ent, ref ent.Comp))
             return;
 
-        if (ent.Comp.Color == color)
+        if (!ent.Comp.Entries.TryGetValue(index, out var entry))
             return;
 
-        ent.Comp.Color = color;
-        DirtyField(ent, ent.Comp, nameof(BodyAppearanceProviderComponent.Color));
+        if (entry.Color == color)
+            return;
+
+        ent.Comp.Entries[index] = entry.WithColor(color);
+        DirtyField(ent, ent.Comp, nameof(BodyAppearanceProviderComponent.Entries));
+
+        UpdateAppearance((ent, ent.Comp));
     }
 
-    public virtual void SetPath(Entity<BodyAppearanceProviderComponent?> ent, string path)
+    /// <summary>
+    /// Sets the sprite path for a specific provider entry at given index.
+    /// </summary>
+    /// <param name="ent">The entity whose entry sprite path should be updated.</param>
+    /// <param name="index">The index of the entry.</param>
+    /// <param name="path">The new sprite path to apply.</param>
+    public void SetPath(Entity<BodyAppearanceProviderComponent?> ent, int index, string path)
     {
         if (!ProviderQuery.Resolve(ent, ref ent.Comp))
             return;
 
-        if (ent.Comp.Path == path)
+        if (!ent.Comp.Entries.TryGetValue(index, out var entry))
             return;
 
-        ent.Comp.Path = path;
-        DirtyField(ent, ent.Comp, nameof(BodyAppearanceProviderComponent.Path));
+        if (entry.Path == path)
+            return;
+
+        ent.Comp.Entries[index] = entry.WithPath(path);
+        DirtyField(ent, ent.Comp, nameof(BodyAppearanceProviderComponent.Entries));
+
+        UpdateAppearance((ent, ent.Comp));
     }
 
-    public virtual void SetState(Entity<BodyAppearanceProviderComponent?> ent, string state)
+    #endregion
+
+    #region Private API
+
+    private void UpdateAppearance(Entity<BodyAppearanceProviderComponent> ent)
     {
-        if (!ProviderQuery.Resolve(ent, ref ent.Comp))
-            return;
+        foreach (var entity in ent.Comp.Entities)
+        {
+            ApplyAppearance(ent, entity);
+        }
 
-        if (ent.Comp.State == state)
-            return;
-
-        ent.Comp.State = state;
-        DirtyField(ent, ent.Comp, nameof(BodyAppearanceProviderComponent.State));
+        ApplyAppearance(ent);
     }
+
+    protected virtual void ApplyAppearance(Entity<BodyAppearanceProviderComponent> ent) { }
+
+    protected virtual void ApplyAppearance(Entity<BodyAppearanceProviderComponent> ent, EntityUid target) { }
+
+    protected virtual void RemoveAppearance(Entity<BodyAppearanceProviderComponent> ent, EntityUid target) { }
 
     #endregion
 }

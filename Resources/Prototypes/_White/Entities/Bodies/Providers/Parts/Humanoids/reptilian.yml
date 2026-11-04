@@ -1,66 +1,139 @@
 - type: entity
   id: BaseBodyProviderPartReptilian
-  parent: BaseBodyProviderPartOrganic
+  parent: [BaseBodyProviderPartAppearance, BaseBodyProviderPartOrganic]
   abstract: true
   suffix: Reptilian
   components:
-  - type: BodyAppearanceProvider
-    path: _White/Bodies/Parts/Humanoids/reptilian.rsi
+  - type: MarkingsProvider
+    data:
+      group: Reptilian
   - type: Sprite
     sprite: _White/Bodies/Parts/Humanoids/reptilian.rsi
 
 # Arms
 - type: entity
   id: BodyProviderLeftArmReptilian
-  parent: [BaseBodyProviderLeftArmOrganic, BaseBodyProviderPartReptilian]
+  parent: [BaseBodyProviderPartReptilian, BaseBodyProviderLeftArmAppearance, BaseBodyProviderLeftArmOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/reptilian.rsi
+      state: left_arm
 
 - type: entity
   id: BodyProviderRightArmReptilian
-  parent: [BaseBodyProviderRightArmOrganic, BaseBodyProviderPartReptilian]
+  parent: [BaseBodyProviderPartReptilian, BaseBodyProviderRightArmAppearance, BaseBodyProviderRightArmOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/reptilian.rsi
+      state: right_arm
 
 # Chest
 - type: entity
   id: BodyProviderChestReptilian
-  parent: [BaseBodyProviderChestOrganic, BaseBodyProviderPartReptilian]
+  parent: [BaseBodyProviderPartReptilian, BaseBodyProviderChestAppearance, BaseBodyProviderChestOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/reptilian.rsi
+      state: chest
 
 # Foots
 - type: entity
   id: BodyProviderLeftFootReptilian
-  parent: [BaseBodyProviderLeftFootOrganic, BaseBodyProviderPartReptilian]
+  parent: [BaseBodyProviderPartReptilian, BaseBodyProviderLeftFootAppearance, BaseBodyProviderLeftFootOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/reptilian.rsi
+      state: left_foot
 
 - type: entity
   id: BodyProviderRightFootReptilian
-  parent: [BaseBodyProviderRightFootOrganic, BaseBodyProviderPartReptilian]
+  parent: [BaseBodyProviderPartReptilian, BaseBodyProviderRightFootAppearance, BaseBodyProviderRightFootOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/reptilian.rsi
+      state: right_foot
 
 # Groin
 - type: entity
   id: BodyProviderGroinReptilian
-  parent: [BaseBodyProviderGroinOrganic, BaseBodyProviderPartReptilian]
+  parent: [BaseBodyProviderPartReptilian, BaseBodyProviderGroinAppearance, BaseBodyProviderGroinOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/reptilian.rsi
+      state: groin
 
 # Hands
 - type: entity
   id: BodyProviderLeftHandReptilian
-  parent: [BaseBodyProviderLeftHandOrganic, BaseBodyProviderPartReptilian]
+  parent: [BaseBodyProviderPartReptilian, BaseBodyProviderLeftHandAppearance, BaseBodyProviderLeftHandOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/reptilian.rsi
+      state: left_hand
 
 - type: entity
   id: BodyProviderRightHandReptilian
-  parent: [BaseBodyProviderRightHandOrganic, BaseBodyProviderPartReptilian]
+  parent: [BaseBodyProviderPartReptilian, BaseBodyProviderRightHandAppearance, BaseBodyProviderRightHandOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/reptilian.rsi
+      state: right_hand
 
 # Head
 - type: entity
   id: BodyProviderHeadReptilian
-  parent: [BaseBodyProviderHeadOrganic, BaseBodyProviderPartReptilian]
+  parent: [BaseBodyProviderPartReptilian, BaseBodyProviderHeadAppearance, BaseBodyProviderHeadOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/reptilian.rsi
+      state: head
 
 # Legs
 - type: entity
   id: BodyProviderLeftLegReptilian
-  parent: [BaseBodyProviderLeftLegOrganic, BaseBodyProviderPartReptilian]
+  parent: [BaseBodyProviderPartReptilian, BaseBodyProviderLeftLegAppearance, BaseBodyProviderLeftLegOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/reptilian.rsi
+      state: left_leg
 
 - type: entity
   id: BodyProviderRightLegReptilian
-  parent: [BaseBodyProviderRightLegOrganic, BaseBodyProviderPartReptilian]
+  parent: [BaseBodyProviderPartReptilian, BaseBodyProviderRightLegAppearance, BaseBodyProviderRightLegOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/reptilian.rsi
+      state: right_leg
 
 # Tail
 - type: entity
   id: BodyProviderTailReptilian
-  parent: [BaseBodyProviderTailOrganic, BaseBodyProviderPartReptilian]
+  parent: [BaseBodyProviderPartReptilian, BaseBodyProviderTailAppearance, BaseBodyProviderTailOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/reptilian.rsi
+      state: tail

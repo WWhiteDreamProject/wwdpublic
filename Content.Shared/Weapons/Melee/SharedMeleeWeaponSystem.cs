@@ -6,7 +6,7 @@ using Content.Shared._White.Body;
 using Content.Shared._White.Damage;
 using Content.Shared._White.Damage.Components;
 using Content.Shared._White.Damage.Systems;
-using Content.Shared._White.TargetDoll;
+using Content.Shared._White.TargetDoll.Systems;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
 using Content.Shared.CombatMode;

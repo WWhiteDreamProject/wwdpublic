@@ -8,13 +8,13 @@ namespace Content.Shared._White.Appearance;
 
 [DataDefinition]
 [Serializable, NetSerializable]
-public partial record struct BodyAppearanceData
+public partial record struct BodyAppearanceData()
 {
     /// <summary>
     /// The color groups associated with this appearance data.
     /// </summary>
     [DataField]
-    public Dictionary<ProtoId<BodyColorGroupPrototype>, Color> ColorGroups = new();
+    public Dictionary<ProtoId<BodyColorGroupPrototype>, Color> Colors = new();
 
     /// <summary>
     /// The body type associated with this appearance data.

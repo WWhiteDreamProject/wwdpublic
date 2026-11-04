@@ -2,6 +2,7 @@ using System.IO;
 using System.Linq;
 using Content.Client._White.Appearance.Systems;
 using Content.Client._White.Body.Systems;
+using Content.Client._White.Colors.UserInterface;
 using Content.Client._White.Humanoid.Markings;
 using Content.Client._White.Humanoid.Markings.Systems;
 using Content.Client._White.Preferences.Managers;
@@ -14,8 +15,8 @@ using Content.Client.UserInterface.Controls;
 using Content.Client.UserInterface.Systems.Guidebook;
 using Content.Shared._EE.Contractors.Prototypes;
 using Content.Shared._White.Appearance;
+using Content.Shared._White.Appearance.Prototypes;
 using Content.Shared._White.Body.Components;
-using Content.Shared._White.Colors.Strategies;
 using Content.Shared._White.Humanoid.Markings.Managers;
 using Content.Shared._White.Humanoid.Prototypes;
 using Content.Shared._White.Humanoid.Systems;
@@ -111,8 +112,6 @@ namespace Content.Client.Lobby.UI
         private List<(string, RequirementsSelector)> _jobPriorities = new();
 
         private readonly Dictionary<string, BoxContainer> _jobCategories;
-
-        private ColorSelectorSliders _rgbSkinColorSelector;
 
         private bool _isDirty;
 
@@ -263,7 +262,6 @@ namespace Content.Client.Lobby.UI
             {
                 SpeciesButton.SelectId(args.Id);
                 SetSpecies(_species[args.Id].ID);
-                OnSkinColorOnValueChanged();
                 UpdateHeightWidthSliders();
             };
 
@@ -328,14 +326,6 @@ namespace Content.Client.Lobby.UI
 
             #endregion Height
 
-            #region Skin
-
-            Skin.OnValueChanged += _ => { OnSkinColorOnValueChanged(); };
-            RgbSkinColorContainer.AddChild(_rgbSkinColorSelector = new());
-            _rgbSkinColorSelector.OnColorChanged += _ => { OnSkinColorOnValueChanged(); };
-
-            #endregion
-
             #region SpawnPriority
 
             foreach (var value in Enum.GetValues<SpawnPriority>())
@@ -348,19 +338,6 @@ namespace Content.Client.Lobby.UI
             };
 
             #endregion SpawnPriority
-
-            #region Eyes
-
-            EyeColorPicker.OnEyeColorPicked += color =>
-            {
-                if (Profile is null)
-                    return;
-                Profile = Profile.Value.WithColor("Eye", color);
-                _markingsModel.SetColor("Eye", color);
-                ReloadProfilePreview();
-            };
-
-            #endregion Eyes
 
             #endregion Appearance
 
@@ -758,12 +735,11 @@ namespace Content.Client.Lobby.UI
             UpdateTTSVoicesControls(); // WD EDIT
             UpdateBarksControl(); // WD EDIT
             UpdateBodyTypes(); // WD EDIT
+            UpdateColors(); // WD EDIT
             UpdateGenderControls();
-            UpdateSkinColor();
             UpdateSpawnPriorityControls();
             UpdateFlavorTextEdit();
             UpdateAgeEdit();
-            UpdateEyePickers();
             UpdateSaveButton();
             UpdateMarkings();
             UpdateLoadouts(); // WD EDIT
@@ -794,7 +770,7 @@ namespace Content.Client.Lobby.UI
             if (Profile == null || !_entManager.EntityExists(PreviewDummy))
                 return;
 
-            _entManager.System<BodyAppearanceSystem>().ApplyProfile(PreviewDummy, Profile.Value);
+            _entManager.System<HumanoidProfileSystem>().ApplyProfile(PreviewDummy, Profile.Value);
 
             // Check and set the dirty flag to enable the save/reset buttons as appropriate.
             SetDirty();
@@ -983,51 +959,6 @@ namespace Content.Client.Lobby.UI
             SetDirty();
         }
 
-        private void OnSkinColorOnValueChanged()
-        {
-            if (Profile is null)
-                return;
-
-            // WD EDIT START
-            var skin = _prototypeManager.Index(Profile.Value.Species).Colorations["Skin"];
-            var strategy = _prototypeManager.Index(skin).Strategy;
-
-            var color = Color.White;
-
-            switch (strategy.InputType)
-            {
-                case ColorationStrategyInput.Unary:
-                {
-                    if (!Skin.Visible)
-                    {
-                        Skin.Visible = true;
-                        RgbSkinColorContainer.Visible = false;
-                    }
-
-                    color = strategy.FromUnary(Skin.Value);
-
-                    break;
-                }
-                case ColorationStrategyInput.Color:
-                {
-                    if (!RgbSkinColorContainer.Visible)
-                    {
-                        Skin.Visible = false;
-                        RgbSkinColorContainer.Visible = true;
-                    }
-
-                    color = strategy.ClosestColor(_rgbSkinColorSelector.Color);
-
-                    break;
-                }
-            }
-            _markingsModel.SetColor("Skin", color);
-            Profile = Profile.Value.WithColor("Skin", color);
-            // WD EDIT END
-
-            ReloadProfilePreview();
-        }
-
         protected override void Dispose(bool disposing)
         {
             base.Dispose(disposing);
@@ -1095,9 +1026,6 @@ namespace Content.Client.Lobby.UI
         private void SetSpecies(string newSpecies)
         {
             Profile = Profile?.WithSpecies(newSpecies);
-            OnSkinColorOnValueChanged(); // Species may have special color prefs, make sure to update it.
-            _markingsModel.MarkingsData = _markingsSystem.GetMarkingData(newSpecies);
-            _markingsModel.ValidateMarkings();
             UpdateSexControls(); // Update sex for new species
             UpdateCharacterRequired();
             // Changing species provides inaccurate sliders without these
@@ -1105,6 +1033,8 @@ namespace Content.Client.Lobby.UI
             UpdateWeight();
             UpdateSpeciesGuidebookIcon();
             UpdateBodyTypes(); // WD EDIT
+            UpdateColors(); // WD EDIT
+            UpdateMarkings(); // WD EDIT
             ReloadPreview(); // WD EDIT: ReloadProfilePreview -> ReloadPreview. This should use a new doll
             ReloadClothes(); // Species may have job-specific gear, reload the clothes
         }
@@ -1221,6 +1151,41 @@ namespace Content.Client.Lobby.UI
             CBodyTypesButton.Select(_bodyTypes.FindIndex(x => x.ID == Profile.Value.BodyType));
             IsDirty = true;
         }
+
+        private void UpdateColors()
+        {
+            if (Profile == null)
+                return;
+
+            var species = _prototypeManager.Index(Profile.Value.Species);
+
+            ColorPickers.RemoveAllChildren();
+            foreach (var (group, strategyId) in species.Colorations)
+            {
+                var picker = new ColorPicker
+                {
+                    Margin = new(0, 4, 0, 4),
+                    HorizontalExpand = true,
+                    Orientation = LayoutOrientation.Vertical,
+                    Text = Loc.GetString($"humanoid-profile-editor-{group.Id.ToLower()}-color-label"),
+                };
+
+                var strategy = _prototypeManager.Index(strategyId).Strategy;
+                picker.SetStrategy(strategy);
+                picker.SetColor(GetColor(group, species));
+                picker.Update();
+
+                picker.OnColorChanged += color =>
+                {
+                    _markingsModel.SetColor(group, color);
+                    Profile = Profile.Value.WithColor(group, color);
+
+                    ReloadProfilePreview();
+                };
+
+                ColorPickers.AddChild(picker);
+            }
+        }
         // WD EDIT END
 
         /// <summary>
@@ -1263,45 +1228,6 @@ namespace Content.Client.Lobby.UI
                 SexButton.SelectId((int) sexes[0]);
         }
 
-        private void UpdateSkinColor()
-        {
-            if (Profile == null)
-                return;
-
-            // WD EDIT START
-            var skin = _prototypeManager.Index(Profile.Value.Species).Colorations["Skin"];
-            var strategy = _prototypeManager.Index(skin).Strategy;
-
-            switch (strategy.InputType)
-            {
-                case ColorationStrategyInput.Unary:
-                {
-                    if (!Skin.Visible)
-                    {
-                        Skin.Visible = true;
-                        RgbSkinColorContainer.Visible = false;
-                    }
-
-                    Skin.Value = strategy.ToUnary(Profile.Value.Colors["Skin"]);
-
-                    break;
-                }
-                case ColorationStrategyInput.Color:
-                {
-                    if (!RgbSkinColorContainer.Visible)
-                    {
-                        Skin.Visible = false;
-                        RgbSkinColorContainer.Visible = true;
-                    }
-
-                    _rgbSkinColorSelector.Color = strategy.ClosestColor(Profile.Value.Colors["Skin"]);
-
-                    break;
-                }
-            }
-            // WD EDIT END
-        }
-
         public void UpdateSpeciesGuidebookIcon()
         {
             SpeciesInfoButton.StyleClasses.Clear();
@@ -1336,7 +1262,7 @@ namespace Content.Client.Lobby.UI
                     {
                         appearanceData[layer] = new()
                         {
-                            ColorGroups = Profile.Value.Colors.ToDictionary(),
+                            Colors = Profile.Value.Colors.ToDictionary(),
                             BodyType = Profile.Value.BodyType,
                             Sex = Profile.Value.Sex,
                         };
@@ -1454,15 +1380,6 @@ namespace Content.Client.Lobby.UI
                 WeightLabel.Text = Loc.GetString("humanoid-profile-editor-weight-label", ("weight", (int) 71));
 
             CharacterSpriteView?.InvalidateMeasure();
-        }
-
-        private void UpdateEyePickers()
-        {
-            if (Profile == null)
-                return;
-
-            _markingsModel.SetColor("Eye", Profile.Value.Colors["Eye"]);
-            EyeColorPicker.SetData(Profile.Value.Colors["Eye"]);
         }
 
         private void UpdateSaveButton()
@@ -1928,6 +1845,23 @@ namespace Content.Client.Lobby.UI
             RefreshJobs();
             UpdateTraits(TraitsShowUnusableButton.Pressed);
         }
+
+        // WD EDIT START
+        private Color GetColor(ProtoId<BodyColorGroupPrototype> group, SpeciesPrototype? species = null)
+        {
+            if (Profile == null)
+                return Color.White;
+
+            if (Profile.Value.Colors.TryGetValue(group, out var color))
+                return color;
+
+            species ??= _prototypeManager.Index(Profile.Value.Species);
+            if (species.DefaultColors.TryGetValue(group, out color))
+                return color;
+
+            return Color.White;
+        }
+        // WD EDIT END
     }
 }
 

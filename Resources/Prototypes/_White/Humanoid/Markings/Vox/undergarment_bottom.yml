@@ -1,0 +1,32 @@
+- type: marking
+  id: BaseUndergarmentBottomVox
+  parent: [BaseUndergarmentBottom, BaseVox]
+  abstract: true
+
+- type: marking
+  id: UndergarmentBottomVoxBoxers
+  parent: BaseUndergarmentBottomVox
+  forcedColoring: true
+  definitions:
+  - layer: enum.MarkingVisualLayers.UndergarmentBottom
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/undergarment_bottom.rsi
+      state: boxers
+
+- type: marking
+  id: UndergarmentBottomVoxBriefs
+  parent: BaseUndergarmentBottomVox
+  definitions:
+  - layer: enum.MarkingVisualLayers.UndergarmentBottom
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/undergarment_bottom.rsi
+      state: briefs
+
+- type: marking
+  id: UndergarmentBottomVoxSatin
+  parent: BaseUndergarmentBottomVox
+  definitions:
+  - layer: enum.MarkingVisualLayers.UndergarmentBottom
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/undergarment_bottom.rsi
+      state: satin

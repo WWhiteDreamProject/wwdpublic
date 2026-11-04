@@ -61,7 +61,7 @@
           type: Head
           providers:
             cranium:
-              type: Сranium
+              type: Cranium
               providers:
                 brain:
                   type: Brain
@@ -75,7 +75,7 @@
                 tongue:
                   type: Tongue
                   startingProvider: BodyProviderTongueOni
-              startingProvider: BodyProviderСraniumOni
+              startingProvider: BodyProviderCraniumOni
           startingProvider: BodyProviderHeadOni
         left_arm:
           type: LeftArm

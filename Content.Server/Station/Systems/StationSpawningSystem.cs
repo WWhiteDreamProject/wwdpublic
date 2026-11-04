@@ -161,7 +161,6 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
             if (prototype != null)
                 SetPdaAndIdCardData(entity.Value, profile.Value.Name, prototype, station);
 
-            _bodyAppearance.ApplyProfile(entity.Value, profile.Value);
             _humanoidProfile.ApplyProfile(entity.Value, profile.Value);
             _metaSystem.SetEntityName(entity.Value, profile.Value.Name);
             if (profile.Value.Flavor != "" && _configurationManager.GetCVar(CCVars.FlavorText))

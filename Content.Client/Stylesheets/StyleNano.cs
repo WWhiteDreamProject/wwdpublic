@@ -811,6 +811,12 @@ namespace Content.Client.Stylesheets
                     {
                         new StyleProperty(PanelContainer.StylePropertyPanel, boxDropTarget),
                     }),
+                new StyleRule(
+                    new SelectorElement(null, new[] {StyleClassPanelDropTarget}, null, null),
+                    new[]
+                    {
+                        new StyleProperty(PanelContainer.StylePropertyPanel, boxDropTarget),
+                    }),
                 // WD EDIT END
 
                 // ItemStatus for hands

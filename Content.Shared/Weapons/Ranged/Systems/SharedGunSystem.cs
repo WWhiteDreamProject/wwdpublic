@@ -3,7 +3,7 @@ using System.Numerics;
 using Content.Shared._White.Damage.Systems;
 using Content.Shared._White.Guns;
 using Content.Shared._White.Move;
-using Content.Shared._White.TargetDoll;
+using Content.Shared._White.TargetDoll.Systems;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
 using Content.Shared.Administration.Logs;

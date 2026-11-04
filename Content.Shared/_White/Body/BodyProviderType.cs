@@ -37,7 +37,7 @@ public enum BodyProviderType
     Antebrachium = Bone | (1 << 8),
     Cauda = Bone | (1 << 9),
     Coxae = Bone | (1 << 10),
-    Сranium = Bone | (1 << 11),
+    Cranium = Bone | (1 << 11),
     Crus = Bone | (1 << 12),
     Manus = Bone | (1 << 13),
     Pedis = Bone | (1 << 14),
@@ -81,7 +81,7 @@ public enum BodyProviderType
 
     #endregion Pedis
 
-    AllBones = Antebrachia | Cauda | Coxae | Сranium | Сrura | Manuum | Pedum | Thorax,
+    AllBones = Antebrachia | Cauda | Coxae | Cranium | Сrura | Manuum | Pedum | Thorax,
 
     #endregion Combined
 

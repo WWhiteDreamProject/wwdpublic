@@ -1,0 +1,4 @@
+- type: marking
+  id: BaseOni
+  abstract: true
+  groups: [Oni]

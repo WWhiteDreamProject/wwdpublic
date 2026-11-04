@@ -21,7 +21,7 @@
   id: BodyProviderCoxaeHuman
   parent: [BaseBodyProviderCoxae, BaseBodyProviderBoneHuman]
 
-# Skull / Сranium
+# Skull / Cranium
 - type: entity
   id: BodyProviderCraniumHuman
   parent: [BaseBodyProviderCranium, BaseBodyProviderBoneHuman]

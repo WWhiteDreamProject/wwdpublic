@@ -30,7 +30,13 @@
   parent: [BaseBodyProviderEyes, BaseBodyProviderOrganVox]
   components:
   - type: BodyAppearanceProvider
-    path: _White/Bodies/Organs/Humanoids/vox.rsi
+    entries:
+    - group: Eyes
+      path: _White/Bodies/Organs/Humanoids/vox.rsi
+      state: eyes_in-body
+  - type: MarkingsProvider
+    data:
+      group: Vox
 
 # Heart
 - type: entity

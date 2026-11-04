@@ -1,8 +1,8 @@
 - type: markingGroup
   id: Moth
   parent: Undergarments
-  onlyGroupWhitelisted: true
-  categoriesData:
+  whitelisted: true
+  data:
     Arms:
       limit: 2
     Ears:
@@ -10,7 +10,7 @@
       default: [ MothAntennasDefault ]
       limit: 1
     Earrings:
-      onlyGroupWhitelisted: false
+      whitelisted: false
       limit: 2
     Head:
       limit: 1

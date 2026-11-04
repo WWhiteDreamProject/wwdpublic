@@ -1,6 +1,6 @@
 - type: marking
   id: BandagesBlindfold
-  parents: BaseBandages
+  parent: BaseBandages
   definitions:
   - layer: enum.BodyProviderType.Head
     sprite:
@@ -9,7 +9,7 @@
 
 - type: marking
   id: BandagesEyePadLeft
-  parents: BaseBandages
+  parent: BaseBandages
   definitions:
   - layer: enum.BodyProviderType.Head
     sprite:
@@ -18,7 +18,7 @@
 
 - type: marking
   id: BandagesEyePadRight
-  parents: BaseBandages
+  parent: BaseBandages
   definitions:
   - layer: enum.BodyProviderType.Head
     sprite:
@@ -27,7 +27,7 @@
 
 - type: marking
   id: BandagesEyePatchLeft
-  parents: BaseBandages
+  parent: BaseBandages
   definitions:
   - layer: enum.BodyProviderType.Head
     sprite:
@@ -36,7 +36,7 @@
 
 - type: marking
   id: BandagesEyePatchRight
-  parents: BaseBandages
+  parent: BaseBandages
   definitions:
   - layer: enum.BodyProviderType.Head
     sprite:
@@ -45,7 +45,7 @@
 
 - type: marking
   id: BandagesHead
-  parents: BaseBandages
+  parent: BaseBandages
   definitions:
   - layer: enum.BodyProviderType.Head
     sprite:
@@ -54,7 +54,7 @@
 
 - type: marking
   id: BandagesLeftArm
-  parents: BaseBandages
+  parent: BaseBandages
   definitions:
   - layer: enum.BodyProviderType.LeftArm
     sprite:
@@ -63,7 +63,7 @@
 
 - type: marking
   id: BandagesLeftFoot
-  parents: BaseBandages
+  parent: BaseBandages
   definitions:
   - layer: enum.BodyProviderType.LeftFoot
     sprite:
@@ -72,7 +72,7 @@
 
 - type: marking
   id: BandagesLeftHand
-  parents: BaseBandages
+  parent: BaseBandages
   definitions:
   - layer: enum.BodyProviderType.LeftHand
     sprite:
@@ -81,7 +81,7 @@
 
 - type: marking
   id: BandagesLeftLeg
-  parents: BaseBandages
+  parent: BaseBandages
   definitions:
   - layer: enum.BodyProviderType.LeftLeg
     sprite:
@@ -90,7 +90,7 @@
 
 - type: marking
   id: BandagesRightArm
-  parents: BaseBandages
+  parent: BaseBandages
   definitions:
   - layer: enum.BodyProviderType.RightArm
     sprite:
@@ -99,7 +99,7 @@
 
 - type: marking
   id: BandagesRightFoot
-  parents: BaseBandages
+  parent: BaseBandages
   definitions:
   - layer: enum.BodyProviderType.RightLeg
     sprite:
@@ -108,7 +108,7 @@
 
 - type: marking
   id: BandagesRightHand
-  parents: BaseBandages
+  parent: BaseBandages
   definitions:
   - layer: enum.BodyProviderType.RightHand
     sprite:
@@ -117,7 +117,7 @@
 
 - type: marking
   id: BandagesRightLeg
-  parents: BaseBandages
+  parent: BaseBandages
   definitions:
   - layer: enum.BodyProviderType.RightLeg
     sprite:
@@ -126,20 +126,20 @@
 
 - type: marking
   id: BandagesShoulder
-  parents: BaseBandages
+  parent: BaseBandages
   definitions:
   - layer: enum.BodyProviderType.Chest
     sprite:
       sprite: _White/Humanoid/Markings/Generic/bandages.rsi
-      state: shoulder_chest
+      state: shoulder-chest
   - layer: enum.BodyProviderType.Groin
     sprite:
       sprite: _White/Humanoid/Markings/Generic/bandages.rsi
-      state: shoulder_groin
+      state: shoulder-groin
 
 - type: marking
   id: BandagesStomach
-  parents: BaseBandages
+  parent: BaseBandages
   definitions:
   - layer: enum.BodyProviderType.Groin
     sprite:

@@ -6,6 +6,7 @@ using Content.Shared._White.Appearance.Prototypes;
 using Content.Shared._White.Bark;
 using Content.Shared._White.Body.Components;
 using Content.Shared._White.Body.Systems;
+using Content.Shared._White.Colors.Strategies;
 using Content.Shared._White.Humanoid.Markings;
 using Content.Shared._White.Humanoid.Markings.Managers;
 using Content.Shared._White.Humanoid.Markings.Systems;
@@ -39,7 +40,7 @@ namespace Content.Shared._White.Preferences;
 [Serializable, NetSerializable]
 public partial record struct HumanoidCharacterProfile
 {
-    private static readonly Regex RestrictedNameRegex = new(@"[^A-Za-z0-9 '\-]");
+    private static readonly Regex RestrictedNameRegex = new(@"[^A-Za-zА-Яа-я0-9 '\-]");
     private static readonly Regex ICNameCaseRegex = new(@"^(?<word>\w)|\b(?<word>\w)(?=\w*$)");
 
     /// <summary>
@@ -564,6 +565,15 @@ public partial record struct HumanoidCharacterProfile
     }
 
     /// <summary>
+    /// Returns a new charter with default colors.
+    /// </summary>
+    /// <returns>A new charter with the default colors for species.</returns>
+    public HumanoidCharacterProfile WithDefaultColors()
+    {
+        return new(this) { _colors = DefaultColors() };
+    }
+
+    /// <summary>
     /// Returns a new charter with new employer.
     /// </summary>
     /// <param name="employer">The employer to use for the profile.</param>
@@ -743,10 +753,11 @@ public partial record struct HumanoidCharacterProfile
         charter.Species = charter.ValidateSpecies(species);
         charter.Sex = charter.ValidateSex(Sex);
 
+        charter._colors = charter.DefaultColors();
+
         charter.Age = charter.ValidateAge(Age);
         charter.BodyType = charter.ValidateBodyType(BodyType);
         charter.Voice = charter.ValidateVoice(Voice);
-        charter._colors = charter.ValidateColors(_colors);
         charter._markings = charter.ValidateMarkings(_markings);
 
         return charter;
@@ -984,11 +995,55 @@ public partial record struct HumanoidCharacterProfile
             if (!speciesPrototype.Colorations.TryGetValue(group, out var coloration))
                 continue;
 
-            var colorationStrategy = prototypeManager.Index(coloration).Strategy;
-            validColors[group] = colorationStrategy.EnsureVerified(color);
+            var strategy = prototypeManager.Index(coloration).Strategy;
+            validColors[group] = strategy.EnsureVerified(color);
         }
 
         return validColors;
+    }
+
+    /// <summary>
+    /// Generates a dictionary of default colors for the character's current species.
+    /// For each color group currently stored in the profile, retrieves the species' default color
+    /// and applies it through the appropriate coloration strategy (unary or color input).
+    /// </summary>
+    /// <returns>A dictionary mapping body color groups to their default colors for this species.</returns>
+    private Dictionary<ProtoId<BodyColorGroupPrototype>, Color> DefaultColors()
+    {
+        var prototypeManager = IoCManager.Resolve<IPrototypeManager>();
+
+        var speciesPrototype = prototypeManager.Index(Species);
+
+        var colors = new Dictionary<ProtoId<BodyColorGroupPrototype>, Color>();
+        foreach (var group in _colors.Keys)
+        {
+            if (!speciesPrototype.Colorations.TryGetValue(group, out var coloration))
+                continue;
+
+            var strategy = prototypeManager.Index(coloration).Strategy;
+            switch (strategy.InputType)
+            {
+                case ColorationStrategyInput.Unary:
+                {
+                    if (!speciesPrototype.DefaultUnaryColors.TryGetValue(group, out var defaultColor))
+                        break;
+
+                    colors[group] = strategy.FromUnary(defaultColor);
+                    break;
+                }
+                case ColorationStrategyInput.Color:
+                default:
+                {
+                    if (!speciesPrototype.DefaultColors.TryGetValue(group, out var defaultColor))
+                        break;
+
+                    colors[group] = strategy.EnsureVerified(defaultColor);
+                    break;
+                }
+            }
+        }
+
+        return colors;
     }
 
     /// <summary>
@@ -1046,6 +1101,7 @@ public partial record struct HumanoidCharacterProfile
                 var markings = markingsSet.GetValueOrDefault(layer)?.ShallowClone() ?? [];
 
                 markingManager.EnsureValidColors(markings, markingData.Value.Group, _colors);
+                markingManager.EnsureValidDefault(markings, layer, markingData.Value.Group, _colors);
                 markingManager.EnsureValidGroupAndSex(markings, markingData.Value.Group, Sex);
                 markingManager.EnsureValidLimits(markings, markingData.Value.Group, _colors);
 

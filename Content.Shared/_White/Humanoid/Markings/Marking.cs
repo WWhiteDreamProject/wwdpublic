@@ -13,12 +13,6 @@ namespace Content.Shared._White.Humanoid.Markings;
 public partial record struct Marking
 {
     /// <summary>
-    /// Determines whether this marker overrides the appearance provider's sprite.
-    /// </summary>
-    [DataField]
-    public bool OverrideAppearance { get; private set; }
-
-    /// <summary>
     /// The color tint applied to this marking.
     /// </summary>
     [DataField]
@@ -62,10 +56,9 @@ public partial record struct Marking
     /// <summary>
     /// Initializes a new instance with specified properties.
     /// </summary>
-    public Marking(bool overrideAppearance, Enum layer, ProtoId<MarkingCategoryPrototype> category, ProtoId<MarkingPrototype> id, SpriteSpecifier sprite, string index, Color? color = null)
+    public Marking(Color color, Enum layer, ProtoId<MarkingCategoryPrototype> category, ProtoId<MarkingPrototype> id, SpriteSpecifier sprite, string index)
     {
-        OverrideAppearance = overrideAppearance;
-        Color = color ?? Color.White;
+        Color = color;
         Layer = layer;
         Category = category;
         Id = id;
@@ -78,9 +71,6 @@ public partial record struct Marking
     /// </summary>
     public bool Equals(Marking other)
     {
-        if (!OverrideAppearance.Equals(other.OverrideAppearance))
-            return false;
-
         if (!Color.Equals(other.Color))
             return false;
 

@@ -30,7 +30,13 @@
   parent: [BaseBodyProviderEyes, BaseBodyProviderOrganMoth]
   components:
   - type: BodyAppearanceProvider
-    path: _White/Bodies/Organs/Humanoids/moth.rsi
+    entries:
+    - group: Eyes
+      path: _White/Bodies/Organs/Humanoids/moth.rsi
+      state: eyes_in-body
+  - type: MarkingsProvider
+    data:
+      group: Moth
 
 # Heart
 - type: entity

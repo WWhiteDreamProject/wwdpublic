@@ -1,7 +1,7 @@
 - type: markingGroup
   id: IPC
-  onlyGroupWhitelisted: true
-  categoriesData:
+  whitelisted: true
+  data:
     Arms:
       limit: 2
     Head:

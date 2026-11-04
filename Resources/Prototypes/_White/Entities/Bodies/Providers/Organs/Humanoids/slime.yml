@@ -38,11 +38,19 @@
         - ReagentId: Slime
           Quantity: 15
 
-# Ears
+# Eyes
 - type: entity
-  id: BodyProviderEarsSlime
-  parent: [BaseBodyProviderEars, BaseBodyProviderOrganSlime]
+  id: BodyProviderEyesSlime
+  parent: [BaseBodyProviderEyes, BaseBodyProviderOrganSlime]
   components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Eyes
+      path: _White/Bodies/Organs/Humanoids/human.rsi # TODO: Replace with a unique sprite.
+      state: eyes_in-body
+  - type: MarkingsProvider
+    data:
+      group: Slime
   - type: Sprite
     sprite: _White/Bodies/Organs/Humanoids/human.rsi # TODO: Replace with a unique sprite.
 

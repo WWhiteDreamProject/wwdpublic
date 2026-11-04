@@ -13,6 +13,8 @@ public enum MarkingVisualLayers : byte
     HeadBottom,
     HeadSide,
     HeadTop,
+    LeftArmTop,
+    RightArmTop,
     Snout,
     UndergarmentBottom,
     UndergarmentTop,

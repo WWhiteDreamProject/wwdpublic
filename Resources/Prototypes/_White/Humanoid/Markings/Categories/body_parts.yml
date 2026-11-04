@@ -81,4 +81,6 @@
 - type: markingCategory
   id: Wings
   layers:
+  - enum.BodyProviderType.LeftArm
+  - enum.BodyProviderType.RightArm
   - enum.BodyProviderType.Wings

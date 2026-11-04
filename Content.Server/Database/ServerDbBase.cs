@@ -22,8 +22,6 @@ using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using Content.Server._White.Serialization;
-using Content.Shared._White.Humanoid.Markings;
-using Content.Shared._White.Humanoid.Markings.Prototypes;
 using Content.Shared._White.Preferences;
 using Robust.Shared.Serialization.Manager;
 
@@ -58,7 +56,7 @@ namespace Content.Server.Database
                 .Include(p => p.Profiles).ThenInclude(h => h.Antags)
                 .Include(p => p.Profiles).ThenInclude(h => h.Traits)
                 .Include(p => p.Profiles).ThenInclude(h => h.Loadouts)
-                .Include(p => p.Profiles).ThenInclude(h => h.Loadouts)
+                .Include(p => p.Profiles).ThenInclude(h => h.BodyColors)
                 .AsSplitQuery()
                 .SingleOrDefaultAsync(p => p.UserId == userId.UserId, cancel);
         }
@@ -90,6 +88,7 @@ namespace Content.Server.Database
                 .Include(p => p.Antags)
                 .Include(p => p.Traits)
                 .Include(p => p.Loadouts)
+                .Include(p => p.BodyColors)
                 .AsSplitQuery()
                 .SingleOrDefault(h => h.Slot == slot);
 
@@ -193,7 +192,6 @@ namespace Content.Server.Database
             profile.Slot = slot;
             profile.CharacterName = humanoid.Name;
             profile.Flavor = humanoid.Flavor;
-            profile.Species = humanoid.Species;
             profile.Nationality = humanoid.Nationality;
             profile.Employer = humanoid.Employer;
             profile.Lifepath = humanoid.Lifepath;

@@ -8,19 +8,19 @@
   },
   "states": [
     {
-      "name": "eye_arrows_left",
+      "name": "eye_arrows-left",
       "directions": 4
     },
     {
-      "name": "eye_arrows_right",
+      "name": "eye_arrows-right",
       "directions": 4
     },
     {
-      "name": "eyebrows_left",
+      "name": "eyebrows-left",
       "directions": 4
     },
     {
-      "name": "eyebrows_right",
+      "name": "eyebrows-right",
       "directions": 4
     },
     {

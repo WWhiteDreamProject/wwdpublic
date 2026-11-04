@@ -1,7 +1,7 @@
 - type: markingGroup
   id: Felinid
   parent: Undergarments
-  categoriesData:
+  data:
     Arms:
       limit: 2
     Ears:
@@ -20,6 +20,8 @@
       limit: 2
     Legs:
       limit: 2
+    Nose:
+      limit: 1
     Scars:
       limit: 4
     Snout:

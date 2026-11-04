@@ -1,61 +1,128 @@
 - type: entity
   id: BaseBodyProviderPartDiona
-  parent: BaseBodyProviderPartOrganic
+  parent: [BaseBodyProviderPartAppearance, BaseBodyProviderPartOrganic]
   abstract: true
   suffix: Diona
   components:
-  - type: BodyAppearanceProvider
-    path: _White/Bodies/Parts/Humanoids/diona.rsi
+  - type: MarkingsProvider
+    data:
+      group: Diona
   - type: Sprite
     sprite: _White/Bodies/Parts/Humanoids/diona.rsi
 
 # Arms
 - type: entity
   id: BodyProviderLeftArmDiona
-  parent: [BaseBodyProviderLeftArmOrganic, BaseBodyProviderPartDiona]
+  parent: [BaseBodyProviderPartDiona, BaseBodyProviderLeftArmAppearance, BaseBodyProviderLeftArmOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/diona.rsi
+      state: left_arm
 
 - type: entity
   id: BodyProviderRightArmDiona
-  parent: [BaseBodyProviderRightArmOrganic, BaseBodyProviderPartDiona]
+  parent: [BaseBodyProviderPartDiona, BaseBodyProviderRightArmAppearance, BaseBodyProviderRightArmOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/diona.rsi
+      state: right_arm
 
 # Chest
 - type: entity
   id: BodyProviderChestDiona
-  parent: [BaseBodyProviderChestOrganic, BaseBodyProviderPartDiona]
+  parent: [BaseBodyProviderPartDiona, BaseBodyProviderChestAppearance, BaseBodyProviderChestOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/diona.rsi
+      state: chest
 
 # Foots
 - type: entity
   id: BodyProviderLeftFootDiona
-  parent: [BaseBodyProviderLeftFootOrganic, BaseBodyProviderPartDiona]
+  parent: [BaseBodyProviderPartDiona, BaseBodyProviderLeftFootAppearance, BaseBodyProviderLeftFootOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/diona.rsi
+      state: left_foot
 
 - type: entity
   id: BodyProviderRightFootDiona
-  parent: [BaseBodyProviderRightFootOrganic, BaseBodyProviderPartDiona]
+  parent: [BaseBodyProviderPartDiona, BaseBodyProviderRightFootAppearance, BaseBodyProviderRightFootOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/diona.rsi
+      state: right_foot
 
 # Groin
 - type: entity
   id: BodyProviderGroinDiona
-  parent: [BaseBodyProviderGroinOrganic, BaseBodyProviderPartDiona]
+  parent: [BaseBodyProviderPartDiona, BaseBodyProviderGroinAppearance, BaseBodyProviderGroinOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/diona.rsi
+      state: groin
 
 # Hands
 - type: entity
   id: BodyProviderLeftHandDiona
-  parent: [BaseBodyProviderLeftHandOrganic, BaseBodyProviderPartDiona]
+  parent: [BaseBodyProviderPartDiona, BaseBodyProviderLeftHandAppearance, BaseBodyProviderLeftHandOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/diona.rsi
+      state: left_hand
 
 - type: entity
   id: BodyProviderRightHandDiona
-  parent: [BaseBodyProviderRightHandOrganic, BaseBodyProviderPartDiona]
+  parent: [BaseBodyProviderPartDiona, BaseBodyProviderRightHandAppearance, BaseBodyProviderRightHandOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/diona.rsi
+      state: right_hand
 
 # Head
 - type: entity
   id: BodyProviderHeadDiona
-  parent: [BaseBodyProviderHeadOrganic, BaseBodyProviderPartDiona]
+  parent: [BaseBodyProviderPartDiona, BaseBodyProviderHeadAppearance, BaseBodyProviderHeadOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/diona.rsi
+      state: head
 
 # Legs
 - type: entity
   id: BodyProviderLeftLegDiona
-  parent: [BaseBodyProviderLeftLegOrganic, BaseBodyProviderPartDiona]
+  parent: [BaseBodyProviderPartDiona, BaseBodyProviderLeftLegAppearance, BaseBodyProviderLeftLegOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/diona.rsi
+      state: left_leg
 
 - type: entity
   id: BodyProviderRightLegDiona
-  parent: [BaseBodyProviderRightLegOrganic, BaseBodyProviderPartDiona]
+  parent: [BaseBodyProviderPartDiona, BaseBodyProviderRightLegAppearance, BaseBodyProviderRightLegOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/diona.rsi
+      state: right_leg

@@ -154,7 +154,7 @@ public sealed partial class ZombieSystem
             _autoEmote.AddEmote(target, "ZombieGroan");
         }
 
-        if (_bodyAppearance.TryGetData(target, out var appearanceData))
+        if (_bodyAppearance.TryGetAppearance(target, out var appearanceData))
         {
             zombiecomp.BeforeZombifiedAppearance = appearanceData;
 

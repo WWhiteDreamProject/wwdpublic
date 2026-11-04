@@ -33,7 +33,6 @@ public sealed partial class HumanoidProfileEditor
     private void OnSpeciesSelected(ProtoId<SpeciesPrototype> proto)
     {
         SetSpecies(proto);
-        OnSkinColorOnValueChanged();
         UpdateHeightWidthSliders();
         _currentWindow?.Close();
     }

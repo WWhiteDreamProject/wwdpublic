@@ -1,12 +1,11 @@
 using System.Linq;
 using System.Numerics;
-using Content.Server._White.TargetDoll;
+using Content.Server._White.TargetDoll.Systems;
 using Content.Server.Cargo.Systems;
 using Content.Shared.Contests;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Weapons.Ranged.Components;
 using Content.Shared._White.Damage;
-using Content.Shared._White.Damage.Systems;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Database;
 using Content.Shared.Effects;

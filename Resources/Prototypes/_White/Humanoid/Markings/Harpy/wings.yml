@@ -1,0 +1,48 @@
+- type: marking
+  id: BaseWingsHarpy
+  parent: [BaseWings, BaseHarpy]
+  abstract: true
+  appearance: true
+  coloring:
+    default:
+      type: !type:BodyColorGroupColoring
+        group: Feathers
+
+- type: marking
+  id: WingsHarpyClassic
+  parent: BaseWingsHarpy
+  definitions:
+  - layer: enum.MarkingVisualLayers.LeftArmTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Harpy/wings.rsi
+      state: classic-left_arm
+  - layer: enum.MarkingVisualLayers.RightArmTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Harpy/wings.rsi
+      state: classic-right_arm
+
+- type: marking
+  id: WingsHarpyDefault
+  parent: BaseWingsHarpy
+  definitions:
+  - layer: enum.MarkingVisualLayers.LeftArmTop
+    sprite:
+      sprite: _White/Bodies/Parts/Humanoids/harpy.rsi
+      state: left_arm
+  - layer: enum.MarkingVisualLayers.RightArmTop
+    sprite:
+      sprite: _White/Bodies/Parts/Humanoids/harpy.rsi
+      state: right_arm
+
+- type: marking
+  id: WingsHarpyDefaultWhitescale
+  parent: BaseWingsHarpy
+  definitions:
+  - layer: enum.MarkingVisualLayers.LeftArmTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Harpy/wings.rsi
+      state: default_whitescale-left_arm
+  - layer: enum.MarkingVisualLayers.RightArmTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Harpy/wings.rsi
+      state: default_whitescale-right_arm

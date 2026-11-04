@@ -47,13 +47,37 @@
   category: Face
 
 - type: marking
+  id: BaseFacialHair
+  abstract: true
+  category: FacialHair
+  coloring:
+    default:
+      type: !type:SimpleColoring
+        color: "#241C11"
+
+- type: marking
   id: BaseHair
   abstract: true
   category: Hair
+  coloring:
+    default:
+      type: !type:SimpleColoring
+        color: "#241C11"
+
+- type: marking
+  id: BaseHorns
+  abstract: true
+  category: Horns
+
+- type: marking
+  id: BaseLegs
+  abstract: true
+  category: Legs
 
 - type: marking
   id: BaseNose
   abstract: true
+  forcedColoring: true
   category: Nose
   coloring:
     default:
@@ -66,6 +90,21 @@
   category: Overlay
 
 - type: marking
+  id: BaseUndergarmentBottom
+  abstract: true
+  category: UndergarmentBottom
+
+- type: marking
+  id: BaseUndergarmentTop
+  abstract: true
+  category: UndergarmentTop
+
+- type: marking
   id: BaseVegetation
   abstract: true
   category: Vegetation
+
+- type: marking
+  id: BaseWings
+  abstract: true
+  category: Wings

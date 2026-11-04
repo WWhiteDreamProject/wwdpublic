@@ -40,99 +40,99 @@
       "directions": 4
     },
     {
-      "name": "crystal_basic_left_primary",
+      "name": "crystal_basic_left-primary",
       "directions": 4
     },
     {
-      "name": "crystal_basic_left_secondary",
+      "name": "crystal_basic_left-secondary",
       "directions": 4
     },
     {
-      "name": "crystal_basic_right_primary",
+      "name": "crystal_basic_right-primary",
       "directions": 4
     },
     {
-      "name": "crystal_basic_right_secondary",
+      "name": "crystal_basic_right-secondary",
       "directions": 4
     },
     {
-      "name": "crystal_long_left_primary",
+      "name": "crystal_long_left-primary",
       "directions": 4
     },
     {
-      "name": "crystal_long_left_secondary",
+      "name": "crystal_long_left-secondary",
       "directions": 4
     },
     {
-      "name": "crystal_long_right_primary",
+      "name": "crystal_long_right-primary",
       "directions": 4
     },
     {
-      "name": "crystal_long_right_secondary",
+      "name": "crystal_long_right-secondary",
       "directions": 4
     },
     {
-      "name": "dangle_basic_left_primary",
+      "name": "dangle_basic_left-primary",
       "directions": 4
     },
     {
-      "name": "dangle_basic_left_secondary",
+      "name": "dangle_basic_left-secondary",
       "directions": 4
     },
     {
-      "name": "dangle_basic_right_primary",
+      "name": "dangle_basic_right-primary",
       "directions": 4
     },
     {
-      "name": "dangle_basic_right_secondary",
+      "name": "dangle_basic_right-secondary",
       "directions": 4
     },
     {
-      "name": "dangle_long_left_primary",
+      "name": "dangle_long_left-primary",
       "directions": 4
     },
     {
-      "name": "dangle_long_left_secondary",
+      "name": "dangle_long_left-secondary",
       "directions": 4
     },
     {
-      "name": "dangle_long_right_primary",
+      "name": "dangle_long_right-primary",
       "directions": 4
     },
     {
-      "name": "dangle_long_right_secondary",
+      "name": "dangle_long_right-secondary",
       "directions": 4
     },
     {
-      "name": "drop_basic_left_primary",
+      "name": "drop_basic_left-primary",
       "directions": 4
     },
     {
-      "name": "drop_basic_left_secondary",
+      "name": "drop_basic_left-secondary",
       "directions": 4
     },
     {
-      "name": "drop_basic_right_primary",
+      "name": "drop_basic_right-primary",
       "directions": 4
     },
     {
-      "name": "drop_basic_right_secondary",
+      "name": "drop_basic_right-secondary",
       "directions": 4
     },
     {
-      "name": "drop_long_left_primary",
+      "name": "drop_long_left-primary",
       "directions": 4
     },
     {
-      "name": "drop_long_left_secondary",
+      "name": "drop_long_left-secondary",
       "directions": 4
     },
     {
-      "name": "drop_long_right_primary",
+      "name": "drop_long_right-primary",
       "directions": 4
     },
     {
-      "name": "drop_long_right_secondary",
+      "name": "drop_long_right-secondary",
       "directions": 4
     },
     {
@@ -144,59 +144,59 @@
       "directions": 4
     },
     {
-      "name": "gemstone_basic_left_primary",
+      "name": "gemstone_basic_left-primary",
       "directions": 4
     },
     {
-      "name": "gemstone_basic_left_secondary",
+      "name": "gemstone_basic_left-secondary",
       "directions": 4
     },
     {
-      "name": "gemstone_basic_right_primary",
+      "name": "gemstone_basic_right-primary",
       "directions": 4
     },
     {
-      "name": "gemstone_basic_right_secondary",
+      "name": "gemstone_basic_right-secondary",
       "directions": 4
     },
     {
-      "name": "gemstone_double_left_primary",
+      "name": "gemstone_double_left-primary",
       "directions": 4
     },
     {
-      "name": "gemstone_double_left_secondary",
+      "name": "gemstone_double_left-secondary",
       "directions": 4
     },
     {
-      "name": "gemstone_double_left_tertiary",
+      "name": "gemstone_double_left-tertiary",
       "directions": 4
     },
     {
-      "name": "gemstone_double_right_primary",
+      "name": "gemstone_double_right-primary",
       "directions": 4
     },
     {
-      "name": "gemstone_double_right_secondary",
+      "name": "gemstone_double_right-secondary",
       "directions": 4
     },
     {
-      "name": "gemstone_double_right_tertiary",
+      "name": "gemstone_double_right-tertiary",
       "directions": 4
     },
     {
-      "name": "gemstone_long_left_primary",
+      "name": "gemstone_long_left-primary",
       "directions": 4
     },
     {
-      "name": "gemstone_long_left_secondary",
+      "name": "gemstone_long_left-secondary",
       "directions": 4
     },
     {
-      "name": "gemstone_long_right_primary",
+      "name": "gemstone_long_right-primary",
       "directions": 4
     },
     {
-      "name": "gemstone_long_right_secondary",
+      "name": "gemstone_long_right-secondary",
       "directions": 4
     },
     {

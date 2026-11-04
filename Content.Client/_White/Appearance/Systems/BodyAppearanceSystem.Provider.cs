@@ -1,139 +1,87 @@
-using Content.Shared._White.Appearance;
 using Content.Shared._White.Appearance.Components;
-using Content.Shared._White.Body.Systems;
-using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
 using Robust.Shared.Serialization.TypeSerializers.Implementations;
+using Robust.Shared.Utility;
 
 namespace Content.Client._White.Appearance.Systems;
 
 public sealed partial class BodyAppearanceSystem
 {
-    private void InitializeProvider()
-    {
-        SubscribeLocalEvent<BodyAppearanceProviderComponent, AfterAutoHandleStateEvent>(OnAfterAutoHandleState);
-    }
-
-    #region Event Handling
-
-    private void OnAfterAutoHandleState(Entity<BodyAppearanceProviderComponent> ent, ref AfterAutoHandleStateEvent args)
-    {
-        if (ent.Comp.Body is not {} body)
-            return;
-
-        ApplyAppearance(ent, body);
-    }
-
-    protected override void OnGotInserted(Entity<BodyAppearanceProviderComponent> ent, ref BodyProviderGotInsertedEvent args)
-    {
-        if (!BodyQuery.HasComp(args.Body))
-            return;
-
-        ent.Comp.Body = args.Body;
-        DirtyField(ent, ent.Comp, nameof(BodyAppearanceProviderComponent.Body));
-
-        ApplyAppearance(ent, args.Body.Owner);
-    }
-
-    protected override void OnGotRemoved(Entity<BodyAppearanceProviderComponent> ent, ref BodyProviderGotRemovedEvent args)
-    {
-        if (!BodyQuery.HasComp(args.Body))
-            return;
-
-        ent.Comp.Body = null;
-        DirtyField(ent, ent.Comp, nameof(BodyAppearanceProviderComponent.Body));
-
-        RemoveAppearance(ent, args.Body.Owner);
-    }
-
-    #endregion
-
-    #region Public API
-
-    public override void SetAppearanceData(Entity<BodyAppearanceProviderComponent?> ent, BodyAppearanceData appearance)
-    {
-        if (!ProviderQuery.Resolve(ent, ref ent.Comp))
-            return;
-
-        base.SetAppearanceData(ent, appearance);
-
-        if (ent.Comp.Body is not {} body)
-            return;
-
-        ApplyAppearance((ent, ent.Comp), body);
-    }
-
-    public override void SetColor(Entity<BodyAppearanceProviderComponent?> ent, Color color)
-    {
-        if (!ProviderQuery.Resolve(ent, ref ent.Comp))
-            return;
-
-        base.SetColor(ent, color);
-
-        if (ent.Comp.Body is not {} body)
-            return;
-
-        ApplyAppearance((ent, ent.Comp), body);
-    }
-
-    public override void SetPath(Entity<BodyAppearanceProviderComponent?> ent, string path)
-    {
-        if (!ProviderQuery.Resolve(ent, ref ent.Comp))
-            return;
-
-        base.SetPath(ent, path);
-
-        if (ent.Comp.Body is not {} body)
-            return;
-
-        ApplyAppearance((ent, ent.Comp), body);
-    }
-
-    public override void SetState(Entity<BodyAppearanceProviderComponent?> ent, string state)
-    {
-        if (!ProviderQuery.Resolve(ent, ref ent.Comp))
-            return;
-
-        base.SetState(ent, state);
-
-        if (ent.Comp.Body is not {} body)
-            return;
-
-        ApplyAppearance((ent, ent.Comp), body);
-    }
-
-    #endregion
-
     #region Private API
 
-    private void ApplyAppearance(Entity<BodyAppearanceProviderComponent> ent, Entity<SpriteComponent?> target)
+    protected override void ApplyAppearance(Entity<BodyAppearanceProviderComponent> ent)
     {
-        var rsi = _resourceCache.GetResource<RSIResource>(SpriteSpecifierSerializer.TextureRoot / ent.Comp.Path).RSI;
-        var state = ent.Comp.State;
-
-        var bodyTypeState = $"{state}_{ent.Comp.Appearance.BodyType.Id.ToLower()}";
-        if (rsi.TryGetState(bodyTypeState, out _))
-            state = bodyTypeState;
-
-        var sexState = $"{state}_{ent.Comp.Appearance.Sex.ToString().ToLower()}";
-        if (rsi.TryGetState(sexState, out _))
-            state = sexState;
-
-        if (!_sprite.LayerMapTryGet(target, ent.Comp.Layer, out var index, true))
+        if (!_spriteQuery.TryComp(ent, out var spriteComp))
             return;
 
-        _sprite.LayerSetRsi(target, index, rsi);
-        _sprite.LayerSetRsiState(target, index, state);
-        _sprite.LayerSetColor(target, index, ent.Comp.Color);
+        foreach (var entry in ent.Comp.Entries)
+        {
+            if (!_sprite.LayerMapTryGet((ent, spriteComp), entry.Index, out var entryIndex, false))
+                continue;
+
+            var rsi = _resourceCache.GetResource<RSIResource>(SpriteSpecifierSerializer.TextureRoot / entry.Path).RSI;
+            var state = entry.State;
+
+            var bodyTypeState = $"{state}_{ent.Comp.Appearance.BodyType.Id.ToLower()}";
+            if (rsi.TryGetState(bodyTypeState, out _))
+                state = bodyTypeState;
+
+            var sexState = $"{state}_{ent.Comp.Appearance.Sex.ToString().ToLower()}";
+            if (rsi.TryGetState(sexState, out _))
+                state = sexState;
+
+            _sprite.LayerSetRsi((ent, spriteComp), entryIndex, rsi, state);
+            _sprite.LayerSetColor((ent, spriteComp), entryIndex, entry.Color);
+        }
     }
 
-    private void RemoveAppearance(Entity<BodyAppearanceProviderComponent> ent, Entity<SpriteComponent?> target)
+    protected override void ApplyAppearance(Entity<BodyAppearanceProviderComponent> ent, EntityUid target)
     {
-        if (!_sprite.LayerMapTryGet(target, ent.Comp.Layer, out var index, true))
+        if (!_spriteQuery.TryComp(target, out var spriteComp))
             return;
 
-        _sprite.LayerSetRsiState(target, index, RSI.StateId.Invalid);
+        if (!_sprite.LayerMapTryGet((target, spriteComp), ent.Comp.Layer, out var layerIndex, true))
+            return;
+
+        for (var i = 0; i < ent.Comp.Entries.Count; i++)
+        {
+            var entry = ent.Comp.Entries[i];
+
+            var rsi = _resourceCache.GetResource<RSIResource>(SpriteSpecifierSerializer.TextureRoot / entry.Path).RSI;
+            var state = entry.State;
+
+            var bodyTypeState = $"{state}_{ent.Comp.Appearance.BodyType.Id.ToLower()}";
+            if (rsi.TryGetState(bodyTypeState, out _))
+                state = bodyTypeState;
+
+            var sexState = $"{state}_{ent.Comp.Appearance.Sex.ToString().ToLower()}";
+            if (rsi.TryGetState(sexState, out _))
+                state = sexState;
+
+            var key = $"{ent.Comp.Layer.ToString()}-{entry.Index}";
+            if (!_sprite.LayerMapTryGet((target, spriteComp), key, out var entryIndex, false))
+            {
+                var specifier = new SpriteSpecifier.Rsi(rsi.Path, state);
+                layerIndex = _sprite.AddLayer((target, spriteComp), specifier, layerIndex + i + 1);
+                _sprite.LayerMapSet((target, spriteComp), key, layerIndex);
+            }
+
+            _sprite.LayerSetRsi((target, spriteComp), entryIndex, rsi, state);
+            _sprite.LayerSetColor((target, spriteComp), entryIndex, entry.Color);
+        }
+    }
+
+    protected override void RemoveAppearance(Entity<BodyAppearanceProviderComponent> ent, EntityUid target)
+    {
+        foreach (var entry in ent.Comp.Entries)
+        {
+            var key = $"{ent.Comp.Layer.ToString()}-{entry.Index}";
+            if (!_sprite.LayerMapTryGet(target, key, out var layerIndex, true))
+                return;
+
+            _sprite.LayerSetRsiState(target, layerIndex, RSI.StateId.Invalid);
+        }
     }
 
     #endregion

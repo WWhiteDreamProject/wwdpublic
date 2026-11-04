@@ -1,7 +1,6 @@
 using Content.Shared._White.Amputatable.Components;
 using Content.Shared._White.Body.Systems;
 using Content.Shared._White.Damage.Systems;
-using Content.Shared._White.Gibbable.Systems;
 using Content.Shared._White.Random;
 using Content.Shared._White.Skeleton.Systems;
 using Content.Shared._White.Threshold;
@@ -28,7 +27,6 @@ public sealed class AmputatableSystem : EntitySystem
 
         SubscribeLocalEvent<AmputatableProviderComponent, BodyProviderGotInsertedIntoParentEvent>(OnGotInsertedIntoParent);
         SubscribeLocalEvent<AmputatableProviderComponent, BodyProviderGotRemovedFromParentEvent>(OnGotRemovedFromParent);
-        SubscribeLocalEvent<AmputatableProviderComponent, BodyRelayedEvent<BeingGibbedEvent>>(OnBeingGibbed);
         SubscribeLocalEvent<AmputatableProviderComponent, DamageChangedEvent>(OnDamageChangedEvent);
         SubscribeLocalEvent<AmputatableProviderComponent, SkeletonSeverityChangedEvent>(OnSkeletonSeverityChanged);
     }
@@ -45,11 +43,6 @@ public sealed class AmputatableSystem : EntitySystem
     {
         ent.Comp.Parent = null;
         DirtyField(ent, ent.Comp, nameof(AmputatableProviderComponent.Parent));
-    }
-
-    private static void OnBeingGibbed(Entity<AmputatableProviderComponent> ent, ref BodyRelayedEvent<BeingGibbedEvent> args)
-    {
-        args.Args.Giblets.Add(ent);
     }
 
     private void OnDamageChangedEvent(Entity<AmputatableProviderComponent> ent, ref DamageChangedEvent args)
@@ -72,6 +65,12 @@ public sealed class AmputatableSystem : EntitySystem
         ent.Comp.Chance = ent.Comp.Thresholds.HighestMatch(ent.Comp.Damage) ?? 0f;
         DirtyField(ent, ent.Comp, nameof(AmputatableProviderComponent.Chance));
 
+        if (damage < FixedPoint2.Zero)
+            return;
+
+        if (ent.Comp.Parent is not {} parent)
+            return;
+
         var random = _random.GetRandom(ent);
         if (!random.Prob(ent.Comp.CurrentChance))
             return;
@@ -83,7 +82,7 @@ public sealed class AmputatableSystem : EntitySystem
 
         _physics.ApplyLinearImpulse(ent, scatterVec);
 
-        if (ent.Comp.Wound is not {} wound || ent.Comp.Parent is not {} parent)
+        if (ent.Comp.Wound is not {} wound)
             return;
 
         _woundable.CreateWound(parent, wound, ent.Comp.Damage, false, args.InterruptsDoAfters, args.Origin);

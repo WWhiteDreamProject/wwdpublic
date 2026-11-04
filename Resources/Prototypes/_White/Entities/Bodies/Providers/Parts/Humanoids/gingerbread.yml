@@ -1,61 +1,125 @@
 - type: entity
   id: BaseBodyProviderPartGingerbread
-  parent: BaseBodyProviderPartOrganic
+  parent: [BaseBodyProviderPartAppearance, BaseBodyProviderPartOrganic]
   abstract: true
   suffix: Gingerbread
   components:
-  - type: BodyAppearanceProvider
-    path: _White/Bodies/Parts/Humanoids/gingerbread.rsi
   - type: Sprite
     sprite: _White/Bodies/Parts/Humanoids/gingerbread.rsi
 
 # Arms
 - type: entity
   id: BodyProviderLeftArmGingerbread
-  parent: [BaseBodyProviderLeftArmOrganic, BaseBodyProviderPartGingerbread]
+  parent: [BaseBodyProviderPartGingerbread, BaseBodyProviderLeftArmAppearance, BaseBodyProviderLeftArmOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/gingerbread.rsi
+      state: left_arm
 
 - type: entity
   id: BodyProviderRightArmGingerbread
-  parent: [BaseBodyProviderRightArmOrganic, BaseBodyProviderPartGingerbread]
+  parent: [BaseBodyProviderPartGingerbread, BaseBodyProviderRightArmAppearance, BaseBodyProviderRightArmOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/gingerbread.rsi
+      state: right_arm
 
 # Chest
 - type: entity
   id: BodyProviderChestGingerbread
-  parent: [BaseBodyProviderChestOrganic, BaseBodyProviderPartGingerbread]
+  parent: [BaseBodyProviderPartGingerbread, BaseBodyProviderChestAppearance, BaseBodyProviderChestOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/gingerbread.rsi
+      state: chest
 
 # Foots
 - type: entity
   id: BodyProviderLeftFootGingerbread
-  parent: [BaseBodyProviderLeftFootOrganic, BaseBodyProviderPartGingerbread]
+  parent: [BaseBodyProviderPartGingerbread, BaseBodyProviderLeftFootAppearance, BaseBodyProviderLeftFootOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/gingerbread.rsi
+      state: left_foot
 
 - type: entity
   id: BodyProviderRightFootGingerbread
-  parent: [BaseBodyProviderRightFootOrganic, BaseBodyProviderPartGingerbread]
+  parent: [BaseBodyProviderPartGingerbread, BaseBodyProviderRightFootAppearance, BaseBodyProviderRightFootOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/gingerbread.rsi
+      state: right_foot
 
 # Groin
 - type: entity
   id: BodyProviderGroinGingerbread
-  parent: [BaseBodyProviderGroinOrganic, BaseBodyProviderPartGingerbread]
+  parent: [BaseBodyProviderPartGingerbread, BaseBodyProviderGroinAppearance, BaseBodyProviderGroinOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/gingerbread.rsi
+      state: groin
 
 # Hands
 - type: entity
   id: BodyProviderLeftHandGingerbread
-  parent: [BaseBodyProviderLeftHandOrganic, BaseBodyProviderPartGingerbread]
+  parent: [BaseBodyProviderPartGingerbread, BaseBodyProviderLeftHandAppearance, BaseBodyProviderLeftHandOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/gingerbread.rsi
+      state: left_hand
 
 - type: entity
   id: BodyProviderRightHandGingerbread
-  parent: [BaseBodyProviderRightHandOrganic, BaseBodyProviderPartGingerbread]
+  parent: [BaseBodyProviderPartGingerbread, BaseBodyProviderRightHandAppearance, BaseBodyProviderRightHandOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/gingerbread.rsi
+      state: right_hand
 
 # Head
 - type: entity
   id: BodyProviderHeadGingerbread
-  parent: [BaseBodyProviderHeadOrganic, BaseBodyProviderPartGingerbread]
+  parent: [BaseBodyProviderPartGingerbread, BaseBodyProviderHeadAppearance, BaseBodyProviderHeadOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/gingerbread.rsi
+      state: head
 
 # Legs
 - type: entity
   id: BodyProviderLeftLegGingerbread
-  parent: [BaseBodyProviderLeftLegOrganic, BaseBodyProviderPartGingerbread]
+  parent: [BaseBodyProviderPartGingerbread, BaseBodyProviderLeftLegAppearance, BaseBodyProviderLeftLegOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/gingerbread.rsi
+      state: left_leg
 
 - type: entity
   id: BodyProviderRightLegGingerbread
-  parent: [BaseBodyProviderRightLegOrganic, BaseBodyProviderPartGingerbread]
+  parent: [BaseBodyProviderPartGingerbread, BaseBodyProviderRightLegAppearance, BaseBodyProviderRightLegOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/gingerbread.rsi
+      state: right_leg

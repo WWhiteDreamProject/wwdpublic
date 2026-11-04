@@ -1,11 +1,11 @@
 - type: marking
   id: BaseBandagesReptilian
-  parents: [BaseBandages, BaseReptilian]
+  parent: [BaseBandages, BaseReptilian]
   abstract: true
 
 - type: marking
   id: BandagesReptilianBlindfold
-  parents: BaseBandagesReptilian
+  parent: BaseBandagesReptilian
   definitions:
   - layer: enum.BodyProviderType.Head
     sprite:
@@ -14,7 +14,7 @@
 
 - type: marking
   id: BandagesReptilianEyePatchLeft
-  parents: BaseBandagesReptilian
+  parent: BaseBandagesReptilian
   definitions:
   - layer: enum.BodyProviderType.Head
     sprite:
@@ -23,7 +23,7 @@
 
 - type: marking
   id: BandagesReptilianEyePatchRight
-  parents: BaseBandagesReptilian
+  parent: BaseBandagesReptilian
   definitions:
   - layer: enum.BodyProviderType.Head
     sprite:
@@ -32,7 +32,7 @@
 
 - type: marking
   id: BandagesReptilianLeftFoot
-  parents: BaseBandagesReptilian
+  parent: BaseBandagesReptilian
   definitions:
   - layer: enum.BodyProviderType.LeftFoot
     sprite:
@@ -41,7 +41,7 @@
 
 - type: marking
   id: BandagesReptilianRightFoot
-  parents: BaseBandagesReptilian
+  parent: BaseBandagesReptilian
   definitions:
   - layer: enum.BodyProviderType.RightFoot
     sprite:

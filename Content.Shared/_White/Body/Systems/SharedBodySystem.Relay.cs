@@ -1,5 +1,7 @@
+using Content.Shared._White.Appearance.Systems;
 using Content.Shared._White.Bloodstream.Systems;
 using Content.Shared._White.Body.Components;
+using Content.Shared._White.Humanoid.Markings.Systems;
 using Content.Shared._White.Nutrition.Systems;
 using Content.Shared._White.Pain.Systems;
 using Content.Shared._White.Wounds.Systems;
@@ -10,7 +12,11 @@ public abstract partial class SharedBodySystem
 {
     private void InitializeRelay()
     {
+        SubscribeLocalEvent<BodyComponent, ApplyBodyAppearanceDataEvent>(RelayEvent);
+        SubscribeLocalEvent<BodyComponent, ApplyMarkingsEvent>(RelayEvent);
         SubscribeLocalEvent<BodyComponent, BloodAmountChangedEvent>(RelayEvent);
+        SubscribeLocalEvent<BodyComponent, GetBodyAppearanceDataEvent>(RelayEvent);
+        SubscribeLocalEvent<BodyComponent, GetMarkingsDataEvent>(RelayEvent);
         SubscribeLocalEvent<BodyComponent, GetMetabolicRateEvent>(RelayEvent);
         SubscribeLocalEvent<BodyComponent, GetPainEvent>(RelayEvent);
         SubscribeLocalEvent<BodyComponent, GetWoundableDamageEvent>(RelayEvent);

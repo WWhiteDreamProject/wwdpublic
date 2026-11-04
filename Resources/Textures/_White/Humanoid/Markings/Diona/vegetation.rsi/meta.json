@@ -8,27 +8,27 @@
   },
   "states": [
     {
-      "name": "flowers_chest",
+      "name": "flowers-chest",
       "directions": 4
     },
     {
-      "name": "flowers_groin",
+      "name": "flowers-groin",
       "directions": 4
     },
     {
-      "name": "leaf_cover_chest",
+      "name": "leaf_cover-chest",
       "directions": 4
     },
     {
-      "name": "leaf_cover_groin",
+      "name": "leaf_cover-groin",
       "directions": 4
     },
     {
-      "name": "thorns_chest",
+      "name": "thorns-chest",
       "directions": 4
     },
     {
-      "name": "thorns_groin",
+      "name": "thorns-groin",
       "directions": 4
     }
   ]

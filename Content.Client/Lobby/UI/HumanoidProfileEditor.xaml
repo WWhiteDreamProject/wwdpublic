@@ -167,18 +167,8 @@
                                 </BoxContainer>
                             </BoxContainer>
                             <Control Margin="5"/>
+                            <BoxContainer Name="ColorPickers" Orientation="Vertical" VerticalExpand="True"/>
                             <!-- WD EDIT END -->
-                            <!-- Skin -->
-                            <BoxContainer Margin="0 4 0 4" HorizontalExpand="True" Orientation="Vertical">
-                                <Label Text="{Loc 'humanoid-profile-editor-skin-color-label'}" />
-                                <Slider HorizontalExpand="True" Name="Skin" MinValue="0" MaxValue="100" Value="20" />
-                                <BoxContainer Name="RgbSkinColorContainer" Visible="False" Orientation="Vertical" HorizontalExpand="True"></BoxContainer>
-                            </BoxContainer>
-                            <!-- Eyes -->
-                            <BoxContainer Margin="0 4 0 4" Orientation="Vertical">
-                                <Label Text="{Loc 'humanoid-profile-editor-eyes-label'}" />
-                                <humanoid:EyeColorPicker Name="EyeColorPicker" />
-                            </BoxContainer>
                         </BoxContainer>
                     </ScrollContainer>
                 </BoxContainer>

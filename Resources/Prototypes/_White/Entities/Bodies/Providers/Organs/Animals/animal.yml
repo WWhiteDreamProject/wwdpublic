@@ -35,7 +35,10 @@
   parent: [BaseBodyProviderEyes, BaseBodyProviderOrganAnimal]
   components:
   - type: BodyAppearanceProvider
-    path: _White/Bodies/Organ/Humanoids/human.rsi
+    entries:
+    - group: Eyes
+      path: _White/Bodies/Organs/Humanoids/human.rsi
+      state: eyes_in-body
 
 # Heart
 - type: entity

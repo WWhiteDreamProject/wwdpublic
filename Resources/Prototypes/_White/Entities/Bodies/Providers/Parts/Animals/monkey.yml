@@ -1,66 +1,136 @@
 - type: entity
   id: BaseBodyProviderPartMonkey
-  parent: BaseBodyProviderPartOrganic
+  parent: [BaseBodyProviderPartAppearance, BaseBodyProviderPartOrganic]
   abstract: true
   suffix: Monkey
   components:
-  - type: BodyAppearanceProvider
-    path: _White/Bodies/Parts/Animals/monkey.rsi
   - type: Sprite
     sprite: _White/Bodies/Parts/Animals/monkey.rsi
 
 # Arms
 - type: entity
   id: BodyProviderLeftArmMonkey
-  parent: [BaseBodyProviderLeftArm, BaseBodyProviderPartMonkey]
+  parent: [BaseBodyProviderPartMonkey, BaseBodyProviderLeftArmAppearance, BaseBodyProviderLeftArmOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Animals/monkey.rsi
+      state: left_arm
 
 - type: entity
   id: BodyProviderRightArmMonkey
-  parent: [BaseBodyProviderRightArm, BaseBodyProviderPartMonkey]
+  parent: [BaseBodyProviderPartMonkey, BaseBodyProviderRightArmAppearance, BaseBodyProviderRightArmOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Animals/monkey.rsi
+      state: right_arm
 
 # Chest
 - type: entity
   id: BodyProviderChestMonkey
-  parent: [BaseBodyProviderChest, BaseBodyProviderPartMonkey]
+  parent: [BaseBodyProviderPartMonkey, BaseBodyProviderChestAppearance, BaseBodyProviderChestOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Animals/monkey.rsi
+      state: chest
 
 # Foots
 - type: entity
   id: BodyProviderLeftFootMonkey
-  parent: [BaseBodyProviderLeftFoot, BaseBodyProviderPartMonkey]
+  parent: [BaseBodyProviderPartMonkey, BaseBodyProviderLeftFootAppearance, BaseBodyProviderLeftFootOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Animals/monkey.rsi
+      state: left_foot
 
 - type: entity
   id: BodyProviderRightFootMonkey
-  parent: [BaseBodyProviderRightFoot, BaseBodyProviderPartMonkey]
+  parent: [BaseBodyProviderPartMonkey, BaseBodyProviderRightFootAppearance, BaseBodyProviderRightFootOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Animals/monkey.rsi
+      state: right_foot
 
 # Groin
 - type: entity
   id: BodyProviderGroinMonkey
-  parent: [BaseBodyProviderGroin, BaseBodyProviderPartMonkey]
+  parent: [BaseBodyProviderPartMonkey, BaseBodyProviderGroinAppearance, BaseBodyProviderGroinOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Animals/monkey.rsi
+      state: groin
 
 # Hands
 - type: entity
   id: BodyProviderLeftHandMonkey
-  parent: [BaseBodyProviderLeftHand, BaseBodyProviderPartMonkey]
+  parent: [BaseBodyProviderPartMonkey, BaseBodyProviderLeftHandAppearance, BaseBodyProviderLeftHandOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Animals/monkey.rsi
+      state: left_hand
 
 - type: entity
   id: BodyProviderRightHandMonkey
-  parent: [BaseBodyProviderRightHand, BaseBodyProviderPartMonkey]
+  parent: [BaseBodyProviderPartMonkey, BaseBodyProviderRightHandAppearance, BaseBodyProviderRightHandOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Animals/monkey.rsi
+      state: right_hand
 
 # Head
 - type: entity
   id: BodyProviderHeadMonkey
-  parent: [BaseBodyProviderHead, BaseBodyProviderPartMonkey]
+  parent: [BaseBodyProviderPartMonkey, BaseBodyProviderHeadAppearance, BaseBodyProviderHeadOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Animals/monkey.rsi
+      state: head
 
 # Legs
 - type: entity
   id: BodyProviderLeftLegMonkey
-  parent: [BaseBodyProviderLeftLeg, BaseBodyProviderPartMonkey]
+  parent: [BaseBodyProviderPartMonkey, BaseBodyProviderLeftLegAppearance, BaseBodyProviderLeftLegOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Animals/monkey.rsi
+      state: left_leg
 
 - type: entity
   id: BodyProviderRightLegMonkey
-  parent: [BaseBodyProviderRightLeg, BaseBodyProviderPartMonkey]
+  parent: [BaseBodyProviderPartMonkey, BaseBodyProviderRightLegAppearance, BaseBodyProviderRightLegOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Animals/monkey.rsi
+      state: right_leg
 
 # Tail
 - type: entity
   id: BodyProviderTailMonkey
-  parent: [BaseBodyProviderTail, BaseBodyProviderPartMonkey]
+  parent: [BaseBodyProviderPartMonkey, BaseBodyProviderTailAppearance, BaseBodyProviderTailOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Animals/monkey.rsi
+      state: tail

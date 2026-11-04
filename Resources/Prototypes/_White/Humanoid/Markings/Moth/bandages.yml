@@ -1,11 +1,11 @@
 - type: marking
   id: BaseBandagesMoth
-  parents: [BaseBandages, BaseMoth]
+  parent: [BaseBandages, BaseMoth]
   abstract: true
 
 - type: marking
   id: BandagesMothBlindfold
-  parents: BaseBandagesMoth
+  parent: BaseBandagesMoth
   definitions:
   - layer: enum.BodyProviderType.Head
     sprite:
@@ -14,7 +14,7 @@
 
 - type: marking
   id: BandagesMothEyePadLeft
-  parents: BaseBandagesMoth
+  parent: BaseBandagesMoth
   definitions:
   - layer: enum.BodyProviderType.Head
     sprite:
@@ -23,7 +23,7 @@
 
 - type: marking
   id: BandagesMothEyePatchLeft
-  parents: BaseBandagesMoth
+  parent: BaseBandagesMoth
   definitions:
   - layer: enum.BodyProviderType.Head
     sprite:
@@ -32,7 +32,7 @@
 
 - type: marking
   id: BandagesMothEyePatchRight
-  parents: BaseBandagesMoth
+  parent: BaseBandagesMoth
   definitions:
   - layer: enum.BodyProviderType.Head
     sprite:
@@ -41,7 +41,7 @@
 
 - type: marking
   id: BandagesMothEyePadRight
-  parents: BaseBandagesMoth
+  parent: BaseBandagesMoth
   definitions:
   - layer: enum.BodyProviderType.Head
     sprite:
@@ -50,7 +50,7 @@
 
 - type: marking
   id: BandagesMothLeftArm
-  parents: BaseBandagesMoth
+  parent: BaseBandagesMoth
   definitions:
   - layer: enum.BodyProviderType.LeftArm
     sprite:
@@ -59,7 +59,7 @@
 
 - type: marking
   id: BandagesMothLeftLegLower
-  parents: BaseBandagesMoth
+  parent: BaseBandagesMoth
   definitions:
   - layer: enum.BodyProviderType.LeftLeg
     sprite:
@@ -68,7 +68,7 @@
 
 - type: marking
   id: BandagesMothLeftLegUpper
-  parents: BaseBandagesMoth
+  parent: BaseBandagesMoth
   definitions:
   - layer: enum.BodyProviderType.LeftLeg
     sprite:
@@ -77,7 +77,7 @@
 
 - type: marking
   id: BandagesMothRightArm
-  parents: BaseBandagesMoth
+  parent: BaseBandagesMoth
   definitions:
   - layer: enum.BodyProviderType.RightArm
     sprite:
@@ -86,7 +86,7 @@
 
 - type: marking
   id: BandagesMothRightLegLower
-  parents: BaseBandagesMoth
+  parent: BaseBandagesMoth
   definitions:
   - layer: enum.BodyProviderType.RightLeg
     sprite:
@@ -95,7 +95,7 @@
 
 - type: marking
   id: BandagesMothRightLegUpper
-  parents: BaseBandagesMoth
+  parent: BaseBandagesMoth
   definitions:
   - layer: enum.BodyProviderType.RightLeg
     sprite:
@@ -104,20 +104,20 @@
 
 - type: marking
   id: BandagesMothShoulder
-  parents: BaseBandagesMoth
+  parent: BaseBandagesMoth
   definitions:
   - layer: enum.BodyProviderType.Chest
     sprite:
       sprite: _White/Humanoid/Markings/Moth/bandages.rsi
-      state: shoulder_chest
+      state: shoulder-chest
   - layer: enum.BodyProviderType.Groin
     sprite:
       sprite: _White/Humanoid/Markings/Moth/bandages.rsi
-      state: shoulder_groin
+      state: shoulder-groin
 
 - type: marking
   id: BandagesMothStomach
-  parents: BaseBandagesMoth
+  parent: BaseBandagesMoth
   definitions:
   - layer: enum.BodyProviderType.Groin
     sprite:

@@ -8,147 +8,147 @@
   },
   "states": [
     {
-      "name": "chipped_chest_primary",
+      "name": "chipped-chest-primary",
       "directions": 4
     },
     {
-      "name": "chipped_chest_secondary",
+      "name": "chipped-chest-secondary",
       "directions": 4
     },
     {
-      "name": "chipped_groin_primary",
+      "name": "chipped-groin-primary",
       "directions": 4
     },
     {
-      "name": "chipped_groin_secondary",
+      "name": "chipped-groin-secondary",
       "directions": 4
     },
     {
-      "name": "curled_chest_primary",
+      "name": "curled-chest-primary",
       "directions": 4
     },
     {
-      "name": "curled_chest_secondary",
+      "name": "curled-chest-secondary",
       "directions": 4
     },
     {
-      "name": "curled_groin_primary",
+      "name": "curled-groin-primary",
       "directions": 4
     },
     {
-      "name": "curled_groin_secondary",
+      "name": "curled-groin-secondary",
       "directions": 4
     },
     {
-      "name": "freaky_chest_primary",
+      "name": "freaky-chest-primary",
       "directions": 4
     },
     {
-      "name": "freaky_chest_secondary",
+      "name": "freaky-chest-secondary",
       "directions": 4
     },
     {
-      "name": "freaky_groin_primary",
+      "name": "freaky-groin-primary",
       "directions": 4
     },
     {
-      "name": "freaky_groin_secondary",
+      "name": "freaky-groin-secondary",
       "directions": 4
     },
     {
-      "name": "harvest_chest_primary",
+      "name": "harvest-chest-primary",
       "directions": 4
     },
     {
-      "name": "harvest_chest_secondary",
+      "name": "harvest-chest-secondary",
       "directions": 4
     },
     {
-      "name": "harvest_groin_primary",
+      "name": "harvest-groin-primary",
       "directions": 4
     },
     {
-      "name": "harvest_groin_secondary",
+      "name": "harvest-groin-secondary",
       "directions": 4
     },
     {
-      "name": "long_chest_primary",
+      "name": "long-chest-primary",
       "directions": 4
     },
     {
-      "name": "long_chest_secondary",
+      "name": "long-chest-secondary",
       "directions": 4
     },
     {
-      "name": "long_groin_primary",
+      "name": "long-groin-primary",
       "directions": 4
     },
     {
-      "name": "long_groin_secondary",
+      "name": "long-groin-secondary",
       "directions": 4
     },
     {
-      "name": "sharp_chest_primary",
+      "name": "sharp-chest-primary",
       "directions": 4
     },
     {
-      "name": "sharp_chest_secondary",
+      "name": "sharp-chest-secondary",
       "directions": 4
     },
     {
-      "name": "sharp_groin_primary",
+      "name": "sharp-groin-primary",
       "directions": 4
     },
     {
-      "name": "sharp_groin_secondary",
+      "name": "sharp-groin-secondary",
       "directions": 4
     },
     {
-      "name": "short_chest_primary",
+      "name": "short-chest-primary",
       "directions": 4
     },
     {
-      "name": "short_chest_secondary",
+      "name": "short-chest-secondary",
       "directions": 4
     },
     {
-      "name": "short_groin_primary",
+      "name": "short-groin-primary",
       "directions": 4
     },
     {
-      "name": "short_groin_secondary",
+      "name": "short-groin-secondary",
       "directions": 4
     },
     {
-      "name": "stingers_chest_primary",
+      "name": "stingers-chest-primary",
       "directions": 4
     },
     {
-      "name": "stingers_chest_secondary",
+      "name": "stingers-chest-secondary",
       "directions": 4
     },
     {
-      "name": "stingers_groin_primary",
+      "name": "stingers-groin-primary",
       "directions": 4
     },
     {
-      "name": "stingers_groin_secondary",
+      "name": "stingers-groin-secondary",
       "directions": 4
     },
     {
-      "name": "zig_zag_chest_primary",
+      "name": "zig_zag-chest-primary",
       "directions": 4
     },
     {
-      "name": "zig_zag_chest_secondary",
+      "name": "zig_zag-chest-secondary",
       "directions": 4
     },
     {
-      "name": "zig_zag_groin_primary",
+      "name": "zig_zag-groin-primary",
       "directions": 4
     },
     {
-      "name": "zig_zag_groin_secondary",
+      "name": "zig_zag-groin-secondary",
       "directions": 4
     }
   ]

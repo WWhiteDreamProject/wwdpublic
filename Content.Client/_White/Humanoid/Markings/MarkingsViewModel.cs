@@ -3,6 +3,7 @@ using System.Linq;
 using Content.Shared._White.Appearance;
 using Content.Shared._White.Appearance.Prototypes;
 using Content.Shared._White.Humanoid.Markings;
+using Content.Shared._White.Humanoid.Markings.Coloring;
 using Content.Shared._White.Humanoid.Markings.Managers;
 using Content.Shared._White.Humanoid.Markings.Prototypes;
 using Content.Shared._White.Humanoid.Prototypes;
@@ -89,6 +90,7 @@ public sealed class MarkingsViewModel
         set
         {
             _appearanceData = value.ShallowClone();
+
             BodyAppearanceDataChanged?.Invoke();
         }
     }
@@ -110,7 +112,7 @@ public sealed class MarkingsViewModel
     }
 
     /// <inheritdoc cref="_markings"/>
-    /// <seealso cref="MarkingsReset" />
+    /// <seealso cref="MarkingsReset"/>
     public Dictionary<ProtoId<MarkingCategoryPrototype>, List<Marking>> Markings
     {
         get => _markings;
@@ -123,13 +125,21 @@ public sealed class MarkingsViewModel
 
     /// <summary>
     /// Raised whenever the body appearance data changes.
-    /// The boolean value represents whether the set of possible markings may have changed.
     /// </summary>
     /// <seealso cref="AppearanceData" />
-    /// <seealso cref="SetBodyType" />
-    /// <seealso cref="SetColor" />
-    /// <seealso cref="SetSex" />
     public event Action? BodyAppearanceDataChanged;
+
+    /// <summary>
+    /// Raised whenever the body type changed.
+    /// </summary>
+    /// <seealso cref="SetBodyType" />
+    public event Action? BodyTypeChanged;
+
+    /// <summary>
+    /// Raised whenever the body color changed.
+    /// </summary>
+    /// <seealso cref="SetColor" />
+    public event Action? ColorChanged;
 
     /// <summary>
     /// Raised whenever the view model is enforcing a different set of constraints on possible markings than before.
@@ -154,6 +164,12 @@ public sealed class MarkingsViewModel
     public event Action<ProtoId<MarkingCategoryPrototype>>? MarkingsChanged;
 
     /// <summary>
+    /// Raised whenever the body sex changed.
+    /// </summary>
+    /// <seealso cref="SetSex" />
+    public event Action? SexChanged;
+
+    /// <summary>
     /// Returns whether the marking at the given location can have its color customized by the user.
     /// </summary>
     /// <param name="id">The marking ID to check for</param>
@@ -174,10 +190,10 @@ public sealed class MarkingsViewModel
             if (!_prototype.TryIndex(markingData.Group, out var group))
                 continue;
 
-            if (!group.CategoriesData.TryGetValue(prototype.Category, out var categoryData))
+            if (!group.Data.TryGetValue(prototype.Category, out var data))
                 return true;
 
-            if (categoryData.Coloring != null)
+            if (data.Coloring != null)
                 continue;
 
             return true;
@@ -214,16 +230,16 @@ public sealed class MarkingsViewModel
             if (!_prototype.TryIndex(markingsData.Group, out var group))
                 return false;
 
-            if (!group.CategoriesData.TryGetValue(prototype.Category, out var categoryData))
+            if (!group.Data.TryGetValue(prototype.Category, out var data))
                 return false;
 
-            if (!categoryData.Required || count > 1)
+            if (!data.Required || count > 1)
                 continue;
 
             return false;
         }
 
-        var removedMarkingColors = new HashSet<Color>();
+        var removedMarkingColors = new List<Color>();
         foreach (var marking in markings.ToList())
         {
             if (marking.Id != id)
@@ -233,7 +249,7 @@ public sealed class MarkingsViewModel
             markings.Remove(marking);
         }
 
-        _previousColors[id] = removedMarkingColors.ToList();
+        _previousColors[id] = removedMarkingColors;
         MarkingsChanged?.Invoke(prototype.Category);
 
         return true;
@@ -259,10 +275,9 @@ public sealed class MarkingsViewModel
                 continue;
 
             markings.Add(marking);
-            return true;
         }
 
-        return false;
+        return markings.Count != 0;
     }
 
     /// <summary>
@@ -305,16 +320,16 @@ public sealed class MarkingsViewModel
             if (EnforceGroupAndSexRestrictions && !_marking.CanBeApplied(prototype, markingsData.Group, appearanceData.Sex))
                 return false;
 
-            if (!group.CategoriesData.TryGetValue(prototype.Category, out var categoryData))
+            if (!group.Data.TryGetValue(prototype.Category, out var data))
                 return false;
 
-            if (categoryData.Limit == 1 && count == 1)
+            if (data.Limit == 1 && count == 1)
             {
                 markings.Clear();
                 count = 0;
             }
 
-            if (!EnforceLimits || count < categoryData.Limit)
+            if (!EnforceLimits || count < data.Limit)
                 continue;
 
             return false;
@@ -332,10 +347,10 @@ public sealed class MarkingsViewModel
                 ?? _marking.GetMarkingColor(
                     prototype,
                     definition.Index,
-                    appearanceData.ColorGroups,
+                    appearanceData.Colors,
                     markings);
 
-            var marking = new Marking(definition.OverrideAppearance, definition.Layer, prototype.Category, id, definition.Sprite, definition.Index, color)
+            var marking = new Marking(color, definition.Layer, prototype.Category, id, definition.Sprite, definition.Index)
             {
                 Forced = AnyEnforcementsLifted,
             };
@@ -359,17 +374,20 @@ public sealed class MarkingsViewModel
         if (!_marking.TryGetMarking(id, out var prototype))
             return false;
 
-        if (!TryGetMarkings(prototype, out var markings))
+        if (!_markings.TryGetValue(prototype.Category, out var markings))
             return false;
 
         var contains = false;
         for (var i = 0; i < markings.Count; i++)
         {
             var marking = markings[i];
+            if (marking.Id != prototype.ID)
+                continue;
+
             if (marking.Index != index)
                 continue;
 
-            markings[i] = markings[i].WithColor(color);
+            markings[i] = marking.WithColor(color);
             contains = true;
         }
 
@@ -460,11 +478,11 @@ public sealed class MarkingsViewModel
             if (!_prototype.TryIndex(markingsData.Group, out var group))
                 continue;
 
-            if (!group.CategoriesData.TryGetValue(categoryId, out var categoryData))
+            if (!group.Data.TryGetValue(categoryId, out var data))
                 continue;
 
-            isRequired &= categoryData.Required;
-            count = int.Min(count, categoryData.Limit);
+            isRequired &= data.Required;
+            count = int.Min(count, data.Limit);
         }
 
         if (!_markings.TryGetValue(categoryId, out var markings))
@@ -483,24 +501,62 @@ public sealed class MarkingsViewModel
         {
             _appearanceData[layer] = data with { BodyType = bodyTypeId };
         }
-        BodyAppearanceDataChanged?.Invoke();
+        BodyTypeChanged?.Invoke();
     }
 
     /// <summary>
     /// Sets the body color of all body appearances in the view model.
     /// </summary>
-    /// <param name="bodyColorGroupId">The body coloration id which color we want to change.</param>
+    /// <param name="group">The body coloration id which color we want to change.</param>
     /// <param name="color">The new color.</param>
-    public void SetColor(ProtoId<BodyColorGroupPrototype> bodyColorGroupId, Color color)
+    public void SetColor(ProtoId<BodyColorGroupPrototype> group, Color color)
     {
-        foreach (var (layer, data) in _appearanceData)
-        {
-            var colorGroups = data.ColorGroups.ShallowClone();
-            colorGroups[bodyColorGroupId] = color;
+        var changed = false;
+        var current = Color.White;
 
-            _appearanceData[layer] = data with { ColorGroups = colorGroups };
+        foreach (var layer in _appearanceData.Keys.ToArray())
+        {
+            var colorGroups = _appearanceData[layer].Colors;
+            if (colorGroups.TryGetValue(group, out current) && current == color)
+                continue;
+
+            colorGroups[group] = color;
+            changed = true;
         }
-        BodyAppearanceDataChanged?.Invoke();
+
+        if (!changed)
+            return;
+
+        foreach (var (category, markings) in Markings)
+        {
+            changed = false;
+            for (var i = 0; i < markings.Count; i++)
+            {
+                var marking = markings[i];
+                if (marking.Color != current)
+                    continue;
+
+                if (!_marking.TryGetMarking(marking, out var prototype))
+                    continue;
+
+                var coloring = _marking.GetMarkingColoring(prototype, marking.Index);
+                if (coloring.Type is not BodyColorGroupColoring groupColoring)
+                    continue;
+
+                if (groupColoring.Group != group)
+                    continue;
+
+                markings[i] = marking.WithColor(color);
+                changed = true;
+            }
+
+            if (!changed)
+                continue;
+
+            MarkingsChanged?.Invoke(category);
+        }
+
+        ColorChanged?.Invoke();
     }
 
     /// <summary>
@@ -513,7 +569,7 @@ public sealed class MarkingsViewModel
         {
             _appearanceData[layer] = data with { Sex = sex };
         }
-        BodyAppearanceDataChanged?.Invoke();
+        SexChanged?.Invoke();
     }
 
     /// <summary>
@@ -521,7 +577,7 @@ public sealed class MarkingsViewModel
     /// </summary>
     public void ValidateMarkings()
     {
-        foreach (var (layer, markingsData) in _markingsData)
+        foreach (var (layer, markingData) in _markingsData)
         {
             if (!_appearanceData.TryGetValue(layer, out var appearanceData))
                 continue;
@@ -530,9 +586,10 @@ public sealed class MarkingsViewModel
             {
                 var markings = _markings.GetValueOrDefault(category)?.ShallowClone() ?? [];
 
-                _marking.EnsureValidColors(markings, markingsData.Group, appearanceData.ColorGroups);
-                _marking.EnsureValidGroupAndSex(markings, markingsData.Group, appearanceData.Sex);
-                _marking.EnsureValidLimits(markings, markingsData.Group, appearanceData.ColorGroups);
+                _marking.EnsureValidColors(markings, markingData.Group, appearanceData.Colors);
+                _marking.EnsureValidDefault(markings, category, markingData.Group, appearanceData.Colors);
+                _marking.EnsureValidGroupAndSex(markings, markingData.Group, appearanceData.Sex);
+                _marking.EnsureValidLimits(markings, markingData.Group, appearanceData.Colors);
 
                 _markings[category] = markings;
             }

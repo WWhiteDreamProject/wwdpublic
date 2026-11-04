@@ -1,5 +1,5 @@
 using System.Linq;
-using Content.Shared._White.TargetDoll;
+using Content.Shared._White.TargetDoll.Systems;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Gravity;

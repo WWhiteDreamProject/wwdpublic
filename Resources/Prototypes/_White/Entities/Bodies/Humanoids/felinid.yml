@@ -60,13 +60,13 @@
                 cauda:
                   type: Cauda
                   startingProvider: BodyProviderCaudaFelinid
-              startingProvider: BodyProviderPartTailFelinid
+              startingProvider: BodyProviderTailFelinid
           startingProvider: BodyProviderGroinFelinid
         head:
           type: Head
           providers:
             cranium:
-              type: Сranium
+              type: Cranium
               providers:
                 brain:
                   type: Brain
@@ -80,7 +80,7 @@
                 tongue:
                   type: Tongue
                   startingProvider: BodyProviderTongueFelinid
-              startingProvider: BodyProviderСraniumFelinid
+              startingProvider: BodyProviderCraniumFelinid
           startingProvider: BodyProviderHeadFelinid
         left_arm:
           type: LeftArm

@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by angelofallars(github). The division is made by Spatison(github).",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "feet_toed-left",
+      "directions": 4
+    },
+    {
+      "name": "feet_toed-right",
+      "directions": 4
+    }
+  ]
+}

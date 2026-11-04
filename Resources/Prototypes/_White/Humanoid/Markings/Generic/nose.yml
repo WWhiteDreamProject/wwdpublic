@@ -1,6 +1,43 @@
 - type: marking
+  id: NoseBlob
+  parent: BaseNose
+  definitions:
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/nose.rsi
+      state: blob
+
+- type: marking
+  id: NoseDroop
+  parent: BaseNose
+  definitions:
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/nose.rsi
+      state: droop
+
+- type: marking
+  id: NoseNubby
+  parent: BaseNose
+  definitions:
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/nose.rsi
+      state: nubby
+
+- type: marking
+  id: NoseSchnozz
+  parent: BaseNose
+  definitions:
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/nose.rsi
+      state: schnozz
+
+- type: marking
   id: NoseTip
-  parents: BaseNose
+  parent: BaseNose
+  forcedColoring: false
   definitions:
   - layer: enum.MarkingVisualLayers.Face
     sprite:
@@ -10,3 +47,12 @@
     default:
       type: !type:SimpleColoring
         color: "#7E2727"
+
+- type: marking
+  id: NoseUppie
+  parent: BaseNose
+  definitions:
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/nose.rsi
+      state: uppie

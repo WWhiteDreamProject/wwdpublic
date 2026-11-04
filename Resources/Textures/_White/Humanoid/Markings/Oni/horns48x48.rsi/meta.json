@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by dootythefrooty(github). Makara made by angelofallars(github).",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "makara",
+      "directions": 4
+    },
+    {
+      "name": "makara_2-primary",
+      "directions": 4
+    },
+    {
+      "name": "makara_2-secondary",
+      "directions": 4
+    },
+    {
+      "name": "makara_3-primary",
+      "directions": 4
+    },
+    {
+      "name": "makara_3-secondary",
+      "directions": 4
+    },
+    {
+      "name": "makara_3-tertiary",
+      "directions": 4
+    },
+    {
+      "name": "tall_bull",
+      "directions": 4
+    },
+    {
+      "name": "tall_bull_3-primary",
+      "directions": 4
+    },
+    {
+      "name": "tall_bull_3-secondary",
+      "directions": 4
+    },
+    {
+      "name": "tall_bull_3-tertiary",
+      "directions": 4
+    },
+    {
+      "name": "tall_curved",
+      "directions": 4
+    },
+    {
+      "name": "tall_curved_3-primary",
+      "directions": 4
+    },
+    {
+      "name": "tall_curved_3-secondary",
+      "directions": 4
+    },
+    {
+      "name": "tall_curved_3-tertiary",
+      "directions": 4
+    }
+  ]
+}

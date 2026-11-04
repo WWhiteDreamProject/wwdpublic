@@ -8,107 +8,107 @@
   },
   "states": [
     {
-      "name": "arrows_chest",
+      "name": "arrows-chest",
       "directions": 4
     },
     {
-      "name": "arrows_groin",
+      "name": "arrows-groin",
       "directions": 4
     },
     {
-      "name": "core_chest",
+      "name": "core-chest",
       "directions": 4
     },
     {
-      "name": "core_groin",
+      "name": "core-groin",
       "directions": 4
     },
     {
-      "name": "cross_chest",
+      "name": "cross-chest",
       "directions": 4
     },
     {
-      "name": "cross_groin",
+      "name": "cross-groin",
       "directions": 4
     },
     {
-      "name": "fiddleback_chest",
+      "name": "fiddleback-chest",
       "directions": 4
     },
     {
-      "name": "fiddleback_groin",
+      "name": "fiddleback-groin",
       "directions": 4
     },
     {
-      "name": "heart_chest",
+      "name": "heart-chest",
       "directions": 4
     },
     {
-      "name": "heart_groin",
+      "name": "heart-groin",
       "directions": 4
     },
     {
-      "name": "hourglass_chest",
+      "name": "hourglass-chest",
       "directions": 4
     },
     {
-      "name": "hourglass_groin",
+      "name": "hourglass-groin",
       "directions": 4
     },
     {
-      "name": "nail_and_hammer_chest",
+      "name": "nail_and_hammer-chest",
       "directions": 4
     },
     {
-      "name": "nail_and_hammer_groin",
+      "name": "nail_and_hammer-groin",
       "directions": 4
     },
     {
-      "name": "skull_chest",
+      "name": "skull-chest",
       "directions": 4
     },
     {
-      "name": "skull_groin",
+      "name": "skull-groin",
       "directions": 4
     },
     {
-      "name": "slashes_chest",
+      "name": "slashes-chest",
       "directions": 4
     },
     {
-      "name": "slashes_groin",
+      "name": "slashes-groin",
       "directions": 4
     },
     {
-      "name": "star_chest",
+      "name": "star-chest",
       "directions": 4
     },
     {
-      "name": "star_groin",
+      "name": "star-groin",
       "directions": 4
     },
     {
-      "name": "stripes_chest",
+      "name": "stripes-chest",
       "directions": 4
     },
     {
-      "name": "stripes_groin",
+      "name": "stripes-groin",
       "directions": 4
     },
     {
-      "name": "stripes_left_arm",
+      "name": "stripes-left_arm",
       "directions": 4
     },
     {
-      "name": "stripes_left_leg",
+      "name": "stripes-left_leg",
       "directions": 4
     },
     {
-      "name": "stripes_right_arm",
+      "name": "stripes-right_arm",
       "directions": 4
     },
     {
-      "name": "stripes_right_leg",
+      "name": "stripes-right_leg",
       "directions": 4
     },
     {
@@ -116,11 +116,11 @@
       "directions": 4
     },
     {
-      "name": "x_chest",
+      "name": "x-chest",
       "directions": 4
     },
     {
-      "name": "x_groin",
+      "name": "x-groin",
       "directions": 4
     }
   ]

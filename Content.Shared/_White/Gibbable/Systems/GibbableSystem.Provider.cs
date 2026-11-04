@@ -58,12 +58,18 @@ public sealed partial class GibbableSystem
         ent.Comp.Chance = ent.Comp.Thresholds.HighestMatch(ent.Comp.Damage) ?? 0f;
         DirtyField(ent, ent.Comp, nameof(GibbableProviderComponent.Chance));
 
+        if (damage < FixedPoint2.Zero)
+            return;
+
         if (!_random.Prob(ent, ent.Comp.CurrentChance))
             return;
 
         Gib(ent);
 
-        if (ent.Comp.Wound is not {} wound || ent.Comp.Parent is not {} parent)
+        if (ent.Comp.Parent is not {} parent)
+            return;
+
+        if (ent.Comp.Wound is not {} wound)
             return;
 
         _woundable.CreateWound(parent, wound, ent.Comp.Damage, false, args.InterruptsDoAfters, args.Origin);

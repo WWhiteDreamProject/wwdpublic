@@ -48,10 +48,6 @@
       "directions": 4
     },
     {
-      "name": "left_arm_slim",
-      "directions": 4
-    },
-    {
       "name": "left_foot",
       "directions": 4
     },
@@ -61,10 +57,6 @@
     },
     {
       "name": "left_hand",
-      "directions": 4
-    },
-    {
-      "name": "left_hand_slim",
       "directions": 4
     },
     {
@@ -80,10 +72,6 @@
       "directions": 4
     },
     {
-      "name": "right_arm_slim",
-      "directions": 4
-    },
-    {
       "name": "right_foot",
       "directions": 4
     },
@@ -93,10 +81,6 @@
     },
     {
       "name": "right_hand",
-      "directions": 4
-    },
-    {
-      "name": "right_hand_slim",
       "directions": 4
     },
     {

@@ -8,7 +8,6 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Input;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Utility;
 
 namespace Content.Client._White.Humanoid.Markings.UserInterface;
 
@@ -17,7 +16,7 @@ public sealed partial class MarkingItem : BoxContainer, ISearchableControl
 {
     [Dependency] private readonly IEntityManager _entity = default!;
 
-    private List<ColorSelectorSliders>? _colorSliders;
+    private List<(ColorSelectorSliders Slider, string Index)>? _colorSliders;
 
     private readonly bool _interactive;
     private readonly MarkingPrototype _marking;
@@ -90,10 +89,9 @@ public sealed partial class MarkingItem : BoxContainer, ISearchableControl
         _colorSliders = new();
 
         var processed = new HashSet<string>();
-        for (var i = 0; i < _marking.Definitions.Count; i++)
+        foreach (var marking in markings)
         {
-            var definition = _marking.Definitions[i];
-            if (!processed.Add(definition.Index))
+            if (!processed.Add(marking.Index))
                 continue;
 
             var container = new BoxContainer
@@ -105,18 +103,17 @@ public sealed partial class MarkingItem : BoxContainer, ISearchableControl
             ColorsContainer.AddChild(container);
 
             var selector = new ColorSelectorSliders();
-            selector.SelectorType = ColorSelectorSliders.ColorSelectorType.Hsv;
 
-            container.AddChild(new Label { Text = $"marking-{_marking}-{definition.Index}" });
+            container.AddChild(new Label { Text = $"marking-{_marking.ID}-{marking.Index}" });
             container.AddChild(selector);
 
-            selector.Color = markings[i].Color;
+            selector.Color = marking.Color;
 
-            _colorSliders.Add(selector);
+            _colorSliders.Add((selector, marking.Index));
 
             selector.OnColorChanged += _ =>
             {
-                _model.TrySetMarkingColor(_marking, definition.Index, selector.Color);
+                _model.TrySetMarkingColor(_marking, marking.Index, selector.Color);
             };
         }
     }
@@ -176,7 +173,7 @@ public sealed partial class MarkingItem : BoxContainer, ISearchableControl
     private void UpdateData()
     {
         MarkingTexture.Textures = _marking.Definitions.Select(data => _sprite.Frame0(data.Sprite)).ToList();
-        SelectButton.Text = Loc.GetString($"marking-{_marking}");
+        SelectButton.Text = Loc.GetString($"marking-{_marking.ID}");
     }
 
     private void UpdateSelection()
@@ -194,9 +191,19 @@ public sealed partial class MarkingItem : BoxContainer, ISearchableControl
         if (markings is null || markings.Count == 0 || _colorSliders is not { } sliders)
             return;
 
-        for (var i = 0; i < _marking.Definitions.Count; i++)
+        var processed = new HashSet<string>();
+        foreach (var marking in markings)
         {
-            sliders[i].Color = markings[i].Color;
+            if (!processed.Add(marking.Index))
+                continue;
+
+            foreach (var (slider, index) in sliders)
+            {
+                if (marking.Index != index)
+                    continue;
+
+                slider.Color = marking.Color;
+            }
         }
     }
 }

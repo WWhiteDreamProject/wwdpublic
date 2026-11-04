@@ -1,12 +1,12 @@
 - type: marking
   id: BaseHairDiona
-  parents: [BaseHair, BaseDiona]
+  parent: [BaseHair, BaseDiona]
   abstract: true
   forcedColoring: true
 
 - type: marking
   id: HairDionaBloom
-  parents: BaseHairDiona
+  parent: BaseHairDiona
   definitions:
   - layer: enum.MarkingVisualLayers.Hair
     sprite:
@@ -15,7 +15,7 @@
 
 - type: marking
   id: HairDionaBracket
-  parents: BaseHairDiona
+  parent: BaseHairDiona
   definitions:
   - layer: enum.MarkingVisualLayers.Hair
     sprite:
@@ -24,7 +24,7 @@
 
 - type: marking
   id: HairDionaBrush
-  parents: BaseHairDiona
+  parent: BaseHairDiona
   definitions:
   - layer: enum.MarkingVisualLayers.Hair
     sprite:
@@ -33,7 +33,7 @@
 
 - type: marking
   id: HairDionaCornflower
-  parents: BaseHairDiona
+  parent: BaseHairDiona
   definitions:
   - layer: enum.MarkingVisualLayers.Hair
     sprite:
@@ -42,7 +42,7 @@
 
 - type: marking
   id: HairDionaFicus
-  parents: BaseHairDiona
+  parent: BaseHairDiona
   definitions:
   - layer: enum.MarkingVisualLayers.Hair
     sprite:
@@ -51,7 +51,7 @@
 
 - type: marking
   id: HairDionaFlowers
-  parents: BaseHairDiona
+  parent: BaseHairDiona
   definitions:
   - layer: enum.MarkingVisualLayers.Hair
     sprite:
@@ -60,7 +60,7 @@
 
 - type: marking
   id: HairDionaGarland
-  parents: BaseHairDiona
+  parent: BaseHairDiona
   definitions:
   - layer: enum.MarkingVisualLayers.Hair
     sprite:
@@ -69,7 +69,7 @@
 
 - type: marking
   id: HairDionaKing
-  parents: BaseHairDiona
+  parent: BaseHairDiona
   definitions:
   - layer: enum.MarkingVisualLayers.Hair
     sprite:
@@ -78,7 +78,7 @@
 
 - type: marking
   id: HairDionaLaurel
-  parents: BaseHairDiona
+  parent: BaseHairDiona
   definitions:
   - layer: enum.MarkingVisualLayers.Hair
     sprite:
@@ -87,7 +87,7 @@
 
 - type: marking
   id: HairDionaLeafy
-  parents: BaseHairDiona
+  parent: BaseHairDiona
   definitions:
   - layer: enum.MarkingVisualLayers.Hair
     sprite:
@@ -96,7 +96,7 @@
 
 - type: marking
   id: HairDionaLotus
-  parents: BaseHairDiona
+  parent: BaseHairDiona
   definitions:
   - layer: enum.MarkingVisualLayers.Hair
     sprite:
@@ -105,7 +105,7 @@
 
 - type: marking
   id: HairDionaMeadow
-  parents: BaseHairDiona
+  parent: BaseHairDiona
   definitions:
   - layer: enum.MarkingVisualLayers.Hair
     sprite:
@@ -114,7 +114,7 @@
 
 - type: marking
   id: HairDionaOak
-  parents: BaseHairDiona
+  parent: BaseHairDiona
   definitions:
   - layer: enum.MarkingVisualLayers.Hair
     sprite:
@@ -123,7 +123,7 @@
 
 - type: marking
   id: HairDionaPalm
-  parents: BaseHairDiona
+  parent: BaseHairDiona
   definitions:
   - layer: enum.MarkingVisualLayers.Hair
     sprite:
@@ -132,7 +132,7 @@
 
 - type: marking
   id: HairDionaRoot
-  parents: BaseHairDiona
+  parent: BaseHairDiona
   definitions:
   - layer: enum.MarkingVisualLayers.Hair
     sprite:
@@ -141,7 +141,7 @@
 
 - type: marking
   id: HairDionaRose
-  parents: BaseHairDiona
+  parent: BaseHairDiona
   definitions:
   - layer: enum.MarkingVisualLayers.Hair
     sprite:
@@ -150,7 +150,7 @@
 
 - type: marking
   id: HairDionaRosey
-  parents: BaseHairDiona
+  parent: BaseHairDiona
   definitions:
   - layer: enum.MarkingVisualLayers.Hair
     sprite:
@@ -159,7 +159,7 @@
 
 - type: marking
   id: HairDionaShrub
-  parents: BaseHairDiona
+  parent: BaseHairDiona
   definitions:
   - layer: enum.MarkingVisualLayers.Hair
     sprite:
@@ -168,7 +168,7 @@
 
 - type: marking
   id: HairDionaSpinner
-  parents: BaseHairDiona
+  parent: BaseHairDiona
   definitions:
   - layer: enum.MarkingVisualLayers.Hair
     sprite:
@@ -177,7 +177,7 @@
 
 - type: marking
   id: HairDionaSprout
-  parents: BaseHairDiona
+  parent: BaseHairDiona
   definitions:
   - layer: enum.MarkingVisualLayers.Hair
     sprite:
@@ -186,7 +186,7 @@
 
 - type: marking
   id: HairDionaThorns
-  parents: BaseHairDiona
+  parent: BaseHairDiona
   forcedColoring: false
   definitions:
   - layer: enum.MarkingVisualLayers.Hair
@@ -196,7 +196,7 @@
 
 - type: marking
   id: HairDionaVine
-  parents: BaseHairDiona
+  parent: BaseHairDiona
   definitions:
   - layer: enum.MarkingVisualLayers.Hair
     sprite:
@@ -205,7 +205,7 @@
 
 - type: marking
   id: HairDionaVineLong
-  parents: BaseHairDiona
+  parent: BaseHairDiona
   definitions:
   - layer: enum.MarkingVisualLayers.Hair
     sprite:
@@ -214,7 +214,7 @@
 
 - type: marking
   id: HairDionaVines
-  parents: BaseHairDiona
+  parent: BaseHairDiona
   definitions:
   - layer: enum.MarkingVisualLayers.Hair
     sprite:
@@ -223,7 +223,7 @@
 
 - type: marking
   id: HairDionaWildflower
-  parents: BaseHairDiona
+  parent: BaseHairDiona
   definitions:
   - layer: enum.MarkingVisualLayers.Hair
     sprite:

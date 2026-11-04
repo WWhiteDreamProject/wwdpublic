@@ -1,6 +1,6 @@
 - type: marking
   id: BaseEarsHuman
-  parents: [BaseEars, BaseHuman]
+  parent: [BaseEars, BaseHuman]
   abstract: true
   forcedColoring: true
   coloring:
@@ -10,17 +10,17 @@
 
 - type: marking
   id: EarsHumanCat
-  parents: BaseEarsHuman
+  parent: BaseEarsHuman
   definitions:
   - layer: enum.MarkingVisualLayers.HeadTop
     sprite:
       sprite: _White/Humanoid/Markings/Human/ears.rsi
-      state: cat_inner
+      state: cat-inner
     index: inner
   - layer: enum.MarkingVisualLayers.HeadTop
     sprite:
       sprite: _White/Humanoid/Markings/Human/ears.rsi
-      state: cat_outer
+      state: cat-outer
     index: outer
   coloring:
     default:
@@ -35,7 +35,7 @@
 
 - type: marking
   id: EarsHumanLongSmall
-  parents: BaseEarsHuman
+  parent: BaseEarsHuman
   definitions:
   - layer: enum.MarkingVisualLayers.HeadSide
     sprite:
@@ -44,7 +44,7 @@
 
 - type: marking
   id: EarsHumanLongStandard
-  parents: BaseEarsHuman
+  parent: BaseEarsHuman
   definitions:
   - layer: enum.MarkingVisualLayers.HeadSide
     sprite:
@@ -53,7 +53,7 @@
 
 - type: marking
   id: EarsHumanLongTall
-  parents: BaseEarsHuman
+  parent: BaseEarsHuman
   definitions:
   - layer: enum.MarkingVisualLayers.HeadSide
     sprite:
@@ -62,7 +62,7 @@
 
 - type: marking
   id: EarsHumanLongThin
-  parents: BaseEarsHuman
+  parent: BaseEarsHuman
   definitions:
   - layer: enum.MarkingVisualLayers.HeadSide
     sprite:
@@ -71,7 +71,7 @@
 
 - type: marking
   id: EarsHumanLongUpwards
-  parents: BaseEarsHuman
+  parent: BaseEarsHuman
   definitions:
   - layer: enum.MarkingVisualLayers.HeadTop
     sprite:
@@ -80,7 +80,7 @@
 
 - type: marking
   id: EarsHumanLongWide
-  parents: BaseEarsHuman
+  parent: BaseEarsHuman
   definitions:
   - layer: enum.MarkingVisualLayers.HeadSide
     sprite:

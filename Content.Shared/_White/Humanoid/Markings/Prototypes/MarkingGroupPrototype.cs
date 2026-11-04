@@ -26,13 +26,13 @@ public sealed partial class MarkingGroupPrototype : IPrototype, IInheritingProto
     /// If true, only markings that explicitly include this group in their whitelist will be selectable.
     /// </summary>
     [DataField]
-    public bool OnlyGroupWhitelisted { get; }
+    public bool Whitelisted { get; }
 
     /// <summary>
     /// Defines constraints for specific marking categories (e.g., how many tattoos can be applied).
     /// </summary>
     [DataField, AlwaysPushInheritance]
-    public Dictionary<ProtoId<MarkingCategoryPrototype>, MarkingCategoryData> CategoriesData { get; } = new();
+    public Dictionary<ProtoId<MarkingCategoryPrototype>, MarkingCategoryData> Data { get; } = new();
 }
 
 [DataDefinition]
@@ -49,13 +49,13 @@ public sealed partial class MarkingCategoryData
     /// If set, overrides the group-level whitelist check for a specific category.
     /// </summary>
     [DataField]
-    public bool? OnlyGroupWhitelisted;
+    public bool? Whitelisted;
 
     /// <summary>
     /// The transparency multiplier applied to a specific category.
     /// </summary>
     [DataField]
-    public float LayerAlpha = 1f;
+    public float Alpha = 1f;
 
     /// <summary>
     /// A set of markings applied by default.

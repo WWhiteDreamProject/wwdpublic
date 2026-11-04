@@ -1,66 +1,136 @@
 - type: entity
   id: BaseBodyProviderPartKobold
-  parent: BaseBodyProviderPartOrganic
+  parent: [BaseBodyProviderPartAppearance, BaseBodyProviderPartOrganic]
   abstract: true
   suffix: Kobold
   components:
-  - type: BodyAppearanceProvider
-    path: _White/Bodies/Parts/Animals/kobold.rsi
   - type: Sprite
     sprite: _White/Bodies/Parts/Animals/kobold.rsi
 
 # Arms
 - type: entity
   id: BodyProviderLeftArmKobold
-  parent: [BaseBodyProviderLeftArm, BaseBodyProviderPartKobold]
+  parent: [BaseBodyProviderPartKobold, BaseBodyProviderLeftArmAppearance, BaseBodyProviderLeftArmOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Animals/kobold.rsi
+      state: left_arm
 
 - type: entity
   id: BodyProviderRightArmKobold
-  parent: [BaseBodyProviderRightArm, BaseBodyProviderPartKobold]
+  parent: [BaseBodyProviderPartKobold, BaseBodyProviderRightArmAppearance, BaseBodyProviderRightArmOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Animals/kobold.rsi
+      state: right_arm
 
 # Chest
 - type: entity
   id: BodyProviderChestKobold
-  parent: [BaseBodyProviderChest, BaseBodyProviderPartKobold]
+  parent: [BaseBodyProviderPartKobold, BaseBodyProviderChestAppearance, BaseBodyProviderChestOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Animals/kobold.rsi
+      state: chest
 
 # Foots
 - type: entity
   id: BodyProviderLeftFootKobold
-  parent: [BaseBodyProviderLeftFoot, BaseBodyProviderPartKobold]
+  parent: [BaseBodyProviderPartKobold, BaseBodyProviderLeftFootAppearance, BaseBodyProviderLeftFootOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Animals/kobold.rsi
+      state: left_foot
 
 - type: entity
   id: BodyProviderRightFootKobold
-  parent: [BaseBodyProviderRightFoot, BaseBodyProviderPartKobold]
+  parent: [BaseBodyProviderPartKobold, BaseBodyProviderRightFootAppearance, BaseBodyProviderRightFootOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Animals/kobold.rsi
+      state: right_foot
 
 # Groin
 - type: entity
   id: BodyProviderGroinKobold
-  parent: [BaseBodyProviderGroin, BaseBodyProviderPartKobold]
+  parent: [BaseBodyProviderPartKobold, BaseBodyProviderGroinAppearance, BaseBodyProviderGroinOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Animals/kobold.rsi
+      state: groin
 
 # Hands
 - type: entity
   id: BodyProviderLeftHandKobold
-  parent: [BaseBodyProviderLeftHand, BaseBodyProviderPartKobold]
+  parent: [BaseBodyProviderPartKobold, BaseBodyProviderLeftHandAppearance, BaseBodyProviderLeftHandOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Animals/kobold.rsi
+      state: left_hand
 
 - type: entity
   id: BodyProviderRightHandKobold
-  parent: [BaseBodyProviderRightHand, BaseBodyProviderPartKobold]
+  parent: [BaseBodyProviderPartKobold, BaseBodyProviderRightHandAppearance, BaseBodyProviderRightHandOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Animals/kobold.rsi
+      state: right_hand
 
 # Head
 - type: entity
   id: BodyProviderHeadKobold
-  parent: [BaseBodyProviderHead, BaseBodyProviderPartKobold]
+  parent: [BaseBodyProviderPartKobold, BaseBodyProviderHeadAppearance, BaseBodyProviderHeadOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Animals/kobold.rsi
+      state: head
 
 # Legs
 - type: entity
   id: BodyProviderLeftLegKobold
-  parent: [BaseBodyProviderLeftLeg, BaseBodyProviderPartKobold]
+  parent: [BaseBodyProviderPartKobold, BaseBodyProviderLeftLegAppearance, BaseBodyProviderLeftLegOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Animals/kobold.rsi
+      state: left_leg
 
 - type: entity
   id: BodyProviderRightLegKobold
-  parent: [BaseBodyProviderRightLeg, BaseBodyProviderPartKobold]
+  parent: [BaseBodyProviderPartKobold, BaseBodyProviderRightLegAppearance, BaseBodyProviderRightLegOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Animals/kobold.rsi
+      state: right_leg
 
 # Tail
 - type: entity
   id: BodyProviderTailKobold
-  parent: [BaseBodyProviderTail, BaseBodyProviderPartKobold]
+  parent: [BaseBodyProviderPartKobold, BaseBodyProviderTailAppearance, BaseBodyProviderTailOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Animals/kobold.rsi
+      state: tail

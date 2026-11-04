@@ -48,7 +48,7 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
     [UISystemDependency] private readonly GuidebookSystem _guide = default!;
     [UISystemDependency] private readonly SharedLoadoutSystem _loadouts = default!;
     [UISystemDependency] private readonly StationSpawningSystem _stationSpawning = default!;
-    [UISystemDependency] private readonly BodyAppearanceSystem _bodyAppearance = default!;
+    [UISystemDependency] private readonly HumanoidProfileSystem _humanoidProfile = default!; // WD EDIT
 
     private CharacterSetupGui? _characterSetup;
     private HumanoidProfileEditor? _profileEditor;
@@ -387,7 +387,7 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
         {
             var dummy = _prototypeManager.Index(humanoid.Value.Species).Doll;
             dummyEnt = EntityManager.SpawnEntity(dummy, MapCoordinates.Nullspace);
-            _bodyAppearance.ApplyProfile(dummyEnt, humanoid.Value);
+            _humanoidProfile.ApplyProfile(dummyEnt, humanoid.Value);
         }
         else
         {

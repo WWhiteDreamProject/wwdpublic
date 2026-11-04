@@ -1,0 +1,32 @@
+- type: marking
+  id: BaseUndergarmentBottomReptilian
+  parent: [BaseUndergarmentBottom, BaseReptilian]
+  abstract: true
+
+- type: marking
+  id: UndergarmentBottomReptilianBoxers
+  parent: BaseUndergarmentBottomReptilian
+  forcedColoring: true
+  definitions:
+  - layer: enum.MarkingVisualLayers.UndergarmentBottom
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/undergarment_bottom.rsi
+      state: boxers
+
+- type: marking
+  id: UndergarmentBottomReptilianBriefs
+  parent: BaseUndergarmentBottomReptilian
+  definitions:
+  - layer: enum.MarkingVisualLayers.UndergarmentBottom
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/undergarment_bottom.rsi
+      state: briefs
+
+- type: marking
+  id: UndergarmentBottomReptilianSatin
+  parent: BaseUndergarmentBottomReptilian
+  definitions:
+  - layer: enum.MarkingVisualLayers.UndergarmentBottom
+    sprite:
+      sprite: _White/Humanoid/Markings/Reptilian/undergarment_bottom.rsi
+      state: satin

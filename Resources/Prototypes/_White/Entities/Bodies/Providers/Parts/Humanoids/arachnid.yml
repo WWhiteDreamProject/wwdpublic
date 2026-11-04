@@ -1,61 +1,128 @@
 - type: entity
   id: BaseBodyProviderPartArachnid
-  parent: BaseBodyProviderPartOrganic
+  parent: [BaseBodyProviderPartAppearance, BaseBodyProviderPartOrganic]
   abstract: true
   suffix: Arachnid
   components:
-  - type: BodyAppearanceProvider
-    path: _White/Bodies/Parts/Humanoids/arachnid.rsi
+  - type: MarkingsProvider
+    data:
+      group: Arachnid
   - type: Sprite
     sprite: _White/Bodies/Parts/Humanoids/arachnid.rsi
 
 # Arms
 - type: entity
   id: BodyProviderLeftArmArachnid
-  parent: [BaseBodyProviderLeftArmOrganic, BaseBodyProviderPartArachnid]
+  parent: [BaseBodyProviderPartArachnid, BaseBodyProviderLeftArmAppearance, BaseBodyProviderLeftArmOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/arachnid.rsi
+      state: left_arm
 
 - type: entity
   id: BodyProviderRightArmArachnid
-  parent: [BaseBodyProviderRightArmOrganic, BaseBodyProviderPartArachnid]
+  parent: [BaseBodyProviderPartArachnid, BaseBodyProviderRightArmAppearance, BaseBodyProviderRightArmOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/arachnid.rsi
+      state: right_arm
 
 # Chest
 - type: entity
   id: BodyProviderChestArachnid
-  parent: [BaseBodyProviderChestOrganic, BaseBodyProviderPartArachnid]
+  parent: [BaseBodyProviderPartArachnid, BaseBodyProviderChestAppearance, BaseBodyProviderChestOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/arachnid.rsi
+      state: chest
 
 # Foots
 - type: entity
   id: BodyProviderLeftFootArachnid
-  parent: [BaseBodyProviderLeftFootOrganic, BaseBodyProviderPartArachnid]
+  parent: [BaseBodyProviderPartArachnid, BaseBodyProviderLeftFootAppearance, BaseBodyProviderLeftFootOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/arachnid.rsi
+      state: left_foot
 
 - type: entity
   id: BodyProviderRightFootArachnid
-  parent: [BaseBodyProviderRightFootOrganic, BaseBodyProviderPartArachnid]
+  parent: [BaseBodyProviderPartArachnid, BaseBodyProviderRightFootAppearance, BaseBodyProviderRightFootOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/arachnid.rsi
+      state: right_foot
 
 # Groin
 - type: entity
   id: BodyProviderGroinArachnid
-  parent: [BaseBodyProviderGroinOrganic, BaseBodyProviderPartArachnid]
+  parent: [BaseBodyProviderPartArachnid, BaseBodyProviderGroinAppearance, BaseBodyProviderGroinOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/arachnid.rsi
+      state: groin
 
 # Hands
 - type: entity
   id: BodyProviderLeftHandArachnid
-  parent: [BaseBodyProviderLeftHandOrganic, BaseBodyProviderPartArachnid]
+  parent: [BaseBodyProviderPartArachnid, BaseBodyProviderLeftHandAppearance, BaseBodyProviderLeftHandOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/arachnid.rsi
+      state: left_hand
 
 - type: entity
   id: BodyProviderRightHandArachnid
-  parent: [BaseBodyProviderRightHandOrganic, BaseBodyProviderPartArachnid]
+  parent: [BaseBodyProviderPartArachnid, BaseBodyProviderRightHandAppearance, BaseBodyProviderRightHandOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/arachnid.rsi
+      state: right_hand
 
 # Head
 - type: entity
   id: BodyProviderHeadArachnid
-  parent: [BaseBodyProviderHeadOrganic, BaseBodyProviderPartArachnid]
+  parent: [BaseBodyProviderPartArachnid, BaseBodyProviderHeadAppearance, BaseBodyProviderHeadOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/arachnid.rsi
+      state: head
 
 # Legs
 - type: entity
   id: BodyProviderLeftLegArachnid
-  parent: [BaseBodyProviderLeftLegOrganic, BaseBodyProviderPartArachnid]
+  parent: [BaseBodyProviderPartArachnid, BaseBodyProviderLeftLegAppearance, BaseBodyProviderLeftLegOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/arachnid.rsi
+      state: left_leg
 
 - type: entity
   id: BodyProviderRightLegArachnid
-  parent: [BaseBodyProviderRightLegOrganic, BaseBodyProviderPartArachnid]
+  parent: [BaseBodyProviderPartArachnid, BaseBodyProviderRightLegAppearance, BaseBodyProviderRightLegOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/arachnid.rsi
+      state: right_leg

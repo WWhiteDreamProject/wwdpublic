@@ -61,7 +61,7 @@
           type: Head
           providers:
             cranium:
-              type: Сranium
+              type: Cranium
               providers:
                 brain:
                   type: Brain

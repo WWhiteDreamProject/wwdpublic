@@ -30,12 +30,12 @@ public abstract class SharedHideableLayersSystem : EntitySystem
         if (!HideableLayersQuery.Resolve(ent, ref ent.Comp))
             return;
 
-        #if DEBUG
+        /*#if DEBUG TODO: Clothing refactor
         DebugTools.AssertNotEqual(slot, SlotFlags.NONE);
         // Check that only a single bit in the bitflag is set
         var powerOfTwo = BitOperations.RoundUpToPowerOf2((uint)slot);
         DebugTools.AssertEqual((uint)slot, powerOfTwo);
-        #endif
+        #endif*/
 
         var dirty = false;
         if (hidden)

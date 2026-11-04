@@ -1,82 +1,110 @@
 - type: entity
   id: BaseBodyProviderPartSkeleton
-  parent: BaseBodyProviderPart
+  parent: [BaseBodyProviderPartAppearance, BaseBodyProviderPart]
   abstract: true
   suffix: Skeleton
   components:
-  - type: BodyAppearanceProvider
-    path: _White/Bodies/Parts/Humanoids/skeleton.rsi
+  - type: MarkingsProvider
+    data:
+      group: Skeleton
   - type: Sprite
     sprite: _White/Bodies/Parts/Humanoids/skeleton.rsi
 
 # Arms
 - type: entity
   id: BodyProviderLeftArmSkeleton
-  parent: [BaseBodyProviderLeftArm, BaseBodyProviderPartSkeleton]
+  parent: [BaseBodyProviderPartSkeleton, BaseBodyProviderLeftArmAppearance, BaseBodyProviderLeftArm]
   components:
   - type: BodyAppearanceProvider
-    state: left_arm-in-body # TODO: Ideally, this should be in base.yml, but we don't have icons for each parts. It's sad =(.
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/skeleton.rsi
+      state: left_arm-in-body # TODO: Ideally, this should be in base.yml, but we don't have icons for each parts. It's sad =(.
 
 - type: entity
   id: BodyProviderRightArmSkeleton
-  parent: [BaseBodyProviderRightArm, BaseBodyProviderPartSkeleton]
+  parent: [BaseBodyProviderPartSkeleton, BaseBodyProviderRightArmAppearance, BaseBodyProviderRightArm]
   components:
   - type: BodyAppearanceProvider
-    state: right_arm-in-body
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/skeleton.rsi
+      state: right_arm-in-body
 
 # Chest
 - type: entity
   id: BodyProviderChestSkeleton
-  parent: [BaseBodyProviderChest, BaseBodyProviderPartSkeleton]
+  parent: [BaseBodyProviderPartSkeleton, BaseBodyProviderChestAppearance, BaseBodyProviderChest]
   components:
   - type: BodyAppearanceProvider
-    state: chest-in-body
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/skeleton.rsi
+      state: chest-in-body
 
 # Foots
 - type: entity
   id: BodyProviderLeftFootSkeleton
-  parent: [BaseBodyProviderLeftFoot, BaseBodyProviderPartSkeleton]
+  parent: [BaseBodyProviderPartSkeleton, BaseBodyProviderLeftFootAppearance, BaseBodyProviderLeftFoot]
   components:
   - type: BodyAppearanceProvider
-    state: left_foot-in-body
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/skeleton.rsi
+      state: left_foot-in-body
 
 - type: entity
   id: BodyProviderRightFootSkeleton
-  parent: [BaseBodyProviderRightFoot, BaseBodyProviderPartSkeleton]
+  parent: [BaseBodyProviderPartSkeleton, BaseBodyProviderRightFootAppearance, BaseBodyProviderRightFoot]
   components:
   - type: BodyAppearanceProvider
-    state: right_foot-in-body
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/skeleton.rsi
+      state: right_foot-in-body
 
 # Groin
 - type: entity
   id: BodyProviderGroinSkeleton
-  parent: [BaseBodyProviderGroin, BaseBodyProviderPartSkeleton]
+  parent: [BaseBodyProviderPartSkeleton, BaseBodyProviderGroinAppearance, BaseBodyProviderGroin]
   components:
   - type: BodyAppearanceProvider
-    state: groin-in-body
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/skeleton.rsi
+      state: groin-in-body
 
 # Hands
 - type: entity
   id: BodyProviderLeftHandSkeleton
-  parent: [BaseBodyProviderLeftHand, BaseBodyProviderPartSkeleton]
+  parent: [BaseBodyProviderPartSkeleton, BaseBodyProviderLeftHandAppearance, BaseBodyProviderLeftHand]
   components:
   - type: BodyAppearanceProvider
-    state: left_hand-in-body
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/skeleton.rsi
+      state: left_hand-in-body
 
 - type: entity
   id: BodyProviderRightHandSkeleton
-  parent: [BaseBodyProviderRightHand, BaseBodyProviderPartSkeleton]
+  parent: [BaseBodyProviderPartSkeleton, BaseBodyProviderRightHandAppearance, BaseBodyProviderRightHand]
   components:
   - type: BodyAppearanceProvider
-    state: right_hand-in-body
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/skeleton.rsi
+      state: right_hand-in-body
 
 # Head
 - type: entity
   id: BodyProviderHeadSkeleton
-  parent: [BaseBodyProviderHead, BaseBodyProviderPartSkeleton]
+  parent: [BaseBodyProviderPartSkeleton, BaseBodyProviderHeadAppearance, BaseBodyProviderHead]
   components:
   - type: BodyAppearanceProvider
-    state: head-in-body
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/skeleton.rsi
+      state: head-in-body
   - type: Grammar
     attributes:
       proper: true
@@ -99,14 +127,20 @@
 # Legs
 - type: entity
   id: BodyProviderLeftLegSkeleton
-  parent: [BaseBodyProviderLeftLeg, BaseBodyProviderPartSkeleton]
+  parent: [BaseBodyProviderPartSkeleton, BaseBodyProviderLeftLegAppearance, BaseBodyProviderLeftLeg]
   components:
   - type: BodyAppearanceProvider
-    state: left_leg-in-body
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/skeleton.rsi
+      state: left_leg-in-body
 
 - type: entity
   id: BodyProviderRightLegSkeleton
-  parent: [BaseBodyProviderRightLeg, BaseBodyProviderPartSkeleton]
+  parent: [BaseBodyProviderPartSkeleton, BaseBodyProviderRightLegAppearance, BaseBodyProviderRightLeg]
   components:
   - type: BodyAppearanceProvider
-    state: right_leg-in-body
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/skeleton.rsi
+      state: right_leg-in-body

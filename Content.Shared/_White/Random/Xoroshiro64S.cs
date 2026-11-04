@@ -22,7 +22,6 @@ public record struct Xoroshiro64S
         _s1 = unchecked((uint) sm64.Next());
     }
 
-
     private uint _s0;
     private uint _s1;
 

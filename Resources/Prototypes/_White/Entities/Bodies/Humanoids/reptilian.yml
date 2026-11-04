@@ -57,13 +57,13 @@
                 cauda:
                   type: Cauda
                   startingProvider: BodyProviderCaudaReptilian
-              startingProvider: BodyProviderPartTailReptilian
+              startingProvider: BodyProviderTailReptilian
           startingProvider: BodyProviderGroinReptilian
         head:
           type: Head
           providers:
             cranium:
-              type: Сranium
+              type: Cranium
               providers:
                 brain:
                   type: Brain
@@ -77,7 +77,7 @@
                 tongue:
                   type: Tongue
                   startingProvider: BodyProviderTongueReptilian
-              startingProvider: BodyProviderСraniumReptilian
+              startingProvider: BodyProviderCraniumReptilian
           startingProvider: BodyProviderHeadReptilian
         left_arm:
           type: LeftArm

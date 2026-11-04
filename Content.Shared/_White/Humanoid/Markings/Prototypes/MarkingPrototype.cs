@@ -24,6 +24,12 @@ public sealed partial class MarkingPrototype : IPrototype, IInheritingPrototype
     public bool Abstract { get; }
 
     /// <summary>
+    /// If true, this marking overwrites the appearance of body providers.
+    /// </summary>
+    [DataField]
+    public bool Appearance { get; }
+
+    /// <summary>
     /// Whether this marking should be subject to any displacement maps.
     /// </summary>
     [DataField]
@@ -73,12 +79,6 @@ public sealed partial class MarkingPrototype : IPrototype, IInheritingPrototype
 [DataDefinition]
 public sealed partial class MarkingDefinition
 {
-    /// <summary>
-    /// Determines whether this marker overrides the appearance provider's sprite.
-    /// </summary>
-    [DataField]
-    public bool OverrideAppearance;
-
     /// <summary>
     /// The layer associated with this marking data.
     /// </summary>

@@ -1,38 +1,72 @@
 - type: entity
   id: BaseBodyProviderPartBorg
-  parent: BaseBodyProviderPart
+  parent: BaseBodyProviderPartAppearance
   abstract: true
   suffix: Borg
   components:
-  - type: BodyAppearanceProvider
-    path: _White/Bodies/Parts/Humanoids/human.rsi # TODO: Replace with a unique sprite.
   - type: Sprite
     sprite: _White/Bodies/Parts/borg.rsi
 
 # Arms
 - type: entity
   id: BodyProviderLeftArmBorg
-  parent: [BaseBodyProviderLeftArm, BaseBodyProviderPartBorg]
+  parent: [BaseBodyProviderPartBorg, BaseBodyProviderLeftArmAppearance, BaseBodyProviderLeftArm]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/positronic.rsi
+      state: left_arm
 
 - type: entity
   id: BodyProviderRightArmBorg
-  parent: [BaseBodyProviderRightArm, BaseBodyProviderPartBorg]
+  parent: [BaseBodyProviderPartBorg, BaseBodyProviderRightArmAppearance, BaseBodyProviderRightArm]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/positronic.rsi
+      state: right_arm
 
 # Head
 - type: entity
   id: BodyProviderHeadBorg
-  parent: [BaseBodyProviderHead, BaseBodyProviderPartBorg]
+  parent: [BaseBodyProviderPartBorg, BaseBodyProviderHeadAppearance, BaseBodyProviderHead]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/positronic.rsi
+      state: head
 
 # Legs
 - type: entity
   id: BodyProviderLeftLegBorg
-  parent: [BaseBodyProviderLeftLeg, BaseBodyProviderPartBorg]
+  parent: [BaseBodyProviderPartBorg, BaseBodyProviderLeftLegAppearance, BaseBodyProviderLeftLeg]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/positronic.rsi
+      state: left_leg
 
 - type: entity
   id: BodyProviderRightLegBorg
-  parent: [BaseBodyProviderRightLeg, BaseBodyProviderPartBorg]
+  parent: [BaseBodyProviderPartBorg, BaseBodyProviderLeftLegAppearance, BaseBodyProviderRightLeg]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/positronic.rsi
+      state: right_leg
 
 # Torso
 - type: entity
   id: BodyProviderTorsoBorg
-  parent: [BaseBodyProviderTorso, BaseBodyProviderPartBorg]
+  parent: [BaseBodyProviderPartBorg, BaseBodyProviderTorsoAppearance, BaseBodyProviderTorso]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/positronic.rsi
+      state: torso

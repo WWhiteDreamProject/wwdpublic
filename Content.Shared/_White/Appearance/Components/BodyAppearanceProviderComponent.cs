@@ -1,7 +1,4 @@
-using Content.Shared._White.Appearance.Prototypes;
 using Robust.Shared.GameStates;
-using Robust.Shared.Prototypes;
-using Robust.Shared.Utility;
 
 namespace Content.Shared._White.Appearance.Components;
 
@@ -12,10 +9,16 @@ namespace Content.Shared._White.Appearance.Components;
 public sealed partial class BodyAppearanceProviderComponent : Component
 {
     /// <summary>
-    /// Stores the specific data and appearance characteristics for this provider's layer.
+    /// Stores the specific data and appearance characteristics for this provider.
     /// </summary>
-    [DataField, AlwaysPushInheritance]
+    [DataField, AutoNetworkedField, AlwaysPushInheritance]
     public BodyAppearanceData Appearance = new();
+
+    /// <summary>
+    /// List of additional provider entries that can be applied to body.
+    /// </summary>
+    [DataField, AutoNetworkedField, AlwaysPushInheritance]
+    public List<BodyAppearanceProviderEntry> Entries = new();
 
     /// <summary>
     /// The specific layer that this provider is responsible for visualizing.
@@ -24,32 +27,8 @@ public sealed partial class BodyAppearanceProviderComponent : Component
     public Enum Layer;
 
     /// <summary>
-    /// The specific color group of this provider.
-    /// </summary>
-    [DataField(required: true)]
-    public ProtoId<BodyColorGroupPrototype> Group;
-
-    /// <summary>
-    /// The specific color of this provider.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public Color Color = Color.White;
-
-    /// <summary>
-    /// The specific sprite path of this provider.
-    /// </summary>
-    [DataField(required: true), AutoNetworkedField]
-    public string Path;
-
-    /// <summary>
-    /// The specific sprite state of this provider.
-    /// </summary>
-    [DataField(required: true), AutoNetworkedField]
-    public string State;
-
-    /// <summary>
-    /// The body entity containing this provider, if any.
+    /// The entities containing this provider.
     /// </summary>
     [ViewVariables, AutoNetworkedField]
-    public EntityUid? Body;
+    public HashSet<EntityUid> Entities = new();
 }

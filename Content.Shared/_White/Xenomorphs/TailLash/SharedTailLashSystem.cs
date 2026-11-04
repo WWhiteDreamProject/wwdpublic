@@ -2,7 +2,7 @@ using System.Linq;
 using System.Numerics;
 using Content.Shared._White.Damage;
 using Content.Shared._White.Damage.Systems;
-using Content.Shared._White.TargetDoll;
+using Content.Shared._White.TargetDoll.Systems;
 using Content.Shared._White.Xenomorphs.Xenomorph;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;

@@ -1,5 +1,6 @@
 using System.Collections.Frozen;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Content.Shared._White.Appearance.Prototypes;
 using Content.Shared._White.Humanoid.Markings.Prototypes;
 using Content.Shared.Humanoid;
@@ -80,6 +81,34 @@ public sealed class MarkingManager
     }
 
     /// <summary>
+    /// Compares two marking dictionaries for equality.
+    /// </summary>
+    /// <param name="left">First marking dictionary to compare.</param>
+    /// <param name="right">Second marking dictionary to compare.</param>
+    /// <returns>True if both dictionaries contain the same layers with the same markings in the same order.</returns>
+    public static bool MarkingsEqual(Dictionary<Enum, List<Marking>> left, Dictionary<Enum, List<Marking>> right)
+    {
+        if (ReferenceEquals(left, right))
+            return true;
+
+        if (left.Count != right.Count)
+            return false;
+
+        foreach (var (layer, markingsLeft) in left)
+        {
+            if (!right.TryGetValue(layer, out var markingsRight))
+                return false;
+
+            if (markingsLeft.SequenceEqual(markingsRight))
+                continue;
+
+            return false;
+        }
+
+        return true;
+    }
+
+    /// <summary>
     /// Attempts to retrieve the prototype for a given marking.
     /// </summary>
     /// <param name="marking">The marking whose prototype we want to get.</param>
@@ -134,7 +163,7 @@ public sealed class MarkingManager
         if (!_prototype.TryIndex(groupId, out var group))
             return false;
 
-        if (!group.CategoriesData.ContainsKey(categoryId))
+        if (!group.Data.ContainsKey(categoryId))
             return false;
 
         if (!TryGetMarkings(categoryId, out var markingsByCategory))
@@ -175,7 +204,29 @@ public sealed class MarkingManager
     /// <returns>True if the category is whitelisted for the group, false otherwise.</returns>
     public bool Whitelisted(ProtoId<MarkingCategoryPrototype> categoryId, MarkingGroupPrototype group)
     {
-        return group.CategoriesData.GetValueOrDefault(categoryId)?.OnlyGroupWhitelisted ?? group.OnlyGroupWhitelisted;
+        return group.Data.GetValueOrDefault(categoryId)?.Whitelisted ?? group.Whitelisted;
+    }
+
+    /// <summary>
+    /// Calculates and returns the color for a specific marking based on group coloring rules and prototype settings.
+    /// </summary>
+    /// <param name="marking">The marking whose color is being determined.</param>
+    /// <param name="group">The marking group prototype that may override coloring rules for the marking's category.</param>
+    /// <param name="colorGroups">A dictionary of body color group IDs and their applied colors, used for dynamic color calculations.</param>
+    /// <param name="otherMarkings">A list of other markings present on the entity, used for context in color calculations.</param>
+    /// <returns>The calculated color for the marking, prioritizing group category overrides, then forced prototype coloring, then the marking's stored color.</returns>
+    public Color GetMarkingColor(Marking marking, MarkingGroupPrototype group, Dictionary<ProtoId<BodyColorGroupPrototype>, Color> colorGroups, List<Marking> otherMarkings)
+    {
+        if (!TryGetMarking(marking, out var prototype))
+            return marking.Color;
+
+        if (group.Data.GetValueOrDefault(prototype.Category)?.Coloring is { } coloring)
+            return coloring.GetColor(colorGroups, otherMarkings);
+
+        if (!prototype.ForcedColoring)
+            return marking.Color;
+
+        return GetMarkingColor(prototype, marking.Index, colorGroups, otherMarkings);
     }
 
     /// <summary>
@@ -188,10 +239,7 @@ public sealed class MarkingManager
     /// <returns>A color of marking layer.</returns>
     public Color GetMarkingColor(MarkingPrototype prototype, string index, Dictionary<ProtoId<BodyColorGroupPrototype>, Color> colorGroups, List<Marking> otherMarkings)
     {
-        if (prototype.Coloring.Indexes == null || !prototype.Coloring.Indexes.TryGetValue(index, out var coloring))
-            return prototype.Coloring.Default.GetColor(colorGroups, otherMarkings);
-
-        return coloring.GetColor(colorGroups, otherMarkings);
+        return GetMarkingColoring(prototype, index).GetColor(colorGroups, otherMarkings);
     }
 
     /// <summary>
@@ -335,6 +383,20 @@ public sealed class MarkingManager
     }
 
     /// <summary>
+    /// Gets the color definition for a marking at the specified index.
+    /// </summary>
+    /// <param name="prototype">The marking prototype containing coloring definitions.</param>
+    /// <param name="index">The index key to look up in the coloring indexes.</param>
+    /// <returns>The coloring definition for the specified index, or the default coloring if the index is not found.</returns>
+    public MarkingColoringDefinition GetMarkingColoring(MarkingPrototype prototype, string index)
+    {
+        if (prototype.Coloring.Indexes == null || !prototype.Coloring.Indexes.TryGetValue(index, out var coloring))
+            return prototype.Coloring.Default;
+
+        return coloring;
+    }
+
+    /// <summary>
     /// Ensures that the colors of existing markings are valid according to their prototype's coloring rules,
     /// potentially updating them if they are not. This is particularly relevant for markings with forced coloring.
     /// </summary>
@@ -349,22 +411,93 @@ public sealed class MarkingManager
         for (var i = markings.Count - 1; i >= 0; i--)
         {
             var marking = markings[i];
-            if (!TryGetMarking(marking, out var prototype))
-            {
-                markings.RemoveAt(i);
+
+            var color = GetMarkingColor(marking, group, colorGroups, markings);
+            if (group.Data.TryGetValue(marking.Category, out var data))
+                color = color.WithAlpha(data.Alpha);
+
+            if (color == marking.Color)
                 continue;
-            }
-
-            if (!prototype.ForcedColoring)
-                continue;
-
-            var color = prototype.Coloring.Default.GetColor(colorGroups, markings);
-
-            if (group.CategoriesData.GetValueOrDefault(prototype.Category)?.Coloring is { } coloring
-                || prototype.Coloring.Indexes != null && prototype.Coloring.Indexes.TryGetValue(marking.Index, out coloring))
-                color = coloring.GetColor(colorGroups, markings);
 
             markings[i] = marking.WithColor(color);
+        }
+    }
+
+    /// <summary>
+    /// Ensures that required default markings are present for all categories associated with the given layer.
+    /// If a required category has no markings, the default markings defined in the group prototype will be added.
+    /// </summary>
+    /// <param name="markings">The list of markings to validate. This list will be modified in place if defaults need to be added.</param>
+    /// <param name="layer">The layer whose associated categories should be checked for required defaults.</param>
+    /// <param name="groupId">The marking group id that defines the default marking requirements.</param>
+    /// <param name="colorGroups">A dictionary of body color groups IDs prototypes and their applied colors, used for calculating default marking colors.</param>
+    public void EnsureValidDefault(List<Marking> markings, Enum layer, ProtoId<MarkingGroupPrototype> groupId, Dictionary<ProtoId<BodyColorGroupPrototype>, Color> colorGroups)
+    {
+        if (!_prototype.TryIndex(groupId, out var group))
+            return;
+
+        foreach (var category in GetCategories(layer))
+        {
+            if (!group.Data.TryGetValue(category, out var data))
+                continue;
+
+            if (!data.Required)
+                continue;
+
+            if (markings.Count > 0)
+                continue;
+
+            foreach (var marking in data.Default)
+            {
+                if (!_markings.TryGetValue(marking, out var prototype))
+                    continue;
+
+                var colors = GetMarkingColors(prototype, colorGroups, markings);
+                for (var i = prototype.Definitions.Count - 1; i >= 0; i--)
+                {
+                    var definition = prototype.Definitions[i];
+                    if (!definition.Layer.Equals(layer))
+                        continue;
+
+                    markings.Add(new(colors[i], definition.Layer, prototype.Category, marking, definition.Sprite, definition.Index));
+                }
+            }
+        }
+    }
+
+    /// <summary>
+    /// Ensures that required default markings are present for the specified category.
+    /// If the category is marked as required and has no markings, the default markings defined in the group prototype will be added.
+    /// </summary>
+    /// <param name="markings">The list of markings to validate. This list will be modified in place if defaults need to be added.</param>
+    /// <param name="category">The marking category id to check for required defaults.</param>
+    /// <param name="groupId">The marking group id that defines the default marking requirements.</param>
+    /// <param name="colorGroups">A dictionary of body color groups IDs prototypes and their applied colors, used for calculating default marking colors.</param>
+    public void EnsureValidDefault(List<Marking> markings, ProtoId<MarkingCategoryPrototype> category, ProtoId<MarkingGroupPrototype> groupId, Dictionary<ProtoId<BodyColorGroupPrototype>, Color> colorGroups)
+    {
+        if (!_prototype.TryIndex(groupId, out var group))
+            return;
+
+        if (!group.Data.TryGetValue(category, out var data))
+            return;
+
+        if (!data.Required)
+            return;
+
+        if (markings.Count > 0)
+            return;
+
+        foreach (var marking in data.Default)
+        {
+            if (!_markings.TryGetValue(marking, out var prototype))
+                continue;
+
+            var colors = GetMarkingColors(prototype, colorGroups, markings);
+            for (var i = prototype.Definitions.Count - 1; i >= 0; i--)
+            {
+                var definition = prototype.Definitions[i];
+                markings.Add(new(colors[i], definition.Layer, prototype.Category, marking, definition.Sprite, definition.Index));
+            }
         }
     }
 
@@ -403,56 +536,24 @@ public sealed class MarkingManager
 
         for (var i = markings.Count - 1; i >= 0; i--)
         {
-            if (processed.Contains(markings[i].Id))
+            if (!processed.Add(markings[i].Id))
                 continue;
 
-            if (!TryGetMarking(markings[i], out var prototype))
-            {
-                markings.RemoveAt(i);
-                continue;
-            }
-
-            processed.Add(markings[i].Id);
-
-            if (!group.CategoriesData.TryGetValue(prototype.Category, out var categoryData))
+            if (!TryGetMarking(markings[i], out var prototype)
+                || !group.Data.TryGetValue(prototype.Category, out var data))
             {
                 markings.RemoveAt(i);
                 continue;
             }
 
             var count = counts.GetValueOrDefault(prototype.Category);
-            if (count >= categoryData.Limit)
+            if (count >= data.Limit)
             {
                 markings.RemoveAt(i);
                 continue;
             }
 
             counts[prototype.Category] = count + 1;
-        }
-
-        foreach (var (category, count) in counts)
-        {
-            if (count > 0)
-                continue;
-
-            if (!group.CategoriesData.TryGetValue(category, out var categoryData))
-                continue;
-
-            if (!categoryData.Required)
-                continue;
-
-            foreach (var marking in categoryData.Default)
-            {
-                if (!_markings.TryGetValue(marking, out var markingPrototype))
-                    continue;
-
-                var colors = GetMarkingColors(markingPrototype, colorGroups, markings);
-                for (var i = markingPrototype.Definitions.Count - 1; i >= 0; i--)
-                {
-                    var definition =  markingPrototype.Definitions[i];
-                    markings.Add(new(definition.OverrideAppearance, definition.Layer, markingPrototype.Category, marking, definition.Sprite, definition.Index, colors[i]));
-                }
-            }
         }
     }
 

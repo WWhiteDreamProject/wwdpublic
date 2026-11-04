@@ -1,11 +1,11 @@
 - type: marking
   id: BaseCheliceraeArachnid
-  parents: [BaseChelicerae, BaseArachnid]
+  parent: [BaseChelicerae, BaseArachnid]
   abstract: true
 
 - type: marking
   id: CheliceraeArachnidDownwards
-  parents: BaseCheliceraeArachnid
+  parent: BaseCheliceraeArachnid
   definitions:
   - layer: enum.MarkingVisualLayers.HeadBottom
     sprite:
@@ -14,7 +14,7 @@
 
 - type: marking
   id: CheliceraeArachnidInwards
-  parents: BaseCheliceraeArachnid
+  parent: BaseCheliceraeArachnid
   definitions:
   - layer: enum.MarkingVisualLayers.HeadBottom
     sprite:

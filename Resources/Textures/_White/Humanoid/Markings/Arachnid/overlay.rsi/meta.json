@@ -8,35 +8,35 @@
   },
   "states": [
     {
-      "name": "fuzzy_chest",
+      "name": "fuzzy-chest",
       "directions": 4
     },
     {
-      "name": "fuzzy_head",
+      "name": "fuzzy-head",
       "directions": 4
     },
     {
-      "name": "fuzzy_left_arm",
+      "name": "fuzzy-left_arm",
       "directions": 4
     },
     {
-      "name": "fuzzy_left_hand",
+      "name": "fuzzy-left_hand",
       "directions": 4
     },
     {
-      "name": "fuzzy_left_leg",
+      "name": "fuzzy-left_leg",
       "directions": 4
     },
     {
-      "name": "fuzzy_right_arm",
+      "name": "fuzzy-right_arm",
       "directions": 4
     },
     {
-      "name": "fuzzy_right_hand",
+      "name": "fuzzy-right_hand",
       "directions": 4
     },
     {
-      "name": "fuzzy_right_leg",
+      "name": "fuzzy-right_leg",
       "directions": 4
     }
   ]

@@ -40,7 +40,13 @@
   parent: [BaseBodyProviderEyes, BaseBodyProviderOrganArachnid]
   components:
   - type: BodyAppearanceProvider
-    path: _White/Bodies/Organs/Humanoids/arachnid.rsi
+    entries:
+    - group: Eyes
+      path: _White/Bodies/Organs/Humanoids/arachnid.rsi
+      state: eyes_in-body
+  - type: MarkingsProvider
+    data:
+      group: Arachnid
 
 #Gland
 - type: entity

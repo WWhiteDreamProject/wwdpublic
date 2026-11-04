@@ -306,7 +306,7 @@ public sealed class ServerPreferencesManager : IServerPreferencesManager, IPostI
 
         profile.EnsureValid();
 
-        var characters = new Dictionary<int, HumanoidCharacterProfile>(preferences.Characters);
+        var characters = new Dictionary<int, HumanoidCharacterProfile>(preferences.Characters) { [slot] = profile, };
         preferencesData.Preferences = new (characters, slot, preferences.AdminOOCColor, preferences.CustomGhost);
 
         var session = _player.GetSessionById(user);

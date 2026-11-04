@@ -1,6 +1,6 @@
 - type: marking
   id: BaseOverlayArachnid
-  parents: [BaseOverlay, BaseArachnid]
+  parent: [BaseOverlay, BaseArachnid]
   abstract: true
   forcedColoring: true
   coloring:
@@ -10,37 +10,37 @@
 
 - type: marking
   id: OverlayArachnidFuzzy
-  parents: BaseOverlayArachnid
+  parent: BaseOverlayArachnid
   definitions:
   - layer: enum.BodyProviderType.Chest
     sprite:
       sprite: _White/Humanoid/Markings/Arachnid/overlay.rsi
-      state: fuzzy_chest
+      state: fuzzy-chest
   - layer: enum.BodyProviderType.Head
     sprite:
       sprite: _White/Humanoid/Markings/Arachnid/overlay.rsi
-      state: fuzzy_head
+      state: fuzzy-head
   - layer: enum.BodyProviderType.LeftArm
     sprite:
       sprite: _White/Humanoid/Markings/Arachnid/overlay.rsi
-      state: fuzzy_left_arm
+      state: fuzzy-left_arm
   - layer: enum.BodyProviderType.LeftHand
     sprite:
       sprite: _White/Humanoid/Markings/Arachnid/overlay.rsi
-      state: fuzzy_left_hand
+      state: fuzzy-left_hand
   - layer: enum.BodyProviderType.LeftLeg
     sprite:
       sprite: _White/Humanoid/Markings/Arachnid/overlay.rsi
-      state: fuzzy_left_leg
+      state: fuzzy-left_leg
   - layer: enum.BodyProviderType.RightArm
     sprite:
       sprite: _White/Humanoid/Markings/Arachnid/overlay.rsi
-      state: fuzzy_right_arm
+      state: fuzzy-right_arm
   - layer: enum.BodyProviderType.RightHand
     sprite:
       sprite: _White/Humanoid/Markings/Arachnid/overlay.rsi
-      state: fuzzy_right_hand
+      state: fuzzy-right_hand
   - layer: enum.BodyProviderType.RightLeg
     sprite:
       sprite: _White/Humanoid/Markings/Arachnid/overlay.rsi
-      state: fuzzy_right_leg
+      state: fuzzy-right_leg

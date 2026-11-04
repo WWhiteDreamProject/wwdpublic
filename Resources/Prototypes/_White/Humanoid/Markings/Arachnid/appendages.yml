@@ -1,229 +1,229 @@
 - type: marking
   id: BaseAppendagesArachnid
-  parents: [BaseAppendages, BaseArachnid]
+  parent: [BaseAppendages, BaseArachnid]
   abstract: true
 
 - type: marking
   id: AppendagesArachnidChipped
-  parents: BaseAppendagesArachnid
+  parent: BaseAppendagesArachnid
   definitions:
   - layer: enum.MarkingVisualLayers.ChestBack
     sprite:
       sprite: _White/Humanoid/Markings/Arachnid/appendages.rsi
-      state: chipped_chest_primary
+      state: chipped-chest-primary
     index: primary
   - layer: enum.MarkingVisualLayers.ChestBack
     sprite:
       sprite: _White/Humanoid/Markings/Arachnid/appendages.rsi
-      state: chipped_chest_secondary
+      state: chipped-chest-secondary
     index: secondary
   - layer: enum.MarkingVisualLayers.GroinBack
     sprite:
       sprite: _White/Humanoid/Markings/Arachnid/appendages.rsi
-      state: chipped_groin_primary
+      state: chipped-groin-primary
     index: primary
   - layer: enum.MarkingVisualLayers.GroinBack
     sprite:
       sprite: _White/Humanoid/Markings/Arachnid/appendages.rsi
-      state: chipped_groin_secondary
+      state: chipped-groin-secondary
     index: secondary
 
 - type: marking
   id: AppendagesArachnidCurled
-  parents: BaseAppendagesArachnid
+  parent: BaseAppendagesArachnid
   definitions:
   - layer: enum.MarkingVisualLayers.ChestBack
     sprite:
       sprite: _White/Humanoid/Markings/Arachnid/appendages.rsi
-      state: curled_chest_primary
+      state: curled-chest-primary
     index: primary
   - layer: enum.MarkingVisualLayers.ChestBack
     sprite:
       sprite: _White/Humanoid/Markings/Arachnid/appendages.rsi
-      state: curled_chest_secondary
+      state: curled-chest-secondary
     index: secondary
   - layer: enum.MarkingVisualLayers.GroinBack
     sprite:
       sprite: _White/Humanoid/Markings/Arachnid/appendages.rsi
-      state: curled_groin_primary
+      state: curled-groin-primary
     index: primary
   - layer: enum.MarkingVisualLayers.GroinBack
     sprite:
       sprite: _White/Humanoid/Markings/Arachnid/appendages.rsi
-      state: curled_groin_secondary
+      state: curled-groin-secondary
     index: secondary
 
 - type: marking
   id: AppendagesArachnidFreaky
-  parents: BaseAppendagesArachnid
+  parent: BaseAppendagesArachnid
   definitions:
   - layer: enum.MarkingVisualLayers.ChestBack
     sprite:
       sprite: _White/Humanoid/Markings/Arachnid/appendages.rsi
-      state: freaky_chest_primary
+      state: freaky-chest-primary
     index: primary
   - layer: enum.MarkingVisualLayers.ChestBack
     sprite:
       sprite: _White/Humanoid/Markings/Arachnid/appendages.rsi
-      state: freaky_chest_secondary
+      state: freaky-chest-secondary
     index: secondary
   - layer: enum.MarkingVisualLayers.GroinBack
     sprite:
       sprite: _White/Humanoid/Markings/Arachnid/appendages.rsi
-      state: freaky_groin_primary
+      state: freaky-groin-primary
     index: primary
   - layer: enum.MarkingVisualLayers.GroinBack
     sprite:
       sprite: _White/Humanoid/Markings/Arachnid/appendages.rsi
-      state: freaky_groin_secondary
+      state: freaky-groin-secondary
     index: secondary
 
 - type: marking
   id: AppendagesArachnidHarvest
-  parents: BaseAppendagesArachnid
+  parent: BaseAppendagesArachnid
   definitions:
   - layer: enum.MarkingVisualLayers.ChestBack
     sprite:
       sprite: _White/Humanoid/Markings/Arachnid/appendages.rsi
-      state: harvest_chest_primary
+      state: harvest-chest-primary
     index: primary
   - layer: enum.MarkingVisualLayers.ChestBack
     sprite:
       sprite: _White/Humanoid/Markings/Arachnid/appendages.rsi
-      state: harvest_chest_secondary
+      state: harvest-chest-secondary
     index: secondary
   - layer: enum.MarkingVisualLayers.GroinBack
     sprite:
       sprite: _White/Humanoid/Markings/Arachnid/appendages.rsi
-      state: harvest_groin_primary
+      state: harvest-groin-primary
     index: primary
   - layer: enum.MarkingVisualLayers.GroinBack
     sprite:
       sprite: _White/Humanoid/Markings/Arachnid/appendages.rsi
-      state: harvest_groin_secondary
+      state: harvest-groin-secondary
     index: secondary
 
 - type: marking
   id: AppendagesArachnidLong
-  parents: BaseAppendagesArachnid
+  parent: BaseAppendagesArachnid
   definitions:
   - layer: enum.MarkingVisualLayers.ChestBack
     sprite:
       sprite: _White/Humanoid/Markings/Arachnid/appendages.rsi
-      state: long_chest_primary
+      state: long-chest-primary
     index: primary
   - layer: enum.MarkingVisualLayers.ChestBack
     sprite:
       sprite: _White/Humanoid/Markings/Arachnid/appendages.rsi
-      state: long_chest_secondary
+      state: long-chest-secondary
     index: secondary
   - layer: enum.MarkingVisualLayers.GroinBack
     sprite:
       sprite: _White/Humanoid/Markings/Arachnid/appendages.rsi
-      state: long_groin_primary
+      state: long-groin-primary
     index: primary
   - layer: enum.MarkingVisualLayers.GroinBack
     sprite:
       sprite: _White/Humanoid/Markings/Arachnid/appendages.rsi
-      state: long_groin_secondary
+      state: long-groin-secondary
     index: secondary
 
 - type: marking
   id: AppendagesArachnidSharp
-  parents: BaseAppendagesArachnid
+  parent: BaseAppendagesArachnid
   definitions:
   - layer: enum.MarkingVisualLayers.ChestBack
     sprite:
       sprite: _White/Humanoid/Markings/Arachnid/appendages.rsi
-      state: sharp_chest_primary
+      state: sharp-chest-primary
     index: primary
   - layer: enum.MarkingVisualLayers.ChestBack
     sprite:
       sprite: _White/Humanoid/Markings/Arachnid/appendages.rsi
-      state: sharp_chest_secondary
+      state: sharp-chest-secondary
     index: secondary
   - layer: enum.MarkingVisualLayers.GroinBack
     sprite:
       sprite: _White/Humanoid/Markings/Arachnid/appendages.rsi
-      state: sharp_groin_primary
+      state: sharp-groin-primary
     index: primary
   - layer: enum.MarkingVisualLayers.GroinBack
     sprite:
       sprite: _White/Humanoid/Markings/Arachnid/appendages.rsi
-      state: sharp_groin_secondary
+      state: sharp-groin-secondary
     index: secondary
 
 - type: marking
   id: AppendagesArachnidShort
-  parents: BaseAppendagesArachnid
+  parent: BaseAppendagesArachnid
   definitions:
   - layer: enum.MarkingVisualLayers.ChestBack
     sprite:
       sprite: _White/Humanoid/Markings/Arachnid/appendages.rsi
-      state: short_chest_primary
+      state: short-chest-primary
     index: primary
   - layer: enum.MarkingVisualLayers.ChestBack
     sprite:
       sprite: _White/Humanoid/Markings/Arachnid/appendages.rsi
-      state: short_chest_secondary
+      state: short-chest-secondary
     index: secondary
   - layer: enum.MarkingVisualLayers.GroinBack
     sprite:
       sprite: _White/Humanoid/Markings/Arachnid/appendages.rsi
-      state: short_groin_primary
+      state: short-groin-primary
     index: primary
   - layer: enum.MarkingVisualLayers.GroinBack
     sprite:
       sprite: _White/Humanoid/Markings/Arachnid/appendages.rsi
-      state: short_groin_secondary
+      state: short-groin-secondary
     index: secondary
 
 - type: marking
   id: AppendagesArachnidStingers
-  parents: BaseAppendagesArachnid
+  parent: BaseAppendagesArachnid
   definitions:
   - layer: enum.MarkingVisualLayers.ChestBack
     sprite:
       sprite: _White/Humanoid/Markings/Arachnid/appendages.rsi
-      state: stingers_chest_primary
+      state: stingers-chest-primary
     index: primary
   - layer: enum.MarkingVisualLayers.ChestBack
     sprite:
       sprite: _White/Humanoid/Markings/Arachnid/appendages.rsi
-      state: stingers_chest_secondary
+      state: stingers-chest-secondary
     index: secondary
   - layer: enum.MarkingVisualLayers.GroinBack
     sprite:
       sprite: _White/Humanoid/Markings/Arachnid/appendages.rsi
-      state: stingers_groin_primary
+      state: stingers-groin-primary
     index: primary
   - layer: enum.MarkingVisualLayers.GroinBack
     sprite:
       sprite: _White/Humanoid/Markings/Arachnid/appendages.rsi
-      state: stingers_groin_secondary
+      state: stingers-groin-secondary
     index: secondary
 
 - type: marking
   id: AppendagesArachnidZigZag
-  parents: BaseAppendagesArachnid
+  parent: BaseAppendagesArachnid
   definitions:
   - layer: enum.MarkingVisualLayers.ChestBack
     sprite:
       sprite: _White/Humanoid/Markings/Arachnid/appendages.rsi
-      state: zig_zag_chest_primary
+      state: zig_zag-chest-primary
     index: primary
   - layer: enum.MarkingVisualLayers.ChestBack
     sprite:
       sprite: _White/Humanoid/Markings/Arachnid/appendages.rsi
-      state: zig_zag_chest_secondary
+      state: zig_zag-chest-secondary
     index: secondary
   - layer: enum.MarkingVisualLayers.GroinBack
     sprite:
       sprite: _White/Humanoid/Markings/Arachnid/appendages.rsi
-      state: zig_zag_groin_primary
+      state: zig_zag-groin-primary
     index: primary
   - layer: enum.MarkingVisualLayers.GroinBack
     sprite:
       sprite: _White/Humanoid/Markings/Arachnid/appendages.rsi
-      state: zig_zag_groin_secondary
+      state: zig_zag-groin-secondary
     index: secondary

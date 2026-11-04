@@ -21,7 +21,7 @@
   id: BodyProviderCoxaeDwarf
   parent: [BaseBodyProviderCoxae, BaseBodyProviderBoneDwarf]
 
-# Skull / Сranium
+# Skull / Cranium
 - type: entity
   id: BodyProviderCraniumDwarf
   parent: [BaseBodyProviderCranium, BaseBodyProviderBoneDwarf]

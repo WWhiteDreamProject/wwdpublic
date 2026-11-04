@@ -1,61 +1,128 @@
 - type: entity
   id: BaseBodyProviderPartHuman
-  parent: BaseBodyProviderPartOrganic
+  parent: [BaseBodyProviderPartAppearance, BaseBodyProviderPartOrganic]
   abstract: true
   suffix: Human
   components:
-  - type: BodyAppearanceProvider
-    path: _White/Bodies/Parts/Humanoids/human.rsi
+  - type: MarkingsProvider
+    data:
+      group: Human
   - type: Sprite
     sprite: _White/Bodies/Parts/Humanoids/human.rsi
 
 # Arms
 - type: entity
   id: BodyProviderLeftArmHuman
-  parent: [BaseBodyProviderLeftArmOrganic, BaseBodyProviderPartHuman]
+  parent: [BaseBodyProviderPartHuman, BaseBodyProviderLeftArmAppearance, BaseBodyProviderLeftArmOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/human.rsi
+      state: left_arm
 
 - type: entity
   id: BodyProviderRightArmHuman
-  parent: [BaseBodyProviderRightArmOrganic, BaseBodyProviderPartHuman]
+  parent: [BaseBodyProviderPartHuman, BaseBodyProviderRightArmAppearance, BaseBodyProviderRightArmOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/human.rsi
+      state: right_arm
 
 # Chest
 - type: entity
   id: BodyProviderChestHuman
-  parent: [BaseBodyProviderChestOrganic, BaseBodyProviderPartHuman]
+  parent: [BaseBodyProviderPartHuman, BaseBodyProviderChestAppearance, BaseBodyProviderChestOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/human.rsi
+      state: chest
 
 # Foots
 - type: entity
   id: BodyProviderLeftFootHuman
-  parent: [BaseBodyProviderLeftFootOrganic, BaseBodyProviderPartHuman]
+  parent: [BaseBodyProviderPartHuman, BaseBodyProviderLeftFootAppearance, BaseBodyProviderLeftFootOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/human.rsi
+      state: left_foot
 
 - type: entity
   id: BodyProviderRightFootHuman
-  parent: [BaseBodyProviderRightFootOrganic, BaseBodyProviderPartHuman]
+  parent: [BaseBodyProviderPartHuman, BaseBodyProviderRightFootAppearance, BaseBodyProviderRightFootOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/human.rsi
+      state: right_foot
 
 # Groin
 - type: entity
   id: BodyProviderGroinHuman
-  parent: [BaseBodyProviderGroinOrganic, BaseBodyProviderPartHuman]
+  parent: [BaseBodyProviderPartHuman, BaseBodyProviderGroinAppearance, BaseBodyProviderGroinOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/human.rsi
+      state: groin
 
 # Hands
 - type: entity
   id: BodyProviderLeftHandHuman
-  parent: [BaseBodyProviderLeftHandOrganic, BaseBodyProviderPartHuman]
+  parent: [BaseBodyProviderPartHuman, BaseBodyProviderLeftHandAppearance, BaseBodyProviderLeftHandOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/human.rsi
+      state: left_hand
 
 - type: entity
   id: BodyProviderRightHandHuman
-  parent: [BaseBodyProviderRightHandOrganic, BaseBodyProviderPartHuman]
+  parent: [BaseBodyProviderPartHuman, BaseBodyProviderRightHandAppearance, BaseBodyProviderRightHandOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/human.rsi
+      state: right_hand
 
 # Head
 - type: entity
   id: BodyProviderHeadHuman
-  parent: [BaseBodyProviderHeadOrganic, BaseBodyProviderPartHuman]
+  parent: [BaseBodyProviderPartHuman, BaseBodyProviderHeadAppearance, BaseBodyProviderHeadOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/human.rsi
+      state: head
 
 # Legs
 - type: entity
   id: BodyProviderLeftLegHuman
-  parent: [BaseBodyProviderLeftLegOrganic, BaseBodyProviderPartHuman]
+  parent: [BaseBodyProviderPartHuman, BaseBodyProviderLeftLegAppearance, BaseBodyProviderLeftLegOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/human.rsi
+      state: left_leg
 
 - type: entity
   id: BodyProviderRightLegHuman
-  parent: [BaseBodyProviderRightLegOrganic, BaseBodyProviderPartHuman]
+  parent: [BaseBodyProviderPartHuman, BaseBodyProviderRightLegAppearance, BaseBodyProviderRightLegOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/human.rsi
+      state: right_leg 

@@ -5,7 +5,7 @@
   requirements:
     - !type:CharacterSpeciesRequirement
       species:
-        - SlimePerson
+        - Slime
         - Vox
     - !type:CharacterItemGroupRequirement
       group: LoadoutAirTank
@@ -19,7 +19,7 @@
   requirements:
     - !type:CharacterSpeciesRequirement
       species:
-        - SlimePerson
+        - Slime
         - Vox
     - !type:CharacterItemGroupRequirement
       group: LoadoutAirTank
@@ -33,7 +33,7 @@
   requirements:
     - !type:CharacterSpeciesRequirement
       species:
-        - SlimePerson
+        - Slime
         - Vox
     - !type:CharacterItemGroupRequirement
       group: LoadoutAirTank

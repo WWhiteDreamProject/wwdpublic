@@ -1,6 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared._White.Body.Components;
 using Robust.Shared.Containers;
+using Robust.Shared.GameStates;
 
 namespace Content.Shared._White.Body.Systems;
 
@@ -8,36 +9,84 @@ public abstract partial class SharedBodySystem
 {
     private void InitializeProvider()
     {
+        SubscribeLocalEvent<BodyProviderComponent, ComponentGetState>(OnGetState);
+        SubscribeLocalEvent<BodyProviderComponent, ComponentHandleState>(OnHandleState);
         SubscribeLocalEvent<BodyProviderComponent, EntGotInsertedIntoContainerMessage>(OnEntGotInsertedIntoContainer);
         SubscribeLocalEvent<BodyProviderComponent, EntGotRemovedFromContainerMessage>(OnEntGotRemovedFromContainer);
     }
 
     #region Event Handling
 
+    private void OnGetState(Entity<BodyProviderComponent> ent, ref ComponentGetState args)
+    {
+        args.State = new BodyProviderComponentState(ent.Comp, EntityManager);
+    }
+
+    private void OnHandleState(Entity<BodyProviderComponent> ent, ref ComponentHandleState args)
+    {
+        if (args.Current is not BodyProviderComponentState state)
+            return;
+
+        foreach (var (key, slot) in ent.Comp.Providers)
+        {
+            if (state.Providers.ContainsKey(key) || slot.ContainerSlot == null)
+                continue;
+
+            _container.ShutdownContainer(slot.ContainerSlot);
+            ent.Comp.Providers.Remove(key);
+        }
+
+        foreach (var (key, slot) in state.Providers)
+        {
+            if (ent.Comp.Providers.TryGetValue(key, out var originSlot))
+            {
+                originSlot.Copy(slot);
+                originSlot.ContainerSlot = _container.EnsureContainer<ContainerSlot>(ent, GetProviderSlotContainerId(key));
+                continue;
+            }
+
+            originSlot = new (slot) { ContainerSlot = _container.EnsureContainer<ContainerSlot>(ent, GetProviderSlotContainerId(key)), };
+            ent.Comp.Providers[key] = originSlot;
+        }
+
+        ent.Comp.Body = GetEntity(state.Body);
+        ent.Comp.Parent = GetEntity(state.Parent);
+        ent.Comp.Ancestors = GetEntitySet(state.Ancestors);
+    }
+
     private void OnEntGotInsertedIntoContainer(Entity<BodyProviderComponent> ent, ref EntGotInsertedIntoContainerMessage args)
     {
         var containerSlotId = args.Container.ID;
-        if (containerSlotId.IndexOf(ProviderSlotContainerIdPrefix, StringComparison.Ordinal) == -1)
+        if (!containerSlotId.Contains(ProviderSlotContainerIdPrefix))
             return;
 
         var parent = args.Container.Owner;
+
         Entity<BodyComponent>? body = null;
-
-        ent.Comp.Parent = parent;
-        DirtyField(ent, ent.Comp, nameof(BodyProviderComponent.Parent));
-
         if (_bodyQuery.TryComp(parent, out var bodyComp))
             body = (parent, bodyComp);
 
         if (_providerQuery.TryComp(parent, out var providerComp))
         {
+            ent.Comp.Parent = parent;
+            Dirty(ent);
+
             var parentEv = new BodyProviderInsertedIntoEvent(ent);
             RaiseLocalEvent(parent, ref parentEv);
 
             var providerEv = new BodyProviderGotInsertedIntoParentEvent((parent, providerComp), ent);
             RaiseLocalEvent(ent, ref providerEv);
 
-            if (!providerComp.Body.HasValue || !Resolve(providerComp.Body.Value, ref bodyComp))
+            var ancestors = new HashSet<EntityUid>(providerComp.Ancestors);
+            if (providerComp.Parent.HasValue)
+                ancestors.Add(providerComp.Parent.Value);
+
+            OnInsertedIntoAncestors(ent, ancestors);
+
+            if (!providerComp.Body.HasValue)
+                return;
+
+            if (!_bodyQuery.TryComp(providerComp.Body.Value, out bodyComp))
                 return;
 
             body = (providerComp.Body.Value, bodyComp);
@@ -46,15 +95,33 @@ public abstract partial class SharedBodySystem
         if (!body.HasValue)
             return;
 
-        ProviderInserted(ent, body.Value);
+        OnInserted(ent, body.Value);
         Dirty(body.Value);
     }
 
     private void OnEntGotRemovedFromContainer(Entity<BodyProviderComponent> ent, ref EntGotRemovedFromContainerMessage args)
     {
         var containerSlotId = args.Container.ID;
-        if (containerSlotId.IndexOf(ProviderSlotContainerIdPrefix, StringComparison.Ordinal) == -1)
+        if (!containerSlotId.Contains(ProviderSlotContainerIdPrefix))
             return;
+
+        if (ent.Comp.Parent is { } parent && _providerQuery.TryComp(parent, out var providerComp))
+        {
+            ent.Comp.Parent = null;
+            Dirty(ent);
+
+            var parentEv = new BodyProviderRemovedFromEvent(ent);
+            RaiseLocalEvent(parent, ref parentEv);
+
+            var providerEv = new BodyProviderGotRemovedFromParentEvent((parent, providerComp), ent);
+            RaiseLocalEvent(ent, ref providerEv);
+
+            var ancestors = new HashSet<EntityUid>(providerComp.Ancestors);
+            if (providerComp.Parent.HasValue)
+                ancestors.Add(providerComp.Parent.Value);
+
+            OnRemovedFromAncestors(ent, ancestors);
+        }
 
         if (ent.Comp.Body is not {} body)
             return;
@@ -62,7 +129,7 @@ public abstract partial class SharedBodySystem
         if (!_bodyQuery.TryComp(body, out var bodyComp))
             return;
 
-        ProviderRemoved(ent, (body, bodyComp));
+        OnRemoved(ent, (body, bodyComp));
         Dirty(body, bodyComp);
     }
 
@@ -126,7 +193,7 @@ public abstract partial class SharedBodySystem
             Dirty(ent.Comp.Body.Value, bodyComp);
         }
 
-        DirtyField(ent, ent.Comp, nameof(BodyProviderComponent.Providers));
+        Dirty(ent);
         return true;
     }
 
@@ -234,7 +301,7 @@ public abstract partial class SharedBodySystem
 
     #region Private API
 
-    private void ProviderInserted(Entity<BodyProviderComponent> ent, Entity<BodyComponent> body)
+    private void OnInserted(Entity<BodyProviderComponent> ent, Entity<BodyComponent> body)
     {
         var bodyEv = new BodyProviderInsertedIntoEvent(ent);
         RaiseLocalEvent(body, ref bodyEv);
@@ -250,17 +317,34 @@ public abstract partial class SharedBodySystem
             if (slot.ProviderUid is not {} provider || !_providerQuery.TryComp(provider, out var providerComp))
                 continue;
 
-            ProviderInserted((provider, providerComp), body);
+            OnInserted((provider, providerComp), body);
         }
 
         if (ent.Comp.Body == body)
             return;
 
         ent.Comp.Body = body;
-        DirtyField(ent, ent.Comp, nameof(BodyProviderComponent.Body));
+        Dirty(ent);
     }
 
-    private void ProviderRemoved(Entity<BodyProviderComponent> ent, Entity<BodyComponent> body)
+    private void OnInsertedIntoAncestors(Entity<BodyProviderComponent> ent, HashSet<EntityUid> ancestors)
+    {
+        ent.Comp.Ancestors.UnionWith(ancestors);
+        Dirty(ent);
+
+        var ev = new BodyProviderGotInsertedIntoAncestorsEvent(ancestors, ent);
+        RaiseLocalEvent(ent, ref ev);
+
+        foreach (var slot in ent.Comp.Providers.Values)
+        {
+            if (slot.ProviderUid is not {} provider || !_providerQuery.TryComp(provider, out var providerComp))
+                continue;
+
+            OnRemovedFromAncestors((provider, providerComp), ancestors);
+        }
+    }
+
+    private void OnRemoved(Entity<BodyProviderComponent> ent, Entity<BodyComponent> body)
     {
         var bodyEv = new BodyProviderRemovedFromEvent(ent);
         RaiseLocalEvent(body, ref bodyEv);
@@ -276,17 +360,28 @@ public abstract partial class SharedBodySystem
             if (slot.ProviderUid is not {} provider || !_providerQuery.TryComp(provider, out var providerComp))
                 continue;
 
-            ProviderRemoved((provider, providerComp), body);
+            OnRemoved((provider, providerComp), body);
         }
 
         ent.Comp.Body = null;
-        DirtyField(ent, ent.Comp, nameof(BodyProviderComponent.Body));
+        Dirty(ent);
+    }
 
-        if (body.Owner != ent.Comp.Parent)
-            return;
+    private void OnRemovedFromAncestors(Entity<BodyProviderComponent> ent, HashSet<EntityUid> ancestors)
+    {
+        ent.Comp.Ancestors.ExceptWith(ancestors);
+        Dirty(ent);
 
-        ent.Comp.Parent = null;
-        DirtyField(ent, ent.Comp, nameof(BodyProviderComponent.Parent));
+        var ev = new BodyProviderGotRemovedFromAncestorsEvent(ancestors, ent);
+        RaiseLocalEvent(ent, ref ev);
+
+        foreach (var slot in ent.Comp.Providers.Values)
+        {
+            if (slot.ProviderUid is not {} provider || !_providerQuery.TryComp(provider, out var providerComp))
+                continue;
+
+            OnRemovedFromAncestors((provider, providerComp), ancestors);
+        }
     }
 
     private void SetupProvider(BodyProviderSlot slot, Entity<BodyComponent> body, EntityUid parent, string id)
@@ -304,7 +399,6 @@ public abstract partial class SharedBodySystem
             || string.IsNullOrEmpty(slot.StartingProvider))
             return;
 
-        // TODO: When RT#6192 is merged replace this all with TrySpawnInContainer...
         var provider = Spawn(slot.StartingProvider, _transform.GetMoverCoordinates(body));
         if (!_providerQuery.TryComp(provider, out var providerComp))
         {
@@ -329,7 +423,7 @@ public abstract partial class SharedBodySystem
             providerComp.Providers.Add(childId, childSlot);
         }
 
-        DirtyField(provider, providerComp, nameof(BodyProviderComponent.Providers));
+        Dirty(provider, providerComp);
     }
 
     #endregion

@@ -18,7 +18,7 @@ public interface IColorationStrategy
     bool VerifyColor(Color color);
 
     /// <summary>
-    /// Returns the closest  color that this strategy would provide to the given <see cref="Color" />.
+    /// Returns the closest color that this strategy would provide to the given <see cref="Color" />.
     /// </summary>
     Color ClosestColor(Color color);
 
@@ -28,9 +28,7 @@ public interface IColorationStrategy
     Color EnsureVerified(Color color)
     {
         if (VerifyColor(color))
-        {
             return color;
-        }
 
         return ClosestColor(color);
     }

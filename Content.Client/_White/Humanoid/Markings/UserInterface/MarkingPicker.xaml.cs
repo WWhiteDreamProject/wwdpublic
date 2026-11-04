@@ -70,7 +70,9 @@ public sealed partial class MarkingPicker : Control
             i++;
         }
 
-        MarkingTabs.CurrentTab = 0;
-        MarkingTabs.TabsVisible = i > 1;
+        if (i <= 0)
+            return;
+
+        MarkingTabs.SetCurrentTab(0);
     }
 }

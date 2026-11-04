@@ -1,12 +1,12 @@
 - type: markingGroup
   id: Diona
   parent: Undergarments
-  onlyGroupWhitelisted: true
-  categoriesData:
+  whitelisted: true
+  data:
     Hair:
       limit: 3
     Earrings:
-      onlyGroupWhitelisted: false
+      whitelisted: false
       limit: 2
     Overlay:
       required: true

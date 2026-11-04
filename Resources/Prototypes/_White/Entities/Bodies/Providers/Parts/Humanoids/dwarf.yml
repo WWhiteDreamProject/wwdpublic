@@ -1,61 +1,128 @@
 - type: entity
   id: BaseBodyProviderPartDwarf
-  parent: BaseBodyProviderPartOrganic
+  parent: [BaseBodyProviderPartAppearance, BaseBodyProviderPartOrganic]
   abstract: true
   suffix: Dwarf
   components:
-  - type: BodyAppearanceProvider
-    path: _White/Bodies/Parts/Humanoids/human.rsi
+  - type: MarkingsProvider
+    data:
+      group: Human
   - type: Sprite
     sprite: _White/Bodies/Parts/Humanoids/human.rsi
 
 # Arms
 - type: entity
   id: BodyProviderLeftArmDwarf
-  parent: [BaseBodyProviderLeftArmOrganic, BaseBodyProviderPartDwarf]
+  parent: [BaseBodyProviderPartDwarf, BaseBodyProviderLeftArmAppearance, BaseBodyProviderLeftArmOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/human.rsi
+      state: left_arm
 
 - type: entity
   id: BodyProviderRightArmDwarf
-  parent: [BaseBodyProviderRightArmOrganic, BaseBodyProviderPartDwarf]
+  parent: [BaseBodyProviderPartDwarf, BaseBodyProviderRightArmAppearance, BaseBodyProviderRightArmOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/human.rsi
+      state: right_arm
 
 # Chest
 - type: entity
   id: BodyProviderChestDwarf
-  parent: [BaseBodyProviderChestOrganic, BaseBodyProviderPartDwarf]
+  parent: [BaseBodyProviderPartDwarf, BaseBodyProviderChestAppearance, BaseBodyProviderChestOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/human.rsi
+      state: chest
 
 # Foots
 - type: entity
   id: BodyProviderLeftFootDwarf
-  parent: [BaseBodyProviderLeftFootOrganic, BaseBodyProviderPartDwarf]
+  parent: [BaseBodyProviderPartDwarf, BaseBodyProviderLeftFootAppearance, BaseBodyProviderLeftFootOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/human.rsi
+      state: left_foot
 
 - type: entity
   id: BodyProviderRightFootDwarf
-  parent: [BaseBodyProviderRightFootOrganic, BaseBodyProviderPartDwarf]
+  parent: [BaseBodyProviderPartDwarf, BaseBodyProviderRightFootAppearance, BaseBodyProviderRightFootOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/human.rsi
+      state: right_foot
 
 # Groin
 - type: entity
   id: BodyProviderGroinDwarf
-  parent: [BaseBodyProviderGroinOrganic, BaseBodyProviderPartDwarf]
+  parent: [BaseBodyProviderPartDwarf, BaseBodyProviderGroinAppearance, BaseBodyProviderGroinOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/human.rsi
+      state: groin
 
 # Hands
 - type: entity
   id: BodyProviderLeftHandDwarf
-  parent: [BaseBodyProviderLeftHandOrganic, BaseBodyProviderPartDwarf]
+  parent: [BaseBodyProviderPartDwarf, BaseBodyProviderLeftHandAppearance, BaseBodyProviderLeftHandOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/human.rsi
+      state: left_hand
 
 - type: entity
   id: BodyProviderRightHandDwarf
-  parent: [BaseBodyProviderRightHandOrganic, BaseBodyProviderPartDwarf]
+  parent: [BaseBodyProviderPartDwarf, BaseBodyProviderRightHandAppearance, BaseBodyProviderRightHandOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/human.rsi
+      state: right_hand
 
 # Head
 - type: entity
   id: BodyProviderHeadDwarf
-  parent: [BaseBodyProviderHeadOrganic, BaseBodyProviderPartDwarf]
+  parent: [BaseBodyProviderPartDwarf, BaseBodyProviderHeadAppearance, BaseBodyProviderHeadOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/human.rsi
+      state: head
 
 # Legs
 - type: entity
   id: BodyProviderLeftLegDwarf
-  parent: [BaseBodyProviderLeftLegOrganic, BaseBodyProviderPartDwarf]
+  parent: [BaseBodyProviderPartDwarf, BaseBodyProviderLeftLegAppearance, BaseBodyProviderLeftLegOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/human.rsi
+      state: left_leg
 
 - type: entity
   id: BodyProviderRightLegDwarf
-  parent: [BaseBodyProviderRightLegOrganic, BaseBodyProviderPartDwarf]
+  parent: [BaseBodyProviderPartDwarf, BaseBodyProviderRightLegAppearance, BaseBodyProviderRightLegOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/human.rsi
+      state: right_leg 

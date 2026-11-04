@@ -1,0 +1,41 @@
+- type: marking
+  id: BaseUndergarmentTopVox
+  parent: [BaseUndergarmentTop, BaseVox]
+  abstract: true
+
+- type: marking
+  id: UndergarmentTopVoxBinder
+  parent: BaseUndergarmentTopVox
+  definitions:
+  - layer: enum.MarkingVisualLayers.UndergarmentTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/undergarment_top.rsi
+      state: binder
+
+- type: marking
+  id: UndergarmentTopVoxBraClassic
+  parent: BaseUndergarmentTopVox
+  definitions:
+  - layer: enum.MarkingVisualLayers.UndergarmentTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/undergarment_top.rsi
+      state: bra_classic
+
+- type: marking
+  id: UndergarmentTopVoxBraSports
+  parent: BaseUndergarmentTopVox
+  definitions:
+  - layer: enum.MarkingVisualLayers.UndergarmentTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/undergarment_top.rsi
+      state: bra_sports
+
+- type: marking
+  id: UndergarmentTopVoxTanktop
+  parent: BaseUndergarmentTopVox
+  definitions:
+  - layer: enum.MarkingVisualLayers.UndergarmentTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Vox/undergarment_top.rsi
+      state: tanktop
+

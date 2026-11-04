@@ -1,5 +1,6 @@
 - type: species
   id: Oni
+  setPreference: true
   defaultColors:
     Eyes: "#1C7847"
     Skin: "#AB5150"

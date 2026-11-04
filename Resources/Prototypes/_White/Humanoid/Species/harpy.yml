@@ -3,9 +3,11 @@
   setPreference: true
   defaultColors:
     Eyes: "#E79C4A"
+    Feathers: "#964B00"
     Skin: "#C0967F"
   colorations:
     Eyes: Simple
+    Feathers: Simple
     Skin: HumanTone
   doll: HumanoidDollHarpy
   prototype: MobHumanoidHarpy

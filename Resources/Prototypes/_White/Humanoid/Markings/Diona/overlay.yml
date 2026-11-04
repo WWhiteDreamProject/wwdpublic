@@ -1,56 +1,56 @@
 - type: marking
   id: BaseOverlayDiona
-  parents: [BaseOverlay, BaseDiona]
+  parent: [BaseOverlay, BaseDiona]
   abstract: true
 
 - type: marking
   id: OverlayDionaVine
-  parents: BaseOverlayDiona
+  parent: BaseOverlayDiona
   definitions:
   - layer: enum.BodyProviderType.Chest
     sprite:
       sprite: _White/Humanoid/Markings/Diona/overlay.rsi
-      state: vine_chest
+      state: vine-chest
   - layer: enum.BodyProviderType.Groin
     sprite:
       sprite: _White/Humanoid/Markings/Diona/overlay.rsi
-      state: vine_groin
+      state: vine-groin
   - layer: enum.BodyProviderType.Head
     sprite:
       sprite: _White/Humanoid/Markings/Diona/overlay.rsi
-      state: vine_head
+      state: vine-head
   - layer: enum.BodyProviderType.LeftArm
     sprite:
       sprite: _White/Humanoid/Markings/Diona/overlay.rsi
-      state: vine_left_arm
+      state: vine-left_arm
   - layer: enum.BodyProviderType.LeftFoot
     sprite:
       sprite: _White/Humanoid/Markings/Diona/overlay.rsi
-      state: vine_left_foot
+      state: vine-left_foot
   - layer: enum.BodyProviderType.LeftHand
     sprite:
       sprite: _White/Humanoid/Markings/Diona/overlay.rsi
-      state: vine_left_hand
+      state: vine-left_hand
   - layer: enum.BodyProviderType.LeftLeg
     sprite:
       sprite: _White/Humanoid/Markings/Diona/overlay.rsi
-      state: vine_left_leg
+      state: vine-left_leg
   - layer: enum.BodyProviderType.RightArm
     sprite:
       sprite: _White/Humanoid/Markings/Diona/overlay.rsi
-      state: vine_right_arm
+      state: vine-right_arm
   - layer: enum.BodyProviderType.RightFoot
     sprite:
       sprite: _White/Humanoid/Markings/Diona/overlay.rsi
-      state: vine_right_foot
+      state: vine-right_foot
   - layer: enum.BodyProviderType.RightHand
     sprite:
       sprite: _White/Humanoid/Markings/Diona/overlay.rsi
-      state: vine_right_hand
+      state: vine-right_hand
   - layer: enum.BodyProviderType.RightLeg
     sprite:
       sprite: _White/Humanoid/Markings/Diona/overlay.rsi
-      state: vine_right_leg
+      state: vine-right_leg
   coloring:
     default:
       type: !type:SimpleColoring

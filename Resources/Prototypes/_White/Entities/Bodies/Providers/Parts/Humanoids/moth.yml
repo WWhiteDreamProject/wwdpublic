@@ -1,66 +1,139 @@
 - type: entity
   id: BaseBodyProviderPartMoth
-  parent: BaseBodyProviderPartOrganic
+  parent: [BaseBodyProviderPartAppearance, BaseBodyProviderPartOrganic]
   abstract: true
   suffix: Moth
   components:
-  - type: BodyAppearanceProvider
-    path: _White/Bodies/Parts/Humanoids/moth.rsi
+  - type: MarkingsProvider
+    data:
+      group: Moth
   - type: Sprite
     sprite: _White/Bodies/Parts/Humanoids/moth.rsi
 
 # Arms
 - type: entity
   id: BodyProviderLeftArmMoth
-  parent: [BaseBodyProviderLeftArmOrganic, BaseBodyProviderPartMoth]
+  parent: [BaseBodyProviderPartMoth, BaseBodyProviderLeftArmAppearance, BaseBodyProviderLeftArmOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/moth.rsi
+      state: left_arm
 
 - type: entity
   id: BodyProviderRightArmMoth
-  parent: [BaseBodyProviderRightArmOrganic, BaseBodyProviderPartMoth]
+  parent: [BaseBodyProviderPartMoth, BaseBodyProviderRightArmAppearance, BaseBodyProviderRightArmOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/moth.rsi
+      state: right_arm
 
 # Chest
 - type: entity
   id: BodyProviderChestMoth
-  parent: [BaseBodyProviderChestOrganic, BaseBodyProviderPartMoth]
+  parent: [BaseBodyProviderPartMoth, BaseBodyProviderChestAppearance, BaseBodyProviderChestOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/moth.rsi
+      state: chest
 
 # Foots
 - type: entity
   id: BodyProviderLeftFootMoth
-  parent: [BaseBodyProviderLeftFootOrganic, BaseBodyProviderPartMoth]
+  parent: [BaseBodyProviderPartMoth, BaseBodyProviderLeftFootAppearance, BaseBodyProviderLeftFootOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/moth.rsi
+      state: left_foot
 
 - type: entity
   id: BodyProviderRightFootMoth
-  parent: [BaseBodyProviderRightFootOrganic, BaseBodyProviderPartMoth]
+  parent: [BaseBodyProviderPartMoth, BaseBodyProviderRightFootAppearance, BaseBodyProviderRightFootOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/moth.rsi
+      state: right_foot
 
 # Groin
 - type: entity
   id: BodyProviderGroinMoth
-  parent: [BaseBodyProviderGroinOrganic, BaseBodyProviderPartMoth]
+  parent: [BaseBodyProviderPartMoth, BaseBodyProviderGroinAppearance, BaseBodyProviderGroinOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/moth.rsi
+      state: groin
 
 # Hands
 - type: entity
   id: BodyProviderLeftHandMoth
-  parent: [BaseBodyProviderLeftHandOrganic, BaseBodyProviderPartMoth]
+  parent: [BaseBodyProviderPartMoth, BaseBodyProviderLeftHandAppearance, BaseBodyProviderLeftHandOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/moth.rsi
+      state: left_hand
 
 - type: entity
   id: BodyProviderRightHandMoth
-  parent: [BaseBodyProviderRightHandOrganic, BaseBodyProviderPartMoth]
+  parent: [BaseBodyProviderPartMoth, BaseBodyProviderRightHandAppearance, BaseBodyProviderRightHandOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/moth.rsi
+      state: right_hand
 
 # Head
 - type: entity
   id: BodyProviderHeadMoth
-  parent: [BaseBodyProviderHeadOrganic, BaseBodyProviderPartMoth]
+  parent: [BaseBodyProviderPartMoth, BaseBodyProviderHeadAppearance, BaseBodyProviderHeadOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/moth.rsi
+      state: head
 
 # Legs
 - type: entity
   id: BodyProviderLeftLegMoth
-  parent: [BaseBodyProviderLeftLegOrganic, BaseBodyProviderPartMoth]
+  parent: [BaseBodyProviderPartMoth, BaseBodyProviderLeftLegAppearance, BaseBodyProviderLeftLegOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/moth.rsi
+      state: left_leg
 
 - type: entity
   id: BodyProviderRightLegMoth
-  parent: [BaseBodyProviderRightLegOrganic, BaseBodyProviderPartMoth]
+  parent: [BaseBodyProviderPartMoth, BaseBodyProviderRightLegAppearance, BaseBodyProviderRightLegOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/moth.rsi
+      state: right_leg
 
 # Wings
 - type: entity
   id: BodyProviderWingsMoth
-  parent: [BaseBodyProviderWingsOrganic, BaseBodyProviderPartMoth]
+  parent: [BaseBodyProviderPartMoth, BaseBodyProviderWingsAppearance, BaseBodyProviderWingsOrganic]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/moth.rsi
+      state: wings

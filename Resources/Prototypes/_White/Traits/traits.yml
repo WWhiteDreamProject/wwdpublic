@@ -45,7 +45,7 @@
     species:
     - Arachnid
     - IPC
-    - SlimePerson
+    - Slime
   functions:
   - !type:TraitAddMetabolizerTypes
     metabolizerTypes:

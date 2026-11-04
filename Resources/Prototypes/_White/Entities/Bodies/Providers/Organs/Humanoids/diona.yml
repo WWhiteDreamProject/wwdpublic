@@ -57,8 +57,9 @@
   id: BodyProviderEyesDiona
   parent: [BaseBodyProviderEyes, BaseBodyProviderOrganDiona]
   components:
-  - type: BodyAppearanceProvider
-    path: _White/Bodies/Organs/Humanoids/diona.rsi
+  - type: MarkingsProvider
+    data:
+      group: Diona
 
 # Lungs
 - type: entity

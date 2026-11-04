@@ -9,7 +9,7 @@
   groupPrototype: Other
 
 - type: speciesDictionary
-  id: SlimePerson
+  id: Slime
   guidePrototype: SlimePerson
   groupPrototype: Humanoid
 

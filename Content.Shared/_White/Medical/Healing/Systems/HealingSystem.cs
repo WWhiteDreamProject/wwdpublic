@@ -3,7 +3,7 @@ using Content.Shared._White.Body.Systems;
 using Content.Shared._White.Damage.Components;
 using Content.Shared._White.Damage.Systems;
 using Content.Shared._White.Medical.Healing.Components;
-using Content.Shared._White.TargetDoll;
+using Content.Shared._White.TargetDoll.Systems;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;

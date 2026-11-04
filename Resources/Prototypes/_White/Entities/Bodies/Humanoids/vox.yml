@@ -57,13 +57,13 @@
                 cauda:
                   type: Cauda
                   startingProvider: BodyProviderCaudaVox
-              startingProvider: BodyProviderPartTailVox
+              startingProvider: BodyProviderTailVox
           startingProvider: BodyProviderGroinVox
         head:
           type: Head
           providers:
             cranium:
-              type: Сranium
+              type: Cranium
               providers:
                 brain:
                   type: Brain
@@ -77,7 +77,7 @@
                 tongue:
                   type: Tongue
                   startingProvider: BodyProviderTongueVox
-              startingProvider: BodyProviderСraniumVox
+              startingProvider: BodyProviderCraniumVox
           startingProvider: BodyProviderHeadVox
         left_arm:
           type: LeftArm

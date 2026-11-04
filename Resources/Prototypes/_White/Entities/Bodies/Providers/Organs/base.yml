@@ -185,10 +185,13 @@
   components:
   - type: BodyAppearanceProvider
     layer: enum.BodyProviderType.Eyes
-    group: Eyes
-    state: eyes_in-body
   - type: BodyProvider
     providerType: Eyes
+  - type: MarkingsProvider
+    data:
+      layers:
+      - enum.BodyProviderType.Eyes
+      group: None
   - type: Sprite
     state: eyes
 

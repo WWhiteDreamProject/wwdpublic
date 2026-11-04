@@ -1,9 +1,17 @@
+using Content.Shared._White.Appearance.Systems;
+using Content.Shared._White.Body;
 using Content.Shared._White.Body.Components;
 using Content.Shared._White.Body.Systems;
 using Content.Shared._White.Humanoid.Markings.Components;
 using Content.Shared._White.Humanoid.Markings.Managers;
+using Content.Shared._White.Humanoid.Markings.UserInterface;
 using Content.Shared._White.Humanoid.Prototypes;
+using Content.Shared._White.Humanoid.Systems;
+using Content.Shared.Administration;
+using Content.Shared.Administration.Managers;
+using Content.Shared.Verbs;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 
 namespace Content.Shared._White.Humanoid.Markings.Systems;
 
@@ -13,19 +21,92 @@ public abstract partial class SharedMarkingsSystem : EntitySystem
     [Dependency] protected readonly MarkingManager Marking = default!;
 
     [Dependency] private readonly IComponentFactory _componentFactory = default!;
+    [Dependency] private readonly ISharedAdminManager _admin = default!;
 
+    [Dependency] private readonly SharedBodyAppearanceSystem _bodyAppearance = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
+    [Dependency] private readonly SharedUserInterfaceSystem _userInterface = default!;
 
+    protected EntityQuery<MarkingsComponent> MarkingsQuery;
     protected EntityQuery<MarkingsProviderComponent> ProviderQuery;
 
     public override void Initialize()
     {
         base.Initialize();
 
+        SubscribeLocalEvent<MarkingsComponent, ApplyProfileEvent>(OnApplyProfile);
+        SubscribeLocalEvent<MarkingsComponent, GetVerbsEvent<Verb>>(OnGetVerbs);
+
         InitializeProvider();
 
+        MarkingsQuery = GetEntityQuery<MarkingsComponent>();
         ProviderQuery = GetEntityQuery<MarkingsProviderComponent>();
+
+        Subs.BuiEvents<MarkingsComponent>(
+            MarkingModifierKey.Key,
+            subs =>
+            {
+                subs.Event<BoundUIOpenedEvent>(OnUIOpened);
+                subs.Event<MarkingModifierMarkingSetMessage>(OnMarkingSet);
+            });
     }
+
+    #region Event Handling
+
+    private void OnApplyProfile(Entity<MarkingsComponent> ent, ref ApplyProfileEvent args)
+    {
+        var markings = new List<Marking>();
+        foreach (var categoryMarkings in args.Profile.Markings.Values)
+        {
+            markings.AddRange(categoryMarkings);
+        }
+
+        ApplyMarkings(ent, markings);
+    }
+
+    private void OnGetVerbs(Entity<MarkingsComponent> ent, ref GetVerbsEvent<Verb> args)
+    {
+        if (!_admin.HasAdminFlag(args.User, AdminFlags.Fun))
+            return;
+
+        var user = args.User;
+        args.Verbs.Add(
+            new Verb
+            {
+                Text = Loc.GetString("markings-verb"),
+                Category = VerbCategory.Tricks,
+                Icon = new SpriteSpecifier.Texture(new("/Textures/_White/Interface/palette.svg.png")),
+                Act = () =>
+                {
+                    _userInterface.OpenUi(ent.Owner, MarkingModifierKey.Key, user);
+                },
+            });
+    }
+
+    private void OnUIOpened(Entity<MarkingsComponent> ent, ref BoundUIOpenedEvent args)
+    {
+        if (!_bodyAppearance.TryGetAppearance(ent, out var appearanceData))
+            return;
+
+        if (!TryGetData(ent, out var markingsSet, out var  markingsData))
+            return;
+
+        var markings = Marking.GetMarkingsByCategory(markingsSet);
+        _userInterface.SetUiState(ent.Owner, MarkingModifierKey.Key, new MarkingModifierState(appearanceData, markingsData, markings));
+    }
+
+    private void OnMarkingSet(Entity<MarkingsComponent> ent, ref MarkingModifierMarkingSetMessage args)
+    {
+        var markings = new List<Marking>();
+        foreach (var categoryMarkings in args.Markings.Values)
+        {
+            markings.AddRange(categoryMarkings);
+        }
+
+        ApplyMarkings(ent, markings);
+    }
+
+    #endregion
 
     #region Public API
 
@@ -98,14 +179,25 @@ public abstract partial class SharedMarkingsSystem : EntitySystem
 /// Event raised on body entity when a profile is being applied to it.
 /// </summary>
 [ByRefEvent]
-public readonly record struct ApplyMarkingsEvent(List<Marking> Markings);
+public readonly record struct ApplyMarkingsEvent(List<Marking> Markings) : IBodyRelayEvent
+{
+    /// <summary>
+    /// The body provider to which we apply markings.
+    /// </summary>
+    public BodyProviderType ProviderType { get; } = BodyProviderType.All;
+}
 
 /// <summary>
 /// Event raised on an entity to get the markings on its provider.
 /// </summary>
 [ByRefEvent]
-public readonly record struct GetMarkingsDataEvent()
+public readonly record struct GetMarkingsDataEvent() : IBodyRelayEvent
 {
+    /// <summary>
+    /// The body provider whose markings data we wont get.
+    /// </summary>
+    public BodyProviderType ProviderType { get; } = BodyProviderType.All;
+
     /// <summary>
     /// A result contained the markings.
     /// </summary>

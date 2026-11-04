@@ -52,7 +52,13 @@
   parent: [BaseBodyProviderEyes, BaseBodyProviderOrganGingerbread]
   components:
   - type: BodyAppearanceProvider
-    path: _White/Bodies/Organs/Humanoids/gingerbread.rsi
+    entries:
+    - group: Eyes
+      path: _White/Bodies/Organs/Humanoids/human.rsi # TODO: Replace with a unique sprite.
+      state: eyes_in-body
+  - type: MarkingsProvider
+    data:
+      group: None
 
 # Heart
 - type: entity

@@ -4,14 +4,11 @@ using Content.Shared.DragDrop;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Timing;
 
 namespace Content.Shared._White.Body.Systems;
 
 public abstract partial class SharedBodySystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
-
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
@@ -65,7 +62,6 @@ public abstract partial class SharedBodySystem : EntitySystem
             if (state.Providers.ContainsKey(key) || slot.ContainerSlot == null)
                 continue;
 
-            _container.ShutdownContainer(slot.ContainerSlot);
             ent.Comp.Providers.Remove(key);
         }
 
@@ -366,7 +362,7 @@ public abstract partial class SharedBodySystem : EntitySystem
         if (_providerQuery.TryComp(uid, out var providerComp))
             return GetProviders((uid, providerComp), type);
 
-        return new List<Entity<BodyProviderComponent>>();
+        return new();
     }
 
     /// <summary>
@@ -446,6 +442,14 @@ public abstract partial class SharedBodySystem : EntitySystem
 public readonly record struct BodyProviderGotInsertedEvent(Entity<BodyComponent> Body, Entity<BodyProviderComponent> Provider);
 
 /// <summary>
+/// Event raised on body provider, when it is inserted into a ancestors body providers.
+/// </summary>
+/// <param name="Ancestors">The entities into which the provider was inserted.</param>
+/// <param name="Provider">The entity that was inserted.</param>
+[ByRefEvent]
+public readonly record struct BodyProviderGotInsertedIntoAncestorsEvent(HashSet<EntityUid> Ancestors, Entity<BodyProviderComponent> Provider);
+
+/// <summary>
 /// Event raised on body provider, when it is inserted into a parent body provider.
 /// </summary>
 /// <param name="Parent">The entity into which the provider was inserted.</param>
@@ -460,6 +464,14 @@ public readonly record struct BodyProviderGotInsertedIntoParentEvent(Entity<Body
 /// <param name="Provider">The entity that was ejected.</param>
 [ByRefEvent]
 public readonly record struct BodyProviderGotRemovedEvent(Entity<BodyComponent> Body, Entity<BodyProviderComponent> Provider);
+
+/// <summary>
+/// Event raised on body provider, when it is removed from a ancestors body providers.
+/// </summary>
+/// <param name="Ancestors">The entities from which the provider was removed.</param>
+/// <param name="Provider">The entity that was ejected.</param>
+[ByRefEvent]
+public readonly record struct BodyProviderGotRemovedFromAncestorsEvent(HashSet<EntityUid> Ancestors, Entity<BodyProviderComponent> Provider);
 
 /// <summary>
 /// Event raised on body provider, when it is removed from a parent body provider.

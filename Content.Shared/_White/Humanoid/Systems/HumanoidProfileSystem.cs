@@ -1,6 +1,7 @@
 using System.Numerics;
 using Content.Shared._EE.Contractors.Prototypes;
 using Content.Shared._White.Bark;
+using Content.Shared._White.Body.Systems;
 using Content.Shared._White.CCVar;
 using Content.Shared._White.Humanoid.Components;
 using Content.Shared._White.Humanoid.Prototypes;
@@ -53,6 +54,7 @@ public sealed class HumanoidProfileSystem : EntitySystem
         _sawmill = Logger.GetSawmill("humanoid_profile");
 
         SubscribeLocalEvent<HumanoidProfileComponent, ExaminedEvent>(OnExamined);
+        SubscribeLocalEvent<HumanoidProfileComponent, MapInitEvent>(OnMapInit, after: [typeof(SharedBodySystem)]);
 
         _grammarQuery = GetEntityQuery<GrammarComponent>();
         _humanoidProfileQuery = GetEntityQuery<HumanoidProfileComponent>();
@@ -71,6 +73,16 @@ public sealed class HumanoidProfileSystem : EntitySystem
         var age = GetAgeRepresentation(ent.Comp.Age, ent.Comp.Species);
 
         args.PushText(Loc.GetString("humanoid-profile-examine", ("age", age), ("species", species), ("user", identity)));
+    }
+
+    private void OnMapInit(Entity<HumanoidProfileComponent> ent, ref MapInitEvent args)
+    {
+        var profile = new HumanoidCharacterProfile();
+        profile = profile.WithSpecies(ent.Comp.Species);
+        profile = profile.WithBodyType(ent.Comp.BodyType);
+        profile = profile.WithSex(ent.Comp.Sex);
+
+        ApplyProfile(ent.AsNullable(), profile);
     }
 
     #endregion
@@ -138,6 +150,9 @@ public sealed class HumanoidProfileSystem : EntitySystem
         ent.Comp.Sex = profile.Sex;
         Dirty(ent);
 
+        var ev = new ApplyProfileEvent(profile);
+        RaiseLocalEvent(ent, ref ev);
+
         if (!_grammarQuery.TryComp(ent, out var grammarComp))
             return;
 
@@ -166,7 +181,16 @@ public sealed class HumanoidProfileSystem : EntitySystem
 }
 
 /// <summary>
+/// Event raised on entity when profile are being applied to it.
+/// </summary>
+/// <param name="Profile">The character profile to apply to the entity.</param>
+[ByRefEvent]
+public readonly record struct ApplyProfileEvent(HumanoidCharacterProfile Profile);
+
+/// <summary>
 /// Event raised on entity, when its sex is changed.
 /// </summary>
+/// <param name="OldSex">The previous sex value before the change.</param>
+/// <param name="NewSex">The new sex value after the change.</param>
 [ByRefEvent]
-public record struct SexChangedEvent(Sex OldSex, Sex NewSex);
+public readonly record struct SexChangedEvent(Sex OldSex, Sex NewSex);

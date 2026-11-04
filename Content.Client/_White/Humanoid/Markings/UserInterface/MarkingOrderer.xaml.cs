@@ -81,7 +81,7 @@ public sealed partial class MarkingOrderer : BoxContainer
 
     private bool OnContinueDrag(float frameTime)
     {
-        var item= _dragDropHelper.Dragged.Item;
+        var item = _dragDropHelper.Dragged.Item;
 
         LayoutContainer.SetPosition(item, UserInterfaceManager.MousePositionScaled.Position - new Vector2(32, 32));
 
@@ -129,9 +129,12 @@ public sealed partial class MarkingOrderer : BoxContainer
         if (!_model.TryGetMarkings(_category, out var markings))
             return;
 
+        var processed = new HashSet<ProtoId<MarkingPrototype>>();
         for (var i = 0; i < markings.Count; i++)
         {
             var marking = markings[i];
+            if (!processed.Add(marking.Id))
+                continue;
 
             var container = new LayerMarkingItemContainer();
             container.Margin = new(4);

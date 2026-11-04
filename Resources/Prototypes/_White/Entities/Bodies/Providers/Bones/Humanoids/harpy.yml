@@ -26,7 +26,7 @@
   id: BodyProviderCoxaeHarpy
   parent: [BaseBodyProviderCoxae, BaseBodyProviderBoneHarpy]
 
-# Skull / Сranium
+# Skull / Cranium
 - type: entity
   id: BodyProviderCraniumHarpy
   parent: [BaseBodyProviderCranium, BaseBodyProviderBoneHarpy]

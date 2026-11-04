@@ -1,18 +1,18 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Sprites by angelofallars (github). Cat_inner and cat_outer taken from https://github.com/tgstation/tgstation/blob/master/icons/mob/mutant_bodyparts.dmi.",
+  "copyright": "Sprites by angelofallars(github). Cat_inner and cat_outer taken from https://github.com/tgstation/tgstation/blob/master/icons/mob/mutant_bodyparts.dmi.",
   "size": {
     "x": 32,
     "y": 32
   },
   "states": [
     {
-      "name": "cat_inner",
+      "name": "cat-inner",
       "directions": 4
     },
     {
-      "name": "cat_outer",
+      "name": "cat-outer",
       "directions": 4
     },
     {

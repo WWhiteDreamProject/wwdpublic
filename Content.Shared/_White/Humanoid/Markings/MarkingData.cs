@@ -18,5 +18,5 @@ public partial record struct MarkingData
     /// The group of markings this data belongs to.
     /// </summary>
     [DataField]
-    public ProtoId<MarkingGroupPrototype> Group = new();
+    public ProtoId<MarkingGroupPrototype> Group = "None";
 }

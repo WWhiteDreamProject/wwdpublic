@@ -1,11 +1,11 @@
 - type: marking
   id: BaseFaceMoth
-  parents: [BaseFace, BaseMoth]
+  parent: [BaseFace, BaseMoth]
   abstract: true
 
 - type: marking
   id: FaceMothBlush
-  parents: BaseFaceMoth
+  parent: BaseFaceMoth
   definitions:
   - layer: enum.MarkingVisualLayers.Face
     sprite:
@@ -24,7 +24,7 @@
 
 - type: marking
   id: FaceMothLips
-  parents: BaseFaceMoth
+  parent: BaseFaceMoth
   definitions:
   - layer: enum.MarkingVisualLayers.Face
     sprite:

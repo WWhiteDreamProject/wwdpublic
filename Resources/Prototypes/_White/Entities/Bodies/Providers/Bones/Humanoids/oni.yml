@@ -21,7 +21,7 @@
   id: BodyProviderCoxaeOni
   parent: [BaseBodyProviderCoxae, BaseBodyProviderBoneOni]
 
-# Skull / Сranium
+# Skull / Cranium
 - type: entity
   id: BodyProviderCraniumOni
   parent: [BaseBodyProviderCranium, BaseBodyProviderBoneOni]

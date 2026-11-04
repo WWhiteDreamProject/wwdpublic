@@ -10,10 +10,12 @@ public sealed partial class BodyAppearanceSystem : SharedBodyAppearanceSystem
 
     [Dependency] private readonly SpriteSystem _sprite = default!;
 
+    private EntityQuery<SpriteComponent> _spriteQuery;
+
     public override void Initialize()
     {
         base.Initialize();
 
-        InitializeProvider();
+        _spriteQuery = GetEntityQuery<SpriteComponent>();
     }
 }

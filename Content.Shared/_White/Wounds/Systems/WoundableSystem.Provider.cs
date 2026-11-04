@@ -299,7 +299,7 @@ public sealed partial class WoundableSystem
         if (!_providerQuery.Resolve(ent, ref ent.Comp))
             return null;
 
-        if (!TrySpawnInContainer(woundId, ent, WoundsContainerId, out var woundUid))
+        if (!PredictedTrySpawnInContainer(woundId, ent, WoundsContainerId, out var woundUid))
         {
             _sawmill.Error($"Couldn't insert wound '{woundId}' to {ent}");
             return null;

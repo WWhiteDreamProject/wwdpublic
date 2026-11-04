@@ -35,7 +35,13 @@
   parent: [BaseBodyProviderEyes, BaseBodyProviderOrganDwarf]
   components:
   - type: BodyAppearanceProvider
-    path: _White/Bodies/Organs/Humanoids/human.rsi
+    entries:
+    - group: Eyes
+      path: _White/Bodies/Organs/Humanoids/human.rsi
+      state: eyes_in-body
+  - type: MarkingsProvider
+    data:
+      group: Human
 
 # Heart
 - type: entity

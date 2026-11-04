@@ -1,8 +1,8 @@
 - type: markingGroup
   id: Arachnid
   parent: Undergarments
-  onlyGroupWhitelisted: true
-  categoriesData:
+  whitelisted: true
+  data:
     Appendages:
       required: true
       default: [ AppendagesArachnidLong ]
@@ -14,7 +14,7 @@
     Coloration:
       limit: 1
     Earrings:
-      onlyGroupWhitelisted: false
+      whitelisted: false
       limit: 2
     Overlay:
       limit: 1

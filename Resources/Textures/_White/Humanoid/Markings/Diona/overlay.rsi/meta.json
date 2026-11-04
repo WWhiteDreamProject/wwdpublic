@@ -8,47 +8,47 @@
   },
   "states": [
     {
-      "name": "vine_chest",
+      "name": "vine-chest",
       "directions": 4
     },
     {
-      "name": "vine_groin",
+      "name": "vine-groin",
       "directions": 4
     },
     {
-      "name": "vine_head",
+      "name": "vine-head",
       "directions": 4
     },
     {
-      "name": "vine_left_arm",
+      "name": "vine-left_arm",
       "directions": 4
     },
     {
-      "name": "vine_left_foot",
+      "name": "vine-left_foot",
       "directions": 4
     },
     {
-      "name": "vine_left_hand",
+      "name": "vine-left_hand",
       "directions": 4
     },
     {
-      "name": "vine_left_leg",
+      "name": "vine-left_leg",
       "directions": 4
     },
     {
-      "name": "vine_right_arm",
+      "name": "vine-right_arm",
       "directions": 4
     },
     {
-      "name": "vine_right_foot",
+      "name": "vine-right_foot",
       "directions": 4
     },
     {
-      "name": "vine_right_hand",
+      "name": "vine-right_hand",
       "directions": 4
     },
     {
-      "name": "vine_right_leg",
+      "name": "vine-right_leg",
       "directions": 4
     }
   ]

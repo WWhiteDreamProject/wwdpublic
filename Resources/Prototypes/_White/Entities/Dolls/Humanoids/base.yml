@@ -13,6 +13,7 @@
   - type: Hands
   - type: HideableLayers
   - type: HumanoidProfile
+  - type: Markings
   - type: Sprite
     layers:
     # Torso
@@ -25,8 +26,8 @@
     - map: [ "enum.MarkingVisualLayers.Snout" ]
     # Limbs
     - map: [ "enum.BodyProviderType.LeftArm" ]
-    - map: [ "enum.BodyProviderType.RightArm" ]
     - map: [ "enum.BodyProviderType.LeftLeg" ]
+    - map: [ "enum.BodyProviderType.RightArm" ]
     - map: [ "enum.BodyProviderType.RightLeg" ]
     # Underwear & clothing
     - map: [ "enum.MarkingVisualLayers.UndergarmentBottom" ]
@@ -34,8 +35,8 @@
     - map: [ "jumpsuit" ]
     # Extremities
     - map: [ "enum.BodyProviderType.LeftFoot" ]
-    - map: [ "enum.BodyProviderType.RightFoot" ]
     - map: [ "enum.BodyProviderType.LeftHand" ]
+    - map: [ "enum.BodyProviderType.RightFoot" ]
     - map: [ "enum.BodyProviderType.RightHand" ]
     # More equipment
     - map: [ "gloves" ]
@@ -49,6 +50,8 @@
     - map: [ "neck" ]
     - map: [ "suitstorage" ]
     # Stuff that goes in front of equipment
+    - map: [ "enum.BodyProviderType.Tail" ]
+    - map: [ "enum.BodyProviderType.Wings" ]
     - map: [ "enum.MarkingVisualLayers.ChestBack" ]
     - map: [ "enum.MarkingVisualLayers.FacialHair" ]
     - map: [ "enum.MarkingVisualLayers.GroinBack" ]
@@ -56,8 +59,8 @@
     - map: [ "enum.MarkingVisualLayers.HeadBottom" ]
     - map: [ "enum.MarkingVisualLayers.HeadSide" ]
     - map: [ "enum.MarkingVisualLayers.HeadTop" ]
-    - map: [ "enum.BodyProviderType.Tail" ]
-    - map: [ "enum.BodyProviderType.Wings" ]
+    - map: [ "enum.MarkingVisualLayers.LeftArmTop" ]
+    - map: [ "enum.MarkingVisualLayers.RightArmTop" ]
     # Stuff that goes in front of stuff that goes in front of equipment
     - map: [ "mask" ]
     - map: [ "head" ]

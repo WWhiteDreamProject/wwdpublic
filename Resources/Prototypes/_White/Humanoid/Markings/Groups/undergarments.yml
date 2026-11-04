@@ -1,10 +1,12 @@
 - type: markingGroup
   id: Undergarments
   abstract: true
-  categoriesData:
+  data:
     UndergarmentBottom:
+      whitelisted: false
       limit: 1
-      nudity: [ UnderwearDefault ]
+      nudity: [ UndergarmentBottomBoxers ]
     UndergarmentTop:
+      whitelisted: false
       limit: 1
-      nudity: [ UndershirtDefault ]
+      nudity: [ UndergarmentTopUndershirt ]

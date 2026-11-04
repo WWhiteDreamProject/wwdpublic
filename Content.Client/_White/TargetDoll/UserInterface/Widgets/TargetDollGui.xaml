@@ -1,0 +1,6 @@
+<widgets:TargetDollGui
+    xmlns="https://spacestation14.io"
+    xmlns:widgets="clr-namespace:Content.Client._White.TargetDoll.UserInterface.Widgets"
+    xmlns:controls="clr-namespace:Content.Client._White.TargetDoll.UserInterface.Controls">
+    <controls:TargetDollControl Name="Control" Path="target_doll.png" Scale="2 2" SetSize="64 64"/>
+</widgets:TargetDollGui>

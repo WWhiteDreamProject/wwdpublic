@@ -1,0 +1,7 @@
+<controls:ColorPicker
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client._White.Colors.UserInterface">
+    <Label Name="Label"/>
+    <Slider Name="Slider" HorizontalExpand="True" MinValue="0" MaxValue="100" Value="20" />
+    <ColorSelectorSliders Name="Selector" Visible="False" HorizontalExpand="True"/>
+</controls:ColorPicker>

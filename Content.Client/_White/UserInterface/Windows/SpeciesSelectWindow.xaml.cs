@@ -2,7 +2,6 @@ using System.Linq;
 using Content.Client._White.Appearance.Systems;
 using Content.Client._White.UserInterface.Controls;
 using Content.Client.Guidebook;
-using Content.Client.Humanoid;
 using Content.Shared._White.Humanoid.Prototypes;
 using Content.Shared._White.Preferences;
 using Content.Shared._White.SpeciesDictionary;
@@ -66,9 +65,6 @@ public sealed partial class SpeciesSelectWindow : DefaultWindow
             }
 
             _dummyUid = _entityManager.SpawnEntity(prototype.Doll, MapCoordinates.Nullspace);
-
-            if (_dummyProfile != null)
-                _entityManager.System<BodyAppearanceSystem>().ApplyProfile(_dummyUid, _dummyProfile.Value);
 
             EntityFrontView.SetEntity(_dummyUid);
             EntityRightView.SetEntity(_dummyUid);
