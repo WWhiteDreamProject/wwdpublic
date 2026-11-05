@@ -16,11 +16,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                 type: "jsonb",
                 nullable: true);
 
-            migrationBuilder.CreateIndex(
-                name: "IX_body_color_profile_id",
-                table: "body_color",
-                column: "profile_id");
-
             migrationBuilder.CreateTable(
                 name: "body_color",
                 columns: table => new
@@ -41,6 +36,11 @@ namespace Content.Server.Database.Migrations.Sqlite
                         principalColumn: "profile_id",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_body_color_profile_id",
+                table: "body_color",
+                column: "profile_id");
 
             migrationBuilder.DropColumn(
                 name: "clown_name",
