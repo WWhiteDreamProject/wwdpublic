@@ -31,7 +31,6 @@ public sealed class SharedAdminObserverHandsSystem : EntitySystem
         SubscribeLocalEvent<AdminObserverHandsComponent, LocalPlayerDetachedEvent>(OnPlayerDetached);
         SubscribeLocalEvent<AdminObserverHandsComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<AdminObserverHandsComponent, ComponentShutdown>(OnShutdown);
-        SubscribeLocalEvent<AdminObserverHandsComponent, AfterAutoHandleStateEvent>(OnAfterHandleState);
     }
 
     private void OnAttackAttempt(EntityUid uid, AdminObserverHandsComponent component, AttackAttemptEvent args)
@@ -106,12 +105,6 @@ public sealed class SharedAdminObserverHandsSystem : EntitySystem
     }
 
     private void OnShutdown(Entity<AdminObserverHandsComponent> ent, ref ComponentShutdown args)
-    {
-        if (_playerManager.LocalEntity == ent.Owner)
-            LocalPlayerHandsUpdated?.Invoke();
-    }
-
-    private void OnAfterHandleState(Entity<AdminObserverHandsComponent> ent, ref AfterAutoHandleStateEvent args)
     {
         if (_playerManager.LocalEntity == ent.Owner)
             LocalPlayerHandsUpdated?.Invoke();
