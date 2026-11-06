@@ -31,6 +31,6 @@
   discountDownTo:
     Telecrystal: 2
   cost:
-    Telecrystal: 6
+    Telecrystal: 4 #EDIT: 6 > 4
   categories:
   - UplinkWearables
