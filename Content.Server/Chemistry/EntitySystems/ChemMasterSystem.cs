@@ -221,8 +221,13 @@ namespace Content.Server.Chemistry.EntitySystems
             // WD EDIT END
 
             // Ensure the number is valid.
-            if (message.Number == 0 || !_storageSystem.HasSpace((container, storage)))
+            if (message.Number == 0
+                || (storage.Grid.GetArea()
+                    - _storageSystem.GetCumulativeItemAreas((container, storage))
+                    < message.Number))
+            {
                 return;
+            }
 
             // quick fix until we get a proper one from EE
             if (message.Number > 50)
