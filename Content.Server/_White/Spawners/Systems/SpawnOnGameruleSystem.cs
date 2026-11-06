@@ -1,9 +1,9 @@
-using Content.Shared._White.SpawnOnGamerule.Components;
-using Content.Shared._White.SpawnOnGamerule.Events;
+using Content.Server._White.Spawners.Components;
+using Content.Server._White.Spawners.Events;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 
-namespace Content.Server._White.SpawnOnGamerule;
+namespace Content.Server._White.Spawners.Systems;
 
 public sealed class SpawnOnGameruleSystem : EntitySystem
 {

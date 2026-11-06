@@ -1,0 +1,39 @@
+<Document>
+  # Медик (Medic)
+  <Box>
+    <GuideEntityEmbed Entity="AlmagestAutoEquipmentBlueMedic" Caption=""/>
+  </Box>
+
+  Главный специалист по спасению и лечению экипажа. Обеспечивает медицинскую поддержку как на корабле, так и в ходе боевых операций.
+
+  ### Классовый бонус
+  Ускорение проведения операций в 3 раза.
+
+  ## Снаряжение
+  <Box>
+    <GuideEntityEmbed Entity="ClothingNeckMantleCMO"/>
+    <GuideEntityEmbed Entity="ClothingMaskBreathMedical"/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="ClothingHandsGlovesNitrile"/>
+    <GuideEntityEmbed Entity="ClothingBeltMedicalEMTFilled"/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="AlmagestGrenadeMedic"/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="DefibrillatorCompact"/>
+    <GuideEntityEmbed Entity="BodyBagBluespaceFolded"/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="Hypospray"/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="OmnizineCryostasisBeaker"/>
+    <GuideEntityEmbed Entity="EpinephrineCryostasisBeaker"/>
+  </Box>
+
+  ## Роль
+
+  Лечение раненых, эвакуация пострадавших и поддержание боеспособности команды.
+</Document>

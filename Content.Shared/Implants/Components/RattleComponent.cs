@@ -1,15 +1,19 @@
 using Content.Shared.Radio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
-
-namespace Content.Shared.Implants.Components;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class RattleComponent : Component
 {
-    // The radio channel the message will be sent to
+    // The radio channels the message will be sent to
     [DataField]
-    public ProtoId<RadioChannelPrototype> RadioChannel = "Syndicate";
+    public List<ProtoId<RadioChannelPrototype>> RadioChannel = new() { "Syndicate" }; //WWDP edit
+
+    // WWDP edit start
+    [DataField]
+    public LocId ReviveMessage = "deathrattle-implant-revive-message";
+    // WWDP edit end
 
     // The message that the implant will send when crit
     [DataField]

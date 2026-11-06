@@ -1,0 +1,246 @@
+<Document>
+  # Стены
+  <Box>
+    <GuideEntityEmbed Entity="AlmagestGirder" Caption=""/>
+    <GuideEntityEmbed Entity="WallAlmagestUniversalResistant" Caption=""/>
+    <GuideEntityEmbed Entity="WallAlmagestLaserResistant" Caption=""/>
+    <GuideEntityEmbed Entity="WallAlmagestStructuralResistant" Caption=""/>
+    <GuideEntityEmbed Entity="WallAlmagestPiercingResistant" Caption=""/>
+  </Box>
+
+  Все стены имеют разные покзатели прочности, защиты, шанса отразить тот или иной тип снаряда. Ниже будет слегка грубоватая таблица защиты от различного корабельного оружия.
+
+  <Box>
+    <GuideEntityEmbed Entity="CarpetBlue" Caption="Хорошая защита"/>
+    <GuideEntityEmbed Entity="CarpetGreen" Caption="Средняя защита"/>
+    <GuideEntityEmbed Entity="Carpet" Caption="Плохая защита"/>
+  </Box>
+
+  <Box>
+    <GuideEntityEmbed Entity="CarpetBlack" Caption=""/>
+    <GuideEntityEmbed Entity="AlmagestEquipmentWeaponShipAnnihilator" Caption=""/>
+    <GuideEntityEmbed Entity="AlmagestEquipmentWeaponShipIRLaser" Caption=""/>
+    <GuideEntityEmbed Entity="AlmagestEquipmentWeaponShipHMG" Caption=""/>
+    <GuideEntityEmbed Entity="AlmagestEquipmentWeaponShipRam" Caption=""/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="WallAlmagestUniversalResistant" Caption=""/>
+    <GuideEntityEmbed Entity="CarpetGreen" Caption=""/>
+    <GuideEntityEmbed Entity="CarpetGreen" Caption=""/>
+    <GuideEntityEmbed Entity="CarpetGreen" Caption=""/>
+    <GuideEntityEmbed Entity="CarpetGreen" Caption=""/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="WallAlmagestLaserResistant" Caption=""/>
+    <GuideEntityEmbed Entity="Carpet" Caption=""/>
+    <GuideEntityEmbed Entity="CarpetBlue" Caption=""/>
+    <GuideEntityEmbed Entity="Carpet" Caption=""/>
+    <GuideEntityEmbed Entity="Carpet" Caption=""/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="WallAlmagestStructuralResistant" Caption=""/>
+    <GuideEntityEmbed Entity="CarpetBlue" Caption=""/>
+    <GuideEntityEmbed Entity="Carpet" Caption=""/>
+    <GuideEntityEmbed Entity="Carpet" Caption=""/>
+    <GuideEntityEmbed Entity="Carpet" Caption=""/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="WallAlmagestPiercingResistant" Caption=""/>
+    <GuideEntityEmbed Entity="Carpet" Caption=""/>
+    <GuideEntityEmbed Entity="Carpet" Caption=""/>
+    <GuideEntityEmbed Entity="CarpetBlue" Caption=""/>
+    <GuideEntityEmbed Entity="Carpet" Caption=""/>
+  </Box>
+
+  ## Каркас
+
+  <Box>
+    <GuideEntityEmbed Entity="AlmagestGirder"/>
+    <GuideEntityEmbed Entity="AlmagestGirderFlatpack30"/>
+  </Box>
+
+  Особый каркас Альмагеста, являющийся основой для всех типов стен.
+
+  Собирается только из флетпака каркаса. Может быть разобран обратно во флетпак с помощью сварочного аппарата. При уничтожении оставляет после себя сталь.
+  \n
+
+  ## Универсальная стена
+
+  <Box>
+    <GuideEntityEmbed Entity="WallAlmagestUniversalResistant"/>
+    <GuideEntityEmbed Entity="WallAlmagestUniversalResistantFlatpack15"/>
+  </Box>
+
+  Самая прочная самодельная стена Альмагеста.
+
+  Обладает низкой защитой от всех типов урона и небольшим шансом отразить любой снаряд, включая лазеры и ракеты. Благодаря высокой прочности лучше подходит для защиты от снарядов с большим пробитием, например снаряды пушек типа RAM (Однако эти стены спасут от RAM`ов лишь чуть лучше, чем остальные стены).
+
+  <Box>
+    <GuideEntityEmbed Entity="AlmagestEquipmentWeaponShipRam" Caption=""/>
+  </Box>
+
+  ### Характеристики
+
+  - Прочность: 3500
+  - Отражение: 10% все снаряды
+  - Поглощение взрывов: 90%
+  \n
+  - Тупой: 20%
+  - Режущий: 20%
+  - Проникающий: 10%
+  - Структурный: 40%
+  - Тепловой: 20%
+  - Шоковый: 10%
+
+  Может быть собрана из каркаса альмагеста и 1 бронестекла. Можно разобрать на составляющие с помощью последовательного использования сварки, отвертки и лома.
+  <Box>
+    <GuideEntityEmbed Entity="WallAlmagestUniversalResistant" Caption=""/>
+    <GuideEntityEmbed Entity="Welder" Caption=""/>
+    <GuideEntityEmbed Entity="Screwdriver" Caption=""/>
+    <GuideEntityEmbed Entity="Crowbar" Caption=""/>
+    <GuideEntityEmbed Entity="AlmagestGirder" Caption=""/>
+    <GuideEntityEmbed Entity="SheetRGlass1" Caption=""/>
+  </Box>
+\n
+
+  ## Стена с повышенной структурной защитой
+
+  <Box>
+    <GuideEntityEmbed Entity="WallAlmagestStructuralResistant"/>
+    <GuideEntityEmbed Entity="WallAlmagestStructuralResistantFlatpack15"/>
+  </Box>
+
+  Стена с повышенной структурной защитой (Далее "Антиструктурная")
+
+  Антиструктурная стена обладает практически абсолютной защитой от структурного и взрывного урона, вдобавок это вторая по прочности из самодельных стен. За счёт своих характеристик является хорошей защитой против пушек типа Annihilator.
+
+  <Box>
+    <GuideEntityEmbed Entity="AlmagestEquipmentWeaponShipAnnihilator" Caption=""/>
+  </Box>
+
+  ### Характеристики
+
+  - Прочность: 2500
+  - Поглощение взрывов: 97.5%
+  \n
+  - Тупой: 60%
+  - Режущий: 60%
+  - Проникающий: множитель урона Х2
+  - Структурный: 90%
+  - Тепловой: 75%
+  - Шоковый: множитель урона Х2
+
+  Может быть собрана из каркаса альмагеста и 1 пластали. Можно разобрать на составляющие с помощью последовательного использования сварки, отвертки и лома.
+
+  <Box>
+    <GuideEntityEmbed Entity="WallAlmagestStructuralResistant" Caption=""/>
+    <GuideEntityEmbed Entity="Welder" Caption=""/>
+    <GuideEntityEmbed Entity="Screwdriver" Caption=""/>
+    <GuideEntityEmbed Entity="Crowbar" Caption=""/>
+    <GuideEntityEmbed Entity="AlmagestGirder" Caption=""/>
+    <GuideEntityEmbed Entity="SheetPlasteel1" Caption=""/>
+  </Box>
+  \n
+
+  ## Стена с повышенной лазерной защитой
+
+  <Box>
+    <GuideEntityEmbed Entity="WallAlmagestLaserResistant"/>
+    <GuideEntityEmbed Entity="WallAlmagestLaserResistantFlatpack15"/>
+  </Box>
+
+  Стена с повышенной лазерной защитой (Далее "Антилазерная)
+
+  Антилазерная стена обладает практически абсолютной защитой от теплового и шокового урона, однако самой низкой прочностью из всех. Вдобавок имеет повышенный шанс отразить лазеры. За счёт своих характеристик является хорошей защитой против пушек типа IR Laser.
+
+  <Box>
+    <GuideEntityEmbed Entity="AlmagestEquipmentWeaponShipIRLaser" Caption=""/>
+  </Box>
+
+  ### Характеристики
+
+  - Прочность: 1500
+  - Отражение: 90% лазеров
+  \n
+  - Тупой: 10%
+  - Режущий: 10%
+  - Проникающий: множитель урона Х2
+  - Структурный: множитель урона Х1.5
+  - Тепловой: 75%
+  - Шоковый: 75%
+
+  Может быть собрана из каркаса альмагеста и 1 стекла. Можно разобрать на составляющие с помощью последовательного использования сварки, отвертки и лома.
+
+  <Box>
+    <GuideEntityEmbed Entity="WallAlmagestLaserResistant" Caption=""/>
+    <GuideEntityEmbed Entity="Welder" Caption=""/>
+    <GuideEntityEmbed Entity="Screwdriver" Caption=""/>
+    <GuideEntityEmbed Entity="Crowbar" Caption=""/>
+    <GuideEntityEmbed Entity="AlmagestGirder" Caption=""/>
+    <GuideEntityEmbed Entity="SheetGlass1" Caption=""/>
+  </Box>
+  \n
+
+  ## Стена с повышенной проникающей защитой
+
+  <Box>
+    <GuideEntityEmbed Entity="WallAlmagestPiercingResistant"/>
+    <GuideEntityEmbed Entity="WallAlmagestPiercingResistantFlatpack15"/>
+  </Box>
+
+  Стена с повышенной проникающей защитой (Далее "Антипирсинг)
+
+  Антипирсинг стена обладает практически абсолютной защитой от проникающего и средней прочностью. Вдобавок имеет повышенный шанс отразить пули. За счёт своих характеристик является хорошей защитой против пушек типа HMG.
+
+  <Box>
+    <GuideEntityEmbed Entity="AlmagestEquipmentWeaponShipHMG" Caption=""/>
+  </Box>
+
+  ### Характеристики
+
+  - Прочность: 2000
+  - Отражение: 80% пуль
+  \n
+  - Тупой: 20%
+  - Режущий: 20%
+  - Проникающий: 75%
+  - Структурный: 20%
+  - Тепловой: множитель урона Х2
+  - Шоковый: множитель урона Х2
+
+  Может быть собрана из каркаса альмагеста и 1 стали. Можно разобрать на составляющие с помощью последовательного использования сварки, отвертки и лома.
+
+  <Box>
+    <GuideEntityEmbed Entity="WallAlmagestPiercingResistant" Caption=""/>
+    <GuideEntityEmbed Entity="Welder" Caption=""/>
+    <GuideEntityEmbed Entity="Screwdriver" Caption=""/>
+    <GuideEntityEmbed Entity="Crowbar" Caption=""/>
+    <GuideEntityEmbed Entity="AlmagestGirder" Caption=""/>
+    <GuideEntityEmbed Entity="SheetSteel1" Caption=""/>
+  </Box>
+\n
+
+  ## Древняя стена
+
+  <Box>
+    <GuideEntityEmbed Entity="WallAlmagestAncientResistant"/>
+  </Box>
+
+  Древняя стена, которую можно встретить на древнем инопланетном корабле [color=#CF03FCFF]"Vəɽɠəßęŋĥəĵʧ-CDLVIII-I"[/color].
+
+  Древняя стена это пик защиты. Она имеет отражение, высокую прочность, значительную защиту от ВСЕГО. Можно сказать, что это стену почти нереально разрушить. Но с каких пор для наших игроков было что-то нереальное?
+
+  ### Характеристики
+
+  - Прочность: 35000
+  - Отражение: 75% все снаряды
+  - Поглощение взрывов: 90%
+  \n
+  - Тупой: 66%
+  - Режущий: 66%
+  - Проникающий: 66%
+  - Структурный: 66%
+  - Тепловой: 66%
+  - Шоковый: 66%
+
+</Document>
