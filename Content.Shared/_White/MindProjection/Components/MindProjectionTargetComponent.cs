@@ -1,10 +1,10 @@
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._White.RemoteControl.Components;
+namespace Content.Shared._White.MindProjection.Components;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-public sealed partial class RemoteControllableComponent : Component
+public sealed partial class MindProjectionTargetComponent : Component
 {
     [DataField]
     public EntProtoId EndRemoteControlAction = "ActionEndRemoteControl";

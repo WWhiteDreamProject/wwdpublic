@@ -1,15 +1,18 @@
+using System.Linq;
 using Content.Shared._White.Guns;
 using Content.Shared.Examine;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.GameStates;
 using Robust.Shared.Map;
+using Robust.Shared.Reflection;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Weapons.Ranged.Systems;
 
 public abstract partial class SharedGunSystem
 {
+    [Dependency] private readonly IReflectionManager _reflection = default!;
     protected virtual void InitializeBattery()
     {
         // Trying to dump comp references hence the below
@@ -40,9 +43,34 @@ public abstract partial class SharedGunSystem
         SubscribeLocalEvent<HitscanContainerBatteryAmmoProviderComponent, ComponentHandleState>(OnBatteryHandleState);
         SubscribeLocalEvent<HitscanContainerBatteryAmmoProviderComponent, TakeAmmoEvent>(OnBatteryTakeAmmo);
         SubscribeLocalEvent<HitscanContainerBatteryAmmoProviderComponent, GetAmmoCountEvent>(OnBatteryAmmoCount);
+
+        _batteryAmmoProviderComponentTypes = _reflection.GetAllChildren<BatteryAmmoProviderComponent>(false).ToArray();
         // WWDP EDIT END
     }
 
+    // WWDP EDIT START
+    // since batterycomp is not networked and we have 999 different kinds of ammo providers, this shit now exists.
+    // whoever is responsible for making me do this, fuck you.
+    private Type[] _batteryAmmoProviderComponentTypes = []; // caching the types since i feel bad about calling reflection too often
+    public bool TryGetBatteryCharges(EntityUid? gun, out int shots, out int capacity)
+    {
+        shots = 0;
+        capacity = 0;
+        if (gun is null)
+            return false;
+        // i refuse to manually TryComp<T>() each existing child of BatteryAmmoProviderComponent
+        foreach (var compType in _batteryAmmoProviderComponentTypes)
+        {
+            if (EntityManager.TryGetComponent(gun, compType, out var comp))
+            {
+                shots = ((BatteryAmmoProviderComponent) comp).Shots;
+                capacity = ((BatteryAmmoProviderComponent) comp).Capacity;
+                return true;
+            }
+        }
+        return false;
+    }
+    // WWDP EDIT END
     private void OnBatteryHandleState(EntityUid uid, BatteryAmmoProviderComponent component, ref ComponentHandleState args)
     {
         if (args.Current is not BatteryAmmoProviderComponentState state)

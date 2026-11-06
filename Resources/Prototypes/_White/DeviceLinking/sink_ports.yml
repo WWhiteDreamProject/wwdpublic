@@ -8,3 +8,14 @@
   id: RemoteControlSinkPort
   name: signal-port-name-remote-control-sink
   description: signal-port-description-remote-control-sink
+
+- type: sourcePort
+  id: ShipGunnerControlSourcePort
+  name: signal-port-name-ship-gunner-control-source
+  description: signal-port-description-ship-gunner-control-source
+  defaultLinks: [ ShipGunnerControlSinkPort ]
+
+- type: sinkPort
+  id: ShipGunnerControlSinkPort
+  name: signal-port-name-ship-gunner-control-sink
+  description: signal-port-description-ship-gunner-control-sink

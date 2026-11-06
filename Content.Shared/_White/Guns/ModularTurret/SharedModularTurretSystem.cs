@@ -33,8 +33,9 @@ public abstract class SharedModularTurretSystem : EntitySystem
             return;
         }
 
-        if (comp.MountClass is string turretClass &&
-           !modweapon.WeaponClass.Contains(turretClass))
+        if (modweapon.WeaponClass is string weaponClass &&
+            comp.AcceptedWeaponClasses is List<string> acceptedWeaponClasses &&
+           !acceptedWeaponClasses.Contains(weaponClass))
             args.Cancel();
     }
 
