@@ -13,13 +13,13 @@ namespace Content.Shared._EE.Contractors.Prototypes;
 public sealed partial class LifepathPrototype : IPrototype
 {
     [IdDataField, ViewVariables]
-    public string ID { get; } = string.Empty;
+    public string ID { get; private set; } = string.Empty;
 
     [DataField]
-    public string NameKey { get; } = string.Empty;
+    public string NameKey { get; private set; } = string.Empty;
 
     [DataField]
-    public string DescriptionKey { get; } = string.Empty;
+    public string DescriptionKey { get; private set; } = string.Empty;
 
     [DataField]
     public List<CharacterRequirement> Requirements = new();
