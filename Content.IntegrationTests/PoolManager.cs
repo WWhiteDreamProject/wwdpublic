@@ -99,9 +99,10 @@ public sealed class ContentPoolManager : PoolManager<TestPair>
         var shared = extraAssemblies
                 .Append(typeof(Shared.Entry.EntryPoint).Assembly)
                 .Append(typeof(PoolManager).Assembly)
+                .Append(typeof(StyleSheetify.Shared.Dynamic.DynamicValuePrototype).Assembly)
                 .ToArray();
 
-        Startup([typeof(Client.Entry.EntryPoint).Assembly],
+        Startup([typeof(Client.Entry.EntryPoint).Assembly, typeof(StyleSheetify.Client.EntryPoint).Assembly],
             [typeof(Server.Entry.EntryPoint).Assembly],
             shared);
     }
