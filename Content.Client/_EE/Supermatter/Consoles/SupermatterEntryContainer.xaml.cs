@@ -11,6 +11,8 @@ using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using System.Linq;
+using System.Numerics;
+
 
 namespace Content.Client._EE.Supermatter.Consoles;
 
