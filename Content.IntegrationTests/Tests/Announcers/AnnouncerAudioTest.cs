@@ -8,7 +8,6 @@ using Robust.Shared.GameObjects;
 using Robust.Shared.IoC.Exceptions;
 using Robust.Shared.Localization;
 using Robust.Shared.Prototypes;
-using Serilog;
 
 namespace Content.IntegrationTests.Tests.Announcers;
 
