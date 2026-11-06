@@ -57,7 +57,7 @@ admin-smite-creampie-name = Кремировать
 admin-smite-vomit-organs-name = Стошнить органами
 admin-smite-ghostkick-name = Тихий кик
 admin-smite-nyanify-name = Кошачьи ушки
-admin-smite-kill-sign-name = Знак «Убить»
+admin-smite-kill-sign-name = Знак "Убить"
 
 ## Smite descriptions
 
@@ -102,7 +102,7 @@ admin-smite-super-bonk-lite-description = Бьет их о каждый стол
 
 ## Tricks descriptions
 
-admin-smite-terminate-description = Создает роль призрака Терминатора с единственной целью — убить данную цель.
+admin-smite-terminate-description = Создает роль призрака Терминатора с единственной целью - убить данную цель.
 admin-smite-super-slip-description = Делает цель очень, очень скользкой.
 
 ## Tricks descriptions

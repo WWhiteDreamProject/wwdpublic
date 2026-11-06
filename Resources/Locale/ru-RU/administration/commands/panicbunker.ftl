@@ -1,7 +1,7 @@
 cmd-panicbunker-desc = Включает бункер, который обеспечивает более строгие ограничения на то, кому разрешено присоединяться к серверу.
 cmd-panicbunker-help = Использование: panicbunker
-panicbunker-command-enabled = Режим «Сталин» был включён.
-panicbunker-command-disabled = Режим «Сталин» был выключен.
+panicbunker-command-enabled = Режим "Сталин" был включён.
+panicbunker-command-disabled = Режим "Сталин" был выключен.
 cmd-panicbunker_disable_with_admins-desc = Переключает, отключается ли бункер при подключении администратора.
 cmd-panicbunker_disable_with_admins-help = Использование: panicbunker_disable_with_admins
 panicbunker-command-disable-with-admins-enabled = Бункер автоматически отключится, когда администраторы будут онлайн.

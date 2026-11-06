@@ -1,9 +1,5 @@
 salvage-expedition-structure-examine = Это задание [color=#B02E26]уничтожения[/color]
-salvage-expedition-structure-remaining =
-    { $count ->
-        [one] { $count } структура осталась.
-       *[other] { $count } структур осталось.
-    }
+salvage-expedition-structure-remaining = { $count } { RU-PLURAL($count, "структура", "структуры", "структур") } осталось.
 
 salvage-expedition-type = Миссия
 salvage-expedition-window-title = Экспедиции

@@ -19,12 +19,12 @@ shuttle-console-angular-velocity = Угл. скр:
 shuttle-console-angular-velocity-value = {$angularVelocity}
 
 shuttle-console-unknown = Неизвестно
-shuttle-console-iff-label = «{ $name }» ({ $distance }м)
+shuttle-console-iff-label = "{ $name }" ({ $distance }м)
 # Buttons
 shuttle-console-exclusion = Зона отчуждения
 
 shuttle-console-nav-settings = Настройки
-shuttle-console-iff-toggle = Показать «свой-чужой»
+shuttle-console-iff-toggle = Показать "свой-чужой"
 shuttle-console-dock-toggle = Показать стыковку
 # MAP
 

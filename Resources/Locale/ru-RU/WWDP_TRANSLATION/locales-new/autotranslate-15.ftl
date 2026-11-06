@@ -1,4 +1,4 @@
-ent-MobArachnid = Урист МакПаутина
+ent-MobArachnid = Урист МакАрахнид
    .desc = { "" }
 
 ent-BaseMobDragon = космо-дракон
@@ -13,10 +13,10 @@ ent-MobHumanScrambled = взбаламученный человек
 ent-MobSkrellSyndicateAgent = Скрелл-синдикатовец
    .desc = { "" }
 
-ent-BaseMobArachnid = Урист МакПаутина
+ent-BaseMobArachnid = Урист МакАрахнид
    .desc = { "" }
 
-ent-MobArachnidDummy = Урист МакПлюш
+ent-MobArachnidDummy = Арахнид (манекен)
    .desc = Фиктивный арахнид, предназначенный для использования при настройке персонажа.
 
 ent-DrinkCogChampBase = стакан кончемпа

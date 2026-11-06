@@ -106,11 +106,11 @@ ent-ReagentContainerMayo = майонез
     .desc = Бутылка майонеза.
     .suffix = { "" }
 
-ent-FoodDoughRope = веревка из теста
+ent-FoodDoughRope = верёвка из теста
     .desc = Тонкая верёвка из теста. Можно сделать из нее рогалик.
     .suffix = { "" }
 
-ent-FoodDoughCottonRope = веревка из теста
+ent-FoodDoughCottonRope = верёвка из теста
     .desc = Тонкая верёвка из хлопкового теста. Из нее можно сделать ватные рогалики.
     .suffix = { "" }
 
