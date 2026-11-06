@@ -76,5 +76,8 @@ namespace Content.Server.Light.Components
         /// </summary>
         [DataField("unarmedHitStun")]
         public TimeSpan UnarmedHitStun = TimeSpan.FromSeconds(5);
+
+        public bool GhostBoo = false;
+        public TimeSpan? GhostBooUntil;
     }
 }

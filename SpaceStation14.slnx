@@ -165,4 +165,9 @@
     </Project>
     <File Path="RobustToolbox/RobustToolbox.slnx" />
   </Folder>
+  <Folder Name="/StyleSheetify/">
+    <Project Path="StyleSheetify/Content.StyleSheetify.Client/Content.StyleSheetify.Client.csproj" />
+    <Project Path="StyleSheetify/Content.StyleSheetify.Server/Content.StyleSheetify.Server.csproj" />
+    <Project Path="StyleSheetify/Content.StyleSheetify.Shared/Content.StyleSheetify.Shared.csproj" />
+  </Folder>
 </Solution>

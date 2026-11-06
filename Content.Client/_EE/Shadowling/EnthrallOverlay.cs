@@ -3,7 +3,6 @@ using Robust.Client.Player;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
-using TerraFX.Interop.Xlib;
 
 
 namespace Content.Client._EE.Shadowling;

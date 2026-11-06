@@ -2,11 +2,6 @@ using Robust.Shared.Configuration;
 
 namespace Content.Server.Cargo.Systems
 {
-    public sealed partial class CargoSystem
-    {
-        [Dependency] private readonly IConfigurationManager _cfg = default!;
-    }
-
     [CVarDefs]
     public sealed class CargoCVars
     {
