@@ -10,23 +10,23 @@ namespace Content.Shared.Announcements.Prototypes;
 public sealed partial class AnnouncerPrototype : IPrototype
 {
     [IdDataField]
-    public string ID { get; } = default!;
+    public string ID { get; private set; } = default!;
 
     /// <summary>
     ///     A prefix to add to all announcement paths unless told not to by <see cref="AnnouncementData.IgnoreBasePath"/>
     /// </summary>
     /// <remarks>Paths always start in Resources/</remarks>
     [DataField("basePath")]
-    public string BasePath { get; } = default!;
+    public string BasePath { get; private set; } = default!;
 
     /// <summary>
     ///     Audio parameters to apply to all announcement sounds unless overwritten by <see cref="AnnouncementData.AudioParams"/>
     /// </summary>
     [DataField("baseAudioParams")]
-    public AudioParams? BaseAudioParams { get; }
+    public AudioParams? BaseAudioParams { get; private set; }
 
     [DataField("announcements")]
-    public AnnouncementData[] Announcements { get; } = default!;
+    public AnnouncementData[] Announcements { get; private set; } = default!;
 }
 
 /// <summary>

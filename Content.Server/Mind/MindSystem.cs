@@ -289,8 +289,7 @@ public sealed class MindSystem : SharedMindSystem
             return;
 
         Dirty(mindId, mind);
-        var netMind = GetNetEntity(mindId);
-        _pvsOverride.ClearOverride(netMind);
+        _pvsOverride.RemoveGlobalOverride(mindId);
         if (userId != null && !_players.TryGetPlayerData(userId.Value, out _))
         {
             Log.Error($"Attempted to set mind user to invalid value {userId}");
@@ -337,7 +336,7 @@ public sealed class MindSystem : SharedMindSystem
         if (_players.TryGetSessionById(userId.Value, out var ret))
         {
             mind.Session = ret;
-            _pvsOverride.AddSessionOverride(netMind, ret);
+            _pvsOverride.AddSessionOverride(mindId, ret);
             _players.SetAttachedEntity(ret, mind.CurrentEntity);
         }
     }

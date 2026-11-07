@@ -3,7 +3,6 @@ using Content.Server.Botany.Components;
 using Content.Shared.EntityEffects;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Serilog;
 
 namespace Content.Server.EntityEffects.Effects;
 
@@ -29,7 +28,7 @@ public sealed partial class PlantSpeciesChange : EntityEffect
 
         if (protoSeed == null)
         {
-            Log.Error($"Seed prototype could not be found: {targetProto}!");
+            Logger.Error($"Seed prototype could not be found: {targetProto}!");
             return;
         }
 
