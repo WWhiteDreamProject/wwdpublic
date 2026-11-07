@@ -19,6 +19,7 @@
           WeaponTurretShipAlmagestBroken:
             min: 1
             max: 1
+  - type: GiftIgnore
 
 - type: entity
   id: WeaponTurretShipAlmagestCircuitBoard
@@ -97,16 +98,15 @@
   - type: ActivatableUI
     key: enum.RadialSelectorUiKey.Key
     inHandsOnly: true
+  - type: GiftIgnore
 
 # IR
 - type: entity
   name: IR laser equipment
-  parent: BaseItem
+  parent: AlmagestEquipmentWeaponShipSelect
   id: AlmagestEquipmentWeaponShipIRLaser
   description: "IR laser equipment"
   components:
-  - type: Item
-    size: Ginormous
   - type: Sprite
     sprite: _White/Objects/Weapons/Guns/Turrets/Almagest/equipment.rsi
     state: irlaser
@@ -114,13 +114,6 @@
     entries:
     - prototype: WeaponShipIRHeavy
     - prototype: WeaponShipIRFast
-  - type: UserInterface
-    interfaces:
-      enum.RadialSelectorUiKey.Key:
-        type: TrackedRadialSelectorMenuBUI
-  - type: ActivatableUI
-    key: enum.RadialSelectorUiKey.Key
-    inHandsOnly: true
 
 # IR Heavy
 - type: entity
@@ -224,12 +217,10 @@
 # Annihilator
 - type: entity
   name: annihilator equipment
-  parent: BaseItem
+  parent: AlmagestEquipmentWeaponShipSelect
   id: AlmagestEquipmentWeaponShipAnnihilator
   description: "annihilator equipment"
   components:
-  - type: Item
-    size: Ginormous
   - type: Sprite
     sprite: _White/Objects/Weapons/Guns/Turrets/Almagest/equipment.rsi
     state: annihilator
@@ -238,13 +229,6 @@
     - prototype: WeaponShipAnnihilatorHeavy
     - prototype: WeaponShipAnnihilatorFast
     - prototype: WeaponShipAnnihilatorShotgun
-  - type: UserInterface
-    interfaces:
-      enum.RadialSelectorUiKey.Key:
-        type: TrackedRadialSelectorMenuBUI
-  - type: ActivatableUI
-    key: enum.RadialSelectorUiKey.Key
-    inHandsOnly: true
 
 # Annihilator Heavy
 - type: entity
@@ -398,12 +382,10 @@
 # HMG
 - type: entity
   name: hmg equipment
-  parent: BaseItem
+  parent: AlmagestEquipmentWeaponShipSelect
   id: AlmagestEquipmentWeaponShipHMG
   description: "hmg equipment"
   components:
-  - type: Item
-    size: Ginormous
   - type: Sprite
     sprite: _White/Objects/Weapons/Guns/Turrets/Almagest/equipment.rsi
     state: hmg
@@ -411,13 +393,6 @@
     entries:
     - prototype: WeaponShipHMGHeavy
     - prototype: WeaponShipHMGFast
-  - type: UserInterface
-    interfaces:
-      enum.RadialSelectorUiKey.Key:
-        type: TrackedRadialSelectorMenuBUI
-  - type: ActivatableUI
-    key: enum.RadialSelectorUiKey.Key
-    inHandsOnly: true
 
 # HMG Heavy
 - type: entity
@@ -523,27 +498,13 @@
 # Ram
 - type: entity
   name: ram equipment
-  parent: BaseItem
+  parent: AlmagestEquipmentWeaponShipSelect
   id: AlmagestEquipmentWeaponShipRam
   description: "ram equipment"
   components:
-  - type: Item
-    size: Ginormous
   - type: Sprite
     sprite: _White/Objects/Weapons/Guns/Turrets/Almagest/equipment.rsi
     state: ram
-  - type: RadialEntityMorph
-    entries:
-    - prototype: WeaponShipRamPenetrator
-    - prototype: WeaponShipRamMine
-    - prototype: WeaponShipRamWalker
-  - type: UserInterface
-    interfaces:
-      enum.RadialSelectorUiKey.Key:
-        type: TrackedRadialSelectorMenuBUI
-  - type: ActivatableUI
-    key: enum.RadialSelectorUiKey.Key
-    inHandsOnly: true
 
 # Ram Penetrator
 - type: entity

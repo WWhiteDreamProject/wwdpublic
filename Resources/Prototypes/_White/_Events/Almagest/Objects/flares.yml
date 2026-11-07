@@ -32,6 +32,7 @@
   - type: Tag
     tags:
     - AlmagestFlare
+  - type: GiftIgnore
 
 - type: entity
   name: select blue flare
@@ -86,6 +87,7 @@
   - type: Tag
     tags:
     - AlmagestFlare
+  - type: GiftIgnore
 
 - type: entity
   name: red flare with radar icon
@@ -157,6 +159,7 @@
     softness: 1
   - type: RadarIcon
     color: "#a8a8a8"
+  - type: GiftIgnore
 
 - type: entity
   name: omni flare

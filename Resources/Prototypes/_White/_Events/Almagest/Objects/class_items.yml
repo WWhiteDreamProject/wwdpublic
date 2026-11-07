@@ -53,6 +53,7 @@
         type: AgentIDCardBoundUserInterface
   - type: NanoChatCard
     listNumber: false
+  - type: GiftIgnore
 
 - type: entity
   name: red Almagest ID card
@@ -100,6 +101,7 @@
       whitelist:
         tags:
         - Write
+  - type: GiftIgnore
 
 - type: entity
   parent: ERTLeaderPDA
@@ -114,6 +116,7 @@
       whitelist:
         tags:
         - Write
+  - type: GiftIgnore
 
     # Cap Pinpointer
 #- type: entity
@@ -148,6 +151,7 @@
     removeOnInteract: true
   - type: StaticPrice
     price: 0
+  - type: GiftIgnore
 
 - type: entity
   parent: AlmagestGirderFlatpack
