@@ -16,7 +16,7 @@
   components:
   - type: InstantAction
     useDelay: 10
-    icon: Interface/Actions/scream.png
+    icon: { sprite: Interface/Actions/base.rsi, state: scream }
     event: !type:ScreamActionEvent
     checkCanInteract: false
 
@@ -28,7 +28,7 @@
   - type: InstantAction
     checkCanInteract: false
     checkConsciousness: false
-    icon: Interface/Actions/zombie-turn.png
+    icon: { sprite: Interface/Actions/base.rsi, state: zombie-turn }
     event: !type:ZombifySelfActionEvent
 
 - type: entity
@@ -235,7 +235,7 @@
   components:
   - type: InstantAction
     icon: { sprite: Objects/Weapons/Melee/shields.rsi, state: teleriot-icon }
-    iconOn: Objects/Weapons/Melee/shields.rsi/teleriot-on.png
+    iconOn: { sprite: Objects/Weapons/Melee/shields.rsi, state: teleriot-on }
     event: !type:ToggleActionEvent
 
 - type: entity
@@ -303,7 +303,7 @@
   - type: InstantAction
     priority: -1
     useDelay: 30
-    icon: Interface/Actions/firestarter.png
+    icon: { sprite: Interface/Actions/base.rsi, state: firestarter }
     event: !type:FireStarterActionEvent
 
 - type: entity
@@ -312,8 +312,8 @@
   description: Close your eyes to protect your peepers, or open your eyes to enjoy the pretty lights.
   components:
   - type: InstantAction
-    icon: Interface/Actions/eyeopen.png
-    iconOn: Interface/Actions/eyeclose.png
+    icon: { sprite: Interface/Actions/base.rsi, state: eyeopen }
+    iconOn: { sprite: Interface/Actions/base.rsi, state: eyeclose }
     event: !type:ToggleEyesActionEvent
     useDelay: 1 # so u cant give yourself and observers eyestrain by rapidly spamming the action
     checkCanInteract: false
