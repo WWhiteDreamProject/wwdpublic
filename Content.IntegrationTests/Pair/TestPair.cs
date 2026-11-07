@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Content.Client.IoC;
 using Content.Client.Parallax.Managers;
+using Content.Client.Stylesheets;
 using Content.IntegrationTests.Tests.Destructible;
 using Content.IntegrationTests.Tests.DeviceNetwork;
 using Content.Server.GameTicking;
@@ -87,7 +88,13 @@ public sealed partial class TestPair : RobustIntegrationTest.TestPair
         {
             IoCManager.Resolve<IModLoader>().SetModuleBaseCallbacks(new ClientModuleTestingCallbacks
                 {
-                    ClientBeforeIoC = () => IoCManager.Register<IParallaxManager, DummyParallaxManager>(true)
+                    // WD EDIT START
+                    ClientBeforeIoC = () =>
+                    {
+                        IoCManager.Register<IParallaxManager, DummyParallaxManager>(true);
+                        IoCManager.Register<IStylesheetManager, DummyStylesheetManager>(true);
+                    }
+                    // WD EDIT END
                 });
         };
         return opts;

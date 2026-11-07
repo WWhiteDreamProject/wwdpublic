@@ -27,7 +27,6 @@ entities:
     - type: Map
       mapPaused: True
     - type: Broadphase
-    - type: OccluserTree
     - type: GridTree
     - type: FTLDestination
     - type: LoadedMap
