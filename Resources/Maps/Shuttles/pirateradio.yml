@@ -5136,7 +5136,6 @@ entities:
     - type: DeviceLinkSink
       links:
       - 46
-    - type: Timer
   - uid: 770
     components:
     - type: Transform
@@ -5155,7 +5154,6 @@ entities:
     - type: DeviceLinkSink
       links:
       - 46
-    - type: Timer
   - uid: 772
     components:
     - type: Transform
@@ -5174,7 +5172,6 @@ entities:
     - type: DeviceLinkSink
       links:
       - 46
-    - type: Timer
   - uid: 774
     components:
     - type: Transform
