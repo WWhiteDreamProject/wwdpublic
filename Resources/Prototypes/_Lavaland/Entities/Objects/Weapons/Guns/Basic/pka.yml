@@ -38,7 +38,6 @@
     size: Huge # WWDP guns resize
     shape:
     - 0,0,7,0 # WWDP
-  - type: ItemSlots
 
 - type: entity
   name: proto-kinetic repeater
