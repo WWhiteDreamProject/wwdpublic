@@ -10,7 +10,6 @@ using Content.Shared.DeltaV.CCVars;
 using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 using System.Linq;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace Content.Server.DeltaV.Station.Systems;
 

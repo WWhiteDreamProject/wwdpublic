@@ -6,7 +6,7 @@ namespace Content.Shared._White.Xenomorphs.Caste;
 public sealed partial class XenomorphCastePrototype : IPrototype
 {
     [IdDataField]
-    public string ID { get; } = default!;
+    public string ID { get; private set; } = default!;
 
     [DataField]
     public string Name = string.Empty;

@@ -98,7 +98,7 @@
   description: Scare your crew members because of boredom!
   components:
   - type: InstantAction
-    icon: Interface/Actions/scream.png
+    icon: { sprite: Interface/Actions/base.rsi, state: scream }
     checkCanInteract: false
     event: !type:BooActionEvent
     startDelay: true

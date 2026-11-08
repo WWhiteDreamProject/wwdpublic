@@ -13,7 +13,7 @@ namespace Content.Shared.Prototypes;
 public sealed partial class CharacterItemGroupPrototype : IPrototype
 {
     [IdDataField]
-    public string ID { get; } = default!;
+    public string ID { get; private set; } = default!;
 
     /// How many items from this group can be selected at once
     [DataField]

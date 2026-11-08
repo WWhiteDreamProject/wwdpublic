@@ -29,6 +29,8 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Random;
+using Robust.Shared.Timing;
+
 
 namespace Content.Server.Atmos.EntitySystems
 {
@@ -49,6 +51,7 @@ namespace Content.Server.Atmos.EntitySystems
         [Dependency] private readonly UseDelaySystem _useDelay = default!;
         [Dependency] private readonly AudioSystem _audio = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
+        [Dependency] private readonly IGameTiming _timing = default!;
 
         private EntityQuery<InventoryComponent> _inventoryQuery;
         private EntityQuery<PhysicsComponent> _physicsQuery;
@@ -390,17 +393,10 @@ namespace Content.Server.Atmos.EntitySystems
                 return;
 
             flammable.Resisting = true;
+            flammable.ResistUntil = _timing.CurTime + TimeSpan.FromMilliseconds(2000);
 
             _popup.PopupEntity(Loc.GetString("flammable-component-resist-message"), uid, uid);
             _stunSystem.TryParalyze(uid, TimeSpan.FromSeconds(2f), true);
-
-            // TODO FLAMMABLE: Make this not use TimerComponent...
-            uid.SpawnTimer(2000, () =>
-            {
-                flammable.Resisting = false;
-                flammable.FireStacks -= flammable.FirestackFade * 10f;
-                UpdateAppearance(uid, flammable);
-            });
         }
 
         public override void Update(float frameTime)
@@ -490,6 +486,21 @@ namespace Content.Server.Atmos.EntitySystems
                 {
                     Extinguish(uid, flammable);
                 }
+            }
+
+            var curTime = _timing.CurTime;
+            var queryFlammable = EntityQueryEnumerator<FlammableComponent>();
+            while (queryFlammable.MoveNext(out var uid, out var comp))
+            {
+                if (!comp.Resisting)
+                    continue;
+
+                if (comp.ResistUntil > curTime)
+                    continue;
+
+                comp.Resisting = false;
+                comp.FireStacks -= comp.FirestackFade * 10f;
+                UpdateAppearance(uid, comp);
             }
         }
     }

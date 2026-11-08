@@ -44,7 +44,7 @@ public sealed partial class TimedSpawnerComponent : Component, ISerializationHoo
     [DataField]
     public int MaximumEntitiesSpawned = 1;
 
-    public CancellationTokenSource? TokenSource;
+    public TimeSpan NextFire = TimeSpan.Zero;
 
     void ISerializationHooks.AfterDeserialization()
     {

@@ -10,7 +10,7 @@ namespace Content.Shared.Clothing.Loadouts.Prototypes;
 public sealed partial class LoadoutCategoryPrototype : IPrototype
 {
     [IdDataField]
-    public string ID { get; } = default!;
+    public string ID { get; private set; } = default!;
 
     [DataField]
     public bool Root;
