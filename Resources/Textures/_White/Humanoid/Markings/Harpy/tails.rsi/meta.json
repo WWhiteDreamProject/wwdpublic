@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by kilath(discord). Rooster made by leonardo_dabepis(discord). Forked made by stillxicarus(github).",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "forked_huescale",
+      "directions": 4
+    },
+    {
+      "name": "forked_long",
+      "directions": 4
+    },
+    {
+      "name": "forked_whitescale",
+      "directions": 4
+    },
+    {
+      "name": "haven-primary",
+      "directions": 4
+    },
+    {
+      "name": "haven-secondary",
+      "directions": 4
+    },
+    {
+      "name": "rooster",
+      "directions": 4
+    },
+    {
+      "name": "swallow",
+      "directions": 4
+    }
+  ]
+}
+

@@ -1,0 +1,51 @@
+﻿- type: marking
+  id: BaseLegsHarpy
+  parent: [BaseLegs, BaseHarpy]
+  abstract: true
+
+- type: marking
+  id: LegsHarpyDefault
+  parent: BaseLegsHarpy
+  definitions:
+  - layer: enum.BodyProviderType.LeftFoot
+    sprite:
+      sprite: _White/Humanoid/Markings/Harpy/legs.rsi
+      state: feet-left
+    index: feet
+  - layer: enum.BodyProviderType.LeftFoot
+    sprite:
+      sprite: _White/Humanoid/Markings/Harpy/legs.rsi
+      state: talons-left
+    index: talons
+  - layer: enum.BodyProviderType.LeftLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Harpy/legs.rsi
+      state: thighs-left
+    index: thighs
+  - layer: enum.BodyProviderType.RightFoot
+    sprite:
+      sprite: _White/Humanoid/Markings/Harpy/legs.rsi
+      state: feet-right
+    index: feet
+  - layer: enum.BodyProviderType.RightFoot
+    sprite:
+      sprite: _White/Humanoid/Markings/Harpy/legs.rsi
+      state: talons-right
+    index: talons
+  - layer: enum.BodyProviderType.RightLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Harpy/legs.rsi
+      state: thighs-right
+    index: thighs
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#964B00"
+    indexes:
+      thighs:
+        type: !type:BodyColorGroupColoring
+          group: Feathers
+        fallbackTypes:
+        - !type:SimpleColoring
+          color: "#964B00"

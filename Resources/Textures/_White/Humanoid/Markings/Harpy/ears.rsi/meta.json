@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by leonardo_dabepis(discord). Large made by VMSolidus(github).",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "default",
+      "directions": 4
+    },
+    {
+      "name": "large",
+      "directions": 4
+    }
+  ]
+}

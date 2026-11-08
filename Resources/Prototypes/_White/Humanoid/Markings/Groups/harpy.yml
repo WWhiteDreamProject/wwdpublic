@@ -5,6 +5,8 @@
     Arms:
       limit: 2
     Ears:
+      required: true
+      default: [ EarsHarpyDefault ]
       limit: 1
     Earrings:
       limit: 2
@@ -17,7 +19,9 @@
     Head:
       limit: 2
     Legs:
-      limit: 2
+      required: true
+      default: [ LegsHarpyDefault ]
+      limit: 1
     Nose:
       limit: 1
     Scars:
@@ -25,14 +29,18 @@
     Snout:
       limit: 1
     Tail:
+      required: true
+      default: [ TailHarpyDefault ]
       limit: 1
     Tattoos:
       limit: 4
     Torso:
+      required: true
+      default: [ TorsoHarpyDefault ]
       limit: 1
     Trinkets:
       limit: 4
     Wings:
       required: true
-      default: [ WingsHarpyDefault ]
+      default: [ WingsHarpyDefaultHuescale ]
       limit: 1

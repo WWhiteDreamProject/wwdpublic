@@ -4,9 +4,9 @@ using Content.Shared._White.Appearance.Prototypes;
 using Content.Shared._White.Body.Systems;
 using Content.Shared._White.Humanoid.Markings.Coloring;
 using Content.Shared._White.Humanoid.Markings.Systems;
+using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
-
 
 namespace Content.Shared._White.Appearance.Systems;
 
@@ -14,7 +14,6 @@ public abstract partial class SharedBodyAppearanceSystem
 {
     private void InitializeProvider()
     {
-        SubscribeLocalEvent<BodyAppearanceProviderComponent, AfterAutoHandleStateEvent>(OnAfterAutoHandleState);
         SubscribeLocalEvent<BodyAppearanceProviderComponent, BodyProviderGotInsertedEvent>(OnGotInserted);
         SubscribeLocalEvent<BodyAppearanceProviderComponent, BodyProviderGotInsertedIntoAncestorsEvent>(OnGotInsertedIntoAncestors);
         SubscribeLocalEvent<BodyAppearanceProviderComponent, BodyProviderGotInsertedIntoParentEvent>(OnGotInsertedIntoParent);
@@ -24,14 +23,11 @@ public abstract partial class SharedBodyAppearanceSystem
         SubscribeLocalEvent<BodyAppearanceProviderComponent, BodyRelayedEvent<ApplyBodyAppearanceDataEvent>>(OnApplyBodyAppearanceData);
         SubscribeLocalEvent<BodyAppearanceProviderComponent, BodyRelayedEvent<ApplyMarkingsEvent>>(OnApplyMarkings);
         SubscribeLocalEvent<BodyAppearanceProviderComponent, BodyRelayedEvent<GetBodyAppearanceDataEvent>>(OnGetBodyAppearanceData);
+        SubscribeLocalEvent<BodyAppearanceProviderComponent, ComponentGetState>(OnGetState);
+        SubscribeLocalEvent<BodyAppearanceProviderComponent, ComponentHandleState>(OnHandleState);
     }
 
     #region Event Handling
-
-    private void OnAfterAutoHandleState(Entity<BodyAppearanceProviderComponent> ent, ref AfterAutoHandleStateEvent args)
-    {
-        UpdateAppearance(ent);
-    }
 
     private void OnGotInserted(Entity<BodyAppearanceProviderComponent> ent, ref BodyProviderGotInsertedEvent args)
     {
@@ -39,7 +35,7 @@ public abstract partial class SharedBodyAppearanceSystem
             return;
 
         ent.Comp.Entities.Add(args.Body.Owner);
-        DirtyField(ent, ent.Comp, nameof(BodyAppearanceProviderComponent.Entities));
+        Dirty(ent);
 
         ApplyAppearance(ent, args.Body.Owner);
     }
@@ -55,7 +51,7 @@ public abstract partial class SharedBodyAppearanceSystem
             ApplyAppearance(ent, ancestor);
         }
 
-        DirtyField(ent, ent.Comp, nameof(BodyAppearanceProviderComponent.Entities));
+        Dirty(ent);
     }
 
     private void OnGotInsertedIntoParent(Entity<BodyAppearanceProviderComponent> ent, ref BodyProviderGotInsertedIntoParentEvent args)
@@ -64,7 +60,7 @@ public abstract partial class SharedBodyAppearanceSystem
             return;
 
         ent.Comp.Entities.Add(args.Parent.Owner);
-        DirtyField(ent, ent.Comp, nameof(BodyAppearanceProviderComponent.Entities));
+        Dirty(ent);
 
         ApplyAppearance(ent, args.Parent.Owner);
     }
@@ -75,7 +71,7 @@ public abstract partial class SharedBodyAppearanceSystem
             return;
 
         ent.Comp.Entities.Remove(args.Body.Owner);
-        DirtyField(ent, ent.Comp, nameof(BodyAppearanceProviderComponent.Entities));
+        Dirty(ent);
 
         RemoveAppearance(ent, args.Body.Owner);
     }
@@ -91,7 +87,7 @@ public abstract partial class SharedBodyAppearanceSystem
             RemoveAppearance(ent, ancestor);
         }
 
-        DirtyField(ent, ent.Comp, nameof(BodyAppearanceProviderComponent.Entities));
+        Dirty(ent);
     }
 
     private void OnGotRemovedFromParent(Entity<BodyAppearanceProviderComponent> ent, ref BodyProviderGotRemovedFromParentEvent args)
@@ -100,7 +96,7 @@ public abstract partial class SharedBodyAppearanceSystem
             return;
 
         ent.Comp.Entities.Remove(args.Parent.Owner);
-        DirtyField(ent, ent.Comp, nameof(BodyAppearanceProviderComponent.Entities));
+        Dirty(ent);
 
         RemoveAppearance(ent, args.Parent.Owner);
     }
@@ -145,7 +141,7 @@ public abstract partial class SharedBodyAppearanceSystem
                 Color = marking.Color,
                 Index = marking.Index,
                 Path = specifier.RsiPath.ToString(),
-                State = specifier.RsiState,
+                State = specifier.RsiState
             };
             entries.Add(entry);
         }
@@ -153,8 +149,12 @@ public abstract partial class SharedBodyAppearanceSystem
         if (entries.Count == 0)
             return;
 
+        ClearAppearance(ent);
+
         ent.Comp.Entries = entries;
-        DirtyField(ent, ent.Comp, nameof(BodyAppearanceProviderComponent.Entries));
+        Dirty(ent);
+
+        UpdateAppearance((ent, ent.Comp));
     }
 
     private void OnGetBodyAppearanceData(Entity<BodyAppearanceProviderComponent> ent, ref BodyRelayedEvent<GetBodyAppearanceDataEvent> args)
@@ -167,6 +167,24 @@ public abstract partial class SharedBodyAppearanceSystem
         {
             args.Args.Data.Add(layer, ent.Comp.Appearance);
         }
+    }
+
+    private void OnGetState(Entity<BodyAppearanceProviderComponent> ent, ref ComponentGetState args)
+    {
+        args.State = new BodyAppearanceProviderComponentState(ent.Comp, EntityManager);
+    }
+
+    private void OnHandleState(Entity<BodyAppearanceProviderComponent> ent, ref ComponentHandleState args)
+    {
+        if (args.Current is not BodyAppearanceProviderComponentState state)
+            return;
+
+        ent.Comp.Appearance = state.Appearance;
+        ent.Comp.Entities = GetEntitySet(state.Entities);
+
+        ClearAppearance(ent);
+        ent.Comp.Entries = state.Entries;
+        UpdateAppearance(ent);
     }
 
     #endregion
@@ -212,7 +230,7 @@ public abstract partial class SharedBodyAppearanceSystem
         }
 
         ent.Comp.Appearance = appearance;
-        DirtyField(ent, ent.Comp, nameof(BodyAppearanceProviderComponent.Appearance));
+        Dirty(ent);
 
         UpdateAppearance((ent, ent.Comp));
     }
@@ -235,7 +253,7 @@ public abstract partial class SharedBodyAppearanceSystem
             return;
 
         ent.Comp.Entries[index] = entry.WithColor(color);
-        DirtyField(ent, ent.Comp, nameof(BodyAppearanceProviderComponent.Entries));
+        Dirty(ent);
 
         UpdateAppearance((ent, ent.Comp));
     }
@@ -258,7 +276,7 @@ public abstract partial class SharedBodyAppearanceSystem
             return;
 
         ent.Comp.Entries[index] = entry.WithPath(path);
-        DirtyField(ent, ent.Comp, nameof(BodyAppearanceProviderComponent.Entries));
+        Dirty(ent);
 
         UpdateAppearance((ent, ent.Comp));
     }
@@ -266,6 +284,16 @@ public abstract partial class SharedBodyAppearanceSystem
     #endregion
 
     #region Private API
+
+    private void ClearAppearance(Entity<BodyAppearanceProviderComponent> ent)
+    {
+        foreach (var entity in ent.Comp.Entities)
+        {
+            RemoveAppearance(ent, entity);
+        }
+
+        RemoveAppearance(ent);
+    }
 
     private void UpdateAppearance(Entity<BodyAppearanceProviderComponent> ent)
     {
@@ -280,6 +308,8 @@ public abstract partial class SharedBodyAppearanceSystem
     protected virtual void ApplyAppearance(Entity<BodyAppearanceProviderComponent> ent) { }
 
     protected virtual void ApplyAppearance(Entity<BodyAppearanceProviderComponent> ent, EntityUid target) { }
+
+    protected virtual void RemoveAppearance(Entity<BodyAppearanceProviderComponent> ent) { }
 
     protected virtual void RemoveAppearance(Entity<BodyAppearanceProviderComponent> ent, EntityUid target) { }
 

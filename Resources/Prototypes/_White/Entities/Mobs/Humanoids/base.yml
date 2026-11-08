@@ -173,8 +173,6 @@
     - map: [ "neck" ]
     - map: [ "suitstorage" ]
     # Stuff that goes in front of equipment
-    - map: [ "enum.BodyProviderType.Tail" ]
-    - map: [ "enum.BodyProviderType.Wings" ]
     - map: [ "enum.MarkingVisualLayers.ChestBack" ]
     - map: [ "enum.MarkingVisualLayers.FacialHair" ]
     - map: [ "enum.MarkingVisualLayers.GroinBack" ]
@@ -184,6 +182,8 @@
     - map: [ "enum.MarkingVisualLayers.HeadTop" ]
     - map: [ "enum.MarkingVisualLayers.LeftArmTop" ]
     - map: [ "enum.MarkingVisualLayers.RightArmTop" ]
+    - map: [ "enum.BodyProviderType.Tail" ]
+    - map: [ "enum.BodyProviderType.Wings" ]
     # Stuff that goes in front of stuff that goes in front of equipment
     - map: [ "mask" ]
     - map: [ "head" ]

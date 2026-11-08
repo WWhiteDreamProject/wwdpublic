@@ -90,6 +90,16 @@
   category: Overlay
 
 - type: marking
+  id: BaseTail
+  abstract: true
+  category: Tail
+
+- type: marking
+  id: BaseTorso
+  abstract: true
+  category: Torso
+
+- type: marking
   id: BaseUndergarmentBottom
   abstract: true
   category: UndergarmentBottom

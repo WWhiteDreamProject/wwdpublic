@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by stillxicarus(discord).",
+  "size": {
+    "x": 48,
+    "y": 48
+  },
+  "states": [
+    {
+      "name": "peacock-primary",
+      "directions": 4
+    },
+    {
+      "name": "peacock-secondary",
+      "directions": 4
+    }
+  ]
+}

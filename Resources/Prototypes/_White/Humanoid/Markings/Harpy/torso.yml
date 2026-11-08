@@ -1,0 +1,26 @@
+﻿- type: marking
+  id: BaseTorsoHarpy
+  parent: [BaseTorso, BaseHarpy]
+  abstract: true
+
+- type: marking
+  id: TorsoHarpyDefault
+  parent: BaseTorsoHarpy
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Harpy/torso.rsi
+      state: default-upper
+    index: upper
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Harpy/torso.rsi
+      state: default-lower
+    index: lower
+  coloring:
+    default:
+      type: !type:BodyColorGroupColoring
+        group: Feathers
+      fallbackTypes:
+      - !type:SimpleColoring
+        color: "#964B00"

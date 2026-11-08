@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by ps3moira(discord).",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "feet-left",
+      "directions": 4
+    },
+    {
+      "name": "feet-right",
+      "directions": 4
+    },
+    {
+      "name": "talons-left",
+      "directions": 4
+    },
+    {
+      "name": "talons-right",
+      "directions": 4
+    },
+    {
+      "name": "thighs-left",
+      "directions": 4
+    },
+    {
+      "name": "thighs-right",
+      "directions": 4
+    }
+  ]
+}

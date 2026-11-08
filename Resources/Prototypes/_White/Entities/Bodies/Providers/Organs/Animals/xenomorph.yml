@@ -65,12 +65,6 @@
   parent: [BaseBodyProviderKidneys, BaseBodyProviderOrganXenomorph, BaseMetabolizerXenomorph]
   name: xenomorph kidneys
   description: They efficiently remove anything that could slow down the apex predator.
-  components:
-  - type: BodyAppearanceProvider
-    entries:
-    - group: Eyes
-      path: _White/Bodies/Organs/Humanoids/human.rsi # TODO: Replace with a unique sprite.
-      state: eyes_in-body
 
 # Liver
 - type: entity
