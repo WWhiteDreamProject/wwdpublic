@@ -95,6 +95,20 @@
   category: Tail
 
 - type: marking
+  id: BaseTattoos
+  abstract: true
+  category: Tattoos
+  coloring:
+    default:
+      type: !type:BodyColorGroupColoring
+        group: Skin
+        strategy: !type:ClampedHsvColoration
+          value: [0.40, 0.40]
+      fallbackTypes:
+      - !type:SimpleColoring
+        color: "#666666"
+
+- type: marking
   id: BaseTorso
   abstract: true
   category: Torso

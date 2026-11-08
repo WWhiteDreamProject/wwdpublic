@@ -1,0 +1,110 @@
+﻿- type: marking
+  id: TattoosCampbellLeftArm
+  parent: BaseTattoos
+  definitions:
+  - layer: enum.BodyProviderType.LeftArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: campbell_left_arm
+
+- type: marking
+  id: TattoosCampbellLeftLeg
+  parent: BaseTattoos
+  definitions:
+  - layer: enum.BodyProviderType.LeftLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: campbell_left_leg
+
+- type: marking
+  id: TattoosCampbellRightArm
+  parent: BaseTattoos
+  definitions:
+  - layer: enum.BodyProviderType.RightArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: campbell_right_arm
+
+- type: marking
+  id: TattoosCampbellRightLeg
+  parent: BaseTattoos
+  definitions:
+  - layer: enum.BodyProviderType.RightLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: campbell_right_leg
+
+- type: marking
+  id: TattoosEyeLeft
+  parent: BaseTattoos
+  definitions:
+  - layer: enum.BodyProviderType.Eyes
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: eye_left
+
+- type: marking
+  id: TattoosEyeRight
+  parent: BaseTattoos
+  definitions:
+  - layer: enum.BodyProviderType.Eyes
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: eye_right
+
+- type: marking
+  id: TattoosHive
+  parent: BaseTattoos
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: hive-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: hive-groin
+
+- type: marking
+  id: TattoosNanotrasen
+  parent: BaseTattoos
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: nanotrasen-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: nanotrasen-groin
+
+- type: marking
+  id: TattoosNightling
+  parent: BaseTattoos
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: nightling-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: nightling-groin
+
+- type: marking
+  id: TattoosSilverburghLeftLeg
+  parent: BaseTattoos
+  definitions:
+  - layer: enum.BodyProviderType.LeftLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: silverburgh_left_leg
+
+- type: marking
+  id: TattoosSilverburghRightLeg
+  parent: BaseTattoos
+  definitions:
+  - layer: enum.BodyProviderType.RightLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/tattoos.rsi
+      state: silverburgh_right_leg

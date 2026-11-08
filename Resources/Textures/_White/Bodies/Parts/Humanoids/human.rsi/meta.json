@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from https://github.com/tgstation/tgstation/blob/8024397cc81c5f47f74cf4279e35728487d0a1a7/icons/mob/human_parts_greyscale.dmi. Modified by DrSmugleaf(github). Slim made by WWDP TEAM. The division of the torso into chest and groin was done by Spatison(github).",
+  "copyright": "Made by sentryprimies(discord) and valentiy(discord). Slim made by WWDP TEAM. The division of the torso into chest and groin was done by Spatison(github).",
   "size": {
     "x": 32,
     "y": 32
@@ -20,8 +20,7 @@
       "directions": 4
     },
     {
-      "name": "full",
-      "directions": 4
+      "name": "full"
     },
     {
       "name": "groin",

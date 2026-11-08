@@ -2,6 +2,7 @@
   id: Tattoos
   layers:
   - enum.BodyProviderType.Chest
+  - enum.BodyProviderType.Eyes
   - enum.BodyProviderType.Groin
   - enum.BodyProviderType.Head
   - enum.BodyProviderType.LeftArm
