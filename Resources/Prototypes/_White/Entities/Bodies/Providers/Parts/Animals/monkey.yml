@@ -1,6 +1,6 @@
 - type: entity
   id: BaseBodyProviderPartMonkey
-  parent: [BaseBodyProviderPartAppearance, BaseBodyProviderPartOrganic]
+  parent: [BaseBodyProviderPart, BaseBodyProviderPartOrganic, BaseBodyProviderPartAppearance]
   abstract: true
   suffix: Monkey
   components:
@@ -10,7 +10,7 @@
 # Arms
 - type: entity
   id: BodyProviderLeftArmMonkey
-  parent: [BaseBodyProviderPartMonkey, BaseBodyProviderLeftArmAppearance, BaseBodyProviderLeftArmOrganic]
+  parent: [BaseBodyProviderLeftArm, BaseBodyProviderLeftArmOrganic, BaseBodyProviderPartMonkey, BaseBodyProviderLeftArmAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -20,7 +20,7 @@
 
 - type: entity
   id: BodyProviderRightArmMonkey
-  parent: [BaseBodyProviderPartMonkey, BaseBodyProviderRightArmAppearance, BaseBodyProviderRightArmOrganic]
+  parent: [BaseBodyProviderRightArm, BaseBodyProviderRightArmOrganic, BaseBodyProviderPartMonkey, BaseBodyProviderRightArmAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -31,7 +31,7 @@
 # Chest
 - type: entity
   id: BodyProviderChestMonkey
-  parent: [BaseBodyProviderPartMonkey, BaseBodyProviderChestAppearance, BaseBodyProviderChestOrganic]
+  parent: [BaseBodyProviderChest, BaseBodyProviderChestOrganic, BaseBodyProviderPartMonkey, BaseBodyProviderChestAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -42,7 +42,7 @@
 # Foots
 - type: entity
   id: BodyProviderLeftFootMonkey
-  parent: [BaseBodyProviderPartMonkey, BaseBodyProviderLeftFootAppearance, BaseBodyProviderLeftFootOrganic]
+  parent: [BaseBodyProviderLeftFoot, BaseBodyProviderLeftFootOrganic, BaseBodyProviderPartMonkey, BaseBodyProviderLeftFootAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -52,7 +52,7 @@
 
 - type: entity
   id: BodyProviderRightFootMonkey
-  parent: [BaseBodyProviderPartMonkey, BaseBodyProviderRightFootAppearance, BaseBodyProviderRightFootOrganic]
+  parent: [BaseBodyProviderRightFoot, BaseBodyProviderRightFootOrganic, BaseBodyProviderPartMonkey, BaseBodyProviderRightFootAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -63,7 +63,7 @@
 # Groin
 - type: entity
   id: BodyProviderGroinMonkey
-  parent: [BaseBodyProviderPartMonkey, BaseBodyProviderGroinAppearance, BaseBodyProviderGroinOrganic]
+  parent: [BaseBodyProviderGroin, BaseBodyProviderGroinOrganic, BaseBodyProviderPartMonkey, BaseBodyProviderGroinAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -74,7 +74,7 @@
 # Hands
 - type: entity
   id: BodyProviderLeftHandMonkey
-  parent: [BaseBodyProviderPartMonkey, BaseBodyProviderLeftHandAppearance, BaseBodyProviderLeftHandOrganic]
+  parent: [BaseBodyProviderLeftHand, BaseBodyProviderLeftHandOrganic, BaseBodyProviderPartMonkey, BaseBodyProviderLeftHandAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -84,7 +84,7 @@
 
 - type: entity
   id: BodyProviderRightHandMonkey
-  parent: [BaseBodyProviderPartMonkey, BaseBodyProviderRightHandAppearance, BaseBodyProviderRightHandOrganic]
+  parent: [BaseBodyProviderRightHand, BaseBodyProviderRightHandOrganic, BaseBodyProviderPartMonkey, BaseBodyProviderRightHandAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -95,7 +95,7 @@
 # Head
 - type: entity
   id: BodyProviderHeadMonkey
-  parent: [BaseBodyProviderPartMonkey, BaseBodyProviderHeadAppearance, BaseBodyProviderHeadOrganic]
+  parent: [BaseBodyProviderHead, BaseBodyProviderHeadOrganic, BaseBodyProviderPartMonkey, BaseBodyProviderHeadAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -106,7 +106,7 @@
 # Legs
 - type: entity
   id: BodyProviderLeftLegMonkey
-  parent: [BaseBodyProviderPartMonkey, BaseBodyProviderLeftLegAppearance, BaseBodyProviderLeftLegOrganic]
+  parent: [BaseBodyProviderLeftLeg, BaseBodyProviderLeftLegOrganic, BaseBodyProviderPartMonkey, BaseBodyProviderLeftLegAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -116,7 +116,7 @@
 
 - type: entity
   id: BodyProviderRightLegMonkey
-  parent: [BaseBodyProviderPartMonkey, BaseBodyProviderRightLegAppearance, BaseBodyProviderRightLegOrganic]
+  parent: [BaseBodyProviderRightLeg, BaseBodyProviderRightLegOrganic, BaseBodyProviderPartMonkey, BaseBodyProviderRightLegAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -127,7 +127,7 @@
 # Tail
 - type: entity
   id: BodyProviderTailMonkey
-  parent: [BaseBodyProviderPartMonkey, BaseBodyProviderTailAppearance, BaseBodyProviderTailOrganic]
+  parent: [BaseBodyProviderTail, BaseBodyProviderTailOrganic, BaseBodyProviderPartMonkey, BaseBodyProviderTailAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:

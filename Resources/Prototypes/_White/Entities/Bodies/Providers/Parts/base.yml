@@ -29,7 +29,6 @@
 - type: entity
   id: BaseBodyProviderPartAppearance
   parent: BaseBodyProviderPart
-  abstract: true
   components:
   - type: BodyAppearanceProvider
   - type: MarkingsProvider
@@ -40,7 +39,6 @@
 - type: entity
   id: BaseBodyProviderPartGibbable
   parent: BaseBodyProviderPart
-  abstract: true
   components:
   - type: AmputatableProvider
   - type: GibbableProvider
@@ -48,7 +46,6 @@
 - type: entity
   id: BaseBodyProviderPartOrganic
   parent: BaseBodyProviderPart
-  abstract: true
   components:
   - type: BloodstreamProvider
   - type: PainfulProvider
@@ -65,7 +62,7 @@
 
 - type: entity
   id: BaseBodyProviderAllPartsAppearance
-  parent: [BaseBodyProviderAllParts, BaseBodyProviderPartAppearance]
+  parent: BaseBodyProviderPartAppearance
   abstract: true
   components:
   - type: BodyAppearanceProvider
@@ -78,7 +75,7 @@
 
 - type: entity
   id: BaseBodyProviderAllPartsOrganic
-  parent: [BaseBodyProviderAllParts, BaseBodyProviderPartOrganic]
+  parent: BaseBodyProviderPartOrganic
   abstract: true
   components:
   - type: PainfulProvider
@@ -87,7 +84,7 @@
 # Arms
 - type: entity
   id: BaseBodyProviderArm
-  parent: BaseBodyProviderPartGibbable
+  parent: [BaseBodyProviderPart, BaseBodyProviderPartGibbable]
   abstract: true
   name: arm
   components:
@@ -96,7 +93,7 @@
 
 - type: entity
   id: BaseBodyProviderArmAppearance
-  parent: [BaseBodyProviderArm, BaseBodyProviderPartAppearance]
+  parent: BaseBodyProviderPartAppearance
   abstract: true
   components:
   - type: BodyAppearanceProvider
@@ -119,7 +116,7 @@
 
 - type: entity
   id: BaseBodyProviderLeftArmAppearance
-  parent: [BaseBodyProviderLeftArm, BaseBodyProviderPartAppearance]
+  parent: BaseBodyProviderPartAppearance
   abstract: true
   components:
   - type: BodyAppearanceProvider
@@ -139,7 +136,7 @@
 
 - type: entity
   id: BaseBodyProviderLeftArmOrganic
-  parent: [BaseBodyProviderLeftArm, BaseBodyProviderPartOrganic]
+  parent: BaseBodyProviderPartOrganic
   abstract: true
   components:
   - type: PainfulProvider
@@ -156,7 +153,7 @@
 
 - type: entity
   id: BaseBodyProviderMiddleArmAppearance
-  parent: [BaseBodyProviderMiddleArm, BaseBodyProviderPartAppearance]
+  parent: BaseBodyProviderPartAppearance
   abstract: true
   components:
   - type: BodyAppearanceProvider
@@ -174,7 +171,7 @@
 
 - type: entity
   id: BaseBodyProviderMiddleArmOrganic
-  parent: [BaseBodyProviderMiddleArm, BaseBodyProviderPartOrganic]
+  parent: BaseBodyProviderPartOrganic
   abstract: true
   components:
   - type: PainfulProvider
@@ -191,7 +188,7 @@
 
 - type: entity
   id: BaseBodyProviderRightArmAppearance
-  parent: [BaseBodyProviderRightArm, BaseBodyProviderPartAppearance]
+  parent: BaseBodyProviderPartAppearance
   abstract: true
   components:
   - type: BodyAppearanceProvider
@@ -211,7 +208,7 @@
 
 - type: entity
   id: BaseBodyProviderRightArmOrganic
-  parent: [BaseBodyProviderRightArm, BaseBodyProviderPartOrganic]
+  parent: BaseBodyProviderPartOrganic
   abstract: true
   components:
   - type: PainfulProvider
@@ -229,7 +226,7 @@
 
 - type: entity
   id: BaseBodyProviderChestAppearance
-  parent: [BaseBodyProviderChest, BaseBodyProviderPartAppearance]
+  parent: BaseBodyProviderPartAppearance
   abstract: true
   components:
   - type: BodyAppearanceProvider
@@ -283,7 +280,7 @@
 
 - type: entity
   id: BaseBodyProviderChestOrganic
-  parent: [BaseBodyProviderChest, BaseBodyProviderPartOrganic]
+  parent: BaseBodyProviderPartOrganic
   abstract: true
   components:
   - type: PainfulProvider
@@ -292,7 +289,7 @@
 # Foots
 - type: entity
   id: BaseBodyProviderFoot
-  parent: BaseBodyProviderPartGibbable
+  parent: [BaseBodyProviderPart, BaseBodyProviderPartGibbable]
   abstract: true
   name: foot
   components:
@@ -301,7 +298,7 @@
 
 - type: entity
   id: BaseBodyProviderFootAppearance
-  parent: [BaseBodyProviderFoot, BaseBodyProviderPartAppearance]
+  parent: BaseBodyProviderPartAppearance
   abstract: true
   components:
   - type: BodyAppearanceProvider
@@ -323,7 +320,7 @@
 
 - type: entity
   id: BaseBodyProviderLeftFootAppearance
-  parent: [BaseBodyProviderLeftFoot, BaseBodyProviderPartAppearance]
+  parent: BaseBodyProviderPartAppearance
   abstract: true
   components:
   - type: BodyAppearanceProvider
@@ -340,7 +337,7 @@
 
 - type: entity
   id: BaseBodyProviderLeftFootOrganic
-  parent: [BaseBodyProviderLeftFoot, BaseBodyProviderPartOrganic]
+  parent: BaseBodyProviderPartOrganic
   abstract: true
   components:
   - type: PainfulProvider
@@ -357,7 +354,7 @@
 
 - type: entity
   id: BaseBodyProviderMiddleFootAppearance
-  parent: [BaseBodyProviderMiddleFoot, BaseBodyProviderPartAppearance]
+  parent: BaseBodyProviderPartAppearance
   abstract: true
   components:
   - type: BodyAppearanceProvider
@@ -374,7 +371,7 @@
 
 - type: entity
   id: BaseBodyProviderMiddleFootOrganic
-  parent: [BaseBodyProviderMiddleFoot, BaseBodyProviderPartOrganic]
+  parent: BaseBodyProviderPartOrganic
   abstract: true
   components:
   - type: PainfulProvider
@@ -391,7 +388,7 @@
 
 - type: entity
   id: BaseBodyProviderRightFootAppearance
-  parent: [BaseBodyProviderRightFoot, BaseBodyProviderPartAppearance]
+  parent: BaseBodyProviderPartAppearance
   abstract: true
   components:
   - type: BodyAppearanceProvider
@@ -408,7 +405,7 @@
 
 - type: entity
   id: BaseBodyProviderRightFootOrganic
-  parent: [BaseBodyProviderRightFoot, BaseBodyProviderPartOrganic]
+  parent: BaseBodyProviderPartOrganic
   abstract: true
   components:
   - type: PainfulProvider
@@ -426,7 +423,7 @@
 
 - type: entity
   id: BaseBodyProviderGroinAppearance
-  parent: [BaseBodyProviderGroin, BaseBodyProviderPartAppearance]
+  parent: BaseBodyProviderPartAppearance
   abstract: true
   components:
   - type: BodyAppearanceProvider
@@ -458,7 +455,7 @@
 
 - type: entity
   id: BaseBodyProviderGroinOrganic
-  parent: [BaseBodyProviderGroin, BaseBodyProviderPartOrganic]
+  parent: BaseBodyProviderPartOrganic
   abstract: true
   components:
   - type: PainfulProvider
@@ -467,7 +464,7 @@
 # Hands
 - type: entity
   id: BaseBodyProviderHand
-  parent: BaseBodyProviderPartGibbable
+  parent: [BaseBodyProviderPart, BaseBodyProviderPartGibbable]
   abstract: true
   name: hand
   components:
@@ -477,7 +474,7 @@
 
 - type: entity
   id: BaseBodyProviderHandAppearance
-  parent: [BaseBodyProviderHand, BaseBodyProviderPartAppearance]
+  parent: BaseBodyProviderPartAppearance
   abstract: true
   components:
   - type: BodyAppearanceProvider
@@ -502,7 +499,7 @@
 
 - type: entity
   id: BaseBodyProviderLeftHandAppearance
-  parent: [BaseBodyProviderLeftHand, BaseBodyProviderPartAppearance]
+  parent: BaseBodyProviderPartAppearance
   abstract: true
   components:
   - type: BodyAppearanceProvider
@@ -519,7 +516,7 @@
 
 - type: entity
   id: BaseBodyProviderLeftHandOrganic
-  parent: [BaseBodyProviderLeftHand, BaseBodyProviderPartOrganic]
+  parent: BaseBodyProviderPartOrganic
   abstract: true
   components:
   - type: PainfulProvider
@@ -539,7 +536,7 @@
 
 - type: entity
   id: BaseBodyProviderMiddleHandAppearance
-  parent: [BaseBodyProviderMiddleHand, BaseBodyProviderPartAppearance]
+  parent: BaseBodyProviderPartAppearance
   abstract: true
   components:
   - type: BodyAppearanceProvider
@@ -556,7 +553,7 @@
 
 - type: entity
   id: BaseBodyProviderMiddleHandOrganic
-  parent: [BaseBodyProviderMiddleHand, BaseBodyProviderPartOrganic]
+  parent: BaseBodyProviderPartOrganic
   abstract: true
   components:
   - type: PainfulProvider
@@ -576,7 +573,7 @@
 
 - type: entity
   id: BaseBodyProviderRightHandAppearance
-  parent: [BaseBodyProviderRightHand, BaseBodyProviderPartAppearance]
+  parent: BaseBodyProviderPartAppearance
   abstract: true
   components:
   - type: BodyAppearanceProvider
@@ -593,7 +590,7 @@
 
 - type: entity
   id: BaseBodyProviderRightHandOrganic
-  parent: [BaseBodyProviderRightHand, BaseBodyProviderPartOrganic]
+  parent: BaseBodyProviderPartOrganic
   abstract: true
   components:
   - type: PainfulProvider
@@ -602,7 +599,7 @@
 # Head
 - type: entity
   id: BaseBodyProviderHead
-  parent: BaseBodyProviderPartGibbable
+  parent: [BaseBodyProviderPart, BaseBodyProviderPartGibbable]
   abstract: true
   name: head
   components:
@@ -611,7 +608,7 @@
 
 - type: entity
   id: BaseBodyProviderHeadAppearance
-  parent: [BaseBodyProviderHead, BaseBodyProviderPartAppearance]
+  parent: BaseBodyProviderPartAppearance
   abstract: true
   components:
   - type: BodyAppearanceProvider
@@ -645,7 +642,7 @@
 
 - type: entity
   id: BaseBodyProviderHeadOrganic
-  parent: [BaseBodyProviderHead, BaseBodyProviderPartOrganic]
+  parent: BaseBodyProviderPartOrganic
   abstract: true
   components:
   - type: PainfulProvider
@@ -654,7 +651,7 @@
 # Legs
 - type: entity
   id: BaseBodyProviderLeg
-  parent: BaseBodyProviderPartGibbable
+  parent: [BaseBodyProviderPart, BaseBodyProviderPartGibbable]
   abstract: true
   name: leg
   components:
@@ -663,7 +660,7 @@
 
 - type: entity
   id: BaseBodyProviderLegAppearance
-  parent: [BaseBodyProviderLeg, BaseBodyProviderPartAppearance]
+  parent: BaseBodyProviderPartAppearance
   abstract: true
   components:
   - type: BodyAppearanceProvider
@@ -686,7 +683,7 @@
 
 - type: entity
   id: BaseBodyProviderLeftLegAppearance
-  parent: [BaseBodyProviderLeftLeg, BaseBodyProviderPartAppearance]
+  parent: BaseBodyProviderPartAppearance
   abstract: true
   components:
   - type: BodyAppearanceProvider
@@ -704,7 +701,7 @@
 
 - type: entity
   id: BaseBodyProviderLeftLegOrganic
-  parent: [BaseBodyProviderLeftLeg, BaseBodyProviderPartOrganic]
+  parent: BaseBodyProviderPartOrganic
   abstract: true
   components:
   - type: PainfulProvider
@@ -721,7 +718,7 @@
 
 - type: entity
   id: BaseBodyProviderMiddleLegAppearance
-  parent: [BaseBodyProviderMiddleLeg, BaseBodyProviderPartAppearance]
+  parent: BaseBodyProviderPartAppearance
   abstract: true
   components:
   - type: BodyAppearanceProvider
@@ -739,7 +736,7 @@
 
 - type: entity
   id: BaseBodyProviderMiddleLegOrganic
-  parent: [BaseBodyProviderMiddleLeg, BaseBodyProviderPartOrganic]
+  parent: BaseBodyProviderPartOrganic
   abstract: true
   components:
   - type: PainfulProvider
@@ -756,7 +753,7 @@
 
 - type: entity
   id: BaseBodyProviderRightLegAppearance
-  parent: [BaseBodyProviderRightLeg, BaseBodyProviderPartAppearance]
+  parent: BaseBodyProviderPartAppearance
   abstract: true
   components:
   - type: BodyAppearanceProvider
@@ -774,7 +771,7 @@
 
 - type: entity
   id: BaseBodyProviderRightLegOrganic
-  parent: [BaseBodyProviderRightLeg, BaseBodyProviderPartOrganic]
+  parent: BaseBodyProviderPartOrganic
   abstract: true
   components:
   - type: PainfulProvider
@@ -783,7 +780,7 @@
 # Tail
 - type: entity
   id: BaseBodyProviderTail
-  parent: BaseBodyProviderPartGibbable
+  parent: [BaseBodyProviderPart, BaseBodyProviderPartGibbable]
   abstract: true
   name: tail
   components:
@@ -792,7 +789,7 @@
 
 - type: entity
   id: BaseBodyProviderTailAppearance
-  parent: [BaseBodyProviderTail, BaseBodyProviderPartAppearance]
+  parent: BaseBodyProviderPartAppearance
   abstract: true
   components:
   - type: BodyAppearanceProvider
@@ -810,7 +807,7 @@
 
 - type: entity
   id: BaseBodyProviderTailOrganic
-  parent: [BaseBodyProviderTail, BaseBodyProviderPartOrganic]
+  parent: BaseBodyProviderPartOrganic
   abstract: true
   components:
   - type: PainfulProvider
@@ -828,7 +825,7 @@
 
 - type: entity
   id: BaseBodyProviderTorsoAppearance
-  parent: [BaseBodyProviderTorso, BaseBodyProviderPartAppearance]
+  parent: BaseBodyProviderPartAppearance
   abstract: true
   components:
   - type: BodyAppearanceProvider
@@ -854,7 +851,7 @@
 
 - type: entity
   id: BaseBodyProviderTorsoOrganic
-  parent: [BaseBodyProviderTorso, BaseBodyProviderPartOrganic]
+  parent: BaseBodyProviderPartOrganic
   abstract: true
   components:
   - type: PainfulProvider
@@ -863,7 +860,7 @@
 # Wings
 - type: entity
   id: BaseBodyProviderWings
-  parent: BaseBodyProviderPartGibbable
+  parent: [BaseBodyProviderPart, BaseBodyProviderPartGibbable]
   abstract: true
   name: wings
   components:
@@ -872,7 +869,7 @@
 
 - type: entity
   id: BaseBodyProviderWingsAppearance
-  parent: [BaseBodyProviderWings, BaseBodyProviderPartAppearance]
+  parent: BaseBodyProviderPartAppearance
   abstract: true
   components:
   - type: BodyAppearanceProvider
@@ -889,7 +886,7 @@
 
 - type: entity
   id: BaseBodyProviderWingsOrganic
-  parent: [BaseBodyProviderWings, BaseBodyProviderPartOrganic]
+  parent: BaseBodyProviderPartOrganic
   abstract: true
   components:
   - type: PainfulProvider

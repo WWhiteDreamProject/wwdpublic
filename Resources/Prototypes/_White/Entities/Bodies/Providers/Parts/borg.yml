@@ -1,6 +1,6 @@
 - type: entity
   id: BaseBodyProviderPartBorg
-  parent: BaseBodyProviderPartAppearance
+  parent: [BaseBodyProviderPart, BaseBodyProviderPartAppearance]
   abstract: true
   suffix: Borg
   components:
@@ -10,7 +10,7 @@
 # Arms
 - type: entity
   id: BodyProviderLeftArmBorg
-  parent: [BaseBodyProviderPartBorg, BaseBodyProviderLeftArmAppearance, BaseBodyProviderLeftArm]
+  parent: [BaseBodyProviderLeftArm, BaseBodyProviderPartBorg, BaseBodyProviderLeftArmAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -20,7 +20,7 @@
 
 - type: entity
   id: BodyProviderRightArmBorg
-  parent: [BaseBodyProviderPartBorg, BaseBodyProviderRightArmAppearance, BaseBodyProviderRightArm]
+  parent: [BaseBodyProviderRightArm, BaseBodyProviderPartBorg, BaseBodyProviderRightArmAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -31,7 +31,7 @@
 # Head
 - type: entity
   id: BodyProviderHeadBorg
-  parent: [BaseBodyProviderPartBorg, BaseBodyProviderHeadAppearance, BaseBodyProviderHead]
+  parent: [BaseBodyProviderHead, BaseBodyProviderPartBorg, BaseBodyProviderHeadAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -42,7 +42,7 @@
 # Legs
 - type: entity
   id: BodyProviderLeftLegBorg
-  parent: [BaseBodyProviderPartBorg, BaseBodyProviderLeftLegAppearance, BaseBodyProviderLeftLeg]
+  parent: [BaseBodyProviderLeftLeg, BaseBodyProviderPartBorg, BaseBodyProviderLeftLegAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -52,7 +52,7 @@
 
 - type: entity
   id: BodyProviderRightLegBorg
-  parent: [BaseBodyProviderPartBorg, BaseBodyProviderLeftLegAppearance, BaseBodyProviderRightLeg]
+  parent: [BaseBodyProviderRightLeg, BaseBodyProviderPartBorg, BaseBodyProviderLeftLegAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -63,7 +63,7 @@
 # Torso
 - type: entity
   id: BodyProviderTorsoBorg
-  parent: [BaseBodyProviderPartBorg, BaseBodyProviderTorsoAppearance, BaseBodyProviderTorso]
+  parent: [BaseBodyProviderTorso, BaseBodyProviderPartBorg, BaseBodyProviderTorsoAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:

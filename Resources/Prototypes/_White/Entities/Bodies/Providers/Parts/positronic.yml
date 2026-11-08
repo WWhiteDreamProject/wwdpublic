@@ -1,6 +1,6 @@
 - type: entity
   id: BaseBodyProviderPartPositronic
-  parent: BaseBodyProviderPartAppearance
+  parent: [BaseBodyProviderPart, BaseBodyProviderPartAppearance]
   abstract: true
   suffix: Positronic
   components:
@@ -10,7 +10,7 @@
 # Arms
 - type: entity
   id: BodyProviderLeftArmPositronic
-  parent: [BaseBodyProviderPartPositronic, BaseBodyProviderLeftArmAppearance, BaseBodyProviderLeftArm]
+  parent: [BaseBodyProviderLeftArm, BaseBodyProviderPartPositronic, BaseBodyProviderLeftArmAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -20,7 +20,7 @@
 
 - type: entity
   id: BodyProviderRightArmPositronic
-  parent: [BaseBodyProviderPartPositronic, BaseBodyProviderRightArmAppearance, BaseBodyProviderRightArm]
+  parent: [BaseBodyProviderRightArm, BaseBodyProviderPartPositronic, BaseBodyProviderRightArmAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -31,7 +31,7 @@
 # Chest
 - type: entity
   id: BodyProviderChestPositronic
-  parent: [BaseBodyProviderPartPositronic, BaseBodyProviderChestAppearance, BaseBodyProviderChest]
+  parent: [BaseBodyProviderChest, BaseBodyProviderPartPositronic, BaseBodyProviderChestAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -42,7 +42,7 @@
 # Foots
 - type: entity
   id: BodyProviderLeftFootPositronic
-  parent: [BaseBodyProviderPartPositronic, BaseBodyProviderLeftFootAppearance, BaseBodyProviderLeftFoot]
+  parent: [BaseBodyProviderLeftFoot, BaseBodyProviderPartPositronic, BaseBodyProviderLeftFootAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -52,7 +52,7 @@
 
 - type: entity
   id: BodyProviderRightFootPositronic
-  parent: [BaseBodyProviderPartPositronic, BaseBodyProviderRightFootAppearance, BaseBodyProviderRightFoot]
+  parent: [BaseBodyProviderRightFoot, BaseBodyProviderPartPositronic, BaseBodyProviderRightFootAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -63,7 +63,7 @@
 # Groin
 - type: entity
   id: BodyProviderGroinPositronic
-  parent: [BaseBodyProviderPartPositronic, BaseBodyProviderGroinAppearance, BaseBodyProviderGroin]
+  parent: [BaseBodyProviderGroin, BaseBodyProviderPartPositronic, BaseBodyProviderGroinAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -74,7 +74,7 @@
 # Hands
 - type: entity
   id: BodyProviderLeftHandPositronic
-  parent: [BaseBodyProviderPartPositronic, BaseBodyProviderLeftHandAppearance, BaseBodyProviderLeftHand]
+  parent: [BaseBodyProviderLeftHand, BaseBodyProviderPartPositronic, BaseBodyProviderLeftHandAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -84,7 +84,7 @@
 
 - type: entity
   id: BodyProviderRightHandPositronic
-  parent: [BaseBodyProviderPartPositronic, BaseBodyProviderRightHandAppearance, BaseBodyProviderRightHand]
+  parent: [BaseBodyProviderRightHand, BaseBodyProviderPartPositronic, BaseBodyProviderRightHandAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -95,7 +95,7 @@
 # Head
 - type: entity
   id: BodyProviderHeadPositronic
-  parent: [BaseBodyProviderPartPositronic, BaseBodyProviderHeadAppearance, BaseBodyProviderHead]
+  parent: [BaseBodyProviderHead, BaseBodyProviderPartPositronic, BaseBodyProviderHeadAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -106,7 +106,7 @@
 # Legs
 - type: entity
   id: BodyProviderLeftLegPositronic
-  parent: [BaseBodyProviderPartPositronic, BaseBodyProviderLeftLegAppearance, BaseBodyProviderLeftLeg]
+  parent: [BaseBodyProviderLeftLeg, BaseBodyProviderPartPositronic, BaseBodyProviderLeftLegAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -116,7 +116,7 @@
 
 - type: entity
   id: BodyProviderRightLegPositronic
-  parent: [BaseBodyProviderPartPositronic, BaseBodyProviderRightLegAppearance, BaseBodyProviderRightLeg]
+  parent: [BaseBodyProviderRightLeg, BaseBodyProviderPartPositronic, BaseBodyProviderRightLegAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:

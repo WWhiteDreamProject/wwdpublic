@@ -2,7 +2,7 @@
 
 - type: entity
   id: BaseBodyProviderPartPlasmaman
-  parent: [BaseBodyProviderPartAppearance, BaseBodyProviderPart]
+  parent: [BaseBodyProviderPart, BaseBodyProviderPartAppearance]
   abstract: true
   suffix: Plasmaman
   components:
@@ -15,7 +15,7 @@
 # Arms
 - type: entity
   id: BodyProviderLeftArmPlasmaman
-  parent: [BaseBodyProviderPartPlasmaman, BaseBodyProviderLeftArmAppearance, BaseBodyProviderLeftArm]
+  parent: [BaseBodyProviderLeftArm, BaseBodyProviderPartPlasmaman, BaseBodyProviderLeftArmAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -25,7 +25,7 @@
 
 - type: entity
   id: BodyProviderRightArmPlasmaman
-  parent: [BaseBodyProviderPartPlasmaman, BaseBodyProviderRightArmAppearance, BaseBodyProviderRightArm]
+  parent: [BaseBodyProviderRightArm, BaseBodyProviderPartPlasmaman, BaseBodyProviderRightArmAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -36,7 +36,7 @@
 # Chest
 - type: entity
   id: BodyProviderChestPlasmaman
-  parent: [BaseBodyProviderPartPlasmaman, BaseBodyProviderChestAppearance, BaseBodyProviderChest]
+  parent: [BaseBodyProviderChest, BaseBodyProviderPartPlasmaman, BaseBodyProviderChestAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -47,7 +47,7 @@
 # Foots
 - type: entity
   id: BodyProviderLeftFootPlasmaman
-  parent: [BaseBodyProviderPartPlasmaman, BaseBodyProviderLeftFootAppearance, BaseBodyProviderLeftFoot]
+  parent: [BaseBodyProviderLeftFoot, BaseBodyProviderPartPlasmaman, BaseBodyProviderLeftFootAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -57,7 +57,7 @@
 
 - type: entity
   id: BodyProviderRightFootPlasmaman
-  parent: [BaseBodyProviderPartPlasmaman, BaseBodyProviderRightFootAppearance, BaseBodyProviderRightFoot]
+  parent: [BaseBodyProviderRightFoot, BaseBodyProviderPartPlasmaman, BaseBodyProviderRightFootAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -68,7 +68,7 @@
 # Groin
 - type: entity
   id: BodyProviderGroinPlasmaman
-  parent: [BaseBodyProviderPartPlasmaman, BaseBodyProviderGroinAppearance, BaseBodyProviderGroin]
+  parent: [BaseBodyProviderGroin, BaseBodyProviderPartPlasmaman, BaseBodyProviderGroinAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -79,7 +79,7 @@
 # Hands
 - type: entity
   id: BodyProviderLeftHandPlasmaman
-  parent: [BaseBodyProviderPartPlasmaman, BaseBodyProviderLeftHandAppearance, BaseBodyProviderLeftHand]
+  parent: [BaseBodyProviderLeftHand, BaseBodyProviderPartPlasmaman, BaseBodyProviderLeftHandAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -89,7 +89,7 @@
 
 - type: entity
   id: BodyProviderRightHandPlasmaman
-  parent: [BaseBodyProviderPartPlasmaman, BaseBodyProviderRightHandAppearance, BaseBodyProviderRightHand]
+  parent: [BaseBodyProviderRightHand, BaseBodyProviderPartPlasmaman, BaseBodyProviderRightHandAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -100,7 +100,7 @@
 # Head
 - type: entity
   id: BodyProviderHeadPlasmaman
-  parent: [BaseBodyProviderPartPlasmaman, BaseBodyProviderHeadAppearance, BaseBodyProviderHead]
+  parent: [BaseBodyProviderHead, BaseBodyProviderPartPlasmaman, BaseBodyProviderHeadAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -111,7 +111,7 @@
 # Legs
 - type: entity
   id: BodyProviderLeftLegPlasmaman
-  parent: [BaseBodyProviderPartPlasmaman, BaseBodyProviderLeftLegAppearance, BaseBodyProviderLeftLeg]
+  parent: [BaseBodyProviderLeftLeg, BaseBodyProviderPartPlasmaman, BaseBodyProviderLeftLegAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -121,10 +121,10 @@
 
 - type: entity
   id: BodyProviderRightLegPlasmaman
-  parent: [BaseBodyProviderPartPlasmaman, BaseBodyProviderRightLegAppearance, BaseBodyProviderRightLeg]
+  parent: [BaseBodyProviderRightLeg, BaseBodyProviderPartPlasmaman, BaseBodyProviderRightLegAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
     - group: Skin
       path: _White/Bodies/Parts/Humanoids/plasmaman.rsi
-      state: right_leg 
+      state: right_leg

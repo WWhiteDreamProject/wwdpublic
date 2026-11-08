@@ -1,6 +1,6 @@
 - type: entity
   id: BaseBodyProviderPartKobold
-  parent: [BaseBodyProviderPartAppearance, BaseBodyProviderPartOrganic]
+  parent: [BaseBodyProviderPart, BaseBodyProviderPartOrganic, BaseBodyProviderPartAppearance]
   abstract: true
   suffix: Kobold
   components:
@@ -10,7 +10,7 @@
 # Arms
 - type: entity
   id: BodyProviderLeftArmKobold
-  parent: [BaseBodyProviderPartKobold, BaseBodyProviderLeftArmAppearance, BaseBodyProviderLeftArmOrganic]
+  parent: [BaseBodyProviderLeftArm, BaseBodyProviderLeftArmOrganic, BaseBodyProviderPartKobold, BaseBodyProviderLeftArmAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -20,7 +20,7 @@
 
 - type: entity
   id: BodyProviderRightArmKobold
-  parent: [BaseBodyProviderPartKobold, BaseBodyProviderRightArmAppearance, BaseBodyProviderRightArmOrganic]
+  parent: [BaseBodyProviderRightArm, BaseBodyProviderRightArmOrganic, BaseBodyProviderPartKobold, BaseBodyProviderRightArmAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -31,7 +31,7 @@
 # Chest
 - type: entity
   id: BodyProviderChestKobold
-  parent: [BaseBodyProviderPartKobold, BaseBodyProviderChestAppearance, BaseBodyProviderChestOrganic]
+  parent: [BaseBodyProviderChest, BaseBodyProviderChestOrganic, BaseBodyProviderPartKobold, BaseBodyProviderChestAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -42,7 +42,7 @@
 # Foots
 - type: entity
   id: BodyProviderLeftFootKobold
-  parent: [BaseBodyProviderPartKobold, BaseBodyProviderLeftFootAppearance, BaseBodyProviderLeftFootOrganic]
+  parent: [BaseBodyProviderLeftFoot, BaseBodyProviderLeftFootOrganic, BaseBodyProviderPartKobold, BaseBodyProviderLeftFootAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -52,7 +52,7 @@
 
 - type: entity
   id: BodyProviderRightFootKobold
-  parent: [BaseBodyProviderPartKobold, BaseBodyProviderRightFootAppearance, BaseBodyProviderRightFootOrganic]
+  parent: [BaseBodyProviderRightFoot, BaseBodyProviderRightFootOrganic, BaseBodyProviderPartKobold, BaseBodyProviderRightFootAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -63,7 +63,7 @@
 # Groin
 - type: entity
   id: BodyProviderGroinKobold
-  parent: [BaseBodyProviderPartKobold, BaseBodyProviderGroinAppearance, BaseBodyProviderGroinOrganic]
+  parent: [BaseBodyProviderGroin, BaseBodyProviderGroinOrganic, BaseBodyProviderPartKobold, BaseBodyProviderGroinAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -74,7 +74,7 @@
 # Hands
 - type: entity
   id: BodyProviderLeftHandKobold
-  parent: [BaseBodyProviderPartKobold, BaseBodyProviderLeftHandAppearance, BaseBodyProviderLeftHandOrganic]
+  parent: [BaseBodyProviderLeftHand, BaseBodyProviderLeftHandOrganic, BaseBodyProviderPartKobold, BaseBodyProviderLeftHandAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -84,7 +84,7 @@
 
 - type: entity
   id: BodyProviderRightHandKobold
-  parent: [BaseBodyProviderPartKobold, BaseBodyProviderRightHandAppearance, BaseBodyProviderRightHandOrganic]
+  parent: [BaseBodyProviderRightHand, BaseBodyProviderRightHandOrganic, BaseBodyProviderPartKobold, BaseBodyProviderRightHandAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -95,7 +95,7 @@
 # Head
 - type: entity
   id: BodyProviderHeadKobold
-  parent: [BaseBodyProviderPartKobold, BaseBodyProviderHeadAppearance, BaseBodyProviderHeadOrganic]
+  parent: [BaseBodyProviderHead, BaseBodyProviderHeadOrganic, BaseBodyProviderPartKobold, BaseBodyProviderHeadAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -106,7 +106,7 @@
 # Legs
 - type: entity
   id: BodyProviderLeftLegKobold
-  parent: [BaseBodyProviderPartKobold, BaseBodyProviderLeftLegAppearance, BaseBodyProviderLeftLegOrganic]
+  parent: [BaseBodyProviderLeftLeg, BaseBodyProviderLeftLegOrganic, BaseBodyProviderPartKobold, BaseBodyProviderLeftLegAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -116,7 +116,7 @@
 
 - type: entity
   id: BodyProviderRightLegKobold
-  parent: [BaseBodyProviderPartKobold, BaseBodyProviderRightLegAppearance, BaseBodyProviderRightLegOrganic]
+  parent: [BaseBodyProviderRightLeg, BaseBodyProviderRightLegOrganic, BaseBodyProviderPartKobold, BaseBodyProviderRightLegAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -127,7 +127,7 @@
 # Tail
 - type: entity
   id: BodyProviderTailKobold
-  parent: [BaseBodyProviderPartKobold, BaseBodyProviderTailAppearance, BaseBodyProviderTailOrganic]
+  parent: [BaseBodyProviderTail, BaseBodyProviderTailOrganic, BaseBodyProviderPartKobold, BaseBodyProviderTailAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:

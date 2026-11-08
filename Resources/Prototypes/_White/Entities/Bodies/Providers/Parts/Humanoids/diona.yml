@@ -1,6 +1,6 @@
 - type: entity
   id: BaseBodyProviderPartDiona
-  parent: [BaseBodyProviderPartAppearance, BaseBodyProviderPartOrganic]
+  parent: [BaseBodyProviderPart, BaseBodyProviderPartOrganic, BaseBodyProviderPartAppearance]
   abstract: true
   suffix: Diona
   components:
@@ -13,7 +13,7 @@
 # Arms
 - type: entity
   id: BodyProviderLeftArmDiona
-  parent: [BaseBodyProviderPartDiona, BaseBodyProviderLeftArmAppearance, BaseBodyProviderLeftArmOrganic]
+  parent: [BaseBodyProviderLeftArm, BaseBodyProviderLeftArmOrganic, BaseBodyProviderPartDiona, BaseBodyProviderLeftArmAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -23,7 +23,7 @@
 
 - type: entity
   id: BodyProviderRightArmDiona
-  parent: [BaseBodyProviderPartDiona, BaseBodyProviderRightArmAppearance, BaseBodyProviderRightArmOrganic]
+  parent: [BaseBodyProviderRightArm, BaseBodyProviderRightArmOrganic, BaseBodyProviderPartDiona, BaseBodyProviderRightArmAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -34,7 +34,7 @@
 # Chest
 - type: entity
   id: BodyProviderChestDiona
-  parent: [BaseBodyProviderPartDiona, BaseBodyProviderChestAppearance, BaseBodyProviderChestOrganic]
+  parent: [BaseBodyProviderChest, BaseBodyProviderChestOrganic, BaseBodyProviderPartDiona, BaseBodyProviderChestAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -45,7 +45,7 @@
 # Foots
 - type: entity
   id: BodyProviderLeftFootDiona
-  parent: [BaseBodyProviderPartDiona, BaseBodyProviderLeftFootAppearance, BaseBodyProviderLeftFootOrganic]
+  parent: [BaseBodyProviderLeftFoot, BaseBodyProviderLeftFootOrganic, BaseBodyProviderPartDiona, BaseBodyProviderLeftFootAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -55,7 +55,7 @@
 
 - type: entity
   id: BodyProviderRightFootDiona
-  parent: [BaseBodyProviderPartDiona, BaseBodyProviderRightFootAppearance, BaseBodyProviderRightFootOrganic]
+  parent: [BaseBodyProviderRightFoot, BaseBodyProviderRightFootOrganic, BaseBodyProviderPartDiona, BaseBodyProviderRightFootAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -66,7 +66,7 @@
 # Groin
 - type: entity
   id: BodyProviderGroinDiona
-  parent: [BaseBodyProviderPartDiona, BaseBodyProviderGroinAppearance, BaseBodyProviderGroinOrganic]
+  parent: [BaseBodyProviderGroin, BaseBodyProviderGroinOrganic, BaseBodyProviderPartDiona, BaseBodyProviderGroinAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -77,7 +77,7 @@
 # Hands
 - type: entity
   id: BodyProviderLeftHandDiona
-  parent: [BaseBodyProviderPartDiona, BaseBodyProviderLeftHandAppearance, BaseBodyProviderLeftHandOrganic]
+  parent: [BaseBodyProviderLeftHand, BaseBodyProviderLeftHandOrganic, BaseBodyProviderPartDiona, BaseBodyProviderLeftHandAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -87,7 +87,7 @@
 
 - type: entity
   id: BodyProviderRightHandDiona
-  parent: [BaseBodyProviderPartDiona, BaseBodyProviderRightHandAppearance, BaseBodyProviderRightHandOrganic]
+  parent: [BaseBodyProviderRightHand, BaseBodyProviderRightHandOrganic, BaseBodyProviderPartDiona, BaseBodyProviderRightHandAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -98,7 +98,7 @@
 # Head
 - type: entity
   id: BodyProviderHeadDiona
-  parent: [BaseBodyProviderPartDiona, BaseBodyProviderHeadAppearance, BaseBodyProviderHeadOrganic]
+  parent: [BaseBodyProviderHead, BaseBodyProviderHeadOrganic, BaseBodyProviderPartDiona, BaseBodyProviderHeadAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -109,7 +109,7 @@
 # Legs
 - type: entity
   id: BodyProviderLeftLegDiona
-  parent: [BaseBodyProviderPartDiona, BaseBodyProviderLeftLegAppearance, BaseBodyProviderLeftLegOrganic]
+  parent: [BaseBodyProviderLeftLeg, BaseBodyProviderLeftLegOrganic, BaseBodyProviderPartDiona, BaseBodyProviderLeftLegAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -119,7 +119,7 @@
 
 - type: entity
   id: BodyProviderRightLegDiona
-  parent: [BaseBodyProviderPartDiona, BaseBodyProviderRightLegAppearance, BaseBodyProviderRightLegOrganic]
+  parent: [BaseBodyProviderRightLeg, BaseBodyProviderRightLegOrganic, BaseBodyProviderPartDiona, BaseBodyProviderRightLegAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:

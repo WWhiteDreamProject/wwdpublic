@@ -1,6 +1,6 @@
 - type: entity
   id: BaseBodyProviderPartSkeleton
-  parent: [BaseBodyProviderPartAppearance, BaseBodyProviderPart]
+  parent: [BaseBodyProviderPart, BaseBodyProviderPartAppearance]
   abstract: true
   suffix: Skeleton
   components:
@@ -13,7 +13,7 @@
 # Arms
 - type: entity
   id: BodyProviderLeftArmSkeleton
-  parent: [BaseBodyProviderPartSkeleton, BaseBodyProviderLeftArmAppearance, BaseBodyProviderLeftArm]
+  parent: [BaseBodyProviderLeftArm, BaseBodyProviderPartSkeleton, BaseBodyProviderLeftArmAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -23,7 +23,7 @@
 
 - type: entity
   id: BodyProviderRightArmSkeleton
-  parent: [BaseBodyProviderPartSkeleton, BaseBodyProviderRightArmAppearance, BaseBodyProviderRightArm]
+  parent: [BaseBodyProviderRightArm, BaseBodyProviderPartSkeleton, BaseBodyProviderRightArmAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -34,7 +34,7 @@
 # Chest
 - type: entity
   id: BodyProviderChestSkeleton
-  parent: [BaseBodyProviderPartSkeleton, BaseBodyProviderChestAppearance, BaseBodyProviderChest]
+  parent: [BaseBodyProviderChest, BaseBodyProviderPartSkeleton, BaseBodyProviderChestAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -45,7 +45,7 @@
 # Foots
 - type: entity
   id: BodyProviderLeftFootSkeleton
-  parent: [BaseBodyProviderPartSkeleton, BaseBodyProviderLeftFootAppearance, BaseBodyProviderLeftFoot]
+  parent: [BaseBodyProviderLeftFoot, BaseBodyProviderPartSkeleton, BaseBodyProviderLeftFootAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -55,7 +55,7 @@
 
 - type: entity
   id: BodyProviderRightFootSkeleton
-  parent: [BaseBodyProviderPartSkeleton, BaseBodyProviderRightFootAppearance, BaseBodyProviderRightFoot]
+  parent: [BaseBodyProviderRightFoot, BaseBodyProviderPartSkeleton, BaseBodyProviderRightFootAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -66,7 +66,7 @@
 # Groin
 - type: entity
   id: BodyProviderGroinSkeleton
-  parent: [BaseBodyProviderPartSkeleton, BaseBodyProviderGroinAppearance, BaseBodyProviderGroin]
+  parent: [BaseBodyProviderGroin, BaseBodyProviderPartSkeleton, BaseBodyProviderGroinAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -77,7 +77,7 @@
 # Hands
 - type: entity
   id: BodyProviderLeftHandSkeleton
-  parent: [BaseBodyProviderPartSkeleton, BaseBodyProviderLeftHandAppearance, BaseBodyProviderLeftHand]
+  parent: [BaseBodyProviderLeftHand, BaseBodyProviderPartSkeleton, BaseBodyProviderLeftHandAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -87,7 +87,7 @@
 
 - type: entity
   id: BodyProviderRightHandSkeleton
-  parent: [BaseBodyProviderPartSkeleton, BaseBodyProviderRightHandAppearance, BaseBodyProviderRightHand]
+  parent: [BaseBodyProviderRightHand, BaseBodyProviderPartSkeleton, BaseBodyProviderRightHandAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -98,7 +98,7 @@
 # Head
 - type: entity
   id: BodyProviderHeadSkeleton
-  parent: [BaseBodyProviderPartSkeleton, BaseBodyProviderHeadAppearance, BaseBodyProviderHead]
+  parent: [BaseBodyProviderHead, BaseBodyProviderPartSkeleton, BaseBodyProviderHeadAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -127,7 +127,7 @@
 # Legs
 - type: entity
   id: BodyProviderLeftLegSkeleton
-  parent: [BaseBodyProviderPartSkeleton, BaseBodyProviderLeftLegAppearance, BaseBodyProviderLeftLeg]
+  parent: [BaseBodyProviderLeftLeg, BaseBodyProviderPartSkeleton, BaseBodyProviderLeftLegAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -137,7 +137,7 @@
 
 - type: entity
   id: BodyProviderRightLegSkeleton
-  parent: [BaseBodyProviderPartSkeleton, BaseBodyProviderRightLegAppearance, BaseBodyProviderRightLeg]
+  parent: [BaseBodyProviderRightLeg, BaseBodyProviderPartSkeleton, BaseBodyProviderRightLegAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:

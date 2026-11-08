@@ -1,6 +1,6 @@
 - type: entity
   id: BaseBodyProviderPartHuman
-  parent: [BaseBodyProviderPartAppearance, BaseBodyProviderPartOrganic]
+  parent: [BaseBodyProviderPart, BaseBodyProviderPartOrganic, BaseBodyProviderPartAppearance]
   abstract: true
   suffix: Human
   components:
@@ -13,7 +13,7 @@
 # Arms
 - type: entity
   id: BodyProviderLeftArmHuman
-  parent: [BaseBodyProviderPartHuman, BaseBodyProviderLeftArmAppearance, BaseBodyProviderLeftArmOrganic]
+  parent: [BaseBodyProviderLeftArm, BaseBodyProviderLeftArmOrganic, BaseBodyProviderPartHuman, BaseBodyProviderLeftArmAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -23,7 +23,7 @@
 
 - type: entity
   id: BodyProviderRightArmHuman
-  parent: [BaseBodyProviderPartHuman, BaseBodyProviderRightArmAppearance, BaseBodyProviderRightArmOrganic]
+  parent: [BaseBodyProviderRightArm, BaseBodyProviderRightArmOrganic, BaseBodyProviderPartHuman, BaseBodyProviderRightArmAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -34,7 +34,7 @@
 # Chest
 - type: entity
   id: BodyProviderChestHuman
-  parent: [BaseBodyProviderPartHuman, BaseBodyProviderChestAppearance, BaseBodyProviderChestOrganic]
+  parent: [BaseBodyProviderChest, BaseBodyProviderChestOrganic, BaseBodyProviderPartHuman, BaseBodyProviderChestAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -45,7 +45,7 @@
 # Foots
 - type: entity
   id: BodyProviderLeftFootHuman
-  parent: [BaseBodyProviderPartHuman, BaseBodyProviderLeftFootAppearance, BaseBodyProviderLeftFootOrganic]
+  parent: [BaseBodyProviderLeftFoot, BaseBodyProviderLeftFootOrganic BaseBodyProviderPartHuman, BaseBodyProviderLeftFootAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -55,7 +55,7 @@
 
 - type: entity
   id: BodyProviderRightFootHuman
-  parent: [BaseBodyProviderPartHuman, BaseBodyProviderRightFootAppearance, BaseBodyProviderRightFootOrganic]
+  parent: [BaseBodyProviderRightFoot, BaseBodyProviderRightFootOrganic, BaseBodyProviderPartHuman, BaseBodyProviderRightFootAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -66,7 +66,7 @@
 # Groin
 - type: entity
   id: BodyProviderGroinHuman
-  parent: [BaseBodyProviderPartHuman, BaseBodyProviderGroinAppearance, BaseBodyProviderGroinOrganic]
+  parent: [BaseBodyProviderGroin, BaseBodyProviderGroinOrganic, BaseBodyProviderPartHuman, BaseBodyProviderGroinAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -77,7 +77,7 @@
 # Hands
 - type: entity
   id: BodyProviderLeftHandHuman
-  parent: [BaseBodyProviderPartHuman, BaseBodyProviderLeftHandAppearance, BaseBodyProviderLeftHandOrganic]
+  parent: [BaseBodyProviderLeftHand, BaseBodyProviderLeftHandOrganic, BaseBodyProviderPartHuman, BaseBodyProviderLeftHandAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -87,7 +87,7 @@
 
 - type: entity
   id: BodyProviderRightHandHuman
-  parent: [BaseBodyProviderPartHuman, BaseBodyProviderRightHandAppearance, BaseBodyProviderRightHandOrganic]
+  parent: [BaseBodyProviderRightHand, BaseBodyProviderRightHandOrganic, BaseBodyProviderPartHuman, BaseBodyProviderRightHandAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -98,7 +98,7 @@
 # Head
 - type: entity
   id: BodyProviderHeadHuman
-  parent: [BaseBodyProviderPartHuman, BaseBodyProviderHeadAppearance, BaseBodyProviderHeadOrganic]
+  parent: [BaseBodyProviderHead, , BaseBodyProviderPartHuman, BaseBodyProviderHeadAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -109,7 +109,7 @@
 # Legs
 - type: entity
   id: BodyProviderLeftLegHuman
-  parent: [BaseBodyProviderPartHuman, BaseBodyProviderLeftLegAppearance, BaseBodyProviderLeftLegOrganic]
+  parent: [BaseBodyProviderLeftLeg, BaseBodyProviderLeftLegOrganic, BaseBodyProviderPartHuman, BaseBodyProviderLeftLegAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -119,10 +119,10 @@
 
 - type: entity
   id: BodyProviderRightLegHuman
-  parent: [BaseBodyProviderPartHuman, BaseBodyProviderRightLegAppearance, BaseBodyProviderRightLegOrganic]
+  parent: [BaseBodyProviderRightLeg, BaseBodyProviderRightLegOrganic, BaseBodyProviderPartHuman, BaseBodyProviderRightLegAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
     - group: Skin
       path: _White/Bodies/Parts/Humanoids/human.rsi
-      state: right_leg 
+      state: right_leg

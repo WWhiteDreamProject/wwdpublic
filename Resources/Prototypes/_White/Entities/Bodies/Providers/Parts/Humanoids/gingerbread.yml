@@ -1,6 +1,6 @@
 - type: entity
   id: BaseBodyProviderPartGingerbread
-  parent: [BaseBodyProviderPartAppearance, BaseBodyProviderPartOrganic]
+  parent: [BaseBodyProviderPart, BaseBodyProviderPartOrganic, BaseBodyProviderPartAppearance]
   abstract: true
   suffix: Gingerbread
   components:
@@ -10,7 +10,7 @@
 # Arms
 - type: entity
   id: BodyProviderLeftArmGingerbread
-  parent: [BaseBodyProviderPartGingerbread, BaseBodyProviderLeftArmAppearance, BaseBodyProviderLeftArmOrganic]
+  parent: [BaseBodyProviderLeftArm, BaseBodyProviderLeftArmOrganic, BaseBodyProviderPartGingerbread, BaseBodyProviderLeftArmAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -20,7 +20,7 @@
 
 - type: entity
   id: BodyProviderRightArmGingerbread
-  parent: [BaseBodyProviderPartGingerbread, BaseBodyProviderRightArmAppearance, BaseBodyProviderRightArmOrganic]
+  parent: [BaseBodyProviderRightArm, BaseBodyProviderRightArmOrganic, BaseBodyProviderPartGingerbread, BaseBodyProviderRightArmAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -31,7 +31,7 @@
 # Chest
 - type: entity
   id: BodyProviderChestGingerbread
-  parent: [BaseBodyProviderPartGingerbread, BaseBodyProviderChestAppearance, BaseBodyProviderChestOrganic]
+  parent: [BaseBodyProviderChest, BaseBodyProviderChestOrganic, BaseBodyProviderPartGingerbread, BaseBodyProviderChestAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -42,7 +42,7 @@
 # Foots
 - type: entity
   id: BodyProviderLeftFootGingerbread
-  parent: [BaseBodyProviderPartGingerbread, BaseBodyProviderLeftFootAppearance, BaseBodyProviderLeftFootOrganic]
+  parent: [BaseBodyProviderLeftFoot, BaseBodyProviderLeftFootOrganic, BaseBodyProviderPartGingerbread, BaseBodyProviderLeftFootAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -52,7 +52,7 @@
 
 - type: entity
   id: BodyProviderRightFootGingerbread
-  parent: [BaseBodyProviderPartGingerbread, BaseBodyProviderRightFootAppearance, BaseBodyProviderRightFootOrganic]
+  parent: [BaseBodyProviderRightFoot, BaseBodyProviderRightFootOrganic, BaseBodyProviderPartGingerbread, BaseBodyProviderRightFootAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -63,7 +63,7 @@
 # Groin
 - type: entity
   id: BodyProviderGroinGingerbread
-  parent: [BaseBodyProviderPartGingerbread, BaseBodyProviderGroinAppearance, BaseBodyProviderGroinOrganic]
+  parent: [BaseBodyProviderGroin, BaseBodyProviderGroinOrganic, BaseBodyProviderPartGingerbread, BaseBodyProviderGroinAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -74,7 +74,7 @@
 # Hands
 - type: entity
   id: BodyProviderLeftHandGingerbread
-  parent: [BaseBodyProviderPartGingerbread, BaseBodyProviderLeftHandAppearance, BaseBodyProviderLeftHandOrganic]
+  parent: [BaseBodyProviderLeftHand, BaseBodyProviderLeftHandOrganic, BaseBodyProviderPartGingerbread, BaseBodyProviderLeftHandAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -84,7 +84,7 @@
 
 - type: entity
   id: BodyProviderRightHandGingerbread
-  parent: [BaseBodyProviderPartGingerbread, BaseBodyProviderRightHandAppearance, BaseBodyProviderRightHandOrganic]
+  parent: [BaseBodyProviderRightHand, BaseBodyProviderRightHandOrganic, BaseBodyProviderPartGingerbread, BaseBodyProviderRightHandAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -95,7 +95,7 @@
 # Head
 - type: entity
   id: BodyProviderHeadGingerbread
-  parent: [BaseBodyProviderPartGingerbread, BaseBodyProviderHeadAppearance, BaseBodyProviderHeadOrganic]
+  parent: [BaseBodyProviderHead, BaseBodyProviderHeadOrganic, BaseBodyProviderPartGingerbread, BaseBodyProviderHeadAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -106,7 +106,7 @@
 # Legs
 - type: entity
   id: BodyProviderLeftLegGingerbread
-  parent: [BaseBodyProviderPartGingerbread, BaseBodyProviderLeftLegAppearance, BaseBodyProviderLeftLegOrganic]
+  parent: [BaseBodyProviderLeftLeg, BaseBodyProviderLeftLegOrganic, BaseBodyProviderPartGingerbread, BaseBodyProviderLeftLegAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -116,7 +116,7 @@
 
 - type: entity
   id: BodyProviderRightLegGingerbread
-  parent: [BaseBodyProviderPartGingerbread, BaseBodyProviderRightLegAppearance, BaseBodyProviderRightLegOrganic]
+  parent: [BaseBodyProviderRightLeg, BaseBodyProviderRightLegOrganic, BaseBodyProviderPartGingerbread, BaseBodyProviderRightLegAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:

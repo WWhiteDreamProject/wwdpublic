@@ -1,6 +1,6 @@
 - type: entity
   id: BaseBodyProviderPartDwarf
-  parent: [BaseBodyProviderPartAppearance, BaseBodyProviderPartOrganic]
+  parent: [BaseBodyProviderPart, BaseBodyProviderPartOrganic, BaseBodyProviderPartAppearance]
   abstract: true
   suffix: Dwarf
   components:
@@ -13,7 +13,7 @@
 # Arms
 - type: entity
   id: BodyProviderLeftArmDwarf
-  parent: [BaseBodyProviderPartDwarf, BaseBodyProviderLeftArmAppearance, BaseBodyProviderLeftArmOrganic]
+  parent: [BaseBodyProviderLeftArm, BaseBodyProviderLeftArmOrganic, BaseBodyProviderPartDwarf, BaseBodyProviderLeftArmAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -23,7 +23,7 @@
 
 - type: entity
   id: BodyProviderRightArmDwarf
-  parent: [BaseBodyProviderPartDwarf, BaseBodyProviderRightArmAppearance, BaseBodyProviderRightArmOrganic]
+  parent: [BaseBodyProviderRightArm, BaseBodyProviderRightArmOrganic, BaseBodyProviderPartDwarf, BaseBodyProviderRightArmAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -34,7 +34,7 @@
 # Chest
 - type: entity
   id: BodyProviderChestDwarf
-  parent: [BaseBodyProviderPartDwarf, BaseBodyProviderChestAppearance, BaseBodyProviderChestOrganic]
+  parent: [BaseBodyProviderChest, BaseBodyProviderChestOrganic, BaseBodyProviderPartDwarf, BaseBodyProviderChestAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -45,7 +45,7 @@
 # Foots
 - type: entity
   id: BodyProviderLeftFootDwarf
-  parent: [BaseBodyProviderPartDwarf, BaseBodyProviderLeftFootAppearance, BaseBodyProviderLeftFootOrganic]
+  parent: [BaseBodyProviderLeftFoot, BaseBodyProviderLeftFootOrganic, BaseBodyProviderPartDwarf, BaseBodyProviderLeftFootAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -55,7 +55,7 @@
 
 - type: entity
   id: BodyProviderRightFootDwarf
-  parent: [BaseBodyProviderPartDwarf, BaseBodyProviderRightFootAppearance, BaseBodyProviderRightFootOrganic]
+  parent: [BaseBodyProviderRightFoot, BaseBodyProviderRightFootOrganic, BaseBodyProviderPartDwarf, BaseBodyProviderRightFootAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -66,7 +66,7 @@
 # Groin
 - type: entity
   id: BodyProviderGroinDwarf
-  parent: [BaseBodyProviderPartDwarf, BaseBodyProviderGroinAppearance, BaseBodyProviderGroinOrganic]
+  parent: [BaseBodyProviderGroin, BaseBodyProviderGroinOrganic, BaseBodyProviderPartDwarf, BaseBodyProviderGroinAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -77,7 +77,7 @@
 # Hands
 - type: entity
   id: BodyProviderLeftHandDwarf
-  parent: [BaseBodyProviderPartDwarf, BaseBodyProviderLeftHandAppearance, BaseBodyProviderLeftHandOrganic]
+  parent: [BaseBodyProviderLeftHand, BaseBodyProviderLeftHandOrganic, BaseBodyProviderPartDwarf, BaseBodyProviderLeftHandAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -87,7 +87,7 @@
 
 - type: entity
   id: BodyProviderRightHandDwarf
-  parent: [BaseBodyProviderPartDwarf, BaseBodyProviderRightHandAppearance, BaseBodyProviderRightHandOrganic]
+  parent: [BaseBodyProviderRightHand, BaseBodyProviderRightHandOrganic, BaseBodyProviderPartDwarf, BaseBodyProviderRightHandAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -98,7 +98,7 @@
 # Head
 - type: entity
   id: BodyProviderHeadDwarf
-  parent: [BaseBodyProviderPartDwarf, BaseBodyProviderHeadAppearance, BaseBodyProviderHeadOrganic]
+  parent: [BaseBodyProviderHead, BaseBodyProviderHeadOrganic, BaseBodyProviderPartDwarf, BaseBodyProviderHeadAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -109,7 +109,7 @@
 # Legs
 - type: entity
   id: BodyProviderLeftLegDwarf
-  parent: [BaseBodyProviderPartDwarf, BaseBodyProviderLeftLegAppearance, BaseBodyProviderLeftLegOrganic]
+  parent: [BaseBodyProviderLeftLeg, BaseBodyProviderLeftLegOrganic, BaseBodyProviderPartDwarf, BaseBodyProviderLeftLegAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -119,10 +119,10 @@
 
 - type: entity
   id: BodyProviderRightLegDwarf
-  parent: [BaseBodyProviderPartDwarf, BaseBodyProviderRightLegAppearance, BaseBodyProviderRightLegOrganic]
+  parent: [BaseBodyProviderRightLeg, BaseBodyProviderRightLegOrganic, BaseBodyProviderPartDwarf, BaseBodyProviderRightLegAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
     - group: Skin
       path: _White/Bodies/Parts/Humanoids/human.rsi
-      state: right_leg 
+      state: right_leg

@@ -8,7 +8,7 @@
     Eyes: Simple
     Skin: HumanTone
   doll: HumanoidDollFelinid
-  prototype: HumanoidDollFelinid
+  prototype: MobHumanoidFelinid
   defaultHeight: 0.85
   defaultWidth: 0.8
   maxHeight: 1

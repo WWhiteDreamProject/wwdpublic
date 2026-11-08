@@ -1,10 +1,10 @@
 - type: entity
   id: BaseBodyProviderPartAnimal
-  parent: BaseBodyProviderPartOrganic
+  parent: [BaseBodyProviderPart, BaseBodyProviderPartOrganic]
   abstract: true
   suffix: Animal
 
 # AllParts
 - type: entity
   id: BodyProviderAllPartsAnimal
-  parent: [BaseBodyProviderPartAnimal, BaseBodyProviderAllParts]
+  parent: [BaseBodyProviderAllParts, BaseBodyProviderPartAnimal]

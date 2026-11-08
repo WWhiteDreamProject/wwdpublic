@@ -1,6 +1,6 @@
 - type: entity
   id: BaseBodyProviderPartHarpy
-  parent: [BaseBodyProviderPartAppearance, BaseBodyProviderPartOrganic]
+  parent: [BaseBodyProviderPart, BaseBodyProviderPartOrganic, BaseBodyProviderPartAppearance]
   abstract: true
   suffix: Harpy
   components:
@@ -13,7 +13,7 @@
 # Arms
 - type: entity
   id: BodyProviderLeftArmHarpy
-  parent: [BaseBodyProviderPartHarpy, BaseBodyProviderLeftArmAppearance, BaseBodyProviderLeftArmOrganic]
+  parent: [BaseBodyProviderLeftArm, BaseBodyProviderLeftArmOrganic, BaseBodyProviderPartHarpy, BaseBodyProviderLeftArmAppearance]
   components:
   - type: BodyAppearanceProvider
     layer: enum.MarkingVisualLayers.LeftArmTop
@@ -24,7 +24,7 @@
 
 - type: entity
   id: BodyProviderRightArmHarpy
-  parent: [BaseBodyProviderPartHarpy, BaseBodyProviderRightArmAppearance, BaseBodyProviderRightArmOrganic]
+  parent: [BaseBodyProviderRightArm, BaseBodyProviderRightArmOrganic, BaseBodyProviderPartHarpy, BaseBodyProviderRightArmAppearance]
   components:
   - type: BodyAppearanceProvider
     layer: enum.MarkingVisualLayers.RightArmTop
@@ -36,7 +36,7 @@
 # Chest
 - type: entity
   id: BodyProviderChestHarpy
-  parent: [BaseBodyProviderPartHarpy, BaseBodyProviderChestAppearance, BaseBodyProviderChestOrganic]
+  parent: [BaseBodyProviderChest, BaseBodyProviderChestOrganic, BaseBodyProviderPartHarpy, BaseBodyProviderChestAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -47,7 +47,7 @@
 # Foots
 - type: entity
   id: BodyProviderLeftFootHarpy
-  parent: [BaseBodyProviderPartHarpy, BaseBodyProviderLeftFootAppearance, BaseBodyProviderLeftFootOrganic]
+  parent: [BaseBodyProviderLeftFoot, BaseBodyProviderLeftFootOrganic, BaseBodyProviderPartHarpy, BaseBodyProviderLeftFootAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -57,7 +57,7 @@
 
 - type: entity
   id: BodyProviderRightFootHarpy
-  parent: [BaseBodyProviderPartHarpy, BaseBodyProviderRightFootAppearance, BaseBodyProviderRightFootOrganic]
+  parent: [BaseBodyProviderRightFoot, BaseBodyProviderRightFootOrganic, BaseBodyProviderPartHarpy, BaseBodyProviderRightFootAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -68,7 +68,7 @@
 # Groin
 - type: entity
   id: BodyProviderGroinHarpy
-  parent: [BaseBodyProviderPartHarpy, BaseBodyProviderGroinAppearance, BaseBodyProviderGroinOrganic]
+  parent: [BaseBodyProviderGroin, BaseBodyProviderGroinOrganic, BaseBodyProviderPartHarpy, BaseBodyProviderGroinAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -79,7 +79,7 @@
 # Hands
 - type: entity
   id: BodyProviderLeftHandHarpy
-  parent: [BaseBodyProviderPartHarpy, BaseBodyProviderLeftHandAppearance, BaseBodyProviderLeftHandOrganic]
+  parent: [BaseBodyProviderLeftHand, BaseBodyProviderLeftHandOrganic, BaseBodyProviderPartHarpy, BaseBodyProviderLeftHandAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -89,7 +89,7 @@
 
 - type: entity
   id: BodyProviderRightHandHarpy
-  parent: [BaseBodyProviderPartHarpy, BaseBodyProviderRightHandAppearance, BaseBodyProviderRightHandOrganic]
+  parent: [BaseBodyProviderRightHand, BaseBodyProviderRightHandOrganic, BaseBodyProviderPartHarpy, BaseBodyProviderRightHandAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -100,7 +100,7 @@
 # Head
 - type: entity
   id: BodyProviderHeadHarpy
-  parent: [BaseBodyProviderPartHarpy, BaseBodyProviderHeadAppearance, BaseBodyProviderHeadOrganic]
+  parent: [BaseBodyProviderHead, BaseBodyProviderHeadOrganic, BaseBodyProviderPartHarpy, BaseBodyProviderHeadAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -111,7 +111,7 @@
 # Legs
 - type: entity
   id: BodyProviderLeftLegHarpy
-  parent: [BaseBodyProviderPartHarpy, BaseBodyProviderLeftLegAppearance, BaseBodyProviderLeftLegOrganic]
+  parent: [BaseBodyProviderLeftLeg, BaseBodyProviderLeftLegOrganic, BaseBodyProviderPartHarpy, BaseBodyProviderLeftLegAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -121,7 +121,7 @@
 
 - type: entity
   id: BodyProviderRightLegHarpy
-  parent: [BaseBodyProviderPartHarpy, BaseBodyProviderRightLegAppearance, BaseBodyProviderRightLegOrganic]
+  parent: [BaseBodyProviderRightLeg, BaseBodyProviderRightLegOrganic, BaseBodyProviderPartHarpy, BaseBodyProviderRightLegAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -132,7 +132,7 @@
 # Tail
 - type: entity
   id: BodyProviderTailHarpy
-  parent: [BaseBodyProviderPartHarpy, BaseBodyProviderTailAppearance, BaseBodyProviderTailOrganic]
+  parent: [BaseBodyProviderTail, BaseBodyProviderTailOrganic, BaseBodyProviderPartHarpy, BaseBodyProviderTailAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:

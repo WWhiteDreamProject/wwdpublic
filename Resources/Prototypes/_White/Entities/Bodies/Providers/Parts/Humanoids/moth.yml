@@ -1,6 +1,6 @@
 - type: entity
   id: BaseBodyProviderPartMoth
-  parent: [BaseBodyProviderPartAppearance, BaseBodyProviderPartOrganic]
+  parent: [BaseBodyProviderPart, BaseBodyProviderPartOrganic, BaseBodyProviderPartAppearance]
   abstract: true
   suffix: Moth
   components:
@@ -13,7 +13,7 @@
 # Arms
 - type: entity
   id: BodyProviderLeftArmMoth
-  parent: [BaseBodyProviderPartMoth, BaseBodyProviderLeftArmAppearance, BaseBodyProviderLeftArmOrganic]
+  parent: [BaseBodyProviderLeftArm, BaseBodyProviderLeftArmOrganic, BaseBodyProviderPartMoth, BaseBodyProviderLeftArmAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -23,7 +23,7 @@
 
 - type: entity
   id: BodyProviderRightArmMoth
-  parent: [BaseBodyProviderPartMoth, BaseBodyProviderRightArmAppearance, BaseBodyProviderRightArmOrganic]
+  parent: [BaseBodyProviderRightArm, BaseBodyProviderRightArmOrganic, BaseBodyProviderPartMoth, BaseBodyProviderRightArmAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -34,7 +34,7 @@
 # Chest
 - type: entity
   id: BodyProviderChestMoth
-  parent: [BaseBodyProviderPartMoth, BaseBodyProviderChestAppearance, BaseBodyProviderChestOrganic]
+  parent: [BaseBodyProviderChest, BaseBodyProviderChestOrganic, BaseBodyProviderPartMoth, BaseBodyProviderChestAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -45,7 +45,7 @@
 # Foots
 - type: entity
   id: BodyProviderLeftFootMoth
-  parent: [BaseBodyProviderPartMoth, BaseBodyProviderLeftFootAppearance, BaseBodyProviderLeftFootOrganic]
+  parent: [BaseBodyProviderLeftFoot, BaseBodyProviderLeftFootOrganic, BaseBodyProviderPartMoth, BaseBodyProviderLeftFootAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -55,7 +55,7 @@
 
 - type: entity
   id: BodyProviderRightFootMoth
-  parent: [BaseBodyProviderPartMoth, BaseBodyProviderRightFootAppearance, BaseBodyProviderRightFootOrganic]
+  parent: [BaseBodyProviderRightFoot, BaseBodyProviderRightFootOrganic, BaseBodyProviderPartMoth, BaseBodyProviderRightFootAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -66,7 +66,7 @@
 # Groin
 - type: entity
   id: BodyProviderGroinMoth
-  parent: [BaseBodyProviderPartMoth, BaseBodyProviderGroinAppearance, BaseBodyProviderGroinOrganic]
+  parent: [BaseBodyProviderGroin, BaseBodyProviderGroinOrganic, BaseBodyProviderPartMoth, BaseBodyProviderGroinAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -77,7 +77,7 @@
 # Hands
 - type: entity
   id: BodyProviderLeftHandMoth
-  parent: [BaseBodyProviderPartMoth, BaseBodyProviderLeftHandAppearance, BaseBodyProviderLeftHandOrganic]
+  parent: [BaseBodyProviderLeftHand, BaseBodyProviderLeftHandOrganic, BaseBodyProviderPartMoth, BaseBodyProviderLeftHandAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -87,7 +87,7 @@
 
 - type: entity
   id: BodyProviderRightHandMoth
-  parent: [BaseBodyProviderPartMoth, BaseBodyProviderRightHandAppearance, BaseBodyProviderRightHandOrganic]
+  parent: [BaseBodyProviderRightHand, BaseBodyProviderRightHandOrganic, BaseBodyProviderPartMoth, BaseBodyProviderRightHandAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -98,7 +98,7 @@
 # Head
 - type: entity
   id: BodyProviderHeadMoth
-  parent: [BaseBodyProviderPartMoth, BaseBodyProviderHeadAppearance, BaseBodyProviderHeadOrganic]
+  parent: [BaseBodyProviderHead, BaseBodyProviderHeadOrganic, BaseBodyProviderPartMoth, BaseBodyProviderHeadAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -109,7 +109,7 @@
 # Legs
 - type: entity
   id: BodyProviderLeftLegMoth
-  parent: [BaseBodyProviderPartMoth, BaseBodyProviderLeftLegAppearance, BaseBodyProviderLeftLegOrganic]
+  parent: [BaseBodyProviderLeftLeg, BaseBodyProviderLeftLegOrganic, BaseBodyProviderPartMoth, BaseBodyProviderLeftLegAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -119,7 +119,7 @@
 
 - type: entity
   id: BodyProviderRightLegMoth
-  parent: [BaseBodyProviderPartMoth, BaseBodyProviderRightLegAppearance, BaseBodyProviderRightLegOrganic]
+  parent: [BaseBodyProviderRightLeg, BaseBodyProviderRightLegOrganic, BaseBodyProviderPartMoth, BaseBodyProviderRightLegAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -130,7 +130,7 @@
 # Wings
 - type: entity
   id: BodyProviderWingsMoth
-  parent: [BaseBodyProviderPartMoth, BaseBodyProviderWingsAppearance, BaseBodyProviderWingsOrganic]
+  parent: [BaseBodyProviderWings, BaseBodyProviderWingsOrganic, BaseBodyProviderPartMoth, BaseBodyProviderWingsAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
