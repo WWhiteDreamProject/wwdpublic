@@ -12,27 +12,27 @@ public sealed partial class MarkingGroupPrototype : IPrototype, IInheritingProto
 {
     /// <inheritdoc />
     [IdDataField]
-    public string ID { get; } = default!;
+    public string ID { get; private set; } = default!;
 
     /// <inheritdoc />
     [ParentDataField(typeof(AbstractPrototypeIdArraySerializer<MarkingGroupPrototype>))]
-    public string[]? Parents { get; }
+    public string[]? Parents { get; private set; }
 
     /// <inheritdoc />
     [NeverPushInheritance, AbstractDataField]
-    public bool Abstract { get; }
+    public bool Abstract { get; private set; }
 
     /// <summary>
     /// If true, only markings that explicitly include this group in their whitelist will be selectable.
     /// </summary>
     [DataField]
-    public bool Whitelisted { get; }
+    public bool Whitelisted { get; private set; }
 
     /// <summary>
     /// Defines constraints for specific marking categories (e.g., how many tattoos can be applied).
     /// </summary>
     [DataField, AlwaysPushInheritance]
-    public Dictionary<ProtoId<MarkingCategoryPrototype>, MarkingCategoryData> Data { get; } = new();
+    public Dictionary<ProtoId<MarkingCategoryPrototype>, MarkingCategoryData> Data { get; private set; } = new();
 }
 
 [DataDefinition]

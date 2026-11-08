@@ -1,4 +1,4 @@
-examine-trigger-voice = На дисплее виднеется: "{ $keyphrase }"
+examine-trigger-voice = На дисплее виднеется: «{ $keyphrase }»
 trigger-voice-uninitialized = На дисплее виднеется: Не инициализированно...
 
 verb-trigger-voice-record = Записать

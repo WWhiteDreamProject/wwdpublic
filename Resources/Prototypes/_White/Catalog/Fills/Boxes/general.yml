@@ -1,0 +1,737 @@
+# Base
+- type: entity
+  parent: BoxBase
+  id: BoxMaterialBase
+  abstract: true
+  components:
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,2,2
+  - type: Storage
+    maxItemSize: Normal
+    blacklist:
+      tags:
+      - BoxMaterial
+    grid:
+    - 0,0,3,3
+  - type: Sprite
+    sprite: _White/Objects/Storage/boxes.rsi
+    layers:
+    - state: bg
+      map: [ paper ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: icon
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+  - type: ItemSlots
+    slots:
+      label-slot:
+        name: label-slot
+        whitelist:
+          tags:
+          - Document
+          - Write
+  - type: ContainerContainer
+    containers:
+      label-slot: !type:ContainerSlot { }
+      storagebase: !type:Container
+  - type: ItemMapper
+    sprite: _White/Objects/Storage/boxes_icon.rsi
+    mapLayers:
+      paper:
+        whitelist:
+          tags:
+          - Document
+          - Write
+      label:
+        whitelist:
+          tags:
+          - Document
+          - Write
+    spriteLayers:
+    - paper
+    - label
+  - type: Appearance
+  - type: EmitSoundOnPickup
+    sound: /Audio/SimpleStation14/Items/Handling/cardboardbox_pickup.ogg
+  - type: EmitSoundOnDrop
+    sound: /Audio/SimpleStation14/Items/Handling/cardboardbox_drop.ogg
+  - type: EmitSoundOnLand
+    sound: /Audio/SimpleStation14/Items/Handling/cardboardbox_drop.ogg
+  - type: Tag
+    tags:
+    - BoxMaterial
+
+- type: entity
+  name: cardboard box
+  parent: BoxMaterialBase
+  id: BoxCardboardCrafted
+  suffix: No paper
+  description: A cardboard box for storing things.
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Storage/boxes.rsi
+    layers:
+    - state: box_card_base
+    - state: bg
+      map: [ paper ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: icon
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_card
+      map: [ top ]
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        top:
+          True: { state: box_card_open }
+          False: { state: box_card }
+  - type: Tag
+    tags:
+    - BoxCardboard
+    - BoxMaterial
+  - type: Construction
+    graph: BoxCardboard
+    node: boxcardboard
+    containers:
+    - entity_storage
+  - type: PhysicalComposition
+    materialComposition:
+      Cardboard: 100
+
+- type: entity
+  name: plastic box
+  parent: BoxMaterialBase
+  id: BoxPlasticCrafted
+  suffix: No paper
+  description: A plastic box for storing things.
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Storage/boxes.rsi
+    layers:
+    - state: box_plastic_base
+    - state: bg
+      map: [ paper ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: icon
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_plastic
+      map: [ top ]
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        top:
+          True: { state: box_plastic_open }
+          False: { state: box_plastic }
+  - type: Tag
+    tags:
+    - BoxPlastic
+    - BoxMaterial
+  - type: Construction
+    graph: BoxPlastic
+    node: boxplastic
+    containers:
+    - entity_storage
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 100
+
+- type: entity
+  name: steel box
+  parent: BoxMaterialBase
+  id: BoxSteelCrafted
+  suffix: No paper
+  description: A steel box for storing things.
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Storage/boxes.rsi
+    layers:
+    - state: box_steel_base
+    - state: bg
+      map: [ paper ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: icon
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_steel
+      map: [ top ]
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        top:
+          True: { state: box_steel_open }
+          False: { state: box_steel }
+  - type: Tag
+    tags:
+    - BoxSteel
+    - BoxMaterial
+  - type: Construction
+    graph: BoxSteel
+    node: boxsteel
+    containers:
+    - entity_storage
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 100
+
+- type: entity
+  name: cardboard wide box
+  parent: BoxMaterialBase
+  id: BoxCardboardWideCrafted
+  suffix: No paper
+  description: A wide cardboard box for storing things.
+  components:
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,5,2
+  - type: Storage
+    maxItemSize: Large
+    blacklist:
+      tags:
+      - BoxMaterial
+    grid:
+    - 0,0,7,3
+  - type: Sprite
+    sprite: _White/Objects/Storage/boxes.rsi
+    layers:
+    - state: box_card_wide_base
+    - state: bg
+      map: [ paper ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: icon
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_card_wide
+      map: [ top ]
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        top:
+          True: { state: box_card_wide_open }
+          False: { state: box_card_wide }
+  - type: Tag
+    tags:
+    - BoxCardboard
+    - BoxMaterial
+  - type: Construction
+    graph: BoxCardboardWide
+    node: boxcardboardwide
+    containers:
+    - entity_storage
+  - type: PhysicalComposition
+    materialComposition:
+      Cardboard: 200
+
+- type: entity
+  name: plastic wide box
+  parent: BoxMaterialBase
+  id: BoxPlasticWideCrafted
+  suffix: No paper
+  description: A wide plastic box for storing things.
+  components:
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,5,2
+  - type: Storage
+    maxItemSize: Large
+    grid:
+    - 0,0,7,3
+  - type: Sprite
+    sprite: _White/Objects/Storage/boxes.rsi
+    layers:
+    - state: box_plastic_wide_base
+    - state: bg
+      map: [ paper ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: icon
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_plastic_wide
+      map: [ top ]
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        top:
+          True: { state: box_plastic_wide_open }
+          False: { state: box_plastic_wide }
+  - type: Tag
+    tags:
+    - BoxPlastic
+    - BoxMaterial
+  - type: Construction
+    graph: BoxPlasticWide
+    node: boxplasticwide
+    containers:
+    - entity_storage
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 200
+
+- type: entity
+  name: steel wide box
+  parent: BoxMaterialBase
+  id: BoxSteelWideCrafted
+  suffix: No paper
+  description: A wide steel box for storing things.
+  components:
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,5,2
+  - type: Storage
+    maxItemSize: Large
+    grid:
+    - 0,0,7,3
+  - type: Sprite
+    sprite: _White/Objects/Storage/boxes.rsi
+    layers:
+    - state: box_steel_wide_base
+    - state: bg
+      map: [ paper ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: icon
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_steel_wide
+      map: [ top ]
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        top:
+          True: { state: box_steel_wide_open }
+          False: { state: box_steel_wide }
+  - type: Tag
+    tags:
+    - BoxSteel
+    - BoxMaterial
+  - type: Construction
+    graph: BoxSteelWide
+    node: boxsteelwide
+    containers:
+    - entity_storage
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 200
+
+- type: entity
+  name: small cardboard box
+  parent: BoxMaterialBase
+  id: BoxCardboardSmallCrafted
+  suffix: No paper
+  description: A small cardboard box for storing things.
+  components:
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,1,1
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,2,2
+  - type: Sprite
+    sprite: _White/Objects/Storage/boxes.rsi
+    layers:
+    - state: box_card_small_base
+    - state: bg_small
+      map: [ paper ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: icon
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_card_small
+      map: [ top ]
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        top:
+          True: { state: box_card_small_open }
+          False: { state: box_card_small }
+  - type: Tag
+    tags:
+    - BoxCardboard
+    - BoxMaterial
+  - type: Construction
+    graph: BoxCardboardSmall
+    node: boxcardboardsmall
+    containers:
+    - entity_storage
+  - type: PhysicalComposition
+    materialComposition:
+      Cardboard: 100
+
+- type: entity
+  name: small plastic box
+  parent: BoxMaterialBase
+  id: BoxPlasticSmallCrafted
+  suffix: No paper
+  description: A small plastic box for storing things.
+  components:
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,1
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,2,2
+  - type: Sprite
+    sprite: _White/Objects/Storage/boxes.rsi
+    layers:
+    - state: box_plastic_small_base
+    - state: bg_small
+      map: [ paper ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: icon
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_plastic_small
+      map: [ top ]
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        top:
+          True: { state: box_plastic_small_open }
+          False: { state: box_plastic_small }
+  - type: Tag
+    tags:
+    - BoxPlastic
+    - BoxMaterial
+  - type: Construction
+    graph: BoxPlasticSmall
+    node: boxplasticsmall
+    containers:
+    - entity_storage
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 100
+
+- type: entity
+  name: small steel box
+  parent: BoxMaterialBase
+  id: BoxSteelSmallCrafted
+  suffix: No paper
+  description: A small steel box for storing things.
+  components:
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,1,1
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,2,2
+  - type: Sprite
+    sprite: _White/Objects/Storage/boxes.rsi
+    layers:
+    - state: box_steel_small_base
+    - state: bg_small
+      map: [ paper ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: icon
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_steel_small
+      map: [ top ]
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        top:
+          True: { state: box_steel_small_open }
+          False: { state: box_steel_small }
+  - type: Tag
+    tags:
+    - BoxSteel
+    - BoxMaterial
+  - type: Construction
+    graph: BoxSteelSmall
+    node: boxsteelsmall
+    containers:
+    - entity_storage
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 100
+
+# With paper
+- type: entity
+  parent: BoxCardboardCrafted
+  id: BoxCardboard
+  suffix: ""
+  components:
+  - type: ItemSlots
+    slots:
+      label-slot:
+        name: label-slot
+        startingItem: Paper
+        whitelist:
+          tags:
+          - Document
+          - Write
+
+- type: entity
+  parent: BoxPlasticCrafted
+  id: BoxPlastic
+  suffix: ""
+  components:
+  - type: ItemSlots
+    slots:
+      label-slot:
+        name: label-slot
+        startingItem: Paper
+        whitelist:
+          tags:
+          - Document
+          - Write
+
+- type: entity
+  parent: BoxSteelCrafted
+  id: BoxSteel
+  suffix: ""
+  components:
+  - type: ItemSlots
+    slots:
+      label-slot:
+        name: label-slot
+        startingItem: Paper
+        whitelist:
+          tags:
+          - Document
+          - Write
+
+- type: entity
+  parent: BoxCardboardWideCrafted
+  id: BoxCardboardWide
+  suffix: ""
+  components:
+  - type: ItemSlots
+    slots:
+      label-slot:
+        name: label-slot
+        startingItem: Paper
+        whitelist:
+          tags:
+          - Document
+          - Write
+
+- type: entity
+  parent: BoxPlasticWideCrafted
+  id: BoxPlasticWide
+  suffix: ""
+  components:
+  - type: ItemSlots
+    slots:
+      label-slot:
+        name: label-slot
+        startingItem: Paper
+        whitelist:
+          tags:
+          - Document
+          - Write
+
+- type: entity
+  parent: BoxSteelWideCrafted
+  id: BoxSteelWide
+  suffix: ""
+  components:
+  - type: ItemSlots
+    slots:
+      label-slot:
+        name: label-slot
+        startingItem: Paper
+        whitelist:
+          tags:
+          - Document
+          - Write
+
+- type: entity
+  parent: BoxCardboardSmallCrafted
+  id: BoxCardboardSmall
+  suffix: ""
+  components:
+  - type: ItemSlots
+    slots:
+      label-slot:
+        name: label-slot
+        startingItem: Paper
+        whitelist:
+          tags:
+          - Document
+          - Write
+
+- type: entity
+  parent: BoxPlasticSmallCrafted
+  id: BoxPlasticSmall
+  suffix: ""
+  components:
+  - type: ItemSlots
+    slots:
+      label-slot:
+        name: label-slot
+        startingItem: Paper
+        whitelist:
+          tags:
+          - Document
+          - Write
+
+- type: entity
+  parent: BoxSteelSmallCrafted
+  id: BoxSteelSmall
+  suffix: ""
+  components:
+  - type: ItemSlots
+    slots:
+      label-slot:
+        name: label-slot
+        startingItem: Paper
+        whitelist:
+          tags:
+          - Document
+          - Write
+
+# Not base
+- type: entity
+  name: cardboard wide box
+  parent: BoxCardboardWide
+  id: BoxLightbulbWide
+  description: This wide box is filled with light bulbs and tubes.
+  components:
+  - type: Sprite
+    layers:
+    - state: box_card_wide_base
+    - state: bg
+      map: [ paper ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: light
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_card_wide_eng
+      map: [ top ]
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        top:
+          True: { state: box_card_wide_eng_open }
+          False: { state: box_card_wide_eng }
+  - type: StorageFill
+    contents:
+    - id: LightBulb
+      amount: 16
+
+- type: entity
+  name: lightbulb box warm
+  parent: BoxLightbulbWide
+  id: BoxWarmLightbulbWide
+  components:
+  - type: StorageFill
+    contents:
+    - id: WarmLightBulb
+      amount: 16
+
+- type: entity
+  name: mixed lights box
+  parent: BoxLightbulbWide
+  id: BoxLightMixedWide
+  components:
+  - type: Sprite
+    layers:
+    - state: box_card_wide_base
+    - state: bg
+      map: [ paper ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: lightmixed
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_card_wide_eng
+      map: [ top ]
+  - type: StorageFill
+    contents:
+    - id: LightTube
+      amount: 8
+    - id: LightBulb
+      amount: 8
+
+- type: entity
+  name: lighttube box
+  parent: BoxLightbulbWide
+  id: BoxLighttubeWide
+  components:
+  - type: Sprite
+    layers:
+    - state: box_card_wide_base
+    - state: bg
+      map: [ paper ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: lighttube
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_card_wide_eng
+      map: [ top ]
+  - type: StorageFill
+    contents:
+    - id: LightTube
+      amount: 16
+
+- type: entity
+  name: holiday lighttube box
+  parent: BoxLightbulbWide
+  id: BoxLighttubeWideHoliday
+  components:
+  - type: Sprite
+    layers:
+    - state: box_card_wide_base
+    - state: bg
+      map: [ paper ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: lighttube
+      map: [ label ]
+      sprite: _White/Objects/Storage/boxes_icon.rsi
+    - state: box_card_wide_eng
+      map: [ top ]
+  - type: StorageFill
+    contents:
+    - id: LightTubeCrystalRed
+    - id: LightTubeCrystalGreen
+    - id: LightTubeCrystalRed
+    - id: LightTubeCrystalGreen
+    - id: LightTubeCrystalRed
+    - id: LightTubeCrystalGreen
+    - id: LightTubeCrystalRed
+    - id: LightTubeCrystalGreen
+    - id: LightTubeCrystalRed
+    - id: LightTubeCrystalGreen
+    - id: LightTubeCrystalRed
+    - id: LightTubeCrystalGreen
+    - id: LightTubeCrystalRed
+    - id: LightTubeCrystalGreen
+    - id: LightTubeCrystalRed
+    - id: LightTubeCrystalGreen
+
+- type: entity
+  name: maintenance lightbulb box
+  parent: BoxLightbulbWide
+  id: BoxMaintenanceLightbulbWide
+  components:
+  - type: StorageFill
+    contents:
+    - id: LightBulbMaintenance
+      amount: 8
+    - id: LightBulbMaintenanceRed
+      amount: 8
+
+- type: entity
+  name: colored lighttube box
+  parent: BoxLightbulbWide
+  id: BoxColoredLighttubeWide
+  components:
+  - type: StorageFill
+    contents:
+    - id: ColoredLightTubeRed
+      amount: 4
+    - id: ColoredLightTubeFrostyBlue
+      amount: 4
+    - id: ColoredLightTubeBlackLight
+      amount: 4

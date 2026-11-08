@@ -121,7 +121,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         EmbedDetach(embeddable, embeddable.Comp, args.User);
 
         // try place it in the user's hand
-        _hands.TryPickupAnyHand(args.User, embeddable);
+        // _hands.TryPickupAnyHand(args.User, embeddable); // WWDP EDIT
     }
 
     private void OnEmbedThrowDoHit(Entity<EmbeddableProjectileComponent> embeddable, ref ThrowDoHitEvent args)
@@ -274,6 +274,11 @@ public abstract partial class SharedProjectileSystem : EntitySystem
     {
         if (component.IgnoreShooter && (args.OtherEntity == component.Shooter || args.OtherEntity == component.Weapon))
             args.Cancelled = true;
+
+        // WWDP edit start
+        if (component.Penetrate && component.IgnoredEntities.Contains(args.OtherEntity))
+            args.Cancelled = true;
+        // WWDP edit end
     }
 
     public void SetShooter(EntityUid id, ProjectileComponent component, EntityUid shooterId)

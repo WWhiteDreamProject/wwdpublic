@@ -1,0 +1,13 @@
+- type: entity
+  name: CR-12 Moros
+  parent: WeaponSubMachineGunC20r
+  id: WeaponSubMachineGunCR12Moros
+  description: The primary firearm of any Syndicate operative. It utilises manufacturing technologies unfamiliar to the Corporation, so it is unknown whether it is a copy of older, pre-Corporation weapon models or something entirely new. It is incredibly compact for its lethality, easy to use, and simple to maintain.
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/SMGs/c-12r-moros.rsi
+  - type: Clothing
+    sprite: _White/Objects/Weapons/Guns/SMGs/c-12r-moros.rsi
+  - type: MagazineVisuals
+    magState: mag
+    steps: 4

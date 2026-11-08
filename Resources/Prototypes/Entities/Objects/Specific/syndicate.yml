@@ -63,6 +63,7 @@
     layers:
     - state: radio
   - type: Item
+    storedRotation: 90 # WD EDIT
     sprite: Objects/Devices/communication.rsi
     heldPrefix: radio
   - type: UserInterface

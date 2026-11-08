@@ -84,3 +84,4 @@
       Blunt: 2.5
   - type: DamageOtherOnHit
     staminaCost: 8
+  - type: ItemSlots

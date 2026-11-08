@@ -295,7 +295,7 @@
   - type: Clothing
     sprite: Objects/Weapons/Guns/Shotguns/enforcer.rsi
   - type: Item
-    sprite: Objects/Weapons/Guns/Shotguns/enforcer_inhands_64x.rsi
+    sprite: Objects/Weapons/Guns/Shotguns/enforcer.rsi
     # WD EDIT START: Guns resiz
     size: Huge
     shape:
@@ -433,7 +433,7 @@
     shape:
     - 0,0,3,0
     # WD EDIT END
-    storedRotation: 90
+    storedRotation: 180 # WD EDIT: 90 > 180
   - type: Sprite
     sprite: Objects/Weapons/Guns/Shotguns/hm_pistol.rsi
   - type: Clothing

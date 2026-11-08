@@ -8,6 +8,8 @@
       collection: HarpyScreams
     Yawn:
       collection: MaleYawn
+    Snore: # WWDP EDIT
+      collection: HarpySnores # WWDP EDIT
     Laugh:
       collection: HarpyLaugh
     Sneeze:
@@ -66,6 +68,8 @@
       collection: HarpyHoots
     Chirp:
       collection: HarpyChirps
+    Squish: # WWDP EDIT
+      collection: Squishes # WWDP EDIT
     Weh:
       collection: Weh
     Hew:

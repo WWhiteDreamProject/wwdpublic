@@ -1,7 +1,7 @@
 # Traitor single items
 steal-target-groups-hypospray = гипоспрей
 steal-target-groups-handheld-crew-monitor = портативный монитор экипажа
-steal-target-groups-clothing-outer-hardsuit-rd = скафандр научного руководителя
+steal-target-groups-clothing-outer-hardsuit-rd = скафандр мистагога
 steal-target-groups-hand-teleporter = ручной телепорт
 steal-target-groups-clothing-shoes-boots-mag-adv = продвинутые магнитные сапоги
 steal-target-groups-box-folder-qm-clipboard = requisition digi-board
@@ -28,7 +28,7 @@ steal-target-groups-lamps = ЛАМПЫ
 # Thief single item
 # Thief single item
 steal-target-groups-forensic-scanner = криминалистический сканер
-steal-target-groups-flippo-engraved-lighter = зажигалка детектива с гравировкой "Флиппо"
+steal-target-groups-flippo-engraved-lighter = гравированная зажигалка «Флиппо»
 steal-target-groups-ammo-tech-fab-circuitboard = печатная плата техфаба патронов
 steal-target-groups-clothing-head-hat-warden = фуражка смотрителя
 steal-target-groups-clothing-outer-hardsuit-void-paramed = пустотный скафандр парамедика

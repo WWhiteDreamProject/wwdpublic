@@ -12842,9 +12842,7 @@ entities:
     - type: Transform
     - type: Map
       mapPaused: True
-    - type: PhysicsMap
     - type: GridTree
-    - type: MovedGrids
     - type: Parallax
       parallax: TortugaStation
     - type: Broadphase
@@ -62498,7 +62496,7 @@ entities:
     - type: Transform
       pos: -50.546757,40.480946
       parent: 33
-- proto: ClothingNeckHeadphones
+- proto: ClothingMultipleHeadphones
   entities:
   - uid: 24440
     components:

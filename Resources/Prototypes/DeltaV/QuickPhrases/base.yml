@@ -2,85 +2,85 @@
 
 - type: quickPhrase
   id: BaseCommonPhrase
-  tab: Common Phrases
+  tab: aac-tab-common-phrases # WWDP EDIT (loc)
   abstract: true
 
 - type: quickPhrase
   id: BaseJobPhrase
-  tab: Jobs
+  tab: aac-tab-jobs # WWDP EDIT (loc)
   abstract: true
 
 - type: quickPhrase
   id: BaseLocationPhrase
-  tab: Locations
+  tab: aac-tab-locations # WWDP EDIT (loc)
   abstract: true
 
 - type: quickPhrase
   id: BaseSubjectPhrase
-  tab: Subjects
+  tab: aac-tab-subjects # WWDP EDIT (loc)
   abstract: true
 
 - type: quickPhrase
   id: BaseThreatPhrase
-  tab: Safety
+  tab: aac-tab-safety # WWDP EDIT (loc)
   abstract: true
 
 - type: quickPhrase
   id: BaseSpeciesPhrase
-  tab: Species
+  tab: aac-tab-species # WWDP EDIT (loc)
   abstract: true
 
 # Departments
 
 - type: quickPhrase
   id: BaseCivilianPhrase
-  group: Civilian
+  group: aac-group-civilian # WWDP EDIT (loc)
   abstract: true
 
 - type: quickPhrase
   id: BaseCommandPhrase
-  group: Command
+  group: aac-group-command # WWDP EDIT (loc)
   styleClass: CommandButton
   abstract: true
 
 - type: quickPhrase
   id: BaseEngineeringPhrase
-  group: Engineering
+  group: aac-group-engineering # WWDP EDIT (loc)
   styleClass: EngineeringButton
   abstract: true
 
 - type: quickPhrase
   id: BaseEpistemicsPhrase
-  group: Epistemics
+  group: aac-group-epistemics # WWDP EDIT (loc)
   styleClass: EpistemicsButton
   abstract: true
 
 - type: quickPhrase
   id: BaseJusticePhrase
-  group: Justice
+  group: aac-group-justice # WWDP EDIT (loc)
   styleClass: JusticeButton
   abstract: true
 
 - type: quickPhrase
   id: BaseLogisticsPhrase
-  group: Logistics
+  group: aac-group-logistics # WWDP EDIT (loc)
   styleClass: LogisticsButton
   abstract: true
 
 - type: quickPhrase
   id: BaseMedicalPhrase
-  group: Medical
+  group: aac-group-medical # WWDP EDIT (loc)
   styleClass: MedicalButton
   abstract: true
 
 - type: quickPhrase
   id: BaseSecurityPhrase
-  group: Security
+  group: aac-group-security # WWDP EDIT (loc)
   styleClass: SecurityButton
   abstract: true
 
 - type: quickPhrase
   id: BaseServicePhrase
-  group: Service
+  group: aac-group-service # WWDP EDIT (loc)
   styleClass: ServiceButton
   abstract: true

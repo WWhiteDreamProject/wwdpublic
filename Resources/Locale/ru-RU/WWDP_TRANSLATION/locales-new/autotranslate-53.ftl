@@ -1,14 +1,14 @@
 ent-MobRandomScienceCorpse = неизвестный ученый
-   .desc = "Его смерть будет самой великой загадкой."
-   .suffix = "Мертвый"
+   .desc = { "Его смерть будет самой великой загадкой." }
+   .suffix = { "Мертвый" }
 
 ent-MobRandomSecurityCorpse = неизвестный охранник
-   .desc = "Вы видите след ящика из-под инструментов на его затылке."
-   .suffix = "Мертвый"
+   .desc = { "Вы видите след ящика из-под инструментов на его затылке." }
+   .suffix = { "Мертвый" }
 
 ent-MobRandomCommandCorpse = неизвестный глава
-   .desc = "Возможно теперь его вещи в надежных руках?"
-   .suffix = "Мертвый"
+   .desc = { "Возможно теперь его вещи в надежных руках?" }
+   .suffix = { "Мертвый" }
 
 ent-FoodEggChickenFertilized = { ent-FoodEgg }
    .desc = { ent-FoodEggBase.desc }
@@ -31,8 +31,8 @@ ent-MobDragonDungeon = { ent-MobDragon }
 ent-MobHumanSyndicateAgentNukeops = { ent-MobHumanSyndicateAgent }
    .desc = { ent-MobHuman.desc }
 
-ent-ReplayObserver = ""
-   .desc = ""
+ent-ReplayObserver = { "" }
+   .desc = { "" }
 
 ent-FlaskBase = { ent-BaseItem }
    .desc = { ent-BaseItem.desc }

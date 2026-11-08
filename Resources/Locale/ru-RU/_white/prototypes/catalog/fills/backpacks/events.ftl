@@ -1,23 +1,23 @@
-ent-ClothingBackpackAmalgestWhite = { ent-ClothingBackpackERTMedical }
+ent-ClothingBackpackAlmagestWhite = { ent-ClothingBackpackERTMedical }
     .desc = { ent-ClothingBackpackERTMedical.desc }
     .suffix = { ent-ClothingBackpackERTMedical.suffix }
 
-ent-ClothingBackpackAmalgestYellow = { ent-ClothingBackpackERTMedical }
+ent-ClothingBackpackAlmagestYellow = { ent-ClothingBackpackERTMedical }
     .desc = { ent-ClothingBackpackERTMedical.desc }
     .suffix = { ent-ClothingBackpackERTMedical.suffix }
 
-ent-ClothingBackpackAmalgestRed = { ent-ClothingBackpackERTMedical }
+ent-ClothingBackpackAlmagestRed = { ent-ClothingBackpackERTMedical }
     .desc = { ent-ClothingBackpackERTMedical.desc }
     .suffix = { ent-ClothingBackpackERTMedical.suffix }
 
-ent-ClothingBackpackAmalgestBlue = { ent-ClothingBackpackERTMedical }
+ent-ClothingBackpackAlmagestBlue = { ent-ClothingBackpackERTMedical }
     .desc = { ent-ClothingBackpackERTMedical.desc }
     .suffix = { ent-ClothingBackpackERTMedical.suffix }
 
-ent-ClothingBackpackAmalgestGreen = { ent-ClothingBackpackERTMedical }
+ent-ClothingBackpackAlmagestGreen = { ent-ClothingBackpackERTMedical }
     .desc = { ent-ClothingBackpackERTMedical.desc }
     .suffix = { ent-ClothingBackpackERTMedical.suffix }
 
-ent-ClothingBackpackAmalgestPurple = { ent-ClothingBackpackERTMedical }
+ent-ClothingBackpackAlmagestPurple = { ent-ClothingBackpackERTMedical }
     .desc = { ent-ClothingBackpackERTMedical.desc }
     .suffix = { ent-ClothingBackpackERTMedical.suffix }

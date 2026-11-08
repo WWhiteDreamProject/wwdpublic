@@ -6,7 +6,7 @@ lock-comp-has-user-access-fail = Доступ запрещён
 
 ## ToggleLockVerb
 
-lock-comp-generic-fail = {CAPITALIZE(SUBJECT($target))} {CONJUGATE-BE($target)} locked.
+lock-comp-generic-fail = Заперто.
 
 ## ToggleLockVerb
 

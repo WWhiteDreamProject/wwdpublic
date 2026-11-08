@@ -7,7 +7,7 @@ objective-issuer-syndicate = [color=crimson]Синдикат[/color]
 
 # Shown at the end of a round of Traitor
 
-objective-issuer-unknown = Unknown
+objective-issuer-unknown = Неизвестный
 
 # Shown at the end of a round of Traitor
 
@@ -31,7 +31,7 @@ traitor-death-match-end-round-description-entry = ПДА { $originalName }, с {
 
 # TraitorRole
 traitor-role-greeting =
-    Вы - агент Синдиката.
+    Вы — агент Синдиката.
     Ваши цели и кодовые слова перечислены в меню персонажа.
     Воспользуйтесь аплинком, встроенным в ваш ПДА, чтобы приобрести всё необходимое для выполнения работы.
     Смерть  Nanotrasen!
@@ -56,5 +56,5 @@ traitor-role-codewords-short =
     Кодовые слова::
     {$codewords}.
 
-traitor-role-uplink-code-short = Код от вашего аплинка - {$code}. Установите его в качестве рингтона ПДА для доступа к аплинку.
+traitor-role-uplink-code-short = Код от вашего аплинка — {$code}. Установите его в качестве рингтона ПДА для доступа к аплинку.
 traitor-role-uplink-implant-short = Ваш аплинк был имплантирован. Воспользуйтесь им из хотбара.

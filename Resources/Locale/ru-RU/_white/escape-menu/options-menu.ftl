@@ -1,4 +1,6 @@
 ui-options-emotes-menu = Тип меню эмоции:
+ui-options-emotes-menu-window = Окно
+ui-options-emotes-menu-radial = Радиальное
 
 ui-options-log-in-chat = Логировать действия в чат
 

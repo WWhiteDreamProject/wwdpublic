@@ -9,6 +9,9 @@
 
         <BoxContainer Orientation="Vertical" HorizontalExpand="True">
             <TextEdit Name="CFlavorTextInput" Access="Public" MinSize="220 100" Margin="10" HorizontalExpand="True" VerticalExpand="True" />
+            <!-- WD EDIT START-->
+            <Label Name="CharacterCountLabel" HorizontalAlignment="Right" Margin="10 0 10 5"/>
+            <!-- WD EDIT END-->
         </BoxContainer>
     </PanelContainer>
 </Control>

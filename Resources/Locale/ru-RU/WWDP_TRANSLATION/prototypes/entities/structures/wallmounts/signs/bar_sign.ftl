@@ -35,7 +35,7 @@ ent-BarSignOfficerBeersky = Офицер Пивски
     .suffix = { "" }
 
 ent-BarSignRobustaCafe = Кафе Робуста
-    .desc = Неоспоримый обладатель награды "Самые смертоносные бои" уже 5 лет.
+    .desc = Неоспоримый обладатель награды «Самые смертоносные бои» уже 5 лет.
     .suffix = { "" }
 
 ent-BarSignTheAleNath = Эль'натх

@@ -25,7 +25,8 @@ armor-reduction-value =
         [Shock] Электрический
         [Radiation] Радиационный
         [Caustic] Кислотный
-    }[/color] урон снижается на [color=lightblue]{ $value }[/color].
+    }[/color] урон снижается на [color=lightblue]{ $value }[/color] пунктов.
+# ! DO NOT TRANSLATE
 armor-damage-type-blunt = Blunt
 armor-damage-type-slash = Slash
 armor-damage-type-piercing = Piercing
@@ -40,4 +41,5 @@ armor-damage-type-poison = Poison
 armor-damage-type-shock = Shock
 armor-damage-type-structural = Structural
 armor-damage-type-holy = Holy
-armor-examine-stamina = - [color=cyan]Stamina[/color] damage reduced by [color=lightblue]{$num}%[/color].
+# End «do not translate»
+armor-examine-stamina = - [color=cyan]Выносливость[/color] крепче на [color=lightblue]{$num}%[/color].

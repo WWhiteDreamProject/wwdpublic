@@ -20,5 +20,5 @@
   id: BookSalvageEpistemics1
   suffix: 1
   components:
-  - type: Paper
+  - type: Book
     content: book-text-epistemics1

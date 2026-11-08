@@ -10,6 +10,11 @@ public sealed partial class SkeletonAccentSystem : EntitySystem
 
     [GeneratedRegex(@"(?<!\w)[^aeiou]one", RegexOptions.IgnoreCase, "en-US")]
     private static partial Regex BoneRegex();
+    // WWDP EDIT START
+    // Replace «-ость» with «-КОСТЬ» (радость → радКОСТЬ, крутость → крутКОСТЬ)
+    [GeneratedRegex(@"ость\b", RegexOptions.IgnoreCase)]
+    private static partial Regex RuBoneRegex();
+    // WWDP EDIT END
 
     private static readonly Dictionary<string, string> DirectReplacements = new()
     {
@@ -30,6 +35,28 @@ public sealed partial class SkeletonAccentSystem : EntitySystem
         { "under", "ulna"},
         { "narrow", "marrow"},
     };
+    // WWDP EDIT START
+    // Russian bone puns
+    private static readonly Dictionary<string, string> DirectReplacements_Ru = new()
+    {
+        { "чёрт", "КОСТИ ГРЕМЯТ" },
+        { "черт", "КОСТИ ГРЕМЯТ" },
+        { "блин", "КОСТИ ГРЕМЯТ" },
+        { "блять", "КОСТИ ГРЕМЯТ" },
+        { "блядь", "КОСТИ ГРЕМЯТ" },
+        { "сука", "КОСТИ ГРЕМЯТ" },
+        { "точно", "костьми лягу" },
+        { "определённо", "костьми лягу" },
+        { "абсолютно", "костьми лягу" },
+        { "боюсь", "костей не соберу" },
+        { "страшно", "до костей пробирает" },
+        { "испуган", "до костей пробрало" },
+        { "шокирован", "до костей пробрало" },
+        { "убит", "обглодан до костей" },
+        { "смешно", "до мозга костей" },
+        { "под", "до мозга костей" },
+    };
+    // WWDP EDIT END
 
     public override void Initialize()
     {
@@ -56,7 +83,14 @@ public sealed partial class SkeletonAccentSystem : EntitySystem
         {
             msg = Regex.Replace(msg, $@"(?<!\w){first}(?!\w)", replace, RegexOptions.IgnoreCase);
         }
+        // WWDP EDIT START
+        msg = RuBoneRegex().Replace(msg, "КОСТЬ");
 
+        foreach (var (first, replace) in DirectReplacements_Ru)
+        {
+            msg = Regex.Replace(msg, $@"(?<!\w){first}(?!\w)", replace, RegexOptions.IgnoreCase);
+        }
+        // WWDP EDIT END
         // Suffix:
         if (_random.Prob(component.ackChance))
         {

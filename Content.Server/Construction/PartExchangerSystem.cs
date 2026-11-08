@@ -1,3 +1,5 @@
+// Updated by WhiteDream by fckmoth
+
 using System.Linq;
 using Content.Server.Construction.Components;
 using Content.Server.Storage.EntitySystems;
@@ -30,46 +32,87 @@ public sealed class PartExchangerSystem : EntitySystem
         SubscribeLocalEvent<PartExchangerComponent, ExchangerDoAfterEvent>(OnDoAfter);
     }
 
-    private void OnDoAfter(EntityUid uid, PartExchangerComponent component, DoAfterEvent args)
+    private void OnAfterInteract(Entity<PartExchangerComponent> ent, ref AfterInteractEvent args)
     {
-        if (args.Cancelled)
+        if (ent.Comp.DoDistanceCheck && !args.CanReach || !args.Target.HasValue
+            || !HasComp<MachineComponent>(args.Target) && !HasComp<MachineFrameComponent>(args.Target))
         {
-            component.AudioStream = _audio.Stop(component.AudioStream);
+            args.Handled = false;
             return;
         }
 
-        if (args.Handled || args.Args.Target == null || !TryComp<StorageComponent>(uid, out var storage))
+        if (TryComp<WiresPanelComponent>(args.Target, out var panel) && !panel.Open)
+        {
+            _popup.PopupEntity(Loc.GetString("construction-step-condition-wire-panel-open"), args.Target.Value);
+            args.Handled = false;
+            return;
+        }
+
+        if (!TryComp<StorageComponent>(ent, out var storage) || storage.Container.Count == 0)
+        {
+            _popup.PopupEntity(Loc.GetString("rped-container-empty"), args.Target.Value);
+            args.Handled = false;
+            return;
+        }
+
+        args.Handled = true;
+
+        var doAfter = new DoAfterArgs(
+            EntityManager,
+            args.User,
+            ent.Comp.ExchangeDuration,
+            new ExchangerDoAfterEvent(),
+            ent,
+            target: args.Target,
+            used: ent)
+        {
+            BreakOnDamage = true,
+            BreakOnMove = true
+        };
+
+        _doAfter.TryStartDoAfter(doAfter);
+    }
+
+    private void OnDoAfter(EntityUid uid, PartExchangerComponent component, DoAfterEvent args)
+    {
+        if (args.Cancelled || args.Handled || args.Args.Target == null ||
+            !TryComp<StorageComponent>(uid, out var storage))
             return;
 
-        var machinePartQuery = GetEntityQuery<MachinePartComponent>();
         var machineParts = new List<Entity<MachinePartComponent>>();
 
         foreach (var item in storage.Container.ContainedEntities) //get parts in RPED
         {
-            if (machinePartQuery.TryGetComponent(item, out var part))
+            if (TryComp(item, out MachinePartComponent? part))
                 machineParts.Add((item, part));
         }
 
-        TryExchangeMachineParts(args.Args.Target.Value, uid, machineParts);
-        TryConstructMachineParts(args.Args.Target.Value, uid, machineParts);
+        if (machineParts.Count == 0)
+            return;
 
         args.Handled = true;
+        if (TryExchangeMachineParts(args.Args.Target.Value, uid, machineParts) ||
+            TryConstructMachineParts(args.Args.Target.Value, uid, machineParts))
+            component.AudioStream = _audio.PlayPvs(component.ExchangeSound, uid)?.Entity;
     }
 
-    private void TryExchangeMachineParts(EntityUid uid, EntityUid storageUid, List<Entity<MachinePartComponent>> machineParts)
+    private bool TryExchangeMachineParts(
+        EntityUid uid,
+        EntityUid storageUid,
+        List<Entity<MachinePartComponent>> machineParts
+    )
     {
         if (!TryComp<MachineComponent>(uid, out var machine))
-            return;
+            return false;
 
-        var machinePartQuery = GetEntityQuery<MachinePartComponent>();
         var board = machine.BoardContainer.ContainedEntities.FirstOrNull();
-
         if (!TryComp<MachineBoardComponent>(board, out var macBoardComp))
-            return;
+            return false;
 
-        foreach (var item in new ValueList<EntityUid>(machine.PartContainer.ContainedEntities)) //clone so don't modify during enumeration
+        //clone so don't modify during enumeration
+        foreach (var item in new ValueList<EntityUid>(machine.PartContainer.ContainedEntities))
         {
-            if (!machinePartQuery.TryGetComponent(item, out var part))
+            if (!TryComp(item, out MachinePartComponent? part))
                 continue;
 
             machineParts.Add((item, part));
@@ -77,6 +120,7 @@ public sealed class PartExchangerSystem : EntitySystem
         }
 
         machineParts.Sort((x, y) => x.Comp.Rating.CompareTo(y.Comp.Rating));
+        machineParts.Reverse();
 
         var updatedParts = new List<Entity<MachinePartComponent>>();
         foreach (var (machinePartId, amount) in macBoardComp.MachinePartRequirements)
@@ -96,22 +140,28 @@ public sealed class PartExchangerSystem : EntitySystem
             _storage.Insert(storageUid, unused, out _, playSound: false);
 
         _construction.RefreshParts(uid, machine);
+        return true;
     }
 
-    private void TryConstructMachineParts(EntityUid uid, EntityUid storageEnt, List<Entity<MachinePartComponent>> machineParts)
+    private bool TryConstructMachineParts(
+        EntityUid uid,
+        EntityUid storageEnt,
+        List<Entity<MachinePartComponent>> machineParts
+    )
     {
         if (!TryComp<MachineFrameComponent>(uid, out var machine))
-            return;
+            return false;
 
-        var machinePartQuery = GetEntityQuery<MachinePartComponent>();
         var board = machine.BoardContainer.ContainedEntities.FirstOrNull();
 
         if (!TryComp<MachineBoardComponent>(board, out var macBoardComp))
-            return;
+            return false;
 
-        foreach (var item in new ValueList<EntityUid>(machine.PartContainer.ContainedEntities)) //clone so don't modify during enumeration
+        foreach (var item in
+            new ValueList<EntityUid>(
+                machine.PartContainer.ContainedEntities)) //clone so don't modify during enumeration
         {
-            if (!machinePartQuery.TryGetComponent(item, out var part))
+            if (!TryComp(item, out MachinePartComponent? part))
                 continue;
 
             machineParts.Add((item, part));
@@ -128,49 +178,20 @@ public sealed class PartExchangerSystem : EntitySystem
             updatedParts.AddRange(target);
         }
 
-        foreach (var pair in updatedParts)
+        foreach (var part in updatedParts)
         {
-            if (!machine.MachinePartRequirements.ContainsKey(pair.Comp.PartType))
+            if (!machine.MachinePartRequirements.ContainsKey(part.Comp.PartType))
                 continue;
 
-            _container.Insert(pair.Owner, machine.PartContainer);
-            machine.MachinePartProgress[pair.Comp.PartType]++;
-            machineParts.Remove(pair);
+            _container.Insert(part.Owner, machine.PartContainer);
+            machine.MachinePartProgress[part.Comp.PartType]++;
+            machineParts.Remove(part);
         }
 
         //put the unused parts back into rped. (this also does the "swapping")
         foreach (var (unused, _) in machineParts)
             _storage.Insert(storageEnt, unused, out _, playSound: false);
-    }
 
-    private void OnAfterInteract(EntityUid uid, PartExchangerComponent component, AfterInteractEvent args)
-    {
-        if (component.DoDistanceCheck && !args.CanReach
-            || args.Target == null
-            || !HasComp<MachineComponent>(args.Target) && !HasComp<MachineFrameComponent>(args.Target))
-            return;
-
-        if (TryComp<WiresPanelComponent>(args.Target, out var panel) && !panel.Open)
-        {
-            _popup.PopupEntity(Loc.GetString("construction-step-condition-wire-panel-open"), args.Target.Value);
-            return;
-        }
-
-        component.AudioStream = _audio.PlayPvs(component.ExchangeSound, uid)?.Entity;
-
-        var doAfter = new DoAfterArgs(
-            EntityManager,
-            args.User,
-            component.ExchangeDuration,
-            new ExchangerDoAfterEvent(),
-            uid,
-            target: args.Target,
-            used: uid)
-        {
-            BreakOnDamage = true,
-            BreakOnMove = true
-        };
-
-        _doAfter.TryStartDoAfter(doAfter);
+        return true;
     }
 }

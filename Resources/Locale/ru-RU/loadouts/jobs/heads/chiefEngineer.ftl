@@ -1,3 +1,3 @@
-loadout-description-LoadoutCommandCENeckMantle = To show who has the authority around here. It seems over-engineered.
-loadout-description-LoadoutCommandCENeckCloak = To really show who has the authority around here. It seems over-engineered.
-loadout-description-LoadoutCommandCEOuterWinter = A warm coat for the cold of space. It seems over-engineered.
+loadout-description-LoadoutCommandCENeckMantle = Чтобы показать, у кого здесь власть. Это кажется слишком продуманным.
+loadout-description-LoadoutCommandCENeckCloak = Чтобы по-настоящему показать, у кого здесь власть. Это кажется слишком продуманным.
+loadout-description-LoadoutCommandCEOuterWinter = Теплое пальто для холодного космоса. Кажется, оно слишком продумано.

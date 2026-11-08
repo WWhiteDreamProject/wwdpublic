@@ -3,4 +3,4 @@ scannable-solution-verb-message = Изучить химический соста
 scannable-solution-main-text = Содержит следующие химикаты:
 scannable-solution-empty-container = Не содержит химических веществ.
 scannable-solution-chemical = - {$amount}ед. [color={$color}]{$type}[/color]
-scannable-solution-temperature = Solution temperature: {$temperature}K
+scannable-solution-temperature = Температура расствора: {$temperature}K

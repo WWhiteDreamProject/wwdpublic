@@ -145,9 +145,6 @@
   id: Bottle
 
 - type: Tag
-  id: BoxCardboard
-
-- type: Tag
   id: BoxHug
 
 - type: Tag

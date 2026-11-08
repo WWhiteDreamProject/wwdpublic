@@ -4,38 +4,38 @@ ent-GrenadeBees = пчелоната
 ent-TearSmokeGrenade = слезоточивая дымовая граната
    .desc = { ent-BaseGrenade.desc }
 
-ent-BaseStation = ""
-   .desc = ""
+ent-BaseStation = { "" }
+   .desc = { "" }
 
-ent-BaseStationCargo = ""
-   .desc = ""
+ent-BaseStationCargo = { "" }
+   .desc = { "" }
 
-ent-BaseStationJobsSpawning = ""
-   .desc = ""
+ent-BaseStationJobsSpawning = { "" }
+   .desc = { "" }
 
-ent-BaseStationRecords = ""
-   .desc = ""
+ent-BaseStationRecords = { "" }
+   .desc = { "" }
 
-ent-BaseStationArrivals = ""
-   .desc = ""
+ent-BaseStationArrivals = { "" }
+   .desc = { "" }
 
-ent-BaseStationShuttles = ""
-   .desc = ""
+ent-BaseStationShuttles = { "" }
+   .desc = { "" }
 
-ent-BaseStationCentcomm = ""
-   .desc = ""
+ent-BaseStationCentcomm = { "" }
+   .desc = { "" }
 
-ent-BaseStationEvacuation = ""
-   .desc = ""
+ent-BaseStationEvacuation = { "" }
+   .desc = { "" }
 
-ent-BaseStationAlertLevels = ""
-   .desc = ""
+ent-BaseStationAlertLevels = { "" }
+   .desc = { "" }
 
-ent-BaseStationExpeditions = ""
-   .desc = ""
+ent-BaseStationExpeditions = { "" }
+   .desc = { "" }
 
-ent-BaseStationAllEventsEligible = ""
-   .desc = ""
+ent-BaseStationAllEventsEligible = { "" }
+   .desc = { "" }
 
-ent-BaseStationNanotrasen = ""
-   .desc = ""
+ent-BaseStationNanotrasen = { "" }
+   .desc = { "" }

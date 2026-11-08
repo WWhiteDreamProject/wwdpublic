@@ -752,11 +752,15 @@
   parent: BaseAmmoRecipe
   id: MagazinePistol
   result: MagazinePistol
+  materials:
+    Steel: 200
 
 - type: latheRecipe
   parent: BaseEmptyAmmoRecipe
   id: MagazinePistolEmpty
   result: MagazinePistolEmpty
+  materials:
+    Steel: 20
 
 - type: latheRecipe
   id: MagazinePistolIncendiary

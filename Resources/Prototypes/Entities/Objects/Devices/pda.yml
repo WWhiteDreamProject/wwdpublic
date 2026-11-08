@@ -233,7 +233,7 @@
     sprite: _White/Objects/Devices/Pda/internmed.rsi # WWDP edit
   - type: GuideHelp
     guides:
-    - Medical Doctor
+    - MedicalDoctor
 
 - type: entity
   parent: BaseSecurityPDA
@@ -841,7 +841,7 @@
     sprite: _White/Objects/Devices/Pda/medical.rsi # WWDP edit
   - type: GuideHelp
     guides:
-    - Medical Doctor
+    - MedicalDoctor
 
 - type: entity
   parent: MedicalPDA

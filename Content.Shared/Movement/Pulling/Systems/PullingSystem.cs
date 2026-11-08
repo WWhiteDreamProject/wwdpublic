@@ -3,6 +3,7 @@ using Content.Shared._Goobstation.MartialArts.Components;
 using Content.Shared._Goobstation.MartialArts.Events;
 using Content.Shared._White.Damage;
 using Content.Shared._White.Grab;
+using Content.Shared._White.Teleportation.Systems;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Alert;
@@ -76,7 +77,6 @@ public sealed class PullingSystem : EntitySystem
     [Dependency] private readonly StaminaSystem _stamina = default!;
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly INetManager _netManager = default!;
     [Dependency] private readonly SharedVirtualItemSystem _virtualSystem = default!;
     [Dependency] private readonly GrabThrownSystem _grabThrown = default!;
     [Dependency] private readonly SharedCombatModeSystem _combatMode = default!;
@@ -100,6 +100,7 @@ public sealed class PullingSystem : EntitySystem
         SubscribeLocalEvent<PullableComponent, StartCollideEvent>(OnPullableCollide);
         SubscribeLocalEvent<PullableComponent, UpdateCanMoveEvent>(OnGrabbedMoveAttempt);
         SubscribeLocalEvent<PullableComponent, SpeakAttemptEvent>(OnGrabbedSpeakAttempt);
+        SubscribeLocalEvent<PullableComponent, BeforeTeleportationEvent>(OnBeforeTeleportation); // WD EDIT
 
         SubscribeLocalEvent<PullerComponent, MoveInputEvent>(OnPullerMoveInput);
         SubscribeLocalEvent<PullerComponent, AfterAutoHandleStateEvent>(OnAfterState);
@@ -111,6 +112,7 @@ public sealed class PullingSystem : EntitySystem
         SubscribeLocalEvent<PullerComponent, StopPullingAlertEvent>(OnStopPullingAlert);
         SubscribeLocalEvent<PullerComponent, VirtualItemThrownEvent>(OnVirtualItemThrown);
         SubscribeLocalEvent<PullerComponent, AddCuffDoAfterEvent>(OnAddCuffDoAfterEvent);
+        SubscribeLocalEvent<PullerComponent, BeforeTeleportationEvent>(OnBeforeTeleportation); // WD EDIT
 
         SubscribeLocalEvent<PullableComponent, StrappedEvent>(OnBuckled);
         SubscribeLocalEvent<PullableComponent, BuckledEvent>(OnGotBuckled);
@@ -137,7 +139,7 @@ public sealed class PullingSystem : EntitySystem
             && TryComp<PullableComponent>(ent.Comp.Pulling, out var comp)
             && ent.Comp.Pulling != null)
         {
-            if(_netManager.IsServer)
+            if(_net.IsServer)
                 StopPulling(ent.Comp.Pulling.Value, comp);
         }
     }
@@ -554,7 +556,7 @@ public sealed class PullingSystem : EntitySystem
         if (TryComp<PullerComponent>(oldPuller, out var pullerComp))
         {
             var pullerUid = oldPuller.Value;
-            if (_netManager.IsServer)
+            if (_net.IsServer)
                 _alertsSystem.ClearAlert(pullerUid, pullerComp.PullingAlert);
             pullerComp.Pulling = null;
             pullerComp.GrabStage = GrabStage.No;
@@ -575,7 +577,7 @@ public sealed class PullingSystem : EntitySystem
         }
 
 
-        if (_netManager.IsServer)
+        if (_net.IsServer)
             _alertsSystem.ClearAlert(pullableUid, pullableComp.PulledAlert);
     }
 
@@ -727,7 +729,7 @@ public sealed class PullingSystem : EntitySystem
             if (!TryStopPull(pullableUid, pullableComp, pullableComp.Puller))
             {
                 // Not succeed to retake grabbed entity
-                if (_netManager.IsServer)
+                if (_net.IsServer)
                 {
                     _popup.PopupEntity(Loc.GetString("popup-grab-retake-fail",
                             ("puller", Identity.Entity(pullableComp.Puller.Value, EntityManager)),
@@ -744,7 +746,7 @@ public sealed class PullingSystem : EntitySystem
             else if (pullableComp.GrabStage != GrabStage.No)
             {
                 // Successful retake
-                if (_netManager.IsServer)
+                if (_net.IsServer)
                 {
                     _popup.PopupEntity(Loc.GetString("popup-grab-retake-success",
                             ("puller", Identity.Entity(pullableComp.Puller.Value, EntityManager)),
@@ -847,7 +849,7 @@ public sealed class PullingSystem : EntitySystem
 
         if (!ignoreGrab)
         {
-            if (_netManager.IsServer && user != null && user.Value == pullableUid)
+            if (_net.IsServer && user != null && user.Value == pullableUid)
             {
                 if (!AttemptGrabRelease(pullableUid)) // WWDP edit
                     return false;
@@ -985,7 +987,7 @@ public sealed class PullingSystem : EntitySystem
         _modifierSystem.RefreshMovementSpeedModifiers(puller);
 
         // I'm lazy to write client code
-        if (!_netManager.IsServer)
+        if (!_net.IsServer)
             return true;
 
         _popup.PopupEntity(Loc.GetString($"popup-grab-{puller.Comp.GrabStage.ToString().ToLower()}-target", ("puller", Identity.Entity(puller, EntityManager))), pullable, pullable, popupType);
@@ -1024,7 +1026,7 @@ public sealed class PullingSystem : EntitySystem
                 var emptyHand = _handsSystem.TryGetEmptyHand(puller, out _);
                 if (!emptyHand)
                 {
-                    if (_netManager.IsServer)
+                    if (_net.IsServer)
                         _popup.PopupEntity(Loc.GetString("popup-grab-need-hand"), puller, puller, PopupType.Medium);
 
                     return false;
@@ -1033,7 +1035,7 @@ public sealed class PullingSystem : EntitySystem
                 if (!_virtualSystem.TrySpawnVirtualItemInHand(pullable, puller.Owner, out var item, true))
                 {
                     // I'm lazy write client code
-                    if (_netManager.IsServer)
+                    if (_net.IsServer)
                         _popup.PopupEntity(Loc.GetString("popup-grab-need-hand"), puller, puller, PopupType.Medium);
 
                     return false;
@@ -1161,6 +1163,19 @@ public sealed class PullingSystem : EntitySystem
         TrySetGrabStages((puller.Owner, puller.Comp), (pullable.Owner, pullable.Comp), newStage);
         return true;
     }
+
+    // WD EDIT START
+    private void OnBeforeTeleportation(Entity<PullableComponent> ent, ref BeforeTeleportationEvent args) =>
+        StopPulling(ent, ent);
+
+    private void OnBeforeTeleportation(Entity<PullerComponent> ent, ref BeforeTeleportationEvent args)
+    {
+        if (!TryComp<PullableComponent>(ent.Comp.Pulling, out var pullable))
+            return;
+
+        StopPulling(ent.Comp.Pulling.Value, pullable);
+    }
+    // WD EDIT END
 }
 
 public enum GrabStage

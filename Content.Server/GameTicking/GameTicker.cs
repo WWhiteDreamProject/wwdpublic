@@ -14,6 +14,7 @@ using Content.Shared.GameTicking;
 using Content.Shared.Mind;
 using Content.Shared.Roles;
 using Robust.Server;
+using Robust.Server.GameObjects;
 using Robust.Server.GameStates;
 using Robust.Server.Player;
 using Robust.Shared.Audio.Systems;
@@ -65,6 +66,7 @@ namespace Content.Server.GameTicking
         [Dependency] private readonly SharedRoleSystem _roles = default!;
         [Dependency] private readonly ServerDbEntryManager _dbEntryManager = default!;
         [Dependency] private readonly IPlayerManager _playerManager = default!;
+        [Dependency] private readonly UserInterfaceSystem _ui = default!; // WWDP EDIT
 
         [ViewVariables] private bool _initialized;
         [ViewVariables] private bool _postInitialized;

@@ -4,17 +4,17 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared._White.Humanoid.Prototypes;
 
 [Prototype]
-public sealed class BodyTypePrototype : IPrototype
+public sealed partial class BodyTypePrototype : IPrototype
 {
     /// <inheritdoc/>
     [IdDataField]
-    public string ID { get; } = default!;
+    public string ID { get; private set; } = default!;
 
     /// <summary>
     /// Name of the body type.
     /// </summary>
     [DataField(required: true)]
-    public string Name { get; } = default!;
+    public string Name { get; private set; } = default!;
 
     /// <summary>
     /// Which sex can't use this body type? TODO: In the bright future all restrictions should use refactored CharacterRequirement.

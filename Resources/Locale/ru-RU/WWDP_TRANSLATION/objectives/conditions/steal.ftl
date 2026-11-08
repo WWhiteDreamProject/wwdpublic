@@ -8,7 +8,7 @@ steal-target-hand-teleporter = ручной телепорт
 
 steal-target-advanced-magboots = продвинутые магнитные сапоги
 
-steal-target-requisition-digi-board = requisition digi-board
+steal-target-requisition-digi-board = портативная доска заказов
 
 steal-target-prime-cut-corgi-meat = первосортное мясо корги
 
@@ -46,7 +46,7 @@ steal-target-lamps = ЛАМПЫ
 
 steal-target-forensic-scanner = криминалистический сканер
 
-steal-target-lighter = detective's Flippo engraved lighter
+steal-target-lighter = гравированная зажигалка «Флиппо»
 
 steal-target-ammo-techfab = печатная плата техфаба патронов
 

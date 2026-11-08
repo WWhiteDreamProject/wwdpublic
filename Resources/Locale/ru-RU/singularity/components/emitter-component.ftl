@@ -13,7 +13,7 @@ comp-emitter-turned-off = { $target } отключается.
 comp-emitter-not-anchored = { $target } не закреплён!
 
 # Upgrades
-emitter-component-upgrade-fire-rate = fire rate
+emitter-component-upgrade-fire-rate = скорость стрельбы
 
 emitter-component-current-type = Текущий выбранный режим: { $type }.
 emitter-component-type-set = Выставленный режим: { $type }

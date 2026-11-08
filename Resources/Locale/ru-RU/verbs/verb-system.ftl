@@ -10,7 +10,7 @@ verb-self-target-pronoun = Вы
 # verb categories & common verbs. These appear across multiple systems, so they may as well go here.
 
 verb-categories-admin = Админ
-verb-categories-debug = Debug
+verb-categories-debug = Дебаг
 verb-categories-examine = Осмотреть
 verb-categories-eject = Извлечь
 verb-categories-insert = Вставить
@@ -27,10 +27,10 @@ verb-categories-set-sensor = Датчики
 verb-categories-timer = Установить задержку
 verb-categories-lever = Рычаг
 verb-categories-select-type = Выбрать режим
-verb-categories-select-faction = Select Faction
-verb-categories-rename = Rename
+verb-categories-select-faction = Выберите фракцию
+verb-categories-rename = Переименовать
 verb-categories-fax = Задать место назначения
-verb-categories-power-level = Power Level
+verb-categories-power-level = Уровень энергии
 verb-categories-interaction = Взаимодействовать
 
 verb-categories-blood-cult = Культ Крови

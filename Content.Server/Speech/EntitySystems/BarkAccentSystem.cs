@@ -8,7 +8,10 @@ namespace Content.Server.Speech.EntitySystems
         [Dependency] private readonly IRobustRandom _random = default!;
 
         private static readonly IReadOnlyList<string> Barks = new List<string>{
-            " Woof!", " WOOF", " wof-wof"
+            // WWDP EDIT START
+            " Гав!", " ГАВ", " гав-гав"
+            ////" Woof!", " WOOF", " wof-wof"
+            // WWDP EDIT END
         }.AsReadOnly();
 
         private static readonly IReadOnlyDictionary<string, string> SpecialWords = new Dictionary<string, string>()
@@ -17,6 +20,12 @@ namespace Content.Server.Speech.EntitySystems
             { "Ah", "Arf" },
             { "oh", "oof" },
             { "Oh", "Oof" },
+            // WWDP EDIT START
+            { "ах", "арф" },
+            { "Ах", "Арф" },
+            { "ох", "вуф" },
+            { "Ох", "Вуф" },
+            // WWDP EDIT END
         };
 
         public override void Initialize()
@@ -32,6 +41,9 @@ namespace Content.Server.Speech.EntitySystems
             }
 
             return message.Replace("!", _random.Pick(Barks))
+                // WWDP EDIT START
+                .Replace("л", "р").Replace("Л", "Р")
+                // WWDP EDIT END
                 .Replace("l", "r").Replace("L", "R");
         }
 

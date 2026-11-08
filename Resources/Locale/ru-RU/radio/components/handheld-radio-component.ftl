@@ -11,6 +11,6 @@ handheld-radio-menu-title = Портативная рация
 handheld-radio-current-text-frequency = Рабочая частота
 handheld-radio-button-text-mic = Микрофон
 handheld-radio-button-text-speaker = Динамик
-handheld-radio-flavor-text-left = HandiComms, 1000-3000 кГц
+handheld-radio-flavor-text-left = РучнаяСвязь, 1000-3000 кГц
 # Nuclear-14-End
 # Nuclear-14-End

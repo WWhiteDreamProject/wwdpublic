@@ -1,0 +1,98 @@
+- type: construction
+  name: cardboard box
+  id: BoxCardboard
+  graph: BoxCardboard
+  startNode: start
+  targetNode: boxcardboard
+  category: construction-category-storage
+  description: A small box for storing things.
+  icon: { sprite: _White/Objects/Storage/boxes.rsi, state: box_card_icon }
+  objectType: Item
+
+- type: construction
+  name: box plastic
+  id: BoxPlastic
+  graph: BoxPlastic
+  startNode: start
+  targetNode: boxplastic
+  category: construction-category-storage
+  description: A small box for storing things.
+  icon: { sprite: _White/Objects/Storage/boxes.rsi, state: box_plastic_icon }
+  objectType: Item
+
+- type: construction
+  name: box steel
+  id: BoxSteel
+  graph: BoxSteel
+  startNode: start
+  targetNode: boxsteel
+  category: construction-category-storage
+  description: A small box for storing things.
+  icon: { sprite: _White/Objects/Storage/boxes.rsi, state: box_steel_icon }
+  objectType: Item
+
+- type: construction
+  name: box cardboard wide
+  id: BoxCardboardWide
+  graph: BoxCardboardWide
+  startNode: start
+  targetNode: boxcardboardwide
+  category: construction-category-storage
+  description: A big box for storing things.
+  icon: { sprite: _White/Objects/Storage/boxes.rsi, state: box_card_wide_icon }
+  objectType: Item
+
+- type: construction
+  name: box plastic wide
+  id: BoxPlasticWide
+  graph: BoxPlasticWide
+  startNode: start
+  targetNode: boxplasticwide
+  category: construction-category-storage
+  description: A big box for storing things.
+  icon: { sprite: _White/Objects/Storage/boxes.rsi, state: box_plastic_wide_icon }
+  objectType: Item
+
+- type: construction
+  name: box steel wide
+  id: BoxSteelWide
+  graph: BoxSteelWide
+  startNode: start
+  targetNode: boxsteelwide
+  category: construction-category-storage
+  description: A big box for storing things.
+  icon: { sprite: _White/Objects/Storage/boxes.rsi, state: box_steel_wide_icon }
+  objectType: Item
+
+- type: construction
+  name: box cardboard small
+  id: BoxCardboardSmall
+  graph: BoxCardboardSmall
+  startNode: start
+  targetNode: boxcardboardsmall
+  category: construction-category-storage
+  description: A small box for storing things.
+  icon: { sprite: _White/Objects/Storage/boxes.rsi, state: box_card_small_icon }
+  objectType: Item
+
+- type: construction
+  name: box plastic small
+  id: BoxPlasticSmall
+  graph: BoxPlasticSmall
+  startNode: start
+  targetNode: boxplasticsmall
+  category: construction-category-storage
+  description: A small box for storing things.
+  icon: { sprite: _White/Objects/Storage/boxes.rsi, state: box_plastic_small_icon }
+  objectType: Item
+
+- type: construction
+  name: box steel small
+  id: BoxSteelSmall
+  graph: BoxSteelSmall
+  startNode: start
+  targetNode: boxsteelsmall
+  category: construction-category-storage
+  description: A small box for storing things.
+  icon: { sprite: _White/Objects/Storage/boxes.rsi, state: box_steel_small_icon }
+  objectType: Item

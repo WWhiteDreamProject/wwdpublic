@@ -89,7 +89,7 @@
             Access="Internal"
             Icon="{xe:Tex '/Textures/_White/NovaUI/Icons/language.png'}"
             BoundKey = "{x:Static is:ContentKeyFunctions.OpenLanguageMenu}"
-            ToolTip="Open the Language Menu"
+            ToolTip="{Loc 'game-hud-open-language-menu-button-tooltip'}"
             MinSize="42 64"
             HorizontalExpand="True"
             AppendStyleClass="{x:Static style:StyleBase.ButtonSquare}"

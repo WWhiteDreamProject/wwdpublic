@@ -65,8 +65,6 @@
       whitelist:
         components:
         - IdentityBlocker
-        tags:
-        - IPCMaskWearable
     - name: eyes
       slotTexture: glasses
       slotFlags: EYES

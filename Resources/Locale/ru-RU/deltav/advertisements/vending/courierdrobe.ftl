@@ -1,7 +1,7 @@
-advertisement-courierdrobe-1 = Deliver parcels wearing nothing but the most resiliant shorts!
-advertisement-courierdrobe-2 = A great investment for your survival!
-advertisement-courierdrobe-3 = Wear your brown with pride!
-advertisement-courierdrobe-4 = These shorts are comfy and easy to wear, get yours now!
-advertisement-courierdrobe-5 = Outrun every danger with our stylish clothes!
-thankyou-courierdrobe-1 = Now get out there and deliver that mail!
-thankyou-courierdrobe-2 = Those parcels aren't going to deliver themselves!
+advertisement-courierdrobe-1 = Доставляйте посылки в одних только самых эластичных шортах!
+advertisement-courierdrobe-2 = Отличная инвестиция для вашего выживания!
+advertisement-courierdrobe-3 = Носите свой коричневый цвет с гордостью!
+advertisement-courierdrobe-4 = Эти шорты удобны и легки в носке, приобретите их прямо сейчас!
+advertisement-courierdrobe-5 = С нашей стильной одеждой вы сможете избежать любой опасности!
+thankyou-courierdrobe-1 = А теперь отправляйся туда и доставь это письмо!
+thankyou-courierdrobe-2 = Эти посылки не будут доставлены сами по себе!

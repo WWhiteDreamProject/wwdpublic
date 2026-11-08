@@ -18,5 +18,13 @@ public abstract partial class EntityEffectCondition
     /// <param name="prototype"></param>
     /// <returns></returns>
     public abstract string GuidebookExplanation(IPrototypeManager prototype);
+    // WWDP EDIT START
+    /// <summary>
+    /// Name of the reagent currently being described in the guidebook.
+    /// Set externally before calling GuidebookExplanation.
+    /// </summary>
+    [NonSerialized]
+    public string? CurrentReagentName;
+    // WWDP EDIT END
 }
 

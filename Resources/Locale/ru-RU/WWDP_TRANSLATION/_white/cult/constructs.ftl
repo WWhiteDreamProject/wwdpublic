@@ -1,11 +1,11 @@
 ent-JuggernautConstruct = джаггернаут
-    .desc = ""
+    .desc = { "" }
 
 ent-ArtificerConstruct = ремесленник
-    .desc = ""
+    .desc = { "" }
 
 ent-WraithConstruct = фантом
-    .desc = ""
+    .desc = { "" }
 
 ent-ReaperConstruct = жнец
-    .desc = ""
+    .desc = { "" }

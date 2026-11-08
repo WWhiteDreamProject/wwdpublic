@@ -222,7 +222,6 @@
     tags:
     - ClownMask
     - WhitelistChameleon
-    - IPCMaskWearable
   - type: HideLayerClothing
     slots:
     # WD EDIT START
@@ -295,9 +294,6 @@
     # WD EDIT START
     - enum.MarkingVisualLayers.Snout
     # WD EDIT END
-  - type: Tag
-    tags:
-    - IPCMaskWearable
 
 - type: entity
   parent: ClothingMaskBase
@@ -315,7 +311,6 @@
     tags:
     - HamsterWearable
     - WhitelistChameleon
-    - IPCMaskWearable
   - type: HideLayerClothing
     slots:
     # WD EDIT START
@@ -506,7 +501,6 @@
     tags:
     - HamsterWearable
     - WhitelistChameleon
-    - IPCMaskWearable
   - type: HideLayerClothing
     slots:
     # WD EDIT START
@@ -531,9 +525,6 @@
     # WD EDIT START
     - enum.MarkingVisualLayers.Snout
     # WD EDIT END
-  - type: Tag
-    tags:
-    - IPCMaskWearable
 
 - type: entity
   parent: ClothingMaskBase
@@ -552,9 +543,6 @@
     # WD EDIT START
     - enum.MarkingVisualLayers.Snout
     # WD EDIT END
-  - type: Tag
-    tags:
-    - IPCMaskWearable
 
 - type: entity
   parent: ClothingMaskBase
@@ -573,9 +561,6 @@
     # WD EDIT START
     - enum.MarkingVisualLayers.Snout
     # WD EDIT END
-  - type: Tag
-    tags:
-    - IPCMaskWearable
 
 - type: entity
   parent: ClothingMaskBase
@@ -594,9 +579,6 @@
     # WD EDIT START
     - enum.MarkingVisualLayers.Snout
     # WD EDIT END
-  - type: Tag
-    tags:
-    - IPCMaskWearable
 
 - type: entity
   parent: ClothingMaskBase
@@ -615,9 +597,6 @@
     # WD EDIT START
     - enum.MarkingVisualLayers.Snout
     # WD EDIT END
-  - type: Tag
-    tags:
-    - IPCMaskWearable
 
 - type: entity
   parent: ClothingMaskBase
@@ -636,9 +615,6 @@
     # WD EDIT START
     - enum.MarkingVisualLayers.Snout
     # WD EDIT END
-  - type: Tag
-    tags:
-    - IPCMaskWearable
 
 - type: entity
   parent: ClothingMaskBase
@@ -655,7 +631,6 @@
   - type: Tag
     tags:
     - WhitelistChameleon
-    - IPCMaskWearable
 
 - type: entity
   parent: ClothingMaskNeckGaiter
@@ -757,9 +732,6 @@
   - type: EyeProtection
   - type: BreathMask
   - type: IdentityBlocker
-  - type: Tag
-    tags:
-    - IPCMaskWearable
   - type: Unremoveable
 
 - type: entity

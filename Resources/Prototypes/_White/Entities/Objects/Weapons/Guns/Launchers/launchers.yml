@@ -1,0 +1,65 @@
+﻿- type: entity
+  name: riot launcher
+  parent: BaseItem
+  id: WeaponSecurityRiotLauncher
+  description: A compact, single-shot launcher that fires grenades.
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/Launchers/riot_launcher.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,4,1
+    sprite: _White/Objects/Weapons/Guns/Launchers/riot_launcher.rsi
+  - type: ItemSlots
+    slots:
+      gun_chamber:
+        name: Chamber
+        startingItem:
+        priority: 1
+        whitelist:
+          tags:
+          - Grenade
+          - RiotGrenade
+  - type: ContainerContainer
+    containers:
+      gun_chamber: !type:ContainerSlot
+  - type: ChamberMagazineAmmoProvider
+    autoCycle: true
+    boltClosed: true
+    canRack: false
+    soundBoltClosed: /Audio/Weapons/Guns/Cock/revolver_cock.ogg
+    soundBoltOpened: /Audio/Weapons/Guns/Cock/revolver_cock.ogg
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: Appearance
+  - type: Gun
+    fireRate: 1
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/grenade_launcher.ogg
+
+- type: entity
+  name: M80 Heracles
+  parent: WeaponLauncherChinaLake
+  id: WeaponLauncherM80Heracles
+  description: An ancient weapon of mass destruction used by mercenary assault squads. The corporation refuses to acknowledge the existence of this weapon, and users can only speculate about the origins of this powerful object. There is a theory that it is a heavily modified mortar that was once integrated into combat exoskeletons. It is recommended to use it with caution, showing respect and primal fear.
+  components:
+  - type: Sprite
+    sprite: _White/Objects/Weapons/Guns/Launchers/M80-Heracles.rsi
+    layers:
+    - state: icon
+      map: ["enum.GunVisualLayers.Base"]
+    - state: unshaded-laser
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+    - type: Clothing
+      sprite: _White/Objects/Weapons/Guns/Launchers/M80-Heracles.rsi

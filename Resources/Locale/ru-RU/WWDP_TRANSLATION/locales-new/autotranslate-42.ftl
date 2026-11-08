@@ -5,7 +5,7 @@ ent-DresserFilled = { ent-Dresser }
    .desc = { ent-Dresser.desc }
 
 ent-CounterBase = стойка
-   .desc = ""
+   .desc = { "" }
 
 ent-HolosignSecurity = голографический барьер
    .desc = Барьер жесткого света, который блокирует движение, но довольно слабый.
@@ -14,7 +14,7 @@ ent-FatExtractor = экстрактор липидов
    .desc = Безопасно и эффективно удаляет лишний жир с тела.
 
 ent-BaseLathe = лат
-   .desc = ""
+   .desc = { "" }
 
 ent-AmmoTechFab = ТехФаб патронов
    .desc = Печатает минимум пуль, которые могут понадобиться любой бюджетной армии или оружейной. Ничего особенного.
@@ -52,8 +52,8 @@ ent-ComputerSalvageExpedition = компьютер утилизационных 
 ent-ComputerMassMedia = мультимедийная консоль
    .desc = Напишите свое послание миру!
 
-ent-BaseStructureComputer = ""
-   .desc = ""
+ent-BaseStructureComputer = { "" }
+   .desc = { "" }
 
 ent-DiagnosisReportPaper = отчет диагноста болезней
    .desc = Леденящая душу медицинская квитанция.

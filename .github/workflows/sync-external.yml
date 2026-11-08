@@ -1,0 +1,32 @@
+name: Sync to External Repo
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  sync-to-external-repo:
+    runs-on: ubuntu-latest
+    env:
+      GIT_REMOTE_URL: ${{ secrets.GIT_REMOTE_URL }}
+      
+    steps:
+      - if: ${{ env.GIT_REMOTE_URL != '' }}
+        name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+          
+      - if: ${{ env.GIT_REMOTE_URL != '' }}
+        name: Configure Git
+        run: |
+          git config --global user.email "ci-bot@witch.wwdp.ee"
+          git config --global user.name "GitLab CI Bot"
+          
+      - if: ${{ env.GIT_REMOTE_URL != '' }}
+        name: Push to external repository
+        run: |
+          git remote add target "${{ env.GIT_REMOTE_URL }}"
+          git push target HEAD:master

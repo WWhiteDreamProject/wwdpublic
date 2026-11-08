@@ -1,5 +1,7 @@
-ent-BaseWeaponBattery = { ent-BaseItem }
+ent-BaseWeaponBattery = Лазерный Пистолет
     .desc = { ent-BaseItem.desc }
+    .suffix = debug
+
 
 ent-BaseWeaponPowerCell = { ent-BaseItem }
     .desc = { ent-BaseItem.desc }
@@ -9,6 +11,7 @@ ent-BaseWeaponBatterySmall = { ent-BaseWeaponBattery }
 
 ent-BaseWeaponPowerCellSmall = { ent-BaseWeaponPowerCell }
     .desc = { ent-BaseWeaponPowerCell.desc }
+
 
 ent-WeaponLaserSvalinn = лазерный пистолет Свалинн
     .desc = Дешёвый и широко распространенный лазерный пистолет.
@@ -28,7 +31,7 @@ ent-WeaponLaserCarbine = лазерная винтовка
     .desc = Предпочитается службой безопасности Nanotrasen за дешевизну и простоту использования.
     .suffix = Винтовка
 
-ent-WeaponLaserCarbinePractice = тренировочная лазерная винтовка	
+ent-WeaponLaserCarbinePractice = тренировочная лазерная винтовка
     .desc = Модифицированная версия лазерной винтовки, стреляющая безвредными 40-ваттными лучами, и предназначена для стрельбы по мишеням.
     .suffix = Винтовка
 

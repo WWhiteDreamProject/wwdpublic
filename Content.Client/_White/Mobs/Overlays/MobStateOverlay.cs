@@ -1,3 +1,4 @@
+using System.Numerics;
 using Content.Shared._White.Mobs;
 using Robust.Client.Graphics;
 using Robust.Shared.Enums;

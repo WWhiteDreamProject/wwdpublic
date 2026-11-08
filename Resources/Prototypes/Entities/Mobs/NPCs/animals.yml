@@ -325,7 +325,6 @@
   parent: FoodEgg
   suffix: Fertilized, Chicken
   components:
-  - type: Timer
   - type: TimedSpawner
     prototypes:
     - MobChicken
@@ -956,7 +955,6 @@
   parent: FoodEgg
   suffix: Fertilized, Duck
   components:
-  - type: Timer
   - type: TimedSpawner
     prototypes:
     - MobDuckMallard
@@ -2008,13 +2006,15 @@
   # TODO: Remove CombatMode when Prototype Composition is added
   - type: CombatMode
   - type: MeleeWeapon
+    altDisarm: false # WWDP EDIT — no disarm for snale and mouse!
+    canHeavyAttack: false # WWDP EDIT
     soundHit:
       path: /Audio/Effects/bite.ogg
     angle: 0
     animation: WeaponArcBite
     damage:
-      # WD EDIT: Migrated damage format
-      Piercing: 0
+      Piercing: 2 # WD EDIT: 0 > 2
+      Blunt: 1 # WD EDIT
   - type: Bloodstream
     bloodMaxVolume: 50
   - type: CanEscapeInventory

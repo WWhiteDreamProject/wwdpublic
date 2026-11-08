@@ -7,11 +7,11 @@ reagent-desc-juice-banana = Жидкая суть банана. ХОНК.
 reagent-name-juice-berry = ягодный сок
 reagent-desc-juice-berry = Вкусная смесь нескольких видов ягод.
 
-reagent-name-juice-blue-pumpkin = blue pumpkin juice
-reagent-desc-juice-blue-pumpkin = The juice of a blue pumpkin. Smells like pool water.
+reagent-name-juice-blue-pumpkin = сок голубой тыквы
+reagent-desc-juice-blue-pumpkin = Сок голубой тыквы. Пахнет водой из бассейна.
 
-reagent-name-juice-bungo = bungo juice
-reagent-desc-juice-bungo = The juice of a bungo fruit. Exotic!
+reagent-name-juice-bungo = сок бунго
+reagent-desc-juice-bungo = Сок фрукта бунго. Экзотично!
 
 reagent-name-juice-berry-poison = ядовитый ягодный сок
 reagent-desc-juice-berry-poison = Удивительно вкусный сок, приготовленный из различных видов очень смертоносных и ядовитых ягод.

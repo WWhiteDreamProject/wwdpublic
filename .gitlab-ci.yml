@@ -1,0 +1,129 @@
+stages:
+  - prepare
+  - validate
+  - build
+  - test
+  - sync
+  - package
+
+variables:
+  DOTNET_VERSION: "9.0.x"
+  GIT_SUBMODULE_STRATEGY: recursive
+
+.workflow_template: &workflow_template
+  image: mcr.microsoft.com/dotnet/sdk:9.0-noble
+  before_script:
+    - apt-get update && apt-get install -y libfreetype6 python3
+    - git submodule update --init --recursive
+    - dotnet restore
+
+yaml-linter:
+  stage: validate
+  <<: *workflow_template
+  only:
+    - master
+    - staging
+    - trying
+    - merge_requests
+  script:
+    - dotnet build --configuration Release --no-restore /p:WarningsAsErrors= /m
+    - dotnet run --project Content.YAMLLinter --no-build
+
+validate-rsis:
+  stage: validate
+  image: python:3.11
+  only:
+    - staging
+    - trying
+    - merge_requests
+  before_script:
+    - pip install pillow jsonschema
+  script:
+    - python3 RobustToolbox/Schemas/validate_rsis.py Resources/
+
+build:
+  stage: build
+  <<: *workflow_template
+  script:
+    - dotnet build --no-restore /p:WarningsAsErrors=nullable
+  only:
+    - master
+    - staging
+    - trying
+    - merge_requests
+
+test-unit:
+  stage: test
+  <<: *workflow_template
+  only:
+    - master
+    - staging
+    - trying
+    - merge_requests
+  script:
+    - ls
+    - dotnet test RobustToolbox/Robust.UnitTesting/Robust.UnitTesting.csproj -- NUnit.ConsoleOut=0
+    - dotnet test RobustToolbox/Robust.Analyzers.Tests/Robust.Analyzers.Tests.csproj -- NUnit.ConsoleOut=0
+
+#pr-review-ai:
+#  stage: review
+#  <<: *workflow_template
+#  only:
+#    - merge_requests
+#  variables:
+#    GITLAB_API_URL: "https://witch.wwdp.ee"
+#    GITLAB_PRIVATE_TOKEN: "$GITLAB_API_TOKEN"
+#    GEMINI_API_TOKEN: "$GEMINI_API_TOKEN"
+#    CONFIG_PATH: ".gitlab/review-config.json"
+#  before_script:
+#    - apt-get update && apt-get install -y curl ca-certificates unzip git wget jq python3 python3-pip 
+#    - pip3 install yamllint --break-system-packages
+#    - curl -fsSL https://deno.land/install.sh | sh
+#    - export PATH="$HOME/.deno/bin:$PATH"
+#    - deno --version
+#    - git clone https://witch.wwdp.ee/CinkaFox/pr-review-ai
+#    - mv pr-review-ai/* .
+#  script:
+#    - deno run
+#        --allow-net
+#        --allow-run
+#        --allow-env
+#        --allow-read
+#        --allow-write
+#        src/main.ts
+
+gitlab_mr_labeler:
+  stage: prepare
+  image: golang:1.22-alpine
+  variables:
+    GITLAB_API_TOKEN: "$GITLAB_API_TOKEN"
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $GITLAB_API_TOKEN != ""'
+    - when: never
+  before_script:
+    - go install witch.wwdp.ee/CinkaFox/gitlab-mr-labeler@97dcdd8e102a2cd5ec6304667361b5af23d1bc46
+  script:
+    - gitlab-mr-labeler 
+        -f .gitlab/labeler.yml 
+        -t "${GITLAB_API_TOKEN}"
+        --debug true
+        --merge-request-id "${CI_MERGE_REQUEST_IID}"
+        --project-id "${CI_PROJECT_ID}" 
+
+sync-to-external-repo:
+  stage: sync
+  image: alpine:latest
+  variables:
+    GIT_DEPTH: "0"
+    GIT_SUBMODULE_STRATEGY: none
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "master" && $GIT_REMOTE_URL != ""'
+  
+  before_script:
+    - apk add --no-cache git
+    - git config --global user.email "ci-bot@witch.wwdp.ee"
+    - git config --global user.name "GitLab CI Bot"
+  
+  script:
+    - git remote add target "$GIT_REMOTE_URL"
+    - "git push target HEAD:master"

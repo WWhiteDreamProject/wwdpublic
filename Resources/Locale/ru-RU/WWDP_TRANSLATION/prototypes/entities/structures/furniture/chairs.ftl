@@ -59,7 +59,7 @@ ent-ChairCursed = проклятый стул
     .suffix = { "" }
 
 ent-ChairFolding = раскладной стул
-    .desc = Если вы унесёте шесть за раз - вы станете самым крутым парнем в актовом зале.
+    .desc = Если вы унесёте шесть за раз — вы станете самым крутым парнем в актовом зале.
     .suffix = { "" }
 
 ent-ChairFoldingSpawnFolded = { ent-ChairFolding }

@@ -7,8 +7,8 @@ objective-condition-steal-station = станция
 objective-condition-steal-Ian = корги главы персонала
 
 objective-condition-thief-description = Это станет отличным пополнением моей коллекции!
-objective-condition-thief-animal-description = Это станет отличным пополнением моей коллекции! Главное - взять живьём.
+objective-condition-thief-animal-description = Это станет отличным пополнением моей коллекции! Главное — взять живьём.
 objective-condition-thief-multiply-description = Я должен раздобыть {$count} {$itemName} и забрать их с собой.
 
 objective-condition-steal-smsliver-title = Отрезать кусок от кристалла суперматерии.
-objective-condition-steal-smsliver-description = Подойдёт любой режущий инструмент, но лучше всего - скальпель. Берегитесь радиации!
+objective-condition-steal-smsliver-description = Подойдёт любой режущий инструмент, но лучше всего — скальпель. Берегитесь радиации!

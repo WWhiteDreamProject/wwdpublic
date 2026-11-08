@@ -36,7 +36,7 @@
   suffix: Cryptobiolin, 5
   components:
   - type: Label
-    currentLabel: Cryptobiolin 20u
+    currentLabel: reagent-name-cryptobiolin-20u # WWDP EDIT
   - type: StorageFill
     contents:
     - id: PillCryptobiolin

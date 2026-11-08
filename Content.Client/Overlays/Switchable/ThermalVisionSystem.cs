@@ -1,16 +1,16 @@
-using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Overlays.Switchable;
 using Robust.Client.Graphics;
+using Robust.Shared.Timing;
 
 namespace Content.Client.Overlays.Switchable;
 
 public sealed class ThermalVisionSystem : EquipmentHudSystem<ThermalVisionComponent>
 {
     [Dependency] private readonly IOverlayManager _overlayMan = default!;
+    [Dependency] private readonly IGameTiming _gameTiming = default!;
 
     private ThermalVisionOverlay _thermalOverlay = default!;
-    private BaseSwitchableOverlay<ThermalVisionComponent> _overlay = default!;
 
     public override void Initialize()
     {
@@ -18,35 +18,13 @@ public sealed class ThermalVisionSystem : EquipmentHudSystem<ThermalVisionCompon
 
         SubscribeLocalEvent<ThermalVisionComponent, SwitchableOverlayToggledEvent>(OnToggle);
 
-        _thermalOverlay = new ThermalVisionOverlay();
-        _overlay = new BaseSwitchableOverlay<ThermalVisionComponent>();
-    }
-
-    protected override void OnRefreshComponentHud(
-        Entity<ThermalVisionComponent> ent,
-         ref RefreshEquipmentHudEvent<ThermalVisionComponent> args
-        )
-    {
-        if (ent.Comp.IsEquipment)
-            return;
-
-        base.OnRefreshComponentHud(ent, ref args);
-    }
-
-    protected override void OnRefreshEquipmentHud(
-        Entity<ThermalVisionComponent> ent,
-        ref InventoryRelayedEvent<RefreshEquipmentHudEvent<ThermalVisionComponent>> args
-        )
-    {
-        if (!ent.Comp.IsEquipment)
-            return;
-
-        base.OnRefreshEquipmentHud(ent, ref args);
+        _thermalOverlay = new();
     }
 
     private void OnToggle(Entity<ThermalVisionComponent> ent, ref SwitchableOverlayToggledEvent args)
     {
-        RefreshOverlay();
+        if (_gameTiming.IsFirstTimePredicted)
+            RefreshOverlay();
     }
 
     protected override void UpdateInternal(RefreshEquipmentHudEvent<ThermalVisionComponent> args)
@@ -70,7 +48,6 @@ public sealed class ThermalVisionSystem : EquipmentHudSystem<ThermalVisionCompon
         }
 
         UpdateThermalOverlay(tvComp, lightRadius);
-        UpdateOverlay(tvComp);
     }
 
     protected override void DeactivateInternal()
@@ -78,7 +55,6 @@ public sealed class ThermalVisionSystem : EquipmentHudSystem<ThermalVisionCompon
         base.DeactivateInternal();
 
         _thermalOverlay.ResetLight(false);
-        UpdateOverlay(null);
         UpdateThermalOverlay(null, 0f);
     }
 
@@ -99,21 +75,4 @@ public sealed class ThermalVisionSystem : EquipmentHudSystem<ThermalVisionCompon
         }
     }
 
-    private void UpdateOverlay(ThermalVisionComponent? tvComp)
-    {
-        _overlay.Comp = tvComp;
-
-        switch (tvComp)
-        {
-            case { DrawOverlay: true } when !_overlayMan.HasOverlay<BaseSwitchableOverlay<ThermalVisionComponent>>():
-                _overlayMan.AddOverlay(_overlay);
-                break;
-            case null or { DrawOverlay: false }:
-                _overlayMan.RemoveOverlay(_overlay);
-                break;
-        }
-
-        // Night vision overlay is prioritized
-        _overlay.IsActive = !_overlayMan.HasOverlay<BaseSwitchableOverlay<NightVisionComponent>>();
-    }
 }

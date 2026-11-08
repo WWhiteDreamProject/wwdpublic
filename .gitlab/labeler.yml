@@ -1,0 +1,40 @@
+"Changes: Audio":
+  - "**/*.ogg"
+
+"Changes: C#":
+  - "**/*.cs"
+
+"Changes: Config":
+  - "**/*.toml"
+  - "**/*.config"
+  - "*.json"
+  - ".github/*.yml"
+  - ".github/*.json"
+  - ".vscode/*.json"
+  - ".editorconfig"
+
+"Changes: Documentation":
+  - "**/*.xml"
+  - "**/*.md"
+
+"Changes: Localization":
+  - "Resources/Locale/**/*.ftl"
+
+"Changes: Map":
+  - "Resources/Maps/**/*.yml"
+  - "Resources/Prototypes/Maps/**/*.yml"
+
+"Changes: Sprite":
+  - "**/*.rsi/*.png"
+  - "**/*.rsi/*.json"
+
+"Changes: UI":
+  - "**/*.xaml*"
+
+"Changes: YML":
+  - "**/*.yml"
+  - "!Resources/Maps/**/*.yml"        # Exclude Map files
+  - "!Resources/Prototypes/Maps/**/*.yml"
+
+"Changes: Workflow":
+  - ".github/workflows/*.yml"

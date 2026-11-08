@@ -11,21 +11,21 @@ namespace Content.Shared._White.TTS;
 public sealed partial class TTSVoicePrototype : IPrototype
 {
     [IdDataField]
-    public string ID { get; } = default!;
+    public string ID { get; private set; } = default!;
 
     [DataField("name")]
-    public string Name { get; } = string.Empty;
+    public string Name { get; private set; } = string.Empty;
 
     [DataField("sex", required: true)]
-    public Sex Sex { get; }
+    public Sex Sex { get; private set; }
 
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("speaker", required: true)]
-    public string Speaker { get; } = string.Empty;
+    public string Speaker { get; private set; } = string.Empty;
 
     /// <summary>
     /// Whether the species is available "at round start" (In the character editor)
     /// </summary>
     [DataField("roundStart")]
-    public bool RoundStart { get; } = true;
+    public bool RoundStart { get; private set; } = true;
 }

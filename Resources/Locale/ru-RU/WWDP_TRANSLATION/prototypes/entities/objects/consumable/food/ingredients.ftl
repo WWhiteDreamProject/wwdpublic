@@ -105,3 +105,27 @@ ent-FoodBadRecipe = горелое месиво
 ent-ReagentContainerMayo = майонез
     .desc = Бутылка майонеза.
     .suffix = { "" }
+
+ent-FoodDoughRope = веревка из теста
+    .desc = Тонкая верёвка из теста. Можно сделать из нее рогалик.
+    .suffix = { "" }
+
+ent-FoodDoughCottonRope = веревка из теста
+    .desc = Тонкая верёвка из хлопкового теста. Из нее можно сделать ватные рогалики.
+    .suffix = { "" }
+
+ent-FoodCroissantRawCotton = сырой хлопковый круассан
+    .desc = Маслянистый, слоеный, волокнистый вкус только и ждет своего часа.
+    .suffix = { "" }
+
+ent-FoodDoughCotton = хлопковое тесто
+    .desc = Кусок хлопкового теста.
+    .suffix = { "" }
+
+ent-FoodDoughCottonSlice = кусок хлопкового теста
+    .desc = Кусок хлопкового теста.
+    .suffix = { "" }
+
+ent-FoodDoughCottonFlat = плоское хлопковое тесто
+    .desc = Расплющенное хлопковое тесто.
+    .suffix = { "" }

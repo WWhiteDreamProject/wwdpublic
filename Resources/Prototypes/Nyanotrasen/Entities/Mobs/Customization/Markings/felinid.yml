@@ -1,277 +1,161 @@
-## Felinid Ears
-#
-#- type: marking
-#  id: FelinidEarsBasic
-#  markingCategory: HeadTop
-#  speciesRestriction: [Felinid, Human] # Einstein Engines - Humans get felinid markings
-#  sprites:
-#  - sprite: Nyanotrasen/Mobs/Customization/felinid_ears.rsi
-#    state: basic_outer
-#    # WD EDIT START
-#    layer: enum.HumanoidVisualLayers.HeadTop
-#    bodyPart: Head
-#    # WD EDIT END
-#  - sprite: Nyanotrasen/Mobs/Customization/felinid_ears.rsi
-#    state: basic_inner
-#    # WD EDIT START
-#    layer: enum.HumanoidVisualLayers.HeadTop
-#    bodyPart: Head
-#    # WD EDIT END
-#
-#- type: marking
-#  id: FelinidEarsCurled
-#  markingCategory: HeadTop
-#  speciesRestriction: [Felinid, Human] # Einstein Engines - Humans get felinid markings
-#  sprites:
-#  - sprite: Nyanotrasen/Mobs/Customization/felinid_ears.rsi
-#    state: curled_outer
-#    # WD EDIT START
-#    layer: enum.HumanoidVisualLayers.HeadTop
-#    bodyPart: Head
-#    # WD EDIT END
-#  - sprite: Nyanotrasen/Mobs/Customization/felinid_ears.rsi
-#    state: curled_inner
-#    # WD EDIT START
-#    layer: enum.HumanoidVisualLayers.HeadTop
-#    bodyPart: Head
-#    # WD EDIT END
-#
-#- type: marking
-#  id: FelinidEarsDroopy
-#  markingCategory: HeadTop
-#  speciesRestriction: [Felinid, Human] # Einstein Engines - Humans get felinid markings
-#  sprites:
-#  - sprite: Nyanotrasen/Mobs/Customization/felinid_ears.rsi
-#    state: droopy_outer
-#    # WD EDIT START
-#    layer: enum.HumanoidVisualLayers.HeadTop
-#    bodyPart: Head
-#    # WD EDIT END
-#  - sprite: Nyanotrasen/Mobs/Customization/felinid_ears.rsi
-#    state: droopy_inner
-#    # WD EDIT START
-#    layer: enum.HumanoidVisualLayers.HeadTop
-#    bodyPart: Head
-#    # WD EDIT END
-#
-#- type: marking
-#  id: FelinidEarsFuzzy
-#  markingCategory: HeadTop
-#  speciesRestriction: [Felinid, Human] # Einstein Engines - Humans get felinid markings
-#  sprites:
-#  - sprite: Nyanotrasen/Mobs/Customization/felinid_ears.rsi
-#    state: basic_outer
-#    # WD EDIT START
-#    layer: enum.HumanoidVisualLayers.HeadTop
-#    bodyPart: Head
-#    # WD EDIT END
-#  - sprite: Nyanotrasen/Mobs/Customization/felinid_ears.rsi
-#    state: fuzzy_inner
-#    # WD EDIT START
-#    layer: enum.HumanoidVisualLayers.HeadTop
-#    bodyPart: Head
-#    # WD EDIT END
-#
-#- type: marking
-#  id: FelinidEarsStubby
-#  markingCategory: HeadTop
-#  speciesRestriction: [Felinid, Human] # Einstein Engines - Humans get felinid markings
-#  sprites:
-#  - sprite: Nyanotrasen/Mobs/Customization/felinid_ears.rsi
-#    state: stubby_outer
-#    # WD EDIT START
-#    layer: enum.HumanoidVisualLayers.HeadTop
-#    bodyPart: Head
-#    # WD EDIT END
-#  - sprite: Nyanotrasen/Mobs/Customization/felinid_ears.rsi
-#    state: stubby_inner
-#    # WD EDIT START
-#    layer: enum.HumanoidVisualLayers.HeadTop
-#    bodyPart: Head
-#    # WD EDIT END
-#
-#- type: marking
-#  id: FelinidEarsTall
-#  markingCategory: HeadTop
-#  speciesRestriction: [Felinid, Human] # Einstein Engines - Humans get felinid markings
-#  sprites:
-#  - sprite: Nyanotrasen/Mobs/Customization/felinid_ears.rsi
-#    state: tall_outer
-#    # WD EDIT START
-#    layer: enum.HumanoidVisualLayers.HeadTop
-#    bodyPart: Head
-#    # WD EDIT END
-#  - sprite: Nyanotrasen/Mobs/Customization/felinid_ears.rsi
-#    state: tall_inner
-#    # WD EDIT START
-#    layer: enum.HumanoidVisualLayers.HeadTop
-#    bodyPart: Head
-#    # WD EDIT END
-#  - sprite: Nyanotrasen/Mobs/Customization/felinid_ears.rsi
-#    state: tall_fuzz
-#    # WD EDIT START
-#    layer: enum.HumanoidVisualLayers.HeadTop
-#    bodyPart: Head
-#    # WD EDIT END
-#
-#- type: marking
-#  id: FelinidEarsTorn
-#  markingCategory: HeadTop
-#  speciesRestriction: [Felinid, Human] # Einstein Engines - Humans get felinid markings
-#  sprites:
-#  - sprite: Nyanotrasen/Mobs/Customization/felinid_ears.rsi
-#    state: torn_outer
-#    # WD EDIT START
-#    layer: enum.HumanoidVisualLayers.HeadTop
-#    bodyPart: Head
-#    # WD EDIT END
-#  - sprite: Nyanotrasen/Mobs/Customization/felinid_ears.rsi
-#    state: torn_inner
-#    # WD EDIT START
-#    layer: enum.HumanoidVisualLayers.HeadTop
-#    bodyPart: Head
-#    # WD EDIT END
-#
-#- type: marking
-#  id: FelinidEarsWide
-#  markingCategory: HeadTop
-#  speciesRestriction: [Felinid, Human] # Einstein Engines - Humans get felinid markings directly use felinid tails
-#  sprites:
-#  - sprite: Nyanotrasen/Mobs/Customization/felinid_ears.rsi
-#    state: wide_outer
-#    # WD EDIT START
-#    layer: enum.HumanoidVisualLayers.HeadTop
-#    bodyPart: Head
-#    # WD EDIT END
-#  - sprite: Nyanotrasen/Mobs/Customization/felinid_ears.rsi
-#    state: wide_inner
-#    # WD EDIT START
-#    layer: enum.HumanoidVisualLayers.HeadTop
-#    bodyPart: Head
-#    # WD EDIT END
-#
-## Felinid Tails
-#
-#- type: marking
-#  id: FelinidTailBasic
-#  markingCategory: Tail
-#  speciesRestriction: [Felinid, Human] # Einstein Engines - Humans get felinid markings
-#  sprites:
-#  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
-#    state: basic_tail_tip
-#    # WD EDIT START
-#    layer: enum.BodyAppearanceLayer.Tail
-#    bodyPart: Tail
-#    replacementBodyPart: BodyPartTailFelinid
-#    # WD EDIT END
-#  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
-#    state: basic_tail_stripes_even
-#    # WD EDIT START
-#    layer: enum.BodyAppearanceLayer.Tail
-#    bodyPart: Tail
-#    # WD EDIT END
-#  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
-#    state: basic_tail_stripes_odd
-#    # WD EDIT START
-#    layer: enum.BodyAppearanceLayer.Tail
-#    bodyPart: Tail
-#    # WD EDIT END
-#
-#- type: marking
-#  id: FelinidTailBasicWithBow
-#  markingCategory: Tail
-#  speciesRestriction: [Felinid, Human] # Einstein Engines - Humans get felinid markings directly use felinid tails
-#  sprites:
-#  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
-#    state: basic_tail_tip
-#    # WD EDIT START
-#    layer: enum.BodyAppearanceLayer.Tail
-#    bodyPart: Tail
-#    replacementBodyPart: BodyPartTailFelinid
-#    # WD EDIT END
-#  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
-#    state: basic_tail_stripes_even
-#    # WD EDIT START
-#    layer: enum.BodyAppearanceLayer.Tail
-#    bodyPart: Tail
-#    # WD EDIT END
-#  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
-#    state: basic_tail_stripes_odd
-#    # WD EDIT START
-#    layer: enum.BodyAppearanceLayer.Tail
-#    bodyPart: Tail
-#    # WD EDIT END
-#  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
-#    state: basic_bow
-#    # WD EDIT START
-#    layer: enum.BodyAppearanceLayer.Tail
-#    bodyPart: Tail
-#    # WD EDIT END
-#
-#- type: marking
-#  id: FelinidTailBasicWithBell
-#  markingCategory: Tail
-#  speciesRestriction: [Felinid, Human] # Einstein Engines - Humans get felinid markings directly use felinid tails
-#  sprites:
-#  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
-#    state: basic_tail_tip
-#    # WD EDIT START
-#    layer: enum.BodyAppearanceLayer.Tail
-#    bodyPart: Tail
-#    replacementBodyPart: BodyPartTailFelinid
-#    # WD EDIT END
-#  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
-#    state: basic_tail_stripes_even
-#    # WD EDIT START
-#    layer: enum.BodyAppearanceLayer.Tail
-#    bodyPart: Tail
-#    # WD EDIT END
-#  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
-#    state: basic_tail_stripes_odd
-#    # WD EDIT START
-#    layer: enum.BodyAppearanceLayer.Tail
-#    bodyPart: Tail
-#    # WD EDIT END
-#  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
-#    state: basic_bell
-#    # WD EDIT START
-#    layer: enum.BodyAppearanceLayer.Tail
-#    bodyPart: Tail
-#    # WD EDIT END
-#
-#- type: marking
-#  id: FelinidTailBasicWithBowAndBell
-#  markingCategory: Tail
-#  speciesRestriction: [Felinid, Human] # Einstein Engines - Humans get felinid markings directly use felinid tails
-#  sprites:
-#  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
-#    state: basic_tail_tip
-#    # WD EDIT START
-#    layer: enum.BodyAppearanceLayer.Tail
-#    bodyPart: Tail
-#    replacementBodyPart: BodyPartTailFelinid
-#    # WD EDIT END
-#  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
-#    state: basic_tail_stripes_even
-#    # WD EDIT START
-#    layer: enum.BodyAppearanceLayer.Tail
-#    bodyPart: Tail
-#    # WD EDIT END
-#  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
-#    state: basic_tail_stripes_odd
-#    # WD EDIT START
-#    layer: enum.BodyAppearanceLayer.Tail
-#    bodyPart: Tail
-#    # WD EDIT END
-#  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
-#    state: basic_bow
-#    # WD EDIT START
-#    layer: enum.BodyAppearanceLayer.Tail
-#    bodyPart: Tail
-#    # WD EDIT END
-#  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
-#    state: basic_bell
-#    # WD EDIT START
-#    layer: enum.BodyAppearanceLayer.Tail
-#    bodyPart: Tail
-#    # WD EDIT END
+# Felinid Ears
+
+# - type: marking
+#   id: FelinidEarsBasic
+#   bodyPart: HeadTop
+#   markingCategory: HeadTop
+#   speciesRestriction: [Felinid, Human] # Einstein Engines - Humans get felinid markings
+#    sprites:
+#    - sprite: Nyanotrasen/Mobs/Customization/felinid_ears.rsi
+#     state: basic_outer
+#    - sprite: Nyanotrasen/Mobs/Customization/felinid_ears.rsi
+#     state: basic_inner
+
+# - type: marking
+#   id: FelinidEarsCurled
+#   bodyPart: HeadTop
+#   markingCategory: HeadTop
+#   speciesRestriction: [Felinid, Human] # Einstein Engines - Humans get felinid markings
+#    sprites:
+#    - sprite: Nyanotrasen/Mobs/Customization/felinid_ears.rsi
+#     state: curled_outer
+#    - sprite: Nyanotrasen/Mobs/Customization/felinid_ears.rsi
+#     state: curled_inner
+
+# - type: marking
+#   id: FelinidEarsDroopy
+#   bodyPart: HeadTop
+#   markingCategory: HeadTop
+#   speciesRestriction: [Felinid, Human] # Einstein Engines - Humans get felinid markings
+#    sprites:
+#    - sprite: Nyanotrasen/Mobs/Customization/felinid_ears.rsi
+#     state: droopy_outer
+#    - sprite: Nyanotrasen/Mobs/Customization/felinid_ears.rsi
+#     state: droopy_inner
+
+# - type: marking
+#   id: FelinidEarsFuzzy
+#   bodyPart: HeadTop
+#   markingCategory: HeadTop
+#   speciesRestriction: [Felinid, Human] # Einstein Engines - Humans get felinid markings
+#    sprites:
+#    - sprite: Nyanotrasen/Mobs/Customization/felinid_ears.rsi
+#     state: basic_outer
+#    - sprite: Nyanotrasen/Mobs/Customization/felinid_ears.rsi
+#     state: fuzzy_inner
+
+# - type: marking
+#   id: FelinidEarsStubby
+#   bodyPart: HeadTop
+#   markingCategory: HeadTop
+#   speciesRestriction: [Felinid, Human] # Einstein Engines - Humans get felinid markings
+#    sprites:
+#    - sprite: Nyanotrasen/Mobs/Customization/felinid_ears.rsi
+#     state: stubby_outer
+#    - sprite: Nyanotrasen/Mobs/Customization/felinid_ears.rsi
+#     state: stubby_inner
+
+# - type: marking
+#   id: FelinidEarsTall
+#   bodyPart: HeadTop
+#   markingCategory: HeadTop
+#   speciesRestriction: [Felinid, Human] # Einstein Engines - Humans get felinid markings
+#    sprites:
+#    - sprite: Nyanotrasen/Mobs/Customization/felinid_ears.rsi
+#     state: tall_outer
+#    - sprite: Nyanotrasen/Mobs/Customization/felinid_ears.rsi
+#     state: tall_inner
+#    - sprite: Nyanotrasen/Mobs/Customization/felinid_ears.rsi
+#     state: tall_fuzz
+
+# - type: marking
+#   id: FelinidEarsTorn
+#   bodyPart: HeadTop
+#   markingCategory: HeadTop
+#   speciesRestriction: [Felinid, Human] # Einstein Engines - Humans get felinid markings
+#    sprites:
+#    - sprite: Nyanotrasen/Mobs/Customization/felinid_ears.rsi
+#     state: torn_outer
+#    - sprite: Nyanotrasen/Mobs/Customization/felinid_ears.rsi
+#     state: torn_inner
+
+# - type: marking
+#   id: FelinidEarsWide
+#   bodyPart: HeadTop
+#   markingCategory: HeadTop
+#   speciesRestriction: [Felinid, Human, Tajaran] # Einstein Engines - Humans get felinid markings, Tajaran directly use felinid tails
+#    sprites:
+#    - sprite: Nyanotrasen/Mobs/Customization/felinid_ears.rsi
+#     state: wide_outer
+#    - sprite: Nyanotrasen/Mobs/Customization/felinid_ears.rsi
+#     state: wide_inner
+
+# Felinid Tails
+
+# - type: marking
+#   id: FelinidTailBasic
+#   bodyPart: Tail
+#   markingCategory: Tail
+#   speciesRestriction: [Felinid, Human, Tajaran] # Einstein Engines - Humans get felinid markings
+#    sprites:
+  # WWDP EDIT START
+#    - sprite: _White/Mobs/Customization/Felinid/felinid_tails_nyanotrasen-no-wagging.rsi
+#     state: basic_tail_tip_stopped
+#    - sprite: _White/Mobs/Customization/Felinid/felinid_tails_nyanotrasen-no-wagging.rsi
+#     state: basic_tail_stripes_even_stopped
+#    - sprite: _White/Mobs/Customization/Felinid/felinid_tails_nyanotrasen-no-wagging.rsi
+#     state: basic_tail_stripes_odd_stopped
+  # WWDP EDIT END
+
+# - type: marking
+#   id: FelinidTailBasicWithBow
+#   bodyPart: Tail
+#   markingCategory: Tail
+#   speciesRestriction: [Felinid, Human, Tajaran] # Einstein Engines - Humans get felinid markings, Tajaran directly use felinid tails
+#    sprites:
+  # WWDP EDIT START
+#    - sprite: _White/Mobs/Customization/Felinid/felinid_tails_nyanotrasen-no-wagging.rsi
+#     state: basic_tail_tip_stopped
+#    - sprite: _White/Mobs/Customization/Felinid/felinid_tails_nyanotrasen-no-wagging.rsi
+#     state: basic_tail_stripes_even_stopped
+#    - sprite: _White/Mobs/Customization/Felinid/felinid_tails_nyanotrasen-no-wagging.rsi
+#     state: basic_tail_stripes_odd_stopped
+#    - sprite: _White/Mobs/Customization/Felinid/felinid_tails_nyanotrasen-no-wagging.rsi
+#     state: basic_bow_stopped
+  # WWDP EDIT END
+
+# - type: marking
+#   id: FelinidTailBasicWithBell
+#   bodyPart: Tail
+#   markingCategory: Tail
+#   speciesRestriction: [Felinid, Human, Tajaran] # Einstein Engines - Humans get felinid markings, Tajaran directly use felinid tails
+#    sprites:
+  # WWDP EDIT START
+#    - sprite: _White/Mobs/Customization/Felinid/felinid_tails_nyanotrasen-no-wagging.rsi
+#     state: basic_tail_tip_stopped
+#    - sprite: _White/Mobs/Customization/Felinid/felinid_tails_nyanotrasen-no-wagging.rsi
+#     state: basic_tail_stripes_even_stopped
+#    - sprite: _White/Mobs/Customization/Felinid/felinid_tails_nyanotrasen-no-wagging.rsi
+#     state: basic_tail_stripes_odd_stopped
+#    - sprite: _White/Mobs/Customization/Felinid/felinid_tails_nyanotrasen-no-wagging.rsi
+#     state: basic_bell_stopped
+  # WWDP EDIT END
+
+# - type: marking
+#   id: FelinidTailBasicWithBowAndBell
+#   bodyPart: Tail
+#   markingCategory: Tail
+#   speciesRestriction: [Felinid, Human, Tajaran] # Einstein Engines - Humans get felinid markings, Tajaran directly use felinid tails
+#    sprites:
+  # WWDP EDIT START
+#    - sprite: _White/Mobs/Customization/Felinid/felinid_tails_nyanotrasen-no-wagging.rsi
+#     state: basic_tail_tip_stopped
+#    - sprite: _White/Mobs/Customization/Felinid/felinid_tails_nyanotrasen-no-wagging.rsi
+#     state: basic_tail_stripes_even_stopped
+#    - sprite: _White/Mobs/Customization/Felinid/felinid_tails_nyanotrasen-no-wagging.rsi
+#     state: basic_tail_stripes_odd_stopped
+#    - sprite: _White/Mobs/Customization/Felinid/felinid_tails_nyanotrasen-no-wagging.rsi
+#     state: basic_bow_stopped
+#    - sprite: _White/Mobs/Customization/Felinid/felinid_tails_nyanotrasen-no-wagging.rsi
+#     state: basic_bell_stopped
+  # WWDP EDIT END

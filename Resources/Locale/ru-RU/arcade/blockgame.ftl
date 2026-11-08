@@ -12,7 +12,7 @@ blockgame-menu-gameover-info =
     Глобальный счет: { $global }
     Локальный счет: { $local }
     Очки: { $points }
-blockgame-menu-title = Блоки Nanotrasen
+blockgame-menu-title = Блоки НаноТрейзен
 blockgame-menu-button-new-game = Новая игра
 blockgame-menu-button-scoreboard = Таблица лидеров
 blockgame-menu-button-pause = Пауза
@@ -23,4 +23,4 @@ blockgame-menu-button-back = Назад
 blockgame-menu-label-next = Следующее
 blockgame-menu-label-hold = Удерживать
 blockgame-menu-text-station = Станция
-blockgame-menu-text-nanotrasen = Nanotrasen
+blockgame-menu-text-nanotrasen = НаноТрейзен

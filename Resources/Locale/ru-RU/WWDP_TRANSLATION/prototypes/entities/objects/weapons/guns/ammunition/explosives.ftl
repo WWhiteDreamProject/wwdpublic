@@ -1,8 +1,8 @@
-ent-CartridgeRocket = выстрел ПГ-7ВЛ
-    .desc = Выстрел для гранатомёта РПГ-7. Имеет форму трубы.
+ent-CartridgeRocket = снаряд «PG-7V»
+    .desc = Снаряд для гранатомёта «RPG-7». Имеет форму трубы.
 
-ent-CartridgeRocketSlow = выстрел ПГ-7ВЛ "Улитка"
-    .desc = Выстрел для гранатомёта РПГ-7. Необычайно медленная.
+ent-CartridgeRocketSlow = снаряд «PG-7VL „Улитка“»
+    .desc = Снаряд для гранатомёта «RPG-7». Необычайно медленная.
 
 ent-BaseGrenade = базовая граната
     .desc = { ent-BaseItem.desc }

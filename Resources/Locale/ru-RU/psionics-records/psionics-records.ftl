@@ -37,7 +37,7 @@ psionics-records-console-unknown-officer = <неизвестный офицер>
 
 ## Filters
 
-psionics-records-filter-placeholder = Введите текст и нажмите "Enter"
+psionics-records-filter-placeholder = Введите текст и нажмите «Enter»
 psionics-records-name-filter = Имя
 psionics-records-prints-filter = Отпечатки пальцев
 psionics-records-dna-filter = ДНК

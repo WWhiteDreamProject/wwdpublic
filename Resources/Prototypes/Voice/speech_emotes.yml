@@ -95,6 +95,7 @@
   whitelist:
     tags:
     - HarpyEmotes
+    - SlimeEmotes # WWDP EDIT
   blacklist:
     components:
     - BorgChassis
@@ -110,6 +111,7 @@
   whitelist:
     tags:
     - HarpyEmotes
+    - MothEmotes # WWDP EDIT
   blacklist:
     components:
     - BorgChassis
@@ -125,6 +127,7 @@
   whitelist:
     tags:
     - HarpyEmotes
+    - MothEmotes # WWDP EDIT
   blacklist:
     components:
     - BorgChassis

@@ -9,7 +9,7 @@ public sealed partial class NamingPrototype : IPrototype
 {
     /// <inheritdoc/>
     [IdDataField]
-    public string ID { get; } = default!;
+    public string ID { get; private set; } = default!;
 
     /// <summary>
     /// A string specifying a general format string for combining the first and last names.

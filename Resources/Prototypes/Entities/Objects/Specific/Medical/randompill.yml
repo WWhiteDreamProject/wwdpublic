@@ -1,6 +1,12 @@
 - type: weightedRandomFillSolution
   id: RandomFillStrangePill
   fills:
+  #WD EDIT START
+  - quantity: 3
+    weight: 0.465
+    reagents:
+    - Romerol
+  #WD EDIT END
   - quantity: 20
     weight: 1
     reagents:

@@ -585,7 +585,7 @@
   name: Pyrokinetic Flare
   powerCategories:
     - Anomalist
-    - Pyrokinetic
+    - Pyrokinesis
   initializeFunctions:
     - !type:AddPsionicActions
       actions:

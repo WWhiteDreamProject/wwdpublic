@@ -728,9 +728,14 @@
 - type: entity
   id: BulletGrenadeBlast
   name: blast grenade
-  parent: BaseBulletTrigger
+  parent: [BaseBulletTrigger, RadarIconCircledArrow] # WD EDIT: RadarIconCircledArrow
   categories: [ HideSpawnMenu ]
   components:
+  # WD EDIT START
+  - type: RadarIcon
+    radarRange: 512
+    color: "#d49961"
+  # WD EDIT END
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
     layers:
@@ -741,6 +746,10 @@
     totalIntensity: 150 # a ~2 tile radius
     intensitySlope: 5
     maxIntensity: 10
+  # WD EDIT START: Battleship
+  - type: TimedDespawn
+    lifetime: 60
+  # WD EDIT END
 
 - type: entity
   id: BulletGrenadeFlash
@@ -766,9 +775,14 @@
 - type: entity
   id: BulletGrenadeFrag
   name: frag grenade
-  parent: BaseBulletTrigger
+  parent: [BaseBulletTrigger, RadarIconCircledArrow] # WD EDIT: RadarIconCircledArrow
   categories: [ HideSpawnMenu ]
   components:
+  # WD EDIT START
+  - type: RadarIcon
+    radarRange: 512
+    color: "#acd678"
+  # WD EDIT END
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
     layers:
@@ -779,6 +793,10 @@
     totalIntensity: 175 # about a ~6 tile radius
     intensitySlope: 1
     maxIntensity: 10
+  # WD EDIT START: Battleship
+  - type: TimedDespawn
+    lifetime: 60
+  # WD EDIT END
 
 - type: entity
   id: BulletGrenadeEMP
@@ -975,7 +993,13 @@
   id: GrapplingHook
   name: grappling hook
   categories: [ HideSpawnMenu ]
+  parent: RadarIconPlaceholder # WD EDIT
   components:
+    # WD EDIT START
+    - type: RadarIcon
+      radarRange: 64
+      scale: 5, 5
+    # WD EDIT END
     - type: EmbeddableProjectile
       deleteOnRemove: true
     - type: Clickable

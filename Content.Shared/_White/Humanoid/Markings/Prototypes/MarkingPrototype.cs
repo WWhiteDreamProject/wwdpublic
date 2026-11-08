@@ -13,64 +13,64 @@ public sealed partial class MarkingPrototype : IPrototype, IInheritingPrototype
 {
     /// <inheritdoc />
     [IdDataField]
-    public string ID { get; } = default!;
+    public string ID { get; private set; } = default!;
 
     /// <inheritdoc />
     [ParentDataField(typeof(AbstractPrototypeIdArraySerializer<MarkingPrototype>))]
-    public string[]? Parents { get; }
+    public string[]? Parents { get; private set; }
 
     /// <inheritdoc />
     [NeverPushInheritance, AbstractDataField]
-    public bool Abstract { get; }
+    public bool Abstract { get; private set; }
 
     /// <summary>
     /// If true, this marking overwrites the appearance of body providers.
     /// </summary>
     [DataField]
-    public bool Appearance { get; }
+    public bool Appearance { get; private set; }
 
     /// <summary>
     /// Whether this marking should be subject to any displacement maps.
     /// </summary>
     [DataField]
-    public bool CanBeDisplaced { get; } = true;
+    public bool CanBeDisplaced { get; private set; } = true;
 
     /// <summary>
     /// If true, the color palette of this marking will be forced, ignoring customization options.
     /// </summary>
     [DataField]
-    public bool ForcedColoring { get; }
+    public bool ForcedColoring { get; private set; }
 
     /// <summary>
     /// An optional whitelist of marking groups that this specific marking can belong to.
     /// If null, it can belong to any group.
     /// </summary>
     [DataField]
-    public HashSet<ProtoId<MarkingGroupPrototype>>? Groups { get; }
+    public HashSet<ProtoId<MarkingGroupPrototype>>? Groups { get; private set; }
 
     /// <summary>
     /// A collection of layers and their associated textures that compose this marking.
     /// </summary>
     [DataField(required: true)]
-    public List<MarkingDefinition> Definitions { get; } = new();
+    public List<MarkingDefinition> Definitions { get; private set; } = new();
 
     /// <summary>
     /// The default color configuration for this marking.
     /// </summary>
     [DataField]
-    public MarkingColors Coloring { get; } = new();
+    public MarkingColors Coloring { get; private set; } = new();
 
     /// <summary>
     /// The category this marking belongs to (e.g., Torso, Left Hand, Overlay).
     /// </summary>
     [DataField]
-    public ProtoId<MarkingCategoryPrototype> Category { get; } = "None";
+    public ProtoId<MarkingCategoryPrototype> Category { get; private set; } = "None";
 
     /// <summary>
     /// Restricts which sex this marking can be applied to. If null, applies to all sexes. TODO: In the bright future all restrictions should use refactored CharacterRequirement.
     /// </summary>
     [DataField]
-    public Sex? SexRestriction { get; }
+    public Sex? SexRestriction { get; private set; }
 }
 
 /// <summary>

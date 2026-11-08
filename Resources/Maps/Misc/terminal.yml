@@ -50,9 +50,7 @@ entities:
     - type: ProtectedGrid
     - type: Map
       mapPaused: True
-    - type: PhysicsMap
     - type: GridTree
-    - type: MovedGrids
     - type: Broadphase
     - type: OccluderTree
   - uid: 2
@@ -19548,7 +19546,7 @@ entities:
     missingComponents:
     - Item
     - Pullable
-- proto: ClothingNeckHeadphones
+- proto: ClothingMultipleHeadphones
   entities:
   - uid: 8036
     components:

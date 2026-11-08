@@ -19,7 +19,7 @@ ent-ClothingEyesNightVisionGogglesNukie = { ent-ClothingEyesNightVisionGoggles }
 # Thermal Vision Goggles
 
 ent-ClothingEyesThermalVisionGoggles = ПТВ
-   .desc = Термальность - это как отношения, важно не только наличие тепла, но и его распределение.
+   .desc = Термальность — это как отношения, важно не только наличие тепла, но и его распределение.
 
 ent-ClothingEyesThermalVisionMonocle = термонокль
    .desc = Видение сквозь стены ещё никогда не было таким нежным и личностным.

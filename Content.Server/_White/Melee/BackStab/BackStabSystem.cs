@@ -1,8 +1,8 @@
+using System.Numerics;
 using Content.Server.Popups;
 using Content.Shared._White.Damage;
 using Content.Shared._White.Damage.Prototypes;
-using Content.Shared.Damage;
-using Content.Shared.Damage.Prototypes;
+using Content.Shared._White.Maths;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Content.Shared.Weapons.Melee.Events;
@@ -40,7 +40,7 @@ public sealed class BackStabSystem : EntitySystem
         var userXform = Transform(args.User);
         var v1 = (_transform.GetWorldRotation(xform) + MathHelper.PiOver2).ToVec(); // Flipped WorldVec
         var v2 = _transform.GetWorldPosition(userXform) - _transform.GetWorldPosition(xform);
-        var angle = Vector3.CalculateAngle(new Vector3(v1), new Vector3(v2));
+        var angle = WhiteVector3.Angle(v1, v2);
 
         if (angle > ent.Comp.Tolerance.Theta)
             return;

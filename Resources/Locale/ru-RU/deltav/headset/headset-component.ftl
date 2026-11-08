@@ -1,3 +1,3 @@
-chat-radio-justice = Justice
-chat-radio-prison = Prison
+chat-radio-justice = Юстиция
+chat-radio-prison = Тюрьма
 

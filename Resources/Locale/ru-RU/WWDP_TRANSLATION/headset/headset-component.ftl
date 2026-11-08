@@ -23,4 +23,4 @@ examine-default-channel = Используй { $prefix } для стандарт
 
 examine-headset-chat-prefix = Используй { $prefix } для частоты своего отдела.
 
-examine-encryption-key-default-channel = Похоже, что [color={ $color }]{ $channel }[/color] - это канал по умолчанию.
+examine-encryption-key-default-channel = Похоже, что [color={ $color }]{ $channel }[/color] — это канал по умолчанию.

@@ -37,6 +37,12 @@ public sealed class RatvarianLanguageSystem : SharedRatvarianLanguageSystem
     private static Regex ANDPattern = new Regex(@"\b(\s)(and)(\s)", RegexOptions.Compiled | RegexOptions.IgnoreCase);
     private static Regex TOMYPattern = new Regex(@"(to|my)\s", RegexOptions.Compiled | RegexOptions.IgnoreCase);
     private static Regex ProperNouns = new Regex(@"(ratvar)|(nezbere)|(sevtuq)|(nzcrentr)|(inath-neq)", RegexOptions.Compiled | RegexOptions.IgnoreCase);
+    // WWDP EDIT START
+    // RUSSIAN LOCALIZATION
+    private static Regex RuOfPattern = new Regex(@"(\s)(из|от)", RegexOptions.Compiled);
+    private static Regex RuAndPattern = new Regex(@"\b(\s)(и)(\s)", RegexOptions.Compiled);
+    private static Regex RuToMyPattern = new Regex(@"(мой|мой|моя|моё|мои|для|ко?)\s", RegexOptions.Compiled | RegexOptions.IgnoreCase);
+    // WWDP EDIT END
 
     public override void Initialize()
     {
@@ -71,6 +77,11 @@ public sealed class RatvarianLanguageSystem : SharedRatvarianLanguageSystem
         ruleTranslation = GUAPattern.Replace(ruleTranslation, "$1-$2");
         ruleTranslation = ANDPattern.Replace(ruleTranslation, "-$2-");
         ruleTranslation = TOMYPattern.Replace(ruleTranslation, "$1-");
+        // WWDP EDIT START
+        ruleTranslation = RuOfPattern.Replace(ruleTranslation, "-$2");
+        ruleTranslation = RuAndPattern.Replace(ruleTranslation, "-$2-");
+        ruleTranslation = RuToMyPattern.Replace(ruleTranslation, "$1-");
+        // WWDP EDIT END
 
         var temp = ruleTranslation.Split(' ');
 
@@ -105,6 +116,27 @@ public sealed class RatvarianLanguageSystem : SharedRatvarianLanguageSystem
 
                         newWord.Append((char) letterRot);
                     }
+                    // WWDP EDIT START
+                    // а – я
+                    else if (letter >= 1072 && letter <= 1103)
+                    {
+                        var letterRot = letter + 16;
+                        if (letterRot > 1103)
+                            letterRot -= 32;
+                        newWord.Append((char) letterRot);
+                    }
+                    // А – Я
+                    else if (letter >= 1040 && letter <= 1071)
+                    {
+                        var letterRot = letter + 16;
+                        if (letterRot > 1071)
+                            letterRot -= 32;
+                        newWord.Append((char) letterRot);
+                    }
+                    // ё → э, Ё → Э
+                    else if (letter == 1105) newWord.Append('э');
+                    else if (letter == 1025) newWord.Append('Э');
+                    // WWDP EDIT END
                     else
                     {
                         newWord.Append(word[i]);

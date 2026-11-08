@@ -31,6 +31,9 @@ public sealed partial class CultRuneOfferingComponent : Component
     public int ReviveChargesPerOffering = 1;
 
     [DataField]
+    public TimeSpan SacrificeDelay = TimeSpan.FromSeconds(5);
+
+    [DataField]
     public EntProtoId SoulShardProto = "SoulShard";
 
     [DataField]

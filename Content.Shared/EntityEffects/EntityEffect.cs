@@ -51,7 +51,7 @@ public abstract partial class EntityEffect
     /// Produces a localized, bbcode'd guidebook description for this effect.
     /// </summary>
     /// <returns></returns>
-    public string? GuidebookEffectDescription(IPrototypeManager prototype, IEntitySystemManager entSys)
+    public string? GuidebookEffectDescription(IPrototypeManager prototype, IEntitySystemManager entSys, string? reagentName = null) // WWDP EDIT
     {
         var effect = ReagentEffectGuidebookText(prototype, entSys);
         if (effect is null)
@@ -60,8 +60,14 @@ public abstract partial class EntityEffect
         return Loc.GetString(ReagentEffectFormat, ("effect", effect), ("chance", Probability),
             ("conditionCount", Conditions?.Length ?? 0),
             ("conditions",
-                ContentLocalizationManager.FormatList(Conditions?.Select(x => x.GuidebookExplanation(prototype)).ToList() ??
-                                                        new List<string>())));
+                // WWDP EDIT START
+                ContentLocalizationManager.FormatList(
+                    Conditions?.Select(x =>
+                    {
+                        x.CurrentReagentName = reagentName;
+                        return x.GuidebookExplanation(prototype);
+                    }).ToList() ?? new List<string>())));
+                // WWDP EDIT END
     }
 }
 

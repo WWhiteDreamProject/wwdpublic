@@ -8,19 +8,19 @@ chat-emote-name-harpyhoot = Ухать
 
 # Сообщения
 # Message
-chat-emote-msg-ring = звенит.
+chat-emote-msg-ring = дзынькает.
 chat-emote-msg-pew = пиу!
-chat-emote-msg-bang = бах!
+chat-emote-msg-bang = бахает!
 chat-emote-msg-rev = ревёт!
 chat-emote-msg-caw = каркает.
 chat-emote-msg-hoot = ухает.
 
 # Триггеры
 # Triggers
-chat-emote-trigger-ring-1 = rings
-chat-emote-trigger-pew-1 = pews
-chat-emote-trigger-pew-2 = pewpews
-chat-emote-trigger-bang-1 = bangs
-chat-emote-trigger-rev-1 = revs
-chat-emote-trigger-caw-1 = caws
+chat-emote-trigger-ring-1 = дзынькает
+chat-emote-trigger-pew-1 = пиу
+chat-emote-trigger-pew-2 = пиупиу
+chat-emote-trigger-bang-1 = бах
+chat-emote-trigger-rev-1 = ревёт
+chat-emote-trigger-caw-1 = каркает
 chat-emote-trigger-hoot-1 = ухает

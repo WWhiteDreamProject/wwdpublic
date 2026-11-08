@@ -1,4 +1,5 @@
-﻿using Content.Shared.Disposal;
+﻿using System.Numerics;
+using Content.Shared.Disposal;
 using Robust.Client.Graphics;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Timing;

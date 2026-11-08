@@ -1,1 +1,1 @@
-reagent-effect-status-effect-Stun = оглушительный
+reagent-effect-status-effect-Stun = потерю выносливости

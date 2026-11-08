@@ -52,7 +52,7 @@ public sealed partial class TraitPrototype : IPrototype, IComparable
     /// Whether or not the player can set the trait in trait preferences.
     /// </summary>
     [DataField]
-    public bool SetPreference { get; }
+    public bool SetPreference { get; private set; }
     // WD EDIT END
 
     /// <summary>

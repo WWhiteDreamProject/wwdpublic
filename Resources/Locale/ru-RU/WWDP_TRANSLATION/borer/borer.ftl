@@ -1,6 +1,6 @@
 ghost-role-information-borer-name = Аскарида космическая
 
-ghost-role-information-borer-description = Мы - червь!
+ghost-role-information-borer-description = Мы — червь!
 
 
 borer-entity-name = аскарида космическая
@@ -55,7 +55,7 @@ borer-ui-scan-label = Реагенты в крови носителя:
 
 borer-ui-secrete-title = Ввод реагентов
 
-borer-ui-secrete-inject-label = Ввести {$reagent}(10u) - {$cost}c
+borer-ui-secrete-inject-label = Ввести {$reagent}(10u) — {$cost}c
 
 
 borer-ui-converse-title = Связь

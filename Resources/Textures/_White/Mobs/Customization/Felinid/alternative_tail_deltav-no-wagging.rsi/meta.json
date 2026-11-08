@@ -1,0 +1,15 @@
+{
+    "version": 2,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from https://github.com/tgstation/tgstation/pull/56750/files from TGstation, modified by Myaflic for WWDP",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "m_waggingtail_cat_FRONT_stopped",
+            "directions": 4
+        }
+    ]
+}

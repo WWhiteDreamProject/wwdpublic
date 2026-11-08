@@ -14,12 +14,13 @@ public interface ILoadoutMenuEntry
     public string Label { get; }
 
     public void Act(BoxContainer loadoutsContainer, LoadoutPicker loadoutPicker);
-    public void Exit(BoxContainer loadoutsContainer , LoadoutPicker loadoutPicker);
+    public void Exit(BoxContainer loadoutsContainer, LoadoutPicker loadoutPicker);
 }
 
 public sealed class LoadoutCategoryShowMenuEntry : ILoadoutMenuEntry
 {
     private readonly ProtoId<LoadoutCategoryPrototype> _loadoutCategory;
+    public ProtoId<LoadoutCategoryPrototype> CategoryId => _loadoutCategory;
     public ILoadoutMenuEntry? Parent { get; set; }
     public string Label { get; }
 
@@ -36,18 +37,17 @@ public sealed class LoadoutCategoryShowMenuEntry : ILoadoutMenuEntry
 
     public void Exit(BoxContainer loadoutsContainer, LoadoutPicker loadoutPicker)
     {
-
     }
 }
 
 public sealed class LoadoutEntriesContainerMenuEntry : ILoadoutMenuEntry
 {
-    public ILoadoutMenuEntry? Parent { get; set;}
+    public ILoadoutMenuEntry? Parent { get; set; }
     public string Label { get; }
 
     private readonly List<ILoadoutMenuEntry> _children = [];
     public IReadOnlyList<ILoadoutMenuEntry> Children => _children;
-    private readonly List<(BaseButton, Action<BaseButton.ButtonEventArgs>)> _currBrns = [];
+    private readonly List<(BaseButton button, Action<BaseButton.ButtonEventArgs> handler, ILoadoutMenuEntry entry)> _currBrns = [];
 
     public LoadoutEntriesContainerMenuEntry(ProtoId<LoadoutCategoryPrototype> loadoutCategoryProtoId)
     {
@@ -94,17 +94,62 @@ public sealed class LoadoutEntriesContainerMenuEntry : ILoadoutMenuEntry
             Action<BaseButton.ButtonEventArgs> handler = (_) => loadoutPicker.CurrentEntry = menuEntry;
             button.OnPressed += handler;
 
-            _currBrns.Add((button, handler));
+            _currBrns.Add((button, handler, menuEntry));
             loadoutsContainer.AddChild(button);
         }
+
+        UpdateChildrenVisibility(loadoutPicker);
     }
 
     public void Exit(BoxContainer loadoutsContainer, LoadoutPicker loadoutPicker)
     {
-        foreach (var (button, handler) in _currBrns)
+        foreach (var (button, handler, _) in _currBrns)
         {
             button.OnPressed -= handler;
         }
         _currBrns.Clear();
+    }
+
+    /// <summary>
+    /// Updates the visibility of category buttons based on the presence of loadouts in them
+    /// </summary>
+    public void UpdateChildrenVisibility(LoadoutPicker loadoutPicker)
+    {
+        foreach (var (button, _, entry) in _currBrns)
+        {
+            bool isVisible = true;
+
+            if (entry is LoadoutCategoryShowMenuEntry categoryEntry)
+            {
+                isVisible = loadoutPicker.IsCategoryVisiblePublic(categoryEntry.CategoryId);
+            }
+            else if (entry is LoadoutEntriesContainerMenuEntry containerEntry)
+            {
+                isVisible = containerEntry.HasVisibleChildren(loadoutPicker);
+            }
+
+            button.Visible = isVisible;
+        }
+    }
+
+    /// <summary>
+    /// Checks if a container has visible children
+    /// </summary>
+    private bool HasVisibleChildren(LoadoutPicker loadoutPicker)
+    {
+        foreach (var child in _children)
+        {
+            if (child is LoadoutCategoryShowMenuEntry categoryEntry)
+            {
+                if (loadoutPicker.IsCategoryVisiblePublic(categoryEntry.CategoryId))
+                    return true;
+            }
+            else if (child is LoadoutEntriesContainerMenuEntry containerEntry)
+            {
+                if (containerEntry.HasVisibleChildren(loadoutPicker))
+                    return true;
+            }
+        }
+        return false;
     }
 }

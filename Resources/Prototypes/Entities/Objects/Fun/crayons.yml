@@ -230,7 +230,7 @@
     - Trash
 
 - type: entity
-  parent: BoxCardboard
+  parent: BoxBase # WWDP edit
   id: CrayonBox
   name: crayon box
   description: It's a box of crayons.
@@ -291,3 +291,14 @@
           tags:
           - CrayonWhite
   - type: Appearance
+  - type: Tag # WWDP edit start
+    tags:
+    - BoxPlastic
+  - type: Construction
+    graph: BoxPlastic
+    node: boxplastic
+    containers:
+    - entity_storage
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 100 # WWDP end

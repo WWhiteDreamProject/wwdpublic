@@ -5,7 +5,7 @@ ent-MobBehonkerIce = бонкер
    .desc = { ent-BaseMobBehonker.desc }
 
 ent-MobCarpDungeon = карп
-   .desc = ""
+   .desc = { "" }
 
 ent-BaseMobFlesh = ненормальная плоть
    .desc = Неуклюжая масса плоти, оживленная с помощью аномальной энергии.

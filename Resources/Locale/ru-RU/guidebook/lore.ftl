@@ -1,14 +1,14 @@
 guide-entry-setting-lore = Сеттинг и Лор
 guide-entry-corporations = Корпорации
-guide-entry-einstein-engines = Einstein Engines
-guide-entry-hephaestus-industries = Hephaestus Industries
-guide-entry-idris-incorporated = Idris Incorporated
-guide-entry-nanotrasen = NanoTrasen
-guide-entry-orion-express = Orion Express
-guide-entry-private-military-contracting-group =  PMCG
+guide-entry-einstein-engines = Эйнштейн Энджайнс
+guide-entry-hephaestus-industries = Гефестус Индастриз
+guide-entry-idris-incorporated = Идрис Инкорпорейтед
+guide-entry-nanotrasen = НаноТрейзен
+guide-entry-orion-express = Орион Экспресс
+guide-entry-private-military-contracting-group = ЧВКГ (PMCG)
 guide-entry-stellar-corporate-conglomerate = Звёздный Корпоративный Конгломерат
-guide-entry-zavodskoi-interstellar = Zavodskoi Interstellar
-guide-entry-zeng-hu-pharmaceuticals = Zeng-Hu Pharmaceuticals
+guide-entry-zavodskoi-interstellar = Заводской Интерстеллар
+guide-entry-zeng-hu-pharmaceuticals = Цзэн-Ху Фармасьютикалс
 
 guide-entry-loadout-info-security-weapons = Вооружение Службы Безопасности
 

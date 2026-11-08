@@ -25,15 +25,15 @@ objective-issuer-blob = Блоб
 
 
 ghost-role-information-blobbernaut-name = Блоббернаут
-ghost-role-information-blobbernaut-description = Вы - Блоббернаут. Вы должны защищать ядро блоба.
+ghost-role-information-blobbernaut-description = Вы — Блоббернаут. Вы должны защищать ядро блоба.
 
 ghost-role-information-blob-name = Блоб
-ghost-role-information-blob-description = Вы - инфекция Блоба. Поглотите станцию.
+ghost-role-information-blob-description = Вы — инфекция Блоба. Поглотите станцию.
 
 roles-antag-blob-name = Блоб
 roles-antag-blob-objective = Достигните критической массы.
 
-guide-entry-blob = Blob
+guide-entry-blob = Блоб
 
 # Popups
 blob-target-normal-blob-invalid = Неправильный тип блоба, выберите обычный блоб.
@@ -129,7 +129,7 @@ blob-carrier-role-name = Носитель блоба
 blob-carrier-role-desc = Существо, заражённое блобом.
 blob-carrier-role-rules = Вы антагонист. У вас есть 10 минут до превращения в блоба.
                         Используйте это время, чтобы найти безопасное место на станции. Имейте в виду, что вы будете очень слабым сразу после трансформации.
-blob-carrier-role-greeting = Вы - носитель Блоба. Найдите укромное место на станции и превратитесь в Блоба. Превратите станцию в массу, а её обитателей - в своих слуг. Мы все - Блобы.
+blob-carrier-role-greeting = Вы — носитель Блоба. Найдите укромное место на станции и превратитесь в Блоба. Превратите станцию в массу, а её обитателей — в своих слуг. Мы все — Блобы.
 
 # Verbs
 blob-pod-verb-zombify = Зомбировать
@@ -145,8 +145,8 @@ blob-health-alert-desc = Здоровье вашего ядра. Вы умрёт
 
 # Greeting
 blob-role-greeting =
-    Вы блоб - паразитическое космическое существо, способное уничтожить целые станции.
-        Ваша цель - выжить и вырасти как можно больше.
+    Вы блоб — паразитическое космическое существо, способное уничтожить целые станции.
+        Ваша цель — выжить и вырасти как можно больше.
         Вы почти неуязвимы для физических повреждений, но тепло все ещё может навредить вам.
         Используйте Alt+ЛКМ для улучшения обычных плиток блоба до прочных, а прочных до отражающих.
         Обязательно размещайте ресурсные блобы для генерации ресурсов.
@@ -177,7 +177,7 @@ blob-was-a-blob-with-objectives-named = [color=White]{$name}[/color] был бл
 
 # Objectivies
 objective-condition-blob-capture-title = Захватить станцию
-objective-condition-blob-capture-description = Ваша единственная цель - захватить всю станцию. Вам нужно иметь как минимум {$count} плиток блоба.
+objective-condition-blob-capture-description = Ваша единственная цель — захватить всю станцию. Вам нужно иметь как минимум {$count} плиток блоба.
 objective-condition-success = { $condition } | [color={ $markupColor }]Успех![/color]
 objective-condition-fail = { $condition } | [color={ $markupColor }]Провал![/color] ({ $progress }%)
 

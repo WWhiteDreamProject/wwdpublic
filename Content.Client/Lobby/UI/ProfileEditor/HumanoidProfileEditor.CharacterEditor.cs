@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Shared.Clothing.Loadouts.Systems;
+using Content.Shared.Clothing.Loadouts.Prototypes;
 
 
 namespace Content.Client.Lobby.UI;
@@ -19,15 +20,36 @@ public sealed partial class HumanoidProfileEditor
 
         var highJob = _controller.GetPreferredJob(Profile.Value);
 
-        Loadouts.SetData(
-            Profile.Value.Loadouts.Values,
-            new(
+        _loadouts.Clear();
+
+        foreach (var loadout in Profile.Value.Loadouts.Values)
+        {
+            if (!_prototypeManager.TryIndex<LoadoutPrototype>(loadout.LoadoutName, out var loadoutProto))
+                continue;
+
+            var usable = _characterRequirementsSystem.CheckRequirementsValid(
+                loadoutProto.Requirements,
                 highJob,
                 Profile.Value,
                 _requirements.GetRawPlayTimeTrackers(),
-                _requirements.IsWhitelisted()
-                )
+                _requirements.IsWhitelisted(),
+                loadoutProto,
+                _entManager,
+                _prototypeManager,
+                _cfgManager,
+                out _
             );
+
+            _loadouts.Add(loadoutProto, usable);
+        }
+
+        UpdateLoadoutsRemoveButton();
+
+        Loadouts.SetData(
+            Profile.Value.Loadouts.Values,
+            new(highJob, Profile.Value, _requirements.GetRawPlayTimeTrackers(), _requirements.IsWhitelisted()));
+
+        Loadouts.ShowUnusable = LoadoutsShowUnusableButton.Pressed;
     }
 
     private void CheckpointLoadouts()

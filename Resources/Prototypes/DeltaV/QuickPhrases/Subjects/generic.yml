@@ -208,7 +208,7 @@
 - type: quickPhrase
   id: BaseMaterialPhrase
   parent: BaseSubjectPhrase
-  group: Materials
+  group: aac-group-materials
   abstract: true
 
 - type: quickPhrase
@@ -281,7 +281,7 @@
 - type: quickPhrase
   id: BaseColorPhrase
   parent: BaseSubjectPhrase
-  group: Colors
+  group: aac-group-colors
   abstract: true
 
 - type: quickPhrase

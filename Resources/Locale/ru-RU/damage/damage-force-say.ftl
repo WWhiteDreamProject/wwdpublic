@@ -1,4 +1,4 @@
-﻿damage-force-say-message-wrap = {$message}-{$suffix}
+damage-force-say-message-wrap = {$message}-{$suffix}
 damage-force-say-message-wrap-no-suffix = {$message}-
 
 damage-force-say-1 = АЙ!!
@@ -10,4 +10,4 @@ damage-force-say-6 = УГХА!
 damage-force-say-7 = АВПХ!
 damage-force-say-8 = ТЫСЯЧА ЧЕРТЕЙ!
 
-damage-force-say-sleep = zzz...
+damage-force-say-sleep = хрр...

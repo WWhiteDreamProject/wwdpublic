@@ -21,7 +21,7 @@
     - 0,0,6,3
   - type: StorageFill
     contents:
-      - id: WeaponSniperHristov
+      - id: WeaponSniperDMR51Cyclops # WWDP edit
       - id: MagazineBoxAntiMateriel
       - id: ClothingNeckTieRed
       - id: ClothingHandsGlovesLatex

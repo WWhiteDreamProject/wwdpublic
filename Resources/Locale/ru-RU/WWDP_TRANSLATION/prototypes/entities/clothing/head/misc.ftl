@@ -35,7 +35,7 @@ ent-ClothingHeadHatSkub = шапка скуб
     .suffix = { "" }
 
 ent-ClothingHeadHatShrineMaidenWig = парик святой девы
-    .desc = На этикетке написано: "Все вырученные средства пойдут в храм Хакурей".
+    .desc = На этикетке написано: «Все вырученные средства пойдут в храм Хакурей».
     .suffix = { "" }
 
 ent-ClothingHeadHatCone = предупредительный конус

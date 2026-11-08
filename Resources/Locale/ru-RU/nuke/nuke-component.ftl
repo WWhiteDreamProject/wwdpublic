@@ -1,6 +1,6 @@
 nuke-component-cant-anchor-floor = Крепежные болты не могут зацепиться за пол!
 nuke-component-announcement-sender = Ядерная боеголовка
-nuke-component-announcement-armed =  Внимание! Механизм самоуничтожения станции был активирован {$location}. До детонации { $time } секунд. Если запуск был произведен по ошибке - боеголовку можно обезвредить.
+nuke-component-announcement-armed =  Внимание! Механизм самоуничтожения станции был активирован {$location}. До детонации { $time } секунд. Если запуск был произведен по ошибке — боеголовку можно обезвредить.
 nuke-component-announcement-unarmed = Механизм самоуничтожение станции деактивирован! Хорошего дня!
 nuke-component-announcement-send-codes = Внимание! Запрошенные коды самоуничтожения были отправлены на факс капитана.
 nuke-component-doafter-warning = Вы начинаете перебирать провода и кнопки, в попытке обезвредить ядерную бомбу... Это может занять некоторое время.
@@ -32,13 +32,13 @@ nuke-user-interface-second-status-cooldown-time = ОЖИДАНИЕ: {$time}
 
 ## Nuke labels
 ## Nuke labels
-nuke-label-nanotrasen = NT-{$serial}
+nuke-label-nanotrasen = НТ-{$serial}
 
 # do you even need this one? It's more funnier to say that
 # the Syndicate stole a NT nuke
 # do you even need this one? It's more funnier to say that
 # the Syndicate stole a NT nuke
-nuke-label-syndicate = SYN-{$serial}
+nuke-label-syndicate = СИН-{$serial}
 
 # Codes
 # Codes

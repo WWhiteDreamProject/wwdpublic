@@ -10,7 +10,7 @@ public sealed partial class MarkingCategoryPrototype : IPrototype
 {
     /// <inheritdoc />
     [IdDataField]
-    public string ID { get; } = default!;
+    public string ID { get; private set; } = default!;
 
     /// <summary>
     /// The specific layers that this category is responsible for visualizing.

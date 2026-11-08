@@ -90,9 +90,7 @@ entities:
     - type: Transform
     - type: Map
       mapPaused: True
-    - type: PhysicsMap
     - type: GridTree
-    - type: MovedGrids
     - type: Broadphase
     - type: OccluderTree
     - type: LoadedMap
@@ -51135,7 +51133,7 @@ entities:
 
             - [color=yellow]Проникающий[/color] урон снижается на [color=lightblue]30%[/color].
 
-            - [color=aqua]Stamina[/color] damage reduced by [color=lightblue]25%[/color].
+            - [color=aqua]Выносливость[/color] крепче на [color=lightblue]25%[/color].
           priority: 0
           component: Armor
         title: null
@@ -51306,7 +51304,7 @@ entities:
 
             - [color=yellow]Тепловой[/color] урон снижается на [color=lightblue]35%[/color].
 
-            - [color=aqua]Stamina[/color] damage reduced by [color=lightblue]35.000003814697266%[/color].
+            - [color=aqua]Выносливость[/color] крепче на [color=lightblue]35%[/color].
 
             - [color=orange]Взрывной[/color] урон снижен благодаря [color=lightblue]60%[/color].
           priority: 0
@@ -90096,7 +90094,6 @@ entities:
     - type: Transform
       pos: -62.5,-14.5
       parent: 2
-    - type: Timer
   - uid: 12765
     components:
     - type: Transform
@@ -90108,7 +90105,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -83.5,-10.5
       parent: 2
-    - type: Timer
   - uid: 12767
     components:
     - type: Transform
@@ -90133,14 +90129,12 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -44.5,26.5
       parent: 2
-    - type: Timer
   - uid: 12771
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -40.5,28.5
       parent: 2
-    - type: Timer
   - uid: 12772
     components:
     - type: Transform

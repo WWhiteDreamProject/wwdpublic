@@ -51,7 +51,7 @@ ent-ThermomachineHeaterMachineCircuitBoard = нагревательная тер
     .suffix = { "" }
 
 ent-PortableScrubberMachineCircuitBoard = переносной скруббер (машинная плата)
-    .desc = Переносной скруббер, коротко - ПСК.
+    .desc = Переносной скруббер, коротко — ПСК.
     .suffix = { "" }
 
 ent-CloningPodMachineCircuitboard = капсула клонирования (машинная плата)

@@ -1,4 +1,4 @@
-addtag-command-help = Usage: addtag <uidЭнтити> <тэг>
+addtag-command-help = Использование: addtag <uidЭнтити> <тэг>
 addtag-command-success = Добавлен { $tag } к { $target }.
 addtag-command-fail = Не удалось добавить { $tag } к { $target }.
 removetag-command-description = Удаляет тэг с выбранного энтити

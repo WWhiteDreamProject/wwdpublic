@@ -71,7 +71,7 @@ marking-HarpyTailForkedWhitescale-whitescale_forked_tailfin = Хвост
 
 marking-HarpyTailPeacock = Павлиний хвост
 marking-HarpyTailPeacock-peacock_tail_feathers = Перья
-marking-HarpyTailPeacock-peacock_tail_eyes = "Глазки"
+marking-HarpyTailPeacock-peacock_tail_eyes = «Глазки»
 
 marking-HarpyTailHaven = Хвост Хэйвен (отбелённый)
 marking-HarpyTailHaven-haven_tone_1 = Внешние перья

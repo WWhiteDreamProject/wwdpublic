@@ -32,6 +32,15 @@ namespace Content.Server.Speech.EntitySystems
             {
                 return msg.Remove(0, 1).Insert(0, "Es");
             }
+            // WWDP EDIT START
+            // ? Maybe uncomminted this shit?
+            //// msg = msg.Replace(" с", " эс").Replace(" С", " Эс");
+
+            //// if (msg.StartsWith("с", StringComparison.Ordinal))
+            ////     return msg.Remove(0, 1).Insert(0, "эс");
+            //// else if (msg.StartsWith("С", StringComparison.Ordinal))
+            ////     return msg.Remove(0, 1).Insert(0, "Эс");
+            // WWDP EDIT END
 
             return msg;
         }

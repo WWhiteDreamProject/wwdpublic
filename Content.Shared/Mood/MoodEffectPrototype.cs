@@ -9,9 +9,9 @@ public sealed partial class MoodEffectPrototype : IPrototype
     ///     The ID of the moodlet to use.
     /// </summary>
     [IdDataField]
-    public string ID { get; } = default!;
+    public string ID { get; private set; } = default!;
 
-    public string Description => Loc.GetString($"mood-effect-{ID}");
+    public string Description(EntityUid entity) => Loc.GetString($"mood-effect-{ID}", ("entity", entity)); // WWDP EDIT
 
     /// <summary>
     ///     If they already have an effect with the same category, the new one will replace the old one.

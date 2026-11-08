@@ -27,10 +27,7 @@ entities:
     - type: Map
       mapPaused: True
     - type: Broadphase
-    - type: OccluderTree
-    - type: PhysicsMap
     - type: GridTree
-    - type: MovedGrids
     - type: FTLDestination
     - type: LoadedMap
     - type: MapAtmosphere

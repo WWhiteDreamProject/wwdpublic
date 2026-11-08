@@ -3,7 +3,7 @@ ent-CigPackBase = пачка сигарет
     .suffix = { "" }
 
 ent-CigPackGreen = пачка сигарет Spessman's Smokes
-    .desc = Надпись на упаковке гласит: "Изменит ли что-нибудь медленная смерть?"
+    .desc = Надпись на упаковке гласит: «Изменит ли что-нибудь медленная смерть?»
     .suffix = { "" }
 
 ent-CigPackRed = пачка сигарет DromedaryCo
@@ -15,7 +15,7 @@ ent-CigPackBlue = пачка сигарет AcmeCo
     .suffix = { "" }
 
 ent-CigPackBlack = пачка сигарет Nomads
-    .desc = "Nomads's extra strong" для тех случаев, когда ваша жизнь становится слишком тяжёлой.
+    .desc = «Nomads's extra strong» для тех случаев, когда ваша жизнь становится слишком тяжёлой.
     .suffix = { "" }
 
 ent-CigPackSyndicate = пачка сигарет синдиката

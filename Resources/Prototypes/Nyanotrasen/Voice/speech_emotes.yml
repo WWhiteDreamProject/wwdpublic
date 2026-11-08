@@ -31,10 +31,10 @@
   # WD EDIT START
   chatMessages: [ "chat-emote-msg-meow" ]
   chatTriggers:
-    - "chat-emote-trigger-meow-1"
-    - "chat-emote-trigger-meow-2"
-    - "chat-emote-trigger-meow-3"
-    - "chat-emote-trigger-meow-4"
+    - "chat-emote-trigger-meows-1"
+    - "chat-emote-trigger-meows-2"
+    - "chat-emote-trigger-meows-3"
+    - "chat-emote-trigger-meows-4"
   # WD EDIT END
 
 - type: emote
@@ -52,7 +52,7 @@
   # WD EDIT START
   chatMessages: [ "chat-emote-msg-mew" ]
   chatTriggers:
-    - "chat-emote-trigger-mew-1"
+    - "chat-emote-trigger-mews-1"
   # WD EDIT END
 
 - type: emote
@@ -70,7 +70,7 @@
   # WD EDIT START
   chatMessages: [ "chat-emote-msg-growl" ]
   chatTriggers:
-    - "chat-emote-trigger-growl-1"
+    - "chat-emote-trigger-growls-1"
   # WD EDIT END
 
 - type: emote
@@ -88,5 +88,7 @@
   # WD EDIT START
   chatMessages: [ "chat-emote-msg-purr" ]
   chatTriggers:
-    - "chat-emote-trigger-purr-1"
+    - "chat-emote-trigger-purrs-1"
+    - "chat-emote-trigger-purrs-2"
+    - "chat-emote-trigger-purrs-3"
   # WD EDIT END

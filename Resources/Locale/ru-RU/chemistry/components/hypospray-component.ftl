@@ -1,10 +1,11 @@
 ## UI
 
-hypospray-all-mode-text = Only Injects
-hypospray-mobs-only-mode-text = Draws and Injects
-hypospray-invalid-text = Invalid
-hypospray-volume-label = Volume: [color=white]{$currentVolume}/{$totalVolume}u[/color]
-    Mode: [color=white]{$modeString}[/color]
+hypospray-all-mode-text = Только вводит
+hypospray-mobs-only-mode-text = Черпает и вводит
+hypospray-invalid-text = Недействительный
+hypospray-volume-label =
+    Объем: [color=white]{$currentVolume}/{$totalVolume}ед[/color]
+    Режим: [color=white]{$modeString}[/color]
 
 ## Entity
 
@@ -15,6 +16,6 @@ hypospray-component-empty-message = Он пустой!
 hypospray-component-feel-prick-message = Вы чувствуете слабый укольчик!
 hypospray-component-transfer-already-full-message = { $owner } уже заполнен!
 hypospray-cant-inject = Нельзя сделать инъекцию в { $target }!
-hypospray-verb-mode-label = Toggle Container Draw
-hypospray-verb-mode-inject-all = You cannot draw from containers anymore.
-hypospray-verb-mode-inject-mobs-only = You can now draw from containers.
+hypospray-verb-mode-label = Переключить режим вытягивания контейнера
+hypospray-verb-mode-inject-all = Вы больше не можете вытягивать жидкости из контейнеров.
+hypospray-verb-mode-inject-mobs-only = Теперь вы можете вытягивать жидкости из контейнеров.

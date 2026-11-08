@@ -11,7 +11,7 @@ ent-ClothingShoesBootsWorkCE = рабочие ботинки старшего и
     .suffix = { "" }
 
 ent-ClothingShoesBootsJack = подкованные сапоги
-    .desc = Обувь службы безопасности Nanotrasen, для боевых операций или боевых действий. Борьба - всё, борьба - всегда.
+    .desc = Обувь службы безопасности Nanotrasen, для боевых операций или боевых действий. Борьба — всё, борьба — всегда.
     .suffix = { "" }
 
 ent-ClothingShoesBootsJackFake = подкованные сапоги
@@ -27,7 +27,7 @@ ent-ClothingShoesBootsPerformer = ботинки артиста
     .suffix = { "" }
 
 ent-ClothingShoesBootsCombat = армейские ботинки
-    .desc = Надёжные армейские ботинки, для боевых операций или боевых действий. Борьба - всё, борьба - всегда.
+    .desc = Надёжные армейские ботинки, для боевых операций или боевых действий. Борьба — всё, борьба — всегда.
     .suffix = { "" }
 
 ent-ClothingShoesBootsLaceup = шнурованные туфли

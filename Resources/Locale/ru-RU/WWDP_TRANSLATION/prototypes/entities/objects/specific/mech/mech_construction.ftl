@@ -1,4 +1,4 @@
-ent-BaseMechPart = { "" }
+ent-BaseMechPart = часть меха
     .desc = { "" }
     .suffix = { "" }
 
@@ -31,5 +31,5 @@ ent-RipleyRArm = правая рука Рипли
     .suffix = { "" }
 
 ent-RipleyChassis = корпус Рипли
-    .desc = Незавершенная конструкция меха Рипли.
+    .desc = Незавершенная конструкция меха Рипли
     .suffix = { "" }
