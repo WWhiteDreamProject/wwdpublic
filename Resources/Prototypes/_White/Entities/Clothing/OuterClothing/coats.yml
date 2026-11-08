@@ -50,3 +50,31 @@
     sprite: _White/Clothing/OuterClothing/Coats/hopcoat.rsi
   - type: Clothing
     sprite: _White/Clothing/OuterClothing/Coats/hopcoat.rsi
+
+- type: entity
+  parent: ClothingOuterWizardBase
+  id: ClothingOuterWizardRandom
+  suffix: FXX
+  name: Emerald wizard robe
+  description: luck aura.
+  components:
+  - type: Sprite
+    sprite: _White/Clothing/OuterClothing/Coats/randomwizardrobe.rsi
+  - type: Clothing
+    sprite: _White/Clothing/OuterClothing/Coats/randomwizardrobe.rsi
+  - type: Tag
+    tags:
+    - CorgiWearable
+    - WhitelistChameleon
+  - type: Armor
+    modifiers:
+      coefficients:
+        Cold: 0.85
+        Heat: 0.85
+        Piercing: 0.8
+        Slash: 0.9
+        Blunt: 0.95
+        Radiation: 0.9
+      flatReductions:
+        {}
+

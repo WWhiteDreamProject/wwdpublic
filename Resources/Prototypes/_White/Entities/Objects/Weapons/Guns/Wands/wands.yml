@@ -1,0 +1,136 @@
+- type: entity
+  name: cold wand
+  parent: WeaponWandPresent
+  id: WeaponWandIceFXX
+  suffix: FXX
+  description: Cold
+  components:
+  - type: BasicEntityAmmoProvider
+    proto: ProjectileIcestunsharp
+    capacity: 15
+    count: 15
+  - type: Gun
+    projectileSpeed: 35
+    fireRate: 0.8
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 10
+  - type: AmmoCounter
+
+- type: entity
+  name: super cold wand
+  parent: WeaponWandPresent
+  id: WeaponWandSuperIceFXX
+  suffix: FXX
+  description: Cold
+  components:
+  - type: BasicEntityAmmoProvider
+    proto: ProjectileIceSuperstunsharp
+    capacity: 10
+    count: 10
+  - type: Gun
+    projectileSpeed: 20
+    fireRate: 0.4
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 30
+  - type: AmmoCounter
+
+- type: entity
+  name: d6 wand
+  parent: WeaponWandPresent
+  id: WeaponWandd6FXX
+  suffix: FXX
+  description: d6 spammer
+  components:
+  - type: BasicEntityAmmoProvider
+    proto: Projectiled6
+    capacity: 777
+    count: 777
+  - type: Gun
+    minAngle: 4
+    maxAngle: 25
+    angleIncrease: 4
+    angleDecay: 16
+    projectileSpeed: 8
+    fireRate: 12
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      collection: Dice
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 3
+    RechargeSound: None
+  - type: AmmoCounter
+
+- type: entity
+  name: present wand
+  parent: WeaponWandPolymorphBase
+  id: WeaponWandPresent
+  suffix: FXX
+  description: gift
+  components:
+  - type: BasicEntityAmmoProvider
+    proto: PresentRandom
+    capacity: 20
+    count: 20
+  - type: Gun
+    projectileSpeed: 10
+    fireRate: 1.5
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 5
+    showExamineText: true
+    rechargeSound:
+      path: None
+  - type: AmmoCounter
+
+- type: entity
+  name: present wand (coal)
+  parent: WeaponWandPolymorphBase
+  id: WeaponWandPresentCoal
+  suffix: FXX
+  description: gift
+  components:
+  - type: BasicEntityAmmoProvider
+    proto: PresentRandomCoal
+    capacity: 20
+    count: 20
+  - type: Gun
+    projectileSpeed: 10
+    fireRate: 1.5
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 5
+  - type: AmmoCounter
+
+- type: entity
+  name: present wand (cash)
+  parent: WeaponWandPolymorphBase
+  id: WeaponWandPresentFXXCash
+  suffix: FXX
+  description: gift
+  components:
+  - type: BasicEntityAmmoProvider
+    proto: PresentRandomCash
+    capacity: 20
+    count: 20
+  - type: Gun
+    projectileSpeed: 10
+    fireRate: 1.5
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 5
+  - type: AmmoCounter
+

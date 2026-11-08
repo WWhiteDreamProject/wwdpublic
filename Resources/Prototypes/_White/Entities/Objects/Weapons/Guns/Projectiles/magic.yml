@@ -43,3 +43,72 @@
     color: "#FF0000"
     radius: 2.0
     energy: 5.0
+
+- type: entity
+  id: ProjectileIcestunsharp
+  parent: BaseBullet
+  name: Ice Sharp
+  description: Brrrrr.
+  categories:
+  - HideSpawnMenu
+  components:
+  - type: Sprite
+    sprite: Structures/Specific/Anomalies/ice_anom.rsi
+    state: bullet
+  - type: Projectile
+    damage:
+      types:
+        Piercing: "15"
+        Cold: 20
+        Structural: 50
+  - type: StunOnCollide
+    stunAmount: 5
+    drop: true
+    knockdownAmount: 10
+    slowdownAmount: 20
+    walkSpeedModifier: 0.5
+    sprintSpeedModifier: 0.5
+
+- type: entity
+  id: ProjectileIceSuperstunsharp
+  parent: BaseBullet
+  name: heart of ice
+  description: Brrrrr.
+  categories:
+  - HideSpawnMenu
+  components:
+  - type: Sprite
+    sprite: Structures/Specific/Anomalies/ice_anom.rsi
+    state: anom
+  - type: Projectile
+    damage:
+      types:
+        Cold: 35
+        Structural: "150"
+  - type: StunOnCollide
+    stunAmount: 10
+    drop: true
+    knockdownAmount: 10
+    slowdownAmount: 25s
+    walkSpeedModifier: 0.3
+    sprintSpeedModifier: 0.2
+
+- type: entity
+  id: Projectiled6
+  parent: BaseBullet
+  name: mini-d6
+  description: d6
+  categories:
+  - HideSpawnMenu
+  components:
+  - type: Sprite
+    sprite: Objects/Fun/dice.rsi
+    layers:
+    - state: d6_6
+  - type: Projectile
+    damage:
+      types:
+        Piercing: "4.5"
+  - type: Dice
+    sides: 6
+    currentValue: 6
