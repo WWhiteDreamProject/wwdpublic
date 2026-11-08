@@ -13,7 +13,7 @@ public sealed partial class ToneColoration : IColorationStrategy
     /// The color returned by <see cref="ClosestColor"/> when the input color doesn't verify.
     /// </summary>
     [DataField]
-    public Color ValidTone;
+    public Color ValidTone = Color.FromHex("#FFEACC");
 
     /// <summary>
     /// The unary value (0.0-1.0) at which the curve switches from varying hue to varying saturation/value.
@@ -74,12 +74,18 @@ public sealed partial class ToneColoration : IColorationStrategy
 
         if (rangeOffset <= 0)
         {
-            hue += Math.Abs(rangeOffset) / 3.6f;
+            var hueRange = Hue.Item2 - Hue.Item1;
+            var normalizedOffset = Math.Abs(rangeOffset) / Pivot;
+            hue += hueRange * normalizedOffset;
         }
         else
         {
-            sat += rangeOffset;
-            val -= rangeOffset;
+            var normalizedOffset = rangeOffset / (1f - Pivot);
+            var satRange = Saturation.Item2 - Saturation.Item1;
+            var valRange = Value.Item2 - Value.Item1;
+
+            sat += satRange * normalizedOffset;
+            val -= valRange * normalizedOffset;
         }
 
         return Color.FromHsv(new(hue, sat, val, 1.0f));
@@ -90,9 +96,23 @@ public sealed partial class ToneColoration : IColorationStrategy
     {
         var hsv = Color.ToHsv(color);
 
-        if (IColorationStrategy.ClampHue(hsv.X, Hue.Item1, 1f) > Hue.Item1 && hsv.Z == 1.0)
-            return Math.Abs(Hue.Item2 - hsv.X * 3.6f) * 100f;
+        var hueRange = Hue.Item2 - Hue.Item1;
+        var satRange = Saturation.Item2 - Saturation.Item1;
+        var valRange = Value.Item2 - Value.Item1;
 
-        return hsv.Y * 100f;
+        var hueProgress = hueRange > 0 ? (hsv.X - Hue.Item1) / hueRange : 0f;
+        var satProgress = satRange > 0 ? (hsv.Y - Saturation.Item1) / satRange : 0f;
+        var valProgress = valRange > 0 ? (Value.Item2 - hsv.Z) / valRange : 0f;
+
+        if (Math.Abs(hsv.Y - Saturation.Item1) < IColorationStrategy.Epsilon &&
+            Math.Abs(hsv.Z - Value.Item2) < IColorationStrategy.Epsilon)
+        {
+            var hueOffset = Math.Clamp(hueProgress, 0f, 1f);
+            return (Pivot - hueOffset * Pivot) * 100f;
+        }
+
+        var avgProgress = (satProgress + valProgress) / 2f;
+        var satValOffset = Math.Clamp(avgProgress, 0f, 1f);
+        return (Pivot + satValOffset * (1f - Pivot)) * 100f;
     }
 }

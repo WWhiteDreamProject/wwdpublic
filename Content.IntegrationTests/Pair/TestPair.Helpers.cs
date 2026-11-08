@@ -1,7 +1,8 @@
 ﻿#nullable enable
 using System.Collections.Generic;
 using System.Linq;
-using Content.Server.Preferences.Managers;
+using Content.Server._White.Preferences.Managers;
+using Content.Shared._White.Preferences;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
 using Robust.Shared.Network;
