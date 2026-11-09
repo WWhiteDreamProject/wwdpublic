@@ -10,3 +10,6 @@
       limit: 2
     Torso:
       limit: 1
+    Wristwear:
+      whitelisted: false
+      limit: 2

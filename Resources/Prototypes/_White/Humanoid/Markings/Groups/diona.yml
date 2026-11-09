@@ -14,3 +14,6 @@
       limit: 1
     Vegetation:
       limit: 2
+    Wristwear:
+      whitelisted: false
+      limit: 2

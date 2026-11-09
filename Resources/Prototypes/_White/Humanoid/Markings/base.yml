@@ -142,3 +142,8 @@
   id: BaseWings
   abstract: true
   category: Wings
+
+- type: marking
+  id: BaseWristwear
+  abstract: true
+  category: Wristwear

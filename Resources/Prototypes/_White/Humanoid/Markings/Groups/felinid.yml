@@ -32,3 +32,5 @@
       limit: 4
     Torso:
       limit: 1
+    Wristwear:
+      limit: 2

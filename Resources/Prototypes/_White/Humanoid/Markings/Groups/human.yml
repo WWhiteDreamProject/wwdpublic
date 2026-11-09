@@ -30,3 +30,5 @@
       limit: 1
     Trinkets:
       limit: 4
+    Wristwear:
+      limit: 2

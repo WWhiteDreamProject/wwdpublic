@@ -1,0 +1,179 @@
+﻿- type: marking
+  id: WristwearBraceletLeftArm
+  parent: BaseWristwear
+  definitions:
+  - layer: enum.BodyProviderType.LeftArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/wristwear.rsi
+      state: bracelet_left_arm
+  coloring:
+    default:
+      type: !type:SimpleColoring
+        color: "#CDCDCD"
+
+- type: marking
+  id: WristwearBraceletLeftHand
+  parent: BaseWristwear
+  definitions:
+  - layer: enum.BodyProviderType.LeftHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/wristwear.rsi
+      state: bracelet_left_hand
+  coloring:
+    default:
+      type: !type:SimpleColoring
+        color: "#CDCDCD"
+
+- type: marking
+  id: WristwearBraceletRightArm
+  parent: BaseWristwear
+  definitions:
+  - layer: enum.BodyProviderType.RightArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/wristwear.rsi
+      state: bracelet_right_arm
+  coloring:
+    default:
+      type: !type:SimpleColoring
+        color: "#CDCDCD"
+
+- type: marking
+  id: WristwearBraceletRightHand
+  parent: BaseWristwear
+  definitions:
+  - layer: enum.BodyProviderType.RightHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/wristwear.rsi
+      state: bracelet_right_hand
+  coloring:
+    default:
+      type: !type:SimpleColoring
+        color: "#CDCDCD"
+
+- type: marking
+  id: WristwearWatchLeft
+  parent: BaseWristwear
+  definitions:
+  - layer: enum.BodyProviderType.LeftHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/wristwear.rsi
+      state: watch_left
+
+- type: marking
+  id: WristwearWatchLeftColorable
+  parent: BaseWristwear
+  definitions:
+  - layer: enum.BodyProviderType.RightHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/wristwear.rsi
+      state: watch_left_colorable-primary
+    index: primary
+  - layer: enum.BodyProviderType.RightHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/wristwear.rsi
+      state: watch_left_colorable-secondary
+    index: secondary
+  coloring:
+    default:
+      type: !type:SimpleColoring
+        color: "#424242"
+
+- type: marking
+  id: WristwearWatchLeftGold
+  parent: BaseWristwear
+  definitions:
+  - layer: enum.BodyProviderType.LeftHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/wristwear.rsi
+      state: watch_left_gold
+
+- type: marking
+  id: WristwearWatchLeftHolo
+  parent: BaseWristwear
+  definitions:
+  - layer: enum.BodyProviderType.LeftHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/wristwear.rsi
+      state: watch_left_holo
+
+- type: marking
+  id: WristwearWatchLeftLeather
+  parent: BaseWristwear
+  definitions:
+  - layer: enum.BodyProviderType.LeftHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/wristwear.rsi
+      state: watch_left_leather
+
+- type: marking
+  id: WristwearWatchLeftSilver
+  parent: BaseWristwear
+  definitions:
+  - layer: enum.BodyProviderType.LeftHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/wristwear.rsi
+      state: watch_left_silver
+
+- type: marking
+  id: WristwearWatchRight
+  parent: BaseWristwear
+  definitions:
+  - layer: enum.BodyProviderType.RightHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/wristwear.rsi
+      state: watch_right
+
+- type: marking
+  id: WristwearWatchRightColorable
+  parent: BaseWristwear
+  definitions:
+  - layer: enum.BodyProviderType.RightHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/wristwear.rsi
+      state: watch_right_colorable-primary
+    index: primary
+  - layer: enum.BodyProviderType.RightHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/wristwear.rsi
+      state: watch_right_colorable-secondary
+    index: secondary
+  coloring:
+    default:
+      type: !type:SimpleColoring
+        color: "#424242"
+
+- type: marking
+  id: WristwearWatchRightGold
+  parent: BaseWristwear
+  definitions:
+  - layer: enum.BodyProviderType.RightHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/wristwear.rsi
+      state: watch_right_gold
+
+- type: marking
+  id: WristwearWatchRightHolo
+  parent: BaseWristwear
+  definitions:
+  - layer: enum.BodyProviderType.RightHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/wristwear.rsi
+      state: watch_right_holo
+
+- type: marking
+  id: WristwearWatchRightLeather
+  parent: BaseWristwear
+  definitions:
+  - layer: enum.BodyProviderType.RightHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/wristwear.rsi
+      state: watch_right_leather
+
+- type: marking
+  id: WristwearWatchRightSilver
+  parent: BaseWristwear
+  definitions:
+  - layer: enum.BodyProviderType.RightHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/wristwear.rsi
+      state: watch_right_silver

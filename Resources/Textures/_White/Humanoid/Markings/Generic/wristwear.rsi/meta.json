@@ -1,54 +1,46 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from Aurorastation at commit https://github.com/Aurorastation/Aurora.3/commit/d6acf1ddd9c8b7c038bfbacea03545889c9181c8, bracelet_arm/watch_colorable originally from Aurorastation edited by Skubman (github: angelofallars)",
+  "copyright": "Taken from https://github.com/Aurorastation/Aurora.3/commit/d6acf1ddd9c8b7c038bfbacea03545889c9181c8. Bracelet_arm and watch_colorable edited by angelofallars (github).",
   "size": {
     "x": 32,
     "y": 32
   },
   "states": [
     {
-      "name": "bracelet_r",
+      "name": "bracelet_left_arm",
       "directions": 4
     },
     {
-      "name": "bracelet_l",
+      "name": "bracelet_left_hand",
       "directions": 4
     },
     {
-      "name": "bracelet_arm_r",
+      "name": "bracelet_right_arm",
       "directions": 4
     },
     {
-      "name": "bracelet_arm_l",
+      "name": "bracelet_right_hand",
       "directions": 4
     },
     {
-      "name": "watch_r",
+      "name": "watch_left",
       "directions": 4
     },
     {
-      "name": "watch_l",
+      "name": "watch_left_colorable-primary",
       "directions": 4
     },
     {
-      "name": "watch_silver_r",
+      "name": "watch_left_colorable-secondary",
       "directions": 4
     },
     {
-      "name": "watch_silver_l",
+      "name": "watch_left_gold",
       "directions": 4
     },
     {
-      "name": "watch_gold_r",
-      "directions": 4
-    },
-    {
-      "name": "watch_gold_l",
-      "directions": 4
-    },
-    {
-      "name": "watch_holo_r",
+      "name": "watch_left_holo",
       "directions": 4,
       "delays": [
         [
@@ -82,7 +74,31 @@
       ]
     },
     {
-      "name": "watch_holo_l",
+      "name": "watch_left_leather",
+      "directions": 4
+    },
+    {
+      "name": "watch_left_silver",
+      "directions": 4
+    },
+    {
+      "name": "watch_right",
+      "directions": 4
+    },
+    {
+      "name": "watch_right_colorable-primary",
+      "directions": 4
+    },
+    {
+      "name": "watch_right_colorable-secondary",
+      "directions": 4
+    },
+    {
+      "name": "watch_right_gold",
+      "directions": 4
+    },
+    {
+      "name": "watch_right_holo",
       "directions": 4,
       "delays": [
         [
@@ -116,27 +132,11 @@
       ]
     },
     {
-      "name": "watch_leather_r",
+      "name": "watch_right_leather",
       "directions": 4
     },
     {
-      "name": "watch_leather_l",
-      "directions": 4
-    },
-    {
-      "name": "watch_colorable_r_tone_1",
-      "directions": 4
-    },
-    {
-      "name": "watch_colorable_r_tone_2",
-      "directions": 4
-    },
-    {
-      "name": "watch_colorable_l_tone_1",
-      "directions": 4
-    },
-    {
-      "name": "watch_colorable_l_tone_2",
+      "name": "watch_right_silver",
       "directions": 4
     }
   ]

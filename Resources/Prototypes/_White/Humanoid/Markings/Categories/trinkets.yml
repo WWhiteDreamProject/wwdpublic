@@ -2,3 +2,11 @@
   id: Earrings
   layers:
   - enum.MarkingVisualLayers.HeadSide
+
+- type: markingCategory
+  id: Wristwear
+  layers:
+  - enum.BodyProviderType.LeftArm
+  - enum.BodyProviderType.LeftHand
+  - enum.BodyProviderType.RightArm
+  - enum.BodyProviderType.RightHand

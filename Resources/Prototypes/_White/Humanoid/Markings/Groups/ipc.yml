@@ -12,3 +12,6 @@
       limit: 1
     Wings:
       limit: 1
+    Wristwear:
+      whitelisted: false
+      limit: 2

@@ -24,5 +24,6 @@
       limit: 4
     Torso:
       limit: 1
-    Trinkets:
-      limit: 4
+    Wristwear:
+      whitelisted: false
+      limit: 2
