@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by Ubaser(github). The division of the torso into chest and groin was done by Spatison(github).",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "eye_left",
+      "directions": 4
+    },
+    {
+      "name": "eye_right",
+      "directions": 4
+    },
+    {
+      "name": "surgery_top_long",
+      "directions": 4
+    },
+    {
+      "name": "surgery_top_short",
+      "directions": 4
+    },
+    {
+      "name": "torso-chest",
+      "directions": 4
+    },
+    {
+      "name": "torso-groin",
+      "directions": 4
+    }
+  ]
+}

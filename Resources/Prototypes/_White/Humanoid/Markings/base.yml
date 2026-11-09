@@ -90,6 +90,11 @@
   category: Overlay
 
 - type: marking
+  id: BaseScars
+  abstract: true
+  category: Scars
+
+- type: marking
   id: BaseTail
   abstract: true
   category: Tail
