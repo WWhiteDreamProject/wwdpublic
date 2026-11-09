@@ -8,6 +8,15 @@
         group: Skin
 
 - type: marking
+  id: BaseArms
+  abstract: true
+  category: Arms
+  coloring:
+    default:
+      type: !type:BodyColorGroupColoring
+        group: Skin
+
+- type: marking
   id: BaseBandages
   abstract: true
   category: Bandages

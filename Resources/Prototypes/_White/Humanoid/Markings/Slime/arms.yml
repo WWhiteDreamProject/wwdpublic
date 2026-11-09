@@ -1,0 +1,30 @@
+﻿- type: marking
+  id: BaseArmsSlime
+  parent: [BaseArms, BaseSlime]
+  abstract: true
+
+- type: marking
+  id: ArmsSlimeGradientLeft
+  parent: BaseArmsSlime
+  definitions:
+  - layer: enum.BodyProviderType.LeftArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Slime/arms.rsi
+      state: gradient_left-arm
+  - layer: enum.BodyProviderType.LeftHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Slime/arms.rsi
+      state: gradient_left-hand
+
+- type: marking
+  id: ArmsSlimeGradientRight
+  parent: BaseArmsSlime
+  definitions:
+  - layer: enum.BodyProviderType.RightArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Slime/arms.rsi
+      state: gradient_right-arm
+  - layer: enum.BodyProviderType.RightLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Slime/arms.rsi
+      state: gradient_right-hand

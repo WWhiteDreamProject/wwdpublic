@@ -1,0 +1,30 @@
+﻿- type: marking
+  id: BaseLegsSlime
+  parent: [BaseLegs, BaseSlime]
+  abstract: true
+
+- type: marking
+  id: LegsSlimeGradientLeft
+  parent: BaseLegsSlime
+  definitions:
+  - layer: enum.BodyProviderType.LeftFoot
+    sprite:
+      sprite: _White/Humanoid/Markings/Slime/legs.rsi
+      state: gradient_left-foot
+  - layer: enum.BodyProviderType.LeftLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Slime/legs.rsi
+      state: gradient_left-leg
+
+- type: marking
+  id: LegsSlimeGradientRight
+  parent: BaseLegsSlime
+  definitions:
+  - layer: enum.BodyProviderType.RightFoot
+    sprite:
+      sprite: _White/Humanoid/Markings/Slime/legs.rsi
+      state: gradient_right-foot
+  - layer: enum.BodyProviderType.RightLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Slime/legs.rsi
+      state: gradient_right-leg

@@ -1,0 +1,4 @@
+﻿- type: marking
+  id: BaseSlime
+  abstract: true
+  groups: [Slime]
