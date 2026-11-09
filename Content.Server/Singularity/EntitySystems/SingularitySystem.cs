@@ -223,7 +223,7 @@ public sealed class SingularitySystem : SharedSingularitySystem
     /// <param name="args">The event arguments.</param>
     public void OnDistortionStartup(EntityUid uid, SingularityDistortionComponent comp, ComponentStartup args)
     {
-        _pvs.AddGlobalOverride(GetNetEntity(uid));
+        _pvs.AddGlobalOverride(uid);
     }
 
     /// <summary>

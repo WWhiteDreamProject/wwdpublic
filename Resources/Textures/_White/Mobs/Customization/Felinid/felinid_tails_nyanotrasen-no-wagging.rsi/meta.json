@@ -1,0 +1,31 @@
+{
+    "version": 2,
+    "copyright": "@Vordenburg, modified by Myaflic for WWDP",
+    "license": "CC-BY-SA-4.0",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "basic_tail_tip_stopped",
+            "directions": 4
+        },
+        {
+            "name": "basic_tail_stripes_even_stopped",
+            "directions": 4
+        },
+        {
+            "name": "basic_tail_stripes_odd_stopped",
+            "directions": 4
+        },
+        {
+            "name": "basic_bow_stopped",
+            "directions": 4
+        },
+        {
+            "name": "basic_bell_stopped",
+            "directions": 4
+        }
+    ]
+}

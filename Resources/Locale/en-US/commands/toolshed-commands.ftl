@@ -100,3 +100,11 @@ command-description-dynamicrule-executenow =
     Executes the piped dynamic rule as if it had reached its regular update time.
 command-description-dynamicrule-rules =
     Gets a list of all the rules spawned by the piped dynamic rule.
+command-description-scale-set =
+    Sets an entity's sprite size to a certain scale (without changing its fixture).
+command-description-scale-get =
+    Get an entity's sprite scale as set by ScaleVisualsComponent. Does not include any changes directly made in the SpriteComponent.
+command-description-scale-multiply =
+    Multiply an entity's sprite size with a certain factor (without changing its fixture).
+command-description-scale-multiplywithfixture =
+    Multiply an entity's sprite size with a certain factor (including its fixture).

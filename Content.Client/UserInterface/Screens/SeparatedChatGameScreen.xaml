@@ -13,6 +13,7 @@
     xmlns:targeting="clr-namespace:Content.Client._Shitmed.UserInterface.Systems.Targeting.Widgets"
     xmlns:combatMode="clr-namespace:Content.Client._White.UserInterface.Systems.CombatMode.Widgets"
     xmlns:movement="clr-namespace:Content.Client._White.UserInterface.Systems.Movement.Widgets"
+    xmlns:adminObserver="clr-namespace:Content.Client._White.UserInterface.Systems.AdminObserver.Widgets"
     Name="SeparatedChatHud"
     VerticalExpand="False"
     VerticalAlignment="Bottom"
@@ -29,6 +30,7 @@
                 <movement:MovementGui Name="Movement" Access="Protected"/>
                 <targeting:TargetingControl Name="Targeting" Access="Protected"/>
             </BoxContainer>
+            <adminObserver:AdminObserverHandsGui Name="AdminObserverHands" Access="Protected"/>
             <!-- WD EDIT END -->
             <BoxContainer Name="TopLeftContainer" Orientation="Vertical">
                 <actions:ActionsBar Name="Actions" Access="Protected" />

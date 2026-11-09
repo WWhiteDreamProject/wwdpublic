@@ -1,0 +1,92 @@
+# For DeltaV sprites
+
+- type: marking
+  id: FelinidFluffyTailRingsAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: []
+  sprites:
+  - sprite: DeltaV/Mobs/Customization/Felinid/felinid_tails.rsi
+    state: Felinid_fluffy_tail_full
+  - sprite: DeltaV/Mobs/Customization/Felinid/felinid_tails.rsi
+    state: felinid_fluffy_tail_rings
+
+- type: marking
+  id: FelinidFluffyTailAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: []
+  sprites:
+  - sprite: DeltaV/Mobs/Customization/Felinid/felinid_tails.rsi
+    state: Felinid_fluffy_tail_full
+
+- type: marking
+  id: FelinidAlternativeTailAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: []
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/Felinid/alternative_tail.rsi
+      state: m_waggingtail_cat_FRONT
+
+# For Nyanotrasen sprites
+
+- type: marking
+  id: FelinidTailBasicAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: []
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
+    state: basic_tail_tip
+  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
+    state: basic_tail_stripes_even
+  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
+    state: basic_tail_stripes_odd
+
+- type: marking
+  id: FelinidTailBasicWithBowAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: []
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
+    state: basic_tail_tip
+  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
+    state: basic_tail_stripes_even
+  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
+    state: basic_tail_stripes_odd
+  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
+    state: basic_bow
+
+- type: marking
+  id: FelinidTailBasicWithBellAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: []
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
+    state: basic_tail_tip
+  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
+    state: basic_tail_stripes_even
+  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
+    state: basic_tail_stripes_odd
+  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
+    state: basic_bell
+
+- type: marking
+  id: FelinidTailBasicWithBowAndBellAnimated
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: []
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
+    state: basic_tail_tip
+  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
+    state: basic_tail_stripes_even
+  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
+    state: basic_tail_stripes_odd
+  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
+    state: basic_bow
+  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
+    state: basic_bell

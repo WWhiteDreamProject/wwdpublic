@@ -817,6 +817,11 @@
   - type: Item
     size: Normal
     sprite: Objects/Tools/shovel.rsi
+    # WD EDIT START
+    shape:
+    - 0,0,3,0
+    storedRotation: 44
+    # WD EDIT END
   - type: PhysicalComposition
     materialComposition:
       Steel: 100

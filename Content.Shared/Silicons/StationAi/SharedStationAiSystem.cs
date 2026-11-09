@@ -66,7 +66,6 @@ public abstract partial class SharedStationAiSystem : EntitySystem
     // WD EDIT START
     [Dependency] private readonly   AnchorableSystem _anchorable = default!;
     [Dependency] private readonly   PullingSystem _pulling = default!;
-    [Dependency] private readonly   SharedUserInterfaceSystem _ui = default!;
     [Dependency] private readonly SharedAiRemoteControlSystem _remoteSystem = default!;
     // WD EDIT END
 

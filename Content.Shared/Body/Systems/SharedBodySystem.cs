@@ -1,8 +1,19 @@
+using Content.Shared.Buckle;
+using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Damage;
+using Content.Shared.Gibbing.Systems;
+using Content.Shared.Humanoid;
+using Content.Shared.Humanoid.Markings;
+using Content.Shared.Inventory;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Systems;
+using Content.Shared.Random;
 using Content.Shared.Standing;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
+using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Timing;
 
 namespace Content.Shared.Body.Systems;
@@ -28,6 +39,18 @@ public abstract partial class SharedBodySystem : EntitySystem
     /// </summary>
     public const string OrganSlotContainerIdPrefix = "body_organ_slot_";
 
+    [Dependency] private readonly RandomHelperSystem _randomHelper = default!; // Shitmed Change
+    [Dependency] private readonly SharedBuckleSystem _buckle = default!; //WD EDIT
+    [Dependency] private readonly IComponentFactory _componentFactory = default!;
+    [Dependency] private readonly ISerializationManager _serializationManager = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private readonly GibbingSystem _gibbingSystem = default!;
+    [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
+    [Dependency] private readonly ItemSlotsSystem _slots = default!; // Shitmed Change
+    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly SharedHumanoidAppearanceSystem _humanoid = default!;
+    [Dependency] private readonly MarkingManager _markingManager = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] protected readonly IPrototypeManager Prototypes = default!;
     [Dependency] protected readonly DamageableSystem Damageable = default!;

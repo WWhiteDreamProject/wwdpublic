@@ -93,6 +93,11 @@
     sprite: Objects/Tanks/oxygen.rsi
   - type: Item
     sprite: Objects/Tanks/oxygen.rsi
+    # WD EDIT START
+    shape:
+    - 0,0,2,0
+    storedRotation: 44
+    # WD EDIT END
   - type: Clothing
     sprite: Objects/Tanks/oxygen.rsi
 
@@ -106,6 +111,11 @@
     sprite: Objects/Tanks/red.rsi
   - type: Item
     sprite: Objects/Tanks/red.rsi
+    # WD EDIT START
+    shape:
+    - 0,0,2,0
+    storedRotation: 44
+    # WD EDIT END
   - type: Clothing
     sprite: Objects/Tanks/red.rsi
 
@@ -313,6 +323,12 @@
   components:
   - type: GasTank
     outputPressure: 101.3
+  # WD EDIT START
+  - type: Item
+    shape:
+    - 0,0,2,0
+    storedRotation: 44
+  # WD EDIT END
 
 - type: entity
   parent: GasTankRoundBase
@@ -323,6 +339,11 @@
   - type: Sprite
     sprite: Objects/Tanks/anesthetic.rsi
   - type: Item
+    # WD EDIT START
+    shape:
+    - 0,0,2,0
+    storedRotation: 44
+    # WD EDIT END
     sprite: Objects/Tanks/anesthetic.rsi
   - type: GasTank
     outputPressure: 30.4

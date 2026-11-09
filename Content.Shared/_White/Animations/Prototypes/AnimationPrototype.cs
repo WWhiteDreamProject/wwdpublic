@@ -3,10 +3,10 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared._White.Animations.Prototypes;
 
 [Prototype]
-public sealed class AnimationPrototype : IPrototype
+public sealed partial class AnimationPrototype : IPrototype
 {
     [IdDataField]
-    public string ID { get; } = default!;
+    public string ID { get; private set; } = default!;
 
     [DataField]
     public TimeSpan? Length;
