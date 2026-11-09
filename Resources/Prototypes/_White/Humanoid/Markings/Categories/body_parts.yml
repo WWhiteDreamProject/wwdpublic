@@ -79,6 +79,13 @@
   - enum.BodyProviderType.Torso
 
 - type: markingCategory
+  id: Tusks
+  layers:
+  - enum.BodyProviderType.Head
+  - enum.MarkingVisualLayers.HeadBottom
+  - enum.MarkingVisualLayers.Snout
+
+- type: markingCategory
   id: Wings
   layers:
   - enum.BodyProviderType.LeftArm

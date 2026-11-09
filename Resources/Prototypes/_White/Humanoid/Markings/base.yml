@@ -119,6 +119,11 @@
   category: Torso
 
 - type: marking
+  id: BaseTusks
+  abstract: true
+  category: Tusks
+
+- type: marking
   id: BaseUndergarmentBottom
   abstract: true
   category: UndergarmentBottom

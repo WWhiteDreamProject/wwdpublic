@@ -1,0 +1,22 @@
+﻿- type: marking
+  id: BaseTusksOni
+  parent: [BaseTusks, BaseOni]
+  abstract: true
+
+- type: marking
+  id: TusksOniBig
+  parent: BaseTusksOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.Snout
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/tusks.rsi
+      state: big
+
+- type: marking
+  id: TusksOniSmall
+  parent: BaseTusksOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.Snout
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/tusks.rsi
+      state: small
