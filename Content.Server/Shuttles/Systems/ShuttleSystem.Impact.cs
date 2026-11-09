@@ -1,15 +1,15 @@
+using System.Numerics;
 using Content.Server.Shuttles.Components;
+using Content.Shared._White.Damage;
+using Content.Shared._White.Damage.Components;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Audio;
 using Content.Shared.CCVar;
-using Content.Shared.Clothing;
 using Content.Shared.Damage;
 using Content.Shared.Database;
-using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Maps;
 using Content.Shared.Physics;
 using Content.Shared.Projectiles;
-using Content.Shared.Slippery;
 using Robust.Shared.Audio;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
@@ -19,7 +19,6 @@ using Robust.Shared.Physics.Dynamics;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using System.Numerics;
 
 namespace Content.Server.Shuttles.Systems;
 
@@ -341,7 +340,8 @@ public sealed partial class ShuttleSystem
         // here so we don't have to `new` it every iteration
         var damageSpec = new DamageSpecifier()
         {
-            DamageDict = { ["Blunt"] = 0, ["Structural"] = 0 }
+            ["Blunt"] = 0,
+            ["Structural"] = 0,
         };
 
         var entitiesOnTile = new HashSet<Entity<TransformComponent>>();
@@ -369,10 +369,10 @@ public sealed partial class ShuttleSystem
                 {
                     // Apply damage scaled by distance but capped to prevent gibbing
                     var scaledDamage = tileData.Energy * _damageMultiplier;
-                    damageSpec.DamageDict["Blunt"] = scaledDamage;
-                    damageSpec.DamageDict["Structural"] = scaledDamage * _structuralDamage;
+                    damageSpec["Blunt"] = scaledDamage;
+                    damageSpec["Structural"] = scaledDamage * _structuralDamage;
 
-                    _damageSys.TryChangeDamage(localEnt, damageSpec, damageable: damageable);
+                    _damageSys.TryChangeDamage((localEnt, damageable), damageSpec);
                 }
                 // might've been destroyed
                 if (TerminatingOrDeleted(localEnt) || EntityManager.IsQueuedForDeletion(localEnt))

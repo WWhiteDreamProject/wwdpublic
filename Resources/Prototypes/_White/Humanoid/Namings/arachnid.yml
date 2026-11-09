@@ -1,0 +1,9 @@
+- type: naming
+  id: Arachnid
+  preset: naming-preset-the-first-of-last
+  first:
+    Neuter: NamingFirstArachnid
+    Epicene: NamingFirstArachnid
+    Female: NamingFirstArachnid
+    Male: NamingFirstArachnid
+  last: NamingLastArachnid

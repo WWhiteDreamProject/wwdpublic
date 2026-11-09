@@ -32,9 +32,9 @@
     attackRate: 1.25
     range: 1.65
     damage:
-      types:
-        Blunt: 1
-        Slash: 1
+      # WD EDIT: Migrated damage format
+      Blunt: 1
+      Slash: 1
   - type: Item
     size: Small
   - type: Sprite

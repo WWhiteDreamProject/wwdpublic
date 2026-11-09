@@ -1,4 +1,3 @@
-using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Destructible;
 using Content.Shared.Examine;
@@ -94,16 +93,6 @@ public abstract class SharedGunFluxSystem : EntitySystem
         TryMalfunction(args.User, uid, comp, core);
         if (overflow != 0)
         {
-            var hand = _hands.GetActiveHand(args.User);
-
-            // i hate shitmed I Hate Shitmed I HATE SHITMED
-            var targetBodyPart = hand?.Location switch
-            {
-                Shared.Hands.Components.HandLocation.Right => TargetBodyPart.RightHand,
-                Shared.Hands.Components.HandLocation.Left => TargetBodyPart.LeftHand,
-                Shared.Hands.Components.HandLocation.Middle => TargetBodyPart.Torso
-            };
-
             if(overflow > 0)
             {
                 var damage = overflow * comp.OverflowDamage * core.OverflowDamageMultiplier;
@@ -111,7 +100,7 @@ public abstract class SharedGunFluxSystem : EntitySystem
 
                 _popup.PopupClient(Loc.GetString(comp.OverflowDamageMessage, ("gun", Name(uid))), args.User, PopupType.SmallCaution);
                 _audio.PlayLocal(comp.OverflowDamageSound, args.User, args.User);
-                ApplyOverheatDamage(args.User, damage, comp.OverflowDamageType, targetBodyPart);
+                ApplyOverheatDamage(args.User, damage, comp.OverflowDamageType);
             }
             else
             {
@@ -121,7 +110,7 @@ public abstract class SharedGunFluxSystem : EntitySystem
 
                 _popup.PopupClient(Loc.GetString(comp.UnderflowDamageMessage, ("gun", Name(uid))), args.User, PopupType.SmallCaution);
                 _audio.PlayLocal(comp.UnderflowDamageSound, args.User, args.User);
-                ApplyOverheatDamage(args.User, damage, comp.UnderflowDamageType, targetBodyPart);
+                ApplyOverheatDamage(args.User, damage, comp.UnderflowDamageType);
             }
         }
     }
@@ -237,7 +226,7 @@ public abstract class SharedGunFluxSystem : EntitySystem
         return overflow;
     }
 
-    protected virtual void ApplyOverheatDamage(EntityUid shooter, float damage, string type, TargetBodyPart? bodyPart) { }
+    protected virtual void ApplyOverheatDamage(EntityUid shooter, float damage, string type) { }
     protected virtual void TryMalfunction(EntityUid shooter, EntityUid gun, GunFluxComponent fluxComp, FluxCoreComponent core) { }
 
 }

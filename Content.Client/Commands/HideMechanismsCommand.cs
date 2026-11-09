@@ -1,4 +1,4 @@
-using Content.Shared.Body.Organ;
+using Content.Shared._White.Body.Components;
 using Robust.Client.GameObjects;
 using Robust.Shared.Console;
 using Robust.Shared.Containers;
@@ -18,7 +18,7 @@ public sealed class HideMechanismsCommand : LocalizedCommands
     public override void Execute(IConsoleShell shell, string argStr, string[] args)
     {
         var containerSys = _entityManager.System<SharedContainerSystem>();
-        var query = _entityManager.AllEntityQueryEnumerator<OrganComponent>();
+        var query = _entityManager.AllEntityQueryEnumerator<BodyProviderComponent>();
 
         while (query.MoveNext(out var uid, out _))
         {

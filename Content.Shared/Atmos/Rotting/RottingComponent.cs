@@ -1,4 +1,4 @@
-using Content.Shared.Damage;
+using Content.Shared._White.Damage;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
@@ -43,10 +43,7 @@ public sealed partial class RottingComponent : Component
     [DataField]
     public DamageSpecifier Damage = new()
     {
-        DamageDict = new()
-        {
-            { "Blunt", 0.06 },
-            { "Cellular", 0.06 }
-        }
+        { "Blunt", 0.06 },
+        { "Cellular", 0.06 },
     };
 }

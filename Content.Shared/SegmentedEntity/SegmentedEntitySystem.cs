@@ -1,5 +1,4 @@
 using Robust.Shared.Physics;
-using Content.Shared.Damage;
 using Content.Shared.Explosion;
 using Content.Shared.Humanoid;
 using Content.Shared.Clothing.Components;
@@ -13,6 +12,8 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
 using System.Numerics;
+using Content.Shared._White.Damage.Systems;
+using Content.Shared._White.Humanoid.Components;
 using Robust.Shared.Network;
 
 namespace Content.Shared.SegmentedEntity;
@@ -47,7 +48,7 @@ public sealed partial class LamiaSystem : EntitySystem
         SubscribeLocalEvent<SegmentedEntitySegmentComponent, InsertIntoEntityStorageAttemptEvent>(OnSegmentStorageInsertAttempt);
         SubscribeLocalEvent<SegmentedEntitySegmentComponent, GetExplosionResistanceEvent>(OnSnekBoom);
         SubscribeLocalEvent<SegmentedEntitySegmentComponent, DamageChangedEvent>(HandleDamageTransfer);
-        SubscribeLocalEvent<SegmentedEntitySegmentComponent, DamageModifyEvent>(HandleSegmentDamage);
+        SubscribeLocalEvent<SegmentedEntitySegmentComponent, GetModifiedDamageEvent>(HandleSegmentDamage);
     }
     public override void Update(float frameTime)
     {
@@ -69,7 +70,7 @@ public sealed partial class LamiaSystem : EntitySystem
 
             // This is currently HERE and not somewhere more sane like OnInit because HumanoidAppearanceComponent is for whatever
             // ungodly reason not initialized when ComponentStartup is called. Kill me.
-            var humanoidFactor = TryComp<HumanoidAppearanceComponent>(segment.segment.Lamia, out var humanoid) ? (humanoid.Height + humanoid.Width) / 2 : 1;
+            var humanoidFactor = TryComp<HumanoidProfileComponent>(segment.segment.Lamia, out var humanoid) ? (humanoid.Height + humanoid.Width) / 2 : 1;
 
             var ev = new SegmentSpawnedEvent(segment.lamia);
             RaiseLocalEvent(segmentUid, ev, false);
@@ -226,19 +227,16 @@ public sealed partial class LamiaSystem : EntitySystem
         return segment;
     }
 
-    private void HandleSegmentDamage(EntityUid uid, SegmentedEntitySegmentComponent component, DamageModifyEvent args)
+    private void HandleSegmentDamage(EntityUid uid, SegmentedEntitySegmentComponent component, GetModifiedDamageEvent args)
     {
         if (args.Origin == component.Lamia)
-            args.Damage *= 0;
-        args.Damage = args.Damage / component.DamageModifyFactor;
+            args.Result *= 0;
+        args.Result = args.Damage / component.DamageModifyFactor;
     }
 
     private void HandleDamageTransfer(EntityUid uid, SegmentedEntitySegmentComponent component, DamageChangedEvent args)
     {
-        if (args.DamageDelta == null)
-            return;
-
-        _damageableSystem.TryChangeDamage(component.Lamia, args.DamageDelta);
+        _damageableSystem.ChangeDamage(component.Lamia, args.Damage); // WD EDIT
     }
 
     private void OnLamiaStorageInsertAttempt(EntityUid uid, SegmentedEntityComponent comp, ref InsertIntoEntityStorageAttemptEvent args)

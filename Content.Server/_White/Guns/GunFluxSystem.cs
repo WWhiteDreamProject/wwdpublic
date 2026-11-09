@@ -1,15 +1,13 @@
-using Content.Server._White.Knockdown;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Flash;
 using Content.Server.Stunnable;
-using Content.Server.Temperature.Systems;
 using Content.Shared._Lavaland.Weapons.Ranged.Events;
-using Content.Shared._Shitmed.Targeting;
+using Content.Shared._White.Damage;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared._White.Guns;
 using Content.Shared.Damage;
 using Content.Shared.Projectiles;
 using Content.Shared.Random.Helpers;
-using Content.Shared.Temperature;
 using Content.Shared.Throwing;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Systems;
@@ -29,11 +27,6 @@ public sealed class GunFluxSystem : SharedGunFluxSystem
     {
         base.Initialize();
         SubscribeLocalEvent<GunFluxComponent, ProjectileShotEvent>(OnProjectileShot);
-    }
-
-    protected override void OnGunShot(EntityUid uid, GunFluxComponent comp, ref GunShotEvent args)
-    {
-        base.OnGunShot(uid, comp, ref args);
     }
 
     private void OnProjectileShot(EntityUid uid, GunFluxComponent comp, ProjectileShotEvent args)
@@ -57,11 +50,11 @@ public sealed class GunFluxSystem : SharedGunFluxSystem
         proj.Damage *= damageMul;
     }
 
-    protected override void ApplyOverheatDamage(EntityUid shooter, float damage, string type, TargetBodyPart? bodyPart)
+    protected override void ApplyOverheatDamage(EntityUid shooter, float damage, string type)
     {
-        base.ApplyOverheatDamage(shooter, damage, type, bodyPart);
-        DamageSpecifier damagespec = new DamageSpecifier() { DamageDict = new() { { type, damage } } };
-        _damage.TryChangeDamage(shooter, damagespec, targetPart: bodyPart);
+        base.ApplyOverheatDamage(shooter, damage, type);
+        DamageSpecifier damagespec = new DamageSpecifier() {{ type, damage } };
+        _damage.TryChangeDamage(shooter, damagespec);
     }
 
     protected override void TryMalfunction(EntityUid shooter, EntityUid gun, GunFluxComponent gunFlux, FluxCoreComponent core)
@@ -114,7 +107,7 @@ public sealed class GunFluxSystem : SharedGunFluxSystem
         if(gunFlux.Owner == core.Owner)
         {
             //_popup.PopupEntity(Loc.GetString("gun-malfunction-eject-empty"), gun);
-            return; 
+            return;
         }
         if (!_slots.TryEject(gun, gunFlux.CoreSlot, gun, out _))
             return;

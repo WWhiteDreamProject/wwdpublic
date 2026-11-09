@@ -59,14 +59,13 @@
     randomStartSecretMax: 2
   - type: DamageOnInteract
     damage:
-      types:
-        Radiation: 10
+      # WD EDIT: Migrated damage format
+      Radiation: 10
     popupText: anomaly-component-contact-damage
   - type: DamageOnAttacked
     damage:
-      types:
-        Radiation: 10
-
+      # WD EDIT: Migrated damage format
+      Radiation: 10
 - type: entity
   id: AnomalyPyroclastic
   parent: BaseAnomaly
@@ -116,13 +115,13 @@
     fireStacks: 1
   - type: DamageOnInteract
     damage:
-      types:
-        Heat: 10
+      # WD EDIT: Migrated damage format
+      Heat: 10
     popupText: anomaly-component-contact-damage
   - type: DamageOnAttacked
     damage:
-      types:
-        Heat: 10
+      # WD EDIT: Migrated damage format
+      Heat: 10
   - type: Psionic
     assayFeedback:
     - anomaly-pyroclastic-feedback
@@ -380,13 +379,13 @@
     spawnRadius: 0
   - type: DamageOnInteract
     damage:
-      types:
-        Cold: 10
+      # WD EDIT: Migrated damage format
+      Cold: 10
     popupText: anomaly-component-contact-damage
   - type: DamageOnAttacked
     damage:
-      types:
-        Cold: 10
+      # WD EDIT: Migrated damage format
+      Cold: 10
   - type: Psionic
     assayFeedback:
     - anomaly-ice-feedback
@@ -842,8 +841,8 @@
     - Honk
     - Carpetium
     - JuiceThatMakesYouWeh
-  - type: Drink
-    solution: anomaly
+  - type: Ingestible # WD Ingestible
+    solutionName: anomaly # WD Ingestible
   - type: DrainableSolution
     solution: anomaly
   - type: DrawableSolution
@@ -912,13 +911,13 @@
     - SpookyFog
   - type: DamageOnInteract
     damage:
-      types:
-        Cold: 10
+      # WD EDIT: Migrated damage format
+      Cold: 10
     popupText: anomaly-component-contact-damage
   - type: DamageOnAttacked
     damage:
-      types:
-        Cold: 10
+      # WD EDIT: Migrated damage format
+      Cold: 10
   - type: Psionic
     assayFeedback:
     - anomaly-shadow-feedback

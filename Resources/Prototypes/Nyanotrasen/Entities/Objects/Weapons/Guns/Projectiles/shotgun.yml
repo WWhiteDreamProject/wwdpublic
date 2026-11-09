@@ -9,8 +9,8 @@
     state: buckshot
   - type: Projectile
     damage:
-      types:
-        Blunt: 1
+      # WD EDIT: Migrated damage format
+      Blunt: 1
   - type: SolutionContainerManager
     solutions:
       ammo:

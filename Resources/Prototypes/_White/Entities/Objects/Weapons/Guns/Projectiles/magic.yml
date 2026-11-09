@@ -12,9 +12,14 @@
       shader: unshaded
   - type: Projectile
     damage:
-      groups:
-        Burn: 10
-        Brute: 10
+      # WD EDIT: Migrated damage format
+      Blunt: 3.3
+      Caustic: 2.5
+      Cold: 2.5
+      Heat: 2.5
+      Piercing: 3.3
+      Shock: 2.5
+      Slash: 3.3
   - type: PointLight
     enabled: true
     color: "#ff4300"
@@ -37,8 +42,8 @@
   - type: Projectile
     ignoreResistances: true
     damage:
-      types:
-        Blunt: 50
+      # WD EDIT: Migrated damage format
+      Blunt: 50
   - type: PointLight
     color: "#FF0000"
     radius: 2.0

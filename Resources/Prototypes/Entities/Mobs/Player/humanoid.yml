@@ -3,7 +3,6 @@
 - type: randomHumanoidSettings
   id: EventHumanoid
   speciesBlacklist:
-  - Shadowkin
   - Monkey
   - Kobold
   - Abductor
@@ -537,7 +536,7 @@
   name: syndicate agent
   components:
   - type: Sprite
-    sprite: Mobs/Species/Human/parts.rsi
+    sprite: _White/Bodies/Parts/Humanoids/human.rsi # WD EDIT
     state: full
   - type: RandomMetadata
     nameSegments: [ names_death_commando ]
@@ -550,7 +549,6 @@
   speciesWhitelist:
   - Human
   # speciesBlacklist:
-  # - Shadowkin
   # - Monkey
   # - Kobold
   # - Abductor
@@ -566,7 +564,7 @@
   name: Nuclear Operative
   components:
   - type: Sprite
-    sprite: Mobs/Species/Human/parts.rsi
+    sprite: _White/Bodies/Parts/Humanoids/human.rsi # WD EDIT
     state: full
   - type: RandomHumanoidSpawner
     settings: NukeOp
@@ -577,7 +575,6 @@
   speciesWhitelist:
   - Human
   # speciesBlacklist:
-  # - Shadowkin
   # - Monkey
   # - Kobold
   # - Abductor

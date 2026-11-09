@@ -43,8 +43,8 @@
               # Just serializer things
               - type: MeleeWeapon
                 damage:
-                  types:
-                    Blunt: 0
+                  # WD EDIT: Migrated damage format
+                  Blunt: 0
             invert: true
       tasks:
         - !type:HTNCompoundTask
@@ -63,8 +63,8 @@
           components:
             - type: MeleeWeapon
               damage:
-                types:
-                  Blunt: 0
+                # WD EDIT: Migrated damage format
+                Blunt: 0
           invert: true
       tasks:
         - !type:HTNCompoundTask

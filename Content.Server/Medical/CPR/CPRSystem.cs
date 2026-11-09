@@ -2,8 +2,9 @@ using Content.Server.Atmos.Rotting;
 using Content.Server.DoAfter;
 using Content.Server.Nutrition.EntitySystems;
 using Content.Server.Popups;
+using Content.Shared._White.Damage.Components;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Atmos.Rotting;
-using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Inventory;
 using Content.Shared.Medical;
@@ -23,7 +24,6 @@ public sealed class CPRSystem : EntitySystem
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
-    [Dependency] private readonly FoodSystem _foodSystem = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
@@ -70,8 +70,8 @@ public sealed class CPRSystem : EntitySystem
             return;
         }
 
-        if (_foodSystem.IsMouthBlocked(performer, performer) || _foodSystem.IsMouthBlocked(target, performer))
-            return;
+        /*TODO if (_foodSystem.IsMouthBlocked(performer, performer) || _foodSystem.IsMouthBlocked(target, performer))
+            return;*/
 
         _popupSystem.PopupEntity(Loc.GetString("cpr-start-second-person", ("target", target)), target, performer);
         _popupSystem.PopupEntity(Loc.GetString("cpr-start-second-person-patient", ("user", performer)), target, target);
@@ -103,7 +103,7 @@ public sealed class CPRSystem : EntitySystem
         }
 
         if (!performer.Comp.CPRHealing.Empty)
-            _damageable.TryChangeDamage(args.Target, performer.Comp.CPRHealing, true, origin: performer);
+            _damageable.ChangeDamage(args.Target.Value, performer.Comp.CPRHealing, true, origin: performer); // WD EDIT
 
         if (performer.Comp.RotReductionMultiplier > 0)
             _rottingSystem.ReduceAccumulator(

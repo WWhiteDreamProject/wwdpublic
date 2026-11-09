@@ -40,8 +40,8 @@
     deleteOnCollide: false
     onlyCollideWhenShot: true
     damage:
-      types:
-        Piercing: 25
+      # WD EDIT: Migrated damage format
+      Piercing: 25
   - type: SolutionContainerManager
     solutions:
       ammo:
@@ -79,9 +79,8 @@
       visible: false
   - type: Projectile
     damage:
-      types:
-        Piercing: 35
-
+      # WD EDIT: Migrated damage format
+      Piercing: 35
 - type: entity
   parent: BaseArrow
   id: ArrowImprovised
@@ -102,8 +101,8 @@
       visible: false
   - type: Projectile
     damage:
-      types:
-        Piercing: 25
+      # WD EDIT: Migrated damage format
+      Piercing: 25
   - type: Construction
     graph: MetalRod # WWDP
     node: ImprovisedArrow

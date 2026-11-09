@@ -1,5 +1,4 @@
 - type: entity
-  name: "item"
   id: BaseItem
   abstract: true
   components:
@@ -17,8 +16,8 @@
       path: /Audio/Effects/drop.ogg
   - type: DamageOnHighSpeedImpact
     damage:
-      types:
-        Blunt: 5
+      # WD EDIT: Migrated damage format
+      Blunt: 5
     soundHit:
       collection: MetalThud
   - type: CollisionWake

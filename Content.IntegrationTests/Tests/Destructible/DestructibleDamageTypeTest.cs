@@ -1,4 +1,6 @@
 using Content.Server.Destructible.Thresholds.Triggers;
+using Content.Shared._White.Damage.Components;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Robust.Shared.GameObjects;

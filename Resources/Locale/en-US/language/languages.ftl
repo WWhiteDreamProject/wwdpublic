@@ -56,11 +56,6 @@ language-Elyran-description =
     Elyran Standard is the official tongue of the Republic of Elyra. Constructed using elements of Farsi - Arabic - and Turkish.
     Influence from all three of these languages can be seen throughout its grammar and vocabulary.
 
-language-Canilunzt-name = Canilunzt
-language-Canilunzt-description =
-    The guttural language spoken and utilized by the inhabitants of the Vazzend system,
-    composed of growls, barks, yaps, and heavy utilization of ears and tail movements. Vulpkanin speak this language with ease.
-
 language-Moffic-name = Moffic
 language-Moffic-description = The language of the mothpeople borders on complete unintelligibility.
 
@@ -73,19 +68,11 @@ language-Calcic-description = The bone-rattling language of skeletons and Plasma
 language-Sign-name = Tau-Ceti Basic Sign Language
 language-Sign-description = TCB-SL for short, this sign language is prevalent among mute and deaf people.
 
-language-Marish-name = Marish
-language-Marish-description =  A language spoken only by Shadowkin, one that is unable to be replicated by normal tongues.
-
 language-ValyrianStandard-name = Valyrian Standard
 language-ValyrianStandard-description =
     A language descended from eastern european languages of old earth - Valyrian Standard is the commonly spoken tongue of Harpies brought up on their homeworld of Valyrian 4b
     It is rarely spoken outside of the worlds of its native speakers, and has in modern times been supplanted by the 'Conlangs of the Sol Alliance.
     Its speakers are those who wish to uphold the traditions and beliefs of ancient peoples from before the colonial era.
-
-language-Chittin-name = Chittin
-language-Chittin-description =
-    A language consisting of clicks, buzzes, and some variety of harsh insect sounds.
-    Most of what makes up their speech comes from their antennae, making it a near-impossible language for those without to learn.
 
 language-Xeeplian-name = Xeeplian
 language-Xeeplian-description =

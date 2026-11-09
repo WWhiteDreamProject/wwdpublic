@@ -1,9 +1,9 @@
 using System.Linq;
 using System.Text;
+using Content.Shared._White.Preferences;
 using Content.Shared.Inventory;
 using Content.Shared.Mind;
 using Content.Shared.Players.PlayTimeTracking;
-using Content.Shared.Preferences;
 using Content.Shared.Roles;
 using Content.Shared.Roles.Jobs;
 using Content.Shared.Station;
@@ -62,7 +62,7 @@ public sealed class CharacterRequirementsSystem : EntitySystem
             || !_playtimeManager.TryGetTrackerTimes(mind.Session, out var trackerTimes))
             return false;
 
-        return CheckRequirementsValid(requirements, jobPrototype, stationSpawningProfile, trackerTimes, whitelisted, prototype, _entManager, _protomanager, _configurationManager, out reasons, depth, mind);
+        return CheckRequirementsValid(requirements, jobPrototype, stationSpawningProfile.Value, trackerTimes, whitelisted, prototype, _entManager, _protomanager, _configurationManager, out reasons, depth, mind);
     }
 
     public bool CheckRequirementsValid(List<CharacterRequirement> requirements, JobPrototype job,

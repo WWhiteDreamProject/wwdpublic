@@ -3,9 +3,10 @@ using Content.Server.Humanoid;
 using Content.Server.Inventory;
 using Content.Server.Mind.Commands;
 using Content.Server.Polymorph.Components;
+using Content.Shared._White.Damage.Components;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Actions;
 using Content.Shared.Buckle;
-using Content.Shared.Damage;
 using Content.Shared.Destructible;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
@@ -38,7 +39,6 @@ public sealed partial class PolymorphSystem : EntitySystem
     [Dependency] private readonly SharedBuckleSystem _buckle = default!;
     [Dependency] private readonly ContainerSystem _container = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
     [Dependency] private readonly ServerInventorySystem _inventory = default!;
@@ -239,7 +239,7 @@ public sealed partial class PolymorphSystem : EntitySystem
             _mobThreshold.GetScaledDamage(uid, child, out var damage) &&
             damage != null)
         {
-            _damageable.SetDamage(child, damageParent, damage);
+            _damageable.SetDamage((child, damageParent), damage); // WD EDIT
         }
 
         if (configuration.Inventory == PolymorphInventoryChange.Transfer)
@@ -270,10 +270,10 @@ public sealed partial class PolymorphSystem : EntitySystem
         if (configuration.TransferName && TryComp(uid, out MetaDataComponent? targetMeta))
             _metaData.SetEntityName(child, targetMeta.EntityName);
 
-        if (configuration.TransferHumanoidAppearance)
-        {
+        /*if (configuration.TransferHumanoidAppearance)
+        { TODO
             _humanoid.CloneAppearance(uid, child);
-        }
+        }*/
 
         if (_mindSystem.TryGetMind(uid, out var mindId, out var mind))
             _mindSystem.TransferTo(mindId, child, mind: mind);
@@ -322,7 +322,7 @@ public sealed partial class PolymorphSystem : EntitySystem
             _mobThreshold.GetScaledDamage(uid, parent, out var damage) &&
             damage != null)
         {
-            _damageable.SetDamage(parent, damageParent, damage);
+            _damageable.SetDamage((parent, damageParent), damage); // WD EDIT
         }
 
         if (component.Configuration.Inventory == PolymorphInventoryChange.Transfer)

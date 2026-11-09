@@ -6,9 +6,9 @@
   components:
   - type: HealOnBuckle
     damage:
-      types:
-        Poison: -0.1
-        Blunt: -0.1
+      # WD EDIT: Migrated damage format
+      Blunt: -0.1
+      Poison: -0.1
   - type: Physics
     bodyType: Static
   - type: Fixtures
@@ -74,10 +74,10 @@
     state: bed-MED
   - type: HealOnBuckle
     damage:
-      types:
-        Poison: -0.2
-        Cold: -0.4
-        Blunt: -0.2
+      # WD EDIT: Migrated damage format
+      Blunt: -0.2
+      Cold: -0.4
+      Poison: -0.2
   - type: Construction
     graph: bed
     node: medicalbed
@@ -170,8 +170,8 @@
     state: psychbed
   - type: HealOnBuckle
     damage:
-      types:
-        Cold: -0.5
+      # WD EDIT: Migrated damage format
+      Cold: -0.5
   - type: Destructible
     thresholds:
     - trigger:

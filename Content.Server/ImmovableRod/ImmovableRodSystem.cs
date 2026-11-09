@@ -1,8 +1,8 @@
-using Content.Server.Body.Systems;
 using Content.Server.Polymorph.Components;
 using Content.Server.Popups;
-using Content.Shared.Body.Components;
-using Content.Shared.Damage;
+using Content.Shared._White.Body.Components;
+using Content.Shared._White.Damage.Systems;
+using Content.Shared._White.Gibbable.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
@@ -19,13 +19,13 @@ public sealed class ImmovableRodSystem : EntitySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
 
-    [Dependency] private readonly BodySystem _bodySystem = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
+    [Dependency] private readonly GibbableSystem _gibbable = default!; // WD EDIT
 
     public override void Update(float frameTime)
     {
@@ -123,7 +123,7 @@ public sealed class ImmovableRodSystem : EntitySystem
                 return;
             }
 
-            _bodySystem.GibBody(ent, body: body);
+            _gibbable.Gib(ent); // WD EDIT
             return;
         }
 

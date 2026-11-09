@@ -571,8 +571,11 @@
   - type: Sprite
     layers:
     - state: green
-    - state: monkey
-      sprite: Mobs/Animals/monkey.rsi
+    # WD EDIT START
+    - sprite: _White/Bodies/Parts/Animals/monkey.rsi
+      state: full
+    # WD EDIT END
+
   - type: ConditionalSpawner
     prototypes:
     - MobMonkeyPunpun
@@ -602,8 +605,10 @@
   - type: Sprite
     layers:
     - state: green
-    - state: monkey
-      sprite: Mobs/Animals/monkey.rsi
+    # WD EDIT START
+    - sprite: _White/Bodies/Parts/Animals/monkey.rsi
+      state: full
+    # WD EDIT END
   - type: ConditionalSpawner
     prototypes:
     - MobMonkey
@@ -901,8 +906,11 @@
   - type: Sprite
     layers:
     - state: green
-    - state: full
-      sprite: Mobs/Species/Gingerbread/parts.rsi
+    # WD EDIT START
+    - sprite: _White/Bodies/Parts/Humanoids/gingerbread.rsi
+      state: full
+    # WD EDIT END
+
   - type: ConditionalSpawner
     prototypes:
     - MobGingerbreadAI

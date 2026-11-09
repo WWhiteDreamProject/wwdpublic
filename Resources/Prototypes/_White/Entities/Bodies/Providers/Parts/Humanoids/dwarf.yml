@@ -1,0 +1,128 @@
+- type: entity
+  id: BaseBodyProviderPartDwarf
+  parent: [BaseBodyProviderPart, BaseBodyProviderPartOrganic, BaseBodyProviderPartAppearance]
+  abstract: true
+  suffix: Dwarf
+  components:
+  - type: MarkingsProvider
+    data:
+      group: Human
+  - type: Sprite
+    sprite: _White/Bodies/Parts/Humanoids/human.rsi
+
+# Arms
+- type: entity
+  id: BodyProviderLeftArmDwarf
+  parent: [BaseBodyProviderLeftArm, BaseBodyProviderLeftArmOrganic, BaseBodyProviderPartDwarf, BaseBodyProviderLeftArmAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/human.rsi
+      state: left_arm
+
+- type: entity
+  id: BodyProviderRightArmDwarf
+  parent: [BaseBodyProviderRightArm, BaseBodyProviderRightArmOrganic, BaseBodyProviderPartDwarf, BaseBodyProviderRightArmAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/human.rsi
+      state: right_arm
+
+# Chest
+- type: entity
+  id: BodyProviderChestDwarf
+  parent: [BaseBodyProviderChest, BaseBodyProviderChestOrganic, BaseBodyProviderPartDwarf, BaseBodyProviderChestAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/human.rsi
+      state: chest
+
+# Foots
+- type: entity
+  id: BodyProviderLeftFootDwarf
+  parent: [BaseBodyProviderLeftFoot, BaseBodyProviderLeftFootOrganic, BaseBodyProviderPartDwarf, BaseBodyProviderLeftFootAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/human.rsi
+      state: left_foot
+
+- type: entity
+  id: BodyProviderRightFootDwarf
+  parent: [BaseBodyProviderRightFoot, BaseBodyProviderRightFootOrganic, BaseBodyProviderPartDwarf, BaseBodyProviderRightFootAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/human.rsi
+      state: right_foot
+
+# Groin
+- type: entity
+  id: BodyProviderGroinDwarf
+  parent: [BaseBodyProviderGroin, BaseBodyProviderGroinOrganic, BaseBodyProviderPartDwarf, BaseBodyProviderGroinAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/human.rsi
+      state: groin
+
+# Hands
+- type: entity
+  id: BodyProviderLeftHandDwarf
+  parent: [BaseBodyProviderLeftHand, BaseBodyProviderLeftHandOrganic, BaseBodyProviderPartDwarf, BaseBodyProviderLeftHandAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/human.rsi
+      state: left_hand
+
+- type: entity
+  id: BodyProviderRightHandDwarf
+  parent: [BaseBodyProviderRightHand, BaseBodyProviderRightHandOrganic, BaseBodyProviderPartDwarf, BaseBodyProviderRightHandAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/human.rsi
+      state: right_hand
+
+# Head
+- type: entity
+  id: BodyProviderHeadDwarf
+  parent: [BaseBodyProviderHead, BaseBodyProviderHeadOrganic, BaseBodyProviderPartDwarf, BaseBodyProviderHeadAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/human.rsi
+      state: head
+
+# Legs
+- type: entity
+  id: BodyProviderLeftLegDwarf
+  parent: [BaseBodyProviderLeftLeg, BaseBodyProviderLeftLegOrganic, BaseBodyProviderPartDwarf, BaseBodyProviderLeftLegAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/human.rsi
+      state: left_leg
+
+- type: entity
+  id: BodyProviderRightLegDwarf
+  parent: [BaseBodyProviderRightLeg, BaseBodyProviderRightLegOrganic, BaseBodyProviderPartDwarf, BaseBodyProviderRightLegAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/human.rsi
+      state: right_leg

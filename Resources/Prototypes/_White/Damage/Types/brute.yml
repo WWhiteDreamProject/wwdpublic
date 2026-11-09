@@ -1,0 +1,14 @@
+- type: damageType
+  id: Blunt
+  name: damage-type-blunt
+  wound: WoundBlunt
+
+- type: damageType
+  id: Piercing
+  name: damage-type-piercing
+  wound: WoundPiercing
+
+- type: damageType
+  id: Slash
+  name: damage-type-slash
+  wound: WoundSlash

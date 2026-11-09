@@ -13,8 +13,9 @@
 - type: explosion
   id: Blob
   damagePerIntensity:
-    groups:
-      Brute: 10
+    Blunt: 3
+    Piercing: 3
+    Slash: 3
   tileBreakChance: [0]
   tileBreakIntensity: [0]
   lightColor: Red

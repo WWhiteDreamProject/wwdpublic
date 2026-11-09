@@ -1,0 +1,16 @@
+- type: entity
+  id: HumanoidDollPlasmaman
+  parent:
+  - BaseBodyPlasmaman
+  - BaseHumanoidDoll
+  components:
+  - type: HumanoidProfile
+    species: Plasmaman
+  - type: Inventory
+    templateId: plasmaman
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female

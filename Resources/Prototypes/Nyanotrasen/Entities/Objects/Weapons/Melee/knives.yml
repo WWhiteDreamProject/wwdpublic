@@ -7,9 +7,9 @@
   - type: MeleeWeapon
     attackRate: .6666
     damage:
-      types:
-        Slash: 10
-        Holy: 5
+      # WD EDIT: Migrated damage format
+      Holy: 5
+      Slash: 10
   - type: StaminaDamageOnHit
     damage: 0
   - type: AntiPsionicWeapon

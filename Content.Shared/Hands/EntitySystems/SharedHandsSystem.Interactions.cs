@@ -81,11 +81,11 @@ public abstract partial class SharedHandsSystem : EntitySystem
     {
         if (!TryComp<HoldingDropComponent>(uid, out var comp))
             return false;
-        TryDrop(uid, hands.ActiveHand!, args.Coordinates, handsComp: hands, dropAngle: comp.Angle);
+        TryDrop(uid, hands.ActiveHand!.Value, args.Coordinates, handsComp: hands, dropAngle: comp.Angle);
         RemComp<HoldingDropComponent>(uid);
         return false;
     }
-	
+
     private readonly Angle _dropRotationIncrement = Angle.FromDegrees(5);
     private bool PreciseDropMWheelUp(in PointerInputCmdHandler.PointerInputCmdArgs args)
     {
@@ -169,7 +169,7 @@ public abstract partial class SharedHandsSystem : EntitySystem
         if (component.ActiveHand == null || component.Hands.Count < 2)
             return;
 
-        var newActiveIndex = component.SortedHands.IndexOf(component.ActiveHand.Name) + 1;
+        var newActiveIndex = component.SortedHands.IndexOf(component.ActiveHand.Value.Name) + 1;
         var nextHand = component.SortedHands[newActiveIndex % component.Hands.Count];
 
         TrySetActiveHand(session.AttachedEntity.Value, nextHand, component);
@@ -178,7 +178,7 @@ public abstract partial class SharedHandsSystem : EntitySystem
     private bool DropPressed(ICommonSession? session, EntityCoordinates coords, EntityUid netEntity)
     {
         if (TryComp(session?.AttachedEntity, out HandsComponent? hands) && hands.ActiveHand != null)
-            TryDrop(session.AttachedEntity.Value, hands.ActiveHand, coords, handsComp: hands);
+            TryDrop(session.AttachedEntity.Value, hands.ActiveHand.Value, coords, handsComp: hands);
 
         // always send to server.
         return false;
@@ -190,9 +190,15 @@ public abstract partial class SharedHandsSystem : EntitySystem
         if (!Resolve(uid, ref handsComp, false))
             return false;
 
-        Hand? hand;
-        if (handName == null || !handsComp.Hands.TryGetValue(handName, out hand))
-            hand = handsComp.ActiveHand;
+        var hand = handsComp.ActiveHand;
+
+        if (handName != null)
+        {
+            if (!handsComp.Hands.TryGetValue(handName, out var possibleHand))
+                hand = handsComp.ActiveHand;
+            else
+                hand = possibleHand;
+        }
 
         if (hand?.HeldEntity is not { } held)
             return false;
@@ -223,9 +229,14 @@ public abstract partial class SharedHandsSystem : EntitySystem
         if (!Resolve(uid, ref handsComp, false))
             return false;
 
-        Hand? hand;
-        if (handName == null || !handsComp.Hands.TryGetValue(handName, out hand))
-            hand = handsComp.ActiveHand;
+        var hand = handsComp.ActiveHand;
+        if (handName != null)
+        {
+            if (!handsComp.Hands.TryGetValue(handName, out var possibleHand))
+                hand = handsComp.ActiveHand;
+            else
+                hand = possibleHand;
+        }
 
         if (hand?.HeldEntity is not { } held)
             return false;
@@ -247,7 +258,7 @@ public abstract partial class SharedHandsSystem : EntitySystem
         if (!Resolve(uid, ref handsComp))
             return false;
 
-        if (handsComp.ActiveHand == null || !handsComp.ActiveHand.IsEmpty)
+        if (handsComp.ActiveHand == null || !handsComp.ActiveHand.Value.IsEmpty)
             return false;
 
         if (!handsComp.Hands.TryGetValue(handName, out var hand))
@@ -258,11 +269,11 @@ public abstract partial class SharedHandsSystem : EntitySystem
 
         var entity = hand.HeldEntity!.Value;
 
-        if (!CanPickupToHand(uid, entity, handsComp.ActiveHand, checkActionBlocker, handsComp))
+        if (!CanPickupToHand(uid, entity, handsComp.ActiveHand.Value, checkActionBlocker, handsComp))
             return false;
 
         DoDrop(uid, hand, false, handsComp, log:false);
-        DoPickup(uid, handsComp.ActiveHand, entity, handsComp, log: false);
+        DoPickup(uid, handsComp.ActiveHand.Value, entity, handsComp, log: false);
         return true;
     }
 

@@ -1,9 +1,9 @@
 using Content.Server.Atmos.Components;
 using Content.Server.Destructible;
+using Content.Shared._White.Damage.Components;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Atmos;
-using Content.Shared.Damage;
 using Content.Shared.Explosion;
-using Content.Shared.Explosion.EntitySystems;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Map.Components;
 
@@ -146,9 +146,9 @@ public sealed partial class ExplosionSystem
 
             // evaluate the damage that this damage type would do to this entity
             var damagePerIntensity = FixedPoint2.Zero;
-            foreach (var (type, value) in explosionType.DamagePerIntensity.DamageDict)
+            foreach (var (type, value) in explosionType.DamagePerIntensity)
             {
-                if (!damageable.Damage.DamageDict.ContainsKey(type))
+                if (!damageable.Damage.ContainsKey(type))
                     continue;
 
                 var ev = new GetExplosionResistanceEvent(explosionType.ID);

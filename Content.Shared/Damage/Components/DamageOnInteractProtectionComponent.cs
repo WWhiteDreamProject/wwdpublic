@@ -1,3 +1,4 @@
+using Content.Shared._White.Damage;
 using Content.Shared.Inventory;
 using Robust.Shared.GameStates;
 

@@ -4,6 +4,7 @@ using Content.Server.Administration.Logs;
 using Content.Server.Decals;
 using Content.Server.Nutrition.EntitySystems;
 using Content.Server.Popups;
+using Content.Shared._White.Nutrition.Systems;
 using Content.Shared.Crayon;
 using Content.Shared.Database;
 using Content.Shared.Decals;
@@ -35,8 +36,8 @@ public sealed class CrayonSystem : SharedCrayonSystem
         SubscribeLocalEvent<CrayonComponent, ComponentInit>(OnCrayonInit);
         // SubscribeLocalEvent<CrayonComponent, CrayonSelectMessage>(OnCrayonBoundUI);     // WWDP EDIT - Moved to Shared.
         // SubscribeLocalEvent<CrayonComponent, CrayonColorMessage>(OnCrayonBoundUIColor); // WWDP EDIT - Moved to Shared.
-        SubscribeLocalEvent<CrayonComponent, UseInHandEvent>(OnCrayonUse, before: new[] { typeof(FoodSystem) });
-        SubscribeLocalEvent<CrayonComponent, AfterInteractEvent>(OnCrayonAfterInteract, after: new[] { typeof(FoodSystem) });
+        SubscribeLocalEvent<CrayonComponent, UseInHandEvent>(OnCrayonUse, before: new[] { typeof(SharedIngestionSystem) });
+        SubscribeLocalEvent<CrayonComponent, AfterInteractEvent>(OnCrayonAfterInteract, after: new[] { typeof(SharedIngestionSystem) });
         // SubscribeLocalEvent<CrayonComponent, DroppedEvent>(OnCrayonDropped); // WWDP EDIT - Moved to Shared.
         // SubscribeLocalEvent<CrayonComponent, ComponentGetState>(OnCrayonGetState); // WWDP EDIT - DEFUNCT - Moved to using AutoState system.
     }
@@ -70,7 +71,7 @@ public sealed class CrayonSystem : SharedCrayonSystem
             args.Handled = true;
             return;
         }
-        
+
         // WWDP EDIT START
         Angle rot = 0f;
         if (TryComp<InputMoverComponent>(args.User, out var mover))
@@ -81,7 +82,7 @@ public sealed class CrayonSystem : SharedCrayonSystem
         if (!_decals.TryAddDecal(component.SelectedState, args.ClickLocation.Offset(new Vector2(-0.5f, -0.5f)), out _, component.Color, rot + component.Angle + 0.01f, cleanable: true))
             return;
         // WWDP EDIT END
-        
+
         if (component.UseSound != null)
             _audio.PlayPvs(component.UseSound, uid, AudioParams.Default.WithVariation(0.125f));
 

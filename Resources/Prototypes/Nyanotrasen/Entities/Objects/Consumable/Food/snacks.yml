@@ -11,7 +11,7 @@
       - cheesy
       - tofu
       - leafy
-  - type: Food
+  - type: Ingestible # WD Ingestible
     trash:
     - FoodPlateSmall
   - type: Sprite
@@ -19,7 +19,7 @@
     state: squeakingstirfry
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 25
         reagents:
         - ReagentId: Nutriment
@@ -47,7 +47,7 @@
     state: toastedseeds
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 10
         reagents:
         - ReagentId: Protein
@@ -72,7 +72,7 @@
     state: enginefodder
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 40 # Very compact food
         reagents:
         - ReagentId: Nutriment
@@ -103,7 +103,7 @@
     state: fueljacklunch
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 15
         reagents:
         - ReagentId: Nutriment
@@ -131,7 +131,7 @@
     state: sweetchilicabbagewrap
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 15
         reagents:
         - ReagentId: Nutriment
@@ -156,7 +156,7 @@
       - cheesy
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 18
         reagents:
         - ReagentId: Nutriment
@@ -187,7 +187,7 @@
     state: bakedcheeseplatter
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 25
         reagents:
         - ReagentId: Nutriment
@@ -214,12 +214,12 @@
   - type: Sprite
     sprite: Nyanotrasen/Objects/Consumable/Food/Snacks/boritopie.rsi
     state: borito-pie
-  - type: Food
+  - type: Ingestible # WD Ingestible
     trash:
     - FoodPacketBoritosTrash
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 20
         reagents:
         - ReagentId: Nutriment

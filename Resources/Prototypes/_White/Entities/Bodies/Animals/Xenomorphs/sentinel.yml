@@ -1,0 +1,43 @@
+- type: entity
+  id: BaseBodyXenomorphSentinel
+  parent: BaseBody
+  abstract: true
+  components:
+  - type: Body
+    rootProvider:
+      type: AllParts
+      providers:
+        brain:
+          type: Brain
+          startingProvider: BodyProviderBrainXenomorph
+        ears:
+          type: Ears
+          startingProvider: BodyProviderEarsXenomorph
+        gland_acid:
+          type: Gland
+          startingProvider: BodyProviderGlandAcidXenomorph
+        gland_neurotoxin:
+          type: Gland
+          startingProvider: BodyProviderGlandNeurotoxinXenomorph
+        heart:
+          type: Heart
+          startingProvider: BodyProviderHeartXenomorph
+        hive_node:
+          type: SpecificOrgan
+          startingProvider: BodyProviderHiveNodeXenomorph
+        kidneys:
+          type: Kidneys
+          startingProvider: BodyProviderKidneysXenomorph
+        liver:
+          type: Liver
+          startingProvider: BodyProviderLiverXenomorph
+        lungs:
+          type: Lungs
+          startingProvider: BodyProviderLungsXenomorphLarge
+        stomach:
+          type: Stomach
+          startingProvider: BodyProviderStomachXenomorph
+        tongue:
+          type: Tongue
+          startingProvider: BodyProviderTongueXenomorph
+      startingProvider: BodyProviderAllPartsAnimal

@@ -1,0 +1,45 @@
+- type: entity
+  id: BaseBodySkeleton
+  parent: BaseBody
+  abstract: true
+  components:
+  - type: Body
+    rootProvider:
+      type: Chest
+      providers:
+        groin:
+          type: Groin
+          providers:
+            left_leg:
+              type: LeftLeg
+              providers:
+                left_foot:
+                  type: LeftFoot
+                  startingProvider: BodyProviderLeftFootSkeleton
+              startingProvider: BodyProviderLeftLegSkeleton
+            right_leg:
+              type: RightLeg
+              providers:
+                right_foot:
+                  type: RightFoot
+                  startingProvider: BodyProviderRightFootSkeleton
+              startingProvider: BodyProviderRightLegSkeleton
+          startingProvider: BodyProviderGroinSkeleton
+        head:
+          type: Head
+          startingProvider: BodyProviderHeadSkeleton
+        left_arm:
+          type: LeftArm
+          providers:
+            left_hand:
+              type: LeftHand
+              startingProvider: BodyProviderLeftHandSkeleton
+          startingProvider: BodyProviderLeftArmSkeleton
+        right_arm:
+          type: RightArm
+          providers:
+            right_hand:
+              type: RightHand
+              startingProvider: BodyProviderRightHandSkeleton
+          startingProvider: BodyProviderRightArmSkeleton
+      startingProvider: BodyProviderChestSkeleton

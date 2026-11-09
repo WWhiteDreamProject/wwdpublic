@@ -1,0 +1,16 @@
+- type: entity
+  id: HumanoidDollArachnid
+  parent:
+  - BaseBodyArachnid
+  - BaseHumanoidDoll
+  components:
+  - type: HumanoidProfile
+    species: Arachnid
+  - type: Inventory
+    templateId: diona
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female

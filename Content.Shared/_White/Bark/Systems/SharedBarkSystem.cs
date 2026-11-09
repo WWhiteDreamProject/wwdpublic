@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Shared._White.Bark.Components;
+using Content.Shared._White.Preferences;
 using Content.Shared.Humanoid;
 using Content.Shared.Inventory;
 using Content.Shared.Preferences;

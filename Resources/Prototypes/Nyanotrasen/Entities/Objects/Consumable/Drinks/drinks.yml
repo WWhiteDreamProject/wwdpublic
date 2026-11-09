@@ -6,7 +6,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: OrangeCreamice
@@ -23,7 +23,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: Silverjack
@@ -40,7 +40,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: Brainbomb
@@ -57,7 +57,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: ClownBlood
@@ -74,7 +74,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: CircusJuice
@@ -91,7 +91,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: SapoPicante
@@ -108,7 +108,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: Graveyard
@@ -125,7 +125,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: AtomicPunch
@@ -142,7 +142,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: PinkDrink
@@ -159,7 +159,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: BubbleTea

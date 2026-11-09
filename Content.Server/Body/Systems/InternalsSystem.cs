@@ -1,3 +1,4 @@
+using Content.Server._White.Respirator.Systems;
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Components;
@@ -33,7 +34,7 @@ public sealed class InternalsSystem : EntitySystem
 
         _internalsQuery = GetEntityQuery<InternalsComponent>();
 
-        SubscribeLocalEvent<InternalsComponent, InhaleLocationEvent>(OnInhaleLocation);
+        SubscribeLocalEvent<InternalsComponent, GetInhaleLocationEvent>(OnInhaleLocation);
         SubscribeLocalEvent<InternalsComponent, ComponentStartup>(OnInternalsStartup);
         SubscribeLocalEvent<InternalsComponent, ComponentShutdown>(OnInternalsShutdown);
         SubscribeLocalEvent<InternalsComponent, GetVerbsEvent<InteractionVerb>>(OnGetInteractionVerbs);
@@ -52,7 +53,7 @@ public sealed class InternalsSystem : EntitySystem
             return; // already connected
 
         // Can the entity breathe the air it is currently exposed to?
-        if (!TryComp(uid, out RespiratorComponent? respirator) || _respirator.CanMetabolizeInhaledAir((uid, respirator)))
+        if (_respirator.CanMetabolizeInhaledAir(uid)) // WD EDIT
             return;
 
         var tank = FindBestGasTank(uid);
@@ -60,7 +61,7 @@ public sealed class InternalsSystem : EntitySystem
             return;
 
         // Could the entity metabolise the air in the linked gas tank?
-        if (!_respirator.CanMetabolizeGas(uid, tank.Value.Comp.Air))
+        if (!_respirator.CanMetabolizeInhaledAir(uid, tank.Value.Comp.Air)) // WD EDIT
             return;
 
         ToggleInternals(uid, uid, force: false, component);
@@ -180,7 +181,7 @@ public sealed class InternalsSystem : EntitySystem
         _alerts.ClearAlert(ent, ent.Comp.InternalsAlert);
     }
 
-    private void OnInhaleLocation(Entity<InternalsComponent> ent, ref InhaleLocationEvent args)
+    private void OnInhaleLocation(Entity<InternalsComponent> ent, ref GetInhaleLocationEvent args)
     {
         if (AreInternalsWorking(ent))
         {

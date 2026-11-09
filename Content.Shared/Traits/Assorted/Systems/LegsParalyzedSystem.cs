@@ -1,4 +1,4 @@
-using Content.Shared.Body.Systems;
+using Content.Shared._White.Body.Systems;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Systems;
@@ -30,14 +30,14 @@ public sealed class LegsParalyzedSystem : EntitySystem
         // WWDP edit start
         //_movementSpeedModifierSystem.ChangeBaseSpeed(uid, 0, 0, 20);
         _standingSystem.Down(uid);
-        _bodySystem.UpdateMovementSpeed(uid);
+        /*_bodySystem.UpdateMovementSpeed(uid); TODO*/
         // WWDP edit end
     }
 
     private void OnShutdown(EntityUid uid, Components.LegsParalyzedComponent component, ComponentShutdown args)
     {
         _standingSystem.Stand(uid);
-        _bodySystem.UpdateMovementSpeed(uid);
+        /*_bodySystem.UpdateMovementSpeed(uid); TODO*/
     }
 
     private void OnBuckled(EntityUid uid, Components.LegsParalyzedComponent component, ref BuckledEvent args) => _standingSystem.Stand(uid);

@@ -1,5 +1,5 @@
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Blocking;
-using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Hands.Components;
@@ -16,19 +16,18 @@ namespace Content.Shared._White.Blocking;
 public sealed class MeleeBlockSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
+
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<HandsComponent, MeleeBlockAttemptEvent>(OnBlockAttempt,
-            after: new[] {typeof(BlockingSystem)});
-        SubscribeLocalEvent<MeleeWeaponComponent, MeleeHitEvent>(OnHit,
-            before: new[] {typeof(StaminaSystem), typeof(MeleeThrowOnHitSystem)});
+        SubscribeLocalEvent<HandsComponent, MeleeBlockAttemptEvent>(OnBlockAttempt, after: new[] {typeof(BlockingSystem)});
+        SubscribeLocalEvent<MeleeWeaponComponent, MeleeHitEvent>(OnHit, before: new[] {typeof(StaminaSystem), typeof(MeleeThrowOnHitSystem)});
         SubscribeLocalEvent<MeleeBlockComponent, ExaminedEvent>(OnExamine);
     }
 
@@ -76,7 +75,7 @@ public sealed class MeleeBlockSystem : EntitySystem
             return;
 
         _audio.PlayPredicted(block.BlockSound, ent, args.Attacker);
-        _popupSystem.PopupPredicted(Loc.GetString("melee-block-event-blocked"), ent, args.Attacker);
+        _popup.PopupPredicted(Loc.GetString("melee-block-event-blocked"), ent, args.Attacker);
         _damageable.TryChangeDamage(uid.Value, args.Damage);
         TryBlockBlocking(ent, block.Delay, true, statusEffects);
         args.Handled = true;

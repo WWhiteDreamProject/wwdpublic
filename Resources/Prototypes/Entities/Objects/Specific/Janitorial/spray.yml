@@ -5,8 +5,8 @@
   suffix: Empty
   description: A spray bottle with an unscrewable top.
   components:
-  - type: Drink
-    solution: spray
+  - type: Ingestible # WD Ingestible
+    solutionName: spray # WD Ingestible
     ignoreEmpty: true
     useSound:
       path: /Audio/Effects/spray3.ogg

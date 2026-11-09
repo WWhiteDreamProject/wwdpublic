@@ -1,0 +1,64 @@
+- type: entity
+  id: BaseBodyProviderBoneMonkey
+  parent: BaseBodyProviderBone
+  abstract: true
+  suffix: Monkey
+  components:
+  - type: Sprite
+    sprite: _White/Bodies/Bones/Humanoids/human.rsi
+
+# Arm Bone / Antebrachium
+- type: entity
+  id: BodyProviderLeftAntebrachiumMonkey
+  parent: [BaseBodyProviderLeftAntebrachium, BaseBodyProviderBoneMonkey]
+
+- type: entity
+  id: BodyProviderRightAntebrachiumMonkey
+  parent: [BaseBodyProviderRightAntebrachium, BaseBodyProviderBoneMonkey]
+
+# Tail Bone / Cauda
+- type: entity
+  id: BodyProviderCaudaMonkey
+  parent: [BaseBodyProviderCauda, BaseBodyProviderBoneMonkey]
+
+# Pelvis / Coxae
+- type: entity
+  id: BodyProviderCoxaeMonkey
+  parent: [BaseBodyProviderCoxae, BaseBodyProviderBoneMonkey]
+
+# Skull / Сranium
+- type: entity
+  id: BodyProviderCraniumMonkey
+  parent: [BaseBodyProviderCranium, BaseBodyProviderBoneMonkey]
+
+# Leg Bone / Crus
+- type: entity
+  id: BodyProviderLeftCrusMonkey
+  parent: [BaseBodyProviderLeftCrus, BaseBodyProviderBoneMonkey]
+
+- type: entity
+  id: BodyProviderRightCrusMonkey
+  parent: [BaseBodyProviderRightCrus, BaseBodyProviderBoneMonkey]
+
+# Hand Bone / Manus
+- type: entity
+  id: BodyProviderLeftManusMonkey
+  parent: [BaseBodyProviderLeftManus, BaseBodyProviderBoneMonkey]
+
+- type: entity
+  id: BodyProviderRightManusMonkey
+  parent: [BaseBodyProviderRightManus, BaseBodyProviderBoneMonkey]
+
+# Foot Bone / Pedis
+- type: entity
+  id: BodyProviderLeftPedisMonkey
+  parent: [BaseBodyProviderLeftPedis, BaseBodyProviderBoneMonkey]
+
+- type: entity
+  id: BodyProviderRightPedisMonkey
+  parent: [BaseBodyProviderRightPedis, BaseBodyProviderBoneMonkey]
+
+# Rib Cage / Thorax
+- type: entity
+  id: BodyProviderThoraxMonkey
+  parent: [BaseBodyProviderThorax, BaseBodyProviderBoneMonkey]

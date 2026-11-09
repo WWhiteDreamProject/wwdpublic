@@ -1,4 +1,5 @@
 using Content.Server.Cargo.Systems;
+using Content.Shared._White.Damage.Prototypes;
 using Content.Shared.Armor;
 using Robust.Shared.Prototypes;
 using Content.Shared.Damage.Prototypes;
@@ -22,13 +23,13 @@ public sealed class ArmorSystem : SharedArmorSystem
         foreach (var modifier in component.Modifiers.Coefficients)
         {
             var damageType = _protoManager.Index<DamageTypePrototype>(modifier.Key);
-            args.Price += component.PriceMultiplier * damageType.ArmorPriceCoefficient * 100 * (1 - modifier.Value);
+            args.Price += component.PriceMultiplier  * 100 * (1 - modifier.Value);
         }
 
         foreach (var modifier in component.Modifiers.FlatReduction)
         {
             var damageType = _protoManager.Index<DamageTypePrototype>(modifier.Key);
-            args.Price += component.PriceMultiplier * damageType.ArmorPriceFlat * modifier.Value;
+            args.Price += (component.PriceMultiplier * modifier.Value).Double();
         }
     }
 }

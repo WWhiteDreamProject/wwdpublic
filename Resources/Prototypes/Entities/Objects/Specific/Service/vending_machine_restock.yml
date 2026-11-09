@@ -14,16 +14,16 @@
       shader: unshaded
   - type: MeleeWeapon
     damage:
-      types:
-        Blunt: 5
+      # WD EDIT: Migrated damage format
+      Blunt: 5
     soundHit:
       path: /Audio/Weapons/genhit2.ogg
     soundSwing:
       path: /Audio/Weapons/punchmiss.ogg
   - type: DamageOtherOnHit
     damage:
-      types:
-        Blunt: 11
+      # WD EDIT: Migrated damage format
+      Blunt: 11
     staminaCost: 15
   - type: Item
     size: Normal

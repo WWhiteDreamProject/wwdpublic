@@ -1,0 +1,141 @@
+- type: entity
+  id: BaseBodyProviderPartFelinid
+  parent: [BaseBodyProviderPart, BaseBodyProviderPartOrganic, BaseBodyProviderPartAppearance]
+  abstract: true
+  suffix: Felinid
+  components:
+  - type: MarkingsProvider
+    data:
+      group: Felinid
+  - type: Sprite
+    sprite: _White/Bodies/Parts/Humanoids/human.rsi
+
+# Arms
+- type: entity
+  id: BodyProviderLeftArmFelinid
+  parent: [BaseBodyProviderLeftArm, BaseBodyProviderLeftArmOrganic, BaseBodyProviderPartFelinid, BaseBodyProviderLeftArmAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/human.rsi
+      state: left_arm
+
+- type: entity
+  id: BodyProviderRightArmFelinid
+  parent: [BaseBodyProviderRightArm, BaseBodyProviderRightArmOrganic, BaseBodyProviderPartFelinid, BaseBodyProviderRightArmAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/human.rsi
+      state: right_arm
+
+# Chest
+- type: entity
+  id: BodyProviderChestFelinid
+  parent: [BaseBodyProviderChest, BaseBodyProviderChestOrganic, BaseBodyProviderPartFelinid, BaseBodyProviderChestAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/human.rsi
+      state: chest
+
+# Foots
+- type: entity
+  id: BodyProviderLeftFootFelinid
+  parent: [BaseBodyProviderLeftFoot, BaseBodyProviderLeftFootOrganic, BaseBodyProviderPartFelinid, BaseBodyProviderLeftFootAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/human.rsi
+      state: left_foot
+
+- type: entity
+  id: BodyProviderRightFootFelinid
+  parent: [BaseBodyProviderRightFoot, BaseBodyProviderRightFootOrganic, BaseBodyProviderPartFelinid, BaseBodyProviderRightFootAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/human.rsi
+      state: right_foot
+
+# Groin
+- type: entity
+  id: BodyProviderGroinFelinid
+  parent: [BaseBodyProviderGroin, BaseBodyProviderGroinOrganic, BaseBodyProviderPartFelinid, BaseBodyProviderGroinAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/human.rsi
+      state: groin
+
+# Hands
+- type: entity
+  id: BodyProviderLeftHandFelinid
+  parent: [BaseBodyProviderLeftHand, BaseBodyProviderLeftHandOrganic, BaseBodyProviderPartFelinid, BaseBodyProviderLeftHandAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/human.rsi
+      state: left_hand
+
+- type: entity
+  id: BodyProviderRightHandFelinid
+  parent: [BaseBodyProviderRightHand, BaseBodyProviderRightHandOrganic, BaseBodyProviderPartFelinid, BaseBodyProviderRightHandAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/human.rsi
+      state: right_hand
+
+# Head
+- type: entity
+  id: BodyProviderHeadFelinid
+  parent: [BaseBodyProviderHead, BaseBodyProviderHeadOrganic, BaseBodyProviderPartFelinid, BaseBodyProviderHeadAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/human.rsi
+      state: head
+
+# Legs
+- type: entity
+  id: BodyProviderLeftLegFelinid
+  parent: [BaseBodyProviderLeftLeg, BaseBodyProviderLeftLegOrganic, BaseBodyProviderPartFelinid, BaseBodyProviderLeftLegAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/human.rsi
+      state: left_leg
+
+- type: entity
+  id: BodyProviderRightLegFelinid
+  parent: [BaseBodyProviderRightLeg, BaseBodyProviderRightLegOrganic, BaseBodyProviderPartFelinid, BaseBodyProviderRightLegAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/human.rsi
+      state: right_leg
+
+# Tail
+- type: entity
+  id: BodyProviderTailFelinid
+  parent: [BaseBodyProviderTail, BaseBodyProviderTailOrganic, BaseBodyProviderPartFelinid, BaseBodyProviderTailAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/felinid.rsi
+      state: tail
+  - type: Sprite
+    sprite: _White/Bodies/Parts/Humanoids/felinid.rsi

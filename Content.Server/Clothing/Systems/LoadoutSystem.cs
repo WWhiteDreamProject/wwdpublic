@@ -3,6 +3,7 @@ using Content.Server.Paint;
 using Content.Server.Players.PlayTimeTracking;
 using Content.Shared._White.Book;
 using Content.Shared._White.Book.Components;
+using Content.Shared._White.Preferences;
 using Content.Shared.CCVar;
 using Content.Shared.Clothing.Loadouts.Prototypes;
 using Content.Shared.Clothing.Loadouts.Systems;
@@ -162,7 +163,7 @@ public sealed class LoadoutSystem : EntitySystem
         }
 
         // Pick the heirloom
-        if (heirlooms.Any())
+        if (heirlooms != null && heirlooms.Any())
         {
             var heirloom = _random.Pick(heirlooms);
             if (Exists(heirloom.Item1)) // WD EDIT

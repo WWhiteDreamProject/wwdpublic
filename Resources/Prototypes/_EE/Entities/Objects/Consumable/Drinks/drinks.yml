@@ -5,7 +5,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: VodkaSportsDrink
@@ -21,7 +21,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: RoninRefresher
@@ -37,7 +37,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: Deadlifter

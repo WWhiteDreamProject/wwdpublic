@@ -1,0 +1,8 @@
+- type: bodyColorGroup
+  id: Eyes
+
+- type: bodyColorGroup
+  id: Feathers
+
+- type: bodyColorGroup
+  id: Skin

@@ -1,4 +1,4 @@
-using Content.Shared.Damage;
+using Content.Shared._White.Damage.Components;
 using Content.Shared.Weapons.Ranged.Components;
 using Robust.Shared.Map;
 

@@ -1,0 +1,27 @@
+- type: entity
+  id: HumanoidDollHarpy
+  parent:
+  - BaseBodyHarpy
+  - BaseHumanoidDoll
+  components:
+  - type: HumanoidProfile
+    species: Harpy
+  - type: Inventory
+    speciesId: harpy
+    templateId: digitigrade
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Harpy/displacement.rsi
+            state: jumpsuit
+            copyToShaderParameters:
+              layerKey: dummy
+              parameterTexture: displacementMap
+              parameterUV: displacementUV
+    femaleDisplacements:
+      jumpsuit-body-slim:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Harpy/displacement.rsi
+            state: jumpsuit-slim

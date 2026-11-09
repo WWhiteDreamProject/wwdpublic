@@ -41,7 +41,7 @@ public abstract partial class SharedOfferItemSystem
         if (!TryComp<HandsComponent>(uid, out var hands) || hands.ActiveHand == null)
             return;
 
-        offerItem.Item = hands.ActiveHand.HeldEntity;
+        offerItem.Item = hands.ActiveHand.Value.HeldEntity;
 
         if (offerItem.IsInOfferMode == false)
         {
@@ -54,7 +54,7 @@ public abstract partial class SharedOfferItemSystem
             if (offerItem.Hand == null || offerItem.Target == null)
             {
                 offerItem.IsInOfferMode = true;
-                offerItem.Hand = hands.ActiveHand.Name;
+                offerItem.Hand = hands.ActiveHand.Value.Name;
 
                 Dirty(uid, offerItem);
                 return;

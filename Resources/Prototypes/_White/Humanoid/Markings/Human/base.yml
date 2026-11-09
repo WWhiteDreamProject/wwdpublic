@@ -1,0 +1,4 @@
+- type: marking
+  id: BaseHuman
+  abstract: true
+  groups: [Human]

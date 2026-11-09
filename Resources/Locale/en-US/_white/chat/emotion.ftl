@@ -1,10 +1,12 @@
 # Names
+chat-emote-name-pain-scream = Pain Scream
 chat-emote-name-nod = Nod
 chat-emote-name-shake-head = Shake head
 chat-emote-name-frown = Frown
 chat-emote-name-smile = Smile
 
 # Message
+chat-emote-msg-pain-scream = screaming in pain!
 chat-emote-msg-nod = nods.
 chat-emote-msg-shake-head = shakes {POSS-ADJ($entity)} head.
 chat-emote-msg-frown = frowns.

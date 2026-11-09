@@ -1,6 +1,6 @@
 using Content.Server.Ninja.Events;
 using Content.Server.Power.EntitySystems;
-using Content.Shared.Damage;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Interaction;
 using Content.Shared.Ninja.Components;
 using Content.Shared.Ninja.Systems;
@@ -60,7 +60,7 @@ public sealed class StunProviderSystem : SharedStunProviderSystem
 
         _audio.PlayPvs(comp.Sound, target);
 
-        _damageable.TryChangeDamage(target, comp.StunDamage, false, true, null, origin: uid);
+        _damageable.ChangeDamage(target, comp.StunDamage, origin: uid); // WD EDIT
         _stun.TryParalyze(target, comp.StunTime, refresh: false);
 
         // short cooldown to prevent instant stunlocking

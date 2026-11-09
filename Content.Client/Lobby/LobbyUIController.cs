@@ -1,16 +1,18 @@
 using System.Linq;
+using Content.Client._White.Appearance.Systems;
+using Content.Client._White.Preferences.Managers;
 using Content.Client.Guidebook;
-using Content.Client.Humanoid;
 using Content.Client.Inventory;
 using Content.Client.Lobby.UI;
 using Content.Client.Players.PlayTimeTracking;
 using Content.Client.Station;
+using Content.Shared._White.Humanoid.Markings.Managers;
+using Content.Shared._White.Humanoid.Prototypes;
+using Content.Shared._White.Humanoid.Systems;
+using Content.Shared._White.Preferences;
 using Content.Shared.CCVar;
-using Content.Shared.Clothing.Loadouts.Prototypes;
 using Content.Shared.Clothing.Loadouts.Systems;
 using Content.Shared.GameTicking;
-using Content.Shared.Humanoid.Markings;
-using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
 using Content.Shared.Traits;
@@ -24,7 +26,6 @@ using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
-using static Content.Shared.Humanoid.SharedHumanoidAppearanceSystem;
 using CharacterSetupGui = Content.Client.Lobby.UI.CharacterSetupGui;
 using HumanoidProfileEditor = Content.Client.Lobby.UI.HumanoidProfileEditor;
 
@@ -43,11 +44,11 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
     [Dependency] private readonly IStateManager _stateManager = default!;
     [Dependency] private readonly JobRequirementsManager _jobRequirements = default!;
     [Dependency] private readonly MarkingManager _markings = default!;
-    [UISystemDependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
     [UISystemDependency] private readonly ClientInventorySystem _inventory = default!;
     [UISystemDependency] private readonly GuidebookSystem _guide = default!;
     [UISystemDependency] private readonly SharedLoadoutSystem _loadouts = default!;
     [UISystemDependency] private readonly StationSpawningSystem _stationSpawning = default!;
+    [UISystemDependency] private readonly HumanoidProfileSystem _humanoidProfile = default!; // WD EDIT
 
     private CharacterSetupGui? _characterSetup;
     private HumanoidProfileEditor? _profileEditor;
@@ -196,7 +197,7 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
         if (selected == null)
             return;
 
-        _preferencesManager.UpdateCharacter(EditedProfile, EditedSlot.Value);
+        _preferencesManager.UpdateCharacter(EditedProfile.Value, EditedSlot.Value);
         ReloadCharacterSetup();
     }
 
@@ -371,7 +372,7 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
         EntProtoId? previewEntity = null;
         if (humanoid != null && jobClothes)
         {
-            job ??= GetPreferredJob(humanoid);
+            job ??= GetPreferredJob(humanoid.Value);
 
             previewEntity = job.JobPreviewEntity ?? (EntProtoId?)job?.JobEntity;
         }
@@ -384,27 +385,25 @@ public sealed class LobbyUIController : UIController, IOnStateEntered<LobbyState
         }
         else if (humanoid is not null)
         {
-            var dummy = _prototypeManager.Index<SpeciesPrototype>(humanoid.Species).DollPrototype;
+            var dummy = _prototypeManager.Index(humanoid.Value.Species).Doll;
             dummyEnt = EntityManager.SpawnEntity(dummy, MapCoordinates.Nullspace);
+            _humanoidProfile.ApplyProfile(dummyEnt, humanoid.Value);
         }
         else
         {
-            var dummy = _prototypeManager.Index<SpeciesPrototype>(DefaultSpecies).DollPrototype;
-            dummyEnt = EntityManager.SpawnEntity(dummy, MapCoordinates.Nullspace);
+            dummyEnt = EntityManager.SpawnEntity(_prototypeManager.Index(HumanoidProfileSystem.DefaultSpecies).Doll, MapCoordinates.Nullspace);
         }
-
-        _humanoid.LoadProfile(dummyEnt, humanoid);
 
         if (humanoid != null && jobClothes)
         {
             DebugTools.Assert(job != null);
 
-            GiveDummyJobClothes(dummyEnt, job, humanoid);
+            GiveDummyJobClothes(dummyEnt, job, humanoid.Value);
 
             if (jobClothes)
-                GiveDummyJobClothes(dummyEnt, job, humanoid);
+                GiveDummyJobClothes(dummyEnt, job, humanoid.Value);
             if (loadouts)
-                GiveDummyLoadout(dummyEnt, job, humanoid);
+                GiveDummyLoadout(dummyEnt, job, humanoid.Value);
         }
 
         return dummyEnt;

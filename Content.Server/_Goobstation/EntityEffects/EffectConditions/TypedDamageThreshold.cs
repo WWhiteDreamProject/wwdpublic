@@ -1,3 +1,7 @@
+using Content.Shared._White.Damage;
+using Content.Shared._White.Damage.Components;
+using Content.Shared._White.Damage.Prototypes;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.EntityEffects;
@@ -35,9 +39,9 @@ public sealed partial class TypedDamageThreshold : EntityEffectCondition
             {
                 // Greedily revert the split and check; Quickly skip when not relevant
                 var lowestDamage = FixedPoint2.MaxValue;
-                foreach (var damageType in group.DamageTypes)
+                foreach (var damageType in group.Types)
                 {
-                    if (comparison.DamageDict.TryGetValue(damageType, out var value))
+                    if (comparison.TryGetValue(damageType, out var value))
                         lowestDamage = value < lowestDamage ? value : lowestDamage;
                     else
                     {
@@ -47,25 +51,25 @@ public sealed partial class TypedDamageThreshold : EntityEffectCondition
                 }
                 if (lowestDamage == FixedPoint2.MaxValue || lowestDamage == FixedPoint2.Zero)
                     continue;
-                var groupDamage = lowestDamage * group.DamageTypes.Count;
+                var groupDamage = lowestDamage * group.Types.Count;
                 if (MathF.Abs(groupDamage.Float() - MathF.Round(groupDamage.Float())) < 0.02)
                     groupDamage = MathF.Round(groupDamage.Float()); // otherwise brutes split unevenly
                 if (damage.Damage.TryGetDamageInGroup(group, out var total) && total > groupDamage)
                     return !Inverse;
                 // we finished comparing this group, remove future interferences
-                foreach (var damageType in group.DamageTypes)
+                foreach (var damageType in group.Types)
                 {
-                    comparison.DamageDict[damageType] -= lowestDamage;
+                    comparison[damageType] -= lowestDamage;
                     // not a fan, but it's needed
-                    if (MathF.Abs(comparison.DamageDict[damageType].Float()
-                        - MathF.Round(comparison.DamageDict[damageType].Float()))
+                    if (MathF.Abs(comparison[damageType].Float()
+                        - MathF.Round(comparison[damageType].Float()))
                         < 0.02)
-                        comparison.DamageDict[damageType] = MathF.Round(comparison.DamageDict[damageType].Float());
+                        comparison[damageType] = MathF.Round(comparison[damageType].Float());
                 }
                 comparison.ClampMin(0);
                 comparison.TrimZeros();
             }
-            comparison.ExclusiveAdd(-damage.Damage);
+            comparison.AddSpecifier(-damage.Damage);
             comparison = -comparison;
             return comparison.AnyPositive() ^ Inverse;
         }
@@ -79,9 +83,9 @@ public sealed partial class TypedDamageThreshold : EntityEffectCondition
         foreach (var group in prototype.EnumeratePrototypes<DamageGroupPrototype>())
         {
             var lowestDamage = FixedPoint2.MaxValue;
-            foreach (var damageType in group.DamageTypes)
+            foreach (var damageType in group.Types)
             {
-                if (comparison.DamageDict.TryGetValue(damageType, out var value))
+                if (comparison.TryGetValue(damageType, out var value))
                     lowestDamage = value < lowestDamage ? value : lowestDamage;
                 else
                 {
@@ -91,7 +95,7 @@ public sealed partial class TypedDamageThreshold : EntityEffectCondition
             }
             if (lowestDamage == FixedPoint2.MaxValue || lowestDamage == FixedPoint2.Zero)
                 continue;
-            var groupDamage = lowestDamage * group.DamageTypes.Count;
+            var groupDamage = lowestDamage * group.Types.Count;
             if (MathF.Abs(groupDamage.Float() - MathF.Round(groupDamage.Float())) < 0.02)
                 groupDamage = MathF.Round(groupDamage.Float());
             if (groupDamage > 0)
@@ -102,19 +106,19 @@ public sealed partial class TypedDamageThreshold : EntityEffectCondition
                     ("amount", MathF.Abs(groupDamage.Float())),
                     ("deltasign", 1))
                 );
-            foreach (var damageType in group.DamageTypes)
+            foreach (var damageType in group.Types)
             {
-                comparison.DamageDict[damageType] -= lowestDamage;
-                if (MathF.Abs(comparison.DamageDict[damageType].Float()
-                        - MathF.Round(comparison.DamageDict[damageType].Float()))
+                comparison[damageType] -= lowestDamage;
+                if (MathF.Abs(comparison[damageType].Float()
+                        - MathF.Round(comparison[damageType].Float()))
                         < 0.02)
-                    comparison.DamageDict[damageType] = MathF.Round(comparison.DamageDict[damageType].Float());
+                    comparison[damageType] = MathF.Round(comparison[damageType].Float());
             }
             comparison.ClampMin(0);
             comparison.TrimZeros();
         }
 
-        foreach (var (kind, amount) in comparison.DamageDict)
+        foreach (var (kind, amount) in comparison)
         {
             damages.Add(
                 Loc.GetString("health-change-display",

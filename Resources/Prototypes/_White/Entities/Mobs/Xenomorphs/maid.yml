@@ -1,5 +1,5 @@
 - type: entity
-  parent: BaseMobXenomorphAdult
+  parent: [BaseMobXenomorphAdult, BaseBodyXenomorphMaid]
   id: MobXenomorphMaid
   name: lusty xenomorph maid
   description: Don't ask it to lay eggs in you.
@@ -11,7 +11,7 @@
       state: xenomorph
     - map: [ "pocket1" ]
     - map: [ "pocket2" ]
-    - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+    - map: ["enum.CuffableVisualLayers.Handcuffs"]
       color: "#ffffff"
       sprite: _White/Objects/Misc/handcuffs.rsi
       state: body-overlay-xenomorph
@@ -34,8 +34,10 @@
       190: 0.6
   - type: MeleeWeapon
     damage:
-      groups:
-        Brute: 10
+      # WD EDIT: Migrated damage format
+      Blunt: 3.3
+      Piercing: 3.3
+      Slash: 3.3
   - type: OwOAccent
   - type: Pacified
   - type: GhostRole

@@ -1,6 +1,6 @@
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Actions;
 using Content.Shared.Coordinates;
-using Content.Shared.Damage;
 using Content.Shared.Hands;
 using Content.Shared.Interaction;
 using Content.Shared.Item;
@@ -63,9 +63,7 @@ public abstract class SharedChameleonProjectorSystem : EntitySystem
 
     private void OnDisguiseDamaged(Entity<ChameleonDisguiseComponent> ent, ref DamageChangedEvent args)
     {
-        // this mirrors damage 1:1
-        if (args.DamageDelta is {} damage)
-            _damageable.TryChangeDamage(ent.Comp.User, damage);
+        _damageable.ChangeDamage(ent.Comp.User, args.Damage); // WD EDIT
     }
 
     private void OnDisguiseInsertAttempt(Entity<ChameleonDisguiseComponent> ent, ref InsertIntoEntityStorageAttemptEvent args)

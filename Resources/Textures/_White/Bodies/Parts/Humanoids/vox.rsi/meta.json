@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/vgstation-coders/vgstation13 at 02ff588d59b3c560c685d9ca75e882d32a72d8cb. Modified by Bhijn(github), Errant(github) and Flareguy(github). The division of the torso into chest and groin was done by Spatison(github).",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "chest",
+      "directions": 4
+    },
+    {
+      "name": "groin",
+      "directions": 4
+    },
+    {
+      "name": "head",
+      "directions": 4
+    },
+    {
+      "name": "left_arm",
+      "directions": 4
+    },
+    {
+      "name": "left_foot",
+      "directions": 4
+    },
+    {
+      "name": "left_hand",
+      "directions": 4
+    },
+    {
+      "name": "left_leg",
+      "directions": 4
+    },
+    {
+      "name": "right_arm",
+      "directions": 4
+    },
+    {
+      "name": "right_foot",
+      "directions": 4
+    },
+    {
+      "name": "right_hand",
+      "directions": 4
+    },
+    {
+      "name": "right_leg",
+      "directions": 4
+    },
+    {
+      "name": "tail",
+      "directions": 4
+    }
+  ]
+}

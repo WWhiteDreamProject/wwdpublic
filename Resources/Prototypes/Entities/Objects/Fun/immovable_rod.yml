@@ -78,8 +78,8 @@
     randomizeVelocity: false
     shouldGib: false
     damage:
-      types:
-        Blunt: 70 # WD EDIT: 200 -> 70
+      # WD EDIT: Migrated damage format
+      Blunt: 70
   - type: MovementIgnoreGravity
     gravityState: true
   - type: MovementSpeedModifier
@@ -104,9 +104,8 @@
   - type: ImmovableRod
     randomizeVelocity: false
     damage:
-      types:
-        Blunt: 120
-
+      # WD EDIT: Migrated damage format
+      Blunt: 120
 - type: entity
   parent: ImmovableRodDespawn # White Dream: ImmovableRodKeepTilesStill -> ImmovableRodDespawn 
   id: ImmovableRodMop

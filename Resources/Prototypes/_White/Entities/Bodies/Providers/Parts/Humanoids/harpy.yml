@@ -1,0 +1,141 @@
+- type: entity
+  id: BaseBodyProviderPartHarpy
+  parent: [BaseBodyProviderPart, BaseBodyProviderPartOrganic, BaseBodyProviderPartAppearance]
+  abstract: true
+  suffix: Harpy
+  components:
+  - type: MarkingsProvider
+    data:
+      group: Harpy
+  - type: Sprite
+    sprite: _White/Bodies/Parts/Humanoids/harpy.rsi
+
+# Arms
+- type: entity
+  id: BodyProviderLeftArmHarpy
+  parent: [BaseBodyProviderLeftArm, BaseBodyProviderLeftArmOrganic, BaseBodyProviderPartHarpy, BaseBodyProviderLeftArmAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    layer: enum.MarkingVisualLayers.LeftArmTop
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/harpy.rsi
+      state: left_arm
+
+- type: entity
+  id: BodyProviderRightArmHarpy
+  parent: [BaseBodyProviderRightArm, BaseBodyProviderRightArmOrganic, BaseBodyProviderPartHarpy, BaseBodyProviderRightArmAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    layer: enum.MarkingVisualLayers.RightArmTop
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/harpy.rsi
+      state: right_arm
+
+# Chest
+- type: entity
+  id: BodyProviderChestHarpy
+  parent: [BaseBodyProviderChest, BaseBodyProviderChestOrganic, BaseBodyProviderPartHarpy, BaseBodyProviderChestAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/harpy.rsi
+      state: chest
+
+# Foots
+- type: entity
+  id: BodyProviderLeftFootHarpy
+  parent: [BaseBodyProviderLeftFoot, BaseBodyProviderLeftFootOrganic, BaseBodyProviderPartHarpy, BaseBodyProviderLeftFootAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/harpy.rsi
+      state: left_foot
+
+- type: entity
+  id: BodyProviderRightFootHarpy
+  parent: [BaseBodyProviderRightFoot, BaseBodyProviderRightFootOrganic, BaseBodyProviderPartHarpy, BaseBodyProviderRightFootAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/harpy.rsi
+      state: right_foot
+
+# Groin
+- type: entity
+  id: BodyProviderGroinHarpy
+  parent: [BaseBodyProviderGroin, BaseBodyProviderGroinOrganic, BaseBodyProviderPartHarpy, BaseBodyProviderGroinAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/harpy.rsi
+      state: groin
+
+# Hands
+- type: entity
+  id: BodyProviderLeftHandHarpy
+  parent: [BaseBodyProviderLeftHand, BaseBodyProviderLeftHandOrganic, BaseBodyProviderPartHarpy, BaseBodyProviderLeftHandAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/harpy.rsi
+      state: left_hand
+
+- type: entity
+  id: BodyProviderRightHandHarpy
+  parent: [BaseBodyProviderRightHand, BaseBodyProviderRightHandOrganic, BaseBodyProviderPartHarpy, BaseBodyProviderRightHandAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/harpy.rsi
+      state: right_hand
+
+# Head
+- type: entity
+  id: BodyProviderHeadHarpy
+  parent: [BaseBodyProviderHead, BaseBodyProviderHeadOrganic, BaseBodyProviderPartHarpy, BaseBodyProviderHeadAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/harpy.rsi
+      state: head
+
+# Legs
+- type: entity
+  id: BodyProviderLeftLegHarpy
+  parent: [BaseBodyProviderLeftLeg, BaseBodyProviderLeftLegOrganic, BaseBodyProviderPartHarpy, BaseBodyProviderLeftLegAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/harpy.rsi
+      state: left_leg
+
+- type: entity
+  id: BodyProviderRightLegHarpy
+  parent: [BaseBodyProviderRightLeg, BaseBodyProviderRightLegOrganic, BaseBodyProviderPartHarpy, BaseBodyProviderRightLegAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/harpy.rsi
+      state: right_leg
+
+# Tail
+- type: entity
+  id: BodyProviderTailHarpy
+  parent: [BaseBodyProviderTail, BaseBodyProviderTailOrganic, BaseBodyProviderPartHarpy, BaseBodyProviderTailAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Feathers
+      path: _White/Bodies/Parts/Humanoids/harpy.rsi
+      state: tail

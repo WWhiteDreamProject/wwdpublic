@@ -6,8 +6,7 @@
   components:
   - type: Door
     crushDamage:
-      types:
-        Blunt: 15
+      Blunt: 15
     openSound:
       path: /Audio/Machines/airlock_ext_open.ogg
     closeSound:

@@ -1,16 +1,17 @@
 using System.Linq;
+using Content.Server._White.Bloodstream.Systems;
 using Content.Server.Actions;
-using Content.Server.Body.Systems;
 using Content.Server.Chat;
 using Content.Server.Chat.Systems;
 using Content.Server.Emoting.Systems;
 using Content.Server.Speech.EntitySystems;
 using Content.Shared._White.Blocking;
+using Content.Shared._White.Damage.Components;
+using Content.Shared._White.Damage.Systems;
+using Content.Shared._White.Humanoid.Components;
 using Content.Shared.Anomaly.Components;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Cloning;
-using Content.Shared.Damage;
-using Content.Shared.Humanoid;
 using Content.Shared.Inventory;
 using Content.Shared.Mind;
 using Content.Shared.Mobs;
@@ -125,7 +126,7 @@ namespace Content.Server.Zombies
                     ? comp.CritDamageMultiplier
                     : 1f;
 
-                _damageable.TryChangeDamage(uid, comp.Damage * multiplier, true, false, damage);
+                _damageable.ChangeDamage((uid, damage), comp.Damage * multiplier, true, false); // WD EDIT
             }
 
             // Heal the zombified
@@ -146,7 +147,7 @@ namespace Content.Server.Zombies
                     : 1f;
 
                 // Gradual healing for living zombies.
-                _damageable.TryChangeDamage(uid, comp.PassiveHealing * multiplier, true, false, damage);
+                _damageable.TryChangeDamage((uid, damage), comp.PassiveHealing * multiplier, true, false); // WD EDIT
             }
         }
 
@@ -284,17 +285,7 @@ namespace Content.Server.Zombies
         {
             if (!Resolve(source, ref zombiecomp))
                 return false;
-
-            foreach (var (layer, info) in zombiecomp.BeforeZombifiedCustomBaseLayers)
-            {
-                _humanoidAppearance.SetBaseLayerColor(target, layer, info.Color);
-                _humanoidAppearance.SetBaseLayerId(target, layer, info.Id);
-            }
-            if (TryComp<HumanoidAppearanceComponent>(target, out var appcomp))
-            {
-                appcomp.EyeColor = zombiecomp.BeforeZombifiedEyeColor;
-            }
-            _humanoidAppearance.SetSkinColor(target, zombiecomp.BeforeZombifiedSkinColor, false);
+            _bodyAppearance.ApplyAppearanceData(target, zombiecomp.BeforeZombifiedAppearance);
             _bloodstream.ChangeBloodReagent(target, zombiecomp.BeforeZombifiedBloodReagent);
 
             _nameMod.RefreshNameModifiers(target);

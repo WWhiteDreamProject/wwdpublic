@@ -134,14 +134,13 @@
   - type: EmbeddableProjectile
     minimumSpeed: 15
     damage:
-      types:
-        Piercing: 15
+      # WD EDIT: Migrated damage format
+      Piercing: 15
   - type: PenetratedProjectile
     minimumSpeed: 30
     damage:
-      types:
-        Piercing: 15
-  # WD EDIT END
+      # WD EDIT: Migrated damage format
+      Piercing: 15
   - type: GuideHelp
     guides:
     - ExpandingRepairingStation

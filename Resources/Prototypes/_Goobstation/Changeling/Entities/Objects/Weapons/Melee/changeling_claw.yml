@@ -14,10 +14,10 @@
     attackRate: 1
     heavyStaminaCost: 8
     damage:
-      types:
-        Slash: 5
-        Piercing: 15
-        Structural: 10
+      # WD EDIT: Migrated damage format
+      Piercing: 15
+      Slash: 5
+      Structural: 10
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: Item

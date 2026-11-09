@@ -5,12 +5,12 @@
   id: FoodDonkpocketBase
   abstract: true
   components:
-  - type: Food
+  - type: Ingestible # WD Ingestible
   - type: Sprite
     sprite: Objects/Consumable/Food/Baked/donkpocket.rsi
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 10
         reagents:
         - ReagentId: Nutriment
@@ -54,7 +54,7 @@
       - cheap
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 10
         reagents:
         - ReagentId: Nutriment
@@ -74,7 +74,7 @@
       - cheap
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Nutriment
           Quantity: 5
@@ -93,7 +93,7 @@
       - cheap
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Nutriment
           Quantity: 10
@@ -127,7 +127,7 @@
       - cheap
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Nutriment
           Quantity: 10
@@ -163,7 +163,7 @@
       - cheap
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Nutriment
           Quantity: 10
@@ -184,7 +184,7 @@
       - cheap
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Nutriment
           Quantity: 10
@@ -205,7 +205,7 @@
       - cheap
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Nutriment
           Quantity: 15
@@ -224,7 +224,7 @@
       - cheap
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Nutriment
           Quantity: 5
@@ -245,7 +245,7 @@
       - cheap
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Nutriment
           Quantity: 10
@@ -264,7 +264,7 @@
       - cheap
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Nutriment
           Quantity: 5
@@ -283,7 +283,7 @@
       - cheap
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Nutriment
           Quantity: 10
@@ -304,7 +304,7 @@
       - cheap
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Nutriment
           Quantity: 5
@@ -322,7 +322,7 @@
       - cheap
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Nutriment
           Quantity: 10
@@ -341,7 +341,7 @@
     - fishops
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Nutriment
           Quantity: 5
@@ -359,7 +359,7 @@
     - fishops
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Nutriment
           Quantity: 10
@@ -378,7 +378,7 @@
       - cheap
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Nutriment
           Quantity: 2

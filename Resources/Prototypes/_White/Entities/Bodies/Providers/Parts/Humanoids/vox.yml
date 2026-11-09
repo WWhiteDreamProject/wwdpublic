@@ -1,0 +1,139 @@
+- type: entity
+  id: BaseBodyProviderPartVox
+  parent: [BaseBodyProviderPart, BaseBodyProviderPartOrganic, BaseBodyProviderPartAppearance]
+  abstract: true
+  suffix: Vox
+  components:
+  - type: MarkingsProvider
+    data:
+      group: Vox
+  - type: Sprite
+    sprite: _White/Bodies/Parts/Humanoids/vox.rsi
+
+# Arms
+- type: entity
+  id: BodyProviderLeftArmVox
+  parent: [BaseBodyProviderLeftArm, BaseBodyProviderLeftArmOrganic, BaseBodyProviderPartVox, BaseBodyProviderLeftArmAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/vox.rsi
+      state: left_arm
+
+- type: entity
+  id: BodyProviderRightArmVox
+  parent: [BaseBodyProviderRightArm, BaseBodyProviderRightArmOrganic, BaseBodyProviderPartVox, BaseBodyProviderRightArmAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/vox.rsi
+      state: right_arm
+
+# Chest
+- type: entity
+  id: BodyProviderChestVox
+  parent: [BaseBodyProviderChest, BaseBodyProviderChestOrganic, BaseBodyProviderPartVox, BaseBodyProviderChestAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/vox.rsi
+      state: chest
+
+# Foots
+- type: entity
+  id: BodyProviderLeftFootVox
+  parent: [BaseBodyProviderLeftFoot, BaseBodyProviderLeftFootOrganic, BaseBodyProviderPartVox, BaseBodyProviderLeftFootAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/vox.rsi
+      state: left_foot
+
+- type: entity
+  id: BodyProviderRightFootVox
+  parent: [BaseBodyProviderRightFoot, BaseBodyProviderRightFootOrganic, BaseBodyProviderPartVox, BaseBodyProviderRightFootAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/vox.rsi
+      state: right_foot
+
+# Groin
+- type: entity
+  id: BodyProviderGroinVox
+  parent: [BaseBodyProviderGroin, BaseBodyProviderGroinOrganic, BaseBodyProviderPartVox, BaseBodyProviderGroinAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/vox.rsi
+      state: groin
+
+# Hands
+- type: entity
+  id: BodyProviderLeftHandVox
+  parent: [BaseBodyProviderLeftHand, BaseBodyProviderLeftHandOrganic, BaseBodyProviderPartVox, BaseBodyProviderLeftHandAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/vox.rsi
+      state: left_hand
+
+- type: entity
+  id: BodyProviderRightHandVox
+  parent: [BaseBodyProviderRightHand, BaseBodyProviderRightHandOrganic, BaseBodyProviderPartVox, BaseBodyProviderRightHandAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/vox.rsi
+      state: right_hand
+
+# Head
+- type: entity
+  id: BodyProviderHeadVox
+  parent: [BaseBodyProviderHead, BaseBodyProviderHeadOrganic, BaseBodyProviderPartVox, BaseBodyProviderHeadAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/vox.rsi
+      state: head
+
+# Legs
+- type: entity
+  id: BodyProviderLeftLegVox
+  parent: [BaseBodyProviderLeftLeg, BaseBodyProviderLeftLegOrganic, BaseBodyProviderPartVox, BaseBodyProviderLeftLegAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/vox.rsi
+      state: left_leg
+
+- type: entity
+  id: BodyProviderRightLegVox
+  parent: [BaseBodyProviderRightLeg, BaseBodyProviderRightLegOrganic, BaseBodyProviderPartVox, BaseBodyProviderRightLegAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/vox.rsi
+      state: right_leg
+
+# Tail
+- type: entity
+  id: BodyProviderTailVox
+  parent: [BaseBodyProviderTail, BaseBodyProviderTailOrganic, BaseBodyProviderPartVox, BaseBodyProviderTailAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/vox.rsi
+      state: tail

@@ -7,8 +7,7 @@
   - type: Door
     bumpOpen: false
     crushDamage:
-      types:
-        Blunt: 5
+      Blunt: 5
     openSound:
       path: /Audio/Machines/airlock_ext_open.ogg
     closeSound:

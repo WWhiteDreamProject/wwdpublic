@@ -1,5 +1,6 @@
 using Content.Shared._EE.Contractors.Components;
 using Content.Shared._EE.Contractors.Prototypes;
+using Content.Shared._White.Preferences;
 using Content.Shared.Clothing.Loadouts.Systems;
 using Content.Shared.Paper;
 using Content.Shared.Preferences;

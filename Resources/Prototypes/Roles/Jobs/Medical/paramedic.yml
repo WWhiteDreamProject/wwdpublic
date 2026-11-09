@@ -28,8 +28,8 @@
   - !type:AddComponentSpecial
     components:
     - type: CPRTraining
-    - type: SurgerySpeedModifier
-      speedModifier: 2 # WD EDIT
+    # - type: SurgerySpeedModifier
+    #   speedModifier: 2 # WD EDIT
 
 - type: startingGear
   id: ParamedicGear

@@ -6,8 +6,8 @@
   components:
   - type: StorageFill
     contents:
-      - id: EnergyCautery
-      - id: EnergyScalpel
-      - id: AdvancedRetractor
-      - id: BoneGel
+      # - id: EnergyCautery
+      # - id: EnergyScalpel
+      # - id: AdvancedRetractor
+      # - id: BoneGel
       - id: SyringeCaseFilled

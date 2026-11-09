@@ -18,8 +18,11 @@
     - WhitelistChameleon
   - type: HideLayerClothing
     slots:
-    - HeadTop
-    - HeadSide
+    # WD EDIT START
+    - enum.MarkingVisualLayers.HeadBottom
+    - enum.MarkingVisualLayers.HeadTop
+    - enum.MarkingVisualLayers.HeadSide
+    # WD EDIT END
 
 #Basic Helmet (Security Helmet)
 - type: entity
@@ -132,10 +135,13 @@
         Piercing: 0.95
   - type: HideLayerClothing
     slots:
-    - Hair
-    - Snout
-    - HeadTop
-    - HeadSide
+    # WD EDIT START
+    - enum.MarkingVisualLayers.Hair
+    - enum.MarkingVisualLayers.HeadBottom
+    - enum.MarkingVisualLayers.HeadTop
+    - enum.MarkingVisualLayers.HeadSide
+    - enum.MarkingVisualLayers.Snout
+    # WD EDIT END
   - type: TinfoilHat # WWDP
     destroyOnFry: false
 
@@ -194,10 +200,13 @@
   - type: IdentityBlocker
   - type: HideLayerClothing
     slots:
-    - Hair
-    - Snout
-    - HeadTop
-    - HeadSide
+    # WD EDIT START
+    - enum.MarkingVisualLayers.Hair
+    - enum.MarkingVisualLayers.HeadBottom
+    - enum.MarkingVisualLayers.HeadTop
+    - enum.MarkingVisualLayers.HeadSide
+    - enum.MarkingVisualLayers.Snout
+    # WD EDIT END
   - type: Unremoveable
   - type: TinfoilHat # WWDP
     destroyOnFry: false
@@ -273,10 +282,13 @@
     - FireHelmet
   - type: HideLayerClothing
     slots:
-    - Hair
-    - Snout
-    - HeadTop
-    - HeadSide
+    # WD EDIT START
+    - enum.MarkingVisualLayers.Hair
+    - enum.MarkingVisualLayers.HeadBottom
+    - enum.MarkingVisualLayers.HeadTop
+    - enum.MarkingVisualLayers.HeadSide
+    - enum.MarkingVisualLayers.Snout
+    # WD EDIT END
   - type: TinfoilHat # WWDP
     destroyOnFry: false
 
@@ -308,10 +320,13 @@
     - FireHelmet
   - type: HideLayerClothing
     slots:
-    - Hair
-    - Snout
-    - HeadTop
-    - HeadSide
+    # WD EDIT START
+    - enum.MarkingVisualLayers.Hair
+    - enum.MarkingVisualLayers.HeadBottom
+    - enum.MarkingVisualLayers.HeadTop
+    - enum.MarkingVisualLayers.HeadSide
+    - enum.MarkingVisualLayers.Snout
+    # WD EDIT END
   - type: BreathMask
   - type: TinfoilHat # WWDP
     destroyOnFry: false

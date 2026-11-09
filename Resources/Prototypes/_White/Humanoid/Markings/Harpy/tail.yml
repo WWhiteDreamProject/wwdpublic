@@ -1,0 +1,102 @@
+﻿- type: marking
+  id: BaseTailHarpy
+  parent: [BaseTail, BaseHarpy]
+  abstract: true
+  appearance: true
+  coloring:
+    default:
+      type: !type:BodyColorGroupColoring
+        group: Feathers
+
+- type: marking
+  id: TailHarpyDefault
+  parent: BaseTailHarpy
+  definitions:
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Bodies/Parts/Humanoids/harpy.rsi
+      state: tail
+
+- type: marking
+  id: TailHarpyFinch
+  parent: BaseTailHarpy
+  definitions:
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Harpy/tails36x32.rsi
+      state: finch
+
+- type: marking
+  id: TailHarpyForkedHuescale
+  parent: BaseTailHarpy
+  definitions:
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Harpy/tails.rsi
+      state: forked_huescale
+
+- type: marking
+  id: TailHarpyForkedLong
+  parent: BaseTailHarpy
+  definitions:
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Harpy/tails.rsi
+      state: forked_long
+
+- type: marking
+  id: TailHarpyForkedWhitescale
+  parent: BaseTailHarpy
+  definitions:
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Harpy/tails.rsi
+      state: forked_whitescale
+
+- type: marking
+  id: TailHarpyHaven
+  parent: BaseTailHarpy
+  definitions:
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Harpy/tails.rsi
+      state: haven-primary
+    index: primary
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Harpy/tails.rsi
+      state: haven-secondary
+    index: secondary
+
+- type: marking
+  id: TailHarpyPeacock
+  parent: BaseTailHarpy
+  definitions:
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Harpy/tails48x48.rsi
+      state: peacock-primary
+    index: primary
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Harpy/tails48x48.rsi
+      state: peacock-secondary
+    index: secondary
+
+- type: marking
+  id: TailHarpyRooster
+  parent: BaseTailHarpy
+  definitions:
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Harpy/tails.rsi
+      state: rooster
+
+- type: marking
+  id: TailHarpySwallow
+  parent: BaseTailHarpy
+  definitions:
+  - layer: enum.BodyProviderType.Tail
+    sprite:
+      sprite: _White/Humanoid/Markings/Harpy/tails.rsi
+      state: swallow

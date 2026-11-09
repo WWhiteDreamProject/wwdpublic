@@ -167,8 +167,8 @@
   - type: MeleeWeapon
     attackRate: 2
     damage:
-      types:
-        Piercing: 1
+      # WD EDIT: Migrated damage format
+      Piercing: 1
   - type: TimedDespawn
     lifetime: 7
   - type: HTN

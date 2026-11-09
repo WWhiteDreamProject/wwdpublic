@@ -4,10 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.Actions;
 using Content.Server.AlertLevel;
-using Content.Server._Goobstation.Blob.Components;
-using Content.Server.Explosion.Components;
 using Content.Server.GameTicking.Rules.Components;
-using Content.Server.Objectives;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.GameTicking;
 using Content.Server.RoundEnd;
@@ -17,12 +14,14 @@ using Content.Shared.Actions;
 using Content.Shared.Alert;
 using Content.Shared._Goobstation.Blob;
 using Content.Shared._Goobstation.Blob.Components;
+using Content.Shared._White.Damage;
+using Content.Shared._White.Damage.Components;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Destructible;
 using Content.Shared.Explosion.Components;
 using Content.Shared.FixedPoint;
 using Content.Shared.GameTicking.Components;
-using Content.Shared.Objectives.Components;
 using Content.Shared.Popups;
 using Content.Shared.Store;
 using Content.Shared.Store.Components;
@@ -257,9 +256,9 @@ public sealed class BlobCoreSystem : EntitySystem
             if (TryComp<MeleeWeaponComponent>(blobFactoryComponent.Blobbernaut, out var meleeWeaponComponent))
             {
                 var blobbernautDamage = new DamageSpecifier();
-                foreach (var keyValuePair in component.ChemDamageDict[component.CurrentChem].DamageDict)
+                foreach (var keyValuePair in component.ChemDamageDict[component.CurrentChem])
                 {
-                    blobbernautDamage.DamageDict.Add(keyValuePair.Key, keyValuePair.Value * 0.8f);
+                    blobbernautDamage.Add(keyValuePair.Key, keyValuePair.Value * 0.8f);
                 }
                 meleeWeaponComponent.Damage = blobbernautDamage;
             }

@@ -1,8 +1,9 @@
-using Content.Server.Body.Systems;
+using Content.Server._White.Body.Systems;
 using Content.Server.Popups;
 using Content.Server.Stunnable;
+using Content.Shared._White.Damage.Systems;
+using Content.Shared._White.Nutrition.Components;
 using Content.Shared.Clothing.Components;
-using Content.Shared.Damage;
 using Content.Shared.Hands;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Inventory;
@@ -115,23 +116,22 @@ public sealed class FaceHuggerSystem : EntitySystem
 
     private void Infect(EntityUid uid, FaceHuggerComponent component)
     {
-        if (!component.InfectionPrototype.HasValue
+        /*if (!component.InfectionPrototype.HasValue
             || !TryComp<ClothingComponent>(uid, out var clothing)
             || clothing.InSlot != component.Slot
             || !_container.TryGetContainingContainer((uid, null, null), out var target)
-            || _body.GetRootPartOrNull(target.Owner) is not {} rootPart)
+            || _body.GetBodyParts(target.Owner, component.BodyPartType).FirstOrNull() is not {} bodyPart)
             return;
-
+        TODO
         var organ = Spawn(component.InfectionPrototype);
-        _body.TryCreateOrganSlot(rootPart.Entity, component.InfectionSlotId, out _, rootPart.BodyPart);
-
-        if (!_body.InsertOrgan(rootPart.Entity, organ, component.InfectionSlotId, rootPart.BodyPart))
+        if (!TryComp<OrganComponent>(organ, out var organComponent)
+            || !_body.TryCreateOrganSlotAndAttachOrgan(bodyPart.AsNullable(), (organ, organComponent), component.InfectionSlotId, organComponent.Type))
         {
             QueueDel(organ);
             return;
-        }
+        }*/
 
-        _damageable.TryChangeDamage(uid, component.DamageOnInfect, true);
+        _damageable.ChangeDamage(uid, component.DamageOnInfect, true);
     }
 
     public bool TryEquipFaceHugger(EntityUid uid, EntityUid target, FaceHuggerComponent component)
@@ -162,7 +162,7 @@ public sealed class FaceHuggerSystem : EntitySystem
 
         _audio.PlayPvs(component.SoundOnImpact, uid);
 
-        _damageable.TryChangeDamage(uid, component.DamageOnImpact);
+        _damageable.ChangeDamage(uid, component.DamageOnImpact);
 
         _popup.PopupEntity(Loc.GetString("xenomorphs-face-hugger-try-equip", ("equipment", uid), ("equipmentBlocker", blocker.Value)), uid);
         _popup.PopupEntity(Loc.GetString("xenomorphs-face-hugger-try-equip-other", ("equipment", uid), ("equipmentBlocker", blocker.Value), ("target", Identity.Entity(target, EntityManager))), uid, Filter.PvsExcept(target), true);

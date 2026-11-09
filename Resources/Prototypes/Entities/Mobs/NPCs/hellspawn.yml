@@ -2,8 +2,9 @@
   name: hellspawn
   parent:
   - BaseSimpleMob
-  - MobCombat
-  - MobBloodstream
+  - BaseMobCombat
+  - BaseMobBloodstream
+  - BaseBodyAnimal # WD EDIT
   id: MobHellspawn
   description: An unstoppable force of carnage.
   components:
@@ -27,8 +28,6 @@
   - type: NpcFactionMember
     factions:
       - SimpleHostile
-  - type: Body
-    prototype: Animal
   - type: Damageable
     damageContainer: BiologicalMetaphysical
     damageModifierSet: HellSpawn
@@ -92,9 +91,9 @@
     soundHit:
       path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
     damage:
-      types:
-        Blunt: 150
-        Structural: 70
+      # WD EDIT: Migrated damage format
+      Blunt: 150
+      Structural: 70
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepThud

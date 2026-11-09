@@ -1,4 +1,4 @@
-using Content.Shared.Damage;
+using Content.Shared._White.Damage;
 using Content.Shared.Tools;
 using Robust.Shared.Prototypes;
 

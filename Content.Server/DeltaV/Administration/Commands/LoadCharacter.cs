@@ -1,15 +1,13 @@
 using System.Linq;
+using Content.Server._White.Preferences.Managers;
 using Content.Server.Administration;
 using Content.Server.GameTicking;
-using Content.Server.Players;
-using Content.Server.Preferences.Managers;
 using Content.Server.Station.Systems;
+using Content.Shared._White.Humanoid.Components;
+using Content.Shared._White.Humanoid.Prototypes;
+using Content.Shared._White.Preferences;
 using Content.Shared.Administration;
-using Content.Shared.Humanoid;
-using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Players;
-using Content.Shared.Preferences;
-using Robust.Server.Player;
 using Robust.Shared.Console;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
@@ -61,7 +59,7 @@ public sealed class LoadCharacter : IConsoleCommand
         else
         {
             if (player.AttachedEntity == null ||
-                !_entityManager.HasComponent<HumanoidAppearanceComponent>(player.AttachedEntity.Value))
+                !_entityManager.HasComponent<HumanoidProfileComponent>(player.AttachedEntity.Value))
             {
                 shell.WriteError(Loc.GetString("shell-must-be-attached-to-entity"));
                 return;
@@ -76,10 +74,10 @@ public sealed class LoadCharacter : IConsoleCommand
             return;
         }
 
-        if (!_entityManager.TryGetComponent<HumanoidAppearanceComponent>(target, out var humanoidAppearance))
+        if (!_entityManager.TryGetComponent<HumanoidProfileComponent>(target, out var humanoidAppearance))
         {
             shell.WriteError(Loc.GetString("shell-entity-with-uid-lacks-component", ("uid", target.ToString()),
-                ("componentName", nameof(HumanoidAppearanceComponent))));
+                ("componentName", nameof(HumanoidProfileComponent))));
             return;
         }
 
@@ -157,12 +155,11 @@ public sealed class LoadCharacter : IConsoleCommand
     private bool FetchCharacters(NetUserId player, out HumanoidCharacterProfile[] characters)
     {
         characters = null!;
-        if (!_prefs.TryGetCachedPreferences(player, out var prefs))
+        if (!_prefs.TryGetPreferences(player, out var prefs))
             return false;
 
         characters = prefs.Characters
-            .Where(kv => kv.Value is HumanoidCharacterProfile)
-            .Select(kv => (HumanoidCharacterProfile) kv.Value)
+            .Select(kv => kv.Value)
             .ToArray();
 
         return true;

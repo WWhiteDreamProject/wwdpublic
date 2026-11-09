@@ -1,4 +1,5 @@
-using Content.Server.Body.Components;
+/* TODO
+using Content.Shared._White.Bloodstream.Systems;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Weapons.Melee.Events;
 
@@ -6,10 +7,21 @@ namespace Content.Server._White.Other.BloodLust;
 
 public sealed class BloodLustSystem : EntitySystem
 {
+    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
+
     public override void Initialize()
     {
+        SubscribeLocalEvent<BloodLustComponent, BleedingChangedEvent>(OnBleedingChanged);
         SubscribeLocalEvent<BloodLustComponent, GetMeleeAttackRateEvent>(OnGetMeleeAttackRate);
         SubscribeLocalEvent<BloodLustComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovementSpeedModifiers);
+    }
+
+    private void OnBleedingChanged(EntityUid uid, BloodLustComponent component, BleedingChangedEvent args)
+    {
+        if (args.Bleeding == 0f)
+            RemComp<BloodLustComponent>(uid);
+
+        _movementSpeedModifier.RefreshMovementSpeedModifiers(uid);
     }
 
     private void OnGetMeleeAttackRate(EntityUid uid, BloodLustComponent component, GetMeleeAttackRateEvent args)
@@ -29,10 +41,10 @@ public sealed class BloodLustSystem : EntitySystem
 
     private float GetBloodLustModifier(EntityUid uid)
     {
-        if (!TryComp(uid, out BloodstreamComponent? bloodstream) || bloodstream.MaxBleedAmount == 0f)
+        if (!TryComp(uid, out BloodstreamComponent? bloodstream) || bloodstream.MaximumBleeding == 0f)
             return 1f;
 
-        return Math.Clamp(bloodstream.BleedAmount / bloodstream.MaxBleedAmount, 0f, 1f);
+        return Math.Clamp((bloodstream.Bleeding / bloodstream.MaximumBleeding).Float(), 0f, 1f);
     }
 
     private float GetBloodLustMultiplier(float multiplier, float modifier)
@@ -40,3 +52,4 @@ public sealed class BloodLustSystem : EntitySystem
         return float.Lerp(1f, multiplier, modifier);
     }
 }
+*/

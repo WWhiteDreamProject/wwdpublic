@@ -6,18 +6,15 @@ using Content.Server.Emp;
 using Content.Server.Ghost;
 using Content.Server.Light.Components;
 using Content.Server.Power.Components;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Audio;
-using Content.Shared.Damage;
-using Content.Shared.Database;
 using Content.Shared.DoAfter;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Light;
 using Content.Shared.Light.Components;
 using Robust.Server.GameObjects;
-using Robust.Shared.Audio;
 using Robust.Shared.Containers;
-using Robust.Shared.Player;
 using Robust.Shared.Timing;
 using Robust.Shared.Audio.Systems;
 using Content.Shared.Damage.Systems;
@@ -321,7 +318,7 @@ namespace Content.Server.Light.EntitySystems
         public void HandleLightDamaged(EntityUid uid, PoweredLightComponent component, DamageChangedEvent args)
         {
             // Was it being repaired, or did it take damage?
-            if (args.DamageIncreased)
+            if (args.Damage.AnyPositive())
             {
                 // Eventually, this logic should all be done by this (or some other) system, not a component.
                 TryDestroyBulb(uid, component);

@@ -1,0 +1,37 @@
+- type: entity
+  id: BaseBodyBloodsucker
+  parent: BaseBody
+  abstract: true
+  components:
+  - type: Body
+    rootProvider:
+      type: AllParts
+      providers:
+        brain:
+          type: Brain
+          startingProvider: BodyProviderBrainAnimal
+        ears:
+          type: Ears
+          startingProvider: BodyProviderEarsAnimal
+        eyes:
+          type: Eyes
+          startingProvider: BodyProviderEyesAnimal
+        heart:
+          type: Heart
+          startingProvider: BodyProviderHeartAnimal
+        kidneys:
+          type: Kidneys
+          startingProvider: BodyProviderKidneysBloodsucker
+        liver:
+          type: Liver
+          startingProvider: BodyProviderLiverBloodsucker
+        lungs:
+          type: Lungs
+          startingProvider: BodyProviderLungsBloodsucker
+        stomach:
+          type: Stomach
+          startingProvider: BodyProviderStomachBloodsucker
+        tongue:
+          type: Tongue
+          startingProvider: BodyProviderTongueAnimal
+      startingProvider: BodyProviderAllPartsAnimal

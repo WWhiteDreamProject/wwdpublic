@@ -1,6 +1,6 @@
 using Content.Server.Xenoarchaeology.XenoArtifacts.Effects.Components;
 using Content.Server.Xenoarchaeology.XenoArtifacts.Events;
-using Content.Shared.Damage;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Whitelist;
 using Robust.Shared.Random;
 

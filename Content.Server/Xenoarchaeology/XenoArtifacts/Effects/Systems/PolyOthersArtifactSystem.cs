@@ -1,6 +1,7 @@
 using Content.Server.Polymorph.Systems;
 using Content.Server.Xenoarchaeology.XenoArtifacts.Effects.Components;
 using Content.Server.Xenoarchaeology.XenoArtifacts.Events;
+using Content.Shared._White.Humanoid.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Mobs.Systems;
 using Robust.Shared.Audio.Systems;
@@ -28,7 +29,7 @@ public sealed class PolyOthersArtifactSystem : EntitySystem
     private void OnActivate(Entity<PolyOthersArtifactComponent> ent, ref ArtifactActivatedEvent args)
     {
         var xform = Transform(ent);
-        var humanoids = new HashSet<Entity<HumanoidAppearanceComponent>>();
+        var humanoids = new HashSet<Entity<HumanoidProfileComponent>>();
         _lookup.GetEntitiesInRange(xform.Coordinates, ent.Comp.Range, humanoids);
 
         foreach (var comp in humanoids)

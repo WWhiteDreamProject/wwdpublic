@@ -1,26 +1,18 @@
 using System.Linq;
+using Content.Shared._White.Damage;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Contests;
-using Content.Shared._Shitmed.Targeting;
-using Content.Shared.Actions.Events;
 using Content.Shared.Climbing.Components;
-using Content.Shared.CombatMode;
 using Content.Shared.Coordinates;
 using Content.Shared.Damage;
-using Content.Shared.Damage.Events;
 using Content.Shared.Damage.Systems;
 using Content.Shared.FixedPoint;
-using Content.Shared.Interaction;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Standing;
-using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
-using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
-using Robust.Shared.Physics.Components;
-using Robust.Shared.Physics.Events;
-using Robust.Shared.Physics.Systems;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Content.Shared.Climbing.Systems;
@@ -78,21 +70,15 @@ public sealed class TableSlamSystem : EntitySystem
         if (TryComp<GlassTableComponent>(tableUid, out var glassTableComponent))
         {
             _damageableSystem.TryChangeDamage(tableUid, glassTableComponent.TableDamage, origin: ent);
-            _damageableSystem.TryChangeDamage(ent, glassTableComponent.ClimberDamage, origin: ent, targetPart: TargetBodyPart.Torso);
+            _damageableSystem.TryChangeDamage(ent.Owner, glassTableComponent.ClimberDamage, origin: ent); // WD EDIT
             _stunSystem.TryParalyze(ent, TimeSpan.FromSeconds(3), false);
         }
         else
         {
-            _damageableSystem.TryChangeDamage(ent,
+            _damageableSystem.TryChangeDamage(ent.Owner, // WD EDIT
                 new DamageSpecifier()
                 {
-                    DamageDict = new Dictionary<string, FixedPoint2> { { "Blunt", ent.Comp.TabledDamage } },
-                },
-                targetPart: TargetBodyPart.Torso);
-            _damageableSystem.TryChangeDamage(ent,
-                new DamageSpecifier()
-                {
-                    DamageDict = new Dictionary<string, FixedPoint2> { { "Blunt", ent.Comp.TabledDamage } },
+                    { "Blunt", ent.Comp.TabledDamage },
                 });
         }
         _staminaSystem.TakeStaminaDamage(ent, ent.Comp.TabledStaminaDamage);

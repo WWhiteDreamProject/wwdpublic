@@ -748,7 +748,7 @@
     - Fiber
   - type: SolutionContainerManager
     solutions: # 24 (3 (fiber count of web) * 8 (to craft)) + 6 (magical crafting bonus)
-      food:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: Fiber

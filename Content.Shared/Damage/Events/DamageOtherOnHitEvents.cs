@@ -1,4 +1,4 @@
-using Content.Shared.Damage;
+using Content.Shared._White.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Item.ItemToggle.Components;
 

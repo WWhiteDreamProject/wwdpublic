@@ -12,3 +12,6 @@ alerts-queen-finder-desc = Allows you to sense the general direction of your Que
 
 alerts-blood-cult-empowered-name = Empowered
 alerts-blood-cult-empowered-desc = Blood magic and rune scribing requires much less time to cast and you lose less blood from it.
+
+alerts-body-status-name = Body status
+alerts-body-status-desc = The current sensation of pain in your body. Blue is good. Red is bad.

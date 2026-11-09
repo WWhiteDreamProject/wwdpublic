@@ -1,8 +1,9 @@
 using Content.Shared._White.Blocking;
+using Content.Shared._White.Damage;
+using Content.Shared._White.Damage.Components;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Damage;
-using Content.Shared.Damage.Prototypes;
 using Content.Shared.Item.ItemToggle.Components;
-using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 
@@ -15,8 +16,8 @@ public sealed partial class BlockingSystem
 
     private void InitializeUser()
     {
-        SubscribeLocalEvent<BlockingUserComponent, DamageModifyEvent>(OnUserDamageModified);
-        SubscribeLocalEvent<BlockingComponent, DamageModifyEvent>(OnDamageModified);
+        SubscribeLocalEvent<BlockingUserComponent, GetModifiedDamageEvent>(OnUserDamageModified);
+        SubscribeLocalEvent<BlockingComponent, GetModifiedDamageEvent>(OnDamageModified);
 
         SubscribeLocalEvent<BlockingUserComponent, EntParentChangedMessage>(OnParentChanged);
         SubscribeLocalEvent<BlockingUserComponent, ContainerGettingInsertedAttemptEvent>(OnInsertAttempt);
@@ -44,7 +45,7 @@ public sealed partial class BlockingSystem
 
         _audio.PlayPredicted(blocking.BlockSound, ent, args.Attacker);
         _popupSystem.PopupPredicted(Loc.GetString("melee-block-event-blocked"), ent, args.Attacker);
-        _damageable.TryChangeDamage(uid.Value, args.Damage, damageable: damageable);
+        _damageable.ChangeDamage((uid.Value, damageable), args.Damage, origin: args.Attacker); // WD EDIT
         args.Handled = true;
     }
     // WD END
@@ -71,7 +72,7 @@ public sealed partial class BlockingSystem
         UserStopBlocking(uid, component);
     }
 
-    private void OnUserDamageModified(EntityUid uid, BlockingUserComponent component, DamageModifyEvent args)
+    private void OnUserDamageModified(EntityUid uid, BlockingUserComponent component, GetModifiedDamageEvent args)
     {
         // A shield should only block damage it can itself absorb. To determine that we need the Damageable component on it.
         if (!TryComp<BlockingComponent>(component.BlockingItem, out var blocking) || args.Damage.GetTotal() <= 0 ||
@@ -88,18 +89,18 @@ public sealed partial class BlockingSystem
 
         var blockFraction = blocking.IsBlocking ? blocking.ActiveBlockFraction : blocking.PassiveBlockFraction;
         blockFraction = Math.Clamp(blockFraction, 0, 1);
-        _damageable.TryChangeDamage(component.BlockingItem, blockFraction * args.OriginalDamage);
+        _damageable.ChangeDamage(component.BlockingItem.Value, blockFraction * args.Damage); // WD EDIT
 
         var modify = new DamageModifierSet();
-        foreach (var key in dmgComp.Damage.DamageDict.Keys)
+        foreach (var key in dmgComp.Damage.Keys)
             modify.Coefficients.TryAdd(key, 1 - blockFraction);
 
-        args.Damage = DamageSpecifier.ApplyModifierSet(args.Damage, modify);
-        if (blocking.IsBlocking && !args.Damage.Equals(args.OriginalDamage))
+        args.Result = DamageSpecifier.ApplyModifierSet(args.Damage, modify); // WD EDIT
+        if (blocking.IsBlocking && !args.Damage.Equals(args.Damage)) // WD EDIT
             _audio.PlayPvs(blocking.BlockSound, uid);
     }
 
-    private void OnDamageModified(EntityUid uid, BlockingComponent component, DamageModifyEvent args)
+    private void OnDamageModified(EntityUid uid, BlockingComponent component, GetModifiedDamageEvent args)
     {
         var modifier = component.IsBlocking ? component.ActiveBlockDamageModifier : component.PassiveBlockDamageModifer;
         if (modifier == null)
@@ -107,7 +108,7 @@ public sealed partial class BlockingSystem
             return;
         }
 
-        args.Damage = DamageSpecifier.ApplyModifierSet(args.Damage, modifier);
+        args.Result = DamageSpecifier.ApplyModifierSet(args.Damage, modifier); // WD EDIT
     }
 
     private void OnEntityTerminating(EntityUid uid, BlockingUserComponent component, ref EntityTerminatingEvent args)

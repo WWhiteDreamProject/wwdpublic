@@ -1,6 +1,6 @@
 using Content.Server.NPC.Components;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.CombatMode;
-using Content.Shared.Damage;
 using Content.Shared.Mobs.Components;
 using Content.Shared.NPC.Components;
 using Content.Shared.NPC.Systems;
@@ -26,7 +26,7 @@ public sealed class NPCRetaliationSystem : EntitySystem
 
     private void OnDamageChanged(Entity<NPCRetaliationComponent> ent, ref DamageChangedEvent args)
     {
-        if (!args.DamageIncreased)
+        if (!args.Damage.AnyPositive())
             return;
 
         if (args.Origin is not {} origin)

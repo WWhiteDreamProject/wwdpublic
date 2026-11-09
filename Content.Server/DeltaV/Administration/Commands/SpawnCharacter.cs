@@ -1,14 +1,12 @@
 using System.Linq;
+using Content.Server._White.Preferences.Managers;
 using Content.Server.Administration;
 using Content.Server.GameTicking;
-using Content.Server.Players;
-using Content.Server.Preferences.Managers;
 using Content.Server.Station.Systems;
+using Content.Shared._White.Preferences;
 using Content.Shared.Administration;
 using Content.Shared.Mind;
 using Content.Shared.Players;
-using Content.Shared.Preferences;
-using Robust.Server.Player;
 using Robust.Shared.Console;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
@@ -113,12 +111,11 @@ public sealed class SpawnCharacter : IConsoleCommand
     private bool FetchCharacters(NetUserId player, out HumanoidCharacterProfile[] characters)
     {
         characters = null!;
-        if (!_prefs.TryGetCachedPreferences(player, out var prefs))
+        if (!_prefs.TryGetPreferences(player, out var prefs))
             return false;
 
         characters = prefs.Characters
-            .Where(kv => kv.Value is HumanoidCharacterProfile)
-            .Select(kv => (HumanoidCharacterProfile) kv.Value)
+            .Select(kv => kv.Value)
             .ToArray();
 
         return true;

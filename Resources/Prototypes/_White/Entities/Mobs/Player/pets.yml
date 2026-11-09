@@ -8,8 +8,7 @@
     knockdownTime: 0
     infectionPrototype: null
     damageOnImpact:
-      types:
-        Blunt: 2
+      Blunt: 2
   - type: UseDelay
     delay: 7
   - type: StealTarget

@@ -20,11 +20,11 @@
       path: "/Audio/Items/drill_hit.ogg"
     attackRate: 0.25 # Should be better then a normal drill not worse
     damage:
-      groups:
-        Brute: 12 # Giant fucking mech drill
-      types:
-        Structural: 50 # Giant fucking mech drill
-
+      # WD EDIT: Migrated damage format
+      Blunt: 4
+      Piercing: 4
+      Slash: 4
+      Structural: 50
 - type: entity
   id: WeaponMechMeleeDrillDiamond
   parent: BaseMechWeaponMelee
@@ -47,7 +47,8 @@
       path: "/Audio/Items/drill_hit.ogg"
     attackRate: 0.25 # Should be better then a normal drill not worse
     damage:
-      groups:
-        Brute: 24
-      types:
-        Structural: 100 # Giant fucking mech drill
+      # WD EDIT: Migrated damage format
+      Blunt: 8
+      Piercing: 8
+      Slash: 8
+      Structural: 100

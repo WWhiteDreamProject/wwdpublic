@@ -1,9 +1,9 @@
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Chat;
 
 namespace Content.Server.Chat.Systems;
 
 using Content.Shared.Chat.Prototypes;
-using Content.Shared.Damage;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -25,7 +25,7 @@ public sealed class EmoteOnDamageSystem : EntitySystem
 
     private void OnDamage(EntityUid uid, EmoteOnDamageComponent emoteOnDamage, DamageChangedEvent args)
     {
-        if (!args.DamageIncreased)
+        if (!args.Damage.AnyPositive())
             return;
 
         if (emoteOnDamage.LastEmoteTime + emoteOnDamage.EmoteCooldown > _gameTiming.CurTime)

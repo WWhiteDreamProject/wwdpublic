@@ -1,9 +1,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using Content.Server.Database;
+using Content.Shared._White.Humanoid.Markings;
+using Content.Shared._White.Preferences;
 using Content.Shared.GameTicking;
 using Content.Shared.Humanoid;
-using Content.Shared.Humanoid.Markings;
 using Content.Shared.Preferences;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
@@ -41,7 +42,7 @@ namespace Content.IntegrationTests.Tests.Preferences
             return new HumanoidCharacterProfile
             {
                 Name = "Charlie Charlieson",
-                FlavorText = "The biggest boy around.",
+                Flavor = "The biggest boy around.",
                 Species = "Human",
                 Customspeciename = "",
                 Age = 21,

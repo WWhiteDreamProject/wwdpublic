@@ -2,6 +2,8 @@ using Content.Server.Explosion.EntitySystems;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Nutrition.Components;
 using Content.Server.Popups;
+using Content.Shared._White.Nutrition.Components;
+using Content.Shared._White.Nutrition.Systems;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Explosion.Components;
 using Content.Shared.IdentityManagement;
@@ -33,7 +35,7 @@ namespace Content.Server.Nutrition.EntitySystems
             base.Initialize();
 
             // activate BEFORE entity is deleted and trash is spawned
-            SubscribeLocalEvent<CreamPieComponent, ConsumeDoAfterEvent>(OnConsume, before: [typeof(FoodSystem)]);
+            SubscribeLocalEvent<CreamPieComponent, ConsumeDoAfterEvent>(OnConsume, before: [typeof(SharedIngestionSystem)]);
             SubscribeLocalEvent<CreamPieComponent, SliceFoodEvent>(OnSlice);
 
             SubscribeLocalEvent<CreamPiedComponent, RejuvenateEvent>(OnRejuvenate);
@@ -45,13 +47,13 @@ namespace Content.Server.Nutrition.EntitySystems
             var coordinates = Transform(uid).Coordinates;
             _audio.PlayPvs(_audio.ResolveSound(creamPie.Sound), coordinates, AudioParams.Default.WithVariation(0.125f));
 
-            if (EntityManager.TryGetComponent(uid, out FoodComponent? foodComp))
+            if (EntityManager.TryGetComponent(uid, out IngestibleComponent? foodComp))
             {
-                if (_solutions.TryGetSolution(uid, foodComp.Solution, out _, out var solution))
+                if (_solutions.ResolveSolution(uid, foodComp.SolutionName, ref foodComp.Solution, out var solution))
                 {
                     _puddle.TrySpillAt(uid, solution, out _, false);
                 }
-                foreach (var trash in foodComp.Trash)
+                foreach (var trash in foodComp.Trashes)
                 {
                     EntityManager.SpawnEntity(trash, Transform(uid).Coordinates);
                 }

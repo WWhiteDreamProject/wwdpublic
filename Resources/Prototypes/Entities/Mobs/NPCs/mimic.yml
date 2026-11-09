@@ -41,5 +41,5 @@
     angle: 0
     animation: WeaponArcFist
     damage:
-      types:
-        Blunt: 20
+      # WD EDIT: Migrated damage format
+      Blunt: 20

@@ -1,5 +1,4 @@
-﻿using Content.Shared.Body.Part; // Shitmed Change
-using Content.Shared.Inventory;
+﻿using Content.Shared.Inventory;
 using Content.Shared.Popups;
 using JetBrains.Annotations;
 using Robust.Server.GameObjects;
@@ -25,18 +24,8 @@ public sealed partial class BurnBodyBehavior : IThresholdBehavior
             }
         }
 
-        // Shitmed Change Start
-        if (system.EntityManager.TryGetComponent<BodyPartComponent>(bodyId, out var bodyPart))
-        {
-            if (bodyPart.CanSever
-                && system.BodySystem.BurnPart(bodyId, bodyPart))
-                sharedPopupSystem.PopupCoordinates(Loc.GetString("bodyburn-text-others", ("name", bodyId)), transformSystem.GetMoverCoordinates(bodyId), PopupType.LargeCaution);
-        }
-        else
-        // Shitmed Change End
-        {
-            sharedPopupSystem.PopupCoordinates(Loc.GetString("bodyburn-text-others", ("name", bodyId)), transformSystem.GetMoverCoordinates(bodyId), PopupType.LargeCaution);
-            system.EntityManager.QueueDeleteEntity(bodyId);
-        }
+        sharedPopupSystem.PopupCoordinates(Loc.GetString("bodyburn-text-others", ("name", bodyId)), transformSystem.GetMoverCoordinates(bodyId), PopupType.LargeCaution);
+
+        system.EntityManager.QueueDeleteEntity(bodyId);
     }
 }

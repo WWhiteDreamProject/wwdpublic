@@ -156,7 +156,7 @@ public sealed class HandsUIController : UIController, IOnStateEntered<GameplaySt
         var activeHand = handsComp.ActiveHand;
         if (activeHand == null)
             return;
-        SetActiveHand(activeHand.Name);
+        SetActiveHand(activeHand.Value.Name);
     }
 
     private void HandBlocked(string handName)
@@ -277,17 +277,17 @@ public sealed class HandsUIController : UIController, IOnStateEntered<GameplaySt
             _player.LocalSession?.AttachedEntity is { } playerEntity &&
             _handsSystem.TryGetHand(playerEntity, handName, out var hand, _playerHandsComponent))
         {
-            var foldedLocation = hand.Location.GetUILocation();
+            var foldedLocation = hand.Value.Location.GetUILocation();
             if (foldedLocation == HandUILocation.Left)
             {
                 _statusHandLeft = handControl;
-                HandsGui.UpdatePanelEntityLeft(hand.HeldEntity);
+                HandsGui.UpdatePanelEntityLeft(hand.Value.HeldEntity);
             }
             else
             {
                 // Middle or right
                 _statusHandRight = handControl;
-                HandsGui.UpdatePanelEntityRight(hand.HeldEntity);
+                HandsGui.UpdatePanelEntityRight(hand.Value.HeldEntity);
             }
 
             HandsGui.SetHighlightHand(foldedLocation);

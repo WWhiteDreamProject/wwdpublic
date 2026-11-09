@@ -6,9 +6,8 @@
   components:
   - type: Projectile
     damage:
-      types:
-        Piercing: 35 #WWDP edit upstream cancer bruh
-
+      # WD EDIT: Migrated damage format
+      Piercing: 35
 - type: entity
   id: BulletMagnumPractice
   name: bullet (.45 magnum practice)
@@ -17,9 +16,8 @@
   components:
   - type: Projectile
     damage:
-      types:
-        Blunt: 1
-
+      # WD EDIT: Migrated damage format
+      Blunt: 1
 - type: entity
   id: BulletMagnumIncendiary
   parent: BaseBulletIncendiary
@@ -28,10 +26,9 @@
   components:
   - type: Projectile
     damage:
-      types:
-        Blunt: 3 #WWDP edit
-        Heat: 32 #WWDP edit
-
+      # WD EDIT: Migrated damage format
+      Blunt: 3
+      Heat: 32
 - type: entity
   id: BulletMagnumAP
   name: bullet (.45 magnum armor-piercing)
@@ -40,8 +37,8 @@
   components:
   - type: Projectile
     damage:
-      types:
-        Piercing: 35 #WWDP edit
+      # WD EDIT: Migrated damage format
+      Piercing: 35
     ignoreResistances: true
 
 - type: entity
@@ -52,10 +49,9 @@
   components:
   - type: Projectile
     damage:
-      types:
-        Radiation: 15 #WWDP edit
-        Piercing: 20 #WWDP edit
-
+      # WD EDIT: Migrated damage format
+      Piercing: 20
+      Radiation: 15
 - type: entity
   id: BulletMagnumShrapnel
   name: bullet (.45 magnum shrapnel)
@@ -64,8 +60,8 @@
   components:
   - type: Projectile
     damage:
-      types:
-        Piercing: 4.7916
+      # WD EDIT: Migrated damage format
+      Piercing: 4.8
   - type: Sprite
     scale: 0.5, 0.5
 

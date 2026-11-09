@@ -5,8 +5,10 @@
   description: The spiritual and magical lung of a former opera singer. Though, to be honest, the vocal chords make the performance.
   components:
   - type: Sprite
-    sprite: Mobs/Species/Human/organs.rsi
-    state: lung-l
+    # WD EDIT START
+    sprite: _White/Bodies/Organs/Humanoids/human.rsi
+    state: lungs
+    # WD EDIT END
   - type: Instrument
     program: 121
   - type: Item

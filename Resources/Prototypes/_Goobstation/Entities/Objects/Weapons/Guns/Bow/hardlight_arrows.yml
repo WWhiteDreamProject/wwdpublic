@@ -33,8 +33,8 @@
     deleteOnCollide: false
     onlyCollideWhenShot: true
     damage:
-      types:
-        Heat: 45
+      # WD EDIT: Migrated damage format
+      Heat: 45
   - type: TimedDespawn
     lifetime: 10
   - type: PointLight
@@ -80,8 +80,8 @@
     color: "#00B2FF"
   - type: Projectile
     damage:
-      types:
-        Heat: 0
+      # WD EDIT: Migrated damage format
+      Heat: 0
   - type: StaminaDamageOnCollide
     damage: 60
 
@@ -97,8 +97,8 @@
     color: red
   - type: Projectile
     damage:
-      types:
-        Heat: 15
+      # WD EDIT: Migrated damage format
+      Heat: 15
   - type: IgniteOnCollide
     fireStacks: 4
 
@@ -131,8 +131,8 @@
     color: "#7300FF"
   - type: Projectile
     damage:
-      types:
-        Heat: 0
+      # WD EDIT: Migrated damage format
+      Heat: 0
   - type: TriggerOnCollide
     fixtureID: projectile
   - type: ExplodeOnTrigger
@@ -158,8 +158,8 @@
     noPenetrateMask:
     - BlobImpassable
     damage:
-      types:
-        Heat: 30
+      # WD EDIT: Migrated damage format
+      Heat: 30
   - type: Fixtures
     fixtures:
       projectile:

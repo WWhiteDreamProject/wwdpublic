@@ -1,7 +1,7 @@
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.PowerCell;
-using Content.Shared.Damage;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Item.ItemToggle.Components;
@@ -50,11 +50,10 @@ public sealed class RechargeableBlockingSystem : EntitySystem
     private void OnDamageChanged(EntityUid uid, RechargeableBlockingComponent component, DamageChangedEvent args)
     {
         if (!_battery.TryGetBatteryComponent(uid, out var batteryComponent, out var batteryUid)
-            || !_itemToggle.IsActivated(uid)
-            || args.DamageDelta == null)
+            || !_itemToggle.IsActivated(uid))
             return;
 
-        var batteryUse = Math.Min(args.DamageDelta.GetTotal().Float(), batteryComponent.CurrentCharge);
+        var batteryUse = Math.Min(args.Damage.GetTotal().Float(), batteryComponent.CurrentCharge); // WD EDIT
         _battery.TryUseCharge(batteryUid.Value, batteryUse, batteryComponent);
     }
 

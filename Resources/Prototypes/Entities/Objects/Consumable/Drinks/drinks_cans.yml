@@ -4,18 +4,18 @@
   id: DrinkCanBaseFull
   abstract: true
   components:
-  - type: Drink
+  - type: Ingestible # WD Ingestible
   - type: Openable
   - type: Shakeable
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Cola
           Quantity: 30
         maxVol: 30
   - type: MixableSolution
-    solution: drink
+    solution: ingestible # WD Ingestible
   - type: SolutionTransfer
     canChangeTransferAmount: true
     maxTransferAmount: 15
@@ -29,15 +29,15 @@
       - state: icon
         map: ["enum.OpenableVisuals.Layer"]
   - type: FitsInDispenser
-    solution: drink
+    solution: ingestible # WD Ingestible
   - type: DrawableSolution
-    solution: drink
+    solution: ingestible # WD Ingestible
   - type: RefillableSolution
-    solution: drink
+    solution: ingestible # WD Ingestible
   - type: DrainableSolution
-    solution: drink
+    solution: ingestible # WD Ingestible
   - type: PressurizedSolution
-    solution: drink
+    solution: ingestible # WD Ingestible
   - type: Appearance
   - type: GenericVisualizer
     visuals:
@@ -46,18 +46,18 @@
           True: {state: "icon_open"}
           False: {state: "icon"}
   - type: Spillable
-    solution: drink
+    solution: ingestible # WD Ingestible
   - type: MeleeWeapon
     canBeBlocked: false # WD EDIT
     soundNoDamage:
       path: "/Audio/Effects/Fluids/splat.ogg"
     damage:
-      types:
-        Blunt: 0
+      # WD EDIT: Migrated damage format
+      Blunt: 0
   - type: DamageOtherOnHit
     damage:
-      types:
-        Blunt: 3
+      # WD EDIT: Migrated damage format
+      Blunt: 3
     soundHit:
       path: /Audio/SimpleStation14/Items/Handling/drinkglass_drop.ogg
   - type: Tool
@@ -66,7 +66,7 @@
     speedModifier: 0.25 # its small so takes longer to roll the entire dough flat
   - type: SpaceGarbage
   - type: TrashOnSolutionEmpty
-    solution: drink
+    solution: ingestible # WD Ingestible
   - type: PhysicalComposition
     materialComposition:
       Steel: 50 #reduce, reuse, recycle
@@ -89,7 +89,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: Cola
@@ -112,7 +112,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 30
   - type: Openable
     opened: true
@@ -137,7 +137,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: IcedTea
@@ -155,7 +155,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: LemonLime
@@ -173,7 +173,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: LemonLimeCranberry
@@ -212,10 +212,9 @@
     deleteOnCollide: false
     onlyCollideWhenShot: true
     damage:
-      types:
-        Blunt: 1
-        Cold: 2 # Refreshing
-
+      # WD EDIT: Migrated damage format
+      Blunt: 1
+      Cold: 2
 - type: entity
   parent: DrinkCanBaseFull
   id: DrinkGrapeCan
@@ -224,7 +223,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: GrapeSoda
@@ -242,7 +241,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: RootBeer
@@ -263,12 +262,12 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: SodaWater
           Quantity: 30
-  - type: Drink
+  - type: Ingestible # WD Ingestible
   - type: Sprite
     sprite: Objects/Consumable/Drinks/sodawater.rsi
 
@@ -280,7 +279,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: SpaceMountainWind
@@ -298,7 +297,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: SpaceUp
@@ -316,7 +315,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: SolDry
@@ -334,7 +333,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: Starkist
@@ -352,12 +351,12 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: TonicWater
           Quantity: 30
-  - type: Drink
+  - type: Ingestible # WD Ingestible
   - type: Sprite
     sprite: Objects/Consumable/Drinks/tonic.rsi
 
@@ -369,7 +368,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: FourteenLoko
@@ -387,12 +386,12 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: ChangelingSting
           Quantity: 30
-  - type: Drink
+  - type: Ingestible # WD Ingestible
   - type: Sprite
     sprite: Objects/Consumable/Drinks/changelingsting.rsi
   - type: Item
@@ -406,12 +405,12 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: DrGibb
           Quantity: 30
-  - type: Drink
+  - type: Ingestible # WD Ingestible
   - type: Sprite
     sprite: Objects/Consumable/Drinks/dr_gibb.rsi
   - type: Item
@@ -425,7 +424,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: Stimulants
@@ -451,12 +450,12 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: EnergyDrink
           Quantity: 30
-  - type: Drink
+  - type: Ingestible # WD Ingestible
   - type: Sprite
     sprite: Objects/Consumable/Drinks/energy_drink.rsi
   - type: Item
@@ -523,12 +522,12 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: ShamblersJuice
           Quantity: 30
-  - type: Drink
+  - type: Ingestible # WD Ingestible
   - type: Sprite
     sprite: Objects/Consumable/Drinks/shamblersjuice.rsi
   - type: Item
@@ -542,12 +541,12 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: PwrGame
           Quantity: 30
-  - type: Drink
+  - type: Ingestible # WD Ingestible
   - type: Sprite
     sprite: Objects/Consumable/Drinks/pwrgame.rsi
   - type: Item
@@ -561,12 +560,12 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: Beer
           Quantity: 30
-  - type: Drink
+  - type: Ingestible # WD Ingestible
   - type: Sprite
     sprite: Objects/Consumable/Drinks/beer_can.rsi
   - type: Item
@@ -583,12 +582,12 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: Wine
           Quantity: 30
-  - type: Drink
+  - type: Ingestible # WD Ingestible
   - type: Sprite
     sprite: Objects/Consumable/Drinks/wine_can.rsi
   - type: Item

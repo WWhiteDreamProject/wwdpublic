@@ -1,5 +1,4 @@
-using Content.Server.Body.Components;
-using Content.Shared.Body.Prototypes;
+using Content.Shared._White.Bloodstream.Prototypes;
 using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
 

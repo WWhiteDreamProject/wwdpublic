@@ -439,9 +439,8 @@
       tags:
       - Window
     damage:
-      types:
-        Structural: 200
-
+      # WD EDIT: Migrated damage format
+      Structural: 200
 - type: artifactEffect
   id: EffectGas
   targetDepth: 2
@@ -549,10 +548,14 @@
       components:
       - MobState
     damage:
-      groups:
-        Brute: -300
-        Burn: -300
-
+      # WD EDIT: Migrated damage format
+      Blunt: -100
+      Caustic: -75
+      Cold: -75
+      Heat: -75
+      Piercing: -100
+      Shock: -75
+      Slash: -100
 - type: artifactEffect
   id: EffectRadiateStrong
   targetDepth: 3

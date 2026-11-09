@@ -1,0 +1,35 @@
+- type: entity
+  id: BaseBodyProviderOrganRat
+  parent: BaseBodyProviderOrganOrganic
+  abstract: true
+  suffix: Rat
+  components:
+  - type: Sprite
+    sprite: _White/Bodies/Organs/Humanoids/human.rsi
+
+- type: entity
+  id: BaseMetabolizerRat
+  abstract: true
+  components:
+  - type: Metabolizer
+    types: [ Animal, BloodIron, RespirationOxygen, Rat ]
+
+# Kidneys
+- type: entity
+  id: BodyProviderKidneysRat
+  parent: [BaseBodyProviderKidneysRespiratory, BaseBodyProviderOrganRat, BaseMetabolizerRat]
+
+# Liver
+- type: entity
+  id: BodyProviderLiverRat
+  parent: [BaseBodyProviderLiverRespiratory, BaseBodyProviderOrganRat, BaseMetabolizerRat]
+
+# Lungs
+- type: entity
+  id: BodyProviderLungsRat
+  parent: [BaseBodyProviderLungsRespiratory, BaseBodyProviderOrganRat, BaseMetabolizerRat]
+
+# Stomach
+- type: entity
+  id: BodyProviderStomachRat
+  parent: [BaseBodyProviderStomachRespiratory, BaseBodyProviderOrganRat, BaseMetabolizerRat]

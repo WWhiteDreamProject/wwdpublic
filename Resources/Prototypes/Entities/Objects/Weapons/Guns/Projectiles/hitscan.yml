@@ -19,8 +19,8 @@
 - type: hitscan
   id: RedLaser
   damage:
-    types:
-      Heat: 14
+    # WD EDIT: Migrated damage format
+    Heat: 14
   muzzleFlash:
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
     state: muzzle_laser
@@ -34,8 +34,8 @@
 - type: hitscan
   id: RedLaserPractice
   damage:
-    types:
-      Heat: 1
+    # WD EDIT: Migrated damage format
+    Heat: 1
   muzzleFlash:
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
     state: muzzle_laser
@@ -49,8 +49,8 @@
 - type: hitscan
   id: RedMediumLaser
   damage:
-    types:
-      Heat: 17
+    # WD EDIT: Migrated damage format
+    Heat: 17
   muzzleFlash:
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
     state: muzzle_laser
@@ -64,8 +64,8 @@
 - type: hitscan
   id: RedLightLaser
   damage:
-    types:
-      Heat: 7
+    # WD EDIT: Migrated damage format
+    Heat: 7
   muzzleFlash:
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
     state: muzzle_laser
@@ -79,9 +79,9 @@
 - type: hitscan
   id: XrayLaser
   damage:
-    types:
-      Heat: 10
-      Radiation: 10
+    # WD EDIT: Migrated damage format
+    Heat: 10
+    Radiation: 10
   muzzleFlash:
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
     state: muzzle_xray
@@ -95,8 +95,8 @@
 - type: hitscan
   id: RedHeavyLaser
   damage:
-    types:
-      Heat: 28
+    # WD EDIT: Migrated damage format
+    Heat: 28
   muzzleFlash:
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
     state: muzzle_beam_heavy
@@ -110,8 +110,8 @@
 - type: hitscan
   id: Pulse
   damage:
-    types:
-      Heat: 35
+    # WD EDIT: Migrated damage format
+    Heat: 35
   muzzleFlash:
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
     state: muzzle_blue
@@ -126,9 +126,9 @@
   id: RedShuttleLaser
   maxLength: 60
   damage:
-    types:
-      Heat: 45
-      Structural: 10
+    # WD EDIT: Migrated damage format
+    Heat: 45
+    Structural: 10
   muzzleFlash:
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
     state: muzzle_beam_heavy2
@@ -143,9 +143,9 @@
 - type: hitscan
   id: WispLash
   damage:
-    types:
-      Cold: 8
-      Shock: 8
+    # WD EDIT: Migrated damage format
+    Cold: 8
+    Shock: 8
   muzzleFlash:
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
     state: muzzle_omni

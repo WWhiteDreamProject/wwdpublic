@@ -1,0 +1,48 @@
+﻿- type: marking
+  id: ScarsEyeLeft
+  parent: BaseScars
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/scars.rsi
+      state: eye_left
+
+- type: marking
+  id: ScarsEyeRight
+  parent: BaseScars
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/scars.rsi
+      state: eye_right
+
+- type: marking
+  id: ScarsEyeSurgeryTopLong
+  parent: BaseScars
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/scars.rsi
+      state: surgery_top_long
+
+- type: marking
+  id: ScarsEyeSurgeryTopShort
+  parent: BaseScars
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/scars.rsi
+      state: surgery_top_short
+
+- type: marking
+  id: ScarsTorso
+  parent: BaseScars
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/scars.rsi
+      state: torso-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/scars.rsi
+      state: torso-groin

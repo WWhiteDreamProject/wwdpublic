@@ -152,7 +152,7 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         // WD EDIT END
 
         EntityUid? inTargetHand = targetHandsComponent?.ActiveHand is { IsEmpty: false }
-            ? targetHandsComponent.ActiveHand.HeldEntity!.Value
+            ? targetHandsComponent.ActiveHand.Value.HeldEntity!.Value
             : null;
 
         var attemptEvent = new DisarmAttemptEvent(target, user, inTargetHand);

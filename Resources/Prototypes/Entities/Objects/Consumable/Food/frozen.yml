@@ -6,12 +6,12 @@
   id: FoodFrozenBase
   abstract: true
   components:
-  - type: Food
+  - type: Ingestible # WD Ingestible
   - type: Sprite
     sprite: Objects/Consumable/Food/frozen.rsi
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 20 # For sprinkles or something? Idk.
         reagents:
         - ReagentId: Nutriment
@@ -65,7 +65,7 @@
     state: cornuto
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 20
         reagents:
         - ReagentId: Nutriment
@@ -87,7 +87,7 @@
     - state: popsicle-base
     - state: popsicle
       color: orange
-  - type: Food
+  - type: Ingestible # WD Ingestible
     trash: 
     - FoodFrozenPopsicleTrash
 
@@ -103,7 +103,7 @@
     - state: popsicle-base
     - state: popsicle
       color: red
-  - type: Food
+  - type: Ingestible # WD Ingestible
     trash: 
     - FoodFrozenPopsicleTrash
   - type: Tag
@@ -120,12 +120,12 @@
     layers:
     - state: stick
     - state: jumbo
-  - type: Food
+  - type: Ingestible # WD Ingestible
     trash: 
     - FoodFrozenPopsicleTrash
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: Nutriment
@@ -151,12 +151,12 @@
         - state: cone
         - state: alpha-filling
     #      color: foo
-    - type: Food
+    - type: Ingestible # WD Ingestible
       trash: 
       - FoodFrozenSnowconeTrash
     - type: SolutionContainerManager
       solutions:
-        food:
+        ingestible: # WD Ingestible
           maxVol: 20 # For sprinkles or something? Idk.
           reagents:
             - ReagentId: Ice
@@ -174,7 +174,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 20
         reagents:
           - ReagentId: Ice
@@ -190,7 +190,7 @@
     layers:
     - state: cone
     - state: berry
-  - type: Food
+  - type: Ingestible # WD Ingestible
     trash: 
     - FoodFrozenSnowconeTrash
   - type: Tag
@@ -207,7 +207,7 @@
     layers:
     - state: cone
     - state: fruitsalad
-  - type: Food
+  - type: Ingestible # WD Ingestible
     trash: 
     - FoodFrozenSnowconeTrash
   - type: Tag
@@ -224,7 +224,7 @@
     layers:
     - state: cone
     - state: clown
-  - type: Food
+  - type: Ingestible # WD Ingestible
     trash: 
     - FoodFrozenSnowconeTrash
 
@@ -238,7 +238,7 @@
     layers:
     - state: cone
     - state: mime
-  - type: Food
+  - type: Ingestible # WD Ingestible
     trash: 
     - FoodFrozenSnowconeTrash
 
@@ -252,7 +252,7 @@
     layers:
     - state: cone
     - state: rainbow
-  - type: Food
+  - type: Ingestible # WD Ingestible
     trash: 
     - FoodFrozenSnowconeTrash
 

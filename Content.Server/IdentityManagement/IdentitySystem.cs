@@ -4,6 +4,8 @@ using Content.Server.CriminalRecords.Systems;
 using Content.Server.PsionicsRecords.Systems;
 using Content.Server.Humanoid;
 using Content.Shared._EE.GenderChange;
+using Content.Shared._White.Humanoid.Components;
+using Content.Shared._White.Humanoid.Systems;
 using Content.Shared.Clothing;
 using Content.Shared.Database;
 using Content.Shared.Hands;
@@ -27,7 +29,7 @@ public sealed class IdentitySystem : SharedIdentitySystem
     [Dependency] private readonly IAdminLogManager _adminLog = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
+    [Dependency] private readonly HumanoidProfileSystem _humanoid = default!;
     [Dependency] private readonly CriminalRecordsConsoleSystem _criminalRecordsConsole = default!;
     [Dependency] private readonly PsionicsRecordsConsoleSystem _psionicsRecordsConsole = default!;
     [Dependency] private readonly InventorySystem _inventorySystem = default!; // Goobstation - Update component state on component toggle
@@ -160,11 +162,11 @@ public sealed class IdentitySystem : SharedIdentitySystem
     /// </summary>
     private IdentityRepresentation GetIdentityRepresentation(EntityUid target,
         InventoryComponent? inventory=null,
-        HumanoidAppearanceComponent? appearance=null)
+        HumanoidProfileComponent? appearance=null)
     {
         int age = 18;
         Gender gender = Gender.Epicene;
-        string species = SharedHumanoidAppearanceSystem.DefaultSpecies;
+        string species = HumanoidProfileSystem.DefaultSpecies;
 
         // Always use their actual age and gender, since that can't really be changed by an ID.
         if (Resolve(target, ref appearance, false))
@@ -174,7 +176,7 @@ public sealed class IdentitySystem : SharedIdentitySystem
             species = appearance.Species;
         }
 
-        var ageString = _humanoid.GetAgeRepresentation(species, age);
+        var ageString = _humanoid.GetAgeRepresentation(age, species);
         var trueName = Name(target);
         if (!Resolve(target, ref inventory, false))
             return new(trueName, gender, ageString, string.Empty);

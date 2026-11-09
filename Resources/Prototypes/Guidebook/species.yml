@@ -8,19 +8,12 @@
     - Felinid # WWDP EDIT
     - Human
     - Moth
-#    - Oni # WWDP EDIT
+    - Oni
     - Reptilian
     - SlimePerson
     - IPC
     - Harpy
-#    - Shadowkin # WWDP EDIT
     - Plasmaman
-#    - Chitinid
-#    - Tajaran # WWDP EDIT
-    - Vulpkanin # WWDP EDIT
-#    - Xelthia # WWDP EDIT
-    # ImpStation additions
-#    - Thaven # WWDP EDIT
 
 - type: guideEntry
   id: Arachnid
@@ -41,12 +34,12 @@
   id: Moth
   name: species-name-moth
   text: "/ServerInfo/Guidebook/Mobs/Moth.xml"
-# WWDP EDIT START
-#- type: guideEntry
-#  id: Oni
-#  name: species-name-oni
-#  text: "/ServerInfo/Guidebook/Mobs/Oni.xml"
-# WWDP EDIT END
+
+- type: guideEntry
+  id: Oni
+  name: species-name-oni
+  text: "/ServerInfo/Guidebook/Mobs/Oni.xml"
+
 - type: guideEntry
   id: Reptilian
   name: species-name-reptilian
@@ -66,35 +59,17 @@
   id: Harpy
   name: species-name-harpy
   text: "/ServerInfo/Guidebook/Mobs/Harpy.xml"
-# WWDP EDIT START
-#- type: guideEntry
-#  id: Shadowkin
-#  name: species-name-shadowkin
-#  text: "/ServerInfo/Guidebook/Mobs/Shadowkin.xml"
 
-#- type: guideEntry
-#  id: Tajaran
-#  name: species-name-tajaran
-#  text: "/ServerInfo/Guidebook/Mobs/Tajaran.xml"
-# WWDP EDIT END
 - type: guideEntry
   id: Plasmaman
   name: species-name-plasmaman
   text: "/ServerInfo/Guidebook/Mobs/Plasmaman.xml"
+
 # WWDP EDIT START
-#- type: guideEntry
-#  id: Xelthia
-#  name: species-name-xelthia
-#  text: "/ServerInfo/_EE/Guidebook/Mobs/Xelthia.xml"
 
 - type: guideEntry
   id: Felinid
   name: species-name-felinid
   text: "/ServerInfo/Guidebook/Mobs/Felinid.xml"
-
-- type: guideEntry
-  id: Vulpkanin
-  name: species-name-vulpkanin
-  text: "/ServerInfo/Guidebook/Mobs/Vulpkanin.xml"
 
 # WWDP EDIT END

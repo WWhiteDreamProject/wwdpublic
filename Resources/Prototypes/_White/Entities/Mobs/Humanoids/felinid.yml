@@ -1,0 +1,116 @@
+- type: entity
+  id: MobHumanoidFelinid
+  parent:
+  - BaseBodyFelinid
+  - BaseMobHumanoidOrganic
+  name: Urist McFelinid
+  components:
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatHuman
+      amount: 5
+  - type: DamageOnHighSpeedImpact
+    damage:
+      Blunt: 1
+  - type: Felinid
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.28
+        density: 140
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: HideableLayers
+    hideLayersOnEquip:
+    - enum.MarkingVisualLayers.Hair
+    - enum.MarkingVisualLayers.Snout
+  - type: HumanoidProfile
+    species: Felinid
+  - type: Inventory
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female
+      jumpsuit-body-slim:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Human/displacement.rsi
+            state: jumpsuit
+      shoes-body-slim:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Human/displacement.rsi
+            state: shoes
+      gloves-body-slim:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Human/displacement.rsi
+            state: gloves
+      outerClothing-body-slim:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Human/displacement.rsi
+            state: outer
+      hardsuit-body-slim:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Human/displacement.rsi
+            state: hardsuit
+      suit-body-slim:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Human/displacement.rsi
+            state: suit
+  - type: LanguageKnowledge
+    speaks:
+    - TauCetiBasic
+    - Nekomimetic
+    understands:
+    - TauCetiBasic
+    - Nekomimetic
+  - type: NoShoesSilentFootsteps
+  - type: MeleeWeapon
+    animation: WeaponArcClaw
+    soundHit:
+      collection: Punch
+    damage:
+      Slash: 4
+      Piercing: 1
+  - type: PseudoItem
+    storedOffset: 0,17
+    shape:
+    - 0,0,1,4
+    - 0,2,3,4
+    - 4,0,5,4
+  - type: Speech
+    speechSounds: Alto
+  - type: Stamina
+    critThreshold: 85
+    decay: 2.55
+  - type: Tag
+    tags:
+    - AnomalyHost
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - FelinidEmotes
+  - type: Thieving
+    ignoreStripHidden: true
+    stealth: Subtle
+    stripTimeReduction: 0
+    stripTimeMultiplier: 0.667
+  - type: TypingIndicator
+    proto: felinid
+  - type: Vocal
+    wilhelm: "/Audio/Nyanotrasen/Voice/Felinid/cat_wilhelm.ogg"
+    sounds:
+      Male: MaleFelinid
+      Female: FemaleFelinid
+      Unsexed: MaleFelinid

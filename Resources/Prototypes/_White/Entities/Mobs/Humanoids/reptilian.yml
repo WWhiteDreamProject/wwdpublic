@@ -1,0 +1,120 @@
+- type: entity
+  id: MobHumanoidReptilian
+  parent:
+  - BaseBodyReptilian
+  - BaseMobHumanoidOrganic
+  name: Urist McReptilian
+  components:
+  - type: BodyEmotes
+    soundsId: ReptilianBodyEmotes
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatLizard
+      amount: 5
+  - type: FootPrints
+    leftBarePrint: "footprint-left-bare-lizard"
+    rightBarePrint: "footprint-right-bare-lizard"
+  - type: HideableLayers
+    hideLayersOnEquip:
+    - enum.MarkingVisualLayers.Snout
+    - enum.MarkingVisualLayers.HeadSide
+  - type: HumanoidProfile
+    species: Reptilian
+  - type: Inventory
+    speciesId: reptilian
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Reptilian/displacement.rsi
+            state: jumpsuit-female-digi
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Reptilian/displacement.rsi
+            state: shoes-digi
+      jumpsuit-body-slim:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Reptilian/displacement.rsi
+            state: jumpsuit-female-slim
+      shoes-body-slim:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Reptilian/displacement.rsi
+            state: shoes-slim
+      gloves-body-slim:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Human/displacement.rsi
+            state: gloves
+      outerClothing-body-slim:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Human/displacement.rsi
+            state: outer
+      hardsuit-body-slim:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Human/displacement.rsi
+            state: hardsuit
+      suit-body-slim:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Human/displacement.rsi
+            state: suit
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Reptilian/displacement.rsi
+            state: jumpsuit-digi
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/Reptilian/displacement.rsi
+            state: shoes-digi
+  - type: LanguageKnowledge
+    speaks:
+    - TauCetiBasic
+    - Draconic
+    understands:
+    - TauCetiBasic
+    - Draconic
+  - type: MeleeWeapon
+    animation: WeaponArcClaw
+    angle: 30
+    soundHit:
+      collection: AlienClaw
+    damage:
+      Slash: 5
+  - type: LizardAccent
+  - type: Puller
+    needsHands: false
+  - type: Speech
+    speechSounds: Lizard
+    speechVerb: Reptilian
+    allowedEmotes: ['Thump']
+  - type: Tag
+    tags:
+    - AnomalyHost
+    - CanPilot
+    - DoorBumpOpener
+    - FootstepSound
+    - UnathiEmotes
+  - type: Temperature
+    heatDamageThreshold: 400
+    coldDamageThreshold: 285
+  - type: TemperatureSpeed
+    thresholds:
+      301: 0.8
+      295: 0.6
+      285: 0.4
+  - type: TypingIndicator
+    proto: lizard
+  - type: Vocal
+    sounds:
+      Male: MaleReptilian
+      Female: FemaleReptilian
+      Unsexed: MaleReptilian
+  - type: Wagging

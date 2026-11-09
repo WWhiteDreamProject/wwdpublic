@@ -2,7 +2,7 @@
   id: BaseMobConstruct
   parent:
   - BaseMob
-  - MobCombat
+  - BaseMobCombat
   abstract: true
   components:
   - type: Sprite
@@ -17,8 +17,8 @@
     baseSprintSpeed: 3
   - type: DamageOnHighSpeedImpact
     damage:
-      types:
-        Blunt: 5
+      # WD EDIT: Migrated damage format
+      Blunt: 5
     soundHit:
       path: /Audio/Effects/hit_kick.ogg
   - type: Fixtures

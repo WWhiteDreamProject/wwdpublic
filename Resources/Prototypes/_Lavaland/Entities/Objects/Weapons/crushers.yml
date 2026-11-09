@@ -62,9 +62,9 @@
     range: 1.75 # insane reach
     wideAnimationRotation: -135
     damage:
-      types:
-        Blunt: 10
-        Slash: 5
+      # WD EDIT: Migrated damage format
+      Blunt: 10
+      Slash: 5
     soundHit:
       collection: MetalThud
     angle: 0
@@ -82,13 +82,11 @@
     fumbleOnAttempt: true
   - type: DamageBoostOnMarker
     boost:
-      types: # Totals to 60 damage when hitting marked targets
-        Blunt: 30
-        Slash: 15
-    backstabBoost: # And 20 extra for a backstab. Adding up to 80
-      types:
-        Blunt: 11
-        Slash: 9
+      Blunt: 30
+      Slash: 15
+    backstabBoost:
+      Blunt: 11
+      Slash: 9
 
 - type: entity
   parent: LavalandWeaponKineticBase
@@ -105,8 +103,7 @@
     attackRate: 1.5 # slightly slower than the fireaxe
     wideAnimationRotation: -135
     damage:
-      types:
-        Blunt: 17.5
+      Blunt: 17.5
     soundHit:
       collection: MetalThud
     angle: 0
@@ -126,8 +123,7 @@
     fumbleOnAttempt: true
   - type: DamageBoostOnMarker
     boost:
-      types: # BLOOD FOR THE BLOOD GOD ITS A FUCKING HAMMER
-        Blunt: 75
+      Blunt: 75
 
 
 - type: entity
@@ -150,8 +146,8 @@
     attackRate: 0.8
     wideAnimationRotation: -135
     damage:
-      types:
-        Slash: 5
+      # WD EDIT: Migrated damage format
+      Slash: 5
     soundHit:
       collection: MetalThud
     angle: 0
@@ -163,14 +159,12 @@
     sprite: _Lavaland/Objects/Weapons/Crushers/crusher_claws-inhands.rsi
   - type: Sharp
   - type: DamageBoostOnMarker
-    boost:
-      types: # Totals to 45 damage when hitting marked targets
-        Slash: 25
-        Blunt: 15
+    boost: # Totals to 45 damage when hitting marked targets
+      Slash: 25
+      Blunt: 15
     backstabBoost: # And 120 extra for a backstab. Adding up to 165!!!
-      types:
-        Slash: 75
-        Blunt: 45
+      Slash: 75
+      Blunt: 45
 
 - type: entity
   parent: LavalandWeaponKineticBase
@@ -186,8 +180,8 @@
   - type: MeleeWeapon
     attackRate: 1.0 # slightly slower than a combat/utility knife, but in return is slightly stronger than one
     damage:
-      types:
-        Slash: 12.5
+      # WD EDIT: Migrated damage format
+      Slash: 12.5
     soundHit:
       collection: MetalThud
     angle: 0
@@ -199,14 +193,12 @@
   # too lazy to port parrying and risk a [redacted] lmao
   - type: Sharp
   - type: DamageBoostOnMarker
-    boost:
-      types: # Totals to 50 damage when hitting marked targets
-        Slash: 27.5
-        Blunt: 10
+    boost: # Totals to 50 damage when hitting marked targets
+      Slash: 27.5
+      Blunt: 10
     backstabBoost: # And 20 extra for a backstab
-      types:
-        Slash: 15
-        Blunt: 5
+      Slash: 15
+      Blunt: 5
   - type: BlockCharge
     rechargeTime: 120
     markerReductionTime: 20

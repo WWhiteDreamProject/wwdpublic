@@ -1,5 +1,5 @@
+using Content.Shared._White.Damage;
 using Content.Shared.Alert;
-using Content.Shared.Damage;
 using Content.Shared.Nutrition.EntitySystems;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;

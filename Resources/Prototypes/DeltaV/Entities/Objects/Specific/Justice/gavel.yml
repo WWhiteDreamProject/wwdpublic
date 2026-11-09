@@ -12,8 +12,8 @@
       animationRotation: 45 # WWDP
       wideAnimationRotation: 135 # WWDP
       damage:
-        types:
-          Blunt: 2
+        # WD EDIT: Migrated damage format
+        Blunt: 2
     - type: Item
       size: Small
       sprite: DeltaV/Objects/Specific/Justice/gavel.rsi

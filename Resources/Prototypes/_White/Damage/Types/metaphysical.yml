@@ -1,0 +1,3 @@
+- type: damageType
+  id: Holy
+  name: damage-type-holy

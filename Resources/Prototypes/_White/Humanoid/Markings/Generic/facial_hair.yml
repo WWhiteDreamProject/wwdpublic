@@ -1,0 +1,314 @@
+- type: marking
+  id: FacialHair3OClock
+  parent: BaseFacialHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.FacialHair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/facial_hair.rsi
+      state: 3_o_clock
+
+- type: marking
+  id: FacialHair5OClock
+  parent: BaseFacialHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.FacialHair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/facial_hair.rsi
+      state: 5_o_clock
+
+- type: marking
+  id: FacialHair5OClockMoustache
+  parent: BaseFacialHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.FacialHair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/facial_hair.rsi
+      state: 5_o_clock_moustache
+
+- type: marking
+  id: FacialHair7OClock
+  parent: BaseFacialHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.FacialHair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/facial_hair.rsi
+      state: 7_o_clock
+
+- type: marking
+  id: FacialHair7OClockMoustache
+  parent: BaseFacialHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.FacialHair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/facial_hair.rsi
+      state: 7_o_clock_moustache
+
+- type: marking
+  id: FacialHairAbe
+  parent: BaseFacialHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.FacialHair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/facial_hair.rsi
+      state: abe
+
+- type: marking
+  id: FacialHairBrokenMan
+  parent: BaseFacialHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.FacialHair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/facial_hair.rsi
+      state: broken_man
+
+- type: marking
+  id: FacialHairChaplin
+  parent: BaseFacialHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.FacialHair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/facial_hair.rsi
+      state: chaplin
+
+- type: marking
+  id: FacialHairChin
+  parent: BaseFacialHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.FacialHair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/facial_hair.rsi
+      state: chin
+
+- type: marking
+  id: FacialHairChinlessBeard
+  parent: BaseFacialHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.FacialHair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/facial_hair.rsi
+      state: chinless_beard
+
+- type: marking
+  id: FacialHairCroppedFullBeard
+  parent: BaseFacialHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.FacialHair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/facial_hair.rsi
+      state: cropped_full_beard
+
+- type: marking
+  id: FacialHairDwarf
+  parent: BaseFacialHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.FacialHair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/facial_hair.rsi
+      state: dwarf
+
+- type: marking
+  id: FacialHairElvis
+  parent: BaseFacialHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.FacialHair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/facial_hair.rsi
+      state: elvis
+
+- type: marking
+  id: FacialHairFuManchu
+  parent: BaseFacialHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.FacialHair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/facial_hair.rsi
+      state: fu_manchu
+
+- type: marking
+  id: FacialHairFullBeard
+  parent: BaseFacialHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.FacialHair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/facial_hair.rsi
+      state: full_beard
+
+- type: marking
+  id: FacialHairGt
+  parent: BaseFacialHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.FacialHair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/facial_hair.rsi
+      state: gt
+
+- type: marking
+  id: FacialHairHip
+  parent: BaseFacialHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.FacialHair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/facial_hair.rsi
+      state: hip
+
+- type: marking
+  id: FacialHairHogan
+  parent: BaseFacialHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.FacialHair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/facial_hair.rsi
+      state: hogan
+
+- type: marking
+  id: FacialHairJensen
+  parent: BaseFacialHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.FacialHair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/facial_hair.rsi
+      state: jensen
+
+- type: marking
+  id: FacialHairLongBeard
+  parent: BaseFacialHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.FacialHair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/facial_hair.rsi
+      state: long_beard
+
+- type: marking
+  id: FacialHairMartialArtist
+  parent: BaseFacialHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.FacialHair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/facial_hair.rsi
+      state: martial_artist
+
+- type: marking
+  id: FacialHairMoonshiner
+  parent: BaseFacialHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.FacialHair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/facial_hair.rsi
+      state: moonshiner
+
+- type: marking
+  id: FacialHairMoustache
+  parent: BaseFacialHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.FacialHair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/facial_hair.rsi
+      state: moustache
+
+- type: marking
+  id: FacialHairMutton
+  parent: BaseFacialHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.FacialHair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/facial_hair.rsi
+      state: mutton
+
+- type: marking
+  id: FacialHairMuttonMus
+  parent: BaseFacialHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.FacialHair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/facial_hair.rsi
+      state: mutton_mus
+
+- type: marking
+  id: FacialHairNeckBeard
+  parent: BaseFacialHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.FacialHair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/facial_hair.rsi
+      state: neck_beard
+
+- type: marking
+  id: FacialHairPencilStache
+  parent: BaseFacialHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.FacialHair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/facial_hair.rsi
+      state: pencil_stache
+
+- type: marking
+  id: FacialHairSelleck
+  parent: BaseFacialHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.FacialHair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/facial_hair.rsi
+      state: selleck
+
+- type: marking
+  id: FacialHairSideBurn
+  parent: BaseFacialHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.FacialHair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/facial_hair.rsi
+      state: side_burn
+
+- type: marking
+  id: FacialHairSmallStache
+  parent: BaseFacialHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.FacialHair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/facial_hair.rsi
+      state: small_stache
+
+- type: marking
+  id: FacialHairVanDyke
+  parent: BaseFacialHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.FacialHair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/facial_hair.rsi
+      state: van_dyke
+
+- type: marking
+  id: FacialHairVolaju
+  parent: BaseFacialHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.FacialHair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/facial_hair.rsi
+      state: volaju
+
+- type: marking
+  id: FacialHairWalrus
+  parent: BaseFacialHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.FacialHair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/facial_hair.rsi
+      state: walrus
+
+- type: marking
+  id: FacialHairWatson
+  parent: BaseFacialHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.FacialHair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/facial_hair.rsi
+      state: watson
+
+- type: marking
+  id: FacialHairWise
+  parent: BaseFacialHair
+  definitions:
+  - layer: enum.MarkingVisualLayers.FacialHair
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/facial_hair.rsi
+      state: wise

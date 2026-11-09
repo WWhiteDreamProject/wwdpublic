@@ -1,0 +1,16 @@
+- type: markingCategory
+  id: Coloration
+  layers:
+  - enum.BodyProviderType.Chest
+  - enum.BodyProviderType.Groin
+  - enum.BodyProviderType.Head
+  - enum.BodyProviderType.LeftArm
+  - enum.BodyProviderType.LeftFoot
+  - enum.BodyProviderType.LeftHand
+  - enum.BodyProviderType.LeftLeg
+  - enum.BodyProviderType.RightArm
+  - enum.BodyProviderType.RightFoot
+  - enum.BodyProviderType.RightHand
+  - enum.BodyProviderType.RightLeg
+  - enum.BodyProviderType.Tail
+  - enum.BodyProviderType.Wings

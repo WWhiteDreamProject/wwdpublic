@@ -1,5 +1,5 @@
 - type: entity
-  parent: BaseMobXenomorphAdult
+  parent: [BaseMobXenomorphAdult, BaseBodyXenomorphQueen]
   id: BaseMobXenomorphQueen
   name: xenomorph queen
   description: The highest individual, the central element and mother of the Hive. The destruction of the Queen in most cases means the collapse of the Hive.
@@ -18,8 +18,9 @@
   - type: XenomorphQueen
   - type: TailLash
     tailDamage:
-      groups:
-        Brute: 17
+      Blunt: 5.5
+      Piercing: 5.5
+      Slash: 5.5
     inject:
       Tirizene: 5
   - type: ActionGrant
@@ -30,8 +31,6 @@
     - ActionSpawnResinNest
     - ActionSpawnResinWeedNode
     - ActionSpawnXenomorphEgg
-  - type: Body
-    prototype: XenomorphQueen
   - type: TypingIndicator
     proto: alien_royal
   - type: Fixtures
@@ -60,8 +59,10 @@
     baseSprintSpeed: 2.5
   - type: MeleeWeapon
     damage:
-      groups:
-        Brute: 50
+      # WD EDIT: Migrated damage format
+      Blunt: 16.7
+      Piercing: 16.7
+      Slash: 16.7
   - type: Deathgasp
     prototype: XenomorphQueenDeathgasp
   - type: Speech

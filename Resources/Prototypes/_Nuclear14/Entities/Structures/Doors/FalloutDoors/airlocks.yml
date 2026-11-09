@@ -8,8 +8,7 @@
   - type: Door
     bumpOpen: false
     crushDamage:
-      types:
-        Blunt: 30 #if the 2 ton vault door breaking every bone in your body doesn't kill you, the suffocation will
+      Blunt: 30 #if the 2 ton vault door breaking every bone in your body doesn't kill you, the suffocation will
     openSound:
       path: /Audio/Machines/airlock_ext_open.ogg
     closeSound:

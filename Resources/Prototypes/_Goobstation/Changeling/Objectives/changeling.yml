@@ -39,7 +39,7 @@
   components:
   - type: Objective
     icon:
-      sprite: Mobs/Species/Human/organs.rsi
+      sprite: _White/Bodies/Organs/Humanoids/human.rsi # WD EDIT
       state: brain
   - type: NumberObjective
     min: 6

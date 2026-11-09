@@ -1,8 +1,8 @@
 using System.Numerics;
 using Content.Server.Popups;
+using Content.Shared._White.Damage;
+using Content.Shared._White.Damage.Prototypes;
 using Content.Shared._White.Maths;
-using Content.Shared.Damage;
-using Content.Shared.Damage.Prototypes;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Content.Shared.Weapons.Melee.Events;

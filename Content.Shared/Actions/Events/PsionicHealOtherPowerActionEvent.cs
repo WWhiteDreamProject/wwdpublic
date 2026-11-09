@@ -1,5 +1,5 @@
+using Content.Shared._White.Damage;
 using Robust.Shared.Audio;
-using Content.Shared.Damage;
 using Content.Shared.Popups;
 
 namespace Content.Shared.Actions.Events;

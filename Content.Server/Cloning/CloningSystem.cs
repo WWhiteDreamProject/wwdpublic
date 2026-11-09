@@ -10,22 +10,32 @@ using Content.Server.Jobs;
 using Content.Server.Materials;
 using Content.Server.Popups;
 using Content.Server.Power.EntitySystems;
-using Content.Shared.Silicon.Components; // Goobstation
-using Content.Shared.Atmos;
+using Content.Shared._White.Damage.Systems;
+using Content.Shared._White.Humanoid.Components;
+using Content.Shared._White.Humanoid.Prototypes;
+using Content.Shared._White.Humanoid.Systems;
+using Content.Shared._White.Preferences;
 using Content.Shared.CCVar;
-using Content.Shared.Chemistry.Components;
 using Content.Shared.Cloning;
-using Content.Shared.Damage;
+using Content.Shared.Contests;
 using Content.Shared.DeviceLinking.Events;
+using Content.Shared.Drunk;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Examine;
 using Content.Shared.GameTicking;
 using Content.Shared.Humanoid;
+using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Nutrition.EntitySystems;
+using Content.Shared.Power;
+using Content.Shared.Preferences;
 using Content.Shared.Random;
+using Content.Shared.Random.Helpers;
 using Content.Shared.Roles.Jobs;
+using Content.Shared.Silicon.Components;
+using Content.Shared.Tag;
 using Robust.Server.Containers;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
@@ -35,19 +45,9 @@ using Robust.Shared.Containers;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Content.Shared.Tag;
-using Content.Shared.Preferences;
-using Content.Shared.Humanoid.Prototypes;
-using Content.Shared.Random.Helpers;
-using Content.Shared.Contests;
 using Robust.Shared.Serialization.Manager;
+using Robust.Shared.Timing;
 using Robust.Shared.Utility;
-using Timer = Robust.Shared.Timing.Timer;
-using Content.Server.Power.Components;
-using Content.Shared.Drunk;
-using Content.Shared.Nutrition.EntitySystems;
-using Content.Shared.Power;
-
 
 namespace Content.Server.Cloning;
 
@@ -58,7 +58,6 @@ public sealed partial class CloningSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly EuiManager _euiManager = null!;
     [Dependency] private readonly CloningConsoleSystem _cloningConsoleSystem = default!;
-    [Dependency] private readonly HumanoidAppearanceSystem _humanoidSystem = default!;
     [Dependency] private readonly ContainerSystem _containerSystem = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly PowerReceiverSystem _powerReceiverSystem = default!;
@@ -84,6 +83,8 @@ public sealed partial class CloningSystem : EntitySystem
     [Dependency] private readonly SharedDrunkSystem _drunk = default!;
     [Dependency] private readonly MobThresholdSystem _thresholds = default!;
     [Dependency] private readonly EmagSystem _emag = default!;
+    [Dependency] private readonly HumanoidProfileSystem _humanoidProfile = default!;
+
     public readonly Dictionary<MindComponent, EntityUid> ClonesWaitingForMind = new();
 
     // <summary>
@@ -195,7 +196,7 @@ public sealed partial class CloningSystem : EntitySystem
             || clonePod.ActivelyCloning
             || clonePod.ConnectedConsole == null
             || !CheckUncloneable(uid, bodyToClone, clonePod, out var cloningCostMultiplier)
-            || !TryComp<HumanoidAppearanceComponent>(bodyToClone, out var humanoid)
+            || !TryComp<HumanoidProfileComponent>(bodyToClone, out var humanoid)
             || !TryComp<PhysicsComponent>(bodyToClone, out var physics))
             return false;
 
@@ -219,7 +220,7 @@ public sealed partial class CloningSystem : EntitySystem
             return false;
 
         // Special handling for humanoid data related to metempsychosis. This function is needed for Paradox Anomaly code to play nice with reincarnated people
-        var pref = humanoid.LastProfileLoaded;
+        var pref = new HumanoidCharacterProfile()/*TODO humanoid.LastProfileLoaded*/;
         if (pref == null
             || !_prototypeManager.TryIndex(humanoid.Species, out var speciesPrototype))
             return false;
@@ -300,12 +301,12 @@ public sealed partial class CloningSystem : EntitySystem
         CloningPodComponent clonePodComp,
         HumanoidCharacterProfile pref,
         SpeciesPrototype speciesPrototype,
-        HumanoidAppearanceComponent humanoid,
+        HumanoidProfileComponent humanoid,
         EntityUid bodyToClone,
         float geneticDamage
     )
     {
-        List<Sex> sexes = new();
+        HashSet<Sex> sexes = new();
         bool switchingSpecies = false;
         var toSpawn = speciesPrototype.Prototype;
         var forceOldProfile = true;

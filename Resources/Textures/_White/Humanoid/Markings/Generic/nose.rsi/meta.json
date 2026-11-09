@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Created by SlamBamActionman. Tip created by angelofallars(github).",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "blob",
+      "directions": 4
+    },
+    {
+      "name": "droop",
+      "directions": 4
+    },
+    {
+      "name": "nubby",
+      "directions": 4
+    },
+    {
+      "name": "schnozz",
+      "directions": 4
+    },
+    {
+      "name": "tip",
+      "directions": 4
+    },
+    {
+      "name": "uppie",
+      "directions": 4
+    }
+  ]
+}

@@ -47,12 +47,6 @@
   priority: 6
 
 - type: lavalandRuin
-  id: VulpLab
-  name: lavaland-ruin-laboratory
-  path: /Maps/_Lavaland/Lavaland/ruin_vulp_lab.yml
-  priority: 7
-
-- type: lavalandRuin
   id: Chemistry
   name: lavaland-ruin-laboratory
   path: /Maps/_Lavaland/Lavaland/ruin_chemistry.yml

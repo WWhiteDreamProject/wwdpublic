@@ -14,7 +14,7 @@
     state: curdcheese
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 4
         reagents:
         - ReagentId: Protein
@@ -39,7 +39,7 @@
     state: cheesecurds
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 3
         reagents:
         - ReagentId: Protein
@@ -63,7 +63,7 @@
     state: mozzarella
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 4
         reagents:
         - ReagentId: Protein
@@ -89,7 +89,7 @@
     state: herbycheese
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 10
         reagents:
         - ReagentId: Nutriment
@@ -119,7 +119,7 @@
     state: mothsaladbase
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 7
         reagents:
         - ReagentId: Nutriment

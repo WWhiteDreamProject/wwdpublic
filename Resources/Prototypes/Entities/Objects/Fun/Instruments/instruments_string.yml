@@ -19,9 +19,9 @@
       path: /Audio/Nyanotrasen/Weapons/electricguitarhit.ogg
     range: 1.85
     damage:
-      types:
-        Blunt: 6
-        Shock: 2
+      # WD EDIT: Migrated damage format
+      Blunt: 6
+      Shock: 2
     bluntStaminaDamageFactor: 1.25
     angle: 105
   - type: DamageOtherOnHit
@@ -60,9 +60,9 @@
       path: /Audio/Nyanotrasen/Weapons/electricguitarhit.ogg
     range: 1.85
     damage:
-      types:
-        Blunt: 6
-        Shock: 2
+      # WD EDIT: Migrated damage format
+      Blunt: 6
+      Shock: 2
     bluntStaminaDamageFactor: 1.25
     angle: 105
   - type: DamageOtherOnHit
@@ -103,9 +103,9 @@
     animationRotation: -45 # WWDP
     wideAnimationRotation: 45
     damage:
-      types:
-        Blunt: 6
-        Shock: 2
+      # WD EDIT: Migrated damage format
+      Blunt: 6
+      Shock: 2
     bluntStaminaDamageFactor: 1.25
     angle: 90 # WWDP
   - type: DamageOtherOnHit
@@ -113,9 +113,9 @@
   - type: Wieldable
   - type: IncreaseDamageOnWield
     damage:
-      types:
-        Blunt: 2
-        Shock: 1
+      # WD EDIT: Migrated damage format
+      Blunt: 2
+      Shock: 1
   - type: Item
     size: Normal
     sprite: Objects/Fun/Instruments/rockguitar.rsi
@@ -175,28 +175,27 @@
         acts: [ "Destruction" ]
   - type: DamageOnHit # This makes it destroy after one hit.
     damage:
-      types:
-        Blunt: 20
+      # WD EDIT: Migrated damage format
+      Blunt: 20
   - type: DamageOnLand
     damage:
-      types:
-        Blunt: 20
+      # WD EDIT: Migrated damage format
+      Blunt: 20
   - type: MeleeWeapon
     range: 1.5
     animationRotation: -45 # WWDP
     wideAnimationRotation: 45
     damage:
-      types:
-        Blunt: 9
+      # WD EDIT: Migrated damage format
+      Blunt: 9
     bluntStaminaDamageFactor: 1.5
     angle: 105
   - type: DamageOtherOnHit
     staminaCost: 7
   - type: IncreaseDamageOnWield
     damage:
-      types:
-        Blunt: 3
-
+      # WD EDIT: Migrated damage format
+      Blunt: 3
 - type: entity
   parent: BaseHandheldInstrument
   id: GuitarlessFretsInstrument
@@ -231,8 +230,8 @@
       path: /Audio/SimpleStation14/Weapons/Melee/banjohit.ogg
     range: 1.5
     damage:
-      types:
-        Blunt: 8
+      # WD EDIT: Migrated damage format
+      Blunt: 8
     bluntStaminaDamageFactor: 1.5
     angle: 105
   - type: DamageOtherOnHit

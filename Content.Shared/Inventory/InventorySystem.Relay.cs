@@ -1,4 +1,5 @@
 using Content.Shared._Goobstation.Flashbang;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Chat;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Hypospray.Events;
@@ -30,7 +31,7 @@ public partial class InventorySystem
 {
     public void InitializeRelay()
     {
-        SubscribeLocalEvent<InventoryComponent, DamageModifyEvent>(RelayInventoryEvent);
+        SubscribeLocalEvent<InventoryComponent, GetModifiedDamageEvent>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, ElectrocutionAttemptEvent>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, SlipAttemptEvent>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, RefreshMovementSpeedModifiersEvent>(RelayInventoryEvent);

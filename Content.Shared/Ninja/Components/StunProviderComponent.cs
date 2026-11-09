@@ -1,4 +1,4 @@
-using Content.Shared.Damage;
+using Content.Shared._White.Damage;
 using Content.Shared.Ninja.Systems;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
@@ -39,10 +39,7 @@ public sealed partial class StunProviderComponent : Component
     [DataField]
     public DamageSpecifier StunDamage = new()
     {
-        DamageDict = new()
-        {
-            { "Shock", 5 }
-        }
+        { "Shock", 5 },
     };
 
     /// <summary>

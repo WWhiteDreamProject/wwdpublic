@@ -1,0 +1,34 @@
+- type: entity
+  id: ActionHarpyPlayMidi
+  name: Play MIDI
+  description: Sing your heart out! Right click yourself to set an instrument.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    checkCanInteract: false
+    icon: DeltaV/Interface/Actions/harpy_sing.png
+    event: !type:OpenUiActionEvent
+     key: enum.InstrumentUiKey.Key
+
+- type: entity
+  id: ActionSyrinxChangeVoiceMask
+  name: Set name
+  description: Change the name others hear to something else.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon: DeltaV/Interface/Actions/harpy_syrinx.png
+    itemIconStyle: BigAction
+    event: !type:VoiceMaskSetNameEvent
+
+- type: entity
+  id: ActionToggleFlight
+  name: Fly
+  description: Make use of your wings to fly. Beat the flightlessness allegations.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    checkCanInteract: false
+    icon: { sprite: Interface/Actions/flight.rsi, state: flight_off }
+    iconOn: { sprite : Interface/Actions/flight.rsi, state: flight_on }
+    event: !type:ToggleFlightEvent

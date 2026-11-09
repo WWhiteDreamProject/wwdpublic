@@ -10,7 +10,7 @@
   - type: Sprite
     state: produce
   # let cows eat raw produce like wheat and oats
-  - type: Food
+  - type: Ingestible # WD Ingestible
     requiredStomachs: 2
   - type: Produce
   - type: PotencyVisuals
@@ -46,7 +46,7 @@
     sprite: Objects/Specific/Hydroponics/wheat.rsi
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Flour
           Quantity: 10
@@ -78,7 +78,7 @@
     sprite: Objects/Specific/Hydroponics/meatwheat.rsi
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 10
@@ -100,7 +100,7 @@
     sprite: Objects/Specific/Hydroponics/oat.rsi
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Oats
           Quantity: 10
@@ -122,7 +122,7 @@
     sprite: Objects/Specific/Hydroponics/sugarcane.rsi
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Sugar
           Quantity: 10
@@ -155,7 +155,7 @@
       - peas
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 13
         reagents:
         - ReagentId: Nutriment
@@ -188,8 +188,8 @@
   - type: SolutionContainerManager
   - type: MeleeWeapon
     damage:
-      types:
-        Blunt: 10
+      # WD EDIT: Migrated damage format
+      Blunt: 10
   - type: Produce
     seedId: towercap
   - type: Log
@@ -205,8 +205,8 @@
   - type: SolutionContainerManager
   - type: MeleeWeapon
     damage:
-      types:
-        Blunt: 12
+      # WD EDIT: Migrated damage format
+      Blunt: 12
   - type: Produce
     seedId: steelcap
   - type: Log
@@ -227,11 +227,11 @@
     heldPrefix: produce
   - type: MeleeWeapon
     damage:
-      types:
-        Heat: 10
+      # WD EDIT: Migrated damage format
+      Heat: 10
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Histamine
           Quantity: 3
@@ -239,7 +239,7 @@
     seedId: nettle
   - type: MeleeChemicalInjector
     transferAmount: 3 #TODO someone you would need 2 nettles and about 6-7 hits, the DOT is likely to crit them if they are running away with almost no health
-    solution: food
+    solution: ingestible # WD Ingestible
     pierceArmor: false
   - type: Extractable
     grindableSolutionName: food
@@ -258,12 +258,12 @@
     heldPrefix: produce
   - type: MeleeWeapon
     damage:
-      types:
-        Heat: 8.5
-        Caustic: 8.5
+      # WD EDIT: Migrated damage format
+      Caustic: 8.5
+      Heat: 8.5
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: SulfuricAcid
           Quantity: 3
@@ -273,7 +273,7 @@
     seedId: deathNettle
   - type: MeleeChemicalInjector
     transferAmount: 2
-    solution: food
+    solution: ingestible # WD Ingestible
     pierceArmor: false
   - type: Extractable
     grindableSolutionName: food
@@ -287,12 +287,12 @@
   - type: FlavorProfile
     flavors:
       - banana
-  - type: Food
+  - type: Ingestible # WD Ingestible
     trash:
     - TrashBananaPeel
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 6
         reagents:
         - ReagentId: Nutriment
@@ -327,12 +327,12 @@
     flavors:
       - banana
       - nothing
-  - type: Food
+  - type: Ingestible # WD Ingestible
     trash:
     - TrashMimanaPeel
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 7
         reagents:
         - ReagentId: MuteToxin
@@ -403,7 +403,7 @@
     - BananaPeel
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 4
         reagents:
         - ReagentId: PulpedBananaPeel
@@ -425,7 +425,7 @@
     heldPrefix: baked-peel
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: PulpedBananaPeel
           Quantity: 1
@@ -482,7 +482,7 @@
     - Vegetable
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 12
         reagents:
         - ReagentId: JuiceCarrot
@@ -518,7 +518,7 @@
       - cabbage
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 14
         reagents:
         - ReagentId: Nutriment
@@ -548,7 +548,7 @@
       - garlic
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 18
         reagents:
         - ReagentId: Nutriment
@@ -580,7 +580,7 @@
       - sour
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 9
         reagents:
         - ReagentId: Nutriment
@@ -616,7 +616,7 @@
       - lemoon
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 20
         reagents:
         - ReagentId: Vitamin
@@ -704,7 +704,7 @@
       - truenature
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 14
         reagents:
         - ReagentId: Haloperidol
@@ -745,7 +745,7 @@
       - pineapple
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 16
         reagents:
         - ReagentId: Nutriment
@@ -781,7 +781,7 @@
       - potatoes
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 14
         reagents:
         - ReagentId: Nutriment
@@ -821,7 +821,7 @@
       - tomato
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 14
         reagents:
         - ReagentId: Nutriment
@@ -845,8 +845,8 @@
   - type: DamageOnHighSpeedImpact
     minimumSpeed: 0.1
     damage:
-      types:
-        Blunt: 1
+      # WD EDIT: Migrated damage format
+      Blunt: 1
   - type: Destructible
     thresholds:
     - trigger:
@@ -857,7 +857,7 @@
         sound:
           collection: desecration
       - !type:SpillBehavior
-        solution: food
+        solution: ingestible # WD Ingestible
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Tag
@@ -878,7 +878,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 24
         reagents:
         - ReagentId: Nutriment
@@ -907,7 +907,7 @@
         sound:
           collection: desecration
       - !type:SpillBehavior
-        solution: food
+        solution: ingestible # WD Ingestible
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Tag
@@ -927,7 +927,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 14
         reagents:
         - ReagentId: Blood
@@ -954,7 +954,7 @@
         sound:
           collection: desecration
       - !type:SpillBehavior
-        solution: food
+        solution: ingestible # WD Ingestible
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Tag
@@ -978,7 +978,7 @@
       - eggplant
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 14
         reagents:
         - ReagentId: Nutriment
@@ -1005,7 +1005,7 @@
       - apple
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 14
         reagents:
         - ReagentId: Nutriment
@@ -1041,7 +1041,7 @@
       - metallic
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: Nutriment
@@ -1080,7 +1080,7 @@
       - chocolate
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 14
         reagents:
         - ReagentId: Nutriment
@@ -1111,12 +1111,12 @@
   - type: FlavorProfile
     flavors:
       - corn
-  - type: Food
+  - type: Ingestible # WD Ingestible
     trash:
     - FoodCornTrash
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 20
         reagents:
         - ReagentId: Cornmeal
@@ -1161,7 +1161,7 @@
       - Trash
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 20
         reagents:
         - ReagentId: Cornmeal
@@ -1178,7 +1178,7 @@
       - onion
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 18
         reagents:
         - ReagentId: Nutriment
@@ -1209,7 +1209,7 @@
       - onion
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 18
         reagents:
         - ReagentId: Nutriment
@@ -1237,7 +1237,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Nutriment
           Quantity: 5
@@ -1258,7 +1258,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 3
         reagents:
         - ReagentId: Nutriment
@@ -1309,7 +1309,7 @@
     sprite: Objects/Specific/Hydroponics/onion.rsi
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 5
         reagents:
         - ReagentId: Nutriment
@@ -1340,7 +1340,7 @@
     sprite: Objects/Specific/Hydroponics/onion_red.rsi
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 5
         reagents:
         - ReagentId: Nutriment
@@ -1369,7 +1369,7 @@
       - spicy
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 18
         reagents:
           - ReagentId: Nutriment
@@ -1403,7 +1403,7 @@
       - cold
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 18
         reagents:
           - ReagentId: Nutriment
@@ -1433,7 +1433,7 @@
       - medicine
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 20 ##I'm pretty sure this has to match the total of 100 potency yields
         reagents:
         - ReagentId: Aloe
@@ -1469,7 +1469,7 @@
       - medicine
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 22
         reagents:
         - ReagentId: Nutriment
@@ -1509,7 +1509,7 @@
       - medicine
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 22
         reagents:
         - ReagentId: Nutriment
@@ -1542,7 +1542,7 @@
       - medicine
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 40
         reagents:
         - ReagentId: Ultravasculine
@@ -1572,7 +1572,7 @@
       - medicine
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 24
         reagents:
         - ReagentId: Bicaridine
@@ -1619,7 +1619,7 @@
       - medicine
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 20
         reagents:
         - ReagentId: Omnizine
@@ -1659,7 +1659,7 @@
       - medicine
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 25
         reagents:
         - ReagentId: Stellibinin
@@ -1694,7 +1694,7 @@
       - sharp
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 15
         reagents:
         - ReagentId: Razorium
@@ -1730,13 +1730,13 @@
         acts: [ "Destruction" ]
   - type: DamageOnHit
     damage:
-      types:
-        Blunt: 10
+      # WD EDIT: Migrated damage format
+      Blunt: 10
   - type: MeleeWeapon
     wideAnimationRotation: 60
     damage:
-      types:
-        Slash: 15
+      # WD EDIT: Migrated damage format
+      Slash: 15
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
   - type: Tag
@@ -1758,7 +1758,7 @@
       - mushroom
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: Amatoxin
@@ -1788,7 +1788,7 @@
       - gunpowder
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 10
         reagents:
         - ReagentId: Nutriment
@@ -1799,7 +1799,7 @@
     sprite: Objects/Specific/Hydroponics/gatfruit.rsi
   - type: Produce
     seedId: gatfruit
-  - type: Food
+  - type: Ingestible # WD Ingestible
     trash:
     - WeaponRevolverPython
   - type: Tag
@@ -1821,7 +1821,7 @@
       - plastic
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 10
         reagents:
         - ReagentId: Nutriment
@@ -1832,7 +1832,7 @@
     sprite: Objects/Specific/Hydroponics/capfruit.rsi
   - type: Produce
     seedId: realCapfruit
-  - type: Food
+  - type: Ingestible # WD Ingestible
     trash:
     - RevolverCapGun
   - type: Tag
@@ -1851,7 +1851,7 @@
   components:
   - type: Produce
     seedId: fakeCapfruit
-  - type: Food
+  - type: Ingestible # WD Ingestible
     trash:
     - RevolverCapGunFake
 
@@ -1865,7 +1865,7 @@
     sprite: Objects/Specific/Hydroponics/rice.rsi
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Rice
           Quantity: 10
@@ -1882,7 +1882,7 @@
     sprite: Objects/Specific/Hydroponics/soybeans.rsi
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 4
         reagents:
         - ReagentId: Nutriment
@@ -1915,7 +1915,7 @@
     sprite: Objects/Specific/Hydroponics/spacemans_trumpet.rsi
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 4
         reagents:
         - ReagentId: Nutriment
@@ -1944,7 +1944,7 @@
     sprite: Objects/Specific/Hydroponics/koibean.rsi
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 7
         reagents:
         - ReagentId: Nutriment
@@ -1979,7 +1979,7 @@
       - watermelon
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 25
         reagents:
         - ReagentId: Nutriment
@@ -2002,8 +2002,8 @@
   - type: DamageOnHighSpeedImpact
     minimumSpeed: 0.1
     damage:
-      types:
-        Blunt: 1
+      # WD EDIT: Migrated damage format
+      Blunt: 1
   - type: Destructible
     thresholds:
     - trigger:
@@ -2014,7 +2014,7 @@
         sound:
           collection: desecration
       - !type:SpillBehavior
-        solution: food
+        solution: ingestible # WD Ingestible
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: SliceableFood
@@ -2043,7 +2043,7 @@
     sprite: Objects/Specific/Hydroponics/watermelon.rsi
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 5
         reagents:
         - ReagentId: Nutriment
@@ -2081,7 +2081,7 @@
       - watermelon
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 25
         reagents:
         - ReagentId: Nutriment
@@ -2104,8 +2104,8 @@
   - type: DamageOnHighSpeedImpact
     minimumSpeed: 0.1
     damage:
-      types:
-        Blunt: 1
+      # WD EDIT: Migrated damage format
+      Blunt: 1
   - type: Destructible
     thresholds:
     - trigger:
@@ -2116,7 +2116,7 @@
         sound:
           collection: desecration
       - !type:SpillBehavior
-        solution: food
+        solution: ingestible # WD Ingestible
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: SliceableFood
@@ -2146,7 +2146,7 @@
     sprite: Objects/Specific/Hydroponics/holymelon.rsi
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 5
         reagents:
         - ReagentId: Nutriment
@@ -2181,7 +2181,7 @@
       - grape
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 9
         reagents:
         - ReagentId: Nutriment
@@ -2212,7 +2212,7 @@
       - berry
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 11
         reagents:
         - ReagentId: Nutriment
@@ -2245,12 +2245,12 @@
   - type: FlavorProfile
     flavors:
       - bungo
-  - type: Food
+  - type: Ingestible # WD Ingestible
     trash:
     - FoodBungoPit
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 20
         reagents:
         - ReagentId: Nutriment
@@ -2288,7 +2288,7 @@
     - Trash
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 7
         reagents:
         - ReagentId: Nutriment
@@ -2313,7 +2313,7 @@
       - peas
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 5
         reagents:
         - ReagentId: Nutriment
@@ -2339,7 +2339,7 @@
       - numbingtranquility
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 8
         reagents:
         - ReagentId: Happiness
@@ -2373,7 +2373,7 @@
       - pumpkin
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 25
         reagents:
         - ReagentId: PumpkinFlesh
@@ -2396,7 +2396,7 @@
         sound:
           collection: desecration
       - !type:SpillBehavior
-        solution: food
+        solution: ingestible # WD Ingestible
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Butcherable
@@ -2422,7 +2422,7 @@
       - bluepumpkin
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 25
         reagents:
         - ReagentId: Ammonia
@@ -2452,7 +2452,7 @@
         sound:
           collection: desecration
       - !type:SpillBehavior
-        solution: food
+        solution: ingestible # WD Ingestible
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Tag
@@ -2470,11 +2470,11 @@
   - type: FlavorProfile
     flavors:
       - cotton
-  - type: Food
+  - type: Ingestible # WD Ingestible
     requiresSpecialDigestion: true
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Fiber
           Quantity: 10
@@ -2499,11 +2499,11 @@
   - type: FlavorProfile
     flavors:
       - pyrotton
-  - type: Food
+  - type: Ingestible # WD Ingestible
     requiresSpecialDigestion: true
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Fiber
           Quantity: 5
@@ -2530,12 +2530,12 @@
   - type: FlavorProfile
     flavors:
       - cherry
-  - type: Food
+  - type: Ingestible # WD Ingestible
     trash:
     - TrashCherryPit
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 8
         reagents:
         - ReagentId: Nutriment
@@ -2576,7 +2576,7 @@
     - Trash
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 1
         reagents:
         - ReagentId: Toxin
@@ -2602,12 +2602,12 @@
     state: produce
   - type: Produce
     seedId: anomalyBerry
-  - type: Food
+  - type: Ingestible # WD Ingestible
     trash:
     - EffectAnomalyFloraBulb # Random loot
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 5
         reagents:
         - ReagentId: Nutriment

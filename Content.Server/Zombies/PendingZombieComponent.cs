@@ -1,4 +1,4 @@
-using Content.Shared.Damage;
+using Content.Shared._White.Damage;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Server.Zombies;
@@ -14,10 +14,7 @@ public sealed partial class PendingZombieComponent : Component
     /// </summary>
     [DataField("damage")] public DamageSpecifier Damage = new()
     {
-        DamageDict = new ()
-        {
-            { "Poison", 0.2 },
-        }
+        { "Poison", 0.2 },
     };
 
     /// <summary>

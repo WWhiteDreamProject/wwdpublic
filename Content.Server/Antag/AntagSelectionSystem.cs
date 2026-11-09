@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Server._White.Preferences.Managers;
 using Content.Server.Administration.Logs;
 using Content.Server.Antag.Components;
 using Content.Server.Chat.Managers;
@@ -8,11 +9,11 @@ using Content.Server.Ghost.Roles;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Mind;
 using Content.Server.Objectives;
-using Content.Server.Preferences.Managers;
 using Content.Server.Roles;
 using Content.Server.Roles.Jobs;
 using Content.Server.Station.Systems;
 using Content.Server.Shuttles.Components;
+using Content.Shared._White.Humanoid.Components;
 using Content.Shared.Antag;
 using Content.Shared.Database;
 using Content.Shared.GameTicking;
@@ -455,7 +456,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         if (HasComp<PendingClockInComponent>(entity))
             return false;
 
-        if (!def.AllowNonHumans && !HasComp<HumanoidAppearanceComponent>(entity))
+        if (!def.AllowNonHumans && !HasComp<HumanoidProfileComponent>(entity))
             return false;
 
         if (def.Whitelist != null)

@@ -1,5 +1,6 @@
+using Content.Shared._White.Damage;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared._White.Shove;
-using Content.Shared.Damage;
 using Content.Shared.Physics;
 using Robust.Shared.Physics.Events;
 
@@ -25,7 +26,7 @@ public sealed class ShoveImpactSystem : EntitySystem
         if (speed >= 20f)
         {
             var damage = new DamageSpecifier();
-            damage.DamageDict.Add("Blunt", 5 * (speed / 20f));
+            damage.Add("Blunt", 5 * (speed / 20f));
             _damageable.TryChangeDamage(uid, damage);
         }
 

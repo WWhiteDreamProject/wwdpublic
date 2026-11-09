@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Server._White.Preferences.Managers;
 using Content.Server.EUI;
 using Content.Shared.CCVar;
 using Content.Shared.GameTicking;
@@ -9,8 +10,8 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Content.Shared.ReadyManifest;
 using Content.Server.GameTicking;
-using Content.Server.Preferences.Managers;
 using Content.Server.GameTicking.Events;
+using Content.Shared._White.Preferences;
 
 namespace Content.Server.ReadyManifest;
 
@@ -57,7 +58,7 @@ public sealed class ReadyManifestSystem : EntitySystem
     {
         var userId = ev.PlayerSession.Data.UserId;
 
-        if (!_prefsManager.TryGetCachedPreferences(userId, out var preferences))
+        if (!_prefsManager.TryGetPreferences(userId, out var preferences))
         {
             return;
         }
@@ -102,7 +103,7 @@ public sealed class ReadyManifestSystem : EntitySystem
             if (status == PlayerGameStatus.ReadyToPlay)
             {
                 HumanoidCharacterProfile profile;
-                if (_prefsManager.TryGetCachedPreferences(userId, out var preferences))
+                if (_prefsManager.TryGetPreferences(userId, out var preferences))
                 {
                     profile = (HumanoidCharacterProfile) preferences.SelectedCharacter;
                     var profileJobs = FilterPlayerJobs(profile);

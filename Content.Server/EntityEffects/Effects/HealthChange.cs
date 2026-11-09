@@ -1,13 +1,13 @@
-using Content.Shared.Damage;
-using Content.Shared.Damage.Prototypes;
+using System.Linq;
 using Content.Shared.EntityEffects;
 using Content.Shared.FixedPoint;
 using Content.Shared.Localizations;
-using Content.Shared._Shitmed.Targeting; // Shitmed Change
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
-using System.Linq;
 using System.Text.Json.Serialization;
+using Content.Shared._White.Damage;
+using Content.Shared._White.Damage.Prototypes;
+using Content.Shared._White.Damage.Systems;
 
 namespace Content.Server.EntityEffects.Effects
 {
@@ -50,16 +50,16 @@ namespace Content.Server.EntityEffects.Effects
                 if (!damageSpec.TryGetDamageInGroup(group, out var amount))
                     continue;
 
-                var relevantTypes = damageSpec.DamageDict
-                    .Where(x => x.Value != FixedPoint2.Zero && group.DamageTypes.Contains(x.Key)).ToList();
+                var relevantTypes = damageSpec
+                    .Where(x => x.Value != FixedPoint2.Zero && group.Types.Contains(x.Key)).ToList();
 
-                if (relevantTypes.Count != group.DamageTypes.Count)
+                if (relevantTypes.Count != group.Types.Count)
                     continue;
 
                 var sum = FixedPoint2.Zero;
-                foreach (var type in group.DamageTypes)
+                foreach (var type in group.Types)
                 {
-                    sum += damageSpec.DamageDict.GetValueOrDefault(type);
+                    sum += damageSpec.GetValueOrDefault(type);
                 }
 
                 // if the total sum of all the types equal the damage amount,
@@ -82,13 +82,13 @@ namespace Content.Server.EntityEffects.Effects
                         ("deltasign", sign)
                     ));
 
-                foreach (var type in group.DamageTypes)
+                foreach (var type in group.Types)
                 {
-                    damageSpec.DamageDict.Remove(type);
+                    damageSpec.Remove(type);
                 }
             }
 
-            foreach (var (kind, amount) in damageSpec.DamageDict)
+            foreach (var (kind, amount) in damageSpec)
             {
                 var sign = FixedPoint2.Sign(amount);
 
@@ -123,16 +123,11 @@ namespace Content.Server.EntityEffects.Effects
                 scale = ScaleByQuantity ? reagentArgs.Quantity * reagentArgs.Scale : reagentArgs.Scale;
             }
 
-            args.EntityManager.System<DamageableSystem>().TryChangeDamage(
+            args.EntityManager.System<DamageableSystem>().TryChangeDamage( // WD EDIT
                 args.TargetEntity,
                 Damage * scale,
                 IgnoreResistances,
-                interruptsDoAfters: false,
-                // Shitmed Change Start
-                targetPart: TargetBodyPart.All,
-                partMultiplier: 0.5f,
-                canSever: false);
-                // Shitmed Change End
+                interruptsDoAfters: false);
         }
     }
 }

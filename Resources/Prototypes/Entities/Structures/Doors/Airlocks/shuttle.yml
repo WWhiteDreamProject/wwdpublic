@@ -36,8 +36,7 @@
     closeTimeTwo: 0.4
     openTimeTwo: 0.4
     crushDamage:
-      types:
-        Blunt: 15
+      Blunt: 15
     openSound:
       path: /Audio/Effects/docking.ogg
     closeSound:

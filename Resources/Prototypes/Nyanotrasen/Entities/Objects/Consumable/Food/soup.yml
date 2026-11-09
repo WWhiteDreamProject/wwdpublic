@@ -15,7 +15,7 @@
     state: cottonsoup
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 20
         reagents:
         - ReagentId: Nutriment
@@ -47,7 +47,7 @@
     state: cheesesoup
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 20
         reagents:
         - ReagentId: Nutriment
@@ -78,7 +78,7 @@
     state: seedsoup
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 15
         reagents:
         - ReagentId: Nutriment
@@ -106,7 +106,7 @@
     state: eyesoup
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 12
         reagents:
           - ReagentId: Nutriment
@@ -131,7 +131,7 @@
     state: beanstew
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 25
         reagents:
         - ReagentId: Nutriment
@@ -163,7 +163,7 @@
     state: oatstew
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 20
         reagents:
         - ReagentId: Nutriment
@@ -192,7 +192,7 @@
     state: heartburnsoup
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 15
         reagents:
         - ReagentId: Nutriment
@@ -224,7 +224,7 @@
     state: huamulancongee
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: Nutriment
@@ -249,7 +249,7 @@
     state: cornmealporridge
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 11
         reagents:
         - ReagentId: Nutriment
@@ -276,7 +276,7 @@
     state: cheesyporridge
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 20
         reagents:
         - ReagentId: Nutriment
@@ -307,7 +307,7 @@
     state: eggplantpolenta
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: Nutriment
@@ -339,7 +339,7 @@
     - state: chili-hot
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 15
         reagents:
         - ReagentId: Nutriment

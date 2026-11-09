@@ -1,0 +1,9 @@
+- type: naming
+  id: IPC
+  preset: naming-preset-first-dash-last
+  first:
+    Neuter: NamingFirstIPC
+    Epicene: NamingFirstIPC
+    Female: NamingFirstIPC
+    Male: NamingFirstIPC
+  last: NamingLastIPC

@@ -8,12 +8,12 @@
     size: Small
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: SportsDrinkYellow
           Quantity: 30
-  - type: Drink
+  - type: Ingestible # WD Ingestible
   - type: Sprite
     sprite: _EE/Objects/Consumable/Drinks/sportsdrink.rsi
     layers:
@@ -44,7 +44,7 @@
         visible: false
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: SportsDrinkBlue
@@ -66,7 +66,7 @@
         visible: false
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: SportsDrinkRed

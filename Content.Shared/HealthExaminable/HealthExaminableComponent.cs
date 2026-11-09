@@ -1,5 +1,5 @@
+using Content.Shared._White.Damage.Prototypes;
 using Content.Shared.Alert;
-using Content.Shared.Damage.Prototypes;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Prototypes;
 

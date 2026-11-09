@@ -1,6 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared._Goobstation.MartialArts.Components;
 using Content.Shared._Goobstation.MartialArts.Events;
+using Content.Shared._White.Damage;
 using Content.Shared._White.Grab;
 using Content.Shared._White.Teleportation.Systems;
 using Content.Shared.ActionBlocker;
@@ -369,7 +370,7 @@ public sealed class PullingSystem : EntitySystem
         var direction = args.Direction.Normalized() * MathF.Min(distanceToCursor, component.ThrowingDistance);
 
         var damage = new DamageSpecifier();
-        damage.DamageDict.Add("Blunt", 5);
+        damage.Add("Blunt", 5);
 
         TryStopPull(args.BlockingEntity, comp, uid, true);
         _grabThrown.Throw(args.BlockingEntity,

@@ -357,17 +357,6 @@
     event: !type:ToggleActionEvent
 
 - type: entity
-  id: ShadowkinActionSleep
-  name: action-name-shadowkin-rest
-  description: action-description-shadowkin-rest
-  components:
-  - type: InstantAction
-    checkCanInteract: false
-    checkConsciousness: false
-    icon: { sprite: Interface/Actions/shadowkin_icons.rsi, state: rest }
-    event: !type:SleepActionEvent
-
-- type: entity
   id: ActionFabricateLollipop
   name: action-name-fabricate-lollipop
   description: action-description-fabricate-lollipop

@@ -9,10 +9,8 @@ using Content.Server.Polymorph.Systems;
 using Content.Server.Popups;
 using Content.Shared._EE.Shadowling;
 using Content.Shared._EE.Shadowling.Components;
-using Content.Shared.Chat;
-using Content.Shared.Damage;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.DoAfter;
-using Content.Shared.Humanoid;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Robust.Server.Audio;
@@ -37,7 +35,7 @@ public sealed class ShadowlingBlackRecuperationSystem : EntitySystem
     [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
     [Dependency] private readonly TransformSystem _transformSystem = default!;
     [Dependency] private readonly PolymorphSystem _polymorph = default!;
-    [Dependency] private  readonly HumanoidAppearanceSystem _humanoidAppearance = default!;
+    /*[Dependency] private  readonly HumanoidAppearanceSystem _humanoidAppearance = default!;*/
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly LightDetectionDamageModifierSystem _modifierLight = default!;
@@ -135,8 +133,8 @@ public sealed class ShadowlingBlackRecuperationSystem : EntitySystem
 
             EnsureComp<LesserShadowlingComponent>(newUid.Value);
 
-            if (TryComp<HumanoidAppearanceComponent>(newUid.Value, out var human))
-                _humanoidAppearance.AddMarking(newUid.Value, component.LesserShadowlingEyes, Color.Red, true, true, human);
+            /*if (TryComp<HumanoidAppearanceComponent>(newUid.Value, out var human)) TODO
+                _humanoidAppearance.AddMarking(newUid.Value, component.LesserShadowlingEyes, Color.Red, true, true, human);*/
 
 
             var effectEnt = Spawn(component.BlackRecuperationEffect, _transformSystem.GetMapCoordinates(newUid.Value));

@@ -1,10 +1,11 @@
 using Content.Server.Destructible.Thresholds.Triggers;
+using Content.Shared._White.Damage.Components;
+using Content.Shared._White.Damage.Prototypes;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.FixedPoint;
 using Robust.Shared.GameObjects;
-using Robust.Shared.IoC;
-using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using static Content.IntegrationTests.Tests.Destructible.DestructibleTestPrototypes;
 
@@ -132,7 +133,7 @@ namespace Content.IntegrationTests.Tests.Destructible
                 sTestThresholdListenerSystem.ThresholdsReached.Clear();
 
                 // Heal both classes of damage to 0
-                sDamageableSystem.SetAllDamage(sDestructibleEntity, sDamageableComponent, 0);
+                sDamageableSystem.SetAllDamage((sDestructibleEntity, sDamageableComponent), 0); // WD EDIT
 
                 // No new thresholds reached, healing should not trigger it
                 Assert.That(sTestThresholdListenerSystem.ThresholdsReached, Is.Empty);
@@ -176,7 +177,7 @@ namespace Content.IntegrationTests.Tests.Destructible
                 threshold.TriggersOnce = true;
 
                 // Heal brute and burn back to 0
-                sDamageableSystem.SetAllDamage(sDestructibleEntity, sDamageableComponent, 0);
+                sDamageableSystem.SetAllDamage((sDestructibleEntity, sDamageableComponent), 0); // WD EDIT
 
                 // No new thresholds reached from healing
                 Assert.That(sTestThresholdListenerSystem.ThresholdsReached, Is.Empty);

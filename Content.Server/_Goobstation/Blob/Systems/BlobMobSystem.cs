@@ -5,14 +5,13 @@ using Content.Server.Radio.Components;
 using Content.Server.Radio.EntitySystems;
 using Content.Shared._Goobstation.Blob;
 using Content.Shared._Goobstation.Blob.Components;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Chat;
-using Content.Shared.Damage;
 using Content.Shared.Speech;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Content.Shared.Language.Events;
 using Content.Shared.Language.Components;
-using Content.Shared._Shitmed.Targeting;
 
 namespace Content.Server._Goobstation.Blob.Systems;
 
@@ -112,5 +111,5 @@ public sealed class BlobMobSystem : SharedBlobMobSystem
     }
 
     private void OnPulsed(EntityUid uid, BlobMobComponent component, BlobMobGetPulseEvent args) =>
-        _damageableSystem.TryChangeDamage(uid, component.HealthOfPulse, targetPart: TargetBodyPart.All);
+        _damageableSystem.TryChangeDamage(uid, component.HealthOfPulse);
 }

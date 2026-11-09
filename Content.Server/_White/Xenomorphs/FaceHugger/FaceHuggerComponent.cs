@@ -1,4 +1,5 @@
-using Content.Shared.Damage;
+using Content.Shared._White.Body;
+using Content.Shared._White.Damage;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
@@ -8,6 +9,9 @@ namespace Content.Server._White.Xenomorphs.FaceHugger;
 [RegisterComponent]
 public sealed partial class FaceHuggerComponent : Component
 {
+    [DataField]
+    public BodyProviderType BodyProviderType = BodyProviderType.Chest;
+
     [DataField]
     public DamageSpecifier DamageOnImpact = new();
 

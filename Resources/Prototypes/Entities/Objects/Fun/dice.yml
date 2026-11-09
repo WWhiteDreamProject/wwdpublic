@@ -131,6 +131,5 @@
     launchForwardsMultiplier: 0
   - type: DamageUserOnTrigger
     damage:
-      types:
-        Piercing: 5
-    # I love this
+      # WD EDIT: Migrated damage format
+      Piercing: 5

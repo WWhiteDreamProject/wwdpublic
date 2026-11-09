@@ -5,10 +5,8 @@ using Content.Client.DisplacementMap;
 using Content.Client.Examine;
 using Content.Client.Strip;
 using Content.Client.Verbs.UI;
-using Content.Shared._Shitmed.Body.Events;
 using Content.Shared._White.Hands;
-using Content.Shared._White.Hands.Components; // Shitmed Change
-using Content.Shared.Body.Part; // Shitmed Change
+using Content.Shared._White.Hands.Components;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
@@ -58,8 +56,6 @@ namespace Content.Client.Hands.Systems
             SubscribeLocalEvent<HandsComponent, ComponentShutdown>(OnHandsShutdown);
             SubscribeLocalEvent<HandsComponent, ComponentHandleState>(HandleComponentState);
             SubscribeLocalEvent<HandsComponent, VisualsChangedEvent>(OnVisualsChanged);
-            SubscribeLocalEvent<HandsComponent, BodyPartRemovedEvent>(HandleBodyPartRemoved); // Shitmed Change
-            SubscribeLocalEvent<HandsComponent, BodyPartDisabledEvent>(HandleBodyPartDisabled); // Shitmed Change
 
             SubscribeLocalEvent<HoldingDropComponent, ComponentInit>(HoldingDropComponentInit);			// WWDP
             SubscribeLocalEvent<HoldingDropComponent, ComponentShutdown>(HoldingDropComponentShutdown);	// WWDP
@@ -139,9 +135,10 @@ namespace Content.Client.Hands.Systems
             if (component.ActiveHand == null && state.ActiveHand == null)
                 return; //edge case
 
-            if (component.ActiveHand != null && state.ActiveHand != component.ActiveHand.Name)
+            if (component.ActiveHand != null && state.ActiveHand != component.ActiveHand.Value.Name)
             {
-                SetActiveHand(uid, component.Hands[state.ActiveHand!], component);
+                component.Hands.TryGetValue(state.ActiveHand!, out var hand);
+                SetActiveHand(uid, hand, component);
             }
         }
         #endregion
@@ -208,7 +205,7 @@ namespace Content.Client.Hands.Systems
                 return;
 
             var pressedEntity = pressedHand.HeldEntity;
-            var activeEntity = hands.ActiveHand.HeldEntity;
+            var activeEntity = hands.ActiveHand.Value.HeldEntity;
 
             if (pressedHand == hands.ActiveHand && activeEntity != null)
             {
@@ -287,34 +284,6 @@ namespace Content.Client.Hands.Systems
 
         #region visuals
 
-        // Shitmed Change Start
-        private void HideLayers(EntityUid uid, HandsComponent component, Entity<BodyPartComponent> part, SpriteComponent? sprite = null)
-        {
-            if (part.Comp.PartType != BodyPartType.Hand || !Resolve(uid, ref sprite, logMissing: false))
-                return;
-
-            var location = part.Comp.Symmetry switch
-            {
-                BodyPartSymmetry.None => HandLocation.Middle,
-                BodyPartSymmetry.Left => HandLocation.Left,
-                BodyPartSymmetry.Right => HandLocation.Right,
-                _ => throw new ArgumentOutOfRangeException(nameof(part.Comp.Symmetry))
-            };
-
-            if (component.RevealedLayers.TryGetValue(location, out var revealedLayers))
-            {
-                foreach (var key in revealedLayers)
-                    sprite.RemoveLayer(key);
-
-                revealedLayers.Clear();
-            }
-        }
-
-        private void HandleBodyPartRemoved(EntityUid uid, HandsComponent component, ref BodyPartRemovedEvent args) => HideLayers(uid, component, args.Part);
-
-        private void HandleBodyPartDisabled(EntityUid uid, HandsComponent component, ref BodyPartDisabledEvent args) => HideLayers(uid, component, args.Part);
-
-        // Shitmed Change End
         protected override void HandleEntityInserted(EntityUid uid, HandsComponent hands, EntInsertedIntoContainerMessage args)
         {
             base.HandleEntityInserted(uid, hands, args);
@@ -474,13 +443,18 @@ namespace Content.Client.Hands.Systems
 
         public override void AddHand(EntityUid uid, string handName, HandLocation handLocation, HandsComponent? handsComp = null)
         {
+            // WD EDIT START: TODO: Hands refactor
+            if (!Resolve(uid, ref handsComp, false))
+                return;
+
+            if (handsComp.Hands.ContainsKey(handName))
+                return;
+            // WD EDIT END
+
             base.AddHand(uid, handName, handLocation, handsComp);
 
             if (uid == _playerManager.LocalEntity)
                 OnPlayerAddHand?.Invoke(handName, handLocation);
-
-            if (handsComp == null)
-                return;
 
             if (handsComp.ActiveHand == null)
                 SetActiveHand(uid, handsComp.Hands[handName], handsComp);
@@ -511,7 +485,7 @@ namespace Content.Client.Hands.Systems
                 return;
             }
 
-            OnPlayerSetActiveHand?.Invoke(hand.Comp.ActiveHand.Name);
+            OnPlayerSetActiveHand?.Invoke(hand.Comp.ActiveHand.Value.Name);
         }
     }
 }

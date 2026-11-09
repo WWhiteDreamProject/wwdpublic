@@ -1,0 +1,143 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/Aurorastation/Aurora.3/commit/d6acf1ddd9c8b7c038bfbacea03545889c9181c8. Bracelet_arm and watch_colorable edited by angelofallars (github).",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "bracelet_left_arm",
+      "directions": 4
+    },
+    {
+      "name": "bracelet_left_hand",
+      "directions": 4
+    },
+    {
+      "name": "bracelet_right_arm",
+      "directions": 4
+    },
+    {
+      "name": "bracelet_right_hand",
+      "directions": 4
+    },
+    {
+      "name": "watch_left",
+      "directions": 4
+    },
+    {
+      "name": "watch_left_colorable-primary",
+      "directions": 4
+    },
+    {
+      "name": "watch_left_colorable-secondary",
+      "directions": 4
+    },
+    {
+      "name": "watch_left_gold",
+      "directions": 4
+    },
+    {
+      "name": "watch_left_holo",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          2
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          2
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          2
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          2
+        ]
+      ]
+    },
+    {
+      "name": "watch_left_leather",
+      "directions": 4
+    },
+    {
+      "name": "watch_left_silver",
+      "directions": 4
+    },
+    {
+      "name": "watch_right",
+      "directions": 4
+    },
+    {
+      "name": "watch_right_colorable-primary",
+      "directions": 4
+    },
+    {
+      "name": "watch_right_colorable-secondary",
+      "directions": 4
+    },
+    {
+      "name": "watch_right_gold",
+      "directions": 4
+    },
+    {
+      "name": "watch_right_holo",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          2
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          2
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          2
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          2
+        ]
+      ]
+    },
+    {
+      "name": "watch_right_leather",
+      "directions": 4
+    },
+    {
+      "name": "watch_right_silver",
+      "directions": 4
+    }
+  ]
+}

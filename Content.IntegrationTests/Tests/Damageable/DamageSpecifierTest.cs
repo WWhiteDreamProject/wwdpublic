@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Content.Shared._White.Damage;
 using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
 

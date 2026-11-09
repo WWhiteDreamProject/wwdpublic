@@ -7,8 +7,7 @@
   - Chemist
   - Cloning
   - Cryogenics
-  - Surgery
-  - MedicalPatches # Fix for Medicine Patches
+  - Medical Patches # Fix for Medicine Patches
 
 - type: guideEntry
   id: MedicalDoctor

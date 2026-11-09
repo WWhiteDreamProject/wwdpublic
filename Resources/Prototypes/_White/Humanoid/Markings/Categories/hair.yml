@@ -1,0 +1,9 @@
+- type: markingCategory
+  id: FacialHair
+  layers:
+  - enum.MarkingVisualLayers.FacialHair
+
+- type: markingCategory
+  id: Hair
+  layers:
+  - enum.MarkingVisualLayers.Hair

@@ -1,6 +1,6 @@
 - type: entity
   name: behonker
-  parent: [ SimpleSpaceMobBase, FlyingMobBase, MobCombat ]
+  parent: [ SimpleSpaceMobBase, FlyingMobBase, BaseMobCombat ]
   id: BaseMobBehonker
   abstract: true
   description: A floating demon aspect of the honkmother.
@@ -104,9 +104,9 @@
       soundHit:
         path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
       damage:
-        types:
-          Piercing: 10
-          Slash: 10
+        # WD EDIT: Migrated damage format
+        Piercing: 10
+        Slash: 10
     - type: Anomaly
       pulseSound:
         collection: BananiumHorn

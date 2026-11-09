@@ -35,9 +35,8 @@
     stealGroup: HandheldCrewMonitor
   - type: DamageOtherOnHit
     damage:
-      types:
-        Blunt: 5
-
+      # WD EDIT: Migrated damage format
+      Blunt: 5
 - type: entity
   id: HandheldCrewMonitorEmpty
   parent: HandheldCrewMonitor

@@ -1,6 +1,5 @@
 ﻿using Content.Server.Actions;
 using Content.Server.Language;
-using Content.Server.Body.Systems;
 using Content.Server.Ghost.Roles;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Mind;
@@ -14,6 +13,8 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Content.Shared.Language.Events;
 using Content.Server._Goobstation.Blob.Systems;
+using Content.Shared._White.Gibbable.Systems;
+
 
 namespace Content.Server._Goobstation.Blob;
 
@@ -22,9 +23,9 @@ public sealed class BlobCarrierSystem : SharedBlobCarrierSystem
     [Dependency] private readonly BlobCoreSystem _blobCoreSystem = default!;
     [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly GhostRoleSystem _ghost = default!;
-    [Dependency] private readonly BodySystem _bodySystem = default!;
     [Dependency] private readonly ActionsSystem _action = default!;
     [Dependency] private readonly LanguageSystem _language = default!;
+    [Dependency] private readonly GibbableSystem _gibbable = default!; // WD EDIT
 
     public override void Initialize()
     {
@@ -115,6 +116,6 @@ public sealed class BlobCarrierSystem : SharedBlobCarrierSystem
             Spawn(ent.Comp.CoreBlobPrototype, xform.Coordinates);
         }
 
-        _bodySystem.GibBody(ent);
+        _gibbable.Gib(ent.Owner); // WD EDIT
     }
 }

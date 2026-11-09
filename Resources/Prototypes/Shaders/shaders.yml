@@ -117,24 +117,12 @@
   kind: source
   path: "/Textures/Shaders/flap.swsl"
 
-  # Shadowkin shaders
-
-- type: shader
-  id: ColorTint
-  kind: source
-  path: "/Textures/Shaders/color_tint.swsl"
-
-- type: shader
-  id: Ethereal
-  kind: source
-  path: "/Textures/Shaders/ethereal.swsl"
-
 - type: shader
   id: NightVision
   kind: source
   path: "/Textures/Shaders/nightvision.swsl"
 
-- type: shader  
+- type: shader
   id: Hologram
   kind: source
   path: "/Textures/Shaders/hologram.swsl"

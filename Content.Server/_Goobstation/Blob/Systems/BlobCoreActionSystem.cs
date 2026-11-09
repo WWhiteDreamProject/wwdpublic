@@ -10,7 +10,7 @@ using Content.Server.Popups;
 using Content.Shared._Goobstation.Blob;
 using Content.Shared._Goobstation.Blob.Components;
 using Content.Shared._Goobstation.CCVar;
-using Content.Shared.Damage;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Interaction;
 using Content.Shared.Item;
 using Content.Shared.Popups;

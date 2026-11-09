@@ -31,9 +31,9 @@ public sealed class WhetstoneSystem : EntitySystem
             !_entityWhitelist.IsValid(stone.Comp.Whitelist, target))
             return;
 
-        foreach (var (damageTypeId, value) in stone.Comp.DamageIncrease.DamageDict)
+        foreach (var (damageTypeId, value) in stone.Comp.DamageIncrease)
         {
-            if (!meleeWeapon.Damage.DamageDict.TryGetValue(damageTypeId, out var defaultDamage) ||
+            if (!meleeWeapon.Damage.TryGetValue(damageTypeId, out var defaultDamage) ||
                 defaultDamage > stone.Comp.MaximumIncrease)
                 continue;
 
@@ -41,7 +41,7 @@ public sealed class WhetstoneSystem : EntitySystem
             if (newDamage > stone.Comp.MaximumIncrease)
                 newDamage = stone.Comp.MaximumIncrease;
 
-            meleeWeapon.Damage.DamageDict[damageTypeId] = newDamage;
+            meleeWeapon.Damage[damageTypeId] = newDamage;
         }
 
         _audio.PlayEntity(stone.Comp.SharpenAudio, Filter.Pvs(target), target, true);

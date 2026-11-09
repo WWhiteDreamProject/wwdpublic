@@ -114,9 +114,9 @@
         hard: false
   - type: DamageSquare
     damage:
-      types:
-        Blunt: 6
-        Heat: 6
+      # WD EDIT: Migrated damage format
+      Blunt: 6
+      Heat: 6
     sound:
       path: /Audio/_Lavaland/Mobs/Bosses/hiero_blast.ogg
 

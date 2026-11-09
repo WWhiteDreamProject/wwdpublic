@@ -1,3 +1,5 @@
+using Content.Shared._White.Humanoid.Components;
+using Content.Shared._White.Humanoid.Prototypes;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
@@ -31,7 +33,7 @@ public sealed partial class ModifyEnvirohelmSpecial : JobSpecial
     public override void AfterEquip(EntityUid mob)
     {
         var entMan = IoCManager.Resolve<IEntityManager>();
-        if (!entMan.TryGetComponent<HumanoidAppearanceComponent>(mob, out var appearanceComp) ||
+        if (!entMan.TryGetComponent<HumanoidProfileComponent>(mob, out var appearanceComp) ||
             appearanceComp.Species != Species ||
             !entMan.System<InventorySystem>().TryGetSlotEntity(mob, Slot, out var helmet) ||
             helmet is not { } envirohelm ||

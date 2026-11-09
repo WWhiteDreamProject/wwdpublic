@@ -1,4 +1,6 @@
 ﻿using System.Linq;
+using Content.Shared._White.Damage.Components;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Execution;
@@ -161,7 +163,7 @@ public sealed class SuicideCommandTests
                 Assert.That(mobStateSystem.IsDead(player, mobStateComp));
                 Assert.That(entManager.TryGetComponent<GhostComponent>(mindComponent.CurrentEntity, out var ghostComp) &&
                             !ghostComp.CanReturnToBody);
-                Assert.That(damageableComp.Damage.GetTotal(), Is.AtLeast(lethalDamageThreshold));
+                Assert.That(damageableComp.TotalDamage, Is.AtLeast(lethalDamageThreshold)); // WD EDIT
             });
         });
 
@@ -278,7 +280,7 @@ public sealed class SuicideCommandTests
         await server.WaitAssertion(() =>
         {
             // Heal all damage first (possible low pressure damage taken)
-            damageableSystem.SetAllDamage(player, damageableComp, 0);
+            damageableSystem.SetAllDamage((player, damageableComp), 0); // WD EDIT
             consoleHost.GetSessionShell(playerMan.Sessions.First()).ExecuteCommand("suicide");
             var lethalDamageThreshold = mobThresholdsComp.Thresholds.Keys.Last();
 
@@ -353,7 +355,7 @@ public sealed class SuicideCommandTests
         await server.WaitAssertion(() =>
         {
             // Heal all damage first (possible low pressure damage taken)
-            damageableSystem.SetAllDamage(player, damageableComp, 0);
+            damageableSystem.SetAllDamage((player, damageableComp), 0); // WD EIT
             consoleHost.GetSessionShell(playerMan.Sessions.First()).ExecuteCommand("suicide");
             var lethalDamageThreshold = mobThresholdsComp.Thresholds.Keys.Last();
 

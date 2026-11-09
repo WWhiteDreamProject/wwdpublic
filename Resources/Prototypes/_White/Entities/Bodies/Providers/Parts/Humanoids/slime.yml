@@ -1,0 +1,128 @@
+- type: entity
+  id: BaseBodyProviderPartSlime
+  parent: [BaseBodyProviderPart, BaseBodyProviderPartOrganic, BaseBodyProviderPartAppearance]
+  abstract: true
+  suffix: Slime
+  components:
+  - type: MarkingsProvider
+    data:
+      group: Slime
+  - type: Sprite
+    sprite: _White/Bodies/Parts/Humanoids/slime.rsi
+
+# Arms
+- type: entity
+  id: BodyProviderLeftArmSlime
+  parent: [BaseBodyProviderLeftArm, BaseBodyProviderLeftArmOrganic, BaseBodyProviderPartSlime, BaseBodyProviderLeftArmAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/slime.rsi
+      state: left_arm
+
+- type: entity
+  id: BodyProviderRightArmSlime
+  parent: [BaseBodyProviderRightArm, BaseBodyProviderRightArmOrganic, BaseBodyProviderPartSlime, BaseBodyProviderRightArmAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/slime.rsi
+      state: right_arm
+
+# Chest
+- type: entity
+  id: BodyProviderChestSlime
+  parent: [BaseBodyProviderChest, BaseBodyProviderChestOrganic, BaseBodyProviderPartSlime, BaseBodyProviderChestAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/slime.rsi
+      state: chest
+
+# Foots
+- type: entity
+  id: BodyProviderLeftFootSlime
+  parent: [BaseBodyProviderLeftFoot, BaseBodyProviderLeftFootOrganic, BaseBodyProviderPartSlime, BaseBodyProviderLeftFootAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/slime.rsi
+      state: left_foot
+
+- type: entity
+  id: BodyProviderRightFootSlime
+  parent: [BaseBodyProviderRightFoot, BaseBodyProviderRightFootOrganic, BaseBodyProviderPartSlime, BaseBodyProviderRightFootAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/slime.rsi
+      state: right_foot
+
+# Groin
+- type: entity
+  id: BodyProviderGroinSlime
+  parent: [BaseBodyProviderGroin, BaseBodyProviderGroinOrganic, BaseBodyProviderPartSlime, BaseBodyProviderGroinAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/slime.rsi
+      state: groin
+
+# Hands
+- type: entity
+  id: BodyProviderLeftHandSlime
+  parent: [BaseBodyProviderLeftHand, BaseBodyProviderLeftHandOrganic, BaseBodyProviderPartSlime, BaseBodyProviderLeftHandAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/slime.rsi
+      state: left_hand
+
+- type: entity
+  id: BodyProviderRightHandSlime
+  parent: [BaseBodyProviderRightHand, BaseBodyProviderRightHandOrganic, BaseBodyProviderPartSlime, BaseBodyProviderRightHandAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/slime.rsi
+      state: right_hand
+
+# Head
+- type: entity
+  id: BodyProviderHeadSlime
+  parent: [BaseBodyProviderHead, BaseBodyProviderHeadOrganic, BaseBodyProviderPartSlime, BaseBodyProviderHeadAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/slime.rsi
+      state: head
+
+# Legs
+- type: entity
+  id: BodyProviderLeftLegSlime
+  parent: [BaseBodyProviderLeftLeg, BaseBodyProviderLeftLegOrganic, BaseBodyProviderPartSlime, BaseBodyProviderLeftLegAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/slime.rsi
+      state: left_leg
+
+- type: entity
+  id: BodyProviderRightLegSlime
+  parent: [BaseBodyProviderRightLeg, BaseBodyProviderRightLegOrganic, BaseBodyProviderPartSlime, BaseBodyProviderRightLegAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/slime.rsi
+      state: right_leg

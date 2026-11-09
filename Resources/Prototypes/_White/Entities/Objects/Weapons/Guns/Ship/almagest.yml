@@ -67,10 +67,9 @@
     penetrationChance: 0.66
     maxPenetrations: 2
     damage:
-      types:
-        Heat: 80
-        Structural: 20
-        Shock: 200
+      Heat: 80
+      Structural: 20
+      Shock: 200
   - type: Sprite
     layers:
     - state: heavylaser
@@ -109,9 +108,8 @@
   components:
   - type: Projectile
     damage:
-      types:
-        Heat: 30
-        Structural: 5
+      Heat: 30
+      Structural: 5
   - type: TimedDespawn
     lifetime: 50
   - type: Sprite
@@ -189,9 +187,8 @@
     penetrationChance: 0.66
     maxPenetrations: 1
     damage:
-      types:
-        Heat: 50
-        Structural: 1000
+      Heat: 50
+      Structural: 1000
   - type: TimedDespawn
     lifetime: 25
 
@@ -234,9 +231,8 @@
     totalIntensity: 5
   - type: Projectile
     damage:
-      types:
-        Heat: 5
-        Structural: 50
+      Heat: 5
+      Structural: 50
   - type: TimedDespawn
     lifetime: 10
 
@@ -282,9 +278,8 @@
     totalIntensity: 5
   - type: Projectile
     damage:
-      types:
-        Heat: 10
-        Structural: 100
+      Heat: 10
+      Structural: 100
   - type: TimedDespawn
     lifetime: 3
 
@@ -356,9 +351,8 @@
     penetrationChance: 0.5
     maxPenetrations: 2
     damage:
-      types:
-        Piercing: 100
-        Structural: 35
+      Piercing: 100
+      Structural: 35
   - type: TimedDespawn
     lifetime: 15
 
@@ -408,9 +402,8 @@
     penetrationChance: 0.5
     maxPenetrations: 1
     damage:
-      types:
-        Piercing: 40
-        Structural: 25
+      Piercing: 40
+      Structural: 25
   - type: TimedDespawn
     lifetime: 15
 
@@ -508,11 +501,10 @@
     penetrationChance: 0.8
     maxPenetrations: 5
     damage:
-      types:
-        Piercing: 400
-        Structural: 400
-        Heat: 400
-        Shock: 400
+      Piercing: 400
+      Structural: 400
+      Heat: 400
+      Shock: 400
     deleteOnCollide: false
 
 - type: entity
@@ -594,11 +586,10 @@
     lifetime: 60
   - type: Projectile
     damage:
-      types:
-        Piercing: 400
-        Structural: 400
-        Heat: 400
-        Shock: 400
+      Piercing: 400
+      Structural: 400
+      Heat: 400
+      Shock: 400
     deleteOnCollide: false
   - type: RandomWalk
     minSpeed: 3
@@ -679,11 +670,10 @@
     lifetime: 120
   - type: Projectile
     damage:
-      types:
-        Piercing: 400
-        Structural: 400
-        Heat: 400
-        Shock: 400
+      Piercing: 400
+      Structural: 400
+      Heat: 400
+      Shock: 400
     deleteOnCollide: false
   - type: RandomWalk
     minSpeed: 20

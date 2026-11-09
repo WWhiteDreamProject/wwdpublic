@@ -367,15 +367,6 @@
     Blunt: 5
 
 - type: damageModifierSet
-  id: Shadowkin
-  coefficients:
-    Slash: 1.2
-    Piercing: 1.1
-    Asphyxiation: 0.5
-    Cold: 0.8
-    Heat: 1.2
-
-- type: damageModifierSet
   id: Plasmaman
   coefficients:
     Blunt: 1.5
@@ -418,7 +409,7 @@
   id: HardenedCircuits
   coefficients:
     Shock: .666
-    
+
 - type: damageModifierSet
   id: ExtremePoisonResistance
   coefficients:

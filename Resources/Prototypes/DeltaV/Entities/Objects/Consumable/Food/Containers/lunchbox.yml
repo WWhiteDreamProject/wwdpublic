@@ -26,8 +26,8 @@
       Plastic: 100
   - type: MeleeWeapon
     damage:
-      types:
-        Blunt: 5.5
+      # WD EDIT: Migrated damage format
+      Blunt: 5.5
     heavyRateModifier: 1.25
     heavyStaminaCost: 5
     angle: 80.5

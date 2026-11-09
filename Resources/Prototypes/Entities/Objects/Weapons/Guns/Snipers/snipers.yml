@@ -54,8 +54,8 @@
   - type: MeleeWeapon
     attackRate: 1.3333
     damage:
-      types:
-        Blunt: 8.0
+      # WD EDIT: Migrated damage format
+      Blunt: 8
     bluntStaminaDamageFactor: 1.25
     swapKeys: true
     disableHeavy: true
@@ -65,8 +65,8 @@
       collection: MetalThud
   - type: IncreaseDamageOnWield
     damage:
-      types:
-        Blunt: 2.5
+      # WD EDIT: Migrated damage format
+      Blunt: 2.5
   - type: DamageOtherOnHit
     staminaCost: 7.5
   # WD EDIT START
@@ -105,23 +105,23 @@
   - type: MeleeWeapon
     range: 1.75
     damage:
-      types:
-        Piercing: 7 # WD EDIT: 7 -> 10
-        Slash: 3.5 # WD EDIT: 3.5 -> 5
+      # WD EDIT: Migrated damage format
+      Piercing: 7
+      Slash: 3.5
     wideAnimationRotation: -135
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
     animationRotation: -135 # WD EDIT
   - type: IncreaseDamageOnWield
     damage:
-      types:
-        Piercing: 4
-        Slash: 2
+      # WD EDIT: Migrated damage format
+      Piercing: 4
+      Slash: 2
   - type: DamageOtherOnHit
     damage:
-      types:
-        Piercing: 8
-        Slash: 3
+      # WD EDIT: Migrated damage format
+      Piercing: 8
+      Slash: 3
   - type: EmbeddableProjectile
     removalTime: 3.5
   - type: EmbedPassiveDamage
@@ -246,23 +246,23 @@
   - type: MeleeWeapon
     range: 1.75
     damage:
-      types:
-        Piercing: 5
-        Slash: 3.5
+      # WD EDIT: Migrated damage format
+      Piercing: 5
+      Slash: 3.5
     wideAnimationRotation: -135
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
     animationRotation: -135 # WD EDIT
   - type: IncreaseDamageOnWield
     damage:
-      types:
-        Piercing: 4
-        Slash: 2
+      # WD EDIT: Migrated damage format
+      Piercing: 4
+      Slash: 2
   - type: DamageOtherOnHit
     damage:
-      types:
-        Piercing: 8
-        Slash: 3
+      # WD EDIT: Migrated damage format
+      Piercing: 8
+      Slash: 3
   - type: EmbeddableProjectile
     removalTime: 3.5
   - type: EmbedPassiveDamage
@@ -316,8 +316,8 @@
   - type: MeleeWeapon
     attackRate: 1.2
     damage:
-      types:
-        Blunt: 7.5
+      # WD EDIT: Migrated damage format
+      Blunt: 7.5
     bluntStaminaDamageFactor: 1.0
     wideAnimationRotation: 135
   - type: DamageOtherOnHit

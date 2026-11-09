@@ -75,7 +75,7 @@ public sealed partial class CCVars
         CVarDef.Create("accessibility.server_censor_nudity", false, CVar.ARCHIVE | CVar.REPLICATED | CVar.SERVER);
 
     /// <summary>
-    /// Disables all vision filters for species like Vulpkanin or Harpies. There are good reasons someone might want to disable these.
+    /// Disables all vision filters for species like Harpies. There are good reasons someone might want to disable these.
     /// </summary>
     public static readonly CVarDef<bool> NoVisionFilters =
         CVarDef.Create("accessibility.no_vision_filters", true, CVar.CLIENTONLY | CVar.ARCHIVE);

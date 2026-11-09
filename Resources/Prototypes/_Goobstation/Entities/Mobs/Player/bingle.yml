@@ -49,10 +49,10 @@
     wideAnimationRotation: 0
     animation: WeaponArcSlash
     damage:
-      types:
-        Blunt: 7
-        Structural: 14 # breaks down the walls and airlocks in 10 hits
-        Shock: 5
+      # WD EDIT: Migrated damage format
+      Blunt: 7
+      Shock: 5
+      Structural: 14
     bluntStaminaDamageFactor: 2.0
   - type: MovementSpeedModifier
     baseWalkSpeed : 2 # same as slime
@@ -82,11 +82,15 @@
     allowedStates:
     - Alive
     damage:
-      types:
-        Poison: -0.5
-      groups:
-        Brute: -0.5
-        Burn: -0.5
+      # WD EDIT: Migrated damage format
+      Blunt: -0.2
+      Caustic: -0.1
+      Cold: -0.1
+      Heat: -0.1
+      Piercing: -0.2
+      Poison: -0.5
+      Shock: -0.1
+      Slash: -0.2
   - type: NightVision
     color: "#008080"
     activateSound: null
@@ -135,10 +139,10 @@
     wideAnimationRotation: 0
     animation: WeaponArcSlash
     damage:
-      types:
-        Blunt: 14
-        Structural: 28
-        Shock: 7
+      # WD EDIT: Migrated damage format
+      Blunt: 14
+      Shock: 7
+      Structural: 28
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: BingleUpgraded

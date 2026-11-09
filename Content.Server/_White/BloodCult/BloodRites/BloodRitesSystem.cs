@@ -1,9 +1,11 @@
-﻿using Content.Server.Body.Components;
-using Content.Server.Body.Systems;
+﻿using Content.Server._White.Bloodstream.Systems;
 using Content.Server.DoAfter;
 using Content.Server.Popups;
 using Content.Shared._White.BloodCult.BloodCultist;
 using Content.Shared._White.BloodCult.BloodRites;
+using Content.Shared._White.Bloodstream.Components;
+using Content.Shared._White.Damage.Components;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
@@ -95,7 +97,7 @@ public sealed class BloodRitesSystem : SharedBloodRitesSystem
             || args.Handled
             || args.Target is not { } target
             || !TryComp(target, out BloodstreamComponent? bloodstream)
-            || bloodstream.BloodSolution is not { } solution
+            || bloodstream.Solution is not { } solution
             || !TryComp<BloodCultistComponent>(args.User, out var bloodCultist))
             return;
 
@@ -137,17 +139,13 @@ public sealed class BloodRitesSystem : SharedBloodRitesSystem
 
         var healingLeft = rites.Comp.TotalHealing;
 
-        foreach (var (type, value) in target.Comp.Damage.DamageDict)
+        foreach (var (type, value) in target.Comp.Damage)
         {
-            // somehow?
-            if (!_protoManager.TryIndex(type, out DamageTypePrototype? damageType))
-                continue;
-
             var toHeal = value;
             if (toHeal > healingLeft)
                 toHeal = healingLeft;
 
-            _damageable.TryChangeDamage(target, new DamageSpecifier(damageType, -toHeal));
+            _damageable.ChangeDamage(target.Owner, new (type, -toHeal));
 
             healingLeft -= toHeal;
             if (healingLeft == 0)
@@ -165,11 +163,11 @@ public sealed class BloodRitesSystem : SharedBloodRitesSystem
         Entity<BloodstreamComponent> target
     )
     {
-        if (target.Comp.BloodSolution is null)
+        if (target.Comp.Solution is null)
             return false;
 
-        _bloodstream.FlushChemicals(target, string.Empty, 10);
-        var missingBlood = target.Comp.BloodSolution.Value.Comp.Solution.AvailableVolume;
+        _bloodstream.FlushChemicals(target.Owner, 10);
+        var missingBlood = target.Comp.Solution.Value.Comp.Solution.AvailableVolume;
         if (missingBlood == 0)
             return false;
 
@@ -183,8 +181,8 @@ public sealed class BloodRitesSystem : SharedBloodRitesSystem
             bloodCost = user.Comp.StoredBloodAmount;
         }
 
-        _bloodstream.TryModifyBleedAmount(target, -3);
-        _bloodstream.TryModifyBloodLevel(target, bloodCost / rites.Comp.BloodRegenerationRatio);
+        /*_bloodstream.TryModifyBleedAmount(target.Owner, -3); TODO*/
+        _bloodstream.TryModifyBloodLevel(target.Owner, bloodCost / rites.Comp.BloodRegenerationRatio);
 
         user.Comp.StoredBloodAmount -= bloodCost;
         Dirty(user);

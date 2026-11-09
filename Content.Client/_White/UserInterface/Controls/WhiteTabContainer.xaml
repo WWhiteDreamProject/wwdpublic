@@ -1,0 +1,8 @@
+<controls:WhiteTabContainer
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client._White.UserInterface.Controls"
+    MouseFilter="Pass">
+    <ScrollContainer Name="ButtonScrollContainer" ReserveScrollbarSpace="True" ReturnMeasure="True" HScrollEnabled="True" VScrollEnabled="False">
+        <BoxContainer Name="ButtonContainer"/>
+    </ScrollContainer>
+</controls:WhiteTabContainer>

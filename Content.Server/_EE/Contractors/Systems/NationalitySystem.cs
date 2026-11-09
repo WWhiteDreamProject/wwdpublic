@@ -1,5 +1,7 @@
 using Content.Server.Players.PlayTimeTracking;
 using Content.Shared._EE.Contractors.Prototypes;
+using Content.Shared._White.Humanoid.Systems;
+using Content.Shared._White.Preferences;
 using Content.Shared.CCVar;
 using Content.Shared.Customization.Systems;
 using Content.Shared.GameTicking;
@@ -51,7 +53,7 @@ public sealed class NationalitySystem : EntitySystem
 
         var jobPrototypeToUse = _prototype.Index(jobId.Value);
 
-        ProtoId<NationalityPrototype> nationality = profile.Nationality != string.Empty ? profile.Nationality : SharedHumanoidAppearanceSystem.DefaultNationality;
+        ProtoId<NationalityPrototype> nationality = profile.Nationality != string.Empty ? profile.Nationality : HumanoidProfileSystem.DefaultNationality;
 
         if (!_prototype.TryIndex(nationality, out var nationalityPrototype))
         {

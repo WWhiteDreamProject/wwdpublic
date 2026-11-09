@@ -11,8 +11,8 @@
   - type: Projectile
     deleteOnCollide: false
     damage:
-      types:
-        Piercing: 15 #Low damage, but ensnaring
+      # WD EDIT: Migrated damage format
+      Piercing: 15
   - type: Ensnaring
     canThrowTrigger: true
     destroyOnRemove: true
@@ -74,5 +74,5 @@
     energy: 1
   - type: Projectile
     damage:
-      types:
-        Piercing: 18
+      # WD EDIT: Migrated damage format
+      Piercing: 18

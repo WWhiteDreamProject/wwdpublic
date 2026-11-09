@@ -1,0 +1,44 @@
+- type: marking
+  id: UndergarmentBottomBoxers
+  parent: BaseUndergarmentBottom
+  definitions:
+  - layer: enum.MarkingVisualLayers.UndergarmentBottom
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/undergarment_bottom.rsi
+      state: boxers
+
+- type: marking
+  id: UndergarmentBottomBriefs
+  parent: BaseUndergarmentBottom
+  definitions:
+  - layer: enum.MarkingVisualLayers.UndergarmentBottom
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/undergarment_bottom.rsi
+      state: briefs
+
+- type: marking
+  id: UndergarmentBottomLowriders
+  parent: BaseUndergarmentBottom
+  definitions:
+  - layer: enum.MarkingVisualLayers.UndergarmentBottom
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/undergarment_bottom.rsi
+      state: lowriders
+
+- type: marking
+  id: UndergarmentBottomSatin
+  parent: BaseUndergarmentBottom
+  definitions:
+  - layer: enum.MarkingVisualLayers.UndergarmentBottom
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/undergarment_bottom.rsi
+      state: satin
+
+- type: marking
+  id: UndergarmentBottomTanga
+  parent: BaseUndergarmentBottom
+  definitions:
+  - layer: enum.MarkingVisualLayers.UndergarmentBottom
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/undergarment_bottom.rsi
+      state: tanga

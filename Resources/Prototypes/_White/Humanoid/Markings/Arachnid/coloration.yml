@@ -1,0 +1,189 @@
+- type: marking
+  id: BaseColorationArachnid
+  parent: [BaseColoration, BaseArachnid]
+  abstract: true
+  coloring:
+    default:
+      type: !type:BodyColorGroupColoring
+        group: Eyes
+
+- type: marking
+  id: ColorationArachnidArrows
+  parent: BaseColorationArachnid
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Arachnid/coloration.rsi
+      state: arrows-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Arachnid/coloration.rsi
+      state: arrows-groin
+
+- type: marking
+  id: ColorationArachnidCore
+  parent: BaseColorationArachnid
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Arachnid/coloration.rsi
+      state: core-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Arachnid/coloration.rsi
+      state: core-chest
+
+- type: marking
+  id: ColorationArachnidCross
+  parent: BaseColorationArachnid
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Arachnid/coloration.rsi
+      state: cross-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Arachnid/coloration.rsi
+      state: cross-groin
+
+- type: marking
+  id: ColorationArachnidFiddleback
+  parent: BaseColorationArachnid
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Arachnid/coloration.rsi
+      state: fiddleback-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Arachnid/coloration.rsi
+      state: fiddleback-groin
+
+- type: marking
+  id: ColorationArachnidHeart
+  parent: BaseColorationArachnid
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Arachnid/coloration.rsi
+      state: heart-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Arachnid/coloration.rsi
+      state: heart-groin
+
+- type: marking
+  id: ColorationArachnidHourglass
+  parent: BaseColorationArachnid
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Arachnid/coloration.rsi
+      state: hourglass-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Arachnid/coloration.rsi
+      state: hourglass-groin
+
+- type: marking
+  id: ColorationArachnidNailAndHammer
+  parent: BaseColorationArachnid
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Arachnid/coloration.rsi
+      state: nail_and_hammer-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Arachnid/coloration.rsi
+      state: nail_and_hammer-groin
+
+- type: marking
+  id: ColorationArachnidSkull
+  parent: BaseColorationArachnid
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Arachnid/coloration.rsi
+      state: skull-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Arachnid/coloration.rsi
+      state: skull-groin
+
+- type: marking
+  id: ColorationArachnidSlashes
+  parent: BaseColorationArachnid
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Arachnid/coloration.rsi
+      state: slashes-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Arachnid/coloration.rsi
+      state: slashes-groin
+
+- type: marking
+  id: ColorationArachnidStar
+  parent: BaseColorationArachnid
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Arachnid/coloration.rsi
+      state: star-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Arachnid/coloration.rsi
+      state: star-groin
+
+- type: marking
+  id: ColorationArachnidStripes
+  parent: BaseColorationArachnid
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Arachnid/coloration.rsi
+      state: stripes-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Arachnid/coloration.rsi
+      state: stripes-groin
+  - layer: enum.BodyProviderType.LeftArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Arachnid/coloration.rsi
+      state: stripes-left_arm
+  - layer: enum.BodyProviderType.LeftLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Arachnid/coloration.rsi
+      state: stripes-left_leg
+  - layer: enum.BodyProviderType.RightArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Arachnid/coloration.rsi
+      state: stripes-right_arm
+  - layer: enum.BodyProviderType.RightLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Arachnid/coloration.rsi
+      state: stripes-right_leg
+
+- type: marking
+  id: ColorationArachnidTarget
+  parent: BaseColorationArachnid
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Arachnid/coloration.rsi
+      state: target
+
+- type: marking
+  id: ColorationArachnidX
+  parent: BaseColorationArachnid
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Arachnid/coloration.rsi
+      state: x-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Arachnid/coloration.rsi
+      state: x-groin

@@ -38,8 +38,8 @@
     firestacksOnIgnite: 3.0
     firestackFade: -0.01
     damage:
-      types:
-        Heat: 0.1
+      # WD EDIT: Migrated damage format
+      Heat: 0.1
   - type: FireVisuals
     sprite: Structures/Decoration/torches.rsi
     normalState: torch_lit

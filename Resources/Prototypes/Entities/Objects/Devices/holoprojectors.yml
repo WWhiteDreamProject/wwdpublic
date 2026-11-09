@@ -19,8 +19,8 @@
     wideAnimationRotation: 90
     attackRate: 0.8
     damage:
-      types:
-        Blunt: 6.5
+      # WD EDIT: Migrated damage format
+      Blunt: 6.5
     bluntStaminaDamageFactor: 2
     heavyRateModifier: 0.9
     maxTargets: 1

@@ -56,8 +56,8 @@
       stopFlyingOnImpact: true # WWDP
       onlyCollideWhenShot: true
       damage:
-        types:
-          Blunt: 1
+        # WD EDIT: Migrated damage format
+        Blunt: 1
       soundHit:
         path: /Audio/Weapons/Guns/Hits/bullet_hit.ogg
     - type: Ammo

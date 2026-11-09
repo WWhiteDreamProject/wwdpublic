@@ -1,3 +1,5 @@
+using Content.Shared._White.Damage;
+using Content.Shared._White.Damage.Prototypes;
 using Content.Shared.Actions;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Damage;

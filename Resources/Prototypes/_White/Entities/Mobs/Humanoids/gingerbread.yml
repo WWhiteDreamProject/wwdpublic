@@ -1,0 +1,29 @@
+- type: entity
+  id: MobHumanoidGingerbread
+  parent:
+  - BaseBodyGingerbread
+  - BaseMobHumanoidOrganic
+  name: Urist McGingerbread
+  components:
+  - type: Bloodstream
+    reagent: Sugar
+  - type: Butcherable
+    spawned:
+    - id: FoodBakedCookie
+      amount: 5
+  - type: HumanoidProfile
+    species: Gingerbread
+  - type: Inventory
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female
+  - type: LanguageKnowledge
+    speaks:
+    - TauCetiBasic
+    - SolCommon
+    understands:
+    - TauCetiBasic
+    - SolCommon

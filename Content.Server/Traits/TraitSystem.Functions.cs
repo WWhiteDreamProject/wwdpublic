@@ -22,15 +22,14 @@ using Content.Shared.NPC.Systems;
 using Content.Shared.Weapons.Melee;
 using Robust.Shared.Audio;
 using Content.Shared.Tag;
-using Content.Shared.Body.Part;
-using Content.Server.Body.Systems;
-using Content.Shared.Body.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
 using System.Linq;
+using Content.Shared._White.Damage;
+using Content.Shared._White.Damage.Components;
+using Content.Shared._White.Humanoid.Components;
 using Robust.Shared.Utility;
 using Robust.Shared.GameStates;
-using Content.Shared.Humanoid;
 
 namespace Content.Server.Traits;
 
@@ -418,8 +417,8 @@ public sealed partial class TraitAddArmor : TraitFunction
         ISerializationManager serializationManager)
     {
         entityManager.EnsureComponent<DamageableComponent>(uid, out var damageableComponent);
-        foreach (var modifierSet in DamageModifierSets)
-            damageableComponent.DamageModifierSets.Add(modifierSet);
+        /*foreach (var modifierSet in  TODO: FUCK
+            damageableComponent.DamageModifierSets.Add(modifierSet);*/
 
         // These functions live in the Server, but these components are Shared, so we gotta dirty so that prediction will work.
         entityManager.Dirty(uid, damageableComponent);
@@ -440,8 +439,8 @@ public sealed partial class TraitRemoveArmor : TraitFunction
         if (!entityManager.TryGetComponent<DamageableComponent>(uid, out var damageableComponent))
             return;
 
-        foreach (var modifierSet in DamageModifierSets)
-            damageableComponent.DamageModifierSets.Remove(modifierSet);
+        /*foreach (var modifierSet in DamageModifierSets) TODO: Fuck
+            damageableComponent.DamageModifierSets.Remove(modifierSet);*/
 
         // These functions live in the Server, but these components are Shared, so we gotta dirty so that prediction will work.
         entityManager.Dirty(uid, damageableComponent);
@@ -813,6 +812,7 @@ public sealed partial class TraitAddTag : TraitFunction
     }
 }
 
+/* TODO
 // <summary>
 //      Replaces a body part with a cybernetic. This is only for limbs such as arms and legs, don't use this for organs(old or new).
 // </summary>
@@ -821,9 +821,6 @@ public sealed partial class TraitCyberneticLimbReplacement : TraitFunction
 {
     [DataField, AlwaysPushInheritance]
     public BodyPartType RemoveBodyPart { get; private set; } = BodyPartType.Arm;
-
-    [DataField, AlwaysPushInheritance]
-    public BodyPartSymmetry PartSymmetry { get; private set; } = BodyPartSymmetry.Left;
 
     [DataField, AlwaysPushInheritance]
     public EntProtoId? ProtoId { get; private set; }
@@ -866,7 +863,7 @@ public sealed partial class TraitCyberneticLimbReplacement : TraitFunction
                 bodySystem.AttachPart(root.Value.Entity, SlotId, newLimb, root.Value.BodyPart, limbComp);
         }
     }
-}
+}*/
 
 // This may seem self referential, but it's a convenient shorthand for systems other than Traits that also use these functions.
 // By Hullrot's request for the sanity of their contributors.
@@ -882,16 +879,16 @@ public sealed partial class TraitAddTrait : TraitFunction
     {
         var traitSystem = entityManager.System<TraitSystem>();
         var protoMan = IoCManager.Resolve<IPrototypeManager>();
-        if (!entityManager.TryGetComponent(uid, out HumanoidAppearanceComponent? humanoid))
+        if (!entityManager.TryGetComponent(uid, out HumanoidProfileComponent? humanoid))
             return;
 
         var traitsToAdd = new List<TraitPrototype>();
 
-        foreach (var trait in Traits)
+        /*foreach (var trait in Traits) TODO
             if (humanoid.LastProfileLoaded is not null
                 && !humanoid.LastProfileLoaded.TraitPreferences.Contains(trait)
                 && protoMan.TryIndex(trait, out var traitPrototype))
-                traitsToAdd.Add(traitPrototype);
+                traitsToAdd.Add(traitPrototype);*/
 
         foreach (var trait in traitsToAdd)
             traitSystem.AddTrait(uid, trait);

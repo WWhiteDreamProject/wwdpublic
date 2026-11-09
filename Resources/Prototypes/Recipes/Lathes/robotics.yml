@@ -66,33 +66,33 @@
 
 - type: latheRecipe
   parent: BaseBorgLimbRecipe
-  id: LeftArmBorg
-  result: LeftArmBorg
+  id: BodyProviderLeftArmBorg # WD EDIT: LeftArmBorg -> BodyProviderLeftArmBorg
+  result: BodyProviderLeftArmBorg # WD EDIT: LeftArmBorg -> BodyProviderLeftArmBorg
 
 - type: latheRecipe
   parent: BaseBorgLimbRecipe
-  id: RightArmBorg
-  result: RightArmBorg
+  id: BodyProviderRightArmBorg # WD EDIT: RightArmBorg -> BodyProviderRightArmBorg
+  result: BodyProviderRightArmBorg # WD EDIT: RightArmBorg -> BodyProviderRightArmBorg
 
 - type: latheRecipe
   parent: BaseBorgLimbRecipe
-  id: LeftLegBorg
-  result: LeftLegBorg
+  id: BodyProviderLeftLegBorg # WD EDIT: LeftLegBorg -> BodyProviderLeftLegBorg
+  result: BodyProviderLeftLegBorg # WD EDIT: LeftLegBorg -> BodyProviderLeftLegBorg
 
 - type: latheRecipe
   parent: BaseBorgLimbRecipe
-  id: RightLegBorg
-  result: RightLegBorg
+  id: BodyProviderRightLegBorg # WD EDIT: RightLegBorg -> BodyProviderRightLegBorg
+  result: BodyProviderRightLegBorg # WD EDIT: RightLegBorg -> BodyProviderRightLegBorg
 
 - type: latheRecipe
   parent: BaseBorgLimbRecipe
-  id: LightHeadBorg
-  result: LightHeadBorg
+  id: BodyProviderHeadBorg # WD EDIT: LightHeadBorg -> BodyProviderHeadBorg
+  result: BodyProviderHeadBorg # WD EDIT: LightHeadBorg -> BodyProviderHeadBorg
 
 - type: latheRecipe
   parent: BaseBorgLimbRecipe
-  id: TorsoBorg
-  result: TorsoBorg
+  id: BodyProviderTorsoBorg # WD EDIT: TorsoBorg -> BodyProviderTorsoBorg
+  result: BodyProviderTorsoBorg # WD EDIT: TorsoBorg -> BodyProviderTorsoBorg
 
 # Parts
 

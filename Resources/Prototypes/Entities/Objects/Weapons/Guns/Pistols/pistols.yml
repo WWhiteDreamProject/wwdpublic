@@ -82,8 +82,8 @@
   - type: MeleeWeapon
     attackRate: 1.2
     damage:
-      types:
-        Blunt: 7.5
+      # WD EDIT: Migrated damage format
+      Blunt: 7.5
     swapKeys: true
     disableHeavy: true
     animation: WeaponArcThrust

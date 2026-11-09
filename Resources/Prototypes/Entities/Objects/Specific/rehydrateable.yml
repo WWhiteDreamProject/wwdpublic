@@ -13,8 +13,8 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 10
-  - type: Food
-    solution: cube
+  - type: Ingestible # WD Ingestible
+    solutionName: cube # WD Ingestible
   - type: FlavorProfile
     flavors:
     - chewy
@@ -228,8 +228,8 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 10
-  - type: Food
-    solution: cube
+  - type: Ingestible # WD Ingestible
+    solutionName: cube  # WD Ingestible
   - type: FlavorProfile
     flavors:
     - chewy

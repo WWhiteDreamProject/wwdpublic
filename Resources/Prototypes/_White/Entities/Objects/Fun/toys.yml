@@ -47,15 +47,13 @@
     knockdownTime: 0
     infectionPrototype: null
     damageOnImpact:
-      types:
-        Blunt: 0
+      Blunt: 0
   - type: MeleeWeapon
     hidden: true
     canHeavyAttack: false
     angle: 0
     damage:
-      types:
-        Blunt: 0
+      Blunt: 0
   - type: Physics
     bodyType: Dynamic
   - type: CollisionWake

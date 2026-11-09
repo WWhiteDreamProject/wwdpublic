@@ -1,6 +1,6 @@
+using Content.Shared._White.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Events;
-using Content.Shared.Damage.Prototypes;
 using Content.Shared.Examine;
 using Content.Shared.FixedPoint;
 using Content.Shared.Verbs;
@@ -64,7 +64,7 @@ public sealed class DamageExamineSystem : EntitySystem
             msg.AddMarkupOrThrow(Loc.GetString("damage-examine-type", ("type", type)));
         }
 
-        foreach (var damage in damageSpecifier.DamageDict)
+        foreach (var damage in damageSpecifier)
         {
             if (damage.Value != FixedPoint2.Zero)
             {

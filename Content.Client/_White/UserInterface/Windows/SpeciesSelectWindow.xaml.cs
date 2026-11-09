@@ -1,7 +1,9 @@
 using System.Linq;
+using Content.Client._White.Appearance.Systems;
 using Content.Client._White.UserInterface.Controls;
 using Content.Client.Guidebook;
-using Content.Client.Humanoid;
+using Content.Shared._White.Humanoid.Prototypes;
+using Content.Shared._White.Preferences;
 using Content.Shared._White.SpeciesDictionary;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
@@ -57,21 +59,12 @@ public sealed partial class SpeciesSelectWindow : DefaultWindow
 
             if (_dummyProfile != null)
             {
-                _dummyProfile = _dummyProfile.WithSpecies(_selectedSpecies.Value);
+                _dummyProfile = _dummyProfile.Value.WithSpecies(_selectedSpecies.Value);
 
-                _dummyProfile.EnsureValid(_playerManager.LocalSession, IoCManager.Instance!);
+                _dummyProfile.Value.EnsureValid();
             }
 
-            _dummyUid = _entityManager.SpawnEntity(prototype.DollPrototype, MapCoordinates.Nullspace);
-
-            if (_entityManager.TryGetComponent<HumanoidAppearanceComponent>(_dummyUid, out var humanoid))
-            {
-                var hiddenLayers = humanoid.HiddenLayers;
-                var appearanceSystem = _entityManager.System<HumanoidAppearanceSystem>();
-                appearanceSystem.LoadProfile(_dummyUid, _dummyProfile, humanoid, false, false);
-                // Reapply the hidden layers set from clothing
-                appearanceSystem.SetLayersVisibility(_dummyUid, hiddenLayers, false, humanoid: humanoid);
-            }
+            _dummyUid = _entityManager.SpawnEntity(prototype.Doll, MapCoordinates.Nullspace);
 
             EntityFrontView.SetEntity(_dummyUid);
             EntityRightView.SetEntity(_dummyUid);
@@ -97,7 +90,7 @@ public sealed partial class SpeciesSelectWindow : DefaultWindow
     public void Initialize(HumanoidCharacterProfile characterProfile)
     {
         DisposeContainers();
-        _dummyProfile = characterProfile.Clone();
+        _dummyProfile = characterProfile;
 
         var groups =
             _prototypeManager.EnumeratePrototypes<SpeciesDictionaryGroupPrototype>().ToList();

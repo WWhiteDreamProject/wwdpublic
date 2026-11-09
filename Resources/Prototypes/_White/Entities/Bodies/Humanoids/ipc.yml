@@ -1,0 +1,62 @@
+- type: entity
+  id: BaseBodyIPC
+  parent: BaseBody
+  abstract: true
+  components:
+  - type: Body
+    rootProvider:
+      type: Chest
+      providers:
+        groin:
+          type: Groin
+          providers:
+            brain:
+              type: Brain
+              startingProvider: BodyProviderBrainPositronic
+            left_leg:
+              type: LeftLeg
+              providers:
+                left_foot:
+                  type: LeftFoot
+                  startingProvider: BodyProviderLeftFootPositronic
+              startingProvider: BodyProviderLeftLegPositronic
+            right_leg:
+              type: RightLeg
+              providers:
+                right_foot:
+                  type: RightFoot
+                  startingProvider: BodyProviderRightFootPositronic
+              startingProvider: BodyProviderRightLegPositronic
+            tail:
+              type: Tail
+          startingProvider: BodyProviderGroinPositronic
+        head:
+          type: Head
+          providers:
+            ears:
+              type: Ears
+              startingProvider: BodyProviderEarsPositronic
+            eyes:
+              type: Eyes
+              startingProvider: BodyProviderEyesPositronic
+            tongue:
+              type: Tongue
+              startingProvider: BodyProviderTonguePositronic
+          startingProvider: BodyProviderHeadPositronic
+        left_arm:
+          type: LeftArm
+          providers:
+            left_hand:
+              type: LeftHand
+              startingProvider: BodyProviderLeftHandPositronic
+          startingProvider: BodyProviderLeftArmPositronic
+        right_arm:
+          type: RightArm
+          providers:
+            right_hand:
+              type: RightHand
+              startingProvider: BodyProviderRightHandPositronic
+          startingProvider: BodyProviderRightArmPositronic
+        wings:
+          type: Wings
+      startingProvider: BodyProviderChestPositronic

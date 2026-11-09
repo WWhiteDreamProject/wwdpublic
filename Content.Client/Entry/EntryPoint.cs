@@ -1,5 +1,6 @@
 using Content.Client._White.ItemSlotRenderer;
 using Content.Client._White.Overlays;
+using Content.Client._White.Preferences.Managers;
 using Content.Shared._White.CCVar;
 using Content.Client.Administration.Managers;
 using Content.Client.Changelog;

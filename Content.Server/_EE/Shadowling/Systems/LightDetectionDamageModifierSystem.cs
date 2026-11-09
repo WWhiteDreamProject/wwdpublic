@@ -1,6 +1,6 @@
 using Content.Shared._EE.Shadowling.Components;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Alert;
-using Content.Shared.Damage;
 using Content.Shared.Mobs.Systems;
 using Robust.Server.Audio;
 using Robust.Shared.Audio;

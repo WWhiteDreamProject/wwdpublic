@@ -2,6 +2,7 @@ using Content.Server.DoAfter;
 using Content.Server.Popups;
 using Content.Shared._EE.Shadowling;
 using Content.Shared._EE.Shadowling.Components;
+using Content.Shared._White.Humanoid.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.Humanoid;
@@ -63,7 +64,7 @@ public sealed class AntiMindControlItemSystem : EntitySystem
         if (args.User == target)
             return;
 
-        if (!HasComp<HumanoidAppearanceComponent>(target))
+        if (!HasComp<HumanoidProfileComponent>(target))
             return;
 
         var doAfter = new DoAfterArgs(

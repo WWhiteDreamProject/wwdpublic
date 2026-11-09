@@ -14,7 +14,7 @@ public sealed partial class HideLayerClothingComponent : Component
     /// The appearance layer to hide.
     /// </summary>
     [DataField]
-    public HashSet<HumanoidVisualLayers> Slots = new();
+    public HashSet<Enum> Slots = new(); // WD EDIT
 
     /// <summary>
     /// The clothing layers to hide.

@@ -24,26 +24,26 @@
   - type: SolutionContainerVisuals
     maxFillLevels: 6
     fillBaseName: bottle-1-
-  - type: Drink
+  - type: Ingestible # WD Ingestible
   - type: SolutionContainerManager
     solutions:
-      drink: # This solution name and target volume is hard-coded in ChemMasterComponent
+      ingestible: # WD Ingestible # This solution name and target volume is hard-coded in ChemMasterComponent
         maxVol: 30
   - type: MixableSolution
-    solution: drink
+    solution: ingestible # WD Ingestible
   - type: RefillableSolution
-    solution: drink
+    solution: ingestible # WD Ingestible
   - type: DrainableSolution
-    solution: drink
+    solution: ingestible # WD Ingestible
   - type: ExaminableSolution
-    solution: drink
+    solution: ingestible # WD Ingestible
   - type: DrawableSolution
-    solution: drink
+    solution: ingestible # WD Ingestible
   - type: SolutionTransfer
     maxTransferAmount: 30
     canChangeTransferAmount: true
   - type: SolutionItemStatus
-    solution: drink
+    solution: ingestible # WD Ingestible
   - type: UserInterface
     interfaces:
       enum.TransferAmountUiKey.Key:
@@ -52,26 +52,26 @@
     size: Tiny
     sprite: Objects/Specific/Chemistry/beaker.rsi
   - type: Spillable
-    solution: drink
+    solution: ingestible # WD Ingestible
   - type: MeleeWeapon
     canBeBlocked: false # WD EDIT
     soundNoDamage:
       path: "/Audio/Effects/Fluids/splat.ogg"
     damage:
-      types:
-        Blunt: 0
+      # WD EDIT: Migrated damage format
+      Blunt: 0
   - type: TrashOnSolutionEmpty
-    solution: drink
+    solution: ingestible # WD Ingestible
   - type: StaticPrice
     price: 0
   - type: DamageOnLand
     damage:
-      types:
-        Blunt: 5
+      # WD EDIT: Migrated damage format
+      Blunt: 5
   - type: DamageOtherOnHit
     damage:
-      types:
-        Blunt: 4
+      # WD EDIT: Migrated damage format
+      Blunt: 4
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
@@ -157,7 +157,7 @@
     currentLabel: reagent-name-epinephrine
   - type: SolutionContainerManager
     solutions:
-      drink: # This solution name and target volume is hard-coded in ChemMasterComponent
+      ingestible: # WD Ingestible # This solution name and target volume is hard-coded in ChemMasterComponent
         maxVol: 30
         reagents:
         - ReagentId: Epinephrine
@@ -172,7 +172,7 @@
     currentLabel: reagent-name-robust-harvest
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: RobustHarvest
@@ -187,7 +187,7 @@
     currentLabel: reagent-name-e-z-nutrient
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: EZNutrient
@@ -202,7 +202,7 @@
     currentLabel: reagent-name-left4-zed
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: Left4Zed
@@ -217,7 +217,7 @@
     currentLabel: reagent-name-unstable-mutagen
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: UnstableMutagen
@@ -232,7 +232,7 @@
     currentLabel: reagent-name-potassium
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: Potassium
@@ -247,7 +247,7 @@
     currentLabel: reagent-name-nitrogen
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: Nitrogen
@@ -262,7 +262,7 @@
     currentLabel: reagent-name-phosphorus
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: Phosphorus
@@ -277,7 +277,7 @@
     currentLabel: reagent-name-hydrogen
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: Hydrogen
@@ -292,7 +292,7 @@
     currentLabel: reagent-name-ethanol
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: Ethanol
@@ -307,7 +307,7 @@
     currentLabel: reagent-name-nocturine
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: Nocturine
@@ -322,7 +322,7 @@
     currentLabel: reagent-name-ephedrine
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: Ephedrine
@@ -337,7 +337,7 @@
     currentLabel: reagent-name-omnizine
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: Omnizine
@@ -352,7 +352,7 @@
     currentLabel: reagent-name-cognizine
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: Cognizine
@@ -367,7 +367,7 @@
     currentLabel: reagent-name-pax
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: Pax
@@ -382,7 +382,7 @@
     currentLabel: reagent-name-mute-toxin
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: MuteToxin
@@ -397,7 +397,7 @@
     currentLabel: reagent-name-lead
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: Lead
@@ -412,7 +412,7 @@
     currentLabel: reagent-name-toxin
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: Toxin

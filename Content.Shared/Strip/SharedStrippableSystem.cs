@@ -127,7 +127,7 @@ public abstract class SharedStrippableSystem : EntitySystem
             return;
 
         // Is the target a handcuff?
-        if (TryComp<VirtualItemComponent>(handSlot.HeldEntity, out var virtualItem) &&
+        if (TryComp<VirtualItemComponent>(handSlot.Value.HeldEntity, out var virtualItem) &&
             TryComp<CuffableComponent>(target.Owner, out var cuffable) &&
             _cuffableSystem.GetAllCuffs(cuffable).Contains(virtualItem.BlockingEntity))
         {
@@ -135,10 +135,10 @@ public abstract class SharedStrippableSystem : EntitySystem
             return;
         }
 
-        if (user.Comp.ActiveHandEntity != null && handSlot.HeldEntity == null)
+        if (user.Comp.ActiveHandEntity != null && handSlot.Value.HeldEntity == null)
             StartStripInsertHand(user, target, user.Comp.ActiveHandEntity.Value, handId, targetStrippable);
-        else if (user.Comp.ActiveHandEntity == null && handSlot.HeldEntity != null)
-            StartStripRemoveHand(user, target, handSlot.HeldEntity.Value, handId, targetStrippable);
+        else if (user.Comp.ActiveHandEntity == null && handSlot.Value.HeldEntity != null)
+            StartStripRemoveHand(user, target, handSlot.Value.HeldEntity.Value, handId, targetStrippable);
     }
 
     /// <summary>
@@ -162,7 +162,7 @@ public abstract class SharedStrippableSystem : EntitySystem
         if (user.Comp.ActiveHandEntity != held)
             return false;
 
-        if (!_handsSystem.CanDropHeld(user, user.Comp.ActiveHand))
+        if (!_handsSystem.CanDropHeld(user, user.Comp.ActiveHand.Value))
         {
             _popupSystem.PopupCursor(Loc.GetString("strippable-component-cannot-drop"));
             return false;
@@ -368,14 +368,14 @@ public abstract class SharedStrippableSystem : EntitySystem
         if (user.Comp.ActiveHandEntity != held)
             return false;
 
-        if (!_handsSystem.CanDropHeld(user, user.Comp.ActiveHand))
+        if (!_handsSystem.CanDropHeld(user, user.Comp.ActiveHand.Value))
         {
             _popupSystem.PopupCursor(Loc.GetString("strippable-component-cannot-drop"));
             return false;
         }
 
         if (!_handsSystem.TryGetHand(target, handName, out var handSlot, target.Comp) ||
-            !_handsSystem.CanPickupToHand(target, user.Comp.ActiveHandEntity.Value, handSlot, checkActionBlocker: false, target.Comp))
+            !_handsSystem.CanPickupToHand(target, user.Comp.ActiveHandEntity.Value, handSlot.Value, checkActionBlocker: false, target.Comp))
         {
             _popupSystem.PopupCursor(Loc.GetString("strippable-component-cannot-put-message", ("owner", target)));
             return false;
@@ -469,16 +469,16 @@ public abstract class SharedStrippableSystem : EntitySystem
             return false;
         }
 
-        if (HasComp<VirtualItemComponent>(handSlot.HeldEntity))
+        if (HasComp<VirtualItemComponent>(handSlot.Value.HeldEntity))
             return false;
 
-        if (handSlot.HeldEntity == null)
+        if (handSlot.Value.HeldEntity == null)
             return false;
 
-        if (handSlot.HeldEntity != item)
+        if (handSlot.Value.HeldEntity != item)
             return false;
 
-        if (!_handsSystem.CanDropHeld(target, handSlot, false))
+        if (!_handsSystem.CanDropHeld(target, handSlot.Value, false))
         {
             _popupSystem.PopupCursor(Loc.GetString("strippable-component-cannot-drop-message", ("owner", Identity.Name(target, EntityManager, user))));
             return false;

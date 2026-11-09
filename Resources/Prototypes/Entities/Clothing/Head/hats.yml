@@ -483,9 +483,12 @@
     - ClothMade
   - type: HideLayerClothing
     slots:
-    - Hair
-    - HeadTop
-    - HeadSide
+    # WD EDIT START
+    - enum.MarkingVisualLayers.Hair
+    - enum.MarkingVisualLayers.HeadBottom
+    - enum.MarkingVisualLayers.HeadTop
+    - enum.MarkingVisualLayers.HeadSide
+    # WD EDIT END
 
 - type: entity
   parent: ClothingHeadHatWizardBase
@@ -655,7 +658,9 @@
     - ClothMade
   - type: HideLayerClothing
     slots:
-    - Hair
+    # WD EDIT START
+    - enum.MarkingVisualLayers.Hair
+    # WD EDIT END
 
 - type: entity
   parent: ClothingHeadBase
@@ -1203,8 +1208,8 @@
     alwaysCombustible: true
     canExtinguish: true
     damage:
-      types:
-        Heat: 1
+      # WD EDIT: Migrated damage format
+      Heat: 1
   - type: Damageable
     damageModifierSet: Wood
   - type: Appearance
@@ -1323,7 +1328,9 @@
     coolingCoefficient: 0.5
   - type: HideLayerClothing
     slots:
-    - Hair
+    # WD EDIT START
+    - enum.MarkingVisualLayers.Hair
+    # WD EDIT END
 
 - type: entity
   parent: ClothingHeadBase

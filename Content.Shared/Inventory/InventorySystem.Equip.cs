@@ -115,7 +115,7 @@ public abstract partial class InventorySystem
             return;
         }
 
-        if (!_handsSystem.CanDropHeld(actor, hands.ActiveHand!, checkActionBlocker: false))
+        if (!_handsSystem.CanDropHeld(actor, hands.ActiveHand!.Value, checkActionBlocker: false))
             return;
 
         RaiseLocalEvent(held.Value, new HandDeselectedEvent(actor));

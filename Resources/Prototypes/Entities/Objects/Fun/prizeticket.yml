@@ -189,9 +189,6 @@
       - id: PlushieHuman
         prob: 0.80
         orGroup: Prize
-      - id: PlushieArachne
-        prob: 0.80
-        orGroup: Prize
       - id: PlushieGnome
         prob: 0.80
         orGroup: Prize
@@ -232,9 +229,6 @@
         prob: 0.80
         orGroup: Prize
       - id: PlushieBlackFox
-        prob: 0.80
-        orGroup: Prize
-      - id: PlushieVulp
         prob: 0.80
         orGroup: Prize
       - id: PlushieCorgi
@@ -285,9 +279,6 @@
       - id: PetRock
         prob: 0.80
         orGroup: Prize
-      - id: PlushieShadowkin
-        prob: 0.80
-        orGroup: Prize
       - id: PlushieRainbowLizard
         prob: 0.80
         orGroup: Prize
@@ -320,9 +311,6 @@
         prob: 0.50
         orGroup: Prize
       - id: PlushieAbductor
-        prob: 0.50
-        orGroup: Prize
-      - id: PlushieTrystan
         prob: 0.50
         orGroup: Prize
       - id: FoamCrossbow

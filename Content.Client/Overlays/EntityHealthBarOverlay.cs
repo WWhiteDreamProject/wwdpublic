@@ -1,6 +1,7 @@
 using System.Numerics;
 using Content.Client.StatusIcon;
 using Content.Client.UserInterface.Systems;
+using Content.Shared._White.Damage.Components;
 using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
 using Content.Shared.Mobs;
@@ -72,7 +73,7 @@ public sealed class EntityHealthBarOverlay : Overlay
                 xform.MapID != args.MapId)
                 continue;
 
-            if (damageableComponent.DamageContainerID == null || !DamageContainers.Contains(damageableComponent.DamageContainerID))
+            if (damageableComponent.Container == null || !DamageContainers.Contains(damageableComponent.Container))
                 continue;
 
             // we use the status icon component bounds if specified otherwise use sprite
@@ -130,8 +131,8 @@ public sealed class EntityHealthBarOverlay : Overlay
     {
         if (_mobStateSystem.IsAlive(uid, component))
         {
-            if (dmg.HealthBarThreshold != null && dmg.TotalDamage < dmg.HealthBarThreshold)
-                return null;
+            /*if (dmg.HealthBarThreshold != null && dmg.TotalDamage < dmg.HealthBarThreshold) TODO
+                return null;*/
 
             if (!_mobThresholdSystem.TryGetThresholdForState(uid, MobState.Critical, out var threshold, thresholds) &&
                 !_mobThresholdSystem.TryGetThresholdForState(uid, MobState.Dead, out threshold, thresholds))

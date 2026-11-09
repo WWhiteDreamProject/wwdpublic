@@ -162,12 +162,6 @@
 #       id: PlushieVox
 #     - type: loadout
 #       id: PlushieHuman
-#     - type: loadout
-#       id: PlushieArachne
-#     - type: loadout
-#       id: PlushieVulp
-#     - type: loadout
-#       id: PlushieShadowkin
 
 - type: characterItemGroup
   id: LoadoutMedkits

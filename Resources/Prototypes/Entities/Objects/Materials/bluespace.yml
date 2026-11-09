@@ -17,7 +17,6 @@
   - type: EmitSoundOnUse
     sound:
       collection: RadiationPulse
-  - type: EtherealStunItem
   - type: Tag
     tags:
     - BluespaceCrystal

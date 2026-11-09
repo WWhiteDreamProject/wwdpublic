@@ -1,6 +1,7 @@
+using Content.Shared._White.Damage;
+using Content.Shared._White.Damage.Prototypes;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Actions;
-using Content.Shared.Damage;
-using Content.Shared.Damage.Prototypes;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
@@ -12,7 +13,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared._Lavaland.Body;
 
-// TODO: Use Shitmed instead of Shitcode
+// TODO: Use WhiteMed instead of Shitcode
 public sealed class CursedHeartSystem : EntitySystem
 {
     [Dependency] private readonly SharedActionsSystem _actions = default!;

@@ -1,3 +1,4 @@
+using Content.Shared._White.Humanoid.Systems;
 using Content.Shared.Humanoid;
 using Content.Shared.Speech;
 using Robust.Shared.Prototypes;
@@ -35,7 +36,7 @@ public sealed partial class VoiceMaskComponent : Component
 
     // WD EDIT START
     [DataField]
-    public string VoiceId = SharedHumanoidAppearanceSystem.DefaultVoice;
+    public string VoiceId = HumanoidProfileSystem.DefaultVoice;
     // WD EDIT END
 
     /// <summary>

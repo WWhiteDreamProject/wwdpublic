@@ -1,0 +1,80 @@
+- type: entity
+  id: BaseBodyArachnid
+  parent: BaseBody
+  abstract: true
+  components:
+  - type: Body
+    rootProvider:
+      type: Chest
+      providers:
+        groin:
+          type: Groin
+          providers:
+            gland_web:
+              type: Gland
+              startingProvider: BodyProviderGlandWebArachnid
+            kidneys:
+              type: Kidneys
+              startingProvider: BodyProviderKidneysArachnid
+            left_leg:
+              type: LeftLeg
+              providers:
+                left_foot:
+                  type: LeftFoot
+                  startingProvider: BodyProviderLeftFootArachnid
+              startingProvider: BodyProviderLeftLegArachnid
+            liver:
+              type: Liver
+              startingProvider: BodyProviderLiverArachnid
+            right_leg:
+              type: RightLeg
+              providers:
+                right_foot:
+                  type: RightFoot
+                  startingProvider: BodyProviderRightFootArachnid
+              startingProvider: BodyProviderRightLegArachnid
+            stomach:
+              type: Stomach
+              startingProvider: BodyProviderStomachArachnid
+            tail:
+              type: Tail
+          startingProvider: BodyProviderGroinArachnid
+        head:
+          type: Head
+          providers:
+            brain:
+              type: Brain
+              startingProvider: BodyProviderBrainArachnid
+            ears:
+              type: Ears
+              startingProvider: BodyProviderEarsArachnid
+            eyes:
+              type: Eyes
+              startingProvider: BodyProviderEyesArachnid
+            tongue:
+              type: Tongue
+              startingProvider: BodyProviderTongueArachnid
+          startingProvider: BodyProviderHeadArachnid
+        heart:
+          type: Heart
+          startingProvider: BodyProviderHeartArachnid
+        left_arm:
+          type: LeftArm
+          providers:
+            left_hand:
+              type: LeftHand
+              startingProvider: BodyProviderLeftHandArachnid
+          startingProvider: BodyProviderLeftArmArachnid
+        lungs:
+          type: Lungs
+          startingProvider: BodyProviderLungsArachnid
+        right_arm:
+          type: RightArm
+          providers:
+            right_hand:
+              type: RightHand
+              startingProvider: BodyProviderRightHandArachnid
+          startingProvider: BodyProviderRightArmArachnid
+        wings:
+          type: Wings
+      startingProvider: BodyProviderChestArachnid

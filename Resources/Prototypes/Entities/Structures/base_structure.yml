@@ -27,8 +27,8 @@
       - Structure
   - type: DamageOtherOnHit
     damage:
-      types:
-        Blunt: 8
+      # WD EDIT: Migrated damage format
+      Blunt: 8
     staminaCost: 20 # WWDP shoving cost
     soundHit:
       collection: MetalThud

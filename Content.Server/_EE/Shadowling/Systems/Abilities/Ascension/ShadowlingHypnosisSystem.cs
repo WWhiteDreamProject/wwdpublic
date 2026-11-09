@@ -1,5 +1,6 @@
 using Content.Server.Actions;
 using Content.Shared._EE.Shadowling;
+using Content.Shared._White.Humanoid.Components;
 using Content.Shared.Humanoid;
 
 
@@ -27,7 +28,7 @@ public sealed class ShadowlingHypnosisSystem : EntitySystem
         if (HasComp<ThrallComponent>(target) || HasComp<ShadowlingComponent>(target))
             return;
 
-        if (!HasComp<HumanoidAppearanceComponent>(target))
+        if (!HasComp<HumanoidProfileComponent>(target))
             return;
 
         EnsureComp<ThrallComponent>(target);

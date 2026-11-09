@@ -1,0 +1,13 @@
+# TODO
+# - type: species
+#   id: Shadowling
+#   defaultColors:
+#     Eyes: "#000000"
+#     Skin: "#000000"
+#   colorations:
+#     Eyes: Simple
+#     Skin: HumanTone
+#   doll: HumanoidDollShadowling
+#   prototype: MobHumanoidShadowling
+#   name: species-name-shadowling
+#   naming: Human

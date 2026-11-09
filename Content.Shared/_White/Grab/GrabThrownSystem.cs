@@ -1,14 +1,15 @@
+using System.Numerics;
+using Content.Shared._White.Damage;
+using Content.Shared._White.Damage.Components;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Damage.Systems;
-using Content.Shared.Damage;
 using Content.Shared.Effects;
+using Content.Shared.Standing;
 using Content.Shared.Throwing;
 using Robust.Shared.Network;
+using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Player;
-using System.Numerics;
-using Content.Shared._White;
-using Content.Shared.Standing;
-using Robust.Shared.Physics.Components;
 
 namespace Content.Shared._White.Grab;
 
@@ -55,16 +56,16 @@ public sealed class GrabThrownSystem : EntitySystem
         var mass = physicsComponent.Mass;
         var kineticEnergy = 0.5f * mass * velocitySquared;
         var kineticEnergyDamage = new DamageSpecifier();
-        kineticEnergyDamage.DamageDict.Add("Blunt", 1);
+        kineticEnergyDamage.Add("Blunt", 1);
         var modNumber = Math.Floor(kineticEnergy / 100);
         kineticEnergyDamage *= Math.Floor(modNumber / 3);
-        
+
         if (kineticEnergyDamage.GetTotal() > 50)
         {
             var ratio = 50 / kineticEnergyDamage.GetTotal();
             kineticEnergyDamage *= ratio;
         }
-        
+
         _damageable.TryChangeDamage(args.OtherEntity, kineticEnergyDamage);
         _stamina.TakeStaminaDamage(ent, (float) Math.Floor(modNumber / 2));
 

@@ -39,11 +39,11 @@
     spawned:
     - id: MaterialCloth1
       amount: 1
-  - type: Food
+  - type: Ingestible # WD Ingestible
     requiresSpecialDigestion: true
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 10
         reagents:
         - ReagentId: Fiber

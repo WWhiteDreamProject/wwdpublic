@@ -1,8 +1,8 @@
 - type: entity
   parent:
   - BaseMob
-  - MobCombat
-  - MobDamageable
+  - BaseMobCombat
+  - BaseMobDamageable
   id: BaseMobPsionicFamiliar
   abstract: true
   components:
@@ -65,9 +65,8 @@
   - type: Dispellable
   - type: DamageOnDispel
     damage:
-      types:
-        Heat: 100
-
+      # WD EDIT: Migrated damage format
+      Heat: 100
 - type: entity
   name: Remilia
   parent: BaseMobPsionicFamiliar
@@ -130,8 +129,8 @@
     angle: 0
     animation: WeaponArcBite
     damage:
-      types:
-        Piercing: 5
+      # WD EDIT: Migrated damage format
+      Piercing: 5
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -158,9 +157,9 @@
     altDisarm: false
     animation: WeaponArcBite
     damage:
-      types:
-        Piercing: 8
-        Slash: 7
+      # WD EDIT: Migrated damage format
+      Piercing: 8
+      Slash: 7
   - type: InputMover
   - type: MobMover
   - type: HTN
@@ -227,8 +226,8 @@
     - XenoglossyPower
   - type: MeleeWeapon
     damage:
-      types:
-        Heat: 9
+      # WD EDIT: Migrated damage format
+      Heat: 9
     soundHit:
       path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
       params:

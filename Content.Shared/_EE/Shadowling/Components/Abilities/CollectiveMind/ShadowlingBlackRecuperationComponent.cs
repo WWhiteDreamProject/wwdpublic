@@ -1,14 +1,10 @@
-using Content.Shared.Damage;
-using Content.Shared.FixedPoint;
-using Content.Shared.Humanoid.Markings;
+using Content.Shared._White.Damage;
 using Content.Shared.Polymorph;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-
 namespace Content.Shared._EE.Shadowling;
-
 
 /// <summary>
 /// This is used for the Black Recuperation ability.
@@ -43,10 +39,7 @@ public sealed partial class ShadowlingBlackRecuperationComponent : Component
     [DataField]
     public DamageSpecifier DamageToDeal = new()
     {
-        DamageDict = new()
-        {
-            ["Cellular"] = 5,
-        }
+        ["Cellular"] = 5,
     };
 
     [DataField]

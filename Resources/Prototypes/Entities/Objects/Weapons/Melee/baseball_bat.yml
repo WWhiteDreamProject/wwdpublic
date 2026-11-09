@@ -12,9 +12,8 @@
     wideAnimationRotation: -135
     range: 1.6
     damage:
-      types:
-        Blunt: 7.5
-        Structural: 5
+      Blunt: 7.5
+      Structural: 5
     bluntStaminaDamageFactor: 2.5
     heavyRateModifier: 2
     heavyDamageBaseModifier: 1.5
@@ -29,9 +28,8 @@
     wieldedBonus: 0.3
   - type: IncreaseDamageOnWield
     damage:
-      types:
-        Blunt: 3
-        Structural: 5 # WWDP
+      Blunt: 3
+      Structural: 5 # WWDP
   - type: DamageOtherOnHit
     staminaCost: 10
   - type: Item
@@ -84,5 +82,4 @@
   - type: MeleeThrowOnHit
   - type: MeleeWeapon
     damage:
-      types:
-        Blunt: 1
+      Blunt: 1

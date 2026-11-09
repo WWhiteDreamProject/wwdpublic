@@ -6,5 +6,5 @@
   components:
   - type: Projectile
     damage:
-      types:
-        Piercing: 18
+      # WD EDIT: Migrated damage format
+      Piercing: 18

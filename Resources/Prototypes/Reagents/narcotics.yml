@@ -9,22 +9,20 @@
   boilingPoint: 212.0  # Dexosyephedrine vape when?
   meltingPoint: 170.0
   metabolisms:
-    Poison:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Poison: 0.75
+          # WD EDIT: Migrated damage format
+          Poison: 0.8
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 30
         damage:
-          types:
-            Poison: 2 # this is added to the base damage of the meth.
-            Asphyxiation: 2
-    Narcotic:
-      effects:
+          # WD EDIT: Migrated damage format
+          Asphyxiation: 2
+          Poison: 2
       - !type:MovespeedModifier
         walkSpeedModifier: 1.35
         sprintSpeedModifier: 1.35
@@ -54,8 +52,6 @@
         time: 5
       - !type:ChemAddMoodlet
         moodPrototype: StrongStimulant
-    Medicine:
-      effects:
       - !type:ResetNarcolepsy
         conditions:
         - !type:ReagentThreshold
@@ -72,7 +68,7 @@
   boilingPoint: 255.0
   meltingPoint: 36.0
   metabolisms:
-    Narcotic:
+    Absorption: # WD EDIT
       effects:
       - !type:MovespeedModifier
         walkSpeedModifier: 1.25
@@ -82,9 +78,9 @@
         - !type:ReagentThreshold
           min: 20
         damage:
-          types:
-            Poison: 2 # this is added to the base damage of the meth.
-            Asphyxiation: 2
+          # WD EDIT: Migrated damage format
+          Asphyxiation: 2
+          Poison: 2
       - !type:Jitter
       - !type:GenericStatusEffect
         key: Stun
@@ -114,11 +110,11 @@
       - !type:ChemAddMoodlet
         moodPrototype: StrongStimulant
       # WD EDIT START
-      - !type:GenericStatusEffect # WWDP
+      - !type:GenericStatusEffect
         key: NoScream
         component: NoScream
         time: 5
-      - !type:PopupMessage # WWDP
+      - !type:PopupMessage
         visualType: Medium
         messages: [ "morphine-wear-off" ]
         type: Local
@@ -129,8 +125,6 @@
           max: 1.1
           min: 1
       # WD EDIT END
-    Medicine:
-      effects:
       - !type:ResetNarcolepsy
         conditions:
         - !type:ReagentThreshold
@@ -147,7 +141,7 @@
   boilingPoint: 212.0
   meltingPoint: 170.0
   metabolisms:
-    Narcotic:
+    Absorption: # WD EDIT
       metabolismRate: 0.2 # WD EDIT - unnerf stims
       effects:
       - !type:MovespeedModifier
@@ -158,8 +152,7 @@
         - !type:ReagentThreshold
           min: 80 #please wait 3 minutes before using another stimpack
         damage:
-          types:
-            Poison: 1
+          Poison: 1
       - !type:AdjustReagent
         conditions:
         - !type:ReagentThreshold
@@ -198,9 +191,6 @@
         time: 5
       - !type:ChemAddMoodlet
         moodPrototype: StrongStimulant
-    Medicine:
-      metabolismRate: 1.0
-      effects:
       - !type:ResetNarcolepsy
       - !type:SatiateHunger
         factor: 1
@@ -212,9 +202,13 @@
           min: 70
           max: 120 # you've got a chance to get out of crit
         damage: # heals at the same rate as tricordrazine, doesn't heal poison because if you OD'd I'm not giving you a safety net
-          groups:
-            Burn: -1
-            Brute: -1
+          Blunt: -1
+          Caustic: -1
+          Cold: -1
+          Heat: -1
+          Piercing: -1
+          Shock: -1
+          Slash: -1
 
 - type: reagent
   id: THC
@@ -231,7 +225,7 @@
   - !type:PlantAdjustHealth
     amount: -1
   metabolisms:
-    Narcotic:
+    Absorption: # WD EDIT
       effects:
       - !type:GenericStatusEffect
         key: SeeingRainbows
@@ -252,7 +246,7 @@
   - !type:PlantAdjustHealth
     amount: -5
   metabolisms:
-    Narcotic:
+    Absorption: # WD EDIT
       effects:
       - !type:ChemAddMoodlet
         moodPrototype: NicotineBenefit
@@ -267,15 +261,15 @@
   flavor: bitter
   color: "#215263"
   metabolisms:
-    Narcotic:
+    Absorption: # WD EDIT
       effects:
       - !type:MovespeedModifier
         walkSpeedModifier: 0.65
         sprintSpeedModifier: 0.65
       - !type:HealthChange
         damage:
-          types:
-            Poison: 2
+          # WD EDIT: Migrated damage format
+          Poison: 2
       - !type:GenericStatusEffect
         key: SeeingRainbows
         component: SeeingRainbows
@@ -296,7 +290,7 @@
   flavor: bitter
   color: "#63806e"
   metabolisms:
-    Narcotic:
+    Absorption: # WD EDIT
       effects:
       - !type:GenericStatusEffect
         key: SeeingRainbows
@@ -321,7 +315,7 @@
   flavor: bitter
   color: "#ffff00"
   metabolisms:
-    Narcotic:
+    Absorption: # WD EDIT
       effects:
       - !type:GenericStatusEffect
         key: SeeingRainbows
@@ -341,7 +335,7 @@
   boilingPoint: 444.0
   meltingPoint: 128.0
   metabolisms:
-    Narcotic:
+    Absorption: # WD EDIT
       effects:
       - !type:GenericStatusEffect
         conditions:
@@ -363,7 +357,7 @@
   boilingPoint: 255.0
   meltingPoint: 36.0
   metabolisms:
-    Narcotic:
+    Absorption: # WD EDIT
       effects:
       - !type:GenericStatusEffect
         key: Muted
@@ -380,7 +374,7 @@
   boilingPoint: 255.0
   meltingPoint: 36.0
   metabolisms:
-    Narcotic:
+    Absorption: # WD EDIT
       effects:
       - !type:PopupMessage
         type: Local
@@ -424,7 +418,7 @@
   boilingPoint: 255.0
   meltingPoint: 36.0
   metabolisms:
-    Narcotic:
+    Absorption: # WD EDIT
       effects:
       - !type:PopupMessage
         type: Local
@@ -470,7 +464,7 @@
   flavor: paintthinner
   color: "#EE35FF"
   metabolisms:
-    Narcotic:
+    Absorption: # WD EDIT
       effects:
       - !type:Emote
         emote: Laugh
@@ -511,7 +505,7 @@
   color: "#46a6f5"
   physicalDesc: reagent-physical-desc-sugary
   metabolisms:
-    Narcotic:
+    Absorption: # WD EDIT
       effects:
       - !type:StaminaChange
         amount: -3
@@ -522,9 +516,8 @@
         - !type:ReagentThreshold
           min: 30
         damage:
-          types:
-            Cellular: 0.2
-
+          # WD EDIT: Migrated damage format
+          Cellular: 0.2
 - type: reagent
   id: LiftLoversSpecial
   name: reagent-name-liftloversspecial
@@ -534,7 +527,7 @@
   color: "#f73715"
   physicalDesc: reagent-physical-desc-unhealthy
   metabolisms:
-    Narcotic:
+    Absorption: # WD EDIT
       effects:
       - !type:StaminaChange
         amount: -6
@@ -549,6 +542,5 @@
         - !type:ReagentThreshold
           min: 20
         damage:
-          types:
-            Cellular: 0.3
-
+          # WD EDIT: Migrated damage format
+          Cellular: 0.3

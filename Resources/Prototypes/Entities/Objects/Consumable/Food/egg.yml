@@ -10,7 +10,7 @@
     tags:
       - Egg
       - Meat
-  - type: Food
+  - type: Ingestible # WD Ingestible
     trash: 
     - Eggshells
   - type: Sprite
@@ -20,13 +20,13 @@
     size: Tiny
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 6
         reagents:
         - ReagentId: Egg
           Quantity: 6
   - type: DrawableSolution
-    solution: food
+    solution: ingestible # WD Ingestible
   - type: SolutionSpiker
     sourceSolution: food
     ignoreEmpty: true
@@ -35,8 +35,8 @@
   - type: DamageOnHighSpeedImpact
     minimumSpeed: 0.1
     damage:
-      types:
-        Blunt: 1
+      # WD EDIT: Migrated damage format
+      Blunt: 1
   - type: Damageable
     damageContainer: Biological
   - type: Destructible
@@ -49,7 +49,7 @@
         sound:
           collection: desecration
       - !type:SpillBehavior
-        solution: food
+        solution: ingestible # WD Ingestible
       - !type:SpawnEntitiesBehavior
         spawn:
           Eggshells:
@@ -76,7 +76,7 @@
   id: Eggshells
   description: You're walkin' on 'em bud.
   components:
-  - type: Food
+  - type: Ingestible # WD Ingestible
   - type: Sprite
     sprite: Objects/Consumable/Food/egg.rsi
     state: eggshells
@@ -84,7 +84,7 @@
     size: Tiny
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 2
         reagents:
         - ReagentId: Egg
@@ -127,7 +127,7 @@
       map: [ "enum.DamageStateVisualLayers.Base" ]
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 6
         reagents:
         - ReagentId: EggCooked

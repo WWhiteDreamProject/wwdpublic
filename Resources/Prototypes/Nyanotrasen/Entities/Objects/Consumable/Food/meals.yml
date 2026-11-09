@@ -17,7 +17,7 @@
     state: bakedrice
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: Nutriment
@@ -46,7 +46,7 @@
     state: bakedrice-portion
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 5
         reagents:
         - ReagentId: Nutriment
@@ -72,7 +72,7 @@
   - type: SliceableFood
     count: 6
     slice: FoodMothGreenLasagneSlice
-  - type: Food
+  - type: Ingestible # WD Ingestible
     trash:
     - FoodPlate
   - type: Sprite
@@ -80,7 +80,7 @@
     state: greenlasagne
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: Nutriment
@@ -110,7 +110,7 @@
     state: greenlasagne-slice
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 6
         reagents:
         - ReagentId: Nutriment
@@ -138,7 +138,7 @@
     state: bakedcorn
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 10
         reagents:
         - ReagentId: Nutriment
@@ -165,7 +165,7 @@
     state: butteredbakedcorn
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 16
         reagents:
         - ReagentId: Nutriment
@@ -193,7 +193,7 @@
     state: mozzarellasticks
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 10
         reagents:
         - ReagentId: Nutriment
@@ -222,7 +222,7 @@
     state: macballs
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 15
         reagents:
         - ReagentId: Nutriment
@@ -252,7 +252,7 @@
     state: fishandchips
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 15
         reagents:
         - ReagentId: Nutriment

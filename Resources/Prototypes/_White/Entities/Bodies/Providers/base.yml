@@ -1,0 +1,7 @@
+- type: entity
+  id: BaseBodyProvider
+  parent: BaseItem
+  abstract: true
+  components:
+  - type: BodyProvider
+  - type: Damageable

@@ -32,16 +32,16 @@
     animationRotation: -45 # WWDP
     wideAnimationRotation: -45
     damage:
-      types:
-        Piercing: 2
+      # WD EDIT: Migrated damage format
+      Piercing: 2
     angle: 0
     animation: WeaponArcThrust
     soundHit:
       path: /Audio/Weapons/pierce.ogg
   - type: DamageOtherOnHit
     damage:
-      types:
-        Piercing: 4
+      # WD EDIT: Migrated damage format
+      Piercing: 4
   - type: Item
     size: Tiny
     sprite: Objects/Fun/Darts/dart_red.rsi

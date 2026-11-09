@@ -34,8 +34,8 @@
     soundHit:
       collection: ToySqueak
     damage:
-      types:
-        Blunt: 0
+      # WD EDIT: Migrated damage format
+      Blunt: 0
     hidden: true
   - type: DamageOtherOnHit
   - type: PhysicalComposition
@@ -43,14 +43,14 @@
       Cloth: 100
   - type: StaticPrice
     price: 5
-  - type: Food
+  - type: Ingestible # WD Ingestible
     requiresSpecialDigestion: true
     useSound:
       collection: ToySqueak
     delay: 2
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 10
         reagents:
         - ReagentId: Fiber
@@ -170,7 +170,7 @@
         reagents:
         - ReagentId: GroundBee
           Quantity: 10
-      food:
+      ingestible: # WD Ingestible
         maxVol: 10
         reagents:
         - ReagentId: GroundBee
@@ -204,7 +204,7 @@
   - type: EmitSoundOnTrigger
     sound:
       path: /Audio/Items/Toys/mousesqueek.ogg
-  - type: Food
+  - type: Ingestible # WD Ingestible
     requiresSpecialDigestion: true
     useSound:
       path: /Audio/Items/Toys/mousesqueek.ogg
@@ -292,7 +292,7 @@
   - type: EmitSoundOnTrigger
     sound:
       path: /Audio/Voice/Arachnid/arachnid_laugh.ogg
-  - type: Food
+  - type: Ingestible # WD Ingestible
     requiresSpecialDigestion: true
     useSound:
       path: /Audio/Voice/Arachnid/arachnid_laugh.ogg
@@ -324,7 +324,7 @@
   - type: EmitSoundOnTrigger
     sound:
       path: /Audio/Items/Toys/weh.ogg
-  - type: Food
+  - type: Ingestible # WD Ingestible
     requiresSpecialDigestion: true
     useSound:
       path: /Audio/Items/Toys/weh.ogg
@@ -339,7 +339,7 @@
         Quantity: 30
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 20
         reagents:
         - ReagentId: Fiber
@@ -414,7 +414,7 @@
   - type: EmitSoundOnTrigger
     sound:
       path: /Audio/Items/Toys/muffled_weh.ogg
-  - type: Food
+  - type: Ingestible # WD Ingestible
     requiresSpecialDigestion: true
     useSound:
       path: /Audio/Items/Toys/muffled_weh.ogg
@@ -429,7 +429,7 @@
         Quantity: 30
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 20
         reagents:
         - ReagentId: Fiber
@@ -467,7 +467,7 @@
   - type: EmitSoundOnTrigger
     sound:
       path: /Audio/Items/Toys/hew.ogg
-  - type: Food
+  - type: Ingestible # WD Ingestible
     requiresSpecialDigestion: true
     useSound:
       path: /Audio/Items/Toys/hew.ogg
@@ -482,7 +482,7 @@
         Quantity: 30
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 20
         reagents:
         - ReagentId: Fiber
@@ -524,7 +524,7 @@
     wideAnimationRotation: 180
     soundHit:
       path: /Audio/Items/Toys/toy_rustle.ogg
-  - type: Food
+  - type: Ingestible # WD Ingestible
     requiresSpecialDigestion: true
     useSound:
       path: /Audio/Items/Toys/toy_rustle.ogg
@@ -532,7 +532,7 @@
     solutions:
       plushie:
         maxVol: 1
-      food:
+      ingestible: # WD Ingestible
         maxVol: 10
         reagents:
         - ReagentId: Fiber
@@ -682,7 +682,7 @@
   - type: EmitSoundOnTrigger
     sound:
       path: /Audio/Effects/bite.ogg
-  - type: Food
+  - type: Ingestible # WD Ingestible
     requiresSpecialDigestion: true
     useSound:
       path: /Audio/Effects/bite.ogg
@@ -777,7 +777,7 @@
   - type: EmitSoundOnTrigger
     sound:
       path: /Audio/Items/Toys/rattle.ogg
-  - type: Food
+  - type: Ingestible # WD Ingestible
     requiresSpecialDigestion: true
     useSound:
       path: /Audio/Items/Toys/rattle.ogg
@@ -800,7 +800,7 @@
   - type: EmitSoundOnTrigger
     sound:
       path: /Audio/Items/Toys/mousesqueek.ogg
-  - type: Food
+  - type: Ingestible # WD Ingestible
     requiresSpecialDigestion: true
     useSound:
       path: /Audio/Items/Toys/mousesqueek.ogg
@@ -841,8 +841,8 @@
     attackRate: .6
     range: 1.6
     damage:
-      types:
-        Blunt: 0.1
+      # WD EDIT: Migrated damage format
+      Blunt: 0.1
     heavyDamageBaseModifier: 2
     maxTargets: 8
     angle: 25
@@ -857,7 +857,7 @@
   - type: EmitSoundOnTrigger
     sound:
       path: /Audio/Items/Toys/quack.ogg
-  - type: Food
+  - type: Ingestible # WD Ingestible
     requiresSpecialDigestion: true
     useSound:
       path: /Audio/Items/Toys/mousesqueek.ogg
@@ -886,7 +886,7 @@
   - type: EmitSoundOnTrigger
     sound:
       path: /Audio/Voice/Vox/shriek1.ogg
-  - type: Food
+  - type: Ingestible # WD Ingestible
     requiresSpecialDigestion: true
     useSound:
       path: /Audio/Voice/Vox/shriek1.ogg
@@ -926,7 +926,7 @@
   - type: EmitSoundOnTrigger
     sound:
       path: /Audio/Weapons/Xeno/alien_spitacid.ogg
-  - type: Food
+  - type: Ingestible # WD Ingestible
     requiresSpecialDigestion: true
     useSound:
       path: /Audio/Items/Toys/mousesqueek.ogg
@@ -961,7 +961,7 @@
   - type: EmitSoundOnActivate
     sound:
       path: /Audio/Voice/Human/malescream_3.ogg
-  - type: Food
+  - type: Ingestible # WD Ingestible
     requiresSpecialDigestion: true
     useSound:
       path: /Audio/Voice/Human/malescream_1.ogg
@@ -971,34 +971,6 @@
   - type: EmitSoundOnTrigger
     sound:
       path: /Audio/Voice/Human/malescream_5.ogg
-
-- type: entity
-  parent: BasePlushie
-  id: PlushieArachne
-  name: Arachne plushie
-  description: A plushie of an Arachne, a half human, half spider creature.
-  components:
-  - type: Sprite
-    state: plushie_arachne
-  - type: EmitSoundOnUse
-    sound:
-      path: /Audio/Voice/Human/womanlaugh.ogg
-  - type: EmitSoundOnLand
-    sound:
-      path: /Audio/Voice/Human/female_sigh.ogg
-  - type: EmitSoundOnActivate
-    sound:
-      path: /Audio/Voice/Human/womanlaugh.ogg
-  - type: Food
-    requiresSpecialDigestion: true
-    useSound:
-      path: /Audio/Voice/Human/femalescream_4.ogg
-  - type: MeleeWeapon
-    soundHit:
-      path: /Audio/Voice/Human/femalescream_2.ogg
-  - type: EmitSoundOnTrigger
-    sound:
-      path: /Audio/Voice/Human/femalescream_5.ogg
 
 - type: entity
   parent: BasePlushie
@@ -1026,7 +998,7 @@
   - type: Construction # DeltaV - Mothroach hide craft, see Prototypes/Nyanotrasen/Recipes/Crafting/Graphs/fun/mothplushie.yml
     graph: MothPlushie
     node: plush
-  - type: Food
+  - type: Ingestible # WD Ingestible
     requiresSpecialDigestion: true
     useSound:
       path: /Audio/Voice/Moth/moth_chitter.ogg
@@ -1253,13 +1225,13 @@
 
 - type: entity
   parent: BasePlushie
-  id: PlushieVulp
-  name: vulpkanin plushie
-  description: A vulpkanin plushie, at least you can hug this one without the risk to get bitten.
+  id: PlushieCorgi
+  name: corgi plushie
+  description: The ian plushie edition!
   components:
   - type: Sprite
-    sprite: Objects/Fun/toys.rsi
-    state: plushie_vulp
+    sprite: Objects/Fun/corgiplushie.rsi
+    state: corgi
   - type: EmitSoundOnUse
     sound:
       path: /Audio/DeltaV/Voice/Vulpkanin/dog_bark1.ogg
@@ -1274,27 +1246,7 @@
       path: /Audio/DeltaV/Voice/Vulpkanin/dog_bark1.ogg
 
 - type: entity
-  parent: PlushieVulp
-  id: PlushieTrystan
-  name: office vulp plushie
-  description: The ones who yeeps!
-  components:
-  - type: Sprite
-    sprite: Objects/Fun/toys.rsi
-    state: plushie_trystan
-
-- type: entity
-  parent: PlushieVulp
-  id: PlushieCorgi
-  name: corgi plushie
-  description: The ian plushie edition!
-  components:
-  - type: Sprite
-    sprite: Objects/Fun/corgiplushie.rsi
-    state: corgi
-
-- type: entity
-  parent: PlushieVulp
+  parent: PlushieCorgi
   id: PlushieGirlyCorgi
   name: girly corgi plushie
   components:
@@ -1303,7 +1255,7 @@
     state: girlycorgi
 
 - type: entity
-  parent: PlushieVulp
+  parent: PlushieCorgi
   id: PlushieRobotCorgi
   name: robot corgi plushie
   components:
@@ -1473,7 +1425,7 @@
   - type: MeleeWeapon
     soundHit:
       path: /Audio/Items/Toys/ian.ogg
-  - type: Food
+  - type: Ingestible # WD Ingestible
     requiresSpecialDigestion: true
     useSound:
       path: /Audio/Items/Toys/ian.ogg
@@ -1606,8 +1558,8 @@
     animation: WeaponArcThrust
     wideAnimationRotation: 90
     damage:
-      types:
-        Blunt: 0
+      # WD EDIT: Migrated damage format
+      Blunt: 0
   - type: Item
     size: Small
     sprite: Objects/Fun/toys.rsi
@@ -1869,8 +1821,8 @@
     canBeBlocked: false # WD EDIT
     wideAnimationRotation: -135
     damage:
-      types:
-        Blunt: 0
+      # WD EDIT: Migrated damage format
+      Blunt: 0
   - type: ItemToggleMeleeWeapon
     activatedSoundOnHit:
       path: /Audio/Weapons/eblade1.ogg
@@ -1917,8 +1869,8 @@
     attackRate: .6666
     range: 2.0
     damage:
-      types:
-        Blunt: 0
+      # WD EDIT: Migrated damage format
+      Blunt: 0
   - type: Item
     size: Normal
     sprite: Objects/Weapons/Melee/cutlass.rsi
@@ -1959,8 +1911,7 @@
     state: icon
   - type: WeaponRandom
     damageBonus:
-      types:
-        Blunt: 1000
+      Blunt: 1000
   - type: StaminaDamageOnHit
     damage: 8
   - type: Item
@@ -1982,8 +1933,7 @@
         variation: 0.03
         volume: 3
     damage:
-      types:
-        Blunt: 0
+      Blunt: 0
 
 - type: entity
   parent: ToyHammer
@@ -2010,8 +1960,7 @@
         variation: 0.03
         volume: 3
     damage:
-      types:
-        Blunt: 0
+      Blunt: 0
 
 - type: entity
   parent: BaseItem
@@ -2046,8 +1995,8 @@
       params:
         variation: 0.125
     damage:
-      types:
-        Blunt: 0
+      # WD EDIT: Migrated damage format
+      Blunt: 0
   - type: StepTrigger
     intersectRatio: 0.2
     requiredTriggeredSpeed: 1
@@ -2089,12 +2038,12 @@
   - type: FlavorProfile
     flavors:
     - plastic
-  - type: Food
+  - type: Ingestible # WD Ingestible
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/banana.rsi
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Nothing
           Quantity: 100
@@ -2130,13 +2079,13 @@
     sprite: Objects/Fun/glue.rsi
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 100
         reagents:
         - ReagentId: SpaceGlue
           Quantity: 100
   - type: TrashOnSolutionEmpty
-    solution: drink
+    solution: ingestible # WD Ingestible
   - type: Tag
     tags:
     - DrinkSpaceGlue
@@ -2203,7 +2152,7 @@
       collection: RubberChicken
       params:
         variation: 0.125
-  - type: Food
+  - type: Ingestible # WD Ingestible
     requiresSpecialDigestion: true
     useSound:
       collection: RubberChicken
@@ -2237,8 +2186,8 @@
     wideAnimationRotation: -135
     attackRate: .1
     damage:
-      types:
-        Blunt: 0
+      # WD EDIT: Migrated damage format
+      Blunt: 0
     soundHit:
       path: /Audio/Effects/explosion_small1.ogg
     soundNoDamage:
@@ -2248,16 +2197,6 @@
     sprite: Objects/Weapons/Melee/Throngler-in-hand.rsi
   - type: DisarmMalus
     malus: 0
-
-- type: entity
-  parent: BasePlushie
-  id: PlushieShadowkin
-  name: shadowkin plushie
-  description: A plushie of a Shadowkin. It's very soft.
-  components:
-  - type: Sprite
-    sprite: Objects/Fun/toys.rsi
-    state: shadowkin
 
 - type: entity
   parent: BasePlushie
@@ -2304,8 +2243,8 @@
     wideAnimationRotation: -135
     attackRate: 0.5
     damage:
-      types:
-        Blunt: 0
+      # WD EDIT: Migrated damage format
+      Blunt: 0
     soundHit:
       path: /Audio/DeltaV/Voice/Harpy/caw1.ogg
       params:

@@ -56,15 +56,13 @@
               max: 1
     - type: Temperature
       heatDamage:
-        types:
-          Heat: 5
+        Heat: 5
       coldDamage: {}
       coldDamageThreshold: 0
     - type: Flammable
       fireSpread: true
       damage:
-        types:
-          Heat: 5
+        Heat: 5
     - type: Reactive
       groups:
         Flammable: [Touch]
@@ -76,9 +74,6 @@
       ignoreWhitelist:
         components:
             - IgnoreSpiderWeb
-    - type: Tag
-      tags:
-        - ArachneWeb
 
 - type: entity
   id: SpiderWebClown
@@ -147,15 +142,14 @@
           acts: [ "Destruction" ]
     - type: Temperature
       heatDamage:
-        types:
-          Heat: 5
+        Heat: 5
       coldDamage: {}
       coldDamageThreshold: 0
     - type: Flammable
       fireSpread: true
       damage:
-        types:
-          Heat: 5
+        # WD EDIT: Migrated damage format
+        Heat: 5
     - type: Reactive
       groups:
         Flammable: [Touch]
@@ -164,11 +158,11 @@
     - type: FlavorProfile
       flavors:
         - sweet
-    - type: Food
+    - type: Ingestible # WD Ingestible
       delay: 2
     - type: SolutionContainerManager
       solutions:
-        food:
+        ingestible: # WD Ingestible
           reagents:
           - ReagentId: Sugar
             Quantity: 2

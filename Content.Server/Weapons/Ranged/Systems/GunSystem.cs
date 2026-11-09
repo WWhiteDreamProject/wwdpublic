@@ -1,10 +1,11 @@
 using System.Linq;
 using System.Numerics;
+using Content.Server._White.TargetDoll.Systems;
 using Content.Server.Cargo.Systems;
 using Content.Shared.Contests;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Weapons.Ranged.Components;
-using Content.Shared.Damage;
+using Content.Shared._White.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Database;
 using Content.Shared.Effects;
@@ -42,6 +43,7 @@ public sealed partial class GunSystem : SharedGunSystem
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly ContestsSystem _contests = default!;
     [Dependency] private readonly PvsOverrideSystem _pvsOverride = default!;
+    [Dependency] private readonly TargetDollSystem _targetDoll = default!; // WD EDIT
 
     private const float DamagePitchVariation = 0.05f;
 
@@ -233,7 +235,7 @@ public sealed partial class GunSystem : SharedGunSystem
 
                         var hitName = ToPrettyString(hitEntity);
                         if (dmg != null)
-                            dmg = Damageable.TryChangeDamage(hitEntity, dmg, origin: user);
+                            dmg = Damageable.ChangeDamage(hitEntity, dmg, origin: user, providerType: _targetDoll.GetSelectedProvider(lastUser)); // WD EDIT
 
                         // check null again, as TryChangeDamage returns modified damage values
                         if (dmg != null)

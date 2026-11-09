@@ -1,0 +1,6 @@
+- type: entity
+  id: WoundBase
+  abstract: true
+  components:
+  - type: Wound
+  - type: Damageable

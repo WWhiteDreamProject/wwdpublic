@@ -1,6 +1,7 @@
 using System.Numerics;
+using Content.Shared._White.Humanoid.Components;
+using Content.Shared._White.Humanoid.Systems;
 using Content.Shared.CCVar;
-using Content.Shared.Humanoid;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 using Robust.Shared.Configuration;
@@ -13,8 +14,8 @@ public sealed class HeightAdjustSystem : EntitySystem
 {
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedContentEyeSystem _eye = default!;
-    [Dependency] private readonly SharedHumanoidAppearanceSystem _appearance = default!;
     [Dependency] private readonly IConfigurationManager _config = default!;
+    [Dependency] private readonly HumanoidProfileSystem _humanoidProfile = default!;
 
 
     /// <summary>
@@ -50,8 +51,8 @@ public sealed class HeightAdjustSystem : EntitySystem
         else
             succeeded = false;
 
-        if (EntityManager.HasComponent<HumanoidAppearanceComponent>(uid))
-            _appearance.SetScale(uid, scale);
+        if (EntityManager.HasComponent<HumanoidProfileComponent>(uid))
+            _humanoidProfile.SetScale(uid, scale);
         else
             succeeded = false;
 

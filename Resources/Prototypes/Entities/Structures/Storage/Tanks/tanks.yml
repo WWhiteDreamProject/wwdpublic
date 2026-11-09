@@ -27,8 +27,7 @@
   - type: DamageOnToolInteract
     tools: Welding
     weldingDamage:
-      types:
-        Heat: 10
+      Heat: 10
   - type: PacifismDangerousAttack
   - type: Explosive
     explosionType: Default

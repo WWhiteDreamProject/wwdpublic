@@ -1,0 +1,82 @@
+- type: entity
+  id: BaseBodyProviderOrganPositronic
+  parent: BaseBodyProviderOrgan
+  abstract: true
+  suffix: Positronic
+  components:
+  - type: Sprite
+    sprite: _White/Bodies/Organs/positronic.rsi
+
+# Brain
+- type: entity
+  id: BodyProviderBrainPositronic
+  parent: [BaseBodyProviderBrain, BaseBodyProviderOrganPositronic]
+  components:
+  - type: ActiveRadio
+    channels:
+    - Binary
+    - Common
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableGhostRoleVisuals.Status:
+        base:
+          Off: { state: brain }
+          Searching: { state: brain-searching }
+          On: { state: brain-occupied }
+  - type: GuideHelp
+    guides:
+    - Cyborgs
+    - Robotics
+  - type: Input
+    context: human
+  - type: IntrinsicRadioReceiver
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Binary
+  - type: LanguageKnowledge
+    speaks: [RobotTalk]
+    understands: [RobotTalk]
+  - type: LanguageSpeaker
+  - type: MobState
+    allowedStates:
+    - Alive
+  - type: NameIdentifier
+    group: PositronicBrain
+  - type: Speech
+    speechSounds: Pai
+  - type: ToggleableGhostRole
+    examineTextMindPresent: positronic-brain-installed
+    examineTextMindSearching: positronic-brain-still-searching
+    examineTextNoMind: positronic-brain-off
+    beginSearchingText: positronic-brain-searching
+    roleName: positronic-brain-role-name
+    roleDescription: positronic-brain-role-description
+    roleRules: ghost-role-information-silicon-rules
+    mindRoles:
+    - MindRoleGhostRoleSilicon
+    wipeVerbText: positronic-brain-wipe-device-verb-text
+    wipeVerbPopup: positronic-brain-wiped-device
+    stopSearchVerbText: positronic-brain-stop-searching-verb-text
+    stopSearchVerbPopup: positronic-brain-stopped-searching
+    job: Borg
+  - type: TypingIndicator
+    proto: robot
+
+# Ears
+- type: entity
+  id: BodyProviderEarsPositronic
+  parent: [BaseBodyProviderEars, BaseBodyProviderOrganPositronic]
+
+# Eyes
+- type: entity
+  id: BodyProviderEyesPositronic
+  parent: [BaseBodyProviderEyes, BaseBodyProviderOrganPositronic]
+  components:
+  - type: BodyAppearanceProvider
+    path: _White/Body/Organ/positronic.rsi
+
+# Tongue
+- type: entity
+  id: BodyProviderTonguePositronic
+  parent: [BaseBodyProviderTongue, BaseBodyProviderOrganPositronic]

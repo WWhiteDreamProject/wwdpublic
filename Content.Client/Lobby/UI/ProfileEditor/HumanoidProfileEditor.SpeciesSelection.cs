@@ -1,4 +1,5 @@
 using Content.Client._White.UserInterface.Windows;
+using Content.Shared._White.Humanoid.Prototypes;
 using Content.Shared.Humanoid.Prototypes;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Prototypes;
@@ -23,7 +24,7 @@ public sealed partial class HumanoidProfileEditor
 
         OpenSpeciesWindow.Disabled = true;
         _currentWindow = UserInterfaceManager.CreateWindow<SpeciesSelectWindow>();
-        _currentWindow.Initialize(Profile);
+        _currentWindow.Initialize(Profile.Value);
         _currentWindow.OnClose += CurrentWindowClosed;
         _currentWindow.OnSpeciesSelected += OnSpeciesSelected;
         _currentWindow.OpenCentered();
@@ -32,9 +33,6 @@ public sealed partial class HumanoidProfileEditor
     private void OnSpeciesSelected(ProtoId<SpeciesPrototype> proto)
     {
         SetSpecies(proto);
-        UpdateHairPickers();
-        OnSkinColorOnValueChanged();
-        UpdateCustomSpecieNameEdit();
         UpdateHeightWidthSliders();
         _currentWindow?.Close();
     }

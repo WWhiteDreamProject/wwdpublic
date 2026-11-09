@@ -2,7 +2,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.Disposal.Unit.Components;
 using Content.Server.NPC.Pathfinding;
-using Content.Shared.Body.Part;
+using Content.Shared._White.Body.Components;
 using Content.Shared.DeviceLinking;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
@@ -85,7 +85,7 @@ public sealed partial class PickNearbyFillableItemOperator : HTNOperator
             if (disposalUnit != null &&
                 (_whitelistSystem.IsWhitelistFail(disposalUnit.Whitelist, target)
                     || !_tagSystem.HasTag(target, TrashProto)
-                    || _entManager.HasComponent<BodyPartComponent>(target))) // Robot is unable to insert bodyparts into Disposals for some reason
+                    || _entManager.HasComponent<BodyProviderComponent>(target))) // Robot is unable to insert bodyparts into Disposals for some reason
                 continue;
 
             const float pathRange = SharedInteractionSystem.InteractionRange - 1;

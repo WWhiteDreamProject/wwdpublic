@@ -317,6 +317,5 @@ flavor-complex-sax = like jazz
 flavor-complex-bottledlightning = like lightning in a bottle
 flavor-complex-punishment = like punishment
 flavor-complex-supernova = like a supernova frozen at its apex
-flavor-complex-xelthia = like some exotic kind of sourish calamari
 flavor-weh = like weh
 flavor-hew = like hew

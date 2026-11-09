@@ -18,8 +18,8 @@
       - Belt
   - type: MeleeWeapon
     damage:
-      types:
-        Slash: 10
+      # WD EDIT: Migrated damage format
+      Slash: 10
   - type: ToolTileCompatible
   - type: Tool
   - type: Prying

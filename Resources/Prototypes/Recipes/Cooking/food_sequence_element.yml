@@ -276,7 +276,7 @@
   tags:
   - Cooked
   - Meat
-  
+
 # Snail meat
 
 - type: foodSequenceElement
@@ -443,7 +443,7 @@
   id: Brain
   name: food-sequence-content-brain
   sprites:
-  - sprite: Mobs/Species/Human/organs.rsi
+  - sprite: _White/Bodies/Organs/Humanoids/human.rsi # WD EDIT
     state: brain
   tags:
   - Brain

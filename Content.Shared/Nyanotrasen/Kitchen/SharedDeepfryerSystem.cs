@@ -1,10 +1,10 @@
+using Content.Shared._White.Body.Components;
 using Content.Shared.DragDrop;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
 using Content.Shared.Nyanotrasen.Kitchen.Components;
 using Content.Shared.Item;
-using Content.Shared.Body.Components;
 
 namespace Content.Shared.Nyanotrasen.Kitchen;
 
@@ -28,7 +28,7 @@ public abstract class SharedDeepfryerSystem : EntitySystem
         var storable = HasComp<ItemComponent>(entity);
         if (!storable && !HasComp<BodyComponent>(entity))
             return false;
-            
+
         return physics.CanCollide || storable;
     }
 }

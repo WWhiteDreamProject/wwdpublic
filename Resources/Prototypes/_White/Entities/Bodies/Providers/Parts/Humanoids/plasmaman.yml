@@ -1,0 +1,130 @@
+# TODO: Ignite from gas
+
+- type: entity
+  id: BaseBodyProviderPartPlasmaman
+  parent: [BaseBodyProviderPart, BaseBodyProviderPartAppearance]
+  abstract: true
+  suffix: Plasmaman
+  components:
+  - type: MarkingsProvider
+    data:
+      group: Plasmaman
+  - type: Sprite
+    sprite: _White/Bodies/Parts/Humanoids/plasmaman.rsi
+
+# Arms
+- type: entity
+  id: BodyProviderLeftArmPlasmaman
+  parent: [BaseBodyProviderLeftArm, BaseBodyProviderPartPlasmaman, BaseBodyProviderLeftArmAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/plasmaman.rsi
+      state: left_arm
+
+- type: entity
+  id: BodyProviderRightArmPlasmaman
+  parent: [BaseBodyProviderRightArm, BaseBodyProviderPartPlasmaman, BaseBodyProviderRightArmAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/plasmaman.rsi
+      state: right_arm
+
+# Chest
+- type: entity
+  id: BodyProviderChestPlasmaman
+  parent: [BaseBodyProviderChest, BaseBodyProviderPartPlasmaman, BaseBodyProviderChestAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/plasmaman.rsi
+      state: chest
+
+# Foots
+- type: entity
+  id: BodyProviderLeftFootPlasmaman
+  parent: [BaseBodyProviderLeftFoot, BaseBodyProviderPartPlasmaman, BaseBodyProviderLeftFootAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/plasmaman.rsi
+      state: left_foot
+
+- type: entity
+  id: BodyProviderRightFootPlasmaman
+  parent: [BaseBodyProviderRightFoot, BaseBodyProviderPartPlasmaman, BaseBodyProviderRightFootAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/plasmaman.rsi
+      state: right_foot
+
+# Groin
+- type: entity
+  id: BodyProviderGroinPlasmaman
+  parent: [BaseBodyProviderGroin, BaseBodyProviderPartPlasmaman, BaseBodyProviderGroinAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/plasmaman.rsi
+      state: groin
+
+# Hands
+- type: entity
+  id: BodyProviderLeftHandPlasmaman
+  parent: [BaseBodyProviderLeftHand, BaseBodyProviderPartPlasmaman, BaseBodyProviderLeftHandAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/plasmaman.rsi
+      state: left_hand
+
+- type: entity
+  id: BodyProviderRightHandPlasmaman
+  parent: [BaseBodyProviderRightHand, BaseBodyProviderPartPlasmaman, BaseBodyProviderRightHandAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/plasmaman.rsi
+      state: right_hand
+
+# Head
+- type: entity
+  id: BodyProviderHeadPlasmaman
+  parent: [BaseBodyProviderHead, BaseBodyProviderPartPlasmaman, BaseBodyProviderHeadAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/plasmaman.rsi
+      state: head
+
+# Legs
+- type: entity
+  id: BodyProviderLeftLegPlasmaman
+  parent: [BaseBodyProviderLeftLeg, BaseBodyProviderPartPlasmaman, BaseBodyProviderLeftLegAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/plasmaman.rsi
+      state: left_leg
+
+- type: entity
+  id: BodyProviderRightLegPlasmaman
+  parent: [BaseBodyProviderRightLeg, BaseBodyProviderPartPlasmaman, BaseBodyProviderRightLegAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/plasmaman.rsi
+      state: right_leg

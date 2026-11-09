@@ -2,16 +2,24 @@
 
 public abstract class SharedDestructibleSystem : EntitySystem
 {
+    // WD EDIT START
     /// <summary>
-    ///     Force entity to be destroyed and deleted.
+    /// Force entity to be destroyed and deleted.
     /// </summary>
-    public void DestroyEntity(EntityUid owner)
+    public bool DestroyEntity(Entity<MetaDataComponent?> ent)
     {
-        var eventArgs = new DestructionEventArgs();
+        var destructionAttemptEv = new DestructionAttemptEvent();
+        RaiseLocalEvent(ent, destructionAttemptEv);
+        if (destructionAttemptEv.Cancelled)
+            return false;
 
-        RaiseLocalEvent(owner, eventArgs);
-        QueueDel(owner);
+        var destructionEv = new DestructionEventArgs();
+        RaiseLocalEvent(ent, destructionEv);
+
+        PredictedQueueDel(ent);
+        return true;
     }
+    // WD EDIT END
 
     /// <summary>
     ///     Force entity to break.
@@ -22,6 +30,13 @@ public abstract class SharedDestructibleSystem : EntitySystem
         RaiseLocalEvent(owner, eventArgs);
     }
 }
+
+// WD EDIT START
+/// <summary>
+/// Raised before an entity is about to be destroyed and deleted
+/// </summary>
+public sealed class DestructionAttemptEvent : CancellableEntityEventArgs;
+// WD EDIT END
 
 /// <summary>
 ///     Raised when entity is destroyed and about to be deleted.

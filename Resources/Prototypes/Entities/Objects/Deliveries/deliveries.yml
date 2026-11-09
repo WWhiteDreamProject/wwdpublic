@@ -58,14 +58,14 @@
   - type: Speech
   - type: DamageOnLand
     damage:
-      types:
-        Blunt: 10
+      # WD EDIT: Migrated damage format
+      Blunt: 10
   - type: CargoSellBlacklist
-  - type: Food
+  - type: Ingestible # WD Ingestible
     requiresSpecialDigestion: true
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 1
         reagents:
         - ReagentId: Nothing

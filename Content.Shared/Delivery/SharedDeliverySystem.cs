@@ -1,5 +1,5 @@
 using System.Linq;
-using Content.Shared.Damage;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Destructible;
 using Content.Shared.Shuttles.Components;
 using Content.Shared.Examine;
@@ -113,9 +113,6 @@ public abstract class SharedDeliverySystem : EntitySystem
 
     private void OnDamage(Entity<DeliveryComponent> ent, ref DamageChangedEvent args)
     {
-        if (args.DamageDelta == null)
-            return;
-
         if (!_container.TryGetContainer(ent, ent.Comp.Container, out var contents))
             return;
 
@@ -123,7 +120,7 @@ public abstract class SharedDeliverySystem : EntitySystem
         // This should be a general-purpose feature for all containers in the future.
         foreach (var entity in contents.ContainedEntities.ToArray())
         {
-            _damageable.TryChangeDamage(entity, args.DamageDelta);
+            _damageable.TryChangeDamage(entity, args.Damage); // WD EDIT
         }
     }
 

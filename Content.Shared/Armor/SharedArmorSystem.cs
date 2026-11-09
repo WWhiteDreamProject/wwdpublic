@@ -1,4 +1,5 @@
-﻿using Content.Shared.Damage;
+﻿using Content.Shared._White.Damage;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Inventory;
 using Content.Shared.Silicons.Borgs;
@@ -19,20 +20,20 @@ public abstract class SharedArmorSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ArmorComponent, InventoryRelayedEvent<DamageModifyEvent>>(OnDamageModify);
-        SubscribeLocalEvent<ArmorComponent, BorgModuleRelayedEvent<DamageModifyEvent>>(OnBorgDamageModify);
+        SubscribeLocalEvent<ArmorComponent, InventoryRelayedEvent<GetModifiedDamageEvent>>(OnDamageModify);
+        SubscribeLocalEvent<ArmorComponent, BorgModuleRelayedEvent<GetModifiedDamageEvent>>(OnBorgDamageModify);
         SubscribeLocalEvent<ArmorComponent, GetVerbsEvent<ExamineVerb>>(OnArmorVerbExamine);
     }
 
-    private void OnDamageModify(EntityUid uid, ArmorComponent component, InventoryRelayedEvent<DamageModifyEvent> args)
+    private void OnDamageModify(EntityUid uid, ArmorComponent component, InventoryRelayedEvent<GetModifiedDamageEvent> args)
     {
-        args.Args.Damage = DamageSpecifier.ApplyModifierSet(args.Args.Damage, component.Modifiers);
+        args.Args.Result = DamageSpecifier.ApplyModifierSet(args.Args.Damage, component.Modifiers); // WD EDIT
     }
 
     private void OnBorgDamageModify(EntityUid uid, ArmorComponent component,
-        ref BorgModuleRelayedEvent<DamageModifyEvent> args)
+        ref BorgModuleRelayedEvent<GetModifiedDamageEvent> args)
     {
-        args.Args.Damage = DamageSpecifier.ApplyModifierSet(args.Args.Damage, component.Modifiers);
+        args.Args.Result = DamageSpecifier.ApplyModifierSet(args.Args.Damage, component.Modifiers); // WD EDIT
     }
 
     private void OnArmorVerbExamine(EntityUid uid, ArmorComponent component, GetVerbsEvent<ExamineVerb> args)
@@ -59,7 +60,7 @@ public abstract class SharedArmorSystem : EntitySystem
         {
             msg.PushNewline();
 
-            var armorType = Loc.GetString("armor-damage-type-" + coefficientArmor.Key.ToLower());
+            var armorType = Loc.GetString("armor-damage-type-" + coefficientArmor.Key.Id.ToLower());
             msg.AddMarkupOrThrow(Loc.GetString("armor-coefficient-value",
                 ("type", armorType),
                 ("value", MathF.Round((1f - coefficientArmor.Value) * 100, 1))
@@ -70,7 +71,7 @@ public abstract class SharedArmorSystem : EntitySystem
         {
             msg.PushNewline();
 
-            var armorType = Loc.GetString("armor-damage-type-" + flatArmor.Key.ToLower());
+            var armorType = Loc.GetString("armor-damage-type-" + flatArmor.Key.Id.ToLower());
             msg.AddMarkupOrThrow(Loc.GetString("armor-reduction-value",
                 ("type", armorType),
                 ("value", flatArmor.Value)

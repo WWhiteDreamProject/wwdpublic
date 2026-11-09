@@ -237,8 +237,7 @@
     # Reinforced tables are extra tough
   - type: Bonkable
     bonkDamage:
-      types:
-        Blunt: 8
+      Blunt: 8
     bonkTime: 3
 
 - type: entity
@@ -253,11 +252,9 @@
     sprite: Structures/Furniture/Tables/glass.rsi
   - type: GlassTable
     climberDamage:
-      types:
-        Slash: 15
+      Slash: 15
     tableDamage:
-      types:
-        Blunt: 25
+      Blunt: 25
     tableMassLimit: 60
   - type: Destructible
     thresholds:
@@ -305,11 +302,9 @@
     sprite: Structures/Furniture/Tables/r_glass.rsi
   - type: GlassTable
     climberDamage:
-      types:
-        Slash: 25
+      Slash: 25
     tableDamage:
-      types:
-        Blunt: 40
+      Blunt: 40
     tableMassLimit: 120
   - type: Destructible
     thresholds:
@@ -360,11 +355,9 @@
     sprite: Structures/Furniture/Tables/plasma.rsi
   - type: GlassTable
     climberDamage:
-      types:
-        Slash: 30
+      Slash: 30
     tableDamage:
-      types:
-        Blunt: 100
+      Blunt: 100
     tableMassLimit: 240
   - type: Destructible
     thresholds:
@@ -443,7 +436,7 @@
   - type: Construction
     graph: Table
     node: TableBrass
-    
+
 - type: entity
   id: TableWood
   parent: TableBase
@@ -604,7 +597,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 25 
+        damage: 25
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -677,7 +670,7 @@
   - type: Construction
     graph: Table
     node: TableFancyRed
-    
+
 - type: entity
   id: TableFancyPurple
   parent: TableFancyBase
@@ -690,7 +683,7 @@
   - type: Construction
     graph: Table
     node: TableFancyPurple
-    
+
 - type: entity
   id: TableFancyPink
   parent: TableFancyBase
@@ -703,7 +696,7 @@
   - type: Construction
     graph: Table
     node: TableFancyPink
-    
+
 - type: entity
   id: TableFancyGreen
   parent: TableFancyBase
@@ -712,11 +705,11 @@
   - type: Sprite
     sprite: Structures/Furniture/Tables/Fancy/green.rsi
   - type: Icon
-    sprite: Structures/Furniture/Tables/Fancy/green.rsi  
+    sprite: Structures/Furniture/Tables/Fancy/green.rsi
   - type: Construction
     graph: Table
     node: TableFancyGreen
-    
+
 - type: entity
   id: TableFancyOrange
   parent: TableFancyBase
@@ -729,7 +722,7 @@
   - type: Construction
     graph: Table
     node: TableFancyOrange
-    
+
 - type: entity
   id: TableFancyWhite
   parent: TableFancyBase

@@ -13,9 +13,9 @@
     animation: WeaponArcSmash
     attackRate: 1
     damage:
-      types:
-        Structural: 90
-        Blunt: 25
+      # WD EDIT: Migrated damage format
+      Blunt: 25
+      Structural: 90
     soundHit:
       path: /Audio/Nyanotrasen/Weapons/club.ogg
   - type: MobThresholds

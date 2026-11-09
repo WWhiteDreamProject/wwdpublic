@@ -8,7 +8,7 @@
   components:
   - type: Item
     storedRotation: -90
-  - type: Food
+  - type: Ingestible # WD Ingestible
     transferAmount: 3
   - type: Sprite
     sprite: Objects/Consumable/Food/taco_sequence.rsi
@@ -18,7 +18,7 @@
     - state: tacoshell_forward
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         canReact: false # Dont want cause reactions inside tacos after merging ingredients
         maxVol: 10
         reagents:
@@ -46,13 +46,13 @@
     flavors:
       - meaty
       - cheesy
-  - type: Food
+  - type: Ingestible # WD Ingestible
     transferAmount: 3
   - type: Sprite
     sprite: Objects/Consumable/Food/taco.rsi
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 15
         reagents:
         - ReagentId: Nutriment
@@ -72,7 +72,7 @@
   id: FoodTacoBeef
   description: A very basic and run of the mill beef taco, now with cheese!
   components:
-  - type: Food
+  - type: Ingestible # WD Ingestible
   - type: Sprite
     state: beeftaco
 
@@ -82,7 +82,7 @@
   id: FoodTacoChicken
   description: A very basic and run of the mill chicken taco, now with cheese!
   components:
-  - type: Food
+  - type: Ingestible # WD Ingestible
   - type: Sprite
     state: chickentaco
 
@@ -96,12 +96,12 @@
     flavors:
       - onion
       - fishy
-  - type: Food
+  - type: Ingestible # WD Ingestible
   - type: Sprite
     state: fishtaco
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 20
         reagents:
         - ReagentId: Nutriment
@@ -115,12 +115,12 @@
   id: FoodTacoRat
   description: Yeah, that looks about right...
   components:
-  - type: Food
+  - type: Ingestible # WD Ingestible
   - type: Sprite
     state: rattaco
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 15
         reagents:
         - ReagentId: Nutriment
@@ -134,12 +134,12 @@
   id: FoodTacoBeefSupreme
   description: It's like a regular beef taco, but surpeme!
   components:
-  - type: Food
+  - type: Ingestible # WD Ingestible
   - type: Sprite
     state: beeftacosupreme
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 26
         reagents:
         - ReagentId: Nutriment
@@ -153,12 +153,12 @@
   id: FoodTacoChickenSupreme
   description: It's like a regular chicken taco, but surpeme!
   components:
-  - type: Food
+  - type: Ingestible # WD Ingestible
   - type: Sprite
     state: chickentacosupreme
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 26
         reagents:
         - ReagentId: Nutriment

@@ -29,10 +29,10 @@ public abstract partial class SharedHandsSystem
             return;
         }
 
-        var gotUnequipped = new GotUnequippedHandEvent(uid, args.Entity, hand);
+        var gotUnequipped = new GotUnequippedHandEvent(uid, args.Entity, hand.Value);
         RaiseLocalEvent(args.Entity, gotUnequipped);
 
-        var didUnequip = new DidUnequipHandEvent(uid, args.Entity, hand);
+        var didUnequip = new DidUnequipHandEvent(uid, args.Entity, hand.Value);
         RaiseLocalEvent(uid, didUnequip);
 
         if (TryComp(args.Entity, out VirtualItemComponent? @virtual))
@@ -56,7 +56,7 @@ public abstract partial class SharedHandsSystem
         if (!IsHolding(uid, entity, out var hand, handsComp))
             return false;
 
-        return CanDropHeld(uid, hand, checkActionBlocker);
+        return CanDropHeld(uid, hand.Value, checkActionBlocker);
     }
 
     /// <summary>
@@ -93,7 +93,7 @@ public abstract partial class SharedHandsSystem
         if (handsComp.ActiveHand == null)
             return false;
 
-        return TryDrop(uid, handsComp.ActiveHand, targetDropLocation, checkActionBlocker, doDropInteraction, handsComp);
+        return TryDrop(uid, handsComp.ActiveHand.Value, targetDropLocation, checkActionBlocker, doDropInteraction, handsComp);
     }
 
     /// <summary>
@@ -107,7 +107,7 @@ public abstract partial class SharedHandsSystem
         if (!IsHolding(uid, entity, out var hand, handsComp))
             return false;
 
-        return TryDrop(uid, hand, targetDropLocation, checkActionBlocker, doDropInteraction, handsComp);
+        return TryDrop(uid, hand.Value, targetDropLocation, checkActionBlocker, doDropInteraction, handsComp);
     }
 
     /// <summary>
@@ -170,13 +170,13 @@ public abstract partial class SharedHandsSystem
         if (!IsHolding(uid, entity, out var hand, handsComp))
             return false;
 
-        if (!CanDropHeld(uid, hand, checkActionBlocker))
+        if (!CanDropHeld(uid, hand.Value, checkActionBlocker))
             return false;
 
         if (!ContainerSystem.CanInsert(entity, targetContainer))
             return false;
 
-        DoDrop(uid, hand, false, handsComp);
+        DoDrop(uid, hand.Value, false, handsComp);
         ContainerSystem.Insert(entity, targetContainer);
         return true;
     }

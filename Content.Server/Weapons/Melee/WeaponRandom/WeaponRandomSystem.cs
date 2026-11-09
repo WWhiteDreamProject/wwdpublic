@@ -46,13 +46,11 @@ public sealed class WeaponRandomSystem : EntitySystem
     private void OnThrowDoHit(EntityUid uid, WeaponRandomComponent component, ref ThrowDoHitEvent args)
     {
         if (!component.ApplyBonusOnThrow
-            || component.ForcedThrowTargetPart == null
             || !_random.Prob(component.RandomDamageChance))
             return;
 
         component.IsCriticalThrow = true;
         _audio.PlayPvs(component.DamageSound, args.Target);
-        args.TargetPart = component.ForcedThrowTargetPart.Value;
     }
 
     private void OnThrowDamageBonusCheck(EntityUid uid, WeaponRandomComponent component, ref GetThrowingDamageEvent args)

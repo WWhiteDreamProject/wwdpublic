@@ -14,8 +14,8 @@
     wideAnimationRotation: 65
     attackRate: 0.9
     damage:
-      types:
-        Slash: 10
+      # WD EDIT: Migrated damage format
+      Slash: 10
     heavyRateModifier: 2
     heavyRangeModifier: 1.2
     heavyDamageBaseModifier: 1.5

@@ -1,0 +1,13 @@
+- type: species
+  id: Slime
+  setPreference: true
+  defaultColors:
+    Eyes: "#09A33A"
+    Skin: "#B8B8B8"
+  colorations:
+    Eyes: Simple
+    Skin: Hues
+  doll: HumanoidDollSlime
+  prototype: MobHumanoidSlime
+  name: species-name-slime
+  naming: Human

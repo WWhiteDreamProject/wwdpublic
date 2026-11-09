@@ -8,8 +8,8 @@
     damage: 65
   - type: Projectile
     damage:
-      types:
-        Caustic: 1
+      # WD EDIT: Migrated damage format
+      Caustic: 1
 
 - type: entity
   id: BulletMediumRocket

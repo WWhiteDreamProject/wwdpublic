@@ -1,3 +1,5 @@
+using Content.Shared._White.Body;
+using Content.Shared._White.Layer.Systems;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Tag;
 using Content.Shared.Humanoid;
@@ -7,7 +9,7 @@ namespace Content.Shared.DeltaV.Harpy;
 public sealed class HarpyVisualsSystem : EntitySystem
 {
     [Dependency] private readonly TagSystem _tagSystem = default!;
-    [Dependency] private readonly SharedHumanoidAppearanceSystem _humanoidSystem = default!;
+    [Dependency] private readonly SharedHideableLayersSystem _hideableLayers = default!; // WD EDIT
 
     [ValidatePrototypeId<TagPrototype>]
     private const string HarpyWingsTag = "HidesHarpyWings";
@@ -24,8 +26,8 @@ public sealed class HarpyVisualsSystem : EntitySystem
     {
         if (args.Slot == "outerClothing" && _tagSystem.HasTag(args.Equipment, HarpyWingsTag))
         {
-            _humanoidSystem.SetLayerVisibility(uid, HumanoidVisualLayers.RArm, false);
-            _humanoidSystem.SetLayerVisibility(uid, HumanoidVisualLayers.Tail, false);
+            _hideableLayers.SetLayerOcclusion(uid, BodyProviderType.RightArm, false, args.SlotFlags);
+            _hideableLayers.SetLayerOcclusion(uid, BodyProviderType.Tail, false, args.SlotFlags);
         }
     }
 
@@ -33,8 +35,8 @@ public sealed class HarpyVisualsSystem : EntitySystem
     {
         if (args.Slot == "outerClothing" && _tagSystem.HasTag(args.Equipment, HarpyWingsTag))
         {
-            _humanoidSystem.SetLayerVisibility(uid, HumanoidVisualLayers.RArm, true);
-            _humanoidSystem.SetLayerVisibility(uid, HumanoidVisualLayers.Tail, true);
+            _hideableLayers.SetLayerOcclusion(uid, BodyProviderType.RightArm, true, args.SlotFlags);
+            _hideableLayers.SetLayerOcclusion(uid, BodyProviderType.Tail, true, args.SlotFlags);
         }
     }
 }

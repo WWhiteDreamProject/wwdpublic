@@ -1,0 +1,109 @@
+- type: entity
+  id: MobHumanoidDiona
+  parent:
+  - BaseBodyDiona
+  - BaseMobHumanoidOrganic
+  name: Urist McDiona
+  components:
+  - type: Bloodstream
+    reagent: Sap
+  - type: BodyEmotes
+    soundsId: DionaBodyEmotes
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatPlant
+      amount: 5
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 300
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: FootPrints
+    leftBarePrint: "footprint-left-bare-diona"
+    rightBarePrint: "footprint-right-bare-diona"
+  - type: GibAction
+    actionPrototype: DionaGibAction
+    allowedStates:
+    - Dead
+  - type: IgniteOnHeatDamage
+    fireStacks: 1
+    threshold: 12
+  - type: IgnoreKudzu
+  - type: HumanoidProfile
+    species: Diona
+  - type: Hunger
+    baseDecayRate: 0.0083
+  - type: Inventory
+    templateId: diona
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female
+  - type: LanguageKnowledge
+    speaks:
+    - TauCetiBasic
+    - RootSpeak
+    understands:
+    - TauCetiBasic
+    - RootSpeak
+  - type: ProtectedFromStepTriggers
+    whitelist:
+      types:
+      - Shard
+  - type: Reactive
+    groups:
+      Flammable: [ Touch ]
+      Extinguish: [ Touch ]
+      Acidic: [Touch, Ingestion]
+    reactions:
+    - reagents: [Water, SpaceCleaner]
+      methods: [Touch]
+      effects:
+      - !type:WashCreamPieReaction
+    - reagents: [ PlantBGone ]
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        scaleByQuantity: true
+        damage:
+          # WD EDIT: Migrated damage format
+          Blunt: 0.1
+          Piercing: 0.1
+          Slash: 0.1
+      - !type:PopupMessage
+        type: Local
+        visualType: Large
+        messages: [ "diona-hurt-by-herbicide-popup" ]
+        probability: 0.66
+    - reagents: [ WeedKiller ]
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        scaleByQuantity: true
+        damage:
+          # WD EDIT: Migrated damage format
+          Poison: 0.2
+      - !type:PopupMessage
+        type: Local
+        visualType: Large
+        messages: [ "diona-hurt-by-herbicide-popup" ]
+        probability: 0.66
+  - type: Speech
+    speechVerb: Plant
+    allowedEmotes: ['Chirp']
+  - type: Thirst
+    baseDecayRate: 0.0083
+  - type: Vocal
+    sounds:
+      Male: UnisexDiona
+      Female: UnisexDiona
+      Unsexed: UnisexDiona

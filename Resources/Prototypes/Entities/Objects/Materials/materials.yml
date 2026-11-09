@@ -111,9 +111,9 @@
     damageContainers:
       - Biological
     damage:
-      types:
-        Slash: -0.5
-        Piercing: -0.5
+      # WD EDIT: Migrated damage format
+      Piercing: -0.5
+      Slash: -0.5
     bloodlossModifier: -4
     healingBeginSound:
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
@@ -141,14 +141,14 @@
     - state: cloth_3
       map: ["base"]
   - type: Appearance
-  - type: Food
+  - type: Ingestible # WD Ingestible
     requiresSpecialDigestion: true
   - type: FlavorProfile
     flavors:
     - fiber
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 5
         reagents:
         - ReagentId: Fiber
@@ -265,11 +265,11 @@
   - type: Construction
     graph: Durathread
     node: MaterialDurathread
-  - type: Food
+  - type: Ingestible # WD Ingestible
     requiresSpecialDigestion: true
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 5
         reagents:
         - ReagentId: Fiber
@@ -292,7 +292,7 @@
     count: 1
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 5
         reagents: #Hell if I know what durathread is made out of.
         - ReagentId: Fiber
@@ -601,14 +601,14 @@
     - state: cotton_3
       map: ["base"]
   - type: Appearance
-  - type: Food
+  - type: Ingestible # WD Ingestible
     requiresSpecialDigestion: true
   - type: FlavorProfile
     flavors:
     - fiber
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 5
         reagents:
         - ReagentId: Fiber
@@ -654,11 +654,11 @@
     - state: pyrotton_3
       map: ["base"]
   - type: Appearance
-  - type: Food
+  - type: Ingestible # WD Ingestible
     requiresSpecialDigestion: true
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 10
         reagents:
         - ReagentId: Fiber
@@ -715,13 +715,13 @@
   - type: FlavorProfile
     flavors:
       - banana
-  - type: Food
+  - type: Ingestible # WD Ingestible
     trash:
     - TrashBananiumPeel
   - type: BadFood
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 11
         reagents:
         - ReagentId: Nutriment
@@ -791,7 +791,7 @@
   - type: Stack
     count: 50
     stackType: WebSilk
-  - type: Food
+  - type: Ingestible # WD Ingestible
     requiresSpecialDigestion: true
   - type: FlavorProfile
     flavors:
@@ -805,7 +805,7 @@
         Quantity: 3
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 3
         reagents:
         - ReagentId: Fiber
@@ -927,11 +927,11 @@
     - state: cotton_3
       map: ["base"]
   - type: Appearance
-  - type: Food
+  - type: Ingestible # WD Ingestible
   - type: BadFood
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 5
         reagents:
         - ReagentId: Vitamin

@@ -1,9 +1,9 @@
 using Content.Server.Atmos.EntitySystems;
-using Content.Server.Body.Components;
 using Content.Server.Temperature.Components;
+using Content.Shared._White.Damage.Systems;
+using Content.Shared._White.Gibbable.Systems;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Rotting;
-using Content.Shared.Damage;
 using Robust.Server.Containers;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Timing;
@@ -21,12 +21,12 @@ public sealed class RottingSystem : SharedRottingSystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<RottingComponent, BeingGibbedEvent>(OnGibbed);
+        SubscribeLocalEvent<RottingComponent, GibbedBeforeDeletionEvent>(OnGibbed); // WD EDIT
 
         SubscribeLocalEvent<TemperatureComponent, IsRottingEvent>(OnTempIsRotting);
     }
 
-    private void OnGibbed(EntityUid uid, RottingComponent component, BeingGibbedEvent args)
+    private void OnGibbed(EntityUid uid, RottingComponent component, GibbedBeforeDeletionEvent args) // WD EDIT
     {
         if (!TryComp<PhysicsComponent>(uid, out var physics))
             return;
@@ -68,7 +68,7 @@ public sealed class RottingSystem : SharedRottingSystem
         else
             rotting.TotalRotTime = total - perishable.RotAfter;
     }
-    
+
     /// <summary>
     /// Is anything speeding up the decay?
     /// e.g. buried in a grave

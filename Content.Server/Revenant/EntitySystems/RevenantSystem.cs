@@ -1,10 +1,9 @@
 using System.Numerics;
 using Content.Server.Actions;
 using Content.Server.GameTicking;
-using Content.Server.Store.Components;
 using Content.Server.Store.Systems;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Alert;
-using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.Eye;
@@ -118,10 +117,10 @@ public sealed partial class RevenantSystem : EntitySystem
 
     private void OnDamage(EntityUid uid, RevenantComponent component, DamageChangedEvent args)
     {
-        if (!HasComp<CorporealComponent>(uid) || args.DamageDelta == null)
+        if (!HasComp<CorporealComponent>(uid))
             return;
 
-        var essenceDamage = args.DamageDelta.GetTotal().Float() * component.DamageToEssenceCoefficient * -1;
+        var essenceDamage = args.Damage.GetTotal().Float() * component.DamageToEssenceCoefficient * -1; // WD EDIT
         ChangeEssenceAmount(uid, essenceDamage, component);
     }
 

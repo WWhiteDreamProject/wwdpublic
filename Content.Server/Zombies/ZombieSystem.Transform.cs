@@ -1,10 +1,10 @@
+using Content.Server._White.Appearance.Systems;
+using Content.Server._White.Respirator.Components;
 using Content.Server.Abilities.Psionics;
 using Content.Server.Atmos.Components;
-using Content.Server.Body.Components;
 using Content.Server.Chat;
 using Content.Server.Chat.Managers;
 using Content.Server.Ghost.Roles.Components;
-using Content.Server.Humanoid;
 using Content.Server.IdentityManagement;
 using Content.Server.Inventory;
 using Content.Server.Mind;
@@ -14,6 +14,10 @@ using Content.Server.NPC.HTN;
 using Content.Server.NPC.Systems;
 using Content.Server.Speech.Components;
 using Content.Server.Temperature.Components;
+using Content.Shared._White.Bloodstream.Components;
+using Content.Shared._White.Damage;
+using Content.Shared._White.Damage.Components;
+using Content.Shared._White.Humanoid.Components;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.CombatMode;
 using Content.Shared.CombatMode.Pacification;
@@ -21,7 +25,6 @@ using Content.Shared.Damage;
 using Content.Shared.Ghost.Roles.Components;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
-using Content.Shared.Humanoid;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
@@ -53,7 +56,6 @@ public sealed partial class ZombieSystem
     [Dependency] private readonly ServerInventorySystem _inventory = default!;
     [Dependency] private readonly NpcFactionSystem _faction = default!;
     [Dependency] private readonly NPCSystem _npc = default!;
-    [Dependency] private readonly HumanoidAppearanceSystem _humanoidAppearance = default!;
     [Dependency] private readonly IdentitySystem _identity = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
     [Dependency] private readonly SharedCombatModeSystem _combat = default!;
@@ -63,6 +65,7 @@ public sealed partial class ZombieSystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly PsionicAbilitiesSystem _psionic = default!;
     [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private readonly BodyAppearanceSystem _bodyAppearance = default!;
 
     /// <summary>
     /// Handles an entity turning into a zombie when they die or go into crit
@@ -151,37 +154,29 @@ public sealed partial class ZombieSystem
             _autoEmote.AddEmote(target, "ZombieGroan");
         }
 
+        if (_bodyAppearance.TryGetAppearance(target, out var appearanceData))
+        {
+            zombiecomp.BeforeZombifiedAppearance = appearanceData;
+
+            /*var zombifiedAppearanceData = appearanceData.ToDictionary(pair => pair.Key,
+                pair => pair.Value with { EyeColor = zombiecomp.EyeColor, SkinColor = zombiecomp.SkinColor });
+            _bodyAppearance.ApplyAppearanceData(target, zombifiedAppearanceData);*/
+        }
+
         //We have specific stuff for humanoid zombies because they matter more
-        if (TryComp<HumanoidAppearanceComponent>(target, out var huApComp)) //huapcomp
+        if (TryComp<HumanoidProfileComponent>(target, out var huApComp)) //huapcomp
         {
             //store some values before changing them in case the humanoid get cloned later
-            zombiecomp.BeforeZombifiedSkinColor = huApComp.SkinColor;
-            zombiecomp.BeforeZombifiedEyeColor = huApComp.EyeColor;
-            zombiecomp.BeforeZombifiedCustomBaseLayers = new(huApComp.CustomBaseLayers);
             if (TryComp<BloodstreamComponent>(target, out var stream))
-                zombiecomp.BeforeZombifiedBloodReagent = stream.BloodReagent;
-
-            _humanoidAppearance.SetSkinColor(target, zombiecomp.SkinColor, verify: false, humanoid: huApComp);
-
-            // Messing with the eye layer made it vanish upon cloning, and also it didn't even appear right
-            huApComp.EyeColor = zombiecomp.EyeColor;
-
-            // this might not resync on clone?
-            _humanoidAppearance.SetBaseLayerId(target, HumanoidVisualLayers.Tail, zombiecomp.BaseLayerExternal, humanoid: huApComp);
-            _humanoidAppearance.SetBaseLayerId(target, HumanoidVisualLayers.HeadSide, zombiecomp.BaseLayerExternal, humanoid: huApComp);
-            _humanoidAppearance.SetBaseLayerId(target, HumanoidVisualLayers.HeadTop, zombiecomp.BaseLayerExternal, humanoid: huApComp);
-            _humanoidAppearance.SetBaseLayerId(target, HumanoidVisualLayers.Snout, zombiecomp.BaseLayerExternal, humanoid: huApComp);
+                zombiecomp.BeforeZombifiedBloodReagent = stream.Reagent;
 
             //This is done here because non-humanoids shouldn't get baller damage
             //lord forgive me for the hardcoded damage
             DamageSpecifier dspec = new()
             {
-                DamageDict = new()
-                {
-                    { "Slash", 13 },
-                    { "Piercing", 7 },
-                    { "Structural", 10 }
-                }
+                { "Slash", 13 },
+                { "Piercing", 7 },
+                { "Structural", 10 },
             };
             melee.Damage = dspec;
 
@@ -197,11 +192,8 @@ public sealed partial class ZombieSystem
         Dirty(target, melee);
 
         //The zombie gets the assigned damage weaknesses and strengths
-        _damageable.SetDamageModifierSetId(target, "Zombie");
+        _damageable.SetModifierSet(target, "Zombie"); // WD EDIT
 
-        //This makes it so the zombie doesn't take bloodloss damage.
-        //NOTE: they are supposed to bleed, just not take damage
-        _bloodstream.SetBloodLossThreshold(target, 0f);
         //Give them zombie blood
         _bloodstream.ChangeBloodReagent(target, zombiecomp.NewBloodReagent);
 
@@ -222,7 +214,7 @@ public sealed partial class ZombieSystem
 
         //Heals the zombie from all the damage it took while human
         if (TryComp<DamageableComponent>(target, out var damageablecomp))
-            _damageable.SetAllDamage(target, damageablecomp, 0);
+            _damageable.SetAllDamage((target, damageablecomp), 0); // WD EDIT
         _mobState.ChangeMobState(target, MobState.Alive);
 
         _faction.ClearFactions(target, dirty: false);

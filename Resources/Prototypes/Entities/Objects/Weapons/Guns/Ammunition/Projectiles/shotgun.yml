@@ -9,9 +9,8 @@
     state: slug
   - type: Projectile
     damage:
-      types:
-        Piercing: 28
-
+      # WD EDIT: Migrated damage format
+      Piercing: 28
 - type: entity
   id: PelletShotgunBeanbag
   name: beanbag (.50)
@@ -23,8 +22,8 @@
     state: buckshot
   - type: Projectile
     damage:
-      types:
-        Blunt: 10
+      # WD EDIT: Migrated damage format
+      Blunt: 10
   - type: StaminaDamageOnCollide
     damage: 40 # 3 hits to stun
   - type: KnockdownOnCollide # WD EDIT
@@ -45,9 +44,8 @@
     state: buckshot
   - type: Projectile
     damage:
-      types:
-        Piercing: 10
-
+      # WD EDIT: Migrated damage format
+      Piercing: 10
 - type: entity
   id: PelletShotgunSpread
   categories: [ HideSpawnMenu ]
@@ -69,9 +67,9 @@
     state: buckshot-flare
   - type: Projectile
     damage:
-      types:
-        Blunt: 3
-        Heat: 7
+      # WD EDIT: Migrated damage format
+      Blunt: 3
+      Heat: 7
   - type: IgnitionSource
     ignited: true
 
@@ -96,9 +94,8 @@
     state: buckshot
   - type: Projectile
     damage:
-      types:
-        Blunt: 1
-
+      # WD EDIT: Migrated damage format
+      Blunt: 1
 - type: entity
   id: PelletShotgunPracticeSpread
   categories: [ HideSpawnMenu ]
@@ -120,10 +117,9 @@
     state: shard
   - type: Projectile
     damage:
-      types:
-        Piercing: 3
-        Slash: 3
-
+      # WD EDIT: Migrated damage format
+      Piercing: 3
+      Slash: 3
 - type: entity
   id: PelletShotgunImprovisedSpread
   categories: [ HideSpawnMenu ]
@@ -145,8 +141,8 @@
     state: buckshot
   - type: Projectile
     damage:
-      types:
-        Blunt: 1
+      # WD EDIT: Migrated damage format
+      Blunt: 1
   - type: SolutionContainerManager
     solutions:
       ammo:
@@ -186,10 +182,8 @@
     damage: 40 # three shot stamcrit
   - type: Projectile
     damage:
-      types:
-        Blunt: 3
-
-
+      # WD EDIT: Migrated damage format
+      Blunt: 3
 - type: entity
   id: PelletShotgunUranium
   name: pellet (.50 uranium)
@@ -201,10 +195,9 @@
     state: depleted-uranium
   - type: Projectile
     damage:
-      types:
-        Radiation: 5
-        Piercing: 5
-
+      # WD EDIT: Migrated damage format
+      Piercing: 5
+      Radiation: 5
 - type: entity
   id: PelletShotgunUraniumSpread
   categories: [ HideSpawnMenu ]
@@ -229,10 +222,9 @@
       shader: unshaded
   - type: Projectile
     damage:
-      types:
-        Piercing: 25
-        Structural: 5
-
+      # WD EDIT: Migrated damage format
+      Piercing: 25
+      Structural: 5
 - type: entity
   id: PelletGrapeshotSpread
   categories: [ HideSpawnMenu ]
@@ -260,9 +252,8 @@
   - type: Projectile
     deleteOnCollide: false
     damage:
-      types:
-        Slash: 25
-
+      # WD EDIT: Migrated damage format
+      Slash: 25
 - type: entity
   id: PelletGlassSpread
   parent: PelletGlass
@@ -285,9 +276,8 @@
     state: buckshot
   - type: Projectile
     damage:
-      types:
-        Piercing: 3.333
-
+      # WD EDIT: Migrated damage format
+      Piercing: 3.3
 - type: entity
   id: PelletShotgunSpreadBirdshot
   categories: [ HideSpawnMenu ]
@@ -310,9 +300,8 @@
     state: buckshot
   - type: Projectile
     damage:
-      types:
-        Piercing: 15
-
+      # WD EDIT: Migrated damage format
+      Piercing: 15
 - type: entity
   id: PelletShotgunSpread00Buckshot
   categories: [ HideSpawnMenu ]
@@ -335,9 +324,8 @@
     state: buckshot
   - type: Projectile
     damage:
-      types:
-        Piercing: 20
-
+      # WD EDIT: Migrated damage format
+      Piercing: 20
 - type: entity
   id: PelletShotgunSpread0000Buckshot
   categories: [ HideSpawnMenu ]
@@ -392,5 +380,5 @@
   - type: Projectile
     deleteOnCollide: false
     damage:
-      types:
-        Heat: 5
+      # WD EDIT: Migrated damage format
+      Heat: 5

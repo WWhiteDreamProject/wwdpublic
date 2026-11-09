@@ -30,7 +30,7 @@
       - state: butter
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 100
         reagents:
         - ReagentId: OilGhee
@@ -49,7 +49,7 @@
       - state: corn
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 100
         reagents:
         - ReagentId: Cornoil
@@ -68,7 +68,7 @@
       - state: olives
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 100
         reagents:
         - ReagentId: OilOlive

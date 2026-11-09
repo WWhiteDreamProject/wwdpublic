@@ -1,0 +1,7 @@
+- type: damageType
+  id: Asphyxiation
+  name: damage-type-asphyxiation
+
+- type: damageType
+  id: Bloodloss
+  name: damage-type-bloodloss

@@ -24,10 +24,10 @@ public abstract partial class SharedHandsSystem : EntitySystem
             return;
         }
 
-        var didEquip = new DidEquipHandEvent(uid, args.Entity, hand);
+        var didEquip = new DidEquipHandEvent(uid, args.Entity, hand.Value);
         RaiseLocalEvent(uid, didEquip, false);
 
-        var gotEquipped = new GotEquippedHandEvent(uid, args.Entity, hand);
+        var gotEquipped = new GotEquippedHandEvent(uid, args.Entity, hand.Value);
         RaiseLocalEvent(args.Entity, gotEquipped, false);
     }
 
@@ -53,13 +53,18 @@ public abstract partial class SharedHandsSystem : EntitySystem
             return false;
 
         var hand = handsComp.ActiveHand;
-        if (handName != null && !handsComp.Hands.TryGetValue(handName, out hand))
-            return false;
+        if (handName != null)
+        {
+            if (!handsComp.Hands.TryGetValue(handName, out var possibleHand))
+                hand = handsComp.ActiveHand;
+            else
+                hand = possibleHand;
+        }
 
         if (hand == null)
             return false;
 
-        return TryPickup(uid, entity, hand, checkActionBlocker, animate, handsComp, item);
+        return TryPickup(uid, entity, hand.Value, checkActionBlocker, animate, handsComp, item);
     }
 
     /// <summary>
@@ -84,7 +89,7 @@ public abstract partial class SharedHandsSystem : EntitySystem
         if (!TryGetEmptyHand(uid, out var hand, handsComp))
             return false;
 
-        return TryPickup(uid, entity, hand, checkActionBlocker, animate, handsComp, item);
+        return TryPickup(uid, entity, hand.Value, checkActionBlocker, animate, handsComp, item);
     }
 
     public bool TryPickup(
@@ -156,7 +161,7 @@ public abstract partial class SharedHandsSystem : EntitySystem
         if (!TryGetEmptyHand(uid, out var hand, handsComp))
             return false;
 
-        return CanPickupToHand(uid, entity, hand, checkActionBlocker, handsComp, item);
+        return CanPickupToHand(uid, entity, hand.Value, checkActionBlocker, handsComp, item);
     }
 
     /// <summary>
@@ -212,7 +217,7 @@ public abstract partial class SharedHandsSystem : EntitySystem
         if (uid == null
             || !Resolve(uid.Value, ref handsComp, false)
             || !TryGetEmptyHand(uid.Value, out var hand, handsComp)
-            || !TryPickup(uid.Value, entity, hand, checkActionBlocker, animate, handsComp, item))
+            || !TryPickup(uid.Value, entity, hand.Value, checkActionBlocker, animate, handsComp, item))
         {
             // TODO make this check upwards for any container, and parent to that.
             // Currently this just checks the direct parent, so items can still teleport through containers.

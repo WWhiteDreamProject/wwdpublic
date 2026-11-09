@@ -1,10 +1,11 @@
 - type: entity
   parent:
-    - MobRespirator
-    - MobAtmosStandard
+    - BaseBodyAnimal
+    - BaseMobRespirator
+    - BaseMobAtmosStandard
+    - BaseMobBloodstream
+    - BaseMobFlammable
     - BaseSimpleMob
-    - MobBloodstream
-    - MobFlammable
   id: MobGondola
   name: Gondola
   description: Having no hands, he embodies the Taoist principle of Wu wei (inaction), and the expression on his smiling face shows his complete acceptance of the world as it is.
@@ -71,8 +72,6 @@
   - type: HTN
     rootTask:
       task: IdleCompound
-  - type: Body
-    prototype: Animal
   - type: NameIdentifier
     group: GenericNumber
   - type: SlowOnDamage

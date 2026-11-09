@@ -1,3 +1,4 @@
+using Content.Shared._White.Humanoid.Prototypes;
 using Content.Shared.Humanoid.Prototypes;
 using Robust.Shared.Prototypes;
 

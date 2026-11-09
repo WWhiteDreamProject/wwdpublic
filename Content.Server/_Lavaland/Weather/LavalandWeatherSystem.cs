@@ -4,8 +4,9 @@ using Content.Server._Lavaland.Procedural.Components;
 using Content.Server.Temperature.Systems;
 using Content.Server.Weather;
 using Content.Shared._Lavaland.Weather;
-using Content.Shared.Damage;
-using Content.Shared.Humanoid;
+using Content.Shared._White.Damage.Components;
+using Content.Shared._White.Damage.Systems;
+using Content.Shared._White.Humanoid.Components;
 using Content.Shared.Popups;
 using Robust.Shared.CPUJob.JobQueues;
 using Robust.Shared.CPUJob.JobQueues.Queues;
@@ -51,7 +52,7 @@ public sealed class LavalandWeatherSystem : EntitySystem
 
         var proto = _proto.Index(lavaland.Comp.CurrentWeather);
         _temperature.ChangeHeat(entity, proto.TemperatureChange, ignoreHeatResistance: true);
-        _damage.TryChangeDamage(entity, proto.Damage);
+        _damage.TryChangeDamage(entity.AsNullable(), proto.Damage); // WD EDIT
     }
 
     public override void Update(float frameTime)
@@ -82,7 +83,7 @@ public sealed class LavalandWeatherSystem : EntitySystem
         if (comp.DamageAccumulator <= comp.NextDamage)
             return;
 
-        var humans = EntityQueryEnumerator<HumanoidAppearanceComponent, DamageableComponent>();
+        var humans = EntityQueryEnumerator<HumanoidProfileComponent, DamageableComponent>();
 
         while (humans.MoveNext(out var human, out _, out var damageable))
         {
@@ -106,7 +107,7 @@ public sealed class LavalandWeatherSystem : EntitySystem
         comp.CurrentWeather = proto.ID;
         comp.Duration = proto.Duration + _random.NextFloat(-proto.Variety, proto.Variety);
 
-        var humans = EntityQueryEnumerator<HumanoidAppearanceComponent, DamageableComponent>();
+        var humans = EntityQueryEnumerator<HumanoidProfileComponent, DamageableComponent>();
         while (humans.MoveNext(out var human, out _, out _))
         {
             var xform = Transform(human);
@@ -126,7 +127,7 @@ public sealed class LavalandWeatherSystem : EntitySystem
         var popup = _proto.Index(comp.CurrentWeather).PopupEndMessage;
         RemComp<LavalandStormedMapComponent>(map);
 
-        var humans = EntityQueryEnumerator<HumanoidAppearanceComponent, DamageableComponent>();
+        var humans = EntityQueryEnumerator<HumanoidProfileComponent, DamageableComponent>();
         while (humans.MoveNext(out var human, out _, out _))
         {
             var xform = Transform(human);

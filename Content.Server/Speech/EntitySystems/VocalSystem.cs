@@ -2,6 +2,8 @@ using Content.Server.Actions;
 using Content.Server.Chat.Systems;
 using Content.Server.Speech.Components;
 using Content.Server.Speech.Prototypes;
+using Content.Shared._White.Humanoid.Components;
+using Content.Shared._White.Humanoid.Systems;
 using Content.Shared.ActionBlocker;
 using Content.Shared.CCVar;
 using Content.Shared.Chat.Prototypes;
@@ -106,7 +108,7 @@ public sealed class VocalSystem : EntitySystem
         if (component.Sounds == null)
             return;
 
-        sex ??= CompOrNull<HumanoidAppearanceComponent>(uid)?.Sex ?? Sex.Unsexed;
+        sex ??= CompOrNull<HumanoidProfileComponent>(uid)?.Sex ?? Sex.Unsexed;
 
         if (!component.Sounds.TryGetValue(sex.Value, out var protoId))
             return;

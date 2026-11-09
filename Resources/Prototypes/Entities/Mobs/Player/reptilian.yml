@@ -1,8 +1,9 @@
-- type: entity
-  save: false
-  name: Urist McScales
-  suffix: Urisst' Mzhand
-  parent: BaseMobReptilian
-  id: MobReptilian
+# TODO
+# - type: entity
+#   save: false
+#   name: Urist McScales
+#   suffix: Urisst' Mzhand
+#   parent: BaseMobReptilian
+#   id: MobReptilian
 
 #Weh

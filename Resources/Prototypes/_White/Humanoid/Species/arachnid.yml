@@ -1,0 +1,15 @@
+- type: species
+  id: Arachnid
+  setPreference: true
+  defaultColors:
+    Eyes: "#1E1E1E"
+    Skin: "#385878"
+  colorations:
+    Eyes: Simple
+    Skin: Hues
+  doll: HumanoidDollArachnid
+  prototype: MobHumanoidArachnid
+  sexes:
+  - Unsexed
+  name: species-name-arachnid
+  naming: Arachnid

@@ -1,4 +1,4 @@
-using Content.Shared.Damage.Prototypes;
+using Content.Shared._White.Damage.Prototypes;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;

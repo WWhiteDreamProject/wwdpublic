@@ -1,8 +1,9 @@
+using Content.Shared._White.Damage;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Camera;
 using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Contests;
-using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Events;
 using Content.Shared.Database;
@@ -10,16 +11,13 @@ using Content.Shared.Effects;
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Projectiles;
-using Content.Shared.Popups;
 using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee;
-using Robust.Shared.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Utility;
 using Content.Shared.Standing;
 
 namespace Content.Shared.Damage.Systems
@@ -105,11 +103,8 @@ namespace Content.Shared.Damage.Systems
                 return;
             }
 
-            var modifiedDamage = _damageable.TryChangeDamage(args.Target, GetDamage(uid, component, args.Component.Thrower),
-                component.IgnoreResistances, origin: args.Component.Thrower, targetPart: args.TargetPart);
-
             // Log damage only for mobs. Useful for when people throw spears at each other, but also avoids log-spam when explosions send glass shards flying.
-            if (modifiedDamage != null)
+            if (_damageable.TryChangeDamage(args.Target, GetDamage(uid, component, args.Component.Thrower), out var modifiedDamage, component.IgnoreResistances, origin: args.Component.Thrower)) // WD EDIT
             {
                 if (HasComp<MobStateComponent>(args.Target))
                     _adminLogger.Add(LogType.ThrowHit, $"{ToPrettyString(args.Target):target} received {modifiedDamage.GetTotal():damage} damage from collision");

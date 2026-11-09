@@ -1,0 +1,38 @@
+- type: entity
+  id: BaseBodyProviderOrganRuminant
+  parent: BaseBodyProviderOrganOrganic
+  abstract: true
+  suffix: Ruminant
+  components:
+  - type: Sprite
+    sprite: _White/Bodies/Organs/Humanoids/human.rsi
+
+- type: entity
+  id: BaseMetabolizerRuminant
+  abstract: true
+  components:
+  - type: Metabolizer
+    types: [ Animal, BloodIron, RespirationOxygen, Ruminant ]
+
+# Kidneys
+- type: entity
+  id: BodyProviderKidneysRuminant
+  parent: [BaseBodyProviderKidneysRespiratory, BaseBodyProviderOrganRuminant, BaseMetabolizerRuminant]
+
+# Liver
+- type: entity
+  id: BodyProviderLiverRuminant
+  parent: [BaseBodyProviderLiverRespiratory, BaseBodyProviderOrganRuminant, BaseMetabolizerRuminant]
+
+# Lungs
+- type: entity
+  id: BodyProviderLungsRuminant
+  parent: [BaseBodyProviderLungsRespiratory, BaseBodyProviderOrganRuminant, BaseMetabolizerRuminant]
+
+# Stomach
+- type: entity
+  id: BodyProviderStomachRuminant
+  parent: [BaseBodyProviderStomachRespiratory, BaseBodyProviderOrganRuminant, BaseMetabolizerRuminant]
+  components:
+  - type: IngestionProvider
+    solutionMaxVolume: 240

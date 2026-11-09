@@ -8,14 +8,6 @@
   - type: Item # TODO add inhand sprites for all utensils
     sprite: Objects/Misc/utensils.rsi
   - type: SpaceGarbage
-  # Shitmed Change
-  - type: Tweezers # Any utensil can poorly remove organs
-    speed: 0.2
-  - type: SurgeryTool
-    startSound:
-      path: /Audio/_Shitmed/Medical/Surgery/retractor1.ogg
-    endSound:
-      path: /Audio/_Shitmed/Medical/Surgery/hemostat1.ogg
 
 - type: entity
   parent: UtensilBase
@@ -35,9 +27,8 @@
     wideAnimationRotation: 180
     attackRate: .6666
     damage:
-      types:
-        Blunt: 0
-
+      # WD EDIT: Migrated damage format
+      Blunt: 0
 - type: entity
   parent: UtensilBase
   id: Fork
@@ -58,11 +49,8 @@
     wideAnimationRotation: 180
     attackRate: .6666
     damage:
-      types:
-        Piercing: 5
-  # Shitmed Change
-  - type: Tweezers # Forks are better than spoons
-    speed: 0.35
+      # WD EDIT: Migrated damage format
+      Piercing: 5
   - type: DamageOtherOnHit
     staminaCost: 2.5
   - type: EmbeddableProjectile
@@ -83,9 +71,6 @@
   - type: Utensil
     types:
     - Fork
-  # Shitmed Change
-  - type: Tweezers # Forks are better than spoons
-    speed: 0.35
 
 - type: entity
   parent: UtensilBase
@@ -108,8 +93,8 @@
     wideAnimationRotation: 180
     attackRate: .6666
     damage:
-      types:
-        Blunt: 1
+      # WD EDIT: Migrated damage format
+      Blunt: 1
   - type: DamageOtherOnHit
   - type: ThrowingAngle
     angle: 180
@@ -185,8 +170,8 @@
     wideAnimationRotation: 180
     attackRate: .5
     damage:
-      types:
-        Blunt: 2
+      # WD EDIT: Migrated damage format
+      Blunt: 2
   - type: DamageOtherOnHit
   - type: ThrowingAngle
     angle: 180

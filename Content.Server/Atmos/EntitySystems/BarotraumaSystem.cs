@@ -1,9 +1,10 @@
 using System.Diagnostics.CodeAnalysis;
 using Content.Server.Administration.Logs;
 using Content.Server.Atmos.Components;
+using Content.Shared._White.Damage.Components;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Alert;
 using Content.Shared.Atmos;
-using Content.Shared.Damage;
 using Content.Shared.Database;
 using Content.Shared.FixedPoint;
 using Content.Shared.Inventory;
@@ -235,9 +236,9 @@ namespace Content.Server.Atmos.EntitySystems
             while (enumerator.MoveNext(out var uid, out var barotrauma, out var damageable))
             {
                 var totalDamage = FixedPoint2.Zero;
-                foreach (var (barotraumaDamageType, _) in barotrauma.Damage.DamageDict)
+                foreach (var (barotraumaDamageType, _) in barotrauma.Damage)
                 {
-                    if (!damageable.Damage.DamageDict.TryGetValue(barotraumaDamageType, out var damage))
+                    if (!_damageableSystem.GetDamage((uid, damageable)).TryGetValue(barotraumaDamageType, out var damage))
                         continue;
                     totalDamage += damage;
                 }
@@ -261,7 +262,7 @@ namespace Content.Server.Atmos.EntitySystems
                 if (pressure <= Atmospherics.HazardLowPressure)
                 {
                     // Deal damage and ignore resistances. Resistance to pressure damage should be done via pressure protection gear.
-                    _damageableSystem.TryChangeDamage(uid, barotrauma.Damage * Atmospherics.LowPressureDamage, true, false, canSever: false, doPartDamage: false); // Shitmed Change
+                    _damageableSystem.TryChangeDamage(uid, barotrauma.Damage * Atmospherics.LowPressureDamage, true, false);
                     if (!barotrauma.TakingDamage)
                     {
                         barotrauma.TakingDamage = true;
@@ -274,7 +275,7 @@ namespace Content.Server.Atmos.EntitySystems
                 {
                     var damageScale = MathF.Min(((pressure / Atmospherics.HazardHighPressure) - 1) * Atmospherics.PressureDamageCoefficient, Atmospherics.MaxHighPressureDamage);
 
-                    _damageableSystem.TryChangeDamage(uid, barotrauma.Damage * damageScale, true, false, canSever: false, doPartDamage: false); // Shitmed Change
+                    _damageableSystem.TryChangeDamage(uid, barotrauma.Damage * damageScale, true, false);
                     RaiseLocalEvent(uid, new MoodEffectEvent("MobHighPressure"));
 
                     if (!barotrauma.TakingDamage)

@@ -1,0 +1,77 @@
+- type: entity
+  id: BaseBodyGingerbread
+  parent: BaseBody
+  abstract: true
+  components:
+  - type: Body
+    rootProvider:
+      type: Chest
+      providers:
+        groin:
+          type: Groin
+          providers:
+            kidneys:
+              type: Kidneys
+              startingProvider: BodyProviderKidneysGingerbread
+            left_leg:
+              type: LeftLeg
+              providers:
+                left_foot:
+                  type: LeftFoot
+                  startingProvider: BodyProviderLeftFootGingerbread
+              startingProvider: BodyProviderLeftLegGingerbread
+            liver:
+              type: Liver
+              startingProvider: BodyProviderLiverGingerbread
+            right_leg:
+              type: RightLeg
+              providers:
+                right_foot:
+                  type: RightFoot
+                  startingProvider: BodyProviderRightFootGingerbread
+              startingProvider: BodyProviderRightLegGingerbread
+            stomach:
+              type: Stomach
+              startingProvider: BodyProviderStomachGingerbread
+            tail:
+              type: Tail
+          startingProvider: BodyProviderGroinGingerbread
+        head:
+          type: Head
+          providers:
+            brain:
+              type: Brain
+              startingProvider: BodyProviderBrainGingerbread
+            ears:
+              type: Ears
+              startingProvider: BodyProviderEarsGingerbread
+            eyes:
+              type: Eyes
+              startingProvider: BodyProviderEyesGingerbread
+            tongue:
+              type: Tongue
+              startingProvider: BodyProviderTongueGingerbread
+          startingProvider: BodyProviderHeadGingerbread
+        heart:
+          type: Heart
+          startingProvider: BodyProviderHeartGingerbread
+        left_arm:
+          type: LeftArm
+          providers:
+            left_hand:
+              type: LeftHand
+              startingProvider: BodyProviderLeftHandGingerbread
+          startingProvider: BodyProviderLeftArmGingerbread
+        lungs:
+          type: Lungs
+          startingProvider: BodyProviderLungsGingerbread
+        right_arm:
+          type: RightArm
+          providers:
+            right_hand:
+              type: RightHand
+              startingProvider: BodyProviderRightHandGingerbread
+          startingProvider: BodyProviderRightArmGingerbread
+        wings:
+          type: Wings
+      startingProvider: BodyProviderChestGingerbread

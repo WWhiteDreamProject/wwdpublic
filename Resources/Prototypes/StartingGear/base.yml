@@ -4,9 +4,7 @@
   requirements:
   - !type:CharacterSpeciesRequirement
     species:
-    - Arachne
     - Arachnid
-    - Chitinid
     - Diona
     - Dwarf
     - Felinid
@@ -17,12 +15,6 @@
     - Moth
     - Oni
     - Reptilian
-    - Shadowkin
-    - SynthHuman
-    - Tajaran
-    - Thaven
-    - Vulpkanin
-    - Xelthia
 
 - type: startingGear
   id: NitrogenBreather
@@ -30,7 +22,7 @@
   requirements:
   - !type:CharacterSpeciesRequirement
     species:
-    - SlimePerson
+    - Slime
     - Vox
 
 - type: startingGear

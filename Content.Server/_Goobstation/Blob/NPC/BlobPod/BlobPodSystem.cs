@@ -1,4 +1,3 @@
-using Content.Server._Goobstation.Blob.Components;
 using Content.Server.DoAfter;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.NPC.HTN;
@@ -7,15 +6,14 @@ using Content.Server.Popups;
 using Content.Shared.ActionBlocker;
 using Content.Shared._Goobstation.Blob.Components;
 using Content.Shared._Goobstation.Blob.NPC.BlobPod;
+using Content.Shared._White.Damage.Systems;
+using Content.Shared._White.Humanoid.Components;
 using Content.Shared.CombatMode;
-using Content.Shared.Damage;
 using Content.Shared.Destructible;
 using Content.Shared.DoAfter;
-using Content.Shared.Humanoid;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Mobs.Systems;
-using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Rejuvenate;
 using Robust.Server.Audio;
@@ -63,7 +61,7 @@ public sealed class BlobPodSystem : SharedBlobPodSystem
         if(args.Container.ID != "head")
             return;
 
-        if (!HasComp<HumanoidAppearanceComponent>(args.Container.Owner) || !HasComp<ZombieBlobComponent>(args.Container.Owner))
+        if (!HasComp<HumanoidProfileComponent>(args.Container.Owner) || !HasComp<ZombieBlobComponent>(args.Container.Owner))
             return;
 
         RemCompDeferred<ZombieBlobComponent>(args.Container.Owner);
@@ -146,7 +144,7 @@ public sealed class BlobPodSystem : SharedBlobPodSystem
     {
         if (!Resolve(uid, ref component))
             return false;
-        if (!HasComp<HumanoidAppearanceComponent>(target))
+        if (!HasComp<HumanoidProfileComponent>(target))
             return false;
         if (_mobs.IsAlive(target))
             return false;

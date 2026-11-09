@@ -20,8 +20,8 @@
         path: /Audio/Effects/lightburn.ogg
     - type: MeleeWeapon
       damage:
-        types:
-          Blunt: 5
+        # WD EDIT: Migrated damage format
+        Blunt: 5
     - type: OnUseTimerTrigger
       delay: 120
       beepSound:
@@ -40,8 +40,8 @@
     - type: DamageOnHolding
       enabled: false
       damage:
-        types:
-          Heat: 2
+        # WD EDIT: Migrated damage format
+        Heat: 2
     - type: Appearance
     - type: GenericVisualizer
       visuals:

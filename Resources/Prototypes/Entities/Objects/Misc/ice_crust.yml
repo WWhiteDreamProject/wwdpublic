@@ -45,8 +45,7 @@
           acts: [ "Destruction" ]
     - type: Temperature
       heatDamage:
-        types:
-          Heat: 5
+        Heat: 5
       coldDamage: {}
       coldDamageThreshold: 0
     - type: FrictionContacts

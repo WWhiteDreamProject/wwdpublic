@@ -1,4 +1,4 @@
-using Content.Shared.Damage;
+using Content.Shared._White.Damage;
 using Content.Shared.NPC.Prototypes;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;

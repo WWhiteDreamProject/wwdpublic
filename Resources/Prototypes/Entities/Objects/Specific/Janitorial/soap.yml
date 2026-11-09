@@ -69,8 +69,8 @@
   - type: FlavorProfile
     flavors:
       - clean
-  - type: Food
-    solution: soap
+  - type: Ingestible # WD Ingestible
+    solutionName: soap # WD Ingestible
   - type: BadFood
   - type: CleansForensics
   - type: Residue

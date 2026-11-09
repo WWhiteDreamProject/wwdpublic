@@ -13,7 +13,7 @@
       sprite: Markers/jobs.rsi
       layers:
         - state: green
-        - sprite: Mobs/Species/Human/parts.rsi
+        - sprite: _White/Bodies/Parts/Humanoids/human.rsi # WD EDIT
           state: full
 
 - type: entity # Part of PirateRadioSpawn

@@ -1,5 +1,5 @@
 ﻿using Content.Shared._Lavaland.Audio;
-using Content.Shared.Damage;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Destructible;
 using Content.Shared.Mobs;
 using Robust.Shared.Network;

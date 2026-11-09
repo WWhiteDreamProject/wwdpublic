@@ -6,7 +6,7 @@
   id: FoodSnackBase
   abstract: true
   components:
-  - type: Food
+  - type: Ingestible # WD Ingestible
   - type: Tag
     tags:
       - FoodSnack
@@ -14,7 +14,7 @@
     sprite: Objects/Consumable/Food/snacks.rsi
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 30 # Room for extra condiments
         reagents:
         - ReagentId: Nutriment
@@ -40,7 +40,7 @@
   - type: Sprite
     state: boritos
   - type: Item
-  - type: Food
+  - type: Ingestible # WD Ingestible
     trash:
     - FoodPacketBoritosTrash
 
@@ -56,7 +56,7 @@
   - type: Sprite
     state: cnds
   - type: Item
-  - type: Food
+  - type: Ingestible # WD Ingestible
     trash:
     - FoodPacketCnDsTrash
 
@@ -73,7 +73,7 @@
   - type: Sprite
     state: cheesiehonkers
   - type: Item
-  - type: Food
+  - type: Ingestible # WD Ingestible
     trash:
     - FoodPacketCheesieTrash
 
@@ -91,7 +91,7 @@
   - type: Sprite
     state: chips
   - type: Item
-  - type: Food
+  - type: Ingestible # WD Ingestible
     trash:
     - FoodPacketChipsTrash
 
@@ -135,7 +135,7 @@
       - ReptilianFood
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: Nutriment
@@ -190,7 +190,7 @@
   - type: Sprite
     state: pistachio
   - type: Item
-  - type: Food
+  - type: Ingestible # WD Ingestible
     trash:
     - FoodPacketPistachioTrash
   - type: Tag
@@ -212,7 +212,7 @@
     state: popcorn
   - type: Item
     heldPrefix: popcorn
-  - type: Food
+  - type: Ingestible # WD Ingestible
     trash:
     - FoodPacketPopcornTrash
 
@@ -228,7 +228,7 @@
   - type: Sprite
     state: raisins
   - type: Item
-  - type: Food
+  - type: Ingestible # WD Ingestible
     trash:
     - FoodPacketRaisinsTrash
   - type: Tag
@@ -247,7 +247,7 @@
   - type: Sprite
     state: semki
   - type: Item
-  - type: Food
+  - type: Ingestible # WD Ingestible
     trash:
     - FoodPacketSemkiTrash
 
@@ -263,7 +263,7 @@
   - type: Sprite
     state: susjerky
   - type: Item
-  - type: Food
+  - type: Ingestible # WD Ingestible
     trash:
     - FoodPacketSusTrash
   - type: Tag
@@ -282,7 +282,7 @@
   - type: Sprite
     state: syndicakes
   - type: Item
-  - type: Food
+  - type: Ingestible # WD Ingestible
     trash:
     - FoodPacketSyndiTrash
 
@@ -293,12 +293,12 @@
   description: A cheap food with a taste that reminds you of your school years.
   components:
   - type: RefillableSolution
-    solution: food
+    solution: ingestible # WD Ingestible
   - type: InjectableSolution
-    solution: food
+    solution: ingestible # WD Ingestible
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 50 #big cup
         reagents:
         - ReagentId: DryRamen
@@ -307,7 +307,7 @@
           Quantity: 5
   - type: Sprite
     state: ramen
-  - type: Food
+  - type: Ingestible # WD Ingestible
     trash:
     - FoodPacketCupRamenTrash
 
@@ -319,7 +319,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 50
         reagents:
         - ReagentId: DryRamen
@@ -343,14 +343,14 @@
   - type: Item
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 30 # Room for extra condiments
         reagents:
         - ReagentId: Nutriment
           Quantity: 10
         - ReagentId: Soysauce
           Quantity: 2
-  - type: Food
+  - type: Ingestible # WD Ingestible
     trash:
     - FoodPacketChowMeinTrash
 
@@ -370,7 +370,7 @@
   - type: Item
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 30 # Room for extra condiments
         reagents:
         - ReagentId: Nutriment
@@ -379,7 +379,7 @@
           Quantity: 2
         - ReagentId: Soysauce
           Quantity: 2
-  - type: Food
+  - type: Ingestible # WD Ingestible
     trash:
     - FoodPacketDanDanTrash
 
@@ -396,7 +396,7 @@
     state: cookie_fortune
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 1
         reagents:
         - ReagentId: Nutriment
@@ -405,7 +405,7 @@
     sprite: Objects/Consumable/Food/snacks.rsi
     heldPrefix: packet
     size: Tiny
-  - type: Food
+  - type: Ingestible # WD Ingestible
     trash:
     - FoodCookieFortune
 
@@ -446,10 +446,10 @@
       - ReptilianFood
   - type: Sprite
     state: nutribrick-open
-  - type: Food
+  - type: Ingestible # WD Ingestible
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 25
         reagents:
         - ReagentId: Nutriment
@@ -487,10 +487,10 @@
       - mrebrownie
   - type: Sprite
     state: mre-brownie-open
-  - type: Food
+  - type: Ingestible # WD Ingestible
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 15
         reagents:
         - ReagentId: Nutriment
@@ -678,11 +678,11 @@
   name: MRE wrapper
   description: A general purpose wrapper for a variety of military food goods.
   components:
-  - type: Food
+  - type: Ingestible # WD Ingestible
     requiresSpecialDigestion: true
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 45
         reagents:
         - ReagentId: Fiber
@@ -708,12 +708,12 @@
     sprite: Objects/Consumable/Food/bay_food.rsi
     state: proteinbar
   - type: Item
-  - type: Food
+  - type: Ingestible # WD Ingestible
     trash:
     - FoodPacketProteinbarTrash
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 15
         reagents:
         - ReagentId: Nutriment
@@ -847,7 +847,7 @@
     sprite: Objects/Consumable/Food/bay_food.rsi
     state: tidegobs
   - type: Item
-  - type: Food
+  - type: Ingestible # WD Ingestible
     trash:
     - FoodPacketTidegobsTrash
 
@@ -864,7 +864,7 @@
     sprite: Objects/Consumable/Food/bay_food.rsi
     state: saturno
   - type: Item
-  - type: Food
+  - type: Ingestible # WD Ingestible
     trash:
     - FoodPacketSaturnosTrash
 
@@ -881,7 +881,7 @@
     sprite: Objects/Consumable/Food/bay_food.rsi
     state: jupiter
   - type: Item
-  - type: Food
+  - type: Ingestible # WD Ingestible
     trash:
     - FoodPacketJoveGelloTrash
 
@@ -898,7 +898,7 @@
     sprite: Objects/Consumable/Food/bay_food.rsi
     state: pluto
   - type: Item
-  - type: Food
+  - type: Ingestible # WD Ingestible
     trash:
     - FoodPacketPlutoniumrodsTrash
 
@@ -917,7 +917,7 @@
     sprite: Objects/Consumable/Food/bay_food.rsi
     state: mars
   - type: Item
-  - type: Food
+  - type: Ingestible # WD Ingestible
     trash:
     - FoodPacketMarsFroukaTrash
 
@@ -934,7 +934,7 @@
     sprite: Objects/Consumable/Food/bay_food.rsi
     state: venus
   - type: Item
-  - type: Food
+  - type: Ingestible # WD Ingestible
     trash:
     - FoodPacketVenusTrash
 
@@ -952,7 +952,7 @@
     sprite: Objects/Consumable/Food/bay_food.rsi
     state: oort
   - type: Item
-  - type: Food
+  - type: Ingestible # WD Ingestible
     trash:
     - FoodPacketOortrocksTrash
 
@@ -970,7 +970,7 @@
     sprite: Objects/Consumable/Food/bay_food.rsi
     state: weebonuts
   - type: Item
-  - type: Food
+  - type: Ingestible # WD Ingestible
     trash:
     - FoodPacketRedalertnutsTrash
 
@@ -1017,7 +1017,7 @@
     sprite: Objects/Consumable/Food/bay_food.rsi
     state: chocobanana
   - type: Item
-  - type: Food
+  - type: Ingestible # WD Ingestible
     trash:
     - FoodPacketStickTrash
 
@@ -1035,7 +1035,7 @@
     sprite: Objects/Consumable/Food/bay_food.rsi
     state: dango
   - type: Item
-  - type: Food
+  - type: Ingestible # WD Ingestible
     trash:
     - FoodPacketStickTrash
 
@@ -1056,13 +1056,13 @@
   - type: Item
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 20
         reagents:
         - ReagentId: Nutriment
           Quantity: 3
   - type: RandomFillSolution
-    solution: food
+    solution: ingestible # WD Ingestible
     weightedRandomId: RandomFillSpaceshroom
 
 - type: entity

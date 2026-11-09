@@ -1,6 +1,6 @@
 using Content.Server.Damage.Components;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.CombatMode.Pacification;
-using Content.Shared.Damage;
 using Content.Shared.Throwing;
 
 namespace Content.Server.Damage.Systems

@@ -1,0 +1,37 @@
+- type: entity
+  id: BaseBodyXenomorphMaid
+  parent: BaseBody
+  abstract: true
+  components:
+  - type: Body
+    rootProvider:
+      type: AllParts
+      providers:
+        brain:
+          type: Brain
+          startingProvider: BodyProviderBrainXenomorph
+        ears:
+          type: Ears
+          startingProvider: BodyProviderEarsXenomorph
+        heart:
+          type: Heart
+          startingProvider: BodyProviderHeartXenomorph
+        hive_node:
+          type: SpecificOrgan
+          startingProvider: BodyProviderHiveNodeXenomorph
+        kidneys:
+          type: Kidneys
+          startingProvider: BodyProviderKidneysXenomorph
+        liver:
+          type: Liver
+          startingProvider: BodyProviderLiverXenomorph
+        lungs:
+          type: Lungs
+          startingProvider: BodyProviderLungsXenomorph
+        stomach:
+          type: Stomach
+          startingProvider: BodyProviderStomachXenomorph
+        tongue:
+          type: Tongue
+          startingProvider: BodyProviderTongueXenomorph
+      startingProvider: BodyProviderAllPartsAnimal

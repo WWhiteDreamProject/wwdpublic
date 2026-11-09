@@ -11,15 +11,15 @@
   - type: Clickable
   - type: Transform
     anchored: true
-  - type: MagicMirror #instant and silent
-    changeHairSound: null
-    addSlotTime: 0
-    removeSlotTime: 0
-    selectSlotTime: 0
-    changeSlotTime: 0
+  - type: MarkingsModifier #instant and silent
+    categories:
+    - Hair
+    - FacialHair
+    sound: null
+    time: 0
   - type: ActivatableUI
-    key: enum.MagicMirrorUiKey.Key
+    key: enum.MarkingModifierKey.Key
   - type: UserInterface
     interfaces:
-      enum.MagicMirrorUiKey.Key:
-        type: MagicMirrorBoundUserInterface
+      enum.MarkingModifierKey.Key:
+        type: MarkingModifierBoundUserInterface

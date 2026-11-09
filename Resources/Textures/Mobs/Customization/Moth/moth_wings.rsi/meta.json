@@ -8,10 +8,6 @@
   },
   "states": [
     {
-      "name": "default",
-      "directions": 4
-    },
-    {
       "name": "charred",
       "directions": 4
     },

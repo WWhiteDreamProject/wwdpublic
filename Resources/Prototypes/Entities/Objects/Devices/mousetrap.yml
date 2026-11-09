@@ -21,8 +21,8 @@
   - type: PreventableStepTrigger
   - type: DamageUserOnTrigger
     damage:
-      types:
-        Blunt: 2 # base damage, scales based on mass
+      # WD EDIT: Migrated damage format
+      Blunt: 2
   - type: EmitSoundOnUse
     sound: "/Audio/Items/Handcuffs/cuff_end.ogg"
   - type: EmitSoundOnTrigger

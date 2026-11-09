@@ -134,8 +134,8 @@
   - type: MeleeWeapon
     attackRate: 1
     damage:
-      types:
-        Blunt: 8
+      # WD EDIT: Migrated damage format
+      Blunt: 8
     soundHit:
       collection: MetalThud # this NEEDS to changed to the metal pipe falling sound effect on april first every year
   - type: GuideHelp
@@ -174,14 +174,14 @@
     wideAnimationRotation: 180
     attackRate: 1
     damage:
-      types:
-        Blunt: 6
+      # WD EDIT: Migrated damage format
+      Blunt: 6
     soundHit:
       collection: MetalThud
   - type: DamageOtherOnHit
     damage:
-      types:
-        Blunt: 8 # Woe, pipe be upon ye!
+      # WD EDIT: Migrated damage format
+      Blunt: 8
   - type: GuideHelp
     guides:
     - Pipes
@@ -218,8 +218,8 @@
     wideAnimationRotation: 90
     attackRate: 0.75
     damage:
-      types:
-        Blunt: 10
+      # WD EDIT: Migrated damage format
+      Blunt: 10
     soundHit:
       collection: MetalThud
   - type: GuideHelp
@@ -257,8 +257,8 @@
     wideAnimationRotation: 90
     attackRate: 0.75
     damage:
-      types:
-        Blunt: 10
+      # WD EDIT: Migrated damage format
+      Blunt: 10
     soundHit:
       collection: MetalThud
   - type: GuideHelp

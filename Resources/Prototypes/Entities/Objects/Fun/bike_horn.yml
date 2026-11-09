@@ -38,8 +38,8 @@
       params:
         variation: 0.125
     damage:
-      types:
-        Blunt: 0
+      # WD EDIT: Migrated damage format
+      Blunt: 0
   - type: DamageOtherOnHit
   - type: Tool
     qualities:
@@ -89,10 +89,8 @@
       params:
         variation: 0.125
     damage:
-      types:
-        Blunt: 5
-
-
+      # WD EDIT: Migrated damage format
+      Blunt: 5
 - type: entity
   parent: BikeHorn
   id: GoldenBikeHorn

@@ -1,0 +1,125 @@
+- type: entity
+  id: BaseBodyProviderPartPositronic
+  parent: [BaseBodyProviderPart, BaseBodyProviderPartAppearance]
+  abstract: true
+  suffix: Positronic
+  components:
+  - type: Sprite
+    sprite: _White/Bodies/Parts/positronic.rsi
+
+# Arms
+- type: entity
+  id: BodyProviderLeftArmPositronic
+  parent: [BaseBodyProviderLeftArm, BaseBodyProviderPartPositronic, BaseBodyProviderLeftArmAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/positronic.rsi
+      state: left_arm
+
+- type: entity
+  id: BodyProviderRightArmPositronic
+  parent: [BaseBodyProviderRightArm, BaseBodyProviderPartPositronic, BaseBodyProviderRightArmAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/positronic.rsi
+      state: right_arm
+
+# Chest
+- type: entity
+  id: BodyProviderChestPositronic
+  parent: [BaseBodyProviderChest, BaseBodyProviderPartPositronic, BaseBodyProviderChestAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/positronic.rsi
+      state: chest
+
+# Foots
+- type: entity
+  id: BodyProviderLeftFootPositronic
+  parent: [BaseBodyProviderLeftFoot, BaseBodyProviderPartPositronic, BaseBodyProviderLeftFootAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/positronic.rsi
+      state: left_foot
+
+- type: entity
+  id: BodyProviderRightFootPositronic
+  parent: [BaseBodyProviderRightFoot, BaseBodyProviderPartPositronic, BaseBodyProviderRightFootAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/positronic.rsi
+      state: right_foot
+
+# Groin
+- type: entity
+  id: BodyProviderGroinPositronic
+  parent: [BaseBodyProviderGroin, BaseBodyProviderPartPositronic, BaseBodyProviderGroinAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/positronic.rsi
+      state: groin
+
+# Hands
+- type: entity
+  id: BodyProviderLeftHandPositronic
+  parent: [BaseBodyProviderLeftHand, BaseBodyProviderPartPositronic, BaseBodyProviderLeftHandAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/positronic.rsi
+      state: left_hand
+
+- type: entity
+  id: BodyProviderRightHandPositronic
+  parent: [BaseBodyProviderRightHand, BaseBodyProviderPartPositronic, BaseBodyProviderRightHandAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/positronic.rsi
+      state: right_hand
+
+# Head
+- type: entity
+  id: BodyProviderHeadPositronic
+  parent: [BaseBodyProviderHead, BaseBodyProviderPartPositronic, BaseBodyProviderHeadAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/positronic.rsi
+      state: head
+
+# Legs
+- type: entity
+  id: BodyProviderLeftLegPositronic
+  parent: [BaseBodyProviderLeftLeg, BaseBodyProviderPartPositronic, BaseBodyProviderLeftLegAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/positronic.rsi
+      state: left_leg
+
+- type: entity
+  id: BodyProviderRightLegPositronic
+  parent: [BaseBodyProviderRightLeg, BaseBodyProviderPartPositronic, BaseBodyProviderRightLegAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/positronic.rsi
+      state: right_leg

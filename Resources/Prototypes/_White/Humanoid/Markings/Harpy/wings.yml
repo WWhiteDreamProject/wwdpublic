@@ -1,0 +1,285 @@
+- type: marking
+  id: BaseWingsHarpy
+  parent: [BaseWings, BaseHarpy]
+  abstract: true
+  appearance: true
+  coloring:
+    default:
+      type: !type:BodyColorGroupColoring
+        group: Feathers
+
+- type: marking
+  id: WingsHarpyBat
+  parent: BaseWingsHarpy
+  definitions:
+  - layer: enum.MarkingVisualLayers.LeftArmTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Harpy/wings.rsi
+      state: bat-left-primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.LeftArmTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Harpy/wings.rsi
+      state: bat-left-secondary
+    index: secondary
+  - layer: enum.MarkingVisualLayers.RightArmTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Harpy/wings.rsi
+      state: bat-right-primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.RightArmTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Harpy/wings.rsi
+      state: bat-right-secondary
+    index: secondary
+
+- type: marking
+  id: WingsHarpyBionic
+  parent: BaseWingsHarpy
+  definitions:
+  - layer: enum.MarkingVisualLayers.LeftArmTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Harpy/wings.rsi
+      state: bionic-left-primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.LeftArmTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Harpy/wings.rsi
+      state: bionic-left-secondary
+    index: secondary
+  - layer: enum.MarkingVisualLayers.RightArmTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Harpy/wings.rsi
+      state: bionic-right-primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.RightArmTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Harpy/wings.rsi
+      state: bionic-right-secondary
+    index: secondary
+
+- type: marking
+  id: WingsHarpyClassic
+  parent: BaseWingsHarpy
+  definitions:
+  - layer: enum.MarkingVisualLayers.LeftArmTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Harpy/wings.rsi
+      state: classic-left
+  - layer: enum.MarkingVisualLayers.RightArmTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Harpy/wings.rsi
+      state: classic-right
+
+- type: marking
+  id: WingsHarpyClassic2
+  parent: BaseWingsHarpy
+  definitions:
+  - layer: enum.MarkingVisualLayers.LeftArmTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Harpy/wings.rsi
+      state: classic_2-left-primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.LeftArmTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Harpy/wings.rsi
+      state: classic_2-left-secondary
+    index: secondary
+  - layer: enum.MarkingVisualLayers.RightArmTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Harpy/wings.rsi
+      state: classic_2-right-primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.RightArmTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Harpy/wings.rsi
+      state: classic_2-right-secondary
+    index: secondary
+
+- type: marking
+  id: WingsHarpyClassic3
+  parent: BaseWingsHarpy
+  definitions:
+  - layer: enum.MarkingVisualLayers.LeftArmTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Harpy/wings.rsi
+      state: classic_3-left-primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.LeftArmTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Harpy/wings.rsi
+      state: classic_3-left-secondary
+    index: secondary
+  - layer: enum.MarkingVisualLayers.LeftArmTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Harpy/wings.rsi
+      state: classic_3-left-tertiary
+    index: tertiary
+  - layer: enum.MarkingVisualLayers.RightArmTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Harpy/wings.rsi
+      state: classic_3-right-primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.RightArmTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Harpy/wings.rsi
+      state: classic_3-right-secondary
+    index: secondary
+  - layer: enum.MarkingVisualLayers.RightArmTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Harpy/wings.rsi
+      state: classic_3-right-tertiary
+    index: tertiary
+
+- type: marking
+  id: WingsHarpyClassicSpeckled
+  parent: BaseWingsHarpy
+  definitions:
+  - layer: enum.MarkingVisualLayers.LeftArmTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Harpy/wings.rsi
+      state: classic_speckled-left-primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.LeftArmTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Harpy/wings.rsi
+      state: classic_speckled-left-secondary
+    index: secondary
+  - layer: enum.MarkingVisualLayers.RightArmTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Harpy/wings.rsi
+      state: classic_speckled-right-primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.RightArmTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Harpy/wings.rsi
+      state: classic_speckled-right-secondary
+    index: secondary
+
+- type: marking
+  id: WingsHarpyClassicTips
+  parent: BaseWingsHarpy
+  definitions:
+  - layer: enum.MarkingVisualLayers.LeftArmTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Harpy/wings.rsi
+      state: classic_tips-left-primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.LeftArmTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Harpy/wings.rsi
+      state: classic_tips-left-secondary
+    index: secondary
+  - layer: enum.MarkingVisualLayers.RightArmTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Harpy/wings.rsi
+      state: classic_tips-right-primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.RightArmTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Harpy/wings.rsi
+      state: classic_tips-right-secondary
+    index: secondary
+
+- type: marking
+  id: WingsHarpyClassicUndertone
+  parent: BaseWingsHarpy
+  definitions:
+  - layer: enum.MarkingVisualLayers.LeftArmTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Harpy/wings.rsi
+      state: classic_undertone-left-primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.LeftArmTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Harpy/wings.rsi
+      state: classic_undertone-left-secondary
+    index: secondary
+  - layer: enum.MarkingVisualLayers.RightArmTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Harpy/wings.rsi
+      state: classic_undertone-right-primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.RightArmTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Harpy/wings.rsi
+      state: classic_undertone-right-secondary
+    index: secondary
+
+- type: marking
+  id: WingsHarpyDefaultHuescale
+  parent: BaseWingsHarpy
+  definitions:
+  - layer: enum.MarkingVisualLayers.LeftArmTop
+    sprite:
+      sprite: _White/Bodies/Parts/Humanoids/harpy.rsi
+      state: left_arm
+  - layer: enum.MarkingVisualLayers.RightArmTop
+    sprite:
+      sprite: _White/Bodies/Parts/Humanoids/harpy.rsi
+      state: right_arm
+
+- type: marking
+  id: WingsHarpyDefaultWhitescale
+  parent: BaseWingsHarpy
+  definitions:
+  - layer: enum.MarkingVisualLayers.LeftArmTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Harpy/wings.rsi
+      state: default_whitescale-left
+  - layer: enum.MarkingVisualLayers.RightArmTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Harpy/wings.rsi
+      state: default_whitescale-right
+
+- type: marking
+  id: WingsHarpyFoldedHuescale
+  parent: BaseWingsHarpy
+  definitions:
+  - layer: enum.MarkingVisualLayers.LeftArmTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Harpy/wings.rsi
+      state: folded_huescale-left
+  - layer: enum.MarkingVisualLayers.RightArmTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Harpy/wings.rsi
+      state: folded_huescale-right
+
+- type: marking
+  id: WingsHarpyFoldedWhitescale
+  parent: BaseWingsHarpy
+  definitions:
+  - layer: enum.MarkingVisualLayers.LeftArmTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Harpy/wings.rsi
+      state: folded_whitescale-left
+  - layer: enum.MarkingVisualLayers.RightArmTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Harpy/wings.rsi
+      state: folded_whitescale-right
+
+- type: marking
+  id: WingsHarpyOwlHuescale
+  parent: BaseWingsHarpy
+  definitions:
+  - layer: enum.MarkingVisualLayers.LeftArmTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Harpy/wings.rsi
+      state: owl_huescale-left
+  - layer: enum.MarkingVisualLayers.RightArmTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Harpy/wings.rsi
+      state: owl_huescale-right
+
+- type: marking
+  id: WingsHarpyOwlWhitescale
+  parent: BaseWingsHarpy
+  definitions:
+  - layer: enum.MarkingVisualLayers.LeftArmTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Harpy/wings.rsi
+      state: owl_whitescale-left
+  - layer: enum.MarkingVisualLayers.RightArmTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Harpy/wings.rsi
+      state: owl_whitescale-right

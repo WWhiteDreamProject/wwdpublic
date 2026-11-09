@@ -9,7 +9,7 @@
   - type: FlavorProfile
     flavors:
       - food
-  - type: Food
+  - type: Ingestible # WD Ingestible
   - type: SpaceGarbage
   - type: Sprite
   - type: StaticPrice
@@ -25,9 +25,9 @@
   abstract: true
   components:
   - type: InjectableSolution
-    solution: food
+    solution: ingestible # WD Ingestible
   - type: RefillableSolution
-    solution: food
+    solution: ingestible # WD Ingestible
 
 # usable by any food that can be opened
 # handles appearance with states "icon" and "icon-open"

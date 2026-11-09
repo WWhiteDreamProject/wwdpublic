@@ -1,0 +1,4 @@
+- type: marking
+  id: BaseArachnid
+  abstract: true
+  groups: [Arachnid]

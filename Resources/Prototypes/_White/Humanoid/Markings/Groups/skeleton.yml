@@ -1,0 +1,15 @@
+- type: markingGroup
+  id: Skeleton
+  whitelisted: true
+  data:
+    Arms:
+      limit: 2
+    Head:
+      limit: 1
+    Legs:
+      limit: 2
+    Torso:
+      limit: 1
+    Wristwear:
+      whitelisted: false
+      limit: 2

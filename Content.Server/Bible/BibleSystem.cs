@@ -2,10 +2,10 @@ using Content.Shared._Goobstation.Bible;
 using Content.Server.Bible.Components;
 using Content.Server.Ghost.Roles.Events;
 using Content.Server.Popups;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
 using Content.Shared.Bible;
-using Content.Shared.Damage;
 using Content.Shared.Ghost.Roles.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
@@ -133,9 +133,7 @@ namespace Content.Server.Bible
                 }
             }
 
-            var damage = _damageableSystem.TryChangeDamage(args.Target.Value, component.Damage, true, origin: uid);
-
-            if (damage == null || damage.Empty)
+            if (_damageableSystem.TryChangeDamage(args.Target.Value, component.Damage, true, origin: uid)) // WD EDIT
             {
                 var othersMessage = Loc.GetString(component.LocPrefix + "-heal-success-none-others", ("user", Identity.Entity(args.User, EntityManager)), ("target", Identity.Entity(args.Target.Value, EntityManager)), ("bible", uid));
                 _popupSystem.PopupEntity(othersMessage, args.User, Filter.PvsExcept(args.User), true, PopupType.Medium);

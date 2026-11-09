@@ -13,8 +13,8 @@
   - type: MeleeWeapon
     wideAnimationRotation: -90
     damage:
-      types:
-        Piercing: 0
+      # WD EDIT: Migrated damage format
+      Piercing: 0
     attackRate: 2
   - type: Tool
     qualities:
@@ -39,8 +39,8 @@
   - type: MeleeWeapon
     attackRate: .6666
     damage:
-      types:
-        Blunt: 0.1 #poke poke poke
+      # WD EDIT: Migrated damage format
+      Blunt: 0.1
   - type: Tool
     qualities:
     - Screwing
@@ -62,8 +62,8 @@
   - type: MeleeWeapon
     attackRate: .6666
     damage:
-      types:
-        Blunt: 0.1
+      # WD EDIT: Migrated damage format
+      Blunt: 0.1
   - type: Tool
     qualities:
     - Anchoring
@@ -84,8 +84,8 @@
     sprite: Objects/Tools/Cowtools/cowbar.rsi
   - type: MeleeWeapon
     damage:
-      types:
-        Blunt: 1
+      # WD EDIT: Migrated damage format
+      Blunt: 1
   - type: StaminaDamageOnHit
     damage: 5 #have you ever been hit with a plastic bat? that shit hurts
   - type: Tool
@@ -158,9 +158,8 @@
     sprite: Objects/Tools/Cowtools/cow_toolbox.rsi
   - type: MeleeWeapon
     damage:
-      types:
-        Blunt: 4
-
+      # WD EDIT: Migrated damage format
+      Blunt: 4
 - type: entity
   id: CowToolboxFilled
   name: cow toolbox

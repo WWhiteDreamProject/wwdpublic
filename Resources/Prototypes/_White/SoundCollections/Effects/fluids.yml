@@ -1,0 +1,12 @@
+- type: soundCollection
+  id: BloodSplatter
+  files:
+  - /Audio/_White/Effects/Fluids/blood1.ogg
+  - /Audio/_White/Effects/Fluids/blood2.ogg
+  - /Audio/_White/Effects/Fluids/blood3.ogg
+  - /Audio/_White/Effects/Fluids/blood4.ogg
+
+- type: soundCollection
+  id: LiquidDrop
+  files:
+  - /Audio/_White/Effects/Fluids/drop.ogg

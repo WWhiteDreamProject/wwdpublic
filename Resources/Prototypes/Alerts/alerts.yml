@@ -480,8 +480,10 @@
 - type: alert
   id: Adrenaline
   icons:
-  - sprite: Mobs/Species/Human/organs.rsi
-    state: heart-on
+  # WD EDIT START
+  - sprite: _White/Bodies/Organs/Humanoids/human.rsi
+    state: heart
+  # WD EDIT END
   name: alerts-adrenaline-name
   description: alerts-adrenaline-desc
 

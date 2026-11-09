@@ -1,0 +1,50 @@
+- type: marking
+  id: EyesEyeArrows
+  parent: BaseEyes
+  definitions:
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/eyes.rsi
+      state: eye_arrows-left
+    index: left
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/eyes.rsi
+      state: eye_arrows-right
+    index: right
+  coloring:
+    default:
+      type: !type:SimpleColoring
+        color: "#242424"
+
+- type: marking
+  id: EyesEyebrows
+  parent: BaseEyes
+  definitions:
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/eyes.rsi
+      state: eyebrows-left
+    index: left
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/eyes.rsi
+      state: eyebrows-right
+    index: right
+  coloring:
+    default:
+      type: !type:SimpleColoring
+        color: "#242424"
+
+- type: marking
+  id: FaceUnibrow
+  parent: BaseEyes
+  definitions:
+  - layer: enum.MarkingVisualLayers.Face
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/eyes.rsi
+      state: unibrow
+  coloring:
+    default:
+      type: !type:SimpleColoring
+        color: "#242424"

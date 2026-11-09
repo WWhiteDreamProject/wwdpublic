@@ -1,0 +1,19 @@
+- type: damageType
+  id: Caustic
+  name: damage-type-caustic
+  wound: WoundCaustic
+
+- type: damageType
+  id: Cold
+  name: damage-type-cold
+  wound: WoundCold
+
+- type: damageType
+  id: Heat
+  name: damage-type-heat
+  wound: WoundHeat
+
+- type: damageType
+  id: Shock
+  name: damage-type-shock
+  wound: WoundShock

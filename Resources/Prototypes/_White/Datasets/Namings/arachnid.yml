@@ -1,0 +1,11 @@
+- type: localizedDataset
+  id: NamingFirstArachnid
+  values:
+    prefix: naming-first-arachnid-
+    count: 74
+
+- type: localizedDataset
+  id: NamingLastArachnid
+  values:
+    prefix: naming-last-arachnid-
+    count: 68

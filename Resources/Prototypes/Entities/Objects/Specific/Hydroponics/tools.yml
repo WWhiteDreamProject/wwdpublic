@@ -16,9 +16,9 @@
     wideAnimationRotation: 135
     swingLeft: true
     damage:
-      types:
-        Slash: 3.5
-        Blunt: 4
+      # WD EDIT: Migrated damage format
+      Blunt: 4
+      Slash: 3.5
     heavyRateModifier: 1.25
     heavyRangeModifier: 1
     heavyDamageBaseModifier: 1.25
@@ -66,8 +66,8 @@
     wideAnimationRotation: 90
     attackRate: 0.9
     damage:
-      types:
-        Piercing: 7
+      # WD EDIT: Migrated damage format
+      Piercing: 7
     heavyRateModifier: 1.25
     heavyRangeModifier: 1.5
     heavyDamageBaseModifier: 1.25
@@ -78,16 +78,6 @@
   - type: Item
     sprite: Objects/Tools/Hydroponics/clippers.rsi
     storedRotation: -90
-  # Shitmed Change
-  - type: Retractor # Same as wirecutters
-    speed: 0.35
-  - type: Hemostat
-    speed: 0.6
-  - type: SurgeryTool
-    startSound:
-      path: /Audio/_Shitmed/Medical/Surgery/retractor1.ogg
-    endSound:
-      path: /Audio/_Shitmed/Medical/Surgery/retractor2.ogg
   - type: EmitSoundOnPickup # White Dream
     sound:
       path: /Audio/SimpleStation14/Items/Handling/wirecutter_pickup.ogg
@@ -119,8 +109,8 @@
     wideAnimationRotation: -120 # White Dream
     range: 1.25
     damage:
-      types:
-        Slash: 7
+      # WD EDIT: Migrated damage format
+      Slash: 7
     heavyRateModifier: 2
     heavyRangeModifier: 1.35
     heavyDamageBaseModifier: 2
@@ -183,8 +173,8 @@
     attackRate: .9
     range: 1.4
     damage:
-      types:
-        Slash: 10
+      # WD EDIT: Migrated damage format
+      Slash: 10
     heavyRateModifier: 1.25
     heavyDamageBaseModifier: 1.2
     heavyStaminaCost: 2.5
@@ -200,12 +190,6 @@
     sprite: Objects/Tools/Hydroponics/hatchet.rsi
     storedRotation: 45 # WD ADD
   - type: Execution # WWDP
-  # Shitmed Change
-  - type: BoneSaw
-    speed: 0.35
-  - type: SurgeryTool
-    startSound:
-      path: /Audio/_Shitmed/Medical/Surgery/saw.ogg
   - type: EmitSoundOnPickup # White Dream
     sound: /Audio/Items/unsheath.ogg
   - type: EmitSoundOnDrop
@@ -234,9 +218,9 @@
   - type: MeleeWeapon
     wideAnimationRotation: 45
     damage:
-      types:
-        Blunt: 6
-        Slash: 2 # I guess you can stab it into them?
+      # WD EDIT: Migrated damage format
+      Blunt: 6
+      Slash: 2
     heavyRateModifier: 1.25
     heavyRangeModifier: 1.25
     heavyDamageBaseModifier: 1.25

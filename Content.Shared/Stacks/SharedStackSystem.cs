@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Shared._White.Nutrition.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
@@ -37,6 +38,12 @@ namespace Content.Shared.Stacks
             SubscribeLocalEvent<StackComponent, ComponentStartup>(OnStackStarted);
             SubscribeLocalEvent<StackComponent, ExaminedEvent>(OnStackExamined);
             SubscribeLocalEvent<StackComponent, InteractUsingEvent>(OnStackInteractUsing);
+
+            // WD EDIT START
+            SubscribeLocalEvent<StackComponent, AttemptGotIngestedEvent>(OnAttemptGotIngested);
+            SubscribeLocalEvent<StackComponent, BeforeTryIngestEvent>(OnBeforeTryIngest);
+            SubscribeLocalEvent<StackComponent, IngestedEvent>(OnIngested);
+            // WD EDIT EBD
 
             _vvm.GetTypeHandler<StackComponent>()
                 .AddPath(nameof(StackComponent.Count), (_, comp) => comp.Count, SetCount);
@@ -389,6 +396,24 @@ namespace Content.Shared.Stacks
                 )
             );
         }
+
+        // WD EDIT START
+        private void OnAttemptGotIngested(Entity<StackComponent> ent, ref AttemptGotIngestedEvent args)
+        {
+            args.Cancelled = ent.Comp.Count <= 0;
+        }
+
+        private void OnBeforeTryIngest(Entity<StackComponent> ent, ref BeforeTryIngestEvent args)
+        {
+            args.Min = args.Solution.Volume;
+            args.Refresh = ent.Comp.Count > 1;
+        }
+
+        private void OnIngested(Entity<StackComponent> ent, ref IngestedEvent args)
+        {
+            SetCount(ent, ent.Comp.Count - 1);
+        }
+        // WD EDIT END
     }
 
     /// <summary>

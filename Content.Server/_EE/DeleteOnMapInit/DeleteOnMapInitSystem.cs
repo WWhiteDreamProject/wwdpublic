@@ -1,5 +1,3 @@
-using Content.Shared._Shitmed.Body.Events;
-
 namespace Content.Server._EE.DeleteOnMapInit
 {
     public sealed partial class DeleteOnMapInitSystem : EntitySystem
@@ -13,8 +11,6 @@ namespace Content.Server._EE.DeleteOnMapInit
 
         private void OnMapInit(EntityUid uid, DeleteOnMapInitComponent comp, MapInitEvent args)
         {
-            ///var ev = new AmputateAttemptEvent(uid);
-            ///RaiseLocalEvent(uid, ref ev);
             EntityManager.QueueDeleteEntity(uid);
         }
     }

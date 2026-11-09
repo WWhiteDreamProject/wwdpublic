@@ -21,7 +21,7 @@
     wideAnimationRotation: 90
     resetOnHandSelected: false
     damage:
-      types:
-        Blunt: 0
+      # WD EDIT: Migrated damage format
+      Blunt: 0
   - type: UseDelay
     delay: 6

@@ -5,7 +5,6 @@
   recipes:
   - PrizeBall
   - PlushieMothRandom
-  - PlushieShadowkin
   - PlushieMothMusician
   - PlushieMothBartender
   - PlushieBee
@@ -29,7 +28,6 @@
   - PlushieAtmosian
   - PlushiePenguin
   - PlushieHuman
-  - PlushieArachne
   - PlushieGnome
   - PlushieLoveable
   - PlushieDeer
@@ -44,7 +42,6 @@
   - PlushieCoffeeFox
   - PlushieBlueFox
   - PlushieBlackFox
-  - PlushieVulp
   - PlushieCorgi
   - PlushieGirlyCorgi
   - PlushieRobotCorgi
@@ -89,7 +86,6 @@
   - PlushieRainbowCarp
   - PlushieJester
   - PlushieSlips
-  - PlushieTrystan
   - PlushieAbductor
   - PlushieAbductorAgent
   - PlushieNuke

@@ -1,20 +1,21 @@
-using Robust.Shared.Player;
-using Content.Server.DoAfter;
-using Content.Shared.Abilities.Psionics;
-using Content.Shared.Damage;
-using Content.Shared.DoAfter;
-using Content.Shared.Popups;
-using Content.Shared.Psionics.Events;
-using Content.Shared.Examine;
-using static Content.Shared.Examine.ExamineSystemShared;
-using Robust.Shared.Timing;
-using Content.Shared.Actions.Events;
-using Robust.Server.Audio;
 using Content.Server.Atmos.Rotting;
-using Content.Shared.Mobs.Systems;
+using Content.Server.DoAfter;
+using Content.Shared._White.Damage.Components;
+using Content.Shared._White.Damage.Systems;
+using Content.Shared.Abilities.Psionics;
+using Content.Shared.Actions.Events;
+using Content.Shared.DoAfter;
+using Content.Shared.Examine;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs.Systems;
+using Content.Shared.Popups;
+using Content.Shared.Psionics.Events;
 using Content.Shared.Psionics.Glimmer;
+using Robust.Server.Audio;
+using Robust.Shared.Player;
+using Robust.Shared.Timing;
+using static Content.Shared.Examine.ExamineSystemShared;
 
 namespace Content.Server.Abilities.Psionics;
 
@@ -128,7 +129,7 @@ public sealed class RevivifyPowerSystem : EntitySystem
             return;
 
         if (args.HealingAmount is not null)
-            _damageable.TryChangeDamage(args.Target.Value, args.HealingAmount * args.ModifiedAmplification, true, false, damageableComponent, uid);
+            _damageable.ChangeDamage((args.Target.Value, damageableComponent), args.HealingAmount * args.ModifiedAmplification, true, false, uid); // WD EDIT
 
         if (!args.DoRevive
             || _rotting.IsRotten(args.Target.Value)
@@ -154,7 +155,7 @@ public sealed class RevivifyPowerSystem : EntitySystem
             return;
 
         if (args.HealingAmount is not null)
-            _damageable.TryChangeDamage(args.Target, args.HealingAmount * args.ModifiedAmplification, true, false, damageableComponent, uid);
+            _damageable.ChangeDamage((args.Target, damageableComponent), args.HealingAmount * args.ModifiedAmplification, true, false, uid); // WD EDIT
 
         if (!args.DoRevive
             || _rotting.IsRotten(args.Target)

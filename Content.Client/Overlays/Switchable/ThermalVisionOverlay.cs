@@ -1,7 +1,7 @@
 using System.Linq;
 using System.Numerics;
 using Content.Client.Stealth;
-using Content.Shared.Body.Components;
+using Content.Shared._White.Body.Components;
 using Content.Shared.Overlays.Switchable;
 using Content.Shared.Stealth.Components;
 using Robust.Client.GameObjects;

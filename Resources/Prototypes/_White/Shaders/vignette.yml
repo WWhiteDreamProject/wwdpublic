@@ -1,0 +1,4 @@
+- type: shader
+  id: Vignette
+  kind: source
+  path: "/Textures/_White/Shaders/vignette.swsl"

@@ -8,31 +8,31 @@
   boilingPoint: -183.0
   meltingPoint: -218.4
   metabolisms:
-    Gas:
+    Respiration: # WD EDIT
       effects:
       - !type:Oxygenate
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Human
       - !type:Oxygenate
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Animal
       - !type:Oxygenate
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Rat
       - !type:Oxygenate
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Plant
       # Convert Oxygen into CO2.
       - !type:ModifyLungGas
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Vox
           shouldHave: false
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Plasmaman
           shouldHave: false
         ratios:
@@ -40,39 +40,35 @@
           Oxygen: -1.0
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Vox
         scaleByQuantity: true
         ignoreResistances: true
         damage:
-          types:
-            Poison:
-              7
+          Poison: 7
       - !type:AdjustAlert
         alertType: HighOxygen
         conditions:
           - !type:ReagentThreshold
             min: 0.5
-          - !type:OrganType
+          - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
             type: Vox
         clear: true
         time: 5
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Plasmaman
         scaleByQuantity: true
         ignoreResistances: true
         damage:
-          types:
-            Poison:
-              7
+          Poison: 7
       - !type:AdjustAlert
         alertType: HighOxygen
         conditions:
           - !type:ReagentThreshold
             min: 0.5
-          - !type:OrganType
+          - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
             type: Plasmaman
         clear: true
         time: 5
@@ -91,41 +87,21 @@
   - !type:FlammableTileReaction
     temperatureMultiplier: 1.5
   metabolisms:
-    Poison:
+    Respiration: # WD EDIT
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType
-          type: Plasmaman
-          shouldHave: false
-        damage:
-          types:
-            Poison: 3
-      - !type:AdjustReagent
-        conditions:
-        - !type:OrganType
-          type: Plasmaman
-          shouldHave: false
-        reagent: Inaprovaline
-        amount: -2.0
-    Gas:
-      effects:
-      - !type:HealthChange
-        conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Plasmaman
           shouldHave: false
         scaleByQuantity: true
         ignoreResistances: true
         damage:
-          types:
-            Poison:
-              1
-      # We need a metabolism effect on reagent removal
+          Poison: 1
       - !type:AdjustAlert
         alertType: Toxins
         conditions:
-          - !type:OrganType
+          - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
             type: Plasmaman
             shouldHave: false
           - !type:ReagentThreshold
@@ -135,38 +111,56 @@
       - !type:Oxygenate
         factor: 4
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Plasmaman
       - !type:ModifyLungGas
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Plasmaman
         ratios:
           Nitrogen: 1.0 # Interesting exhale for plasmamen
           Plasma: -1.0
-    Medicine:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Plasmaman
         damage:
-          groups:
-            Brute: -2
-          types:
-            Heat: -0.66
-            Shock: -0.66
-            Caustic: -0.66
-            Asphyxiation: -0.66
-            Poison: -0.66
+          # WD EDIT: Migrated damage format
+          Asphyxiation: -0.7
+          Blunt: -0.7
+          Caustic: -0.7
+          Heat: -0.7
+          Piercing: -0.7
+          Poison: -0.7
+          Shock: -0.7
+          Slash: -0.7
       - !type:ChemAddMoodlet
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Plasmaman
         - !type:ReagentThreshold
           reagent: Plasma
           min: 4
         moodPrototype: PlasmamanIngestPlasma
+      # WD EDIT START
+      - !type:HealthChange
+        conditions:
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
+          type: Plasmaman
+          shouldHave: false
+        damage:
+          # WD EDIT: Migrated damage format
+          Poison: 3
+      - !type:AdjustReagent
+        conditions:
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
+          type: Plasmaman
+          shouldHave: false
+        reagent: Inaprovaline
+        amount: -2.0
+      # WD EDIT END
   reactiveEffects:
     Flammable:
       methods: [ Touch ]
@@ -190,22 +184,19 @@
       - !type:FlammableReaction
         multiplier: 0.8
   metabolisms:
-    Poison:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Radiation: 3
-    Gas:
+          # WD EDIT: Migrated damage format
+          Radiation: 3
+    Respiration: # WD EDIT
       effects:
       - !type:HealthChange
         scaleByQuantity: true
         ignoreResistances: true
         damage:
-          types:
-            Radiation:
-              1
-      # We need a metabolism effect on reagent removal
+          Radiation: 1
       - !type:AdjustAlert
         alertType: Toxins
         conditions:
@@ -222,18 +213,18 @@
   flavor: bitter
   color: "#66ff33"
   metabolisms:
-    Gas:
+    Respiration: # WD EDIT
       effects:
       - !type:Oxygenate
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Plant
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Plant
           shouldHave: false
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Vox
           shouldHave: false
         # Don't want people to get toxin damage from the gas they just
@@ -243,12 +234,10 @@
         scaleByQuantity: true
         ignoreResistances: true
         damage:
-          types:
-            Poison:
-              0.8
+          Poison: 0.8
       - !type:Oxygenate # carbon dioxide displaces oxygen from the bloodstream, causing asphyxiation
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Plant
           shouldHave: false
         factor: -4
@@ -266,33 +255,33 @@
   boilingPoint: -195.8
   meltingPoint: -210.0
   metabolisms:
-    Poison:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Cold: 1 # liquid nitrogen is cold
-    Gas:
+          # WD EDIT: Migrated damage format
+          Cold: 1
+    Respiration: # WD EDIT
       effects:
       - !type:Oxygenate
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Vox
       - !type:Oxygenate
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Slime
       # Converts Nitrogen into CO2
       - !type:ModifyLungGas
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Vox
         ratios:
           Ammonia: 1.0
           Nitrogen: -1.0
       - !type:ModifyLungGas
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Slime
         ratios:
           NitrousOxide: 1.0
@@ -308,7 +297,7 @@
   boilingPoint: -88
   meltingPoint: -90
   metabolisms:
-    Gas:
+    Respiration: # WD EDIT
       effects:
       - !type:Emote
         conditions:
@@ -316,7 +305,7 @@
           reagent: NitrousOxide
           min: 0.2
           max: 0.5
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Slime
           shouldHave: false
         emote: Laugh
@@ -327,7 +316,7 @@
         - !type:ReagentThreshold
           reagent: NitrousOxide
           min: 0.5
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Slime
           shouldHave: false
         type: Local
@@ -339,7 +328,7 @@
         - !type:ReagentThreshold
           reagent: NitrousOxide
           min: 1
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Slime
           shouldHave: false
         walkSpeedModifier: 0.65
@@ -349,7 +338,7 @@
         - !type:ReagentThreshold
           reagent: NitrousOxide
           min: 1
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Slime
           shouldHave: false
         key: ForcedSleep
@@ -361,14 +350,13 @@
         - !type:ReagentThreshold
           reagent: NitrousOxide
           min: 3.5
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Slime
           shouldHave: false
         ignoreResistances: true
         damage:
-          types:
-            Poison: 0.25
-
+          # WD EDIT: Migrated damage format
+          Poison: 0.2
 - type: reagent
   id: Frezon
   name: reagent-name-frezon
@@ -379,7 +367,7 @@
   boilingPoint: -195.8
   meltingPoint: -210.0
   metabolisms:
-    Gas:
+    Respiration: # WD EDIT
       effects:
       - !type:HealthChange
         conditions:
@@ -389,8 +377,8 @@
         scaleByQuantity: true
         ignoreResistances: true
         damage:
-          types:
-            Cellular: 0.5
+          # WD EDIT: Migrated damage format
+          Cellular: 0.5
       - !type:GenericStatusEffect
         conditions:
         - !type:ReagentThreshold

@@ -20,8 +20,8 @@
     attackRate: 1.3333
     range: 1.65
     damage:
-      types:
-        Slash: 24
+      # WD EDIT: Migrated damage format
+      Slash: 24
     heavyDamageBaseModifier: 1.2
     heavyStaminaCost: 10
     maxTargets: 3

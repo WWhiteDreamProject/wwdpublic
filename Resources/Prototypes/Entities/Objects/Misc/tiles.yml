@@ -12,8 +12,8 @@
   # - type: EmbeddableProjectile - WD EDIT
   - type: DamageOtherOnHit
     damage:
-      types:
-        Blunt: 5.5
+      # WD EDIT: Migrated damage format
+      Blunt: 5.5
     staminaCost: 5
     soundHit:
       collection: MetalThud
@@ -45,8 +45,8 @@
         acts: [ "Destruction" ]
   - type: DamageOnLand
     damage:
-      types:
-        Blunt: 5
+      # WD EDIT: Migrated damage format
+      Blunt: 5
   - type: GuideHelp
     guides:
     - ExpandingRepairingStation
@@ -246,8 +246,8 @@
     node: steeltile
   - type: DamageOtherOnHit
     damage:
-      types:
-        Blunt: 9.5 #Metal floor tiles deal more damage than standard
+      # WD EDIT: Migrated damage format
+      Blunt: 9.5
     staminaCost: 6
     soundHit: /Audio/Weapons/block_metal1.ogg
 

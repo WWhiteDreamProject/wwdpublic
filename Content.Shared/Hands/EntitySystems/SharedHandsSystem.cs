@@ -33,6 +33,8 @@ public abstract partial class SharedHandsSystem
         InitializeDrop();
         InitializePickup();
         InitializeRelay();
+
+        SubscribeLocalEvent<HandsComponent, ComponentInit>(OnInit); // WD EDIT
     }
 
     public override void Shutdown()
@@ -40,6 +42,14 @@ public abstract partial class SharedHandsSystem
         base.Shutdown();
         CommandBinds.Unregister<SharedHandsSystem>();
     }
+
+    // WD EDIT START
+    private void OnInit(EntityUid uid, HandsComponent component, ComponentInit args)
+    {
+        foreach (var hand in component.Hands.Values)
+            SetupHand((uid, component), hand);
+    }
+    // WD EDIT END
 
     public virtual void AddHand(EntityUid uid, string handName, HandLocation handLocation, HandsComponent? handsComp = null)
     {
@@ -49,18 +59,13 @@ public abstract partial class SharedHandsSystem
         if (handsComp.Hands.ContainsKey(handName))
             return;
 
-        var container = ContainerSystem.EnsureContainer<ContainerSlot>(uid, handName);
-        container.OccludesLight = false;
-
-        var newHand = new Hand(handName, handLocation, container);
+        // WD EDIT START
+        var newHand = new Hand(handName, handLocation);
         handsComp.Hands.Add(handName, newHand);
-        AddToSortedHands(handsComp, handName, handLocation); // Shitmed Change
 
-        if (handsComp.ActiveHand == null)
-            SetActiveHand(uid, newHand, handsComp);
-
+        SetupHand((uid, handsComp), newHand);
         RaiseLocalEvent(uid, new HandCountChangedEvent(uid));
-        Dirty(uid, handsComp);
+        // WD EDIT END
     }
 
     public virtual void RemoveHand(EntityUid uid, string handName, HandsComponent? handsComp = null)
@@ -157,7 +162,7 @@ public abstract partial class SharedHandsSystem
             return false;
         }
 
-        item = hand.HeldEntity;
+        item = hand.Value.HeldEntity;
         return item != null;
     }
 
@@ -196,7 +201,7 @@ public abstract partial class SharedHandsSystem
             yield break;
 
         if (handsComp.ActiveHand != null)
-            yield return handsComp.ActiveHand;
+            yield return handsComp.ActiveHand.Value;
 
         foreach (var name in handsComp.SortedHands)
         {
@@ -239,10 +244,16 @@ public abstract partial class SharedHandsSystem
         if (name == handComp.ActiveHand?.Name)
             return false;
 
-        Hand? hand = null;
-        if (name != null && !handComp.Hands.TryGetValue(name, out hand))
-            return false;
-        return SetActiveHand(uid, hand, handComp);
+        Hand? possibleHand = null;
+        if (name != null)
+        {
+            if (!handComp.Hands.TryGetValue(name, out var hand))
+                return false;
+
+            possibleHand = hand;
+        }
+
+        return SetActiveHand(uid, possibleHand, handComp);
     }
 
     /// <summary>
@@ -270,8 +281,8 @@ public abstract partial class SharedHandsSystem
         handComp.ActiveHand = hand;
         OnHandSetActive?.Invoke((uid, handComp));
 
-        if (hand.HeldEntity != null)
-            RaiseLocalEvent(hand.HeldEntity.Value, new HandSelectedEvent(uid));
+        if (hand.Value.HeldEntity != null)
+            RaiseLocalEvent(hand.Value.HeldEntity.Value, new HandSelectedEvent(uid));
 
         Dirty(uid, handComp);
         return true;
@@ -311,7 +322,13 @@ public abstract partial class SharedHandsSystem
         if (!Resolve(handsUid, ref hands))
             return false;
 
-        return hands.Hands.TryGetValue(handId, out hand);
+        if (hands.Hands.TryGetValue(handId, out var possibleHand))
+        {
+            hand = possibleHand;
+            return true;
+        }
+
+        return false;
     }
 
     public int CountFreeableHands(Entity<HandsComponent> hands)
@@ -326,23 +343,19 @@ public abstract partial class SharedHandsSystem
         return freeable;
     }
 
-    /// <summary>
-    /// Shitmed Change: This function checks when adding a hand for symmetries to determine where to add it in the sorted hands array.
-    /// </summary>
-    /// <param name="handsComp">The hands component that we're modifying.</param>
-    /// <param name="handName">The name of the hand we're adding.</param>
-    /// <param name="handLocation">The location/symmetry of the hand we're adding.</param>
-    public virtual void AddToSortedHands(HandsComponent handsComp, string handName, HandLocation handLocation)
+    // WD EDIT START
+    private void SetupHand(Entity<HandsComponent> ent, Hand hand)
     {
-        var index = handLocation == HandLocation.Right
-            ? 0
-            : handLocation == HandLocation.Left
-                ? handsComp.SortedHands.Count
-                : handsComp.SortedHands.FindIndex(name => handsComp.Hands[name].Location == HandLocation.Right);
+        var container = ContainerSystem.EnsureContainer<ContainerSlot>(ent, hand.Name);
+        container.OccludesLight = false;
 
-        if (index == -1)
-            index = handsComp.SortedHands.Count;
+        ent.Comp.SortedHands.Add(hand.Name);
+        hand.Container = container;
 
-        handsComp.SortedHands.Insert(index, handName);
+        if (ent.Comp.ActiveHand == null)
+            SetActiveHand(ent, hand, ent.Comp);
+
+        Dirty(ent);
     }
+    // WD EDIT END
 }

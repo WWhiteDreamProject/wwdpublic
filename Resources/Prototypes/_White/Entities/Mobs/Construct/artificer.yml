@@ -13,9 +13,9 @@
     animation: WeaponArcPunch
     attackRate: 1
     damage:
-      types:
-        Blunt: 5
-        Structural: 60
+      # WD EDIT: Migrated damage format
+      Blunt: 5
+      Structural: 60
   - type: ActionGrant
     actions:
     - ActionBloodCultSummonFloor

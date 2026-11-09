@@ -58,8 +58,8 @@
   - type: Flammable
     fireSpread: true
     damage:
-      types:
-        Heat: 3 #per second, scales with number of fire 'stacks'
+      # WD EDIT: Migrated damage format
+      Heat: 3
   - type: Appearance
   - type: FireVisuals
     sprite: Effects/fire.rsi
@@ -109,8 +109,8 @@
   - type: Flammable
     fireSpread: true
     damage:
-      types:
-        Heat: 3 #per second, scales with number of fire 'stacks'
+      # WD EDIT: Migrated damage format
+      Heat: 3
   - type: Appearance
   - type: FireVisuals
     sprite: Effects/fire.rsi

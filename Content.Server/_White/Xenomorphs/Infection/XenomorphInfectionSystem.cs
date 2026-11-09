@@ -1,6 +1,6 @@
+using Content.Shared._White.Body.Systems;
 using Content.Shared._White.Xenomorphs.Infection;
 using Content.Shared._White.Xenomorphs.Larva;
-using Content.Shared.Body.Events;
 using Content.Shared.EntityEffects;
 using Content.Shared.Mobs.Systems;
 using Robust.Server.Containers;
@@ -22,8 +22,8 @@ public sealed class XenomorphInfectionSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<XenomorphInfectionComponent, ComponentShutdown>(OnShutdown);
-        SubscribeLocalEvent<XenomorphInfectionComponent, OrganAddedToBodyEvent>(OnOrganAddedToBody);
-        SubscribeLocalEvent<XenomorphInfectionComponent, OrganRemovedFromBodyEvent>(OnOrganRemovedFromBody);
+        SubscribeLocalEvent<XenomorphInfectionComponent, BodyProviderGotInsertedEvent>(OnOrganAdded);
+        SubscribeLocalEvent<XenomorphInfectionComponent, BodyProviderGotRemovedEvent>(OnOrganRemoved);
     }
 
     private void OnShutdown(EntityUid uid, XenomorphInfectionComponent component, ComponentShutdown args)
@@ -32,7 +32,7 @@ public sealed class XenomorphInfectionSystem : EntitySystem
             RemComp<XenomorphInfectedComponent>(component.Infected.Value);
     }
 
-    private void OnOrganAddedToBody(EntityUid uid, XenomorphInfectionComponent component, OrganAddedToBodyEvent args)
+    private void OnOrganAdded(EntityUid uid, XenomorphInfectionComponent component, BodyProviderGotInsertedEvent args)
     {
         var xenomorphInfected = EnsureComp<XenomorphInfectedComponent>(args.Body);
         xenomorphInfected.Infection = uid;
@@ -42,9 +42,9 @@ public sealed class XenomorphInfectionSystem : EntitySystem
         component.Infected = args.Body;
     }
 
-    private void OnOrganRemovedFromBody(EntityUid uid, XenomorphInfectionComponent component, OrganRemovedFromBodyEvent args)
+    private void OnOrganRemoved(EntityUid uid, XenomorphInfectionComponent component, BodyProviderGotRemovedEvent args)
     {
-        RemComp<XenomorphInfectedComponent>(args.OldBody);
+        RemComp<XenomorphInfectedComponent>(args.Body);
         component.Infected = null;
     }
 

@@ -1,14 +1,14 @@
-using Content.Server._White.GameTicking.Rules;
+﻿using Content.Server._White.GameTicking.Rules;
 using Content.Server.Bible.Components;
-using Content.Server.Body.Systems;
 using Content.Server.Cuffs;
 using Content.Server.Mind;
 using Content.Server.Stunnable;
 using Content.Shared._White.BloodCult.BloodCultist;
 using Content.Shared._White.BloodCult.Runes;
 using Content.Shared._White.BloodCult.Runes.Components;
+using Content.Shared._White.Damage.Systems;
+using Content.Shared._White.Gibbable.Systems;
 using Content.Shared.Cuffs.Components;
-using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.Mobs.Systems;
@@ -21,9 +21,9 @@ public sealed class CultRuneOfferingSystem : EntitySystem
 {
     [Dependency] private readonly BloodCultRuleSystem _bloodCultRule = default!;
     [Dependency] private readonly BloodCultRuneSystem _bloodCultRune = default!;
-    [Dependency] private readonly BodySystem _body = default!;
     [Dependency] private readonly CuffableSystem _cuffable = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly GibbableSystem _gibbable = default!;
     [Dependency] private readonly MindSystem _mind = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
@@ -138,7 +138,7 @@ public sealed class CultRuneOfferingSystem : EntitySystem
             _mind.UnVisit(mindId);
         }
 
-        _body.GibBody(target);
+        _gibbable.Gib(target);
     }
 
     private void Convert(Entity<CultRuneOfferingComponent> rune, EntityUid target, EntityUid user)
@@ -152,6 +152,6 @@ public sealed class CultRuneOfferingSystem : EntitySystem
         }
 
         _statusEffects.TryRemoveStatusEffect(target, "Muted");
-        _damageable.TryChangeDamage(target, rune.Comp.ConvertHealing);
+        _damageable.ChangeDamage(target, rune.Comp.ConvertHealing);
     }
 }

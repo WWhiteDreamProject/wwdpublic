@@ -40,13 +40,12 @@
     - !type:PlantAdjustHealth
       amount: -1
   metabolisms:
-    Poison:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Poison: 2
-
+          # WD EDIT: Migrated damage format
+          Poison: 2
 - type: reagent
   id: Copper
   name: reagent-name-copper
@@ -58,22 +57,20 @@
   boilingPoint: 2595.0
   meltingPoint: 1083.0
   metabolisms:
-    Poison:
+    Absorption: # WD EDIT
       metabolismRate: 0.1
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Arachnid
           shouldHave: false
         damage:
-          types:
-            Poison: 0.1
-    Medicine:
-      effects:
+          # WD EDIT: Migrated damage format
+          Poison: 0.1
       - !type:ModifyBloodLevel
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Arachnid
           shouldHave: true
         amount: 0.4
@@ -98,13 +95,13 @@
     - !type:PlantAdjustHealth
       amount: -2
   metabolisms:
-    Poison:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Caustic: 0.5
-            Poison: 0.5
+          # WD EDIT: Migrated damage format
+          Caustic: 0.5
+          Poison: 0.5
 - type: reagent
   id: Gold
   name: reagent-name-gold
@@ -138,22 +135,20 @@
   boilingPoint: 2862.0
   meltingPoint: 1538.0
   metabolisms:
-    Poison:
+    Absorption: # WD EDIT
       metabolismRate: 0.1
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Arachnid
           shouldHave: true
         damage:
-          types:
-            Poison: 0.1
-    Medicine:
-      effects:
+          # WD EDIT: Migrated damage format
+          Poison: 0.1
       - !type:ModifyBloodLevel
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Arachnid
           shouldHave: false
         amount: 0.4
@@ -169,13 +164,13 @@
   meltingPoint: 180.5
   boilingPoint: 1330.0
   metabolisms:
-    Poison:
+    Absorption: # WD EDIT
       metabolismRate: 0.1
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Poison: 0.05
+          # WD EDIT: Migrated damage format
+          Poison: 0.1
       - !type:Emote
         emote: Scream
         probability: 0.05
@@ -196,12 +191,12 @@
   meltingPoint: -38.83
   boilingPoint: 356.73
   metabolisms:
-    Poison:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Poison: 1
+          # WD EDIT: Migrated damage format
+          Poison: 1
       - !type:GenericStatusEffect
         key: Stutter
         component: ScrambledAccent
@@ -258,13 +253,12 @@
   boilingPoint: 3265.0
   meltingPoint: 1414.0
   metabolisms:
-    Poison:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Poison: 1.5
-
+          # WD EDIT: Migrated damage format
+          Poison: 1.5
 - type: reagent
   id: Silver
   name: reagent-name-silver
@@ -287,13 +281,12 @@
   boilingPoint: 445.0
   meltingPoint: 120.0
   metabolisms:
-    Poison:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Caustic: 0.1
-
+          # WD EDIT: Migrated damage format
+          Caustic: 0.1
 - type: reagent
   id: Sodium
   name: reagent-name-sodium
@@ -326,13 +319,12 @@
     probability: 0.2
     amount: 0.1
   metabolisms:
-    Poison:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Radiation: 2
-
+          # WD EDIT: Migrated damage format
+          Radiation: 2
 - type: reagent
   id: Zinc
   name: reagent-name-zinc

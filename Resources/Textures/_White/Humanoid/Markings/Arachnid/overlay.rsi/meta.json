@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by Nairodian(github) for SS14. The division was done by Spatison(github).",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "fuzzy-chest",
+      "directions": 4
+    },
+    {
+      "name": "fuzzy-head",
+      "directions": 4
+    },
+    {
+      "name": "fuzzy-left_arm",
+      "directions": 4
+    },
+    {
+      "name": "fuzzy-left_hand",
+      "directions": 4
+    },
+    {
+      "name": "fuzzy-left_leg",
+      "directions": 4
+    },
+    {
+      "name": "fuzzy-right_arm",
+      "directions": 4
+    },
+    {
+      "name": "fuzzy-right_hand",
+      "directions": 4
+    },
+    {
+      "name": "fuzzy-right_leg",
+      "directions": 4
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-using Content.Shared.Damage;
+using Content.Shared._White.Damage;
 using Content.Shared.Explosion;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Audio;
@@ -63,53 +63,38 @@ public sealed partial class BlobCoreComponent : Component
         {
             BlobChemType.BlazingOil, new DamageSpecifier()
             {
-                DamageDict = new Dictionary<string, FixedPoint2>
-                {
-                    { "Heat", 15 },
-                    { "Structural", 150 },
-                }
+                { "Heat", 15 },
+                { "Structural", 150 },
             }
         },
         {
             BlobChemType.ReactiveSpines, new DamageSpecifier()
             {
-                DamageDict = new Dictionary<string, FixedPoint2>
-                {
-                    { "Blunt", 8 },
-                    { "Slash", 8 },
-                    { "Piercing", 8 },
-                    { "Structural", 150 },
-                }
+                { "Blunt", 8 },
+                { "Slash", 8 },
+                { "Piercing", 8 },
+                { "Structural", 150 },
             }
         },
         {
             BlobChemType.ExplosiveLattice, new DamageSpecifier()
             {
-                DamageDict = new Dictionary<string, FixedPoint2>
-                {
-                    { "Heat", 5 },
-                    { "Structural", 150 },
-                }
+                { "Heat", 5 },
+                { "Structural", 150 },
             }
         },
         {
             BlobChemType.ElectromagneticWeb, new DamageSpecifier()
             {
-                DamageDict = new Dictionary<string, FixedPoint2>
-                {
-                    { "Structural", 150 },
-                    { "Heat", 20 },
-                },
+                { "Structural", 150 },
+                { "Heat", 20 },
             }
         },
         {
             BlobChemType.RegenerativeMateria, new DamageSpecifier()
             {
-                DamageDict = new Dictionary<string, FixedPoint2>
-                {
-                    { "Structural", 150 },
-                    { "Poison", 15 },
-                }
+                { "Structural", 150 },
+                { "Poison", 15 },
             }
         },
     };

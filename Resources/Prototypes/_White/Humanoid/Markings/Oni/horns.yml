@@ -1,0 +1,660 @@
+- type: marking
+  id: BaseHornsOni
+  parent: [BaseHorns, BaseOni]
+  abstract: true
+
+- type: marking
+  id: HornsOniAntlers2
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: antlers_2-primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: antlers_2-secondary
+    index: secondary
+
+- type: marking
+  id: HornsOniAntlers3
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: antlers_3-primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: antlers_3-secondary
+    index: secondary
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: antlers_3-tertiary
+    index: tertiary
+
+- type: marking
+  id: HornsOniAries
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: aries
+
+- type: marking
+  id: HornsOniAries3
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: aries_3-primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: aries_3-secondary
+    index: secondary
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: aries_3-tertiary
+    index: tertiary
+
+- type: marking
+  id: HornsOniBullish
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: bullish
+
+- type: marking
+  id: HornsOniCrowned
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: crowned
+
+- type: marking
+  id: HornsOniDoubleCurved
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: double_curved-primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: double_curved-secondary
+    index: secondary
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: double_curved-tertiary
+    index: tertiary
+
+- type: marking
+  id: HornsOniDoubleCurvedOutwards
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: double_curved_outwards-primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: double_curved_outwards-secondary
+    index: secondary
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: double_curved_outwards-tertiary
+    index: tertiary
+
+- type: marking
+  id: HornsOniDoubleThick
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: double_thick
+
+- type: marking
+  id: HornsOniDoubleThick2
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: double_thick_2-primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: double_thick_2-secondary
+    index: secondary
+
+- type: marking
+  id: HornsOniDoubleThick3
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: double_thick_3-primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: double_thick_3-secondary
+    index: secondary
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: double_thick_3-tertiary
+    index: tertiary
+
+- type: marking
+  id: HornsOniErebia
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: erebia
+
+- type: marking
+  id: HornsOniErebia2
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: erebia_2-primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: erebia_2-secondary
+    index: secondary
+
+- type: marking
+  id: HornsOniErebia3
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: erebia_3-primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: erebia_3-secondary
+    index: secondary
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: erebia_3-tertiary
+    index: tertiary
+
+- type: marking
+  id: HornsOniInclined
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: inclined
+
+- type: marking
+  id: HornsOniInclined3
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: inclined_3-primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: inclined_3-secondary
+    index: secondary
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: inclined_3-tertiary
+    index: tertiary
+
+- type: marking
+  id: HornsOniMakara
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns48x48.rsi
+      state: makara
+
+- type: marking
+  id: HornsOniMakara2
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns48x48.rsi
+      state: makara_2-primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns48x48.rsi
+      state: makara_2-secondary
+    index: secondary
+
+- type: marking
+  id: HornsOniMakara3
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns48x48.rsi
+      state: makara_3-primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns48x48.rsi
+      state: makara_3-secondary
+    index: secondary
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns48x48.rsi
+      state: makara_3-tertiary
+    index: tertiary
+
+- type: marking
+  id: HornsOniNepeta
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: nepeta
+
+- type: marking
+  id: HornsOniNepeta3
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: nepeta_3-primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: nepeta_3-secondary
+    index: secondary
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: nepeta_3-tertiary
+    index: tertiary
+
+- type: marking
+  id: HornsOniPisces
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: pisces
+
+- type: marking
+  id: HornsOniPisces2
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: pisces_2-primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: pisces_2-secondary
+    index: secondary
+
+- type: marking
+  id: HornsOniPisces3
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: pisces_3-primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: pisces_3-secondary
+    index: secondary
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: pisces_3-tertiary
+    index: tertiary
+
+- type: marking
+  id: HornsOniSagittarius
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: sagittarius
+
+- type: marking
+  id: HornsOniSagittarius3
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: sagittarius_3-primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: sagittarius_3-secondary
+    index: secondary
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: sagittarius_3-tertiary
+    index: tertiary
+
+- type: marking
+  id: HornsOniSerket
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: serket
+
+- type: marking
+  id: HornsOniSerket3
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: serket_3-primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: serket_3-secondary
+    index: secondary
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: serket_3-tertiary
+    index: tertiary
+
+- type: marking
+  id: HornsOniTallBull
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns48x48.rsi
+      state: tall_bull
+
+- type: marking
+  id: HornsOniTallBull3
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns48x48.rsi
+      state: tall_bull_3-primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns48x48.rsi
+      state: tall_bull_3-secondary
+    index: secondary
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns48x48.rsi
+      state: tall_bull_3-tertiary
+    index: tertiary
+
+- type: marking
+  id: HornsOniTallCurved
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns48x48.rsi
+      state: tall_curved
+
+- type: marking
+  id: HornsOniTallCurved3
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns48x48.rsi
+      state: tall_curved_3-primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns48x48.rsi
+      state: tall_curved_3-secondary
+    index: secondary
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns48x48.rsi
+      state: tall_curved_3-tertiary
+    index: tertiary
+
+- type: marking
+  id: HornsOniTaurus
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: taurus
+
+- type: marking
+  id: HornsOniTaurus2
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: taurus_2-primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: taurus_2-secondary
+    index: secondary
+
+- type: marking
+  id: HornsOniTaurus3
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: taurus_3-primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: taurus_3-secondary
+    index: secondary
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: taurus_3-tertiary
+    index: tertiary
+
+- type: marking
+  id: HornsOniTavris
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: tavris
+
+- type: marking
+  id: HornsOniTavris3
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: tavris_3-primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: tavris_3-secondary
+    index: secondary
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: tavris_3-tertiary
+    index: tertiary
+
+- type: marking
+  id: HornsOniUnicorn
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: unicorn
+
+- type: marking
+  id: HornsOniVantas
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: vantas
+
+- type: marking
+  id: HornsOniVantas3
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: vantas_3-primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: vantas_3-secondary
+    index: secondary
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: vantas_3-tertiary
+    index: tertiary
+
+- type: marking
+  id: HornsOniVirgo
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: virgo
+
+- type: marking
+  id: HornsOniVirgo3
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: virgo_3-primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: virgo_3-secondary
+    index: secondary
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: virgo_3-tertiary
+    index: tertiary
+
+- type: marking
+  id: HornsOniWavy
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: wavy
+
+- type: marking
+  id: HornsOniWavy2
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: wavy_2-primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: wavy_2-secondary
+    index: secondary
+
+- type: marking
+  id: HornsOniWavy3
+  parent: BaseHornsOni
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: wavy_3-primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: wavy_3-secondary
+    index: secondary
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/horns.rsi
+      state: wavy_3-tertiary
+    index: tertiary

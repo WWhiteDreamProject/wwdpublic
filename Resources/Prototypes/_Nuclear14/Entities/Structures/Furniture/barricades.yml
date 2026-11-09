@@ -113,16 +113,16 @@
   - type: Sharp # not sure this is needed
   - type: DamageOtherOnHit
     damage:
-      types:
-        Slash: 2
+      # WD EDIT: Migrated damage format
+      Slash: 2
   - type: StepTrigger
     intersectRatio: 0.2
     requiredTriggeredSpeed: 0
   - type: TriggerOnStepTrigger
   - type: DamageUserOnTrigger
     damage:
-      types:
-        Piercing: 5
+      # WD EDIT: Migrated damage format
+      Piercing: 5
   - type: SpeedModifierContacts
     walkSpeedModifier: 0.5
     sprintSpeedModifier: 0.5

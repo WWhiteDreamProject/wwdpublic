@@ -46,9 +46,9 @@
     hidden: true
     attackRate: 1.3333
     damage:
-      types:
-        Blunt: 25 #thwack
-        Structural: 20
+      # WD EDIT: Migrated damage format
+      Blunt: 25
+      Structural: 20
     soundHit:
       collection: MetalThud
   - type: Puller
@@ -171,8 +171,8 @@
     hidden: true
     attackRate: 1
     damage:
-      types:
-        Blunt: 14 #intentionally shit so people realize that going into combat with the ripley is usually a bad idea.
+      # WD EDIT: Migrated damage format
+      Blunt: 14
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.25
     baseSprintSpeed: 3.6
@@ -255,9 +255,9 @@
     hidden: true
     attackRate: 1.25
     damage:
-      types:
-        Blunt: 10 #thwack
-        Structural: 2
+      # WD EDIT: Migrated damage format
+      Blunt: 10
+      Structural: 2
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.4
     baseSprintSpeed: 3.7
@@ -321,9 +321,9 @@
     hidden: true
     attackRate: 1.25
     damage:
-      types:
-        Blunt: 10 #thwack
-        Structural: 2
+      # WD EDIT: Migrated damage format
+      Blunt: 10
+      Structural: 2
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.25
     baseSprintSpeed: 3.6

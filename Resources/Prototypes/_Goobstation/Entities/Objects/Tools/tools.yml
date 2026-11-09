@@ -24,8 +24,8 @@
         type: FaxBoundUi
   - type: Faxecute
     damage:
-      types:
-        Blunt: 100
+      # WD EDIT: Migrated damage format
+      Blunt: 100
   - type: ApcPowerReceiver
     needsPower: false
     powerLoad: 250

@@ -8,8 +8,8 @@
   - type: Projectile
     impactEffect: BulletImpactEffectKinetic
     damage:
-      types:
-        Blunt: 20
+      # WD EDIT: Migrated damage format
+      Blunt: 20
   - type: TimedDespawn
     lifetime: 0.100 # Lavaland Change
 
@@ -23,9 +23,8 @@
   - type: Projectile
     impactEffect: BulletImpactEffectKinetic
     damage:
-      types:
-        Blunt: 10
-
+      # WD EDIT: Migrated damage format
+      Blunt: 10
 - type: entity
   id: PelletKinetic
   categories: [ HideSpawnMenu ]
@@ -34,9 +33,8 @@
   - type: Projectile
     impactEffect: BulletImpactEffectKinetic
     damage:
-      types:
-        Blunt: 15
-
+      # WD EDIT: Migrated damage format
+      Blunt: 15
 - type: entity
   id: PelletKineticSpread
   categories: [ HideSpawnMenu ]

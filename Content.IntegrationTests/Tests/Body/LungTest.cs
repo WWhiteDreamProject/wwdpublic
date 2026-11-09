@@ -2,7 +2,6 @@ using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
-using Content.Shared.Body.Components;
 using Robust.Server.GameObjects;
 using Robust.Shared;
 using Robust.Shared.Configuration;
@@ -11,6 +10,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using System.Linq;
 using System.Numerics;
+using Content.Shared._White.Body.Components;
 using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Utility;
 

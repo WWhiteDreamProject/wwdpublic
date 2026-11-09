@@ -1,0 +1,11 @@
+- type: localizedDataset
+  id: NamingFirstReptilian
+  values:
+    prefix: naming-first-reptilian-
+    count: 332
+
+- type: localizedDataset
+  id: NamingFirstReptilianFemale
+  values:
+    prefix: naming-first-reptilian-female-
+    count: 163

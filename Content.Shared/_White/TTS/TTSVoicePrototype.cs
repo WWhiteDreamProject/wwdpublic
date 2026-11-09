@@ -17,7 +17,7 @@ public sealed partial class TTSVoicePrototype : IPrototype
     public string Name { get; private set; } = string.Empty;
 
     [DataField("sex", required: true)]
-    public Sex Sex { get; private set; } = default!;
+    public Sex Sex { get; private set; }
 
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField("speaker", required: true)]

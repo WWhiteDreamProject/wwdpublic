@@ -24,6 +24,9 @@ using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Server.IdentityManagement;
 using Content.Server.DetailExaminable;
+using Content.Shared._White.Humanoid.Components;
+using Content.Shared._White.Humanoid.Systems;
+using Content.Shared._White.Preferences;
 using Content.Shared.Store.Components;
 using Robust.Shared.Collections;
 using Robust.Shared.Map.Components;
@@ -33,7 +36,6 @@ namespace Content.Server.Implants;
 public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
 {
     [Dependency] private readonly CuffableSystem _cuffable = default!;
-    [Dependency] private readonly HumanoidAppearanceSystem _humanoidAppearance = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly StoreSystem _store = default!;
@@ -45,6 +47,7 @@ public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
     [Dependency] private readonly EntityLookupSystem _lookupSystem = default!;
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly IdentitySystem _identity = default!;
+    [Dependency] private readonly HumanoidProfileSystem _humanoidProfile = default!;
 
     private EntityQuery<PhysicsComponent> _physicsQuery;
     private HashSet<Entity<MapGridComponent>> _targetGrids = [];
@@ -210,10 +213,10 @@ public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
         if (component.ImplantedEntity is not { } ent)
             return;
 
-        if (TryComp<HumanoidAppearanceComponent>(ent, out var humanoid))
+        if (TryComp<HumanoidProfileComponent>(ent, out var humanoid))
         {
-            var newProfile = HumanoidCharacterProfile.RandomWithSpecies(humanoid.Species);
-            _humanoidAppearance.LoadProfile(ent, newProfile, humanoid, false, false);
+            var newProfile = HumanoidCharacterProfile.Random(humanoid.Species);
+            _humanoidProfile.ApplyProfile((ent, humanoid), newProfile);
             _metaData.SetEntityName(ent, newProfile.Name, raiseEvents: false); // raising events would update ID card, station record, etc.
             if (TryComp<DnaComponent>(ent, out var dna))
             {
@@ -226,7 +229,7 @@ public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
             {
                 fingerprint.Fingerprint = _forensicsSystem.GenerateFingerprint();
             }
-            RemComp<DetailExaminableComponent>(ent); // remove MRP+ custom description if one exists 
+            RemComp<DetailExaminableComponent>(ent); // remove MRP+ custom description if one exists
             _identity.QueueIdentityUpdate(ent); // manually queue identity update since we don't raise the event
             _popup.PopupEntity(Loc.GetString("scramble-implant-activated-popup"), ent, ent);
         }

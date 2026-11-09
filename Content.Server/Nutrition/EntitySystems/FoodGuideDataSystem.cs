@@ -3,6 +3,7 @@ using Content.Client.Chemistry.EntitySystems;
 using Content.Server.Chemistry.ReactionEffects;
 using Content.Server.EntityEffects.Effects;
 using Content.Server.Nutrition.Components;
+using Content.Shared._White.Nutrition.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.Reaction;
 using Content.Shared.Chemistry.Reagent;
@@ -112,8 +113,8 @@ public sealed class FoodGuideDataSystem : SharedFoodGuideDataSystem
         foreach (var (result, sources) in _sources)
         {
             var proto = _protoMan.Index<EntityPrototype>(result);
-            var composition = proto.TryGetComponent<FoodComponent>(out var food, _componentFactory) && proto.TryGetComponent<SolutionContainerManagerComponent>(out var manager)
-                ? manager?.Solutions?[food.Solution]?.Contents?.ToArray() ?? []
+            var composition = proto.TryGetComponent<IngestibleComponent>(out var food, _componentFactory) && proto.TryGetComponent<SolutionContainerManagerComponent>(out var manager)
+                ? manager?.Solutions?[food.SolutionName]?.Contents?.ToArray() ?? []
                 : [];
 
             // We filter out food without whitelisted reagents because well when people look for food they usually expect FOOD and not insulated gloves.

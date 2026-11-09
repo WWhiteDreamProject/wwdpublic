@@ -1,5 +1,6 @@
+using Content.Shared._White.Damage.Components;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.CombatMode.Pacification;
-using Content.Shared.Damage;
 using Content.Shared.Damage.Events;
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Mobs;
@@ -60,7 +61,6 @@ public sealed class EmbedPassiveDamageSystem : EntitySystem
         component.Embedded = args.Embedded;
         component.EmbeddedDamageable = damageable;
         component.EmbeddedMobState = mobState;
-        component.EmbeddedBodyPart = args.BodyPart;
         component.NextDamage = _timing.CurTime + TimeSpan.FromSeconds(1f);
 
         _activeEmbeds.Add(component);
@@ -72,7 +72,6 @@ public sealed class EmbedPassiveDamageSystem : EntitySystem
         component.Embedded = null;
         component.EmbeddedDamageable = null;
         component.EmbeddedMobState = null;
-        component.EmbeddedBodyPart = null;
         component.NextDamage = TimeSpan.Zero;
 
         _activeEmbeds.Remove(component);
@@ -129,7 +128,7 @@ public sealed class EmbedPassiveDamageSystem : EntitySystem
                 continue;
 
             ent.NextDamage = curTime + TimeSpan.FromSeconds(1f);
-            _damageable.TryChangeDamage(ent.Embedded, ent.Damage, false, false, ent.EmbeddedDamageable, targetPart: ent.EmbeddedBodyPart);
+            _damageable.ChangeDamage((ent.Embedded.Value, ent.EmbeddedDamageable), ent.Damage, false, false); // WD EDIT
         }
     }
 }

@@ -1,5 +1,5 @@
 - type: entity
-  parent: BaseMobXenomorphAdult
+  parent: [BaseMobXenomorphAdult, BaseBodyXenomorphPraetorian]
   id: BaseMobXenomorphPraetorian
   name: xenomorph praetorian
   description: An elite specimen designed to protect the Hive and the Queen, his very presence instills fear and trepidation into the enemy ranks.
@@ -17,8 +17,9 @@
     caste: Praetorian
   - type: TailLash
     tailDamage:
-      groups:
-        Brute: 12
+      Blunt: 4
+      Piercing: 4
+      Slash: 4
     inject:
       Tirizene: 5
   - type: ActionGrant
@@ -28,8 +29,6 @@
     - ActionSpawnResinMembrane
     - ActionSpawnResinNest
     - ActionSpawnResinWeedNode
-  - type: Body
-    prototype: XenomorphPraetorian
   - type: TypingIndicator
     proto: alien_royal
   - type: Fixtures
@@ -55,12 +54,10 @@
       315: 0.6
   - type: MeleeWeapon
     damage:
-      groups:
-        Brute: 30
-  # - type: GuideHelp
-  #   guides:
-  #   - XenomorphPraetorian
-
+      # WD EDIT: Migrated damage format
+      Blunt: 10
+      Piercing: 10
+      Slash: 10
 - type: entity
   parent: BaseMobXenomorphPraetorian
   id: MobXenomorphPraetorian

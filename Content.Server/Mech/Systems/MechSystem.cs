@@ -1,10 +1,11 @@
 using System.Linq;
+using Content.Server._White.Respirator.Systems;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Mech.Components;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.ActionBlocker;
-using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.FixedPoint;
 using Content.Shared.Interaction;
@@ -14,15 +15,14 @@ using Content.Shared.Mech.EntitySystems;
 using Content.Shared.Movement.Events;
 using Content.Shared.Popups;
 using Content.Shared.Tools.Components;
-using Content.Shared.Verbs;
-using Content.Shared.Wires;
-using Content.Server.Body.Systems;
 using Content.Shared.Tools.Systems;
+using Content.Shared.Verbs;
+using Content.Shared.Whitelist;
+using Content.Shared.Wires;
 using Robust.Server.Containers;
 using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
-using Content.Shared.Whitelist;
 
 namespace Content.Server.Mech.Systems;
 
@@ -61,8 +61,8 @@ public sealed partial class MechSystem : SharedMechSystem
 
 
         SubscribeLocalEvent<MechPilotComponent, ToolUserAttemptUseEvent>(OnToolUseAttempt);
-        SubscribeLocalEvent<MechPilotComponent, InhaleLocationEvent>(OnInhale);
-        SubscribeLocalEvent<MechPilotComponent, ExhaleLocationEvent>(OnExhale);
+        SubscribeLocalEvent<MechPilotComponent, GetInhaleLocationEvent>(OnInhale);
+        SubscribeLocalEvent<MechPilotComponent, GetExhaleLocationEvent>(OnExhale);
         SubscribeLocalEvent<MechPilotComponent, AtmosExposedGetAirEvent>(OnExpose);
 
         SubscribeLocalEvent<MechAirComponent, GetFilterAirEvent>(OnGetFilterAir);
@@ -254,12 +254,11 @@ public sealed partial class MechSystem : SharedMechSystem
         var integrity = component.MaxIntegrity - args.Damageable.TotalDamage;
         SetIntegrity(uid, integrity, component);
 
-        if (args.DamageIncreased &&
-            args.DamageDelta != null &&
+        if (args.Damage.AnyPositive() &&
             component.PilotSlot.ContainedEntity != null)
         {
-            var damage = args.DamageDelta * component.MechToPilotDamageMultiplier;
-            _damageable.TryChangeDamage(component.PilotSlot.ContainedEntity, damage);
+            var damage = args.Damage * component.MechToPilotDamageMultiplier; // WD EDIT
+            _damageable.ChangeDamage(component.PilotSlot.ContainedEntity.Value, damage); // WD EDIT
         }
     }
 
@@ -379,7 +378,7 @@ public sealed partial class MechSystem : SharedMechSystem
     }
 
     #region Atmos Handling
-    private void OnInhale(EntityUid uid, MechPilotComponent component, InhaleLocationEvent args)
+    private void OnInhale(EntityUid uid, MechPilotComponent component, GetInhaleLocationEvent args)
     {
         if (!TryComp<MechComponent>(component.Mech, out var mech) ||
             !TryComp<MechAirComponent>(component.Mech, out var mechAir))
@@ -391,7 +390,7 @@ public sealed partial class MechSystem : SharedMechSystem
             args.Gas = mechAir.Air;
     }
 
-    private void OnExhale(EntityUid uid, MechPilotComponent component, ExhaleLocationEvent args)
+    private void OnExhale(EntityUid uid, MechPilotComponent component, GetExhaleLocationEvent args)
     {
         if (!TryComp<MechComponent>(component.Mech, out var mech) ||
             !TryComp<MechAirComponent>(component.Mech, out var mechAir))

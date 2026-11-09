@@ -6,7 +6,7 @@
   abstract: true
   description: Goes great with robust coffee.
   components:
-  - type: Food
+  - type: Ingestible # WD Ingestible
   - type: Tag
     tags:
     - Donut
@@ -14,7 +14,7 @@
     sprite: Objects/Consumable/Food/Baked/donut.rsi
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 5
         reagents:
         - ReagentId: Nutriment
@@ -56,7 +56,7 @@
     state: jelly-plain
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 5
         reagents:
         - ReagentId: Nutriment
@@ -172,7 +172,7 @@
     state: choc
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 5
         reagents:
         - ReagentId: Nutriment
@@ -246,7 +246,7 @@
     heldPrefix: pink
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 5
         reagents:
         - ReagentId: Nutriment
@@ -266,7 +266,7 @@
     heldPrefix: pink
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 5
         reagents:
         - ReagentId: Nutriment
@@ -284,7 +284,7 @@
     state: jelly-purple
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 5
         reagents:
         - ReagentId: Nutriment
@@ -303,7 +303,7 @@
     state: jelly-green
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 5
         reagents:
         - ReagentId: Nutriment
@@ -325,7 +325,7 @@
     state: jelly-beige
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 5
         reagents:
         - ReagentId: Nutriment
@@ -344,7 +344,7 @@
     state: jelly-choc
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 5
         reagents:
         - ReagentId: Nutriment
@@ -369,7 +369,7 @@
     state: jelly-blue
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 5
         reagents:
         - ReagentId: Nutriment
@@ -391,7 +391,7 @@
     state: jelly-yellow
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 5
         reagents:
         - ReagentId: Nutriment
@@ -413,7 +413,7 @@
     state: jelly-olive
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 5
         reagents:
         - ReagentId: Nutriment
@@ -432,7 +432,7 @@
     state: jelly-laugh
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 5
         reagents:
         - ReagentId: Nutriment
@@ -451,7 +451,7 @@
     state: jelly-slug
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 5
         reagents:
         - ReagentId: Nutriment
@@ -468,7 +468,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 10
         reagents:
         - ReagentId: Amatoxin

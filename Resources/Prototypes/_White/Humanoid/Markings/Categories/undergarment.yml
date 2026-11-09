@@ -1,0 +1,9 @@
+- type: markingCategory
+  id: UndergarmentBottom
+  layers:
+  - enum.MarkingVisualLayers.UndergarmentBottom
+
+- type: markingCategory
+  id: UndergarmentTop
+  layers:
+  - enum.MarkingVisualLayers.UndergarmentTop

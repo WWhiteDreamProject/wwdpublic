@@ -424,13 +424,14 @@ public sealed class ChatUIController : UIController
     {
         var ent = EntityManager.GetEntity(msg.SenderEntity);
 
+        /*Logger.Error($"{msg.SenderEntity}");
         if (!EntityManager.EntityExists(ent))
         {
             _sawmill.Debug("Got local chat message with invalid sender entity: {0}", msg.SenderEntity);
             return;
         }
 
-        EnqueueSpeechBubble(ent, msg, speechType);
+        EnqueueSpeechBubble(ent, msg, speechType);*/
     }
 
     private void CreateSpeechBubble(EntityUid entity, SpeechBubbleData speechData)

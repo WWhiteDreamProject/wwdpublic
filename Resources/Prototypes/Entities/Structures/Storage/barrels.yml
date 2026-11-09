@@ -194,8 +194,7 @@
   - type: DamageOnToolInteract
     tools: Welding
     weldingDamage:
-      types:
-        Heat: 10
+      Heat: 10
   - type: Explosive
     explosionType: Default
     totalIntensity: 120 # ~ 5 tile radius

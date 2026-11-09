@@ -2,12 +2,12 @@ using System.Collections.Immutable;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Runtime.InteropServices;
+using Content.Server._White.Preferences.Managers;
 using Content.Server.Administration.Managers;
 using Content.Server.Chat.Managers;
 using Content.Server.Connection.IPIntel;
 using Content.Server.Database;
 using Content.Server.GameTicking;
-using Content.Server.Preferences.Managers;
 using Content.Shared.CCVar;
 using Content.Shared.GameTicking;
 using Content.Shared.Players.PlayTimeTracking;
@@ -163,7 +163,7 @@ namespace Content.Server.Connection
             {
                 await _db.AddConnectionLogAsync(userId, e.UserName, addr, hwid, trust, null, serverId);
 
-                if (!ServerPreferencesManager.ShouldStorePrefs(e.AuthType))
+                if (!ServerPreferencesManager.ShouldStorePreference(e.AuthType))
                     return;
 
                 await _db.UpdatePlayerRecordAsync(userId, e.UserName, addr, hwid);

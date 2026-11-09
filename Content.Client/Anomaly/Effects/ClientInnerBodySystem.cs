@@ -1,6 +1,7 @@
+using Content.Shared._White.Body.Components;
+using Content.Shared._White.Humanoid.Components;
 using Content.Shared.Anomaly.Components;
 using Content.Shared.Anomaly.Effects;
-using Content.Shared.Body.Components;
 using Robust.Client.GameObjects;
 
 namespace Content.Client.Anomaly.Effects;
@@ -24,9 +25,8 @@ public sealed class ClientInnerBodyAnomalySystem : SharedInnerBodyAnomalySystem
         if (!sprite.LayerMapTryGet(ent.Comp.LayerMap, out var index))
             index = sprite.LayerMapReserveBlank(ent.Comp.LayerMap);
 
-        if (TryComp<BodyComponent>(ent, out var body) &&
-            body.Prototype is not null &&
-            ent.Comp.SpeciesSprites.TryGetValue(body.Prototype.Value, out var speciesSprite))
+        if (TryComp<HumanoidProfileComponent>(ent, out var humanoid) &&
+            ent.Comp.SpeciesSprites.TryGetValue(humanoid.Species, out var speciesSprite))
         {
             sprite.LayerSetSprite(index, speciesSprite);
         }

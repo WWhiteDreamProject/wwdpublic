@@ -5,6 +5,8 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared._White.Damage;
+using Content.Shared._White.Damage.Prototypes;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Dataset;
@@ -79,7 +81,7 @@ public sealed partial class DevilComponent : Component
     /// How much damage taken when a true name is spoken. Doubled if spoken by the chaplain.
     /// </summary>
     [DataField]
-    public DamageSpecifier DamageOnTrueName = new() {DamageDict = new Dictionary<string, FixedPoint2>() {{ "Holy", 15 }}};
+    public DamageSpecifier DamageOnTrueName = new() {{ "Holy", 15 }};
 
     /// <summary>
     /// Holy action damage multiplier if done by the chaplain. Also effects stums.

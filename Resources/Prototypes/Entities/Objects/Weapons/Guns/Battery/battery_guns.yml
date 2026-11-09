@@ -31,8 +31,8 @@
   - type: MeleeWeapon
     attackRate: 1.3333
     damage:
-      types:
-        Blunt: 8.5
+      # WD EDIT: Migrated damage format
+      Blunt: 8.5
     bluntStaminaDamageFactor: 1.25
     swapKeys: true
     disableHeavy: true
@@ -42,16 +42,10 @@
       collection: MetalThud
   - type: IncreaseDamageOnWield
     damage:
-      types:
-        Blunt: 2.5
+      # WD EDIT: Migrated damage format
+      Blunt: 2.5
   - type: DamageOtherOnHit
     staminaCost: 7
-  # Shitmed Change
-  - type: Cautery
-    speed: 0.9
-  - type: SurgeryTool
-    endSound:
-      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
   # WD EDIT START
   - type: DisarmMalus
     malus: 0.3
@@ -105,8 +99,8 @@
   - type: MeleeWeapon
     attackRate: 1.3333
     damage:
-      types:
-        Blunt: 9.0
+      # WD EDIT: Migrated damage format
+      Blunt: 9
     bluntStaminaDamageFactor: 1.25
     swapKeys: true
     disableHeavy: true
@@ -116,16 +110,10 @@
       collection: MetalThud
   - type: IncreaseDamageOnWield
     damage:
-      types:
-        Blunt: 2.5
+      # WD EDIT: Migrated damage format
+      Blunt: 2.5
   - type: DamageOtherOnHit
     staminaCost: 7
-  # Shitmed Change
-  - type: Cautery
-    speed: 0.9
-  - type: SurgeryTool
-    endSound:
-      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
 
 - type: entity
   id: BaseWeaponBatterySmall
@@ -149,8 +137,8 @@
   - type: MeleeWeapon
     attackRate: 1.2
     damage:
-      types:
-        Blunt: 7.5
+      # WD EDIT: Migrated damage format
+      Blunt: 7.5
     bluntStaminaDamageFactor: 1.0
     wideAnimationRotation: 135
   - type: DamageOtherOnHit
@@ -180,8 +168,8 @@
   - type: MeleeWeapon
     attackRate: 1.2
     damage:
-      types:
-        Blunt: 7.5
+      # WD EDIT: Migrated damage format
+      Blunt: 7.5
     bluntStaminaDamageFactor: 1.0
     wideAnimationRotation: 135
   - type: DamageOtherOnHit
@@ -346,9 +334,8 @@
     price: 300
   - type: MeleeWeapon
     damage:
-      types:
-        Blunt: 4
-  # WD EDIT START
+      # WD EDIT: Migrated damage format
+      Blunt: 4
   - type: Battery
     maxCharge: 2000
     startingCharge: 2000
@@ -549,8 +536,8 @@
   - type: MeleeWeapon
     attackRate: 1.4
     damage:
-      types:
-        Blunt: 10
+      # WD EDIT: Migrated damage format
+      Blunt: 10
     bluntStaminaDamageFactor: 1.3333
   - type: DamageOtherOnHit
     staminaCost: 9.5
@@ -594,9 +581,8 @@
   - type: MeleeWeapon
     attackRate: 1.6
     damage: # This is super expensive, low attack rate, slows down the user and high stam cost so it can be high
-      types:
-        Blunt: 34
-        Structural: 10
+      Blunt: 34
+      Structural: 10
     swapKeys: false
     disableHeavy: false
     disableClick: true
@@ -691,8 +677,8 @@
     - Sidearm
   - type: MeleeWeapon
     damage:
-      types:
-        Blunt: 3
+      # WD EDIT: Migrated damage format
+      Blunt: 3
     bluntStaminaDamageFactor: 1.0
   # WD EDIT START
   - type: GunFlux
@@ -728,8 +714,8 @@
     - Antagonists
   - type: MeleeWeapon
     damage:
-      types:
-        Blunt: 5.0
+      # WD EDIT: Migrated damage format
+      Blunt: 5
     bluntStaminaDamageFactor: 2.5
     wideAnimationRotation: 135
   - type: Tag
@@ -796,8 +782,8 @@
   # WD EDIT END
   - type: MeleeWeapon
     damage:
-      types:
-        Blunt: 3.0
+      # WD EDIT: Migrated damage format
+      Blunt: 3
     bluntStaminaDamageFactor: 2
     wideAnimationRotation: 90
 
@@ -882,8 +868,8 @@
     price: 260
   - type: MeleeWeapon
     damage:
-      types:
-        Blunt: 6.5
+      # WD EDIT: Migrated damage format
+      Blunt: 6.5
     bluntStaminaDamageFactor: 2.5
     wideAnimationRotation: 180
   # WD EDIT START
@@ -979,8 +965,8 @@
   - type: MeleeWeapon
     attackRate: 1.3333
     damage:
-      types:
-        Blunt: 9
+      # WD EDIT: Migrated damage format
+      Blunt: 9
     bluntStaminaDamageFactor: 1.25
     wideAnimationRotation: 135
   - type: DamageOtherOnHit
@@ -1028,8 +1014,8 @@
     price: 63
   - type: MeleeWeapon
     damage:
-      types:
-        Blunt: 8
+      # WD EDIT: Migrated damage format
+      Blunt: 8
   - type: DamageOtherOnHit
     staminaCost: 6
 

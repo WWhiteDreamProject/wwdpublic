@@ -137,7 +137,6 @@ ui-options-header-camera = Камера
 ui-options-header-interaction-basic = Базовые взаимодействия
 ui-options-header-interaction-adv = Продвинутые взаимодействия
 ui-options-header-ui = Интерфейс
-ui-options-header-targeting = Нацеливание
 ui-options-header-misc = Разное
 ui-options-header-hotbar = Хотбар
 ui-options-header-shuttle = Шаттл
@@ -202,12 +201,6 @@ ui-options-function-rotate-object-counterclockwise = Повернуть прот
 ui-options-function-flip-object = Отразить
 
 
-ui-options-function-target-head = Нацелиться на голову
-ui-options-function-target-torso = Нацелиться на туловище
-ui-options-function-target-left-arm = Нацелиться на левую руку
-ui-options-function-target-right-arm = Нацелиться на правую руку
-ui-options-function-target-left-leg = Нацелиться на левую ногу
-ui-options-function-target-right-leg = Нацелиться на правую ногу
 ui-options-function-focus-chat-input-window = Писать в чат
 ui-options-function-focus-local-chat-window = Писать в чат (IC)
 ui-options-function-focus-emote = Писать в чат (Эмоции)

@@ -32,13 +32,11 @@
   - type: MeleeWeapon
     wideAnimationRotation: 180
     damage:
-      types:
-        Blunt: 6
+      Blunt: 6
   - type: ItemToggleMeleeWeapon
     activatedDamage:
-        types:
-            Blunt: 6
-            Heat: 3
+      Blunt: 6
+      Heat: 3
     activatedSoundOnHit:
       path: /Audio/Weapons/Guns/Hits/energy_meat1.ogg
       params:

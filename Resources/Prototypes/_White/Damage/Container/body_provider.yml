@@ -1,0 +1,26 @@
+- type: damageContainer
+  id: BodyProviderPart
+  types:
+  - Blunt
+  - Caustic
+  - Cold
+  - Heat
+  - Piercing
+  - Shock
+  - Slash
+
+- type: damageContainer
+  id: BodyProviderBone
+  types:
+  - Blunt
+  - Piercing
+  - Slash
+
+- type: damageContainer
+  id: BodyProviderOrgan
+  types:
+  - Blunt
+  - Piercing
+  - Poison
+  - Radiation
+  - Slash

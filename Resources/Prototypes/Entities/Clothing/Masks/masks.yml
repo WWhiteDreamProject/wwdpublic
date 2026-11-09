@@ -18,7 +18,9 @@
     - WhitelistChameleon
   - type: HideLayerClothing
     slots:
-    - Snout
+    # WD EDIT START
+    - enum.MarkingVisualLayers.Snout
+    # WD EDIT END
     hideOnToggle: true
 
 - type: entity
@@ -220,10 +222,11 @@
     tags:
     - ClownMask
     - WhitelistChameleon
-    - IPCMaskWearable
   - type: HideLayerClothing
     slots:
-    - Snout
+    # WD EDIT START
+    - enum.MarkingVisualLayers.Snout
+    # WD EDIT END
 
 - type: entity
   parent: ClothingMaskClownBase
@@ -236,8 +239,8 @@
     - WhitelistChameleon
   - type: HideLayerClothing
     slots:
-    - Snout
   # WD EDIT START
+    - enum.MarkingVisualLayers.Snout
   - type: Construction
     graph: BananaClownMask
     node: basemask
@@ -288,10 +291,9 @@
   - type: IdentityBlocker
   - type: HideLayerClothing
     slots:
-    - Snout
-  - type: Tag
-    tags:
-    - IPCMaskWearable
+    # WD EDIT START
+    - enum.MarkingVisualLayers.Snout
+    # WD EDIT END
 
 - type: entity
   parent: ClothingMaskBase
@@ -309,10 +311,11 @@
     tags:
     - HamsterWearable
     - WhitelistChameleon
-    - IPCMaskWearable
   - type: HideLayerClothing
     slots:
-    - Snout
+    # WD EDIT START
+    - enum.MarkingVisualLayers.Snout
+    # WD EDIT END
 
 - type: entity
   parent: ClothingMaskPullableBase
@@ -369,7 +372,9 @@
   - type: IdentityBlocker
   - type: HideLayerClothing
     slots:
-    - Snout
+    # WD EDIT START
+    - enum.MarkingVisualLayers.Snout
+    # WD EDIT END
     hideOnToggle: true
 
 - type: entity
@@ -402,8 +407,10 @@
     - WhitelistChameleon
   - type: HideLayerClothing
     slots:
-    - Hair
-    - Snout
+    # WD EDIT START
+    - enum.MarkingVisualLayers.Hair
+    - enum.MarkingVisualLayers.Snout
+    # WD EDIT END
     hideOnToggle: true
   - type: Armor
     modifiers:
@@ -446,8 +453,10 @@
     - WhitelistChameleon
   - type: HideLayerClothing
     slots:
-    - Hair
-    - Snout
+    # WD EDIT START
+    - enum.MarkingVisualLayers.Hair
+    - enum.MarkingVisualLayers.Snout
+    # WD EDIT END
     hideOnToggle: true
   - type: FlashImmunity
   - type: EyeProtection
@@ -492,10 +501,11 @@
     tags:
     - HamsterWearable
     - WhitelistChameleon
-    - IPCMaskWearable
   - type: HideLayerClothing
     slots:
-    - Snout
+    # WD EDIT START
+    - enum.MarkingVisualLayers.Snout
+    # WD EDIT END
   - type: IdentityBlocker
 
 - type: entity
@@ -512,10 +522,9 @@
   - type: IdentityBlocker
   - type: HideLayerClothing
     slots:
-    - Snout
-  - type: Tag
-    tags:
-    - IPCMaskWearable
+    # WD EDIT START
+    - enum.MarkingVisualLayers.Snout
+    # WD EDIT END
 
 - type: entity
   parent: ClothingMaskBase
@@ -531,10 +540,9 @@
   - type: IdentityBlocker
   - type: HideLayerClothing
     slots:
-    - Snout
-  - type: Tag
-    tags:
-    - IPCMaskWearable
+    # WD EDIT START
+    - enum.MarkingVisualLayers.Snout
+    # WD EDIT END
 
 - type: entity
   parent: ClothingMaskBase
@@ -550,10 +558,9 @@
   - type: IdentityBlocker
   - type: HideLayerClothing
     slots:
-    - Snout
-  - type: Tag
-    tags:
-    - IPCMaskWearable
+    # WD EDIT START
+    - enum.MarkingVisualLayers.Snout
+    # WD EDIT END
 
 - type: entity
   parent: ClothingMaskBase
@@ -569,10 +576,9 @@
   - type: IdentityBlocker
   - type: HideLayerClothing
     slots:
-    - Snout
-  - type: Tag
-    tags:
-    - IPCMaskWearable
+    # WD EDIT START
+    - enum.MarkingVisualLayers.Snout
+    # WD EDIT END
 
 - type: entity
   parent: ClothingMaskBase
@@ -588,10 +594,9 @@
   - type: IdentityBlocker
   - type: HideLayerClothing
     slots:
-    - Snout
-  - type: Tag
-    tags:
-    - IPCMaskWearable
+    # WD EDIT START
+    - enum.MarkingVisualLayers.Snout
+    # WD EDIT END
 
 - type: entity
   parent: ClothingMaskBase
@@ -607,10 +612,9 @@
   - type: IdentityBlocker
   - type: HideLayerClothing
     slots:
-    - Snout
-  - type: Tag
-    tags:
-    - IPCMaskWearable
+    # WD EDIT START
+    - enum.MarkingVisualLayers.Snout
+    # WD EDIT END
 
 - type: entity
   parent: ClothingMaskBase
@@ -627,7 +631,6 @@
   - type: Tag
     tags:
     - WhitelistChameleon
-    - IPCMaskWearable
 
 - type: entity
   parent: ClothingMaskNeckGaiter
@@ -729,9 +732,6 @@
   - type: EyeProtection
   - type: BreathMask
   - type: IdentityBlocker
-  - type: Tag
-    tags:
-    - IPCMaskWearable
   - type: Unremoveable
 
 - type: entity

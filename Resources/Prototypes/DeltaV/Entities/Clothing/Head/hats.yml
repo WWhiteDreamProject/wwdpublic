@@ -67,8 +67,7 @@
   - type: MeleeWeapon
     attackRate: 1.5
     damage:
-      types:
-        Slash: 8
+      Slash: 8
 
 - type: entity
   parent: ClothingHeadBaseButcherable # WWDP

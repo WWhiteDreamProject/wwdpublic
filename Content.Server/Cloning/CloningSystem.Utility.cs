@@ -3,7 +3,6 @@ using Content.Shared.Atmos;
 using Content.Shared.CCVar;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Cloning;
-using Content.Shared.Damage;
 using Content.Shared.Emag.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Mind;
@@ -11,7 +10,6 @@ using Content.Shared.Mind.Components;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Random;
 using Content.Shared.Speech;
-using Content.Shared.Preferences;
 using Content.Shared.Emoting;
 using Content.Server.Speech.Components;
 using Content.Server.StationEvents.Components;
@@ -20,8 +18,12 @@ using Robust.Shared.GameObjects.Components.Localization;
 using Content.Shared.SSDIndicator;
 using Content.Shared.Damage.ForceSay;
 using Content.Shared.Chat;
-using Content.Server.Body.Components;
 using Content.Server.Language;
+using Content.Shared._White.Bloodstream.Components;
+using Content.Shared._White.Damage;
+using Content.Shared._White.Damage.Components;
+using Content.Shared._White.Humanoid.Components;
+using Content.Shared._White.Preferences;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.Language.Components;
 using Content.Shared.Nutrition.Components;
@@ -115,7 +117,7 @@ public sealed partial class CloningSystem
             return false;
 
         if (TryComp<DamageableComponent>(bodyToClone, out var damageable)
-            && damageable.Damage.DamageDict.TryGetValue("Cellular", out var cellularDmg)
+            && damageable.Damage.TryGetValue("Cellular", out var cellularDmg)
             && clonePod.ConnectedConsole is not null)
         {
             geneticDamage += (float) cellularDmg;
@@ -255,7 +257,7 @@ public sealed partial class CloningSystem
 
         bloodSolution.AddReagent("Blood", 0.8f
             * ((blood is not null)
-                ? blood.BloodMaxVolume
+                ? blood.MaxVolume
                 : 300));
 
         _puddleSystem.TrySpillAt(uid, bloodSolution, out _);
@@ -285,23 +287,23 @@ public sealed partial class CloningSystem
     private void UpdateCloneAppearance(
         EntityUid mob,
         HumanoidCharacterProfile pref,
-        HumanoidAppearanceComponent humanoid,
-        List<Sex> sexes,
+        HumanoidProfileComponent humanoid,
+        HashSet<Sex> sexes,
         Gender oldGender,
         bool switchingSpecies,
         bool forceOldProfile,
         out Gender gender)
     {
         gender = oldGender;
-        if (!TryComp<HumanoidAppearanceComponent>(mob, out var newHumanoid))
+        if (!TryComp<HumanoidProfileComponent>(mob, out var newHumanoid))
             return;
 
         if (switchingSpecies && !forceOldProfile)
         {
-            var flavorText = _serialization.CreateCopy(pref.FlavorText, null, false, true);
+            var flavorText = _serialization.CreateCopy(pref.Flavor, null, false, true);
             var oldName = _serialization.CreateCopy(pref.Name, null, false, true);
 
-            pref = HumanoidCharacterProfile.RandomWithSpecies(newHumanoid.Species);
+            pref = HumanoidCharacterProfile.Random(newHumanoid.Species);
 
             if (sexes.Contains(humanoid.Sex)
                 && _config.GetCVar(CCVars.CloningPreserveSex))
@@ -324,12 +326,9 @@ public sealed partial class CloningSystem
                 pref = pref.WithName(oldName);
 
             if (_config.GetCVar(CCVars.CloningPreserveFlavorText))
-                pref = pref.WithFlavorText(flavorText);
-
-            _humanoidSystem.LoadProfile(mob, pref, loadExtensions: true, generateLoadouts: false);
-            return;
+                pref = pref.WithFlavor(flavorText);
         }
-        _humanoidSystem.LoadProfile(mob, pref, loadExtensions: true, generateLoadouts: false);
+        _humanoidProfile.ApplyProfile(mob, pref);
     }
 
     /// <summary>
@@ -357,7 +356,7 @@ public sealed partial class CloningSystem
             || !_thresholds.TryGetThresholdForState(mob, Shared.Mobs.MobState.Critical, out var threshold))
             return;
         DamageSpecifier damage = new();
-        damage.DamageDict.Add("Cellular", (int) threshold + 1 + geneticDamage);
+        damage.Add("Cellular", (int) threshold + 1 + geneticDamage);
         _damageable.TryChangeDamage(mob, damage, true);
     }
 }

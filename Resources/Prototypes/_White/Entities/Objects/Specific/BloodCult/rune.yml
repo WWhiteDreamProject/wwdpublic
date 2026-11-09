@@ -103,8 +103,7 @@
     invokePhrase: "Khari'd! Eske'te tannin!"
     runeActivationRange: 1.5
     activationDamage:
-      types:
-        Slash: 5
+      Slash: 5
   - type: CultRuneBarrier
 
 - type: entity
@@ -140,8 +139,7 @@
     invokePhrase: "N'Dedo ol'btoh!"
     requiredInvokers: 3
     activationDamage:
-      types:
-        Slash: 35
+      Slash: 35
   - type: CultRuneBloodBoil
 
 - type: entity
@@ -167,8 +165,7 @@
     triggerRendingMarkers: true
     canBeErased: false
     activationDamage:
-      types:
-        Slash: 35
+      Slash: 35
   - type: CultRuneApocalypse
 
 - type: entity

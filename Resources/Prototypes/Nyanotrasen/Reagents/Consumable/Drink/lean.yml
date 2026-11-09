@@ -22,8 +22,8 @@
         - !type:ReagentThreshold
           min: 25
         damage:
-          types:
-           Caustic: 0.5
+          # WD EDIT: Migrated damage format
+          Caustic: 0.5
       - !type:Electrocute
         conditions:
         - !type:ReagentThreshold

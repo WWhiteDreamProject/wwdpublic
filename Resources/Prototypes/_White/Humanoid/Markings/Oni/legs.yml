@@ -1,0 +1,21 @@
+- type: marking
+  id: BaseLegsOni
+  parent: [BaseLegs, BaseOni]
+  abstract: true
+
+- type: marking
+  id: LegsOniFeetToed
+  parent: BaseLegsOni
+  definitions:
+  - layer: enum.BodyProviderType.LeftFoot
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/legs.rsi
+      state: feet_toed-left
+  - layer: enum.BodyProviderType.RightFoot
+    sprite:
+      sprite: _White/Humanoid/Markings/Oni/legs.rsi
+      state: feet_toed-right
+  coloring:
+    default:
+      type: !type:SimpleColoring
+        color: "#454545"

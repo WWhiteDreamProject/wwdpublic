@@ -1,0 +1,315 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by angelofallars(github). Crowned made by dootythefrooty(github). Double_curved and Double_curved_outwards made by Rane(github), modified by angelofallars(github). Bullish made by kilath(discord).",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "antlers_2-primary",
+      "directions": 4
+    },
+    {
+      "name": "antlers_2-secondary",
+      "directions": 4
+    },
+    {
+      "name": "antlers_3-primary",
+      "directions": 4
+    },
+    {
+      "name": "antlers_3-secondary",
+      "directions": 4
+    },
+    {
+      "name": "antlers_3-tertiary",
+      "directions": 4
+    },
+    {
+      "name": "aries",
+      "directions": 4
+    },
+    {
+      "name": "aries_3-primary",
+      "directions": 4
+    },
+    {
+      "name": "aries_3-secondary",
+      "directions": 4
+    },
+    {
+      "name": "aries_3-tertiary",
+      "directions": 4
+    },
+    {
+      "name": "bullish",
+      "directions": 4
+    },
+    {
+      "name": "crowned",
+      "directions": 4
+    },
+    {
+      "name": "double_curved_outwards-primary",
+      "directions": 4
+    },
+    {
+      "name": "double_curved_outwards-secondary",
+      "directions": 4
+    },
+    {
+      "name": "double_curved_outwards-tertiary",
+      "directions": 4
+    },
+    {
+      "name": "double_curved-primary",
+      "directions": 4
+    },
+    {
+      "name": "double_curved-secondary",
+      "directions": 4
+    },
+    {
+      "name": "double_curved-tertiary",
+      "directions": 4
+    },
+    {
+      "name": "double_thick",
+      "directions": 4
+    },
+    {
+      "name": "double_thick_2-primary",
+      "directions": 4
+    },
+    {
+      "name": "double_thick_2-secondary",
+      "directions": 4
+    },
+    {
+      "name": "double_thick_3-primary",
+      "directions": 4
+    },
+    {
+      "name": "double_thick_3-secondary",
+      "directions": 4
+    },
+    {
+      "name": "double_thick_3-tertiary",
+      "directions": 4
+    },
+    {
+      "name": "erebia",
+      "directions": 4
+    },
+    {
+      "name": "erebia_2-primary",
+      "directions": 4
+    },
+    {
+      "name": "erebia_2-secondary",
+      "directions": 4
+    },
+    {
+      "name": "erebia_3-primary",
+      "directions": 4
+    },
+    {
+      "name": "erebia_3-secondary",
+      "directions": 4
+    },
+    {
+      "name": "erebia_3-tertiary",
+      "directions": 4
+    },
+    {
+      "name": "inclined",
+      "directions": 4
+    },
+    {
+      "name": "inclined_3-primary",
+      "directions": 4
+    },
+    {
+      "name": "inclined_3-secondary",
+      "directions": 4
+    },
+    {
+      "name": "inclined_3-tertiary",
+      "directions": 4
+    },
+    {
+      "name": "nepeta",
+      "directions": 4
+    },
+    {
+      "name": "nepeta_3-primary",
+      "directions": 4
+    },
+    {
+      "name": "nepeta_3-secondary",
+      "directions": 4
+    },
+    {
+      "name": "nepeta_3-tertiary",
+      "directions": 4
+    },
+    {
+      "name": "pisces",
+      "directions": 4
+    },
+    {
+      "name": "pisces_2-primary",
+      "directions": 4
+    },
+    {
+      "name": "pisces_2-secondary",
+      "directions": 4
+    },
+    {
+      "name": "pisces_3-primary",
+      "directions": 4
+    },
+    {
+      "name": "pisces_3-secondary",
+      "directions": 4
+    },
+    {
+      "name": "pisces_3-tertiary",
+      "directions": 4
+    },
+    {
+      "name": "sagittarius",
+      "directions": 4
+    },
+    {
+      "name": "sagittarius_3-primary",
+      "directions": 4
+    },
+    {
+      "name": "sagittarius_3-secondary",
+      "directions": 4
+    },
+    {
+      "name": "sagittarius_3-tertiary",
+      "directions": 4
+    },
+    {
+      "name": "serket",
+      "directions": 4
+    },
+    {
+      "name": "serket_3-primary",
+      "directions": 4
+    },
+    {
+      "name": "serket_3-secondary",
+      "directions": 4
+    },
+    {
+      "name": "serket_3-tertiary",
+      "directions": 4
+    },
+    {
+      "name": "taurus",
+      "directions": 4
+    },
+    {
+      "name": "taurus_2-primary",
+      "directions": 4
+    },
+    {
+      "name": "taurus_2-secondary",
+      "directions": 4
+    },
+    {
+      "name": "taurus_3-primary",
+      "directions": 4
+    },
+    {
+      "name": "taurus_3-secondary",
+      "directions": 4
+    },
+    {
+      "name": "taurus_3-tertiary",
+      "directions": 4
+    },
+    {
+      "name": "tavris",
+      "directions": 4
+    },
+    {
+      "name": "tavris_3-primary",
+      "directions": 4
+    },
+    {
+      "name": "tavris_3-secondary",
+      "directions": 4
+    },
+    {
+      "name": "tavris_3-tertiary",
+      "directions": 4
+    },
+    {
+      "name": "unicorn",
+      "directions": 4
+    },
+    {
+      "name": "vantas",
+      "directions": 4
+    },
+    {
+      "name": "vantas_3-primary",
+      "directions": 4
+    },
+    {
+      "name": "vantas_3-secondary",
+      "directions": 4
+    },
+    {
+      "name": "vantas_3-tertiary",
+      "directions": 4
+    },
+    {
+      "name": "virgo",
+      "directions": 4
+    },
+    {
+      "name": "virgo_3-primary",
+      "directions": 4
+    },
+    {
+      "name": "virgo_3-secondary",
+      "directions": 4
+    },
+    {
+      "name": "virgo_3-tertiary",
+      "directions": 4
+    },
+    {
+      "name": "wavy",
+      "directions": 4
+    },
+    {
+      "name": "wavy_2-primary",
+      "directions": 4
+    },
+    {
+      "name": "wavy_2-secondary",
+      "directions": 4
+    },
+    {
+      "name": "wavy_3-primary",
+      "directions": 4
+    },
+    {
+      "name": "wavy_3-secondary",
+      "directions": 4
+    },
+    {
+      "name": "wavy_3-tertiary",
+      "directions": 4
+    }
+  ]
+}

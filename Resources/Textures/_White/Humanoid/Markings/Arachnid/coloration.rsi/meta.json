@@ -1,0 +1,127 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by PixelTheKermit(github) for SS14. Arrows, core, fiddleback, skull, stripes and target made by Nairodian(github) for SS14. The division of the torso into chest and groin was done by Spatison(github).",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "arrows-chest",
+      "directions": 4
+    },
+    {
+      "name": "arrows-groin",
+      "directions": 4
+    },
+    {
+      "name": "core-chest",
+      "directions": 4
+    },
+    {
+      "name": "core-groin",
+      "directions": 4
+    },
+    {
+      "name": "cross-chest",
+      "directions": 4
+    },
+    {
+      "name": "cross-groin",
+      "directions": 4
+    },
+    {
+      "name": "fiddleback-chest",
+      "directions": 4
+    },
+    {
+      "name": "fiddleback-groin",
+      "directions": 4
+    },
+    {
+      "name": "heart-chest",
+      "directions": 4
+    },
+    {
+      "name": "heart-groin",
+      "directions": 4
+    },
+    {
+      "name": "hourglass-chest",
+      "directions": 4
+    },
+    {
+      "name": "hourglass-groin",
+      "directions": 4
+    },
+    {
+      "name": "nail_and_hammer-chest",
+      "directions": 4
+    },
+    {
+      "name": "nail_and_hammer-groin",
+      "directions": 4
+    },
+    {
+      "name": "skull-chest",
+      "directions": 4
+    },
+    {
+      "name": "skull-groin",
+      "directions": 4
+    },
+    {
+      "name": "slashes-chest",
+      "directions": 4
+    },
+    {
+      "name": "slashes-groin",
+      "directions": 4
+    },
+    {
+      "name": "star-chest",
+      "directions": 4
+    },
+    {
+      "name": "star-groin",
+      "directions": 4
+    },
+    {
+      "name": "stripes-chest",
+      "directions": 4
+    },
+    {
+      "name": "stripes-groin",
+      "directions": 4
+    },
+    {
+      "name": "stripes-left_arm",
+      "directions": 4
+    },
+    {
+      "name": "stripes-left_leg",
+      "directions": 4
+    },
+    {
+      "name": "stripes-right_arm",
+      "directions": 4
+    },
+    {
+      "name": "stripes-right_leg",
+      "directions": 4
+    },
+    {
+      "name": "target",
+      "directions": 4
+    },
+    {
+      "name": "x-chest",
+      "directions": 4
+    },
+    {
+      "name": "x-groin",
+      "directions": 4
+    }
+  ]
+}

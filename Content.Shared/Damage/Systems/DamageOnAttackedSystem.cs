@@ -1,3 +1,5 @@
+using Content.Shared._White.Damage;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Damage.Components;
 using Content.Shared.Database;
@@ -73,9 +75,7 @@ public sealed class DamageOnAttackedSystem : EntitySystem
             }
         }
 
-        totalDamage = _damageableSystem.TryChangeDamage(args.User, totalDamage, entity.Comp.IgnoreResistances, origin: entity);
-
-        if (totalDamage != null && totalDamage.AnyPositive())
+        if (_damageableSystem.TryChangeDamage(args.User, totalDamage, out totalDamage,  entity.Comp.IgnoreResistances, origin: entity) && totalDamage.AnyPositive()) // WD EDIT
         {
             _adminLogger.Add(LogType.Damaged, $"{ToPrettyString(args.User):user} injured themselves by attacking {ToPrettyString(entity):target} and received {totalDamage.GetTotal():damage} damage");
             _audioSystem.PlayPredicted(entity.Comp.InteractSound, entity, args.User);

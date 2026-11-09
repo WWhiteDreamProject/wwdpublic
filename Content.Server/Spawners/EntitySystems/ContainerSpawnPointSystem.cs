@@ -2,6 +2,7 @@
 using Content.Server.RoundEnd;
 using Content.Server.Spawners.Components;
 using Content.Server.Station.Systems;
+using Content.Shared._White.Preferences;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
 using Robust.Server.Containers;
@@ -40,7 +41,7 @@ public sealed class ContainerSpawnPointSystem : EntitySystem
             return;
 
         // If it's just a spawn pref check if it's for cryo (silly).
-        if (args.HumanoidCharacterProfile?.SpawnPriority != SpawnPriorityPreference.Cryosleep &&
+        if (args.HumanoidCharacterProfile?.SpawnPriority != SpawnPriority.Cryosleep &&
             (!_proto.TryIndex(args.Job, out var jobProto) || jobProto.JobEntity == null))
             return;
 

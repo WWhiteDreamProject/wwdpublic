@@ -1,0 +1,29 @@
+- type: entity
+  id: MobDionaNymphCentral
+  parent: MobDionaNymph
+  suffix: Central
+  description: Contains the central of a formerly fully-formed Diona. Killing this would kill the Diona forever. You monster.
+# TODO
+#   components:
+#   - type: Body
+#     prototype: DionaNymphBrain
+
+- type: entity
+  id: MobDionaNymphLungs
+  parent: MobDionaNymphAccent
+  suffix: Lungs
+  description: Contains the lungs of a formerly fully-formed Diona. Breathtaking.
+# TODO
+#   components:
+#   - type: Body
+#     prototype: DionaNymphLungs
+
+- type: entity
+  id: MobDionaNymphMetabolizer
+  parent: MobDionaNymphAccent
+  suffix: Metabolizer
+  description: Contains the metabolizer of a formerly fully-formed Diona. It doesn't taste any better for it.
+# TODO
+#   components:
+#   - type: Body
+#     prototype: DionaNymphLungs

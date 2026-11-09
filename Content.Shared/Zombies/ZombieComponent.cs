@@ -1,8 +1,8 @@
-using Content.Shared.Antag;
+using Content.Shared._White.Appearance;
+using Content.Shared._White.Body;
+using Content.Shared._White.Damage;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Chemistry.Reagent;
-using Content.Shared.Damage;
-using Content.Shared.Humanoid;
 using Content.Shared.Roles;
 using Content.Shared.StatusIcon;
 using Robust.Shared.Audio;
@@ -62,23 +62,8 @@ public sealed partial class ZombieComponent : Component
     [DataField("zombieRoleId", customTypeSerializer: typeof(PrototypeIdSerializer<AntagPrototype>))]
     public string ZombieRoleId = "Zombie";
 
-    /// <summary>
-    /// The CustomBaseLayers of the humanoid to restore in case of cloning
-    /// </summary>
-    [DataField("beforeZombifiedCustomBaseLayers")]
-    public Dictionary<HumanoidVisualLayers, CustomBaseLayerInfo> BeforeZombifiedCustomBaseLayers = new ();
-
-    /// <summary>
-    /// The skin color of the humanoid to restore in case of cloning
-    /// </summary>
-    [DataField("beforeZombifiedSkinColor")]
-    public Color BeforeZombifiedSkinColor;
-
-    /// <summary>
-    /// The eye color of the humanoid to restore in case of cloning
-    /// </summary>
-    [DataField("beforeZombifiedEyeColor")]
-    public Color BeforeZombifiedEyeColor;
+    [DataField]
+    public Dictionary<Enum, BodyAppearanceData> BeforeZombifiedAppearance;
 
     [DataField("emoteId", customTypeSerializer: typeof(PrototypeIdSerializer<EmoteSoundsPrototype>))]
     public string? EmoteSoundsId = "Zombie";
@@ -97,14 +82,11 @@ public sealed partial class ZombieComponent : Component
     [DataField("passiveHealing")]
     public DamageSpecifier PassiveHealing = new()
     {
-        DamageDict = new ()
-        {
-            { "Blunt", -0.4 },
-            { "Slash", -0.2 },
-            { "Piercing", -0.2 },
-            { "Heat", -0.02 },
-            { "Shock", -0.02 }
-        }
+        { "Blunt", -0.4 },
+        { "Slash", -0.2 },
+        { "Piercing", -0.2 },
+        { "Heat", -0.02 },
+        { "Shock", -0.02 },
     };
 
     /// <summary>
@@ -119,12 +101,9 @@ public sealed partial class ZombieComponent : Component
     [DataField("healingOnBite")]
     public DamageSpecifier HealingOnBite = new()
     {
-        DamageDict = new()
-        {
-            { "Blunt", -2 },
-            { "Slash", -2 },
-            { "Piercing", -2 }
-        }
+        { "Blunt", -2 },
+        { "Slash", -2 },
+        { "Piercing", -2 },
     };
 
     /// <summary>

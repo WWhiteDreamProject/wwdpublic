@@ -21,7 +21,7 @@
   - type: Glue
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: SpaceGlue
@@ -39,7 +39,7 @@
     tags:
       - DrinkSpaceGlue
   - type: TrashOnSolutionEmpty
-    solution: drink
+    solution: ingestible # WD Ingestible
 
 - type: entity
   parent: DrinkBase
@@ -63,7 +63,7 @@
   - type: Appearance
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: SpaceLube
@@ -79,7 +79,7 @@
           False: {state: "icon"}
   - type: Lube
   - type: TrashOnSolutionEmpty
-    solution: drink
+    solution: ingestible # WD Ingestible
 
 
 # Mopwata
@@ -139,16 +139,16 @@
     size: Small
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 50
         reagents:
         - ReagentId: Mopwata
           Quantity: 40
   - type: RandomFillSolution
-    solution: drink
+    solution: ingestible # WD Ingestible
     weightedRandomId: RandomFillMopwata
   - type: PressurizedSolution
-    solution: drink
+    solution: ingestible # WD Ingestible
   - type: Shakeable
   - type: Appearance
   - type: GenericVisualizer

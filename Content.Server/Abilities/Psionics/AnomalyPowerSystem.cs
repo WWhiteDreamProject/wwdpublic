@@ -5,7 +5,6 @@ using Robust.Shared.Random;
 using Content.Shared.Anomaly;
 using Robust.Shared.Audio.Systems;
 using Content.Shared.Actions;
-using Content.Shared.Damage;
 using Content.Server.Popups;
 using Content.Shared.Administration.Logs;
 using Content.Server.Lightning;
@@ -14,6 +13,8 @@ using Content.Server.Explosion.EntitySystems;
 using Content.Server.Atmos.EntitySystems;
 using Content.Shared.Throwing;
 using Content.Server.Fluids.EntitySystems;
+using Content.Shared._White.Damage.Components;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Chemistry.EntitySystems;
 
 namespace Content.Server.Abilities.Psionics;
@@ -108,9 +109,8 @@ public sealed partial class AnomalyPowerSystem : EntitySystem
             && Loc.TryGetString(args.Settings.OverchargeFeedback, out var popup))
             _popup.PopupEntity(popup, uid, uid);
 
-        if (args.Settings.OverchargeRecoil is not null
-            && TryComp<DamageableComponent>(uid, out var damageable))
-            _damageable.TryChangeDamage(uid, args.Settings.OverchargeRecoil / component.CurrentDampening, true, true, damageable, uid);
+        if (args.Settings.OverchargeRecoil is not null)
+            _damageable.ChangeDamage(uid, args.Settings.OverchargeRecoil / component.CurrentDampening, true, true, uid); // WD EDIT
 
         if (args.Settings.OverchargeCooldown > 0)
             foreach (var action in component.Actions)

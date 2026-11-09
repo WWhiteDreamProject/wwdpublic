@@ -1,7 +1,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.NPC.Pathfinding;
-using Content.Shared.Damage;
+using Content.Shared._White.Damage.Components;
 using Content.Shared.Emag.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Silicons.Bots;

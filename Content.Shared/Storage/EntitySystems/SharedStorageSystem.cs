@@ -1,6 +1,7 @@
 using System.Collections.Frozen;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Shared._White.Nutrition.Systems;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
 using Content.Shared.CCVar;
@@ -143,6 +144,7 @@ public abstract class SharedStorageSystem : EntitySystem
         SubscribeLocalEvent<BoundUserInterfaceMessageAttempt>(OnBoundUIAttempt);
         SubscribeLocalEvent<StorageComponent, BoundUIOpenedEvent>(OnBoundUIOpen);
         SubscribeLocalEvent<StorageComponent, LockToggledEvent>(OnLockToggled);
+        SubscribeLocalEvent<StorageComponent, AttemptGotIngestedEvent>(OnAttemptGotIngested); // WD EDIT
         SubscribeLocalEvent<MetaDataComponent, StackCountChangedEvent>(OnStackCountChanged);
 
         SubscribeLocalEvent<StorageComponent, EntInsertedIntoContainerMessage>(OnEntInserted);
@@ -1493,6 +1495,20 @@ public abstract class SharedStorageSystem : EntitySystem
                 UI.CloseUi(uid, StorageComponent.StorageUiKey.Key, actor);
         }
     }
+
+    // WD EDIT START
+    private void OnAttemptGotIngested(Entity<StorageComponent> ent, ref AttemptGotIngestedEvent args)
+    {
+        if (args.Cancelled)
+            return;
+
+        if (!ent.Comp.Container.ContainedEntities.Any())
+            return;
+
+        args.Cancelled = true;
+        args.Popup = Loc.GetString("ingestion-has-used-storage", ("food", ent), ("verb", Loc.GetString(args.Ingestible.Verb)));
+    }
+    // WD EDIT END
 
     private void OnStackCountChanged(EntityUid uid, MetaDataComponent component, StackCountChangedEvent args)
     {

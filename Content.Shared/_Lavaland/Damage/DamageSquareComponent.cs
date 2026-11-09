@@ -1,4 +1,4 @@
-using Content.Shared.Damage;
+using Content.Shared._White.Damage;
 using Robust.Shared.Audio;
 
 namespace Content.Shared._Lavaland.Damage;

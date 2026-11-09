@@ -1,4 +1,4 @@
-using Content.Shared.Humanoid.Prototypes;
+using Content.Shared._White.Humanoid.Prototypes;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Dictionary;
 

@@ -2,6 +2,8 @@ using Content.Shared.Weapons.Marker;
 // Lavaland Change
 using Content.Server._Lavaland.Pressure;
 using Content.Shared._Lavaland.Weapons.Marker;
+using Content.Shared._White.Damage.Components;
+using Content.Shared._White.Damage.Systems;
 // using Content.Shared._White.BackStab; -- Can someone PLEASE implement this
 using Content.Shared.Damage;
 using Content.Shared.Stunnable;
@@ -43,10 +45,7 @@ public sealed class DamageMarkerSystem : SharedDamageMarkerSystem
             //    damageable: damageable,
             //    origin: args.User);
             //else
-            _damageable.TryChangeDamage(uid,
-            boost.Boost * pressureMultiplier,
-            damageable: damageable,
-            origin: args.User);
+            _damageable.ChangeDamage((uid, damageable), boost.Boost * pressureMultiplier, origin: args.User); // WD EDIT
         }
     }
     // Lavaland Change End

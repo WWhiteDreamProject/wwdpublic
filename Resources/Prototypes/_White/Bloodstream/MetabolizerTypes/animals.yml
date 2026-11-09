@@ -1,0 +1,19 @@
+- type: metabolizerType
+  id: Animal
+  name: metabolizer-type-animal
+
+- type: metabolizerType
+  id: Bloodsucker
+  name: metabolizer-type-bloodsucker
+
+- type: metabolizerType
+  id: Hemocyanin
+  name: metabolizer-type-hemocyanin
+
+- type: metabolizerType
+  id: Rat
+  name: metabolizer-type-rat
+
+- type: metabolizerType
+  id: Xenomorph
+  name: metabolizer-type-xenomorph

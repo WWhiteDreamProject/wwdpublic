@@ -11,8 +11,8 @@
     energy: 5.0
   - type: Projectile
     damage:
-      types:
-        Heat: 10
+      # WD EDIT: Migrated damage format
+      Heat: 10
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
     layers:
@@ -106,8 +106,8 @@
     deleteOnCollide: false
     onlyCollideWhenShot: true
     damage:
-      types:
-        Brute: 0
+      # WD EDIT: Migrated damage format
+      Brute: 0
   - type: Sprite
     noRot: true
     sprite: Structures/Storage/closet.rsi
@@ -171,9 +171,8 @@
       color: '#00FF00'
   - type: Projectile
     damage:
-      types:
-        Poison: 5
-
+      # WD EDIT: Migrated damage format
+      Poison: 5
 - type: entity
   id: ProjectilePolyboltCarp
   parent: ProjectilePolyboltBase
@@ -235,11 +234,18 @@
       color: white
   - type: Projectile
     damage:
-      groups: # good enough. Maybe make it call the rejuvenate command later.
-        Brute: -900
-        Burn: -900
-        Airloss: -600
-        Toxin: -600
+      # WD EDIT: Migrated damage format
+      Asphyxiation: -300
+      Bloodloss: -300
+      Blunt: -300
+      Caustic: -225
+      Cold: -225
+      Heat: -225
+      Piercing: -300
+      Poison: -300
+      Radiation: -300
+      Shock: -225
+      Slash: -300
     ignoreResistances: true
 
 - type: entity
@@ -251,8 +257,8 @@
   components:
   - type: Projectile
     damage:
-      types:
-        Piercing: 300
+      # WD EDIT: Migrated damage format
+      Piercing: 300
     ignoreResistances: true
 
 - type: entity
@@ -279,11 +285,10 @@
     sprite: Structures/Specific/Anomalies/ice_anom.rsi
   - type: Projectile
     damage:
-      types:
-        Piercing: 20
-        Cold: 20
-        Structural: 50
-
+      # WD EDIT: Migrated damage format
+      Cold: 20
+      Piercing: 20
+      Structural: 50
 - type: entity
   parent: ProjectilePolyboltBase
   id: ProjectilePolyboltBread

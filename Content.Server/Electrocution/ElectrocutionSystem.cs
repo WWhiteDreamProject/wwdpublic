@@ -8,8 +8,9 @@ using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Power.NodeGroups;
 using Content.Server.Weapons.Melee;
-using Content.Shared.Damage;
-using Content.Shared.Damage.Prototypes;
+using Content.Shared._White.Damage;
+using Content.Shared._White.Damage.Prototypes;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Database;
 using Content.Shared.Electrocution;
 using Content.Shared.IdentityManagement;
@@ -405,7 +406,7 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
 
         if (shockDamage is { } dmg)
         {
-            var actual = _damageable.TryChangeDamage(uid,
+            var actual = _damageable.ChangeDamage(uid, // WD EDIT
                 new DamageSpecifier(_prototypeManager.Index<DamageTypePrototype>(DamageType), dmg), origin: sourceUid);
 
             if (actual != null)

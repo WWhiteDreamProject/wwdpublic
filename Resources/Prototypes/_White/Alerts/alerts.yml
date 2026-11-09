@@ -5,3 +5,32 @@
     state: buckler-icon
   name: alerts-blocked-name
   description: alerts-blocked-desc
+
+- type: alert
+  id: PainStatus
+  icons:
+  - sprite: /Textures/_White/Interface/Alerts/body_status.rsi
+    state: chest_zero
+  alertViewEntity: AlertBodyStatusSpriteView
+  name: alerts-pain-status-name
+  description: alerts-pain-status-desc
+
+- type: entity
+  id: AlertBodyStatusSpriteView
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: /Textures/_White/Interface/Alerts/body_status.rsi
+    layers:
+    - map: [ "enum.AlertVisualLayers.Base" ]
+    - map: [ "enum.PainStatusVisualLayers.Head" ]
+    - map: [ "enum.PainStatusVisualLayers.Chest" ]
+    - map: [ "enum.PainStatusVisualLayers.Groin" ]
+    - map: [ "enum.PainStatusVisualLayers.LeftArm" ]
+    - map: [ "enum.PainStatusVisualLayers.LeftHand" ]
+    - map: [ "enum.PainStatusVisualLayers.RightArm" ]
+    - map: [ "enum.PainStatusVisualLayers.RightHand" ]
+    - map: [ "enum.PainStatusVisualLayers.LeftLeg" ]
+    - map: [ "enum.PainStatusVisualLayers.LeftFoot" ]
+    - map: [ "enum.PainStatusVisualLayers.RightLeg" ]
+    - map: [ "enum.PainStatusVisualLayers.RightFoot" ]

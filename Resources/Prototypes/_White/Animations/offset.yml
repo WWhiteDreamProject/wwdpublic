@@ -1,0 +1,18 @@
+- type: animation
+  id: Offset
+  animationTracksData:
+  - !type:AnimationTrackComponentPropertyData
+    componentType: Sprite
+    property: Offset
+    interpolationMode: Cubic
+    keyFrames:
+    - !type:KeyFramePropertyData
+      value: 0, 0
+      keyframe: 0
+    - !type:KeyFramePropertyData
+      value: 0, 1
+      keyframe: 0.1
+    - !type:KeyFramePropertyData
+      value: 0, 0
+      keyframe: 0.4
+  key: offset

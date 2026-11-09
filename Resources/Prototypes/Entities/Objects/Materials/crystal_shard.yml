@@ -24,8 +24,8 @@
     wideAnimationRotation: -22.5
     attackRate: .6666
     damage:
-      types:
-        Slash: 3.5
+      # WD EDIT: Migrated damage format
+      Slash: 3.5
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: Glass

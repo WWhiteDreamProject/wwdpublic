@@ -37,8 +37,5 @@ ent-ValyrianStandardTranslatorImplanter = имплантер-переводчи�
 ent-AzazibaTranslatorImplanter = имплантер-переводчик для Азазиба
     .desc = { ent-BaseImplanter.desc }
 
-ent-ChittinTranslatorImplanter = имплантер-переводчик для Хитинидского
-    .desc = { ent-BaseImplanter.desc }
-
 ent-SiikMaasTranslatorImplanter = имплантер-переводчик для Сиик'маас
     .desc = { ent-BaseImplanter.desc }

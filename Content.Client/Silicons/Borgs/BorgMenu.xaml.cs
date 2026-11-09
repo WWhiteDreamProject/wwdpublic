@@ -1,5 +1,6 @@
 using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Controls;
+using Content.Shared._White.Humanoid.Systems;
 using Content.Shared.NameIdentifier;
 using Content.Shared.Preferences;
 using Content.Shared.Silicons.Borgs;
@@ -150,9 +151,9 @@ public sealed partial class BorgMenu : FancyWindow
             return;
         }
 
-        if (obj.Text.Length > HumanoidCharacterProfile.MaxNameLength)
+        if (obj.Text.Length > HumanoidProfileSystem.MaxNameLength)
         {
-            obj.Control.Text = obj.Text.Substring(0, HumanoidCharacterProfile.MaxNameLength);
+            obj.Control.Text = obj.Text.Substring(0, HumanoidProfileSystem.MaxNameLength);
         }
 
         _lastValidName = obj.Control.Text;
@@ -166,7 +167,7 @@ public sealed partial class BorgMenu : FancyWindow
 
     private void OnNameFocusExit(LineEdit.LineEditEventArgs obj)
     {
-        if (obj.Text.Length > HumanoidCharacterProfile.MaxNameLength ||
+        if (obj.Text.Length > HumanoidProfileSystem.MaxNameLength ||
             obj.Text.Length == 0 ||
             string.IsNullOrWhiteSpace(obj.Text) ||
             string.IsNullOrEmpty(obj.Text))

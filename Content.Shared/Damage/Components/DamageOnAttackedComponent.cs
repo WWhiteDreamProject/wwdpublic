@@ -1,3 +1,4 @@
+using Content.Shared._White.Damage;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 

@@ -12,9 +12,8 @@
     wideAnimationRotation: 90
     attackRate: 0.75
     damage:
-      types:
-        Slash: 25
-        Piercing: 15
+      Slash: 25
+      Piercing: 15
   - type: Item
     size: Normal
     sprite: Objects/Weapons/Melee/armblade.rsi
@@ -22,11 +21,3 @@
   - type: Utensil
     types:
     - Knife
-  # Shitmed Change
-  - type: Scalpel
-    speed: 0.3
-  - type: BoneSaw
-    speed: 0.75
-  - type: SurgeryTool
-    startSound:
-      path: /Audio/Medical/Surgery/saw.ogg

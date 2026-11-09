@@ -5,6 +5,7 @@ using Content.Shared.EntityList;
 using Content.Shared.Hands.EntitySystems;
 using Content.Server.GameTicking;
 using Content.Shared._White.CCVar;
+using Content.Shared._White.Humanoid.Components;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
@@ -36,7 +37,7 @@ public sealed class PostManifestMassacreSystem : EntitySystem
 
         var weapons = prototype.EntityIds;
 
-        var players = AllEntityQuery<HumanoidAppearanceComponent, ActorComponent, MobStateComponent>();
+        var players = AllEntityQuery<HumanoidProfileComponent, ActorComponent, MobStateComponent>();
 
         while (players.MoveNext(out var uid, out _, out _, out var mob))
         {

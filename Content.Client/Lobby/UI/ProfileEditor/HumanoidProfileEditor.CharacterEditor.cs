@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Shared.Clothing.Loadouts.Systems;
 using Content.Shared.Clothing.Loadouts.Prototypes;
 
@@ -17,11 +18,11 @@ public sealed partial class HumanoidProfileEditor
         if (Profile == null)
             return;
 
-        var highJob = _controller.GetPreferredJob(Profile);
+        var highJob = _controller.GetPreferredJob(Profile.Value);
 
         _loadouts.Clear();
 
-        foreach (var loadout in Profile.LoadoutPreferencesList)
+        foreach (var loadout in Profile.Value.Loadouts.Values)
         {
             if (!_prototypeManager.TryIndex<LoadoutPrototype>(loadout.LoadoutName, out var loadoutProto))
                 continue;
@@ -29,7 +30,7 @@ public sealed partial class HumanoidProfileEditor
             var usable = _characterRequirementsSystem.CheckRequirementsValid(
                 loadoutProto.Requirements,
                 highJob,
-                Profile,
+                Profile.Value,
                 _requirements.GetRawPlayTimeTrackers(),
                 _requirements.IsWhitelisted(),
                 loadoutProto,
@@ -45,8 +46,8 @@ public sealed partial class HumanoidProfileEditor
         UpdateLoadoutsRemoveButton();
 
         Loadouts.SetData(
-            Profile.LoadoutPreferencesList,
-            new(highJob, Profile, _requirements.GetRawPlayTimeTrackers(), _requirements.IsWhitelisted()));
+            Profile.Value.Loadouts.Values,
+            new(highJob, Profile.Value, _requirements.GetRawPlayTimeTrackers(), _requirements.IsWhitelisted()));
 
         Loadouts.ShowUnusable = LoadoutsShowUnusableButton.Pressed;
     }
@@ -63,7 +64,7 @@ public sealed partial class HumanoidProfileEditor
         if (Profile is null)
             return;
 
-        Profile = Profile.WithLoadoutPreference(loadouts);
+        Profile = Profile.Value.WithLoadout(loadouts.ToDictionary(x => x.LoadoutName));
         ReloadProfilePreview();
         ReloadClothes();
         UpdateLoadouts();

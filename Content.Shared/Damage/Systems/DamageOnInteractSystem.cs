@@ -1,3 +1,5 @@
+using Content.Shared._White.Damage;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Damage.Components;
 using Content.Shared.Database;
@@ -6,8 +8,6 @@ using Content.Shared.Inventory;
 using Content.Shared.Popups;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Network;
-using Robust.Shared.Timing;
 
 namespace Content.Shared.Damage.Systems;
 
@@ -61,9 +61,7 @@ public sealed class DamageOnInteractSystem : EntitySystem
             }
         }
 
-        totalDamage = _damageableSystem.TryChangeDamage(args.User, totalDamage,  origin: args.Target);
-
-        if (totalDamage != null && totalDamage.AnyPositive())
+        if (_damageableSystem.TryChangeDamage(args.User, totalDamage, out totalDamage,  origin: args.Target) && totalDamage.AnyPositive()) // WD EDIT
         {
             args.Handled = true;
             _adminLogger.Add(LogType.Damaged, $"{ToPrettyString(args.User):user} injured their hand by interacting with {ToPrettyString(args.Target):target} and received {totalDamage.GetTotal():damage} damage");

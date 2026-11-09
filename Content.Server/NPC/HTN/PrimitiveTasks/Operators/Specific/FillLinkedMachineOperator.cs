@@ -1,5 +1,5 @@
 using Content.Server.Disposal.Unit.Components;
-using Content.Shared.Body.Part;
+using Content.Shared._White.Body.Components;
 using Content.Shared.DeviceLinking;
 using Content.Shared.Disposal;
 using Content.Shared.Hands.Components;
@@ -55,7 +55,7 @@ public sealed partial class FillLinkedMachineOperator : HTNOperator
 
         var heldItem = _sharedHandsSystem.GetActiveItem(owner);
 
-        if (heldItem == null || _entManager.HasComponent<BodyPartComponent>(heldItem))
+        if (heldItem == null || _entManager.HasComponent<BodyProviderComponent>(heldItem))
         {
             _sharedHandsSystem.TryDrop(owner);
             return HTNOperatorStatus.Failed;

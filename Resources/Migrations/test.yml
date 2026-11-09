@@ -1,0 +1,23 @@
+MedicalBiofabricator: null
+AdvancedRetractor: null
+BoneGel: null
+EnergyCautery: null
+EnergyScalpel: null
+Autodoc: null
+BioSynthLeftArm: null
+HeadKobold: null
+LeftLegMonkey: null
+OrganAnimalBrain: null
+
+LightHeadBorg: BodyProviderHeadBorg
+TorsoBorg: BodyProviderTorsoBorg
+LeftArmBorg: BodyProviderLeftArmBorg
+RightArmBorg: BodyProviderRightArmBorg
+LeftLegBorg: BodyProviderLeftLegBorg
+RightLegBorg: BodyProviderRightLegBorg
+
+OrganHumanBrain: BodyProviderBrainHuman
+OrganHumanHeart: BodyProviderHeartHuman
+HeadSkeleton: BodyProviderHeadSkeleton
+TorsoSkeleton: BodyProviderChestSkeleton
+OrganHumanAppendix: BodyProviderAppendixHuman

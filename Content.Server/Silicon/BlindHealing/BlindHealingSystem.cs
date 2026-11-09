@@ -1,8 +1,8 @@
 using Content.Server.Administration.Logs;
 using Content.Server.Cargo.Components;
 using Content.Server.Stack;
+using Content.Shared._White.Damage.Components;
 using Content.Shared.Silicon.BlindHealing;
-using Content.Shared.Damage;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
 using Content.Shared.Eye.Blinding.Components;
@@ -70,7 +70,7 @@ public sealed class BlindHealingSystem : SharedBlindHealingSystem
 
         if (args.Handled
             || !TryComp<DamageableComponent>(args.User, out var damageable)
-            || damageable.DamageContainerID != null && !component.DamageContainers.Contains(damageable.DamageContainerID)
+            || damageable.Container != null && !component.DamageContainers.Contains(damageable.Container) // WD EDIT
             || !TryComp<BlindableComponent>(args.User, out var blindcomp)
             || blindcomp.EyeDamage == 0
             || args.User == args.Target && !component.AllowSelfHeal)
@@ -86,7 +86,7 @@ public sealed class BlindHealingSystem : SharedBlindHealingSystem
     {
         if (args.Handled
             || !TryComp<DamageableComponent>(args.User, out var damageable)
-            || damageable.DamageContainerID != null && !component.DamageContainers.Contains(damageable.DamageContainerID)
+            || damageable.Container != null && !component.DamageContainers.Contains(damageable.Container) // WD EDIT
             || !TryComp<BlindableComponent>(args.User, out var blindcomp)
             || blindcomp.EyeDamage == 0
             || !component.AllowSelfHeal)

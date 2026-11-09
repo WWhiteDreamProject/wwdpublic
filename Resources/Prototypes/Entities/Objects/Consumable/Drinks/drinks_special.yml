@@ -6,24 +6,24 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 100
   - type: MixableSolution
-    solution: drink
-  - type: Drink
+    solution: ingestible # WD Ingestible
+  - type: Ingestible # WD Ingestible
   - type: Shakeable
   - type: FitsInDispenser
-    solution: drink
+    solution: ingestible # WD Ingestible
   - type: DrawableSolution
-    solution: drink
+    solution: ingestible # WD Ingestible
   - type: RefillableSolution
-    solution: drink
+    solution: ingestible # WD Ingestible
   - type: DrainableSolution
-    solution: drink
+    solution: ingestible # WD Ingestible
   - type: SolutionTransfer
     canChangeTransferAmount: true
   - type: Spillable
-    solution: drink
+    solution: ingestible # WD Ingestible
   - type: Sprite
     sprite: Objects/Consumable/Drinks/shaker.rsi
     state: icon
@@ -54,12 +54,12 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 5
   - type: SolutionTransfer
     transferAmount: 10
     minTransferAmount: 10
-  - type: Drink
+  - type: Ingestible # WD Ingestible
   - type: Sprite
     sprite: Objects/Consumable/Drinks/shotglass.rsi
     layers:
@@ -81,7 +81,7 @@
   name: jar
   description: The hipster's cup.
   components:
-  - type: Drink
+  - type: Ingestible # WD Ingestible
   - type: Sprite
     sprite: Objects/Consumable/Drinks/jar.rsi
     layers:
@@ -95,7 +95,7 @@
   - type: Appearance
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 50
   - type: SolutionContainerVisuals
     maxFillLevels: 9
@@ -112,7 +112,7 @@
   name: jar of something
   description: You can't really tell what this is.
   components:
-  - type: Drink
+  - type: Ingestible # WD Ingestible
   - type: Sprite
     sprite: Objects/Consumable/Drinks/jar_what.rsi
 
@@ -121,16 +121,16 @@
   abstract: true
   components:
   - type: DrainableSolution
-    solution: drink
-  - type: Drink
+    solution: ingestible # WD Ingestible
+  - type: Ingestible # WD Ingestible
   - type: DrawableSolution
-    solution: drink
+    solution: ingestible # WD Ingestible
   - type: RefillableSolution
-    solution: drink
+    solution: ingestible # WD Ingestible
   - type: SolutionTransfer
     canChangeTransferAmount: true
   - type: Spillable
-    solution: drink
+    solution: ingestible # WD Ingestible
   - type: UserInterface
     interfaces:
       enum.TransferAmountUiKey.Key:
@@ -144,12 +144,12 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 20
   - type: MixableSolution
-    solution: drink
+    solution: ingestible # WD Ingestible
   - type: FitsInDispenser
-    solution: drink
+    solution: ingestible # WD Ingestible
   - type: Sprite
     sprite: Objects/Consumable/Drinks/jigger.rsi
     state: icon
@@ -165,7 +165,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Ice
           Quantity: 200

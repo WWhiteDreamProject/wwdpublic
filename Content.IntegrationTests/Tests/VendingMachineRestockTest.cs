@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Content.Server.VendingMachines;
 using Content.Server.Wires;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Cargo.Prototypes;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
@@ -294,7 +295,7 @@ namespace Content.IntegrationTests.Tests
 
                 restock = entityManager.SpawnEntity("TestRestockExplode", coordinates);
                 var damageSpec = new DamageSpecifier(prototypeManager.Index<DamageTypePrototype>("Blunt"), 100);
-                var damageResult = damageableSystem.TryChangeDamage(restock, damageSpec);
+                var damageResult = damageableSystem.ChangeDamage(restock, damageSpec); // WD EDIT
 
 #pragma warning disable NUnit2045
                 Assert.That(damageResult, Is.Not.Null,

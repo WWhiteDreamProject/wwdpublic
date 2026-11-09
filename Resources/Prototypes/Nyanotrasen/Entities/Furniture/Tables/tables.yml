@@ -41,6 +41,5 @@
   - type: Bonkable
     # Reinforced tables are extra tough
     bonkDamage:
-      types:
-        Blunt: 8
+      Blunt: 8
     bonkTime: 3

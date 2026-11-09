@@ -1,5 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
-using Content.Shared.Body.Systems;
+using Content.Shared._White.Body.Systems;
 using Content.Shared.Cuffs;
 using Content.Shared.DoAfter;
 using Content.Shared.Hands.EntitySystems;

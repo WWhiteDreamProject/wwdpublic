@@ -1,5 +1,5 @@
 using Content.Shared._Goobstation.Clothing.Components;
-using Content.Shared.Damage;
+using Content.Shared._White.Damage.Systems;
 using Robust.Shared.Timing;
 
 namespace Content.Shared._Goobstation.Clothing.Systems;

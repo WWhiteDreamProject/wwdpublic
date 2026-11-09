@@ -1,0 +1,893 @@
+# TODO: Add descriptions
+
+- type: entity
+  id: BaseBodyProviderPart
+  parent: BaseBodyProvider
+  abstract: true
+  name: body part
+  components:
+  - type: BodyProvider
+    providerType: Part
+  - type: Damageable
+    container: BodyProviderPart
+  - type: FlavorProfile
+    flavors:
+    - chicken
+  - type: Ingestible
+  - type: SolutionContainerManager
+    solutions:
+      ingestible:
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 20
+  - type: Tag
+    tags:
+    - Raw
+    - Meat
+  - type: WoundableProvider
+
+- type: entity
+  id: BaseBodyProviderPartAppearance
+  parent: BaseBodyProviderPart
+  components:
+  - type: BodyAppearanceProvider
+  - type: MarkingsProvider
+    data:
+      group: None
+  - type: Sprite
+
+- type: entity
+  id: BaseBodyProviderPartGibbable
+  parent: BaseBodyProviderPart
+  components:
+  - type: AmputatableProvider
+  - type: GibbableProvider
+
+- type: entity
+  id: BaseBodyProviderPartOrganic
+  parent: BaseBodyProviderPart
+  components:
+  - type: BloodstreamProvider
+  - type: PainfulProvider
+
+# AllParts
+- type: entity
+  id: BaseBodyProviderAllParts
+  parent: BaseBodyProviderPart
+  abstract: true
+  name: all parts
+  components:
+  - type: BodyProvider
+    providerType: AllParts
+
+- type: entity
+  id: BaseBodyProviderAllPartsAppearance
+  parent: BaseBodyProviderPartAppearance
+  abstract: true
+  components:
+  - type: BodyAppearanceProvider
+    layer: enum.BodyProviderType.AllParts
+  - type: Sprite
+    layers:
+    - map: [ "default" ]
+      state: all_parts
+    - map: [ "enum.BodyProviderType.AllParts" ]
+
+- type: entity
+  id: BaseBodyProviderAllPartsOrganic
+  parent: BaseBodyProviderPartOrganic
+  abstract: true
+  components:
+  - type: PainfulProvider
+    location: AllParts
+
+# Arms
+- type: entity
+  id: BaseBodyProviderArm
+  parent: [BaseBodyProviderPart, BaseBodyProviderPartGibbable]
+  abstract: true
+  name: arm
+  components:
+  - type: BodyProvider
+    providerType: Arm
+
+- type: entity
+  id: BaseBodyProviderArmAppearance
+  parent: BaseBodyProviderPartAppearance
+  abstract: true
+  components:
+  - type: BodyAppearanceProvider
+    layer: enum.BodyProviderType.Arm
+  - type: Sprite
+    layers:
+    - map: [ "default" ]
+      state: arm
+    - map: [ "enum.BodyProviderType.Arm" ]
+    - map: [ "enum.BodyProviderType.Hand" ]
+
+- type: entity
+  id: BaseBodyProviderLeftArm
+  parent: BaseBodyProviderArm
+  abstract: true
+  name: left arm
+  components:
+  - type: BodyProvider
+    providerType: LeftArm
+
+- type: entity
+  id: BaseBodyProviderLeftArmAppearance
+  parent: BaseBodyProviderPartAppearance
+  abstract: true
+  components:
+  - type: BodyAppearanceProvider
+    layer: enum.BodyProviderType.LeftArm
+  - type: MarkingsProvider
+    data:
+      layers:
+      - enum.BodyProviderType.LeftArm
+      - enum.MarkingVisualLayers.LeftArmTop
+  - type: Sprite
+    layers:
+    - map: [ "default" ]
+      state: left_arm
+    - map: [ "enum.BodyProviderType.LeftArm" ]
+    - map: [ "enum.BodyProviderType.LeftHand" ]
+    - map: [ "enum.MarkingVisualLayers.LeftArmTop" ]
+
+- type: entity
+  id: BaseBodyProviderLeftArmOrganic
+  parent: BaseBodyProviderPartOrganic
+  abstract: true
+  components:
+  - type: PainfulProvider
+    location: LeftArm
+
+- type: entity
+  id: BaseBodyProviderMiddleArm
+  parent: BaseBodyProviderArm
+  abstract: true
+  name: middle arm
+  components:
+  - type: BodyProvider
+    providerType: MiddleArm
+
+- type: entity
+  id: BaseBodyProviderMiddleArmAppearance
+  parent: BaseBodyProviderPartAppearance
+  abstract: true
+  components:
+  - type: BodyAppearanceProvider
+    layer: enum.BodyProviderType.MiddleArm
+  - type: MarkingsProvider
+    data:
+      layers:
+      - enum.BodyProviderType.MiddleArm
+  - type: Sprite
+    layers:
+    - map: [ "default" ]
+      state: middle_arm
+    - map: [ "enum.BodyProviderType.MiddleArm" ]
+    - map: [ "enum.BodyProviderType.MiddleHand" ]
+
+- type: entity
+  id: BaseBodyProviderMiddleArmOrganic
+  parent: BaseBodyProviderPartOrganic
+  abstract: true
+  components:
+  - type: PainfulProvider
+    location: MiddleArm
+
+- type: entity
+  id: BaseBodyProviderRightArm
+  parent: BaseBodyProviderArm
+  abstract: true
+  name: right arm
+  components:
+  - type: BodyProvider
+    providerType: RightArm
+
+- type: entity
+  id: BaseBodyProviderRightArmAppearance
+  parent: BaseBodyProviderPartAppearance
+  abstract: true
+  components:
+  - type: BodyAppearanceProvider
+    layer: enum.BodyProviderType.RightArm
+  - type: MarkingsProvider
+    data:
+      layers:
+      - enum.BodyProviderType.RightArm
+      - enum.MarkingVisualLayers.RightArmTop
+  - type: Sprite
+    layers:
+    - map: [ "default" ]
+      state: right_arm
+    - map: [ "enum.BodyProviderType.RightArm" ]
+    - map: [ "enum.BodyProviderType.RightHand" ]
+    - map: [ "enum.MarkingVisualLayers.RightArmTop" ]
+
+- type: entity
+  id: BaseBodyProviderRightArmOrganic
+  parent: BaseBodyProviderPartOrganic
+  abstract: true
+  components:
+  - type: PainfulProvider
+    location: RightArm
+
+# Chest
+- type: entity
+  id: BaseBodyProviderChest
+  parent: BaseBodyProviderPart
+  abstract: true
+  name: chest
+  components:
+  - type: BodyProvider
+    providerType: Chest
+
+- type: entity
+  id: BaseBodyProviderChestAppearance
+  parent: BaseBodyProviderPartAppearance
+  abstract: true
+  components:
+  - type: BodyAppearanceProvider
+    layer: enum.BodyProviderType.Chest
+  - type: MarkingsProvider
+    data:
+      layers:
+      - enum.BodyProviderType.Chest
+      - enum.MarkingVisualLayers.ChestBack
+      - enum.MarkingVisualLayers.UndergarmentTop
+  - type: Sprite
+    layers:
+    # Torso
+    - map: [ "default" ]
+      state: chest
+    - map: [ "enum.BodyProviderType.Chest" ]
+    - map: [ "enum.BodyProviderType.Groin" ]
+    - map: [ "enum.MarkingVisualLayers.ChestBack" ]
+    - map: [ "enum.MarkingVisualLayers.GroinBack" ]
+    - map: [ "enum.MarkingVisualLayers.UndergarmentBottom" ]
+    - map: [ "enum.MarkingVisualLayers.UndergarmentTop" ]
+    # Head
+    - map: [ "enum.BodyProviderType.Head" ]
+    - map: [ "enum.BodyProviderType.Eyes" ]
+    - map: [ "enum.MarkingVisualLayers.Face" ]
+    - map: [ "enum.MarkingVisualLayers.FacialHair" ]
+    - map: [ "enum.MarkingVisualLayers.Hair" ]
+    - map: [ "enum.MarkingVisualLayers.HeadBottom" ]
+    - map: [ "enum.MarkingVisualLayers.HeadSide" ]
+    - map: [ "enum.MarkingVisualLayers.HeadTop" ]
+    - map: [ "enum.MarkingVisualLayers.Snout" ]
+    # Limbs
+    - map: [ "enum.BodyProviderType.LeftLeg" ]
+    - map: [ "enum.BodyProviderType.LeftArm" ]
+    - map: [ "enum.BodyProviderType.MiddleLeg" ]
+    - map: [ "enum.BodyProviderType.MiddleArm" ]
+    - map: [ "enum.BodyProviderType.RightLeg" ]
+    - map: [ "enum.BodyProviderType.RightArm" ]
+    - map: [ "enum.MarkingVisualLayers.LeftArmTop" ]
+    - map: [ "enum.MarkingVisualLayers.RightArmTop" ]
+    # Extremities
+    - map: [ "enum.BodyProviderType.LeftFoot" ]
+    - map: [ "enum.BodyProviderType.LeftHand" ]
+    - map: [ "enum.BodyProviderType.MiddleFoot" ]
+    - map: [ "enum.BodyProviderType.MiddleHand" ]
+    - map: [ "enum.BodyProviderType.RightFoot" ]
+    - map: [ "enum.BodyProviderType.RightHand" ]
+    # Other parts
+    - map: [ "enum.BodyProviderType.Wings" ]
+    - map: [ "enum.BodyProviderType.Tail" ]
+
+- type: entity
+  id: BaseBodyProviderChestOrganic
+  parent: BaseBodyProviderPartOrganic
+  abstract: true
+  components:
+  - type: PainfulProvider
+    location: Chest
+
+# Foots
+- type: entity
+  id: BaseBodyProviderFoot
+  parent: [BaseBodyProviderPart, BaseBodyProviderPartGibbable]
+  abstract: true
+  name: foot
+  components:
+  - type: BodyProvider
+    providerType: Foot
+
+- type: entity
+  id: BaseBodyProviderFootAppearance
+  parent: BaseBodyProviderPartAppearance
+  abstract: true
+  components:
+  - type: BodyAppearanceProvider
+    layer: enum.BodyProviderType.Foot
+  - type: Sprite
+    layers:
+    - map: [ "default" ]
+      state: foot
+    - map: [ "enum.BodyProviderType.Foot" ]
+
+- type: entity
+  id: BaseBodyProviderLeftFoot
+  parent: BaseBodyProviderFoot
+  abstract: true
+  name: left foot
+  components:
+  - type: BodyProvider
+    providerType: LeftFoot
+
+- type: entity
+  id: BaseBodyProviderLeftFootAppearance
+  parent: BaseBodyProviderPartAppearance
+  abstract: true
+  components:
+  - type: BodyAppearanceProvider
+    layer: enum.BodyProviderType.LeftFoot
+  - type: MarkingsProvider
+    data:
+      layers:
+      - enum.BodyProviderType.LeftFoot
+  - type: Sprite
+    layers:
+    - map: [ "default" ]
+      state: left_foot
+    - map: [ "enum.BodyProviderType.LeftFoot" ]
+
+- type: entity
+  id: BaseBodyProviderLeftFootOrganic
+  parent: BaseBodyProviderPartOrganic
+  abstract: true
+  components:
+  - type: PainfulProvider
+    location: LeftFoot
+
+- type: entity
+  id: BaseBodyProviderMiddleFoot
+  parent: BaseBodyProviderFoot
+  abstract: true
+  name: middle foot
+  components:
+  - type: BodyProvider
+    providerType: MiddleFoot
+
+- type: entity
+  id: BaseBodyProviderMiddleFootAppearance
+  parent: BaseBodyProviderPartAppearance
+  abstract: true
+  components:
+  - type: BodyAppearanceProvider
+    layer: enum.BodyProviderType.MiddleFoot
+  - type: MarkingsProvider
+    data:
+      layers:
+      - enum.BodyProviderType.MiddleFoot
+  - type: Sprite
+    layers:
+    - map: [ "default" ]
+      state: middle_foot
+    - map: [ "enum.BodyProviderType.MiddleFoot" ]
+
+- type: entity
+  id: BaseBodyProviderMiddleFootOrganic
+  parent: BaseBodyProviderPartOrganic
+  abstract: true
+  components:
+  - type: PainfulProvider
+    location: MiddleFoot
+
+- type: entity
+  id: BaseBodyProviderRightFoot
+  parent: BaseBodyProviderFoot
+  abstract: true
+  name: right foot
+  components:
+  - type: BodyProvider
+    providerType: RightFoot
+
+- type: entity
+  id: BaseBodyProviderRightFootAppearance
+  parent: BaseBodyProviderPartAppearance
+  abstract: true
+  components:
+  - type: BodyAppearanceProvider
+    layer: enum.BodyProviderType.RightFoot
+  - type: MarkingsProvider
+    data:
+      layers:
+      - enum.BodyProviderType.RightFoot
+  - type: Sprite
+    layers:
+    - map: [ "default" ]
+      state: right_foot
+    - map: [ "enum.BodyProviderType.RightFoot" ]
+
+- type: entity
+  id: BaseBodyProviderRightFootOrganic
+  parent: BaseBodyProviderPartOrganic
+  abstract: true
+  components:
+  - type: PainfulProvider
+    location: RightFoot
+
+# Groin
+- type: entity
+  id: BaseBodyProviderGroin
+  parent: BaseBodyProviderPart
+  abstract: true
+  name: groin
+  components:
+  - type: BodyProvider
+    providerType: Groin
+
+- type: entity
+  id: BaseBodyProviderGroinAppearance
+  parent: BaseBodyProviderPartAppearance
+  abstract: true
+  components:
+  - type: BodyAppearanceProvider
+    layer: enum.BodyProviderType.Groin
+  - type: MarkingsProvider
+    data:
+      layers:
+      - enum.BodyProviderType.Groin
+      - enum.MarkingVisualLayers.GroinBack
+      - enum.MarkingVisualLayers.UndergarmentBottom
+  - type: Sprite
+    layers:
+    # Groin
+    - map: [ "default" ]
+      state: groin
+    - map: [ "enum.BodyProviderType.Groin" ]
+    - map: [ "enum.MarkingVisualLayers.GroinBack" ]
+    - map: [ "enum.MarkingVisualLayers.UndergarmentBottom" ]
+    # Limbs
+    - map: [ "enum.BodyProviderType.LeftLeg" ]
+    - map: [ "enum.BodyProviderType.MiddleLeg" ]
+    - map: [ "enum.BodyProviderType.RightLeg" ]
+    # Extremities
+    - map: [ "enum.BodyProviderType.LeftFoot" ]
+    - map: [ "enum.BodyProviderType.MiddleFoot" ]
+    - map: [ "enum.BodyProviderType.RightFoot" ]
+    # Other parts
+    - map: [ "enum.BodyProviderType.Tail" ]
+
+- type: entity
+  id: BaseBodyProviderGroinOrganic
+  parent: BaseBodyProviderPartOrganic
+  abstract: true
+  components:
+  - type: PainfulProvider
+    location: Groin
+
+# Hands
+- type: entity
+  id: BaseBodyProviderHand
+  parent: [BaseBodyProviderPart, BaseBodyProviderPartGibbable]
+  abstract: true
+  name: hand
+  components:
+  - type: BodyProvider
+    providerType: Hand
+  - type: HandProvider
+
+- type: entity
+  id: BaseBodyProviderHandAppearance
+  parent: BaseBodyProviderPartAppearance
+  abstract: true
+  components:
+  - type: BodyAppearanceProvider
+    layer: enum.BodyProviderType.Hand
+  - type: Sprite
+    layers:
+    - map: [ "default" ]
+      state: hand
+    - map: [ "enum.BodyProviderType.Hand" ]
+
+- type: entity
+  id: BaseBodyProviderLeftHand
+  parent: BaseBodyProviderHand
+  abstract: true
+  name: left hand
+  components:
+  - type: BodyProvider
+    providerType: LeftHand
+  - type: HandProvider
+    location: Left
+    id: left_hand
+
+- type: entity
+  id: BaseBodyProviderLeftHandAppearance
+  parent: BaseBodyProviderPartAppearance
+  abstract: true
+  components:
+  - type: BodyAppearanceProvider
+    layer: enum.BodyProviderType.LeftHand
+  - type: MarkingsProvider
+    data:
+      layers:
+      - enum.BodyProviderType.LeftHand
+  - type: Sprite
+    layers:
+    - map: [ "default" ]
+      state: left_hand
+    - map: [ "enum.BodyProviderType.LeftHand" ]
+
+- type: entity
+  id: BaseBodyProviderLeftHandOrganic
+  parent: BaseBodyProviderPartOrganic
+  abstract: true
+  components:
+  - type: PainfulProvider
+    location: LeftHand
+
+- type: entity
+  id: BaseBodyProviderMiddleHand
+  parent: BaseBodyProviderHand
+  abstract: true
+  name: middle hand
+  components:
+  - type: BodyProvider
+    providerType: MiddleHand
+  - type: HandProvider
+    location: Middle
+    id: middle_hand
+
+- type: entity
+  id: BaseBodyProviderMiddleHandAppearance
+  parent: BaseBodyProviderPartAppearance
+  abstract: true
+  components:
+  - type: BodyAppearanceProvider
+    layer: enum.BodyProviderType.MiddleHand
+  - type: MarkingsProvider
+    data:
+      layers:
+      - enum.BodyProviderType.MiddleHand
+  - type: Sprite
+    layers:
+    - map: [ "default" ]
+      state: middle_hand
+    - map: [ "enum.BodyProviderType.MiddleHand" ]
+
+- type: entity
+  id: BaseBodyProviderMiddleHandOrganic
+  parent: BaseBodyProviderPartOrganic
+  abstract: true
+  components:
+  - type: PainfulProvider
+    location: MiddleHand
+
+- type: entity
+  id: BaseBodyProviderRightHand
+  parent: BaseBodyProviderHand
+  abstract: true
+  name: right hand
+  components:
+  - type: BodyProvider
+    providerType: RightHand
+  - type: HandProvider
+    location: Right
+    id: right_hand
+
+- type: entity
+  id: BaseBodyProviderRightHandAppearance
+  parent: BaseBodyProviderPartAppearance
+  abstract: true
+  components:
+  - type: BodyAppearanceProvider
+    layer: enum.BodyProviderType.RightHand
+  - type: MarkingsProvider
+    data:
+      layers:
+      - enum.BodyProviderType.RightHand
+  - type: Sprite
+    layers:
+    - map: [ "default" ]
+      state: right_hand
+    - map: [ "enum.BodyProviderType.RightHand" ]
+
+- type: entity
+  id: BaseBodyProviderRightHandOrganic
+  parent: BaseBodyProviderPartOrganic
+  abstract: true
+  components:
+  - type: PainfulProvider
+    location: RightHand
+
+# Head
+- type: entity
+  id: BaseBodyProviderHead
+  parent: [BaseBodyProviderPart, BaseBodyProviderPartGibbable]
+  abstract: true
+  name: head
+  components:
+  - type: BodyProvider
+    providerType: Head
+
+- type: entity
+  id: BaseBodyProviderHeadAppearance
+  parent: BaseBodyProviderPartAppearance
+  abstract: true
+  components:
+  - type: BodyAppearanceProvider
+    layer: enum.BodyProviderType.Head
+  - type: MarkingsProvider
+    hideableLayers:
+    - enum.MarkingVisualLayers.Hair
+    data:
+      layers:
+      - enum.BodyProviderType.Head
+      - enum.MarkingVisualLayers.Face
+      - enum.MarkingVisualLayers.FacialHair
+      - enum.MarkingVisualLayers.Hair
+      - enum.MarkingVisualLayers.HeadBottom
+      - enum.MarkingVisualLayers.HeadSide
+      - enum.MarkingVisualLayers.HeadTop
+      - enum.MarkingVisualLayers.Snout
+  - type: Sprite
+    layers:
+    - map: [ "default" ]
+      state: head
+    - map: [ "enum.BodyProviderType.Head" ]
+    - map: [ "enum.BodyProviderType.Eyes" ]
+    - map: [ "enum.MarkingVisualLayers.Face" ]
+    - map: [ "enum.MarkingVisualLayers.FacialHair" ]
+    - map: [ "enum.MarkingVisualLayers.Hair" ]
+    - map: [ "enum.MarkingVisualLayers.HeadBottom" ]
+    - map: [ "enum.MarkingVisualLayers.HeadSide" ]
+    - map: [ "enum.MarkingVisualLayers.HeadTop" ]
+    - map: [ "enum.MarkingVisualLayers.Snout" ]
+
+- type: entity
+  id: BaseBodyProviderHeadOrganic
+  parent: BaseBodyProviderPartOrganic
+  abstract: true
+  components:
+  - type: PainfulProvider
+    location: Head
+
+# Legs
+- type: entity
+  id: BaseBodyProviderLeg
+  parent: [BaseBodyProviderPart, BaseBodyProviderPartGibbable]
+  abstract: true
+  name: leg
+  components:
+  - type: BodyProvider
+    providerType: Leg
+
+- type: entity
+  id: BaseBodyProviderLegAppearance
+  parent: BaseBodyProviderPartAppearance
+  abstract: true
+  components:
+  - type: BodyAppearanceProvider
+    layer: enum.BodyProviderType.Leg
+  - type: Sprite
+    layers:
+    - map: [ "default" ]
+      state: leg
+    - map: [ "enum.BodyProviderType.Leg" ]
+    - map: [ "enum.BodyProviderType.Foot" ]
+
+- type: entity
+  id: BaseBodyProviderLeftLeg
+  parent: BaseBodyProviderLeg
+  abstract: true
+  name: left leg
+  components:
+  - type: BodyProvider
+    providerType: LeftLeg
+
+- type: entity
+  id: BaseBodyProviderLeftLegAppearance
+  parent: BaseBodyProviderPartAppearance
+  abstract: true
+  components:
+  - type: BodyAppearanceProvider
+    layer: enum.BodyProviderType.LeftLeg
+  - type: MarkingsProvider
+    data:
+      layers:
+      - enum.BodyProviderType.LeftLeg
+  - type: Sprite
+    layers:
+    - map: [ "default" ]
+      state: left_leg
+    - map: [ "enum.BodyProviderType.LeftLeg" ]
+    - map: [ "enum.BodyProviderType.LeftFoot" ]
+
+- type: entity
+  id: BaseBodyProviderLeftLegOrganic
+  parent: BaseBodyProviderPartOrganic
+  abstract: true
+  components:
+  - type: PainfulProvider
+    location: LeftLeg
+
+- type: entity
+  id: BaseBodyProviderMiddleLeg
+  parent: BaseBodyProviderLeg
+  abstract: true
+  name: middle leg
+  components:
+  - type: BodyProvider
+    providerType: MiddleLeg
+
+- type: entity
+  id: BaseBodyProviderMiddleLegAppearance
+  parent: BaseBodyProviderPartAppearance
+  abstract: true
+  components:
+  - type: BodyAppearanceProvider
+    layer: enum.BodyProviderType.MiddleLeg
+  - type: MarkingsProvider
+    data:
+      layers:
+      - enum.BodyProviderType.MiddleLeg
+  - type: Sprite
+    layers:
+    - map: [ "default" ]
+      state: middle_leg
+    - map: [ "enum.BodyProviderType.MiddleLeg" ]
+    - map: [ "enum.BodyProviderType.MiddleFoot" ]
+
+- type: entity
+  id: BaseBodyProviderMiddleLegOrganic
+  parent: BaseBodyProviderPartOrganic
+  abstract: true
+  components:
+  - type: PainfulProvider
+    location: MiddleLeg
+
+- type: entity
+  id: BaseBodyProviderRightLeg
+  parent: BaseBodyProviderLeg
+  abstract: true
+  name: right leg
+  components:
+  - type: BodyProvider
+    providerType: RightLeg
+
+- type: entity
+  id: BaseBodyProviderRightLegAppearance
+  parent: BaseBodyProviderPartAppearance
+  abstract: true
+  components:
+  - type: BodyAppearanceProvider
+    layer: enum.BodyProviderType.RightLeg
+  - type: MarkingsProvider
+    data:
+      layers:
+      - enum.BodyProviderType.RightLeg
+  - type: Sprite
+    layers:
+    - map: [ "default" ]
+      state: right_leg
+    - map: [ "enum.BodyProviderType.RightLeg" ]
+    - map: [ "enum.BodyProviderType.RightFoot" ]
+
+- type: entity
+  id: BaseBodyProviderRightLegOrganic
+  parent: BaseBodyProviderPartOrganic
+  abstract: true
+  components:
+  - type: PainfulProvider
+    location: RightLeg
+
+# Tail
+- type: entity
+  id: BaseBodyProviderTail
+  parent: [BaseBodyProviderPart, BaseBodyProviderPartGibbable]
+  abstract: true
+  name: tail
+  components:
+  - type: BodyProvider
+    providerType: Tail
+
+- type: entity
+  id: BaseBodyProviderTailAppearance
+  parent: BaseBodyProviderPartAppearance
+  abstract: true
+  components:
+  - type: BodyAppearanceProvider
+    layer: enum.BodyProviderType.Tail
+  - type: MarkingsProvider
+    data:
+      layers:
+      - enum.BodyProviderType.Tail
+  - type: Sprite
+    state: tail
+    layers:
+    - map: [ "default" ]
+      state: tail
+    - map: [ "enum.BodyProviderType.Tail" ]
+
+- type: entity
+  id: BaseBodyProviderTailOrganic
+  parent: BaseBodyProviderPartOrganic
+  abstract: true
+  components:
+  - type: PainfulProvider
+    location: Tail
+
+# Torso
+- type: entity
+  id: BaseBodyProviderTorso
+  parent: BaseBodyProviderPart
+  abstract: true
+  name: torso
+  components:
+  - type: BodyProvider
+    providerType: Torso
+
+- type: entity
+  id: BaseBodyProviderTorsoAppearance
+  parent: BaseBodyProviderPartAppearance
+  abstract: true
+  components:
+  - type: BodyAppearanceProvider
+    layer: enum.BodyProviderType.Torso
+  - type: MarkingsProvider
+    data:
+      layers:
+      - enum.BodyProviderType.Chest
+      - enum.BodyProviderType.Groin
+      - enum.MarkingVisualLayers.ChestBack
+      - enum.MarkingVisualLayers.GroinBack
+      - enum.MarkingVisualLayers.UndergarmentBottom
+      - enum.MarkingVisualLayers.UndergarmentTop
+  - type: Sprite
+    layers:
+    - map: [ "default" ]
+      state: torso
+    - map: [ "enum.BodyProviderType.Torso" ]
+    - map: [ "enum.MarkingVisualLayers.ChestBack" ]
+    - map: [ "enum.MarkingVisualLayers.GroinBack" ]
+    - map: [ "enum.MarkingVisualLayers.UndergarmentBottom" ]
+    - map: [ "enum.MarkingVisualLayers.UndergarmentTop" ]
+
+- type: entity
+  id: BaseBodyProviderTorsoOrganic
+  parent: BaseBodyProviderPartOrganic
+  abstract: true
+  components:
+  - type: PainfulProvider
+    location: Torso
+
+# Wings
+- type: entity
+  id: BaseBodyProviderWings
+  parent: [BaseBodyProviderPart, BaseBodyProviderPartGibbable]
+  abstract: true
+  name: wings
+  components:
+  - type: BodyProvider
+    providerType: Wings
+
+- type: entity
+  id: BaseBodyProviderWingsAppearance
+  parent: BaseBodyProviderPartAppearance
+  abstract: true
+  components:
+  - type: BodyAppearanceProvider
+    layer: enum.BodyProviderType.Wings
+  - type: MarkingsProvider
+    data:
+      layers:
+      - enum.BodyProviderType.Wings
+  - type: Sprite
+    layers:
+    - map: [ "default" ]
+      state: wings
+    - map: [ "enum.BodyProviderType.Wings" ]
+
+- type: entity
+  id: BaseBodyProviderWingsOrganic
+  parent: BaseBodyProviderPartOrganic
+  abstract: true
+  components:
+  - type: PainfulProvider
+    location: Wings

@@ -1,5 +1,7 @@
-﻿using Content.Server.Administration.Commands;
-using Content.Server.Administration.Systems;
+﻿using Content.Server.Administration.Systems;
+using Content.Shared._White.Damage.Components;
+using Content.Shared._White.Damage.Prototypes;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.FixedPoint;

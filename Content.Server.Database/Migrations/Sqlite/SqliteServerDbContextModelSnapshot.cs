@@ -547,6 +547,35 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.ToTable("blacklist", (string)null);
                 });
 
+            modelBuilder.Entity("Content.Server.Database.BodyColor", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("body_color_id");
+
+                    b.Property<string>("Color")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("color");
+
+                    b.Property<string>("Group")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("group");
+
+                    b.Property<int>("ProfileId")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("profile_id");
+
+                    b.HasKey("Id")
+                        .HasName("PK_body_color");
+
+                    b.HasIndex("ProfileId");
+
+                    b.ToTable("body_color", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.ConnectionLog", b =>
                 {
                     b.Property<int>("Id")
@@ -663,7 +692,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.ToTable("job", (string)null);
                 });
 
-            modelBuilder.Entity("Content.Server.Database.Loadout", b =>
+            modelBuilder.Entity("Content.Server.Database.LoadoutItem", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -829,6 +858,11 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("INTEGER")
                         .HasColumnName("age");
 
+                    b.Property<string>("Bark")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("bark");
+
                     b.Property<byte>("BarkPause")
                         .HasColumnType("INTEGER")
                         .HasColumnName("bark_pause");
@@ -841,14 +875,13 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("INTEGER")
                         .HasColumnName("bark_pitch_variance");
 
-                    b.Property<string>("BarkVoice")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("bark_voice");
-
                     b.Property<byte>("BarkVolume")
                         .HasColumnType("INTEGER")
                         .HasColumnName("bark_volume");
+
+                    b.Property<byte[]>("BodyProviders")
+                        .HasColumnType("jsonb")
+                        .HasColumnName("body_providers");
 
                     b.Property<string>("BodyType")
                         .IsRequired()
@@ -860,62 +893,20 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("TEXT")
                         .HasColumnName("char_name");
 
-                    b.Property<string>("ClownName")
-                        .HasColumnType("TEXT")
-                        .HasColumnName("clown_name");
-
-                    b.Property<string>("CustomSpecieName")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("custom_specie_name");
-
-                    b.Property<string>("CyborgName")
-                        .HasColumnType("TEXT")
-                        .HasColumnName("cyborg_name");
-
-                    b.Property<string>("DisplayPronouns")
-                        .HasColumnType("TEXT")
-                        .HasColumnName("display_pronouns");
-
                     b.Property<string>("Employer")
                         .IsRequired()
                         .HasColumnType("TEXT")
                         .HasColumnName("employer");
 
-                    b.Property<string>("EyeColor")
+                    b.Property<string>("Flavor")
                         .IsRequired()
                         .HasColumnType("TEXT")
-                        .HasColumnName("eye_color");
-
-                    b.Property<string>("FacialHairColor")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("facial_hair_color");
-
-                    b.Property<string>("FacialHairName")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("facial_hair_name");
-
-                    b.Property<string>("FlavorText")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("flavor_text");
+                        .HasColumnName("flavor");
 
                     b.Property<string>("Gender")
                         .IsRequired()
                         .HasColumnType("TEXT")
                         .HasColumnName("gender");
-
-                    b.Property<string>("HairColor")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("hair_color");
-
-                    b.Property<string>("HairName")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("hair_name");
 
                     b.Property<float>("Height")
                         .HasColumnType("REAL")
@@ -929,10 +920,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Property<byte[]>("Markings")
                         .HasColumnType("jsonb")
                         .HasColumnName("markings");
-
-                    b.Property<string>("MimeName")
-                        .HasColumnType("TEXT")
-                        .HasColumnName("mime_name");
 
                     b.Property<string>("Nationality")
                         .IsRequired()
@@ -952,11 +939,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("TEXT")
                         .HasColumnName("sex");
 
-                    b.Property<string>("SkinColor")
-                        .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("skin_color");
-
                     b.Property<int>("Slot")
                         .HasColumnType("INTEGER")
                         .HasColumnName("slot");
@@ -969,10 +951,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .IsRequired()
                         .HasColumnType("TEXT")
                         .HasColumnName("species");
-
-                    b.Property<string>("StationAiName")
-                        .HasColumnType("TEXT")
-                        .HasColumnName("station_ai_name");
 
                     b.Property<string>("Voice")
                         .IsRequired()
@@ -1632,6 +1610,18 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Navigation("Profile");
                 });
 
+            modelBuilder.Entity("Content.Server.Database.BodyColor", b =>
+                {
+                    b.HasOne("Content.Server.Database.Profile", "Profile")
+                        .WithMany("BodyColor")
+                        .HasForeignKey("ProfileId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired()
+                        .HasConstraintName("FK_body_color_profile_profile_id");
+
+                    b.Navigation("Profile");
+                });
+
             modelBuilder.Entity("Content.Server.Database.ConnectionLog", b =>
                 {
                     b.HasOne("Content.Server.Database.Server", "Server")
@@ -1684,7 +1674,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Navigation("Profile");
                 });
 
-            modelBuilder.Entity("Content.Server.Database.Loadout", b =>
+            modelBuilder.Entity("Content.Server.Database.LoadoutItem", b =>
                 {
                     b.HasOne("Content.Server.Database.Profile", "Profile")
                         .WithMany("Loadouts")
@@ -2019,6 +2009,8 @@ namespace Content.Server.Database.Migrations.Sqlite
             modelBuilder.Entity("Content.Server.Database.Profile", b =>
                 {
                     b.Navigation("Antags");
+
+                    b.Navigation("BodyColor");
 
                     b.Navigation("Jobs");
 

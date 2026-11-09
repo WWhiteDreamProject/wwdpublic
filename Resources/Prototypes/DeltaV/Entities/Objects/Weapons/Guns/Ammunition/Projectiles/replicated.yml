@@ -6,6 +6,6 @@
   components:
     - type: Projectile
       damage:
-        types:
-          Piercing: 5
-          Blunt: 7
+        # WD EDIT: Migrated damage format
+        Blunt: 7
+        Piercing: 5

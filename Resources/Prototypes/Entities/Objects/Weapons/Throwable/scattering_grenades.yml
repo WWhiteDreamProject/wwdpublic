@@ -122,8 +122,8 @@
   - type: LandAtCursor
   - type: DamageOnLand
     damage:
-      types:
-        Blunt: 10
+      # WD EDIT: Migrated damage format
+      Blunt: 10
   - type: EmitSoundOnTrigger
     sound:
       path: "/Audio/Items/bikehorn.ogg"
@@ -147,8 +147,8 @@
   - type: LandAtCursor
   - type: DamageOnLand
     damage:
-      types:
-        Blunt: 10
+      # WD EDIT: Migrated damage format
+      Blunt: 10
   - type: EmitSoundOnTrigger
     sound:
       path: "/Audio/Effects/flash_bang.ogg"

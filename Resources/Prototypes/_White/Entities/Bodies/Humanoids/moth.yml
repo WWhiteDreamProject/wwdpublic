@@ -1,0 +1,78 @@
+- type: entity
+  id: BaseBodyMoth
+  parent: BaseBody
+  abstract: true
+  components:
+  - type: Body
+    rootProvider:
+      type: Chest
+      providers:
+        groin:
+          type: Groin
+          providers:
+            kidneys:
+              type: Kidneys
+              startingProvider: BodyProviderKidneysMoth
+            left_leg:
+              type: LeftLeg
+              providers:
+                left_foot:
+                  type: LeftFoot
+                  startingProvider: BodyProviderLeftFootMoth
+              startingProvider: BodyProviderLeftLegMoth
+            liver:
+              type: Liver
+              startingProvider: BodyProviderLiverMoth
+            right_leg:
+              type: RightLeg
+              providers:
+                right_foot:
+                  type: RightFoot
+                  startingProvider: BodyProviderRightFootMoth
+              startingProvider: BodyProviderRightLegMoth
+            stomach:
+              type: Stomach
+              startingProvider: BodyProviderStomachMoth
+            tail:
+              type: Tail
+          startingProvider: BodyProviderGroinMoth
+        head:
+          type: Head
+          providers:
+            brain:
+              type: Brain
+              startingProvider: BodyProviderBrainMoth
+            ears:
+              type: Ears
+              startingProvider: BodyProviderEarsMoth
+            eyes:
+              type: Eyes
+              startingProvider: BodyProviderEyesMoth
+            tongue:
+              type: Tongue
+              startingProvider: BodyProviderTongueMoth
+          startingProvider: BodyProviderHeadMoth
+        heart:
+          type: Heart
+          startingProvider: BodyProviderHeartMoth
+        left_arm:
+          type: LeftArm
+          providers:
+            left_hand:
+              type: LeftHand
+              startingProvider: BodyProviderLeftHandMoth
+          startingProvider: BodyProviderLeftArmMoth
+        lungs:
+          type: Lungs
+          startingProvider: BodyProviderLungsMoth
+        right_arm:
+          type: RightArm
+          providers:
+            right_hand:
+              type: RightHand
+              startingProvider: BodyProviderRightHandMoth
+          startingProvider: BodyProviderRightArmMoth
+        wings:
+          type: Wings
+          startingProvider: BodyProviderWingsMoth
+      startingProvider: BodyProviderChestMoth

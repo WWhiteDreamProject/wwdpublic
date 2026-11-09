@@ -272,8 +272,7 @@
   - type: Clothing
     slots:
     - HEAD
-  - type: Food
-    solution: drink
+  - type: Ingestible # WD Ingestible
     useSound: /Audio/Items/drink.ogg
     eatMessage: drink-component-try-use-drink-success-slurp
     delay: 0.5
@@ -283,7 +282,7 @@
       - water
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 2
         reagents:
         - ReagentId: Water
@@ -291,8 +290,8 @@
   - type: DamageOnHighSpeedImpact
     minimumSpeed: 0.1
     damage:
-      types:
-        Blunt: 1
+      # WD EDIT: Migrated damage format
+      Blunt: 1
   - type: Damageable
     damageContainer: Biological
   - type: Destructible
@@ -305,7 +304,7 @@
         sound:
           collection: desecration
       - !type:SpillBehavior
-        solution: drink
+        solution: ingestible # WD Ingestible
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: Tag

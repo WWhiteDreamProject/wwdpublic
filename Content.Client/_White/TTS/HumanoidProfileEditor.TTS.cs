@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Client._White.TTS;
+using Content.Shared._White.Preferences;
 using Content.Shared._White.TTS;
 using Content.Shared.Preferences;
 
@@ -39,8 +40,8 @@ public sealed partial class HumanoidProfileEditor
         for (var i = 0; i < _voiceList.Count; i++)
         {
             var voice = _voiceList[i];
-            if (!HumanoidCharacterProfile.CanHaveVoice(voice, Profile.Sex))
-                continue;
+            /*if (!HumanoidCharacterProfile.CanHaveVoice(voice, Profile.Sex)) TODO
+                continue;*/
 
             var name = Loc.GetString(voice.Name);
             VoiceButton.AddItem(name, i);
@@ -49,7 +50,7 @@ public sealed partial class HumanoidProfileEditor
                 firstVoiceChoiceId = i;
         }
 
-        var voiceChoiceId = _voiceList.FindIndex(x => x.ID == Profile.Voice);
+        var voiceChoiceId = _voiceList.FindIndex(x => x.ID == Profile.Value.Voice);
         if (!VoiceButton.TrySelectId(voiceChoiceId) &&
             VoiceButton.TrySelectId(firstVoiceChoiceId))
         {
@@ -62,6 +63,6 @@ public sealed partial class HumanoidProfileEditor
         if (Profile is null)
             return;
 
-        _entManager.System<TTSSystem>().RequestGlobalTTS(VoiceRequestType.Preview,Profile.Voice);
+        _entManager.System<TTSSystem>().RequestGlobalTTS(VoiceRequestType.Preview,Profile.Value.Voice);
     }
 }

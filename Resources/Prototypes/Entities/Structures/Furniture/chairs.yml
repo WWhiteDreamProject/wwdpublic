@@ -450,8 +450,8 @@
   - type: Appearance
   - type: MeleeWeapon
     damage:
-      types:
-        Blunt: 8
+      # WD EDIT: Migrated damage format
+      Blunt: 8
     soundHit:
       collection: MetalThud
   - type: Construction

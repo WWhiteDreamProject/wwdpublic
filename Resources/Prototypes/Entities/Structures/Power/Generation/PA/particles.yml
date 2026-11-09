@@ -17,8 +17,8 @@
       soundHit:
         path: /Audio/Weapons/Guns/Hits/bullet_hit.ogg
       damage:
-        types:
-          Radiation: 25
+        # WD EDIT: Migrated damage format
+        Radiation: 25
     - type: Physics
     - type: Fixtures
       fixtures:
@@ -74,8 +74,8 @@
     soundHit:
       path: /Audio/Weapons/Guns/Hits/bullet_hit.ogg
     damage:
-      types:
-        Radiation: 10
+      # WD EDIT: Migrated damage format
+      Radiation: 10
   - type: TimedDespawn
     lifetime: 0.6
   - type: SinguloFood

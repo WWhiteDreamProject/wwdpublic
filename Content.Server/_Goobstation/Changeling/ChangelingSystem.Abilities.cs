@@ -26,6 +26,11 @@ using Content.Shared.Overlays.Switchable;
 using Robust.Shared.Utility;
 using Robust.Shared.Physics.Components;
 using Content.Server.Ghost;
+using Content.Shared._White.Damage;
+using Content.Shared._White.Damage.Components;
+using Content.Shared._White.Damage.Prototypes;
+using Content.Shared._White.Nutrition.Components;
+
 
 namespace Content.Server.Changeling;
 
@@ -233,7 +238,7 @@ public sealed partial class ChangelingSystem
         }
 
         var dmg = new DamageSpecifier(damageProto, deadThreshold!.Value.Int());
-        var dmgTotal = _damage.TryChangeDamage(target, dmg, false, damageable: damageable, origin: uid);
+        var dmgTotal = _damage.ChangeDamage((target, damageable), dmg, origin: uid); // WD EDIT
         if (dmgTotal is null || !dmgTotal.AnyPositive())
             return;
 
@@ -353,7 +358,7 @@ public sealed partial class ChangelingSystem
         if (!TryUseAbility(uid, comp, args))
             return;
 
-        if (!TryComp<FoodComponent>(target, out var food))
+        if (!TryComp<IngestibleComponent>(target, out var food))
             return;
 
         if (!TryComp<SolutionContainerManagerComponent>(target, out var solMan))
@@ -364,7 +369,7 @@ public sealed partial class ChangelingSystem
             foreach (var proto in BiomassAbsorbedChemicals)
                 totalFood += sol.Comp.Solution.GetTotalPrototypeQuantity(proto);
 
-        if (food.RequiresSpecialDigestion || totalFood == 0) // no eating winter coats or food that won't give you anything
+        if (totalFood == 0) // no eating winter coats or food that won't give you anything
         {
             var popup = Loc.GetString("changeling-absorbbiomatter-bad-food");
             _popup.PopupEntity(popup, uid, uid);
@@ -763,8 +768,8 @@ public sealed partial class ChangelingSystem
             return;
 
         var dmg = new DamageSpecifier(damageProto, deadThreshold!.Value.Int());
-        var dmgTotal = _damage.TryChangeDamage(target, dmg, false, damageable: damageable, origin: uid);
-        if (dmgTotal is null || !dmgTotal.AnyPositive())
+        var dmgTotal = _damage.ChangeDamage((target, damageable), dmg, origin: uid); // WD EDIT
+        if (!dmgTotal.AnyPositive())
             return;
 
         comp.IsInLastResort = false;
@@ -782,7 +787,7 @@ public sealed partial class ChangelingSystem
 
         PlayMeatySound(uid, comp);
 
-        _bodySystem.GibBody(uid);
+        _gibbable.Gib(uid); // WD EDIT
     }
 
     #endregion

@@ -80,7 +80,7 @@
   abstract: true
   id: MobOreCrab
   name: ore crab
-  parent: [ MobElementalBase, MobCombat ]
+  parent: [ MobElementalBase, BaseMobCombat ]
   components:
   - type: Sprite
     sprite: Mobs/Elemental/orecrab.rsi
@@ -93,8 +93,8 @@
     soundHit:
       path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
     damage:
-      types:
-        Blunt: 6
+      # WD EDIT: Migrated damage format
+      Blunt: 6
   - type: MovementSpeedModifier
     baseWalkSpeed : 2
     baseSprintSpeed : 2.5
@@ -145,8 +145,8 @@
     state: iron_crab
   - type: MeleeWeapon
     damage:
-      types:
-        Blunt: 5
+      # WD EDIT: Migrated damage format
+      Blunt: 5
   - type: MovementSpeedModifier
     baseWalkSpeed : 1.5
     baseSprintSpeed : 2
@@ -212,8 +212,8 @@
     state: silver_crab
   - type: MeleeWeapon
     damage:
-      types:
-        Blunt: 5
+      # WD EDIT: Migrated damage format
+      Blunt: 5
   - type: Destructible
     thresholds:
     - trigger:
@@ -235,7 +235,7 @@
   name: reagent slime
   id: ReagentSlime
   suffix: Water
-  parent: [ MobAdultSlimes, MobCombat ]
+  parent: [ MobAdultSlimes, BaseMobCombat ]
   description: It consists of a liquid, and it wants to dissolve you in itself.
   components:
   - type: GhostRole
@@ -283,8 +283,8 @@
       collection: AlienClaw
     animation: WeaponArcBite
     damage:
-      types:
-        Slash: 3
+      # WD EDIT: Migrated damage format
+      Slash: 3
   - type: MeleeChemicalInjector
     solution: bloodstream
     transferAmount: 2

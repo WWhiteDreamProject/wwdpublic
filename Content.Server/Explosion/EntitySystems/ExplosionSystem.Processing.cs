@@ -1,13 +1,11 @@
-using System.Linq;
 using System.Numerics;
 using Content.Server.Atmos.EntitySystems;
-using Content.Server.Explosion.Components;
+using Content.Shared._White.Damage;
+using Content.Shared._White.Damage.Components;
 using Content.Shared.CCVar;
-using Content.Shared.Damage;
 using Content.Shared.Database;
 using Content.Shared.Explosion;
 using Content.Shared.Explosion.Components;
-using Content.Shared.Explosion.EntitySystems;
 using Content.Shared.Maps;
 using Content.Shared.Physics;
 using Content.Shared.Projectiles;
@@ -464,7 +462,7 @@ public sealed partial class ExplosionSystem
                 }
 
                 // TODO EXPLOSIONS turn explosions into entities, and pass the the entity in as the damage origin.
-                _damageableSystem.TryChangeDamage(entity, damage, ignoreResistances: true, partMultiplier: 0.3f); // Shitmed: Temp change, nerf explosion delimbing
+                _damageableSystem.TryChangeDamage(entity, damage, ignoreResistances: true);
 
             }
         }

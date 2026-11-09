@@ -17,7 +17,6 @@
                 variation: 0.08
   - type: DamagedByFlashing
     flashDamage:
-      types:
-        Heat: 10
+      Heat: 10
   - type: Damageable
     damageContainer: ShadowHaze

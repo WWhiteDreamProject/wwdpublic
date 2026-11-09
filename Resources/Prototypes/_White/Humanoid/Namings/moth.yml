@@ -1,0 +1,9 @@
+- type: naming
+  id: Moth
+  preset: naming-preset-first-last
+  first:
+    Neuter: NamingFirstMoth
+    Epicene: NamingFirstMoth
+    Female: NamingFirstMothFemale
+    Male: NamingFirstMoth
+  last: NamingLastMoth

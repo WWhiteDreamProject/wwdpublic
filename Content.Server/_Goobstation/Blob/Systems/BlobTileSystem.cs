@@ -5,6 +5,8 @@ using Content.Server.Destructible;
 using Content.Server.Emp;
 using Content.Shared._Goobstation.Blob;
 using Content.Shared._Goobstation.Blob.Components;
+using Content.Shared._White.Damage;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Destructible;
 using Content.Shared.Mobs.Components;
@@ -177,12 +179,12 @@ public sealed class BlobTileSystem : SharedBlobTileSystem
             modifier = 2.0f;
         }
 
-        foreach (var keyValuePair in ent.Comp.HealthOfPulse.DamageDict)
+        foreach (var keyValuePair in ent.Comp.HealthOfPulse)
         {
-            healCore.DamageDict.TryAdd(keyValuePair.Key, keyValuePair.Value * modifier);
+            healCore.TryAdd(keyValuePair.Key, keyValuePair.Value * modifier);
         }
 
-        _damageableSystem.TryChangeDamage(ent, healCore);
+        _damageableSystem.ChangeDamage(ent.Owner, healCore); // WD EDIT
     }
 
     protected override void TryUpgrade(Entity<BlobTileComponent, BlobUpgradeableTileComponent> target, Entity<BlobCoreComponent> core, EntityUid observer)

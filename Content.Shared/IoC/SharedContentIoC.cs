@@ -1,4 +1,6 @@
-﻿using Content.Shared.Humanoid.Markings;
+﻿using Content.Shared._White.Humanoid.Markings;
+using Content.Shared._White.Humanoid.Markings.Managers;
+using Content.Shared._White.Random;
 using Content.Shared.Localizations;
 using Content.Shared.Tag;
 using Content.Shared.Whitelist;
@@ -13,5 +15,6 @@ public static class SharedContentIoC
         IoCManager.Register<ContentLocalizationManager, ContentLocalizationManager>();
         IoCManager.Register<TagSystem>();
         IoCManager.Register<EntityWhitelistSystem>();
+        IoCManager.Register<IPredictedRandom, PredictedRandom>(); // WD EDIT
     }
 }

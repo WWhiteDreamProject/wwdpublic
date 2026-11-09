@@ -14,7 +14,7 @@
     grindableSolutionName: food
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 20
         reagents:
         - ReagentId: Nutriment
@@ -91,7 +91,7 @@
     state: plain
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 9
@@ -120,7 +120,7 @@
     state: plain
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 9
@@ -146,7 +146,7 @@
     state: fish
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: CarpoToxin
           Quantity: 5
@@ -171,7 +171,7 @@
     state: bacon
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 2
@@ -196,7 +196,7 @@
     state: bear
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 9
@@ -220,7 +220,7 @@
     state: bird
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 9
@@ -244,7 +244,7 @@
     state: bird
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 9
@@ -270,7 +270,7 @@
     state: bird
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 9
@@ -300,7 +300,7 @@
     state: corgi
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Bicaridine
           Quantity: 20
@@ -322,7 +322,7 @@
     state: crab
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 1
@@ -343,7 +343,7 @@
     state: goliath
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 5
@@ -373,7 +373,7 @@
       shader: unshaded
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Ichor
           Quantity: 10
@@ -393,7 +393,7 @@
     state: plain
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 3
@@ -413,7 +413,7 @@
     state: lizard
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 9
@@ -452,7 +452,7 @@
     state: rotten
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 5
@@ -471,7 +471,7 @@
     state: spider
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 9
@@ -491,7 +491,7 @@
     state: spiderleg
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 10
@@ -511,7 +511,7 @@
     state: clump
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 1
@@ -530,7 +530,7 @@
     state: snake
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 10
@@ -556,7 +556,7 @@
     state: xeno
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: SulfuricAcid
           Quantity: 20
@@ -584,7 +584,7 @@
     state: rouny
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: SulfuricAcid
           Quantity: 20
@@ -625,14 +625,13 @@
   - type: MeleeWeapon
     wideAnimationRotation: 100
     damage:
-      types:
-        Blunt: 6
+      # WD EDIT: Migrated damage format
+      Blunt: 6
   - type: Wieldable
   - type: IncreaseDamageOnWield
     damage:
-      types:
-        Blunt: 2
-
+      # WD EDIT: Migrated damage format
+      Blunt: 2
 - type: entity
   name: meat clown
   parent: FoodMeatBase
@@ -691,7 +690,7 @@
     state: snail
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 15
         reagents:
         - ReagentId: UncookedAnimalProteins
@@ -711,7 +710,7 @@
     state: anomalymeat
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 90
@@ -751,7 +750,7 @@
       state: rainbow_slime_extract
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Omnizine
           Quantity: 30
@@ -781,7 +780,7 @@
     - state: plain-cooked
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Nutriment
           Quantity: 10
@@ -819,7 +818,7 @@
           bacon2-cooked: ""
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Nutriment
           Quantity: 5
@@ -849,7 +848,7 @@
     - state: product-cooked
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Nutriment
           Quantity: 5
@@ -881,7 +880,7 @@
     - state: bird-cooked
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Nutriment
           Quantity: 5
@@ -913,7 +912,7 @@
     - state: bird-cooked
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Nutriment
           Quantity: 5
@@ -951,7 +950,7 @@
           chicken2-fried: ""
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Nutriment
           Quantity: 5
@@ -977,7 +976,7 @@
     - state: bird-cooked
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Nutriment
           Quantity: 5
@@ -1012,7 +1011,7 @@
     - state: crab-cooked
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Nutriment
           Quantity: 5
@@ -1042,7 +1041,7 @@
     - state: goliath-cooked
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Nutriment
           Quantity: 5
@@ -1076,7 +1075,7 @@
     - state: rouny-cooked
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Nutriment
           Quantity: 10
@@ -1106,7 +1105,7 @@
     - state: lizard-cooked
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Nutriment
           Quantity: 5
@@ -1138,7 +1137,7 @@
     - state: spiderleg-cooked
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Nutriment
           Quantity: 5
@@ -1163,7 +1162,7 @@
     state: meatball-cooked
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Nutriment
           Quantity: 5
@@ -1189,7 +1188,7 @@
     - state: snail-cooked
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 15
         reagents:
         - ReagentId: Nutriment
@@ -1218,7 +1217,7 @@
     - state: anomalymeat-cooked #Kinda hard to cook this... thing evenly
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Nutriment
           Quantity: 100
@@ -1251,7 +1250,7 @@
     state: cutlet
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 3
@@ -1280,7 +1279,7 @@
       color: brown
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 3
@@ -1307,7 +1306,7 @@
     color: white
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 3
@@ -1334,7 +1333,7 @@
     color: white
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 3
@@ -1361,7 +1360,7 @@
     color: white
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 3
@@ -1391,7 +1390,7 @@
       color: pink
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 3
@@ -1417,7 +1416,7 @@
     state: spidercutlet
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 3
@@ -1447,7 +1446,7 @@
     state: xenocutlet
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: SulfuricAcid
           Quantity: 20
@@ -1487,7 +1486,7 @@
     state: salami-slice
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Nutriment
           Quantity: 1
@@ -1511,7 +1510,7 @@
     state: cutlet-cooked
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Nutriment
           Quantity: 2
@@ -1543,7 +1542,7 @@
       color: brown
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Nutriment
           Quantity: 2
@@ -1573,7 +1572,7 @@
     color: white
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Nutriment
           Quantity: 2
@@ -1603,7 +1602,7 @@
     color: white
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Nutriment
           Quantity: 2
@@ -1633,7 +1632,7 @@
     color: white
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Nutriment
           Quantity: 2
@@ -1664,7 +1663,7 @@
       color: green
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Nutriment
           Quantity: 2
@@ -1693,7 +1692,7 @@
     state: spidercutlet-cooked
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Nutriment
           Quantity: 1
@@ -1722,7 +1721,7 @@
     state: xenocutlet-cooked
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Nutriment
           Quantity: 1

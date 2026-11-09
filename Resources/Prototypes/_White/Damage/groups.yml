@@ -1,0 +1,42 @@
+- type: damageGroup
+  id: Airloss
+  name: damage-group-airloss
+  types:
+  - Asphyxiation
+  - Bloodloss
+
+- type: damageGroup
+  id: Brute
+  name: damage-group-brute
+  types:
+  - Blunt
+  - Piercing
+  - Slash
+
+- type: damageGroup
+  id: Burn
+  name: damage-group-burn
+  types:
+  - Caustic
+  - Cold
+  - Heat
+  - Shock
+
+- type: damageGroup
+  id: Genetic
+  name: damage-group-genetic
+  types:
+  - Cellular
+
+- type: damageGroup
+  id: Metaphysical
+  name: damage-group-metaphysical
+  types:
+  - Holy
+
+- type: damageGroup
+  id: Toxin
+  name: damage-group-toxin
+  types:
+  - Poison
+  - Radiation

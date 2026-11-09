@@ -48,5 +48,5 @@
           variation: 0.03
           volume: 3
     damage:
-      types:
-        Blunt: 4
+      # WD EDIT: Migrated damage format
+      Blunt: 4

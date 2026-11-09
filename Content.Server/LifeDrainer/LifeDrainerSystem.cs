@@ -1,7 +1,7 @@
 using Content.Server.Abilities.Psionics;
 using Content.Server.Carrying;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.ActionBlocker;
-using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs.Systems;

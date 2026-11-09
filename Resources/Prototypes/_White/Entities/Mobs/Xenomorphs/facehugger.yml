@@ -1,5 +1,5 @@
 - type: entity
-  parent: [BaseMob, ClothingMaskBase, MobDamageable]
+  parent: [BaseMob, ClothingMaskBase, BaseMobDamageable]
   id: MobXenomorphFaceHugger
   name: xenomorph facehugger
   description: A writhing nightmare. The facehugger clings to its victim's face, forcibly inserting a xenomorph fetus.
@@ -40,8 +40,7 @@
     canHeavyAttack: false
     angle: 0
     damage:
-      types:
-        Blunt: 0
+      Blunt: 0
   - type: Temperature
     heatDamageThreshold: 360
     coldDamageThreshold: -150
@@ -58,11 +57,9 @@
       - Silicon
       - Ghost
     damageOnImpact:
-      types:
-        Blunt: 15
+      Blunt: 15
     damageOnInfect:
-      groups:
-        Genetic: 100
+      Cellular: 100
   - type: NameIdentifier
     group: GenericNumber
   - type: NpcFactionMember

@@ -1,0 +1,35 @@
+- type: entity
+  id: BaseBodyProviderOrganHemocyanin
+  parent: BaseBodyProviderOrganOrganic
+  abstract: true
+  suffix: Hemocyanin
+  components:
+  - type: Sprite
+    sprite: _White/Bodies/Organs/Humanoids/human.rsi
+
+- type: entity
+  id: BaseMetabolizerHemocyanin
+  abstract: true
+  components:
+  - type: Metabolizer
+    types: [ Animal, BloodIron, Hemocyanin, RespirationOxygen ]
+
+# Kidneys
+- type: entity
+  id: BodyProviderKidneysHemocyanin
+  parent: [BaseBodyProviderKidneysRespiratory, BaseBodyProviderOrganHemocyanin, BaseMetabolizerHemocyanin]
+
+# Liver
+- type: entity
+  id: BodyProviderLiverHemocyanin
+  parent: [BaseBodyProviderLiverRespiratory, BaseBodyProviderOrganHemocyanin, BaseMetabolizerHemocyanin]
+
+# Lungs
+- type: entity
+  id: BodyProviderLungsHemocyanin
+  parent: [BaseBodyProviderLungsRespiratory, BaseBodyProviderOrganHemocyanin, BaseMetabolizerHemocyanin]
+
+# Stomach
+- type: entity
+  id: BodyProviderStomachHemocyanin
+  parent: [BaseBodyProviderStomachRespiratory, BaseBodyProviderOrganHemocyanin, BaseMetabolizerHemocyanin]

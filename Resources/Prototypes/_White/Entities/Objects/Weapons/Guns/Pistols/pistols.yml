@@ -12,9 +12,8 @@
     range: 1.5
     attackRate: 0.9
     damage:
-      types:
-        Piercing: 7
-        Slash: 3
+      Piercing: 7
+      Slash: 3
     animation: WeaponArcThrust
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg

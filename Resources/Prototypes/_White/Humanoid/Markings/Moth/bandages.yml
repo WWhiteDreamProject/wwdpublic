@@ -1,0 +1,125 @@
+- type: marking
+  id: BaseBandagesMoth
+  parent: [BaseBandages, BaseMoth]
+  abstract: true
+
+- type: marking
+  id: BandagesMothBlindfold
+  parent: BaseBandagesMoth
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/bandages.rsi
+      state: blindfold
+
+- type: marking
+  id: BandagesMothEyePadLeft
+  parent: BaseBandagesMoth
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/bandages.rsi
+      state: eye_pad_left
+
+- type: marking
+  id: BandagesMothEyePatchLeft
+  parent: BaseBandagesMoth
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/bandages.rsi
+      state: eye_patch_left
+
+- type: marking
+  id: BandagesMothEyePatchRight
+  parent: BaseBandagesMoth
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/bandages.rsi
+      state: eye_patch_right
+
+- type: marking
+  id: BandagesMothEyePadRight
+  parent: BaseBandagesMoth
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/bandages.rsi
+      state: eye_pad_right
+
+- type: marking
+  id: BandagesMothLeftArm
+  parent: BaseBandagesMoth
+  definitions:
+  - layer: enum.BodyProviderType.LeftArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/bandages.rsi
+      state: left_arm
+
+- type: marking
+  id: BandagesMothLeftLegLower
+  parent: BaseBandagesMoth
+  definitions:
+  - layer: enum.BodyProviderType.LeftLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/bandages.rsi
+      state: left_leg_lower
+
+- type: marking
+  id: BandagesMothLeftLegUpper
+  parent: BaseBandagesMoth
+  definitions:
+  - layer: enum.BodyProviderType.LeftLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/bandages.rsi
+      state: left_leg_upper
+
+- type: marking
+  id: BandagesMothRightArm
+  parent: BaseBandagesMoth
+  definitions:
+  - layer: enum.BodyProviderType.RightArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/bandages.rsi
+      state: right_arm
+
+- type: marking
+  id: BandagesMothRightLegLower
+  parent: BaseBandagesMoth
+  definitions:
+  - layer: enum.BodyProviderType.RightLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/bandages.rsi
+      state: right_leg_lower
+
+- type: marking
+  id: BandagesMothRightLegUpper
+  parent: BaseBandagesMoth
+  definitions:
+  - layer: enum.BodyProviderType.RightLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/bandages.rsi
+      state: right_leg_upper
+
+- type: marking
+  id: BandagesMothShoulder
+  parent: BaseBandagesMoth
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/bandages.rsi
+      state: shoulder-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/bandages.rsi
+      state: shoulder-groin
+
+- type: marking
+  id: BandagesMothStomach
+  parent: BaseBandagesMoth
+  definitions:
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/bandages.rsi
+      state: stomach

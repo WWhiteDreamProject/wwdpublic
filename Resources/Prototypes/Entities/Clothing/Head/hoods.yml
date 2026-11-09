@@ -16,10 +16,13 @@
     - WhitelistChameleon
   - type: HideLayerClothing
     slots:
-    - Hair
-    - Snout
-    - HeadTop
-    - HeadSide
+    # WD EDIT START
+    - enum.MarkingVisualLayers.Hair
+    - enum.MarkingVisualLayers.HeadBottom
+    - enum.MarkingVisualLayers.HeadTop
+    - enum.MarkingVisualLayers.HeadSide
+    - enum.MarkingVisualLayers.Snout
+    # WD EDIT END
 
 - type: entity
   parent: ClothingHeadHatHoodBioGeneral
@@ -103,7 +106,9 @@
     - WhitelistChameleon
   - type: HideLayerClothing
     slots:
-    - Hair
+    # WD EDIT START
+    - enum.MarkingVisualLayers.Hair
+    # WD EDIT END
 
 - type: entity
   parent: ClothingHeadBase
@@ -120,7 +125,9 @@
     - WhitelistChameleon
   - type: HideLayerClothing
     slots:
-    - Hair
+    # WD EDIT START
+    - enum.MarkingVisualLayers.Hair
+    # WD EDIT END
 
 - type: entity
   parent: ClothingHeadBase
@@ -138,7 +145,9 @@
     - WhitelistChameleon
   - type: HideLayerClothing
     slots:
-    - Hair
+    # WD EDIT START
+    - enum.MarkingVisualLayers.Hair
+    # WD EDIT END
 
 - type: entity
   parent: ClothingHeadBase
@@ -159,10 +168,13 @@
   - type: BreathMask
   - type: HideLayerClothing
     slots:
-    - Hair
-    - Snout
-    - HeadTop
-    - HeadSide
+    # WD EDIT START
+    - enum.MarkingVisualLayers.Hair
+    - enum.MarkingVisualLayers.HeadBottom
+    - enum.MarkingVisualLayers.HeadTop
+    - enum.MarkingVisualLayers.HeadSide
+    - enum.MarkingVisualLayers.Snout
+    # WD EDIT END
 
 - type: entity
   parent: ClothingHeadBase
@@ -179,7 +191,9 @@
     - WhitelistChameleon
   - type: HideLayerClothing
     slots:
-    - Hair
+    # WD EDIT START
+    - enum.MarkingVisualLayers.Hair
+    # WD EDIT END
 
 - type: entity
   parent: ClothingHeadBase
@@ -194,7 +208,9 @@
     sprite: Clothing/Head/Hoods/iansuit.rsi
   - type: HideLayerClothing
     slots:
-    - Hair
+    # WD EDIT START
+    - enum.MarkingVisualLayers.Hair
+    # WD EDIT END
 
 - type: entity
   parent: ClothingHeadBase
@@ -209,7 +225,9 @@
     sprite: Clothing/Head/Hoods/carpsuit.rsi
   - type: HideLayerClothing
     slots:
-    - Hair
+    # WD EDIT START
+    - enum.MarkingVisualLayers.Hair
+    # WD EDIT END
 
 - type: entity
   parent: ClothingHeadHatHoodCarp
@@ -244,10 +262,13 @@
     - WhitelistChameleon
   - type: HideLayerClothing
     slots:
-    - Hair
-    - Snout
-    - HeadTop
-    - HeadSide
+    # WD EDIT START
+    - enum.MarkingVisualLayers.Hair
+    - enum.MarkingVisualLayers.HeadBottom
+    - enum.MarkingVisualLayers.HeadTop
+    - enum.MarkingVisualLayers.HeadSide
+    - enum.MarkingVisualLayers.Snout
+    # WD EDIT END
 
 #Winter Coat Hoods
 - type: entity
@@ -762,4 +783,6 @@
     - WhitelistChameleon
   - type: HideLayerClothing
     slots:
-    - Hair
+    # WD EDIT START
+    - enum.MarkingVisualLayers.Hair
+    # WD EDIT END

@@ -10,11 +10,11 @@
     - !type:PlantAdjustNutrition
       amount: 2
   metabolisms:
-    Food:
+    Digestion: # WD EDIT
       effects:
       - !type:SatiateHunger
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Plant
 
 - type: reagent
@@ -34,18 +34,18 @@
       probability: 0.3
       amount: 0.4
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       effects:
       - !type:SatiateHunger
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Plant
       - !type:HealthChange
         damage:
-          types:
-            Poison: 1
+          # WD EDIT: Migrated damage format
+          Poison: 1
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Plant
 
 - type: reagent
@@ -62,14 +62,14 @@
     - !type:PlantAdjustPests
       amount: -6
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Poison: 3
+          # WD EDIT: Migrated damage format
+          Poison: 3
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Plant
 
 - type: reagent
@@ -90,17 +90,17 @@
     - !type:PlantAdjustMutationMod
       amount: 0.1
   metabolisms:
-    Medicine:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Poison: -4
-            Blunt: 2
-            Slash: 1
-            Piercing: 1
+          # WD EDIT: Migrated damage format
+          Blunt: 2
+          Piercing: 1
+          Poison: -4
+          Slash: 1
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Plant
 
 - type: reagent
@@ -122,35 +122,33 @@
       amount: 1
     - !type:RobustHarvest {}
   metabolisms:
-    Poison:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Poison: -2
-            Blunt: -3
-            Slash: -3
-            Piercing: -3
+          # WD EDIT: Migrated damage format
+          Blunt: -3
+          Piercing: -3
+          Poison: -2
+          Slash: -3
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Plant
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Plant
         - !type:ReagentThreshold
           min: 30
         damage:
-          types:
-            Asphyxiation: 1
-            Heat: 2
-            Poison: 1
-    Medicine:
-      effects:
+          # WD EDIT: Migrated damage format
+          Asphyxiation: 1
+          Heat: 2
+          Poison: 1
       - !type:Polymorph
         prototype: TreeMorph
         conditions:
-          - !type:OrganType
+          - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
             type: Plant
           - !type:ReagentThreshold
             min: 80
@@ -185,14 +183,14 @@
     - !type:PlantAdjustWeeds
       amount: -6
   metabolisms:
-    Poison:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Poison: 4
+          # WD EDIT: Migrated damage format
+          Poison: 4
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Plant
 
 - type: reagent
@@ -211,17 +209,11 @@
   - !type:PlantAdjustHealth
     amount: 0.5
   metabolisms:
-    Poison:
-      effects:
-      - !type:HealthChange
-        damage:
-          types:
-            Caustic: 1
-    Gas:
+    Respiration: # WD EDIT
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Rat
           shouldHave: false
         - !type:ReagentThreshold
@@ -229,15 +221,15 @@
           min: 1
         ignoreResistances: true
         damage:
-          types:
-            Poison: 0.25
+          # WD EDIT: Migrated damage format
+          Poison: 0.2
       - !type:ChemVomit
         probability: 0.12
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Rat
           shouldHave: false
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
            type: Vox
            shouldHave: false
         - !type:ReagentThreshold
@@ -254,7 +246,7 @@
           min: 0.25
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Rat
         - !type:ReagentThreshold
           reagent: Ammonia
@@ -262,18 +254,25 @@
         scaleByQuantity: true
         ignoreResistances: true
         damage:
-          groups:
-            Brute: -5
-            Burn: -5
-          types:
-            Bloodloss: -5
+          # WD EDIT: Migrated damage format
+          Bloodloss: -5
+          Blunt: -1.7
+          Caustic: -1.2
+          Cold: -1.2
+          Heat: -1.2
+          Piercing: -1.7
+          Shock: -1.2
+          Slash: -1.7
       - !type:Oxygenate # ammonia displaces nitrogen in vox blood
         conditions:
-        - !type:OrganType
+        - !type:MetabolizerType # WD EDIT OrganType -> MetabolizerType
           type: Vox
         factor: -4
-
-
+      # WD EDIT START
+      - !type:HealthChange
+        damage:
+          # WD EDIT: Migrated damage format
+          Caustic: 1
 - type: reagent
   id: Diethylamine
   name: reagent-name-diethylamine
@@ -297,9 +296,9 @@
     amount: 1
   - !type:PlantDiethylamine {}
   metabolisms:
-    Poison:
+    Absorption: # WD EDIT
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Caustic: 1
+          # WD EDIT: Migrated damage format
+          Caustic: 1

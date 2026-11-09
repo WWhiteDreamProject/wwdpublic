@@ -1,8 +1,9 @@
 using Robust.Shared.Prototypes;
 using Robust.Shared.Localization;
-using Content.Shared.Humanoid.Markings;
 using System.Linq;
 using System.Collections.Generic;
+using Content.Shared._White.Humanoid.Markings.Prototypes;
+
 
 namespace Content.IntegrationTests.Tests.Traits;
 
@@ -27,7 +28,7 @@ public sealed class MarkingLocalizationTest
             var missingStrings = new List<string>();
 
             foreach (var markingProto in proto.EnumeratePrototypes<MarkingPrototype>().OrderBy(a => a.ID))
-                if (!locale.HasString($"marking-{markingProto.ID}") && string.IsNullOrEmpty(markingProto.Name))
+                if (!locale.HasString($"marking-{markingProto.ID}") && string.IsNullOrEmpty(markingProto.ID))
                     missingStrings.Add($"\"{markingProto.ID}\", \"marking-{markingProto.ID}\"");
 
             Assert.That(!missingStrings.Any(), Is.True, $"The following markings are missing localization strings:\n  {string.Join("\n  ", missingStrings)}");

@@ -1,5 +1,5 @@
-﻿using Robust.Shared.Prototypes;
-using Content.Shared.Damage.Prototypes;
+﻿using Content.Shared._White.Damage.Prototypes;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Radiation.Components;
 

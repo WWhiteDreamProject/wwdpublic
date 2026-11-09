@@ -37,7 +37,6 @@
         - PlushieMoth
         - PlushieMothRandom # Nyanotrasen Random Moth Plushies
         - PlushieArachind
-        - PlushieArachne
         - PlushieAbductor
         - PlushieGnome
         - PlushieLoveable
@@ -53,7 +52,6 @@
         - PlushieCoffeeFox
         - PlushieBlueFox
         - PlushieBlackFox
-        - PlushieVulp
         - PlushieCorgi
         - PlushieGirlyCorgi
         - PlushieRobotCorgi
@@ -66,12 +64,10 @@
         - PlushieCatWhite
         - PlushieRatvar
         - PlushieNar
-        - PlushieTrystan
         - PlushieSlips
         - PlushieJester
         - PlushieHarpy
         - PlushieMort
-        - PlushieShadowkin
         # WD EDIT START
         - PlushieSanabi
         - FaceHuggerToys

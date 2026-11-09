@@ -1,5 +1,6 @@
 using Content.Server.Administration.Logs;
-using Content.Shared.Damage;
+using Content.Shared._White.Damage.Components;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Database;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
@@ -31,14 +32,14 @@ namespace Content.Server.Repairable
 
             if (component.Damage != null)
             {
-                var damageChanged = _damageableSystem.TryChangeDamage(uid, component.Damage, true, false, origin: args.User);
+                var damageChanged = _damageableSystem.ChangeDamage(uid, component.Damage, true, false, origin: args.User); // WD EDIT
                 _adminLogger.Add(LogType.Healed, $"{ToPrettyString(args.User):user} repaired {ToPrettyString(uid):target} by {damageChanged?.GetTotal()}");
             }
 
             else
             {
                 // Repair all damage
-                _damageableSystem.SetAllDamage(uid, damageable, 0);
+                _damageableSystem.SetAllDamage((uid, damageable), 0); // WD EDIT
                 _adminLogger.Add(LogType.Healed, $"{ToPrettyString(args.User):user} repaired {ToPrettyString(uid):target} back to full health");
             }
 

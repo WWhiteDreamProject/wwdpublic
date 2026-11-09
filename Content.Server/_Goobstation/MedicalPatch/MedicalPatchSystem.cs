@@ -129,7 +129,7 @@ public sealed class MedicalPatchSystem : EntitySystem
                     Del(uid);
 
                     // Put the Medicalpatch in the user's hand
-                    _hands.TryPickup(args.User, finisher, hand);
+                    _hands.TryPickup(args.User, finisher, hand.Value);
                     return;
                 }
             }

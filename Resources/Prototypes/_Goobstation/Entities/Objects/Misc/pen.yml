@@ -32,8 +32,8 @@
   - type: MeleeWeapon
     wideAnimationRotation: -45
     damage:
-      types:
-        Piercing: 15
-        Heat: 5
+      # WD EDIT: Migrated damage format
+      Heat: 5
+      Piercing: 15
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg

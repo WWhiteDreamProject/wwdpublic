@@ -15,8 +15,7 @@
     bumpOpen: true
     occludes: false
     crushDamage:
-      types:
-        Blunt: 15
+      Blunt: 15
     whitelist:
       components:
       - BloodCultist

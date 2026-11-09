@@ -1,6 +1,7 @@
+using Content.Client._White.Preferences.Managers;
 using Content.Client.Lobby;
-using Content.Server.Preferences.Managers;
-using Content.Shared.Preferences;
+using Content.Server._White.Preferences.Managers;
+using Content.Shared._White.Preferences;
 using Robust.Client.State;
 using Robust.Shared.Network;
 
@@ -33,7 +34,7 @@ namespace Content.IntegrationTests.Tests.Lobby
             Assert.That(clientNetManager.ServerChannel, Is.Not.Null);
 
             var clientNetId = clientNetManager.ServerChannel.UserId;
-            HumanoidCharacterProfile profile = null;
+            HumanoidCharacterProfile profile = new();
 
             await client.WaitAssertion(() =>
             {
@@ -55,7 +56,7 @@ namespace Content.IntegrationTests.Tests.Lobby
 
                 Assert.That(clientCharacters, Is.Not.Null);
                 Assert.That(clientCharacters, Has.Count.EqualTo(2));
-                Assert.That(clientCharacters[1].MemberwiseEquals(profile));
+                Assert.That(clientCharacters[1].Equals(profile));
             });
 
             await PoolManager.WaitUntil(server, () => serverPrefManager.GetPreferences(clientNetId).Characters.Count == 2, maxTicks: 60);
@@ -65,7 +66,7 @@ namespace Content.IntegrationTests.Tests.Lobby
                 var serverCharacters = serverPrefManager.GetPreferences(clientNetId).Characters;
 
                 Assert.That(serverCharacters, Has.Count.EqualTo(2));
-                Assert.That(serverCharacters[1].MemberwiseEquals(profile));
+                Assert.That(serverCharacters[1].Equals(profile));
             });
 
             await client.WaitAssertion(() =>
@@ -96,7 +97,7 @@ namespace Content.IntegrationTests.Tests.Lobby
 
                 Assert.That(clientCharacters, Is.Not.Null);
                 Assert.That(clientCharacters, Has.Count.EqualTo(2));
-                Assert.That(clientCharacters[1].MemberwiseEquals(profile));
+                Assert.That(clientCharacters[1].Equals(profile));
             });
 
             await PoolManager.WaitUntil(server, () => serverPrefManager.GetPreferences(clientNetId).Characters.Count == 2, maxTicks: 60);
@@ -106,7 +107,7 @@ namespace Content.IntegrationTests.Tests.Lobby
                 var serverCharacters = serverPrefManager.GetPreferences(clientNetId).Characters;
 
                 Assert.That(serverCharacters, Has.Count.EqualTo(2));
-                Assert.That(serverCharacters[1].MemberwiseEquals(profile));
+                Assert.That(serverCharacters[1].Equals(profile));
             });
             await pair.CleanReturnAsync();
         }

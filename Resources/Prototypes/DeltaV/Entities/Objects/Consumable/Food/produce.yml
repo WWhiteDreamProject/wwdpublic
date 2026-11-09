@@ -9,7 +9,7 @@
       - sharp
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 25
         reagents:
         - ReagentId: Quartzite
@@ -35,7 +35,7 @@
         - sweet
     - type: SolutionContainerManager
       solutions:
-        food:
+        ingestible: # WD Ingestible
           maxVol: 39
           reagents:
             - ReagentId: Nutriment
@@ -68,7 +68,7 @@
         - spooky
     - type: SolutionContainerManager
       solutions:
-        food:
+        ingestible: # WD Ingestible
           maxVol: 41
           reagents:
             - ReagentId: Nutriment

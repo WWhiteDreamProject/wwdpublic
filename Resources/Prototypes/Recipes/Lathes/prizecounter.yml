@@ -7,14 +7,6 @@
     PrizeTicket: 30
 
 - type: latheRecipe
-  id: PlushieShadowkin
-  result: PlushieShadowkin
-  applyMaterialDiscount: false
-  completetime: 0.1
-  materials:
-    PrizeTicket: 50
-
-- type: latheRecipe
   id: PlushieMothRandom
   result: PlushieMothRandom
   applyMaterialDiscount: false
@@ -207,14 +199,6 @@
     PrizeTicket: 50
 
 - type: latheRecipe
-  id: PlushieArachne
-  result: PlushieArachne
-  applyMaterialDiscount: false
-  completetime: 0.1
-  materials:
-    PrizeTicket: 50
-
-- type: latheRecipe
   id: PlushieGnome
   result: PlushieGnome
   applyMaterialDiscount: false
@@ -321,14 +305,6 @@
 - type: latheRecipe
   id: PlushieBlackFox
   result: PlushieBlackFox
-  applyMaterialDiscount: false
-  completetime: 0.1
-  materials:
-    PrizeTicket: 50
-
-- type: latheRecipe
-  id: PlushieVulp
-  result: PlushieVulp
   applyMaterialDiscount: false
   completetime: 0.1
   materials:
@@ -643,14 +619,6 @@
 - type: latheRecipe
   id: PlushieSlips
   result: PlushieSlips
-  applyMaterialDiscount: false
-  completetime: 0.1
-  materials:
-    PrizeTicket: 100
-
-- type: latheRecipe
-  id: PlushieTrystan
-  result: PlushieTrystan
   applyMaterialDiscount: false
   completetime: 0.1
   materials:

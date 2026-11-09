@@ -1,9 +1,9 @@
 ﻿using Content.Server.Chat.Managers;
 using Content.Server.Popups;
-using Content.Shared._Shitmed.Medical.Surgery;
+using Content.Shared._White.Damage.Components;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Alert;
 using Content.Shared.Chat;
-using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
@@ -17,7 +17,6 @@ using Timer = Robust.Shared.Timing.Timer;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
 using Content.Shared.CCVar;
-using Robust.Shared.Utility;
 
 namespace Content.Server.Mood;
 
@@ -434,9 +433,6 @@ public sealed class MoodSystem : EntitySystem
                 protoId = threshold.Key;
                 value = threshold.Value;
             }
-
-        if (HasComp<NoScreamComponent>(uid)) // WWDP painkillers
-            protoId = "HealthNoDamage";
 
         var ev = new MoodEffectEvent(protoId);
         RaiseLocalEvent(uid, ev);

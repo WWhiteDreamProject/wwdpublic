@@ -360,38 +360,38 @@ BlueprintFlare: null
 
 # 2024-10-09
 # Removal of separate borg chassis parts, replace them with generic borg parts.
-LeftArmBorgEngineer: LeftArmBorg
-RightArmBorgEngineer: RightArmBorg
-LeftLegBorgEngineer: LeftLegBorg
-RightLegBorgEngineer: RightLegBorg
-HeadBorgEngineer: LightHeadBorg
-TorsoBorgEngineer: TorsoBorg
+LeftArmBorgEngineer: BodyProviderLeftArmBorg # WD EDIT: LeftArmBorg -> BodyProviderLeftArmBorg
+RightArmBorgEngineer: BodyProviderRightArmBorg # WD EDIT: RightArmBorg -> BodyProviderRightArmBorg
+LeftLegBorgEngineer: BodyProviderLeftLegBorg # WD EDIT: LeftLegBorg -> BodyProviderLeftLegBorg
+RightLegBorgEngineer: BodyProviderRightLegBorg # WD EDIT: RightLegBorg -> BodyProviderRightLegBorg
+HeadBorgEngineer: BodyProviderHeadBorg # WD EDIT: LightHeadBorg -> BodyProviderHeadBorg
+TorsoBorgEngineer: BodyProviderTorsoBorg # WD EDIT: TorsoBorg -> BodyProviderTorsoBorg
 
-LeftArmBorgMedical: LeftArmBorg
-RightArmBorgMedical: RightArmBorg
-LeftLegBorgMedical: LeftLegBorg
-RightLegBorgMedical: RightLegBorg
-HeadBorgMedical: LightHeadBorg
-TorsoBorgMedical: TorsoBorg
+LeftArmBorgMedical: BodyProviderLeftArmBorg # WD EDIT: LeftArmBorg -> BodyProviderLeftArmBorg
+RightArmBorgMedical: BodyProviderRightArmBorg # WD EDIT: RightArmBorg -> BodyProviderRightArmBorg
+LeftLegBorgMedical: BodyProviderLeftLegBorg # WD EDIT: LeftLegBorg -> BodyProviderLeftLegBorg
+RightLegBorgMedical: BodyProviderRightLegBorg # WD EDIT: RightLegBorg -> BodyProviderRightLegBorg
+HeadBorgMedical: BodyProviderHeadBorg # WD EDIT: LightHeadBorg -> BodyProviderHeadBorg
+TorsoBorgMedical: BodyProviderTorsoBorg # WD EDIT: TorsoBorg -> BodyProviderTorsoBorg
 
-LeftArmBorgMining: LeftArmBorg
-RightArmBorgMining: RightArmBorg
-LeftLegBorgMining: LeftLegBorg
-RightLegBorgMining: RightLegBorg
-HeadBorgMining: LightHeadBorg
-TorsoBorgMining: TorsoBorg
+LeftArmBorgMining: BodyProviderLeftArmBorg # WD EDIT: LeftArmBorg -> BodyProviderLeftArmBorg
+RightArmBorgMining: BodyProviderRightArmBorg # WD EDIT: RightArmBorg -> BodyProviderRightArmBorg
+LeftLegBorgMining: BodyProviderLeftLegBorg # WD EDIT: LeftLegBorg -> BodyProviderLeftLegBorg
+RightLegBorgMining: BodyProviderRightLegBorg # WD EDIT: RightLegBorg -> BodyProviderRightLegBorg
+HeadBorgMining: BodyProviderHeadBorg # WD EDIT: LightHeadBorg -> BodyProviderHeadBorg
+TorsoBorgMining: BodyProviderTorsoBorg # WD EDIT: TorsoBorg -> BodyProviderTorsoBorg
 
-LeftArmBorgService: LeftArmBorg
-RightArmBorgService: RightArmBorg
-LeftLegBorgService: LeftLegBorg
-RightLegBorgService: RightLegBorg
-HeadBorgService: LightHeadBorg
-TorsoBorgService: TorsoBorg
+LeftArmBorgService: BodyProviderLeftArmBorg # WD EDIT: LeftArmBorg -> BodyProviderLeftArmBorg
+RightArmBorgService: BodyProviderRightArmBorg # WD EDIT: RightArmBorg -> BodyProviderRightArmBorg
+LeftLegBorgService: BodyProviderLeftLegBorg # WD EDIT: LeftLegBorg -> BodyProviderLeftLegBorg
+RightLegBorgService: BodyProviderRightLegBorg # WD EDIT: RightLegBorg -> BodyProviderRightLegBorg
+HeadBorgService: BodyProviderHeadBorg # WD EDIT: LightHeadBorg -> BodyProviderHeadBorg
+TorsoBorgService: BodyProviderTorsoBorg # WD EDIT: TorsoBorg -> BodyProviderTorsoBorg
 
-LeftLegBorgJanitor: LeftLegBorg
-RightLegBorgJanitor: RightLegBorg
-HeadBorgJanitor: LightHeadBorg
-TorsoBorgJanitor: TorsoBorg
+LeftLegBorgJanitor: BodyProviderLeftLegBorg # WD EDIT: LeftLegBorg -> BodyProviderLeftLegBorg
+RightLegBorgJanitor: BodyProviderRightLegBorg # WD EDIT: RightLegBorg -> BodyProviderRightLegBorg
+HeadBorgJanitor: BodyProviderHeadBorg # WD EDIT: LightHeadBorg -> BodyProviderHeadBorg
+TorsoBorgJanitor: BodyProviderTorsoBorg # WD EDIT: TorsoBorg -> BodyProviderTorsoBorg
 
 # 2024-11-17
 PresentRandomAsh: PresentRandomCoal
@@ -476,8 +476,6 @@ PoweredDimSmallLight: PoweredSmallLight
 PosterLegitGoobFaded: null
 ClothingOuterWinterColorBlue: ClothingOuterWinterMed
 ClothingOuterWinterColorBrown: ClothingOuterWinterHydro
-MineralScanner: null
-AdvancedMineralScanner: null
 FoamThrongler: PlushieThrongler
 GlueGrenade: null
 LubeGrenade: CleanerGrenade
@@ -495,7 +493,6 @@ WallRockBasaltBSCrystal: WallRockBasaltBluespace
 AirlockHydroponics: AirlockHydroponicsLocked
 Biogenerator: null
 FloraGreyStalagmite: null
-FelinidCube: TajaranCube
 
 # 2025-06-21
 ClothingNeckHeadphones: ClothingMultipleHeadphones

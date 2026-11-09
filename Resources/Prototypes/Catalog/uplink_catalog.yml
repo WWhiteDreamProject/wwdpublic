@@ -1604,7 +1604,7 @@
   id: UplinkDnaScramblerImplant
   name: uplink-dna-scrambler-implanter-name
   description: uplink-dna-scrambler-implanter-desc
-  icon: { sprite: /Textures/Mobs/Species/Human/parts.rsi, state: full }
+  icon: { sprite: /Textures/_White/Bodies/Parts/Humanoids/human.rsi, state: full } # WD EDIT
   productEntity: DnaScramblerImplanter
   discountCategory: usualDiscounts
   discountDownTo:

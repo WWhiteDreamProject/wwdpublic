@@ -1,9 +1,8 @@
 using Content.Shared._Goobstation.Devil;
-using Content.Shared._Goobstation.Devil.Contract;
 using Content.Shared._Goobstation.Exorcism;
 using Content.Shared._Goobstation.Religion;
 using Content.Server.Bible.Components;
-using Content.Shared.Damage;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs.Systems;

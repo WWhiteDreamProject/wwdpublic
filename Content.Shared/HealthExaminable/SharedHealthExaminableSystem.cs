@@ -1,4 +1,3 @@
-using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.FixedPoint;
 using Content.Shared.IdentityManagement;
@@ -7,6 +6,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Verbs;
 using Robust.Shared.Utility;
 using System.Linq;
+using Content.Shared._White.Damage.Components;
 using Content.Shared.Traits.Assorted.Components;
 
 namespace Content.Shared.HealthExaminable;
@@ -66,7 +66,7 @@ public abstract class SharedHealthExaminableSystem : EntitySystem
 
         foreach (var type in component.ExaminableTypes)
         {
-            if (!damage.Damage.DamageDict.TryGetValue(type, out var dmg))
+            if (!damage.Damage.TryGetValue(type, out var dmg))
                 continue;
 
             if (dmg == FixedPoint2.Zero)
@@ -118,7 +118,7 @@ public abstract class SharedHealthExaminableSystem : EntitySystem
 
         foreach (var type in selfAware.AnalyzableTypes)
         {
-            if (!damage.Damage.DamageDict.TryGetValue(type, out var typeDmgUnrounded))
+            if (!damage.Damage.TryGetValue(type, out var typeDmgUnrounded))
                 continue;
 
             var typeDmg = (int) Math.Round(typeDmgUnrounded.Float(), 0);

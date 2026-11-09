@@ -10,12 +10,12 @@
     flavors:
       - oily
       - bread
-  - type: Food
+  - type: Ingestible # WD Ingestible
   - type: Sprite
     sprite: Objects/Consumable/Food/Baked/pizza.rsi
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 40
         reagents:
         - ReagentId: Nutriment
@@ -42,12 +42,12 @@
     flavors:
       - oily
       - bread
-  - type: Food
+  - type: Ingestible # WD Ingestible
   - type: Sprite
     sprite: Objects/Consumable/Food/Baked/pizza.rsi
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         # Note: Keep FoodPizzaMoldySlice & FoodPizzaSliceBase roughly in sync
         maxVol: 6
         reagents:
@@ -195,7 +195,7 @@
     slice: FoodPizzaVegetableSlice
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 40
         reagents:
         - ReagentId: Nutriment
@@ -225,7 +225,7 @@
     - state: vegetable-slice
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 40
         reagents:
         - ReagentId: Nutriment
@@ -253,7 +253,7 @@
     slice: FoodPizzaDonkpocketSlice
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 50
         reagents:
         - ReagentId: Nutriment
@@ -282,7 +282,7 @@
     - state: donkpocket-slice
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 50
         reagents:
         - ReagentId: Nutriment
@@ -317,7 +317,7 @@
     slice: FoodPizzaDankSlice
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 50
         reagents:
         - ReagentId: Nutriment
@@ -342,7 +342,7 @@
     - state: dank-slice
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 10
         reagents:
         - ReagentId: Nutriment
@@ -462,7 +462,7 @@
     slice: FoodPizzaArnoldSlice
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 85
         reagents:
         - ReagentId: Nutriment
@@ -496,7 +496,7 @@
     - state: arnold-slice
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 15
         reagents:
         - ReagentId: Nutriment
@@ -534,7 +534,7 @@
     - Trash
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         # Note: Keep FoodPizzaMoldySlice & FoodPizzaSliceBase roughly in sync
         maxVol: 5
         reagents:
@@ -572,7 +572,7 @@
     radius: 2
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 40
         reagents:
         - ReagentId: Nutriment
@@ -607,7 +607,7 @@
     radius: 2
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 5
         reagents:
         - ReagentId: Nutriment
@@ -632,7 +632,7 @@
   - type: Sprite
     layers:
     - state: cotton-pizza
-  - type: Food
+  - type: Ingestible # WD Ingestible
     requiresSpecialDigestion: true
   - type: SliceableFood
     slice: FoodPizzaCottonSlice
@@ -642,7 +642,7 @@
     - Pizza
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 40
         reagents:
         - ReagentId: Nutriment
@@ -672,7 +672,7 @@
     - Slice
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 6
         reagents:
         - ReagentId: Nutriment

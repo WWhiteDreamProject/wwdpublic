@@ -7,16 +7,16 @@
   flavor: terrible
   color: "#174f17"
   metabolisms:
-    Poison:
+    Absorption: # WD EDIT
       effects: # considering vomiting and re-add the metabolism rate works out to ~2.5/s
       - !type:HealthChange # ~20/20 damage per 15u, inconsistent
         damage:
-          types:
-            Blunt: 4
+          # WD EDIT: Migrated damage format
+          Blunt: 4
       - !type:HealthChange
         damage:
-          types:
-            Poison: 4
+          # WD EDIT: Migrated damage format
+          Poison: 4
       - !type:AdjustReagent
         reagent: Triclor
         amount: 0.5 # Counteracts some loss from vomiting, makes effects more linear
@@ -52,14 +52,14 @@
   flavor: bitter
   color: "#1abcff"
   metabolisms:
-    Poison:
+    Absorption: # WD EDIT
       metabolismRate: 0.1
       effects:
       - !type:HealthChange
         damage:
-          types:
-            Poison: 0.75 # 37.5 per 5u but pretty slow
-            Asphyxiation: 0.25
+          # WD EDIT: Migrated damage format
+          Asphyxiation: 0.2
+          Poison: 0.8
       - !type:Paralyze
         probability: 0.05
         paralyzeTime: 2
@@ -73,30 +73,13 @@
   flavor: bitter
   color: "#819cb5"
   metabolisms:
-    Poison:
+    Absorption: # WD EDIT
       metabolismRate: 0.05
       effects:
-      - !type:AdjustReagent
-        group: Medicine
-        amount: -4.5
-        conditions: # higher quality anti-poisons, save for calomel which is low effort but high risk
-        - !type:BloodReagentThreshold
-          reagent: PentenicAcid
-          max: 0.1
-        - !type:BloodReagentThreshold
-          reagent: Calomel
-          max: 0.1
-        - !type:BloodReagentThreshold
-          reagent: Diphenhydramine
-          max: 0.1
-      - !type:AdjustReagent
-        group: Medicine
-        amount: -0.5
       - !type:HealthChange
         damage:
-          types:
-            Poison: 0.2 # this works out to 20 per 5u
-
+          # WD EDIT: Migrated damage format
+          Poison: 0.2
 - type: reagent
   id: Pendetide
   name: reagent-name-pendetide
@@ -106,20 +89,17 @@
   flavor: bitter
   color: "#22ff1a"
   metabolisms:
-    Poison:
+    Absorption: # WD EDIT
       effects:
-      - !type:AdjustReagent
-        group: Medicine
-        amount: -5
       - !type:HealthChange
         damage:
-          types:
-            Radiation: 2
+          # WD EDIT: Migrated damage format
+          Radiation: 2
         conditions:
         - !type:TypedDamageThreshold
           damage:
-            types:
-              Radiation: 2 # kinda arbitrary, it'll trigger after some rads
+            # WD EDIT: Migrated damage format
+            Radiation: 2
       - !type:GenericStatusEffect
         key: Stutter
         component: StutteringAccent
@@ -134,7 +114,7 @@
   flavor: bitter
   color: "#8e8e8e"
   metabolisms:
-    Poison:
+    Absorption: # WD EDIT
       metabolismRate: 3
       effects:
       - !type:HealthChange
@@ -142,8 +122,8 @@
         - !type:ReagentThreshold
           min: 6
         damage:
-          types:
-            Blunt: 10
+          # WD EDIT: Migrated damage format
+          Blunt: 10
       - !type:AdjustReagent
         amount: -25
         reagent: Syriniver

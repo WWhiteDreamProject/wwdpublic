@@ -4,6 +4,7 @@ using Content.Server.Projectiles;
 using Content.Server.Stunnable;
 using Content.Shared._White.BloodCult.BloodCultist;
 using Content.Shared._White.BloodCult.Spells;
+using Content.Shared._White.Humanoid.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Item;
 using Content.Shared.Projectiles;
@@ -41,7 +42,7 @@ public sealed class BloodSpearSystem : EntitySystem
 
     private void OnEmbed(Entity<BloodSpearComponent> spear, ref EmbedEvent args)
     {
-        if (!HasComp<HumanoidAppearanceComponent>(args.Embedded))
+        if (!HasComp<HumanoidProfileComponent>(args.Embedded))
             return;
 
         _stun.TryParalyze(args.Embedded, spear.Comp.ParalyzeTime, true);

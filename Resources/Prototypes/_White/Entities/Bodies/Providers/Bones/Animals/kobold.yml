@@ -1,0 +1,64 @@
+- type: entity
+  id: BaseBodyProviderBoneKobold
+  parent: BaseBodyProviderBone
+  abstract: true
+  suffix: Kobold
+  components:
+  - type: Sprite
+    sprite: _White/Bodies/Bones/Humanoids/human.rsi
+
+# Arm Bone / Antebrachium
+- type: entity
+  id: BodyProviderLeftAntebrachiumKobold
+  parent: [BaseBodyProviderLeftAntebrachium, BaseBodyProviderBoneKobold]
+
+- type: entity
+  id: BodyProviderRightAntebrachiumKobold
+  parent: [BaseBodyProviderRightAntebrachium, BaseBodyProviderBoneKobold]
+
+# Tail Bone / Cauda
+- type: entity
+  id: BodyProviderCaudaKobold
+  parent: [BaseBodyProviderCauda, BaseBodyProviderBoneKobold]
+
+# Pelvis / Coxae
+- type: entity
+  id: BodyProviderCoxaeKobold
+  parent: [BaseBodyProviderCoxae, BaseBodyProviderBoneKobold]
+
+# Skull / Сranium
+- type: entity
+  id: BodyProviderCraniumKobold
+  parent: [BaseBodyProviderCranium, BaseBodyProviderBoneKobold]
+
+# Leg Bone / Crus
+- type: entity
+  id: BodyProviderLeftCrusKobold
+  parent: [BaseBodyProviderLeftCrus, BaseBodyProviderBoneKobold]
+
+- type: entity
+  id: BodyProviderRightCrusKobold
+  parent: [BaseBodyProviderRightCrus, BaseBodyProviderBoneKobold]
+
+# Hand Bone / Manus
+- type: entity
+  id: BodyProviderLeftManusKobold
+  parent: [BaseBodyProviderLeftManus, BaseBodyProviderBoneKobold]
+
+- type: entity
+  id: BodyProviderRightManusKobold
+  parent: [BaseBodyProviderRightManus, BaseBodyProviderBoneKobold]
+
+# Foot Bone / Pedis
+- type: entity
+  id: BodyProviderLeftPedisKobold
+  parent: [BaseBodyProviderLeftPedis, BaseBodyProviderBoneKobold]
+
+- type: entity
+  id: BodyProviderRightPedisKobold
+  parent: [BaseBodyProviderRightPedis, BaseBodyProviderBoneKobold]
+
+# Rib Cage / Thorax
+- type: entity
+  id: BodyProviderThoraxKobold
+  parent: [BaseBodyProviderThorax, BaseBodyProviderBoneKobold]

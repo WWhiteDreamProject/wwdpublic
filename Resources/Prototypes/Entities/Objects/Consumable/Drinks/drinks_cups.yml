@@ -8,18 +8,18 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         maxVol: 20
   - type: MixableSolution
-    solution: drink
+    solution: ingestible # WD Ingestible
   - type: FitsInDispenser
-    solution: drink
+    solution: ingestible # WD Ingestible
   - type: DrawableSolution
-    solution: drink
+    solution: ingestible # WD Ingestible
   - type: RefillableSolution
-    solution: drink
+    solution: ingestible # WD Ingestible
   - type: DrainableSolution
-    solution: drink
+    solution: ingestible # WD Ingestible
   - type: SolutionTransfer
     canChangeTransferAmount: true
     maxTransferAmount: 10
@@ -27,18 +27,18 @@
     interfaces:
       enum.TransferAmountUiKey.Key:
         type: TransferAmountBoundUserInterface
-  - type: Drink
+  - type: Ingestible # WD Ingestible
   - type: Sprite
     state: icon
   - type: Spillable
-    solution: drink
+    solution: ingestible # WD Ingestible
   - type: MeleeWeapon
     canBeBlocked: false # WD EDIT
     soundNoDamage:
       path: "/Audio/Effects/Fluids/splat.ogg"
     damage:
-      types:
-        Blunt: 0
+      # WD EDIT: Migrated damage format
+      Blunt: 0
   - type: EmitSoundOnPickup
     sound: /Audio/SimpleStation14/Items/Handling/drinkglass_pickup.ogg
   - type: EmitSoundOnDrop
@@ -194,7 +194,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: HotCocoa
           Quantity: 20
@@ -212,7 +212,7 @@
     maxFillLevels: 4
     fillBaseName: icon-
   - type: TrashOnSolutionEmpty
-    solution: drink
+    solution: ingestible # WD Ingestible
 
 - type: entity
   parent: DrinkBaseCup
@@ -222,7 +222,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Coffee
           Quantity: 20
@@ -240,7 +240,7 @@
     maxFillLevels: 4
     fillBaseName: icon-
   - type: TrashOnSolutionEmpty
-    solution: drink
+    solution: ingestible # WD Ingestible
 
 - type: entity
   parent: DrinkBaseCup
@@ -250,7 +250,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: CafeLatte
           Quantity: 20
@@ -266,7 +266,7 @@
     fillBaseName: fill-
     changeColor: false
   - type: TrashOnSolutionEmpty
-    solution: drink
+    solution: ingestible # WD Ingestible
 
 - type: entity
   parent: DrinkBaseCup
@@ -276,7 +276,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Tea
           Quantity: 20
@@ -294,7 +294,7 @@
     maxFillLevels: 4
     fillBaseName: icon-
   - type: TrashOnSolutionEmpty
-    solution: drink
+    solution: ingestible # WD Ingestible
 
 - type: entity
   parent: DrinkBaseCup
@@ -304,7 +304,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: GreenTea
           Quantity: 20
@@ -322,7 +322,7 @@
     maxFillLevels: 4
     fillBaseName: icon-
   - type: TrashOnSolutionEmpty
-    solution: drink
+    solution: ingestible # WD Ingestible
 
 - type: entity
   parent: DrinkBaseCup
@@ -332,7 +332,7 @@
   components:
   - type: SolutionContainerManager
     solutions:
-      drink:
+      ingestible: # WD Ingestible
         reagents:
         - ReagentId: Lean
           Quantity: 20
@@ -342,7 +342,7 @@
   - type: Item
     sprite: Objects/Consumable/Drinks/lean.rsi
   - type: TrashOnSolutionEmpty
-    solution: drink
+    solution: ingestible # WD Ingestible
 
 - type: entity
   parent: DrinkBaseCup
@@ -350,7 +350,7 @@
   name: water cup
   description: A paper water cup.
   components:
-  - type: Drink
+  - type: Ingestible # WD Ingestible
   - type: Sprite
     sprite: Objects/Consumable/Drinks/water_cup.rsi
     layers:
@@ -366,7 +366,7 @@
     - Trash
     - WhitelistChameleon
   - type: TrashOnSolutionEmpty
-    solution: drink
+    solution: ingestible # WD Ingestible
   - type: Clothing
     slots:
     - HEAD

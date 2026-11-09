@@ -1,0 +1,9 @@
+- type: naming
+  id: Reptilian
+  preset: naming-preset-first-dash-last
+  first:
+    Neuter: NamingFirstReptilian
+    Epicene: NamingFirstReptilian
+    Female: NamingFirstReptilianFemale
+    Male: NamingFirstReptilian
+  last: NamingLastHuman

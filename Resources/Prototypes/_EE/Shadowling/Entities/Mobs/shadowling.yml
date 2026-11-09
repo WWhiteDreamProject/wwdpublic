@@ -56,10 +56,10 @@
       collection: FirePunch
     animation: WeaponArcShadowClaw
     damage:
-      types:
-        Slash: 20
-        Piercing: 30
-        Caustic: 10
+      # WD EDIT: Migrated damage format
+      Caustic: 10
+      Piercing: 30
+      Slash: 20
   - type: DamageStateVisuals
     states:
       Alive:

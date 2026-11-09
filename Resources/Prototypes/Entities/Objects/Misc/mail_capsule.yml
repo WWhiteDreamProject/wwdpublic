@@ -118,9 +118,8 @@
         acts: [ "Destruction" ]
   - type: DamageOnLand
     damage:
-      types:
-        Blunt: 9.5
-
+      # WD EDIT: Migrated damage format
+      Blunt: 9.5
 - type: entity
   name: mail capsule box
   parent: BoxCardboard

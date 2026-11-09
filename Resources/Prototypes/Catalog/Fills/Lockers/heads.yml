@@ -233,13 +233,11 @@
     - id: Hypospray
     - id: LunchboxCommandFilledRandom
       prob: 0.3
-    - id: MedicalBiofabMachineBoard
     - id: MedicalTechFabCircuitboard
     - id: MedkitFilled
     - id: PrinterDocFlatpack
     - id: RubberStampCMO
     - id: RubberStampPsychologist
-    - id: OmnimedToolLite # WD EDIT
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable

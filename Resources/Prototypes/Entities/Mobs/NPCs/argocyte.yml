@@ -1,6 +1,6 @@
 ﻿- type: entity
   save: false
-  parent: [ BaseSimpleMob, MobCombat ]
+  parent: [ BaseSimpleMob, BaseMobCombat, BaseBodyAnimal ] # WD EDIT: BaseBodyAnimal
   id: BaseMobArgocyte
   suffix: AI
   description: A dangerous alien found on the wrong side of planets, known for their propensity for munching on ruins.
@@ -37,16 +37,14 @@
     angle: 0
     animation: WeaponArcBite
     damage:
-      types:
-        Slash: 5
-  - type: Body
-    prototype: Animal
+      # WD EDIT: Migrated damage format
+      Slash: 5
   - type: Flammable
     fireSpread: true
     canResistFire: true
     damage:
-      types:
-        Heat: 9
+      # WD EDIT: Migrated damage format
+      Heat: 9
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Generic_mob_burning
@@ -83,9 +81,8 @@
     baseWalkSpeed : 3
   - type: MeleeWeapon
     damage:
-      types:
-        Blunt: 3
-
+      # WD EDIT: Migrated damage format
+      Blunt: 3
 - type: entity
   parent: BaseMobArgocyte
   id: MobArgocyteBarrier
@@ -121,9 +118,8 @@
         - MobLayer
   - type: MeleeWeapon
     damage:
-      types:
-        Blunt: 3
-
+      # WD EDIT: Migrated damage format
+      Blunt: 3
 - type: entity
   parent: BaseMobArgocyte
   id: MobArgocyteSkitter
@@ -157,9 +153,8 @@
         - MobLayer
   - type: MeleeWeapon
     damage:
-      types:
-        Slash: 3
-
+      # WD EDIT: Migrated damage format
+      Slash: 3
 - type: entity
   parent: BaseMobArgocyte
   id: MobArgocyteSwiper
@@ -227,10 +222,9 @@
       100: Dead
   - type: MeleeWeapon
     damage:
-      types:
-        Blunt: 2.5
-        Slash: 7.5
-
+      # WD EDIT: Migrated damage format
+      Blunt: 2.5
+      Slash: 7.5
 - type: entity
   parent: BaseMobArgocyte
   id: MobArgocyteGlider
@@ -252,9 +246,9 @@
       100: Dead
   - type: MeleeWeapon
     damage:
-      types:
-        Blunt: 3.5
-        Slash: 3.5
+      # WD EDIT: Migrated damage format
+      Blunt: 3.5
+      Slash: 3.5
   - type: MovementSpeedModifier
     baseSprintSpeed : 5
     baseWalkSpeed: 4.5
@@ -280,11 +274,10 @@
       150: Dead
   - type: MeleeWeapon
     damage:
-      types:
-        Blunt: 5
-        Slash: 10
-        Structural: 5
-
+      # WD EDIT: Migrated damage format
+      Blunt: 5
+      Slash: 10
+      Structural: 5
 - type: entity
   parent: BaseMobArgocyte
   id: MobArgocyteCrawler
@@ -307,10 +300,10 @@
       150: Dead
   - type: MeleeWeapon
     damage:
-      types:
-        Blunt: 15
-        Slash: 5
-        Structural: 5
+      # WD EDIT: Migrated damage format
+      Blunt: 15
+      Slash: 5
+      Structural: 5
   - type: MovementSpeedModifier
     baseSprintSpeed : 6.5
     baseWalkSpeed: 5
@@ -336,10 +329,10 @@
       300: Dead
   - type: MeleeWeapon
     damage:
-      types:
-        Blunt: 10
-        Slash: 15
-        Structural: 10
+      # WD EDIT: Migrated damage format
+      Blunt: 10
+      Slash: 15
+      Structural: 10
   - type: MovementSpeedModifier
     baseSprintSpeed : 3.5
     baseWalkSpeed: 3
@@ -378,9 +371,9 @@
       500: Dead
   - type: MeleeWeapon
     damage:
-      types:
-        Blunt: 25
-        Structural: 25
+      # WD EDIT: Migrated damage format
+      Blunt: 25
+      Structural: 25
   - type: MovementSpeedModifier
     baseSprintSpeed : 3
     baseWalkSpeed: 3
@@ -419,6 +412,6 @@
       1000: Dead
   - type: MeleeWeapon
     damage:
-      types:
-        Blunt: 75
-        Structural: 50
+      # WD EDIT: Migrated damage format
+      Blunt: 75
+      Structural: 50

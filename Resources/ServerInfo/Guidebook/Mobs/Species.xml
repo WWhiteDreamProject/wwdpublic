@@ -11,13 +11,9 @@
   </Box>
   <Box>
     <GuideEntityEmbed Entity="MobMoth" Caption="Ниан (Мотылёк)"/>
+    <GuideEntityEmbed Entity="MobOni" Caption="Они"/>
     <GuideEntityEmbed Entity="MobReptilian" Caption="Унатх (Ящер)"/>
     <GuideEntityEmbed Entity="MobSlimePerson" Caption="Слаймолюд (Слайм)"/>
-    <GuideEntityEmbed Entity="MobVulpkanin" Caption="Вульпа (Собака)"/>
-  </Box>
-  <Box>
-    <GuideEntityEmbed Entity="MobHarpy" Caption="Гарпия (Птичка)"/>
-    <GuideEntityEmbed Entity="MobPlasmaman" Caption="Плазмамен (Плазмочеловек)"/>
   </Box>
   <Box>
     <GuideEntityEmbed Entity="MobIPCDummy" Caption="КПБ (Комплексный Позитронный Блок)"/>

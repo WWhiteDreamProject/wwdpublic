@@ -104,16 +104,14 @@ namespace Content.Shared.Verbs
 
         public static readonly VerbCategory Rename = new("verb-categories-rename");
 
+        public static readonly VerbCategory PowerLevel = new("verb-categories-power-level");
+
         public static readonly VerbCategory Interaction = new("verb-categories-interaction");
 
         // WD EDIT START
         public static readonly VerbCategory BloodSpells = new("verb-categories-blood-cult",
-            new SpriteSpecifier.Rsi(new ResPath("/Textures/_White/Interface/Actions/blood_cult.rsi"), "blood_spells"));
+            new SpriteSpecifier.Rsi(new ResPath("/Textures/WhiteDream/BloodCult/actions.rsi"), "blood_spells"));
         // WD EDIT END
-        public static readonly VerbCategory PowerLevel = new("verb-categories-power-level");
-
-        // Shitmed - Starlight Abductors
-        public static readonly VerbCategory Switch = new("verb-categories-switch", "/Textures/Interface/VerbIcons/group.svg.192dpi.png");
 
         public static readonly VerbCategory GenderChange = new("verb-categories-gender-change");
         public static readonly VerbCategory SexChange = new("verb-categories-sex-change");

@@ -1,4 +1,4 @@
-using Content.Server.Body.Components;
+using Content.Shared._White.Bloodstream.Components;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.EntityEffects;
 using Content.Shared.FixedPoint;
@@ -36,9 +36,11 @@ public sealed partial class BloodReagentThreshold : EntityEffectCondition
             // Try to resolve the chemical solution
             if (!args.EntityManager.System<SharedSolutionContainerSystem>().ResolveSolution(
                     args.TargetEntity,
-                    blood.ChemicalSolutionName,
-                    ref blood.ChemicalSolution,
-                    out var chemSolution))
+                    // WD EDIT START
+                    blood.SolutionName,
+                    ref blood.Solution,
+                    out var bloodSolution))
+                    // WD EDIT END
             {
                 // Failed to resolve solution, apply same logic as when reagent isn't found
                 return Min <= 0;
@@ -46,7 +48,7 @@ public sealed partial class BloodReagentThreshold : EntityEffectCondition
 
             // Solution resolved, check reagent quantity
             var reagentID = new ReagentId(Reagent, null);
-            if (!chemSolution.TryGetReagentQuantity(reagentID, out var quant))
+            if (!bloodSolution.TryGetReagentQuantity(reagentID, out var quant)) // WD EDIT
             {
                 // Reagent not found in solution
                 return Min <= 0;

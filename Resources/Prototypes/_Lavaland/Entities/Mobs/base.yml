@@ -3,9 +3,9 @@
   id: LavalandMobBase
   parent:
   - BaseMob
-  - MobDamageable
-  - MobAtmosExposed
-  - MobCombat
+  - BaseMobDamageable
+  - BaseMobAtmos
+  - BaseMobCombat
   abstract: true
   components:
   - type: Reactive

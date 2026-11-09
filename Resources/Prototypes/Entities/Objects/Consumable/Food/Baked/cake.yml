@@ -9,12 +9,12 @@
   - type: FlavorProfile
     flavors:
       - sweet
-  - type: Food
+  - type: Ingestible # WD Ingestible
   - type: Sprite
     sprite: Objects/Consumable/Food/Baked/cake.rsi
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: Nutriment
@@ -36,10 +36,10 @@
   - type: FlavorProfile
     flavors:
       - sweet
-  - type: Food
+  - type: Ingestible # WD Ingestible
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 10
         reagents:
         - ReagentId: Nutriment
@@ -126,7 +126,7 @@
     slice: FoodCakeCarrotSlice
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: JuiceCarrot
@@ -146,7 +146,7 @@
     state: carrot-slice
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 6
         reagents:
         - ReagentId: JuiceCarrot
@@ -304,7 +304,7 @@
     slice: FoodCakeLemoonSlice
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 30
         reagents:
         - ReagentId: Nutriment
@@ -332,7 +332,7 @@
       - berry
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 15
         reagents:
         - ReagentId: Nutriment
@@ -359,7 +359,7 @@
     slice: FoodCakeChocolateSlice
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 35
         reagents:
         - ReagentId: Nutriment
@@ -378,7 +378,7 @@
     state: chocolate-slice
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 8
         reagents:
         - ReagentId: Nutriment
@@ -452,7 +452,7 @@
     slice: FoodCakePumpkinSlice
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 50
         reagents:
         - ReagentId: Nutriment
@@ -474,7 +474,7 @@
     state: pumpkinspice-slice
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 15
         reagents:
         - ReagentId: Nutriment
@@ -541,7 +541,7 @@
     slice: FoodCakeVanillaSlice
   - type: SolutionContainerManager #TODO Sprinkles
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 45
         reagents:
         - ReagentId: Nutriment
@@ -561,7 +561,7 @@
     state: vanilla-slice
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 45
         reagents:
         - ReagentId: Nutriment
@@ -584,7 +584,7 @@
     slice: FoodCakeClownSlice
   - type: SolutionContainerManager #TODO Sprinkles
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 45
         reagents:
         - ReagentId: Nutriment
@@ -604,7 +604,7 @@
     state: clown-slice
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 45
         reagents:
         - ReagentId: Nutriment
@@ -627,7 +627,7 @@
     slice: FoodCakeSpacemanSlice
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 45
         reagents:
         - ReagentId: Nutriment
@@ -647,7 +647,7 @@
     state: trumpet-slice
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 10
         reagents:
         - ReagentId: Nutriment
@@ -727,12 +727,10 @@
       path: /Audio/Animals/cat_hiss.ogg
     hidden: true
     damage:
-      groups:
-        Brute: 1
-
-# Suppermatter
-# I can't figure out where to put this. It kind of acts like a cake I guess?
-
+      # WD EDIT: Migrated damage format
+      Blunt: 0.3
+      Piercing: 0.3
+      Slash: 0.3
 - type: entity
   name: suppermatter
   parent: FoodCakeBase
@@ -746,12 +744,12 @@
     count: 8
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 48
         reagents:
         - ReagentId: Nutriment
           Quantity: 48
-  - type: Food
+  - type: Ingestible # WD Ingestible
     transferAmount: 12
   - type: Item
     size: Normal
@@ -770,12 +768,12 @@
     state: suppermatter-shard
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 12
         reagents:
         - ReagentId: Nutriment
           Quantity: 12
-  - type: Food
+  - type: Ingestible # WD Ingestible
     transferAmount: 3
   - type: PointLight
     color: "#FFFF00"

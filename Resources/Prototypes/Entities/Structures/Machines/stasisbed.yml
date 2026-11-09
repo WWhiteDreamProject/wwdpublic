@@ -8,9 +8,9 @@
   - type: AntiRotOnBuckle
   - type: HealOnBuckle
     damage:
-      types:
-        Poison: -0.001
-        Blunt: -0.001
+      # WD EDIT: Migrated damage format
+      Blunt: -0.0
+      Poison: -0.0
   - type: Sprite
     sprite: Structures/Machines/stasis_bed.rsi
     noRot: true

@@ -41,48 +41,6 @@
       path: /Audio/Psionics/shadeskip_power.ogg
 
 - type: entity
-  id: EffectFlashShadowkinShadeskip
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: PointLight
-    radius: 5
-    energy: 3.5
-    color: "#7100bd"
-  - type: TimedDespawn
-    lifetime: 3
-  - type: EmitSoundOnSpawn
-    sound:
-      path: /Audio/Effects/Shadowkin/shadeskip.ogg
-
-- type: entity
-  id: EffectFlashShadowkinDarkSwapOn
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: PointLight
-    radius: 5
-    energy: 3.5
-    color: "#7100bd"
-  - type: TimedDespawn
-    lifetime: 3
-  - type: EmitSoundOnSpawn
-    sound:
-      path: /Audio/Effects/Shadowkin/darkswapon.ogg
-
-- type: entity
-  id: EffectFlashShadowkinDarkSwapOff
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: PointLight
-    radius: 5
-    energy: 3.5
-    color: "#7100bd"
-  - type: TimedDespawn
-    lifetime: 3
-  - type: EmitSoundOnSpawn
-    sound:
-      path: /Audio/Effects/Shadowkin/darkswapoff.ogg
-
-- type: entity
   id: EffectPyrokineticFlare
   categories: [ HideSpawnMenu ]
   components:

@@ -1,7 +1,7 @@
 ﻿- type: entity
   name: magma hand
   id: MobMagmaHand
-  parent: [ LavalandMobBase, MobCombat ]
+  parent: [ LavalandMobBase, BaseMobCombat ]
   description: Looks hot to the touch... Better not shake its hand!
   components:
   - type: Sprite
@@ -39,8 +39,8 @@
     - DoorBumpOpener
   - type: Respirator
     damage:
-      types:
-        Asphyxiation: 0.2
+      # WD EDIT: Migrated damage format
+      Asphyxiation: 0.2
     damageRecovery:
       types:
         Asphyxiation: -1.0
@@ -60,8 +60,8 @@
           -0.25
   - type: Barotrauma
     damage:
-      types:
-        Blunt: 0.45
+      # WD EDIT: Migrated damage format
+      Blunt: 0.5
   - type: Reactive
     groups:
       Flammable: [ Touch ]
@@ -77,16 +77,16 @@
       - !type:HealthChange
         scaleByQuantity: true
         damage:
-          types:
-            Cold: 3
+          # WD EDIT: Migrated damage format
+          Cold: 3
     - reagents: [ Ice ]
       methods: [ Touch ]
       effects:
       - !type:HealthChange
         scaleByQuantity: true
         damage:
-          types:
-            Cold: 10
+          # WD EDIT: Migrated damage format
+          Cold: 10
   - type: MeleeWeapon
     altDisarm: false
     soundHit:
@@ -94,10 +94,10 @@
     angle: 0
     animation: WeaponArcPunch
     damage:
-      types:
-        Blunt: 3
-        Structural: 4
-        Heat: 8
+      # WD EDIT: Migrated damage format
+      Blunt: 3
+      Heat: 8
+      Structural: 4
   - type: InteractionPopup
     successChance: 0.05
     interactSuccessString: petting-success-magmahand

@@ -24,7 +24,7 @@ public sealed class SquashTeleportSystem : EntitySystem
 
     private void Teleport(Entity<SquashTeleportComponent> entity, EntityUid target)
     {
-        _destructible.DestroyEntity(entity);
+        _destructible.DestroyEntity(entity.Owner);
 
         var coordinates = Transform(entity).Coordinates;
         _xform.SetCoordinates(target, coordinates.Offset(_random.NextVector2(entity.Comp.TeleportRadius)));

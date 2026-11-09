@@ -84,5 +84,4 @@
   - type: DamageOnToolInteract
     tools: Welding
     weldingDamage:
-      types:
-        Heat: 20
+      Heat: 20

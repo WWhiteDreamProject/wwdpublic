@@ -1,13 +1,4 @@
 - type: speechVerb
-  id: Vulpkanin
-  name: chat-speech-verb-name-vulpkanin
-  speechVerbStrings:
-  - chat-speech-verb-vulpkanin-1
-  - chat-speech-verb-vulpkanin-2
-  - chat-speech-verb-vulpkanin-3
-  - chat-speech-verb-vulpkanin-4
-
-- type: speechVerb
   id: Felinid
   name: chat-speech-verb-name-felinid
   speechVerbStrings:
@@ -24,12 +15,3 @@
   - chat-speech-verb-harpy-2
   - chat-speech-verb-harpy-3
   - chat-speech-verb-harpy-4
-
-- type: speechVerb
-  id: Chitinid
-  name: chat-speech-verb-name-chitinid
-  speechVerbStrings:
-  - chat-speech-verb-chitinid-1
-  - chat-speech-verb-chitinid-2
-  - chat-speech-verb-chitinid-3
-  - chat-speech-verb-chitinid-4

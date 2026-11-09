@@ -1,0 +1,59 @@
+- type: entity
+  id: BaseBodySlime
+  parent: BaseBody
+  abstract: true
+  components:
+  - type: Body
+    rootProvider:
+      type: Chest
+      providers:
+        groin:
+          type: Groin
+          providers:
+            core:
+              type: Core
+              startingProvider: BodyProviderCoreSlime
+            left_leg:
+              type: LeftLeg
+              providers:
+                left_foot:
+                  type: LeftFoot
+                  startingProvider: BodyProviderLeftFootSlime
+              startingProvider: BodyProviderLeftLegSlime
+            right_leg:
+              type: RightLeg
+              providers:
+                right_foot:
+                  type: RightFoot
+                  startingProvider: BodyProviderRightFootSlime
+              startingProvider: BodyProviderRightLegSlime
+            tail:
+              type: Tail
+          startingProvider: BodyProviderGroinSlime
+        head:
+          type: Head
+          providers:
+            eyes:
+              type: Eyes
+              startingProvider: BodyProviderEyesSlime
+          startingProvider: BodyProviderHeadSlime
+        left_arm:
+          type: LeftArm
+          providers:
+            left_hand:
+              type: LeftHand
+              startingProvider: BodyProviderLeftHandSlime
+          startingProvider: BodyProviderLeftArmSlime
+        lungs:
+          type: Lungs
+          startingProvider: BodyProviderLungsSlime
+        right_arm:
+          type: RightArm
+          providers:
+            right_hand:
+              type: RightHand
+              startingProvider: BodyProviderRightHandSlime
+          startingProvider: BodyProviderRightArmSlime
+        wings:
+          type: Wings
+      startingProvider: BodyProviderChestSlime

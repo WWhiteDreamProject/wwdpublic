@@ -1,7 +1,7 @@
 using Content.Server.Popups;
+using Content.Shared._White.Damage.Components;
 using Content.Shared.Silicon.EmitBuzzWhileDamaged;
 using Content.Shared.Audio;
-using Content.Shared.Damage;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
 using Robust.Shared.Audio.Systems;

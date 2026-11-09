@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "copyright": "Sprites from Paradise Station (https://github.com/ParadiseSS13/Paradise). Edited by Timemaster99",
+  "copyright": "Sprites from Paradise Station (https://github.com/ParadiseSS13/Paradise). Edited by Timemaster99. The division of the torso into chest and groin was done by Sparison",
   "license": "CC-BY-SA-3.0",
   "size": {
     "x": 32,
@@ -24,7 +24,11 @@
       "directions": 4
     },
     {
-      "name": "torso",
+      "name": "chest",
+      "directions": 4
+    },
+    {
+      "name": "groin",
       "directions": 4
     },
     {

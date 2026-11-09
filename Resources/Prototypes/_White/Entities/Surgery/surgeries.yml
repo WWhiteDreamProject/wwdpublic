@@ -1,20 +1,20 @@
-- type: entity
-  parent: SurgeryBase
-  id: SurgeryRemoveLarvaEmbryo
-  name: Remove Larva Embryo
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Surgery
-    requirement: SurgeryOpenRibcage
-    steps:
-    - SurgeryStepClampInternalBleeders
-    - SurgeryStepRemoveOrgan
-  - type: SurgeryPartCondition
-    part: Torso
-  - type: SurgeryOrganCondition
-    organ:
-    - type: XenomorphInfection
-    slotId: xenomorph_larva
+# - type: entity
+#   parent: SurgeryBase
+#   id: SurgeryRemoveLarvaEmbryo
+#  name: Remove Larva Embryo
+#   categories: [ HideSpawnMenu ]
+#   components:
+#   - type: Surgery
+#     requirement: SurgeryOpenRibcage
+#    steps:
+#     - SurgeryStepClampInternalBleeders
+#     - SurgeryStepRemoveOrgan
+#   - type: SurgeryPartCondition
+#     part: Torso
+#   - type: SurgeryOrganCondition
+#     organ:
+#     - type: XenomorphInfection
+#     slotId: xenomorph_larva
 
 # - type: entity
 #   parent: SurgeryBase
@@ -37,20 +37,20 @@
 #     reattaching: true
 #     slotId: xenomorph_larva
 
-- type: entity
-  parent: SurgeryBase
-  id: SurgeryRemoveLarva
-  name: Remove Larva
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Surgery
-    requirement: SurgeryOpenRibcage
-    steps:
-    - SurgeryStepClampInternalBleeders
-    - SurgeryStepRemoveOrgan
-  - type: SurgeryPartCondition
-    part: Torso
-  - type: SurgeryOrganCondition
-    organ:
-    - type: XenomorphLarva
-    slotId: xenomorph_larva
+# - type: entity
+#   parent: SurgeryBase
+#   id: SurgeryRemoveLarva
+#   name: Remove Larva
+#   categories: [ HideSpawnMenu ]
+#   components:
+#   - type: Surgery
+#     requirement: SurgeryOpenRibcage
+#     steps:
+#     - SurgeryStepClampInternalBleeders
+#     - SurgeryStepRemoveOrgan
+#   - type: SurgeryPartCondition
+#     part: Torso
+#   - type: SurgeryOrganCondition
+#     organ:
+#     - type: XenomorphLarva
+#     slotId: xenomorph_larva

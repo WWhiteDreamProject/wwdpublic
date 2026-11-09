@@ -1,6 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using Content.Shared._Shitmed.Antags.Abductor;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions.Events;
 using Content.Shared.Administration.Logs;
@@ -36,7 +35,7 @@ public abstract class SharedActionsSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
     [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!; // Shitmed Change
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
 
     public override void Initialize()
@@ -540,8 +539,7 @@ public abstract class SharedActionsSystem : EntitySystem
                 break;
             }
             case InstantActionComponent instantAction:
-                var hasNoSpecificComponents = !HasComp<StationAiOverlayComponent>(user) && !HasComp<AbductorScientistComponent>(user); // Shitmed Change
-                if (action.CheckCanInteract && !_actionBlockerSystem.CanInteract(user, null) && hasNoSpecificComponents) // Shitmed Change
+                if (action.CheckCanInteract && !_actionBlockerSystem.CanInteract(user, null))
                     return;
 
                 _adminLogger.Add(LogType.Action,
@@ -636,8 +634,7 @@ public abstract class SharedActionsSystem : EntitySystem
         if (entityCoordinates is not { } coords)
             return false;
 
-        var hasNoSpecificComponents = !HasComp<StationAiOverlayComponent>(user) && !HasComp<AbductorScientistComponent>(user); // Shitmed Change
-        if (checkCanInteract && !_actionBlockerSystem.CanInteract(user, null) && hasNoSpecificComponents) // Shitmed Change
+        if (checkCanInteract && !_actionBlockerSystem.CanInteract(user, null))
             return false;
 
         if (!checkCanAccess)
@@ -1200,7 +1197,6 @@ public abstract class SharedActionsSystem : EntitySystem
         return action is { Charges: < 1, RenewCharges: true };
     }
 
-    // Shitmed Change Start - Starlight Abductors
     public EntityUid[] HideActions(EntityUid performer, ActionsComponent? comp = null)
     {
         if (!Resolve(performer, ref comp, false))
@@ -1221,5 +1217,4 @@ public abstract class SharedActionsSystem : EntitySystem
             comp.Actions.Add(action);
         Dirty(performer, comp);
     }
-    // Shitmed Change End
 }

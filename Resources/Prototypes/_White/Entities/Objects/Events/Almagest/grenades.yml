@@ -40,11 +40,10 @@
     noPenetrateMask: 0
     maxPenetrations: 5
     damage:
-      types:
-        Piercing: 400
-        Structural: 400
-        Heat: 400
-        Shock: 800
+      Piercing: 400
+      Structural: 400
+      Heat: 400
+      Shock: 800
   - type: Explosive
     explosionType: Default
     totalIntensity: 150
@@ -81,8 +80,7 @@
     penetrate: true
     noPenetrateMask: 0
     damage:
-      types:
-        Piercing: 0
+      Piercing: 0
   - type: Sprite
     sprite: Objects/Weapons/Grenades/singularitygrenade.rsi
     layers:
@@ -189,11 +187,10 @@
     noPenetrateMask: 0
     maxPenetrations: 5
     damage:
-      types:
-        Piercing: 400
-        Structural: 400
-        Heat: 400
-        Shock: 800
+      Piercing: 400
+      Structural: 400
+      Heat: 400
+      Shock: 800
   - type: Explosive
     explosionType: Default
     totalIntensity: 150
@@ -237,10 +234,9 @@
     penetrate: true
     noPenetrateMask: 0
     damage:
-      types:
-        Piercing: 10
-        Structural: -15
-        Poison: 30
+      Piercing: 10
+      Structural: -15
+      Poison: 30
   - type: TimedDespawn
     lifetime: 10
 
@@ -286,11 +282,10 @@
     noPenetrateMask: 0
     maxPenetrations: 5
     damage:
-      types:
-        Piercing: 400
-        Structural: 400
-        Heat: 400
-        Shock: 800
+      Piercing: 400
+      Structural: 400
+      Heat: 400
+      Shock: 800
   - type: Explosive
     explosionType: Default
     totalIntensity: 150
@@ -388,11 +383,10 @@
     noPenetrateMask: 0
     maxPenetrations: 5
     damage:
-      types:
-        Piercing: 400
-        Structural: 400
-        Heat: 400
-        Shock: 800
+      Piercing: 400
+      Structural: 400
+      Heat: 400
+      Shock: 800
   - type: Explosive
     explosionType: Default
     totalIntensity: 150
@@ -433,8 +427,7 @@
     penetrate: true
     noPenetrateMask: 0
     damage:
-      types:
-        Piercing: 0
+      Piercing: 0
   - type: Sprite
     sprite: Objects/Weapons/Grenades/singularitygrenade.rsi
     layers:
@@ -536,11 +529,10 @@
       noPenetrateMask: 0
       maxPenetrations: 5
       damage:
-        types:
-          Piercing: 400
-          Structural: 400
-          Heat: 400
-          Shock: 800
+        Piercing: 400
+        Structural: 400
+        Heat: 400
+        Shock: 800
     - type: Explosive
       explosionType: Cryo
       totalIntensity: 50

@@ -1,0 +1,9 @@
+- type: naming
+  id: Human
+  preset: naming-preset-first-last
+  first:
+    Neuter: NamingFirstHuman
+    Epicene: NamingFirstHuman
+    Female: NamingFirstHumanFemale
+    Male: NamingFirstHuman
+  last: NamingLastHuman

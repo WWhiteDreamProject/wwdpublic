@@ -1,0 +1,99 @@
+- type: marking
+  id: UndergarmentTopBinder
+  parent: BaseUndergarmentTop
+  definitions:
+  - layer: enum.MarkingVisualLayers.UndergarmentTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/undergarment_top.rsi
+      state: binder
+
+- type: marking
+  id: UndergarmentTopBraClassic
+  parent: BaseUndergarmentTop
+  definitions:
+  - layer: enum.MarkingVisualLayers.UndergarmentTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/undergarment_top.rsi
+      state: bra_classic
+
+- type: marking
+  id: UndergarmentTopBraSports
+  parent: BaseUndergarmentTop
+  definitions:
+  - layer: enum.MarkingVisualLayers.UndergarmentTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/undergarment_top.rsi
+      state: bra_sports
+
+- type: marking
+  id: UndergarmentTopBraStrapless
+  parent: BaseUndergarmentTop
+  definitions:
+  - layer: enum.MarkingVisualLayers.UndergarmentTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/undergarment_top.rsi
+      state: bra_strapless
+
+- type: marking
+  id: UndergarmentTopNanotrasen
+  parent: BaseUndergarmentTop
+  forcedColoring: true
+  definitions:
+  - layer: enum.MarkingVisualLayers.UndergarmentTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/undergarment_top.rsi
+      state: nanotrasen
+
+- type: marking
+  id: UndergarmentTopRolled
+  parent: BaseUndergarmentTop
+  definitions:
+  - layer: enum.MarkingVisualLayers.UndergarmentTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/undergarment_top.rsi
+      state: rolled
+
+- type: marking
+  id: UndergarmentTopSleeveless
+  parent: BaseUndergarmentTop
+  definitions:
+  - layer: enum.MarkingVisualLayers.UndergarmentTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/undergarment_top.rsi
+      state: sleeveless
+
+- type: marking
+  id: UndergarmentTopSleevelessGross
+  parent: BaseUndergarmentTop
+  definitions:
+  - layer: enum.MarkingVisualLayers.UndergarmentTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/undergarment_top.rsi
+      state: sleeveless_gross
+
+- type: marking
+  id: UndergarmentTopSleevelessRolled
+  parent: BaseUndergarmentTop
+  definitions:
+  - layer: enum.MarkingVisualLayers.UndergarmentTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/undergarment_top.rsi
+      state: sleeveless_rolled
+
+- type: marking
+  id: UndergarmentTopTanktop
+  parent: BaseUndergarmentTop
+  definitions:
+  - layer: enum.MarkingVisualLayers.UndergarmentTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/undergarment_top.rsi
+      state: tanktop
+
+- type: marking
+  id: UndergarmentTopUndershirt
+  parent: BaseUndergarmentTop
+  definitions:
+  - layer: enum.MarkingVisualLayers.UndergarmentTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Generic/undergarment_top.rsi
+      state: undershirt

@@ -1,0 +1,128 @@
+- type: entity
+  id: BaseBodyProviderPartHuman
+  parent: [BaseBodyProviderPart, BaseBodyProviderPartOrganic, BaseBodyProviderPartAppearance]
+  abstract: true
+  suffix: Human
+  components:
+  - type: MarkingsProvider
+    data:
+      group: Human
+  - type: Sprite
+    sprite: _White/Bodies/Parts/Humanoids/human.rsi
+
+# Arms
+- type: entity
+  id: BodyProviderLeftArmHuman
+  parent: [BaseBodyProviderLeftArm, BaseBodyProviderLeftArmOrganic, BaseBodyProviderPartHuman, BaseBodyProviderLeftArmAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/human.rsi
+      state: left_arm
+
+- type: entity
+  id: BodyProviderRightArmHuman
+  parent: [BaseBodyProviderRightArm, BaseBodyProviderRightArmOrganic, BaseBodyProviderPartHuman, BaseBodyProviderRightArmAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/human.rsi
+      state: right_arm
+
+# Chest
+- type: entity
+  id: BodyProviderChestHuman
+  parent: [BaseBodyProviderChest, BaseBodyProviderChestOrganic, BaseBodyProviderPartHuman, BaseBodyProviderChestAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/human.rsi
+      state: chest
+
+# Foots
+- type: entity
+  id: BodyProviderLeftFootHuman
+  parent: [BaseBodyProviderLeftFoot, BaseBodyProviderLeftFootOrganic BaseBodyProviderPartHuman, BaseBodyProviderLeftFootAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/human.rsi
+      state: left_foot
+
+- type: entity
+  id: BodyProviderRightFootHuman
+  parent: [BaseBodyProviderRightFoot, BaseBodyProviderRightFootOrganic, BaseBodyProviderPartHuman, BaseBodyProviderRightFootAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/human.rsi
+      state: right_foot
+
+# Groin
+- type: entity
+  id: BodyProviderGroinHuman
+  parent: [BaseBodyProviderGroin, BaseBodyProviderGroinOrganic, BaseBodyProviderPartHuman, BaseBodyProviderGroinAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/human.rsi
+      state: groin
+
+# Hands
+- type: entity
+  id: BodyProviderLeftHandHuman
+  parent: [BaseBodyProviderLeftHand, BaseBodyProviderLeftHandOrganic, BaseBodyProviderPartHuman, BaseBodyProviderLeftHandAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/human.rsi
+      state: left_hand
+
+- type: entity
+  id: BodyProviderRightHandHuman
+  parent: [BaseBodyProviderRightHand, BaseBodyProviderRightHandOrganic, BaseBodyProviderPartHuman, BaseBodyProviderRightHandAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/human.rsi
+      state: right_hand
+
+# Head
+- type: entity
+  id: BodyProviderHeadHuman
+  parent: [BaseBodyProviderHead, , BaseBodyProviderPartHuman, BaseBodyProviderHeadAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/human.rsi
+      state: head
+
+# Legs
+- type: entity
+  id: BodyProviderLeftLegHuman
+  parent: [BaseBodyProviderLeftLeg, BaseBodyProviderLeftLegOrganic, BaseBodyProviderPartHuman, BaseBodyProviderLeftLegAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/human.rsi
+      state: left_leg
+
+- type: entity
+  id: BodyProviderRightLegHuman
+  parent: [BaseBodyProviderRightLeg, BaseBodyProviderRightLegOrganic, BaseBodyProviderPartHuman, BaseBodyProviderRightLegAppearance]
+  components:
+  - type: BodyAppearanceProvider
+    entries:
+    - group: Skin
+      path: _White/Bodies/Parts/Humanoids/human.rsi
+      state: right_leg

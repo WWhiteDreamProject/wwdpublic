@@ -1,0 +1,9 @@
+- type: naming
+  id: Diona
+  preset: naming-preset-first-last
+  first:
+    Neuter: NamingFirstDiona
+    Epicene: NamingFirstDiona
+    Female: NamingFirstDiona
+    Male: NamingFirstDiona
+  last: NamingLastDiona

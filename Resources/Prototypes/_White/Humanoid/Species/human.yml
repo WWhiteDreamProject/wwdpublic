@@ -1,0 +1,17 @@
+- type: species
+  id: Human
+  setPreference: true
+  defaultColors:
+    Eyes: "#634E34"
+    Skin: "#C0967F"
+  colorations:
+    Eyes: Simple
+    Skin: HumanTone
+  doll: HumanoidDollHuman
+  prototype: MobHumanoidHuman
+  traitPoints: 2
+  bodyTypes:
+  - Normal
+  - Slim
+  name: species-name-human
+  naming: Human

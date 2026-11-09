@@ -1,13 +1,12 @@
 using Content.Shared.SegmentedEntity;
-using Content.Shared.Humanoid;
-using Content.Shared.Humanoid.Markings;
 using Content.Client.Resources;
 using Robust.Client.ResourceManagement;
 using Robust.Client.Graphics;
 using Robust.Shared.Enums;
 using System.Numerics;
 using System.Linq;
-
+using Content.Shared._White.Humanoid.Components;
+using Content.Shared._White.Humanoid.Systems;
 
 namespace Content.Client.Lamiae;
 
@@ -22,7 +21,7 @@ public sealed class SnakeOverlay : Overlay
     private readonly IResourceCache _resourceCache;
     private readonly IEntityManager _entManager;
     private readonly SharedTransformSystem _transform;
-    private readonly SharedHumanoidAppearanceSystem _humanoid = default!;
+    private readonly HumanoidProfileSystem _humanoid = default!;
 
     // Look through these carefully. WorldSpace is useful for debugging. Note that this defaults to "screen space" which breaks when you try and get the world handle.
     public override OverlaySpace Space => OverlaySpace.WorldSpaceEntities;
@@ -36,7 +35,7 @@ public sealed class SnakeOverlay : Overlay
         _entManager = entManager;
         // with ent manager we can fetch our other entity systems
         _transform = _entManager.EntitySysManager.GetEntitySystem<SharedTransformSystem>();
-        _humanoid = _entManager.EntitySysManager.GetEntitySystem<SharedHumanoidAppearanceSystem>();
+        _humanoid = _entManager.EntitySysManager.GetEntitySystem<HumanoidProfileSystem>();
 
         // draw at drawdepth 3
         ZIndex = 3;
@@ -72,9 +71,9 @@ public sealed class SnakeOverlay : Overlay
             // Color.White is drawing without modifying color. For clothed tails, we should use White. For skin, we should use the color of the marking.
             // TODO: Better way to cache this
             Color? col = null;
-            if (_entManager.TryGetComponent<HumanoidAppearanceComponent>(uid, out var humanoid))
-                if (humanoid.MarkingSet.TryGetCategory(MarkingCategories.Tail, out var tailMarkings))
-                    col = tailMarkings.First().MarkingColors.First();
+            /*if (_entManager.TryGetComponent<HumanoidProfileComponent>(uid, out var humanoid))
+                if (humanoid.MarkingSet.TryGetCategory(MarkingCategories.Tail, out var tailMarkings)) TODO
+                    col = tailMarkings.First().MarkingColors.First();*/
 
             DrawLamia(handle, lamia, col ?? Color.White);
         }

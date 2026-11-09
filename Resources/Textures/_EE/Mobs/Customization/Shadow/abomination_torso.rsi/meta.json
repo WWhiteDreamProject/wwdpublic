@@ -1,6 +1,6 @@
 {
     "version": 1,
-    "copyright": "Drawn by Luminal",
+    "copyright": "Drawn by Luminal. The division of the torso into chest and groin was done by Sparison.",
     "license": "CC-BY-SA-3.0",
     "size": {
         "x": 32,
@@ -8,7 +8,11 @@
     },
     "states": [
         {
-            "name": "abomination_torso",
+            "name": "abomination_chest",
+            "directions": 4
+        },
+        {
+            "name": "abomination_groin",
             "directions": 4
         }
     ]

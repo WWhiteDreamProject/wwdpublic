@@ -35,11 +35,6 @@
   text: species-name-slime
 
 - type: quickPhrase
-  id: SpeciesVulpkaninPhrase
-  parent: BaseCrewSpeciesPhrase
-  text: species-name-vulpkanin
-
-- type: quickPhrase
   id: SpeciesFelinidPhrase
   parent: BaseCrewSpeciesPhrase
   text: species-name-felinid
@@ -63,8 +58,8 @@
   id: SpeciesVoxPhrase
   parent: BaseCrewSpeciesPhrase
   text: species-name-vox
-  
+
 - type: quickPhrase
   id: SpeciesRodentiaPhrase
   parent: BaseCrewSpeciesPhrase
-  text: species-name-rodentia  
+  text: species-name-rodentia

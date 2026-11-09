@@ -1,0 +1,179 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by stillxicarus(discord). Clasic taken from https://github.com/SPLURT-Station/S.P.L.U.R.T-Station-13/commit/285f6f86ac41a6246f250993486effeab8581c2c, edired by raistlin_jag(discord). Bat made by kilath(discord).",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "bat-left-primary",
+      "directions": 4
+    },
+    {
+      "name": "bat-left-secondary",
+      "directions": 4
+    },
+    {
+      "name": "bat-right-primary",
+      "directions": 4
+    },
+    {
+      "name": "bat-right-secondary",
+      "directions": 4
+    },
+    {
+      "name": "bionic-left-primary",
+      "directions": 4
+    },
+    {
+      "name": "bionic-left-secondary",
+      "directions": 4
+    },
+    {
+      "name": "bionic-right-primary",
+      "directions": 4
+    },
+    {
+      "name": "bionic-right-secondary",
+      "directions": 4
+    },
+    {
+      "name": "classic_2-left-primary",
+      "directions": 4
+    },
+    {
+      "name": "classic_2-left-secondary",
+      "directions": 4
+    },
+    {
+      "name": "classic_2-right-primary",
+      "directions": 4
+    },
+    {
+      "name": "classic_2-right-secondary",
+      "directions": 4
+    },
+    {
+      "name": "classic_3-left-primary",
+      "directions": 4
+    },
+    {
+      "name": "classic_3-left-secondary",
+      "directions": 4
+    },
+    {
+      "name": "classic_3-left-tertiary",
+      "directions": 4
+    },
+    {
+      "name": "classic_3-right-primary",
+      "directions": 4
+    },
+    {
+      "name": "classic_3-right-secondary",
+      "directions": 4
+    },
+    {
+      "name": "classic_3-right-tertiary",
+      "directions": 4
+    },
+    {
+      "name": "classic-left",
+      "directions": 4
+    },
+    {
+      "name": "classic-right",
+      "directions": 4
+    },
+    {
+      "name": "classic_speckled-left-primary",
+      "directions": 4
+    },
+    {
+      "name": "classic_speckled-left-secondary",
+      "directions": 4
+    },
+    {
+      "name": "classic_speckled-right-primary",
+      "directions": 4
+    },
+    {
+      "name": "classic_speckled-right-secondary",
+      "directions": 4
+    },
+    {
+      "name": "classic_tips-left-primary",
+      "directions": 4
+    },
+    {
+      "name": "classic_tips-left-secondary",
+      "directions": 4
+    },
+    {
+      "name": "classic_tips-right-primary",
+      "directions": 4
+    },
+    {
+      "name": "classic_tips-right-secondary",
+      "directions": 4
+    },
+    {
+      "name": "classic_undertone-left-primary",
+      "directions": 4
+    },
+    {
+      "name": "classic_undertone-left-secondary",
+      "directions": 4
+    },
+    {
+      "name": "classic_undertone-right-primary",
+      "directions": 4
+    },
+    {
+      "name": "classic_undertone-right-secondary",
+      "directions": 4
+    },
+    {
+      "name": "default_whitescale-left",
+      "directions": 4
+    },
+    {
+      "name": "default_whitescale-right",
+      "directions": 4
+    },
+    {
+      "name": "folded_huescale-left",
+      "directions": 4
+    },
+    {
+      "name": "folded_huescale-right",
+      "directions": 4
+    },
+    {
+      "name": "folded_whitescale-left",
+      "directions": 4
+    },
+    {
+      "name": "folded_whitescale-right",
+      "directions": 4
+    },
+    {
+      "name": "owl_huescale-left",
+      "directions": 4
+    },
+    {
+      "name": "owl_huescale-right",
+      "directions": 4
+    },
+    {
+      "name": "owl_whitescale-left",
+      "directions": 4
+    },
+    {
+      "name": "owl_whitescale-right",
+      "directions": 4
+    }
+  ]
+}

@@ -13,8 +13,8 @@
     - type: MeleeWeapon
       wideAnimationRotation: 90 # WWDP
       damage:
-        types:
-          Blunt: 12
+        # WD EDIT: Migrated damage format
+        Blunt: 12
       angle: 60
       animation: WeaponArcThrust
     - type: EmpOnHit

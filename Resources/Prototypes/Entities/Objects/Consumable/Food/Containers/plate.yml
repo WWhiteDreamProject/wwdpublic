@@ -21,12 +21,12 @@
     storedOffset: 0,-6
   - type: DamageOnLand
     damage:
-      types:
-        Blunt: 5
+      # WD EDIT: Migrated damage format
+      Blunt: 5
   - type: DamageOtherOnHit
     damage:
-      types:
-        Blunt: 5
+      # WD EDIT: Migrated damage format
+      Blunt: 5
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible

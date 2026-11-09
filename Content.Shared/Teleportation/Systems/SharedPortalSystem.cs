@@ -1,24 +1,23 @@
 using System.Linq;
-using System.Numerics; // WWDP EDIT
-using Content.Shared.Damage; // WWDP EDIT
-using Content.Shared.Damage.Components; // WWDP EDIT
+using System.Numerics;
+using Content.Shared._White.Damage;
+using Content.Shared._White.Damage.Components;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Ghost;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
-using Content.Shared.Stunnable; // WWDP EDIT
-using Content.Shared.Throwing; // WWDP EDIT
+using Content.Shared.Stunnable;
 using Content.Shared.Teleportation.Components;
 using Content.Shared.Verbs;
-using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
-using Robust.Shared.Physics.Components; // WWDP EDIT
+using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Dynamics;
 using Robust.Shared.Physics.Events;
-using Robust.Shared.Physics.Systems; // WWDP EDIT
+using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
@@ -241,7 +240,7 @@ public abstract class SharedPortalSystem : EntitySystem
             if (_netMan.IsServer && relativeSpeed >= 20f && HasComp<DamageableComponent>(subject))
             {
                 var damage = new DamageSpecifier();
-                damage.DamageDict.Add("Blunt", 5f * (relativeSpeed / 10f));
+                damage.Add("Blunt", 5f * (relativeSpeed / 10f));
                 _damageable.TryChangeDamage(subject, damage);
                 _stun.TryParalyze(subject, TimeSpan.FromSeconds(2), true);
             }

@@ -1,0 +1,158 @@
+- type: marking
+  id: BaseAppendages
+  abstract: true
+  category: Appendages
+  coloring:
+    default:
+      type: !type:BodyColorGroupColoring
+        group: Skin
+
+- type: marking
+  id: BaseArms
+  abstract: true
+  category: Arms
+  coloring:
+    default:
+      type: !type:BodyColorGroupColoring
+        group: Skin
+
+- type: marking
+  id: BaseBandages
+  abstract: true
+  category: Bandages
+
+- type: marking
+  id: BaseChelicerae
+  abstract: true
+  category: Chelicerae
+  coloring:
+    default:
+      type: !type:BodyColorGroupColoring
+        group: Skin
+
+- type: marking
+  id: BaseColoration
+  abstract: true
+  category: Coloration
+
+- type: marking
+  id: BaseEars
+  abstract: true
+  category: Ears
+
+- type: marking
+  id: BaseEarrings
+  abstract: true
+  category: Earrings
+
+- type: marking
+  id: BaseEyes
+  abstract: true
+  category: Eyes
+
+- type: marking
+  id: BaseFace
+  abstract: true
+  category: Face
+
+- type: marking
+  id: BaseFacialHair
+  abstract: true
+  category: FacialHair
+  coloring:
+    default:
+      type: !type:SimpleColoring
+        color: "#241C11"
+
+- type: marking
+  id: BaseHair
+  abstract: true
+  category: Hair
+  coloring:
+    default:
+      type: !type:SimpleColoring
+        color: "#241C11"
+
+- type: marking
+  id: BaseHorns
+  abstract: true
+  category: Horns
+
+- type: marking
+  id: BaseLegs
+  abstract: true
+  category: Legs
+
+- type: marking
+  id: BaseNose
+  abstract: true
+  forcedColoring: true
+  category: Nose
+  coloring:
+    default:
+      type: !type:BodyColorGroupColoring
+        group: Skin
+
+- type: marking
+  id: BaseOverlay
+  abstract: true
+  category: Overlay
+
+- type: marking
+  id: BaseScars
+  abstract: true
+  category: Scars
+
+- type: marking
+  id: BaseTail
+  abstract: true
+  category: Tail
+
+- type: marking
+  id: BaseTattoos
+  abstract: true
+  category: Tattoos
+  coloring:
+    default:
+      type: !type:BodyColorGroupColoring
+        group: Skin
+        strategy: !type:ClampedHsvColoration
+          value: [0.40, 0.40]
+      fallbackTypes:
+      - !type:SimpleColoring
+        color: "#666666"
+
+- type: marking
+  id: BaseTorso
+  abstract: true
+  category: Torso
+
+- type: marking
+  id: BaseTusks
+  abstract: true
+  category: Tusks
+
+- type: marking
+  id: BaseUndergarmentBottom
+  abstract: true
+  category: UndergarmentBottom
+
+- type: marking
+  id: BaseUndergarmentTop
+  abstract: true
+  category: UndergarmentTop
+
+- type: marking
+  id: BaseVegetation
+  abstract: true
+  category: Vegetation
+
+- type: marking
+  id: BaseWings
+  abstract: true
+  category: Wings
+
+- type: marking
+  id: BaseWristwear
+  abstract: true
+  category: Wristwear

@@ -122,7 +122,7 @@
     - Ash # Frontier
   - type: SolutionContainerManager
     solutions:
-      food:
+      ingestible: # WD Ingestible
         maxVol: 50
         reagents:
         - ReagentId: Ash
@@ -131,7 +131,7 @@
     sourceSolution: food
     ignoreEmpty: true
   - type: ScoopableSolution
-    solution: food
+    solution: ingestible # WD Ingestible
   - type: Extractable
     grindableSolutionName: food
   - type: SupermatterImmune
@@ -151,7 +151,7 @@
         - Ectoplasm
     - type: SolutionContainerManager
       solutions:
-        food:
+        ingestible: # WD Ingestible
           maxVol: 50
           reagents:
             - ReagentId: Ash

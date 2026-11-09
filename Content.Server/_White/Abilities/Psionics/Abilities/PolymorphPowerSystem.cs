@@ -1,6 +1,7 @@
 using Content.Server.Abilities.Psionics;
 using Content.Server.Humanoid;
 using Content.Shared._White.Actions.Events;
+using Content.Shared._White.Humanoid.Components;
 using Content.Shared._White.Psionics.Abilities;
 using Content.Shared.Abilities.Psionics;
 using Content.Shared.Humanoid;
@@ -12,7 +13,7 @@ public sealed class PolymorphPowerSystem : EntitySystem
 {
     [Dependency] private readonly SharedPsionicAbilitiesSystem _psionics = default!;
     [Dependency] private readonly MetaDataSystem _meta = default!;
-    [Dependency] private readonly HumanoidAppearanceSystem _appearance = default!;
+    /*[Dependency] private readonly HumanoidAppearanceSystem _appearance = default!;*/
     [Dependency] private readonly TransformSystem _transform = default!;
 
 
@@ -31,15 +32,15 @@ public sealed class PolymorphPowerSystem : EntitySystem
         if (!_psionics.OnAttemptPowerUse(args.Performer, args.Target, "polymorph", true))
             return;
 
-        if (!TryComp<HumanoidAppearanceComponent>(args.Target, out var targetHumanoid))
+        if (!TryComp<HumanoidProfileComponent>(args.Target, out var targetHumanoid))
             return;
 
         var target = args.Target;
         var user = args.Performer;
 
-        if (TryComp<HumanoidAppearanceComponent>(user, out var humanoid))
+        if (TryComp<HumanoidProfileComponent>(user, out var humanoid))
         {
-            _appearance.CloneAppearance(target, user);
+            /*_appearance.CloneAppearance(target, user);*/
         }
 
         var targetMeta = MetaData(target);
@@ -65,7 +66,7 @@ public sealed class PolymorphPowerSystem : EntitySystem
 
     public void ReturnAppearance(EntityUid uid, PolymorphPowerComponent comp)
     {
-        if (!TryComp<HumanoidAppearanceComponent>(uid, out var humanoid))
+        if (!TryComp<HumanoidProfileComponent>(uid, out var humanoid))
             return;
 
         var effect = Spawn("PsionicPolymorphEffect", _transform.GetMapCoordinates(uid));
@@ -73,7 +74,7 @@ public sealed class PolymorphPowerSystem : EntitySystem
 
         _meta.SetEntityName(uid, comp.OriginalName);
         _meta.SetEntityDescription(uid, comp.OriginalDescription);
-        _appearance.LoadProfile(uid, comp.OriginalProfile);
+        /*_appearance.LoadProfile(uid, comp.OriginalProfile); TODO*/
     }
 
     public void ComponentStart(EntityUid uid, PolymorphPowerComponent component, ComponentStartup args)
@@ -82,9 +83,9 @@ public sealed class PolymorphPowerSystem : EntitySystem
         component.OriginalName = meta.EntityName;
         component.OriginalDescription = meta.EntityDescription;
 
-        if (!TryComp<HumanoidAppearanceComponent>(uid, out var humanoid))
+        /*if (!TryComp<HumanoidProfileComponent>(uid, out var humanoid))
             return;
-
-        component.OriginalProfile = humanoid.LastProfileLoaded;
+TODO
+        component.OriginalProfile = humanoid.LastProfileLoaded;*/
     }
 }

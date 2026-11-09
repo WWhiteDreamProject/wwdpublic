@@ -1,4 +1,5 @@
 ﻿using Content.Server.Xenoarchaeology.XenoArtifacts.Triggers.Components;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Damage;
 
 namespace Content.Server.Xenoarchaeology.XenoArtifacts.Triggers.Systems;
@@ -15,13 +16,10 @@ public sealed class ArtifactDamageTriggerSystem : EntitySystem
 
     private void OnDamageChanged(EntityUid uid, ArtifactDamageTriggerComponent component, DamageChangedEvent args)
     {
-        if (!args.DamageIncreased)
+        if (!args.Damage.AnyPositive())
             return;
 
-        if (args.DamageDelta == null)
-            return;
-
-        foreach (var (type, amount) in args.DamageDelta.DamageDict)
+        foreach (var (type, amount) in args.Damage) // WD EDIT
         {
             if (component.DamageTypes != null && !component.DamageTypes.Contains(type))
                 continue;

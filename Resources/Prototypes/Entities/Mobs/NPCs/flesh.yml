@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ SimpleMobBase, MobCombat ]
+  parent: [ SimpleMobBase, BaseMobCombat ]
   id: BaseMobFlesh
   name: aberrant flesh
   description: A shambling mass of flesh, animated through anomalous energy.
@@ -55,8 +55,8 @@
     angle: 0
     animation: WeaponArcClaw
     damage:
-      types:
-        Slash: 6
+      # WD EDIT: Migrated damage format
+      Slash: 6
   - type: ReplacementAccent
     accent: genericAggressive
   - type: Psionic
@@ -88,9 +88,8 @@
     angle: 0
     animation: WeaponArcClaw
     damage:
-      types:
-        Slash: 8
-
+      # WD EDIT: Migrated damage format
+      Slash: 8
 - type: entity
   parent: BaseMobFlesh
   id: MobFleshGolem
@@ -117,9 +116,8 @@
     angle: 0
     animation: WeaponArcClaw
     damage:
-      types:
-        Slash: 8
-
+      # WD EDIT: Migrated damage format
+      Slash: 8
 - type: entity
   parent: BaseMobFlesh
   id: MobFleshClamp
@@ -203,11 +201,10 @@
     angle: 0
     animation: WeaponArcClaw
     damage:
-      types:
-        Blunt: 10
-
+      # WD EDIT: Migrated damage format
+      Blunt: 10
 - type: entity
-  parent: [ SimpleSpaceMobBase, MobCombat ]
+  parent: [ SimpleSpaceMobBase, BaseMobCombat ]
   id: BaseMobFleshSalvage #This one is immune to space!
   name: aberrant flesh
   suffix: "Salvage Ruleset"
@@ -259,8 +256,8 @@
     angle: 0
     animation: WeaponArcClaw
     damage:
-      types:
-        Slash: 6
+      # WD EDIT: Migrated damage format
+      Slash: 6
   - type: ReplacementAccent
     accent: genericAggressive
   - type: SalvageMobRestrictions
@@ -287,9 +284,8 @@
     angle: 0
     animation: WeaponArcClaw
     damage:
-      types:
-        Slash: 8
-
+      # WD EDIT: Migrated damage format
+      Slash: 8
 - type: entity
   parent: BaseMobFleshSalvage
   id: MobFleshGolemSalvage
@@ -316,9 +312,8 @@
     angle: 0
     animation: WeaponArcClaw
     damage:
-      types:
-        Slash: 8
-
+      # WD EDIT: Migrated damage format
+      Slash: 8
 - type: entity
   parent: BaseMobFleshSalvage
   id: MobFleshClampSalvage

@@ -1,0 +1,22 @@
+- type: species
+  id: Reptilian
+  setPreference: true
+  defaultColors:
+    Eyes: "#497665"
+    Skin: "#34A223"
+  colorations:
+    Eyes: Simple
+    Skin: Hues
+  doll: HumanoidDollReptilian
+  prototype: MobHumanoidReptilian
+  defaultHeight: 1.1
+  defaultWidth: 1.1
+  maxHeight: 1.2
+  maxWidth: 1.2
+  minHeight: 0.9
+  minWidth: 0.9
+  bodyTypes:
+  - Normal
+  - Slim
+  name: species-name-reptilian
+  naming: Reptilian

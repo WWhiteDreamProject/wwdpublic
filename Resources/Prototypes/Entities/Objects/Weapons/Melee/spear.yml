@@ -40,9 +40,8 @@
     wideAnimationRotation: -135
     range: 1.75
     damage:
-      types:
-        Piercing: 7
-        Slash: 1
+      Piercing: 7
+      Slash: 1
     heavyRangeModifier: 1.35
     maxTargets: 3
     angle: 20
@@ -51,8 +50,7 @@
       path: /Audio/Weapons/bladeslice.ogg
   - type: DamageOtherOnHit
     damage:
-      types:
-        Piercing: 10
+      Piercing: 10
     staminaCost: 6
   - type: Item
     size: Ginormous
@@ -82,9 +80,8 @@
   - type: Wieldable
   - type: IncreaseDamageOnWield
     damage:
-      types:
-        Piercing: 3
-        Slash: 3
+      Piercing: 3
+      Slash: 3
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
@@ -138,13 +135,11 @@
     animationRotation: -135 # WWDP
     wideAnimationRotation: -135
     damage:
-      types:
-        Piercing: 8.5
-        Slash: 1
+      Piercing: 8.5
+      Slash: 1
   - type: DamageOtherOnHit
     damage:
-      types:
-        Piercing: 12
+      Piercing: 12
   - type: Construction
     graph: SpearReinforced
 
@@ -160,13 +155,11 @@
     animationRotation: -135 # WWDP
     wideAnimationRotation: -135
     damage:
-      types:
-        Piercing: 9.5
-        Slash: 1.5
+      Piercing: 9.5
+      Slash: 1.5
   - type: DamageOtherOnHit
     damage:
-      types:
-        Piercing: 14
+      Piercing: 14
   - type: Construction
     graph: SpearPlasma
 
@@ -182,14 +175,12 @@
     animationRotation: -135 # WWDP
     wideAnimationRotation: -135
     damage:
-      types:
-        Piercing: 8
-        Radiation: 8
+      Piercing: 8
+      Radiation: 8
   - type: DamageOtherOnHit
     damage:
-      types:
-        Piercing: 8
-        Radiation: 8
+      Piercing: 8
+      Radiation: 8
   - type: Construction
     graph: SpearUranium
 
@@ -245,9 +236,9 @@
     wideAnimationRotation: -135
     range: 1.75
     damage:
-      types:
-        Piercing: 10
-        Slash: 2
+      # WD EDIT: Migrated damage format
+      Piercing: 10
+      Slash: 2
     heavyRangeModifier: 1.35
     maxTargets: 3
     angle: 20
@@ -256,8 +247,7 @@
       path: /Audio/Weapons/bladeslice.ogg
   - type: DamageOtherOnHit
     damage:
-      types:
-        Piercing: 16
+      Piercing: 16
   - type: Item
     size: Ginormous
   - type: Clothing
@@ -283,13 +273,11 @@
   - type: Wieldable
   - type: IncreaseDamageOnWield
     damage:
-      types:
-        Piercing: 3
-        Slash: 3
+      Piercing: 3
+      Slash: 3
   - type: DamageOnLand
     damage:
-      types:
-        Blunt: 5
+      Blunt: 5
   - type: UseDelay
   - type: Appearance
   - type: SolutionContainerVisuals

@@ -50,9 +50,9 @@
     attackRate: 1.3333
     range: 1.65
     damage:
-      types:
-        Slash: 10
-        Holy: 15
+      # WD EDIT: Migrated damage format
+      Holy: 15
+      Slash: 10
     heavyDamageBaseModifier: 1.2
     heavyStaminaCost: 10
     maxTargets: 3

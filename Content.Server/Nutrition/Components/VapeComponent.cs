@@ -1,5 +1,5 @@
 using Content.Server.Nutrition.EntitySystems;
-using Content.Shared.Damage;
+using Content.Shared._White.Damage;
 using Content.Shared.Atmos;
 
 namespace Content.Server.Nutrition.Components // Vapes are very nutritious.

@@ -45,8 +45,6 @@ loadout-name-LoadoutItemDrinkShinyFlask = блестящая фляжка (ра�
 loadout-name-LoadoutItemDrinkLithiumFlask = литиевая фляжка (раскрашиваемое)
 loadout-name-LoadoutItemDrinkVacuumFlask = вакуумная фляжка (раскрашиваемое)
 
-loadout-name-LoadoutItemShadowkinPlush = плюевый шадоукин
-
 loadout-name-LoadoutItemPetMouse = мышка-питомец (раскрашиваемое)
 loadout-name-LoadoutItemPetHamster = хомяк-питомец (раскрашиваемое)
 loadout-name-LoadoutItemPetMothroach = мольтаракан-питомец (раскрашиваемое)

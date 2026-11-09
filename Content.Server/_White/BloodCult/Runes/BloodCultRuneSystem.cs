@@ -12,6 +12,8 @@ using Content.Shared._White.BloodCult.BloodCultist;
 using Content.Shared._White.BloodCult.Empower;
 using Content.Shared._White.BloodCult.Runes;
 using Content.Shared._White.BloodCult.Runes.Components;
+using Content.Shared._White.Damage;
+using Content.Shared._White.Damage.Systems;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage;
@@ -226,11 +228,11 @@ public sealed class BloodCultRuneSystem : SharedBloodCultRuneSystem
         var newDamage = new DamageSpecifier(damage);
         if (TryComp(user, out BloodCultEmpoweredComponent? empowered))
         {
-            foreach (var (key, value) in damage.DamageDict)
-                damage.DamageDict[key] = value * empowered.RuneDamageMultiplier;
+            foreach (var (key, value) in damage)
+                damage[key] = value * empowered.RuneDamageMultiplier;
         }
 
-        _damageable.TryChangeDamage(user, newDamage, true);
+        _damageable.ChangeDamage(user, newDamage, true);
     }
 
     private EntityUid SpawnRune(EntityUid user, EntProtoId rune)

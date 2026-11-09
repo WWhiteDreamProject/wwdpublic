@@ -126,7 +126,7 @@
     solution: vat_oil
   - type: RefillableSolution
     solution: vat_oil
-  - type: Drink
+  - type: Ingestible # WD Ingestible
     solution: vat_oil
   - type: Appearance
   - type: ActivatableUI

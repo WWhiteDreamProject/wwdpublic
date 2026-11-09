@@ -1,0 +1,430 @@
+using System.Diagnostics.CodeAnalysis;
+using Content.Shared._White.Body.Components;
+using Robust.Shared.Containers;
+using Robust.Shared.GameStates;
+
+namespace Content.Shared._White.Body.Systems;
+
+public abstract partial class SharedBodySystem
+{
+    private void InitializeProvider()
+    {
+        SubscribeLocalEvent<BodyProviderComponent, ComponentGetState>(OnGetState);
+        SubscribeLocalEvent<BodyProviderComponent, ComponentHandleState>(OnHandleState);
+        SubscribeLocalEvent<BodyProviderComponent, EntGotInsertedIntoContainerMessage>(OnEntGotInsertedIntoContainer);
+        SubscribeLocalEvent<BodyProviderComponent, EntGotRemovedFromContainerMessage>(OnEntGotRemovedFromContainer);
+    }
+
+    #region Event Handling
+
+    private void OnGetState(Entity<BodyProviderComponent> ent, ref ComponentGetState args)
+    {
+        args.State = new BodyProviderComponentState(ent.Comp, EntityManager);
+    }
+
+    private void OnHandleState(Entity<BodyProviderComponent> ent, ref ComponentHandleState args)
+    {
+        if (args.Current is not BodyProviderComponentState state)
+            return;
+
+        foreach (var (key, slot) in ent.Comp.Providers)
+        {
+            if (state.Providers.ContainsKey(key) || slot.ContainerSlot == null)
+                continue;
+
+            _container.ShutdownContainer(slot.ContainerSlot);
+            ent.Comp.Providers.Remove(key);
+        }
+
+        foreach (var (key, slot) in state.Providers)
+        {
+            if (ent.Comp.Providers.TryGetValue(key, out var originSlot))
+            {
+                originSlot.Copy(slot);
+                originSlot.ContainerSlot = _container.EnsureContainer<ContainerSlot>(ent, GetProviderSlotContainerId(key));
+                continue;
+            }
+
+            originSlot = new (slot) { ContainerSlot = _container.EnsureContainer<ContainerSlot>(ent, GetProviderSlotContainerId(key)), };
+            ent.Comp.Providers[key] = originSlot;
+        }
+
+        ent.Comp.Body = GetEntity(state.Body);
+        ent.Comp.Parent = GetEntity(state.Parent);
+        ent.Comp.Ancestors = GetEntitySet(state.Ancestors);
+    }
+
+    private void OnEntGotInsertedIntoContainer(Entity<BodyProviderComponent> ent, ref EntGotInsertedIntoContainerMessage args)
+    {
+        var containerSlotId = args.Container.ID;
+        if (!containerSlotId.Contains(ProviderSlotContainerIdPrefix))
+            return;
+
+        var parent = args.Container.Owner;
+
+        Entity<BodyComponent>? body = null;
+        if (_bodyQuery.TryComp(parent, out var bodyComp))
+            body = (parent, bodyComp);
+
+        if (_providerQuery.TryComp(parent, out var providerComp))
+        {
+            ent.Comp.Parent = parent;
+            Dirty(ent);
+
+            var parentEv = new BodyProviderInsertedIntoEvent(ent);
+            RaiseLocalEvent(parent, ref parentEv);
+
+            var providerEv = new BodyProviderGotInsertedIntoParentEvent((parent, providerComp), ent);
+            RaiseLocalEvent(ent, ref providerEv);
+
+            var ancestors = new HashSet<EntityUid>(providerComp.Ancestors);
+            if (providerComp.Parent.HasValue)
+                ancestors.Add(providerComp.Parent.Value);
+
+            OnInsertedIntoAncestors(ent, ancestors);
+
+            if (!providerComp.Body.HasValue)
+                return;
+
+            if (!_bodyQuery.TryComp(providerComp.Body.Value, out bodyComp))
+                return;
+
+            body = (providerComp.Body.Value, bodyComp);
+        }
+
+        if (!body.HasValue)
+            return;
+
+        OnInserted(ent, body.Value);
+        Dirty(body.Value);
+    }
+
+    private void OnEntGotRemovedFromContainer(Entity<BodyProviderComponent> ent, ref EntGotRemovedFromContainerMessage args)
+    {
+        var containerSlotId = args.Container.ID;
+        if (!containerSlotId.Contains(ProviderSlotContainerIdPrefix))
+            return;
+
+        if (ent.Comp.Parent is { } parent && _providerQuery.TryComp(parent, out var providerComp))
+        {
+            ent.Comp.Parent = null;
+            Dirty(ent);
+
+            var parentEv = new BodyProviderRemovedFromEvent(ent);
+            RaiseLocalEvent(parent, ref parentEv);
+
+            var providerEv = new BodyProviderGotRemovedFromParentEvent((parent, providerComp), ent);
+            RaiseLocalEvent(ent, ref providerEv);
+
+            var ancestors = new HashSet<EntityUid>(providerComp.Ancestors);
+            if (providerComp.Parent.HasValue)
+                ancestors.Add(providerComp.Parent.Value);
+
+            OnRemovedFromAncestors(ent, ancestors);
+        }
+
+        if (ent.Comp.Body is not {} body)
+            return;
+
+        if (!_bodyQuery.TryComp(body, out var bodyComp))
+            return;
+
+        OnRemoved(ent, (body, bodyComp));
+        Dirty(body, bodyComp);
+    }
+
+    #endregion
+
+    #region Public API
+
+    /// <summary>
+    /// Attempts to attach a body provider to given body provider.
+    /// </summary>
+    /// <param name="ent">The entity to which the provider should be attached.</param>
+    /// <param name="provider">The entity to attach.</param>
+    /// <param name="id">Optional ID to search for a specific slot. If null, any suitable slot will be found.</param>
+    /// <returns>True if the provider was successfully attached, false otherwise.</returns>
+    public bool TryAttachProvider(Entity<BodyProviderComponent?> ent, Entity<BodyProviderComponent?> provider, string? id = null)
+    {
+        if (!_providerQuery.Resolve(ent, ref ent.Comp))
+            return false;
+
+        if (!_providerQuery.Resolve(provider, ref provider.Comp))
+            return false;
+
+        if (!TryGetEmptyProviderSlot(ent, out var slot, provider.Comp.Type, id))
+            return false;
+
+        if (slot.ContainerSlot is null)
+            return false;
+
+        return _container.Insert(provider.Owner, slot.ContainerSlot);
+    }
+
+    /// <summary>
+    /// Attempts to create a new body provider slot within given body provider.
+    /// </summary>
+    /// <param name="ent">The entity in which to create the slot.</param>
+    /// <param name="id">The unique ID for the new slot.</param>
+    /// <param name="type">The type of provider that can be placed in this slot.</param>
+    /// <returns>True if the slot was successfully created, false otherwise.</returns>
+    public bool TryCreateProviderSlot(Entity<BodyProviderComponent?> ent, string id, BodyProviderType type)
+    {
+        if (!_providerQuery.Resolve(ent, ref ent.Comp))
+            return false;
+
+        var slot = new BodyProviderSlot
+        {
+            Type = type,
+            ContainerSlot = _container.EnsureContainer<ContainerSlot>(ent, GetProviderSlotContainerId(id)),
+        };
+
+        if (!ent.Comp.Providers.TryAdd(id, slot))
+            return false;
+
+        if (_bodyQuery.TryComp(ent.Comp.Body, out var bodyComp))
+        {
+            if (!bodyComp.Providers.TryAdd((id, GetNetEntity(ent)), slot))
+            {
+                ent.Comp.Providers.Remove(id);
+                return false;
+            }
+
+            Dirty(ent.Comp.Body.Value, bodyComp);
+        }
+
+        Dirty(ent);
+        return true;
+    }
+
+    /// <summary>
+    /// Attempts to detach a body provider from its parent.
+    /// </summary>
+    /// <param name="ent">The entity  to detach.</param>
+    /// <returns>True if the provider was successfully detached, false otherwise.</returns>
+    public bool TryDetachProvider(Entity<BodyProviderComponent?> ent)
+    {
+        if (!_providerQuery.Resolve(ent, ref ent.Comp) || !ent.Comp.Parent.HasValue)
+            return false;
+
+        return _container.RemoveEntity(ent.Comp.Parent.Value, ent);
+    }
+
+    /// <summary>
+    /// Attempts to find an empty body provider slot within given body provider.
+    /// </summary>
+    /// <param name="ent">The entity to search within.</param>
+    /// <param name="slot">The found empty slot. Will be null if no slot is found.</param>
+    /// <param name="type">The type of provider the slot should match.</param>
+    /// <param name="id">If specified, only a slot with this exact ID will be searched.</param>
+    /// <returns>True if an empty slot was found, false otherwise.</returns>
+    public bool TryGetEmptyProviderSlot(Entity<BodyProviderComponent?> ent, [NotNullWhen(true)] out BodyProviderSlot? slot, BodyProviderType type = BodyProviderType.All, string? id = null)
+    {
+        slot = null;
+        if (!_providerQuery.Resolve(ent, ref ent.Comp))
+            return false;
+
+        foreach (var possibleSlot in GetProviderSlots(ent, type, id).Values)
+        {
+            if (possibleSlot.HasProvider)
+                continue;
+
+            slot = possibleSlot;
+            return true;
+        }
+
+        return false;
+    }
+
+    /// <summary>
+    /// Attempts to get a list of all body provider associated with given body provider,
+    /// </summary>
+    /// <param name="ent">The entity to search within.</param>
+    /// <param name="providers">A list of found providers.</param>
+    /// <param name="type">Filter by provider type.</param>
+    /// <returns>True if providers were found, false otherwise.</returns>
+    public bool TryGetProviders(Entity<BodyProviderComponent?> ent, out List<Entity<BodyProviderComponent>> providers, BodyProviderType type = BodyProviderType.All)
+    {
+        providers = GetProviders(ent, type);
+        return providers.Count > 0;
+    }
+
+    /// <summary>
+    /// Retrieves all body provider slots associated with given body provider
+    /// </summary>
+    /// <param name="ent">The entity to search within.</param>
+    /// <param name="type">Filter by provider type.</param>
+    /// <param name="id">Slot ID for exact matching.</param>
+    /// <returns>A dictionary of found slots.</returns>
+    public Dictionary<string, BodyProviderSlot> GetProviderSlots(Entity<BodyProviderComponent?> ent, BodyProviderType type = BodyProviderType.All, string? id = null)
+    {
+        var slots = new Dictionary<string, BodyProviderSlot>();
+        if (!_providerQuery.Resolve(ent, ref ent.Comp))
+            return slots;
+
+        foreach (var (providerId, slot) in ent.Comp.Providers)
+        {
+            if (!type.HasFlag(slot.Type) || !string.IsNullOrEmpty(id) && providerId != id)
+                continue;
+
+            slots.Add(providerId, slot);
+        }
+
+        return slots;
+    }
+
+    /// <summary>
+    /// Retrieves all body providers associated with given body provider.
+    /// </summary>
+    /// <param name="ent">The entity to search within.</param>
+    /// <param name="type">Filter by provider type.</param>
+    /// <returns>A dictionary of found providers.</returns>
+    public List<Entity<BodyProviderComponent>> GetProviders(Entity<BodyProviderComponent?> ent, BodyProviderType type = BodyProviderType.All)
+    {
+        var providers = new List<Entity<BodyProviderComponent>>();
+
+        if (!_providerQuery.Resolve(ent, ref ent.Comp))
+            return providers;
+
+        foreach (var slot in ent.Comp.Providers.Values)
+        {
+            if (!_providerQuery.TryComp(slot.ProviderUid, out var providerComp) || !type.HasFlag(providerComp.Type))
+                continue;
+
+            providers.Add((slot.ProviderUid.Value, providerComp));
+        }
+
+        return providers;
+    }
+
+    #endregion
+
+    #region Private API
+
+    private void OnInserted(Entity<BodyProviderComponent> ent, Entity<BodyComponent> body)
+    {
+        var bodyEv = new BodyProviderInsertedIntoEvent(ent);
+        RaiseLocalEvent(body, ref bodyEv);
+
+        var providerEv = new BodyProviderGotInsertedEvent(body, ent);
+        RaiseLocalEvent(ent, ref providerEv);
+
+        var netEnt = GetNetEntity(ent);
+        foreach (var (id, slot) in ent.Comp.Providers)
+        {
+            body.Comp.Providers.TryAdd((id, netEnt), slot);
+
+            if (slot.ProviderUid is not {} provider || !_providerQuery.TryComp(provider, out var providerComp))
+                continue;
+
+            OnInserted((provider, providerComp), body);
+        }
+
+        if (ent.Comp.Body == body)
+            return;
+
+        ent.Comp.Body = body;
+        Dirty(ent);
+    }
+
+    private void OnInsertedIntoAncestors(Entity<BodyProviderComponent> ent, HashSet<EntityUid> ancestors)
+    {
+        ent.Comp.Ancestors.UnionWith(ancestors);
+        Dirty(ent);
+
+        var ev = new BodyProviderGotInsertedIntoAncestorsEvent(ancestors, ent);
+        RaiseLocalEvent(ent, ref ev);
+
+        foreach (var slot in ent.Comp.Providers.Values)
+        {
+            if (slot.ProviderUid is not {} provider || !_providerQuery.TryComp(provider, out var providerComp))
+                continue;
+
+            OnRemovedFromAncestors((provider, providerComp), ancestors);
+        }
+    }
+
+    private void OnRemoved(Entity<BodyProviderComponent> ent, Entity<BodyComponent> body)
+    {
+        var bodyEv = new BodyProviderRemovedFromEvent(ent);
+        RaiseLocalEvent(body, ref bodyEv);
+
+        var providerEv = new BodyProviderGotRemovedEvent(body, ent);
+        RaiseLocalEvent(ent, ref providerEv);
+
+        var netEnt = GetNetEntity(ent);
+        foreach (var (id, slot) in ent.Comp.Providers)
+        {
+            body.Comp.Providers.Remove((id, netEnt));
+
+            if (slot.ProviderUid is not {} provider || !_providerQuery.TryComp(provider, out var providerComp))
+                continue;
+
+            OnRemoved((provider, providerComp), body);
+        }
+
+        ent.Comp.Body = null;
+        Dirty(ent);
+    }
+
+    private void OnRemovedFromAncestors(Entity<BodyProviderComponent> ent, HashSet<EntityUid> ancestors)
+    {
+        ent.Comp.Ancestors.ExceptWith(ancestors);
+        Dirty(ent);
+
+        var ev = new BodyProviderGotRemovedFromAncestorsEvent(ancestors, ent);
+        RaiseLocalEvent(ent, ref ev);
+
+        foreach (var slot in ent.Comp.Providers.Values)
+        {
+            if (slot.ProviderUid is not {} provider || !_providerQuery.TryComp(provider, out var providerComp))
+                continue;
+
+            OnRemovedFromAncestors((provider, providerComp), ancestors);
+        }
+    }
+
+    private void SetupProvider(BodyProviderSlot slot, Entity<BodyComponent> body, EntityUid parent, string id)
+    {
+        slot.ContainerSlot ??= _container.EnsureContainer<ContainerSlot>(parent, GetProviderSlotContainerId(id));
+        body.Comp.Providers.Add((id, GetNetEntity(parent)), slot);
+
+        SetupProvider(slot, body, parent);
+    }
+
+    private void SetupProvider(BodyProviderSlot slot, Entity<BodyComponent> body, EntityUid parent)
+    {
+        if (slot.ContainerSlot == null
+            || slot.HasProvider
+            || string.IsNullOrEmpty(slot.StartingProvider))
+            return;
+
+        var provider = Spawn(slot.StartingProvider, _transform.GetMoverCoordinates(body));
+        if (!_providerQuery.TryComp(provider, out var providerComp))
+        {
+            _sawmill.Error($"Body provider {ToPrettyString(provider)} does not have {typeof(BodyProviderComponent)}");
+            QueueDel(provider);
+            return;
+        }
+
+        if (!_container.Insert(provider, slot.ContainerSlot))
+        {
+            _sawmill.Error($"Couldn't insert {ToPrettyString(provider)} to {parent}");
+            QueueDel(provider);
+            return;
+        }
+
+        if (slot.Providers.Count == 0)
+            return;
+
+        foreach (var (childId, childSlot) in slot.Providers)
+        {
+            SetupProvider(childSlot, body, provider, childId);
+            providerComp.Providers.Add(childId, childSlot);
+        }
+
+        Dirty(provider, providerComp);
+    }
+
+    #endregion
+}

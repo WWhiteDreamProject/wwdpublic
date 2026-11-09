@@ -1,8 +1,7 @@
-using Content.Server.Body.Systems;
 using Content.Server.Popups;
+using Content.Shared._White.Damage.Systems;
+using Content.Shared._White.Gibbable.Systems;
 using Content.Shared.Actions;
-using Content.Shared.Audio;
-using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.Guardian;
@@ -12,7 +11,6 @@ using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs;
 using Content.Shared.Popups;
-using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
@@ -32,9 +30,9 @@ namespace Content.Server.Guardian
         [Dependency] private readonly SharedActionsSystem _actionSystem = default!;
         [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
         [Dependency] private readonly SharedAudioSystem _audio = default!;
-        [Dependency] private readonly BodySystem _bodySystem = default!;
         [Dependency] private readonly SharedContainerSystem _container = default!;
         [Dependency] private readonly SharedTransformSystem _transform = default!;
+        [Dependency] private readonly GibbableSystem _gibbable = default!;
 
         public override void Initialize()
         {
@@ -123,13 +121,8 @@ namespace Content.Server.Guardian
                 return;
 
             // Ensure held items are dropped before deleting guardian.
-            // WD EDIT
-            if (TryComp<HandsComponent>(guardian, out var hands))
-            {
-                foreach (var hand in hands.Hands.Values)
-                    _handsSystem.TryDrop(guardian, hand, checkActionBlocker:false, handsComp:hands);
-            }
-            // WD EDIT END
+            if (HasComp<HandsComponent>(guardian))
+                _gibbable.Gib(component.HostedGuardian.Value); // WD EDIT
 
             QueueDel(guardian);
             QueueDel(component.ActionEntity);
@@ -261,14 +254,10 @@ namespace Content.Server.Guardian
         /// </summary>
         private void OnGuardianDamaged(EntityUid uid, GuardianComponent component, DamageChangedEvent args)
         {
-            if (args.DamageDelta == null || component.Host == null || component.DamageShare == 0)
+            if (component.Host == null || component.DamageShare == 0) // WD EDIT
                 return;
 
-            _damageSystem.TryChangeDamage(
-                component.Host,
-                args.DamageDelta * component.DamageShare,
-                origin: args.Origin,
-                interruptsDoAfters: false);
+            _damageSystem.ChangeDamage(component.Host.Value, args.Damage * component.DamageShare, origin: args.Origin, interruptsDoAfters: false); // WD EDIT
             _popupSystem.PopupEntity(Loc.GetString("guardian-entity-taking-damage"), component.Host.Value, component.Host.Value);
 
         }

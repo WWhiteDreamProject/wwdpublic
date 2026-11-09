@@ -1,6 +1,6 @@
 using Content.Server.Chat.Managers;
+using Content.Shared._White.Damage.Components;
 using Content.Shared.Chat;
-using Content.Shared.Damage;
 using Content.Shared.HealthExaminable;
 using Robust.Server.Player;
 

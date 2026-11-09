@@ -11,8 +11,7 @@
     animationRotation: -60 # WWDP
     wideAnimationRotation: -150
     damage:
-      types:
-        Holy: 4
+      Holy: 4
   - type: Item
     size: Small
     sprite: Objects/Weapons/Melee/gohei.rsi

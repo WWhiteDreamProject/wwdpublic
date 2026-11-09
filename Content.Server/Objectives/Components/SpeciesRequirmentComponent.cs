@@ -1,5 +1,5 @@
 using Content.Server.Objectives.Systems;
-using Content.Shared.Humanoid.Prototypes;
+using Content.Shared._White.Humanoid.Prototypes;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Objectives.Components;

@@ -1,0 +1,122 @@
+- type: entity
+  id: BaseBodyKobold
+  parent: BaseBody
+  abstract: true
+  components:
+  - type: Body
+    rootProvider:
+      type: Chest
+      providers:
+        groin:
+          type: Groin
+          providers:
+            coxae:
+              type: Coxae
+              providers:
+                kidneys:
+                  type: Kidneys
+                  startingProvider: BodyProviderKidneysAnimal
+                liver:
+                  type: Liver
+                  startingProvider: BodyProviderLiverAnimal
+                stomach:
+                  type: Stomach
+                  startingProvider: BodyProviderStomachAnimal
+              startingProvider: BodyProviderCoxaeKobold
+            left_leg:
+              type: LeftLeg
+              providers:
+                left_crus:
+                  type: LeftCrus
+                  startingProvider: BodyProviderLeftCrusKobold
+                left_foot:
+                  type: LeftFoot
+                  providers:
+                    left_pedis:
+                      type: LeftPedis
+                      startingProvider: BodyProviderLeftPedisKobold
+                  startingProvider: BodyProviderLeftFootKobold
+              startingProvider: BodyProviderLeftLegKobold
+            right_leg:
+              type: RightLeg
+              providers:
+                right_crus:
+                  type: RightCrus
+                  startingProvider: BodyProviderRightCrusKobold
+                right_foot:
+                  type: RightFoot
+                  providers:
+                    right_pedis:
+                      type: RightPedis
+                      startingProvider: BodyProviderRightPedisKobold
+                  startingProvider: BodyProviderRightFootKobold
+              startingProvider: BodyProviderRightLegKobold
+            tail:
+              type: Tail
+              providers:
+                cauda:
+                  type: Cauda
+                  startingProvider: BodyProviderCaudaKobold
+              startingProvider: BodyProviderPartTailKobold
+          startingProvider: BodyProviderGroinKobold
+        head:
+          type: Head
+          providers:
+            cranium:
+              type: Сranium
+              providers:
+                brain:
+                  type: Brain
+                  startingProvider: BodyProviderBrainAnimal
+                ears:
+                  type: Ears
+                  startingProvider: BodyProviderEarsAnimal
+                eyes:
+                  type: Eyes
+                  startingProvider: BodyProviderEyesAnimal
+                tongue:
+                  type: Tongue
+                  startingProvider: BodyProviderTongueAnimal
+              startingProvider: BodyProviderCraniumKobold
+          startingProvider: BodyProviderHeadKobold
+        left_arm:
+          type: LeftArm
+          providers:
+            left_antebrachium:
+              type: LeftAntebrachium
+              startingProvider: BodyProviderLeftAntebrachiumKobold
+            left_hand:
+              type: LeftHand
+              providers:
+                left_manus:
+                  type: LeftManus
+                  startingProvider: BodyProviderLeftManusKobold
+              startingProvider: BodyProviderLeftHandKobold
+          startingProvider: BodyProviderLeftArmKobold
+        right_arm:
+          type: RightArm
+          providers:
+            right_antebrachium:
+              type: RightAntebrachium
+              startingProvider: BodyProviderRightAntebrachiumKobold
+            right_hand:
+              type: RightHand
+              providers:
+                right_manus:
+                  type: RightManus
+                  startingProvider: BodyProviderRightManusKobold
+              startingProvider: BodyProviderRightHandKobold
+          startingProvider: BodyProviderRightArmKobold
+        thorax:
+          type: Thorax
+          providers:
+            heart:
+              type: Heart
+              startingProvider: BodyProviderHeartAnimal
+            lungs:
+              type: Lungs
+              startingProvider: BodyProviderLungsAnimal
+          startingProvider: BodyProviderThoraxKobold
+        wings:
+          type: Wings
+      startingProvider: BodyProviderChestKobold

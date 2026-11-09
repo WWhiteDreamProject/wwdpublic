@@ -162,8 +162,10 @@
   - type: HideLayerClothing
     force: true
     slots:
-    - LFoot
-    - RFoot
+    # WD EDIT START
+    - enum.BodyProviderType.LeftFoot
+    - enum.BodyProviderType.RightFoot
+    # WD EDIT END
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepHighHeels
@@ -181,8 +183,10 @@
   - type: HideLayerClothing
     force: true
     slots:
-    - LFoot
-    - RFoot
+    # WD EDIT START
+    - enum.BodyProviderType.LeftFoot
+    - enum.BodyProviderType.RightFoot
+    # WD EDIT END
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepHighHeels

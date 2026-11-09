@@ -1,4 +1,6 @@
-using Content.Shared._Shitmed.Targeting;
+using Content.Shared._White.Body;
+using Content.Shared._White.Body.Components;
+
 
 namespace Content.Shared.Throwing
 {
@@ -16,15 +18,15 @@ namespace Content.Shared.Throwing
         public readonly EntityUid Thrown;
         public readonly EntityUid Target;
         public ThrownItemComponent Component;
-        public TargetBodyPart? TargetPart;
+        public BodyProviderType BodyProviderType;
 
-        public ThrowEvent(EntityUid? user, EntityUid thrown, EntityUid target, ThrownItemComponent component, TargetBodyPart? targetPart) //Nyano - Summary: User added.
+        public ThrowEvent(EntityUid? user, EntityUid thrown, EntityUid target, ThrownItemComponent component, BodyProviderType bodyProviderType)
         {
             User = user; //Nyano - Summary: User added.
             Thrown = thrown;
             Target = target;
             Component = component;
-            TargetPart = targetPart;
+            BodyProviderType = bodyProviderType;
         }
     }
 
@@ -33,7 +35,7 @@ namespace Content.Shared.Throwing
     /// </summary>
     public sealed class ThrowHitByEvent : ThrowEvent
     {
-        public ThrowHitByEvent(EntityUid? user, EntityUid thrown, EntityUid target, ThrownItemComponent component, TargetBodyPart? targetPart) : base(user, thrown, target, component, targetPart) //Nyano - Summary: User added.
+        public ThrowHitByEvent(EntityUid? user, EntityUid thrown, EntityUid target, ThrownItemComponent component, BodyProviderType bodyProviderType) : base(user, thrown, target, component, bodyProviderType)
         {
         }
     }
@@ -43,7 +45,7 @@ namespace Content.Shared.Throwing
     /// </summary>
     public sealed class ThrowDoHitEvent : ThrowEvent
     {
-        public ThrowDoHitEvent(EntityUid thrown, EntityUid target, ThrownItemComponent component, TargetBodyPart? targetPart) : base(null, thrown, target, component, targetPart) //Nyano - Summary: User added.
+        public ThrowDoHitEvent(EntityUid thrown, EntityUid target, ThrownItemComponent component, BodyProviderType bodyProviderType) : base(null, thrown, target, component, bodyProviderType)
         {
         }
     }

@@ -1,5 +1,4 @@
 using Content.Shared.Humanoid;
-using Content.Shared.Damage;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Physics;
 using Content.Shared.Speech;
@@ -12,6 +11,8 @@ using Content.Shared.Abilities.Psionics;
 using Content.Server.Abilities.Psionics;
 using Content.Server.Cloning.Components;
 using Content.Server.Psionics.Glimmer;
+using Content.Shared._White.Damage.Components;
+using Content.Shared._White.Humanoid.Components;
 using Robust.Shared.GameObjects.Components.Localization;
 using Robust.Shared.Enums;
 using Robust.Shared.Physics;
@@ -32,7 +33,7 @@ public sealed partial class TelepathicChatSystem
     }
     private void InitializePsychognomy()
     {
-        SubscribeLocalEvent<HumanoidAppearanceComponent, GetPsychognomicDescriptorEvent>(DescribeHumanoid);
+        SubscribeLocalEvent<HumanoidProfileComponent, GetPsychognomicDescriptorEvent>(DescribeHumanoid);
         SubscribeLocalEvent<GrammarComponent, GetPsychognomicDescriptorEvent>(DescribeGrammar);
         SubscribeLocalEvent<DamageableComponent, GetPsychognomicDescriptorEvent>(DescribeDamage);
         SubscribeLocalEvent<MobStateComponent, GetPsychognomicDescriptorEvent>(DescribeMobState);
@@ -46,7 +47,7 @@ public sealed partial class TelepathicChatSystem
         SubscribeLocalEvent<BloodSuckerComponent, GetPsychognomicDescriptorEvent>(DescribeBloodsucker);
     }
 
-    private void DescribeHumanoid(EntityUid uid, HumanoidAppearanceComponent component, GetPsychognomicDescriptorEvent ev)
+    private void DescribeHumanoid(EntityUid uid, HumanoidProfileComponent component, GetPsychognomicDescriptorEvent ev)
     {
         if (component.Sex != Sex.Unsexed)
             ev.Descriptors.Add(component.Sex == Sex.Male ? Loc.GetString("p-descriptor-male") : Loc.GetString("p-descriptor-female"));
@@ -63,10 +64,10 @@ public sealed partial class TelepathicChatSystem
 
     private void DescribeDamage(EntityUid uid, DamageableComponent component, GetPsychognomicDescriptorEvent ev)
     {
-        if (component.DamageContainerID == "CorporealSpirit")
+        if (component.Container == "CorporealSpirit")
         {
             ev.Descriptors.Add(Loc.GetString("p-descriptor-liminal"));
-            if (!HasComp<HumanoidAppearanceComponent>(uid))
+            if (!HasComp<HumanoidProfileComponent>(uid))
                 ev.Descriptors.Add(Loc.GetString("p-descriptor-old"));
             return;
         }

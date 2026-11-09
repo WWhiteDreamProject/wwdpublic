@@ -32,7 +32,14 @@
     canInteract: true
   - type: GhostHearing
   - type: Hands
-  # WD EDIT START
+    # WD EDIT START
+    hands:
+      right_hand:
+        name: right_hand
+        location: Right
+      left_hand:
+        name: left_hand
+        location: Left
   - type: AdminObserverHands
   # WD EDIT END
   - type: ComplexInteraction
@@ -44,9 +51,6 @@
   - type: Physics
     ignorePaused: true
     bodyType: Kinematic
-  - type: Body
-    prototype: Aghost
-    thermalVisibility: false
   - type: Access
     groups:
     - AllAccess
@@ -130,6 +134,7 @@
   - type: ShowJobIcons
   - type: ShowMindShieldIcons
   - type: ShowCriminalRecordIcons
+  - type: TargetDoll
   # WD EDIT END
 
 - type: entity

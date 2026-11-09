@@ -1,6 +1,5 @@
 using Content.Server.Administration.Systems;
 using Content.Server.DoAfter;
-using Content.Server.Forensics;
 using Content.Server.Polymorph.Systems;
 using Content.Server.Popups;
 using Content.Server.Store.Systems;
@@ -10,7 +9,6 @@ using Content.Shared.Changeling;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.FixedPoint;
-using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
@@ -20,9 +18,7 @@ using Robust.Server.Audio;
 using Robust.Shared.Audio;
 using Robust.Shared.Random;
 using Content.Shared.Popups;
-using Content.Shared.Damage;
 using Robust.Shared.Prototypes;
-using Content.Server.Body.Systems;
 using Content.Shared.Actions;
 using Content.Shared.Polymorph;
 using Robust.Shared.Serialization.Manager;
@@ -40,7 +36,6 @@ using Content.Shared.Damage.Systems;
 using Content.Shared.Mind;
 using Content.Server.Objectives.Components;
 using Content.Server.Light.EntitySystems;
-using Content.Shared.StatusEffect;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Cuffs;
 using Content.Shared.Fluids;
@@ -56,11 +51,15 @@ using Content.Server.Stunnable;
 using Content.Shared.Jittering;
 using Content.Server.Explosion.EntitySystems;
 using System.Linq;
+using Content.Server._White.Bloodstream.Systems;
 using Content.Server.Flash.Components;
 using Content.Server.Radio.Components;
 // using Content.Shared.Heretic;
 using Content.Shared._Goobstation.Actions;
 using Content.Shared._Goobstation.Weapons.AmmoSelector;
+using Content.Shared._White.Damage.Systems;
+using Content.Shared._White.Gibbable.Systems;
+using Content.Shared._White.Humanoid.Components;
 using Content.Shared.Chat;
 using Content.Shared.Projectiles;
 // using Content.Shared._White.Overlays;
@@ -91,7 +90,6 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     [Dependency] private readonly BloodstreamSystem _blood = default!;
     [Dependency] private readonly ISerializationManager _serialization = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
-    [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly FlashSystem _flash = default!;
@@ -111,12 +109,12 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     [Dependency] private readonly StunSystem _stun = default!;
     [Dependency] private readonly SharedJitteringSystem _jitter = default!;
     [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
-    [Dependency] private readonly BodySystem _bodySystem = default!;
     [Dependency] private readonly IComponentFactory _compFactory = default!;
     [Dependency] private readonly RejuvenateSystem _rejuv = default!;
     [Dependency] private readonly SelectableAmmoSystem _selectableAmmo = default!;
     [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
     [Dependency] private readonly SharedSuicideSystem _suicide = default!; // WD EDIT
+    [Dependency] private readonly GibbableSystem _gibbable = default!; // WD EDIT
 
     public EntProtoId ArmbladePrototype = "ArmBladeChangeling";
     public EntProtoId FakeArmbladePrototype = "FakeArmBladeChangeling";
@@ -451,7 +449,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
     public bool TryStealDNA(EntityUid uid, EntityUid target, ChangelingComponent comp, bool countObjective = false)
     {
-        if (!TryComp<HumanoidAppearanceComponent>(target, out var appearance)
+        if (!TryComp<HumanoidProfileComponent>(target, out var appearance)
         || !TryComp<MetaDataComponent>(target, out var metadata)
         || !TryComp<DnaComponent>(target, out var dna)
         || !TryComp<FingerprintComponent>(target, out var fingerprint))
@@ -550,7 +548,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         {
             Comp<FingerprintComponent>(newEnt).Fingerprint = data.Fingerprint;
             Comp<DnaComponent>(newEnt).DNA = data.DNA;
-            _humanoid.CloneAppearance(data.Appearance.Owner, newEnt);
+            // _humanoid.CloneAppearance(data.Appearance.Owner, newEnt); TODO
             _metaData.SetEntityName(newEnt, data.Name);
             var message = Loc.GetString("changeling-transform-finish", ("target", data.Name));
             _popup.PopupEntity(message, newEnt, newEnt);
@@ -689,13 +687,6 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         radio.Channels = new() { "Hivemind" };
         transmitter.Channels = new() { "Hivemind" };
         //WD edit end
-
-        // Shitmed: Prevent changelings from getting their body parts severed
-        foreach (var (id, part) in _bodySystem.GetBodyChildren(uid))
-        {
-            part.CanSever = false;
-            Dirty(id, part);
-        }
     }
 
     private void OnMobStateChange(EntityUid uid, ChangelingComponent comp, ref MobStateChangedEvent args)
@@ -714,7 +705,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         if (mobState.CurrentState != MobState.Dead)
             return;
 
-        if (!args.DamageIncreased)
+        if (!args.Damage.AnyPositive())
             return;
 
         target.Damage.ClampMax(200); // we never die. UNLESS??
