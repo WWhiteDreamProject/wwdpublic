@@ -121,7 +121,7 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         EmbedDetach(embeddable, embeddable.Comp, args.User);
 
         // try place it in the user's hand
-        _hands.TryPickupAnyHand(args.User, embeddable);
+        // _hands.TryPickupAnyHand(args.User, embeddable); // WWDP EDIT
     }
 
     private void OnEmbedThrowDoHit(Entity<EmbeddableProjectileComponent> embeddable, ref ThrowDoHitEvent args)

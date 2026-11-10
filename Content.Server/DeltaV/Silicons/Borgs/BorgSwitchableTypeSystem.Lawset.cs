@@ -16,16 +16,15 @@ namespace Content.Server.Silicons.Borgs;
 public sealed partial class BorgSwitchableTypeSystem
 {
     [Dependency] private readonly SlavedBorgSystem _slavedBorg = default!;
-    [Dependency] private readonly SiliconLawSystem _law = default!;
 
     private void ConfigureLawset(EntityUid uid, ProtoId<SiliconLawsetPrototype> id)
     {
-        var laws = _law.GetLawset(id);
+        var laws = _siliconLawSystem.GetLawset(id);
 
         if (TryComp<SlavedBorgComponent>(uid, out var slaved))
             _slavedBorg.AddLaw(laws, slaved.Law);
 
-        _law.SetLaws(laws.Laws, uid);
+        _siliconLawSystem.SetLaws(laws.Laws, uid);
 
         // re-add law 0 and final law based on new lawset
         if (CompOrNull<EmagSiliconLawComponent>(uid)?.OwnerName != null)

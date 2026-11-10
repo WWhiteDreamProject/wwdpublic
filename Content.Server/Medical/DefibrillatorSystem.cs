@@ -57,7 +57,7 @@ public sealed class DefibrillatorSystem : EntitySystem
 
     private void OnAfterInteract(EntityUid uid, DefibrillatorComponent component, AfterInteractEvent args)
     {
-        if (args.Handled || args.Target is not { } target)
+        if (args.Handled || args.Target is not { } target || !args.CanReach)
             return;
         args.Handled = TryStartZap(uid, target, args.User, component);
     }

@@ -282,7 +282,7 @@ public abstract class SharedWieldableSystem : EntitySystem
         // WWDP EDIT START
         var availableHands = 0;
         if (canFreeHands)
-            availableHands = _hands.CountFreeableHands((user, hands));
+            availableHands = _hands.CountFreeableHands((user, hands), except: uid);
         else
             availableHands = _hands.EnumerateHands(user, hands).Count(hand => hand.IsEmpty);
 

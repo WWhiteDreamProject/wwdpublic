@@ -23,6 +23,7 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Random;
 using Content.Shared.Maps;
 using Content.Shared.Mobs;
+using Content.Shared.Sprite;
 using Content.Shared.Stacks;
 using Robust.Server.Containers;
 using Robust.Shared.Prototypes;

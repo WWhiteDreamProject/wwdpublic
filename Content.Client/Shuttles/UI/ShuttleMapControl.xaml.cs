@@ -123,7 +123,7 @@ public sealed partial class ShuttleMapControl : BaseShuttleControl
                 else
                 {
                     // We'll send the "adjusted" position and server will adjust it back when relevant.
-                    var mapCoords = new MapCoordinates(InverseMapPosition(args.RelativePosition), ViewingMap);
+                    var mapCoords = new MapCoordinates(InverseMapPosition(args.RelativePixelPosition), ViewingMap); // WWDP EDIT (RelativePosition --> RelativePixelPosition)
                     RequestFTL?.Invoke(mapCoords, _ftlAngle);
                 }
             }

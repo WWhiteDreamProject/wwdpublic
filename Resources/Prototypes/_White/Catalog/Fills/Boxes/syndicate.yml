@@ -182,7 +182,7 @@
   components:
   - type: StorageFill
     contents:
-    - id: WeaponPistolViper
+    - id: WeaponPistolMPR10Xyphos
     - id: MagazinePistol
       amount: 6
     - id: ClothingHeadBandGreen
@@ -204,7 +204,7 @@
   components:
   - type: StorageFill
     contents:
-    - id: WeaponPistolViper
+    - id: WeaponPistolMPR10Xyphos
     - id: MagazinePistol
       amount: 6
     - id: ClothingHeadBandRed
@@ -306,8 +306,9 @@
     - id: ClothingOuterArmorRaid
     - id: ClothingHandsGlovesCombat
     - id: ClothingShoesBootsCombatFilled
-    - id: WeaponPistolViper
+    - id: WeaponPistolMPR10Xyphos 
     - id: MagazinePistol
+    - id: EnergyShield
 
 - type: entity
   parent: BoxSyndicateKit

@@ -1,0 +1,7 @@
+<controls:AdminObserverHandsGui
+    xmlns="https://spacestation14.io"
+    xmlns:controls="clr-namespace:Content.Client._White.UserInterface.Systems.AdminObserver.Widgets"
+    SetSize="64 64"
+    Visible="False">
+    <TextureButton Name="HandsButton" ToggleMode="True" SetSize="64 64" TexturePath="/Textures/_White/Interface/AdminObserver/hands_on.png"/>
+</controls:AdminObserverHandsGui>

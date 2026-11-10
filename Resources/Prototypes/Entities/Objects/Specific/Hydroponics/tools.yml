@@ -32,6 +32,7 @@
     angle: 135
   - type: Item
     sprite: Objects/Tools/Hydroponics/hoe.rsi
+    storedRotation: 45 # WD ADD
   - type: EmitSoundOnPickup # White Dream
     sound:
       path: /Audio/SimpleStation14/Items/Handling/screwdriver_pickup.ogg
@@ -137,6 +138,11 @@
     angle: 315
   - type: Item
     size: Normal
+    # WD EDIT START
+    shape:
+    - 0,0,1,0
+    - 0,1,0,1
+    # WD EDIT END
   - type: Clothing
     sprite: Objects/Tools/Hydroponics/scythe.rsi
     slots:
@@ -192,6 +198,7 @@
   - type: EmbedPassiveDamage
   - type: Item
     sprite: Objects/Tools/Hydroponics/hatchet.rsi
+    storedRotation: 45 # WD ADD
   - type: Execution # WWDP
   # Shitmed Change
   - type: BoneSaw
@@ -243,6 +250,7 @@
     angle: 45
   - type: Item
     sprite: Objects/Tools/Hydroponics/spade.rsi
+    storedRotation: -45 # WD ADD
   - type: Shovel
     speedModifier: 0.85 # slower at digging than a full-sized shovel
   - type: EmitSoundOnPickup # White Dream

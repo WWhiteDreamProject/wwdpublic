@@ -1,4 +1,3 @@
-﻿using System.Linq;
 using Content.Server._White.GameTicking.Rules;
 using Content.Server.Bible.Components;
 using Content.Server.Body.Systems;
@@ -6,12 +5,15 @@ using Content.Server.Cuffs;
 using Content.Server.Mind;
 using Content.Server.Stunnable;
 using Content.Shared._White.BloodCult.BloodCultist;
+using Content.Shared._White.BloodCult.Runes;
 using Content.Shared._White.BloodCult.Runes.Components;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Damage;
+using Content.Shared.DoAfter;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.StatusEffect;
+using System.Linq;
 
 namespace Content.Server._White.BloodCult.Runes.Offering;
 
@@ -26,12 +28,14 @@ public sealed class CultRuneOfferingSystem : EntitySystem
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
     [Dependency] private readonly StunSystem _stun = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<CultRuneOfferingComponent, InvokeRuneEvent>(OnOfferingRuneInvoked);
+        SubscribeLocalEvent<CultRuneOfferingComponent, CultOfferingDoAfterEvent>(OnCultOfferingDoAfter);
     }
 
     private void OnOfferingRuneInvoked(Entity<CultRuneOfferingComponent> rune, ref InvokeRuneEvent args)
@@ -57,23 +61,23 @@ public sealed class CultRuneOfferingSystem : EntitySystem
         // if the target is dead we should always sacrifice it.
         if (_mobState.IsDead(target))
         {
-            Sacrifice(rune, target);
+            StartSacrificeDoAfter(rune, target, user);
             return true;
         }
 
         if (!_mind.TryGetMind(target, out _, out _) || _bloodCultRule.IsTarget(target) ||
             HasComp<BibleUserComponent>(target) || HasComp<MindShieldComponent>(target))
-            return TrySacrifice(rune, target, invokersTotal);
+            return TrySacrifice(rune, target, invokersTotal, user);
 
         return TryConvert(rune, target, user, invokersTotal);
     }
 
-    private bool TrySacrifice(Entity<CultRuneOfferingComponent> rune, EntityUid target, int invokersAmount)
+    private bool TrySacrifice(Entity<CultRuneOfferingComponent> rune, EntityUid target, int invokersAmount, EntityUid user)
     {
         if (invokersAmount < rune.Comp.AliveSacrificeInvokersAmount)
             return false;
 
-        Sacrifice(rune, target);
+        StartSacrificeDoAfter(rune, target, user);
         return true;
     }
 
@@ -86,6 +90,37 @@ public sealed class CultRuneOfferingSystem : EntitySystem
         _bloodCultRule.SetRevivalCharges(charges + rune.Comp.ReviveChargesPerOffering);
         Convert(rune, target, user);
         return true;
+    }
+
+    private void StartSacrificeDoAfter(Entity<CultRuneOfferingComponent> rune, EntityUid target, EntityUid? user)
+    {
+        if (!Exists(target))
+            return;
+
+        var doAfterArgs = new DoAfterArgs(
+            EntityManager,
+            user ?? target,
+            rune.Comp.SacrificeDelay,
+            new CultOfferingDoAfterEvent(),
+            rune,
+            target: target
+        )
+        {
+            BreakOnMove = true,
+        };
+
+        _doAfter.TryStartDoAfter(doAfterArgs);
+    }
+
+    private void OnCultOfferingDoAfter(Entity<CultRuneOfferingComponent> rune, ref CultOfferingDoAfterEvent args)
+    {
+        if (args.Cancelled || args.Handled || args.Args.Target == null)
+            return;
+
+        if (args.Target is not { Valid: true } target)
+            return;
+
+        Sacrifice(rune, target);
     }
 
     private void Sacrifice(Entity<CultRuneOfferingComponent> rune, EntityUid target)

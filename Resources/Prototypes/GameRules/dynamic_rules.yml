@@ -16,7 +16,7 @@
       - !type:GroupSelector
         conditions:
         - !type:RoundDurationCondition
-          max: 180 # WD edit 1 -> 180, because of lags rounds don't start immediately.
+          max: 1
         children:
         - id: Traitor
           weight: 34
@@ -41,7 +41,7 @@
           - !type:HasBudgetCondition
           - !type:MaxRuleOccurenceCondition
           - !type:PlayerCountCondition
-            min: 15 # WD edit: 20 > 15  
+            min: 15 # WD edit: 20 > 15
         # WD edit start
         - id: Changeling
           weight: 15
@@ -151,7 +151,7 @@
           - !type:HasBudgetCondition
           - !type:MaxRuleOccurenceCondition
           - !type:PlayerCountCondition
-            min: 15 # WD edit: 20 > 15  
+            min: 15 # WD edit: 20 > 15
           - !type:RoundDurationCondition
             min: 2100 # 35 minutes
         # WD edit start
