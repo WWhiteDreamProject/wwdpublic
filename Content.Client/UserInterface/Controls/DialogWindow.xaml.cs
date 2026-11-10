@@ -76,7 +76,7 @@ public sealed partial class DialogWindow : FancyWindow
             edit.IsValid += valid;
             // try use placeholder from the caller, fall back to the generic one for whatever type is being validated.
             edit.PlaceHolder = entry.Placeholder ?? Loc.GetString($"quick-dialog-ui-{name}");
-
+            edit.Text = entry.Initial; // WWDP EDIT
             // Last text box gets enter confirmation.
             // Only the last so you don't accidentally confirm early.
             if (i == entries.Count - 1)

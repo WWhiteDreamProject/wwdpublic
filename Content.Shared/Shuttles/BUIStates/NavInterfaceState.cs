@@ -1,3 +1,4 @@
+using System.Collections.Frozen;
 using Content.Shared._NF.Shuttles.Events;
 using Robust.Shared.Map;
 using Robust.Shared.Serialization;
@@ -7,6 +8,7 @@ namespace Content.Shared.Shuttles.BUIStates;
 [Serializable, NetSerializable]
 public sealed class NavInterfaceState
 {
+    public float MinRange;
     public float MaxRange;
 
     /// <summary>
@@ -21,7 +23,7 @@ public sealed class NavInterfaceState
 
     public Dictionary<NetEntity, List<DockingPortState>> Docks;
 
-    public bool RotateWithEntity = true;
+    public bool RotateWithEntity;
 
     /// <summary>
     /// Frontier - the state of the shuttle's inertial dampeners
@@ -33,22 +35,31 @@ public sealed class NavInterfaceState
     /// Limits radar FOV.
     /// </summary>
     public Angle FieldOfView;
+    public float FieldOfViewOffset;
+
+    public static NavInterfaceState Invalid { get; } = new(0, 0, null, null, new(), InertiaDampeningMode.Dampened, 0, 0, false);
     // WWDP EDIT END
 
     public NavInterfaceState(
+        float minRange, // WWPD EDIT // FUCK YOU SLOTH
         float maxRange,
         NetCoordinates? coordinates,
         Angle? angle,
         Dictionary<NetEntity, List<DockingPortState>> docks,
         InertiaDampeningMode dampeningMode, // Frontier: add dampeningMode
-        Angle visibilityConeAngle) // WWDP EDIT
+        Angle fieldOfView, // WWDP EDIT
+        float fieldOfViewOffset, // WWDP EDIT
+        bool rotateWithEntity) // WWDP EDIT
     {
-        MaxRange = maxRange;
+        MinRange = minRange; // WWDP EDIT
+        MaxRange = maxRange; 
         Coordinates = coordinates;
         Angle = angle;
         Docks = docks;
         DampeningMode = dampeningMode; // Frontier
-        FieldOfView = visibilityConeAngle; // WWDP EDIT
+        FieldOfView = fieldOfView; // WWDP EDIT
+        FieldOfViewOffset = fieldOfViewOffset; // WWDP EDIT
+        RotateWithEntity = rotateWithEntity; // WWDP EDIT
     }
 }
 

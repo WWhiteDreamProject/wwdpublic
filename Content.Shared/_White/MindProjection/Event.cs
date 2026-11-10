@@ -1,6 +1,6 @@
 using Content.Shared.Actions;
 
-namespace Content.Shared._White.RemoteControl;
+namespace Content.Shared._White.MindProjection;
 
 public sealed partial class RemoteControlConsoleSwitchNextActionEvent : InstantActionEvent;
 

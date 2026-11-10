@@ -1,9 +1,9 @@
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._White.RemoteControl.Components;
+namespace Content.Shared._White.MindProjection.Components;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-public sealed partial class RemoteControllingComponent : Component
+public sealed partial class MingProjectingComponent : Component
 {
     [ViewVariables, AutoNetworkedField]
     public EntityUid Target;

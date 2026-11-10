@@ -5,7 +5,7 @@ using Content.Server.Interaction;
 using Content.Server.Mind;
 using Content.Server.Popups;
 using Content.Shared._White.Overlays;
-using Content.Shared._White.RemoteControl.Components;
+using Content.Shared._White.MindProjection.Components;
 using Content.Shared.ActionBlocker;
 using Content.Shared.DeviceLinking;
 using Content.Shared.Lock;
@@ -16,9 +16,10 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
-namespace Content.Server._White.RemoteControl.Systems;
+namespace Content.Server._White.MindProjection.Systems;
 
-public sealed partial class RemoteControlSystem : EntitySystem
+
+public sealed partial class MindProjectionSystem : EntitySystem
 {
     [Dependency] private readonly DeviceLinkSystem _link = default!;
     [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
@@ -30,8 +31,8 @@ public sealed partial class RemoteControlSystem : EntitySystem
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
 
-    public static ProtoId<SinkPortPrototype> SinkPortId = "RemoteControlSinkPort";
-    public static ProtoId<SourcePortPrototype> SourcePortId = "RemoteControlSourcePort";
+    public static ProtoId<SinkPortPrototype> SinkPortId = "MindProjectionSinkPort";
+    public static ProtoId<SourcePortPrototype> SourcePortId = "MindProjectionSourcePort";
 
     public override void Initialize()
     {
@@ -47,7 +48,7 @@ public sealed partial class RemoteControlSystem : EntitySystem
     {
         var sourceXform = Transform(args.Source);
 
-        var query = EntityQueryEnumerator<RemoteControllableComponent, TransformComponent>();
+        var query = EntityQueryEnumerator<MindProjectionTargetComponent, TransformComponent>();
         while (query.MoveNext(out _, out var comp, out var xform))
         {
             var range = xform.MapID != sourceXform.MapID
@@ -64,7 +65,7 @@ public sealed partial class RemoteControlSystem : EntitySystem
 
     public override void Update(float frameTime)
     {
-        var query = EntityQueryEnumerator<RemoteControllingComponent>();
+        var query = EntityQueryEnumerator<MingProjectingComponent>();
         while (query.MoveNext(out var uid, out var comp))
         {
             if(!_actionBlocker.CanInteract(uid, comp.Console)
@@ -73,15 +74,15 @@ public sealed partial class RemoteControlSystem : EntitySystem
         }
     }
 
-    private bool RemoteControl(EntityUid user, Entity<RemoteControllableComponent?> target, Entity<RemoteControlConsoleComponent?> console, bool overlay = false)
+    private bool RemoteControl(EntityUid user, Entity<MindProjectionTargetComponent?> target, Entity<MindProjectionConsoleComponent?> console, bool overlay = false)
     {
         if (!Resolve(target, ref target.Comp)
-            || HasComp<RemoteControllingComponent>(user)
+            || HasComp<MingProjectingComponent>(user)
             || HasComp<VisitingMindComponent>(target)
             || _mind.GetMind(user) is not { } userMind)
             return false;
 
-        var userComp = EnsureComp<RemoteControllingComponent>(user);
+        var userComp = EnsureComp<MingProjectingComponent>(user);
         userComp.Target = target;
         userComp.Console = console;
 
@@ -106,7 +107,7 @@ public sealed partial class RemoteControlSystem : EntitySystem
         return true;
     }
 
-    private bool EndRemoteControl(Entity<RemoteControllingComponent?> user, bool shouldAutoSwitch = false)
+    private bool EndRemoteControl(Entity<MingProjectingComponent?> user, bool shouldAutoSwitch = false)
     {
         if (!Resolve(user, ref user.Comp))
             return false;
@@ -114,7 +115,7 @@ public sealed partial class RemoteControlSystem : EntitySystem
         return EndRemoteControl(user, user.Comp.Target, user.Comp.Console, shouldAutoSwitch);
     }
 
-    private bool EndRemoteControl(Entity<RemoteControllingComponent?> user, Entity<RemoteControllableComponent?> target, bool shouldAutoSwitch = false)
+    private bool EndRemoteControl(Entity<MingProjectingComponent?> user, Entity<MindProjectionTargetComponent?> target, bool shouldAutoSwitch = false)
     {
         if (!Resolve(user, ref user.Comp) || !Resolve(target, ref target.Comp))
             return false;
@@ -122,7 +123,7 @@ public sealed partial class RemoteControlSystem : EntitySystem
         return EndRemoteControl(user, target, user.Comp.Console, shouldAutoSwitch);
     }
 
-    private bool EndRemoteControl(Entity<RemoteControllingComponent?> user, Entity<RemoteControlConsoleComponent?> console, bool shouldAutoSwitch = false )
+    private bool EndRemoteControl(Entity<MingProjectingComponent?> user, Entity<MindProjectionConsoleComponent?> console, bool shouldAutoSwitch = false )
     {
         if (!Resolve(user, ref user.Comp) || !Resolve(console, ref console.Comp))
             return false;
@@ -130,7 +131,7 @@ public sealed partial class RemoteControlSystem : EntitySystem
         return EndRemoteControl(user, user.Comp.Target, console, shouldAutoSwitch);
     }
 
-    private bool EndRemoteControl(Entity<RemoteControllingComponent?> user, Entity<RemoteControllableComponent?> target, Entity<RemoteControlConsoleComponent?> console, bool shouldAutoSwitch = false )
+    private bool EndRemoteControl(Entity<MingProjectingComponent?> user, Entity<MindProjectionTargetComponent?> target, Entity<MindProjectionConsoleComponent?> console, bool shouldAutoSwitch = false )
     {
         if (!Resolve(user, ref user.Comp)
             || !Resolve(target, ref target.Comp)

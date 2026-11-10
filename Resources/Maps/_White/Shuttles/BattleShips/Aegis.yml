@@ -5895,12 +5895,6 @@ entities:
       pos: 1.5,2.5
       parent: 1
     - type: RemoteControlConsole
-      linkedEntities:
-      - 2146
-      - 2139
-      - 2145
-      - 2147
-      - 2148
     - type: DeviceLinkSource
       linkedPorts:
         2146:
@@ -5924,12 +5918,6 @@ entities:
       pos: -12.5,-6.5
       parent: 1
     - type: RemoteControlConsole
-      linkedEntities:
-      - 2143
-      - 2140
-      - 2141
-      - 2147
-      - 671
     - type: DeviceLinkSource
       linkedPorts:
         2143:
@@ -5953,12 +5941,6 @@ entities:
       pos: 13.5,-6.5
       parent: 1
     - type: RemoteControlConsole
-      linkedEntities:
-      - 2144
-      - 2142
-      - 2141
-      - 2148
-      - 663
     - type: DeviceLinkSource
       linkedPorts:
         2144:

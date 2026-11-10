@@ -2,10 +2,10 @@ using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._White.RemoteControl.Components;
+namespace Content.Shared._White.MindProjection.Components;
 
 [RegisterComponent, NetworkedComponent]
-public sealed partial class RemoteControlConsoleComponent : Component
+public sealed partial class MindProjectionConsoleComponent : Component
 {
     [DataField]
     public List<EntityUid> LinkedEntities = new();
@@ -31,3 +31,4 @@ public sealed partial class RemoteControlConsoleComponent : Component
     [ViewVariables]
     public EntityUid? Target;
 }
+

@@ -856354,12 +856354,6 @@ entities:
       pos: -1.5,-1.5
       parent: 128014
     - type: RemoteControlConsole
-      linkedEntities:
-      - 175186
-      - 175187
-      - 175193
-      - 175192
-      - 175191
     - type: DeviceLinkSource
       linkedPorts:
         175187:
@@ -856384,12 +856378,6 @@ entities:
       pos: 2.5,-1.5
       parent: 128014
     - type: RemoteControlConsole
-      linkedEntities:
-      - 175188
-      - 175189
-      - 175195
-      - 175194
-      - 175190
     - type: DeviceLinkSource
       linkedPorts:
         175188:
@@ -856413,15 +856401,6 @@ entities:
       pos: 4.5,14.5
       parent: 128014
     - type: RemoteControlConsole
-      linkedEntities:
-      - 175189
-      - 175188
-      - 175186
-      - 175187
-      - 175193
-      - 175195
-      - 175194
-      - 175192
     - type: DeviceLinkSource
       linkedPorts:
         175189:
@@ -856454,12 +856433,6 @@ entities:
       pos: 1.5,2.5
       parent: 175232
     - type: RemoteControlConsole
-      linkedEntities:
-      - 177380
-      - 177373
-      - 177379
-      - 177381
-      - 177382
     - type: DeviceLinkSource
       linkedPorts:
         177380:
@@ -856483,12 +856456,6 @@ entities:
       pos: -12.5,-6.5
       parent: 175232
     - type: RemoteControlConsole
-      linkedEntities:
-      - 177377
-      - 177374
-      - 177375
-      - 177381
-      - 177372
     - type: DeviceLinkSource
       linkedPorts:
         177377:
@@ -856512,12 +856479,6 @@ entities:
       pos: 13.5,-6.5
       parent: 175232
     - type: RemoteControlConsole
-      linkedEntities:
-      - 177378
-      - 177376
-      - 177375
-      - 177382
-      - 177371
     - type: DeviceLinkSource
       linkedPorts:
         177378:
@@ -856541,11 +856502,6 @@ entities:
       pos: -4.5,15.5
       parent: 177446
     - type: RemoteControlConsole
-      linkedEntities:
-      - 179050
-      - 179052
-      - 179053
-      - 179058
     - type: DeviceLinkSource
       linkedPorts:
         179050:
@@ -856566,11 +856522,6 @@ entities:
       pos: 5.5,15.5
       parent: 177446
     - type: RemoteControlConsole
-      linkedEntities:
-      - 179051
-      - 179055
-      - 179054
-      - 179059
     - type: DeviceLinkSource
       linkedPorts:
         179051:
@@ -856591,18 +856542,6 @@ entities:
       pos: 1.5,-2.5
       parent: 177446
     - type: RemoteControlConsole
-      linkedEntities:
-      - 179057
-      - 179056
-      - 179049
-      - 179053
-      - 179052
-      - 179050
-      - 179051
-      - 179055
-      - 179054
-      - 179058
-      - 179059
     - type: DeviceLinkSource
       linkedPorts:
         179057:
@@ -856644,11 +856583,6 @@ entities:
       pos: 5.5,8.5
       parent: 179105
     - type: RemoteControlConsole
-      linkedEntities:
-      - 180799
-      - 180800
-      - 180802
-      - 180805
     - type: DeviceLinkSource
       linkedPorts:
         180799:
@@ -856669,13 +856603,6 @@ entities:
       pos: 4.5,-7.5
       parent: 179105
     - type: RemoteControlConsole
-      linkedEntities:
-      - 180801
-      - 180802
-      - 180803
-      - 180804
-      - 180795
-      - 180796
     - type: DeviceLinkSource
       linkedPorts:
         180801:
@@ -856702,11 +856629,6 @@ entities:
       pos: -4.5,8.5
       parent: 179105
     - type: RemoteControlConsole
-      linkedEntities:
-      - 180797
-      - 180798
-      - 180801
-      - 180805
     - type: DeviceLinkSource
       linkedPorts:
         180797:
@@ -856728,10 +856650,6 @@ entities:
       pos: 4.5,7.5
       parent: 180854
     - type: RemoteControlConsole
-      linkedEntities:
-      - 182224
-      - 182225
-      - 182226
     - type: DeviceLinkSource
       linkedPorts:
         182224:
@@ -856750,10 +856668,6 @@ entities:
       pos: 8.5,7.5
       parent: 180854
     - type: RemoteControlConsole
-      linkedEntities:
-      - 182229
-      - 182228
-      - 182227
     - type: DeviceLinkSource
       linkedPorts:
         182229:
@@ -856771,10 +856685,6 @@ entities:
       pos: 6.5,-6.5
       parent: 182259
     - type: RemoteControlConsole
-      linkedEntities:
-      - 184059
-      - 184065
-      - 184062
     - type: DeviceLinkSource
       linkedPorts:
         184059:
@@ -856792,10 +856702,6 @@ entities:
       pos: -5.5,-6.5
       parent: 182259
     - type: RemoteControlConsole
-      linkedEntities:
-      - 184058
-      - 184064
-      - 184063
     - type: DeviceLinkSource
       linkedPorts:
         184058:
@@ -856813,11 +856719,6 @@ entities:
       pos: -2.5,2.5
       parent: 182259
     - type: RemoteControlConsole
-      linkedEntities:
-      - 184060
-      - 184063
-      - 184064
-      - 184058
     - type: DeviceLinkSource
       linkedPorts:
         184060:
@@ -856838,11 +856739,6 @@ entities:
       pos: 3.5,2.5
       parent: 182259
     - type: RemoteControlConsole
-      linkedEntities:
-      - 184061
-      - 184062
-      - 184065
-      - 184059
     - type: DeviceLinkSource
       linkedPorts:
         184061:
