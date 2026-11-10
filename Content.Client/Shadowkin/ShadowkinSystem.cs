@@ -1,4 +1,3 @@
-using System.Numerics;
 using Content.Shared.Shadowkin;
 using Content.Shared.CCVar;
 using Robust.Client.Graphics;
@@ -53,7 +52,7 @@ public sealed partial class ShadowkinSystem : EntitySystem
     {
         if (_cfg.GetCVar(CCVars.NoVisionFilters))
             return;
-
+            
         _overlayMan.AddOverlay(_overlay);
     }
 

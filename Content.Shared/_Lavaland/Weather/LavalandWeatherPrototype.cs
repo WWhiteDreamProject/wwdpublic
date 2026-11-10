@@ -6,9 +6,9 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared._Lavaland.Weather;
 
 [Prototype("lavalandWeather")]
-public sealed partial class LavalandWeatherPrototype : IPrototype
+public sealed class LavalandWeatherPrototype : IPrototype
 {
-    [IdDataField] public string ID { get; private set; } = default!;
+    [IdDataField] public string ID { get; } = default!;
 
     [DataField]
     public float Duration = 150;

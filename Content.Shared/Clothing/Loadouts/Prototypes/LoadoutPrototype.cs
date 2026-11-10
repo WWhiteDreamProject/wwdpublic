@@ -10,7 +10,7 @@ public sealed partial class LoadoutPrototype : IPrototype
 {
     /// Formatted like "Loadout[Department/ShortHeadName][CommonClothingSlot][SimplifiedClothingId]", example: "LoadoutScienceOuterLabcoatSeniorResearcher"
     [IdDataField]
-    public string ID { get; private set; } = default!;
+    public string ID { get; } = default!;
 
     [DataField]
     public ProtoId<LoadoutCategoryPrototype> Category = "Uncategorized";
@@ -59,7 +59,7 @@ public sealed partial class LoadoutPrototype : IPrototype
     public List<CharacterRequirement> Requirements = new();
 
     [DataField]
-    public string GuideEntry { get; private set; } = "";
+    public string GuideEntry { get; } = "";
 
     [DataField(serverOnly: true)]
     public LoadoutFunction[] Functions { get; private set; } = Array.Empty<LoadoutFunction>();

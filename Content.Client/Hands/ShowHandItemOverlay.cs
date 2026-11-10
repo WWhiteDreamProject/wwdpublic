@@ -4,30 +4,23 @@ using Content.Shared.CCVar;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
-using Robust.Client.Placement;
 using Robust.Client.UserInterface;
 using Robust.Shared.Configuration;
 using Robust.Shared.Enums;
 using Robust.Shared.Graphics;
 using Robust.Shared.Map;
-using Robust.Shared.Utility;
 using Direction = Robust.Shared.Maths.Direction;
 
 namespace Content.Client.Hands
 {
     public sealed class ShowHandItemOverlay : Overlay
     {
-        private static readonly SpriteSpecifier EraserSpecifier = new SpriteSpecifier.Rsi(new ResPath("/Textures/_White/Interface/Misc/eraser.rsi"), "icon"); // WD edit
-
         [Dependency] private readonly IConfigurationManager _cfg = default!;
         [Dependency] private readonly IInputManager _inputManager = default!;
         [Dependency] private readonly IClyde _clyde = default!;
         [Dependency] private readonly IEntityManager _entMan = default!;
-        [Dependency] private readonly IPlacementManager _placement = default!; // WD edit
 
         private HandsSystem? _hands;
-        private SpriteSystem? _sprite; // WD edit
-        private Texture? _eraserTexture; // WD edit
         private readonly IRenderTexture _renderBackbuffer;
 
         public override OverlaySpace Space => OverlaySpace.ScreenSpace;
@@ -57,10 +50,8 @@ namespace Content.Client.Hands
 
         protected override bool BeforeDraw(in OverlayDrawArgs args)
         {
-            // WD edit start
-            if (!_cfg.GetCVar(CCVars.HudHeldItemShow) && IconOverride == null && EntityOverride == null && !_placement.Eraser)
+            if (!_cfg.GetCVar(CCVars.HudHeldItemShow))
                 return false;
-            // WD edit end
 
             return base.BeforeDraw(in args);
         }
@@ -83,18 +74,8 @@ namespace Content.Client.Hands
                 return;
             }
 
-            // WD edit start
-            if (_placement.Eraser)
-            {
-                _sprite ??= _entMan.System<SpriteSystem>();
-                _eraserTexture ??= _sprite.Frame0(EraserSpecifier);
-                screen.DrawTexture(_eraserTexture, mousePos.Position - _eraserTexture.Size / 2 + offsetVec, Color.White.WithAlpha(0.75f));
-                return;
-            }
-
             _hands ??= _entMan.System<HandsSystem>();
-            var handEntity = EntityOverride ?? _hands.GetActiveHandEntity();
-            // WD edit end
+            var handEntity = _hands.GetActiveHandEntity();
 
             if (handEntity == null || !_entMan.TryGetComponent(handEntity, out SpriteComponent? sprite))
                 return;

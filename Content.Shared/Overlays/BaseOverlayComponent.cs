@@ -1,5 +1,3 @@
-using System.Numerics;
-
 namespace Content.Shared.Overlays;
 
 public abstract partial class BaseOverlayComponent : Component

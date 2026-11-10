@@ -23,15 +23,7 @@ public sealed partial class SeparatedChatGameScreen : InGameScreen
         SetAnchorAndMarginPreset(Ghost, LayoutPreset.BottomWide, margin: 80);
         SetAnchorAndMarginPreset(Hotbar, LayoutPreset.BottomWide, margin: 5);
         SetAnchorAndMarginPreset(Alerts, LayoutPreset.CenterRight, margin: 10);
-        // WD EDIT START
-        SetAnchorAndMarginPreset(BottomRight, LayoutPreset.BottomRight, margin: 5);
-        SetAnchorPreset(AdminObserverHands, LayoutPreset.TopRight);
-        SetMarginLeft(AdminObserverHands, -74);
-        SetMarginRight(AdminObserverHands, -10);
-        SetMarginTop(AdminObserverHands, 10);
-        SetMarginBottom(AdminObserverHands, 74);
-        SetGrowHorizontal(AdminObserverHands, GrowDirection.Begin);
-        // WD EDIT END
+        SetAnchorAndMarginPreset(BottomRight, LayoutPreset.BottomRight, margin: 5); // WD EDIT
 
         ScreenContainer.OnSplitResizeFinished += () =>
             OnChatResized?.Invoke(new Vector2(ScreenContainer.SplitFraction, 0));

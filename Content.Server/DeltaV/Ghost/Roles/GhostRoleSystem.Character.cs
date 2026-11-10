@@ -14,6 +14,7 @@ namespace Content.Server.Ghost.Roles
     {
         [Dependency] private readonly IServerPreferencesManager _prefs = default!;
         [Dependency] private readonly IEntityManager _entityManager = default!;
+        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
         private void OnSpawnerTakeCharacter( EntityUid uid, GhostRoleCharacterSpawnerComponent component,
             ref TakeGhostRoleEvent args)
@@ -32,7 +33,7 @@ namespace Content.Server.Ghost.Roles
             _transform.AttachToGridOrMap(mob);
 
             string? outfit = null;
-            if (_prototype.TryIndex<StartingGearPrototype>(component.OutfitPrototype, out var outfitProto))
+            if (_prototypeManager.TryIndex<StartingGearPrototype>(component.OutfitPrototype, out var outfitProto))
                 outfit = outfitProto.ID;
 
             var spawnedEvent = new GhostRoleSpawnerUsedEvent(uid, mob);

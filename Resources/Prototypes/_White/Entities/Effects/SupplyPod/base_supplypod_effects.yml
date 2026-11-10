@@ -14,6 +14,7 @@
     color: "#FF0000"
   - type: PointLight
     color: "#FF0000"
+  - type: Timer
   - type: Transform
     noRot: true
     anchored: true
@@ -48,6 +49,7 @@
   - type: Physics
     bodyType: Static
     canCollide: False
+  - type: Timer
   - type: TimedSpawner
     prototypes:
       - SupplyPodCapsuleDefault

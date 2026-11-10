@@ -61,13 +61,7 @@ public static class ClientPackaging
         var graph = new RobustClientAssetGraph();
         pass.Dependencies.Add(new AssetPassDependency(graph.Output.Name));
 
-        var dropSvgPass = new AssetPassFilterDrop(f => f.Path.EndsWith(".svg"))
-        {
-            Name = "DropSvgPass",
-        };
-        dropSvgPass.AddDependency(graph.Input).AddBefore(graph.PresetPasses);
-
-        AssetGraph.CalculateGraph([pass, dropSvgPass, ..graph.AllPasses], logger);
+        AssetGraph.CalculateGraph(graph.AllPasses.Append(pass).ToArray(), logger);
 
         var inputPass = graph.Input;
 
@@ -75,14 +69,10 @@ public static class ClientPackaging
             inputPass,
             contentDir,
             "Content.Client",
-            new[] { "Content.Client", "Content.Shared", "Content.Shared.Database" },
+            new[] { "Content.Client", "Content.Shared", "Content.Shared.Database", "Content.StyleSheetify.Client", "Content.StyleSheetify.Shared" },
             cancel: cancel);
 
-        await RobustClientPackaging.WriteClientResources(
-            contentDir,
-            inputPass,
-            SharedPackaging.AdditionalIgnoredResources,
-            cancel);
+        await RobustClientPackaging.WriteClientResources(contentDir, pass, cancel);
 
         inputPass.InjectFinished();
     }

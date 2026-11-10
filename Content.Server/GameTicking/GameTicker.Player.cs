@@ -28,7 +28,7 @@ namespace Content.Server.GameTicking
                 if (args.NewStatus != SessionStatus.Disconnected)
                 {
                     mind.Session = session;
-                    _pvsOverride.AddSessionOverride(mindId.Value, session);
+                    _pvsOverride.AddSessionOverride(GetNetEntity(mindId.Value), session);
                 }
 
                 DebugTools.Assert(mind.Session == session);
@@ -124,14 +124,7 @@ namespace Content.Server.GameTicking
                     _chatManager.SendAdminAnnouncement(Loc.GetString("player-leave-message", ("name", args.Session.Name)));
                     if (mind != null)
                     {
-                        _pvsOverride.RemoveGlobalOverride(mindId!.Value);
-                        // WWDP EDIT START
-                        if (mind.CurrentEntity != null && !Deleted(mind.CurrentEntity)
-                        && TryComp<UserInterfaceUserComponent>(mind.CurrentEntity, out var userUi))
-                            foreach (var (targetEntity, keys) in userUi.OpenInterfaces.ToArray())
-                                foreach (var key in keys.ToArray())
-                                    _ui.CloseUi(targetEntity, key, mind.CurrentEntity.Value);
-                        // WWDP EDIT END
+                        _pvsOverride.ClearOverride(GetNetEntity(mindId!.Value));
                         mind.Session = null;
                     }
 

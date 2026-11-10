@@ -18,6 +18,9 @@ namespace Content.Shared.Body.Systems;
 public partial class SharedBodySystem
 {
     // Shitmed Change Start
+    [Dependency] private readonly IComponentFactory _componentFactory = default!;
+    [Dependency] private readonly ISerializationManager _serializationManager = default!;
+    [Dependency] private readonly INetManager _netManager = default!;
 
     private void InitializeOrgans()
     {
@@ -59,7 +62,7 @@ public partial class SharedBodySystem
     private void AddFunctions(EntityUid body, OrganComponent organ)
     {
         // TraitFunctions don't currently exist on the client.
-        if (!_net.IsServer)
+        if (!_netManager.IsServer)
             return;
 
         foreach (var function in organ.OnImplantFunctions)
@@ -95,7 +98,7 @@ public partial class SharedBodySystem
     private void RemoveFunctions(EntityUid body, OrganComponent organ)
     {
         // TraitFunctions don't currently exist on the client.
-        if (!_net.IsServer)
+        if (!_netManager.IsServer)
             return;
 
         foreach (var function in organ.OnRemoveFunctions)

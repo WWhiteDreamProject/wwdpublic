@@ -112,7 +112,7 @@
 
 - type: clause
   id: willtofight
-  clauseWeight: 80 # WWDP EDIT 60 --> 80 (costs 80 in guidebook)
+  clauseWeight: 60
   addedComponents:
   - type: Pacified
 
@@ -131,7 +131,7 @@
 
 - type: clause
   id: voice
-  clauseWeight: 25 # WWDP EDIT 20 --> 25 (costs 25 in guidebook)
+  clauseWeight: 20
   addedComponents:
   - type: Muted
 

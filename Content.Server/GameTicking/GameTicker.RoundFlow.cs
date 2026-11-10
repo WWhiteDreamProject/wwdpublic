@@ -361,7 +361,6 @@ namespace Content.Server.GameTicking
                 return;
 
             _startingRound = true;
-            RoundStartTimeSpan = _gameTiming.CurTime;
 
             if (RoundId == 0)
                 IncrementRoundNumber();
@@ -434,6 +433,7 @@ namespace Content.Server.GameTicking
             _roundStartDateTime = DateTime.UtcNow;
             RunLevel = GameRunLevel.InRound;
 
+            RoundStartTimeSpan = _gameTiming.CurTime;
             SendStatusToAll();
             ReqWindowAttentionAll();
             UpdateLateJoinStatus();
@@ -560,7 +560,7 @@ namespace Content.Server.GameTicking
 
                 if (TryGetEntity(mind.OriginalOwnedEntity, out var entity) && pvsOverride)
                 {
-                    _pvsOverride.AddGlobalOverride(entity.Value);
+                    _pvsOverride.AddGlobalOverride(GetNetEntity(entity.Value), recursive: true);
                 }
 
                 var roles = _roles.MindGetAllRoleInfo(mindId);

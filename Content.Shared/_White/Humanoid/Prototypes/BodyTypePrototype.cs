@@ -4,19 +4,19 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared._White.Humanoid.Prototypes;
 
 [Prototype("bodyType")]
-public sealed partial class BodyTypePrototype : IPrototype
+public sealed class BodyTypePrototype : IPrototype
 {
     /// <summary>
     ///     Prototype ID of the body type.
     /// </summary>
     [IdDataField]
-    public string ID { get; private set; } = default!;
+    public string ID { get; } = default!;
 
     /// <summary>
     ///     User visible name of the body type.
     /// </summary>
     [DataField(required: true)]
-    public string Name { get; private set; } = default!;
+    public string Name { get; } = default!;
 
     /// <summary>
     ///     Sprites that this species will use on the given humanoid

@@ -4,10 +4,10 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared._White.BloodCult.Runes;
 
 [Prototype]
-public sealed partial class BloodCultRunePrototype : IPrototype
+public sealed class BloodCultRunePrototype : IPrototype
 {
     [IdDataField]
-    public string ID { get; private set; } = default!;
+    public string ID { get; } = default!;
 
     [DataField(required: true)]
     public EntProtoId Prototype;

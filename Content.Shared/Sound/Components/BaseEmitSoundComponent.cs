@@ -10,10 +10,9 @@ public abstract partial class BaseEmitSoundComponent : Component
 {
     public static readonly AudioParams DefaultParams = AudioParams.Default.WithVolume(-2f);
 
-    /// <summary>
-    /// The <see cref="SoundSpecifier"/> to play.
-    /// </summary>
-    [DataField(required: true), AutoNetworkedField]
+    [AutoNetworkedField]
+    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField(required: true)]
     public SoundSpecifier? Sound;
 
     /// <summary>

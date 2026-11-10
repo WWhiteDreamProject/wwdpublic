@@ -36,24 +36,24 @@
     sprite: Clothing/Uniforms/Jumpsuit/color.rsi
     layers:
     - state: icon
-      color: "#919191" #WD EDIT
+      color: "#b3b3b3"
     - state: trinkets-icon
   - type: Item
     inhandVisuals:
       left:
       - state: inhand-left
-        color: "#919191" #WD EDIT
+        color: "#b3b3b3"
       - state: trinkets-inhand-left
       right:
       - state: inhand-right
-        color: "#919191" #WD EDIT
+        color: "#b3b3b3"
       - state: trinkets-inhand-right
   - type: Clothing
     sprite: Clothing/Uniforms/Jumpsuit/color.rsi
     clothingVisuals:
       jumpsuit:
       - state: equipped-INNERCLOTHING
-        color: "#919191" #WD EDIT
+        color: "#b3b3b3"
       - state: trinkets-equipped-INNERCLOTHING
 
 # Black Jumpsuit
@@ -129,24 +129,24 @@
     sprite: Clothing/Uniforms/Jumpsuit/color.rsi
     layers:
     - state: icon
-      color: "#2b649e" #WD EDIT
+      color: "#3285ba"
     - state: trinkets-icon
   - type: Item
     inhandVisuals:
       left:
       - state: inhand-left
-        color: "#2b649e" #WD EDIT
+        color: "#3285ba"
       - state: trinkets-inhand-left
       right:
       - state: inhand-right
-        color: "#2b649e" #WD EDIT 
+        color: "#3285ba"
       - state: trinkets-inhand-right
   - type: Clothing
     sprite: Clothing/Uniforms/Jumpsuit/color.rsi
     clothingVisuals:
       jumpsuit:
       - state: equipped-INNERCLOTHING
-        color: "#2b649e" #WD EDIT
+        color: "#3285ba"
       - state: trinkets-equipped-INNERCLOTHING
 
 # Teal Jumpsuit
@@ -160,24 +160,24 @@
     sprite: Clothing/Uniforms/Jumpsuit/color.rsi
     layers:
     - state: icon
-      color: "#81cca6" #WD EDIT
+      color: "#77f3b7"
     - state: trinkets-icon
   - type: Item
     inhandVisuals:
       left:
       - state: inhand-left
-        color: "#81cca6" #WD EDIT
+        color: "#77f3b7"
       - state: trinkets-inhand-left
       right:
       - state: inhand-right
-        color: "#81cca6" #WD EDIT
+        color: "#77f3b7"
       - state: trinkets-inhand-right
   - type: Clothing
     sprite: Clothing/Uniforms/Jumpsuit/color.rsi
     clothingVisuals:
       jumpsuit:
       - state: equipped-INNERCLOTHING
-        color: "#81cca6" #WD EDIT
+        color: "#77f3b7"
       - state: trinkets-equipped-INNERCLOTHING
 
 # Green Jumpsuit
@@ -191,24 +191,24 @@
     sprite: Clothing/Uniforms/Jumpsuit/color.rsi
     layers:
     - state: icon
-      color: "#5eb82a" #WD EDIT
+      color: "#9ed63a"
     - state: trinkets-icon
   - type: Item
     inhandVisuals:
       left:
       - state: inhand-left
-        color: "#5eb82a" #WD EDIT
+        color: "#9ed63a"
       - state: trinkets-inhand-left
       right:
       - state: inhand-right
-        color: "#5eb82a" #WD EDIT
+        color: "#9ed63a"
       - state: trinkets-inhand-right
   - type: Clothing
     sprite: Clothing/Uniforms/Jumpsuit/color.rsi
     clothingVisuals:
       jumpsuit:
       - state: equipped-INNERCLOTHING
-        color: "#5eb82a" #WD EDIT
+        color: "#9ed63a"
       - state: trinkets-equipped-INNERCLOTHING
 
  # Dark Green Jumpsuit
@@ -253,24 +253,24 @@
     sprite: Clothing/Uniforms/Jumpsuit/color.rsi
     layers:
     - state: icon
-      color: "#ffa90a" #WD EDIT
+      color: "#ff8c19"
     - state: trinkets-icon
   - type: Item
     inhandVisuals:
       left:
       - state: inhand-left
-        color: "#ffa90a" #WD EDIT
+        color: "#ff8c19"
       - state: trinkets-inhand-left
       right:
       - state: inhand-right
-        color: "#ffa90a" #WD EDIT
+        color: "#ff8c19"
       - state: trinkets-inhand-right
   - type: Clothing
     sprite: Clothing/Uniforms/Jumpsuit/color.rsi
     clothingVisuals:
       jumpsuit:
       - state: equipped-INNERCLOTHING
-        color: "#ffa90a" #WD EDIT
+        color: "#ff8c19"
       - state: trinkets-equipped-INNERCLOTHING
 
 # Pink Jumpsuit
@@ -315,24 +315,24 @@
     sprite: Clothing/Uniforms/Jumpsuit/color.rsi
     layers:
     - state: icon
-      color: "#bd333a" #WD EDIT
+      color: "#eb0c07"
     - state: trinkets-icon
   - type: Item
     inhandVisuals:
       left:
       - state: inhand-left
-        color: "#bd333a" #WD EDIT
+        color: "#eb0c07"
       - state: trinkets-inhand-left
       right:
       - state: inhand-right
-        color: "#bd333a" #WD EDIT
+        color: "#eb0c07"
       - state: trinkets-inhand-right
   - type: Clothing
     sprite: Clothing/Uniforms/Jumpsuit/color.rsi
     clothingVisuals:
       jumpsuit:
       - state: equipped-INNERCLOTHING
-        color: "#bd333a" #WD EDIT
+        color: "#eb0c07"
       - state: trinkets-equipped-INNERCLOTHING
 
 # Yellow Jumpsuit
@@ -346,24 +346,24 @@
     sprite: Clothing/Uniforms/Jumpsuit/color.rsi
     layers:
     - state: icon
-      color: "#d1b741" #WD EDIT
+      color: "#ffe14d"
     - state: trinkets-icon
   - type: Item
     inhandVisuals:
       left:
       - state: inhand-left
-        color: "#d1b741" #WD EDIT
+        color: "#ffe14d"
       - state: trinkets-inhand-left
       right:
       - state: inhand-right
-        color: "#d1b741" #WD EDIT
+        color: "#ffe14d"
       - state: trinkets-inhand-right
   - type: Clothing
     sprite: Clothing/Uniforms/Jumpsuit/color.rsi
     clothingVisuals:
       jumpsuit:
       - state: equipped-INNERCLOTHING
-        color: "#d1b741" #WD EDIT
+        color: "#ffe14d"
       - state: trinkets-equipped-INNERCLOTHING
 
 # Purple Jumpsuit
@@ -377,24 +377,24 @@
     sprite: Clothing/Uniforms/Jumpsuit/color.rsi
     layers:
     - state: icon
-      color: "#803b67" #WD EDIT
+      color: "#9f70cc"
     - state: trinkets-icon
   - type: Item
     inhandVisuals:
       left:
       - state: inhand-left
-        color: "#803b67" #WD EDIT
+        color: "#9f70cc"
       - state: trinkets-inhand-left
       right:
       - state: inhand-right
-        color: "#803b67" #WD EDIT
+        color: "#9f70cc"
       - state: trinkets-inhand-right
   - type: Clothing
     sprite: Clothing/Uniforms/Jumpsuit/color.rsi
     clothingVisuals:
       jumpsuit:
       - state: equipped-INNERCLOTHING
-        color: "#803b67" #WD EDIT
+        color: "#9f70cc"
       - state: trinkets-equipped-INNERCLOTHING
 
 # Light Brown Jumpsuit

@@ -25,6 +25,4 @@ public sealed partial class MatchstickComponent : Component
     /// </summary>
     [DataField(required: true)]
     public SoundSpecifier IgniteSound = default!;
-
-    public TimeSpan? TimeMatchWillBurnOut;
 }

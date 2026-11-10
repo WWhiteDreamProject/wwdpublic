@@ -5,7 +5,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared._White.Bark;
 
 [Prototype]
-public sealed partial class BarkVoicePrototype : IPrototype
+public sealed class BarkVoicePrototype : IPrototype
 {
     [IdDataField]
     public string ID { get; private set; } = default!;
@@ -18,7 +18,7 @@ public sealed partial class BarkVoicePrototype : IPrototype
 }
 
 [Prototype]
-public sealed partial class BarkListPrototype : IPrototype
+public sealed class BarkListPrototype : IPrototype
 {
     [IdDataField]
     public string ID { get; private set; } = default!;

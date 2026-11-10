@@ -125,14 +125,7 @@ public sealed class SlipperySystem : EntitySystem
 
         if (TryComp(other, out PhysicsComponent? physics) && !HasComp<SlidingComponent>(other))
         {
-            // WWDP EDIT START
-            var newVelocity = physics.LinearVelocity * component.LaunchForwardsMultiplier;
-            const float maxSlipSpeed = 15f;
-            if (newVelocity.Length() > maxSlipSpeed)
-                newVelocity = newVelocity.Normalized() * maxSlipSpeed;
-
-            _physics.SetLinearVelocity(other, newVelocity, body: physics);
-            // WWDP EDIT END
+            _physics.SetLinearVelocity(other, physics.LinearVelocity * component.LaunchForwardsMultiplier, body: physics);
 
             if (component.SuperSlippery && requiresContact)
             {

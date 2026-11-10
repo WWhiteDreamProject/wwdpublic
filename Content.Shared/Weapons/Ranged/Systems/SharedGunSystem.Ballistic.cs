@@ -17,6 +17,7 @@ namespace Content.Shared.Weapons.Ranged.Systems;
 public abstract partial class SharedGunSystem
 {
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!; // WWDP
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!; // WWDP
 
     protected virtual void InitializeBallistic()
@@ -248,7 +249,7 @@ public abstract partial class SharedGunSystem
             }
             else if (component.UnspawnedCount > 0)
             {
-                if (!ProtoManager.TryIndex(component.Proto, out var round))
+                if (!_proto.TryIndex(component.Proto, out var round))
                     return;
 
                 args.PushMarkup(
@@ -265,7 +266,7 @@ public abstract partial class SharedGunSystem
         }
         else if (component.UnspawnedCount > 0 && component.Proto != null)
         {
-            var cartridge = ProtoManager.Index<EntityPrototype>(component.Proto);
+            var cartridge = _proto.Index<EntityPrototype>(component.Proto);
             args.PushMarkup(Loc.GetString("gun-chamber-examine", ("color", ModeExamineColor),
                 ("cartridge", cartridge.Name)), -1);
         }

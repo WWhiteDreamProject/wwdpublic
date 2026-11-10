@@ -98,14 +98,12 @@
   markingCategory: Tail
   speciesRestriction: [Felinid, Human, Tajaran] # Einstein Engines - Humans get felinid markings
   sprites:
-  # WWDP EDIT START
-  - sprite: _White/Mobs/Customization/Felinid/felinid_tails_nyanotrasen-no-wagging.rsi
-    state: basic_tail_tip_stopped
-  - sprite: _White/Mobs/Customization/Felinid/felinid_tails_nyanotrasen-no-wagging.rsi
-    state: basic_tail_stripes_even_stopped
-  - sprite: _White/Mobs/Customization/Felinid/felinid_tails_nyanotrasen-no-wagging.rsi
-    state: basic_tail_stripes_odd_stopped
-  # WWDP EDIT END
+  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
+    state: basic_tail_tip
+  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
+    state: basic_tail_stripes_even
+  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
+    state: basic_tail_stripes_odd
 
 - type: marking
   id: FelinidTailBasicWithBow
@@ -113,16 +111,14 @@
   markingCategory: Tail
   speciesRestriction: [Felinid, Human, Tajaran] # Einstein Engines - Humans get felinid markings, Tajaran directly use felinid tails
   sprites:
-  # WWDP EDIT START
-  - sprite: _White/Mobs/Customization/Felinid/felinid_tails_nyanotrasen-no-wagging.rsi
-    state: basic_tail_tip_stopped
-  - sprite: _White/Mobs/Customization/Felinid/felinid_tails_nyanotrasen-no-wagging.rsi
-    state: basic_tail_stripes_even_stopped
-  - sprite: _White/Mobs/Customization/Felinid/felinid_tails_nyanotrasen-no-wagging.rsi
-    state: basic_tail_stripes_odd_stopped
-  - sprite: _White/Mobs/Customization/Felinid/felinid_tails_nyanotrasen-no-wagging.rsi
-    state: basic_bow_stopped
-  # WWDP EDIT END
+  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
+    state: basic_tail_tip
+  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
+    state: basic_tail_stripes_even
+  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
+    state: basic_tail_stripes_odd
+  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
+    state: basic_bow
 
 - type: marking
   id: FelinidTailBasicWithBell
@@ -130,16 +126,14 @@
   markingCategory: Tail
   speciesRestriction: [Felinid, Human, Tajaran] # Einstein Engines - Humans get felinid markings, Tajaran directly use felinid tails
   sprites:
-  # WWDP EDIT START
-  - sprite: _White/Mobs/Customization/Felinid/felinid_tails_nyanotrasen-no-wagging.rsi
-    state: basic_tail_tip_stopped
-  - sprite: _White/Mobs/Customization/Felinid/felinid_tails_nyanotrasen-no-wagging.rsi
-    state: basic_tail_stripes_even_stopped
-  - sprite: _White/Mobs/Customization/Felinid/felinid_tails_nyanotrasen-no-wagging.rsi
-    state: basic_tail_stripes_odd_stopped
-  - sprite: _White/Mobs/Customization/Felinid/felinid_tails_nyanotrasen-no-wagging.rsi
-    state: basic_bell_stopped
-  # WWDP EDIT END
+  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
+    state: basic_tail_tip
+  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
+    state: basic_tail_stripes_even
+  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
+    state: basic_tail_stripes_odd
+  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
+    state: basic_bell
 
 - type: marking
   id: FelinidTailBasicWithBowAndBell
@@ -147,15 +141,13 @@
   markingCategory: Tail
   speciesRestriction: [Felinid, Human, Tajaran] # Einstein Engines - Humans get felinid markings, Tajaran directly use felinid tails
   sprites:
-  # WWDP EDIT START
-  - sprite: _White/Mobs/Customization/Felinid/felinid_tails_nyanotrasen-no-wagging.rsi
-    state: basic_tail_tip_stopped
-  - sprite: _White/Mobs/Customization/Felinid/felinid_tails_nyanotrasen-no-wagging.rsi
-    state: basic_tail_stripes_even_stopped
-  - sprite: _White/Mobs/Customization/Felinid/felinid_tails_nyanotrasen-no-wagging.rsi
-    state: basic_tail_stripes_odd_stopped
-  - sprite: _White/Mobs/Customization/Felinid/felinid_tails_nyanotrasen-no-wagging.rsi
-    state: basic_bow_stopped
-  - sprite: _White/Mobs/Customization/Felinid/felinid_tails_nyanotrasen-no-wagging.rsi
-    state: basic_bell_stopped
-  # WWDP EDIT END
+  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
+    state: basic_tail_tip
+  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
+    state: basic_tail_stripes_even
+  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
+    state: basic_tail_stripes_odd
+  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
+    state: basic_bow
+  - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
+    state: basic_bell

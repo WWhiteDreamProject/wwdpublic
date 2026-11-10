@@ -76,8 +76,6 @@ namespace Content.Server.Entry
             factory.RegisterIgnore(IgnoredComponents.List);
 
             prototypes.RegisterIgnore("parallax");
-            prototypes.RegisterIgnore("styleSheet");
-            prototypes.RegisterIgnore("dynamicValue");
 
             ServerContentIoC.Register();
 

@@ -39,7 +39,6 @@ namespace Content.Shared.Flash.Components
         };
 
         public bool Flashing;
-        public TimeSpan ActiveUntil = TimeSpan.Zero;
 
         [DataField]
         public float Probability = 1f;

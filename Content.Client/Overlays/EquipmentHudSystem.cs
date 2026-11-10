@@ -1,7 +1,6 @@
 using Content.Shared.GameTicking;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
-using Content.Shared.Overlays.Switchable; // WD EDIT
 using Robust.Client.Player;
 using Robust.Shared.Player;
 
@@ -95,11 +94,6 @@ public abstract class EquipmentHudSystem<T> : EntitySystem where T : IComponent
 
     protected virtual void OnRefreshEquipmentHud(Entity<T> ent, ref InventoryRelayedEvent<RefreshEquipmentHudEvent<T>> args)
     {
-        // WD EDIT START - only equipment switchable overlays should work from inventory.
-        if (ent.Comp is SwitchableOverlayComponent { IsEquipment: false })
-            return;
-        // WD EDIT END
-
         OnRefreshComponentHud(ent, ref args.Args);
     }
 

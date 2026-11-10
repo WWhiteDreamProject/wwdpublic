@@ -18,12 +18,12 @@ public sealed partial class QuickPhrasePrototype : IPrototype, IInheritingProtot
     /// </summary>
     [ViewVariables]
     [ParentDataField(typeof(AbstractPrototypeIdArraySerializer<QuickPhrasePrototype>))]
-    public string[]? Parents { get; private set; }
+    public string[]? Parents { get; }
 
     [ViewVariables]
     [NeverPushInheritance]
     [AbstractDataField]
-    public bool Abstract { get; private set; }
+    public bool Abstract { get; }
 
     /// <summary>
     /// The phrase that this prototype represents.

@@ -94,7 +94,5 @@ namespace Content.Server.Atmos.Components
         public float FireStackIncreaseMultiplier = 1f;
         [DataField]
         public ProtoId<AlertPrototype> FireAlert = "Fire";
-
-        public TimeSpan? ResistUntil;
     }
 }

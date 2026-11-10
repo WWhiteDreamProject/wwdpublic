@@ -64,25 +64,6 @@ namespace Content.Server.Flash
             SubscribeLocalEvent<EyeDamageOnFlashingComponent, FlashAttemptEvent>(OnEyeDamageOnFlashingFlashAttempt);
         }
 
-        public override void Update(float frameTime)
-        {
-            base.Update(frameTime);
-
-            var curTime = _timing.CurTime;
-            var query = EntityQueryEnumerator<FlashComponent>();
-            while (query.MoveNext(out var uid, out var comp))
-            {
-                if (!comp.Flashing)
-                    continue;
-
-                if (comp.ActiveUntil > curTime)
-                    continue;
-
-                _appearance.SetData(uid, FlashVisuals.Flashing, false);
-                comp.Flashing = false;
-            }
-        }
-
         private void OnFlashMeleeHit(EntityUid uid, FlashComponent comp, MeleeHitEvent args)
         {
             if (!args.IsHit || !args.HitEntities.Any() || !UseFlash(uid, comp))
@@ -124,7 +105,6 @@ namespace Content.Server.Flash
             _charges.UseCharge(uid, charges);
             _audio.PlayPvs(comp.Sound, uid);
             comp.Flashing = true;
-            comp.ActiveUntil = _timing.CurTime + TimeSpan.FromMilliseconds(400);
             _appearance.SetData(uid, FlashVisuals.Flashing, true);
 
             if (_charges.IsEmpty(uid, charges))
@@ -133,6 +113,12 @@ namespace Content.Server.Flash
                 _tag.AddTag(uid, "Trash");
                 _popup.PopupEntity(Loc.GetString("flash-component-becomes-empty"), uid);
             }
+
+            uid.SpawnTimer(400, () =>
+            {
+                _appearance.SetData(uid, FlashVisuals.Flashing, false);
+                comp.Flashing = false;
+            });
 
             return true;
         }

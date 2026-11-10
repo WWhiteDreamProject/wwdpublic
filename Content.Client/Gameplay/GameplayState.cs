@@ -121,9 +121,11 @@ namespace Content.Client.Gameplay
 
             switch (screenType)
             {
-                case ScreenType.Overlay: // WWDP EDIT, we don`t need overlay chat screen
                 case ScreenType.Separated:
                     _uiManager.LoadScreen<SeparatedChatGameScreen>();
+                    break;
+                case ScreenType.Overlay:
+                    _uiManager.LoadScreen<OverlayChatGameScreen>();
                     break;
             }
 

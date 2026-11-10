@@ -126,8 +126,8 @@ public abstract partial class SharedStationAiSystem
         if (cameras.Count == 0)
             return;
 
-        _uiSystem.SetUiState(args.Performer, ListViewSelectorUiKey.Key, new ListViewSelectorState(cameras));
-        _uiSystem.TryToggleUi(args.Performer, ListViewSelectorUiKey.Key, args.Performer);
+        _ui.SetUiState(args.Performer, ListViewSelectorUiKey.Key, new ListViewSelectorState(cameras));
+        _ui.TryToggleUi(args.Performer, ListViewSelectorUiKey.Key, args.Performer);
         args.Handled = true;
     }
 

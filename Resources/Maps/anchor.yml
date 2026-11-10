@@ -127,7 +127,9 @@ entities:
     - type: Transform
     - type: Map
       mapPaused: True
+    - type: PhysicsMap
     - type: GridTree
+    - type: MovedGrids
     - type: Broadphase
     - type: OccluderTree
   - uid: 2
@@ -140887,6 +140889,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 46.5,27.5
       parent: 2
+    - type: Timer
   - uid: 21530
     components:
     - type: Transform

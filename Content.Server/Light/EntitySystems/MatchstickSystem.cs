@@ -10,8 +10,6 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
-using Robust.Shared.Timing;
-
 
 namespace Content.Server.Light.EntitySystems
 {
@@ -23,7 +21,6 @@ namespace Content.Server.Light.EntitySystems
         [Dependency] private readonly SharedItemSystem _item = default!;
         [Dependency] private readonly SharedPointLightSystem _lights = default!;
         [Dependency] private readonly TransformSystem _transformSystem = default!;
-        [Dependency] private readonly IGameTiming _timing = default!;
 
         private readonly HashSet<Entity<MatchstickComponent>> _litMatches = new();
 
@@ -48,9 +45,6 @@ namespace Content.Server.Light.EntitySystems
             {
                 if (match.Comp.CurrentState != SmokableState.Lit || Paused(match) || match.Comp.Deleted)
                     continue;
-
-                if (_timing.CurTime > match.Comp.TimeMatchWillBurnOut)
-                    SetState(match, SmokableState.Burnt);
 
                 var xform = Transform(match);
 
@@ -93,7 +87,11 @@ namespace Content.Server.Light.EntitySystems
             // Change state
             SetState((matchstick, component), SmokableState.Lit);
             _litMatches.Add(matchstick);
-            matchstick.Comp.TimeMatchWillBurnOut = _timing.CurTime + TimeSpan.FromSeconds(matchstick.Comp.Duration);
+            matchstick.Owner.SpawnTimer(component.Duration * 1000, delegate
+            {
+                SetState((matchstick, component), SmokableState.Burnt);
+                _litMatches.Remove(matchstick);
+            });
         }
 
         public override bool SetState(Entity<MatchstickComponent> ent, SmokableState value)

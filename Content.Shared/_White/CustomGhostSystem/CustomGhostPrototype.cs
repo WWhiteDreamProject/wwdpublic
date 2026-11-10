@@ -11,19 +11,19 @@ using System.Linq;
 namespace Content.Shared._White.CustomGhostSystem;
 
 [Prototype("customGhost")]
-public sealed partial class CustomGhostPrototype : IPrototype, IInheritingPrototype
+public sealed class CustomGhostPrototype : IPrototype, IInheritingPrototype
 {
     [IdDataField]
-    public string ID { get; private set; } = default!;
+    public string ID { get; } = default!;
 
     [ViewVariables]
     [NeverPushInheritance]
     [AbstractDataField]
-    public bool Abstract { get; private set; }
+    public bool Abstract { get; }
 
     [ViewVariables]
     [ParentDataFieldAttribute(typeof(AbstractPrototypeIdArraySerializer<CustomGhostPrototype>))]
-    public string[]? Parents { get; private set; }
+    public string[]? Parents { get; }
 
     [DataField]
     public string Category { get; private set; } = "Misc";

@@ -4,6 +4,6 @@
   description: Release a pulse of energy of your abnormal nature
   components:
   - type: InstantAction
-    icon: { sprite: Structures/Specific/anomaly.rsi, state: anom1 }
+    icon: Structures/Specific/anomaly.rsi/anom1.png
     event: !type:ActionAnomalyPulseEvent
     useDelay: 30
