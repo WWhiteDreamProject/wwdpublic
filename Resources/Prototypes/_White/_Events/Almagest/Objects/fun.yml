@@ -19,12 +19,13 @@
     sound:
       path: /Audio/_White/Misc/Fun/petuch.ogg
   - type: Access
-    tags:
+    groups:
     - AllAccess
-  - type: Tag
+    - Silicon
     tags:
-    - DoorBumpOpener
-    - InstantDoAfters
+    - NuclearOperative
+    - SyndicateAgent
+    - CentralCommand
   - type: Prying
     pryPowered: true
     speedModifier: 0.5
@@ -33,7 +34,6 @@
     soundHit:
       path: /Audio/Effects/explosion_small2.ogg
     angle: 0
-    volume: 10
     range: 4
     attackRate: 0.1
     animation: WeaponArcSmash
