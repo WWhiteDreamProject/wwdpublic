@@ -95,24 +95,16 @@ namespace Content.Server.Power.EntitySystems
                 if (!comp.AutoRecharge || IsFull(uid, batt))
                     continue;
 
-                if (comp.AutoRechargePause)
+                // WWDP edit start
+                if (!(comp.AutoRechargePause && comp.NextAutoRecharge > Timing.CurTime))
                 {
-                    if (comp.NextAutoRecharge > Timing.CurTime)
-                        goto SkipStandardRecharge;
+                    SetCharge(uid, batt.CurrentCharge + comp.AutoRechargeRate * frameTime, batt);
                 }
 
-                SetCharge(uid, batt.CurrentCharge + comp.AutoRechargeRate * frameTime, batt);
-
-                // WWDP edit start
-                SkipStandardRecharge:
-
-                if (comp.CyclicRechargeInterval > 0)
+                if (comp.CyclicRechargeInterval > 0 && Timing.CurTime >= comp.NextCyclicRecharge)
                 {
-                    if (Timing.CurTime >= comp.NextCyclicRecharge)
-                    {
-                        SetCharge(uid, batt.CurrentCharge + comp.CyclicRechargeAmount, batt);
-                        comp.NextCyclicRecharge = Timing.CurTime + TimeSpan.FromSeconds(comp.CyclicRechargeInterval);
-                    }
+                    SetCharge(uid, batt.CurrentCharge + comp.CyclicRechargeAmount, batt);
+                    comp.NextCyclicRecharge = Timing.CurTime + TimeSpan.FromSeconds(comp.CyclicRechargeInterval);
                 }
                 // WWDP edit end
             }
