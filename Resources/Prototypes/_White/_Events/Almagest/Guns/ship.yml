@@ -866,6 +866,8 @@
   - type: ContainerContainer
     containers:
       cluster-payload: !type:Container
+  - type: TimedDespawn
+    lifetime: 1
 
 - type: entity
   id: OmegaBlastPierceMidExplodePellet
@@ -881,6 +883,8 @@
   - type: ContainerContainer
     containers:
       cluster-payload: !type:Container
+  - type: TimedDespawn
+    lifetime: 1
 
 - type: entity
   id: PelletOmegaBlastPierceMid
