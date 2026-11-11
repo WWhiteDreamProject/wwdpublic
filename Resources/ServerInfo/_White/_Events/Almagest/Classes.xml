@@ -1,0 +1,39 @@
+<Document>
+# Классы
+Каждый участник команды получает специализированный набор снаряжения в зависимости от выбранной роли. Независимо от класса, все бойцы оснащаются неснимаемым скафандром ОБР цвета своей команды, гарнитурой связи, защитной маской и отличительной мантией роли.\n\nКаждый класс имеет свою собственную [bold]классовую мортирную гранату[/bold]
+
+  [bold]Базовое оснащение большинства классов включает:[/bold]
+
+<Box>
+  <GuideEntityEmbed Entity="Crowbar"/>
+  <GuideEntityEmbed Entity="HandHeldMassScanner"/>
+  <GuideEntityEmbed Entity="ClothingMaskBreath"/>
+</Box>
+<Box>
+  <GuideEntityEmbed Entity="ClothingShoesBootsCombatFilled"/>
+  <GuideEntityEmbed Entity="WeaponGrapplingGun"/>
+</Box>
+<Box>
+  <GuideEntityEmbed Entity="HandheldGPSBasic"/>
+</Box>
+<Box>
+  <GuideEntityEmbed Entity="AlmagestEquipmentWeaponBaseSelect"/>
+  <GuideEntityEmbed Entity="BeaconTeleporter"/>
+</Box>
+<Box>
+  <GuideEntityEmbed Entity="AlmagestPDARed" Caption="ПДА с полным доступом"/>
+</Box>
+
+В самом ПДА находятся:
+<Box>
+  <GuideEntityEmbed Entity="EnergyDagger" Caption="лазерная ручка"/>
+</Box>
+И карта, цвет которой зависит от команды. Как и агентская карта, эта позволяет пользователю сменить должность и имя.
+<Box>
+  <GuideEntityEmbed Entity="AlmagestIDCardRed"/>
+  <GuideEntityEmbed Entity="AlmagestIDCardBlue"/>
+</Box>
+
+[color=#03A7FF]Синие[/color] используют медицинскую гарнитуру,\n[color=#FF0000]Красные[/color] — тюремную.
+
+</Document>

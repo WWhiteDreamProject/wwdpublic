@@ -1,0 +1,184 @@
+<Document>
+  # Снаряжение
+  Тут будет описано всё новое снаряжение, которое было сделано специально для ивента.
+
+  ## Структура
+
+  [color=#91fbff] 1. Радиальные энтити\n[/color]
+  [color=#91fbff]2. Рюкзак с экипировкой\n[/color]
+  [color=#91fbff]3. Маячковый телепортер\n[/color]
+  [color=#91fbff]4. Флетпак оружейной платформы\n[/color]
+  [color=#91fbff]5. Флетпаки стен\n[/color]
+  [color=#91fbff]6. Флееры\n[/color]
+  [color=#91fbff]7. Омни-флеер\n[/color]
+
+  ## Радиальные энтити
+
+  Некоторые предметы в режиме являются радиальными энтити. При использовании такого предмета в руках открывается радиальное меню с выбором доступных вариантов. После выбора предмет навсегда превращается в выбранный вариант.
+  \n\n Примеры:
+  <Box>
+    <GuideEntityEmbed Entity="AlmagestEquipmentWeaponShipSelect"/>
+    <GuideEntityEmbed Entity="AlmagestEquipmentWeaponBaseSelect"/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="AlmagestEquipmentBaseRed"/>
+    <GuideEntityEmbed Entity="AlmagestEquipmentBaseBlue"/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="AlmagestFlareSelectRed"/>
+    <GuideEntityEmbed Entity="AlmagestFlareSelectBlue"/>
+  </Box>
+
+  ## Рюкзак с экипировкой
+  <Box>
+    <GuideEntityEmbed Entity="AlmagestEquipmentBaseRed"/>
+    <GuideEntityEmbed Entity="AlmagestEquipmentBaseBlue"/>
+  </Box>
+
+  У каждой команды имеется собственный рюкзак с экипировкой. При его использовании открывается меню выбора класса.
+  \n\nПосле выбора роли вы получите специальный классовый комплект снаряжения в виде дополнительного [color=#91fbff]псевдо-рюкзака[/color]. Этот предмет необходимо взять в руки и использовать. После активации весь комплект автоматически экипируется на персонажа, а стартовое снаряжение будет удалено.
+  \n\nКапитан не выбирается через общий рюкзак. Для него предусмотрен отдельный комплект экипировки, так как в каждой команде может быть только один капитан. Он выдается администрацией лично капитанам.
+
+  ## Маячковый телепортер
+  <Box>
+    <GuideEntityEmbed Entity="BeaconTeleporter"/>
+  </Box>
+
+  Маячковый телепортер позволяет быстро вернуться на материнский корабль через временный портал. Перед первым использованием устройство необходимо привязать к маячку.
+
+  Держа в руках телепортер ваше движение замедляется в 10 раз.
+
+  ### Привязка телепортера
+\n
+  1. Возьмите телепортер в руки.\n
+  2. Нажмите ЛКМ по маячку в оружейной комнате материнского корабля.\n
+  3. Дождитесь сообщения "Телепорт подключен".
+  <Box>
+    <GuideEntityEmbed Entity="BeaconTeleporter" Caption=""/>
+    <GuideEntityEmbed Entity="DefaultStationTeleportBeacon" Caption=""/>
+    <GuideEntityEmbed Entity="SignArmory" Caption=""/>
+  </Box>
+
+  ### Использование
+
+  При активации телепортер создаёт временный портал к привязанному маячку. Устройство имеет перезарядку между использованиями.
+
+  Рекомендуется сохранять неподвижность во время активации. Портал появляется в точке начала использования телепортера, а не в месте, где пользователь оказался после завершения задержки активации.
+
+  ## Флетпак оружейной платформы
+  <Box>
+    <GuideEntityEmbed Entity="WeaponTurretShipAlmagestFlatpack" Caption="флетпак оружейной платформы"/>
+  </Box>
+
+  При сборке создает платформу для корбельного оружия. Находятся в оружейном отсеке и снаряжении капитана в количестве 3 штук.
+
+  ## Флетпаки стен
+  <Box>
+    <GuideEntityEmbed Entity="AlmagestGirderFlatpack30" Caption=""/>
+    <GuideEntityEmbed Entity="WallAlmagestUniversalResistantFlatpack15" Caption=""/>
+    <GuideEntityEmbed Entity="WallAlmagestLaserResistantFlatpack15" Caption=""/>
+    <GuideEntityEmbed Entity="WallAlmagestStructuralResistantFlatpack15" Caption=""/>
+    <GuideEntityEmbed Entity="WallAlmagestPiercingResistantFlatpack15" Caption=""/>
+  </Box>
+
+  Флетпаки используются для быстрого строительства конструкций в режиме Альмагест.
+  Флетпаки каркаса применяются для создания основы будущих построек. Флетпаки стен — для возведения укреплённых сегментов обороны.
+  <Box>
+    <GuideEntityEmbed Entity="AlmagestGirderFlatpack30"/>
+    <GuideEntityEmbed Entity="AlmagestGirder" Caption=""/>
+  </Box>
+  Все флетпаки стакаются до 30 единиц и встречаются на ремонтных доках, материнском шаттле и в снаряжении инженера.
+
+  ### Использование
+  \n1. Установите флетпак ЛКМ по нужной точке на полу.\n
+  2. Завершите строительство с помощью мультитула.
+
+  Не рекомендуется выбрасывать флетпаки через Q с последующей сборкой. Так можно потратить до целог стак флетпаков на стену. Важно разделять флетпаки.
+
+  ### Виды флетпаков стен
+  <Box>
+    <GuideEntityEmbed Entity="WallAlmagestUniversalResistantFlatpack15"/>
+    <GuideEntityEmbed Entity="WallAlmagestUniversalResistant" Caption=""/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="WallAlmagestLaserResistantFlatpack15"/>
+    <GuideEntityEmbed Entity="WallAlmagestLaserResistant" Caption=""/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="WallAlmagestStructuralResistantFlatpack15"/>
+    <GuideEntityEmbed Entity="WallAlmagestStructuralResistant" Caption=""/>
+  </Box>
+  <Box>
+    <GuideEntityEmbed Entity="WallAlmagestPiercingResistantFlatpack15"/>
+    <GuideEntityEmbed Entity="WallAlmagestPiercingResistant" Caption=""/>
+  </Box>
+
+
+  ## Флееры
+  <Box>
+    <GuideEntityEmbed Entity="AlmagestFlareSelectRed" Caption=""/>
+    <GuideEntityEmbed Entity="AlmagestFlareSelectBlue" Caption=""/>
+    <GuideEntityEmbed Entity="AlmagestFlareOmniUnfinished" Caption=""/>
+    <GuideEntityEmbed Entity="AlmagestFlareOmni" Caption=""/>
+  </Box>
+  ### Получение
+  Каждый рюкзак с экипировкой обладает восстанавливаемым запасом флееров. При использовании альтернативного действия [bold](ALT + ЛКМ)[/bold] по рюкзаку игрок получает 1 радиальное энтити флеера цвета своей команды.
+
+  За один цикл запас рюкзака позволяет выдать не более 2 флееров. После получения второго флеера запускается перезарядка длительностью 100 секунд.
+
+  Радиальные энтити флееров не исчезают со временем и могут быть использованы в любой момент по усмотрению игрока.
+  <Box>
+    <GuideEntityEmbed Entity="ClothingBackpackAlmagestRedCaptain" Caption=""/>
+    <GuideEntityEmbed Entity="AlmagestFlareSelectRed" Caption=""/>
+  </Box>
+
+  ### Обычный флеер
+
+  Самый обычный флеер, который светится цветом команды. Пропадает через 75 секунд после создания.
+
+  ### Флеер с меткой
+
+  Функционально идентичен обычному флееру и создаёт такой же источник света.
+
+  [color=#91fbff]Отличить от обычного можно по названию. В радиальных энтити для отображения названия нужно навести курсор на опцию.[/color]
+
+  Дополнительно отображается на сканере масс в виде метки цвета команды. Метки видны всем игрокам, поэтому такой флеер может использоваться как средство навигации или указания своего местоположения союзникам.
+
+  ## Омни-флеер
+  <Box>
+    <GuideEntityEmbed Entity="AlmagestFlareOmni"/>
+  </Box>
+  Омни-флеер — улучшенная версия флеера, предназначенная для освещения больших территорий.
+
+  Он излучает значительно более мощный белый свет и способен осветить крупный участок местности, что особенно полезно на этапе подготовки базы или освоения астероидов.
+
+  На сканере масс омни-флеер отображается белой меткой.
+
+  После завершения сборки омни-флеер существует 120 секунд, после чего исчезает.
+
+  ### Создание
+
+  Для создания омни-флеера подойдут любые флееры любого цвета. Комбинация не имеет значения.
+
+  \n
+  1. Используйте один флеер на другом.\n
+  2. Будет создан [bold]незавершённый омни-флеер.[/bold]\n
+  3. Используйте лом на незавершённом омни-флеере.\n
+  4. Дождитесь завершения сборки.
+
+  ### Незавершённый омни-флеер
+  <Box>
+    <GuideEntityEmbed Entity="AlmagestFlareOmniUnfinished"/>
+  </Box>
+
+  Промежуточный этап создания омни-флеера.
+
+  Особенности:
+
+  - Излучает слабый серый свет.
+  - Отображается на сканере масс серой меткой.
+  - Не исчезает со временем.
+  - Не обладает функциями полноценного флеера.
+  - Используется исключительно для дальнейшей сборки омни-флеера.
+
+</Document>
