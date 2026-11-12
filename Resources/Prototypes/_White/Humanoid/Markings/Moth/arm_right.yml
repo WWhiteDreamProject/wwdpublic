@@ -1,0 +1,173 @@
+﻿- type: marking
+  id: BaseArmRightMoth
+  parent: [BaseArmRight, BaseMoth]
+  abstract: true
+
+- type: marking
+  id: ArmRightMothCharred
+  parent: BaseArmRightMoth
+  definitions:
+  - layer: enum.BodyProviderType.RightArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/arm_right.rsi
+      state: charred-arm
+  - layer: enum.BodyProviderType.RightHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/arm_right.rsi
+      state: charred-hand
+
+- type: marking
+  id: ArmRightMothDeathhead
+  parent: BaseArmRightMoth
+  definitions:
+  - layer: enum.BodyProviderType.RightArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/arm_right.rsi
+      state: deathhead-arm
+  - layer: enum.BodyProviderType.RightHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/arm_right.rsi
+      state: deathhead-hand
+
+- type: marking
+  id: ArmRightMothFan
+  parent: BaseArmRightMoth
+  definitions:
+  - layer: enum.BodyProviderType.RightArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/arm_right.rsi
+      state: fan-arm
+  - layer: enum.BodyProviderType.RightHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/arm_right.rsi
+      state: fan-hand
+
+- type: marking
+  id: ArmRightMothFirewatch
+  parent: BaseArmRightMoth
+  definitions:
+  - layer: enum.BodyProviderType.RightArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/arm_right.rsi
+      state: firewatch-arm
+  - layer: enum.BodyProviderType.RightHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/arm_right.rsi
+      state: firewatch-hand
+
+- type: marking
+  id: ArmRightMothGothic
+  parent: BaseArmRightMoth
+  definitions:
+  - layer: enum.BodyProviderType.RightArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/arm_right.rsi
+      state: gothic-arm
+  - layer: enum.BodyProviderType.RightHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/arm_right.rsi
+      state: gothic-hand
+
+- type: marking
+  id: ArmRightMothJungle
+  parent: BaseArmRightMoth
+  definitions:
+  - layer: enum.BodyProviderType.RightArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/arm_right.rsi
+      state: jungle-arm
+  - layer: enum.BodyProviderType.RightHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/arm_right.rsi
+      state: jungle-hand
+
+- type: marking
+  id: ArmRightMothMoonfly
+  parent: BaseArmRightMoth
+  definitions:
+  - layer: enum.BodyProviderType.RightArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/arm_right.rsi
+      state: moonfly-arm
+  - layer: enum.BodyProviderType.RightHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/arm_right.rsi
+      state: moonfly-hand
+
+- type: marking
+  id: ArmRightMothOakworm
+  parent: BaseArmRightMoth
+  definitions:
+  - layer: enum.BodyProviderType.RightArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/arm_right.rsi
+      state: oakworm-arm
+  - layer: enum.BodyProviderType.RightHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/arm_right.rsi
+      state: oakworm-hand
+
+- type: marking
+  id: ArmRightMothPointy
+  parent: BaseArmRightMoth
+  definitions:
+  - layer: enum.BodyProviderType.RightArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/arm_right.rsi
+      state: pointy-arm
+  - layer: enum.BodyProviderType.RightHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/arm_right.rsi
+      state: pointy-hand
+
+- type: marking
+  id: ArmRightMothRagged
+  parent: BaseArmRightMoth
+  definitions:
+  - layer: enum.BodyProviderType.RightArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/arm_right.rsi
+      state: ragged-arm
+  - layer: enum.BodyProviderType.RightHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/arm_right.rsi
+      state: ragged-hand
+
+- type: marking
+  id: ArmRightMothRoyal
+  parent: BaseArmRightMoth
+  definitions:
+  - layer: enum.BodyProviderType.RightArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/arm_right.rsi
+      state: royal-arm
+  - layer: enum.BodyProviderType.RightHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/arm_right.rsi
+      state: royal-hand
+
+- type: marking
+  id: ArmRightMothWhitefly
+  parent: BaseArmRightMoth
+  definitions:
+  - layer: enum.BodyProviderType.RightArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/arm_right.rsi
+      state: whitefly-arm
+  - layer: enum.BodyProviderType.RightHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/arm_right.rsi
+      state: whitefly-hand
+
+- type: marking
+  id: ArmRightMothWitchwing
+  parent: BaseArmRightMoth
+  definitions:
+  - layer: enum.BodyProviderType.RightArm
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/arm_right.rsi
+      state: witchwing-arm
+  - layer: enum.BodyProviderType.RightHand
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/arm_right.rsi
+      state: witchwing-hand

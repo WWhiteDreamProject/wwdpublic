@@ -1,6 +1,6 @@
 using Content.Shared._White.Mobs.Systems;
+using Content.Shared._White.Helpers;
 using Content.Shared._White.Pain.Components;
-using Content.Shared._White.Threshold;
 using Content.Shared.FixedPoint;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;

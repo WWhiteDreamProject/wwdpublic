@@ -1,0 +1,145 @@
+﻿- type: marking
+  id: BaseLegRightMoth
+  parent: [BaseLegRight, BaseMoth]
+  abstract: true
+
+- type: marking
+  id: LegRightMothCharred
+  parent: BaseLegRightMoth
+  definitions:
+  - layer: enum.BodyProviderType.RightFoot
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/leg_right.rsi
+      state: charred-foot
+  - layer: enum.BodyProviderType.RightLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/leg_right.rsi
+      state: charred-leg
+
+- type: marking
+  id: LegRightMothDeathhead
+  parent: BaseLegRightMoth
+  definitions:
+  - layer: enum.BodyProviderType.RightLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/leg_right.rsi
+      state: deathhead
+
+- type: marking
+  id: LegRightMothFan
+  parent: BaseLegRightMoth
+  definitions:
+  - layer: enum.BodyProviderType.RightLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/leg_right.rsi
+      state: fan
+
+- type: marking
+  id: LegRightMothFirewatch
+  parent: BaseLegRightMoth
+  definitions:
+  - layer: enum.BodyProviderType.RightLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/leg_right.rsi
+      state: firewatch
+
+- type: marking
+  id: LegRightMothGothic
+  parent: BaseLegRightMoth
+  definitions:
+  - layer: enum.BodyProviderType.RightLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/leg_right.rsi
+      state: gothic
+
+- type: marking
+  id: LegRightMothJungle
+  parent: BaseLegRightMoth
+  definitions:
+  - layer: enum.BodyProviderType.RightFoot
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/leg_right.rsi
+      state: jungle-foot
+  - layer: enum.BodyProviderType.RightLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/leg_right.rsi
+      state: jungle-leg
+
+- type: marking
+  id: LegRightMothMoonfly
+  parent: BaseLegRightMoth
+  definitions:
+  - layer: enum.BodyProviderType.RightFoot
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/leg_right.rsi
+      state: moonfly-foot
+  - layer: enum.BodyProviderType.RightLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/leg_right.rsi
+      state: moonfly-leg
+
+- type: marking
+  id: LegRightMothOakworm
+  parent: BaseLegRightMoth
+  definitions:
+  - layer: enum.BodyProviderType.RightFoot
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/leg_right.rsi
+      state: oakworm-foot
+  - layer: enum.BodyProviderType.RightLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/leg_right.rsi
+      state: oakworm-leg
+
+- type: marking
+  id: LegRightMothPointy
+  parent: BaseLegRightMoth
+  definitions:
+  - layer: enum.BodyProviderType.RightLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/leg_right.rsi
+      state: pointy
+
+- type: marking
+  id: LegRightMothRagged
+  parent: BaseLegRightMoth
+  definitions:
+  - layer: enum.BodyProviderType.RightLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/leg_right.rsi
+      state: ragged
+
+- type: marking
+  id: LegRightMothRoyal
+  parent: BaseLegRightMoth
+  definitions:
+  - layer: enum.BodyProviderType.RightFoot
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/leg_right.rsi
+      state: royal-foot
+  - layer: enum.BodyProviderType.RightLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/leg_right.rsi
+      state: royal-leg
+
+- type: marking
+  id: LegRightMothWhitefly
+  parent: BaseLegRightMoth
+  definitions:
+  - layer: enum.BodyProviderType.RightLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/leg_right.rsi
+      state: whitefly
+
+- type: marking
+  id: LegRightMothWitchwing
+  parent: BaseLegRightMoth
+  definitions:
+  - layer: enum.BodyProviderType.RightFoot
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/leg_right.rsi
+      state: witchwing-foot
+  - layer: enum.BodyProviderType.RightLeg
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/leg_right.rsi
+      state: witchwing-leg

@@ -3,19 +3,27 @@
   parent: Undergarments
   whitelisted: true
   data:
-    Arms:
-      limit: 2
+    ArmLeft:
+      limit: 1
+    ArmRight:
+      limit: 1
+    Bandages:
+      limit: 4
     Ears:
       required: true
-      default: [ MothAntennasDefault ]
+      default: [ EarsMothDefault ]
       limit: 1
     Earrings:
       whitelisted: false
       limit: 2
+    Face:
+      limit: 2
     Head:
       limit: 1
-    Legs:
-      limit: 2
+    LegLeft:
+      limit: 1
+    LegRight:
+      limit: 1
     Scars:
       limit: 4
     Snout:
@@ -23,6 +31,10 @@
     Tattoos:
       limit: 4
     Torso:
+      limit: 1
+    Wings:
+      required: true
+      default: [ WingsMothDefault ]
       limit: 1
     Wristwear:
       whitelisted: false

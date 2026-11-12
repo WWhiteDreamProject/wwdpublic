@@ -5,7 +5,7 @@ using Content.Shared._White.Body.Systems;
 using Content.Shared._White.Chemistry.Reagent;
 using Content.Shared._White.Damage.Prototypes;
 using Content.Shared._White.Gibbable.Systems;
-using Content.Shared._White.Threshold;
+using Content.Shared._White.Helpers;
 using Content.Shared._White.Wounds.Systems;
 using Content.Shared.Alert;
 using Content.Shared.Chemistry.Components;

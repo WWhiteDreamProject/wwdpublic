@@ -5,6 +5,18 @@
   - enum.MarkingVisualLayers.GroinBack
 
 - type: markingCategory
+  id: ArmLeft
+  layers:
+  - enum.BodyProviderType.LeftArm
+  - enum.BodyProviderType.LeftHand
+
+- type: markingCategory
+  id: ArmRight
+  layers:
+  - enum.BodyProviderType.RightArm
+  - enum.BodyProviderType.RightHand
+
+- type: markingCategory
   id: Arms
   layers:
   - enum.BodyProviderType.LeftArm
@@ -47,6 +59,18 @@
   id: Horns
   layers:
   - enum.MarkingVisualLayers.HeadTop
+
+- type: markingCategory
+  id: LegLeft
+  layers:
+  - enum.BodyProviderType.LeftFoot
+  - enum.BodyProviderType.LeftLeg
+
+- type: markingCategory
+  id: LegRight
+  layers:
+  - enum.BodyProviderType.RightFoot
+  - enum.BodyProviderType.RightLeg
 
 - type: markingCategory
   id: Legs

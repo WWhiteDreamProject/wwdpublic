@@ -2,7 +2,7 @@ using Content.Shared._White.Body.Systems;
 using Content.Shared._White.Damage;
 using Content.Shared._White.Damage.Components;
 using Content.Shared._White.Damage.Systems;
-using Content.Shared._White.Threshold;
+using Content.Shared._White.Helpers;
 using Content.Shared._White.Wounds.Components;
 using Content.Shared.FixedPoint;
 

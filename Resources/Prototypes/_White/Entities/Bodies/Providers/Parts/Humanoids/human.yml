@@ -45,7 +45,7 @@
 # Foots
 - type: entity
   id: BodyProviderLeftFootHuman
-  parent: [BaseBodyProviderLeftFoot, BaseBodyProviderLeftFootOrganic BaseBodyProviderPartHuman, BaseBodyProviderLeftFootAppearance]
+  parent: [BaseBodyProviderLeftFoot, BaseBodyProviderLeftFootOrganic, BaseBodyProviderPartHuman, BaseBodyProviderLeftFootAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:
@@ -98,7 +98,7 @@
 # Head
 - type: entity
   id: BodyProviderHeadHuman
-  parent: [BaseBodyProviderHead, , BaseBodyProviderPartHuman, BaseBodyProviderHeadAppearance]
+  parent: [BaseBodyProviderHead, BaseBodyProviderPartHuman, BaseBodyProviderHeadAppearance]
   components:
   - type: BodyAppearanceProvider
     entries:

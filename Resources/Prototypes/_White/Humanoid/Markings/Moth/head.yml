@@ -1,0 +1,121 @@
+﻿- type: marking
+  id: BaseHeadMoth
+  parent: [BaseHead, BaseMoth]
+  abstract: true
+
+- type: marking
+  id: HeadMothCharred
+  parent: BaseHeadMoth
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/head.rsi
+      state: charred
+
+- type: marking
+  id: HeadMothDeathhead
+  parent: BaseHeadMoth
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/head.rsi
+      state: deathhead
+
+- type: marking
+  id: HeadMothFan
+  parent: BaseHeadMoth
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/head.rsi
+      state: fan
+
+- type: marking
+  id: HeadMothFirewatch
+  parent: BaseHeadMoth
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/head.rsi
+      state: firewatch
+
+- type: marking
+  id: HeadMothGothic
+  parent: BaseHeadMoth
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/head.rsi
+      state: gothic
+
+- type: marking
+  id: HeadMothJungle
+  parent: BaseHeadMoth
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/head.rsi
+      state: jungle
+
+- type: marking
+  id: HeadMothMoonfly
+  parent: BaseHeadMoth
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/head.rsi
+      state: moonfly
+
+- type: marking
+  id: HeadMothOakworm
+  parent: BaseHeadMoth
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/head.rsi
+      state: oakworm
+
+- type: marking
+  id: HeadMothPointy
+  parent: BaseHeadMoth
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/head.rsi
+      state: pointy
+
+- type: marking
+  id: HeadMothRagged
+  parent: BaseHeadMoth
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/head.rsi
+      state: ragged
+
+- type: marking
+  id: HeadMothRoyal
+  parent: BaseHeadMoth
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/head.rsi
+      state: royal
+
+- type: marking
+  id: HeadMothWhitefly
+  parent: BaseHeadMoth
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/head.rsi
+      state: whitefly
+
+- type: marking
+  id: HeadMothWitchwing
+  parent: BaseHeadMoth
+  definitions:
+  - layer: enum.BodyProviderType.Head
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/head.rsi
+      state: witchwing

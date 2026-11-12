@@ -140,7 +140,7 @@ public sealed partial class MarkingOrderer : BoxContainer
             container.Margin = new(4);
 
             var item = new MarkingItem(false, _prototype.Index(marking.Id), _model, _category);
-            item.DefaultCursorShape = CursorShape.Hand;
+            item.DefaultCursorShape = CursorShape.Move;
             item.Pressed += (args, control) => OnItemPressed(args, control, container);
             item.Unpressed += OnItemUnpressed;
 

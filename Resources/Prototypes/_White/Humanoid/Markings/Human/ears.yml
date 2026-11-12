@@ -3,10 +3,6 @@
   parent: [BaseEars, BaseHuman]
   abstract: true
   forcedColoring: true
-  coloring:
-    default:
-      type: !type:BodyColorGroupColoring
-        group: Skin
 
 - type: marking
   id: EarsHumanCat

@@ -1,0 +1,181 @@
+﻿- type: marking
+  id: BaseEarsMoth
+  parent: [BaseEars, BaseMoth]
+  abstract: true
+
+- type: marking
+  id: EarsMothBushy
+  parent: BaseEarsMoth
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/ears.rsi
+      state: bushy
+
+- type: marking
+  id: EarsMothCharred
+  parent: BaseEarsMoth
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/ears.rsi
+      state: charred
+
+- type: marking
+  id: EarsMothCurvy
+  parent: BaseEarsMoth
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/ears.rsi
+      state: curvy
+
+- type: marking
+  id: EarsMothDefault
+  parent: BaseEarsMoth
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/ears.rsi
+      state: default
+
+- type: marking
+  id: EarsMothFan
+  parent: BaseEarsMoth
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/ears.rsi
+      state: fan
+
+- type: marking
+  id: EarsMothFeathery
+  parent: BaseEarsMoth
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/ears.rsi
+      state: feathery
+
+- type: marking
+  id: EarsMothFirewatch
+  parent: BaseEarsMoth
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/ears.rsi
+      state: firewatch
+
+- type: marking
+  id: EarsMothGray
+  parent: BaseEarsMoth
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/ears.rsi
+      state: gray
+
+- type: marking
+  id: EarsMothJungle
+  parent: BaseEarsMoth
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/ears.rsi
+      state: jungle
+
+- type: marking
+  id: EarsMothMaple
+  parent: BaseEarsMoth
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/ears.rsi
+      state: maple
+
+- type: marking
+  id: EarsMothMoffra
+  parent: BaseEarsMoth
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/ears.rsi
+      state: moffra
+
+- type: marking
+  id: EarsMothOakworm
+  parent: BaseEarsMoth
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/ears.rsi
+      state: oakworm
+
+- type: marking
+  id: EarsMothPlasmafire
+  parent: BaseEarsMoth
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/ears.rsi
+      state: plasmafire
+
+- type: marking
+  id: EarsMothPointy
+  parent: BaseEarsMoth
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/ears.rsi
+      state: pointy
+
+- type: marking
+  id: EarsMothRoyal
+  parent: BaseEarsMoth
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/ears.rsi
+      state: royal
+
+- type: marking
+  id: EarsMothStriped
+  parent: BaseEarsMoth
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/ears.rsi
+      state: striped
+
+- type: marking
+  id: EarsMothUnderwing
+  parent: BaseEarsMoth
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/ears.rsi
+      state: underwing-primary
+    index: primary
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/ears.rsi
+      state: underwing-secondary
+    index: secondary
+
+- type: marking
+  id: EarsMothWhitefly
+  parent: BaseEarsMoth
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/ears.rsi
+      state: whitefly
+
+- type: marking
+  id: EarsMothWitchwing
+  parent: BaseEarsMoth
+  definitions:
+  - layer: enum.MarkingVisualLayers.HeadTop
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/ears.rsi
+      state: witchwing

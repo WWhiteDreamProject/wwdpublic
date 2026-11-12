@@ -1,0 +1,254 @@
+﻿- type: marking
+  id: BaseWingsMoth
+  parent: [BaseWings, BaseMoth]
+  abstract: true
+  appearance: true
+
+- type: marking
+  id: WingsMothBushy
+  parent: BaseWingsMoth
+  definitions:
+  - layer: enum.BodyProviderType.Wings
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/wings.rsi
+      state: bushy-primary
+    index: primary
+  - layer: enum.BodyProviderType.Wings
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/wings.rsi
+      state: bushy-secondary
+    index: secondary
+
+- type: marking
+  id: WingsMothCharred
+  parent: BaseWingsMoth
+  definitions:
+  - layer: enum.BodyProviderType.Wings
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/wings.rsi
+      state: charred
+
+- type: marking
+  id: WingsMothDeathhead
+  parent: BaseWingsMoth
+  definitions:
+  - layer: enum.BodyProviderType.Wings
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/wings.rsi
+      state: deathhead-primary
+    index: primary
+  - layer: enum.BodyProviderType.Wings
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/wings.rsi
+      state: deathhead-secondary
+    index: secondary
+
+- type: marking
+  id: WingsMothDefault
+  parent: BaseWingsMoth
+  definitions:
+  - layer: enum.BodyProviderType.Wings
+    sprite:
+      sprite: _White/Bodies/Parts/Humanoids/moth.rsi
+      state: wings
+
+- type: marking
+  id: WingsMothFanHuescale
+  parent: BaseWingsMoth
+  definitions:
+  - layer: enum.BodyProviderType.Wings
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/wings.rsi
+      state: fan_huescale
+
+- type: marking
+  id: WingsMothFanWhitescale
+  parent: BaseWingsMoth
+  definitions:
+  - layer: enum.BodyProviderType.Wings
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/wings.rsi
+      state: fan_whitescale
+
+- type: marking
+  id: WingsMothFeathery
+  parent: BaseWingsMoth
+  definitions:
+  - layer: enum.BodyProviderType.Wings
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/wings.rsi
+      state: feathery
+
+- type: marking
+  id: WingsMothFirewatch
+  parent: BaseWingsMoth
+  definitions:
+  - layer: enum.BodyProviderType.Wings
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/wings.rsi
+      state: firewatch-primary
+    index: primary
+  - layer: enum.BodyProviderType.Wings
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/wings.rsi
+      state: firewatch-secondary
+    index: secondary
+
+- type: marking
+  id: WingsMothGothic
+  parent: BaseWingsMoth
+  definitions:
+  - layer: enum.BodyProviderType.Wings
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/wings.rsi
+      state: gothic
+
+- type: marking
+  id: WingsMothJungle
+  parent: BaseWingsMoth
+  definitions:
+  - layer: enum.BodyProviderType.Wings
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/wings.rsi
+      state: jungle
+
+- type: marking
+  id: WingsMothLadybug
+  parent: BaseWingsMoth
+  definitions:
+  - layer: enum.BodyProviderType.Wings
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/wings.rsi
+      state: ladybug
+
+- type: marking
+  id: WingsMothMaple
+  parent: BaseWingsMoth
+  definitions:
+  - layer: enum.BodyProviderType.Wings
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/wings.rsi
+      state: maple
+
+- type: marking
+  id: WingsMothMoffra
+  parent: BaseWingsMoth
+  definitions:
+  - layer: enum.BodyProviderType.Wings
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/wings.rsi
+      state: moffra-primary
+    index: primary
+  - layer: enum.BodyProviderType.Wings
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/wings.rsi
+      state: moffra-secondary
+    index: secondary
+
+- type: marking
+  id: WingsMothOakworm
+  parent: BaseWingsMoth
+  definitions:
+  - layer: enum.BodyProviderType.Wings
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/wings.rsi
+      state: oakworm
+
+- type: marking
+  id: WingsMothPlasmafire
+  parent: BaseWingsMoth
+  definitions:
+  - layer: enum.BodyProviderType.Wings
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/wings.rsi
+      state: plasmafire-primary
+    index: primary
+  - layer: enum.BodyProviderType.Wings
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/wings.rsi
+      state: plasmafire-secondary
+    index: secondary
+
+- type: marking
+  id: WingsMothPointy
+  parent: BaseWingsMoth
+  definitions:
+  - layer: enum.BodyProviderType.Wings
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/wings.rsi
+      state: pointy
+
+- type: marking
+  id: WingsMothRoyal
+  parent: BaseWingsMoth
+  definitions:
+  - layer: enum.BodyProviderType.Wings
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/wings.rsi
+      state: royal-primary
+    index: primary
+  - layer: enum.BodyProviderType.Wings
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/wings.rsi
+      state: royal-secondary
+    index: secondary
+
+- type: marking
+  id: WingsMothStellar
+  parent: BaseWingsMoth
+  definitions:
+  - layer: enum.BodyProviderType.Wings
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/wings.rsi
+      state: stellar
+
+- type: marking
+  id: WingsMothStriped
+  parent: BaseWingsMoth
+  definitions:
+  - layer: enum.BodyProviderType.Wings
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/wings.rsi
+      state: striped
+
+- type: marking
+  id: WingsMothSwirly
+  parent: BaseWingsMoth
+  definitions:
+  - layer: enum.BodyProviderType.Wings
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/wings.rsi
+      state: swirly
+
+- type: marking
+  id: WingsMothUnderwing
+  parent: BaseWingsMoth
+  definitions:
+  - layer: enum.BodyProviderType.Wings
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/wings.rsi
+      state: underwing-primary
+    index: primary
+  - layer: enum.BodyProviderType.Wings
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/wings.rsi
+      state: underwing-secondary
+    index: secondary
+
+- type: marking
+  id: WingsMothWhitefly
+  parent: BaseWingsMoth
+  definitions:
+  - layer: enum.BodyProviderType.Wings
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/wings.rsi
+      state: whitefly
+
+- type: marking
+  id: WingsMothWitchwing
+  parent: BaseWingsMoth
+  definitions:
+  - layer: enum.BodyProviderType.Wings
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/wings.rsi
+      state: witchwing

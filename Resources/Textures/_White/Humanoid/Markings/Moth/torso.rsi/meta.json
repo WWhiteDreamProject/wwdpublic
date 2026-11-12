@@ -1,0 +1,115 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/tgstation/tgstation/commit/b30e2934e7585bad901dd12a35d0635f1fc292c1 and https://github.com/tgstation/tgstation/commit/6b0af0febe578f47ae280781682ea7a3d77f508a. Modified by MilenVolf(github).",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "charred-chest",
+      "directions": 4
+    },
+    {
+      "name": "charred-groin",
+      "directions": 4
+    },
+    {
+      "name": "deathhead-chest",
+      "directions": 4
+    },
+    {
+      "name": "deathhead-groin",
+      "directions": 4
+    },
+    {
+      "name": "fan-chest",
+      "directions": 4
+    },
+    {
+      "name": "fan-groin",
+      "directions": 4
+    },
+    {
+      "name": "firewatch-chest",
+      "directions": 4
+    },
+    {
+      "name": "firewatch-groin",
+      "directions": 4
+    },
+    {
+      "name": "gothic-chest",
+      "directions": 4
+    },
+    {
+      "name": "gothic-groin",
+      "directions": 4
+    },
+    {
+      "name": "jungle-chest",
+      "directions": 4
+    },
+    {
+      "name": "jungle-groin",
+      "directions": 4
+    },
+    {
+      "name": "moonfly-chest",
+      "directions": 4
+    },
+    {
+      "name": "moonfly-groin",
+      "directions": 4
+    },
+    {
+      "name": "oakworm-chest",
+      "directions": 4
+    },
+    {
+      "name": "oakworm-groin",
+      "directions": 4
+    },
+    {
+      "name": "pointy-chest",
+      "directions": 4
+    },
+    {
+      "name": "pointy-groin",
+      "directions": 4
+    },
+    {
+      "name": "ragged-chest",
+      "directions": 4
+    },
+    {
+      "name": "ragged-groin",
+      "directions": 4
+    },
+    {
+      "name": "royal-chest",
+      "directions": 4
+    },
+    {
+      "name": "royal-groin",
+      "directions": 4
+    },
+    {
+      "name": "whitefly-chest",
+      "directions": 4
+    },
+    {
+      "name": "whitefly-groin",
+      "directions": 4
+    },
+    {
+      "name": "witchwing-chest",
+      "directions": 4
+    },
+    {
+      "name": "witchwing-groin",
+      "directions": 4
+    }
+  ]
+}

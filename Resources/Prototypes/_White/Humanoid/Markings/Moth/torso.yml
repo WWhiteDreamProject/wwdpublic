@@ -1,0 +1,173 @@
+﻿- type: marking
+  id: BaseTorsoMoth
+  parent: [BaseTorso, BaseMoth]
+  abstract: true
+
+- type: marking
+  id: TorsoMothCharred
+  parent: BaseTorsoMoth
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/torso.rsi
+      state: charred-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/torso.rsi
+      state: charred-groin
+
+- type: marking
+  id: TorsoMothDeathhead
+  parent: BaseTorsoMoth
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/torso.rsi
+      state: deathhead-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/torso.rsi
+      state: deathhead-groin
+
+- type: marking
+  id: TorsoMothFan
+  parent: BaseTorsoMoth
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/torso.rsi
+      state: fan-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/torso.rsi
+      state: fan-groin
+
+- type: marking
+  id: TorsoMothFirewatch
+  parent: BaseTorsoMoth
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/torso.rsi
+      state: firewatch-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/torso.rsi
+      state: firewatch-groin
+
+- type: marking
+  id: TorsoMothGothic
+  parent: BaseTorsoMoth
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/torso.rsi
+      state: gothic-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/torso.rsi
+      state: gothic-groin
+
+- type: marking
+  id: TorsoMothJungle
+  parent: BaseTorsoMoth
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/torso.rsi
+      state: jungle-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/torso.rsi
+      state: jungle-groin
+
+- type: marking
+  id: TorsoMothMoonfly
+  parent: BaseTorsoMoth
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/torso.rsi
+      state: moonfly-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/torso.rsi
+      state: moonfly-groin
+
+- type: marking
+  id: TorsoMothOakworm
+  parent: BaseTorsoMoth
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/torso.rsi
+      state: oakworm-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/torso.rsi
+      state: oakworm-groin
+
+- type: marking
+  id: TorsoMothPointy
+  parent: BaseTorsoMoth
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/torso.rsi
+      state: pointy-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/torso.rsi
+      state: pointy-groin
+
+- type: marking
+  id: TorsoMothRagged
+  parent: BaseTorsoMoth
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/torso.rsi
+      state: ragged-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/torso.rsi
+      state: ragged-groin
+
+- type: marking
+  id: TorsoMothRoyal
+  parent: BaseTorsoMoth
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/torso.rsi
+      state: royal-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/torso.rsi
+      state: royal-groin
+
+- type: marking
+  id: TorsoMothWhitefly
+  parent: BaseTorsoMoth
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/torso.rsi
+      state: whitefly-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/torso.rsi
+      state: whitefly-groin
+
+- type: marking
+  id: TorsoMothWitchwing
+  parent: BaseTorsoMoth
+  definitions:
+  - layer: enum.BodyProviderType.Chest
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/torso.rsi
+      state: witchwing-chest
+  - layer: enum.BodyProviderType.Groin
+    sprite:
+      sprite: _White/Humanoid/Markings/Moth/torso.rsi
+      state: witchwing-groin

@@ -1,0 +1,115 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from tgstation at commits https://github.com/tgstation/tgstation/commit/b30e2934e7585bad901dd12a35d0635f1fc292c1 and https://github.com/tgstation/tgstation/commit/6b0af0febe578f47ae280781682ea7a3d77f508a, modified by https://github.com/MilenVolf. The division of the torso into chest and groin was done by Sparison",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "charred-arm",
+      "directions": 4
+    },
+    {
+      "name": "charred-hand",
+      "directions": 4
+    },
+    {
+      "name": "deathhead-arm",
+      "directions": 4
+    },
+    {
+      "name": "deathhead-hand",
+      "directions": 4
+    },
+    {
+      "name": "fan-arm",
+      "directions": 4
+    },
+    {
+      "name": "fan-hand",
+      "directions": 4
+    },
+    {
+      "name": "firewatch-arm",
+      "directions": 4
+    },
+    {
+      "name": "firewatch-hand",
+      "directions": 4
+    },
+    {
+      "name": "gothic-arm",
+      "directions": 4
+    },
+    {
+      "name": "gothic-hand",
+      "directions": 4
+    },
+    {
+      "name": "jungle-arm",
+      "directions": 4
+    },
+    {
+      "name": "jungle-hand",
+      "directions": 4
+    },
+    {
+      "name": "moonfly-arm",
+      "directions": 4
+    },
+    {
+      "name": "moonfly-hand",
+      "directions": 4
+    },
+    {
+      "name": "oakworm-arm",
+      "directions": 4
+    },
+    {
+      "name": "oakworm-hand",
+      "directions": 4
+    },
+    {
+      "name": "pointy-arm",
+      "directions": 4
+    },
+    {
+      "name": "pointy-hand",
+      "directions": 4
+    },
+    {
+      "name": "ragged-arm",
+      "directions": 4
+    },
+    {
+      "name": "ragged-hand",
+      "directions": 4
+    },
+    {
+      "name": "royal-arm",
+      "directions": 4
+    },
+    {
+      "name": "royal-hand",
+      "directions": 4
+    },
+    {
+      "name": "whitefly-arm",
+      "directions": 4
+    },
+    {
+      "name": "whitefly-hand",
+      "directions": 4
+    },
+    {
+      "name": "witchwing-arm",
+      "directions": 4
+    },
+    {
+      "name": "witchwing-hand",
+      "directions": 4
+    }
+  ]
+}

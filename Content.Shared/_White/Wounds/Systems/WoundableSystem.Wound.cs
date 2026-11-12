@@ -1,7 +1,7 @@
 using Content.Shared._White.Damage.Components;
 using Content.Shared._White.Damage.Prototypes;
 using Content.Shared._White.Damage.Systems;
-using Content.Shared._White.Threshold;
+using Content.Shared._White.Helpers;
 using Content.Shared._White.Wounds.Components;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Prototypes;

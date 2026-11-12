@@ -10,12 +10,12 @@
   - layer: enum.MarkingVisualLayers.Face
     sprite:
       sprite: _White/Humanoid/Markings/Moth/face.rsi
-      state: blush_left
+      state: blush-left
     index: left
   - layer: enum.MarkingVisualLayers.Face
     sprite:
       sprite: _White/Humanoid/Markings/Moth/face.rsi
-      state: blush_right
+      state: blush-right
     index: right
   coloring:
     default:

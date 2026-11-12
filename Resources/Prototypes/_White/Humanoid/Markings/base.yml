@@ -8,6 +8,24 @@
         group: Skin
 
 - type: marking
+  id: BaseArmLeft
+  abstract: true
+  category: ArmLeft
+  coloring:
+    default:
+      type: !type:BodyColorGroupColoring
+        group: Skin
+
+- type: marking
+  id: BaseArmRight
+  abstract: true
+  category: ArmRight
+  coloring:
+    default:
+      type: !type:BodyColorGroupColoring
+        group: Skin
+
+- type: marking
   id: BaseArms
   abstract: true
   category: Arms
@@ -39,6 +57,10 @@
   id: BaseEars
   abstract: true
   category: Ears
+  coloring:
+    default:
+      type: !type:BodyColorGroupColoring
+        group: Skin
 
 - type: marking
   id: BaseEarrings
@@ -74,14 +96,45 @@
         color: "#241C11"
 
 - type: marking
+  id: BaseHead
+  abstract: true
+  category: Head
+  coloring:
+    default:
+      type: !type:BodyColorGroupColoring
+        group: Skin
+
+- type: marking
   id: BaseHorns
   abstract: true
   category: Horns
 
 - type: marking
+  id: BaseLegLeft
+  abstract: true
+  category: LegLeft
+  coloring:
+    default:
+      type: !type:BodyColorGroupColoring
+        group: Skin
+
+- type: marking
+  id: BaseLegRight
+  abstract: true
+  category: LegRight
+  coloring:
+    default:
+      type: !type:BodyColorGroupColoring
+        group: Skin
+
+- type: marking
   id: BaseLegs
   abstract: true
   category: Legs
+  coloring:
+    default:
+      type: !type:BodyColorGroupColoring
+        group: Skin
 
 - type: marking
   id: BaseNose
@@ -107,6 +160,10 @@
   id: BaseTail
   abstract: true
   category: Tail
+  coloring:
+    default:
+      type: !type:BodyColorGroupColoring
+        group: Skin
 
 - type: marking
   id: BaseTattoos
@@ -151,6 +208,10 @@
   id: BaseWings
   abstract: true
   category: Wings
+  coloring:
+    default:
+      type: !type:BodyColorGroupColoring
+        group: Skin
 
 - type: marking
   id: BaseWristwear

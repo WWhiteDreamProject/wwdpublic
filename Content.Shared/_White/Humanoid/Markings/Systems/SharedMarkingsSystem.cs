@@ -34,7 +34,7 @@ public abstract partial class SharedMarkingsSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<MarkingsComponent, ApplyProfileEvent>(OnApplyProfile);
+        SubscribeLocalEvent<MarkingsComponent, ApplyProfileEvent>(OnApplyProfile, after: [typeof(SharedBodyAppearanceSystem)]);
         SubscribeLocalEvent<MarkingsComponent, GetVerbsEvent<Verb>>(OnGetVerbs);
 
         InitializeProvider();

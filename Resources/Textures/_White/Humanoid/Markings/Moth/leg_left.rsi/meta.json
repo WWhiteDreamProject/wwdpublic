@@ -1,0 +1,87 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from tgstation at commits https://github.com/tgstation/tgstation/commit/b30e2934e7585bad901dd12a35d0635f1fc292c1 and https://github.com/tgstation/tgstation/commit/6b0af0febe578f47ae280781682ea7a3d77f508a, modified by https://github.com/MilenVolf. The division of the torso into chest and groin was done by Sparison",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "charred-foot",
+      "directions": 4
+    },
+    {
+      "name": "charred-leg",
+      "directions": 4
+    },
+    {
+      "name": "deathhead",
+      "directions": 4
+    },
+    {
+      "name": "fan",
+      "directions": 4
+    },
+    {
+      "name": "firewatch",
+      "directions": 4
+    },
+    {
+      "name": "gothic",
+      "directions": 4
+    },
+    {
+      "name": "jungle-foot",
+      "directions": 4
+    },
+    {
+      "name": "jungle-leg",
+      "directions": 4
+    },
+    {
+      "name": "moonfly-foot",
+      "directions": 4
+    },
+    {
+      "name": "moonfly-leg",
+      "directions": 4
+    },
+    {
+      "name": "oakworm-foot",
+      "directions": 4
+    },
+    {
+      "name": "oakworm-leg",
+      "directions": 4
+    },
+    {
+      "name": "pointy",
+      "directions": 4
+    },
+    {
+      "name": "ragged",
+      "directions": 4
+    },
+    {
+      "name": "royal-foot",
+      "directions": 4
+    },
+    {
+      "name": "royal-leg",
+      "directions": 4
+    },
+    {
+      "name": "whitefly",
+      "directions": 4
+    },
+    {
+      "name": "witchwing-foot",
+      "directions": 4
+    },
+    {
+      "name": "witchwing-leg",
+      "directions": 4
+    }
+  ]
+}

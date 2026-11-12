@@ -1,9 +1,9 @@
 using Content.Shared._White.Amputatable.Components;
 using Content.Shared._White.Body.Systems;
 using Content.Shared._White.Damage.Systems;
+using Content.Shared._White.Helpers;
 using Content.Shared._White.Random;
 using Content.Shared._White.Skeleton.Systems;
-using Content.Shared._White.Threshold;
 using Content.Shared._White.Wounds.Systems;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Physics.Systems;
